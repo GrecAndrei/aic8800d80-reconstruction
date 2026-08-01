@@ -1,1 +1,1 @@
-{"fn": "sub_12314CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12314cc", "status": "ok", "name": "sub_12314CC", "params": [], "docstring": "Thin wrapper that calls helper at 0x12e1a8 preserving r2 as r4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12314CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12314cc", "status": "ok", "name": "rf_phy_unpack", "params": [], "docstring": "Thin wrapper that calls helper at 0x12e1a8 preserving r2 as r4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

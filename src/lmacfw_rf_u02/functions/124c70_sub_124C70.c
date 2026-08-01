@@ -18,8 +18,8 @@ extern uint32_t off_124E1C;
 extern uint32_t dword_124E24;
 extern uint32_t off_124E28;
 
-// sub_124C70 @ 0x124c70, size 424 bytes
-int  sub_124C70(int a1, uint8_t **a2)
+// set_adv_data @ 0x124c70, size 424 bytes
+int  set_adv_data(int a1, uint8_t **a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r7
@@ -37,17 +37,17 @@ int  sub_124C70(int a1, uint8_t **a2)
   int v17; // [sp+10h] [bp-8h]
   char v18; // [sp+16h] [bp-2h]
 
-  get_cached_1828f8(&v13, 0);
+  mac_time_get(&v13, 0);
   if ( a1 <= 1 )
   {
-    msg_parse(dword_124E2C);
+    dispatch_event_handler(dword_124E2C);
     return -1;
   }
-  v4 = parse_int(a2[1], 0, 0xAu);
-  v5 = parse_int(a2[2], 0, 0xAu);
-  v6 = parse_int(a2[3], 0, 0xAu);
+  v4 = parse_number(a2[1], 0, 0xAu);
+  v5 = parse_number(a2[2], 0, 0xAu);
+  v6 = parse_number(a2[3], 0, 0xAu);
   if ( a1 > 3 )
-    v7 = parse_int(a2[4], 0, 0xAu);
+    v7 = parse_number(a2[4], 0, 0xAu);
   else
     v7 = 0;
   if ( v4 == 5 )
@@ -57,8 +57,8 @@ int  sub_124C70(int a1, uint8_t **a2)
     v18 = 0;
     v17 = HIDWORD(v13);
     v16 = WORD2(v13);
-    rf_state_get_n246(0, (int)&v14);
-    sub_12407C(0);
+    rx_process_pending(0, (int)&v14);
+    set_reg_180800_bits7_8(0);
     v8 = 2;
   }
   else
@@ -70,14 +70,14 @@ int  sub_124C70(int a1, uint8_t **a2)
       v18 = 0;
       v17 = HIDWORD(v13);
       v16 = WORD2(v13);
-      rf_state_get_n246(0, (int)&v14);
-      sub_12407C(0);
+      rx_process_pending(0, (int)&v14);
+      set_reg_180800_bits7_8(0);
     }
     else
     {
       if ( (*(uint8_t *)off_124E18 & 8) == 0 && (v4 > 1 || v5 > 1) )
       {
-        msg_parse(dword_124E30, v4, v5);
+        dispatch_event_handler(dword_124E30, v4, v5);
         return -2;
       }
       v17 = HIDWORD(v13);
@@ -99,8 +99,8 @@ int  sub_124C70(int a1, uint8_t **a2)
             {
               v16 = WORD2(v13) + 30;
 LABEL_14:
-              rf_state_get_n246(0, (int)&v14);
-              sub_12407C(v5);
+              rx_process_pending(0, (int)&v14);
+              set_reg_180800_bits7_8(v5);
               v8 = 0;
               goto LABEL_16;
             }
@@ -118,8 +118,8 @@ LABEL_25:
         goto LABEL_14;
       }
       v16 = WORD2(v13);
-      rf_state_get_n246(0, (int)&v14);
-      sub_12407C(v5);
+      rx_process_pending(0, (int)&v14);
+      set_reg_180800_bits7_8(v5);
     }
     v8 = v4 == 10;
   }
@@ -129,12 +129,12 @@ LABEL_16:
   v11 = v14;
   *(uint8_t *)off_124E1C = v8;
   *v9 = v8;
-  sub_102E84(v11, v10, v8);
-  msg_parse(dword_124E24, v16, (uint16_t)v17);
+  clock_set_source(v11, v10, v8);
+  dispatch_event_handler(dword_124E24, v16, (uint16_t)v17);
   result = *(uint32_t *)off_124E28;
   if ( *(uint32_t *)off_124E28 )
   {
-    rf_level_apply_n_4ec(result);
+    init_with_stack(result);
     return 0;
   }
   return result;

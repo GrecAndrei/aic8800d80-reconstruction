@@ -1,1 +1,1 @@
-{"fn": "sub_120D7E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d7e0", "status": "ok", "name": "mmio_read_byte_uart", "params": [], "docstring": "Reads a byte from UART MMIO at 0x40032000 (offset 0x14)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120D7E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d7e0", "status": "ok", "name": "gpio_read", "params": [], "docstring": "Reads a byte from UART MMIO at 0x40032000 (offset 0x14)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

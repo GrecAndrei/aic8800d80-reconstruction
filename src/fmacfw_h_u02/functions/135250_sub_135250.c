@@ -20,9 +20,9 @@ extern uint32_t dword_135418;
 extern uint32_t off_135408;
 extern uint32_t dword_13540C;
 
-// sub_135250 @ 0x135250, size 418 bytes
+// tx_complete_check @ 0x135250, size 418 bytes
 // positive sp value has been detected, the output may be wrong!
-void  sub_135250(
+void  tx_complete_check(
         int a1,
         int a2,
         int a3,
@@ -83,7 +83,7 @@ void  sub_135250(
 
   if ( *(uint8_t *)(v13 + 1224) )
   {
-    v22 = sub_118B04(1, 512);
+    v22 = lock_acquire(1, 512);
     if ( v22 )
       goto LABEL_5;
   }
@@ -92,14 +92,14 @@ void  sub_135250(
     v18 = *(uint8_t *)(v13 + 412);
     if ( *(uint8_t *)(v13 + 412) )
       v18 = 1;
-    v22 = sub_118B04(v18, 512);
+    v22 = lock_acquire(v18, 512);
     if ( v22 )
     {
 LABEL_5:
       v23 = off_1353F4;
       v52 = 1320 * v14;
       v24 = *((uint32_t *)off_1353F4 + 5);
-      sub_12C3A8(v15 + 1320 * v14, v22);
+      get_status_flag_c5(v15 + 1320 * v14, v22);
       v25 = *(uint32_t *)(v22 + 72);
       v26 = (uint8_t)v23[33];
       if ( v23[33] )
@@ -134,7 +134,7 @@ LABEL_5:
       v35[254] = v32;
       v36 = *(uint8_t *)(v33 + 107);
       *(uint16_t *)(v25 + 130) = v31;
-      v37 = sub_130700(v25 + 132, v52 + 248 + v15, v27, v36, v55, (uint16_t *)&v54 + 1, v16);
+      v37 = ampdu_negotiate_params(v25 + 132, v52 + 248 + v15, v27, v36, v55, (uint16_t *)&v54 + 1, v16);
       *(uint8_t *)(v22 + 28) = *(uint8_t *)(v33 + 107);
       v38 = *(uint32_t **)(v22 + 76);
       *(uint8_t *)(v22 + 29) = *(uint8_t *)(v33 + 116);
@@ -145,7 +145,7 @@ LABEL_5:
       if ( v40 )
       {
         if ( **(int16_t **)off_135414 < 0 )
-          sub_12F35C(dword_13541C, dword_135418, 1115);
+          mmio_write_field(dword_13541C, dword_135418, 1115);
         *(uint16_t *)(v24 + 14) = 0;
       }
       else
@@ -170,14 +170,14 @@ LABEL_5:
       *(uint32_t *)(v22 + 88) = dword_13540C;
       *(uint32_t *)(v22 + 92) = v22;
       v45 = off_1353F4;
-      sub_118B34(v44, 5);
+      sec_check(v44, 5);
       v45[34] = 1;
-      sub_12C4A4(6154, 6, v53);
-      sub_12CBF4(6u, 8);
+      ke_event_handler(6154, 6, v53);
+      hci_cmd_preprocess(6u, 8);
       
     }
   }
-  sub_134CC4(1, v19, v20, v21, v46, v47, v48, v49, v50, v51, v54, v55[0], v55[1]);
+  assert_trace(1, v19, v20, v21, v46, v47, v48, v49, v50, v51, v54, v55[0], v55[1]);
   
 }
 

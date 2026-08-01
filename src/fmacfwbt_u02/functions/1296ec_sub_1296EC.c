@@ -19,8 +19,8 @@ extern uint32_t off_129760;
 extern uint32_t off_129764;
 extern uint32_t off_129758;
 
-// sub_1296EC @ 0x1296ec, size 86 bytes
-int sub_1296EC()
+// set_reg_bit @ 0x1296ec, size 86 bytes
+int set_reg_bit()
 {
   int v0; // r1
   uint32_t *v1; // r0
@@ -30,7 +30,7 @@ int sub_1296EC()
 
   v0 = dword_12974C;
   *(uint32_t *)off_129744 |= 0x2000000u;
-  feature_guard_sdio(2, v0);
+  state_check_feature(2, v0);
   if ( !*((uint8_t *)off_129750 + 18) )
     *(uint32_t *)off_129754 &= ~1u;
   v1 = off_12975C;

@@ -26,10 +26,10 @@ extern uint32_t dword_115650;
 extern uint32_t off_115654;
 extern uint32_t off_115658;
 
-// sub_115564 @ 0x115564, size 184 bytes
+// ring_buf_used @ 0x115564, size 184 bytes
 // Doc: patch_apply_n116 [mac]: Apply firmware patch N116: install handler function pointers and clear boot status bits.
 // patch_apply_n116 [mac]: Apply firmware patch N116: install handler function pointers and clear boot status bits.
-void __noreturn sub_115564()
+void __noreturn ring_buf_used()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r3
@@ -89,8 +89,8 @@ void __noreturn sub_115564()
   if ( (v11 & 0x10) == 0 )
     *(uint32_t *)off_115654 &= ~0x4000u;
   *(uint8_t *)off_115658 = BYTE2(*(uint32_t *)off_115640);
-  sub_1030B0();
-  sub_1154E8();
-  sub_100478();
+  read_hw_status();
+  check_patch_magic();
+  ke_task_init();
 }
 

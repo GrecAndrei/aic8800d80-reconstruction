@@ -14,8 +14,8 @@ extern uint32_t off_130224;
 extern uint32_t dword_13022C;
 extern uint32_t dword_130228;
 
-// sub_1301B8 @ 0x1301b8, size 108 bytes
-int  sub_1301B8(int a1)
+// rf_temp_compensation @ 0x1301b8, size 108 bytes
+int  rf_temp_compensation(int a1)
 {
   uint8_t *v1; // r3
   int v2; // r2
@@ -52,6 +52,6 @@ int  sub_1301B8(int a1)
   v1[11] = v3 - v4;
   v1[12] = v12 - v11;
   v1[13] = v2;
-  return sub_102A24();
+  return rf_read_cal_values();
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1235564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235564", "status": "ok", "name": "fmac_misc_handler", "params": [], "docstring": "fmac firmware miscellaneous handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235564", "status": "ok", "name": "bt_send_vendor_cmd", "params": [], "docstring": "fmac firmware miscellaneous handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

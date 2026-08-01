@@ -1,1 +1,1 @@
-{"fn": "sub_1217D64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217d64", "status": "ok", "name": "rf_register_shift_n7d64", "params": [], "docstring": "Shifts and masks RF register value loaded from HW table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217D64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217d64", "status": "ok", "name": "rf_irq_check", "params": [], "docstring": "Shifts and masks RF register value loaded from HW table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

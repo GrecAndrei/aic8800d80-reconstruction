@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// parse_int @ 0x121e3c, size 172 bytes
+// parse_number @ 0x121e3c, size 172 bytes
 // Doc: rf_cmd_dispatch_n_87 [rf]: Dispatch RF command from command queue entry
 // rf_cmd_dispatch_n_87 [rf]: Dispatch RF command from command queue entry
-int  parse_int(uint8_t *a1, uint32_t *a2, unsigned int a3)
+int  parse_number(uint8_t *a1, uint32_t *a2, unsigned int a3)
 {
   int v3; // r5
   int v4; // r7

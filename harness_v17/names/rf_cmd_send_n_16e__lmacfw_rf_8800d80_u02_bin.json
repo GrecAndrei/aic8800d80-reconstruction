@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_16e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127aa", "status": "ok", "name": "rf_cmd_send_n_16e", "params": [], "docstring": "Send RF command by reading parameter from stack frame", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_16e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127aa", "status": "ok", "name": "rf_bus_reset_n4bb", "params": [], "docstring": "Send RF command by reading parameter from stack frame", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

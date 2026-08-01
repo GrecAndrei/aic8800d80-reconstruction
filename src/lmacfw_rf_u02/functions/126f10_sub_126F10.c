@@ -15,8 +15,8 @@ extern uint32_t dword_126F80;
 extern uint32_t off_126F84;
 extern uint32_t dword_126F88;
 
-// sub_126F10 @ 0x126f10, size 110 bytes
-int  sub_126F10(int a1)
+// freq_offset_to_channel @ 0x126f10, size 110 bytes
+int  freq_offset_to_channel(int a1)
 {
   signed int v1; // r0
   int v2; // r3
@@ -37,10 +37,10 @@ int  sub_126F10(int a1)
   if ( v2 < 1 )
     LOBYTE(v2) = 1;
   *((uint8_t *)off_126F84 + 5) = v2;
-  sub_126DD8(v1);
-  result = sub_11F4D8(9u, 4u);
+  tx_packet_pointer(v1);
+  result = test_event_flag(9u, 4u);
   if ( result )
-    return sub_126E80();
+    return rf_param_build();
   return result;
 }
 

@@ -19,8 +19,8 @@ extern uint32_t dword_12CF20;
 extern uint32_t dword_12CF28;
 extern uint32_t dword_12CF18;
 
-// sub_12CE88 @ 0x12ce88, size 130 bytes
-int  sub_12CE88(unsigned int a1)
+// rx_rate_field_parse @ 0x12ce88, size 130 bytes
+int  rx_rate_field_parse(unsigned int a1)
 {
   int16_t **v1; // r5
   unsigned int v2; // r6
@@ -36,7 +36,7 @@ int  sub_12CE88(unsigned int a1)
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
-    sub_12F46C(dword_12CF1C, dword_12CF14, 210);
+    mmio_clear_register(dword_12CF1C, dword_12CF14, 210);
     if ( **v1 >= 0 )
     {
 LABEL_2:
@@ -45,13 +45,13 @@ LABEL_2:
       return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
     }
     if ( v3 != 14 )
-      sub_12F46C(dword_12CF24, dword_12CF20, 183);
+      mmio_clear_register(dword_12CF24, dword_12CF20, 183);
   }
   else if ( (uint8_t)a1 != 13 )
   {
     goto LABEL_6;
   }
-  sub_12F46C(dword_12CF28, dword_12CF14, 211);
+  mmio_clear_register(dword_12CF28, dword_12CF14, 211);
   if ( **v1 >= 0 )
     goto LABEL_2;
 LABEL_6:
@@ -60,7 +60,7 @@ LABEL_6:
   v5 = 16 * v3;
   if ( *(uint16_t *)(v7 + 14) > v2 )
     return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
-  sub_12F46C(dword_12CF18, dword_12CF14, 212);
+  mmio_clear_register(dword_12CF18, dword_12CF14, 212);
   return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
 }
 

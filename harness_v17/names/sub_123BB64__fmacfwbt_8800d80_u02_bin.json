@@ -1,1 +1,1 @@
-{"fn": "sub_123BB64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bb64", "status": "ok", "name": "buf_alloc_split_123bb64", "params": [], "docstring": "Allocate/initialize buffer with mode-based split logic", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BB64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bb64", "status": "ok", "name": "rf_set_mode", "params": [], "docstring": "Allocate/initialize buffer with mode-based split logic", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

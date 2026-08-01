@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1282E8 @ 0x1282e8, size 308 bytes
-char * sub_1282E8(char *a1, char *a2, unsigned int a3)
+// memcpy_large @ 0x1282e8, size 308 bytes
+char * memcpy_large(char *a1, char *a2, unsigned int a3)
 {
   char *v3; // r12
   int v4; // cf

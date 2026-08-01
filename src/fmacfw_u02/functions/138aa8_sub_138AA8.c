@@ -13,8 +13,8 @@
 extern uint32_t dword_138B44;
 extern uint32_t dword_138B40;
 
-// sub_138AA8 @ 0x138aa8, size 152 bytes
-int  sub_138AA8(uint8_t *a1, uint32_t *a2, char *a3, int a4)
+// phy_config_set @ 0x138aa8, size 152 bytes
+int  phy_config_set(uint8_t *a1, uint32_t *a2, char *a3, int a4)
 {
   char v5; // r2
   int v6; // r4
@@ -44,14 +44,14 @@ int  sub_138AA8(uint8_t *a1, uint32_t *a2, char *a3, int a4)
         | ((uint8_t)v7[59] << 24)
         | (uint8_t)v7[56]
         | ((uint8_t)v7[57] << 8);
-    sub_12ECD0(128, dword_138B44, v13, *a2);
+    check_status_bits(128, dword_138B44, v13, *a2);
     if ( v13 == *a2 )
-      sub_135AFC(*a1, (int)&a3[v6 + 40], a3);
+      bt_get_acl_by_ble(*a1, (int)&a3[v6 + 40], a3);
     return 1;
   }
   else if ( v12 == 2 )
   {
-    sub_12ECD0(128, dword_138B40);
+    check_status_bits(128, dword_138B40);
   }
   return v10;
 }

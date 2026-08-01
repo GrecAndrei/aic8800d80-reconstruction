@@ -18,8 +18,8 @@ extern uint32_t off_124E2C;
 extern uint32_t dword_124E34;
 extern uint32_t dword_124E30;
 
-// sub_124D64 @ 0x124d64, size 186 bytes
-int sub_124D64()
+// ble_irq_handler @ 0x124d64, size 186 bytes
+int ble_irq_handler()
 {
   uint32_t *v0; // r7
   int *v1; // r6
@@ -44,7 +44,7 @@ int sub_124D64()
   v4 = off_124E20;
   while ( 1 )
   {
-    sub_12D00C(0x20000000);
+    irq_disable_global_3(0x20000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -74,7 +74,7 @@ int sub_124D64()
         goto LABEL_17;
       }
     }
-    sub_12D190(v4);
+    list_pop(v4);
     if ( *v1 )
     {
       v9 = *v1 - 1;
@@ -93,7 +93,7 @@ int sub_124D64()
     }
     else
     {
-      sub_12F32C(dword_124E34, dword_124E30, 246);
+      irq_disable_mmio_write(dword_124E34, dword_124E30, 246);
       ((void ( *)(uint32_t))v6[1])(v6[2]);
     }
   }

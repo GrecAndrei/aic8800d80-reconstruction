@@ -1,1 +1,1 @@
-{"fn": "sub_122BD48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122bd48", "status": "ok", "name": "sub_122BD48", "params": [], "docstring": "Clear high bit in MMIO registers at 0x403280xx", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122BD48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122bd48", "status": "ok", "name": "mmio_clear_high_bits", "params": [], "docstring": "Clear high bit in MMIO registers at 0x403280xx", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

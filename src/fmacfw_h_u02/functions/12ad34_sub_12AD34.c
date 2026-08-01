@@ -16,8 +16,8 @@ extern uint32_t off_12ADBC;
 extern uint32_t dword_12ADC4;
 extern uint32_t dword_12ADC0;
 
-// sub_12AD34 @ 0x12ad34, size 128 bytes
-int  sub_12AD34(int a1, unsigned int a2, int a3)
+// is_channel_index_valid @ 0x12ad34, size 128 bytes
+int  is_channel_index_valid(int a1, unsigned int a2, int a3)
 {
   int result; // r0
   int v4; // r1
@@ -54,7 +54,7 @@ int  sub_12AD34(int a1, unsigned int a2, int a3)
       v8 = **(int16_t **)off_12ADBC;
       ++*(uint32_t *)(dword_12ADB4 + 32 * a1 + 20);
       if ( v8 < 0 )
-        sub_12F32C(dword_12ADC4, dword_12ADC0, 365);
+        irq_disable_mmio_write(dword_12ADC4, dword_12ADC0, 365);
       __und(0xFFu);
     }
     result = dword_12ADB4 + 32 * a1;

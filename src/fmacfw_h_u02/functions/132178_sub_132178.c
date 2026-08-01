@@ -15,8 +15,8 @@ extern uint32_t off_1321D8;
 extern uint32_t dword_1321E0;
 extern uint32_t dword_1321DC;
 
-// sub_132178 @ 0x132178, size 92 bytes
-int  sub_132178(uint8_t *a1)
+// get_device_id @ 0x132178, size 92 bytes
+int  get_device_id(uint8_t *a1)
 {
   int v1; // r3
   int result; // r0
@@ -52,7 +52,7 @@ int  sub_132178(uint8_t *a1)
   {
 LABEL_9:
     if ( **(int16_t **)off_1321D8 < 0 )
-      result = sub_12F35C(dword_1321E0, dword_1321DC, 141);
+      result = mmio_write_field(dword_1321E0, dword_1321DC, 141);
     *((uint16_t *)a1 + 4) = 15;
   }
   return result;

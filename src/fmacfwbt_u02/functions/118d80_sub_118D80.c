@@ -14,8 +14,8 @@ extern uint32_t off_118E2C;
 extern uint32_t dword_118E30;
 extern uint32_t dword_118E34;
 
-// sub_118D80 @ 0x118d80, size 172 bytes
-int  sub_118D80(int a1, int a2, int a3)
+// rf_calib_config @ 0x118d80, size 172 bytes
+int  rf_calib_config(int a1, int a2, int a3)
 {
   int16_t **v3; // r8
   int v4; // r10
@@ -28,7 +28,7 @@ int  sub_118D80(int a1, int a2, int a3)
   v5 = dword_118E34;
   while ( 1 )
   {
-    v9 = sub_12D4F8(a2);
+    v9 = list_pop_front(a2);
     if ( !v9 )
       break;
     while ( 1 )
@@ -44,25 +44,25 @@ int  sub_118D80(int a1, int a2, int a3)
       }
       if ( *(uint16_t *)(v9 + 4) )
         break;
-      sub_119120(v9);
-      v9 = sub_12D4F8(a2);
+      btlp_enter_sleep(v9);
+      v9 = list_pop_front(a2);
       if ( !v9 )
-        return rx_buf_init_n168();
+        return system_init();
     }
     *(uint32_t *)(v10 + 4) |= 0x800000u;
-    flag_check_1218170(v9, (uint32_t *)(v10 + 4));
-    sub_1164CC(v9);
-    if ( sub_13B01C(v9, 1) )
+    timer_check_state(v9, (uint32_t *)(v10 + 4));
+    release_buffer(v9);
+    if ( mac_tx_start(v9, 1) )
     {
       if ( **v3 < 0 && !a3 )
-        sub_12F694(v5, v4, 1105);
-      list_push_tail(a3);
+        mmio_irq_clear(v5, v4, 1105);
+      check_abort_flag(a3);
     }
     else
     {
-      fmac_bt_event_handler(a1, v9);
+      irq_lock_save(a1, v9);
     }
   }
-  return rx_buf_init_n168();
+  return system_init();
 }
 

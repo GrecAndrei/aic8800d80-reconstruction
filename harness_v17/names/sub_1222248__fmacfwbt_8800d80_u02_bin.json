@@ -1,1 +1,1 @@
-{"fn": "sub_1222248", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222248", "status": "ok", "name": "mac_cmd_send_status_query", "params": [], "docstring": "Send MAC command 0x43 status query", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1222248", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222248", "status": "ok", "name": "mmio_read_phy", "params": [], "docstring": "Send MAC command 0x43 status query", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

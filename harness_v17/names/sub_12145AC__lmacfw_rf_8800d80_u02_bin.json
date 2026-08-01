@@ -1,1 +1,1 @@
-{"fn": "sub_12145AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12145ac", "status": "ok", "name": "rf_setup_param_n5ac", "params": [], "docstring": "Set up RF parameter (size=4, value=0x20)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12145AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12145ac", "status": "ok", "name": "mmio_write_8", "params": [], "docstring": "Set up RF parameter (size=4, value=0x20)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

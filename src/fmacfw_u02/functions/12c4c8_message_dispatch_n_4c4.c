@@ -12,10 +12,10 @@
 
 extern uint32_t off_12C4E4;
 
-// message_dispatch_n_4c4 @ 0x12c4c8, size 26 bytes
+// rf_get_rssi @ 0x12c4c8, size 26 bytes
 // Doc: rf_cmd_dispatch_n2aa [rf]: Dispatches RF command to lower RF layer
 // rf_cmd_dispatch_n2aa [rf]: Dispatches RF command to lower RF layer
-int  message_dispatch_n_4c4(int a1, uint8_t *a2, uint8_t *a3)
+int  rf_get_rssi(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v3; // r3
   int result; // r0

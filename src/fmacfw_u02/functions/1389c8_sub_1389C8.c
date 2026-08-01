@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1389C8 @ 0x1389c8, size 8 bytes
-int  sub_1389C8(int a1)
+// ke_msg_release @ 0x1389c8, size 8 bytes
+int  ke_msg_release(int a1)
 {
   *(uint16_t *)(a1 + 8) = 0;
-  return sub_11D7B0();
+  return rf_counter_inc();
 }
 

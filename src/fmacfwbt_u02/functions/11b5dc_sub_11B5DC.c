@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11B5E4;
 
-// sub_11B5DC @ 0x11b5dc, size 8 bytes
-int  sub_11B5DC(int a1)
+// table_get_u16_168270 @ 0x11b5dc, size 8 bytes
+int  table_get_u16_168270(int a1)
 {
   return *(uint16_t *)(dword_11B5E4 + 2 * a1);
 }

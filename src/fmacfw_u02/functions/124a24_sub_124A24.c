@@ -21,10 +21,10 @@ extern uint32_t off_124B2C;
 extern uint32_t off_124B24;
 extern uint32_t dword_124B28;
 
-// sub_124A24 @ 0x124a24, size 240 bytes
+// llc_update_channel_map @ 0x124a24, size 240 bytes
 // Doc: sub_1224A24 [rf]: Copies RF parameter block fields into shared config struct
 // sub_1224A24 [rf]: Copies RF parameter block fields into shared config struct
-int  sub_124A24(uint8_t *a1)
+int  llc_update_channel_map(uint8_t *a1)
 {
   uint8_t *v1; // r3
   int v2; // r4
@@ -98,7 +98,7 @@ int  sub_124A24(uint8_t *a1)
         {
           *(uint32_t *)off_124B2C = v15;
         }
-        fmac_main_loop();
+        read_hw_register();
       }
     }
   }
@@ -107,7 +107,7 @@ int  sub_124A24(uint8_t *a1)
     v17 = off_124B24;
     *(uint8_t *)off_124B24 = a1[24];
   }
-  msg_parse(dword_124B28, v7, v17);
-  return rf_mem_read_eb18(a1, 28, 1, 0);
+  event_dispatch(dword_124B28, v7, v17);
+  return send_msg(a1, 28, 1, 0);
 }
 

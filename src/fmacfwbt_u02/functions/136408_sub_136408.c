@@ -14,22 +14,22 @@ extern uint32_t off_13643C;
 extern uint32_t dword_136444;
 extern uint32_t dword_136440;
 
-// sub_136408 @ 0x136408, size 52 bytes
+// rf_cal_trigger @ 0x136408, size 52 bytes
 // Doc: sub_1236408 [util]: Check shared half-word status flag from globals table and branch
 // sub_1236408 [util]: Check shared half-word status flag from globals table and branch
-int  sub_136408(int value)
+int  rf_cal_trigger(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_13643C >= 0 || (value = msg_get_value(7u), value == 3) )
+  if ( **(int16_t **)off_13643C >= 0 || (value = hci_cmd_send_short(7u), value == 3) )
   {
-    sub_13697C(value);
+    txpwr_get_state(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F694(dword_136444, dword_136440, 415);
-    sub_13697C(v2);
+    v2 = mmio_irq_clear(dword_136444, dword_136440, 415);
+    txpwr_get_state(v2);
     return 0;
   }
 }

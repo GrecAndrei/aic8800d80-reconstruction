@@ -21,8 +21,8 @@ extern uint32_t off_116F28;
 extern uint32_t dword_116F30;
 extern uint32_t dword_116F2C;
 
-// sub_116DF4 @ 0x116df4, size 278 bytes
-int  sub_116DF4(int result)
+// mmio_modify_bit @ 0x116df4, size 278 bytes
+int  mmio_modify_bit(int result)
 {
   int v1; // r3
   int v2; // r6
@@ -110,7 +110,7 @@ int  sub_116DF4(int result)
       break;
     default:
       if ( **(int16_t **)off_116F28 < 0 )
-        result = sub_12F32C(dword_116F30, dword_116F2C, 2338);
+        result = irq_disable_mmio_write(dword_116F30, dword_116F2C, 2338);
       break;
   }
   return result;

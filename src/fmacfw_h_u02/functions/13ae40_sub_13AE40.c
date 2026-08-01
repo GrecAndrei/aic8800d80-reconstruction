@@ -15,8 +15,8 @@ extern uint32_t dword_13AF5C;
 extern uint32_t dword_13AF58;
 extern uint32_t dword_13AF54;
 
-// sub_13AE40 @ 0x13ae40, size 270 bytes
-int  sub_13AE40(int a1, int a2)
+// phy_switch_radio @ 0x13ae40, size 270 bytes
+int  phy_switch_radio(int a1, int a2)
 {
   int v2; // r5
   int v3; // r3
@@ -49,7 +49,7 @@ LABEL_5:
           goto LABEL_6;
         goto LABEL_27;
       }
-      sub_13A398();
+      get_clear_intr();
       if ( (*(uint16_t *)(a1 + 30) & 0x200) != 0 )
         goto LABEL_5;
 LABEL_9:
@@ -65,11 +65,11 @@ LABEL_27:
       v9 = *(uint8_t *)(a1 + 29);
       if ( v9 != 255 )
         goto LABEL_7;
-      sub_12F32C(dword_13AF5C, dword_13AF58, 1325);
+      irq_disable_mmio_write(dword_13AF5C, dword_13AF58, 1325);
 LABEL_6:
       v9 = *(uint8_t *)(a1 + 29);
 LABEL_7:
-      sub_118E08(v9, 23, 0, 0);
+      phy_set_channel(v9, 23, 0, 0);
       *(uint8_t *)(dword_13AF54 + 696 * *(uint8_t *)(a1 + 29) + 54) = 0;
     }
 LABEL_8:
@@ -98,7 +98,7 @@ LABEL_20:
   v13 = v8;
   if ( v8 )
     v13 = 1;
-  v10 = sub_13C154(a1, v13, a2);
+  v10 = bt_conn_get(a1, v13, a2);
   v14 = *(uint32_t *)(a1 + 36);
   if ( (v14 & 0x200000) == 0 )
   {

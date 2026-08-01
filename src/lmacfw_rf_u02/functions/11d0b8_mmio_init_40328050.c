@@ -38,10 +38,10 @@ extern uint32_t off_11D308;
 extern uint32_t off_11D318;
 extern uint32_t off_11D30C;
 
-// mmio_init_40328050 @ 0x11d0b8, size 502 bytes
-// Doc: mmio_init_40328050 [mmio]: Initialize MMIO register block at 0x40328050 with value 1
-// mmio_init_40328050 [mmio]: Initialize MMIO register block at 0x40328050 with value 1
-int mmio_init_40328050()
+// rf_cmd_strobe @ 0x11d0b8, size 502 bytes
+// Doc: rf_cmd_strobe [mmio]: Initialize MMIO register block at 0x40328050 with value 1
+// rf_cmd_strobe [mmio]: Initialize MMIO register block at 0x40328050 with value 1
+int rf_cmd_strobe()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r0
@@ -75,8 +75,8 @@ int mmio_init_40328050()
   *(uint32_t *)off_11D2B0 = 1;
   while ( (uint8_t)*v0 )
     ;
-  v1 = sub_1005E8();
-  sub_11CDB8(v1);
+  v1 = read_byte_register();
+  rf_set_frequency(v1);
   v2 = off_11D2B8;
   *(uint32_t *)off_11D2B4 = dword_11D2BC;
   v3 = off_11D2C0;
@@ -84,7 +84,7 @@ int mmio_init_40328050()
   v4 = (int16_t **)off_11D2C4;
   *v3 &= ~0x800u;
   if ( **v4 < 0 && *(uint32_t *)off_11D2C8 < 0x13000000u )
-    rf_cmd_send_n264(dword_11D314, dword_11D310, 284);
+    flash_ctrl_init(dword_11D314, dword_11D310, 284);
   v5 = (char *)off_11D2C8;
   v6 = (int *)off_11D2CC;
   v7 = off_11D2C0;
@@ -109,7 +109,7 @@ int mmio_init_40328050()
   v15 = (unsigned int *)off_11D2EC;
   *(uint32_t *)off_11D2E8 = 12288;
   *v13 = 0;
-  sub_1029A8(&v26, &v25);
+  rf_get_rssi(&v26, &v25);
   v16 = off_11D2F4;
   *(uint32_t *)off_11D2F0 = (v26 << 8) | (v25 << 16) | v26;
   v17 = off_11D2F8;
@@ -117,7 +117,7 @@ int mmio_init_40328050()
   *v14 |= 0x2000u;
   *v16 |= 0x80000u;
   *v16 &= ~0x80u;
-  result = lmac_rf_unk_1a9c();
+  result = chip_info_nibble1_get();
   v19 = off_11D2FC;
   *v15 = ((result + 1) << 26) & 0x1C000000 | *v15 & 0xE3FFFFFF;
   v20 = (uint8_t **)off_11D300;
@@ -131,10 +131,10 @@ int mmio_init_40328050()
   *(uint32_t *)off_11D2C0 |= 0x2000000u;
   if ( (*v22 & 0x20000) != 0 )
   {
-    result = phy_get_link_status();
+    result = sys_status_bit28_get();
     if ( result )
     {
-      v23 = chip_revision_get();
+      v23 = chip_info_nibble2_get();
       v24 = (unsigned int *)off_11D318;
       result = v23 << 8;
       *(uint32_t *)off_11D318 = result & 0x700 | *(uint32_t *)off_11D318 & 0xFFFFF8FF;
@@ -143,7 +143,7 @@ int mmio_init_40328050()
       *v24 |= 1u;
       if ( (*v22 & 0x8000) != 0 )
       {
-        result = sub_101A2C();
+        result = sys_status_bit21_get();
         if ( result )
         {
           *v21 |= 0x80000u;
@@ -152,7 +152,7 @@ int mmio_init_40328050()
       }
       if ( (*(uint32_t *)off_11D308 & 0x20000) != 0 )
       {
-        result = mmio_get_bit_30();
+        result = sys_status_bit30_get();
         if ( result )
           *(uint32_t *)off_11D318 |= 2u;
       }

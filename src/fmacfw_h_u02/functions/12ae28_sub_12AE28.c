@@ -16,8 +16,8 @@ extern uint32_t dword_12AEC4;
 extern uint32_t dword_12AEC0;
 extern uint32_t off_12AEBC;
 
-// sub_12AE28 @ 0x12ae28, size 138 bytes
-int sub_12AE28()
+// is_state_three @ 0x12ae28, size 138 bytes
+int is_state_three()
 {
   int v0; // r0
   int v1; // r2
@@ -27,13 +27,13 @@ int sub_12AE28()
   unsigned int v5; // r3
   int v6; // r1
 
-  if ( sub_12CD48(2) != 3 )
+  if ( hci_cmd_handler(2) != 3 )
   {
-    v0 = sub_12CD48(2);
-    sub_12E948(dword_12AEB4, v0, v1);
+    v0 = hci_cmd_handler(2);
+    alloc_tx_event(dword_12AEB4, v0, v1);
   }
-  if ( **(int16_t **)off_12AEB8 < 0 && sub_12CD48(2) != 3 )
-    sub_12F32C(dword_12AEC4, dword_12AEC0, 201);
+  if ( **(int16_t **)off_12AEB8 < 0 && hci_cmd_handler(2) != 3 )
+    irq_disable_mmio_write(dword_12AEC4, dword_12AEC0, 201);
   v2 = off_12AEBC;
   v3 = *(uint32_t *)off_12AEBC;
   v4 = *(uint8_t *)(*(uint32_t *)off_12AEBC + 367);
@@ -41,23 +41,23 @@ int sub_12AE28()
   *((uint8_t *)off_12AEBC + 10) = v5;
   if ( v4 <= v5 || v2[11] )
   {
-    sub_12C8F8(v3 - 12);
+    tx_process_jump(v3 - 12);
     v6 = *((uint16_t *)v2 + 4);
     if ( v2[11] )
     {
-      sub_12B3A4(0, v6);
+      rf_execute_cmd(0, v6);
       v2[11] = 0;
     }
     else
     {
-      sub_12C8D0(2050, v6, 2);
+      mac_write_header_word(2050, v6, 2);
     }
-    sub_12CBF4(2);
+    hci_cmd_preprocess(2);
     return 0;
   }
   else
   {
-    sub_12B064();
+    process_entry_list();
     return 0;
   }
 }

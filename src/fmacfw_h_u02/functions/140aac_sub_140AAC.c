@@ -17,8 +17,8 @@ extern uint32_t off_140C50;
 extern uint32_t dword_140C58;
 extern uint32_t dword_140C54;
 
-// sub_140AAC @ 0x140aac, size 408 bytes
-int  sub_140AAC(int a1, int a2)
+// bt_event_dispatch @ 0x140aac, size 408 bytes
+int  bt_event_dispatch(int a1, int a2)
 {
   int v3; // r5
   int v4; // r7
@@ -41,7 +41,7 @@ int  sub_140AAC(int a1, int a2)
   if ( a2 )
   {
     v3 = dword_140C48;
-    sub_12D100((uint32_t *)dword_140C44);
+    clear_stats_buf((uint32_t *)dword_140C44);
     v4 = v3 + 6336;
     do
     {
@@ -51,20 +51,20 @@ int  sub_140AAC(int a1, int a2)
       sub_100200(v5, 0, 6u);
     }
     while ( v4 != v3 );
-    LODWORD(v6) = sub_12BD00();
+    LODWORD(v6) = rf_delay();
     *(uint64_t *)(a1 + 40) = v6;
     *(uint32_t *)(a1 + 96) = 0;
   }
   v7 = dword_140C4C;
   v8 = dword_140C44;
 LABEL_6:
-  while ( sub_12CD48(0xBu) == 1 )
+  while ( hci_cmd_handler(0xBu) == 1 )
   {
     v9 = dword_140C4C;
     v10 = dword_140C4C + 6336;
     do
     {
-      while ( *(uint16_t *)(v9 + 4) != 1 || !sub_140A38((uint16_t *)(v9 + 6), v9 + 28, a1) )
+      while ( *(uint16_t *)(v9 + 4) != 1 || !util_memcmp((uint16_t *)(v9 + 6), v9 + 28, a1) )
       {
         v9 += 528;
         if ( v9 == v10 )
@@ -75,7 +75,7 @@ LABEL_6:
       *(uint8_t *)(v9 + 22) = 0;
       *(uint16_t *)(v9 + 4) = 2;
       v9 += 528;
-      sub_12D108(v8, v11);
+      wlan_ioctl_handler_1(v8, v11);
     }
     while ( v9 != v10 );
 LABEL_12:
@@ -84,23 +84,23 @@ LABEL_12:
     *(uint32_t *)(a1 + 96) = v13;
     if ( v13 >= v12 )
     {
-      if ( **(int16_t **)off_140C50 < 0 && sub_1403D0() )
+      if ( **(int16_t **)off_140C50 < 0 && bt_global_state_read() )
       {
         if ( *(uint32_t *)(a1 + 92) )
-          sub_12F32C(dword_140C58, dword_140C54, 1585);
+          irq_disable_mmio_write(dword_140C58, dword_140C54, 1585);
       }
-      sub_12CBF4(0xBu, 2);
-      return sub_1409A4(a1, 0);
+      hci_cmd_preprocess(0xBu, 2);
+      return bt_ll_state_check(a1, 0);
     }
-    sub_12CBF4(0xBu, 3);
-    if ( !sub_1403D0() )
-      return sub_1409A4(a1, 0);
+    hci_cmd_preprocess(0xBu, 3);
+    if ( !bt_global_state_read() )
+      return bt_ll_state_check(a1, 0);
   }
-  sub_12CBF4(0xBu, 1);
+  hci_cmd_preprocess(0xBu, 1);
   v14 = *(uint32_t *)(a1 + 96);
   while ( 1 )
   {
-    v16 = sub_132104((char *)*(uint8_t *)(a1 + 100), *(uint8_t *)(v14 + a1 + 102));
+    v16 = event_code_to_str((char *)*(uint8_t *)(a1 + 100), *(uint8_t *)(v14 + a1 + 102));
     v17 = v16;
     if ( v16 )
     {
@@ -113,7 +113,7 @@ LABEL_12:
     if ( v14 >= v15 )
       goto LABEL_6;
   }
-  v18 = sub_12C7EC(4096, 4, 11, 0x178u);
+  v18 = tx_send_pdu(4096, 4, 11, 0x178u);
   *(uint32_t *)v18 = *(uint32_t *)v17;
   *(uint16_t *)(v18 + 4) = *((uint16_t *)v17 + 2);
   if ( !*(uint8_t *)(a1 + 3) )
@@ -121,13 +121,13 @@ LABEL_12:
   *(uint8_t *)(v18 + 367) = 1;
   v19 = *(uint8_t *)(a1 + 58);
   *(uint8_t *)(v18 + 252) = v19;
-  sub_143630(v18 + 253, a1 + 59, v19);
+  memcpy(v18 + 253, a1 + 59, v19);
   *(uint8_t *)(v18 + 368) = 1;
   *(uint16_t *)(v18 + 352) = *(uint16_t *)(a1 + 52);
   *(uint16_t *)(v18 + 354) = *(uint16_t *)(a1 + 54);
   *(uint16_t *)(v18 + 356) = *(uint16_t *)(a1 + 56);
   *(uint8_t *)(v18 + 366) = *(uint8_t *)(v7 + 6489);
   *(uint32_t *)(v18 + 372) = *(uint16_t *)(a1 + 48) << 10;
-  return sub_12C84C(v18);
+  return rx_process_packet(v18);
 }
 

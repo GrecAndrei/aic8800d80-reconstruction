@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_reset2_0 @ 0x111304, size 242 bytes
+// timer_start @ 0x111304, size 242 bytes
 // Doc: rf_bus_write_n_100 [rf]: RF bus write clearing/setting control bits
 // rf_bus_write_n_100 [rf]: RF bus write clearing/setting control bits
-int rf_bus_reset2_0()
+int timer_start()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r2
@@ -71,6 +71,6 @@ LABEL_11:
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return msg_parse(v7, v4);
+  return dispatch_event_handler(v7, v4);
 }
 

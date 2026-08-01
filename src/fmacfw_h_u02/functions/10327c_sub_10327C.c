@@ -13,8 +13,8 @@
 extern uint32_t off_1033E0;
 extern uint32_t off_1033E4;
 
-// sub_10327C @ 0x10327c, size 356 bytes
-void __noreturn sub_10327C()
+// crypto_start_operation @ 0x10327c, size 356 bytes
+void __noreturn crypto_start_operation()
 {
   unsigned int *v0; // r6
   unsigned int *v1; // r5

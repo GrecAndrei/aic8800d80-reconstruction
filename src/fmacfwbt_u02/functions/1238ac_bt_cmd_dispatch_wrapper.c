@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// bt_cmd_dispatch_wrapper @ 0x1238ac, size 12 bytes
-// Doc: bt_cmd_dispatch_wrapper [bt]: BT command dispatch thunk returning 1
-// bt_cmd_dispatch_wrapper [bt]: BT command dispatch thunk returning 1
-int  bt_cmd_dispatch_wrapper(int a1, int a2)
+// call_125ac8 @ 0x1238ac, size 12 bytes
+// Doc: call_125ac8 [bt]: BT command dispatch thunk returning 1
+// call_125ac8 [bt]: BT command dispatch thunk returning 1
+int  call_125ac8(int a1, int a2)
 {
-  sub_125AC8(a2);
+  list_remove(a2);
   return 1;
 }
 

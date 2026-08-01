@@ -12,10 +12,10 @@
 
 extern uint32_t off_114E64;
 
-// patch_apply_n_130 @ 0x114d7c, size 228 bytes
+// ke_task_handler_large @ 0x114d7c, size 228 bytes
 // Doc: patch_apply_n_54 [patch]: Apply a firmware patch instruction entry
 // patch_apply_n_54 [patch]: Apply a firmware patch instruction entry
-int  patch_apply_n_130(int a1, int a2, unsigned int a3)
+int  ke_task_handler_large(int a1, int a2, unsigned int a3)
 {
   unsigned int v6; // r4
   int v8; // [sp+0h] [bp-144h] BYREF
@@ -28,7 +28,7 @@ int  patch_apply_n_130(int a1, int a2, unsigned int a3)
   uint8_t v15[14]; // [sp+136h] [bp-Eh] BYREF
 
   if ( !*(uint32_t *)patch_apply_n_4c )
-    rf_fault_dump_n4b0();
+    get_ke_env();
   MEMORY[0x1D8](*(uint32_t *)off_114E64 + 4096, 320, &v8);
   if ( v8 != patch_apply_n_44 )
     return -1;
@@ -37,7 +37,7 @@ int  patch_apply_n_130(int a1, int a2, unsigned int a3)
   v6 = (uint8_t)v9 & (uint8_t)a1 & 2;
   if ( ((uint8_t)v9 & (uint8_t)a1 & 2) != 0 )
   {
-    sub_143770(a2, v10, 6);
+    memcpy(a2, v10, 6);
     v6 = 6;
     if ( (a1 & 0x100000) == 0 )
     {
@@ -51,7 +51,7 @@ patch_apply_dbc:
   {
     goto patch_apply_dbc;
   }
-  sub_143770(a2 + v6, v11, 2);
+  memcpy(a2 + v6, v11, 2);
   v6 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -61,7 +61,7 @@ patch_apply_n_ec:
     goto LABEL_17;
   }
 LABEL_19:
-  sub_143770(a2 + v6, v12, 8);
+  memcpy(a2 + v6, v12, 8);
   v6 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
@@ -71,7 +71,7 @@ patch_apply_n_e8:
     goto LABEL_15;
   }
 LABEL_17:
-  sub_143770(a2 + v6, v13, 4);
+  memcpy(a2 + v6, v13, 4);
   v6 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
@@ -81,12 +81,12 @@ patch_apply_n_e4:
     goto LABEL_14;
   }
 LABEL_15:
-  sub_143770(a2 + v6, v14, 2);
+  memcpy(a2 + v6, v14, 2);
   v6 += 2;
   if ( (a1 & 0x1000000) != 0 )
   {
 LABEL_14:
-    sub_143770(a2 + v6, v15, 10);
+    memcpy(a2 + v6, v15, 10);
     v6 += 10;
   }
 patch_apply_n_e0:

@@ -30,8 +30,8 @@ extern uint32_t off_10C5E0;
 extern uint32_t dword_10C5DC;
 extern uint32_t dword_10C5E4;
 
-// sub_10C360 @ 0x10c360, size 546 bytes
-int * sub_10C360(int *result, unsigned int a2, int a3, int a4)
+// rx_header_decode @ 0x10c360, size 546 bytes
+int * rx_header_decode(int *result, unsigned int a2, int a3, int a4)
 {
   int v4; // r6
   int v7; // r7
@@ -85,7 +85,7 @@ int * sub_10C360(int *result, unsigned int a2, int a3, int a4)
     goto LABEL_3;
   }
   v8 = result[1];
-  sub_12ECD0(0x2000, dword_10C5B0);
+  check_status_bits(0x2000, dword_10C5B0);
   v9 = a2 - 2;
   do
   {
@@ -123,21 +123,21 @@ int * sub_10C360(int *result, unsigned int a2, int a3, int a4)
       v13 = *(uint64_t *)&dword_10C590;
       v14 = dbl_10C588;
     }
-    v15 = sub_1429D4(v12);
-    v16 = sub_142AA8(v15, HIDWORD(v15), 0, dword_10C5C8);
-    v17 = sub_142CFC(v13, HIDWORD(v13), v16, HIDWORD(v16));
-    v18 = sub_142AA8(v17, HIDWORD(v17), 0, dword_10C5CC);
-    v19 = sub_14261C(v18);
-    v20 = sub_142CFC(LODWORD(v14), HIDWORD(v14), 0, dword_10C5C8);
-    v21 = sub_14261C(v20);
+    v15 = int_to_double(v12);
+    v16 = double_add(v15, HIDWORD(v15), 0, dword_10C5C8);
+    v17 = double_subtract(v13, HIDWORD(v13), v16, HIDWORD(v16));
+    v18 = double_add(v17, HIDWORD(v17), 0, dword_10C5CC);
+    v19 = double_add(v18);
+    v20 = double_subtract(LODWORD(v14), HIDWORD(v14), 0, dword_10C5C8);
+    v21 = double_add(v20);
     v22 = v19;
     v23 = v21;
-    *(uint32_t *)off_10C5E8 = sub_14302C(v22) & 0x7FFFFFFF;
-    *(uint32_t *)off_10C5D0 = dword_10C5D4 & (sub_14302C(v23) << 13) | *(uint32_t *)off_10C5D0 & dword_10C5D8;
+    *(uint32_t *)off_10C5E8 = double_to_int(v22) & 0x7FFFFFFF;
+    *(uint32_t *)off_10C5D0 = dword_10C5D4 & (double_to_int(v23) << 13) | *(uint32_t *)off_10C5D0 & dword_10C5D8;
   }
-  sub_103B6C();
-  sub_10A9A8((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
-  result = (int *)sub_103C14();
+  enable_pa();
+  periph_init_2((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
+  result = (int *)configure_gpio_bits();
   *(uint32_t *)off_10C5B4 = 1;
   if ( a4 )
   {
@@ -151,7 +151,7 @@ LABEL_3:
       v37[0] = *(uint32_t *)dword_10C5DC;
       v37[1] = v25;
       v37[2] = v26;
-      sub_103B6C();
+      enable_pa();
       v28 = *(uint64_t *)v27;
       v29 = *(uint32_t *)(v27 + 8);
       v30 = *(uint32_t *)(v27 + 12);
@@ -181,8 +181,8 @@ LABEL_3:
       *((uint8_t *)v24 + 36) = 0;
       *((uint8_t *)v24 + 44) = 0;
       *((uint8_t *)v24 + 52) = 0;
-      sub_10B010((unsigned int *)v31, (uint8_t *)(a2 + 125), (int)v24);
-      sub_10B430(v37, dword_10C5E4, a2 + 104, a2 + 125, v24, 6, 1, v36, 0, 0, &v38);
+      periph_base_setup((unsigned int *)v31, (uint8_t *)(a2 + 125), (int)v24);
+      boot_init(v37, dword_10C5E4, a2 + 104, a2 + 125, v24, 6, 1, v36, 0, 0, &v38);
       *((uint8_t *)v24 + 4) = 0;
       *((uint8_t *)v24 + 12) = 0;
       *((uint8_t *)v24 + 20) = 0;
@@ -190,7 +190,7 @@ LABEL_3:
       *((uint8_t *)v24 + 36) = 0;
       *((uint8_t *)v24 + 44) = 0;
       *((uint8_t *)v24 + 52) = 0;
-      return (int *)sub_103C14();
+      return (int *)configure_gpio_bits();
     }
   }
   return result;

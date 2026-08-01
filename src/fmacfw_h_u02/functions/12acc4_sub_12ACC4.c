@@ -13,8 +13,8 @@
 extern uint32_t dword_12ACF8;
 extern uint32_t off_12ACFC;
 
-// sub_12ACC4 @ 0x12acc4, size 52 bytes
-int * sub_12ACC4(int a1)
+// init_chan_entry @ 0x12acc4, size 52 bytes
+int * init_chan_entry(int a1)
 {
   int v1; // r4
   int v2; // r6
@@ -29,7 +29,7 @@ int * sub_12ACC4(int a1)
   v3 = a1;
   v4 = 32 * a1;
   if ( *(uint8_t *)(v2 + 30) )
-    sub_124CF4(dword_12ACF8 + 32 * a1);
+    mem_set_util(dword_12ACF8 + 32 * a1);
   result = sub_100200((int *)v2, 0, 0x20u);
   v6 = v1 + v4;
   v7 = off_12ACFC;

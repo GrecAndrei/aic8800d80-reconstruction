@@ -12,16 +12,16 @@
 
 extern uint32_t off_13688C;
 
-// sub_136870 @ 0x136870, size 28 bytes
+// txpwr_reset_state @ 0x136870, size 28 bytes
 // Doc: sub_1236870 [util]: Initialize/zero a 16-byte control structure via memset
 // sub_1236870 [util]: Initialize/zero a 16-byte control structure via memset
-uint32_t *sub_136870()
+uint32_t *txpwr_reset_state()
 {
   uint8_t *v0; // r4
 
   v0 = off_13688C;
-  memset_thunk((int *)off_13688C, 0, 0x10u);
+  memset_byte((int *)off_13688C, 0, 0x10u);
   v0[12] = 0;
-  return rf_bus_mark_n_3b7(7u, 0);
+  return hci_cmd_send(7u, 0);
 }
 

@@ -105,10 +105,10 @@ extern uint32_t dword_108C34;
 extern uint32_t off_108C38;
 extern uint32_t dword_108C3C;
 
-// crypto_mac_core_8280 @ 0x108280, size 4140 bytes
-// Doc: crypto_mac_core_8280 [mac]: Core MAC/HW crypto processing using FPU and MMIO registers
-// crypto_mac_core_8280 [mac]: Core MAC/HW crypto processing using FPU and MMIO registers
-uint32_t * crypto_mac_core_8280(
+// periph_init_multi @ 0x108280, size 4140 bytes
+// Doc: periph_init_multi [mac]: Core MAC/HW crypto processing using FPU and MMIO registers
+// periph_init_multi [mac]: Core MAC/HW crypto processing using FPU and MMIO registers
+uint32_t * periph_init_multi(
         int a1,
         unsigned int *a2,
         int a3,
@@ -403,23 +403,23 @@ uint32_t * crypto_mac_core_8280(
   *v24 |= 4u;
   *v25 |= 0x800000u;
   *v25 |= 0x400000u;
-  crypto_hw_clk_toggle_3c6c();
-  feature_guard_check(1, dword_1088AC);
+  clear_chip_ctrl_clk();
+  check_status_bits(1, dword_1088AC);
   v111 = *(uint32_t *)off_1088B0;
   *(uint32_t *)off_1088B0 = *(uint32_t *)off_1088B0 & 0xFFFFFFF | 0x10000000;
   do
   {
-    sub_10410C(v21, 0);
+    mac_reset_control(v21, 0);
     v26 = (uint8_t)(v21 + 1);
     v21 = (uint8_t)(v21 + 2);
-    sub_10410C(v26, 0);
+    mac_reset_control(v26, 0);
   }
   while ( v21 != 32 );
   v27 = off_1088B4;
   *(uint32_t *)off_1088B4 &= ~0x200u;
   *v27 |= 0x200u;
   *v27 &= ~0x200u;
-  sub_1071C4();
+  rf_radio_enable();
   if ( a3 == 255 )
   {
     v28 = (unsigned int *)off_1088F4;
@@ -456,9 +456,9 @@ uint32_t * crypto_mac_core_8280(
         v163 = a2 + 2;
         v34 = 2;
       }
-      feature_guard_check(1, dword_1088BC);
-      sub_1059E8(a2[v33], v171);
-      feature_guard_check(1, dword_1088C0);
+      check_status_bits(1, dword_1088BC);
+      mac_event_init(a2[v33], v171);
+      check_status_bits(1, dword_1088C0);
       if ( v173 <= 0 )
       {
         v104 = v164[v34];
@@ -480,10 +480,10 @@ uint32_t * crypto_mac_core_8280(
           v37 = dword_1088CC;
           *(uint32_t *)off_1088D0 = dword_1088C8 | v160 | (*(uint32_t *)v106 << 8);
           v106 += 4;
-          feature_guard_check(1, v37);
-          feature_guard_check(1, dword_1088D4);
+          check_status_bits(1, v37);
+          check_status_bits(1, dword_1088D4);
           v168 = 0;
-          crypto_state_dump((int)&v166);
+          timer_ticks_to_usec((int)&v166);
           v38 = v107;
           for ( i = v110; ; i = v38 << 8 )
           {
@@ -492,34 +492,34 @@ uint32_t * crypto_mac_core_8280(
             *v29 &= v36;
             *v30 &= v35;
             *v30 &= v36;
-            crypto_hw_sequence_7a8c((int)&v166);
-            sub_107E08();
-            sub_1081E8();
-            crypto_rx_calibrate((int)&v166);
-            fmac_irq_disable_dispatch();
-            sub_108238();
+            rf_rx_cfg_write((int)&v166);
+            rf_power_off();
+            read_status_high();
+            rf_tx_cfg_write((int)&v166);
+            clear_flag_and_invoke();
+            read_status_low();
             v40 = *v30 & 0xFFF;
             v41 = (*v30 & 0x8000000) != 0 ? (HIWORD(*v30) & 0xFFF) - 4096 : HIWORD(*v30) & 0xFFF;
             v42 = (*v30 & 0x800) != 0 ? v40 - 4096 : *v30 & 0xFFF;
             if ( v41 <= 1024 && v42 <= 1024 )
               break;
             v38 = (uint8_t)(v38 - 1);
-            feature_guard_check(1, dword_1092B8);
+            check_status_bits(1, dword_1092B8);
           }
           v107 = v38;
           v110 = i;
           v43 = HIWORD(*v30) & 0xFFF;
           *v28 = ((v38 + 1) << 8) & 0xF00 | *v28 & 0xFFFFF0FF;
-          feature_guard_check(1, dword_1088D8);
+          check_status_bits(1, dword_1088D8);
           *v30 = dword_1088DC & (v43 << 17) | *v30 & v35;
-          crypto_hw_sequence_7a8c((int)&v166);
-          sub_107E08();
-          sub_1081E8();
-          feature_guard_check(1, dword_1088E0);
+          rf_rx_cfg_write((int)&v166);
+          rf_power_off();
+          read_status_high();
+          check_status_bits(1, dword_1088E0);
           *v30 = (2 * v40) & 0xFFF | *v30 & v36;
-          crypto_rx_calibrate((int)&v166);
-          fmac_irq_disable_dispatch();
-          sub_108238();
+          rf_tx_cfg_write((int)&v166);
+          clear_flag_and_invoke();
+          read_status_low();
           v44 = dword_1088E4;
           v45 = HIWORD(*v30) & 0xFFF;
           v46 = *v30 & 0xFFF;
@@ -527,40 +527,40 @@ uint32_t * crypto_mac_core_8280(
           *(uint32_t *)(v103 + 8) = v47;
           *(uint32_t *)(v103 + 8) = v47 | (*v28 >> 8 << 28);
           v99 = v45 << 16;
-          feature_guard_check(1, v44);
+          check_status_bits(1, v44);
           *v30 &= v35;
           *v30 &= v36;
-          sub_107678((int)&v166, 1);
+          rf_txrx_path_enable((int)&v166, 1);
           v165[0] = v170;
-          sub_1079CC(v165, (int)&v166);
-          mmio_config_bits_n_5a0((int)&v166, 1);
+          sched_min_delta(v165, (int)&v166);
+          rf_mode_select((int)&v166, 1);
           v48 = v170;
-          feature_guard_check(1, dword_1088E8);
+          check_status_bits(1, dword_1088E8);
           *v30 = *v30 & v35 | v99;
           *v30 = v46 | *v30 & v36;
-          mmio_config_bits_n_5a0((int)&v166, 1);
+          rf_mode_select((int)&v166, 1);
           v49 = v170;
-          feature_guard_check(1, dword_1088EC);
+          check_status_bits(1, dword_1088EC);
           if ( v48 <= v49 )
           {
-            feature_guard_check(1, dword_1092C0);
+            check_status_bits(1, dword_1092C0);
             v104 = 0;
             *(uint32_t *)(v103 + 8) = 0;
           }
           else
           {
             v104 &= 1u;
-            feature_guard_check(1, dword_1088F0);
+            check_status_bits(1, dword_1088F0);
           }
           v164[v161] = v104;
-          feature_guard_check(1, dword_108BEC);
-          feature_guard_check(1, dword_108BF0);
+          check_status_bits(1, dword_108BEC);
+          check_status_bits(1, dword_108BF0);
           v50 = dword_108BF4;
           v51 = dword_108BF8;
           *v30 = *v30 & v35 | ((*(uint16_t *)(v103 + 10) & 0xFFF) << 16);
           *v30 = *(uint32_t *)(v103 + 8) & 0xFFF | *v30 & v36;
-          feature_guard_check(1, v50);
-          feature_guard_check(1, dword_108BFC);
+          check_status_bits(1, v50);
+          check_status_bits(1, dword_108BFC);
           v52 = (int *)off_108C00;
           v53 = (unsigned int *)off_108C04;
           v54 = (unsigned int *)off_108C08;
@@ -582,7 +582,7 @@ uint32_t * crypto_mac_core_8280(
           *v54 = *v54 & 0xFFFFFFF0 | 3;
           v168 = 10;
           v56 = 0;
-          crypto_state_dump((int)&v166);
+          timer_ticks_to_usec((int)&v166);
           v108 = 0;
           do
           {
@@ -593,9 +593,9 @@ uint32_t * crypto_mac_core_8280(
               v57 = v176;
               v100 = v177;
               v166 = v56;
-              mmio_init_table(&v174);
-              sub_107F54((int)&v174, &v166);
-              crypto_channel_calc((int)&v166, &v174, v171);
+              div3_compute(&v174);
+              periph_clock_enable((int)&v174, &v166);
+              list_get_at((int)&v166, &v174, v171);
               if ( v56 )
                 break;
               if ( v169 )
@@ -604,41 +604,41 @@ uint32_t * crypto_mac_core_8280(
               }
               else
               {
-                feature_guard_check(1, dword_1092BC);
+                check_status_bits(1, dword_1092BC);
                 ++v108;
                 v168 += 6;
-                crypto_state_dump((int)&v166);
+                timer_ticks_to_usec((int)&v166);
                 v174 = v101;
                 v175 = v102;
                 v176 = v57;
                 v177 = v100;
                 v56 = v108 > 2;
               }
-              feature_guard_check(1, v51);
+              check_status_bits(1, v51);
             }
             ++v56;
-            feature_guard_check(1, v51);
+            check_status_bits(1, v51);
           }
           while ( v56 != 5 );
           v73 = dword_108F7C;
           v74 = dword_108F78 & (v177 << 16);
           v75 = v176 & 0xFFF;
           *(uint32_t *)(v103 + 12) = v74 + (((*v28 >> 12) & 7) << 28) + ((HIWORD(*v28) & 7) << 12) + v75;
-          feature_guard_check(1, v73);
-          feature_guard_check(1, dword_108F80);
+          check_status_bits(1, v73);
+          check_status_bits(1, dword_108F80);
           *v29 &= v35;
           *v29 &= v36;
-          sub_107678((int)&v166, 0);
+          rf_txrx_path_enable((int)&v166, 0);
           v165[0] = v170;
-          sub_1079CC(v165, (int)&v166);
-          mmio_config_bits_n_5a0((int)&v166, 0);
+          sched_min_delta(v165, (int)&v166);
+          rf_mode_select((int)&v166, 0);
           v76 = v170;
-          feature_guard_check(1, dword_108F84);
+          check_status_bits(1, dword_108F84);
           *v29 = v74 | *v29 & v35;
           *v29 = v75 | *v29 & v36;
-          mmio_config_bits_n_5a0((int)&v166, 0);
+          rf_mode_select((int)&v166, 0);
           v77 = v170;
-          feature_guard_check(1, dword_108F88);
+          check_status_bits(1, dword_108F88);
           v78 = (unsigned int *)off_108F90;
           v79 = (unsigned int *)off_108F94;
           *(uint32_t *)off_108F8C = *(uint32_t *)off_108F8C & v36 | 0xC0;
@@ -650,12 +650,12 @@ uint32_t * crypto_mac_core_8280(
           *v79 = *v79 & 0xFFFFFFF0 | 1;
           if ( v76 <= v77 )
           {
-            feature_guard_check(1, dword_1092C4);
+            check_status_bits(1, dword_1092C4);
             *(uint32_t *)(v103 + 12) = 0;
           }
           else
           {
-            feature_guard_check(1, dword_108F98);
+            check_status_bits(1, dword_108F98);
           }
           v103 += 8;
           v80 = v173 <= ++v109;
@@ -665,12 +665,12 @@ uint32_t * crypto_mac_core_8280(
       }
       v81 = dword_108F9C;
       *v163 = *v163 & 0xFFFDFFFF | (v104 << 17);
-      feature_guard_check(1, v81);
-      feature_guard_check(1, dword_108FA0);
+      check_status_bits(1, v81);
+      check_status_bits(1, dword_108FA0);
       ++v33;
     }
     while ( v33 != 3 );
-    mmio_init_regs_n3cc();
+    rf_radio_disable();
     v82 = (unsigned int *)off_108FA4;
     v83 = (unsigned int *)off_108FA8;
     v84 = (unsigned int *)off_108FD0;
@@ -746,24 +746,24 @@ uint32_t * crypto_mac_core_8280(
     v58 = dword_108C10;
     v59 = ((int)((unsigned uint64_t)(dword_108C0C * (uint64_t)a3) >> 32) >> 5) - (a3 >> 31);
     v60 = a3 - 100 * v59;
-    crypto_hw_power_up_3b6c();
+    enable_pa();
     v61 = off_108C14;
     v62 = dword_108C18;
     *(uint32_t *)off_108C14 &= ~1u;
     v167 = 30;
     v168 = v59;
-    msg_parse(v62, v59, v61);
+    event_dispatch(v62, v59, v61);
     v63 = HIWORD(v15) & 0xFFF;
     v64 = v15 & 0xFFF;
-    msg_parse(dword_108C1C, v60, v65);
-    msg_parse(dword_108C20, v63, v64);
+    event_dispatch(dword_108C1C, v60, v65);
+    event_dispatch(dword_108C20, v63, v64);
     *(uint32_t *)off_108C24 = a6;
-    msg_parse(dword_108C28, a6, a6);
+    event_dispatch(dword_108C28, a6, a6);
     v66 = off_108C00;
     v67 = dword_108C2C;
     *(uint32_t *)off_108C00 = *(uint32_t *)off_108C00 & v58 | a7 & 0xFFF;
-    msg_parse(v67, a7, v66);
-    crypto_hw_mode_select_3ca4(v60);
+    event_dispatch(v67, a7, v66);
+    pmu_write_control(v60);
     v68 = (unsigned int *)off_108C08;
     v69 = (int *)off_108C30;
     v70 = dword_108C34;
@@ -777,14 +777,14 @@ uint32_t * crypto_mac_core_8280(
     *v69 = v64 | *v69 & v58;
     *v71 = *v71 & v70 | ((HIWORD(a5) & 0xFFF) << 16);
     *v71 = a5 & 0xFFF | *v71 & v58;
-    crypto_engine_clear_sram_regs();
-    crypto_state_dump((int)&v166);
-    mmio_config_bits_n_5a0((int)&v166, 0);
-    feature_guard_check(1, dword_108C3C);
-    mmio_config_bits_n_5a0((int)&v166, 0);
-    feature_guard_check(1, dword_108C3C);
-    delay_us_0644(500);
-    return (uint32_t *)sub_103F2C();
+    rf_synth_set_freq();
+    timer_ticks_to_usec((int)&v166);
+    rf_mode_select((int)&v166, 0);
+    check_status_bits(1, dword_108C3C);
+    rf_mode_select((int)&v166, 0);
+    check_status_bits(1, dword_108C3C);
+    timer_delay(500);
+    return (uint32_t *)mac_phy_config();
   }
   return result;
 }

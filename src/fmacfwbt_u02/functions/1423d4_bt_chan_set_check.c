@@ -13,10 +13,10 @@
 extern uint32_t off_142478;
 extern uint32_t dword_14247C;
 
-// bt_chan_set_check @ 0x1423d4, size 162 bytes
-// Doc: bt_chan_set_check [bt]: Validate BT channel/band select mask (0x300)
-// bt_chan_set_check [bt]: Validate BT channel/band select mask (0x300)
-int  bt_chan_set_check(int result, int16_t a2, uint16_t *a3)
+// check_phy_flags @ 0x1423d4, size 162 bytes
+// Doc: check_phy_flags [bt]: Validate BT channel/band select mask (0x300)
+// check_phy_flags [bt]: Validate BT channel/band select mask (0x300)
+int  check_phy_flags(int result, int16_t a2, uint16_t *a3)
 {
   uint8_t *v3; // r6
   int16_t v4; // r2
@@ -82,7 +82,7 @@ LABEL_13:
           if ( v3[1] )
           {
             if ( v13 == 9 )
-              result = (int)sub_141EE4(result);
+              result = (int)build_tx_packet(result);
           }
         }
       }

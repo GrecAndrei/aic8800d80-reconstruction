@@ -12,15 +12,15 @@
 
 extern uint32_t off_1304FC;
 
-// sub_1304D8 @ 0x1304d8, size 36 bytes
-int sub_1304D8()
+// clear_flag_send_event_42e @ 0x1304d8, size 36 bytes
+int clear_flag_send_event_42e()
 {
   int result; // r0
 
   *((uint8_t *)off_1304FC + 1) = 0;
-  result = sub_12C774(1070, 1);
+  result = rf_get_state(1070, 1);
   if ( result )
-    return sub_12C5FC(1070, 1);
+    return invalid_handler_12c5fc(1070, 1);
   return result;
 }
 

@@ -25,8 +25,8 @@ extern uint32_t dword_11077C;
 extern uint32_t dword_110780;
 extern uint32_t off_110778;
 
-// sub_11063C @ 0x11063c, size 286 bytes
-int  sub_11063C(int a1, int a2)
+// rf_bb_config @ 0x11063c, size 286 bytes
+int  rf_bb_config(int a1, int a2)
 {
   uint32_t *v2; // r4
   int *v3; // r7
@@ -49,7 +49,7 @@ int  sub_11063C(int a1, int a2)
   v2 = off_110760;
   v3 = (int *)off_110764;
   v21 = *(uint16_t *)(*(uint32_t *)off_11075C + 48);
-  log_queue_refill(a2);
+  rf_pll_program(a2);
   v6 = *(uint16_t *)(a2 + 0xC);
 LABEL_2:
   v7 = off_11078C;
@@ -61,19 +61,19 @@ LABEL_2:
     v9 = (*(int ( **)(uint32_t))(*(uint32_t *)(a1 + 4 + 4) + 16))(*(uint32_t *)(a1 + 4));
     if ( !v9 )
     {
-      sub_10DC24(dword_110788, *v7);
+      log_printf(dword_110788, *v7);
 LABEL_23:
       if ( *(uint16_t *)(a2 + 0xC) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_11075C + 50) )
         return 1;
 LABEL_24:
-      irq_nesting_or_d104(32);
+      unknown_func_12d104(32);
       return 1;
     }
-    v10 = (uint32_t *)sub_1102BC();
+    v10 = (uint32_t *)is_scan_enabled();
     v11 = v10;
     if ( !v10 )
     {
-      sub_10DC24(dword_110784);
+      log_printf(dword_110784);
       (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
       goto LABEL_23;
     }
@@ -103,7 +103,7 @@ LABEL_24:
     {
       if ( **(int16_t **)off_110770 < 0 && *(uint32_t *)off_110774 )
       {
-        sub_12F46C(dword_11077C, dword_110780, 400);
+        mmio_clear_register(dword_11077C, dword_110780, 400);
         v13 = (int *)off_11076C;
         v14 = *(uint32_t *)off_11076C;
       }

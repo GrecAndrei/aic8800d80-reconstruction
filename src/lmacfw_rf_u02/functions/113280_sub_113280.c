@@ -14,10 +14,10 @@ extern uint32_t off_1132B4;
 extern uint32_t dword_1132B8;
 extern uint32_t dword_1132BC;
 
-// sub_113280 @ 0x113280, size 52 bytes
+// tx_event_handler @ 0x113280, size 52 bytes
 // Doc: sub_1213280 [unknown]: Unidentified initialization helper in lmacfw_rf
 // sub_1213280 [unknown]: Unidentified initialization helper in lmacfw_rf
-int sub_113280()
+int tx_event_handler()
 {
   void *v0; // r5
   int result; // r0
@@ -26,7 +26,7 @@ int sub_113280()
   int v4; // r4
 
   v0 = off_1132B4;
-  result = sub_11E71C(dword_1132B8);
+  result = list_init(dword_1132B8);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 4) )
   {
     v2 = dword_1132BC;
@@ -34,8 +34,8 @@ int sub_113280()
     v4 = 0;
     do
     {
-      log_pool_alloc2_a18(v2, 0x7Cu);
-      result = list_push_tail(v3);
+      list_iterate(v2, 0x7Cu);
+      result = check_kernel_state(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );

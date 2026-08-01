@@ -17,8 +17,8 @@ extern uint32_t off_100DE8;
 extern uint32_t off_100DF8;
 extern uint32_t off_100DFC;
 
-// sub_100D18 @ 0x100d18, size 208 bytes
-unsigned int sub_100D18()
+// rf_cal_read_1 @ 0x100d18, size 208 bytes
+unsigned int rf_cal_read_1()
 {
   unsigned int *v0; // r2
   unsigned int v1; // r1

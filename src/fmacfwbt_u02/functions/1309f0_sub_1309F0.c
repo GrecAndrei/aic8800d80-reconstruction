@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1309F0 @ 0x1309f0, size 46 bytes
-int  sub_1309F0(int a1)
+// rf_write_pattern_4605 @ 0x1309f0, size 46 bytes
+int  rf_write_pattern_4605(int a1)
 {
   **(uint8_t **)a1 = 70;
   *(uint8_t *)(*(uint32_t *)a1 + 1) = 5;

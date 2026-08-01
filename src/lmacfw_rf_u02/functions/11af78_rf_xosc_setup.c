@@ -20,10 +20,10 @@ extern uint32_t off_11B03C;
 extern uint32_t off_11B038;
 extern uint32_t dword_11B040;
 
-// rf_xosc_setup @ 0x11af78, size 166 bytes
-// Doc: rf_xosc_setup [rf]: Configure RF crystal oscillator parameters
-// rf_xosc_setup [rf]: Configure RF crystal oscillator parameters
-int  rf_xosc_setup(int a1, int a2, int a3)
+// ke_task_handler @ 0x11af78, size 166 bytes
+// Doc: ke_task_handler [rf]: Configure RF crystal oscillator parameters
+// ke_task_handler [rf]: Configure RF crystal oscillator parameters
+int  ke_task_handler(int a1, int a2, int a3)
 {
   int v6; // r0
   uint32_t *v7; // r4
@@ -41,17 +41,17 @@ int  rf_xosc_setup(int a1, int a2, int a3)
   int v19; // r3
   int v20; // r2
 
-  v6 = sub_11E7AC(dword_11B020);
+  v6 = list_pop_front(dword_11B020);
   v7 = (uint32_t *)v6;
   if ( **(int16_t **)off_11B024 < 0 && !v6 )
-    rf_cmd_send_n264(dword_11B030, dword_11B02C, 227);
+    flash_ctrl_init(dword_11B030, dword_11B02C, 227);
   v8 = off_11B028;
   v9 = (char *)off_11B028 + 32;
   v10 = *((uint32_t *)off_11B028 + 8);
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = list_push_tail(v9);
+  result = check_kernel_state(v9);
   if ( !v10 )
   {
     v8[18] = v7;
@@ -68,7 +68,7 @@ int  rf_xosc_setup(int a1, int a2, int a3)
     *(uint32_t *)off_11B03C = v16;
     if ( v15 - 64 >= 0 )
     {
-      result = sub_11AB18(dword_11B040, v13);
+      result = ke_enter_critical(dword_11B040, v13);
       if ( *v12 )
       {
         v19 = *v12 - 1;

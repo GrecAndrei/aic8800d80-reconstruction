@@ -18,8 +18,8 @@ extern uint32_t dword_116EE4;
 extern uint32_t off_116EF0;
 extern uint32_t off_116EE0;
 
-// sub_116DE0 @ 0x116de0, size 248 bytes
-int  sub_116DE0(int result, int a2, int a3)
+// get_bt_param @ 0x116de0, size 248 bytes
+int  get_bt_param(int result, int a2, int a3)
 {
   int v4; // r6
   int *v6; // r5
@@ -38,7 +38,7 @@ int  sub_116DE0(int result, int a2, int a3)
   v7 = *v6;
   v8 = **(int16_t **)off_116EDC;
   if ( v8 < 0 && v7 == result )
-    return sub_12F630(dword_116EE8, dword_116EE4, 1972, v8);
+    return ke_int_lock(dword_116EE8, dword_116EE4, 1972, v8);
   if ( v7 )
   {
     v9 = off_116EF0;
@@ -52,7 +52,7 @@ int  sub_116DE0(int result, int a2, int a3)
       && ((v11 = *((uint32_t *)off_116EE0 + 52), result = v11 << 31, (v11 & 1) == 0)
        || *((uint8_t *)off_116EE0 + 190) != a3) )
     {
-      result = sub_1166FC(a3);
+      result = switch_rf_path(a3);
       v10 = *(uint8_t *)(*(uint32_t *)v9 + 1);
     }
   }
@@ -66,7 +66,7 @@ int  sub_116DE0(int result, int a2, int a3)
   }
   else
   {
-    result = bt_chan_dispatch_n_6f0(v4, a3, v7, v8);
+    result = get_cal_item(v4, a3, v7, v8);
     v10 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
   }
   if ( !v10 )

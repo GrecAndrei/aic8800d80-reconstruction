@@ -13,17 +13,17 @@
 extern uint32_t off_137154;
 extern uint32_t dword_137158;
 
-// sub_137124 @ 0x137124, size 48 bytes
-int  sub_137124(int a1, uint8_t *a2)
+// rf_send_channel_alt @ 0x137124, size 48 bytes
+int  rf_send_channel_alt(int a1, uint8_t *a2)
 {
   uint16_t *v2; // r5
   int v4; // r0
 
   v2 = (uint16_t *)off_137154;
-  v4 = sub_12C92C(4107, *((uint16_t *)off_137154 + 1924), 4, 1u);
-  sub_12C98C(v4);
-  sub_12ECD0(8, dword_137158, v2[1924]);
-  sub_1374C8(*a2);
+  v4 = ke_msg_alloc(4107, *((uint16_t *)off_137154 + 1924), 4, 1u);
+  ke_msg_send(v4);
+  check_status_bits(8, dword_137158, v2[1924]);
+  hci_cmd_process(*a2);
   return 0;
 }
 

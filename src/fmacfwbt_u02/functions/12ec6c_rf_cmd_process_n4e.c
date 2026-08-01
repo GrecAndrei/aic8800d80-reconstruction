@@ -12,10 +12,10 @@
 
 extern uint32_t off_12EC74;
 
-// rf_cmd_process_n4e @ 0x12ec6c, size 6 bytes
-// Doc: rf_cmd_process_n4e [rf]: RF command processing: store header, call sub, shift nibble from r8
-// rf_cmd_process_n4e [rf]: RF command processing: store header, call sub, shift nibble from r8
-int rf_cmd_process_n4e()
+// state_get_flags @ 0x12ec6c, size 6 bytes
+// Doc: state_get_flags [rf]: RF command processing: store header, call sub, shift nibble from r8
+// state_get_flags [rf]: RF command processing: store header, call sub, shift nibble from r8
+int state_get_flags()
 {
   return *(uint32_t *)off_12EC74;
 }

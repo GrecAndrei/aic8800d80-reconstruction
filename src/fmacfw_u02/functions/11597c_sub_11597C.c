@@ -26,8 +26,8 @@ extern uint32_t off_115AE0;
 extern uint32_t off_115ADC;
 extern uint32_t off_115ACC;
 
-// sub_11597C @ 0x11597c, size 300 bytes
-uint8_t *sub_11597C()
+// gpio_read_input @ 0x11597c, size 300 bytes
+uint8_t *gpio_read_input()
 {
   uint32_t *v0; // r4
   uint8_t *v1; // r5
@@ -50,7 +50,7 @@ uint8_t *sub_11597C()
   v1 = off_115AAC;
   v2 = dword_115AB0;
   *(uint8_t *)off_115AAC = *(uint8_t *)off_115AA8 & 0xF;
-  sub_12ECD0(2, v2);
+  check_status_bits(2, v2);
   if ( *v0 << 28 )
   {
     v3 = off_115AB8;
@@ -87,7 +87,7 @@ uint8_t *sub_11597C()
   }
   else if ( v10 == 1 )
   {
-    sub_12EA10();
+    ipc_wait_flag();
     v15 = off_115AE0;
     *(uint32_t *)off_115ADC |= 0x20u;
     v15[20] |= 0x20000u;

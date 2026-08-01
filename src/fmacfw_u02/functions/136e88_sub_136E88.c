@@ -13,13 +13,13 @@
 extern uint32_t dword_136E98;
 extern uint32_t off_136E94;
 
-// sub_136E88 @ 0x136e88, size 12 bytes
-int sub_136E88()
+// rf_power_off @ 0x136e88, size 12 bytes
+int rf_power_off()
 {
   int v0; // r0
 
   v0 = dword_136E98;
   *(uint8_t *)off_136E94 = 0;
-  return sub_12EA88(v0);
+  return event_dispatch(v0);
 }
 

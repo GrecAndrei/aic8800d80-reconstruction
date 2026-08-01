@@ -16,8 +16,8 @@ extern uint32_t dword_1360B0;
 extern uint32_t off_1360B4;
 extern uint32_t off_1360B8;
 
-// sub_136014 @ 0x136014, size 148 bytes
-int  sub_136014(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// rf_config_from_params @ 0x136014, size 148 bytes
+int  rf_config_from_params(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r2
   int v8; // r3
@@ -32,17 +32,17 @@ int  sub_136014(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   v7 = a2[9];
   v8 = *a2;
   v16[0] = 0;
-  sub_12E948(dword_1360A8, dword_1360AC, v7, v8);
+  alloc_tx_event(dword_1360A8, dword_1360AC, v7, v8);
   v9 = dword_1360B0 + 1320 * a2[10];
   if ( *(uint8_t *)(v9 + 106) == 2 )
   {
-    if ( *(uint8_t *)(v9 + 108) || sub_12CD48(7u) )
+    if ( *(uint8_t *)(v9 + 108) || hci_cmd_handler(7u) )
     {
       v10 = 8;
     }
     else
     {
-      v13 = sub_127BF4(a2, v16);
+      v13 = cfm_radio_check(a2, v16);
       v10 = v13;
       if ( v13 )
       {
@@ -53,7 +53,7 @@ int  sub_136014(int a1, uint8_t *a2, int16_t a3, int16_t a4)
         v14 = a2[10];
         v15 = v16[0];
         *(uint8_t *)off_1360B4 = 1;
-        sub_128748(v14, v15);
+        bsscfg_index(v14, v15);
         *((uint32_t *)off_1360B8 + 1) |= 0x10u;
       }
     }
@@ -62,10 +62,10 @@ int  sub_136014(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   {
     v10 = 4;
   }
-  v11 = (char *)sub_12C7EC(7173, a4, a3, 2u);
+  v11 = (char *)tx_send_pdu(7173, a4, a3, 2u);
   *v11 = v10;
   v11[1] = v16[0];
-  sub_12C84C((int)v11);
+  rx_process_packet((int)v11);
   return 0;
 }
 

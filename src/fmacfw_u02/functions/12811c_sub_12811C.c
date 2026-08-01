@@ -18,8 +18,8 @@ extern uint32_t off_12828C;
 extern uint32_t off_128294;
 extern uint32_t off_128290;
 
-// sub_12811C @ 0x12811c, size 354 bytes
-int  sub_12811C(int result)
+// wlc_is_running @ 0x12811c, size 354 bytes
+int  wlc_is_running(int result)
 {
   uint32_t *v1; // r5
   int v2; // r2
@@ -62,7 +62,7 @@ int  sub_12811C(int result)
         if ( dword_128284 + 84 == v4 )
           goto LABEL_7;
       }
-      sub_125E78((uint32_t *)(dword_128298 + 1320 * v5));
+      lld_evt_schedule((uint32_t *)(dword_128298 + 1320 * v5));
       LOBYTE(v2) = *(uint8_t *)(v3 + 85);
 LABEL_7:
       v2 &= 0xEFu;
@@ -75,26 +75,26 @@ LABEL_7:
       if ( (v2 & 4) != 0 )
         *(uint8_t *)(v3 + 85) = v2 & 0xFB;
       if ( !v6 || *(uint32_t *)(v6 + 12) != v3 + 76 )
-        return sub_126584(v3, *(uint32_t *)(v3 + 36), 0);
+        return llm_scan_sm_execute(v3, *(uint32_t *)(v3 + 36), 0);
       v9 = *(uint32_t *)(v3 + 80);
       v10 = *(uint32_t *)(v3 + 36);
       if ( v9 - v10 < 0 )
       {
-        if ( v10 - 4000 - v9 - sub_1019F0() < 0 )
+        if ( v10 - 4000 - v9 - get_constant_1000() < 0 )
         {
 LABEL_23:
           v11 = *(uint32_t *)(v3 + 36);
           *(uint32_t *)(v3 + 80) = v11;
-          result = sub_1019F0();
+          result = get_constant_1000();
           if ( v11 - *(uint32_t *)(v6 + 4) - result - 4000 < 0 )
           {
             v12 = *(uint32_t *)(v3 + 80);
-            result = sub_1019F0();
+            result = get_constant_1000();
             v13 = v1[18];
             *(uint32_t *)(v6 + 4) = v12 - 4000 - result;
             if ( v13 == v6 )
             {
-              timestamp_remove(dword_128288);
+              fault_handler(dword_128288);
               v1[18] = v6;
               if ( (__get_CPSR() & 1) == 0 )
               {
@@ -109,7 +109,7 @@ LABEL_23:
               *(uint32_t *)off_128294 = v18;
               if ( v17 - 64 >= 0 )
               {
-                result = timestamp_update(dword_128288, v15);
+                result = unknown_worker(dword_128288, v15);
                 if ( *v14 )
                 {
                   v7 = *v14 - 1;
@@ -144,11 +144,11 @@ LABEL_23:
         v10 = *(uint32_t *)(v3 + 36);
         v9 = *(uint32_t *)(v3 + 80);
       }
-      if ( v10 - v9 >= 0 || v9 - 4000 - v10 - sub_1019F0() >= 0 )
+      if ( v10 - v9 >= 0 || v9 - 4000 - v10 - get_constant_1000() >= 0 )
       {
-        bt_event_handler();
-        sub_126584(v3, *(uint32_t *)(v3 + 36), 0);
-        return sub_126824(v3, *((uint32_t *)off_128290 + 4), 0);
+        ke_task_poll();
+        llm_scan_sm_execute(v3, *(uint32_t *)(v3 + 36), 0);
+        return bt_link_cfg_set(v3, *((uint32_t *)off_128290 + 4), 0);
       }
       goto LABEL_23;
     }

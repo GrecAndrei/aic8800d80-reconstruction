@@ -12,16 +12,16 @@
 
 extern uint32_t dword_112980;
 
-// rf_cmd_send_2918 @ 0x112918, size 100 bytes
+// wait_radio_state @ 0x112918, size 100 bytes
 // Doc: rf_cmd_send_n56 [rf]: Send RF command variant n56, returns small status codes
 // rf_cmd_send_n56 [rf]: Send RF command variant n56, returns small status codes
-int  rf_cmd_send_2918(int a1, uint16_t *a2)
+int  wait_radio_state(int a1, uint16_t *a2)
 {
   int v4; // r2
   int v5; // r3
   int v6; // r2
 
-  rf_cmd_wait();
+  critical_section_enter();
   if ( *(uint8_t *)rf_cmd_send_n64 != 4 )
     return 1;
   v4 = a1 - 1;

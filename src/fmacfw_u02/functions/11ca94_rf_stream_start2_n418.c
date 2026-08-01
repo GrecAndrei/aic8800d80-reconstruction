@@ -21,10 +21,10 @@ extern uint32_t off_11CC68;
 extern uint32_t off_11CC64;
 extern uint32_t dword_11CC54;
 
-// rf_stream_start2_n418 @ 0x11ca94, size 444 bytes
-// Doc: rf_stream_start2_n418 [rf]: Starts an RF stream by setting up a descriptor and saving context
-// rf_stream_start2_n418 [rf]: Starts an RF stream by setting up a descriptor and saving context
-int  rf_stream_start2_n418(int result)
+// handle_rx_event @ 0x11ca94, size 444 bytes
+// Doc: handle_rx_event [rf]: Starts an RF stream by setting up a descriptor and saving context
+// handle_rx_event [rf]: Starts an RF stream by setting up a descriptor and saving context
+int  handle_rx_event(int result)
 {
   uint8_t *v1; // r6
   int v2; // r3
@@ -82,14 +82,14 @@ LABEL_12:
       v19 = *(uint16_t *)(v16 + 8);
       if ( (v19 & 0x20) == 0 )
       {
-        sub_11EBFC(result);
+        rf_irq_status_check(result);
         v20 = 9;
         while ( 1 )
         {
           v19 = *(uint16_t *)(v16 + 8);
           if ( (v19 & 0x20) != 0 )
             break;
-          sub_11EBFC(v19 << 26);
+          rf_irq_status_check(v19 << 26);
           if ( !--v20 )
           {
             v19 = *(uint16_t *)(v16 + 8);
@@ -97,7 +97,7 @@ LABEL_12:
             {
               v3 = v19 << 26;
               if ( (v19 & 0x20) == 0 )
-                return fmac_phy_op_handler(dword_11CC60, dword_11CC5C, 2274, v19);
+                return bad_func_0x12f408(dword_11CC60, dword_11CC5C, 2274, v19);
             }
             break;
           }
@@ -111,7 +111,7 @@ LABEL_12:
         }
         else
         {
-          fmac_flag_read_a0((uint8_t)v1[190], v3, (uint8_t)v1[199], v19);
+          get_phy_status((uint8_t)v1[190], v3, (uint8_t)v1[199], v19);
           LOWORD(v19) = *(uint16_t *)(v16 + 8);
         }
         goto LABEL_35;
@@ -119,7 +119,7 @@ LABEL_12:
     }
     else
     {
-      rf_bus_mark_n100_d2d0(v5 + 84 * v4 + 28);
+      mem_word_load(v5 + 84 * v4 + 28);
       LOWORD(v19) = *(uint16_t *)(v16 + 8);
     }
     if ( v1[199] )
@@ -132,7 +132,7 @@ LABEL_12:
 LABEL_35:
     v26 = *(uint32_t *)(dword_11CC70 + 4 * v4);
     *(uint16_t *)(v16 + 8) = v19 | 0x10;
-    irq_nesting_or_d104(v26);
+    unknown_func_12d104(v26);
     v27 = v5 + 84 * v4;
     *(uint8_t *)(v27 + 26) = 0;
     *(uint32_t *)(v27 + 36) = 0;
@@ -142,7 +142,7 @@ LABEL_25:
     {
       v22 = *(uint32_t *)(v21 + 36);
       if ( v22 )
-        mmio_reg_poll_n6b4(v22, v4, *(uint8_t *)(v21 + 46), v21);
+        radio_band_validate(v22, v4, *(uint8_t *)(v21 + 46), v21);
       *(uint32_t *)&v1[28 * v4 + 36] = 0;
     }
     v23 = off_11CC68;
@@ -151,7 +151,7 @@ LABEL_25:
     v24 = *((uint32_t *)v1 + 52) & 0xFFFFFFFE;
     --*(uint8_t *)(v5 + 84 * v4 + 80);
     *((uint32_t *)v1 + 52) = v24;
-    return sub_11A7E8(v4);
+    return test_flag(v4);
   }
   v8 = (int16_t **)off_11CC58;
   v9 = dword_11CC5C;
@@ -159,7 +159,7 @@ LABEL_25:
   {
     v15 = *(uint32_t *)(v6 + 12);
     if ( **v8 < 0 && !v15 )
-      sub_12F46C(dword_11CC54, v9, 2199);
+      mmio_clear_register(dword_11CC54, v9, 2199);
     v10 = *(uint32_t *)(v15 + 76);
     v11 = *(uint32_t *)(v10 + 72);
     v12 = v11 | 0x400000;
@@ -171,10 +171,10 @@ LABEL_25:
     *(uint32_t *)(v10 + 72) = v12;
     if ( (v14 & 0x200000) == 0 )
     {
-      rf_bus_init_5d8(v15, v13);
+      process_tx_packet(v15, v13);
       goto LABEL_25;
     }
-    result = sub_11BBB4(v15, v13);
+    result = get_connection_by_slot(v15, v13);
     v7 = *(uint8_t *)(v6 + 26);
     if ( *(uint8_t *)(v6 + 26) )
       goto LABEL_12;

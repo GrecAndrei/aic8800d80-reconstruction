@@ -12,8 +12,8 @@
 
 extern uint32_t dword_132880;
 
-// sub_132860 @ 0x132860, size 32 bytes
-int  sub_132860(int a1)
+// rf_get_channel_cal @ 0x132860, size 32 bytes
+int  rf_get_channel_cal(int a1)
 {
   if ( *(uint8_t *)(dword_132880 + 1320 * a1 + 412) == 1 )
     return 5409;

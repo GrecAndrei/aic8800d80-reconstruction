@@ -1,1 +1,1 @@
-{"fn": "crypto_power_apply", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207824", "status": "ok", "name": "crypto_power_apply", "params": [], "docstring": "Apply crypto engine power/clock configuration", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_power_apply", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207824", "status": "ok", "name": "ke_event_post", "params": [], "docstring": "Apply crypto engine power/clock configuration", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

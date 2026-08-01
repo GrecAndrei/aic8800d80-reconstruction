@@ -31,10 +31,10 @@ extern uint32_t dword_10B1A8;
 extern uint32_t dword_10B1C0;
 extern uint32_t dword_10B1C4;
 
-// sub_10AE68 @ 0x10ae68, size 1046 bytes
+// sdio_core_setup @ 0x10ae68, size 1046 bytes
 // Doc: crypto_mac_dispatch [mac]: Dispatch crypto MAC operation by opcode
 // crypto_mac_dispatch [mac]: Dispatch crypto MAC operation by opcode
-int  sub_10AE68(unsigned int *a1, uint8_t *a2, int a3)
+int  sdio_core_setup(unsigned int *a1, uint8_t *a2, int a3)
 {
   int v3; // r9
   int v4; // r10
@@ -124,7 +124,7 @@ int  sub_10AE68(unsigned int *a1, uint8_t *a2, int a3)
   v4 = dword_10B1B4;
   v5 = dword_10B1D8;
   v6 = a3;
-  sub_12ECB0(dword_10B190, a2, a3);
+  ke_event_schedule(dword_10B190, a2, a3);
   v7 = *(uint32_t *)off_10B194;
   v8 = *(uint32_t *)off_10B194 & 0xFFFFFFFE;
   v82 = 0;
@@ -132,7 +132,7 @@ int  sub_10AE68(unsigned int *a1, uint8_t *a2, int a3)
   v84 = 0;
   *(uint32_t *)off_10B194 = v8;
   v78 = v7 & 1;
-  crypto_hw_enable(0);
+  set_radio_ctrl_bits(0);
   v9 = dword_10B1B0;
   v10 = dword_10B1B8;
   v11 = 0;
@@ -182,13 +182,13 @@ LABEL_5:
   }
   while ( v11 != 3 );
   v18 = off_10B198;
-  crypto_hw_disable(0);
-  feature_guard_sdio(1, dword_10B19C);
+  set_radio_ctrl_bits2(0);
+  state_check_feature(1, dword_10B19C);
   v19 = dword_10B1A0;
   *v18 |= 0x400u;
   *v18 &= ~0x400u;
-  sub_12ECB0(v19, v20, v21);
-  feature_guard_sdio(1, dword_10B1A4);
+  ke_event_schedule(v19, v20, v21);
+  state_check_feature(1, dword_10B1A4);
   v24 = v18;
   v73 = v6 + 56;
   do
@@ -199,7 +199,7 @@ LABEL_5:
     *v24 &= ~0x400u;
     if ( v25 == 1 )
     {
-      feature_guard_sdio(1, dword_10B1C8);
+      state_check_feature(1, dword_10B1C8);
       if ( v26 > 0x1388 )
       {
         LOBYTE(v84) = 0;
@@ -207,8 +207,8 @@ LABEL_5:
         HIWORD(v82) = v26;
         LOWORD(v83) = v26;
         HIWORD(v83) = v26;
-        sub_102898((uint16_t *)&v82, 0);
-        v72 = sub_102984(v26);
+        gpio_init((uint16_t *)&v82, 0);
+        v72 = validate_value_range(v26);
         v77 = dword_10B280 + 384 * v72;
         v75 = &a1[316 * (uint8_t)(v72 + 1)];
         v76 = &a2[(uint8_t)(v72 + 1)];
@@ -218,21 +218,21 @@ LABEL_5:
         LOWORD(v83) = v26;
         LOBYTE(v82) = 0;
         LOBYTE(v84) = 0;
-        sub_102898((uint16_t *)&v82, 0);
+        gpio_init((uint16_t *)&v82, 0);
         v77 = dword_10B1CC;
         v76 = a2;
         v75 = a1;
         v25 = 0;
       }
-      crypto_mac_core((int)(v75 + 292), v75, 255, 0, 0, dword_10B1D0, 0);
-      delay_us(10000);
+      bt_rf_calibrate((int)(v75 + 292), v75, 255, 0, 0, dword_10B1D0, 0);
+      timer_set(10000);
       v81 = v6;
       *v76 = 1;
       v74 = v25;
       for ( i = 0; i != 3; ++i )
       {
         if ( !v75[i] )
-          feature_guard_sdio(1, dword_10B284);
+          state_check_feature(1, dword_10B284);
         if ( v74 == 1 )
         {
           if ( i )
@@ -271,8 +271,8 @@ LABEL_5:
         }
         v58 = dword_10B1D4;
         *v76 &= (v75[v54] & 0x20000) != 0;
-        feature_guard_sdio(1, v58);
-        crypto_key_schedule_5840(v75[v54], v85);
+        state_check_feature(1, v58);
+        ke_task_create(v75[v54], v85);
         if ( v57 < v56 )
         {
           v59 = v86;
@@ -343,8 +343,8 @@ LABEL_45:
   v28 = dword_10B1B0;
   v29 = dword_10B1B4;
   v30 = dword_10B1D8;
-  sub_12ECB0(dword_10B1A8, v22, v23);
-  crypto_hw_enable(0);
+  ke_event_schedule(dword_10B1A8, v22, v23);
+  set_radio_ctrl_bits(0);
   v31 = dword_10B1B8;
   v32 = (int *)v88;
   v33 = 0;
@@ -392,10 +392,10 @@ LABEL_15:
       continue;
     break;
   }
-  crypto_hw_disable(0);
+  set_radio_ctrl_bits2(0);
   v39 = dword_10B1C0;
   *(uint32_t *)off_10B194 = *(uint32_t *)off_10B194 & 0xFFFFFFFE | v78;
-  feature_guard_sdio(1, v39);
-  return sub_12ECB0(dword_10B1C4, v40, v41);
+  state_check_feature(1, v39);
+  return ke_event_schedule(dword_10B1C4, v40, v41);
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t off_13A584;
 
-// phy_flag_clear_72 @ 0x13a574, size 14 bytes
-// Doc: phy_flag_clear_72 [mac]: Clear 16-bit flag at offset 0x72 in PHY struct
-// phy_flag_clear_72 [mac]: Clear 16-bit flag at offset 0x72 in PHY struct
-int phy_flag_clear_72()
+// rf_clear_flag @ 0x13a574, size 14 bytes
+// Doc: rf_clear_flag [mac]: Clear 16-bit flag at offset 0x72 in PHY struct
+// rf_clear_flag [mac]: Clear 16-bit flag at offset 0x72 in PHY struct
+int rf_clear_flag()
 {
   int result; // r0
 

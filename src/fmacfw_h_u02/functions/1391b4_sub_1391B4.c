@@ -13,8 +13,8 @@
 extern uint32_t dword_1391F8;
 extern uint32_t dword_1391FC;
 
-// sub_1391B4 @ 0x1391b4, size 66 bytes
-uint32_t ** sub_1391B4(int a1, int a2)
+// rf_lookup_rate_table @ 0x1391b4, size 66 bytes
+uint32_t ** rf_lookup_rate_table(int a1, int a2)
 {
   uint32_t **result; // r0
   unsigned int v3; // r2
@@ -33,8 +33,8 @@ uint32_t ** sub_1391B4(int a1, int a2)
       v6 = (v3 >> 4) - v4;
       if ( (v5 & 0x800) == 0 )
       {
-        sub_139168((int)result, v6 & 0xFFF);
-        return sub_12F414((uint32_t **)dword_1391FC);
+        short_delay((int)result, v6 & 0xFFF);
+        return deref_and_check((uint32_t **)dword_1391FC);
       }
     }
   }

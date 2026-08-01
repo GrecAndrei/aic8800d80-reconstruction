@@ -13,10 +13,10 @@
 extern uint32_t off_13BAC0;
 extern uint32_t dword_13BAC4;
 
-// sub_13BA78 @ 0x13ba78, size 72 bytes
+// tx_done_queue @ 0x13ba78, size 72 bytes
 // Doc: sub_123BA78 [util]: Utility helper using linked-list style structure traversal
 // sub_123BA78 [util]: Utility helper using linked-list style structure traversal
-int  sub_13BA78(int **a1)
+int  tx_done_queue(int **a1)
 {
   int *v1; // r6
   int result; // r0

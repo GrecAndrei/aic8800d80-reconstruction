@@ -13,8 +13,8 @@
 extern uint32_t dword_124BE0;
 extern uint32_t off_124BDC;
 
-// sub_124B74 @ 0x124b74, size 102 bytes
-int  sub_124B74(int a1, uint16_t *a2, int a3, int a4)
+// cmd_dispatch @ 0x124b74, size 102 bytes
+int  cmd_dispatch(int a1, uint16_t *a2, int a3, int a4)
 {
   int v6; // r1
   int v7; // r0
@@ -28,22 +28,22 @@ int  sub_124B74(int a1, uint16_t *a2, int a3, int a4)
   {
     case 0:
       v8 = a3;
-      sub_124848(a2 + 2);
+      mmio_read_status(a2 + 2);
       a3 = v8;
       break;
     case 1:
       v10 = a3;
-      sub_1248E4((uint8_t *)a2 + 4);
+      scan_param_update((uint8_t *)a2 + 4);
       a3 = v10;
       break;
     case 2:
       v11 = a3;
-      sub_1249FC((uint8_t *)a2 + 4);
+      mmio_read_byte((uint8_t *)a2 + 4);
       a3 = v11;
       break;
     case 3:
       v12 = a3;
-      sub_124AD4((uint8_t *)a2 + 4, a2);
+      check_flag_bit((uint8_t *)a2 + 4, a2);
       a3 = v12;
       break;
     case 6:
@@ -51,13 +51,13 @@ int  sub_124B74(int a1, uint16_t *a2, int a3, int a4)
       v7 = dword_124BE0;
       v9 = a3;
       *(uint8_t *)off_124BDC = v6;
-      sub_12E948(v7, v6, a3);
+      alloc_tx_event(v7, v6, a3);
       a3 = v9;
       break;
     default:
       break;
   }
-  sub_12C8D0(127, a4, a3);
+  mac_write_header_word(127, a4, a3);
   return 0;
 }
 

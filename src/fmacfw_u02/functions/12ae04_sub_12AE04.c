@@ -13,8 +13,8 @@
 extern uint32_t dword_12AE38;
 extern uint32_t dword_12AE3C;
 
-// sub_12AE04 @ 0x12ae04, size 52 bytes
-int * sub_12AE04(int a1)
+// tx_queue_entry_get @ 0x12ae04, size 52 bytes
+int * tx_queue_entry_get(int a1)
 {
   int v1; // r4
   int v2; // r6
@@ -29,8 +29,8 @@ int * sub_12AE04(int a1)
   v3 = a1;
   v4 = 32 * a1;
   if ( *(uint8_t *)(v2 + 30) )
-    sub_124E34(dword_12AE38 + 32 * a1);
-  result = sub_100200((int *)v2, 0, 0x20u);
+    fault_handler(dword_12AE38 + 32 * a1);
+  result = memset((int *)v2, 0, 0x20u);
   v6 = v1 + v4;
   v7 = dword_12AE3C;
   *(uint32_t *)(v6 + 8) = v2;

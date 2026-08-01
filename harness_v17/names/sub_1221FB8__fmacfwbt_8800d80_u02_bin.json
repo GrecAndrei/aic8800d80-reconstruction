@@ -1,1 +1,1 @@
-{"fn": "sub_1221FB8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221fb8", "status": "ok", "name": "rf_chan_param_lookup_n1f0", "params": [], "docstring": "Look up per-channel RF parameters via indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221FB8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221fb8", "status": "ok", "name": "phy_txpower_calc", "params": [], "docstring": "Look up per-channel RF parameters via indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

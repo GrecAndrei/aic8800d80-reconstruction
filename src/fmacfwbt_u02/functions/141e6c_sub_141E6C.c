@@ -15,8 +15,8 @@ extern uint32_t dword_141ED8;
 extern uint32_t off_141EE0;
 extern uint32_t dword_141EDC;
 
-// sub_141E6C @ 0x141e6c, size 102 bytes
-int  sub_141E6C(int a1)
+// mmio_read_register @ 0x141e6c, size 102 bytes
+int  mmio_read_register(int a1)
 {
   int v1; // r2
   int v3; // r3
@@ -34,7 +34,7 @@ int  sub_141E6C(int a1)
   *(uint32_t *)(a1 + 56) = dword_141ED8;
   *(uint64_t *)(a1 + 24) = v4;
   v5 = *(uint8_t *)(a1 + 47);
-  sub_124F60(a1 + 52, v3 + v1);
+  ke_event_lock(a1 + 52, v3 + v1);
   v6 = off_141EE0;
   v7 = dword_141EDC + 1320 * v5;
   v8 = *(uint16_t *)a1 | 8;

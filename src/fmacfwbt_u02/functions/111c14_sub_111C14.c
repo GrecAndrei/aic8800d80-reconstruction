@@ -26,8 +26,8 @@ extern uint32_t off_111D3C;
 extern uint32_t off_111D34;
 extern uint32_t dword_111D40;
 
-// sub_111C14 @ 0x111c14, size 262 bytes
-int  sub_111C14(uint32_t *a1, int a2)
+// ipc_send_request @ 0x111c14, size 262 bytes
+int  ipc_send_request(uint32_t *a1, int a2)
 {
   uint8_t *v4; // r6
   uint32_t *v5; // r7
@@ -44,7 +44,7 @@ int  sub_111C14(uint32_t *a1, int a2)
   int v17; // r1
   uint32_t *v18; // r3
 
-  sub_12ECB0(dword_111D1C, 0, a2);
+  ke_event_schedule(dword_111D1C, 0, a2);
   if ( !a1 )
     return 1;
   if ( !*a1 || !a1[1] || !a1[2] || !a1[5] )
@@ -55,12 +55,12 @@ int  sub_111C14(uint32_t *a1, int a2)
   v5 = off_111D24;
   v6 = off_111D28;
   *(uint8_t *)off_111D20 = 1;
-  sub_14380C(v6, a1, 80);
+  memcpy_aligned(v6, a1, 80);
   v8 = v5[97];
   if ( v8 )
   {
-    sub_12ECB0(dword_111D54, v8, v7);
-    sub_100644(v5[97]);
+    ke_event_schedule(dword_111D54, v8, v7);
+    timer_set(v5[97]);
   }
   v9 = off_111D2C;
   if ( (*((uint32_t *)off_111D2C + 512) & 0x7F0) != 0 )
@@ -70,7 +70,7 @@ int  sub_111C14(uint32_t *a1, int a2)
     *((uint32_t *)v15 + 2) = 0;
     *v15 = 0;
     *v4 = 4;
-    v16 = sub_1116E0();
+    v16 = tx_pkt_config();
     v17 = *(uint32_t *)off_111D48;
     v18 = *(uint32_t **)off_111D4C;
     *v18 = dword_111D50;
@@ -91,9 +91,9 @@ int  sub_111C14(uint32_t *a1, int a2)
       *((uint32_t *)off_111D2C + 2) &= ~1u;
       v9[513] |= 2u;
     }
-    sub_111858();
+    rf_radio_enable();
   }
-  sub_12ECB0(dword_111D30, v10, v11);
+  ke_event_schedule(dword_111D30, v10, v11);
   v12 = dword_111D38;
   v13 = off_111D3C;
   *(uint32_t *)(*((uint32_t *)off_111D34 + 2) + 320) = dword_111D38;
@@ -103,7 +103,7 @@ int  sub_111C14(uint32_t *a1, int a2)
     while ( *v4 != 4 )
       ;
   }
-  sub_12ECB0(dword_111D40, v12, 1);
+  ke_event_schedule(dword_111D40, v12, 1);
   return 0;
 }
 

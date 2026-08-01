@@ -20,8 +20,8 @@ extern uint32_t off_10CC34;
 extern uint32_t off_10CC3C;
 extern uint32_t off_10CC38;
 
-// sub_10CB70 @ 0x10cb70, size 190 bytes
-int  sub_10CB70(uint16_t *a1)
+// patch_dispatch @ 0x10cb70, size 190 bytes
+int  patch_dispatch(uint16_t *a1)
 {
   int16_t **v2; // r7
   int v3; // r0
@@ -42,7 +42,7 @@ int  sub_10CB70(uint16_t *a1)
   v5 = v3;
   if ( **v2 < 0 && !v3 )
   {
-    sub_12F32C(dword_10CC48, dword_10CC40, 1358);
+    irq_disable_mmio_write(dword_10CC48, dword_10CC40, 1358);
     v4 = *v2;
   }
   v6 = (uint16_t)a1[5];
@@ -69,12 +69,12 @@ int  sub_10CB70(uint16_t *a1)
   {
     if ( v7 > 0xE )
     {
-      sub_12F32C(dword_10CC50, dword_10CC4C, 183);
-      sub_12F32C(dword_10CC44, dword_10CC40, 1375);
+      irq_disable_mmio_write(dword_10CC50, dword_10CC4C, 183);
+      irq_disable_mmio_write(dword_10CC44, dword_10CC40, 1375);
     }
     else if ( v7 > 0xC )
     {
-      sub_12F32C(dword_10CC44, dword_10CC40, 1375);
+      irq_disable_mmio_write(dword_10CC44, dword_10CC40, 1375);
     }
   }
   if ( **(uint8_t **)off_10CC34 == 3 )
@@ -85,6 +85,6 @@ int  sub_10CB70(uint16_t *a1)
     a1[4] = v13;
     *v12 = 4;
   }
-  return sub_12C84C(v5 + 12);
+  return rx_process_packet(v5 + 12);
 }
 

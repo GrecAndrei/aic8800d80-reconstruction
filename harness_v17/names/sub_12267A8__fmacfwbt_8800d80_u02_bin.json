@@ -1,1 +1,1 @@
-{"fn": "sub_12267A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12267a8", "status": "ok", "name": "bt_rf_calibrate_or_setup", "params": [], "docstring": "BT-side RF calibration/setup routine using MMIO table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12267A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12267a8", "status": "ok", "name": "scan_adv_report", "params": [], "docstring": "BT-side RF calibration/setup routine using MMIO table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

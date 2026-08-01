@@ -13,10 +13,10 @@
 extern uint32_t dword_11C4B4;
 extern uint32_t dword_11C4B8;
 
-// rx_process_pcie_desc @ 0x11c3ec, size 198 bytes
-// Doc: rx_process_pcie_desc [rx]: Processes PCIe RX descriptor ring entry for received frame
-// rx_process_pcie_desc [rx]: Processes PCIe RX descriptor ring entry for received frame
-int  rx_process_pcie_desc(int a1, int a2)
+// txpacket_prepare @ 0x11c3ec, size 198 bytes
+// Doc: txpacket_prepare [rx]: Processes PCIe RX descriptor ring entry for received frame
+// txpacket_prepare [rx]: Processes PCIe RX descriptor ring entry for received frame
+int  txpacket_prepare(int a1, int a2)
 {
   int v2; // r2
   int v3; // r5
@@ -76,7 +76,7 @@ LABEL_13:
         }
         else if ( *(uint8_t *)(a2 + 13) == v12 >> 12 )
         {
-          sub_14380C(a2 + 228, v8 + 1, v11 - 2);
+          memcpy_aligned(a2 + 228, v8 + 1, v11 - 2);
           *(uint32_t *)(a2 + 224) = a2 + 228;
           return 1;
         }

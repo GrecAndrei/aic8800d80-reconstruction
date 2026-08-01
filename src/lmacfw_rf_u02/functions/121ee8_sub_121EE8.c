@@ -12,10 +12,10 @@
 
 extern uint32_t dword_121F0C;
 
-// sub_121EE8 @ 0x121ee8, size 32 bytes
+// buffer_flush @ 0x121ee8, size 32 bytes
 // Doc: rf_cmd_dispatch_n_4b [rf]: Dispatches completed RF command response
 // rf_cmd_dispatch_n_4b [rf]: Dispatches completed RF command response
-int sub_121EE8()
+int buffer_flush()
 {
   uint32_t *v0; // r4
   int v1; // r6
@@ -27,7 +27,7 @@ int sub_121EE8()
   do
   {
     if ( v0[1] )
-      sub_10DA6C(v1, *v0);
+      log_printf(v1, *v0);
     v0 += 4;
   }
   while ( v0 != (uint32_t *)v2 );

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E2C0 @ 0x13e2c0, size 104 bytes
-int  sub_13E2C0(uint8_t *a1)
+// state_table_dispatch @ 0x13e2c0, size 104 bytes
+int  state_table_dispatch(uint8_t *a1)
 {
   int result; // r0
   unsigned int v2; // r3

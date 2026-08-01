@@ -14,8 +14,8 @@ extern uint32_t off_107438;
 extern uint32_t off_10743C;
 extern uint32_t off_107440;
 
-// sub_1073D8 @ 0x1073d8, size 96 bytes
-uint32_t *sub_1073D8()
+// pll_set_clock @ 0x1073d8, size 96 bytes
+uint32_t *pll_set_clock()
 {
   unsigned int *v0; // r2
   uint32_t *v1; // r3

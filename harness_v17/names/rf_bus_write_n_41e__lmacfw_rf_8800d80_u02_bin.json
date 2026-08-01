@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_41e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121104e", "status": "ok", "name": "rf_bus_write_n_41e", "params": [], "docstring": "Write value to RF register bus at 0x40240210", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_41e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121104e", "status": "ok", "name": "mmio_write_1500b0", "params": [], "docstring": "Write value to RF register bus at 0x40240210", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

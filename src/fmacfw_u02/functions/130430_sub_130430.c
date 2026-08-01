@@ -15,8 +15,8 @@ extern uint32_t dword_1304A0;
 extern uint32_t off_1304A4;
 extern uint32_t dword_1304A8;
 
-// sub_130430 @ 0x130430, size 110 bytes
-int  sub_130430(int a1)
+// rf_is_channel_valid @ 0x130430, size 110 bytes
+int  rf_is_channel_valid(int a1)
 {
   signed int v1; // r0
   int v2; // r3
@@ -37,10 +37,10 @@ int  sub_130430(int a1)
   if ( v2 < 1 )
     LOBYTE(v2) = 1;
   *((uint8_t *)off_1304A4 + 5) = v2;
-  sub_1302F8(v1);
-  result = sub_12EA5C(9u, 4u);
+  rf_calibrate_channel_power(v1);
+  result = get_flag_bit(9u, 4u);
   if ( result )
-    return sub_1303A0();
+    return rf_configure_channel();
   return result;
 }
 

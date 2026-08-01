@@ -1,1 +1,1 @@
-{"fn": "sub_1243710", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1243710", "status": "ok", "name": "sub_1243710", "params": [], "docstring": "Small dispatch helper comparing r2 against 3", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1243710", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1243710", "status": "ok", "name": "memcmp", "params": [], "docstring": "Small dispatch helper comparing r2 against 3", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

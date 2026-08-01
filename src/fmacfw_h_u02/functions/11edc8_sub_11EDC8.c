@@ -21,8 +21,8 @@ extern uint32_t dword_11EFE0;
 extern uint32_t off_11EFE4;
 extern uint32_t off_11EFE8;
 
-// sub_11EDC8 @ 0x11edc8, size 504 bytes
-int  sub_11EDC8(int *a1, uint8_t *a2)
+// is_controller_active @ 0x11edc8, size 504 bytes
+int  is_controller_active(int *a1, uint8_t *a2)
 {
   int v3; // r8
   int v5; // r0
@@ -63,16 +63,16 @@ int  sub_11EDC8(int *a1, uint8_t *a2)
   int v41; // r1
 
   v3 = *((uint8_t *)a1 + 25);
-  v5 = sub_12D190(dword_11EFC0);
+  v5 = list_pop(dword_11EFC0);
   if ( !v5 )
     return 1;
   v6 = v5;
   if ( *((uint8_t *)a1 + 29) )
   {
-    v35 = sub_12D190(dword_11EFC0);
+    v35 = list_pop(dword_11EFC0);
     if ( !v35 )
     {
-      sub_12D108(dword_11EFC0);
+      wlan_ioctl_handler_1(dword_11EFC0);
       return 1;
     }
     *(uint32_t *)(v6 + 44) = v35;
@@ -116,7 +116,7 @@ int  sub_11EDC8(int *a1, uint8_t *a2)
   *(uint8_t *)(v6 + 34) = *((uint8_t *)a1 + 25);
   *a2 = v14;
   *(uint8_t *)(v6 + 35) = v14;
-  sub_12EB90(256, v13);
+  check_feature_flag(256, v13);
   v15 = dword_11EFD4;
   v16 = dword_11EFD4 + 1320 * v3;
   v17 = *(uint8_t *)(v16 + 1224);
@@ -157,7 +157,7 @@ int  sub_11EDC8(int *a1, uint8_t *a2)
   while ( v6 + 108 != v19 );
   if ( (v22 & 0x10) != 0 )
     *(uint32_t *)(v6 + 4) |= 8u;
-  sub_12D108(v15 + v20 + 240);
+  wlan_ioctl_handler_1(v15 + v20 + 240);
   *(uint32_t *)(v6 + 580) = dword_11EFE0;
   if ( (__get_CPSR() & 1) == 0 )
   {

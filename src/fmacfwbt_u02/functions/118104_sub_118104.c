@@ -13,10 +13,10 @@
 extern uint32_t off_118148;
 extern uint32_t off_11814C;
 
-// sub_118104 @ 0x118104, size 66 bytes
+// delay_loop @ 0x118104, size 66 bytes
 // Doc: sub_1218104 [util]: Memory/buffer offset utility: computes 4-byte aligned offsets using 0x3e8 stride
 // sub_1218104 [util]: Memory/buffer offset utility: computes 4-byte aligned offsets using 0x3e8 stride
-int  sub_118104(int a1)
+int  delay_loop(int a1)
 {
   uint64_t *v1; // r6
   uint64_t *v2; // r7

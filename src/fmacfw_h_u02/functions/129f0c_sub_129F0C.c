@@ -13,8 +13,8 @@
 extern uint32_t dword_129F48;
 extern uint32_t off_129F4C;
 
-// sub_129F0C @ 0x129f0c, size 60 bytes
-int  sub_129F0C(int result, int a2)
+// bt_get_conn_role @ 0x129f0c, size 60 bytes
+int  bt_get_conn_role(int result, int a2)
 {
   int v2; // r2
   int v3; // r3

@@ -12,12 +12,12 @@
 
 extern uint32_t off_13025C;
 
-// sub_130234 @ 0x130234, size 38 bytes
-int sub_130234()
+// rf_power_adjust @ 0x130234, size 38 bytes
+int rf_power_adjust()
 {
   if ( *((uint8_t *)off_13025C + 1) )
     return *((char *)off_13025C + 3);
-  sub_10DEB0();
-  return (int)COERCE_FLOAT(sub_10DF08());
+  hw_block_reset();
+  return (int)COERCE_FLOAT(hw_poll_status());
 }
 

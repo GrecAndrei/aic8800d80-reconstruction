@@ -23,8 +23,8 @@ extern uint32_t dword_1136C0;
 extern uint32_t dword_1136C4;
 extern uint32_t dword_1136CC;
 
-// sub_113578 @ 0x113578, size 294 bytes
-void sub_113578()
+// rf_get_flag @ 0x113578, size 294 bytes
+void rf_get_flag()
 {
   uint8_t *v0; // r5
   int v1; // r0
@@ -46,14 +46,14 @@ void sub_113578()
   {
     if ( !*(uint16_t *)off_1136AC )
     {
-      sub_12EB90(512, dword_1136C8);
+      check_feature_flag(512, dword_1136C8);
       return;
     }
     if ( *(uint8_t *)off_1136A8 >= (unsigned int)*(uint16_t *)off_1136AC )
     {
       v13 = dword_1136B4;
       *(uint8_t *)off_1136A4 = 1;
-      sub_12EB90(512, v13);
+      check_feature_flag(512, v13);
     }
   }
   else
@@ -63,7 +63,7 @@ void sub_113578()
     if ( *(uint8_t *)off_1136A8 >= (unsigned int)*(uint16_t *)off_1136AC && !*(uint8_t *)off_1136A4 )
     {
       *(uint8_t *)off_1136A4 = 1;
-      sub_12EB90(512, dword_1136B4);
+      check_feature_flag(512, dword_1136B4);
       return;
     }
   }
@@ -78,20 +78,20 @@ void sub_113578()
       v5 = *(uint32_t *)off_1136BC;
       v6 = *(uint32_t *)off_1136D0 + v1;
       if ( *(uint8_t *)off_1136A4 )
-        v7 = sub_1132B0(v6, v5);
+        v7 = check_and_init_flag(v6, v5);
       else
-        v7 = sub_113210(v6, v5);
+        v7 = bt_get_state(v6, v5);
     }
     else
     {
       v3 = off_1136D0;
       v4 = (unsigned int *)off_1136BC;
-      v7 = sub_113210(*(uint32_t *)off_1136D0 + v1, *(uint32_t *)off_1136BC);
+      v7 = bt_get_state(*(uint32_t *)off_1136D0 + v1, *(uint32_t *)off_1136BC);
     }
     if ( v7 )
     {
       v8 = off_1136A4;
-      sub_10DAE4(dword_1136C0, v7);
+      debug_printf(dword_1136C0, v7);
       v9 = 5;
       while ( 1 )
       {
@@ -99,19 +99,19 @@ void sub_113578()
         {
           v10 = *v4;
           v11 = (int)v2 + *v3;
-          v12 = *v8 ? sub_1132B0(v11, v10) : sub_113210(v11, v10);
+          v12 = *v8 ? check_and_init_flag(v11, v10) : bt_get_state(v11, v10);
         }
         else
         {
-          v12 = sub_113210((int)v2 + *v3, *v4);
+          v12 = bt_get_state((int)v2 + *v3, *v4);
         }
         if ( !v12 )
           break;
         if ( !--v9 )
         {
-          sub_10DAE4(dword_1136C4, 5);
-          sub_10FEC8(v2);
-          sub_12CFC4(32);
+          debug_printf(dword_1136C4, 5);
+          wait_for_state(v2);
+          irq_disable_global_2(32);
           return;
         }
       }
@@ -119,8 +119,8 @@ void sub_113578()
   }
   else
   {
-    sub_12CFC4(32);
-    sub_10DAE4(dword_1136CC);
+    irq_disable_global_2(32);
+    debug_printf(dword_1136CC);
   }
 }
 

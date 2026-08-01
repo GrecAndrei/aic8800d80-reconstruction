@@ -21,10 +21,10 @@ extern uint32_t off_10EC3C;
 extern uint32_t off_10EC34;
 extern uint32_t dword_10EC38;
 
-// mmio_init_peripherals @ 0x10eb18, size 260 bytes
-// Doc: mmio_init_peripherals [mmio]: Initialize peripheral MMIO register base pointers
-// mmio_init_peripherals [mmio]: Initialize peripheral MMIO register base pointers
-int  mmio_init_peripherals(unsigned int *a1)
+// rf_hardware_init @ 0x10eb18, size 260 bytes
+// Doc: rf_hardware_init [mmio]: Initialize peripheral MMIO register base pointers
+// rf_hardware_init [mmio]: Initialize peripheral MMIO register base pointers
+int  rf_hardware_init(unsigned int *a1)
 {
   uint32_t *v1; // r2
   int v2; // r7
@@ -58,7 +58,7 @@ int  mmio_init_peripherals(unsigned int *a1)
   *v4 &= ~1u;
   v16[0] = v6;
   v16[1] = 5610;
-  sub_102A20((uint16_t *)v16, 0);
+  rf_enable((uint16_t *)v16, 0);
   v8 = (int *)off_10EC34;
   v9 = dword_10EC38;
   *v5 |= 0x80000000;
@@ -71,7 +71,7 @@ int  mmio_init_peripherals(unsigned int *a1)
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = sub_10E83C(4u, 8u, a1);
+  result = rf_analog_ctrl_set(4u, 8u, a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;

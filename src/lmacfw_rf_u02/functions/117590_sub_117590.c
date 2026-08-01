@@ -36,8 +36,8 @@ extern uint32_t dword_11793C;
 extern uint32_t dword_117938;
 extern uint32_t dword_117940;
 
-// sub_117590 @ 0x117590, size 936 bytes
-int  sub_117590(int a1, int a2, int a3)
+// tx_acl_queue_process @ 0x117590, size 936 bytes
+int  tx_acl_queue_process(int a1, int a2, int a3)
 {
   int v3; // r6
   int v4; // r9
@@ -103,7 +103,7 @@ int  sub_117590(int a1, int a2, int a3)
   v8 = *v6;
   if ( v8 == 3 )
   {
-    v3 = sub_121A80();
+    v3 = return_0();
     v8 = **v5;
     a3 = v3 + 56;
   }
@@ -114,7 +114,7 @@ int  sub_117590(int a1, int a2, int a3)
     {
       v50 = v60;
       *(uint8_t *)(a1 + 16) |= 1u;
-      scan_channel_done_n_180(a1, v50);
+      ll_timer_offset_get(a1, v50);
       CPSR = __get_CPSR();
       if ( (CPSR & 1) == 0 )
       {
@@ -123,7 +123,7 @@ int  sub_117590(int a1, int a2, int a3)
       }
       v53 = (int *)off_117948;
       ++*(uint32_t *)off_117948;
-      v54 = rf_bus_mark_ne0(CPSR << 31, v51);
+      v54 = process_event(CPSR << 31, v51);
       if ( *v53 )
       {
         v56 = *v53 - 1;
@@ -135,7 +135,7 @@ int  sub_117590(int a1, int a2, int a3)
             __enable_irq();
         }
       }
-      return sub_10DA6C(dword_11794C, v54, v55);
+      return log_printf(dword_11794C, v54, v55);
     }
     if ( (__get_CPSR() & 1) == 0 )
     {
@@ -150,7 +150,7 @@ int  sub_117590(int a1, int a2, int a3)
     v30 = dword_1178B0;
     if ( v28 )
       v26[4122] = 0;
-    v31 = sub_11E7AC(v29);
+    v31 = list_pop_front(v29);
     a3 = v58;
     v32 = *(uint32_t *)off_117898;
     v4 = v31;
@@ -186,16 +186,16 @@ LABEL_37:
       v8 = **v5;
       if ( v8 == 2 )
       {
-        sub_11702C(&v60, v9, &v59);
+        wlan_rf_init(&v60, v9, &v59);
         goto LABEL_7;
       }
 LABEL_5:
       if ( v8 == 1 )
-        sub_117164(&v60, v9, &v59);
+        tx_send_packet(&v60, v9, &v59);
       else
-        sub_117284(&v60, v9, a3, &v59, 0);
+        rx_parse_packet(&v60, v9, a3, &v59, 0);
 LABEL_7:
-      get_cached_1828f8((uint64_t *)(a1 + 88), 0);
+      mac_time_get((uint64_t *)(a1 + 88), 0);
       v11 = **v5;
       if ( v11 == 3 )
       {
@@ -212,8 +212,8 @@ LABEL_7:
         *(uint32_t *)(a1 + 116) = 54;
         *(uint32_t *)(a1 + 120) = 262148;
 LABEL_24:
-        scan_channel_done_n_180(a1, v60);
-        return list_push_tail(dword_11788C);
+        ll_timer_offset_get(a1, v60);
+        return check_kernel_state(dword_11788C);
       }
       if ( v11 == 1 )
       {
@@ -221,7 +221,7 @@ LABEL_24:
         v13 = *((uint8_t *)off_117874 + 32);
         if ( !*((uint8_t *)off_117874 + 32) )
           goto LABEL_10;
-        v43 = (uint32_t *)sub_1101AC();
+        v43 = (uint32_t *)irq_disable();
         v45 = (int)v43;
         if ( v43 )
         {
@@ -232,13 +232,13 @@ LABEL_24:
             v47 = v12[1] + 1;
             v43[2] = (v47 << 24) & 0x7F000000 | v43[2] & 0x80FFFFFF;
             v12[1] = v47;
-            sub_110B44(v43, a1 + 48, v46, 0x36u, 0);
+            set_radio_channel(v43, a1 + 48, v46, 0x36u, 0);
             v48 = *((uint8_t *)off_1178A8 + 192);
             v12[3] += 54;
             if ( v48 )
-              sub_117538(v45);
+              scan_ctrl_update(v45);
             else
-              sub_110AB8(v45, v12[1], v12[2]);
+              irq_disable_set_flag_3(v45, v12[1], v12[2]);
             v49 = *v5;
             *(uint8_t *)off_1178AC |= 1u;
             v12[1] = 0;
@@ -254,11 +254,11 @@ LABEL_24:
         {
           v57 = dword_117950;
           *(uint8_t *)(a1 + 16) |= 1u;
-          msg_parse(v57, v44);
+          dispatch_event_handler(v57, v44);
           *((uint8_t *)v12 + 32) = 0;
         }
 LABEL_10:
-        sub_11F74C(1024, dword_117878, v10, v13);
+        check_interrupt_flag(1024, dword_117878, v10, v13);
         v14 = *v12;
         *(uint8_t *)(a1 + 16) |= 1u;
         if ( v14 && v12[1] )
@@ -267,7 +267,7 @@ LABEL_10:
           do
           {
             v14 = *(uint32_t *)(v14 + 4);
-            rf_lmac_init_n1ec();
+            irq_disable_arg();
             ++v15;
           }
           while ( v15 < (unsigned int)v12[1] );
@@ -298,8 +298,8 @@ LABEL_15:
           v19 = (int *)off_117884;
           v20 = dword_117888;
           ++*(uint32_t *)off_117884;
-          v21 = list_push_tail(v20);
-          rf_bus_mark_ne0(v21, v22);
+          v21 = check_kernel_state(v20);
+          process_event(v21, v22);
           if ( *v19 )
           {
             v23 = *v19 - 1;
@@ -325,9 +325,9 @@ LABEL_15:
       goto LABEL_5;
   }
   if ( !v9 )
-    return sub_121960(dword_11793C, dword_117938, 1545, v8);
+    return ke_int_lock(dword_11793C, dword_117938, 1545, v8);
   if ( v9 <= 0x3000 )
     goto LABEL_37;
-  return sub_121960(dword_117940, dword_117938, 1547, v8);
+  return ke_int_lock(dword_117940, dword_117938, 1547, v8);
 }
 

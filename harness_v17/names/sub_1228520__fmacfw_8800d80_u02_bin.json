@@ -1,1 +1,1 @@
-{"fn": "sub_1228520", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228520", "status": "ok", "name": "sub_1228520", "params": [], "docstring": "Trivial wrapper calling sub_1284d0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1228520", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228520", "status": "ok", "name": "wlc_ops_wrapper", "params": [], "docstring": "Trivial wrapper calling sub_1284d0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

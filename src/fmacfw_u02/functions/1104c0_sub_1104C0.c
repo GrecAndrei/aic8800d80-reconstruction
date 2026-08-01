@@ -14,8 +14,8 @@ extern uint32_t off_1104F8;
 extern uint32_t off_1104FC;
 extern uint32_t dword_110500;
 
-// sub_1104C0 @ 0x1104c0, size 54 bytes
-int sub_1104C0()
+// is_park_mode @ 0x1104c0, size 54 bytes
+int is_park_mode()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_1104C0()
   v0 = (int *)off_1104FC;
   v1 = dword_110500;
   ++*(uint32_t *)off_1104FC;
-  result = sub_12D248(v1);
+  result = cmd_handler_a(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

@@ -1,1 +1,1 @@
-{"fn": "irq23_enable", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d4c8", "status": "ok", "name": "irq23_enable", "params": [], "docstring": "Enable IRQ line 23 in interrupt controller", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "irq23_enable", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d4c8", "status": "ok", "name": "panic_fatal", "params": [], "docstring": "Enable IRQ line 23 in interrupt controller", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

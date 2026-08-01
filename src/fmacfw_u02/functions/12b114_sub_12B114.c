@@ -12,8 +12,8 @@
 
 extern uint32_t off_12B16C;
 
-// sub_12B114 @ 0x12b114, size 88 bytes
-int  sub_12B114(uint16_t *a1)
+// ke_msg_handler_lookup @ 0x12b114, size 88 bytes
+int  ke_msg_handler_lookup(uint16_t *a1)
 {
   int v1; // r3
   int result; // r0

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_47c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116e8", "status": "ok", "name": "rf_bus_write_n_47c_16e8", "params": [], "docstring": "Writes to RF bus control register 0x166bc0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_bus_write_n_47c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116e8", "status": "ok", "name": "rf_bus_reset2_n_313_16e8", "params": [], "docstring": "Writes to RF bus control register 0x166bc0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

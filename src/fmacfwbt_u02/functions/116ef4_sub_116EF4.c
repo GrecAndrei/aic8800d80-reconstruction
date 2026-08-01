@@ -17,8 +17,8 @@ extern uint32_t dword_117088;
 extern uint32_t dword_117080;
 extern uint32_t dword_117084;
 
-// sub_116EF4 @ 0x116ef4, size 384 bytes
-int  sub_116EF4(int a1, int a2, int a3, int a4)
+// mac_set_flag @ 0x116ef4, size 384 bytes
+int  mac_set_flag(int a1, int a2, int a3, int a4)
 {
   int v5; // r6
   int result; // r0
@@ -88,18 +88,18 @@ LABEL_11:
               v20 = *(uint8_t *)(v10 + 9);
               v21[4] = *(uint8_t *)(v10 + 8);
               v21[5] = v20;
-              bt_msg_handler_n54c(v21);
+              rf_save_cal_values(v21);
               v17 = *(uint16_t *)(a2 + 30);
             }
             if ( (v17 & 0x80) != 0 )
             {
               if ( *(uint8_t *)(a2 + 51) )
               {
-                sub_13B13C(a2, v10, 24);
+                mac_rx_process_ack(a2, v10, 24);
               }
               else if ( *(uint8_t *)(a2 + 53) )
               {
-                sub_13C7AC(a2, v10, *(uint16_t *)(a2 + 4));
+                bt_check_conn_active(a2, v10, *(uint16_t *)(a2 + 4));
               }
             }
           }
@@ -116,7 +116,7 @@ LABEL_11:
     }
     else
     {
-      sub_12F694(dword_117088, dword_117080, 518);
+      mmio_irq_clear(dword_117088, dword_117080, 518);
       v10 = *(uint32_t *)(v9 + 28);
       if ( v10 )
         goto LABEL_11;
@@ -126,7 +126,7 @@ LABEL_11:
     v11 = *(uint32_t *)(v9 + 24);
     if ( v11 )
       goto LABEL_10;
-    sub_12F694(dword_117084, dword_117080, 525);
+    mmio_irq_clear(dword_117084, dword_117080, 525);
 LABEL_9:
     v11 = *(uint32_t *)(v9 + 24);
 LABEL_10:
@@ -134,10 +134,10 @@ LABEL_10:
     goto LABEL_11;
   }
 LABEL_3:
-  result = sub_116764(a2, a4);
+  result = process_rx_status(a2, a4);
 LABEL_4:
   if ( (*(uint32_t *)(a1 + 36) & 0x200000) == 0 )
-    return sub_116DE0(*(uint32_t *)(a1 + 76) + 12, *(uint32_t *)(a1 + 76) + 12, a4);
+    return get_bt_param(*(uint32_t *)(a1 + 76) + 12, *(uint32_t *)(a1 + 76) + 12, a4);
   *(uint16_t *)(*(uint32_t *)(a1 + 68) + 8) |= 2u;
   return result;
 }

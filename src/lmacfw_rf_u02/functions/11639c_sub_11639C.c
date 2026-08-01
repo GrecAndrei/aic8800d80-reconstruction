@@ -22,8 +22,8 @@ extern uint32_t off_1164A8;
 extern uint32_t off_1164AC;
 extern uint32_t dword_1164B0;
 
-// sub_11639C @ 0x11639c, size 252 bytes
-int  sub_11639C(int a1)
+// wlan_attach @ 0x11639c, size 252 bytes
+int  wlan_attach(int a1)
 {
   int v2; // r5
   uint32_t *v3; // r4
@@ -50,8 +50,8 @@ int  sub_11639C(int a1)
   v6 = dword_1164BC;
   v7 = dword_1164C0;
   v8 = dword_116498;
-  sub_11E71C(dword_116498);
-  sub_11E71C(v8 + 8);
+  list_init(dword_116498);
+  list_init(v8 + 8);
   do
   {
     if ( !a1 || !*(uint8_t *)(v2 + 53) )
@@ -80,7 +80,7 @@ int  sub_11639C(int a1)
         v16 -= 0x10000;
       }
       while ( v15 != 1024 );
-      sub_11E724(v8);
+      check_kernel_state(v8);
     }
     v3 += 1050;
     v2 += 56;
@@ -90,8 +90,8 @@ int  sub_11639C(int a1)
   v9 = off_1164A8;
   v10 = dword_1164C0;
   *(uint32_t *)off_1164A8 = dword_1164C0;
-  v9[1] = sub_101A9C() << 14;
-  v11 = sub_1029BC();
+  v9[1] = chip_info_nibble1_get() << 14;
+  v11 = clock_get_divider();
   v12 = (int *)off_1164AC;
   v13 = dword_1164B0;
   v9[2] = v11;
@@ -105,8 +105,8 @@ int  sub_11639C(int a1)
   v9[8] = 0;
   v9[12] = 0;
   v9[4] = v13;
-  v12[1] = sub_101A9C() << 14;
-  result = sub_1029BC();
+  v12[1] = chip_info_nibble1_get() << 14;
+  result = clock_get_divider();
   v12[2] = result;
   v12[3] = 0;
   v12[6] = 0;

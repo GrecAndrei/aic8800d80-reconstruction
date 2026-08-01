@@ -21,8 +21,8 @@ extern uint32_t dword_132F18;
 extern uint32_t off_132E5C;
 extern uint32_t off_132E60;
 
-// sub_132B20 @ 0x132b20, size 1016 bytes
-uint32_t * sub_132B20(int a1)
+// llm_adv_pdu_build @ 0x132b20, size 1016 bytes
+uint32_t * llm_adv_pdu_build(int a1)
 {
   char v1; // r3
   uint32_t *v2; // r6
@@ -225,7 +225,7 @@ LABEL_23:
     v68 = v31;
     if ( *((uint8_t *)off_132E48 + 197) && (v2[5] & 0x387F) != (v31 & 0x387F) )
     {
-      v32 = scan_chan_parse_n1bd4(
+      v32 = llm_rx_pdu_handler(
               (v31 >> 11) & 7,
               v30 & 0x7F,
               (uint8_t *)(*(uint32_t *)(dword_132E4C + 1320 * *(uint8_t *)(a1 + 34) + 72) + 4));
@@ -236,9 +236,9 @@ LABEL_23:
     *(uint32_t *)(v28 + 160) = v29;
     *(uint8_t *)(v28 + 165) = (v30 & 0x4000) != 0;
     *(uint32_t *)(v28 + 156) = v66 & v33 | v68;
-    if ( sub_12EC84(5u, 4u) )
-      sub_12ECB0(dword_132E54, *(uint32_t *)(v28 + 156), v29);
-    sub_1403D4(v2, *(uint32_t *)(v28 + 156));
+    if ( state_test_flag(5u, 4u) )
+      ke_event_schedule(dword_132E54, *(uint32_t *)(v28 + 156), v29);
+    parse_command_parameters(v2, *(uint32_t *)(v28 + 156));
     v1 = *(uint8_t *)(a1 + 350);
   }
   if ( (v1 & 2) != 0 )
@@ -272,12 +272,12 @@ LABEL_23:
       *v39++ = v46;
       if ( v43 )
       {
-        v58 = scan_chan_parse_n1bd4((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
+        v58 = llm_rx_pdu_handler((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
         *(v39 - 1) = v46 | v58 | (v58 << 8);
       }
       else if ( **(int16_t **)off_132E58 < 0 )
       {
-        sub_12F694(dword_132F1C, dword_132F18, 986);
+        mmio_irq_clear(dword_132F1C, dword_132F18, 986);
       }
     }
     while ( v77 != v40 );

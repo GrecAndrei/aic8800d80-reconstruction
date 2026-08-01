@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_level_apply_n274 @ 0x12704c, size 174 bytes
+// rf_read_trim @ 0x12704c, size 174 bytes
 // Doc: rf_level_apply_n31e [rf]: Apply RF level/tx power setting
 // rf_level_apply_n31e [rf]: Apply RF level/tx power setting
-void rf_level_apply_n274()
+void rf_read_trim()
 {
   uint8_t *v0; // r4
   int v1; // r2
@@ -37,15 +37,15 @@ void rf_level_apply_n274()
   v9 = v1;
   if ( (v2 & 0x2000000) != 0 )
   {
-    sub_113B88(&v8);
-    sub_1140B8(&v9);
+    mmio_read_status(&v8);
+    rf_reg10_status(&v9);
     goto LABEL_4;
   }
   v10 = 0;
   v11 = 0;
-  if ( !sub_114558((int)&v10) )
+  if ( !bus_read32((int)&v10) )
     v8 = v10;
-  if ( sub_1145C4((int)&v11) )
+  if ( mmio_read_64((int)&v11) )
   {
 LABEL_4:
     v3 = v8;
@@ -69,7 +69,7 @@ LABEL_19:
   LOBYTE(v3) = 15;
 rf_level_apply_n2aa:
   v0[4] = v3;
-  n = mmio_bit_extract_n();
+  n = get_xtal_ftune();
   v5 = v9;
   v0[6] = n;
   if ( v5 )
@@ -92,7 +92,7 @@ rf_level_apply_n2aa:
     }
     v7 = rf_level_apply_2;
     v0[2] = v6;
-    msg_parse(v7, v5);
+    dispatch_event_handler(v7, v5);
   }
   v0[3] = 0x80;
   *v0 = 1;

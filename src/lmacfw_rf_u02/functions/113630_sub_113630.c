@@ -12,10 +12,10 @@
 
 extern uint32_t off_11363C;
 
-// sub_113630 @ 0x113630, size 12 bytes
-void  sub_113630(int a1, int a2, int a3)
+// check_and_process @ 0x113630, size 12 bytes
+void  check_and_process(int a1, int a2, int a3)
 {
   if ( !*(uint8_t *)off_11363C )
-    sub_112F6C(a1, a2, a3, *(uint8_t *)off_11363C);
+    main_event_handler(a1, a2, a3, *(uint8_t *)off_11363C);
 }
 

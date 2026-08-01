@@ -15,10 +15,10 @@ extern uint32_t dword_12493C;
 extern uint32_t off_124934;
 extern uint32_t dword_124940;
 
-// mmio_syscfg_init_n4 @ 0x124914, size 32 bytes
-// Doc: mmio_syscfg_init_n4 [mmio]: Initialize SYSCFG/clock MMIO registers
-// mmio_syscfg_init_n4 [mmio]: Initialize SYSCFG/clock MMIO registers
-int mmio_syscfg_init_n4()
+// mmio_enable_clock @ 0x124914, size 32 bytes
+// Doc: mmio_enable_clock [mmio]: Initialize SYSCFG/clock MMIO registers
+// mmio_enable_clock [mmio]: Initialize SYSCFG/clock MMIO registers
+int mmio_enable_clock()
 {
   int *v0; // r1
   int v1; // r0
@@ -27,8 +27,8 @@ int mmio_syscfg_init_n4()
   v1 = dword_12493C;
   *(uint32_t *)off_124934 |= 0x10u;
   *v0 = v1;
-  mmio_init_clock_gate_n121();
-  msg_parse(dword_124940);
+  write_bb_control();
+  dispatch_event_handler(dword_124940);
   return 0;
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12CF54;
 
-// sub_12CEFC @ 0x12cefc, size 82 bytes
+// list_process_count @ 0x12cefc, size 82 bytes
 // Doc: message_dispatch_n38a [ipc]: Dispatch message slot 0x38a and tail-call handler
 // message_dispatch_n38a [ipc]: Dispatch message slot 0x38a and tail-call handler
-int  sub_12CEFC(int a1, int *a2, int a3)
+int  list_process_count(int a1, int *a2, int a3)
 {
   int v3; // r3
   int v5; // r2
@@ -41,7 +41,7 @@ int  sub_12CEFC(int a1, int *a2, int a3)
   result = *(uint32_t *)(v8 + 4);
   if ( **(int16_t **)message_dispatch_n39c_cf50 < 0 && !result )
   {
-    sub_12F694(ipc_msg_dispatch, dword_12CF54, 239);
+    mmio_irq_clear(ipc_msg_dispatch, dword_12CF54, 239);
     return *(uint32_t *)(v7 + *a2 + 4);
   }
   return result;

@@ -14,8 +14,8 @@ extern uint32_t off_12BE4C;
 extern uint32_t off_12BE50;
 extern uint32_t off_12BE48;
 
-// sub_12BE18 @ 0x12be18, size 48 bytes
-int  sub_12BE18(int *a1)
+// mac_dma_write @ 0x12be18, size 48 bytes
+int  mac_dma_write(int *a1)
 {
   uint32_t *v1; // r2
   int *v2; // r3

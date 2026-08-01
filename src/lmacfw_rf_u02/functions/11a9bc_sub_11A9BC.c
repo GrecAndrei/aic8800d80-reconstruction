@@ -16,8 +16,8 @@ extern uint32_t off_11AA50;
 extern uint32_t off_11AA54;
 extern uint32_t dword_11AA58;
 
-// sub_11A9BC @ 0x11a9bc, size 140 bytes
-int  sub_11A9BC(uint8_t *a1, void *a2)
+// flag_update @ 0x11a9bc, size 140 bytes
+int  flag_update(uint8_t *a1, void *a2)
 {
   int v2; // r3
 
@@ -49,7 +49,7 @@ int  sub_11A9BC(uint8_t *a1, void *a2)
     a2 = off_11AA54;
     *(uint32_t *)off_11AA54 = *(uint32_t *)off_11AA54 & 0xFFF00FFF | (a1[4] << 12);
   }
-  msg_parse(dword_11AA58, a2);
-  return rf_mem_read_f594(a1, 5, 1, 0);
+  dispatch_event_handler(dword_11AA58, a2);
+  return handle_ipc_request(a1, 5, 1, 0);
 }
 

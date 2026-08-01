@@ -1,1 +1,1 @@
-{"fn": "log_free_pool_e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12137b8", "status": "ok", "name": "log_free_pool_e", "params": [], "docstring": "Frees a logging buffer pool entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_pool_e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12137b8", "status": "ok", "name": "enter_critical_section", "params": [], "docstring": "Frees a logging buffer pool entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

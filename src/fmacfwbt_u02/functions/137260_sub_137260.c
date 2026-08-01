@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_137260 @ 0x137260, size 18 bytes
+// is_device_ready @ 0x137260, size 18 bytes
 // Doc: init_subcall_0x137268 [util]: Trampoline that calls init helper and returns 0
 // init_subcall_0x137268 [util]: Trampoline that calls init helper and returns 0
-int  sub_137260(int a1, uint8_t *a2)
+int  is_device_ready(int a1, uint8_t *a2)
 {
   if ( *a2 )
-    bt_init_check_1827f4((uint8_t)*a2);
+    radio_event_dispatcher((uint8_t)*a2);
   return 0;
 }
 

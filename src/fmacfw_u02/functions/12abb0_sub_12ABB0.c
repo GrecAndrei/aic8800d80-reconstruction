@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12ABB0 @ 0x12abb0, size 30 bytes
-uint8_t * sub_12ABB0(uint8_t *result)
+// rf_test_packet_fill @ 0x12abb0, size 30 bytes
+uint8_t * rf_test_packet_fill(uint8_t *result)
 {
   *result = -35;
   result[2] = 80;

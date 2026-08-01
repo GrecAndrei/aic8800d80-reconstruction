@@ -12,18 +12,18 @@
 
 extern uint32_t off_1357B0;
 
-// sub_135780 @ 0x135780, size 48 bytes
-uint32_t * sub_135780(int16_t a1)
+// rf_write_cal_param @ 0x135780, size 48 bytes
+uint32_t * rf_write_cal_param(int16_t a1)
 {
   int v2; // r5
   int v3; // r0
 
   v2 = *((uint32_t *)off_1357B0 + 4);
-  v3 = sub_12CB54(30, 0, 6, 4u);
+  v3 = bt_buf_alloc(30, 0, 6, 4u);
   *(uint16_t *)v3 = a1;
   *(uint8_t *)(v3 + 2) = 1;
   *(uint8_t *)(v3 + 3) = *(uint8_t *)(v2 + 61);
-  sub_12CBB4(v3);
-  return sub_12CF5C(6u, 9);
+  hci_evt_send(v3);
+  return hci_cmd_send(6u, 9);
 }
 

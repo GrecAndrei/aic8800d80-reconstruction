@@ -15,8 +15,8 @@ extern uint32_t off_13F3A8;
 extern uint32_t dword_13F3B4;
 extern uint32_t dword_13F3B0;
 
-// sub_13F244 @ 0x13f244, size 354 bytes
-int  sub_13F244(int a1, int a2)
+// ble_ll_conn_sm_validate @ 0x13f244, size 354 bytes
+int  ble_ll_conn_sm_validate(int a1, int a2)
 {
   int result; // r0
   unsigned int v4; // r11
@@ -39,7 +39,7 @@ int  sub_13F244(int a1, int a2)
   result = dword_13F3AC;
   v4 = *(uint32_t *)(dword_13F3AC + 696 * a1 + 340);
   if ( **(int16_t **)off_13F3A8 < 0 && !v4 )
-    result = sub_12F46C(dword_13F3B4, dword_13F3B0, 3356);
+    result = mmio_clear_register(dword_13F3B4, dword_13F3B0, 3356);
   if ( *(uint8_t *)(v4 + 182) == a2 )
     return result;
   *(uint8_t *)(v4 + 182) = a2;
@@ -52,7 +52,7 @@ int  sub_13F244(int a1, int a2)
     *(uint8_t *)(v4 + 166) = v6 | 0x80;
     return result;
   }
-  v8 = sub_13D34C(v4);
+  v8 = bt_state_handler(v4);
   *(uint16_t *)(v4 + 184) = v8;
   if ( !v8 )
     goto LABEL_18;
@@ -105,7 +105,7 @@ LABEL_10:
         if ( v16 == v8 )
           goto LABEL_21;
       }
-      v12 = sub_13D694(v4);
+      v12 = rf_cal_channel_get(v4);
       v8 = *(uint16_t *)(v4 + 184);
     }
     while ( *(uint16_t *)(v4 + 184) );
@@ -117,8 +117,8 @@ LABEL_10:
   *(uint8_t *)(v18 + 13) = v8;
   v20[v7] = v8;
 LABEL_18:
-  sub_13E1D0(v4, (int)v20);
-  result = sub_13CFF0(v4, v20);
+  process_entry_list(v4, (int)v20);
+  result = scan_process_list(v4, v20);
   *(uint8_t *)(dword_13F3AC + 696 * a1 + 350) |= 1u;
   return result;
 }

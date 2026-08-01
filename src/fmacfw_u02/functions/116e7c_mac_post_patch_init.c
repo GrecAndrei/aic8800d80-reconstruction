@@ -12,10 +12,10 @@
 
 extern uint32_t off_116EF8;
 
-// mac_post_patch_init @ 0x116e7c, size 124 bytes
-// Doc: mac_post_patch_init [mac]: Run post-patch initialization sequence
-// mac_post_patch_init [mac]: Run post-patch initialization sequence
-int mac_post_patch_init()
+// chip_init_sequence @ 0x116e7c, size 124 bytes
+// Doc: chip_init_sequence [mac]: Run post-patch initialization sequence
+// chip_init_sequence [mac]: Run post-patch initialization sequence
+int chip_init_sequence()
 {
   int v0; // r0
   int inited; // r0
@@ -25,18 +25,18 @@ int mac_post_patch_init()
   uint32_t *v5; // r5
   int result; // r0
 
-  sub_119D4C();
-  rf_fault_status_get_n_xxx();
-  v0 = sub_1161D4();
-  subsys_init(v0);
-  inited = crypto_init_n_cf(0);
-  sub_11BD88(inited);
+  queue_counters_equal();
+  kernel_event_wait();
+  v0 = configure_hardware_regs();
+  init_buf_188290(v0);
+  inited = fw_magic_check(0);
+  init_radio_data(inited);
   v2 = (char *)off_116EF8 + 12;
-  memset_thunk((int *)off_116EF8, 0, 0x204u);
+  memset((int *)off_116EF8, 0, 0x204u);
   v3 = v2 + 420;
   do
   {
-    sub_12D240(v2);
+    zero_8_bytes(v2);
     *((uint32_t *)v2 - 3) = 0;
     v2[14] = 0;
     v2[68] = 0;
@@ -44,17 +44,17 @@ int mac_post_patch_init()
     *((uint32_t *)v2 + 7) = 0;
     v4 = v2 + 16;
     v2 += 84;
-    sub_12D240(v4);
+    zero_8_bytes(v4);
   }
   while ( v2 != v3 );
   v5 = off_116EF8;
-  sub_12D240((char *)off_116EF8 + 432);
+  zero_8_bytes((char *)off_116EF8 + 432);
   v5[114] = 0;
   v5[115] = 0;
   v5[105] = 0;
   *((uint8_t *)v5 + 446) = 0;
   *((uint8_t *)v5 + 500) = 0;
-  result = sub_12D240(v5 + 112);
+  result = zero_8_bytes(v5 + 112);
   *((uint16_t *)v5 + 254) = 0;
   return result;
 }

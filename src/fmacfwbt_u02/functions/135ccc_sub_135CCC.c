@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_135CCC @ 0x135ccc, size 76 bytes
-uint8_t * sub_135CCC(uint8_t *a1, int a2)
+// hci_event_parse @ 0x135ccc, size 76 bytes
+uint8_t * hci_event_parse(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   int v3; // r2
@@ -22,7 +22,7 @@ uint8_t * sub_135CCC(uint8_t *a1, int a2)
   uint8_t *v8; // r0
   char v9[5]; // [sp+7h] [bp-5h] BYREF
 
-  result = sub_12DBBC(a1, a2, v9);
+  result = find_char_3(a1, a2, v9);
   if ( result )
   {
     if ( (uint8_t)v9[0] <= 0x1Du )

@@ -14,10 +14,10 @@ extern uint32_t off_12D360;
 extern uint32_t off_12D364;
 extern uint32_t off_12D368;
 
-// irq_nesting_or @ 0x12d32c, size 52 bytes
-// Doc: irq_nesting_or [util]: Set/OR nesting level bits in IRQ state
-// irq_nesting_or [util]: Set/OR nesting level bits in IRQ state
-int  irq_nesting_or(int a1)
+// set_system_flag_1 @ 0x12d32c, size 52 bytes
+// Doc: set_system_flag_1 [util]: Set/OR nesting level bits in IRQ state
+// set_system_flag_1 [util]: Set/OR nesting level bits in IRQ state
+int  set_system_flag_1(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

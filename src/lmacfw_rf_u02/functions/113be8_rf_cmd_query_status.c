@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_cmd_query_status @ 0x113be8, size 44 bytes
-// Doc: rf_cmd_query_status [rf]: Query RF command status (opcode 6)
-// rf_cmd_query_status [rf]: Query RF command status (opcode 6)
-int  rf_cmd_query_status(uint8_t *a1)
+// mmio_read_byte @ 0x113be8, size 44 bytes
+// Doc: mmio_read_byte [rf]: Query RF command status (opcode 6)
+// mmio_read_byte [rf]: Query RF command status (opcode 6)
+int  mmio_read_byte(uint8_t *a1)
 {
   unsigned int v2; // r0
   char v4; // r3
 
-  v2 = sub_113A44(6u);
+  v2 = mmio_read32(6u);
   if ( HIBYTE(v2) )
   {
     *a1 = HIBYTE(v2);

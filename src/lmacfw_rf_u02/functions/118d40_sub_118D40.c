@@ -24,8 +24,8 @@ extern uint32_t dword_118DE8;
 extern uint32_t dword_118DE4;
 extern uint32_t off_118DDC;
 
-// sub_118D40 @ 0x118d40, size 118 bytes
-unsigned int  sub_118D40(int *a1)
+// rf_read_status @ 0x118d40, size 118 bytes
+unsigned int  rf_read_status(int *a1)
 {
   uint32_t *v1; // r3
   uint32_t *v2; // r7
@@ -63,10 +63,10 @@ unsigned int  sub_118D40(int *a1)
   *v10 = v11;
   if ( *v12 < 0 && *(uint32_t *)off_118DE0 << 28 )
   {
-    sub_1219F4(dword_118DE8, dword_118DE4, 472);
+    flash_cmd_exec(dword_118DE8, dword_118DE4, 472);
     v11 = *v10;
   }
   *(uint32_t *)off_118DDC = v11 | v10[1];
-  return sub_1174B8(0);
+  return gpio_set_bit10(0);
 }
 

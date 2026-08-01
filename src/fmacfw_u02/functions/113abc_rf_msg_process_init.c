@@ -22,10 +22,10 @@ extern uint32_t off_113C0C;
 extern uint32_t off_113C10;
 extern uint32_t dword_113C14;
 
-// rf_msg_process_init @ 0x113abc, size 264 bytes
+// save_task_ptr @ 0x113abc, size 264 bytes
 // Doc: rf_msg_process_body_n248 [rf]: Decrement pending RF message counter and clear slot on null
 // rf_msg_process_body_n248 [rf]: Decrement pending RF message counter and clear slot on null
-int  rf_msg_process_init(int a1)
+int  save_task_ptr(int a1)
 {
   void *v1; // r5
   uint32_t *v2; // r1
@@ -66,7 +66,7 @@ int  rf_msg_process_init(int a1)
   v4[5] = 0;
   v4[3] = 0;
   v5[6] = 0;
-  memset_thunk(v3, 0, 0x140u);
+  memset(v3, 0, 0x140u);
   v6 = *(int **)(*(uint32_t *)v1 + 20);
   v7 = rf_mem_read_n304;
   v8 = rf_msg_process_body_n_68;
@@ -79,9 +79,9 @@ int  rf_msg_process_init(int a1)
   v9 = off_113BE4;
   v8[4] = v6 + 12;
   *v9 = v6 + 14;
-  memset_thunk(v6, 0, 0xCB8u);
+  memset(v6, 0, 0xCB8u);
   if ( **(int16_t **)off_113BE8 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
-    sub_12F46C(rf_msg_process_body_n_2c, rf_msg_process_config, 758);
+    mmio_clear_register(rf_msg_process_body_n_2c, rf_msg_process_config, 758);
   v10 = rf_msg_process_body_n_5c;
   v11 = *((uint16_t *)rf_msg_process_body_n_5c + 164);
   v12 = *((uint16_t *)rf_msg_process_body_n_5c + 154);
@@ -113,13 +113,13 @@ int  rf_msg_process_init(int a1)
     v22 = off_113C10;
     v23 = dword_113C14;
     *(uint8_t *)off_113C10 = v21;
-    msg_parse(v23, v21, v22);
+    event_dispatch(v23, v21, v22);
   }
   else
   {
     v25 = dword_113C14;
     *(uint8_t *)off_113C10 = 10;
-    msg_parse(v25, 10, v15);
+    event_dispatch(v25, 10, v15);
   }
   return 1;
 }

@@ -27,8 +27,8 @@ extern uint32_t off_10D618;
 extern uint32_t off_10D61C;
 extern uint32_t off_10D62C;
 
-// sub_10D508 @ 0x10d508, size 236 bytes
-void sub_10D508()
+// kernel_schedule_check @ 0x10d508, size 236 bytes
+void kernel_schedule_check()
 {
   int v0; // r3
   uint32_t *v1; // r5

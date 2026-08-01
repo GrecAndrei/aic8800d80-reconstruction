@@ -13,8 +13,8 @@
 extern uint32_t dword_13AA18;
 extern uint32_t dword_13AA14;
 
-// sub_13A7A0 @ 0x13a7a0, size 626 bytes
-int  sub_13A7A0(int a1, int a2)
+// rf_configure_channel @ 0x13a7a0, size 626 bytes
+int  rf_configure_channel(int a1, int a2)
 {
   int v2; // r11
   int v3; // r10
@@ -72,7 +72,7 @@ int  sub_13A7A0(int a1, int a2)
       goto LABEL_26;
     }
     v33 = **(uint32_t **)(v7 + 188);
-    v29 = sub_11C7A4(a1, dword_13AA18 + 696 * v2);
+    v29 = is_associated(a1, dword_13AA18 + 696 * v2);
     v10 = v33;
     *(uint32_t *)(a2 - 4) = v29;
     v13 = 0x8000;

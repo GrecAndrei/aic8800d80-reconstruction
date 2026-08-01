@@ -12,16 +12,16 @@
 
 extern uint32_t off_116854;
 
-// sub_11683C @ 0x11683c, size 24 bytes
-int sub_11683C()
+// event_count_update @ 0x11683c, size 24 bytes
+int event_count_update()
 {
   uint8_t *v0; // r4
   int v1; // r0
   int result; // r0
 
   v0 = off_116854;
-  v1 = sub_11E71C(off_116854);
-  result = (uint8_t)(sub_121A60(v1) - 1);
+  v1 = list_init(off_116854);
+  result = (uint8_t)(return_2(v1) - 1);
   v0[11] = result;
   v0[10] = result;
   return result;

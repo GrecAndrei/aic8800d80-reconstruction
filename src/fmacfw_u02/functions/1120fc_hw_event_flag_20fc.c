@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// hw_event_flag_20fc @ 0x1120fc, size 32 bytes
+// state_check_4_b @ 0x1120fc, size 32 bytes
 // Doc: rf_bus_init_n34e [rf]: Initializes RF bus interface for N3/E4 subsystem
 // rf_bus_init_n34e [rf]: Initializes RF bus interface for N3/E4 subsystem
-int  hw_event_flag_20fc(int a1)
+int  state_check_4_b(int a1)
 {
   int result; // r0
   int v2; // r3

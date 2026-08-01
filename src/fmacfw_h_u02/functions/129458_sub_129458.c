@@ -14,8 +14,8 @@ extern uint32_t off_1296B8;
 extern uint32_t dword_1296C0;
 extern uint32_t dword_1296BC;
 
-// sub_129458 @ 0x129458, size 606 bytes
-int  sub_129458(int result)
+// rsn_derive_key @ 0x129458, size 606 bytes
+int  rsn_derive_key(int result)
 {
   int v1; // r12
   int v2; // r6
@@ -244,7 +244,7 @@ LABEL_19:
           goto LABEL_28;
         }
         if ( **(int16_t **)off_1296B8 < 0 )
-          result = sub_12F35C(dword_1296C0, dword_1296BC, 347);
+          result = mmio_write_field(dword_1296C0, dword_1296BC, 347);
         v1 = v24;
         v10 = v23 + *(uint32_t *)(v15 + 28);
       }

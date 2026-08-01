@@ -30,10 +30,10 @@ extern uint32_t off_11EA34;
 extern uint32_t off_11EA38;
 extern uint32_t dword_11EA3C;
 
-// sub_11E708 @ 0x11e708, size 810 bytes
+// tx_packet_setup @ 0x11e708, size 810 bytes
 // Doc: sub_121E708 [bt]: BT firmware message handler with extended stack frame
 // sub_121E708 [bt]: BT firmware message handler with extended stack frame
-int  sub_11E708(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
+int  tx_packet_setup(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
 {
   int v6; // r8
   uint8_t **v7; // r7
@@ -108,7 +108,7 @@ int  sub_11E708(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
     v25 = dword_11E9B4;
     if ( v24 )
       v21[4122] = 0;
-    v26 = sub_12D4F8(v25);
+    v26 = list_pop_front(v25);
     v27 = *(uint32_t *)off_11E9B8;
     v28 = (uint16_t)v21[4122];
     v6 = v26;
@@ -138,7 +138,7 @@ int  sub_11E708(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
     v11 = **v7;
     if ( v11 == 2 )
     {
-      sub_11E04C(v58, a2, &v57);
+      rx_packet_isr(v58, a2, &v57);
       v14 = **v7;
       if ( v14 != 2 )
         goto LABEL_5;
@@ -159,8 +159,8 @@ LABEL_25:
       v37 = (int *)off_11E9D0;
       v38 = dword_11E9C0;
       ++*(uint32_t *)off_11E9D0;
-      v39 = list_push_tail(v38);
-      phy_reg_init_n_2c4(v39, v40);
+      v39 = check_abort_flag(v38);
+      rf_calib_init(v39, v40);
       if ( *v37 )
       {
         v41 = *v37 - 1;
@@ -181,7 +181,7 @@ LABEL_5:
         v18 = (int *)off_11E9A4;
         if ( *((uint8_t *)off_11E9A4 + 32) )
         {
-          v43 = (uint32_t *)log_free_dispatch_n2b4();
+          v43 = (uint32_t *)critical_enter_0();
           v46 = (int)v43;
           if ( v43 )
           {
@@ -191,13 +191,13 @@ LABEL_5:
               v48 = v18[1] + 1;
               v43[2] = (v48 << 24) & 0x7F000000 | v43[2] & 0x80FFFFFF;
               v18[1] = v48;
-              sub_110F98(v43, a1 + 48, v47, 0x3Au, 0);
+              rf_set_tx_channel(v43, a1 + 48, v47, 0x3Au, 0);
               v49 = *((uint8_t *)off_11E9C8 + 192);
               v18[3] += 58;
               if ( v49 )
-                sub_11E6B0(v46);
+                bt_notify_event(v46);
               else
-                log_queue_push2(v46, v18[1], v18[2]);
+                ke_int_lock(v46, v18[1], v18[2]);
               *(uint8_t *)off_11E9CC |= 1u;
               v18[1] = 0;
               v18[3] = 0;
@@ -211,11 +211,11 @@ LABEL_5:
           {
             v56 = dword_11EA40;
             *(uint8_t *)(a1 + 16) |= 1u;
-            sub_12ECB0(v56, v44, v45);
+            ke_event_schedule(v56, v44, v45);
             *((uint8_t *)v18 + 32) = 0;
           }
         }
-        feature_guard_sdio(1024, dword_11E9A8);
+        state_check_feature(1024, dword_11E9A8);
         v19 = *v18;
         *(uint8_t *)(a1 + 16) |= 1u;
         if ( v19 && v18[1] )
@@ -224,7 +224,7 @@ LABEL_5:
           do
           {
             v19 = *(uint32_t *)(v19 + 4);
-            sub_110154();
+            critical_enter_1();
             ++v20;
           }
           while ( v20 < (unsigned int)v18[1] );
@@ -235,28 +235,28 @@ LABEL_5:
         v18[2] = 0;
       }
 LABEL_6:
-      sub_11E3BC(a1, v58[0]);
+      tx_timestamp_get(a1, v58[0]);
       v15 = off_11E9A0;
       *(uint32_t *)(a1 + 4) = a5;
       v16 = v15[14];
       *(uint32_t *)(a1 + 8) = a6;
       if ( v16 )
-        return list_push_tail(v15 + 14);
+        return check_abort_flag(v15 + 14);
       else
-        return list_push_tail(dword_11E9C4);
+        return check_abort_flag(dword_11E9C4);
     }
 LABEL_2:
     if ( v11 == 1 )
-      sub_11E184(v58, a2, &v57);
+      tx_packet_isr(v58, a2, &v57);
     else
-      rx_frame_handler(v58, a2, a3, &v57, 0);
+      rx_adv_packet_isr(v58, a2, a3, &v57, 0);
     v14 = **v7;
     if ( v14 != 2 )
       goto LABEL_5;
     goto LABEL_25;
   }
   *(uint8_t *)(a1 + 16) |= 1u;
-  v50 = sub_11E3BC(a1, v8);
+  v50 = tx_timestamp_get(a1, v8);
   CPSR = __get_CPSR();
   if ( (CPSR & 1) == 0 )
   {
@@ -265,7 +265,7 @@ LABEL_2:
   }
   v52 = (int *)off_11EA38;
   ++*(uint32_t *)off_11EA38;
-  inited = phy_reg_init_n_2c4(v50, CPSR << 31);
+  inited = rf_calib_init(v50, CPSR << 31);
   if ( *v52 )
   {
     v55 = *v52 - 1;
@@ -277,6 +277,6 @@ LABEL_2:
         __enable_irq();
     }
   }
-  return log_printf(dword_11EA3C, inited, v54);
+  return printf_wrapper(dword_11EA3C, inited, v54);
 }
 

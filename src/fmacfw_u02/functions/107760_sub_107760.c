@@ -16,8 +16,8 @@ extern uint32_t off_107820;
 extern uint32_t off_107818;
 extern uint32_t dword_10781C;
 
-// sub_107760 @ 0x107760, size 176 bytes
-int  sub_107760(int a1)
+// timer_ticks_to_usec @ 0x107760, size 176 bytes
+int  timer_ticks_to_usec(int a1)
 {
   int v2; // r1
   int v3; // r2
@@ -131,6 +131,6 @@ int  sub_107760(int a1)
   *v24 = (v25 << 12) & 0x7000 | v26 & 0xFFFF8FFF;
   *v27 |= 0x400u;
   *v27 = (v28 << 8) & 0x300 | *v27 & 0xFFFFFCFF;
-  return sub_12ECD0(1, v29);
+  return check_status_bits(1, v29);
 }
 

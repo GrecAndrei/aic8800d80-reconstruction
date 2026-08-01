@@ -17,10 +17,10 @@ extern uint32_t dword_13BF64;
 extern uint32_t dword_13BF68;
 extern uint32_t dword_13BF6C;
 
-// sub_13BEF8 @ 0x13bef8, size 104 bytes
+// rf_get_chan_param @ 0x13bef8, size 104 bytes
 // Doc: sub_123BEF8 [util]: Indexed table lookup/handler dispatch using 32-byte stride entries
 // sub_123BEF8 [util]: Indexed table lookup/handler dispatch using 32-byte stride entries
-int  sub_13BEF8(unsigned int a1)
+int  rf_get_chan_param(unsigned int a1)
 {
   int v1; // r5
   int v2; // r6
@@ -35,18 +35,18 @@ int  sub_13BEF8(unsigned int a1)
   v5 = 32 * a1;
   if ( a1 <= 0xF )
   {
-    sub_12D2E8(dword_13BF70, (uint32_t *)v2);
-    list_push_tail(dword_13BF74, (uint32_t *)v2);
+    cmd_handler_c(dword_13BF70, (uint32_t *)v2);
+    cmd_handler_a(dword_13BF74, (uint32_t *)v2);
   }
   else
   {
-    sub_12D2E8(dword_13BF64, (uint32_t *)v2);
-    list_push_tail(dword_13BF68, (uint32_t *)v2);
+    cmd_handler_c(dword_13BF64, (uint32_t *)v2);
+    cmd_handler_a(dword_13BF68, (uint32_t *)v2);
   }
   v6 = (a1 << 8) & 0xFF00;
   v7 = dword_13BF6C;
-  sub_12CD34(v6 | 8, 4);
+  rx_phy_status_parse(v6 | 8, 4);
   *(uint8_t *)(v1 + v5 + 25) = 0;
-  return sub_13B698(v3, v2, 2, 0, 0, 39, v7);
+  return adv_set_params(v3, v2, 2, 0, 0, 39, v7);
 }
 

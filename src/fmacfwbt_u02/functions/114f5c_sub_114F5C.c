@@ -12,8 +12,8 @@
 
 extern uint32_t dword_114FD4;
 
-// sub_114F5C @ 0x114f5c, size 120 bytes
-int  sub_114F5C(int a1, int a2)
+// load_calib_data @ 0x114f5c, size 120 bytes
+int  load_calib_data(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2

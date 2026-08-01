@@ -13,8 +13,8 @@
 extern uint32_t dword_133E44;
 extern uint32_t dword_133E48;
 
-// sub_133E00 @ 0x133e00, size 66 bytes
-int  sub_133E00(int a1, uint8_t *a2)
+// ll_event_prepare @ 0x133e00, size 66 bytes
+int  ll_event_prepare(int a1, uint8_t *a2)
 {
   int v2; // r4
   int result; // r0
@@ -22,8 +22,8 @@ int  sub_133E00(int a1, uint8_t *a2)
   int v5; // r4
 
   v2 = *a2;
-  feature_guard_sdio(256, dword_133E44);
-  result = msg_get_value(6u);
+  state_check_feature(256, dword_133E44);
+  result = hci_cmd_send_short(6u);
   if ( result )
     return 2;
   v4 = dword_133E48 + 1320 * v2;
@@ -33,7 +33,7 @@ int  sub_133E00(int a1, uint8_t *a2)
     result = *(uint8_t *)(v4 + 108);
     if ( *(uint8_t *)(v4 + 108) )
     {
-      sub_134FA8(v4, 1, *(uint8_t *)(v4 + 106));
+      init_rf_config(v4, 1, *(uint8_t *)(v4 + 106));
       return v5;
     }
   }

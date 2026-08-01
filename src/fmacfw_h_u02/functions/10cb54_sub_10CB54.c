@@ -12,8 +12,8 @@
 
 extern uint32_t off_10CB60;
 
-// sub_10CB54 @ 0x10cb54, size 10 bytes
-void sub_10CB54()
+// rf_cmd_wakeup @ 0x10cb54, size 10 bytes
+void rf_cmd_wakeup()
 {
   *(uint32_t *)off_10CB60 = 256;
 }

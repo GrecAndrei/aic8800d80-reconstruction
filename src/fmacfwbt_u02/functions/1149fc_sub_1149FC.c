@@ -17,8 +17,8 @@ extern uint32_t dword_114AEC;
 extern uint32_t dword_114AE4;
 extern uint32_t dword_114AE8;
 
-// sub_1149FC @ 0x1149fc, size 218 bytes
-uint8_t *sub_1149FC()
+// alloc_small_buffer @ 0x1149fc, size 218 bytes
+uint8_t *alloc_small_buffer()
 {
   int *v0; // r4
   uint8_t *result; // r0
@@ -38,7 +38,7 @@ uint8_t *sub_1149FC()
   int *v15; // r3
   int v16; // r3
 
-  sub_12D374(16);
+  set_system_flag_2(16);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -52,7 +52,7 @@ uint8_t *sub_1149FC()
   *(uint32_t *)off_114ADC = v4;
   if ( v3 )
   {
-    result = (uint8_t *)sub_12D4F8(result + 16);
+    result = (uint8_t *)list_pop_front(result + 16);
     v5 = result;
     if ( *v0 )
     {
@@ -67,18 +67,18 @@ uint8_t *sub_1149FC()
     }
     if ( result )
     {
-      v6 = sub_114790(result + 4);
+      v6 = dispatch_by_cmd(result + 4);
       if ( v6 < 0 )
       {
-        return (uint8_t *)sub_12ECB0(dword_114AEC, v5[4], v7);
+        return (uint8_t *)ke_event_schedule(dword_114AEC, v5[4], v7);
       }
       else
       {
         *(uint32_t *)v5 = v6;
-        v8 = sub_114944(17, 3090, v5);
+        v8 = find_object_by_key(17, 3090, v5);
         if ( v8 )
         {
-          sub_12ECB0(dword_114AE4, v8, v9);
+          ke_event_schedule(dword_114AE4, v8, v9);
           if ( (__get_CPSR() & 1) == 0 )
           {
             __disable_irq();
@@ -86,7 +86,7 @@ uint8_t *sub_1149FC()
           }
           v10 = dword_114AE8;
           ++*v0;
-          bt_state_check_or_init(v10, v5);
+          check_abort_flag_2(v10, v5);
           if ( *v0 )
           {
             v11 = *v0 - 1;
@@ -98,12 +98,12 @@ uint8_t *sub_1149FC()
                 __enable_irq();
             }
           }
-          return (uint8_t *)irq_nesting_or(16);
+          return (uint8_t *)set_system_flag_1(16);
         }
         else
         {
-          sub_114710();
-          return (uint8_t *)patch_helper(0);
+          lock_release();
+          return (uint8_t *)periph_write(0);
         }
       }
     }

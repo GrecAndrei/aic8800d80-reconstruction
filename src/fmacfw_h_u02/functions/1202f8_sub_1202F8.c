@@ -12,8 +12,8 @@
 
 extern uint32_t off_120348;
 
-// sub_1202F8 @ 0x1202f8, size 80 bytes
-int  sub_1202F8(uint8_t *a1)
+// reset_drv_flag @ 0x1202f8, size 80 bytes
+int  reset_drv_flag(uint8_t *a1)
 {
   uint32_t *v1; // r3
   int *v2; // r3

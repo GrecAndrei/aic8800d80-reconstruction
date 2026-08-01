@@ -12,19 +12,19 @@
 
 extern uint32_t dword_12B094;
 
-// bt_chan_init_all @ 0x12b064, size 48 bytes
-// Doc: bt_chan_init_all [bt]: Initialize BT channels 0..3 via per-channel setup helper
-// bt_chan_init_all [bt]: Initialize BT channels 0..3 via per-channel setup helper
-int *bt_chan_init_all()
+// tx_slot_state_init @ 0x12b064, size 48 bytes
+// Doc: tx_slot_state_init [bt]: Initialize BT channels 0..3 via per-channel setup helper
+// tx_slot_state_init [bt]: Initialize BT channels 0..3 via per-channel setup helper
+int *tx_slot_state_init()
 {
   int *result; // r0
   uint8_t *v1; // r3
   int v2; // r1
 
-  phy_tbl_lookup_by_idx(0);
-  phy_tbl_lookup_by_idx(1);
-  phy_tbl_lookup_by_idx(2);
-  result = phy_tbl_lookup_by_idx(3);
+  tx_slot_state_get(0);
+  tx_slot_state_get(1);
+  tx_slot_state_get(2);
+  result = tx_slot_state_get(3);
   v1 = (uint8_t *)dword_12B094;
   v2 = dword_12B094 + 96;
   do

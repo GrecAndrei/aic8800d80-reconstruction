@@ -17,10 +17,10 @@ extern uint32_t dword_1415E0;
 extern uint32_t dword_1415E4;
 extern uint32_t dword_1415DC;
 
-// rx_agc_init_n_4e0 @ 0x1414e0, size 244 bytes
-// Doc: rx_agc_init_n_4e0 [rx]: Initialize RX AGC table from ROM data
-// rx_agc_init_n_4e0 [rx]: Initialize RX AGC table from ROM data
-void rx_agc_init_n_4e0()
+// ll_event_schedule @ 0x1414e0, size 244 bytes
+// Doc: ll_event_schedule [rx]: Initialize RX AGC table from ROM data
+// ll_event_schedule [rx]: Initialize RX AGC table from ROM data
+void ll_event_schedule()
 {
   int16_t **v0; // r6
   int v1; // r3
@@ -46,7 +46,7 @@ void rx_agc_init_n_4e0()
       goto LABEL_4;
     }
 LABEL_12:
-    sub_140BEC(v2, 1);
+    ble_ll_adv_reset(v2, 1);
     return;
   }
   v7 = dword_1415D4 + v1;
@@ -58,13 +58,13 @@ LABEL_12:
     if ( v9 != 2 )
     {
 LABEL_18:
-      sub_12F46C(dword_1415E8, dword_1415E0, 1726);
+      mmio_clear_register(dword_1415E8, dword_1415E0, 1726);
       return;
     }
   }
   else
   {
-    sub_12F46C(dword_1415E4, dword_1415E0, 1714);
+    mmio_clear_register(dword_1415E4, dword_1415E0, 1714);
     v8 = *(uint8_t *)(v7 + 6339);
     if ( v8 <= 1 )
       goto LABEL_12;
@@ -77,12 +77,12 @@ LABEL_18:
   }
 LABEL_4:
   v4 = dword_1415D4;
-  sub_12CD34(0xBu, 2);
+  rx_phy_status_parse(0xBu, 2);
   v5 = v4 + 6336;
-  sub_12D240((uint32_t *)dword_1415DC);
+  zero_8_bytes((uint32_t *)dword_1415DC);
   do
   {
-    while ( *(uint16_t *)(v4 + 4) != 1 || !sub_140B78((uint16_t *)(v4 + 6), v4 + 28, v2) )
+    while ( *(uint16_t *)(v4 + 4) != 1 || !ble_ll_adv_set_params((uint16_t *)(v4 + 6), v4 + 28, v2) )
     {
       v4 += 528;
       if ( v4 == v5 )
@@ -93,10 +93,10 @@ LABEL_4:
     *(uint8_t *)(v4 + 22) = 0;
     *(uint16_t *)(v4 + 4) = 2;
     v4 += 528;
-    list_push_tail(v5 + 136, v6);
+    cmd_handler_a(v5 + 136, v6);
   }
   while ( v4 != v5 );
 LABEL_9:
-  sub_140AE4(v2, 0);
+  ble_ll_adv_sm_check(v2, 0);
 }
 

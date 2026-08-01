@@ -12,11 +12,11 @@
 
 extern uint32_t dword_12A4B0;
 
-// sub_12A490 @ 0x12a490, size 30 bytes
-uint8_t * sub_12A490(uint8_t *result)
+// lll_conn_get @ 0x12a490, size 30 bytes
+uint8_t * lll_conn_get(uint8_t *result)
 {
   if ( result[1224] )
-    return sub_1296C4((uint8_t *)(dword_12A4B0 + 140 * result[1225]));
+    return rsn_parse_ie((uint8_t *)(dword_12A4B0 + 140 * result[1225]));
   return result;
 }
 

@@ -12,8 +12,8 @@
 
 extern uint32_t off_13A570;
 
-// sub_13A54C @ 0x13a54c, size 36 bytes
-uint16_t * sub_13A54C(uint16_t *result)
+// rf_save_cal_values @ 0x13a54c, size 36 bytes
+uint16_t * rf_save_cal_values(uint16_t *result)
 {
   uint16_t *v1; // r3
 

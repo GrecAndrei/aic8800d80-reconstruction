@@ -18,8 +18,8 @@ extern uint32_t off_103AF4;
 extern uint32_t dword_103AF8;
 extern uint32_t off_103AEC;
 
-// sub_103A54 @ 0x103a54, size 138 bytes
-int sub_103A54()
+// rf_set_control_bit @ 0x103a54, size 138 bytes
+int rf_set_control_bit()
 {
   uint32_t *v0; // r2
   int v1; // r3
@@ -57,6 +57,6 @@ int sub_103A54()
   *v5 |= 0x1000000u;
   *v5 |= 0x8000000u;
   *v6 |= 0x524u;
-  return sub_12EB90(0x2000, v7);
+  return check_feature_flag(0x2000, v7);
 }
 

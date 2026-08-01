@@ -14,8 +14,8 @@ extern uint32_t off_13880C;
 extern uint32_t dword_138810;
 extern uint32_t dword_138814;
 
-// sub_1386A8 @ 0x1386a8, size 354 bytes
-int  sub_1386A8(int a1, int16_t a2)
+// rf_validate_rate @ 0x1386a8, size 354 bytes
+int  rf_validate_rate(int a1, int16_t a2)
 {
   uint8_t *v2; // r2
   int v3; // r4

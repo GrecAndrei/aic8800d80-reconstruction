@@ -14,10 +14,10 @@ extern uint32_t off_12D138;
 extern uint32_t off_12D13C;
 extern uint32_t off_12D140;
 
-// irq_nesting_or_d104 @ 0x12d104, size 52 bytes
-// Doc: irq_nesting_or_d104 [util]: IRQ nesting counter increment helper
-// irq_nesting_or_d104 [util]: IRQ nesting counter increment helper
-int  irq_nesting_or_d104(int a1)
+// unknown_func_12d104 @ 0x12d104, size 52 bytes
+// Doc: unknown_func_12d104 [util]: IRQ nesting counter increment helper
+// unknown_func_12d104 [util]: IRQ nesting counter increment helper
+int  unknown_func_12d104(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

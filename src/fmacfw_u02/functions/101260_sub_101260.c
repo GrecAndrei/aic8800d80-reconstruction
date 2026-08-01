@@ -62,8 +62,8 @@ extern uint32_t off_101710;
 extern uint32_t off_101714;
 extern uint32_t off_101718;
 
-// sub_101260 @ 0x101260, size 1142 bytes
-uint32_t * sub_101260(unsigned int a1)
+// bb_disable @ 0x101260, size 1142 bytes
+uint32_t * bb_disable(unsigned int a1)
 {
   uint32_t *v1; // r2
   uint32_t *v2; // r3
@@ -245,10 +245,10 @@ LABEL_4:
     v20 += 12;
   }
   while ( (unsigned int *)(v13 + 192) != v21 );
-  sub_102EB8(1, 0, 16, v13);
-  sub_102EB8(1, 16, 16, *v14);
-  sub_102EB8(1, 32, 16, *v15);
-  sub_1009A0(1, a1);
+  peripheral_read_32(1, 0, 16, v13);
+  peripheral_read_32(1, 16, 16, *v14);
+  peripheral_read_32(1, 32, 16, *v15);
+  bt_enable(1, a1);
   v24 = off_101524;
   v25 = (unsigned int *)off_101528;
   *(uint32_t *)off_101524 |= 8u;
@@ -348,7 +348,7 @@ LABEL_26:
   }
   v41 = off_101710;
   if ( *(uint8_t *)off_101710 != v40 )
-    sub_102F4C(0);
+    call_transfer(0);
   v42 = off_101714;
   *v41 = v40;
   while ( !*v42 )
@@ -358,12 +358,12 @@ LABEL_26:
     goto LABEL_40;
   if ( a1 - 5270 <= 0x32 || a1 - 5550 <= 0x64 )
   {
-    result = sub_100EE8();
+    result = rng_read_alt();
 LABEL_40:
     *(uint32_t *)off_101714 = 1;
     return result;
   }
-  result = (uint32_t *)sub_100E24(0);
+  result = (uint32_t *)rng_read(0);
   *(uint32_t *)off_101714 = 1;
   return result;
 }

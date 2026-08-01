@@ -1,1 +1,1 @@
-{"fn": "get_cached_1828f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12019ec", "status": "ok", "name": "get_cached_1828f8", "params": [], "docstring": "Retrieve cached pointer/value from table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "get_cached_1828f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12019ec", "status": "ok", "name": "mac_time_get", "params": [], "docstring": "Retrieve cached pointer/value from table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

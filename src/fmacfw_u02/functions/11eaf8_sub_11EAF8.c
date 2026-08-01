@@ -13,8 +13,8 @@
 extern uint32_t off_11EB2C;
 extern uint32_t off_11EB30;
 
-// sub_11EAF8 @ 0x11eaf8, size 52 bytes
-unsigned int sub_11EAF8()
+// rf_status_poll @ 0x11eaf8, size 52 bytes
+unsigned int rf_status_poll()
 {
   int v0; // r3
   unsigned int result; // r0

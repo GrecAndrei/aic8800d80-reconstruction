@@ -1,1 +1,1 @@
-{"fn": "sub_12304F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12304f8", "status": "ok", "name": "fmac_init_state_load", "params": [], "docstring": "Loads signed byte state and initializes context", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12304F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12304f8", "status": "ok", "name": "rf_get_channel_calibration", "params": [], "docstring": "Loads signed byte state and initializes context", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

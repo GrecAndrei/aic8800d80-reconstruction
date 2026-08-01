@@ -1,1 +1,1 @@
-{"fn": "rf_state_check", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211adc", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Read RF state halfword from one reg and copy to status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211adc", "status": "ok", "name": "ke_timeout_tick", "params": [], "docstring": "Read RF state halfword from one reg and copy to status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

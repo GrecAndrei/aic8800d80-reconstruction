@@ -13,8 +13,8 @@
 extern uint32_t off_1222EC;
 extern uint32_t dword_1222F0;
 
-// sub_1222C0 @ 0x1222c0, size 42 bytes
-int sub_1222C0()
+// poll_register_bit @ 0x1222c0, size 42 bytes
+int poll_register_bit()
 {
   uint32_t *v0; // r1
   int result; // r0

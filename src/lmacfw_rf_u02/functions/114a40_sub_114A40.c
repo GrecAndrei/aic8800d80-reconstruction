@@ -14,13 +14,13 @@ extern uint32_t off_114A5C;
 extern uint32_t dword_114A64;
 extern uint32_t dword_114A60;
 
-// sub_114A40 @ 0x114a40, size 28 bytes
+// assert_handler @ 0x114a40, size 28 bytes
 // Doc: sub_1214A40 [util]: Reads and checks a half-word global (likely init/version check)
 // sub_1214A40 [util]: Reads and checks a half-word global (likely init/version check)
-void __noreturn sub_114A40()
+void __noreturn assert_handler()
 {
   if ( **(int16_t **)off_114A5C < 0 )
-    rf_cmd_send_n264(dword_114A64, dword_114A60, 242);
+    flash_ctrl_init(dword_114A64, dword_114A60, 242);
   while ( 1 )
     ;
 }

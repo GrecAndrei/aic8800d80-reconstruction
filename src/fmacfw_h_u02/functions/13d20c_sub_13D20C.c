@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D20C @ 0x13d20c, size 302 bytes
-unsigned int  sub_13D20C(unsigned int result)
+// mac_is_state_5 @ 0x13d20c, size 302 bytes
+unsigned int  mac_is_state_5(unsigned int result)
 {
   unsigned int v1; // r4
   int v2; // r1

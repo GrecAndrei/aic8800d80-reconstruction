@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12E120 @ 0x12e120, size 64 bytes
+// parse_data_9 @ 0x12e120, size 64 bytes
 // Doc: sdio_buffer_prepare_n_20a [mmio]: Prepares SDIO buffer by validating length/offset fields
 // sdio_buffer_prepare_n_20a [mmio]: Prepares SDIO buffer by validating length/offset fields
-uint8_t * sub_12E120(uint8_t *result, int a2)
+uint8_t * parse_data_9(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   uint8_t *v3; // r2

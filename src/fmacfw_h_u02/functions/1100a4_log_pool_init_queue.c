@@ -14,10 +14,10 @@ extern uint32_t off_1100D8;
 extern uint32_t dword_1100DC;
 extern uint32_t dword_1100E0;
 
-// log_pool_init_queue @ 0x1100a4, size 52 bytes
-// Doc: log_pool_init_queue [util]: Initialize the log message pool queue and metadata
-// log_pool_init_queue [util]: Initialize the log message pool queue and metadata
-int log_pool_init_queue()
+// get_current_channel @ 0x1100a4, size 52 bytes
+// Doc: get_current_channel [util]: Initialize the log message pool queue and metadata
+// get_current_channel [util]: Initialize the log message pool queue and metadata
+int get_current_channel()
 {
   void *v0; // r5
   int result; // r0
@@ -26,7 +26,7 @@ int log_pool_init_queue()
   int v4; // r4
 
   v0 = off_1100D8;
-  result = sub_12D100(dword_1100DC);
+  result = clear_stats_buf(dword_1100DC);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_1100E0;
@@ -34,8 +34,8 @@ int log_pool_init_queue()
     v4 = 0;
     do
     {
-      sub_10F9E8(v2, 0xCu);
-      result = sub_12D108(v3);
+      tx_irq_handler(v2, 0xCu);
+      result = wlan_ioctl_handler_1(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );

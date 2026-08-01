@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12ADD0;
 
-// sub_12ADA4 @ 0x12ada4, size 44 bytes
-int  sub_12ADA4(int a1)
+// bt_conn_is_connected @ 0x12ada4, size 44 bytes
+int  bt_conn_is_connected(int a1)
 {
   uint8_t *v1; // r3
   int result; // r0

@@ -12,8 +12,8 @@
 
 extern uint32_t off_11C21C;
 
-// sub_11C210 @ 0x11c210, size 12 bytes
-void sub_11C210()
+// mmio_set_register_bit @ 0x11c210, size 12 bytes
+void mmio_set_register_bit()
 {
   *(uint32_t *)off_11C21C |= 0x80u;
 }

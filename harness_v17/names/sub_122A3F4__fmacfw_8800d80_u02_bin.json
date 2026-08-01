@@ -1,1 +1,1 @@
-{"fn": "sub_122A3F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a3f4", "status": "ok", "name": "sub_122A3F4", "params": [], "docstring": "Check byte field against 0x7f and branch accordingly", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A3F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a3f4", "status": "ok", "name": "hci_cmd_preprocess", "params": [], "docstring": "Check byte field against 0x7f and branch accordingly", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_14054C @ 0x14054c, size 94 bytes
-int  sub_14054C(int a1, int a2, int a3)
+// find_conn_by_handle @ 0x14054c, size 94 bytes
+int  find_conn_by_handle(int a1, int a2, int a3)
 {
   int v3; // r3
   int v4; // r4

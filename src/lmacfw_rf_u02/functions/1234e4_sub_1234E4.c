@@ -25,8 +25,8 @@ extern uint32_t dword_1236E0;
 extern uint32_t off_1236E4;
 extern uint32_t dword_1236E8;
 
-// sub_1234E4 @ 0x1234e4, size 480 bytes
-void sub_1234E4()
+// read_irq_status @ 0x1234e4, size 480 bytes
+void read_irq_status()
 {
   uint8_t *v0; // r6
   uint8_t *v1; // r5
@@ -64,14 +64,14 @@ void sub_1234E4()
   v4 = BYTE4(v3) | v3;
   if ( !v3 )
   {
-    sub_126538();
+    mmio_set_control();
     if ( (*(uint8_t *)off_1236D0 & 0xFD) == 1 )
     {
       v25 = v4;
       v26[0] = v4;
-      sub_113B88(&v25);
-      rf_cmd_query_status(v26);
-      msg_parse(dword_1236F0, v25, v26[0]);
+      mmio_read_status(&v25);
+      mmio_read_byte(v26);
+      dispatch_event_handler(dword_1236F0, v25, v26[0]);
       v22 = v25;
       if ( v25 )
       {
@@ -80,8 +80,8 @@ void sub_1234E4()
           v22 = 31;
           v25 = 31;
         }
-        sub_10F170(v22);
-        msg_parse(dword_1236F4, v25);
+        set_xtal_ftune(v22);
+        dispatch_event_handler(dword_1236F4, v25);
       }
       if ( v26[0] )
       {
@@ -96,7 +96,7 @@ void sub_1234E4()
         }
         v24 = dword_1236F8;
         *(uint32_t *)off_1236DC = *(uint32_t *)off_1236DC & 0xFF03FFFF | v23;
-        msg_parse(v24);
+        dispatch_event_handler(v24);
       }
     }
     BYTE4(v3) = *v2;
@@ -118,16 +118,16 @@ void sub_1234E4()
         v8 = 1;
       else
         v8 = -1;
-      v9 = mmio_bit_extract_n() + v8;
+      v9 = get_xtal_ftune() + v8;
       if ( v9 < 1 )
         v9 = 1;
       if ( v9 >= 31 )
         v9 = 31;
-      sub_10F170(v9);
+      set_xtal_ftune(v9);
     }
-    n = mmio_bit_extract_n();
-    rf_level_apply_n200((uint8_t)n);
-    msg_parse(dword_1236D8, *v1, n, v7);
+    n = get_xtal_ftune();
+    rf_cmd_check((uint8_t)n);
+    dispatch_event_handler(dword_1236D8, *v1, n, v7);
     v11 = (uint8_t)(*v1 + 1);
     if ( v11 != 16 )
       goto LABEL_15;
@@ -149,7 +149,7 @@ void sub_1234E4()
         v21 = 63;
       *(uint32_t *)off_1236DC = *(uint32_t *)off_1236DC & 0xFF03FFFF | (v21 << 18);
     }
-    msg_parse(dword_1236EC, *v1, (*(uint32_t *)off_1236DC >> 18) & 0x3F, v19);
+    dispatch_event_handler(dword_1236EC, *v1, (*(uint32_t *)off_1236DC >> 18) & 0x3F, v19);
     v11 = (uint8_t)(*v1 + 1);
     if ( v11 != 32 )
       goto LABEL_15;
@@ -163,8 +163,8 @@ LABEL_33:
     v13 = 0x2000000 - v12;
   else
     v13 = *(uint32_t *)off_1236D4;
-  v14 = mmio_bit_extract_n();
-  msg_parse(dword_1236E0, v14, (*(uint32_t *)off_1236DC >> 18) & 0x3F, v12, v13);
+  v14 = get_xtal_ftune();
+  dispatch_event_handler(dword_1236E0, v14, (*(uint32_t *)off_1236DC >> 18) & 0x3F, v12, v13);
   v15 = (int *)off_1236E4;
   v11 = (uint8_t)(*v1 + 1);
   v16 = v13 + *(uint32_t *)off_1236E4;
@@ -178,10 +178,10 @@ LABEL_15:
   v17 = dword_1236E8;
   *v1 = 0;
   *v15 = v16 / 16;
-  v18 = msg_parse(v17);
+  v18 = dispatch_event_handler(v17);
   if ( (unsigned int)*(uint8_t *)off_1236D0 - 2 <= 1 )
-    rf_init_n_dc(v18);
+    ll_state_reset(v18);
   else
-    sub_12646C(2);
+    rf_set_flag(2);
 }
 

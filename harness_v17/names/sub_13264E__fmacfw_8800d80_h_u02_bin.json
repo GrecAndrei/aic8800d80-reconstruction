@@ -1,0 +1,1 @@
+{"fn": "sub_13264E", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13264e", "status": "ok", "name": "hci_cmd_handle", "params": [], "docstring": "Handles HCI command parse with fallback to 8.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

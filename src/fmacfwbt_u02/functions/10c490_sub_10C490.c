@@ -17,8 +17,8 @@ extern uint32_t dword_10C550;
 extern uint32_t dword_10C548;
 extern uint32_t off_10C544;
 
-// sub_10C490 @ 0x10c490, size 172 bytes
-int sub_10C490()
+// sdio_bus_reset @ 0x10c490, size 172 bytes
+int sdio_bus_reset()
 {
   int *v0; // r2
   unsigned int *v1; // r1

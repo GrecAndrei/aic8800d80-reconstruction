@@ -12,8 +12,8 @@
 
 extern uint32_t off_1322B4;
 
-// sub_132244 @ 0x132244, size 112 bytes
-char * sub_132244(char *result, int a2)
+// rf_channel_freq @ 0x132244, size 112 bytes
+char * rf_channel_freq(char *result, int a2)
 {
   int v2; // r1
   char *v3; // r3

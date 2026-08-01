@@ -29,10 +29,10 @@ extern uint32_t off_120714;
 extern uint32_t off_120700;
 extern uint32_t off_120718;
 
-// wifi_mac_init_n_05bc @ 0x1205bc, size 284 bytes
-// Doc: wifi_mac_init_n_05bc [mac]: Initialize WiFi MAC MMIO registers block
-// wifi_mac_init_n_05bc [mac]: Initialize WiFi MAC MMIO registers block
-uint32_t *wifi_mac_init_n_05bc()
+// poll_rf_interrupts @ 0x1205bc, size 284 bytes
+// Doc: poll_rf_interrupts [mac]: Initialize WiFi MAC MMIO registers block
+// poll_rf_interrupts [mac]: Initialize WiFi MAC MMIO registers block
+uint32_t *poll_rf_interrupts()
 {
   int *v0; // r4
   int *v1; // r5

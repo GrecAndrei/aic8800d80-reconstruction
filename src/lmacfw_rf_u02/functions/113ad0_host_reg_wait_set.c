@@ -13,14 +13,14 @@
 extern uint32_t off_113B28;
 extern uint32_t off_113B2C;
 
-// host_reg_wait_set @ 0x113ad0, size 88 bytes
-// Doc: host_reg_wait_set [mac]: Polls host register 0x40035244 until bit becomes non-zero
-// host_reg_wait_set [mac]: Polls host register 0x40035244 until bit becomes non-zero
-int  host_reg_wait_set(unsigned int a1, int a2)
+// mmio_write32 @ 0x113ad0, size 88 bytes
+// Doc: mmio_write32 [mac]: Polls host register 0x40035244 until bit becomes non-zero
+// mmio_write32 [mac]: Polls host register 0x40035244 until bit becomes non-zero
+int  mmio_write32(unsigned int a1, int a2)
 {
   uint32_t *v4; // r3
 
-  fw_state_check_n960(1);
+  get_bandgap_trim(1);
   while ( !*(uint32_t *)off_113B28 )
     ;
   if ( a1 <= 0x1F )
@@ -36,6 +36,6 @@ int  host_reg_wait_set(unsigned int a1, int a2)
     v4[21] &= ~4u;
   }
   *(uint32_t *)off_113B28 = 1;
-  return fw_state_check_n960(0);
+  return get_bandgap_trim(0);
 }
 

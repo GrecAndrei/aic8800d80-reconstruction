@@ -15,10 +15,10 @@ extern uint32_t dword_12833C;
 extern uint32_t dword_128330;
 extern uint32_t dword_128334;
 
-// sub_128160 @ 0x128160, size 464 bytes
+// hci_command_handler @ 0x128160, size 464 bytes
 // Doc: sub_1228160 [util]: Complex handler loading base pointer and saving many regs
 // sub_1228160 [util]: Complex handler loading base pointer and saving many regs
-BOOL  sub_128160(int a1, int a2, int a3)
+BOOL  hci_command_handler(int a1, int a2, int a3)
 {
   uint8_t *v3; // r11
   int *v4; // r4
@@ -61,8 +61,8 @@ LABEL_10:
       v12 = *((uint8_t *)v4 + 8);
       if ( v12 == *(uint8_t *)(a1 + 107) )
       {
-        sub_12ECB0(v11, v12, v9);
-        list_remove_node_d510(v3 + 16, v4);
+        ke_event_schedule(v11, v12, v9);
+        check_abort_flag_3(v3 + 16, v4);
         *((uint8_t *)v4 + 9) &= ~1u;
       }
       v4 = (int *)*v4;
@@ -84,7 +84,7 @@ LABEL_10:
 LABEL_13:
   if ( *(uint8_t *)(a1 + 86) != 255 )
   {
-    sub_127B7C(a1, a2);
+    get_conn_by_handle(a1, a2);
     if ( v13 )
       goto LABEL_31;
     goto LABEL_25;
@@ -121,7 +121,7 @@ LABEL_19:
   v17 = *(uint8_t *)(a1 + 85);
   if ( (v17 & 0x10) != 0 )
   {
-    sub_12609C((uint32_t *)a1);
+    scan_state_process((uint32_t *)a1);
     *(uint8_t *)(a1 + 85) &= ~0x10u;
     if ( v13 )
       goto LABEL_31;
@@ -129,7 +129,7 @@ LABEL_25:
     if ( !*(uint8_t *)(a1 + 1224) || *(uint8_t *)(dword_128330 + 140 * *(uint8_t *)(a1 + 1225) + 112) != 1 )
     {
 LABEL_26:
-      list_remove_node_d510(dword_128334, a1 + 76);
+      check_abort_flag_3(dword_128334, a1 + 76);
       v19 = *(uint8_t *)(a1 + 85) & 0xFE;
 LABEL_27:
       *(uint8_t *)(a1 + 85) = v19 | 2;
@@ -137,7 +137,7 @@ LABEL_27:
       return v10 != v21;
     }
 LABEL_36:
-    bt_rf_calibrate_or_setup(a1, a3, 0);
+    scan_adv_report(a1, a3, 0);
     v19 = *(uint8_t *)(a1 + 85) | 8;
     goto LABEL_27;
   }
@@ -147,7 +147,7 @@ LABEL_36:
       goto LABEL_18;
     goto LABEL_36;
   }
-  buf_release_and_dispatch(a1);
+  release_buffer(a1);
   if ( !v13 )
     goto LABEL_25;
 LABEL_31:

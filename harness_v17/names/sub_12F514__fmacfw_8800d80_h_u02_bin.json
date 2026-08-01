@@ -1,0 +1,1 @@
+{"fn": "sub_12F514", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f514", "status": "ok", "name": "get_buffer_size", "params": [], "docstring": "Returns buffer size 0x400 (1024 bytes).", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

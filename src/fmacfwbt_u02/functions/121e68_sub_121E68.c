@@ -19,16 +19,16 @@ extern uint32_t off_121F08;
 extern uint32_t off_121F0C;
 extern uint32_t off_121F10;
 
-// sub_121E68 @ 0x121e68, size 148 bytes
-int sub_121E68()
+// mac_util_event @ 0x121e68, size 148 bytes
+int mac_util_event()
 {
   int *v1; // r4
   int v2; // r3
   int v3; // r2
 
-  if ( **(int16_t **)off_121EFC < 0 && (sub_12D0B0(0) == 3 || !sub_12D0B0(0)) )
-    sub_12F694(dword_121F18, dword_121F14, 1862);
-  if ( sub_12D0B0(0) == 2 )
+  if ( **(int16_t **)off_121EFC < 0 && (hci_cmd_send_short(0) == 3 || !hci_cmd_send_short(0)) )
+    mmio_irq_clear(dword_121F18, dword_121F14, 1862);
+  if ( hci_cmd_send_short(0) == 2 )
   {
     *(uint32_t *)off_121F00 = 48;
     if ( (__get_CPSR() & 1) == 0 )
@@ -38,7 +38,7 @@ int sub_121E68()
     }
     v1 = (int *)off_121F08;
     ++*(uint32_t *)off_121F08;
-    sub_12D374(0x2000000);
+    set_system_flag_2(0x2000000);
     if ( (*(uint32_t *)off_121F0C & 4) != 0 )
       *(uint32_t *)off_121F10 = 4;
     if ( *v1 )
@@ -53,6 +53,6 @@ int sub_121E68()
       }
     }
   }
-  return sub_12CF5C(0);
+  return hci_cmd_send(0);
 }
 

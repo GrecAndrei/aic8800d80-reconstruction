@@ -1,1 +1,1 @@
-{"fn": "sub_121BC08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121bc08", "status": "ok", "name": "mmio_rf_table_init", "params": [], "docstring": "Initialize RF table pointers via MMIO register reads", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121BC08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121bc08", "status": "ok", "name": "crypto_aes_setup", "params": [], "docstring": "Initialize RF table pointers via MMIO register reads", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t off_131F40;
 extern uint32_t dword_131F44;
 extern uint32_t dword_131F48;
 
-// sub_131DF8 @ 0x131df8, size 328 bytes
-int  sub_131DF8(int a1, int a2, int16_t a3, int16_t a4)
+// process_hci_command @ 0x131df8, size 328 bytes
+int  process_hci_command(int a1, int a2, int16_t a3, int16_t a4)
 {
   uint8_t *v4; // r4
   int v8; // r1
@@ -79,7 +79,7 @@ int  sub_131DF8(int a1, int a2, int16_t a3, int16_t a4)
     v14[1] = v15;
     v14[2] = v16;
   }
-  if ( sub_114A44() )
+  if ( rf_reg_0x0f_bit_19() )
   {
     *(uint8_t *)(a2 + 105) = 0;
     *(uint8_t *)(a2 + 106) = 0;
@@ -122,10 +122,10 @@ int  sub_131DF8(int a1, int a2, int16_t a3, int16_t a4)
       v4[374] |= 8u;
   }
   v4[373] = *(uint8_t *)(a2 + 102);
-  sub_12C8D0(5121, a4, a3);
+  mac_write_header_word(5121, a4, a3);
   if ( (v4[374] & 1) != 0 )
   {
-    v34 = sub_101A18();
+    v34 = get_rf_field_hi();
     v35 = (uint8_t)v4[374] << 29;
     v4[372] = (v34 + 1) >> 1;
     if ( v35 < 0 )
@@ -157,10 +157,10 @@ int  sub_131DF8(int a1, int a2, int16_t a3, int16_t a4)
   if ( v17 )
   {
     *((uint16_t *)v4 + 4) = 255;
-    v33 = (uint8_t *)sub_12C7EC(49, 0, 5, 1u);
+    v33 = (uint8_t *)tx_send_pdu(49, 0, 5, 1u);
     *v33 = v4[376];
-    sub_12C84C((int)v33);
-    sub_12CBF4(5u, 1);
+    rx_process_packet((int)v33);
+    hci_cmd_preprocess(5u, 1);
   }
   return 0;
 }

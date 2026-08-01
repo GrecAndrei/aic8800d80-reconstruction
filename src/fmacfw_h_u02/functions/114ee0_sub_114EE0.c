@@ -20,8 +20,8 @@ extern uint32_t off_114FCC;
 extern uint32_t off_114FD0;
 extern uint32_t off_114FD8;
 
-// sub_114EE0 @ 0x114ee0, size 230 bytes
-int sub_114EE0()
+// get_phy_state @ 0x114ee0, size 230 bytes
+int get_phy_state()
 {
   int v0; // r4
   uint32_t *v1; // r3
@@ -34,21 +34,21 @@ int sub_114EE0()
 
   if ( **(uint8_t **)off_114FC8 == 2 )
   {
-    if ( sub_112B5C() )
+    if ( phy_get_status() )
       v0 = *((uint32_t *)off_114FE8 + 87);
     else
       v0 = 16;
-    sub_1128A8();
+    phy_is_calibrated();
     *((uint32_t *)off_114FD4 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    sub_12E948(dword_114FDC, v6, 1);
+    alloc_tx_event(dword_114FDC, v6, 1);
     v8 = off_114FE0;
     *((uint32_t *)off_114FE0 + 513) |= 2u;
     v8[4] |= 1u;
     while ( (v8[4] & 1) != 0 )
       ;
-    sub_12E948(dword_114FE4, v7, v8);
+    alloc_tx_event(dword_114FE4, v7, v8);
   }
   else
   {
@@ -80,9 +80,9 @@ int sub_114EE0()
   v4[34] = 1;
   __dsb(0xFu);
   __isb(0xFu);
-  sub_10D644();
+  nvic_disable_irq15();
   if ( *(uint8_t *)(*(uint32_t *)off_114FD8 + 3) )
-    sub_1145B0();
+    check_initialized();
   __disable_irq();
   return v0;
 }

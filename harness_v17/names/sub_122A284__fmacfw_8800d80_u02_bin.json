@@ -1,1 +1,1 @@
-{"fn": "sub_122A284", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a284", "status": "ok", "name": "fmac_status_chk_4c8", "params": [], "docstring": "Read status byte at firmware ctx+0x4c8 and branch", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A284", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a284", "status": "ok", "name": "llc_get_conn_idx", "params": [], "docstring": "Read status byte at firmware ctx+0x4c8 and branch", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

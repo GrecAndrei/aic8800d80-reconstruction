@@ -13,8 +13,8 @@
 extern uint32_t dword_12A088;
 extern uint32_t off_12A08C;
 
-// sub_12A04C @ 0x12a04c, size 60 bytes
-int  sub_12A04C(int result, int a2)
+// llc_evt_is_valid @ 0x12a04c, size 60 bytes
+int  llc_evt_is_valid(int result, int a2)
 {
   int v2; // r2
   int v3; // r3

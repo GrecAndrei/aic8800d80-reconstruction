@@ -1,0 +1,1 @@
+{"fn": "sub_114B08", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114b08", "status": "ok", "name": "get_hook_bits_0_2", "params": [], "docstring": "Gets bits 0-2 from hook status.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

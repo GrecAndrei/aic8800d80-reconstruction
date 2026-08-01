@@ -12,8 +12,8 @@
 
 extern uint32_t off_13A3A8;
 
-// sub_13A398 @ 0x13a398, size 14 bytes
-int sub_13A398()
+// get_clear_intr @ 0x13a398, size 14 bytes
+int get_clear_intr()
 {
   int result; // r0
 

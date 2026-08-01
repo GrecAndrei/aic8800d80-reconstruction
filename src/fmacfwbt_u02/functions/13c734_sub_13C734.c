@@ -13,8 +13,8 @@
 extern uint32_t dword_13C7A4;
 extern uint32_t dword_13C7A8;
 
-// sub_13C734 @ 0x13c734, size 110 bytes
-int  sub_13C734(int a1, int a2, int a3)
+// bt_get_conn_ctx @ 0x13c734, size 110 bytes
+int  bt_get_conn_ctx(int a1, int a2, int a3)
 {
   int v3; // r5
   int v4; // r6

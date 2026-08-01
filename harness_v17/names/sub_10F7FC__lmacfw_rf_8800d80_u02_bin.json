@@ -1,0 +1,1 @@
+{"fn": "sub_10F7FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f7fc", "status": "ok", "name": "ipc_send_0x40d", "params": [], "docstring": "Send IPC command 0x40d with arguments", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "log_alloc", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10fe7c", "status": "ok", "name": "log_alloc", "params": [], "docstring": "Allocate a log entry from the log pool if logging is enabled", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_alloc", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10fe7c", "status": "ok", "name": "is_chip_ready", "params": [], "docstring": "Allocate a log entry from the log pool if logging is enabled", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

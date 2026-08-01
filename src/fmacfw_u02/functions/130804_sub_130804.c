@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130804 @ 0x130804, size 52 bytes
+// pack_4_uint16 @ 0x130804, size 52 bytes
 // Doc: sub_1230804 [util]: Writes three 16-bit fields from r1/r2/r3 into a structure pointed by r0
 // sub_1230804 [util]: Writes three 16-bit fields from r1/r2/r3 into a structure pointed by r0
-int  sub_130804(int a1, int16_t a2, int16_t a3, int16_t a4, char *a5)
+int  pack_4_uint16(int a1, int16_t a2, int16_t a3, int16_t a4, char *a5)
 {
   char *v5; // r2
   uint8_t *v6; // r3

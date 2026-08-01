@@ -1,1 +1,1 @@
-{"fn": "sub_121CED4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121ced4", "status": "ok", "name": "bt_msg_handler_n_ed4", "params": [], "docstring": "Bluetooth message handler with extended register save", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121CED4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121ced4", "status": "ok", "name": "rf_init", "params": [], "docstring": "Bluetooth message handler with extended register save", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

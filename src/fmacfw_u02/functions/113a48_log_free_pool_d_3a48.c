@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_free_pool_d_3a48 @ 0x113a48, size 54 bytes
+// assert_error @ 0x113a48, size 54 bytes
 // Doc: rf_cmd_process_n4f6 [rf]: Process incoming RF control command
 // rf_cmd_process_n4f6 [rf]: Process incoming RF control command
-int log_free_pool_d_3a48()
+int assert_error()
 {
   int *v0; // r4
   int v1; // r0
@@ -29,7 +29,7 @@ int log_free_pool_d_3a48()
   v0 = (int *)rf_msg_process_body_n_1c4;
   v1 = rf_msg_process_body_n_1c0;
   ++*(uint32_t *)rf_msg_process_body_n_1c4;
-  result = list_push_tail(v1);
+  result = cmd_handler_a(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

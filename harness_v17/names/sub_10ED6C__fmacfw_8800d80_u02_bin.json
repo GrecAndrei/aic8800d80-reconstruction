@@ -1,0 +1,1 @@
+{"fn": "sub_10ED6C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ed6c", "status": "ok", "name": "call_ptr_1b0", "params": [], "docstring": "Jumps to function pointer stored at 0x1b0.", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11457C @ 0x11457c, size 10 bytes
-int  sub_11457C(int a1)
+// mmio_write_2 @ 0x11457c, size 10 bytes
+int  mmio_write_2(int a1)
 {
-  return rf_param_setup_44(2, a1, 0xCu);
+  return ke_task_process(2, a1, 0xCu);
 }
 

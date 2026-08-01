@@ -1,1 +1,1 @@
-{"fn": "sub_122EDAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122edac", "status": "ok", "name": "rf_msg_process_body_n_17f", "params": [], "docstring": "Initializes RF message header/body pointers in shared struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122EDAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122edac", "status": "ok", "name": "msg_alloc_0x40a", "params": [], "docstring": "Initializes RF message header/body pointers in shared struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

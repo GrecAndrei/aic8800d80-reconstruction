@@ -18,10 +18,10 @@ extern uint32_t dword_11BFA0;
 extern uint32_t dword_11BFA8;
 extern uint32_t off_11BFA4;
 
-// sub_11BEE0 @ 0x11bee0, size 174 bytes
+// handle_radio_done @ 0x11bee0, size 174 bytes
 // Doc: sub_121BEE0 [unknown]: Init/setup function loading globals and checking state with stack frame
 // sub_121BEE0 [unknown]: Init/setup function loading globals and checking state with stack frame
-int sub_11BEE0()
+int handle_radio_done()
 {
   uint32_t *v0; // r4
   int v1; // r6
@@ -43,7 +43,7 @@ int sub_11BEE0()
   if ( v1 )
   {
     v2 = *((uint32_t *)off_11BF90 + 2);
-    timestamp_remove(off_11BF90);
+    fault_handler(off_11BF90);
     v3 = v0[4];
     if ( v3 )
       goto LABEL_3;
@@ -55,17 +55,17 @@ int sub_11BEE0()
     if ( v3 )
     {
 LABEL_3:
-      sub_143770(v12, dword_11BF94, 144);
+      memcpy(v12, dword_11BF94, 144);
       v4 = *((uint8_t *)v0 + 160);
       if ( v12[1] )
-        timestamp_remove(dword_11BF94);
+        fault_handler(dword_11BF94);
       if ( v12[8] )
-        timestamp_remove(dword_11BF98);
+        fault_handler(dword_11BF98);
       if ( v12[15] )
-        timestamp_remove(dword_11BF9C);
+        fault_handler(dword_11BF9C);
       if ( v12[22] )
-        timestamp_remove(dword_11BFA0);
-      sub_11BD88();
+        fault_handler(dword_11BFA0);
+      init_radio_data();
       v0[4] = v3;
       *((uint8_t *)v0 + 160) = v4;
       v0 = off_11BF90;
@@ -86,7 +86,7 @@ LABEL_3:
       return result;
     }
   }
-  result = sub_11BD88();
+  result = init_radio_data();
   v0[4] = v3;
   if ( v1 )
   {
@@ -96,7 +96,7 @@ LABEL_14:
     v11 = off_11BF90;
     v0[2] = v2;
     v0[1] = v9;
-    return timestamp_update(v11, v10 + 5000);
+    return unknown_worker(v11, v10 + 5000);
   }
   return result;
 }

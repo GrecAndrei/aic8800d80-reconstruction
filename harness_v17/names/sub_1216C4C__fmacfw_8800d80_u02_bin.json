@@ -1,1 +1,1 @@
-{"fn": "sub_1216C4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1216c4c", "status": "ok", "name": "sub_1216C4C", "params": [], "docstring": "Processes message buffer context struct", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1216C4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1216c4c", "status": "ok", "name": "dma_ring_init", "params": [], "docstring": "Processes message buffer context struct", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

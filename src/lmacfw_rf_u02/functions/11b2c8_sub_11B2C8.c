@@ -18,10 +18,10 @@ extern uint32_t dword_11B358;
 extern uint32_t dword_11B368;
 extern uint32_t dword_11B35C;
 
-// sub_11B2C8 @ 0x11b2c8, size 134 bytes
+// rf_status_check @ 0x11b2c8, size 134 bytes
 // Doc: sub_121B2C8 [unknown]: Checks a flag byte from a global struct and shifts it, branches on result
 // sub_121B2C8 [unknown]: Checks a flag byte from a global struct and shifts it, branches on result
-int sub_11B2C8()
+int rf_status_check()
 {
   uint8_t *v0; // r4
   int v1; // r3
@@ -34,21 +34,21 @@ int sub_11B2C8()
   {
     if ( **(int16_t **)off_11B354 < 0 && (v1 & 4) != 0 )
     {
-      rf_cmd_send_n264(dword_11B364, dword_11B360, 1720);
+      flash_ctrl_init(dword_11B364, dword_11B360, 1720);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xFA | 4;
-    return rf_mailbox_post_n44(dword_11B358);
+    return rf_register_access(dword_11B358);
   }
   else if ( (v1 & 6) == 2 )
   {
     if ( **(int16_t **)off_11B354 < 0 && (v1 & 8) != 0 )
     {
-      rf_cmd_send_n264(dword_11B368, dword_11B360, 1731);
+      flash_ctrl_init(dword_11B368, dword_11B360, 1731);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xF5 | 8;
-    return rf_mailbox_post_n44(dword_11B35C);
+    return rf_register_access(dword_11B35C);
   }
   return result;
 }

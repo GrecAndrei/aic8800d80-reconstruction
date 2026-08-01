@@ -1,1 +1,1 @@
-{"fn": "sub_12005B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12005b0", "status": "ok", "name": "sub_12005B0", "params": [], "docstring": "Generic init helper calling paired setup routines", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12005B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12005b0", "status": "ok", "name": "chip_periph_init", "params": [], "docstring": "Generic init helper calling paired setup routines", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

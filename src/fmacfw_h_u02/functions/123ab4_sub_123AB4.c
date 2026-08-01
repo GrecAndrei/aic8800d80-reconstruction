@@ -16,44 +16,44 @@ extern uint32_t off_123B40;
 extern uint32_t dword_123B48;
 extern uint32_t dword_123B44;
 
-// sub_123AB4 @ 0x123ab4, size 130 bytes
-int  sub_123AB4(int a1, uint8_t *a2, int a3, int a4)
+// classify_command @ 0x123ab4, size 130 bytes
+int  classify_command(int a1, uint8_t *a2, int a3, int a4)
 {
   int v7; // r2
   uint16_t *v8; // r5
   int result; // r0
 
-  if ( sub_12CD48(a3) == 3 || sub_12CD48(a3) == 4 )
+  if ( hci_cmd_handler(a3) == 3 || hci_cmd_handler(a3) == 4 )
     return 2;
   v7 = *a2;
   v8 = off_123B38;
   *((uint8_t *)off_123B38 + 31) = v7;
   if ( !v7 )
   {
-    if ( sub_12CD48(a3) != 2 )
+    if ( hci_cmd_handler(a3) != 2 )
     {
-      sub_120FA4();
+      rf_write_reg();
 LABEL_6:
-      sub_12C8D0(35, a4, a3);
+      mac_write_header_word(35, a4, a3);
       return 0;
     }
     return 2;
   }
-  result = sub_12CD48(a3);
+  result = hci_cmd_handler(a3);
   if ( !result )
   {
     if ( **(int16_t **)off_123B3C < 0 )
     {
       if ( *(uint32_t *)off_123B40 << 28 )
-        sub_12F32C(dword_123B48, dword_123B44, 1522);
+        irq_disable_mmio_write(dword_123B48, dword_123B44, 1522);
     }
     v8[9] = 0;
     goto LABEL_6;
   }
   if ( result != 2 )
   {
-    sub_12B6C4(result);
-    sub_12CBF4(a3);
+    rf_status_check(result);
+    hci_cmd_preprocess(a3);
     return 2;
   }
   return result;

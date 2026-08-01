@@ -29,8 +29,8 @@ extern uint32_t off_1205D4;
 extern uint32_t off_1205C0;
 extern uint32_t off_1205D8;
 
-// sub_12047C @ 0x12047c, size 284 bytes
-uint32_t *sub_12047C()
+// rf_phy_init @ 0x12047c, size 284 bytes
+uint32_t *rf_phy_init()
 {
   int *v0; // r4
   int *v1; // r5

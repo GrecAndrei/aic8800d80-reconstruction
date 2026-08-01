@@ -12,10 +12,10 @@
 
 extern uint32_t off_131A5C;
 
-// fmac_init_set_byte_pair @ 0x1319d0, size 138 bytes
-// Doc: fmac_init_set_byte_pair [rf]: Reads byte pair from r1, initializes RF state structure
-// fmac_init_set_byte_pair [rf]: Reads byte pair from r1, initializes RF state structure
-int  fmac_init_set_byte_pair(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
+// bt_pkt_check @ 0x1319d0, size 138 bytes
+// Doc: bt_pkt_check [rf]: Reads byte pair from r1, initializes RF state structure
+// bt_pkt_check [rf]: Reads byte pair from r1, initializes RF state structure
+int  bt_pkt_check(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
 {
   uint32_t *v5; // r5
   int v6; // r7
@@ -39,7 +39,7 @@ int  fmac_init_set_byte_pair(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
   if ( !v10 )
     goto LABEL_7;
   v15 = a3;
-  if ( msg_get_value(5u) == 1 )
+  if ( rx_rate_field_parse(5u) == 1 )
     return 2;
   LOWORD(a3) = v15;
   if ( (uint8_t)v6 )
@@ -47,7 +47,7 @@ int  fmac_init_set_byte_pair(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
     if ( *a2 )
     {
 LABEL_7:
-      sub_12CA10(5146, a4, a3);
+      ke_msg_send_no_param(5146, a4, a3);
       return 0;
     }
   }
@@ -55,7 +55,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  v12 = (uint8_t *)sub_12C92C(49, 0, v15, 1u);
+  v12 = (uint8_t *)ke_msg_alloc(49, 0, v15, 1u);
   v13 = v5[1];
   *((uint16_t *)v5 + 4) = a4;
   if ( v13 )
@@ -63,8 +63,8 @@ LABEL_7:
   else
     v14 = *((uint8_t *)v5 + 376);
   *v12 = v14;
-  sdio_buffer_prepare_n_4e8((int)v12);
-  sub_12CD34(v15, 1);
+  ke_msg_send((int)v12);
+  rx_phy_status_parse(v15, 1);
   return 0;
 }
 

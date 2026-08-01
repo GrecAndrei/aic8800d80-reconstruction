@@ -15,10 +15,10 @@ extern uint32_t off_110364;
 extern uint32_t dword_110368;
 extern uint32_t off_11036C;
 
-// sub_110320 @ 0x110320, size 62 bytes
+// irq_disable_set_flag_preserve @ 0x110320, size 62 bytes
 // Doc: sub_1210320 [rf]: Unidentified behavioral routine in lmacfw_rf firmware
 // sub_1210320 [rf]: Unidentified behavioral routine in lmacfw_rf firmware
-int sub_110320()
+int irq_disable_set_flag_preserve()
 {
   int *v0; // r4
   int v1; // r0
@@ -35,7 +35,7 @@ int sub_110320()
   v0 = (int *)off_110364;
   v1 = dword_110368;
   ++*(uint32_t *)off_110364;
-  result = list_push_tail(v1);
+  result = check_kernel_state(v1);
   v3 = *v0;
   ++*(uint32_t *)off_11036C;
   if ( v3 )

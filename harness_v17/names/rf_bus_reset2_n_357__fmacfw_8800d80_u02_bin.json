@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_357", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116a4", "status": "ok", "name": "rf_fault_dump_n_2b2", "params": [], "docstring": "Dumps RF fault/diagnostic state for debugging", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_357", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116a4", "status": "ok", "name": "rf_bus_mark_n_1e0", "params": [], "docstring": "Dumps RF fault/diagnostic state for debugging", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -16,10 +16,10 @@ extern uint32_t off_11CD04;
 extern uint32_t off_11CD08;
 extern uint32_t dword_11CD00;
 
-// sub_11CBC8 @ 0x11cbc8, size 304 bytes
+// ll_rx_handler @ 0x11cbc8, size 304 bytes
 // Doc: sub_121CBC8 [mmio]: Read PHY status fields from shared state
 // sub_121CBC8 [mmio]: Read PHY status fields from shared state
-void sub_11CBC8()
+void ll_rx_handler()
 {
   int v0; // r5
   int v1; // r8
@@ -66,7 +66,7 @@ void sub_11CBC8()
         if ( *(uint8_t *)(v0 + 369) )
           v4 = 1;
       }
-      v5 = rf_alloc_or_init(v4, *(uint16_t *)(v0 + 364) + (uint8_t)*(v2 - 1) + 26);
+      v5 = call_global_185c7c(v4, *(uint16_t *)(v0 + 364) + (uint8_t)*(v2 - 1) + 26);
       v6 = v2;
       v7 = v5;
       if ( !v5 )
@@ -115,7 +115,7 @@ void sub_11CBC8()
       *(uint32_t *)(v7 + 48) = 0;
       *(uint8_t *)(v7 + 15) = *(uint8_t *)(v0 + 366);
       *(uint8_t *)(v7 + 16) = -1;
-      sub_1165B0(v7, 5);
+      wlan_tx_submit(v7, 5);
       ++v3;
       v2 += 33;
     }

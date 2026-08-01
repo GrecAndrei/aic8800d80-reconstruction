@@ -1,1 +1,1 @@
-{"fn": "sub_122AF44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122af44", "status": "ok", "name": "rf_chan_state_lookup", "params": [], "docstring": "Look up RF channel state by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122AF44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122af44", "status": "ok", "name": "rf_tx_power_configure", "params": [], "docstring": "Look up RF channel state by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

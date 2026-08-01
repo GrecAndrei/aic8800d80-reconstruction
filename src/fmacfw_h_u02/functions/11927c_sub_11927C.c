@@ -14,8 +14,8 @@ extern uint32_t off_119304;
 extern uint32_t dword_1192FC;
 extern uint32_t dword_119300;
 
-// sub_11927C @ 0x11927c, size 126 bytes
-int  sub_11927C(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5)
+// btm_acl_update @ 0x11927c, size 126 bytes
+int  btm_acl_update(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5)
 {
   int *v5; // r7
   int v6; // r6

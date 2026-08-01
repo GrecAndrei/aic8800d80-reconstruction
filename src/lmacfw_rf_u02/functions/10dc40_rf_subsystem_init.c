@@ -13,15 +13,15 @@
 extern uint32_t dword_10DC70;
 extern uint32_t off_10DC74;
 
-// rf_subsystem_init @ 0x10dc40, size 48 bytes
-// Doc: rf_subsystem_init [rf]: Initialize lmac RF subsystem helper
-// rf_subsystem_init [rf]: Initialize lmac RF subsystem helper
-int rf_subsystem_init()
+// gpio_init_pin_11 @ 0x10dc40, size 48 bytes
+// Doc: gpio_init_pin_11 [rf]: Initialize lmac RF subsystem helper
+// gpio_init_pin_11 [rf]: Initialize lmac RF subsystem helper
+int gpio_init_pin_11()
 {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = rf_reg_write_cb(dword_10DC70, 2048, 15360);
+  result = call_slot_0x1b8(dword_10DC70, 2048, 15360);
   v1 = off_10DC74;
   *((uint32_t *)off_10DC74 + 2) |= 0xFu;
   v1[2] |= 0x10000000u;

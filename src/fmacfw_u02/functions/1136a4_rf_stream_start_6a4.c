@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_stream_start_6a4 @ 0x1136a4, size 14 bytes
-// Doc: rf_stream_start_6a4 [rf]: start RF data stream
-// rf_stream_start_6a4 [rf]: start RF data stream
-int  rf_stream_start_6a4(unsigned int a1)
+// lookup_channel_table @ 0x1136a4, size 14 bytes
+// Doc: lookup_channel_table [rf]: start RF data stream
+// lookup_channel_table [rf]: start RF data stream
+int  lookup_channel_table(unsigned int a1)
 {
   if ( a1 > 7 )
     return 0;

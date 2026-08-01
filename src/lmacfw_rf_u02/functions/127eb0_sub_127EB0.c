@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127EB0 @ 0x127eb0, size 94 bytes
-int  sub_127EB0(int result, int a2)
+// util_cmp_core @ 0x127eb0, size 94 bytes
+int  util_cmp_core(int result, int a2)
 {
   int v2; // r2
   unsigned int v3; // r3

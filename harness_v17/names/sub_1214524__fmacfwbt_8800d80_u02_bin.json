@@ -1,1 +1,1 @@
-{"fn": "sub_1214524", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214524", "status": "ok", "name": "mmio_clear_bit1_n_524", "params": [], "docstring": "Clears bit 1 in MMIO register at offset 8", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214524", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214524", "status": "ok", "name": "clear_hw_flag_bit", "params": [], "docstring": "Clears bit 1 in MMIO register at offset 8", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11DEE8 @ 0x11dee8, size 4 bytes
+// isr_forward @ 0x11dee8, size 4 bytes
 // attributes: thunk
-int  sub_11DEE8(int a1)
+int  isr_forward(int a1)
 {
-  return sub_11E078(a1);
+  return check_buffer_size(a1);
 }
 

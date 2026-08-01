@@ -20,10 +20,10 @@ extern uint32_t off_10D00C;
 extern uint32_t off_10D014;
 extern uint32_t off_10D010;
 
-// sub_10CF48 @ 0x10cf48, size 190 bytes
+// bt_event_process @ 0x10cf48, size 190 bytes
 // Doc: sub_120CF48 [util]: Lookup entry in table at 0x180ac0 offset by halfword, call handler
 // sub_120CF48 [util]: Lookup entry in table at 0x180ac0 offset by halfword, call handler
-int  sub_10CF48(uint16_t *a1)
+int  bt_event_process(uint16_t *a1)
 {
   int16_t **v2; // r7
   int v3; // r0
@@ -39,12 +39,12 @@ int  sub_10CF48(uint16_t *a1)
   int16_t v13; // r3
 
   v2 = (int16_t **)off_10D008;
-  v3 = sub_11DF94((uint16_t)a1[5] + 16);
+  v3 = align_size_plus4((uint16_t)a1[5] + 16);
   v4 = *v2;
   v5 = v3;
   if ( **v2 < 0 && !v3 )
   {
-    rf_cmd_send_n264(dword_10D020, dword_10D018, 1358);
+    flash_ctrl_init(dword_10D020, dword_10D018, 1358);
     v4 = *v2;
   }
   v6 = (uint16_t)a1[5];
@@ -71,12 +71,12 @@ int  sub_10CF48(uint16_t *a1)
   {
     if ( v7 > 5 )
     {
-      rf_cmd_send_n264(dword_10D028, dword_10D024, 183);
-      rf_cmd_send_n264(dword_10D01C, dword_10D018, 1375);
+      flash_ctrl_init(dword_10D028, dword_10D024, 183);
+      flash_ctrl_init(dword_10D01C, dword_10D018, 1375);
     }
     else if ( v7 > 3 )
     {
-      rf_cmd_send_n264(dword_10D01C, dword_10D018, 1375);
+      flash_ctrl_init(dword_10D01C, dword_10D018, 1375);
     }
   }
   if ( **(uint8_t **)off_10D00C == 3 )
@@ -87,6 +87,6 @@ int  sub_10CF48(uint16_t *a1)
     a1[4] = v13;
     *v12 = 4;
   }
-  return sub_11DE50(v5 + 12);
+  return rx_irq_handler(v5 + 12);
 }
 

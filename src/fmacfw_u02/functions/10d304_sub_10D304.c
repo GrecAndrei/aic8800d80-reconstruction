@@ -18,8 +18,8 @@ extern uint32_t off_10D39C;
 extern uint32_t dword_10D3A8;
 extern uint32_t off_10D3A4;
 
-// sub_10D304 @ 0x10d304, size 130 bytes
-int sub_10D304()
+// rf_read_status_bit @ 0x10d304, size 130 bytes
+int rf_read_status_bit()
 {
   int v0; // r4
   int v2; // r1
@@ -40,7 +40,7 @@ int sub_10D304()
       v3 = (char *)off_10D38C + 5050236;
       *(uint32_t *)off_10D390 = 0x200000;
       *((uint32_t *)v3 + 1) |= 0x400000u;
-      feature_guard_check(2, v2);
+      check_status_bits(2, v2);
       do
       {
         v4 = *(uint32_t *)off_10D39C;
@@ -50,7 +50,7 @@ int sub_10D304()
       v6 = dword_10D3A8;
       *(uint32_t *)off_10D3A4 = v5;
       v0 = (v4 >> 20) & 1;
-      feature_guard_check(2, v6);
+      check_status_bits(2, v6);
     }
   }
   return v0;

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// ipc_doorbell_handler_n_1a4 @ 0x1157d8, size 346 bytes
+// check_event_flag @ 0x1157d8, size 346 bytes
 // Doc: ipc_doorbell_handler_n_170 [ipc]: Handles IPC doorbell interrupts and clears status bits
 // ipc_doorbell_handler_n_170 [ipc]: Handles IPC doorbell interrupts and clears status bits
-void  ipc_doorbell_handler_n_1a4(int a1, int a2)
+void  check_event_flag(int a1, int a2)
 {
   int v2; // r3
   int v3; // r1
@@ -30,9 +30,9 @@ void  ipc_doorbell_handler_n_1a4(int a1, int a2)
   }
   v3 = ipc_doorbell_handler_944;
   ++*(uint32_t *)ipc_doorbell_handler_n_40;
-  feature_guard_check(1024, v3);
-  v4 = clear_flags(0x80000000);
-  mmio_reg_clear_bits_n3c(v4);
+  check_status_bits(1024, v3);
+  v4 = unknown_func_12d14c(0x80000000);
+  rf_clear_status(v4);
   v5 = ipc_doorbell_handler_n_33;
   *(uint32_t *)ipc_doorbell_handler_n_33 &= 0xFFFFFFu;
   *v5 |= 0x10u;

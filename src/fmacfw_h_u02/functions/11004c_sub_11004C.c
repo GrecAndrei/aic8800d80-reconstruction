@@ -15,8 +15,8 @@ extern uint32_t dword_110094;
 extern uint32_t off_110098;
 extern uint32_t dword_11009C;
 
-// sub_11004C @ 0x11004c, size 72 bytes
-int sub_11004C()
+// get_noise_floor @ 0x11004c, size 72 bytes
+int get_noise_floor()
 {
   void *v0; // r8
   int result; // r0
@@ -27,7 +27,7 @@ int sub_11004C()
   unsigned int v6; // r1
 
   v0 = off_1100A0;
-  result = sub_12D100(dword_110094);
+  result = clear_stats_buf(dword_110094);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 6) )
   {
     v2 = off_110098;
@@ -36,8 +36,8 @@ int sub_11004C()
     v5 = 0;
     do
     {
-      sub_10F9E8(v3, 0x63Cu);
-      result = sub_12D108(v4);
+      tx_irq_handler(v3, 0x63Cu);
+      result = wlan_ioctl_handler_1(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;

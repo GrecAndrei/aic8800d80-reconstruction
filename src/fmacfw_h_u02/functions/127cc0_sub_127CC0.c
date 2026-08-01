@@ -17,8 +17,8 @@ extern uint32_t dword_127D54;
 extern uint32_t dword_127D58;
 extern uint32_t dword_127D50;
 
-// sub_127CC0 @ 0x127cc0, size 138 bytes
-int * sub_127CC0(int a1)
+// wifi_disable_calc @ 0x127cc0, size 138 bytes
+int * wifi_disable_calc(int a1)
 {
   int16_t **v1; // r8
   int v2; // r5
@@ -34,17 +34,17 @@ int * sub_127CC0(int a1)
   {
     v5 = 8 * a1;
     if ( *(uint8_t *)(dword_127D4C + 28 * a1 + 24) != 255
-      || (sub_12F32C(dword_127D5C, dword_127D54, 3044), **v1 < 0) )
+      || (irq_disable_mmio_write(dword_127D5C, dword_127D54, 3044), **v1 < 0) )
     {
       if ( *(uint8_t *)(v2 + 4 * (v5 - a1) + 25) )
-        sub_12F32C(dword_127D58, dword_127D54, 3046);
+        irq_disable_mmio_write(dword_127D58, dword_127D54, 3046);
     }
   }
   else
   {
     v5 = 8 * a1;
   }
-  sub_12D108(dword_127D50);
+  wlan_ioctl_handler_1(dword_127D50);
   v6 = v2 + 4 * (v5 - a1);
   result = sub_100200(v4, 0, 0x1Cu);
   *(uint16_t *)(v6 + 14) = 255;

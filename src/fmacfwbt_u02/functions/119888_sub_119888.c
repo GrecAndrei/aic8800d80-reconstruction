@@ -15,10 +15,10 @@ extern uint32_t off_1198DC;
 extern uint32_t dword_1198E4;
 extern uint32_t dword_1198E0;
 
-// sub_119888 @ 0x119888, size 80 bytes
+// tx_event_handle @ 0x119888, size 80 bytes
 // Doc: rf_chan_set_check [rf]: Validate and apply channel configuration bits
 // rf_chan_set_check [rf]: Validate and apply channel configuration bits
-int16_t * sub_119888(int16_t *result)
+int16_t * tx_event_handle(int16_t *result)
 {
   int v1; // r2
   int v2; // r1
@@ -40,7 +40,7 @@ int16_t * sub_119888(int16_t *result)
       v3 = (uint32_t *)*v3;
       if ( *result < 0 && !v3 )
       {
-        sub_12F694(dword_1198E4, dword_1198E0, 909);
+        mmio_irq_clear(dword_1198E4, dword_1198E0, 909);
         __und(0xFFu);
       }
       v1 = v3[19];

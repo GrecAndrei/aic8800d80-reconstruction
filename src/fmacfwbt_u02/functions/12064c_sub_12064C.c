@@ -14,8 +14,8 @@ extern uint32_t off_120728;
 extern uint32_t off_120724;
 extern uint32_t dword_120720;
 
-// sub_12064C @ 0x12064c, size 210 bytes
-int  sub_12064C(int a1)
+// alloc_buffer @ 0x12064c, size 210 bytes
+int  alloc_buffer(int a1)
 {
   uint8_t *v2; // r5
   int v3; // r0
@@ -26,17 +26,17 @@ int  sub_12064C(int a1)
   int v8; // r7
   char v10[5]; // [sp+7h] [bp-5h] BYREF
 
-  v2 = (uint8_t *)sub_12CB54(88, 13, 0, 3);
+  v2 = (uint8_t *)bt_buf_alloc(88, 13, 0, 3);
   v3 = *(uint8_t *)(a1 + 107);
   v10[0] = -1;
-  sub_1287E0(v3);
+  get_entry_by_index(v3);
   v4 = *(uint32_t *)(a1 + 1216);
   *(uint32_t *)(a1 + 412) = *(uint32_t *)(a1 + 1212);
   *(uint32_t *)(a1 + 416) = v4;
   *(uint16_t *)(a1 + 420) = *(uint16_t *)(a1 + 1220);
   *(uint8_t *)(a1 + 464) = 0;
-  sub_12C7AC(a1);
-  v5 = sub_127F58(a1 + 1212, v10);
+  scan_rssi_compare(a1);
+  v5 = find_free_conn(a1 + 1212, v10);
   v6 = v10[0];
   v2[1] = v5;
   v2[2] = v6;
@@ -49,24 +49,24 @@ int  sub_12064C(int a1)
       *(uint8_t *)(a1 + 231) = 0;
       if ( !v5 )
       {
-        sub_128AAC();
+        update_entries_from_config();
         *((uint8_t *)off_120728 + 9) = 1;
       }
     }
-    return sub_12CBB4(v2);
+    return hci_evt_send(v2);
   }
   *(uint8_t *)(a1 + 146) = v7;
   if ( !v5 )
   {
     v8 = *(uint8_t *)(a1 + 116);
-    sub_128AAC();
-    sub_125058(a1 + 48);
-    sub_124F60(a1 + 24, *((uint32_t *)off_120724 + 4) + *(uint32_t *)(dword_120720 + 696 * v8 + 8));
+    update_entries_from_config();
+    ke_event_set_lock(a1 + 48);
+    ke_event_lock(a1 + 24, *((uint32_t *)off_120724 + 4) + *(uint32_t *)(dword_120720 + 696 * v8 + 8));
     *(uint8_t *)(a1 + 128) = 0;
     *(uint8_t *)(a1 + 147) = 1;
-    return sub_12CBB4(v2);
+    return hci_evt_send(v2);
   }
-  sub_122248(a1);
-  return sub_12CBB4(v2);
+  mmio_read_phy(a1);
+  return hci_evt_send(v2);
 }
 

@@ -26,10 +26,10 @@ extern uint32_t off_116030;
 extern uint32_t off_11602C;
 extern uint32_t off_11601C;
 
-// rf_msg_process_body_n1cc @ 0x115ecc, size 300 bytes
-// Doc: rf_msg_process_body_n1cc [rf]: Processes body of RF message, updating sequence/length fields
-// rf_msg_process_body_n1cc [rf]: Processes body of RF message, updating sequence/length fields
-uint8_t *rf_msg_process_body_n1cc()
+// mmio_read_low_nibble @ 0x115ecc, size 300 bytes
+// Doc: mmio_read_low_nibble [rf]: Processes body of RF message, updating sequence/length fields
+// mmio_read_low_nibble [rf]: Processes body of RF message, updating sequence/length fields
+uint8_t *mmio_read_low_nibble()
 {
   uint32_t *v0; // r4
   uint8_t *v1; // r5
@@ -52,7 +52,7 @@ uint8_t *rf_msg_process_body_n1cc()
   v1 = off_115FFC;
   v2 = dword_116000;
   *(uint8_t *)off_115FFC = *(uint8_t *)off_115FF8 & 0xF;
-  feature_guard_sdio(2, v2);
+  state_check_feature(2, v2);
   if ( *v0 << 28 )
   {
     v3 = off_116008;
@@ -89,7 +89,7 @@ uint8_t *rf_msg_process_body_n1cc()
   }
   else if ( v10 == 1 )
   {
-    sdio_wait_busy();
+    hw_poll_flag();
     v15 = off_116030;
     *(uint32_t *)off_11602C |= 0x20u;
     v15[20] |= 0x20000u;

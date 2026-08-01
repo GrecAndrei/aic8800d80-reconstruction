@@ -1,1 +1,1 @@
-{"fn": "sub_120064C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120064c", "status": "ok", "name": "rf_init_clocks_n2c0", "params": [], "docstring": "Initialize RF clock/regulator MMIO region", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120064C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120064c", "status": "ok", "name": "periph_config", "params": [], "docstring": "Initialize RF clock/regulator MMIO region", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

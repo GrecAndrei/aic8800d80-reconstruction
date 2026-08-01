@@ -13,10 +13,10 @@
 extern uint32_t dword_123778;
 extern uint32_t dword_12377C;
 
-// rf_stream_start2_ne6 @ 0x1236e8, size 142 bytes
-// Doc: rf_stream_start2_ne6 [tx]: Starts an RF TX/RX stream (variant 0xe6)
-// rf_stream_start2_ne6 [tx]: Starts an RF TX/RX stream (variant 0xe6)
-int  rf_stream_start2_ne6(int a1, uint8_t *a2, int a3, int a4)
+// co_read_3_bytes @ 0x1236e8, size 142 bytes
+// Doc: co_read_3_bytes [tx]: Starts an RF TX/RX stream (variant 0xe6)
+// co_read_3_bytes [tx]: Starts an RF TX/RX stream (variant 0xe6)
+int  co_read_3_bytes(int a1, uint8_t *a2, int a3, int a4)
 {
   int v5; // r6
   int v6; // r0
@@ -34,11 +34,11 @@ int  rf_stream_start2_ne6(int a1, uint8_t *a2, int a3, int a4)
   v7 = a2[2];
   if ( v5 )
   {
-    v14 = sub_121960(v6, v7);
+    v14 = phy_read_offset_b(v6, v7);
     v10 = a3;
     if ( v14 )
     {
-      sub_13A460(dword_123778 + 696 * a2[1], a2[2], a3);
+      tx_slot_get(dword_123778 + 696 * a2[1], a2[2], a3);
       v11 = 2;
       v10 = a3;
       goto LABEL_4;
@@ -46,7 +46,7 @@ int  rf_stream_start2_ne6(int a1, uint8_t *a2, int a3, int a4)
   }
   else
   {
-    v9 = rf_chan_flag_lookup(v6, v7);
+    v9 = phy_read_offset_a(v6, v7);
     v10 = a3;
     if ( v9 )
     {
@@ -60,11 +60,11 @@ int  rf_stream_start2_ne6(int a1, uint8_t *a2, int a3, int a4)
   }
   v11 = 3;
 LABEL_4:
-  v12 = (uint8_t *)sub_12C92C(43, a4, v10, 3);
+  v12 = (uint8_t *)ke_msg_alloc(43, a4, v10, 3);
   *v12 = a2[1];
   v12[1] = a2[2];
   v12[2] = v11;
-  sdio_buffer_prepare_n_4e8(v12);
+  ke_msg_send(v12);
   return 0;
 }
 

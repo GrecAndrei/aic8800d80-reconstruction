@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n14c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214894", "status": "ok", "name": "rf_fault_dump_n14c", "params": [], "docstring": "Dumps RF register state on radio fault detection", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n14c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214894", "status": "ok", "name": "rf_cmd6_read_hi", "params": [], "docstring": "Dumps RF register state on radio fault detection", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

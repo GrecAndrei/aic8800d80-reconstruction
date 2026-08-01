@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12CC48 @ 0x12cc48, size 22 bytes
-int  sub_12CC48(int a1, int16_t a2, int16_t a3, int16_t a4)
+// hci_evt_prepare @ 0x12cc48, size 22 bytes
+int  hci_evt_prepare(int a1, int16_t a2, int16_t a3, int16_t a4)
 {
   *(uint16_t *)(a1 - 8) = a2;
   *(uint16_t *)(a1 - 6) = a3;
   *(uint16_t *)(a1 - 4) = a4;
-  return sub_12CBB4(a1);
+  return hci_evt_send(a1);
 }
 

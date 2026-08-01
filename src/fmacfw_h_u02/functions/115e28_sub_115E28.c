@@ -18,8 +18,8 @@ extern uint32_t dword_115EBC;
 extern uint32_t dword_115EC0;
 extern uint32_t off_115EC4;
 
-// sub_115E28 @ 0x115e28, size 132 bytes
-int sub_115E28()
+// rssi_sample @ 0x115e28, size 132 bytes
+int rssi_sample()
 {
   int **v0; // r5
   uint32_t *v1; // r6
@@ -30,14 +30,14 @@ int sub_115E28()
   int result; // r0
 
   v0 = (int **)off_115EB0;
-  sub_12D100(dword_115EAC);
+  clear_stats_buf(dword_115EAC);
   if ( **(int16_t **)off_115EB4 < 0 )
   {
     v2 = *v0;
     v1 = off_115EB8;
     if ( !*v0 || !*(uint32_t *)off_115EB8 )
     {
-      sub_12F32C(dword_115EBC, dword_115EC0, 90);
+      irq_disable_mmio_write(dword_115EBC, dword_115EC0, 90);
       v2 = *v0;
     }
   }
@@ -53,7 +53,7 @@ int sub_115E28()
   do
   {
     (*v0)[22 * v5 + 19] = *v1 + 80 * v5;
-    result = sub_12D108(v4);
+    result = wlan_ioctl_handler_1(v4);
     ++v5;
   }
   while ( *(uint16_t *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );

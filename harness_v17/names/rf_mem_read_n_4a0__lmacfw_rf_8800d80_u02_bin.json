@@ -1,1 +1,1 @@
-{"fn": "rf_mem_read_n_4a0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f0f4", "status": "ok", "name": "rf_mem_read_block", "params": [], "docstring": "Read RF memory bytes with length check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_read_n_4a0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f0f4", "status": "ok", "name": "rf_mem_read_n_49f", "params": [], "docstring": "Read RF memory bytes with length check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

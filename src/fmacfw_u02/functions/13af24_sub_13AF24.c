@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13AF24 @ 0x13af24, size 24 bytes
-int  sub_13AF24(int a1, int a2)
+// ll_conn_reset_flags @ 0x13af24, size 24 bytes
+int  ll_conn_reset_flags(int a1, int a2)
 {
   int16_t v2; // r2
 
@@ -19,6 +19,6 @@ int  sub_13AF24(int a1, int a2)
   *(uint32_t *)(a1 + 68) = 0;
   *(uint32_t *)(a1 + 80) = 0;
   *(uint16_t *)(a1 + 30) = v2;
-  return sub_13ABA8(a1, a2);
+  return ll_conn_state_dispatch(a1, a2);
 }
 

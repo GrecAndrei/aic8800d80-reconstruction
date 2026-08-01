@@ -1,1 +1,1 @@
-{"fn": "irq_enable", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120dd00", "status": "ok", "name": "rf_mem_read_n47e", "params": [], "docstring": "Read RF register with bank/page decode from top nibble", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "irq_enable", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120dd00", "status": "ok", "name": "gpio_set_bit", "params": [], "docstring": "Read RF register with bank/page decode from top nibble", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

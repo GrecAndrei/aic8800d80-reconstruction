@@ -14,8 +14,8 @@ extern uint32_t off_10ECE0;
 extern uint32_t off_10ECE4;
 extern uint32_t off_10ECE8;
 
-// sub_10EC98 @ 0x10ec98, size 70 bytes
-int  sub_10EC98(int a1, int a2, int a3)
+// mmio_read32_variant @ 0x10ec98, size 70 bytes
+int  mmio_read32_variant(int a1, int a2, int a3)
 {
   int *v3; // r5
   uint32_t *v4; // r4
@@ -35,12 +35,12 @@ int  sub_10EC98(int a1, int a2, int a3)
     v4 = off_10ECE8;
     while ( !*(uint32_t *)off_10ECE8 )
       ;
-    result = sub_10EC34();
+    result = call_patch_hook_1();
     *v4 = 1;
   }
   else
   {
-    result = sub_10EC34();
+    result = call_patch_hook_1();
   }
   if ( *v3 )
   {

@@ -1,1 +1,1 @@
-{"fn": "log_tick", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120eff0", "status": "ok", "name": "log_tick", "params": [], "docstring": "Periodic log/tick handler updating counters and status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_tick", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120eff0", "status": "ok", "name": "phy_get_status", "params": [], "docstring": "Periodic log/tick handler updating counters and status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

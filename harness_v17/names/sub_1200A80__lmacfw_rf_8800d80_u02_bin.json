@@ -1,1 +1,1 @@
-{"fn": "sub_1200A80", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1200a80", "status": "ok", "name": "rf_init_or_setup_n_1200a80", "params": [], "docstring": "Initialize/setup RF subsystem with multiple register arguments", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1200A80", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1200a80", "status": "ok", "name": "mac_send_frame", "params": [], "docstring": "Initialize/setup RF subsystem with multiple register arguments", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

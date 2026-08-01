@@ -15,8 +15,8 @@ extern uint32_t off_10DEFC;
 extern uint32_t dword_10DF00;
 extern uint32_t dword_10DF04;
 
-// sub_10DEB0 @ 0x10deb0, size 72 bytes
-int sub_10DEB0()
+// hw_block_reset @ 0x10deb0, size 72 bytes
+int hw_block_reset()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r0

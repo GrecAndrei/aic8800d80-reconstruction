@@ -15,8 +15,8 @@ extern uint32_t off_117EF0;
 extern uint32_t off_117EEC;
 extern uint32_t off_117EF4;
 
-// sub_117E64 @ 0x117e64, size 130 bytes
-void sub_117E64()
+// sleep_critical_enter @ 0x117e64, size 130 bytes
+void sleep_critical_enter()
 {
   int *v0; // r9
   uint32_t *v1; // r7
@@ -45,7 +45,7 @@ void sub_117E64()
       && ((v1[52] & 1) == 0 || *((uint8_t *)v1 + 190) != (uint8_t)i)
       && *((uint32_t *)v4 + 84) )
     {
-      sub_117374((uint8_t)i);
+      mmio_set_bit((uint8_t)i);
     }
     v3 -= 7;
     v4 -= 84;

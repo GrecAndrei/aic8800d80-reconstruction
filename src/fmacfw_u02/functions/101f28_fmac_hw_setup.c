@@ -13,10 +13,10 @@
 extern uint32_t off_101F68;
 extern uint32_t off_101F64;
 
-// fmac_hw_setup @ 0x101f28, size 58 bytes
-// Doc: fmac_hw_setup [util]: FMAC hardware setup routine
-// fmac_hw_setup [util]: FMAC hardware setup routine
-int  fmac_hw_setup(int result)
+// rf_set_tx_power @ 0x101f28, size 58 bytes
+// Doc: rf_set_tx_power [util]: FMAC hardware setup routine
+// rf_set_tx_power [util]: FMAC hardware setup routine
+int  rf_set_tx_power(int result)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3

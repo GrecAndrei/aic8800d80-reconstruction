@@ -1,1 +1,1 @@
-{"fn": "sub_121E2A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e2a4", "status": "ok", "name": "rx_frame_handler", "params": [], "docstring": "Process received frame", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121E2A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e2a4", "status": "ok", "name": "rx_adv_packet_isr", "params": [], "docstring": "Process received frame", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

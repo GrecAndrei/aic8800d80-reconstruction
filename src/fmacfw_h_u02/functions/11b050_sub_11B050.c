@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11B058;
 
-// sub_11B050 @ 0x11b050, size 8 bytes
-int  sub_11B050(int a1)
+// rf_index_to_value @ 0x11b050, size 8 bytes
+int  rf_index_to_value(int a1)
 {
   return *(uint16_t *)(dword_11B058 + 2 * a1);
 }

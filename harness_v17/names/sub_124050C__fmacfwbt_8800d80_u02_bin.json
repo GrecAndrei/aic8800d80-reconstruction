@@ -1,1 +1,1 @@
-{"fn": "sub_124050C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124050c", "status": "ok", "name": "rf_bus_write_n52", "params": [], "docstring": "RF bus MMIO write to 0x40200b08/0x40200b00 control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_124050C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124050c", "status": "ok", "name": "check_module_state", "params": [], "docstring": "RF bus MMIO write to 0x40200b08/0x40200b00 control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

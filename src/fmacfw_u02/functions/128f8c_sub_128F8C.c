@@ -21,10 +21,10 @@ extern uint32_t off_129168;
 extern uint32_t off_129164;
 extern uint32_t off_129178;
 
-// sub_128F8C @ 0x128f8c, size 454 bytes
+// wlc_ioctl_handler @ 0x128f8c, size 454 bytes
 // Doc: sub_1228F8C [mac]: Processes command structure, reads byte at offset 0x74 with size 0x2b8
 // sub_1228F8C [mac]: Processes command structure, reads byte at offset 0x74 with size 0x2b8
-unsigned int  sub_128F8C(unsigned int result, int a2, int a3)
+unsigned int  wlc_ioctl_handler(unsigned int result, int a2, int a3)
 {
   int v3; // r3
   uint32_t *v4; // r7
@@ -80,7 +80,7 @@ unsigned int  sub_128F8C(unsigned int result, int a2, int a3)
             v19 = dword_129174;
             v4[5] = a3;
             *((uint8_t *)v4 + 29) = 5;
-            timestamp_update(v19, v18 + v17);
+            unknown_worker(v19, v18 + v17);
           }
         }
         else
@@ -98,7 +98,7 @@ unsigned int  sub_128F8C(unsigned int result, int a2, int a3)
           *(uint32_t *)off_12915C &= ~0x200u;
         if ( !*(uint8_t *)off_129160 )
         {
-          sub_128EA0();
+          wlc_core_state();
           if ( !*((uint8_t *)v4 + 28) || (*(uint32_t *)off_129168 & 4) != 0 )
           {
             *(uint8_t *)off_129164 = 0;
@@ -106,8 +106,8 @@ unsigned int  sub_128F8C(unsigned int result, int a2, int a3)
           else
           {
             v20 = off_129164;
-            if ( *(uint8_t *)off_129164 && (sub_1228E8() != 1 || !*((uint32_t *)off_129178 + 126)) )
-              sub_118DC4(*(uint8_t *)(a3 + 116), 0, 0);
+            if ( *(uint8_t *)off_129164 && (get_phy_channel() != 1 || !*((uint32_t *)off_129178 + 126)) )
+              rf_channel_get(*(uint8_t *)(a3 + 116), 0, 0);
             *v20 = 1;
           }
           v21 = off_129170;
@@ -117,7 +117,7 @@ unsigned int  sub_128F8C(unsigned int result, int a2, int a3)
           v24 = v21[4];
           v4[5] = a3;
           *((uint8_t *)v4 + 29) = 6;
-          return timestamp_update(v23, v22 + v24);
+          return unknown_worker(v23, v22 + v24);
         }
       }
       else
@@ -137,9 +137,9 @@ unsigned int  sub_128F8C(unsigned int result, int a2, int a3)
     v15 = off_129164;
     if ( *(uint8_t *)off_129164 )
     {
-      result = sub_1228E8();
+      result = get_phy_channel();
       if ( result != 1 || !*((uint32_t *)off_129178 + 126) )
-        result = sub_118DC4(*(uint8_t *)(a3 + 116), 0, 0);
+        result = rf_channel_get(*(uint8_t *)(a3 + 116), 0, 0);
     }
     *v15 = 1;
   }

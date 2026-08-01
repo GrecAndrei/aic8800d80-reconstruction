@@ -13,10 +13,10 @@
 extern uint32_t dword_13C690;
 extern uint32_t dword_13C694;
 
-// sub_13C518 @ 0x13c518, size 374 bytes
+// lookup_rate_table_entry @ 0x13c518, size 374 bytes
 // Doc: sub_123C518 [unknown]: Parses indexed record header and dispatches by sub-byte tag
 // sub_123C518 [unknown]: Parses indexed record header and dispatches by sub-byte tag
-unsigned int  sub_13C518(uint8_t *a1, int a2, int a3, uint8_t *a4)
+unsigned int  lookup_rate_table_entry(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   int v4; // r6
   int v5; // r11
@@ -76,7 +76,7 @@ LABEL_9:
     {
       if ( v4 + 19 >= v10 )
         goto LABEL_9;
-      v15 = sub_12DBA0((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
+      v15 = check_one_12dba0((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
       if ( !v15 )
         goto LABEL_9;
       v16 = *((uint16_t *)v15 + 1);
@@ -98,7 +98,7 @@ LABEL_9:
       do
         *v20++ = 0;
       while ( v20 != v19 );
-      v24 = sub_13CBEC(1320 * v12 + 480 + 120 * v16 + dword_13C690, a2, v13 - 18, v4, 0);
+      v24 = rf_get_tx_pwr(1320 * v12 + 480 + 120 * v16 + dword_13C690, a2, v13 - 18, v4, 0);
       v26 = v23 == v25;
       if ( v23 == v25 )
         v26 = v22 == v24;

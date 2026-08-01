@@ -14,8 +14,8 @@ extern uint32_t off_10EDCC;
 extern uint32_t off_10EDD0;
 extern uint32_t off_10EDD4;
 
-// sub_10ED84 @ 0x10ed84, size 70 bytes
-int  sub_10ED84(int a1, int a2)
+// mmio_read32 @ 0x10ed84, size 70 bytes
+int  mmio_read32(int a1, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r4
@@ -35,12 +35,12 @@ int  sub_10ED84(int a1, int a2)
     v3 = off_10EDD4;
     while ( !*(uint32_t *)off_10EDD4 )
       ;
-    result = rf_reg_read_cb();
+    result = call_ptr_1b0();
     *v3 = 1;
   }
   else
   {
-    result = rf_reg_read_cb();
+    result = call_ptr_1b0();
   }
   if ( *v2 )
   {

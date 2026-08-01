@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12B14C;
 
-// sub_12B12C @ 0x12b12c, size 30 bytes
-int  sub_12B12C(int a1, int a2, int a3)
+// mac_duration_calc @ 0x12b12c, size 30 bytes
+int  mac_duration_calc(int a1, int a2, int a3)
 {
   int v3; // r3
   unsigned int v4; // r2

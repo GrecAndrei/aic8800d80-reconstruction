@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_chan_param_set_n_1b8 @ 0x1191b8, size 94 bytes
-// Doc: rf_chan_param_set_n_1b8 [rf]: Store channel/band parameters into RF context byte fields
-// rf_chan_param_set_n_1b8 [rf]: Store channel/band parameters into RF context byte fields
-int  rf_chan_param_set_n_1b8(uint8_t *a1, int a2)
+// rf_temp_compensate @ 0x1191b8, size 94 bytes
+// Doc: rf_temp_compensate [rf]: Store channel/band parameters into RF context byte fields
+// rf_temp_compensate [rf]: Store channel/band parameters into RF context byte fields
+int  rf_temp_compensate(uint8_t *a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -42,11 +42,11 @@ int  rf_chan_param_set_n_1b8(uint8_t *a1, int a2)
         goto LABEL_7;
       LOBYTE(v6) = 1;
     }
-    v8 = (uint8_t *)rf_setup_dispatch(87, 4, 0, 3);
+    v8 = (uint8_t *)ke_msg_send(87, 4, 0, 3);
     *v8 = a1[95];
     v8[1] = v6;
     v8[2] = v7;
-    result = sub_11DE50(v8);
+    result = rx_irq_handler(v8);
 LABEL_7:
     a1[120] = v6;
   }

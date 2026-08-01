@@ -507,6 +507,7 @@ uint32_t dword_10D1EC = 0x001661c0;  /* ptr -> 0x1661c0 */
 uint32_t dword_10D200 = 0x001661d0;  /* ptr -> 0x1661d0 */
 uint32_t dword_10D254 = 0x0016623c;  /* ptr -> 0x16623c, ascii "<b\x16\x00" */
 uint32_t dword_10D258 = 0x001660d0;  /* ptr -> 0x1660d0 */
+uint32_t dword_10D268 = 0x00182b70;  /* ptr -> 0x182b70, ascii "p+\x18\x00" */
 uint32_t dword_10D3F4 = 0x00166274;  /* ptr -> 0x166274, ascii "tb\x16\x00" */
 uint32_t dword_10D3F8 = 0x00166250;  /* ptr -> 0x166250, ascii "Pb\x16\x00" */
 uint32_t dword_10D3FC = 0x00182b70;  /* ptr -> 0x182b70, ascii "p+\x18\x00" */
@@ -625,6 +626,7 @@ uint32_t dword_10ED2C = 0x70001408;
 uint32_t dword_10ED60 = 0x01030000;
 uint32_t dword_10ED64 = 0x7000000c;
 uint32_t dword_10ED68 = 0x70000020;  /* ascii " \x00\x00p" */
+uint32_t dword_10ED78 = 0x70001408;
 uint32_t dword_10ED8C = 0x7000101c;
 uint32_t dword_10EDA4 = 0x7000101c;
 uint32_t dword_10EF58 = 0x70000008;
@@ -835,6 +837,8 @@ uint32_t dword_11385C = 0x00187f88;  /* ptr -> 0x187f88 */
 uint32_t dword_113860 = 0x0018227c;  /* ptr -> 0x18227c, ascii "|\x22\x18\x00" */
 uint32_t dword_1138A0 = 0x00187f88;  /* ptr -> 0x187f88 */
 uint32_t dword_1138E4 = 0x00187f88;  /* ptr -> 0x187f88 */
+uint32_t dword_113910 = 0x0017342c;  /* ptr -> 0x17342c, ascii ",4\x17\x00" */
+uint32_t dword_113914 = 0x00167068;  /* ptr -> 0x167068, ascii "hp\x16\x00" */
 uint32_t dword_113A50 = 0x000f4240;  /* ascii "@B\x0f\x00" */
 uint32_t dword_113A70 = 0x001670a0;  /* ptr -> 0x1670a0 */
 uint32_t dword_113A74 = 0x001671d8;  /* ptr -> 0x1671d8 */
@@ -855,6 +859,7 @@ uint32_t dword_114084 = 0x00173424;  /* ptr -> 0x173424, ascii "$4\x17\x00" */
 uint32_t dword_114088 = 0x00167208;  /* ptr -> 0x167208 */
 uint32_t dword_11408C = 0x00167168;  /* ptr -> 0x167168, ascii "hq\x16\x00" */
 uint32_t dword_1140E0 = 0x0018227c;  /* ptr -> 0x18227c, ascii "|\x22\x18\x00" */
+uint32_t dword_114150 = 0x00167220;  /* ptr -> 0x167220, ascii " r\x16\x00" */
 uint32_t dword_1143B4 = 0x00167264;  /* ptr -> 0x167264, ascii "dr\x16\x00" */
 uint32_t dword_1143C0 = 0x00167288;  /* ptr -> 0x167288 */
 uint32_t dword_1143CC = 0x001672ac;  /* ptr -> 0x1672ac */
@@ -876,6 +881,7 @@ uint32_t dword_114698 = 0x00167370;  /* ptr -> 0x167370, ascii "ps\x16\x00" */
 uint32_t dword_1146CC = 0x00167394;  /* ptr -> 0x167394 */
 uint32_t dword_11470C = 0x00182554;  /* ptr -> 0x182554, ascii "T%\x18\x00" */
 uint32_t dword_114750 = 0x00182554;  /* ptr -> 0x182554, ascii "T%\x18\x00" */
+uint32_t dword_114788 = 0x0018254c;  /* ptr -> 0x18254c, ascii "L%\x18\x00" */
 uint32_t dword_114820 = 0x001673bc;  /* ptr -> 0x1673bc */
 uint32_t dword_114824 = 0x001673cc;  /* ptr -> 0x1673cc */
 uint32_t dword_114828 = 0x001673ac;  /* ptr -> 0x1673ac */
@@ -884,6 +890,9 @@ uint32_t dword_11487C = 0x001673e0;  /* ptr -> 0x1673e0 */
 uint32_t dword_114908 = 0x00167418;  /* ptr -> 0x167418 */
 uint32_t dword_11490C = 0x00167404;  /* ptr -> 0x167404 */
 uint32_t dword_114910 = 0x001673ec;  /* ptr -> 0x1673ec */
+uint32_t dword_114938 = 0x001347bd;  /* ptr -> 0x1347bd */
+uint32_t dword_11493C = 0x0013482d;  /* ptr -> 0x13482d, ascii "-H\x13\x00" */
+uint32_t dword_114940 = 0x00167430;  /* ptr -> 0x167430, ascii "0t\x16\x00" */
 uint32_t dword_1149EC = 0xaddede2a;
 uint32_t dword_1149F0 = 0x7fff0000;
 uint32_t dword_1149F4 = 0x00167440;  /* ptr -> 0x167440, ascii "@t\x16\x00" */
@@ -962,6 +971,7 @@ uint32_t dword_116440 = 0x00167994;  /* ptr -> 0x167994 */
 uint32_t dword_116474 = 0x0018264c;  /* ptr -> 0x18264c, ascii "L&\x18\x00" */
 uint32_t dword_11647C = 0x001679a4;  /* ptr -> 0x1679a4 */
 uint32_t dword_116480 = 0x0016798c;  /* ptr -> 0x16798c */
+uint32_t dword_11648C = 0x0018264c;  /* ptr -> 0x18264c, ascii "L&\x18\x00" */
 uint32_t dword_1164C8 = 0x0018885c;  /* ptr -> 0x18885c */
 uint32_t dword_116504 = 0x0018885c;  /* ptr -> 0x18885c */
 uint32_t dword_1165B0 = 0x0018885c;  /* ptr -> 0x18885c */
@@ -1048,6 +1058,7 @@ uint32_t dword_118304 = 0x00167c2c;  /* ptr -> 0x167c2c, ascii ",|\x16\x00" */
 uint32_t dword_118308 = 0x00184c94;  /* ptr -> 0x184c94 */
 uint32_t dword_118310 = 0x00167c08;  /* ptr -> 0x167c08 */
 uint32_t dword_118314 = 0x00166a9c;  /* ptr -> 0x166a9c */
+uint32_t dword_118354 = 0x00188b54;  /* ptr -> 0x188b54 */
 uint32_t dword_118384 = 0x00188b54;  /* ptr -> 0x188b54 */
 uint32_t dword_118388 = 0x00167d80;  /* ptr -> 0x167d80 */
 uint32_t dword_118480 = 0x00188950;  /* ptr -> 0x188950 */
@@ -1098,6 +1109,7 @@ uint32_t dword_1190AC = 0x00188b7c;  /* ptr -> 0x188b7c */
 uint32_t dword_1190B0 = 0x00167d94;  /* ptr -> 0x167d94 */
 uint32_t dword_119118 = 0x00167e18;  /* ptr -> 0x167e18 */
 uint32_t dword_11911C = 0x00167da4;  /* ptr -> 0x167da4 */
+uint32_t dword_119138 = 0x00188b84;  /* ptr -> 0x188b84 */
 uint32_t dword_119164 = 0x00188b7c;  /* ptr -> 0x188b7c */
 uint32_t dword_1191F4 = 0x00188b84;  /* ptr -> 0x188b84 */
 uint32_t dword_1191FC = 0x00188b7c;  /* ptr -> 0x188b7c */
@@ -1150,6 +1162,9 @@ uint32_t dword_11A2A4 = 0x00200100;
 uint32_t dword_11A2A8 = 0xbadcab1e;
 uint32_t dword_11A2AC = 0xffff0704;
 uint32_t dword_11A2B0 = 0xcafebabe;
+uint32_t dword_11A2FC = 0x00188b8c;  /* ptr -> 0x188b8c */
+uint32_t dword_11A300 = 0x00173460;  /* ptr -> 0x173460, ascii "`4\x17\x00" */
+uint32_t dword_11A304 = 0x00173448;  /* ptr -> 0x173448, ascii "H4\x17\x00" */
 uint32_t dword_11A4C4 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_11A4C8 = 0x00188950;  /* ptr -> 0x188950 */
 uint32_t dword_11A708 = 0x00188950;  /* ptr -> 0x188950 */
@@ -1577,6 +1592,7 @@ uint32_t dword_124D50 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_124D5C = 0x001690b0;  /* ptr -> 0x1690b0 */
 uint32_t dword_124E44 = 0x001690c0;  /* ptr -> 0x1690c0 */
 uint32_t dword_124EE4 = 0x001690d0;  /* ptr -> 0x1690d0 */
+uint32_t dword_124F5C = 0x001903c8;  /* ptr -> 0x1903c8 */
 uint32_t dword_125048 = 0x00169404;  /* ptr -> 0x169404 */
 uint32_t dword_125050 = 0x00169438;  /* ptr -> 0x169438 */
 uint32_t dword_125054 = 0x001660d0;  /* ptr -> 0x1660d0 */
@@ -1610,6 +1626,8 @@ uint32_t dword_125800 = 0x01000041;
 uint32_t dword_125804 = 0x00177694;  /* ptr -> 0x177694 */
 uint32_t dword_125948 = 0x00177b24;  /* ptr -> 0x177b24, ascii "${\x17\x00" */
 uint32_t dword_125954 = 0x00176a04;  /* ptr -> 0x176a04 */
+uint32_t dword_125994 = 0x00190bd8;  /* ptr -> 0x190bd8 */
+uint32_t dword_125998 = 0x0017696c;  /* ptr -> 0x17696c, ascii "li\x17\x00" */
 uint32_t dword_125A9C = 0x00176ce4;  /* ptr -> 0x176ce4 */
 uint32_t dword_125AA0 = 0x00176ba4;  /* ptr -> 0x176ba4 */
 uint32_t dword_125AA4 = 0x00176b54;  /* ptr -> 0x176b54, ascii "Tk\x17\x00" */
@@ -1907,6 +1925,7 @@ uint32_t dword_12C404 = 0x0016a16c;  /* ptr -> 0x16a16c */
 uint32_t dword_12C540 = 0x0016a1cc;  /* ptr -> 0x16a1cc */
 uint32_t dword_12C55C = 0x0016a1d4;  /* ptr -> 0x16a1d4 */
 uint32_t dword_12C560 = 0x0016a1c4;  /* ptr -> 0x16a1c4 */
+uint32_t dword_12C57C = 0x00190f50;  /* ptr -> 0x190f50 */
 uint32_t dword_12C634 = 0x0016a298;  /* ptr -> 0x16a298 */
 uint32_t dword_12C644 = 0x0016a28c;  /* ptr -> 0x16a28c */
 uint32_t dword_12C648 = 0x00167c4c;  /* ptr -> 0x167c4c, ascii "L|\x16\x00" */
@@ -2039,6 +2058,8 @@ uint32_t dword_12F1CC = 0x0016af7c;  /* ptr -> 0x16af7c */
 uint32_t dword_12F200 = 0x0016afa4;  /* ptr -> 0x16afa4 */
 uint32_t dword_12F284 = 0x0016afcc;  /* ptr -> 0x16afcc */
 uint32_t dword_12F2E8 = 0x0007a120;
+uint32_t dword_12F314 = 0x0016b00c;  /* ptr -> 0x16b00c */
+uint32_t dword_12F330 = 0x0016b024;  /* ptr -> 0x16b024 */
 uint32_t dword_12F3A8 = 0x0016b070;  /* ptr -> 0x16b070 */
 uint32_t dword_12F3AC = 0x0016b084;  /* ptr -> 0x16b084 */
 uint32_t dword_12F3B0 = 0x0016b064;  /* ptr -> 0x16b064 */
@@ -2070,6 +2091,7 @@ uint32_t dword_12F61C = 0x40328524;  /* ascii "$\x852@" */
 uint32_t dword_12F68C = 0x0016b380;  /* ptr -> 0x16b380 */
 uint32_t dword_12F6BC = 0x0016b380;  /* ptr -> 0x16b380 */
 uint32_t dword_12F6DC = 0x0016b398;  /* ptr -> 0x16b398 */
+uint32_t dword_12F740 = 0x00192b9c;  /* ptr -> 0x192b9c */
 uint32_t dword_12F7A0 = 0x00188c90;  /* ptr -> 0x188c90 */
 uint32_t dword_12F804 = 0x0016b3b0;  /* ptr -> 0x16b3b0 */
 uint32_t dword_12F868 = 0x00182630;  /* ptr -> 0x182630, ascii "0&\x18\x00" */
@@ -2374,9 +2396,11 @@ uint32_t dword_1371BC = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_1371C8 = 0x0016c774;  /* ptr -> 0x16c774 */
 uint32_t dword_1371CC = 0x0016c728;  /* ptr -> 0x16c728 */
 uint32_t dword_13725C = 0x0016c748;  /* ptr -> 0x16c748 */
+uint32_t dword_13729C = 0x0016c760;  /* ptr -> 0x16c760 */
 uint32_t dword_137354 = 0x0016c82c;  /* ptr -> 0x16c82c */
 uint32_t dword_1376AC = 0x0016c92c;  /* ptr -> 0x16c92c */
 uint32_t dword_1376B0 = 0x0016886c;  /* ptr -> 0x16886c */
+uint32_t dword_1376F0 = 0x00192d7c;  /* ptr -> 0x192d7c, ascii "|-\x19\x00" */
 uint32_t dword_137740 = 0x00192d84;  /* ptr -> 0x192d84 */
 uint32_t dword_137B74 = 0x00193cb8;  /* ptr -> 0x193cb8 */
 uint32_t dword_137B80 = 0x0016c834;  /* ptr -> 0x16c834 */
@@ -2678,6 +2702,7 @@ uint32_t dword_140E24 = 0x00198006;  /* ptr -> 0x198006 */
 uint32_t dword_140E28 = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_140E30 = 0x0016df34;  /* ptr -> 0x16df34 */
 uint32_t dword_140E34 = 0x0016de08;  /* ptr -> 0x16de08 */
+uint32_t dword_140E5C = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_140E94 = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_141578 = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_141670 = 0x00198000;  /* ptr -> 0x198000 */
@@ -2706,6 +2731,8 @@ uint32_t dword_141F68 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_1420CC = 0x00188cf0;  /* ptr -> 0x188cf0 */
 uint32_t dword_1420D0 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_142138 = 0x00199960;  /* ptr -> 0x199960 */
+uint32_t dword_142164 = 0x00199ba0;  /* ptr -> 0x199ba0 */
+uint32_t dword_142168 = 0x00199960;  /* ptr -> 0x199960 */
 uint32_t dword_1423B4 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_1423BC = 0x00199960;  /* ptr -> 0x199960 */
 uint32_t dword_1423C4 = 0x0016e000;  /* ptr -> 0x16e000 */
@@ -2815,14 +2842,15 @@ static union { uint32_t u; float f; } flt_12D900_o = {0x4a030000u};
 uint32_t jpt_124572[] = {0xf027f853, 0x44bdbf00, 0x40b90014, 0x44770014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x444d0014, 0x40b90014, 0x442b0014, 0x40b90014, 0x44050014, 0x40b90014, 0x43cb0014, 0x40b90014, 0x438b0014, 0x40b90014, 0x435b0014, 0x40b90014, 0x40b90014, 0x40b90014, 0x44990014, 0x40b90014, 0x41c90014, 0x40b90014, 0x416f0014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40ed0014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40e10014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40cb0014, 0x9b030014, 0xf0402b00, 0xb1298087, 0x4a809b03, 0x42836a10, 0x81c7f000, 0xe63d4f7f, 0x681b4b7f, 0xf43f0719};
 uint32_t jpt_12E614[] = {0xf02af851, 0x0014e53f, 0x0014e50b, 0x0014e4df, 0x0014e58d, 0x0014e535, 0x0014e571, 0x0014e555, 0x0014e461, 0x3b04f85b, 0xf04f9301, 0xe76a0a05, 0x3b04f85b, 0xf04f9302, 0xe7640a03, 0xf0439b00, 0x93000301, 0x0a06f04f, 0x4614e75d, 0xf43f2a00, 0x9003af63, 0x9b00e67d, 0x0340f043, 0xf04f9300, 0xe7500a02, 0x681b4b10, 0x3000f9b3, 0xf2c02b00, 0xf04f829e, 0xe7460a02, 0xf0439b00, 0x93000310, 0x0a02f04f, 0x9b00e73f, 0x0308f043, 0xf04f9300, 0xe7380a02, 0xf0439b00, 0x93000320, 0x0a02f04f, 0xbf00e731, 0x0016ae00, 0x00182c24, 0x079b9b00, 0x8194f100, 0x07d89b00, 0x8190f140, 0xf0002a64, 0xf85b8232, 0x3a581b04, 0x2a20b289, 0x8224f200, 0xf012e8df, 0x0222025a, 0x02220222, 0x02220222, 0x02220222, 0x02220222, 0x0222024e, 0x02220072, 0x02220222, 0x02220222, 0x02220222, 0x02220222};
 uint32_t jpt_12E9FE[] = {0xf022f853, 0xeb9dbf00, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb850014, 0xeb2d0014, 0xe7c70014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb550014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xe7cd0014, 0xeb2d0014, 0xeb2d0014, 0xebbb0014, 0x9e030014, 0xe54a4614, 0x48644964, 0x72a7f44f, 0xfdfdf000, 0x0a06f04f, 0x111ae53c, 0x030ff003, 0x2002f81e, 0x3003f81e, 0x2010f88d, 0x3011f88d, 0x012ef06f, 0x220f232f, 0x7813e6fc, 0xf0002b00, 0x9b018097, 0xf43f2b00, 0x9b01aecc, 0xf1c24611, 0x2b000001, 0x0c01eb00, 0xf811dd0f, 0x3b01ef01, 0x0f00f1be, 0x2b00d010, 0x9902d1f3, 0x93019800, 0x1ac94663, 0x0040f000};
-int loc_1345A4();
-int loc_135564();
-int loc_135568();
-int loc_13556C();
-int loc_135570();
-int loc_135574();
-int loc_135578();
-int loc_13557C();
+#define loc_1345A4 0x1345a4  /* code label address */
+#define loc_135564 0x135564  /* code label address */
+#define loc_135568 0x135568  /* code label address */
+#define loc_13556C 0x13556c  /* code label address */
+#define loc_135570 0x135570  /* code label address */
+#define loc_135574 0x135574  /* code label address */
+#define loc_135578 0x135578  /* code label address */
+#define loc_13557C 0x13557c  /* code label address */
+#define loc_14343C 0x14343c  /* code label address */
 uint32_t off_100418 = 0x00182c64;  /* ptr -> 0x182c64, ascii "d,\x18\x00" */
 uint32_t off_100420 = 0x00188858;  /* ptr -> 0x188858 */
 uint32_t off_100424 = 0x00173460;  /* ptr -> 0x173460, ascii "`4\x17\x00" */
@@ -5644,3 +5672,6 @@ uint64_t qword_1015B0 = 0x00171f0c0017204cULL;
 uint64_t qword_1015C8 = 0x0017268c001727ccULL;
 uint64_t qword_1015D4 = 0x001722cc0017240cULL;
 uint64_t qword_102D04 = 0x00171b3800171c78ULL;
+
+/* memory image backing store (byte-indexed from 0x100000) */
+uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};

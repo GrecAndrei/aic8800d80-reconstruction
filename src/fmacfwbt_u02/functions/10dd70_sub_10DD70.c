@@ -13,8 +13,8 @@
 extern uint32_t dword_10DD98;
 extern uint32_t dword_10DD9C;
 
-// sub_10DD70 @ 0x10dd70, size 40 bytes
-int  sub_10DD70(int a1)
+// set_pin_mux @ 0x10dd70, size 40 bytes
+int  set_pin_mux(int a1)
 {
   int v1; // r2
   int v2; // r0
@@ -29,6 +29,6 @@ int  sub_10DD70(int a1)
     v1 += 12;
   }
   while ( v1 != v3 );
-  return sub_102D10(1, 16, 0x10u, dword_10DD9C);
+  return memcpy(1, 16, 0x10u, dword_10DD9C);
 }
 

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_3e0 @ 0x115108, size 58 bytes
+// syscall16_get_version @ 0x115108, size 58 bytes
 // Doc: patch_apply [patch]: Apply firmware patch with sign handling
 // patch_apply [patch]: Apply firmware patch with sign handling
-int  patch_apply_n_3e0(int *a1)
+int  syscall16_get_version(int *a1)
 {
   uint8_t v2; // r0
   int v3; // r2

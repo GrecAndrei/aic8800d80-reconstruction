@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_state_get_or_set @ 0x13b9ac, size 68 bytes
-// Doc: rf_state_get_or_set [rf]: Inspect or modify RF state byte at offset 0x106+6 based on value 2
-// rf_state_get_or_set [rf]: Inspect or modify RF state byte at offset 0x106+6 based on value 2
-int  rf_state_get_or_set(int a1)
+// rf_scan_entry @ 0x13b9ac, size 68 bytes
+// Doc: rf_scan_entry [rf]: Inspect or modify RF state byte at offset 0x106+6 based on value 2
+// rf_scan_entry [rf]: Inspect or modify RF state byte at offset 0x106+6 based on value 2
+int  rf_scan_entry(int a1)
 {
   int v1; // r3
   int v2; // r6

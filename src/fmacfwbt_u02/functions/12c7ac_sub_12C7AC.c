@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12C7AC @ 0x12c7ac, size 44 bytes
-int  sub_12C7AC(int result)
+// scan_rssi_compare @ 0x12c7ac, size 44 bytes
+int  scan_rssi_compare(int result)
 {
   int *i; // r3
   int v2; // r2
@@ -34,7 +34,7 @@ int  sub_12C7AC(int result)
     *((uint8_t *)i + 350) |= 0x10u;
   result = *(uint32_t *)(result + 72);
   if ( result )
-    return sub_12876C(result);
+    return remove_entry_by_owner(result);
   return result;
 }
 

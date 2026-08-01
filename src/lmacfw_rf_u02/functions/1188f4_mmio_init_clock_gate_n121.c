@@ -12,12 +12,12 @@
 
 extern uint32_t off_118904;
 
-// mmio_init_clock_gate_n121 @ 0x1188f4, size 14 bytes
-// Doc: mmio_init_clock_gate_n121 [mmio]: Writes 0x30 to MMIO 0x40320038 to configure clock gate/control
-// mmio_init_clock_gate_n121 [mmio]: Writes 0x30 to MMIO 0x40320038 to configure clock gate/control
-int mmio_init_clock_gate_n121()
+// write_bb_control @ 0x1188f4, size 14 bytes
+// Doc: write_bb_control [mmio]: Writes 0x30 to MMIO 0x40320038 to configure clock gate/control
+// write_bb_control [mmio]: Writes 0x30 to MMIO 0x40320038 to configure clock gate/control
+int write_bb_control()
 {
   *(uint32_t *)off_118904 = 48;
-  return sub_11E1E4(0);
+  return flash_erase_sector(0);
 }
 

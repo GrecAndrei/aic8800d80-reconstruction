@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114B44 @ 0x114b44, size 44 bytes
+// rom_get_chip_metal @ 0x114b44, size 44 bytes
 // Doc: patch_apply_n_34d [patch]: Apply patch and return status (1/2/0)
 // patch_apply_n_34d [patch]: Apply patch and return status (1/2/0)
-int  sub_114B44(uint8_t *a1)
+int  rom_get_chip_metal(uint8_t *a1)
 {
   int16_t v2; // r0
 

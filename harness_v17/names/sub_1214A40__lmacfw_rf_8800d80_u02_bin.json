@@ -1,1 +1,1 @@
-{"fn": "sub_1214A40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214a40", "status": "ok", "name": "sub_1214A40", "params": [], "docstring": "Reads and checks a half-word global (likely init/version check)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214A40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214a40", "status": "ok", "name": "assert_handler", "params": [], "docstring": "Reads and checks a half-word global (likely init/version check)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

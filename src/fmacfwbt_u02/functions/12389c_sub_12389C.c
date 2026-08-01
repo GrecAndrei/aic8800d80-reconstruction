@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12389C @ 0x12389c, size 14 bytes
-int  sub_12389C(int a1, uint8_t *a2, int a3, int a4)
+// ipc_msg_send_byte @ 0x12389c, size 14 bytes
+int  ipc_msg_send_byte(int a1, uint8_t *a2, int a3, int a4)
 {
-  sub_12917C(*a2, a4);
+  ipc_msg_send(*a2, a4);
   return 0;
 }
 

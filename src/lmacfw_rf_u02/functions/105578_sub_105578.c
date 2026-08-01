@@ -51,8 +51,8 @@ extern uint32_t off_105BE4;
 extern uint32_t off_105BE8;
 extern uint32_t off_105DC0;
 
-// sub_105578 @ 0x105578, size 2120 bytes
-unsigned int * sub_105578(int a1, int a2, unsigned int a3, unsigned int a4, uint8_t a5, int a6)
+// prcm_stop @ 0x105578, size 2120 bytes
+unsigned int * prcm_stop(int a1, int a2, unsigned int a3, unsigned int a4, uint8_t a5, int a6)
 {
   uint32_t *v6; // lr
   unsigned int *v7; // r4
@@ -263,7 +263,7 @@ LABEL_3:
   *v19 |= 0x20000u;
   v25 = *v19 | 0x40000;
   *v19 = v25;
-  sub_11F74C(1, v21, (*v20 >> 21) & 7, v25);
+  check_interrupt_flag(1, v21, (*v20 >> 21) & 7, v25);
   v36 = off_105864;
   v26 = off_10586C;
   v27 = *(uint32_t *)off_105868;
@@ -357,9 +357,9 @@ LABEL_3:
   v42 -= 465770;
   *(uint32_t *)&v41[-28] |= 0x400000u;
   *v42 &= ~0x100u;
-  sub_103640();
-  sub_11F74C(1, dword_105BB0, v45, v46);
-  sub_100948(dword_105BB4 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_105BB4);
+  disable_bb_timer_irq();
+  check_interrupt_flag(1, dword_105BB0, v45, v46);
+  rf_reg_init(dword_105BB4 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_105BB4);
   *v42 &= ~0x200u;
   *v42 |= 0x200u;
   v47 = *v42 & 0xFFFFFDFF;
@@ -408,26 +408,26 @@ LABEL_3:
   v53 = (unsigned int *)off_105BB8;
   v54 = (unsigned int *)off_105BC0;
   v55 = (unsigned int *)off_105BA0;
-  sub_11F74C(1, dword_105BBC, v49, v47);
-  crypto_table_init(a2, v52, a6);
+  check_interrupt_flag(1, dword_105BBC, v49, v47);
+  configure_bb_winsize(a2, v52, a6);
   v56 = (unsigned int *)off_105BC8;
-  sub_11F74C(1, dword_105BC4, *v53, v57);
+  check_interrupt_flag(1, dword_105BC4, *v53, v57);
   *v53 = v50 | v51 | (a4 << 8) | 0x3F4080;
-  crypto_hw_reset_seq();
+  bb_hw_init();
   v58 = (unsigned int *)off_105BD0;
   v59 = (unsigned int *)off_105BA4;
   v60 = (unsigned int *)off_105BAC;
-  sub_11F74C(1, dword_105BCC, *v53, v61);
+  check_interrupt_flag(1, dword_105BCC, *v53, v61);
   v62 = off_105BD4;
   *v54 &= ~0x200u;
   *v54 |= 0x200u;
   *v54 &= ~0x200u;
   *v62 |= 0x10000000u;
-  delay_us(6500);
-  crypto_calibrate();
+  write_timer_reg(6500);
+  load_patch_data();
   *v56 = *v56 & 0xFFBFFFFF | (v119 << 22);
   *v56 = *v56 & 0xFFDFFFFF | (v118 << 21);
-  sub_103C6C();
+  disable_rx_path();
   v63 = (unsigned int *)off_105BD8;
   v64 = (unsigned int *)off_105BE0;
   v65 = (unsigned int *)off_105BDC;

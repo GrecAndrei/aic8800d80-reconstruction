@@ -15,15 +15,15 @@ extern uint32_t dword_128D58;
 extern uint32_t off_128D5C;
 extern uint32_t off_128D60;
 
-// sub_128CF0 @ 0x128cf0, size 96 bytes
-uint16_t * sub_128CF0(int a1, int a2)
+// wlc_log_event_b @ 0x128cf0, size 96 bytes
+uint16_t * wlc_log_event_b(int a1, int a2)
 {
   uint16_t *result; // r0
   int *i; // r3
   int v6; // r3
 
-  feature_guard_check(2, dword_128D54);
-  result = (uint16_t *)sub_128B2C(a1, a2, dword_128D58);
+  check_status_bits(2, dword_128D54);
+  result = (uint16_t *)wlc_check_rate_flag(a1, a2, dword_128D58);
   if ( result )
   {
     result = (uint16_t *)off_128D5C;
@@ -39,7 +39,7 @@ uint16_t * sub_128CF0(int a1, int a2)
         }
       }
       *(uint8_t *)result = 0;
-      return (uint16_t *)sub_12CA10(50, result[1], 0);
+      return (uint16_t *)ke_msg_send_no_param(50, result[1], 0);
     }
   }
   return result;

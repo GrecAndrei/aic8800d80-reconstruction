@@ -14,14 +14,14 @@ extern uint32_t dword_12B058;
 extern uint32_t off_12B05C;
 extern uint32_t dword_12B060;
 
-// sub_12B030 @ 0x12b030, size 40 bytes
-int sub_12B030()
+// reset_global_config @ 0x12b030, size 40 bytes
+int reset_global_config()
 {
   int result; // r0
   uint32_t *v1; // r3
 
   sub_100200((int *)dword_12B058, 0, 0xCu);
-  result = sub_12CBF4(2);
+  result = hci_cmd_preprocess(2);
   v1 = off_12B05C;
   *(uint32_t *)off_12B05C = dword_12B060;
   v1[2] = v1 + 5;

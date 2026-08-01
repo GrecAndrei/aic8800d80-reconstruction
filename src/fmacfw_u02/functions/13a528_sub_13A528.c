@@ -16,10 +16,10 @@ extern uint32_t off_13A648;
 extern uint32_t dword_13A64C;
 extern uint32_t dword_13A650;
 
-// sub_13A528 @ 0x13a528, size 280 bytes
+// rf_get_chan_cfg @ 0x13a528, size 280 bytes
 // Doc: sub_123A528 [util]: Index into a table entry using byte fields 0x1c/0x1d with stride 0x2b8
 // sub_123A528 [util]: Index into a table entry using byte fields 0x1c/0x1d with stride 0x2b8
-int  sub_13A528(int a1, uint32_t *a2)
+int  rf_get_chan_cfg(int a1, uint32_t *a2)
 {
   int v3; // r7
   int v4; // r0
@@ -92,7 +92,7 @@ int  sub_13A528(int a1, uint32_t *a2)
         break;
       default:
         if ( **(int16_t **)off_13A648 < 0 )
-          sub_12F46C(dword_13A64C, dword_13A650, 181);
+          mmio_clear_register(dword_13A64C, dword_13A650, 181);
         v10 = 0;
         v11 = 3;
         v12 = 1;
@@ -101,7 +101,7 @@ int  sub_13A528(int a1, uint32_t *a2)
     if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     {
       *(uint64_t *)(v8 + 72) += v12;
-      sub_143770(a1 + 56, v8 + 72, 2 * v11);
+      memcpy(a1 + 56, v8 + 72, 2 * v11);
     }
     return v10;
   }

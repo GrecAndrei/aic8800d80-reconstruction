@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_138ACC @ 0x138acc, size 8 bytes
-int  sub_138ACC(int a1)
+// clear_status_and_continue @ 0x138acc, size 8 bytes
+int  clear_status_and_continue(int a1)
 {
   *(uint16_t *)(a1 + 8) = 0;
-  return sub_11DBF0();
+  return seq_count_inc();
 }
 

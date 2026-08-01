@@ -13,10 +13,10 @@
 extern uint32_t dword_126094;
 extern uint32_t off_126098;
 
-// sub_126034 @ 0x126034, size 94 bytes
+// lookup_conn_table @ 0x126034, size 94 bytes
 // Doc: sub_1226034 [mmio]: Indexed entry lookup by per-instance id from mmio table
 // sub_1226034 [mmio]: Indexed entry lookup by per-instance id from mmio table
-int  sub_126034(int result)
+int  lookup_conn_table(int result)
 {
   int v1; // r6
   int v2; // r4
@@ -31,10 +31,10 @@ int  sub_126034(int result)
   v3 = dword_126094 + 140 * v2;
   v4 = result;
   if ( !*(uint8_t *)(v3 + 32) && *(uint8_t *)(v3 + 16) )
-    result = ((int (*)(void))bt_link_state_get_n2c4)();
+    result = ((int (*)(void))bt_conn_get_state)();
   v5 = v1 + 140 * v2;
   if ( !*(uint8_t *)(v5 + 80) && *(uint8_t *)(v5 + 64) )
-    result = bt_link_state_get_n2c4(v4, 1);
+    result = bt_conn_get_state(v4, 1);
   v6 = *((int **)off_126098 + 2);
   if ( v6 )
   {

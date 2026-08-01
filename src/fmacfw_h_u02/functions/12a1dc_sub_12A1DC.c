@@ -12,13 +12,13 @@
 
 extern uint32_t dword_12A200;
 
-// sub_12A1DC @ 0x12a1dc, size 34 bytes
-uint8_t * sub_12A1DC(int a1)
+// bt_get_conn_ptr @ 0x12a1dc, size 34 bytes
+uint8_t * bt_get_conn_ptr(int a1)
 {
   uint8_t *v1; // r0
 
   v1 = (uint8_t *)(dword_12A200 + 140 * *(uint8_t *)(a1 + 1225));
   v1[134] = 0;
-  return sub_1296C4(v1);
+  return rsn_parse_ie(v1);
 }
 

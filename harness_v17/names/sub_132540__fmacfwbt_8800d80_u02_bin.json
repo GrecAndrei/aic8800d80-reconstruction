@@ -1,0 +1,1 @@
+{"fn": "sub_132540", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132540", "status": "ok", "name": "sdio_cfg_write", "params": [], "docstring": "Write SDIO configuration register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

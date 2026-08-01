@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1327B8 @ 0x1327b8, size 22 bytes
-int  sub_1327B8(char a1)
+// rf_phy_to_power_map @ 0x1327b8, size 22 bytes
+int  rf_phy_to_power_map(char a1)
 {
   int v1; // r0
 

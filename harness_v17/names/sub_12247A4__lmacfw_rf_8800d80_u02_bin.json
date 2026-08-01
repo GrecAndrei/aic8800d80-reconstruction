@@ -1,1 +1,1 @@
-{"fn": "sub_12247A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12247a4", "status": "ok", "name": "rf_state_load", "params": [], "docstring": "Load state pointer from context struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12247A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12247a4", "status": "ok", "name": "util_list_find", "params": [], "docstring": "Load state pointer from context struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

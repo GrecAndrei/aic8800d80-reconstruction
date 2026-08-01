@@ -21,10 +21,10 @@ extern uint32_t off_11387C;
 extern uint32_t dword_113880;
 extern uint32_t off_113884;
 
-// log_free_pool_f @ 0x1137c4, size 156 bytes
-// Doc: log_free_pool_f [util]: Return buffer to log free pool variant F
-// log_free_pool_f [util]: Return buffer to log free pool variant F
-void log_free_pool_f()
+// util_call_raw @ 0x1137c4, size 156 bytes
+// Doc: util_call_raw [util]: Return buffer to log free pool variant F
+// util_call_raw [util]: Return buffer to log free pool variant F
+void util_call_raw()
 {
   int *v0; // r4
   int v1; // r0
@@ -43,7 +43,7 @@ void log_free_pool_f()
   v0 = (int *)off_113864;
   v1 = dword_113868;
   ++*(uint32_t *)off_113864;
-  sub_12D108(v1);
+  wlan_ioctl_handler_1(v1);
   v2 = off_113870;
   v3 = *(uint8_t *)off_113870;
   v4 = *(uint16_t *)off_11386C + 1;
@@ -56,11 +56,11 @@ void log_free_pool_f()
       *((uint32_t *)off_11387C + 512) &= ~0x2000u;
     else
       *((uint32_t *)off_11387C + 713) &= ~1u;
-    timer_set_relative(1);
-    sub_12C5FC(1069, 1);
-    sub_12EB90(512, dword_113880);
+    wlan_wait_ready_alt(1);
+    invalid_handler_12c5fc(1069, 1);
+    check_feature_flag(512, dword_113880);
     if ( !*(uint8_t *)off_113884 )
-      sub_113578();
+      rf_get_flag();
   }
   if ( *v0 )
   {

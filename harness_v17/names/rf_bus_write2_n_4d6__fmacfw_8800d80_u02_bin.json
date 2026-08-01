@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_4d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211746", "status": "ok", "name": "rf_bus_setup_n_429", "params": [], "docstring": "Sets up RF bus with OR mask and store to offset register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_4d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211746", "status": "ok", "name": "rf_bus_reset2_1746", "params": [], "docstring": "Sets up RF bus with OR mask and store to offset register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_2d6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211196", "status": "ok", "name": "rf_bus_write_n_2d6", "params": [], "docstring": "Writes a 32-bit value to the RF bus control register at 0x40200000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_2d6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211196", "status": "ok", "name": "channel_index_lookup", "params": [], "docstring": "Writes a 32-bit value to the RF bus control register at 0x40200000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -16,8 +16,8 @@ extern uint32_t off_139F8C;
 extern uint32_t dword_139F88;
 extern uint32_t dword_139F90;
 
-// sub_139E30 @ 0x139e30, size 336 bytes
-int  sub_139E30(char *a1, char a2, int a3)
+// tx_power_set_band @ 0x139e30, size 336 bytes
+int  tx_power_set_band(char *a1, char a2, int a3)
 {
   char v4; // r3
   int v6; // r4
@@ -46,7 +46,7 @@ int  sub_139E30(char *a1, char a2, int a3)
   }
   v6 = (uint8_t)(v4 + 6);
   v7 = &a1[v6];
-  sub_14380C(&v16, &a1[v6], 2);
+  memcpy_aligned(&v16, &a1[v6], 2);
   v8 = a1[4] & 1;
   if ( (a1[4] & 1) != 0 )
   {
@@ -62,7 +62,7 @@ int  sub_139E30(char *a1, char a2, int a3)
       v10 = (uint8_t)v7[11];
       if ( v10 == 2 )
       {
-        sub_12ECB0(dword_139F84, (uint8_t)v7[10], 2, 8);
+        ke_event_schedule(dword_139F84, (uint8_t)v7[10], 2, 8);
         return v8;
       }
       if ( v10 == 17 )
@@ -73,7 +73,7 @@ int  sub_139E30(char *a1, char a2, int a3)
           && (uint8_t)*(v12 - 2) == 255
           && (uint8_t)*(v12 - 1) == 250 )
         {
-          sub_12ECB0(dword_139F80, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
+          ke_event_schedule(dword_139F80, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
           return v8;
         }
       }

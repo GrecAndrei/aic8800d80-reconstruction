@@ -19,10 +19,10 @@ extern uint32_t off_118A4C;
 extern uint32_t off_118A50;
 extern uint32_t off_118A54;
 
-// rf_table_lookup_n360 @ 0x11898c, size 180 bytes
-// Doc: rf_table_lookup_n360 [rf]: Looks up an entry in the RF register/object table by index
-// rf_table_lookup_n360 [rf]: Looks up an entry in the RF register/object table by index
-int  rf_table_lookup_n360(int a1, int a2)
+// update_rx_credits @ 0x11898c, size 180 bytes
+// Doc: update_rx_credits [rf]: Looks up an entry in the RF register/object table by index
+// update_rx_credits [rf]: Looks up an entry in the RF register/object table by index
+int  update_rx_credits(int a1, int a2)
 {
   int v2; // r6
   uint32_t *v3; // r3

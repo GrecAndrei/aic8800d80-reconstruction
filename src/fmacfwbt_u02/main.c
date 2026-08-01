@@ -517,6 +517,7 @@ uint32_t dword_10D1EC = 0x001661c0;  /* ptr -> 0x1661c0 */
 uint32_t dword_10D200 = 0x001661d0;  /* ptr -> 0x1661d0 */
 uint32_t dword_10D254 = 0x0016623c;  /* ptr -> 0x16623c, ascii "<b\x16\x00" */
 uint32_t dword_10D258 = 0x001660d0;  /* ptr -> 0x1660d0 */
+uint32_t dword_10D268 = 0x00182b70;  /* ptr -> 0x182b70, ascii "p+\x18\x00" */
 uint32_t dword_10D3F4 = 0x00166274;  /* ptr -> 0x166274, ascii "tb\x16\x00" */
 uint32_t dword_10D3F8 = 0x00166250;  /* ptr -> 0x166250, ascii "Pb\x16\x00" */
 uint32_t dword_10D3FC = 0x00182b70;  /* ptr -> 0x182b70, ascii "p+\x18\x00" */
@@ -635,6 +636,7 @@ uint32_t dword_10ED2C = 0x70001408;
 uint32_t dword_10ED60 = 0x01030000;
 uint32_t dword_10ED64 = 0x7000000c;
 uint32_t dword_10ED68 = 0x70000020;  /* ascii " \x00\x00p" */
+uint32_t dword_10ED78 = 0x70001408;
 uint32_t dword_10ED8C = 0x7000101c;
 uint32_t dword_10EDA4 = 0x7000101c;
 uint32_t dword_10EF58 = 0x70000008;
@@ -845,6 +847,8 @@ uint32_t dword_11385C = 0x00187f88;  /* ptr -> 0x187f88 */
 uint32_t dword_113860 = 0x0018227c;  /* ptr -> 0x18227c, ascii "|\x22\x18\x00" */
 uint32_t dword_1138A0 = 0x00187f88;  /* ptr -> 0x187f88 */
 uint32_t dword_1138E4 = 0x00187f88;  /* ptr -> 0x187f88 */
+uint32_t dword_113910 = 0x0017342c;  /* ptr -> 0x17342c, ascii ",4\x17\x00" */
+uint32_t dword_113914 = 0x00167068;  /* ptr -> 0x167068, ascii "hp\x16\x00" */
 uint32_t dword_113A50 = 0x000f4240;  /* ascii "@B\x0f\x00" */
 uint32_t dword_113A70 = 0x001670a0;  /* ptr -> 0x1670a0 */
 uint32_t dword_113A74 = 0x001671d8;  /* ptr -> 0x1671d8 */
@@ -865,6 +869,7 @@ uint32_t dword_114084 = 0x00173424;  /* ptr -> 0x173424, ascii "$4\x17\x00" */
 uint32_t dword_114088 = 0x00167208;  /* ptr -> 0x167208 */
 uint32_t dword_11408C = 0x00167168;  /* ptr -> 0x167168, ascii "hq\x16\x00" */
 uint32_t dword_1140E0 = 0x0018227c;  /* ptr -> 0x18227c, ascii "|\x22\x18\x00" */
+uint32_t dword_114150 = 0x00167220;  /* ptr -> 0x167220, ascii " r\x16\x00" */
 uint32_t dword_1143B4 = 0x00167264;  /* ptr -> 0x167264, ascii "dr\x16\x00" */
 uint32_t dword_1143C0 = 0x00167288;  /* ptr -> 0x167288 */
 uint32_t dword_1143CC = 0x001672ac;  /* ptr -> 0x1672ac */
@@ -886,6 +891,7 @@ uint32_t dword_114698 = 0x00167370;  /* ptr -> 0x167370, ascii "ps\x16\x00" */
 uint32_t dword_1146CC = 0x00167394;  /* ptr -> 0x167394 */
 uint32_t dword_11470C = 0x00182554;  /* ptr -> 0x182554, ascii "T%\x18\x00" */
 uint32_t dword_114750 = 0x00182554;  /* ptr -> 0x182554, ascii "T%\x18\x00" */
+uint32_t dword_114788 = 0x0018254c;  /* ptr -> 0x18254c, ascii "L%\x18\x00" */
 uint32_t dword_114820 = 0x001673bc;  /* ptr -> 0x1673bc */
 uint32_t dword_114824 = 0x001673cc;  /* ptr -> 0x1673cc */
 uint32_t dword_114828 = 0x001673ac;  /* ptr -> 0x1673ac */
@@ -894,6 +900,9 @@ uint32_t dword_11487C = 0x001673e0;  /* ptr -> 0x1673e0 */
 uint32_t dword_114908 = 0x00167418;  /* ptr -> 0x167418 */
 uint32_t dword_11490C = 0x00167404;  /* ptr -> 0x167404 */
 uint32_t dword_114910 = 0x001673ec;  /* ptr -> 0x1673ec */
+uint32_t dword_114938 = 0x001347bd;  /* ptr -> 0x1347bd */
+uint32_t dword_11493C = 0x0013482d;  /* ptr -> 0x13482d, ascii "-H\x13\x00" */
+uint32_t dword_114940 = 0x00167430;  /* ptr -> 0x167430, ascii "0t\x16\x00" */
 uint32_t dword_1149EC = 0xaddede2a;
 uint32_t dword_1149F0 = 0x7fff0000;
 uint32_t dword_1149F4 = 0x00167440;  /* ptr -> 0x167440, ascii "@t\x16\x00" */
@@ -972,6 +981,7 @@ uint32_t dword_116440 = 0x00167994;  /* ptr -> 0x167994 */
 uint32_t dword_116474 = 0x0018264c;  /* ptr -> 0x18264c, ascii "L&\x18\x00" */
 uint32_t dword_11647C = 0x001679a4;  /* ptr -> 0x1679a4 */
 uint32_t dword_116480 = 0x0016798c;  /* ptr -> 0x16798c */
+uint32_t dword_11648C = 0x0018264c;  /* ptr -> 0x18264c, ascii "L&\x18\x00" */
 uint32_t dword_1164C8 = 0x0018885c;  /* ptr -> 0x18885c */
 uint32_t dword_116504 = 0x0018885c;  /* ptr -> 0x18885c */
 uint32_t dword_1165B0 = 0x0018885c;  /* ptr -> 0x18885c */
@@ -1058,6 +1068,7 @@ uint32_t dword_118304 = 0x00167c2c;  /* ptr -> 0x167c2c, ascii ",|\x16\x00" */
 uint32_t dword_118308 = 0x00184c94;  /* ptr -> 0x184c94 */
 uint32_t dword_118310 = 0x00167c08;  /* ptr -> 0x167c08 */
 uint32_t dword_118314 = 0x00166a9c;  /* ptr -> 0x166a9c */
+uint32_t dword_118354 = 0x00188b54;  /* ptr -> 0x188b54 */
 uint32_t dword_118384 = 0x00188b54;  /* ptr -> 0x188b54 */
 uint32_t dword_118388 = 0x00167d80;  /* ptr -> 0x167d80 */
 uint32_t dword_118480 = 0x00188950;  /* ptr -> 0x188950 */
@@ -1108,6 +1119,7 @@ uint32_t dword_1190AC = 0x00188b7c;  /* ptr -> 0x188b7c */
 uint32_t dword_1190B0 = 0x00167d94;  /* ptr -> 0x167d94 */
 uint32_t dword_119118 = 0x00167e18;  /* ptr -> 0x167e18 */
 uint32_t dword_11911C = 0x00167da4;  /* ptr -> 0x167da4 */
+uint32_t dword_119138 = 0x00188b84;  /* ptr -> 0x188b84 */
 uint32_t dword_119164 = 0x00188b7c;  /* ptr -> 0x188b7c */
 uint32_t dword_1191F4 = 0x00188b84;  /* ptr -> 0x188b84 */
 uint32_t dword_1191FC = 0x00188b7c;  /* ptr -> 0x188b7c */
@@ -1160,6 +1172,9 @@ uint32_t dword_11A2A4 = 0x00200100;
 uint32_t dword_11A2A8 = 0xbadcab1e;
 uint32_t dword_11A2AC = 0xffff0704;
 uint32_t dword_11A2B0 = 0xcafebabe;
+uint32_t dword_11A2FC = 0x00188b8c;  /* ptr -> 0x188b8c */
+uint32_t dword_11A300 = 0x00173460;  /* ptr -> 0x173460, ascii "`4\x17\x00" */
+uint32_t dword_11A304 = 0x00173448;  /* ptr -> 0x173448, ascii "H4\x17\x00" */
 uint32_t dword_11A4C4 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_11A4C8 = 0x00188950;  /* ptr -> 0x188950 */
 uint32_t dword_11A708 = 0x00188950;  /* ptr -> 0x188950 */
@@ -1587,6 +1602,7 @@ uint32_t dword_124D50 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_124D5C = 0x001690b0;  /* ptr -> 0x1690b0 */
 uint32_t dword_124E44 = 0x001690c0;  /* ptr -> 0x1690c0 */
 uint32_t dword_124EE4 = 0x001690d0;  /* ptr -> 0x1690d0 */
+uint32_t dword_124F5C = 0x001903c8;  /* ptr -> 0x1903c8 */
 uint32_t dword_125048 = 0x00169404;  /* ptr -> 0x169404 */
 uint32_t dword_125050 = 0x00169438;  /* ptr -> 0x169438 */
 uint32_t dword_125054 = 0x001660d0;  /* ptr -> 0x1660d0 */
@@ -1620,6 +1636,8 @@ uint32_t dword_125800 = 0x01000041;
 uint32_t dword_125804 = 0x00177694;  /* ptr -> 0x177694 */
 uint32_t dword_125948 = 0x00177b24;  /* ptr -> 0x177b24, ascii "${\x17\x00" */
 uint32_t dword_125954 = 0x00176a04;  /* ptr -> 0x176a04 */
+uint32_t dword_125994 = 0x00190bd8;  /* ptr -> 0x190bd8 */
+uint32_t dword_125998 = 0x0017696c;  /* ptr -> 0x17696c, ascii "li\x17\x00" */
 uint32_t dword_125A9C = 0x00176ce4;  /* ptr -> 0x176ce4 */
 uint32_t dword_125AA0 = 0x00176ba4;  /* ptr -> 0x176ba4 */
 uint32_t dword_125AA4 = 0x00176b54;  /* ptr -> 0x176b54, ascii "Tk\x17\x00" */
@@ -1917,6 +1935,7 @@ uint32_t dword_12C404 = 0x0016a16c;  /* ptr -> 0x16a16c */
 uint32_t dword_12C540 = 0x0016a1cc;  /* ptr -> 0x16a1cc */
 uint32_t dword_12C55C = 0x0016a1d4;  /* ptr -> 0x16a1d4 */
 uint32_t dword_12C560 = 0x0016a1c4;  /* ptr -> 0x16a1c4 */
+uint32_t dword_12C57C = 0x00190f50;  /* ptr -> 0x190f50 */
 uint32_t dword_12C634 = 0x0016a298;  /* ptr -> 0x16a298 */
 uint32_t dword_12C644 = 0x0016a28c;  /* ptr -> 0x16a28c */
 uint32_t dword_12C648 = 0x00167c4c;  /* ptr -> 0x167c4c, ascii "L|\x16\x00" */
@@ -2049,6 +2068,8 @@ uint32_t dword_12F1CC = 0x0016af7c;  /* ptr -> 0x16af7c */
 uint32_t dword_12F200 = 0x0016afa4;  /* ptr -> 0x16afa4 */
 uint32_t dword_12F284 = 0x0016afcc;  /* ptr -> 0x16afcc */
 uint32_t dword_12F2E8 = 0x0007a120;
+uint32_t dword_12F314 = 0x0016b00c;  /* ptr -> 0x16b00c */
+uint32_t dword_12F330 = 0x0016b024;  /* ptr -> 0x16b024 */
 uint32_t dword_12F3A8 = 0x0016b070;  /* ptr -> 0x16b070 */
 uint32_t dword_12F3AC = 0x0016b084;  /* ptr -> 0x16b084 */
 uint32_t dword_12F3B0 = 0x0016b064;  /* ptr -> 0x16b064 */
@@ -2080,6 +2101,7 @@ uint32_t dword_12F61C = 0x40328524;  /* ascii "$\x852@" */
 uint32_t dword_12F68C = 0x0016b380;  /* ptr -> 0x16b380 */
 uint32_t dword_12F6BC = 0x0016b380;  /* ptr -> 0x16b380 */
 uint32_t dword_12F6DC = 0x0016b398;  /* ptr -> 0x16b398 */
+uint32_t dword_12F740 = 0x00192b9c;  /* ptr -> 0x192b9c */
 uint32_t dword_12F7A0 = 0x00188c90;  /* ptr -> 0x188c90 */
 uint32_t dword_12F804 = 0x0016b3b0;  /* ptr -> 0x16b3b0 */
 uint32_t dword_12F868 = 0x00182630;  /* ptr -> 0x182630, ascii "0&\x18\x00" */
@@ -2384,9 +2406,11 @@ uint32_t dword_1371BC = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_1371C8 = 0x0016c774;  /* ptr -> 0x16c774 */
 uint32_t dword_1371CC = 0x0016c728;  /* ptr -> 0x16c728 */
 uint32_t dword_13725C = 0x0016c748;  /* ptr -> 0x16c748 */
+uint32_t dword_13729C = 0x0016c760;  /* ptr -> 0x16c760 */
 uint32_t dword_137354 = 0x0016c82c;  /* ptr -> 0x16c82c */
 uint32_t dword_1376AC = 0x0016c92c;  /* ptr -> 0x16c92c */
 uint32_t dword_1376B0 = 0x0016886c;  /* ptr -> 0x16886c */
+uint32_t dword_1376F0 = 0x00192d7c;  /* ptr -> 0x192d7c, ascii "|-\x19\x00" */
 uint32_t dword_137740 = 0x00192d84;  /* ptr -> 0x192d84 */
 uint32_t dword_137B74 = 0x00193cb8;  /* ptr -> 0x193cb8 */
 uint32_t dword_137B80 = 0x0016c834;  /* ptr -> 0x16c834 */
@@ -2688,6 +2712,7 @@ uint32_t dword_140E24 = 0x00198006;  /* ptr -> 0x198006 */
 uint32_t dword_140E28 = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_140E30 = 0x0016df34;  /* ptr -> 0x16df34 */
 uint32_t dword_140E34 = 0x0016de08;  /* ptr -> 0x16de08 */
+uint32_t dword_140E5C = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_140E94 = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_141578 = 0x00198000;  /* ptr -> 0x198000 */
 uint32_t dword_141670 = 0x00198000;  /* ptr -> 0x198000 */
@@ -2716,6 +2741,8 @@ uint32_t dword_141F68 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_1420CC = 0x00188cf0;  /* ptr -> 0x188cf0 */
 uint32_t dword_1420D0 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_142138 = 0x00199960;  /* ptr -> 0x199960 */
+uint32_t dword_142164 = 0x00199ba0;  /* ptr -> 0x199ba0 */
+uint32_t dword_142168 = 0x00199960;  /* ptr -> 0x199960 */
 uint32_t dword_1423B4 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_1423BC = 0x00199960;  /* ptr -> 0x199960 */
 uint32_t dword_1423C4 = 0x0016e000;  /* ptr -> 0x16e000 */
@@ -2825,14 +2852,15 @@ static union { uint32_t u; float f; } flt_12D900_o = {0x4a030000u};
 uint32_t jpt_124572[] = {0xf027f853, 0x44bdbf00, 0x40b90014, 0x44770014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x444d0014, 0x40b90014, 0x442b0014, 0x40b90014, 0x44050014, 0x40b90014, 0x43cb0014, 0x40b90014, 0x438b0014, 0x40b90014, 0x435b0014, 0x40b90014, 0x40b90014, 0x40b90014, 0x44990014, 0x40b90014, 0x41c90014, 0x40b90014, 0x416f0014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40ed0014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40e10014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40b90014, 0x40cb0014, 0x9b030014, 0xf0402b00, 0xb1298087, 0x4a809b03, 0x42836a10, 0x81c7f000, 0xe63d4f7f, 0x681b4b7f, 0xf43f0719};
 uint32_t jpt_12E614[] = {0xf02af851, 0x0014e53f, 0x0014e50b, 0x0014e4df, 0x0014e58d, 0x0014e535, 0x0014e571, 0x0014e555, 0x0014e461, 0x3b04f85b, 0xf04f9301, 0xe76a0a05, 0x3b04f85b, 0xf04f9302, 0xe7640a03, 0xf0439b00, 0x93000301, 0x0a06f04f, 0x4614e75d, 0xf43f2a00, 0x9003af63, 0x9b00e67d, 0x0340f043, 0xf04f9300, 0xe7500a02, 0x681b4b10, 0x3000f9b3, 0xf2c02b00, 0xf04f829e, 0xe7460a02, 0xf0439b00, 0x93000310, 0x0a02f04f, 0x9b00e73f, 0x0308f043, 0xf04f9300, 0xe7380a02, 0xf0439b00, 0x93000320, 0x0a02f04f, 0xbf00e731, 0x0016ae00, 0x00182c24, 0x079b9b00, 0x8194f100, 0x07d89b00, 0x8190f140, 0xf0002a64, 0xf85b8232, 0x3a581b04, 0x2a20b289, 0x8224f200, 0xf012e8df, 0x0222025a, 0x02220222, 0x02220222, 0x02220222, 0x02220222, 0x0222024e, 0x02220072, 0x02220222, 0x02220222, 0x02220222, 0x02220222};
 uint32_t jpt_12E9FE[] = {0xf022f853, 0xeb9dbf00, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb850014, 0xeb2d0014, 0xe7c70014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb550014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xe7cd0014, 0xeb2d0014, 0xeb2d0014, 0xebbb0014, 0x9e030014, 0xe54a4614, 0x48644964, 0x72a7f44f, 0xfdfdf000, 0x0a06f04f, 0x111ae53c, 0x030ff003, 0x2002f81e, 0x3003f81e, 0x2010f88d, 0x3011f88d, 0x012ef06f, 0x220f232f, 0x7813e6fc, 0xf0002b00, 0x9b018097, 0xf43f2b00, 0x9b01aecc, 0xf1c24611, 0x2b000001, 0x0c01eb00, 0xf811dd0f, 0x3b01ef01, 0x0f00f1be, 0x2b00d010, 0x9902d1f3, 0x93019800, 0x1ac94663, 0x0040f000};
-int loc_1345A4();
-int loc_135564();
-int loc_135568();
-int loc_13556C();
-int loc_135570();
-int loc_135574();
-int loc_135578();
-int loc_13557C();
+#define loc_1345A4 0x1345a4  /* code label address */
+#define loc_135564 0x135564  /* code label address */
+#define loc_135568 0x135568  /* code label address */
+#define loc_13556C 0x13556c  /* code label address */
+#define loc_135570 0x135570  /* code label address */
+#define loc_135574 0x135574  /* code label address */
+#define loc_135578 0x135578  /* code label address */
+#define loc_13557C 0x13557c  /* code label address */
+#define loc_14343C 0x14343c  /* code label address */
 uint32_t off_100418 = 0x00182c64;  /* ptr -> 0x182c64, ascii "d,\x18\x00" */
 uint32_t off_100420 = 0x00188858;  /* ptr -> 0x188858 */
 uint32_t off_100424 = 0x00173460;  /* ptr -> 0x173460, ascii "`4\x17\x00" */
@@ -5655,6 +5683,9 @@ uint64_t qword_1015C8 = 0x0017268c001727ccULL;
 uint64_t qword_1015D4 = 0x001722cc0017240cULL;
 uint64_t qword_102D04 = 0x00171b3800171c78ULL;
 
+/* memory image backing store (byte-indexed from 0x100000) */
+uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};
+
 /* --- forward declarations --- */
 int * memset_byte(int *result, uint8_t a2, unsigned int a3);
 int ke_evt_handler();
@@ -5662,7 +5693,7 @@ void ke_task_init();
 int timer_read(int a1);
 int timer_set(int a1);
 int timer_poll(int a1);
-int hw_config_init();
+int hw_config_init_0688();
 int get_timer_flag();
 void clock_start();
 uint32_t *gpio_pin_set();
@@ -5672,6 +5703,7 @@ int heap_alloc(int a1, unsigned int a2, uint32_t *a3);
 int radio_init(int a1, unsigned int a2);
 int radio_irq_setup(int a1, int a2);
 int pll_enable();
+void call_1006d8_with_args();
 int adc_read_ch0(int result);
 uint32_t *adc_read_ch1();
 int rf_analog_enable(unsigned int a1, int a2);
@@ -5681,6 +5713,8 @@ int rf_irq_check(int result, int a2, int a3);
 uint32_t * sys_status_read(uint32_t *result, uint32_t *a2);
 uint64_t * timer_count_read(uint64_t *result, int a2);
 int sys_irq_dispatch(int a1, int a2, int a3);
+int return_1000();
+int return_one();
 int sys_status_get_bit21();
 BOOL rf_calibration_done();
 unsigned int rf_control_set_bit3(int a1);
@@ -5696,6 +5730,8 @@ int llm_task_handler(int a1, uint8_t *a2, uint8_t *a3);
 int llm_rx_pdu_handler(unsigned int a1, signed int a2, uint8_t *a3);
 int rf_tx_power_set(int result);
 void format_log_message(int a1, int a2, int a3, int a4);
+void flash_cr_unlock();
+void flash_init();
 int gpio_init(uint16_t *a1, int a2);
 int check_event_state();
 int validate_value_range(unsigned int a1);
@@ -5782,6 +5818,7 @@ int * sdio_packet_parse(int *result, unsigned int a2, int a3, int a4);
 void sdio_transfer_setup(int a1, int a2);
 int sdio_bus_reset();
 int sdio_irq_enable();
+int bt_dispatch();
 int *pmu_clock_config();
 int *clear_context_182b48();
 int pmu_wait_status();
@@ -5789,6 +5826,7 @@ int pmu_poll_delay(char a1);
 int pmu_status_interrupt();
 int pmu_isr_224();
 int pmu_isr_214();
+int nullsub_6(void);
 void pmu_ctrl_write_8();
 void pmu_ctrl_write_256();
 void pmu_ctrl_write_128();
@@ -5801,6 +5839,7 @@ void clock_enable();
 void clock_disable();
 int status_poll();
 int power_mode_set(int result);
+int *clear_182b70_struct();
 int ke_event_process(int a1, int a2, int a3);
 int watchdog_kick();
 int watchdog_init();
@@ -5813,6 +5852,7 @@ uint8_t * uart_puts(uint8_t *result);
 int uart_getc();
 int uart_rx_ready();
 int debug_printf(int a1, int a2);
+int printf_wrapper(int a1, ...);
 void irq_get_pending();
 int irq_set_priority(int result);
 int gpio_clear_bit_reg8(char a1);
@@ -5825,6 +5865,9 @@ int gpio_write_pin2();
 int check_radio_flag();
 int set_radio_channel(int a1);
 int init_oscillators();
+int nullsub_1(void);
+int nullsub_2(void);
+int nullsub_3(void);
 int set_pin_mux(int a1);
 int gpio_init_1();
 int gpio_reset();
@@ -5837,11 +5880,15 @@ int gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3);
 int gpio_set_alternate(int a1);
 int board_init(unsigned int *a1);
 int board_init_2();
+int jump_table_1b0();
+int jump_table_1b4();
+int call_vector_1b8();
 int atomic_reg_read(int a1, int a2);
 int atomic_reg_read_alt(int a1, int a2, int a3);
 int atomic_reg_write(int a1, int a2, int a3, int a4);
 int periph_trigger_write(int a1, int a2, int a3);
 int periph_field_set(int a1);
+int write_reg_70001408();
 int get_periph_status();
 int set_periph_status(int a1);
 int periph_enable();
@@ -5854,6 +5901,7 @@ int send_msg();
 uint64_t init_fw_table();
 int process_state();
 int ke_msg_alloc();
+int send_cmd_040d();
 unsigned int ke_msg_handler(int *a1, int a2, unsigned int a3);
 uint32_t * rx_process_item(int a1, unsigned int a2);
 int list_insert(int a1, uint32_t *a2);
@@ -5876,6 +5924,7 @@ int critical_enter_6();
 int critical_enter_7();
 int usb_irq_handler(int result);
 int rf_isr(int a1, int a2);
+int init_after_reset();
 int ke_event_init(int a1);
 int sch_arbitrate();
 int rf_tx_start();
@@ -5914,6 +5963,7 @@ uint8_t * ke_wait_event_b(int a1, int a2, int a3);
 int mmio_intr_status();
 void critical_enter();
 int critical_section_run(int a1, uint16_t *a2);
+int get_config_ptr();
 int seq_num_inc(uint8_t *a1, unsigned int a2, int a3);
 int sys_cmu_clock_get(int a1);
 int global_env_init(int a1, unsigned int a2);
@@ -5929,6 +5979,7 @@ int bt_evt_sched_low();
 int int_disable_set_flag();
 int critical_section_enter_no_set();
 BOOL is_rf_calib_running();
+int init_memory_regions();
 int rf_stat_read(int a1);
 int rf_stat_apply(int a1);
 int rx_packet_parse(int a1);
@@ -5939,6 +5990,7 @@ int log_and_handle(int a1, int a2, int a3);
 int band_is_supported(int a1, int a2, int a3, int a4);
 int init_hw_timers();
 int set_busy_flag();
+int init_queue_buffer();
 int init_hw_state(int a1);
 int log_debug_a(int a1, int a2, int a3);
 int log_debug_b(int a1, int a2, int a3);
@@ -5954,16 +6006,21 @@ void phy_calibrate_1();
 int invoke_callback(uint32_t *a1);
 int lock_acquire();
 int lock_release();
+int init_osal_objects();
 int dispatch_by_cmd(uint8_t *a1);
 int wait_for_value(uint8_t *a1, int a2);
 int malloc_from_heap(int a1);
 int semaphore_create(int a1, uint8_t *a2, int a3, int a4);
+int setup_patch_data();
 int find_object_by_key(char a1, int16_t a2, uint32_t *a3);
 uint8_t *alloc_small_buffer();
 void read_hw_status_1();
 int command_enqueue(int a1, int a2, int a3, int a4, char a5);
 int sys_control(int a1, int a2);
 int periph_write(int result);
+int call_vector_1fc();
+unsigned int get_hw_info_bit9();
+int get_hw_info_2();
 int syscall6_get_status(uint8_t *a1);
 int syscall6_check_done(uint8_t *a1);
 int syscall8_op(uint32_t *a1, unsigned int *a2);
@@ -5972,7 +6029,14 @@ int load_calib_data2(int a1, int a2);
 int syscall10_flash_erase(char a1, uint8_t *a2);
 int syscall11_flash_write(char a1, uint8_t *a2);
 int syscall16_get_version(int *a1);
+int get_hw_info_field0();
+unsigned int get_hw_info_field1();
+unsigned int get_hw_info_field2();
 int rom_call_extract_byte(uint8_t *a1);
+unsigned int get_hw_info_bit18();
+unsigned int get_hw_info_bit19();
+unsigned int get_hw_info_bit20();
+int get_hw_info_1b();
 int enter_critical_set_flag();
 void check_status_flags();
 int ioctl_dispatch(int a1, int a2, unsigned int a3);
@@ -6001,6 +6065,7 @@ void rx_check_buffers();
 void ke_init_structures();
 int scan_process_advertisement();
 int scan_check_response();
+int send_to_global_queue();
 int bt_clear_entry(int a1);
 uint32_t * release_buffer(int a1);
 int set_callback_arg(int a1, int a2);
@@ -6025,6 +6090,7 @@ int conn_prepare(int a1);
 int conn_tx(int a1, int a2);
 void irq_counter_inc();
 int conn_rx(int a1, int a2);
+int nullsub_7(void);
 unsigned int rf_irq_status();
 int rf_irq_check_1(int result);
 int rf_irq_clear();
@@ -6034,6 +6100,7 @@ uint64_t controller_init();
 int delay_loop(int a1);
 BOOL timer_ticks_diff(int a1, int a2);
 void timer_check_state(int a1, uint32_t *a2);
+int llm_env_init();
 int list_append(int a1, int a2, int a3);
 int ke_event_loop(int a1, int a2, int a3, int a4);
 uint32_t *ke_msg_dispatch();
@@ -6045,6 +6112,7 @@ int ke_task_init_1(int a1);
 int tx_packet_enqueue(int a1, int a2, int a3);
 int event_notify(int a1, int a2);
 int ble_event_dispatch(int a1, int a2);
+int btlp_enter_sleep();
 int ble_conn_event_handler(int result, int a2);
 uint32_t *system_init();
 int ble_conn_get(int a1, int a2, int a3);
@@ -6062,6 +6130,7 @@ int rf_channel_switch(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t
 int tx_packet_build(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5);
 unsigned int buf_align_size(int a1, unsigned int a2);
 int *timer_ticks_compare();
+int llc_tx_process();
 int llc_tx_llcp_handler(int a1);
 int llc_rx_llcp_handler(int a1, int a2);
 int ke_timer_tick(int result);
@@ -6097,6 +6166,7 @@ int rxreorder_process(int result);
 void global_flag_set(int a1);
 int check_hw_status();
 void enable_irq();
+int nullsub_8(void);
 int is_associated(int a1, int a2);
 unsigned int get_rate_index(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a5, int *a6);
 int tx_buffer_cleanup(int a1);
@@ -6113,6 +6183,8 @@ BOOL rx_process_packet(int a1);
 int seq_count_inc();
 int seq_count_restart();
 int is_tx_ready();
+int nullsub_4(void);
+int pmu_sleep_200000();
 int tx_lock();
 int tx_unlock();
 int rf_wait_idle();
@@ -6170,6 +6242,7 @@ int rx_ring_init();
 int check_isr_handler();
 int write_pmu_control();
 int irq_lock_save();
+int jump_to_12af2c();
 int rf_set_channel(int a1, int a2);
 int rx_handle_frame(uint8_t *a1);
 uint32_t * check_hw_version(int a1);
@@ -6183,6 +6256,7 @@ int mac_check_hw_state(int a1);
 int mac_wait_fw_ready();
 int mac_cmd_send();
 int mac_util_event();
+int check_clock_state();
 int buffer_alloc(int a1, uint8_t *a2, uint8_t *a3);
 unsigned int phy_txpower_calc(int a1);
 int mmio_read_phy(int a1);
@@ -6245,6 +6319,7 @@ int radio_read_config(uint8_t *a1);
 int set_cfg_flag(uint8_t *a1, void *a2);
 int dispatch_by_type(int a1, uint16_t *a2, int a3, void *a4);
 unsigned int compare_offsets(int a1, int a2);
+int env_list_init_1903c8();
 int ke_event_lock(int a1, int a2);
 int ke_event_set_lock(int a1);
 int ke_timer_service();
@@ -6255,6 +6330,7 @@ int bt_link_get(int result);
 int rx_header_parse(uint16_t *a1);
 int tx_desc_prepare(int a1, int a2);
 int tx_complete_handle(int a1);
+int reset_bt_env();
 int * memory_pool_init(int a1);
 int list_remove(uint16_t *a1);
 void rf_status_poll();
@@ -6279,6 +6355,7 @@ int timer_tick_handler(int a1);
 int clear_tx_buffer();
 int tx_ready_check();
 int timeout_decrement();
+int check_irq_handler();
 int set_tx_buffer(int result);
 int rf_tx_packet(int result);
 int read_rssi();
@@ -6298,6 +6375,7 @@ BOOL hci_command_handler(int a1, int a2, int a3);
 int hci_event_proc(int result);
 int hci_le_event_proc(int result);
 int bt_power_state(int result);
+int nullsub_5(void);
 BOOL bt_link_active(int a1);
 BOOL bt_link_check(int a1);
 BOOL bt_link_type(int a1);
@@ -6387,6 +6465,7 @@ int ke_critical_enter();
 int power_state_read(int a1, int a2);
 int mac_irq_status(int result, int a2, int a3, int a4);
 void mac_irq_clear(int a1, int a2);
+int rx_env_list_init();
 int ke_task_dispatch(int a1);
 int mmio_tail_write();
 int mmio_tail_write_alt();
@@ -6416,7 +6495,10 @@ uint32_t * hci_cmd_send(unsigned int a1, int a2);
 int hci_cmd_send_short(unsigned int a1);
 int hci_cmd_send_vendor(int a1, unsigned int a2);
 int set_system_flag();
+int return_zero();
+int return_two();
 int set_system_flag_1(int a1);
+int pmu_sleep_10000000();
 int set_system_flag_2(int a1);
 void process_event_queue();
 int state_init();
@@ -6496,6 +6578,9 @@ int ke_event_send_a(int a1, uint32_t *a2, int16_t a3, int16_t a4);
 int ke_event_send_b(int a1, uint32_t *a2, int16_t a3, int16_t a4);
 int msg_alloc_403(int a1, int *a2, int16_t a3, int16_t a4);
 int rf_command_start();
+void task_poll_loop();
+void send_hci_event_42d();
+void send_hci_event_42c();
 int tx_power_config(int a1, int *a2, int16_t a3, int16_t a4);
 int radio_init_2();
 int ke_int_lock_1(int a1, int a2, int a3);
@@ -6503,11 +6588,18 @@ int mmio_irq_clear(int a1, int a2, int a3);
 int mmio_field_update(int a1, int a2, int a3);
 void ke_int_unlock();
 int *timer_clear();
+int reset_hci_scratch();
+int j_rf_phy_mmio_poll_n_cb();
 int patch_jump(uint16_t *a1);
+int return_two_stub();
+int j_nullsub_6(void);
 int state_ready_check();
+int jump_to_10ca3c();
 uint32_t ** process_pending_queue(uint32_t **result);
 void dispatch_if_ready(int a1);
+int jump_to_10c824_zero();
 int irq_lock_save_1(unsigned int a1);
+int get_shared_buf_size();
 unsigned int rx_packet_process(unsigned int a1, int a2, int a3);
 int parse_space_token(uint8_t *a1, int a2);
 uint32_t * find_extension(int a1, uint32_t *a2, int a3);
@@ -6527,6 +6619,7 @@ uint8_t *ke_event_send_1();
 void mmio_wait_reg();
 unsigned int ll_seq_update();
 int rf_map_channel(int a1);
+int sub_123058C();
 int ke_event_handler();
 int log_mac_state();
 int ke_timeout_to_ticks(int a1);
@@ -6576,6 +6669,7 @@ int llm_env_reset();
 char * llm_adv_state_get(int a1, int a2);
 char * rf_channel_to_freq(char *result, int a2);
 int llm_get_adv_type(uint8_t *a1);
+void sdio_cfg_write();
 BOOL llm_get_adv_addr(int a1, int a2);
 int rf_phy_to_power_map(char a1);
 int rf_phy_to_power_map2(char a1);
@@ -6644,6 +6738,7 @@ int rf_get_power_by_index(int a1, int a2, int a3, int a4, int a5, int a6, int a7
 void rf_copy_cal_params(int a1, int16_t a2, int *a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
 int rf_check_status_1(unsigned int a1);
 uint32_t * hci_vendor_cmd_dispatch(int a1);
+BOOL is_pll_freq_6();
 int send_hci_vendor_cmd(char a1, int a2, unsigned int a3);
 uint32_t * hci_vendor_read_rf_cache(uint16_t *a1);
 uint32_t * hci_vendor_get_state(int a1);
@@ -6683,10 +6778,12 @@ int get_link_context(int a1, int a2, int a3, int16_t a4);
 int radio_state_control(int a1, int a2, int a3, int a4);
 int rf_cmd_read(int a1, uint8_t *a2);
 int is_device_ready(int a1, uint8_t *a2);
+int sdio_set_blocksize();
 int gpio_isr_handler();
 BOOL event_loop_tick(uint8_t *a1);
 uint8_t * init_radio_params(uint8_t *result, int a2, char a3, int a4);
 uint32_t * radio_event_dispatcher(int a1);
+int *dma_rx_reset();
 int find_table_entry(uint16_t *a1, int a2);
 int process_hci_command(int a1);
 int lookup_handle_entry(uint16_t *a1);
@@ -6802,6 +6899,7 @@ uint32_t * hci_le_set_scan_params(int a1, int a2, int a3, int a4);
 int check_scan_enable(int result, int a2);
 int process_adv_report(uint16_t *a1, int a2, int a3);
 int timer_start(int a1, int a2);
+int *dma_tx_reset_1();
 int send_scan_report_event(char a1, char a2, char a3, int a4, char a5);
 uint32_t *increment_event_counter();
 void get_adv_tx_power();
@@ -6819,6 +6917,7 @@ int build_scan_report(int a1, int a2, int a3, int a4);
 int lookup_phy_entry(int a1, int a2, char a3);
 int clear_data_flag(int a1);
 int poll_active_list(int a1, int a2, int a3);
+int *mac_init_ring();
 unsigned int parse_ll_control(unsigned int result);
 int check_phy_flags(int result, int16_t a2, uint16_t *a3);
 int lll_scan_pdu_alloc(int a1, uint8_t *a2, int16_t a3, int16_t a4);
@@ -6851,6 +6950,9 @@ int double_add(int result, int a2, int a3, int a4);
 int double_to_int(uint64_t a1);
 int double_compare(int result, int a2);
 uint64_t double_compare_swap(int a1, int a2);
+BOOL compare_eq();
+BOOL compare_lo();
+BOOL compare_ls();
 BOOL double_less_equal(int a1, int a2);
 BOOL double_less_than(int a1, int a2);
 int double_is_nan(uint64_t a1, int a2, int a3);
@@ -6865,327 +6967,16 @@ int strcmp(unsigned int a1, unsigned int *a2);
 unsigned int memcpy_2(unsigned int result, unsigned int a2);
 unsigned int memmove_5(unsigned int a1);
 int memset_1(uint8_t *a1, uint8_t *a2, int a3);
+void empty_isr();
+void empty_isr_alt();
 /* --- callees not defined in this image --- */
-int BYTE1();
-int BYTE2();
-int BYTE4();
-int COERCE_FLOAT();
-int JUMPOUT();
-int SHIBYTE();
-int SHIDWORD();
-int SLOBYTE();
-int WORD1();
-int WORD2();
-int __CFADD__();
 int __CFSHR__();
 int __CFSUB__();
-int __ROR4__();
-int _byteswap_ushort();
 int a2();
 int a3();
-int abs16();
-int abs32();
-int bswap32();
-int bt_chan_dispatch_n_6f0();
-int bt_chan_init_all();
-int bt_chan_lookup();
 int bt_chan_parse();
-int bt_chan_state_check_n_4b80();
-int bt_chan_state_get();
-int bt_check_flag_n_3c0();
-int bt_core_subsystems_init();
-int bt_dispatch_3arg();
-int bt_flag_check_init();
-int bt_flag_get();
-int bt_fmac_init();
-int bt_fmac_init_n_42e();
-int bt_fw_init_handler();
-int bt_fw_init_or_handler();
-int bt_hci_cmd_alloc_send();
-int bt_hci_cmd_build_n6ac();
-int bt_hci_cmd_dispatch();
-int bt_hci_cmd_dispatch_n_dc();
-int bt_hci_cmd_handler();
-int bt_hci_cmd_send();
-int bt_hci_hdr_parse();
-int bt_hci_reset_init();
-int bt_init_check_1827f4();
-int bt_init_subsystem_1240E38();
-int bt_link_lookup_entry();
-int bt_link_state_check();
-int bt_link_state_get_is_up();
-int bt_link_state_get_n2c4();
-int bt_msg_handler();
-int bt_msg_handler_122D3B8();
-int bt_msg_handler_dispatch();
-int bt_msg_handler_n54c();
-int bt_msg_handler_sub();
-int bt_msg_post_n2cc();
-int bt_ps_control();
-int bt_rf_calibrate_or_setup();
-int bt_rf_param_set_n_5d0();
-int bt_rx_handler();
-int bt_rx_pkt_process_1390e8();
-int bt_scan_channel_parse();
-int bt_state_check_or_init();
-int bt_state_field_cmp();
-int bt_state_get_n28();
-int bt_state_poll_n_cac();
-int bt_state_query_n_c3c();
-int bt_sub_121733C();
-int bt_subsystem_init_n_ef0();
-int bt_table_lookup_n_64e();
-int bt_tx_queue_process();
-int bt_xtal_init_check();
-int buf_release_and_dispatch();
-int buffer_pool_get();
-int chan_get_curr_id();
-int chip_feature_check();
-int chip_rev_get();
-int chip_version_read_12207E0();
-int cmd_dispatch_handler();
-int crypto_adc_capture();
-int crypto_calibrate();
-int crypto_hw_clk_toggle();
-int crypto_hw_disable();
-int crypto_hw_enable();
-int crypto_hw_power_up_39c4();
-int crypto_hw_reset();
-int crypto_hw_reset_seq();
-int crypto_key_load();
-int crypto_key_schedule_5840();
-int crypto_mac_core();
-int crypto_power_calc();
-int crypto_state_dump();
-int crypto_table_init_3e84();
-int delay_us();
-int ethertype_check_0x600();
-int feature_guard_sdio();
-int flag_check_1218170();
-int float_compare_9988();
-int fmac_bt_event_handler();
-int fmac_bt_idle_handler();
-int fmac_init_context();
-int fmac_module_init();
-int fmacfwbt_init_handler();
-int fmacfwbt_init_load();
-int fmacfwbt_phy_chan_init();
-int fw_info_get_or_init();
-int fw_init_or_check_1221d44();
-int fw_state_lookup_n_528();
-int fw_subsystem_init();
-int fw_version_check_n_38();
-int get_variant_cached();
-int hw_event_flag_1f58();
-int idx_record_lookup_n_4d4();
-int indirect_call_trampoline();
-int init_alloc_0x200000();
-int init_global_table_121E430();
-int ipc_msg_alloc();
-int ipc_msg_alloc_init();
-int ipc_msg_build_header();
-int ipc_msg_dispatch_454();
-int ipc_msg_handle_n_884();
-int ipc_msg_handler_init();
-int ipc_msg_write_hdr();
-int ipc_queues_init_n();
-int irq_config();
-int irq_enable();
-int irq_nesting_or();
-int irq_prio_set();
-int irq_prio_set2();
-int j_buffer_pool_get();
-int j_nullsub_6();
-int j_rf_hw_timer_init();
-int j_rf_state_check_n36a();
-int list_count_d594();
-int list_init_or_dequeue();
-int list_insert_sorted();
-int list_push_tail();
-int list_remove_node_d510();
-int lmac_rf_helper_121BF38();
-int log_flush();
-int log_free_dispatch_1();
-int log_free_dispatch_2();
-int log_free_dispatch_n2b4();
-int log_free_pool_dispatch2_n4e6();
-int log_hw_init_if();
-int log_pool_alloc2();
-int log_printf();
-int log_queue_push();
-int log_queue_push2();
-int mac_addr_copy_to_global();
-int mac_cmd_send_status_query();
-int mac_init_set_bits();
-int mac_state_process_n_1c8();
-int memset_thunk();
-int message_dispatch_c7ac();
-int message_dispatch_n158();
-int message_dispatch_n238();
-int message_dispatch_n34c();
-int message_dispatch_n84();
-int message_dispatch_n94_cc48();
-int message_dispatch_n_4a3();
-int message_dispatch_n_4c4();
-int message_dispatch_n_b4_cb00();
-int message_dispatch_n_d8();
-int mm_state_init_check();
-int mmio_bit_toggle_0189c();
-int mmio_block_write_n_e18();
-int mmio_clear_bit1_n_524();
-int mmio_config_clear_bits_n_0f0();
-int mmio_field_extract_n1168();
-int mmio_field_set_n1d0();
-int mmio_init_block_120DDA0();
-int mmio_pair_read_n1800();
-int mmio_read_bitfield_7000101c();
-int mmio_read_u8();
-int mmio_reg_bit_clear();
-int mmio_reg_clear_bits_n_5c0();
-int mmio_reg_init_n0d08c();
-int mmio_reg_init_patch();
-int mmio_reg_read_modify();
-int mmio_reg_read_pair();
-int mmio_reg_write_helper();
-int mmio_rf_table_init();
-int mmio_set_bit7();
-int mmio_set_clear_bits();
-int mmio_set_flag_bit1();
-int msg_get_value();
-int msg_handler_1241c0c();
-int nullsub_1();
-int nullsub_2();
-int nullsub_3();
-int nullsub_4();
-int nullsub_5();
-int nullsub_8();
-int nvic_irq_enable_8000();
-int parse_rx_frame_n688();
-int patch_apply_526c();
-int patch_apply_n280();
-int patch_apply_n3a();
-int patch_apply_n4a8_5990();
-int patch_apply_n_148();
-int patch_apply_n_2ac();
-int patch_apply_n_2b4();
-int patch_apply_n_3e0();
-int patch_helper();
-int patch_sub_1217374();
-int phy_chan_idx_calc();
-int phy_flag_clear_72();
-int phy_init_or_register_n_e();
-int phy_reg_init_n_2c4();
-int phy_tbl_lookup_by_idx();
-int ptr_compare_or_fetch();
-int queue_check();
-int rf_bus_mark_n_3b7();
-int rf_bus_reset_844();
-int rf_bus_reset_n_21a_f780();
-int rf_bus_reset_short();
-int rf_bus_setup_n39a_ea44();
-int rf_bus_setup_n3a8();
-int rf_bus_setup_n_39c();
-int rf_bus_write2_1a78();
-int rf_bus_write2_n482();
-int rf_bus_write_n_25c();
-int rf_calib_init_handler();
-int rf_chan_table_init();
-int rf_channel_status_get_n1c0();
-int rf_cmd_dispatch_n_44a();
-int rf_cmd_process_n4e();
-int rf_cmd_process_n_4c5();
-int rf_entry_lookup_n3a0();
-int rf_hw_timer_init();
-int rf_hw_timer_read();
-int rf_init_hw_setup();
-int rf_init_or_attach_n488();
-int rf_level_apply_80c();
-int rf_level_apply_n_1f8();
-int rf_level_dump_05bc();
-int rf_level_step_04e0();
-int rf_mem_read_ed40();
-int rf_misc_init_n_xxx();
-int rf_mmio_init_n_1b4();
-int rf_msg_handler_n_13a();
-int rf_msg_process_body_3aa4();
-int rf_msg_process_body_n1cc();
-int rf_msg_process_body_n446();
-int rf_msg_process_body_n_102();
-int rf_phy_field_clear_n_23c();
-int rf_power_set();
-int rf_reg_init_load();
-int rf_reg_write_guard();
-int rf_state_check_n2c6();
-int rf_state_check_n3ea_d908();
-int rf_state_get_or_set();
-int rf_status_query_n704();
-int rf_stream_dispatch();
-int rf_stream_start_1ac();
-int rf_table_lookup_n528();
-int rf_table_lookup_n788();
-int rf_temp_read_n590();
-int rf_xo_pll_config();
-int rx_buf_init_n168();
-int rx_desc_parse_n_ebbc();
-int rx_desc_status_get();
-int rx_entry_lookup();
-int rx_frame_handler();
-int scan_chan_entry_alloc_n_54();
-int scan_chan_eval_n8c8();
-int scan_chan_meas_12051e0();
-int scan_chan_parse_n1bd4();
-int sdio_buffer_prepare_alt_1a8();
-int sdio_buffer_prepare_e188();
-int sdio_buffer_prepare_n_16c_e1d8();
-int sdio_buffer_prepare_n_17c();
-int sdio_buffer_prepare_n_2e2();
-int sdio_buffer_prepare_n_32a();
-int sdio_status_check();
-int sdio_transfer();
-int sdio_wait_busy();
-int seqno_incr_check_3fff();
-int sta_lookup_by_index();
-int state_flag_check();
-int sub_10186C();
-int sub_101874();
-int sub_101954();
-int sub_10C688();
-int sub_10DA7C();
-int sub_10EBC4();
-int sub_10EBCC();
-int sub_10EBD4();
-int sub_10ED6C();
-int sub_10F764();
-int sub_114E98();
-int sub_115144();
-int sub_115158();
-int sub_11516C();
-int sub_1151AC();
-int sub_1151C0();
-int sub_1151D4();
-int sub_1151E8();
-int sub_116484();
-int sub_11831C();
-int sub_119120();
-int sub_11A2B4();
-int sub_121F1C();
-int sub_124F54();
-int sub_125958();
-int sub_12F2F0();
-int sub_12F730();
-int sub_12F74C();
-int sub_12F76C();
-int sub_12F870();
-int sub_135B80();
-int sub_1376D4();
+int cf();
 int sub_13C520();
-int sub_14213C();
-int sysctl_chip_id_get();
-int timestamp_remove_058();
-int timestamp_update_4f60();
-int tx_desc_slot_lookup();
-int tx_phy_dispatch();
-int util_sub_f0b4();
 int v10();
 int v11();
 int v13();
@@ -7207,10 +6998,7 @@ int v7();
 int v72();
 int v8();
 int v9();
-int variant_update_cache();
-int vcvts_n_f32_u32();
-int vcvts_n_s32_f32();
-int xtea_block_decrypt();
+int zf();
 
 /* --- function bodies --- */
 /* forward decls (undeclared identifiers, heal-generated) */
@@ -7315,6 +7103,7 @@ int rf_bus_write_n_4f3();
 int rf_bus_write_n_4fc();
 int rf_bus_write_na4();
 int rf_cmd_send_n_20();
+int rf_cmd_send_nb8();
 int rf_fault_dump_n_3ec();
 int rf_mem_scan_bytes();
 int rf_msg_handler_n19c();
@@ -7508,7 +7297,7 @@ int ke_evt_handler() {
   v18 = dword_10042C;
   v12[4] = v16;
   v6[2] = v9;
-  log_printf(v18, v7, v10);
+  printf_wrapper(v18, v7, v10);
   if ( **v17 < 0 && v10 >= v7 )
     mmio_irq_clear(dword_10046C, dword_100464, 120);
   v19 = dword_100430;
@@ -7545,7 +7334,7 @@ int ke_evt_handler() {
     v32 += v35;
   }
   v36 = dword_100450;
-  result = log_printf(dword_100454, dword_100430, dword_100450);
+  result = printf_wrapper(dword_100454, dword_100430, dword_100450);
   if ( **v17 < 0 && v32 >= v36 )
     result = mmio_irq_clear(dword_100468, dword_100464, 156);
   v38 = *v0;
@@ -7564,7 +7353,7 @@ int ke_evt_handler() {
   if ( v40 )
   {
     if ( dword_10045C > v40 )
-      return log_printf(dword_100460, dword_10045C, v40);
+      return printf_wrapper(dword_100460, dword_10045C, v40);
   }
   return result;
 }
@@ -7628,7 +7417,7 @@ void ke_task_init() {
     v20 = ((int (*)())mmio_init_check)(v13);
     rf_afe_enable(v20);
   }
-  v14 = ke_event_schedule_1(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
+  v14 = ke_event_schedule(dword_10059C, (void *)(uintptr_t)((uint8_t)v0[76]), *(uint8_t *)off_100598);
   v15 = rf_channel_config(v14);
   v16 = process_state(v15);
   if ( v9[2] )
@@ -7662,7 +7451,7 @@ int timer_read(int a1) {
 
   v2 = *(uint32_t *)off_100634;
   v3 = *(uint32_t *)off_100634;
-  v4 = sub_101874();
+  v4 = return_one();
   v5 = sys_status_get_bit21();
   v6 = (v2 >> 8) & 0xF;
   v7 = (v3 >> 27) & 1;
@@ -7751,8 +7540,8 @@ int timer_poll(int a1) {
 
 
 
-// hw_config_init @ 0x100688
-int hw_config_init() {
+// hw_config_init_0688 @ 0x100688
+int hw_config_init_0688() {
   int *v0; // r4
   int v1; // r5
   int result; // r0
@@ -8131,6 +7920,13 @@ int pll_enable() {
   *v6 &= ~0x1000u;
   *(uint32_t *)off_100B10 &= ~0x20000000u;
   return result;
+}
+
+
+
+// call_1006d8_with_args @ 0x100b14
+void call_1006d8_with_args() {
+  clock_start();
 }
 
 
@@ -8643,7 +8439,7 @@ void llc_event_loop() {
   {
     mmio_irq_clear(dword_1017DC, dword_1017D8, 6119);
   }
-  message_dispatch_n238();
+  clock_start();
 }
 
 
@@ -8652,7 +8448,7 @@ void llc_event_loop() {
 int rf_irq_check(int result, int a2, int a3) {
   if ( (*(uint32_t *)off_1017F8 & 8) != 0 )
   {
-    result = mmio_reg_read_pair(result, a2, a3, *(uint32_t *)off_1017F8 << 28);
+    result = (int)(uintptr_t)(timer_timestamp_get(result, a2, a3, *(uint32_t *)off_1017F8 << 28));
     *(uint32_t *)off_1017FC = 8;
   }
   return result;
@@ -8679,7 +8475,7 @@ uint64_t * timer_count_read(uint64_t *result, int a2) {
   v2 = result;
   if ( a2 )
   {
-    result = (uint64_t *)ke_event_schedule_1(dword_101844, dword_101848, a2);
+    result = (uint64_t *)ke_event_schedule(dword_101844, (void *)(uintptr_t)(dword_101848), a2);
     *v2 = *(uint64_t *)((char *)off_101840 + 36);
   }
   else
@@ -8696,8 +8492,22 @@ int sys_irq_dispatch(int a1, int a2, int a3) {
   int result; // r0
 
   if ( *(uint32_t *)off_101860 << 28 )
-    return ke_event_schedule_1(dword_101868, dword_101864, a3);
+    return ke_event_schedule(dword_101868, (void *)(uintptr_t)(dword_101864), a3);
   return result;
+}
+
+
+
+// return_1000 @ 0x10186c
+int return_1000() {
+  return 1000;
+}
+
+
+
+// return_one @ 0x101874
+int return_one() {
+  return 1;
 }
 
 
@@ -8865,7 +8675,7 @@ int llm_task_handler(int a1, uint8_t *a2, uint8_t *a3) {
             v11 = v10;
           }
           v22 = v11;
-          result = ke_event_schedule_1(dword_101BD0, 0, v5);
+          result = ke_event_schedule(dword_101BD0, 0, v5);
           v11 = v22;
           v20 = 15;
         }
@@ -8939,7 +8749,7 @@ int llm_task_handler(int a1, uint8_t *a2, uint8_t *a3) {
     {
       if ( **(int16_t **)off_101BC4 < 0 )
         mmio_field_update(dword_101BCC, dword_101BC8, 6907);
-      result = ke_event_schedule_1(dword_101BD0, 1, v5);
+      result = ke_event_schedule(dword_101BD0, (void *)(uintptr_t)(1), v5);
       v21 = 15;
     }
     if ( v15 >= v21 )
@@ -9100,7 +8910,7 @@ LABEL_18:
     {
       if ( **(int16_t **)off_101D94 < 0 )
         mmio_field_update(dword_101DA0, dword_101D9C, 7022);
-      ke_event_schedule_1(dword_101D98, v3, v4);
+      ke_event_schedule(dword_101D98, (void *)(uintptr_t)(v3), v4);
       v23 = 15;
     }
     if ( v8 >= v23 )
@@ -9143,11 +8953,27 @@ int rf_tx_power_set(int result) {
 
 // format_log_message @ 0x101de8
 void format_log_message(int a1, int a2, int a3, int a4) {
-  ke_event_schedule_1(dword_102134, dword_102130, a1);
+  ke_event_schedule(dword_102134, (void *)(uintptr_t)(dword_102130), a1);
   if ( **(uint8_t **)off_102138 != 3 )
-    feature_guard_sdio(4, dword_10213C);
-  variant_update_cache(a4);
-  rf_calib_init_handler();
+    state_check_feature(4, dword_10213C);
+  timer_poll(a4);
+  call_1006d8_with_args();
+}
+
+
+
+// flash_cr_unlock @ 0x1027d8
+void flash_cr_unlock() {
+  llc_event_loop();
+}
+
+
+
+// flash_init @ 0x10285c
+void flash_init() {
+  pll_enable();
+  radio_init(0, 0x96Cu);
+  flash_cr_unlock();
 }
 
 
@@ -9191,7 +9017,7 @@ int gpio_init(uint16_t *a1, int a2) {
 LABEL_5:
       format_log_message(*(uint8_t *)a1, v5, v6, *((uint8_t *)a1 + 1));
     }
-    if ( msg_get_value(7) == 1 || msg_get_value(6) == 3 )
+    if ( hci_cmd_send_short(7) == 1 || hci_cmd_send_short(6) == 3 )
     {
 LABEL_4:
       v5 = a1[1];
@@ -9201,7 +9027,7 @@ LABEL_4:
     v9 = dword_102944;
     v8 = dword_102948;
   }
-  return ke_event_schedule_1(v8, v9, v7);
+  return ke_event_schedule(v8, (void *)(uintptr_t)(v9), v7);
 }
 
 
@@ -9285,7 +9111,7 @@ unsigned int write_mmio_byte(uint8_t a1) {
 int check_firmware_state(int a1, int a2, int a3) {
   int result; // r0
 
-  result = ke_event_schedule_1(dword_102A64, dword_102A60, a3);
+  result = ke_event_schedule(dword_102A64, (void *)(uintptr_t)(dword_102A60), a3);
   if ( **(int16_t **)off_102A68 < 0 )
     return mmio_irq_clear(dword_102A70, dword_102A6C, 61);
   return result;
@@ -9579,7 +9405,7 @@ int memcpy(int a1, int a2, unsigned int a3, int a4) {
   }
   while ( !*(uint32_t *)off_102D9C )
     ;
-  crypto_hw_enable(a1);
+  set_radio_ctrl_bits(a1);
   if ( a3 )
   {
     v9 = 0;
@@ -9604,7 +9430,7 @@ int memcpy(int a1, int a2, unsigned int a3, int a4) {
     }
     while ( a3 > (uint8_t)v12 );
   }
-  result = crypto_hw_disable(a1);
+  result = set_radio_ctrl_bits2(a1);
   *(uint32_t *)off_102D9C = 1;
   return result;
 }
@@ -10087,7 +9913,7 @@ LABEL_17:
         }
         while ( v32 != 6 );
       }
-      v40 = 31 - __clz(sub_1151E8());
+      v40 = 31 - __clz(get_hw_info_1b());
       *v23 = v40;
     }
     else
@@ -10102,11 +9928,11 @@ LABEL_17:
       {
         v75 = (void *)(uintptr_t)(off_1039BC);
         v76 = dword_1039C0;
-        sub_10DA7C(dword_1039B8, v49, v50);
+        printf_wrapper(dword_1039B8, v49, v50);
         v78 = v87;
         do
         {
-          sub_10DA7C(dword_1039B0, v51, v77);
+          printf_wrapper(dword_1039B0, v51, v77);
           v79 = 3 * v51;
           v80 = (char *)v78;
           for ( m = 0; m != 3; ++m )
@@ -10114,41 +9940,41 @@ LABEL_17:
             v82 = *v80++;
             *(uint8_t *)(*v75 + v79 + m) = v82;
             v83 = *(char *)(*v75 + v79 + m);
-            sub_10DA7C(v76, v83, v82);
+            printf_wrapper(v76, v83, v82);
           }
           ++v51;
           v78 = (uint32_t *)((char *)v78 + 3);
         }
         while ( v51 != 3 );
         v52 = (void *)(uintptr_t)(off_103994);
-        sub_10DA7C(dword_1039B4, v84, v77);
+        printf_wrapper(dword_1039B4, v84, v77);
         v52[1] |= 1u;
       }
       ((int (*)())memset)(v88, 0, 20);
 if ( !ioctl_cmd_4((int)(uintptr_t)(v88)) ) { v64 = (void *)(uintptr_t)(off_1039A8);
         v65 = dword_1039C0;
-        sub_10DA7C(dword_1039AC, v53, v54);
+        printf_wrapper(dword_1039AC, v53, v54);
         v67 = 0;
         v85 = v52;
         v68 = v64;
         v69 = v88;
         do
         {
-          sub_10DA7C(dword_1039B0, v67, v66);
+          printf_wrapper(dword_1039B0, v67, v66);
           v70 = (char *)v69;
           for ( n = 0; n != 6; ++n )
           {
             v72 = *v70++;
             *(uint8_t *)(*v68 + n + 6 * v67) = v72;
             v73 = *v68 + n;
-            sub_10DA7C(v65, *(char *)(v73 + 6 * v67), v72);
+            printf_wrapper(v65, *(char *)(v73 + 6 * v67), v72);
           }
           ++v67;
           v69 += 6;
         }
         while ( v67 != 3 );
         v52 = v85;
-        sub_10DA7C(dword_1039B4, v74, v66);
+        printf_wrapper(dword_1039B4, v74, v66);
         v85[1] |= 1u;
       }
 if ( ioctl_cmd_0x80((int)(uintptr_t)(v86)) ) { v40 = -1;
@@ -10161,19 +9987,19 @@ if ( ioctl_cmd_0x80((int)(uintptr_t)(v86)) ) { v40 = -1;
         v40 = v55;
       }
     }
-    v42 = sub_10DA7C(dword_103784, v40, v41);
+    v42 = printf_wrapper(dword_103784, v40, v41);
     if ( *((uint8_t *)v9 + 372) )
     {
       if ( (*(uint32_t *)off_103770 & 0x2000000) != 0 )
       {
-        if ( sub_1151AC(v42) )
+        if ( get_hw_info_bit18(v42) )
         {
-          v56 = sub_115144();
+          v56 = get_hw_info_field0();
           v57 = dword_103998;
           v58 = (void *)(uintptr_t)(off_10399C);
           *(uint8_t *)off_10399C = *(uint8_t *)(dword_103998 + v56);
-          v58[1] = *(uint8_t *)(v57 + sub_115158());
-          v58[2] = *(uint8_t *)(v57 + sub_11516C());
+          v58[1] = *(uint8_t *)(v57 + get_hw_info_field1());
+          v58[2] = *(uint8_t *)(v57 + get_hw_info_field2());
         }
       }
       else
@@ -10204,7 +10030,7 @@ if ( !ioctl_cmd_0x20((int)(uintptr_t)(v88)) ) { v61 = (void *)(uintptr_t)(off_10
 LABEL_14:
   v16 = periph_enable(v15);
   v17 = system_init_mmio(v16);
-  radio_init_1(v17);
+  ((int (*)())radio_init)(v17);
   goto LABEL_17;
 }
 
@@ -10433,7 +10259,7 @@ int ke_sleep_set_mode(int a1) {
                     *(uint32_t *)off_103CF4 &= 0xFFFFFF70;
                     *v23 = *v23 & 0xFF00FFFF | 0x540000;
                     *v24 = v25;
-                    ke_event_schedule_1(v26, v27, v22);
+                    ke_event_schedule(v26, (void *)(uintptr_t)(v27), (int)(uintptr_t)(v22));
                     goto LABEL_22;
                   case 8:
                     v1 = (unsigned int *)off_103CF4;
@@ -10480,13 +10306,13 @@ LABEL_24:
         v14 = v3 & 0x70;
         *v1 = v5 & 0xFFFFFF00 | v14;
         *v2 = v4;
-        ke_event_schedule_1(v6, v14, v1);
+        ke_event_schedule(v6, (void *)(uintptr_t)(v14), (int)(uintptr_t)(v1));
         goto LABEL_22;
     }
     v21 = v18 & 0xFFFFFF00;
     *v15 = v20 | v21;
     *v16 = v17;
-    ke_event_schedule_1(v19, v21, v15);
+    ke_event_schedule(v19, (void *)(uintptr_t)(v21), (int)(uintptr_t)(v15));
     goto LABEL_22;
   }
   v7 = (void *)(uintptr_t)(off_103CF4);
@@ -10498,7 +10324,7 @@ LABEL_24:
   *(uint32_t *)off_103CF4 &= 0xFFFFFF70;
   *v8 = *v8 & 0xFF00FFFF | 0x770000;
   *v9 = v10;
-  ke_event_schedule_1(v11, v12, v7);
+  ke_event_schedule(v11, (void *)(uintptr_t)(v12), (int)(uintptr_t)(v7));
 LABEL_22:
   *(uint32_t *)off_103D14 = 769;
   return timer_set(500);
@@ -10522,11 +10348,11 @@ int mac_set_rx_timeout() {
   v1 = (int *)off_103DE0;
   *(uint32_t *)off_103DDC = 777;
   while ( *v1 < 0 )
-    delay_us(1);
-  ke_event_schedule_1(dword_103DE4, *(uint32_t *)off_103DE0, v0);
+    timer_set(1);
+  ke_event_schedule(dword_103DE4, (void *)(uintptr_t)(*(uint32_t *)off_103DE0), v0);
   v2 = dword_103DE8;
   *(uint32_t *)off_103DDC = 0;
-  ke_event_schedule_1(v2, v3, v4);
+  ke_event_schedule(v2, (void *)(uintptr_t)(v3), v4);
   v5 = (int *)off_103DF0;
   v6 = dword_103DF4;
   v7 = (void *)(uintptr_t)(off_103DF8);
@@ -10534,7 +10360,7 @@ int mac_set_rx_timeout() {
   *v5 = v6;
   v8 = dword_103DFC;
   *v7 &= 0xFF00FFFF;
-  return ke_event_schedule_1(v8, 0x4000, v7);
+  return ke_event_schedule(v8, (void *)(uintptr_t)(0x4000), (int)(uintptr_t)(v7));
 }
 
 
@@ -10958,7 +10784,7 @@ int rx_parse_desc(int a1, int a2, uint32_t *a3) {
   unsigned int v4; // r0
   int v5; // r3
 
-  v3 = a3[seqno_incr_check_3fff(a1, a2, a3)];
+  v3 = a3[util_get_hw_index(a1, a2, a3)];
   v4 = (unsigned int)v3 >> 20;
   v5 = (uint16_t)v3 >> 4;
   if ( v3 < 0 )
@@ -11004,7 +10830,7 @@ int tx_parse_desc(int a1, int a2, uint32_t *a3) {
   uint64_t v32; // r0
   int v33; // r0
 
-  v3 = a3[seqno_incr_check_3fff(a1, a2, a3)];
+  v3 = a3[util_get_hw_index(a1, a2, a3)];
   v4 = (uint16_t)v3 >> 4;
   if ( (v3 & 0x80000000) == 0 )
   {
@@ -11142,7 +10968,7 @@ int scan_set_interval(int a1, int a2, uint32_t *a3) {
     v8 = 32;
   else
     v8 = 16;
-  memset_thunk((int *)&v37, 0, 0x80u);
+  memset_byte((int *)&v37, 0, 0x80u);
   v9 = flt_104854;
   v29 = v6;
   v10 = 10;
@@ -11299,7 +11125,7 @@ int bt_ccm_encrypt(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6) {
   uint8_t v62[132]; // [sp+D0h] [bp-84h] BYREF
 
   v7 = (int *)dword_104B84;
-  feature_guard_sdio(1, dword_104B80);
+  state_check_feature(1, dword_104B80);
   memcpy_aligned((void *)(v61), (void *)(uintptr_t)(dword_104B88), 128);
   v11 = *v7;
   v12 = v7[1];
@@ -11345,7 +11171,7 @@ int bt_ccm_encrypt(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6) {
       v20 = 10;
     v57 = v20;
   }
-  feature_guard_sdio(1, dword_104B90);
+  state_check_feature(1, dword_104B90);
   v21 = (uint32_t *)(a1 + 128);
   do
   {
@@ -11484,12 +11310,12 @@ LABEL_43:
   if ( j != 32 )
     goto LABEL_43;
   v49 = dword_104C34;
-  feature_guard_sdio(1, dword_104C2C);
+  state_check_feature(1, dword_104C2C);
   v50 = a1;
   do
   {
     v50 += 4;
-    result = feature_guard_sdio(1, v49);
+    result = state_check_feature(1, v49);
   }
   while ( v55 != v50 );
   return result;
@@ -11558,10 +11384,10 @@ int bt_encrypt_wrap(int *a1, int a2, int a3, int a4, uint64_t *a5) {
   uint64_t v63; // [sp+10h] [bp-Ch]
 
   v6 = __aeabi_d2lz(a3, a4);
-  v9 = ke_event_schedule_1(dword_104F00, v6, v8);
-  inited = mmio_init_block_120DDA0(v9);
+  v9 = ke_event_schedule(dword_104F00, (void *)(uintptr_t)(v6), v8);
+  inited = ((int (*)())gpio_init)((void *)(uintptr_t)(v9));
   v11 = a1;
-  ke_event_schedule_1(dword_104F08, (int)(float)(inited * flt_104F04), v12);
+  ke_event_schedule(dword_104F08, (void *)(uintptr_t)((int)(float)(inited * flt_104F04)), v12);
   v13 = a5[2];
   v14 = ((int (*)())__aeabi_dmul)(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_104F0C);
   __aeabi_d2lz(v14, HIDWORD(v14));
@@ -11575,14 +11401,14 @@ int bt_encrypt_wrap(int *a1, int a2, int a3, int a4, uint64_t *a5) {
   v22 = a5[5];
   v63 = a5[4];
   v62 = a5[3];
-  ke_event_schedule_1(dword_104F10, v21, v19);
+  ke_event_schedule(dword_104F10, (void *)(uintptr_t)(v21), v19);
   v23 = ((int (*)())__aeabi_dmul)(v22, HIDWORD(v22), 0, dword_104F0C);
   __aeabi_d2lz(v23, HIDWORD(v23));
   v24 = ((int (*)())__aeabi_dmul)(v63, HIDWORD(v63), 0, dword_104F0C);
   v25 = __aeabi_d2lz(v24, HIDWORD(v24));
   v26 = ((int (*)())__aeabi_dmul)(v62, HIDWORD(v62), 0, dword_104F0C);
   v27 = __aeabi_d2lz(v26, HIDWORD(v26));
-  ke_event_schedule_1(dword_104F14, v27, v25);
+  ke_event_schedule(dword_104F14, (void *)(uintptr_t)(v27), v25);
   v28 = v11 + 32;
   do
   {
@@ -11677,7 +11503,7 @@ int mac_tx_disable(int16_t a1, int a2, int a3, int a4) {
   *v4 = v15;
   result = state_check_feature(1, v13);
   if ( v14 > 0x3E80 )
-    return ke_event_schedule_1(dword_104FD4, v17, v18);
+    return ke_event_schedule(dword_104FD4, (void *)(uintptr_t)(v17), v18);
   return result;
 }
 
@@ -11703,7 +11529,7 @@ int util_compare_time(int a1, int a2, int a3) {
     v15 = __aeabi_i2d(a2);
     v16 = __aeabi_ddiv(v14, HIDWORD(v14), v15, HIDWORD(v15));
     v17 = ((int (*)())double_to_float)(v16);
-    v12 = COERCE_FLOAT(rf_state_check_n3ea_d908(v17));
+    v12 = COERCE_FLOAT(system_init_sequence(v17));
     v13 = 20.0;
     goto LABEL_6;
   }
@@ -11713,7 +11539,7 @@ int util_compare_time(int a1, int a2, int a3) {
     v9 = __aeabi_i2d(a1);
     v10 = __aeabi_ddiv(v8, HIDWORD(v8), v9, HIDWORD(v9));
     v11 = ((int (*)())double_to_float)(v10);
-    v12 = COERCE_FLOAT(rf_state_check_n3ea_d908(v11));
+    v12 = COERCE_FLOAT(system_init_sequence(v11));
     v13 = -20.0;
 LABEL_6:
     v6 = v12 * v13;
@@ -11722,7 +11548,7 @@ LABEL_6:
   v6 = flt_10507C;
 LABEL_4:
   *(float *)(a3 + 96) = v6;
-  return feature_guard_sdio(1, dword_105080);
+  return state_check_feature(1, dword_105080);
 }
 
 
@@ -11751,7 +11577,7 @@ int temp_sensor_convert(float a1, int a2, int a3) {
       v11 = *(uint64_t *)(a3 + 112);
       *(uint8_t *)(a3 + 104) = 32;
       if ( SHIDWORD(v11) < (int)v11 )
-        ke_event_schedule_1(dword_105138, HIDWORD(v11), v11);
+        ke_event_schedule(dword_105138, (uint32_t *)(uintptr_t)(HIDWORD(v11)), v11);
     }
   }
   else
@@ -11759,9 +11585,9 @@ int temp_sensor_convert(float a1, int a2, int a3) {
     v9 = *(uint64_t *)(a3 + 112);
     *(uint8_t *)(a3 + 104) = -24;
     if ( SHIDWORD(v9) < (int)v9 )
-      ke_event_schedule_1(dword_10513C, HIDWORD(v9), v9);
+      ke_event_schedule(dword_10513C, (uint32_t *)(uintptr_t)(HIDWORD(v9)), v9);
   }
-  return feature_guard_sdio(1, dword_105134);
+  return state_check_feature(1, dword_105134);
 }
 
 
@@ -12447,7 +12273,7 @@ int llc_connection_init(unsigned int a1, int a2, int a3) {
     }
     else
     {
-      result = ke_event_schedule_1(dword_1059E8, v11, v12);
+      result = ke_event_schedule(dword_1059E8, (void *)(uintptr_t)(v11), v12);
     }
     ++v5;
   }
@@ -12660,7 +12486,7 @@ LABEL_3:
   *(uint32_t *)off_105CD8 = *(uint32_t *)off_105CD8 & 0xFFFE00FF | 0x100;
   *v19 |= 0x20000u;
   *v19 |= 0x40000u;
-  feature_guard_sdio(1, v20);
+  state_check_feature(1, v20);
   v34 = (void *)(uintptr_t)(off_105CE4);
   v24 = (void *)(uintptr_t)(off_105CEC);
   v25 = *(uint32_t *)off_105CE8;
@@ -12754,9 +12580,9 @@ LABEL_3:
   v40 -= 465770;
   *(uint32_t *)&v39[-28] |= 0x400000u;
   *v40 &= ~0x100u;
-  crypto_hw_clk_toggle();
-  feature_guard_sdio(1, dword_106030);
-  crypto_key_load(dword_106034 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_106034);
+  rf_lo_cal_clear();
+  state_check_feature(1, dword_106030);
+  radio_irq_setup(dword_106034 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_106034);
   *v40 &= ~0x200u;
   *v40 |= 0x200u;
   *v40 &= ~0x200u;
@@ -12799,26 +12625,26 @@ LABEL_3:
   v48 = (unsigned int *)off_106038;
   v49 = (unsigned int *)off_106040;
   v50 = (unsigned int *)off_106020;
-  feature_guard_sdio(1, dword_10603C);
-  crypto_table_init_3e84(a2, v47, a6);
+  state_check_feature(1, dword_10603C);
+  mac_tx_wait_ack(a2, v47, a6);
   v51 = (unsigned int *)off_106048;
-  feature_guard_sdio(1, dword_106044);
+  state_check_feature(1, dword_106044);
   *v48 = v45 | v46 | (a4 << 8) | 0x3F4080;
-  crypto_hw_reset_seq();
+  mac_irq_handler();
   v52 = (unsigned int *)off_106050;
   v53 = (unsigned int *)off_106024;
   v54 = (unsigned int *)off_10602C;
-  feature_guard_sdio(1, dword_10604C);
+  state_check_feature(1, dword_10604C);
   v55 = (void *)(uintptr_t)(off_106054);
   *v49 &= ~0x200u;
   *v49 |= 0x200u;
   *v49 &= ~0x200u;
   *v55 |= 0x10000000u;
-  delay_us(6500);
-  crypto_calibrate();
+  timer_set(6500);
+  rf_power_on_reset();
   *v51 = *v51 & 0xFFBFFFFF | (v113 << 22);
   *v51 = *v51 & 0xFFDFFFFF | (v112 << 21);
-  mmio_config_clear_bits_n_0f0();
+  mac_irq_pending_clear();
   v56 = (unsigned int *)off_106058;
   v57 = (unsigned int *)off_106060;
   v58 = (unsigned int *)off_10605C;
@@ -12924,7 +12750,7 @@ LABEL_6:
   {
 LABEL_14:
     v10 |= 0xC08000u;
-    feature_guard_sdio(1, dword_106310);
+    state_check_feature(1, dword_106310);
     goto LABEL_9;
   }
   v11 = a3 << 24;
@@ -12933,7 +12759,7 @@ LABEL_8:
 LABEL_9:
   v12 = dword_10630C;
   *(uint32_t *)off_106308 = v10;
-  return feature_guard_sdio(1, v12);
+  return state_check_feature(1, v12);
 }
 
 
@@ -13079,23 +12905,23 @@ int log_message(int a1, int a2, int a3) {
   v7 = a1 + 4 * a3;
   v8 = ((int (*)())double_to_float)(v6);
   v9 = *(uint32_t *)(v7 + 140);
-  v10 = COERCE_FLOAT(rf_state_check_n3ea_d908(v8));
+  v10 = COERCE_FLOAT(system_init_sequence(v8));
   v11 = *(uint64_t *)(a1 + 164);
   v12 = (int)(float)(v10 * 20.0);
   if ( SHIDWORD(v11) < v12 )
   {
-    feature_guard_sdio(1, dword_106440);
+    state_check_feature(1, dword_106440);
     if ( *(uint32_t *)(a1 + 172) <= v12 )
       goto LABEL_3;
 LABEL_5:
-    feature_guard_sdio(1, dword_106444);
+    state_check_feature(1, dword_106444);
     goto LABEL_3;
   }
   if ( *(uint32_t *)(a1 + 172) > v12 )
     goto LABEL_5;
 LABEL_3:
   *(uint32_t *)(v7 + 140) = v9 + v11 - v12;
-  return log_free_pool_dispatch2_n4e6(a1, a3);
+  return rf_load_calib_data(a1, a3);
 }
 
 
@@ -13395,8 +13221,8 @@ int rf_calibrate(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, i
   *v33 |= 0x800000u;
   *v33 |= 0x400000u;
   *v32 &= ~0x100u;
-  crypto_hw_clk_toggle();
-  crypto_hw_reset_seq();
+  rf_lo_cal_clear();
+  mac_irq_handler();
   v34 = (void *)(uintptr_t)(off_106908);
   *(uint32_t *)off_106904 |= 0x10000000u;
   *v34 |= 0x18000000u;
@@ -13451,11 +13277,11 @@ int rf_calibrate(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, i
       v64 = (*(uint32_t *)off_106EE8 >> 8) & 0xF;
       v65 = (v160 << 8) + dword_106EF8;
       v163 = v65;
-      feature_guard_sdio(1, dword_106EFC);
+      state_check_feature(1, dword_106EFC);
       *(uint32_t *)(a2 + 140) = *(uint32_t *)(a2 + 152);
-      log_free_pool_dispatch2_n4e6(a2, 0);
+      rf_load_calib_data(a2, 0);
       v66 = 0;
-      feature_guard_sdio(1, dword_106F00);
+      state_check_feature(1, dword_106F00);
       v152 = v62;
       v67 = v64;
       v68 = v65 + 16 * v64;
@@ -13469,7 +13295,7 @@ int rf_calibrate(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, i
       v73 = 2 * v67;
       do
       {
-        crypto_hw_enable(1);
+        set_radio_ctrl_bits(1);
         if ( a7 == v152 )
         {
           *v69 = *v69 & v153 | ((v159 & v66) << v86);
@@ -13481,11 +13307,11 @@ int rf_calibrate(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, i
           *v69 |= (v151 & v66) << v86;
           *v70 |= (v66 >> v149) & v155;
         }
-        crypto_hw_disable(1);
-        crypto_adc_capture(*a3, a2, v72, 0);
-        feature_guard_sdio(1, dword_106F04);
-        feature_guard_sdio(1, dword_106F0C);
-        feature_guard_sdio(1, dword_106F14);
+        set_radio_ctrl_bits2(1);
+        mac_tx_disable(*a3, a2, v72, 0);
+        state_check_feature(1, dword_106F04);
+        state_check_feature(1, dword_106F0C);
+        state_check_feature(1, dword_106F14);
         if ( *(int16_t *)(a2 + v73) > v71 )
         {
           v71 = *(int16_t *)(a2 + v73);
@@ -13505,8 +13331,8 @@ int rf_calibrate(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, i
           v77 = 3;
         v158 = v77;
       }
-      feature_guard_sdio(1, dword_106F1C);
-      crypto_hw_enable(1);
+      state_check_feature(1, dword_106F1C);
+      set_radio_ctrl_bits(1);
       v78 = v86;
       v87 = (v158 >> v149) & v155;
       v79 = (v151 & v158) << v78;
@@ -13542,9 +13368,9 @@ int rf_calibrate(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, i
       }
       while ( v82 != v81 );
 LABEL_58:
-      crypto_hw_disable(1);
-      feature_guard_sdio(1, dword_107000);
-      feature_guard_sdio(1, dword_107008);
+      set_radio_ctrl_bits2(1);
+      state_check_feature(1, dword_107000);
+      state_check_feature(1, dword_107008);
     }
     goto LABEL_28;
   }
@@ -13556,9 +13382,9 @@ LABEL_58:
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
     v75 = *v74;
-    log_free_pool_dispatch2_n4e6(a2, 0);
-    feature_guard_sdio(1, dword_106F18);
-    crypto_adc_capture(*a3, a2, (v75 >> 8) & 0xF, 0);
+    rf_load_calib_data(a2, 0);
+    state_check_feature(1, dword_106F18);
+    mac_tx_disable(*a3, a2, (v75 >> 8) & 0xF, 0);
     goto LABEL_28;
   }
   *(uint64_t *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
@@ -13590,10 +13416,10 @@ LABEL_19:
     *v32 &= ~0x200u;
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
-    log_free_pool_dispatch2_n4e6(a2, v20);
+    rf_load_calib_data(a2, v20);
     v39 = v35[1];
     ++v35;
-    crypto_adc_capture(v39, a2, v37, v20);
+    mac_tx_disable(v39, a2, v37, v20);
     v40 = v20;
     v41 = *(uint16_t *)(a2 + 2 * (v37 + 16 * v20++));
     log_message(a2, v41, v40);
@@ -13615,9 +13441,9 @@ LABEL_19:
         *v43 &= ~0x200u;
         if ( v45 < v42 )
           break;
-        log_free_pool_dispatch2_n4e6(a2, 2);
-        feature_guard_sdio(1, v44);
-        crypto_adc_capture(a3[2], a2, v42, 2);
+        rf_load_calib_data(a2, 2);
+        state_check_feature(1, v44);
+        mac_tx_disable(a3[2], a2, v42, 2);
         if ( *(uint32_t *)(a2 + 124) <= v42 )
           break;
 LABEL_26:
@@ -13628,15 +13454,15 @@ LABEL_26:
       }
       if ( *(uint32_t *)(a2 + 120) >= v42 )
       {
-        log_free_pool_dispatch2_n4e6(a2, 1);
-        feature_guard_sdio(1, v44);
-        crypto_adc_capture(a3[1], a2, v42, 1);
+        rf_load_calib_data(a2, 1);
+        state_check_feature(1, v44);
+        mac_tx_disable(a3[1], a2, v42, 1);
         goto LABEL_26;
       }
 LABEL_23:
-      log_free_pool_dispatch2_n4e6(a2, 0);
-      feature_guard_sdio(1, v44);
-      crypto_adc_capture(*a3, a2, v42++, 0);
+      rf_load_calib_data(a2, 0);
+      state_check_feature(1, v44);
+      mac_tx_disable(*a3, a2, v42++, 0);
     }
     while ( *(uint32_t *)(a2 + 112) >= v42 );
   }
@@ -13648,7 +13474,7 @@ LABEL_28:
   v50 = (void *)(uintptr_t)(off_106C54);
   *(uint32_t *)off_106C30 = *(uint32_t *)off_106C30 & 0xFFBFFFFF | (v148 << 22);
   *v46 = *v46 & 0xFFDFFFFF | (v147 << 21);
-  mmio_config_clear_bits_n_0f0();
+  mac_irq_pending_clear();
   v51 = (void *)(uintptr_t)(off_106C38);
   v52 = (unsigned int *)off_106C3C;
   v53 = (unsigned int *)off_106C60;
@@ -13871,15 +13697,15 @@ int rf_set_tx_power(int a1, int a2) {
   *v3 = (a2 << 25) & 0x2000000 | *v3 & 0xFDFFFFFF;
   rf_set_frequency();
   *v2 &= ~1u;
-  delay_us(140);
+  timer_set(140);
   v5 = (void *)(uintptr_t)(off_1074C4);
   *v3 |= 0x4000000u;
   v6 = *v5 & 0x7FFF;
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
-  delay_us(5);
-  feature_guard_sdio(1, dword_1074C8);
-  result = feature_guard_sdio(1, dword_1074CC);
+  timer_set(5);
+  state_check_feature(1, dword_1074C8);
+  result = state_check_feature(1, dword_1074CC);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;
@@ -14104,7 +13930,7 @@ int rf_configure_whitening(int a1, uint32_t *a2, int a3) {
   v8 = *(uint64_t *)(a1 + 8);
   rf_set_frequency();
   *v3 &= ~1u;
-  delay_us(20);
+  timer_set(20);
   v9 = dword_107818;
   *v3 |= 4u;
   *v3 |= 8u;
@@ -14112,14 +13938,14 @@ int rf_configure_whitening(int a1, uint32_t *a2, int a3) {
   *v4 |= 0x200000u;
   *v5 = v9 & (HIDWORD(v8) << 16) | *v5 & v6;
   *v5 = *v5 & v7 | v8 & 0xFFF;
-  delay_us(40);
+  timer_set(40);
   v10 = (int *)off_10781C;
   *v4 |= 0x4000000u;
   v11 = *v10;
   *v4 &= ~0x4000000u;
   *v4 &= ~0x100000u;
   *v4 &= ~0x200000u;
-  result = rf_level_apply_n_1f8(v11 & 0x7FFF, a2, a3);
+  result = ke_event_schedule(v11 & 0x7FFF, a2, a3);
   *v3 &= ~4u;
   *v3 &= ~8u;
   *v5 &= v6;
@@ -14277,27 +14103,27 @@ int rf_mmio_init(int a1) {
   v4 = dword_107C58;
   v5 = (int *)off_107C4C;
   v6 = (void *)(uintptr_t)(off_107C4C);
-  crypto_state_dump(a1);
+  rf_load_tx_config(a1);
   v8 = dword_107C50;
   *v1 |= 0x1000000u;
   *v1 |= 0x2000000u;
-  feature_guard_sdio(1, v8);
+  state_check_feature(1, v8);
   rf_set_frequency();
   *v2 &= ~1u;
-  delay_us(20);
+  timer_set(20);
   *v2 |= 4u;
   *v2 |= 8u;
-  delay_us(20);
+  timer_set(20);
   v9 = (int *)off_107C54;
   *v1 |= 0x400000u;
   *v3 = *v3 & v4 | 0xC00;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x4000000u;
   v10 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   v20 = v10;
   *v3 = *v3 & v4 | 0x400;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x4000000u;
   v11 = *v5;
   v12 = dword_107C58;
@@ -14314,19 +14140,19 @@ int rf_mmio_init(int a1) {
     v16 = 512;
   else
     v16 = 2560;
-  delay_us(20);
+  timer_set(20);
   *v14 |= 0x4000000u;
   v22 = *v6 & 0x7FFF;
   *v14 &= ~0x4000000u;
   *v9 = *v9 & v12 | v16;
-  delay_us(20);
+  timer_set(20);
   v17 = dword_107C5C;
   *v14 |= 0x4000000u;
   v23 = *v6 & 0x7FFF;
   *v14 &= ~0x4000000u;
   *v14 &= ~0x400000u;
-  feature_guard_sdio(1, v17);
-  result = crypto_power_calc(&v20, a1);
+  state_check_feature(1, v17);
+  result = util_min_max(&v20, a1);
   v19 = (void *)(uintptr_t)(off_107C48);
   *(uint32_t *)off_107C48 &= ~4u;
   *v19 &= ~8u;
@@ -14349,11 +14175,11 @@ int rf_irq_clear_a() {
   v0 = (void *)(uintptr_t)(off_107CBC);
   rf_set_frequency();
   *v0 &= ~1u;
-  delay_us(1);
+  timer_set(1);
   v1 = (void *)(uintptr_t)(off_107CC0);
   *(uint32_t *)off_107CC0 &= 0xCFFFFFFF;
   *v1 |= 0x40000000u;
-  result = delay_us(1);
+  result = timer_set(1);
   v3 = (void *)(uintptr_t)(off_107CC4);
   *v0 |= 1u;
   while ( (*v3 & 1) == 0 )
@@ -14560,7 +14386,7 @@ int rx_descriptor_check(int a1, int *a2, uint32_t *a3) {
   v6 = *(uint32_t *)(a1 + 12);
   if ( *(uint32_t *)a1 < v4 && v6 <= 49 )
   {
-    feature_guard_sdio(1, dword_10803C);
+    state_check_feature(1, dword_10803C);
     rf_configure_whitening((int)a2, a3, a1);
     v6 = *(uint32_t *)(a1 + 12);
   }
@@ -14615,7 +14441,7 @@ LABEL_8:
   }
 LABEL_9:
   *((uint64_t *)a2 + 1) = v14;
-  return feature_guard_sdio(1, dword_108038);
+  return state_check_feature(1, dword_108038);
 }
 
 
@@ -14651,7 +14477,7 @@ int trace_event_count() {
   v0 = (unsigned int *)off_1080CC;
   v1 = *(uint32_t *)off_1080CC;
   v2 = (uint16_t)*(uint32_t *)off_1080C8 >> 4;
-  result = feature_guard_sdio(1, dword_1080D0);
+  result = state_check_feature(1, dword_1080D0);
   v4 = (void *)(uintptr_t)(off_1080D4);
   *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;
   *v4 |= 0x400000u;
@@ -15297,17 +15123,17 @@ uint32_t * bt_rf_calibrate(int a1, unsigned int *a2, int a3, unsigned int a4, un
     *(uint32_t *)off_108A6C &= ~1u;
     v167 = 30;
     v168 = v59;
-    ke_event_schedule_1(v62, v59, v61);
+    ke_event_schedule(v62, (void *)(uintptr_t)(v59), (int)(uintptr_t)(v61));
     v63 = HIWORD(v15) & 0xFFF;
     v64 = v15 & 0xFFF;
-    ke_event_schedule_1(dword_108A74, v60, v65);
-    ke_event_schedule_1(dword_108A78, v63, v64);
+    ke_event_schedule(dword_108A74, (void *)(uintptr_t)(v60), v65);
+    ke_event_schedule(dword_108A78, (void *)(uintptr_t)(v63), v64);
     *(uint32_t *)off_108A7C = a6;
-    ke_event_schedule_1(dword_108A80, a6, a6);
+    ke_event_schedule(dword_108A80, (void *)(uintptr_t)(a6), a6);
     v66 = (void *)(uintptr_t)(off_108A58);
     v67 = dword_108A84;
     *(uint32_t *)off_108A58 = *(uint32_t *)off_108A58 & v58 | a7 & 0xFFF;
-    ke_event_schedule_1(v67, a7, v66);
+    ke_event_schedule(v67, (void *)(uintptr_t)(a7), (int)(uintptr_t)(v66));
     ke_sleep_set_mode(v60);
     v68 = (unsigned int *)off_108A60;
     v69 = (int *)off_108A88;
@@ -16208,7 +16034,7 @@ int f32_compare(unsigned int a1, float *a2, float *a3, int a4) {
 LABEL_10:
     v20 = dword_109BFC;
     *(uint8_t *)a4 |= 4u;
-    sub_10DA7C(v20, v18, v19);
+    printf_wrapper(v20, v18, v19);
     v11 = *a2;
     v12 = a2[1];
     v13 = a2[2];
@@ -16230,7 +16056,7 @@ LABEL_11:
   {
     v26 = dword_109C00;
     *(uint8_t *)a4 |= 8u;
-    result = sub_10DA7C(v26, v18, v19);
+    result = printf_wrapper(v26, v18, v19);
     v24 = 1.0;
     v28 = 2.0;
   }
@@ -16358,7 +16184,7 @@ int invoke_handler_165fcc(int a1, int a2, int a3, int a4) {
   v56 = a3;
   v59[1] = v20;
   v59[2] = v17;
-  float_compare_9988(0, v58, v59, a4);
+  f32_compare(0, v58, v59, a4);
   if ( v19 > 0 )
   {
     v21 = v60;
@@ -16390,7 +16216,7 @@ int invoke_handler_165fcc(int a1, int a2, int a3, int a4) {
 LABEL_6:
   if ( !v56 )
   {
-    feature_guard_sdio(1, dword_109E34);
+    state_check_feature(1, dword_109E34);
     v34 = v57;
     if ( v57 > 0 )
       goto LABEL_8;
@@ -16400,7 +16226,7 @@ LABEL_20:
     v49 = 4 * v56;
     goto LABEL_18;
   }
-  feature_guard_sdio(1, dword_109E44);
+  state_check_feature(1, dword_109E44);
   v34 = v57;
   if ( v57 <= 0 )
     goto LABEL_20;
@@ -16457,7 +16283,7 @@ LABEL_18:
   v54 = dword_109E3C;
   *(float *)(v53 + 512) = v18 / v45;
   *(float *)(v53 + 520) = v46 / v45;
-  return feature_guard_sdio(1, v54);
+  return state_check_feature(1, v54);
 }
 
 
@@ -16491,7 +16317,7 @@ int * mmio_set_bits( int a1, int *a2, int a3, uint8_t a4, int a5, uint8_t a6, in
   *(uint32_t *)off_109F74 |= 0x400u;
   v15 = dword_109F78;
   *v11 &= ~0x400u;
-  feature_guard_sdio(1, v15);
+  state_check_feature(1, v15);
   if ( a5 )
   {
     bt_ccm_encrypt((int)a2, 1, (void *)(uintptr_t)(dword_100000), (void *)(uintptr_t)(dword_100000), 0, 1);
@@ -16539,8 +16365,8 @@ int * mmio_set_bits( int a1, int *a2, int a3, uint8_t a4, int a5, uint8_t a6, in
       while ( v17 != (int *)v20 );
       bt_encrypt_wrap(a2, v25, a9, a10, a11);
     }
-    scan_chan_meas_12051e0(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
-    result = (void *)(uintptr_t)(mac_init_set_bits(a3));
+    llm_pdu_handle(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
+    result = mac_tx_enable(a3);
     v28 = (void *)(uintptr_t)(off_109F88);
     v29 = dword_109F8C;
     *(uint32_t *)off_109F88 &= ~0x200u;
@@ -16615,20 +16441,20 @@ int dsp_filter_process( uint32_t *a1, int a2, int a3, int a4, int a5, int a6, in
     v20 = (uint8_t)v17;
     if ( !v19 )
     {
-      feature_guard_sdio(1, dword_10A5A4);
-      feature_guard_sdio(1, dword_10A5A8);
+      state_check_feature(1, dword_10A5A4);
+      state_check_feature(1, dword_10A5A8);
       goto LABEL_28;
     }
     if ( !a4 && v17 == 1 )
     {
-      feature_guard_sdio(1, dword_10A5AC);
+      state_check_feature(1, dword_10A5AC);
       goto LABEL_29;
     }
-    feature_guard_sdio(1, dword_10A2C8);
+    state_check_feature(1, dword_10A2C8);
     v21 = *v45;
     v49 = 0;
-    rf_xo_pll_config(v21, (int)v47, a4);
-    feature_guard_sdio(1, dword_10A2CC);
+    llc_connection_init(v21, (int)v47, a4);
+    state_check_feature(1, dword_10A2CC);
     v39 = *v43;
     if ( v49 <= 0 )
       goto LABEL_27;
@@ -16639,8 +16465,8 @@ int dsp_filter_process( uint32_t *a1, int a2, int a3, int a4, int a5, int a6, in
     {
       v23 = *((uint32_t *)v22 + 16);
       while ( !*a1 )
-        delay_us(1);
-      feature_guard_sdio(1, dword_10A2D0);
+        timer_set(1);
+      state_check_feature(1, dword_10A2D0);
       rf_init((int)v47, (int)v51, v20, v23, a4, 0);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
@@ -16648,10 +16474,10 @@ int dsp_filter_process( uint32_t *a1, int a2, int a3, int a4, int a5, int a6, in
       v24 = dword_10A2D4;
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
-      feature_guard_sdio(1, v24);
+      state_check_feature(1, v24);
       while ( !a1[1] )
-        delay_us(1);
-      feature_guard_sdio(1, dword_10A2D8);
+        timer_set(1);
+      state_check_feature(1, dword_10A2D8);
       rf_init((int)v47, (int)v51, v20, v23, a4, 1);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
@@ -16659,10 +16485,10 @@ int dsp_filter_process( uint32_t *a1, int a2, int a3, int a4, int a5, int a6, in
       v25 = dword_10A2D4;
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
-      feature_guard_sdio(1, v25);
-      feature_guard_sdio(1, dword_10A2E0);
-      feature_guard_sdio(1, dword_10A2E4);
-      feature_guard_sdio(1, dword_10A2E8);
+      state_check_feature(1, v25);
+      state_check_feature(1, dword_10A2E0);
+      state_check_feature(1, dword_10A2E4);
+      state_check_feature(1, dword_10A2E8);
       v26 = *(float *)&v47[128] / *(float *)&v47[129];
       v27 = *(float *)&v47[130] / *(float *)&v47[131];
       if ( v23 == 11 )
@@ -16690,11 +16516,11 @@ int dsp_filter_process( uint32_t *a1, int a2, int a3, int a4, int a5, int a6, in
         v28 = flt_10A2EC;
         v29 = flt_10A2EC;
       }
-      feature_guard_sdio(1, dword_10A2F4);
-      feature_guard_sdio(1, dword_10A2F8);
-      feature_guard_sdio(1, dword_10A2FC);
-      feature_guard_sdio(1, dword_10A300);
-      feature_guard_sdio(1, dword_10A304);
+      state_check_feature(1, dword_10A2F4);
+      state_check_feature(1, dword_10A2F8);
+      state_check_feature(1, dword_10A2FC);
+      state_check_feature(1, dword_10A300);
+      state_check_feature(1, dword_10A304);
       if ( v29 >= v26 )
       {
         v30 = v50;
@@ -16703,15 +16529,15 @@ int dsp_filter_process( uint32_t *a1, int a2, int a3, int a4, int a5, int a6, in
         v34 = dword_10A578;
         *(uint32_t *)v22 = 0;
         *((uint32_t *)v22 + 8) = 0;
-        feature_guard_sdio(1, v34);
-        feature_guard_sdio(1, dword_10A57C);
-        feature_guard_sdio(1, dword_10A580);
-        feature_guard_sdio(1, dword_10A584);
-        feature_guard_sdio(1, dword_10A588);
+        state_check_feature(1, v34);
+        state_check_feature(1, dword_10A57C);
+        state_check_feature(1, dword_10A580);
+        state_check_feature(1, dword_10A584);
+        state_check_feature(1, dword_10A588);
         if ( v23 <= 10 && v42 == 1 )
         {
           v41 = 0;
-          ke_event_schedule_1(dword_10A58C, v23, v35);
+          ke_event_schedule(dword_10A58C, (void *)(uintptr_t)(v23), v35);
           *(uint32_t *)v22 = 1;
           *((uint32_t *)v22 + 8) = 1;
         }
@@ -16724,17 +16550,17 @@ int dsp_filter_process( uint32_t *a1, int a2, int a3, int a4, int a5, int a6, in
 LABEL_19:
           *(uint32_t *)v22 = 1;
           *((uint32_t *)v22 + 8) = 1;
-if ( v23 <= 8 && v28 > v27 && (v31 = ((int (*)())__aeabi_f2d)(LODWORD(v30)), __aeabi_dcmpgt(v31, HIDWORD(v31), dword_10A2B8, dword_10A2BC)) && v42 == 1 ) { feature_guard_sdio(1, dword_10A578);
-            feature_guard_sdio(1, dword_10A57C);
-            feature_guard_sdio(1, dword_10A580);
-            feature_guard_sdio(1, dword_10A584);
-            feature_guard_sdio(1, dword_10A5B4);
-            feature_guard_sdio(1, dword_10A5B8);
+if ( v23 <= 8 && v28 > v27 && (v31 = ((int (*)())__aeabi_f2d)(LODWORD(v30)), __aeabi_dcmpgt(v31, HIDWORD(v31), dword_10A2B8, dword_10A2BC)) && v42 == 1 ) { state_check_feature(1, dword_10A578);
+            state_check_feature(1, dword_10A57C);
+            state_check_feature(1, dword_10A580);
+            state_check_feature(1, dword_10A584);
+            state_check_feature(1, dword_10A5B4);
+            state_check_feature(1, dword_10A5B8);
             v41 = 0;
           }
           else
           {
-            feature_guard_sdio(1, dword_10A308);
+            state_check_feature(1, dword_10A308);
             v41 = 1;
           }
           goto LABEL_24;
@@ -16745,19 +16571,19 @@ if ( v23 <= 8 && v28 > v27 && (v31 = ((int (*)())__aeabi_f2d)(LODWORD(v30)), __a
         v36 = dword_10A590;
         *(uint32_t *)v22 = 1;
         *((uint32_t *)v22 + 8) = 0;
-        feature_guard_sdio(1, v36);
+        state_check_feature(1, v36);
         if ( v23 <= 8 && v42 == 1 )
         {
           if ( v50 > 2.0 )
           {
-            feature_guard_sdio(1, dword_10A578);
-            feature_guard_sdio(1, dword_10A57C);
-            feature_guard_sdio(1, dword_10A580);
-            feature_guard_sdio(1, dword_10A584);
-            feature_guard_sdio(1, dword_10A5B4);
-            feature_guard_sdio(1, dword_10A5B8);
+            state_check_feature(1, dword_10A578);
+            state_check_feature(1, dword_10A57C);
+            state_check_feature(1, dword_10A580);
+            state_check_feature(1, dword_10A584);
+            state_check_feature(1, dword_10A5B4);
+            state_check_feature(1, dword_10A5B8);
             v41 = 0;
-            feature_guard_sdio(1, dword_10A58C);
+            state_check_feature(1, dword_10A58C);
           }
           else
           {
@@ -16792,8 +16618,8 @@ LABEL_29:
     break;
   }
   while ( !a1[2] )
-    delay_us(1);
-  result = feature_guard_sdio(1, dword_10A59C);
+    timer_set(1);
+  result = state_check_feature(1, dword_10A59C);
   v38 = (void *)(uintptr_t)(off_10A5A0);
   *(uint32_t *)off_10A5A0 &= ~0x200u;
   *v38 |= 0x200u;
@@ -16932,7 +16758,7 @@ LABEL_21:
     {
 LABEL_42:
       v21 = 32 * (9 - a2);
-      sub_10DA7C(dword_10A7FC, a2, v15);
+      printf_wrapper(dword_10A7FC, a2, v15);
       return v21;
     }
     goto LABEL_21;
@@ -16965,7 +16791,7 @@ LABEL_42:
         goto LABEL_26;
     }
     v21 = 32 * (9 - a2);
-    sub_10DA7C(dword_10A7F8, a2, v20);
+    printf_wrapper(dword_10A7F8, a2, v20);
     return v21;
   }
   f32_compare(a2, v30, v31, (int)v32);
@@ -16974,7 +16800,7 @@ LABEL_42:
   if ( (v32[0] & 0xE) != 0 )
   {
     v21 = 128;
-    sub_10DA7C(dword_10A7F8, a2, v32[0]);
+    printf_wrapper(dword_10A7F8, a2, v32[0]);
     return v21;
   }
 LABEL_26:
@@ -16982,7 +16808,7 @@ LABEL_26:
   if ( v27 )
   {
 LABEL_22:
-    sub_10DA7C(dword_10A7F8, a2, v20);
+    printf_wrapper(dword_10A7F8, a2, v20);
     return v21;
   }
   return v21;
@@ -17177,8 +17003,8 @@ LABEL_28:
   while ( v8 > (uint8_t)v43 );
   if ( a4 > a5 )
   {
-    memmove_1((a1 >> 5) & 1, v57);
-    memmove_1((a1 >> 5) & 1, v58);
+    ((int (*)())memmove)((a1 >> 5) & 1, (int)(uintptr_t)(v57));
+    ((int (*)())memmove)((a1 >> 5) & 1, (int)(uintptr_t)(v58));
   }
   else
   {
@@ -17200,8 +17026,8 @@ LABEL_28:
       v28 = v32;
     }
     while ( a5 >= (unsigned int)v32 );
-    memmove_1((a1 >> 5) & 1, v57);
-    memmove_1((a1 >> 5) & 1, v58);
+    ((int (*)())memmove)((a1 >> 5) & 1, (int)(uintptr_t)(v57));
+    ((int (*)())memmove)((a1 >> 5) & 1, (int)(uintptr_t)(v58));
     for ( i = a4; ; i = (uint8_t)(i + 1) )
     {
       if ( i > 9 )
@@ -17343,7 +17169,7 @@ int sdio_core_setup(unsigned int *a1, uint8_t *a2, int a3) {
   v4 = dword_10B1B4;
   v5 = dword_10B1D8;
   v6 = a3;
-  ke_event_schedule_1(dword_10B190, a2, a3);
+  ke_event_schedule(dword_10B190, (void *)(a2), a3);
   v7 = *(uint32_t *)off_10B194;
   v8 = *(uint32_t *)off_10B194 & 0xFFFFFFFE;
   v82 = 0;
@@ -17351,7 +17177,7 @@ int sdio_core_setup(unsigned int *a1, uint8_t *a2, int a3) {
   v84 = 0;
   *(uint32_t *)off_10B194 = v8;
   v78 = v7 & 1;
-  crypto_hw_enable(0);
+  set_radio_ctrl_bits(0);
   v9 = dword_10B1B0;
   v10 = dword_10B1B8;
   v11 = 0;
@@ -17401,13 +17227,13 @@ LABEL_5:
   }
   while ( v11 != 3 );
   v18 = (void *)(uintptr_t)(off_10B198);
-  crypto_hw_disable(0);
-  feature_guard_sdio(1, dword_10B19C);
+  set_radio_ctrl_bits2(0);
+  state_check_feature(1, dword_10B19C);
   v19 = dword_10B1A0;
   *v18 |= 0x400u;
   *v18 &= ~0x400u;
-  ke_event_schedule_1(v19, v20, v21);
-  feature_guard_sdio(1, dword_10B1A4);
+  ke_event_schedule(v19, (void *)(uintptr_t)(v20), v21);
+  state_check_feature(1, dword_10B1A4);
   v24 = v18;
   v73 = v6 + 56;
   do
@@ -17418,7 +17244,7 @@ LABEL_5:
     *v24 &= ~0x400u;
     if ( v25 == 1 )
     {
-      feature_guard_sdio(1, dword_10B1C8);
+      state_check_feature(1, dword_10B1C8);
       if ( v26 > 0x1388 )
       {
         v84 = (v84 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
@@ -17443,15 +17269,15 @@ LABEL_5:
         v75 = a1;
         v25 = 0;
       }
-      crypto_mac_core((int)(v75 + 292), v75, 255, 0, 0, dword_10B1D0, 0);
-      delay_us(10000);
+      bt_rf_calibrate((int)(v75 + 292), v75, 255, 0, 0, dword_10B1D0, 0);
+      timer_set(10000);
       v81 = v6;
       *v76 = 1;
       v74 = v25;
       for ( i = 0; i != 3; ++i )
       {
         if ( !v75[i] )
-          feature_guard_sdio(1, dword_10B284);
+          state_check_feature(1, dword_10B284);
         if ( v74 == 1 )
         {
           if ( i )
@@ -17490,8 +17316,8 @@ LABEL_5:
         }
         v58 = dword_10B1D4;
         *v76 &= (v75[v54] & 0x20000) != 0;
-        feature_guard_sdio(1, v58);
-        crypto_key_schedule_5840(v75[v54], v85);
+        state_check_feature(1, v58);
+        ke_task_create(v75[v54], v85);
         if ( v57 < v56 )
         {
           v59 = v86;
@@ -17562,8 +17388,8 @@ LABEL_45:
   v28 = dword_10B1B0;
   v29 = dword_10B1B4;
   v30 = dword_10B1D8;
-  ke_event_schedule_1(dword_10B1A8, v22, v23);
-  crypto_hw_enable(0);
+  ke_event_schedule(dword_10B1A8, (void *)(v22), v23);
+  set_radio_ctrl_bits(0);
   v31 = dword_10B1B8;
   v32 = (int *)v88;
   v33 = 0;
@@ -17611,11 +17437,11 @@ LABEL_15:
       continue;
     break;
   }
-  crypto_hw_disable(0);
+  set_radio_ctrl_bits2(0);
   v39 = dword_10B1C0;
   *(uint32_t *)off_10B194 = *(uint32_t *)off_10B194 & 0xFFFFFFFE | v78;
-  feature_guard_sdio(1, v39);
-  return ke_event_schedule_1(dword_10B1C4, v40, v41);
+  state_check_feature(1, v39);
+  return ke_event_schedule(dword_10B1C4, (void *)(uintptr_t)(v40), v41);
 }
 
 
@@ -17829,7 +17655,7 @@ int phy_calibrate( uint32_t *a1, int a2, int a3, int a4, uint16_t *a5, int a6, i
   int v219; // [sp+580h] [bp-14h]
   int v220; // [sp+584h] [bp-10h]
 
-  ke_event_schedule_1(dword_10B454, a2, a3);
+  ke_event_schedule(dword_10B454, (void *)(uintptr_t)(a2), a3);
   v12 = dword_10B478;
   v13 = *(uint32_t *)off_10B458;
   v14 = dword_10B490;
@@ -17837,7 +17663,7 @@ int phy_calibrate( uint32_t *a1, int a2, int a3, int a4, uint16_t *a5, int a6, i
   *(uint32_t *)off_10B458 &= ~1u;
   v193 = v13 & 1;
   v16 = (int *)v201;
-  crypto_hw_enable(0);
+  set_radio_ctrl_bits(0);
   v17 = dword_10B474;
   v18 = dword_10B480;
   for ( i = 0; i != 3; ++i )
@@ -17883,13 +17709,13 @@ LABEL_5:
     v16 += 16;
   }
   v25 = (void *)(uintptr_t)(off_10B45C);
-  crypto_hw_disable(0);
-  feature_guard_sdio(1, dword_10B464);
+  set_radio_ctrl_bits2(0);
+  state_check_feature(1, dword_10B464);
   v26 = dword_10B468;
   *v25 |= 0x400u;
   *v25 &= ~0x400u;
-  ke_event_schedule_1(v26, v27, v28);
-  feature_guard_sdio(1, dword_10B46C);
+  ke_event_schedule(v26, (void *)(uintptr_t)(v27), v28);
+  state_check_feature(1, dword_10B46C);
   v183 = a5;
   v195 = v25;
   while ( 2 )
@@ -17898,7 +17724,7 @@ LABEL_5:
     if ( v30 != 1 )
       goto LABEL_10;
     v60 = *v183;
-    feature_guard_sdio(1, dword_10B768);
+    state_check_feature(1, dword_10B768);
     if ( v60 <= 0x1388 )
     {
       v61 = dword_10B79C;
@@ -17919,7 +17745,7 @@ LABEL_5:
     if ( (*((uint8_t *)off_10C14C + 1) & 1) == 0 || (v163 = *(char *)off_10C14C, v163 >= 0) )
     {
       v164 = dword_10C164;
-      ke_event_schedule_1(dword_10C154, dword_10C150, v163);
+      ke_event_schedule(dword_10C154, (void *)(uintptr_t)(dword_10C150), v163);
       v165 = 0;
       v63 = v170;
       while ( 1 )
@@ -17978,7 +17804,7 @@ LABEL_29:
     v71 = v62;
     v72 = v62 - 4;
     dsp_filter_process(a1, v71, v70, v170, (int)v199, a6, a7, v167, a9, a10, a11);
-    delay_us(0);
+    timer_set(0);
     v75 = *(uint32_t *)(v72 + 4);
     v74 = (unsigned int *)(v72 + 4);
     v73 = v75;
@@ -18010,7 +17836,7 @@ LABEL_29:
       {
         if ( v76 == 1 )
         {
-          feature_guard_sdio(1, dword_10C158);
+          state_check_feature(1, dword_10C158);
           *(uint32_t *)off_10C15C |= 0x8000u;
           goto LABEL_35;
         }
@@ -18020,10 +17846,10 @@ LABEL_29:
       v79 = dword_10B76C;
       v80 = HIWORD(v73) & 1;
       *(uint8_t *)(a3 + v168 + v76) = v80;
-      feature_guard_sdio(1, v79);
-      rf_xo_pll_config(*v74, (int)&v217, v30);
-      feature_guard_sdio(1, dword_10B770);
-      feature_guard_sdio(1, dword_10B774);
+      state_check_feature(1, v79);
+      llc_connection_init(*v74, (int)&v217, v30);
+      state_check_feature(1, dword_10B770);
+      state_check_feature(1, dword_10B774);
       if ( v80 && v78 < v77 )
       {
         v152 = v61 + 4 * (v78 + 0x3FFFFFFF);
@@ -18056,7 +17882,7 @@ LABEL_155:
               {
                 *v154 = v153 | 0xC08000;
                 v177 = v158;
-                feature_guard_sdio(1, v156);
+                state_check_feature(1, v156);
                 v156 = dword_10C160;
                 v158 = v177;
               }
@@ -18096,14 +17922,14 @@ LABEL_35:
         if ( v83 )
           break;
 LABEL_36:
-        feature_guard_sdio(1, dword_10B778);
+        state_check_feature(1, dword_10B778);
         if ( v76 == 2 )
           goto LABEL_37;
       }
     }
 LABEL_37:
     v188 = dword_10B77C;
-    ke_event_schedule_1(dword_10B780, v81, v82);
+    ke_event_schedule(dword_10B780, (void *)(uintptr_t)(v81), v82);
     v84 = flt_10B78C;
     v182 = (int *)(dword_10B784 + 4 * v63);
     v85 = 0;
@@ -18113,8 +17939,8 @@ LABEL_37:
     v187 = (unsigned int *)(v61 + 64);
     while ( 2 )
     {
-      feature_guard_sdio(1, dword_10B790);
-      memset_thunk(v200, 0, 0x40u);
+      state_check_feature(1, dword_10B790);
+      memset_byte(v200, 0, 0x40u);
       v216 = 1.0;
       v210 = v84;
       v209 = 8;
@@ -18257,20 +18083,20 @@ LABEL_37:
         {
           if ( *v184 )
           {
-            feature_guard_sdio(1, dword_10BA0C);
+            state_check_feature(1, dword_10BA0C);
           }
           else
           {
             v105 = dword_10BA04;
             *v182 = (uint8_t)v102;
             *v184 = 1;
-            feature_guard_sdio(1, v105);
+            state_check_feature(1, v105);
           }
           v106 = *v182;
           v107 = __aeabi_i2d(*v182);
           v108 = __aeabi_ddiv(v107, HIDWORD(v107), 0, dword_10BA08);
           v109 = ((int (*)())double_to_float)(v108);
-          v97 = rf_state_check_n3ea_d908(v109) * 20.0;
+          v97 = system_init_sequence(v109) * 20.0;
           v178 = v169;
           v110 = load_const_table((float)-v97 / 20.0);
           v111 = ((int (*)())__aeabi_f2d)((float)v106 * v110);
@@ -18301,11 +18127,11 @@ LABEL_37:
       v61 = v190;
       v188 = v95;
       v11 = v96;
-      feature_guard_sdio(1, dword_10BA14);
+      state_check_feature(1, dword_10BA14);
       if ( v178 == 255 )
       {
-        ke_event_schedule_1(dword_10C140, v113, v114);
-        ke_event_schedule_1(dword_10C144, 255, v161);
+        ke_event_schedule(dword_10C140, (void *)(uintptr_t)(v113), v114);
+        ke_event_schedule(dword_10C144, (void *)(uintptr_t)(255), v161);
         v11 = 100;
         v145 = v175;
         if ( v175 != 255 )
@@ -18314,14 +18140,14 @@ LABEL_37:
       }
       if ( v175 != 255 && v176 != 255 )
         goto LABEL_80;
-      ke_event_schedule_1(dword_10BDD0, v113, v114);
+      ke_event_schedule(dword_10BDD0, (void *)(uintptr_t)(v113), v114);
       v145 = v175;
       if ( v175 == 255 )
 LABEL_167:
-        ke_event_schedule_1(dword_10C148, v145, v144);
+        ke_event_schedule(dword_10C148, (void *)(uintptr_t)(v145), v144);
 LABEL_130:
       if ( v176 == 255 )
-        ke_event_schedule_1(dword_10BDD4, 255, v144);
+        ke_event_schedule(dword_10BDD4, (void *)(uintptr_t)(255), v144);
 LABEL_80:
       if ( v178 > 15 )
         v178 -= 32;
@@ -18329,7 +18155,7 @@ LABEL_80:
         v175 -= 32;
       if ( v176 > 15 )
         v176 -= 32;
-      feature_guard_sdio(1, dword_10BA18);
+      state_check_feature(1, dword_10BA18);
       v115 = v209;
       if ( v209 <= SHIDWORD(v205) )
       {
@@ -18338,7 +18164,7 @@ LABEL_80:
         do
         {
           *v117++ = (float)(v208 - v115) * v216;
-          feature_guard_sdio(1, v116);
+          state_check_feature(1, v116);
           ++v115;
         }
         while ( SHIDWORD(v205) >= v115 );
@@ -18363,9 +18189,9 @@ LABEL_80:
         }
         while ( v151 >= (int)v118 );
         v122 = (float)(v175 - v178) - *(float *)&v200[v207];
-        feature_guard_sdio(1, dword_10C130);
+        state_check_feature(1, dword_10C130);
         temp_sensor_convert(v122, v11, (int)v202);
-        feature_guard_sdio(1, dword_10C134);
+        state_check_feature(1, dword_10C134);
         v118 = v207;
       }
       else
@@ -18379,14 +18205,14 @@ LABEL_80:
         do
         {
           v147 = *v146++;
-          feature_guard_sdio(1, dword_10C128);
+          state_check_feature(1, dword_10C128);
           util_compare_time(v147, v120, (int)v202);
           v148 = HIDWORD(v207);
           *(float *)v118 = v203;
           v118 = (v118 & ~0xFFFFFFFFull) | ((uint32_t)(v118 + 4) & 0xFFFFFFFFu);
           v123 = (float)(v176 - v175) - *(float *)&v200[v148];
           v118 = (v118 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v118 >> 32) & 0xFFFFFFFFu) + (uint32_t)(1))) << 32;;
-          feature_guard_sdio(1, dword_10C12C);
+          state_check_feature(1, dword_10C12C);
         }
         while ( (int)v207 > SHIDWORD(v118) );
         v118 = (v118 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(HIDWORD(v207)) << 32);
@@ -18405,7 +18231,7 @@ LABEL_80:
         {
           v126 = (int16_t)*(uint16_t *)HIDWORD(v118);
           v118 = (v118 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v118 >> 32) & 0xFFFFFFFFu) + (uint32_t)(2))) << 32;;
-          feature_guard_sdio(1, v124);
+          state_check_feature(1, v124);
           util_compare_time(v126, v121, (int)v202);
           v127 = HIDWORD(v207);
           *(float *)v125++ = v203;
@@ -18439,8 +18265,8 @@ LABEL_80:
             {
               v85 = v130 - v178;
               v139 = (float)((float)((float)((float)(v130 - v178) - v137) + v97) + v131) + *((float *)&v211 + v136);
-              feature_guard_sdio(1, dword_10BDB4);
-              feature_guard_sdio(1, dword_10BDB8);
+              state_check_feature(1, dword_10BDB4);
+              state_check_feature(1, dword_10BDB8);
               temp_sensor_convert(v139, v11, (int)v202);
             }
             else
@@ -18450,33 +18276,33 @@ LABEL_80:
                 v85 = v130 - v176;
                 v132 = (float)((float)((float)((float)((float)((float)(v130 - v176) - v137) + v123) + v122) + v97) + v131)
                      + *((float *)&v211 + v136);
-                feature_guard_sdio(1, dword_10BDAC);
-                feature_guard_sdio(1, dword_10BDB0);
+                state_check_feature(1, dword_10BDAC);
+                state_check_feature(1, dword_10BDB0);
               }
               else
               {
                 v85 = v130 - v175;
                 v132 = (float)((float)((float)((float)((float)(v130 - v175) - v137) + v122) + v97) + v131)
                      + *((float *)&v211 + v136);
-                feature_guard_sdio(1, dword_10BDA0);
-                feature_guard_sdio(1, dword_10BDA4);
+                state_check_feature(1, dword_10BDA0);
+                state_check_feature(1, dword_10BDA4);
               }
               temp_sensor_convert(v132, v11, (int)v202);
             }
-            feature_guard_sdio(1, v128);
+            state_check_feature(1, v128);
             if ( v173 == v130 )
             {
-              feature_guard_sdio(1, dword_10BDC4);
+              state_check_feature(1, dword_10BDC4);
               util_compare_time(v204, *(uint8_t *)off_10BDC8, (int)v202);
               v129 = v203;
             }
           }
           else
           {
-            feature_guard_sdio(1, dword_10BDA8);
+            state_check_feature(1, dword_10BDA8);
             temp_sensor_convert(v129, *(uint8_t *)(v61 + 4 * v135), (int)v202);
           }
-          feature_guard_sdio(1, v128);
+          state_check_feature(1, v128);
           *(uint8_t *)v138 = v204;
           if ( v170 || v171 || v136 != 15 )
           {
@@ -18487,21 +18313,21 @@ LABEL_108:
           }
           break;
         }
-        feature_guard_sdio(1, dword_10BDBC);
+        state_check_feature(1, dword_10BDBC);
         rf_calibrate(*v138, (int)v202, (int16_t *)&v197, 1, v189, 0, 0, 0);
         util_compare_time(v202[15], v119, (int)v202);
         v140 = v203;
-        feature_guard_sdio(1, dword_10BDB8);
+        state_check_feature(1, dword_10BDB8);
         v191 = ((int (*)())__aeabi_f2d)((float)v85 - v140);
         if ( !__aeabi_dcmpgt(v191, HIDWORD(v191), dword_10BD90, dword_10BD94)
           && !__aeabi_dcmplt(v191, HIDWORD(v191), dword_10BD98, dword_10BD9C) )
         {
-          feature_guard_sdio(1, dword_10C138);
+          state_check_feature(1, dword_10C138);
           goto LABEL_108;
         }
         temp_sensor_convert((float)v85 - v140, v204, (int)v202);
         --v130;
-        feature_guard_sdio(1, v128);
+        state_check_feature(1, v128);
         *(uint8_t *)v138 = v204;
         if ( v130 != -17 )
           continue;
@@ -18518,7 +18344,7 @@ LABEL_120:
         continue;
       break;
     }
-    ke_event_schedule_1(dword_10BDC0, v133, v141);
+    ke_event_schedule(dword_10BDC0, (void *)(uintptr_t)(v133), (int)(uintptr_t)(v141));
 LABEL_10:
     v183 += 4;
     if ( v183 != a5 + 28 )
@@ -18534,8 +18360,8 @@ LABEL_10:
   *(uint32_t *)off_10B45C |= 0x400u;
   v37 = *v31 & 0xFFFFFBFF;
   *v31 = v37;
-  ke_event_schedule_1(v32, v29, v37);
-  crypto_hw_enable(0);
+  ke_event_schedule(v32, (void *)(uintptr_t)(v29), v37);
+  set_radio_ctrl_bits(0);
   v38 = dword_10B480;
   v39 = (int *)v201;
   v40 = 0;
@@ -18583,11 +18409,11 @@ LABEL_15:
       continue;
     break;
   }
-  crypto_hw_disable(0);
+  set_radio_ctrl_bits2(0);
   v46 = dword_10B488;
   *(uint32_t *)off_10B458 = *(uint32_t *)off_10B458 & 0xFFFFFFFE | v193;
-  feature_guard_sdio(1, v46);
-  return ke_event_schedule_1(dword_10B48C, v47, v48);
+  state_check_feature(1, v46);
+  return ke_event_schedule(dword_10B48C, (void *)(uintptr_t)(v47), v48);
 }
 
 
@@ -18646,7 +18472,7 @@ int * sdio_packet_parse(int *result, unsigned int a2, int a3, int a4) {
     goto LABEL_3;
   }
   v8 = result[1];
-  feature_guard_sdio(0x2000, dword_10C408);
+  state_check_feature(0x2000, dword_10C408);
   v9 = a2 - 2;
   do
   {
@@ -18696,9 +18522,9 @@ int * sdio_packet_parse(int *result, unsigned int a2, int a3, int a4) {
     *(uint32_t *)off_10C440 = ((int (*)())__aeabi_d2ulz)(v22) & 0x7FFFFFFF;
     *(uint32_t *)off_10C428 = dword_10C42C & (((int (*)())__aeabi_d2ulz)(v23) << 13) | *(uint32_t *)off_10C428 & dword_10C430;
   }
-  crypto_hw_power_up_39c4();
-  rf_init_hw_setup((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
-  result = (int *)crypto_hw_reset();
+  rf_pll_enable();
+  chip_common_init((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
+  result = (int *)mac_irq_disable();
   *(uint32_t *)off_10C40C = 1;
   if ( a4 )
   {
@@ -18712,7 +18538,7 @@ LABEL_3:
       v37[0] = *(uint32_t *)dword_10C434;
       v37[1] = v25;
       v37[2] = v26;
-      crypto_hw_power_up_39c4();
+      rf_pll_enable();
       v28 = *(uint64_t *)v27;
       v29 = *(uint32_t *)(v27 + 8);
       v30 = *(uint32_t *)(v27 + 12);
@@ -18751,7 +18577,7 @@ LABEL_3:
       *((uint8_t *)v24 + 36) = 0;
       *((uint8_t *)v24 + 44) = 0;
       *((uint8_t *)v24 + 52) = 0;
-      return (int *)crypto_hw_reset();
+      return (int *)mac_irq_disable();
     }
   }
   return result;
@@ -18865,6 +18691,14 @@ int sdio_irq_enable() {
 
 
 
+// bt_dispatch @ 0x10c688
+int bt_dispatch() {
+  sdio_bus_reset();
+  return sdio_irq_enable();
+}
+
+
+
 // pmu_clock_config @ 0x10c698
 int *pmu_clock_config() {
   unsigned int *v0; // r3
@@ -18939,7 +18773,7 @@ int pmu_wait_status() {
   v0 = *(uint32_t *)off_10C810 & 0x1F00;
   if ( v0 )
   {
-    result = irq_nesting_or(2048);
+    result = set_system_flag_1(2048);
     v2 = (int *)off_10C814;
     v3 = (void *)(uintptr_t)(off_10C81C);
     *(uint32_t *)off_10C818 = v0;
@@ -19020,14 +18854,14 @@ int pmu_poll_delay(char a1) {
       }
       v15 = dword_10C91C;
       *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10C918;
-      list_push_tail(v15);
+      ((int (*)())check_abort_flag)(v15);
       if ( !*(uint32_t *)(v1 + 572) )
         goto LABEL_13;
     }
-    log_printf(dword_10C924, v6, v7);
+    printf_wrapper(dword_10C924, v6, v7);
   }
 LABEL_13:
-  result = irq_nesting_or(256);
+  result = set_system_flag_1(256);
   *(uint32_t *)off_10C920 = (1 << (a1 + 8)) & 0x1F00;
   return result;
 }
@@ -19067,7 +18901,7 @@ int pmu_status_interrupt() {
   }
   if ( (v0 & 0x40000000) != 0 )
   {
-    result = check_radio_flag_1(1);
+    result = check_radio_flag(1);
     *(uint32_t *)off_10C9F8 = 0x40000000;
   }
   if ( v0 < 0 )
@@ -19154,6 +18988,12 @@ int pmu_isr_214() {
 
 
 
+// nullsub_6 @ 0x10cadc
+int nullsub_6(void) {
+  return 0;
+}
+
+
 // pmu_ctrl_write_8 @ 0x10cae0
 void pmu_ctrl_write_8() {
   *(uint32_t *)off_10CAE8 = 8;
@@ -19191,7 +19031,7 @@ int pkt_buf_alloc(uint16_t *a1) {
   int16_t v13; // r3
 
   v2 = (int16_t **)off_10CBC8;
-  v3 = message_dispatch_n158((uint16_t)a1[5] + 16);
+  v3 = mem_alloc_align((uint16_t)a1[5] + 16);
   v4 = *v2;
   v5 = v3;
   if ( **v2 < 0 && !v3 )
@@ -19413,7 +19253,7 @@ LABEL_5:
   if ( !v6 )
   {
 LABEL_59:
-    sub_10DA7C(dword_10CFD4, a1[2], a1[4]);
+    printf_wrapper(dword_10CFD4, a1[2], a1[4]);
     return jump_to_tx_entry((int)(uintptr_t)(a1));
   }
   if ( !*((uint32_t *)off_10CF10 + 2057) )
@@ -19439,7 +19279,7 @@ LABEL_59:
     }
     v51 = ((int (*)())list_length)((void *)(uintptr_t)(dword_10CFE0), v47);
     v50 = ((int (*)())list_length)((void *)(uintptr_t)(dword_10CFE4), v49);
-    sub_10DA7C(dword_10CFE8, v51, v50);
+    printf_wrapper(dword_10CFE8, v51, v50);
     return jump_to_tx_entry((int)(uintptr_t)(a1));
   }
   if ( (__get_CPSR() & 1) == 0 )
@@ -19573,7 +19413,7 @@ LABEL_27:
   v29 = (int *)critical_enter_0();
   if ( !v29 )
   {
-    sub_10DA7C(dword_10CFEC, v30, v31);
+    printf_wrapper(dword_10CFEC, v30, v31);
     return jump_to_tx_entry((int)(uintptr_t)(a1));
   }
   *(uint16_t *)v6 = a1[5] + 12;
@@ -19617,7 +19457,7 @@ int hw_reg_write(int a1, int a2, int a3) {
   int result; // r0
   uint32_t *v5; // r3
 
-  result = ke_event_schedule_1(dword_10D070, a1, a3);
+  result = ke_event_schedule(dword_10D070, (void *)(uintptr_t)(a1), a3);
   v5 = (void *)(uintptr_t)(off_10D078);
   *(uint32_t *)off_10D074 = a1;
   *v5 = 0x1000000;
@@ -19695,6 +19535,13 @@ int power_mode_set(int result) {
   }
   *((uint32_t *)off_10D24C + 1) |= 0x400000u;
   return result;
+}
+
+
+
+// clear_182b70_struct @ 0x10d25c
+int *clear_182b70_struct() {
+  return memset_byte((int *)dword_10D268, 0, 0x38u);
 }
 
 
@@ -19782,7 +19629,7 @@ int watchdog_kick() {
   if ( (v0 & 0x400) != 0 )
   {
     *((uint32_t *)off_10D428 + 2) = 0x40000;
-    return irq_nesting_or(0x20000000);
+    return set_system_flag_1(0x20000000);
   }
   return result;
 }
@@ -20213,7 +20060,7 @@ LABEL_13:
   while ( 1 )
   {
     v26 = v24++;
-if ( !memcpy_1((int)(uintptr_t)(v26), v25, 20) ) break;
+if ( !((int (*)())memcpy)((int)(uintptr_t)(v26), v25, 20) ) break;
     if ( &v82[v7] == v24 )
     {
       v27 = (void *)(uintptr_t)(off_10D984);
@@ -20247,7 +20094,7 @@ LABEL_37:
   if ( *v27 )
   {
     v28 = (void *)(uintptr_t)(off_10D988);
-if ( !memcpy_1((int)(uintptr_t)(v82), dword_10D954, 5) ) { v29 = dword_10D958;
+if ( !((int (*)())memcpy)((int)(uintptr_t)(v82), dword_10D954, 5) ) { v29 = dword_10D958;
       v30 = (void *)(uintptr_t)(off_10D938);
       v31 = (int *)off_10D93C;
       *v28 = 1;
@@ -20381,6 +20228,16 @@ LABEL_48:
   }
   while ( v80 );
   return v6;
+}
+
+
+
+// printf_wrapper @ 0x10da7c
+int printf_wrapper(int a1, ...) {
+  va_list varg_r1; // [sp+14h] [bp+8h] BYREF
+
+  va_start(varg_r1, a1);
+  return debug_printf(a1, (int)(uintptr_t)(*(void **)&(varg_r1)));
 }
 
 
@@ -20549,7 +20406,7 @@ int gpio_pin_config(int result, int a2, int a3) {
 // gpio_write_pin2 @ 0x10dc60
 int gpio_write_pin2() {
   if ( *((uint8_t *)off_10DC74 + 369) )
-    return irq_enable(2);
+    return gpio_set_bit_reg0(2);
   else
     return gpio_clear_bit_reg0(2);
 }
@@ -20559,7 +20416,7 @@ int gpio_write_pin2() {
 // check_radio_flag @ 0x10dc78
 int check_radio_flag() {
   if ( *((uint8_t *)off_10DC8C + 369) )
-    return irq_enable(1);
+    return gpio_set_bit_reg0(1);
   else
     return gpio_clear_bit_reg0(1);
 }
@@ -20574,7 +20431,7 @@ int set_radio_channel(int a1) {
   int v4; // r5
 
   v1 = BYTE2(a1);
-  result = sub_10DA7C(dword_10DCE0, BYTE2(a1));
+  result = printf_wrapper(dword_10DCE0, BYTE2(a1));
   if ( v1 == 3 )
   {
     v3 = gpio_test_bit_reg0(3);
@@ -20590,7 +20447,7 @@ int set_radio_channel(int a1) {
         gpio_clear_bit_reg0(2);
       v4 = 2;
     }
-    sub_10DA7C(dword_10DCE8, v3);
+    printf_wrapper(dword_10DCE8, v3);
     return power_mode_set(v4);
   }
   return result;
@@ -20604,22 +20461,22 @@ int init_oscillators() {
   uint32_t *v1; // r3
   int result; // r0
 
-  irq_prio_set(1);
-  irq_prio_set2(1);
-  irq_prio_set(2);
-  irq_prio_set2(2);
+  irq_set_priority(1);
+  gpio_set_bit_reg8(1);
+  irq_set_priority(2);
+  gpio_set_bit_reg8(2);
   if ( *((uint8_t *)off_10DD4C + 369) )
   {
-    irq_enable(1);
-    irq_enable(2);
+    gpio_set_bit_reg0(1);
+    gpio_set_bit_reg0(2);
   }
   else
   {
     gpio_clear_bit_reg0(1);
     gpio_clear_bit_reg0(2);
   }
-  mmio_reg_bit_clear(3);
-  irq_config(3, 2, dword_10DD50);
+  gpio_clear_bit_reg8(3);
+  gpio_pin_config(3, 2, dword_10DD50);
   v0 = (void *)(uintptr_t)(off_10DD54);
   v1 = (void *)(uintptr_t)(off_10DD5C);
   result = dword_10DD60;
@@ -20630,6 +20487,24 @@ int init_oscillators() {
   return result;
 }
 
+
+
+// nullsub_1 @ 0x10dd64
+int nullsub_1(void) {
+  return 0;
+}
+
+
+// nullsub_2 @ 0x10dd68
+int nullsub_2(void) {
+  return 0;
+}
+
+
+// nullsub_3 @ 0x10dd6c
+int nullsub_3(void) {
+  return 0;
+}
 
 
 // set_pin_mux @ 0x10dd70
@@ -20883,7 +20758,7 @@ int radio_init_1() {
   v2 = (void *)(uintptr_t)(off_10E394);
   *((uint32_t *)off_10E388 + 14) = 296;
   v2[3] = v0 | v2[3] & 0xE0000000;
-  sub_10EBD4(v1, 1024, 15360);
+  call_vector_1b8(v1, 1024, 15360);
   v2[2] = dword_10E398 & v2[2] | 0x1200000F;
   v2[1] = 1;
   while ( v2[7] != 1 )
@@ -20893,8 +20768,8 @@ int radio_init_1() {
   v4 = ((int (*)())__aeabi_dmul)(v3, HIDWORD(v3), dword_10E370, dword_10E374);
   v5 = __aeabi_dsub(v4, HIDWORD(v4), dword_10E378, dword_10E37C);
   v6 = __aeabi_d2lz(v5, HIDWORD(v5));
-  ke_event_schedule_1(dword_10E39C, v6, v7);
-  v8 = sub_10EBC4(dword_10E3A0);
+  ke_event_schedule(dword_10E39C, (void *)(uintptr_t)(v6), v7);
+  v8 = jump_table_1b0(dword_10E3A0);
   v10 = v6 - 1400;
   v11 = abs32(v6 - 1400);
   v12 = v8 & 0x3F;
@@ -20924,7 +20799,7 @@ int radio_init_1() {
     }
     if ( v17 > 11 )
     {
-      sub_10EBD4(dword_10E3A0, v17, 63);
+      call_vector_1b8(dword_10E3A0, v17, 63);
       v18 = (void *)(uintptr_t)(off_10E394);
       *((uint32_t *)off_10E394 + 1) = 1;
       while ( v18[7] != 1 )
@@ -20934,7 +20809,7 @@ int radio_init_1() {
       v20 = ((int (*)())__aeabi_dmul)(v19, HIDWORD(v19), dword_10E370, dword_10E374);
       v21 = __aeabi_dsub(v20, HIDWORD(v20), dword_10E378, dword_10E37C);
       v6 = __aeabi_d2lz(v21, HIDWORD(v21));
-      ke_event_schedule_1(dword_10E3A4, v16, v17);
+      ke_event_schedule(dword_10E3A4, (void *)(uintptr_t)(v16), v17);
       if ( v6 <= 1400 )
         v22 = 1;
       else
@@ -20977,7 +20852,7 @@ LABEL_19:
       v28 = v43 + v44 * v9;
       goto LABEL_28;
     }
-    sub_10EBD4(v24, v28, 63);
+    call_vector_1b8(v24, v28, 63);
     v25[1] = 1;
     while ( v25[7] != 1 )
       ;
@@ -20986,7 +20861,7 @@ LABEL_19:
     v31 = ((int (*)())__aeabi_dmul)(v30, HIDWORD(v30), dword_10E370, dword_10E374);
     v32 = __aeabi_dsub(v31, HIDWORD(v31), dword_10E378, dword_10E37C);
     v42 = __aeabi_d2lz(v32, HIDWORD(v32));
-    ke_event_schedule_1(v26, v29, v28);
+    ke_event_schedule(v26, (void *)(uintptr_t)(v29), v28);
     v33 = v6 - 1400;
     v9 = v42 - 1400;
     if ( v33 * (v42 - 1400) <= 0 )
@@ -21005,8 +20880,8 @@ LABEL_19:
     v28 = v43 + v29;
   }
 LABEL_28:
-  ke_event_schedule_1(dword_10E3A8, v29, v9);
-  sub_10EBD4(dword_10E3A0, v28, 63);
+  ke_event_schedule(dword_10E3A8, (void *)(uintptr_t)(v29), v9);
+  call_vector_1b8(dword_10E3A0, v28, 63);
   v35 = (void *)(uintptr_t)(off_10E394);
   *((uint32_t *)off_10E394 + 1) = 1;
   while ( v35[7] != 1 )
@@ -21016,8 +20891,8 @@ LABEL_28:
   v37 = ((int (*)())__aeabi_dmul)(v36, HIDWORD(v36), dword_10E370, dword_10E374);
   v38 = __aeabi_dsub(v37, HIDWORD(v37), dword_10E378, dword_10E37C);
   v39 = __aeabi_d2lz(v38, HIDWORD(v38));
-  ke_event_schedule_1(dword_10E3AC, v39, v40);
-  return sub_10EBD4(dword_10E390, 0, 15360);
+  ke_event_schedule(dword_10E3AC, (void *)(uintptr_t)(v39), v40);
+  return call_vector_1b8(dword_10E390, 0, 15360);
 }
 
 
@@ -21084,9 +20959,9 @@ int system_init_mmio() {
   v5 = __aeabi_ddiv(v4, HIDWORD(v4), dword_10E658, dword_10E65C);
   v6 = __aeabi_dsub(v5, HIDWORD(v5), dword_10E650, dword_10E654);
   v7 = __aeabi_d2lz(v6, HIDWORD(v6));
-  v8 = sub_10EBC4(dword_10E678) & 0x1F;
+  v8 = jump_table_1b0(dword_10E678) & 0x1F;
   v9 = v7 - 840;
-  sub_10DA7C(dword_10E67C, v7, v8);
+  printf_wrapper(dword_10E67C, v7, v8);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -21130,7 +21005,7 @@ int system_init_mmio() {
       v9 = -9;
       goto LABEL_33;
     }
-    sub_10EBD4(dword_10E678, v15, 31);
+    call_vector_1b8(dword_10E678, v15, 31);
     v16 = (void *)(uintptr_t)(off_10E66C);
     *((uint32_t *)off_10E66C + 1) = 1;
     while ( v16[7] != 1 )
@@ -21141,7 +21016,7 @@ int system_init_mmio() {
     v19 = __aeabi_ddiv(v18, HIDWORD(v18), dword_10E658, dword_10E65C);
     v20 = __aeabi_dsub(v19, HIDWORD(v19), dword_10E650, dword_10E654);
     v7 = __aeabi_d2lz(v20, HIDWORD(v20));
-    ke_event_schedule_1(dword_10E680, v14, v15);
+    ke_event_schedule(dword_10E680, (void *)(uintptr_t)(v14), v15);
     if ( v7 <= 840 )
       v21 = 1;
     else
@@ -21163,7 +21038,7 @@ int system_init_mmio() {
       v8 = v43 + v42 * v27;
       goto LABEL_33;
     }
-    sub_10EBD4(v23, v25, 31);
+    call_vector_1b8(v23, v25, 31);
     v24[1] = 1;
     while ( v24[7] != 1 )
       ;
@@ -21173,7 +21048,7 @@ int system_init_mmio() {
     v30 = __aeabi_ddiv(v29, HIDWORD(v29), dword_10E658, dword_10E65C);
     v31 = __aeabi_dsub(v30, HIDWORD(v30), dword_10E650, dword_10E654);
     v32 = __aeabi_d2lz(v31, HIDWORD(v31));
-    ke_event_schedule_1(dword_10E684, v9, v25);
+    ke_event_schedule(dword_10E684, (void *)(uintptr_t)(v9), v25);
     v33 = v7 - 840;
     v34 = v32 - 840;
     if ( v33 * (v32 - 840) <= 0 )
@@ -21195,8 +21070,8 @@ int system_init_mmio() {
     v8 = v25;
   }
 LABEL_33:
-  sub_10DA7C(dword_10E688, v9);
-  sub_10EBD4(dword_10E678, v8, 31);
+  printf_wrapper(dword_10E688, v9);
+  call_vector_1b8(dword_10E678, v8, 31);
   v35 = (void *)(uintptr_t)(off_10E66C);
   *((uint32_t *)off_10E66C + 1) = 1;
   while ( v35[7] != 1 )
@@ -21207,10 +21082,10 @@ LABEL_33:
   v38 = __aeabi_ddiv(v37, HIDWORD(v37), dword_10E658, dword_10E65C);
   v39 = __aeabi_dsub(v38, HIDWORD(v38), dword_10E650, dword_10E654);
   v40 = __aeabi_d2lz(v39, HIDWORD(v39));
-  sub_10DA7C(dword_10E68C, v40);
+  printf_wrapper(dword_10E68C, v40);
   result = *((uint32_t *)off_10E690 + 94);
   if ( result != 0x80000000 )
-    return ((int (*)())rf_set_tx_power_1)();
+    return ((int (*)())rf_set_tx_power)();
   return result;
 }
 
@@ -21247,7 +21122,7 @@ int gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3) {
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
   v8 = (int16_t *)off_10E83C;
   v9 = radio_setup();
-  ke_event_schedule_1(dword_10E840, a1, a2);
+  ke_event_schedule(dword_10E840, (void *)(uintptr_t)(a1), a2);
   v10 = *v8;
   if ( v10 > v9 )
   {
@@ -21283,7 +21158,7 @@ int gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3) {
     *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
     v15 = v9;
     v9 = radio_setup();
-    ke_event_schedule_1(dword_10E844, v13, v3);
+    ke_event_schedule(dword_10E844, (void *)(uintptr_t)(v13), v3);
     v16 = *(int16_t *)off_10E83C;
     v17 = v9 - v16;
     v18 = v15 - v16;
@@ -21305,7 +21180,7 @@ int gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3) {
     v13 = v24;
     *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  ke_event_schedule_1(dword_10E848, v20, v13 - v21);
+  ke_event_schedule(dword_10E848, (void *)(uintptr_t)(v20), v13 - v21);
 LABEL_9:
   *a3 = v3;
   return v20;
@@ -21337,7 +21212,7 @@ int gpio_set_alternate(int a1) {
   *(uint32_t *)off_10E95C = (a1 << 26) & 0x1C000000 | *(uint32_t *)off_10E95C & 0xE3FFFFFF;
   v2 = a1;
   v3 = radio_enable();
-  ke_event_schedule_1(dword_10E960, v2, v3);
+  ke_event_schedule(dword_10E960, (void *)(uintptr_t)(v2), v3);
   v4 = *v1;
   if ( v4 > v3 )
   {
@@ -21379,7 +21254,7 @@ int gpio_set_alternate(int a1) {
     }
     *v5 = *v5 & 0xE3FFFFFF | v9;
     v10 = radio_enable();
-    ke_event_schedule_1(v6, v2, v10);
+    ke_event_schedule(v6, (void *)(uintptr_t)(v2), v10);
     v11 = *v1;
     v12 = v10 - v11;
     v13 = v3 - v11;
@@ -21402,7 +21277,7 @@ int gpio_set_alternate(int a1) {
     v16 = v3;
     *v5 = ((v2 - v17) << 26) & 0x1C000000 | *v5 & 0xE3FFFFFF;
   }
-  ke_event_schedule_1(dword_10E964, v8, v16);
+  ke_event_schedule(dword_10E964, (void *)(uintptr_t)(v8), v16);
   return v8;
 }
 
@@ -21517,7 +21392,7 @@ int board_init_2() {
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
   *v0 |= 0x400000u;
-  result = mmio_field_set_n1d0(4);
+  result = gpio_set_alternate(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
   *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;
@@ -21525,6 +21400,27 @@ int board_init_2() {
   *v0 = v12 & 0x200000 | *v0 & 0xFFDFFFFF;
   *v0 = v13 & 0x400000 | *v0 & 0xFFBFFFFF;
   return result;
+}
+
+
+
+// jump_table_1b0 @ 0x10ebc4
+int jump_table_1b0() {
+  return ((int (*)())MEMD(432))();
+}
+
+
+
+// jump_table_1b4 @ 0x10ebcc
+int jump_table_1b4() {
+  return ((int (*)())MEMD(436))();
+}
+
+
+
+// call_vector_1b8 @ 0x10ebd4
+int call_vector_1b8() {
+  return ((int (*)())MEMD(440))();
 }
 
 
@@ -21549,12 +21445,12 @@ int atomic_reg_read(int a1, int a2) {
     v3 = (void *)(uintptr_t)(off_10EC2C);
     while ( !*(uint32_t *)off_10EC2C )
       ;
-    result = sub_10EBC4();
+    result = jump_table_1b0();
     *v3 = 1;
   }
   else
   {
-    result = sub_10EBC4();
+    result = jump_table_1b0();
   }
   if ( *v2 )
   {
@@ -21592,12 +21488,12 @@ int atomic_reg_read_alt(int a1, int a2, int a3) {
     v4 = (void *)(uintptr_t)(off_10EC80);
     while ( !*(uint32_t *)off_10EC80 )
       ;
-    result = sub_10EBCC();
+    result = jump_table_1b4();
     *v4 = 1;
   }
   else
   {
-    result = sub_10EBCC();
+    result = jump_table_1b4();
   }
   if ( *v3 )
   {
@@ -21635,12 +21531,12 @@ int atomic_reg_write(int a1, int a2, int a3, int a4) {
     v5 = (void *)(uintptr_t)(off_10ECD4);
     while ( !*(uint32_t *)off_10ECD4 )
       ;
-    result = sub_10EBD4();
+    result = call_vector_1b8();
     *v5 = 1;
   }
   else
   {
-    result = sub_10EBD4();
+    result = call_vector_1b8();
   }
   if ( *v4 )
   {
@@ -21660,7 +21556,7 @@ int atomic_reg_write(int a1, int a2, int a3, int a4) {
 
 // periph_trigger_write @ 0x10ecd8
 int periph_trigger_write(int a1, int a2, int a3) {
-  ke_event_schedule_1(dword_10ED1C, a1, a3);
+  ke_event_schedule(dword_10ED1C, (void *)(uintptr_t)(a1), a3);
   atomic_reg_write(dword_10ED24, 196608, dword_10ED20, 1);
   atomic_reg_write(1879048192, 1, 1, 1);
   atomic_reg_read_alt(dword_10ED28, a1, 1);
@@ -21671,9 +21567,16 @@ int periph_trigger_write(int a1, int a2, int a3) {
 
 // periph_field_set @ 0x10ed30
 int periph_field_set(int a1) {
-  rf_reg_write_guard(dword_10ED64, 196608, dword_10ED60, 1);
+  atomic_reg_write(dword_10ED64, 196608, dword_10ED60, 1);
   atomic_reg_read_alt(dword_10ED68, a1 << 15, 1);
-  return rf_reg_write_guard(1879048192, 1, 1, 1);
+  return atomic_reg_write(1879048192, 1, 1, 1);
+}
+
+
+
+// write_reg_70001408 @ 0x10ed6c
+int write_reg_70001408() {
+  return atomic_reg_write(dword_10ED78, 0, 2, 1);
 }
 
 
@@ -21687,7 +21590,7 @@ int get_periph_status() {
 
 // set_periph_status @ 0x10ed90
 int set_periph_status(int a1) {
-  return rf_reg_write_guard(dword_10EDA4, (a1 << 11) & 0xF800, 63488, 1);
+  return atomic_reg_write(dword_10EDA4, (a1 << 11) & 0xF800, 63488, 1);
 }
 
 
@@ -21741,7 +21644,7 @@ int periph_enable() {
 unsigned int fw_set_cmd() {
   unsigned int result; // r0
 
-  result = rf_power_set(0xC2u);
+  result = write_mmio_byte(0xC2u);
   *((uint8_t *)off_10EFEC + 7) = -62;
   return result;
 }
@@ -21764,7 +21667,7 @@ int phy_get_status() {
   write_mmio_byte(v2);
   v3 = dword_10F054;
   v0[7] = v2;
-  result = ke_event_schedule_1(v3, (char)v2, v1);
+  result = ke_event_schedule(v3, (void *)(uintptr_t)((char)v2), v1);
   if ( (char)v2 >= -61 )
     return ke_event_lock((int)(uintptr_t)(v0 + 12), *((uint32_t *)off_10F058 + 4) + 30000 * *((uint16_t *)v0 + 4));
   v0[11] = 0;
@@ -21847,10 +21750,10 @@ int send_msg() {
   v1 = (char *)off_10F204 + 1624;
   *((uint16_t *)off_10F204 + 810) = 80;
   v0[1622] = 81;
-  bt_xtal_init_check(v1);
+  zero_struct((void *)(v1));
   *((uint16_t *)v0 + 1216) = 39;
   v0[2434] = 40;
-  return bt_xtal_init_check(v0 + 2436);
+  return (int)(uintptr_t)(zero_struct((void *)(v0 + 2436)));
 }
 
 
@@ -21874,20 +21777,20 @@ uint64_t init_fw_table() {
   *((uint8_t *)v0 + 6176) = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  bt_xtal_init_check(v0 + 1540);
-  bt_xtal_init_check(v1 - 3);
-  bt_xtal_init_check(v1 + 512);
-  bt_xtal_init_check(v1 + 514);
+  zero_struct((void *)(v0 + 1540));
+  zero_struct((void *)(v1 - 3));
+  zero_struct((void *)(v1 + 512));
+  zero_struct((void *)(v1 + 514));
   v0[4122] = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  memset_thunk(v1, 0, 0x800u);
+  memset_byte(v1, 0, 0x800u);
   v2 = v1 + 512;
   v3 = v1 + 512;
   do
   {
     v1 += 4;
-    list_push_tail(v3);
+    ((int (*)())check_abort_flag)((int)(uintptr_t)(v3));
   }
   while ( v1 != v2 );
   v4 = dword_10F2AC;
@@ -22032,7 +21935,7 @@ int ke_msg_alloc() {
   v1 = (int *)off_10F6B8;
   while ( 2 )
   {
-    result = bt_sub_121733C(v26);
+    result = init_once((int)(uintptr_t)(v26));
     if ( !result && *((uint8_t *)v26 + 108) )
       goto LABEL_4;
 for ( ; v26[328]; result = ((int (*)())tx_prepare_frame_path)(v2, 3, v3) ) { if ( (__get_CPSR() & 1) == 0 ) { __disable_irq();
@@ -22095,7 +21998,7 @@ LABEL_39:
             if ( (*(uint16_t *)(v13 + 30) & 1) != 0 )
             {
 LABEL_54:
-              list_push_tail(v8 + 8 * (87 * (int16_t)v12 + v25 + 78));
+              ((int (*)())check_abort_flag)(v8 + 8 * (87 * (int16_t)v12 + v25 + 78));
               goto LABEL_23;
             }
             mmio_irq_clear(dword_10F6B4, dword_10F6A8, 383);
@@ -22103,12 +22006,12 @@ LABEL_54:
           if ( (*(uint16_t *)(v13 + 30) & 1) != 0 )
             goto LABEL_54;
 LABEL_23:
-          ke_event_schedule_1(dword_10F6A0, *(uint8_t *)(v8 + 696 * v12 + 35), 696);
+          ke_event_schedule(dword_10F6A0, (void *)(uintptr_t)(*(uint8_t *)(v8 + 696 * v12 + 35)), 696);
 LABEL_24:
           if ( !v6[326] )
             goto LABEL_25;
         }
-        ke_event_schedule_1(dword_10F6B0, *(uint8_t *)(v14 + 35), v14);
+        ke_event_schedule(dword_10F6B0, (void *)(uintptr_t)(*(uint8_t *)(v14 + 35)), v14);
         rf_set_band_config(v13, v10, 0x80000000);
       }
       while ( v6[326] );
@@ -22126,7 +22029,7 @@ LABEL_26:
           v18 = (uint8_t *)(v8 + 696 * v17);
           if ( v18[37] )
             break;
-          ke_event_schedule_1(dword_10F6B0, v18[35], v18[37]);
+          ke_event_schedule(dword_10F6B0, (void *)(uintptr_t)(v18[35]), v18[37]);
           v24 = (int)(uintptr_t)(list_pop_front((int)(uintptr_t)(v6 + 316)));
           rf_set_band_config(v24, v10, 0x80000000);
           v16 = v6[316];
@@ -22142,7 +22045,7 @@ LABEL_26:
           }
           ++*v1;
           list_pop_front((int)(uintptr_t)(v6 + 316));
-          ke_event_schedule_1(dword_10F6A4, *(uint8_t *)(v8 + 696 * v17 + 35), v8 + 696 * v17);
+          ke_event_schedule(dword_10F6A4, (void *)(uintptr_t)(*(uint8_t *)(v8 + 696 * v17 + 35)), v8 + 696 * v17);
           if ( *v1 )
           {
             v19 = *v1 - 1;
@@ -22154,7 +22057,7 @@ LABEL_26:
                 __enable_irq();
             }
           }
-          list_push_tail(v8 + 8 * (87 * (int16_t)v17 + v9 + 73));
+          ((int (*)())check_abort_flag)(v8 + 8 * (87 * (int16_t)v17 + v9 + 73));
           goto LABEL_36;
         }
         if ( phy_set_chan(v17, *(uint8_t *)(v16 + 27)) )
@@ -22205,6 +22108,16 @@ LABEL_4:
       continue;
     return result;
   }
+}
+
+
+
+// send_cmd_040d @ 0x10f764
+int send_cmd_040d() {
+  int v0; // r0
+
+  v0 = bt_buf_alloc(1037, 1, 13, 8);
+  return hci_evt_send(v0);
 }
 
 
@@ -22289,7 +22202,7 @@ unsigned int ke_msg_handler(int *a1, int a2, unsigned int a3) {
       }
       else
       {
-        log_printf(dword_10F968, v15);
+        printf_wrapper(dword_10F968, v15);
         v17 = *v8;
         if ( *v8 > (unsigned int)v15 )
           goto LABEL_22;
@@ -22306,7 +22219,7 @@ LABEL_12:
           goto LABEL_25;
         goto LABEL_13;
       }
-      log_printf(dword_10F96C, v15);
+      printf_wrapper(dword_10F96C, v15);
       v18 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_25;
@@ -22323,7 +22236,7 @@ LABEL_14:
           goto LABEL_28;
         goto LABEL_15;
       }
-      log_printf(dword_10F970, v15);
+      printf_wrapper(dword_10F970, v15);
       v19 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_28;
@@ -22337,7 +22250,7 @@ LABEL_16:
         *v15 = (int)(uintptr_t)(v20);
         goto LABEL_17;
       }
-      log_printf(dword_10F974, v15);
+      printf_wrapper(dword_10F974, v15);
 LABEL_17:
       ++v12;
       ++*(uint16_t *)v14;
@@ -22397,13 +22310,13 @@ uint32_t * rx_process_item(int a1, unsigned int a2) {
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    sub_10DA7C(dword_10FB34);
+    printf_wrapper(dword_10FB34);
     return 0;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    sub_10DA7C(dword_10FB24);
+    printf_wrapper(dword_10FB24);
     return v3;
   }
   v4 = *(uint16_t **)(a1 + 12);
@@ -22466,7 +22379,7 @@ LABEL_12:
   }
   else
   {
-    sub_10DA7C(dword_10FB1C, *((uint32_t *)v4 + 2));
+    printf_wrapper(dword_10FB1C, *((uint32_t *)v4 + 2));
     v10 = *v9;
     v14 = *v4 - 1;
     v15 = *v9 > (unsigned int)v3;
@@ -22487,7 +22400,7 @@ LABEL_18:
   v16 = *(uint32_t *)off_10FB18;
   if ( *(uint32_t *)off_10FB18 > (unsigned int)v3 || *((uint32_t *)off_10FB18 + 1) + v16 < (unsigned int)v3 )
   {
-    sub_10DA7C(dword_10FB28, v3);
+    printf_wrapper(dword_10FB28, v3);
     v11 = 0;
     goto LABEL_45;
   }
@@ -22506,7 +22419,7 @@ LABEL_45:
           __enable_irq();
       }
     }
-    sub_10DA7C(dword_10FB2C, v11, v3);
+    printf_wrapper(dword_10FB2C, v11, v3);
     return 0;
   }
   if ( v10 > (unsigned int)v3 )
@@ -22516,7 +22429,7 @@ LABEL_45:
   if ( (unsigned int)v3 < v16 )
   {
 LABEL_37:
-    sub_10DA7C(dword_10FB20, v3);
+    printf_wrapper(dword_10FB20, v3);
   }
   else
   {
@@ -22534,7 +22447,7 @@ LABEL_20:
   }
   else
   {
-    sub_10DA7C(dword_10FB30, v3);
+    printf_wrapper(dword_10FB30, v3);
   }
   if ( *v6 )
   {
@@ -22591,7 +22504,7 @@ int list_insert(int a1, uint32_t *a2) {
   }
   else
   {
-    log_printf(dword_10FD78, a2);
+    printf_wrapper(dword_10FD78, a2);
     v5 = 0;
   }
   if ( *(uint8_t *)(a1 + 8) <= v5 )
@@ -22612,7 +22525,7 @@ int list_insert(int a1, uint32_t *a2) {
     v15 = *(uint32_t *)off_10FD70;
     if ( (unsigned int)a2 < *(uint32_t *)off_10FD70 || (unsigned int)a2 > *((uint32_t *)off_10FD70 + 1) + v15 )
     {
-      log_printf(dword_10FD74, a2);
+      printf_wrapper(dword_10FD74, a2);
     }
     else
     {
@@ -22679,7 +22592,7 @@ LABEL_40:
       }
       else
       {
-        log_printf(dword_10FD84, a2);
+        printf_wrapper(dword_10FD84, a2);
       }
       if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
         || (unsigned int)a2 >= *(uint32_t *)off_10FD70
@@ -22689,7 +22602,7 @@ LABEL_40:
       }
       else
       {
-        log_printf(dword_10FD80, a2);
+        printf_wrapper(dword_10FD80, a2);
       }
       v21 = *(uint16_t *)(v6 + v20);
       v22 = *v7;
@@ -22718,7 +22631,7 @@ LABEL_36:
   if ( (unsigned int)a2 < *v14 )
   {
 LABEL_38:
-    log_printf(dword_10FD7C, a2);
+    printf_wrapper(dword_10FD7C, a2);
     goto LABEL_39;
   }
 LABEL_37:
@@ -22740,7 +22653,7 @@ LABEL_39:
   }
   else
   {
-    log_printf(dword_10FD88, a2);
+    printf_wrapper(dword_10FD88, a2);
   }
   if ( *v7 )
   {
@@ -22809,7 +22722,7 @@ uint32_t * check_radio_state(char a1) {
     *((uint8_t *)v2 - 1) = a1;
     return v2;
   }
-  sub_10DA7C(dword_10FE5C, v2);
+  printf_wrapper(dword_10FE5C, v2);
   return v2;
 }
 
@@ -22825,7 +22738,7 @@ int memory_pool_free(uint32_t *a1) {
   result = is_address_in_heap((unsigned int)a1);
   if ( !result )
   {
-    result = sub_10DA7C(dword_10FF44, a1);
+    result = printf_wrapper(dword_10FF44, a1);
     v5 = **(uint8_t **)off_10FF3C;
     if ( v5 != 1 )
     {
@@ -22835,7 +22748,7 @@ int memory_pool_free(uint32_t *a1) {
       {
 LABEL_11:
         if ( !is_address_in_heap((unsigned int)a1) )
-          sub_10DA7C(dword_10FF54, a1);
+          printf_wrapper(dword_10FF54, a1);
         return list_insert(dword_10FF48, a1);
       }
       if ( **(int16_t **)off_10FF40 < 0 )
@@ -22929,7 +22842,7 @@ int rx_irq_handler() {
   unsigned int v6; // r1
 
   v0 = log_free_dispatch_n1d8;
-  result = bt_xtal_init_check(log_free_dispatch_n1cc);
+  result = (int)(uintptr_t)(zero_struct((void *)(log_free_dispatch_n1cc)));
   if ( *(uint16_t *)(*(uint32_t *)v0 + 6) )
   {
     v2 = (void *)(patch_apply_n_32);
@@ -22938,8 +22851,8 @@ int rx_irq_handler() {
     v5 = 0;
     do
     {
-      log_pool_alloc2(v3, 0x63Cu);
-      result = list_push_tail(v4);
+      rx_process_item(v3, 0x63Cu);
+      result = ((int (*)())check_abort_flag)(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;
@@ -22990,7 +22903,7 @@ int adv_irq_handler() {
   unsigned int v6; // r1
 
   v0 = log_free_dispatch_n270;
-  result = bt_xtal_init_check(log_free_dispatch_n264);
+  result = (int)(uintptr_t)(zero_struct((void *)(log_free_dispatch_n264)));
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = (void *)(log_free_dispatch_n268);
@@ -22999,8 +22912,8 @@ int adv_irq_handler() {
     v5 = 0;
     do
     {
-      log_pool_alloc2(v3, 0x6B8u);
-      result = list_push_tail(v4);
+      rx_process_item(v3, 0x6B8u);
+      result = ((int (*)())check_abort_flag)(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
@@ -23089,7 +23002,7 @@ int critical_enter_1() {
   v0 = (int *)log_free_dispatch_n330;
   v1 = dword_110194;
   ++*(uint32_t *)log_free_dispatch_n330;
-  result = list_push_tail(v1);
+  result = ((int (*)())check_abort_flag)(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -23158,7 +23071,7 @@ int critical_enter_3() {
   v0 = (int *)log_free_dispatch_n3cc;
   v1 = dword_110230;
   ++*(uint32_t *)log_free_dispatch_n3cc;
-  result = list_push_tail(v1);
+  result = ((int (*)())check_abort_flag)(v1);
   v3 = *v0;
   ++*(uint32_t *)log_free_dispatch_n3d4;
   if ( v3 )
@@ -23229,7 +23142,7 @@ int critical_enter_5() {
   v0 = (int *)off_1102CC;
   v1 = (int)(uintptr_t)(log_free_dispatch_02d0);
   ++*(uint32_t *)off_1102CC;
-  result = list_push_tail(v1);
+  result = ((int (*)())check_abort_flag)(v1);
   v3 = *v0;
   ++*(uint32_t *)log_free_dispatch_n474;
   if ( v3 )
@@ -23297,7 +23210,7 @@ int critical_enter_7() {
   v0 = (int *)log_free_dispatch_n4f4;
   v1 = (int)(uintptr_t)(log_free_dispatch_0358);
   ++*(uint32_t *)log_free_dispatch_n4f4;
-  result = list_push_tail(v1);
+  result = ((int (*)())check_abort_flag)(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -23346,20 +23259,20 @@ LABEL_2:
     v8 = critical_enter_4();
     if ( !v8 )
     {
-      result = log_printf(dword_110484, *(uint32_t *)off_110480);
+      result = printf_wrapper(dword_110484, *(uint32_t *)off_110480);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or(32);
+      return set_system_flag_1(32);
     }
-    v9 = (int *)log_free_dispatch_n2b4();
+    v9 = (int *)critical_enter_0();
     v10 = v9;
     if ( !v9 )
     {
-      log_printf(dword_110488);
+      printf_wrapper(dword_110488);
       result = critical_enter_5();
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or(32);
+      return set_system_flag_1(32);
     }
     *v9 = v8;
     v9[1] = 0;
@@ -23383,7 +23296,7 @@ LABEL_2:
       }
       else
       {
-        log_printf(dword_11047C);
+        printf_wrapper(dword_11047C);
         v11 = *v7;
       }
     }
@@ -23460,7 +23373,7 @@ LABEL_2:
     v9 = (*(int ( **)(uint32_t))(*(uint32_t *)(a1 + 4 + 4) + 16))(*(uint32_t *)(a1 + 4));
     if ( !v9 )
     {
-      sub_10DA7C(dword_1105E0, *v7);
+      printf_wrapper(dword_1105E0, *v7);
 LABEL_23:
       if ( *(uint16_t *)(a2 + 0xC) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_1105B4 + 50) )
         return 1;
@@ -23472,7 +23385,7 @@ LABEL_24:
     v11 = v10;
     if ( !v10 )
     {
-      sub_10DA7C(dword_1105DC);
+      printf_wrapper(dword_1105DC);
       (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
       goto LABEL_23;
     }
@@ -23531,6 +23444,17 @@ LABEL_24:
       goto LABEL_2;
     }
   }
+  return 1;
+}
+
+
+
+// init_after_reset @ 0x1105ec
+int init_after_reset() {
+  int v0; // r0
+
+  v0 = rf_tx_start();
+  setup_patch_data(v0);
   return 1;
 }
 
@@ -23619,7 +23543,7 @@ int sch_arbitrate() {
               goto LABEL_8;
           }
           v17 = v10;
-          fw_subsystem_init();
+          tx_unlock();
           v8 = (v8 & ~0xFFFFu) | ((uint16_t)(v8 + (*(uint8_t *)(v17 + 11) & 0x7F)) & 0xFFFFu);
           critical_enter_1();
           v9 = v7;
@@ -23710,11 +23634,11 @@ int rf_tx_start() {
     *(uint32_t *)off_110E54 = *(uint32_t *)off_110E54 & 0x8000FFFF | 0x4E200000;
     *v21 = *v21 & 0xFFFF8000 | 0x4E20;
     *v22 = *v22 & 0xFFFFF000 | 0x960;
-    result = sub_10F764();
+    result = send_cmd_040d();
   }
   else
   {
-    ke_event_schedule_1(dword_110E28, 16, v1 << 29);
+    ke_event_schedule(dword_110E28, (void *)(uintptr_t)(16), v1 << 29);
     do
     {
       while ( (*(uint32_t *)off_110E2C & 0x20000000) != 0 )
@@ -23761,7 +23685,7 @@ int rf_tx_start() {
     v14 = dword_110E60;
     *v8 = 15;
     *v11 = v13;
-    ke_event_schedule_1(v14, v13, v11);
+    ke_event_schedule(v14, (void *)(uintptr_t)(v13), (int)(uintptr_t)(v11));
     v15 = (int *)off_110E2C;
     v16 = dword_110E30;
     while ( 1 )
@@ -23788,7 +23712,7 @@ int rf_tx_start() {
     *(uint32_t *)off_110E2C = dword_110E64;
     while ( (*v18 & 0x20000000) != 0 )
       ;
-    result = ke_event_schedule_1(dword_110E68, v18, v17);
+    result = ke_event_schedule(dword_110E68, v18, (int)(uintptr_t)(v17));
     *(uint32_t *)off_110E38 = *(uint32_t *)off_110E38 & 0xFFFFF000 | 0x960;
   }
   v20 = (void *)(uintptr_t)(off_110E70);
@@ -24010,7 +23934,7 @@ int ke_mem_alloc(char a1, int a2, int a3) {
 
   v6 = check_radio_state(4);
   if ( !v6 )
-    return sub_10DA7C(dword_11114C);
+    return printf_wrapper(dword_11114C);
   v7 = v6;
   v8 = (uint32_t *)critical_enter_0();
   if ( v8 )
@@ -24029,7 +23953,7 @@ int ke_mem_alloc(char a1, int a2, int a3) {
   }
   else
   {
-    sub_10DA7C(dword_111148);
+    printf_wrapper(dword_111148);
     return memory_pool_free(v7);
   }
 }
@@ -24070,7 +23994,7 @@ int rf_set_tx_power_1(int a1) {
   }
   *v1 = v4;
   *v1 = v2 | 0xC00000;
-  return sub_10DA7C(dword_1111E8, *(uint32_t *)off_1111E4 & 0x3FFFFF);
+  return printf_wrapper(dword_1111E8, *(uint32_t *)off_1111E4 & 0x3FFFFF);
 }
 
 
@@ -24149,12 +24073,12 @@ int rx_isr_status() {
     *(uint32_t *)rf_bus_mark_shift = *(uint32_t *)rf_bus_mark_shift;
     v50 = dword_1116A8;
     *v48 &= ~0x20u;
-    feature_guard_sdio(2, v50);
+    state_check_feature(2, v50);
     if ( (v49 & 4) != 0 )
     {
       v53 = (int)(uintptr_t)(rf_bus_write2_n_3ab);
       *(uint8_t *)rf_bus_reset2_n_1a8 = 1;
-      feature_guard_sdio(2, v53);
+      state_check_feature(2, v53);
     }
     if ( (v49 & 1) != 0 )
     {
@@ -24162,7 +24086,7 @@ int rx_isr_status() {
       *(uint32_t *)rf_bus_write_n_314 = 16;
       if ( *v52 )
       {
-        feature_guard_sdio(2, rf_bus_write_n_2e4);
+        state_check_feature(2, (int)(uintptr_t)(rf_bus_write_n_2e4));
         *v52 = 0;
       }
       if ( *(uint8_t *)rf_bus_mark_n_2c )
@@ -24171,7 +24095,7 @@ int rx_isr_status() {
         *((uint8_t *)rf_bus_mark_n_2c + 1) = 1;
         v56 = (int)(uintptr_t)(rf_bus_write2_n_3a0_16d8);
         *v55 |= 1u;
-        feature_guard_sdio(2, v56);
+        state_check_feature(2, v56);
       }
       v1 = 0;
       *(uint8_t *)rf_bus_reset2_n_19f = 0;
@@ -24180,20 +24104,20 @@ int rx_isr_status() {
     {
       v54 = dword_1116D0;
       *(uint8_t *)rf_bus_reset2_n_19f = 1;
-      feature_guard_sdio(2, v54);
+      state_check_feature(2, v54);
     }
     if ( (v49 & 8) != 0 )
-      ke_event_schedule_1(dword_1116BC, v51, v1);
+      ke_event_schedule(dword_1116BC, (void *)(uintptr_t)(v51), v1);
   }
   if ( (v0 & 1) != 0 )
   {
-    ke_event_schedule_1(dword_111478, v0 << 31, v1);
+    ke_event_schedule(dword_111478, (void *)(uintptr_t)(v0 << 31), v1);
     *(uint32_t *)rf_bus_mark_from_stack_args = 1;
   }
   v2 = v0 << 26;
   if ( (v0 & 0x20) != 0 )
   {
-    mmio_field_extract_n1168(*(uint32_t *)rf_bus_mark_n_260_1480);
+    ((int (*)())rf_set_tx_power)(*(uint32_t *)rf_bus_mark_n_260_1480);
     v2 = 32;
     *(uint32_t *)rf_bus_mark_from_stack_args = 32;
   }
@@ -24202,14 +24126,14 @@ int rx_isr_status() {
     v3 = *(uint32_t *)rf_bus_mark_n_25c;
     v4 = (void *)(uintptr_t)(off_11148C);
     *(uint32_t *)rf_bus_mark_n_25c = *(uint32_t *)rf_bus_mark_n_25c;
-    ke_event_schedule_1((int)(uintptr_t)(rf_bus_mark_n_250_1490), v3, *v4);
+    ke_event_schedule((int)(uintptr_t)(rf_bus_mark_n_250_1490), (void *)(uintptr_t)(v3), *v4);
   }
   if ( (v0 & 0x8000) == 0 )
     goto rf_bus_mark_n_499_0;
   v42 = (int)(uintptr_t)(rf_bus_mark_n_54);
   v43 = *(uint32_t *)off_111688;
   *(uint32_t *)off_111688 = *(uint32_t *)off_111688;
-  ke_event_schedule_1(v42, v43, v2);
+  ke_event_schedule(v42, (void *)(uintptr_t)(v43), v2);
   if ( (v43 & 4) != 0 )
   {
     v2 = (int)rf_bus_write_n_330;
@@ -24225,7 +24149,7 @@ rf_bus_mark_n_144:
     v44 = dword_111698;
     v45 = *(uint32_t *)off_111694;
     *(uint32_t *)off_111694 = *(uint32_t *)off_111694;
-    ke_event_schedule_1(v44, v45, v2);
+    ke_event_schedule(v44, (void *)(uintptr_t)(v45), v2);
     v6 = v0 << 8;
     if ( (v0 & 0x800000) == 0 )
       goto rf_bus_mark_n_48d;
@@ -24244,7 +24168,7 @@ rf_bus_mark_n_131:
   v46 = dword_1116A0;
   v47 = *(uint32_t *)rf_bus_write_n_324;
   *(uint32_t *)rf_bus_write_n_324 = *(uint32_t *)rf_bus_write_n_324;
-  ke_event_schedule_1(v46, v47, v6);
+  ke_event_schedule(v46, (void *)(uintptr_t)(v47), v6);
 rf_bus_mark_n_48d:
   if ( (v0 & 0x400) != 0 )
   {
@@ -24253,7 +24177,7 @@ rf_bus_mark_n_48d:
     v9 = *((uint8_t *)rf_bus_mark_n_24c + 1622);
     if ( v8 >= v9 )
     {
-      ke_event_schedule_1((int)(uintptr_t)(rf_bus_reset2_n_18f), v8, v9);
+      ke_event_schedule((int)(uintptr_t)(rf_bus_reset2_n_18f), (void *)(uintptr_t)(v8), v9);
     }
     else
     {
@@ -24282,15 +24206,15 @@ rf_bus_mark_n_48d:
       v17 = (void *)(rf_bus_reset2_n_3a8_14b0);
       *(uint32_t *)rf_bus_mark_n_234 = v15;
       *v17 = 16;
-      list_push_tail(rf_bus_mark_n_22c);
-      irq_nesting_or(256);
+      ((int (*)())check_abort_flag)(rf_bus_mark_n_22c);
+      set_system_flag_1(256);
     }
     v6 = 1024;
     *(uint32_t *)rf_bus_mark_from_stack_args = 1024;
   }
   if ( (v0 & 0x200) != 0 )
   {
-    ke_event_schedule_1((int)(uintptr_t)(rf_stream_start2_n_1a8), v5, v6);
+    ke_event_schedule((int)(uintptr_t)(rf_stream_start2_n_1a8), (void *)(uintptr_t)(v5), v6);
     *(uint32_t *)off_1116C4 = 512;
   }
   if ( (v0 & 0x100) != 0 )
@@ -24314,12 +24238,12 @@ rf_bus_mark_n_48d:
       *((uint32_t *)v41 + 410) = v39;
       v41[1644] = v38;
       v18[2433] = v19 + 1;
-      list_push_tail(v18 + 2436);
-      irq_nesting_or(0x400000);
+      ((int (*)())check_abort_flag)((int)(uintptr_t)(v18 + 2436));
+      set_system_flag_1(0x400000);
     }
     else
     {
-      ke_event_schedule_1((int)(uintptr_t)(rf_bus_mark_n_228), v19, v20);
+      ke_event_schedule((int)(uintptr_t)(rf_bus_mark_n_228), (void *)(uintptr_t)(v19), v20);
     }
     *(uint32_t *)rf_bus_mark_from_stack_args = 256;
   }
@@ -24332,11 +24256,11 @@ rf_bus_mark_n_48d:
       v23 = *((uint8_t *)rf_bus_write_14c0 + 369);
       *(uint8_t *)rf_bus_reset2_n_39b = 0;
       if ( v23 )
-        irq_enable(1);
+        gpio_set_bit_reg0(1);
       else
         gpio_clear_bit_reg0(1);
       if ( v22[374] == 1 )
-        timestamp_remove_058(rf_bus_write_n_4fc);
+        ke_event_set_lock((int)(uintptr_t)(rf_bus_write_n_4fc));
     }
     v24 = (void *)(rf_bus_write_4c8);
     v25 = *((uint8_t *)rf_bus_write_4c8 + 3074);
@@ -24354,12 +24278,12 @@ rf_bus_mark_n_48d:
       v24[3072] = v35;
       *((uint16_t *)v36 + 4) = *v37;
       v24[3074] = v25 + 1;
-      list_push_tail(v24 + 3080);
-      result = irq_nesting_or(128);
+      ((int (*)())check_abort_flag)((int)(uintptr_t)(v24 + 3080));
+      result = set_system_flag_1(128);
     }
     else
     {
-      result = ke_event_schedule_1((int)(uintptr_t)(rf_bus_write_n_4f3), v25, v26);
+      result = ke_event_schedule((int)(uintptr_t)(rf_bus_write_n_4f3), (void *)(uintptr_t)(v25), v26);
     }
     v27 = (void *)(rf_bus_mark_n_210);
     *(uint32_t *)rf_bus_mark_from_stack_args = 4096;
@@ -24374,11 +24298,11 @@ rf_bus_mark_n_48d:
       v29 = *((uint8_t *)rf_bus_write_14c0 + 369);
       *(uint8_t *)rf_bus_reset2_n_39b = 0;
       if ( v29 )
-        irq_enable(1);
+        gpio_set_bit_reg0(1);
       else
         gpio_clear_bit_reg0(1);
       if ( v28[374] == 1 )
-        timestamp_remove_058(rf_bus_write_n_4fc);
+        ke_event_set_lock((int)(uintptr_t)(rf_bus_write_n_4fc));
     }
     v30 = (void *)(rf_bus_write_4c8);
     v31 = *((uint8_t *)rf_bus_write_4c8 + 6162);
@@ -24394,12 +24318,12 @@ rf_bus_mark_n_48d:
       v30[4 * v33 + 773] = *v34;
       v30[4 * v33 + 774] = (v30[4 * v33 + 774] & ~0xFFFFu) | ((uint16_t)(*(uint32_t *)rf_bus_write_14e8) & 0xFFFFu);
       *((uint8_t *)v30 + 6162) = v31 + 1;
-      list_push_tail(rf_bus_write_4ec);
-      result = irq_nesting_or(64);
+      ((int (*)())check_abort_flag)(rf_bus_write_4ec);
+      result = set_system_flag_1(64);
     }
     else
     {
-      result = ke_event_schedule_1((int)(uintptr_t)(rf_bus_reset2_n_37f), v31, v31);
+      result = ke_event_schedule((int)(uintptr_t)(rf_bus_reset2_n_37f), (void *)(uintptr_t)(v31), v31);
     }
     v32 = (void *)(rf_bus_mark_n_204);
     *(uint32_t *)rf_bus_mark_from_stack_args = 2048;
@@ -24494,7 +24418,7 @@ int * tx_hdr_clear(int a1) {
 
   v2 = (int)(uintptr_t)(rf_bus_write_n_1c8 + 16 * (a1 - 1));
   v3 = *(uint8_t *)(v2 + 8);
-  result = (void *)(uintptr_t)(memset_thunk((int *)v2, 0, 0x10u));
+  result = memset_byte((int *)v2, 0, 0x10u);
   if ( v3 )
   {
     result = (int *)dword_1117FC;
@@ -24605,7 +24529,7 @@ LABEL_11:
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return ke_event_schedule_1(v7, v4, 46);
+  return ke_event_schedule(v7, v4, 46);
 }
 
 
@@ -24806,7 +24730,7 @@ int * rf_reg_write(int *result, unsigned int a2) {
   if ( result )
   {
     if ( a2 <= 5 )
-      return (int *)rf_bus_write2_1a78(a2, 0x8000000, 0);
+      return (int *)rx_desc_hw_config(a2, 0x8000000, 0);
   }
   else if ( a2 <= 5 )
   {
@@ -24822,7 +24746,7 @@ int * rf_reg_write_b(int *result, unsigned int a2) {
   if ( result )
   {
     if ( a2 <= 5 )
-      return (int *)rf_bus_write2_1a78(a2, 0x200000, 0);
+      return (int *)rx_desc_hw_config(a2, 0x200000, 0);
   }
   else if ( a2 <= 5 )
   {
@@ -24838,7 +24762,7 @@ int * rf_reg_write_c(int *result, unsigned int a2) {
   if ( result )
   {
     if ( a2 <= 5 )
-      return (int *)rf_bus_write2_1a78(a2, 0x8000000, 0x200000);
+      return (int *)rx_desc_hw_config(a2, 0x8000000, 0x200000);
   }
   else if ( a2 <= 5 )
   {
@@ -24873,7 +24797,7 @@ int ipc_send_request(uint32_t *a1, int a2) {
   int v17; // r1
   uint32_t *v18; // r3
 
-  ke_event_schedule_1(dword_111D1C, 0, a2);
+  ke_event_schedule(dword_111D1C, 0, a2);
   if ( !a1 )
     return 1;
   if ( !*a1 || !a1[1] || !a1[2] || !a1[5] )
@@ -24888,7 +24812,7 @@ int ipc_send_request(uint32_t *a1, int a2) {
   v8 = v5[97];
   if ( v8 )
   {
-    ke_event_schedule_1(dword_111D54, v8, v7);
+    ke_event_schedule(dword_111D54, (void *)(uintptr_t)(v8), v7);
     timer_set(v5[97]);
   }
   v9 = (void *)(uintptr_t)(off_111D2C);
@@ -24922,7 +24846,7 @@ int ipc_send_request(uint32_t *a1, int a2) {
     }
     rf_radio_enable();
   }
-  ke_event_schedule_1(dword_111D30, v10, v11);
+  ke_event_schedule(dword_111D30, (void *)(uintptr_t)(v10), (int)(uintptr_t)(v11));
   v12 = dword_111D38;
   v13 = (void *)(uintptr_t)(off_111D3C);
   *(uint32_t *)(*((uint32_t *)off_111D34 + 2) + 320) = dword_111D38;
@@ -24932,7 +24856,7 @@ int ipc_send_request(uint32_t *a1, int a2) {
     while ( *v4 != 4 )
       ;
   }
-  ke_event_schedule_1(dword_111D40, v12, 1);
+  ke_event_schedule(dword_111D40, (void *)(uintptr_t)(v12), 1);
   return 0;
 }
 
@@ -25001,7 +24925,7 @@ int * ke_cmd_handler(int *result, unsigned int a2, int a3, unsigned int a4) {
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)sub_10DA7C(dword_111EA0, v13, v9, 2048);
+        result = (int *)printf_wrapper(dword_111EA0, v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = (void *)(uintptr_t)(off_111E98);
@@ -25043,7 +24967,7 @@ int ke_msg_handler_1(int a1, int a2, unsigned int a3) {
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA7C(dword_111F54);
+    printf_wrapper(dword_111F54);
     return 3;
   }
   else
@@ -25117,7 +25041,7 @@ int ke_msg_handler_b(int a1, int a2, unsigned int a3) {
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA7C(dword_11202C);
+    printf_wrapper(dword_11202C);
     return 3;
   }
   else
@@ -25260,7 +25184,7 @@ int rx_parse_packet(uint64_t a1) {
     if ( v14 == 2 )
     {
       v3 = (void *)(uintptr_t)(off_112394);
-      sub_10DA7C(dword_1123A8);
+      printf_wrapper(dword_1123A8);
       goto LABEL_7;
     }
     if ( (a1 & 0x100000000LL) == 0 )
@@ -25289,7 +25213,7 @@ int rx_parse_packet(uint64_t a1) {
       *((uint16_t *)off_112390 + 5) = v48;
       if ( HIDWORD(a1) < v48 )
       {
-        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(sub_10DA7C(dword_112834)) & 0xFFFFFFFFu);
+        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(printf_wrapper(dword_112834)) & 0xFFFFFFFFu);
         a1 = (a1 & ~0xFFFF0000u) | (((uint16_t)(*((uint16_t *)v2 + 4)) & 0xFFFFu) << 16);
         v48 = *((uint16_t *)v2 + 5);
       }
@@ -25400,7 +25324,7 @@ LABEL_7:
       v6 = v4[6] | (v4[7] << 8);
       *((uint16_t *)v2 + 9) = v6;
       if ( !v6 && (v2[12] & 0x80u) != 0 )
-        sub_10DA7C(dword_1126F0);
+        printf_wrapper(dword_1126F0);
       v7 = (void *)(uintptr_t)(off_112398);
       v8 = (void *)(uintptr_t)(off_11239C);
       v9 = *((int ( **)(void *))off_11239C + 3);
@@ -25590,15 +25514,15 @@ LABEL_44:
           switch ( HIBYTE(*((uint16_t *)v2 + 7)) )
           {
             case 1u:
-              ((int (*)())rf_calibrate_1)();
+              ((int (*)())rf_calibrate)();
               *(uint8_t *)v8 = (uint8_t)v2;
               hci_evt_send((int)(uintptr_t)(v8));
               a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(((int ( *)(int, int, int))hci_evt_alloc_send)(5130, 13, 5)) & 0xFFFFFFFFu);
               return a1;
             case 2u:
-              JUMPOUT(0x1325D6);
+              ((int (*)())JUMPOUT)(0x1325D6);
             default:
-              sub_10DA7C(dword_1123B0);
+              printf_wrapper(dword_1123B0);
               goto LABEL_54;
           }
         case 8u:
@@ -25924,7 +25848,7 @@ uint8_t * ke_wait_event_a(int a1, int a2, int a3) {
   if ( (*((uint16_t *)off_112AE8 + 89) & 0x4000) != 0 )
     result = uart_puts((uint8_t *)dword_112AF4);
   else
-    result = (uint8_t *)ke_event_schedule_1(dword_112AEC, a2, a3);
+    result = (uint8_t *)ke_event_schedule(dword_112AEC, (void *)(uintptr_t)(a2), a3);
   *(uint8_t *)off_112AF0 = 1;
   return result;
 }
@@ -25946,7 +25870,7 @@ uint8_t * ke_wait_event_b(int a1, int a2, int a3) {
   if ( (*((uint16_t *)off_112B34 + 89) & 0x4000) != 0 )
     result = uart_puts((uint8_t *)dword_112B44);
   else
-    result = (uint8_t *)ke_event_schedule_1(dword_112B38, a2, a3);
+    result = (uint8_t *)ke_event_schedule(dword_112B38, (void *)(uintptr_t)(a2), a3);
   v4 = (void *)(uintptr_t)(off_112B40);
   *(uint8_t *)off_112B3C = 0;
   v4[896] &= ~1u;
@@ -26087,7 +26011,7 @@ LABEL_3:
         }
         else
         {
-          v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(sub_10DA7C(dword_112DAC)) & 0xFFFFFFFFu);
+          v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(printf_wrapper(dword_112DAC)) & 0xFFFFFFFFu);
         }
       }
       if ( (uint8_t)v10 == 5 )
@@ -26227,6 +26151,13 @@ int critical_section_run(int a1, uint16_t *a2) {
 
 
 
+// get_config_ptr @ 0x112f20
+int get_config_ptr() {
+  return (int)(uintptr_t)(rf_cmd_send_nb8);
+}
+
+
+
 // seq_num_inc @ 0x112f60
 int seq_num_inc(uint8_t *a1, unsigned int a2, int a3) {
   uint16_t *v3; // r7
@@ -26256,38 +26187,38 @@ int seq_num_inc(uint8_t *a1, unsigned int a2, int a3) {
   v7 = a1;
   if ( *v4 != 2 )
   {
-    log_printf(rf_stream_start2_n_16c, *v3, *v4);
+    printf_wrapper((int)(uintptr_t)(rf_stream_start2_n_16c), *v3, *v4);
     band_is_supported(dword_1130E4, (int)(uintptr_t)(v7), a2, *v4);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    log_printf(dword_1130E8, *v3, a2);
+    printf_wrapper(dword_1130E8, *v3, a2);
   }
   else
   {
     v9 = a1[2];
     v10 = *a1 | (a1[1] << 8) & 0xF00;
     if ( *(uint8_t *)rf_msg_process_body_n_14e )
-      a1 = (uint8_t *)feature_guard_sdio(512, dword_1130F4);
+      a1 = (uint8_t *)state_check_feature(512, dword_1130F4);
     if ( v9 == 1 )
     {
       if ( a2 == v10 || v10 + 1 == a2 )
       {
         ((void (*)(void))bt_task_tail_dispatch)();
-        rf_msg_process_body_3aa4(v7 + 4);
-        irq_nesting_or(512);
+        rx_packet_parse((int)(uintptr_t)(v7 + 4));
+        set_system_flag_1(512);
         return 1;
       }
-      log_printf(dword_1130F8, *v3, v10, a2);
+      printf_wrapper(dword_1130F8, *v3, v10, a2);
     }
     else if ( v9 == 17 )
     {
       v11 = (void *)(uintptr_t)(off_113104);
       if ( *((uint8_t *)off_113104 + 2433) >= (unsigned int)*((uint8_t *)off_113104 + 2434) )
       {
-        log_printf(dword_113100);
+        printf_wrapper(dword_113100);
       }
       else
       {
@@ -26306,19 +26237,19 @@ int seq_num_inc(uint8_t *a1, unsigned int a2, int a3) {
           *((uint32_t *)v15 + 409) = (int)(uintptr_t)(v7 + 4);
           *((uint32_t *)v15 + 412) = v10;
           v11[2433] = v12 + 1;
-          list_push_tail(v13);
-          irq_nesting_or(0x400000);
+          ((int (*)())check_abort_flag)(v13);
+          set_system_flag_1(0x400000);
           return 1;
         }
-        log_printf(rf_msg_handler_n19c, *v3, v10, a2);
+        printf_wrapper((int)(uintptr_t)(rf_msg_handler_n19c), *v3, v10, a2);
       }
     }
     else
     {
-      log_printf(rf_stream_start2_n_15c, *v3, v9, v10, a2);
+      printf_wrapper((int)(uintptr_t)(rf_stream_start2_n_15c), *v3, v9, v10, a2);
     }
   }
-  v17 = log_free_dispatch_2(&v7[-*(uint32_t *)rf_mem_scan_bytes]);
+  v17 = memory_pool_free((void *)(&v7[-*(uint32_t *)rf_mem_scan_bytes]));
   bt_task_tail_dispatch(v17);
   return 1;
 }
@@ -26346,9 +26277,9 @@ int sys_cmu_clock_get(int a1) {
   {
     v2 = (uint16_t *)off_11318C;
     memset_byte((int *)off_11318C, 0xFFu, 4u);
-if ( ioctl2_cmd_0x400000((int)(uintptr_t)(v2)) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) ) ke_event_schedule_1(dword_113190, v3, v4);
+if ( ioctl2_cmd_0x400000((int)(uintptr_t)(v2)) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) ) ke_event_schedule(dword_113190, (void *)(uintptr_t)(v3), v4);
     else
-      ke_event_schedule_1(dword_1131A8, v3, v4);
+      ke_event_schedule(dword_1131A8, (void *)(uintptr_t)(v3), v4);
   }
   v5 = (void *)(uintptr_t)(off_113198);
   v6 = (void *)(uintptr_t)(off_11319C);
@@ -26363,7 +26294,7 @@ if ( ioctl2_cmd_0x400000((int)(uintptr_t)(v2)) || (v4 = v2[1], v4 == 0xFFFF) || 
     if ( *(uint8_t *)(a1 + 8) )
       v9 = 1;
     v10 = ipc_send_request(v7, v9);
-    ke_event_schedule_1(v8, v10, v11);
+    ke_event_schedule(v8, (void *)(uintptr_t)(v10), v11);
   }
   while ( v10 );
   return 0;
@@ -26387,7 +26318,7 @@ int global_env_init(int a1, unsigned int a2) {
   v3 = (void *)(uintptr_t)(off_113234);
   if ( *(uint8_t *)off_113234 )
   {
-    sub_10DA7C(dword_113244, dword_113240, *(uint8_t *)off_113234);
+    printf_wrapper(dword_113244, dword_113240, *(uint8_t *)off_113234);
     return -3;
   }
   else
@@ -26395,11 +26326,11 @@ int global_env_init(int a1, unsigned int a2) {
     v4 = (void *)(uintptr_t)(off_113238);
     *(uint8_t *)off_113234 = 1;
     v4[716] &= 0xE007FFFF;
-    v5 = ke_msg_handler_1(1, a1, a2);
+    v5 = ke_msg_handler((void *)(uintptr_t)(1), a1, a2);
     v6 = v5;
     if ( v5 )
     {
-      sub_10DA7C(dword_113248, dword_113240, v5);
+      printf_wrapper(dword_113248, dword_113240, v5);
       return -1;
     }
     else
@@ -26435,7 +26366,7 @@ int global_env_init_params(int a1, unsigned int a2) {
   v3 = (void *)(uintptr_t)(off_1132F4);
   if ( *(uint8_t *)off_1132F4 )
   {
-    sub_10DA7C(dword_113308, dword_113304, *(uint8_t *)off_1132F4);
+    printf_wrapper(dword_113308, dword_113304, *(uint8_t *)off_1132F4);
     return -3;
   }
   else
@@ -26456,7 +26387,7 @@ int global_env_init_params(int a1, unsigned int a2) {
     v7 = v6;
     if ( v6 )
     {
-      sub_10DA7C(dword_11330C, dword_113304, v6);
+      printf_wrapper(dword_11330C, dword_113304, v6);
       return -1;
     }
     else
@@ -26594,8 +26525,8 @@ int rf_calib_mode_set(int a1, int a2, int a3) {
         }
         else
         {
-          sub_10DA7C(v8);
-          a1 = rx_packet_handler_2(v10, 32, 1, 0);
+          printf_wrapper(v8);
+          a1 = ((int (*)())rx_packet_handler)(v10, 32, 1, 0);
         }
       }
       while ( *v5 );
@@ -26607,7 +26538,7 @@ LABEL_12:
   else
   {
     v13 = a1;
-    sub_10DA7C(dword_113474, *v3);
+    printf_wrapper(dword_113474, *v3);
     band_is_supported(dword_113478, v13, a2, *v3);
     return 1;
   }
@@ -26627,9 +26558,9 @@ uint32_t * mode_to_config_get(int a1) {
     case 1:
       v2 = (void *)(rf_bus_write2_n1be);
       v3 = (int)(uintptr_t)(memcpy_aligned((void *)(rf_bus_write2_n1be), (void *)(rf_stream_start2_n2a8), 18));
-      if ( *((uint8_t *)rf_fault_dump_n_3ec + 370) && bt_ps_control(v3) )
+      if ( *((uint8_t *)rf_fault_dump_n_3ec + 370) && get_hw_info_bit9(v3) )
       {
-        v4 = sub_114E98();
+        v4 = get_hw_info_2();
         v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
         return v2;
       }
@@ -26733,7 +26664,7 @@ void bt_ctrl_main_task() {
     if ( v7 )
     {
       v8 = (void *)(uintptr_t)(off_113640);
-      sub_10DA7C(dword_11365C, v7);
+      printf_wrapper(dword_11365C, v7);
       v9 = 5;
       while ( 1 )
       {
@@ -26751,7 +26682,7 @@ void bt_ctrl_main_task() {
           break;
         if ( !--v9 )
         {
-          sub_10DA7C(dword_113660, 5);
+          printf_wrapper(dword_113660, 5);
           memory_pool_free(v2);
           set_system_flag_1(32);
           return;
@@ -26762,7 +26693,7 @@ void bt_ctrl_main_task() {
   else
   {
     set_system_flag_1(32);
-    sub_10DA7C(dword_113668);
+    printf_wrapper(dword_113668);
   }
 }
 
@@ -26782,7 +26713,7 @@ int bt_evt_sched_high() {
   int v9; // r2
 
   v0 = rf_stream_start2_n4a0;
-  result = bt_xtal_init_check(rf_stream_start2_n4a4);
+  result = (int)(uintptr_t)(zero_struct((void *)(rf_stream_start2_n4a4)));
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = (void *)(rf_stream_start2_3700);
@@ -26793,13 +26724,13 @@ int bt_evt_sched_high() {
     v7 = 0;
     do
     {
-      if ( !log_pool_alloc2(v4, (uint16_t)(v2[153] - 4)) )
+      if ( !rx_process_item(v4, (uint16_t)(v2[153] - 4)) )
       {
-        ke_event_schedule_1(v5, v7, v9);
+        ke_event_schedule(v5, (void *)(uintptr_t)(v7), v9);
         if ( **v6 < 0 )
           mmio_irq_clear((int)(uintptr_t)(rf_stream_start2_n4b0), (int)(uintptr_t)(rf_stream_start2_n4ac), 495);
       }
-      result = list_push_tail(rf_stream_start2_n4a4);
+      result = ((int (*)())check_abort_flag)(rf_stream_start2_n4a4);
       v8 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v7;
       ++*v3;
@@ -26830,7 +26761,7 @@ void critical_section_enter() {
   v0 = (int *)off_113800;
   v1 = dword_113804;
   ++*(uint32_t *)off_113800;
-  list_push_tail(v1);
+  ((int (*)())check_abort_flag)(v1);
   v2 = (void *)(uintptr_t)(off_11380C);
   v3 = *(uint8_t *)off_11380C;
   v4 = *(uint16_t *)off_113808 + 1;
@@ -26843,11 +26774,11 @@ void critical_section_enter() {
       *((uint32_t *)off_113818 + 512) &= ~0x2000u;
     else
       *((uint32_t *)off_113818 + 713) &= ~1u;
-    hw_event_flag_1f58(1);
+    phy_reg_modify(1);
     irq_lock(1069, 1);
-    feature_guard_sdio(512, dword_11381C);
+    state_check_feature(512, dword_11381C);
     if ( !*(uint8_t *)off_113820 )
-      log_flush();
+      bt_ctrl_main_task();
   }
   if ( *v0 )
   {
@@ -26965,6 +26896,18 @@ BOOL is_rf_calib_running() {
 
 
 
+// init_memory_regions @ 0x1138fc
+int init_memory_regions() {
+  int v0; // r1
+  int v1; // r2
+
+  sys_cmu_clock_get(dword_113910);
+  ke_event_schedule(dword_113914, (void *)(uintptr_t)(v0), v1);
+  return 1;
+}
+
+
+
 // rf_stat_read @ 0x113918
 int rf_stat_read(int a1) {
   void *v1; // r5
@@ -27006,7 +26949,7 @@ int rf_stat_read(int a1) {
   v4[5] = 0;
   v4[3] = 0;
   v5[6] = 0;
-  memset_thunk(v3, 0, 0x140u);
+  memset_byte(v3, 0, 0x140u);
   v6 = *(int **)(*(uint32_t *)v1 + 20);
   v7 = (void *)(uintptr_t)(off_113A38);
   v8 = (void *)(uintptr_t)(off_113A3C);
@@ -27019,7 +26962,7 @@ int rf_stat_read(int a1) {
   v9 = (void *)(uintptr_t)(off_113A40);
   v8[4] = (int)(uintptr_t)(v6 + 12);
   *v9 = (int)(uintptr_t)(v6 + 14);
-  memset_thunk(v6, 0, 0xCB8u);
+  memset_byte(v6, 0, 0xCB8u);
   if ( **(int16_t **)off_113A44 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
     mmio_irq_clear(dword_113A78, dword_113A74, 758);
   v10 = (void *)(uintptr_t)(off_113A48);
@@ -27051,13 +26994,13 @@ int rf_stat_read(int a1) {
     v22 = (void *)(uintptr_t)(off_113A6C);
     v23 = dword_113A70;
     *(uint8_t *)off_113A6C = v21;
-    ke_event_schedule_1(v23, v21, v22);
+    ke_event_schedule(v23, (void *)(uintptr_t)(v21), (int)(uintptr_t)(v22));
   }
   else
   {
     v25 = dword_113A70;
     *(uint8_t *)off_113A6C = 10;
-    ke_event_schedule_1(v25, 10, v15);
+    ke_event_schedule(v25, (void *)(uintptr_t)(10), (int)(uintptr_t)(v15));
   }
   return 1;
 }
@@ -27097,7 +27040,7 @@ int rx_packet_parse(int a1) {
   v2 = *(uint8_t *)(a1 + 24);
   if ( v1 <= 0x1F && !*(uint8_t *)(dword_113BE4 + 696 * v1 + 37) )
   {
-    ke_event_schedule_1(dword_113C04, 696, dword_113BE4);
+    ke_event_schedule(dword_113C04, (void *)(uintptr_t)(696), dword_113BE4);
     return memory_pool_free((uint32_t *)(a1 - *(uint32_t *)off_113BF0 - 4));
   }
   v4 = dword_113C08;
@@ -27112,7 +27055,7 @@ int rx_packet_parse(int a1) {
       if ( v6 )
         goto LABEL_7;
 LABEL_13:
-      sub_10DA7C(dword_113BF8, *(uint8_t *)(dword_113BEC + v5));
+      printf_wrapper(dword_113BF8, *(uint8_t *)(dword_113BEC + v5));
       while ( 1 )
         ;
     }
@@ -27190,7 +27133,7 @@ int sleep_exit_critical() {
 // bt_task_tail_dispatch @ 0x113f60
 void bt_task_tail_dispatch() {
   if ( !*(uint8_t *)off_113F6C )
-    log_flush();
+    bt_ctrl_main_task();
 }
 
 
@@ -27203,13 +27146,13 @@ int dispatch_function_ptr() {
 
   v0 = (*(int ( **)(uint32_t))(*((uint32_t *)off_113FB0 + 2) + 16))(*((uint32_t *)off_113FB0 + 1));
   if ( !v0 )
-    return log_printf(dword_113FBC);
+    return printf_wrapper(dword_113FBC);
   v1 = (uint32_t *)v0;
-  result = rf_stream_start_1ac(*(uint32_t *)off_113FB4 + v0, *(uint32_t *)off_113FB8);
+  result = global_env_init(*(uint32_t *)off_113FB4 + v0, *(uint32_t *)off_113FB8);
   if ( result < 0 )
   {
-    log_free_dispatch_2(v1);
-    return log_printf(dword_113FC0);
+    memory_pool_free(v1);
+    return printf_wrapper(dword_113FC0);
   }
   return result;
 }
@@ -27218,7 +27161,7 @@ int dispatch_function_ptr() {
 
 // log_and_handle @ 0x113fc4
 int log_and_handle(int a1, int a2, int a3) {
-  ke_event_schedule_1(dword_113FD4, a2, a3);
+  ke_event_schedule(dword_113FD4, (void *)(uintptr_t)(a2), a3);
   return dispatch_function_ptr();
 }
 
@@ -27237,15 +27180,15 @@ int band_is_supported(int a1, int a2, int a3, int a4) {
   {
     if ( a1 != *((uint32_t *)off_114078 + 1) )
     {
-      result = ke_event_schedule_1(dword_11407C, a1, *(uint32_t *)off_114078);
+      result = ke_event_schedule(dword_11407C, (void *)(uintptr_t)(a1), *(uint32_t *)off_114078);
       goto LABEL_4;
     }
     v5 = 1;
   }
-  result = ke_event_schedule_1(dword_11408C, dword_114088, *(uint32_t *)(dword_114084 + 4 * v5));
+  result = ke_event_schedule(dword_11408C, (void *)(uintptr_t)(dword_114088), *(uint32_t *)(dword_114084 + 4 * v5));
 LABEL_4:
   if ( *((uint8_t *)off_114080 + 353) )
-    return rf_level_apply_80c(1068, 1, 1000 * *((uint8_t *)off_114080 + 354), a4);
+    return ((int (*)())patch_aware_dispatch)(1068, 1, 1000 * *((uint8_t *)off_114080 + 354), a4);
   return result;
 }
 
@@ -27316,6 +27259,14 @@ int set_busy_flag() {
 
 
 
+// init_queue_buffer @ 0x114140
+int init_queue_buffer() {
+  state_check_feature(256, dword_114150);
+  return 1;
+}
+
+
+
 // init_hw_state @ 0x114154
 int init_hw_state(int a1) {
   uint32_t *v1; // r2
@@ -27337,21 +27288,21 @@ int init_hw_state(int a1) {
 
 // log_debug_a @ 0x1143ac
 int log_debug_a(int a1, int a2, int a3) {
-  return ke_event_schedule_1(dword_1143B4, a2, a3);
+  return ke_event_schedule(dword_1143B4, (void *)(uintptr_t)(a2), a3);
 }
 
 
 
 // log_debug_b @ 0x1143b8
 int log_debug_b(int a1, int a2, int a3) {
-  return ke_event_schedule_1(dword_1143C0, a2, a3);
+  return ke_event_schedule(dword_1143C0, (void *)(uintptr_t)(a2), a3);
 }
 
 
 
 // log_debug_c @ 0x1143c4
 int log_debug_c(int a1, int a2, int a3) {
-  return ke_event_schedule_1(dword_1143CC, a2, a3);
+  return ke_event_schedule(dword_1143CC, (void *)(uintptr_t)(a2), a3);
 }
 
 
@@ -27362,7 +27313,7 @@ int log_and_check_hw(int a1, int a2, int a3) {
   uint8_t *v4; // r3
   uint32_t *v5; // r1
 
-  result = ke_event_schedule_1(dword_1143F8, a2, a3);
+  result = ke_event_schedule(dword_1143F8, (void *)(uintptr_t)(a2), a3);
   v4 = (void *)(uintptr_t)(off_1143FC);
   if ( *((uint8_t *)off_1143FC + 3) )
   {
@@ -27385,7 +27336,7 @@ int check_radio_flag_1(int result) {
       && (result = *((uint32_t *)off_11447C + 4),
           *(uint32_t *)(*(uint32_t *)off_114478 + 12) - result - *((uint16_t *)off_114480 + 92) - 2000 < 0) )
     {
-      result = feature_guard_sdio(2, dword_114490);
+      result = state_check_feature(2, dword_114490);
     }
     else
     {
@@ -27400,7 +27351,7 @@ int check_radio_flag_1(int result) {
         *(uint32_t *)off_11448C = 0x40000000;
         return result;
       }
-      result = feature_guard_sdio(2, dword_114494);
+      result = state_check_feature(2, dword_114494);
     }
   }
   *(uint32_t *)off_11448C = 0x80000000;
@@ -27518,7 +27469,7 @@ void phy_calibrate_1() {
 
   v0 = (void *)(uintptr_t)(off_114664);
   v1 = *(uint32_t *)(*(uint32_t *)off_114664 + 16);
-  ke_event_schedule_1(dword_114670, v1, *(uint32_t *)off_11466C);
+  ke_event_schedule(dword_114670, (void *)(uintptr_t)(v1), *(uint32_t *)off_11466C);
   if ( (v1 & 1) != 0 )
     *(uint32_t *)(*(uint32_t *)v0 + 12) = 1;
   CPSR = __get_CPSR();
@@ -27526,10 +27477,10 @@ void phy_calibrate_1() {
   v4 = __get_CPSR();
   v5 = __get_CPSR();
   __get_CPSR();
-  ke_event_schedule_1(dword_114674, CPSR, v3);
+  ke_event_schedule(dword_114674, (void *)(uintptr_t)(CPSR), v3);
   if ( v4 )
   {
-    ke_event_schedule_1(dword_114690, v6, v7);
+    ke_event_schedule(dword_114690, (void *)(uintptr_t)(v6), v7);
     if ( !v5 )
       goto LABEL_5;
   }
@@ -27539,18 +27490,18 @@ void phy_calibrate_1() {
   }
   v13 = v5 & 0xFFFFFFF0;
   v14 = (dword_114694 - v13) >> 2;
-  ke_event_schedule_1(dword_114698, v6, v7);
+  ke_event_schedule(dword_114698, (void *)(uintptr_t)(v6), v7);
   v15 = v14;
   if ( v14 >= 0x100 )
     v15 = 256;
-  rx_packet_handler_2(v13, v15, 4, 0);
+  ((int (*)())rx_packet_handler)(v13, v15, 4, 0);
 LABEL_5:
-  ke_event_schedule_1(dword_114678, v6, v7);
-  rx_packet_handler_2(dword_11467C, 8, 4, 0);
-  ke_event_schedule_1(dword_114680, v8, v9);
-  rx_packet_handler_2(dword_114684, 8, 4, 0);
-  ke_event_schedule_1(dword_114688, v10, v11);
-  v12 = rx_packet_handler_2(dword_11468C, 16, 4, 0);
+  ke_event_schedule(dword_114678, (void *)(uintptr_t)(v6), v7);
+  ((int (*)())rx_packet_handler)(dword_11467C, 8, 4, 0);
+  ke_event_schedule(dword_114680, (void *)(uintptr_t)(v8), v9);
+  ((int (*)())rx_packet_handler)(dword_114684, 8, 4, 0);
+  ke_event_schedule(dword_114688, (void *)(uintptr_t)(v10), v11);
+  v12 = ((int (*)())rx_packet_handler)(dword_11468C, 16, 4, 0);
   check_op_mode(v12);
 }
 
@@ -27562,12 +27513,12 @@ int invoke_callback(uint32_t *a1) {
   int v2; // r2
 
   if ( *(uint32_t *)off_1146C8 )
-    return list_push_tail(off_1146C8);
+    return ((int (*)())check_abort_flag)(off_1146C8);
   result = sys_control((int)(uintptr_t)(a1 + 1), *a1);
   if ( result )
   {
-    ke_event_schedule_1(dword_1146CC, result, v2);
-    return list_push_tail(off_1146C8);
+    ke_event_schedule(dword_1146CC, (void *)(uintptr_t)(result), v2);
+    return ((int (*)())check_abort_flag)(off_1146C8);
   }
   return result;
 }
@@ -27623,7 +27574,7 @@ int lock_release() {
   v0 = (int *)off_11474C;
   v1 = dword_114750;
   ++*(uint32_t *)off_11474C;
-  result = list_push_tail(v1);
+  result = ((int (*)())check_abort_flag)(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -27636,6 +27587,22 @@ int lock_release() {
     }
   }
   return result;
+}
+
+
+
+// init_osal_objects @ 0x114754
+int init_osal_objects() {
+  int v0; // r4
+  int v1; // r5
+
+  v0 = dword_114788;
+  v1 = dword_114788 + 8;
+  zero_struct((void *)(uintptr_t)(dword_114788));
+  zero_struct((void *)(uintptr_t)(v1));
+  ((int (*)())check_abort_flag)(v1);
+  ((int (*)())check_abort_flag)(v1);
+  return (int)(uintptr_t)(zero_struct((void *)(uintptr_t)(v0 + 16)));
 }
 
 
@@ -27671,7 +27638,7 @@ int wait_for_value(uint8_t *a1, int a2) {
   v4 = dispatch_by_cmd(a1);
   if ( v4 < 0 )
   {
-    ke_event_schedule_1(dword_114828, *a1, v5);
+    ke_event_schedule(dword_114828, (void *)(uintptr_t)(*a1), v5);
     return a2;
   }
   else if ( v4 == a2 )
@@ -27681,18 +27648,18 @@ int wait_for_value(uint8_t *a1, int a2) {
     {
       v7 = lock_acquire();
       memcpy_aligned((void *)(uintptr_t)(v7 + 4), a1, a2);
-      list_push_tail(v6 + 16);
-      irq_nesting_or(16);
+      ((int (*)())check_abort_flag)((int)(uintptr_t)(v6 + 16));
+      set_system_flag_1(16);
     }
     else
     {
-      ke_event_schedule_1(dword_114824, v4, v5);
+      ke_event_schedule(dword_114824, (void *)(uintptr_t)(v4), v5);
     }
     return a2;
   }
   else
   {
-    ke_event_schedule_1(dword_114820, v4, a2);
+    ke_event_schedule(dword_114820, (void *)(uintptr_t)(v4), a2);
     return a2;
   }
 }
@@ -27712,7 +27679,7 @@ int malloc_from_heap(int a1) {
   int v9; // r0
 
   v1 = (int *)off_114874;
-  result = j_buffer_pool_get(a1 - 16);
+  result = jump_to_tx_entry(a1 - 16);
   v3 = *v1;
   if ( *v1 )
   {
@@ -27722,14 +27689,14 @@ int malloc_from_heap(int a1) {
     {
       v8 = *(uint8_t *)(v6 + 4);
       v9 = dword_11487C;
-      return ke_event_schedule_1(v9, v8, v6);
+      return ke_event_schedule(v9, (void *)(uintptr_t)(v8), v6);
     }
     v7 = sys_control(v4, v5);
     if ( v7 )
     {
       v8 = v7;
       v9 = dword_114878;
-      return ke_event_schedule_1(v9, v8, v6);
+      return ke_event_schedule(v9, (void *)(uintptr_t)(v8), v6);
     }
     return (int)(uintptr_t)(list_pop_front((int)(uintptr_t)(v1)));
   }
@@ -27751,13 +27718,13 @@ int semaphore_create(int a1, uint8_t *a2, int a3, int a4) {
 
   v5 = a4;
   v6 = a3;
-  v7 = (uint8_t *)rf_bus_setup_n3a8(3089, a4, a3, 1);
+  v7 = (uint8_t *)bt_buf_alloc(3089, a4, a3, 1);
   v8 = *(uint32_t *)a2;
   v9 = a2[4];
   v10 = dispatch_by_cmd(a2 + 4);
   if ( v10 < 0 )
   {
-    ke_event_schedule_1(dword_114910, v9, v8);
+    ke_event_schedule(dword_114910, (void *)(uintptr_t)(v9), v8);
     hci_evt_send((int)(uintptr_t)(v7));
     return 0;
   }
@@ -27769,16 +27736,28 @@ int semaphore_create(int a1, uint8_t *a2, int a3, int a4) {
     invoke_callback((void *)(a2));
     v12 = dword_114908;
     *v7 = 1;
-    ke_event_schedule_1(v12, v9, v8);
+    ke_event_schedule(v12, (void *)(uintptr_t)(v9), v8);
     hci_evt_send((int)(uintptr_t)(v7));
     return 1;
   }
   else
   {
-    ke_event_schedule_1(dword_11490C, v10, v8);
+    ke_event_schedule(dword_11490C, (void *)(uintptr_t)(v10), v8);
     hci_evt_send((int)(uintptr_t)(v7));
     return 0;
   }
+}
+
+
+
+// setup_patch_data @ 0x114914
+int setup_patch_data() {
+  int v0; // r1
+  int v1; // r2
+
+  command_enqueue(0, 0, dword_114938, dword_11493C, 1);
+  init_osal_objects();
+  return ke_event_schedule(dword_114940, (void *)(uintptr_t)(v0), v1);
 }
 
 
@@ -27802,11 +27781,11 @@ int find_object_by_key(char a1, int16_t a2, uint32_t *a3) {
   int v20; // r3
   uint64_t v21; // r4
 
-  v6 = log_free_dispatch_1();
+  v6 = critical_enter_2();
   if ( v6 )
   {
     v9 = v6;
-    v12 = log_free_dispatch_n2b4();
+    v12 = critical_enter_0();
     if ( v12 )
     {
       v13 = *a3;
@@ -27835,19 +27814,19 @@ int find_object_by_key(char a1, int16_t a2, uint32_t *a3) {
       v21 = (v21 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
       v21 = (v21 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)((uint16_t)(v15 + 16) | v20 & v19 | 0x80000000) << 32);
       *(uint64_t *)(v12 + 4) = v21;
-      log_queue_push(v12);
+      ke_mutex_lock(v12);
       return 0;
     }
     else
     {
-      ke_event_schedule_1(dword_1149F8, v10, v11);
-      log_free_dispatch_2((uint32_t *)v9);
+      ke_event_schedule(dword_1149F8, (void *)(uintptr_t)(v10), v11);
+      memory_pool_free((uint32_t *)v9);
       return -2;
     }
   }
   else
   {
-    ke_event_schedule_1(dword_1149F4, v7, v8);
+    ke_event_schedule(dword_1149F4, (void *)(uintptr_t)(v7), v8);
     return -1;
   }
 }
@@ -27906,7 +27885,7 @@ uint8_t *alloc_small_buffer() {
       v6 = dispatch_by_cmd(result + 4);
       if ( v6 < 0 )
       {
-        return (uint8_t *)ke_event_schedule_1(dword_114AEC, v5[4], v7);
+        return (uint8_t *)ke_event_schedule(dword_114AEC, (void *)(uintptr_t)(v5[4]), v7);
       }
       else
       {
@@ -27914,7 +27893,7 @@ uint8_t *alloc_small_buffer() {
         v8 = find_object_by_key(17, 3090, (void *)(v5));
         if ( v8 )
         {
-          ke_event_schedule_1(dword_114AE4, v8, v9);
+          ke_event_schedule(dword_114AE4, (void *)(uintptr_t)(v8), v9);
           if ( (__get_CPSR() & 1) == 0 )
           {
             __disable_irq();
@@ -27922,7 +27901,7 @@ uint8_t *alloc_small_buffer() {
           }
           v10 = dword_114AE8;
           ++*v0;
-          bt_state_check_or_init(v10, v5);
+          check_abort_flag_2(v10, (void *)(v5));
           if ( *v0 )
           {
             v11 = *v0 - 1;
@@ -27934,12 +27913,12 @@ uint8_t *alloc_small_buffer() {
                 __enable_irq();
             }
           }
-          return (uint8_t *)irq_nesting_or(16);
+          return (uint8_t *)set_system_flag_1(16);
         }
         else
         {
           lock_release();
-          return (uint8_t *)patch_helper(0);
+          return (uint8_t *)periph_write(0);
         }
       }
     }
@@ -28083,7 +28062,7 @@ LABEL_16:
     if ( (v0 & 0x4000000) != 0 )
     {
       *(uint32_t *)off_114C54 = 0x4000000;
-      sub_12F2F0(v0 << 12, v0 << 9);
+      task_poll_loop(v0 << 12, v0 << 9);
     }
     if ( (v0 & 0x8000000) != 0 )
     {
@@ -28138,7 +28117,7 @@ int command_enqueue(int a1, int a2, int a3, int a4, char a5) {
     v8 = (void *)(uintptr_t)(off_114D74);
     *(uint32_t *)off_114DA8 = off_114D74;
     *v22 = 196608;
-    ke_event_schedule_1(dword_114DAC, 38, 196608);
+    ke_event_schedule(dword_114DAC, (void *)(uintptr_t)(38), 196608);
     v23 = (void *)(uintptr_t)(off_114DA4);
     *(uint32_t *)(*((uint32_t *)off_114DB0 + 2) + 216) = dword_114DB4;
     v23[806] = -4;
@@ -28146,7 +28125,7 @@ int command_enqueue(int a1, int a2, int a3, int a4, char a5) {
   }
   v9 = dword_114D7C;
   *(uint32_t *)off_114D78 = 196608;
-  ke_event_schedule_1(v9, 38, 196608);
+  ke_event_schedule(v9, (void *)(uintptr_t)(38), 196608);
   v10 = (void *)(uintptr_t)(off_114D84);
   *(uint32_t *)off_114D80 = a3;
   v11 = (void *)(uintptr_t)(off_114D88);
@@ -28256,6 +28235,27 @@ int periph_write(int result) {
   if ( !result )
     *(uint32_t *)off_114E78 = 0x20000;
   return result;
+}
+
+
+
+// call_vector_1fc @ 0x114e7c
+int call_vector_1fc() {
+  return ((int (*)())MEMD(508))();
+}
+
+
+
+// get_hw_info_bit9 @ 0x114e84
+unsigned int get_hw_info_bit9() {
+  return ((unsigned int)((int (*)())MEMD(508))(1) >> 9) & 1;
+}
+
+
+
+// get_hw_info_2 @ 0x114e98
+int get_hw_info_2() {
+  return ((int (*)())MEMD(508))(2);
 }
 
 
@@ -28575,6 +28575,27 @@ int syscall16_get_version(int *a1) {
 
 
 
+// get_hw_info_field0 @ 0x115144
+int get_hw_info_field0() {
+  return ((int (*)())MEMD(508))(17) & 7;
+}
+
+
+
+// get_hw_info_field1 @ 0x115158
+unsigned int get_hw_info_field1() {
+  return ((unsigned int)((int (*)())MEMD(508))(17) >> 3) & 7;
+}
+
+
+
+// get_hw_info_field2 @ 0x11516c
+unsigned int get_hw_info_field2() {
+  return ((unsigned int)((int (*)())MEMD(508))(17) >> 6) & 7;
+}
+
+
+
 // rom_call_extract_byte @ 0x115180
 int rom_call_extract_byte(uint8_t *a1) {
   int16_t v2; // r0
@@ -28593,6 +28614,34 @@ int rom_call_extract_byte(uint8_t *a1) {
     else
       return 2;
   }
+}
+
+
+
+// get_hw_info_bit18 @ 0x1151ac
+unsigned int get_hw_info_bit18() {
+  return ((unsigned int)((int (*)())MEMD(508))(15) >> 18) & 1;
+}
+
+
+
+// get_hw_info_bit19 @ 0x1151c0
+unsigned int get_hw_info_bit19() {
+  return ((unsigned int)((int (*)())MEMD(508))(15) >> 19) & 1;
+}
+
+
+
+// get_hw_info_bit20 @ 0x1151d4
+unsigned int get_hw_info_bit20() {
+  return ((unsigned int)((int (*)())MEMD(508))(15) >> 20) & 1;
+}
+
+
+
+// get_hw_info_1b @ 0x1151e8
+int get_hw_info_1b() {
+  return ((int (*)())MEMD(508))(27);
 }
 
 
@@ -28739,7 +28788,7 @@ LABEL_12:
 
 // ioctl_cmd_1 @ 0x115370
 int ioctl_cmd_1(int a1) {
-  return patch_apply_526c(1, a1, 4u);
+  return ioctl_dispatch(1, a1, 4u);
 }
 
 
@@ -28753,7 +28802,7 @@ int ioctl_cmd_2(int a1) {
 
 // ioctl_cmd_4 @ 0x115388
 int ioctl_cmd_4(int a1) {
-  return patch_apply_526c(4, a1, 0x14u);
+  return ioctl_dispatch(4, a1, 0x14u);
 }
 
 
@@ -28792,7 +28841,7 @@ int ioctl_dispatch2(int a1, int a2, unsigned int a3) {
   uint8_t v15[14]; // [sp+136h] [bp-Eh] BYREF
 
   if ( !*(uint32_t *)patch_apply_n_4c_549c )
-    patch_apply_n_2b4();
+    check_status_flags();
   ((int (*)())MEMORY[0x1D8])(*(uint32_t *)off_1154A0 + 4096, 320, &v8);
   if ( v8 != patch_apply_n_44_4a4 )
     return -1;
@@ -29033,21 +29082,21 @@ int rf_mode_switch() {
 
   if ( **(uint8_t **)patch_xor_apply_loop == 2 )
   {
-    if ( rf_bus_reset_short() )
+    if ( get_global_state() )
       v0 = *((uint32_t *)patch_apply_n27c_5764 + 87);
     else
       v0 = 16;
-    rf_bus_reset_844();
+    rf_init_bb();
     *((uint32_t *)off_115750 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    ke_event_schedule_1(dword_115758, v6, 1);
+    ke_event_schedule(dword_115758, (void *)(uintptr_t)(v6), 1);
     v8 = (void *)(patch_apply_n274);
     *((uint32_t *)patch_apply_n274 + 513) |= 2u;
     v8[4] |= 1u;
     while ( (v8[4] & 1) != 0 )
       ;
-    ke_event_schedule_1((int)(uintptr_t)(patch_apply_n278), v7, v8);
+    ke_event_schedule((int)(uintptr_t)(patch_apply_n278), (void *)(uintptr_t)(v7), (int)(uintptr_t)(v8));
   }
   else
   {
@@ -29079,9 +29128,9 @@ int rf_mode_switch() {
   v4[34] = 1;
   __dsb(0xFu);
   __isb(0xFu);
-  nvic_irq_enable_8000();
+  irq_disable();
   if ( *(uint8_t *)(*(uint32_t *)patch_apply_5754 + 3) )
-    rf_bus_write2_n482();
+    get_core_state();
   __disable_irq();
   return v0;
 }
@@ -29125,16 +29174,16 @@ int init_queue_table() {
   {
     v4 = i;
     v5 = *v2++;
-    sub_10DA7C(v1, v4, v5);
+    printf_wrapper(v1, v4, v5);
   }
   v6 = (void *)(uintptr_t)(off_115940);
-  sub_10DA7C(dword_115944, v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
-  sub_10DA7C(dword_115948, *v6, v6[1], v6[2], v6[3]);
-  sub_10DA7C(dword_11594C, v6[9], v6[10], v6[11], v6[12], v6[15]);
+  printf_wrapper(dword_115944, v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
+  printf_wrapper(dword_115948, *v6, v6[1], v6[2], v6[3]);
+  printf_wrapper(dword_11594C, v6[9], v6[10], v6[11], v6[12], v6[15]);
   v7 = v6[10];
   if ( (uint8_t)v7 )
   {
-    sub_10DA7C(
+    printf_wrapper(
       dword_115978,
       (uint8_t)v6[10],
       v7 & 1,
@@ -29144,11 +29193,11 @@ int init_queue_table() {
       (v7 >> 5) & 1,
       (v7 >> 7) & 1);
     if ( (v7 & 0x80) != 0 )
-      sub_10DA7C(dword_11597C, v6[13]);
+      printf_wrapper(dword_11597C, v6[13]);
   }
   if ( (v7 & 0xFF00) != 0 )
   {
-    sub_10DA7C(
+    printf_wrapper(
       dword_115970,
       BYTE1(v7),
       (v7 >> 8) & 1,
@@ -29159,10 +29208,10 @@ int init_queue_table() {
       (v7 >> 13) & 1,
       (v7 >> 15) & 1);
     if ( (v7 & 0x8000) != 0 )
-      sub_10DA7C(dword_115974, *((uint32_t *)off_115940 + 14));
+      printf_wrapper(dword_115974, *((uint32_t *)off_115940 + 14));
   }
   if ( HIWORD(v7) )
-    sub_10DA7C(
+    printf_wrapper(
       dword_11596C,
       HIWORD(v7),
       HIWORD(v7) & 1,
@@ -29173,44 +29222,44 @@ int init_queue_table() {
       (v7 >> 25) & 1);
   if ( (v0[19] & 8) == 0 )
   {
-    sub_10DA7C(dword_115964);
+    printf_wrapper(dword_115964);
     goto LABEL_9;
   }
-  sub_10DA7C(dword_115950);
+  printf_wrapper(dword_115950);
   if ( (v0[20] & 1) == 0 )
   {
 LABEL_9:
-    sub_10DA7C(dword_115954);
+    printf_wrapper(dword_115954);
     goto LABEL_10;
   }
-  sub_10DA7C(dword_115968);
+  printf_wrapper(dword_115968);
 LABEL_10:
   v8 = v0[19];
   v9 = v8 << 29;
   if ( (v8 & 4) != 0 )
-    sub_10DA7C(dword_115958, v9);
+    printf_wrapper(dword_115958, v9);
   else
-    sub_10DA7C(dword_11595C, v9);
+    printf_wrapper(dword_11595C, v9);
   v10 = v0[20];
   CPSR = __get_CPSR();
   v12 = __get_CPSR();
   v26 = __get_CPSR();
-  result = sub_10DA7C(dword_115960, v10, CPSR, v12, v26);
+  result = printf_wrapper(dword_115960, v10, CPSR, v12, v26);
   v14 = v0[18];
   if ( v14 )
   {
     v21 = dword_115984;
     v22 = dword_115988;
     v23 = v14 & 0xFFFFFFF0;
-    sub_10DA7C(dword_11598C);
+    printf_wrapper(dword_11598C);
     v24 = v23 + 256;
     do
     {
       if ( !(v23 << 28) )
-        sub_10DA7C(v21, v23);
+        printf_wrapper(v21, v23);
       v25 = *(uint32_t *)v23;
       v23 += 4;
-      result = sub_10DA7C(v22, v25);
+      result = printf_wrapper(v22, v25);
     }
     while ( v24 != v23 );
   }
@@ -29220,15 +29269,15 @@ LABEL_10:
     v16 = dword_115984;
     v17 = dword_115988;
     v18 = v15 & 0xFFFFFFF0;
-    sub_10DA7C(dword_115980);
+    printf_wrapper(dword_115980);
     v19 = v18 + 256;
     do
     {
       if ( !(v18 << 28) )
-        sub_10DA7C(v16, v18);
+        printf_wrapper(v16, v18);
       v20 = *(uint32_t *)v18;
       v18 += 4;
-      result = sub_10DA7C(v17, v20);
+      result = printf_wrapper(v17, v20);
     }
     while ( v19 != v18 );
   }
@@ -29245,7 +29294,7 @@ void check_op_mode() {
   int v3; // r1
   int v4; // r2
 
-  sub_10DA7C(dword_1159C4);
+  printf_wrapper(dword_1159C4);
   if ( *(uint8_t *)(*(uint32_t *)off_1159C8 + 6) == 2 )
   {
     v2 = rf_mode_switch();
@@ -29257,7 +29306,7 @@ void check_op_mode() {
       ;
     v0 = uart_getc();
     v1 = ke_malloc(v0);
-    ke_event_send_1(v1);
+    ((int (*)())ke_event_send)(v1);
   }
 }
 
@@ -29265,26 +29314,26 @@ void check_op_mode() {
 
 // handle_debug_cmd @ 0x1159cc
 void handle_debug_cmd(int a1) {
-  log_printf(dword_115A14);
+  printf_wrapper(dword_115A14);
   switch ( a1 )
   {
     case '0':
-      log_printf(dword_115A24);
+      printf_wrapper(dword_115A24);
       break;
     case '@':
-      log_printf(dword_115A2C);
+      printf_wrapper(dword_115A2C);
       break;
     case ' ':
-      log_printf(dword_115A28);
+      printf_wrapper(dword_115A28);
       break;
     default:
-      log_printf(dword_115A18);
+      printf_wrapper(dword_115A18);
       break;
   }
-  log_printf(dword_115A1C);
-  patch_apply_n280();
-  log_printf(dword_115A20);
-  patch_apply_n4a8_5990();
+  printf_wrapper(dword_115A1C);
+  init_queue_table();
+  printf_wrapper(dword_115A20);
+  check_op_mode();
 }
 
 
@@ -29312,7 +29361,7 @@ int check_nvic_irq(int a1, int a2) {
     v6 = dword_115B84 & v5;
     if ( (v5 & 0x40000000) != 0 )
     {
-      v9 = check_radio_flag_1(0);
+      v9 = check_radio_flag(0);
       v10 = (void *)(uintptr_t)(off_115B8C);
       *(uint32_t *)off_115B8C = 0x40000000;
       v2[97] = 16;
@@ -29370,7 +29419,7 @@ int rf_clock_enable() {
   *((uint32_t *)off_115CB8 + 14) |= 0x10u;
   *v0 &= ~0x2000000u;
   v1 = (void *)(uintptr_t)(off_115CC4);
-  feature_guard_sdio(2, dword_115CC0);
+  state_check_feature(2, dword_115CC0);
   v2 = (void *)(uintptr_t)(off_115CC8);
   *(uint32_t *)off_115CC8 |= 0x80000000;
   v1[1] = 0;
@@ -29396,7 +29445,7 @@ int rf_clock_enable() {
     *(uint32_t *)off_115CBC |= 0x2000000u;
   else
     *((uint32_t *)off_115CB8 + 14) &= ~0x10u;
-  result = feature_guard_sdio(2, dword_115CDC);
+  result = state_check_feature(2, dword_115CDC);
   v8 = *(uint8_t **)off_115CE0;
   v9 = **(uint8_t **)off_115CE0;
   if ( v9 == 2 )
@@ -29448,7 +29497,7 @@ int shutdown_sequence() {
   v1 = llm_env_reset(v0);
   v2 = (int)(uintptr_t)(run_deferred_init(v1));
   v3 = state_init(v2);
-  return sub_12F730(v3);
+  return reset_hci_scratch(v3);
 }
 
 
@@ -29462,7 +29511,7 @@ void mac_status_check(int a1, int a2) {
 
   v2 = **(uint16_t **)off_115E84;
   if ( (v2 & 1) != 0 )
-    radio_init_2(a1, a2, v2 << 31);
+    ((int (*)())radio_init)(a1, a2, v2 << 31);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -29470,9 +29519,9 @@ void mac_status_check(int a1, int a2) {
   }
   v3 = dword_115E94;
   ++*(uint32_t *)off_115E8C;
-  feature_guard_sdio(1024, v3);
+  state_check_feature(1024, v3);
   v4 = set_system_flag_2(0x80000000);
-  mmio_reg_clear_bits_n_5c0(v4);
+  mac_config_clear(v4);
   v5 = (void *)(uintptr_t)(off_115E98);
   *(uint32_t *)off_115E98 &= 0xFFFFFFu;
   *v5 |= 0x10u;
@@ -29600,7 +29649,7 @@ LABEL_10:
     v4 = (uint8_t **)off_116158;
     if ( **(uint8_t **)off_116158 == 3 )
       goto LABEL_4;
-    feature_guard_sdio(2, dword_116170);
+    state_check_feature(2, dword_116170);
     *v2 = 1;
     v1 = **v4;
     if ( v1 != 1 )
@@ -29613,37 +29662,37 @@ LABEL_3:
 LABEL_12:
     if ( **v0 == 3 )
     {
-      v8 = sdio_status_check();
+      v8 = status_poll();
       v10 = (void *)(uintptr_t)(off_116178);
       *(uint8_t *)off_116178 = v8;
       if ( v8 )
-        ke_event_schedule_1(dword_116184, v9, v10);
+        ke_event_schedule(dword_116184, (void *)(uintptr_t)(v9), (int)(uintptr_t)(v10));
       else
-        ke_event_schedule_1(dword_11617C, v9, v10);
-      if ( state_flag_check() )
-        rf_msg_process_body_n1cc();
-      ((void (*)(void))sdio_wait_busy)();
+        ke_event_schedule(dword_11617C, (void *)(uintptr_t)(v9), (int)(uintptr_t)(v10));
+      if ( ll_util_get_state() )
+        mmio_read_low_nibble();
+      ((void (*)(void))hw_poll_flag)();
       return;
     }
-    if ( !state_flag_check() || *(uint8_t *)off_116174 )
+    if ( !ll_util_get_state() || *(uint8_t *)off_116174 )
       return;
 LABEL_4:
-    if ( queue_check()
+    if ( mm_state_run()
       && !*((uint32_t *)off_11615C + 126)
       && (*(uint32_t *)off_116160 >> 25) & 1 | *((uint8_t *)off_116164 + 36)
       && !*((uint8_t *)off_116164 + 29)
-      && ((int (*)())tx_timeout_check)() )
+      && mac_isr_handler() )
     {
-      v5 = sdio_status_check();
+      v5 = status_poll();
       v7 = (void *)(uintptr_t)(off_116178);
       *(uint8_t *)off_116178 = v5;
       if ( !v5 )
       {
-        v11 = ke_event_schedule_1(dword_116180, v6, v7);
-        sdio_wait_busy(v11);
+        v11 = ke_event_schedule(dword_116180, (void *)(uintptr_t)(v6), (int)(uintptr_t)(v7));
+        hw_poll_flag(v11);
       }
       if ( (uint8_t)**v0 <= 1u )
-        rf_msg_process_body_n1cc();
+        mmio_read_low_nibble();
     }
     return;
   }
@@ -29660,7 +29709,7 @@ LABEL_17:
     goto LABEL_17;
 LABEL_20:
   if ( **(uint8_t **)off_116158 != 3 )
-    feature_guard_sdio(2, dword_116170);
+    state_check_feature(2, dword_116170);
   *v2 = 0;
 }
 
@@ -29685,10 +29734,10 @@ void ke_init_structures() {
   int v14; // r3
 
   v0 = (int *)off_11636C;
-  ke_event_schedule_1(dword_116368, dword_116364, dword_116360);
+  ke_event_schedule(dword_116368, (void *)(uintptr_t)(dword_116364), dword_116360);
   if ( *(uint32_t *)off_116370 )
   {
-    sub_10ED6C();
+    write_reg_70001408();
     if ( *(uint16_t *)(*v0 + 8) )
       periph_field_set(*(uint16_t *)(*v0 + 8));
   }
@@ -29701,7 +29750,7 @@ void ke_init_structures() {
   }
   v3 = init_chip_state(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
-    mmio_clear_bit1_n_524();
+    clear_hw_flag_bit();
   __enable_irq();
   __dsb(0xFu);
   __isb(0xFu);
@@ -29717,8 +29766,8 @@ void ke_init_structures() {
       if ( *(uint8_t *)(*v0 + 3) )
         hw_sync_write();
       if ( !*v4 )
-        v3 = bt_msg_handler_122D3B8(v3);
-      v3 = (int)(uintptr_t)(ke_event_send_1(v3));
+        v3 = ((int (*)())process_event_queue)(v3);
+      v3 = ((int (*)())ke_event_send)(v3);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -29737,7 +29786,7 @@ void ke_init_structures() {
       *(uint8_t *)off_11638C = 0;
       if ( *(uint8_t *)(*v0 + 3) )
 LABEL_39:
-        mmio_clear_bit1_n_524();
+        clear_hw_flag_bit();
     }
     else
     {
@@ -29750,7 +29799,7 @@ LABEL_39:
       v14 = **(uint8_t **)off_116388;
       if ( v14 == 3 )
       {
-        v3 = state_flag_check();
+        v3 = ll_util_get_state();
         if ( !v3 )
         {
           v14 = **(uint8_t **)off_116388;
@@ -29770,7 +29819,7 @@ LABEL_32:
           goto LABEL_21;
         }
       }
-      sdio_wait_busy(v3);
+      hw_poll_flag(v3);
       while ( 1 )
         ;
     }
@@ -29795,7 +29844,7 @@ LABEL_23:
     if ( !*(uint8_t *)(*v0 + 3) )
       goto LABEL_23;
 LABEL_28:
-    mmio_set_flag_bit1();
+    set_hw_flag_bit();
     if ( v8[1] )
 LABEL_29:
       v3 = rf_clock_enable();
@@ -29875,6 +29924,13 @@ int scan_check_response() {
 
 
 
+// send_to_global_queue @ 0x116484
+int send_to_global_queue() {
+  return ((int (*)())check_abort_flag)(dword_11648C);
+}
+
+
+
 // bt_clear_entry @ 0x116490
 int bt_clear_entry(int a1) {
   int v1; // r1
@@ -29905,7 +29961,7 @@ uint32_t * release_buffer(int a1) {
   result = *(uint32_t **)(a1 + 72);
   if ( result )
   {
-    result = (uint32_t *)log_free_dispatch_2(result);
+    result = (uint32_t *)memory_pool_free(result);
     *(uint32_t *)(a1 + 72) = 0;
   }
   return result;
@@ -30040,7 +30096,7 @@ int hw_init_magic() {
   do
   {
     *v0 = v1;
-    v0[1] = sub_101954() << 14;
+    v0[1] = irq47_status_handler() << 14;
     v5 = get_hw_flash_size();
     v0[3] = 0;
     v0[4] = v2;
@@ -30067,7 +30123,7 @@ int hw_init_magic() {
   do
   {
     *v7 = v8;
-    v7[1] = sub_101954() << 14;
+    v7[1] = irq47_status_handler() << 14;
     result = get_hw_flash_size();
     v7[3] = 0;
     v7[4] = v9;
@@ -30460,7 +30516,7 @@ LABEL_12:
         *v16 = 512;
         goto LABEL_4;
       }
-      result = ((int (*)())ke_int_lock_1)(dword_116DD4, dword_116DC0, 1919, a4);
+      result = ((int (*)())ke_int_lock)(dword_116DD4, dword_116DC0, 1919, a4);
       break;
     case 1:
       if ( ((*(uint32_t *)off_116D80 >> 8) & 3) != 2 )
@@ -30475,7 +30531,7 @@ LABEL_14:
         *v17 = 1024;
         goto LABEL_4;
       }
-      result = ((int (*)())ke_int_lock_1)(dword_116DD0, dword_116DC0, 1907, a4);
+      result = ((int (*)())ke_int_lock)(dword_116DD0, dword_116DC0, 1907, a4);
       break;
     case 2:
       if ( ((*(uint32_t *)off_116D80 >> 12) & 3) != 2 )
@@ -30490,7 +30546,7 @@ LABEL_16:
         *v18 = 2048;
         goto LABEL_4;
       }
-      result = ((int (*)())ke_int_lock_1)(dword_116DCC, dword_116DC0, 1895, a4);
+      result = ((int (*)())ke_int_lock)(dword_116DCC, dword_116DC0, 1895, a4);
       break;
     case 3:
       if ( (HIWORD(*(uint32_t *)off_116D80) & 3) != 2 )
@@ -30505,7 +30561,7 @@ LABEL_18:
         *v19 = 4096;
         goto LABEL_4;
       }
-      result = ((int (*)())ke_int_lock_1)(dword_116DC8, dword_116DC0, 1883, a4);
+      result = ((int (*)())ke_int_lock)(dword_116DC8, dword_116DC0, 1883, a4);
       break;
     case 4:
       if ( **(int16_t **)off_116DB8 >= 0 || (*(uint32_t *)off_116D80 & 3) != 2 )
@@ -30515,7 +30571,7 @@ LABEL_18:
         *v20 = 256;
         goto LABEL_4;
       }
-      result = ((int (*)())ke_int_lock_1)(dword_116DC4, dword_116DC0, 1871, a4);
+      result = ((int (*)())ke_int_lock)(dword_116DC4, dword_116DC0, 1871, a4);
       break;
     case 5:
       if ( (HIBYTE(*(uint32_t *)off_116D80) & 3) != 2 )
@@ -30530,7 +30586,7 @@ LABEL_3:
         *v5 = 0x4000;
         goto LABEL_4;
       }
-      result = ((int (*)())ke_int_lock_1)(dword_116DD8, dword_116DC0, 1931, a4);
+      result = ((int (*)())ke_int_lock)(dword_116DD8, dword_116DC0, 1931, a4);
       break;
     default:
       if ( **(int16_t **)off_116DB8 < 0 )
@@ -30590,7 +30646,7 @@ int get_bt_param(int result, int a2, int a3) {
   v7 = *v6;
   v8 = **(int16_t **)off_116EDC;
   if ( v8 < 0 && v7 == result )
-    return ((int (*)())ke_int_lock_1)(dword_116EE8, dword_116EE4, 1972, v8);
+    return ((int (*)())ke_int_lock)(dword_116EE8, dword_116EE4, 1972, v8);
   if ( v7 )
   {
     v9 = (void *)(uintptr_t)(off_116EF0);
@@ -30618,7 +30674,7 @@ int get_bt_param(int result, int a2, int a3) {
   }
   else
   {
-    result = bt_chan_dispatch_n_6f0(v4, a3, v7, v8);
+    result = get_cal_item(v4, a3, v7, v8);
     v10 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
   }
   if ( !v10 )
@@ -30710,7 +30766,7 @@ LABEL_11:
               v20 = *(uint8_t *)(v10 + 9);
               v21[4] = *(uint8_t *)(v10 + 8);
               v21[5] = v20;
-              bt_msg_handler_n54c(v21);
+              rf_save_cal_values((void *)(v21));
               v17 = *(uint16_t *)(a2 + 30);
             }
             if ( (v17 & 0x80) != 0 )
@@ -30848,19 +30904,19 @@ int ke_timer_calc(int a1, int a2, char a3) {
   *(uint8_t *)(v5 + 36) = a3;
   build_tx_packet(a1, a2);
   if ( *(uint16_t *)(a1 + 24) == 36488 )
-    ke_event_schedule_1(dword_117278, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
+    ke_event_schedule(dword_117278, (void *)(uintptr_t)(36488), *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
   v8 = *(uint32_t *)(a1 + 8);
   v9 = *(uint32_t *)(a1 + 72);
   if ( v8 >= 0 || (v20 = *(uint16_t *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
   {
-    if ( msg_get_value(6) == 6 )
+    if ( hci_cmd_send_short(6) == 6 )
       goto LABEL_24;
 LABEL_7:
     v10 = *(uint32_t **)(a1 + 72);
     goto LABEL_8;
   }
   *(uint32_t *)(v9 + 60) = *(uint32_t *)(v9 + 60) & 0xFFFF00FF | 0xE00;
-  if ( msg_get_value(6) != 6 )
+  if ( hci_cmd_send_short(6) != 6 )
     goto LABEL_7;
 LABEL_24:
   v21 = (int16_t **)off_117270;
@@ -30928,7 +30984,7 @@ int tx_check_ready(int result) {
     {
       if ( (*(uint32_t *)(v1 + 36) & 0x200000) == 0 )
       {
-        result = log_free_dispatch_2((uint32_t *)result);
+        result = memory_pool_free((uint32_t *)result);
         *(uint32_t *)(v1 + 72) = 0;
       }
     }
@@ -30959,17 +31015,17 @@ int bt_init() {
   int result; // r0
 
   timer_ticks_compare();
-  ipc_msg_handler_init();
-  v0 = lmac_rf_helper_121BF38();
-  sub_11831C(v0);
-  inited = bt_subsystem_init_n_ef0(0);
+  scan_process_advertisement();
+  v0 = hw_init_magic();
+  llm_env_init(v0);
+  inited = ((int (*)())ke_task_init)(0);
   mac_reset_controller(inited);
   v2 = (char *)off_117338 + 12;
-  memset_thunk((int *)off_117338, 0, 0x204u);
+  memset_byte((int *)off_117338, 0, 0x204u);
   v3 = v2 + 420;
   do
   {
-    bt_xtal_init_check(v2);
+    zero_struct((void *)(v2));
     *((uint32_t *)v2 - 3) = 0;
     v2[14] = 0;
     v2[68] = 0;
@@ -30977,17 +31033,17 @@ int bt_init() {
     *((uint32_t *)v2 + 7) = 0;
     v4 = v2 + 16;
     v2 += 84;
-    bt_xtal_init_check(v4);
+    zero_struct((void *)(v4));
   }
   while ( v2 != v3 );
   v5 = (void *)(uintptr_t)(off_117338);
-  bt_xtal_init_check((char *)off_117338 + 432);
+  zero_struct((void *)((char *)off_117338 + 432));
   v5[114] = 0;
   v5[115] = 0;
   v5[105] = 0;
   *((uint8_t *)v5 + 446) = 0;
   *((uint8_t *)v5 + 500) = 0;
-  result = bt_xtal_init_check(v5 + 112);
+  result = (int)(uintptr_t)(zero_struct(v5 + 112));
   *((uint16_t *)v5 + 254) = 0;
   return result;
 }
@@ -31179,19 +31235,19 @@ LABEL_9:
             v10 = (v10 & ~0xFFFFu) | ((uint16_t)(*(uint16_t *)(v7 + 8)) & 0xFFFFu);
             if ( (v10 & 0x20) == 0 )
             {
-              mac_irq_handler_1(result);
+              mac_irq_handler(result);
               v29 = 4;
               while ( 1 )
               {
                 v10 = *(uint16_t *)(v7 + 8);
                 if ( (v10 & 0x20) != 0 )
                   break;
-                mac_irq_handler_1(v10 << 26);
+                mac_irq_handler(v10 << 26);
                 if ( !--v29 )
                 {
                   v10 = *(uint16_t *)(v7 + 8);
                   if ( **(int16_t **)off_1178AC < 0 && (v10 & 0x20) == 0 )
-                    return ((int (*)())ke_int_lock_1)(dword_1178B4, dword_1178B0, 1262, v10);
+                    return ((int (*)())ke_int_lock)(dword_1178B4, dword_1178B0, 1262, v10);
                   goto LABEL_11;
                 }
               }
@@ -31233,14 +31289,14 @@ LABEL_31:
       v10 = (v10 & ~0xFFFFu) | ((uint16_t)(*(uint16_t *)(v7 + 8)) & 0xFFFFu);
       if ( (v10 & 0x20) == 0 )
       {
-        ((void (*)(void))mac_irq_handler_1)();
+        ((void (*)(void))mac_irq_handler)();
         v22 = 4;
         while ( 1 )
         {
           v10 = *(uint16_t *)(v7 + 8);
           if ( (v10 & 0x20) != 0 )
             break;
-          mac_irq_handler_1(v10 << 26);
+          mac_irq_handler(v10 << 26);
           if ( !--v22 )
           {
             v10 = (v10 & ~0xFFFFu) | ((uint16_t)(*(uint16_t *)(v7 + 8)) & 0xFFFFu);
@@ -31253,7 +31309,7 @@ LABEL_31:
 LABEL_11:
       v11 = *(uint32_t *)(dword_11778C + 4 * v1);
       *(uint16_t *)(v7 + 8) = v10 | 0x10;
-      result = irq_nesting_or(v11);
+      result = set_system_flag_1(v11);
       v12 = *v3;
       --v2[80];
       v2[26] = 0;
@@ -31340,7 +31396,7 @@ LABEL_14:
       else
       {
         *(uint32_t *)v2 = 0;
-        patch_sub_1217374(v1);
+        mmio_set_bit(v1);
         if ( v2[80] == 1
           && *((uint32_t *)v2 + 11)
           && !*(uint32_t *)(dword_1177A8 + 8 * (165 * *(uint8_t *)(*((uint32_t *)v2 + 12) + 28) + v1 + 154))
@@ -31360,7 +31416,7 @@ LABEL_14:
     if ( *(uint16_t *)(v14 + 4) )
       list_append(v14, v16, v1);
     else
-      sub_119120(v14);
+      btlp_enter_sleep(v14);
     v21 = *(uint32_t *)(v14 + 36);
     result = v21 << 10;
     if ( (v21 & 0x200000) != 0 )
@@ -31369,7 +31425,7 @@ LABEL_14:
       {
         *((uint32_t *)v2 + 9) = *(uint32_t *)(v14 + 68);
         v2[26] = 1;
-        result = irq_nesting_or(512);
+        result = set_system_flag_1(512);
       }
     }
     else
@@ -31541,7 +31597,7 @@ int conn_tx(int a1, int a2) {
   tx_slot_counter_inc(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117AA4 + 126);
-  rf_isr_1(a1);
+  ((int (*)())rf_isr)(a1);
   result = ke_timer_calc(a1, a2, 0);
   v12 = *v10;
   *(uint16_t *)(a1 + 82) |= 1u;
@@ -31616,7 +31672,7 @@ int conn_rx(int a1, int a2) {
      || (v12 = *((uint32_t *)off_117CD0 + 10)) == 0
      || *(uint8_t *)(v12 + 24) <= 2u
      || (v13 = *(uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, ke_event_schedule_1(dword_117CD4, v12 == v13, (uint8_t)v11), v12 == v31))
+     || (v31 = v13, ke_event_schedule(dword_117CD4, (void *)(uintptr_t)(v12 == v13), (uint8_t)v11), v12 == v31))
     && phy_check_core_mode(a1) )
   {
     *(uint32_t *)(v7 + 68) |= 0x100u;
@@ -31719,6 +31775,12 @@ int conn_rx(int a1, int a2) {
 
 
 
+// nullsub_7 @ 0x117d04
+int nullsub_7(void) {
+  return 0;
+}
+
+
 // rf_irq_status @ 0x117d08
 unsigned int rf_irq_status() {
   int v0; // r4
@@ -31759,7 +31821,7 @@ int rf_irq_check_1(int result) {
   v2 = dword_117E10;
   if ( (v1 & dword_117E10) != 0 )
   {
-    result = ((int (*)())rf_init_1)();
+    result = ((int (*)())rf_init)();
     *(uint32_t *)off_117E20 = v2;
   }
   if ( (dword_117E14 & v1) != 0 && (*(uint32_t *)off_117E18 & 0x300000) == 0 )
@@ -31950,7 +32012,7 @@ int sleep_critical_exit() {
         __enable_irq();
     }
   }
-  return irq_nesting_or(512);
+  return set_system_flag_1(512);
 }
 
 
@@ -31999,8 +32061,8 @@ uint64_t controller_init() {
   while ( v6 != 5 );
   v8 = dword_1180F4;
   v9 = ((int (*)())rf_tx_freq_set)(5);
-  v10 = sub_11A2B4(v9);
-  v11 = sub_11831C(v10);
+  v10 = llc_tx_process(v9);
+  v11 = llm_env_init(v10);
   mac_process_queue(v11);
   v12 = *((uint16_t *)v0 + 254);
   memset_byte((int *)(v8 - 432), 0, 0x204u);
@@ -32180,7 +32242,7 @@ void timer_check_state(int a1, uint32_t *a2) {
             v18 = *(uint16_t *)(a1 + 32);
             v19 = dword_118304;
             ++*(uint32_t *)off_118300;
-            ke_event_schedule_1(v19, a1, v18);
+            ke_event_schedule(v19, (void *)(uintptr_t)(a1), v18);
             v20 = ((int (*)())check_abort_flag)(dword_118308);
             rf_calib_init(v20, v21);
             if ( *v17 )
@@ -32197,12 +32259,12 @@ void timer_check_state(int a1, uint32_t *a2) {
           }
           else
           {
-            sub_10DA7C(dword_118310);
+            printf_wrapper(dword_118310);
           }
         }
         else
         {
-          sub_10DA7C(dword_118314);
+          printf_wrapper(dword_118314);
         }
         break;
       case 1:
@@ -32210,7 +32272,7 @@ void timer_check_state(int a1, uint32_t *a2) {
         v26 = v2 & 0x3FFFFFFF;
         v25 = v24;
         ke_mem_alloc(18, (int)&v25, 8);
-        ke_event_schedule_1(dword_118304, a1, *(uint16_t *)(a1 + 32));
+        ke_event_schedule(dword_118304, (void *)(uintptr_t)(a1), *(uint16_t *)(a1 + 32));
         break;
       case 3:
         **(uint32_t **)off_11830C = *a2 & 0xF;
@@ -32218,6 +32280,21 @@ void timer_check_state(int a1, uint32_t *a2) {
         break;
     }
   }
+}
+
+
+
+// llm_env_init @ 0x11831c
+int llm_env_init() {
+  int v0; // r4
+
+  v0 = dword_118354;
+  memset_byte((int *)dword_118354, 0, 0x28u);
+  zero_struct((void *)(uintptr_t)(v0));
+  zero_struct((void *)(uintptr_t)(v0 + 8));
+  zero_struct((void *)(uintptr_t)(v0 + 16));
+  zero_struct((void *)(uintptr_t)(v0 + 24));
+  return (int)(uintptr_t)(zero_struct((void *)(uintptr_t)(v0 + 32)));
 }
 
 
@@ -32231,9 +32308,9 @@ int list_append(int a1, int a2, int a3) {
   v3 = *(uint32_t *)(a1 + 76);
   v5 = dword_118384;
   *(uint32_t *)(v3 + 4) = a2;
-  result = list_push_tail(v5 + 8 * a3);
+  result = ((int (*)())check_abort_flag)(v5 + 8 * a3);
   if ( (*(uint32_t *)(a1 + 36) & 0x200000) == 0 )
-    return irq_nesting_or(*(uint32_t *)(dword_118388 + 4 * a3));
+    return set_system_flag_1(*(uint32_t *)(dword_118388 + 4 * a3));
   return result;
 }
 
@@ -32252,7 +32329,7 @@ int ke_event_loop(int a1, int a2, int a3, int a4) {
   int v13; // r2
 
   if ( *(uint8_t *)off_118478 )
-    return ke_event_schedule_1(dword_118488, a2, a3);
+    return ke_event_schedule(dword_118488, (void *)(uintptr_t)(a2), a3);
   v4 = (v4 & ~0xFFFFu) | ((uint16_t)(*((uint8_t *)off_11847C + 190)) & 0xFFFFu);
   if ( (*((uint32_t *)off_11847C + 52) & 1) == 0 )
     v4 = (*(uint32_t *)(a1 + 84) >> 11) & 3;
@@ -32260,7 +32337,7 @@ int ke_event_loop(int a1, int a2, int a3, int a4) {
   v7 = *(int16_t **)off_118484;
   v8 = v6;
   if ( **(int16_t **)off_118484 < 0 && !v6 )
-    return ((int (*)())ke_int_lock_1)(dword_118498, dword_118494, 369, a4);
+    return ((int (*)())ke_int_lock)(dword_118498, dword_118494, 369, a4);
   v9 = *(uint32_t *)(a1 + 84);
   result = v9 << 6;
   *(uint16_t *)(v8 + 8) |= 0x20u;
@@ -32268,7 +32345,7 @@ int ke_event_loop(int a1, int a2, int a3, int a4) {
   {
     result = (uint16_t)(v9 >> 15);
     if ( *v7 < 0 && (result & 0x3F0) == 0 )
-      return ((int (*)())ke_int_lock_1)(dword_118490, dword_11848C, 217, a4);
+      return ((int (*)())ke_int_lock)(dword_118490, dword_11848C, 217, a4);
     if ( ((v9 >> 15) & 0x3FF) - 16 == *(uint8_t *)(v8 + 12) )
     {
       v11 = *(uint32_t *)(*(uint32_t *)(a1 + 28) + 8);
@@ -32321,7 +32398,7 @@ uint32_t *ke_msg_dispatch() {
   if ( result )
   {
     v1 = result;
-    v2 = (uint32_t *)log_free_dispatch_n2b4();
+    v2 = (uint32_t *)critical_enter_0();
     v3 = v2;
     if ( v2 )
     {
@@ -32353,7 +32430,7 @@ uint32_t *ke_msg_dispatch() {
         }
         else
         {
-          ke_event_schedule_1(dword_118578, v8, v7);
+          ke_event_schedule(dword_118578, (void *)(uintptr_t)(v8), (int)(uintptr_t)(v7));
           v8 = *v6;
         }
       }
@@ -32361,7 +32438,7 @@ uint32_t *ke_msg_dispatch() {
       {
         if ( *(uint32_t *)off_118568 )
         {
-          ke_event_schedule_1(dword_118574, v8, v7);
+          ke_event_schedule(dword_118574, (void *)(uintptr_t)(v8), (int)(uintptr_t)(v7));
           v8 = *v6;
         }
         v9 = (void *)(uintptr_t)(off_11856C);
@@ -32389,7 +32466,7 @@ uint32_t *ke_msg_dispatch() {
     }
     else
     {
-      return (uint32_t *)log_free_dispatch_2(v1);
+      return (uint32_t *)memory_pool_free(v1);
     }
   }
   return result;
@@ -32472,7 +32549,7 @@ int rf_calib_process(int a1) {
   if ( **(int16_t **)off_118870 < 0 && (v2 & *(uint32_t *)off_118D5C) == 0 )
     mmio_irq_clear(dword_118D64, dword_118D60, 612);
   set_system_flag_2(v2);
-  result = bt_xtal_init_check(v68);
+  result = (int)(uintptr_t)(zero_struct((void *)(v68)));
   v4 = *(uint32_t *)(dword_118874 + 8 * a1);
   if ( v4 )
   {
@@ -32489,7 +32566,7 @@ int rf_calib_process(int a1) {
       if ( *((uint8_t *)off_118880 + 512) == 1 )
       {
         *((uint8_t *)off_118880 + 512) = 0;
-        result = irq_nesting_or(512);
+        result = set_system_flag_1(512);
         if ( !v8 )
         {
 LABEL_39:
@@ -32539,7 +32616,7 @@ LABEL_96:
               if ( (*(uint16_t *)v43 & 0x8000) != 0 && (*(uint16_t *)v43 & 0xC) == 8 && (*(uint32_t *)(v43 + 26) & 0x3F) == 7 )
                 *(uint32_t *)(*(uint32_t *)(v4 + 44) + 60) &= ~0x80000000;
 LABEL_54:
-              if ( mac_tx_start_1(v4, 0) )
+              if ( mac_tx_start(v4, 0) )
               {
                 v48 = *(uint32_t *)(v4 + 76);
                 v49 = *(uint16_t *)(v4 + 30) | 1;
@@ -32551,8 +32628,8 @@ LABEL_54:
                 v50 = (void *)(uintptr_t)(off_118B4C);
                 *(uint32_t *)(v4 + 44) = 0;
                 *(uint32_t *)(v4 + 36) = 0;
-                list_insert_sorted(v26 + 8 * (165 * (int16_t)v24 + a1 + 159), v4, v50);
-                result = irq_nesting_or(512);
+                list_find(v26 + 8 * (165 * (int16_t)v24 + a1 + 159), (void *)(uintptr_t)(v4), v50);
+                result = set_system_flag_1(512);
               }
               else
               {
@@ -32578,10 +32655,10 @@ LABEL_54:
                     *(uint32_t *)(dword_118888 + 4 * (9 * v30 + v31 + 2062)) -= *(uint16_t *)(v4 + 4);
                 }
                 tx_check_ready(v4);
-                flag_check_1218170(v4, (uint32_t *)(v7 + 4));
+                timer_check_state(v4, (uint32_t *)(v7 + 4));
                 if ( (*(uint16_t *)(v4 + 30) & 1) != 0 )
-                  irq_nesting_or(512);
-                result = fmac_bt_event_handler((uint8_t)a1, v4);
+                  set_system_flag_1(512);
+                result = irq_lock_save((uint8_t)a1, v4);
               }
               goto LABEL_36;
             }
@@ -32627,7 +32704,7 @@ LABEL_132:
                 goto LABEL_53;
             }
           }
-          ke_event_schedule_1(dword_118D6C, v63, a1);
+          ke_event_schedule(dword_118D6C, (void *)(uintptr_t)(v63), a1);
           v56 = *(uint16_t *)(v4 + 30);
           v57 = *(uint32_t *)(v4 + 76);
           v58 = (void *)(uintptr_t)(off_118D4C);
@@ -32639,8 +32716,8 @@ LABEL_132:
           *(uint32_t *)(v4 + 44) = 0;
           *(uint32_t *)(v4 + 36) = 0;
           *(uint16_t *)(v4 + 30) = v56 | 1;
-          list_insert_sorted(v26 + 8 * (165 * (int16_t)v24 + a1 + 159), v4, v58);
-          result = irq_nesting_or(512);
+          list_find(v26 + 8 * (165 * (int16_t)v24 + a1 + 159), (void *)(uintptr_t)(v4), v58);
+          result = set_system_flag_1(512);
           goto LABEL_36;
         }
       }
@@ -32672,7 +32749,7 @@ LABEL_132:
         v10 |= v41;
         *(uint32_t *)(v7 + 4) = v10;
       }
-      v62 = mac_tx_start_1(v4, 0);
+      v62 = mac_tx_start(v4, 0);
       if ( (*(uint32_t *)(v4 + 36) & 0x380000) == 0x280000 )
         v6 = v4;
       if ( (__get_CPSR() & 1) == 0 )
@@ -32687,7 +32764,7 @@ LABEL_132:
         if ( **(int16_t **)off_118B34 < 0 && !v6 )
           mmio_irq_clear(dword_118B48, dword_118B44, 706);
         if ( *(uint8_t *)(dword_118B38 + 696 * v9 + 36) != 1 || v11 )
-          bt_fmac_init(v6, v59, v61, v8);
+          send_acl_data(v6, v59, v61, v8);
         v61 = 0;
         result = ke_timer_tick(v8);
         v59 = 0;
@@ -32802,7 +32879,7 @@ LABEL_65:
         *(uint16_t *)(v4 + 82) = 0;
         *(uint32_t *)(v4 + 44) = 0;
         *(uint32_t *)(v4 + 36) = 0;
-        result = list_insert_sorted(v16 + 8 * (a1 + 159 + 165 * v64), v4, v53);
+        result = list_find(v16 + 8 * (a1 + 159 + 165 * v64), (void *)(uintptr_t)(v4), v53);
         if ( v12 )
           goto LABEL_117;
         v66 = 1;
@@ -32816,16 +32893,16 @@ LABEL_24:
         if ( v18 <= 8 )
           *(uint32_t *)(dword_118888 + 4 * (9 * v17 + v18 + 2062)) -= *(uint16_t *)(v4 + 4);
       }
-      flag_check_1218170(v4, (uint32_t *)(v7 + 4));
+      timer_check_state(v4, (uint32_t *)(v7 + 4));
       v19 = *(uint16_t *)(v4 + 30);
       if ( (v19 & 1) != 0 )
       {
-        irq_nesting_or(512);
+        set_system_flag_1(512);
         v20 = *(uint32_t **)(v4 + 72);
         if ( !v20 )
         {
 LABEL_101:
-          ke_event_schedule_1(dword_118B40, dword_118B3C, v19);
+          ke_event_schedule(dword_118B40, (void *)(uintptr_t)(dword_118B3C), v19);
           goto LABEL_31;
         }
       }
@@ -32835,19 +32912,19 @@ LABEL_101:
         if ( !v20 )
           goto LABEL_101;
       }
-      log_free_dispatch_2(v20);
+      memory_pool_free(v20);
       v21 = *v15;
       *(uint32_t *)(v4 + 72) = 0;
       if ( *v21 == 1 )
         ke_msg_dispatch();
 LABEL_31:
-      result = fmac_bt_event_handler((uint8_t)a1, v4);
+      result = irq_lock_save((uint8_t)a1, v4);
       if ( v12 )
       {
         if ( v66 )
         {
 LABEL_117:
-          if ( bt_sub_121733C(v67) && !*((uint8_t *)off_118D50 + 511) )
+          if ( init_once(v67) && !*((uint8_t *)off_118D50 + 511) )
           {
             do
             {
@@ -32860,7 +32937,7 @@ LABEL_117:
             while ( !*((uint8_t *)off_118D50 + 511) );
           }
         }
-        result = irq_nesting_or(512);
+        result = set_system_flag_1(512);
         v66 = 0;
 LABEL_34:
         if ( v12 )
@@ -32905,26 +32982,26 @@ int rf_calib_config(int a1, int a2, int a3) {
       }
       if ( *(uint16_t *)(v9 + 4) )
         break;
-      sub_119120(v9);
+      btlp_enter_sleep(v9);
       v9 = (int)(uintptr_t)(list_pop_front(a2));
       if ( !v9 )
-        return rx_buf_init_n168();
+        return (int)(uintptr_t)(system_init());
     }
     *(uint32_t *)(v10 + 4) |= 0x800000u;
-    flag_check_1218170(v9, (uint32_t *)(v10 + 4));
+    timer_check_state(v9, (uint32_t *)(v10 + 4));
     release_buffer(v9);
-    if ( mac_tx_start_1(v9, 1) )
+    if ( mac_tx_start(v9, 1) )
     {
       if ( **v3 < 0 && !a3 )
         mmio_irq_clear(v5, v4, 1105);
-      list_push_tail(a3);
+      ((int (*)())check_abort_flag)(a3);
     }
     else
     {
-      fmac_bt_event_handler(a1, v9);
+      irq_lock_save(a1, v9);
     }
   }
-  return rx_buf_init_n168();
+  return (int)(uintptr_t)(system_init());
 }
 
 
@@ -32959,7 +33036,7 @@ LABEL_2:
 LABEL_5:
       if ( !*(uint16_t *)(v8 + 4) )
       {
-        sub_119120(v8);
+        btlp_enter_sleep(v8);
         goto LABEL_2;
       }
       if ( **v2 >= 0 )
@@ -32969,14 +33046,14 @@ LABEL_5:
       v7 = 2080374784;
       v8 = v10;
       if ( !v10 )
-        return rx_buf_init_n168();
+        return (int)(uintptr_t)(system_init());
     }
     v7 = 0x40000000;
 LABEL_4:
     *(uint32_t *)(v9 + 4) = v7;
     goto LABEL_5;
   }
-  return rx_buf_init_n168();
+  return (int)(uintptr_t)(system_init());
 }
 
 
@@ -32986,7 +33063,7 @@ int memset_buffer(int a1, int a2, uint32_t *a3, int *a4) {
   int v8; // r1
   int v9; // r2
 
-  memset_thunk((int *)a1, 0, 0x64u);
+  memset_byte((int *)a1, 0, 0x64u);
   *(uint8_t *)(a1 + 96) = 1;
   v8 = dword_118EE8;
   v9 = dword_118EEC;
@@ -33061,7 +33138,7 @@ int ke_task_init_1(int a1) {
   v9[13] = 0;
   v9[14] = 0;
   v9[15] = 0;
-  v9[1] = sub_101954() << 14;
+  v9[1] = irq47_status_handler() << 14;
   v11 = get_hw_flash_size();
   v12 = (int *)off_118FE8;
   v13 = dword_118FEC;
@@ -33079,7 +33156,7 @@ int ke_task_init_1(int a1) {
   v12[14] = 0;
   v9[12] = 0;
   v12[15] = 0;
-  v12[1] = sub_101954() << 14;
+  v12[1] = irq47_status_handler() << 14;
   result = get_hw_flash_size();
   v12[2] = result;
   v12[3] = 0;
@@ -33159,7 +33236,7 @@ int event_notify(int a1, int a2) {
   }
   else
   {
-    ke_event_schedule_1(dword_1190B0, v5, v6);
+    ke_event_schedule(dword_1190B0, (void *)(uintptr_t)(v5), v6);
     return 0;
   }
 }
@@ -33192,7 +33269,15 @@ int ble_event_dispatch(int a1, int a2) {
   *(uint32_t *)(HIDWORD(v2) + 64) = v7;
   *(uint32_t *)(v2 + 96) = v7;
   *(uint32_t *)(v2 + 100) = v6;
-  return cmd_dispatch_handler(a1, a2);
+  return conn_rx(a1, a2);
+}
+
+
+
+// btlp_enter_sleep @ 0x119120
+int btlp_enter_sleep() {
+  ((int (*)())check_abort_flag)(dword_119138);
+  return set_system_flag_1(0x20000);
 }
 
 
@@ -33204,7 +33289,7 @@ int ble_conn_event_handler(int result, int a2) {
 
   v2 = result;
   if ( !*(uint8_t *)(result + 96) )
-    result = list_push_tail(dword_119164);
+    result = ((int (*)())check_abort_flag)(dword_119164);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 88);
@@ -33421,7 +33506,7 @@ LABEL_9:
     return 1;
 LABEL_4:
   v14 = v5 + 1320 * v7;
-  message_dispatch_n_4a3(v14, v13);
+  scan_done_check(v14, v13);
   v15 = v4 + 696 * a1;
   v16 = *(uint32_t *)(v13 + 72);
   v17 = *(uint32_t *)(v15 + 38);
@@ -33468,7 +33553,7 @@ int phy_channel_validate(int a1, int a2, int a3) {
   if ( (*(uint32_t *)(dword_1194F0 + 696 * a1 + 4) & 0x20) != 0 )
     return ble_acl_handle(a1, 7, a2, a3);
   else
-    return fmacfwbt_phy_chan_init(a1, a2, a3);
+    return ble_conn_get(a1, a2, a3);
 }
 
 
@@ -33592,7 +33677,7 @@ int rx_state_check(int a1, int a2, int a3) {
   v3 = *(uint8_t *)(a1 + 106);
   if ( v3 != 2 )
   {
-    ke_event_schedule_1(dword_1197D0, v3, a3);
+    ke_event_schedule(dword_1197D0, (void *)(uintptr_t)(v3), a3);
     return 1;
   }
   v4 = *(uint32_t *)(a1 + 72);
@@ -33618,7 +33703,7 @@ LABEL_5:
   v12 = v10;
   if ( v10 )
   {
-    message_dispatch_n_4a3(a1, v10);
+    scan_done_check(a1, v10);
     v13 = *(uint32_t *)(v12 + 72);
     *(uint8_t *)(v13 + 108) = 80;
     *(uint8_t *)(v13 + 109) = 0;
@@ -33646,7 +33731,7 @@ memcpy_aligned((void *)(uintptr_t)(v13 + 132), (void *)(uintptr_t)(dword_1197C4 
   }
   else
   {
-    ke_event_schedule_1(dword_1197D4, *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)), v11);
+    ke_event_schedule(dword_1197D4, (void *)(uintptr_t)(*(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107))), v11);
     return 1;
   }
 }
@@ -34360,12 +34445,12 @@ int *timer_ticks_compare() {
   v4 = (int *)dword_11A2A0;
   v5 = dword_11A2B0;
   v6 = dword_11A29C;
-  memset_thunk((int *)dword_11A29C, 0, 0x30u);
+  memset_byte((int *)dword_11A29C, 0, 0x30u);
   v7 = v3 + 6;
   do
   {
     v8 = *v3++;
-    result = (void *)(uintptr_t)(memset_thunk(v8, 0, 360 * *v4));
+    result = memset_byte(v8, 0, 360 * *v4);
     v10 = *v4++;
     if ( v10 > 0 )
     {
@@ -34400,13 +34485,13 @@ int *timer_ticks_compare() {
         v13[85] = v6;
         v13[4] = v5;
         v13[21] = v5;
-        v13[44] = sub_101954() << 14;
-        v14 = sdio_buffer_prepare_n_32a();
+        v13[44] = irq47_status_handler() << 14;
+        v14 = get_hw_flash_size();
         v15 = dword_11A2AC;
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = (int *)list_push_tail(v6);
+        result = (int *)((int (*)())check_abort_flag)(v6);
         ++v12;
         v11 += 90;
       }
@@ -34415,6 +34500,46 @@ int *timer_ticks_compare() {
     v6 += 8;
   }
   while ( v3 != v7 );
+  return result;
+}
+
+
+
+// llc_tx_process @ 0x11a2b4
+int llc_tx_process() {
+  int v0; // r4
+  int *v1; // r7
+  int v2; // r6
+  int v3; // r9
+  int result; // r0
+  int v5; // t1
+  int v6; // r5
+  int v7; // r8
+
+  v0 = dword_11A2FC;
+  v1 = (int *)dword_11A300;
+  v2 = dword_11A304;
+  v3 = dword_11A2FC + 48;
+  do
+  {
+    result = (int)(uintptr_t)(zero_struct((void *)(uintptr_t)(v0)));
+    v5 = *v1++;
+    if ( v5 > 0 )
+    {
+      v6 = 0;
+      v7 = 0;
+      do
+      {
+        result = ((int (*)())check_abort_flag)(v0);
+        ++v7;
+        v6 += 360;
+      }
+      while ( v7 < *(v1 - 1) );
+    }
+    v0 += 8;
+    v2 += 4;
+  }
+  while ( v0 != v3 );
   return result;
 }
 
@@ -34464,7 +34589,7 @@ int llc_tx_llcp_handler(int a1) {
       {
         v19 = *(uint32_t *)(HIDWORD(v5) + 48);
         if ( v19 )
-          *(uint8_t *)(v19 + 36) = scan_chan_parse_n1bd4(
+          *(uint8_t *)(v19 + 36) = llm_rx_pdu_handler(
                                    (*(uint32_t *)(v19 + 20) >> 11) & 7,
                                    *(uint32_t *)(v19 + 20) & 0x7F,
                                    (uint8_t *)(*(uint32_t *)(dword_11A4C4
@@ -34481,9 +34606,9 @@ int llc_tx_llcp_handler(int a1) {
     else if ( (uint32_t)v5 )
     {
       *(uint16_t *)(v3 + 82) |= 2u;
-      bt_table_lookup_n_64e(a1, v5);
+      set_callback_arg(a1, v5);
     }
-    list_push_tail(*(uint32_t *)(v4 + 340));
+    ((int (*)())check_abort_flag)(*(uint32_t *)(v4 + 340));
   }
   else
   {
@@ -34520,7 +34645,7 @@ int llc_tx_llcp_handler(int a1) {
       v18 = (void *)(uintptr_t)(off_11A4C0);
       *(uint32_t *)(v16 + 20) = v17;
       if ( v18[197] && v16 )
-        *(uint8_t *)(v16 + 36) = scan_chan_parse_n1bd4(
+        *(uint8_t *)(v16 + 36) = llm_rx_pdu_handler(
                                  (v17 >> 11) & 7,
                                  v17 & 0x7F,
                                  (uint8_t *)(*(uint32_t *)(dword_11A4C4 + 1320 * *(uint8_t *)(v3 + 28) + 72)
@@ -34530,9 +34655,9 @@ int llc_tx_llcp_handler(int a1) {
     else if ( (uint32_t)v5 && (v15 & 4) == 0 )
     {
       *(uint16_t *)(v4 + 8) = v15 | 5;
-      bt_table_lookup_n_64e(a1, v5);
+      set_callback_arg(a1, v5);
     }
-    list_push_tail(v1 + 84 * a1 + 28);
+    ((int (*)())check_abort_flag)(v1 + 84 * a1 + 28);
   }
   v11 = v1 + 84 * a1;
   v12 = *(uint8_t *)(v11 + 80);
@@ -34735,7 +34860,7 @@ int ke_timer_tick(int result) {
   v1 = *(uint8_t *)(result + 14) - 1;
   *(uint8_t *)(result + 14) = v1;
   if ( !v1 )
-    return list_push_tail(*(uint32_t *)(result + 340));
+    return ((int (*)())check_abort_flag)(*(uint32_t *)(result + 340));
   return result;
 }
 
@@ -35078,7 +35203,7 @@ int llc_tx_start(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5) 
   v5 = *a2;
   v6 = *(uint32_t *)(*a2 + 68);
   v22 = *(uint32_t **)(a1 + 76);
-  result = bt_state_field_cmp(a1, *a2, a5);
+  result = bt_conn_param_compare(a1, *a2, a5);
   if ( result )
   {
     v12 = v22;
@@ -35239,14 +35364,14 @@ int assert_fail_handler(int result, int a2) {
     v3 = *(uint32_t *)(result + 36);
     if ( **(int16_t **)off_11AD34 < 0 && (v4 = v2 << 15, v4 >= 0) )
     {
-      return ((int (*)())ke_int_lock_1)(dword_11AD3C, dword_11AD38, 3371, v4);
+      return ((int (*)())ke_int_lock)(dword_11AD3C, dword_11AD38, 3371, v4);
     }
     else
     {
       v5 = *(uint32_t *)(v3 + 20) & 0xFFFE3FFF | 0x4000;
       *(uint32_t *)(result + 60) = 0;
       *(uint32_t *)(v3 + 20) = v5;
-      return bt_chan_dispatch_n_6f0(result, a2, v3, v5);
+      return get_cal_item(result, a2, v3, v5);
     }
   }
   return result;
@@ -35269,7 +35394,7 @@ int llc_conn_timer_tick(int result) {
     v4 = result;
     *(uint8_t *)(v2 + 14) = v3;
     if ( !v3 )
-      list_push_tail(*(uint32_t *)(v2 + 340));
+      ((int (*)())check_abort_flag)(*(uint32_t *)(v2 + 340));
     *(uint32_t *)(v1 + 84 * v4 + 40) = 0;
     return 84;
   }
@@ -35441,7 +35566,7 @@ LABEL_20:
       ++*(uint8_t *)(v34 + 80);
       if ( !v53 )
       {
-        list_remove_1((void *)(uintptr_t)(v34 + 28), (void *)(uintptr_t)(v2), (void *)(uintptr_t)(v12));
+        ((int (*)())list_remove)((void *)(uintptr_t)(v34 + 28), v2, v12);
         v8 = *(uint8_t *)(*v32 + 1);
       }
       v35 = v54[18];
@@ -35645,7 +35770,7 @@ LABEL_11:
   if ( !v14 )
     mmio_irq_clear(dword_11B260, dword_11B25C, 3217);
 LABEL_13:
-  result = rf_cmd_process_n_4c5(v14, (int)&v18);
+  result = context_proc_at_offset44(v14, (int)&v18);
   if ( !result )
     return result;
   v16 = *v10;
@@ -35777,7 +35902,7 @@ LABEL_20:
               *(uint8_t *)(v24 + 1) = 1;
               v25 = dword_11B500;
               *(uint32_t *)(a1 + 68) = v23;
-              bt_state_check_or_init(84 * a5 + 28 + v25, v23);
+              check_abort_flag_2(84 * a5 + 28 + v25, (void *)(uintptr_t)(v23));
             }
             return (int)v8;
           }
@@ -35825,7 +35950,7 @@ LABEL_8:
         {
           if ( (v20 & 0x200000) != 0 )
           {
-            if ( !patch_apply_n3a(a1, a2, a3, a4, a5) )
+            if ( !tx_packet_build(a1, a2, a3, a4, a5) )
               goto LABEL_40;
           }
           else if ( !rf_channel_switch(a1, a2, a3, a4, a5) )
@@ -35933,7 +36058,7 @@ int off_84_table(int a1, int a2) {
   if ( v6 )
     return list_append(a1, *(uint32_t *)(v5 + 72), a2);
   else
-    return sub_119120();
+    return btlp_enter_sleep();
 }
 
 
@@ -35948,8 +36073,8 @@ BOOL zero_global_if_flag_clear(BOOL result) {
   if ( *(uint8_t *)(result + 37) )
   {
     v3 = result;
-    timestamp_update_4f60(off_11B678, *((uint32_t *)off_11B67C + 4) + 5000);
-    return sta_lookup_by_index(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
+    ke_event_lock(off_11B678, *((uint32_t *)off_11B67C + 4) + 5000);
+    return phy_channel_configure(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
   }
   else
   {
@@ -36017,7 +36142,7 @@ LABEL_13:
             if ( *(int *)(*(uint32_t *)(*v9 + 76) + 72) >= 0 )
               goto LABEL_3;
           }
-          scan_chan_entry_alloc_n_54((int)v9, (uint8_t)v5);
+          off_84_table((int)v9, (uint8_t)v5);
           v9 = *(int **)(v10 + 12);
           if ( !v9 )
             goto LABEL_4;
@@ -36033,7 +36158,7 @@ LABEL_3:
       if ( v6 )
       {
         if ( v9 )
-          scan_chan_entry_alloc_n_54((int)v9, (uint8_t)v5);
+          off_84_table((int)v9, (uint8_t)v5);
         v16 = *(uint32_t *)(v13 + 68);
         if ( **(int16_t **)off_11B798 < 0 && !v16 )
           mmio_irq_clear(dword_11B7A0, dword_11B79C, 1383);
@@ -36080,7 +36205,7 @@ int check_entry_flag(int result) {
       v6 = (int)&v1[7 * result];
       result = *(uint32_t *)(v6 + 36);
       if ( result )
-        result = bt_chan_dispatch_n_6f0(result, v4, v3, v6);
+        result = get_cal_item(result, v4, v3, v6);
       v1[v5 - v4 + 9] = 0;
     }
   }
@@ -36148,7 +36273,7 @@ LABEL_17:
     goto LABEL_17;
   }
 LABEL_8:
-  result = timestamp_update_4f60(&v4[28 * a1 + 20], *((uint32_t *)off_11B8C8 + 4) + 0x2000);
+  result = ke_event_lock((int)(uintptr_t)(&v4[28 * a1 + 20]), *((uint32_t *)off_11B8C8 + 4) + 0x2000);
   v8 = *v5;
 LABEL_9:
   if ( v8 )
@@ -36217,13 +36342,13 @@ LABEL_6:
       }
       if ( **v10 < 0 )
       {
-        return ((int (*)())ke_int_lock_1)(dword_11B9B0, dword_11B9AC, 684, a4);
+        return ((int (*)())ke_int_lock)(dword_11B9B0, dword_11B9AC, 684, a4);
       }
       else
       {
 LABEL_9:
         v4[v8 - v7 + 6] = dword_11B9A8;
-        return critical_section_enter_1(v7);
+        return ((int (*)())critical_section_enter)(v7);
       }
     }
   }
@@ -36700,10 +36825,10 @@ void ke_event_poll() {
           v21 = (uint32_t *)state_check_and_setup(&v35);
           if ( v21 )
           {
-            mmio_rf_table_init(v21);
+            crypto_aes_setup(v21);
             v22 = v35;
             *(uint32_t *)off_11BFEC &= ~0x200u;
-            bt_hci_cmd_send(v22);
+            bt_controller_event_handler(v22);
             return;
           }
           v1 = v0[52];
@@ -36821,7 +36946,7 @@ uint8_t * bt_adv_check(uint8_t *result) {
       {
         if ( (*(uint32_t *)(v2 + 4) & 0x20) != 0 )
         {
-          memset_thunk(v25, v1, 0x10u);
+          memset_byte(v25, v1, 0x10u);
           v3 = (uint8_t *)dword_11C1C0;
           v23 = v1;
           v4 = 36 * *(uint8_t *)(v2 + 35) + 8244 + dword_11C1BC;
@@ -36932,8 +37057,8 @@ int mac_reset_controller() {
   unsigned int v11; // r3
 
   v0 = (int *)off_11C300;
-  memset_thunk((int *)off_11C304, 0, 0xD4u);
-  memset_thunk(v0, 0, 0x4C8u);
+  memset_byte((int *)off_11C304, 0, 0xD4u);
+  memset_byte(v0, 0, 0x4C8u);
   v1 = dword_11C308;
   v0[272] = dword_11C30C;
   *((uint16_t *)v0 + 34) = 456;
@@ -37025,7 +37150,7 @@ int mac_process_queue() {
   if ( v1 )
   {
     v2 = *((uint32_t *)off_11C3D0 + 2);
-    timestamp_remove_058(off_11C3D0);
+    ke_event_set_lock(off_11C3D0);
     v3 = v0[4];
     if ( v3 )
       goto LABEL_3;
@@ -37040,13 +37165,13 @@ LABEL_3:
       memcpy_aligned((void *)(v12), (void *)(uintptr_t)(dword_11C3D4), 144);
       v4 = *((uint8_t *)v0 + 160);
       if ( v12[1] )
-        timestamp_remove_058(dword_11C3D4);
+        ke_event_set_lock(dword_11C3D4);
       if ( v12[8] )
-        timestamp_remove_058(dword_11C3D8);
+        ke_event_set_lock(dword_11C3D8);
       if ( v12[15] )
-        timestamp_remove_058(dword_11C3DC);
+        ke_event_set_lock(dword_11C3DC);
       if ( v12[22] )
-        timestamp_remove_058(dword_11C3E0);
+        ke_event_set_lock(dword_11C3E0);
       mac_reset_controller();
       v0[4] = v3;
       *((uint8_t *)v0 + 160) = v4;
@@ -37078,7 +37203,7 @@ LABEL_14:
     v11 = (void *)(uintptr_t)(off_11C3D0);
     v0[2] = v2;
     v0[1] = v9;
-    return timestamp_update_4f60(v11, v10 + 5000);
+    return ke_event_lock((int)(uintptr_t)(v11), v10 + 5000);
   }
   return result;
 }
@@ -37217,7 +37342,7 @@ int rxreorder_process(int result) {
       v29 = dword_11C718;
       v30 = dword_11C720;
       v31 = 2509;
-      return ((int (*)())ke_int_lock_1)(v30, v29, v31, v3);
+      return ((int (*)())ke_int_lock)(v30, v29, v31, v3);
     }
   }
   if ( (v3 & 0x2000000) == 0 )
@@ -37229,7 +37354,7 @@ int rxreorder_process(int result) {
     v29 = dword_11C718;
     v30 = dword_11C71C;
     v31 = 2522;
-    return ((int (*)())ke_int_lock_1)(v30, v29, v31, v3);
+    return ((int (*)())ke_int_lock)(v30, v29, v31, v3);
   }
   v7 = dword_11C6F4;
   v8 = (uint8_t)(v3 - 16);
@@ -37332,7 +37457,7 @@ void global_flag_set(int a1) {
 
   v1 = (void *)(uintptr_t)(off_11C74C);
   *(uint8_t *)off_11C74C = 1;
-  mac_irq_handler_1(a1);
+  mac_irq_handler(a1);
   *v1 = 0;
   ke_event_poll();
 }
@@ -37346,8 +37471,8 @@ int check_hw_status() {
   int *v2; // r2
   int v3; // r3
 
-  result = check_event_state_1();
-  if ( (*(uint32_t *)off_11C784 & 0x8000) != 0 && (v1 = result, (result = chip_feature_check()) != 0) && v1 )
+  result = check_event_state();
+  if ( (*(uint32_t *)off_11C784 & 0x8000) != 0 && (v1 = result, (result = sys_status_get_bit21()) != 0) && v1 )
   {
     v2 = (int *)off_11C78C;
     v3 = *(uint32_t *)off_11C78C;
@@ -37368,6 +37493,12 @@ void enable_irq() {
   *(uint32_t *)off_11C79C |= 0x80u;
 }
 
+
+
+// nullsub_8 @ 0x11c7a0
+int nullsub_8(void) {
+  return 0;
+}
 
 
 // is_associated @ 0x11c7a4
@@ -37524,7 +37655,7 @@ int configure_dma(int a1) {
   v2 = *((uint32_t *)off_11C984 + 4);
   *((uint32_t *)off_11C988 + 1) = dword_11C98C;
   v1[2] = a1;
-  return timestamp_update_4f60(v1, v2 + 5000);
+  return ke_event_lock((int)(uintptr_t)(v1), v2 + 5000);
 }
 
 
@@ -37617,14 +37748,14 @@ int tx_start(int a1, int a2) {
   v7 = a2;
   if ( (a2 & 0x800000) != 0 )
   {
-    v8 = ((int (*)())mac_irq_handler_1)(a1);
+    v8 = (int)(uintptr_t)(mac_irq_handler(a1));
     v9 = 9;
     while ( 1 )
     {
       v10 = *(uint16_t *)(v3 + 8);
       if ( (v10 & 0x20) != 0 )
         break;
-      v8 = ((int (*)())mac_irq_handler_1)(v8);
+      v8 = (int)(uintptr_t)(mac_irq_handler(v8));
       if ( !--v9 )
       {
         v11 = *(uint16_t *)(v3 + 8);
@@ -37648,11 +37779,11 @@ LABEL_7:
           if ( v2[199] )
             goto LABEL_19;
 LABEL_8:
-          message_dispatch_n34c(v2[190], (int)v12, v13, v14);
+          ke_task_set_event(v2[190], (int)v12, v13, v14);
           list_pop_front(v16 + 12 + v15);
           if ( *(uint16_t *)(a1 + 4) )
             return list_append(a1, v7, v5);
-          return sub_119120();
+          return btlp_enter_sleep();
         }
         v7 &= ~0x800000u;
         v4[18] &= ~0x800000u;
@@ -37796,7 +37927,7 @@ LABEL_19:
     *(uint32_t *)off_11CD08 = (v2[164] << 24) & 0x7000000 | *(uint32_t *)off_11CD08 & 0xF8FFFFFF;
     list_pop_front(v16 + 12 + v15);
     if ( !*(uint16_t *)(a1 + 4) )
-      return sub_119120();
+      return btlp_enter_sleep();
     return list_append(a1, v7, v5);
   }
   return result;
@@ -37987,14 +38118,14 @@ LABEL_12:
       v19 = *(uint16_t *)(v16 + 8);
       if ( (v19 & 0x20) == 0 )
       {
-        mac_irq_handler_1(result);
+        mac_irq_handler(result);
         v20 = 9;
         while ( 1 )
         {
           v19 = *(uint16_t *)(v16 + 8);
           if ( (v19 & 0x20) != 0 )
             break;
-          mac_irq_handler_1(v19 << 26);
+          mac_irq_handler(v19 << 26);
           if ( !--v20 )
           {
             v19 = *(uint16_t *)(v16 + 8);
@@ -38002,7 +38133,7 @@ LABEL_12:
             {
               v3 = v19 << 26;
               if ( (v19 & 0x20) == 0 )
-                return ((int (*)())ke_int_lock_1)(dword_11D0A0, dword_11D09C, 2274, v19);
+                return ((int (*)())ke_int_lock)(dword_11D0A0, dword_11D09C, 2274, v19);
             }
             break;
           }
@@ -38192,7 +38323,7 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
       *(uint8_t *)(v7 + 36) = 1;
       if ( v16 <= 0x1F )
       {
-        v31 = (uint8_t *)rf_bus_setup_n3a8(73, 13, 0, 2);
+        v31 = (uint8_t *)bt_buf_alloc(73, 13, 0, 2);
         *v31 = v9;
         v31[1] = 1;
         hci_evt_send((int)(uintptr_t)(v31));
@@ -38219,10 +38350,10 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
               }
               v41 = dword_11D390;
               ++*v33;
-              ke_event_schedule_1(v41, v32, v40);
+              ke_event_schedule(v41, (void *)(uintptr_t)(v32), (int)(uintptr_t)(v40));
               list_merge((void *)(uintptr_t)(v37 - 40), (void *)(uintptr_t)(v36 - 40));
               *(uint64_t *)(v34 + 1232) = *(uint64_t *)(v7 + 584);
-              bt_xtal_init_check(v37 - 40);
+              zero_struct((void *)(uintptr_t)(v37 - 40));
               v35 = *v33 - 1;
               if ( *v33 )
               {
@@ -38241,15 +38372,15 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
             v7 += 8;
             if ( v44 )
             {
-              ke_event_schedule_1(dword_11D394, v32, v35);
+              ke_event_schedule(dword_11D394, (void *)(uintptr_t)(v32), v35);
               list_merge((void *)(uintptr_t)(v36), (void *)(uintptr_t)(v37));
-              bt_xtal_init_check(v37);
+              zero_struct((void *)(uintptr_t)(v37));
             }
             v37 += 8;
             v36 += 8;
           }
           while ( v37 != v38 );
-          irq_nesting_or(512);
+          set_system_flag_1(512);
         }
       }
       v17 = dword_11D37C + 1320 * a3;
@@ -38265,7 +38396,7 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
           *(uint8_t *)(v21 + 36) = 1;
           if ( v22 <= 0x1F )
           {
-            v23 = (uint8_t *)rf_bus_setup_n3a8(73, 13, v18, 2);
+            v23 = (uint8_t *)bt_buf_alloc(73, 13, v18, 2);
             *v23 = v19;
             v23[1] = 1;
             hci_evt_send((int)(uintptr_t)(v23));
@@ -38294,10 +38425,10 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
                   }
                   v77 = dword_11D6F0;
                   ++*v70;
-                  ke_event_schedule_1(v77, v73, v72);
+                  ke_event_schedule(v77, (void *)(uintptr_t)(v73), v72);
                   list_merge((void *)(uintptr_t)(v75 - 40), (void *)(uintptr_t)(v74 - 40));
                   *(uint64_t *)(v71 + 1232) = *(uint64_t *)(v21 + 584);
-                  bt_xtal_init_check(v75 - 40);
+                  zero_struct((void *)(uintptr_t)(v75 - 40));
                   v72 = *v70 - 1;
                   if ( *v70 )
                   {
@@ -38316,15 +38447,15 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
                 v21 += 8;
                 if ( v80 )
                 {
-                  ke_event_schedule_1(dword_11D6F4, v73, v72);
+                  ke_event_schedule(dword_11D6F4, (void *)(uintptr_t)(v73), v72);
                   list_merge((void *)(uintptr_t)(v74), (void *)(uintptr_t)(v75));
-                  bt_xtal_init_check(v75);
+                  zero_struct((void *)(uintptr_t)(v75));
                 }
                 v75 += 8;
                 v74 += 8;
               }
               while ( v75 != v76 );
-              irq_nesting_or(512);
+              set_system_flag_1(512);
               v18 = (v18 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(dword_11D6E4 + 1320 * a3 + 234)) & 0xFFu);
             }
           }
@@ -38340,7 +38471,7 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
       *(uint8_t *)(v7 + 36) = 0;
       if ( v25 <= 0x1F )
       {
-        v45 = (uint8_t *)rf_bus_setup_n3a8(73, 13, 0, 2);
+        v45 = (uint8_t *)bt_buf_alloc(73, 13, 0, 2);
         *v45 = v9;
         v45[1] = 0;
         hci_evt_send((int)(uintptr_t)(v45));
@@ -38366,10 +38497,10 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
               v53 = dword_11D6F0;
               v54 = *v46 + 1;
               *v46 = v54;
-              ke_event_schedule_1(v53, v47, v54);
+              ke_event_schedule(v53, (void *)(uintptr_t)(v47), v54);
               list_merge((void *)(uintptr_t)(v51 - 40), (void *)(uintptr_t)(v48 - 40));
               *(uint64_t *)(v50 + 1232) = *(uint64_t *)(v7 + 584);
-              bt_xtal_init_check(v51 - 40);
+              zero_struct((void *)(uintptr_t)(v51 - 40));
               v47 = *v46 - 1;
               if ( *v46 )
               {
@@ -38387,16 +38518,16 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
             v7 += 8;
             if ( v56 )
             {
-              ke_event_schedule_1(dword_11D6F4, v47, v56);
+              ke_event_schedule(dword_11D6F4, (void *)(uintptr_t)(v47), v56);
               list_merge((void *)(uintptr_t)(v48), (void *)(uintptr_t)(v51));
-              bt_xtal_init_check(v51);
+              zero_struct((void *)(uintptr_t)(v51));
             }
             v51 += 8;
             v48 += 8;
           }
           while ( v51 != v52 );
           v9 = v86;
-          irq_nesting_or(512);
+          set_system_flag_1(512);
         }
       }
       txpwr_cal_entry_get(v3, v9);
@@ -38413,7 +38544,7 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
           *(uint8_t *)(v29 + 36) = 0;
           if ( v30 <= 0x1F )
           {
-            v58 = (uint16_t *)rf_bus_setup_n3a8(73, 13, 0, 2);
+            v58 = (uint16_t *)bt_buf_alloc(73, 13, 0, 2);
             *v58 = (uint8_t)v28;
             hci_evt_send((int)(uintptr_t)(v58));
             if ( !*(uint8_t *)(v29 + 36) && *(uint8_t *)(v29 + 35) <= 0x1Fu )
@@ -38438,10 +38569,10 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
                   }
                   v66 = dword_11D6F0;
                   ++*v60;
-                  ke_event_schedule_1(v66, v62, v59);
+                  ke_event_schedule(v66, (void *)(uintptr_t)(v62), (int)(uintptr_t)(v59));
                   list_merge((void *)(uintptr_t)(v64 - 40), (void *)(uintptr_t)(v63 - 40));
                   *(uint64_t *)(v61 + 1232) = *(uint64_t *)(v29 + 584);
-                  bt_xtal_init_check(v64 - 40);
+                  zero_struct((void *)(uintptr_t)(v64 - 40));
                   v59 = (void *)(*v60 - 1);
                   if ( *v60 )
                   {
@@ -38460,16 +38591,16 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
                 v29 += 8;
                 if ( v69 )
                 {
-                  ke_event_schedule_1(dword_11D6F4, v62, v59);
+                  ke_event_schedule(dword_11D6F4, (void *)(uintptr_t)(v62), (int)(uintptr_t)(v59));
                   list_merge((void *)(uintptr_t)(v63), (void *)(uintptr_t)(v64));
-                  bt_xtal_init_check(v64);
+                  zero_struct((void *)(uintptr_t)(v64));
                 }
                 v64 += 8;
                 v63 += 8;
               }
               while ( v65 != v64 );
               v28 = v87;
-              irq_nesting_or(512);
+              set_system_flag_1(512);
             }
           }
         }
@@ -38488,10 +38619,10 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
       }
       else
       {
-        result = (uint16_t *)rf_bus_reset_n_21a_f780(v3, dword_11D380 + 696 * a2, 1);
+        result = (uint16_t *)wlc_bsscfg_dump(v3, dword_11D380 + 696 * a2, 1);
         if ( !result )
         {
-          v57 = rf_bus_setup_n3a8(74, 13, 0, 4);
+          v57 = bt_buf_alloc(74, 13, 0, 4);
           *(uint8_t *)v57 = v9;
           *(uint16_t *)(v57 + 1) = (uint8_t)v85;
           result = (uint16_t *)hci_evt_send(v57);
@@ -38527,7 +38658,7 @@ uint16_t * get_channel_config(uint16_t *result, int a2, int a3) {
             if ( (v13 & 4) != 0 )
             {
               *(uint8_t *)(dword_11D758 + 696 * v9 + 54) = 4;
-              v84 = (uint8_t *)rf_bus_setup_n3a8(74, 13, 0, 4);
+              v84 = (uint8_t *)bt_buf_alloc(74, 13, 0, 4);
               *v84 = v9;
               v84[1] = v14;
               v84[2] = 1;
@@ -38616,7 +38747,7 @@ BOOL rx_process_packet(int a1) {
     if ( v3 < 0 && !v2 )
     {
       v8 = 0;
-      ((int (*)())ke_int_lock_1)(dword_11DA8C, dword_11DA88, 423, v3);
+      ((int (*)())ke_int_lock)(dword_11DA8C, dword_11DA88, 423, v3);
       return v8;
     }
     v5 = *(int16_t **)(v2 + 8);
@@ -38639,7 +38770,7 @@ BOOL rx_process_packet(int a1) {
         v8 = (v7 >> 15) & 0x1F0;
         if ( !v8 )
         {
-          ((int (*)())ke_int_lock_1)(dword_11DA94, dword_11DA88, 475, v3);
+          ((int (*)())ke_int_lock)(dword_11DA94, dword_11DA88, 475, v3);
           return v8;
         }
       }
@@ -38690,7 +38821,7 @@ BOOL rx_process_packet(int a1) {
           goto LABEL_19;
         goto LABEL_36;
       }
-      v27 = memcpy_1((int)(uintptr_t)(v5 + 8), v52 + 100 + dword_11DA84, 6);
+      v27 = ((int (*)())memcpy)((int)(uintptr_t)(v5 + 8), v52 + 100 + dword_11DA84, 6);
       v16 = dword_11DA84;
       if ( v27 )
       {
@@ -38707,7 +38838,7 @@ LABEL_19:
             if ( v17 == 128 )
             {
               v53 = 0;
-              v40 = rx_process_packet_1(a1 + 20, v18, v49, &v53);
+              v40 = ((int (*)())rx_process_packet)(a1 + 20, v18, v49, &v53);
               ipc_msg_receive(v53, *(uint16_t *)(a1 + 48), v18);
               si_watchdog(v18);
               if ( v40 )
@@ -38906,12 +39037,25 @@ int is_tx_ready() {
   char v2; // r0
 
   v0 = (void *)(uintptr_t)(off_11DC60);
-  init_global_table_121E430();
-  v1 = bt_xtal_init_check(v0);
-  v2 = sub_12F74C(v1) - 1;
+  rf_fifo_status();
+  v1 = (int)(uintptr_t)(zero_struct((void *)(v0)));
+  v2 = return_two_stub(v1) - 1;
   v0[11] = v2;
   v0[10] = v2;
-  return bt_core_subsystems_init();
+  return init_driver_locks();
+}
+
+
+
+// nullsub_4 @ 0x11dc64
+int nullsub_4(void) {
+  return 0;
+}
+
+
+// pmu_sleep_200000 @ 0x11dc68
+int pmu_sleep_200000() {
+  return set_system_flag_1(0x200000);
 }
 
 
@@ -38953,7 +39097,7 @@ int tx_lock() {
         v5(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = rx_desc_status_get();
+        result = ((int (*)())rf_tx_timestamp_check)();
       if ( *v3 )
       {
         v6 = *v3 - 1;
@@ -39155,7 +39299,7 @@ int rf_hw_init(int inited) {
   v4 = inited;
   for ( i = 0; ; ++i )
   {
-    v13 = fw_version_check_n_38(inited);
+    v13 = mac_irq_check(inited);
     *v1 = 0x10000;
     result = set_system_flag_2(0x80000);
     if ( !v13 )
@@ -39167,11 +39311,11 @@ int rf_hw_init(int inited) {
       {
         v6 = *(uint32_t *)off_11E018;
         if ( *(uint32_t *)off_11E018 > 0x80000u || i > 31 )
-          return irq_nesting_or(0x80000);
+          return set_system_flag_1(0x80000);
       }
       else if ( i > 3 )
       {
-        return irq_nesting_or(0x80000);
+        return set_system_flag_1(0x80000);
       }
     }
     v7 = state_ready_check(result, v15, v16, v6);
@@ -39180,13 +39324,13 @@ int rf_hw_init(int inited) {
       v18 = (void *)(uintptr_t)(off_11E02C);
       *((uint8_t *)off_11E02C + 69) = 1;
       rf_is_channel_idle(v7, v8, 1, v18);
-      return feature_guard_sdio(1024, dword_11E030);
+      return state_check_feature(1024, dword_11E030);
     }
     v11 = *(uint32_t *)(v13 + 20);
     if ( v11 != v3 )
-      ke_event_schedule_1(dword_11E020, v13, v11);
-    chan_get_curr_id(v13);
-    inited = bt_hci_cmd_handler(v13);
+      ke_event_schedule(dword_11E020, (void *)(uintptr_t)(v13), v11);
+    rx_timeout_check(v13);
+    inited = rx_process_packet(v13);
     if ( inited )
     {
       if ( inited != 1 )
@@ -39209,7 +39353,7 @@ LABEL_10:
         if ( !*(uint32_t *)off_11E028 || *(uint32_t *)(*(uint32_t *)off_11E028 + 12) != v13 || (*(uint8_t *)(v13 + 16) & 1) == 0 )
         {
 LABEL_22:
-          inited = init_alloc_0x200000();
+          inited = rf_wait_idle();
           continue;
         }
         v20 = *(uint32_t *)off_11E028;
@@ -39218,10 +39362,10 @@ LABEL_22:
         *(uint8_t *)(v20 + 16) = 0;
         if ( v17 )
           v17(*(uint32_t *)(v20 + 8));
-        inited = rx_desc_status_get(v13);
+        inited = rf_tx_timestamp_check(v13);
         break;
       case 3:
-        inited = fw_subsystem_init();
+        inited = tx_unlock();
         break;
     }
   }
@@ -39230,7 +39374,7 @@ LABEL_22:
     v19 = (void *)(uintptr_t)(off_11E038);
     if ( *((uint8_t *)off_11E038 + 33) )
     {
-      result = log_queue_push2(*((uint32_t *)off_11E038 + 4), *((uint32_t *)off_11E038 + 5), *((uint32_t *)off_11E038 + 6));
+      result = ke_int_lock(*((uint32_t *)off_11E038 + 4), *((uint32_t *)off_11E038 + 5), *((uint32_t *)off_11E038 + 6));
       v19[5] = 0;
       v19[7] = 0;
       v19[4] = 0;
@@ -39396,7 +39540,7 @@ uint32_t * tx_packet_isr(uint32_t *a1, int a2, uint16_t *a3) {
     if ( a2 + v4 >= v20 )
       break;
     v23 = a2;
-    v11 = log_free_dispatch_n2b4();
+    v11 = critical_enter_0();
     v10 = 0;
     v12 = v23;
     v9 = 1;
@@ -39439,7 +39583,7 @@ LABEL_5:
   v22 = (uint16_t)(v20 - v4);
   if ( !v10 )
     v9 = 1;
-  v11 = log_free_dispatch_n2b4();
+  v11 = critical_enter_0();
   v4 = 0;
   v12 = v22;
   v13 = (uint32_t *)v11;
@@ -39584,7 +39728,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(int16_t **)off_11E420 < 0 && !a2 )
-      return ((int (*)())ke_int_lock_1)(dword_11E428, dword_11E424, 1119, v2);
+      return ((int (*)())ke_int_lock)(dword_11E428, dword_11E424, 1119, v2);
     v2 = *(uint16_t *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;
@@ -39711,7 +39855,7 @@ int tx_timeout_check(int a1) {
       v11 = dword_11E604;
       v12 = dword_11E60C;
       v13 = 393;
-      return ((int (*)())ke_int_lock_1)(v12, v11, v13, v2);
+      return ((int (*)())ke_int_lock)(v12, v11, v13, v2);
     }
     v3 = *(uint32_t *)(a1 + 84);
     v4 = **(uint16_t **)(v1 + 8) & 0xFC;
@@ -39728,7 +39872,7 @@ int tx_timeout_check(int a1) {
     else if ( v4 == 148 && (~v3 & 0x2002) == 0 )
     {
       v15 = a1;
-      bt_check_flag_n_3c0(a1, v3 & 0xFEFFFFFF, v3, 0);
+      ke_event_loop(a1, v3 & 0xFEFFFFFF, v3, 0);
       a1 = v15;
     }
     v5 = (*(uint32_t *)(v1 + 12) & 0xFFFFFFFC) + 4;
@@ -39743,7 +39887,7 @@ int tx_timeout_check(int a1) {
         v11 = dword_11E604;
         v12 = dword_11E608;
         v13 = 436;
-        return ((int (*)())ke_int_lock_1)(v12, v11, v13, v2);
+        return ((int (*)())ke_int_lock)(v12, v11, v13, v2);
       }
     }
     v5 = a1 + 160;
@@ -39758,7 +39902,7 @@ int tx_timeout_check(int a1) {
   if ( !v8 )
     v9 += 0x80000000;
   v6[5] = v5 | v9;
-  return rx_desc_status_get(a1);
+  return rf_tx_timestamp_check(a1);
 }
 
 
@@ -39856,7 +40000,7 @@ int bt_notify_event(int a1) {
   v1[6] = v5;
   if ( v3 >= result << 9 )
   {
-    result = log_queue_push2(v1[4], v4, v5);
+    result = ke_int_lock(v1[4], v4, v5);
     v1[4] = 0;
     v1[5] = 0;
     v1[6] = 0;
@@ -39994,8 +40138,8 @@ LABEL_25:
       v37 = (int *)off_11E9D0;
       v38 = dword_11E9C0;
       ++*(uint32_t *)off_11E9D0;
-      v39 = list_push_tail(v38);
-      phy_reg_init_n_2c4(v39, v40);
+      v39 = ((int (*)())check_abort_flag)(v38);
+      rf_calib_init(v39, v40);
       if ( *v37 )
       {
         v41 = *v37 - 1;
@@ -40016,7 +40160,7 @@ LABEL_5:
         v18 = (int *)off_11E9A4;
         if ( *((uint8_t *)off_11E9A4 + 32) )
         {
-          v43 = (uint32_t *)log_free_dispatch_n2b4();
+          v43 = (uint32_t *)critical_enter_0();
           v46 = (int)v43;
           if ( v43 )
           {
@@ -40032,7 +40176,7 @@ LABEL_5:
               if ( v49 )
                 bt_notify_event(v46);
               else
-                log_queue_push2(v46, v18[1], v18[2]);
+                ke_int_lock(v46, v18[1], v18[2]);
               *(uint8_t *)off_11E9CC |= 1u;
               v18[1] = 0;
               v18[3] = 0;
@@ -40046,11 +40190,11 @@ LABEL_5:
           {
             v56 = dword_11EA40;
             *(uint8_t *)(a1 + 16) |= 1u;
-            ke_event_schedule_1(v56, v44, v45);
+            ke_event_schedule(v56, (void *)(uintptr_t)(v44), v45);
             *((uint8_t *)v18 + 32) = 0;
           }
         }
-        feature_guard_sdio(1024, dword_11E9A8);
+        state_check_feature(1024, dword_11E9A8);
         v19 = *v18;
         *(uint8_t *)(a1 + 16) |= 1u;
         if ( v19 && v18[1] )
@@ -40076,15 +40220,15 @@ LABEL_6:
       v16 = v15[14];
       *(uint32_t *)(a1 + 8) = a6;
       if ( v16 )
-        return list_push_tail(v15 + 14);
+        return ((int (*)())check_abort_flag)((int)(uintptr_t)(v15 + 14));
       else
-        return list_push_tail(dword_11E9C4);
+        return ((int (*)())check_abort_flag)(dword_11E9C4);
     }
 LABEL_2:
     if ( v11 == 1 )
       tx_packet_isr((void *)(v58), a2, (void *)(&v57));
     else
-      rx_frame_handler(v58, a2, a3, &v57, 0);
+      rx_adv_packet_isr((void *)(v58), a2, a3, (void *)(&v57), 0);
     v14 = **v7;
     if ( v14 != 2 )
       goto LABEL_5;
@@ -40100,7 +40244,7 @@ LABEL_2:
   }
   v52 = (int *)off_11EA38;
   ++*(uint32_t *)off_11EA38;
-  inited = phy_reg_init_n_2c4(v50, CPSR << 31);
+  inited = rf_calib_init(v50, CPSR << 31);
   if ( *v52 )
   {
     v55 = *v52 - 1;
@@ -40112,7 +40256,7 @@ LABEL_2:
         __enable_irq();
     }
   }
-  return log_printf(dword_11EA3C, inited, v54);
+  return printf_wrapper(dword_11EA3C, inited, v54);
 }
 
 
@@ -40201,7 +40345,7 @@ int rx_packet_setup(int a1) {
   v9 = *v7;
   if ( v9 == 3 )
   {
-    v2 = sub_12F76C();
+    v2 = jump_to_10ca3c();
     v9 = **v5;
     v3 = v2 + 60;
   }
@@ -40232,7 +40376,7 @@ int rx_packet_setup(int a1) {
             __enable_irq();
         }
       }
-      return sub_10DA7C(dword_11EED8, v66, v67);
+      return printf_wrapper(dword_11EED8, v66, v67);
     }
     if ( (__get_CPSR() & 1) == 0 )
     {
@@ -40395,7 +40539,7 @@ LABEL_17:
         {
           v69 = dword_11EEDC;
           *(uint8_t *)(v8 + 16) |= 1u;
-          ke_event_schedule_1(v69, v53, v54);
+          ke_event_schedule(v69, (void *)(uintptr_t)(v53), v54);
           *((uint8_t *)v12 + 32) = 0;
         }
       }
@@ -40493,10 +40637,10 @@ LABEL_41:
       goto LABEL_5;
   }
   if ( !v10 )
-    return ((int (*)())ke_int_lock_1)(dword_11EED0, dword_11EECC, 1545, v9);
+    return ((int (*)())ke_int_lock)(dword_11EED0, dword_11EECC, 1545, v9);
   if ( v10 <= 0x3000 )
     goto LABEL_37;
-  return ((int (*)())ke_int_lock_1)(dword_11EED4, dword_11EECC, 1547, v9);
+  return ((int (*)())ke_int_lock)(dword_11EED4, dword_11EECC, 1547, v9);
 }
 
 
@@ -40514,7 +40658,7 @@ int tx_packet_finish(int a1) {
     *(uint8_t *)(a1 + 16) |= 1u;
     *(uint32_t *)(a1 + 4) = 0;
     v3 = v2 + 56;
-    return list_push_tail(v3);
+    return ((int (*)())check_abort_flag)((int)(uintptr_t)(v3));
   }
   v3 = (void *)(uintptr_t)(off_11EF34);
   if ( *(uint32_t *)off_11EF34 )
@@ -40522,9 +40666,9 @@ int tx_packet_finish(int a1) {
     v4 = *(uint8_t *)(a1 + 16);
     *(uint32_t *)(a1 + 4) = 0;
     *(uint8_t *)(a1 + 16) = v4 | 1;
-    return list_push_tail(v3);
+    return ((int (*)())check_abort_flag)((int)(uintptr_t)(v3));
   }
-  return rx_desc_status_get(a1);
+  return rf_tx_timestamp_check(a1);
 }
 
 
@@ -40652,8 +40796,8 @@ void mac_irq_handler_1() {
       v5 = v4 & 0x7FFFFFFF;
       v6 = *(uint32_t *)((v4 & 0x7FFFFFFF) + 0x14);
       if ( v6 != v3 )
-        ke_event_schedule_1(dword_11F0CC, v4 & 0x7FFFFFFF, v6);
-      chan_get_curr_id(v5);
+        ke_event_schedule(dword_11F0CC, (void *)(uintptr_t)(v4 & 0x7FFFFFFF), v6);
+      rx_timeout_check(v5);
       *(uint8_t *)(v5 + 156) = 1;
       tx_timeout_check(v5);
       v2 = v0[5];
@@ -40732,19 +40876,19 @@ int *wlc_attach() {
 
   v0 = dword_11F268;
   v1 = dword_11F264;
-  bt_xtal_init_check(dword_11F264);
+  zero_struct((void *)(uintptr_t)(dword_11F264));
   v2 = v0 + 22272;
   do
   {
-    rf_phy_field_clear_n_23c(v0 - 624);
-    list_push_tail(v1);
+    wlc_bsscfg_llc_flush(v0 - 624);
+    ((int (*)())check_abort_flag)(v1);
     v3 = v0 - 40;
     do
     {
-      bt_xtal_init_check(v3);
+      zero_struct((void *)(uintptr_t)(v3));
       v4 = v3 + 40;
       v3 += 8;
-      bt_xtal_init_check(v4);
+      zero_struct((void *)(uintptr_t)(v4));
     }
     while ( v3 != v0 );
     v0 = v3 + 696;
@@ -40755,10 +40899,10 @@ int *wlc_attach() {
     v6 = v2 - 40;
     do
     {
-      bt_xtal_init_check(v6);
+      zero_struct((void *)(uintptr_t)(v6));
       v7 = v6 + 40;
       v6 += 8;
-      bt_xtal_init_check(v7);
+      zero_struct((void *)(uintptr_t)(v7));
     }
     while ( v6 != v2 );
     v2 = v6 + 696;
@@ -40766,23 +40910,23 @@ int *wlc_attach() {
   v8 = (void *)(uintptr_t)(off_11F26C);
   v9 = dword_11F270;
   v10 = dword_11F274;
-  rf_phy_field_clear_n_23c((int)off_11F26C);
+  wlc_bsscfg_llc_flush((int)off_11F26C);
   v8[8] = 0x20000000;
   v8[84] = v9;
   v8[47] = v10;
   *((uint8_t *)v8 + 52) = 0;
-  rf_phy_field_clear_n_23c((int)(v8 + 174));
+  wlc_bsscfg_llc_flush((int)(v8 + 174));
   v8[258] = v9 + 64;
   v11 = dword_11F278;
   v8[221] = v10 + 1320;
   v8[182] = v11;
   *((uint8_t *)v8 + 748) = 0;
-  rf_phy_field_clear_n_23c((int)(v8 + 348));
+  wlc_bsscfg_llc_flush((int)(v8 + 348));
   v8[432] = v9 + 128;
   v8[356] = dword_11F27C;
   *((uint8_t *)v8 + 1444) = 0;
   v8[395] = v10 + 2640;
-  result = (void *)(uintptr_t)(rf_phy_field_clear_n_23c((int)(v8 + 522)));
+  result = wlc_bsscfg_llc_flush((int)(v8 + 522));
   v13 = dword_11F280;
   *((uint8_t *)v8 + 2140) = 0;
   v8[606] = v9 + 192;
@@ -40843,7 +40987,7 @@ int wlc_detach(int *a1, uint8_t *a2) {
     v35 = (int)(uintptr_t)(list_pop_front(dword_11F47C));
     if ( !v35 )
     {
-      list_push_tail(dword_11F47C);
+      ((int (*)())check_abort_flag)(dword_11F47C);
       return 1;
     }
     *(uint32_t *)(v6 + 44) = v35;
@@ -40887,7 +41031,7 @@ int wlc_detach(int *a1, uint8_t *a2) {
   *(uint8_t *)(v6 + 34) = *((uint8_t *)a1 + 25);
   *a2 = v14;
   *(uint8_t *)(v6 + 35) = v14;
-  feature_guard_sdio(256, v13);
+  state_check_feature(256, v13);
   v15 = dword_11F490;
   v16 = dword_11F490 + 1320 * v3;
   v17 = *(uint8_t *)(v16 + 1224);
@@ -40928,7 +41072,7 @@ int wlc_detach(int *a1, uint8_t *a2) {
   while ( v6 + 108 != v19 );
   if ( (v22 & 0x10) != 0 )
     *(uint32_t *)(v6 + 4) |= 8u;
-  list_push_tail(v15 + v20 + 240);
+  ((int (*)())check_abort_flag)(v15 + v20 + 240);
   *(uint32_t *)(v6 + 580) = dword_11F49C;
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -40985,8 +41129,8 @@ unsigned int wlc_phy_cal_init(int a1) {
   v4 = 1320 * *(uint8_t *)(v3 + 34);
   if ( *(uint8_t *)(dword_11F5C8 + v4 + 1224) )
     --*(uint8_t *)(dword_11F5C8 + v4 + 1226);
-  feature_guard_sdio(256, dword_11F5B4);
-  list_remove_node_d510(v4 + 240 + v2, v3);
+  state_check_feature(256, dword_11F5B4);
+  check_abort_flag_3(v4 + 240 + v2, (void *)(uintptr_t)(v3));
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -41005,8 +41149,8 @@ unsigned int wlc_phy_cal_init(int a1) {
     if ( !v10 )
     {
 LABEL_7:
-      rf_phy_field_clear_n_23c(v9);
-      list_push_tail(dword_11F5C0);
+      wlc_bsscfg_llc_flush(v9);
+      ((int (*)())check_abort_flag)(dword_11F5C0);
       goto LABEL_8;
     }
     v13 = (int *)off_11F5B8;
@@ -41034,15 +41178,15 @@ LABEL_7:
   if ( v9 )
     goto LABEL_7;
 LABEL_8:
-  rf_phy_field_clear_n_23c(v3);
-  v11 = list_push_tail(dword_11F5C0);
+  wlc_bsscfg_llc_flush(v3);
+  v11 = ((int (*)())check_abort_flag)(dword_11F5C0);
   result = find_pending_command(v11);
   if ( !result )
   {
     if ( *((uint8_t *)off_11F5C4 + 408) )
-      return mmio_reg_init_patch(v2 + v4);
+      return dma_tx_setup(v2 + v4);
     else
-      return rf_power_set(0xC2u);
+      return write_mmio_byte(0xC2u);
   }
   return result;
 }
@@ -41148,7 +41292,7 @@ int wlc_bsscfg_down(int a1, int a2, int a3) {
   do
   {
     v12 = 0;
-    if ( !bt_sub_121733C(a1) )
+    if ( !init_once(a1) )
       break;
     if ( !phy_check_core_mode(v3) )
       break;
@@ -41160,7 +41304,7 @@ int wlc_bsscfg_down(int a1, int a2, int a3) {
     v9 = *(uint8_t *)(v10 + 27);
     *(uint8_t *)(v10 + 97) = 0;
     ++v4;
-    cmd_dispatch_handler(v10, v9);
+    conn_rx(v10, v9);
     if ( a3 )
     {
       if ( v4 == a3 )
@@ -41270,14 +41414,14 @@ int wlc_ucode_download(int result) {
 
   v1 = result;
   if ( *(uint8_t *)(result + 1224) )
-    result = bt_rx_handler();
+    result = ((int (*)())bt_conn_flush)();
   if ( *(uint32_t *)(v1 + 72) )
     result = hci_le_event_proc(v1);
   if ( (*(uint32_t *)(v1 + 4) & 1) != 0 )
   {
     if ( (*(uint32_t *)off_11F9C8 & 0x2000000) != 0 || (result = *(uint32_t *)off_11F9C8 << 6, *((uint8_t *)off_11F9CC + 36)) )
     {
-      result = feature_guard_sdio(2, dword_11F9D0);
+      result = state_check_feature(2, dword_11F9D0);
       v2 = (int *)off_11F9D4;
       v3 = *((uint8_t *)off_11F9D4 + 1);
       *(uint32_t *)(v1 + 4) &= ~1u;
@@ -41314,7 +41458,7 @@ int wlc_ucode_download(int result) {
               while ( *v9 << 28 )
               {
                 if ( (unsigned int)(v10[4] - v11) > 0x7530 )
-                  feature_guard_sdio(2, dword_11FA1C);
+                  state_check_feature(2, dword_11FA1C);
               }
               v12 = (void *)(uintptr_t)(off_11F9F8);
               v13 = *((uint32_t *)off_11F9F8 + 4);
@@ -41326,7 +41470,7 @@ int wlc_ucode_download(int result) {
                 {
                   v16 = *v14 & *v15;
                   if ( (unsigned int)(v12[4] - v13) > 0x7530 )
-                    feature_guard_sdio(2, dword_11FA04);
+                    state_check_feature(2, dword_11FA04);
                 }
                 while ( (v16 & 4) == 0 );
               }
@@ -41359,7 +41503,7 @@ int wlc_ucode_download(int result) {
             v23 = dword_11FA18;
             *(uint32_t *)off_11FA14 = v21 | *v19;
             *v22 = 48;
-            return rf_table_lookup_n528(*(uint8_t *)(v1 + 107), v23, v1);
+            return bt_get_conn_entry(*(uint8_t *)(v1 + 107), v23, v1);
           }
         }
       }
@@ -41395,22 +41539,22 @@ int si_attach() {
   int result; // r0
 
   v0 = (void *)(uintptr_t)(off_11FAC0);
-  memset_thunk((int *)off_11FAC0, 0, 0x18u);
-  bt_xtal_init_check(v0);
+  memset_byte((int *)off_11FAC0, 0, 0x18u);
+  zero_struct((void *)(v0));
   v1 = dword_11FAC4;
   v2 = dword_11FAC8;
-  bt_xtal_init_check(v0 + 8);
+  zero_struct((void *)(v0 + 8));
   v3 = v1 + 5280;
   do
   {
-    memset_thunk((int *)v1, 0, 0x528u);
+    memset_byte((int *)v1, 0, 0x528u);
     *(uint32_t *)(v1 + 52) = v2;
     *(uint32_t *)(v1 + 56) = v1;
     *(uint8_t *)(v1 + 106) = 5;
     *(uint8_t *)(v1 + 109) = 127;
     *(uint8_t *)(v1 + 110) = 127;
     v1 += 1320;
-    result = list_push_tail(v0);
+    result = ((int (*)())check_abort_flag)((int)(uintptr_t)(v0));
   }
   while ( v1 != v3 );
   v0[16] = -1;
@@ -41501,7 +41645,7 @@ int wlc_ioctl(int *a1, int a2, int a3, uint8_t *a4) {
       goto LABEL_8;
     }
 LABEL_52:
-    rf_reg_init_load(a1);
+    read_hw_stats(a1);
     goto LABEL_11;
   }
   v5 = *((int ***)off_11FE34 + 2);
@@ -41519,7 +41663,7 @@ LABEL_8:
   {
     v12 = v5[25];
     v13 = *((uint16_t *)v5 + 52);
-    ke_event_schedule_1(v7, v12, v13);
+    ke_event_schedule(v7, (void *)(v12), v13);
     v5 = (int **)*v5;
     v7 = dword_11FE1C;
     v10 |= (unsigned int)v12 ^ v8;
@@ -41535,7 +41679,7 @@ LABEL_8:
   *v14 = v10;
   *v15 = v52;
   *v16 = v53;
-  ke_event_schedule_1(dword_11FE30, v52, v53);
+  ke_event_schedule(dword_11FE30, (void *)(uintptr_t)(v52), v53);
 LABEL_11:
   v17 = (int)(uintptr_t)(list_pop_front(off_11FE34));
   v18 = dword_11FE38;
@@ -41567,7 +41711,7 @@ LABEL_11:
     }
     else
     {
-      mmio_set_bit_1(2631, 127);
+      ((int (*)())mmio_set_bit)(2631, 127);
       v38 = v4[18];
       v21 = *(uint8_t *)(v19 + 107);
       v39 = *(uint8_t *)(v19 + 1224);
@@ -41603,7 +41747,7 @@ LABEL_11:
       v45 = *(uint32_t *)(v41 + 72);
       *(uint32_t *)off_11FE50 = v43 | v42[1];
       if ( v45 )
-        fw_state_lookup_n_528(*(uint8_t *)(v45 + 24));
+        get_current_entry_owner(*(uint8_t *)(v45 + 24));
       v23 = (uint8_t)v4[17];
     }
     else
@@ -41614,7 +41758,7 @@ LABEL_11:
 if ( find_free_conn((void *)(v55), &v54) ) return 1;
       v47 = v54;
       *(uint32_t *)(v19 + 4) |= 0x80u;
-      fw_state_lookup_n_528(v47);
+      get_current_entry_owner(v47);
       v23 = (uint8_t)v4[17];
     }
   }
@@ -41666,22 +41810,22 @@ if ( find_free_conn((void *)(v55), &v54) ) return 1;
   }
   v28 = dword_11FE58;
   *a4 = *(uint8_t *)(v19 + 107);
-  list_push_tail(v28);
+  ((int (*)())check_abort_flag)(v28);
   v29 = v19 + 1232;
   do
   {
-    bt_xtal_init_check(v29);
+    zero_struct((void *)(uintptr_t)(v29));
     v30 = v29 + 40;
     v29 += 8;
-    bt_xtal_init_check(v30);
+    zero_struct((void *)(uintptr_t)(v30));
   }
   while ( v29 != v19 + 1272 );
-  bt_xtal_init_check(v19 + 1312);
+  zero_struct((void *)(uintptr_t)(v19 + 1312));
   v31 = (uint8_t)v4[17] + (uint8_t)v4[18];
   *(uint32_t *)off_11FE5C = 0;
   if ( v31 <= 1 )
     si_secure_check();
-  feature_guard_sdio(256, dword_11FE64);
+  state_check_feature(256, dword_11FE64);
   v32 = (uint32_t *)((uint8_t)v4[18] + (uint8_t)v4[17]);
   v33 = v32 == (uint32_t *)1;
   if ( v32 == (uint32_t *)1 )
@@ -41753,7 +41897,7 @@ int wlc_phy_attach(int a1) {
   v2 = dword_1201F4;
   v3 = (int *)(dword_1201F4 + 1320 * a1);
   v52 = 1320 * a1;
-  list_remove_node_d510(dword_1201F8, v3);
+  check_abort_flag_3(dword_1201F8, (void *)(v3));
   if ( *((int **)off_1201FC + 8) == v3 )
     *((uint32_t *)off_1201FC + 8) = 0;
   v4 = *(uint8_t *)(v2 + 1320 * a1 + 106);
@@ -41779,9 +41923,9 @@ int wlc_phy_attach(int a1) {
       if ( v3[318] || v3[308] )
       {
         v19 = v17 - 40;
-        v53 = list_count_d594(v17, v15);
-        v21 = list_count_d594(v17 - 40, v20);
-        ke_event_schedule_1(dword_120220, v53, v21);
+        v53 = ((int (*)())list_length)((void *)(uintptr_t)(v17), v15);
+        v21 = ((int (*)())list_length)((void *)(uintptr_t)(v17 - 40), v20);
+        ke_event_schedule(dword_120220, (void *)(uintptr_t)(v53), v21);
       }
       else
       {
@@ -41817,8 +41961,8 @@ int wlc_phy_attach(int a1) {
     v5 = v55;
     if ( *(uint32_t *)(v2 + 1320 * a1 + 1312) )
     {
-      v24 = list_count_d594(v52 + 1312 + v2, v15);
-      ke_event_schedule_1(dword_120228, v24, v25);
+      v24 = ((int (*)())list_length)((void *)(uintptr_t)(v52 + 1312 + v2), v15);
+      ke_event_schedule(dword_120228, (void *)(uintptr_t)(v24), v25);
     }
     if ( (__get_CPSR() & 1) == 0 )
     {
@@ -41870,7 +42014,7 @@ LABEL_6:
       goto LABEL_6;
     }
     if ( rf_calibration_done() )
-      mmio_bit_toggle_0189c(0);
+      rf_control_set_bit3(0);
     v5 = (void *)(uintptr_t)(off_120344);
     v40 = *((uint8_t *)off_120344 + 16);
     v41 = v2 + 1320 * v40;
@@ -41881,7 +42025,7 @@ LABEL_6:
     v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
-      mmio_set_bit_1(v40, v42);
+      ((int (*)())mmio_set_bit)(v40, v42);
       v6 = (uint8_t)v5[18];
     }
     else
@@ -41958,21 +42102,21 @@ LABEL_7:
   if ( !v7 )
     *(uint32_t *)off_120204 = 0;
 LABEL_9:
-  timestamp_remove_058(v52 + 24 + v2);
-  timestamp_remove_058(v52 + 48 + v2);
+  ke_event_set_lock(v52 + 24 + v2);
+  ke_event_set_lock(v52 + 48 + v2);
   v8 = v2 + 1320 * a1;
   if ( *(uint8_t *)(v8 + 1224) )
   {
     rf_channel_state_get(*(uint8_t *)(v8 + 1225), 1);
     --v5[19];
   }
-  phy_tbl_lookup_by_idx(*(uint8_t *)(v2 + 1320 * a1 + 107));
+  tx_slot_state_get(*(uint8_t *)(v2 + 1320 * a1 + 107));
   if ( *((int **)off_120208 + 4) == v3 )
     *((uint32_t *)off_120208 + 4) = 0;
   *(uint32_t *)off_12020C = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
     si_secure_check();
-  memset_thunk(v3, 0, 0x528u);
+  memset_byte(v3, 0, 0x528u);
   v9 = v2 + 1320 * a1;
   v10 = dword_120210;
   *(uint8_t *)(v9 + 106) = 5;
@@ -41981,8 +42125,8 @@ LABEL_9:
   *(uint32_t *)(v9 + 52) = v10;
   *(uint8_t *)(v9 + 109) = 127;
   *(uint8_t *)(v9 + 110) = 127;
-  feature_guard_sdio(256, v11);
-  return list_push_tail(off_120200);
+  state_check_feature(256, v11);
+  return ((int (*)())check_abort_flag)(off_120200);
 }
 
 
@@ -42012,7 +42156,7 @@ uint64_t wlc_phy_chanspec_set(uint8_t *a1, char a2) {
   v6[576] = a1[40];
   v8 = (int *)(v7 + 480 + v5);
   v6[577] = v3;
-  v9 = (void *)(uintptr_t)(memset_thunk(v8, 0, 0x48u));
+  v9 = memset_byte(v8, 0, 0x48u);
   switch ( v6[576] )
   {
     case 0:
@@ -42141,7 +42285,7 @@ int si_watchdog(int result) {
     v1 = result;
     if ( !*(uint32_t *)(result + 4) )
     {
-      timestamp_remove_058(result + 48);
+      ke_event_set_lock(result + 48);
       return wlc_ucode_download(v1);
     }
   }
@@ -42345,7 +42489,7 @@ LABEL_10:
 int register_irq_handler(int a1) {
   uint32_t *v2; // r0
 
-  v2 = (uint32_t *)rf_bus_setup_n3a8(143, 0, 255, 4);
+  v2 = (uint32_t *)bt_buf_alloc(143, 0, 255, 4);
   *v2 = a1;
   return hci_evt_send((int)(uintptr_t)(v2));
 }
@@ -42409,7 +42553,7 @@ int init_ctx_struct() {
   int result; // r0
 
   v0 = (void *)(uintptr_t)(off_1208D4);
-  memset_thunk((int *)off_1208D4, 0, 0x34u);
+  memset_byte((int *)off_1208D4, 0, 0x34u);
   v1 = dword_1208DC;
   v2 = *(int16_t **)off_1208D8;
   *(uint32_t *)v0 = dword_1208DC;
@@ -42423,7 +42567,7 @@ int init_ctx_struct() {
     v1 = *(uint32_t *)v0 | *((uint32_t *)v0 + 1);
   }
   *(uint32_t *)off_1208E0 = v1;
-  result = chip_version_read_12207E0();
+  result = wait_rf_calibration();
   *((uint32_t *)v0 + 9) = dword_1208E4;
   return result;
 }
@@ -42458,8 +42602,8 @@ uint32_t *hal_phy_init() {
   v1 = (int *)off_120A14;
   v2 = (int *)off_120A18;
   v3 = nullsub_1();
-  v4 = nullsub_2(v3);
-  nullsub_3(v4);
+  v4 = ((int (*)())nullsub_2)(v3);
+  ((int (*)())nullsub_3)(v4);
   v5 = (void *)(uintptr_t)(off_120A1C);
   v6 = (unsigned int *)off_120A20;
   v7 = (unsigned int *)off_120A24;
@@ -42528,20 +42672,20 @@ uint32_t *run_deferred_init() {
   init_ctx_struct();
   si_attach();
   v1 = wlc_attach();
-  inited = bt_chan_init_all(v1);
-  v3 = mm_state_init_check(inited);
-  hw_init_1(v3);
+  inited = (int)(uintptr_t)(tx_slot_state_init(v1));
+  v3 = mm_state_idle(inited);
+  hw_init(v3);
   v4 = bt_init();
   if ( v0[2] )
-    v5 = nullsub_4(v4);
+    v5 = ((int (*)())nullsub_4)(v4);
   else
     v5 = is_tx_ready();
-  v6 = sub_124F54(v5);
+  v6 = env_list_init_1903c8(v5);
   v7 = bt_reset_controller(v6);
-  v8 = bt_hci_reset_init(v7);
-  v9 = rf_bus_setup_n_39c(v8);
-  sub_125958(v9);
-  util_sub_f0b4();
+  v8 = bt_init(v7);
+  v9 = rx_env_list_init(v8);
+  reset_bt_env(v9);
+  check_hw_flag();
   return hal_phy_init();
 }
 
@@ -42704,7 +42848,7 @@ int tx_prepare_descriptor(int a1, int a2, int a3, int a4, int a5, int a6) {
     }
     else
     {
-      ((int (*)())ke_int_lock_1)(dword_120EB4, dword_120EB0, 430, off_120E94);
+      ((int (*)())ke_int_lock)(dword_120EB4, dword_120EB0, 430, off_120E94);
       v19 = 500;
       v18 = (int16_t **)off_120E94;
     }
@@ -42726,7 +42870,7 @@ int tx_prepare_descriptor(int a1, int a2, int a3, int a4, int a5, int a6) {
         v24 = v19 - v23;
         goto LABEL_15;
       }
-      ((int (*)())ke_int_lock_1)(dword_120EB4, dword_120EB0, 430, 2 * *v22);
+      ((int (*)())ke_int_lock)(dword_120EB4, dword_120EB0, 430, 2 * *v22);
     }
     v24 = v19 - 500;
     v23 = 500;
@@ -42754,7 +42898,7 @@ LABEL_15:
     v31 = v30 - v44 - 400;
   v32 = (void *)(uintptr_t)(off_120EA0);
   v33 = *((uint32_t *)off_120EA0 + 4) - *(uint32_t *)off_120EA4 + v31;
-  if ( v33 - v32[4] - 4300 - sub_10186C() < 0 )
+  if ( v33 - v32[4] - 4300 - return_1000() < 0 )
     v33 += v12;
   if ( (*(uint32_t *)(a4 + 4) & 1) != 0 )
   {
@@ -42762,14 +42906,14 @@ LABEL_15:
     if ( (v35 & 2) != 0 && v33 - *((uint32_t *)off_120EA0 + 4) - 10000 < 0 )
     {
       v33 += v12;
-      ke_event_schedule_1(dword_120ED8, v35 << 30, v34);
+      ke_event_schedule(dword_120ED8, (void *)(uintptr_t)(v35 << 30), v34);
     }
   }
-  result = v33 - *((uint32_t *)off_120EA0 + 4) - 4300 - sub_10186C();
+  result = v33 - *((uint32_t *)off_120EA0 + 4) - 4300 - return_1000();
   if ( result >= 0 && *(uint32_t *)(a4 + 36) != v33 )
   {
     v37 = (void *)(uintptr_t)(off_120EA8);
-if ( *((uint32_t *)off_120EA8 + 8) != a4 || (v38 = (void *)(uintptr_t)(off_120E9C), *(uint32_t *)(a4 + 36) = v33, (*v38 & 0x2000000) != 0) ) { timestamp_update_4f60(a4 + 24, v33);
+if ( *((uint32_t *)off_120EA8 + 8) != a4 || (v38 = (void *)(uintptr_t)(off_120E9C), *(uint32_t *)(a4 + 36) = v33, (*v38 & 0x2000000) != 0) ) { ke_event_lock(a4 + 24, v33);
     }
     else
     {
@@ -42788,7 +42932,7 @@ if ( *((uint32_t *)off_120EA8 + 8) != a4 || (v38 = (void *)(uintptr_t)(off_120E9
           *v42 |= 1u;
         }
         if ( *v39 >= (unsigned int)v39[1] )
-          ke_event_schedule_1(dword_120F04, *v39, v39[1]);
+          ke_event_schedule(dword_120F04, (void *)(uintptr_t)(*v39), v39[1]);
         if ( **(int16_t **)off_120E94 < 0 && *v39 >= (unsigned int)v39[1] )
           mmio_irq_clear(dword_120ED4, dword_120ED0, 523);
       }
@@ -42873,7 +43017,7 @@ LABEL_3:
         v9 = *(uint32_t *)off_121220;
         *(uint32_t *)off_121224 = 0x80000000;
         if ( *(uint32_t *)(v9 + 4) + *(uint32_t *)(v1 + 120) - v4[4] < 0
-          && !fmacfwbt_phy_chan_init(*(uint8_t *)(v1 + 116), 0, 0) )
+          && !ble_conn_get(*(uint8_t *)(v1 + 116), 0, 0) )
         {
           *(uint32_t *)(v1 + 120) = v4[4];
         }
@@ -42882,7 +43026,7 @@ LABEL_3:
       }
       if ( (v5 & 4) != 0 )
       {
-        feature_guard_sdio(2, dword_12124C);
+        state_check_feature(2, dword_12124C);
         v24 = (int16_t **)off_121230;
         v25 = *((uint32_t *)v3 + 1);
         *v6 &= ~4u;
@@ -42896,7 +43040,7 @@ LABEL_3:
         }
         v28 = dword_121250;
         *(uint32_t *)off_121254 = v27 | *(uint32_t *)v3;
-        rf_table_lookup_n528(*(uint8_t *)(v1 + 107), v28, v1);
+        bt_get_conn_entry(*(uint8_t *)(v1 + 107), v28, v1);
         v29 = *((uint8_t *)v3 + 30);
         *v7 &= 0xFC0FFFFF;
         v5 = v29 & 0xFB;
@@ -42908,7 +43052,7 @@ LABEL_3:
         *(uint32_t *)(v1 + 4) &= ~2u;
         if ( v0[29] == 5 )
         {
-          timestamp_remove_058(dword_12126C);
+          ke_event_set_lock(dword_12126C);
           v5 = (v5 & ~0xFFu) | ((uint8_t)(*((uint8_t *)v3 + 30)) & 0xFFu);
           v0[29] = 0;
         }
@@ -42923,7 +43067,7 @@ LABEL_20:
       {
         v15 = *(uint32_t *)off_121238;
         v16 = (*(uint32_t *)off_121238 >> 5) & 3;
-        feature_guard_sdio(2, dword_12123C);
+        state_check_feature(2, dword_12123C);
         v17 = *(uint32_t *)(v1 + 120);
         v18 = *(uint32_t *)(*(uint32_t *)off_121220 + 4);
         *(uint8_t *)(v1 + 128) = 0;
@@ -42932,7 +43076,7 @@ LABEL_20:
         {
           v32 = dword_121288;
           *((uint8_t *)v3 + 30) |= 8u;
-          feature_guard_sdio(2, v32);
+          state_check_feature(2, v32);
         }
         if ( v16 )
         {
@@ -42942,7 +43086,7 @@ LABEL_20:
           *(uint32_t *)off_121238 &= ~8u;
           if ( (*v31 & 0x10) != 0 )
           {
-            feature_guard_sdio(2, dword_121280);
+            state_check_feature(2, dword_121280);
             *(uint8_t *)off_121240 = BYTE2(*(uint32_t *)off_121284);
             rf_rx_packet_get(v16 >> 1, v19 & 1, v1);
             *v31 &= ~0x10u;
@@ -42951,7 +43095,7 @@ LABEL_20:
           {
             v33 = dword_1213B4;
             *(uint32_t *)off_1213B0 = 1;
-            feature_guard_sdio(2, v33);
+            state_check_feature(2, v33);
             v34 = (void *)(uintptr_t)(off_1213BC);
             *(uint8_t *)off_1213B8 = *((uint8_t *)off_1213B8 + 1) > 1u;
             *v34 = 1;
@@ -42964,7 +43108,7 @@ LABEL_20:
         v20 = (uint8_t **)off_121248;
         *(uint32_t *)off_121244 &= ~0x200u;
         *(uint32_t *)(v1 + 4) &= ~1u;
-        result = timestamp_remove_058(v1 + 48);
+        result = ke_event_set_lock(v1 + 48);
         v21 = *v20;
         if ( **v20 == 2 )
         {
@@ -42985,7 +43129,7 @@ LABEL_20:
             if ( (unsigned int)(v4[4] - v38) > 0x7530 )
             {
               v47 = v39;
-              feature_guard_sdio(2, dword_1213DC);
+              state_check_feature(2, dword_1213DC);
               v39 = v47;
             }
           }
@@ -43005,7 +43149,7 @@ LABEL_20:
                 v45 = *v43 & *v40;
                 if ( (unsigned int)(v4[4] - v44) > 0x7530 )
                 {
-                  result = feature_guard_sdio(2, dword_1213E4);
+                  result = state_check_feature(2, dword_1213E4);
                   v43 = (void *)(uintptr_t)(off_1213D0);
                 }
               }
@@ -43033,7 +43177,7 @@ LABEL_20:
         v23 = *v21;
         if ( v23 == 1 )
         {
-          result = timestamp_update_4f60(
+          result = ke_event_lock(
                      v1 + 24,
                      v4[4] + 32 * *(uint32_t *)off_1213C4 - *((uint16_t *)off_1213C8 + 93));
           v23 = **v20;
@@ -43073,7 +43217,7 @@ LABEL_20:
 LABEL_43:
               v46[0] = *(uint32_t *)off_121228 >> 31;
               v46[1] = (*(uint32_t *)off_121228 >> 30) & 1;
-              feature_guard_sdio(2, dword_12127C);
+              state_check_feature(2, dword_12127C);
               result = v46[0];
               if ( *(uint64_t *)v46 )
               {
@@ -43087,17 +43231,17 @@ LABEL_43:
         }
         else
         {
-          result = ke_event_schedule_1(dword_121270, v12, *(uint8_t *)(v13 + 37));
+          result = ke_event_schedule(dword_121270, (void *)(uintptr_t)(v12), *(uint8_t *)(v13 + 37));
         }
       }
       else
       {
-        result = ke_event_schedule_1(dword_121268, v11, v10);
+        result = ke_event_schedule(dword_121268, (void *)(uintptr_t)(v11), v10);
       }
     }
     else
     {
-      result = ke_event_schedule_1(dword_121258, v5, v10);
+      result = ke_event_schedule(dword_121258, (void *)(uintptr_t)(v5), v10);
     }
     v5 = *((uint8_t *)v3 + 30) & 0xFE;
     *((uint8_t *)v3 + 30) = v5;
@@ -43155,7 +43299,7 @@ int irq_lock_save() {
   }
   v1 = (int *)off_121584;
   ++*(uint32_t *)off_121584;
-  patch_sub_1217374(4);
+  mmio_set_bit(4);
   updated = conn_get(4);
   if ( *v1 )
   {
@@ -43188,7 +43332,7 @@ int irq_lock_save() {
         if ( v10 )
           break;
 LABEL_15:
-        mmio_reg_write_helper(v0);
+        wlc_bmac_write_shm(v0);
         updated = (int)(uintptr_t)(bt_conn_event_process((void *)(uintptr_t)(v0), *(uint32_t *)(v0 + 36) + 3048));
         v3 = *(uint16_t *)(v0 + 222);
         v12 = 32 * *v6;
@@ -43199,7 +43343,7 @@ LABEL_15:
           updated = hci_command_handler(v0, *(uint32_t *)(v0 + 36), v13);
         if ( *(uint8_t *)(v0 + 1224) )
         {
-          updated = timestamp_update_4f60(v0 + 24, v13);
+          updated = ke_event_lock(v0 + 24, v13);
           goto LABEL_7;
         }
         if ( *((uint8_t *)off_121594 + 90) > 1u )
@@ -43229,7 +43373,7 @@ LABEL_15:
         *(uint32_t *)(v0 + 36) = v13;
         v0 = *(uint32_t *)v0;
         if ( !v0 )
-          return rf_msg_process_body_n446(updated);
+          return ((int (*)())rf_status_poll)(updated);
       }
       v11 = (uint32_t *)(v0 + 48);
       while ( v10 != v11 )
@@ -43238,13 +43382,20 @@ LABEL_15:
         if ( !v10 )
           goto LABEL_15;
       }
-      updated = ke_event_schedule_1(dword_121598, v3, v11);
+      updated = ke_event_schedule(dword_121598, (void *)(uintptr_t)(v3), (int)(uintptr_t)(v11));
 LABEL_7:
       v0 = *(uint32_t *)v0;
     }
     while ( v0 );
   }
-  return rf_msg_process_body_n446(updated);
+  return ((int (*)())rf_status_poll)(updated);
+}
+
+
+
+// jump_to_12af2c @ 0x12159c
+int jump_to_12af2c() {
+  return ((int (*)())bt_conn_set_bit)();
 }
 
 
@@ -43351,7 +43502,7 @@ int rx_handle_frame(uint8_t *a1) {
     *(uint32_t *)off_12189C = -1;
     *v16 = -1;
     v4 = (uint8_t)(v15 + 4 * v2);
-    feature_guard_sdio(256, v17);
+    state_check_feature(256, v17);
     wlc_phy_chanspec_set(a1, v4);
   }
   else
@@ -43359,8 +43510,8 @@ int rx_handle_frame(uint8_t *a1) {
     if ( **(int16_t **)off_121890 < 0 && v1 > 0x23 )
       mmio_irq_clear(dword_1218A8, dword_1218A4, 1424);
     v4 = (uint8_t)(v1 + 16);
-    feature_guard_sdio(256, dword_121894);
-    bt_rf_param_set_n_5d0((int)a1, v1 + 16);
+    state_check_feature(256, dword_121894);
+    wlc_phy_radio_set((int)a1, v1 + 16);
     v5 = (void *)(uintptr_t)(off_1218A0);
     v6 = (uint16_t *)(dword_121898 + 696 * v1);
     *(uint32_t *)off_12189C = v6[19] | (v6[20] << 16);
@@ -43479,7 +43630,7 @@ uint32_t * check_hw_version(int a1) {
   uint32_t *v10; // r2
 
   if ( (unsigned int)a1 > HIBYTE(*(uint32_t *)off_12199C) )
-    return (uint32_t *)rf_chan_table_init(
+    return (uint32_t *)dma_tx_reset(
                        dword_1219A4 + 1320 * ((a1 - (HIBYTE(*(uint32_t *)off_12199C) + 1)) / 2),
                        (((uint8_t)a1 - 1 - HIBYTE(*(uint32_t *)off_12199C)) & 1) + 4);
   if ( (unsigned int)a1 > 0xF )
@@ -43499,7 +43650,7 @@ uint32_t * check_hw_version(int a1) {
     v3 = (void *)(uintptr_t)(off_1219A8);
     *(uint32_t *)off_1219A0 = -1;
     *v3 = -1;
-    rf_chan_table_init(v2 + 1320 * (a1 >> 2), a1 & 3);
+    dma_tx_reset(v2 + 1320 * (a1 >> 2), a1 & 3);
   }
   v4 = (void *)(uintptr_t)(off_1219AC);
   v5 = (int *)off_1219B0;
@@ -43521,7 +43672,7 @@ uint32_t * check_hw_version(int a1) {
 int dma_free_buf() {
   set_system_flag_2(0x2000000);
   *((uint32_t *)off_1219E4 + 1) &= ~4u;
-  return rf_bus_mark_n_3b7(0);
+  return ((int (*)())hci_cmd_send)(0);
 }
 
 
@@ -43710,7 +43861,7 @@ int mac_check_hw_state(int a1) {
       {
         v19 = dword_121CD0;
         v1[10] = v4;
-        timestamp_update_4f60(v19, v10 + 100);
+        ke_event_lock(v19, v10 + 100);
         goto LABEL_12;
       }
     }
@@ -43721,7 +43872,7 @@ int mac_check_hw_state(int a1) {
         v17 = v10 + v2 - v11;
         v18 = dword_121CD0;
         v1[10] = v4;
-        timestamp_update_4f60(v18, v17);
+        ke_event_lock(v18, v17);
         goto LABEL_12;
       }
       if ( v3 + 100 > v2 - v9 )
@@ -43729,7 +43880,7 @@ int mac_check_hw_state(int a1) {
         v12 = v10 - v11;
         v13 = dword_121CD0;
         v1[10] = v4;
-        timestamp_update_4f60(v13, v12);
+        ke_event_lock(v13, v12);
 LABEL_12:
         if ( *v5 )
         {
@@ -43755,12 +43906,12 @@ LABEL_12:
 
 // mac_wait_fw_ready @ 0x121cd4
 int mac_wait_fw_ready() {
-  if ( **(int16_t **)off_121D2C < 0 && msg_get_value(0) != 3 )
+  if ( **(int16_t **)off_121D2C < 0 && hci_cmd_send_short(0) != 3 )
     mmio_irq_clear(dword_121D40, dword_121D3C, 1785);
   if ( *((uint8_t *)off_121D30 + 31) && *((uint8_t *)off_121D34 + 18) + *((uint8_t *)off_121D34 + 17) <= 1 )
-    return rf_bus_mark_n_3b7(0);
+    return ((int (*)())hci_cmd_send)(0);
   *(uint32_t *)off_121D38 = 48;
-  return rf_bus_mark_n_3b7(0);
+  return ((int (*)())hci_cmd_send)(0);
 }
 
 
@@ -43870,6 +44021,18 @@ int mac_util_event() {
     }
   }
   return ((int (*)())hci_cmd_send)(0);
+}
+
+
+
+// check_clock_state @ 0x121f1c
+int check_clock_state() {
+  int result; // r0
+
+  result = hci_cmd_send_short(0);
+  if ( result == 4 )
+    return ((int (*)())hci_cmd_send)(0);
+  return result;
 }
 
 
@@ -44060,7 +44223,7 @@ LABEL_9:
                 v43 = dword_122240;
                 v44 = *v33 + 1;
                 *v33 = v44;
-                ke_event_schedule_1(v43, v44, v42);
+                ke_event_schedule(v43, (void *)(uintptr_t)(v44), (int)(uintptr_t)(v42));
                 list_merge((void *)(uintptr_t)(v37 - 40), (void *)(uintptr_t)(v38 - 40));
                 v45 = v36[147];
                 v39[308] = v36[146];
@@ -44084,7 +44247,7 @@ LABEL_9:
               v36 += 2;
               if ( v47 )
               {
-                ke_event_schedule_1(dword_122244, v47, v34);
+                ke_event_schedule(dword_122244, (void *)(uintptr_t)(v47), (int)(uintptr_t)(v34));
                 list_merge((void *)(uintptr_t)(v38), (void *)(uintptr_t)(v37));
                 zero_struct((void *)(uintptr_t)(v37));
                 v33 = (int *)off_122238;
@@ -44132,8 +44295,8 @@ int tx_rate_set(int result, int a2) {
   }
   else
   {
-    feature_guard_sdio(1024, dword_12228C);
-    return mac_cmd_send_status_query(v2);
+    state_check_feature(1024, dword_12228C);
+    return mmio_read_phy(v2);
   }
   return result;
 }
@@ -44161,7 +44324,7 @@ int rf_band_select(int a1, int a2) {
     *((uint16_t *)off_122344 + 14) = 1793;
     v9[36] = 0;
     *((uint32_t *)v9 + 5) = a1;
-    result = timestamp_update_4f60(v10, v8 + 10000);
+    result = ke_event_lock((int)(uintptr_t)(v10), v8 + 10000);
     *(uint8_t *)(a1 + 115) = 0;
   }
   else
@@ -44172,12 +44335,12 @@ int rf_band_select(int a1, int a2) {
     if ( *(uint8_t *)(v4 + 1) == v3 )
     {
       *(uint8_t *)(a1 + 115) = 0;
-      feature_guard_sdio(1024, dword_122354);
-      return mac_cmd_send_status_query(a1);
+      state_check_feature(1024, dword_122354);
+      return mmio_read_phy(a1);
     }
     else if ( *(uint8_t *)(a1 + 108) )
     {
-      return rf_table_lookup_n528(*(uint8_t *)(a1 + 107), dword_122350, a1);
+      return bt_get_conn_entry(*(uint8_t *)(a1 + 107), dword_122350, a1);
     }
     else
     {
@@ -44187,7 +44350,7 @@ int rf_band_select(int a1, int a2) {
       if ( *((uint8_t *)off_122344 + 8) )
         --*((uint8_t *)off_122344 + 8);
       v5[14] = 1;
-      result = timestamp_remove_058(dword_122348);
+      result = ke_event_set_lock(dword_122348);
       *(uint32_t *)(a1 + 4) &= ~0x200u;
     }
   }
@@ -44225,7 +44388,7 @@ int rf_iq_calibrate(uint8_t *a1, int a2) {
         goto LABEL_7;
       v6 = (v6 & ~0xFFu) | ((uint8_t)(1) & 0xFFu);
     }
-    v8 = (uint8_t *)rf_bus_setup_n3a8(87, 13, 0, 3);
+    v8 = (uint8_t *)bt_buf_alloc(87, 13, 0, 3);
     *v8 = a1[107];
     v8[1] = v6;
     v8[2] = v7;
@@ -44294,7 +44457,7 @@ LABEL_5:
   *v11 = 0;
   v15[5] = 0;
   delay_loop((int)v15);
-  return ke_event_schedule_1(dword_12244C, v12, v13);
+  return ke_event_schedule(dword_12244C, (void *)(uintptr_t)(v12), v13);
 }
 
 
@@ -44362,7 +44525,7 @@ int dma_rx_setup(int a1) {
   v16[3] = 15000;
   v16[4] = 15000;
   v16[5] = 15000;
-  return ke_event_schedule_1(v17, v15, v16);
+  return ke_event_schedule(v17, (void *)(uintptr_t)(v15), (int)(uintptr_t)(v16));
 }
 
 
@@ -44432,7 +44595,7 @@ uint32_t * event_dispatch(uint32_t *result, int a2) {
   v5 = *((uint8_t *)off_1227BC + 2);
   v6 = *((char *)off_1227BC + 1);
   v7 = *((float *)off_1227BC + 1);
-  result = (uint32_t *)msg_get_value(4);
+  result = (uint32_t *)hci_cmd_send_short(4);
   if ( result )
     return result;
   v8 = (float)((float)(v7 * flt_1227C0) + (float)a2) * flt_1227C4;
@@ -44504,7 +44667,7 @@ LABEL_8:
       v38 = (uint8_t *)off_1227DC;
       *(uint8_t *)off_1227DC = 1;
     }
-    feature_guard_sdio(64, dword_122804);
+    state_check_feature(64, dword_122804);
     v25 = *v38;
     *v16 = 0;
     *v11 = 0;
@@ -44553,12 +44716,12 @@ LABEL_8:
   if ( *(uint8_t *)off_1227E4 > v28 )
   {
     if ( *(uint8_t *)off_1227E8 != 1 )
-      result = (uint32_t *)mmio_reg_read_modify(v4);
+      result = (uint32_t *)dma_rx_setup(v4);
     goto LABEL_22;
   }
   if ( *(uint8_t *)off_122800 > v28 >> 1 && *(uint8_t *)off_1227E8 )
 LABEL_28:
-    result = (uint32_t *)mmio_reg_init_patch(v4);
+    result = (uint32_t *)dma_tx_setup(v4);
 LABEL_22:
   if ( !v5 || *((uint8_t *)off_1227F0 + 18) )
     *(uint32_t *)off_1227EC &= ~0x200u;
@@ -44575,7 +44738,7 @@ LABEL_22:
 int mmio_write_phy(char a1, char a2) {
   uint8_t *v4; // r0
 
-  v4 = (uint8_t *)rf_bus_setup_n3a8(89, 13, 0, 2);
+  v4 = (uint8_t *)bt_buf_alloc(89, 13, 0, 2);
   *v4 = a1;
   v4[1] = a2;
   return hci_evt_send((int)(uintptr_t)(v4));
@@ -44611,7 +44774,7 @@ int rx_process_packet_1(int a1, int a2, int a3, int *a4) {
   v6 = *(uint32_t *)(*(uint32_t *)(a1 + 8) + 8);
   v7 = a2;
   v25 = *(uint32_t *)(a2 + 124);
-  v9 = (int)(uintptr_t)(memmove_2((void *)(uintptr_t)(v6 + 36), (uint16_t)(v5 - 36)));
+  v9 = ((int (*)())memmove)(v6 + 36, (uint16_t)(v5 - 36));
   if ( !v9 )
     goto LABEL_7;
   v10 = *(uint8_t *)(v9 + 2);
@@ -44715,7 +44878,7 @@ char * bt_state_flags_check(char *result) {
       v9 = (uint8_t)(result[146] - 1);
       result[146] = v9;
       if ( v9 <= 1 )
-        return (char *)ipc_msg_alloc((int)result);
+        return (char *)alloc_buffer((int)result);
       if ( v9 == 2 )
         mmio_write_phy(result[107], 0);
     }
@@ -44724,9 +44887,9 @@ char * bt_state_flags_check(char *result) {
     if ( v1 != *((uint32_t *)off_122AA4 + 8)
       || (v8 = (void *)(uintptr_t)(off_122AAC), *(uint32_t *)(v1 + 36) = v3, !v8[189]) && **(uint8_t **)off_122AB0 != 2 )
     {
-      timestamp_update_4f60(v1 + 24, v3);
+      ke_event_lock(v1 + 24, v3);
     }
-    mmio_reg_write_helper(v1);
+    wlc_bmac_write_shm(v1);
     bt_conn_event_process((void *)(uintptr_t)(v1), *(uint32_t *)(v1 + 136) + v2);
     result = (char *)hci_command_handler(v1, v2, v3);
     if ( !result )
@@ -44743,7 +44906,7 @@ char * bt_state_flags_check(char *result) {
       }
       else if ( v4 == v7 )
       {
-        return (char *)bt_hci_cmd_dispatch(v1);
+        return (char *)bt_power_state(v1);
       }
     }
   }
@@ -44810,8 +44973,8 @@ int find_pending_command() {
 int send_cmd_0x0b(int a1, int a2, int a3, int a4) {
   uint8_t *v5; // r4
 
-  v5 = (uint8_t *)rf_bus_setup_n3a8(11, a4, a3, 3);
-  *v5 = rf_stream_dispatch(a2, v5 + 1, v5 + 2);
+  v5 = (uint8_t *)bt_buf_alloc(11, a4, a3, 3);
+  *v5 = buffer_alloc(a2, v5 + 1, v5 + 2);
   hci_evt_send((int)(uintptr_t)(v5));
   return 0;
 }
@@ -44869,11 +45032,11 @@ int process_hci_command_status(int a1, int a2, int a3, int a4) {
   *(uint8_t *)(v9 + 1227) = v10;
   if ( v11 == 1 )
   {
-    timestamp_remove_058(1320 * v6 + 152 + v4);
+    ke_event_set_lock(1320 * v6 + 152 + v4);
     *(uint8_t *)(v9 + 149) = 0;
   }
-  feature_guard_sdio(256, dword_122C88);
-  message_dispatch_n84(98, a4, a3, v12);
+  state_check_feature(256, dword_122C88);
+  ((int (*)())hci_evt_alloc_send)(98, a4, a3, v12);
   return 0;
 }
 
@@ -44924,7 +45087,7 @@ int check_command_permitted(int a1, uint8_t *a2, int a3, int a4) {
     *(uint32_t *)v11 &= 0xFFFFFu;
     *(uint32_t *)v11 |= *((uint32_t *)a2 + 3) << 20;
   }
-  message_dispatch_n84(102, a4, a3, v11);
+  ((int (*)())hci_evt_alloc_send)(102, a4, a3, v11);
   return 0;
 }
 
@@ -44932,7 +45095,7 @@ int check_command_permitted(int a1, uint8_t *a2, int a3, int a4) {
 
 // send_cmd_0x68 @ 0x122d4c
 int send_cmd_0x68(int a1, int a2, int a3, int a4) {
-  message_dispatch_n84(104, a4, a3, a4);
+  ((int (*)())hci_evt_alloc_send)(104, a4, a3, a4);
   return 0;
 }
 
@@ -44943,7 +45106,7 @@ int copy_fixed_string(int a1, int a2, int a3, int a4) {
   int v6; // r3
 
   memcpy_aligned((void *)(uintptr_t)(dword_122D78), (void *)(uintptr_t)(a2), 69);
-  message_dispatch_n84(120, a4, a3, v6);
+  ((int (*)())hci_evt_alloc_send)(120, a4, a3, v6);
   return 0;
 }
 
@@ -44964,7 +45127,7 @@ int store_hci_event_info(int a1, uint32_t *a2, int a3, int a4) {
   *(uint32_t *)dword_122D98 = v4;
   *(uint32_t *)(v6 + 4) = v7;
   *(uint16_t *)(v6 + 8) = (uint16_t)v5;
-  message_dispatch_n84(138, a4, a3, a4);
+  ((int (*)())hci_evt_alloc_send)(138, a4, a3, a4);
   return 0;
 }
 
@@ -45004,7 +45167,7 @@ int handle_hci_command(int a1, int *a2, int a3, uint32_t *a4) {
       a4[5] = v11;
     }
   }
-  message_dispatch_n84(122, v6, a3, a4);
+  ((int (*)())hci_evt_alloc_send)(122, (int)(uintptr_t)(v6), a3, a4);
   return 0;
 }
 
@@ -45025,7 +45188,7 @@ int check_controller_ready(int a1, uint8_t *a2, int a3, int a4) {
   *(uint8_t *)(v9 + 143) = a2[1];
   v10 = a2[2];
   *(uint16_t *)(v9 + 144) = (uint8_t)v10;
-  message_dispatch_n84(134, a4, a3, v10);
+  ((int (*)())hci_evt_alloc_send)(134, a4, a3, v10);
   return 0;
 }
 
@@ -45046,7 +45209,7 @@ int get_controller_state(int a1, uint8_t *a2, int a3, int a4) {
   *(uint16_t *)(v9 + 112) = *((uint16_t *)a2 + 1);
   v10 = a2[4];
   *(uint8_t *)(v9 + 114) = v10;
-  message_dispatch_n84(76, a4, a3, v10);
+  ((int (*)())hci_evt_alloc_send)(76, a4, a3, v10);
   return 0;
 }
 
@@ -45055,7 +45218,7 @@ int get_controller_state(int a1, uint8_t *a2, int a3, int a4) {
 // send_le_conn_update @ 0x122ed4
 int send_le_conn_update(int a1, int a2, int a3, int a4) {
   *(uint16_t *)(dword_122EF4 + 1320 * *(uint8_t *)(a2 + 2) + 1222) = *(uint16_t *)a2;
-  message_dispatch_n84(112, a4, a3, a4);
+  ((int (*)())hci_evt_alloc_send)(112, a4, a3, a4);
   return 0;
 }
 
@@ -45086,8 +45249,8 @@ int is_valid_conn_handle(int a1, uint8_t *a2, int a3, int a4) {
   v9 = a2[2] != 0;
   *(uint8_t *)off_122F50 = v9;
   *v8 = v7;
-  ke_event_schedule_1(dword_122F58, v7, v9);
-  message_dispatch_n84(100, a4, a3, v10);
+  ke_event_schedule(dword_122F58, (void *)(uintptr_t)(v7), v9);
+  ((int (*)())hci_evt_alloc_send)(100, a4, a3, v10);
   return 0;
 }
 
@@ -45110,13 +45273,13 @@ void send_le_scan_command(int a1, int *a2, int a3, int a4) {
   int v17; // [sp+10h] [bp-8Ch]
   int v18; // [sp+14h] [bp-88h] BYREF
 
-  rf_bus_setup_n3a8(106, a4, a3, 16);
+  bt_buf_alloc(106, a4, a3, 16);
   v15 = 0;
   if ( (*(uint32_t *)off_123134 & 0x2000000) != 0 )
   {
     syscall6_get_status((void *)(&v15));
     syscall6_check_done((uint8_t *)&v15 + 1);
-    ke_event_schedule_1(dword_12314C, (uint8_t)v15, HIBYTE(v15));
+    ke_event_schedule(dword_12314C, (void *)(uintptr_t)((uint8_t)v15), HIBYTE(v15));
     v6 = (uint8_t)v15;
   }
   else
@@ -45135,7 +45298,7 @@ void send_le_scan_command(int a1, int *a2, int a3, int a4) {
   }
   if ( !v6 && *((uint8_t *)a2 + 20) )
   {
-    ke_event_schedule_1(dword_123160, *((uint8_t *)a2 + 20), v5);
+    ke_event_schedule(dword_123160, (void *)(uintptr_t)(*((uint8_t *)a2 + 20)), v5);
     v15 = (v15 & ~0xFFu) | ((uint8_t)(*((uint8_t *)a2 + 20)) & 0xFFu);
   }
   v7 = HIBYTE(v15);
@@ -45147,7 +45310,7 @@ void send_le_scan_command(int a1, int *a2, int a3, int a4) {
   }
   else if ( *((uint8_t *)a2 + 21) )
   {
-    ke_event_schedule_1(dword_12315C, *((uint8_t *)a2 + 21), v5);
+    ke_event_schedule(dword_12315C, (void *)(uintptr_t)(*((uint8_t *)a2 + 21)), v5);
     v8 = (uint8_t)v15;
     v7 = *((uint8_t *)a2 + 21);
     v15 = (v15 & ~0xFF00u) | (((uint8_t)(*((uint8_t *)a2 + 21)) & 0xFFu) << 8);
@@ -45166,7 +45329,7 @@ void send_le_scan_command(int a1, int *a2, int a3, int a4) {
     v15 = (v15 & ~0xFFu) | ((uint8_t)(31) & 0xFFu);
   }
   set_periph_status(v8);
-  ke_event_schedule_1(dword_123150, (uint8_t)v15, v10);
+  ke_event_schedule(dword_123150, (void *)(uintptr_t)((uint8_t)v15), v10);
   v7 = HIBYTE(v15);
 LABEL_17:
   if ( !v7 )
@@ -45191,17 +45354,17 @@ LABEL_18:
   v13 = (void *)(uintptr_t)(off_123154);
   v14 = dword_123158;
   *(uint32_t *)off_123154 = *(uint32_t *)off_123154 & 0xFF03FFFF | v12;
-  ke_event_schedule_1(v14, v11, v13);
+  ke_event_schedule(v14, (void *)(uintptr_t)(v11), (int)(uintptr_t)(v13));
   if ( !a2[3] )
   {
 LABEL_11:
     v9 = *a2;
     v17 = a2[2];
     v16 = v9;
-    tx_phy_dispatch(0, 2437);
+    sdio_transfer_setup(0, 2437);
   }
 LABEL_21:
-  sub_10C688();
+  bt_dispatch();
   goto LABEL_11;
 }
 
@@ -45242,7 +45405,7 @@ int send_hci_reset_cmd(int a1, int a2, int a3, int a4) {
   v4[2] = HIBYTE(v6);
   v7 = dword_1231E0;
   v4[4] = BYTE1(v6);
-  ke_event_schedule_1(v7, HIBYTE(v5), (uint8_t)v6);
+  ke_event_schedule(v7, (uint32_t *)(uintptr_t)(HIBYTE(v5)), (uint8_t)v6);
   hci_evt_send((int)(uintptr_t)(v4));
   return 0;
 }
@@ -45265,12 +45428,12 @@ int send_cmd_0x7c(int a1, uint8_t *a2, int a3, int a4) {
   v7 = (uint8_t *)bt_buf_alloc(124, a4, a3, 2);
   if ( *a2 )
   {
-    ke_event_schedule_1(dword_1232A0, v5, v6);
+    ke_event_schedule(dword_1232A0, (void *)(uintptr_t)(v5), v6);
     **(uint8_t **)off_1232A4 = 0;
   }
   else
   {
-    ke_event_schedule_1(dword_1232B0, v5, v6);
+    ke_event_schedule(dword_1232B0, (void *)(uintptr_t)(v5), v6);
     **(uint8_t **)off_1232A4 = 3;
   }
   rom_call_extract_byte(v14);
@@ -45289,7 +45452,7 @@ int send_cmd_0x7c(int a1, uint8_t *a2, int a3, int a4) {
     v10 = ((v13 ^ 0x40u) >> 6) & 1;
     *((uint8_t *)off_1232A8 + 188) = (v13 & 0x20) != 0;
   }
-  if ( sub_1151D4() )
+  if ( get_hw_info_bit20() )
   {
     v9[188] = 0;
     v11 = 0;
@@ -45302,7 +45465,7 @@ int send_cmd_0x7c(int a1, uint8_t *a2, int a3, int a4) {
   {
     if ( a2[3] )
       *((uint16_t *)v9 + 89) |= 0x4000u;
-    ke_event_schedule_1(dword_1232AC, v11, v10);
+    ke_event_schedule(dword_1232AC, (void *)(uintptr_t)(v11), v10);
     v11 = (v11 & ~0xFFu) | ((uint8_t)(v9[188]) & 0xFFu);
   }
   *v7 = v11;
@@ -45349,7 +45512,7 @@ int lookup_tx_power_table(int a1, int a2, int a3, int a4) {
       *(uint32_t *)off_123384 = v7;
       v14 = a3;
       v17 = a4;
-      chip_version_read_12207E0();
+      wait_rf_calibration();
       a3 = v14;
       a4 = v17;
     }
@@ -45367,7 +45530,7 @@ int lookup_tx_power_table(int a1, int a2, int a3, int a4) {
         *(uint32_t *)off_12338C = v9;
         v15 = a3;
         v18 = a4;
-        chip_version_read_12207E0();
+        wait_rf_calibration();
         a3 = v15;
         a4 = v18;
       }
@@ -45379,13 +45542,13 @@ int lookup_tx_power_table(int a1, int a2, int a3, int a4) {
           *(uint32_t *)off_123380 = v9;
         v13 = a3;
         v16 = a4;
-        chip_version_read_12207E0();
+        wait_rf_calibration();
         a3 = v13;
         a4 = v16;
       }
     }
   }
-  message_dispatch_n84(27, a4, a3, v10);
+  ((int (*)())hci_evt_alloc_send)(27, a4, a3, v10);
   return 0;
 }
 
@@ -45415,10 +45578,10 @@ int rf_reg_write_85(int a1, int a2, int a3, int a4) {
   uint8_t *v4; // r4
   unsigned int v5; // r0
 
-  v4 = (uint8_t *)rf_bus_setup_n3a8(133, a4, a3, 1);
+  v4 = (uint8_t *)bt_buf_alloc(133, a4, a3, 1);
   v5 = atomic_reg_read(dword_123400, 1);
   *v4 = (BYTE2(v5) ^ 1) & 1;
-  ke_event_schedule_1(dword_123404, v5, HIWORD(v5) & 1);
+  ke_event_schedule(dword_123404, (void *)(uintptr_t)(v5), HIWORD(v5) & 1);
   hci_evt_send((int)(uintptr_t)(v4));
   return 0;
 }
@@ -45451,7 +45614,7 @@ int rf_reg_write_88(int a1, int *a2, int a3, int a4) {
   int v26; // r1
 
   v5 = *a2;
-  v6 = rf_bus_setup_n3a8(136, a4, a3, 8);
+  v6 = bt_buf_alloc(136, a4, a3, 8);
   v8 = v6;
   *(uint32_t *)v6 = v5;
   switch ( v5 )
@@ -45461,7 +45624,7 @@ int rf_reg_write_88(int a1, int *a2, int a3, int a4) {
       *((uint8_t *)off_123508 + 373) = v9;
       v10 = dword_12350C;
       *(uint8_t *)(v8 + 4) = v9;
-      ke_event_schedule_1(v10, v9, v7);
+      ke_event_schedule(v10, (void *)(uintptr_t)(v9), v7);
       goto LABEL_3;
     case 1:
       v15 = (void *)(uintptr_t)(off_123508);
@@ -45479,21 +45642,21 @@ int rf_reg_write_88(int a1, int *a2, int a3, int a4) {
         }
         else
         {
-          bt_fmac_init_n_42e();
+          rf_afe_disable();
         }
         v17 = *((uint8_t *)v15 + 363);
       }
       *(uint8_t *)(v8 + 4) = v17;
-      ke_event_schedule_1(dword_123514, v17, v18);
+      ke_event_schedule(dword_123514, (void *)(uintptr_t)(v17), v18);
       hci_evt_send(v8);
       result = 0;
       break;
     case 2:
       v20 = (uint8_t *)off_123508;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_123508 + 363);
-      n590 = rf_temp_read_n590();
+      n590 = ke_event_handler();
       *(uint8_t *)(v8 + 5) = n590;
-      ke_event_schedule_1(dword_123518, v20[363], n590);
+      ke_event_schedule(dword_123518, (void *)(uintptr_t)(v20[363]), n590);
       hci_evt_send(v8);
       result = 0;
       break;
@@ -45502,7 +45665,7 @@ int rf_reg_write_88(int a1, int *a2, int a3, int a4) {
       v23 = (void *)(uintptr_t)(off_123508);
       v24 = dword_12351C;
       *((uint32_t *)off_123508 + 98) = v22;
-      ke_event_schedule_1(v24, v22, v7);
+      ke_event_schedule(v24, (void *)(uintptr_t)(v22), v7);
       *(uint32_t *)(v8 + 4) = v23[98];
       hci_evt_send(v8);
       result = 0;
@@ -45511,7 +45674,7 @@ int rf_reg_write_88(int a1, int *a2, int a3, int a4) {
       v25 = dword_123520;
       v26 = *((uint32_t *)off_123508 + 98);
       *(uint32_t *)(v8 + 4) = v26;
-      ke_event_schedule_1(v25, v26, v7);
+      ke_event_schedule(v25, (void *)(uintptr_t)(v26), v7);
       hci_evt_send(v8);
       result = 0;
       break;
@@ -45521,7 +45684,7 @@ int rf_reg_write_88(int a1, int *a2, int a3, int a4) {
       v14 = (a2[2] ^ v12) & a2[1] ^ v12;
       *((uint32_t *)off_123508 + 98) = v14;
       *(uint32_t *)(v8 + 4) = v14;
-      ke_event_schedule_1(v13, v14, v12);
+      ke_event_schedule(v13, (void *)(uintptr_t)(v14), v12);
       hci_evt_send(v8);
       result = 0;
       break;
@@ -45572,7 +45735,7 @@ int platform_hw_init(int a1, int a2, int a3, int a4) {
   v4 = dword_12378C;
   v6 = dword_123790;
   *(uint8_t *)off_123788 = 1;
-  ke_event_schedule_1(v4, v6, 708);
+  ke_event_schedule(v4, (void *)(uintptr_t)(v6), 708);
   v33 = 704;
   v32 = 703;
   v31 = 702;
@@ -45585,9 +45748,9 @@ int platform_hw_init(int a1, int a2, int a3, int a4) {
   v28 = 640;
   v25 = 504;
   v26 = 520;
-  ke_event_schedule_1(dword_123794, 0, 4);
+  ke_event_schedule(dword_123794, 0, 4);
   v21 = 112;
-  ke_event_schedule_1(dword_123798, 32, 44);
+  ke_event_schedule(dword_123798, (void *)(uintptr_t)(32), 44);
   v8 = a2 + 520;
   if ( *(uint8_t *)(a2 + 702) )
   {
@@ -45602,7 +45765,7 @@ int platform_hw_init(int a1, int a2, int a3, int a4) {
         v13 = *(uint16_t *)(v11 + 2);
         v11 += 2;
         v12 = v13;
-        ke_event_schedule_1(v10, v13, v8);
+        ke_event_schedule(v10, (void *)(uintptr_t)(v13), v8);
         if ( v13 <= 0x89 )
           break;
         if ( v12 == 5120 )
@@ -45620,7 +45783,7 @@ int platform_hw_init(int a1, int a2, int a3, int a4) {
           goto LABEL_12;
         }
 LABEL_16:
-        ke_event_schedule_1(dword_1237A4, v12, v14);
+        ke_event_schedule(dword_1237A4, (void *)(uintptr_t)(v12), v14);
         if ( *(uint8_t *)(a2 + 702) <= ++v9 )
           goto LABEL_9;
       }
@@ -45679,7 +45842,7 @@ LABEL_16:
       {
         v21 = *(uint16_t *)(a2 + 664);
         v22 = *(uint16_t *)(a2 + 666);
-        ke_event_schedule_1(dword_12379C, *(uint32_t *)(a2 + 704), *(uint8_t *)(a2 + 668));
+        ke_event_schedule(dword_12379C, (void *)(uintptr_t)(*(uint32_t *)(a2 + 704)), *(uint8_t *)(a2 + 668));
         if ( *(uint32_t *)(a2 + 704) )
         {
           wlc_ioctl((int *)(a2 + 662), *(uint8_t *)(a2 + 660), *(uint8_t *)(a2 + 668), v36);
@@ -45704,14 +45867,14 @@ LABEL_12:
         v20 = (void ( *)(unsigned int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int))v19;
         if ( v19 )
         {
-          ke_event_schedule_1(dword_1237A0, v19, v12);
+          ke_event_schedule(dword_1237A0, (void *)(uintptr_t)(v19), v12);
           v20(v12, v18, v17, a4, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }
         else
         {
-          ke_event_schedule_1(dword_1237A8, v12, v34);
+          ke_event_schedule(dword_1237A8, (void *)(uintptr_t)(v12), v34);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }
@@ -45731,7 +45894,7 @@ int rf_reg_write_54(int a1, uint8_t *a2) {
   uint8_t *v4; // r4
   unsigned int v5; // r0
 
-  v3 = (uint8_t *)rf_bus_setup_n3a8(84, 13, 0, 1);
+  v3 = (uint8_t *)bt_buf_alloc(84, 13, 0, 1);
   *v3 = 1;
   v4 = v3;
   v5 = *a2;
@@ -45745,7 +45908,7 @@ LABEL_5:
     hci_evt_send((int)(uintptr_t)(v4));
     return 0;
   }
-  rf_table_lookup_n788();
+  ((int (*)())bt_conn_get_flag)();
   hci_evt_send((int)(uintptr_t)(v4));
   return 0;
 }
@@ -45759,7 +45922,7 @@ int rf_reg_write_53(int a1, uint8_t *a2) {
   unsigned int v5; // r0
   int v6; // r0
 
-  v3 = (uint8_t *)rf_bus_setup_n3a8(83, 13, 0, 1);
+  v3 = (uint8_t *)bt_buf_alloc(83, 13, 0, 1);
   *v3 = 1;
   v4 = v3;
   v5 = *a2;
@@ -45787,7 +45950,7 @@ LABEL_6:
     hci_evt_send((int)(uintptr_t)(v4));
     return 0;
   }
-  *v4 = bt_link_state_get_n2c4();
+  *v4 = ((int (*)())bt_conn_get_state)();
   hci_evt_send((int)(uintptr_t)(v4));
   return 0;
 }
@@ -45824,11 +45987,11 @@ int call_127d80_remapped(int a1, uint8_t *a2, int a3, int a4) {
   char v9; // r6
   uint8_t *v10; // r0
 
-  v7 = rx_packet_handler_1(a2, a4);
+  v7 = ((int (*)())rx_packet_handler)((int)(uintptr_t)(a2), a4);
   if ( a4 )
   {
     v9 = v7;
-    v10 = (uint8_t *)rf_bus_setup_n3a8(71, a4, a3, 3);
+    v10 = (uint8_t *)bt_buf_alloc(71, a4, a3, 3);
     *v10 = *a2;
     v10[1] = v9;
     v10[2] = 4;
@@ -45844,7 +46007,7 @@ int output_byte_colon(int a1, uint8_t *a2, int a3, int a4) {
   int v4; // r3
 
   get_entry_by_index(*a2);
-  message_dispatch_n84(58, a4, a3, v4);
+  ((int (*)())hci_evt_alloc_send)(58, a4, a3, v4);
   return 0;
 }
 
@@ -45930,7 +46093,7 @@ int check_wlc_state(int a1, uint8_t *a2, int a3, int a4) {
   v7 = *a2;
 LABEL_3:
   check_hw_version(v7);
-  message_dispatch_n84(39, a4, a3, v8);
+  ((int (*)())hci_evt_alloc_send)(39, a4, a3, v8);
   return 0;
 }
 
@@ -45943,7 +46106,7 @@ int process_percent_char(int a1, uint8_t *a2, int a3, int a4) {
   uint8_t *v7; // r5
   int v8; // r3
 
-  v5 = (uint8_t *)rf_bus_setup_n3a8(37, a4, a3, 2);
+  v5 = (uint8_t *)bt_buf_alloc(37, a4, a3, 2);
   v6 = (int16_t **)off_123AE0;
   *v5 = 1;
   v7 = v5;
@@ -45996,11 +46159,11 @@ int bsscfg_indexed_lookup(int a1, uint8_t *a2, int a3, int a4) {
   int v7; // r4
 
   v4 = dword_123B30 + 1320 * *a2;
-  v6 = rf_bus_setup_n3a8(47, a4, a3, 2);
+  v6 = bt_buf_alloc(47, a4, a3, 2);
   *(uint8_t *)(v4 + 110) = a2[1];
   v7 = v6;
-  message_dispatch_c7ac(v4);
-  message_dispatch_n_4c4(v4, v7 + 1, v7);
+  scan_rssi_compare(v4);
+  util_chk_field(v4, (void *)(uintptr_t)(v7 + 1), (void *)(uintptr_t)(v7));
   hci_evt_send(v7);
   return 0;
 }
@@ -46011,8 +46174,8 @@ int bsscfg_indexed_lookup(int a1, uint8_t *a2, int a3, int a4) {
 int output_n_char(int a1, uint8_t *a2, int a3, int a4) {
   int v4; // r3
 
-  mac_addr_copy_to_global(a2);
-  message_dispatch_n84(110, a4, a3, v4);
+  set_rf_channel(a2);
+  ((int (*)())hci_evt_alloc_send)(110, a4, a3, v4);
   return 0;
 }
 
@@ -46022,9 +46185,9 @@ int output_n_char(int a1, uint8_t *a2, int a3, int a4) {
 int log_debug(int a1, int a2, int a3, int a4) {
   int v5; // r3
 
-  list_init_or_dequeue(a2);
-  feature_guard_sdio(256, dword_123B7C);
-  message_dispatch_n84(108, a4, a3, v5);
+  tx_buffer_cleanup(a2);
+  state_check_feature(256, dword_123B7C);
+  ((int (*)())hci_evt_alloc_send)(108, a4, a3, v5);
   return 0;
 }
 
@@ -46053,9 +46216,9 @@ int irq_disable_save(int a1, int a2, int a3, int a4) {
   ++*(uint32_t *)off_123BF0;
   v7 = ((int (*)())mmio_write_poll_clear)();
   v9 = sys_irq_dispatch(v7, SHIDWORD(v7), v8);
-  v10 = message_dispatch_n_b4_cb00(v9);
+  v10 = irq_lock_small(v9);
   llm_env_reset(v10);
-  bt_scan_channel_parse();
+  controller_init();
   run_deferred_init();
   v11 = *v4;
   *v5 = v6;
@@ -46070,8 +46233,8 @@ int irq_disable_save(int a1, int a2, int a3, int a4) {
         __enable_irq();
     }
   }
-  message_dispatch_n84(1, a4, a3, v11);
-  rf_bus_mark_n_3b7(0);
+  ((int (*)())hci_evt_alloc_send)(1, a4, a3, v11);
+  ((int (*)())hci_cmd_send)(0);
   return 0;
 }
 
@@ -46086,7 +46249,7 @@ int peripheral_config(int a1, int a2, int a3, int a4) {
   BOOL v8; // r0
   int v9; // r3
 
-  v4 = rf_bus_setup_n3a8(5, a4, a3, 28);
+  v4 = bt_buf_alloc(5, a4, a3, 28);
   v5 = (void *)(uintptr_t)(off_123CB8);
   *(uint32_t *)v4 = dword_123CBC;
   v6 = (void *)(uintptr_t)(off_123CC0);
@@ -46095,9 +46258,9 @@ int peripheral_config(int a1, int a2, int a3, int a4) {
   *(uint8_t *)(v4 + 26) = 4;
   *(uint16_t *)(v4 + 24) = 32;
   v7 = v4;
-  mmio_pair_read_n1800((uint32_t *)(v4 + 12), (uint32_t *)(v4 + 16));
+  sys_status_read((uint32_t *)(v4 + 12), (uint32_t *)(v4 + 16));
   *(uint32_t *)(v7 + 20) = dword_123CC4;
-  if ( (*v5 & 0x20000) != 0 && sdio_buffer_prepare_n_2e2() )
+  if ( (*v5 & 0x20000) != 0 && sys_status_get_bit28() )
   {
     *(uint32_t *)(v7 + 20) |= 0x400u;
     if ( (*(uint32_t *)off_123CB8 & 0x20000) == 0 )
@@ -46107,14 +46270,14 @@ int peripheral_config(int a1, int a2, int a3, int a4) {
   {
     goto LABEL_3;
   }
-  if ( sysctl_chip_id_get() )
+  if ( sys_status_get_bit30() )
     *(uint32_t *)(v7 + 20) |= 0x4000u;
 LABEL_3:
   if ( (*(uint32_t *)off_123CB8 & 0x2000) != 0 )
     *(uint32_t *)(v7 + 20) |= 0x1000u;
-  if ( sub_101874() )
+  if ( return_one() )
     *(uint32_t *)(v7 + 20) |= 0x200u;
-  if ( (*(uint32_t *)off_123CB8 & 0x8000) != 0 && chip_feature_check() )
+  if ( (*(uint32_t *)off_123CB8 & 0x8000) != 0 && sys_status_get_bit21() )
     *(uint32_t *)(v7 + 20) |= 0x800000u;
   v8 = rf_calibration_done();
   v9 = *(uint32_t *)(v7 + 20);
@@ -46146,10 +46309,10 @@ void read_global_state(int a1, int a2, int a3) {
   v9 = 0;
   if ( v3 < 0 )
   {
-    if ( msg_get_value(a3) )
+    if ( hci_cmd_send_short(a3) )
       mmio_irq_clear(dword_123D94, dword_123D90, 337);
   }
-  fmac_module_init();
+  flash_init();
 }
 
 
@@ -46193,23 +46356,23 @@ int call_common_handler(int a1, uint8_t *a2, int a3, int a4) {
   int v9; // r3
   int result; // r0
 
-  if ( msg_get_value(a3) == 3 || msg_get_value(a3) == 4 )
+  if ( hci_cmd_send_short(a3) == 3 || hci_cmd_send_short(a3) == 4 )
     return 2;
   v7 = *a2;
   v8 = (void *)(uintptr_t)(off_123EAC);
   *((uint8_t *)off_123EAC + 31) = v7;
   if ( !v7 )
   {
-    if ( msg_get_value(a3) != 2 )
+    if ( hci_cmd_send_short(a3) != 2 )
     {
-      rf_misc_init_n_xxx();
+      write_pmu_control();
 LABEL_6:
-      message_dispatch_n84(35, a4, a3, v9);
+      ((int (*)())hci_evt_alloc_send)(35, a4, a3, v9);
       return 0;
     }
     return 2;
   }
-  result = msg_get_value(a3);
+  result = hci_cmd_send_short(a3);
   if ( !result )
   {
     if ( **(int16_t **)off_123EB0 < 0 )
@@ -46224,7 +46387,7 @@ LABEL_6:
   if ( result != 2 )
   {
     rf_check_clk_state(result);
-    rf_bus_mark_n_3b7(a3);
+    ((int (*)())hci_cmd_send)(a3);
     return 2;
   }
   return result;
@@ -46417,7 +46580,7 @@ int process_float_packet(unsigned int a1, int a2, uint8_t *a3, int a4) {
   uint8_t v188[8]; // [sp+1Ch] [bp-8h] BYREF
 
   v6 = (unsigned int)a3;
-  value = msg_get_value(a3);
+  value = hci_cmd_send_short((int)(uintptr_t)(a3));
   if ( !value )
   {
     v12 = (int16_t **)off_1241C4;
@@ -46480,7 +46643,7 @@ LABEL_16:
         else if ( v16[49] )
         {
           v16[49] = 0;
-if ( check_bt_addr_valid((void *)(v188)) ) bt_link_lookup_entry( *(uint8_t *)(*(uint32_t *)v188 + 1225), dword_12419C + 38 * *(uint8_t *)(*(uint32_t *)v188 + 107));
+if ( check_bt_addr_valid((void *)(v188)) ) bt_conn_read_info( *(uint8_t *)(*(uint32_t *)v188 + 1225), dword_12419C + 38 * *(uint8_t *)(*(uint32_t *)v188 + 107));
         }
         goto LABEL_10;
       }
@@ -46588,7 +46751,7 @@ LABEL_185:
             *(uint32_t *)(a2 + 84) = a4;
             *(uint8_t *)(a4 + 17) = v150;
             *(uint8_t *)(a2 + 1) = v75;
-            JUMPOUT(0x144418);
+            ((int (*)())JUMPOUT)(0x144418);
           case 0xEu:
             v148 = *(uint8_t *)(a4 + 1);
             *(uint8_t *)(a4 + 29) = v73;
@@ -46600,7 +46763,7 @@ LABEL_185:
             *(uint8_t *)(2 * a2 + 0x11) = a2;
             jpt_124572[13] = (int)(uintptr_t)((_UNKNOWN *)v75);
             *(uint32_t *)(a2 + 20) = v149;
-            JUMPOUT(0x1443E8);
+            ((int (*)())JUMPOUT)(0x1443E8);
           case 0x10u:
             v145 = (void *)(v75 - 240);
             v146 = *(uint32_t *)(a4 + 4);
@@ -46612,9 +46775,9 @@ LABEL_185:
             v147 = *(uint32_t *)(v6 + 68);
             *(uint32_t *)(v147 + 68) = v147;
             *(uint8_t *)(*(int16_t *)(2 * v147) + 0x11) = *(uint32_t *)(*(int16_t *)(2 * v147) + 0x64);
-            JUMPOUT(0x1443B0);
+            ((int (*)())JUMPOUT)(0x1443B0);
           case 0x12u:
-            JUMPOUT(0x144380);
+            ((int (*)())JUMPOUT)(0x144380);
           case 0x16u:
 LABEL_186:
             v153 = v76 >> 31;
@@ -46769,7 +46932,7 @@ LABEL_187:
             MEMORY[1] = 0;
             *(uint32_t *)(v170 + 112) = v178;
             *(uint8_t *)(MEMORY[0x74] + 17) = MEMORY[0];
-            JUMPOUT(0x1446C4);
+            ((int (*)())JUMPOUT)(0x1446C4);
           case 0x18u:
           case 0x1Au:
             goto LABEL_174;
@@ -46881,7 +47044,7 @@ LABEL_174:
             MEMORY[0x6C6E] = 2 * v141;
             *(uint32_t *)(v144 + 52) = -v141;
             *(uint8_t *)(v143 + 13) = v144;
-            JUMPOUT(0x1442F0);
+            ((int (*)())JUMPOUT)(0x1442F0);
           default:
             break;
         }
@@ -46905,7 +47068,7 @@ LABEL_24:
       {
         case 6u:
 LABEL_76:
-          v72 = (uint8_t *)rf_bus_setup_n3a8(7, a4, v6, 2);
+          v72 = (uint8_t *)bt_buf_alloc(7, a4, v6, 2);
           v16 = (void *)(uintptr_t)(off_124508);
           *v72 = wlc_ioctl((int *)(a2 + 2), *(uint8_t *)a2, *(uint8_t *)(a2 + 8), v72 + 1);
           hci_evt_send((int)(uintptr_t)(v72));
@@ -46919,7 +47082,7 @@ LABEL_70:
           v70 = *((uint32_t *)off_124544 + 2);
           if ( !v70 )
             mmio_disable_irq(v69, v10);
-          message_dispatch_n84(9, a4, v6, v70);
+          ((int (*)())hci_evt_alloc_send)(9, a4, v6, v70);
           v16 = (void *)(uintptr_t)(off_124508);
           v17 = 0;
           goto LABEL_10;
@@ -46935,12 +47098,12 @@ LABEL_68:
           }
           v68 = (void *)(uintptr_t)(off_124540);
           *(uint32_t *)off_124540 = v67 | *((uint32_t *)v16 + 1);
-          message_dispatch_n84(15, a4, v6, v68);
+          ((int (*)())hci_evt_alloc_send)(15, a4, v6, v68);
           v17 = 0;
           goto LABEL_10;
         case 0x10u:
 LABEL_67:
-          v65 = rf_bus_setup_n3a8(17, a4, v6, 2);
+          v65 = bt_buf_alloc(17, a4, v6, 2);
           v16 = (void *)(uintptr_t)(off_124508);
           v66 = v65;
           gpio_init((uint16_t *)a2, *(uint8_t *)(a2 + 10));
@@ -46954,7 +47117,7 @@ LABEL_66:
           *(uint32_t *)off_12453C = *(uint32_t *)off_12453C & 0xFFFFFF00 | *(uint8_t *)a2;
           v64 = *v63 | 0x80000000;
           *v63 = v64;
-          message_dispatch_n84(19, a4, v6, v64);
+          ((int (*)())hci_evt_alloc_send)(19, a4, v6, v64);
           v17 = 0;
           goto LABEL_10;
         case 0x14u:
@@ -46970,7 +47133,7 @@ LABEL_63:
             v62 = dword_1244F4 + 696 * *(uint8_t *)(v61 + 116);
             *(uint32_t *)(v62 + 8) = v60 << 10;
           }
-          message_dispatch_n84(21, a4, v6, v62);
+          ((int (*)())hci_evt_alloc_send)(21, a4, v6, v62);
           v16 = (void *)(uintptr_t)(off_124508);
           v17 = 0;
           goto LABEL_10;
@@ -47000,7 +47163,7 @@ LABEL_53:
               *(uint32_t *)off_124534 = *(uint32_t *)&v16[4 * v59 + 4];
             }
           }
-          message_dispatch_n84(23, a4, v6, v54);
+          ((int (*)())hci_evt_alloc_send)(23, a4, v6, v54);
           v17 = 0;
           goto LABEL_10;
         case 0x18u:
@@ -47011,7 +47174,7 @@ LABEL_52:
           v53 = *(uint16_t *)(a2 + 4);
           *(uint32_t *)off_124528 = *(uint32_t *)a2;
           *v52 = v53;
-          message_dispatch_n84(25, a4, v6, v52);
+          ((int (*)())hci_evt_alloc_send)(25, a4, v6, v52);
           v17 = 0;
           goto LABEL_10;
         case 0x1Cu:
@@ -47019,7 +47182,7 @@ LABEL_75:
           v16 = (void *)(uintptr_t)(off_124508);
           v71 = (*(uint8_t *)a2 << 14) & 0x1C000 | *(uint32_t *)off_124548 & 0xFFFE3FFF;
           *(uint32_t *)off_124548 = v71;
-          message_dispatch_n84(29, a4, v6, v71);
+          ((int (*)())hci_evt_alloc_send)(29, a4, v6, v71);
           v17 = 0;
           goto LABEL_10;
         case 0x1Eu:
@@ -47041,18 +47204,18 @@ LABEL_33:
             {
               v38 = dword_1244F4 + 696 * v34[116];
               v39 = v184 + 24 + v33;
-              timestamp_update_4f60(v39, *((uint32_t *)off_1244F8 + 4) + *(uint32_t *)(v38 + 8));
+              ke_event_lock(v39, *((uint32_t *)off_1244F8 + 4) + *(uint32_t *)(v38 + 8));
               *(uint16_t *)(v38 + 32) = *(uint16_t *)a2;
               clear_intr_status();
-              feature_guard_sdio(256, dword_1244FC);
+              state_check_feature(256, dword_1244FC);
               v40 = (void *)(uintptr_t)(off_124504);
               *(uint32_t *)off_124500 = (uint16_t)*(uint32_t *)off_124500 | (*(uint16_t *)a2 << 16);
-              if ( (*v40 & 0x8000) != 0 && chip_feature_check() && (*(uint32_t *)(v38 + 4) & 0x20) != 0 )
+              if ( (*v40 & 0x8000) != 0 && sys_status_get_bit21() && (*(uint32_t *)(v38 + 4) & 0x20) != 0 )
               {
                 rf_channel_set(*(uint16_t *)a2);
                 check_hw_status();
-                feature_guard_sdio(256, dword_124B9C);
-                mmio_set_bit7();
+                state_check_feature(256, dword_124B9C);
+                enable_irq();
               }
               v16 = (void *)(uintptr_t)(off_124508);
               v187 = dword_1244F4 + 696 * v186;
@@ -47072,7 +47235,7 @@ LABEL_33:
               *(uint32_t *)(v41 + 4) = v42;
               *(uint32_t *)(v41 + 120) = v43[4];
               v185 = v41;
-              v44 = bt_hci_cmd_dispatch(v34);
+              v44 = bt_power_state((int)(uintptr_t)(v34));
               v45 = *(uint8_t *)(v185 + 1224);
               if ( *(uint8_t *)(v185 + 1224) )
               {
@@ -47102,7 +47265,7 @@ LABEL_119:
                   goto LABEL_39;
                 *((uint32_t *)off_124B88 + 8) = v45;
                 v182 = v45;
-                v106 = timestamp_remove_058(v39);
+                v106 = ke_event_set_lock(v39);
                 v105[36] = v182;
                 set_reg_bit(v106);
                 v37 = *(uint8_t *)(a2 + 2);
@@ -47126,7 +47289,7 @@ LABEL_39:
                 v120 = *(uint32_t *)off_124BA8;
                 *((uint32_t *)off_12450C + 8) = (int)(uintptr_t)(v34);
                 *v118 = (uint16_t)(v119 >> 10) | (HIWORD(v120) << 16);
-                v121 = timestamp_remove_058(v39);
+                v121 = ke_event_set_lock(v39);
                 *((uint8_t *)off_124B88 + 36) = 0;
                 ke_evt_wait(v121);
                 v37 = *(uint8_t *)(a2 + 2);
@@ -47134,16 +47297,16 @@ LABEL_39:
             }
             else
             {
-              v79 = timestamp_remove_058(v184 + 24 + v33);
-              nullsub_8(v79);
-              v80 = feature_guard_sdio(256, dword_124884);
+              v79 = ke_event_set_lock(v184 + 24 + v33);
+              ((int (*)())nullsub_8)(v79);
+              v80 = state_check_feature(256, dword_124884);
               if ( (*(uint32_t *)off_124888 & 0x8000) != 0 )
               {
-                v80 = chip_feature_check();
+                v80 = sys_status_get_bit21();
                 if ( v80 )
                 {
                   if ( (*(uint32_t *)(dword_124B8C + 696 * v186 + 4) & 0x20) != 0 && v34[106] != 4 )
-                    v80 = phy_tbl_lookup_by_idx(v34[107]);
+                    v80 = (int)(uintptr_t)(tx_slot_state_get(v34[107]));
                 }
               }
               v81 = v33 + 1320 * v32;
@@ -47171,7 +47334,7 @@ LABEL_39:
                       *((uint32_t *)off_124B88 + 8) = (int)(uintptr_t)(v94);
                       *v97 = (uint16_t)(*(uint32_t *)(v96 + 696 * v95 + 8) >> 10) | (HIWORD(*v97) << 16);
                       v181 = v94;
-                      v98 = timestamp_remove_058(v94 + 24);
+                      v98 = ke_event_set_lock((int)(uintptr_t)(v94 + 24));
                       *((uint8_t *)off_124B88 + 36) = 0;
                       v16 = (void *)(uintptr_t)(off_124B90);
                       ke_evt_wait(v98);
@@ -47217,7 +47380,7 @@ LABEL_169:
                   v115 = *(uint32_t *)(dword_124B8C + 696 * v112[116] + 8);
                   *((uint32_t *)off_124B88 + 8) = (int)(uintptr_t)(v112);
                   *v113 = (uint16_t)(v115 >> 10) | (HIWORD(v114) << 16);
-                  v116 = timestamp_remove_058(v112 + 24);
+                  v116 = ke_event_set_lock((int)(uintptr_t)(v112 + 24));
                   v111[36] = v183;
                   v16 = (void *)(uintptr_t)(off_124B90);
                   ke_evt_wait(v116);
@@ -47275,9 +47438,9 @@ LABEL_40:
                 *(uint32_t *)off_124520 = v51;
               else
                 *(uint32_t *)off_12488C = *(uint32_t *)(v33 + 1320 * v32 + 20);
-              chip_version_read_12207E0();
+              wait_rf_calibration();
             }
-            message_dispatch_n84(31, a4, v6, v46);
+            ((int (*)())hci_evt_alloc_send)(31, a4, v6, v46);
             v17 = 0;
             goto LABEL_10;
           }
@@ -47311,7 +47474,7 @@ LABEL_85:
                 v83[36] = 0;
                 v180 = v77;
                 v16 = (void *)(uintptr_t)(off_124864);
-                v84 = timestamp_remove_058(v77 + 24);
+                v84 = ke_event_set_lock((int)(uintptr_t)(v77 + 24));
                 ke_evt_wait(v84);
                 v85 = **v12;
                 v86 = v180;
@@ -47367,7 +47530,7 @@ LABEL_32:
           v16 = (void *)(uintptr_t)(off_124198);
           v31 = *(uint8_t *)a2 | (((uint8_t)*(uint32_t *)off_1241B8 * *(uint8_t *)a2) << 8);
           *(uint32_t *)off_1241BC = v31;
-          message_dispatch_n84(33, a4, v6, v31);
+          ((int (*)())hci_evt_alloc_send)(33, a4, v6, v31);
           v17 = 0;
           goto LABEL_10;
         case 0x28u:
@@ -47404,7 +47567,7 @@ LABEL_27:
             {
               v23 = v21 >> 1;
             }
-            ke_event_schedule_1(dword_1241B0, v20, v21);
+            ke_event_schedule(dword_1241B0, (void *)(uintptr_t)(v20), v21);
             v24 = *(uint16_t *)(a2 + 4);
             v25 = 696 * *(uint8_t *)(a2 + 1);
             v26 = *(uint8_t *)(v25 + 12 * *(uint8_t *)(a2 + 2) + dword_1241C0 + 453);
@@ -47415,7 +47578,7 @@ LABEL_27:
             *(uint16_t *)(v28 + 356) = v24;
             *(uint16_t *)(v29 + 12) = v27;
           }
-          v30 = (uint8_t *)rf_bus_setup_n3a8(41, a4, v6, 3);
+          v30 = (uint8_t *)bt_buf_alloc(41, a4, v6, 3);
           *v30 = *(uint8_t *)(a2 + 1);
           v30[1] = *(uint8_t *)(a2 + 2);
           v30[2] = v19;
@@ -47432,7 +47595,7 @@ LABEL_26:
         case 0x3Bu:
 LABEL_25:
           tx_packet_start((void *)(uintptr_t)(a2));
-          message_dispatch_n84(60, a4, v6, v18);
+          ((int (*)())hci_evt_alloc_send)(60, a4, v6, v18);
           v16 = (void *)(uintptr_t)(off_124198);
           v17 = 0;
           goto LABEL_10;
@@ -47445,17 +47608,17 @@ LABEL_25:
     v17 = 2;
 LABEL_10:
     *(uint32_t *)off_124194 = (uint8_t)(16 * v16[19]);
-    rf_bus_mark_n_3b7(v6);
+    ((int (*)())hci_cmd_send)(v6);
     return v17;
   }
   if ( (uint16_t)(value - 2) > 2u )
   {
     v14 = (void *)(uintptr_t)(off_124198);
     *((uint8_t *)off_124198 + 19) = *(uint8_t *)off_124194 & 0xF;
-    v15 = msg_get_value(v6);
+    v15 = hci_cmd_send_short(v6);
     v14[18] = v15;
     rf_check_clk_state(v15);
-    rf_bus_mark_n_3b7(v6);
+    ((int (*)())hci_cmd_send)(v6);
   }
   return 2;
 }
@@ -47492,7 +47655,7 @@ int radio_reg_init(uint16_t *a1) {
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
   wait_rf_calibration();
-  ke_event_schedule_1(dword_124C54, *a1, a1[1]);
+  ke_event_schedule(dword_124C54, (void *)(uintptr_t)(*a1), a1[1]);
   return 0;
 }
 
@@ -47572,7 +47735,7 @@ int ble_store_adv_data(uint8_t *a1) {
         {
           *(uint32_t *)off_124D60 = v15;
         }
-        chip_version_read_12207E0();
+        wait_rf_calibration();
       }
     }
   }
@@ -47581,8 +47744,8 @@ int ble_store_adv_data(uint8_t *a1) {
     v17 = (void *)(uintptr_t)(off_124D58);
     *(uint8_t *)off_124D58 = a1[24];
   }
-  ke_event_schedule_1(dword_124D5C, v7, v17);
-  return rf_mem_read_ed40(a1, 28, 1, 0);
+  ke_event_schedule(dword_124D5C, (void *)(uintptr_t)(v7), (int)(uintptr_t)(v17));
+  return ((int (*)())rx_packet_handler)((int)(uintptr_t)(a1), 28, 1, 0);
 }
 
 
@@ -47636,8 +47799,8 @@ int radio_read_config(uint8_t *a1) {
     v7 = (unsigned int)off_124E40;
     *(uint32_t *)off_124E40 = *(uint32_t *)off_124E40 & 0xFF00FFFF | (v9 << 16);
   }
-  ke_event_schedule_1(dword_124E44, v7, v9);
-  return rf_mem_read_ed40(a1, 6, 1, 0);
+  ke_event_schedule(dword_124E44, (void *)(uintptr_t)(v7), v9);
+  return ((int (*)())rx_packet_handler)((int)(uintptr_t)(a1), 6, 1, 0);
 }
 
 
@@ -47684,8 +47847,8 @@ int set_cfg_flag(uint8_t *a1, void *a2) {
     v3 = *(uint32_t *)off_124EE0 & 0xFFF00FFF;
     *(uint32_t *)off_124EE0 = v3 | (a1[4] << 12);
   }
-  ke_event_schedule_1(dword_124EE4, a2, v3);
-  return rx_packet_handler_2((int)(uintptr_t)(a1), 5, 1, 0);
+  ke_event_schedule(dword_124EE4, a2, v3);
+  return ((int (*)())rx_packet_handler)((int)(uintptr_t)(a1), 5, 1, 0);
 }
 
 
@@ -47743,6 +47906,13 @@ unsigned int compare_offsets(int a1, int a2) {
 
 
 
+// env_list_init_1903c8 @ 0x124f54
+int env_list_init_1903c8() {
+  return (int)(uintptr_t)(zero_struct((void *)(uintptr_t)(dword_124F5C)));
+}
+
+
+
 // ke_event_lock @ 0x124f60
 int ke_event_lock(int a1, int a2) {
   int *v4; // r7
@@ -47767,7 +47937,7 @@ int ke_event_lock(int a1, int a2) {
   ++*(uint32_t *)off_125038;
   if ( a2 - v5[4] < 0 )
   {
-    ke_event_schedule_1(dword_125048, *(uint32_t *)(a1 + 4), a2);
+    ke_event_schedule(dword_125048, (void *)(uintptr_t)(*(uint32_t *)(a1 + 4)), a2);
     if ( **(int16_t **)off_12504C < 0 )
       mmio_irq_clear(dword_125054, dword_125050, 131);
   }
@@ -48005,7 +48175,7 @@ int bt_option_config(uint8_t *a1, int a2, int a3) {
 
   if ( (a2 & 0x800000) != 0 )
   {
-    result = ke_event_schedule_1(dword_125254, dword_12524C, a3);
+    result = ke_event_schedule(dword_125254, (void *)(uintptr_t)(dword_12524C), a3);
     v9 = (uint8_t)a1[35];
     a1[668] = 0;
     if ( v9 <= 0x23 )
@@ -48021,10 +48191,10 @@ int bt_option_config(uint8_t *a1, int a2, int a3) {
     v6 = dword_125250;
     v7 = (uint8_t)(v4 + 1);
     a1[668] = v7;
-    result = ke_event_schedule_1(v6, v5, v7);
+    result = ke_event_schedule(v6, (void *)(uintptr_t)(v5), v7);
     if ( (uint8_t)a1[668] > 9u )
     {
-      v10 = (uint8_t *)rf_bus_setup_n3a8(125, 13, 0, 8);
+      v10 = (uint8_t *)bt_buf_alloc(125, 13, 0, 8);
       *v10 = a1[35];
       v10[1] = a1[34];
       v11 = v10;
@@ -48050,7 +48220,7 @@ int tx_power_switch(int a1, int a2) {
       break;
     case 3:
       v4 = dword_1252FC;
-      bt_link_lookup_entry(*(uint8_t *)(dword_1252FC + 1320 * a1 + 1225), dword_12530C + 38 * a1);
+      bt_conn_read_info(*(uint8_t *)(dword_1252FC + 1320 * a1 + 1225), dword_12530C + 38 * a1);
       break;
     case 1:
       v4 = dword_1252FC;
@@ -48380,8 +48550,8 @@ LABEL_28:
     else
       *(uint8_t *)(v2 + 230) = 0;
   }
-  message_dispatch_n84(66, *(a1 - 2), 0, v2);
-  return j_buffer_pool_get(a1 - 6);
+  ((int (*)())hci_evt_alloc_send)(66, *(a1 - 2), 0, v2);
+  return jump_to_tx_entry((int)(uintptr_t)(a1 - 6));
 }
 
 
@@ -48557,6 +48727,23 @@ int tx_complete_handle(int a1) {
 
 
 
+// reset_bt_env @ 0x125958
+int reset_bt_env() {
+  int v0; // r5
+  int v1; // r4
+
+  v0 = dword_125994;
+  v1 = dword_125998;
+  memset_byte((int *)dword_125994, 0, 0x18u);
+  zero_struct((void *)(uintptr_t)(v0 + 12));
+  bt_hci_fill_cmd((void *)(uintptr_t)(v1));
+  bt_hci_fill_cmd((void *)(uintptr_t)(v1 + 38));
+  bt_hci_fill_cmd((void *)(uintptr_t)(v1 + 76));
+  return (int)(uintptr_t)(bt_hci_fill_cmd((void *)(uintptr_t)(v1 + 114)));
+}
+
+
+
 // memory_pool_init @ 0x12599c
 int * memory_pool_init(int a1) {
   int v1; // r7
@@ -48614,7 +48801,7 @@ int * memory_pool_init(int a1) {
   v11[1] = v12;
   v11[6] = v12;
   v11[5] = v2;
-  result = (void *)(uintptr_t)(memset_thunk(v10, 0, 0xFCu));
+  result = memset_byte(v10, 0, 0xFCu);
   v14 = (int *)(v1 + 4 * v9);
   *v14 = v2;
   v14[1] = 0;
@@ -48647,7 +48834,7 @@ int * memory_pool_init(int a1) {
 // list_remove @ 0x125ac8
 int list_remove(uint16_t *a1) {
   if ( *((uint32_t *)off_125AE0 + 1) )
-    return list_push_tail((char *)off_125AE0 + 12);
+    return ((int (*)())check_abort_flag)((int)(uintptr_t)((char *)off_125AE0 + 12));
   else
     return rx_header_parse(a1);
 }
@@ -48759,7 +48946,7 @@ int ke_event_send(int a1, int a2, int a3, int a4) {
 
   v4 = (int *)off_125C64;
   v5 = *(uint32_t *)off_125C64;
-  message_dispatch_n84(64, *(uint16_t *)(*(uint32_t *)off_125C64 - 4), 0, a4);
+  ((int (*)())hci_evt_alloc_send)(64, *(uint16_t *)(*(uint32_t *)off_125C64 - 4), 0, a4);
   tx_desc_prepare(a1, *v4);
   v7 = *v4;
   *(uint8_t *)(a1 + 231) = 0;
@@ -48772,9 +48959,9 @@ int ke_event_send(int a1, int a2, int a3, int a4) {
   v10 = *((uint8_t *)v4 + 8);
   *((uint8_t *)v4 + 9) = 0;
   if ( v10 )
-    rf_msg_process_body_n446();
+    rf_status_poll();
   *v4 = 0;
-  return j_buffer_pool_get(v9);
+  return jump_to_tx_entry(v9);
 }
 
 
@@ -48864,11 +49051,11 @@ int mac_handler(int result) {
     {
 LABEL_20:
       v16 = (void *)(uintptr_t)(off_125EF4);
-      sub_121F1C();
+      check_clock_state();
       v17 = *(uint8_t *)(v3 + 107) + 32;
       if ( *v16 )
       {
-        v25 = (uint8_t *)rf_bus_setup_n3a8(74, 13, v4, 4);
+        v25 = (uint8_t *)bt_buf_alloc(74, 13, v4, 4);
         *v25 = v17;
         v25[1] = v4;
         v25[2] = v4;
@@ -48905,7 +49092,7 @@ LABEL_20:
           {
             v27 = (int)(uintptr_t)(list_pop_front(v5 + 8 * (87 * v17 + 78 + i)));
             ((int (*)())tx_prepare_frame_path)(v27, (uint8_t)i, v28);
-            ke_event_schedule_1(dword_125EE8, v29, v30);
+            ke_event_schedule(dword_125EE8, (void *)(uintptr_t)(v29), v30);
             while ( 1 )
               ;
           }
@@ -48929,7 +49116,7 @@ LABEL_20:
       if ( *((uint8_t *)v1 + result + 20) && !v1[1] )
         result = tx_power_switch(result, *((uint8_t *)v1 + result + 20));
       if ( *(uint8_t *)(v3 + 231) == 1 )
-        result = ipc_msg_alloc(v3);
+        result = alloc_buffer(v3);
       goto LABEL_4;
     }
   }
@@ -48969,10 +49156,10 @@ LABEL_4:
           v13 = *(uint32_t *)(v11 + 664);
         if ( v9 - v8[4] + v13 < 0 )
         {
-          result = bt_sub_121733C(v3);
+          result = init_once(v3);
           if ( result )
           {
-            result = fmacfwbt_phy_chan_init(v6[35], dword_125ED4, (int)v6);
+            result = ble_conn_get(v6[35], dword_125ED4, (int)v6);
             if ( !result )
               break;
           }
@@ -48984,7 +49171,7 @@ LABEL_4:
     }
     v15 = v6[35];
     v6 += 696;
-    result = ke_event_schedule_1(dword_125ED8, v15, v14);
+    result = ke_event_schedule(dword_125ED8, (void *)(uintptr_t)(v15), v14);
   }
   while ( v6 != (uint8_t *)v10 );
   return result;
@@ -49129,10 +49316,10 @@ BOOL get_time_delta(int a1, int a2) {
   int v7; // r0
 
   v3 = *(uint32_t *)(a1 + 4);
-  v4 = sub_10186C();
+  v4 = return_1000();
   v5 = *(uint32_t *)(a2 + 4);
   v6 = v4;
-  v7 = sub_10186C();
+  v7 = return_1000();
   return v3 - v5 < 0 && v5 - 14000 - v3 - v6 < 0 || v5 - v3 < 0 && v3 - v5 - 14000 - v7 < 0 || v3 == v5;
 }
 
@@ -49153,10 +49340,10 @@ int lookup_conn_table(int result) {
   v3 = dword_126094 + 140 * v2;
   v4 = result;
   if ( !*(uint8_t *)(v3 + 32) && *(uint8_t *)(v3 + 16) )
-    result = ((int (*)(void))bt_link_state_get_n2c4)();
+    result = ((int (*)(void))bt_conn_get_state)();
   v5 = v1 + 140 * v2;
   if ( !*(uint8_t *)(v5 + 80) && *(uint8_t *)(v5 + 64) )
-    result = bt_link_state_get_n2c4(v4, 1);
+    result = ((int (*)())bt_conn_get_state)(v4, 1);
   v6 = *((int **)off_126098 + 2);
   if ( v6 )
   {
@@ -49361,9 +49548,9 @@ LABEL_16:
       if ( 2 * v74 <= v10 )
         v10 /= v10 / v74;
       v72 = (v10 >> 1) / v68;
-      if ( sub_10186C() + 14000 <= v72 )
+      if ( return_1000() + 14000 <= v72 )
         break;
-      v72 = sub_10186C() + 14000;
+      v72 = return_1000() + 14000;
       if ( v11 )
         goto LABEL_31;
 LABEL_59:
@@ -49433,7 +49620,7 @@ LABEL_31:
         v18 = check_sequence_diff((unsigned int *)&v76, (unsigned int *)&v78, (unsigned int *)&v76, v10);
         if ( **v1 < 0 && v68 <= 1 )
           mmio_irq_clear(dword_12664C, dword_12663C, 735);
-        v19 = v68 * v72 / (v68 - 1) - 4000 - sub_10186C();
+        v19 = v68 * v72 / (v68 - 1) - 4000 - return_1000();
         if ( v19 < *((uint32_t *)v15 + 1) )
           v19 = *((uint32_t *)v15 + 1);
         if ( v19 > v18 )
@@ -49445,7 +49632,7 @@ LABEL_31:
         goto LABEL_59;
     }
     v66 = v19;
-    v20 = sub_10186C();
+    v20 = return_1000();
     v21 = &var4[5 * v16];
     v22 = *(uint8_t *)(v9 + 107);
     v9 = *(uint32_t *)v9;
@@ -49489,11 +49676,11 @@ LABEL_39:
         v58 = v78 - v57;
       v59 = *(v29 - 1) + *v29 - 2000 - v57;
       v75 = v58;
-      if ( sub_10186C() + 4000 > v59 )
-        v59 = sub_10186C() + 4000;
+      if ( return_1000() + 4000 > v59 )
+        v59 = return_1000() + 4000;
       v60 = *((uint64_t *)v29 - 1);
       v61 = v59 - v75;
-      v62 = v60 - 14000 - HIDWORD(v60) - sub_10186C() + v61;
+      v62 = v60 - 14000 - HIDWORD(v60) - return_1000() + v61;
       if ( !v69 )
       {
         v70 = v62;
@@ -49529,10 +49716,10 @@ LABEL_96:
       goto LABEL_96;
     }
 LABEL_42:
-    v32 = sub_10186C();
+    v32 = return_1000();
     v33 = *(uint64_t *)(v29 - 1);
     v34 = HIDWORD(v33) - 6000 - v32;
-    v35 = sub_10186C();
+    v35 = return_1000();
     v36 = *(v29 - 2);
     v37 = v33 + 4000 + v35;
     if ( (int)(v34 - v28[4]) < 0 )
@@ -49669,7 +49856,7 @@ BOOL rx_packet_handler(int a1, int a2, int a3) {
   }
   if ( !a3 || *(uint8_t *)(a3 + 10) == 255 )
   {
-    v14 = sub_10186C() + 14000;
+    v14 = return_1000() + 14000;
   }
   else
   {
@@ -49694,7 +49881,7 @@ BOOL rx_packet_handler(int a1, int a2, int a3) {
       v8 = v9 >> 1;
     }
     v10 = *(uint32_t *)(a3 + 4);
-    v11 = v10 + 10000 + sub_10186C();
+    v11 = v10 + 10000 + return_1000();
     v12 = rf_read_state(a1, *(uint8_t *)(a3 + 11));
     v13 = v12 - a2;
     if ( v12 - a2 + v8 < 0 )
@@ -49751,10 +49938,10 @@ int scan_adv_report(int a1, int a2, int a3) {
       break;
     v15 = (uint32_t *)v3[9];
     v16 = v15[1];
-    v17 = v16 + 4000 + sub_10186C();
+    v17 = v16 + 4000 + return_1000();
     if ( v8 != v15[2] )
     {
-      v17 += 4000 + sub_10186C();
+      v17 += 4000 + return_1000();
       if ( v15[3] )
         v17 += 10000;
     }
@@ -49796,12 +49983,12 @@ LABEL_30:
   if ( v9 && v8 != v9 )
   {
     v22 = v3[21];
-    v18 = (unsigned int)(a2 - v22 - 4000 - sub_10186C()) >> 31;
+    v18 = (unsigned int)(a2 - v22 - 4000 - return_1000()) >> 31;
     goto LABEL_18;
   }
 LABEL_5:
   *(uint32_t *)(a1 + 80) = a2;
-  v10 = sub_10186C();
+  v10 = return_1000();
   v11 = v3[4];
   v12 = a2 + 13999 + v10;
   if ( v11 )
@@ -50014,11 +50201,11 @@ int hci_send_acl(int a1, int a2, unsigned int a3) {
   v6 = *(uint8_t *)(v4 + 8);
   v7 = dword_126D5C + 1320 * v6;
   v52 = *(uint32_t *)(v4 + 4) - 4000;
-  v53 = v52 - a2 - sub_10186C();
+  v53 = v52 - a2 - return_1000();
   if ( *(uint32_t *)(v7 + 72) != v5 )
   {
     v57 = *(uint32_t *)(v4 + 4);
-    v10 = sub_10186C();
+    v10 = return_1000();
     v11 = *(uint8_t *)(v5 + 27);
     v61 = v10;
     v12 = v57 - 4000;
@@ -50042,13 +50229,13 @@ LABEL_31:
       }
       v30 = v3 + 1320 * v13;
       v31 = util_feature_get(v30, (void *)(&v64), (void *)(v65));
-      v14 = v64 - 4000 - sub_10186C();
+      v14 = v64 - 4000 - return_1000();
       v64 = v14;
       if ( !v31 )
       {
         if ( v14 + v61 - v63 >= 0 )
           v14 = v58;
-        if ( v61 - v63 + v65[0] + 9000 + sub_10186C() < 0 )
+        if ( v61 - v63 + v65[0] + 9000 + return_1000() < 0 )
         {
           send_event_to_host(v14, *(uint32_t *)(v30 + 72), 0);
           v14 = v58;
@@ -50056,7 +50243,7 @@ LABEL_31:
         }
         goto LABEL_6;
       }
-      if ( v65[0] + 9000 + v61 - v63 + sub_10186C() < 0 )
+      if ( v65[0] + 9000 + v61 - v63 + return_1000() < 0 )
       {
         send_event_to_host(a2, *(uint32_t *)(v30 + 72), 0);
         send_event_to_host(v65[0], v5, 0);
@@ -50078,11 +50265,11 @@ if ( util_feature_get(v16, (void *)(&v64), (void *)(v65)) ) { v14 = v65[0];
         if ( v64 - v54 + v61 >= 0 )
           goto LABEL_6;
         v18 = v64 - v65[0];
-        if ( v18 > sub_10186C() + 9000 )
+        if ( v18 > return_1000() + 9000 )
         {
           send_event_to_host(v65[0], v17, 0);
           v19 = v64;
-          v20 = v19 - 4000 - sub_10186C();
+          v20 = v19 - 4000 - return_1000();
           v14 = v58;
           send_event_to_host(v20, *(uint32_t *)(v16 + 72), 0);
           goto LABEL_6;
@@ -50094,11 +50281,11 @@ if ( util_feature_get(v16, (void *)(&v64), (void *)(v65)) ) { v14 = v65[0];
       if ( v58 - v64 < 0 )
         goto LABEL_26;
       v32 = v64 - a2;
-      if ( v32 > sub_10186C() + 9000 )
+      if ( v32 > return_1000() + 9000 )
       {
         send_event_to_host(a2, v17, 0);
         v44 = v64;
-        v45 = sub_10186C();
+        v45 = return_1000();
         send_event_to_host(v44 - 4000 - v45, *(uint32_t *)(v16 + 72), 0);
       }
       v14 = v65[0];
@@ -50108,12 +50295,12 @@ if ( util_feature_get(v16, (void *)(&v64), (void *)(v65)) ) { v14 = v65[0];
     v14 = v58;
     goto LABEL_6;
   }
-  result = sub_10186C();
+  result = return_1000();
   v55 = v53 - 4000 - result;
   if ( v55 <= 4999 )
     return result;
   v59 = *(uint32_t *)(v4 + 4);
-  v21 = sub_10186C();
+  v21 = return_1000();
   v62 = *(uint8_t *)(v5 + 27);
   v22 = v59 - v21;
   v23 = v21;
@@ -50138,12 +50325,12 @@ if ( util_feature_get(v16, (void *)(&v64), (void *)(v65)) ) { v14 = v65[0];
     {
       util_feature_get(v3 + 1320 * v33, (void *)(&v64), (void *)(v65));
       v40 = v64;
-      result = sub_10186C();
+      result = return_1000();
       if ( v56 - v40 + result < 0 )
         return result;
       v41 = v64;
       v29 = (char *)off_126D60;
-      v28 = v41 - 4000 - sub_10186C();
+      v28 = v41 - 4000 - return_1000();
       v42 = v25 - v65[0] < 0;
       v25 &= (v25 - v65[0]) >> 31;
       if ( !v42 )
@@ -50192,30 +50379,30 @@ LABEL_39:
   }
 if ( util_feature_get(v3 + 1320 * v62, (void *)(&v64), (void *)(v65)) ) { v43 = v64;
     v28 = v65[0];
-    if ( v43 - v59 + v23 - sub_10186C() < 0 )
+    if ( v43 - v59 + v23 - return_1000() < 0 )
     {
       v46 = v64;
-      v25 = v46 - 4000 - sub_10186C();
+      v25 = v46 - 4000 - return_1000();
     }
-    result = v25 - v28 - 9000 - sub_10186C();
+    result = v25 - v28 - 9000 - return_1000();
     if ( result >= 0 )
       goto LABEL_19;
     return result;
   }
-  v26 = sub_10186C();
+  v26 = return_1000();
   v27 = v64;
   if ( 5000 - v64 + a2 + 2 * (v26 + 4000) < 0 )
   {
-    if ( v27 - v59 + v23 - sub_10186C() < 0 )
+    if ( v27 - v59 + v23 - return_1000() < 0 )
     {
       v51 = v64;
-      v47 = v51 - 4000 - sub_10186C();
+      v47 = v51 - 4000 - return_1000();
     }
     else
     {
       v47 = v25;
     }
-    if ( v65[0] + 9000 - v25 + sub_10186C() >= 0 )
+    if ( v65[0] + 9000 - v25 + return_1000() >= 0 )
     {
       v29 = (char *)off_126E90;
       v25 = v47;
@@ -50254,7 +50441,7 @@ LABEL_77:
     v50 = (char *)off_126E90 + 28 * v49;
     goto LABEL_70;
   }
-  result = sub_10186C();
+  result = return_1000();
   v28 = v65[0];
   if ( v65[0] + 9000 - v25 + result < 0 )
   {
@@ -50277,7 +50464,7 @@ void patch_mmio_write() {
 
   v0 = *((int **)off_126F10 + 2);
   v1 = *((uint32_t *)off_126F14 + 10);
-  mmio_set_bit7();
+  enable_irq();
   *(uint32_t *)off_126F18 &= ~4u;
   if ( v0 )
   {
@@ -50329,7 +50516,7 @@ int timer_tick_handler(int a1) {
   v1 = (void *)(uintptr_t)(off_127028);
   v2 = *((int **)off_127024 + 2);
   v3 = *((uint8_t *)off_127028 + 89);
-  nullsub_8(a1);
+  ((int (*)())nullsub_8)(a1);
   v4 = v1[10];
   if ( !v4 )
     return 0;
@@ -50381,7 +50568,7 @@ LABEL_16:
   v15 = v7 - v13;
   if ( !v14 )
   {
-    rf_misc_init_n_xxx();
+    write_pmu_control();
     if ( v7 )
     {
       v15 = 0;
@@ -50393,7 +50580,7 @@ LABEL_16:
   if ( !v15 )
     return v15;
   *(uint8_t *)(v14 + 16) = 3;
-  rf_misc_init_n_xxx();
+  write_pmu_control();
   return v15;
 }
 
@@ -50602,10 +50789,10 @@ LABEL_6:
         *(uint8_t *)(v2 + 16) = 1;
       v0[11] = v1;
     }
-    return rf_status_query_n704();
+    return clear_tx_buffer();
   }
   if ( *((uint32_t *)off_127298 + 11) )
-    return rf_status_query_n704();
+    return clear_tx_buffer();
   return result;
 }
 
@@ -50623,10 +50810,24 @@ int timeout_decrement() {
     if ( !v0 && *(uint8_t *)off_1272D4 == 1 )
     {
       *(uint8_t *)off_1272D4 = 0;
-      fw_init_or_check_1221d44();
+      mac_cmd_send();
       return tx_ready_check();
     }
   }
+  return result;
+}
+
+
+
+// check_irq_handler @ 0x1272d8
+int check_irq_handler() {
+  int v0; // r0
+  int result; // r0
+
+  v0 = mac_cmd_send();
+  result = timer_tick_handler(v0);
+  if ( !result )
+    return tx_ready_check();
   return result;
 }
 
@@ -50660,7 +50861,7 @@ int set_tx_buffer(int result) {
     {
       if ( v3 && *(uint8_t *)(v3 + 24) != 3 )
       {
-        v4 = (uint8_t *)rf_bus_setup_n3a8(69, 13, 0, 1);
+        v4 = (uint8_t *)bt_buf_alloc(69, 13, 0, 1);
         *v4 = *(uint8_t *)(v3 + 24);
         hci_evt_send((int)(uintptr_t)(v4));
       }
@@ -50673,7 +50874,7 @@ int set_tx_buffer(int result) {
         }
         v5 = (int *)off_12738C;
         ++*(uint32_t *)off_12738C;
-        patch_sub_1217374(4);
+        mmio_set_bit(4);
         conn_get(4);
         if ( *v5 )
         {
@@ -50689,7 +50890,7 @@ int set_tx_buffer(int result) {
       }
       v1[11] = v2;
       *(uint8_t *)(v2 + 16) = 2;
-      v8 = (uint32_t *)rf_bus_setup_n3a8(140, 0, 255, 4);
+      v8 = (uint32_t *)bt_buf_alloc(140, 0, 255, 4);
       *v8 = dword_127390;
       return hci_evt_send((int)(uintptr_t)(v8));
     }
@@ -50721,7 +50922,7 @@ int rf_tx_packet(int result) {
   {
     if ( *((uint32_t *)off_1274A8 + 10) != result )
     {
-      result = sub_10186C();
+      result = return_1000();
       v2 = (v2 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v2 >> 32) & 0xFFFFFFFFu) + (uint32_t)(4000 + result))) << 32;;
     }
     v3 = (uint8_t)v1[91];
@@ -50745,7 +50946,7 @@ int rf_tx_packet(int result) {
         while ( 1 )
         {
           v10 = *(uint32_t *)(v5 + 4);
-          result = v10 - sub_10186C();
+          result = v10 - return_1000();
           if ( result + v8 >= 0 )
             break;
           v11 = *(uint32_t *)(v5 + 4);
@@ -50835,9 +51036,9 @@ int set_advertising_flag() {
     v1 = *((uint8_t *)off_127598 + 90);
     *((uint8_t *)off_127598 + 88) |= 0x10u;
     if ( v1 )
-      return timestamp_update_4f60((int)v0 + 48, *((uint32_t *)off_12759C + 4) + 30000);
+      return ke_event_lock((int)v0 + 48, *((uint32_t *)off_12759C + 4) + 30000);
     else
-      return bt_link_state_get_is_up();
+      return read_rssi();
   }
   return result;
 }
@@ -50915,7 +51116,7 @@ int rf_reset(int a1, int a2) {
   *(uint32_t *)off_127850 = (4 * (uint8_t)v2[92]) & 4 | *(uint32_t *)off_127850 & 0xFFFFFFFB;
   if ( a2 )
     goto LABEL_6;
-  result = fw_init_or_check_1221d44();
+  result = mac_cmd_send();
   if ( !*((uint8_t *)off_127854 + 408) )
     goto LABEL_6;
   v12 = *(uint8_t *)(a1 + 24);
@@ -50929,7 +51130,7 @@ LABEL_7:
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
-        result = phy_init_or_register_n_e(a1);
+        result = send_hci_cmd(a1);
         v14 = (uint8_t)v2[88];
       }
       else
@@ -51006,15 +51207,15 @@ LABEL_38:
 LABEL_48:
   v41 = dword_127880;
   v31[8] = v15;
-  result = ke_event_schedule_1(v41, v40, v39);
+  result = ke_event_schedule(v41, (void *)(uintptr_t)(v40), (int)(uintptr_t)(v39));
 LABEL_6:
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
     goto LABEL_7;
 LABEL_23:
   v2[88] &= ~8u;
-  v19 = (uint16_t *)phy_chan_idx_calc();
-  v20 = (uint16_t *)rf_bus_setup_n3a8(79, 13, 0, 12);
+  v19 = (uint16_t *)bt_get_active_conn();
+  v20 = (uint16_t *)bt_buf_alloc(79, 13, 0, 12);
   *v20 = *v19;
   v21 = v20;
   v22 = get_bt_status((int)(uintptr_t)(v19));
@@ -51047,7 +51248,7 @@ LABEL_26:
   }
   v30 = v29 | *v27;
   *(uint32_t *)off_127870 = v30;
-  result = message_dispatch_n84(142, 2, 255, v30);
+  result = ((int (*)())hci_evt_alloc_send)(142, 2, 255, v30);
   v14 = (uint8_t)v2[88];
 LABEL_8:
   *(uint8_t *)(a1 + 24) = -1;
@@ -51153,7 +51354,7 @@ LABEL_5:
     v8 = v7[10];
     goto LABEL_6;
   }
-  ke_event_schedule_1(dword_127AC0, *((uint8_t *)v7 + 88), v7[11]);
+  ke_event_schedule(dword_127AC0, (void *)(uintptr_t)(*((uint8_t *)v7 + 88)), v7[11]);
   v24 = *((uint8_t *)v7 + 88);
   if ( (v24 & 8) != 0 )
   {
@@ -51190,8 +51391,8 @@ LABEL_32:
   *(uint8_t *)(v25 + 16) = 4;
   if ( v28 == 3 )
   {
-    ke_event_schedule_1(dword_127AE8, v22, v23);
-    rf_bus_mark_n_3b7(2);
+    ke_event_schedule(dword_127AE8, (void *)(uintptr_t)(v22), v23);
+    ((int (*)())hci_cmd_send)(2);
     v28 = *(uint8_t *)(v25 + 24);
   }
   if ( v28 <= 2 )
@@ -51270,7 +51471,7 @@ LABEL_6:
   if ( v12 )
     set_tx_buffer((int)v12);
 LABEL_14:
-  list_push_tail(dword_127AB0);
+  ((int (*)())check_abort_flag)(dword_127AB0);
   v13 = v7[10];
   if ( *(uint8_t *)(v13 + 24) > 2u )
     rf_reset(v13, 0);
@@ -51291,7 +51492,7 @@ LABEL_14:
     *(uint32_t *)off_127ABC = v19;
     if ( v18 - 64 >= 0 )
     {
-      result = timestamp_update_4f60(dword_127AD0, v16);
+      result = ke_event_lock(dword_127AD0, v16);
       if ( *v15 )
       {
         v37 = *v15 - 1;
@@ -51345,7 +51546,7 @@ int tx_acl_packet(int a1) {
   char v3; // r3
   int v4; // r3
 
-  result = timestamp_update_4f60(a1 + 24, *(uint32_t *)(a1 + 36) + *(uint32_t *)(a1 + 88));
+  result = ke_event_lock(a1 + 24, *(uint32_t *)(a1 + 36) + *(uint32_t *)(a1 + 88));
   v3 = *(uint8_t *)(a1 + 85);
   *(uint8_t *)(a1 + 85) = v3 & 0xDF;
   if ( (v3 & 1) != 0 )
@@ -51353,13 +51554,13 @@ int tx_acl_packet(int a1) {
     v4 = *((uint32_t *)off_127B74 + 9);
     if ( v4 && *(uint32_t *)(v4 + 12) == a1 + 76 )
     {
-      fmacfwbt_init_load();
-      bt_rf_calibrate_or_setup(a1, *(uint32_t *)(a1 + 36), 0);
-      return mac_state_process_n_1c8(a1, *((uint32_t *)off_127B78 + 4), 0);
+      hci_acl_buf_alloc();
+      scan_adv_report(a1, *(uint32_t *)(a1 + 36), 0);
+      return hci_send_acl(a1, *((uint32_t *)off_127B78 + 4), 0);
     }
     else
     {
-      return bt_rf_calibrate_or_setup(a1, *(uint32_t *)(a1 + 36), 0);
+      return scan_adv_report(a1, *(uint32_t *)(a1 + 36), 0);
     }
   }
   return result;
@@ -51536,7 +51737,7 @@ int rx_packet_handler_1(uint8_t *a1, int a2) {
   int v18; // r0
 
   v2 = (void *)(uintptr_t)(off_127F40);
-  feature_guard_sdio(8, dword_127F44);
+  state_check_feature(8, dword_127F44);
   v5 = *a1;
   if ( *a1 )
   {
@@ -51550,7 +51751,7 @@ int rx_packet_handler_1(uint8_t *a1, int a2) {
       {
         if ( v6 == 4 )
         {
-          timestamp_remove_058((int)off_127F54 + 64);
+          ke_event_set_lock((int)off_127F54 + 64);
           v12 = v7[8];
           v7[18] = 0;
           scan_process(v12);
@@ -51564,17 +51765,17 @@ int rx_packet_handler_1(uint8_t *a1, int a2) {
         {
           if ( v13 == v2 + 112 && (uint8_t *)v7[20] == v13 )
           {
-            timestamp_remove_058((int)(v7 + 16));
+            ke_event_set_lock((int)(v7 + 16));
             v7[18] = 0;
           }
           v7[11] = 0;
         }
-        phy_init_or_register_n_e(dword_127F48);
+        send_hci_cmd(dword_127F48);
       }
       else if ( v6 == 1 )
       {
         *((uint8_t *)off_127F54 + 88) &= 0xFAu;
-        phy_init_or_register_n_e((int)(v2 + 112));
+        send_hci_cmd((int)(v2 + 112));
       }
       v8 = *((uint8_t *)v7 + 88);
       v2[136] = -1;
@@ -51583,12 +51784,12 @@ int rx_packet_handler_1(uint8_t *a1, int a2) {
       v18 = dword_127F50;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
-      timestamp_remove_058(v18);
+      ke_event_set_lock(v18);
       return v5;
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || msg_get_value(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_send_short(4) == 1 )
   {
     v10 = (void *)(uintptr_t)(off_127F54);
     v11 = *((uint8_t *)off_127F54 + 88);
@@ -51633,7 +51834,7 @@ LABEL_25:
       {
         v17 = dword_127F48;
         v10[88] = v11 | 4;
-        rf_init_or_attach_n488(v17);
+        rf_tx_packet(v17);
       }
       *(uint32_t *)off_127F4C |= 4u;
       return v5;
@@ -51785,7 +51986,7 @@ int tx_packet_start(uint8_t *a1) {
     }
     v8 = (int *)off_12815C;
     ++*(uint32_t *)off_12815C;
-    mmio_set_clear_bits();
+    rf_clock_reset();
     rf_hw_init(0);
     if ( *v8 )
     {
@@ -51799,7 +52000,7 @@ int tx_packet_start(uint8_t *a1) {
       }
     }
     gpio_init((uint16_t *)v3, 0);
-    return bt_hci_cmd_build_n6ac(*(char *)(v4 + 28 * v1 + 12));
+    return util_format_string(*(char *)(v4 + 28 * v1 + 12));
   }
   return result;
 }
@@ -51849,8 +52050,8 @@ LABEL_10:
       v12 = *((uint8_t *)v4 + 8);
       if ( v12 == *(uint8_t *)(a1 + 107) )
       {
-        ke_event_schedule_1(v11, v12, v9);
-        list_remove_node_d510(v3 + 16, v4);
+        ke_event_schedule(v11, (void *)(uintptr_t)(v12), v9);
+        check_abort_flag_3((int)(uintptr_t)(v3 + 16), (void *)(v4));
         *((uint8_t *)v4 + 9) &= ~1u;
       }
       v4 = (int *)*v4;
@@ -51917,7 +52118,7 @@ LABEL_25:
     if ( !*(uint8_t *)(a1 + 1224) || *(uint8_t *)(dword_128330 + 140 * *(uint8_t *)(a1 + 1225) + 112) != 1 )
     {
 LABEL_26:
-      list_remove_node_d510(dword_128334, a1 + 76);
+      check_abort_flag_3(dword_128334, (void *)(uintptr_t)(a1 + 76));
       v19 = *(uint8_t *)(a1 + 85) & 0xFE;
 LABEL_27:
       *(uint8_t *)(a1 + 85) = v19 | 2;
@@ -51925,7 +52126,7 @@ LABEL_27:
       return v10 != v21;
     }
 LABEL_36:
-    bt_rf_calibrate_or_setup(a1, a3, 0);
+    scan_adv_report(a1, a3, 0);
     v19 = *(uint8_t *)(a1 + 85) | 8;
     goto LABEL_27;
   }
@@ -51935,7 +52136,7 @@ LABEL_36:
       goto LABEL_18;
     goto LABEL_36;
   }
-  buf_release_and_dispatch(a1);
+  release_buffer(a1);
   if ( !v13 )
     goto LABEL_25;
 LABEL_31:
@@ -52008,26 +52209,26 @@ LABEL_7:
       if ( (v2 & 4) != 0 )
         *(uint8_t *)(v3 + 85) = v2 & 0xFB;
       if ( !v6 || *(uint32_t *)(v6 + 12) != v3 + 76 )
-        return bt_rf_calibrate_or_setup(v3, *(uint32_t *)(v3 + 36), 0);
+        return scan_adv_report(v3, *(uint32_t *)(v3 + 36), 0);
       v9 = *(uint32_t *)(v3 + 80);
       v10 = *(uint32_t *)(v3 + 36);
       if ( v9 - v10 < 0 )
       {
-        if ( v10 - 4000 - v9 - sub_10186C() < 0 )
+        if ( v10 - 4000 - v9 - return_1000() < 0 )
         {
 LABEL_23:
           v11 = *(uint32_t *)(v3 + 36);
           *(uint32_t *)(v3 + 80) = v11;
-          result = sub_10186C();
+          result = return_1000();
           if ( v11 - *(uint32_t *)(v6 + 4) - result - 4000 < 0 )
           {
             v12 = *(uint32_t *)(v3 + 80);
-            result = sub_10186C();
+            result = return_1000();
             v13 = v1[18];
             *(uint32_t *)(v6 + 4) = v12 - 4000 - result;
             if ( v13 == v6 )
             {
-              timestamp_remove_058(dword_1284AC);
+              ke_event_set_lock(dword_1284AC);
               v1[18] = v6;
               if ( (__get_CPSR() & 1) == 0 )
               {
@@ -52042,7 +52243,7 @@ LABEL_23:
               *(uint32_t *)off_1284B8 = v18;
               if ( v17 - 64 >= 0 )
               {
-                result = timestamp_update_4f60(dword_1284AC, v15);
+                result = ke_event_lock(dword_1284AC, v15);
                 if ( *v14 )
                 {
                   v7 = *v14 - 1;
@@ -52077,11 +52278,11 @@ LABEL_23:
         v10 = *(uint32_t *)(v3 + 36);
         v9 = *(uint32_t *)(v3 + 80);
       }
-      if ( v10 - v9 >= 0 || v9 - 4000 - v10 - sub_10186C() >= 0 )
+      if ( v10 - v9 >= 0 || v9 - 4000 - v10 - return_1000() >= 0 )
       {
-        fmacfwbt_init_load();
-        bt_rf_calibrate_or_setup(v3, *(uint32_t *)(v3 + 36), 0);
-        return mac_state_process_n_1c8(v3, *((uint32_t *)off_1284B4 + 4), 0);
+        hci_acl_buf_alloc();
+        scan_adv_report(v3, *(uint32_t *)(v3 + 36), 0);
+        return hci_send_acl(v3, *((uint32_t *)off_1284B4 + 4), 0);
       }
       goto LABEL_23;
     }
@@ -52119,7 +52320,7 @@ int hci_le_event_proc(int result) {
       *((uint8_t *)v1 + 91) = v11;
       if ( !v11 && (*((uint8_t *)v1 + 88) & 0x40) != 0 )
       {
-        result = rf_init_or_attach_n488(*((uint32_t *)v1 + 20));
+        result = rf_tx_packet(*((uint32_t *)v1 + 20));
         v3 = (v3 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(v2 + 85)) & 0xFFu);
       }
     }
@@ -52152,7 +52353,7 @@ LABEL_4:
           {
             if ( (*((uint8_t *)v1 + 88) & 0x40) != 0 )
             {
-              result = rf_init_or_attach_n488(*((uint32_t *)v1 + 20));
+              result = rf_tx_packet(*((uint32_t *)v1 + 20));
               v6 = *(uint8_t *)(v2 + 85);
             }
             else
@@ -52182,12 +52383,12 @@ LABEL_4:
           }
           else
           {
-            result = bt_rf_calibrate_or_setup(v2, v5, 0);
+            result = scan_adv_report(v2, v5, 0);
           }
           if ( v4 )
           {
             if ( !*((uint32_t *)v1 + 11) )
-              return mac_state_process_n_1c8(v2, *((uint32_t *)off_1285F0 + 4), *((uint32_t *)off_1285F0 + 4) - v8);
+              return hci_send_acl(v2, *((uint32_t *)off_1285F0 + 4), *((uint32_t *)off_1285F0 + 4) - v8);
           }
         }
         return result;
@@ -52202,7 +52403,7 @@ LABEL_4:
     }
     if ( (v3 & 1) == 0 )
     {
-      result = bt_rf_calibrate_or_setup(v2, v5, 0);
+      result = scan_adv_report(v2, v5, 0);
       v3 = (v3 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(v2 + 85)) & 0xFFu);
     }
     *(uint8_t *)(v2 + 85) = v3 & 0xFB;
@@ -52253,6 +52454,12 @@ int bt_power_state(int result) {
 
 
 
+// nullsub_5 @ 0x1286b0
+int nullsub_5(void) {
+  return 0;
+}
+
+
 // bt_link_active @ 0x1286b4
 BOOL bt_link_active(int a1) {
   int v1; // r3
@@ -52297,7 +52504,7 @@ BOOL bt_link_check(int a1) {
 BOOL bt_link_type(int a1) {
   BOOL result; // r0
 
-  result = bt_state_get_n28(a1);
+  result = bt_link_check(a1);
   if ( result )
     return !*((uint32_t *)off_128768 + 11) || *(uint8_t *)(*((uint32_t *)off_128768 + 10) + 16) == 6;
   return result;
@@ -52343,14 +52550,14 @@ LABEL_6:
     v5 = (void *)(uintptr_t)(off_1287DC);
     *(uint8_t *)(result + 12) = v4;
     if ( v5[10] == result )
-      return bt_hci_cmd_build_n6ac(v4);
+      return util_format_string(v4);
   }
   else
   {
     v6 = (void *)(uintptr_t)(off_1287DC);
     *(uint8_t *)(result + 12) = 15;
     if ( v6[10] == result )
-      return bt_hci_cmd_build_n6ac(15);
+      return util_format_string(15);
   }
   return result;
 }
@@ -52397,8 +52604,8 @@ int get_entry_by_index(int a1) {
     mmio_irq_clear(dword_128A90, dword_128A8C, 3149);
   v6 = v2 + 1320 * a1;
   v7 = (char *)off_128A78;
-  feature_guard_sdio(256, dword_128A7C);
-  list_remove_node_d510(v7 + 16, v3 + 76 + v2);
+  state_check_feature(256, dword_128A7C);
+  check_abort_flag_3((int)(uintptr_t)(v7 + 16), (void *)(uintptr_t)(v3 + 76 + v2));
   v9 = *(uint8_t *)(v6 + 85);
   *(uint8_t *)(v6 + 85) = v9 & 0xFE;
   v10 = v9 << 30;
@@ -52408,8 +52615,8 @@ int get_entry_by_index(int a1) {
     v7[91] = v11;
     if ( !v11 && (v7[88] & 0x40) != 0 )
     {
-      ke_event_schedule_1(dword_128A88, v8, v10);
-      rf_init_or_attach_n488(*((uint32_t *)v7 + 20));
+      ke_event_schedule(dword_128A88, (void *)(uintptr_t)(v8), v10);
+      rf_tx_packet(*((uint32_t *)v7 + 20));
     }
   }
   v12 = v2 + 1320 * a1;
@@ -52467,7 +52674,7 @@ LABEL_10:
       }
     }
 LABEL_26:
-    list_remove_node_d510(dword_128A94, v4);
+    check_abort_flag_3(dword_128A94, (void *)(v4));
     v4[16] = v14;
     v23 = *v1;
     v24 = (uint8_t)(v7[90] - 1);
@@ -52479,7 +52686,7 @@ LABEL_26:
     }
     if ( v24 )
     {
-      bt_xtal_init_check(dword_128A9C);
+      zero_struct((void *)(uintptr_t)(dword_128A9C));
       v25 = dword_128AA0;
       v22 = dword_128AA0 + 5280;
       do
@@ -52489,7 +52696,7 @@ LABEL_26:
       }
       while ( v22 != v25 );
       if ( !*((uint32_t *)v7 + 20) )
-        fmacfwbt_init_load();
+        hci_acl_buf_alloc();
     }
     if ( *((uint8_t **)v7 + 10) != v4 )
     {
@@ -52523,7 +52730,7 @@ LABEL_26:
 LABEL_51:
         v31 = dword_128AA4;
         *((uint32_t *)v7 + 11) = (int)(uintptr_t)(v30);
-        ke_event_schedule_1(v31, v30, v29);
+        ke_event_schedule(v31, (void *)(v30), v29);
         goto LABEL_30;
       }
 LABEL_57:
@@ -52539,7 +52746,7 @@ LABEL_30:
         goto LABEL_21;
       return remove_entry_by_owner((int)v4);
     }
-    ke_event_schedule_1(dword_128A84, v22, 0);
+    ke_event_schedule(dword_128A84, (void *)(uintptr_t)(v22), 0);
     v19 = v4[24];
     v20 = v19 + 1;
     if ( v19 == 2 )
@@ -52574,7 +52781,7 @@ LABEL_20:
   if ( v14 )
     return remove_entry_by_owner((int)v4);
 LABEL_21:
-  bt_msg_handler_dispatch(v4[24]);
+  lookup_7byte_channel(v4[24]);
   return remove_entry_by_owner((int)v4);
 }
 
@@ -52640,7 +52847,7 @@ int update_entries_from_config(int a1, int a2) {
     }
     if ( v21 == 2 )
     {
-      bt_xtal_init_check(dword_128CEC);
+      zero_struct((void *)(uintptr_t)(dword_128CEC));
       v23 = dword_128CC0;
       v24 = dword_128CC0 + 5280;
       do
@@ -52650,7 +52857,7 @@ int update_entries_from_config(int a1, int a2) {
       }
       while ( v24 != v23 );
     }
-    list_push_tail(dword_128CE0);
+    ((int (*)())check_abort_flag)(dword_128CE0);
     if ( (v10[88] & 0xC) != 0 )
     {
       v22 = *((uint32_t *)v10 + 8);
@@ -52670,7 +52877,7 @@ int update_entries_from_config(int a1, int a2) {
       set_tx_buffer(v7);
     }
   }
-  feature_guard_sdio(256, dword_128CC4);
+  state_check_feature(256, dword_128CC4);
   v13 = (uint8_t *)(v4 + 1320 * a1);
   v14 = (uint8_t)v13[1224];
   v13[86] = -1;
@@ -52700,7 +52907,7 @@ LABEL_10:
   result = remove_entry_by_owner(v7);
   v18 = *((uint8_t *)off_128CD0 + 16);
   if ( v18 != a1 && v18 != 255 )
-    return fw_state_lookup_n_528(a2);
+    return get_current_entry_owner(a2);
   return result;
 }
 
@@ -52755,8 +52962,8 @@ int is_log_enabled(int a1, int a2, int a3) {
     {
       v11 = dword_128E00;
       *(uint8_t *)(a1 + 115) = 0;
-      feature_guard_sdio(1024, v11);
-      mac_cmd_send_status_query(a1);
+      state_check_feature(1024, v11);
+      mmio_read_phy(a1);
       return 1;
     }
     else
@@ -52764,7 +52971,7 @@ int is_log_enabled(int a1, int a2, int a3) {
       v6 = *(uint8_t *)(a1 + 108);
       if ( *(uint8_t *)(a1 + 108) )
       {
-        fmacfwbt_phy_chan_init(*(uint8_t *)(a1 + 116), a3, a1);
+        ble_conn_get(*(uint8_t *)(a1 + 116), a3, a1);
         return 0;
       }
       else
@@ -52778,7 +52985,7 @@ int is_log_enabled(int a1, int a2, int a3) {
           --v7[8];
         v9 = dword_128DFC;
         v7[29] = 0;
-        timestamp_remove_058(v9);
+        ke_event_set_lock(v9);
         *(uint32_t *)(a1 + 4) &= ~0x200u;
         return v6;
       }
@@ -52804,7 +53011,7 @@ int dump_hex_value(int a1, int a2) {
       *(uint32_t *)off_128E54 |= 0x80000000;
     if ( v4[8] )
       --v4[8];
-    result = timestamp_remove_058(dword_128E58);
+    result = ke_event_set_lock(dword_128E58);
     v4[29] = 0;
     *(uint32_t *)(a1 + 4) &= 0xFFFFFDF9;
   }
@@ -52837,7 +53044,7 @@ int dump_stats_values(int a1, int a2) {
     v8 = dword_128EC0;
     *((uint32_t *)v4 + 5) = a1;
     v4[29] = 4;
-    result = timestamp_update_4f60(v8, v7 + v6);
+    result = ke_event_lock(v8, v7 + v6);
     *(uint32_t *)(a1 + 4) |= 0x200u;
   }
   return result;
@@ -52851,7 +53058,7 @@ int log_state_message(int a1, int a2, int a3, int a4) {
   uint16_t *v7; // r2
   char v8; // r3
 
-  feature_guard_sdio(2, dword_128F08);
+  state_check_feature(2, dword_128F08);
   result = is_log_enabled(a1, a2, dword_128F0C);
   if ( result )
   {
@@ -52859,7 +53066,7 @@ int log_state_message(int a1, int a2, int a3, int a4) {
     if ( !*((uint8_t *)off_128F10 + 8) || (v8 = *((uint8_t *)off_128F10 + 8) - 1, (*((uint8_t *)off_128F10 + 8) = v8) == 0) )
     {
       *(uint8_t *)v7 = 1;
-      return message_dispatch_n84(50, v7[1], 0, a4);
+      return ((int (*)())hci_evt_alloc_send)(50, v7[1], 0, a4);
     }
   }
   return result;
@@ -52873,7 +53080,7 @@ uint16_t * log_alt_state_message(int a1, int a2, int a3, int a4) {
   int *i; // r3
   int v8; // r3
 
-  feature_guard_sdio(2, dword_128F78);
+  state_check_feature(2, dword_128F78);
   result = (uint16_t *)is_log_enabled(a1, a2, dword_128F7C);
   if ( result )
   {
@@ -52890,7 +53097,7 @@ uint16_t * log_alt_state_message(int a1, int a2, int a3, int a4) {
         }
       }
       *(uint8_t *)result = 0;
-      return (uint16_t *)message_dispatch_n84(50, result[1], 0, a4);
+      return (uint16_t *)((int (*)())hci_evt_alloc_send)(50, result[1], 0, a4);
     }
   }
   return result;
@@ -52923,7 +53130,7 @@ void handle_mmio_event() {
             if ( *(uint8_t *)(v1 + 108) )
             {
               v3 = *(uint8_t *)(v1 + 116);
-              if ( v3 != 255 && !fmacfwbt_phy_chan_init(v3, v2, v1) )
+              if ( v3 != 255 && !ble_conn_get(v3, v2, v1) )
                 ++v0[8];
             }
           }
@@ -53045,7 +53252,7 @@ int mm_state_idle() {
 
   v0 = (void *)(uintptr_t)(off_129138);
   v1 = memset_byte((int *)off_129138, 0, 0x28u);
-  result = sub_14213C(v1);
+  result = (int)(uintptr_t)(mac_init_ring(v1));
   v0[4] = dword_12913C;
   *((uint8_t *)v0 + 28) = 1;
   return result;
@@ -53260,7 +53467,7 @@ int rf_rx_packet_get(int result, int a2, int a3) {
         v15 = *(uint16_t *)(v13 + 56);
         v3[5] = a3;
         *((uint8_t *)v3 + 29) = 5;
-        result = timestamp_update_4f60((int)(v3 + 3), v15 + v14);
+        result = ke_event_lock((int)(v3 + 3), v15 + v14);
         v7 = *(uint32_t *)(a3 + 4);
         if ( !a2 )
           goto LABEL_6;
@@ -53277,12 +53484,12 @@ LABEL_6:
 LABEL_8:
     *(uint32_t *)(a3 + 4) = v7 | 4;
     log_and_check_hw(result, v9, v5);
-    bt_msg_post_n2cc();
+    mm_beacon_irq();
     v10 = *((uint32_t *)off_129424 + 4);
     v11 = *(uint16_t *)(*(uint32_t *)off_129420 + 58);
     v3[5] = a3;
     *((uint8_t *)v3 + 29) = 6;
-    return timestamp_update_4f60(dword_129428, v11 + v10);
+    return ke_event_lock(dword_129428, v11 + v10);
   }
   return result;
 }
@@ -53433,7 +53640,7 @@ int ke_evt_wait() {
   *v0 = *v0 & 0xFFFFFF00 | 0x10;
   *v5 = *v5 & 0xFFFFFF03 | 0x10;
   *v1 = *v1 & 0x3FFFFF | (((v4 >> 5) + 32) << 22);
-  result = feature_guard_sdio(2, dword_1296D4);
+  result = state_check_feature(2, dword_1296D4);
   v8 = *v6;
   v9 = **v6;
   if ( v9 == 1 )
@@ -53486,7 +53693,7 @@ int set_reg_bit() {
 
   v0 = dword_12974C;
   *(uint32_t *)off_129744 |= 0x2000000u;
-  feature_guard_sdio(2, v0);
+  state_check_feature(2, v0);
   if ( !*((uint8_t *)off_129750 + 18) )
     *(uint32_t *)off_129754 &= ~1u;
   v1 = (void *)(uintptr_t)(off_12975C);
@@ -53510,7 +53717,7 @@ int write_cmd(int a1, int a2) {
   int v6; // r2
   uint64_t v7; // kr00_8
 
-  v4 = rf_bus_setup_n3a8(85, 13, 0, 16);
+  v4 = bt_buf_alloc(85, 13, 0, 16);
   *(uint8_t *)v4 = *(uint8_t *)(a1 + 113);
   v5 = a1 + 48 * a2;
   *(uint8_t *)(v4 + 1) = a2;
@@ -53889,18 +54096,18 @@ LABEL_26:
       }
       v5 = result[113];
       v4 = dword_129D80;
-      v11 = (uint8_t *)rf_bus_setup_n3a8(77, 13, result[134], 2);
+      v11 = (uint8_t *)bt_buf_alloc(77, 13, result[134], 2);
       *v11 = v1[113];
       v11[1] = v9 != 1;
       hci_evt_send((int)(uintptr_t)(v11));
       v1[133] = v10;
-      result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), v9 != 1);
+      result = (uint8_t *)((int (*)())nullsub_5)(*(uint32_t *)(v4 + 1320 * v5 + 72), v9 != 1);
       if ( v9 == 1 )
       {
 LABEL_43:
         if ( v1[112] )
         {
-          result = (uint8_t *)irq_nesting_or(512);
+          result = (uint8_t *)set_system_flag_1(512);
           v28 = v1[112];
         }
         else
@@ -53940,7 +54147,7 @@ LABEL_43:
               v23 = *(uint32_t *)(v18 + 588);
               *(uint32_t *)(v15 + 1232) = *(uint32_t *)(v18 + 584);
               *(uint32_t *)(v15 + 1236) = v23;
-              bt_xtal_init_check(v22 - 40);
+              zero_struct((void *)(uintptr_t)(v22 - 40));
               v20 = (void *)(uintptr_t)(off_129D78);
               v24 = *(uint32_t *)off_129D78 - 1;
               if ( *(uint32_t *)off_129D78 )
@@ -53962,14 +54169,14 @@ LABEL_43:
             if ( v26 )
             {
               list_merge((void *)(uintptr_t)(v27), (void *)(uintptr_t)(v22));
-              bt_xtal_init_check(v22);
+              zero_struct((void *)(uintptr_t)(v22));
               v20 = (void *)(uintptr_t)(off_129D78);
             }
             v22 += 8;
           }
           while ( v22 != v21 );
           v1 = v34;
-          result = (uint8_t *)irq_nesting_or(512);
+          result = (uint8_t *)set_system_flag_1(512);
           v28 = v34[112];
         }
         v29 = v4 + 1320 * v5;
@@ -54003,7 +54210,7 @@ LABEL_30:
           }
           v31 = (int *)off_129E7C;
           ++*(uint32_t *)off_129E7C;
-          patch_sub_1217374(4);
+          mmio_set_bit(4);
           result = (uint8_t *)conn_get(4);
           if ( *v31 )
           {
@@ -54075,12 +54282,12 @@ LABEL_13:
       v5 = result[113];
       v4 = dword_129D80;
 LABEL_15:
-      v6 = (uint8_t *)rf_bus_setup_n3a8(77, 13, 0, 2);
+      v6 = (uint8_t *)bt_buf_alloc(77, 13, 0, 2);
       *v6 = v1[113];
       v6[1] = 1;
       hci_evt_send((int)(uintptr_t)(v6));
       v1[133] = 0;
-      result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), 1);
+      result = (uint8_t *)((int (*)())nullsub_5)(*(uint32_t *)(v4 + 1320 * v5 + 72), 1);
       goto LABEL_30;
     }
     if ( result[133] == 1 )
@@ -54101,11 +54308,11 @@ LABEL_41:
     v5 = result[113];
     v4 = dword_129D80;
 LABEL_42:
-    v14 = (uint16_t *)rf_bus_setup_n3a8(77, 13, 0, 2);
+    v14 = (uint16_t *)bt_buf_alloc(77, 13, 0, 2);
     *v14 = v1[113];
     hci_evt_send((int)(uintptr_t)(v14));
     v1[133] = 1;
-    result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), 0);
+    result = (uint8_t *)((int (*)())nullsub_5)(*(uint32_t *)(v4 + 1320 * v5 + 72), 0);
     goto LABEL_43;
   }
 LABEL_6:
@@ -54137,7 +54344,7 @@ uint8_t * handle_state_change(uint8_t *result) {
   {
     v3 = *((uint32_t *)result + 29);
     result[114] = 1;
-    timestamp_update_4f60((int)(result + 96), v3);
+    ke_event_lock((int)(result + 96), v3);
     return state_machine_step(v2);
   }
   return result;
@@ -54278,7 +54485,7 @@ int get_struct_ptr(int result, int a2, unsigned int a3) {
     {
       if ( v24[16] )
       {
-        timestamp_remove_058(v6);
+        ke_event_set_lock(v6);
         v24[16] = 0;
       }
       v26 = v3 + 140 * v5;
@@ -54286,7 +54493,7 @@ int get_struct_ptr(int result, int a2, unsigned int a3) {
       *(uint8_t *)(v26 + 121) = 0;
       if ( v27 )
       {
-        timestamp_remove_058(v4 + 48 + v3);
+        ke_event_set_lock(v4 + 48 + v3);
         *(uint8_t *)(v26 + 64) = 0;
       }
       *(uint8_t *)(v3 + 140 * v5 + 121) = 0;
@@ -54306,7 +54513,7 @@ int get_struct_ptr(int result, int a2, unsigned int a3) {
     {
       if ( v11[16] )
       {
-        timestamp_remove_058(v6);
+        ke_event_set_lock(v6);
         v11[16] = 0;
       }
       v13 = v3 + 140 * v5;
@@ -54314,7 +54521,7 @@ int get_struct_ptr(int result, int a2, unsigned int a3) {
       *(uint8_t *)(v13 + 121) = 0;
       if ( v14 )
       {
-        timestamp_remove_058(v4 + 48 + v3);
+        ke_event_set_lock(v4 + 48 + v3);
         *(uint8_t *)(v13 + 64) = 0;
       }
       *(uint8_t *)(v3 + 140 * v5 + 121) = 0;
@@ -54340,11 +54547,11 @@ int get_struct_ptr(int result, int a2, unsigned int a3) {
           if ( v20 <= 1 || v21 )
           {
             *(uint32_t *)(v6 + 24) = *(uint32_t *)(v18 + 1);
-            v22 = v21 - 4000 - sub_10186C();
+            v22 = v21 - 4000 - return_1000();
             v23 = *(uint8_t *)(v6 + 20);
             *(uint32_t *)(v6 + 28) = v22;
             *(uint8_t *)(v6 + 19) = v23;
-            if ( fw_info_get_or_init(v6, *(uint8_t *)(v28 + 113), *(uint32_t *)(v18 + 9), a3) )
+            if ( get_table_entry(v6, *(uint8_t *)(v28 + 113), *(uint32_t *)(v18 + 9), a3) )
               ++*(uint8_t *)(v28 + 121);
           }
         }
@@ -54373,7 +54580,7 @@ int *hw_init_1() {
   int *result; // r0
   uint8_t *v1; // r3
 
-  result = (void *)(uintptr_t)(memset_thunk((int *)dword_12A184, 0, 1u));
+  result = memset_byte((int *)dword_12A184, 0, 1u);
   v1 = (void *)(uintptr_t)(off_12A188);
   *((uint8_t *)off_12A188 + 113) = -1;
   v1[253] = -1;
@@ -54416,7 +54623,7 @@ int poll_ready(int a1, int a2) {
     v11 = 188;
     v12 = (int *)((char *)off_12A25C + 140);
   }
-  memset_thunk(v12, 0, 0x8Cu);
+  memset_byte(v12, 0, 0x8Cu);
   v7 = &v2[140 * v10];
   v7[113] = a1;
   v7[112] = a2;
@@ -54510,13 +54717,13 @@ uint8_t * rx_frame_process(uint8_t *result, int a2) {
     v5 = 140 * v2;
     if ( v4[16] )
     {
-      timestamp_remove_058(dword_12A34C + 140 * v2);
+      ke_event_set_lock(dword_12A34C + 140 * v2);
       v4[16] = 0;
     }
     v6 = v3 + 140 * v2;
     if ( *(uint8_t *)(v6 + 64) )
     {
-      timestamp_remove_058(v5 + 48 + v3);
+      ke_event_set_lock(v5 + 48 + v3);
       *(uint8_t *)(v6 + 64) = 0;
     }
     v7 = (uint8_t *)(v3 + 140 * v2);
@@ -54526,7 +54733,7 @@ uint8_t * rx_frame_process(uint8_t *result, int a2) {
     v7[132] = 0;
     if ( v8 )
     {
-      timestamp_remove_058(v5 + 96 + v3);
+      ke_event_set_lock(v5 + 96 + v3);
       v7[114] = 0;
     }
     return state_machine_step(v4);
@@ -54652,12 +54859,12 @@ uint8_t * bt_conn_event_process(uint8_t *result, int a2) {
     if ( *(uint8_t *)(v4 + 112) || (v10 = a2 + 300, *((uint32_t *)off_12A53C + 4) - v10 + 50 >= 0) )
     {
       *(uint8_t *)(v3 + 140 * v2 + 114) = 1;
-      timestamp_update_4f60(v7 + 96 + v3, v9);
+      ke_event_lock(v7 + 96 + v3, v9);
       return state_machine_step(v8);
     }
     *(uint32_t *)(v4 + 116) = v9;
     *(uint8_t *)(v4 + 114) = 2;
-    return (uint8_t *)timestamp_update_4f60(v7 + 96 + v3, v10);
+    return (uint8_t *)ke_event_lock(v7 + 96 + v3, v10);
   }
   return result;
 }
@@ -54947,7 +55154,7 @@ int bt_conn_state_machine(int a1, int a2, char a3, char a4, unsigned int a5, int
     ++*(uint8_t *)(v15 + 122);
   if ( a5 )
     *(uint32_t *)(140 * v8 + 48 * v14 + v7 + 40) = 0x80000000 / a5 - 1;
-  timestamp_update_4f60(v13, a7);
+  ke_event_lock(v13, a7);
   v21 = 140 * v8;
   *(uint8_t *)(v7 + v21 + 48 * v14 + 16) = 1;
   set_flag_byte(*(uint8_t *)(v21 + v7 + 113), 3);
@@ -55071,14 +55278,14 @@ uint8_t * bt_dev_update(int a1) {
           {
             if ( *(uint8_t *)(v1 + 140 * v2 + 112) == 1 )
             {
-              bt_link_state_get_n2c4(v6, *(uint8_t *)(a1 + 18), 0);
+              bt_conn_get_state(v6, *(uint8_t *)(a1 + 18), 0);
               v12 = (int)v7;
             }
             else
             {
               if ( *(uint8_t *)(a1 + 16) )
               {
-                timestamp_remove_058(a1);
+                ke_event_set_lock(a1);
                 *(uint8_t *)(a1 + 16) = 0;
               }
               v12 = (int)v7;
@@ -55127,7 +55334,7 @@ LABEL_27:
           else if ( v8 - *((uint32_t *)off_12ACDC + 4) - 5000 >= 0 )
           {
             v22 = *(uint8_t *)(v13 + 112);
-            timestamp_update_4f60(a1, v8);
+            ke_event_lock(a1, v8);
             *(uint8_t *)(a1 + 16) = v22;
             mem_fill((int)v7);
             result = state_machine_step(v7);
@@ -55177,7 +55384,7 @@ LABEL_35:
   if ( !v16 )
     goto LABEL_42;
 LABEL_36:
-  timestamp_update_4f60(a1, v8);
+  ke_event_lock(a1, v8);
   *(uint8_t *)(a1 + 16) = v3;
   mem_fill((int)v7);
   result = state_machine_step(v7);
@@ -55593,7 +55800,7 @@ int ke_timer_wait() {
   if ( hci_cmd_send_short(2) != 3 )
   {
     v0 = hci_cmd_send_short(2);
-    ke_event_schedule_1(dword_12B218, v0, v1);
+    ke_event_schedule(dword_12B218, (void *)(uintptr_t)(v0), v1);
   }
   if ( **(int16_t **)off_12B21C < 0 && hci_cmd_send_short(2) != 3 )
     mmio_irq_clear(dword_12B228, dword_12B224, 201);
@@ -55639,7 +55846,7 @@ int bt_link_connected() {
   if ( hci_cmd_send_short(2) != 2 )
   {
     v2 = hci_cmd_send_short(2);
-    ke_event_schedule_1(dword_12B294, v2, v3);
+    ke_event_schedule(dword_12B294, (void *)(uintptr_t)(v2), v3);
   }
   if ( **(int16_t **)off_12B298 < 0 && hci_cmd_send_short(2) != 2 )
     mmio_irq_clear(dword_12B2A0, dword_12B29C, 163);
@@ -55658,10 +55865,10 @@ int bt_send_hci_801(int a1, int a2, int a3, int a4) {
   uint8_t *v7; // r2
 
   v4 = a4;
-  v6 = (uint8_t *)rf_bus_setup_n3a8(2049, a4, a3, 1);
-  msg_get_value(2);
-  feature_guard_sdio(4, dword_12B324);
-  if ( msg_get_value(2) )
+  v6 = (uint8_t *)bt_buf_alloc(2049, a4, a3, 1);
+  hci_cmd_send_short(2);
+  state_check_feature(4, dword_12B324);
+  if ( hci_cmd_send_short(2) )
   {
     *v6 = 8;
     hci_evt_send((int)(uintptr_t)(v6));
@@ -55713,8 +55920,8 @@ int bt_reset_controller() {
   int result; // r0
   uint32_t *v1; // r3
 
-  memset_thunk((int *)dword_12B3BC, 0, 0xCu);
-  result = rf_bus_mark_n_3b7(2);
+  memset_byte((int *)dword_12B3BC, 0, 0xCu);
+  result = ((int (*)())hci_cmd_send)(2);
   v1 = (void *)(uintptr_t)(off_12B3C0);
   *(uint32_t *)off_12B3C0 = dword_12B3C4;
   v1[2] = (int)(uintptr_t)(v1 + 5);
@@ -55764,7 +55971,7 @@ int bt_get_link_state() {
   if ( (v4 & 1) == 0 && *((uint8_t *)off_12B498 + 3850) == 1 )
     v5 += 170000;
 LABEL_4:
-  bt_chan_state_get((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
+  acl_send_packet((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
   v6 = v0[1];
   if ( v6 )
   {
@@ -55784,14 +55991,14 @@ LABEL_4:
         if ( v8 == 2484 )
         {
           *(uint8_t *)(v6 + 2) = 14;
-          return rf_bus_mark_n_3b7(2);
+          return ((int (*)())hci_cmd_send)(2);
         }
         v7 = (v7 & ~0xFFu) | ((uint8_t)((unsigned int)(((unsigned int)dword_12B494 * (uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2) & 0xFFu);
       }
       *(uint8_t *)(v6 + 2) = v7;
     }
   }
-  return rf_bus_mark_n_3b7(2);
+  return ((int (*)())hci_cmd_send)(2);
 }
 
 
@@ -55804,7 +56011,7 @@ int bt_save_conn_info(int a1) {
 
   v1 = (void *)(uintptr_t)(off_12B4CC);
   v2 = (char *)off_12B4D0;
-  v1[1] = (int)(uintptr_t)(memmove_2((void *)(uintptr_t)(off_12B4D0), *(uint16_t *)(*(uint32_t *)off_12B4CC + 364)));
+  v1[1] = ((int (*)())memmove)(off_12B4D0, *(uint16_t *)(*(uint32_t *)off_12B4CC + 364));
   result = bt_get_link_state();
   *(uint32_t *)&v2[-8] = *(uint32_t *)&v2[-12] - 1 + *(uint16_t *)(a1 + 364);
   *((uint32_t *)v2 - 1) = 0;
@@ -55996,8 +56203,8 @@ void bt_update_conn_state() {
 int bt_send_hci_804(char a1, int a2) {
   uint8_t *v3; // r4
 
-  v3 = (uint8_t *)rf_bus_setup_n3a8(2052, a2, 2, 1);
-  feature_guard_sdio(4, dword_12B734);
+  v3 = (uint8_t *)bt_buf_alloc(2052, a2, 2, 1);
+  state_check_feature(4, dword_12B734);
   *v3 = a1;
   return hci_evt_send((int)(uintptr_t)(v3));
 }
@@ -56028,14 +56235,14 @@ int rf_read_irq_status() {
   int result; // r0
 
   if ( **(int16_t **)off_12B7AC < 0 && *(uint32_t *)off_12B7B8 << 28 )
-    return ((int (*)())ke_int_lock_1)(dword_12B7C0, dword_12B7BC, 105, *(uint32_t *)off_12B7B8);
+    return ((int (*)())ke_int_lock)(dword_12B7C0, dword_12B7BC, 105, *(uint32_t *)off_12B7B8);
   if ( (*(uint32_t *)off_12B7B0 & 0x80) != 0 )
   {
     v0 = (void *)(uintptr_t)(off_12B7B4);
     v1 = *((uint32_t *)off_12B7B4 + 1) & 0xFFFFFFFB;
     *(uint32_t *)off_12B7B0 &= ~0x80u;
     v0[1] = v1;
-    return irq_nesting_or(0x2000000);
+    return set_system_flag_1(0x2000000);
   }
   return result;
 }
@@ -56154,7 +56361,7 @@ int rf_check_clk_state() {
   int v11; // r3
 
   if ( **(int16_t **)off_12BAA4 < 0 && !(*(uint32_t *)off_12BAC0 << 28) )
-    return ((int (*)())ke_int_lock_1)(dword_12BACC, dword_12BAC8, 213, *(uint32_t *)off_12BAC0);
+    return ((int (*)())ke_int_lock)(dword_12BACC, dword_12BAC8, 213, *(uint32_t *)off_12BAC0);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -56238,7 +56445,7 @@ int mmio_poll_status() {
   *(uint32_t *)off_12BCDC = 1;
   while ( (uint8_t)*v0 )
     ;
-  variant_cached = get_variant_cached();
+  variant_cached = get_timer_flag();
   rf_wait_event(variant_cached);
   v2 = (void *)(uintptr_t)(off_12BCE4);
   *(uint32_t *)off_12BCE0 = dword_12BCE8;
@@ -56272,7 +56479,7 @@ int mmio_poll_status() {
   v15 = (unsigned int *)off_12BD18;
   *(uint32_t *)off_12BD14 = 12288;
   *v13 = 0;
-  bt_fw_init_or_handler(&v26, &v25);
+  read_calibration_offsets(&v26, &v25);
   v16 = (void *)(uintptr_t)(off_12BD20);
   *(uint32_t *)off_12BD1C = (v26 << 8) | (v25 << 16) | v26;
   v17 = (void *)(uintptr_t)(off_12BD24);
@@ -56280,7 +56487,7 @@ int mmio_poll_status() {
   *v14 |= 0x2000u;
   *v16 |= 0x80000u;
   *v16 &= ~0x80u;
-  result = sub_101954();
+  result = irq47_status_handler();
   v19 = (void *)(uintptr_t)(off_12BD28);
   *v15 = ((result + 1) << 26) & 0x1C000000 | *v15 & 0xE3FFFFFF;
   v20 = (uint8_t **)off_12BD2C;
@@ -56294,10 +56501,10 @@ int mmio_poll_status() {
   *(uint32_t *)off_12BCEC |= 0x2000000u;
   if ( (*v22 & 0x20000) != 0 )
   {
-    result = sdio_buffer_prepare_n_2e2();
+    result = sys_status_get_bit28();
     if ( result )
     {
-      v23 = chip_rev_get();
+      v23 = sys_mode_get();
       v24 = (unsigned int *)off_12BD44;
       result = v23 << 8;
       *(uint32_t *)off_12BD44 = result & 0x700 | *(uint32_t *)off_12BD44 & 0xFFFFF8FF;
@@ -56306,7 +56513,7 @@ int mmio_poll_status() {
       *v24 |= 1u;
       if ( (*v22 & 0x8000) != 0 )
       {
-        result = chip_feature_check();
+        result = sys_status_get_bit21();
         if ( result )
         {
           *v21 |= 0x80000u;
@@ -56315,7 +56522,7 @@ int mmio_poll_status() {
       }
       if ( (*(uint32_t *)off_12BD34 & 0x20000) != 0 )
       {
-        result = sysctl_chip_id_get();
+        result = sys_status_get_bit30();
         if ( result )
           *(uint32_t *)off_12BD44 |= 2u;
       }
@@ -56624,7 +56831,7 @@ int power_state_read(int a1, int a2) {
   result = v3 << 21;
   if ( (v3 & 0x400) != 0 )
   {
-    ke_event_schedule_1(dword_12C1E8, a2, v2);
+    ke_event_schedule(dword_12C1E8, (void *)(uintptr_t)(a2), (int)(uintptr_t)(v2));
     while ( 1 )
       ;
   }
@@ -56635,18 +56842,18 @@ int power_state_read(int a1, int a2) {
     if ( (v3 & 0x200) == 0 )
       goto LABEL_4;
 LABEL_13:
-    ke_event_schedule_1(dword_12C1E4, v5, v6);
+    ke_event_schedule(dword_12C1E4, (void *)(uintptr_t)(v5), v6);
     while ( 1 )
       ;
   }
-  result = bt_flag_get();
+  result = seq_count_restart();
   v6 = v3 << 22;
   if ( (v3 & 0x200) != 0 )
     goto LABEL_13;
 LABEL_4:
   if ( (v3 & 0x10) != 0 )
   {
-    patch_sub_1217374(4);
+    mmio_set_bit(4);
     result = conn_get(4);
   }
   if ( (v3 & 0x2F) != 0 )
@@ -56654,10 +56861,10 @@ LABEL_4:
     if ( *(uint8_t *)off_12C1D4 )
     {
       v11 = (char *)off_12C1F8;
-      rf_power_set(*((uint8_t *)off_12C1F8 + 411));
+      write_mmio_byte(*((uint8_t *)off_12C1F8 + 411));
       v12 = v11[411];
       *((uint8_t *)off_12C1FC + 9) = v12;
-      return ke_event_schedule_1(dword_12C200, v12, v13);
+      return ke_event_schedule(dword_12C200, (void *)(uintptr_t)(v12), v13);
     }
     if ( *(uint8_t *)off_12C1D8 )
     {
@@ -56722,7 +56929,7 @@ LABEL_4:
         }
       }
     }
-    return ((int (*)())ke_int_lock_1)(v9, v8, v10, v7);
+    return ((int (*)())ke_int_lock)(v9, v8, v10, v7);
   }
   return result;
 }
@@ -56759,62 +56966,62 @@ int mac_irq_status(int result, int a2, int a3, int a4) {
   {
     if ( (v5 & 0x400000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3D4, dword_12C3C0, 847, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3D4, dword_12C3C0, 847, a4);
     }
     else if ( (v5 & 0x200000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3D8, dword_12C3C0, 848, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3D8, dword_12C3C0, 848, a4);
     }
     else if ( (v5 & 0x40) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3DC, dword_12C3C0, 849, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3DC, dword_12C3C0, 849, a4);
     }
     else if ( (v5 & 0x100) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3E0, dword_12C3C0, 850, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3E0, dword_12C3C0, 850, a4);
     }
     else if ( (v5 & 0x1000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3E4, dword_12C3C0, 851, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3E4, dword_12C3C0, 851, a4);
     }
     else if ( (v5 & 0x2000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3E8, dword_12C3C0, 852, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3E8, dword_12C3C0, 852, a4);
     }
     else if ( (v5 & 0x4000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3EC, dword_12C3C0, 853, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3EC, dword_12C3C0, 853, a4);
     }
     else if ( (v5 & 0x8000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3F0, dword_12C3C0, 854, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3F0, dword_12C3C0, 854, a4);
     }
     else if ( (v5 & 0x10000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3F4, dword_12C3C0, 855, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3F4, dword_12C3C0, 855, a4);
     }
     else if ( (v5 & 0x20000) != 0 )
     {
-      return ((int (*)())ke_int_lock_1)(dword_12C3F8, dword_12C3C0, 856, a4);
+      return ((int (*)())ke_int_lock)(dword_12C3F8, dword_12C3C0, 856, a4);
     }
     else
     {
       result = v5 << 7;
       if ( (v5 & 0x1000000) != 0 )
       {
-        return ((int (*)())ke_int_lock_1)(dword_12C3FC, dword_12C3C0, 857, a4);
+        return ((int (*)())ke_int_lock)(dword_12C3FC, dword_12C3C0, 857, a4);
       }
       else if ( (v5 & 0x2000000) != 0 )
       {
-        return ((int (*)())ke_int_lock_1)(dword_12C400, dword_12C3C0, 858, a4);
+        return ((int (*)())ke_int_lock)(dword_12C400, dword_12C3C0, 858, a4);
       }
       else if ( (v5 & 0x100000) != 0 )
       {
-        return ((int (*)())ke_int_lock_1)(dword_12C404, dword_12C3C0, 859, a4);
+        return ((int (*)())ke_int_lock)(dword_12C404, dword_12C3C0, 859, a4);
       }
       else if ( (v5 & 0x8000000) != 0 )
       {
-        return ((int (*)())ke_int_lock_1)(dword_12C3C4, dword_12C3C0, 860, a4);
+        return ((int (*)())ke_int_lock)(dword_12C3C4, dword_12C3C0, 860, a4);
       }
     }
   }
@@ -56856,7 +57063,7 @@ void mac_irq_clear(int a1, int a2) {
       *v4 = v6 | 0x500000;
       v14 = dword_12C560;
       *v4 = v6 | 0xF00000;
-      ke_event_schedule_1(v14, v4, v13);
+      ke_event_schedule(v14, (void *)(v4), v13);
     }
     else
     {
@@ -56865,7 +57072,7 @@ void mac_irq_clear(int a1, int a2) {
       v9 = v5 & 0xFFFF57FF;
       *(uint32_t *)off_12C534 = v9;
       *v7 = v6 & 0xFF5FFFFF;
-      ke_event_schedule_1(v8, v7, v9);
+      ke_event_schedule(v8, (void *)(v7), v9);
     }
   }
   if ( (v2 & 4) != 0 )
@@ -56879,8 +57086,19 @@ void mac_irq_clear(int a1, int a2) {
     v10 = (void *)(uintptr_t)(off_12C554);
     v11 = dword_12C55C;
     *(uint32_t *)off_12C554 |= 1u;
-    ke_event_schedule_1(v11, a2, v10);
+    ke_event_schedule(v11, (void *)(uintptr_t)(a2), (int)(uintptr_t)(v10));
   }
+}
+
+
+
+// rx_env_list_init @ 0x12c564
+int rx_env_list_init() {
+  int v0; // r4
+
+  v0 = dword_12C57C;
+  zero_struct((void *)(uintptr_t)(dword_12C57C));
+  return (int)(uintptr_t)(zero_struct((void *)(uintptr_t)(v0 + 8)));
 }
 
 
@@ -56941,7 +57159,7 @@ LABEL_8:
 // mmio_tail_write @ 0x12c650
 int mmio_tail_write() {
   *(uint32_t *)(dword_12C668 + 4680) &= ~1u;
-  return irq_nesting_or(1024);
+  return set_system_flag_1(1024);
 }
 
 
@@ -56949,7 +57167,7 @@ int mmio_tail_write() {
 // mmio_tail_write_alt @ 0x12c66c
 int mmio_tail_write_alt() {
   *(uint32_t *)(dword_12C684 + 4808) &= ~1u;
-  return irq_nesting_or(0x40000000);
+  return set_system_flag_1(0x40000000);
 }
 
 
@@ -57190,7 +57408,7 @@ int irq_lock(int result, int a2) {
       v9 = (int)(v3 + 8);
       if ( v8 )
       {
-        timestamp_update_4f60(v9, *(uint32_t *)(v8 + 8));
+        ke_event_lock(v9, *(uint32_t *)(v8 + 8));
         if ( **(int16_t **)message_dispatch_n_1a4_ca10 < 0
           && *(uint32_t *)(v8 + 8) - *((uint32_t *)message_dispatch_n_1a0_ca14 + 4) < 0 )
         {
@@ -57199,7 +57417,7 @@ int irq_lock(int result, int a2) {
       }
       else
       {
-        timestamp_remove_058(v9);
+        ke_event_set_lock(v9);
       }
     }
     else
@@ -57212,7 +57430,7 @@ int irq_lock(int result, int a2) {
         goto LABEL_8;
       }
     }
-    result = buffer_pool_get(v4);
+    result = (int)(uintptr_t)(hci_tx_packet((void *)(uintptr_t)(v4)));
     v5 = *v2;
   }
 LABEL_8:
@@ -57415,20 +57633,20 @@ int hci_evt_send(int a1) {
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      list_push_tail(message_dispatch_n70);
-      return irq_nesting_or(0x4000000);
+      ((int (*)())check_abort_flag)(message_dispatch_n70);
+      return set_system_flag_1(0x4000000);
     }
   }
   else
   {
     mmio_irq_clear((int)(uintptr_t)(message_dispatch2_cc2c), (int)(uintptr_t)(message_dispatch_n74), 183);
   }
-  ke_event_schedule_1((int)(uintptr_t)(message_dispatch_n7c), *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
+  ke_event_schedule((int)(uintptr_t)(message_dispatch_n7c), (void *)(uintptr_t)(*(uint16_t *)(a1 - 8)), *(uint16_t *)(a1 - 4));
   v4 = (uint16_t *)(a1 - 12);
   if ( *(uint8_t *)message_dispatch_n80 )
-    return buffer_pool_get(v4);
+    return (int)(uintptr_t)(hci_tx_packet((void *)(v4)));
   else
-    return j_rf_state_check_n36a(v4);
+    return patch_jump(v4);
 }
 
 
@@ -57823,7 +58041,7 @@ LABEL_16:
 LABEL_18:
     mmio_irq_clear(dword_12D094, dword_12D090, 180);
 LABEL_3:
-  result = (uint32_t *)ke_event_schedule_1(dword_12D07C, a1, a2);
+  result = (uint32_t *)ke_event_schedule(dword_12D07C, (void *)(uintptr_t)(a1), a2);
   if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(uint32_t *, int))dword_12D0AC;
@@ -58012,7 +58230,7 @@ int set_system_flag() {
     v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))hci_cmd_send_vendor(
                                                                            *(uint16_t *)(result + 4),
                                                                            *(uint16_t *)(result + 6));
-    ke_event_schedule_1(dword_12D308, v3[2], v3[4]);
+    ke_event_schedule(dword_12D308, (void *)(uintptr_t)(v3[2]), v3[4]);
     if ( v6 )
     {
       result = v6(v3[2], v3 + 6, v3[3], v3[4]);
@@ -58020,7 +58238,7 @@ int set_system_flag() {
         goto LABEL_12;
       if ( result == 2 )
       {
-        result = list_push_tail(dword_12D318);
+        result = ((int (*)())check_abort_flag)(dword_12D318);
         goto LABEL_12;
       }
       if ( result )
@@ -58032,9 +58250,9 @@ int set_system_flag() {
     }
     else
     {
-      ke_event_schedule_1(dword_12D314, v3[2], v3[4]);
+      ke_event_schedule(dword_12D314, (void *)(uintptr_t)(v3[2]), v3[4]);
     }
-    result = j_buffer_pool_get((int)v3);
+    result = jump_to_tx_entry((int)v3);
   }
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -58062,6 +58280,20 @@ LABEL_12:
     }
   }
   return result;
+}
+
+
+
+// return_zero @ 0x12d324
+int return_zero() {
+  return 0;
+}
+
+
+
+// return_two @ 0x12d328
+int return_two() {
+  return 2;
 }
 
 
@@ -58100,6 +58332,13 @@ int set_system_flag_1(int a1) {
     }
   }
   return result;
+}
+
+
+
+// pmu_sleep_10000000 @ 0x12d36c
+int pmu_sleep_10000000() {
+  return set_system_flag_1(0x10000000);
 }
 
 
@@ -58202,7 +58441,7 @@ int state_init() {
   uint32_t *v1; // r3
   int v2; // r1
 
-  v0 = (void *)(uintptr_t)(rf_cmd_dispatch_n_44a());
+  v0 = align_and_irq_lock();
   v1 = (void *)(uintptr_t)(off_12D460);
   v2 = dword_12D464;
   *((uint32_t *)off_12D460 + 7) = (int)(uintptr_t)(v0);
@@ -58414,7 +58653,7 @@ uint32_t * list_remove_1(uint32_t *result, uint32_t **a2, uint32_t *a3) {
 
   v3 = (uint32_t *)*result;
   if ( !a2 )
-    return (uint32_t *)bt_state_check_or_init((int)result, a3);
+    return (uint32_t *)check_abort_flag_2((int)result, a3);
   if ( v3 )
   {
     v4 = result;
@@ -58450,10 +58689,10 @@ uint32_t * list_find_prev(uint32_t *result, uint32_t *a2, uint32_t *a3) {
   uint32_t **v3; // r3
 
   if ( !a2 )
-    return (uint32_t *)list_push_tail((int)result, a3);
+    return (uint32_t *)check_abort_flag((int)result, a3);
   v3 = (uint32_t **)*result;
   if ( (uint32_t *)*result == a2 )
-    return (uint32_t *)bt_state_check_or_init((int)result, a3);
+    return (uint32_t *)check_abort_flag_2((int)result, a3);
   if ( v3 )
   {
     while ( 1 )
@@ -60062,7 +60301,7 @@ LABEL_125:
                 v56 = __OFSUB__(a1, 4);
 LABEL_167:
                 if ( v56 )
-                  JUMPOUT(0x14E688);
+                  ((int (*)())JUMPOUT)(0x14E688);
                 goto LABEL_164;
               default:
                 goto LABEL_162;
@@ -60104,7 +60343,7 @@ LABEL_167:
 LABEL_164:
                   *(uint8_t *)(2 * a2) = 0;
                   MEMORY[0] = 0;
-                  JUMPOUT(0x14E664);
+                  ((int (*)())JUMPOUT)(0x14E664);
                 default:
                   a2 = dword_12E6B8;
 LABEL_162:
@@ -60364,7 +60603,7 @@ LABEL_107:
                       ((uint32_t *)(uintptr_t)&STACK)[0x3F8] = v74;
                       MEMORY[0] = 0;
                       
-                      JUMPOUT(0x14E86E);
+                      ((int (*)())JUMPOUT)(0x14E86E);
                     case 24:
 LABEL_173:
                       v78 = (uint32_t *)(32 * v58);
@@ -60396,7 +60635,7 @@ LABEL_176:
                       MEMORY[0] = 0;
                       *(uint32_t *)(v79 + 24) = (int)(uintptr_t)(v9);
                       *(uint32_t *)(v79 + 24) = (int)(uintptr_t)(v9);
-                      JUMPOUT(0x14EC02);
+                      ((int (*)())JUMPOUT)(0x14EC02);
                     default:
 LABEL_143:
                       a2 = v82;
@@ -60841,7 +61080,7 @@ int ke_event_schedule_1(int result, ...) {
       result = (int)v2;
     }
     while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return sdio_transfer(result, (int)(uintptr_t)(*(void **)&(varg_r1)));
+    return debug_printf(result, (int)(uintptr_t)(*(void **)&(varg_r1)));
   }
   return result;
 }
@@ -60882,7 +61121,7 @@ unsigned int rx_packet_handler_2(unsigned int result, int a2, int a3, int a4) {
   v6 = -a3 & result;
   while ( 1 )
   {
-    ke_event_schedule_1(dword_12EED4, v6);
+    ((int (*)())ke_event_schedule)(dword_12EED4, (void *)(uintptr_t)(v6));
     v7 = v24;
     if ( v24 >= 0x10 )
       v7 = 16;
@@ -60894,13 +61133,13 @@ unsigned int rx_packet_handler_2(unsigned int result, int a2, int a3, int a4) {
       v22 = 0;
       while ( 1 )
       {
-        v23 = sub_10EBC4();
+        v23 = jump_table_1b0();
         if ( v4 == 4 )
           break;
         if ( v4 == 2 )
         {
           v22 += 4;
-          ke_event_schedule_1(dword_12EEE4, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
+          ((int (*)())ke_event_schedule)(dword_12EEE4, (void *)(uintptr_t)((uint16_t)v23), HIWORD(v23), BYTE2(v23));
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -60911,7 +61150,7 @@ LABEL_40:
         }
         else
         {
-          ke_event_schedule_1(v5);
+          ((int (*)())ke_event_schedule)(v5);
 LABEL_36:
           v22 += 4;
           v6 += 4;
@@ -60919,7 +61158,7 @@ LABEL_36:
             goto LABEL_40;
         }
       }
-      ke_event_schedule_1(v21, v23, BYTE1(v23), BYTE2(v23));
+      ((int (*)())ke_event_schedule)(v21, (void *)(uintptr_t)(v23), BYTE1(v23), BYTE2(v23));
       goto LABEL_36;
     }
     if ( v24 )
@@ -60947,7 +61186,7 @@ LABEL_31:
       if ( v4 != 4 )
         break;
       v11 += 4;
-      ke_event_schedule_1(dword_12EED8, *(uint32_t *)v10);
+      ((int (*)())ke_event_schedule)(dword_12EED8, (void *)(uintptr_t)(*(uint32_t *)v10));
       v10 += 2;
       if ( v7 <= v11 )
         goto LABEL_18;
@@ -60959,7 +61198,7 @@ LABEL_31:
     if ( v4 == 2 )
       v13 = v9;
     v11 += v4;
-    ke_event_schedule_1(v13, v12);
+    ((int (*)())ke_event_schedule)(v13, (void *)(uintptr_t)(v12));
     v10 = (uint16_t *)((char *)v10 + v4);
   }
   while ( v7 > v11 );
@@ -61028,7 +61267,7 @@ int state_check_feature(int result, int a2, ...) {
 
 // bt_init_controller @ 0x12ef20
 int bt_init_controller() {
-  ke_event_schedule_1(dword_12EF40);
+  ((int (*)())ke_event_schedule)(dword_12EF40);
   irq_lock(1071, 1);
   *((uint32_t *)off_12EF44 + 20) &= ~2u;
   return 0;
@@ -61047,7 +61286,7 @@ int msg_alloc_410(int a1, int a2, int16_t a3, int16_t a4) {
   uint32_t *v12; // r3
   uint32_t *v13; // r3
 
-  v5 = rf_bus_setup_n3a8(1040, a4, a3, 4u);
+  v5 = bt_buf_alloc(1040, a4, a3, 4u);
   v6 = *(uint16_t *)(a2 + 4);
   v7 = (uint32_t *)v5;
   if ( *((uint8_t *)off_12EFC0 + 177) )
@@ -61077,7 +61316,7 @@ LABEL_3:
 LABEL_5:
   v8 = dword_12EFC4;
   *v7 = 0;
-  ke_event_schedule_1(v8);
+  ((int (*)())ke_event_schedule)(v8);
   hci_evt_send((int)v7);
   return 0;
 }
@@ -61088,7 +61327,7 @@ LABEL_5:
 int msg_alloc_40a_zero(int a1, int a2, int16_t a3, int16_t a4) {
   uint32_t *v4; // r0
 
-  v4 = (uint32_t *)rf_bus_setup_n3a8(1034, a4, a3, 0xCu);
+  v4 = (uint32_t *)bt_buf_alloc(1034, a4, a3, 0xCu);
   *v4 = 0;
   v4[1] = 0;
   v4[2] = 0;
@@ -61114,7 +61353,7 @@ int msg_alloc_424(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
   v5[1] = v7;
   v8 = (int)v5;
   memcpy_aligned((void *)(v5 + 2), (void *)(uintptr_t)(v6), v7);
-  ke_event_schedule_1(dword_12F038, *a2, *(uint32_t *)(v8 + 4) + *a2, *(uint32_t *)(v8 + 8));
+  ((int (*)())ke_event_schedule)(dword_12F038, (void *)(uintptr_t)(*a2), *(uint32_t *)(v8 + 4) + *a2, *(uint32_t *)(v8 + 8));
   hci_evt_send(v8);
   return 0;
 }
@@ -61128,7 +61367,7 @@ int msg_alloc_40c(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
   int v7; // zf
   int v8; // r2
 
-  v5 = (uint32_t *)rf_bus_setup_n3a8(1036, a4, a3, 4u);
+  v5 = (uint32_t *)bt_buf_alloc(1036, a4, a3, 4u);
   v6 = *a2;
   v7 = *a2 << 30 == 0;
   v8 = a2[1];
@@ -61138,7 +61377,7 @@ int msg_alloc_40c(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
   if ( v8 << 30 )
     *v5 = 1;
   memcpy_aligned((void *)(uintptr_t)(v6), (void *)(a2 + 2), v8);
-  ke_event_schedule_1(dword_12F090, *a2, a2[1] + *a2, a2[2], *v5);
+  ((int (*)())ke_event_schedule)(dword_12F090, (void *)(uintptr_t)(*a2), a2[1] + *a2, a2[2], *v5);
   hci_evt_send((int)v5);
   return 0;
 }
@@ -61153,7 +61392,7 @@ int msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4) {
   uint64_t v8; // r2
   int v9; // r0
 
-  v5 = (uint64_t *)rf_bus_setup_n3a8(1042, a4, a3, 8u);
+  v5 = (uint64_t *)bt_buf_alloc(1042, a4, a3, 8u);
   v6 = (int)v5;
   if ( (unsigned int)**(uint8_t **)off_12F148 - 1 <= 1 )
   {
@@ -61178,7 +61417,7 @@ int msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4) {
     v7 = (uint32_t *)*a2;
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      rf_reg_write_guard((int)v7, a2[2], a2[1], 1);
+      atomic_reg_write((int)v7, a2[2], a2[1], 1);
       v9 = atomic_reg_read(*a2, 1);
       v8 = (v8 & ~0xFFFFFFFFull) | ((uint32_t)(*a2) & 0xFFFFFFFFu);
     }
@@ -61192,7 +61431,7 @@ int msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4) {
     v8 = (v8 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(a2[2]) << 32);
     *(uint32_t *)v6 = v8;
   }
-  ke_event_schedule_1(dword_12F14C, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
+  ((int (*)())ke_event_schedule)(dword_12F14C, (void *)(uintptr_t)(a2[1]), HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
   hci_evt_send(v6);
   return 0;
 }
@@ -61220,7 +61459,7 @@ int msg_alloc_401(int a1, int *a2, int16_t a3, int16_t a4) {
     *(uint32_t *)(v5 + 4) = *v6;
   }
   *v7 = (int)(uintptr_t)(v6);
-  ke_event_schedule_1(dword_12F19C);
+  ((int (*)())ke_event_schedule)(dword_12F19C);
   hci_evt_send((int)v7);
   return 0;
 }
@@ -61229,7 +61468,7 @@ int msg_alloc_401(int a1, int *a2, int16_t a3, int16_t a4) {
 
 // ke_event_send_a @ 0x12f1a0
 int ke_event_send_a(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
-  ke_event_schedule_1(dword_12F1CC, *a2);
+  ((int (*)())ke_event_schedule)(dword_12F1CC, (void *)(uintptr_t)(*a2));
   *((uint32_t *)off_12F1D0 + 1) = *a2;
   hci_evt_alloc_send(1031, a4, a3);
   return 0;
@@ -61239,7 +61478,7 @@ int ke_event_send_a(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
 
 // ke_event_send_b @ 0x12f1d4
 int ke_event_send_b(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
-  ke_event_schedule_1(dword_12F200, *a2);
+  ((int (*)())ke_event_schedule)(dword_12F200, (void *)(uintptr_t)(*a2));
   *(uint32_t *)off_12F204 = *a2;
   hci_evt_alloc_send(1029, a4, a3);
   return 0;
@@ -61282,7 +61521,7 @@ int msg_alloc_403(int a1, int *a2, int16_t a3, int16_t a4) {
     v10 = a2[1];
     *v6 = v8;
   }
-  ke_event_schedule_1(dword_12F284, v10);
+  ((int (*)())ke_event_schedule)(dword_12F284, (void *)(uintptr_t)(v10));
   hci_evt_send((int)v6);
   return 0;
 }
@@ -61300,8 +61539,8 @@ int rf_command_start() {
   v2 = (char)v0[1];
   if ( v2 == 1 )
   {
-    j_rf_hw_timer_init();
-    rf_level_apply_80c(1070, 1, dword_12F2E8);
+    sub_123058C();
+    patch_aware_dispatch(1070, 1, dword_12F2E8);
     v0[1] = 2;
     return 0;
   }
@@ -61310,11 +61549,43 @@ int rf_command_start() {
     if ( v2 == 2 )
     {
       rf_calibrate_value(v1);
-      rf_level_apply_80c(1070, 1, 1000 * *((uint32_t *)off_12F2EC + 91));
+      patch_aware_dispatch(1070, 1, 1000 * *((uint32_t *)off_12F2EC + 91));
       v0[1] = 1;
     }
     return 0;
   }
+}
+
+
+
+// task_poll_loop @ 0x12f2f0
+void task_poll_loop() {
+  int v0; // r0
+  int v1; // r1
+  int v2; // r2
+
+  v0 = rf_mode_switch();
+  periph_trigger_write(v0, v1, v2);
+  while ( 1 )
+    ;
+}
+
+
+
+// send_hci_event_42d @ 0x12f2fc
+void send_hci_event_42d() {
+  ((int (*)())ke_event_schedule)(dword_12F314);
+  irq_lock(1069, 1);
+  task_poll_loop();
+}
+
+
+
+// send_hci_event_42c @ 0x12f318
+void send_hci_event_42c() {
+  ((int (*)())ke_event_schedule)(dword_12F330);
+  irq_lock(1068, 1);
+  task_poll_loop();
 }
 
 
@@ -61326,30 +61597,30 @@ int tx_power_config(int a1, int *a2, int16_t a3, int16_t a4) {
   uint32_t *v7; // r4
   int v9; // r5
 
-  v5 = rf_bus_setup_n3a8(1038, a4, a3, 4u);
+  v5 = bt_buf_alloc(1038, a4, a3, 4u);
   v6 = a2[1];
   v7 = (uint32_t *)v5;
   switch ( v6 )
   {
     case 1:
-      ke_event_schedule_1(dword_12F3B4, *(uint32_t *)(*a2 + 4));
+      ((int (*)())ke_event_schedule)(dword_12F3B4, (void *)(uintptr_t)(*(uint32_t *)(*a2 + 4)));
       break;
     case 2:
-      ke_event_schedule_1(dword_12F3B8, *a2);
+      ((int (*)())ke_event_schedule)(dword_12F3B8, (void *)(uintptr_t)(*a2));
       break;
     case 3:
       v9 = *a2;
-      ke_event_schedule_1(dword_12F3B0, v9);
+      ((int (*)())ke_event_schedule)(dword_12F3B0, (void *)(uintptr_t)(v9));
       if ( !v9 )
-        sub_12F2F0();
-      rf_level_apply_80c(1068, 1, v9 << 10);
+        task_poll_loop();
+      patch_aware_dispatch(1068, 1, v9 << 10);
       break;
     default:
-      ke_event_schedule_1(dword_12F3A8);
+      ((int (*)())ke_event_schedule)(dword_12F3A8);
       break;
   }
-  *v7 = (uint8_t)indirect_call_trampoline();
-  ke_event_schedule_1(dword_12F3AC);
+  *v7 = (uint8_t)call_vector_1fc();
+  ((int (*)())ke_event_schedule)(dword_12F3AC);
   hci_evt_send((int)v7);
   return 0;
 }
@@ -61382,26 +61653,20 @@ int radio_init_2() {
   v4 = (void *)(uintptr_t)(off_12F624);
   v5 = (void *)(uintptr_t)(off_12F628);
   v6 = (void *)(uintptr_t)(off_12F590);
-  ke_event_schedule_1(dword_12F580, *(uint32_t *)off_12F57C & 0xF);
-  ke_event_schedule_1(dword_12F598, *v0, *(uint32_t *)off_12F594);
-  ke_event_schedule_1(dword_12F59C, *v1);
-  ke_event_schedule_1(dword_12F5A0, *v2);
-  ke_event_schedule_1(dword_12F5A4, *v3);
-  ke_event_schedule_1(dword_12F5A8, *v4);
-  ke_event_schedule_1(dword_12F5AC, *v5);
-  ke_event_schedule_1(dword_12F5B0, *v6);
-  ke_event_schedule_1(
-    dword_12F5C4,
-    *(uint32_t *)off_12F5B4,
-    *(uint32_t *)off_12F5B8,
-    *(uint32_t *)off_12F5BC,
-    *(uint32_t *)off_12F5C0,
-    *(uint32_t *)off_12F62C);
-  ke_event_schedule_1(dword_12F5C8, *(uint32_t *)(*v2 + 60));
-  ke_event_schedule_1(dword_12F5CC, *(uint32_t *)(*v3 + 60));
-  ke_event_schedule_1(dword_12F5D0, *(uint32_t *)(*v4 + 60));
-  ke_event_schedule_1(dword_12F5D4, *(uint32_t *)(*v5 + 60));
-  ke_event_schedule_1(dword_12F5D8, *(uint32_t *)(*v6 + 60));
+  ((int (*)())ke_event_schedule)(dword_12F580, (void *)(uintptr_t)(*(uint32_t *)off_12F57C & 0xF));
+  ke_event_schedule(dword_12F598, (void *)(uintptr_t)(*v0), *(uint32_t *)off_12F594);
+  ((int (*)())ke_event_schedule)(dword_12F59C, (void *)(uintptr_t)(*v1));
+  ((int (*)())ke_event_schedule)(dword_12F5A0, (void *)(uintptr_t)(*v2));
+  ((int (*)())ke_event_schedule)(dword_12F5A4, (void *)(uintptr_t)(*v3));
+  ((int (*)())ke_event_schedule)(dword_12F5A8, (void *)(uintptr_t)(*v4));
+  ((int (*)())ke_event_schedule)(dword_12F5AC, (void *)(uintptr_t)(*v5));
+  ((int (*)())ke_event_schedule)(dword_12F5B0, (void *)(uintptr_t)(*v6));
+((int (*)())ke_event_schedule)(dword_12F5C4, (void *)(uintptr_t)(*(uint32_t *)off_12F5B4), *(uint32_t *)off_12F5B8, *(uint32_t *)off_12F5BC, *(uint32_t *)off_12F5C0, *(uint32_t *)off_12F62C);
+  ((int (*)())ke_event_schedule)(dword_12F5C8, (void *)(uintptr_t)(*(uint32_t *)(*v2 + 60)));
+  ((int (*)())ke_event_schedule)(dword_12F5CC, (void *)(uintptr_t)(*(uint32_t *)(*v3 + 60)));
+  ((int (*)())ke_event_schedule)(dword_12F5D0, (void *)(uintptr_t)(*(uint32_t *)(*v4 + 60)));
+  ((int (*)())ke_event_schedule)(dword_12F5D4, (void *)(uintptr_t)(*(uint32_t *)(*v5 + 60)));
+  ((int (*)())ke_event_schedule)(dword_12F5D8, (void *)(uintptr_t)(*(uint32_t *)(*v6 + 60)));
   v7 = *v0 << 6;
   if ( (*v0 & 0x2000000) != 0 )
   {
@@ -61444,13 +61709,13 @@ int radio_init_2() {
   }
   if ( v0 )
   {
-    rf_mem_read_ed40((unsigned int)v0, 68, 1, 0);
-    rf_mem_read_ed40(v0[9], 52, 1, 0);
-    ke_event_schedule_1(dword_12F5DC, v0[6]);
+    ((int (*)())rx_packet_handler)((unsigned int)v0, 68, 1, 0);
+    ((int (*)())rx_packet_handler)(v0[9], 52, 1, 0);
+    ((int (*)())ke_event_schedule)(dword_12F5DC, (void *)(uintptr_t)(v0[6]));
     v8 = v0[4];
     if ( v8 )
     {
-      rf_mem_read_ed40(v8, v0[5] + 1 - v8, 1, 0);
+      ((int (*)())rx_packet_handler)(v8, v0[5] + 1 - v8, 1, 0);
       v9 = v0[3];
       if ( !v9 )
         goto LABEL_6;
@@ -61461,7 +61726,7 @@ int radio_init_2() {
       if ( !v9 )
         goto LABEL_6;
     }
-    rf_mem_read_ed40(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
+    ((int (*)())rx_packet_handler)(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
   }
 LABEL_6:
   v10 = (void *)(uintptr_t)(off_12F5E0);
@@ -61470,16 +61735,16 @@ LABEL_6:
   v13 = (v13 & ~0xFFu) | ((uint8_t)(8) & 0xFFu);
   do
   {
-    ke_event_schedule_1(v11, *v10, v7);
-    ke_event_schedule_1(dword_12F5EC, *v12);
+    ke_event_schedule(v11, (void *)(uintptr_t)(*v10), v7);
+    ((int (*)())ke_event_schedule)(dword_12F5EC, (void *)(uintptr_t)(*v12));
     v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
-  ke_event_schedule_1(dword_12F5F4, *(uint32_t *)off_12F5F0);
-  ke_event_schedule_1(dword_12F5FC, *(uint32_t *)off_12F5F8);
-  ke_event_schedule_1(dword_12F604, *(uint32_t *)off_12F600);
-  ke_event_schedule_1(dword_12F60C, *(uint32_t *)off_12F608);
-  return ke_event_schedule_1(dword_12F614, *(uint32_t *)off_12F610);
+  ((int (*)())ke_event_schedule)(dword_12F5F4, (void *)(uintptr_t)(*(uint32_t *)off_12F5F0));
+  ((int (*)())ke_event_schedule)(dword_12F5FC, (void *)(uintptr_t)(*(uint32_t *)off_12F5F8));
+  ((int (*)())ke_event_schedule)(dword_12F604, (void *)(uintptr_t)(*(uint32_t *)off_12F600));
+  ((int (*)())ke_event_schedule)(dword_12F60C, (void *)(uintptr_t)(*(uint32_t *)off_12F608));
+  return ((int (*)())ke_event_schedule)(dword_12F614, (void *)(uintptr_t)(*(uint32_t *)off_12F610));
 }
 
 
@@ -61500,11 +61765,11 @@ int ke_int_lock_1(int a1, int a2, int a3) {
   v4 = (int *)off_12F688;
   v5 = dword_12F68C;
   ++*(uint32_t *)off_12F688;
-  result = ke_event_schedule_1(v5, a1, a2, a3 & 0xFFFFF);
+  result = ((int (*)())ke_event_schedule)(v5, (void *)(uintptr_t)(a1), a2, a3 & 0xFFFFF);
   if ( *(int *)off_12F690 >= 0 )
   {
     mmio_clear_high_bits();
-    result = irq_nesting_or(0x80000000);
+    result = set_system_flag_1(0x80000000);
   }
   if ( *v4 )
   {
@@ -61530,7 +61795,7 @@ int mmio_irq_clear(int a1, int a2, int a3) {
   __disable_irq();
   v4 = dword_12F6BC;
   *(uint32_t *)off_12F6B8 = 0;
-  result = ke_event_schedule_1(v4, a1, a2, a3 & 0xFFFFF);
+  result = ((int (*)())ke_event_schedule)(v4, (void *)(uintptr_t)(a1), a2, a3 & 0xFFFFF);
   while ( *(uint32_t *)off_12F6C0 )
     ;
   return result;
@@ -61540,7 +61805,7 @@ int mmio_irq_clear(int a1, int a2, int a3) {
 
 // mmio_field_update @ 0x12f6c4
 int mmio_field_update(int a1, int a2, int a3) {
-  return ke_event_schedule_1(dword_12F6DC, a1, a2, a3 & 0xFFFFF);
+  return ((int (*)())ke_event_schedule)(dword_12F6DC, (void *)(uintptr_t)(a1), a2, a3 & 0xFFFFF);
 }
 
 
@@ -61588,9 +61853,38 @@ int *timer_clear() {
 
 
 
+// reset_hci_scratch @ 0x12f730
+int reset_hci_scratch() {
+  memset_byte((int *)dword_12F740, 0, 8u);
+  return 0;
+}
+
+
+
+// j_rf_phy_mmio_poll_n_cb @ 0x12f744
+int j_rf_phy_mmio_poll_n_cb() {
+  return pmu_isr_extra();
+}
+
+
+
 // patch_jump @ 0x12f748
 int patch_jump(uint16_t *a1) {
   return host_event_process(a1);
+}
+
+
+
+// return_two_stub @ 0x12f74c
+int return_two_stub() {
+  return 2;
+}
+
+
+
+// j_nullsub_6 @ 0x12f750
+int j_nullsub_6(void) {
+  return nullsub_6();
 }
 
 
@@ -61607,6 +61901,13 @@ int state_ready_check() {
     return 1;
   *(uint32_t *)off_10CA38 = 32;
   return result;
+}
+
+
+
+// jump_to_10ca3c @ 0x12f76c
+int jump_to_10ca3c() {
+  return pmu_isr_224();
 }
 
 
@@ -61631,7 +61932,7 @@ uint32_t ** process_pending_queue(uint32_t **result) {
         result = (uint32_t **)v2;
         if ( !v1[3] )
           break;
-        result = (uint32_t **)list_push_tail(v2, v1);
+        result = (uint32_t **)check_abort_flag(v2, v1);
         v1 = (uint32_t *)*v3;
         if ( !*v3 )
           return result;
@@ -61670,9 +61971,16 @@ void dispatch_if_ready(int a1) {
     }
     else
     {
-      ke_event_schedule_1(dword_12F804);
+      ((int (*)())ke_event_schedule)(dword_12F804);
     }
   }
+}
+
+
+
+// jump_to_10c824_zero @ 0x12f808
+int jump_to_10c824_zero() {
+  return pmu_poll_delay(0);
 }
 
 
@@ -61691,7 +61999,7 @@ int irq_lock_save_1(unsigned int a1) {
   }
   v2 = (int *)off_12F864;
   ++*(uint32_t *)off_12F864;
-  result = sub_116484();
+  result = send_to_global_queue();
   if ( a1 <= 4 )
     --*(uint8_t *)(dword_12F868 + a1);
   if ( *v2 )
@@ -61707,6 +62015,13 @@ int irq_lock_save_1(unsigned int a1) {
   }
   --*((uint32_t *)off_12F86C + 126);
   return result;
+}
+
+
+
+// get_shared_buf_size @ 0x12f870
+int get_shared_buf_size() {
+  return 1024;
 }
 
 
@@ -61870,7 +62185,7 @@ uint32_t * find_extension(int a1, uint32_t *a2, int a3) {
   if ( v5 )
     v6 = v5 - a1;
   else
-    v6 = memmove_5(a1);
+    v6 = ((int (*)())memmove)(a1);
   if ( a3 )
   {
     v7 = 0;
@@ -61883,13 +62198,12 @@ uint32_t * find_extension(int a1, uint32_t *a2, int a3) {
         v10 = *v8;
         ++v9;
         v11 = v8;
-if ( !memset_1((void *)(uintptr_t)(a1), (void *)(uintptr_t)(*v8), v6) ) break;
+if ( !((int (*)())memset)((void *)(uintptr_t)(a1), *v8, v6) ) break;
         v8 += 4;
         if ( a3 == v9 )
           goto LABEL_9;
       }
-      if ( memmove_5(v10) == v6 )
-        return v11;
+if ( ((int (*)())memmove)(v10) == v6 ) return v11;
       a2 = v8;
       ++v7;
       v8 += 4;
@@ -61935,7 +62249,7 @@ int queue_operation(unsigned int a1, uint8_t *a2, int a3) {
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = memmove_5(a3);
+    v11 = ((int (*)())memmove)(a3);
     v12 = (int *)off_12FB60;
     v13 = (void *)(uintptr_t)(off_12FB68);
     *v3 = (int)a2;
@@ -62127,7 +62441,7 @@ int event_handlers_dispatch() {
   do
   {
     if ( v0[1] )
-      log_printf(v1, *v0);
+      printf_wrapper(v1, *v0);
     v0 += 4;
   }
   while ( v0 != (uint32_t *)v2 );
@@ -62142,7 +62456,7 @@ int has_dot_extension(int a1) {
   int v3; // r0
   int v5; // r3
 
-  v2 = memmove_5(a1);
+  v2 = ((int (*)())memmove)(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;
@@ -62173,7 +62487,7 @@ int buf_clear16(int a1, int a2) {
     if ( v5 >= 0 )
       goto LABEL_3;
 LABEL_18:
-    sub_10DA7C(dword_12FD60, v5);
+    printf_wrapper(dword_12FD60, v5);
     return -1;
   }
   v9 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0);
@@ -62185,29 +62499,29 @@ LABEL_18:
 LABEL_3:
     if ( ((v4 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      v8 = sub_10EBC4();
-      sub_10DA7C(dword_12FD50, v4 & 0xFFFFFFFC, v8);
+      v8 = jump_table_1b0();
+      printf_wrapper(dword_12FD50, v4 & 0xFFFFFFFC, v8);
       return 0;
     }
     else if ( v5 == 4 )
     {
-      sub_10DA7C(dword_12FD54, v4, *(uint32_t *)v4);
+      printf_wrapper(dword_12FD54, v4, *(uint32_t *)v4);
       return 0;
     }
     else if ( v5 == 2 )
     {
-      sub_10DA7C(dword_12FD58, v4, *(uint16_t *)v4);
+      printf_wrapper(dword_12FD58, v4, *(uint16_t *)v4);
       return 0;
     }
     else
     {
       if ( v5 == 1 )
-        sub_10DA7C(dword_12FD5C, v4, *(uint8_t *)v4);
+        printf_wrapper(dword_12FD5C, v4, *(uint8_t *)v4);
       return 0;
     }
   }
   v7 = **(uint8_t **)a2 == 82 && v4 < 0x40000000;
-  rx_packet_handler_2(v4, v9, (uint8_t)v5, v7);
+  ((int (*)())rx_packet_handler)(v4, v9, (uint8_t)v5, v7);
   return 0;
 }
 
@@ -62249,9 +62563,9 @@ int packet_header_parse(int a1, int a2) {
       while ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
       {
         v11 = v5 & 0xFFFFFFFC;
-        sub_10DA7C(dword_12FE44, v11, v6);
+        printf_wrapper(dword_12FE44, v11, v6);
         --v7;
-        sub_10EBCC();
+        jump_table_1b4();
         v5 = v11 + v4;
         if ( v7 == -1 )
           return 0;
@@ -62259,15 +62573,15 @@ int packet_header_parse(int a1, int a2) {
       switch ( v4 )
       {
         case 4:
-          sub_10DA7C(v10, v5, v6);
+          printf_wrapper(v10, v5, v6);
           *(uint32_t *)v5 = v6;
           break;
         case 2:
-          sub_10DA7C(v9, v5);
+          printf_wrapper(v9, v5);
           *(uint16_t *)v5 = v6;
           break;
         case 1:
-          sub_10DA7C(v8, v5, (uint8_t)v6);
+          printf_wrapper(v8, v5, (uint8_t)v6);
           *(uint8_t *)v5 = v6;
           break;
       }
@@ -62277,7 +62591,7 @@ int packet_header_parse(int a1, int a2) {
     while ( v7 != -1 );
     return 0;
   }
-  sub_10DA7C(dword_12FE48, v4);
+  printf_wrapper(dword_12FE48, v4);
   return -1;
 }
 
@@ -62299,7 +62613,7 @@ int buf_clear10(int a1, int a2) {
         goto LABEL_5;
       v6 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0x10u);
       **(uint16_t **)off_12FEE8 = v6;
-      ke_event_schedule_1(dword_12FEEC, v6);
+      ((int (*)())ke_event_schedule)(dword_12FEEC, (void *)(uintptr_t)(v6));
       return 0;
     }
     else if ( v4 == 2 )
@@ -62307,25 +62621,25 @@ int buf_clear10(int a1, int a2) {
       if ( a1 <= 2 )
       {
 LABEL_5:
-        ke_event_schedule_1(dword_12FEE4);
+        ((int (*)())ke_event_schedule)(dword_12FEE4);
         return 0;
       }
       v8 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0x10u);
-      ke_event_schedule_1(dword_12FEFC, v8);
+      ((int (*)())ke_event_schedule)(dword_12FEFC, (void *)(uintptr_t)(v8));
       state_set_flags(v8);
       return 0;
     }
     else
     {
-      ke_event_schedule_1(dword_12FEF8, v4);
+      ((int (*)())ke_event_schedule)(dword_12FEF8, (void *)(uintptr_t)(v4));
       return 0;
     }
   }
   else
   {
-    ke_event_schedule_1(dword_12FEF0, **(uint16_t **)off_12FEE8);
-    v7 = rf_cmd_process_n4e();
-    ke_event_schedule_1(dword_12FEF4, v7);
+    ((int (*)())ke_event_schedule)(dword_12FEF0, (void *)(uintptr_t)(**(uint16_t **)off_12FEE8));
+    v7 = state_get_flags();
+    ((int (*)())ke_event_schedule)(dword_12FEF4, (void *)(uintptr_t)(v7));
     return 0;
   }
 }
@@ -62358,9 +62672,7 @@ int l2cap_pdu_check(int a1, int a2) {
   int v24; // r0
   uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
   char v27; // [sp+Ch] [bp-8h]
-
-  if ( memmove_5(*(uint32_t *)(a2 + 4)) != 12 || memmove_5(*(uint32_t *)(a2 + 8)) != 12 )
-    return -2;
+ if ( ((int (*)())memmove)(*(uint32_t *)(a2 + 4)) != 12 || ((int (*)())memmove)(*(uint32_t *)(a2 + 8)) != 12 ) return -2;
   v3 = *(uint8_t **)(a2 + 4);
   memcpy_aligned(v26, v3 + 8, 4);
   v3[8] = 0;
@@ -62374,7 +62686,7 @@ int l2cap_pdu_check(int a1, int a2) {
   v27 = 0;
   v8 = parse_integer(v6, 0, 0x10u);
   v6 = (void *)(uintptr_t)(((uintptr_t)(v6) & ~0xFFFFu) | ((uint16_t)(parse_integer(v26, 0, 0x10u)) & 0xFFFFu));
-  ke_event_schedule_1(dword_13006C);
+  ((int (*)())ke_event_schedule)(dword_13006C);
   v9 = (void *)(uintptr_t)(off_130074);
   v10 = (void *)(uintptr_t)(off_130078);
   v11 = (void *)(uintptr_t)(off_1300A0);
@@ -62419,7 +62731,7 @@ int l2cap_pdu_check(int a1, int a2) {
   *(uint32_t *)&v20[-148] = v23;
   v24 = dword_13009C;
   *v21 = v22;
-  ke_event_schedule_1(v24, v4, v7, v8, (uint16_t)v6);
+  ((int (*)())ke_event_schedule)(v24, (void *)(uintptr_t)(v4), v7, v8, (uint16_t)v6);
   return 0;
 }
 
@@ -62434,31 +62746,31 @@ int buf_array_clear_multiple(int a1, int a2) {
   if ( a1 <= 1 || (v4 = parse_integer(*(uint8_t **)(a2 + 4), 0, 0)) == 0 )
   {
     v5 = state_get_value();
-    ke_event_schedule_1(dword_130128, v5);
+    ((int (*)())ke_event_schedule)(dword_130128, (void *)(uintptr_t)(v5));
     return 0;
   }
   if ( v4 == 1 )
   {
     if ( a1 == 2 )
     {
-      ke_event_schedule_1(dword_130134);
+      ((int (*)())ke_event_schedule)(dword_130134);
     }
     else
     {
       v7 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0);
       if ( v7 > 5 )
       {
-        ke_event_schedule_1(dword_130138, v7);
+        ((int (*)())ke_event_schedule)(dword_130138, (void *)(uintptr_t)(v7));
       }
       else
       {
-        ke_event_schedule_1(dword_13012C, v7);
+        ((int (*)())ke_event_schedule)(dword_13012C, (void *)(uintptr_t)(v7));
         state_set_value(v7);
       }
     }
     return 0;
   }
-  ke_event_schedule_1(dword_130130);
+  ((int (*)())ke_event_schedule)(dword_130130);
   return 0;
 }
 
@@ -62474,7 +62786,7 @@ int buf_array_clear_single(int a1, int a2) {
 
   if ( a1 == 1 )
   {
-    rf_level_dump_05bc();
+    log_mac_state();
     return 0;
   }
   else
@@ -62505,10 +62817,10 @@ int buf_array_clear_single(int a1, int a2) {
       }
       else
       {
-        bt_fmac_init_n_42e();
+        rf_afe_disable();
       }
     }
-    ke_event_schedule_1(dword_1301B0, v5, v7[91]);
+    ke_event_schedule(dword_1301B0, (void *)(uintptr_t)(v5), v7[91]);
     return 0;
   }
 }
@@ -62523,7 +62835,7 @@ int ke_irq_lock() {
   int v3; // r3
   int v4; // r2
 
-  log_hw_init_if();
+  event_loop_check();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -62532,12 +62844,12 @@ int ke_irq_lock() {
   v0 = (int *)off_130218;
   v1 = (uint32_t *)dword_13021C;
   ++*(uint32_t *)off_130218;
-  bt_xtal_init_check(v1);
-  bt_xtal_init_check((uint32_t *)dword_130220);
-  list_push_tail(dword_13021C, (uint32_t *)dword_130224);
-  list_push_tail(dword_13021C, (uint32_t *)dword_130228);
-  list_push_tail(dword_13021C, (uint32_t *)dword_13022C);
-  result = list_push_tail(dword_13021C, (uint32_t *)dword_130230);
+  zero_struct(v1);
+  zero_struct((uint32_t *)dword_130220);
+  check_abort_flag(dword_13021C, (uint32_t *)dword_130224);
+  check_abort_flag(dword_13021C, (uint32_t *)dword_130228);
+  check_abort_flag(dword_13021C, (uint32_t *)dword_13022C);
+  result = check_abort_flag(dword_13021C, (uint32_t *)dword_130230);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -62583,14 +62895,12 @@ int ke_malloc(unsigned int a1) {
   v2 = v1;
   if ( v1 >= 0 )
   {
-    if ( v1 )
-    {
-if ( memmove_5(dword_13035C) != v1 || strcmp(dword_13035C, (void *)(uintptr_t)(dword_130354)) ) { v4 = list_pop_front(dword_130360);
+if ( v1 ) { if ( ((int (*)())memmove)(dword_13035C) != v1 || strcmp(dword_13035C, (void *)(uintptr_t)(dword_130354)) ) { v4 = list_pop_front(dword_130360);
         v5 = v4;
         if ( v4 )
         {
-          memcpy_2((int)(uintptr_t)(v4 + 1), dword_130354);
-          list_push_tail(dword_130364, v5);
+          ((int (*)())memcpy)((int)(uintptr_t)(v4 + 1), dword_130354);
+          check_abort_flag(dword_130364, v5);
         }
         else
         {
@@ -62605,7 +62915,7 @@ if ( memmove_5(dword_13035C) != v1 || strcmp(dword_13035C, (void *)(uintptr_t)(d
         v9 = __get_CPSR();
         v10 = __get_CPSR();
         v23 = __get_CPSR();
-        log_printf(dword_130368, CPSR, v7, v8, v9, v10, v23);
+        printf_wrapper(dword_130368, CPSR, v7, v8, v9, v10, v23);
         if ( v9 )
         {
           v13 = dword_130388;
@@ -62616,10 +62926,10 @@ if ( memmove_5(dword_13035C) != v1 || strcmp(dword_13035C, (void *)(uintptr_t)(d
           do
           {
             if ( !(v15 << 28) )
-              log_printf(v13, v15);
+              printf_wrapper(v13, v15);
             v17 = *(uint32_t *)v15;
             v15 += 4;
-            log_printf(v14, v17);
+            printf_wrapper(v14, v17);
           }
           while ( v16 != v15 );
         }
@@ -62633,10 +62943,10 @@ if ( memmove_5(dword_13035C) != v1 || strcmp(dword_13035C, (void *)(uintptr_t)(d
           do
           {
             if ( !(v20 << 28) )
-              log_printf(v18, v20);
+              printf_wrapper(v18, v20);
             v22 = *(uint32_t *)v20;
             v20 += 4;
-            log_printf(v19, v22);
+            printf_wrapper(v19, v22);
           }
           while ( v21 != v20 );
         }
@@ -62723,18 +63033,18 @@ uint8_t *ke_event_send_1() {
         {
           if ( *((int16_t *)v13 + 5) < v9 || *((int16_t *)v13 + 4) > v9 )
           {
-            log_printf(v7, *v13, v13[1]);
+            printf_wrapper(v7, *v13, v13[1]);
           }
           else
           {
             v14 = ((int ( *)(int, int *))v13[3])(v9, v15);
             if ( v14 )
-              log_printf(v8, v14);
+              printf_wrapper(v8, v14);
           }
         }
         else
         {
-          log_printf(dword_130498, v15[0]);
+          printf_wrapper(dword_130498, v15[0]);
         }
       }
       else
@@ -62749,7 +63059,7 @@ uint8_t *ke_event_send_1() {
       }
       v10 = dword_130494;
       ++*v0;
-      list_push_tail(v10, v3);
+      check_abort_flag(v10, (void *)(v3));
       result = (uint8_t *)list_pop_front(dword_130484);
       v3 = result;
       if ( *v0 )
@@ -62781,11 +63091,11 @@ void mmio_wait_reg() {
   {
     if ( (*v0 & 0xF) == 4 )
     {
-      u8 = mmio_read_u8();
+      u8 = uart_getc();
       if ( ke_malloc(u8) > 0 )
       {
         if ( *(uint8_t *)off_1304DC )
-          ke_event_send_1();
+          ((int (*)())ke_event_send)();
         return;
       }
     }
@@ -62812,7 +63122,7 @@ unsigned int ll_seq_update() {
       v3 = result + 1;
     *((uint8_t *)off_13050C + 6) = v3;
     set_periph_status(v3);
-    return ke_event_schedule_1(dword_130510, v0[5], v0[6]);
+    return ke_event_schedule(dword_130510, (void *)(uintptr_t)(v0[5]), v0[6]);
   }
   return result;
 }
@@ -62856,7 +63166,14 @@ int rf_map_channel(int a1) {
   v1[11] = v3 - v4;
   v1[12] = v12 - v11;
   v1[13] = v2;
-  return rf_msg_handler_n_13a();
+  return check_event_state();
+}
+
+
+
+// sub_123058C @ 0x13058c
+int sub_123058C() {
+  return gpio_reset();
 }
 
 
@@ -62879,18 +63196,13 @@ int log_mac_state() {
   int v4; // [sp+14h] [bp-4h]
 
   v0 = (uint8_t *)off_130634;
-  ke_event_schedule_1(
-    dword_130638,
-    *(char *)off_130634,
-    *((char *)off_130634 + 1),
-    *((char *)off_130634 + 2),
-    *((char *)off_130634 + 3));
-  ke_event_schedule_1(dword_13063C, v0[4], v0[5], v0[6]);
-  ke_event_schedule_1(dword_130640, (char)v0[8], (char)v0[9], (char)v0[10], (char)v0[11], (char)v0[12], (char)v0[13]);
+((int (*)())ke_event_schedule)(dword_130638, (void *)(uintptr_t)(*(char *)off_130634), *((char *)off_130634 + 1), *((char *)off_130634 + 2), *((char *)off_130634 + 3));
+  ((int (*)())ke_event_schedule)(dword_13063C, (void *)(uintptr_t)(v0[4]), v0[5], v0[6]);
+  ((int (*)())ke_event_schedule)(dword_130640, (void *)(uintptr_t)((char)v0[8]), (char)v0[9], (char)v0[10], (char)v0[11], (char)v0[12], (char)v0[13]);
   v1 = *((uint8_t *)off_130644 + 363);
   v4 = *((uint32_t *)off_130644 + 91);
   v2 = find_hci_conn_by_handle(1070, 1);
-  return ke_event_schedule_1(dword_130648, v1, v4, v2);
+  return ((int (*)())ke_event_schedule)(dword_130648, (void *)(uintptr_t)(v1), v4, v2);
 }
 
 
@@ -62919,7 +63231,7 @@ int ke_timeout_to_ticks(int a1) {
   rf_map_channel(v1);
   result = state_test_flag(9u, 4u);
   if ( result )
-    return rf_level_dump_05bc();
+    return log_mac_state();
   return result;
 }
 
@@ -62930,8 +63242,8 @@ unsigned int rf_calibrate_value() {
   int v0; // s15
   int v1; // r3
 
-  v0 = (int)COERCE_FLOAT(rf_hw_timer_read());
-  ke_event_schedule_1(dword_13070C, v0);
+  v0 = (int)COERCE_FLOAT(wait_radio_ready());
+  ((int (*)())ke_event_schedule)(dword_13070C, (void *)(uintptr_t)(v0));
   v1 = (char)v0 - *((char *)off_130710 + 3);
   if ( v1 < 0 )
     v1 = *((char *)off_130710 + 3) - (char)v0;
@@ -62940,7 +63252,7 @@ unsigned int rf_calibrate_value() {
     *((uint8_t *)off_130710 + 3) = v0;
     ke_timeout_to_ticks((char)v0);
   }
-  return rf_level_step_04e0();
+  return ll_seq_update();
 }
 
 
@@ -62970,14 +63282,14 @@ void mmio_init_check() {
   if ( (v2 & 0x2000000) != 0 )
   {
     syscall6_get_status(&v8);
-    patch_apply_n_3e0(&v9);
+    syscall16_get_version(&v9);
     goto LABEL_4;
   }
   v10 = 0;
   v11 = 0;
   if ( !ioctl_cmd_1((int)&v10) )
     v8 = v10;
-  if ( patch_apply_n_148((int)&v11) )
+  if ( ioctl_cmd_0x40((int)&v11) )
   {
 LABEL_4:
     v3 = v8;
@@ -63001,7 +63313,7 @@ LABEL_19:
   v3 = (v3 & ~0xFFu) | ((uint8_t)(15) & 0xFFu);
 LABEL_7:
   v0[4] = v3;
-  bitfield_7000101c = mmio_read_bitfield_7000101c();
+  bitfield_7000101c = get_periph_status();
   v5 = v9;
   v0[6] = bitfield_7000101c;
   if ( v5 )
@@ -63024,7 +63336,7 @@ LABEL_7:
     }
     v7 = dword_1307CC;
     v0[2] = v6;
-    ke_event_schedule_1(v7, v5);
+    ((int (*)())ke_event_schedule)(v7, (void *)(uintptr_t)(v5));
   }
   v0[3] = 0x80;
   *v0 = 1;
@@ -63042,11 +63354,11 @@ int rf_afe_enable() {
 
   v0 = (void *)(uintptr_t)(off_130828);
   *((uint8_t *)off_130828 + 1) = 1;
-  result = message_dispatch_n_d8(1070, 1);
+  result = find_hci_conn_by_handle(1070, 1);
   if ( !result )
   {
-    rf_hw_timer_init();
-    v0[6] = mmio_read_bitfield_7000101c();
+    gpio_reset();
+    v0[6] = get_periph_status();
     rf_calibrate_value();
     v2 = (uint8_t)v0[5];
     if ( (uint8_t)v0[6] != v2 )
@@ -63055,9 +63367,9 @@ int rf_afe_enable() {
       v3 = (uint8_t)v0[5];
       v4 = dword_130830;
       v0[6] = v3;
-      ke_event_schedule_1(v4, v3);
+      ((int (*)())ke_event_schedule)(v4, (void *)(uintptr_t)(v3));
     }
-    return rf_level_apply_80c(1070, 1, 1000 * *((uint32_t *)off_13082C + 91));
+    return patch_aware_dispatch(1070, 1, 1000 * *((uint32_t *)off_13082C + 91));
   }
   return result;
 }
@@ -63476,7 +63788,7 @@ int rf_calc_tx_power_offset(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, 
   *v61 = 33;
   v62 = v89++;
   *v62 = 2;
-  bt_fw_init_or_handler(v91, &v90);
+  read_calibration_offsets((void *)(v91), &v90);
   if ( SLOBYTE(v91[0]) > *(char *)(a2 + 172) )
     v91[0] = (v91[0] & ~0xFFu) | ((uint8_t)(*(uint8_t *)(a2 + 172)) & 0xFFu);
   v63 = v89++;
@@ -63639,7 +63951,7 @@ LABEL_17:
   }
   if ( (v38 & 2) != 0 && (*((uint8_t *)off_130EC4 + 374) & 1) != 0 )
   {
-    v82 = ipc_msg_write_hdr((int *)&v89);
+    v82 = ((int (*)())build_tx_packet)((int)(uintptr_t)((int *)&v89));
     v41 = *(uint32_t *)(a2 + 224);
     v40 = (uint16_t)(v82 + v40);
   }
@@ -63651,7 +63963,7 @@ LABEL_17:
     {
       v58 = *((uint8_t *)off_130EC4 + 373);
       if ( (*(uint8_t *)off_130ED0 & 8) != 0
-        || (ke_event_schedule_1(dword_130F2C, v49 << 30), *((uint8_t *)v48 + 373) <= 1u) )
+        || (((int (*)())ke_event_schedule)(dword_130F2C, (void *)(uintptr_t)(v49 << 30)), *((uint8_t *)v48 + 373) <= 1u) )
       {
         v59 = v40 + rf_write_pattern_bf0c((int)&v89);
         v60 = rf_get_chan_index(v48[28]);
@@ -63679,7 +63991,7 @@ LABEL_17:
   if ( *(uint16_t *)(a2 + 228)
     && (!v50 && (v51 = v95 << 26, (v95 & 0x20) != 0) || (*(uint32_t *)(*((uint32_t *)off_130ECC + 4) + 48) & 0x40) != 0) )
   {
-    feature_guard_sdio(256, dword_130EC8, v51);
+    state_check_feature(256, dword_130EC8, v51);
     *v89 = 54;
     v89[1] = 3;
     v52 = (int)v89;
@@ -64040,7 +64352,7 @@ LABEL_25:
   if ( v12 )
     goto LABEL_25;
 LABEL_21:
-  bt_hci_hdr_parse(a4);
+  llm_get_adv_type((void *)(uintptr_t)(a4));
   return v13;
 }
 
@@ -64251,7 +64563,7 @@ int rf_get_cal_status2(uint8_t *a1, int a2, int a3, uint8_t *a4) {
   int v10; // r5
   int v11; // r3
 
-  result = (int)sdio_buffer_prepare_e188(a1, a2);
+  result = (int)parse_amp_u16(a1, a2);
   *a4 = 0;
   if ( result )
   {
@@ -64286,7 +64598,7 @@ uint8_t * rf_phy_unpack(uint8_t *a1, int a2, uint8_t *a3) {
   uint8_t *result; // r0
   unsigned int v5; // r3
 
-  result = (void *)(uintptr_t)(sdio_buffer_prepare_alt_1a8(a1, a2));
+  result = parse_pct_u16(a1, a2);
   if ( result )
   {
     v5 = result[3];
@@ -64457,7 +64769,7 @@ LABEL_21:
 // rf_calib_load @ 0x131734
 int rf_calib_load(int a1, int a2, int16_t a3, int16_t a4) {
   memcpy_aligned((void *)(uintptr_t)(dword_131754), (void *)(uintptr_t)(a2), 254);
-  message_dispatch_n84(5123, a4, a3);
+  hci_evt_alloc_send(5123, a4, a3);
   return 0;
 }
 
@@ -64465,7 +64777,7 @@ int rf_calib_load(int a1, int a2, int16_t a3, int16_t a4) {
 
 // pdu_type_validate @ 0x131758
 int pdu_type_validate(int a1, uint8_t *a2) {
-  ipc_msg_alloc_init(*a2);
+  sdio_cfg_write(*a2);
   return 0;
 }
 
@@ -64506,7 +64818,7 @@ int rx_data_pdu_parse(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
   if ( v11 == 15 )
   {
 LABEL_9:
-    v14 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+    v14 = bt_buf_alloc(65, 0, 5, 4u);
     v15 = v6 + 696 * v5;
     v16 = *(uint8_t *)(v15 + 34);
     *(uint16_t *)v14 = *(uint16_t *)(v15 + 32);
@@ -64514,7 +64826,7 @@ LABEL_9:
     *(uint8_t *)(v14 + 2) = a2[1];
     hci_evt_send(v14);
   }
-  message_dispatch_n84(5133, a4, a3);
+  hci_evt_alloc_send(5133, a4, a3);
   return 0;
 }
 
@@ -64537,7 +64849,7 @@ int rx_pdu_process(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
     *(uint8_t *)(v7 + 52) = 2;
     if ( !v9 && ((*((uint32_t *)off_1318A0 + 1) >> v8) & 1) != 0 )
     {
-      v10 = (uint8_t *)rf_bus_setup_n3a8(5145, 5, 6, 2u);
+      v10 = (uint8_t *)bt_buf_alloc(5145, 5, 6, 2u);
       *v10 = 0;
       v10[1] = *(uint8_t *)(v7 + 34);
       hci_evt_send((int)v10);
@@ -64547,7 +64859,7 @@ int rx_pdu_process(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
   {
     *(uint8_t *)(dword_131898 + 696 * v4 + 52) = 1;
   }
-  message_dispatch_n84(5125, a4, a3);
+  hci_evt_alloc_send(5125, a4, a3);
   return 0;
 }
 
@@ -64654,8 +64966,7 @@ int llc_conn_env_get_by_handle(int a1, uint8_t *a2) {
   }
   else
   {
-    if ( !rf_entry_lookup_n3a0(v3, *((uint16_t *)a2 + 1)) )
-      return 0;
+if ( !validate_channel_map((void *)(uintptr_t)(v3), *((uint16_t *)a2 + 1)) ) return 0;
     v7 = *(uint8_t *)(v3 + 166);
     *(uint16_t *)(v3 + 190) = v4;
     *(uint8_t *)(v3 + 166) = v7 & 0xCF | 0x10;
@@ -64686,7 +64997,7 @@ int hci_vendor_cmd_send(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
   int v21; // r3
   int v22; // r2
 
-  v5 = rf_bus_setup_n3a8(5135, a4, a3, 0xC8u);
+  v5 = bt_buf_alloc(5135, a4, a3, 0xC8u);
   v6 = *a2;
   v7 = v5;
   v8 = *(uint32_t *)(dword_131B30 + 696 * v6 + 340);
@@ -64759,12 +65070,12 @@ int hci_vendor_cmd_send(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
 int llm_adv_start(int a1, int a2, unsigned int a3) {
   int v4; // r1
 
-  if ( **(int16_t **)off_131B84 < 0 && msg_get_value(a3) != 1 )
+  if ( **(int16_t **)off_131B84 < 0 && hci_cmd_send_short(a3) != 1 )
     mmio_irq_clear(dword_131B90, dword_131B8C, 822);
   v4 = *((uint16_t *)off_131B88 + 4);
   if ( v4 != 255 )
-    message_dispatch_n84(5146, v4, a3);
-  rf_bus_mark_n_3b7(a3, 0);
+    hci_evt_alloc_send(5146, v4, a3);
+  hci_cmd_send(a3, 0);
   return 0;
 }
 
@@ -64774,12 +65085,12 @@ int llm_adv_start(int a1, int a2, unsigned int a3) {
 int llm_scan_start(int a1, int a2, unsigned int a3) {
   int v4; // r1
 
-  if ( **(int16_t **)off_131BDC < 0 && msg_get_value(a3) != 1 )
+  if ( **(int16_t **)off_131BDC < 0 && hci_cmd_send_short(a3) != 1 )
     mmio_irq_clear(dword_131BE8, dword_131BE4, 670);
   v4 = *((uint16_t *)off_131BE0 + 4);
   if ( v4 != 255 )
-    message_dispatch_n84(5144, v4, a3);
-  rf_bus_mark_n_3b7(a3, 0);
+    hci_evt_alloc_send(5144, v4, a3);
+  hci_cmd_send(a3, 0);
   return 0;
 }
 
@@ -64932,10 +65243,10 @@ int rf_test_tx_cmd(int a1, int a2, int16_t a3, int16_t a4) {
 
   v83 = 0;
   v84 = 0;
-  v5 = (uint8_t *)rf_bus_setup_n3a8(5128, a4, a3, 3u);
+  v5 = (uint8_t *)bt_buf_alloc(5128, a4, a3, 3u);
   v82 = 0;
   v80 = 0;
-  v6 = phy_flag_clear_72();
+  v6 = rf_clear_flag();
   v7 = *(uint8_t *)(a2 + 129);
   v8 = *(uint32_t *)(a2 + 120);
   v73 = v6;
@@ -64959,7 +65270,7 @@ int rf_test_tx_cmd(int a1, int a2, int16_t a3, int16_t a4) {
     {
       if ( v36 == 3 )
       {
-        v61 = sdio_buffer_prepare_n_17c(a2);
+        v61 = extract_chan_bits(a2);
         v8 = *(uint32_t *)(a2 + 120);
         v9 = v61;
         goto LABEL_4;
@@ -64971,7 +65282,7 @@ int rf_test_tx_cmd(int a1, int a2, int16_t a3, int16_t a4) {
       }
       v59 = v74 + 368;
     }
-    v60 = sdio_buffer_prepare_n_16c_e1d8(v59 + dword_132050, *(uint16_t *)(a2 + 124));
+    v60 = pack_chan_bits(v59 + dword_132050, *(uint16_t *)(a2 + 124));
     v8 = *(uint32_t *)(a2 + 120);
     v9 = v60;
     goto LABEL_4;
@@ -64996,7 +65307,7 @@ LABEL_8:
   v85[2] = v83;
   v85[1] = v84;
   v89 = v80;
-  v14 = rf_stream_dispatch((int)v85, v5, &v81);
+  v14 = buffer_alloc((int)v85, v5, &v81);
   v5[1] = v14;
   if ( v14 )
     goto LABEL_24;
@@ -65099,10 +65410,7 @@ LABEL_8:
   llm_adv_pdu_build_cmd(v20);
   if ( (*(uint32_t *)(a2 + 120) & 0x10) != 0 && *(char *)(a2 + 128) >= 0 )
   {
-    idx_record_lookup_n_4d4(
-      *(uint8_t *)(v76 + 35),
-      *(uint8_t *)(a2 + 128) & 3,
-      *(uint8_t *)(a2 + 128) >> 4);
+((int (*)())rf_config_chan_table)( *(uint8_t *)(v76 + 35), *(uint8_t *)(a2 + 128) & 3, *(uint8_t *)(a2 + 128) >> 4);
     if ( !v14 )
       goto LABEL_19;
   }
@@ -65110,7 +65418,7 @@ LABEL_8:
   {
     goto LABEL_19;
   }
-  idx_record_lookup_n_4d4(*(uint8_t *)(dword_13204C + 696 * v15 + 35), 255, 0);
+  ((int (*)())rf_config_chan_table)(*(uint8_t *)(dword_13204C + 696 * v15 + 35), 255, 0);
 LABEL_19:
   v25 = v22 + 1320 * v7;
   v26 = *(uint16_t *)(v25 + 236);
@@ -65125,7 +65433,7 @@ LABEL_19:
   *(uint8_t *)(v27 + 350) = v29 | 0x10;
   *(uint8_t *)(v27 + 688) = 1;
   v77 = v27;
-  timestamp_update_4f60(696 * v15 + 672 + dword_13204C, dword_13205C + v30[4]);
+  ke_event_lock(696 * v15 + 672 + dword_13204C, dword_13205C + v30[4]);
   v5[2] = v73;
   if ( v73 )
   {
@@ -65141,7 +65449,7 @@ LABEL_19:
         v33[36] = 1;
         if ( v34 <= 0x1F )
         {
-          v62 = (uint8_t *)rf_bus_setup_n3a8(73, 13, 0, 2u);
+          v62 = (uint8_t *)bt_buf_alloc(73, 13, 0, 2u);
           *v62 = v32;
           v62[1] = 1;
           hci_evt_send((int)v62);
@@ -65169,10 +65477,10 @@ LABEL_19:
                 }
                 v69 = dword_132148;
                 ++*v63;
-                ke_event_schedule_1(v69);
+                ((int (*)())ke_event_schedule)(v69);
                 list_merge(v65 - 10, v66 - 10);
                 *(uint64_t *)(v68 + 1232) = *((uint64_t *)v64 + 73);
-                bt_xtal_init_check(v65 - 10);
+                zero_struct(v65 - 10);
                 v70 = *v63 - 1;
                 if ( *v63 )
                 {
@@ -65190,16 +65498,16 @@ LABEL_19:
               v64 += 8;
               if ( v72 )
               {
-                ke_event_schedule_1(dword_13214C);
+                ((int (*)())ke_event_schedule)(dword_13214C);
                 list_merge(v66, v65);
-                bt_xtal_init_check(v65);
+                zero_struct(v65);
               }
               v65 += 2;
               v66 += 2;
             }
             while ( (uint32_t *)v67 != v65 );
             v5 = v78;
-            irq_nesting_or(512);
+            set_system_flag_1(512);
             v31 = (v31 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(v22 + 1320 * v7 + 234)) & 0xFFu);
           }
         }
@@ -65279,7 +65587,7 @@ int llm_ctrl_config(int a1, int a2, int16_t a3, int16_t a4) {
     v14[1] = v15;
     v14[2] = v16;
   }
-  if ( sub_1151C0() )
+  if ( get_hw_info_bit19() )
   {
     *(uint8_t *)(a2 + 105) = 0;
     *(uint8_t *)(a2 + 106) = 0;
@@ -65322,10 +65630,10 @@ int llm_ctrl_config(int a1, int a2, int16_t a3, int16_t a4) {
       v4[374] |= 8u;
   }
   v4[373] = *(uint8_t *)(a2 + 102);
-  message_dispatch_n84(5121, a4, a3);
+  hci_evt_alloc_send(5121, a4, a3);
   if ( (v4[374] & 1) != 0 )
   {
-    v34 = chip_rev_get();
+    v34 = sys_mode_get();
     v35 = (uint8_t)v4[374] << 29;
     v4[372] = (v34 + 1) >> 1;
     if ( v35 < 0 )
@@ -65357,10 +65665,10 @@ int llm_ctrl_config(int a1, int a2, int16_t a3, int16_t a4) {
   if ( v17 )
   {
     *((uint16_t *)v4 + 4) = 255;
-    v33 = (uint8_t *)rf_bus_setup_n3a8(49, 0, 5, 1u);
+    v33 = (uint8_t *)bt_buf_alloc(49, 0, 5, 1u);
     *v33 = v4[376];
     hci_evt_send((int)v33);
-    rf_bus_mark_n_3b7(5u, 1);
+    hci_cmd_send(5u, 1);
   }
   return 0;
 }
@@ -65373,12 +65681,12 @@ int llc_conn_env_get(int a1, uint8_t *a2) {
   int v4; // r0
 
   v2 = dword_1322E8;
-  timestamp_remove_058(696 * *a2 + 672 + dword_1322E8);
+  ke_event_set_lock(696 * *a2 + 672 + dword_1322E8);
   v4 = *a2;
   if ( *(uint8_t *)(v2 + 696 * v4 + 37) )
-    ipc_msg_alloc_init(v4);
+    sdio_cfg_write(v4);
   else
-    message_dispatch_n84(5130, 13, 5);
+    hci_evt_alloc_send(5130, 13, 5);
   return 0;
 }
 
@@ -65392,7 +65700,7 @@ int llm_event_wait(int a1, char *a2, int16_t a3, int16_t a4) {
   uint8_t *v10; // r0
   int v11; // r3
 
-  if ( msg_get_value(5u) == 1 )
+  if ( hci_cmd_send_short(5u) == 1 )
     return 2;
   v7 = (void *)(uintptr_t)(off_13234C);
   v8 = *a2;
@@ -65402,16 +65710,16 @@ int llm_event_wait(int a1, char *a2, int16_t a3, int16_t a4) {
   *((uint8_t *)off_13234C + 375) = v8;
   if ( !v9 )
   {
-    v10 = (uint8_t *)rf_bus_setup_n3a8(49, 0, 5, 1u);
+    v10 = (uint8_t *)bt_buf_alloc(49, 0, 5, 1u);
     v11 = *((uint8_t *)v7 + 375);
     v7[4] = 255;
     if ( v11 )
       v11 = (v11 & ~0xFFu) | ((uint8_t)(*((uint8_t *)v7 + 376)) & 0xFFu);
     *v10 = v11;
     hci_evt_send((int)v10);
-    rf_bus_mark_n_3b7(5u, 1);
+    hci_cmd_send(5u, 1);
   }
-  message_dispatch_n84(5140, a4, a3);
+  hci_evt_alloc_send(5140, a4, a3);
   return 0;
 }
 
@@ -65424,7 +65732,7 @@ int llm_event_wait_next(int a1, uint8_t *a2, unsigned int a3, int16_t a4) {
   char v10; // r1
   int v11; // r3
 
-  if ( msg_get_value(5u) == 1 )
+  if ( hci_cmd_send_short(5u) == 1 )
     return 2;
   v7 = (void *)(uintptr_t)(off_1323E0);
   if ( *(uint32_t *)off_1323E0 )
@@ -65432,16 +65740,16 @@ int llm_event_wait_next(int a1, uint8_t *a2, unsigned int a3, int16_t a4) {
     if ( *a2 )
     {
       *(uint32_t *)off_1323E0 |= 1 << a2[1];
-      message_dispatch_n84(5144, a4, a3);
+      hci_evt_alloc_send(5144, a4, a3);
       return 0;
     }
   }
   else if ( !*a2 )
   {
-    message_dispatch_n84(5144, a4, a3);
+    hci_evt_alloc_send(5144, a4, a3);
     return 0;
   }
-  v9 = (int *)rf_bus_setup_n3a8(34, 0, a3, 1u);
+  v9 = (int *)bt_buf_alloc(34, 0, a3, 1u);
   v10 = a2[1];
   if ( *a2 )
     v11 = (1 << v10) | *(uint32_t *)v7;
@@ -65451,7 +65759,7 @@ int llm_event_wait_next(int a1, uint8_t *a2, unsigned int a3, int16_t a4) {
   v7[4] = a4;
   *v9 = v11 == 0;
   hci_evt_send((int)v9);
-  rf_bus_mark_n_3b7(a3, 1);
+  hci_cmd_send(a3, 1);
   return 0;
 }
 
@@ -65465,13 +65773,13 @@ int llm_env_reset() {
   int v3; // r0
   int inited; // r0
 
-  memset_thunk((int *)dword_132414, 0, 0x17Cu);
-  v0 = (void *)(uintptr_t)(rf_bus_mark_n_3b7(5u, 0));
-  v1 = sub_1376D4(v0);
+  memset_byte((int *)dword_132414, 0, 0x17Cu);
+  v0 = hci_cmd_send(5u, 0);
+  v1 = (int)(uintptr_t)(dma_rx_reset(v0));
   v2 = (int)(uintptr_t)(txpwr_reset_state(v1));
   v3 = (int)(uintptr_t)(llm_get_ctrl_flags(v2));
-  inited = ipc_queues_init_n(v3);
-  return bt_init_subsystem_1240E38(inited);
+  inited = (int)(uintptr_t)(rf_init_queues(v3));
+  return ((int (*)())dma_tx_reset)(inited);
 }
 
 
@@ -65601,6 +65909,14 @@ LABEL_9:
 
 
 
+// sdio_cfg_write @ 0x132540
+void sdio_cfg_write() {
+  bt_buf_alloc(12, 0, 5, 1u);
+  ((int (*)())JUMPOUT)(0x132554);
+}
+
+
+
 // llm_get_adv_addr @ 0x13267c
 BOOL llm_get_adv_addr(int a1, int a2) {
   uint8_t *v2; // r8
@@ -65623,7 +65939,7 @@ BOOL llm_get_adv_addr(int a1, int a2) {
   v4 = *((uint8_t *)off_1327B4 + 372);
   if ( (*(uint8_t *)off_1327AC & 8) == 0 )
   {
-    ke_event_schedule_1(dword_1327B0);
+    ((int (*)())ke_event_schedule)(dword_1327B0);
     v3 = v3 != 0;
   }
   v7 = *(uint32_t *)(a1 + 4);
@@ -66323,7 +66639,7 @@ LABEL_23:
     v68 = v31;
     if ( *((uint8_t *)off_132E48 + 197) && (v2[5] & 0x387F) != (v31 & 0x387F) )
     {
-      v32 = scan_chan_parse_n1bd4(
+      v32 = llm_rx_pdu_handler(
               (v31 >> 11) & 7,
               v30 & 0x7F,
               (uint8_t *)(*(uint32_t *)(dword_132E4C + 1320 * *(uint8_t *)(a1 + 34) + 72) + 4));
@@ -66335,7 +66651,7 @@ LABEL_23:
     *(uint8_t *)(v28 + 165) = (v30 & 0x4000) != 0;
     *(uint32_t *)(v28 + 156) = v66 & v33 | v68;
     if ( state_test_flag(5u, 4u) )
-      ke_event_schedule_1(dword_132E54, *(uint32_t *)(v28 + 156), v29);
+      ke_event_schedule(dword_132E54, (void *)(uintptr_t)(*(uint32_t *)(v28 + 156)), v29);
     ((int (*)())parse_command_parameters)((int)(uintptr_t)(v2), *(uint32_t *)(v28 + 156));
     v1 = *(uint8_t *)(a1 + 350);
   }
@@ -66370,7 +66686,7 @@ LABEL_23:
       *v39++ = v46;
       if ( v43 )
       {
-        v58 = scan_chan_parse_n1bd4((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
+        v58 = llm_rx_pdu_handler((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
         *(v39 - 1) = v46 | v58 | (v58 << 8);
       }
       else if ( **(int16_t **)off_132E58 < 0 )
@@ -66429,7 +66745,7 @@ LABEL_23:
 
 // llm_adv_pdu_build_cmd @ 0x132f20
 uint32_t * llm_adv_pdu_build_cmd(int a1) {
-  bt_tx_queue_process();
+  ((int (*)())update_connection_stats)();
   return llm_adv_pdu_build(a1);
 }
 
@@ -66809,7 +67125,7 @@ uint8_t * rf_calibrate_init(int a1, int16_t a2, unsigned int a3) {
   if ( v6 )
     goto LABEL_2;
   v12 = v11;
-  v52 = memmove_2_1(v10, v11);
+  v52 = memmove_2(v10, v11);
   if ( !v52 )
     goto LABEL_2;
   v53 = v52[2];
@@ -66827,14 +67143,14 @@ LABEL_2:
     v48 = *(uint8_t *)(a1 + 106);
     if ( !*(uint8_t *)(a1 + 106) )
     {
-      ((int (*)())ipc_msg_send)((int)(uintptr_t)(v10), v12, a1 + 440, v74);
+      rf_get_cal_status(v10, v12, a1 + 440, v74);
       if ( v74[0] )
       {
         v70 = v8;
         v49 = (int *)(a1 + 440);
         do
         {
-          v50 = rf_bus_setup_n3a8(26, 0, 5, 8u);
+          v50 = bt_buf_alloc(26, 0, 5, 8u);
           v51 = *v49++;
           *(uint32_t *)v50 = v51;
           *(uint8_t *)(v50 + 5) = v48;
@@ -66868,17 +67184,17 @@ LABEL_6:
         && (*(uint32_t *)(dword_1337B0 + 696 * *(uint8_t *)(a1 + 116) + 4) & 0x24) != 0
         && (v63[2] & 0x80u) == 0 )
       {
-        idx_record_lookup_n_4d4(*(uint8_t *)(a1 + 116), v63[2] & 3);
+        rf_config_chan_table(*(uint8_t *)(a1 + 116), v63[2] & 3);
       }
       if ( (*(uint32_t *)(a1 + 472) & 8) != 0 )
       {
-        v73 = (uint8_t *)rf_bus_setup_n3a8(109, 0, 5, 2u);
+        v73 = (uint8_t *)bt_buf_alloc(109, 0, 5, 2u);
         rf_phy_unpack(v10, v12, v73);
         hci_evt_send((int)v73);
         rf_get_cal_status2(v10, v12, a1 + 348, v74);
         if ( v74[0] )
         {
-          v64 = rf_bus_setup_n3a8(107, 0, 5, 0x10u);
+          v64 = bt_buf_alloc(107, 0, 5, 0x10u);
           v65 = *(uint64_t *)(a1 + 352);
           *(uint32_t *)v64 = *(uint32_t *)(a1 + 348);
           *(uint32_t *)(v64 + 12) = *(uint32_t *)(a1 + 360);
@@ -66889,7 +67205,7 @@ LABEL_6:
     }
     if ( (v13[374] & 4) == 0 )
       goto LABEL_6;
-    v55 = (void *)(uintptr_t)(rf_state_check_n2c6(v10, v12, a1 + 248));
+    v55 = rf_set_cal_u32_dc(v10, v12, a1 + 248);
     if ( v55 )
     {
       v56 = *(uint32_t *)(a1 + 468);
@@ -66907,14 +67223,14 @@ LABEL_6:
     {
       v72 = (v72 & ~0xFFFFu) | ((uint16_t)(1023) & 0xFFFFu);
     }
-    v58 = rf_bus_setup_n3a8(111, 0, 5, 4u);
+    v58 = bt_buf_alloc(111, 0, 5, 4u);
     *(uint16_t *)v58 = v72;
     *(uint8_t *)(v58 + 2) = *(uint8_t *)(a1 + 107);
     hci_evt_send(v58);
 LABEL_102:
     if ( (*(uint32_t *)(a1 + 468) & 0xFF000000) != v66 )
     {
-      v59 = (int *)rf_bus_setup_n3a8(113, 0, 5, 4u);
+      v59 = (int *)bt_buf_alloc(113, 0, 5, 4u);
       v60 = *(uint32_t *)(a1 + 468);
       v61 = HIBYTE(v60) & 0x3F;
       if ( (v60 & 0x40000000) != 0 )
@@ -66956,12 +67272,12 @@ LABEL_7:
   }
   result = rf_set_cal_byte_d8(v10, v12, a1 + 248);
   if ( *(uint8_t *)(a1 + 464) != v67 )
-    result = (uint8_t *)message_dispatch_c7ac(a1);
+    result = (uint8_t *)scan_rssi_compare(a1);
   if ( *(uint8_t *)(a1 + 413) > v9 )
   {
     if ( !*(uint32_t *)(a1 + 72) )
-      rf_mem_read_ed40(a3, 32, 1, 0);
-    v18 = rf_bus_setup_n3a8(59, 0, 5, 0xCu);
+      ((int (*)())rx_packet_handler)(a3, 32, 1, 0);
+    v18 = bt_buf_alloc(59, 0, 5, 0xCu);
     v19 = *(uint32_t *)(a1 + 72);
     if ( **(int16_t **)off_133628 < 0 && !v19 )
     {
@@ -66984,7 +67300,7 @@ LABEL_7:
     {
       if ( *(uint16_t *)(a1 + 462) != v7 )
       {
-        ke_event_schedule_1(v22, v7);
+        ((int (*)())ke_event_schedule)(v22, (void *)(uintptr_t)(v7));
         v24 = *((uint8_t *)v8 + 35);
         v25 = *(uint16_t *)(a1 + 462) << 29;
         v26 = *((uint8_t *)v8 + 350) | 2;
@@ -67096,7 +67412,7 @@ LABEL_38:
         }
         v39 = *((uint8_t *)v8 + 35);
         *((uint8_t *)v8 + 309) = v29;
-        result = (uint8_t *)bt_chan_lookup(v39);
+        result = (uint8_t *)((int (*)())get_connection_state)(v39);
         *((uint8_t *)v8 + 350) |= 8u;
       }
 LABEL_48:
@@ -67374,7 +67690,7 @@ uint32_t * unaligned_memcpy(uint32_t *result, int a2, unsigned int a3) {
     else
       v16 = v10 >> v31;
     v15 -= 4;
-    result = (void *)(uintptr_t)(xtea_block_decrypt(result, result + 1, v32));
+    result = hash_mix_words(result, (void *)(result + 1), v32);
   }
   else
   {
@@ -67395,7 +67711,7 @@ uint32_t * unaligned_memcpy(uint32_t *result, int a2, unsigned int a3) {
         v16 = 0;
       else
         v16 = v21 >> v17;
-      result = (void *)(uintptr_t)(xtea_block_decrypt(result, v18, v22));
+      result = hash_mix_words(result, v18, v22);
     }
     while ( v20 != v19 );
     v11 = &v9[v33];
@@ -67424,7 +67740,7 @@ uint32_t * unaligned_memcpy(uint32_t *result, int a2, unsigned int a3) {
     v29 = v16;
     v15 = (v15 & ~0xFFu) | ((uint8_t)(v26 - 4) & 0xFFu);
     v16 = v28;
-    result = (void *)(uintptr_t)(xtea_block_decrypt(result, result + 1, v29));
+    result = hash_mix_words(result, (void *)(result + 1), v29);
 LABEL_20:
     result[2] = v16;
     *((uint8_t *)result + 12) = v15;
@@ -67451,8 +67767,8 @@ uint32_t * bt_process_rx_data(int a1) {
     mmio_irq_clear(dword_1339D4, dword_1339D0, 321);
     v2 = (v2 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(a1 + 12)) & 0xFFu);
   }
-  v4 = (void *)(uintptr_t)(xtea_block_decrypt((uint32_t *)a1, (int *)(a1 + 4), (90 << (8 * v2)) | v1));
-  return (void *)(uintptr_t)(xtea_block_decrypt(v4, v5, 0));
+  v4 = hash_mix_words((uint32_t *)a1, (int *)(a1 + 4), (90 << (8 * v2)) | v1);
+  return hash_mix_words(v4, v5, 0);
 }
 
 
@@ -67461,7 +67777,7 @@ uint32_t * bt_process_rx_data(int a1) {
 int bt_poll_controller(int value) {
   int v2; // r0
 
-  if ( **(int16_t **)off_133A0C >= 0 || (value = msg_get_value(6u), value == 10) )
+  if ( **(int16_t **)off_133A0C >= 0 || (value = hci_cmd_send_short(6u), value == 10) )
   {
     check_fw_ready(value);
     return 0;
@@ -67478,7 +67794,7 @@ int bt_poll_controller(int value) {
 
 // rf_check_status @ 0x133a18
 int rf_check_status(int a1, int a2) {
-  if ( **(int16_t **)off_133A54 >= 0 || msg_get_value(6u) == 7 )
+  if ( **(int16_t **)off_133A54 >= 0 || hci_cmd_send_short(6u) == 7 )
   {
     hci_vendor_get_state(a2);
     return 1;
@@ -67526,17 +67842,17 @@ int rx_parse_descriptor(int a1, int a2) {
   switch ( v2 )
   {
     case 176:
-      if ( msg_get_value(6u) == 5 )
-        bt_state_query_n_c3c(a2);
+      if ( hci_cmd_send_short(6u) == 5 )
+        hci_vendor_read_rf_cache((void *)(uintptr_t)(a2));
       break;
     case 16:
     case 48:
-      if ( msg_get_value(6u) == 8 )
+      if ( hci_cmd_send_short(6u) == 8 )
         hci_vendor_read_rf((void *)(uintptr_t)(a2));
       break;
     case 192:
     case 160:
-      return ipc_msg_handle_n_884(a2);
+      return rf_check_channel_10(a2);
     default:
       if ( v2 == 208 && *(uint8_t *)(a2 + 12) == 8 )
         ((int (*)())rf_get_power_by_index)(a2);
@@ -67608,7 +67924,7 @@ int scan_trigger() {
 int patch_stop(int value) {
   int v2; // r0
 
-  if ( **(int16_t **)off_133C18 >= 0 || (value = msg_get_value(6u), value == 4) )
+  if ( **(int16_t **)off_133C18 >= 0 || (value = hci_cmd_send_short(6u), value == 4) )
   {
     check_hw_ready_status(value);
     return 0;
@@ -67625,14 +67941,14 @@ int patch_stop(int value) {
 
 // ke_wait_event @ 0x133c24
 int ke_wait_event() {
-  if ( msg_get_value(6u) != 5 && msg_get_value(6u) != 6 && msg_get_value(6u) != 7 && msg_get_value(6u) != 8 )
+  if ( hci_cmd_send_short(6u) != 5 && hci_cmd_send_short(6u) != 6 && hci_cmd_send_short(6u) != 7 && hci_cmd_send_short(6u) != 8 )
     return 0;
   if ( *((uint8_t *)off_133C6C + 34) )
   {
     *((uint8_t *)off_133C6C + 34) = 0;
     return 0;
   }
-  event_dispatch_1(1);
+  ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
   return 0;
 }
 
@@ -67657,7 +67973,7 @@ int mmio_init() {
   }
   else
   {
-    event_dispatch_1(1);
+    ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
     return 0;
   }
 }
@@ -67675,16 +67991,16 @@ int util_reset() {
   int v7; // [sp+0h] [bp-Ch] BYREF
   int v8; // [sp+4h] [bp-8h] BYREF
 
-  if ( **(int16_t **)off_133DE4 < 0 && msg_get_value(6u) != 4 && msg_get_value(6u) != 10 )
+  if ( **(int16_t **)off_133DE4 < 0 && hci_cmd_send_short(6u) != 4 && hci_cmd_send_short(6u) != 10 )
     mmio_irq_clear(dword_133DFC, dword_133DF8, 697);
-  if ( msg_get_value(6u) == 10 )
+  if ( hci_cmd_send_short(6u) == 10 )
   {
     v4 = (void *)(uintptr_t)(off_133DE8);
     v5 = *((uint8_t *)off_133DE8 + 4);
     *(uint32_t *)(*((uint32_t *)off_133DE8 + 2) + 472) = 0;
     if ( v5 )
     {
-      message_dispatch_n84(6148, 13, 6);
+      hci_evt_alloc_send(6148, 13, 6);
       v4[4] = 0;
     }
     hci_evt_send(*(uint32_t *)v4 + 12);
@@ -67699,7 +68015,7 @@ int util_reset() {
     }
     else
     {
-      rf_bus_mark_n_3b7(6u, 0);
+      hci_cmd_send(6u, 0);
     }
     return 0;
   }
@@ -67711,15 +68027,15 @@ int util_reset() {
     {
       if ( (*(uint32_t *)(v0 + 48) & 0x40) != 0 )
       {
-        fmacfwbt_init_handler();
+        rf_lookup_alt_by_index();
         v2 = (void *)(uintptr_t)(off_133DEC);
         if ( *((uint8_t *)off_133DEC + 13) )
         {
 LABEL_6:
           if ( (v2[15] & 1) != 0 )
           {
-            rf_level_apply_80c(6155, 6, dword_133DF0);
-            mmio_reg_init_n0d08c();
+            patch_aware_dispatch(6155, 6, dword_133DF0);
+            clock_disable();
           }
         }
         return 0;
@@ -67735,12 +68051,12 @@ LABEL_5:
       goto LABEL_5;
     if ( v1 == 3 )
     {
-      rf_check_status_1(dword_133DF4);
+      ((int (*)())rf_check_status)(dword_133DF4);
       if ( *((uint8_t *)off_133DEC + 13) )
         *((uint8_t *)off_133DEC + 15) |= 2u;
       return 0;
     }
-    event_dispatch_1(1);
+    ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
     return 0;
   }
 }
@@ -67755,8 +68071,8 @@ int ll_event_prepare(int a1, uint8_t *a2) {
   int v5; // r4
 
   v2 = *a2;
-  feature_guard_sdio(256, dword_133E44);
-  result = msg_get_value(6u);
+  state_check_feature(256, dword_133E44);
+  result = hci_cmd_send_short(6u);
   if ( result )
     return 2;
   v4 = dword_133E48 + 1320 * v2;
@@ -67800,7 +68116,7 @@ int patch_critical_enter() {
 
   v0 = (void *)(uintptr_t)(off_133FF0);
   v1 = *((uint32_t *)off_133FF0 + 4);
-  if ( **(int16_t **)off_133FEC < 0 && msg_get_value(6u) != 2 )
+  if ( **(int16_t **)off_133FEC < 0 && hci_cmd_send_short(6u) != 2 )
     mmio_irq_clear(dword_134000, dword_133FFC, 344);
   v2 = *(uint8_t *)(v1 + 61);
   v3 = dword_134004;
@@ -67808,11 +68124,11 @@ int patch_critical_enter() {
   v5 = dword_134004 + 1320 * v2;
   if ( *(int *)(v5 + 472) < 0 )
   {
-if ( phy_channel_index_lookup((void *)(v20)) ) { event_dispatch_1(1);
+if ( phy_channel_index_lookup((void *)(v20)) ) { ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
     }
     else
     {
-      v11 = rf_bus_setup_n3a8(10, 0, 6, 0x20u);
+      v11 = bt_buf_alloc(10, 0, 6, 0x20u);
       update_entries_from_config(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
       *(uint32_t *)v11 = 0;
       *(uint8_t *)(v11 + 25) = *(uint8_t *)(v1 + 61);
@@ -67830,7 +68146,7 @@ if ( phy_channel_index_lookup((void *)(v20)) ) { event_dispatch_1(1);
         v15 = v14 & 4;
         if ( (v14 & 4) != 0 )
         {
-          v18 = sdio_buffer_prepare_n_17c(v4 + 368 + v3);
+          v18 = extract_chan_bits(v4 + 368 + v3);
           v14 = *(uint32_t *)(v5 + 472);
           v16 = (uint32_t *)(v4 + 280 + v3);
           v15 = v18;
@@ -67846,7 +68162,7 @@ if ( phy_channel_index_lookup((void *)(v20)) ) { event_dispatch_1(1);
       }
       *(uint32_t *)(v11 + 12) = v15;
       hci_evt_send(v11);
-      rf_bus_mark_n_3b7(6u, 3);
+      hci_cmd_send(6u, 3);
     }
     v9 = *(uint32_t *)(v1 + 48);
     v10 = v3 + 1320 * v2;
@@ -67861,7 +68177,7 @@ if ( phy_channel_index_lookup((void *)(v20)) ) { event_dispatch_1(1);
   v6 = (uint8_t)v0[32];
   if ( v0[32] )
   {
-    event_dispatch_1(1);
+    ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
     return 0;
   }
   v19 = (uint8_t)v0[32];
@@ -67903,7 +68219,7 @@ int llm_le_set_scan_enable(int a1, uint16_t *a2) {
   }
   v4 = (int *)off_1340A8;
   ++*(uint32_t *)off_1340A8;
-  if ( msg_get_value(6u) || *((uint8_t *)off_1340AC + 14) && message_dispatch_n_d8(6155, 6) )
+  if ( hci_cmd_send_short(6u) || *((uint8_t *)off_1340AC + 14) && find_hci_conn_by_handle(6155, 6) )
   {
     if ( *v4 )
     {
@@ -67940,7 +68256,7 @@ int llm_le_set_scan_enable(int a1, uint16_t *a2) {
     }
     else
     {
-      message_dispatch_n84(6148, 13, 6);
+      hci_evt_alloc_send(6148, 13, 6);
       return 0;
     }
   }
@@ -67969,10 +68285,10 @@ int llm_state_check_ready(int a1, int a2, int16_t a3, int16_t a4) {
   int v24; // [sp+4h] [bp-4h] BYREF
 
   v4 = *(uint8_t *)(a2 + 61);
-  if ( msg_get_value(6u) != 10 )
+  if ( hci_cmd_send_short(6u) != 10 )
   {
-    v8 = (uint8_t *)rf_bus_setup_n3a8(6145, a4, a3, 1u);
-    if ( msg_get_value(6u) )
+    v8 = (uint8_t *)bt_buf_alloc(6145, a4, a3, 1u);
+    if ( hci_cmd_send_short(6u) )
     {
       *v8 = 8;
       v19 = 0;
@@ -68006,7 +68322,7 @@ int llm_state_check_ready(int a1, int a2, int16_t a3, int16_t a4) {
         v12 = (void *)(uintptr_t)(off_13427C);
         v22 = dword_134264;
         *((uint8_t *)off_13427C + 33) = 1;
-        ke_event_schedule_1(v22, v21);
+        ((int (*)())ke_event_schedule)(v22, (void *)(uintptr_t)(v21));
 LABEL_8:
         v13 = (int *)off_134258;
         v14 = (void *)(uintptr_t)(off_13425C);
@@ -68018,7 +68334,7 @@ LABEL_8:
         v14[14] = 1;
 if ( v16 == 3 && hci_event_parse((void *)(uintptr_t)(a2 + 64), *(uint16_t *)(a2 + 54)) > 0 ) *(uint8_t *)(a2 + 59) = 0;
         v12[4] = a2;
-        v17 = rf_bus_setup_n3a8(6146, a4, a3, 0x354u);
+        v17 = bt_buf_alloc(6146, a4, a3, 0x354u);
         v18 = *((uint8_t *)v12 + 33);
         v12[5] = v17;
         if ( v18 )
@@ -68063,12 +68379,12 @@ int ll_event_process() {
   int16_t v7; // r1
   uint8_t *v8; // r0
 
-  if ( msg_get_value(6u) == 9 )
+  if ( hci_cmd_send_short(6u) == 9 )
   {
     v1 = *((uint32_t *)off_134324 + 4);
     v2 = dword_134328 + 1320 * *(uint8_t *)(v1 + 61);
     v3 = *(uint8_t *)(v2 + 116);
-    v4 = rf_bus_setup_n3a8(75, 0, 6, 6u);
+    v4 = bt_buf_alloc(75, 0, 6, 6u);
     *(uint8_t *)(v4 + 4) = *(uint8_t *)(v1 + 58);
     *(uint16_t *)(v4 + 2) = *(uint16_t *)(v1 + 56);
     *(uint8_t *)v4 = *(uint8_t *)(v1 + 61);
@@ -68080,17 +68396,17 @@ int ll_event_process() {
     *(uint16_t *)(v5 + 56) = v7;
     if ( v6 == 2 )
     {
-      v8 = (uint8_t *)rf_bus_setup_n3a8(5145, 5, 6, 2u);
+      v8 = (uint8_t *)bt_buf_alloc(5145, 5, 6, 2u);
       *v8 = 0;
       v8[1] = *(uint8_t *)(v1 + 61);
       hci_evt_send((int)v8);
     }
-    event_dispatch_1(0);
+    ((int (*)())event_dispatch)(0);
     return 0;
   }
   else
   {
-    if ( msg_get_value(6u) == 10 )
+    if ( hci_cmd_send_short(6u) == 10 )
       check_hw_ready_status(10);
     return 0;
   }
@@ -68154,12 +68470,12 @@ int llm_reset_notify(int a1, uint8_t *a2) {
   uint32_t v55[3]; // [sp+10h] [bp-1Ch] BYREF
   uint32_t v56[4]; // [sp+1Ch] [bp-10h] BYREF
 
-  if ( **(int16_t **)off_13456C < 0 && msg_get_value(6u) != 3 )
+  if ( **(int16_t **)off_13456C < 0 && hci_cmd_send_short(6u) != 3 )
     mmio_irq_clear(dword_134578, dword_134574, 481);
   v3 = *a2;
   if ( *a2 )
   {
-    event_dispatch_1(1);
+    ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
     return 0;
   }
   else
@@ -68313,7 +68629,7 @@ LABEL_20:
 int ll_state_error_check() {
   int result; // r0
 
-  ke_event_schedule_1(dword_1345A0);
+  ((int (*)())ke_event_schedule)(dword_1345A0);
   result = irq_lock(6155, 6);
   *(uint8_t *)(loc_1345A4 + 0xF) = 0;
   return result;
@@ -68324,9 +68640,9 @@ int ll_state_error_check() {
 // llm_reset_cleanup @ 0x134608
 uint32_t *llm_reset_cleanup() {
   if ( **(int16_t **)off_13463C >= 0 || !*((uint32_t *)off_134644 + 6) )
-    return (void *)(uintptr_t)(bt_xtal_init_check(off_134640));
+    return zero_struct((void *)(uintptr_t)(off_134640));
   mmio_irq_clear(dword_134648, dword_13464C, 132);
-  return (void *)(uintptr_t)(bt_xtal_init_check(off_134640));
+  return zero_struct((void *)(uintptr_t)(off_134640));
 }
 
 
@@ -68345,11 +68661,11 @@ uint32_t *llm_get_ctrl_flags() {
   *((uint8_t *)v1 + 3) = 0;
   if ( v2 )
   {
-    j_buffer_pool_get(v2 - 12);
-    j_buffer_pool_get(v0[5] - 12);
+    jump_to_tx_entry(v2 - 12);
+    jump_to_tx_entry(v0[5] - 12);
   }
-  memset_thunk((int *)off_134688, 0, 0x2Cu);
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(6u, 0));
+  memset_byte((int *)off_134688, 0, 0x2Cu);
+  return hci_cmd_send(6u, 0);
 }
 
 
@@ -68408,7 +68724,7 @@ uint32_t * wlan_hw_init(int a1, int a2) {
   uint32_t v21[2]; // [sp+8h] [bp-8h]
 
   v4 = *((int **)off_1347D0 + 4);
-  v5 = rf_bus_setup_n3a8(4096, 4, 6, 0x178u);
+  v5 = bt_buf_alloc(4096, 4, 6, 0x178u);
   *(uint8_t *)(v5 + 366) = *((uint8_t *)v4 + 61);
   v6 = v5;
   v7 = *v4;
@@ -68484,7 +68800,7 @@ LABEL_3:
   }
 LABEL_4:
   hci_evt_send(v6);
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(6u, 1));
+  return hci_cmd_send(6u, 1);
 }
 
 
@@ -68527,8 +68843,8 @@ void rx_security_check(int a1, int a2, int a3) {
       *((uint16_t *)v4 + 1) = 257;
       v20 = dword_1348FC;
       v18[35594] = 0;
-      rf_level_apply_80c(6155, 6, v20);
-      mmio_reg_init_n0d08c();
+      patch_aware_dispatch(6155, 6, v20);
+      clock_disable();
       return;
     }
     *((uint8_t *)off_1348E0 + 3) = 0;
@@ -68541,7 +68857,7 @@ void rx_security_check(int a1, int a2, int a3) {
   }
   v7 = (void *)(uintptr_t)(off_134900);
   v8 = *((int **)off_134900 + 4);
-  v9 = rf_bus_setup_n3a8(4098, 4, 6, 0x178u);
+  v9 = bt_buf_alloc(4098, 4, 6, 0x178u);
   *(uint32_t *)v9 = *(uint32_t *)a2;
   v10 = *(uint16_t *)(a2 + 4);
   *(uint8_t *)(v9 + 367) = 1;
@@ -68572,7 +68888,7 @@ void rx_security_check(int a1, int a2, int a3) {
     *(uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
   hci_evt_send(v9);
-  rf_bus_mark_n_3b7(6u, 2);
+  hci_cmd_send(6u, 2);
 }
 
 
@@ -68597,7 +68913,7 @@ uint32_t *rx_descriptor_reset() {
   v2 = *((uint8_t *)off_1349AC + 12);
   v3 = *((int **)off_1349B4 + 4);
   v4 = bt_buf_alloc(4098, 4, 6, 0x178u);
-  ke_event_schedule_1(dword_1349B0);
+  ((int (*)())ke_event_schedule)(dword_1349B0);
   irq_lock(6155, 6);
   v5 = *(uint64_t *)(v0 + 4);
   v0[14] = 0;
@@ -68681,10 +68997,10 @@ int write_hw_mmio_word(int a1) {
   }
   v8 = dword_134B28;
   *((uint8_t *)off_134B24 + 73) = *(uint8_t *)off_134B20;
-  ke_event_schedule_1(v8, v3);
+  ((int (*)())ke_event_schedule)(v8, (void *)(uintptr_t)(v3));
   llm_reset_cleanup();
   conn_prepare(a1);
-  rf_calibrate_1(*(uint8_t *)(a1 + 116));
+  ((int (*)())rf_calibrate)(*(uint8_t *)(a1 + 116));
   *v4 = 0;
   v4[1] = *(uint8_t *)(a1 + 107);
   check_abort_flag(dword_134B2C, (uint32_t *)v4 - 3);
@@ -68732,14 +69048,14 @@ int mac_tx_start() {
 
   v0 = (void *)(uintptr_t)(off_134C6C);
   v1 = *((uint32_t *)off_134C6C + 2);
-  feature_guard_sdio(256, dword_134C70);
-  v2 = rf_bus_setup_n3a8(6149, 13, 6, 6u);
+  state_check_feature(256, dword_134C70);
+  v2 = bt_buf_alloc(6149, 13, 6, 6u);
   if ( *((uint8_t *)v0 + 4) )
     v3 = 0;
   else
     v3 = v0[6];
   *(uint8_t *)(v1 + 149) = 0;
-  timestamp_remove_058(v1 + 152);
+  ke_event_set_lock(v1 + 152);
   v6 = *((int **)off_134C74 + 2);
   if ( !v6 )
   {
@@ -68805,7 +69121,7 @@ LABEL_8:
   }
 LABEL_15:
   bt_coex_control((int *)v1, 0, 0);
-  result = bt_fw_init_handler(v1);
+  result = write_hw_mmio_word(v1);
   *(uint16_t *)v2 = v3;
   *(uint8_t *)(v2 + 2) = *(uint8_t *)(v1 + 107);
   *(uint8_t *)(v2 + 4) = *((uint8_t *)v0 + 33);
@@ -68818,7 +69134,7 @@ LABEL_15:
 // mac_irq_dispatch @ 0x134c88
 int mac_irq_dispatch(int a1, int a2) {
   if ( (a2 & 0x810000) == 0x10000 )
-    ke_event_schedule_1(dword_134CA8);
+    ((int (*)())ke_event_schedule)(dword_134CA8);
   return mac_tx_start();
 }
 
@@ -68946,22 +69262,22 @@ uint32_t *phy_rate_power_update() {
   v0 = dword_134FA4;
   v1 = *((uint32_t *)off_134F98 + 4);
   v22 = *(uint8_t *)(v1 + 61);
-  v2 = (uint8_t *)rf_bus_setup_n3a8(5145, 5, 6, 2u);
-  v3 = rf_bus_setup_n3a8(24, 0, 6, 8u);
+  v2 = (uint8_t *)bt_buf_alloc(5145, 5, 6, 2u);
+  v3 = bt_buf_alloc(24, 0, 6, 8u);
   v4 = 1320 * v22;
-  v5 = rf_bus_setup_n3a8(22, 0, 6, 8u);
-  v6 = rf_bus_setup_n3a8(20, 0, 6, 4u);
-  v7 = (uint8_t *)rf_bus_setup_n3a8(5143, 5, 6, 2u);
+  v5 = bt_buf_alloc(22, 0, 6, 8u);
+  v6 = bt_buf_alloc(20, 0, 6, 4u);
+  v7 = (uint8_t *)bt_buf_alloc(5143, 5, 6, 2u);
   llm_reset_cleanup();
   *v2 = 1;
   v2[1] = *(uint8_t *)(v1 + 61);
-  list_push_tail((int)off_134F98 + 24, (uint32_t *)v2 - 3);
+  check_abort_flag((int)off_134F98 + 24, (uint32_t *)v2 - 3);
   v8 = *(uint32_t *)(v0 + 1320 * v22 + 368);
   *(uint16_t *)(v3 + 4) = *(uint16_t *)(v0 + 1320 * v22 + 372);
   v9 = (void *)(uintptr_t)(off_134F98);
   *(uint32_t *)v3 = v8;
   *(uint8_t *)(v3 + 6) = *(uint8_t *)(v1 + 61);
-  list_push_tail((int)v9 + 24, (uint32_t *)(v3 - 12));
+  check_abort_flag((int)v9 + 24, (uint32_t *)(v3 - 12));
   *(uint8_t *)(v5 + 5) = *(uint8_t *)(v0 + 1320 * v22 + 412);
   v10 = llm_decrypt_adv_payload((uint8_t *)(1320 * v22 + 424 + v0), 1);
   v11 = *(uint8_t *)(v5 + 5);
@@ -68978,39 +69294,39 @@ uint32_t *phy_rate_power_update() {
       *((uint32_t *)off_134F9C + 5) = 4;
     }
   }
-  list_push_tail(dword_134FA0, (uint32_t *)(v5 - 12));
+  check_abort_flag(dword_134FA0, (uint32_t *)(v5 - 12));
   v12 = dword_134FA0;
   v13 = v0 + 1320 * v22;
   *(uint16_t *)v6 = *(uint16_t *)(v13 + 422);
   *(uint8_t *)(v6 + 2) = *(uint8_t *)(v1 + 61);
-  list_push_tail(v12, (uint32_t *)(v6 - 12));
+  check_abort_flag(v12, (uint32_t *)(v6 - 12));
   if ( (*(uint32_t *)(v13 + 472) & 8) != 0 )
   {
-    v21 = (int *)rf_bus_setup_n3a8(113, 0, 6, 4u);
+    v21 = (int *)bt_buf_alloc(113, 0, 6, 4u);
     *v21 = rf_get_rssi_status(v0 + v4 + 248);
-    list_push_tail(dword_134FA0, v21 - 3);
+    check_abort_flag(dword_134FA0, (void *)(v21 - 3));
   }
   v14 = 0;
   v15 = dword_134FA0;
   v16 = (int *)(v0 + v4 + 440);
   do
   {
-    v17 = rf_bus_setup_n3a8(26, 0, 6, 8u);
+    v17 = bt_buf_alloc(26, 0, 6, 8u);
     v18 = *v16++;
     *(uint32_t *)v17 = v18;
     *(uint8_t *)(v17 + 5) = v14;
     *(uint8_t *)(v17 + 6) = *(uint8_t *)(v1 + 61);
     *(uint8_t *)(v17 + 4) = 0;
     ++v14;
-    list_push_tail(v15, (uint32_t *)(v17 - 12));
+    check_abort_flag(v15, (uint32_t *)(v17 - 12));
   }
   while ( v14 != 4 );
   *v7 = 1;
   v19 = dword_134FA0;
   v7[1] = *(uint8_t *)(v1 + 61);
-  list_push_tail(v19, (uint32_t *)v7 - 3);
+  check_abort_flag(v19, (uint32_t *)v7 - 3);
   check_hw_ready_status();
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(6u, 4));
+  return hci_cmd_send(6u, 4);
 }
 
 
@@ -69023,8 +69339,8 @@ int init_rf_config(int a1, int a2, int a3) {
   *((uint8_t *)off_135000 + 4) = a3;
   v3[2] = a1;
   *((uint16_t *)v3 + 6) = a2;
-  rf_bus_mark_n_3b7(6u, 10);
-  feature_guard_sdio(
+  hci_cmd_send(6u, 10);
+  state_check_feature(
     256,
     dword_135008,
     *(uint8_t *)(a1 + 107),
@@ -69032,7 +69348,7 @@ int init_rf_config(int a1, int a2, int a3) {
     *(uint16_t *)(dword_135004 + 696 * *(uint8_t *)(a1 + 116) + 50),
     a3);
   if ( *((uint8_t *)v3 + 4) )
-    return bt_state_poll_n_cac();
+    return rx_desc_read_status();
   else
     return mac_tx_start();
 }
@@ -69042,7 +69358,7 @@ int init_rf_config(int a1, int a2, int a3) {
 // check_fw_ready @ 0x13500c
 int check_fw_ready() {
   if ( *((uint8_t *)off_13501C + 4) )
-    return bt_state_poll_n_cac();
+    return rx_desc_read_status();
   else
     return mac_tx_start();
 }
@@ -69097,7 +69413,7 @@ int event_dispatch_1(int a1) {
   v38 = *((uint32_t *)off_1352A0 + 4);
   v6 = dword_1352E8 + 1320 * v4;
   v7 = *(uint8_t *)(v6 + 116);
-  result = ke_event_schedule_1(dword_1352A4);
+  result = ((int (*)())ke_event_schedule)(dword_1352A4);
   v9 = v2[4];
   if ( v9 )
   {
@@ -69139,13 +69455,13 @@ LABEL_8:
           *v35 |= 0x80000000;
           *v36 = v37;
         }
-        rf_bus_mark_n_3b7(6u, 10);
+        hci_cmd_send(6u, 10);
         v2[2] = v6;
         *v2 = v5 - 12;
-        bt_fw_init_handler(v6);
+        write_hw_mmio_word(v6);
 LABEL_10:
-        feature_guard_sdio(256, dword_1352B8, *(uint8_t *)(v5 + 9), a1, *(uint16_t *)(v5 + 820));
-        result = j_buffer_pool_get(v2[4] - 12);
+        state_check_feature(256, dword_1352B8, *(uint8_t *)(v5 + 9), a1, *(uint16_t *)(v5 + 820));
+        result = jump_to_tx_entry(v2[4] - 12);
         v2[4] = 0;
         *((uint8_t *)v2 + 33) = 0;
         return result;
@@ -69219,8 +69535,8 @@ LABEL_10:
       hw_reg_write(v33 | (*(uint8_t *)(v32 + 413) << 16) | 0x80000000, (int)v30, 4999);
     v34 = (void *)(uintptr_t)(off_1352D8);
     *(uint8_t *)(v3 + 1320 * v4 + 149) = 1;
-    timestamp_update_4f60(1320 * v4 + 152 + v3, dword_1352DC + v34[4]);
-    rf_bus_mark_n_3b7(6u, 0);
+    ke_event_lock(1320 * v4 + 152 + v3, dword_1352DC + v34[4]);
+    hci_cmd_send(6u, 0);
     goto LABEL_10;
   }
   return result;
@@ -69237,18 +69553,18 @@ int get_conn_info(int a1, int a2) {
 
   v2 = *(uint32_t *)(a1 + 72);
   v3 = (void *)(uintptr_t)(off_13537C);
-  feature_guard_sdio(
+  state_check_feature(
     256,
     dword_135380,
     *((uint8_t *)off_13537C + 34),
     a2,
     (uint8_t)*(uint16_t *)(v2 + 108));
   if ( !v3[34] )
-    return event_dispatch_1(1);
+    return ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
   v7 = *(uint16_t *)(v2 + 108);
-  if ( msg_get_value(6u) != 5 )
+  if ( hci_cmd_send_short(6u) != 5 )
   {
-    result = msg_get_value(6u);
+    result = hci_cmd_send_short(6u);
     if ( result != 8 )
     {
 LABEL_5:
@@ -69256,8 +69572,8 @@ LABEL_5:
       return result;
     }
   }
-  result = msg_get_value(6u);
-  if ( result == 5 && (v7 & 0xFC) == 0xB0 || (result = msg_get_value(6u), result == 8) && (v7 & 0xDC) == 0 )
+  result = hci_cmd_send_short(6u);
+  if ( result == 5 && (v7 & 0xFC) == 0xB0 || (result = hci_cmd_send_short(6u), result == 8) && (v7 & 0xDC) == 0 )
   {
     if ( (a2 & 0x800000) == 0 )
     {
@@ -69308,7 +69624,7 @@ uint32_t * rf_lookup_by_index(int a1, char *a2) {
   v5 = *(uint8_t *)(v4 + 61);
   v6 = (uint8_t *)(dword_135558 + 1320 * v5);
   v9 = v6[116];
-  feature_guard_sdio(256, dword_135560, dword_13555C);
+  state_check_feature(256, dword_135560, dword_13555C);
   if ( !v6[1224] )
   {
     v10 = v6[412];
@@ -69317,17 +69633,17 @@ uint32_t * rf_lookup_by_index(int a1, char *a2) {
     v11 = event_notify(v10, 512);
     if ( v11 )
       goto LABEL_5;
-    return (uint32_t *)event_dispatch_1(1);
+    return (uint32_t *)((int (*)())event_dispatch)((void *)(uintptr_t)(1));
   }
   v11 = event_notify(1, 512);
   if ( !v11 )
-    return (uint32_t *)event_dispatch_1(1);
+    return (uint32_t *)((int (*)())event_dispatch)((void *)(uintptr_t)(1));
 LABEL_5:
   v12 = v3 + 1320 * v5;
-  message_dispatch_n_4a3(v12, v11);
+  scan_done_check(v12, v11);
   v13 = *(uint32_t *)(v11 + 72);
-  v14 = (int)(uintptr_t)(loc_135564 + 696 * v9);
-  v15 = *(uint16_t *)(loc_13557C + 0x1FC);
+  v14 = (int)(uintptr_t)((uint32_t *)(uintptr_t)(0x135564 + 696 * v9));
+  v15 = *(uint16_t *)(uintptr_t)(0x13557C + 0x1FC);
   v16 = *(uint32_t *)(v14 + 38);
   v14 += 38;
   *(uint32_t *)(v13 + 112) = v16;
@@ -69343,7 +69659,7 @@ LABEL_5:
   *(uint8_t *)(v13 + 110) = 0;
   *(uint8_t *)(v13 + 111) = 0;
   v18 = 16 * v15;
-  *(uint16_t *)(loc_13557C + 0x1FC) = v15;
+  *(uint16_t *)(uintptr_t)(0x13557C + 0x1FC) = v15;
   v15 = (v15 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(v12 + 107)) & 0xFFu);
   *(uint16_t *)(v13 + 130) = v18;
   *(uint8_t *)(v11 + 28) = v15;
@@ -69368,8 +69684,8 @@ LABEL_5:
     v26 = *(uint16_t *)(v4 + 54);
     if ( 512 - v22 < v26 )
     {
-      if ( *(int16_t *)*loc_135570 < 0 )
-        mmio_field_update((int)(uintptr_t)(loc_135578), (int)(uintptr_t)(loc_135574), 1015);
+      if ( *(int16_t *)(uintptr_t)(0x135570) < 0 )
+        mmio_field_update(0x135578, 0x135574, 1015);
     }
     else
     {
@@ -69391,15 +69707,15 @@ LABEL_5:
   }
   v23 = *(uint32_t **)(v11 + 76);
   v24 = *(uint8_t *)(v11 + 53) + v22;
-  v31 = *(uint32_t *)(*loc_135568 + 12);
+  v31 = *(uint32_t *)((uint32_t *)(uintptr_t)(0x135568) + 12);
   v23[8] = v23[7] - 1 + v24;
   v23[9] = v24 + 4;
-  *(uint32_t *)(v11 + 88) = (int)(uintptr_t)(loc_13556C);
+  *(uint32_t *)(v11 + 88) = 0x13556C;
   *(uint32_t *)(v11 + 92) = v11;
   ble_event_dispatch(v11, 5);
   v2[34] = 1;
-  rf_level_apply_80c(6154, 6, v31);
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(6u, 5));
+  patch_aware_dispatch(6154, 6, v31);
+  return hci_cmd_send(6u, 5);
 }
 
 
@@ -69455,11 +69771,11 @@ uint32_t *rf_lookup_alt_by_index() {
     v6 = event_notify(v5, 512);
     if ( v6 )
       goto LABEL_5;
-    return (uint32_t *)event_dispatch_1(1);
+    return (uint32_t *)((int (*)())event_dispatch)((void *)(uintptr_t)(1));
   }
   v6 = event_notify(1, 512);
   if ( !v6 )
-    return (uint32_t *)event_dispatch_1(1);
+    return (uint32_t *)((int (*)())event_dispatch)((void *)(uintptr_t)(1));
 LABEL_5:
   v7 = (void *)(uintptr_t)(off_135750);
   v31 = 1320 * v2;
@@ -69580,9 +69896,9 @@ uint32_t * hci_vendor_read_rf(char *a1) {
   {
     v12 = dword_135878;
     *(uint16_t *)(v2 + 16) = 0;
-    feature_guard_sdio(256, v12, v4);
+    state_check_feature(256, v12, v4);
     if ( !v4 )
-      return (void *)(uintptr_t)(rf_msg_process_body_n_102(*((uint16_t *)a1 + 8) & 0x3FFF));
+      return rf_write_cal_param(*((uint16_t *)a1 + 8) & 0x3FFF);
   }
   else
   {
@@ -69610,11 +69926,11 @@ uint32_t * hci_vendor_read_rf(char *a1) {
       while ( v7 != &a1[v6 + 18] );
     }
     *(uint16_t *)(v2 + 16) = v6;
-    feature_guard_sdio(256, dword_135878, v4);
+    state_check_feature(256, dword_135878, v4);
     if ( !v4 )
-      return (void *)(uintptr_t)(rf_msg_process_body_n_102(*((uint16_t *)a1 + 8) & 0x3FFF));
+      return rf_write_cal_param(*((uint16_t *)a1 + 8) & 0x3FFF);
   }
-  return (uint32_t *)event_dispatch_1(v4);
+  return (uint32_t *)((int (*)())event_dispatch)((void *)(uintptr_t)(v4));
 }
 
 
@@ -69636,7 +69952,7 @@ int rf_check_channel_10(int a1) {
     state_check_feature(256, dword_135920);
     if ( find_hci_conn_by_handle(6154, 6) )
       irq_lock(6154, 6);
-    event_dispatch_1(1);
+    ((int (*)())event_dispatch)((void *)(uintptr_t)(1));
     return 0;
   }
   else
@@ -69690,7 +70006,7 @@ int rf_get_power_by_index(int a1, int a2, int a3, int a4, int a5, int a6, int a7
   v22 = (v22 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(a1 + 6)) & 0xFFu);
   v23 = (v23 & ~0xFFFFu) | ((uint16_t)(v19) & 0xFFFFu);
   v22 = (v22 & ~0xFFFF0000u) | (((uint16_t)(v19) & 0xFFFFu) << 16);
-  ipc_msg_dispatch_454((int)v11, v17, (uint8_t *)&v22);
+  scan_done_check_alt((int)v11, v17, (uint8_t *)&v22);
   v20 = *(uint32_t *)(v18 + 72);
   *(uint32_t *)(v20 + 112) = *(uint32_t *)(v16 + 38);
   *(uint8_t *)(v20 + 108) = -48;
@@ -69777,7 +70093,7 @@ int rf_check_status_1(unsigned int a1) {
   v3 = *(uint8_t *)(v1 + 61);
   if ( **(int16_t **)off_135B34 < 0 && *(int *)(dword_135B3C + 1320 * v3 + 472) >= 0 )
     mmio_irq_clear(dword_135B48, dword_135B44, 1398);
-  v5 = (uint8_t *)rf_bus_setup_n3a8(6150, 13, 6, 0x2Cu);
+  v5 = (uint8_t *)bt_buf_alloc(6150, 13, 6, 0x2Cu);
   *v5 = *(uint8_t *)(v1 + 61);
   v6 = (void *)(v5 + 1);
   v7 = v2 + 1320 * v3;
@@ -69803,8 +70119,8 @@ int rf_check_status_1(unsigned int a1) {
   *(uint16_t *)(v9 + 38) = *(uint16_t *)(v14 + 372);
   *(uint32_t *)(v9 + 34) = v15;
   *(uint32_t *)(v9 + 40) = bswap32(a1);
-  rf_bus_mark_n_3b7(6u, 6);
-  rf_level_apply_80c(6154, 6, dword_135B40);
+  hci_cmd_send(6u, 6);
+  patch_aware_dispatch(6154, 6, dword_135B40);
   return hci_evt_send(v9);
 }
 
@@ -69814,9 +70130,16 @@ int rf_check_status_1(unsigned int a1) {
 uint32_t * hci_vendor_cmd_dispatch(int a1) {
   irq_lock(6154, 6);
   if ( !a1 )
-    return (void *)(uintptr_t)(fmacfwbt_init_handler());
-  feature_guard_sdio(256, dword_135B7C, a1);
-  return (uint32_t *)event_dispatch_1(a1);
+    return rf_lookup_alt_by_index();
+  state_check_feature(256, dword_135B7C, a1);
+  return (uint32_t *)((int (*)())event_dispatch)((void *)(uintptr_t)(a1));
+}
+
+
+
+// is_pll_freq_6 @ 0x135b80
+BOOL is_pll_freq_6() {
+  return hci_cmd_send_short(6u) == 6;
 }
 
 
@@ -69832,7 +70155,7 @@ int send_hci_vendor_cmd(char a1, int a2, unsigned int a3) {
   unsigned int v11; // r4
 
   v3 = a3;
-  v6 = rf_bus_setup_n3a8(6152, 13, 6, (uint16_t)(a3 + 4));
+  v6 = bt_buf_alloc(6152, 13, 6, (uint16_t)(a3 + 4));
   v7 = (int16_t **)off_135C0C;
   *(uint8_t *)v6 = a1;
   v8 = *v7;
@@ -69840,7 +70163,7 @@ int send_hci_vendor_cmd(char a1, int a2, unsigned int a3) {
   v9 = v6;
   if ( *v8 < 0 )
   {
-    if ( v3 >= sub_12F870() - 4 )
+    if ( v3 >= get_shared_buf_size() - 4 )
       mmio_irq_clear(dword_135C18, dword_135C14, 1444);
     v3 = *(uint16_t *)(v9 + 2);
   }
@@ -69855,8 +70178,8 @@ int send_hci_vendor_cmd(char a1, int a2, unsigned int a3) {
     }
     while ( v10 != v11 );
   }
-  rf_bus_mark_n_3b7(6u, 7);
-  rf_level_apply_80c(6154, 6, dword_135C10);
+  hci_cmd_send(6u, 7);
+  patch_aware_dispatch(6154, 6, dword_135C10);
   return hci_evt_send(v9);
 }
 
@@ -69875,7 +70198,7 @@ uint32_t * hci_vendor_read_rf_cache(uint16_t *a1) {
   v3 = v1[2];
   result = (uint32_t *)state_check_feature(256, dword_135C98, v3);
   if ( v3 )
-    return (uint32_t *)event_dispatch_1(v3);
+    return (uint32_t *)((int (*)())event_dispatch)((void *)(uintptr_t)(v3));
   v5 = a1[6];
   if ( !a1[6] )
     return rf_lookup_alt_by_index();
@@ -69905,9 +70228,9 @@ uint32_t * hci_vendor_get_state(int a1) {
   v1 = (void *)(uintptr_t)(off_135CC8);
   irq_lock(6154, 6);
   memcpy_aligned((void *)(uintptr_t)(a1), (void *)(uintptr_t)(v1[4]), 54);
-  j_buffer_pool_get(v1[4] - 12);
+  jump_to_tx_entry(v1[4] - 12);
   v1[4] = a1;
-  return (void *)(uintptr_t)(fmacfwbt_init_handler());
+  return rf_lookup_alt_by_index();
 }
 
 
@@ -70041,7 +70364,7 @@ LABEL_5:
   v15 = result;
   if ( result )
   {
-    message_dispatch_n_4a3(v3 + 1320 * a1, result);
+    scan_done_check(v3 + 1320 * a1, result);
     v16 = *(uint32_t *)(v15 + 72);
     v17 = *(uint32_t *)(v13 + 100);
     v18 = v4 + 696 * v5;
@@ -70199,11 +70522,11 @@ LABEL_31:
     v30[8] = v34;
     v30[9] = v62 + v31 + 66;
     v35 = *(uint8_t *)(v33 + 453);
-    if ( v35 != 33 && msg_get_value((v35 << 8) | 8) == 1 )
+    if ( v35 != 33 && hci_cmd_send_short((v35 << 8) | 8) == 1 )
     {
       v55 = *(uint32_t *)(dword_1361E4 + 32 * v35 + 28);
       ((int (*)())rx_invoke_cb)();
-      rf_state_get_or_set(v55);
+      rf_scan_entry(v55);
     }
     if ( (a3[1] & 0x40) != 0 && *(uint8_t *)(v53 + 96) == 1 )
     {
@@ -70211,7 +70534,7 @@ LABEL_31:
       memcpy_aligned((void *)(uintptr_t)(v15 + 18), (void *)(uintptr_t)(v59 + 100 + v3), 6);
       v51 = v32 - (*(uint8_t *)(v15 + 51) + *(uint8_t *)(v15 + 53));
       *(uint8_t *)(v15 + 27) = 0;
-      bt_flag_check_init(v15, v53 + 80, v26, v51 - 26);
+      check_radio_flag(v15, v53 + 80, v26, v51 - 26);
     }
     return ble_event_dispatch(v15, v58);
   }
@@ -70228,7 +70551,7 @@ int patch_get_entry(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
   v5 = *((uint16_t *)a2 + 1);
   memcpy_aligned((void *)(uintptr_t)(dword_136238 + (*a2 << 9)), a2 + 4, v5);
   *(uint16_t *)(dword_13623C + 2 * *a2) = v5;
-  v8 = (uint8_t *)rf_bus_setup_n3a8(7177, a4, a3, 2u);
+  v8 = (uint8_t *)bt_buf_alloc(7177, a4, a3, 2u);
   *v8 = 1;
   v8[1] = *a2;
   hci_evt_send((int)v8);
@@ -70245,7 +70568,7 @@ int patch_copy_data(int a1, uint16_t *a2, int16_t a3, int16_t a4) {
   int v11; // r2
   char v12; // r12
 
-  feature_guard_sdio(256, dword_1362B0, *a2);
+  state_check_feature(256, dword_1362B0, *a2);
   v7 = *a2;
   if ( *(uint8_t *)(dword_1362B4 + 1320 * v7 + 106) == 2 )
   {
@@ -70257,10 +70580,10 @@ int patch_copy_data(int a1, uint16_t *a2, int16_t a3, int16_t a4) {
     *(uint32_t *)(v9 + 196) = v10;
     *(uint32_t *)(v9 + 200) = v11;
     *(uint8_t *)(v9 + 204) = v12;
-    feature_guard_sdio(256, dword_1362BC, *((uint8_t *)a2 + 2));
-    bt_link_state_check(v9);
+    state_check_feature(256, dword_1362BC, *((uint8_t *)a2 + 2));
+    bt_get_local_addr_type(v9);
   }
-  message_dispatch_n84(7179, a4, a3);
+  hci_evt_alloc_send(7179, a4, a3);
   return 0;
 }
 
@@ -70279,12 +70602,12 @@ int tx_send_packet(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
   int *v15; // r3
   int v16; // r3
 
-  ke_event_schedule_1(dword_136354, dword_136350);
+  ((int (*)())ke_event_schedule)(dword_136354, (void *)(uintptr_t)(dword_136350));
   v6 = a3;
   v7 = dword_136358 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && !*(uint8_t *)(v7 + 108) )
   {
-    value = msg_get_value(7u);
+    value = hci_cmd_send_short(7u);
     v6 = a3;
     if ( !value )
     {
@@ -70315,7 +70638,7 @@ int tx_send_packet(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
       }
     }
   }
-  message_dispatch_n84(7175, a4, v6);
+  hci_evt_alloc_send(7175, a4, v6);
   return 0;
 }
 
@@ -70334,7 +70657,7 @@ int tx_build_packet(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
   v7 = a2[9];
   v8 = *a2;
   v14[0] = 0;
-  ke_event_schedule_1(dword_1363F8, dword_1363FC, v7, v8);
+  ((int (*)())ke_event_schedule)(dword_1363F8, (void *)(uintptr_t)(dword_1363FC), v7, v8);
   v9 = dword_136400 + 1320 * a2[10];
   if ( *(uint8_t *)(v9 + 106) == 2 )
   {
@@ -70374,7 +70697,7 @@ int tx_build_packet(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
 int rf_cal_trigger(int value) {
   int v2; // r0
 
-  if ( **(int16_t **)off_13643C >= 0 || (value = msg_get_value(7u), value == 3) )
+  if ( **(int16_t **)off_13643C >= 0 || (value = hci_cmd_send_short(7u), value == 3) )
   {
     txpwr_get_state(value);
     return 0;
@@ -70391,9 +70714,9 @@ int rf_cal_trigger(int value) {
 
 // rf_cal_cmd @ 0x136448
 int rf_cal_cmd() {
-  if ( **(int16_t **)off_136490 < 0 && msg_get_value(7u) != 3 && msg_get_value(7u) )
+  if ( **(int16_t **)off_136490 < 0 && hci_cmd_send_short(7u) != 3 && hci_cmd_send_short(7u) )
     mmio_irq_clear(dword_136498, dword_136494, 442);
-  if ( msg_get_value(7u) == 3 )
+  if ( hci_cmd_send_short(7u) == 3 )
     txpwr_get_state(3);
   return 0;
 }
@@ -70423,7 +70746,7 @@ int tx_schedule_radio_task() {
 int txpwr_update_state(int value) {
   int v2; // r0
 
-  if ( **(int16_t **)off_136538 >= 0 || (value = msg_get_value(7u), value == 1) )
+  if ( **(int16_t **)off_136538 >= 0 || (value = hci_cmd_send_short(7u), value == 1) )
   {
     txpwr_get_state(value);
     return 0;
@@ -70460,18 +70783,18 @@ int tx_schedule_radio_task_alt() {
   int16_t **v0; // r4
 
   v0 = (int16_t **)off_136614;
-  if ( **(int16_t **)off_136614 < 0 && msg_get_value(7u) != 1 && msg_get_value(7u) && msg_get_value(7u) != 3 )
+  if ( **(int16_t **)off_136614 < 0 && hci_cmd_send_short(7u) != 1 && hci_cmd_send_short(7u) && hci_cmd_send_short(7u) != 3 )
     mmio_irq_clear(dword_136624, dword_13661C, 341);
-  if ( msg_get_value(7u) == 1 )
+  if ( hci_cmd_send_short(7u) == 1 )
   {
     if ( **v0 < 0 && *((uint32_t *)off_136618 + 1) )
       mmio_irq_clear(dword_136620, dword_13661C, 349);
     rf_core_enable();
   }
-  else if ( msg_get_value(7u) == 3 )
+  else if ( hci_cmd_send_short(7u) == 3 )
   {
-    message_dispatch_n84(7171, 13, 7);
-    rf_bus_mark_n_3b7(7u, 0);
+    hci_evt_alloc_send(7171, 13, 7);
+    hci_cmd_send(7u, 0);
   }
   return 0;
 }
@@ -70482,23 +70805,23 @@ int tx_schedule_radio_task_alt() {
 int rf_load_cal_data(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
   int v7; // r4
 
-  feature_guard_sdio(256, dword_13667C);
+  state_check_feature(256, dword_13667C);
   v7 = dword_136680 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && *(uint8_t *)(v7 + 108) )
   {
-    if ( msg_get_value(7u) )
+    if ( hci_cmd_send_short(7u) )
     {
       return 2;
     }
     else
     {
-      patch_apply_n_2ac(v7);
+      rf_path_config(v7);
       return 0;
     }
   }
   else
   {
-    message_dispatch_n84(7171, a4, a3);
+    hci_evt_alloc_send(7171, a4, a3);
     return 0;
   }
 }
@@ -70529,20 +70852,20 @@ int rf_cal_configure(int a1, int a2, int16_t a3, int16_t a4) {
   int16_t v27; // [sp+Ch] [bp-4h]
 
   v4 = dword_136824;
-  feature_guard_sdio(256, dword_13680C, *(uint32_t *)(a2 + 20), *((uint8_t *)off_136808 + 413));
+  state_check_feature(256, dword_13680C, *(uint32_t *)(a2 + 20), *((uint8_t *)off_136808 + 413));
   v8 = *(uint8_t *)(a2 + 51);
   v9 = v4 + 1320 * v8;
   if ( *(uint8_t *)(v9 + 106) != 2 )
   {
     v10 = 4;
 LABEL_3:
-    v11 = (char *)rf_bus_setup_n3a8(7169, a4, a3, 4u);
+    v11 = (char *)bt_buf_alloc(7169, a4, a3, 4u);
     *v11 = v10;
     v11[1] = *(uint8_t *)(a2 + 51);
     hci_evt_send((int)v11);
     return 0;
   }
-  if ( msg_get_value(7u) )
+  if ( hci_cmd_send_short(7u) )
   {
     v10 = 8;
     goto LABEL_3;
@@ -70579,7 +70902,7 @@ LABEL_3:
   *(uint32_t *)(v19 + 416) = v17;
   *(uint8_t *)(v19 + 464) = 0;
   *(uint16_t *)(v19 + 420) = v18;
-  message_dispatch_c7ac(v19);
+  scan_rssi_compare(v19);
   if ( BYTE1(v25) == 2 )
     bt_coex_control((int *)(v4 + 1320 * v8), 1, 0);
   v20 = update_entries_from_config(*(uint8_t *)(a2 + 51), v24);
@@ -70615,9 +70938,9 @@ LABEL_3:
 // txpwr_get_context @ 0x136828
 uint32_t *txpwr_get_context() {
   if ( **(int16_t **)off_13685C >= 0 || !*((uint32_t *)off_136864 + 1) )
-    return (void *)(uintptr_t)(bt_xtal_init_check((uint32_t *)dword_136860));
+    return zero_struct((uint32_t *)dword_136860);
   mmio_irq_clear(dword_136868, dword_13686C, 46);
-  return (void *)(uintptr_t)(bt_xtal_init_check((uint32_t *)dword_136860));
+  return zero_struct((uint32_t *)dword_136860);
 }
 
 
@@ -70627,9 +70950,9 @@ uint32_t *txpwr_reset_state() {
   uint8_t *v0; // r4
 
   v0 = (void *)(uintptr_t)(off_13688C);
-  memset_thunk((int *)off_13688C, 0, 0x10u);
+  memset_byte((int *)off_13688C, 0, 0x10u);
   v0[12] = 0;
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(7u, 0));
+  return hci_cmd_send(7u, 0);
 }
 
 
@@ -70654,7 +70977,7 @@ uint32_t * txpwr_send_cmd(int a1) {
 
   v1 = (void *)(uintptr_t)(off_136974);
   v3 = *(uint32_t *)off_136974;
-  v4 = (uint8_t *)rf_bus_setup_n3a8(7169, 13, 7, 4u);
+  v4 = (uint8_t *)bt_buf_alloc(7169, 13, 7, 4u);
   if ( a1 )
   {
     v5 = *(uint8_t *)(v3 + 51);
@@ -70662,7 +70985,7 @@ uint32_t * txpwr_send_cmd(int a1) {
   else
   {
     v7 = *(uint8_t *)(v3 + 51);
-    v8 = rf_bus_setup_n3a8(30, 0, 7, 4u);
+    v8 = bt_buf_alloc(30, 0, 7, 4u);
     v9 = dword_136970 + 1320 * v7;
     *(uint8_t *)(v8 + 2) = 1;
     *(uint8_t *)(v8 + 3) = *(uint8_t *)(v9 + 107);
@@ -70684,7 +71007,7 @@ uint32_t * txpwr_send_cmd(int a1) {
     *(uint32_t *)(v16 + 200) = v14;
     *(uint8_t *)(v16 + 52) = 2;
     *(uint8_t *)(v16 + 204) = v15;
-    bt_link_state_check(v16);
+    bt_get_local_addr_type(v16);
     v17 = *(uint8_t *)(v16 + 350);
     *(uint16_t *)(v16 + 38) = 1;
     *(uint8_t *)(v16 + 350) = v17 | 0x10;
@@ -70695,9 +71018,9 @@ uint32_t * txpwr_send_cmd(int a1) {
   v4[1] = v5;
   *v4 = a1;
   hci_evt_send((int)v4);
-  j_buffer_pool_get(v3 - 12);
+  jump_to_tx_entry(v3 - 12);
   *v1 = 0;
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(7u, 0));
+  return hci_cmd_send(7u, 0);
 }
 
 
@@ -70734,11 +71057,11 @@ uint32_t *rf_cal_init() {
   v0 = dword_136AE4;
   v1 = *(uint32_t *)off_136AD8;
   v2 = *(uint8_t *)(*(uint32_t *)off_136AD8 + 51);
-  v3 = rf_bus_setup_n3a8(24, 0, 7, 8u);
-  v4 = rf_bus_setup_n3a8(22, 0, 7, 8u);
-  v5 = rf_bus_setup_n3a8(20, 0, 7, 4u);
+  v3 = bt_buf_alloc(24, 0, 7, 8u);
+  v4 = bt_buf_alloc(22, 0, 7, 8u);
+  v5 = bt_buf_alloc(20, 0, 7, 4u);
   v6 = v0 + 1320 * v2;
-  v7 = (uint8_t *)rf_bus_setup_n3a8(5143, 5, 7, 2u);
+  v7 = (uint8_t *)bt_buf_alloc(5143, 5, 7, 2u);
   txpwr_get_context();
   if ( *(uint8_t *)(v6 + 1224) )
   {
@@ -70747,30 +71070,30 @@ uint32_t *rf_cal_init() {
   }
   else
   {
-    v12 = (uint8_t *)rf_bus_setup_n3a8(5145, 5, 7, 2u);
+    v12 = (uint8_t *)bt_buf_alloc(5145, 5, 7, 2u);
     *v12 = 1;
     v12[1] = *(uint8_t *)(v6 + 107);
-    list_push_tail((int)off_136AD8 + 4, (uint32_t *)v12 - 3);
+    check_abort_flag((int)off_136AD8 + 4, (uint32_t *)v12 - 3);
   }
   v8 = v0 + 1320 * v2;
   v9 = *(uint32_t *)(v8 + 100);
   *(uint16_t *)(v3 + 4) = *(uint16_t *)(v8 + 104);
   *(uint32_t *)v3 = v9;
   *(uint8_t *)(v3 + 6) = *(uint8_t *)(v1 + 51);
-  list_push_tail(dword_136AE0, (uint32_t *)(v3 - 12));
+  check_abort_flag(dword_136AE0, (uint32_t *)(v3 - 12));
   *(uint8_t *)(v4 + 5) = *(uint8_t *)(v1 + 16);
   *(uint32_t *)v4 = llm_decrypt_adv_payload((uint8_t *)v1, 1);
   *(uint8_t *)(v4 + 4) = *(uint8_t *)(v1 + 51);
-  list_push_tail(dword_136AE0, (uint32_t *)(v4 - 12));
+  check_abort_flag(dword_136AE0, (uint32_t *)(v4 - 12));
   *(uint16_t *)v5 = *(uint16_t *)(v1 + 40);
   *(uint8_t *)(v5 + 2) = *(uint8_t *)(v1 + 51);
-  list_push_tail(dword_136AE0, (uint32_t *)(v5 - 12));
+  check_abort_flag(dword_136AE0, (uint32_t *)(v5 - 12));
   *v7 = 1;
   v10 = dword_136AE0;
   v7[1] = *(uint8_t *)(v1 + 51);
-  list_push_tail(v10, (uint32_t *)v7 - 3);
+  check_abort_flag(v10, (uint32_t *)v7 - 3);
   txpwr_get_state();
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(7u, 1));
+  return hci_cmd_send(7u, 1);
 }
 
 
@@ -70783,7 +71106,7 @@ uint32_t *rf_core_enable() {
   int16_t v3; // r2
 
   v0 = *(uint32_t *)off_136B24;
-  v1 = rf_bus_setup_n3a8(63, 0, 7, 0xCu);
+  v1 = bt_buf_alloc(63, 0, 7, 0xCu);
   v2 = *(uint16_t *)(v0 + 36);
   v3 = *(uint16_t *)(v0 + 38);
   *(uint32_t *)v1 = *(uint32_t *)(v0 + 32);
@@ -70792,7 +71115,7 @@ uint32_t *rf_core_enable() {
   *(uint8_t *)(v1 + 8) = *(uint8_t *)(v0 + 50);
   *(uint8_t *)(v1 + 9) = *(uint8_t *)(v0 + 51);
   hci_evt_send(v1);
-  return (void *)(uintptr_t)(rf_bus_mark_n_3b7(7u, 2));
+  return hci_cmd_send(7u, 2);
 }
 
 
@@ -70914,7 +71237,7 @@ int txpwr_limit_apply(int result, int a2) {
     {
       *(uint8_t *)(a2 + 53) |= 2u;
 LABEL_5:
-      v4 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+      v4 = bt_buf_alloc(65, 0, 5, 4u);
       *(uint16_t *)v4 = *(uint16_t *)(a2 + 32);
       *(uint8_t *)(v4 + 3) = *(uint8_t *)(a2 + 34);
       *(uint8_t *)(v4 + 2) = 1;
@@ -70978,7 +71301,7 @@ LABEL_26:
       goto LABEL_24;
     v8 = (int **)*v8;
   }
-  bt_msg_handler_sub(a2 + 572, v12, v8);
+  check_abort_flag_4(a2 + 572, (void *)(v12), (void *)(v8));
   v13 = *(uint8_t *)(a2 + 54);
   if ( (v13 & 8) != 0 )
     v14 = 4;
@@ -71009,7 +71332,7 @@ LABEL_20:
     *((uint16_t *)v8[18] + 54) |= 0x2000u;
     return v8;
   }
-  v19 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+  v19 = bt_buf_alloc(65, 0, 5, 4u);
   *(uint16_t *)v19 = *(uint16_t *)(a2 + 32);
   *(uint8_t *)(v19 + 3) = *(uint8_t *)(a2 + 34);
   *(uint8_t *)(v19 + 2) = 0;
@@ -71036,7 +71359,7 @@ int txpwr_cal_entry_get(int result, int a2) {
       *(uint8_t *)(v2 + 53) = v3 & 0xF5;
       if ( (v3 & 0xF5) == 0 )
       {
-        v4 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+        v4 = bt_buf_alloc(65, 0, 5, 4u);
         v5 = *(uint16_t *)(v2 + 32);
         *(uint8_t *)(v4 + 3) = *(uint8_t *)(v2 + 34);
         *(uint8_t *)(v4 + 2) = 0;
@@ -71076,7 +71399,7 @@ int txpwr_event_handler(int a1, int a2) {
       if ( !result )
         return result;
 LABEL_4:
-      message_dispatch_n_4a3(a1, result);
+      scan_done_check(a1, result);
       v8 = *(uint32_t *)(v7 + 72);
       *(uint8_t *)(v8 + 108) = -64;
       *(uint8_t *)(v8 + 109) = 0;
@@ -71142,7 +71465,7 @@ int rf_cmd_txpwr_query(int a1, uint8_t *a2, int a3, int16_t a4) {
   int v24; // r2
 
   v4 = (void *)(uintptr_t)(off_136FFC);
-  v6 = (uint8_t *)rf_bus_setup_n3a8(4102, a4, 4, 0x3Cu);
+  v6 = (uint8_t *)bt_buf_alloc(4102, a4, 4, 0x3Cu);
   v7 = (void *)(v6);
   if ( v4[2] && (v8 = *a2, (uint16_t)v4[2] > v8) )
   {
@@ -71196,9 +71519,9 @@ int rf_cmd_txpwr_query(int a1, uint8_t *a2, int a3, int16_t a4) {
 int rf_cmd_txpwr_set(int a1, int a2, int a3, int16_t a4) {
   int v4; // r0
 
-  v4 = rf_bus_setup_n3a8(4107, a4, 4, 1u);
+  v4 = bt_buf_alloc(4107, a4, 4, 1u);
   hci_evt_send(v4);
-  feature_guard_sdio(8, dword_137020);
+  state_check_feature(8, dword_137020);
   return 0;
 }
 
@@ -71210,9 +71533,9 @@ int rf_cmd_set() {
   int v1; // r0
 
   v0 = (uint16_t *)off_13704C;
-  v1 = rf_bus_setup_n3a8(4107, *((uint16_t *)off_13704C + 1924), 4, 1u);
+  v1 = bt_buf_alloc(4107, *((uint16_t *)off_13704C + 1924), 4, 1u);
   hci_evt_send(v1);
-  feature_guard_sdio(8, dword_137050, v0[1924]);
+  state_check_feature(8, dword_137050, v0[1924]);
   return 0;
 }
 
@@ -71222,8 +71545,8 @@ int rf_cmd_set() {
 int rf_cmd_write(int a1, int a2, int a3, int16_t a4) {
   uint8_t *v5; // r4
 
-  v5 = (uint8_t *)rf_bus_setup_n3a8(4104, a4, 4, 2u);
-  feature_guard_sdio(8, dword_137084);
+  v5 = (uint8_t *)bt_buf_alloc(4104, a4, 4, 2u);
+  state_check_feature(8, dword_137084);
   *v5 = 1;
   v5[1] = *(uint8_t *)(a2 + 2);
   hci_evt_send((int)v5);
@@ -71234,7 +71557,7 @@ int rf_cmd_write(int a1, int a2, int a3, int16_t a4) {
 
 // rf_state_update @ 0x137088
 int rf_state_update(int a1, int a2, int a3, int a4) {
-  feature_guard_sdio(8, dword_1370A4, a4, *((uint16_t *)off_1370A0 + 1924));
+  state_check_feature(8, dword_1370A4, a4, *((uint16_t *)off_1370A0 + 1924));
   return 2;
 }
 
@@ -71246,8 +71569,8 @@ int rf_cmd_write2(int a1, uint16_t *a2, int a3, int16_t a4) {
   char *v6; // r0
   int v7; // r2
 
-  v5 = (uint8_t *)rf_bus_setup_n3a8(4104, a4, 4, 2u);
-  feature_guard_sdio(8, dword_1370E8);
+  v5 = (uint8_t *)bt_buf_alloc(4104, a4, 4, 2u);
+  state_check_feature(8, dword_1370E8);
   v6 = (char *)off_1370EC;
   v7 = *a2;
   *(uint16_t *)off_1370EC = v7;
@@ -71384,7 +71707,21 @@ int rf_cmd_read(int a1, uint8_t *a2) {
 // is_device_ready @ 0x137260
 int is_device_ready(int a1, uint8_t *a2) {
   if ( *a2 )
-    bt_init_check_1827f4((uint8_t)*a2);
+    radio_event_dispatcher((uint8_t)*a2);
+  return 0;
+}
+
+
+
+// sdio_set_blocksize @ 0x137274
+int sdio_set_blocksize() {
+  int v0; // r0
+  int value; // r0
+
+  v0 = bt_buf_alloc(2051, 2, 4, 1u);
+  hci_evt_send(v0);
+  value = hci_cmd_send_short(4u);
+  state_check_feature(8, dword_13729C, value);
   return 0;
 }
 
@@ -71424,7 +71761,7 @@ BOOL event_loop_tick(uint8_t *a1) {
 
   v1 = *((uint8_t *)off_137350 + 3898);
   if ( *((uint8_t *)off_137350 + 3898) )
-    return memcpy_1((int)(uintptr_t)(a1 + 1), dword_137354, 7) == 0;
+    return ((int (*)())memcpy)((int)(uintptr_t)(a1 + 1), dword_137354, 7) == 0;
   v3 = *(uint32_t *)off_137350;
   v4 = *(uint8_t *)(*(uint32_t *)off_137350 + 368);
   if ( *(uint8_t *)(*(uint32_t *)off_137350 + 368) )
@@ -71436,8 +71773,7 @@ BOOL event_loop_tick(uint8_t *a1) {
     {
       v8 = *a1;
       if ( v8 == *(uint8_t *)(v5 + 252) )
-      {
-if ( !memcpy_1(v5 + 253, (int)(uintptr_t)(v7), v8) ) return 1;
+{ if ( !((int (*)())memcpy)(v5 + 253, (int)(uintptr_t)(v7), v8) ) return 1;
         v4 = *(uint8_t *)(v3 + 368);
       }
       ++v6;
@@ -71741,6 +72077,14 @@ uint32_t * radio_event_dispatcher(int a1) {
   hci_evt_send((int)v5);
   *((uint32_t *)off_1376C0 + 1) &= ~0x20u;
   return hci_cmd_send(4u, 0);
+}
+
+
+
+// dma_rx_reset @ 0x1376d4
+int *dma_rx_reset() {
+  hci_cmd_send(4u, 0);
+  return memset_byte((int *)dword_1376F0, 0, 0xFC0u);
 }
 
 
@@ -72127,7 +72471,7 @@ LABEL_18:
         return 0;
     }
   }
-  v40 = memmove_2(v140, v138);
+  v40 = (void *)(uintptr_t)(((int (*)())memmove)((int)(uintptr_t)(v140), v138));
   if ( v40 )
   {
     v41 = (uint8_t)v40[2];
@@ -72182,7 +72526,7 @@ LABEL_57:
   if ( *(uint16_t *)(a1 + 4) != v46 )
     *(uint16_t *)(a1 + 4) = v46;
   init_radio_params(v140, v138, *(uint16_t *)(a1 + 46), (int)&v147);
-  inited = fmac_init_context(&v142, 1);
+  inited = find_table_entry(&v142, 1);
   v48 = inited;
   if ( !inited )
     goto LABEL_78;
@@ -72200,7 +72544,7 @@ LABEL_57:
       }
       goto LABEL_63;
     }
-    v87 = memcpy_1(*(uint32_t *)(inited + 44), (int)(uintptr_t)(v158), 6);
+    v87 = ((int (*)())memcpy)(*(uint32_t *)(inited + 44), (int)(uintptr_t)(v158), 6);
     if ( *(uint8_t *)(v48 + 8) == (uint8_t)v149 )
     {
       v88 = *(char *)(v48 + 56);
@@ -72377,23 +72721,12 @@ LABEL_64:
       v50 = *(char *)(a1 + 9);
       v64 = dword_137B80;
 LABEL_67:
-      ke_event_schedule_1(
-        dword_137B84,
-        *((uint16_t *)v1 + 2),
-        *v51,
-        v45,
-        *(uint8_t *)(a1 + 12),
-        *(uint16_t *)(a1 + 34) >> 4,
-        v50,
-        v63,
-        v64);
+((int (*)())ke_event_schedule)(dword_137B84, (void *)(uintptr_t)(*((uint16_t *)v1 + 2)), *v51, v45, *(uint8_t *)(a1 + 12), *(uint16_t *)(a1 + 34) >> 4, v50, v63, v64);
       goto LABEL_68;
     }
 LABEL_83:
     v64 = v48 + 9;
-    if ( memmove_5(v48 + 9) )
-    {
-      v63 = *(uint8_t *)(v48 + 8);
+if ( ((int (*)())memmove)(v48 + 9) ) { v63 = *(uint8_t *)(v48 + 8);
       *(uint8_t *)(v48 + v63 + 9) = 0;
       v51 = *(uint16_t **)(v48 + 44);
       v50 = *(char *)(a1 + 9);
@@ -72441,7 +72774,7 @@ LABEL_68:
             v73 += 30;
           }
           while ( v66 + 1920 != v73 );
-          v100 = fmac_init_context((uint16_t *)&v145, 1);
+          v100 = find_table_entry((uint16_t *)&v145, 1);
           if ( !v100 )
             break;
           v101 = *(uint32_t *)(v48 + 4);
@@ -72505,7 +72838,7 @@ LABEL_77:
             break;
           }
           *(uint8_t *)(*(uint8_t *)(v48 + 8) + v100 + 9) = 0;
-          ke_event_schedule_1(dword_137E04, v117, **(uint16_t **)(v100 + 44), *(uint8_t *)(v100 + 8), v100 + 9);
+          ((int (*)())ke_event_schedule)(dword_137E04, (void *)(uintptr_t)(v117), **(uint16_t **)(v100 + 44), *(uint8_t *)(v100 + 8), v100 + 9);
           ++v65;
           v67 += 2;
           if ( v65 < *((uint8_t *)v66 + 4029) )
@@ -72518,7 +72851,7 @@ LABEL_77:
 LABEL_78:
   if ( v139 )
     return 0;
-  message_dispatch_n94_cc48(a1, 4100, 13, 4);
+  hci_evt_prepare(a1, 4100, 13, 4);
   return 1;
 }
 
@@ -72572,7 +72905,7 @@ uint8_t * parse_pdu_data(uint8_t *a1) {
   v4 = dword_1383DC + 3840;
   v5 = -128;
   v6 = a1 + 1;
-while ( v1[8] ) { if ( (char)v1[64] <= v5 || (v7 = *a1, v7 != (uint8_t)v1[16]) || memcpy_1((int)(uintptr_t)(v1 + 17), (int)(uintptr_t)(v6), v7) ) { v1 += 60;
+while ( v1[8] ) { if ( (char)v1[64] <= v5 || (v7 = *a1, v7 != (uint8_t)v1[16]) || ((int (*)())memcpy)((int)(uintptr_t)(v1 + 17), (int)(uintptr_t)(v6), v7) ) { v1 += 60;
       if ( v1 == (uint8_t *)v4 )
         return v3;
     }
@@ -72662,7 +72995,7 @@ uint32_t *adv_state_control() {
   v1 = *((uint8_t *)off_1386FC + 3851);
   v2 = *(uint32_t *)off_1386FC;
   if ( v1 > 1 )
-    return (void *)(uintptr_t)(bt_init_check_1827f4(0));
+    return radio_event_dispatcher(0);
   v3 = 0;
   while ( !*(uint8_t *)(v2 + 367) )
   {
@@ -72671,7 +73004,7 @@ LABEL_59:
     if ( v1 == 1 )
     {
       *((uint8_t *)off_1386FC + 3851) = 2;
-      return (void *)(uintptr_t)(bt_init_check_1827f4(0));
+      return radio_event_dispatcher(0);
     }
     v1 = 1;
   }
@@ -72688,7 +73021,7 @@ LABEL_59:
   }
   if ( v3 )
     *((uint8_t *)off_1386FC + 3851) = v1;
-  v7 = rf_bus_setup_n3a8(2048, 2, 4, 0x178u);
+  v7 = bt_buf_alloc(2048, 2, 4, 0x178u);
   *(uint8_t *)(v7 + 366) = *(uint8_t *)(v2 + 366);
   v8 = v7;
   v9 = *(uint64_t *)(v2 + 352);
@@ -72840,7 +73173,7 @@ LABEL_59:
     v48 = *((uint8_t *)off_138728 + 374);
     if ( (v48 & 1) == 0 )
       goto LABEL_48;
-    ipc_msg_write_hdr(&v65);
+    ((int (*)())build_tx_packet)((int)(uintptr_t)(&v65));
 LABEL_74:
     v48 = v43[374];
 LABEL_48:
@@ -72893,7 +73226,7 @@ LABEL_69:
     }
 LABEL_72:
     v64 = v24;
-    ipc_msg_write_hdr(&v65);
+    ((int (*)())build_tx_packet)((int)(uintptr_t)(&v65));
     v24 = v64;
     goto LABEL_69;
   }
@@ -72964,7 +73297,7 @@ uint32_t *periodic_task_handler() {
   int v18; // r2
 
   if ( *(uint8_t *)off_1388A8 )
-    rf_power_set(0xC2u);
+    write_mmio_byte(0xC2u);
   if ( **(uint8_t **)off_1388AC == 1 )
     *(uint32_t *)off_1388B0 &= ~0x200000u;
   v0 = (void *)(uintptr_t)(off_1388B4);
@@ -72978,7 +73311,7 @@ uint32_t *periodic_task_handler() {
     *((uint8_t *)off_1388BC + 29) = 3;
     v18 = v16[4];
     v2[5] = v17;
-    timestamp_update_4f60((int)(v2 + 3), v15 + v18);
+    ke_event_lock((int)(v2 + 3), v15 + v18);
     *((uint8_t *)v2 + 28) = 1;
     *v0 &= ~4u;
   }
@@ -73001,7 +73334,7 @@ uint32_t *periodic_task_handler() {
   v7 = *(uint8_t **)v1;
   if ( *(uint8_t *)(*(uint32_t *)v1 + 368) == 1 && v7[252] == 7 )
   {
-    v9 = memcpy_1((int)(uintptr_t)(v7 + 253), dword_1388DC, 7) == 0;
+    v9 = ((int (*)())memcpy)((int)(uintptr_t)(v7 + 253), dword_1388DC, 7) == 0;
     v7 = *(uint8_t **)v1;
     v3 = *((uint8_t *)v1 + 3850);
     v8 = v9;
@@ -73012,14 +73345,14 @@ uint32_t *periodic_task_handler() {
     v9 = (v9 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
   }
   *((uint8_t *)v1 + 3898) = v9;
-  feature_guard_sdio(8, dword_1388C8, dword_1388C4, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
+  state_check_feature(8, dword_1388C8, dword_1388C4, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
   v10 = (int *)off_1388D0;
   v11 = (void *)(uintptr_t)(off_1388D4);
   *(uint32_t *)off_1388CC |= 4u;
   *v11 = *v10;
   *v10 = (HIWORD(*v10) << 16) | 0x5DC;
   v2[1] |= 0x20u;
-  rf_bus_mark_n_3b7(4u, 1);
+  hci_cmd_send(4u, 1);
   v12 = *(uint32_t *)(*(uint32_t *)v1 + 360);
   if ( v12 )
   {
@@ -73200,7 +73533,7 @@ uint32_t * tx_power_cal_read(int a1, int16_t a2, int a3) {
     v7 = 4 * v4;
     if ( *(uint16_t *)(dword_138B64 + 80 * v4 + 76) )
     {
-      ke_int_lock_1(dword_138B74, dword_138B70, 175);
+      ke_int_lock(dword_138B74, dword_138B70, 175);
       return 0;
     }
   }
@@ -73215,7 +73548,7 @@ uint32_t * tx_power_cal_read(int a1, int16_t a2, int a3) {
   v9 = v5 + 16 * (v4 + v7);
   *(uint32_t *)(v9 + 68) = a3;
   *(uint16_t *)(v9 + 76) = a2;
-  list_push_tail(dword_138B68, v6);
+  check_abort_flag(dword_138B68, v6);
   v3[68] = v3[68]
          + 1
          - -64
@@ -73231,8 +73564,8 @@ uint32_t ** tx_power_cal_apply(uint32_t *a1) {
 
   v1 = dword_138BA8;
   tx_power_cal_read(0, 4, a1[5]);
-  list_remove_node_d510(v1, a1);
-  list_push_tail(v1 - 8, a1);
+  check_abort_flag_3(v1, a1);
+  check_abort_flag(v1 - 8, a1);
   return process_pending_queue((uint32_t **)(v1 - 32));
 }
 
@@ -73301,23 +73634,23 @@ int rf_cal_is_valid(uint16_t *a1) {
         if ( *(uint8_t *)(i + 106) == 2 )
         {
           v6 = 1320 * v3;
-if ( !memcpy_1((int)(uintptr_t)(a1 + 2), i + 100, 6) ) break;
+if ( !((int (*)())memcpy)((int)(uintptr_t)(a1 + 2), i + 100, 6) ) break;
         }
       }
       if ( ++v3 == 4 )
         return 0;
     }
     v7 = *(uint32_t **)(v2 + v6 + 240);
-if ( v7 ) { while ( memcpy_1((int)(uintptr_t)(a1 + 5), (int)(uintptr_t)((char *)v7 + 38), 6) ) { v7 = (uint32_t *)*v7;
+if ( v7 ) { while ( ((int (*)())memcpy)((int)(uintptr_t)(a1 + 5), (int)(uintptr_t)((char *)v7 + 38), 6) ) { v7 = (uint32_t *)*v7;
         if ( !v7 )
           goto LABEL_14;
       }
-      ke_event_schedule_1(dword_138DAC, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
+      ((int (*)())ke_event_schedule)(dword_138DAC, (void *)(uintptr_t)((uint16_t)a1[5]), (uint16_t)a1[6], (uint16_t)a1[7]);
     }
     else
     {
 LABEL_14:
-      ke_event_schedule_1(dword_138DB4, dword_138DB0, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
+      ((int (*)())ke_event_schedule)(dword_138DB4, (void *)(uintptr_t)(dword_138DB0), (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
       txpwr_event_handler(v2 + v6, (int)(a1 + 5));
     }
   }
@@ -73418,7 +73751,7 @@ LABEL_6:
 LABEL_7:
   *(uint32_t *)(a1 + 96) = v9;
   *((uint8_t *)v2 + 50) = 0;
-  rf_bus_setup_n39a_ea44(a1);
+  rx_packet_setup(a1);
   return tx_power_cal_read(a1, v4, *((uint32_t *)v2 + 16));
 }
 
@@ -73543,7 +73876,7 @@ LABEL_11:
       v9 = (uint32_t *)v9[1];
       if ( **v18 < 0 && !v9 )
       {
-        ke_int_lock_1(dword_1390D8, dword_1390D4, 963);
+        ke_int_lock(dword_1390D8, dword_1390D4, 963);
         return 0;
       }
       v17 = v9[2];
@@ -73580,7 +73913,7 @@ LABEL_19:
     v15 = 0;
     if ( **v19 < 0 && !v9 )
     {
-      ke_int_lock_1(dword_1390D8, dword_1390D4, 1005);
+      ke_int_lock(dword_1390D8, dword_1390D4, 1005);
       return 0;
     }
   }
@@ -74066,7 +74399,7 @@ int rf_cal_config(char a1, int a2, int a3, int a4, uint8_t *a5, unsigned int a6,
     v16 = a1 & 0xFC;
     if ( v16 == 176 )
     {
-      sub_135B80();
+      is_pll_freq_6();
       return 1;
     }
     if ( v16 > 0xB0 )
@@ -74081,7 +74414,7 @@ LABEL_12:
       {
         case 0:
           v40 = *(uint8_t *)(v15 + 1);
-          ke_event_schedule_1(dword_139B30, v40);
+          ((int (*)())ke_event_schedule)(dword_139B30, (void *)(uintptr_t)(v40));
           v38 = (uint8_t *)(v15 + 1);
           if ( v40 == 4 )
           {
@@ -74094,7 +74427,7 @@ LABEL_12:
                                        a2 - a3 - 2,
                                        &v50,
                                        1320 * v41 + 1212 + dword_139B38);
-              ke_event_schedule_1(dword_139B34, v43, v50);
+              ke_event_schedule(dword_139B34, (void *)(uintptr_t)(v43), v50);
               if ( v43 )
               {
                 v44 = (uint8_t *)(1320 * v41 + v42);
@@ -74283,7 +74616,7 @@ LABEL_33:
           if ( v49 )
           {
             v46 = v28 + 2;
-if ( !memcpy_1((int)(uintptr_t)(v46), dword_139B44, 7) || v49 != v50 || memcpy_1((int)(uintptr_t)(v46), (int)(uintptr_t)(v30 + 2), v49) ) goto LABEL_38;
+if ( !((int (*)())memcpy)((int)(uintptr_t)(v46), dword_139B44, 7) || v49 != v50 || ((int (*)())memcpy)((int)(uintptr_t)(v46), (int)(uintptr_t)(v30 + 2), v49) ) goto LABEL_38;
           }
         }
         else if ( v49 )
@@ -74336,7 +74669,7 @@ LABEL_38:
             return 1;
           goto LABEL_12;
         }
-        if ( v11 != 160 && (v11 != 176 || sub_135B80()) )
+        if ( v11 != 160 && (v11 != 176 || is_pll_freq_6()) )
           return 1;
       }
 LABEL_19:
@@ -74452,10 +74785,10 @@ LABEL_31:
         v11 = *v3;
         v23 = 0;
         v24 = 255;
-        v8 = parse_rx_frame_n688(v11, v10, v19, a2, (uint8_t *)dword_139D7C, v21, &v24, &v23);
+        v8 = rf_cal_config(v11, v10, v19, a2, (uint8_t *)dword_139D7C, v21, &v24, &v23);
         if ( v24 != 255 )
         {
-          v12 = rf_bus_setup_n3a8(10240, v24, 10, (uint16_t)(v10 + 12));
+          v12 = bt_buf_alloc(10240, v24, 10, (uint16_t)(v10 + 12));
           timer_count_read(&v25, 0);
           v13 = v10;
           if ( !v23 )
@@ -74594,7 +74927,7 @@ int tx_power_set_band(char *a1, char a2, int a3) {
       v10 = (uint8_t)v7[11];
       if ( v10 == 2 )
       {
-        ke_event_schedule_1(dword_139F84, (uint8_t)v7[10], 2, 8);
+        ((int (*)())ke_event_schedule)(dword_139F84, (void *)(uintptr_t)((uint8_t)v7[10]), 2, 8);
         return v8;
       }
       if ( v10 == 17 )
@@ -74605,7 +74938,7 @@ int tx_power_set_band(char *a1, char a2, int a3) {
           && (uint8_t)*(v12 - 2) == 255
           && (uint8_t)*(v12 - 1) == 250 )
         {
-          ke_event_schedule_1(dword_139F80, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
+          ((int (*)())ke_event_schedule)(dword_139F80, (void *)(uintptr_t)((uint8_t)v12[3] | ((uint8_t)v12[2] << 8)));
           return v8;
         }
       }
@@ -74656,7 +74989,7 @@ int tx_power_set_band_alt(char *a1, char a2, int a3) {
   }
   result = (int)(uintptr_t)(memcpy_aligned((void *)(&v6), &a1[(uint8_t)(v3 + 6)], 2));
   if ( v6 == 36488 )
-    return ke_event_schedule_1(dword_139FF4, 36488, a3);
+    return ke_event_schedule(dword_139FF4, (void *)(uintptr_t)(36488), a3);
   return result;
 }
 
@@ -74805,7 +75138,7 @@ LABEL_38:
         if ( *((uint16_t *)v4 + 51) == v24 )
         {
           v41 = (void *)(uintptr_t)(off_13A480);
-if ( !memcpy_1((int)(uintptr_t)(v7 + 10), off_13A480, 6) ) goto LABEL_34;
+if ( !((int (*)())memcpy)((int)(uintptr_t)(v7 + 10), off_13A480, 6) ) goto LABEL_34;
           v8 = *(uint16_t *)v4;
           v24 = (v24 & ~0xFFFFu) | ((uint16_t)(*((uint16_t *)v7 + 11)) & 0xFFFFu);
           v25 = v41;
@@ -74822,7 +75155,7 @@ if ( !memcpy_1((int)(uintptr_t)(v7 + 10), off_13A480, 6) ) goto LABEL_34;
       *((uint32_t *)v4 + 24) = v27;
       if ( (v8 & 0x4000) != 0 && ((v1 & 0x7C) != 4 || !phy_flags_decode((int)v7, v1)) )
 LABEL_56:
-        v5 = scan_chan_eval_n8c8(v7);
+        v5 = rf_cal_is_valid((void *)(v7));
       else
         v5 = rx_control_packet(a1, 255);
       goto LABEL_57;
@@ -74862,7 +75195,7 @@ LABEL_22:
   }
   else
   {
-    v29 = mmio_block_write_n_e18((int *)dword_13A2E8);
+    v29 = mac_dma_write((int *)dword_13A2E8);
     v21 = *(uint16_t *)v4;
     v15 = (uint8_t)((v1 >> 15) - 16);
     v18 = dword_13A2E0;
@@ -74888,7 +75221,7 @@ LABEL_22:
       if ( !*(uint8_t *)(v18 + 1320 * (uint8_t)v4[10] + 106) )
       {
         v45 = v15;
-        v39 = fmac_bt_idle_handler((char *)v7, v1, v15);
+        v39 = tx_power_set_band((char *)v7, v1, v15);
         v15 = v45;
         if ( !v39 )
           goto LABEL_34;
@@ -74946,7 +75279,7 @@ LABEL_31:
       v33 = *((uint64_t *)v4 + 2);
       if ( *(uint64_t *)(v32 + 64) >= v33 )
       {
-        ke_event_schedule_1(dword_13A48C);
+        ((int (*)())ke_event_schedule)(dword_13A48C);
         goto LABEL_34;
       }
       *(uint64_t *)(v32 + 64) = v33;
@@ -74971,12 +75304,12 @@ LABEL_84:
     if ( (v4[48] & 8) == 0 )
     {
       v42 = v15;
-      n1c0 = rf_channel_status_get_n1c0(v15, (uint8_t)v4[7]);
+      n1c0 = phy_read_channel(v15, (uint8_t)v4[7]);
       v15 = v42;
       v35 = 1;
       if ( n1c0 )
       {
-        v5 = tx_desc_slot_lookup(a1, v42);
+        v5 = rf_cal_channel_data(a1, v42);
         goto LABEL_57;
       }
     }
@@ -74991,7 +75324,7 @@ LABEL_84:
   if ( (v8 & 0x800) != 0 && (uint16_t)*v37 == v36 )
     goto LABEL_34;
   *v37 = v36;
-  v5 = bt_rx_pkt_process_1390e8(a1, v15, v35);
+  v5 = rf_cal_handle_cmd(a1, v15, v35);
 LABEL_57:
   v3 = *((uint8_t *)off_13A2D4 + 16);
   if ( v3 != 255 && !v5 )
@@ -75021,7 +75354,7 @@ int get_instance_handle(int a1, int a2, int16_t a3) {
   v8 = v7;
   if ( !v7 )
     return 0;
-  memset_thunk(v7, 0, 0x124u);
+  memset_byte(v7, 0, 0x124u);
   v9 = (void *)(uintptr_t)(off_13A4F4);
   *((uint8_t *)v8 + 10) = a3 & 0x3F;
   *((uint8_t *)v8 + 12) = v5;
@@ -75032,7 +75365,7 @@ int get_instance_handle(int a1, int a2, int16_t a3) {
   v8[70] = (int)v8;
   v8[1] = v10;
   *(uint32_t *)(v3 + 408) = (int)(uintptr_t)(v8);
-  timestamp_update_4f60((int)(v8 + 68), v10 + 50000);
+  ke_event_lock((int)(v8 + 68), v10 + 50000);
   return 1;
 }
 
@@ -75548,7 +75881,7 @@ int rf_set_band_config(int a1, int a2, int a3) {
   int v10; // r3
   int v11; // r2
 
-  feature_guard_sdio(
+  state_check_feature(
     32,
     dword_13ABFC,
     *(uint16_t *)(a1 + 32),
@@ -75557,7 +75890,7 @@ int rf_set_band_config(int a1, int a2, int a3) {
   v6 = *(uint16_t *)(a1 + 30);
   v7 = v6 << 31;
   if ( (v6 & 1) != 0 || (irq_counter_inc(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
-    ke_event_schedule_1(dword_13AC00, v7);
+    ((int (*)())ke_event_schedule)(dword_13AC00, (void *)(uintptr_t)(v7));
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -75650,7 +75983,7 @@ int tx_prepare_frame_path(int a1, int a2) {
   {
     if ( (*(uint16_t *)(a1 + 30) & 8) == 0 )
     {
-      ke_event_schedule_1(dword_13AF74);
+      ((int (*)())ke_event_schedule)(dword_13AF74);
       return rf_set_band_config(a1, a2, 0x80000000);
     }
     goto LABEL_11;
@@ -75668,8 +76001,8 @@ LABEL_11:
     v41 = 0;
     if ( v12 && (*((uint8_t *)off_13AF50 + 15) & 6) == 2 && (*(uint16_t *)(*(uint32_t *)(a1 + 72) + 172) & 0xFC) == 0xB0 )
     {
-      rf_level_apply_80c(6155, 6, dword_13AF54);
-      mmio_reg_init_n0d08c();
+      patch_aware_dispatch(6155, 6, dword_13AF54);
+      clock_disable();
       v11[15] |= 4u;
     }
     v13 = *(uint16_t *)(a1 + 30);
@@ -75736,7 +76069,7 @@ LABEL_22:
           goto LABEL_24;
         }
       }
-      v31 = scan_chan_parse_n1bd4(v22, v21, (uint8_t *)(*(uint32_t *)(v14 + 72) + 4));
+      v31 = llm_rx_pdu_handler(v22, v21, (uint8_t *)(*(uint32_t *)(v14 + 72) + 4));
       *(uint32_t *)(*(uint32_t *)(a1 + 44) + 4 * v19 + 36) = v31 | (v31 << 8);
 LABEL_24:
       if ( ++v19 == 4 )
@@ -75748,7 +76081,7 @@ LABEL_24:
         *(uint8_t *)(a1 + 51) = v15;
         *(uint8_t *)(a1 + 66) = v15;
         *(uint8_t *)(a1 + 53) = v23;
-        return bt_msg_handler(a1, a2);
+        return conn_tx(a1, a2);
       }
     }
   }
@@ -75762,14 +76095,14 @@ LABEL_24:
   else if ( v10 != 2 )
   {
 LABEL_9:
-    feature_guard_sdio(32, dword_13AF4C);
+    state_check_feature(32, dword_13AF4C);
     return rf_set_band_config(a1, a2, 0x80000000);
   }
   v24 = dword_13AF58;
   v25 = (uint8_t *)(dword_13AF58 + 1320 * v2);
   if ( !v25[108] )
   {
-    ke_event_schedule_1(dword_13AF70);
+    ((int (*)())ke_event_schedule)(dword_13AF70);
     return rf_set_band_config(a1, a2, 0x80000000);
   }
   rf_reset_tx_state(a1);
@@ -75789,7 +76122,7 @@ LABEL_30:
     *(uint32_t *)(a1 + 44) = (int)(uintptr_t)(v28);
     if ( v29[197] )
     {
-      v36 = scan_chan_parse_n1bd4((v28[5] >> 11) & 7, v28[5] & 0x7F, (uint8_t *)(*(uint32_t *)(v27 + 72) + 4));
+      v36 = llm_rx_pdu_handler((v28[5] >> 11) & 7, v28[5] & 0x7F, (uint8_t *)(*(uint32_t *)(v27 + 72) + 4));
       v30 = *(uint16_t *)(a1 + 30);
       v28[9] = v36 | (v36 << 8);
     }
@@ -75805,7 +76138,7 @@ LABEL_30:
     goto LABEL_30;
 LABEL_52:
   if ( !*(uint8_t *)off_13AF78 )
-    rf_mmio_init_n_1b4(a1);
+    rf_modem_status_check(a1);
   send_data_packet(a1);
   v34 = llm_adv_pdu_build(v6 + 696 * *(uint8_t *)(a1 + 29));
   v30 = *(uint16_t *)(a1 + 30);
@@ -75828,8 +76161,8 @@ LABEL_52:
   }
 LABEL_36:
   if ( (v30 & 1) == 0 )
-    ethertype_check_0x600(a1, (uint16_t *)(*(uint32_t *)(a1 + 72) + 172));
-  return bt_msg_handler(a1, a2);
+    rx_validate_frame_type(a1, (uint16_t *)(*(uint32_t *)(a1 + 72) + 172));
+  return conn_tx(a1, a2);
 }
 
 
@@ -75855,7 +76188,7 @@ int * rf_get_pll_setting(int *result) {
   if ( v1 )
   {
     if ( *(uint8_t *)(v1 + 96) == 1 )
-return (void *)(uintptr_t)(bt_flag_check_init( (int)result, v1 + 80, result[18] - *((uint8_t *)result + 52) + 172, *((uint8_t *)result + 52) + *((uint16_t *)result + 24)));
+return (void *)(uintptr_t)(check_radio_flag( (int)result, v1 + 80, result[18] - *((uint8_t *)result + 52) + 172, *((uint8_t *)result + 52) + *((uint16_t *)result + 24)));
   }
   return result;
 }
@@ -75895,7 +76228,7 @@ LABEL_5:
           goto LABEL_6;
         goto LABEL_27;
       }
-      phy_flag_clear_72();
+      rf_clear_flag();
       if ( (*(uint16_t *)(a1 + 30) & 0x200) != 0 )
         goto LABEL_5;
 LABEL_9:
@@ -76026,7 +76359,7 @@ int rx_parse_phy_header(int a1, int a2, unsigned int a3) {
   if ( v3 == 1 )
   {
     v9 = *(uint16_t *)(a2 + 17);
-    if ( msg_get_value(a3) != 2 )
+    if ( hci_cmd_send_short(a3) != 2 )
       return 0;
     v10 = dword_13B404;
     irq_lock(0x2000, a3);
@@ -76036,9 +76369,9 @@ int rx_parse_phy_header(int a1, int a2, unsigned int a3) {
       || *(uint8_t *)(v11 + 22) != ((v9 >> 2) & 0xF)
       || *(uint16_t *)(v6 + 3) )
     {
-      rx_entry_lookup(v7);
-      list_push_tail(dword_13B3F8, (uint32_t *)(v10 + v12));
-      rf_bus_mark_n_3b7(a3, 0);
+      rf_get_chan_cfg(v7);
+      check_abort_flag(dword_13B3F8, (uint32_t *)(v10 + v12));
+      hci_cmd_send(a3, 0);
       return 0;
     }
     if ( *(uint16_t *)(v11 + 20) > v9 >> 6 )
@@ -76054,8 +76387,8 @@ LABEL_38:
         v23 = *(uint8_t *)(a2 + 7);
         v24 = v7;
 LABEL_31:
-        ipc_msg_build_header(v23, v24);
-        rf_bus_mark_n_3b7(a3, 3);
+        sdio_cmd52_wr(v23, v24);
+        hci_cmd_send(a3, 3);
         return 0;
       }
       v25 = (v25 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
@@ -76065,21 +76398,21 @@ LABEL_31:
   }
   if ( v3 == 2 )
   {
-    if ( msg_get_value(a3) != 4 )
+    if ( hci_cmd_send_short(a3) != 4 )
     {
-      if ( msg_get_value(a3) == 1 || msg_get_value(a3) == 3 )
+      if ( hci_cmd_send_short(a3) == 1 || hci_cmd_send_short(a3) == 3 )
       {
-        rf_bus_mark_n_3b7(a3, 4);
+        hci_cmd_send(a3, 4);
         v30 = (uint32_t *)(dword_13B404 + 32 * v7);
         if ( v7 > 0xF )
         {
-          list_remove_node_d510(dword_13B410, (uint32_t *)(dword_13B404 + 32 * v7));
-          list_push_tail(dword_13B414, v30);
+          check_abort_flag_3(dword_13B410, (uint32_t *)(dword_13B404 + 32 * v7));
+          check_abort_flag(dword_13B414, v30);
         }
         else
         {
-          list_remove_node_d510(dword_13B408, (uint32_t *)(dword_13B404 + 32 * v7));
-          list_push_tail(dword_13B40C, v30);
+          check_abort_flag_3(dword_13B408, (uint32_t *)(dword_13B404 + 32 * v7));
+          check_abort_flag(dword_13B40C, v30);
         }
         sdio_cmd53_rd(*(uint8_t *)(a2 + 7), v7);
         return 0;
@@ -76088,7 +76421,7 @@ LABEL_31:
                 + 12 * *(uint8_t *)(dword_13B404 + 32 * v7 + 22)
                 + dword_13B418
                 + 448) = *((uint32_t *)off_13B41C + 4);
-      bt_hci_cmd_alloc_send(v7);
+      sdio_rd_reg(v7);
     }
     return 0;
   }
@@ -76103,15 +76436,15 @@ LABEL_31:
     return 0;
   v16 = *(uint8_t *)(a2 + 7);
   v29 = *(uint8_t *)(a2 + 14);
-  feature_guard_sdio(2048, dword_13B400, (v13 >> 2) & 0xF);
-  if ( !rf_channel_status_get_n1c0(v16, (v13 >> 2) & 0xF) )
+  state_check_feature(2048, dword_13B400, (v13 >> 2) & 0xF);
+  if ( !phy_read_channel(v16, (v13 >> 2) & 0xF) )
   {
-    if ( msg_get_value(a3) == 4 )
+    if ( hci_cmd_send_short(a3) == 4 )
       return 2;
     v18 = dword_13B404;
     v31 = (uint32_t *)(dword_13B404 + 32 * v7);
-    if ( ptr_compare_or_fetch((uint32_t **)dword_13B420, v31) )
-      list_remove_node_d510(dword_13B420, v31);
+    if ( list_contains((uint32_t **)dword_13B420, v31) )
+      check_abort_flag_3(dword_13B420, v31);
     v19 = v18 + 32 * v7;
     *(uint8_t *)(v19 + 22) = v14;
     *(uint8_t *)(v19 + 16) = v16;
@@ -76133,7 +76466,7 @@ LABEL_31:
     v24 = v7;
     goto LABEL_31;
   }
-  if ( msg_get_value(a3) == 1 )
+  if ( hci_cmd_send_short(a3) == 1 )
   {
     v27 = dword_13B404 + 32 * v7;
     v28 = v13 >> 6;
@@ -76145,9 +76478,9 @@ LABEL_31:
     }
     else
     {
-      rf_bus_mark_n_3b7(a3, 4);
-      list_remove_node_d510(dword_13B408, (uint32_t *)v27);
-      list_push_tail(dword_13B40C, (uint32_t *)v27);
+      hci_cmd_send(a3, 4);
+      check_abort_flag_3(dword_13B408, (uint32_t *)v27);
+      check_abort_flag(dword_13B40C, (uint32_t *)v27);
       sdio_cmd53_rd((uint16_t)v16, v7);
       v17 = 37;
     }
@@ -76156,7 +76489,7 @@ LABEL_31:
   {
     v17 = 37;
   }
-  rf_bus_write_n_25c(v16, 0, 1, v29, v13, v17, 0);
+  dbg_printf(v16, 0, 1, v29, v13, v17, 0);
   return 0;
 }
 
@@ -76267,7 +76600,7 @@ int mac_build_control_frame(int a1, char *a2, unsigned int a3) {
   if ( a2[2] != 2 )
     return 0;
   v5 = a3 >> 8;
-  if ( msg_get_value(a3 & 0xFF00 | 8) == 4 )
+  if ( hci_cmd_send_short(a3 & 0xFF00 | 8) == 4 )
   {
     v6 = dword_13B690 + 32 * v5;
     if ( *(uint8_t *)(v6 + 17) == 1 )
@@ -76276,7 +76609,7 @@ int mac_build_control_frame(int a1, char *a2, unsigned int a3) {
       v8 = *a2;
       v9 = a2[1];
       v10 = 4 - *(uint8_t *)(v6 + 20) + v7;
-      v11 = (uint8_t *)rf_bus_setup_n3a8(5131, 13, 5, 3u);
+      v11 = (uint8_t *)bt_buf_alloc(5131, 13, 5, 3u);
       v11[2] = v10;
       *v11 = v8;
       v11[1] = v9;
@@ -76284,7 +76617,7 @@ int mac_build_control_frame(int a1, char *a2, unsigned int a3) {
     }
     *(uint32_t *)(696 * (uint8_t)*a2 + 12 * (uint8_t)a2[1] + dword_13B694 + 448) = *((uint32_t *)off_13B698
                                                                                                  + 4);
-    bt_hci_cmd_alloc_send(v5);
+    sdio_rd_reg(v5);
   }
   return 0;
 }
@@ -76295,13 +76628,13 @@ int mac_build_control_frame(int a1, char *a2, unsigned int a3) {
 int rx_measure_rssi(int a1, int a2, unsigned int a3) {
   int v4; // r0
 
-  if ( msg_get_value(a3) == 1 )
+  if ( hci_cmd_send_short(a3) == 1 )
   {
     if ( a3 < 0x1000 )
       v4 = dword_13B6D0;
     else
       v4 = dword_13B6CC;
-    list_push_tail(v4, (uint32_t *)(dword_13B6C8 + 32 * (a3 >> 8)));
+    check_abort_flag(v4, (uint32_t *)(dword_13B6C8 + 32 * (a3 >> 8)));
   }
   return 0;
 }
@@ -76310,11 +76643,11 @@ int rx_measure_rssi(int a1, int a2, unsigned int a3) {
 
 // rf_is_ready @ 0x13b6d4
 int rf_is_ready(int a1, int a2, unsigned int a3) {
-  if ( msg_get_value(a3) == 2 )
+  if ( hci_cmd_send_short(a3) == 2 )
   {
-    rx_entry_lookup(a3 >> 8);
-    list_push_tail(dword_13B70C, (uint32_t *)(dword_13B708 + 32 * (a3 >> 8)));
-    rf_bus_mark_n_3b7(a3, 0);
+    rf_get_chan_cfg(a3 >> 8);
+    check_abort_flag(dword_13B70C, (uint32_t *)(dword_13B708 + 32 * (a3 >> 8)));
+    hci_cmd_send(a3, 0);
   }
   return 0;
 }
@@ -76748,9 +77081,9 @@ int rf_scan_start(int result) {
     {
       if ( *(uint8_t *)(v2 + 16) == v4 )
       {
-        rf_bus_mark_n_3b7((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
+        hci_cmd_send((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(uint8_t *)(v2 + 25) = 0;
-        result = rf_bus_write_n_25c(v4, v2, 2, 0, 0, 39, v3);
+        result = dbg_printf(v4, v2, 2, 0, 0, 39, v3);
       }
     }
     v2 += 32;
@@ -76791,8 +77124,8 @@ int sdio_cmd53_rd(int a1, int a2) {
   int v7; // r3
 
   v2 = (uint16_t)((uint16_t)a2 << 8) | 8;
-  v5 = (int *)rf_bus_setup_n3a8(42, 0, ((uint16_t)a2 << 8) | 8, 3u);
-  if ( **(int16_t **)off_13BEA0 < 0 && msg_get_value(v2) != 4 )
+  v5 = (int *)bt_buf_alloc(42, 0, ((uint16_t)a2 << 8) | 8, 3u);
+  if ( **(int16_t **)off_13BEA0 < 0 && hci_cmd_send_short(v2) != 4 )
     mmio_irq_clear(dword_13BEAC, dword_13BEA8, 891);
   v6 = dword_13BEA4 + 32 * a2;
   v7 = *(uint8_t *)(v6 + 17);
@@ -76829,15 +77162,15 @@ int rf_calibrate_1(int result) {
     {
       if ( i > 15 )
       {
-        list_remove_node_d510(v6, (uint32_t *)v3);
-        list_push_tail(dword_13BF30, (uint32_t *)v3);
+        check_abort_flag_3(v6, (uint32_t *)v3);
+        check_abort_flag(dword_13BF30, (uint32_t *)v3);
       }
       else
       {
-        list_remove_node_d510(v1, (uint32_t *)v3);
-        list_push_tail(v5, (uint32_t *)v3);
+        check_abort_flag_3(v1, (uint32_t *)v3);
+        check_abort_flag(v5, (uint32_t *)v3);
       }
-      rf_bus_mark_n_3b7((uint16_t)((uint16_t)i << 8) | 8, 4);
+      hci_cmd_send((uint16_t)((uint16_t)i << 8) | 8, 4);
       result = sdio_cmd53_rd(v4, (uint16_t)i);
     }
     v3 += 32;
@@ -76862,19 +77195,19 @@ int rf_get_chan_info(unsigned int a1) {
   v5 = 32 * a1;
   if ( a1 <= 0xF )
   {
-    list_remove_node_d510(dword_13C00C, (uint32_t *)v2);
-    list_push_tail(dword_13C010, (uint32_t *)v2);
+    check_abort_flag_3(dword_13C00C, (uint32_t *)v2);
+    check_abort_flag(dword_13C010, (uint32_t *)v2);
   }
   else
   {
-    list_remove_node_d510(dword_13C000, (uint32_t *)v2);
-    list_push_tail(dword_13C004, (uint32_t *)v2);
+    check_abort_flag_3(dword_13C000, (uint32_t *)v2);
+    check_abort_flag(dword_13C004, (uint32_t *)v2);
   }
   v6 = (a1 << 8) & 0xFF00;
   v7 = dword_13C008;
-  rf_bus_mark_n_3b7(v6 | 8, 4);
+  hci_cmd_send(v6 | 8, 4);
   *(uint8_t *)(v1 + v5 + 25) = 0;
-  return rf_bus_write_n_25c(v3, v2, 2, 0, 0, 39, v7);
+  return dbg_printf(v3, v2, 2, 0, 0, 39, v7);
 }
 
 
@@ -76891,7 +77224,7 @@ int phy_is_ready() {
   {
     if ( v0[8] )
       return 33;
-    v2 = (uint8_t)bt_dispatch_3arg((int **)dword_13C04C);
+    v2 = (uint8_t)rx_queue_flush((int **)dword_13C04C);
     if ( (uint8_t)v2 == 33 )
     {
       return 33;
@@ -76951,12 +77284,12 @@ int rf_apply_cfg(int a1, int a2, int16_t a3) {
   *(uint32_t *)(v9 + 8) = v17;
   *(uint16_t *)(v9 + 12) = a3;
   *(uint8_t *)(v16 + 453) = v7;
-  rf_bus_write_n_25c(a1, v9, 2, 0, 0, 39, 0);
+  dbg_printf(a1, v9, 2, 0, 0, 39, 0);
   v18 = (v10 << 8) | 8;
-  rf_bus_write_n_25c(a1, v9, 0, 0, 0, 0, 0);
+  dbg_printf(a1, v9, 0, 0, 0, 0, 0);
   *(uint32_t *)(v16 + 444) = v8[4];
-  rf_level_apply_80c(0x2000, v18, 0x7D000u);
-  rf_bus_mark_n_3b7(v18, 2);
+  patch_aware_dispatch(0x2000, v18, 0x7D000u);
+  hci_cmd_send(v18, 2);
   return 0;
 }
 
@@ -76972,7 +77305,7 @@ int phy_set_chan(int a1, int a2) {
   v3 = dword_13C1AC;
   v5 = *(uint8_t *)(696 * (uint8_t)a1 + 12 * (uint8_t)a2 + dword_13C1AC + 453);
   return v5 == 33
-      || msg_get_value((v5 << 8) | 8) != 1
+      || hci_cmd_send_short((v5 << 8) | 8) != 1
       || *(uint16_t *)(dword_13C1B0 + 32 * v5 + 20) > ((*(uint16_t *)(v3 + 2 * (a2 + 348 * a1) + 316)
                                                               - *(uint16_t *)(*(uint32_t *)(dword_13C1B0 + 32 * v5 + 28) + 4))
                                                              & 0xFFFu);
@@ -77087,7 +77420,7 @@ int bt_get_ctx_by_phy(int a1, int a2, int a3) {
   if ( (*(uint16_t *)(a1 + 30) & 2) == 0 )
     return 1;
   v8 = *(uint8_t *)(v5 + 453);
-  if ( v8 == 33 || msg_get_value((v8 << 8) | 8) != 1 )
+  if ( v8 == 33 || hci_cmd_send_short((v8 << 8) | 8) != 1 )
     return 1;
   v11 = dword_13C43C + 32 * v8;
   v12 = *(uint32_t *)(a1 + 36) << 10;
@@ -77101,7 +77434,7 @@ int bt_get_ctx_by_phy(int a1, int a2, int a3) {
       {
         v14 = *(uint16_t *)(a1 + 64);
         if ( ((v14 - (*((uint32_t *)off_13C440 + 4) >> 10)) & 0x8000) == 0 )
-          ke_event_schedule_1(dword_13C444, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C440 + 4) >> 10)) >> 15) & 1);
+          ke_event_schedule(dword_13C444, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C440 + 4) >> 10)) >> 15) & 1);
       }
     }
     else if ( !a2 && ((*(uint16_t *)(a1 + 64) - (*((uint32_t *)off_13C440 + 4) >> 10)) & 0x8000) == 0 )
@@ -77136,7 +77469,7 @@ int tx_init_data_buffer(int a1) {
   int v6; // zf
 
   v1 = *(uint32_t *)(a1 + 28);
-  memset_thunk((int *)(v1 + 6), 0, 0x100u);
+  memset_byte((int *)(v1 + 6), 0, 0x100u);
   result = 348;
   v4 = *(uint16_t *)(dword_13C490 + 2 * (*(uint8_t *)(a1 + 22) + 348 * *(uint8_t *)(a1 + 16)) + 316);
   *(uint8_t *)(v1 + 262) = 0;
@@ -77255,7 +77588,7 @@ LABEL_9:
     {
       if ( v4 + 19 >= v10 )
         goto LABEL_9;
-      v15 = memmove_1_1((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
+      v15 = (void *)(uintptr_t)(memmove_1((int)(uintptr_t)((uint8_t *)(v4 + a2 + 2)), (void *)(uintptr_t)((uint16_t)(v10 - 2 - v4))));
       if ( !v15 )
         goto LABEL_9;
       v16 = *((uint16_t *)v15 + 1);
@@ -77705,8 +78038,8 @@ uint64_t ke_process_event(int a1, uint16_t *a2, int a3, int a4, int a5) {
     v19 = v20;
     v18 += 16;
   }
-  memset_thunk((int *)&v44, 0, 0x10u);
-  memset_thunk((int *)&v47, 0, 0x10u);
+  memset_byte((int *)&v44, 0, 0x10u);
+  memset_byte((int *)&v47, 0, 0x10u);
   if ( v12 > 16 )
   {
     v22 = &v38;
@@ -78871,9 +79204,9 @@ int tx_process_ll_queue(int result, int a2) {
             if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
-          ((int (*)())memmove_4)((int)(uintptr_t)(v13), v8);
-          ((int (*)())memmove_4)(v8, v8 + 12);
-          result = ((int (*)())memmove_4)(v8 + 12, (int)(uintptr_t)(v13));
+          ((int (*)())memmove)((int)(uintptr_t)(v13), v8);
+          ((int (*)())memmove)(v8, v8 + 12);
+          result = ((int (*)())memmove)(v8 + 12, (int)(uintptr_t)(v13));
           ++v5;
           v12 = *(uint64_t *)(v7 - 1);
           v9 = v6;
@@ -79034,7 +79367,7 @@ int process_packet_queue(int a1) {
     v5 = -1;
     v3 = -1;
   }
-  result = dispatch_by_type_1((uint8_t *)a1);
+  result = ((int (*)())dispatch_by_type)((int)(uintptr_t)((uint8_t *)a1));
   v8 = *(uint8_t *)(a1 + 169);
   *(uint16_t *)(a1 + 10) = result;
   switch ( v8 )
@@ -79838,7 +80171,7 @@ int handle_ll_control_packet(int a1) {
   v24 = *(uint8_t *)(a1 + 177);
   v25 = *(uint16_t *)(a1 + 12 * *(uint16_t *)(a1 + 138) + 10);
   v26 = *(uint16_t *)(a1 + 12 * *(uint16_t *)(a1 + 136) + 10);
-  memset_thunk(&v50, 0xFFu, 0xCu);
+  memset_byte(&v50, 0xFFu, 0xCu);
   v45 = v23 - v24 + 1;
   while ( 2 )
   {
@@ -80003,7 +80336,7 @@ LABEL_31:
         *(uint8_t *)(a1 + 166) = v1 & 0xBF;
 LABEL_6:
         v6 = 12 * v5;
-        v7 = rx_desc_parse_n_ebbc(v6 + 4 + a1);
+        v7 = parse_ll_header(v6 + 4 + a1);
         v8 = *(uint8_t *)(a1 + 169);
         v44 = v7;
         *(uint16_t *)(a1 + 152) = 10 * *(uint16_t *)(a1 + 150);
@@ -80075,7 +80408,7 @@ LABEL_25:
             goto LABEL_18;
           }
 LABEL_19:
-          v21 = rx_desc_parse_n_ebbc(12 * v14 + 4 + a1);
+          v21 = parse_ll_header(12 * v14 + 4 + a1);
           if ( *(uint8_t *)(a1 + 12 * v14 + 13) )
             v22 = 32;
           else
@@ -80463,7 +80796,7 @@ LABEL_4:
     goto LABEL_6;
   }
 LABEL_7:
-  result = (dword_13F664 * (1000 * v5 / (rx_desc_parse_n_ebbc(a1 + v8 + 4) + v13))) >> 16;
+  result = (dword_13F664 * (1000 * v5 / (parse_ll_header(a1 + v8 + 4) + v13))) >> 16;
   if ( a3 )
   {
     if ( v5 <= 0x3332 )
@@ -80800,7 +81133,7 @@ int update_connection_stats(int a1) {
   v7 = dword_13FC50 + 200 * v2;
   *(uint16_t *)(a1 + 348) = v6;
   *(uint32_t *)(a1 + 340) = v7;
-  v85 = sub_101954() << 14;
+  v85 = irq47_status_handler() << 14;
   v8 = get_hw_flash_size();
   memset_byte((int *)(v5 + 200 * v2), 0, 0xC8u);
   v9 = 200 * v2;
@@ -81420,7 +81753,7 @@ BOOL is_controller_ready() {
   v0 = dword_1405D8;
   if ( !*(uint32_t *)(dword_1405D8 + 6472) )
     return 1;
-  if ( msg_get_value(0xBu) == 3 )
+  if ( hci_cmd_send_short(0xBu) == 3 )
     return **(uint32_t **)(v0 + 6472) == 0;
   return 0;
 }
@@ -81768,7 +82101,7 @@ LABEL_73:
 LABEL_29:
               v31 = (void *)(uintptr_t)(off_140904);
               *(uint16_t *)(v25 + 4) = 3;
-              list_remove_node_d510((int)v31, (uint32_t *)v25);
+              check_abort_flag_3((int)v31, (uint32_t *)v25);
               goto LABEL_30;
             }
             if ( v47 )
@@ -81886,7 +82219,7 @@ int process_adv_report(uint16_t *a1, int a2, int a3) {
       ++v7;
     }
     while ( v7 != (uint8_t *)v8 );
-    return v9 == v6 && !memcpy_1(a3 + 59, (int)(uintptr_t)(&v10), v6);
+    return v9 == v6 && !((int (*)())memcpy)(a3 + 59, (int)(uintptr_t)(&v10), v6);
   }
   return result;
 }
@@ -81916,14 +82249,14 @@ int timer_start(int a1, int a2) {
   if ( a2 )
   {
     v3 = dword_140E24;
-    bt_xtal_init_check((uint32_t *)dword_140E20);
+    zero_struct((uint32_t *)dword_140E20);
     v4 = v3 + 6336;
     do
     {
       *(uint16_t *)(v3 - 2) = 0;
       v5 = (int *)v3;
       v3 += 528;
-      memset_thunk(v5, 0, 6u);
+      memset_byte(v5, 0, 6u);
     }
     while ( v4 != v3 );
     v6 = (v6 & ~0xFFFFFFFFull) | ((uint32_t)(ke_critical_enter()) & 0xFFFFFFFFu);
@@ -81933,7 +82266,7 @@ int timer_start(int a1, int a2) {
   v7 = dword_140E28;
   v8 = dword_140E20;
 LABEL_6:
-  while ( msg_get_value(0xBu) == 1 )
+  while ( hci_cmd_send_short(0xBu) == 1 )
   {
     v9 = dword_140E28;
     v10 = dword_140E28 + 6336;
@@ -81950,7 +82283,7 @@ LABEL_6:
       *(uint8_t *)(v9 + 22) = 0;
       *(uint16_t *)(v9 + 4) = 2;
       v9 += 528;
-      list_push_tail(v8, v11);
+      check_abort_flag(v8, v11);
     }
     while ( v9 != v10 );
 LABEL_12:
@@ -81964,14 +82297,14 @@ LABEL_12:
         if ( *(uint32_t *)(a1 + 92) )
           mmio_irq_clear(dword_140E34, dword_140E30, 1585);
       }
-      rf_bus_mark_n_3b7(0xBu, 2);
-      return bt_chan_state_check_n_4b80(a1, 0);
+      hci_cmd_send(0xBu, 2);
+      return check_scan_enable(a1, 0);
     }
-    rf_bus_mark_n_3b7(0xBu, 3);
+    hci_cmd_send(0xBu, 3);
     if ( !is_controller_ready() )
-      return bt_chan_state_check_n_4b80(a1, 0);
+      return check_scan_enable(a1, 0);
   }
-  rf_bus_mark_n_3b7(0xBu, 1);
+  hci_cmd_send(0xBu, 1);
   v14 = *(uint32_t *)(a1 + 96);
   while ( 1 )
   {
@@ -81988,7 +82321,7 @@ LABEL_12:
     if ( v14 >= v15 )
       goto LABEL_6;
   }
-  v18 = rf_bus_setup_n3a8(4096, 4, 11, 0x178u);
+  v18 = bt_buf_alloc(4096, 4, 11, 0x178u);
   *(uint32_t *)v18 = *(uint32_t *)v17;
   *(uint16_t *)(v18 + 4) = *((uint16_t *)v17 + 2);
   if ( !*(uint8_t *)(a1 + 3) )
@@ -82004,6 +82337,20 @@ LABEL_12:
   *(uint8_t *)(v18 + 366) = *(uint8_t *)(v7 + 6489);
   *(uint32_t *)(v18 + 372) = *(uint16_t *)(a1 + 48) << 10;
   return hci_evt_send(v18);
+}
+
+
+
+// dma_tx_reset_1 @ 0x140e38
+int *dma_tx_reset_1() {
+  int *v0; // r4
+  int *result; // r0
+
+  v0 = (int *)dword_140E5C;
+  hci_cmd_send(0xBu, 0);
+  result = memset_byte(v0, 0, 0x1960u);
+  v0[1620] = -1;
+  return result;
 }
 
 
@@ -82048,13 +82395,13 @@ uint32_t *increment_event_counter() {
   while ( v2 != v0 + 6336 );
   if ( v1 >= *(uint32_t *)(v2 + 148) )
   {
-    result = (void *)(uintptr_t)(rf_bus_mark_n_3b7(0xBu, 0));
+    result = hci_cmd_send(0xBu, 0);
     *(uint32_t *)(v2 + 144) = -1;
   }
   else
   {
-    rf_bus_mark_n_3b7(0xBu, 4);
-    return (uint32_t *)message_dispatch_n84(11264, 11, 11);
+    hci_cmd_send(0xBu, 4);
+    return (uint32_t *)hci_evt_alloc_send(11264, 11, 11);
   }
   return result;
 }
@@ -82118,9 +82465,9 @@ LABEL_18:
   }
 LABEL_4:
   v4 = dword_141670;
-  rf_bus_mark_n_3b7(0xBu, 2);
+  hci_cmd_send(0xBu, 2);
   v5 = v4 + 6336;
-  bt_xtal_init_check((uint32_t *)dword_141678);
+  zero_struct((uint32_t *)dword_141678);
   do
   {
     while ( *(uint16_t *)(v4 + 4) != 1 || !process_adv_report((uint16_t *)(v4 + 6), v4 + 28, v2) )
@@ -82134,11 +82481,11 @@ LABEL_4:
     *(uint8_t *)(v4 + 22) = 0;
     *(uint16_t *)(v4 + 4) = 2;
     v4 += 528;
-    list_push_tail(v5 + 136, v6);
+    check_abort_flag(v5 + 136, v6);
   }
   while ( v4 != v5 );
 LABEL_9:
-  bt_chan_state_check_n_4b80(v2, 0);
+  check_scan_enable(v2, 0);
 }
 
 
@@ -82192,7 +82539,7 @@ uint32_t * start_advertising(int a1, int a2) {
     v4 = *(uint32_t *)(dword_1417C8 + 6480);
     if ( is_controller_ready() )
     {
-      if ( msg_get_value(0xBu) == 3 )
+      if ( hci_cmd_send_short(0xBu) == 3 )
         return (uint32_t *)check_tx_power_valid();
       else
         return increment_event_counter();
@@ -82206,7 +82553,7 @@ uint32_t * start_advertising(int a1, int a2) {
   }
   else
   {
-    result = (void *)(uintptr_t)(rf_bus_mark_n_3b7(0xBu, 0));
+    result = hci_cmd_send(0xBu, 0);
     *(uint32_t *)(dword_1417C8 + 6480) = -1;
   }
   return result;
@@ -82348,7 +82695,7 @@ LABEL_23:
   {
     v18 = v17;
 LABEL_24:
-    result = (void *)(uintptr_t)(memset_thunk((int *)v18, 0, 0x210u));
+    result = memset_byte((int *)v18, 0, 0x210u);
 LABEL_25:
     if ( *(uint16_t *)(v18 + 4) != 3 )
     {
@@ -82826,7 +83173,7 @@ int get_connection_env(int a1, int a2) {
   v4 = ke_critical_enter();
   v5 = *((uint32_t *)off_141E30 + 4);
   *(uint32_t *)(a1 + 56) = dword_141E34;
-  return timestamp_update_4f60(a1 + 52, v5 + v3 - v4);
+  return ke_event_lock(a1 + 52, v5 + v3 - v4);
 }
 
 
@@ -82897,7 +83244,7 @@ uint8_t * build_tx_packet_2(int a1) {
   uint64_t v10; // r0
 
   v2 = *(uint8_t *)(a1 + 47);
-  timestamp_remove_058(a1 + 52);
+  ke_event_set_lock(a1 + 52);
   v3 = *(uint16_t *)a1;
   v4 = dword_141F68;
   result = (void *)(uintptr_t)(off_141F6C);
@@ -82939,10 +83286,10 @@ int set_conn_flag(int a1) {
     if ( v3[1] )
     {
       if ( (v1 & 9) == 9 )
-        build_tx_packet_2(a1);
+        ((int (*)())build_tx_packet)(a1);
     }
   }
-  result = timestamp_remove_058(a1 + 52);
+  result = ke_event_set_lock(a1 + 52);
   if ( !*(uint8_t *)(a1 + 4) )
   {
     result = *(uint8_t *)(a1 + 47);
@@ -82966,7 +83313,7 @@ int build_scan_report(int a1, int a2, int a3, int a4) {
   uint64_t v14; // r2
   int v16; // [sp+Ch] [bp-8h] BYREF
 
-  v6 = msg_handler_1241c0c((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
+  v6 = hci_le_connection_update((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
   v7 = *(uint32_t *)(v16 + 72) + 108;
   *(uint8_t *)(v7 + v6) = -40;
   v8 = v7 + v6;
@@ -83003,7 +83350,7 @@ int lookup_phy_entry(int a1, int a2, char a3) {
   uint64_t v8; // r2
   int v9; // [sp+Ch] [bp-4h] BYREF
 
-  result = msg_handler_1241c0c((int)&v9, dword_1420D0 + 1320 * a1, dword_1420CC + 696 * a2, 7, 0);
+  result = hci_le_connection_update((int)&v9, dword_1420D0 + 1320 * a1, dword_1420CC + 696 * a2, 7, 0);
   if ( result )
   {
     v5 = result + 1;
@@ -83058,6 +83405,27 @@ int poll_active_list(int a1, int a2, int a3) {
   }
   while ( v3 != 8 );
   return 0;
+}
+
+
+
+// mac_init_ring @ 0x14213c
+int *mac_init_ring() {
+  int *v0; // r4
+  int *v1; // r5
+  int *result; // r0
+
+  v0 = (int *)dword_142168;
+  memset_byte((int *)dword_142164, 0, 3u);
+  v1 = v0 + 144;
+  do
+  {
+    result = memset_byte(v0, 0, 0x48u);
+    v0[15] = (int)v0;
+    v0 += 18;
+  }
+  while ( v0 != v1 );
+  return result;
 }
 
 
@@ -83310,7 +83678,7 @@ LABEL_13:
           if ( v3[1] )
           {
             if ( v13 == 9 )
-              result = (int)build_tx_packet_2(result);
+              result = (int)((int (*)())build_tx_packet)(result);
           }
         }
       }
@@ -83383,7 +83751,7 @@ LABEL_7:
     goto LABEL_6;
   }
 LABEL_8:
-  v12 = (uint8_t *)rf_bus_setup_n3a8(12292, a4, a3, 1u);
+  v12 = (uint8_t *)bt_buf_alloc(12292, a4, a3, 1u);
   *v12 = v6;
   hci_evt_send((int)v12);
   return 0;
@@ -83429,7 +83797,7 @@ int ll_state_field_check(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
     v10 = (uint8_t)v6[116];
     v11 = dword_142668;
     v23 = v6[106];
-    memset_thunk(v24, 0, 0x48u);
+    memset_byte(v24, 0, 0x48u);
     v12 = a2[4];
     v13 = v6[107];
     v24[0] = (v24[0] & ~0xFF00u) | (((uint8_t)(*(uint8_t *)off_142660) & 0xFFu) << 8);
@@ -83455,7 +83823,7 @@ int ll_state_field_check(int a1, uint8_t *a2, int16_t a3, int16_t a4) {
     }
     v19 = build_scan_report(v4 + 1320 * v5, v11 + 696 * v10, (int)v24, v17) == 0;
   }
-  v20 = (int *)rf_bus_setup_n3a8(12289, a4, a3, 1u);
+  v20 = (int *)bt_buf_alloc(12289, a4, a3, 1u);
   *v20 = v19;
   hci_evt_send((int)v20);
   return 0;
@@ -83468,7 +83836,7 @@ int softfloat_double_op(int a1, unsigned int a2) {
   if ( **(int16_t **)off_1426AC < 0 && *(uint8_t *)(a2 + 8) == 255 )
     mmio_irq_clear(dword_1426B4, dword_1426B0, 50);
   if ( (*(uint16_t *)(a2 + 2) & 0xFC) == 0xD0 )
-    bt_hci_cmd_dispatch_n_dc(a2);
+    parse_ll_control(a2);
   return 0;
 }
 
@@ -83832,7 +84200,7 @@ LABEL_47:
 // __aeabi_ui2d @ 0x142a50
 int __aeabi_ui2d(int result) {
   if ( result )
-    JUMPOUT(0x142910);
+    ((int (*)())JUMPOUT)(0x142910);
   return result;
 }
 
@@ -83841,7 +84209,7 @@ int __aeabi_ui2d(int result) {
 // __aeabi_i2d @ 0x142a70
 int __aeabi_i2d(int result) {
   if ( result )
-    JUMPOUT(0x142910);
+    ((int (*)())JUMPOUT)(0x142910);
   return result;
 }
 
@@ -83859,7 +84227,7 @@ int __aeabi_f2d(int a1, int a2, int a3, unsigned int a4) {
   if ( v4 || (a4 = v5 & 0xFF000000, (v5 & 0xFF000000) == 0) || a4 == 0xFF000000 )
   {
     if ( (v5 & 0xFFFFFF) != 0 && a4 != 0xFF000000 )
-      JUMPOUT(0x142910);
+      ((int (*)())JUMPOUT)(0x142910);
   }
   return result;
 }
@@ -83869,7 +84237,7 @@ int __aeabi_f2d(int a1, int a2, int a3, unsigned int a4) {
 // __aeabi_d2f @ 0x142ad8
 int __aeabi_d2f(uint64_t a1) {
   if ( a1 )
-    JUMPOUT(0x1428BE);
+    ((int (*)())JUMPOUT)(0x1428BE);
   return a1;
 }
 
@@ -83987,7 +84355,7 @@ int __aeabi_dmul(uint64_t a1, unsigned int a2, unsigned int a3) {
     }
   }
   if ( !v24 )
-    JUMPOUT(0x142D7C);
+    ((int (*)())JUMPOUT)(0x142D7C);
   if ( v21 > -54 )
   {
     v27 = -v21;
@@ -84207,9 +84575,7 @@ LABEL_28:
       if ( v17 == v18 )
         v24 = v19 & 1;
       return v24 + v19;
-    }
-LABEL_38:
-    JUMPOUT(0x142C22);
+} LABEL_38: ((int (*)())JUMPOUT)(0x142C22);
   }
   v25 = __OFADD__(v8, v5 >> 1);
   v27 = v8 + (v5 >> 1);
@@ -84236,15 +84602,13 @@ int __aeabi_ddiv_nan(int result, int a2, int a3, unsigned int a4) {
   v8 = v5 == v6;
   if ( v5 == v6 )
     v8 = v7 == v6;
-  if ( v8 )
-LABEL_25:
-    JUMPOUT(0x142D8E);
+if ( v8 ) LABEL_25: ((int (*)())JUMPOUT)(0x142D8E);
   if ( v5 == v6 )
   {
     if ( result | (a2 << 12) || v7 == v6 )
       goto LABEL_25;
 LABEL_26:
-    JUMPOUT(0x142D78);
+    ((int (*)())JUMPOUT)(0x142D78);
   }
   if ( v7 == v6 )
   {
@@ -84262,7 +84626,7 @@ LABEL_26:
     if ( !(a3 | (2 * a4)) )
       goto LABEL_25;
 LABEL_27:
-    JUMPOUT(0x142D3C);
+    ((int (*)())JUMPOUT)(0x142D3C);
   }
   if ( v5 )
     goto LABEL_30;
@@ -84797,6 +85161,37 @@ uint64_t double_compare_swap(int a1, int a2) {
   v3 = __PAIR64__(a1, a2);
   double_compare(a2, a1);
   return v3;
+}
+
+
+
+// compare_eq @ 0x14344c
+BOOL compare_eq() {
+  char v0; // zf
+
+  ((void (*)(void))loc_14343C)();
+  return v0 != 0;
+}
+
+
+
+// compare_lo @ 0x143460
+BOOL compare_lo() {
+  char v0; // cf
+
+  ((void (*)(void))loc_14343C)();
+  return !v0;
+}
+
+
+
+// compare_ls @ 0x143474
+BOOL compare_ls() {
+  char v0; // cf
+  char v1; // zf
+
+  ((void (*)(void))loc_14343C)();
+  return !(!v1 & v0);
 }
 
 
@@ -85639,12 +86034,12 @@ int strcmp(unsigned int a1, unsigned int *a2) {
     v11 = *v9;
     a2 = (unsigned int *)(v9 + 2);
     v12 = -1 << (8 * (v7 & 3));
-    (void)((0 & ~0xFFFFFFFFull) | ((uint32_t)(0 | ~v12) & 0xFFFFFFFFu));
+    (void)(0 | ~v12);;
     v14 = v11 | (unsigned int)~v12;
     if ( !1 )
     {
-      (void)((0 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(0 >> 32) & 0xFFFFFFFFu) | (uint32_t)(~v12))) << 32);
-      (void)((0 & ~0xFFFFFFFFull) | ((uint32_t)(-1) & 0xFFFFFFFFu));
+      (void)((uint32_t)(~v12));;
+      (void)(-1);;
       v14 = (v14 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v14 >> 32) & 0xFFFFFFFFu) | (uint32_t)(~v12))) << 32;;
       v14 = (v14 & ~0xFFFFFFFFull) | ((uint32_t)(-1) & 0xFFFFFFFFu);
     }
@@ -85837,7 +86232,7 @@ LABEL_59:
     
     0 ^ v84;
     
-    (void)((0 & ~0xFFu) | ((uint8_t)(__clz(0)) & 0xFFu));
+    (void)(__clz(0));;
     return (0 << 0 >> 24) - (v84 << 0 >> 24);
   }
   else
@@ -85984,11 +86379,11 @@ unsigned int memmove_5(unsigned int a1) {
     v5 = -v3;
     __pld(v1 + 8);
     v15 = -1 << (8 * (v3 & 3));
-    (void)((0 & ~0xFFFFFFFFull) | ((uint32_t)(0 | ~v15) & 0xFFFFFFFFu));
+    (void)(0 | ~v15);;
     if ( (v3 & 4) != 0 )
     {
-      (void)((0 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(0 >> 32) & 0xFFFFFFFFu) | (uint32_t)(~v15))) << 32);
-      (void)((0 & ~0xFFFFFFFFull) | ((uint32_t)(-1) & 0xFFFFFFFFu));
+      (void)((uint32_t)(~v15));;
+      (void)(-1);;
     }
     0;
     goto LABEL_4;
@@ -86026,7 +86421,7 @@ LABEL_4:
   if ( !(uint32_t)0 )
   {
     v5 += 4;
-    (void)((0 & ~0xFFFFFFFFull) | ((uint32_t)(HIDWORD(0)) & 0xFFFFFFFFu));
+    (void)(HIDWORD(0));;
   }
   return v5 + (__clz(bswap32(0)) >> 3);
 }
@@ -86080,6 +86475,20 @@ int memset_1(uint8_t *a1, uint8_t *a2, int a3) {
     }
   }
   return 0;
+}
+
+
+
+// empty_isr @ 0x14e180
+void empty_isr() {
+  ;
+}
+
+
+
+// empty_isr_alt @ 0x14e18c
+void empty_isr_alt() {
+  ;
 }
 
 

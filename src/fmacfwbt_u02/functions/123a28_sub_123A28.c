@@ -16,26 +16,26 @@ extern uint32_t dword_123AE8;
 extern uint32_t dword_123AEC;
 extern uint32_t off_123AE4;
 
-// sub_123A28 @ 0x123a28, size 184 bytes
-// Doc: ipc_msg_send [ipc]: Send IPC message with opcode 0x25 to peer core
-// ipc_msg_send [ipc]: Send IPC message with opcode 0x25 to peer core
-int  sub_123A28(int a1, uint8_t *a2, int a3, int a4)
+// process_percent_char @ 0x123a28, size 184 bytes
+// Doc: rf_get_cal_status [ipc]: Send IPC message with opcode 0x25 to peer core
+// rf_get_cal_status [ipc]: Send IPC message with opcode 0x25 to peer core
+int  process_percent_char(int a1, uint8_t *a2, int a3, int a4)
 {
   uint8_t *v5; // r0
   int16_t **v6; // r6
   uint8_t *v7; // r5
   int v8; // r3
 
-  v5 = (uint8_t *)rf_bus_setup_n3a8(37, a4, a3, 2);
+  v5 = (uint8_t *)bt_buf_alloc(37, a4, a3, 2);
   v6 = (int16_t **)off_123AE0;
   *v5 = 1;
   v7 = v5;
   if ( **v6 < 0 )
   {
-    if ( *a2 <= 5u || (sub_12F694(dword_123AF0, dword_123AE8, 1725), **v6 < 0) )
+    if ( *a2 <= 5u || (mmio_irq_clear(dword_123AF0, dword_123AE8, 1725), **v6 < 0) )
     {
       if ( a2[4] > 0x20u )
-        sub_12F694(dword_123AEC, dword_123AE8, 1726);
+        mmio_irq_clear(dword_123AEC, dword_123AE8, 1726);
     }
   }
   switch ( a2[40] )
@@ -59,14 +59,14 @@ int  sub_123A28(int a1, uint8_t *a2, int a3, int a4)
 LABEL_4:
       if ( v8 && a2[4] <= 0x20u && *a2 <= 5u )
       {
-        v7[1] = sub_121678(a2);
+        v7[1] = rx_handle_frame(a2);
         *v7 = 0;
       }
       break;
     default:
       break;
   }
-  sub_12CBB4(v7);
+  hci_evt_send(v7);
   return 0;
 }
 

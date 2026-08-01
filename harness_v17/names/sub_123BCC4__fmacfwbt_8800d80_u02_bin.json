@@ -1,1 +1,1 @@
-{"fn": "sub_123BCC4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bcc4", "status": "ok", "name": "bt_hci_cmd_alloc_send", "params": [], "docstring": "Allocates and sends HCI command with opcode from r0", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BCC4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bcc4", "status": "ok", "name": "sdio_rd_reg", "params": [], "docstring": "Allocates and sends HCI command with opcode from r0", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -15,8 +15,8 @@ extern uint32_t off_121ADC;
 extern uint32_t off_121AE0;
 extern uint32_t dword_121AE4;
 
-// sub_121A84 @ 0x121a84, size 82 bytes
-void  sub_121A84(int a1)
+// patch_check_enabled_ctx @ 0x121a84, size 82 bytes
+void  patch_check_enabled_ctx(int a1)
 {
   int v2; // r0
   int v3; // r5
@@ -24,22 +24,22 @@ void  sub_121A84(int a1)
 
   if ( **(uint8_t **)off_121AD8 == 3 )
   {
-    v2 = sub_10CEF4();
+    v2 = poll_hw_status();
     v3 = v2;
     if ( v2 )
     {
       *(uint32_t *)(a1 + 24) = 49374;
-      sub_1282E8(v2, a1, 28);
+      memcpy_large(v2, a1, 28);
       v4 = off_121ADC;
       while ( !*(uint32_t *)off_121ADC )
         ;
-      sub_11E724(*(uint32_t *)off_121AE0 + 540, (uint32_t *)(v3 - 4));
+      check_kernel_state(*(uint32_t *)off_121AE0 + 540, (uint32_t *)(v3 - 4));
       *v4 = 1;
-      sub_10CF3C();
+      rf_enable();
     }
     else
     {
-      sub_11F504(dword_121AE4);
+      dispatch_event_handler(dword_121AE4);
     }
   }
 }

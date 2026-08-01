@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_4b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129b6", "status": "ok", "name": "rf_cmd_send_n_4b6", "params": [], "docstring": "Clears RF command status flags and resets command slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_4b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129b6", "status": "ok", "name": "rf_bus_reset_n173", "params": [], "docstring": "Clears RF command status flags and resets command slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

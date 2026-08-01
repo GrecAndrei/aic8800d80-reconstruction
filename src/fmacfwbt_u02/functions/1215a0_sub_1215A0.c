@@ -19,10 +19,10 @@ extern uint32_t off_121664;
 extern uint32_t off_121668;
 extern uint32_t off_12166C;
 
-// sub_1215A0 @ 0x1215a0, size 184 bytes
+// rf_set_channel @ 0x1215a0, size 184 bytes
 // Doc: sub_12215A0 [unknown]: Indexed table accessor (likely per-instance struct init by index)
 // sub_12215A0 [unknown]: Indexed table accessor (likely per-instance struct init by index)
-int  sub_1215A0(int a1, int a2)
+int  rf_set_channel(int a1, int a2)
 {
   int v2; // r6
   uint32_t *v3; // r3

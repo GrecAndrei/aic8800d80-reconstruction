@@ -13,14 +13,14 @@
 extern uint32_t off_120430;
 extern uint32_t off_120434;
 
-// sub_120418 @ 0x120418, size 24 bytes
-void sub_120418()
+// clear_irq_if_idle @ 0x120418, size 24 bytes
+void clear_irq_if_idle()
 {
   int v0; // r3
 
   v0 = *((uint8_t *)off_120430 + 18) + *((uint8_t *)off_120430 + 17);
   *(uint32_t *)off_120434 = 0;
   if ( v0 <= 1 )
-    sub_11F6F0();
+    scan_active_get();
 }
 

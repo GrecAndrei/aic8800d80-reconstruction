@@ -14,8 +14,8 @@ extern uint32_t dword_13C3F4;
 extern uint32_t dword_13C3F8;
 extern uint32_t dword_13C3FC;
 
-// sub_13C3AC @ 0x13c3ac, size 72 bytes
-int  sub_13C3AC(int a1)
+// reset_tx_descriptor @ 0x13c3ac, size 72 bytes
+int  reset_tx_descriptor(int a1)
 {
   int v1; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int  sub_13C3AC(int a1)
   int v6; // zf
 
   v1 = *(uint32_t *)(a1 + 28);
-  memset_thunk((int *)(v1 + 6), 0, 0x100u);
+  memset((int *)(v1 + 6), 0, 0x100u);
   result = 348;
   v4 = *(uint16_t *)(dword_13C3F4 + 2 * (*(uint8_t *)(a1 + 22) + 348 * *(uint8_t *)(a1 + 16)) + 316);
   *(uint8_t *)(v1 + 262) = 0;

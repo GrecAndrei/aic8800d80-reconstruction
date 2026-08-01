@@ -13,8 +13,8 @@
 extern uint32_t off_12F708;
 extern uint32_t off_12F70C;
 
-// sub_12F6E0 @ 0x12f6e0, size 40 bytes
-void sub_12F6E0()
+// ke_int_unlock @ 0x12f6e0, size 40 bytes
+void ke_int_unlock()
 {
   uint32_t *v0; // r3
   int v1; // r2

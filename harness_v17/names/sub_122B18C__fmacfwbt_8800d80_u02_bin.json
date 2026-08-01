@@ -1,1 +1,1 @@
-{"fn": "sub_122B18C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b18c", "status": "ok", "name": "bt_hci_cmd_send_n18c", "params": [], "docstring": "Sends HCI command (opcode 2) via bluetooth mailbox interface", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122B18C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b18c", "status": "ok", "name": "ke_timer_wait", "params": [], "docstring": "Sends HCI command (opcode 2) via bluetooth mailbox interface", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

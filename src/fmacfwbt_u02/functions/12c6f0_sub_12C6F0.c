@@ -12,8 +12,8 @@
 
 extern uint32_t off_12C70C;
 
-// sub_12C6F0 @ 0x12c6f0, size 26 bytes
-int  sub_12C6F0(int a1, uint8_t *a2, uint8_t *a3)
+// util_chk_field @ 0x12c6f0, size 26 bytes
+int  util_chk_field(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v3; // r3
   int result; // r0

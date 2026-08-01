@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B8CC @ 0x13b8cc, size 22 bytes
-int  sub_13B8CC(int16_t a1)
+// get_global_base @ 0x13b8cc, size 22 bytes
+int  get_global_base(int16_t a1)
 {
-  return sub_12C4A4(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
+  return ke_event_handler(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
 }
 

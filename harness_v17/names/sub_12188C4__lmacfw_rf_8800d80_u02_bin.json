@@ -1,1 +1,1 @@
-{"fn": "sub_12188C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12188c4", "status": "ok", "name": "lmac_init_wait_flag", "params": [], "docstring": "Polls a flag register and waits for it to become 1", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12188C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12188c4", "status": "ok", "name": "chip_id_is_one", "params": [], "docstring": "Polls a flag register and waits for it to become 1", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

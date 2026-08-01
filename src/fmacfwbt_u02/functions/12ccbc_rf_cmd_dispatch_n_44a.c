@@ -13,10 +13,10 @@
 extern uint32_t dword_12CCFC;
 extern uint32_t off_12CD00;
 
-// rf_cmd_dispatch_n_44a @ 0x12ccbc, size 64 bytes
+// align_and_irq_lock @ 0x12ccbc, size 64 bytes
 // Doc: message_dispatch_n12e [ipc]: Message dispatch entry storing zeroed pair into out struct
 // message_dispatch_n12e [ipc]: Message dispatch entry storing zeroed pair into out struct
-uint32_t *rf_cmd_dispatch_n_44a()
+uint32_t *align_and_irq_lock()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2

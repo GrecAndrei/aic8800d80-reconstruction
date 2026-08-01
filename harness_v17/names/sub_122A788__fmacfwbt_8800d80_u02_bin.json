@@ -1,1 +1,1 @@
-{"fn": "sub_122A788", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a788", "status": "ok", "name": "rf_table_lookup_n788", "params": [], "docstring": "Looks up RF calibration entry from indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A788", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a788", "status": "ok", "name": "bt_conn_get_flag", "params": [], "docstring": "Looks up RF calibration entry from indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

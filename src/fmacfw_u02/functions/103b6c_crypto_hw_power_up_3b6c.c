@@ -18,10 +18,10 @@ extern uint32_t off_103C0C;
 extern uint32_t dword_103C10;
 extern uint32_t off_103C04;
 
-// crypto_hw_power_up_3b6c @ 0x103b6c, size 138 bytes
-// Doc: crypto_hw_power_up_3b6c [ke]: Power up crypto engine via MMIO at 0x40344084/0x403440a8
-// crypto_hw_power_up_3b6c [ke]: Power up crypto engine via MMIO at 0x40344084/0x403440a8
-int crypto_hw_power_up_3b6c()
+// enable_pa @ 0x103b6c, size 138 bytes
+// Doc: enable_pa [ke]: Power up crypto engine via MMIO at 0x40344084/0x403440a8
+// enable_pa [ke]: Power up crypto engine via MMIO at 0x40344084/0x403440a8
+int enable_pa()
 {
   uint32_t *v0; // r2
   int v1; // r3
@@ -59,6 +59,6 @@ int crypto_hw_power_up_3b6c()
   *v5 |= 0x1000000u;
   *v5 |= 0x8000000u;
   *v6 |= 0x524u;
-  return feature_guard_check(0x2000, v7);
+  return check_status_bits(0x2000, v7);
 }
 

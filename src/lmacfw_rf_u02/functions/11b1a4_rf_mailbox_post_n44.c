@@ -20,10 +20,10 @@ extern uint32_t off_11B2B8;
 extern uint32_t dword_11B2C0;
 extern uint32_t dword_11B2BC;
 
-// rf_mailbox_post_n44 @ 0x11b1a4, size 256 bytes
-// Doc: rf_mailbox_post_n44 [ipc]: Post message into RF mailbox peripheral
-// rf_mailbox_post_n44 [ipc]: Post message into RF mailbox peripheral
-int  rf_mailbox_post_n44(int result)
+// rf_register_access @ 0x11b1a4, size 256 bytes
+// Doc: rf_register_access [ipc]: Post message into RF mailbox peripheral
+// rf_register_access [ipc]: Post message into RF mailbox peripheral
+int  rf_register_access(int result)
 {
   uint8_t *v1; // r4
   int v2; // r5
@@ -45,7 +45,7 @@ int  rf_mailbox_post_n44(int result)
   {
     if ( *((uint32_t *)off_11B2AC + 10) != result )
     {
-      result = sub_101A20();
+      result = os_get_tick_hz();
       v3 += 4000 + result;
     }
     v4 = (uint8_t)v1[91];
@@ -59,8 +59,8 @@ int  rf_mailbox_post_n44(int result)
     else
     {
       v1[88] = v5 & 0xBF;
-      rf_init_or_query();
-      result = rf_xosc_setup(v3, 0, 0);
+      rx_buffer_alloc();
+      result = ke_task_handler(v3, 0, 0);
       v6 = *((uint32_t *)v1 + 4);
       if ( v6 )
       {
@@ -70,14 +70,14 @@ int  rf_mailbox_post_n44(int result)
         do
         {
           v10 = *(uint32_t *)(v6 + 4);
-          result = v10 - sub_101A20();
+          result = v10 - os_get_tick_hz();
           if ( result + v9 >= 0 )
             break;
           v11 = v7 + 224 * *(uint8_t *)(v6 + 8);
           v12 = 102400;
           if ( !*(uint8_t *)(v11 + 94) )
             v12 = *(uint32_t *)(v8 + 152 * *(uint8_t *)(v11 + 102) + 8);
-          result = rf_cal_or_init_handler(v11, *(uint32_t *)(v6 + 4) + v12, 0);
+          result = rf_event_dispatch(v11, *(uint32_t *)(v6 + 4) + v12, 0);
           v6 = *((uint32_t *)v1 + 4);
         }
         while ( v6 );
@@ -85,11 +85,11 @@ int  rf_mailbox_post_n44(int result)
       if ( *((uint32_t *)v1 + 11) )
       {
         if ( **(int16_t **)off_11B2B8 < 0 && (v1[88] & 0xC) == 0 )
-          return rf_cmd_send_n264(dword_11B2C0, dword_11B2BC, 1698);
+          return flash_ctrl_init(dword_11B2C0, dword_11B2BC, 1698);
       }
       else
       {
-        return sub_11ADD0(v2);
+        return list_search(v2);
       }
     }
   }

@@ -13,8 +13,8 @@
 extern uint32_t off_138DA0;
 extern uint32_t off_138D9C;
 
-// sub_138D18 @ 0x138d18, size 132 bytes
-uint32_t * sub_138D18(int a1, int16_t a2)
+// rf_rssi_calibrate @ 0x138d18, size 132 bytes
+uint32_t * rf_rssi_calibrate(int a1, int16_t a2)
 {
   void *v2; // r6
   int16_t v4; // r5
@@ -68,7 +68,7 @@ LABEL_6:
 LABEL_7:
   *(uint32_t *)(a1 + 96) = v9;
   *((uint8_t *)v2 + 50) = 0;
-  message_dispatch_n_16e(a1);
-  return sub_1389D0(a1, v4, *((uint32_t *)v2 + 16));
+  mac_mlme_scan(a1);
+  return tx_power_lookup(a1, v4, *((uint32_t *)v2 + 16));
 }
 

@@ -12,12 +12,12 @@
 
 extern uint32_t off_10DE1C;
 
-// sub_10DE08 @ 0x10de08, size 18 bytes
-int sub_10DE08()
+// util_get_struct_offset @ 0x10de08, size 18 bytes
+int util_get_struct_offset()
 {
   if ( *((uint8_t *)off_10DE1C + 369) )
-    return rf_mem_read_n47e(2);
+    return gpio_set_bit(2);
   else
-    return sub_10DD14(2);
+    return gpio_clear_bit(2);
 }
 

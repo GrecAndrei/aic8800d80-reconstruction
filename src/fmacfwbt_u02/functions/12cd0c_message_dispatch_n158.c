@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// message_dispatch_n158 @ 0x12cd0c, size 200 bytes
+// mem_alloc_align @ 0x12cd0c, size 200 bytes
 // Doc: message_dispatch_n1a8 [ipc]: Dispatch message after null-check on header
 // message_dispatch_n1a8 [ipc]: Dispatch message after null-check on header
-int  message_dispatch_n158(int a1)
+int  mem_alloc_align(int a1)
 {
   int16_t **v1; // r7
   unsigned int v2; // r4
@@ -32,7 +32,7 @@ int  message_dispatch_n158(int a1)
   v2 = (a1 + 3) & 0xFFFFFFFC;
   v3 = v2 + 4;
   if ( **(int16_t **)msg_dispatch_branch_24_6c < 0 && v3 <= 7 )
-    sub_12F694(rf_cmd_process_n_1a6, message_dispatch_n230, 132);
+    mmio_irq_clear(rf_cmd_process_n_1a6, message_dispatch_n230, 132);
   v4 = *((uint32_t **)message_dispatch_n224 + 7);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -78,7 +78,7 @@ message_dispatch_n1bb:
   if ( **v1 >= 0 )
     __und(0xFFu);
 LABEL_20:
-  sub_12F694(message_dispatch_init_cde8, message_dispatch_n230, 160);
+  mmio_irq_clear(message_dispatch_init_cde8, message_dispatch_n230, 160);
   v9 = 0;
   v6 = *v5;
   v7 = 0;

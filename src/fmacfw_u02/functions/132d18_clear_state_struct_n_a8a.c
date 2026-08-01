@@ -13,10 +13,10 @@
 extern uint32_t off_132D84;
 extern uint32_t off_13245C;
 
-// clear_state_struct_n_a8a @ 0x132d18, size 106 bytes
-// Doc: clear_state_struct_n_a8a [util]: Clear/reset a 16-bit state structure fields
-// clear_state_struct_n_a8a [util]: Clear/reset a 16-bit state structure fields
-int  clear_state_struct_n_a8a(int result, uint8_t *a2, int a3)
+// scan_interval_update @ 0x132d18, size 106 bytes
+// Doc: scan_interval_update [util]: Clear/reset a 16-bit state structure fields
+// scan_interval_update [util]: Clear/reset a 16-bit state structure fields
+int  scan_interval_update(int result, uint8_t *a2, int a3)
 {
   unsigned int v3; // r4
   unsigned int v4; // r2

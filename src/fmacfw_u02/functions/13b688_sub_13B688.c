@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B688 @ 0x13b688, size 14 bytes
-int  sub_13B688(int a1, int a2)
+// adv_flags_check @ 0x13b688, size 14 bytes
+int  adv_flags_check(int a1, int a2)
 {
   return *(uint8_t *)(a1 + 264) & (a2 + *(uint8_t *)(a1 + 262));
 }

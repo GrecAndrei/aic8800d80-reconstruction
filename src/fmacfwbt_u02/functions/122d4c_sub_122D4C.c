@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_122D4C @ 0x122d4c, size 14 bytes
-int  sub_122D4C(int a1, int a2, int a3, int a4)
+// send_cmd_0x68 @ 0x122d4c, size 14 bytes
+int  send_cmd_0x68(int a1, int a2, int a3, int a4)
 {
-  message_dispatch_n84(104, a4, a3, a4);
+  hci_evt_alloc_send(104, a4, a3, a4);
   return 0;
 }
 

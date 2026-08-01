@@ -14,8 +14,8 @@ extern uint32_t off_12D044;
 extern uint32_t off_12D048;
 extern uint32_t off_12D04C;
 
-// sub_12D00C @ 0x12d00c, size 54 bytes
-int  sub_12D00C(int a1)
+// irq_disable_global_3 @ 0x12d00c, size 54 bytes
+int  irq_disable_global_3(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

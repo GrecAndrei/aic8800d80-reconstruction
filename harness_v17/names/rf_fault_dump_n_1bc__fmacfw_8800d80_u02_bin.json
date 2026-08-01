@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_1bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121458c", "status": "ok", "name": "divmod_signed_s64", "params": [], "docstring": "Signed 64-bit divide/modulo helper using 32-bit magic multiply", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_1bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121458c", "status": "ok", "name": "rf_fault_dump_n_1bb", "params": [], "docstring": "Signed 64-bit divide/modulo helper using 32-bit magic multiply", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

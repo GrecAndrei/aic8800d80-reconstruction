@@ -1,1 +1,1 @@
-{"fn": "sub_1223A20", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223a20", "status": "ok", "name": "rf_chan_config_set", "params": [], "docstring": "RF channel/configuration init from data tables 0x150040/0x14fe5c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223A20", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223a20", "status": "ok", "name": "build_hci_command", "params": [], "docstring": "RF channel/configuration init from data tables 0x150040/0x14fe5c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

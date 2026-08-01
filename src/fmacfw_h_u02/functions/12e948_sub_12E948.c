@@ -15,8 +15,8 @@ extern uint32_t off_12E9CC;
 extern uint32_t dword_12E9D0;
 extern uint32_t dword_12E9D4;
 
-// sub_12E948 @ 0x12e948, size 128 bytes
-int sub_12E948(int result, ...)
+// alloc_tx_event @ 0x12e948, size 128 bytes
+int alloc_tx_event(int result, ...)
 {
   uint32_t *v1; // r6
   uint8_t *v2; // r4
@@ -49,7 +49,7 @@ int sub_12E948(int result, ...)
       if ( v6 > 0x89 )
       {
         if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
-          result = sub_12F32C(v5, v4, 812);
+          result = irq_disable_mmio_write(v5, v4, 812);
         if ( v1[1] <= v6 - 154 )
           return result;
       }
@@ -60,7 +60,7 @@ int sub_12E948(int result, ...)
       result = (int)v2;
     }
     while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return sub_10D6C8(result, (int)varg_r1);
+    return stack_struct_init(result, (int)varg_r1);
   }
   return result;
 }

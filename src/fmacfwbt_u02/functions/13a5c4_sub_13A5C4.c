@@ -16,10 +16,10 @@ extern uint32_t off_13A6E4;
 extern uint32_t dword_13A6E8;
 extern uint32_t dword_13A6EC;
 
-// sub_13A5C4 @ 0x13a5c4, size 280 bytes
+// rf_get_cal_entry @ 0x13a5c4, size 280 bytes
 // Doc: sub_123A5C4 [scan]: Index into table with 0x2b8 stride using byte fields
 // sub_123A5C4 [scan]: Index into table with 0x2b8 stride using byte fields
-int  sub_13A5C4(int a1, uint32_t *a2)
+int  rf_get_cal_entry(int a1, uint32_t *a2)
 {
   int v3; // r7
   int v4; // r0
@@ -92,7 +92,7 @@ int  sub_13A5C4(int a1, uint32_t *a2)
         break;
       default:
         if ( **(int16_t **)off_13A6E4 < 0 )
-          sub_12F694(dword_13A6E8, dword_13A6EC, 181);
+          mmio_irq_clear(dword_13A6E8, dword_13A6EC, 181);
         v10 = 0;
         v11 = 3;
         v12 = 1;
@@ -101,7 +101,7 @@ int  sub_13A5C4(int a1, uint32_t *a2)
     if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     {
       *(uint64_t *)(v8 + 72) += v12;
-      sub_14380C(a1 + 56, v8 + 72, 2 * v11);
+      memcpy_aligned(a1 + 56, v8 + 72, 2 * v11);
     }
     return v10;
   }

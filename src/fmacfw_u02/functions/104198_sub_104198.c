@@ -21,8 +21,8 @@ extern uint32_t off_10428C;
 extern uint32_t off_104290;
 extern uint32_t dword_104294;
 
-// sub_104198 @ 0x104198, size 214 bytes
-uint32_t *sub_104198()
+// mac_hw_init @ 0x104198, size 214 bytes
+uint32_t *mac_hw_init()
 {
   unsigned int *v0; // r4
   unsigned int *v1; // r0
@@ -48,7 +48,7 @@ uint32_t *sub_104198()
   v0 -= 136;
   *v4 |= 0x2000000u;
   *v0 &= ~0x20000u;
-  sub_100644(2);
+  timer_delay(2);
   v6 = off_104288;
   result = off_10428C;
   v8 = off_104290;

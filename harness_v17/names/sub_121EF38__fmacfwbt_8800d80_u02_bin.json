@@ -1,1 +1,1 @@
-{"fn": "sub_121EF38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121ef38", "status": "ok", "name": "fw_version_check_n_38", "params": [], "docstring": "Compare firmware version or build ID against expected value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121EF38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121ef38", "status": "ok", "name": "mac_irq_check", "params": [], "docstring": "Compare firmware version or build ID against expected value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

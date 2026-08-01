@@ -13,10 +13,10 @@
 extern uint32_t dword_123BB4;
 extern uint32_t dword_123BB8;
 
-// patch_ctrl_write_magic @ 0x123b30, size 130 bytes
-// Doc: patch_ctrl_write_magic [patch]: Writes cafefade magic and control word to indexed register slot
-// patch_ctrl_write_magic [patch]: Writes cafefade magic and control word to indexed register slot
-int  patch_ctrl_write_magic(uint32_t *a1, int a2, int a3)
+// init_timer_slot @ 0x123b30, size 130 bytes
+// Doc: init_timer_slot [patch]: Writes cafefade magic and control word to indexed register slot
+// init_timer_slot [patch]: Writes cafefade magic and control word to indexed register slot
+int  init_timer_slot(uint32_t *a1, int a2, int a3)
 {
   int v3; // r2
   int v4; // r4

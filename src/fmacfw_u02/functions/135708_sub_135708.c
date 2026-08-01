@@ -14,10 +14,10 @@ extern uint32_t dword_135844;
 extern uint32_t dword_135848;
 extern uint32_t off_13584C;
 
-// sub_135708 @ 0x135708, size 316 bytes
+// bt_get_conn_by_index @ 0x135708, size 316 bytes
 // Doc: sub_1235708 [mac]: Accesses entry in indexed table (0x528 stride) by ID
 // sub_1235708 [mac]: Accesses entry in indexed table (0x528 stride) by ID
-int  sub_135708(int result)
+int  bt_get_conn_by_index(int result)
 {
   int v1; // r4
   int v2; // r2
@@ -64,7 +64,7 @@ int  sub_135708(int result)
           if ( *(uint8_t *)(v6 + 52) == 2 && !*(uint8_t *)(result + 13) )
           {
             v7 = *(uint16_t *)(result + 14);
-            result = sub_118C44(*(uint8_t *)(result + 6) != 0, 512);
+            result = ke_mutex_guard(*(uint8_t *)(result + 6) != 0, 512);
             v8 = result;
             if ( result )
             {
@@ -72,7 +72,7 @@ int  sub_135708(int result)
               LOBYTE(v22) = *(uint8_t *)(v4 + 6);
               LOWORD(v23) = v9;
               HIWORD(v22) = v9;
-              sub_12C538(v1, result, (uint8_t *)&v22);
+              rf_check_battery(v1, result, (uint8_t *)&v22);
               v10 = off_13584C;
               v11 = *(uint32_t *)(v8 + 72);
               v12 = *((uint16_t *)off_13584C + 254);
@@ -99,8 +99,8 @@ int  sub_135708(int result)
               v17 = v11 + 108;
               *(uint8_t *)(v8 + 51) = 0;
               *(uint8_t *)(v8 + 53) = 0;
-              rf_msg_process_body_n37(v8, 208, 8);
-              fmac_main_loop_0a0(v8, v17, 24);
+              get_channel_tx_power(v8, 208, 8);
+              ll_conn_window_calc(v8, v17, 24);
               v18 = *(uint8_t *)(v8 + 51) + 24;
               v19 = v18 + v17;
               *(uint8_t *)(v18 + v17) = 8;
@@ -111,7 +111,7 @@ int  sub_135708(int result)
               LODWORD(v21) = *(uint32_t *)(v20 + 28) - 1 + HIDWORD(v21);
               HIDWORD(v21) += 4;
               *(uint64_t *)(v20 + 32) = v21;
-              return rf_param_get_status(v8, 5);
+              return tx_path_status(v8, 5);
             }
           }
         }

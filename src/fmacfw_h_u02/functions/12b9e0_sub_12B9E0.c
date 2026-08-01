@@ -14,8 +14,8 @@ extern uint32_t off_12BA00;
 extern uint32_t off_12BA04;
 extern uint32_t off_12BA08;
 
-// sub_12B9E0 @ 0x12b9e0, size 32 bytes
-void *sub_12B9E0()
+// rf_irq_clear @ 0x12b9e0, size 32 bytes
+void *rf_irq_clear()
 {
   void *result; // r0
   uint32_t *v1; // r1

@@ -1,0 +1,1 @@
+{"fn": "sub_101874", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x101874", "status": "ok", "name": "return_one", "params": [], "docstring": "Return constant 1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

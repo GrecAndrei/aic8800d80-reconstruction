@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DF60 @ 0x12df60, size 32 bytes
-uint8_t * sub_12DF60(uint8_t *a1, int a2)
+// parse_frame_0x26 @ 0x12df60, size 32 bytes
+uint8_t * parse_frame_0x26(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   uint16_t v3[3]; // [sp+6h] [bp-6h] BYREF
 
-  result = sub_12D82C(a1, a2, 38, v3);
+  result = mem_range_check(a1, a2, 38, v3);
   if ( result )
   {
     if ( v3[0] != 16 )

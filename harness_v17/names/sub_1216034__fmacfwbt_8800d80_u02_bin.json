@@ -1,1 +1,1 @@
-{"fn": "sub_1216034", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1216034", "status": "ok", "name": "sub_1216034", "params": [], "docstring": "Loads pointer from 0x182c60 and reads its first byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1216034", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1216034", "status": "ok", "name": "rx_check_buffers", "params": [], "docstring": "Loads pointer from 0x182c60 and reads its first byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

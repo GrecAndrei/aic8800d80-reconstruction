@@ -13,8 +13,8 @@
 extern uint32_t off_11C39C;
 extern uint32_t dword_11C3A0;
 
-// sub_11C350 @ 0x11c350, size 74 bytes
-int  sub_11C350(int a1)
+// rx_buf_align_desc @ 0x11c350, size 74 bytes
+int  rx_buf_align_desc(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r7

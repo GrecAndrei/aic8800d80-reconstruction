@@ -13,8 +13,8 @@
 extern uint32_t off_10933C;
 extern uint32_t off_109340;
 
-// sub_1092C8 @ 0x1092c8, size 114 bytes
-uint32_t * sub_1092C8(uint32_t *result, unsigned int *a2)
+// mmio_write_32 @ 0x1092c8, size 114 bytes
+uint32_t * mmio_write_32(uint32_t *result, unsigned int *a2)
 {
   int v2; // r3
   int v3; // r3

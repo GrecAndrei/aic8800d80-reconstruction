@@ -18,8 +18,8 @@ extern uint32_t dword_127330;
 extern uint32_t dword_127340;
 extern uint32_t dword_127334;
 
-// sub_1272A0 @ 0x1272a0, size 134 bytes
-int sub_1272A0()
+// rf_read_calibration @ 0x1272a0, size 134 bytes
+int rf_read_calibration()
 {
   uint8_t *v0; // r4
   int v1; // r3
@@ -32,21 +32,21 @@ int sub_1272A0()
   {
     if ( **(int16_t **)off_12732C < 0 && (v1 & 4) != 0 )
     {
-      sub_12F46C(dword_12733C, dword_127338, 1720);
+      mmio_clear_register(dword_12733C, dword_127338, 1720);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xFA | 4;
-    return sub_127170(dword_127330);
+    return dma_setup_transfer(dword_127330);
   }
   else if ( (v1 & 6) == 2 )
   {
     if ( **(int16_t **)off_12732C < 0 && (v1 & 8) != 0 )
     {
-      sub_12F46C(dword_127340, dword_127338, 1731);
+      mmio_clear_register(dword_127340, dword_127338, 1731);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xF5 | 8;
-    return sub_127170(dword_127334);
+    return dma_setup_transfer(dword_127334);
   }
   return result;
 }

@@ -1,0 +1,1 @@
+{"fn": "sub_12D100", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d100", "status": "ok", "name": "get_band_all", "params": [], "docstring": "Return all-bands indicator", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

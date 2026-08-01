@@ -16,8 +16,8 @@ extern uint32_t dword_10F0F0;
 extern uint32_t dword_10F0F4;
 extern uint32_t dword_10F0F8;
 
-// sub_10F0B4 @ 0x10f0b4, size 52 bytes
-int sub_10F0B4()
+// check_hw_flag @ 0x10f0b4, size 52 bytes
+int check_hw_flag()
 {
   uint8_t *v0; // r3
   int result; // r0

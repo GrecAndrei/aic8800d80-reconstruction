@@ -1,1 +1,1 @@
-{"fn": "rf_timer_toggle_update", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12304b0", "status": "ok", "name": "rf_timer_toggle_update", "params": [], "docstring": "Update RF timer toggle value via float-to-int conversion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_timer_toggle_update", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12304b0", "status": "ok", "name": "rf_temperature_compensation", "params": [], "docstring": "Update RF timer toggle value via float-to-int conversion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t off_1039F8;
 extern uint32_t off_1039F4;
 extern uint32_t dword_1039FC;
 
-// sub_10397C @ 0x10397c, size 118 bytes
-int * sub_10397C(int a1)
+// bb_reset @ 0x10397c, size 118 bytes
+int * bb_reset(int a1)
 {
   unsigned int *v1; // r3
   int v2; // r5

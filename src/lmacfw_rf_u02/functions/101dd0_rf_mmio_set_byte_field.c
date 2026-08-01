@@ -13,10 +13,10 @@
 extern uint32_t off_101E10;
 extern uint32_t off_101E0C;
 
-// rf_mmio_set_byte_field @ 0x101dd0, size 58 bytes
-// Doc: rf_mmio_set_byte_field [rf]: Writes a byte field into RF MMIO register at 0x403200a0
-// rf_mmio_set_byte_field [rf]: Writes a byte field into RF MMIO register at 0x403200a0
-int  rf_mmio_set_byte_field(int result)
+// pll_set_output @ 0x101dd0, size 58 bytes
+// Doc: pll_set_output [rf]: Writes a byte field into RF MMIO register at 0x403200a0
+// pll_set_output [rf]: Writes a byte field into RF MMIO register at 0x403200a0
+int  pll_set_output(int result)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3

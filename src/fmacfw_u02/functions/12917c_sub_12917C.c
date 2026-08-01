@@ -15,8 +15,8 @@ extern uint32_t off_129200;
 extern uint32_t off_1291FC;
 extern uint32_t dword_129204;
 
-// sub_12917C @ 0x12917c, size 124 bytes
-int  sub_12917C(int result, int a2, int a3)
+// wlc_rx_reclaim @ 0x12917c, size 124 bytes
+int  wlc_rx_reclaim(int result, int a2, int a3)
 {
   uint32_t *v3; // r6
   int v5; // r2
@@ -49,7 +49,7 @@ int  sub_12917C(int result, int a2, int a3)
         v15 = *(uint16_t *)(v13 + 56);
         v3[5] = a3;
         *((uint8_t *)v3 + 29) = 5;
-        result = timestamp_update((int)(v3 + 3), v15 + v14);
+        result = unknown_worker((int)(v3 + 3), v15 + v14);
         v7 = *(uint32_t *)(a3 + 4);
         if ( !a2 )
           goto LABEL_6;
@@ -65,13 +65,13 @@ LABEL_6:
     }
 LABEL_8:
     *(uint32_t *)(a3 + 4) = v7 | 4;
-    rf_fault_dump_n_1d4(result, v9, v5);
-    sub_128EA0();
+    process_global_167204(result, v9, v5);
+    wlc_core_state();
     v10 = *((uint32_t *)off_129200 + 4);
     v11 = *(uint16_t *)(*(uint32_t *)off_1291FC + 58);
     v3[5] = a3;
     *((uint8_t *)v3 + 29) = 6;
-    return timestamp_update(dword_129204, v11 + v10);
+    return unknown_worker(dword_129204, v11 + v10);
   }
   return result;
 }

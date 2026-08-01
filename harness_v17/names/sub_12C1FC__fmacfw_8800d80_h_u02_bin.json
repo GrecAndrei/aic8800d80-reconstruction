@@ -1,0 +1,1 @@
+{"fn": "sub_12C1FC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c1fc", "status": "ok", "name": "deinit_bt_global_0x190688", "params": [], "docstring": "Release BT global objects at 0x190688", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

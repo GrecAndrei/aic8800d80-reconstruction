@@ -1,1 +1,1 @@
-{"fn": "sub_12190B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12190b4", "status": "ok", "name": "sub_12190B4", "params": [], "docstring": "Unknown behavioral stub", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12190B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12190b4", "status": "ok", "name": "phy_channel_get_attr", "params": [], "docstring": "Unknown behavioral stub", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

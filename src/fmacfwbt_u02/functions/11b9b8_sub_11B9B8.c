@@ -18,8 +18,8 @@ extern uint32_t off_11BBF4;
 extern uint32_t off_11BBF8;
 extern uint32_t dword_11BBFC;
 
-// sub_11B9B8 @ 0x11b9b8, size 562 bytes
-int  sub_11B9B8(int a1)
+// ke_timer_update @ 0x11b9b8, size 562 bytes
+int  ke_timer_update(int a1)
 {
   uint32_t *v1; // r8
   char *v2; // r6
@@ -77,7 +77,7 @@ int  sub_11B9B8(int a1)
   *((uint32_t *)v2 + 275) = 0;
   *((uint32_t *)v2 + 276) = 0;
   *((uint32_t *)v2 + 6) = 0;
-  v11 = sub_11A16C((int)(v2 + 92), v8);
+  v11 = buf_align_size((int)(v2 + 92), v8);
   v12 = *((uint32_t *)v2 + 6);
   v13 = v2;
   v14 = (uint16_t)(((*((uint16_t *)v2 + 58) + 3) & 0xFFFC) + 4 + 4 * v11);

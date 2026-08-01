@@ -1,0 +1,1 @@
+{"fn": "sub_14E044", "img": "fmacfw_8800d80_u02_bin", "addr": "0x14e044", "status": "ok", "name": "nop_return2", "params": [], "docstring": "Do nothing and return", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

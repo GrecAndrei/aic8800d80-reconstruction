@@ -1,1 +1,1 @@
-{"fn": "rf_init_blockc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120e0f8", "status": "ok", "name": "rf_init_blockc", "params": [], "docstring": "Initialize RF subsystem with base addresses and register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_init_blockc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120e0f8", "status": "ok", "name": "radio_init", "params": [], "docstring": "Initialize RF subsystem with base addresses and register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

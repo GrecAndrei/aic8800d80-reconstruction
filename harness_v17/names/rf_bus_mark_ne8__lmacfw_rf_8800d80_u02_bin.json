@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_ne8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211274", "status": "ok", "name": "rf_bus_mark_ne8", "params": [], "docstring": "Mark RF bus slot byte with a flag bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_ne8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211274", "status": "ok", "name": "timer_entry_clear", "params": [], "docstring": "Mark RF bus slot byte with a flag bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

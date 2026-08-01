@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D08C @ 0x13d08c, size 620 bytes
-int  sub_13D08C(int result, uint32_t *a2)
+// tx_handle_acked_list @ 0x13d08c, size 620 bytes
+int  tx_handle_acked_list(int result, uint32_t *a2)
 {
   unsigned int v2; // r6
   int v3; // r7

@@ -20,8 +20,8 @@ extern uint32_t off_103AC0;
 extern uint32_t dword_103ADC;
 extern uint32_t off_103ABC;
 
-// sub_103A00 @ 0x103a00, size 186 bytes
-int  sub_103A00(int a1, int a2, int a3)
+// configure_bb_winsize @ 0x103a00, size 186 bytes
+int  configure_bb_winsize(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r2

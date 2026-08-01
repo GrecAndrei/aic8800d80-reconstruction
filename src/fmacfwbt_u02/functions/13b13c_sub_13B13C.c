@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B13C @ 0x13b13c, size 62 bytes
-uint16_t * sub_13B13C(int a1, uint16_t *a2, int a3)
+// mac_rx_process_ack @ 0x13b13c, size 62 bytes
+uint16_t * mac_rx_process_ack(int a1, uint16_t *a2, int a3)
 {
   uint16_t *v6; // r1
   int v8; // r0
@@ -24,13 +24,13 @@ uint16_t * sub_13B13C(int a1, uint16_t *a2, int a3)
   }
   else
   {
-    v8 = sub_13A5C4(a1, &v10);
+    v8 = rf_get_cal_entry(a1, &v10);
     v9 = v10;
     *(uint8_t *)(a1 + 51) = v8;
     v6 = (uint16_t *)((char *)a2 + a3 + v8);
     *(uint8_t *)(a1 + 53) = v9;
   }
   *a2 |= 0x4000u;
-  return sub_13AA1C(a1, v6, 0);
+  return rf_set_channel_table(a1, v6, 0);
 }
 

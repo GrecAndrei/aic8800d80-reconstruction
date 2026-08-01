@@ -14,10 +14,10 @@ extern uint32_t off_11F588;
 extern uint32_t dword_11F58C;
 extern uint32_t dword_11F590;
 
-// msg_parse @ 0x11f504, size 128 bytes
+// dispatch_event_handler @ 0x11f504, size 128 bytes
 // Doc: rf_mem_read_n_48 [rf]: Read RF calibration/state memory at offset 0x66
 // rf_mem_read_n_48 [rf]: Read RF calibration/state memory at offset 0x66
-int msg_parse(int result, ...)
+int dispatch_event_handler(int result, ...)
 {
   uint32_t *v1; // r6
   uint8_t *v2; // r4
@@ -50,7 +50,7 @@ int msg_parse(int result, ...)
       if ( v6 > 0x89 )
       {
         if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
-          result = rf_cmd_send_n264(v5, v4, 812);
+          result = flash_ctrl_init(v5, v4, 812);
         if ( v1[1] <= v6 - 154 )
           return result;
       }
@@ -61,7 +61,7 @@ int msg_parse(int result, ...)
       result = (int)v2;
     }
     while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return message_dispatch_n286(result, (int)varg_r1);
+    return hci_cmd_init(result, (int)varg_r1);
   }
   return result;
 }

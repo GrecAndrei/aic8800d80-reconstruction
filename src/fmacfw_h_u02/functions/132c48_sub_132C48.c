@@ -19,8 +19,8 @@ extern uint32_t dword_132E6C;
 extern uint32_t dword_132E70;
 extern uint32_t dword_132E60;
 
-// sub_132C48 @ 0x132c48, size 526 bytes
-int  sub_132C48(int a1, unsigned int a2)
+// ble_ll_conn_get @ 0x132c48, size 526 bytes
+int  ble_ll_conn_get(int a1, unsigned int a2)
 {
   int v2; // r7
   int v4; // r0
@@ -57,7 +57,7 @@ int  sub_132C48(int a1, unsigned int a2)
   {
     v7 = (uint16_t *)off_132E74;
     if ( **(int16_t **)off_132E5C < 0 && (*((uint8_t *)off_132E74 + 374) & 4) == 0 )
-      sub_12F32C(dword_132E68, dword_132E64, 1328);
+      irq_disable_mmio_write(dword_132E68, dword_132E64, 1328);
     v8 = 14;
     v9 = 7;
     do
@@ -90,7 +90,7 @@ int  sub_132C48(int a1, unsigned int a2)
     if ( (*(uint32_t *)(v4 + 4) & 4) != 0 )
     {
       if ( v22 < 0 && (*((uint8_t *)off_132E74 + 374) & 2) == 0 )
-        sub_12F32C(dword_132E6C, dword_132E64, 1341);
+        irq_disable_mmio_write(dword_132E6C, dword_132E64, 1341);
       v23 = 14;
       v24 = 7;
       do
@@ -118,7 +118,7 @@ int  sub_132C48(int a1, unsigned int a2)
     }
     else if ( v22 < 0 && (*((uint8_t *)off_132E74 + 374) & 1) == 0 )
     {
-      sub_12F32C(dword_132E70, dword_132E64, 1352);
+      irq_disable_mmio_write(dword_132E70, dword_132E64, 1352);
     }
   }
   v16 = (uint8_t *)(v2 + 696 * a1);
@@ -134,7 +134,7 @@ int  sub_132C48(int a1, unsigned int a2)
   if ( v19 >= v17 )
     LOBYTE(v19) = v17;
   v16[309] = v19;
-  result = sub_13F03C(v18);
+  result = phy_get_channel_data(v18);
   v16[350] |= 8u;
   return result;
 }

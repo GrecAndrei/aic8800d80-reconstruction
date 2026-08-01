@@ -15,10 +15,10 @@ extern uint32_t off_10E03C;
 extern uint32_t dword_10E040;
 extern uint32_t dword_10E044;
 
-// rf_cmd_send_1 @ 0x10dff0, size 72 bytes
+// rf_core_reset_alt @ 0x10dff0, size 72 bytes
 // Doc: rf_cmd_send [rf]: Send command to RF subsystem
 // rf_cmd_send [rf]: Send command to RF subsystem
-int rf_cmd_send_1()
+int rf_core_reset_alt()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r0

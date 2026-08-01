@@ -16,8 +16,8 @@ extern uint32_t dword_100A9C;
 extern uint32_t off_100AA0;
 extern uint32_t off_100AA4;
 
-// sub_1009DC @ 0x1009dc, size 184 bytes
-int  sub_1009DC(int a1, int a2)
+// sdio_irq_mask_enable @ 0x1009dc, size 184 bytes
+int  sdio_irq_mask_enable(int a1, int a2)
 {
   unsigned int *v2; // r3
   int v3; // r7
@@ -74,9 +74,9 @@ int  sub_1009DC(int a1, int a2)
   v15 = 1;
   for ( i = 0; i != 12; ++i )
   {
-    sub_103FF4((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
+    rf_enable_switch((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
     v17 = *(uint32_t *)(a2 + 4 + 8 * i);
-    result = sub_103FF4(v15, v17);
+    result = rf_enable_switch(v15, v17);
     v15 = (uint8_t)(v15 + 2);
   }
   *(uint32_t *)off_100AA4 &= ~2u;

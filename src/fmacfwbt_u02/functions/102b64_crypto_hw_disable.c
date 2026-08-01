@@ -12,10 +12,10 @@
 
 extern uint32_t off_102BD0;
 
-// crypto_hw_disable @ 0x102b64, size 106 bytes
-// Doc: crypto_hw_disable [mac]: Disable hardware crypto engine (clear enable bits)
-// crypto_hw_disable [mac]: Disable hardware crypto engine (clear enable bits)
-int  crypto_hw_disable(int result)
+// set_radio_ctrl_bits2 @ 0x102b64, size 106 bytes
+// Doc: set_radio_ctrl_bits2 [mac]: Disable hardware crypto engine (clear enable bits)
+// set_radio_ctrl_bits2 [mac]: Disable hardware crypto engine (clear enable bits)
+int  set_radio_ctrl_bits2(int result)
 {
   int v1; // r4
   int v2; // zf

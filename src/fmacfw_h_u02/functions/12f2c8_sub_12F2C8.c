@@ -15,8 +15,8 @@ extern uint32_t off_12F320;
 extern uint32_t dword_12F324;
 extern uint32_t off_12F328;
 
-// sub_12F2C8 @ 0x12f2c8, size 82 bytes
-int  sub_12F2C8(int a1, int a2, int a3)
+// unknown_12f2c8 @ 0x12f2c8, size 82 bytes
+int  unknown_12f2c8(int a1, int a2, int a3)
 {
   int *v4; // r4
   int v5; // r0
@@ -32,11 +32,11 @@ int  sub_12F2C8(int a1, int a2, int a3)
   v4 = (int *)off_12F320;
   v5 = dword_12F324;
   ++*(uint32_t *)off_12F320;
-  result = sub_12E948(v5, a1, a2, a3 & 0xFFFFF);
+  result = alloc_tx_event(v5, a1, a2, a3 & 0xFFFFF);
   if ( *(int *)off_12F328 >= 0 )
   {
-    sub_12B9E0();
-    result = sub_12CFC4(0x80000000);
+    rf_irq_clear();
+    result = irq_disable_global_2(0x80000000);
   }
   if ( *v4 )
   {

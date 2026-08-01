@@ -21,8 +21,8 @@ extern uint32_t off_10EA94;
 extern uint32_t off_10EA8C;
 extern uint32_t dword_10EA90;
 
-// sub_10E970 @ 0x10e970, size 260 bytes
-int  sub_10E970(unsigned int *a1)
+// board_init @ 0x10e970, size 260 bytes
+int  board_init(unsigned int *a1)
 {
   uint32_t *v1; // r2
   int v2; // r7
@@ -56,7 +56,7 @@ int  sub_10E970(unsigned int *a1)
   *v4 &= ~1u;
   v16[0] = v6;
   v16[1] = 5610;
-  sub_102898((uint16_t *)v16, 0);
+  gpio_init((uint16_t *)v16, 0);
   v8 = (int *)off_10EA8C;
   v9 = dword_10EA90;
   *v5 |= 0x80000000;
@@ -69,7 +69,7 @@ int  sub_10E970(unsigned int *a1)
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = sub_10E694(4u, 8u, a1);
+  result = gpio_set_pin_mode(4u, 8u, a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;

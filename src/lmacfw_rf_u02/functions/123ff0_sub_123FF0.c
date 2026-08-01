@@ -16,8 +16,8 @@ extern uint32_t off_124074;
 extern uint32_t off_124070;
 extern uint32_t dword_124078;
 
-// sub_123FF0 @ 0x123ff0, size 118 bytes
-int  sub_123FF0(unsigned int a1, int a2, int a3)
+// configure_hw_regs @ 0x123ff0, size 118 bytes
+int  configure_hw_regs(unsigned int a1, int a2, int a3)
 {
   int v3; // r4
   unsigned int *v4; // r5
@@ -53,7 +53,7 @@ LABEL_8:
     *v6 = v7;
     goto LABEL_8;
   }
-  msg_parse(dword_124078, a1, a3, *(uint32_t *)off_124070 << 31);
+  dispatch_event_handler(dword_124078, a1, a3, *(uint32_t *)off_124070 << 31);
   return 1;
 }
 

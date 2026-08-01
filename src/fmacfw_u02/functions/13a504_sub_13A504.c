@@ -13,8 +13,8 @@
 extern uint32_t dword_13A524;
 extern uint32_t off_13A520;
 
-// sub_13A504 @ 0x13a504, size 28 bytes
-BOOL sub_13A504()
+// rf_chan_enabled @ 0x13a504, size 28 bytes
+BOOL rf_chan_enabled()
 {
   return *(uint16_t *)(dword_13A524 + 80 * *((uint8_t *)off_13A520 + 68) + 76) == 0;
 }

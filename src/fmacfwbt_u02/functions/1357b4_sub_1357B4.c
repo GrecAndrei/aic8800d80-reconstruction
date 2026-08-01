@@ -16,8 +16,8 @@ extern uint32_t off_135874;
 extern uint32_t dword_135880;
 extern uint32_t dword_13587C;
 
-// sub_1357B4 @ 0x1357b4, size 186 bytes
-uint32_t * sub_1357B4(char *a1)
+// hci_vendor_read_rf @ 0x1357b4, size 186 bytes
+uint32_t * hci_vendor_read_rf(char *a1)
 {
   int v2; // r8
   unsigned int v3; // r1
@@ -31,16 +31,16 @@ uint32_t * sub_1357B4(char *a1)
   int v12; // r1
 
   v2 = *((uint32_t *)off_135870 + 5);
-  sub_12C964(6154, 6);
+  irq_lock(6154, 6);
   v3 = *(uint16_t *)a1;
   v4 = *((uint16_t *)a1 + 7);
   if ( v3 <= 5 )
   {
     v12 = dword_135878;
     *(uint16_t *)(v2 + 16) = 0;
-    feature_guard_sdio(256, v12, v4);
+    state_check_feature(256, v12, v4);
     if ( !v4 )
-      return rf_msg_process_body_n_102(*((uint16_t *)a1 + 8) & 0x3FFF);
+      return rf_write_cal_param(*((uint16_t *)a1 + 8) & 0x3FFF);
   }
   else
   {
@@ -51,7 +51,7 @@ uint32_t * sub_1357B4(char *a1)
     {
       if ( **(int16_t **)off_135874 < 0 )
       {
-        sub_12F6C4(dword_135880, dword_13587C, 1236);
+        mmio_field_update(dword_135880, dword_13587C, 1236);
         v5 = *(uint16_t *)(v2 + 14);
       }
       v6 = (uint16_t)(800 - v5);
@@ -68,10 +68,10 @@ uint32_t * sub_1357B4(char *a1)
       while ( v7 != &a1[v6 + 18] );
     }
     *(uint16_t *)(v2 + 16) = v6;
-    feature_guard_sdio(256, dword_135878, v4);
+    state_check_feature(256, dword_135878, v4);
     if ( !v4 )
-      return rf_msg_process_body_n_102(*((uint16_t *)a1 + 8) & 0x3FFF);
+      return rf_write_cal_param(*((uint16_t *)a1 + 8) & 0x3FFF);
   }
-  return (uint32_t *)sub_135020(v4);
+  return (uint32_t *)event_dispatch(v4);
 }
 

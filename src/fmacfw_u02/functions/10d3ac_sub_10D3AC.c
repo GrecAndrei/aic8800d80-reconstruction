@@ -16,8 +16,8 @@ extern uint32_t dword_10D400;
 extern uint32_t dword_10D3FC;
 extern uint32_t off_10D3F4;
 
-// sub_10D3AC @ 0x10d3ac, size 66 bytes
-int  sub_10D3AC(int result)
+// check_arg_one @ 0x10d3ac, size 66 bytes
+int  check_arg_one(int result)
 {
   if ( result == 1 )
   {
@@ -29,7 +29,7 @@ int  sub_10D3AC(int result)
   }
   else if ( **(int16_t **)off_10D3F8 < 0 )
   {
-    result = sub_12F46C(dword_10D400, dword_10D3FC, 2118);
+    result = mmio_clear_register(dword_10D400, dword_10D3FC, 2118);
   }
   *((uint32_t *)off_10D3F4 + 1) |= 0x400000u;
   return result;

@@ -22,8 +22,8 @@ extern uint32_t off_121EC8;
 extern uint32_t dword_121ECC;
 extern uint32_t dword_121ED0;
 
-// sub_121C44 @ 0x121c44, size 610 bytes
-unsigned int  sub_121C44(unsigned int a1)
+// ll_channel_hop @ 0x121c44, size 610 bytes
+unsigned int  ll_channel_hop(unsigned int a1)
 {
   int v1; // r5
   int v2; // r7
@@ -83,13 +83,13 @@ unsigned int  sub_121C44(unsigned int a1)
   {
     v7 = (uint8_t)v6++;
     if ( *(uint32_t *)(v2 + 584) )
-      sub_118800(v7, v5 - 40, 0);
+      phy_dispatch(v7, v5 - 40, 0);
     v8 = *(uint32_t *)(v2 + 624);
     v9 = v5;
     v2 += 8;
     v5 += 8;
     if ( v8 )
-      sub_118800(v7, v9, 0);
+      phy_dispatch(v7, v9, 0);
   }
   while ( v6 != 5 );
   v10 = dword_121EAC;
@@ -132,7 +132,7 @@ LABEL_9:
       while ( (*v24 & 0x40000000) != 0 )
         ;
     }
-    return sub_11EFEC(v4);
+    return get_connection_tx_power(v4);
   }
   if ( *(uint8_t *)(v1 + 696 * v4 + 36) == 1 )
   {
@@ -149,10 +149,10 @@ LABEL_9:
         v29[36] = 0;
         if ( v30 <= 0x1F )
         {
-          v32 = (uint8_t *)sub_12C7EC(73, 13, 0, 2);
+          v32 = (uint8_t *)tx_send_pdu(73, 13, 0, 2);
           *v32 = v27;
           v32[1] = 0;
-          sub_12C84C(v32);
+          rx_process_packet(v32);
           if ( !v29[36] && v29[35] <= 0x1Fu )
           {
             v33 = (int *)off_121EC4;
@@ -179,12 +179,12 @@ LABEL_9:
                 v43 = dword_121ECC;
                 v44 = *v33 + 1;
                 *v33 = v44;
-                sub_12E948(v43, v44, v42);
-                sub_12D2F0(v37 - 40, v38 - 40);
+                alloc_tx_event(v43, v44, v42);
+                get_ptr_value(v37 - 40, v38 - 40);
                 v45 = v36[147];
                 v39[308] = v36[146];
                 v39[309] = v45;
-                sub_12D100(v37 - 40);
+                clear_stats_buf(v37 - 40);
                 v33 = (int *)off_121EC4;
                 v46 = *(uint32_t *)off_121EC4 - 1;
                 if ( *(uint32_t *)off_121EC4 )
@@ -203,9 +203,9 @@ LABEL_9:
               v36 += 2;
               if ( v47 )
               {
-                sub_12E948(dword_121ED0, v47, v34);
-                sub_12D2F0(v38, v37);
-                sub_12D100(v37);
+                alloc_tx_event(dword_121ED0, v47, v34);
+                get_ptr_value(v38, v37);
+                clear_stats_buf(v37);
                 v33 = (int *)off_121EC4;
               }
               v37 += 8;
@@ -213,17 +213,17 @@ LABEL_9:
             }
             while ( v37 != v40 );
             v4 = v48;
-            sub_12CFC4(512);
+            irq_disable_global_2(512);
           }
         }
       }
       v31 = v10 + 1320 * v3;
-      sub_136BD4(v31, (uint8_t)(*(uint8_t *)(v31 + 107) + 32));
+      rf_get_rate_table_index(v31, (uint8_t)(*(uint8_t *)(v31 + 107) + 32));
       v12 = *(uint8_t *)(v31 + 106);
     }
   }
   if ( v12 != 2 )
     goto LABEL_9;
-  return sub_11EFEC(v4);
+  return get_connection_tx_power(v4);
 }
 

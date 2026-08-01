@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142AA8 @ 0x142aa8, size 412 bytes
-int  sub_142AA8(uint64_t a1, unsigned int a2, unsigned int a3)
+// double_add @ 0x142aa8, size 412 bytes
+int  double_add(uint64_t a1, unsigned int a2, unsigned int a3)
 {
   int v3; // r5
   unsigned int v4; // r12
@@ -62,7 +62,7 @@ int  sub_142AA8(uint64_t a1, unsigned int a2, unsigned int a3)
       v5 = v3 == 0x7FF;
   }
   if ( v5 )
-    a1 = sub_142C84();
+    a1 = double_multiply();
   v7 = v6 + v3;
   v8 = HIDWORD(a1) ^ a3;
   v9 = HIDWORD(a1) & ~(v4 << 21);

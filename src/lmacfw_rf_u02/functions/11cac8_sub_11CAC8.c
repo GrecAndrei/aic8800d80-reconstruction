@@ -15,8 +15,8 @@ extern uint32_t off_11CB78;
 extern uint32_t dword_11CB7C;
 extern uint32_t dword_11CB80;
 
-// sub_11CAC8 @ 0x11cac8, size 170 bytes
-int sub_11CAC8()
+// queue_remove @ 0x11cac8, size 170 bytes
+int queue_remove()
 {
   uint32_t *v0; // r6
   int v1; // r7
@@ -41,12 +41,12 @@ int sub_11CAC8()
   }
   else
   {
-    v9 = fw_signature_check((uint16_t *)(*(uint32_t *)off_11CB74 + 6 * *((uint8_t *)off_11CB74 + 10)));
+    v9 = rf_channel_compare((uint16_t *)(*(uint32_t *)off_11CB74 + 6 * *((uint8_t *)off_11CB74 + 10)));
     v4 = 30000;
     if ( v9 )
       v4 = v9;
   }
-  sub_11BB18((int16_t *)v2, v4, *(uint8_t *)(v1 + 366));
+  rf_status_read((int16_t *)v2, v4, *(uint8_t *)(v1 + 366));
   v5 = v0[1];
   if ( v5 )
   {
@@ -66,13 +66,13 @@ int sub_11CAC8()
         if ( v7 == 2484 )
         {
           *(uint8_t *)(v5 + 2) = 14;
-          return sub_11E1E4(2);
+          return flash_erase_sector(2);
         }
         LOBYTE(v6) = (unsigned int)(((unsigned int)dword_11CB80 * (unsigned uint64_t)(unsigned int)(v7 - 2407)) >> 32) >> 2;
       }
       *(uint8_t *)(v5 + 2) = v6;
     }
   }
-  return sub_11E1E4(2);
+  return flash_erase_sector(2);
 }
 

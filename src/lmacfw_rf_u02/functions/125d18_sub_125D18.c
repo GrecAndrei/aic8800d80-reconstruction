@@ -10,19 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_125D18 @ 0x125d18, size 44 bytes
-int  sub_125D18(int a1, int a2)
+// bt_conn_init @ 0x125d18, size 44 bytes
+int  bt_conn_init(int a1, int a2)
 {
   uint8_t v3; // r0
 
   if ( a1 > 1 )
   {
-    v3 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    sub_126258(0, 0, v3);
+    v3 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    ll_state_process(0, 0, v3);
   }
   else
   {
-    sub_126258(0, 0, 0);
+    ll_state_process(0, 0, 0);
   }
   return 0;
 }

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_2f4 @ 0x1151f4, size 54 bytes
+// enter_critical_set_flag @ 0x1151f4, size 54 bytes
 // Doc: patch_apply_n_2da_520e [patch]: Advances patch table index, fetches next handler, and dispatches via indirect call.
 // patch_apply_n_2da_520e [patch]: Advances patch table index, fetches next handler, and dispatches via indirect call.
-int patch_apply_n_2f4()
+int enter_critical_set_flag()
 {
   int *v0; // r4
   int result; // r0

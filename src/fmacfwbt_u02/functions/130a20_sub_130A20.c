@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130A20 @ 0x130a20, size 52 bytes
+// rf_set_cal_entry @ 0x130a20, size 52 bytes
 // Doc: sub_1230A20 [util]: Store packed halfword values into buffer
 // sub_1230A20 [util]: Store packed halfword values into buffer
-int  sub_130A20(int a1, int16_t a2, int16_t a3, int16_t a4, char *a5)
+int  rf_set_cal_entry(int a1, int16_t a2, int16_t a3, int16_t a4, char *a5)
 {
   char *v5; // r2
   uint8_t *v6; // r3

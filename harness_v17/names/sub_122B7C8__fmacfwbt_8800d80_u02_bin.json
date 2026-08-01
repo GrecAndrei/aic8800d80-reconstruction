@@ -1,1 +1,1 @@
-{"fn": "sub_122B7C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b7c8", "status": "ok", "name": "sub_122B7C8", "params": [], "docstring": "unknown behavioral stub in fmac firmware bluetooth variant", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122B7C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b7c8", "status": "ok", "name": "rf_wait_event", "params": [], "docstring": "unknown behavioral stub in fmac firmware bluetooth variant", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

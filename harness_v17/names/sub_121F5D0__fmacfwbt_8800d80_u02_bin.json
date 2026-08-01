@@ -1,1 +1,1 @@
-{"fn": "sub_121F5D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f5d0", "status": "ok", "name": "bt_rf_param_set_n_5d0", "params": [], "docstring": "Indexes per-link BT RF parameter table (0x2b8 stride) and stores a field.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121F5D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f5d0", "status": "ok", "name": "wlc_phy_radio_set", "params": [], "docstring": "Indexes per-link BT RF parameter table (0x2b8 stride) and stores a field.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

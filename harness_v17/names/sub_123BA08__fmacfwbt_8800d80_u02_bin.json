@@ -1,1 +1,1 @@
-{"fn": "sub_123BA08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123ba08", "status": "ok", "name": "ipc_queues_init_n", "params": [], "docstring": "Initialize three IPC/queue structures at offsets 0/8/0x10", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BA08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123ba08", "status": "ok", "name": "rf_init_queues", "params": [], "docstring": "Initialize three IPC/queue structures at offsets 0/8/0x10", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

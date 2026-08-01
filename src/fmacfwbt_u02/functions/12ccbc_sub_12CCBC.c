@@ -15,8 +15,8 @@ extern uint32_t off_12CD00;
 extern uint32_t off_12CD04;
 extern uint32_t dword_12CD08;
 
-// sub_12CCBC @ 0x12ccbc, size 64 bytes
-uint32_t *sub_12CCBC()
+// align_and_irq_lock @ 0x12ccbc, size 64 bytes
+uint32_t *align_and_irq_lock()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2

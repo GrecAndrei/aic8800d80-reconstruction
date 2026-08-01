@@ -15,8 +15,8 @@ extern uint32_t off_111A14;
 extern uint32_t off_111A1C;
 extern uint32_t off_111A20;
 
-// sub_1119BC @ 0x1119bc, size 88 bytes
-int  sub_1119BC(int result, int a2)
+// send_data_word @ 0x1119bc, size 88 bytes
+int  send_data_word(int result, int a2)
 {
   int *v2; // r4
   int v3; // r5
@@ -38,7 +38,7 @@ int  sub_1119BC(int result, int a2)
   *(uint16_t *)v4 = a2;
   if ( result && a2 )
   {
-    result = sub_143630(v3, result, a2);
+    result = memcpy(v3, result, a2);
     v4 = *v2;
   }
   v6 = off_111A20;

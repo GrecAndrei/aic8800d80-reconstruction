@@ -1,0 +1,1 @@
+{"fn": "sub_1272D8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1272d8", "status": "ok", "name": "check_irq_handler", "params": [], "docstring": "Poll two handlers and branch to process if pending", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -12,8 +12,8 @@
 
 extern uint32_t off_102D08;
 
-// sub_102CA8 @ 0x102ca8, size 96 bytes
-int * sub_102CA8(int a1)
+// set_wakeup_trigger @ 0x102ca8, size 96 bytes
+int * set_wakeup_trigger(int a1)
 {
   int v1; // r4
   int v2; // r1

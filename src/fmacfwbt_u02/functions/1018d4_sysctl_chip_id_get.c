@@ -12,10 +12,10 @@
 
 extern uint32_t off_1018E0;
 
-// sysctl_chip_id_get @ 0x1018d4, size 10 bytes
-// Doc: sysctl_chip_id_get [mmio]: Returns bit 30 of chip ID register at 0x40330000
-// sysctl_chip_id_get [mmio]: Returns bit 30 of chip ID register at 0x40330000
-int sysctl_chip_id_get()
+// sys_status_get_bit30 @ 0x1018d4, size 10 bytes
+// Doc: sys_status_get_bit30 [mmio]: Returns bit 30 of chip ID register at 0x40330000
+// sys_status_get_bit30 [mmio]: Returns bit 30 of chip ID register at 0x40330000
+int sys_status_get_bit30()
 {
   return (*(uint32_t *)off_1018E0 >> 30) & 1;
 }

@@ -35,8 +35,8 @@ extern uint32_t dword_11F5A8;
 extern uint32_t off_11F5A0;
 extern uint32_t off_11F59C;
 
-// sub_11F3B4 @ 0x11f3b4, size 412 bytes
-int  sub_11F3B4(int result)
+// is_tx_engine_busy @ 0x11f3b4, size 412 bytes
+int  is_tx_engine_busy(int result)
 {
   int v1; // r4
   int *v2; // r2
@@ -64,14 +64,14 @@ int  sub_11F3B4(int result)
 
   v1 = result;
   if ( *(uint8_t *)(result + 1224) )
-    result = sub_12A1DC();
+    result = bt_get_conn_ptr();
   if ( *(uint32_t *)(v1 + 72) )
-    result = sub_12815C(v1);
+    result = radio_disable_check(v1);
   if ( (*(uint32_t *)(v1 + 4) & 1) != 0 )
   {
     if ( (*(uint32_t *)off_11F550 & 0x2000000) != 0 || (result = *(uint32_t *)off_11F550 << 6, *((uint8_t *)off_11F554 + 36)) )
     {
-      result = sub_12EB90(2, dword_11F558);
+      result = check_feature_flag(2, dword_11F558);
       v2 = (int *)off_11F55C;
       v3 = *((uint8_t *)off_11F55C + 1);
       *(uint32_t *)(v1 + 4) &= ~1u;
@@ -80,7 +80,7 @@ int  sub_11F3B4(int result)
       {
         if ( **(uint8_t **)off_11F564 == 2 )
         {
-          result = sub_117978();
+          result = critical_section_enter_alt();
           v4 = off_11F568;
           *(uint32_t *)off_11F568 &= ~1u;
           *v4 &= ~0x80u;
@@ -91,7 +91,7 @@ int  sub_11F3B4(int result)
             v7 = dword_11F570;
             *(uint32_t *)off_11F550 &= ~4u;
             if ( (*v6 & v7) == 0 )
-              sub_114434((int)v6, v7, (int)v5);
+              process_event((int)v6, v7, (int)v5);
             if ( *(uint32_t *)off_11F574 << 28 )
             {
               if ( (__get_CPSR() & 1) == 0 )
@@ -108,7 +108,7 @@ int  sub_11F3B4(int result)
               while ( *v9 << 28 )
               {
                 if ( (unsigned int)(v10[4] - v11) > 0x7530 )
-                  sub_12EB90(2, dword_11F5A4);
+                  check_feature_flag(2, dword_11F5A4);
               }
               v12 = off_11F580;
               v13 = *((uint32_t *)off_11F580 + 4);
@@ -120,7 +120,7 @@ int  sub_11F3B4(int result)
                 {
                   v16 = *v14 & *v15;
                   if ( (unsigned int)(v12[4] - v13) > 0x7530 )
-                    sub_12EB90(2, dword_11F58C);
+                    check_feature_flag(2, dword_11F58C);
                 }
                 while ( (v16 & 4) == 0 );
               }
@@ -145,7 +145,7 @@ int  sub_11F3B4(int result)
             {
               if ( *(uint32_t *)off_11F574 << 28 )
               {
-                sub_12F35C(dword_11F5AC, dword_11F5A8, 472);
+                mmio_write_field(dword_11F5AC, dword_11F5A8, 472);
                 v21 = v19[1];
               }
             }
@@ -153,7 +153,7 @@ int  sub_11F3B4(int result)
             v23 = off_11F5A0;
             *(uint32_t *)off_11F59C = v21 | *v19;
             *v22 = 48;
-            return sub_12B170(*(uint8_t *)(v1 + 107), v23, v1);
+            return get_bt_device_state(*(uint8_t *)(v1 + 107), v23, v1);
           }
         }
       }

@@ -1,0 +1,1 @@
+{"fn": "sub_140E38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x140e38", "status": "ok", "name": "dma_tx_reset", "params": [], "docstring": "Stop DMA TX channel and clear TX buffer", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

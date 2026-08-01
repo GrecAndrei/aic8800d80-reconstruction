@@ -17,8 +17,8 @@ extern uint32_t off_128478;
 extern uint32_t dword_12847C;
 extern uint32_t dword_128480;
 
-// sub_1283D4 @ 0x1283d4, size 160 bytes
-int  sub_1283D4(int result)
+// tx_enqueue_frame @ 0x1283d4, size 160 bytes
+int  tx_enqueue_frame(int result)
 {
   int v1; // r7
   int v2; // r5
@@ -32,12 +32,12 @@ int  sub_1283D4(int result)
   v1 = *(uint32_t *)(result + 72);
   v2 = result;
   if ( **(int16_t **)off_128474 < 0 && !v1 )
-    result = sub_12F46C(dword_128488, dword_128484, 3591);
+    result = mmio_clear_register(dword_128488, dword_128484, 3591);
   v3 = off_128478;
   if ( (*((uint8_t *)off_128478 + 88) & 0x20) == 0 && *((uint8_t *)off_128478 + 90) > 1u )
   {
     v4 = *(uint8_t *)(v2 + 116);
-    v5 = sub_12C92C(70, *((uint8_t *)off_128478 + 88) & 0x20, *((uint8_t *)off_128478 + 88) & 0x20, 20);
+    v5 = ke_msg_alloc(70, *((uint8_t *)off_128478 + 88) & 0x20, *((uint8_t *)off_128478 + 88) & 0x20, 20);
     *(uint8_t *)v5 = 0;
     *(uint8_t *)(v5 + 1) = *(uint8_t *)(v2 + 107);
     *(uint8_t *)(v5 + 2) = *(uint8_t *)(v1 + 4);
@@ -51,7 +51,7 @@ int  sub_1283D4(int result)
     *(uint8_t *)(v5 + 16) = *(uint8_t *)(v1 + 12);
     *(uint32_t *)(v5 + 12) = (unsigned int)(((unsigned int)dword_128480
                                          * (unsigned uint64_t)(unsigned int)(*(uint32_t *)(v8 + 696 * v4 + 8) - 5000)) >> 32) >> 6;
-    result = sub_12C98C(v5);
+    result = ke_msg_send(v5);
     v3[88] |= 0x20u;
   }
   return result;

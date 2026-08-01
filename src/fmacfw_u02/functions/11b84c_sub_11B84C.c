@@ -14,8 +14,8 @@ extern uint32_t off_11B9CC;
 extern uint32_t off_11B9D0;
 extern uint32_t dword_11B9D4;
 
-// sub_11B84C @ 0x11b84c, size 382 bytes
-int  sub_11B84C(int a1)
+// handle_connection_slot @ 0x11b84c, size 382 bytes
+int  handle_connection_slot(int a1)
 {
   uint32_t *v1; // r5
   int v2; // r6
@@ -41,8 +41,8 @@ int  sub_11B84C(int a1)
   v1 = off_11B9CC;
   v2 = *((uint8_t *)off_11B9CC + 190);
   v22 = 0;
-  rf_set_bit_flag(v2);
-  fmac_txpwr_table_lookup(*((uint8_t *)v1 + 190));
+  mmio_set_bit(v2);
+  get_channel_by_handle(*((uint8_t *)v1 + 190));
   if ( !a1 )
     goto LABEL_24;
   v4 = *(uint32_t *)(a1 + 36);
@@ -63,7 +63,7 @@ int  sub_11B84C(int a1)
       v7 = *(uint32_t *)(v6 + 88);
       *(uint32_t *)(v6 + 88) = *(uint16_t *)(v6 + 8) & 0x400;
     }
-    LODWORD(v9) = sub_11A940(a1, (int)&v22);
+    LODWORD(v9) = parse_rx_frame(a1, (int)&v22);
     v8 = v22;
     HIDWORD(v9) = *(uint8_t *)(*(uint32_t *)v5 + 1);
     if ( v22 )

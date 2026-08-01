@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_xo_pll_init @ 0x119698, size 20 bytes
-// Doc: rf_xo_pll_init [rf]: Initializes RF XO/PLL subsystem (cmd 0x76)
-// rf_xo_pll_init [rf]: Initializes RF XO/PLL subsystem (cmd 0x76)
-int  rf_xo_pll_init(int a1, int a2, int a3, int a4)
+// ke_send_msg_0x76 @ 0x119698, size 20 bytes
+// Doc: ke_send_msg_0x76 [rf]: Initializes RF XO/PLL subsystem (cmd 0x76)
+// ke_send_msg_0x76 [rf]: Initializes RF XO/PLL subsystem (cmd 0x76)
+int  ke_send_msg_0x76(int a1, int a2, int a3, int a4)
 {
   int v4; // r0
 
-  v4 = rf_setup_dispatch(118, a4, a3, 12);
-  sub_11DE50(v4);
+  v4 = ke_msg_send(118, a4, a3, 12);
+  rx_irq_handler(v4);
   return 0;
 }
 

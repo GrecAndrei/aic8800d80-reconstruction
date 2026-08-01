@@ -14,8 +14,8 @@ extern uint32_t off_127074;
 extern uint32_t dword_127078;
 extern uint32_t dword_12707C;
 
-// sub_127048 @ 0x127048, size 44 bytes
-int sub_127048()
+// ctrl_check_flags @ 0x127048, size 44 bytes
+int ctrl_check_flags()
 {
   uint32_t *v0; // r3
   int v1; // r1
@@ -39,10 +39,10 @@ LABEL_6:
         *(uint8_t *)(v2 + 16) = 1;
       v0[11] = v1;
     }
-    return fmac_msg_handler_init();
+    return ctrl_poll_events();
   }
   if ( *((uint32_t *)off_127074 + 11) )
-    return fmac_msg_handler_init();
+    return ctrl_poll_events();
   return result;
 }
 

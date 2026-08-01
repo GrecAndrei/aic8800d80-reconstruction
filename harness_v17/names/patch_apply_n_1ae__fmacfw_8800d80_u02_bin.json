@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_1ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214cfe", "status": "ok", "name": "patch_apply_n_1ae", "params": [], "docstring": "Apply firmware patch entry with stack-arg call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_1ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214cfe", "status": "ok", "name": "patch_apply_4cfe", "params": [], "docstring": "Apply firmware patch entry with stack-arg call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

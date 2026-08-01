@@ -1,1 +1,1 @@
-{"fn": "rf_timer_toggle", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f060", "status": "ok", "name": "rf_timer_toggle", "params": [], "docstring": "Toggle RF timer state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_timer_toggle", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f060", "status": "ok", "name": "state_get_0x42e", "params": [], "docstring": "Toggle RF timer state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

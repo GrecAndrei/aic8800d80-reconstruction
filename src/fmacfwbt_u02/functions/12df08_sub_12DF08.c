@@ -12,13 +12,13 @@
 
 extern uint32_t dword_12DF2C;
 
-// sub_12DF08 @ 0x12df08, size 36 bytes
-uint8_t * sub_12DF08(uint8_t *a1, int a2)
+// read_rom_info @ 0x12df08, size 36 bytes
+uint8_t * read_rom_info(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   uint16_t v3[3]; // [sp+Eh] [bp-6h] BYREF
 
-  result = sub_12D9B0(a1, a2, (uint8_t *)dword_12DF2C, 5, v3);
+  result = memcpy_opt(a1, a2, (uint8_t *)dword_12DF2C, 5, v3);
   if ( result )
   {
     if ( v3[0] != 26 )

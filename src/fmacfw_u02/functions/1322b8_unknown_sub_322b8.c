@@ -15,10 +15,10 @@ extern uint32_t off_132318;
 extern uint32_t dword_132320;
 extern uint32_t dword_13231C;
 
-// unknown_sub_322b8 @ 0x1322b8, size 92 bytes
-// Doc: unknown_sub_322b8 [unknown]: Unknown helper function in fmacfw
-// unknown_sub_322b8 [unknown]: Unknown helper function in fmacfw
-int  unknown_sub_322b8(uint8_t *a1)
+// rx_parse_header @ 0x1322b8, size 92 bytes
+// Doc: rx_parse_header [unknown]: Unknown helper function in fmacfw
+// rx_parse_header [unknown]: Unknown helper function in fmacfw
+int  rx_parse_header(uint8_t *a1)
 {
   int v1; // r3
   int result; // r0
@@ -54,7 +54,7 @@ int  unknown_sub_322b8(uint8_t *a1)
   {
 LABEL_9:
     if ( **(int16_t **)off_132318 < 0 )
-      result = sub_12F49C(dword_132320, dword_13231C, 141);
+      result = call_shared_handler(dword_132320, dword_13231C, 141);
     *((uint16_t *)a1 + 4) = 15;
   }
   return result;

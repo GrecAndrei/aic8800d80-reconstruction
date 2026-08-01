@@ -15,8 +15,8 @@ extern uint32_t off_10E03C;
 extern uint32_t dword_10E040;
 extern uint32_t dword_10E044;
 
-// sub_10DFF0 @ 0x10dff0, size 72 bytes
-int sub_10DFF0()
+// rf_core_reset_alt @ 0x10dff0, size 72 bytes
+int rf_core_reset_alt()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r0

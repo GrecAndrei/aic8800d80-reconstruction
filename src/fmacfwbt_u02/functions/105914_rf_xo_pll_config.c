@@ -16,10 +16,10 @@ extern uint32_t dword_1059E4;
 extern uint32_t dword_1059EC;
 extern uint32_t dword_1059E8;
 
-// rf_xo_pll_config @ 0x105914, size 206 bytes
-// Doc: rf_xo_pll_config [rf]: Configure RF crystal/PLL parameters
-// rf_xo_pll_config [rf]: Configure RF crystal/PLL parameters
-int  rf_xo_pll_config(unsigned int a1, int a2, int a3)
+// llc_connection_init @ 0x105914, size 206 bytes
+// Doc: llc_connection_init [rf]: Configure RF crystal/PLL parameters
+// llc_connection_init [rf]: Configure RF crystal/PLL parameters
+int  llc_connection_init(unsigned int a1, int a2, int a3)
 {
   int v5; // r5
   int v6; // r8
@@ -47,7 +47,7 @@ int  rf_xo_pll_config(unsigned int a1, int a2, int a3)
     v9 = 15;
   else
     v9 = 13;
-  result = feature_guard_sdio(1, dword_1059E4);
+  result = state_check_feature(1, dword_1059E4);
   do
   {
     if ( a1 )
@@ -55,12 +55,12 @@ int  rf_xo_pll_config(unsigned int a1, int a2, int a3)
       if ( ((1 << v5) & a1) >> v5 == 1 )
       {
         *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148)) = v5;
-        feature_guard_sdio(1, v6);
+        state_check_feature(1, v6);
         v13 = ((1 << v5) & a1) >> v5;
         v14 = *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148));
         if ( v14 < v8 )
         {
-          result = feature_guard_sdio(v13, v7);
+          result = state_check_feature(v13, v7);
           v12 = *(uint32_t *)(a2 + 624);
           if ( !v12 )
           {
@@ -70,7 +70,7 @@ int  rf_xo_pll_config(unsigned int a1, int a2, int a3)
         }
         else if ( v14 > v9 )
         {
-          result = feature_guard_sdio(v13, v7);
+          result = state_check_feature(v13, v7);
           v12 = *(uint32_t *)(a2 + 624);
           if ( !v12 )
           {
@@ -80,7 +80,7 @@ int  rf_xo_pll_config(unsigned int a1, int a2, int a3)
         }
         else
         {
-          result = feature_guard_sdio(v13, dword_1059EC);
+          result = state_check_feature(v13, dword_1059EC);
           v15 = *(uint32_t *)(a2 + 624);
           v16 = v15 + 148;
           v12 = v15 + 1;
@@ -92,7 +92,7 @@ int  rf_xo_pll_config(unsigned int a1, int a2, int a3)
     }
     else
     {
-      result = sub_12ECB0(dword_1059E8, v11, v12);
+      result = ke_event_schedule(dword_1059E8, v11, v12);
     }
     ++v5;
   }

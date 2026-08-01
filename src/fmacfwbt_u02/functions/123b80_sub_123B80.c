@@ -14,8 +14,8 @@ extern uint32_t off_123BEC;
 extern uint32_t off_123BF0;
 extern uint32_t off_123BF4;
 
-// sub_123B80 @ 0x123b80, size 106 bytes
-int  sub_123B80(int a1, int a2, int a3, int a4)
+// irq_disable_save @ 0x123b80, size 106 bytes
+int  irq_disable_save(int a1, int a2, int a3, int a4)
 {
   int *v4; // r4
   uint32_t *v5; // r5
@@ -36,12 +36,12 @@ int  sub_123B80(int a1, int a2, int a3, int a4)
   v5 = off_123BF4;
   v6 = *(uint32_t *)off_123BF4;
   ++*(uint32_t *)off_123BF0;
-  v7 = sub_12BAD0();
-  v9 = sub_10184C(v7, SHIDWORD(v7), v8);
-  v10 = message_dispatch_n_b4_cb00(v9);
-  sub_1323E4(v10);
-  bt_scan_channel_parse();
-  sub_120A58();
+  v7 = mmio_write_poll_clear();
+  v9 = sys_irq_dispatch(v7, SHIDWORD(v7), v8);
+  v10 = irq_lock_small(v9);
+  llm_env_reset(v10);
+  controller_init();
+  run_deferred_init();
   v11 = *v4;
   *v5 = v6;
   if ( v11 )
@@ -55,8 +55,8 @@ int  sub_123B80(int a1, int a2, int a3, int a4)
         __enable_irq();
     }
   }
-  message_dispatch_n84(1, a4, a3, v11);
-  rf_bus_mark_n_3b7(0);
+  hci_evt_alloc_send(1, a4, a3, v11);
+  hci_cmd_send(0);
   return 0;
 }
 

@@ -20,10 +20,10 @@ extern uint32_t off_1274B0;
 extern uint32_t dword_1274B8;
 extern uint32_t dword_1274B4;
 
-// rf_init_or_attach_n488 @ 0x127394, size 266 bytes
-// Doc: rf_init_or_attach_n488 [rf]: Initialize/attach RF subsystem reading MMIO regs at 0x40501000 and table 0x190c30
-// rf_init_or_attach_n488 [rf]: Initialize/attach RF subsystem reading MMIO regs at 0x40501000 and table 0x190c30
-int  rf_init_or_attach_n488(int result)
+// rf_tx_packet @ 0x127394, size 266 bytes
+// Doc: rf_tx_packet [rf]: Initialize/attach RF subsystem reading MMIO regs at 0x40501000 and table 0x190c30
+// rf_tx_packet [rf]: Initialize/attach RF subsystem reading MMIO regs at 0x40501000 and table 0x190c30
+int  rf_tx_packet(int result)
 {
   uint8_t *v1; // r5
   uint64_t v2; // r6
@@ -45,7 +45,7 @@ int  rf_init_or_attach_n488(int result)
   {
     if ( *((uint32_t *)off_1274A8 + 10) != result )
     {
-      result = sub_10186C();
+      result = return_1000();
       HIDWORD(v2) += 4000 + result;
     }
     v3 = (uint8_t)v1[91];
@@ -58,8 +58,8 @@ int  rf_init_or_attach_n488(int result)
     else
     {
       v1[88] = v4 & 0xBF;
-      fmacfwbt_init_load();
-      result = rf_chan_table_lookup_n938(SHIDWORD(v2), 0, 0);
+      hci_acl_buf_alloc();
+      result = send_event_to_host(SHIDWORD(v2), 0, 0);
       v5 = *((uint32_t *)v1 + 4);
       if ( v5 )
       {
@@ -69,7 +69,7 @@ int  rf_init_or_attach_n488(int result)
         while ( 1 )
         {
           v10 = *(uint32_t *)(v5 + 4);
-          result = v10 - sub_10186C();
+          result = v10 - return_1000();
           if ( result + v8 >= 0 )
             break;
           v11 = *(uint32_t *)(v5 + 4);
@@ -79,14 +79,14 @@ int  rf_init_or_attach_n488(int result)
           {
             if ( *(uint8_t *)(v12 + 106) == 2 )
               v9 = *(uint16_t *)(v12 + 222) << 10;
-            result = bt_rf_calibrate_or_setup(v12, v11 + v9, 0);
+            result = scan_adv_report(v12, v11 + v9, 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
               break;
           }
           else
           {
-            result = bt_rf_calibrate_or_setup(v12, v11 + *(uint32_t *)(v7 + 696 * *(uint8_t *)(v12 + 116) + 8), 0);
+            result = scan_adv_report(v12, v11 + *(uint32_t *)(v7 + 696 * *(uint8_t *)(v12 + 116) + 8), 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
               break;
@@ -96,11 +96,11 @@ int  rf_init_or_attach_n488(int result)
       if ( *((uint32_t *)v1 + 11) )
       {
         if ( **(int16_t **)off_1274B0 < 0 && (v1[88] & 0xC) == 0 )
-          return sub_12F694(dword_1274B8, dword_1274B4, 1698);
+          return mmio_irq_clear(dword_1274B8, dword_1274B4, 1698);
       }
       else
       {
-        return sub_1272F0(v2);
+        return set_tx_buffer(v2);
       }
     }
   }

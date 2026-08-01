@@ -12,8 +12,8 @@
 
 extern uint32_t dword_136C28;
 
-// sub_136BD4 @ 0x136bd4, size 84 bytes
-int  sub_136BD4(int result, int a2)
+// rf_get_rate_table_index @ 0x136bd4, size 84 bytes
+int  rf_get_rate_table_index(int result, int a2)
 {
   int v2; // r4
   char v3; // r1
@@ -23,19 +23,19 @@ int  sub_136BD4(int result, int a2)
   if ( *(uint8_t *)(result + 106) == 2 )
   {
     v2 = dword_136C28 + 696 * a2;
-    result = sub_11F28C(result, v2, 0);
+    result = is_ll_event_pending(result, v2, 0);
     v3 = *(uint8_t *)(v2 + 53);
     if ( (v3 & 0xA) != 0 )
     {
       *(uint8_t *)(v2 + 53) = v3 & 0xF5;
       if ( (v3 & 0xF5) == 0 )
       {
-        v4 = sub_12C7EC(65, 0, 5, 4u);
+        v4 = tx_send_pdu(65, 0, 5, 4u);
         v5 = *(uint16_t *)(v2 + 32);
         *(uint8_t *)(v4 + 3) = *(uint8_t *)(v2 + 34);
         *(uint8_t *)(v4 + 2) = 0;
         *(uint16_t *)v4 = v5;
-        return sub_12C84C(v4);
+        return rx_process_packet(v4);
       }
     }
   }

@@ -16,8 +16,8 @@ extern uint32_t off_11DDE0;
 extern uint32_t off_11DDD4;
 extern uint32_t dword_11DDD8;
 
-// sub_11DD2C @ 0x11dd2c, size 162 bytes
-int sub_11DD2C()
+// tx_unlock @ 0x11dd2c, size 162 bytes
+int tx_unlock()
 {
   int *v0; // r5
   int v1; // r4
@@ -32,7 +32,7 @@ int sub_11DD2C()
 
   v0 = (int *)off_11DDD0;
   v1 = *(uint32_t *)off_11DDD0;
-  result = sub_12D374(0x200000);
+  result = set_system_flag_2(0x200000);
   if ( v1 )
   {
     v3 = (int *)off_11DDDC;
@@ -46,7 +46,7 @@ int sub_11DD2C()
           break;
         v5 = 1;
       }
-      sub_12D4F8(v0);
+      list_pop_front(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -59,7 +59,7 @@ int sub_11DD2C()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_11E4F4();
+        result = rf_tx_timestamp_check();
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -78,8 +78,8 @@ int sub_11DD2C()
   v9 = off_11DDD4;
   if ( *((uint8_t *)off_11DDD4 + 69) )
   {
-    sub_12D32C(0x80000);
-    result = sub_12EEF8(1024, dword_11DDD8);
+    set_system_flag_1(0x80000);
+    result = state_check_feature(1024, dword_11DDD8);
     v9[69] = 0;
   }
   return result;

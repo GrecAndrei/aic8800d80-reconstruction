@@ -21,8 +21,8 @@ extern uint32_t off_10CE60;
 extern uint32_t dword_10CE6C;
 extern uint32_t off_10CE68;
 
-// sub_10CD6C @ 0x10cd6c, size 236 bytes
-int  sub_10CD6C(char a1)
+// handle_interrupt_save @ 0x10cd6c, size 236 bytes
+int  handle_interrupt_save(char a1)
 {
   int v1; // r5
   uint8_t *v2; // r11
@@ -41,7 +41,7 @@ int  sub_10CD6C(char a1)
   int v15; // r0
   int result; // r0
 
-  sub_11E628(0x10000);
+  enter_critical_section(0x10000);
   v1 = *(uint32_t *)off_10CE58;
   if ( *(uint32_t *)(*(uint32_t *)off_10CE58 + 588) )
   {
@@ -69,7 +69,7 @@ int  sub_10CD6C(char a1)
       ++*(uint32_t *)off_10CE7C;
       while ( !*v5 )
         ;
-      v10 = sub_11E7AC(v1 + 588);
+      v10 = list_pop_front(v1 + 588);
       v11 = *v9;
       *v5 = 1;
       v12 = v10;
@@ -86,14 +86,14 @@ int  sub_10CD6C(char a1)
       }
       v15 = dword_10CE64;
       *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10CE60;
-      list_push_tail(v15);
+      check_kernel_state(v15);
       if ( !*(uint32_t *)(v1 + 588) )
         goto LABEL_13;
     }
-    sub_10DA6C(dword_10CE6C, v6, v7);
+    log_printf(dword_10CE6C, v6, v7);
   }
 LABEL_13:
-  result = irq_nesting_or(2048);
+  result = set_busy_flag_alt(2048);
   *(uint32_t *)off_10CE68 = (1 << (a1 + 8)) & 0xF00;
   return result;
 }

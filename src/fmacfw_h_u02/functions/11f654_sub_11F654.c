@@ -12,8 +12,8 @@
 
 extern uint32_t off_11F67C;
 
-// sub_11F654 @ 0x11f654, size 38 bytes
-int sub_11F654()
+// is_sleep_state_active @ 0x11f654, size 38 bytes
+int is_sleep_state_active()
 {
   uint32_t *i; // r5
   uint32_t *j; // r4
@@ -22,7 +22,7 @@ int sub_11F654()
   for ( i = *((uint32_t **)off_11F67C + 2); i; i = (uint32_t *)*i )
   {
     for ( j = (uint32_t *)i[60]; j; j = (uint32_t *)*j )
-      result = sub_11F28C((int)i, (int)j, 0);
+      result = is_ll_event_pending((int)i, (int)j, 0);
   }
   return result;
 }

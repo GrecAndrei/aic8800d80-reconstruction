@@ -13,8 +13,8 @@
 extern uint32_t off_1289E4;
 extern uint32_t dword_1289E8;
 
-// sub_128994 @ 0x128994, size 80 bytes
-int  sub_128994(int a1)
+// bsscfg_current @ 0x128994, size 80 bytes
+int  bsscfg_current(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r4
@@ -24,15 +24,15 @@ int  sub_128994(int a1)
   v2 = dword_1289E8 + 1320 * *((uint8_t *)off_1289E4 + 16);
   if ( *(uint32_t *)(v2 + 72) )
   {
-    sub_12847C(*((uint8_t *)off_1289E4 + 16));
+    bsscfg_get(*((uint8_t *)off_1289E4 + 16));
   }
   else
   {
-    v4 = (uint8_t *)sub_12C7EC(5143, 5, 5, 2);
+    v4 = (uint8_t *)tx_send_pdu(5143, 5, 5, 2);
     *v4 = 1;
     v4[1] = *(uint8_t *)(v2 + 107);
-    sub_12C84C(v4);
+    rx_process_packet(v4);
   }
-  return sub_128748(v1[16], a1);
+  return bsscfg_index(v1[16], a1);
 }
 

@@ -17,8 +17,8 @@ extern uint32_t dword_127974;
 extern uint32_t dword_12798C;
 extern uint32_t dword_127988;
 
-// sub_1278DC @ 0x1278dc, size 140 bytes
-int sub_1278DC()
+// llc_env_init @ 0x1278dc, size 140 bytes
+int llc_env_init()
 {
   int *v0; // r7
   void *v1; // r6
@@ -40,7 +40,7 @@ int sub_1278DC()
     *((uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      sub_12D108(v1);
+      wlan_ioctl_handler_1(v1);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -52,12 +52,12 @@ LABEL_4:
   }
   if ( v2 != 4 )
     goto LABEL_4;
-  sub_12D100(dword_127970);
-  sub_12D100(dword_127974);
-  sub_12D108(dword_127970);
-  sub_12D108(dword_127970);
-  sub_12D108(dword_127970);
-  result = sub_12D108(dword_127970);
+  clear_stats_buf(dword_127970);
+  clear_stats_buf(dword_127974);
+  wlan_ioctl_handler_1(dword_127970);
+  wlan_ioctl_handler_1(dword_127970);
+  wlan_ioctl_handler_1(dword_127970);
+  result = wlan_ioctl_handler_1(dword_127970);
   v5 = off_127968;
   v6 = dword_12798C;
   *((uint32_t *)off_127968 + 13) = dword_127988;

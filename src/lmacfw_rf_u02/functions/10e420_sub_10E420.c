@@ -23,8 +23,8 @@ extern uint32_t dword_10E4C0;
 extern uint32_t dword_10E4C4;
 extern uint32_t dword_10E4D4;
 
-// sub_10E420 @ 0x10e420, size 130 bytes
-int sub_10E420()
+// sdio_core_set_enable @ 0x10e420, size 130 bytes
+int sdio_core_set_enable()
 {
   uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -44,17 +44,17 @@ int sub_10E420()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), dword_10E4A8, dword_10E4AC);
-  v3 = sub_127874(v2, HIDWORD(v2), dword_10E4B0, dword_10E4B4);
-  v4 = sub_1272B0(v3, HIDWORD(v3), dword_10E4A8, dword_10E4AC);
-  v5 = sub_127BE4(v4);
-  v6 = sub_127570(LODWORD(v5));
-  v7 = sub_127874(v6, HIDWORD(v6), dword_10E4B8, dword_10E4BC);
-  v8 = sub_127620(v7, HIDWORD(v7), 0, dword_10E4CC);
-  v9 = sub_127620(v8, HIDWORD(v8), 0, dword_10E4D0);
-  v10 = sub_127620(v9, HIDWORD(v9), dword_10E4C0, dword_10E4C4);
-  v11 = sub_127874(v10, HIDWORD(v10), 0, dword_10E4D4);
-  return (int)sub_127BE4(v11);
+  v1 = double_to_float(v0[4]);
+  v2 = aeabi_dadd(v1, HIDWORD(v1), dword_10E4A8, dword_10E4AC);
+  v3 = aeabi_dsub(v2, HIDWORD(v2), dword_10E4B0, dword_10E4B4);
+  v4 = double_subtract(v3, HIDWORD(v3), dword_10E4A8, dword_10E4AC);
+  v5 = aeabi_dmul(v4);
+  v6 = aeabi_d2f(LODWORD(v5));
+  v7 = aeabi_dsub(v6, HIDWORD(v6), dword_10E4B8, dword_10E4BC);
+  v8 = aeabi_dadd(v7, HIDWORD(v7), 0, dword_10E4CC);
+  v9 = aeabi_dadd(v8, HIDWORD(v8), 0, dword_10E4D0);
+  v10 = aeabi_dadd(v9, HIDWORD(v9), dword_10E4C0, dword_10E4C4);
+  v11 = aeabi_dsub(v10, HIDWORD(v10), 0, dword_10E4D4);
+  return (int)aeabi_dmul(v11);
 }
 

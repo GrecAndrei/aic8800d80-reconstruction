@@ -14,8 +14,8 @@ extern uint32_t off_11BE0C;
 extern uint32_t off_11BE10;
 extern uint32_t dword_11BE14;
 
-// sub_11BC8C @ 0x11bc8c, size 382 bytes
-int  sub_11BC8C(int a1)
+// bt_controller_event_handler @ 0x11bc8c, size 382 bytes
+int  bt_controller_event_handler(int a1)
 {
   uint32_t *v1; // r5
   int v2; // r6
@@ -41,8 +41,8 @@ int  sub_11BC8C(int a1)
   v1 = off_11BE0C;
   v2 = *((uint8_t *)off_11BE0C + 190);
   v22 = 0;
-  sub_117374(v2);
-  sub_11AD40(*((uint8_t *)v1 + 190));
+  mmio_set_bit(v2);
+  llc_conn_timer_tick(*((uint8_t *)v1 + 190));
   if ( !a1 )
     goto LABEL_24;
   v4 = *(uint32_t *)(a1 + 36);
@@ -63,7 +63,7 @@ int  sub_11BC8C(int a1)
       v7 = *(uint32_t *)(v6 + 88);
       *(uint32_t *)(v6 + 88) = *(uint16_t *)(v6 + 8) & 0x400;
     }
-    LODWORD(v9) = sub_11AD80(a1, (int)&v22);
+    LODWORD(v9) = context_proc_at_offset44(a1, (int)&v22);
     v8 = v22;
     HIDWORD(v9) = *(uint8_t *)(*(uint32_t *)v5 + 1);
     if ( v22 )

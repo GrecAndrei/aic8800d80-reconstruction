@@ -1,1 +1,1 @@
-{"fn": "sub_12362F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12362f8", "status": "ok", "name": "sub_12362F8", "params": [], "docstring": "Checks a global state value and branches on result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12362F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12362f8", "status": "ok", "name": "bt_hci_reset", "params": [], "docstring": "Checks a global state value and branches on result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

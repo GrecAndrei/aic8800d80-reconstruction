@@ -1,0 +1,1 @@
+{"fn": "sub_126F74", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x126f74", "status": "ok", "name": "bt_event_handler", "params": [], "docstring": "Handle BT event through 0x1219a4 and 0x126bc4", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -12,8 +12,8 @@
 
 extern uint32_t off_120488;
 
-// sub_120438 @ 0x120438, size 80 bytes
-int  sub_120438(uint8_t *a1)
+// clear_device_flag @ 0x120438, size 80 bytes
+int  clear_device_flag(uint8_t *a1)
 {
   uint32_t *v1; // r3
   int *v2; // r3

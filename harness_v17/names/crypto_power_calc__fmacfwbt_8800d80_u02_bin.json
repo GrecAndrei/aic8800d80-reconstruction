@@ -1,1 +1,1 @@
-{"fn": "crypto_power_calc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1207824", "status": "ok", "name": "crypto_power_calc", "params": [], "docstring": "Crypto/PKA power calculation helper clamping input parameters", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_power_calc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1207824", "status": "ok", "name": "util_min_max", "params": [], "docstring": "Crypto/PKA power calculation helper clamping input parameters", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

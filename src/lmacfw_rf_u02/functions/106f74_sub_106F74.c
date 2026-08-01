@@ -16,8 +16,8 @@ extern uint32_t off_10705C;
 extern uint32_t dword_107060;
 extern uint32_t dword_107064;
 
-// sub_106F74 @ 0x106f74, size 222 bytes
-int  sub_106F74(int a1, int a2)
+// pinmux_config @ 0x106f74, size 222 bytes
+int  pinmux_config(int a1, int a2)
 {
   unsigned int *v2; // r5
   unsigned int *v3; // r4
@@ -39,17 +39,17 @@ int  sub_106F74(int a1, int a2)
   *v3 |= 0x100000u;
   *v3 |= 0x1000000u;
   *v3 = (a2 << 25) & 0x2000000 | *v3 & 0xFDFFFFFF;
-  crypto_hw_clear_regs();
+  clk_set_divider();
   *v2 &= ~1u;
-  delay_us(140);
+  write_timer_reg(140);
   v5 = off_10705C;
   *v3 |= 0x4000000u;
   v6 = *v5 & 0x7FFF;
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
-  delay_us(5);
-  sub_11F74C(1, dword_107060, *(uint32_t *)(a1 + 44), v7);
-  result = sub_11F74C(1, dword_107064, v8, v9);
+  write_timer_reg(5);
+  check_interrupt_flag(1, dword_107060, *(uint32_t *)(a1 + 44), v7);
+  result = check_interrupt_flag(1, dword_107064, v8, v9);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;

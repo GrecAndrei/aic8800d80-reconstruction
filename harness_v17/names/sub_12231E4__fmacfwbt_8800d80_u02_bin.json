@@ -1,1 +1,1 @@
-{"fn": "sub_12231E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12231e4", "status": "ok", "name": "fmac_msg_recv_handler", "params": [], "docstring": "FMAC message receive/handler entry invoked with cmd id and args", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12231E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12231e4", "status": "ok", "name": "send_cmd_0x7c", "params": [], "docstring": "FMAC message receive/handler entry invoked with cmd id and args", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_116D10 @ 0x116d10, size 30 bytes
-int  sub_116D10(int result)
+// rx_packet_ready @ 0x116d10, size 30 bytes
+int  rx_packet_ready(int result)
 {
   int v1; // r4
 
@@ -23,7 +23,7 @@ int  sub_116D10(int result)
     {
       if ( (*(uint32_t *)(v1 + 36) & 0x200000) == 0 )
       {
-        result = sub_10FEC8((uint32_t *)result);
+        result = wait_for_state((uint32_t *)result);
         *(uint32_t *)(v1 + 72) = 0;
       }
     }

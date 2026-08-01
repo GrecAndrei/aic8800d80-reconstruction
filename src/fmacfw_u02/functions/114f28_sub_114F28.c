@@ -24,10 +24,10 @@ extern uint32_t off_115010;
 extern uint32_t off_11500C;
 extern uint32_t dword_115014;
 
-// sub_114F28 @ 0x114f28, size 184 bytes
+// patch_check_region @ 0x114f28, size 184 bytes
 // Doc: patch_apply_n11c [patch]: Apply firmware patch to ROM code
 // patch_apply_n11c [patch]: Apply firmware patch to ROM code
-void __noreturn sub_114F28()
+void __noreturn patch_check_region()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r3
@@ -87,8 +87,8 @@ void __noreturn sub_114F28()
   if ( (v11 & 0x10) == 0 )
     *(uint32_t *)patch_apply_n16c &= ~0x4000u;
   *(uint8_t *)patch_apply_n170 = BYTE2(*(uint32_t *)off_115004);
-  sub_103258();
-  patch_apply_4eac();
-  firmware_init();
+  load_and_store_block();
+  patch_check_magic();
+  queue_init();
 }
 

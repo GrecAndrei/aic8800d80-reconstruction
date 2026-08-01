@@ -13,12 +13,12 @@
 extern uint32_t dword_136FA0;
 extern uint32_t off_136F9C;
 
-// ipc_msg_post_log @ 0x136f84, size 22 bytes
-// Doc: ipc_msg_post_log [ipc]: posts message to IPC queue with payload from shared struct
-// ipc_msg_post_log [ipc]: posts message to IPC queue with payload from shared struct
-int  ipc_msg_post_log(int a1, int a2, int a3, int a4)
+// rf_read_cal_data @ 0x136f84, size 22 bytes
+// Doc: rf_read_cal_data [ipc]: posts message to IPC queue with payload from shared struct
+// rf_read_cal_data [ipc]: posts message to IPC queue with payload from shared struct
+int  rf_read_cal_data(int a1, int a2, int a3, int a4)
 {
-  feature_guard_check(8, dword_136FA0, a4, *((uint16_t *)off_136F9C + 1924));
+  check_status_bits(8, dword_136FA0, a4, *((uint16_t *)off_136F9C + 1924));
   return 2;
 }
 

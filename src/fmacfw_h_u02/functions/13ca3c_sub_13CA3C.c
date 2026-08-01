@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13CAA8;
 
-// sub_13CA3C @ 0x13ca3c, size 108 bytes
-unsigned int * sub_13CA3C(unsigned int *result)
+// bt_parse_adv_header @ 0x13ca3c, size 108 bytes
+unsigned int * bt_parse_adv_header(unsigned int *result)
 {
   uint64_t v1; // r2
   int v2; // r1

@@ -1,1 +1,1 @@
-{"fn": "irq_prio_set", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120dca4", "status": "ok", "name": "irq_prio_set_dca4", "params": [], "docstring": "Sets interrupt priority (bounds check vs 7)", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "irq_prio_set", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120dca4", "status": "ok", "name": "switch_on_arg", "params": [], "docstring": "Sets interrupt priority (bounds check vs 7)", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

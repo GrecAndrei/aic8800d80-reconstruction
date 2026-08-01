@@ -21,8 +21,8 @@ extern uint32_t dword_10DE2C;
 extern uint32_t dword_10DE30;
 extern uint32_t dword_10DE34;
 
-// sub_10DDA0 @ 0x10dda0, size 128 bytes
-int sub_10DDA0()
+// gpio_init @ 0x10dda0, size 128 bytes
+int gpio_init()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
@@ -46,10 +46,10 @@ int sub_10DDA0()
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v4 = sub_142A50(v1[4]);
-  v5 = sub_142B44(v4, HIDWORD(v4), dword_10DE20, dword_10DE24);
-  v6 = sub_142D98(v5, HIDWORD(v5), dword_10DE28, dword_10DE2C);
-  v7 = sub_1427D4(v6, HIDWORD(v6), dword_10DE30, dword_10DE34);
-  return sub_143108(v7);
+  v4 = __aeabi_ui2d(v1[4]);
+  v5 = __aeabi_dmul(v4, HIDWORD(v4), dword_10DE20, dword_10DE24);
+  v6 = __aeabi_ddiv(v5, HIDWORD(v5), dword_10DE28, dword_10DE2C);
+  v7 = __aeabi_dsub(v6, HIDWORD(v6), dword_10DE30, dword_10DE34);
+  return double_to_float(v7);
 }
 

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132910 @ 0x132910, size 158 bytes
-int  sub_132910(char a1)
+// util_validate_name_char @ 0x132910, size 158 bytes
+int  util_validate_name_char(char a1)
 {
   unsigned int v1; // r3
   int result; // r0

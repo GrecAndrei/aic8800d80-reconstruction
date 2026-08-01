@@ -13,8 +13,8 @@
 extern uint32_t off_1302F0;
 extern uint32_t dword_1302F4;
 
-// sub_1302C4 @ 0x1302c4, size 44 bytes
-unsigned int sub_1302C4()
+// compare_global_bytes @ 0x1302c4, size 44 bytes
+unsigned int compare_global_bytes()
 {
   uint8_t *v0; // r4
   unsigned int result; // r0
@@ -31,8 +31,8 @@ unsigned int sub_1302C4()
     else
       v3 = result + 1;
     *((uint8_t *)off_1302F0 + 6) = v3;
-    sub_10EF38(v3);
-    return sub_12EA88(dword_1302F4, v0[5], v0[6]);
+    rf_get_state(v3);
+    return event_dispatch(dword_1302F4, v0[5], v0[6]);
   }
   return result;
 }

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11C84C;
 
-// sub_11C834 @ 0x11c834, size 24 bytes
-int  sub_11C834(int a1, int a2, int a3)
+// tx_slot_ref @ 0x11c834, size 24 bytes
+int  tx_slot_ref(int a1, int a2, int a3)
 {
   int result; // r0
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1221430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221430", "status": "ok", "name": "sub_1221430", "params": [], "docstring": "Unknown helper in fmacfwbt module", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221430", "status": "ok", "name": "irq_lock_save", "params": [], "docstring": "Unknown helper in fmacfwbt module", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

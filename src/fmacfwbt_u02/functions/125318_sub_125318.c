@@ -19,8 +19,8 @@ extern uint32_t dword_1254D0;
 extern uint32_t dword_1254D4;
 extern uint32_t dword_1254D8;
 
-// sub_125318 @ 0x125318, size 432 bytes
-int  sub_125318(int result)
+// bt_link_get @ 0x125318, size 432 bytes
+int  bt_link_get(int result)
 {
   int v1; // r9
   int v2; // r2

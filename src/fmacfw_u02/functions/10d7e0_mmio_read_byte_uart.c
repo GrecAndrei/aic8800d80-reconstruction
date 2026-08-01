@@ -13,10 +13,10 @@
 extern uint32_t off_10D7F0;
 extern uint32_t off_10D7F4;
 
-// mmio_read_byte_uart @ 0x10d7e0, size 16 bytes
-// Doc: mmio_read_byte_uart [mmio]: Reads a byte from UART MMIO at 0x40032000 (offset 0x14)
-// mmio_read_byte_uart [mmio]: Reads a byte from UART MMIO at 0x40032000 (offset 0x14)
-int mmio_read_byte_uart()
+// gpio_read @ 0x10d7e0, size 16 bytes
+// Doc: gpio_read [mmio]: Reads a byte from UART MMIO at 0x40032000 (offset 0x14)
+// gpio_read [mmio]: Reads a byte from UART MMIO at 0x40032000 (offset 0x14)
+int gpio_read()
 {
   while ( (*(uint32_t *)off_10D7F0 & 1) == 0 )
     ;

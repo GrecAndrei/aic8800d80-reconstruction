@@ -14,8 +14,8 @@ extern uint32_t off_10F698;
 extern uint32_t dword_10F69C;
 extern uint32_t dword_10F6A0;
 
-// sub_10F5FC @ 0x10f5fc, size 156 bytes
-uint64_t sub_10F5FC()
+// mmio_write16 @ 0x10f5fc, size 156 bytes
+uint64_t mmio_write16()
 {
   uint16_t *v0; // r5
   int *v1; // r4
@@ -34,10 +34,10 @@ uint64_t sub_10F5FC()
   *((uint8_t *)v0 + 6176) = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  sub_11E71C(v0 + 1540);
-  sub_11E71C(v1 - 3);
-  sub_11E71C(v1 + 512);
-  sub_11E71C(v1 + 514);
+  list_init(v0 + 1540);
+  list_init(v1 - 3);
+  list_init(v1 + 512);
+  list_init(v1 + 514);
   v0[4122] = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
@@ -47,7 +47,7 @@ uint64_t sub_10F5FC()
   do
   {
     v1 += 4;
-    list_push_tail(v3);
+    check_kernel_state(v3);
   }
   while ( v1 != v2 );
   v4 = dword_10F6A0;

@@ -16,10 +16,10 @@ extern uint32_t off_12EDA0;
 extern uint32_t off_12EDA8;
 extern uint32_t dword_12ED9C;
 
-// sub_12ED20 @ 0x12ed20, size 118 bytes
+// send_command_event @ 0x12ed20, size 118 bytes
 // Doc: rf_param_set_n410 [rf]: Set RF parameter via register 0x410 write
 // rf_param_set_n410 [rf]: Set RF parameter via register 0x410 write
-int  sub_12ED20(int a1, int a2, int16_t a3, int16_t a4)
+int  send_command_event(int a1, int a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int v6; // r1
@@ -30,7 +30,7 @@ int  sub_12ED20(int a1, int a2, int16_t a3, int16_t a4)
   uint32_t *v12; // r3
   uint32_t *v13; // r3
 
-  v5 = sub_12C92C(1040, a4, a3, 4u);
+  v5 = ke_msg_alloc(1040, a4, a3, 4u);
   v6 = *(uint16_t *)(a2 + 4);
   v7 = (uint32_t *)v5;
   if ( *((uint8_t *)off_12ED98 + 177) )
@@ -60,8 +60,8 @@ LABEL_3:
 LABEL_5:
   v8 = dword_12ED9C;
   *v7 = 0;
-  msg_parse(v8);
-  sdio_buffer_prepare_n_4e8((int)v7);
+  event_dispatch(v8);
+  ke_msg_send((int)v7);
   return 0;
 }
 

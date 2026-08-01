@@ -19,10 +19,10 @@ extern uint32_t off_12233C;
 extern uint32_t off_122340;
 extern uint32_t dword_122348;
 
-// sub_122290 @ 0x122290, size 168 bytes
+// rf_band_select @ 0x122290, size 168 bytes
 // Doc: sub_1222294 [unknown]: Unknown behavioral function in fmacfwbt
 // sub_1222294 [unknown]: Unknown behavioral function in fmacfwbt
-int  sub_122290(int a1, int a2)
+int  rf_band_select(int a1, int a2)
 {
   int v3; // r3
   int v4; // r2
@@ -43,7 +43,7 @@ int  sub_122290(int a1, int a2)
     *((uint16_t *)off_122344 + 14) = 1793;
     v9[36] = 0;
     *((uint32_t *)v9 + 5) = a1;
-    result = timestamp_update_4f60(v10, v8 + 10000);
+    result = ke_event_lock(v10, v8 + 10000);
     *(uint8_t *)(a1 + 115) = 0;
   }
   else
@@ -54,12 +54,12 @@ int  sub_122290(int a1, int a2)
     if ( *(uint8_t *)(v4 + 1) == v3 )
     {
       *(uint8_t *)(a1 + 115) = 0;
-      feature_guard_sdio(1024, dword_122354);
-      return mac_cmd_send_status_query(a1);
+      state_check_feature(1024, dword_122354);
+      return mmio_read_phy(a1);
     }
     else if ( *(uint8_t *)(a1 + 108) )
     {
-      return rf_table_lookup_n528(*(uint8_t *)(a1 + 107), dword_122350, a1);
+      return bt_get_conn_entry(*(uint8_t *)(a1 + 107), dword_122350, a1);
     }
     else
     {
@@ -69,7 +69,7 @@ int  sub_122290(int a1, int a2)
       if ( *((uint8_t *)off_122344 + 8) )
         --*((uint8_t *)off_122344 + 8);
       v5[14] = 1;
-      result = timestamp_remove_058(dword_122348);
+      result = ke_event_set_lock(dword_122348);
       *(uint32_t *)(a1 + 4) &= ~0x200u;
     }
   }

@@ -16,8 +16,8 @@ extern uint32_t off_10CB04;
 extern uint32_t dword_10CB0C;
 extern uint32_t dword_10CB08;
 
-// sub_10CAA4 @ 0x10caa4, size 86 bytes
-int sub_10CAA4()
+// invoke_event_handler @ 0x10caa4, size 86 bytes
+int invoke_event_handler()
 {
   uint32_t *v0; // r4
   int v1; // r0
@@ -29,7 +29,7 @@ int sub_10CAA4()
     ;
   if ( *(uint32_t *)(*(uint32_t *)off_10CB00 + 612) )
   {
-    v1 = sub_12D190(*(uint32_t *)off_10CB00 + 612);
+    v1 = list_pop(*(uint32_t *)off_10CB00 + 612);
     v2 = **(int16_t **)off_10CB04;
     *v0 = 1;
     if ( v2 >= 0 || v1 )
@@ -42,7 +42,7 @@ int sub_10CAA4()
     if ( v4 >= 0 )
       return 20;
   }
-  sub_12F32C(dword_10CB0C, dword_10CB08, 1101);
+  irq_disable_mmio_write(dword_10CB0C, dword_10CB08, 1101);
   return 20;
 }
 

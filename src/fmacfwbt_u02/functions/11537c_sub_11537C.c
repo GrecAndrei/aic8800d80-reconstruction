@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11537C @ 0x11537c, size 10 bytes
-int  sub_11537C(int a1)
+// ioctl_cmd_2 @ 0x11537c, size 10 bytes
+int  ioctl_cmd_2(int a1)
 {
-  return sub_11526C(2, a1, 0xCu);
+  return ioctl_dispatch(2, a1, 0xCu);
 }
 

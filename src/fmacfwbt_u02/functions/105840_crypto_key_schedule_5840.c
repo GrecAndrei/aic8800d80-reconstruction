@@ -16,10 +16,10 @@ extern uint32_t dword_10590C;
 extern uint32_t dword_105910;
 extern uint32_t dword_105908;
 
-// crypto_key_schedule_5840 @ 0x105840, size 190 bytes
-// Doc: crypto_key_schedule_5840 [ke]: Initialize crypto key schedule state structure
-// crypto_key_schedule_5840 [ke]: Initialize crypto key schedule state structure
-int  crypto_key_schedule_5840(unsigned int a1, uint32_t *a2)
+// ke_task_create @ 0x105840, size 190 bytes
+// Doc: ke_task_create [ke]: Initialize crypto key schedule state structure
+// ke_task_create [ke]: Initialize crypto key schedule state structure
+int  ke_task_create(unsigned int a1, uint32_t *a2)
 {
   int v4; // r1
   int result; // r0
@@ -36,7 +36,7 @@ int  crypto_key_schedule_5840(unsigned int a1, uint32_t *a2)
   a2[15] = 15;
   v4 = dword_105900;
   a2[16] = 8;
-  result = feature_guard_sdio(1, v4);
+  result = state_check_feature(1, v4);
   if ( a1 )
   {
     v6 = dword_105904;
@@ -52,11 +52,11 @@ LABEL_3:
           return result;
       }
       a2[a2[14] + 10] = v9 - 12;
-      feature_guard_sdio(1, v6);
+      state_check_feature(1, v6);
       v10 = a2[a2[14] + 10];
       if ( v10 <= 7 )
       {
-        result = feature_guard_sdio(((1 << v9) & a1) >> v9, v7);
+        result = state_check_feature(((1 << v9) & a1) >> v9, v7);
         if ( !a2[14] )
           a2[16] = a2[10];
         goto LABEL_3;
@@ -64,12 +64,12 @@ LABEL_3:
       v11 = ((1 << v9) & a1) >> v9;
       if ( v10 > 15 )
       {
-        result = feature_guard_sdio(v11, v7);
+        result = state_check_feature(v11, v7);
         if ( !a2[14] )
           a2[15] = a2[10];
         goto LABEL_3;
       }
-      result = feature_guard_sdio(v11, v8);
+      result = state_check_feature(v11, v8);
       v12 = a2[14];
       ++v9;
       v13 = a2[v12 + 10];
@@ -79,6 +79,6 @@ LABEL_3:
         return result;
     }
   }
-  return feature_guard_sdio(1, dword_105908);
+  return state_check_feature(1, dword_105908);
 }
 

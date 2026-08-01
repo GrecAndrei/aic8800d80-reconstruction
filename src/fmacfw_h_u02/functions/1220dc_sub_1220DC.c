@@ -23,8 +23,8 @@ extern uint32_t off_122174;
 extern uint32_t off_122178;
 extern uint32_t dword_12217C;
 
-// sub_1220DC @ 0x1220dc, size 114 bytes
-int  sub_1220DC(int a1)
+// rf_switch_channel @ 0x1220dc, size 114 bytes
+int  rf_switch_channel(int a1)
 {
   int v1; // r4
   int *v2; // r2
@@ -69,7 +69,7 @@ int  sub_1220DC(int a1)
   while ( v2 != (int *)v4 );
   v10 = off_122160;
   v11 = off_122164;
-  sub_102AD0(*((uint8_t *)off_122160 + 410));
+  rf_reg_write_byte(*((uint8_t *)off_122160 + 410));
   v12 = off_12216C;
   v13 = off_122170;
   *((uint8_t *)off_122168 + 9) = v10[410];
@@ -87,6 +87,6 @@ int  sub_1220DC(int a1)
   v16[3] = 15000;
   v16[4] = 15000;
   v16[5] = 15000;
-  return sub_12E948(v17, v15, v16);
+  return alloc_tx_event(v17, v15, v16);
 }
 

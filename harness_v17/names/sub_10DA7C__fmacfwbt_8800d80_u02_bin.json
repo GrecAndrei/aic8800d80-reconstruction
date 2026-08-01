@@ -1,0 +1,1 @@
+{"fn": "sub_10DA7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10da7c", "status": "ok", "name": "printf_wrapper", "params": [], "docstring": "Wrapper gathering variadic stack arguments for helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

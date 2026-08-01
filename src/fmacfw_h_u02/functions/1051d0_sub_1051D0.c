@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1051D0 @ 0x1051d0, size 154 bytes
-int  sub_1051D0(int a1, float a2, int *a3, int a4, int a5)
+// mem_swap_fields @ 0x1051d0, size 154 bytes
+int  mem_swap_fields(int a1, float a2, int *a3, int a4, int a5)
 {
   int result; // r0
   int v7; // r3

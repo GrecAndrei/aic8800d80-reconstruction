@@ -20,10 +20,10 @@ extern uint32_t off_103F44;
 extern uint32_t dword_103F60;
 extern uint32_t off_103F40;
 
-// crypto_table_init_3e84 @ 0x103e84, size 186 bytes
-// Doc: crypto_table_init_3e84 [ke]: Initialize cryptographic algorithm lookup table
-// crypto_table_init_3e84 [ke]: Initialize cryptographic algorithm lookup table
-int  crypto_table_init_3e84(int a1, int a2, int a3)
+// mac_tx_wait_ack @ 0x103e84, size 186 bytes
+// Doc: mac_tx_wait_ack [ke]: Initialize cryptographic algorithm lookup table
+// mac_tx_wait_ack [ke]: Initialize cryptographic algorithm lookup table
+int  mac_tx_wait_ack(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r2

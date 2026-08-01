@@ -13,8 +13,8 @@
 extern uint32_t off_132FA0;
 extern uint32_t off_132678;
 
-// sub_132F34 @ 0x132f34, size 106 bytes
-int  sub_132F34(int result, uint8_t *a2, int a3)
+// llm_adv_reset @ 0x132f34, size 106 bytes
+int  llm_adv_reset(int result, uint8_t *a2, int a3)
 {
   unsigned int v3; // r4
   unsigned int v4; // r2

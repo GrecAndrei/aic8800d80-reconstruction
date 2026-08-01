@@ -15,16 +15,16 @@ extern uint32_t off_136858;
 extern uint32_t dword_136860;
 extern uint32_t dword_13685C;
 
-// sub_136820 @ 0x136820, size 50 bytes
-int sub_136820()
+// bt_ready_check @ 0x136820, size 50 bytes
+int bt_ready_check()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r4
 
-  v0 = rf_bus_mark_n100_d2d0(dword_136854);
+  v0 = mem_word_load(dword_136854);
   v1 = v0;
   if ( **(int16_t **)off_136858 < 0 && !v0 )
-    sub_12F46C(dword_136860, dword_13685C, 210);
-  return sdio_buffer_prepare_n_4e8((int)(v1 + 3));
+    mmio_clear_register(dword_136860, dword_13685C, 210);
+  return ke_msg_send((int)(v1 + 3));
 }
 

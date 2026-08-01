@@ -1,1 +1,1 @@
-{"fn": "rf_feature_check", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4d8", "status": "ok", "name": "rf_feature_check", "params": [], "docstring": "Checks supported RF feature index against table of 9", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_feature_check", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4d8", "status": "ok", "name": "test_event_flag", "params": [], "docstring": "Checks supported RF feature index against table of 9", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

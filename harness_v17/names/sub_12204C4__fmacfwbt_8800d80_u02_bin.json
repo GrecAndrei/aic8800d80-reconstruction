@@ -1,1 +1,1 @@
-{"fn": "sub_12204C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12204c4", "status": "ok", "name": "rf_chan_table_init", "params": [], "docstring": "Initializes RF channel table at offset 0x1e0 with size 0x78", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12204C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12204c4", "status": "ok", "name": "dma_tx_reset", "params": [], "docstring": "Initializes RF channel table at offset 0x1e0 with size 0x78", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

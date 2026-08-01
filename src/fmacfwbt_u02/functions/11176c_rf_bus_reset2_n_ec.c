@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_reset2_n_ec @ 0x11176c, size 74 bytes
+// tx_pkt_start @ 0x11176c, size 74 bytes
 // Doc: rf_bus_mark_na6 [rf]: Set RF bus bitfield (mask 0x7E0, value 0x20) on reg 0x10
 // rf_bus_mark_na6 [rf]: Set RF bus bitfield (mask 0x7E0, value 0x20) on reg 0x10
-int rf_bus_reset2_n_ec()
+int tx_pkt_start()
 {
   uint32_t *v0; // r1
   int v1; // r0

@@ -1,1 +1,1 @@
-{"fn": "sub_12160A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12160a0", "status": "ok", "name": "sub_12160A0", "params": [], "docstring": "Lookup 3*index entry in table at 0x187f98 and load field", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12160A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12160a0", "status": "ok", "name": "set_table_callback_data", "params": [], "docstring": "Lookup 3*index entry in table at 0x187f98 and load field", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

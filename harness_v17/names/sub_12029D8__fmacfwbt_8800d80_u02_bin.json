@@ -1,1 +1,1 @@
-{"fn": "sub_12029D8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12029d8", "status": "ok", "name": "sdio_buffer_prepare_n_32a", "params": [], "docstring": "Validate/prepare SDIO buffer length against limit", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12029D8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12029d8", "status": "ok", "name": "get_hw_flash_size", "params": [], "docstring": "Validate/prepare SDIO buffer length against limit", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

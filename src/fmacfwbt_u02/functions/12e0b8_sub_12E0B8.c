@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12E0B8 @ 0x12e0b8, size 40 bytes
+// parse_hash_u16 @ 0x12e0b8, size 40 bytes
 // Doc: sdio_buffer_prepare_280 [mmio]: Prepares SDIO buffer state via internal helper
 // sdio_buffer_prepare_280 [mmio]: Prepares SDIO buffer state via internal helper
-uint8_t * sub_12E0B8(uint8_t *a1, int a2, uint8_t *a3)
+uint8_t * parse_hash_u16(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   uint16_t v5; // [sp+6h] [bp-2h] BYREF
 
-  result = sub_12DA54(a1, a2, 35, &v5);
+  result = memcpy_loop(a1, a2, 35, &v5);
   if ( result )
   {
     if ( (unsigned int)v5 - 24 > 0x21 )

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13C690;
 
-// sub_13C5D0 @ 0x13c5d0, size 192 bytes
-int  sub_13C5D0(int a1, int a2, int a3, int a4)
+// bt_conn_is_connected @ 0x13c5d0, size 192 bytes
+int  bt_conn_is_connected(int a1, int a2, int a3, int a4)
 {
   int result; // r0
   int v5; // lr
@@ -61,7 +61,7 @@ int  sub_13C5D0(int a1, int a2, int a3, int a4)
     do
       *v13++ = 0;
     while ( (uint8_t *)(v5 + 18) != v13 );
-    v14 = sub_13CAAC(result, a2, a3, 24, a4);
+    v14 = rx_process_packet(result, a2, a3, 24, a4);
     for ( i = 0; i != 64; i += 8 )
     {
       v17 = (v14 >> i) | (v15 << (32 - i));

@@ -14,10 +14,10 @@ extern uint32_t off_133CCC;
 extern uint32_t dword_133CD4;
 extern uint32_t dword_133CD0;
 
-// fmac_status_check_init @ 0x133c70, size 90 bytes
-// Doc: fmac_status_check_init [util]: Reads FW status word and initializes stack frame
-// fmac_status_check_init [util]: Reads FW status word and initializes stack frame
-int fmac_status_check_init()
+// mmio_init @ 0x133c70, size 90 bytes
+// Doc: mmio_init [util]: Reads FW status word and initializes stack frame
+// mmio_init [util]: Reads FW status word and initializes stack frame
+int mmio_init()
 {
   int v0; // r2
   int v2; // [sp+0h] [bp-Ch] BYREF
@@ -26,17 +26,17 @@ int fmac_status_check_init()
   v0 = **(int16_t **)off_133CCC;
   v2 = 0;
   v3 = 0;
-  if ( v0 < 0 && msg_get_value(6u) != 1 )
-    sub_12F694(dword_133CD4, dword_133CD0, 303);
-  sub_134690(&v2, &v3);
+  if ( v0 < 0 && hci_cmd_send_short(6u) != 1 )
+    mmio_irq_clear(dword_133CD4, dword_133CD0, 303);
+  ull_scan_event_start(&v2, &v3);
   if ( v2 && v3 )
   {
-    sub_1347DC();
+    rx_security_check();
     return 0;
   }
   else
   {
-    sub_135020(1);
+    event_dispatch(1);
     return 0;
   }
 }

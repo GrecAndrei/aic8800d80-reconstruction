@@ -30,10 +30,10 @@ extern uint32_t off_10C1A8;
 extern uint32_t dword_10C1A4;
 extern uint32_t dword_10C1AC;
 
-// tx_phy_config @ 0x10bf28, size 546 bytes
-// Doc: tx_phy_config [tx]: Configure TX PHY parameters from descriptor fields
-// tx_phy_config [tx]: Configure TX PHY parameters from descriptor fields
-uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
+// parse_packet_control @ 0x10bf28, size 546 bytes
+// Doc: parse_packet_control [tx]: Configure TX PHY parameters from descriptor fields
+// parse_packet_control [tx]: Configure TX PHY parameters from descriptor fields
+uint32_t * parse_packet_control(uint32_t *result, unsigned int a2, int a3, int a4)
 {
   int v4; // r6
   int v7; // r7
@@ -103,7 +103,7 @@ uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
     goto LABEL_3;
   }
   v9 = result[1];
-  v10 = sub_11F74C(0x2000, dword_10C178, *result, v9);
+  v10 = check_interrupt_flag(0x2000, dword_10C178, *result, v9);
   v11 = a2 - 2;
   do
   {
@@ -144,25 +144,25 @@ uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
       v18 = *(uint64_t *)&dword_10C158;
       v19 = dbl_10C150;
     }
-    v20 = sub_12754C(v17);
-    v21 = sub_127620(v20, HIDWORD(v20), 0, dword_10C190);
-    v22 = sub_127874(v18, HIDWORD(v18), v21, HIDWORD(v21));
-    v23 = sub_127620(v22, HIDWORD(v22), 0, dword_10C194);
-    v24 = math_round(v23, HIDWORD(v23));
-    v25 = sub_127874(LODWORD(v19), HIDWORD(v19), 0, dword_10C190);
-    v26 = math_round(v25, HIDWORD(v25));
+    v20 = aeabi_i2d(v17);
+    v21 = aeabi_dadd(v20, HIDWORD(v20), 0, dword_10C190);
+    v22 = aeabi_dsub(v18, HIDWORD(v18), v21, HIDWORD(v21));
+    v23 = aeabi_dadd(v22, HIDWORD(v22), 0, dword_10C194);
+    v24 = parse_data_field(v23, HIDWORD(v23));
+    v25 = aeabi_dsub(LODWORD(v19), HIDWORD(v19), 0, dword_10C190);
+    v26 = parse_data_field(v25, HIDWORD(v25));
     v27 = v24;
     v28 = v26;
-    *(uint32_t *)off_10C1B0 = sub_127BA4(v27) & 0x7FFFFFFF;
-    v10 = sub_127BA4(v28);
+    *(uint32_t *)off_10C1B0 = aeabi_d2iz(v27) & 0x7FFFFFFF;
+    v10 = aeabi_d2iz(v28);
     v14 = off_10C198;
     v13 = *(uint32_t *)off_10C198 & dword_10C1A0;
     v15 = dword_10C19C & (v10 << 13) | v13;
     *(uint32_t *)off_10C198 = v15;
   }
-  crypto_hw_power_up(v10, v13, (int)v14, v15, v49);
-  v29 = sub_10A5B0((uint8_t)v4, a2, v9, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
-  result = (uint32_t *)sub_1035E8(v29, v30, v31, v32, v50);
+  poll_rf_status(v10, v13, (int)v14, v15, v49);
+  v29 = read_radio_status((uint8_t)v4, a2, v9, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
+  result = (uint32_t *)configure_bb_clock(v29, v30, v31, v32, v50);
   *(uint32_t *)off_10C17C = 1;
   if ( a4 )
   {
@@ -180,7 +180,7 @@ LABEL_3:
         v53[0] = *(uint32_t *)dword_10C1A4;
         v53[1] = v34;
         v53[2] = v35;
-        crypto_hw_power_up(v53[0], v34, v35, v8, v49);
+        poll_rf_status(v53[0], v34, v35, v8, v49);
         v37 = *(uint64_t *)v36;
         v38 = *(uint32_t *)(v36 + 8);
         v39 = *(uint32_t *)(v36 + 12);
@@ -210,8 +210,8 @@ LABEL_3:
         *((uint8_t *)v33 + 36) = 0;
         *((uint8_t *)v33 + 44) = 0;
         *((uint8_t *)v33 + 52) = 0;
-        rf_rx_dc_calib((unsigned int *)v40, (uint8_t *)(a2 + 125), (int)v33);
-        v45 = sub_10B048(v53, dword_10C1AC, a2 + 104, a2 + 125, v33, 6, 1, v52, 0, 0, &v54);
+        configure_dma_regs((unsigned int *)v40, (uint8_t *)(a2 + 125), (int)v33);
+        v45 = apply_dsp_transform(v53, dword_10C1AC, a2 + 104, a2 + 125, v33, 6, 1, v52, 0, 0, &v54);
         *((uint8_t *)v33 + 4) = 0;
         *((uint8_t *)v33 + 12) = 0;
         *((uint8_t *)v33 + 20) = 0;
@@ -219,7 +219,7 @@ LABEL_3:
         *((uint8_t *)v33 + 36) = 0;
         *((uint8_t *)v33 + 44) = 0;
         *((uint8_t *)v33 + 52) = 0;
-        return (uint32_t *)sub_1035E8(v45, v46, v47, v48, v51);
+        return (uint32_t *)configure_bb_clock(v45, v46, v47, v48, v51);
       }
     }
   }

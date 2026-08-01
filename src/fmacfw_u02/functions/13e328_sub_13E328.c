@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E328 @ 0x13e328, size 440 bytes
-int  sub_13E328(int a1)
+// process_list_entries @ 0x13e328, size 440 bytes
+int  process_list_entries(int a1)
 {
   int v1; // r4
   int v3; // r8
@@ -58,7 +58,7 @@ int  sub_13E328(int a1)
     v5 = -1;
     v3 = -1;
   }
-  result = sub_13E2C0((uint8_t *)a1);
+  result = state_table_dispatch((uint8_t *)a1);
   v8 = *(uint8_t *)(a1 + 169);
   *(uint16_t *)(a1 + 10) = result;
   switch ( v8 )
@@ -87,7 +87,7 @@ int  sub_13E328(int a1)
       do
       {
         v9 = v19 | v20 | v21 | 0x2000;
-        result = sub_13D25C(a1, v9);
+        result = ll_pdu_dispatch(a1, v9);
         --v20;
       }
       while ( !result && (uint8_t)v20 != 6 );
@@ -99,7 +99,7 @@ int  sub_13E328(int a1)
       do
       {
         v9 = v16 | v15 | 0x2800;
-        result = sub_13D25C(a1, v16 | v15 | 0x2800);
+        result = ll_pdu_dispatch(a1, v16 | v15 | 0x2800);
         v15 = (uint16_t)(v15 - 1);
       }
       while ( !result && (uint8_t)v15 != 6 );
@@ -123,7 +123,7 @@ LABEL_26:
     {
       while ( 1 )
       {
-        result = sub_13D694(a1);
+        result = rf_cal_channel_get(a1);
         v1 = *(uint16_t *)(a1 + 184);
         if ( *(uint16_t *)(a1 + 184) )
           break;

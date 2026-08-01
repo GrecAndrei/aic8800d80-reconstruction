@@ -15,10 +15,10 @@ extern uint32_t off_1229BC;
 extern uint32_t dword_1229C0;
 extern uint32_t off_1229C4;
 
-// bt_cmd_handler_n830 @ 0x122830, size 392 bytes
-// Doc: bt_cmd_handler_n830 [bt]: Handle BT command message in fmacfwbt with parameter parsing
-// bt_cmd_handler_n830 [bt]: Handle BT command message in fmacfwbt with parameter parsing
-int  bt_cmd_handler_n830(int a1, int a2, int a3, int *a4)
+// rx_process_packet @ 0x122830, size 392 bytes
+// Doc: rx_process_packet [bt]: Handle BT command message in fmacfwbt with parameter parsing
+// rx_process_packet [bt]: Handle BT command message in fmacfwbt with parameter parsing
+int  rx_process_packet(int a1, int a2, int a3, int *a4)
 {
   int v4; // r7
   int v5; // r11
@@ -46,7 +46,7 @@ int  bt_cmd_handler_n830(int a1, int a2, int a3, int *a4)
   v6 = *(uint32_t *)(*(uint32_t *)(a1 + 8) + 8);
   v7 = a2;
   v25 = *(uint32_t *)(a2 + 124);
-  v9 = sub_12DD88(v6 + 36, (uint16_t)(v5 - 36));
+  v9 = memmove(v6 + 36, (uint16_t)(v5 - 36));
   if ( !v9 )
     goto LABEL_7;
   v10 = *(uint8_t *)(v9 + 2);
@@ -76,24 +76,24 @@ LABEL_7:
 LABEL_8:
   if ( *(uint8_t *)(v7 + 147) )
   {
-    sub_122810(*(uint8_t *)(v7 + 107), 1);
+    mmio_write_phy(*(uint8_t *)(v7 + 107), 1);
     *(uint16_t *)(v7 + 146) = 0;
     *(uint8_t *)(v7 + 148) = 0;
   }
   v12 = off_1229BC;
   *(uint8_t *)(v7 + 141) = 1;
-  if ( dword_1229C0 - v12[4] + *(uint32_t *)(v7 + 120) < 0 && !sub_1194CC(*(uint8_t *)(v7 + 116), 0, 0) )
+  if ( dword_1229C0 - v12[4] + *(uint32_t *)(v7 + 120) < 0 && !phy_channel_validate(*(uint8_t *)(v7 + 116), 0, 0) )
     *(uint32_t *)(v7 + 120) = *((uint32_t *)off_1229BC + 4);
   v23 = *(char *)(v4 + 45);
-  sub_101968();
+  sys_mode_get_low();
   v13 = v23;
   if ( *((uint8_t *)off_1229C4 + 17) == 1 )
   {
-    sub_122528((uint32_t *)v7, v23);
+    event_dispatch((uint32_t *)v7, v23);
     v13 = v23;
   }
-  sub_122358((uint8_t *)v7, v13);
-  v14 = sub_12D71C(v6 + 32, 4, 0);
+  rf_iq_calibrate((uint8_t *)v7, v13);
+  v14 = crc32_update(v6 + 32, 4, 0);
   *a4 = 0;
   if ( (uint16_t)(v5 - 36) > 1u )
   {
@@ -111,7 +111,7 @@ LABEL_8:
       if ( *v16 == 5 )
         *v15 = (int)v16;
       else
-        v14 = sub_12D71C(v20, (uint8_t)v16[1], v14);
+        v14 = crc32_update(v20, (uint8_t)v16[1], v14);
       v18 = (uint16_t)(v18 + -2 - v19);
       v16 = &v20[v19];
     }
@@ -121,8 +121,8 @@ LABEL_8:
     v4 = v24;
   }
   *(uint32_t *)(v7 + 124) = v14;
-  sub_120B78(v6, v5, v4, v7, a3, *a4);
-  result = msg_get_value(4);
+  tx_prepare_descriptor(v6, v5, v4, v7, a3, *a4);
+  result = hci_cmd_send_short(4);
   if ( result != 1 )
     return *(uint32_t *)(v7 + 124) != v25;
   return result;

@@ -1,0 +1,1 @@
+{"fn": "sub_12EF88", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ef88", "status": "ok", "name": "event_sync", "params": [], "docstring": "Synchronizes after event queue processing.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

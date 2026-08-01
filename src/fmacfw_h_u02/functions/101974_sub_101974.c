@@ -12,8 +12,8 @@
 
 extern uint32_t off_101988;
 
-// sub_101974 @ 0x101974, size 20 bytes
-unsigned int  sub_101974(int a1)
+// set_rf_control_bit @ 0x101974, size 20 bytes
+unsigned int  set_rf_control_bit(int a1)
 {
   unsigned int result; // r0
 

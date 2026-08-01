@@ -30,11 +30,11 @@ extern uint32_t dword_1350B8;
 extern uint32_t off_1350BC;
 extern uint32_t dword_1350C0;
 
-// sub_134E04 @ 0x134e04, size 166 bytes
+// bt_setup_conn_profile @ 0x134e04, size 166 bytes
 // Doc: sub_1234E04 [patch]: Initialize handler table from ROM patches 0x192478/0x18e628/0x16bf80
 // sub_1234E04 [patch]: Initialize handler table from ROM patches 0x192478/0x18e628/0x16bf80
 // positive sp value has been detected, the output may be wrong!
-void  sub_134E04(
+void  bt_setup_conn_profile(
         int a1,
         int a2,
         int a3,
@@ -94,7 +94,7 @@ void  sub_134E04(
   v49 = *((uint32_t *)off_135084 + 4);
   v18 = dword_1350CC + 1320 * v16;
   v19 = *(uint8_t *)(v18 + 116);
-  msg_parse(dword_135088);
+  event_dispatch(dword_135088);
   v20 = v14[4];
   if ( !v20 )
 LABEL_11:
@@ -137,13 +137,13 @@ LABEL_8:
         *v46 |= 0x80000000;
         *v47 = v48;
       }
-      sub_12CD34(6u, 10);
+      rx_phy_status_parse(6u, 10);
       v14[2] = v18;
       *v14 = v17 - 12;
-      sub_134800(v18);
+      bt_send_host_message(v18);
 LABEL_10:
-      feature_guard_check(256, dword_13509C, *(uint8_t *)(v17 + 9), a1, *(uint16_t *)(v17 + 820));
-      sub_12CA38(v14[4] - 12);
+      check_status_bits(256, dword_13509C, *(uint8_t *)(v17 + 9), a1, *(uint16_t *)(v17 + 820));
+      branch_to_12cbc8(v14[4] - 12);
       v14[4] = 0;
       *((uint8_t *)v14 + 33) = 0;
       goto LABEL_11;
@@ -199,7 +199,7 @@ LABEL_10:
     *(uint32_t *)off_1350B0 = *(uint16_t *)(v40 + 68);
   }
   v50 = v25;
-  sdio_buffer_prepare_n_4e8(v17);
+  ke_msg_send(v17);
   v41 = v50;
   *(uint32_t *)off_1350B4 = dword_1350B8;
   if ( v50 == (void *)1 )
@@ -210,15 +210,15 @@ LABEL_10:
     *(uint32_t *)off_1350A8 = v42[52];
   }
   if ( *(uint8_t *)(v15 + 1320 * v16 + 413) == 2 )
-    sub_12077C((int *)v18, 0, 1);
+    is_valid_id((int *)v18, 0, 1);
   v43 = v15 + 1320 * v16;
   v44 = *(uint16_t *)(v43 + 416);
   if ( v44 <= 0x1387 )
-    mmio_init_or_reset(v44 | (*(uint8_t *)(v43 + 413) << 16) | 0x80000000, (int)v41, 4999);
+    callback_post(v44 | (*(uint8_t *)(v43 + 413) << 16) | 0x80000000, (int)v41, 4999);
   v45 = off_1350BC;
   *(uint8_t *)(v15 + 1320 * v16 + 149) = 1;
-  timestamp_update(1320 * v16 + 152 + v15, dword_1350C0 + v45[4]);
-  sub_12CD34(6u, 0);
+  unknown_worker(1320 * v16 + 152 + v15, dword_1350C0 + v45[4]);
+  rx_phy_status_parse(6u, 0);
   goto LABEL_10;
 }
 

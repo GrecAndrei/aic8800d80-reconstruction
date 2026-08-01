@@ -16,8 +16,8 @@ extern uint32_t off_1203FC;
 extern uint32_t off_120400;
 extern uint32_t off_120404;
 
-// sub_120368 @ 0x120368, size 138 bytes
-int sub_120368()
+// get_mac_ver @ 0x120368, size 138 bytes
+int get_mac_ver()
 {
   int result; // r0
   uint32_t *v1; // r1

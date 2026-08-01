@@ -1,1 +1,1 @@
-{"fn": "sub_12405DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12405dc", "status": "ok", "name": "sub_12405DC", "params": [], "docstring": "Complex handler taking object ptr, two args, accesses offset 0x48/0x6c", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12405DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12405dc", "status": "ok", "name": "hci_le_set_scan_params", "params": [], "docstring": "Complex handler taking object ptr, two args, accesses offset 0x48/0x6c", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

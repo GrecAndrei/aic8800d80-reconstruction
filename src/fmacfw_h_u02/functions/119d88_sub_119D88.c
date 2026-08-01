@@ -15,8 +15,8 @@ extern uint32_t off_119F40;
 extern uint32_t dword_119F44;
 extern uint32_t off_119F4C;
 
-// sub_119D88 @ 0x119d88, size 440 bytes
-int  sub_119D88(int a1)
+// btm_get_conn_entry @ 0x119d88, size 440 bytes
+int  btm_get_conn_entry(int a1)
 {
   int v1; // r8
   int v2; // r3
@@ -50,7 +50,7 @@ int  sub_119D88(int a1)
     *(uint32_t *)(HIDWORD(v5) + 68) = 256;
     *(uint32_t *)(v3 + 68) = 0;
     if ( (uint32_t)v5 )
-      sub_1161E4(v3, a1);
+      tx_pending_check(v3, a1);
     v8 = *(uint16_t *)(v4 + 8);
     if ( (v8 & 2) != 0 )
     {
@@ -60,7 +60,7 @@ int  sub_119D88(int a1)
       {
         v19 = *(uint32_t *)(HIDWORD(v5) + 48);
         if ( v19 )
-          *(uint8_t *)(v19 + 36) = sub_101CAC(
+          *(uint8_t *)(v19 + 36) = bt_packet_parser(
                                    (*(uint32_t *)(v19 + 20) >> 11) & 7,
                                    *(uint32_t *)(v19 + 20) & 0x7F,
                                    (uint8_t *)(*(uint32_t *)(dword_119F44
@@ -68,7 +68,7 @@ int  sub_119D88(int a1)
                                                                  + 72)
                                                      + 4));
       }
-      sub_116860(v7, v7, a1);
+      phy_set_cfg(v7, v7, a1);
     }
     else if ( (v8 & 4) != 0 )
     {
@@ -77,9 +77,9 @@ int  sub_119D88(int a1)
     else if ( (uint32_t)v5 )
     {
       *(uint16_t *)(v3 + 82) |= 2u;
-      sub_115F60(a1, v5);
+      ll_event_lookup(a1, v5);
     }
-    sub_12D108(*(uint32_t *)(v4 + 340));
+    wlan_ioctl_handler_1(*(uint32_t *)(v4 + 340));
   }
   else
   {
@@ -87,12 +87,12 @@ int  sub_119D88(int a1)
     v20 = v2;
     *(uint32_t *)(v3 + 36) |= 0x380000u;
     *(uint32_t *)(v4 + 324) = v3;
-    sub_11C410(v13);
+    sta_rate_limit_check(v13);
     v14 = off_119F4C;
     *(uint8_t *)(HIDWORD(v5) + 1) = *(uint8_t *)(v20 + 77);
     if ( *(uint8_t *)(*(uint32_t *)v14 + 1) )
     {
-      sub_11927C(
+      btm_acl_update(
         v4,
         *(uint16_t *)(v3 + 34),
         *(uint8_t *)(v4 + 12),
@@ -116,19 +116,19 @@ int  sub_119D88(int a1)
       v18 = off_119F40;
       *(uint32_t *)(v16 + 20) = v17;
       if ( v18[197] && v16 )
-        *(uint8_t *)(v16 + 36) = sub_101CAC(
+        *(uint8_t *)(v16 + 36) = bt_packet_parser(
                                  (v17 >> 11) & 7,
                                  v17 & 0x7F,
                                  (uint8_t *)(*(uint32_t *)(dword_119F44 + 1320 * *(uint8_t *)(v3 + 28) + 72)
                                                    + 4));
-      sub_116860(v4 + 16, v7, a1);
+      phy_set_cfg(v4 + 16, v7, a1);
     }
     else if ( (uint32_t)v5 && (v15 & 4) == 0 )
     {
       *(uint16_t *)(v4 + 8) = v15 | 5;
-      sub_115F60(a1, v5);
+      ll_event_lookup(a1, v5);
     }
-    sub_12D108(v1 + 84 * a1 + 28);
+    wlan_ioctl_handler_1(v1 + 84 * a1 + 28);
   }
   v11 = v1 + 84 * a1;
   v12 = *(uint8_t *)(v11 + 80);

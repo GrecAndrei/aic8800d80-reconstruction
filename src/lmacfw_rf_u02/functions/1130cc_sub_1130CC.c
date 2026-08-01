@@ -20,8 +20,8 @@ extern uint32_t off_113168;
 extern uint32_t dword_113158;
 extern uint32_t dword_113154;
 
-// sub_1130CC @ 0x1130cc, size 124 bytes
-int sub_1130CC()
+// timer_event_handler @ 0x1130cc, size 124 bytes
+int timer_event_handler()
 {
   void *v0; // r7
   int result; // r0
@@ -34,7 +34,7 @@ int sub_1130CC()
   unsigned int v8; // r1
 
   v0 = off_113148;
-  result = sub_11E71C(dword_11314C);
+  result = list_init(dword_11314C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = off_11315C;
@@ -45,13 +45,13 @@ int sub_1130CC()
     v7 = 0;
     do
     {
-      if ( !log_pool_alloc2_a18(v4, (uint16_t)(v2[153] - 4)) )
+      if ( !list_iterate(v4, (uint16_t)(v2[153] - 4)) )
       {
-        msg_parse(v5, v7);
+        dispatch_event_handler(v5, v7);
         if ( **v6 < 0 )
-          rf_cmd_send_n264(dword_113158, dword_113154, 495);
+          flash_ctrl_init(dword_113158, dword_113154, 495);
       }
-      result = list_push_tail(dword_11314C);
+      result = check_kernel_state(dword_11314C);
       v8 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v7;
       ++*v3;

@@ -21,10 +21,10 @@ extern uint32_t dword_116E48;
 extern uint32_t off_116E28;
 extern uint32_t dword_116E2C;
 
-// sub_116C4C @ 0x116c4c, size 474 bytes
+// dma_ring_init @ 0x116c4c, size 474 bytes
 // Doc: sub_1216C4C [ipc]: Processes message buffer context struct
 // sub_1216C4C [ipc]: Processes message buffer context struct
-int  sub_116C4C(int a1, int a2, char a3)
+int  dma_ring_init(int a1, int a2, char a3)
 {
   int v4; // r0
   int v5; // r8
@@ -74,7 +74,7 @@ int  sub_116C4C(int a1, int a2, char a3)
       else
       {
         v29 = v12;
-        sub_12F46C(dword_116E40, dword_116E3C, 475);
+        mmio_clear_register(dword_116E40, dword_116E3C, 475);
         v17 = *(uint32_t *)(a1 + 72);
         v12 = v29;
       }
@@ -104,21 +104,21 @@ int  sub_116C4C(int a1, int a2, char a3)
     }
   }
   *(uint8_t *)(v5 + 36) = a3;
-  rf_phy_config_parse_n608(a1, a2);
+  parse_control_packet(a1, a2);
   if ( *(uint16_t *)(a1 + 24) == 36488 )
-    msg_parse(dword_116E38, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
+    event_dispatch(dword_116E38, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
   v8 = *(uint32_t *)(a1 + 8);
   v9 = *(uint32_t *)(a1 + 72);
   if ( v8 >= 0 || (v20 = *(uint16_t *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
   {
-    if ( msg_get_value(6) == 6 )
+    if ( rx_rate_field_parse(6) == 6 )
       goto LABEL_24;
 LABEL_7:
     v10 = *(uint32_t **)(a1 + 72);
     goto LABEL_8;
   }
   *(uint32_t *)(v9 + 60) = *(uint32_t *)(v9 + 60) & 0xFFFF00FF | 0xE00;
-  if ( msg_get_value(6) != 6 )
+  if ( rx_rate_field_parse(6) != 6 )
     goto LABEL_7;
 LABEL_24:
   v21 = (int16_t **)off_116E30;
@@ -137,7 +137,7 @@ LABEL_28:
   v10 = *(uint32_t **)(a1 + 72);
   if ( !v10 )
   {
-    sub_12F46C(dword_116E4C, dword_116E44, 518);
+    mmio_clear_register(dword_116E4C, dword_116E44, 518);
     v23 = *(uint16_t **)(v22 + 28);
     if ( v23 )
       goto LABEL_28;
@@ -152,7 +152,7 @@ LABEL_41:
     v24 = *(uint32_t *)(v22 + 24);
     if ( v24 )
       goto LABEL_27;
-    sub_12F46C(dword_116E48, dword_116E44, 525);
+    mmio_clear_register(dword_116E48, dword_116E44, 525);
 LABEL_26:
     v24 = *(uint32_t *)(v22 + 24);
 LABEL_27:
@@ -168,7 +168,7 @@ LABEL_8:
   v10[4] = dword_116E2C;
   v10[2] = a1;
   v10[3] = a1;
-  sub_116AB4(a1, a1, (int)v10, a2);
+  mac_flags_set(a1, a1, (int)v10, a2);
   return 0;
 }
 

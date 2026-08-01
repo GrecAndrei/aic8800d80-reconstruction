@@ -1,1 +1,1 @@
-{"fn": "ipc_doorbell_handler_n_3c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215940", "status": "ok", "name": "ipc_doorbell_handler_n_3c", "params": [], "docstring": "Handle host-to-EMAC IPC doorbell interrupt", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "ipc_doorbell_handler_n_3c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215940", "status": "ok", "name": "rf_cmd_dispatch_n40c", "params": [], "docstring": "Handle host-to-EMAC IPC doorbell interrupt", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

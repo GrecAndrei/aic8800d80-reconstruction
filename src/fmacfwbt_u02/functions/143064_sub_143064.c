@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143064 @ 0x143064, size 18 bytes
-BOOL  sub_143064(int a1, int a2, int a3, int a4)
+// __aeabi_dcmpgt @ 0x143064, size 18 bytes
+BOOL  __aeabi_dcmpgt(int a1, int a2, int a3, int a4)
 {
   char v4; // cf
 
-  sub_142FF4(a1, a2, a3, a4);
+  __aeabi_cdrcmple(a1, a2, a3, a4);
   return !v4;
 }
 

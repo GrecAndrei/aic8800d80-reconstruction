@@ -1,1 +1,1 @@
-{"fn": "crypto_rx_calibrate", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1207638", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Prepare SDIO buffer for transfer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_rx_calibrate", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1207638", "status": "ok", "name": "rf_core_irq_dispatch", "params": [], "docstring": "Prepare SDIO buffer for transfer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

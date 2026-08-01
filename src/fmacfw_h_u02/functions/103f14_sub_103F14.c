@@ -20,8 +20,8 @@ extern uint32_t off_103FD4;
 extern uint32_t dword_103FF0;
 extern uint32_t off_103FD0;
 
-// sub_103F14 @ 0x103f14, size 186 bytes
-int  sub_103F14(int a1, int a2, int a3)
+// mul3 @ 0x103f14, size 186 bytes
+int  mul3(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r2

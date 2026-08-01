@@ -17,24 +17,24 @@ extern uint32_t dword_12B598;
 extern uint32_t off_12B58C;
 extern uint32_t off_12B590;
 
-// sub_12B540 @ 0x12b540, size 72 bytes
+// read_cal_value @ 0x12b540, size 72 bytes
 // Doc: sub_122B540 [unknown]: Compares signed halfword from global state to zero
 // sub_122B540 [unknown]: Compares signed halfword from global state to zero
-int sub_12B540()
+int read_cal_value()
 {
   uint32_t *v0; // r4
   unsigned int v1; // r2
   int result; // r0
 
   if ( **(int16_t **)off_12B588 < 0 && *(uint32_t *)off_12B594 << 28 )
-    return fmac_phy_op_handler(dword_12B59C, dword_12B598, 105, *(uint32_t *)off_12B594);
+    return bad_func_0x12f408(dword_12B59C, dword_12B598, 105, *(uint32_t *)off_12B594);
   if ( (*(uint32_t *)off_12B58C & 0x80) != 0 )
   {
     v0 = off_12B590;
     v1 = *((uint32_t *)off_12B590 + 1) & 0xFFFFFFFB;
     *(uint32_t *)off_12B58C &= ~0x80u;
     v0[1] = v1;
-    return irq_nesting_or_d104(0x2000000);
+    return unknown_func_12d104(0x2000000);
   }
   return result;
 }

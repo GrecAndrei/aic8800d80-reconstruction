@@ -17,8 +17,8 @@ extern uint32_t off_11EC0C;
 extern uint32_t off_11EC10;
 extern uint32_t off_11EC14;
 
-// sub_11EB78 @ 0x11eb78, size 134 bytes
-int sub_11EB78()
+// aes_ccm_init @ 0x11eb78, size 134 bytes
+int aes_ccm_init()
 {
   uint32_t *v0; // r4
   int *v1; // r5
@@ -32,7 +32,7 @@ int sub_11EB78()
   uint32_t *v9; // r3
   uint32_t _0[10]; // [sp+0h] [bp-18h] BYREF
 
-  sub_12D00C(16);
+  irq_disable_global_3(16);
   v0 = off_11EC00;
   v1 = (int *)off_11EC04;
   v2 = 0;
@@ -49,7 +49,7 @@ int sub_11EB78()
       {
         _0[4] = 0;
         _0[5] = v2;
-        sub_11EB54((int)_0);
+        send_ke_message((int)_0);
         v2 = 0;
       }
     }

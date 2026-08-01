@@ -1,1 +1,1 @@
-{"fn": "msg_get_value", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce88", "status": "ok", "name": "msg_get_value", "params": [], "docstring": "Extract a byte/halfword value from a message by index", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "msg_get_value", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce88", "status": "ok", "name": "rx_rate_field_parse", "params": [], "docstring": "Extract a byte/halfword value from a message by index", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

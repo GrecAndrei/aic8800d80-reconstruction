@@ -1,1 +1,1 @@
-{"fn": "rf_mem_read_n_d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4c0", "status": "ok", "name": "rf_mem_read_f4c0", "params": [], "docstring": "Read RF memory-mapped register via global pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_mem_read_n_d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4c0", "status": "ok", "name": "get_event_flags", "params": [], "docstring": "Read RF memory-mapped register via global pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

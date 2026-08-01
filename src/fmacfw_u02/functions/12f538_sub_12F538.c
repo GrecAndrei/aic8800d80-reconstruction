@@ -15,8 +15,8 @@ extern uint32_t off_10CBD8;
 extern uint32_t off_10CBDC;
 extern uint32_t off_10CBE0;
 
-// sub_12F538 @ 0x12f538, size 18 bytes
-int sub_12F538()
+// check_rom_state @ 0x12f538, size 18 bytes
+int check_rom_state()
 {
   int result; // r0
 

@@ -1,0 +1,1 @@
+{"fn": "sub_12D0FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d0fc", "status": "ok", "name": "get_band_2g", "params": [], "docstring": "Return 2.4 GHz band indicator", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

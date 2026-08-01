@@ -16,8 +16,8 @@ extern uint32_t off_12C770;
 extern uint32_t off_12C768;
 extern uint32_t dword_12C76C;
 
-// sub_12C6B8 @ 0x12c6b8, size 166 bytes
-int sub_12C6B8()
+// rf_init @ 0x12c6b8, size 166 bytes
+int rf_init()
 {
   uint32_t *v0; // r7
   int *v1; // r5
@@ -45,7 +45,7 @@ int sub_12C6B8()
   v4 = (char *)off_12C760 + 32;
   while ( 1 )
   {
-    sub_12D00C(0x10000000);
+    irq_disable_global_3(0x10000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -61,7 +61,7 @@ int sub_12C6B8()
     v5 = *(uint32_t *)(v12 + 8);
     if ( v5 - v3[4] - 50 >= 0 )
     {
-      result = sub_124BFC((int)v4, v5);
+      result = mem_copy_util((int)v4, v5);
       if ( *(uint32_t *)(v12 + 8) - v3[4] >= 0 )
       {
         if ( *v1 )
@@ -78,7 +78,7 @@ int sub_12C6B8()
         return result;
       }
     }
-    v7 = sub_12D190(dword_12C76C);
+    v7 = list_pop(dword_12C76C);
     v8 = v7;
     v9 = *v1 - 1;
     if ( *v1 )
@@ -91,8 +91,8 @@ int sub_12C6B8()
           __enable_irq();
       }
     }
-    sub_12C8D0(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255);
-    sub_12CA88(v8);
+    mac_write_header_word(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255);
+    tx_pkt_process(v8);
   }
   if ( v13 )
   {

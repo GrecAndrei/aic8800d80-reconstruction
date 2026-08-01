@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// mac_ampdu_agg @ 0x13b954, size 24 bytes
-// Doc: mac_ampdu_agg [mac]: MAC A-MPDU aggregation handler
-// mac_ampdu_agg [mac]: MAC A-MPDU aggregation handler
-int  mac_ampdu_agg(int a1, int16_t a2, char a3)
+// event_timer_callback @ 0x13b954, size 24 bytes
+// Doc: event_timer_callback [mac]: MAC A-MPDU aggregation handler
+// event_timer_callback [mac]: MAC A-MPDU aggregation handler
+int  event_timer_callback(int a1, int16_t a2, char a3)
 {
   int result; // r0
 

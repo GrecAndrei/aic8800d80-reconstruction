@@ -25,10 +25,10 @@ extern uint32_t dword_105838;
 extern uint32_t dword_105834;
 extern uint32_t dword_105794;
 
-// scan_chan_meas_12051e0 @ 0x1051e0, size 1618 bytes
-// Doc: scan_chan_meas_12051e0 [scan]: Channel measurement/processing with VFP math and large stack frame
-// scan_chan_meas_12051e0 [scan]: Channel measurement/processing with VFP math and large stack frame
-int  scan_chan_meas_12051e0(
+// llm_pdu_handle @ 0x1051e0, size 1618 bytes
+// Doc: llm_pdu_handle [scan]: Channel measurement/processing with VFP math and large stack frame
+// llm_pdu_handle [scan]: Channel measurement/processing with VFP math and large stack frame
+int  llm_pdu_handle(
         int a1,
         int a2,
         float *a3,
@@ -192,12 +192,12 @@ int  scan_chan_meas_12051e0(
       v16 = *(v14 - 2);
       if ( v15 < v16 )
       {
-        v17 = sub_142A94(LODWORD(v15));
-        v18 = sub_142A94(LODWORD(v16));
-        v19 = sub_142B44(v18, HIDWORD(v18), dword_1054C0, dword_1054C4);
-        if ( sub_143028(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
+        v17 = __aeabi_f2d(LODWORD(v15));
+        v18 = __aeabi_f2d(LODWORD(v16));
+        v19 = __aeabi_dmul(v18, HIDWORD(v18), dword_1054C0, dword_1054C4);
+        if ( __aeabi_dcmplt(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
         {
-          feature_guard_sdio(1, v12);
+          state_check_feature(1, v12);
           v16 = *(v14 - 2);
         }
         *(v14 - 1) = v16;
@@ -207,7 +207,7 @@ int  scan_chan_meas_12051e0(
   }
   if ( a1 > 0 )
   {
-    v20 = sub_142A70(a1);
+    v20 = __aeabi_i2d(a1);
     v21 = flt_1054B8;
     v112 = v11;
     v22 = v124;
@@ -217,9 +217,9 @@ int  scan_chan_meas_12051e0(
     v26 = v20;
     do
     {
-      v27 = sub_142A70(++v24);
-      v28 = sub_142D98(v27, HIDWORD(v27), v26, HIDWORD(v26));
-      *(uint32_t *)v25++ = sub_143108(v28);
+      v27 = __aeabi_i2d(++v24);
+      v28 = __aeabi_ddiv(v27, HIDWORD(v27), v26, HIDWORD(v26));
+      *(uint32_t *)v25++ = double_to_float(v28);
       *v22++ = 1.0;
       *v23++ = v21;
     }
@@ -230,7 +230,7 @@ int  scan_chan_meas_12051e0(
   v30 = 0;
   v113 = a2 - 1;
   v122 = a2 - 1;
-  sub_105140(a2, v29, &v120, (int)v11, 0);
+  ke_timer_adjust(a2, v29, &v120, (int)v11, 0);
   v31 = &v11[v121];
   v32 = &v11[v120];
   v33 = *v31;
@@ -243,7 +243,7 @@ int  scan_chan_meas_12051e0(
   {
     if ( a1 )
     {
-      feature_guard_sdio(1, dword_10583C);
+      state_check_feature(1, dword_10583C);
       goto LABEL_44;
     }
   }
@@ -256,7 +256,7 @@ int  scan_chan_meas_12051e0(
       if ( v30 != v106 )
       {
         v41 = v37 * *v39;
-        sub_105140(a2, v41, &v120, (int)v11, 1);
+        ke_timer_adjust(a2, v41, &v120, (int)v11, 1);
         if ( v120 )
         {
           v42 = &v11[v120];
@@ -264,8 +264,8 @@ int  scan_chan_meas_12051e0(
             || (v43 = v11[v121 + 32],
                 v109 = &v11[v121],
                 v44 = v42[32] - v43,
-                v45 = sub_142A94(LODWORD(v44)),
-                sub_143028(v45, HIDWORD(v45), dword_1054B0, dword_1054B4)) )
+                v45 = __aeabi_f2d(LODWORD(v44)),
+                __aeabi_dcmplt(v45, HIDWORD(v45), dword_1054B0, dword_1054B4)) )
           {
             v40 = 1.0;
           }
@@ -295,7 +295,7 @@ int  scan_chan_meas_12051e0(
   while ( 1 )
   {
     v57 = v124[v48];
-    sub_105140(a2, v57, &v120, (int)v11, 0);
+    ke_timer_adjust(a2, v57, &v120, (int)v11, 0);
     if ( v120 )
     {
       v110 = &v11[v121];
@@ -308,8 +308,8 @@ int  scan_chan_meas_12051e0(
       {
         v52 = *v110;
         v53 = *v51 - *v110;
-        v54 = sub_142A94(LODWORD(v53));
-        if ( !sub_143064(v54, HIDWORD(v54), dword_1054B0, dword_1054B4) )
+        v54 = __aeabi_f2d(LODWORD(v53));
+        if ( !__aeabi_dcmpgt(v54, HIDWORD(v54), dword_1054B0, dword_1054B4) )
           v53 = v47;
         v55 = (float)((float)((float)(v51[96] - v110[96]) / v53) * (float)(v57 - v52)) + v110[96];
       }
@@ -331,7 +331,7 @@ int  scan_chan_meas_12051e0(
       break;
     ++v49;
   }
-  feature_guard_sdio(1, dword_10577C);
+  state_check_feature(1, dword_10577C);
   if ( v107 > 0 )
   {
     v58 = flt_105780;
@@ -355,7 +355,7 @@ int  scan_chan_meas_12051e0(
       *v62++ = v69;
       if ( v69 < 0 )
         *(v62 - 1) = v69 + (v69 < 0 ? 0x400 : 0);
-      feature_guard_sdio(1, v66);
+      state_check_feature(1, v66);
     }
     while ( v107 != v63 );
   }
@@ -396,7 +396,7 @@ LABEL_48:
     v84 = v78;
     do
     {
-      feature_guard_sdio(1, v76);
+      state_check_feature(1, v76);
       *(uint32_t *)(v79 - 40) = v105;
       *(uint32_t *)(v79 - 36) = v108;
       *(uint32_t *)(v79 - 32) = v111;
@@ -424,7 +424,7 @@ LABEL_48:
       v79 += 384;
     }
     while ( v118 != v84 );
-    return feature_guard_sdio(1, dword_105790);
+    return state_check_feature(1, dword_105790);
   }
   if ( a8 == 7 )
     v72 = 5;
@@ -433,7 +433,7 @@ LABEL_48:
   if ( a5 == 2 )
   {
     v89 = dword_105838;
-    feature_guard_sdio(1, dword_105834);
+    state_check_feature(1, dword_105834);
     v98 = (uint32_t *)(a4 + 48 * v72);
     v98[14] = v105;
     v98[15] = v108;
@@ -466,7 +466,7 @@ LABEL_48:
     v89 = dword_105794;
     v90 = a4 + 96;
   }
-  feature_guard_sdio(1, dword_10578C);
+  state_check_feature(1, dword_10578C);
   v91 = 3 * (v72 + 8 * a5);
   v92 = (uint32_t *)(a4 + 16 * v91);
   v92[14] = v105;
@@ -492,6 +492,6 @@ LABEL_48:
     v94 += 4;
   }
   while ( (int *)v95 != v96 );
-  return feature_guard_sdio(1, dword_105790);
+  return state_check_feature(1, dword_105790);
 }
 

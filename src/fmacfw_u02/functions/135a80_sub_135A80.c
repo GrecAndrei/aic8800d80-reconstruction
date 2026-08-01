@@ -12,16 +12,16 @@
 
 extern uint32_t off_135AAC;
 
-// sub_135A80 @ 0x135a80, size 44 bytes
-int  sub_135A80(int a1)
+// bt_send_hci_event @ 0x135a80, size 44 bytes
+int  bt_send_hci_event(int a1)
 {
   uint32_t *v1; // r5
 
   v1 = off_135AAC;
-  event_queue_push(6154, 6);
-  sub_143770(a1, v1[4], 54);
-  sub_12CA38(v1[4] - 12);
+  ke_int_lock(6154, 6);
+  memcpy(a1, v1[4], 54);
+  branch_to_12cbc8(v1[4] - 12);
   v1[4] = a1;
-  return queue_pending_check();
+  return init_rf_tables();
 }
 

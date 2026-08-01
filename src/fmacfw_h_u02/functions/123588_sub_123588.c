@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_123588 @ 0x123588, size 32 bytes
-int  sub_123588(int a1, uint8_t *a2, int a3, int a4)
+// bt_parse_colon @ 0x123588, size 32 bytes
+int  bt_parse_colon(int a1, uint8_t *a2, int a3, int a4)
 {
-  sub_12847C(*a2);
-  sub_12C8D0(58, a4, a3);
+  bsscfg_get(*a2);
+  mac_write_header_word(58, a4, a3);
   return 0;
 }
 

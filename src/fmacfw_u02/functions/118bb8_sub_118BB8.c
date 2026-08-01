@@ -14,8 +14,8 @@ extern uint32_t dword_118C40;
 extern uint32_t dword_118C3C;
 extern uint32_t off_118C38;
 
-// sub_118BB8 @ 0x118bb8, size 126 bytes
-int  sub_118BB8(int a1, int a2, int a3)
+// ll_queue_advance @ 0x118bb8, size 126 bytes
+int  ll_queue_advance(int a1, int a2, int a3)
 {
   uint64_t v3; // kr00_8
   int v5; // r1
@@ -42,7 +42,7 @@ int  sub_118BB8(int a1, int a2, int a3)
     v5 = dword_118C3C;
     v6 = v3 + 44;
   }
-  result = sub_143770(v6, v5, 52);
+  result = memcpy(v6, v5, 52);
   v8 = *(uint32_t *)off_118C38;
   if ( *(uint32_t *)(v3 + 64) & 0x7C | (*(uint32_t *)(v3 + 64) >> 11) & 6 )
     v9 = (uint16_t)((uint16_t)*(uint32_t *)off_118C38 << 8) | (uint8_t)v8;

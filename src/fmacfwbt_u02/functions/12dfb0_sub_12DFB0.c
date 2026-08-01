@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DFB0 @ 0x12dfb0, size 72 bytes
-// Doc: rf_fault_dump [rf]: Dumps RF fault status and triggers fault handling path
-// rf_fault_dump [rf]: Dumps RF fault status and triggers fault handling path
-uint8_t * sub_12DFB0(uint8_t *result, int a2)
+// parse_data_4 @ 0x12dfb0, size 72 bytes
+// Doc: phy_calibrate [rf]: Dumps RF fault status and triggers fault handling path
+// phy_calibrate [rf]: Dumps RF fault status and triggers fault handling path
+uint8_t * parse_data_4(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   unsigned int v3; // r3

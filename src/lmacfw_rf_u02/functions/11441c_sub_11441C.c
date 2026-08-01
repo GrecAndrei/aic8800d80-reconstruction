@@ -15,8 +15,8 @@ extern uint32_t off_11454C;
 extern uint32_t dword_114550;
 extern uint32_t dword_114554;
 
-// sub_11441C @ 0x11441c, size 300 bytes
-int  sub_11441C(int a1, int a2, unsigned int a3)
+// ke_task_process @ 0x11441c, size 300 bytes
+int  ke_task_process(int a1, int a2, unsigned int a3)
 {
   uint32_t *v6; // r7
   int v7; // r5
@@ -33,7 +33,7 @@ int  sub_11441C(int a1, int a2, unsigned int a3)
   uint8_t v19[4]; // [sp+44h] [bp-4h] BYREF
 
   if ( !*(uint32_t *)off_114548 )
-    sub_1142E0();
+    ke_event_busy_check();
   v6 = off_11454C;
   v7 = dword_114550;
   MEMORY[0x1D8](*(uint32_t *)off_11454C + 0x2000, 72, &v11);
@@ -58,7 +58,7 @@ LABEL_5:
       goto LABEL_15;
     }
   }
-  sub_1282E8(v13, a2, 4);
+  memcpy_large(v13, a2, 4);
   v8 = 4;
   if ( (a1 & 2) == 0 )
   {
@@ -68,7 +68,7 @@ LABEL_6:
     goto LABEL_16;
   }
 LABEL_15:
-  sub_1282E8(v14, a2 + v8, 12);
+  memcpy_large(v14, a2 + v8, 12);
   v8 += 12;
   if ( (a1 & 4) == 0 )
   {
@@ -78,7 +78,7 @@ LABEL_7:
     goto LABEL_17;
   }
 LABEL_16:
-  sub_1282E8(v15, a2 + v8, 20);
+  memcpy_large(v15, a2 + v8, 20);
   v8 += 20;
   if ( (a1 & 8) == 0 )
   {
@@ -89,7 +89,7 @@ LABEL_8:
     goto LABEL_18;
   }
 LABEL_17:
-  sub_1282E8(v16, a2 + v8, 4);
+  memcpy_large(v16, a2 + v8, 4);
   v9 = a1 << 26;
   v8 += 4;
   if ( (a1 & 0x20) == 0 )
@@ -100,7 +100,7 @@ LABEL_9:
     goto LABEL_19;
   }
 LABEL_18:
-  sub_1282E8(v17, a2 + v8, 4);
+  memcpy_large(v17, a2 + v8, 4);
   v8 += 4;
   if ( (a1 & 0x40) == 0 )
   {
@@ -108,15 +108,15 @@ LABEL_10:
     if ( (a1 & 0x80) == 0 )
       goto LABEL_11;
 LABEL_20:
-    sub_1282E8(v19, a2 + v8, 4);
+    memcpy_large(v19, a2 + v8, 4);
     if ( a3 >= v8 + 4 )
       goto LABEL_12;
 LABEL_21:
-    sub_11F504(dword_114554, v9);
+    dispatch_event_handler(dword_114554, v9);
     goto LABEL_12;
   }
 LABEL_19:
-  sub_1282E8(v18, a2 + v8, 4);
+  memcpy_large(v18, a2 + v8, 4);
   v8 += 4;
   if ( (a1 & 0x80) != 0 )
     goto LABEL_20;
@@ -124,8 +124,8 @@ LABEL_11:
   if ( a3 < v8 )
     goto LABEL_21;
 LABEL_12:
-  sub_114258();
-  sub_114298();
+  ke_event_schedule_alt();
+  ke_event_schedule_prio();
   return MEMORY[0x1E0](*v6 + 0x2000, 72);
 }
 

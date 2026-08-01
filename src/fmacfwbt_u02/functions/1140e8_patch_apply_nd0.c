@@ -15,10 +15,10 @@ extern uint32_t off_114134;
 extern uint32_t off_114138;
 extern uint32_t off_11413C;
 
-// patch_apply_nd0 @ 0x1140e8, size 72 bytes
-// Doc: patch_apply_nd0 [patch]: Apply 0xff-terminated patch entries to a register window
-// patch_apply_nd0 [patch]: Apply 0xff-terminated patch entries to a register window
-int patch_apply_nd0()
+// set_busy_flag @ 0x1140e8, size 72 bytes
+// Doc: set_busy_flag [patch]: Apply 0xff-terminated patch entries to a register window
+// set_busy_flag [patch]: Apply 0xff-terminated patch entries to a register window
+int set_busy_flag()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -36,7 +36,7 @@ int patch_apply_nd0()
   ++*(uint32_t *)off_114134;
   while ( !*v1 )
     ;
-  result = list_push_tail(*(uint32_t *)off_11413C + 564);
+  result = check_abort_flag(*(uint32_t *)off_11413C + 564);
   *v1 = 1;
   if ( *v0 )
   {

@@ -26,8 +26,8 @@ extern uint32_t dword_140730;
 extern uint32_t dword_14072C;
 extern uint32_t dword_140734;
 
-// sub_140400 @ 0x140400, size 1418 bytes
-uint32_t * sub_140400(int a1, int a2, int a3, int a4)
+// acl_tx_setup @ 0x140400, size 1418 bytes
+uint32_t * acl_tx_setup(int a1, int a2, int a3, int a4)
 {
   int v4; // r11
   int v5; // r0
@@ -134,9 +134,9 @@ uint32_t * sub_140400(int a1, int a2, int a3, int a4)
   v10 = *((uint16_t *)off_140714 + 254) + 1;
   *((uint16_t *)off_140714 + 254) = v10;
   *(uint16_t *)(v5 + 130) = 16 * v10;
-  if ( sub_13C558(v4, v9, 5) == 1 )
+  if ( bt_conn_is_active(v4, v9, 5) == 1 )
   {
-    sub_13AF60(v4, v8, 24);
+    get_config_flag(v4, v8, 24);
     v24 = *(uint8_t *)(v4 + 51);
     v11 = v24 + 24;
     v64 = v24 + 27;
@@ -200,7 +200,7 @@ uint32_t * sub_140400(int a1, int a2, int a3, int a4)
                 v59 = *(uint8_t *)(v56 + v34);
                 v60 = v58[2];
                 for ( i = (uint8_t)(v58[1] + 2);
-                      !sub_140370(v59, v60, a4) || i > 0xD9;
+                      !find_ll_item(v59, v60, a4) || i > 0xD9;
                       i = (uint8_t)(v58[1] + 2) )
                 {
                   v57 -= i;
@@ -219,7 +219,7 @@ uint32_t * sub_140400(int a1, int a2, int a3, int a4)
               {
 LABEL_90:
                 if ( **(int16_t **)off_140990 < 0 )
-                  sub_12F35C(dword_1409A0, dword_14099C, 1043);
+                  mmio_write_field(dword_1409A0, dword_14099C, 1043);
               }
             }
             else if ( v35 <= 0xDu )
@@ -258,7 +258,7 @@ LABEL_90:
         *(uint16_t *)(v13 + 15) = *(uint16_t *)(a4 + 48);
         *(uint64_t *)(v13 + 7) = v26;
         *(uint8_t *)(v13 + 17) = *(uint8_t *)(v25 + 18);
-        *(uint8_t *)(v13 + 18) = sub_12DFC0(*(char *)(v25 + 20));
+        *(uint8_t *)(v13 + 18) = is_ptr_nonnull(*(char *)(v25 + 20));
         *(uint8_t *)(v13 + 19) = -1;
         v27 = (char *)(v25 + 6);
         do
@@ -288,7 +288,7 @@ LABEL_90:
         if ( *(uint16_t *)(v25 + 24) <= 0xBu )
         {
           if ( **(int16_t **)off_140990 < 0 && (uint16_t)(v30 - 6) <= 0xBu )
-            sub_12F32C(dword_140998, dword_140994, 1149);
+            irq_disable_mmio_write(dword_140998, dword_140994, 1149);
           v38 = (char *)(v25 + 64);
           do
           {
@@ -318,7 +318,7 @@ LABEL_90:
         {
           v46 = *v43;
           v47 = (uint8_t)(v43[1] + 2);
-          if ( sub_140370((uint8_t)*v43, (uint8_t)v43[2], a4) && v47 <= 0xD9 )
+          if ( find_ll_item((uint8_t)*v43, (uint8_t)v43[2], a4) && v47 <= 0xD9 )
           {
             if ( (uint8_t)v47 > v67 )
             {
@@ -345,7 +345,7 @@ LABEL_30:
                 {
                   *v65 = -92;
                   v65[1] = 1;
-                  v65[2] = sub_1403D0();
+                  v65[2] = bt_global_state_read();
                   v65 += 3;
                 }
                 v23 = (unsigned int)&v65[-v13];
@@ -354,7 +354,7 @@ LABEL_30:
                 if ( **(int16_t **)off_140724 < 0 && v63 < v23 )
                 {
                   v13 = (int)v65;
-                  sub_12F32C(dword_140730, dword_14072C, 1287);
+                  irq_disable_mmio_write(dword_140730, dword_14072C, 1287);
                   v63 = v21;
                   goto LABEL_14;
                 }
@@ -368,7 +368,7 @@ LABEL_73:
 LABEL_29:
               v31 = off_140728;
               *(uint16_t *)(v25 + 4) = 3;
-              sub_12D1A8((int)v31, (uint32_t *)v25);
+              wlan_ioctl_handler_3((int)v31, (uint32_t *)v25);
               goto LABEL_30;
             }
             if ( v47 )
@@ -400,10 +400,10 @@ LABEL_29:
 LABEL_14:
       v62 += v23;
     }
-    while ( !sub_1403D0() && v21 > 4 );
+    while ( !bt_global_state_read() && v21 > 4 );
     v4 = v66;
     if ( **(int16_t **)off_140724 < 0 && !v62 )
-      sub_12F35C(dword_140734, dword_14072C, 1298);
+      mmio_write_field(dword_140734, dword_14072C, 1298);
     v14 = v62 + v64;
   }
   result = *(uint32_t **)(v4 + 76);

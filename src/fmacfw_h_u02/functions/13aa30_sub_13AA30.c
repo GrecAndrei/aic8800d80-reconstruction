@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13AA30 @ 0x13aa30, size 54 bytes
-int  sub_13AA30(int a1, uint16_t *a2)
+// phy_check_chanspec @ 0x13aa30, size 54 bytes
+int  phy_check_chanspec(int a1, uint16_t *a2)
 {
   unsigned int v2; // r2
   uint16_t *v4; // r1
@@ -25,7 +25,7 @@ int  sub_13AA30(int a1, uint16_t *a2)
     a2[1] = 3;
     a2[2] = 0;
   }
-  v4 = sub_13A840(a1, a2, 1);
-  return sub_13A5C4(a1, (int)v4);
+  v4 = phy_write(a1, a2, 1);
+  return phy_calibrate(a1, (int)v4);
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1203E00", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203e00", "status": "ok", "name": "mac_init_set_bits", "params": [], "docstring": "Set MMIO bits to initialize MAC subsystem", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1203E00", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203e00", "status": "ok", "name": "mac_tx_enable", "params": [], "docstring": "Set MMIO bits to initialize MAC subsystem", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

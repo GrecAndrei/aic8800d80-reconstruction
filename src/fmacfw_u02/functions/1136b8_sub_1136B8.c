@@ -23,8 +23,8 @@ extern uint32_t dword_113800;
 extern uint32_t dword_113804;
 extern uint32_t dword_11380C;
 
-// sub_1136B8 @ 0x1136b8, size 294 bytes
-void sub_1136B8()
+// read_state_flag @ 0x1136b8, size 294 bytes
+void read_state_flag()
 {
   uint8_t *v0; // r5
   int v1; // r0
@@ -46,14 +46,14 @@ void sub_1136B8()
   {
     if ( !*(uint16_t *)off_1137EC )
     {
-      sub_12ECD0(512, dword_113808);
+      check_status_bits(512, dword_113808);
       return;
     }
     if ( *(uint8_t *)off_1137E8 >= (unsigned int)*(uint16_t *)off_1137EC )
     {
       v13 = dword_1137F4;
       *(uint8_t *)off_1137E4 = 1;
-      sub_12ECD0(512, v13);
+      check_status_bits(512, v13);
     }
   }
   else
@@ -63,7 +63,7 @@ void sub_1136B8()
     if ( *(uint8_t *)off_1137E8 >= (unsigned int)*(uint16_t *)off_1137EC && !*(uint8_t *)off_1137E4 )
     {
       *(uint8_t *)off_1137E4 = 1;
-      sub_12ECD0(512, dword_1137F4);
+      check_status_bits(512, dword_1137F4);
       return;
     }
   }
@@ -78,20 +78,20 @@ void sub_1136B8()
       v5 = *(uint32_t *)off_1137FC;
       v6 = *(uint32_t *)off_113810 + v1;
       if ( *(uint8_t *)off_1137E4 )
-        v7 = sub_1133F0(v6, v5);
+        v7 = ke_task_init(v6, v5);
       else
-        v7 = sub_113350(v6, v5);
+        v7 = irq_state_load_b(v6, v5);
     }
     else
     {
       v3 = off_113810;
       v4 = (unsigned int *)off_1137FC;
-      v7 = sub_113350(*(uint32_t *)off_113810 + v1, *(uint32_t *)off_1137FC);
+      v7 = irq_state_load_b(*(uint32_t *)off_113810 + v1, *(uint32_t *)off_1137FC);
     }
     if ( v7 )
     {
       v8 = off_1137E4;
-      sub_10DC24(dword_113800, v7);
+      log_printf(dword_113800, v7);
       v9 = 5;
       while ( 1 )
       {
@@ -99,19 +99,19 @@ void sub_1136B8()
         {
           v10 = *v4;
           v11 = (int)v2 + *v3;
-          v12 = *v8 ? sub_1133F0(v11, v10) : sub_113350(v11, v10);
+          v12 = *v8 ? ke_task_init(v11, v10) : irq_state_load_b(v11, v10);
         }
         else
         {
-          v12 = sub_113350((int)v2 + *v3, *v4);
+          v12 = irq_state_load_b((int)v2 + *v3, *v4);
         }
         if ( !v12 )
           break;
         if ( !--v9 )
         {
-          sub_10DC24(dword_113804, 5);
-          sub_110008(v2);
-          sub_12D104(32);
+          log_printf(dword_113804, 5);
+          is_controller_mode(v2);
+          unknown_func_12d104(32);
           return;
         }
       }
@@ -119,8 +119,8 @@ void sub_1136B8()
   }
   else
   {
-    sub_12D104(32);
-    sub_10DC24(dword_11380C);
+    unknown_func_12d104(32);
+    log_printf(dword_11380C);
   }
 }
 

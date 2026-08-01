@@ -18,8 +18,8 @@ extern uint32_t off_113238;
 extern uint32_t dword_113248;
 extern uint32_t off_11323C;
 
-// sub_1131AC @ 0x1131ac, size 130 bytes
-int  sub_1131AC(int a1, unsigned int a2)
+// global_env_init @ 0x1131ac, size 130 bytes
+int  global_env_init(int a1, unsigned int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r6
@@ -35,7 +35,7 @@ int  sub_1131AC(int a1, unsigned int a2)
   v3 = off_113234;
   if ( *(uint8_t *)off_113234 )
   {
-    sub_10DA7C(dword_113244, dword_113240, *(uint8_t *)off_113234);
+    printf_wrapper(dword_113244, dword_113240, *(uint8_t *)off_113234);
     return -3;
   }
   else
@@ -43,11 +43,11 @@ int  sub_1131AC(int a1, unsigned int a2)
     v4 = off_113238;
     *(uint8_t *)off_113234 = 1;
     v4[716] &= 0xE007FFFF;
-    v5 = sub_111EA4(1, a1, a2);
+    v5 = ke_msg_handler(1, a1, a2);
     v6 = v5;
     if ( v5 )
     {
-      sub_10DA7C(dword_113248, dword_113240, v5);
+      printf_wrapper(dword_113248, dword_113240, v5);
       return -1;
     }
     else
@@ -55,7 +55,7 @@ int  sub_1131AC(int a1, unsigned int a2)
       *(uint8_t *)off_11323C = 1;
       if ( *v2 )
       {
-        sub_111C10(0, 1u);
+        rf_reg_write_alias(0, 1u);
         *v3 = 0;
         return -14;
       }

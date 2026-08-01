@@ -14,8 +14,8 @@ extern uint32_t off_110334;
 extern uint32_t off_110338;
 extern uint32_t dword_11033C;
 
-// sub_1102FC @ 0x1102fc, size 54 bytes
-int sub_1102FC()
+// is_inquiry_enabled @ 0x1102fc, size 54 bytes
+int is_inquiry_enabled()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_1102FC()
   v0 = (int *)off_110338;
   v1 = dword_11033C;
   ++*(uint32_t *)off_110338;
-  result = sub_12D248(v1);
+  result = cmd_handler_a(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

@@ -1,1 +1,1 @@
-{"fn": "sub_12019D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12019d4", "status": "ok", "name": "read_mac_dual_addr", "params": [], "docstring": "Read two 32-bit words from 0x40330000 and 0x4033003c into output pointers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12019D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12019d4", "status": "ok", "name": "chip_id_get", "params": [], "docstring": "Read two 32-bit words from 0x40330000 and 0x4033003c into output pointers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

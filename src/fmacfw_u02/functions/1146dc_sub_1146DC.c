@@ -12,8 +12,8 @@
 
 extern uint32_t off_1146EC;
 
-// sub_1146DC @ 0x1146dc, size 14 bytes
-void sub_1146DC()
+// set_global_flag_2 @ 0x1146dc, size 14 bytes
+void set_global_flag_2()
 {
   *(uint32_t *)(*(uint32_t *)off_1146EC + 8) |= 2u;
 }

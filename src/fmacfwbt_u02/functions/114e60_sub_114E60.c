@@ -19,8 +19,8 @@ extern uint32_t off_114E5C;
 extern uint32_t off_114E54;
 extern uint32_t off_114E58;
 
-// sub_114E60 @ 0x114e60, size 12 bytes
-int  sub_114E60(int a1, int a2)
+// sys_control @ 0x114e60, size 12 bytes
+int  sys_control(int a1, int a2)
 {
   int v2; // r1
   int v3; // r4

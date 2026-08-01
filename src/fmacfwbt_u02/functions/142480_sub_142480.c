@@ -14,8 +14,8 @@ extern uint32_t off_142548;
 extern uint32_t dword_14254C;
 extern uint32_t dword_142550;
 
-// sub_142480 @ 0x142480, size 198 bytes
-int  sub_142480(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// lll_scan_pdu_alloc @ 0x142480, size 198 bytes
+int  lll_scan_pdu_alloc(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v6; // r7
   int v8; // r11
@@ -39,13 +39,13 @@ int  sub_142480(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   {
     v9 = dword_14254C;
     v17 = a2[2];
-    v10 = sub_1420F8(*(uint8_t *)(dword_14254C + 1320 * v8 + 116), v8, v17);
+    v10 = poll_active_list(*(uint8_t *)(dword_14254C + 1320 * v8 + 116), v8, v17);
     if ( v10 )
     {
-      sub_1420D4(v10);
+      clear_data_flag(v10);
       v11 = v17;
 LABEL_6:
-      LOBYTE(v6) = sub_14207C(a2[3], *(uint8_t *)(v9 + 1320 * v8 + 116), v11) == 0;
+      LOBYTE(v6) = lookup_phy_entry(a2[3], *(uint8_t *)(v9 + 1320 * v8 + 116), v11) == 0;
       goto LABEL_8;
     }
 LABEL_7:
@@ -63,7 +63,7 @@ LABEL_7:
     {
       v18 = v16;
       v6 = 1;
-      sub_1420D4(v14);
+      clear_data_flag(v14);
       v16 = v18;
     }
     v14 += 72;
@@ -76,9 +76,9 @@ LABEL_7:
     goto LABEL_6;
   }
 LABEL_8:
-  v12 = (uint8_t *)rf_bus_setup_n3a8(12292, a4, a3, 1u);
+  v12 = (uint8_t *)bt_buf_alloc(12292, a4, a3, 1u);
   *v12 = v6;
-  sub_12CBB4((int)v12);
+  hci_evt_send((int)v12);
   return 0;
 }
 

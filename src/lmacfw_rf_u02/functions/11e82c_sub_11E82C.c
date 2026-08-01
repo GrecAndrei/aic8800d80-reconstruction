@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11E82C @ 0x11e82c, size 20 bytes
+// list_count @ 0x11e82c, size 20 bytes
 // Doc: sdio_buffer_prepare_n_382 [mmio]: Prepare SDIO DMA buffer descriptors for transfer
 // sdio_buffer_prepare_n_382 [mmio]: Prepare SDIO DMA buffer descriptors for transfer
-int  sub_11E82C(uint32_t **a1)
+int  list_count(uint32_t **a1)
 {
   uint32_t *v1; // r3
   int result; // r0

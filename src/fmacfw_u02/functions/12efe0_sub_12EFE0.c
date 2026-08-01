@@ -13,10 +13,10 @@
 extern uint32_t off_12F058;
 extern uint32_t dword_12F05C;
 
-// sub_12EFE0 @ 0x12efe0, size 120 bytes
+// msg_alloc_0x403 @ 0x12efe0, size 120 bytes
 // Doc: sub_122EFE0 [ipc]: Host message send wrapper invoking message dispatch
 // sub_122EFE0 [ipc]: Host message send wrapper invoking message dispatch
-int  sub_12EFE0(int a1, int *a2, int16_t a3, int16_t a4)
+int  msg_alloc_0x403(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int *v5; // r0
   int *v6; // r5
@@ -25,7 +25,7 @@ int  sub_12EFE0(int a1, int *a2, int16_t a3, int16_t a4)
   int v9; // r0
   int v10; // r2
 
-  v5 = (int *)sub_12C92C(1027, a4, a3, 8u);
+  v5 = (int *)ke_msg_alloc(1027, a4, a3, 8u);
   v6 = v5;
   if ( (unsigned int)**(uint8_t **)off_12F058 - 1 <= 1 )
   {
@@ -37,8 +37,8 @@ int  sub_12EFE0(int a1, int *a2, int16_t a3, int16_t a4)
     v7 = (uint32_t *)*a2;
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      rf_reg_write_wait((int)v7, a2[1], 1);
-      v9 = sub_10ED84(*a2, 1);
+      mmio_write32((int)v7, a2[1], 1);
+      v9 = mmio_read32(*a2, 1);
       v8 = *a2;
     }
     else
@@ -51,8 +51,8 @@ int  sub_12EFE0(int a1, int *a2, int16_t a3, int16_t a4)
     v10 = a2[1];
     *v6 = v8;
   }
-  msg_parse(dword_12F05C, v10);
-  sdio_buffer_prepare_n_4e8((int)v6);
+  event_dispatch(dword_12F05C, v10);
+  ke_msg_send((int)v6);
   return 0;
 }
 

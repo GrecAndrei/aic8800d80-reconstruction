@@ -16,10 +16,10 @@ extern uint32_t off_12CAD8;
 extern uint32_t off_12CAD0;
 extern uint32_t dword_12CAD4;
 
-// sub_12CA20 @ 0x12ca20, size 166 bytes
+// hci_tx_queue_drain @ 0x12ca20, size 166 bytes
 // Doc: ke_msg_dispatch [ke]: Dispatches the next pending message from the kernel environment queue, decrementing the pending count and processing the message header.
 // ke_msg_dispatch [ke]: Dispatches the next pending message from the kernel environment queue, decrementing the pending count and processing the message header.
-int sub_12CA20()
+int hci_tx_queue_drain()
 {
   uint32_t *v0; // r7
   int *v1; // r5
@@ -47,7 +47,7 @@ int sub_12CA20()
   v4 = (char *)off_12CAC8 + 32;
   while ( 1 )
   {
-    sub_12D374(0x10000000);
+    set_system_flag_2(0x10000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -63,7 +63,7 @@ int sub_12CA20()
     v5 = *(uint32_t *)(v12 + 8);
     if ( v5 - v3[4] - 50 >= 0 )
     {
-      result = sub_124F60((int)v4, v5);
+      result = ke_event_lock((int)v4, v5);
       if ( *(uint32_t *)(v12 + 8) - v3[4] >= 0 )
       {
         if ( *v1 )
@@ -80,7 +80,7 @@ int sub_12CA20()
         return result;
       }
     }
-    v7 = sub_12D4F8(dword_12CAD4);
+    v7 = list_pop_front(dword_12CAD4);
     v8 = *v1;
     v9 = v7;
     v10 = *v1 - 1;
@@ -94,8 +94,8 @@ int sub_12CA20()
           __enable_irq();
       }
     }
-    sub_12CC38(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255, v8);
-    sub_12CDF0(v9);
+    hci_evt_alloc_send(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255, v8);
+    hci_tx_packet(v9);
   }
   if ( v13 )
   {

@@ -14,10 +14,10 @@ extern uint32_t off_103FE4;
 extern uint32_t off_103FE8;
 extern uint32_t off_103FEC;
 
-// crypto_hw_write32 @ 0x103f64, size 126 bytes
-// Doc: crypto_hw_write32 [ke]: Write 32-bit value to hardware crypto engine register with IRQ mask
-// crypto_hw_write32 [ke]: Write 32-bit value to hardware crypto engine register with IRQ mask
-unsigned int  crypto_hw_write32(int a1, int a2)
+// mmio_irq_enable @ 0x103f64, size 126 bytes
+// Doc: mmio_irq_enable [ke]: Write 32-bit value to hardware crypto engine register with IRQ mask
+// mmio_irq_enable [ke]: Write 32-bit value to hardware crypto engine register with IRQ mask
+unsigned int  mmio_irq_enable(int a1, int a2)
 {
   unsigned int *v2; // r2
   unsigned int *v3; // r3

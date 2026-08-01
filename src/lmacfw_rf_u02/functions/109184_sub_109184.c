@@ -13,8 +13,8 @@
 extern uint32_t dword_109360;
 extern uint32_t dword_109364;
 
-// sub_109184 @ 0x109184, size 476 bytes
-int  sub_109184(unsigned int a1, int a2, int *a3)
+// swar_bit_count @ 0x109184, size 476 bytes
+int  swar_bit_count(unsigned int a1, int a2, int *a3)
 {
   int v3; // r12
   int v4; // r4

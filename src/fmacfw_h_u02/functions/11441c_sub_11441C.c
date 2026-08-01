@@ -12,9 +12,9 @@
 
 extern uint32_t dword_114424;
 
-// sub_11441C @ 0x11441c, size 6 bytes
-int  sub_11441C(int a1, int a2, int a3)
+// get_config_b @ 0x11441c, size 6 bytes
+int  get_config_b(int a1, int a2, int a3)
 {
-  return sub_12E948(dword_114424, a2, a3);
+  return alloc_tx_event(dword_114424, a2, a3);
 }
 

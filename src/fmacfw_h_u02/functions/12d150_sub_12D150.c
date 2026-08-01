@@ -14,14 +14,14 @@ extern uint32_t off_12D184;
 extern uint32_t dword_12D18C;
 extern uint32_t dword_12D188;
 
-// sub_12D150 @ 0x12d150, size 52 bytes
-int  sub_12D150(int result, uint32_t *a2)
+// wlan_ioctl_handler_2 @ 0x12d150, size 52 bytes
+int  wlan_ioctl_handler_2(int result, uint32_t *a2)
 {
   uint32_t *v2; // r5
 
   v2 = (uint32_t *)result;
   if ( **(int16_t **)off_12D184 < 0 && !a2 )
-    result = sub_12F32C(dword_12D18C, dword_12D188, 95);
+    result = irq_disable_mmio_write(dword_12D18C, dword_12D188, 95);
   if ( *v2 )
   {
     *a2 = *v2;

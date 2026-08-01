@@ -14,8 +14,8 @@ extern uint32_t off_10D1F0;
 extern uint32_t off_10D1F4;
 extern uint32_t off_10D1F8;
 
-// sub_10D1A8 @ 0x10d1a8, size 70 bytes
-int sub_10D1A8()
+// dma_reset_regs @ 0x10d1a8, size 70 bytes
+int dma_reset_regs()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r4

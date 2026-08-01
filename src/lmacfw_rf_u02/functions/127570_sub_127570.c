@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127570 @ 0x127570, size 66 bytes
-int  sub_127570(int a1, int a2, int a3, unsigned int a4)
+// aeabi_d2f @ 0x127570, size 66 bytes
+int  aeabi_d2f(int a1, int a2, int a3, unsigned int a4)
 {
   int v4; // zf
   int v5; // r2

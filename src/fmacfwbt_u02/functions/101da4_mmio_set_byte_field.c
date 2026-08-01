@@ -13,10 +13,10 @@
 extern uint32_t off_101DE4;
 extern uint32_t off_101DE0;
 
-// mmio_set_byte_field @ 0x101da4, size 58 bytes
-// Doc: mmio_set_byte_field [mmio]: Set a byte field in MMIO register by masking and OR-ing shifted value
-// mmio_set_byte_field [mmio]: Set a byte field in MMIO register by masking and OR-ing shifted value
-int  mmio_set_byte_field(int result)
+// rf_tx_power_set @ 0x101da4, size 58 bytes
+// Doc: rf_tx_power_set [mmio]: Set a byte field in MMIO register by masking and OR-ing shifted value
+// rf_tx_power_set [mmio]: Set a byte field in MMIO register by masking and OR-ing shifted value
+int  rf_tx_power_set(int result)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3

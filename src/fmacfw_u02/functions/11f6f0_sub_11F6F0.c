@@ -13,8 +13,8 @@
 extern uint32_t off_11F71C;
 extern uint32_t off_11F720;
 
-// sub_11F6F0 @ 0x11f6f0, size 44 bytes
-void sub_11F6F0()
+// scan_active_get @ 0x11f6f0, size 44 bytes
+void scan_active_get()
 {
   uint8_t *v0; // r3
   unsigned int v1; // r2

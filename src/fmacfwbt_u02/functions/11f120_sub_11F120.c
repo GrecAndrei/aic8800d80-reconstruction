@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F120 @ 0x11f120, size 76 bytes
-int * sub_11F120(int a1)
+// wlc_bsscfg_llc_flush @ 0x11f120, size 76 bytes
+int * wlc_bsscfg_llc_flush(int a1)
 {
   int v2; // r5
   int v3; // r0
@@ -21,10 +21,10 @@ int * sub_11F120(int a1)
   v2 = a1 + 572;
   while ( *(uint32_t *)(a1 + 572) )
   {
-    v3 = sub_12D4F8(v2);
-    sub_11913C(v3, 1);
+    v3 = list_pop_front(v2);
+    ble_conn_event_handler(v3, 1);
   }
-  result = sub_100200((int *)a1, 0, 0x2B8u);
+  result = memset_byte((int *)a1, 0, 0x2B8u);
   v5 = a1;
   do
   {

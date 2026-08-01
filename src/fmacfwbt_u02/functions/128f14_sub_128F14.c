@@ -15,15 +15,15 @@ extern uint32_t dword_128F7C;
 extern uint32_t off_128F80;
 extern uint32_t off_128F84;
 
-// sub_128F14 @ 0x128f14, size 96 bytes
-uint16_t * sub_128F14(int a1, int a2, int a3, int a4)
+// log_alt_state_message @ 0x128f14, size 96 bytes
+uint16_t * log_alt_state_message(int a1, int a2, int a3, int a4)
 {
   uint16_t *result; // r0
   int *i; // r3
   int v8; // r3
 
-  feature_guard_sdio(2, dword_128F78);
-  result = (uint16_t *)sub_128D50(a1, a2, dword_128F7C);
+  state_check_feature(2, dword_128F78);
+  result = (uint16_t *)is_log_enabled(a1, a2, dword_128F7C);
   if ( result )
   {
     result = (uint16_t *)off_128F80;
@@ -39,7 +39,7 @@ uint16_t * sub_128F14(int a1, int a2, int a3, int a4)
         }
       }
       *(uint8_t *)result = 0;
-      return (uint16_t *)message_dispatch_n84(50, result[1], 0, a4);
+      return (uint16_t *)hci_evt_alloc_send(50, result[1], 0, a4);
     }
   }
   return result;

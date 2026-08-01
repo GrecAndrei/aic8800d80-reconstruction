@@ -15,14 +15,14 @@ extern uint32_t off_1017D4;
 extern uint32_t dword_1017DC;
 extern uint32_t dword_1017D8;
 
-// sub_101600 @ 0x101600, size 390 bytes
-void __noreturn sub_101600()
+// llc_event_loop @ 0x101600, size 390 bytes
+void __noreturn llc_event_loop()
 {
   if ( **(int16_t **)off_101788 < 0
     && (uint8_t)BYTE2(*(uint32_t *)off_1017D4) + 10 * (HIBYTE(*(uint32_t *)off_1017D4) + 2) != 32 )
   {
-    sub_12F694(dword_1017DC, dword_1017D8, 6119);
+    mmio_irq_clear(dword_1017DC, dword_1017D8, 6119);
   }
-  message_dispatch_n238();
+  clock_start();
 }
 

@@ -14,8 +14,8 @@ extern uint32_t off_11E268;
 extern uint32_t dword_11E26C;
 extern uint32_t dword_11E264;
 
-// sub_11E1D0 @ 0x11e1d0, size 148 bytes
-int  sub_11E1D0(int result, int a2, int a3, int a4)
+// mem_is_null @ 0x11e1d0, size 148 bytes
+int  mem_is_null(int result, int a2, int a3, int a4)
 {
   int v4; // r7
   int16_t **v5; // r10
@@ -73,7 +73,7 @@ int  sub_11E1D0(int result, int a2, int a3, int a4)
       v9 = (uint16_t)(v9 + result);
       if ( **v5 < 0 && !v4 )
       {
-        sub_12F46C(v6, v7, 1189);
+        mmio_clear_register(v6, v7, 1189);
         v7 = dword_11E264;
       }
       result = v12;

@@ -15,10 +15,10 @@ extern uint32_t off_112E1C;
 extern uint32_t off_112E24;
 extern uint32_t dword_112E20;
 
-// sub_112D84 @ 0x112d84, size 148 bytes
+// process_event @ 0x112d84, size 148 bytes
 // Doc: rf_cmd_send_n4de [rf]: Sends fixed RF command 0x1212923 (n4de) by clearing and populating the shared cmd mailbox then ringing the doorbell.
 // rf_cmd_send_n4de [rf]: Sends fixed RF command 0x1212923 (n4de) by clearing and populating the shared cmd mailbox then ringing the doorbell.
-int  sub_112D84(int a1, int a2)
+int  process_event(int a1, int a2)
 {
   uint8_t *v2; // r6
   int **v3; // r4
@@ -38,7 +38,7 @@ int  sub_112D84(int a1, int a2)
   if ( *(uint8_t *)off_112E18 )
     return -99;
   v3 = (int **)off_112E1C;
-  v4 = sub_11E82C(off_112E1C, a2);
+  v4 = list_count(off_112E1C, a2);
   v5 = off_112E24;
   *(uint8_t *)off_112E24 = v4;
   if ( v4 )
@@ -79,7 +79,7 @@ LABEL_11:
       v14 = *(uint8_t *)(v13 + 3);
       *v2 = 1;
       *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return sub_112918(1, v12);
+      return wait_radio_state(1, v12);
     }
   }
   return -98;

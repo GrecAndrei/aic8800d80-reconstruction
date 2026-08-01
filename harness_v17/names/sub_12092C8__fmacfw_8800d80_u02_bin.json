@@ -1,1 +1,1 @@
-{"fn": "sub_12092C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12092c8", "status": "ok", "name": "mac_reg_init_n0", "params": [], "docstring": "Initialize MAC register 0x40342184 with size param 0x32", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12092C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12092c8", "status": "ok", "name": "mmio_write_32", "params": [], "docstring": "Initialize MAC register 0x40342184 with size param 0x32", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

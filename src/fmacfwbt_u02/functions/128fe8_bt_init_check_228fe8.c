@@ -19,10 +19,10 @@ extern uint32_t off_1290B8;
 extern uint32_t dword_1290C0;
 extern uint32_t off_1290B4;
 
-// bt_init_check_228fe8 @ 0x128fe8, size 186 bytes
-// Doc: bt_init_check_228fe8 [bt]: Bluetooth init/state check loading config pointers
-// bt_init_check_228fe8 [bt]: Bluetooth init/state check loading config pointers
-void  bt_init_check_228fe8(int a1)
+// efuse_check @ 0x128fe8, size 186 bytes
+// Doc: efuse_check [bt]: Bluetooth init/state check loading config pointers
+// efuse_check [bt]: Bluetooth init/state check loading config pointers
+void  efuse_check(int a1)
 {
   uint8_t *v1; // r5
   uint64_t v3; // r2
@@ -40,7 +40,7 @@ void  bt_init_check_228fe8(int a1)
     if ( v3 )
       v4 = 0;
     else
-      v4 = state_flag_check() != 0;
+      v4 = ll_util_get_state() != 0;
   }
   else
   {
@@ -62,7 +62,7 @@ LABEL_18:
     v7 = *(uint16_t *)(v6 + 54);
     v8 = dword_1290C0;
     v1[29] = 1;
-    timestamp_update_4f60(v8, v7 + v5[4]);
+    ke_event_lock(v8, v7 + v5[4]);
     return;
   }
   if ( !**(uint8_t **)off_1290B0 || !*(uint8_t *)(a1 + 108) )
@@ -75,7 +75,7 @@ LABEL_18:
     v1[29] = 0;
   }
   if ( v1[28] )
-    sub_128F88();
+    handle_mmio_event();
   else
     v1[29] = 0;
 }

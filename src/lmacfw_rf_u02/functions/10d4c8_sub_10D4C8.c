@@ -14,8 +14,8 @@ extern uint32_t off_10D4E0;
 extern uint32_t off_10D4DC;
 extern uint32_t off_10D4E4;
 
-// sub_10D4C8 @ 0x10d4c8, size 20 bytes
-void sub_10D4C8()
+// panic_fatal @ 0x10d4c8, size 20 bytes
+void panic_fatal()
 {
   uint32_t *v0; // r3
 

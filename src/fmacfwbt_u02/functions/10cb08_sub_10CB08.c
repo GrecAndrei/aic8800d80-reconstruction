@@ -20,10 +20,10 @@ extern uint32_t off_10CBCC;
 extern uint32_t off_10CBD4;
 extern uint32_t off_10CBD0;
 
-// sub_10CB08 @ 0x10cb08, size 190 bytes
+// pkt_buf_alloc @ 0x10cb08, size 190 bytes
 // Doc: sub_120CB08 [unknown]: Process indexed entry from control table and dispatch
 // sub_120CB08 [unknown]: Process indexed entry from control table and dispatch
-int  sub_10CB08(uint16_t *a1)
+int  pkt_buf_alloc(uint16_t *a1)
 {
   int16_t **v2; // r7
   int v3; // r0
@@ -39,12 +39,12 @@ int  sub_10CB08(uint16_t *a1)
   int16_t v13; // r3
 
   v2 = (int16_t **)off_10CBC8;
-  v3 = message_dispatch_n158((uint16_t)a1[5] + 16);
+  v3 = mem_alloc_align((uint16_t)a1[5] + 16);
   v4 = *v2;
   v5 = v3;
   if ( **v2 < 0 && !v3 )
   {
-    sub_12F694(dword_10CBE0, dword_10CBD8, 1358);
+    mmio_irq_clear(dword_10CBE0, dword_10CBD8, 1358);
     v4 = *v2;
   }
   v6 = (uint16_t)a1[5];
@@ -71,12 +71,12 @@ int  sub_10CB08(uint16_t *a1)
   {
     if ( v7 > 0xE )
     {
-      sub_12F694(dword_10CBE8, dword_10CBE4, 183);
-      sub_12F694(dword_10CBDC, dword_10CBD8, 1375);
+      mmio_irq_clear(dword_10CBE8, dword_10CBE4, 183);
+      mmio_irq_clear(dword_10CBDC, dword_10CBD8, 1375);
     }
     else if ( v7 > 0xC )
     {
-      sub_12F694(dword_10CBDC, dword_10CBD8, 1375);
+      mmio_irq_clear(dword_10CBDC, dword_10CBD8, 1375);
     }
   }
   if ( **(uint8_t **)off_10CBCC == 3 )
@@ -87,6 +87,6 @@ int  sub_10CB08(uint16_t *a1)
     a1[4] = v13;
     *v12 = 4;
   }
-  return sub_12CBB4(v5 + 12);
+  return hci_evt_send(v5 + 12);
 }
 

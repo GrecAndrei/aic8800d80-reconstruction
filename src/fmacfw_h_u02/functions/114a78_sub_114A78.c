@@ -13,8 +13,8 @@
 extern uint32_t off_114AB0;
 extern uint32_t off_114AB4;
 
-// sub_114A78 @ 0x114a78, size 54 bytes
-int sub_114A78()
+// undefined_instruction_handler @ 0x114a78, size 54 bytes
+int undefined_instruction_handler()
 {
   int *v0; // r4
   int result; // r0

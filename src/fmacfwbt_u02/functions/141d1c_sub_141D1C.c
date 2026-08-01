@@ -16,8 +16,8 @@ extern uint32_t dword_141DE0;
 extern uint32_t dword_141DDC;
 extern uint32_t off_141DD8;
 
-// sub_141D1C @ 0x141d1c, size 184 bytes
-int  sub_141D1C(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
+// pack_ll_header @ 0x141d1c, size 184 bytes
+int  pack_ll_header(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
 {
   unsigned int v4; // r5
   int16_t v5; // r6
@@ -57,7 +57,7 @@ int  sub_141D1C(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
   v14 = (uint16_t)v14;
   if ( result < 0 && a2 <= 0xD )
   {
-    result = sub_12F694(dword_141DE4, dword_141DE0, 213);
+    result = mmio_irq_clear(dword_141DE4, dword_141DE0, 213);
     v14 = (uint16_t)a4[4];
     LOBYTE(v7) = *((uint8_t *)a4 + 5);
     v8 = *a4;

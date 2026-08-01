@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_reset_nac_baa8 @ 0x13baa8, size 22 bytes
-// Doc: rf_bus_reset_nac_baa8 [rf]: Reset RF bus control registers (0x40200900 region)
-// rf_bus_reset_nac_baa8 [rf]: Reset RF bus control registers (0x40200900 region)
-int  rf_bus_reset_nac_baa8(int16_t a1)
+// sdio_wr_reg @ 0x13baa8, size 22 bytes
+// Doc: sdio_wr_reg [rf]: Reset RF bus control registers (0x40200900 region)
+// sdio_wr_reg [rf]: Reset RF bus control registers (0x40200900 region)
+int  sdio_wr_reg(int16_t a1)
 {
-  return rf_level_apply_80c(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
+  return patch_aware_dispatch(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
 }
 

@@ -18,8 +18,8 @@ extern uint32_t off_116D90;
 extern uint32_t off_116D88;
 extern uint32_t off_116D84;
 
-// sub_116CDC @ 0x116cdc, size 158 bytes
-int sub_116CDC()
+// task_queue_handler_a @ 0x116cdc, size 158 bytes
+int task_queue_handler_a()
 {
   uint16_t *v0; // r5
   int v1; // r4
@@ -34,7 +34,7 @@ int sub_116CDC()
 
   v0 = off_116D7C;
   v1 = *(uint32_t *)off_116D7C;
-  result = sub_11E628(0x800000);
+  result = enter_critical_section(0x800000);
   if ( v1 )
   {
     v3 = (int *)off_116D94;
@@ -43,7 +43,7 @@ int sub_116CDC()
     {
       if ( (*(uint8_t *)(v1 + 16) & 1) == 0 )
         ++v0[4];
-      sub_11E7AC(v0);
+      list_pop_front(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -56,7 +56,7 @@ int sub_116CDC()
         v5(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_1174EC();
+        result = timer_is_past();
       if ( *v3 )
       {
         v6 = *v3 - 1;

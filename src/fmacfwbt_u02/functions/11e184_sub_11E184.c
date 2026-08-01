@@ -16,10 +16,10 @@ extern uint32_t dword_11E298;
 extern uint32_t dword_11E294;
 extern uint32_t dword_11E29C;
 
-// sub_11E184 @ 0x11e184, size 266 bytes
+// tx_packet_isr @ 0x11e184, size 266 bytes
 // Doc: sub_121E184 [unknown]: Complex handler with many saved regs and table loads (likely crypto/auth)
 // sub_121E184 [unknown]: Complex handler with many saved regs and table loads (likely crypto/auth)
-uint32_t * sub_11E184(uint32_t *a1, int a2, uint16_t *a3)
+uint32_t * tx_packet_isr(uint32_t *a1, int a2, uint16_t *a3)
 {
   int *v3; // r7
   int v4; // r10
@@ -59,7 +59,7 @@ uint32_t * sub_11E184(uint32_t *a1, int a2, uint16_t *a3)
     if ( a2 + v4 >= v20 )
       break;
     v23 = a2;
-    v11 = log_free_dispatch_n2b4();
+    v11 = critical_enter_0();
     v10 = 0;
     v12 = v23;
     v9 = 1;
@@ -77,11 +77,11 @@ LABEL_5:
     if ( v15 < 0 && !v16 )
     {
       v24 = v12;
-      sub_12F694(dword_11E298, dword_11E294, 683);
+      mmio_irq_clear(dword_11E298, dword_11E294, 683);
       v16 = v5[2];
       LOWORD(v12) = v24;
     }
-    sub_110F98(v13, v16, 0, v12, v9);
+    rf_set_tx_channel(v13, v16, 0, v12, v9);
     if ( v7 )
       v7[1] = v13;
     v3[2] = (int)v13;
@@ -90,7 +90,7 @@ LABEL_5:
     v17 = (uint32_t *)v5[1];
     if ( **v6 < 0 && !v17 )
     {
-      sub_12F694(dword_11E29C, dword_11E294, 704);
+      mmio_irq_clear(dword_11E29C, dword_11E294, 704);
       v17 = 0;
     }
     v25 = v5;
@@ -102,7 +102,7 @@ LABEL_5:
   v22 = (uint16_t)(v20 - v4);
   if ( !v10 )
     v9 = 1;
-  v11 = log_free_dispatch_n2b4();
+  v11 = critical_enter_0();
   v4 = 0;
   v12 = v22;
   v13 = (uint32_t *)v11;

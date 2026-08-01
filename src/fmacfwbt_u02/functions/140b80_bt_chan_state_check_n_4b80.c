@@ -15,10 +15,10 @@ extern uint32_t dword_140C08;
 extern uint32_t off_140C10;
 extern uint32_t dword_140C0C;
 
-// bt_chan_state_check_n_4b80 @ 0x140b80, size 130 bytes
-// Doc: bt_chan_state_check_n_4b80 [bt]: Check BT channel state byte against expected value 3
-// bt_chan_state_check_n_4b80 [bt]: Check BT channel state byte against expected value 3
-int  bt_chan_state_check_n_4b80(int result, int a2)
+// check_scan_enable @ 0x140b80, size 130 bytes
+// Doc: check_scan_enable [bt]: Check BT channel state byte against expected value 3
+// check_scan_enable [bt]: Check BT channel state byte against expected value 3
+int  check_scan_enable(int result, int a2)
 {
   int v2; // r6
   unsigned int v3; // r4
@@ -34,7 +34,7 @@ int  bt_chan_state_check_n_4b80(int result, int a2)
     v4 = result;
     v5 = *(uint32_t *)(dword_140C08 + 1320 * v3 + 72);
     v7 = v5 ? *(uint8_t *)(v5 + 4) : *((uint8_t *)off_140C10 + 36);
-    result = sub_119084(v7 != 0, 512);
+    result = event_notify(v7 != 0, 512);
     v8 = result;
     if ( result )
     {
@@ -47,8 +47,8 @@ int  bt_chan_state_check_n_4b80(int result, int a2)
         *(uint32_t *)(result + 88) = dword_140C0C;
         *(uint32_t *)(result + 92) = result;
       }
-      sub_1405DC(result, 1, a2, v4);
-      return sub_1190B4(v8, 3);
+      hci_le_set_scan_params(result, 1, a2, v4);
+      return ble_event_dispatch(v8, 3);
     }
   }
   return result;

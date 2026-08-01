@@ -109,10 +109,10 @@ extern uint32_t off_1016CC;
 extern uint32_t off_1016D0;
 extern uint32_t off_1016D4;
 
-// rf_init_hw_setup @ 0x1010d4, size 1740 bytes
-// Doc: rf_init_hw_setup [rf]: Initialize RF hardware and clear MMIO control bits
-// rf_init_hw_setup [rf]: Initialize RF hardware and clear MMIO control bits
-unsigned int  rf_init_hw_setup(unsigned int a1)
+// mac_ctrl_clear @ 0x1010d4, size 1740 bytes
+// Doc: mac_ctrl_clear [rf]: Initialize RF hardware and clear MMIO control bits
+// mac_ctrl_clear [rf]: Initialize RF hardware and clear MMIO control bits
+unsigned int  mac_ctrl_clear(unsigned int a1)
 {
   uint32_t *v1; // r1
   uint32_t *v2; // r2
@@ -418,10 +418,10 @@ LABEL_7:
     v20 += 3;
   }
   while ( v27 != v23 + 48 );
-  lmac_sub_init(1, 0, 16, v23);
-  lmac_sub_init(1, 16, 16, *v19);
-  lmac_sub_init(1, 32, 16, *v86);
-  mmio_set_bit_120090C(1, a1);
+  memcpy_advance(1, 0, 16, v23);
+  memcpy_advance(1, 16, 16, *v19);
+  memcpy_advance(1, 32, 16, *v86);
+  rf_ctrl_set(1, a1);
   v30 = off_1013C4;
   v31 = (unsigned int *)off_1013C8;
   *(uint32_t *)off_1013C4 |= 8u;
@@ -589,8 +589,8 @@ LABEL_31:
   v60 = off_1016CC;
   if ( *(uint8_t *)off_1016CC != v59 )
   {
-    v61 = mmio_status_flag_read();
-    rf_init_or_config_helper(v61);
+    v61 = get_reset_reason();
+    dma_init(v61);
   }
   v62 = off_1016D0;
   *v60 = v59;
@@ -600,9 +600,9 @@ LABEL_31:
   if ( !result )
   {
     if ( a1 - 5270 > 0x32 && a1 - 5550 > 0x64 )
-      result = sub_100C3C(0);
+      result = rf_cal_read_0(0);
     else
-      result = sub_100D18();
+      result = rf_cal_read_1();
   }
   *(uint32_t *)off_1016D0 = 1;
   return result;

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DF70 @ 0x12df70, size 64 bytes
+// parse_data_3 @ 0x12df70, size 64 bytes
 // Doc: sdio_buffer_prepare_n_3b6 [mmio]: Prepare/check SDIO transfer buffer before host exchange
 // sdio_buffer_prepare_n_3b6 [mmio]: Prepare/check SDIO transfer buffer before host exchange
-uint8_t * sub_12DF70(uint8_t *result, int a2)
+uint8_t * parse_data_3(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   unsigned int v3; // r3

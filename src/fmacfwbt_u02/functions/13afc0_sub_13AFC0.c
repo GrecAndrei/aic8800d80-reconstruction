@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13AFC0 @ 0x13afc0, size 24 bytes
-int  sub_13AFC0(int a1, int a2)
+// mac_reset_tx_queue @ 0x13afc0, size 24 bytes
+int  mac_reset_tx_queue(int a1, int a2)
 {
   int16_t v2; // r2
 
@@ -19,6 +19,6 @@ int  sub_13AFC0(int a1, int a2)
   *(uint32_t *)(a1 + 68) = 0;
   *(uint32_t *)(a1 + 80) = 0;
   *(uint16_t *)(a1 + 30) = v2;
-  return sub_13AC44(a1, a2);
+  return tx_prepare_frame_path(a1, a2);
 }
 

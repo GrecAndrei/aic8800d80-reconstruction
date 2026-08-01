@@ -20,8 +20,8 @@ extern uint32_t off_10CBAC;
 extern uint32_t off_10CBB0;
 extern uint32_t dword_10CBB4;
 
-// sub_10CAE0 @ 0x10cae0, size 182 bytes
-int sub_10CAE0()
+// busy_flag_check @ 0x10cae0, size 182 bytes
+int busy_flag_check()
 {
   int v0; // r4
   int result; // r0
@@ -37,7 +37,7 @@ int sub_10CAE0()
     v6 = off_10CBA0;
     *(uint32_t *)off_10CBB8 = 32;
     *v6 = 32;
-    sub_12D104(0x80000);
+    unknown_func_12d104(0x80000);
   }
   result = v0 << 27;
   if ( (v0 & 0x10) != 0 )
@@ -45,16 +45,16 @@ int sub_10CAE0()
     v5 = off_10CBA0;
     *(uint32_t *)off_10CBB8 = 16;
     *v5 = 16;
-    result = sub_12D104(0x100000);
+    result = unknown_func_12d104(0x100000);
   }
   if ( (v0 & 2) != 0 )
   {
-    result = sub_12D104(0x8000000);
+    result = unknown_func_12d104(0x8000000);
     *(uint32_t *)off_10CBB8 = 2;
   }
   if ( (v0 & 0x40000000) != 0 )
   {
-    result = sub_1145AC(1);
+    result = sub_1145ac(1);
     *(uint32_t *)off_10CBA0 = 0x40000000;
   }
   if ( v0 < 0 )
@@ -79,7 +79,7 @@ LABEL_16:
   if ( *v3 )
     goto LABEL_16;
   if ( (*(uint32_t *)off_10CBB0 & dword_10CBB4) == 0x10000 )
-    return sub_114574();
+    return process_global_167204();
   return result;
 }
 

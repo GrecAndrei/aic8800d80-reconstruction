@@ -12,10 +12,10 @@
 
 extern uint32_t off_102B7C;
 
-// rf_chan_mask_get @ 0x102b60, size 26 bytes
-// Doc: rf_chan_mask_get [mmio]: Read RF channel count from MMIO and build 1<<n mask
-// rf_chan_mask_get [mmio]: Read RF channel count from MMIO and build 1<<n mask
-int rf_chan_mask_get()
+// get_hw_clock_multiplier @ 0x102b60, size 26 bytes
+// Doc: get_hw_clock_multiplier [mmio]: Read RF channel count from MMIO and build 1<<n mask
+// get_hw_clock_multiplier [mmio]: Read RF channel count from MMIO and build 1<<n mask
+int get_hw_clock_multiplier()
 {
   return (uint8_t)((1 << ((uint8_t)*(uint32_t *)off_102B7C >> 4)) - 1);
 }

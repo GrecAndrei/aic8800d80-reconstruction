@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143C3C @ 0x143c3c, size 186 bytes
-unsigned int  sub_143C3C(unsigned int result, unsigned int a2)
+// memcpy @ 0x143c3c, size 186 bytes
+unsigned int  memcpy(unsigned int result, unsigned int a2)
 {
   uint8_t *v2; // r12
   int *v3; // r1

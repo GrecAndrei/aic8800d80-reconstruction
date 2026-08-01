@@ -12,8 +12,8 @@
 
 extern uint32_t off_10CAF8;
 
-// sub_10CAEC @ 0x10caec, size 10 bytes
-void sub_10CAEC()
+// pmu_ctrl_write_256 @ 0x10caec, size 10 bytes
+void pmu_ctrl_write_256()
 {
   *(uint32_t *)off_10CAF8 = 256;
 }

@@ -17,8 +17,8 @@ extern uint32_t off_12F808;
 extern uint32_t dword_12F810;
 extern uint32_t dword_12F814;
 
-// sub_12F6D0 @ 0x12f6d0, size 304 bytes
-int  sub_12F6D0(unsigned int a1, uint8_t *a2, int a3)
+// lock_global_mutex @ 0x12f6d0, size 304 bytes
+int  lock_global_mutex(unsigned int a1, uint8_t *a2, int a3)
 {
   int *v3; // r6
   char v4; // r4
@@ -49,7 +49,7 @@ int  sub_12F6D0(unsigned int a1, uint8_t *a2, int a3)
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = sub_143D00(a3);
+    v11 = memcpy_aligned(a3);
     v12 = (int *)off_12F804;
     v13 = off_12F80C;
     *v3 = (int)a2;
@@ -81,7 +81,7 @@ LABEL_3:
       case 0xDu:
         v21 = (uint8_t *)dword_12F810;
         *(uint8_t *)*v3 = 0;
-        sub_10D674(v21);
+        radio_tx_write_string(v21);
         return *v3 - (uint32_t)a2;
       case 0x15u:
         v22 = off_12F80C;
@@ -96,7 +96,7 @@ LABEL_3:
           v16 = (unsigned int)a2;
           while ( 1 )
           {
-            v17 = (uint8_t *)sub_12F51C(v16, v15, v8);
+            v17 = (uint8_t *)parse_rx_packet_header(v16, v15, v8);
             v18 = *v14;
             *v3 = (int)v17;
             v15 = (int)v17;
@@ -116,7 +116,7 @@ LABEL_3:
           goto LABEL_7;
         if ( a1 != 9 )
           goto LABEL_28;
-        sub_10D674((uint8_t *)(dword_12F814 + (v8 & 7)));
+        radio_tx_write_string((uint8_t *)(dword_12F814 + (v8 & 7)));
         *(uint32_t *)off_12F808 = (*(uint32_t *)off_12F808 & 0xFFFFFFF8) + 8;
         break;
     }
@@ -127,7 +127,7 @@ LABEL_3:
 LABEL_19:
     v20 = *v3;
     if ( *(uint32_t *)off_12F80C )
-      v20 = sub_12F51C((unsigned int)a2, v20, v8);
+      v20 = parse_rx_packet_header((unsigned int)a2, v20, v8);
     *v3 = v20;
     return -1;
   }
@@ -138,7 +138,7 @@ LABEL_19:
     {
 LABEL_28:
       *v7 = v8 + 1;
-      sub_10D65C(a1);
+      radio_tx_write_byte(a1);
 LABEL_27:
       v23 = (uint8_t *)*v3;
       *v23 = v4;
@@ -148,7 +148,7 @@ LABEL_27:
       return -1;
     }
 LABEL_7:
-    sub_10D65C(7);
+    radio_tx_write_byte(7);
     return -1;
   }
 }

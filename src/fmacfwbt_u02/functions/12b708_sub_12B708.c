@@ -12,14 +12,14 @@
 
 extern uint32_t dword_12B734;
 
-// sub_12B708 @ 0x12b708, size 40 bytes
-int  sub_12B708(char a1, int a2)
+// bt_send_hci_804 @ 0x12b708, size 40 bytes
+int  bt_send_hci_804(char a1, int a2)
 {
   uint8_t *v3; // r4
 
-  v3 = (uint8_t *)rf_bus_setup_n3a8(2052, a2, 2, 1);
-  feature_guard_sdio(4, dword_12B734);
+  v3 = (uint8_t *)bt_buf_alloc(2052, a2, 2, 1);
+  state_check_feature(4, dword_12B734);
   *v3 = a1;
-  return sub_12CBB4(v3);
+  return hci_evt_send(v3);
 }
 

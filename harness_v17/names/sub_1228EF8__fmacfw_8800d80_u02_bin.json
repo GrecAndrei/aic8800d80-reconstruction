@@ -1,1 +1,1 @@
-{"fn": "sub_1228EF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228ef8", "status": "ok", "name": "key_mfp_table_init", "params": [], "docstring": "Initialize MFP key table with assertion on hw_key_idx", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1228EF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228ef8", "status": "ok", "name": "wlc_mfp_key_clear", "params": [], "docstring": "Initialize MFP key table with assertion on hw_key_idx", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

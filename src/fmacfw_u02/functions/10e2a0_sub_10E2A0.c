@@ -28,8 +28,8 @@ extern uint32_t dword_10E558;
 extern uint32_t dword_10E550;
 extern uint32_t dword_10E554;
 
-// sub_10E2A0 @ 0x10e2a0, size 628 bytes
-int sub_10E2A0()
+// rf_event_handler @ 0x10e2a0, size 628 bytes
+int rf_event_handler()
 {
   int v0; // r3
   int v1; // r0
@@ -81,27 +81,27 @@ int sub_10E2A0()
   v2 = off_10E53C;
   *((uint32_t *)off_10E530 + 14) = 296;
   v2[3] = v0 | v2[3] & 0xE0000000;
-  sub_10ED7C(v1, 1024, 15360);
+  call_ptr_1b8(v1, 1024, 15360);
   v2[2] = dword_10E540 & v2[2] | 0x1200000F;
   v2[1] = 1;
   while ( v2[7] != 1 )
     ;
   v2[7] = 1;
-  v3 = sub_1429B4(v2[4]);
-  v4 = sub_142AA8(v3, HIDWORD(v3), dword_10E518, dword_10E51C);
-  v5 = sub_142738(v4, HIDWORD(v4), dword_10E520, dword_10E524);
-  v6 = sub_142FDC(v5, HIDWORD(v5));
-  msg_parse(dword_10E544, v6, v7);
-  cb = rf_reg_read_cb(dword_10E548);
+  v3 = uint_to_double(v2[4]);
+  v4 = double_add(v3, HIDWORD(v3), dword_10E518, dword_10E51C);
+  v5 = double_compare_wrapper(v4, HIDWORD(v4), dword_10E520, dword_10E524);
+  v6 = double_to_float(v5, HIDWORD(v5));
+  event_dispatch(dword_10E544, v6, v7);
+  cb = call_ptr_1b0(dword_10E548);
   v10 = v6 - 1400;
   v11 = abs32(v6 - 1400);
   v12 = cb & 0x3F;
   v43 = v12;
   if ( v11 > 49 )
   {
-    v13 = sub_1429D4(v11);
-    v14 = sub_142AA8(v13, HIDWORD(v13), dword_10E528, dword_10E52C);
-    v15 = sub_142FDC(v14, HIDWORD(v14));
+    v13 = int_to_double(v11);
+    v14 = double_add(v13, HIDWORD(v13), dword_10E528, dword_10E52C);
+    v15 = double_to_float(v14, HIDWORD(v14));
     v16 = v15;
     if ( v10 <= 0 )
     {
@@ -122,17 +122,17 @@ int sub_10E2A0()
     }
     if ( v17 > 11 )
     {
-      sub_10ED7C(dword_10E548, v17, 63);
+      call_ptr_1b8(dword_10E548, v17, 63);
       v18 = off_10E53C;
       *((uint32_t *)off_10E53C + 1) = 1;
       while ( v18[7] != 1 )
         ;
       v18[7] = 1;
-      v19 = sub_1429B4(v18[4]);
-      v20 = sub_142AA8(v19, HIDWORD(v19), dword_10E518, dword_10E51C);
-      v21 = sub_142738(v20, HIDWORD(v20), dword_10E520, dword_10E524);
-      v6 = sub_142FDC(v21, HIDWORD(v21));
-      msg_parse(dword_10E54C, v16, v17);
+      v19 = uint_to_double(v18[4]);
+      v20 = double_add(v19, HIDWORD(v19), dword_10E518, dword_10E51C);
+      v21 = double_compare_wrapper(v20, HIDWORD(v20), dword_10E520, dword_10E524);
+      v6 = double_to_float(v21, HIDWORD(v21));
+      event_dispatch(dword_10E54C, v16, v17);
       if ( v6 <= 1400 )
         v22 = 1;
       else
@@ -175,16 +175,16 @@ LABEL_19:
       v28 = v43 + v44 * v9;
       goto LABEL_28;
     }
-    sub_10ED7C(v24, v28, 63);
+    call_ptr_1b8(v24, v28, 63);
     v25[1] = 1;
     while ( v25[7] != 1 )
       ;
     v25[7] = 1;
-    v30 = sub_1429B4(v25[4]);
-    v31 = sub_142AA8(v30, HIDWORD(v30), dword_10E518, dword_10E51C);
-    v32 = sub_142738(v31, HIDWORD(v31), dword_10E520, dword_10E524);
-    v42 = sub_142FDC(v32, HIDWORD(v32));
-    msg_parse(v26, v29, v28);
+    v30 = uint_to_double(v25[4]);
+    v31 = double_add(v30, HIDWORD(v30), dword_10E518, dword_10E51C);
+    v32 = double_compare_wrapper(v31, HIDWORD(v31), dword_10E520, dword_10E524);
+    v42 = double_to_float(v32, HIDWORD(v32));
+    event_dispatch(v26, v29, v28);
     v33 = v6 - 1400;
     v9 = v42 - 1400;
     if ( v33 * (v42 - 1400) <= 0 )
@@ -203,18 +203,18 @@ LABEL_19:
     v28 = v43 + v29;
   }
 LABEL_28:
-  msg_parse(dword_10E550, v29, v9);
-  sub_10ED7C(dword_10E548, v28, 63);
+  event_dispatch(dword_10E550, v29, v9);
+  call_ptr_1b8(dword_10E548, v28, 63);
   v35 = off_10E53C;
   *((uint32_t *)off_10E53C + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_1429B4(v35[4]);
-  v37 = sub_142AA8(v36, HIDWORD(v36), dword_10E518, dword_10E51C);
-  v38 = sub_142738(v37, HIDWORD(v37), dword_10E520, dword_10E524);
-  v39 = sub_142FDC(v38, HIDWORD(v38));
-  msg_parse(dword_10E554, v39, v40);
-  return sub_10ED7C(dword_10E538, 0, 15360);
+  v36 = uint_to_double(v35[4]);
+  v37 = double_add(v36, HIDWORD(v36), dword_10E518, dword_10E51C);
+  v38 = double_compare_wrapper(v37, HIDWORD(v37), dword_10E520, dword_10E524);
+  v39 = double_to_float(v38, HIDWORD(v38));
+  event_dispatch(dword_10E554, v39, v40);
+  return call_ptr_1b8(dword_10E538, 0, 15360);
 }
 

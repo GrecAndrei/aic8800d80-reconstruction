@@ -14,10 +14,10 @@ extern uint32_t off_119444;
 extern uint32_t dword_11943C;
 extern uint32_t dword_119440;
 
-// sub_1193BC @ 0x1193bc, size 126 bytes
+// phy_channel_select @ 0x1193bc, size 126 bytes
 // Doc: sub_12193BC [unknown]: Unknown helper, no clear naming cues
 // sub_12193BC [unknown]: Unknown helper, no clear naming cues
-int  sub_1193BC(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5)
+int  phy_channel_select(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5)
 {
   int *v5; // r7
   int v6; // r6

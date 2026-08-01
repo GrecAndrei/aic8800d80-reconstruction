@@ -15,8 +15,8 @@ extern uint32_t off_129424;
 extern uint32_t off_129420;
 extern uint32_t dword_129428;
 
-// sub_1293A0 @ 0x1293a0, size 124 bytes
-int  sub_1293A0(int result, int a2, int a3)
+// rf_rx_packet_get @ 0x1293a0, size 124 bytes
+int  rf_rx_packet_get(int result, int a2, int a3)
 {
   uint32_t *v3; // r6
   int v5; // r2
@@ -49,7 +49,7 @@ int  sub_1293A0(int result, int a2, int a3)
         v15 = *(uint16_t *)(v13 + 56);
         v3[5] = a3;
         *((uint8_t *)v3 + 29) = 5;
-        result = timestamp_update_4f60((int)(v3 + 3), v15 + v14);
+        result = ke_event_lock((int)(v3 + 3), v15 + v14);
         v7 = *(uint32_t *)(a3 + 4);
         if ( !a2 )
           goto LABEL_6;
@@ -65,13 +65,13 @@ LABEL_6:
     }
 LABEL_8:
     *(uint32_t *)(a3 + 4) = v7 | 4;
-    sub_1143D0(result, v9, v5);
-    bt_msg_post_n2cc();
+    log_and_check_hw(result, v9, v5);
+    mm_beacon_irq();
     v10 = *((uint32_t *)off_129424 + 4);
     v11 = *(uint16_t *)(*(uint32_t *)off_129420 + 58);
     v3[5] = a3;
     *((uint8_t *)v3 + 29) = 6;
-    return timestamp_update_4f60(dword_129428, v11 + v10);
+    return ke_event_lock(dword_129428, v11 + v10);
   }
   return result;
 }

@@ -1,1 +1,1 @@
-{"fn": "sub_1217534", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217534", "status": "ok", "name": "fmac_event_init_n_3b2", "params": [], "docstring": "Initialize fmac event/state object with cleared slot at offset 0x4f8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217534", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217534", "status": "ok", "name": "dma_rx_setup", "params": [], "docstring": "Initialize fmac event/state object with cleared slot at offset 0x4f8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

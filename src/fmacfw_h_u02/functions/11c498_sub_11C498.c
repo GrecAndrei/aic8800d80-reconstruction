@@ -19,8 +19,8 @@ extern uint32_t dword_11C79C;
 extern uint32_t dword_11C798;
 extern uint32_t off_11C794;
 
-// sub_11C498 @ 0x11c498, size 748 bytes
-int  sub_11C498(int a1, int a2)
+// rx_mpdu_process @ 0x11c498, size 748 bytes
+int  rx_mpdu_process(int a1, int a2)
 {
   uint8_t *v2; // r5
   int v3; // r11
@@ -67,14 +67,14 @@ int  sub_11C498(int a1, int a2)
   v7 = a2;
   if ( (a2 & 0x800000) != 0 )
   {
-    v8 = sub_11EABC(a1);
+    v8 = check_hw_fw_status(a1);
     v9 = 9;
     while ( 1 )
     {
       v10 = *(uint16_t *)(v3 + 8);
       if ( (v10 & 0x20) != 0 )
         break;
-      v8 = sub_11EABC(v8);
+      v8 = check_hw_fw_status(v8);
       if ( !--v9 )
       {
         v11 = *(uint16_t *)(v3 + 8);
@@ -84,13 +84,13 @@ int  sub_11C498(int a1, int a2)
           {
             v15 = dword_11C7A0;
             v16 = 84 * v5;
-            sub_12D190(84 * v5 + 28 + dword_11C7A0);
-            sub_11A190(v3);
+            list_pop(84 * v5 + 28 + dword_11C7A0);
+            decrement_refcount(v3);
             *(uint32_t *)(a1 + 68) = 0;
             goto LABEL_18;
           }
 LABEL_7:
-          sub_11A190(v3);
+          decrement_refcount(v3);
           *(uint32_t *)(a1 + 68) = 0;
           v14 = v2[199];
           v15 = dword_11C7A0;
@@ -98,18 +98,18 @@ LABEL_7:
           if ( v2[199] )
             goto LABEL_19;
 LABEL_8:
-          sub_11B350(v2[190], (int)v12, v13, v14);
-          sub_12D190(v16 + 12 + v15);
+          get_rf_capability(v2[190], (int)v12, v13, v14);
+          list_pop(v16 + 12 + v15);
           if ( *(uint16_t *)(a1 + 4) )
-            return sub_117DD8(a1, v7, v5);
-          return sub_118BA0();
+            return register_handler(a1, v7, v5);
+          return set_string_0x1882c0();
         }
         v7 &= ~0x800000u;
         v4[18] &= ~0x800000u;
         if ( (v11 & 0x20) == 0 )
           goto LABEL_22;
 LABEL_31:
-        sub_11A190(v3);
+        decrement_refcount(v3);
         v15 = dword_11C7A0;
         *(uint32_t *)(a1 + 68) = 0;
         goto LABEL_12;
@@ -124,15 +124,15 @@ LABEL_31:
   if ( (*(uint16_t *)(v3 + 8) & 0x20) != 0 )
   {
     v15 = dword_11C7A0;
-    sub_11A190(*(uint32_t *)(a1 + 68));
+    decrement_refcount(*(uint32_t *)(a1 + 68));
     *(uint32_t *)(a1 + 68) = 0;
   }
   else
   {
 LABEL_22:
     v15 = dword_11C7A0;
-    sub_12D190(84 * (int16_t)v5 + 28 + dword_11C7A0);
-    sub_11A190(v3);
+    list_pop(84 * (int16_t)v5 + 28 + dword_11C7A0);
+    decrement_refcount(v3);
     *(uint32_t *)(a1 + 68) = 0;
   }
 LABEL_12:
@@ -174,7 +174,7 @@ LABEL_12:
           if ( **(int16_t **)off_11C78C < 0 && !*(uint32_t *)(dword_11C790 + 696 * *(uint8_t *)(a1 + 29) + 340) )
           {
             v39 = v26;
-            sub_12F32C(dword_11C79C, dword_11C798, 475);
+            irq_disable_mmio_write(dword_11C79C, dword_11C798, 475);
             v26 = v39;
           }
           v30 = *(uint32_t *)(v38 + 156);
@@ -205,7 +205,7 @@ LABEL_12:
       {
         v21 = v20 + 44;
       }
-      sub_11C448((unsigned int *)a1);
+      sta_rate_status_check((unsigned int *)a1);
     }
     v22 = *(uint32_t *)&v2[28 * v5 + 36];
     v23 = *(uint64_t *)(v20 + 96);
@@ -244,10 +244,10 @@ LABEL_18:
       goto LABEL_8;
 LABEL_19:
     *(uint32_t *)off_11C788 = (v2[164] << 24) & 0x7000000 | *(uint32_t *)off_11C788 & 0xF8FFFFFF;
-    sub_12D190(v16 + 12 + v15);
+    list_pop(v16 + 12 + v15);
     if ( !*(uint16_t *)(a1 + 4) )
-      return sub_118BA0();
-    return sub_117DD8(a1, v7, v5);
+      return set_string_0x1882c0();
+    return register_handler(a1, v7, v5);
   }
   return result;
 }

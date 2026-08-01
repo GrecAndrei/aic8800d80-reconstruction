@@ -27,8 +27,8 @@ extern uint32_t off_10D5F8;
 extern uint32_t off_10D5FC;
 extern uint32_t off_10D60C;
 
-// sub_10D4E8 @ 0x10d4e8, size 236 bytes
-void sub_10D4E8()
+// mac_tx_work @ 0x10d4e8, size 236 bytes
+void mac_tx_work()
 {
   int v0; // r3
   uint32_t *v1; // r5

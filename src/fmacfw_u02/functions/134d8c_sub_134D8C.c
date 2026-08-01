@@ -14,8 +14,8 @@ extern uint32_t off_134DE4;
 extern uint32_t dword_134DEC;
 extern uint32_t dword_134DE8;
 
-// sub_134D8C @ 0x134d8c, size 86 bytes
-int  sub_134D8C(int a1, int a2, int a3)
+// bt_schedule_ack_timeout @ 0x134d8c, size 86 bytes
+int  bt_schedule_ack_timeout(int a1, int a2, int a3)
 {
   uint32_t *v3; // r5
 
@@ -23,8 +23,8 @@ int  sub_134D8C(int a1, int a2, int a3)
   *((uint8_t *)off_134DE4 + 4) = a3;
   v3[2] = a1;
   *((uint16_t *)v3 + 6) = a2;
-  sub_12CD34(6u, 10);
-  sub_12ECD0(
+  rx_phy_status_parse(6u, 10);
+  check_status_bits(
     256,
     dword_134DEC,
     *(uint8_t *)(a1 + 107),
@@ -32,8 +32,8 @@ int  sub_134D8C(int a1, int a2, int a3)
     *(uint16_t *)(dword_134DE8 + 696 * *(uint8_t *)(a1 + 116) + 50),
     a3);
   if ( *((uint8_t *)v3 + 4) )
-    return sub_134A90();
+    return bt_get_conn_state();
   else
-    return sub_134914();
+    return bt_init_hci_buffer();
 }
 

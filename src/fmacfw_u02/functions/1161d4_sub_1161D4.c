@@ -16,8 +16,8 @@ extern uint32_t dword_1162AC;
 extern uint32_t off_1162B0;
 extern uint32_t dword_1162B4;
 
-// sub_1161D4 @ 0x1161d4, size 210 bytes
-int sub_1161D4()
+// configure_hardware_regs @ 0x1161d4, size 210 bytes
+int configure_hardware_regs()
 {
   int *v0; // r4
   int v1; // r8
@@ -43,8 +43,8 @@ int sub_1161D4()
   do
   {
     *v0 = v1;
-    v0[1] = sub_101AD8() << 14;
-    v5 = rf_chan_mask_get();
+    v0[1] = rf_get_field4() << 14;
+    v5 = get_hw_clock_multiplier();
     v0[3] = 0;
     v0[4] = v2;
     v0[5] = 0;
@@ -70,8 +70,8 @@ int sub_1161D4()
   do
   {
     *v7 = v8;
-    v7[1] = sub_101AD8() << 14;
-    result = rf_chan_mask_get();
+    v7[1] = rf_get_field4() << 14;
+    result = get_hw_clock_multiplier();
     v7[3] = 0;
     v7[4] = v9;
     v7[5] = 0;

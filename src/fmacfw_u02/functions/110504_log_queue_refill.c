@@ -24,10 +24,10 @@ extern uint32_t off_110618;
 extern uint32_t dword_110620;
 extern uint32_t dword_11061C;
 
-// log_queue_refill @ 0x110504, size 258 bytes
-// Doc: log_queue_refill [util]: Refill firmware log/trace queue descriptors from shared table
-// log_queue_refill [util]: Refill firmware log/trace queue descriptors from shared table
-int  log_queue_refill(int result)
+// rf_pll_program @ 0x110504, size 258 bytes
+// Doc: rf_pll_program [util]: Refill firmware log/trace queue descriptors from shared table
+// rf_pll_program [util]: Refill firmware log/trace queue descriptors from shared table
+int  rf_pll_program(int result)
 {
   uint32_t *v1; // r4
   unsigned int v2; // r3
@@ -56,23 +56,23 @@ LABEL_2:
   v7 = (int *)off_110610;
   while ( v2 <= 1 )
   {
-    v8 = log_pool_alloc_b();
+    v8 = is_page_scan_active();
     if ( !v8 )
     {
-      result = sub_10DC24(dword_11062C, *(uint32_t *)off_110628);
+      result = log_printf(dword_11062C, *(uint32_t *)off_110628);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or_d104(32);
+      return unknown_func_12d104(32);
     }
-    v9 = (int *)sub_1102BC();
+    v9 = (int *)is_scan_enabled();
     v10 = v9;
     if ( !v9 )
     {
-      sub_10DC24(dword_110630);
-      result = log_free_pool_b();
+      log_printf(dword_110630);
+      result = is_sniff_mode();
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or_d104(32);
+      return unknown_func_12d104(32);
     }
     *v9 = v8;
     v9[1] = 0;
@@ -96,7 +96,7 @@ LABEL_2:
       }
       else
       {
-        sub_10DC24(dword_110624);
+        log_printf(dword_110624);
         v11 = *v7;
       }
     }
@@ -104,7 +104,7 @@ LABEL_2:
     {
       if ( **(int16_t **)off_110618 < 0 && *v4 )
       {
-        sub_12F46C(dword_110620, dword_11061C, 261);
+        mmio_clear_register(dword_110620, dword_11061C, 261);
         v11 = *v7;
       }
       *v4 = v10;

@@ -12,8 +12,8 @@
 
 extern uint32_t off_11CD4C;
 
-// sub_11CD3C @ 0x11cd3c, size 16 bytes
-int sub_11CD3C()
+// rf_get_tx_entry @ 0x11cd3c, size 16 bytes
+int rf_get_tx_entry()
 {
   return *(uint32_t *)off_11CD4C + 6 * *((uint8_t *)off_11CD4C + 10);
 }

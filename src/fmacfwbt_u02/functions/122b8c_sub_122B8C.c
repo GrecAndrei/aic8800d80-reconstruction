@@ -13,8 +13,8 @@
 extern uint32_t dword_122BE8;
 extern uint32_t dword_122BEC;
 
-// sub_122B8C @ 0x122b8c, size 90 bytes
-int  sub_122B8C(int a1, uint8_t *a2, int a3, int a4)
+// send_cmd_0x76 @ 0x122b8c, size 90 bytes
+int  send_cmd_0x76(int a1, uint8_t *a2, int a3, int a4)
 {
   int v5; // r0
   int v6; // r3
@@ -22,7 +22,7 @@ int  sub_122B8C(int a1, uint8_t *a2, int a3, int a4)
   int v8; // r2
   int v9; // r1
 
-  v5 = sub_12CB54(118, a4, a3, 12);
+  v5 = bt_buf_alloc(118, a4, a3, 12);
   v6 = dword_122BE8 + 696 * *a2;
   v7 = *(uint8_t *)(v6 + 34);
   if ( v7 == 255 )
@@ -35,11 +35,11 @@ int  sub_122B8C(int a1, uint8_t *a2, int a3, int a4)
   {
     *(uint8_t *)(v5 + 8) = *(uint8_t *)(v8 + 142);
 LABEL_4:
-    sub_12CBB4(v5);
+    hci_evt_send(v5);
     return 0;
   }
   *(uint8_t *)(v5 + 8) = *(uint8_t *)(v6 + 689);
-  sub_12CBB4(v5);
+  hci_evt_send(v5);
   return 0;
 }
 

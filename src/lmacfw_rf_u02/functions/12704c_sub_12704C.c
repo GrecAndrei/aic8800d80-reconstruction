@@ -14,8 +14,8 @@ extern uint32_t off_1270FC;
 extern uint32_t off_127100;
 extern uint32_t dword_127104;
 
-// sub_12704C @ 0x12704c, size 174 bytes
-void sub_12704C()
+// rf_read_trim @ 0x12704c, size 174 bytes
+void rf_read_trim()
 {
   uint8_t *v0; // r4
   int v1; // r2
@@ -39,15 +39,15 @@ void sub_12704C()
   v9 = v1;
   if ( (v2 & 0x2000000) != 0 )
   {
-    sub_113B88(&v8);
-    sub_1140B8(&v9);
+    mmio_read_status(&v8);
+    rf_reg10_status(&v9);
     goto LABEL_4;
   }
   v10 = 0;
   v11 = 0;
-  if ( !sub_114558((int)&v10) )
+  if ( !bus_read32((int)&v10) )
     v8 = v10;
-  if ( sub_1145C4((int)&v11) )
+  if ( mmio_read_64((int)&v11) )
   {
 LABEL_4:
     v3 = v8;
@@ -71,7 +71,7 @@ LABEL_19:
   LOBYTE(v3) = 15;
 LABEL_7:
   v0[4] = v3;
-  v4 = sub_10F15C();
+  v4 = get_xtal_ftune();
   v5 = v9;
   v0[6] = v4;
   if ( v5 )
@@ -94,7 +94,7 @@ LABEL_7:
     }
     v7 = dword_127104;
     v0[2] = v6;
-    sub_11F504(v7, v5);
+    dispatch_event_handler(v7, v5);
   }
   v0[3] = 0x80;
   *v0 = 1;

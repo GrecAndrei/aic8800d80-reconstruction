@@ -13,8 +13,8 @@
 extern uint32_t off_123B28;
 extern uint32_t off_123B2C;
 
-// sub_123AB4 @ 0x123ab4, size 114 bytes
-int  sub_123AB4(int a1)
+// build_hci_event @ 0x123ab4, size 114 bytes
+int  build_hci_event(int a1)
 {
   uint64_t v2; // r0
   uint16_t *v3; // r2
@@ -37,8 +37,8 @@ int  sub_123AB4(int a1)
   HIDWORD(v2) = *((uint32_t *)off_123B28 + 1);
   v11 = *(uint32_t *)off_123B28;
   v12 = WORD2(v2);
-  sub_1282E8(&v13, &v9, 6);
-  sub_1282E8(&v15, &v11, 6);
+  memcpy_large(&v13, &v9, 6);
+  memcpy_large(&v15, &v11, 6);
   v3 = off_123B2C;
   v4 = *((uint16_t *)off_123B2C + 70);
   *(uint32_t *)(a1 + 4) = v15;

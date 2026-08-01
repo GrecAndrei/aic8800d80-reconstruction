@@ -14,8 +14,8 @@ extern uint32_t off_1149F0;
 extern uint32_t off_1149F4;
 extern uint32_t off_1149F8;
 
-// sub_1149BC @ 0x1149bc, size 52 bytes
-int sub_1149BC()
+// osal_int_enter @ 0x1149bc, size 52 bytes
+int osal_int_enter()
 {
   int *v0; // r4
   int ( *v1)(int); // r2

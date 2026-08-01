@@ -14,8 +14,8 @@ extern uint32_t off_118B94;
 extern uint32_t dword_118B9C;
 extern uint32_t dword_118B98;
 
-// sub_118B34 @ 0x118b34, size 94 bytes
-int  sub_118B34(int a1, int a2)
+// sec_check @ 0x118b34, size 94 bytes
+int  sec_check(int a1, int a2)
 {
   uint64_t v2; // kr00_8
   int v3; // r2
@@ -27,7 +27,7 @@ int  sub_118B34(int a1, int a2)
   v3 = *(uint32_t *)(HIDWORD(v2) + 28);
   if ( **(int16_t **)off_118B94 < 0 && (v3 & 1) != 0 )
   {
-    sub_12F32C(dword_118B9C, dword_118B98, 389);
+    irq_disable_mmio_write(dword_118B9C, dword_118B98, 389);
     v3 = *(uint32_t *)(HIDWORD(v2) + 28);
   }
   v6 = *(uint32_t *)(HIDWORD(v2) + 44);
@@ -41,6 +41,6 @@ int  sub_118B34(int a1, int a2)
   *(uint32_t *)(HIDWORD(v2) + 64) = v7;
   *(uint32_t *)(v2 + 96) = v7;
   *(uint32_t *)(v2 + 100) = v6;
-  return sub_117560(a1, a2);
+  return ke_msg_dispatch(a1, a2);
 }
 

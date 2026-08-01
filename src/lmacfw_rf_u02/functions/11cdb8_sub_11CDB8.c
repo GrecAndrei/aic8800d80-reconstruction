@@ -30,10 +30,10 @@ extern uint32_t dword_11D004;
 extern uint32_t off_11D008;
 extern uint32_t off_11D00C;
 
-// sub_11CDB8 @ 0x11cdb8, size 530 bytes
+// rf_set_frequency @ 0x11cdb8, size 530 bytes
 // Doc: sub_121CDB8 [util]: Check firmware ready flag from MMIO
 // sub_121CDB8 [util]: Check firmware ready flag from MMIO
-unsigned int  sub_11CDB8(unsigned int result)
+unsigned int  rf_set_frequency(unsigned int result)
 {
   uint32_t *v1; // r6
   unsigned int v2; // r5
@@ -75,22 +75,22 @@ unsigned int  sub_11CDB8(unsigned int result)
     *v1 = v4 & ((result * ((*v1 >> 18) & 0x3FF) / v2) << 18) | *v1 & v5;
     if ( result == 240 )
     {
-      v21 = math_round(dword_11CFD8, dword_11CFDC);
-      v22 = sub_127BA4(v21);
+      v21 = parse_data_field(dword_11CFD8, dword_11CFDC);
+      v22 = aeabi_d2iz(v21);
       v23 = dword_11D010;
       *v1 = v4 & (v22 << 18) | *v1 & v5;
       v24 = (unsigned int *)off_11CFF4;
-      v25 = math_round(0, v23);
-      *v24 = dword_11CFF8 & (sub_127BA4(v25) << 20) | *v24 & 0xC00FFFFF;
+      v25 = parse_data_field(0, v23);
+      *v24 = dword_11CFF8 & (aeabi_d2iz(v25) << 20) | *v24 & 0xC00FFFFF;
     }
     else
     {
-      v7 = sub_12754C(result);
-      v8 = sub_127620(v7, HIDWORD(v7), dword_11CFD0, dword_11CFD4);
-      v9 = sub_127BE4(v8);
-      v10 = sub_127570(LODWORD(v9));
-      v11 = math_round(v10, HIDWORD(v10));
-      *v1 = v4 & (sub_127BA4(v11) << 18) | *v1 & v5;
+      v7 = aeabi_i2d(result);
+      v8 = aeabi_dadd(v7, HIDWORD(v7), dword_11CFD0, dword_11CFD4);
+      v9 = aeabi_dmul(v8);
+      v10 = aeabi_d2f(LODWORD(v9));
+      v11 = parse_data_field(v10, HIDWORD(v10));
+      *v1 = v4 & (aeabi_d2iz(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_11CFF4;
     *(uint32_t *)off_11CFEC = dword_11CFF0 & ((v6 * (uint16_t)(*(uint32_t *)off_11CFEC >> 8) / v2) << 8)

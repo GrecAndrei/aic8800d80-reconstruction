@@ -1,1 +1,1 @@
-{"fn": "sub_1203140", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203140", "status": "ok", "name": "mmio_reg_read_1203140", "params": [], "docstring": "MMIO register read from 0x40501000 offset 0x10", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1203140", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203140", "status": "ok", "name": "wait_for_hw_data", "params": [], "docstring": "MMIO register read from 0x40501000 offset 0x10", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sub_12250F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12250f4", "status": "ok", "name": "ke_elem_lookup_n_2bc", "params": [], "docstring": "Look up KE element by id+offset 0x6b, stride 0x2b8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12250F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12250f4", "status": "ok", "name": "link_env_get", "params": [], "docstring": "Look up KE element by id+offset 0x6b, stride 0x2b8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

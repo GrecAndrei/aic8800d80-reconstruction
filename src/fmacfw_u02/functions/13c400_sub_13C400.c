@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13C400 @ 0x13c400, size 34 bytes
-int  sub_13C400(int a1)
+// find_rates_ie @ 0x13c400, size 34 bytes
+int  find_rates_ie(int a1)
 {
   int v1; // r3
   int v2; // r1

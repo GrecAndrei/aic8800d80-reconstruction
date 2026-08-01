@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_416", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121174e", "status": "ok", "name": "rf_bus_write_n_416", "params": [], "docstring": "Write data over RF control bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_416", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121174e", "status": "ok", "name": "rf_bus_write2_n_4cd", "params": [], "docstring": "Write data over RF control bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

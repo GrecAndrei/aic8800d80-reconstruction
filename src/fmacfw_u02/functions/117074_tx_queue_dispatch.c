@@ -37,10 +37,10 @@ extern uint32_t off_11748C;
 extern uint32_t off_117490;
 extern uint32_t off_117494;
 
-// tx_queue_dispatch @ 0x117074, size 1016 bytes
-// Doc: tx_queue_dispatch [tx]: Dispatch handler selecting among 5 queue/state cases
-// tx_queue_dispatch [tx]: Dispatch handler selecting among 5 queue/state cases
-int  tx_queue_dispatch(int result)
+// phy_radio_switch @ 0x117074, size 1016 bytes
+// Doc: phy_radio_switch [tx]: Dispatch handler selecting among 5 queue/state cases
+// phy_radio_switch [tx]: Dispatch handler selecting among 5 queue/state cases
+int  phy_radio_switch(int result)
 {
   int v1; // r6
   char *v2; // r4
@@ -117,19 +117,19 @@ LABEL_9:
             LOWORD(v10) = *(uint16_t *)(v7 + 8);
             if ( (v10 & 0x20) == 0 )
             {
-              sub_11EBFC(result);
+              rf_irq_status_check(result);
               v29 = 4;
               while ( 1 )
               {
                 v10 = *(uint16_t *)(v7 + 8);
                 if ( (v10 & 0x20) != 0 )
                   break;
-                sub_11EBFC(v10 << 26);
+                rf_irq_status_check(v10 << 26);
                 if ( !--v29 )
                 {
                   v10 = *(uint16_t *)(v7 + 8);
                   if ( **(int16_t **)off_11746C < 0 && (v10 & 0x20) == 0 )
-                    return fmac_phy_op_handler(dword_117474, dword_117470, 1262, v10);
+                    return bad_func_0x12f408(dword_117474, dword_117470, 1262, v10);
                   goto LABEL_11;
                 }
               }
@@ -138,7 +138,7 @@ LABEL_9:
           else
           {
 LABEL_36:
-            rf_bus_mark_n100_d2d0(v2 + 28);
+            mem_word_load(v2 + 28);
             LOWORD(v10) = *(uint16_t *)(v7 + 8);
           }
           goto LABEL_11;
@@ -159,7 +159,7 @@ LABEL_36:
         && !*((uint8_t *)off_117498 + 511) )
       {
         v40 = *(uint32_t *)(v7 + 144);
-        sub_119EC8(v1);
+        rate_get_config(v1);
         v9 = v40;
         v8 = *(uint8_t *)(*v3 + 1);
       }
@@ -171,14 +171,14 @@ LABEL_31:
       LOWORD(v10) = *(uint16_t *)(v7 + 8);
       if ( (v10 & 0x20) == 0 )
       {
-        ((void (*)(void))sub_11EBFC)();
+        ((void (*)(void))rf_irq_status_check)();
         v22 = 4;
         while ( 1 )
         {
           v10 = *(uint16_t *)(v7 + 8);
           if ( (v10 & 0x20) != 0 )
             break;
-          sub_11EBFC(v10 << 26);
+          rf_irq_status_check(v10 << 26);
           if ( !--v22 )
           {
             LOWORD(v10) = *(uint16_t *)(v7 + 8);
@@ -191,7 +191,7 @@ LABEL_31:
 LABEL_11:
       v11 = *(uint32_t *)(dword_11734C + 4 * v1);
       *(uint16_t *)(v7 + 8) = v10 | 0x10;
-      result = irq_nesting_or_d104(v11);
+      result = unknown_func_12d104(v11);
       v12 = *v3;
       --v2[80];
       v2[26] = 0;
@@ -244,11 +244,11 @@ LABEL_14:
     if ( v16 >= 0 )
     {
       if ( (*(uint32_t *)(v14 + 36) & 0x380000) == 0x280000 )
-        return sub_11A8B0(*(uint32_t *)(v14 + 68) + 16, v1);
+        return get_hw_state(*(uint32_t *)(v14 + 68) + 16, v1);
       return result;
     }
     v15[1] = v16;
-    fmac_txpwr_table_lookup(v1);
+    get_channel_by_handle(v1);
     v17 = *(uint32_t *)(v14 + 36) & 0x200000;
     if ( !v17 )
     {
@@ -260,7 +260,7 @@ LABEL_14:
         {
           if ( **(int16_t **)off_11736C < 0 && !*(uint32_t *)(v18 + 8) )
           {
-            sub_12F46C(dword_117480, dword_117470, 1077);
+            mmio_clear_register(dword_117480, dword_117470, 1077);
             __und(0xFFu);
           }
           v17 = v15[4];
@@ -270,7 +270,7 @@ LABEL_14:
         {
           result = v17;
           if ( v17 )
-            result = sub_11A8B0(v17, v1);
+            result = get_hw_state(v17, v1);
           *(uint32_t *)(4 * v39) = *(uint32_t *)off_11747C + *(uint32_t *)(dword_117478 + 4 * v1);
           return result;
         }
@@ -278,13 +278,13 @@ LABEL_14:
       else
       {
         *(uint32_t *)v2 = 0;
-        rf_set_bit_flag(v1);
+        mmio_set_bit(v1);
         if ( v2[80] == 1
           && *((uint32_t *)v2 + 11)
           && !*(uint32_t *)(dword_117368 + 8 * (165 * *(uint8_t *)(*((uint32_t *)v2 + 12) + 28) + v1 + 154))
           && !*((uint8_t *)off_11733C + 511) )
         {
-          sub_119EC8(v1);
+          rate_get_config(v1);
         }
       }
     }
@@ -294,11 +294,11 @@ LABEL_14:
       if ( v20 <= 0x23 )
         *(uint32_t *)(dword_117350 + 696 * v20 + 664) = *((uint32_t *)off_117354 + 4);
     }
-    rf_bus_mark_n100_d2d0(v2 + 12);
+    mem_word_load(v2 + 12);
     if ( *(uint16_t *)(v14 + 4) )
-      sub_117F18(v14, v16, v1);
+      ipc_handler_register(v14, v16, v1);
     else
-      sub_118CE0(v14);
+      free_buf_1882c0(v14);
     v21 = *(uint32_t *)(v14 + 36);
     result = v21 << 10;
     if ( (v21 & 0x200000) != 0 )
@@ -307,7 +307,7 @@ LABEL_14:
       {
         *((uint32_t *)v2 + 9) = *(uint32_t *)(v14 + 68);
         v2[26] = 1;
-        result = irq_nesting_or_d104(512);
+        result = unknown_func_12d104(512);
       }
     }
     else

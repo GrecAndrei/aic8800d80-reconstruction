@@ -17,8 +17,8 @@ extern uint32_t off_102A10;
 extern uint32_t off_102A0C;
 extern uint32_t dword_102A20;
 
-// sub_102970 @ 0x102970, size 152 bytes
-int  sub_102970(uint16_t *a1, int a2)
+// check_boot_flag @ 0x102970, size 152 bytes
+int  check_boot_flag(uint16_t *a1, int a2)
 {
   uint8_t *v3; // r0
   int v4; // r1
@@ -55,9 +55,9 @@ int  sub_102970(uint16_t *a1, int a2)
       || *((uint16_t *)v3 + 21) != a1[3] )
     {
 LABEL_5:
-      sub_101EC0(*(uint8_t *)a1, v5, v6, *((uint8_t *)a1 + 1));
+      rf_calibrate_tx(*(uint8_t *)a1, v5, v6, *((uint8_t *)a1 + 1));
     }
-    if ( sub_12CD48(7) == 1 || sub_12CD48(6) == 3 )
+    if ( hci_cmd_handler(7) == 1 || hci_cmd_handler(6) == 3 )
     {
 LABEL_4:
       v5 = a1[1];
@@ -67,6 +67,6 @@ LABEL_4:
     v9 = dword_102A1C;
     v8 = dword_102A20;
   }
-  return sub_12E948(v8, v9, v7);
+  return alloc_tx_event(v8, v9, v7);
 }
 

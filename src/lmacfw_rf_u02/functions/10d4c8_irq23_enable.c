@@ -14,10 +14,10 @@ extern uint32_t off_10D4E0;
 extern uint32_t off_10D4DC;
 extern uint32_t off_10D4E4;
 
-// irq23_enable @ 0x10d4c8, size 20 bytes
-// Doc: irq23_enable [mmio]: Enable IRQ line 23 in interrupt controller
-// irq23_enable [mmio]: Enable IRQ line 23 in interrupt controller
-void irq23_enable()
+// panic_fatal @ 0x10d4c8, size 20 bytes
+// Doc: panic_fatal [mmio]: Enable IRQ line 23 in interrupt controller
+// panic_fatal [mmio]: Enable IRQ line 23 in interrupt controller
+void panic_fatal()
 {
   uint32_t *v0; // r3
 

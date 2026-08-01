@@ -15,8 +15,8 @@ extern uint32_t dword_136E3C;
 extern uint32_t dword_136E38;
 extern uint32_t dword_136E30;
 
-// sub_136CFC @ 0x136cfc, size 306 bytes
-int ** sub_136CFC(int a1, int a2, uint32_t *a3)
+// txpwr_process_config @ 0x136cfc, size 306 bytes
+int ** txpwr_process_config(int a1, int a2, uint32_t *a3)
 {
   int v3; // r7
   int v5; // r2
@@ -52,7 +52,7 @@ int ** sub_136CFC(int a1, int a2, uint32_t *a3)
   {
 LABEL_24:
     if ( **(int16_t **)off_136E34 < 0 )
-      sub_12F6C4(dword_136E3C, dword_136E38, 441);
+      mmio_field_update(dword_136E3C, dword_136E38, 441);
 LABEL_26:
     *a3 = 1;
     return 0;
@@ -68,7 +68,7 @@ LABEL_26:
       goto LABEL_24;
     v8 = (int **)*v8;
   }
-  bt_msg_handler_sub(a2 + 572, v12, v8);
+  check_abort_flag_4(a2 + 572, v12, v8);
   v13 = *(uint8_t *)(a2 + 54);
   if ( (v13 & 8) != 0 )
     v14 = 4;
@@ -99,11 +99,11 @@ LABEL_20:
     *((uint16_t *)v8[18] + 54) |= 0x2000u;
     return v8;
   }
-  v19 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+  v19 = bt_buf_alloc(65, 0, 5, 4u);
   *(uint16_t *)v19 = *(uint16_t *)(a2 + 32);
   *(uint8_t *)(v19 + 3) = *(uint8_t *)(a2 + 34);
   *(uint8_t *)(v19 + 2) = 0;
-  sub_12CBB4(v19);
+  hci_evt_send(v19);
   return v8;
 }
 

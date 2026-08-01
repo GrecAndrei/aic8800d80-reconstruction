@@ -13,8 +13,8 @@
 extern uint32_t dword_133C28;
 extern uint32_t dword_133C2C;
 
-// sub_133BE4 @ 0x133be4, size 66 bytes
-int  sub_133BE4(int a1, uint8_t *a2)
+// send_control_command @ 0x133be4, size 66 bytes
+int  send_control_command(int a1, uint8_t *a2)
 {
   int v2; // r4
   int result; // r0
@@ -22,8 +22,8 @@ int  sub_133BE4(int a1, uint8_t *a2)
   int v5; // r4
 
   v2 = *a2;
-  sub_12ECD0(256, dword_133C28);
-  result = sub_12CE88(6u);
+  check_status_bits(256, dword_133C28);
+  result = rx_rate_field_parse(6u);
   if ( result )
     return 2;
   v4 = dword_133C2C + 1320 * v2;
@@ -33,7 +33,7 @@ int  sub_133BE4(int a1, uint8_t *a2)
     result = *(uint8_t *)(v4 + 108);
     if ( *(uint8_t *)(v4 + 108) )
     {
-      sub_134D8C(v4, 1, *(uint8_t *)(v4 + 106));
+      bt_schedule_ack_timeout(v4, 1, *(uint8_t *)(v4 + 106));
       return v5;
     }
   }

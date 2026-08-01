@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1148C4 @ 0x1148c4, size 90 bytes
+// rf_cmd8_read @ 0x1148c4, size 90 bytes
 // Doc: rf_fault_dump_n1b4 [rf]: Logs/dumps RF fault status and returns code
 // rf_fault_dump_n1b4 [rf]: Logs/dumps RF fault status and returns code
-int  sub_1148C4(uint32_t *a1, unsigned int *a2)
+int  rf_cmd8_read(uint32_t *a1, unsigned int *a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r0

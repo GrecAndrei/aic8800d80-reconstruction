@@ -16,15 +16,15 @@ extern uint32_t dword_123018;
 extern uint32_t dword_123014;
 extern uint32_t dword_12300C;
 
-// rf_init_handler_0 @ 0x122fa4, size 104 bytes
-// Doc: rf_init_handler [rf]: RF initialization handler calling chip setup routine
-// rf_init_handler [rf]: RF initialization handler calling chip setup routine
-unsigned int  rf_init_handler_0(int a1, int a2)
+// lookup_entry @ 0x122fa4, size 104 bytes
+// Doc: pdu_type_init [rf]: RF initialization handler calling chip setup routine
+// pdu_type_init [rf]: RF initialization handler calling chip setup routine
+unsigned int  lookup_entry(int a1, int a2)
 {
   unsigned int v4; // r0
   unsigned int v5; // r4
 
-  v4 = sub_113B30();
+  v4 = rf_get_reg1_bit9();
   v5 = v4;
   if ( a1 )
   {
@@ -32,19 +32,19 @@ unsigned int  rf_init_handler_0(int a1, int a2)
     {
       if ( v4 )
       {
-        msg_parse(dword_123010);
+        dispatch_event_handler(dword_123010);
       }
       else
       {
-        msg_parse(dword_12301C, a2);
-        rf_fault_dump_n_b2(__ROR4__(a2, 16));
-        rf_cmd_status_get_n1c0();
+        dispatch_event_handler(dword_12301C, a2);
+        mmio_write_reg2(__ROR4__(a2, 16));
+        rf_set_reg1_bit9();
       }
-      return __ROR4__(rf_helper_sub_n_3b78(), 16);
+      return __ROR4__(rf_get_reg2(), 16);
     }
     else
     {
-      msg_parse(dword_123018);
+      dispatch_event_handler(dword_123018);
       return 0;
     }
   }
@@ -52,12 +52,12 @@ unsigned int  rf_init_handler_0(int a1, int a2)
   {
     if ( v4 )
     {
-      v5 = __ROR4__(rf_helper_sub_n_3b78(), 16);
-      msg_parse(dword_123014, v5);
+      v5 = __ROR4__(rf_get_reg2(), 16);
+      dispatch_event_handler(dword_123014, v5);
     }
     else
     {
-      msg_parse(dword_12300C);
+      dispatch_event_handler(dword_12300C);
     }
     return v5;
   }

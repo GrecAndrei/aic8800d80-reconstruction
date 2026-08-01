@@ -14,8 +14,8 @@ extern uint32_t off_11E128;
 extern uint32_t dword_11E12C;
 extern uint32_t dword_11E124;
 
-// sub_11E090 @ 0x11e090, size 148 bytes
-int  sub_11E090(int result, int a2, int a3, int a4)
+// ptr_is_null @ 0x11e090, size 148 bytes
+int  ptr_is_null(int result, int a2, int a3, int a4)
 {
   int v4; // r7
   int16_t **v5; // r10
@@ -73,7 +73,7 @@ int  sub_11E090(int result, int a2, int a3, int a4)
       v9 = (uint16_t)(v9 + result);
       if ( **v5 < 0 && !v4 )
       {
-        sub_12F32C(v6, v7, 1189);
+        irq_disable_mmio_write(v6, v7, 1189);
         v7 = dword_11E124;
       }
       result = v12;

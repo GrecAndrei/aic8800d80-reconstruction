@@ -14,10 +14,10 @@ extern uint32_t off_10EE74;
 extern uint32_t off_10EE78;
 extern uint32_t off_10EE7C;
 
-// sub_10EE2C @ 0x10ee2c, size 70 bytes
+// mmio_rmw32 @ 0x10ee2c, size 70 bytes
 // Doc: rf_reg_write_increment [rf]: RF register write core incrementing sequence counter
 // rf_reg_write_increment [rf]: RF register write core incrementing sequence counter
-int  sub_10EE2C(int a1, int a2, int a3, int a4)
+int  mmio_rmw32(int a1, int a2, int a3, int a4)
 {
   int *v4; // r5
   uint32_t *v5; // r4
@@ -37,12 +37,12 @@ int  sub_10EE2C(int a1, int a2, int a3, int a4)
     v5 = off_10EE7C;
     while ( !*(uint32_t *)off_10EE7C )
       ;
-    result = sub_10ED7C();
+    result = call_ptr_1b8();
     *v5 = 1;
   }
   else
   {
-    result = sub_10ED7C();
+    result = call_ptr_1b8();
   }
   if ( *v4 )
   {

@@ -12,14 +12,14 @@
 
 extern uint32_t dword_12348C;
 
-// sub_12343C @ 0x12343c, size 80 bytes
-int  sub_12343C(int a1, uint8_t *a2)
+// ke_send_msg_54 @ 0x12343c, size 80 bytes
+int  ke_send_msg_54(int a1, uint8_t *a2)
 {
   uint8_t *v3; // r0
   uint8_t *v4; // r4
   unsigned int v5; // r0
 
-  v3 = (uint8_t *)sub_12C7EC(84, 13, 0, 1);
+  v3 = (uint8_t *)tx_send_pdu(84, 13, 0, 1);
   *v3 = 1;
   v4 = v3;
   v5 = *a2;
@@ -28,13 +28,13 @@ int  sub_12343C(int a1, uint8_t *a2)
   *v4 = 0;
   if ( a2[1] )
   {
-    sub_12A3E8();
+    lll_conn_phy_get();
 LABEL_5:
-    sub_12C84C(v4);
+    rx_process_packet(v4);
     return 0;
   }
-  sub_12A424();
-  sub_12C84C(v4);
+  lll_conn_phy_ld_get();
+  rx_process_packet(v4);
   return 0;
 }
 

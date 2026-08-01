@@ -17,8 +17,8 @@ extern uint32_t off_123018;
 extern uint32_t off_123014;
 extern uint32_t off_12300C;
 
-// sub_122F40 @ 0x122f40, size 196 bytes
-int  sub_122F40(int a1, int a2, int a3, int a4)
+// rf_calib_table_lookup @ 0x122f40, size 196 bytes
+int  rf_calib_table_lookup(int a1, int a2, int a3, int a4)
 {
   unsigned int v4; // r4
   int v5; // r6
@@ -53,7 +53,7 @@ int  sub_122F40(int a1, int a2, int a3, int a4)
       *(uint32_t *)off_123010 = v7;
       v13 = a3;
       v16 = v8;
-      sub_120368();
+      get_mac_ver();
       a3 = v13;
       v8 = v16;
     }
@@ -69,7 +69,7 @@ int  sub_122F40(int a1, int a2, int a3, int a4)
       {
         *(uint32_t *)off_123018 = v9;
         v14 = a3;
-        sub_120368();
+        get_mac_ver();
         a3 = v14;
         v8 = a4;
       }
@@ -80,13 +80,13 @@ int  sub_122F40(int a1, int a2, int a3, int a4)
         else
           *(uint32_t *)off_12300C = v9;
         v12 = a3;
-        sub_120368();
+        get_mac_ver();
         a3 = v12;
         v8 = a4;
       }
     }
   }
-  sub_12C8D0(27, v8, a3);
+  mac_write_header_word(27, v8, a3);
   return 0;
 }
 

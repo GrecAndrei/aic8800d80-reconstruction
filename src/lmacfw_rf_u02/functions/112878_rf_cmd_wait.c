@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_cmd_wait @ 0x112878, size 126 bytes
+// critical_section_enter @ 0x112878, size 126 bytes
 // Doc: rf_stream_start [rf]: Start RF stream, init control byte and config word
 // rf_stream_start [rf]: Start RF stream, init control byte and config word
-void rf_cmd_wait()
+void critical_section_enter()
 {
   int *v0; // r4
   int v1; // r2

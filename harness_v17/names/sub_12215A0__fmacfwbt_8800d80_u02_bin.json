@@ -1,1 +1,1 @@
-{"fn": "sub_12215A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12215a0", "status": "ok", "name": "sub_12215A0", "params": [], "docstring": "Indexed table accessor (likely per-instance struct init by index)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12215A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12215a0", "status": "ok", "name": "rf_set_channel", "params": [], "docstring": "Indexed table accessor (likely per-instance struct init by index)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

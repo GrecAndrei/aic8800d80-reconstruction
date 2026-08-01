@@ -1,1 +1,1 @@
-{"fn": "crypto_hw_enable", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202b00", "status": "ok", "name": "crypto_hw_enable", "params": [], "docstring": "Enable hardware crypto engine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_hw_enable", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202b00", "status": "ok", "name": "set_radio_ctrl_bits", "params": [], "docstring": "Enable hardware crypto engine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

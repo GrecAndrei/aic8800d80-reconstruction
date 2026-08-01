@@ -32,8 +32,8 @@ extern uint32_t dword_1300BC;
 extern uint32_t off_130098;
 extern uint32_t dword_13009C;
 
-// sub_12FF00 @ 0x12ff00, size 362 bytes
-int  sub_12FF00(int a1, int a2)
+// l2cap_pdu_check @ 0x12ff00, size 362 bytes
+int  l2cap_pdu_check(int a1, int a2)
 {
   uint8_t *v3; // r6
   unsigned int v4; // r6
@@ -60,22 +60,22 @@ int  sub_12FF00(int a1, int a2)
   uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
   char v27; // [sp+Ch] [bp-8h]
 
-  if ( sub_143F00(*(uint32_t *)(a2 + 4)) != 12 || sub_143F00(*(uint32_t *)(a2 + 8)) != 12 )
+  if ( memmove(*(uint32_t *)(a2 + 4)) != 12 || memmove(*(uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(uint8_t **)(a2 + 4);
-  sub_14380C(v26, v3 + 8, 4);
+  memcpy_aligned(v26, v3 + 8, 4);
   v3[8] = 0;
   v27 = 0;
-  v4 = sub_12FB74(v3, 0, 0x10u);
-  v5 = sub_12FB74(v26, 0, 0x10u);
+  v4 = parse_integer(v3, 0, 0x10u);
+  v5 = parse_integer(v26, 0, 0x10u);
   v6 = *(uint8_t **)(a2 + 8);
   v7 = v5;
-  sub_14380C(v26, v6 + 8, 4);
+  memcpy_aligned(v26, v6 + 8, 4);
   v6[8] = 0;
   v27 = 0;
-  v8 = sub_12FB74(v6, 0, 0x10u);
-  LOWORD(v6) = sub_12FB74(v26, 0, 0x10u);
-  sub_12ECB0(dword_13006C);
+  v8 = parse_integer(v6, 0, 0x10u);
+  LOWORD(v6) = parse_integer(v26, 0, 0x10u);
+  ke_event_schedule(dword_13006C);
   v9 = off_130074;
   v10 = off_130078;
   v11 = off_1300A0;
@@ -120,7 +120,7 @@ int  sub_12FF00(int a1, int a2)
   *(uint32_t *)&v20[-148] = v23;
   v24 = dword_13009C;
   *v21 = v22;
-  sub_12ECB0(v24, v4, v7, v8, (uint16_t)v6);
+  ke_event_schedule(v24, v4, v7, v8, (uint16_t)v6);
   return 0;
 }
 

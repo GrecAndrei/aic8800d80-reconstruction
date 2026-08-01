@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DE40 @ 0x12de40, size 32 bytes
-uint8_t * sub_12DE40(uint8_t *a1, int a2)
+// emit_percent_12de40 @ 0x12de40, size 32 bytes
+uint8_t * emit_percent_12de40(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   uint16_t v3[3]; // [sp+6h] [bp-6h] BYREF
 
-  result = sub_12D6EC(a1, a2, 37, v3);
+  result = range_overflow_check(a1, a2, 37, v3);
   if ( result )
   {
     if ( v3[0] != 4 )

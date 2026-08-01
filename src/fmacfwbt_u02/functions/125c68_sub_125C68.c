@@ -15,10 +15,10 @@ extern uint32_t dword_125CB8;
 extern uint32_t dword_125CAC;
 extern uint32_t dword_125CB0;
 
-// sub_125C68 @ 0x125c68, size 66 bytes
+// timer_process @ 0x125c68, size 66 bytes
 // Doc: sub_1225C68 [util]: Initializes a data structure from global tables
 // sub_1225C68 [util]: Initializes a data structure from global tables
-int  sub_125C68(int a1)
+int  timer_process(int a1)
 {
   int v2; // r0
   uint8_t *v3; // r2
@@ -37,7 +37,7 @@ int  sub_125C68(int a1)
   v7 = *(uint8_t *)(v5 + 107);
   *((uint8_t *)off_125CB4 + 9) = 1;
   v3[10] = 0;
-  sub_14380C(v6 + 108, v4 + (v7 << 9), *(uint16_t *)(a1 + 4));
-  return sub_125C04(v5, 0, v8, v9);
+  memcpy_aligned(v6 + 108, v4 + (v7 << 9), *(uint16_t *)(a1 + 4));
+  return ke_event_send(v5, 0, v8, v9);
 }
 

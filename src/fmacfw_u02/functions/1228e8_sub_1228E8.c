@@ -12,8 +12,8 @@
 
 extern uint32_t off_12292C;
 
-// sub_1228E8 @ 0x1228e8, size 66 bytes
-int sub_1228E8()
+// get_phy_channel @ 0x1228e8, size 66 bytes
+int get_phy_channel()
 {
   int *v0; // r2
   int result; // r0

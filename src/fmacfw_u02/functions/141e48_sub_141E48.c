@@ -13,8 +13,8 @@
 extern uint32_t dword_141ECC;
 extern uint32_t off_141ED0;
 
-// sub_141E48 @ 0x141e48, size 130 bytes
-uint8_t * sub_141E48(int a1)
+// timeout_handler @ 0x141e48, size 130 bytes
+uint8_t * timeout_handler(int a1)
 {
   int v2; // r5
   int16_t v3; // r3
@@ -27,7 +27,7 @@ uint8_t * sub_141E48(int a1)
   unsigned uint64_t v10; // r0
 
   v2 = *(uint8_t *)(a1 + 47);
-  sub_124E34(a1 + 52);
+  fault_handler(a1 + 52);
   v3 = *(uint16_t *)a1;
   v4 = dword_141ECC;
   result = off_141ED0;
@@ -42,13 +42,13 @@ uint8_t * sub_141E48(int a1)
     for ( i = 1; ; i = (uint8_t)(i + 1) )
     {
       v9 = v7 - *(uint64_t *)(v6 + 40);
-      LODWORD(v10) = sub_12BE40();
+      LODWORD(v10) = util_unknown();
       if ( v9 >= v10 )
         break;
       v7 = *(uint64_t *)(a1 + 24) + *(unsigned int *)(a1 + 16);
       *(uint64_t *)(a1 + 24) = v7;
     }
-    return (uint8_t *)sub_141D4C(a1, i);
+    return (uint8_t *)ll_rx_window_calc(a1, i);
   }
   return result;
 }

@@ -15,8 +15,8 @@ extern uint32_t off_11F588;
 extern uint32_t dword_11F58C;
 extern uint32_t dword_11F590;
 
-// sub_11F504 @ 0x11f504, size 128 bytes
-int sub_11F504(int result, ...)
+// dispatch_event_handler @ 0x11f504, size 128 bytes
+int dispatch_event_handler(int result, ...)
 {
   uint32_t *v1; // r6
   uint8_t *v2; // r4
@@ -49,7 +49,7 @@ int sub_11F504(int result, ...)
       if ( v6 > 0x89 )
       {
         if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
-          result = sub_1219C4(v5, v4, 812);
+          result = flash_ctrl_init(v5, v4, 812);
         if ( v1[1] <= v6 - 154 )
           return result;
       }
@@ -60,7 +60,7 @@ int sub_11F504(int result, ...)
       result = (int)v2;
     }
     while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return sub_10D6A8(result, (int)varg_r1);
+    return hci_cmd_init(result, (int)varg_r1);
   }
   return result;
 }

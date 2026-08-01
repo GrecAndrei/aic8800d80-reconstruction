@@ -1,1 +1,1 @@
-{"fn": "sub_123BEF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123bef8", "status": "ok", "name": "sub_123BEF8", "params": [], "docstring": "Indexed table lookup/handler dispatch using 32-byte stride entries", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BEF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123bef8", "status": "ok", "name": "rf_get_chan_param", "params": [], "docstring": "Indexed table lookup/handler dispatch using 32-byte stride entries", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

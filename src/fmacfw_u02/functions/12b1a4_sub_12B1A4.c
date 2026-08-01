@@ -16,10 +16,10 @@ extern uint32_t dword_12B26C;
 extern uint32_t off_12B274;
 extern uint32_t dword_12B270;
 
-// sub_12B1A4 @ 0x12b1a4, size 192 bytes
+// ke_timer_setup @ 0x12b1a4, size 192 bytes
 // Doc: sub_122B1A4 [unknown]: Unknown function at 0x122B1A4
 // sub_122B1A4 [unknown]: Unknown function at 0x122B1A4
-int sub_12B1A4()
+int ke_timer_setup()
 {
   uint32_t *v0; // r6
   int v1; // r7
@@ -48,7 +48,7 @@ int sub_12B1A4()
   }
   else
   {
-    v5 = mac_check_msg_id_0x96c((uint16_t *)(*(uint32_t *)off_12B264 + 6 * *((uint8_t *)off_12B264 + 10)));
+    v5 = ke_msg_handler_lookup((uint16_t *)(*(uint32_t *)off_12B264 + 6 * *((uint8_t *)off_12B264 + 10)));
     if ( !v5 )
     {
       v5 = 30000;
@@ -58,7 +58,7 @@ int sub_12B1A4()
   if ( (v4 & 1) == 0 && *((uint8_t *)off_12B274 + 3850) == 1 )
     v5 += 170000;
 LABEL_4:
-  sub_127AD0((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
+  wlc_check_chip_ready((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
   v6 = v0[1];
   if ( v6 )
   {
@@ -78,13 +78,13 @@ LABEL_4:
         if ( v8 == 2484 )
         {
           *(uint8_t *)(v6 + 2) = 14;
-          return sub_12CD34(2);
+          return rx_phy_status_parse(2);
         }
         LOBYTE(v7) = (unsigned int)(((unsigned int)dword_12B270 * (unsigned uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2;
       }
       *(uint8_t *)(v6 + 2) = v7;
     }
   }
-  return sub_12CD34(2);
+  return rx_phy_status_parse(2);
 }
 

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1182F0;
 
-// sub_1182C8 @ 0x1182c8, size 40 bytes
-int  sub_1182C8(int result)
+// check_link_id @ 0x1182c8, size 40 bytes
+int  check_link_id(int result)
 {
   int v1; // r4
   int v2; // r5
@@ -25,7 +25,7 @@ int  sub_1182C8(int result)
   do
   {
     if ( *(uint8_t *)(v1 + 32) == *(uint8_t *)(v2 + 95) )
-      result = sub_117D6C(v2, v1, 0);
+      result = rx_queue_flush(v2, v1, 0);
     v1 += 152;
   }
   while ( v3 != v1 );

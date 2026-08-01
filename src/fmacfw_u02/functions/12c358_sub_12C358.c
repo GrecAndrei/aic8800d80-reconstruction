@@ -19,8 +19,8 @@ extern uint32_t dword_12C420;
 extern uint32_t dword_12C41C;
 extern uint32_t dword_40021000;
 
-// sub_12C358 @ 0x12c358, size 178 bytes
-int  sub_12C358(int a1)
+// rf_set_channel @ 0x12c358, size 178 bytes
+int  rf_set_channel(int a1)
 {
   int v1; // r5
   int *v3; // r7
@@ -35,9 +35,9 @@ int  sub_12C358(int a1)
 
   v1 = *(uint8_t *)(dword_12C40C + a1);
   if ( a1 )
-    clear_flags(0x40000000);
+    unknown_func_12d14c(0x40000000);
   else
-    clear_flags(1024);
+    unknown_func_12d14c(1024);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -47,7 +47,7 @@ int  sub_12C358(int a1)
   v4 = dword_12C424;
   v5 = dword_12C424 + 8 * a1;
   ++*(uint32_t *)off_12C414;
-  v6 = rf_bus_mark_n100_d2d0(v5);
+  v6 = mem_word_load(v5);
   v7 = v6;
   if ( *v3 && (v8 = *v3 - 1, v9 = *(uint32_t *)off_12C410, (*v3 = v8) == 0) && v9 )
   {
@@ -60,7 +60,7 @@ int  sub_12C358(int a1)
     goto LABEL_8;
   }
   if ( !v6 )
-    sub_12F46C(dword_12C420, dword_12C41C, 190);
+    mmio_clear_register(dword_12C420, dword_12C41C, 190);
 LABEL_8:
   v10 = *(void ( **)(uint32_t, int))(v7 + 8);
   if ( v10 )

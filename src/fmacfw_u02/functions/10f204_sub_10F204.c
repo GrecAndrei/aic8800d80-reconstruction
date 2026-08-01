@@ -13,8 +13,8 @@
 extern uint32_t off_10F250;
 extern uint32_t off_10F254;
 
-// sub_10F204 @ 0x10f204, size 74 bytes
-void __noreturn sub_10F204()
+// rf_copy_stats @ 0x10f204, size 74 bytes
+void __noreturn rf_copy_stats()
 {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -37,6 +37,6 @@ void __noreturn sub_10F204()
   *((uint32_t *)v2 + 2) = v4;
   *(uint64_t *)(v2 + 12) = v3;
   *((uint32_t *)v2 + 5) = v5;
-  phy_rf_init();
+  init_radio_hw();
 }
 

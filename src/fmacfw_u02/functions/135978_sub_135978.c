@@ -15,8 +15,8 @@ extern uint32_t dword_1359FC;
 extern uint32_t dword_1359F8;
 extern uint32_t dword_1359F4;
 
-// sub_135978 @ 0x135978, size 120 bytes
-int  sub_135978(char a1, int a2, unsigned int a3)
+// bt_send_ack_message @ 0x135978, size 120 bytes
+int  bt_send_ack_message(char a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int v6; // r0
@@ -27,7 +27,7 @@ int  sub_135978(char a1, int a2, unsigned int a3)
   unsigned int v11; // r4
 
   v3 = a3;
-  v6 = sub_12C92C(6152, 13, 6, (uint16_t)(a3 + 4));
+  v6 = ke_msg_alloc(6152, 13, 6, (uint16_t)(a3 + 4));
   v7 = (int16_t **)off_1359F0;
   *(uint8_t *)v6 = a1;
   v8 = *v7;
@@ -35,8 +35,8 @@ int  sub_135978(char a1, int a2, unsigned int a3)
   v9 = v6;
   if ( *v8 < 0 )
   {
-    if ( v3 >= sub_12F654() - 4 )
-      sub_12F46C(dword_1359FC, dword_1359F8, 1444);
+    if ( v3 >= get_dma_ring_bytes() - 4 )
+      mmio_clear_register(dword_1359FC, dword_1359F8, 1444);
     v3 = *(uint16_t *)(v9 + 2);
   }
   if ( v3 )
@@ -50,8 +50,8 @@ int  sub_135978(char a1, int a2, unsigned int a3)
     }
     while ( v10 != v11 );
   }
-  sub_12CD34(6u, 7);
-  sub_12C5E4(6154, 6, dword_1359F4);
-  return sub_12C98C(v9);
+  rx_phy_status_parse(6u, 7);
+  ke_task_create(6154, 6, dword_1359F4);
+  return ke_msg_send(v9);
 }
 

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215436", "status": "ok", "name": "patch_apply_n_b2", "params": [], "docstring": "Apply a 4-byte patch block from patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215436", "status": "ok", "name": "patch_apply_block", "params": [], "docstring": "Apply a 4-byte patch block from patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -15,8 +15,8 @@ extern uint32_t dword_141E3C;
 extern uint32_t off_141E44;
 extern uint32_t dword_141E40;
 
-// sub_141DD0 @ 0x141dd0, size 102 bytes
-int  sub_141DD0(int a1)
+// timer_start @ 0x141dd0, size 102 bytes
+int  timer_start(int a1)
 {
   int v1; // r2
   int v3; // r3
@@ -34,7 +34,7 @@ int  sub_141DD0(int a1)
   *(uint32_t *)(a1 + 56) = dword_141E3C;
   *(uint64_t *)(a1 + 24) = v4;
   v5 = *(uint8_t *)(a1 + 47);
-  sub_124D3C(a1 + 52, v3 + v1);
+  unknown_worker(a1 + 52, v3 + v1);
   v6 = off_141E44;
   v7 = dword_141E40 + 1320 * v5;
   v8 = *(uint16_t *)a1 | 8;

@@ -13,8 +13,8 @@
 extern uint32_t dword_11BABC;
 extern uint32_t off_11BAB8;
 
-// sub_11BA74 @ 0x11ba74, size 68 bytes
-int  sub_11BA74(int a1, int a2)
+// get_conn_by_channel @ 0x11ba74, size 68 bytes
+int  get_conn_by_channel(int a1, int a2)
 {
   int v2; // r6
   int v3; // r5
@@ -23,8 +23,8 @@ int  sub_11BA74(int a1, int a2)
 
   v2 = dword_11BABC;
   v3 = *((uint8_t *)off_11BAB8 + 190);
-  sub_12D190(dword_11BABC + 84 * v3 + 12);
-  result = sub_117DD8(a1, a2, v3);
+  list_pop(dword_11BABC + 84 * v3 + 12);
+  result = register_handler(a1, a2, v3);
   if ( (*(uint32_t *)(a1 + 36) & 0x380000) == 0x380000 )
   {
     v6 = v2 + 84 * v3;

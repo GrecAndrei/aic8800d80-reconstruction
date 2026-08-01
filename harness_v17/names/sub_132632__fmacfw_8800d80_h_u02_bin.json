@@ -1,0 +1,1 @@
+{"fn": "sub_132632", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x132632", "status": "ok", "name": "status_code_switch", "params": [], "docstring": "Returns status code chosen from a constant table.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -12,9 +12,9 @@
 
 extern uint32_t dword_114570;
 
-// sub_114568 @ 0x114568, size 6 bytes
-int  sub_114568(int a1, int a2, int a3)
+// get_global_167204 @ 0x114568, size 6 bytes
+int  get_global_167204(int a1, int a2, int a3)
 {
-  return sub_12EA88(dword_114570, a2, a3);
+  return event_dispatch(dword_114570, a2, a3);
 }
 

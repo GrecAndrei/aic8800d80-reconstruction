@@ -1,1 +1,1 @@
-{"fn": "sub_1214318", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214318", "status": "ok", "name": "rf_init_or_config_n_318", "params": [], "docstring": "RF subsystem initialization/configuration handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214318", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214318", "status": "ok", "name": "ke_task_handler", "params": [], "docstring": "RF subsystem initialization/configuration handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

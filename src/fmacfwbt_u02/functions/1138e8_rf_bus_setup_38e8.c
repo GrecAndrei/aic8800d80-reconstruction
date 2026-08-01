@@ -12,10 +12,10 @@
 
 extern uint32_t off_1138F8;
 
-// rf_bus_setup_38e8 @ 0x1138e8, size 16 bytes
-// Doc: rf_bus_setup_38e8 [rf]: Initializes RF bus addresses from globals
-// rf_bus_setup_38e8 [rf]: Initializes RF bus addresses from globals
-BOOL rf_bus_setup_38e8()
+// is_rf_calib_running @ 0x1138e8, size 16 bytes
+// Doc: is_rf_calib_running [rf]: Initializes RF bus addresses from globals
+// is_rf_calib_running [rf]: Initializes RF bus addresses from globals
+BOOL is_rf_calib_running()
 {
   return *((uint8_t *)off_1138F8 + 8) == 1;
 }

@@ -17,8 +17,8 @@ extern uint32_t off_140E2C;
 extern uint32_t dword_140E34;
 extern uint32_t dword_140E30;
 
-// sub_140C88 @ 0x140c88, size 408 bytes
-int  sub_140C88(int a1, int a2)
+// timer_start @ 0x140c88, size 408 bytes
+int  timer_start(int a1, int a2)
 {
   int v3; // r5
   int v4; // r7
@@ -41,30 +41,30 @@ int  sub_140C88(int a1, int a2)
   if ( a2 )
   {
     v3 = dword_140E24;
-    bt_xtal_init_check((uint32_t *)dword_140E20);
+    zero_struct((uint32_t *)dword_140E20);
     v4 = v3 + 6336;
     do
     {
       *(uint16_t *)(v3 - 2) = 0;
       v5 = (int *)v3;
       v3 += 528;
-      memset_thunk(v5, 0, 6u);
+      memset_byte(v5, 0, 6u);
     }
     while ( v4 != v3 );
-    LODWORD(v6) = sub_12C068();
+    LODWORD(v6) = ke_critical_enter();
     *(uint64_t *)(a1 + 40) = v6;
     *(uint32_t *)(a1 + 96) = 0;
   }
   v7 = dword_140E28;
   v8 = dword_140E20;
 LABEL_6:
-  while ( msg_get_value(0xBu) == 1 )
+  while ( hci_cmd_send_short(0xBu) == 1 )
   {
     v9 = dword_140E28;
     v10 = dword_140E28 + 6336;
     do
     {
-      while ( *(uint16_t *)(v9 + 4) != 1 || !sub_140C14((uint16_t *)(v9 + 6), v9 + 28, a1) )
+      while ( *(uint16_t *)(v9 + 4) != 1 || !process_adv_report((uint16_t *)(v9 + 6), v9 + 28, a1) )
       {
         v9 += 528;
         if ( v9 == v10 )
@@ -75,7 +75,7 @@ LABEL_6:
       *(uint8_t *)(v9 + 22) = 0;
       *(uint16_t *)(v9 + 4) = 2;
       v9 += 528;
-      list_push_tail(v8, v11);
+      check_abort_flag(v8, v11);
     }
     while ( v9 != v10 );
 LABEL_12:
@@ -84,23 +84,23 @@ LABEL_12:
     *(uint32_t *)(a1 + 96) = v13;
     if ( v13 >= v12 )
     {
-      if ( **(int16_t **)off_140E2C < 0 && sub_1405AC() )
+      if ( **(int16_t **)off_140E2C < 0 && is_controller_ready() )
       {
         if ( *(uint32_t *)(a1 + 92) )
-          sub_12F694(dword_140E34, dword_140E30, 1585);
+          mmio_irq_clear(dword_140E34, dword_140E30, 1585);
       }
-      rf_bus_mark_n_3b7(0xBu, 2);
-      return bt_chan_state_check_n_4b80(a1, 0);
+      hci_cmd_send(0xBu, 2);
+      return check_scan_enable(a1, 0);
     }
-    rf_bus_mark_n_3b7(0xBu, 3);
-    if ( !sub_1405AC() )
-      return bt_chan_state_check_n_4b80(a1, 0);
+    hci_cmd_send(0xBu, 3);
+    if ( !is_controller_ready() )
+      return check_scan_enable(a1, 0);
   }
-  rf_bus_mark_n_3b7(0xBu, 1);
+  hci_cmd_send(0xBu, 1);
   v14 = *(uint32_t *)(a1 + 96);
   while ( 1 )
   {
-    v16 = sub_132460((char *)*(uint8_t *)(a1 + 100), *(uint8_t *)(v14 + a1 + 102));
+    v16 = rf_channel_to_freq((char *)*(uint8_t *)(a1 + 100), *(uint8_t *)(v14 + a1 + 102));
     v17 = v16;
     if ( v16 )
     {
@@ -113,7 +113,7 @@ LABEL_12:
     if ( v14 >= v15 )
       goto LABEL_6;
   }
-  v18 = rf_bus_setup_n3a8(4096, 4, 11, 0x178u);
+  v18 = bt_buf_alloc(4096, 4, 11, 0x178u);
   *(uint32_t *)v18 = *(uint32_t *)v17;
   *(uint16_t *)(v18 + 4) = *((uint16_t *)v17 + 2);
   if ( !*(uint8_t *)(a1 + 3) )
@@ -121,13 +121,13 @@ LABEL_12:
   *(uint8_t *)(v18 + 367) = 1;
   v19 = *(uint8_t *)(a1 + 58);
   *(uint8_t *)(v18 + 252) = v19;
-  sub_14380C(v18 + 253, a1 + 59, v19);
+  memcpy_aligned(v18 + 253, a1 + 59, v19);
   *(uint8_t *)(v18 + 368) = 1;
   *(uint16_t *)(v18 + 352) = *(uint16_t *)(a1 + 52);
   *(uint16_t *)(v18 + 354) = *(uint16_t *)(a1 + 54);
   *(uint16_t *)(v18 + 356) = *(uint16_t *)(a1 + 56);
   *(uint8_t *)(v18 + 366) = *(uint8_t *)(v7 + 6489);
   *(uint32_t *)(v18 + 372) = *(uint16_t *)(a1 + 48) << 10;
-  return sub_12CBB4(v18);
+  return hci_evt_send(v18);
 }
 

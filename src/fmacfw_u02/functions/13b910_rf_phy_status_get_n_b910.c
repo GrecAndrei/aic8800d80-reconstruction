@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_phy_status_get_n_b910 @ 0x13b910, size 68 bytes
-// Doc: rf_phy_status_get_n_b910 [rf]: Read PHY state byte at offset 0x106 and check mode 2
-// rf_phy_status_get_n_b910 [rf]: Read PHY state byte at offset 0x106 and check mode 2
-int  rf_phy_status_get_n_b910(int a1)
+// adv_pdu_rx_handler @ 0x13b910, size 68 bytes
+// Doc: adv_pdu_rx_handler [rf]: Read PHY state byte at offset 0x106 and check mode 2
+// adv_pdu_rx_handler [rf]: Read PHY state byte at offset 0x106 and check mode 2
+int  adv_pdu_rx_handler(int a1)
 {
   int v1; // r3
   int v2; // r6

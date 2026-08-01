@@ -17,10 +17,10 @@ extern uint32_t off_11DA6C;
 extern uint32_t off_11DA60;
 extern uint32_t dword_11DA64;
 
-// mem_buf_alloc_n_c30 @ 0x11d9a4, size 180 bytes
-// Doc: mem_buf_alloc_n_c30 [util]: Allocate 2MB buffer and initialize linked list node
-// mem_buf_alloc_n_c30 [util]: Allocate 2MB buffer and initialize linked list node
-int mem_buf_alloc_n_c30()
+// mac_wait_scan @ 0x11d9a4, size 180 bytes
+// Doc: mac_wait_scan [util]: Allocate 2MB buffer and initialize linked list node
+// mac_wait_scan [util]: Allocate 2MB buffer and initialize linked list node
+int mac_wait_scan()
 {
   int *v0; // r6
   int v1; // r4
@@ -36,7 +36,7 @@ int mem_buf_alloc_n_c30()
 
   v0 = (int *)off_11DA58;
   v1 = *(uint32_t *)off_11DA58;
-  result = clear_flags(0x200000);
+  result = unknown_func_12d14c(0x200000);
   if ( v1 )
   {
     v3 = off_11DA5C;
@@ -48,7 +48,7 @@ int mem_buf_alloc_n_c30()
       {
         if ( (*(uint8_t *)(v1 + 16) & 1) == 0 && !*v3 )
           break;
-        rf_bus_mark_n100_d2d0(v0);
+        mem_word_load(v0);
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();
@@ -64,7 +64,7 @@ int mem_buf_alloc_n_c30()
           v7(*(uint32_t *)(v1 + 8));
         result = *(uint32_t *)(v1 + 12);
         if ( result )
-          result = sub_11E0B4();
+          result = radio_get_status();
         if ( *v5 )
         {
           v8 = *v5 - 1;
@@ -82,8 +82,8 @@ int mem_buf_alloc_n_c30()
       v10 = off_11DA60;
       if ( *((uint8_t *)off_11DA60 + 69) )
       {
-        irq_nesting_or_d104(0x80000);
-        result = feature_guard_check(1024, dword_11DA64);
+        unknown_func_12d104(0x80000);
+        result = check_status_bits(1024, dword_11DA64);
         v10[69] = 0;
       }
     }

@@ -1,1 +1,1 @@
-{"fn": "sub_121A2E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121a2e8", "status": "ok", "name": "crypto_ke_ctx_init_n_38", "params": [], "docstring": "Initialize key exchange / crypto context (zero ctx, set 0x100 size)", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121A2E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121a2e8", "status": "ok", "name": "tx_queue_init", "params": [], "docstring": "Initialize key exchange / crypto context (zero ctx, set 0x100 size)", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

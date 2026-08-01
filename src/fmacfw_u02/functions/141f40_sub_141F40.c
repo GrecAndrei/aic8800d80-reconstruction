@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_141F40 @ 0x141f40, size 160 bytes
+// tx_packet_build @ 0x141f40, size 160 bytes
 // Doc: sub_1241F40 [unknown]: Parse 2-byte header then process 4-tuple of args
 // sub_1241F40 [unknown]: Parse 2-byte header then process 4-tuple of args
-int  sub_141F40(int a1, int a2, int a3, int a4)
+int  tx_packet_build(int a1, int a2, int a3, int a4)
 {
   int v6; // r0
   int v7; // r1
@@ -26,7 +26,7 @@ int  sub_141F40(int a1, int a2, int a3, int a4)
   uint64_t v14; // r2
   int v16; // [sp+Ch] [bp-8h] BYREF
 
-  v6 = sub_141B70((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
+  v6 = ke_event_handler((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
   v7 = *(uint32_t *)(v16 + 72) + 108;
   *(uint8_t *)(v7 + v6) = -40;
   v8 = v7 + v6;
@@ -49,6 +49,6 @@ int  sub_141F40(int a1, int a2, int a3, int a4)
   LODWORD(v14) = *(uint32_t *)(v13 + 28) - 1 + HIDWORD(v14);
   HIDWORD(v14) += 4;
   *(uint64_t *)(v13 + 32) = v14;
-  return rf_param_get_status(v12, 3);
+  return tx_path_status(v12, 3);
 }
 

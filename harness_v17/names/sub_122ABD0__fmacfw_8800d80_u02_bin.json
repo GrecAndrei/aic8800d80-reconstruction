@@ -1,1 +1,1 @@
-{"fn": "sub_122ABD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122abd0", "status": "ok", "name": "rf_chan_info_copy_n_2d0", "params": [], "docstring": "Copy RF channel/band info from indexed entry to output buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122ABD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122abd0", "status": "ok", "name": "rf_calib_params_get", "params": [], "docstring": "Copy RF channel/band info from indexed entry to output buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

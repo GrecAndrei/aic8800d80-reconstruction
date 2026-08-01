@@ -15,8 +15,8 @@ extern uint32_t off_10CDC8;
 extern uint32_t off_10CDCC;
 extern uint32_t off_10CDD0;
 
-// sub_10CD94 @ 0x10cd94, size 48 bytes
-int sub_10CD94()
+// interrupt_wait @ 0x10cd94, size 48 bytes
+int interrupt_wait()
 {
   uint32_t *v0; // r4
   int *v1; // r7
@@ -33,11 +33,11 @@ int sub_10CD94()
     {
       v3 = *v1;
       *v2 = 2;
-      sub_10CCB0((uint16_t *)(v3 + 4));
+      scan_report_alloc((uint16_t *)(v3 + 4));
     }
     while ( (*v0 & 2) != 0 );
   }
-  result = sub_12D14C(0x8000000);
+  result = unknown_func_12d14c(0x8000000);
   *(uint32_t *)off_10CDD0 = 2;
   return result;
 }

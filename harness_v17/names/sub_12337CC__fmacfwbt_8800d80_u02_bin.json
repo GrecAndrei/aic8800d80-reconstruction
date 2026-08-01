@@ -1,1 +1,1 @@
-{"fn": "sub_12337CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12337cc", "status": "ok", "name": "xtea_block_decrypt", "params": [], "docstring": "XTEA-style block cipher round (XOR + ROR15 key schedule)", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12337CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12337cc", "status": "ok", "name": "hash_mix_words", "params": [], "docstring": "XTEA-style block cipher round (XOR + ROR15 key schedule)", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

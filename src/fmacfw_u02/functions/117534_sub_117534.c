@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_117534 @ 0x117534, size 48 bytes
-int  sub_117534(int a1)
+// dma_rx_setup @ 0x117534, size 48 bytes
+int  dma_rx_setup(int a1)
 {
   int v1; // r4
   int v2; // r5
@@ -25,8 +25,8 @@ int  sub_117534(int a1)
   {
     v3 = (uint8_t)v2;
     v5 = (uint8_t)v2++;
-    sub_118940(v3, v1, 0);
-    result = sub_118940(v5, v1 - 40, 0);
+    rf_tx_setup(v3, v1, 0);
+    result = rf_tx_setup(v5, v1 - 40, 0);
     v1 += 8;
   }
   while ( v2 != 5 );

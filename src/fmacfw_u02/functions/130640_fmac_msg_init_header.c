@@ -13,10 +13,10 @@
 extern uint32_t off_1306B8;
 extern uint32_t dword_1306BC;
 
-// fmac_msg_init_header @ 0x130640, size 120 bytes
-// Doc: fmac_msg_init_header [ipc]: Initialize IPC message header with type/length fields
-// fmac_msg_init_header [ipc]: Initialize IPC message header with type/length fields
-int  fmac_msg_init_header(int *a1)
+// format_mac_address @ 0x130640, size 120 bytes
+// Doc: format_mac_address [ipc]: Initialize IPC message header with type/length fields
+// format_mac_address [ipc]: Initialize IPC message header with type/length fields
+int  format_mac_address(int *a1)
 {
   char *v1; // r4
   int16_t v2; // r3

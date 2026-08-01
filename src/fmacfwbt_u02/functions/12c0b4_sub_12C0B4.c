@@ -30,10 +30,10 @@ extern uint32_t dword_12C208;
 extern uint32_t dword_12C204;
 extern uint32_t dword_12C1F0;
 
-// sub_12C0B4 @ 0x12c0b4, size 280 bytes
+// power_state_read @ 0x12c0b4, size 280 bytes
 // Doc: sub_122C0B4 [mmio]: Copy MMIO register value from 0x40328084 to 0x40328088
 // sub_122C0B4 [mmio]: Copy MMIO register value from 0x40328084 to 0x40328088
-int  sub_12C0B4(int a1, int a2)
+int  power_state_read(int a1, int a2)
 {
   void *v2; // r2
   int v3; // r4
@@ -54,7 +54,7 @@ int  sub_12C0B4(int a1, int a2)
   result = v3 << 21;
   if ( (v3 & 0x400) != 0 )
   {
-    sub_12ECB0(dword_12C1E8, a2, v2);
+    ke_event_schedule(dword_12C1E8, a2, v2);
     while ( 1 )
       ;
   }
@@ -65,29 +65,29 @@ int  sub_12C0B4(int a1, int a2)
     if ( (v3 & 0x200) == 0 )
       goto LABEL_4;
 LABEL_13:
-    sub_12ECB0(dword_12C1E4, v5, v6);
+    ke_event_schedule(dword_12C1E4, v5, v6);
     while ( 1 )
       ;
   }
-  result = bt_flag_get();
+  result = seq_count_restart();
   v6 = v3 << 22;
   if ( (v3 & 0x200) != 0 )
     goto LABEL_13;
 LABEL_4:
   if ( (v3 & 0x10) != 0 )
   {
-    patch_sub_1217374(4);
-    result = sub_1178DC(4);
+    mmio_set_bit(4);
+    result = conn_get(4);
   }
   if ( (v3 & 0x2F) != 0 )
   {
     if ( *(uint8_t *)off_12C1D4 )
     {
       v11 = (char *)off_12C1F8;
-      rf_power_set(*((uint8_t *)off_12C1F8 + 411));
+      write_mmio_byte(*((uint8_t *)off_12C1F8 + 411));
       v12 = v11[411];
       *((uint8_t *)off_12C1FC + 9) = v12;
-      return sub_12ECB0(dword_12C200, v12, v13);
+      return ke_event_schedule(dword_12C200, v12, v13);
     }
     if ( *(uint8_t *)off_12C1D8 )
     {
@@ -152,7 +152,7 @@ LABEL_4:
         }
       }
     }
-    return sub_12F630(v9, v8, v10, v7);
+    return ke_int_lock(v9, v8, v10, v7);
   }
   return result;
 }

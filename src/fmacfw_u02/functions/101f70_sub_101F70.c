@@ -15,13 +15,13 @@ extern uint32_t dword_1022B8;
 extern uint32_t off_1022C0;
 extern uint32_t dword_1022C4;
 
-// sub_101F70 @ 0x101f70, size 2412 bytes
-void  __noreturn sub_101F70(int a1, int a2, int a3, int a4)
+// tx_packet_handler @ 0x101f70, size 2412 bytes
+void  __noreturn tx_packet_handler(int a1, int a2, int a3, int a4)
 {
-  msg_parse(dword_1022BC, dword_1022B8, a1);
+  event_dispatch(dword_1022BC, dword_1022B8, a1);
   if ( **(uint8_t **)off_1022C0 != 3 )
-    feature_guard_check(4, dword_1022C4);
-  variant_update_cache(a4);
-  rf_cmd_queue_next_n_d4();
+    check_status_bits(4, dword_1022C4);
+  update_status_byte(a4);
+  variadic_call_1006d8();
 }
 

@@ -16,8 +16,8 @@ extern uint32_t dword_11C148;
 extern uint32_t off_11C14C;
 extern uint32_t off_11C154;
 
-// sub_11C01C @ 0x11c01c, size 296 bytes
-int  sub_11C01C(int result)
+// bt_link_tx_check @ 0x11c01c, size 296 bytes
+int  bt_link_tx_check(int result)
 {
   uint32_t *v1; // r5
   int v2; // r4
@@ -47,35 +47,35 @@ int  sub_11C01C(int result)
   if ( (*(uint8_t *)(result + 85) & 4) != 0 )
     *(uint8_t *)(result + 85) &= ~4u;
   if ( !v3 || *(uint32_t *)(v3 + 12) != result + 76 )
-    return rf_cal_or_init_handler(result, *(uint32_t *)(result + 36), 0);
+    return rf_event_dispatch(result, *(uint32_t *)(result + 36), 0);
   v6 = *(uint32_t *)(result + 80);
   v7 = *(uint32_t *)(result + 36);
   if ( v6 - v7 >= 0 )
     goto LABEL_14;
-  if ( v7 - 4000 - v6 - sub_101A20() >= 0 )
+  if ( v7 - 4000 - v6 - os_get_tick_hz() >= 0 )
   {
     v7 = *(uint32_t *)(v2 + 36);
     v6 = *(uint32_t *)(v2 + 80);
 LABEL_14:
-    if ( v7 - v6 >= 0 || v6 - 4000 - v7 - sub_101A20() >= 0 )
+    if ( v7 - v6 >= 0 || v6 - 4000 - v7 - os_get_tick_hz() >= 0 )
     {
-      rf_init_or_query();
-      rf_cal_or_init_handler(v2, *(uint32_t *)(v2 + 36), 0);
-      return sub_11B088(v2, *((uint32_t *)off_11C150 + 4), 0);
+      rx_buffer_alloc();
+      rf_event_dispatch(v2, *(uint32_t *)(v2 + 36), 0);
+      return rf_calibrate(v2, *((uint32_t *)off_11C150 + 4), 0);
     }
   }
   v8 = *(uint32_t *)(v2 + 36);
   *(uint32_t *)(v2 + 80) = v8;
-  result = sub_101A20();
+  result = os_get_tick_hz();
   if ( v8 - *(uint32_t *)(v3 + 4) - result - 4000 < 0 )
   {
     v9 = *(uint32_t *)(v2 + 80);
-    result = sub_101A20();
+    result = os_get_tick_hz();
     v10 = v1[18];
     *(uint32_t *)(v3 + 4) = v9 - 4000 - result;
     if ( v10 == v3 )
     {
-      timestamp_remove(dword_11C148);
+      ke_exit_critical(dword_11C148);
       v1[18] = v3;
       if ( (__get_CPSR() & 1) == 0 )
       {
@@ -90,7 +90,7 @@ LABEL_14:
       *(uint32_t *)off_11C154 = v15;
       if ( v14 - 64 >= 0 )
       {
-        result = sub_11AB18(dword_11C148, v12);
+        result = ke_enter_critical(dword_11C148, v12);
         if ( *v11 )
         {
           v4 = *v11 - 1;

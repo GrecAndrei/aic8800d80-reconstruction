@@ -22,8 +22,8 @@ extern uint32_t dword_11C348;
 extern uint32_t dword_11C338;
 extern uint32_t dword_11C330;
 
-// sub_11C254 @ 0x11c254, size 208 bytes
-unsigned int  sub_11C254(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a5, int *a6)
+// phy_rate_to_index @ 0x11c254, size 208 bytes
+unsigned int  phy_rate_to_index(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a5, int *a6)
 {
   unsigned int v6; // r4
   int v7; // r8
@@ -56,13 +56,13 @@ unsigned int  sub_11C254(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a
     {
       if ( v11 )
       {
-        sub_12F32C(dword_11C34C, dword_11C334, 2707);
+        irq_disable_mmio_write(dword_11C34C, dword_11C334, 2707);
         if ( **v16 >= 0 )
           goto LABEL_3;
         v8 = *a6;
       }
       if ( v8 != 1 )
-        sub_12F32C(dword_11C344, dword_11C334, 2709);
+        irq_disable_mmio_write(dword_11C344, dword_11C334, 2709);
     }
   }
   else
@@ -74,10 +74,10 @@ unsigned int  sub_11C254(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a
     *a4 = dword_11C32C;
     if ( v14 < 0 )
     {
-      if ( (v10 & 4) == 0 || (sub_12F32C(dword_11C348, dword_11C334, 2717), **v12 < 0) )
+      if ( (v10 & 4) == 0 || (irq_disable_mmio_write(dword_11C348, dword_11C334, 2717), **v12 < 0) )
       {
         if ( v11 > 0xB )
-          sub_12F32C(dword_11C338, dword_11C334, 2718);
+          irq_disable_mmio_write(dword_11C338, dword_11C334, 2718);
       }
     }
   }

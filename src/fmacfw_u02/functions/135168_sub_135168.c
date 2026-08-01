@@ -22,8 +22,8 @@ extern uint32_t dword_135358;
 extern uint32_t dword_135350;
 extern uint32_t off_13534C;
 
-// sub_135168 @ 0x135168, size 462 bytes
-void  sub_135168(
+// bt_get_profile_by_id @ 0x135168, size 462 bytes
+void  bt_get_profile_by_id(
         int a1,
         char *a2,
         int a3,
@@ -77,25 +77,25 @@ void  sub_135168(
   v16 = *(uint8_t *)(v15 + 61);
   v17 = (uint8_t *)(dword_13533C + 1320 * v16);
   v20 = v17[116];
-  feature_guard_check(256, dword_135344, dword_135340);
+  check_status_bits(256, dword_135344, dword_135340);
   if ( !v17[1224] )
   {
     v21 = v17[412];
     if ( v17[412] )
       v21 = 1;
-    v25 = sub_118C44(v21, 512);
+    v25 = ke_mutex_guard(v21, 512);
     if ( v25 )
       goto LABEL_5;
 LABEL_10:
-    sub_134E04(1, v22, v23, v24, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+    bt_setup_conn_profile(1, v22, v23, v24, a5, a6, a7, a8, a9, a10, a11, a12, a13);
     return;
   }
-  v25 = sub_118C44(1, 512);
+  v25 = ke_mutex_guard(1, 512);
   if ( !v25 )
     goto LABEL_10;
 LABEL_5:
   v26 = v14 + 1320 * v16;
-  sub_12C4E8(v26, v25);
+  rf_check_temperature(v26, v25);
   v27 = *(uint32_t *)(v25 + 72);
   v28 = off_135360;
   v29 = dword_135348 + 696 * v20;
@@ -126,7 +126,7 @@ LABEL_5:
   v35 = v27 + 108;
   if ( v34 == 1 && a1 == 3 )
   {
-    fmac_main_loop_0a0(v25, v27 + 108, 24);
+    ll_conn_window_calc(v25, v27 + 108, 24);
     LOWORD(v34) = *(uint8_t *)(v15 + 59);
     v36 = *(uint8_t *)(v25 + 51) + 24;
   }
@@ -134,14 +134,14 @@ LABEL_5:
   {
     v36 = 24;
   }
-  v37 = v36 + sub_130804(v35 + v36, v34, a1, 0, a2);
+  v37 = v36 + pack_4_uint16(v35 + v36, v34, a1, 0, a2);
   if ( *(uint8_t *)(v15 + 59) == 2 )
   {
     v41 = *(uint16_t *)(v15 + 54);
     if ( 512 - v37 < v41 )
     {
       if ( **(int16_t **)off_135354 < 0 )
-        sub_12F49C(dword_13535C, dword_135358, 1015);
+        call_shared_handler(dword_13535C, dword_135358, 1015);
     }
     else
     {
@@ -169,9 +169,9 @@ LABEL_5:
   v38[9] = v40 + 4;
   *(uint32_t *)(v25 + 88) = v39;
   *(uint32_t *)(v25 + 92) = v25;
-  rf_param_get_status(v25, 5);
+  tx_path_status(v25, 5);
   v13[34] = 1;
-  timer_set_relative(6154, 6, v46);
-  sub_12CD34(6u, 5);
+  ke_task_create(6154, 6, v46);
+  rx_phy_status_parse(6u, 5);
 }
 

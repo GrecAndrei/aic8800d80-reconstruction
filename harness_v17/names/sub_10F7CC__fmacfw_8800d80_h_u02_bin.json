@@ -1,0 +1,1 @@
+{"fn": "sub_10F7CC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10f7cc", "status": "ok", "name": "ipc_send_command", "params": [], "docstring": "Send IPC command 0x40d with parameters", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

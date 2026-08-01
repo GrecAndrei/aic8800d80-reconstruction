@@ -13,12 +13,12 @@
 extern uint32_t dword_12EE64;
 extern uint32_t off_12EE68;
 
-// sub_12EE38 @ 0x12ee38, size 42 bytes
-int  sub_12EE38(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// bt_global_op_0x16acb4 @ 0x12ee38, size 42 bytes
+int  bt_global_op_0x16acb4(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
-  sub_12E948(dword_12EE64, *a2);
+  alloc_tx_event(dword_12EE64, *a2);
   *((uint32_t *)off_12EE68 + 1) = *a2;
-  sub_12C8D0(1031, a4, a3);
+  mac_write_header_word(1031, a4, a3);
   return 0;
 }
 

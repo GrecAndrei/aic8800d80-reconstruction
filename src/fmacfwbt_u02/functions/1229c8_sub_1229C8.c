@@ -17,10 +17,10 @@ extern uint32_t off_122AB0;
 extern uint32_t off_122AA8;
 extern uint32_t dword_122AB4;
 
-// sub_1229C8 @ 0x1229c8, size 214 bytes
+// bt_state_flags_check @ 0x1229c8, size 214 bytes
 // Doc: sub_12229D4 [unknown]: Generic helper function
 // sub_12229D4 [unknown]: Generic helper function
-char * sub_1229C8(char *result)
+char * bt_state_flags_check(char *result)
 {
   int v1; // r4
   int v2; // r6
@@ -40,20 +40,20 @@ char * sub_1229C8(char *result)
       v9 = (uint8_t)(result[146] - 1);
       result[146] = v9;
       if ( v9 <= 1 )
-        return (char *)ipc_msg_alloc((int)result);
+        return (char *)alloc_buffer((int)result);
       if ( v9 == 2 )
-        sub_122810(result[107], 0);
+        mmio_write_phy(result[107], 0);
     }
     v2 = *(uint32_t *)(v1 + 36);
     v3 = *(uint32_t *)(dword_122AA0 + 696 * *(uint8_t *)(v1 + 116) + 8) + v2;
     if ( v1 != *((uint32_t *)off_122AA4 + 8)
       || (v8 = off_122AAC, *(uint32_t *)(v1 + 36) = v3, !v8[189]) && **(uint8_t **)off_122AB0 != 2 )
     {
-      timestamp_update_4f60(v1 + 24, v3);
+      ke_event_lock(v1 + 24, v3);
     }
-    mmio_reg_write_helper(v1);
-    sub_12A4A8(v1, *(uint32_t *)(v1 + 136) + v2);
-    result = (char *)sub_128160(v1, v2, v3);
+    wlc_bmac_write_shm(v1);
+    bt_conn_event_process(v1, *(uint32_t *)(v1 + 136) + v2);
+    result = (char *)hci_command_handler(v1, v2, v3);
     if ( !result )
     {
       v4 = (uint8_t)(*(uint8_t *)(v1 + 128) + 1);
@@ -64,11 +64,11 @@ char * sub_1229C8(char *result)
       v7 = *v6;
       if ( v4 > v7 )
       {
-        return (char *)sub_1194CC(*(uint8_t *)(v1 + 116), dword_122AB4, v1);
+        return (char *)phy_channel_validate(*(uint8_t *)(v1 + 116), dword_122AB4, v1);
       }
       else if ( v4 == v7 )
       {
-        return (char *)bt_hci_cmd_dispatch(v1);
+        return (char *)bt_power_state(v1);
       }
     }
   }

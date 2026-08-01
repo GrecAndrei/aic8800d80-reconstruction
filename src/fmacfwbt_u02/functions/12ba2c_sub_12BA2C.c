@@ -22,8 +22,8 @@ extern uint32_t off_12BABC;
 extern uint32_t off_12BAAC;
 extern uint32_t off_12BAC4;
 
-// sub_12BA2C @ 0x12ba2c, size 120 bytes
-int sub_12BA2C()
+// rf_check_clk_state @ 0x12ba2c, size 120 bytes
+int rf_check_clk_state()
 {
   uint32_t *v0; // r1
   int v1; // r6
@@ -39,7 +39,7 @@ int sub_12BA2C()
   int v11; // r3
 
   if ( **(int16_t **)off_12BAA4 < 0 && !(*(uint32_t *)off_12BAC0 << 28) )
-    return sub_12F630(dword_12BACC, dword_12BAC8, 213, *(uint32_t *)off_12BAC0);
+    return ke_int_lock(dword_12BACC, dword_12BAC8, 213, *(uint32_t *)off_12BAC0);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();

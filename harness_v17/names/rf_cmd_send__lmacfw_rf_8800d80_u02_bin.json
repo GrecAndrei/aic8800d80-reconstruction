@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212918", "status": "ok", "name": "rf_cmd_send_2918", "params": [], "docstring": "Send RF command with type check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_cmd_send", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212918", "status": "ok", "name": "wait_radio_state", "params": [], "docstring": "Send RF command with type check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

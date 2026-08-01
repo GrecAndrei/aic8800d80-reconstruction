@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11E7AC @ 0x11e7ac, size 22 bytes
+// list_pop_front @ 0x11e7ac, size 22 bytes
 // Doc: sdio_buffer_prepare_n_402 [mac]: Copy and clear SDIO buffer descriptor
 // sdio_buffer_prepare_n_402 [mac]: Copy and clear SDIO buffer descriptor
-uint32_t * sub_11E7AC(int a1)
+uint32_t * list_pop_front(int a1)
 {
   uint32_t *v1; // r3
   uint32_t *v2; // r2

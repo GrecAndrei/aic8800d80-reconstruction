@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12FC48 @ 0x12fc48, size 50 bytes
-int  sub_12FC48(int a1)
+// has_dot_extension @ 0x12fc48, size 50 bytes
+int  has_dot_extension(int a1)
 {
   int v2; // r0
   int v3; // r0
   int v5; // r3
 
-  v2 = sub_143F00(a1);
+  v2 = memmove(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;

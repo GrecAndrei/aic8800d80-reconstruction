@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// buf_ptr_deref_n_430 @ 0x12d430, size 48 bytes
-// Doc: buf_ptr_deref_n_430 [util]: Dereference buffer pointer chain
-// buf_ptr_deref_n_430 [util]: Dereference buffer pointer chain
-uint32_t * buf_ptr_deref_n_430(uint32_t *result, uint32_t *a2)
+// list_next @ 0x12d430, size 48 bytes
+// Doc: list_next [util]: Dereference buffer pointer chain
+// list_next [util]: Dereference buffer pointer chain
+uint32_t * list_next(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v3; // r1
   uint32_t *v4; // r2

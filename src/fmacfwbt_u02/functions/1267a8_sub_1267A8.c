@@ -16,8 +16,8 @@ extern uint32_t dword_12692C;
 extern uint32_t dword_126930;
 extern uint32_t dword_126928;
 
-// sub_1267A8 @ 0x1267a8, size 378 bytes
-int  sub_1267A8(int a1, int a2, int a3)
+// scan_adv_report @ 0x1267a8, size 378 bytes
+int  scan_adv_report(int a1, int a2, int a3)
 {
   uint32_t *v3; // r10
   int v4; // r5
@@ -52,10 +52,10 @@ int  sub_1267A8(int a1, int a2, int a3)
       break;
     v15 = (uint32_t *)v3[9];
     v16 = v15[1];
-    v17 = v16 + 4000 + sub_10186C();
+    v17 = v16 + 4000 + return_1000();
     if ( v8 != v15[2] )
     {
-      v17 += 4000 + sub_10186C();
+      v17 += 4000 + return_1000();
       if ( v15[3] )
         v17 += 10000;
     }
@@ -66,7 +66,7 @@ LABEL_18:
     v11 = 0;
 LABEL_20:
     if ( *(uint8_t *)(a1 + 1224) && *(uint8_t *)(dword_12692C + 140 * *(uint8_t *)(a1 + 1225) + 112) == 1 )
-      sub_126698(a1, a2, v11);
+      rx_packet_handler(a1, a2, v11);
     v19 = *(uint8_t *)(a1 + 106);
     if ( *(uint8_t *)(a1 + 106) )
     {
@@ -88,7 +88,7 @@ LABEL_20:
 LABEL_30:
       if ( (*(uint8_t *)(a1 + 85) & 1) != 0 )
       {
-        sub_12D510(dword_126928, v7);
+        check_abort_flag_3(dword_126928, v7);
         *(uint8_t *)(a1 + 85) &= ~1u;
       }
     }
@@ -97,12 +97,12 @@ LABEL_30:
   if ( v9 && v8 != v9 )
   {
     v22 = v3[21];
-    v18 = (unsigned int)(a2 - v22 - 4000 - sub_10186C()) >> 31;
+    v18 = (unsigned int)(a2 - v22 - 4000 - return_1000()) >> 31;
     goto LABEL_18;
   }
 LABEL_5:
   *(uint32_t *)(a1 + 80) = a2;
-  v10 = sub_10186C();
+  v10 = return_1000();
   v11 = v3[4];
   v12 = a2 + 13999 + v10;
   if ( v11 )
@@ -117,7 +117,7 @@ LABEL_5:
                                                                                     * *(uint8_t *)(v11 + 8)
                                                                                     + 72) )
       {
-        if ( sub_125FEC(v7, v11) )
+        if ( get_time_delta(v7, v11) )
           goto LABEL_20;
         v13 = *(uint32_t *)(v11 + 4);
       }
@@ -133,7 +133,7 @@ LABEL_5:
 LABEL_33:
     v11 = 0;
   }
-  result = sub_12D62C(dword_126928, v11, v7);
+  result = list_find_prev(dword_126928, v11, v7);
   *(uint8_t *)(a1 + 85) |= 1u;
   return result;
 }

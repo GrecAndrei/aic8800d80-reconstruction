@@ -15,10 +15,10 @@ extern uint32_t off_1139B0;
 extern uint32_t off_1139B8;
 extern uint32_t dword_1139C0;
 
-// log_free_pool_f_904 @ 0x113904, size 156 bytes
+// assert_fault @ 0x113904, size 156 bytes
 // Doc: rf_msg_handler_0x2f0 [ipc]: RF message body handler for message id 0x2f0
 // rf_msg_handler_0x2f0 [ipc]: RF message body handler for message id 0x2f0
-void log_free_pool_f_904()
+void assert_fault()
 {
   int *v0; // r4
   int v1; // r0
@@ -37,7 +37,7 @@ void log_free_pool_f_904()
   v0 = (int *)off_1139A4;
   v1 = rf_cmd_queue_next_n4f4;
   ++*(uint32_t *)off_1139A4;
-  list_push_tail(v1);
+  cmd_handler_a(v1);
   v2 = off_1139B0;
   v3 = *(uint8_t *)off_1139B0;
   v4 = *(uint16_t *)rf_cmd_queue_next + 1;
@@ -50,11 +50,11 @@ void log_free_pool_f_904()
       *((uint32_t *)rf_msg_process_body_n_28c + 512) &= ~0x2000u;
     else
       *((uint32_t *)rf_msg_process_body_n_28c + 713) &= ~1u;
-    hw_event_flag_20fc(1);
-    event_queue_push(1069, 1);
-    feature_guard_check(512, dword_1139C0);
+    state_check_4_b(1);
+    ke_int_lock(1069, 1);
+    check_status_bits(512, dword_1139C0);
     if ( !*(uint8_t *)rf_cmd_process_n46c )
-      log_flush();
+      read_state_flag();
   }
   if ( *v0 )
   {

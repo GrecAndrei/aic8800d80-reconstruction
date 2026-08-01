@@ -15,10 +15,10 @@ extern uint32_t off_113804;
 extern uint32_t off_113808;
 extern uint32_t off_11380C;
 
-// log_free_pool_e @ 0x1137b8, size 72 bytes
-// Doc: log_free_pool_e [util]: Frees a logging buffer pool entry
-// log_free_pool_e [util]: Frees a logging buffer pool entry
-int log_free_pool_e()
+// enter_critical_section @ 0x1137b8, size 72 bytes
+// Doc: enter_critical_section [util]: Frees a logging buffer pool entry
+// enter_critical_section [util]: Frees a logging buffer pool entry
+int enter_critical_section()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -36,7 +36,7 @@ int log_free_pool_e()
   ++*(uint32_t *)off_113804;
   while ( !*v1 )
     ;
-  result = list_push_tail(*(uint32_t *)off_11380C + 580);
+  result = check_kernel_state(*(uint32_t *)off_11380C + 580);
   *v1 = 1;
   if ( *v0 )
   {

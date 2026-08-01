@@ -12,8 +12,8 @@
 
 extern uint32_t off_132100;
 
-// sub_1320BC @ 0x1320bc, size 66 bytes
-char * sub_1320BC(int a1, int a2)
+// is_adv_enabled @ 0x1320bc, size 66 bytes
+char * is_adv_enabled(int a1, int a2)
 {
   char *result; // r0
   char *v3; // r3

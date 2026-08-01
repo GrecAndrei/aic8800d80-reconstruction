@@ -21,8 +21,8 @@ extern uint32_t off_1040E4;
 extern uint32_t off_1040E8;
 extern uint32_t dword_1040EC;
 
-// sub_103FF0 @ 0x103ff0, size 214 bytes
-uint32_t *sub_103FF0()
+// mac_irq_handler @ 0x103ff0, size 214 bytes
+uint32_t *mac_irq_handler()
 {
   unsigned int *v0; // r4
   unsigned int *v1; // r0
@@ -48,7 +48,7 @@ uint32_t *sub_103FF0()
   v0 -= 136;
   *v4 |= 0x2000000u;
   *v0 &= ~0x20000u;
-  sub_100644(2);
+  timer_set(2);
   v6 = off_1040E0;
   result = off_1040E4;
   v8 = off_1040E8;

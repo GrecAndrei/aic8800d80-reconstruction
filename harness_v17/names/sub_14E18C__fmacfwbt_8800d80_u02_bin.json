@@ -1,0 +1,1 @@
+{"fn": "sub_14E18C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14e18c", "status": "ok", "name": "empty_isr_alt", "params": [], "docstring": "Alternate no-op interrupt stub", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

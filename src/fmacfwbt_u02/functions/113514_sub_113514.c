@@ -23,8 +23,8 @@ extern uint32_t dword_11365C;
 extern uint32_t dword_113660;
 extern uint32_t dword_113668;
 
-// sub_113514 @ 0x113514, size 294 bytes
-void sub_113514()
+// bt_ctrl_main_task @ 0x113514, size 294 bytes
+void bt_ctrl_main_task()
 {
   uint8_t *v0; // r5
   int v1; // r0
@@ -46,14 +46,14 @@ void sub_113514()
   {
     if ( !*(uint16_t *)off_113648 )
     {
-      sub_12EEF8(512, dword_113664);
+      state_check_feature(512, dword_113664);
       return;
     }
     if ( *(uint8_t *)off_113644 >= (unsigned int)*(uint16_t *)off_113648 )
     {
       v13 = dword_113650;
       *(uint8_t *)off_113640 = 1;
-      sub_12EEF8(512, v13);
+      state_check_feature(512, v13);
     }
   }
   else
@@ -63,7 +63,7 @@ void sub_113514()
     if ( *(uint8_t *)off_113644 >= (unsigned int)*(uint16_t *)off_113648 && !*(uint8_t *)off_113640 )
     {
       *(uint8_t *)off_113640 = 1;
-      sub_12EEF8(512, dword_113650);
+      state_check_feature(512, dword_113650);
       return;
     }
   }
@@ -78,20 +78,20 @@ void sub_113514()
       v5 = *(uint32_t *)off_113658;
       v6 = *(uint32_t *)off_11366C + v1;
       if ( *(uint8_t *)off_113640 )
-        v7 = sub_11324C(v6, v5);
+        v7 = global_env_init_params(v6, v5);
       else
-        v7 = sub_1131AC(v6, v5);
+        v7 = global_env_init(v6, v5);
     }
     else
     {
       v3 = off_11366C;
       v4 = (unsigned int *)off_113658;
-      v7 = sub_1131AC(*(uint32_t *)off_11366C + v1, *(uint32_t *)off_113658);
+      v7 = global_env_init(*(uint32_t *)off_11366C + v1, *(uint32_t *)off_113658);
     }
     if ( v7 )
     {
       v8 = off_113640;
-      sub_10DA7C(dword_11365C, v7);
+      printf_wrapper(dword_11365C, v7);
       v9 = 5;
       while ( 1 )
       {
@@ -99,19 +99,19 @@ void sub_113514()
         {
           v10 = *v4;
           v11 = (int)v2 + *v3;
-          v12 = *v8 ? sub_11324C(v11, v10) : sub_1131AC(v11, v10);
+          v12 = *v8 ? global_env_init_params(v11, v10) : global_env_init(v11, v10);
         }
         else
         {
-          v12 = sub_1131AC((int)v2 + *v3, *v4);
+          v12 = global_env_init((int)v2 + *v3, *v4);
         }
         if ( !v12 )
           break;
         if ( !--v9 )
         {
-          sub_10DA7C(dword_113660, 5);
-          sub_10FE60(v2);
-          sub_12D32C(32);
+          printf_wrapper(dword_113660, 5);
+          memory_pool_free(v2);
+          set_system_flag_1(32);
           return;
         }
       }
@@ -119,8 +119,8 @@ void sub_113514()
   }
   else
   {
-    sub_12D32C(32);
-    sub_10DA7C(dword_113668);
+    set_system_flag_1(32);
+    printf_wrapper(dword_113668);
   }
 }
 

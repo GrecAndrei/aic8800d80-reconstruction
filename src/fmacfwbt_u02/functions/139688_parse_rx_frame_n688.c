@@ -26,10 +26,10 @@ extern uint32_t dword_139968;
 extern uint32_t dword_139B44;
 extern uint32_t off_13995C;
 
-// parse_rx_frame_n688 @ 0x139688, size 1192 bytes
-// Doc: parse_rx_frame_n688 [rx]: Parses received frame with type-tagged header (0xff sentinel)
-// parse_rx_frame_n688 [rx]: Parses received frame with type-tagged header (0xff sentinel)
-int  parse_rx_frame_n688(char a1, int a2, int a3, int a4, uint8_t *a5, unsigned int a6, uint16_t *a7, uint8_t *a8)
+// rf_cal_config @ 0x139688, size 1192 bytes
+// Doc: rf_cal_config [rx]: Parses received frame with type-tagged header (0xff sentinel)
+// rf_cal_config [rx]: Parses received frame with type-tagged header (0xff sentinel)
+int  rf_cal_config(char a1, int a2, int a3, int a4, uint8_t *a5, unsigned int a6, uint16_t *a7, uint8_t *a8)
 {
   int v9; // r12
   unsigned int v11; // r5
@@ -77,7 +77,7 @@ int  parse_rx_frame_n688(char a1, int a2, int a3, int a4, uint8_t *a5, unsigned 
     v16 = a1 & 0xFC;
     if ( v16 == 176 )
     {
-      check_bit_status();
+      is_pll_freq_6();
       return 1;
     }
     if ( v16 > 0xB0 )
@@ -92,7 +92,7 @@ LABEL_12:
       {
         case 0:
           v40 = *(uint8_t *)(v15 + 1);
-          sub_12ECB0(dword_139B30, v40);
+          ke_event_schedule(dword_139B30, v40);
           v38 = (uint8_t *)(v15 + 1);
           if ( v40 == 4 )
           {
@@ -100,19 +100,19 @@ LABEL_12:
             if ( v41 != 255 )
             {
               v42 = dword_139B38;
-              v43 = (uint8_t)sub_13116C(
+              v43 = (uint8_t)rf_parse_cal_entry(
                                        (uint8_t *)(v15 + 2),
                                        a2 - a3 - 2,
                                        &v50,
                                        1320 * v41 + 1212 + dword_139B38);
-              sub_12ECB0(dword_139B34, v43, v50);
+              ke_event_schedule(dword_139B34, v43, v50);
               if ( v43 )
               {
                 v44 = (uint8_t *)(1320 * v41 + v42);
                 if ( !v44[106] )
                 {
                   if ( !v44[146] && v44[148] && v50 == 1 )
-                    sub_122810(v44[107], v44[146]);
+                    mmio_write_phy(v44[107], v44[146]);
                   v45 = v42 + 1320 * v41;
                   *(uint8_t *)(v45 + 146) = v43;
                   *(uint8_t *)(v45 + 148) = 1;
@@ -122,7 +122,7 @@ LABEL_12:
           }
           goto LABEL_65;
         case 3:
-          v37 = buf_alloc_split_123bb64(a4, v15, *(uint8_t *)(v15 + 1));
+          v37 = rf_set_mode(a4, v15, *(uint8_t *)(v15 + 1));
           v9 = v37;
           if ( v37 != 33 )
           {
@@ -188,12 +188,12 @@ LABEL_50:
               v13 = *(uint8_t *)(v15 + 2) & 1;
               if ( (*(uint8_t *)(v15 + 2) & 1) != 0 )
               {
-                idx_record_lookup_n_4d4(a4, 0xFFu);
+                rf_config_chan_table(a4, 0xFFu);
                 v13 = 0;
               }
               else
               {
-                idx_record_lookup_n_4d4(a4, 0xFFu);
+                rf_config_chan_table(a4, 0xFFu);
               }
               v9 = 255;
               goto LABEL_47;
@@ -204,7 +204,7 @@ LABEL_50:
             v47 = *(uint8_t *)(v15 + 2);
             if ( v47 <= 1 )
             {
-              idx_record_lookup_n_4d4(a4, v47);
+              rf_config_chan_table(a4, v47);
               v9 = 255;
               goto LABEL_47;
             }
@@ -227,7 +227,7 @@ LABEL_65:
           v39 = *v38;
           if ( v39 == 1 )
           {
-            fmacfwbt_init_or_handler((uint32_t *)(v15 + 2), (uint32_t *)(v15 + 10));
+            rf_config_write((uint32_t *)(v15 + 2), (uint32_t *)(v15 + 10));
           }
           else
           {
@@ -240,7 +240,7 @@ LABEL_46:
             }
             if ( (*(uint32_t *)(dword_139970 + 696 * a4 + 4) & 0x24) != 0 && *(char *)(v15 + 2) >= 0 )
             {
-              idx_record_lookup_n_4d4(a4, *(uint8_t *)(v15 + 2) & 3);
+              rf_config_chan_table(a4, *(uint8_t *)(v15 + 2) & 3);
               v13 = 0;
               v9 = 255;
 LABEL_47:
@@ -250,7 +250,7 @@ LABEL_48:
               v31 = (uint16_t)v9 << 8;
 LABEL_49:
               if ( **(int16_t **)off_13996C < 0 && v9 == 255 )
-                sub_12F694(dword_139B40, dword_139B3C, 2326);
+                mmio_irq_clear(dword_139B40, dword_139B3C, 2326);
               goto LABEL_50;
             }
           }
@@ -285,16 +285,16 @@ LABEL_33:
           goto LABEL_38;
         v24 = *(uint8_t *)(v21 + 107);
         v25 = *(uint16_t *)(v22 + 2 * v24);
-        v26 = sub_12DB40((uint8_t *)(a6 + 24), v23, &v49);
+        v26 = find_char_1((uint8_t *)(a6 + 24), v23, &v49);
         v27 = (uint16_t)(v25 - 36);
         v28 = v26;
-        v30 = sub_12DB40((uint8_t *)(dword_139968 + (v24 << 9)), v27, &v50);
+        v30 = find_char_1((uint8_t *)(dword_139968 + (v24 << 9)), v27, &v50);
         if ( v50 )
         {
           if ( v49 )
           {
             v46 = v28 + 2;
-            if ( !sub_1437AC(v46, dword_139B44, 7) || v49 != v50 || sub_1437AC(v46, v30 + 2, v49) )
+            if ( !memcpy(v46, dword_139B44, 7) || v49 != v50 || memcpy(v46, v30 + 2, v49) )
               goto LABEL_38;
           }
         }
@@ -302,7 +302,7 @@ LABEL_33:
         {
           return 1;
         }
-        sub_1196A4(v21, a6 + 10, v29);
+        rx_state_check(v21, a6 + 10, v29);
         v13 = 0;
 LABEL_38:
         v21 = *(uint32_t *)v21;
@@ -348,7 +348,7 @@ LABEL_38:
             return 1;
           goto LABEL_12;
         }
-        if ( v11 != 160 && (v11 != 176 || check_bit_status()) )
+        if ( v11 != 160 && (v11 != 176 || is_pll_freq_6()) )
           return 1;
       }
 LABEL_19:
@@ -361,7 +361,7 @@ LABEL_19:
     }
     v17 = dword_139958 + 1320 * v9;
   }
-  if ( msg_get_value(4u) == 1 )
+  if ( hci_cmd_send_short(4u) == 1 )
   {
     v18 = (int *)off_13995C;
     *a8 = 1;
@@ -371,7 +371,7 @@ LABEL_19:
   }
   if ( a4 != 255 && *(uint8_t *)(v17 + 108) )
   {
-    sub_1331D4(v17, a2, a6);
+    rf_calibrate_init(v17, a2, a6);
     return 1;
   }
   return 1;

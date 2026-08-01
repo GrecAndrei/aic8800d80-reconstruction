@@ -13,8 +13,8 @@
 extern uint32_t dword_13C5C8;
 extern uint32_t dword_13C5CC;
 
-// sub_13C558 @ 0x13c558, size 110 bytes
-int  sub_13C558(int a1, int a2, int a3)
+// bt_conn_is_active @ 0x13c558, size 110 bytes
+int  bt_conn_is_active(int a1, int a2, int a3)
 {
   int v3; // r5
   int v4; // r6

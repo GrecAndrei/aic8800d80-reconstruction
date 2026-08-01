@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114ACC @ 0x114acc, size 58 bytes
-int  sub_114ACC(int *a1)
+// rom_get_chip_version @ 0x114acc, size 58 bytes
+int  rom_get_chip_version(int *a1)
 {
   uint8_t v2; // r0
   int v3; // r2

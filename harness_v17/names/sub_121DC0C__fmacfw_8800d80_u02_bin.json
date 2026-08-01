@@ -1,1 +1,1 @@
-{"fn": "sub_121DC0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121dc0c", "status": "ok", "name": "fmac_init_dispatch", "params": [], "docstring": "FMAC dispatch/init loading multiple data table pointers", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121DC0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121dc0c", "status": "ok", "name": "mac_rx_handler", "params": [], "docstring": "FMAC dispatch/init loading multiple data table pointers", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

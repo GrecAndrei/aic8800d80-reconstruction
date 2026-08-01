@@ -1,0 +1,1 @@
+{"fn": "sub_13278E", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13278e", "status": "ok", "name": "get_radio_rev", "params": [], "docstring": "Return radio revision 8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

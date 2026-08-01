@@ -1,1 +1,1 @@
-{"fn": "sub_1227AEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1227aec", "status": "ok", "name": "buf_release_and_dispatch", "params": [], "docstring": "Releases object at offset 0x58 then dispatches a task via outer call", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1227AEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1227aec", "status": "ok", "name": "release_buffer", "params": [], "docstring": "Releases object at offset 0x58 then dispatches a task via outer call", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

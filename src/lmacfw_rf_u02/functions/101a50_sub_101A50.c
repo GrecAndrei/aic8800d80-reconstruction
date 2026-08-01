@@ -12,8 +12,8 @@
 
 extern uint32_t off_101A64;
 
-// sub_101A50 @ 0x101a50, size 20 bytes
-unsigned int  sub_101A50(int a1)
+// ctrl_bit3_set @ 0x101a50, size 20 bytes
+unsigned int  ctrl_bit3_set(int a1)
 {
   unsigned int result; // r0
 

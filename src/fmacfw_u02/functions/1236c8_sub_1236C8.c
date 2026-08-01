@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1236C8 @ 0x1236c8, size 32 bytes
+// trace_printf @ 0x1236c8, size 32 bytes
 // Doc: sub_12236C8 [ipc]: Send 0x3a trace/debug message to host
 // sub_12236C8 [ipc]: Send 0x3a trace/debug message to host
-int  sub_1236C8(int a1, uint8_t *a2, int a3, int a4)
+int  trace_printf(int a1, uint8_t *a2, int a3, int a4)
 {
-  sub_1285BC(*a2);
-  sub_12CA10(58, a4, a3);
+  sta_get_by_index(*a2);
+  ke_msg_send_no_param(58, a4, a3);
   return 0;
 }
 

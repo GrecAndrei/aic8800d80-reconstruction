@@ -1,1 +1,1 @@
-{"fn": "sub_123AFC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123afc0", "status": "ok", "name": "bt_fw_struct_reset_n_afc0", "params": [], "docstring": "Resets BT firmware context struct flags and counters", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123AFC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123afc0", "status": "ok", "name": "mac_reset_tx_queue", "params": [], "docstring": "Resets BT firmware context struct flags and counters", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -14,10 +14,10 @@ extern uint32_t off_1328F8;
 extern uint32_t dword_1328FC;
 extern uint32_t dword_132900;
 
-// sub_13289C @ 0x13289c, size 92 bytes
+// patch_check_version @ 0x13289c, size 92 bytes
 // Doc: sub_123289C [mac]: FMAC helper: check channel/band state and dispatch
 // sub_123289C [mac]: FMAC helper: check channel/band state and dispatch
-int  sub_13289C(int a1)
+int  patch_check_version(int a1)
 {
   int v2; // r0
   int v3; // r3
@@ -38,7 +38,7 @@ LABEL_2:
   }
   if ( !v2 )
   {
-    sub_12F46C(dword_1328FC, dword_132900, 707);
+    mmio_clear_register(dword_1328FC, dword_132900, 707);
     v2 = *(uint8_t *)(a1 + 192);
     goto LABEL_2;
   }
@@ -55,8 +55,8 @@ LABEL_3:
   }
   while ( v3 != v4 );
 LABEL_7:
-  sub_1326F4();
-  result = sub_13F3B8(a1, v8);
+  is_valid_rate_code();
+  result = ble_ll_conn_set_phy(a1, v8);
   *(uint8_t *)(a1 + 350) = 0;
   return result;
 }

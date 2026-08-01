@@ -12,10 +12,10 @@
 
 extern uint32_t dword_111D3C;
 
-// sub_111D10 @ 0x111d10, size 42 bytes
+// mmio_bank_read @ 0x111d10, size 42 bytes
 // Doc: rf_state_check_1d26 [rf]: Check the current state bit of an RF sub-block by index
 // rf_state_check_1d26 [rf]: Check the current state bit of an RF sub-block by index
-int  sub_111D10(int a1, int a2)
+int  mmio_bank_read(int a1, int a2)
 {
   uint32_t *v2; // r0
   int v4; // r0

@@ -12,8 +12,8 @@
 
 extern uint32_t off_101998;
 
-// sub_10198C @ 0x10198c, size 10 bytes
-int sub_10198C()
+// rf_status_bit26 @ 0x10198c, size 10 bytes
+int rf_status_bit26()
 {
   return (*(uint32_t *)off_101998 >> 26) & 1;
 }

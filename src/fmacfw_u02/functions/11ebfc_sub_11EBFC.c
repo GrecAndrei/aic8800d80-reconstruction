@@ -15,8 +15,8 @@ extern uint32_t off_11EC84;
 extern uint32_t dword_11EC88;
 extern uint32_t dword_11EC8C;
 
-// sub_11EBFC @ 0x11ebfc, size 132 bytes
-void sub_11EBFC()
+// rf_irq_status_check @ 0x11ebfc, size 132 bytes
+void rf_irq_status_check()
 {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
@@ -56,10 +56,10 @@ void sub_11EBFC()
       v5 = v4 & 0x7FFFFFFF;
       v6 = *(uint32_t *)((v4 & 0x7FFFFFFF) + 0x14);
       if ( v6 != v3 )
-        msg_parse(dword_11EC8C, v4 & 0x7FFFFFFF, v6);
-      sub_11EB34(v5);
+        event_dispatch(dword_11EC8C, v4 & 0x7FFFFFFF, v6);
+      ke_task_state_get(v5);
       *(uint8_t *)(v5 + 156) = 1;
-      sub_11E100(v5);
+      rf_tx_frame(v5);
       v2 = v0[5];
     }
     while ( v2 != *v1 );

@@ -12,11 +12,11 @@
 
 extern uint32_t dword_10ED8C;
 
-// mmio_read_bitfield_7000101c @ 0x10ed7c, size 16 bytes
-// Doc: mmio_read_bitfield_7000101c [mmio]: Reads a 5-bit field at offset 0xb from MMIO 0x7000101c
-// mmio_read_bitfield_7000101c [mmio]: Reads a 5-bit field at offset 0xb from MMIO 0x7000101c
-int mmio_read_bitfield_7000101c()
+// get_periph_status @ 0x10ed7c, size 16 bytes
+// Doc: get_periph_status [mmio]: Reads a 5-bit field at offset 0xb from MMIO 0x7000101c
+// get_periph_status [mmio]: Reads a 5-bit field at offset 0xb from MMIO 0x7000101c
+int get_periph_status()
 {
-  return (uint16_t)sub_10EBDC(dword_10ED8C, 1) >> 11;
+  return (uint16_t)atomic_reg_read(dword_10ED8C, 1) >> 11;
 }
 

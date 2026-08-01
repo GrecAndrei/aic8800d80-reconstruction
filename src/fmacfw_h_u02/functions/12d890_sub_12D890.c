@@ -12,13 +12,13 @@
 
 extern uint32_t dword_12D8B8;
 
-// sub_12D890 @ 0x12d890, size 40 bytes
-uint8_t * sub_12D890(uint8_t *a1, int a2, uint8_t *a3)
+// log_message_level @ 0x12d890, size 40 bytes
+uint8_t * log_message_level(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   uint16_t v5; // [sp+Eh] [bp-2h] BYREF
 
-  result = sub_12D648(a1, a2, (uint8_t *)dword_12D8B8, 5, &v5);
+  result = safe_snprintf(a1, a2, (uint8_t *)dword_12D8B8, 5, &v5);
   if ( result )
   {
     if ( v5 <= 0x17u )

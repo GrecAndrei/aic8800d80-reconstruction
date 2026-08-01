@@ -15,16 +15,16 @@ extern uint32_t off_1369B4;
 extern uint32_t dword_1369BC;
 extern uint32_t dword_1369B8;
 
-// sub_13697C @ 0x13697c, size 50 bytes
-int sub_13697C()
+// txpwr_get_state @ 0x13697c, size 50 bytes
+int txpwr_get_state()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r4
 
-  v0 = sub_12D4F8(dword_1369B0);
+  v0 = list_pop_front(dword_1369B0);
   v1 = v0;
   if ( **(int16_t **)off_1369B4 < 0 && !v0 )
-    sub_12F694(dword_1369BC, dword_1369B8, 210);
-  return sub_12CBB4((int)(v1 + 3));
+    mmio_irq_clear(dword_1369BC, dword_1369B8, 210);
+  return hci_evt_send((int)(v1 + 3));
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_12018D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12018d4", "status": "ok", "name": "sysctl_chip_id_get", "params": [], "docstring": "Returns bit 30 of chip ID register at 0x40330000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12018D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12018d4", "status": "ok", "name": "sys_status_get_bit30", "params": [], "docstring": "Returns bit 30 of chip ID register at 0x40330000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

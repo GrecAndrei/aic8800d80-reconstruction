@@ -18,28 +18,28 @@ extern uint32_t dword_114F18;
 extern uint32_t dword_114F1C;
 extern uint32_t dword_114F20;
 
-// sub_114ECC @ 0x114ecc, size 72 bytes
-void  __noreturn sub_114ECC(int a1)
+// cli_process_char @ 0x114ecc, size 72 bytes
+void  __noreturn cli_process_char(int a1)
 {
-  sub_10DA6C(dword_114F14);
+  log_printf(dword_114F14);
   switch ( a1 )
   {
     case '0':
-      sub_10DA6C(dword_114F24);
+      log_printf(dword_114F24);
       break;
     case '@':
-      sub_10DA6C(dword_114F2C);
+      log_printf(dword_114F2C);
       break;
     case ' ':
-      sub_10DA6C(dword_114F28);
+      log_printf(dword_114F28);
       break;
     default:
-      sub_10DA6C(dword_114F18);
+      log_printf(dword_114F18);
       break;
   }
-  sub_10DA6C(dword_114F1C);
-  sub_114C68();
-  sub_10DA6C(dword_114F20);
-  rf_state_check_n_e90();
+  log_printf(dword_114F1C);
+  init_ram_table();
+  log_printf(dword_114F20);
+  bt_check_state();
 }
 

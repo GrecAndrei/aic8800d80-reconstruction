@@ -16,8 +16,8 @@ extern uint32_t off_100EE0;
 extern uint32_t off_100ED4;
 extern uint32_t off_100EE4;
 
-// sub_100E24 @ 0x100e24, size 174 bytes
-int  sub_100E24(int result)
+// rng_read @ 0x100e24, size 174 bytes
+int  rng_read(int result)
 {
   unsigned int *v1; // r3
   uint32_t *v2; // r1

@@ -12,8 +12,8 @@
 
 extern uint32_t off_10CB04;
 
-// sub_10CAFC @ 0x10cafc, size 8 bytes
-void sub_10CAFC()
+// pmu_ctrl_write_128 @ 0x10cafc, size 8 bytes
+void pmu_ctrl_write_128()
 {
   *(uint32_t *)off_10CB04 = 128;
 }

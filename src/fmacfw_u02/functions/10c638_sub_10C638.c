@@ -17,8 +17,8 @@ extern uint32_t dword_10C6F8;
 extern uint32_t dword_10C6F0;
 extern uint32_t off_10C6EC;
 
-// sub_10C638 @ 0x10c638, size 172 bytes
-int sub_10C638()
+// peripheral_clock_enable @ 0x10c638, size 172 bytes
+int peripheral_clock_enable()
 {
   int *v0; // r2
   unsigned int *v1; // r1

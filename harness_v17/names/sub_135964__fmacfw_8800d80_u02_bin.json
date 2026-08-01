@@ -1,0 +1,1 @@
+{"fn": "sub_135964", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135964", "status": "ok", "name": "is_hw_feature_6", "params": [], "docstring": "Check if hardware/feature query returns 6", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

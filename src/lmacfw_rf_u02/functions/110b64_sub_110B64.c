@@ -19,8 +19,8 @@ extern uint32_t off_110BEC;
 extern uint32_t off_110BF4;
 extern uint32_t off_110BF0;
 
-// sub_110B64 @ 0x110b64, size 116 bytes
-int  sub_110B64(int result)
+// irq_disable_set_flag_4 @ 0x110b64, size 116 bytes
+int  irq_disable_set_flag_4(int result)
 {
   uint32_t *v1; // r1
   uint32_t *v2; // r2

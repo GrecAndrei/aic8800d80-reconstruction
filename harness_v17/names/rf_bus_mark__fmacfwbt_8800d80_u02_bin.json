@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116e0", "status": "ok", "name": "rf_fault_dump_n31c", "params": [], "docstring": "RF fault status bit extraction/dump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116e0", "status": "ok", "name": "tx_pkt_config", "params": [], "docstring": "RF fault status bit extraction/dump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

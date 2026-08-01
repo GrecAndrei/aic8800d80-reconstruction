@@ -1,1 +1,1 @@
-{"fn": "rf_mem_read_n_47c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f118", "status": "ok", "name": "rf_mem_read_n_47c", "params": [], "docstring": "Computes bit-mask window for RF register indirect read", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_read_n_47c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f118", "status": "ok", "name": "rf_mem_read_n_47b", "params": [], "docstring": "Computes bit-mask window for RF register indirect read", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

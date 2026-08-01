@@ -15,10 +15,10 @@ extern uint32_t off_12F7FC;
 extern uint32_t off_12F800;
 extern uint32_t dword_12F804;
 
-// rf_bt_state_check_n0a4 @ 0x12f7a4, size 82 bytes
-// Doc: rf_bt_state_check_n0a4 [bt]: Check current BT state against expected value 3
-// rf_bt_state_check_n0a4 [bt]: Check current BT state against expected value 3
-void  rf_bt_state_check_n0a4(int a1)
+// dispatch_if_ready @ 0x12f7a4, size 82 bytes
+// Doc: dispatch_if_ready [bt]: Check current BT state against expected value 3
+// dispatch_if_ready [bt]: Check current BT state against expected value 3
+void  dispatch_if_ready(int a1)
 {
   int v2; // r0
   int v3; // r5
@@ -26,22 +26,22 @@ void  rf_bt_state_check_n0a4(int a1)
 
   if ( **(uint8_t **)off_12F7F8 == 3 )
   {
-    v2 = sub_10CAA8();
+    v2 = pmu_isr_214();
     v3 = v2;
     if ( v2 )
     {
       *(uint32_t *)(a1 + 24) = 49374;
-      sub_14380C(v2, a1, 28);
+      memcpy_aligned(v2, a1, 28);
       v4 = off_12F7FC;
       while ( !*(uint32_t *)off_12F7FC )
         ;
-      list_push_tail(*(uint32_t *)off_12F800 + 540, (uint32_t *)(v3 - 4));
+      check_abort_flag(*(uint32_t *)off_12F800 + 540, (uint32_t *)(v3 - 4));
       *v4 = 1;
-      sub_10CAFC();
+      pmu_ctrl_write_128();
     }
     else
     {
-      sub_12ECB0(dword_12F804);
+      ke_event_schedule(dword_12F804);
     }
   }
 }

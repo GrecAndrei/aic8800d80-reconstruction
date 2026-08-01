@@ -1,1 +1,1 @@
-{"fn": "sub_1217E34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217e34", "status": "ok", "name": "phy_reg_mask_check", "params": [], "docstring": "Check masked bits of PHY control register 0x40328078", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217E34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217e34", "status": "ok", "name": "rf_irq_clear", "params": [], "docstring": "Check masked bits of PHY control register 0x40328078", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

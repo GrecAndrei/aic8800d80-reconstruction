@@ -14,8 +14,8 @@ extern uint32_t off_132A30;
 extern uint32_t dword_132A34;
 extern uint32_t dword_132A38;
 
-// sub_1329B0 @ 0x1329b0, size 128 bytes
-int  sub_1329B0(uint8_t *a1, int a2)
+// llm_decrypt_adv_payload @ 0x1329b0, size 128 bytes
+int  llm_decrypt_adv_payload(uint8_t *a1, int a2)
 {
   int v2; // r11
   int16_t **v3; // r8
@@ -46,7 +46,7 @@ int  sub_1329B0(uint8_t *a1, int a2)
       {
         v10 = v8[1];
       }
-      v11 = sub_132910(v10);
+      v11 = util_validate_name_char(v10);
       if ( **v3 < 0 )
         break;
       if ( v11 <= 11 )
@@ -57,7 +57,7 @@ LABEL_7:
     }
     if ( v11 > 11 )
     {
-      sub_12F6C4(v5, v4, 598);
+      mmio_field_update(v5, v4, 598);
       v2 = *a1;
       goto LABEL_7;
     }

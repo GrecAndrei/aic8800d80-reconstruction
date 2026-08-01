@@ -12,8 +12,8 @@
 
 extern uint32_t dword_116030;
 
-// sub_115F88 @ 0x115f88, size 166 bytes
-int  sub_115F88(int result, int a2)
+// rx_packet_process @ 0x115f88, size 166 bytes
+int  rx_packet_process(int result, int a2)
 {
   int v2; // r3
   int v3; // r8

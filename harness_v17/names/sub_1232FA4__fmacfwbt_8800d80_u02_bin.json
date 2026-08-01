@@ -1,1 +1,1 @@
-{"fn": "sub_1232FA4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1232fa4", "status": "ok", "name": "idx_record_lookup_n_4d4", "params": [], "docstring": "Looks up a 0x2b8-byte record by index from a base table", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1232FA4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1232fa4", "status": "ok", "name": "rf_config_chan_table", "params": [], "docstring": "Looks up a 0x2b8-byte record by index from a base table", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

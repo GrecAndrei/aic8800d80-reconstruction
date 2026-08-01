@@ -12,8 +12,8 @@
 
 extern uint32_t off_11C934;
 
-// sub_11C924 @ 0x11c924, size 16 bytes
-uint8_t * sub_11C924(uint8_t *result)
+// set_rf_channel @ 0x11c924, size 16 bytes
+uint8_t * set_rf_channel(uint8_t *result)
 {
   uint8_t *v1; // r3
 

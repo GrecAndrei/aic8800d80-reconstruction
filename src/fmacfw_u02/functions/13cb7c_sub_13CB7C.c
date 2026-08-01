@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13CBE8;
 
-// sub_13CB7C @ 0x13cb7c, size 108 bytes
-unsigned int * sub_13CB7C(unsigned int *result)
+// rx_parse_pkt_header @ 0x13cb7c, size 108 bytes
+unsigned int * rx_parse_pkt_header(unsigned int *result)
 {
   uint64_t v1; // r2
   int v2; // r1

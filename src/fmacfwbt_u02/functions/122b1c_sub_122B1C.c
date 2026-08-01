@@ -12,8 +12,8 @@
 
 extern uint32_t off_122B60;
 
-// sub_122B1C @ 0x122b1c, size 66 bytes
-int sub_122B1C()
+// find_pending_command @ 0x122b1c, size 66 bytes
+int find_pending_command()
 {
   int *v0; // r2
   int result; // r0

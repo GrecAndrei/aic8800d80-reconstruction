@@ -14,10 +14,10 @@ extern uint32_t off_107ED8;
 extern uint32_t off_107EDC;
 extern uint32_t off_107EE0;
 
-// fmac_irq_disable_dispatch @ 0x107e70, size 104 bytes
-// Doc: fmac_irq_disable_dispatch [util]: Disable IRQ and dispatch to handler
-// fmac_irq_disable_dispatch [util]: Disable IRQ and dispatch to handler
-int fmac_irq_disable_dispatch()
+// clear_flag_and_invoke @ 0x107e70, size 104 bytes
+// Doc: clear_flag_and_invoke [util]: Disable IRQ and dispatch to handler
+// clear_flag_and_invoke [util]: Disable IRQ and dispatch to handler
+int clear_flag_and_invoke()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
@@ -26,13 +26,13 @@ int fmac_irq_disable_dispatch()
   int v4; // r3
 
   v0 = off_107ED8;
-  crypto_engine_clear_sram_regs();
+  rf_synth_set_freq();
   *v0 &= ~1u;
-  delay_us_0644(1);
+  timer_delay(1);
   v1 = off_107EDC;
   *(uint32_t *)off_107EDC = *(uint32_t *)off_107EDC & 0xCFFFFFFF | 0x10000000;
   *v1 |= 0x40000000u;
-  result = delay_us_0644(1);
+  result = timer_delay(1);
   v3 = off_107EE0;
   *v0 |= 1u;
   *v0 |= 1u;

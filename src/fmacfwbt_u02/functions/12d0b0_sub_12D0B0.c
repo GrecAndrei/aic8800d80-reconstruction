@@ -19,8 +19,8 @@ extern uint32_t dword_12D148;
 extern uint32_t dword_12D150;
 extern uint32_t dword_12D140;
 
-// sub_12D0B0 @ 0x12d0b0, size 130 bytes
-int  sub_12D0B0(unsigned int a1)
+// hci_cmd_send_short @ 0x12d0b0, size 130 bytes
+int  hci_cmd_send_short(unsigned int a1)
 {
   int16_t **v1; // r5
   unsigned int v2; // r6
@@ -36,7 +36,7 @@ int  sub_12D0B0(unsigned int a1)
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
-    sub_12F694(dword_12D144, dword_12D13C, 210);
+    mmio_irq_clear(dword_12D144, dword_12D13C, 210);
     if ( **v1 >= 0 )
     {
 LABEL_2:
@@ -45,13 +45,13 @@ LABEL_2:
       return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
     }
     if ( v3 != 14 )
-      sub_12F694(dword_12D14C, dword_12D148, 183);
+      mmio_irq_clear(dword_12D14C, dword_12D148, 183);
   }
   else if ( (uint8_t)a1 != 13 )
   {
     goto LABEL_6;
   }
-  sub_12F694(dword_12D150, dword_12D13C, 211);
+  mmio_irq_clear(dword_12D150, dword_12D13C, 211);
   if ( **v1 >= 0 )
     goto LABEL_2;
 LABEL_6:
@@ -60,7 +60,7 @@ LABEL_6:
   v5 = 16 * v3;
   if ( *(uint16_t *)(v7 + 14) > v2 )
     return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
-  sub_12F694(dword_12D140, dword_12D13C, 212);
+  mmio_irq_clear(dword_12D140, dword_12D13C, 212);
   return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
 }
 

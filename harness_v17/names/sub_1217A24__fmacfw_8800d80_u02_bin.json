@@ -1,1 +1,1 @@
-{"fn": "sub_1217A24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217a24", "status": "ok", "name": "sub_1217A24", "params": [], "docstring": "Utility/state helper (prologue, shifts and transforms 3 args, 0x10 bytes)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217A24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217a24", "status": "ok", "name": "func_117a24", "params": [], "docstring": "Utility/state helper (prologue, shifts and transforms 3 args, 0x10 bytes)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

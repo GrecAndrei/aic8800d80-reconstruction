@@ -14,8 +14,8 @@ extern uint32_t off_12BAE4;
 extern uint32_t off_12BAE8;
 extern uint32_t off_12BAE0;
 
-// sub_12BAB0 @ 0x12bab0, size 48 bytes
-int  sub_12BAB0(int *a1)
+// rf_write_frequency @ 0x12bab0, size 48 bytes
+int  rf_write_frequency(int *a1)
 {
   uint32_t *v1; // r2
   int *v2; // r3

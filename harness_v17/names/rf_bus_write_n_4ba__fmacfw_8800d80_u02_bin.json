@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_4ba", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116aa", "status": "ok", "name": "rf_bus_write_n_4ba", "params": [], "docstring": "Writes value to RF bus register via index calc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_4ba", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116aa", "status": "ok", "name": "rf_bus_reset2_n_351", "params": [], "docstring": "Writes value to RF bus register via index calc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

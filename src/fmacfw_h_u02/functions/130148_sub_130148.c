@@ -13,8 +13,8 @@
 extern uint32_t off_13017C;
 extern uint32_t off_130180;
 
-// sub_130148 @ 0x130148, size 50 bytes
-void sub_130148()
+// mmio_register_access @ 0x130148, size 50 bytes
+void mmio_register_access()
 {
   uint32_t *v0; // r4
   unsigned int v1; // r0
@@ -24,11 +24,11 @@ void sub_130148()
   {
     if ( (*v0 & 0xF) == 4 )
     {
-      v1 = sub_10D6A0();
-      if ( sub_12FED8(v1) > 0 )
+      v1 = radio_rx_read_byte();
+      if ( lock_with_timeout(v1) > 0 )
       {
         if ( *(uint8_t *)off_130180 )
-          sub_130030();
+          rf_calibration_proc();
         return;
       }
     }

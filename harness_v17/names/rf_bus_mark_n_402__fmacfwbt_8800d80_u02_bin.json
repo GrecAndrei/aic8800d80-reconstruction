@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_402", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112de", "status": "ok", "name": "rf_bus_mark_n_402", "params": [], "docstring": "Sets RF bus control register 0x40240018 with mask 0x400", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_402", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112de", "status": "ok", "name": "rf_bus_mark_12de", "params": [], "docstring": "Sets RF bus control register 0x40240018 with mask 0x400", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

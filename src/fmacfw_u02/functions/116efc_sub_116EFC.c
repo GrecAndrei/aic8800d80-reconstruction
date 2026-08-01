@@ -12,15 +12,15 @@
 
 extern uint32_t off_116F30;
 
-// sub_116EFC @ 0x116efc, size 52 bytes
-BOOL  sub_116EFC(int a1)
+// isr_flag_dispatch @ 0x116efc, size 52 bytes
+BOOL  isr_flag_dispatch(int a1)
 {
   if ( *((uint8_t *)off_116F30 + 510) )
     return 0;
-  if ( !sub_128520() )
+  if ( !wlc_ops_wrapper() )
     return 0;
   if ( *(uint8_t *)(a1 + 1224) )
-    return sub_12A12C(*(uint8_t *)(a1 + 1225)) != 0;
+    return llc_get_evt_field(*(uint8_t *)(a1 + 1225)) != 0;
   return 1;
 }
 

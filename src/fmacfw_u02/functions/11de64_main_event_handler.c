@@ -16,10 +16,10 @@ extern uint32_t off_11DF68;
 extern uint32_t dword_11DF70;
 extern uint32_t dword_11DF6C;
 
-// main_event_handler @ 0x11de64, size 258 bytes
-// Doc: main_event_handler [ipc]: Main event/task dispatch handler with large register save area
-// main_event_handler [ipc]: Main event/task dispatch handler with large register save area
-uint32_t * main_event_handler(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
+// mac_mlme_request @ 0x11de64, size 258 bytes
+// Doc: mac_mlme_request [ipc]: Main event/task dispatch handler with large register save area
+// mac_mlme_request [ipc]: Main event/task dispatch handler with large register save area
+uint32_t * mac_mlme_request(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
 {
   uint8_t **v5; // r9
   uint32_t *v6; // r7
@@ -86,7 +86,7 @@ uint32_t * main_event_handler(uint32_t *a1, unsigned int a2, int a3, uint32_t *a
     v16 = v15 + 5;
     if ( **v9 < 0 && !v15 )
     {
-      sub_12F46C(dword_11DF70, dword_11DF6C, 928);
+      mmio_clear_register(dword_11DF70, dword_11DF6C, 928);
       v15 = 0;
       v8 = **v5;
     }

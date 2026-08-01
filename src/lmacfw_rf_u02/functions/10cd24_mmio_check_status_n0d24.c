@@ -16,10 +16,10 @@ extern uint32_t off_10CD64;
 extern uint32_t off_10CD60;
 extern uint32_t off_10CD68;
 
-// mmio_check_status_n0d24 @ 0x10cd24, size 52 bytes
-// Doc: mmio_check_status_n0d24 [mmio]: Check MMIO status register and dispatch
-// mmio_check_status_n0d24 [mmio]: Check MMIO status register and dispatch
-int mmio_check_status_n0d24()
+// wait_for_uart_event @ 0x10cd24, size 52 bytes
+// Doc: wait_for_uart_event [mmio]: Check MMIO status register and dispatch
+// wait_for_uart_event [mmio]: Check MMIO status register and dispatch
+int wait_for_uart_event()
 {
   int v0; // r4
   int result; // r0
@@ -30,7 +30,7 @@ int mmio_check_status_n0d24()
   v0 = *(uint32_t *)off_10CD58 & 0xF00;
   if ( v0 )
   {
-    result = irq_nesting_or(0x10000);
+    result = set_busy_flag_alt(0x10000);
     v2 = (int *)off_10CD5C;
     v3 = off_10CD64;
     *(uint32_t *)off_10CD60 = v0;

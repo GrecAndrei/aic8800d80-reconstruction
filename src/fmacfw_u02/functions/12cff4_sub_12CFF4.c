@@ -21,8 +21,8 @@ extern uint32_t dword_12D0F4;
 extern uint32_t dword_12D0EC;
 extern uint32_t off_12D0E8;
 
-// sub_12CFF4 @ 0x12cff4, size 222 bytes
-int sub_12CFF4()
+// unknown_func_12cff4 @ 0x12cff4, size 222 bytes
+int unknown_func_12cff4()
 {
   int *v0; // r5
   int v1; // r0
@@ -44,7 +44,7 @@ int sub_12CFF4()
   v0 = (int *)off_12D0D8;
   v1 = dword_12D0DC;
   ++*(uint32_t *)off_12D0D8;
-  result = rf_bus_mark_n100_d2d0(v1);
+  result = mem_word_load(v1);
   v3 = (uint16_t *)result;
   if ( *v0 )
   {
@@ -59,10 +59,10 @@ int sub_12CFF4()
   }
   if ( result )
   {
-    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))sub_12CF2C(
+    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))rx_format_field_parse(
                                                                            *(uint16_t *)(result + 4),
                                                                            *(uint16_t *)(result + 6));
-    msg_parse(dword_12D0E0, v3[2], v3[4]);
+    event_dispatch(dword_12D0E0, v3[2], v3[4]);
     if ( v6 )
     {
       result = v6(v3[2], v3 + 6, v3[3], v3[4]);
@@ -70,21 +70,21 @@ int sub_12CFF4()
         goto LABEL_12;
       if ( result == 2 )
       {
-        result = list_push_tail(dword_12D0F0);
+        result = cmd_handler_a(dword_12D0F0);
         goto LABEL_12;
       }
       if ( result )
       {
         if ( **(int16_t **)off_12D0E4 < 0 )
-          result = sub_12F46C(dword_12D0F8, dword_12D0F4, 360);
+          result = mmio_clear_register(dword_12D0F8, dword_12D0F4, 360);
         goto LABEL_12;
       }
     }
     else
     {
-      msg_parse(dword_12D0EC, v3[2], v3[4]);
+      event_dispatch(dword_12D0EC, v3[2], v3[4]);
     }
-    result = sub_12CA38((int)v3);
+    result = branch_to_12cbc8((int)v3);
   }
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -97,7 +97,7 @@ LABEL_12:
   *v0 = v8;
   if ( !v7 )
   {
-    result = clear_flags(0x4000000);
+    result = unknown_func_12d14c(0x4000000);
     v8 = *v0;
   }
   if ( v8 )

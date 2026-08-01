@@ -13,10 +13,10 @@
 extern uint32_t off_112FF4;
 extern uint32_t off_112FF8;
 
-// rf_cmd_wait_2f70 @ 0x112f70, size 126 bytes
+// after_helper_call @ 0x112f70, size 126 bytes
 // Doc: rf_cmd_send_n_30 [rf]: Dispatch an RF command to the radio
 // rf_cmd_send_n_30 [rf]: Dispatch an RF command to the radio
-void rf_cmd_wait_2f70()
+void after_helper_call()
 {
   int *v0; // r4
   int v1; // r2

@@ -1,1 +1,1 @@
-{"fn": "sub_122B8BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b8bc", "status": "ok", "name": "mmio_set_flag_122b8bc", "params": [], "docstring": "Set flag/control bit at MMIO 0x40328050", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122B8BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b8bc", "status": "ok", "name": "bb_enable", "params": [], "docstring": "Set flag/control bit at MMIO 0x40328050", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

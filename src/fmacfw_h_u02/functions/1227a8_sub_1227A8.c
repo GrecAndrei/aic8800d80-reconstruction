@@ -12,8 +12,8 @@
 
 extern uint32_t off_1227EC;
 
-// sub_1227A8 @ 0x1227a8, size 66 bytes
-int sub_1227A8()
+// get_rx_pdu @ 0x1227a8, size 66 bytes
+int get_rx_pdu()
 {
   int *v0; // r2
   int result; // r0

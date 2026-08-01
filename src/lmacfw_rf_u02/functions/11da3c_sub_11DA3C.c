@@ -12,8 +12,8 @@
 
 extern uint32_t off_11DA58;
 
-// sub_11DA3C @ 0x11da3c, size 26 bytes
-int  sub_11DA3C(int a1, uint8_t *a2, uint8_t *a3)
+// rf_get_temperature @ 0x11da3c, size 26 bytes
+int  rf_get_temperature(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v3; // r3
   int result; // r0

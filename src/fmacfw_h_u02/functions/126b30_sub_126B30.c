@@ -17,8 +17,8 @@ extern uint32_t off_126BB8;
 extern uint32_t dword_126BC0;
 extern uint32_t off_126BBC;
 
-// sub_126B30 @ 0x126b30, size 124 bytes
-void sub_126B30()
+// llc_irq_status_get @ 0x126b30, size 124 bytes
+void llc_irq_status_get()
 {
   int *v0; // r4
   int v1; // r5
@@ -28,7 +28,7 @@ void sub_126B30()
 
   v0 = *((int **)off_126BAC + 2);
   v1 = *((uint32_t *)off_126BB0 + 10);
-  sub_11C210();
+  mmio_set_register_bit();
   *(uint32_t *)off_126BB4 &= ~4u;
   if ( v0 )
   {
@@ -50,7 +50,7 @@ void sub_126B30()
         if ( !v0 )
           return;
       }
-      sub_118F4C(*((uint8_t *)v0 + 116), 0, 0);
+      phy_is_channel_valid(*((uint8_t *)v0 + 116), 0, 0);
       v0 = (int *)*v0;
     }
     while ( v0 );

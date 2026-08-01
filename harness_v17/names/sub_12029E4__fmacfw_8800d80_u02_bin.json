@@ -1,1 +1,1 @@
-{"fn": "sub_12029E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12029e4", "status": "ok", "name": "fmac_init_step", "params": [], "docstring": "FMAC firmware init step", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12029E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12029e4", "status": "ok", "name": "periph_init", "params": [], "docstring": "FMAC firmware init step", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -22,8 +22,8 @@ extern uint32_t dword_10FB94;
 extern uint32_t dword_10FB88;
 extern uint32_t dword_10FB98;
 
-// sub_10F9E8 @ 0x10f9e8, size 396 bytes
-uint32_t * sub_10F9E8(int a1, unsigned int a2)
+// tx_irq_handler @ 0x10f9e8, size 396 bytes
+uint32_t * tx_irq_handler(int a1, unsigned int a2)
 {
   unsigned int v2; // r6
   uint32_t *v3; // r5
@@ -49,13 +49,13 @@ uint32_t * sub_10F9E8(int a1, unsigned int a2)
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    sub_10DAE4(dword_10FB9C);
+    debug_printf(dword_10FB9C);
     return 0;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    sub_10DAE4(dword_10FB8C);
+    debug_printf(dword_10FB8C);
     return v3;
   }
   v4 = *(uint16_t **)(a1 + 12);
@@ -118,7 +118,7 @@ LABEL_12:
   }
   else
   {
-    sub_10DAE4(dword_10FB84, *((uint32_t *)v4 + 2));
+    debug_printf(dword_10FB84, *((uint32_t *)v4 + 2));
     v10 = *v9;
     v14 = *v4 - 1;
     v15 = *v9 > (unsigned int)v3;
@@ -139,7 +139,7 @@ LABEL_18:
   v16 = *(uint32_t *)off_10FB80;
   if ( *(uint32_t *)off_10FB80 > (unsigned int)v3 || *((uint32_t *)off_10FB80 + 1) + v16 < (unsigned int)v3 )
   {
-    sub_10DAE4(dword_10FB90, v3);
+    debug_printf(dword_10FB90, v3);
     v11 = 0;
     goto LABEL_45;
   }
@@ -158,7 +158,7 @@ LABEL_45:
           __enable_irq();
       }
     }
-    sub_10DAE4(dword_10FB94, v11, v3);
+    debug_printf(dword_10FB94, v11, v3);
     return 0;
   }
   if ( v10 > (unsigned int)v3 )
@@ -168,7 +168,7 @@ LABEL_45:
   if ( (unsigned int)v3 < v16 )
   {
 LABEL_37:
-    sub_10DAE4(dword_10FB88, v3);
+    debug_printf(dword_10FB88, v3);
   }
   else
   {
@@ -186,7 +186,7 @@ LABEL_20:
   }
   else
   {
-    sub_10DAE4(dword_10FB98, v3);
+    debug_printf(dword_10FB98, v3);
   }
   if ( *v6 )
   {

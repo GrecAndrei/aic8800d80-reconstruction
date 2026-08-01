@@ -13,8 +13,8 @@
 extern uint32_t off_10DAF4;
 extern uint32_t dword_10DAF8;
 
-// sub_10DA98 @ 0x10da98, size 90 bytes
-void sub_10DA98()
+// irq_get_pending @ 0x10da98, size 90 bytes
+void irq_get_pending()
 {
   uint32_t *v0; // r4
   unsigned int v1; // r3

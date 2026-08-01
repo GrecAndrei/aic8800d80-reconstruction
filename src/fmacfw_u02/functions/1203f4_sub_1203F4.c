@@ -12,8 +12,8 @@
 
 extern uint32_t off_120414;
 
-// sub_1203F4 @ 0x1203f4, size 30 bytes
-int sub_1203F4()
+// is_radio_ready @ 0x1203f4, size 30 bytes
+int is_radio_ready()
 {
   int result; // r0
 

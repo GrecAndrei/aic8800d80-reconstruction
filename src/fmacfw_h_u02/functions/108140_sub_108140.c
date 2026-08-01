@@ -105,8 +105,8 @@ extern uint32_t dword_108AF4;
 extern uint32_t off_108AF8;
 extern uint32_t dword_108AFC;
 
-// sub_108140 @ 0x108140, size 4140 bytes
-uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, int16_t a7)
+// rf_phy_init @ 0x108140, size 4140 bytes
+uint32_t * rf_phy_init(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, int16_t a7)
 {
   int *v7; // r4
   unsigned int *v8; // lr
@@ -394,23 +394,23 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *v24 |= 4u;
   *v25 |= 0x800000u;
   *v25 |= 0x400000u;
-  sub_103B54();
-  sub_12EB90(1, dword_10876C);
+  rf_clear_ana_bits();
+  check_feature_flag(1, dword_10876C);
   v111 = *(uint32_t *)off_108770;
   *(uint32_t *)off_108770 = *(uint32_t *)off_108770 & 0xFFFFFFF | 0x10000000;
   do
   {
-    sub_103FF4(v21, 0);
+    rf_enable_switch(v21, 0);
     v26 = (uint8_t)(v21 + 1);
     v21 = (uint8_t)(v21 + 2);
-    sub_103FF4(v26, 0);
+    rf_enable_switch(v26, 0);
   }
   while ( v21 != 32 );
   v27 = off_108774;
   *(uint32_t *)off_108774 &= ~0x200u;
   *v27 |= 0x200u;
   *v27 &= ~0x200u;
-  sub_107084();
+  mmio_set_bits();
   if ( a3 == 255 )
   {
     v28 = (unsigned int *)off_1087B4;
@@ -447,9 +447,9 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
         v163 = a2 + 2;
         v34 = 2;
       }
-      sub_12EB90(1, dword_10877C);
-      sub_1058D0(a2[v33], v171);
-      sub_12EB90(1, dword_108780);
+      check_feature_flag(1, dword_10877C);
+      dma_chan_init(a2[v33], v171);
+      check_feature_flag(1, dword_108780);
       if ( v173 <= 0 )
       {
         v104 = v164[v34];
@@ -471,10 +471,10 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           v37 = dword_10878C;
           *(uint32_t *)off_108790 = dword_108788 | v160 | (*(uint32_t *)v106 << 8);
           v106 += 4;
-          sub_12EB90(1, v37);
-          sub_12EB90(1, dword_108794);
+          check_feature_flag(1, v37);
+          check_feature_flag(1, dword_108794);
           v168 = 0;
-          sub_107620((int)&v166);
+          load_phy_table((int)&v166);
           v38 = v107;
           for ( i = v110; ; i = v38 << 8 )
           {
@@ -483,34 +483,34 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
             *v29 &= v36;
             *v30 &= v35;
             *v30 &= v36;
-            sub_10794C((int)&v166);
-            sub_107CC8();
-            sub_1080A8();
-            sub_107B08((int)&v166);
-            sub_107D30();
-            sub_1080F8();
+            pmu_pll_config((int)&v166);
+            pmu_clock_disable();
+            rx_desc_page_read();
+            pmu_reset_config((int)&v166);
+            mmio_clear_bit0();
+            tx_desc_page_read();
             v40 = *v30 & 0xFFF;
             v41 = (*v30 & 0x8000000) != 0 ? (HIWORD(*v30) & 0xFFF) - 4096 : HIWORD(*v30) & 0xFFF;
             v42 = (*v30 & 0x800) != 0 ? v40 - 4096 : *v30 & 0xFFF;
             if ( v41 <= 1024 && v42 <= 1024 )
               break;
             v38 = (uint8_t)(v38 - 1);
-            sub_12EB90(1, dword_109178);
+            check_feature_flag(1, dword_109178);
           }
           v107 = v38;
           v110 = i;
           v43 = HIWORD(*v30) & 0xFFF;
           *v28 = ((v38 + 1) << 8) & 0xF00 | *v28 & 0xFFFFF0FF;
-          sub_12EB90(1, dword_108798);
+          check_feature_flag(1, dword_108798);
           *v30 = dword_10879C & (v43 << 17) | *v30 & v35;
-          sub_10794C((int)&v166);
-          sub_107CC8();
-          sub_1080A8();
-          sub_12EB90(1, dword_1087A0);
+          pmu_pll_config((int)&v166);
+          pmu_clock_disable();
+          rx_desc_page_read();
+          check_feature_flag(1, dword_1087A0);
           *v30 = (2 * v40) & 0xFFF | *v30 & v36;
-          sub_107B08((int)&v166);
-          sub_107D30();
-          sub_1080F8();
+          pmu_reset_config((int)&v166);
+          mmio_clear_bit0();
+          tx_desc_page_read();
           v44 = dword_1087A4;
           v45 = HIWORD(*v30) & 0xFFF;
           v46 = *v30 & 0xFFF;
@@ -518,40 +518,40 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           *(uint32_t *)(v103 + 8) = v47;
           *(uint32_t *)(v103 + 8) = v47 | (*v28 >> 8 << 28);
           v99 = v45 << 16;
-          sub_12EB90(1, v44);
+          check_feature_flag(1, v44);
           *v30 &= v35;
           *v30 &= v36;
-          sub_107538((int)&v166, 1);
+          mmio_enable_aux((int)&v166, 1);
           v165[0] = v170;
-          sub_10788C(v165, (int)&v166);
-          sub_107444((int)&v166, 1);
+          timer_get_interval(v165, (int)&v166);
+          pll_set_ratio((int)&v166, 1);
           v48 = v170;
-          sub_12EB90(1, dword_1087A8);
+          check_feature_flag(1, dword_1087A8);
           *v30 = *v30 & v35 | v99;
           *v30 = v46 | *v30 & v36;
-          sub_107444((int)&v166, 1);
+          pll_set_ratio((int)&v166, 1);
           v49 = v170;
-          sub_12EB90(1, dword_1087AC);
+          check_feature_flag(1, dword_1087AC);
           if ( v48 <= v49 )
           {
-            sub_12EB90(1, dword_109180);
+            check_feature_flag(1, dword_109180);
             v104 = 0;
             *(uint32_t *)(v103 + 8) = 0;
           }
           else
           {
             v104 &= 1u;
-            sub_12EB90(1, dword_1087B0);
+            check_feature_flag(1, dword_1087B0);
           }
           v164[v161] = v104;
-          sub_12EB90(1, dword_108AAC);
-          sub_12EB90(1, dword_108AB0);
+          check_feature_flag(1, dword_108AAC);
+          check_feature_flag(1, dword_108AB0);
           v50 = dword_108AB4;
           v51 = dword_108AB8;
           *v30 = *v30 & v35 | ((*(uint16_t *)(v103 + 10) & 0xFFF) << 16);
           *v30 = *(uint32_t *)(v103 + 8) & 0xFFF | *v30 & v36;
-          sub_12EB90(1, v50);
-          sub_12EB90(1, dword_108ABC);
+          check_feature_flag(1, v50);
+          check_feature_flag(1, dword_108ABC);
           v52 = (int *)off_108AC0;
           v53 = (unsigned int *)off_108AC4;
           v54 = (unsigned int *)off_108AC8;
@@ -573,7 +573,7 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           *v54 = *v54 & 0xFFFFFFF0 | 3;
           v168 = 10;
           v56 = 0;
-          sub_107620((int)&v166);
+          load_phy_table((int)&v166);
           v108 = 0;
           do
           {
@@ -584,9 +584,9 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
               v57 = v176;
               v100 = v177;
               v166 = v56;
-              sub_107DA4(&v174);
-              sub_107E14((int)&v174, &v166);
-              sub_107F40((int)&v166, &v174, v171);
+              div3_signed_helper(&v174);
+              mmio_set_bit24((int)&v174, &v166);
+              mac_hw_queue_check((int)&v166, &v174, v171);
               if ( v56 )
                 break;
               if ( v169 )
@@ -595,41 +595,41 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
               }
               else
               {
-                sub_12EB90(1, dword_10917C);
+                check_feature_flag(1, dword_10917C);
                 ++v108;
                 v168 += 6;
-                sub_107620((int)&v166);
+                load_phy_table((int)&v166);
                 v174 = v101;
                 v175 = v102;
                 v176 = v57;
                 v177 = v100;
                 v56 = v108 > 2;
               }
-              sub_12EB90(1, v51);
+              check_feature_flag(1, v51);
             }
             ++v56;
-            sub_12EB90(1, v51);
+            check_feature_flag(1, v51);
           }
           while ( v56 != 5 );
           v73 = dword_108E3C;
           v74 = dword_108E38 & (v177 << 16);
           v75 = v176 & 0xFFF;
           *(uint32_t *)(v103 + 12) = v74 + (((*v28 >> 12) & 7) << 28) + ((HIWORD(*v28) & 7) << 12) + v75;
-          sub_12EB90(1, v73);
-          sub_12EB90(1, dword_108E40);
+          check_feature_flag(1, v73);
+          check_feature_flag(1, dword_108E40);
           *v29 &= v35;
           *v29 &= v36;
-          sub_107538((int)&v166, 0);
+          mmio_enable_aux((int)&v166, 0);
           v165[0] = v170;
-          sub_10788C(v165, (int)&v166);
-          sub_107444((int)&v166, 0);
+          timer_get_interval(v165, (int)&v166);
+          pll_set_ratio((int)&v166, 0);
           v76 = v170;
-          sub_12EB90(1, dword_108E44);
+          check_feature_flag(1, dword_108E44);
           *v29 = v74 | *v29 & v35;
           *v29 = v75 | *v29 & v36;
-          sub_107444((int)&v166, 0);
+          pll_set_ratio((int)&v166, 0);
           v77 = v170;
-          sub_12EB90(1, dword_108E48);
+          check_feature_flag(1, dword_108E48);
           v78 = (unsigned int *)off_108E50;
           v79 = (unsigned int *)off_108E54;
           *(uint32_t *)off_108E4C = *(uint32_t *)off_108E4C & v36 | 0xC0;
@@ -641,12 +641,12 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           *v79 = *v79 & 0xFFFFFFF0 | 1;
           if ( v76 <= v77 )
           {
-            sub_12EB90(1, dword_109184);
+            check_feature_flag(1, dword_109184);
             *(uint32_t *)(v103 + 12) = 0;
           }
           else
           {
-            sub_12EB90(1, dword_108E58);
+            check_feature_flag(1, dword_108E58);
           }
           v103 += 8;
           v80 = v173 <= ++v109;
@@ -656,12 +656,12 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
       }
       v81 = dword_108E5C;
       *v163 = *v163 & 0xFFFDFFFF | (v104 << 17);
-      sub_12EB90(1, v81);
-      sub_12EB90(1, dword_108E60);
+      check_feature_flag(1, v81);
+      check_feature_flag(1, dword_108E60);
       ++v33;
     }
     while ( v33 != 3 );
-    sub_10728C();
+    mmio_clear_bits();
     v82 = (unsigned int *)off_108E64;
     v83 = (unsigned int *)off_108E68;
     v84 = (unsigned int *)off_108E90;
@@ -737,24 +737,24 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
     v58 = dword_108AD0;
     v59 = ((int)((unsigned uint64_t)(dword_108ACC * (uint64_t)a3) >> 32) >> 5) - (a3 >> 31);
     v60 = a3 - 100 * v59;
-    sub_103A54();
+    rf_set_control_bit();
     v61 = off_108AD4;
     v62 = dword_108AD8;
     *(uint32_t *)off_108AD4 &= ~1u;
     v167 = 30;
     v168 = v59;
-    sub_12E948(v62, v59, v61);
+    alloc_tx_event(v62, v59, v61);
     v63 = HIWORD(v15) & 0xFFF;
     v64 = v15 & 0xFFF;
-    sub_12E948(dword_108ADC, v60, v65);
-    sub_12E948(dword_108AE0, v63, v64);
+    alloc_tx_event(dword_108ADC, v60, v65);
+    alloc_tx_event(dword_108AE0, v63, v64);
     *(uint32_t *)off_108AE4 = a6;
-    sub_12E948(dword_108AE8, a6, a6);
+    alloc_tx_event(dword_108AE8, a6, a6);
     v66 = off_108AC0;
     v67 = dword_108AEC;
     *(uint32_t *)off_108AC0 = *(uint32_t *)off_108AC0 & v58 | a7 & 0xFFF;
-    sub_12E948(v67, a7, v66);
-    sub_103B8C(v60);
+    alloc_tx_event(v67, a7, v66);
+    bb_start_cmd(v60);
     v68 = (unsigned int *)off_108AC8;
     v69 = (int *)off_108AF0;
     v70 = dword_108AF4;
@@ -768,14 +768,14 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
     *v69 = v64 | *v69 & v58;
     *v71 = *v71 & v70 | ((HIWORD(a5) & 0xFFF) << 16);
     *v71 = a5 & 0xFFF | *v71 & v58;
-    sub_1073D8();
-    sub_107620((int)&v166);
-    sub_107444((int)&v166, 0);
-    sub_12EB90(1, dword_108AFC);
-    sub_107444((int)&v166, 0);
-    sub_12EB90(1, dword_108AFC);
-    sub_100644(500);
-    return (uint32_t *)sub_103E14();
+    pll_set_clock();
+    load_phy_table((int)&v166);
+    pll_set_ratio((int)&v166, 0);
+    check_feature_flag(1, dword_108AFC);
+    pll_set_ratio((int)&v166, 0);
+    check_feature_flag(1, dword_108AFC);
+    mmio_read32(500);
+    return (uint32_t *)tx_wait_ready();
   }
   return result;
 }

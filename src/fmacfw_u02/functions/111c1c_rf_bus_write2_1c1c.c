@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_write2_1c1c @ 0x111c1c, size 224 bytes
+// unknown_16 @ 0x111c1c, size 224 bytes
 // Doc: rf_bus_write_n13e [rf]: RF bus write helper computing index shifted by 0xe
 // rf_bus_write_n13e [rf]: RF bus write helper computing index shifted by 0xe
-int  rf_bus_write2_1c1c(int a1, int a2, int a3)
+int  unknown_16(int a1, int a2, int a3)
 {
   int v3; // r6
   uint32_t *v4; // r4
@@ -27,7 +27,7 @@ int  rf_bus_write2_1c1c(int a1, int a2, int a3)
     v4 = (uint32_t *)(rf_state_check_n_4d8 + v3);
     v5 = *(uint32_t *)(v3 + rf_state_check_n_4d8);
     if ( (v5 & 0x80008000) == 0 )
-      return (int)rf_bus_write_9a4(a1);
+      return (int)table_lookup_entry_2(a1);
     v6 = (uint32_t *)(rf_state_check_n_4d8 + v3 + 8);
     if ( (rf_bus_write2_ne4 & v5) == 0x20000 )
       goto rf_bus_reset2_n244;
@@ -59,7 +59,7 @@ rf_bus_reset2_n260:
 LABEL_11:
         if ( !a1 )
           return a1;
-        return (int)rf_bus_write_9a4(a1);
+        return (int)table_lookup_entry_2(a1);
       }
       *v6 = 64;
       *v4 |= a2 | 0x8008000;

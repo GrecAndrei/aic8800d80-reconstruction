@@ -13,8 +13,8 @@
 extern uint32_t off_10CB3C;
 extern uint32_t off_10CB40;
 
-// sub_10CB10 @ 0x10cb10, size 44 bytes
-int sub_10CB10()
+// invoke_alt_handler @ 0x10cb10, size 44 bytes
+int invoke_alt_handler()
 {
   uint32_t *v0; // r4
   int result; // r0
@@ -25,7 +25,7 @@ int sub_10CB10()
   result = *(uint32_t *)(*(uint32_t *)off_10CB40 + 596);
   if ( result )
   {
-    result = sub_12D190(*(uint32_t *)off_10CB40 + 596);
+    result = list_pop(*(uint32_t *)off_10CB40 + 596);
     *v0 = 1;
     if ( result )
       result += 4;

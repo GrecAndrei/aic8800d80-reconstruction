@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130F1C @ 0x130f1c, size 162 bytes
-uint8_t * sub_130F1C(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// ampdu_action_complete @ 0x130f1c, size 162 bytes
+uint8_t * ampdu_action_complete(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   uint8_t *result; // r0
   uint8_t v7; // r2
@@ -19,7 +19,7 @@ uint8_t * sub_130F1C(uint8_t *a1, int a2, int a3, uint8_t *a4)
   unsigned int v9; // r5
   uint64_t v10; // r2
 
-  result = sub_12DBA0(a1, a2);
+  result = format_log_message_12dba0(a1, a2);
   *a4 = 0;
   if ( result )
   {

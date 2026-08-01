@@ -13,14 +13,14 @@
 extern uint32_t off_120768;
 extern uint32_t off_12076C;
 
-// sub_120750 @ 0x120750, size 24 bytes
-void sub_120750()
+// clear_intr_status @ 0x120750, size 24 bytes
+void clear_intr_status()
 {
   int v0; // r3
 
   v0 = *((uint8_t *)off_120768 + 18) + *((uint8_t *)off_120768 + 17);
   *(uint32_t *)off_12076C = 0;
   if ( v0 <= 1 )
-    sub_11FA28();
+    si_secure_check();
 }
 

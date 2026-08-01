@@ -16,10 +16,10 @@ extern uint32_t off_107820;
 extern uint32_t off_107818;
 extern uint32_t dword_10781C;
 
-// crypto_state_dump @ 0x107760, size 176 bytes
-// Doc: crypto_state_dump [ke]: Dumps crypto/KE state for debugging
-// crypto_state_dump [ke]: Dumps crypto/KE state for debugging
-int  crypto_state_dump(int a1)
+// timer_ticks_to_usec @ 0x107760, size 176 bytes
+// Doc: timer_ticks_to_usec [ke]: Dumps crypto/KE state for debugging
+// timer_ticks_to_usec [ke]: Dumps crypto/KE state for debugging
+int  timer_ticks_to_usec(int a1)
 {
   int v2; // r1
   int v3; // r2
@@ -133,6 +133,6 @@ int  crypto_state_dump(int a1)
   *v24 = (v25 << 12) & 0x7000 | v26 & 0xFFFF8FFF;
   *v27 |= 0x400u;
   *v27 = (v28 << 8) & 0x300 | *v27 & 0xFFFFFCFF;
-  return feature_guard_check(1, v29);
+  return check_status_bits(1, v29);
 }
 

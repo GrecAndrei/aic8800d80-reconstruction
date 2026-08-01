@@ -14,18 +14,18 @@ extern uint32_t off_136230;
 extern uint32_t dword_136238;
 extern uint32_t dword_136234;
 
-// sub_1361F8 @ 0x1361f8, size 56 bytes
-int sub_1361F8()
+// is_scan_enabled @ 0x1361f8, size 56 bytes
+int is_scan_enabled()
 {
-  if ( **(int16_t **)off_136230 >= 0 || sub_12CD48(7u) == 2 )
+  if ( **(int16_t **)off_136230 >= 0 || hci_cmd_handler(7u) == 2 )
   {
-    sub_1365F4(0);
+    send_vendor_hci_command(0);
     return 0;
   }
   else
   {
-    sub_12F32C(dword_136238, dword_136234, 388);
-    sub_1365F4(0);
+    irq_disable_mmio_write(dword_136238, dword_136234, 388);
+    send_vendor_hci_command(0);
     return 0;
   }
 }

@@ -16,10 +16,10 @@ extern uint32_t off_12053C;
 extern uint32_t off_120540;
 extern uint32_t off_120544;
 
-// fmac_main_loop @ 0x1204a8, size 138 bytes
-// Doc: fmac_main_loop [mac]: FMAC main processing loop
-// fmac_main_loop [mac]: FMAC main processing loop
-int fmac_main_loop()
+// read_hw_register @ 0x1204a8, size 138 bytes
+// Doc: read_hw_register [mac]: FMAC main processing loop
+// read_hw_register [mac]: FMAC main processing loop
+int read_hw_register()
 {
   int result; // r0
   uint32_t *v1; // r1

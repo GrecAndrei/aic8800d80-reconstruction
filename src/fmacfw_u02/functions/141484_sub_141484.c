@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1414DC;
 
-// sub_141484 @ 0x141484, size 88 bytes
-uint32_t *sub_141484()
+// ll_event_counter_inc @ 0x141484, size 88 bytes
+uint32_t *ll_event_counter_inc()
 {
   int v0; // r3
   int v1; // r0
@@ -33,13 +33,13 @@ uint32_t *sub_141484()
   while ( v2 != v0 + 6336 );
   if ( v1 >= *(uint32_t *)(v2 + 148) )
   {
-    result = sub_12CD34(0xBu, 0);
+    result = rx_phy_status_parse(0xBu, 0);
     *(uint32_t *)(v2 + 144) = -1;
   }
   else
   {
-    sub_12CD34(0xBu, 4);
-    return (uint32_t *)sub_12CA10(11264, 11, 11);
+    rx_phy_status_parse(0xBu, 4);
+    return (uint32_t *)ke_msg_send_no_param(11264, 11, 11);
   }
   return result;
 }

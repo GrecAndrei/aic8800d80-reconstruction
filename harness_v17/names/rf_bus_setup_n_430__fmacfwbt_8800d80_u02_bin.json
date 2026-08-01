@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n_430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211928", "status": "ok", "name": "rf_bus_setup_n_430", "params": [], "docstring": "Sets RF bus register 0x804 with bit 0x8000 and config field 0x2e", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n_430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211928", "status": "ok", "name": "rf_bus_mark_irq_1928", "params": [], "docstring": "Sets RF bus register 0x804 with bit 0x8000 and config field 0x2e", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

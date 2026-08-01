@@ -33,8 +33,8 @@ extern uint32_t off_110ED4;
 extern uint32_t off_110ED0;
 extern uint32_t dword_110ED8;
 
-// sub_110CE4 @ 0x110ce4, size 414 bytes
-int sub_110CE4()
+// mmio_write_reg @ 0x110ce4, size 414 bytes
+int mmio_write_reg()
 {
   int *v0; // r3
   int v1; // r3
@@ -70,11 +70,11 @@ int sub_110CE4()
     *(uint32_t *)off_110EB8 = *(uint32_t *)off_110EB8 & 0x8000FFFF | 0x4E200000;
     *v21 = *v21 & 0xFFFF8000 | 0x4E20;
     *v22 = *v22 & 0xFFFFF000 | 0x960;
-    result = sub_10F7CC();
+    result = ipc_send_command();
   }
   else
   {
-    sub_12E948(dword_110E8C, 16, v1 << 29);
+    alloc_tx_event(dword_110E8C, 16, v1 << 29);
     do
     {
       while ( (*(uint32_t *)off_110E90 & 0x20000000) != 0 )
@@ -121,7 +121,7 @@ int sub_110CE4()
     v14 = dword_110EC4;
     *v8 = 15;
     *v11 = v13;
-    sub_12E948(v14, v13, v11);
+    alloc_tx_event(v14, v13, v11);
     v15 = (int *)off_110E90;
     v16 = dword_110E94;
     while ( 1 )
@@ -148,7 +148,7 @@ int sub_110CE4()
     *(uint32_t *)off_110E90 = dword_110EC8;
     while ( (*v18 & 0x20000000) != 0 )
       ;
-    result = sub_12E948(dword_110ECC, v18, v17);
+    result = alloc_tx_event(dword_110ECC, v18, v17);
     *(uint32_t *)off_110E9C = *(uint32_t *)off_110E9C & 0xFFFFF000 | 0x960;
   }
   v20 = off_110ED4;

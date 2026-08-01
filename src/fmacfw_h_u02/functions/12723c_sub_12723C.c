@@ -30,8 +30,8 @@ extern uint32_t dword_1274FC;
 extern uint32_t off_127520;
 extern uint32_t off_127500;
 
-// sub_12723C @ 0x12723c, size 670 bytes
-int  sub_12723C(int a1, int a2)
+// llc_state_reset @ 0x12723c, size 670 bytes
+int  llc_state_reset(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint32_t *v5; // r2
@@ -101,7 +101,7 @@ int  sub_12723C(int a1, int a2)
   *(uint32_t *)off_1274EC = (4 * (uint8_t)v2[92]) & 4 | *(uint32_t *)off_1274EC & 0xFFFFFFFB;
   if ( a2 )
     goto LABEL_6;
-  result = sub_1219A4();
+  result = ke_evt_handler();
   if ( !*((uint8_t *)off_1274F0 + 408) )
     goto LABEL_6;
   v12 = *(uint8_t *)(a1 + 24);
@@ -115,7 +115,7 @@ LABEL_7:
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
-        result = sub_125C58(a1);
+        result = ipc_post_msg(a1);
         v14 = (uint8_t)v2[88];
       }
       else
@@ -150,7 +150,7 @@ LABEL_50:
     v42 = **(int16_t **)off_127504;
     *((uint32_t *)off_127508 + 1) |= 0x100040u;
     if ( v42 < 0 && *(uint32_t *)off_127510 << 28 )
-      sub_12F35C(dword_127518, dword_127514, 472);
+      mmio_write_field(dword_127518, dword_127514, 472);
     v38 = off_12750C;
     v39 = 1;
     *(uint32_t *)off_12750C = *v41 | v41[1];
@@ -185,25 +185,25 @@ LABEL_38:
   v37 = **(int16_t **)off_127504;
   *((uint32_t *)off_127508 + 1) &= 0xFFEFFFBF;
   if ( v37 < 0 && *(uint32_t *)off_127510 << 28 )
-    sub_12F35C(dword_127518, dword_127514, 472);
+    mmio_write_field(dword_127518, dword_127514, 472);
   v38 = off_12750C;
   *(uint32_t *)off_12750C = *v36 | v36[1];
   v39 = 0;
 LABEL_48:
   v40 = dword_12751C;
   v30[8] = v15;
-  result = sub_12E948(v40, v39, v38);
+  result = alloc_tx_event(v40, v39, v38);
 LABEL_6:
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
     goto LABEL_7;
 LABEL_23:
   v2[88] &= ~8u;
-  v19 = (uint16_t *)sub_12B3D4();
-  v20 = (uint16_t *)sub_12C7EC(79, 13, 0, 12);
+  v19 = (uint16_t *)rf_get_buffer();
+  v20 = (uint16_t *)tx_send_pdu(79, 13, 0, 12);
   *v20 = *v19;
   v21 = v20;
-  v22 = sub_12B3E8(v19);
+  v22 = hci_buffer_get(v19);
   v23 = dword_1274FC;
   v24 = (unsigned int *)off_127520;
   v25 = off_127500;
@@ -221,18 +221,18 @@ LABEL_23:
   }
   *((uint8_t *)v21 + 2) = *v25;
 LABEL_26:
-  sub_12C84C(v21);
+  rx_process_packet(v21);
   v27 = off_127508;
   v28 = **(int16_t **)off_127504;
   v29 = *((uint32_t *)off_127508 + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_127508 + 1) = v29;
   if ( v28 < 0 && *(uint32_t *)off_127510 << 28 )
   {
-    sub_12F35C(dword_127518, dword_127514, 472);
+    mmio_write_field(dword_127518, dword_127514, 472);
     v29 = v27[1];
   }
   *(uint32_t *)off_12750C = v29 | *v27;
-  result = sub_12C8D0(142, 2, 255);
+  result = mac_write_header_word(142, 2, 255);
   v14 = (uint8_t)v2[88];
 LABEL_8:
   *(uint8_t *)(a1 + 24) = -1;
@@ -241,11 +241,11 @@ LABEL_8:
   {
     if ( a2 )
       return result;
-    return sub_121934();
+    return ke_evt_poll();
   }
-  result = sub_127204();
+  result = llc_flag_test_bit4();
   if ( !a2 )
-    return sub_121934();
+    return ke_evt_poll();
   return result;
 }
 

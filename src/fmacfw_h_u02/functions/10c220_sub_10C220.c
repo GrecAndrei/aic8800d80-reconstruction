@@ -30,8 +30,8 @@ extern uint32_t off_10C4A0;
 extern uint32_t dword_10C49C;
 extern uint32_t dword_10C4A4;
 
-// sub_10C220 @ 0x10c220, size 546 bytes
-int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
+// mac_descriptor_parse @ 0x10c220, size 546 bytes
+int * mac_descriptor_parse(int *result, unsigned int a2, int a3, int a4)
 {
   int v4; // r6
   int v7; // r7
@@ -85,7 +85,7 @@ int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
     goto LABEL_3;
   }
   v8 = result[1];
-  sub_12EB90(0x2000, dword_10C470);
+  check_feature_flag(0x2000, dword_10C470);
   v9 = a2 - 2;
   do
   {
@@ -123,21 +123,21 @@ int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
       v13 = *(uint64_t *)&dword_10C450;
       v14 = dbl_10C448;
     }
-    v15 = sub_142894(v12);
-    v16 = sub_142968(v15, HIDWORD(v15), 0, dword_10C488);
-    v17 = sub_142BBC(v13, HIDWORD(v13), v16, HIDWORD(v16));
-    v18 = sub_142968(v17, HIDWORD(v17), 0, dword_10C48C);
-    v19 = sub_1424DC(v18);
-    v20 = sub_142BBC(LODWORD(v14), HIDWORD(v14), 0, dword_10C488);
-    v21 = sub_1424DC(v20);
+    v15 = signed_int_to_double(v12);
+    v16 = double_compare_common(v15, HIDWORD(v15), 0, dword_10C488);
+    v17 = double_compare_core(v13, HIDWORD(v13), v16, HIDWORD(v16));
+    v18 = double_compare_common(v17, HIDWORD(v17), 0, dword_10C48C);
+    v19 = double_exp_check(v18);
+    v20 = double_compare_core(LODWORD(v14), HIDWORD(v14), 0, dword_10C488);
+    v21 = double_exp_check(v20);
     v22 = v19;
     v23 = v21;
-    *(uint32_t *)off_10C4A8 = sub_142EEC(v22) & 0x7FFFFFFF;
-    *(uint32_t *)off_10C490 = dword_10C494 & (sub_142EEC(v23) << 13) | *(uint32_t *)off_10C490 & dword_10C498;
+    *(uint32_t *)off_10C4A8 = double_to_float_rounding(v22) & 0x7FFFFFFF;
+    *(uint32_t *)off_10C490 = dword_10C494 & (double_to_float_rounding(v23) << 13) | *(uint32_t *)off_10C490 & dword_10C498;
   }
-  sub_103A54();
-  sub_10A868((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
-  result = (int *)sub_103AFC();
+  rf_set_control_bit();
+  rf_set_channel((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
+  result = (int *)rf_calibrate();
   *(uint32_t *)off_10C474 = 1;
   if ( a4 )
   {
@@ -151,7 +151,7 @@ LABEL_3:
       v37[0] = *(uint32_t *)dword_10C49C;
       v37[1] = v25;
       v37[2] = v26;
-      sub_103A54();
+      rf_set_control_bit();
       v28 = *(uint64_t *)v27;
       v29 = *(uint32_t *)(v27 + 8);
       v30 = *(uint32_t *)(v27 + 12);
@@ -181,8 +181,8 @@ LABEL_3:
       *((uint8_t *)v24 + 36) = 0;
       *((uint8_t *)v24 + 44) = 0;
       *((uint8_t *)v24 + 52) = 0;
-      sub_10AED0((unsigned int *)v31, (uint8_t *)(a2 + 125), (int)v24);
-      sub_10B2F0(v37, dword_10C4A4, a2 + 104, a2 + 125, v24, 6, 1, v36, 0, 0, &v38);
+      rf_iqk_init((unsigned int *)v31, (uint8_t *)(a2 + 125), (int)v24);
+      rf_calibration(v37, dword_10C4A4, a2 + 104, a2 + 125, v24, 6, 1, v36, 0, 0, &v38);
       *((uint8_t *)v24 + 4) = 0;
       *((uint8_t *)v24 + 12) = 0;
       *((uint8_t *)v24 + 20) = 0;
@@ -190,7 +190,7 @@ LABEL_3:
       *((uint8_t *)v24 + 36) = 0;
       *((uint8_t *)v24 + 44) = 0;
       *((uint8_t *)v24 + 52) = 0;
-      return (int *)sub_103AFC();
+      return (int *)rf_calibrate();
     }
   }
   return result;

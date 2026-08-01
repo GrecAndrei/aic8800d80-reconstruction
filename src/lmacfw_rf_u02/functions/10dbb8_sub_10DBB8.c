@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DBCC;
 
-// sub_10DBB8 @ 0x10dbb8, size 18 bytes
-int  sub_10DBB8(char a1)
+// gpio_clear_pin @ 0x10dbb8, size 18 bytes
+int  gpio_clear_pin(char a1)
 {
   int result; // r0
 

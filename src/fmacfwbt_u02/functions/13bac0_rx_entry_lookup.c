@@ -13,10 +13,10 @@
 extern uint32_t dword_13BB0C;
 extern uint32_t dword_13BB10;
 
-// rx_entry_lookup @ 0x13bac0, size 76 bytes
-// Doc: rx_entry_lookup [rx]: Indexed lookup into 32-byte RX entry table returning descriptor fields
-// rx_entry_lookup [rx]: Indexed lookup into 32-byte RX entry table returning descriptor fields
-uint8_t * rx_entry_lookup(int a1)
+// rf_get_chan_cfg @ 0x13bac0, size 76 bytes
+// Doc: rf_get_chan_cfg [rx]: Indexed lookup into 32-byte RX entry table returning descriptor fields
+// rf_get_chan_cfg [rx]: Indexed lookup into 32-byte RX entry table returning descriptor fields
+uint8_t * rf_get_chan_cfg(int a1)
 {
   uint8_t *result; // r0
   int v2; // r1

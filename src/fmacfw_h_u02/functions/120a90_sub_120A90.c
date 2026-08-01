@@ -58,8 +58,8 @@ extern uint32_t dword_120DF8;
 extern uint32_t dword_120DF0;
 extern uint32_t dword_120DE0;
 
-// sub_120A90 @ 0x120a90, size 1192 bytes
-int sub_120A90()
+// alloc_rx_buf_pool @ 0x120a90, size 1192 bytes
+int alloc_rx_buf_pool()
 {
   uint8_t *v0; // r10
   int v1; // r8
@@ -113,7 +113,7 @@ int sub_120A90()
 
   v0 = off_120E14;
   v1 = *((uint32_t *)off_120E14 + 8);
-  result = sub_12D00C(0x40000);
+  result = irq_disable_global_3(0x40000);
   if ( v1 )
   {
     v3 = off_120D9C;
@@ -132,7 +132,7 @@ LABEL_3:
         v9 = *(uint32_t *)off_120DA8;
         *(uint32_t *)off_120DAC = 0x80000000;
         if ( *(uint32_t *)(v9 + 4) + *(uint32_t *)(v1 + 120) - v4[4] < 0
-          && !sub_118C84(*(uint8_t *)(v1 + 116), 0, 0) )
+          && !phy_get_channel(*(uint8_t *)(v1 + 116), 0, 0) )
         {
           *(uint32_t *)(v1 + 120) = v4[4];
         }
@@ -141,7 +141,7 @@ LABEL_3:
       }
       if ( (v5 & 4) != 0 )
       {
-        sub_12EB90(2, dword_120DD4);
+        check_feature_flag(2, dword_120DD4);
         v24 = (int16_t **)off_120DB8;
         v25 = *((uint32_t *)v3 + 1);
         *v6 &= ~4u;
@@ -150,12 +150,12 @@ LABEL_3:
         *((uint32_t *)v3 + 1) = v27;
         if ( v26 < 0 && *(uint32_t *)off_120DE4 << 28 )
         {
-          sub_12F35C(dword_120DEC, dword_120DE8, 472);
+          mmio_write_field(dword_120DEC, dword_120DE8, 472);
           v27 = *((uint32_t *)v3 + 1);
         }
         v28 = off_120DD8;
         *(uint32_t *)off_120DDC = v27 | *(uint32_t *)v3;
-        sub_12B170(*(uint8_t *)(v1 + 107), v28, v1);
+        get_bt_device_state(*(uint8_t *)(v1 + 107), v28, v1);
         v29 = *((uint8_t *)v3 + 30);
         *v7 &= 0xFC0FFFFF;
         v5 = v29 & 0xFB;
@@ -167,7 +167,7 @@ LABEL_3:
         *(uint32_t *)(v1 + 4) &= ~2u;
         if ( v0[29] == 5 )
         {
-          sub_124CF4(dword_120DF4);
+          mem_set_util(dword_120DF4);
           LOBYTE(v5) = *((uint8_t *)v3 + 30);
           v0[29] = 0;
         }
@@ -182,7 +182,7 @@ LABEL_20:
       {
         v15 = *(uint32_t *)off_120DC0;
         v16 = (*(uint32_t *)off_120DC0 >> 5) & 3;
-        sub_12EB90(2, dword_120DC4);
+        check_feature_flag(2, dword_120DC4);
         v17 = *(uint32_t *)(v1 + 120);
         v18 = *(uint32_t *)(*(uint32_t *)off_120DA8 + 4);
         *(uint8_t *)(v1 + 128) = 0;
@@ -191,7 +191,7 @@ LABEL_20:
         {
           v32 = dword_120E10;
           *((uint8_t *)v3 + 30) |= 8u;
-          sub_12EB90(2, v32);
+          check_feature_flag(2, v32);
         }
         if ( v16 )
         {
@@ -201,16 +201,16 @@ LABEL_20:
           *(uint32_t *)off_120DC0 &= ~8u;
           if ( (*v31 & 0x10) != 0 )
           {
-            sub_12EB90(2, dword_120E08);
+            check_feature_flag(2, dword_120E08);
             *(uint8_t *)off_120DC8 = BYTE2(*(uint32_t *)off_120E0C);
-            sub_12903C(v16 >> 1, v19 & 1, v1);
+            mfp_key_disable(v16 >> 1, v19 & 1, v1);
             *v31 &= ~0x10u;
           }
           else
           {
             v33 = dword_120F3C;
             *(uint32_t *)off_120F38 = 1;
-            sub_12EB90(2, v33);
+            check_feature_flag(2, v33);
             v34 = off_120F44;
             *(uint8_t *)off_120F40 = *((uint8_t *)off_120F40 + 1) > 1u;
             *v34 = 1;
@@ -223,7 +223,7 @@ LABEL_20:
         v20 = (uint8_t **)off_120DD0;
         *(uint32_t *)off_120DCC &= ~0x200u;
         *(uint32_t *)(v1 + 4) &= ~1u;
-        result = sub_124CF4(v1 + 48);
+        result = mem_set_util(v1 + 48);
         v21 = *v20;
         if ( **v20 == 2 )
         {
@@ -244,7 +244,7 @@ LABEL_20:
             if ( (unsigned int)(v4[4] - v38) > 0x7530 )
             {
               v47 = v39;
-              sub_12EB90(2, dword_120F64);
+              check_feature_flag(2, dword_120F64);
               v39 = v47;
             }
           }
@@ -264,7 +264,7 @@ LABEL_20:
                 v45 = *v43 & *v40;
                 if ( (unsigned int)(v4[4] - v44) > 0x7530 )
                 {
-                  result = sub_12EB90(2, dword_120F6C);
+                  result = check_feature_flag(2, dword_120F6C);
                   v43 = off_120F58;
                 }
               }
@@ -292,13 +292,13 @@ LABEL_20:
         v23 = *v21;
         if ( v23 == 1 )
         {
-          result = sub_124BFC(v1 + 24, v4[4] + 32 * *(uint32_t *)off_120F4C - *((uint16_t *)off_120F50 + 93));
+          result = mem_copy_util(v1 + 24, v4[4] + 32 * *(uint32_t *)off_120F4C - *((uint16_t *)off_120F50 + 93));
           v23 = **v20;
         }
         if ( v23 == 2 )
         {
           *(uint32_t *)off_120F48 = 48;
-          result = sub_117978();
+          result = critical_section_enter_alt();
         }
         v5 = *((uint8_t *)v3 + 30) & 0xDF;
         *((uint8_t *)v3 + 30) = v5;
@@ -324,17 +324,17 @@ LABEL_20:
           }
           else
           {
-            result = sub_12F32C(dword_120E00, dword_120DFC, 864);
+            result = irq_disable_mmio_write(dword_120E00, dword_120DFC, 864);
             if ( (*v7 & 0x70000) == 0 )
             {
 LABEL_43:
               v46[0] = *(uint32_t *)off_120DB0 >> 31;
               v46[1] = (*(uint32_t *)off_120DB0 >> 30) & 1;
-              sub_12EB90(2, dword_120E04);
+              check_feature_flag(2, dword_120E04);
               result = v46[0];
               if ( *(uint64_t *)v46 )
               {
-                result = sub_12903C(v46[0], v46[1], v14);
+                result = mfp_key_disable(v46[0], v46[1], v14);
                 v30 = off_120DB0;
                 *(uint32_t *)off_120DB0 &= ~0x80000000;
                 *v30 &= ~0x40000000u;
@@ -344,17 +344,17 @@ LABEL_43:
         }
         else
         {
-          result = sub_12E948(dword_120DF8, v12, *(uint8_t *)(v13 + 37));
+          result = alloc_tx_event(dword_120DF8, v12, *(uint8_t *)(v13 + 37));
         }
       }
       else
       {
-        result = sub_12E948(dword_120DF0, v11, v10);
+        result = alloc_tx_event(dword_120DF0, v11, v10);
       }
     }
     else
     {
-      result = sub_12E948(dword_120DE0, v5, v10);
+      result = alloc_tx_event(dword_120DE0, v5, v10);
     }
     v5 = *((uint8_t *)v3 + 30) & 0xFE;
     *((uint8_t *)v3 + 30) = v5;

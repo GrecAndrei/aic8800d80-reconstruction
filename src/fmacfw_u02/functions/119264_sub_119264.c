@@ -19,8 +19,8 @@ extern uint32_t off_119380;
 extern uint32_t dword_119384;
 extern uint32_t dword_119394;
 
-// sub_119264 @ 0x119264, size 278 bytes
-int  sub_119264(int a1, int a2, int a3)
+// bt_link_state_check @ 0x119264, size 278 bytes
+int  bt_link_state_check(int a1, int a2, int a3)
 {
   int v3; // r3
   int v4; // r3
@@ -39,7 +39,7 @@ int  sub_119264(int a1, int a2, int a3)
   v3 = *(uint8_t *)(a1 + 106);
   if ( v3 != 2 )
   {
-    sub_12EA88(dword_119390, v3, a3);
+    event_dispatch(dword_119390, v3, a3);
     return 1;
   }
   v4 = *(uint32_t *)(a1 + 72);
@@ -56,22 +56,22 @@ int  sub_119264(int a1, int a2, int a3)
   {
     goto LABEL_9;
   }
-  sub_12F46C(dword_11938C, dword_119388, 520);
+  mmio_clear_register(dword_11938C, dword_119388, 520);
 LABEL_9:
   v8 = 1;
 LABEL_5:
   v9 = dword_119398;
-  v10 = sub_118C44(v8, *(uint16_t *)(dword_119398 + 2 * *(uint8_t *)(a1 + 107)));
+  v10 = ke_mutex_guard(v8, *(uint16_t *)(dword_119398 + 2 * *(uint8_t *)(a1 + 107)));
   v12 = v10;
   if ( v10 )
   {
-    sub_12C4E8(a1, v10);
+    rf_check_temperature(a1, v10);
     v13 = *(uint32_t *)(v12 + 72);
     *(uint8_t *)(v13 + 108) = 80;
     *(uint8_t *)(v13 + 109) = 0;
     *(uint8_t *)(v13 + 110) = 0;
     *(uint8_t *)(v13 + 111) = 0;
-    sub_143770(v13 + 112, a2, 6);
+    memcpy(v13 + 112, a2, 6);
     v14 = off_119380;
     v15 = *((uint16_t *)off_119380 + 254);
     v16 = *(uint16_t *)(a1 + 104);
@@ -83,7 +83,7 @@ LABEL_5:
     *(uint16_t *)(v13 + 128) = v16;
     v14[254] = v15;
     *(uint16_t *)(v13 + 130) = 16 * v15;
-    sub_143770(
+    memcpy(
       v13 + 132,
       dword_119384 + (*(uint8_t *)(a1 + 107) << 9),
       *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)) - 24);
@@ -91,12 +91,12 @@ LABEL_5:
     *(uint32_t *)(v12 + 92) = 0;
     *(uint8_t *)(v12 + 28) = *(uint8_t *)(a1 + 107);
     *(uint8_t *)(v12 + 29) = -1;
-    sub_118C74(v12, 5);
+    tx_path_status(v12, 5);
     return 0;
   }
   else
   {
-    sub_12EA88(dword_119394, *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)), v11);
+    event_dispatch(dword_119394, *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)), v11);
     return 1;
   }
 }

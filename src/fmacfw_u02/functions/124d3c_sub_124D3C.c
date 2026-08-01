@@ -20,8 +20,8 @@ extern uint32_t dword_124E2C;
 extern uint32_t off_124E1C;
 extern uint32_t dword_124E20;
 
-// sub_124D3C @ 0x124d3c, size 212 bytes
-int  sub_124D3C(int a1, int a2)
+// unknown_worker @ 0x124d3c, size 212 bytes
+int  unknown_worker(int a1, int a2)
 {
   int *v4; // r7
   uint32_t *v5; // r2
@@ -45,17 +45,17 @@ int  sub_124D3C(int a1, int a2)
   ++*(uint32_t *)off_124E14;
   if ( a2 - v5[4] < 0 )
   {
-    sub_12EA88(dword_124E24, *(uint32_t *)(a1 + 4), a2);
+    event_dispatch(dword_124E24, *(uint32_t *)(a1 + 4), a2);
     if ( **(int16_t **)off_124E28 < 0 )
-      sub_12F46C(dword_124E30, dword_124E2C, 131);
+      mmio_clear_register(dword_124E30, dword_124E2C, 131);
   }
   v6 = (int *)off_124E1C;
   if ( a1 == *(uint32_t *)off_124E1C )
   {
-    sub_12D2D0(off_124E1C);
+    mem_word_load(off_124E1C);
     v12 = dword_124E20;
     *(uint32_t *)(a1 + 12) = a2;
-    result = sub_12D380(v6, a1, v12);
+    result = list_process(v6, a1, v12);
     v9 = *v6;
     if ( !*v6 )
     {
@@ -64,10 +64,10 @@ int  sub_124D3C(int a1, int a2)
     }
     goto LABEL_14;
   }
-  sub_12D2E8(off_124E1C, a1);
+  cmd_handler_c(off_124E1C, a1);
   v7 = dword_124E20;
   *(uint32_t *)(a1 + 12) = a2;
-  result = sub_12D380(v6, a1, v7);
+  result = list_process(v6, a1, v7);
   v9 = *v6;
   if ( a1 == *v6 )
   {
@@ -84,11 +84,11 @@ LABEL_6:
   {
     __enable_irq();
     if ( a2 - *((uint32_t *)off_124E18 + 4) < 0 )
-      return sub_12D104(0x20000000);
+      return unknown_func_12d104(0x20000000);
   }
   else if ( a2 - *((uint32_t *)off_124E18 + 4) < 0 )
   {
-    return sub_12D104(0x20000000);
+    return unknown_func_12d104(0x20000000);
   }
   return result;
 }

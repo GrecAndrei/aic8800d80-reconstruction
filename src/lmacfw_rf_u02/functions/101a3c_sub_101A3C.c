@@ -12,8 +12,8 @@
 
 extern uint32_t off_101A4C;
 
-// sub_101A3C @ 0x101a3c, size 14 bytes
-BOOL sub_101A3C()
+// sys_ready_check @ 0x101a3c, size 14 bytes
+BOOL sys_ready_check()
 {
   return *(uint32_t *)off_101A4C > 1u;
 }

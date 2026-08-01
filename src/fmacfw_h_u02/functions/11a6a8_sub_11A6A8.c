@@ -14,8 +14,8 @@ extern uint32_t off_11A6EC;
 extern uint32_t off_11A6F4;
 extern uint32_t dword_11A6F0;
 
-// sub_11A6A8 @ 0x11a6a8, size 68 bytes
-int  sub_11A6A8(int result)
+// invalid_handler @ 0x11a6a8, size 68 bytes
+int  invalid_handler(int result)
 {
   int *v1; // r4
   int v2; // r2
@@ -36,7 +36,7 @@ int  sub_11A6A8(int result)
   *(uint32_t *)off_11A6F4 = v4;
   if ( !v3 && *(uint32_t *)(v2 + 44) )
   {
-    result = sub_119D88(result);
+    result = btm_get_conn_entry(result);
     v4 = *v1;
   }
   if ( v4 )

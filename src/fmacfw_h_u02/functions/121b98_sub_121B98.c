@@ -15,8 +15,8 @@ extern uint32_t dword_121C38;
 extern uint32_t off_121C40;
 extern uint32_t off_121C3C;
 
-// sub_121B98 @ 0x121b98, size 156 bytes
-int  sub_121B98(int a1, uint8_t *a2, uint8_t *a3)
+// ke_send_msg @ 0x121b98, size 156 bytes
+int  ke_send_msg(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v6; // r4
   int v8; // r5
@@ -26,18 +26,18 @@ int  sub_121B98(int a1, uint8_t *a2, uint8_t *a3)
   uint8_t *v12; // r3
   int v13; // r1
 
-  v6 = sub_11EDC8((int *)a1, a2);
+  v6 = is_controller_active((int *)a1, a2);
   if ( v6 )
     return v6;
   v8 = *(uint8_t *)(a1 + 25);
   v9 = dword_121C34 + 696 * (uint8_t)*a2;
   *(uint8_t *)(v9 + 669) = 0;
   *(uint16_t *)(v9 + 670) = 0;
-  v10 = sub_121200((uint8_t)*a2, v8);
+  v10 = ll_tx_setup((uint8_t)*a2, v8);
   *a3 = v10;
   v11 = *(uint32_t *)(v9 + 44);
   if ( v11 )
-    v10 = sub_121200(*(uint8_t *)(v11 + 35), *(uint8_t *)(a1 + 25));
+    v10 = ll_tx_setup(*(uint8_t *)(v11 + 35), *(uint8_t *)(a1 + 25));
   v12 = (uint8_t *)(dword_121C38 + 1320 * v8);
   if ( v12[106] )
   {
@@ -46,7 +46,7 @@ int  sub_121B98(int a1, uint8_t *a2, uint8_t *a3)
       v13 = *(uint8_t *)off_121C40;
       ++*(uint8_t *)off_121C3C;
       if ( v13 == 1 )
-        sub_136D48(v10);
+        rf_rate_code_check_alt(v10);
     }
     return v6;
   }

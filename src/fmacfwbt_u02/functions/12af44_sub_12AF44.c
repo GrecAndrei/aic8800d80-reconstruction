@@ -15,8 +15,8 @@ extern uint32_t off_12B01C;
 extern uint32_t dword_12B024;
 extern uint32_t off_12B020;
 
-// sub_12AF44 @ 0x12af44, size 212 bytes
-int  sub_12AF44(int a1)
+// rf_tx_power_configure @ 0x12af44, size 212 bytes
+int  rf_tx_power_configure(int a1)
 {
   int v1; // r7
   int v3; // r5
@@ -35,7 +35,7 @@ int  sub_12AF44(int a1)
 
   v1 = dword_12B018;
   v3 = *((uint32_t *)off_12B01C + 4);
-  sub_11C040((uint8_t *)(dword_12B018 + 1320 * *(uint8_t *)(a1 + 28)));
+  bt_adv_check((uint8_t *)(dword_12B018 + 1320 * *(uint8_t *)(a1 + 28)));
   if ( *(uint8_t *)(a1 + 31) )
   {
     v4 = *(uint32_t *)(a1 + 16) > 2u;
@@ -43,7 +43,7 @@ int  sub_12AF44(int a1)
     if ( *(uint32_t *)(a1 + 20) > 2u )
       v4 |= 2u;
     if ( (*(uint8_t *)(a1 + 29) ^ v4) << 30 )
-      sub_12A6E8(*(uint8_t *)(a1 + 28), v4);
+      bt_dev_check_ready(*(uint8_t *)(a1 + 28), v4);
     v6 = *(uint8_t *)(a1 + 28);
     *(uint8_t *)(a1 + 29) = v4;
     v7 = *(int ***)(v1 + 1320 * v5 + 240);
@@ -80,6 +80,6 @@ int  sub_12AF44(int a1)
   *(uint8_t *)(a1 + 31) = *((uint32_t *)off_12B020 + 10) == *(uint32_t *)(v1 + 1320 * v6 + 72);
   *(uint32_t *)(a1 + 16) = 0;
   *(uint32_t *)(a1 + 20) = 0;
-  return sub_124F60(a1, v3 + 102400);
+  return ke_event_lock(a1, v3 + 102400);
 }
 

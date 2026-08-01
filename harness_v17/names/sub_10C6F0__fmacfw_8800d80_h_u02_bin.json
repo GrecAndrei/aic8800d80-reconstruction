@@ -1,0 +1,1 @@
+{"fn": "sub_10C6F0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10c6f0", "status": "ok", "name": "interrupt_dispatcher", "params": [], "docstring": "Dispatch interrupt and continue in common ISR", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

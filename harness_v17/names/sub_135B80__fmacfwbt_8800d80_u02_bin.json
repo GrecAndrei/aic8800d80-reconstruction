@@ -1,0 +1,1 @@
+{"fn": "sub_135B80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135b80", "status": "ok", "name": "is_pll_freq_6", "params": [], "docstring": "Check PLL/clock frequency is 6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

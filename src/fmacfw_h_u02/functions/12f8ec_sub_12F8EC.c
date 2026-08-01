@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12F8EC @ 0x12f8ec, size 50 bytes
-int  sub_12F8EC(int a1)
+// is_two_char_string @ 0x12f8ec, size 50 bytes
+int  is_two_char_string(int a1)
 {
   int v2; // r0
   int v3; // r0
   int v5; // r3
 
-  v2 = sub_143D00(a1);
+  v2 = memcpy_aligned(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;

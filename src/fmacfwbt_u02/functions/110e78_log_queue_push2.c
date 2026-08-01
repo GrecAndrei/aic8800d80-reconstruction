@@ -23,10 +23,10 @@ extern uint32_t off_110F78;
 extern uint32_t off_110F7C;
 extern uint32_t off_110F80;
 
-// log_queue_push2 @ 0x110e78, size 238 bytes
-// Doc: log_queue_push2 [util]: Push formatted log entry into debug queue
-// log_queue_push2 [util]: Push formatted log entry into debug queue
-int  log_queue_push2(int a1, int a2, int a3)
+// ke_int_lock @ 0x110e78, size 238 bytes
+// Doc: ke_int_lock [util]: Push formatted log entry into debug queue
+// ke_int_lock [util]: Push formatted log entry into debug queue
+int  ke_int_lock(int a1, int a2, int a3)
 {
   int *v6; // r9
   uint8_t *v7; // r3
@@ -63,27 +63,27 @@ int  log_queue_push2(int a1, int a2, int a3)
       v20 = *((uint8_t *)off_110F88 + 374);
       if ( v20 != 1 )
         goto LABEL_4;
-      result = timestamp_list_contains_51a0(dword_110F8C);
+      result = ke_event_pending(dword_110F8C);
       if ( result )
         goto LABEL_18;
       if ( v19[369] )
-        sub_10DB6C(v20);
+        gpio_clear_bit_reg0(v20);
       else
-        irq_enable(v20);
+        gpio_set_bit_reg0(v20);
     }
     else
     {
       v17 = (uint8_t *)off_110F88;
       if ( *((uint8_t *)off_110F88 + 369) )
-        result = sub_10DB6C(1);
+        result = gpio_clear_bit_reg0(1);
       else
-        result = irq_enable(1);
+        result = gpio_set_bit_reg0(1);
       v18 = v17[374];
       *v16 = 1;
       if ( v18 != 1 )
         goto LABEL_18;
     }
-    result = timestamp_update_4f60(dword_110F8C, *((uint32_t *)off_110F90 + 4) + 10000);
+    result = ke_event_lock(dword_110F8C, *((uint32_t *)off_110F90 + 4) + 10000);
 LABEL_18:
     v8 = *v6;
   }

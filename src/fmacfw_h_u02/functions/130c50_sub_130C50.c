@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130C50 @ 0x130c50, size 38 bytes
-int  sub_130C50(int a1, int a2, int16_t a3)
+// build_delba @ 0x130c50, size 38 bytes
+int  build_delba(int a1, int a2, int16_t a3)
 {
   int16_t v3; // r3
   int v4; // r1

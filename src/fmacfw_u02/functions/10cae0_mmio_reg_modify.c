@@ -20,10 +20,10 @@ extern uint32_t off_10CBAC;
 extern uint32_t off_10CBB0;
 extern uint32_t dword_10CBB4;
 
-// mmio_reg_modify @ 0x10cae0, size 182 bytes
-// Doc: mmio_reg_modify [mmio]: Reads/modifies MMIO register via indirect pointer
-// mmio_reg_modify [mmio]: Reads/modifies MMIO register via indirect pointer
-int mmio_reg_modify()
+// busy_flag_check @ 0x10cae0, size 182 bytes
+// Doc: busy_flag_check [mmio]: Reads/modifies MMIO register via indirect pointer
+// busy_flag_check [mmio]: Reads/modifies MMIO register via indirect pointer
+int busy_flag_check()
 {
   int v0; // r4
   int result; // r0
@@ -39,7 +39,7 @@ int mmio_reg_modify()
     v6 = off_10CBA0;
     *(uint32_t *)off_10CBB8 = 32;
     *v6 = 32;
-    irq_nesting_or_d104(0x80000);
+    unknown_func_12d104(0x80000);
   }
   result = v0 << 27;
   if ( (v0 & 0x10) != 0 )
@@ -47,16 +47,16 @@ int mmio_reg_modify()
     v5 = off_10CBA0;
     *(uint32_t *)off_10CBB8 = 16;
     *v5 = 16;
-    result = irq_nesting_or_d104(0x100000);
+    result = unknown_func_12d104(0x100000);
   }
   if ( (v0 & 2) != 0 )
   {
-    result = irq_nesting_or_d104(0x8000000);
+    result = unknown_func_12d104(0x8000000);
     *(uint32_t *)off_10CBB8 = 2;
   }
   if ( (v0 & 0x40000000) != 0 )
   {
-    result = rf_bus_reset_n_32e(1);
+    result = sub_1145ac(1);
     *(uint32_t *)off_10CBA0 = 0x40000000;
   }
   if ( v0 < 0 )
@@ -81,7 +81,7 @@ LABEL_16:
   if ( *v3 )
     goto LABEL_16;
   if ( (*(uint32_t *)off_10CBB0 & dword_10CBB4) == 0x10000 )
-    return rf_fault_dump_n_1d4();
+    return process_global_167204();
   return result;
 }
 

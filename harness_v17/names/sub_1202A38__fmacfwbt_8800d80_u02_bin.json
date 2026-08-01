@@ -1,1 +1,1 @@
-{"fn": "sub_1202A38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202a38", "status": "ok", "name": "bt_fw_init_or_status_check", "params": [], "docstring": "BT firmware init/status check using global config and signed counter", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1202A38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202a38", "status": "ok", "name": "check_firmware_state", "params": [], "docstring": "BT firmware init/status check using global config and signed counter", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

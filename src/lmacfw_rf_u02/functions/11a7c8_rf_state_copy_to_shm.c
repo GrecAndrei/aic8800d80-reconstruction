@@ -21,10 +21,10 @@ extern uint32_t off_11A8D4;
 extern uint32_t off_11A8CC;
 extern uint32_t dword_11A8D0;
 
-// rf_state_copy_to_shm @ 0x11a7c8, size 242 bytes
-// Doc: rf_state_copy_to_shm [patch]: Copy RF calibration/state bytes to shared memory region
-// rf_state_copy_to_shm [patch]: Copy RF calibration/state bytes to shared memory region
-int  rf_state_copy_to_shm(uint8_t *a1)
+// rx_update_meta @ 0x11a7c8, size 242 bytes
+// Doc: rx_update_meta [patch]: Copy RF calibration/state bytes to shared memory region
+// rx_update_meta [patch]: Copy RF calibration/state bytes to shared memory region
+int  rx_update_meta(uint8_t *a1)
 {
   uint8_t *v1; // r2
   int v2; // r3
@@ -98,13 +98,13 @@ int  rf_state_copy_to_shm(uint8_t *a1)
         {
           *(uint32_t *)off_11A8D4 = v15;
         }
-        sub_1183A0();
+        poll_hw_status();
       }
     }
   }
   if ( a1[24] )
     *(uint8_t *)off_11A8CC = a1[24];
-  msg_parse(dword_11A8D0, v7);
-  return rf_mem_read_f594(a1, 28, 1, 0);
+  dispatch_event_handler(dword_11A8D0, v7);
+  return handle_ipc_request(a1, 28, 1, 0);
 }
 

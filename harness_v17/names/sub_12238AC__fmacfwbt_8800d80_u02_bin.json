@@ -1,1 +1,1 @@
-{"fn": "sub_12238AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12238ac", "status": "ok", "name": "bt_cmd_dispatch_wrapper", "params": [], "docstring": "BT command dispatch thunk returning 1", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12238AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12238ac", "status": "ok", "name": "call_125ac8", "params": [], "docstring": "BT command dispatch thunk returning 1", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

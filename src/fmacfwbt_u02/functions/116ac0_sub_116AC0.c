@@ -12,8 +12,8 @@
 
 extern uint32_t dword_116AF0;
 
-// sub_116AC0 @ 0x116ac0, size 48 bytes
-int  sub_116AC0(uint8_t *a1, char a2)
+// get_sta_entry @ 0x116ac0, size 48 bytes
+int  get_sta_entry(uint8_t *a1, char a2)
 {
   int v2; // r6
   int v4; // r5
@@ -22,7 +22,7 @@ int  sub_116AC0(uint8_t *a1, char a2)
   v4 = 696 * (uint8_t)a1[29];
   a1[27] = a2;
   a1[97] = 1;
-  sub_12D470(v4 + 572 + v2);
-  return sub_136C94(a1, v2 + v4);
+  check_abort_flag(v4 + 572 + v2);
+  return txpwr_limit_apply(a1, v2 + v4);
 }
 

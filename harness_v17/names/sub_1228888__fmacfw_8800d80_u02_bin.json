@@ -1,1 +1,1 @@
-{"fn": "sub_1228888", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228888", "status": "ok", "name": "sub_1228888", "params": [], "docstring": "Scan/index lookup using signed halfword key and rsb scaling", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1228888", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228888", "status": "ok", "name": "sta_lookup_by_bss", "params": [], "docstring": "Scan/index lookup using signed halfword key and rsb scaling", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

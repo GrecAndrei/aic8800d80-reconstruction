@@ -12,8 +12,8 @@
 
 extern uint32_t off_11B274;
 
-// sub_11B228 @ 0x11b228, size 74 bytes
-int  sub_11B228(int result)
+// get_sched_item @ 0x11b228, size 74 bytes
+int  get_sched_item(int result)
 {
   uint32_t *v1; // r6
   char *v2; // r3
@@ -35,7 +35,7 @@ int  sub_11B228(int result)
       v6 = (int)&v1[7 * result];
       result = *(uint32_t *)(v6 + 36);
       if ( result )
-        result = sub_116574(result, v4, v3, v6);
+        result = rf_switch_case(result, v4, v3, v6);
       v1[v5 - v4 + 9] = 0;
     }
   }

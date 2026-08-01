@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_128280 @ 0x128280, size 8 bytes
-int  sub_128280(int result)
+// i32_abs @ 0x128280, size 8 bytes
+int  i32_abs(int result)
 {
   if ( result < 0 )
     return -result;

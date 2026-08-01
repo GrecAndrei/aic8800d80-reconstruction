@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111C10 @ 0x111c10, size 4 bytes
+// rf_reg_write_alias @ 0x111c10, size 4 bytes
 // attributes: thunk
-int * sub_111C10(int *result, unsigned int a2)
+int * rf_reg_write_alias(int *result, unsigned int a2)
 {
-  return sub_111BA0(result, a2);
+  return rf_reg_write(result, a2);
 }
 

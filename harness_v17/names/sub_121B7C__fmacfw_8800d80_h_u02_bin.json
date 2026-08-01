@@ -1,0 +1,1 @@
+{"fn": "sub_121B7C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x121b7c", "status": "ok", "name": "check_config_flag", "params": [], "docstring": "Call 0x12cd48(0) and branch if result equals 4", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

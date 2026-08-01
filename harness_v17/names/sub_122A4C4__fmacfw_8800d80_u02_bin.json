@@ -1,1 +1,1 @@
-{"fn": "sub_122A4C4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a4c4", "status": "ok", "name": "rf_bus_write_n130", "params": [], "docstring": "Writes 32-bit value to RF bus register with mask OR (bits 27 and 15)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A4C4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a4c4", "status": "ok", "name": "llc_idx_from_handle", "params": [], "docstring": "Writes 32-bit value to RF bus register with mask OR (bits 27 and 15)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

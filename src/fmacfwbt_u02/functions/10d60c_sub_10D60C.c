@@ -13,8 +13,8 @@
 extern uint32_t off_10D630;
 extern uint32_t off_10D634;
 
-// sub_10D60C @ 0x10d60c, size 34 bytes
-uint8_t * sub_10D60C(uint8_t *result)
+// uart_puts @ 0x10d60c, size 34 bytes
+uint8_t * uart_puts(uint8_t *result)
 {
   int v1; // r1
   uint32_t *v2; // r2

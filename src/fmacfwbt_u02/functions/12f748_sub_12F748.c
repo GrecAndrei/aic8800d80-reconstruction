@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12F748 @ 0x12f748, size 4 bytes
+// patch_jump @ 0x12f748, size 4 bytes
 // attributes: thunk
-int  sub_12F748(uint16_t *a1)
+int  patch_jump(uint16_t *a1)
 {
-  return sub_10CC2C(a1);
+  return host_event_process(a1);
 }
 

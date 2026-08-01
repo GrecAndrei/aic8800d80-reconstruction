@@ -14,8 +14,8 @@ extern uint32_t off_12C0A4;
 extern uint32_t off_12C0A8;
 extern uint32_t off_12C0B0;
 
-// sub_12C068 @ 0x12c068, size 60 bytes
-int sub_12C068()
+// ke_critical_enter @ 0x12c068, size 60 bytes
+int ke_critical_enter()
 {
   uint32_t *v0; // r3
   int v1; // r2

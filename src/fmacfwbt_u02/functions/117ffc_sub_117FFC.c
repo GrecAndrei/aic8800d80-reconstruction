@@ -15,8 +15,8 @@ extern uint32_t dword_118100;
 extern uint32_t dword_1180F4;
 extern uint32_t dword_1180F8;
 
-// sub_117FFC @ 0x117ffc, size 246 bytes
-uint64_t sub_117FFC()
+// controller_init @ 0x117ffc, size 246 bytes
+uint64_t controller_init()
 {
   uint8_t *v0; // r8
   int v1; // r10
@@ -40,7 +40,7 @@ uint64_t sub_117FFC()
 
   v0 = off_1180FC;
   v1 = dword_118100;
-  sub_12D374(126976);
+  set_system_flag_2(126976);
   v2 = v0 + 12;
   v3 = v18;
   v0[510] = 1;
@@ -50,25 +50,25 @@ uint64_t sub_117FFC()
   do
   {
     v7 = (uint8_t)v6;
-    sub_12D468(v5);
-    sub_118D80((uint8_t)v6++, v1, v5);
-    sub_118D80(v7, v4, v5);
+    zero_struct(v5);
+    rf_calib_config((uint8_t)v6++, v1, v5);
+    rf_calib_config(v7, v4, v5);
     v1 += 8;
     v5 += 8;
     v4 += 84;
   }
   while ( v6 != 5 );
   v8 = dword_1180F4;
-  v9 = sub_118E38(5);
-  v10 = sub_11A2B4(v9);
-  v11 = sub_11831C(v10);
-  sub_11C320(v11);
+  v9 = rf_tx_freq_set(5);
+  v10 = llc_tx_process(v9);
+  v11 = llm_env_init(v10);
+  mac_process_queue(v11);
   v12 = *((uint16_t *)v0 + 254);
-  sub_100200((int *)(v8 - 432), 0, 0x204u);
+  memset_byte((int *)(v8 - 432), 0, 0x204u);
   *((uint16_t *)v0 + 254) = v12;
   do
   {
-    sub_12D468(v2);
+    zero_struct(v2);
     *((uint32_t *)v2 - 3) = 0;
     v2[14] = 0;
     v2[68] = 0;
@@ -76,17 +76,17 @@ uint64_t sub_117FFC()
     *((uint32_t *)v2 + 7) = 0;
     v13 = v2 + 16;
     v2 += 84;
-    sub_12D468(v13);
+    zero_struct(v13);
   }
   while ( v2 != (char *)v8 );
   for ( i = 0; i != 5; ++i )
   {
-    if ( sub_12D4F8(v3) )
+    if ( list_pop_front(v3) )
     {
       do
-        sub_13AFC0();
-      while ( sub_12D4F8(v3) );
-      sub_11AC28((uint8_t)i);
+        mac_reset_tx_queue();
+      while ( list_pop_front(v3) );
+      ke_int_disable((uint8_t)i);
     }
     v3 += 8;
   }

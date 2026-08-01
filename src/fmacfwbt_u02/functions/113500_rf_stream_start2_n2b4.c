@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_stream_start2_n2b4 @ 0x113500, size 14 bytes
-// Doc: rf_stream_start2_n2b4 [rf]: Looks up RF stream handler by stream id and starts it.
-// rf_stream_start2_n2b4 [rf]: Looks up RF stream handler by stream id and starts it.
-int  rf_stream_start2_n2b4(unsigned int a1)
+// table_index_lookup @ 0x113500, size 14 bytes
+// Doc: table_index_lookup [rf]: Looks up RF stream handler by stream id and starts it.
+// table_index_lookup [rf]: Looks up RF stream handler by stream id and starts it.
+int  table_index_lookup(unsigned int a1)
 {
   if ( a1 > 7 )
     return 0;

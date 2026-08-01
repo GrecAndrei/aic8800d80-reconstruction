@@ -15,8 +15,8 @@ extern uint32_t off_114134;
 extern uint32_t off_114138;
 extern uint32_t off_11413C;
 
-// sub_1140E8 @ 0x1140e8, size 72 bytes
-int sub_1140E8()
+// set_busy_flag @ 0x1140e8, size 72 bytes
+int set_busy_flag()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -34,7 +34,7 @@ int sub_1140E8()
   ++*(uint32_t *)off_114134;
   while ( !*v1 )
     ;
-  result = sub_12D470(*(uint32_t *)off_11413C + 564);
+  result = check_abort_flag(*(uint32_t *)off_11413C + 564);
   *v1 = 1;
   if ( *v0 )
   {

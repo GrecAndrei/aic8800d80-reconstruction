@@ -21,8 +21,8 @@ extern uint32_t off_102C9C;
 extern uint32_t off_102CA0;
 extern uint32_t off_102CA4;
 
-// sub_102BFC @ 0x102bfc, size 132 bytes
-int sub_102BFC()
+// install_isr @ 0x102bfc, size 132 bytes
+int install_isr()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r3

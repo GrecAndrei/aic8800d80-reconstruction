@@ -14,8 +14,8 @@ extern uint32_t off_130364;
 extern uint32_t dword_13036C;
 extern uint32_t dword_130368;
 
-// sub_1302F8 @ 0x1302f8, size 108 bytes
-int  sub_1302F8(int a1)
+// rf_calibrate_channel_power @ 0x1302f8, size 108 bytes
+int  rf_calibrate_channel_power(int a1)
 {
   uint8_t *v1; // r3
   int v2; // r2
@@ -52,6 +52,6 @@ int  sub_1302F8(int a1)
   v1[11] = v3 - v4;
   v1[12] = v12 - v11;
   v1[13] = v2;
-  return sub_102AD4();
+  return handle_event();
 }
 

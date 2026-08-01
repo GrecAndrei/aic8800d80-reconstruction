@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11AA8C @ 0x11aa8c, size 114 bytes
-int  sub_11AA8C(int a1, uint16_t *a2, int a3, void *a4)
+// ipc_dispatch @ 0x11aa8c, size 114 bytes
+int  ipc_dispatch(int a1, uint16_t *a2, int a3, void *a4)
 {
   int v4; // r4
   void *v6; // r1
@@ -27,38 +27,38 @@ int  sub_11AA8C(int a1, uint16_t *a2, int a3, void *a4)
   {
     case 0:
       v8 = a3;
-      rf_reg_probe_id(a2 + 2);
+      mmio_clear_bits(a2 + 2);
       a3 = v8;
       v6 = a4;
       break;
     case 1:
       v10 = a3;
-      rf_state_copy_to_shm((uint8_t *)a2 + 4);
+      rx_update_meta((uint8_t *)a2 + 4);
       a3 = v10;
       v6 = a4;
       break;
     case 2:
       v11 = a3;
-      rf_mmio_status_read((uint8_t *)a2 + 4);
+      mmio_select_port((uint8_t *)a2 + 4);
       a3 = v11;
       v6 = a4;
       break;
     case 3:
       v12 = a3;
-      sub_11A9BC((uint8_t *)a2 + 4, a4);
+      flag_update((uint8_t *)a2 + 4, a4);
       a3 = v12;
       v6 = a4;
       break;
     case 4:
       v9 = a3;
-      sub_11AA5C((uint8_t *)a2 + 4);
+      patch_load_cal((uint8_t *)a2 + 4);
       a3 = v9;
       v6 = a4;
       break;
     default:
       break;
   }
-  sub_11DED8(127, v6, a3);
+  ke_evt_handler(127, v6, a3);
   return 0;
 }
 

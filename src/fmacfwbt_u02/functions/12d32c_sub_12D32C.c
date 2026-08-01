@@ -14,8 +14,8 @@ extern uint32_t off_12D360;
 extern uint32_t off_12D364;
 extern uint32_t off_12D368;
 
-// sub_12D32C @ 0x12d32c, size 52 bytes
-int  sub_12D32C(int a1)
+// set_system_flag_1 @ 0x12d32c, size 52 bytes
+int  set_system_flag_1(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

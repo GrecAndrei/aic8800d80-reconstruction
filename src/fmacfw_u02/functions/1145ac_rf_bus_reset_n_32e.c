@@ -14,10 +14,10 @@ extern uint32_t off_114624;
 extern uint32_t off_11462C;
 extern uint32_t off_114630;
 
-// rf_bus_reset_n_32e @ 0x1145ac, size 110 bytes
+// sub_1145ac @ 0x1145ac, size 110 bytes
 // Doc: rf_fault_dump_n_17c [rf]: Dumps RF fault state from 0x182b64
 // rf_fault_dump_n_17c [rf]: Dumps RF fault state from 0x182b64
-int  rf_bus_reset_n_32e(int result)
+int  sub_1145ac(int result)
 {
   if ( !result )
   {
@@ -25,7 +25,7 @@ int  rf_bus_reset_n_32e(int result)
       && (result = *((uint32_t *)rf_fault_dump_n_128 + 4),
           *(uint32_t *)(*(uint32_t *)rf_fault_dump_n_12c + 12) - result - *((uint16_t *)off_114624 + 92) - 2000 < 0) )
     {
-      result = feature_guard_check(2, rf_fault_dump_n_114);
+      result = check_status_bits(2, rf_fault_dump_n_114);
     }
     else
     {
@@ -40,7 +40,7 @@ int  rf_bus_reset_n_32e(int result)
         *(uint32_t *)off_114630 = 0x40000000;
         return result;
       }
-      result = feature_guard_check(2, rf_fault_dump_n_110);
+      result = check_status_bits(2, rf_fault_dump_n_110);
     }
   }
   *(uint32_t *)off_114630 = 0x80000000;

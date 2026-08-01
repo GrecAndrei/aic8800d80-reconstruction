@@ -13,8 +13,8 @@
 extern uint32_t off_10DB28;
 extern uint32_t dword_40504080;
 
-// sub_10DAFC @ 0x10dafc, size 42 bytes
-int  sub_10DAFC(int result)
+// irq_set_priority @ 0x10dafc, size 42 bytes
+int  irq_set_priority(int result)
 {
   uint32_t *v1; // r1
 

@@ -21,8 +21,8 @@ extern uint32_t dword_139C4C;
 extern uint32_t dword_139C50;
 extern uint32_t off_139C48;
 
-// sub_139BB4 @ 0x139bb4, size 118 bytes
-int sub_139BB4()
+// wlc_init_hw @ 0x139bb4, size 118 bytes
+int wlc_init_hw()
 {
   uint32_t *v0; // r6
   int v1; // r4
@@ -33,22 +33,22 @@ int sub_139BB4()
   int v6; // r1
 
   v0 = (uint32_t *)(dword_139C2C + 16);
-  sub_12D100((uint32_t *)dword_139C2C);
+  clear_stats_buf((uint32_t *)dword_139C2C);
   v1 = dword_139C30;
-  sub_12D100(v0);
+  clear_stats_buf(v0);
   v2 = v1 + 4672;
   do
   {
     v3 = (uint32_t *)v1;
     v1 += 292;
-    sub_12D108((int)v0, v3);
+    wlan_ioctl_handler_1((int)v0, v3);
   }
   while ( v1 != v2 );
-  sub_12D100((uint32_t *)dword_139C34);
-  sub_12D100((uint32_t *)dword_139C38);
-  sub_12D108(dword_139C34, (uint32_t *)dword_139C3C);
-  sub_12D108(dword_139C34, (uint32_t *)dword_139C40);
-  sub_12D108(dword_139C34, (uint32_t *)dword_139C44);
+  clear_stats_buf((uint32_t *)dword_139C34);
+  clear_stats_buf((uint32_t *)dword_139C38);
+  wlan_ioctl_handler_1(dword_139C34, (uint32_t *)dword_139C3C);
+  wlan_ioctl_handler_1(dword_139C34, (uint32_t *)dword_139C40);
+  wlan_ioctl_handler_1(dword_139C34, (uint32_t *)dword_139C44);
   v4 = dword_139C4C;
   result = dword_139C50;
   *((uint16_t *)off_139C48 + 51) = -1;

@@ -1,1 +1,1 @@
-{"fn": "sub_1230798", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1230798", "status": "ok", "name": "fmac_dbg_marker_set", "params": [], "docstring": "Write debug marker bytes (0xbf, 0xc) to control word", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1230798", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1230798", "status": "ok", "name": "format_hw_version", "params": [], "docstring": "Write debug marker bytes (0xbf, 0xc) to control word", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

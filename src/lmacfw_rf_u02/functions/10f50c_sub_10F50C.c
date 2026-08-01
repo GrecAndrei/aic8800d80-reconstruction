@@ -16,8 +16,8 @@ extern uint32_t dword_10F548;
 extern uint32_t off_10F54C;
 extern uint32_t dword_10F550;
 
-// sub_10F50C @ 0x10f50c, size 52 bytes
-int sub_10F50C()
+// rf_init @ 0x10f50c, size 52 bytes
+int rf_init()
 {
   uint8_t *v0; // r3
   int result; // r0

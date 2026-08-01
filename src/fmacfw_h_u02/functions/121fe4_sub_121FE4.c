@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_121FE4 @ 0x121fe4, size 94 bytes
-int  sub_121FE4(uint8_t *a1, int a2)
+// set_rf_tx_power_compensation @ 0x121fe4, size 94 bytes
+int  set_rf_tx_power_compensation(uint8_t *a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -40,11 +40,11 @@ int  sub_121FE4(uint8_t *a1, int a2)
         goto LABEL_7;
       LOBYTE(v6) = 1;
     }
-    v8 = (uint8_t *)sub_12C7EC(87, 13, 0, 3);
+    v8 = (uint8_t *)tx_send_pdu(87, 13, 0, 3);
     *v8 = a1[107];
     v8[1] = v6;
     v8[2] = v7;
-    result = sub_12C84C(v8);
+    result = rx_process_packet(v8);
 LABEL_7:
     a1[145] = v6;
   }

@@ -13,10 +13,10 @@
 extern uint32_t dword_107F50;
 extern uint32_t dword_107F4C;
 
-// mmio_init_table @ 0x107ee4, size 104 bytes
-// Doc: mmio_init_table [mmio]: Loads MMIO base addresses and validates/checks init structure pointer
-// mmio_init_table [mmio]: Loads MMIO base addresses and validates/checks init structure pointer
-int * mmio_init_table(int *a1)
+// div3_compute @ 0x107ee4, size 104 bytes
+// Doc: div3_compute [mmio]: Loads MMIO base addresses and validates/checks init structure pointer
+// div3_compute [mmio]: Loads MMIO base addresses and validates/checks init structure pointer
+int * div3_compute(int *a1)
 {
   int v1; // r2
   int v2; // r7

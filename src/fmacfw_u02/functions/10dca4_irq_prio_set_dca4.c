@@ -13,10 +13,10 @@
 extern uint32_t off_10DCD0;
 extern uint32_t dword_40504080;
 
-// irq_prio_set_dca4 @ 0x10dca4, size 42 bytes
-// Doc: irq_prio_set_dca4 [util]: Sets interrupt priority (bounds check vs 7)
-// irq_prio_set_dca4 [util]: Sets interrupt priority (bounds check vs 7)
-int  irq_prio_set_dca4(int result)
+// switch_on_arg @ 0x10dca4, size 42 bytes
+// Doc: switch_on_arg [util]: Sets interrupt priority (bounds check vs 7)
+// switch_on_arg [util]: Sets interrupt priority (bounds check vs 7)
+int  switch_on_arg(int result)
 {
   uint32_t *v1; // r1
 

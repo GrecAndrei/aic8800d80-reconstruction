@@ -16,10 +16,10 @@ extern uint32_t dword_1121C4;
 extern uint32_t dword_1121C8;
 extern uint32_t dword_1121CC;
 
-// rf_state_check_11c @ 0x11211c, size 162 bytes
+// global_copy_u16 @ 0x11211c, size 162 bytes
 // Doc: rf_bus_init_n3b8 [rf]: Initializes RF bus with masked control values and store halfword
 // rf_bus_init_n3b8 [rf]: Initializes RF bus with masked control values and store halfword
-int  rf_state_check_11c(int a1, int a2, unsigned int a3)
+int  global_copy_u16(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -37,7 +37,7 @@ int  rf_state_check_11c(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DC24(dword_1121D0);
+    log_printf(dword_1121D0);
     return 3;
   }
   else

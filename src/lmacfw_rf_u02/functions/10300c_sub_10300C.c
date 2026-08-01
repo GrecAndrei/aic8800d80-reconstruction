@@ -41,8 +41,8 @@ extern uint32_t off_1032B8;
 extern uint32_t off_1032B4;
 extern uint32_t off_1032C0;
 
-// sub_10300C @ 0x10300c, size 600 bytes
-void sub_10300C()
+// check_chip_flag @ 0x10300c, size 600 bytes
+void check_chip_flag()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r2
@@ -89,7 +89,7 @@ void sub_10300C()
     *(uint32_t *)off_103270 &= ~2u;
     if ( (*v2 & 1) == 0 )
     {
-      sub_100C3C(1);
+      rf_cal_read_0(1);
       v27 = off_1032D0;
       *(uint32_t *)off_1032D8 = *(uint32_t *)off_1032D8 & 0xFFFFFFF0 | 4;
       *v27 |= 2u;

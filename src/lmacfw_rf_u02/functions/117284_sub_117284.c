@@ -16,8 +16,8 @@ extern uint32_t off_117388;
 extern uint32_t dword_117390;
 extern uint32_t dword_11738C;
 
-// sub_117284 @ 0x117284, size 258 bytes
-uint32_t * sub_117284(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
+// rx_parse_packet @ 0x117284, size 258 bytes
+uint32_t * rx_parse_packet(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
 {
   uint8_t **v5; // r9
   uint32_t *v6; // r7
@@ -84,7 +84,7 @@ uint32_t * sub_117284(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a
     v16 = v15 + 5;
     if ( **v9 < 0 && !v15 )
     {
-      rf_cmd_send_n264(dword_117390, dword_11738C, 928);
+      flash_ctrl_init(dword_117390, dword_11738C, 928);
       v15 = 0;
       v8 = **v5;
     }

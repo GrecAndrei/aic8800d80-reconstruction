@@ -12,11 +12,11 @@
 
 extern uint32_t dword_134CA8;
 
-// sub_134C88 @ 0x134c88, size 30 bytes
-int  sub_134C88(int a1, int a2)
+// mac_irq_dispatch @ 0x134c88, size 30 bytes
+int  mac_irq_dispatch(int a1, int a2)
 {
   if ( (a2 & 0x810000) == 0x10000 )
-    sub_12ECB0(dword_134CA8);
-  return sub_134B30();
+    ke_event_schedule(dword_134CA8);
+  return mac_tx_start();
 }
 

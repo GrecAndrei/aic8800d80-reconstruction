@@ -1,1 +1,1 @@
-{"fn": "sub_12420D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12420d4", "status": "ok", "name": "sub_12420D4", "params": [], "docstring": "Initialize firmware state register", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12420D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12420d4", "status": "ok", "name": "clear_data_flag", "params": [], "docstring": "Initialize firmware state register", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

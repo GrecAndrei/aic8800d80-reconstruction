@@ -14,8 +14,8 @@ extern uint32_t off_12BD3C;
 extern uint32_t off_12BD40;
 extern uint32_t off_12BD48;
 
-// sub_12BD00 @ 0x12bd00, size 60 bytes
-int sub_12BD00()
+// rf_delay @ 0x12bd00, size 60 bytes
+int rf_delay()
 {
   uint32_t *v0; // r3
   int v1; // r2

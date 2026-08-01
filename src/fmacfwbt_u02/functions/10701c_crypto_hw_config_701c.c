@@ -24,10 +24,10 @@ extern uint32_t dword_107218;
 extern uint32_t off_10721C;
 extern uint32_t off_107220;
 
-// crypto_hw_config_701c @ 0x10701c, size 468 bytes
-// Doc: crypto_hw_config_701c [mmio]: Configure crypto hardware MMIO registers
-// crypto_hw_config_701c [mmio]: Configure crypto hardware MMIO registers
-int *crypto_hw_config_701c()
+// rf_enable @ 0x10701c, size 468 bytes
+// Doc: rf_enable [mmio]: Configure crypto hardware MMIO registers
+// rf_enable [mmio]: Configure crypto hardware MMIO registers
+int *rf_enable()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r6
@@ -47,7 +47,7 @@ int *crypto_hw_config_701c()
   v1 = off_1071F8;
   v2 = (unsigned int *)off_1071FC;
   *v0 &= ~0x20000u;
-  delay_us(2);
+  timer_set(2);
   v3 = off_107200;
   v4 = dword_107204;
   *v0 |= 0x10000u;
@@ -64,7 +64,7 @@ int *crypto_hw_config_701c()
   *v3 |= 0x10000000u;
   *v3 = *v3 & 0xFC000FFF | 0x666000;
   *v3 = *v3 & 0xFFFFF000 | 0xC0;
-  delay_us(10);
+  timer_set(10);
   v6 = (unsigned int *)off_10720C;
   v7 = off_107210;
   result = (int *)off_107214;

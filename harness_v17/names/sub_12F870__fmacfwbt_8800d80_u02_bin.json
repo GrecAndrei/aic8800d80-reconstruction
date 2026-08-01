@@ -1,0 +1,1 @@
+{"fn": "sub_12F870", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f870", "status": "ok", "name": "get_shared_buf_size", "params": [], "docstring": "Return shared buffer size 0x400", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

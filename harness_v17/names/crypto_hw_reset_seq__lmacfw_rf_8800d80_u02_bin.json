@@ -1,1 +1,1 @@
-{"fn": "crypto_hw_reset_seq", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1203b6c", "status": "ok", "name": "crypto_hw_reset_seq", "params": [], "docstring": "Reset crypto engine register sequence", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_hw_reset_seq", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1203b6c", "status": "ok", "name": "bb_hw_init", "params": [], "docstring": "Reset crypto engine register sequence", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

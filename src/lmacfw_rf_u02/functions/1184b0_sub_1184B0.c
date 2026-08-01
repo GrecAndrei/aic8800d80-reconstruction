@@ -30,8 +30,8 @@ extern uint32_t off_118618;
 extern uint32_t off_118604;
 extern uint32_t off_11861C;
 
-// sub_1184B0 @ 0x1184b0, size 294 bytes
-uint32_t *sub_1184B0()
+// rf_clock_enable @ 0x1184b0, size 294 bytes
+uint32_t *rf_clock_enable()
 {
   int *v0; // r4
   int v1; // r0

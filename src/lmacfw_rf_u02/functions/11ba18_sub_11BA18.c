@@ -13,8 +13,8 @@
 extern uint32_t off_11BA44;
 extern uint32_t off_11BA48;
 
-// sub_11BA18 @ 0x11ba18, size 44 bytes
-int  sub_11BA18(int result)
+// timer_countdown @ 0x11ba18, size 44 bytes
+int  timer_countdown(int result)
 {
   char v1; // r3
   void *v2; // r2
@@ -29,8 +29,8 @@ int  sub_11BA18(int result)
       if ( *(uint8_t *)off_11BA48 == 1 )
       {
         *(uint8_t *)off_11BA48 = 0;
-        rf_link_state_check(result, 1, (int)v2);
-        return sub_11B9E0();
+        rf_state_process(result, 1, (int)v2);
+        return state_flag_check();
       }
     }
   }

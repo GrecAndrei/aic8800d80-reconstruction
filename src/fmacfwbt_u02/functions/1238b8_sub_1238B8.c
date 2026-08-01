@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1238B8 @ 0x1238b8, size 12 bytes
-int  sub_1238B8(int a1, int a2)
+// call_125cbc @ 0x1238b8, size 12 bytes
+int  call_125cbc(int a1, int a2)
 {
-  sub_125CBC(a2);
+  callback_set(a2);
   return 1;
 }
 

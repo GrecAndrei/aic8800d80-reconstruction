@@ -13,10 +13,10 @@
 extern uint32_t off_1366F8;
 extern uint32_t off_1366FC;
 
-// sub_1366B0 @ 0x1366b0, size 72 bytes
+// bt_link_active @ 0x1366b0, size 72 bytes
 // Doc: sub_12366B8 [unknown]: Checks byte at offset 0x19c == 1; processes r6 byte at offset 0xd
 // sub_12366B8 [unknown]: Checks byte at offset 0x19c == 1; processes r6 byte at offset 0xd
-uint32_t * sub_1366B0(uint32_t *result)
+uint32_t * bt_link_active(uint32_t *result)
 {
   uint32_t *v1; // r4
   uint32_t *v2; // r6
@@ -32,16 +32,16 @@ uint32_t * sub_1366B0(uint32_t *result)
       if ( *((uint8_t *)off_1366F8 + 13) )
       {
         *((uint8_t *)off_1366F8 + 13) = 0;
-        return sub_100B90();
+        return rf_config();
       }
       else
       {
-        sub_100B14();
+        bt_init();
         v3 = v2[4];
         v4 = *((uint32_t *)off_1366FC + 4);
         *((uint8_t *)v2 + 13) = 1;
         v2[7] = v1;
-        return (uint32_t *)timestamp_update((int)(v2 + 5), v4 + v3);
+        return (uint32_t *)unknown_worker((int)(v2 + 5), v4 + v3);
       }
     }
   }

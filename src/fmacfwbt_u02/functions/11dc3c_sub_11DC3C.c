@@ -12,19 +12,19 @@
 
 extern uint32_t off_11DC60;
 
-// sub_11DC3C @ 0x11dc3c, size 34 bytes
-int sub_11DC3C()
+// is_tx_ready @ 0x11dc3c, size 34 bytes
+int is_tx_ready()
 {
   uint8_t *v0; // r4
   int v1; // r0
   char v2; // r0
 
   v0 = off_11DC60;
-  init_global_table_121E430();
-  v1 = bt_xtal_init_check(v0);
-  v2 = sub_12F74C(v1) - 1;
+  rf_fifo_status();
+  v1 = zero_struct(v0);
+  v2 = return_two_stub(v1) - 1;
   v0[11] = v2;
   v0[10] = v2;
-  return bt_core_subsystems_init();
+  return init_driver_locks();
 }
 

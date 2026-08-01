@@ -19,10 +19,10 @@ extern uint32_t dword_109F84;
 extern uint32_t off_109F88;
 extern uint32_t dword_109F8C;
 
-// sub_109E48 @ 0x109e48, size 300 bytes
+// mmio_set_bits @ 0x109e48, size 300 bytes
 // Doc: sub_1209E48 [bt]: BT/FMAC init routine enabling a control bit at 0x4033b610
 // sub_1209E48 [bt]: BT/FMAC init routine enabling a control bit at 0x4033b610
-int * sub_109E48(
+int * mmio_set_bits(
         int a1,
         int *a2,
         int a3,
@@ -62,18 +62,18 @@ int * sub_109E48(
   *(uint32_t *)off_109F74 |= 0x400u;
   v15 = dword_109F78;
   *v11 &= ~0x400u;
-  feature_guard_sdio(1, v15);
+  state_check_feature(1, v15);
   if ( a5 )
   {
-    sub_104858((int)a2, 1, dword_100000, dword_100000, 0, 1);
-    return (int *)sub_109C0C(24, (int)a2, 1, (int)v36);
+    bt_ccm_encrypt((int)a2, 1, dword_100000, dword_100000, 0, 1);
+    return (int *)invoke_handler_165fcc(24, (int)a2, 1, (int)v36);
   }
   else
   {
     if ( a8 == 1 )
     {
-      sub_104858((int)a2, 1, dword_100000, dword_100000, 0, 0);
-      sub_109C0C(24, (int)a2, 0, (int)v36);
+      bt_ccm_encrypt((int)a2, 1, dword_100000, dword_100000, 0, 0);
+      invoke_handler_165fcc(24, (int)a2, 0, (int)v36);
       v30 = (uint32_t *)dword_109F7C;
       v31 = (uint32_t *)dword_109F80;
       v32 = (uint32_t *)dword_109F84;
@@ -108,10 +108,10 @@ int * sub_109E48(
         v21[63] = v23;
       }
       while ( v17 != (int *)v20 );
-      sub_104C38(a2, v25, a9, a10, a11);
+      bt_encrypt_wrap(a2, v25, a9, a10, a11);
     }
-    scan_chan_meas_12051e0(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
-    result = mac_init_set_bits(a3);
+    llm_pdu_handle(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
+    result = mac_tx_enable(a3);
     v28 = off_109F88;
     v29 = dword_109F8C;
     *(uint32_t *)off_109F88 &= ~0x200u;

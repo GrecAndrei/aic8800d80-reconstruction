@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12AA6C;
 
-// sub_12AA40 @ 0x12aa40, size 44 bytes
-int  sub_12AA40(int a1)
+// is_channel_entry_valid @ 0x12aa40, size 44 bytes
+int  is_channel_entry_valid(int a1)
 {
   uint8_t *v1; // r3
   int result; // r0

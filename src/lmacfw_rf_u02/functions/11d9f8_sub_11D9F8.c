@@ -12,8 +12,8 @@
 
 extern uint32_t off_11DA38;
 
-// sub_11D9F8 @ 0x11d9f8, size 64 bytes
-int  sub_11D9F8(char a1)
+// util_byte_to_hex @ 0x11d9f8, size 64 bytes
+int  util_byte_to_hex(char a1)
 {
   int result; // r0
   unsigned int *v2; // r2
@@ -22,7 +22,7 @@ int  sub_11D9F8(char a1)
   uint8_t v5[5]; // [sp+Fh] [bp-5h] BYREF
 
   v3[0] = a1;
-  result = rf_calibration_init((int)v3, &v4, v5);
+  result = rf_get_status((int)v3, &v4, v5);
   v2 = (unsigned int *)off_11DA38;
   *(uint32_t *)off_11DA38 = *(uint32_t *)off_11DA38 & 0xFFFF00FF | (v4 << 8);
   *v2 = *v2 & 0xFFFFFF00 | v5[0];

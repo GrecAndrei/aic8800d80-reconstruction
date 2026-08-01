@@ -13,8 +13,8 @@
 extern uint32_t dword_138A04;
 extern uint32_t dword_138A00;
 
-// sub_138968 @ 0x138968, size 152 bytes
-int  sub_138968(uint8_t *a1, uint32_t *a2, char *a3, int a4)
+// parse_param_direction @ 0x138968, size 152 bytes
+int  parse_param_direction(uint8_t *a1, uint32_t *a2, char *a3, int a4)
 {
   char v5; // r2
   int v6; // r4
@@ -44,14 +44,14 @@ int  sub_138968(uint8_t *a1, uint32_t *a2, char *a3, int a4)
         | ((uint8_t)v7[59] << 24)
         | (uint8_t)v7[56]
         | ((uint8_t)v7[57] << 8);
-    sub_12EB90(128, dword_138A04, v13, *a2);
+    check_feature_flag(128, dword_138A04, v13, *a2);
     if ( v13 == *a2 )
-      sub_1359BC(*a1, (int)&a3[v6 + 40], a3);
+      rf_chan_pwr_calc(*a1, (int)&a3[v6 + 40], a3);
     return 1;
   }
   else if ( v12 == 2 )
   {
-    sub_12EB90(128, dword_138A00);
+    check_feature_flag(128, dword_138A00);
   }
   return v10;
 }

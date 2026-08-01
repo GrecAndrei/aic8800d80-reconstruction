@@ -81,9 +81,9 @@ extern uint32_t dword_123F80;
 extern uint32_t dword_123F70;
 extern uint32_t dword_123F6C;
 
-// sub_123C8C @ 0x123c8c, size 3268 bytes
+// rf_calibration_do @ 0x123c8c, size 3268 bytes
 // write access to const memory has been detected, the output may be wrong!
-int  sub_123C8C(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
+int  rf_calibration_do(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
 {
   int value; // r0
   int v9; // r1
@@ -214,7 +214,7 @@ int  sub_123C8C(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
   int v135; // [sp+14h] [bp-10h]
   uint8_t v136[8]; // [sp+1Ch] [bp-8h] BYREF
 
-  value = msg_get_value(a3);
+  value = rx_rate_field_parse(a3);
   if ( !value )
   {
     v11 = (int16_t **)off_123F90;
@@ -268,17 +268,17 @@ int  sub_123C8C(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
 LABEL_16:
         v15 = off_123F64;
         *((uint8_t *)off_123F64 + 48) = 0;
-        v16 = sub_12BCC0(*(uint32_t *)a2);
+        v16 = util_abs(*(uint32_t *)a2);
         if ( v16 )
         {
-          sub_121984(*(uint32_t *)a2);
+          chip_state_handler(*(uint32_t *)a2);
           v16 = 0;
         }
         else if ( v15[49] )
         {
           v15[49] = 0;
-          if ( sub_126440(v136) )
-            rf_chan_info_copy_n_2d0(
+          if ( llm_adv_param_check(v136) )
+            rf_calib_params_get(
               *(uint8_t *)(*(uint32_t *)v136 + 1225),
               dword_123F68 + 38 * *(uint8_t *)(*(uint32_t *)v136 + 107));
         }
@@ -288,7 +288,7 @@ LABEL_16:
     }
     if ( *(uint32_t *)off_123F60 << 28 )
     {
-      sub_12F46C(dword_124628, dword_124624, 2493);
+      mmio_clear_register(dword_124628, dword_124624, 2493);
       if ( a1 > 0x3B )
       {
         if ( a1 == 143 )
@@ -312,9 +312,9 @@ LABEL_16:
             v114 = v65 - 1374;
             v115 = *(uint32_t *)(v111 + 4);
             *(uint8_t *)(v112 + 29) = v115;
-            *(&loc_124480 + 3) = v114;
+            *(uint32_t *)(uintptr_t)(0x124480 + 3 * 4) = v114;
             *(uint8_t *)(v113 + 17) = v112;
-            loc_1244AA = v114;
+            *(uint32_t *)(uintptr_t)(0x1244AA) = v114;
             *(uint32_t *)(v112 + 20) = v115;
             v116 = *(uint32_t *)(v112 + 100);
             v117 = *(uint32_t *)(v113 + 68);
@@ -324,7 +324,7 @@ LABEL_16:
             *(uint32_t *)(v113 + 84) = v114;
             v119 = *(int16_t *)(v116 + v118);
             *(uint32_t *)(v116 + 100) = v64;
-            loc_1244EA = v114;
+            *(uint32_t *)(uintptr_t)(0x1244EA) = v114;
             v120 = *(int16_t *)(2 * v118);
             *(uint32_t *)(v118 + 68) = *(uint32_t *)(v119 + 20);
             v121 = *(uint32_t *)(v120 + 4);
@@ -335,13 +335,13 @@ LABEL_16:
             *(uint32_t *)(v120 + 84) = v120;
             v123 = *(uint32_t *)(v120 + 4);
             *(uint8_t *)(v118 + 29) = v123;
-            *(&loc_124480 + 3) = v114;
+            *(uint32_t *)(uintptr_t)(0x124480 + 3 * 4) = v114;
             *(uint8_t *)(2 * v118 + 0x11) = v118;
-            loc_1244AA = v114;
+            *(uint32_t *)(uintptr_t)(0x1244AA) = v114;
             *(uint32_t *)(v118 + 20) = v123;
             v124 = *(uint32_t *)(v118 + 100);
             v125 = *(uint32_t *)(2 * v118 + 0x44);
-            *(uint32_t *)(v124 + 84) = &loc_124476;
+            *(uint32_t *)(v124 + 84) = (uint32_t *)(uintptr_t)(0x124476);
             *(uint32_t *)(v125 + 84) = v124;
             *(uint32_t *)(2 * v125 + 0x54) = v114;
             v126 = *(uint32_t *)(*(int16_t *)(v124 + v125) + 4);
@@ -372,20 +372,20 @@ LABEL_24:
       {
         case 6u:
 LABEL_76:
-          v63 = (uint8_t *)sub_12C92C(7, a4, a3, 2);
+          v63 = (uint8_t *)ke_msg_alloc(7, a4, a3, 2);
           v15 = off_1242D4;
-          *v63 = sub_11F7C0((int *)(a2 + 2), *a2, a2[8], v63 + 1);
-          sdio_buffer_prepare_n_4e8(v63);
+          *v63 = task_event_handler((int *)(a2 + 2), *a2, a2[8], v63 + 1);
+          ke_msg_send(v63);
           v16 = 0;
           goto LABEL_10;
         case 8u:
 LABEL_70:
           v62 = *a2;
           if ( v62 <= 3 )
-            v62 = sub_11FBB8(v62);
+            v62 = get_object_by_index(v62);
           if ( !*((uint32_t *)off_124310 + 2) )
-            sub_12BC2C(v62, v9);
-          sub_12CA10(9, a4, a3);
+            mmio_disable_bit(v62, v9);
+          ke_msg_send_no_param(9, a4, a3);
           v15 = off_1242D4;
           v16 = 0;
           goto LABEL_10;
@@ -396,20 +396,20 @@ LABEL_68:
           *(uint32_t *)off_1242D4 = *(uint32_t *)a2;
           if ( v12 < 0 && *(uint32_t *)off_124634 << 28 )
           {
-            sub_12F49C(dword_124628, dword_124638, 472);
+            call_shared_handler(dword_124628, dword_124638, 472);
             v61 = *(uint32_t *)v15;
           }
           *(uint32_t *)off_12430C = v61 | *((uint32_t *)v15 + 1);
-          sub_12CA10(15, a4, a3);
+          ke_msg_send_no_param(15, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x10u:
 LABEL_67:
-          v59 = sub_12C92C(17, a4, a3, 2);
+          v59 = ke_msg_alloc(17, a4, a3, 2);
           v15 = off_1242D4;
           v60 = v59;
-          sub_102A20((uint16_t *)a2, a2[10]);
-          sdio_buffer_prepare_n_4e8(v60);
+          rf_enable((uint16_t *)a2, a2[10]);
+          ke_msg_send(v60);
           v16 = 0;
           goto LABEL_10;
         case 0x12u:
@@ -418,7 +418,7 @@ LABEL_66:
           v15 = off_1242D4;
           *(uint32_t *)off_124308 = *(uint32_t *)off_124308 & 0xFFFFFF00 | *a2;
           *v58 |= 0x80000000;
-          sub_12CA10(19, a4, a3);
+          ke_msg_send_no_param(19, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x14u:
@@ -426,10 +426,10 @@ LABEL_63:
           v56 = *(uint16_t *)a2;
           v57 = dword_124304 + 1320 * a2[2];
           if ( *(uint8_t *)(v57 + 106) )
-            sub_120270(v57, v56);
+            set_attribute_word(v57, v56);
           else
             *(uint32_t *)(dword_1242C0 + 696 * *(uint8_t *)(v57 + 116) + 8) = v56 << 10;
-          sub_12CA10(21, a4, a3);
+          ke_msg_send_no_param(21, a4, a3);
           v15 = off_1242D4;
           v16 = 0;
           goto LABEL_10;
@@ -452,25 +452,25 @@ LABEL_53:
             *((uint32_t *)v50 + 1) = v54;
           if ( v52 && *(uint8_t *)(v52 + 4) == v51 )
             *(uint32_t *)off_124300 = *(uint32_t *)&v15[4 * v55 + 4];
-          sub_12CA10(23, a4, a3);
+          ke_msg_send_no_param(23, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x18u:
 LABEL_52:
           v15 = off_1242D4;
-          sub_143770(dword_1242F0 + 1320 * a2[6], a2, 6);
+          memcpy(dword_1242F0 + 1320 * a2[6], a2, 6);
           v48 = off_1242F8;
           v49 = *((uint16_t *)a2 + 2);
           *(uint32_t *)off_1242F4 = *(uint32_t *)a2;
           *v48 = v49;
-          sub_12CA10(25, a4, a3);
+          ke_msg_send_no_param(25, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x1Cu:
 LABEL_75:
           v15 = off_1242D4;
           *(uint32_t *)off_124314 = (*a2 << 14) & 0x1C000 | *(uint32_t *)off_124314 & 0xFFFE3FFF;
-          sub_12CA10(29, a4, a3);
+          ke_msg_send_no_param(29, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x1Eu:
@@ -480,7 +480,7 @@ LABEL_33:
           v31 = (uint8_t *)(dword_124304 + 1320 * v29);
           v136[0] = 0;
           v132 = 1320 * v29;
-          v32 = sub_120438(v136);
+          v32 = clear_device_flag(v136);
           v33 = v31[106];
           v34 = a2[2];
           v31[108] = v34;
@@ -492,18 +492,18 @@ LABEL_33:
             {
               v35 = dword_1242C0 + 696 * v31[116];
               v36 = v132 + 24 + v30;
-              timestamp_update(v36, *((uint32_t *)off_1242C4 + 4) + *(uint32_t *)(v35 + 8));
+              unknown_worker(v36, *((uint32_t *)off_1242C4 + 4) + *(uint32_t *)(v35 + 8));
               *(uint16_t *)(v35 + 32) = *(uint16_t *)a2;
-              sub_120418();
-              feature_guard_check(256, dword_1242C8);
+              clear_irq_if_idle();
+              check_status_bits(256, dword_1242C8);
               v37 = off_1242D0;
               *(uint32_t *)off_1242CC = (uint16_t)*(uint32_t *)off_1242CC | (*(uint16_t *)a2 << 16);
-              if ( (*v37 & 0x8000) != 0 && sub_1019FC() && (*(uint32_t *)(v35 + 4) & 0x20) != 0 )
+              if ( (*v37 & 0x8000) != 0 && rf_get_status_bit21() && (*(uint32_t *)(v35 + 4) & 0x20) != 0 )
               {
-                sub_101A88(*(uint16_t *)a2);
-                sub_11C310();
-                feature_guard_check(256, dword_124968);
-                mmio_set_bit7_40320324();
+                rf_set_channel(*(uint16_t *)a2);
+                check_radio_interrupt();
+                check_status_bits(256, dword_124968);
+                mmio_set_radio_bit();
               }
               v15 = off_1242D4;
               v135 = dword_1242C0 + 696 * v134;
@@ -523,7 +523,7 @@ LABEL_33:
               *(uint32_t *)(v38 + 4) = v39;
               *(uint32_t *)(v38 + 120) = v40[4];
               v133 = v38;
-              v41 = rf_status_get_or_init(v31);
+              v41 = tx_enqueue_frame(v31);
               v42 = *(uint8_t *)(v133 + 1224);
               if ( *(uint8_t *)(v133 + 1224) )
               {
@@ -534,12 +534,12 @@ LABEL_33:
                   goto LABEL_39;
                 *((uint32_t *)off_12462C + 8) = 0;
                 v81[36] = 0;
-                sub_1294C8(v41);
+                wlc_mmio_clock_enable(v41);
 LABEL_119:
                 v82 = **v11;
                 *((uint32_t *)v15 + 1) |= 0x10u;
                 if ( v82 < 0 && *(uint32_t *)off_124978 << 28 )
-                  sub_12F49C(dword_124980, dword_12497C, 472);
+                  call_shared_handler(dword_124980, dword_12497C, 472);
                 *(uint32_t *)off_124660 = *(uint32_t *)v15 | *((uint32_t *)v15 + 1);
                 v34 = a2[2];
                 goto LABEL_40;
@@ -553,9 +553,9 @@ LABEL_119:
                   goto LABEL_39;
                 *((uint32_t *)off_124954 + 8) = v42;
                 v130 = v42;
-                v95 = timestamp_remove(v36);
+                v95 = fault_handler(v36);
                 v94[36] = v130;
-                sub_1294C8(v95);
+                wlc_mmio_clock_enable(v95);
                 v34 = a2[2];
               }
               else
@@ -577,24 +577,24 @@ LABEL_39:
                 v109 = *(uint32_t *)off_124974;
                 *((uint32_t *)off_1242D8 + 8) = v31;
                 *v107 = (uint16_t)(v108 >> 10) | (HIWORD(v109) << 16);
-                v110 = timestamp_remove(v36);
+                v110 = fault_handler(v36);
                 *((uint8_t *)off_124954 + 36) = 0;
-                sub_129394(v110);
+                wlc_mmio_regs(v110);
                 v34 = a2[2];
               }
             }
             else
             {
-              v68 = timestamp_remove(v132 + 24 + v30);
+              v68 = fault_handler(v132 + 24 + v30);
               nullsub_8(v68);
-              v69 = feature_guard_check(256, dword_124650);
+              v69 = check_status_bits(256, dword_124650);
               if ( (*(uint32_t *)off_124654 & 0x8000) != 0 )
               {
-                v69 = sub_1019FC();
+                v69 = rf_get_status_bit21();
                 if ( v69 )
                 {
                   if ( (*(uint32_t *)(dword_124958 + 696 * v134 + 4) & 0x20) != 0 && v31[106] != 4 )
-                    v69 = fmac_table_lookup(v31[107]);
+                    v69 = tx_queue_entry_get(v31[107]);
                 }
               }
               v70 = v30 + 1320 * v29;
@@ -622,16 +622,16 @@ LABEL_39:
                       *((uint32_t *)off_124954 + 8) = v83;
                       *v86 = (uint16_t)(*(uint32_t *)(v85 + 696 * v84 + 8) >> 10) | (HIWORD(*v86) << 16);
                       v129 = v83;
-                      v87 = timestamp_remove(v83 + 24);
+                      v87 = fault_handler(v83 + 24);
                       *((uint8_t *)off_124954 + 36) = 0;
                       v15 = off_12495C;
-                      sub_129394(v87);
+                      wlc_mmio_regs(v87);
                       v88 = **v11;
                       v89 = v129;
                       *((uint32_t *)v15 + 1) &= ~0x10u;
                       if ( v88 < 0 && *(uint32_t *)off_124978 << 28 )
                       {
-                        sub_12F49C(dword_124980, dword_12497C, 472);
+                        call_shared_handler(dword_124980, dword_12497C, 472);
                         v89 = v129;
                       }
                       v90 = off_124984;
@@ -668,10 +668,10 @@ LABEL_169:
                   v104 = *(uint32_t *)(dword_124958 + 696 * v101[116] + 8);
                   *((uint32_t *)off_124954 + 8) = v101;
                   *v102 = (uint16_t)(v104 >> 10) | (HIWORD(v103) << 16);
-                  v105 = timestamp_remove(v101 + 24);
+                  v105 = fault_handler(v101 + 24);
                   v100[36] = v131;
                   v15 = off_12495C;
-                  sub_129394(v105);
+                  wlc_mmio_regs(v105);
                   v34 = a2[2];
                   goto LABEL_40;
                 }
@@ -684,7 +684,7 @@ LABEL_169:
                   *((uint32_t *)off_124954 + 8) = 0;
                   v106[36] = 0;
                   v15 = off_12495C;
-                  sub_1294C8(v69);
+                  wlc_mmio_clock_enable(v69);
                   v34 = a2[2];
                   goto LABEL_40;
                 }
@@ -694,7 +694,7 @@ LABEL_101:
               v15 = off_124630;
             }
 LABEL_40:
-            sub_12A090(v31, v34);
+            llc_get_local_state_idx(v31, v34);
             if ( a2[2] )
             {
               v43 = *(uint32_t **)off_1242DC;
@@ -725,9 +725,9 @@ LABEL_40:
                 *(uint32_t *)off_1242EC = v47;
               else
                 *(uint32_t *)off_124658 = *(uint32_t *)(v30 + 1320 * v29 + 20);
-              fmac_main_loop();
+              read_hw_register();
             }
-            sub_12CA10(31, a4, a3);
+            ke_msg_send_no_param(31, a4, a3);
             v16 = 0;
             goto LABEL_10;
           }
@@ -761,14 +761,14 @@ LABEL_85:
                 v72[36] = 0;
                 v128 = v66;
                 v15 = off_124630;
-                v73 = timestamp_remove(v66 + 24);
-                sub_129394(v73);
+                v73 = fault_handler(v66 + 24);
+                wlc_mmio_regs(v73);
                 v74 = **v11;
                 v75 = v128;
                 *((uint32_t *)v15 + 1) &= ~0x10u;
                 if ( v74 < 0 && *(uint32_t *)off_124978 << 28 )
                 {
-                  sub_12F49C(dword_124980, dword_12497C, 472);
+                  call_shared_handler(dword_124980, dword_12497C, 472);
                   v75 = v128;
                 }
                 v76 = off_124670;
@@ -797,11 +797,11 @@ LABEL_84:
             *((uint32_t *)off_12462C + 8) = 0;
             v67[36] = 0;
             v15 = off_12495C;
-            ((void (*)(void))sub_1294C8)();
+            ((void (*)(void))wlc_mmio_clock_enable)();
             v96 = **v11;
             *((uint32_t *)v15 + 1) |= 0x10u;
             if ( v96 < 0 && *(uint32_t *)off_124978 << 28 )
-              sub_12F49C(dword_124980, dword_12497C, 472);
+              call_shared_handler(dword_124980, dword_12497C, 472);
             v97 = off_124960;
             v98 = off_12496C;
             *(uint32_t *)off_124960 = *(uint32_t *)v15 | *((uint32_t *)v15 + 1);
@@ -816,7 +816,7 @@ LABEL_84:
 LABEL_32:
           v15 = off_123F64;
           *(uint32_t *)off_123F88 = *a2 | (((uint8_t)*(uint32_t *)off_123F84 * *a2) << 8);
-          sub_12CA10(33, a4, a3);
+          ke_msg_send_no_param(33, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x28u:
@@ -824,7 +824,7 @@ LABEL_27:
           v17 = *a2;
           if ( *a2 )
           {
-            if ( sub_13A3F4(dword_12463C + 696 * a2[1], a2[2], *((uint16_t *)a2 + 3)) )
+            if ( tx_desc_release(dword_12463C + 696 * a2[1], a2[2], *((uint16_t *)a2 + 3)) )
             {
               *(uint32_t *)off_124640 |= 0x80u;
               v17 = 0;
@@ -850,7 +850,7 @@ LABEL_27:
             {
               v21 = v19 >> 1;
             }
-            msg_parse(dword_123F7C, v18, v19);
+            event_dispatch(dword_123F7C, v18, v19);
             v22 = *((uint16_t *)a2 + 2);
             v23 = 696 * a2[1];
             v24 = *(uint8_t *)(v23 + 12 * a2[2] + dword_123F8C + 453);
@@ -861,24 +861,24 @@ LABEL_27:
             *(uint16_t *)(v26 + 356) = v22;
             *(uint16_t *)(v27 + 12) = v25;
           }
-          v28 = (uint8_t *)sub_12C92C(41, a4, a3, 3);
+          v28 = (uint8_t *)ke_msg_alloc(41, a4, a3, 3);
           *v28 = a2[1];
           v28[1] = a2[2];
           v28[2] = v17;
-          sdio_buffer_prepare_n_4e8(v28);
+          ke_msg_send(v28);
           v15 = off_123F64;
           v16 = 0;
           goto LABEL_10;
         case 0x30u:
 LABEL_26:
-          sub_12F4B8(a2);
+          bad_func_0x12f4b8(a2);
           v15 = off_123F64;
           v16 = 0;
           goto LABEL_10;
         case 0x3Bu:
 LABEL_25:
-          sub_127EA4(a2);
-          sub_12CA10(60, a4, a3);
+          rx_parse_header(a2);
+          ke_msg_send_no_param(60, a4, a3);
           v15 = off_123F64;
           v16 = 0;
           goto LABEL_10;
@@ -887,21 +887,21 @@ LABEL_25:
       }
     }
     v15 = off_123F64;
-    sub_12F46C(dword_123F70, dword_123F6C, 2552);
+    mmio_clear_register(dword_123F70, dword_123F6C, 2552);
     v16 = 2;
 LABEL_10:
     *(uint32_t *)off_123F60 = (uint8_t)(16 * v15[19]);
-    sub_12CD34(a3);
+    rx_phy_status_parse(a3);
     return v16;
   }
   if ( (uint16_t)(value - 2) > 2u )
   {
     v13 = off_123F64;
     *((uint8_t *)off_123F64 + 19) = *(uint8_t *)off_123F60 & 0xF;
-    v14 = msg_get_value(a3);
+    v14 = rx_rate_field_parse(a3);
     v13[18] = v14;
-    sub_12B804(v14);
-    sub_12CD34(a3);
+    read_cal_trim(v14);
+    rx_phy_status_parse(a3);
   }
   return 2;
 }

@@ -12,13 +12,13 @@
 
 extern uint32_t dword_1345A0;
 
-// sub_134584 @ 0x134584, size 26 bytes
-int sub_134584()
+// ll_state_error_check @ 0x134584, size 26 bytes
+int ll_state_error_check()
 {
   int result; // r0
 
-  sub_12ECB0(dword_1345A0);
-  result = sub_12C964(6155, 6);
+  ke_event_schedule(dword_1345A0);
+  result = irq_lock(6155, 6);
   *(uint8_t *)(loc_1345A4 + 0xF) = 0;
   return result;
 }

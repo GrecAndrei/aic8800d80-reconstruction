@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11B154;
 
-// sub_11B0D0 @ 0x11b0d0, size 132 bytes
-unsigned int * sub_11B0D0(unsigned int *result, unsigned int a2, int a3)
+// check_packet_type @ 0x11b0d0, size 132 bytes
+unsigned int * check_packet_type(unsigned int *result, unsigned int a2, int a3)
 {
   unsigned int v3; // r3
   int v4; // r4

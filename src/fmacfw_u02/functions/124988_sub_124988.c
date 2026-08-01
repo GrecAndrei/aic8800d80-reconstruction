@@ -17,10 +17,10 @@ extern uint32_t off_124A18;
 extern uint32_t off_124A1C;
 extern uint32_t dword_124A20;
 
-// sub_124988 @ 0x124988, size 132 bytes
+// ble_mmio_config @ 0x124988, size 132 bytes
 // Doc: sub_122498E [rx]: Parses frame header and reads from descriptor tables
 // sub_122498E [rx]: Parses frame header and reads from descriptor tables
-int  sub_124988(uint16_t *a1)
+int  ble_mmio_config(uint16_t *a1)
 {
   int v1; // r3
   int *v2; // r2
@@ -49,8 +49,8 @@ int  sub_124988(uint16_t *a1)
   v6[1] = v6[1] & v1 | (v7 << 12);
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
-  fmac_main_loop();
-  msg_parse(dword_124A20, *a1, a1[1]);
+  read_hw_register();
+  event_dispatch(dword_124A20, *a1, a1[1]);
   return 0;
 }
 

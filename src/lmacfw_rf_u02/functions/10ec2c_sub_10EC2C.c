@@ -16,8 +16,8 @@ extern uint32_t dword_10ED40;
 extern uint32_t dword_10ED4C;
 extern uint32_t dword_10ED44;
 
-// sub_10EC2C @ 0x10ec2c, size 272 bytes
-int  sub_10EC2C(int a1)
+// gpio_af_set @ 0x10ec2c, size 272 bytes
+int  gpio_af_set(int a1)
 {
   int16_t *v1; // r9
   int v2; // r7
@@ -39,8 +39,8 @@ int  sub_10EC2C(int a1)
   v1 = (int16_t *)off_10ED48;
   *(uint32_t *)off_10ED3C = (a1 << 26) & 0x1C000000 | *(uint32_t *)off_10ED3C & 0xE3FFFFFF;
   v2 = a1;
-  v3 = rf_mmio_reg_enable();
-  msg_parse(dword_10ED40, v2);
+  v3 = sdio_core_set_enable();
+  dispatch_event_handler(dword_10ED40, v2);
   v4 = *v1;
   if ( v4 > v3 )
   {
@@ -81,8 +81,8 @@ int  sub_10EC2C(int a1)
       v2 = 7;
     }
     *v5 = *v5 & 0xE3FFFFFF | v9;
-    v10 = rf_mmio_reg_enable();
-    msg_parse(v6, v2);
+    v10 = sdio_core_set_enable();
+    dispatch_event_handler(v6, v2);
     v11 = *v1;
     v12 = v10 - v11;
     v13 = v3 - v11;
@@ -103,7 +103,7 @@ int  sub_10EC2C(int a1)
     v8 -= v16;
     *v5 = ((v2 - v16) << 26) & 0x1C000000 | *v5 & 0xE3FFFFFF;
   }
-  msg_parse(dword_10ED44, v8);
+  dispatch_event_handler(dword_10ED44, v8);
   return v8;
 }
 

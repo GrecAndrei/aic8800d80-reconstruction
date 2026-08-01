@@ -1,1 +1,1 @@
-{"fn": "sub_1213EB4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213eb4", "status": "ok", "name": "rf_msg_send_ack_n_eb4", "params": [], "docstring": "Send RF message ack to host via IPC call", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1213EB4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213eb4", "status": "ok", "name": "sleep_exit_critical", "params": [], "docstring": "Send RF message ack to host via IPC call", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

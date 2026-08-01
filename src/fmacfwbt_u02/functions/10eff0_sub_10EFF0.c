@@ -15,8 +15,8 @@ extern uint32_t off_10F04C;
 extern uint32_t dword_10F054;
 extern uint32_t off_10F058;
 
-// sub_10EFF0 @ 0x10eff0, size 90 bytes
-int sub_10EFF0()
+// phy_get_status @ 0x10eff0, size 90 bytes
+int phy_get_status()
 {
   uint8_t *v0; // r6
   int v1; // r5
@@ -29,12 +29,12 @@ int sub_10EFF0()
   v2 = *((char *)off_10F050 + 7) - v1;
   if ( v2 < -62 )
     LOBYTE(v2) = -62;
-  sub_1029F8(v2);
+  write_mmio_byte(v2);
   v3 = dword_10F054;
   v0[7] = v2;
-  result = sub_12ECB0(v3, (char)v2, v1);
+  result = ke_event_schedule(v3, (char)v2, v1);
   if ( (char)v2 >= -61 )
-    return sub_124F60(v0 + 12, *((uint32_t *)off_10F058 + 4) + 30000 * *((uint16_t *)v0 + 4));
+    return ke_event_lock(v0 + 12, *((uint32_t *)off_10F058 + 4) + 30000 * *((uint16_t *)v0 + 4));
   v0[11] = 0;
   return result;
 }

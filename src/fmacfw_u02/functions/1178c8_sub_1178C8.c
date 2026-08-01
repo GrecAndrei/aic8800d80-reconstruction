@@ -15,8 +15,8 @@ extern uint32_t off_117914;
 extern uint32_t off_117920;
 extern uint32_t off_11791C;
 
-// sub_1178C8 @ 0x1178c8, size 76 bytes
-unsigned int sub_1178C8()
+// core_rev_read @ 0x1178c8, size 76 bytes
+unsigned int core_rev_read()
 {
   int v0; // r4
   unsigned int result; // r0
@@ -29,11 +29,11 @@ unsigned int sub_1178C8()
       v0 |= 0x1000u;
       *((uint32_t *)off_117920 + 52) |= 4u;
     }
-    sub_11C2F4();
+    enable_radio_clock();
   }
   result = v0 & 0xF00000;
   if ( (v0 & 0xF00000) != 0 )
-    result = sub_11AC74((uint8_t)(11 - __clz(result)));
+    result = dispatch_command((uint8_t)(11 - __clz(result)));
   *(uint32_t *)off_11791C = v0;
   return result;
 }

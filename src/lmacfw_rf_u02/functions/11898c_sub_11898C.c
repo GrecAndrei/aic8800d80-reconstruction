@@ -19,8 +19,8 @@ extern uint32_t off_118A4C;
 extern uint32_t off_118A50;
 extern uint32_t off_118A54;
 
-// sub_11898C @ 0x11898c, size 180 bytes
-int  sub_11898C(int a1, int a2)
+// update_rx_credits @ 0x11898c, size 180 bytes
+int  update_rx_credits(int a1, int a2)
 {
   int v2; // r6
   uint32_t *v3; // r3

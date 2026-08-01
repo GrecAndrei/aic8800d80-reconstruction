@@ -17,8 +17,8 @@ extern uint32_t off_111200;
 extern uint32_t off_111210;
 extern uint32_t off_111214;
 
-// sub_11118C @ 0x11118c, size 114 bytes
-int sub_11118C()
+// timer_set_alarm @ 0x11118c, size 114 bytes
+int timer_set_alarm()
 {
   int v0; // r3
   int *v1; // r2

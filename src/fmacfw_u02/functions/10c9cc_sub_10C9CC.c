@@ -21,8 +21,8 @@ extern uint32_t off_10CAC0;
 extern uint32_t dword_10CACC;
 extern uint32_t off_10CAC8;
 
-// sub_10C9CC @ 0x10c9cc, size 236 bytes
-int  sub_10C9CC(char a1)
+// memory_buffer_alloc @ 0x10c9cc, size 236 bytes
+int  memory_buffer_alloc(char a1)
 {
   int v1; // r5
   uint8_t *v2; // r11
@@ -41,7 +41,7 @@ int  sub_10C9CC(char a1)
   int v15; // r0
   int result; // r0
 
-  clear_flags(2048);
+  unknown_func_12d14c(2048);
   v1 = *(uint32_t *)off_10CAB8;
   if ( *(uint32_t *)(*(uint32_t *)off_10CAB8 + 636) )
   {
@@ -69,7 +69,7 @@ int  sub_10C9CC(char a1)
       ++*(uint32_t *)off_10CADC;
       while ( !*v5 )
         ;
-      v10 = rf_bus_mark_n100_d2d0(v1 + 636);
+      v10 = mem_word_load(v1 + 636);
       v11 = *v9;
       *v5 = 1;
       v12 = v10;
@@ -86,14 +86,14 @@ int  sub_10C9CC(char a1)
       }
       v15 = dword_10CAC4;
       *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10CAC0;
-      list_push_tail(v15);
+      cmd_handler_a(v15);
       if ( !*(uint32_t *)(v1 + 636) )
         goto LABEL_13;
     }
-    sub_10DC24(dword_10CACC, v6, v7);
+    log_printf(dword_10CACC, v6, v7);
   }
 LABEL_13:
-  result = irq_nesting_or_d104(256);
+  result = unknown_func_12d104(256);
   *(uint32_t *)off_10CAC8 = (1 << (a1 + 8)) & 0x1F00;
   return result;
 }

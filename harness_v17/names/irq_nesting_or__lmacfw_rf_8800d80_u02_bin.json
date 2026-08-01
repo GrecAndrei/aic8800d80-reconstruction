@@ -1,1 +1,1 @@
-{"fn": "irq_nesting_or", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e5e0", "status": "ok", "name": "irq_nesting_or", "params": [], "docstring": "Set/clear IRQ nesting bit via OR mask", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "irq_nesting_or", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e5e0", "status": "ok", "name": "set_busy_flag_alt", "params": [], "docstring": "Set/clear IRQ nesting bit via OR mask", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

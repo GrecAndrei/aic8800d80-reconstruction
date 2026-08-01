@@ -16,10 +16,10 @@ extern uint32_t dword_112020;
 extern uint32_t dword_112024;
 extern uint32_t dword_112028;
 
-// rf_bus_write2_n500 @ 0x111f78, size 162 bytes
+// ke_msg_handler_b @ 0x111f78, size 162 bytes
 // Doc: rf_bus_setup_n226 [rf]: Configures RF bus interface parameters
 // rf_bus_setup_n226 [rf]: Configures RF bus interface parameters
-int  rf_bus_write2_n500(int a1, int a2, unsigned int a3)
+int  ke_msg_handler_b(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -37,7 +37,7 @@ int  rf_bus_write2_n500(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    log_printf(dword_11202C);
+    printf_wrapper(dword_11202C);
     return 3;
   }
   else

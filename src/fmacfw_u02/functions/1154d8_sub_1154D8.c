@@ -15,10 +15,10 @@ extern uint32_t off_1155A4;
 extern uint32_t dword_1155AC;
 extern uint32_t dword_115594;
 
-// sub_1154D8 @ 0x1154d8, size 180 bytes
+// check_init_status @ 0x1154d8, size 180 bytes
 // Doc: sdio_buffer_prepare_n_11c [util]: Initializes SDIO buffer descriptor chain
 // sdio_buffer_prepare_n_11c [util]: Initializes SDIO buffer descriptor chain
-int sub_1154D8()
+int check_init_status()
 {
   uint8_t *v0; // r4
   int result; // r0
@@ -28,7 +28,7 @@ int sub_1154D8()
   v0 = off_11558C;
   if ( !*(uint8_t *)off_11558C && *(uint8_t *)ipc_doorbell_handler_n_3ec )
   {
-    result = feature_guard_check(2, patch_apply_n2e0);
+    result = check_status_bits(2, patch_apply_n2e0);
     v2 = ipc_doorbell_handler_n_3dc;
     *v0 = 1;
     if ( (uint16_t)*v2 )
@@ -54,12 +54,12 @@ int sub_1154D8()
           v3 = 100 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
           break;
       }
-      return timestamp_update(dword_1155AC, *((uint32_t *)ipc_doorbell_handler_n_3d4 + 4) + v3);
+      return unknown_worker(dword_1155AC, *((uint32_t *)ipc_doorbell_handler_n_3d4 + 4) + v3);
     }
   }
   else
   {
-    result = feature_guard_check(2, dword_115594);
+    result = check_status_bits(2, dword_115594);
     if ( *((uint8_t *)ipc_doorbell_handler_n_3e4 + 18) )
       *v0 = 0;
   }

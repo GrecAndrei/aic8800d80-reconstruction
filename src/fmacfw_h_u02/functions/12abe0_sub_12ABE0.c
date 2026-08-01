@@ -15,8 +15,8 @@ extern uint32_t off_12ACB8;
 extern uint32_t dword_12ACC0;
 extern uint32_t off_12ACBC;
 
-// sub_12ABE0 @ 0x12abe0, size 212 bytes
-int  sub_12ABE0(int a1)
+// get_dev_entry @ 0x12abe0, size 212 bytes
+int  get_dev_entry(int a1)
 {
   int v1; // r7
   int v3; // r5
@@ -35,7 +35,7 @@ int  sub_12ABE0(int a1)
 
   v1 = dword_12ACB4;
   v3 = *((uint32_t *)off_12ACB8 + 4);
-  sub_11BAC0((uint8_t *)(dword_12ACB4 + 1320 * *(uint8_t *)(a1 + 28)));
+  bt_start_operation((uint8_t *)(dword_12ACB4 + 1320 * *(uint8_t *)(a1 + 28)));
   if ( *(uint8_t *)(a1 + 31) )
   {
     v4 = *(uint32_t *)(a1 + 16) > 2u;
@@ -43,7 +43,7 @@ int  sub_12ABE0(int a1)
     if ( *(uint32_t *)(a1 + 20) > 2u )
       v4 |= 2u;
     if ( (*(uint8_t *)(a1 + 29) ^ v4) << 30 )
-      sub_12A384(*(uint8_t *)(a1 + 28), v4);
+      ll_conn_is_connected(*(uint8_t *)(a1 + 28), v4);
     v6 = *(uint8_t *)(a1 + 28);
     *(uint8_t *)(a1 + 29) = v4;
     v7 = *(int ***)(v1 + 1320 * v5 + 240);
@@ -80,6 +80,6 @@ int  sub_12ABE0(int a1)
   *(uint8_t *)(a1 + 31) = *((uint32_t *)off_12ACBC + 10) == *(uint32_t *)(v1 + 1320 * v6 + 72);
   *(uint32_t *)(a1 + 16) = 0;
   *(uint32_t *)(a1 + 20) = 0;
-  return sub_124BFC(a1, v3 + 102400);
+  return mem_copy_util(a1, v3 + 102400);
 }
 

@@ -16,8 +16,8 @@ extern uint32_t off_12B39C;
 extern uint32_t off_12B3A0;
 extern uint32_t dword_12B398;
 
-// sub_12B258 @ 0x12b258, size 312 bytes
-void sub_12B258()
+// get_fw_info @ 0x12b258, size 312 bytes
+void get_fw_info()
 {
   int v0; // r5
   char *v1; // r6
@@ -62,7 +62,7 @@ void sub_12B258()
         if ( *(uint8_t *)(v0 + 369) )
           v3 = 1;
       }
-      v4 = sub_118B04(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
+      v4 = lock_acquire(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
       v5 = v1;
       v6 = v4;
       if ( !v4 )
@@ -111,7 +111,7 @@ void sub_12B258()
       *(uint32_t *)(v6 + 92) = 0;
       *(uint8_t *)(v6 + 28) = *(uint8_t *)(v0 + 366);
       *(uint8_t *)(v6 + 29) = -1;
-      sub_118B34(v6, 5);
+      sec_check(v6, 5);
       ++v2;
       v1 += 33;
     }

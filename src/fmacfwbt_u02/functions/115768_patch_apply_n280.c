@@ -20,10 +20,10 @@ extern uint32_t dword_115988;
 extern uint32_t dword_11598C;
 extern uint32_t dword_115980;
 
-// patch_apply_n280 @ 0x115768, size 464 bytes
+// init_queue_table @ 0x115768, size 464 bytes
 // Doc: patch_apply_n292 [patch]: Apply patch entries from a descriptor table
 // patch_apply_n292 [patch]: Apply patch entries from a descriptor table
-int patch_apply_n280()
+int init_queue_table()
 {
   uint32_t *v0; // r7
   int v1; // r6
@@ -60,16 +60,16 @@ int patch_apply_n280()
   {
     v4 = i;
     v5 = *v2++;
-    log_printf(v1, v4, v5);
+    printf_wrapper(v1, v4, v5);
   }
   v6 = off_115940;
-  log_printf(patch_apply_n45c, v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
-  log_printf(patch_apply_n460, *v6, v6[1], v6[2], v6[3]);
-  log_printf(dword_11594C, v6[9], v6[10], v6[11], v6[12], v6[15]);
+  printf_wrapper(patch_apply_n45c, v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
+  printf_wrapper(patch_apply_n460, *v6, v6[1], v6[2], v6[3]);
+  printf_wrapper(dword_11594C, v6[9], v6[10], v6[11], v6[12], v6[15]);
   v7 = v6[10];
   if ( (uint8_t)v7 )
   {
-    log_printf(
+    printf_wrapper(
       patch_apply_n490,
       (uint8_t)v6[10],
       v7 & 1,
@@ -79,11 +79,11 @@ int patch_apply_n280()
       (v7 >> 5) & 1,
       (v7 >> 7) & 1);
     if ( (v7 & 0x80) != 0 )
-      log_printf(patch_write_table_entry, v6[13]);
+      printf_wrapper(patch_write_table_entry, v6[13]);
   }
   if ( (v7 & 0xFF00) != 0 )
   {
-    log_printf(
+    printf_wrapper(
       dword_115970,
       BYTE1(v7),
       (v7 >> 8) & 1,
@@ -94,10 +94,10 @@ int patch_apply_n280()
       (v7 >> 13) & 1,
       (v7 >> 15) & 1);
     if ( (v7 & 0x8000) != 0 )
-      log_printf(dword_115974, *((uint32_t *)off_115940 + 14));
+      printf_wrapper(dword_115974, *((uint32_t *)off_115940 + 14));
   }
   if ( HIWORD(v7) )
-    log_printf(
+    printf_wrapper(
       patch_apply_n484_596c,
       HIWORD(v7),
       HIWORD(v7) & 1,
@@ -108,44 +108,44 @@ int patch_apply_n280()
       (v7 >> 25) & 1);
   if ( (v0[19] & 8) == 0 )
   {
-    log_printf(patch_apply_n47c);
+    printf_wrapper(patch_apply_n47c);
     goto patch_apply_n308;
   }
-  log_printf(patch_apply_n468);
+  printf_wrapper(patch_apply_n468);
   if ( (v0[20] & 1) == 0 )
   {
 patch_apply_n308:
-    log_printf(patch_apply_n46c);
+    printf_wrapper(patch_apply_n46c);
     goto patch_apply_n30e;
   }
-  log_printf(patch_apply_n480_5968);
+  printf_wrapper(patch_apply_n480_5968);
 patch_apply_n30e:
   v8 = v0[19];
   v9 = v8 << 29;
   if ( (v8 & 4) != 0 )
-    log_printf(dword_115958, v9);
+    printf_wrapper(dword_115958, v9);
   else
-    log_printf(patch_apply_n474_595c, v9);
+    printf_wrapper(patch_apply_n474_595c, v9);
   v10 = v0[20];
   CPSR = __get_CPSR();
   v12 = __get_CPSR();
   v26 = __get_CPSR();
-  result = log_printf(patch_apply_n478, v10, CPSR, v12, v26);
+  result = printf_wrapper(patch_apply_n478, v10, CPSR, v12, v26);
   v14 = v0[18];
   if ( v14 )
   {
     v21 = patch_apply_n49c;
     v22 = dword_115988;
     v23 = v14 & 0xFFFFFFF0;
-    log_printf(dword_11598C);
+    printf_wrapper(dword_11598C);
     v24 = v23 + 256;
     do
     {
       if ( !(v23 << 28) )
-        log_printf(v21, v23);
+        printf_wrapper(v21, v23);
       v25 = *(uint32_t *)v23;
       v23 += 4;
-      result = log_printf(v22, v25);
+      result = printf_wrapper(v22, v25);
     }
     while ( v24 != v23 );
   }
@@ -155,15 +155,15 @@ patch_apply_n30e:
     v16 = patch_apply_n49c;
     v17 = dword_115988;
     v18 = v15 & 0xFFFFFFF0;
-    log_printf(dword_115980);
+    printf_wrapper(dword_115980);
     v19 = v18 + 256;
     do
     {
       if ( !(v18 << 28) )
-        log_printf(v16, v18);
+        printf_wrapper(v16, v18);
       v20 = *(uint32_t *)v18;
       v18 += 4;
-      result = log_printf(v17, v20);
+      result = printf_wrapper(v17, v20);
     }
     while ( v19 != v18 );
   }

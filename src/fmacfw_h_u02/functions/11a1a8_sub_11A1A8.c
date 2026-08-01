@@ -15,8 +15,8 @@ extern uint32_t off_11A30C;
 extern uint32_t dword_11A318;
 extern uint32_t dword_11A314;
 
-// sub_11A1A8 @ 0x11a1a8, size 354 bytes
-int  sub_11A1A8(int a1, int a2)
+// init_flow_entry @ 0x11a1a8, size 354 bytes
+int  init_flow_entry(int a1, int a2)
 {
   uint64_t v2; // r6
   int *v3; // r10
@@ -66,7 +66,7 @@ int  sub_11A1A8(int a1, int a2)
       }
       else
       {
-        sub_12F32C(dword_11A318, dword_11A314, 475);
+        irq_disable_mmio_write(dword_11A318, dword_11A314, 475);
         v11 = *(uint32_t *)(a1 + 76);
       }
       v12 = *(uint32_t *)(v10 + 156);
@@ -111,7 +111,7 @@ int  sub_11A1A8(int a1, int a2)
       {
 LABEL_16:
         *(uint8_t *)(v11 + 1) = 1;
-        sub_11C448(a1, v6);
+        sta_rate_status_check(a1, v6);
         v18 = *(uint64_t *)(v2 + 96);
         v19 = *(uint16_t *)(a1 + 82) | 6;
         *(uint32_t *)(HIDWORD(v2) + 44) = HIDWORD(v18);

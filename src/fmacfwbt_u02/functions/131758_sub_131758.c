@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131758 @ 0x131758, size 12 bytes
-int  sub_131758(int a1, uint8_t *a2)
+// pdu_type_validate @ 0x131758, size 12 bytes
+int  pdu_type_validate(int a1, uint8_t *a2)
 {
-  ipc_msg_alloc_init(*a2);
+  sdio_cfg_write(*a2);
   return 0;
 }
 

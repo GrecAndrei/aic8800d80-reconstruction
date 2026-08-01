@@ -19,10 +19,10 @@ extern uint32_t off_1197C0;
 extern uint32_t dword_1197C4;
 extern uint32_t dword_1197D4;
 
-// sub_1196A4 @ 0x1196a4, size 278 bytes
+// rx_state_check @ 0x1196a4, size 278 bytes
 // Doc: sub_12196A4 [unknown]: Push context and branch on state byte field 0x6a
 // sub_12196A4 [unknown]: Push context and branch on state byte field 0x6a
-int  sub_1196A4(int a1, int a2, int a3)
+int  rx_state_check(int a1, int a2, int a3)
 {
   int v3; // r3
   int v4; // r3
@@ -41,7 +41,7 @@ int  sub_1196A4(int a1, int a2, int a3)
   v3 = *(uint8_t *)(a1 + 106);
   if ( v3 != 2 )
   {
-    sub_12ECB0(dword_1197D0, v3, a3);
+    ke_event_schedule(dword_1197D0, v3, a3);
     return 1;
   }
   v4 = *(uint32_t *)(a1 + 72);
@@ -58,22 +58,22 @@ int  sub_1196A4(int a1, int a2, int a3)
   {
     goto LABEL_9;
   }
-  sub_12F694(dword_1197CC, dword_1197C8, 520);
+  mmio_irq_clear(dword_1197CC, dword_1197C8, 520);
 LABEL_9:
   v8 = 1;
 LABEL_5:
   v9 = dword_1197D8;
-  v10 = sub_119084(v8, *(uint16_t *)(dword_1197D8 + 2 * *(uint8_t *)(a1 + 107)));
+  v10 = event_notify(v8, *(uint16_t *)(dword_1197D8 + 2 * *(uint8_t *)(a1 + 107)));
   v12 = v10;
   if ( v10 )
   {
-    message_dispatch_n_4a3(a1, v10);
+    scan_done_check(a1, v10);
     v13 = *(uint32_t *)(v12 + 72);
     *(uint8_t *)(v13 + 108) = 80;
     *(uint8_t *)(v13 + 109) = 0;
     *(uint8_t *)(v13 + 110) = 0;
     *(uint8_t *)(v13 + 111) = 0;
-    sub_14380C(v13 + 112, a2, 6);
+    memcpy_aligned(v13 + 112, a2, 6);
     v14 = off_1197C0;
     v15 = *((uint16_t *)off_1197C0 + 254);
     v16 = *(uint16_t *)(a1 + 104);
@@ -85,7 +85,7 @@ LABEL_5:
     *(uint16_t *)(v13 + 128) = v16;
     v14[254] = v15;
     *(uint16_t *)(v13 + 130) = 16 * v15;
-    sub_14380C(
+    memcpy_aligned(
       v13 + 132,
       dword_1197C4 + (*(uint8_t *)(a1 + 107) << 9),
       *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)) - 24);
@@ -93,12 +93,12 @@ LABEL_5:
     *(uint32_t *)(v12 + 92) = 0;
     *(uint8_t *)(v12 + 28) = *(uint8_t *)(a1 + 107);
     *(uint8_t *)(v12 + 29) = -1;
-    sub_1190B4(v12, 5);
+    ble_event_dispatch(v12, 5);
     return 0;
   }
   else
   {
-    sub_12ECB0(dword_1197D4, *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)), v11);
+    ke_event_schedule(dword_1197D4, *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)), v11);
     return 1;
   }
 }

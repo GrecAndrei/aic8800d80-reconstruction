@@ -15,8 +15,8 @@ extern uint32_t off_108270;
 extern uint32_t dword_108278;
 extern uint32_t off_10827C;
 
-// sub_108238 @ 0x108238, size 56 bytes
-int sub_108238()
+// read_status_low @ 0x108238, size 56 bytes
+int read_status_low()
 {
   unsigned int *v0; // r5
   int v1; // r6
@@ -27,7 +27,7 @@ int sub_108238()
   v0 = (unsigned int *)off_108274;
   v1 = *(uint32_t *)off_108274;
   v2 = (uint16_t)*(uint32_t *)off_108270 >> 4;
-  result = feature_guard_check(1, dword_108278);
+  result = check_status_bits(1, dword_108278);
   v4 = off_10827C;
   *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;
   *v4 |= 0x400000u;

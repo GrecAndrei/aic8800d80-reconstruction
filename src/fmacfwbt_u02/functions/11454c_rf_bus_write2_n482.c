@@ -16,10 +16,10 @@ extern uint32_t off_114598;
 extern uint32_t off_1145A0;
 extern uint32_t off_11459C;
 
-// rf_bus_write2_n482 @ 0x11454c, size 68 bytes
-// Doc: rf_bus_write2_n482 [rf]: RF bus write variant with masked address and MMIO store
-// rf_bus_write2_n482 [rf]: RF bus write variant with masked address and MMIO store
-int rf_bus_write2_n482()
+// get_core_state @ 0x11454c, size 68 bytes
+// Doc: get_core_state [rf]: RF bus write variant with masked address and MMIO store
+// get_core_state [rf]: RF bus write variant with masked address and MMIO store
+int get_core_state()
 {
   int v0; // r2
   int v1; // r1

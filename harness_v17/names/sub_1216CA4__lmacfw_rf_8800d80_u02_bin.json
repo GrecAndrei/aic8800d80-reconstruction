@@ -1,1 +1,1 @@
-{"fn": "sub_1216CA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1216ca4", "status": "ok", "name": "accum_update_addr_pair", "params": [], "docstring": "Add two 32-bit address pairs and store accumulator", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1216CA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1216ca4", "status": "ok", "name": "timestamp_add", "params": [], "docstring": "Add two 32-bit address pairs and store accumulator", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

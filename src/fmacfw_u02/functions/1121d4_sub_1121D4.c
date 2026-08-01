@@ -15,8 +15,8 @@ extern uint32_t off_11221C;
 extern uint32_t off_112224;
 extern uint32_t off_112220;
 
-// sub_1121D4 @ 0x1121d4, size 66 bytes
-int sub_1121D4()
+// arg_store @ 0x1121d4, size 66 bytes
+int arg_store()
 {
   uint8_t *v0; // r4
   int v1; // r0
@@ -32,8 +32,8 @@ int sub_1121D4()
     {
       *(uint8_t *)off_112220 = 4;
       *v0 = 7;
-      if ( !sub_113A8C() )
-        sub_114168(0);
+      if ( !is_flag_one() )
+        store_byte_field(0);
       return 1;
     }
     else

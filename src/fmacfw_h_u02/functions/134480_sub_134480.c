@@ -20,8 +20,8 @@ extern uint32_t off_13459C;
 extern uint32_t dword_1345A0;
 extern uint32_t off_1345A4;
 
-// sub_134480 @ 0x134480, size 260 bytes
-void  sub_134480(int a1, int a2, int a3)
+// ble_parse_event @ 0x134480, size 260 bytes
+void  ble_parse_event(int a1, int a2, int a3)
 {
   uint32_t *v4; // r3
   uint8_t *v7; // r9
@@ -59,8 +59,8 @@ void  sub_134480(int a1, int a2, int a3)
       *((uint16_t *)v4 + 1) = 257;
       v20 = dword_1345A0;
       v18[35594] = 0;
-      sub_12C4A4(6155, 6, v20);
-      sub_10D0F4();
+      ke_event_handler(6155, 6, v20);
+      enable_clock_2();
       return;
     }
     *((uint8_t *)off_134584 + 3) = 0;
@@ -73,7 +73,7 @@ void  sub_134480(int a1, int a2, int a3)
   }
   v7 = off_1345A4;
   v8 = *((int **)off_1345A4 + 4);
-  v9 = sub_12C7EC(4098, 4, 6, 0x178u);
+  v9 = tx_send_pdu(4098, 4, 6, 0x178u);
   *(uint32_t *)v9 = *(uint32_t *)a2;
   v10 = *(uint16_t *)(a2 + 4);
   *(uint8_t *)(v9 + 367) = 1;
@@ -103,7 +103,7 @@ void  sub_134480(int a1, int a2, int a3)
   if ( a3 )
     *(uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
-  sub_12C84C(v9);
-  sub_12CBF4(6u, 2);
+  rx_process_packet(v9);
+  hci_cmd_preprocess(6u, 2);
 }
 

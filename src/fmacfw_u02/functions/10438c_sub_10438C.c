@@ -12,8 +12,8 @@
 
 extern uint32_t off_1043D0;
 
-// sub_10438C @ 0x10438c, size 66 bytes
-int  sub_10438C(int a1, int a2, uint32_t *a3)
+// get_next_sequence @ 0x10438c, size 66 bytes
+int  get_next_sequence(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v4; // r4

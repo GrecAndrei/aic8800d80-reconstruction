@@ -13,14 +13,14 @@
 extern uint32_t dword_12F1CC;
 extern uint32_t off_12F1D0;
 
-// phy_tx_agg_configure @ 0x12f1a0, size 42 bytes
-// Doc: phy_tx_agg_configure [tx]: Configure TX aggregation via sub_12ECB0
-// phy_tx_agg_configure [tx]: Configure TX aggregation via sub_12ECB0
-int  phy_tx_agg_configure(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// ke_event_send_a @ 0x12f1a0, size 42 bytes
+// Doc: ke_event_send_a [tx]: Configure TX aggregation via ke_event_schedule
+// ke_event_send_a [tx]: Configure TX aggregation via ke_event_schedule
+int  ke_event_send_a(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
-  sub_12ECB0(dword_12F1CC, *a2);
+  ke_event_schedule(dword_12F1CC, *a2);
   *((uint32_t *)off_12F1D0 + 1) = *a2;
-  message_dispatch_n84(1031, a4, a3);
+  hci_evt_alloc_send(1031, a4, a3);
   return 0;
 }
 

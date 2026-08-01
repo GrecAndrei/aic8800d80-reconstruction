@@ -32,10 +32,10 @@ extern uint32_t dword_126C38;
 extern uint32_t dword_126BEC;
 extern uint32_t off_126C28;
 
-// rf_level_apply_n_4ec @ 0x1268ec, size 1078 bytes
+// init_with_stack @ 0x1268ec, size 1078 bytes
 // Doc: rf_level_apply_n_42e [rf]: Apply TX/RF power level by programming level MMIO registers
 // rf_level_apply_n_42e [rf]: Apply TX/RF power level by programming level MMIO registers
-unsigned int * rf_level_apply_n_4ec(int a1)
+unsigned int * init_with_stack(int a1)
 {
   unsigned int *result; // r0
   int v3; // r6
@@ -93,11 +93,11 @@ unsigned int * rf_level_apply_n_4ec(int a1)
     if ( a1 != 1 )
     {
       if ( (unsigned int)(a1 - 2) > 1 )
-        return (unsigned int *)msg_parse(dword_126BC4, a1);
-      get_cached_1828f8(&v51, 0);
+        return (unsigned int *)dispatch_event_handler(dword_126BC4, a1);
+      mac_time_get(&v51, 0);
       v3 = BYTE1(v51);
       v4 = WORD1(v51);
-      msg_parse(rf_level_apply_n_210, a1, WORD2(v51), WORD1(v51), BYTE1(v51));
+      dispatch_event_handler(rf_level_apply_n_210, a1, WORD2(v51), WORD1(v51), BYTE1(v51));
       result = (unsigned int *)rf_level_apply_n_207;
       v5 = rf_level_apply_n_203;
       v6 = rf_level_apply_n_200;
@@ -217,12 +217,12 @@ LABEL_10:
     v22 = (*(uint32_t *)rf_level_apply_n_1bc >> 11) & 7;
     v23 = *(uint32_t *)rf_level_apply_n_1bc & 0x7F;
     v24 = (*(uint32_t *)rf_level_apply_n_1bc >> 7) & 3;
-    check_param_eq1(v22, v23, v24);
+    mac_validate_rate(v22, v23, v24);
     if ( !*v21 )
     {
-      get_cached_1828f8(&v51, 0);
+      mac_time_get(&v51, 0);
       v33 = WORD1(v51);
-      result = (unsigned int *)msg_parse(rf_level_apply_n_1b8, WORD2(v51), WORD1(v51), BYTE1(v51));
+      result = (unsigned int *)dispatch_event_handler(rf_level_apply_n_1b8, WORD2(v51), WORD1(v51), BYTE1(v51));
       if ( v33 == 2412 )
       {
         v34 = (int *)off_126D28;
@@ -251,8 +251,8 @@ LABEL_10:
       *result = v37;
       goto LABEL_10;
     }
-    msg_parse(rf_level_apply_n_1b8, v22, v23, v24);
-    result = (unsigned int *)sub_12686C(a1);
+    dispatch_event_handler(rf_level_apply_n_1b8, v22, v23, v24);
+    result = (unsigned int *)tx_descriptor_config(a1);
     if ( !*(uint8_t *)rf_level_apply_n_1b4 && *(uint32_t *)off_126C28 )
     {
       v25 = rf_level_apply_n_200;
@@ -271,7 +271,7 @@ LABEL_10:
   }
   else
   {
-    result = (unsigned int *)msg_parse(rf_level_apply_n_1e0);
+    result = (unsigned int *)dispatch_event_handler(rf_level_apply_n_1e0);
     v11 = rf_level_apply_n_1db;
     if ( (*(uint32_t *)rf_level_apply_n_1db & 0x10000) != 0 )
     {
@@ -282,7 +282,7 @@ LABEL_10:
       *v29 &= ~1u;
       *v29 &= 0xFFFFFF9F;
       *v30 &= 0xFF87FFFF;
-      result = (unsigned int *)sub_12686C(0);
+      result = (unsigned int *)tx_descriptor_config(0);
     }
     if ( *(int *)rf_level_apply_n_1fc >= 0 )
     {

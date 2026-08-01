@@ -12,8 +12,8 @@
 
 extern uint32_t dword_130DE4;
 
-// sub_130D18 @ 0x130d18, size 202 bytes
-uint8_t * sub_130D18(uint8_t *a1, int a2, int a3)
+// handle_addba_response @ 0x130d18, size 202 bytes
+uint8_t * handle_addba_response(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
   int v5; // r5
@@ -25,7 +25,7 @@ uint8_t * sub_130D18(uint8_t *a1, int a2, int a3)
   int v11; // zf
   uint8_t v12[5]; // [sp+7h] [bp-5h] BYREF
 
-  result = sub_12D818(a1, a2, v12);
+  result = check_buf_range_12d818(a1, a2, v12);
   if ( result )
   {
     v5 = *(uint8_t *)(a3 + 164);

@@ -16,8 +16,8 @@ extern uint32_t dword_105B8C;
 extern uint32_t dword_105B94;
 extern uint32_t dword_105B90;
 
-// sub_105ABC @ 0x105abc, size 206 bytes
-int  sub_105ABC(unsigned int a1, int a2, int a3)
+// mac_conn_event_init @ 0x105abc, size 206 bytes
+int  mac_conn_event_init(unsigned int a1, int a2, int a3)
 {
   int v5; // r5
   int v6; // r8
@@ -45,7 +45,7 @@ int  sub_105ABC(unsigned int a1, int a2, int a3)
     v9 = 15;
   else
     v9 = 13;
-  result = sub_12ECD0(1, dword_105B8C);
+  result = check_status_bits(1, dword_105B8C);
   do
   {
     if ( a1 )
@@ -53,12 +53,12 @@ int  sub_105ABC(unsigned int a1, int a2, int a3)
       if ( ((1 << v5) & a1) >> v5 == 1 )
       {
         *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148)) = v5;
-        sub_12ECD0(1, v6);
+        check_status_bits(1, v6);
         v13 = ((1 << v5) & a1) >> v5;
         v14 = *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148));
         if ( v14 < v8 )
         {
-          result = sub_12ECD0(v13, v7);
+          result = check_status_bits(v13, v7);
           v12 = *(uint32_t *)(a2 + 624);
           if ( !v12 )
           {
@@ -68,7 +68,7 @@ int  sub_105ABC(unsigned int a1, int a2, int a3)
         }
         else if ( v14 > v9 )
         {
-          result = sub_12ECD0(v13, v7);
+          result = check_status_bits(v13, v7);
           v12 = *(uint32_t *)(a2 + 624);
           if ( !v12 )
           {
@@ -78,7 +78,7 @@ int  sub_105ABC(unsigned int a1, int a2, int a3)
         }
         else
         {
-          result = sub_12ECD0(v13, dword_105B94);
+          result = check_status_bits(v13, dword_105B94);
           v15 = *(uint32_t *)(a2 + 624);
           v16 = v15 + 148;
           v12 = v15 + 1;
@@ -90,7 +90,7 @@ int  sub_105ABC(unsigned int a1, int a2, int a3)
     }
     else
     {
-      result = sub_12EA88(dword_105B90, v11, v12);
+      result = event_dispatch(dword_105B90, v11, v12);
     }
     ++v5;
   }

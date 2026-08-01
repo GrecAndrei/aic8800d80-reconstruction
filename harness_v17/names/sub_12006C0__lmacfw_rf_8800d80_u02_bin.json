@@ -1,1 +1,1 @@
-{"fn": "sub_12006C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12006c0", "status": "ok", "name": "sub_12006C0", "params": [], "docstring": "Complex helper: parses input/output buffer pointers with stack frame", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12006C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12006c0", "status": "ok", "name": "periph_process", "params": [], "docstring": "Complex helper: parses input/output buffer pointers with stack frame", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

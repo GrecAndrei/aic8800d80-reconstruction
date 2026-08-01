@@ -12,20 +12,20 @@
 
 extern uint32_t off_12451C;
 
-// log_free_dispatch_n2f2 @ 0x1244f8, size 36 bytes
-// Doc: log_free_dispatch_n2f2 [util]: Dispatches log free with rotated value, likely a logger release
-// log_free_dispatch_n2f2 [util]: Dispatches log free with rotated value, likely a logger release
-int log_free_dispatch_n2f2()
+// ke_timer_tick @ 0x1244f8, size 36 bytes
+// Doc: ke_timer_tick [util]: Dispatches log free with rotated value, likely a logger release
+// ke_timer_tick [util]: Dispatches log free with rotated value, likely a logger release
+int ke_timer_tick()
 {
   int result; // r0
   int v1; // r3
 
-  result = rf_table_lookup(2u);
+  result = ke_handle_message(2u);
   v1 = (uint16_t)(*(uint16_t *)off_12451C + 1);
   if ( v1 == 10 )
   {
     *(uint16_t *)off_12451C = 0;
-    return rf_init_n_dc(result);
+    return ll_state_reset(result);
   }
   else
   {

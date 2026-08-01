@@ -14,10 +14,10 @@ extern uint32_t dword_1064B8;
 extern uint32_t dword_1064B4;
 extern uint32_t off_1064B0;
 
-// crypto_rate_ctrl @ 0x1063f4, size 188 bytes
-// Doc: crypto_rate_ctrl [ke]: Configures crypto/encryption rate control parameters
-// crypto_rate_ctrl [ke]: Configures crypto/encryption rate control parameters
-int  crypto_rate_ctrl(int a1, int a2, int a3, int a4, int a5)
+// timer_elapsed_compare @ 0x1063f4, size 188 bytes
+// Doc: timer_elapsed_compare [ke]: Configures crypto/encryption rate control parameters
+// timer_elapsed_compare [ke]: Configures crypto/encryption rate control parameters
+int  timer_elapsed_compare(int a1, int a2, int a3, int a4, int a5)
 {
   int v9; // r4
   unsigned int v10; // r4
@@ -26,7 +26,7 @@ int  crypto_rate_ctrl(int a1, int a2, int a3, int a4, int a5)
 
   if ( *(uint32_t *)(a4 + 132) <= a2 )
   {
-    rf_bus_write_n_3dc(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
+    adc_to_temp_scale(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
     v9 = *(uint8_t *)(a4 + 104);
   }
   else
@@ -71,7 +71,7 @@ LABEL_6:
   {
 LABEL_14:
     v10 |= 0xC08000u;
-    feature_guard_check(1, dword_1064B8);
+    check_status_bits(1, dword_1064B8);
     goto LABEL_9;
   }
   v11 = a3 << 24;
@@ -80,6 +80,6 @@ LABEL_8:
 LABEL_9:
   v12 = dword_1064B4;
   *(uint32_t *)off_1064B0 = v10;
-  return feature_guard_check(1, v12);
+  return check_status_bits(1, v12);
 }
 

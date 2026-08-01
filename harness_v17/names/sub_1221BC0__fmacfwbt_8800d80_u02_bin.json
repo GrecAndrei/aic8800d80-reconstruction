@@ -1,1 +1,1 @@
-{"fn": "sub_1221BC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221bc0", "status": "ok", "name": "rf_channel_status_get_n1c0", "params": [], "docstring": "Look up channel status byte in table and compare to 0x21", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221BC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221bc0", "status": "ok", "name": "phy_read_channel", "params": [], "docstring": "Look up channel status byte in table and compare to 0x21", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

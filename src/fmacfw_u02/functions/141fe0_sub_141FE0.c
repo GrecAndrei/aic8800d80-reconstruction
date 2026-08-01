@@ -13,8 +13,8 @@
 extern uint32_t dword_142034;
 extern uint32_t dword_142030;
 
-// sub_141FE0 @ 0x141fe0, size 80 bytes
-int  sub_141FE0(int a1, int a2, char a3)
+// conn_context_reset @ 0x141fe0, size 80 bytes
+int  conn_context_reset(int a1, int a2, char a3)
 {
   int result; // r0
   uint16_t v5; // r3
@@ -23,7 +23,7 @@ int  sub_141FE0(int a1, int a2, char a3)
   uint64_t v8; // r2
   int v9; // [sp+Ch] [bp-4h] BYREF
 
-  result = sub_141B70((int)&v9, dword_142034 + 1320 * a1, dword_142030 + 696 * a2, 7, 0);
+  result = ke_event_handler((int)&v9, dword_142034 + 1320 * a1, dword_142030 + 696 * a2, 7, 0);
   if ( result )
   {
     v5 = result + 1;
@@ -33,7 +33,7 @@ int  sub_141FE0(int a1, int a2, char a3)
     LODWORD(v8) = *(uint32_t *)(v7 + 28) - 1 + v5;
     HIDWORD(v8) = v5 + 4;
     *(uint64_t *)(v7 + 32) = v8;
-    return rf_param_get_status(v6, 3);
+    return tx_path_status(v6, 3);
   }
   return result;
 }

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_108", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214da4", "status": "ok", "name": "patch_apply_n_108", "params": [], "docstring": "Apply firmware patch after WIFI magic check", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_108", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214da4", "status": "ok", "name": "patch_apply_n_107", "params": [], "docstring": "Apply firmware patch after WIFI magic check", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

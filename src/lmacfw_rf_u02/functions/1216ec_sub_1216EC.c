@@ -56,8 +56,8 @@ extern uint32_t off_121938;
 extern uint32_t dword_121944;
 extern uint32_t off_121940;
 
-// sub_1216EC @ 0x1216ec, size 448 bytes
-int sub_1216EC()
+// rf_init_phy @ 0x1216ec, size 448 bytes
+int rf_init_phy()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r10
@@ -83,26 +83,26 @@ int sub_1216EC()
   v4 = off_121954;
   v5 = off_121958;
   v6 = off_1218C0;
-  msg_parse(dword_1218B0, *(uint32_t *)off_1218AC & 0xF);
-  msg_parse(dword_1218C8, *v0, *(uint32_t *)off_1218C4);
-  msg_parse(dword_1218CC, *v1);
-  msg_parse(dword_1218D0, *v2);
-  msg_parse(dword_1218D4, *v3);
-  msg_parse(dword_1218D8, *v4);
-  msg_parse(dword_1218DC, *v5);
-  msg_parse(dword_1218E0, *v6);
-  msg_parse(
+  dispatch_event_handler(dword_1218B0, *(uint32_t *)off_1218AC & 0xF);
+  dispatch_event_handler(dword_1218C8, *v0, *(uint32_t *)off_1218C4);
+  dispatch_event_handler(dword_1218CC, *v1);
+  dispatch_event_handler(dword_1218D0, *v2);
+  dispatch_event_handler(dword_1218D4, *v3);
+  dispatch_event_handler(dword_1218D8, *v4);
+  dispatch_event_handler(dword_1218DC, *v5);
+  dispatch_event_handler(dword_1218E0, *v6);
+  dispatch_event_handler(
     dword_1218F4,
     *(uint32_t *)off_1218E4,
     *(uint32_t *)off_1218E8,
     *(uint32_t *)off_1218EC,
     *(uint32_t *)off_1218F0,
     *(uint32_t *)off_12195C);
-  msg_parse(dword_1218F8, *(uint32_t *)(*v2 + 60));
-  msg_parse(dword_1218FC, *(uint32_t *)(*v3 + 60));
-  msg_parse(dword_121900, *(uint32_t *)(*v4 + 60));
-  msg_parse(dword_121904, *(uint32_t *)(*v5 + 60));
-  msg_parse(dword_121908, *(uint32_t *)(*v6 + 60));
+  dispatch_event_handler(dword_1218F8, *(uint32_t *)(*v2 + 60));
+  dispatch_event_handler(dword_1218FC, *(uint32_t *)(*v3 + 60));
+  dispatch_event_handler(dword_121900, *(uint32_t *)(*v4 + 60));
+  dispatch_event_handler(dword_121904, *(uint32_t *)(*v5 + 60));
+  dispatch_event_handler(dword_121908, *(uint32_t *)(*v6 + 60));
   v7 = *v0 << 6;
   if ( (*v0 & 0x2000000) != 0 )
   {
@@ -145,13 +145,13 @@ int sub_1216EC()
   }
   if ( v0 )
   {
-    rf_mem_read_f594((unsigned int)v0, 68, 1, 0);
-    rf_mem_read_f594(v0[9], 52, 1, 0);
-    msg_parse(dword_12190C, v0[6]);
+    handle_ipc_request((unsigned int)v0, 68, 1, 0);
+    handle_ipc_request(v0[9], 52, 1, 0);
+    dispatch_event_handler(dword_12190C, v0[6]);
     v8 = v0[4];
     if ( v8 )
     {
-      rf_mem_read_f594(v8, v0[5] + 1 - v8, 1, 0);
+      handle_ipc_request(v8, v0[5] + 1 - v8, 1, 0);
       v9 = v0[3];
       if ( !v9 )
         goto LABEL_6;
@@ -162,7 +162,7 @@ int sub_1216EC()
       if ( !v9 )
         goto LABEL_6;
     }
-    rf_mem_read_f594(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
+    handle_ipc_request(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
   }
 LABEL_6:
   v10 = off_121910;
@@ -171,15 +171,15 @@ LABEL_6:
   LOBYTE(v13) = 8;
   do
   {
-    msg_parse(v11, *v10, v7);
-    msg_parse(dword_12191C, *v12);
+    dispatch_event_handler(v11, *v10, v7);
+    dispatch_event_handler(dword_12191C, *v12);
     v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
-  msg_parse(dword_121924, *(uint32_t *)off_121920);
-  msg_parse(dword_12192C, *(uint32_t *)off_121928);
-  msg_parse(dword_121934, *(uint32_t *)off_121930);
-  msg_parse(dword_12193C, *(uint32_t *)off_121938);
-  return msg_parse(dword_121944, *(uint32_t *)off_121940);
+  dispatch_event_handler(dword_121924, *(uint32_t *)off_121920);
+  dispatch_event_handler(dword_12192C, *(uint32_t *)off_121928);
+  dispatch_event_handler(dword_121934, *(uint32_t *)off_121930);
+  dispatch_event_handler(dword_12193C, *(uint32_t *)off_121938);
+  return dispatch_event_handler(dword_121944, *(uint32_t *)off_121940);
 }
 

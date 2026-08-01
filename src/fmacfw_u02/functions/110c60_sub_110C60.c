@@ -14,8 +14,8 @@ extern uint32_t off_110D44;
 extern uint32_t off_110D3C;
 extern uint32_t off_110D40;
 
-// sub_110C60 @ 0x110c60, size 218 bytes
-int sub_110C60()
+// bt_scheduler_run @ 0x110c60, size 218 bytes
+int bt_scheduler_run()
 {
   uint32_t *v0; // r8
   int *v1; // r7
@@ -63,15 +63,15 @@ int sub_110C60()
             v6 = *(uint32_t *)(v6 + 4);
             if ( v9 == v8 )
               break;
-            log_free_dispatch_n2f4_0();
+            is_inquiry_enabled();
             v9 = v7;
             if ( v7 >= v5 )
               goto LABEL_8;
           }
           v17 = v10;
-          sub_11D8EC();
+          mac_wait_tx();
           LOWORD(v8) = v8 + (*(uint8_t *)(v17 + 11) & 0x7F);
-          log_free_dispatch_n2f4_0();
+          is_inquiry_enabled();
           v9 = v7;
           v8 = (uint16_t)v8;
         }
@@ -84,7 +84,7 @@ LABEL_8:
         *v2 = 1;
       }
       ++*v1;
-      rf_bus_mark_n100_d2d0(v3);
+      mem_word_load(v3);
       v11 = *v1;
       --*((uint8_t *)v0 + 3074);
       if ( !v11 )
@@ -107,7 +107,7 @@ LABEL_14:
     *(uint32_t *)off_110D40 = 1;
   }
   ++*v1;
-  result = clear_flags(128);
+  result = unknown_func_12d14c(128);
   if ( *v1 )
   {
     v15 = *v1 - 1;

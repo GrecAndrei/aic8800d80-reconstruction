@@ -1,1 +1,1 @@
-{"fn": "sub_123F454", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f454", "status": "ok", "name": "phy_flag_get_123f454", "params": [], "docstring": "Get PHY capability flag from offset 0x15c, branch on mode", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123F454", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f454", "status": "ok", "name": "set_flow_control_mode", "params": [], "docstring": "Get PHY capability flag from offset 0x15c, branch on mode", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

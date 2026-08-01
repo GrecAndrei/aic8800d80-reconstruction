@@ -13,8 +13,8 @@
 extern uint32_t off_10CAD4;
 extern uint32_t off_10CAD8;
 
-// sub_10CAA8 @ 0x10caa8, size 44 bytes
-int sub_10CAA8()
+// pmu_isr_214 @ 0x10caa8, size 44 bytes
+int pmu_isr_214()
 {
   uint32_t *v0; // r4
   int result; // r0
@@ -25,7 +25,7 @@ int sub_10CAA8()
   result = *(uint32_t *)(*(uint32_t *)off_10CAD8 + 532);
   if ( result )
   {
-    result = sub_12D4F8(*(uint32_t *)off_10CAD8 + 532);
+    result = list_pop_front(*(uint32_t *)off_10CAD8 + 532);
     *v0 = 1;
     if ( result )
       result += 4;

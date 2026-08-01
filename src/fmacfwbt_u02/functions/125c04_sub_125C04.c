@@ -12,8 +12,8 @@
 
 extern uint32_t off_125C64;
 
-// sub_125C04 @ 0x125c04, size 94 bytes
-int  sub_125C04(int a1, int a2, int a3, int a4)
+// ke_event_send @ 0x125c04, size 94 bytes
+int  ke_event_send(int a1, int a2, int a3, int a4)
 {
   int *v4; // r5
   int v5; // r6
@@ -24,8 +24,8 @@ int  sub_125C04(int a1, int a2, int a3, int a4)
 
   v4 = (int *)off_125C64;
   v5 = *(uint32_t *)off_125C64;
-  message_dispatch_n84(64, *(uint16_t *)(*(uint32_t *)off_125C64 - 4), 0, a4);
-  sub_125734(a1, *v4);
+  hci_evt_alloc_send(64, *(uint16_t *)(*(uint32_t *)off_125C64 - 4), 0, a4);
+  tx_desc_prepare(a1, *v4);
   v7 = *v4;
   *(uint8_t *)(a1 + 231) = 0;
   v8 = *(uint8_t *)(v7 + 10);
@@ -37,8 +37,8 @@ int  sub_125C04(int a1, int a2, int a3, int a4)
   v10 = *((uint8_t *)v4 + 8);
   *((uint8_t *)v4 + 9) = 0;
   if ( v10 )
-    rf_msg_process_body_n446();
+    rf_status_poll();
   *v4 = 0;
-  return j_buffer_pool_get(v9);
+  return jump_to_tx_entry(v9);
 }
 

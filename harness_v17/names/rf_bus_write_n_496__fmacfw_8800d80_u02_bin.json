@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_496", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116ce", "status": "ok", "name": "rf_bus_write_n_496", "params": [], "docstring": "RF bus write with register configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_496", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116ce", "status": "ok", "name": "rf_bus_write_n_495_16ce", "params": [], "docstring": "RF bus write with register configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

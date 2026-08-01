@@ -1,0 +1,1 @@
+{"fn": "sub_12F4AC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f4ac", "status": "ok", "name": "return_fail", "params": [], "docstring": "Returns zero as a failure sentinel.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

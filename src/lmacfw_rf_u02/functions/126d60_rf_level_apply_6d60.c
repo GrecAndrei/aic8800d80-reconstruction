@@ -12,10 +12,10 @@
 
 extern uint32_t off_126D98;
 
-// rf_level_apply_6d60 @ 0x126d60, size 52 bytes
+// mmio_bit_set @ 0x126d60, size 52 bytes
 // Doc: rf_level_apply_n_60 [rf]: Apply RF level by clearing bits 0x10000 and 0x780000 in control registers
 // rf_level_apply_n_60 [rf]: Apply RF level by clearing bits 0x10000 and 0x780000 in control registers
-int  rf_level_apply_6d60(int a1)
+int  mmio_bit_set(int a1)
 {
   void *v1; // r1
   unsigned int *v2; // r2
@@ -39,6 +39,6 @@ int  rf_level_apply_6d60(int a1)
     v5 = *v2 & 0xFF87FFFF;
   }
   *v2 = v5;
-  return msg_parse(v4, v1, v2, v5);
+  return dispatch_event_handler(v4, v1, v2, v5);
 }
 

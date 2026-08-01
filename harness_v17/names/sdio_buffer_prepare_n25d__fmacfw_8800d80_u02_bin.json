@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n25d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e378", "status": "ok", "name": "sdio_buffer_prepare_n25d", "params": [], "docstring": "Prepare SDIO data buffer for transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n25d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e378", "status": "ok", "name": "sdio_buffer_prepare_n25c_e378", "params": [], "docstring": "Prepare SDIO data buffer for transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

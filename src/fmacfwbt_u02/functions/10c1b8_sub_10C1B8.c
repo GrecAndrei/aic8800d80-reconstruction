@@ -30,8 +30,8 @@ extern uint32_t off_10C438;
 extern uint32_t dword_10C434;
 extern uint32_t dword_10C43C;
 
-// sub_10C1B8 @ 0x10c1b8, size 546 bytes
-int * sub_10C1B8(int *result, unsigned int a2, int a3, int a4)
+// sdio_packet_parse @ 0x10c1b8, size 546 bytes
+int * sdio_packet_parse(int *result, unsigned int a2, int a3, int a4)
 {
   int v4; // r6
   int v7; // r7
@@ -85,7 +85,7 @@ int * sub_10C1B8(int *result, unsigned int a2, int a3, int a4)
     goto LABEL_3;
   }
   v8 = result[1];
-  feature_guard_sdio(0x2000, dword_10C408);
+  state_check_feature(0x2000, dword_10C408);
   v9 = a2 - 2;
   do
   {
@@ -123,21 +123,21 @@ int * sub_10C1B8(int *result, unsigned int a2, int a3, int a4)
       v13 = *(uint64_t *)&dword_10C3E8;
       v14 = dbl_10C3E0;
     }
-    v15 = sub_142A70(v12);
-    v16 = sub_142B44(v15, HIDWORD(v15), 0, dword_10C420);
-    v17 = sub_142D98(v13, HIDWORD(v13), v16, HIDWORD(v16));
-    v18 = sub_142B44(v17, HIDWORD(v17), 0, dword_10C424);
-    v19 = sub_1426B8(v18, HIDWORD(v18));
-    v20 = sub_142D98(LODWORD(v14), HIDWORD(v14), 0, dword_10C420);
-    v21 = sub_1426B8(v20, HIDWORD(v20));
+    v15 = __aeabi_i2d(v12);
+    v16 = __aeabi_dmul(v15, HIDWORD(v15), 0, dword_10C420);
+    v17 = __aeabi_ddiv(v13, HIDWORD(v13), v16, HIDWORD(v16));
+    v18 = __aeabi_dmul(v17, HIDWORD(v17), 0, dword_10C424);
+    v19 = softfloat_float_op(v18, HIDWORD(v18));
+    v20 = __aeabi_ddiv(LODWORD(v14), HIDWORD(v14), 0, dword_10C420);
+    v21 = softfloat_float_op(v20, HIDWORD(v20));
     v22 = v19;
     v23 = v21;
-    *(uint32_t *)off_10C440 = sub_1430C8(v22) & 0x7FFFFFFF;
-    *(uint32_t *)off_10C428 = dword_10C42C & (sub_1430C8(v23) << 13) | *(uint32_t *)off_10C428 & dword_10C430;
+    *(uint32_t *)off_10C440 = __aeabi_d2ulz(v22) & 0x7FFFFFFF;
+    *(uint32_t *)off_10C428 = dword_10C42C & (__aeabi_d2ulz(v23) << 13) | *(uint32_t *)off_10C428 & dword_10C430;
   }
-  crypto_hw_power_up_39c4();
-  rf_init_hw_setup((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
-  result = (int *)crypto_hw_reset();
+  rf_pll_enable();
+  chip_common_init((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
+  result = (int *)mac_irq_disable();
   *(uint32_t *)off_10C40C = 1;
   if ( a4 )
   {
@@ -151,7 +151,7 @@ LABEL_3:
       v37[0] = *(uint32_t *)dword_10C434;
       v37[1] = v25;
       v37[2] = v26;
-      crypto_hw_power_up_39c4();
+      rf_pll_enable();
       v28 = *(uint64_t *)v27;
       v29 = *(uint32_t *)(v27 + 8);
       v30 = *(uint32_t *)(v27 + 12);
@@ -181,8 +181,8 @@ LABEL_3:
       *((uint8_t *)v24 + 36) = 0;
       *((uint8_t *)v24 + 44) = 0;
       *((uint8_t *)v24 + 52) = 0;
-      sub_10AE68((unsigned int *)v31, (uint8_t *)(a2 + 125), (int)v24);
-      sub_10B288(v37, dword_10C43C, a2 + 104, a2 + 125, v24, 6, 1, v36, 0, 0, &v38);
+      sdio_core_setup((unsigned int *)v31, (uint8_t *)(a2 + 125), (int)v24);
+      phy_calibrate(v37, dword_10C43C, a2 + 104, a2 + 125, v24, 6, 1, v36, 0, 0, &v38);
       *((uint8_t *)v24 + 4) = 0;
       *((uint8_t *)v24 + 12) = 0;
       *((uint8_t *)v24 + 20) = 0;
@@ -190,7 +190,7 @@ LABEL_3:
       *((uint8_t *)v24 + 36) = 0;
       *((uint8_t *)v24 + 44) = 0;
       *((uint8_t *)v24 + 52) = 0;
-      return (int *)crypto_hw_reset();
+      return (int *)mac_irq_disable();
     }
   }
   return result;

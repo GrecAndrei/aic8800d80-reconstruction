@@ -1,0 +1,1 @@
+{"fn": "sub_117AF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117af8", "status": "ok", "name": "init_table_185d40", "params": [], "docstring": "Initialize table starting at 0x185d40", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

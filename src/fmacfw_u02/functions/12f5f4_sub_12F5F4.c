@@ -15,8 +15,8 @@ extern uint32_t off_12F648;
 extern uint32_t dword_12F64C;
 extern uint32_t off_12F650;
 
-// sub_12F5F4 @ 0x12f5f4, size 78 bytes
-int  sub_12F5F4(unsigned int a1)
+// save_context_args @ 0x12f5f4, size 78 bytes
+int  save_context_args(unsigned int a1)
 {
   int *v2; // r5
   int result; // r0
@@ -30,7 +30,7 @@ int  sub_12F5F4(unsigned int a1)
   }
   v2 = (int *)off_12F648;
   ++*(uint32_t *)off_12F648;
-  result = sub_116044();
+  result = call_func_182588();
   if ( a1 <= 4 )
     --*(uint8_t *)(dword_12F64C + a1);
   if ( *v2 )

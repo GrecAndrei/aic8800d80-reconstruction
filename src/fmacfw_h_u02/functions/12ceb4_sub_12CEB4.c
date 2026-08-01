@@ -21,8 +21,8 @@ extern uint32_t dword_12CFB4;
 extern uint32_t dword_12CFAC;
 extern uint32_t off_12CFA8;
 
-// sub_12CEB4 @ 0x12ceb4, size 222 bytes
-int sub_12CEB4()
+// irq_disable_global @ 0x12ceb4, size 222 bytes
+int irq_disable_global()
 {
   int *v0; // r5
   int v1; // r0
@@ -44,7 +44,7 @@ int sub_12CEB4()
   v0 = (int *)off_12CF98;
   v1 = dword_12CF9C;
   ++*(uint32_t *)off_12CF98;
-  result = sub_12D190(v1);
+  result = list_pop(v1);
   v3 = (uint16_t *)result;
   if ( *v0 )
   {
@@ -59,10 +59,10 @@ int sub_12CEB4()
   }
   if ( result )
   {
-    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))sub_12CDEC(
+    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))hci_event_handler(
                                                                            *(uint16_t *)(result + 4),
                                                                            *(uint16_t *)(result + 6));
-    sub_12E948(dword_12CFA0, v3[2], v3[4]);
+    alloc_tx_event(dword_12CFA0, v3[2], v3[4]);
     if ( v6 )
     {
       result = v6(v3[2], v3 + 6, v3[3], v3[4]);
@@ -70,21 +70,21 @@ int sub_12CEB4()
         goto LABEL_12;
       if ( result == 2 )
       {
-        result = sub_12D108(dword_12CFB0);
+        result = wlan_ioctl_handler_1(dword_12CFB0);
         goto LABEL_12;
       }
       if ( result )
       {
         if ( **(int16_t **)off_12CFA4 < 0 )
-          result = sub_12F32C(dword_12CFB8, dword_12CFB4, 360);
+          result = irq_disable_mmio_write(dword_12CFB8, dword_12CFB4, 360);
         goto LABEL_12;
       }
     }
     else
     {
-      sub_12E948(dword_12CFAC, v3[2], v3[4]);
+      alloc_tx_event(dword_12CFAC, v3[2], v3[4]);
     }
-    result = sub_12C8F8((int)v3);
+    result = tx_process_jump((int)v3);
   }
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -97,7 +97,7 @@ LABEL_12:
   *v0 = v8;
   if ( !v7 )
   {
-    result = sub_12D00C(0x4000000);
+    result = irq_disable_global_3(0x4000000);
     v8 = *v0;
   }
   if ( v8 )

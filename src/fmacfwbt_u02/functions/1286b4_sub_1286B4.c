@@ -12,8 +12,8 @@
 
 extern uint32_t off_1286F0;
 
-// sub_1286B4 @ 0x1286b4, size 58 bytes
-BOOL  sub_1286B4(int a1)
+// bt_link_active @ 0x1286b4, size 58 bytes
+BOOL  bt_link_active(int a1)
 {
   int v1; // r3
   int v2; // r2

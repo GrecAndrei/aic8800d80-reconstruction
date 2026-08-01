@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// parse_width_suffix @ 0x12fa2c, size 50 bytes
-// Doc: parse_width_suffix [util]: Parse a printf-style width/length suffix character
-// parse_width_suffix [util]: Parse a printf-style width/length suffix character
-int  parse_width_suffix(int a1)
+// is_strlen_two @ 0x12fa2c, size 50 bytes
+// Doc: is_strlen_two [util]: Parse a printf-style width/length suffix character
+// is_strlen_two [util]: Parse a printf-style width/length suffix character
+int  is_strlen_two(int a1)
 {
   int v2; // r0
   int v3; // r0
   int v5; // r3
 
-  v2 = sub_143E40(a1);
+  v2 = memmove(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;

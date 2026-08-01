@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// subsystem_init_helper @ 0x109878, size 690 bytes
-// Doc: subsystem_init_helper [util]: Subsystem initialization helper routine
-// subsystem_init_helper [util]: Subsystem initialization helper routine
-int  subsystem_init_helper(int a1, int16_t *a2)
+// ptr_is_null @ 0x109878, size 690 bytes
+// Doc: ptr_is_null [util]: Subsystem initialization helper routine
+// ptr_is_null [util]: Subsystem initialization helper routine
+int  ptr_is_null(int a1, int16_t *a2)
 {
   unsigned int v2; // r2
   int16_t *v3; // r8

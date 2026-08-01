@@ -21,10 +21,10 @@ extern uint32_t off_1188AC;
 extern uint32_t off_1188B0;
 extern uint32_t off_1188B4;
 
-// rf_event_dispatch_n1a4 @ 0x118674, size 550 bytes
-// Doc: rf_event_dispatch_n1a4 [rf]: Dispatch RF event processing from queued struct
-// rf_event_dispatch_n1a4 [rf]: Dispatch RF event processing from queued struct
-int  rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6)
+// send_acl_packet @ 0x118674, size 550 bytes
+// Doc: send_acl_packet [rf]: Dispatch RF event processing from queued struct
+// send_acl_packet [rf]: Dispatch RF event processing from queued struct
+int  send_acl_packet(int a1, int a2, int a3, uint32_t *a4, int a5, int a6)
 {
   unsigned int v7; // r4
   uint64_t v8; // r10
@@ -94,7 +94,7 @@ LABEL_5:
   }
   else
   {
-    sub_121960(dword_1188BC, dword_1188B8, 430, off_1188A4);
+    ke_int_lock(dword_1188BC, dword_1188B8, 430, off_1188A4);
     v17 = 500;
     v16 = (int16_t **)off_1188A4;
   }
@@ -116,7 +116,7 @@ LABEL_5:
       v22 = v17 - v21;
       goto LABEL_14;
     }
-    sub_121960(dword_1188BC, dword_1188B8, 430, *v20);
+    ke_int_lock(dword_1188BC, dword_1188B8, 430, *v20);
   }
   v22 = v17 - 500;
   v21 = 500;
@@ -126,7 +126,7 @@ LABEL_14:
   v25 = v8 - v7 + v22;
   a4[10] = v25;
   a4[11] = HIDWORD(v23) + v24;
-  v26 = sub_127F8C(v8, HIDWORD(v8), v10, v10 >> 31);
+  v26 = util_is_zero(v8, HIDWORD(v8), v10, v10 >> 31);
   v24 = (unsigned int)v8 >= v21;
   v33 = v8 - v21;
   v27 = off_1188AC;
@@ -139,13 +139,13 @@ LABEL_14:
   if ( (*(uint32_t *)off_1188B0 & 0x2000000) != 0 )
     v30 -= v25;
   v31 = *((uint32_t *)off_1188AC + 4) - *(uint32_t *)off_1188B4 + v30 - 400;
-  if ( v31 - v27[4] - 4300 - sub_101A20() < 0 )
+  if ( v31 - v27[4] - 4300 - os_get_tick_hz() < 0 )
     v31 += v10;
-  result = v31 - *((uint32_t *)off_1188AC + 4) - 4300 - sub_101A20();
+  result = v31 - *((uint32_t *)off_1188AC + 4) - 4300 - os_get_tick_hz();
   if ( result >= 0 && a4[9] != v31 )
   {
-    sub_11AB18(a4 + 6, v31);
-    return sub_11C01C(a4);
+    ke_enter_critical(a4 + 6, v31);
+    return bt_link_tx_check(a4);
   }
   return result;
 }

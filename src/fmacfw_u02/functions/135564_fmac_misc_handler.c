@@ -12,20 +12,20 @@
 
 extern uint32_t off_135594;
 
-// fmac_misc_handler @ 0x135564, size 48 bytes
-// Doc: fmac_misc_handler [util]: fmac firmware miscellaneous handler
-// fmac_misc_handler [util]: fmac firmware miscellaneous handler
-uint32_t * fmac_misc_handler(int16_t a1)
+// bt_send_vendor_cmd @ 0x135564, size 48 bytes
+// Doc: bt_send_vendor_cmd [util]: fmac firmware miscellaneous handler
+// bt_send_vendor_cmd [util]: fmac firmware miscellaneous handler
+uint32_t * bt_send_vendor_cmd(int16_t a1)
 {
   int v2; // r5
   int v3; // r0
 
   v2 = *((uint32_t *)off_135594 + 4);
-  v3 = sub_12C92C(30, 0, 6, 4u);
+  v3 = ke_msg_alloc(30, 0, 6, 4u);
   *(uint16_t *)v3 = a1;
   *(uint8_t *)(v3 + 2) = 1;
   *(uint8_t *)(v3 + 3) = *(uint8_t *)(v2 + 61);
-  sdio_buffer_prepare_n_4e8(v3);
-  return sub_12CD34(6u, 9);
+  ke_msg_send(v3);
+  return rx_phy_status_parse(6u, 9);
 }
 

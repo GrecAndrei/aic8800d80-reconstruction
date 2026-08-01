@@ -17,10 +17,10 @@ extern uint32_t dword_11BAFC;
 extern uint32_t dword_11BB14;
 extern uint32_t dword_11BB10;
 
-// lmac_rf_init_5cbuf @ 0x11ba64, size 138 bytes
-// Doc: lmac_rf_init_5cbuf [rf]: Initialize RF 0x5c-byte context block to zero
-// lmac_rf_init_5cbuf [rf]: Initialize RF 0x5c-byte context block to zero
-int lmac_rf_init_5cbuf()
+// env_reset @ 0x11ba64, size 138 bytes
+// Doc: env_reset [rf]: Initialize RF 0x5c-byte context block to zero
+// env_reset [rf]: Initialize RF 0x5c-byte context block to zero
+int env_reset()
 {
   int *v0; // r7
   void *v1; // r6
@@ -41,7 +41,7 @@ int lmac_rf_init_5cbuf()
     *((uint8_t *)i + 24) = -1;
     if ( v2 <= 2 )
     {
-      list_push_tail(v1);
+      check_kernel_state(v1);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -53,12 +53,12 @@ LABEL_4:
   }
   if ( v2 != 4 )
     goto LABEL_4;
-  sub_11E71C(dword_11BAF8);
-  sub_11E71C(dword_11BAFC);
-  list_push_tail(dword_11BAF8);
-  list_push_tail(dword_11BAF8);
-  list_push_tail(dword_11BAF8);
-  result = list_push_tail(dword_11BAF8);
+  list_init(dword_11BAF8);
+  list_init(dword_11BAFC);
+  check_kernel_state(dword_11BAF8);
+  check_kernel_state(dword_11BAF8);
+  check_kernel_state(dword_11BAF8);
+  result = check_kernel_state(dword_11BAF8);
   v5 = off_11BAF0;
   v6 = dword_11BB14;
   *((uint32_t *)off_11BAF0 + 13) = dword_11BB10;

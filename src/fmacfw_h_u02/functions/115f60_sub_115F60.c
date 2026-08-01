@@ -12,8 +12,8 @@
 
 extern uint32_t dword_115F84;
 
-// sub_115F60 @ 0x115f60, size 34 bytes
-int  sub_115F60(int a1, int a2)
+// ll_event_lookup @ 0x115f60, size 34 bytes
+int  ll_event_lookup(int a1, int a2)
 {
   int v2; // r3
   int result; // r0

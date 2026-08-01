@@ -1,1 +1,1 @@
-{"fn": "sub_1222C94", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222c94", "status": "ok", "name": "sub_1222C94", "params": [], "docstring": "Check bit 1 of 32-bit value loaded from 0x40500000 and branch on it", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1222C94", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222c94", "status": "ok", "name": "check_radio_status", "params": [], "docstring": "Check bit 1 of 32-bit value loaded from 0x40500000 and branch on it", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -30,9 +30,9 @@ extern uint32_t dword_134F78;
 extern uint32_t off_134F7C;
 extern uint32_t dword_134F80;
 
-// sub_134CC4 @ 0x134cc4, size 166 bytes
+// assert_trace @ 0x134cc4, size 166 bytes
 // positive sp value has been detected, the output may be wrong!
-void  sub_134CC4(
+void  assert_trace(
         int a1,
         int a2,
         int a3,
@@ -92,7 +92,7 @@ void  sub_134CC4(
   v49 = *((uint32_t *)off_134F44 + 4);
   v18 = dword_134F8C + 1320 * v16;
   v19 = *(uint8_t *)(v18 + 116);
-  sub_12E948(dword_134F48);
+  alloc_tx_event(dword_134F48);
   v20 = v14[4];
   if ( !v20 )
 LABEL_11:
@@ -135,13 +135,13 @@ LABEL_8:
         *v46 |= 0x80000000;
         *v47 = v48;
       }
-      sub_12CBF4(6u, 10);
+      hci_cmd_preprocess(6u, 10);
       v14[2] = v18;
       *v14 = v17 - 12;
-      sub_1346C0(v18);
+      hci_send_cmd_1419(v18);
 LABEL_10:
-      sub_12EB90(256, dword_134F5C, *(uint8_t *)(v17 + 9), a1, *(uint16_t *)(v17 + 820));
-      sub_12C8F8(v14[4] - 12);
+      check_feature_flag(256, dword_134F5C, *(uint8_t *)(v17 + 9), a1, *(uint16_t *)(v17 + 820));
+      tx_process_jump(v14[4] - 12);
       v14[4] = 0;
       *((uint8_t *)v14 + 33) = 0;
       goto LABEL_11;
@@ -197,7 +197,7 @@ LABEL_10:
     *(uint32_t *)off_134F70 = *(uint16_t *)(v40 + 68);
   }
   v50 = v25;
-  sub_12C84C(v17);
+  rx_process_packet(v17);
   v41 = v50;
   *(uint32_t *)off_134F74 = dword_134F78;
   if ( v50 == (void *)1 )
@@ -208,15 +208,15 @@ LABEL_10:
     *(uint32_t *)off_134F68 = v42[52];
   }
   if ( *(uint8_t *)(v15 + 1320 * v16 + 413) == 2 )
-    sub_12063C((int *)v18, 0, 1);
+    check_non_null((int *)v18, 0, 1);
   v43 = v15 + 1320 * v16;
   v44 = *(uint16_t *)(v43 + 416);
   if ( v44 <= 0x1387 )
-    sub_10D0BC(v44 | (*(uint8_t *)(v43 + 413) << 16) | 0x80000000, (int)v41, 4999);
+    bt_set_address(v44 | (*(uint8_t *)(v43 + 413) << 16) | 0x80000000, (int)v41, 4999);
   v45 = off_134F7C;
   *(uint8_t *)(v15 + 1320 * v16 + 149) = 1;
-  sub_124BFC(1320 * v16 + 152 + v15, dword_134F80 + v45[4]);
-  sub_12CBF4(6u, 0);
+  mem_copy_util(1320 * v16 + 152 + v15, dword_134F80 + v45[4]);
+  hci_cmd_preprocess(6u, 0);
   goto LABEL_10;
 }
 

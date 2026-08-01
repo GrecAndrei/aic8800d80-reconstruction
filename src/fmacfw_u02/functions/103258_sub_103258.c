@@ -19,8 +19,8 @@ extern uint32_t off_1032DC;
 extern uint32_t off_1032E0;
 extern uint32_t off_1032D8;
 
-// sub_103258 @ 0x103258, size 112 bytes
-uint32_t *sub_103258()
+// load_and_store_block @ 0x103258, size 112 bytes
+uint32_t *load_and_store_block()
 {
   int v0; // r1
   int v1; // r2

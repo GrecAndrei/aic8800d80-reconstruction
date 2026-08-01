@@ -1,1 +1,1 @@
-{"fn": "sub_12047B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12047b8", "status": "ok", "name": "rf_phy_process_handler", "params": [], "docstring": "RF PHY processing routine with VFP context save and dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12047B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12047b8", "status": "ok", "name": "heap_calloc", "params": [], "docstring": "RF PHY processing routine with VFP context save and dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

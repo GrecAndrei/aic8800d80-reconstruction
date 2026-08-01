@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_152", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211732", "status": "ok", "name": "rf_bus_mark_n_152", "params": [], "docstring": "Marks RF bus ownership via MMIO register access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_152", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211732", "status": "ok", "name": "rf_init_or_dispatch_handler", "params": [], "docstring": "Marks RF bus ownership via MMIO register access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

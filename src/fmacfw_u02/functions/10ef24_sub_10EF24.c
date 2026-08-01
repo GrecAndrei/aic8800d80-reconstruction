@@ -12,9 +12,9 @@
 
 extern uint32_t dword_10EF34;
 
-// sub_10EF24 @ 0x10ef24, size 16 bytes
-int sub_10EF24()
+// rf_get_rssi @ 0x10ef24, size 16 bytes
+int rf_get_rssi()
 {
-  return (uint16_t)sub_10ED84(dword_10EF34, 1) >> 11;
+  return (uint16_t)mmio_read32(dword_10EF34, 1) >> 11;
 }
 

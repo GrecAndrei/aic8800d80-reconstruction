@@ -12,8 +12,8 @@
 
 extern uint32_t off_1006D4;
 
-// sub_1006CC @ 0x1006cc, size 6 bytes
-int sub_1006CC()
+// get_status_byte @ 0x1006cc, size 6 bytes
+int get_status_byte()
 {
   return *((uint8_t *)off_1006D4 + 1);
 }

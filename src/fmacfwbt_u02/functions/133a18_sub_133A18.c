@@ -14,18 +14,18 @@ extern uint32_t off_133A54;
 extern uint32_t dword_133A5C;
 extern uint32_t dword_133A58;
 
-// sub_133A18 @ 0x133a18, size 58 bytes
-int  sub_133A18(int a1, int a2)
+// rf_check_status @ 0x133a18, size 58 bytes
+int  rf_check_status(int a1, int a2)
 {
-  if ( **(int16_t **)off_133A54 >= 0 || msg_get_value(6u) == 7 )
+  if ( **(int16_t **)off_133A54 >= 0 || hci_cmd_send_short(6u) == 7 )
   {
-    sub_135C9C(a2);
+    hci_vendor_get_state(a2);
     return 1;
   }
   else
   {
-    sub_12F694(dword_133A5C, dword_133A58, 1012);
-    sub_135C9C(a2);
+    mmio_irq_clear(dword_133A5C, dword_133A58, 1012);
+    hci_vendor_get_state(a2);
     return 1;
   }
 }

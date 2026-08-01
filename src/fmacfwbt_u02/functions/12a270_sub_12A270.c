@@ -13,8 +13,8 @@
 extern uint32_t dword_12A2AC;
 extern uint32_t off_12A2B0;
 
-// sub_12A270 @ 0x12a270, size 60 bytes
-int  sub_12A270(int result, int a2)
+// rf_channel_state_get @ 0x12a270, size 60 bytes
+int  rf_channel_state_get(int result, int a2)
 {
   int v2; // r2
   int v3; // r3

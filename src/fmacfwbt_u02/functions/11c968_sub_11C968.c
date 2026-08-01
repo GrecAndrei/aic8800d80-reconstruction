@@ -14,8 +14,8 @@ extern uint32_t off_11C988;
 extern uint32_t off_11C984;
 extern uint32_t dword_11C98C;
 
-// sub_11C968 @ 0x11c968, size 26 bytes
-int  sub_11C968(int a1)
+// configure_dma @ 0x11c968, size 26 bytes
+int  configure_dma(int a1)
 {
   uint32_t *v1; // r3
   int v2; // r1
@@ -24,6 +24,6 @@ int  sub_11C968(int a1)
   v2 = *((uint32_t *)off_11C984 + 4);
   *((uint32_t *)off_11C988 + 1) = dword_11C98C;
   v1[2] = a1;
-  return timestamp_update_4f60(v1, v2 + 5000);
+  return ke_event_lock(v1, v2 + 5000);
 }
 

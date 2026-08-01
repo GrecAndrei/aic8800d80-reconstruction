@@ -16,8 +16,8 @@ extern uint32_t off_11DE28;
 extern uint32_t dword_11DE30;
 extern uint32_t dword_11DE2C;
 
-// sub_11DD24 @ 0x11dd24, size 258 bytes
-uint32_t * sub_11DD24(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
+// rx_packet_parse @ 0x11dd24, size 258 bytes
+uint32_t * rx_packet_parse(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
 {
   uint8_t **v5; // r9
   uint32_t *v6; // r7
@@ -84,7 +84,7 @@ uint32_t * sub_11DD24(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a
     v16 = v15 + 5;
     if ( **v9 < 0 && !v15 )
     {
-      sub_12F32C(dword_11DE30, dword_11DE2C, 928);
+      irq_disable_mmio_write(dword_11DE30, dword_11DE2C, 928);
       v15 = 0;
       v8 = **v5;
     }

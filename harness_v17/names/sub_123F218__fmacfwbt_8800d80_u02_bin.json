@@ -1,1 +1,1 @@
-{"fn": "sub_123F218", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f218", "status": "ok", "name": "bt_chan_lookup", "params": [], "docstring": "Look up BT channel entry by index in fmacfwbt table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123F218", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f218", "status": "ok", "name": "get_connection_state", "params": [], "docstring": "Look up BT channel entry by index in fmacfwbt table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t off_11C548;
 extern uint32_t off_11C544;
 extern uint32_t dword_11C54C;
 
-// sub_11C528 @ 0x11c528, size 26 bytes
-int  sub_11C528(int a1)
+// arm_timer @ 0x11c528, size 26 bytes
+int  arm_timer(int a1)
 {
   uint32_t *v1; // r3
   int v2; // r1
@@ -24,6 +24,6 @@ int  sub_11C528(int a1)
   v2 = *((uint32_t *)off_11C544 + 4);
   *((uint32_t *)off_11C548 + 1) = dword_11C54C;
   v1[2] = a1;
-  return timestamp_update(v1, v2 + 5000);
+  return unknown_worker(v1, v2 + 5000);
 }
 

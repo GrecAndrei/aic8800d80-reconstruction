@@ -31,8 +31,8 @@ extern uint32_t dword_12788C;
 extern uint32_t off_127894;
 extern uint32_t dword_1278AC;
 
-// sub_127668 @ 0x127668, size 526 bytes
-int  sub_127668(int a1)
+// rf_perform_calibration @ 0x127668, size 526 bytes
+int  rf_perform_calibration(int a1)
 {
   int16_t **v1; // r7
   uint8_t *v2; // r6
@@ -74,7 +74,7 @@ int  sub_127668(int a1)
 
   v1 = (int16_t **)off_127878;
   v2 = off_12787C;
-  v4 = rf_bus_mark_n100_d2d0(dword_127880);
+  v4 = mem_word_load(dword_127880);
   v5 = v4;
   if ( **v1 >= 0 )
   {
@@ -95,7 +95,7 @@ LABEL_3:
   }
   else
   {
-    sub_12F46C(dword_1278B4, dword_1278B0, 1958);
+    mmio_clear_register(dword_1278B4, dword_1278B0, 1958);
     v6 = (uint8_t)*v2;
     if ( *v2 )
       goto LABEL_3;
@@ -110,7 +110,7 @@ LABEL_25:
   v8 = *((uint32_t *)off_127884 + 10);
   if ( v8 )
     goto LABEL_6;
-  sub_12F46C(dword_1278B8, dword_1278B0, 1960);
+  mmio_clear_register(dword_1278B8, dword_1278B0, 1960);
   v6 = (uint8_t)*v2;
 LABEL_4:
   if ( v6 != 1 )
@@ -119,7 +119,7 @@ LABEL_5:
     v8 = v7[10];
     goto LABEL_6;
   }
-  msg_parse(dword_12789C, *((uint8_t *)v7 + 88), v7[11]);
+  event_dispatch(dword_12789C, *((uint8_t *)v7 + 88), v7[11]);
   v24 = *((uint8_t *)v7 + 88);
   if ( (v24 & 8) != 0 )
   {
@@ -156,8 +156,8 @@ LABEL_32:
   *(uint8_t *)(v25 + 16) = 4;
   if ( v28 == 3 )
   {
-    msg_parse(dword_1278C4, v22, v23);
-    sub_12CD34(2);
+    event_dispatch(dword_1278C4, v22, v23);
+    rx_phy_status_parse(2);
     v28 = *(uint8_t *)(v25 + 24);
   }
   if ( v28 <= 2 )
@@ -234,12 +234,12 @@ LABEL_6:
     v12 = *(char **)(v5 + 8);
   }
   if ( v12 )
-    sub_1270CC((int)v12);
+    ctrl_register_handler((int)v12);
 LABEL_14:
-  list_push_tail(dword_12788C);
+  cmd_handler_a(dword_12788C);
   v13 = v7[10];
   if ( *(uint8_t *)(v13 + 24) > 2u )
-    sub_12737C(v13, 0);
+    ctrl_reset_handler(v13, 0);
   result = v7[8];
   v7[18] = result;
   if ( result )
@@ -257,7 +257,7 @@ LABEL_14:
     *(uint32_t *)off_127898 = v19;
     if ( v18 - 64 >= 0 )
     {
-      result = timestamp_update(dword_1278AC, v16);
+      result = unknown_worker(dword_1278AC, v16);
       if ( *v15 )
       {
         v37 = *v15 - 1;

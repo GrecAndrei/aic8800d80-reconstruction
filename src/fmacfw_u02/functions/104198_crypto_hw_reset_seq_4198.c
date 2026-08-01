@@ -21,10 +21,10 @@ extern uint32_t off_10428C;
 extern uint32_t off_104290;
 extern uint32_t dword_104294;
 
-// crypto_hw_reset_seq_4198 @ 0x104198, size 214 bytes
-// Doc: crypto_hw_reset_seq_4198 [util]: Execute crypto hardware reset sequence
-// crypto_hw_reset_seq_4198 [util]: Execute crypto hardware reset sequence
-uint32_t *crypto_hw_reset_seq_4198()
+// mac_hw_init @ 0x104198, size 214 bytes
+// Doc: mac_hw_init [util]: Execute crypto hardware reset sequence
+// mac_hw_init [util]: Execute crypto hardware reset sequence
+uint32_t *mac_hw_init()
 {
   unsigned int *v0; // r4
   unsigned int *v1; // r0
@@ -50,7 +50,7 @@ uint32_t *crypto_hw_reset_seq_4198()
   v0 -= 136;
   *v4 |= 0x2000000u;
   *v0 &= ~0x20000u;
-  delay_us_0644(2);
+  timer_delay(2);
   v6 = off_104288;
   result = off_10428C;
   v8 = off_104290;

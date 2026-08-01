@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12D9AC;
 
-// sub_12D934 @ 0x12d934, size 120 bytes
-float  sub_12D934(float a1)
+// setup_stack_copy @ 0x12d934, size 120 bytes
+float  setup_stack_copy(float a1)
 {
   int v1; // r1
   int v2; // r2

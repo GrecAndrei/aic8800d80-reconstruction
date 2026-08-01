@@ -16,8 +16,8 @@ extern uint32_t off_10C884;
 extern uint32_t off_10C880;
 extern uint32_t off_10C888;
 
-// sub_10C844 @ 0x10c844, size 52 bytes
-int sub_10C844()
+// poll_status_handler @ 0x10c844, size 52 bytes
+int poll_status_handler()
 {
   int v0; // r4
   int result; // r0
@@ -28,7 +28,7 @@ int sub_10C844()
   v0 = *(uint32_t *)off_10C878 & 0x1F00;
   if ( v0 )
   {
-    result = sub_12CFC4(2048);
+    result = irq_disable_global_2(2048);
     v2 = (int *)off_10C87C;
     v3 = off_10C884;
     *(uint32_t *)off_10C880 = v0;

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D930 @ 0x12d930, size 4 bytes
+// tail_call_14274c @ 0x12d930, size 4 bytes
 // attributes: thunk
-float  sub_12D930(int a1)
+float  tail_call_14274c(int a1)
 {
-  return sub_14274C(a1);
+  return float_to_i24(a1);
 }
 

@@ -19,10 +19,10 @@ extern uint32_t dword_11CD1C;
 extern uint32_t dword_11CD18;
 extern uint32_t off_11CD14;
 
-// sub_11CA18 @ 0x11ca18, size 748 bytes
+// tx_start @ 0x11ca18, size 748 bytes
 // Doc: sub_121CA18 [mac]: Process command/control structure fields, dispatch based on flags
 // sub_121CA18 [mac]: Process command/control structure fields, dispatch based on flags
-int  sub_11CA18(int a1, int a2)
+int  tx_start(int a1, int a2)
 {
   uint8_t *v2; // r5
   int v3; // r11
@@ -69,14 +69,14 @@ int  sub_11CA18(int a1, int a2)
   v7 = a2;
   if ( (a2 & 0x800000) != 0 )
   {
-    v8 = sub_11F03C(a1);
+    v8 = mac_irq_handler(a1);
     v9 = 9;
     while ( 1 )
     {
       v10 = *(uint16_t *)(v3 + 8);
       if ( (v10 & 0x20) != 0 )
         break;
-      v8 = sub_11F03C(v8);
+      v8 = mac_irq_handler(v8);
       if ( !--v9 )
       {
         v11 = *(uint16_t *)(v3 + 8);
@@ -86,13 +86,13 @@ int  sub_11CA18(int a1, int a2)
           {
             v15 = dword_11CD20;
             v16 = 84 * v5;
-            sub_12D4F8(84 * v5 + 28 + dword_11CD20);
-            sub_11A710(v3);
+            list_pop_front(84 * v5 + 28 + dword_11CD20);
+            ke_timer_tick(v3);
             *(uint32_t *)(a1 + 68) = 0;
             goto LABEL_18;
           }
 LABEL_7:
-          sub_11A710(v3);
+          ke_timer_tick(v3);
           *(uint32_t *)(a1 + 68) = 0;
           v14 = v2[199];
           v15 = dword_11CD20;
@@ -100,18 +100,18 @@ LABEL_7:
           if ( v2[199] )
             goto LABEL_19;
 LABEL_8:
-          message_dispatch_n34c(v2[190], (int)v12, v13, v14);
-          sub_12D4F8(v16 + 12 + v15);
+          ke_task_set_event(v2[190], (int)v12, v13, v14);
+          list_pop_front(v16 + 12 + v15);
           if ( *(uint16_t *)(a1 + 4) )
-            return sub_118358(a1, v7, v5);
-          return sub_119120();
+            return list_append(a1, v7, v5);
+          return btlp_enter_sleep();
         }
         v7 &= ~0x800000u;
         v4[18] &= ~0x800000u;
         if ( (v11 & 0x20) == 0 )
           goto LABEL_22;
 LABEL_31:
-        sub_11A710(v3);
+        ke_timer_tick(v3);
         v15 = dword_11CD20;
         *(uint32_t *)(a1 + 68) = 0;
         goto LABEL_12;
@@ -126,15 +126,15 @@ LABEL_31:
   if ( (*(uint16_t *)(v3 + 8) & 0x20) != 0 )
   {
     v15 = dword_11CD20;
-    sub_11A710(*(uint32_t *)(a1 + 68));
+    ke_timer_tick(*(uint32_t *)(a1 + 68));
     *(uint32_t *)(a1 + 68) = 0;
   }
   else
   {
 LABEL_22:
     v15 = dword_11CD20;
-    sub_12D4F8(84 * (int16_t)v5 + 28 + dword_11CD20);
-    sub_11A710(v3);
+    list_pop_front(84 * (int16_t)v5 + 28 + dword_11CD20);
+    ke_timer_tick(v3);
     *(uint32_t *)(a1 + 68) = 0;
   }
 LABEL_12:
@@ -176,7 +176,7 @@ LABEL_12:
           if ( **(int16_t **)off_11CD0C < 0 && !*(uint32_t *)(dword_11CD10 + 696 * *(uint8_t *)(a1 + 29) + 340) )
           {
             v39 = v26;
-            sub_12F694(dword_11CD1C, dword_11CD18, 475);
+            mmio_irq_clear(dword_11CD1C, dword_11CD18, 475);
             v26 = v39;
           }
           v30 = *(uint32_t *)(v38 + 156);
@@ -207,7 +207,7 @@ LABEL_12:
       {
         v21 = v20 + 44;
       }
-      sub_11C9C8((unsigned int *)a1);
+      set_cal_value((unsigned int *)a1);
     }
     v22 = *(uint32_t *)&v2[28 * v5 + 36];
     v23 = *(uint64_t *)(v20 + 96);
@@ -246,10 +246,10 @@ LABEL_18:
       goto LABEL_8;
 LABEL_19:
     *(uint32_t *)off_11CD08 = (v2[164] << 24) & 0x7000000 | *(uint32_t *)off_11CD08 & 0xF8FFFFFF;
-    sub_12D4F8(v16 + 12 + v15);
+    list_pop_front(v16 + 12 + v15);
     if ( !*(uint16_t *)(a1 + 4) )
-      return sub_119120();
-    return sub_118358(a1, v7, v5);
+      return btlp_enter_sleep();
+    return list_append(a1, v7, v5);
   }
   return result;
 }

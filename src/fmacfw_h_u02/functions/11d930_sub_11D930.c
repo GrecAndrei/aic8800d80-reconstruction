@@ -22,8 +22,8 @@ extern uint32_t off_11DAA8;
 extern uint32_t off_11DAB8;
 extern uint32_t off_11DABC;
 
-// sub_11D930 @ 0x11d930, size 356 bytes
-int  sub_11D930(int a1)
+// dma_ring_init @ 0x11d930, size 356 bytes
+int  dma_ring_init(int a1)
 {
   uint32_t *v1; // r7
   uint8_t *v2; // r9
@@ -52,9 +52,9 @@ int  sub_11D930(int a1)
   v4 = a1;
   for ( i = 0; ; ++i )
   {
-    v13 = sub_11E9B8(a1);
+    v13 = check_fw_rom_signature(a1);
     *v1 = 0x10000;
-    result = sub_12D00C(0x80000);
+    result = irq_disable_global_3(0x80000);
     if ( !v13 )
       break;
     if ( !v4 )
@@ -64,26 +64,26 @@ int  sub_11D930(int a1)
       {
         v6 = *(uint32_t *)off_11DA98;
         if ( *(uint32_t *)off_11DA98 > 0x80000u || i > 31 )
-          return sub_12CFC4(0x80000);
+          return irq_disable_global_2(0x80000);
       }
       else if ( i > 3 )
       {
-        return sub_12CFC4(0x80000);
+        return irq_disable_global_2(0x80000);
       }
     }
-    v7 = sub_12F3F8(result, v15, v16, v6);
-    if ( !v7 || (v7 = sub_13A3C4(v7, v8, v9, v10)) == 0 )
+    v7 = phy_mode_check(result, v15, v16, v6);
+    if ( !v7 || (v7 = is_rate_valid(v7, v8, v9, v10)) == 0 )
     {
       v18 = off_11DAAC;
       *((uint8_t *)off_11DAAC + 69) = 1;
-      sub_13A3C4(v7, v8, 1, v18);
-      return sub_12EB90(1024, dword_11DAB0);
+      is_rate_valid(v7, v8, 1, v18);
+      return check_feature_flag(1024, dword_11DAB0);
     }
     v11 = *(uint32_t *)(v13 + 20);
     if ( v11 != v3 )
-      sub_12E948(dword_11DAA0, v13, v11);
-    sub_11E9F4(v13);
-    a1 = sub_11D1E0(v13);
+      alloc_tx_event(dword_11DAA0, v13, v11);
+    read_chip_revision(v13);
+    a1 = tx_80211_frame(v13);
     if ( a1 )
     {
       if ( a1 != 1 )
@@ -91,11 +91,11 @@ int  sub_11D930(int a1)
     }
     else
     {
-      a1 = sub_139E1C(v13);
+      a1 = dpc_handler(v13);
       if ( a1 )
         goto LABEL_10;
     }
-    a1 = sub_11E960(v13);
+    a1 = tx_packet_kick(v13);
 LABEL_10:
     v12 = **(uint8_t **)off_11DAA4;
     switch ( v12 )
@@ -106,19 +106,19 @@ LABEL_10:
         if ( !*(uint32_t *)off_11DAA8 || *(uint32_t *)(*(uint32_t *)off_11DAA8 + 12) != v13 || (*(uint8_t *)(v13 + 16) & 1) == 0 )
         {
 LABEL_22:
-          a1 = sub_11D864();
+          a1 = dma_ring_alloc_2();
           continue;
         }
         v20 = *(uint32_t *)off_11DAA8;
-        sub_12D190(off_11DAA8);
+        list_pop(off_11DAA8);
         v17 = *(void ( **)(uint32_t))(v20 + 4);
         *(uint8_t *)(v20 + 16) = 0;
         if ( v17 )
           v17(*(uint32_t *)(v20 + 8));
-        a1 = sub_11DF74(v13);
+        a1 = phy_rate_get(v13);
         break;
       case 3:
-        a1 = sub_11D7AC();
+        a1 = dma_ring_alloc_1();
         break;
     }
   }
@@ -127,7 +127,7 @@ LABEL_22:
     v19 = off_11DAB8;
     if ( *((uint8_t *)off_11DAB8 + 33) )
     {
-      result = sub_110EDC(*((uint32_t *)off_11DAB8 + 4), *((uint32_t *)off_11DAB8 + 5), *((uint32_t *)off_11DAB8 + 6));
+      result = memmove(*((uint32_t *)off_11DAB8 + 4), *((uint32_t *)off_11DAB8 + 5), *((uint32_t *)off_11DAB8 + 6));
       v19[5] = 0;
       v19[7] = 0;
       v19[4] = 0;

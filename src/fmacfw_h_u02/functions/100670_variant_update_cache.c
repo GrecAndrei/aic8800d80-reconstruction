@@ -17,7 +17,7 @@ int  variant_update_cache(int a1)
 {
   int result; // r0
 
-  result = sub_1005B0(a1);
+  result = chip_identify(a1);
   if ( *(uint8_t *)off_100684 != result )
     *(uint8_t *)off_100684 = result;
   return result;

@@ -14,10 +14,10 @@ extern uint32_t off_118EA0;
 extern uint32_t dword_118EA4;
 extern uint32_t dword_118EA8;
 
-// sub_118E38 @ 0x118e38, size 102 bytes
+// rf_tx_freq_set @ 0x118e38, size 102 bytes
 // Doc: sub_1218E38 [util]: Initialize firmware subsystem state with constants
 // sub_1218E38 [util]: Initialize firmware subsystem state with constants
-int  sub_118E38(int a1, int a2)
+int  rf_tx_freq_set(int a1, int a2)
 {
   int16_t **v2; // r5
   int v3; // r7
@@ -32,7 +32,7 @@ int  sub_118E38(int a1, int a2)
   v3 = dword_118EA4;
   v4 = dword_118EA8;
 LABEL_2:
-  v6 = sub_12D4F8(a2);
+  v6 = list_pop_front(a2);
   v7 = 2080374784;
   v8 = v6;
   if ( v6 )
@@ -47,23 +47,23 @@ LABEL_2:
 LABEL_5:
       if ( !*(uint16_t *)(v8 + 4) )
       {
-        sub_119120(v8);
+        btlp_enter_sleep(v8);
         goto LABEL_2;
       }
       if ( **v2 >= 0 )
         goto LABEL_2;
-      sub_12F694(v4, v3, 1147);
-      v10 = sub_12D4F8(a2);
+      mmio_irq_clear(v4, v3, 1147);
+      v10 = list_pop_front(a2);
       v7 = 2080374784;
       v8 = v10;
       if ( !v10 )
-        return rx_buf_init_n168();
+        return system_init();
     }
     v7 = 0x40000000;
 LABEL_4:
     *(uint32_t *)(v9 + 4) = v7;
     goto LABEL_5;
   }
-  return rx_buf_init_n168();
+  return system_init();
 }
 

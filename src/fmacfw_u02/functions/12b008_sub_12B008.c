@@ -16,8 +16,8 @@ extern uint32_t off_12B074;
 extern uint32_t dword_12B07C;
 extern uint32_t dword_12B078;
 
-// sub_12B008 @ 0x12b008, size 98 bytes
-int sub_12B008()
+// ke_task_state_get @ 0x12b008, size 98 bytes
+int ke_task_state_get()
 {
   int v0; // r5
   int v1; // r4
@@ -26,16 +26,16 @@ int sub_12B008()
 
   v0 = *(uint32_t *)off_12B06C;
   v1 = *((uint8_t *)off_12B06C + 10);
-  if ( msg_get_value(2) != 2 )
+  if ( rx_rate_field_parse(2) != 2 )
   {
-    value = msg_get_value(2);
-    msg_parse(dword_12B070, value, v3);
+    value = rx_rate_field_parse(2);
+    event_dispatch(dword_12B070, value, v3);
   }
-  if ( **(int16_t **)off_12B074 < 0 && msg_get_value(2) != 2 )
-    sub_12F46C(dword_12B07C, dword_12B078, 163);
+  if ( **(int16_t **)off_12B074 < 0 && rx_rate_field_parse(2) != 2 )
+    mmio_clear_register(dword_12B07C, dword_12B078, 163);
   if ( (*(uint8_t *)(v0 + 6 * v1 + 3) & 1) == 0 )
-    fmac_rx_buff_check();
-  sub_12CD34(2);
+    controller_read_features();
+  rx_phy_status_parse(2);
   return 0;
 }
 

@@ -17,8 +17,8 @@ extern uint32_t off_1248D8;
 extern uint32_t off_1248DC;
 extern uint32_t dword_1248E0;
 
-// sub_124848 @ 0x124848, size 132 bytes
-int  sub_124848(uint16_t *a1)
+// mmio_read_status @ 0x124848, size 132 bytes
+int  mmio_read_status(uint16_t *a1)
 {
   int v1; // r3
   int *v2; // r2
@@ -47,8 +47,8 @@ int  sub_124848(uint16_t *a1)
   v6[1] = v6[1] & v1 | (v7 << 12);
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
-  sub_120368();
-  sub_12E948(dword_1248E0, *a1, a1[1]);
+  get_mac_ver();
+  alloc_tx_event(dword_1248E0, *a1, a1[1]);
   return 0;
 }
 

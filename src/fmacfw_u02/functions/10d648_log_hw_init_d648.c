@@ -27,10 +27,10 @@ extern uint32_t off_10D758;
 extern uint32_t off_10D75C;
 extern uint32_t off_10D76C;
 
-// log_hw_init_d648 @ 0x10d648, size 236 bytes
-// Doc: log_hw_init_d648 [util]: Initialize logging hardware via pointer at 0x1730dc+0xac
-// log_hw_init_d648 [util]: Initialize logging hardware via pointer at 0x1730dc+0xac
-void log_hw_init_d648()
+// is_initialized @ 0x10d648, size 236 bytes
+// Doc: is_initialized [util]: Initialize logging hardware via pointer at 0x1730dc+0xac
+// is_initialized [util]: Initialize logging hardware via pointer at 0x1730dc+0xac
+void is_initialized()
 {
   int v0; // r3
   uint32_t *v1; // r5

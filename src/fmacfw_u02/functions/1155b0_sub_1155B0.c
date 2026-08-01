@@ -17,8 +17,8 @@ extern uint32_t dword_115634;
 extern uint32_t off_11563C;
 extern uint32_t off_115638;
 
-// sub_1155B0 @ 0x1155b0, size 118 bytes
-int  sub_1155B0(int a1, int a2)
+// check_nvic_irq_status @ 0x1155b0, size 118 bytes
+int  check_nvic_irq_status(int a1, int a2)
 {
   uint32_t *v2; // r4
   int v3; // r3
@@ -41,17 +41,17 @@ int  sub_1155B0(int a1, int a2)
     v6 = dword_115634 & v5;
     if ( (v5 & 0x40000000) != 0 )
     {
-      v9 = sub_1145AC(0);
+      v9 = sub_1145ac(0);
       v10 = off_11563C;
       *(uint32_t *)off_11563C = 0x40000000;
       v2[97] = 16;
       if ( v6 < 0 )
-        sub_11455C(v9, 0x40000000, (int)v10);
+        get_global_1671e0(v9, 0x40000000, (int)v10);
       goto LABEL_6;
     }
     if ( v6 < 0 )
     {
-      sub_11455C(0, a2, v4);
+      get_global_1671e0(0, a2, v4);
       if ( !*((uint8_t *)off_115638 + 3) )
       {
 LABEL_6:

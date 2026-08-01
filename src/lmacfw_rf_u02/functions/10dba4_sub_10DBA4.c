@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DBB4;
 
-// sub_10DBA4 @ 0x10dba4, size 16 bytes
-int  sub_10DBA4(char a1)
+// gpio_set_pin_out @ 0x10dba4, size 16 bytes
+int  gpio_set_pin_out(char a1)
 {
   int result; // r0
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1236368", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236368", "status": "ok", "name": "bt_msg_handle_n0", "params": [], "docstring": "Handle BT message with struct fields", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1236368", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236368", "status": "ok", "name": "tx_build_packet", "params": [], "docstring": "Handle BT message with struct fields", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

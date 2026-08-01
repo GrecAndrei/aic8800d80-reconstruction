@@ -13,8 +13,8 @@
 extern uint32_t off_101814;
 extern uint32_t off_101810;
 
-// sub_101800 @ 0x101800, size 14 bytes
-uint32_t * sub_101800(uint32_t *result, uint32_t *a2)
+// sys_status_read @ 0x101800, size 14 bytes
+uint32_t * sys_status_read(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

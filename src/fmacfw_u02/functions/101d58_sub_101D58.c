@@ -22,10 +22,10 @@ extern uint32_t dword_101F24;
 extern uint32_t dword_101F20;
 extern uint32_t dword_101F1C;
 
-// sub_101D58 @ 0x101d58, size 420 bytes
+// rx_packet_handler @ 0x101d58, size 420 bytes
 // Doc: sub_1201D58 [util]: Helper function reading byte/halfword from struct
 // sub_1201D58 [util]: Helper function reading byte/halfword from struct
-int  sub_101D58(unsigned int a1, signed int a2, uint8_t *a3)
+int  rx_packet_handler(unsigned int a1, signed int a2, uint8_t *a3)
 {
   int v3; // r6
   unsigned int v4; // r7
@@ -159,7 +159,7 @@ LABEL_12:
 LABEL_18:
   if ( (*((uint32_t *)off_101EFC + 98) & 2) != 0 )
   {
-    v22 = sub_1321FC(v3, v4);
+    v22 = ke_event_get(v3, v4);
     if ( v22 )
     {
       v23 = *(char *)(v22 + 4);
@@ -167,8 +167,8 @@ LABEL_18:
     else
     {
       if ( **(int16_t **)off_101F18 < 0 )
-        sub_12F49C(dword_101F24, dword_101F20, 7022);
-      msg_parse(dword_101F1C, v3, v4);
+        call_shared_handler(dword_101F24, dword_101F20, 7022);
+      event_dispatch(dword_101F1C, v3, v4);
       v23 = 15;
     }
     if ( v8 >= v23 )

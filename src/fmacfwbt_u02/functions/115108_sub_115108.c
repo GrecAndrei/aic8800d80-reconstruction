@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_115108 @ 0x115108, size 58 bytes
-int  sub_115108(int *a1)
+// syscall16_get_version @ 0x115108, size 58 bytes
+int  syscall16_get_version(int *a1)
 {
   uint8_t v2; // r0
   int v3; // r2

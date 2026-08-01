@@ -12,8 +12,8 @@
 
 extern uint32_t off_11C4F4;
 
-// sub_11C4E4 @ 0x11c4e4, size 16 bytes
-uint8_t * sub_11C4E4(uint8_t *result)
+// set_short_address @ 0x11c4e4, size 16 bytes
+uint8_t * set_short_address(uint8_t *result)
 {
   uint8_t *v1; // r3
 

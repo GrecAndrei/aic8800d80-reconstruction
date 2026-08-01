@@ -16,8 +16,8 @@ extern uint32_t off_12B4DC;
 extern uint32_t off_12B4E0;
 extern uint32_t dword_12B4D8;
 
-// sub_12B398 @ 0x12b398, size 312 bytes
-void sub_12B398()
+// controller_read_features @ 0x12b398, size 312 bytes
+void controller_read_features()
 {
   int v0; // r5
   char *v1; // r6
@@ -62,7 +62,7 @@ void sub_12B398()
         if ( *(uint8_t *)(v0 + 369) )
           v3 = 1;
       }
-      v4 = sub_118C44(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
+      v4 = ke_mutex_guard(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
       v5 = v1;
       v6 = v4;
       if ( !v4 )
@@ -111,7 +111,7 @@ void sub_12B398()
       *(uint32_t *)(v6 + 92) = 0;
       *(uint8_t *)(v6 + 28) = *(uint8_t *)(v0 + 366);
       *(uint8_t *)(v6 + 29) = -1;
-      sub_118C74(v6, 5);
+      tx_path_status(v6, 5);
       ++v2;
       v1 += 33;
     }

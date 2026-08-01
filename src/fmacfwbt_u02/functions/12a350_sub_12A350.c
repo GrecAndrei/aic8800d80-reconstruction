@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A360;
 
-// sub_12A350 @ 0x12a350, size 14 bytes
-int  sub_12A350(int a1)
+// rf_channel_offset_get @ 0x12a350, size 14 bytes
+int  rf_channel_offset_get(int a1)
 {
   return *(uint8_t *)(dword_12A360 + 140 * a1 + 133);
 }

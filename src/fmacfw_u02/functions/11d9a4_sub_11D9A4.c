@@ -17,8 +17,8 @@ extern uint32_t off_11DA6C;
 extern uint32_t off_11DA60;
 extern uint32_t dword_11DA64;
 
-// sub_11D9A4 @ 0x11d9a4, size 180 bytes
-int sub_11D9A4()
+// mac_wait_scan @ 0x11d9a4, size 180 bytes
+int mac_wait_scan()
 {
   int *v0; // r6
   int v1; // r4
@@ -34,7 +34,7 @@ int sub_11D9A4()
 
   v0 = (int *)off_11DA58;
   v1 = *(uint32_t *)off_11DA58;
-  result = sub_12D14C(0x200000);
+  result = unknown_func_12d14c(0x200000);
   if ( v1 )
   {
     v3 = off_11DA5C;
@@ -46,7 +46,7 @@ int sub_11D9A4()
       {
         if ( (*(uint8_t *)(v1 + 16) & 1) == 0 && !*v3 )
           break;
-        sub_12D2D0(v0);
+        mem_word_load(v0);
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();
@@ -62,7 +62,7 @@ int sub_11D9A4()
           v7(*(uint32_t *)(v1 + 8));
         result = *(uint32_t *)(v1 + 12);
         if ( result )
-          result = sub_11E0B4();
+          result = radio_get_status();
         if ( *v5 )
         {
           v8 = *v5 - 1;
@@ -80,8 +80,8 @@ int sub_11D9A4()
       v10 = off_11DA60;
       if ( *((uint8_t *)off_11DA60 + 69) )
       {
-        sub_12D104(0x80000);
-        result = sub_12ECD0(1024, dword_11DA64);
+        unknown_func_12d104(0x80000);
+        result = check_status_bits(1024, dword_11DA64);
         v10[69] = 0;
       }
     }

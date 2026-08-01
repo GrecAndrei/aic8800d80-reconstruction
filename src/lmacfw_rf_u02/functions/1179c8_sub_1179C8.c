@@ -16,8 +16,8 @@ extern uint32_t dword_117A54;
 extern uint32_t dword_117A50;
 extern uint32_t dword_117A48;
 
-// sub_1179C8 @ 0x1179c8, size 124 bytes
-int  sub_1179C8(int result)
+// rf_cal_offset_apply @ 0x1179c8, size 124 bytes
+int  rf_cal_offset_apply(int result)
 {
   int v1; // r4
   int16_t v2; // r2
@@ -25,7 +25,7 @@ int  sub_1179C8(int result)
 
   v1 = result;
   if ( **(int16_t **)off_117A44 < 0 && *(uint32_t *)(result + 20) != dword_117A4C )
-    result = rf_cmd_send_n264(dword_117A54, dword_117A50, 1811);
+    result = flash_ctrl_init(dword_117A54, dword_117A50, 1811);
   v2 = *(uint16_t *)(v1 + 48);
   if ( v2 )
   {

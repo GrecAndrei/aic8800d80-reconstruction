@@ -15,10 +15,10 @@ extern uint32_t dword_13B09C;
 extern uint32_t dword_13B098;
 extern uint32_t dword_13B094;
 
-// sub_13AF80 @ 0x13af80, size 270 bytes
+// ll_conn_tx_pdu_check @ 0x13af80, size 270 bytes
 // Doc: sub_123AF80 [util]: Helper processing a struct with header fields (channel, flags) and linked list traversal
 // sub_123AF80 [util]: Helper processing a struct with header fields (channel, flags) and linked list traversal
-int  sub_13AF80(int a1, int a2)
+int  ll_conn_tx_pdu_check(int a1, int a2)
 {
   int v2; // r5
   int v3; // r3
@@ -51,7 +51,7 @@ LABEL_5:
           goto LABEL_6;
         goto LABEL_27;
       }
-      sub_13A4D8();
+      clear_flag();
       if ( (*(uint16_t *)(a1 + 30) & 0x200) != 0 )
         goto LABEL_5;
 LABEL_9:
@@ -67,11 +67,11 @@ LABEL_27:
       v9 = *(uint8_t *)(a1 + 29);
       if ( v9 != 255 )
         goto LABEL_7;
-      sub_12F46C(dword_13B09C, dword_13B098, 1325);
+      mmio_clear_register(dword_13B09C, dword_13B098, 1325);
 LABEL_6:
       v9 = *(uint8_t *)(a1 + 29);
 LABEL_7:
-      rf_chan_table_lookup_8f48(v9, 23, 0, 0);
+      rf_channel_set(v9, 23, 0, 0);
       *(uint8_t *)(dword_13B094 + 696 * *(uint8_t *)(a1 + 29) + 54) = 0;
     }
 LABEL_8:
@@ -100,7 +100,7 @@ LABEL_20:
   v13 = v8;
   if ( v8 )
     v13 = 1;
-  v10 = sub_13C294(a1, v13, a2);
+  v10 = get_tx_power_cal_entry(a1, v13, a2);
   v14 = *(uint32_t *)(a1 + 36);
   if ( (v14 & 0x200000) == 0 )
   {

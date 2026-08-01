@@ -14,10 +14,10 @@ extern uint32_t off_110108;
 extern uint32_t dword_11010C;
 extern uint32_t dword_110110;
 
-// patch_apply_n422 @ 0x1100d4, size 52 bytes
-// Doc: patch_apply_n422 [patch]: Applies a firmware patch table entry
-// patch_apply_n422 [patch]: Applies a firmware patch table entry
-int patch_apply_n422()
+// rx_packet_event @ 0x1100d4, size 52 bytes
+// Doc: rx_packet_event [patch]: Applies a firmware patch table entry
+// rx_packet_event [patch]: Applies a firmware patch table entry
+int rx_packet_event()
 {
   void *v0; // r5
   int result; // r0
@@ -26,7 +26,7 @@ int patch_apply_n422()
   int v4; // r4
 
   v0 = off_110108;
-  result = sub_11E71C(dword_11010C);
+  result = list_init(dword_11010C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_110110;
@@ -34,8 +34,8 @@ int patch_apply_n422()
     v4 = 0;
     do
     {
-      log_pool_alloc2_a18(v2, 0xCu);
-      result = list_push_tail(v3);
+      list_iterate(v2, 0xCu);
+      result = check_kernel_state(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );

@@ -16,8 +16,8 @@ extern uint32_t dword_11F000;
 extern uint32_t dword_11EFFC;
 extern uint32_t off_11EFF4;
 
-// sub_11EF74 @ 0x11ef74, size 124 bytes
-int  sub_11EF74(int result)
+// rx_timeout_check @ 0x11ef74, size 124 bytes
+int  rx_timeout_check(int result)
 {
   int v1; // r4
   int16_t v2; // r2
@@ -25,7 +25,7 @@ int  sub_11EF74(int result)
 
   v1 = result;
   if ( **(int16_t **)off_11EFF0 < 0 && *(uint32_t *)(result + 20) != dword_11EFF8 )
-    result = sub_12F694(dword_11F000, dword_11EFFC, 1811);
+    result = mmio_irq_clear(dword_11F000, dword_11EFFC, 1811);
   v2 = *(uint16_t *)(v1 + 48);
   if ( v2 )
   {

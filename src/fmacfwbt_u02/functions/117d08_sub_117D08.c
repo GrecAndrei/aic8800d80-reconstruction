@@ -15,8 +15,8 @@ extern uint32_t off_117D54;
 extern uint32_t off_117D60;
 extern uint32_t off_117D5C;
 
-// sub_117D08 @ 0x117d08, size 76 bytes
-unsigned int sub_117D08()
+// rf_irq_status @ 0x117d08, size 76 bytes
+unsigned int rf_irq_status()
 {
   int v0; // r4
   unsigned int result; // r0
@@ -29,11 +29,11 @@ unsigned int sub_117D08()
       v0 |= 0x1000u;
       *((uint32_t *)off_117D60 + 52) |= 4u;
     }
-    sub_11C734();
+    global_flag_set();
   }
   result = v0 & 0xF00000;
   if ( (v0 & 0xF00000) != 0 )
-    result = sub_11B0B4((uint8_t)(11 - __clz(result)));
+    result = get_84_entry((uint8_t)(11 - __clz(result)));
   *(uint32_t *)off_117D5C = v0;
   return result;
 }

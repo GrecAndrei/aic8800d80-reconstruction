@@ -14,8 +14,8 @@ extern uint32_t off_10D0B0;
 extern uint32_t off_10D0B4;
 extern uint32_t off_10D0B8;
 
-// sub_10D068 @ 0x10d068, size 70 bytes
-int sub_10D068()
+// power_domain_enable @ 0x10d068, size 70 bytes
+int power_domain_enable()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r4

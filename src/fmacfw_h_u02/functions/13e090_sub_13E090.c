@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E090 @ 0x13e090, size 160 bytes
-int  sub_13E090(int result, int a2)
+// rx_get_length @ 0x13e090, size 160 bytes
+int  rx_get_length(int result, int a2)
 {
   unsigned int v2; // r11
   int v4; // r9
@@ -53,9 +53,9 @@ int  sub_13E090(int result, int a2)
             if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
-          sub_143764(v13, v8);
-          sub_143764(v8, v8 + 12);
-          result = sub_143764(v8 + 12, v13);
+          memmove(v13, v8);
+          memmove(v8, v8 + 12);
+          result = memmove(v8 + 12, v13);
           ++v5;
           v12 = *(uint64_t *)(v7 - 1);
           v9 = v6;

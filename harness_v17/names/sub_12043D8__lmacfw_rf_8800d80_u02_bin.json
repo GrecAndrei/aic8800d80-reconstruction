@@ -1,1 +1,1 @@
-{"fn": "sub_12043D8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12043d8", "status": "ok", "name": "rf_calib_setup_n3d8", "params": [], "docstring": "RF calibration init with FPU context and table setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12043D8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12043d8", "status": "ok", "name": "wlan_init_globals", "params": [], "docstring": "RF calibration init with FPU context and table setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

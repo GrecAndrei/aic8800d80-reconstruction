@@ -13,14 +13,14 @@
 extern uint32_t off_1202F0;
 extern uint32_t off_1202F4;
 
-// sub_1202D8 @ 0x1202d8, size 24 bytes
-void sub_1202D8()
+// mac_clear_irq @ 0x1202d8, size 24 bytes
+void mac_clear_irq()
 {
   int v0; // r3
 
   v0 = *((uint8_t *)off_1202F0 + 18) + *((uint8_t *)off_1202F0 + 17);
   *(uint32_t *)off_1202F4 = 0;
   if ( v0 <= 1 )
-    sub_11F5B0();
+    get_current_channel();
 }
 

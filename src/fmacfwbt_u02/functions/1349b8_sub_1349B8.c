@@ -13,10 +13,10 @@
 extern uint32_t dword_1349D4;
 extern uint32_t off_1349D0;
 
-// sub_1349B8 @ 0x1349b8, size 24 bytes
-int  sub_1349B8(uint8_t *a1)
+// phy_channel_index_lookup @ 0x1349b8, size 24 bytes
+int  phy_channel_index_lookup(uint8_t *a1)
 {
-  return sub_127F58(
+  return find_free_conn(
            (uint8_t *)(dword_1349D4 + 1320 * *(uint8_t *)(*((uint32_t *)off_1349D0 + 4) + 61)),
            a1);
 }

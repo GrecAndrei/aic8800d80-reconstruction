@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_119D2C @ 0x119d2c, size 30 bytes
-unsigned int  sub_119D2C(int a1, unsigned int a2)
+// tx_check_size @ 0x119d2c, size 30 bytes
+unsigned int  tx_check_size(int a1, unsigned int a2)
 {
   unsigned int v2; // r3
 

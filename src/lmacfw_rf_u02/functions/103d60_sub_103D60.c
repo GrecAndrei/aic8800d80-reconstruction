@@ -12,8 +12,8 @@
 
 extern uint32_t off_103DA4;
 
-// sub_103D60 @ 0x103d60, size 66 bytes
-int  sub_103D60(int a1, int a2, uint32_t *a3)
+// rand @ 0x103d60, size 66 bytes
+int  rand(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v4; // r4

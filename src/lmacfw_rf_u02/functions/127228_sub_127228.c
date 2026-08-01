@@ -14,8 +14,8 @@ extern uint32_t dword_1272A0;
 extern uint32_t dword_1272A4;
 extern uint32_t dword_12729C;
 
-// sub_127228 @ 0x127228, size 114 bytes
-int  sub_127228(int a1)
+// float_to_i24 @ 0x127228, size 114 bytes
+int  float_to_i24(int a1)
 {
   int v1; // r5
   unsigned int v3; // r7
@@ -29,14 +29,14 @@ int  sub_127228(int a1)
   if ( v1 > 22 )
   {
     if ( v3 >= 0x7F800000 )
-      return sub_127C90(a1, a1);
+      return aeabi_ddiv(a1, a1);
     return a1;
   }
   v4 = a1;
   if ( v1 < 0 )
   {
-    v8 = sub_127C90(a1, dword_1272A0);
-    if ( sub_127F78(v8, 0) )
+    v8 = aeabi_ddiv(a1, dword_1272A0);
+    if ( util_cmp_ge(v8, 0) )
     {
       if ( a1 >= 0 )
         return 0;
@@ -48,8 +48,8 @@ int  sub_127228(int a1)
   v5 = dword_12729C >> v1;
   if ( (a1 & (dword_12729C >> v1)) == 0 )
     return a1;
-  v6 = sub_127C90(a1, dword_1272A0);
-  if ( !sub_127F78(v6, 0) )
+  v6 = aeabi_ddiv(a1, dword_1272A0);
+  if ( !util_cmp_ge(v6, 0) )
     return a1;
   if ( a1 < 0 )
     v4 += 0x800000 >> v1;

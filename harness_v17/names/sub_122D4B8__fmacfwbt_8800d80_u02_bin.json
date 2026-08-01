@@ -1,1 +1,1 @@
-{"fn": "sub_122D4B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d4b8", "status": "ok", "name": "bt_state_check_or_init", "params": [], "docstring": "Check signed BT state word and branch, saving args for handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122D4B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d4b8", "status": "ok", "name": "check_abort_flag_2", "params": [], "docstring": "Check signed BT state word and branch, saving args for handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

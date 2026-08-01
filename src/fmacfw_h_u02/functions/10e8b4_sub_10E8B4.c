@@ -16,8 +16,8 @@ extern uint32_t dword_10E9C8;
 extern uint32_t dword_10E9D4;
 extern uint32_t dword_10E9CC;
 
-// sub_10E8B4 @ 0x10e8b4, size 272 bytes
-int  sub_10E8B4(int a1)
+// gpio_pad_ctrl_set @ 0x10e8b4, size 272 bytes
+int  gpio_pad_ctrl_set(int a1)
 {
   int16_t *v1; // r9
   int v2; // r7
@@ -40,8 +40,8 @@ int  sub_10E8B4(int a1)
   v1 = (int16_t *)off_10E9D0;
   *(uint32_t *)off_10E9C4 = (a1 << 26) & 0x1C000000 | *(uint32_t *)off_10E9C4 & 0xE3FFFFFF;
   v2 = a1;
-  v3 = sub_10E0A8();
-  sub_12E948(dword_10E9C8, v2, v3);
+  v3 = hw_ctrl_set();
+  alloc_tx_event(dword_10E9C8, v2, v3);
   v4 = *v1;
   if ( v4 > v3 )
   {
@@ -82,8 +82,8 @@ int  sub_10E8B4(int a1)
       v2 = 7;
     }
     *v5 = *v5 & 0xE3FFFFFF | v9;
-    v10 = sub_10E0A8();
-    sub_12E948(v6, v2, v10);
+    v10 = hw_ctrl_set();
+    alloc_tx_event(v6, v2, v10);
     v11 = *v1;
     v12 = v10 - v11;
     v13 = v3 - v11;
@@ -106,7 +106,7 @@ int  sub_10E8B4(int a1)
     v16 = v3;
     *v5 = ((v2 - v17) << 26) & 0x1C000000 | *v5 & 0xE3FFFFFF;
   }
-  sub_12E948(dword_10E9CC, v8, v16);
+  alloc_tx_event(dword_10E9CC, v8, v16);
   return v8;
 }
 

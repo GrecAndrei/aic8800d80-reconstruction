@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n4b0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214bf8", "status": "ok", "name": "rf_fault_dump_n4b0", "params": [], "docstring": "Dumps RF fault state to a debug buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n4b0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214bf8", "status": "ok", "name": "get_ke_env", "params": [], "docstring": "Dumps RF fault state to a debug buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

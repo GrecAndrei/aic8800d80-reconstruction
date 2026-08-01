@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D428;
 
-// sub_10D404 @ 0x10d404, size 36 bytes
-int sub_10D404()
+// watchdog_kick @ 0x10d404, size 36 bytes
+int watchdog_kick()
 {
   int v0; // r3
   int result; // r0
@@ -24,7 +24,7 @@ int sub_10D404()
   if ( (v0 & 0x400) != 0 )
   {
     *((uint32_t *)off_10D428 + 2) = 0x40000;
-    return irq_nesting_or(0x20000000);
+    return set_system_flag_1(0x20000000);
   }
   return result;
 }

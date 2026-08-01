@@ -15,8 +15,8 @@ extern uint32_t dword_1306BC;
 extern uint32_t off_1306C0;
 extern uint32_t dword_1306C4;
 
-// sub_13064C @ 0x13064c, size 110 bytes
-int  sub_13064C(int a1)
+// ke_timeout_to_ticks @ 0x13064c, size 110 bytes
+int  ke_timeout_to_ticks(int a1)
 {
   signed int v1; // r0
   int v2; // r3
@@ -37,10 +37,10 @@ int  sub_13064C(int a1)
   if ( v2 < 1 )
     LOBYTE(v2) = 1;
   *((uint8_t *)off_1306C0 + 5) = v2;
-  sub_130514(v1);
-  result = sub_12EC84(9u, 4u);
+  rf_map_channel(v1);
+  result = state_test_flag(9u, 4u);
   if ( result )
-    return rf_level_dump_05bc();
+    return log_mac_state();
   return result;
 }
 

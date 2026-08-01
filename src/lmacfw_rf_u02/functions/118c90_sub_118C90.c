@@ -20,8 +20,8 @@ extern uint32_t off_118D20;
 extern uint32_t off_118D24;
 extern uint32_t off_118D1C;
 
-// sub_118C90 @ 0x118c90, size 114 bytes
-unsigned int  sub_118C90(unsigned int result)
+// convert_handle_index @ 0x118c90, size 114 bytes
+unsigned int  convert_handle_index(unsigned int result)
 {
   int v1; // r3
   uint32_t *v2; // r1

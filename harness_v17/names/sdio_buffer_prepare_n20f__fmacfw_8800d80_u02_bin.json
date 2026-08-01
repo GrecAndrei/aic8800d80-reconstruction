@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n20f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e32a", "status": "ok", "name": "sdio_buffer_prepare_n20f", "params": [], "docstring": "SDIO buffer prepare dispatch by size class", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n20f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e32a", "status": "ok", "name": "sdio_buffer_prepare_n20e_e32a", "params": [], "docstring": "SDIO buffer prepare dispatch by size class", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

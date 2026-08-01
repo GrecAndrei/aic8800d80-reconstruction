@@ -45,8 +45,8 @@ extern uint32_t off_10D9D8;
 extern uint32_t dword_10D9DC;
 extern uint32_t dword_10DAD8;
 
-// sub_10D6C8 @ 0x10d6c8, size 1016 bytes
-int  sub_10D6C8(int a1, int a2)
+// stack_struct_init @ 0x10d6c8, size 1016 bytes
+int  stack_struct_init(int a1, int a2)
 {
   int v2; // r4
   unsigned int CPSR; // r6
@@ -130,7 +130,7 @@ int  sub_10D6C8(int a1, int a2)
   uint8_t v82[260]; // [sp+10h] [bp-104h] BYREF
 
   CPSR = __get_CPSR();
-  v4 = sub_12DFDC(v82, 256, 0, a1, a2);
+  v4 = rx_process_packet(v82, 256, 0, a1, a2);
   v6 = v4;
   if ( v4 <= 0 )
     return v6;
@@ -142,7 +142,7 @@ int  sub_10D6C8(int a1, int a2)
   }
   else
   {
-    sub_10D508();
+    kernel_schedule_check();
     if ( CPSR )
       goto LABEL_5;
   }
@@ -189,7 +189,7 @@ LABEL_5:
     {
       if ( v7 >= 124 )
         LOWORD(v7) = 124;
-      sub_111130(19, v82, (uint16_t)v7);
+      kmalloc(19, v82, (uint16_t)v7);
     }
     goto LABEL_13;
   }
@@ -214,13 +214,13 @@ LABEL_19:
     while ( v22 );
     goto LABEL_13;
   }
-  if ( (unsigned int)sub_12D22C(dword_10D9B8, v5) <= 4 )
+  if ( (unsigned int)list_length(dword_10D9B8, v5) <= 4 )
   {
     if ( **(uint8_t **)off_10D9AC == 2 )
     {
       if ( **v17 != 3 )
       {
-        if ( (unsigned int)sub_12D22C(dword_10D9B8, v23) > 4 )
+        if ( (unsigned int)list_length(dword_10D9B8, v23) > 4 )
         {
           v60 = dword_10D9E4;
           v61 = off_10D9A0;
@@ -266,7 +266,7 @@ LABEL_13:
   while ( 1 )
   {
     v26 = v24++;
-    if ( !sub_1435D0(v26, v25, 20) )
+    if ( !memcmp(v26, v25, 20) )
       break;
     if ( &v82[v7] == v24 )
     {
@@ -301,7 +301,7 @@ LABEL_37:
   if ( *v27 )
   {
     v28 = off_10D9F0;
-    if ( !sub_1435D0(v82, dword_10D9BC, 5) )
+    if ( !memcmp(v82, dword_10D9BC, 5) )
     {
       v29 = dword_10D9C0;
       v30 = off_10D9A0;
@@ -323,7 +323,7 @@ LABEL_37:
     if ( v35 + v7 <= 1720 )
     {
       v81 = (int *)off_10DACC;
-      sub_143630(*(uint32_t *)off_10DACC + v35, v82, v7);
+      memcpy(*(uint32_t *)off_10DACC + v35, v82, v7);
       v75 = (uint8_t)*v28;
       v41 = v81;
       v76 = v7 + *v34;
@@ -356,18 +356,18 @@ LABEL_37:
     *v34 = 4;
     *v41 = 0;
     v6 = v35;
-    sub_12D190(v42);
+    list_pop(v42);
     goto LABEL_48;
   }
-  v2 = sub_12D190(dword_10DAD4);
+  v2 = list_pop(dword_10DAD4);
   if ( v7 <= 122 )
-    v43 = sub_1138C8();
+    v43 = util_call_void();
   else
     v43 = (*(int ( **)(uint32_t))(*(uint32_t *)(*(uint32_t *)off_10DAC8 + 8) + 16))(*(uint32_t *)(*(uint32_t *)off_10DAC8
                                                                                                   + 4));
   if ( v43 )
   {
-    sub_143630(v43 + 4, v82, v7);
+    memcpy(v43 + 4, v82, v7);
     LOWORD(v35) = v7;
 LABEL_48:
     *(uint16_t *)v43 = v6 + 1;
@@ -408,8 +408,8 @@ LABEL_48:
     v50 = (int *)off_10D9D8;
     v51 = dword_10D9DC;
     ++*(uint32_t *)off_10D9D8;
-    v52 = sub_12D108(v51);
-    sub_113374(v52);
+    v52 = wlan_ioctl_handler_1(v51);
+    rf_is_idle(v52);
     if ( *v50 )
     {
       v53 = *v50 - 1;

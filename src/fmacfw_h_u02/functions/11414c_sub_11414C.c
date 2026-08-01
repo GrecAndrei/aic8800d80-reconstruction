@@ -15,8 +15,8 @@ extern uint32_t off_114198;
 extern uint32_t off_11419C;
 extern uint32_t off_1141A0;
 
-// sub_11414C @ 0x11414c, size 72 bytes
-int sub_11414C()
+// assert_fail @ 0x11414c, size 72 bytes
+int assert_fail()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -34,7 +34,7 @@ int sub_11414C()
   ++*(uint32_t *)off_114198;
   while ( !*v1 )
     ;
-  result = sub_12D108(*(uint32_t *)off_1141A0 + 628);
+  result = wlan_ioctl_handler_1(*(uint32_t *)off_1141A0 + 628);
   *v1 = 1;
   if ( *v0 )
   {

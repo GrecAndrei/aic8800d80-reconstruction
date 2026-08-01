@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114F00 @ 0x114f00, size 90 bytes
+// syscall8_op @ 0x114f00, size 90 bytes
 // Doc: sub_1214F00 [unknown]: Unidentified function at 0x1214F00
 // sub_1214F00 [unknown]: Unidentified function at 0x1214F00
-int  sub_114F00(uint32_t *a1, unsigned int *a2)
+int  syscall8_op(uint32_t *a1, unsigned int *a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r0

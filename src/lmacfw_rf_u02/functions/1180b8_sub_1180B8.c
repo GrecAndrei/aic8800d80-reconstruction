@@ -25,8 +25,8 @@ extern uint32_t dword_1182A0;
 extern uint32_t dword_1182A4;
 extern uint32_t dword_1182A8;
 
-// sub_1180B8 @ 0x1180b8, size 470 bytes
-int  sub_1180B8(int a1)
+// link_context_by_index @ 0x1180b8, size 470 bytes
+int  link_context_by_index(int a1)
 {
   int v2; // r8
   int v3; // r9
@@ -52,7 +52,7 @@ int  sub_1180B8(int a1)
 
   v2 = dword_1182BC;
   v3 = dword_1182BC + 224 * a1;
-  v4 = list_remove_node(dword_118290, v3);
+  v4 = check_kernel_state_alt2(dword_118290, v3);
   v5 = *(uint8_t *)(v3 + 94);
   v6 = 224 * a1;
   if ( v5 == 2 )
@@ -66,7 +66,7 @@ int  sub_1180B8(int a1)
         goto LABEL_7;
       goto LABEL_12;
     }
-    rf_gpio_clear_bit_n_e20(v4);
+    rf_disable(v4);
 LABEL_4:
     v8 = v7[18];
     v9 = v7[17] + v8;
@@ -76,8 +76,8 @@ LABEL_4:
   }
   if ( v5 == 4 )
   {
-    if ( rf_chip_ready_check() )
-      sub_101A50(0);
+    if ( sys_ready_check() )
+      ctrl_bit3_set(0);
     v7 = (uint8_t *)off_118294;
     v8 = *((uint8_t *)off_118294 + 18);
     v9 = *((uint8_t *)off_118294 + 17) + v8;
@@ -103,7 +103,7 @@ LABEL_12:
   *((uint32_t *)off_1182C4 + 1) = v19;
   if ( v18 < 0 && *(uint32_t *)off_1182B0 << 28 )
   {
-    sub_1219F4(dword_1182B8, dword_1182B4, 472);
+    flash_cmd_exec(dword_1182B8, dword_1182B4, 472);
     v23 = v7[18];
     v9 = v7[17] + v23;
     *(uint32_t *)off_1182AC = *v17 | v17[1];
@@ -131,19 +131,19 @@ LABEL_12:
     *(uint32_t *)off_1182AC = v21 | *v17;
     goto LABEL_7;
   }
-  sub_1219F4(dword_1182B8, dword_1182B4, 472);
+  flash_cmd_exec(dword_1182B8, dword_1182B4, 472);
   v9 = v7[17] + v7[18];
   *(uint32_t *)off_1182AC = *v17 | v17[1];
 LABEL_5:
   if ( !v9 )
     *(uint32_t *)off_118298 = 0;
 LABEL_7:
-  timestamp_remove(v6 + 24 + v2);
-  timestamp_remove(v6 + 48 + v2);
-  sub_11C7DC(*(uint8_t *)(v2 + 224 * a1 + 95));
+  ke_exit_critical(v6 + 24 + v2);
+  ke_exit_critical(v6 + 48 + v2);
+  tx_slot_get_busy(*(uint8_t *)(v2 + 224 * a1 + 95));
   *(uint32_t *)off_11829C = 0;
   if ( v7[18] + v7[17] <= 1 )
-    rf_status_check_n_1c0();
+    btcoex_check_state();
   sub_100200((int *)v3, 0, 0xE0u);
   v10 = v2 + 224 * a1;
   v11 = dword_1182A0;
@@ -154,7 +154,7 @@ LABEL_7:
   *(uint8_t *)(v10 + 94) = 5;
   *(uint8_t *)(v10 + 97) = 127;
   *(uint32_t *)(v10 + 52) = v11;
-  sub_11F74C(256, v13, v14, v12);
-  return list_push_tail(off_118294);
+  check_interrupt_flag(256, v13, v14, v12);
+  return check_kernel_state(off_118294);
 }
 

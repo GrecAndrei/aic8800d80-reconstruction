@@ -15,10 +15,10 @@ extern uint32_t off_10D060;
 extern uint32_t off_10D064;
 extern uint32_t off_10D068;
 
-// sub_10D02C @ 0x10d02c, size 48 bytes
+// rf_irq_handler @ 0x10d02c, size 48 bytes
 // Doc: sub_120D02C [mmio]: Reads MMIO register 0x40035104 and processes bit flags
 // sub_120D02C [mmio]: Reads MMIO register 0x40035104 and processes bit flags
-int sub_10D02C()
+int rf_irq_handler()
 {
   uint32_t *v0; // r4
   int *v1; // r7
@@ -35,11 +35,11 @@ int sub_10D02C()
     {
       v3 = *v1;
       *v2 = 2;
-      sub_10CF48((uint16_t *)(v3 + 4));
+      bt_event_process((uint16_t *)(v3 + 4));
     }
     while ( (*v0 & 2) != 0 );
   }
-  result = sub_11E628(0x8000000);
+  result = enter_critical_section(0x8000000);
   *(uint32_t *)off_10D068 = 2;
   return result;
 }

@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114D58 @ 0x114d58, size 10 bytes
-int  sub_114D58(int a1)
+// ke_event_send_0x40 @ 0x114d58, size 10 bytes
+int  ke_event_send_0x40(int a1)
 {
-  return sub_114C30(32, a1, 4u);
+  return ke_task_handler(32, a1, 4u);
 }
 

@@ -12,8 +12,8 @@
 
 extern uint32_t off_13234C;
 
-// sub_1322EC @ 0x1322ec, size 96 bytes
-int  sub_1322EC(int a1, char *a2, int16_t a3, int16_t a4)
+// llm_event_wait @ 0x1322ec, size 96 bytes
+int  llm_event_wait(int a1, char *a2, int16_t a3, int16_t a4)
 {
   uint16_t *v7; // r4
   char v8; // r3
@@ -21,7 +21,7 @@ int  sub_1322EC(int a1, char *a2, int16_t a3, int16_t a4)
   uint8_t *v10; // r0
   int v11; // r3
 
-  if ( msg_get_value(5u) == 1 )
+  if ( hci_cmd_send_short(5u) == 1 )
     return 2;
   v7 = off_13234C;
   v8 = *a2;
@@ -31,16 +31,16 @@ int  sub_1322EC(int a1, char *a2, int16_t a3, int16_t a4)
   *((uint8_t *)off_13234C + 375) = v8;
   if ( !v9 )
   {
-    v10 = (uint8_t *)rf_bus_setup_n3a8(49, 0, 5, 1u);
+    v10 = (uint8_t *)bt_buf_alloc(49, 0, 5, 1u);
     v11 = *((uint8_t *)v7 + 375);
     v7[4] = 255;
     if ( v11 )
       LOBYTE(v11) = *((uint8_t *)v7 + 376);
     *v10 = v11;
-    sub_12CBB4((int)v10);
-    rf_bus_mark_n_3b7(5u, 1);
+    hci_evt_send((int)v10);
+    hci_cmd_send(5u, 1);
   }
-  message_dispatch_n84(5140, a4, a3);
+  hci_evt_alloc_send(5140, a4, a3);
   return 0;
 }
 

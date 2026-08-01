@@ -14,8 +14,8 @@ extern uint32_t dword_13167C;
 extern uint32_t dword_131680;
 extern uint32_t off_131684;
 
-// sub_131604 @ 0x131604, size 118 bytes
-int  sub_131604(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// adv_data_parse @ 0x131604, size 118 bytes
+int  adv_data_parse(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v4; // r0
   int v7; // r4
@@ -32,17 +32,17 @@ int  sub_131604(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     *(uint8_t *)(v7 + 52) = 2;
     if ( !v9 && ((*((uint32_t *)off_131684 + 1) >> v8) & 1) != 0 )
     {
-      v10 = (uint8_t *)sub_12C92C(5145, 5, 6, 2u);
+      v10 = (uint8_t *)ke_msg_alloc(5145, 5, 6, 2u);
       *v10 = 0;
       v10[1] = *(uint8_t *)(v7 + 34);
-      sdio_buffer_prepare_n_4e8((int)v10);
+      ke_msg_send((int)v10);
     }
   }
   else
   {
     *(uint8_t *)(dword_13167C + 696 * v4 + 52) = 1;
   }
-  sub_12CA10(5125, a4, a3);
+  ke_msg_send_no_param(5125, a4, a3);
   return 0;
 }
 

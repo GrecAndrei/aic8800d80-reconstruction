@@ -13,10 +13,10 @@
 extern uint32_t off_11EF6C;
 extern uint32_t off_11EF70;
 
-// fw_version_check_n_38 @ 0x11ef38, size 52 bytes
-// Doc: fw_version_check_n_38 [util]: Compare firmware version or build ID against expected value
-// fw_version_check_n_38 [util]: Compare firmware version or build ID against expected value
-unsigned int fw_version_check_n_38()
+// mac_irq_check @ 0x11ef38, size 52 bytes
+// Doc: mac_irq_check [util]: Compare firmware version or build ID against expected value
+// mac_irq_check [util]: Compare firmware version or build ID against expected value
+unsigned int mac_irq_check()
 {
   int v0; // r3
   unsigned int result; // r0

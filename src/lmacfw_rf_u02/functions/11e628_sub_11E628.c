@@ -14,8 +14,8 @@ extern uint32_t off_11E660;
 extern uint32_t off_11E664;
 extern uint32_t off_11E668;
 
-// sub_11E628 @ 0x11e628, size 54 bytes
-int  sub_11E628(int a1)
+// enter_critical_section @ 0x11e628, size 54 bytes
+int  enter_critical_section(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

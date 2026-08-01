@@ -17,8 +17,8 @@ extern uint32_t off_124AC8;
 extern uint32_t off_124ACC;
 extern uint32_t dword_124AD0;
 
-// sub_1249FC @ 0x1249fc, size 192 bytes
-int  sub_1249FC(uint8_t *a1)
+// mmio_read_byte @ 0x1249fc, size 192 bytes
+int  mmio_read_byte(uint8_t *a1)
 {
   int v1; // r1
   int v3; // r3
@@ -67,7 +67,7 @@ int  sub_1249FC(uint8_t *a1)
     v7 = (unsigned int)off_124ACC;
     *(uint32_t *)off_124ACC = *(uint32_t *)off_124ACC & 0xFF00FFFF | (v9 << 16);
   }
-  sub_12E948(dword_124AD0, v7, v9);
-  return sub_12E9D8(a1, 6, 1, 0);
+  alloc_tx_event(dword_124AD0, v7, v9);
+  return process_packet_params(a1, 6, 1, 0);
 }
 

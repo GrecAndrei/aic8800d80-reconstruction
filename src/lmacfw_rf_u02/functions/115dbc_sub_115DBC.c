@@ -19,8 +19,8 @@ extern uint32_t dword_115E80;
 extern uint32_t off_115E84;
 extern uint32_t off_115E94;
 
-// sub_115DBC @ 0x115dbc, size 186 bytes
-int sub_115DBC()
+// critical_section_exit @ 0x115dbc, size 186 bytes
+int critical_section_exit()
 {
   int *v0; // r10
   uint8_t *v1; // r5
@@ -56,7 +56,7 @@ int sub_115DBC()
   {
     if ( *((uint32_t *)v1 + 28) )
     {
-      sub_11532C((uint8_t)i);
+      radio_pdu_type_cfg((uint8_t)i);
       *(uint32_t *)(v4 + 4 * i) = *v2 + *(uint32_t *)(v3 + 4 * i);
       *v5 = 1 << i;
       if ( (__get_CPSR() & 1) == 0 )
@@ -94,6 +94,6 @@ int sub_115DBC()
         __enable_irq();
     }
   }
-  return sub_11E5E0(4096);
+  return set_busy_flag_alt(4096);
 }
 

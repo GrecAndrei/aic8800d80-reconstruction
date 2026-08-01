@@ -13,10 +13,10 @@
 extern uint32_t dword_111B98;
 extern uint32_t dword_111B9C;
 
-// sub_111B6C @ 0x111b6c, size 42 bytes
+// rf_reg_read @ 0x111b6c, size 42 bytes
 // Doc: rf_bus_setup_n_1e2 [rf]: Configure RF bus, check a status bit and load base address 0x40200900
 // rf_bus_setup_n_1e2 [rf]: Configure RF bus, check a status bit and load base address 0x40200900
-int  sub_111B6C(int a1, int a2)
+int  rf_reg_read(int a1, int a2)
 {
   uint32_t *v2; // r0
   int v4; // r0

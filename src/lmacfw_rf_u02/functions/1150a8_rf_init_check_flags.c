@@ -17,10 +17,10 @@ extern uint32_t dword_115204;
 extern uint32_t off_1151FC;
 extern uint32_t off_115208;
 
-// rf_init_check_flags @ 0x1150a8, size 330 bytes
-// Doc: rf_init_check_flags [rf]: Check RF initialization flag bit and dispatch based on status
-// rf_init_check_flags [rf]: Check RF initialization flag bit and dispatch based on status
-void  rf_init_check_flags(int a1, int a2)
+// mmio_wait_flag @ 0x1150a8, size 330 bytes
+// Doc: mmio_wait_flag [rf]: Check RF initialization flag bit and dispatch based on status
+// mmio_wait_flag [rf]: Check RF initialization flag bit and dispatch based on status
+void  mmio_wait_flag(int a1, int a2)
 {
   int v2; // r3
   int v3; // r2
@@ -31,7 +31,7 @@ void  rf_init_check_flags(int a1, int a2)
 
   v2 = **(uint16_t **)off_1151F4;
   if ( (v2 & 1) != 0 )
-    sub_1216EC(a1, a2, v2 << 31);
+    rf_init_phy(a1, a2, v2 << 31);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -41,9 +41,9 @@ void  rf_init_check_flags(int a1, int a2)
   v4 = dword_115204;
   v5 = *(uint32_t *)off_1151FC + 1;
   *(uint32_t *)off_1151FC = v5;
-  sub_11F74C(1024, v4, v3, v5);
-  v6 = sub_11E628(0x80000000);
-  message_dispatch_n2fe(v6);
+  check_interrupt_flag(1024, v4, v3, v5);
+  v6 = enter_critical_section(0x80000000);
+  rf_cmd_wait(v6);
   v7 = off_115208;
   *(uint32_t *)off_115208 &= 0xFFFFFFu;
   *v7 |= 0x10u;

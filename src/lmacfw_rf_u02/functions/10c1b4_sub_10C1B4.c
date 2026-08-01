@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_10C1B4 @ 0x10c1b4, size 56 bytes
-void  __noreturn sub_10C1B4(int a1, int a2)
+// call_tx_function @ 0x10c1b4, size 56 bytes
+void  __noreturn call_tx_function(int a1, int a2)
 {
-  sub_101E18(a1, a2, a2, 0);
+  rf_calibrate(a1, a2, a2, 0);
 }
 

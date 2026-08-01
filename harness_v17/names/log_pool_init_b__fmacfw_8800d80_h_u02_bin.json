@@ -1,1 +1,1 @@
-{"fn": "log_pool_init_b", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11004c", "status": "ok", "name": "log_pool_init_b", "params": [], "docstring": "Initialize log pool B using descriptors at 0x187e68/0x182ba0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_pool_init_b", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11004c", "status": "ok", "name": "get_noise_floor", "params": [], "docstring": "Initialize log pool B using descriptors at 0x187e68/0x182ba0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

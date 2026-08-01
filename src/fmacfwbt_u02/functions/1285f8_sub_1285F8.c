@@ -17,8 +17,8 @@ extern uint32_t off_12869C;
 extern uint32_t dword_1286A0;
 extern uint32_t dword_1286A4;
 
-// sub_1285F8 @ 0x1285f8, size 160 bytes
-int  sub_1285F8(int result)
+// bt_power_state @ 0x1285f8, size 160 bytes
+int  bt_power_state(int result)
 {
   int v1; // r7
   int v2; // r5
@@ -32,12 +32,12 @@ int  sub_1285F8(int result)
   v1 = *(uint32_t *)(result + 72);
   v2 = result;
   if ( **(int16_t **)off_128698 < 0 && !v1 )
-    result = sub_12F694(dword_1286AC, dword_1286A8, 3591);
+    result = mmio_irq_clear(dword_1286AC, dword_1286A8, 3591);
   v3 = off_12869C;
   if ( (*((uint8_t *)off_12869C + 88) & 0x20) == 0 && *((uint8_t *)off_12869C + 90) > 1u )
   {
     v4 = *(uint8_t *)(v2 + 116);
-    v5 = sub_12CB54(70, *((uint8_t *)off_12869C + 88) & 0x20, *((uint8_t *)off_12869C + 88) & 0x20, 20);
+    v5 = bt_buf_alloc(70, *((uint8_t *)off_12869C + 88) & 0x20, *((uint8_t *)off_12869C + 88) & 0x20, 20);
     *(uint8_t *)v5 = 0;
     *(uint8_t *)(v5 + 1) = *(uint8_t *)(v2 + 107);
     *(uint8_t *)(v5 + 2) = *(uint8_t *)(v1 + 4);
@@ -51,7 +51,7 @@ int  sub_1285F8(int result)
     *(uint8_t *)(v5 + 16) = *(uint8_t *)(v1 + 12);
     *(uint32_t *)(v5 + 12) = (unsigned int)(((unsigned int)dword_1286A4
                                          * (unsigned uint64_t)(unsigned int)(*(uint32_t *)(v8 + 696 * v4 + 8) - 5000)) >> 32) >> 6;
-    result = sub_12CBB4(v5);
+    result = hci_evt_send(v5);
     v3[88] |= 0x20u;
   }
   return result;

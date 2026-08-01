@@ -1,1 +1,1 @@
-{"fn": "sub_120F764", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f764", "status": "ok", "name": "send_msg_40d", "params": [], "docstring": "Send IPC message id 0x40d with params to task", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120F764", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f764", "status": "ok", "name": "send_cmd_040d", "params": [], "docstring": "Send IPC message id 0x40d with params to task", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

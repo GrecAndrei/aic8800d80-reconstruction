@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120fe60", "status": "ok", "name": "log_free_dispatch", "params": [], "docstring": "Free log dispatch buffer entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120fe60", "status": "ok", "name": "memory_pool_free", "params": [], "docstring": "Free log dispatch buffer entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -19,8 +19,8 @@ extern uint32_t dword_10DE78;
 extern uint32_t dword_10DE80;
 extern uint32_t dword_10DE84;
 
-// sub_10DDC8 @ 0x10ddc8, size 162 bytes
-int  sub_10DDC8(int result, int a2)
+// sdio_core_reset @ 0x10ddc8, size 162 bytes
+int  sdio_core_reset(int result, int a2)
 {
   uint32_t *v2; // r4
   uint32_t *v3; // r3
@@ -56,11 +56,11 @@ int  sub_10DDC8(int result, int a2)
       while ( v2[7] != 1 )
         ;
       v2[7] = 1;
-      v10 = sub_12752C(v2[4]);
-      v11 = sub_127620(v10, HIDWORD(v10), v6, HIDWORD(v6));
-      v12 = sub_127874(v11, HIDWORD(v11), v7, HIDWORD(v7));
-      v13 = sub_1272B0(v12, HIDWORD(v12), dword_10DE80, dword_10DE84);
-      result = sub_127BE4(v13);
+      v10 = double_to_float(v2[4]);
+      v11 = aeabi_dadd(v10, HIDWORD(v10), v6, HIDWORD(v6));
+      v12 = aeabi_dsub(v11, HIDWORD(v11), v7, HIDWORD(v7));
+      v13 = double_subtract(v12, HIDWORD(v12), dword_10DE80, dword_10DE84);
+      result = aeabi_dmul(v13);
       *v8++ = result;
     }
     while ( v8 != v9 );

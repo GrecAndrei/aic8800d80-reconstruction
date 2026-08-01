@@ -13,8 +13,8 @@
 extern uint32_t off_116C8C;
 extern uint32_t off_116C90;
 
-// sub_116C6C @ 0x116c6c, size 30 bytes
-int sub_116C6C()
+// hw_timer_load @ 0x116c6c, size 30 bytes
+int hw_timer_load()
 {
   uint8_t *v0; // r4
   unsigned int *v1; // r2

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_112DCC @ 0x112dcc, size 126 bytes
+// critical_enter @ 0x112dcc, size 126 bytes
 // Doc: rf_stream_start2_n_41a [rf]: Start RF stream variant 2
 // rf_stream_start2_n_41a [rf]: Start RF stream variant 2
-void sub_112DCC()
+void critical_enter()
 {
   int *v0; // r4
   int v1; // r2

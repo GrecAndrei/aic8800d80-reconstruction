@@ -12,8 +12,8 @@
 
 extern uint32_t off_136888;
 
-// sub_13684C @ 0x13684c, size 58 bytes
-uint32_t *sub_13684C()
+// send_hci_command @ 0x13684c, size 58 bytes
+uint32_t *send_hci_command()
 {
   int v0; // r4
   int v1; // r0
@@ -21,7 +21,7 @@ uint32_t *sub_13684C()
   int16_t v3; // r2
 
   v0 = *(uint32_t *)off_136888;
-  v1 = sub_12C7EC(63, 0, 7, 0xCu);
+  v1 = tx_send_pdu(63, 0, 7, 0xCu);
   v2 = *(uint16_t *)(v0 + 36);
   v3 = *(uint16_t *)(v0 + 38);
   *(uint32_t *)v1 = *(uint32_t *)(v0 + 32);
@@ -29,7 +29,7 @@ uint32_t *sub_13684C()
   *(uint16_t *)(v1 + 6) = v3;
   *(uint8_t *)(v1 + 8) = *(uint8_t *)(v0 + 50);
   *(uint8_t *)(v1 + 9) = *(uint8_t *)(v0 + 51);
-  sub_12C84C(v1);
-  return sub_12CBF4(7u, 2);
+  rx_process_packet(v1);
+  return hci_cmd_preprocess(7u, 2);
 }
 

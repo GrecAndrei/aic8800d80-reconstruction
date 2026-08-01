@@ -13,10 +13,10 @@
 extern uint32_t dword_13A97C;
 extern uint32_t dword_13A978;
 
-// fmac_init_handler @ 0x13a704, size 626 bytes
-// Doc: fmac_init_handler [unknown]: firmware init/boot entry handler
-// fmac_init_handler [unknown]: firmware init/boot entry handler
-int  fmac_init_handler(int a1, int a2)
+// rf_apply_chan_cfg @ 0x13a704, size 626 bytes
+// Doc: rf_apply_chan_cfg [unknown]: firmware init/boot entry handler
+// rf_apply_chan_cfg [unknown]: firmware init/boot entry handler
+int  rf_apply_chan_cfg(int a1, int a2)
 {
   int v2; // r11
   int v3; // r10
@@ -74,7 +74,7 @@ int  fmac_init_handler(int a1, int a2)
       goto LABEL_26;
     }
     v33 = **(uint32_t **)(v7 + 188);
-    v29 = sub_11C364(a1, dword_13A97C + 696 * v2);
+    v29 = get_phy_descriptor(a1, dword_13A97C + 696 * v2);
     v10 = v33;
     *(uint32_t *)(a2 - 4) = v29;
     v13 = 0x8000;

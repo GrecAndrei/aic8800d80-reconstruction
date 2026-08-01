@@ -12,9 +12,9 @@
 
 extern uint32_t dword_12F4B4;
 
-// sub_12F49C @ 0x12f49c, size 22 bytes
-int  sub_12F49C(int a1, int a2, int a3)
+// call_shared_handler @ 0x12f49c, size 22 bytes
+int  call_shared_handler(int a1, int a2, int a3)
 {
-  return msg_parse(dword_12F4B4, a1, a2, a3 & 0xFFFFF);
+  return event_dispatch(dword_12F4B4, a1, a2, a3 & 0xFFFFF);
 }
 

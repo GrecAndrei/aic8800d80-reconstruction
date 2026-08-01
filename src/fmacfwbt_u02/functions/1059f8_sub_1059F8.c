@@ -51,10 +51,10 @@ extern uint32_t off_106064;
 extern uint32_t off_106068;
 extern uint32_t off_106240;
 
-// sub_1059F8 @ 0x1059f8, size 2120 bytes
+// rf_init @ 0x1059f8, size 2120 bytes
 // Doc: sub_12059F8 [mmio]: Complex MMIO register initialization sequence
 // sub_12059F8 [mmio]: Complex MMIO register initialization sequence
-unsigned int * sub_1059F8(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6)
+unsigned int * rf_init(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6)
 {
   uint32_t *v6; // lr
   unsigned int *v7; // r4
@@ -257,7 +257,7 @@ LABEL_3:
   *(uint32_t *)off_105CD8 = *(uint32_t *)off_105CD8 & 0xFFFE00FF | 0x100;
   *v19 |= 0x20000u;
   *v19 |= 0x40000u;
-  feature_guard_sdio(1, v20);
+  state_check_feature(1, v20);
   v34 = off_105CE4;
   v24 = off_105CEC;
   v25 = *(uint32_t *)off_105CE8;
@@ -351,9 +351,9 @@ LABEL_3:
   v40 -= 465770;
   *(uint32_t *)&v39[-28] |= 0x400000u;
   *v40 &= ~0x100u;
-  crypto_hw_clk_toggle();
-  feature_guard_sdio(1, dword_106030);
-  crypto_key_load(dword_106034 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_106034);
+  rf_lo_cal_clear();
+  state_check_feature(1, dword_106030);
+  radio_irq_setup(dword_106034 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_106034);
   *v40 &= ~0x200u;
   *v40 |= 0x200u;
   *v40 &= ~0x200u;
@@ -396,26 +396,26 @@ LABEL_3:
   v48 = (unsigned int *)off_106038;
   v49 = (unsigned int *)off_106040;
   v50 = (unsigned int *)off_106020;
-  feature_guard_sdio(1, dword_10603C);
-  crypto_table_init_3e84(a2, v47, a6);
+  state_check_feature(1, dword_10603C);
+  mac_tx_wait_ack(a2, v47, a6);
   v51 = (unsigned int *)off_106048;
-  feature_guard_sdio(1, dword_106044);
+  state_check_feature(1, dword_106044);
   *v48 = v45 | v46 | (a4 << 8) | 0x3F4080;
-  crypto_hw_reset_seq();
+  mac_irq_handler();
   v52 = (unsigned int *)off_106050;
   v53 = (unsigned int *)off_106024;
   v54 = (unsigned int *)off_10602C;
-  feature_guard_sdio(1, dword_10604C);
+  state_check_feature(1, dword_10604C);
   v55 = off_106054;
   *v49 &= ~0x200u;
   *v49 |= 0x200u;
   *v49 &= ~0x200u;
   *v55 |= 0x10000000u;
-  delay_us(6500);
-  crypto_calibrate();
+  timer_set(6500);
+  rf_power_on_reset();
   *v51 = *v51 & 0xFFBFFFFF | (v113 << 22);
   *v51 = *v51 & 0xFFDFFFFF | (v112 << 21);
-  mmio_config_clear_bits_n_0f0();
+  mac_irq_pending_clear();
   v56 = (unsigned int *)off_106058;
   v57 = (unsigned int *)off_106060;
   v58 = (unsigned int *)off_10605C;

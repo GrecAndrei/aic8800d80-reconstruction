@@ -12,17 +12,17 @@
 
 extern uint32_t off_125FE8;
 
-// sub_125FBC @ 0x125fbc, size 42 bytes
-int  sub_125FBC(int a1)
+// send_hci_cmd @ 0x125fbc, size 42 bytes
+int  send_hci_cmd(int a1)
 {
   uint8_t *v2; // r0
   uint32_t *v3; // r2
 
-  v2 = (uint8_t *)sub_12CB54(72, *(uint16_t *)(a1 + 14), 0, 2);
+  v2 = (uint8_t *)bt_buf_alloc(72, *(uint16_t *)(a1 + 14), 0, 2);
   v2[1] = *(uint8_t *)(a1 + 24);
   v3 = off_125FE8;
   *v2 = *(uint8_t *)(a1 + 26);
   *v3 &= ~4u;
-  return sub_12CBB4(v2);
+  return hci_evt_send(v2);
 }
 

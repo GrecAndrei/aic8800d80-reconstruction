@@ -18,8 +18,8 @@ extern uint32_t dword_126CD0;
 extern uint32_t off_126CD4;
 extern uint32_t dword_126CD8;
 
-// sub_126BC4 @ 0x126bc4, size 250 bytes
-int  sub_126BC4(int a1)
+// llc_rx_complete @ 0x126bc4, size 250 bytes
+int  llc_rx_complete(int a1)
 {
   uint32_t *v1; // r6
   int *v2; // r4
@@ -74,7 +74,7 @@ int  sub_126BC4(int a1)
       }
       v12 = *(uint8_t *)(v4 + 16);
       *(uint8_t *)(v4 + 16) = 6;
-      if ( !sub_118F4C(v11, v8, 0) )
+      if ( !phy_is_channel_valid(v11, v8, 0) )
       {
         ++v7;
         *v9 = 1;
@@ -92,7 +92,7 @@ LABEL_16:
   v15 = v7 - v13;
   if ( !v14 )
   {
-    sub_120FA4();
+    rf_write_reg();
     if ( v7 )
     {
       v15 = 0;
@@ -104,7 +104,7 @@ LABEL_16:
   if ( !v15 )
     return v15;
   *(uint8_t *)(v14 + 16) = 3;
-  sub_120FA4();
+  rf_write_reg();
   return v15;
 }
 

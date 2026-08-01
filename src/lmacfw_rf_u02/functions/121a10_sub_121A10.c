@@ -13,8 +13,8 @@
 extern uint32_t off_121A38;
 extern uint32_t off_121A3C;
 
-// sub_121A10 @ 0x121a10, size 40 bytes
-void sub_121A10()
+// ke_int_unlock @ 0x121a10, size 40 bytes
+void ke_int_unlock()
 {
   uint32_t *v0; // r3
   int v1; // r2

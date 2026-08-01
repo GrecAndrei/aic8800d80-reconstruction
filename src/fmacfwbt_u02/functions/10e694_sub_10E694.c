@@ -17,8 +17,8 @@ extern uint32_t dword_10E840;
 extern uint32_t dword_10E844;
 extern uint32_t dword_10E848;
 
-// sub_10E694 @ 0x10e694, size 416 bytes
-int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
+// gpio_set_pin_mode @ 0x10e694, size 416 bytes
+int  gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r4
   unsigned int *v4; // r6
@@ -48,8 +48,8 @@ int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
   v8 = (int16_t *)off_10E83C;
-  v9 = sub_10DF08();
-  sub_12ECB0(dword_10E840, a1, a2);
+  v9 = radio_setup();
+  ke_event_schedule(dword_10E840, a1, a2);
   v10 = *v8;
   if ( v10 > v9 )
   {
@@ -84,8 +84,8 @@ int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
     *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
     *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
     v15 = v9;
-    v9 = sub_10DF08();
-    sub_12ECB0(dword_10E844, v13, v3);
+    v9 = radio_setup();
+    ke_event_schedule(dword_10E844, v13, v3);
     v16 = *(int16_t *)off_10E83C;
     v17 = v9 - v16;
     v18 = v15 - v16;
@@ -107,7 +107,7 @@ int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
     v13 = v24;
     *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  sub_12ECB0(dword_10E848, v20, v13 - v21);
+  ke_event_schedule(dword_10E848, v20, v13 - v21);
 LABEL_9:
   *a3 = v3;
   return v20;

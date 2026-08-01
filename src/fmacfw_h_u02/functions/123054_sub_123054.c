@@ -13,17 +13,17 @@
 extern uint32_t dword_12308C;
 extern uint32_t dword_123090;
 
-// sub_123054 @ 0x123054, size 56 bytes
-int  sub_123054(int a1, int a2, int a3, int a4)
+// ke_send_msg_85 @ 0x123054, size 56 bytes
+int  ke_send_msg_85(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r4
   unsigned int v5; // r0
 
-  v4 = (uint8_t *)sub_12C7EC(133, a4, a3, 1);
-  v5 = sub_10EC44(dword_12308C, 1);
+  v4 = (uint8_t *)tx_send_pdu(133, a4, a3, 1);
+  v5 = mmio_read32(dword_12308C, 1);
   *v4 = (BYTE2(v5) ^ 1) & 1;
-  sub_12E948(dword_123090, v5, HIWORD(v5) & 1);
-  sub_12C84C(v4);
+  alloc_tx_event(dword_123090, v5, HIWORD(v5) & 1);
+  rx_process_packet(v4);
   return 0;
 }
 

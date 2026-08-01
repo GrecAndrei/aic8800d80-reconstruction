@@ -1,1 +1,1 @@
-{"fn": "sub_120CEF4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120cef4", "status": "ok", "name": "rf_efuse_read_word_n_ce4", "params": [], "docstring": "Loads pointer table and reads eFuse/RF configuration word at offset 0x214", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120CEF4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120cef4", "status": "ok", "name": "poll_hw_status", "params": [], "docstring": "Loads pointer table and reads eFuse/RF configuration word at offset 0x214", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

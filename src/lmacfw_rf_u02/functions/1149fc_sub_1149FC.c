@@ -14,8 +14,8 @@ extern uint32_t off_114A34;
 extern uint32_t off_114A38;
 extern uint32_t off_114A3C;
 
-// sub_1149FC @ 0x1149fc, size 56 bytes
-int  sub_1149FC(int a1)
+// osal_int_exit @ 0x1149fc, size 56 bytes
+int  osal_int_exit(int a1)
 {
   BOOL v1; // r0
   int *v2; // r4

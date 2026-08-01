@@ -14,10 +14,10 @@ extern uint32_t off_10D640;
 extern uint32_t off_10D63C;
 extern uint32_t dword_10D644;
 
-// irq23_enable_d628 @ 0x10d628, size 20 bytes
-// Doc: irq23_enable_d628 [mmio]: Set pending bit 0x200000 in NVIC ISER to enable IRQ23
-// irq23_enable_d628 [mmio]: Set pending bit 0x200000 in NVIC ISER to enable IRQ23
-void irq23_enable_d628()
+// irq_install_handler @ 0x10d628, size 20 bytes
+// Doc: irq_install_handler [mmio]: Set pending bit 0x200000 in NVIC ISER to enable IRQ23
+// irq_install_handler [mmio]: Set pending bit 0x200000 in NVIC ISER to enable IRQ23
+void irq_install_handler()
 {
   uint32_t *v0; // r3
 

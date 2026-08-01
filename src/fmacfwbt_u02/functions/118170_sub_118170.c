@@ -23,8 +23,8 @@ extern uint32_t dword_118310;
 extern uint32_t dword_118314;
 extern uint32_t off_11830C;
 
-// sub_118170 @ 0x118170, size 380 bytes
-void  sub_118170(int a1, uint32_t *a2)
+// timer_check_state @ 0x118170, size 380 bytes
+void  timer_check_state(int a1, uint32_t *a2)
 {
   int v2; // r3
   int v3; // r2
@@ -57,13 +57,13 @@ void  sub_118170(int a1, uint32_t *a2)
     switch ( v3 )
     {
       case 2:
-        v6 = (uint8_t *)sub_113864();
+        v6 = (uint8_t *)int_disable_set_flag();
         if ( v6 )
         {
           v7 = off_118318;
           if ( *((uint32_t *)off_118318 + 2057) )
           {
-            v8 = sub_12D4F8(dword_1182F0);
+            v8 = list_pop_front(dword_1182F0);
             *v6 = 8;
             v6[1] = 0;
             v6[3] = 0;
@@ -72,7 +72,7 @@ void  sub_118170(int a1, uint32_t *a2)
             v10 = v8;
             v26 = *(uint32_t *)(a1 + 84) & 0x3FFFFFFF;
             v25 = v9;
-            sub_14380C(v6 + 4, &v25, 8);
+            memcpy_aligned(v6 + 4, &v25, 8);
             v11 = *((uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -107,9 +107,9 @@ void  sub_118170(int a1, uint32_t *a2)
             v18 = *(uint16_t *)(a1 + 32);
             v19 = dword_118304;
             ++*(uint32_t *)off_118300;
-            sub_12ECB0(v19, a1, v18);
-            v20 = sub_12D470(dword_118308);
-            sub_113310(v20, v21);
+            ke_event_schedule(v19, a1, v18);
+            v20 = check_abort_flag(dword_118308);
+            rf_calib_init(v20, v21);
             if ( *v17 )
             {
               v22 = *v17 - 1;
@@ -124,24 +124,24 @@ void  sub_118170(int a1, uint32_t *a2)
           }
           else
           {
-            sub_10DA7C(dword_118310);
+            printf_wrapper(dword_118310);
           }
         }
         else
         {
-          sub_10DA7C(dword_118314);
+          printf_wrapper(dword_118314);
         }
         break;
       case 1:
         v24 = *a2 & 0xF;
         v26 = v2 & 0x3FFFFFFF;
         v25 = v24;
-        sub_1110CC(18, (int)&v25, 8);
-        sub_12ECB0(dword_118304, a1, *(uint16_t *)(a1 + 32));
+        ke_mem_alloc(18, (int)&v25, 8);
+        ke_event_schedule(dword_118304, a1, *(uint16_t *)(a1 + 32));
         break;
       case 3:
         **(uint32_t **)off_11830C = *a2 & 0xF;
-        sub_10CAEC();
+        pmu_ctrl_write_256();
         break;
     }
   }

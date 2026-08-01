@@ -21,10 +21,10 @@ extern uint32_t off_1040E4;
 extern uint32_t off_1040E8;
 extern uint32_t dword_1040EC;
 
-// crypto_hw_reset_seq @ 0x103ff0, size 214 bytes
-// Doc: crypto_hw_reset_seq [ke]: Crypto engine hardware reset sequence across MMIO registers
-// crypto_hw_reset_seq [ke]: Crypto engine hardware reset sequence across MMIO registers
-uint32_t *crypto_hw_reset_seq()
+// mac_irq_handler @ 0x103ff0, size 214 bytes
+// Doc: mac_irq_handler [ke]: Crypto engine hardware reset sequence across MMIO registers
+// mac_irq_handler [ke]: Crypto engine hardware reset sequence across MMIO registers
+uint32_t *mac_irq_handler()
 {
   unsigned int *v0; // r4
   unsigned int *v1; // r0
@@ -50,7 +50,7 @@ uint32_t *crypto_hw_reset_seq()
   v0 -= 136;
   *v4 |= 0x2000000u;
   *v0 &= ~0x20000u;
-  delay_us(2);
+  timer_set(2);
   v6 = off_1040E0;
   result = off_1040E4;
   v8 = off_1040E8;

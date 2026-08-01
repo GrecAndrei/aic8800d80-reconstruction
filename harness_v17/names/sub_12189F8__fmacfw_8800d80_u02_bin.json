@@ -1,1 +1,1 @@
-{"fn": "sub_12189F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12189f8", "status": "ok", "name": "fmac_buffer_init_n_setup", "params": [], "docstring": "Initialize FMAC buffer structures and call sub-init with large constant", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12189F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12189f8", "status": "ok", "name": "rf_pll_lock", "params": [], "docstring": "Initialize FMAC buffer structures and call sub-init with large constant", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

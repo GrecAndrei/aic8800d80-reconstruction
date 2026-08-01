@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12D644;
 
-// sub_12D5CC @ 0x12d5cc, size 120 bytes
-float  sub_12D5CC(float a1)
+// read_config_block @ 0x12d5cc, size 120 bytes
+float  read_config_block(float a1)
 {
   int v1; // r1
   int v2; // r2

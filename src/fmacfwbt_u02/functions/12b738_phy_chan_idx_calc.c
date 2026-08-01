@@ -12,10 +12,10 @@
 
 extern uint32_t off_12B748;
 
-// phy_chan_idx_calc @ 0x12b738, size 16 bytes
-// Doc: phy_chan_idx_calc [rf]: compute channel index/offset from PHY state struct
-// phy_chan_idx_calc [rf]: compute channel index/offset from PHY state struct
-int phy_chan_idx_calc()
+// bt_get_active_conn @ 0x12b738, size 16 bytes
+// Doc: bt_get_active_conn [rf]: compute channel index/offset from PHY state struct
+// bt_get_active_conn [rf]: compute channel index/offset from PHY state struct
+int bt_get_active_conn()
 {
   return *(uint32_t *)off_12B748 + 6 * *((uint8_t *)off_12B748 + 10);
 }

@@ -1,1 +1,1 @@
-{"fn": "sub_12105FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12105fc", "status": "ok", "name": "bt_fmac_init_struct", "params": [], "docstring": "Initialize FMAC/BT linked-list struct to zero", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12105FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12105fc", "status": "ok", "name": "ke_event_init", "params": [], "docstring": "Initialize FMAC/BT linked-list struct to zero", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

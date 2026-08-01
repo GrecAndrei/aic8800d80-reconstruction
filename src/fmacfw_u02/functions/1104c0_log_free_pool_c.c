@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_free_pool_c @ 0x1104c0, size 54 bytes
+// is_park_mode @ 0x1104c0, size 54 bytes
 // Doc: sub_1204FE0 [unknown]: Helper comparing two pointers/handles with extra arg
 // sub_1204FE0 [unknown]: Helper comparing two pointers/handles with extra arg
-int log_free_pool_c()
+int is_park_mode()
 {
   int *v0; // r4
   int v1; // r0
@@ -29,7 +29,7 @@ int log_free_pool_c()
   v0 = (int *)log_free_dispatch_n4f4;
   v1 = log_free_dispatch_n4f8;
   ++*(uint32_t *)log_free_dispatch_n4f4;
-  result = list_push_tail(v1);
+  result = cmd_handler_a(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

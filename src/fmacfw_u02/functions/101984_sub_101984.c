@@ -13,8 +13,8 @@
 extern uint32_t off_101998;
 extern uint32_t off_101994;
 
-// sub_101984 @ 0x101984, size 14 bytes
-uint32_t * sub_101984(uint32_t *result, uint32_t *a2)
+// rf_read_timestamps @ 0x101984, size 14 bytes
+uint32_t * rf_read_timestamps(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

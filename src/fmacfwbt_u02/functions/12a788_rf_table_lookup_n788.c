@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12A7F0;
 
-// rf_table_lookup_n788 @ 0x12a788, size 102 bytes
-// Doc: rf_table_lookup_n788 [rf]: Looks up RF calibration entry from indexed table
-// rf_table_lookup_n788 [rf]: Looks up RF calibration entry from indexed table
-char * rf_table_lookup_n788(int a1)
+// bt_conn_get_flag @ 0x12a788, size 102 bytes
+// Doc: bt_conn_get_flag [rf]: Looks up RF calibration entry from indexed table
+// bt_conn_get_flag [rf]: Looks up RF calibration entry from indexed table
+char * bt_conn_get_flag(int a1)
 {
   int v1; // r7
   int v2; // r4
@@ -31,15 +31,15 @@ char * rf_table_lookup_n788(int a1)
   v3[115] = 0;
   if ( v4 )
   {
-    timestamp_remove_058(140 * v2 + 96 + v1);
+    ke_event_set_lock(140 * v2 + 96 + v1);
     v3[114] = 0;
   }
-  sub_129A28(v3);
+  state_machine_step(v3);
   v5 = v1 + 140 * v2;
   if ( *(uint8_t *)(v5 + 121) )
     v6 = 3;
   else
     v6 = 2;
-  return sub_125EFC(*(uint8_t *)(v5 + 113), v6);
+  return set_flag_byte(*(uint8_t *)(v5 + 113), v6);
 }
 

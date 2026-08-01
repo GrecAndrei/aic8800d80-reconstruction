@@ -14,8 +14,8 @@ extern uint32_t dword_12B5B4;
 extern uint32_t off_12B5B8;
 extern uint32_t dword_12B5B0;
 
-// sub_12B4D4 @ 0x12b4d4, size 218 bytes
-int  sub_12B4D4(int a1, int a2, int a3)
+// bt_get_conn_entry @ 0x12b4d4, size 218 bytes
+int  bt_get_conn_entry(int a1, int a2, int a3)
 {
   int v3; // r9
   int v4; // r3
@@ -37,7 +37,7 @@ int  sub_12B4D4(int a1, int a2, int a3)
   v6 = *(uint8_t *)(v4 + 116);
   if ( *(uint8_t *)(v4 + 1224) )
   {
-    result = sub_119084(1, 26);
+    result = event_notify(1, 26);
     v12 = result;
     if ( result )
     {
@@ -71,7 +71,7 @@ LABEL_5:
       *(uint8_t *)(v12 + 29) = *(uint8_t *)(v14 + 35);
       *(uint32_t *)(v12 + 88) = a2;
       *(uint32_t *)(v12 + 92) = a3;
-      return sub_1190B4(v12, 5);
+      return ble_event_dispatch(v12, 5);
     }
   }
   else
@@ -80,7 +80,7 @@ LABEL_5:
     v10 = *(uint8_t *)(v9 + 4);
     if ( *(uint8_t *)(v9 + 4) )
       v10 = 1;
-    result = sub_119084(v10, 26);
+    result = event_notify(v10, 26);
     v12 = result;
     if ( result )
       goto LABEL_5;

@@ -19,8 +19,8 @@ extern uint32_t off_1144EC;
 extern uint32_t off_1144F0;
 extern uint32_t dword_1144F8;
 
-// sub_11446C @ 0x11446c, size 110 bytes
-int  sub_11446C(int result)
+// default_handler @ 0x11446c, size 110 bytes
+int  default_handler(int result)
 {
   if ( !result )
   {
@@ -28,7 +28,7 @@ int  sub_11446C(int result)
       && (result = *((uint32_t *)off_1144E0 + 4),
           *(uint32_t *)(*(uint32_t *)off_1144DC + 12) - result - *((uint16_t *)off_1144E4 + 92) - 2000 < 0) )
     {
-      result = sub_12EB90(2, dword_1144F4);
+      result = check_feature_flag(2, dword_1144F4);
     }
     else
     {
@@ -43,7 +43,7 @@ int  sub_11446C(int result)
         *(uint32_t *)off_1144F0 = 0x40000000;
         return result;
       }
-      result = sub_12EB90(2, dword_1144F8);
+      result = check_feature_flag(2, dword_1144F8);
     }
   }
   *(uint32_t *)off_1144F0 = 0x80000000;

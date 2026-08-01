@@ -17,10 +17,10 @@ extern uint32_t off_115AD8;
 extern uint32_t off_115AE0;
 extern uint32_t off_115ACC;
 
-// ipc_doorbell_handler @ 0x11597c, size 300 bytes
+// gpio_read_input @ 0x11597c, size 300 bytes
 // Doc: ipc_doorbell_irq_handler_5a6a [ipc]: Handles IPC doorbell interrupt by setting MMIO flags
 // ipc_doorbell_irq_handler_5a6a [ipc]: Handles IPC doorbell interrupt by setting MMIO flags
-uint8_t *ipc_doorbell_handler()
+uint8_t *gpio_read_input()
 {
   uint32_t *v0; // r4
   uint8_t *v1; // r5
@@ -43,7 +43,7 @@ uint8_t *ipc_doorbell_handler()
   v1 = ipc_doorbell_handler_aac;
   v2 = ipc_doorbell_handler_n134;
   *(uint8_t *)ipc_doorbell_handler_aac = *(uint8_t *)ipc_doorbell_handler_n12c & 0xF;
-  feature_guard_check(2, v2);
+  check_status_bits(2, v2);
   if ( *v0 << 28 )
   {
     v3 = ipc_doorbell_handler_n13c;
@@ -80,7 +80,7 @@ uint8_t *ipc_doorbell_handler()
   }
   else if ( v10 == 1 )
   {
-    sdio_wait_busy_clear();
+    ipc_wait_flag();
     v15 = off_115AE0;
     *(uint32_t *)ipc_doorbell_isr_entry |= 0x20u;
     v15[20] |= 0x20000u;

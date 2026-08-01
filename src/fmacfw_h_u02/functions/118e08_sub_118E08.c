@@ -16,8 +16,8 @@ extern uint32_t off_118F3C;
 extern uint32_t dword_118F44;
 extern uint32_t dword_118F40;
 
-// sub_118E08 @ 0x118e08, size 304 bytes
-int  sub_118E08(int a1, int16_t a2, int a3, int a4)
+// phy_set_channel @ 0x118e08, size 304 bytes
+int  phy_set_channel(int a1, int16_t a2, int a3, int a4)
 {
   int v4; // r11
   int v5; // r4
@@ -44,24 +44,24 @@ int  sub_118E08(int a1, int16_t a2, int a3, int a4)
     if ( **(int16_t **)off_118F3C >= 0 )
     {
 LABEL_10:
-      v13 = sub_118B04(1, 26);
+      v13 = lock_acquire(1, 26);
       if ( !v13 )
         return 1;
       goto LABEL_4;
     }
 LABEL_9:
-    sub_12F32C(dword_118F44, dword_118F40, 520);
+    irq_disable_mmio_write(dword_118F44, dword_118F40, 520);
     goto LABEL_10;
   }
   v12 = *(uint8_t *)(v9 + 4);
   if ( **(int16_t **)off_118F3C < 0 && v12 == 2 )
     goto LABEL_9;
-  v13 = sub_118B04((*(uint8_t *)(dword_118F38 + 1320 * v7 + 1224) | v12) != 0, 26);
+  v13 = lock_acquire((*(uint8_t *)(dword_118F38 + 1320 * v7 + 1224) | v12) != 0, 26);
   if ( !v13 )
     return 1;
 LABEL_4:
   v14 = v5 + 1320 * v7;
-  sub_12C3A8(v14, v13);
+  get_status_flag_c5(v14, v13);
   v15 = v4 + 696 * a1;
   v16 = *(uint32_t *)(v13 + 72);
   v17 = *(uint32_t *)(v15 + 38);
@@ -97,7 +97,7 @@ LABEL_4:
   *(uint32_t *)(v13 + 92) = a4;
   *(uint8_t *)(v13 + 28) = v22;
   *(uint8_t *)(v13 + 29) = a1;
-  sub_118B34(v13, 5);
+  sec_check(v13, 5);
   return 0;
 }
 

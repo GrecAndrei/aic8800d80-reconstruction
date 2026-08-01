@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A560;
 
-// sub_12A528 @ 0x12a528, size 54 bytes
-uint8_t * sub_12A528(int a1, uint8_t a2)
+// llc_get_conn_state @ 0x12a528, size 54 bytes
+uint8_t * llc_get_conn_state(int a1, uint8_t a2)
 {
   int v2; // r5
   int v3; // r4
@@ -26,7 +26,7 @@ uint8_t * sub_12A528(int a1, uint8_t a2)
   v5 = v4[113];
   v4[115] = a2;
   v4[114] = 1;
-  sub_125CD8(v5, 3);
-  return sub_129804((uint8_t *)(v2 + 140 * v3));
+  ke_queue_front(v5, 3);
+  return wlc_rx_process((uint8_t *)(v2 + 140 * v3));
 }
 

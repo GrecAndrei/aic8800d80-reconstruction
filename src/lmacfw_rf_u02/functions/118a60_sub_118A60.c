@@ -27,10 +27,10 @@ extern uint32_t dword_118C8C;
 extern uint32_t dword_118C88;
 extern uint32_t off_118C7C;
 
-// sub_118A60 @ 0x118a60, size 496 bytes
+// handle_hci_event @ 0x118a60, size 496 bytes
 // Doc: sub_1218A60 [scan]: Scans structure fields (byte at +1, byte at +0x29) and branches on 0xff sentinel
 // sub_1218A60 [scan]: Scans structure fields (byte at +1, byte at +0x29) and branches on 0xff sentinel
-int  sub_118A60(char *a1)
+int  handle_hci_event(char *a1)
 {
   unsigned int v1; // r7
   int v2; // r5
@@ -68,17 +68,17 @@ int  sub_118A60(char *a1)
     *(uint32_t *)off_118C5C = -1;
     *v16 = -1;
     v7 = (uint8_t)(v17 + 4 * v2);
-    sub_11F74C(256, v18, (uint8_t)a1[41], (uint8_t)a1[40]);
+    check_interrupt_flag(256, v18, (uint8_t)a1[41], (uint8_t)a1[40]);
   }
   else
   {
     if ( **(int16_t **)off_118C50 < 0 && v1 > 3 )
-      rf_cmd_send_n264(dword_118C68, dword_118C64, 1424);
-    sub_11F74C(256, dword_118C54, v1, (uint8_t)a1[40]);
+      flash_ctrl_init(dword_118C68, dword_118C64, 1424);
+    check_interrupt_flag(256, dword_118C54, v1, (uint8_t)a1[40]);
     v4 = *(uint32_t *)(dword_118C58 + 4);
     v24 = *(uint32_t *)dword_118C58;
     v25 = v4;
-    sub_1282E8(&v26, &v24, 6);
+    memcpy_large(&v26, &v24, 6);
     v5 = off_118C60;
     v6 = v27;
     *(uint32_t *)off_118C5C = v26;
@@ -165,7 +165,7 @@ LABEL_19:
       break;
     default:
       if ( **(int16_t **)off_118C50 < 0 )
-        rf_cmd_send_n264(dword_118C8C, dword_118C88, 159);
+        flash_ctrl_init(dword_118C8C, dword_118C88, 159);
       v11 = 0;
       v12 = 4096;
 LABEL_21:

@@ -16,8 +16,8 @@ extern uint32_t off_11D860;
 extern uint32_t off_11D854;
 extern uint32_t dword_11D858;
 
-// sub_11D7AC @ 0x11d7ac, size 162 bytes
-int sub_11D7AC()
+// dma_ring_alloc_1 @ 0x11d7ac, size 162 bytes
+int dma_ring_alloc_1()
 {
   int *v0; // r5
   int v1; // r4
@@ -32,7 +32,7 @@ int sub_11D7AC()
 
   v0 = (int *)off_11D850;
   v1 = *(uint32_t *)off_11D850;
-  result = sub_12D00C(0x200000);
+  result = irq_disable_global_3(0x200000);
   if ( v1 )
   {
     v3 = (int *)off_11D85C;
@@ -46,7 +46,7 @@ int sub_11D7AC()
           break;
         v5 = 1;
       }
-      sub_12D190(v0);
+      list_pop(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -59,7 +59,7 @@ int sub_11D7AC()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_11DF74();
+        result = phy_rate_get();
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -78,8 +78,8 @@ int sub_11D7AC()
   v9 = off_11D854;
   if ( *((uint8_t *)off_11D854 + 69) )
   {
-    sub_12CFC4(0x80000);
-    result = sub_12EB90(1024, dword_11D858);
+    irq_disable_global_2(0x80000);
+    result = check_feature_flag(1024, dword_11D858);
     v9[69] = 0;
   }
   return result;

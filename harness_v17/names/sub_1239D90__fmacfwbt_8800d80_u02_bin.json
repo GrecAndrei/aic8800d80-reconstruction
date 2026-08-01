@@ -1,1 +1,1 @@
-{"fn": "sub_1239D90", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239d90", "status": "ok", "name": "bt_core_subsystems_init", "params": [], "docstring": "Initialize BT core subsystem tables/structures", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1239D90", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239d90", "status": "ok", "name": "init_driver_locks", "params": [], "docstring": "Initialize BT core subsystem tables/structures", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

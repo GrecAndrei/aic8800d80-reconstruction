@@ -25,10 +25,10 @@ extern uint32_t off_11CA80;
 extern uint32_t off_11CA84;
 extern uint32_t off_11CA88;
 
-// log_free_pool_dispatch2_c8e4 @ 0x11c8e4, size 376 bytes
-// Doc: log_free_pool_dispatch2_c8e4 [util]: Dispatch a free-pool log entry with 3 halfword fields
-// log_free_pool_dispatch2_c8e4 [util]: Dispatch a free-pool log entry with 3 halfword fields
-void log_free_pool_dispatch2_c8e4()
+// reset_radio_core @ 0x11c8e4, size 376 bytes
+// Doc: reset_radio_core [util]: Dispatch a free-pool log entry with 3 halfword fields
+// reset_radio_core [util]: Dispatch a free-pool log entry with 3 halfword fields
+void reset_radio_core()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r7
@@ -71,8 +71,8 @@ void log_free_pool_dispatch2_c8e4()
 LABEL_5:
       v6 = v4 + 84 * v3;
       *(uint16_t *)(*(uint32_t *)(v6 + 36) + 8) |= 0x10u;
-      rf_bus_mark_n100_d2d0(v6 + 28);
-      irq_nesting_or_d104(*(uint32_t *)(dword_11CA6C + 4 * v3));
+      mem_word_load(v6 + 28);
+      unknown_func_12d104(*(uint32_t *)(dword_11CA6C + 4 * v3));
       *(uint8_t *)(v6 + 26) = 0;
       *(uint32_t *)(v6 + 36) = 0;
     }
@@ -90,26 +90,26 @@ LABEL_5:
       while ( 1 )
       {
         if ( **v12 < 0 && !v11 )
-          sub_12F46C(dword_11CA7C, dword_11CA78, 2094);
+          mmio_clear_register(dword_11CA7C, dword_11CA78, 2094);
         v14 = v11[19];
         v15 = v11[9];
         v16 = *(uint32_t *)(v14 + 72) | 0x80400000;
         *(uint32_t *)(v14 + 72) = v16;
         if ( (v15 & 0x200000) == 0 )
           break;
-        sub_11BBB4((int)v11, v16);
+        get_connection_by_slot((int)v11, v16);
         v11 = *(uint32_t **)(v13 + 12);
         if ( *(uint8_t *)(v13 + 26) )
           goto LABEL_5;
       }
-      rf_bus_init_5d8((int)v11, v16);
+      process_tx_packet((int)v11, v16);
     }
     v7 = (int)&v1[7 * v3];
     if ( !*(uint8_t *)(v7 + 46) )
     {
       v8 = *(uint32_t *)(v7 + 36);
       if ( v8 )
-        mmio_reg_poll_n6b4(v8, v3, *(uint8_t *)(v7 + 46), v7);
+        radio_band_validate(v8, v3, *(uint8_t *)(v7 + 46), v7);
       v1[7 * v3 + 9] = 0;
     }
     v9 = off_11CA74;
@@ -118,7 +118,7 @@ LABEL_5:
     v10 = v1[52] & 0xFFFFFFFE;
     --*(uint8_t *)(v4 + 84 * v3 + 80);
     v1[52] = v10;
-    sub_11A7E8(v3);
+    test_flag(v3);
   }
   else if ( (v2 & 2) != 0 )
   {

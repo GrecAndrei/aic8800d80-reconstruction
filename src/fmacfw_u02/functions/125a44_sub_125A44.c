@@ -15,10 +15,10 @@ extern uint32_t dword_125A94;
 extern uint32_t dword_125A88;
 extern uint32_t dword_125A8C;
 
-// sub_125A44 @ 0x125a44, size 66 bytes
+// ke_task_init @ 0x125a44, size 66 bytes
 // Doc: sub_1225A44 [unknown]: Initializes context from FW globals and config fields
 // sub_1225A44 [unknown]: Initializes context from FW globals and config fields
-int  sub_125A44(int a1)
+int  ke_task_init(int a1)
 {
   int v2; // r0
   uint8_t *v3; // r2
@@ -35,7 +35,7 @@ int  sub_125A44(int a1)
   v7 = *(uint8_t *)(v5 + 107);
   *((uint8_t *)off_125A90 + 9) = 1;
   v3[10] = 0;
-  sub_143770(v6 + 108, v4 + (v7 << 9), *(uint16_t *)(a1 + 4));
-  return sub_1259E0(v5);
+  memcpy(v6 + 108, v4 + (v7 << 9), *(uint16_t *)(a1 + 4));
+  return ke_msg_send(v5);
 }
 

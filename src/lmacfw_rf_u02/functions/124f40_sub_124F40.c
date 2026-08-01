@@ -12,16 +12,16 @@
 
 extern uint32_t dword_124F5C;
 
-// sub_124F40 @ 0x124f40, size 28 bytes
+// set_private_addr @ 0x124f40, size 28 bytes
 // Doc: sub_1224F42 [rf]: RF register read wrapper and event post
 // sub_1224F42 [rf]: RF register read wrapper and event post
-int  sub_124F40(int a1, int a2)
+int  set_private_addr(int a1, int a2)
 {
   uint8_t v2; // r0
 
-  v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0);
-  sub_124150(v2);
-  msg_parse(dword_124F5C);
+  v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0);
+  rf_write_synth(v2);
+  dispatch_event_handler(dword_124F5C);
   return 0;
 }
 

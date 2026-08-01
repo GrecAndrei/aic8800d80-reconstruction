@@ -33,10 +33,10 @@ extern uint32_t off_115664;
 extern uint32_t off_115668;
 extern uint32_t off_11566C;
 
-// sub_1153F4 @ 0x1153f4, size 594 bytes
+// adv_pdu_type_handler @ 0x1153f4, size 594 bytes
 // Doc: sub_12153F4 [util]: Switch dispatch on input code (<=5) with 4 saved regs
 // sub_12153F4 [util]: Switch dispatch on input code (<=5) with 4 saved regs
-int * sub_1153F4(int a1, int a2, int a3, int a4)
+int * adv_pdu_type_handler(int a1, int a2, int a3, int a4)
 {
   uint32_t *v5; // r3
   int *v6; // r0
@@ -69,7 +69,7 @@ LABEL_12:
         *v16 = 512;
         goto LABEL_4;
       }
-      result = (int *)sub_121960(dword_115690, dword_115684, 1919, a4);
+      result = (int *)ke_int_lock(dword_115690, dword_115684, 1919, a4);
       break;
     case 1:
       if ( ((*(uint32_t *)off_115648 >> 8) & 3) != 2 )
@@ -84,7 +84,7 @@ LABEL_16:
         *v18 = 1024;
         goto LABEL_4;
       }
-      result = (int *)sub_121960(dword_115694, dword_115684, 1907, a4);
+      result = (int *)ke_int_lock(dword_115694, dword_115684, 1907, a4);
       break;
     case 2:
       if ( ((*(uint32_t *)off_115648 >> 12) & 3) != 2 )
@@ -99,7 +99,7 @@ LABEL_14:
         *v17 = 2048;
         goto LABEL_4;
       }
-      result = (int *)sub_121960(dword_115698, dword_115684, 1895, a4);
+      result = (int *)ke_int_lock(dword_115698, dword_115684, 1895, a4);
       break;
     case 3:
       if ( (HIWORD(*(uint32_t *)off_115648) & 3) != 2 )
@@ -114,7 +114,7 @@ LABEL_18:
         *v19 = 4096;
         goto LABEL_4;
       }
-      result = (int *)sub_121960(dword_11569C, dword_115684, 1883, a4);
+      result = (int *)ke_int_lock(dword_11569C, dword_115684, 1883, a4);
       break;
     case 5:
       if ( (HIBYTE(*(uint32_t *)off_115648) & 3) != 2 )
@@ -129,11 +129,11 @@ LABEL_3:
         *v5 = 0x4000;
         goto LABEL_4;
       }
-      result = (int *)sub_121960(dword_11568C, dword_115684, 1931, a4);
+      result = (int *)ke_int_lock(dword_11568C, dword_115684, 1931, a4);
       break;
     default:
       if ( **(int16_t **)off_115680 < 0 )
-        rf_cmd_send_n264(dword_115688, dword_115684, 1937);
+        flash_ctrl_init(dword_115688, dword_115684, 1937);
 LABEL_4:
       v6 = (int *)off_115660;
       v7 = (int *)(4 * (dword_11565C + a2));

@@ -12,12 +12,12 @@
 
 extern uint32_t off_12142C;
 
-// rf_misc_init_n_xxx @ 0x12141c, size 14 bytes
-// Doc: rf_misc_init_n_xxx [rf]: Initialize RF misc control register at 0x40320038 with value 0x30
-// rf_misc_init_n_xxx [rf]: Initialize RF misc control register at 0x40320038 with value 0x30
-int rf_misc_init_n_xxx()
+// write_pmu_control @ 0x12141c, size 14 bytes
+// Doc: write_pmu_control [rf]: Initialize RF misc control register at 0x40320038 with value 0x30
+// write_pmu_control [rf]: Initialize RF misc control register at 0x40320038 with value 0x30
+int write_pmu_control()
 {
   *(uint32_t *)off_12142C = 48;
-  return rf_bus_mark_n_3b7(0);
+  return hci_cmd_send(0);
 }
 

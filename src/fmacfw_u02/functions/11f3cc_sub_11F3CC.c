@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F3CC @ 0x11f3cc, size 122 bytes
-int  sub_11F3CC(int a1, int a2, int a3)
+// llc_ccm_encrypt @ 0x11f3cc, size 122 bytes
+int  llc_ccm_encrypt(int a1, int a2, int a3)
 {
   int v3; // r10
   int v4; // r4
@@ -28,19 +28,19 @@ int  sub_11F3CC(int a1, int a2, int a3)
   do
   {
     v12 = 0;
-    if ( !scan_chan_setup_n134(a1) )
+    if ( !isr_flag_dispatch(a1) )
       break;
-    if ( !phy_chan_table_lookup(v3) )
+    if ( !bt_is_link_active(v3) )
       break;
-    v10 = sub_136BD0(a1, a2, &v12);
+    v10 = bt_handle_state_event(a1, a2, &v12);
     if ( v12 )
       break;
     if ( !v10 )
-      v10 = rf_bus_mark_n100_d2d0(v8);
+      v10 = mem_word_load(v8);
     v9 = *(uint8_t *)(v10 + 27);
     *(uint8_t *)(v10 + 97) = 0;
     ++v4;
-    sub_1176A0(v10, v9);
+    phy_radio_init(v10, v9);
     if ( a3 )
     {
       if ( v4 == a3 )

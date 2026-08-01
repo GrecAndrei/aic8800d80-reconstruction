@@ -1,1 +1,1 @@
-{"fn": "sub_1217AB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217ab8", "status": "ok", "name": "sub_1217AB8", "params": [], "docstring": "Stack-heavy helper with prologue saving many registers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217AB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217ab8", "status": "ok", "name": "fatal_error_handler", "params": [], "docstring": "Stack-heavy helper with prologue saving many registers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

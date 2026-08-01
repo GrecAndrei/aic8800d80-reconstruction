@@ -18,10 +18,10 @@ extern uint32_t off_104FCC;
 extern uint32_t dword_104FD0;
 extern uint32_t dword_104FD4;
 
-// crypto_adc_capture @ 0x104f18, size 172 bytes
-// Doc: crypto_adc_capture [mmio]: Configure and capture crypto ADC via MMIO register writes
-// crypto_adc_capture [mmio]: Configure and capture crypto ADC via MMIO register writes
-int  crypto_adc_capture(int16_t a1, int a2, int a3, int a4)
+// mac_tx_disable @ 0x104f18, size 172 bytes
+// Doc: mac_tx_disable [mmio]: Configure and capture crypto ADC via MMIO register writes
+// mac_tx_disable [mmio]: Configure and capture crypto ADC via MMIO register writes
+int  mac_tx_disable(int16_t a1, int a2, int a3, int a4)
 {
   unsigned int *v4; // r4
   int *v5; // r9
@@ -41,12 +41,12 @@ int  crypto_adc_capture(int16_t a1, int a2, int a3, int a4)
   v7 = off_104FDC;
   *(uint32_t *)off_104FC4 &= ~0x20000000u;
   *v5 = *v5 & v6 | 0x80;
-  delay_us(300);
+  timer_set(300);
   *v5 = v6 & *v5 | a1 & 0xFFF;
   *v7 = 0;
-  delay_us(2);
+  timer_set(2);
   *v7 = 8;
-  delay_us(300);
+  timer_set(300);
   v12 = off_104FCC;
   v13 = dword_104FD0;
   *v4 |= 0x40000000u;
@@ -54,9 +54,9 @@ int  crypto_adc_capture(int16_t a1, int a2, int a3, int a4)
   v15 = *v4 & 0xBFFFFFFF;
   *(uint16_t *)(a2 + 2 * (a3 + 16 * a4)) = v14;
   *v4 = v15;
-  result = feature_guard_sdio(1, v13);
+  result = state_check_feature(1, v13);
   if ( v14 > 0x3E80 )
-    return sub_12ECB0(dword_104FD4, v17, v18);
+    return ke_event_schedule(dword_104FD4, v17, v18);
   return result;
 }
 

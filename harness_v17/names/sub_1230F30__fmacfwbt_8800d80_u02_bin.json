@@ -1,1 +1,1 @@
-{"fn": "sub_1230F30", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1230f30", "status": "ok", "name": "bt_chan_info_init", "params": [], "docstring": "Initialize channel/connection info struct from BT params", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1230F30", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1230f30", "status": "ok", "name": "rf_build_cal_block_v3", "params": [], "docstring": "Initialize channel/connection info struct from BT params", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

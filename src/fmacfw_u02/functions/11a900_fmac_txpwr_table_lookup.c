@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11A93C;
 
-// fmac_txpwr_table_lookup @ 0x11a900, size 58 bytes
-// Doc: fmac_txpwr_table_lookup [mac]: Look up per-chain TX power entry from indexed calibration table
-// fmac_txpwr_table_lookup [mac]: Look up per-chain TX power entry from indexed calibration table
-int  fmac_txpwr_table_lookup(int result)
+// get_channel_by_handle @ 0x11a900, size 58 bytes
+// Doc: get_channel_by_handle [mac]: Look up per-chain TX power entry from indexed calibration table
+// get_channel_by_handle [mac]: Look up per-chain TX power entry from indexed calibration table
+int  get_channel_by_handle(int result)
 {
   int v1; // r5
   int v2; // r1
@@ -30,7 +30,7 @@ int  fmac_txpwr_table_lookup(int result)
     v4 = result;
     *(uint8_t *)(v2 + 14) = v3;
     if ( !v3 )
-      list_push_tail(*(uint32_t *)(v2 + 340));
+      cmd_handler_a(*(uint32_t *)(v2 + 340));
     *(uint32_t *)(v1 + 84 * v4 + 40) = 0;
     return 84;
   }

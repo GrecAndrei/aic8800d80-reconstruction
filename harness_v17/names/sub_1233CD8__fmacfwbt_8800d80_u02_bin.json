@@ -1,1 +1,1 @@
-{"fn": "sub_1233CD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233cd8", "status": "ok", "name": "sub_1233CD8", "params": [], "docstring": "Unknown helper in fmacfwbt image (reconstructed flow)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1233CD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233cd8", "status": "ok", "name": "util_reset", "params": [], "docstring": "Unknown helper in fmacfwbt image (reconstructed flow)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

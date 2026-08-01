@@ -1,0 +1,1 @@
+{"fn": "sub_1019F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1019f8", "status": "ok", "name": "return_true", "params": [], "docstring": "Always returns 1.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

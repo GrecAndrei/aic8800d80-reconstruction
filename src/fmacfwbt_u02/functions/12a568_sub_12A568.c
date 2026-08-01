@@ -14,8 +14,8 @@ extern uint32_t off_12A60C;
 extern uint32_t dword_12A610;
 extern uint32_t dword_12A614;
 
-// sub_12A568 @ 0x12a568, size 164 bytes
-unsigned int  sub_12A568(uint8_t *a1, int a2, int a3)
+// bt_conn_validate @ 0x12a568, size 164 bytes
+unsigned int  bt_conn_validate(uint8_t *a1, int a2, int a3)
 {
   unsigned int v3; // r4
   unsigned int v5; // r0
@@ -35,7 +35,7 @@ unsigned int  sub_12A568(uint8_t *a1, int a2, int a3)
     v5 = (uint8_t)a1[1225];
     if ( **(int16_t **)off_12A60C < 0 && v5 > 1 )
     {
-      sub_12F694(dword_12A610, dword_12A614, 1420);
+      mmio_irq_clear(dword_12A610, dword_12A614, 1420);
       v5 = (uint8_t)a1[1225];
     }
     v8 = *(uint32_t *)(a2 + 8);
@@ -75,7 +75,7 @@ LABEL_6:
 LABEL_19:
       v3 = 0;
     }
-    sub_129FAC(v5, v3, *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(a3 + 8) + 8) + 24));
+    get_struct_ptr(v5, v3, *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(a3 + 8) + 8) + 24));
     return v3;
   }
   return 0;

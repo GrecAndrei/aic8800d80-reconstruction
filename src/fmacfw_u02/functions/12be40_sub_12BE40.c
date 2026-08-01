@@ -14,10 +14,10 @@ extern uint32_t off_12BE7C;
 extern uint32_t off_12BE80;
 extern uint32_t off_12BE88;
 
-// sub_12BE40 @ 0x12be40, size 60 bytes
+// util_unknown @ 0x12be40, size 60 bytes
 // Doc: sub_122BE40 [util]: Utility helper, bit-shift based index calculation
 // sub_122BE40 [util]: Utility helper, bit-shift based index calculation
-int sub_12BE40()
+int util_unknown()
 {
   uint32_t *v0; // r3
   int v1; // r2

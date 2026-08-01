@@ -1,1 +1,1 @@
-{"fn": "sub_1214E90", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214e90", "status": "ok", "name": "rf_state_check_n_e90", "params": [], "docstring": "Check RF state byte against expected value 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214E90", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214e90", "status": "ok", "name": "bt_check_state", "params": [], "docstring": "Check RF state byte against expected value 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

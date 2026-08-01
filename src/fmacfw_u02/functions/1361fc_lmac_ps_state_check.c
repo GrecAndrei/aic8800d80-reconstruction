@@ -14,22 +14,22 @@ extern uint32_t off_136230;
 extern uint32_t dword_136238;
 extern uint32_t dword_136234;
 
-// lmac_ps_state_check @ 0x1361fc, size 52 bytes
-// Doc: lmac_ps_state_check [mac]: Check LMAC power-save state via signed halfword
-// lmac_ps_state_check [mac]: Check LMAC power-save state via signed halfword
-int  lmac_ps_state_check(int value)
+// patch_check_loaded @ 0x1361fc, size 52 bytes
+// Doc: patch_check_loaded [mac]: Check LMAC power-save state via signed halfword
+// patch_check_loaded [mac]: Check LMAC power-save state via signed halfword
+int  patch_check_loaded(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_136230 >= 0 || (value = msg_get_value(7u), value == 3) )
+  if ( **(int16_t **)off_136230 >= 0 || (value = rx_rate_field_parse(7u), value == 3) )
   {
-    sub_136820(value);
+    bt_ready_check(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F46C(dword_136238, dword_136234, 415);
-    sub_136820(v2);
+    v2 = mmio_clear_register(dword_136238, dword_136234, 415);
+    bt_ready_check(v2);
     return 0;
   }
 }

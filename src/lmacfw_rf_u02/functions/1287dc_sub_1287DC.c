@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1287DC @ 0x1287dc, size 186 bytes
-unsigned int  sub_1287DC(unsigned int result, unsigned int a2)
+// strcpy @ 0x1287dc, size 186 bytes
+unsigned int  strcpy(unsigned int result, unsigned int a2)
 {
   uint8_t *v2; // r12
   int *v3; // r1

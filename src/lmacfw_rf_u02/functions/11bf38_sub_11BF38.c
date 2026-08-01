@@ -14,8 +14,8 @@ extern uint32_t off_11C014;
 extern uint32_t dword_11C018;
 extern uint32_t dword_11C010;
 
-// sub_11BF38 @ 0x11bf38, size 216 bytes
-BOOL  sub_11BF38(int a1, int a2)
+// ke_event_process @ 0x11bf38, size 216 bytes
+BOOL  ke_event_process(int a1, int a2)
 {
   uint8_t *v2; // r10
   int *v3; // r4
@@ -44,8 +44,8 @@ BOOL  sub_11BF38(int a1, int a2)
       v10 = *((uint8_t *)v3 + 8);
       if ( v10 == *(uint8_t *)(a1 + 95) )
       {
-        sub_11F504(v9, v10);
-        sub_11E7C4(v2 + 16, v3);
+        dispatch_event_handler(v9, v10);
+        check_kernel_state_alt2(v2 + 16, v3);
         *((uint8_t *)v3 + 9) &= ~1u;
         v3 = (int *)*v3;
         if ( !v3 )
@@ -72,7 +72,7 @@ LABEL_11:
 LABEL_8:
   if ( (uint8_t)v2[90] > 1u )
   {
-    sub_11E7C4(dword_11C010, a1 + 76);
+    check_kernel_state_alt2(dword_11C010, a1 + 76);
     *(uint8_t *)(a1 + 85) = *(uint8_t *)(a1 + 85) & 0xFC | 2;
     ++v2[91];
     return v6 != v7;

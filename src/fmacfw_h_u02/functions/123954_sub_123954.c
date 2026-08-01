@@ -14,8 +14,8 @@ extern uint32_t off_123A24;
 extern uint32_t dword_123A20;
 extern uint32_t dword_123A1C;
 
-// sub_123954 @ 0x123954, size 182 bytes
-void  __noreturn sub_123954(int a1, int a2, int a3)
+// list_check_first @ 0x123954, size 182 bytes
+void  __noreturn list_check_first(int a1, int a2, int a3)
 {
   int v3; // r0
   int v4; // [sp+10h] [bp-18h]
@@ -34,9 +34,9 @@ void  __noreturn sub_123954(int a1, int a2, int a3)
   v9 = 0;
   if ( v3 < 0 )
   {
-    if ( sub_12CD48(a3) )
-      sub_12F32C(dword_123A20, dword_123A1C, 337);
+    if ( hci_cmd_handler(a3) )
+      irq_disable_mmio_write(dword_123A20, dword_123A1C, 337);
   }
-  sub_102934();
+  set_rf_channel();
 }
 

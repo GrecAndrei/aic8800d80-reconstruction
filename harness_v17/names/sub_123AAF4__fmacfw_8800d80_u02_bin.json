@@ -1,1 +1,1 @@
-{"fn": "sub_123AAF4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123aaf4", "status": "ok", "name": "sub_123AAF4", "params": [], "docstring": "Process descriptor fields and prepare output buffers", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123AAF4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123aaf4", "status": "ok", "name": "ll_conn_event_prepare", "params": [], "docstring": "Process descriptor fields and prepare output buffers", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

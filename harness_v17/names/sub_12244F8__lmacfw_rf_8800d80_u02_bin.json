@@ -1,1 +1,1 @@
-{"fn": "sub_12244F8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12244f8", "status": "ok", "name": "log_free_dispatch_n2f2", "params": [], "docstring": "Dispatches log free with rotated value, likely a logger release", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12244F8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12244f8", "status": "ok", "name": "ke_timer_tick", "params": [], "docstring": "Dispatches log free with rotated value, likely a logger release", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

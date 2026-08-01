@@ -15,8 +15,8 @@ extern uint32_t off_131814;
 extern uint32_t dword_131820;
 extern uint32_t dword_13181C;
 
-// sub_131784 @ 0x131784, size 142 bytes
-int  sub_131784(int a1, uint8_t *a2)
+// bt_command_put @ 0x131784, size 142 bytes
+int  bt_command_put(int a1, uint8_t *a2)
 {
   int v3; // r5
   int v4; // r6
@@ -25,7 +25,7 @@ int  sub_131784(int a1, uint8_t *a2)
 
   v3 = *(uint32_t *)(dword_131818 + 696 * *a2 + 340);
   if ( **(int16_t **)off_131814 < 0 && !v3 )
-    sub_12F46C(dword_131820, dword_13181C, 1031);
+    mmio_clear_register(dword_131820, dword_13181C, 1031);
   v4 = *((uint16_t *)a2 + 1);
   if ( v4 == 0xFFFF )
   {
@@ -35,13 +35,13 @@ int  sub_131784(int a1, uint8_t *a2)
     *(uint8_t *)(v3 + 166) = v5;
     if ( (v5 & 0x80) == 0 )
       return 0;
-    mac_table_lookup(*a2);
+    ble_ll_conn_sm_get(*a2);
     *(uint8_t *)(v3 + 166) &= ~0x80u;
     return 0;
   }
   else
   {
-    if ( !key_index_lookup(v3, *((uint16_t *)a2 + 1)) )
+    if ( !ble_ll_conn_ctrl_rx(v3, *((uint16_t *)a2 + 1)) )
       return 0;
     v7 = *(uint8_t *)(v3 + 166);
     *(uint16_t *)(v3 + 190) = v4;

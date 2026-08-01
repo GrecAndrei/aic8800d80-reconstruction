@@ -16,10 +16,10 @@ extern uint32_t dword_1254FC;
 extern uint32_t dword_125508;
 extern uint32_t dword_12550C;
 
-// rf_parse_descriptor_n3f8 @ 0x1252c4, size 566 bytes
-// Doc: rf_parse_descriptor_n3f8 [rf]: Parses a 4-byte RF descriptor header (length/type fields)
-// rf_parse_descriptor_n3f8 [rf]: Parses a 4-byte RF descriptor header (length/type fields)
-int  rf_parse_descriptor_n3f8(uint16_t *a1)
+// hci_acl_header_parse @ 0x1252c4, size 566 bytes
+// Doc: hci_acl_header_parse [rf]: Parses a 4-byte RF descriptor header (length/type fields)
+// hci_acl_header_parse [rf]: Parses a 4-byte RF descriptor header (length/type fields)
+int  hci_acl_header_parse(uint16_t *a1)
 {
   unsigned int v1; // r2
   int v2; // r3
@@ -191,7 +191,7 @@ LABEL_28:
   {
     *(uint8_t *)(dword_1254FC + 1320 * v2 + 230) = 0;
   }
-  sub_12CA10(66, *(a1 - 2), 0);
-  return sub_12CA38(a1 - 6);
+  ke_msg_send_no_param(66, *(a1 - 2), 0);
+  return branch_to_12cbc8(a1 - 6);
 }
 

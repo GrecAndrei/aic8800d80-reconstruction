@@ -30,8 +30,8 @@ extern uint32_t dword_12BEA0;
 extern uint32_t dword_12BE9C;
 extern uint32_t dword_12BE88;
 
-// sub_12BD4C @ 0x12bd4c, size 280 bytes
-int  sub_12BD4C(int a1, int a2)
+// rf_sync_status @ 0x12bd4c, size 280 bytes
+int  rf_sync_status(int a1, int a2)
 {
   void *v2; // r2
   int v3; // r4
@@ -52,7 +52,7 @@ int  sub_12BD4C(int a1, int a2)
   result = v3 << 21;
   if ( (v3 & 0x400) != 0 )
   {
-    sub_12E948(dword_12BE80, a2, v2);
+    alloc_tx_event(dword_12BE80, a2, v2);
     while ( 1 )
       ;
   }
@@ -63,29 +63,29 @@ int  sub_12BD4C(int a1, int a2)
     if ( (v3 & 0x200) == 0 )
       goto LABEL_4;
 LABEL_13:
-    sub_12E948(dword_12BE7C, v5, v6);
+    alloc_tx_event(dword_12BE7C, v5, v6);
     while ( 1 )
       ;
   }
-  result = sub_11D694();
+  result = seq_num_read();
   v6 = v3 << 22;
   if ( (v3 & 0x200) != 0 )
     goto LABEL_13;
 LABEL_4:
   if ( (v3 & 0x10) != 0 )
   {
-    sub_116DF4(4);
-    result = sub_11735C(4);
+    mmio_modify_bit(4);
+    result = phy_get_cfg_ptr(4);
   }
   if ( (v3 & 0x2F) != 0 )
   {
     if ( *(uint8_t *)off_12BE6C )
     {
       v11 = (char *)off_12BE90;
-      sub_102AD0(*((uint8_t *)off_12BE90 + 411));
+      rf_reg_write_byte(*((uint8_t *)off_12BE90 + 411));
       v12 = v11[411];
       *((uint8_t *)off_12BE94 + 9) = v12;
-      return sub_12E948(dword_12BE98, v12, v13);
+      return alloc_tx_event(dword_12BE98, v12, v13);
     }
     if ( *(uint8_t *)off_12BE70 )
     {
@@ -150,7 +150,7 @@ LABEL_4:
         }
       }
     }
-    return sub_12F2C8(v9, v8, v10, v7);
+    return unknown_12f2c8(v9, v8, v10, v7);
   }
   return result;
 }

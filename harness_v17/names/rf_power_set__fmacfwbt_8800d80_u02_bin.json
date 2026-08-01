@@ -1,1 +1,1 @@
-{"fn": "rf_power_set", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12029f8", "status": "ok", "name": "rf_power_set", "params": [], "docstring": "Set RF power level via register field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_power_set", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12029f8", "status": "ok", "name": "write_mmio_byte", "params": [], "docstring": "Set RF power level via register field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

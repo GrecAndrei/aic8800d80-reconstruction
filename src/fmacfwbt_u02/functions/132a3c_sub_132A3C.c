@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132A3C @ 0x132a3c, size 64 bytes
-int  sub_132A3C(int a1, int a2)
+// llm_bitmap_to_mask @ 0x132a3c, size 64 bytes
+int  llm_bitmap_to_mask(int a1, int a2)
 {
   int v2; // r4
   int v3; // r7

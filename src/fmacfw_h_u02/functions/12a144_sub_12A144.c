@@ -13,8 +13,8 @@
 extern uint32_t dword_12A1D4;
 extern uint32_t off_12A1D8;
 
-// sub_12A144 @ 0x12a144, size 144 bytes
-uint8_t * sub_12A144(uint8_t *result, int a2)
+// bt_scan_poll @ 0x12a144, size 144 bytes
+uint8_t * bt_scan_poll(uint8_t *result, int a2)
 {
   int v2; // r2
   int v3; // r7
@@ -38,17 +38,17 @@ uint8_t * sub_12A144(uint8_t *result, int a2)
     v8 = (uint8_t *)(v3 + 140 * v2);
     *((uint32_t *)result + 1) = v6;
     if ( !v5 )
-      return sub_1296C4(v8);
+      return rsn_parse_ie(v8);
     v9 = a2 + (v5 << 10);
     if ( *(uint8_t *)(v4 + 112) || (v10 = a2 + 300, *((uint32_t *)off_12A1D8 + 4) - v10 + 50 >= 0) )
     {
       *(uint8_t *)(v3 + 140 * v2 + 114) = 1;
-      sub_124BFC(v7 + 96 + v3, v9);
-      return sub_1296C4(v8);
+      mem_copy_util(v7 + 96 + v3, v9);
+      return rsn_parse_ie(v8);
     }
     *(uint32_t *)(v4 + 116) = v9;
     *(uint8_t *)(v4 + 114) = 2;
-    return (uint8_t *)sub_124BFC(v7 + 96 + v3, v10);
+    return (uint8_t *)mem_copy_util(v7 + 96 + v3, v10);
   }
   return result;
 }

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13AE3C;
 
-// sub_13ADFC @ 0x13adfc, size 64 bytes
-int * sub_13ADFC(int *result)
+// phy_get_txpower @ 0x13adfc, size 64 bytes
+int * phy_get_txpower(int *result)
 {
   int v1; // r5
 
@@ -21,7 +21,7 @@ int * sub_13ADFC(int *result)
   if ( v1 )
   {
     if ( *(uint8_t *)(v1 + 96) == 1 )
-      return sub_116034(
+      return rf_channel_select(
                (int)result,
                v1 + 80,
                result[18] - *((uint8_t *)result + 52) + 172,

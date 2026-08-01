@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_pool_alloc_b @ 0x1103e0, size 62 bytes
+// is_page_scan_active @ 0x1103e0, size 62 bytes
 // Doc: log_free_dispatch_408 [util]: Dispatches freed log buffers
 // log_free_dispatch_408 [util]: Dispatches freed log buffers
-int log_pool_alloc_b()
+int is_page_scan_active()
 {
   int *v0; // r4
   int v1; // r0
@@ -29,7 +29,7 @@ int log_pool_alloc_b()
   v0 = (int *)log_free_dispatch_n41c_0424;
   v1 = log_free_dispatch_n420_0428;
   ++*(uint32_t *)log_free_dispatch_n41c_0424;
-  result = rf_bus_mark_n100_d2d0(v1);
+  result = mem_word_load(v1);
   if ( result )
     --*(uint32_t *)log_free_dispatch_42c;
   if ( *v0 )

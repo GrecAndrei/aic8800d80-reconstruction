@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13701C @ 0x13701c, size 18 bytes
-int  sub_13701C(int a1, uint8_t *a2)
+// util_parse_command_char @ 0x13701c, size 18 bytes
+int  util_parse_command_char(int a1, uint8_t *a2)
 {
   if ( *a2 )
-    sub_137388((uint8_t)*a2);
+    util_hex_convert((uint8_t)*a2);
   return 0;
 }
 

@@ -19,8 +19,8 @@ extern uint32_t dword_11D9B8;
 extern uint32_t dword_11D9B4;
 extern uint32_t dword_40021008;
 
-// sub_11D8F0 @ 0x11d8f0, size 178 bytes
-int  sub_11D8F0(int a1)
+// util_flash_erase @ 0x11d8f0, size 178 bytes
+int  util_flash_erase(int a1)
 {
   int v1; // r5
   int *v3; // r7
@@ -35,9 +35,9 @@ int  sub_11D8F0(int a1)
 
   v1 = *(uint8_t *)(dword_11D9A4 + a1);
   if ( a1 )
-    sub_11E628(0x40000000);
+    enter_critical_section(0x40000000);
   else
-    sub_11E628(0x8000);
+    enter_critical_section(0x8000);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -47,7 +47,7 @@ int  sub_11D8F0(int a1)
   v4 = dword_11D9BC;
   v5 = dword_11D9BC + 8 * a1;
   ++*(uint32_t *)off_11D9AC;
-  v6 = sub_11E7AC(v5);
+  v6 = list_pop_front(v5);
   v7 = v6;
   if ( *v3 && (v8 = *v3 - 1, v9 = *(uint32_t *)off_11D9A8, (*v3 = v8) == 0) && v9 )
   {
@@ -60,7 +60,7 @@ int  sub_11D8F0(int a1)
     goto LABEL_8;
   }
   if ( !v6 )
-    rf_cmd_send_n264(dword_11D9B8, dword_11D9B4, 190);
+    flash_ctrl_init(dword_11D9B8, dword_11D9B4, 190);
 LABEL_8:
   v10 = *(void ( **)(uint32_t, int))(v7 + 8);
   if ( v10 )

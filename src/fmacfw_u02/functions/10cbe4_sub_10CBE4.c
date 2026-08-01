@@ -16,8 +16,8 @@ extern uint32_t off_10CC44;
 extern uint32_t dword_10CC4C;
 extern uint32_t dword_10CC48;
 
-// sub_10CBE4 @ 0x10cbe4, size 86 bytes
-int sub_10CBE4()
+// controller_status_read @ 0x10cbe4, size 86 bytes
+int controller_status_read()
 {
   uint32_t *v0; // r4
   int v1; // r0
@@ -29,7 +29,7 @@ int sub_10CBE4()
     ;
   if ( *(uint32_t *)(*(uint32_t *)off_10CC40 + 612) )
   {
-    v1 = sub_12D2D0(*(uint32_t *)off_10CC40 + 612);
+    v1 = mem_word_load(*(uint32_t *)off_10CC40 + 612);
     v2 = **(int16_t **)off_10CC44;
     *v0 = 1;
     if ( v2 >= 0 || v1 )
@@ -42,7 +42,7 @@ int sub_10CBE4()
     if ( v4 >= 0 )
       return 20;
   }
-  sub_12F46C(dword_10CC4C, dword_10CC48, 1101);
+  mmio_clear_register(dword_10CC4C, dword_10CC48, 1101);
   return 20;
 }
 

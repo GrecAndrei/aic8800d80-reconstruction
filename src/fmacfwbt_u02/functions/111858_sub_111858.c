@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111858 @ 0x111858, size 242 bytes
+// rf_radio_enable @ 0x111858, size 242 bytes
 // Doc: rf_bus_write2_n_1bc_18bc [rf]: Configure RF bus register with mask flags
 // rf_bus_write2_n_1bc_18bc [rf]: Configure RF bus register with mask flags
-int sub_111858()
+int rf_radio_enable()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r2
@@ -71,6 +71,6 @@ LABEL_11:
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return sub_12ECB0(v7, v4, 46);
+  return ke_event_schedule(v7, v4, 46);
 }
 

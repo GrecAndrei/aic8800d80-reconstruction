@@ -38,8 +38,8 @@ extern uint32_t off_112830;
 extern uint32_t dword_112838;
 extern uint32_t dword_1126E8;
 
-// sub_112084 @ 0x112084, size 1958 bytes
-int  sub_112084(uint64_t a1)
+// rx_parse_packet @ 0x112084, size 1958 bytes
+int  rx_parse_packet(uint64_t a1)
 {
   int v1; // r4
   uint8_t *v2; // r5
@@ -106,7 +106,7 @@ int  sub_112084(uint64_t a1)
     if ( v14 == 2 )
     {
       v3 = off_112394;
-      sub_10DA7C(dword_1123A8);
+      printf_wrapper(dword_1123A8);
       goto LABEL_7;
     }
     if ( (a1 & 0x100000000LL) == 0 )
@@ -135,7 +135,7 @@ int  sub_112084(uint64_t a1)
       *((uint16_t *)off_112390 + 5) = v48;
       if ( HIDWORD(a1) < v48 )
       {
-        LODWORD(a1) = sub_10DA7C(dword_112834);
+        LODWORD(a1) = printf_wrapper(dword_112834);
         WORD2(a1) = *((uint16_t *)v2 + 4);
         v48 = *((uint16_t *)v2 + 5);
       }
@@ -153,10 +153,10 @@ int  sub_112084(uint64_t a1)
           v50[516] |= 0x10u;
           return a1;
         }
-        LODWORD(a1) = sub_111958(0, 0);
+        LODWORD(a1) = tx_pkt_set_len(0, 0);
         goto LABEL_18;
       }
-      LODWORD(a1) = sub_111958(*((uint32_t *)v2 + 1) + v48, v49);
+      LODWORD(a1) = tx_pkt_set_len(*((uint32_t *)v2 + 1) + v48, v49);
 LABEL_18:
       if ( (v1 & 0x20) == 0 )
         return a1;
@@ -173,7 +173,7 @@ LABEL_19:
         v28[704] |= 0x84000000;
         *v2 = 7;
         v28[517] |= 0x10u;
-        LODWORD(a1) = sub_11176C();
+        LODWORD(a1) = tx_pkt_start();
       }
       return a1;
     }
@@ -246,7 +246,7 @@ LABEL_7:
       v6 = v4[6] | (v4[7] << 8);
       *((uint16_t *)v2 + 9) = v6;
       if ( !v6 && (v2[12] & 0x80u) != 0 )
-        sub_10DA7C(dword_1126F0);
+        printf_wrapper(dword_1126F0);
       v7 = off_112398;
       v8 = off_11239C;
       v9 = *((int ( **)(void *))off_11239C + 3);
@@ -264,17 +264,17 @@ LABEL_46:
             goto LABEL_50;
           case 4:
 LABEL_87:
-            sub_111958(*((uint32_t *)v2 + 1), *((uint16_t *)v2 + 4));
+            tx_pkt_set_len(*((uint32_t *)v2 + 1), *((uint16_t *)v2 + 4));
             goto LABEL_50;
           case 7:
 LABEL_73:
-            sub_11176C();
+            tx_pkt_start();
             goto LABEL_50;
         }
 LABEL_49:
         *v2 = 0;
-        sub_1119C0(0, 0x200000, 0);
-        sub_111A78(0, 0x200000, 0);
+        tx_desc_hw_config(0, 0x200000, 0);
+        rx_desc_hw_config(0, 0x200000, 0);
 LABEL_50:
         v24 = *(uint32_t **)v3;
         LODWORD(a1) = *(uint32_t *)off_1123A0;
@@ -295,7 +295,7 @@ LABEL_51:
 LABEL_54:
         if ( v12 == 4 && *v10 != 4 )
 LABEL_56:
-          sub_111838();
+          ll_hdr_init();
         goto LABEL_49;
       }
       v13 = v2[13];
@@ -315,7 +315,7 @@ LABEL_56:
               {
                 v13 = (v55 >> 7) & 1;
 LABEL_97:
-                if ( sub_111B6C(v13, v37) )
+                if ( rf_reg_read(v13, v37) )
                 {
                   v30 = off_1126D0;
                   *(uint16_t *)off_1126D0 = 1;
@@ -354,7 +354,7 @@ LABEL_128:
                 if ( *v10 == 4 )
                   goto LABEL_46;
 LABEL_45:
-                sub_111838();
+                ll_hdr_init();
                 goto LABEL_46;
               }
               v37 = v2[13];
@@ -369,7 +369,7 @@ LABEL_45:
             goto LABEL_54;
           if ( (v2[12] & 0x1F) != 2 || *((uint16_t *)v2 + 7) )
             goto LABEL_79;
-          sub_111BE8((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
+          rf_reg_write_c((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
           *v2 = 7;
           if ( v12 == 4 )
             goto LABEL_44;
@@ -391,7 +391,7 @@ LABEL_60:
               }
               goto LABEL_49;
             }
-            sub_111BC4((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
+            rf_reg_write_b((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
             *v2 = 7;
             if ( v12 != 4 )
               goto LABEL_73;
@@ -411,7 +411,7 @@ LABEL_89:
               }
               else
               {
-                sub_111838();
+                ll_hdr_init();
                 if ( v36 )
                   goto LABEL_46;
               }
@@ -439,15 +439,15 @@ LABEL_44:
           switch ( HIBYTE(*((uint16_t *)v2 + 7)) )
           {
             case 1u:
-              sub_13BEB0();
+              rf_calibrate();
               *(uint8_t *)v8 = (uint8_t)v2;
-              sub_12CBB4(v8);
-              LODWORD(a1) = ((int ( *)(int, int, int))sub_12CC38)(5130, 13, 5);
+              hci_evt_send(v8);
+              LODWORD(a1) = ((int ( *)(int, int, int))hci_evt_alloc_send)(5130, 13, 5);
               return a1;
             case 2u:
               JUMPOUT(0x1325D6);
             default:
-              sub_10DA7C(dword_1123B0);
+              printf_wrapper(dword_1123B0);
               goto LABEL_54;
           }
         case 8u:
@@ -456,7 +456,7 @@ LABEL_44:
           *v2 = 4;
           goto LABEL_86;
         case 9u:
-          v36 = sub_112030();
+          v36 = hw_status_update();
           goto LABEL_89;
         case 0xAu:
           if ( *(uint8_t *)off_1123B8 != 4 )
@@ -489,7 +489,7 @@ LABEL_72:
       v2 = (uint8_t *)off_112390;
       if ( *(uint8_t *)off_112390 )
       {
-        sub_111BA0((int *)1, 0);
+        rf_reg_write((int *)1, 0);
         v3 = off_1126EC;
         goto LABEL_7;
       }
@@ -511,7 +511,7 @@ LABEL_72:
           v41 = 64 - *(uint16_t *)v19;
           if ( v41 >= (uint16_t)(*((uint16_t *)off_112390 + 4) - v39) )
             LOWORD(v41) = *((uint16_t *)off_112390 + 4) - v39;
-          sub_14380C(v39 + *((uint32_t *)off_112390 + 1), *(uint32_t *)off_1126E4, (uint16_t)v41);
+          memcpy_aligned(v39 + *((uint32_t *)off_112390 + 1), *(uint32_t *)off_1126E4, (uint16_t)v41);
           v42 = *((uint16_t *)v2 + 4);
           v43 = (uint16_t)(v41 + *((uint16_t *)v2 + 5));
           *((uint16_t *)v2 + 5) = v43;
@@ -536,7 +536,7 @@ LABEL_72:
             v54[704] |= 0x84000000;
             *v2 = 7;
             v54[517] |= 0x10u;
-            LODWORD(a1) = sub_11176C();
+            LODWORD(a1) = tx_pkt_start();
             goto LABEL_19;
           }
           v44 = *(uint32_t **)v3;
@@ -572,7 +572,7 @@ LABEL_72:
       goto LABEL_18;
     }
     if ( *(uint8_t *)off_112390 )
-      LODWORD(a1) = sub_111BA0((int *)1, 0);
+      LODWORD(a1) = rf_reg_write((int *)1, 0);
     *v2 = 1;
   }
   return a1;

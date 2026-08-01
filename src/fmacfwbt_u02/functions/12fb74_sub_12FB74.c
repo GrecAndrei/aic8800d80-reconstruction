@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12FB74 @ 0x12fb74, size 172 bytes
-int  sub_12FB74(uint8_t *a1, uint32_t *a2, unsigned int a3)
+// parse_integer @ 0x12fb74, size 172 bytes
+int  parse_integer(uint8_t *a1, uint32_t *a2, unsigned int a3)
 {
   int v3; // r5
   int v4; // r7

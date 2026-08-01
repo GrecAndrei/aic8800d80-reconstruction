@@ -13,8 +13,8 @@
 extern uint32_t off_11F5DC;
 extern uint32_t off_11F5E0;
 
-// sub_11F5B0 @ 0x11f5b0, size 44 bytes
-void sub_11F5B0()
+// get_current_channel @ 0x11f5b0, size 44 bytes
+void get_current_channel()
 {
   uint8_t *v0; // r3
   unsigned int v1; // r2

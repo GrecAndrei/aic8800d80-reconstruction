@@ -15,8 +15,8 @@ extern uint32_t dword_125730;
 extern uint32_t off_125728;
 extern uint32_t off_12572C;
 
-// sub_1255E8 @ 0x1255e8, size 316 bytes
-int  sub_1255E8(int a1)
+// hci_acl_tx_done @ 0x1255e8, size 316 bytes
+int  hci_acl_tx_done(int a1)
 {
   int v1; // r8
   uint8_t *v2; // r5
@@ -41,11 +41,11 @@ int  sub_1255E8(int a1)
   v2 = (uint8_t *)(dword_125724 + 8 * *(uint8_t *)(a1 + 107));
   v4 = v2[4];
   v5 = a1 + 116;
-  v6 = sub_1250F4(a1);
+  v6 = link_env_get(a1);
   *(uint32_t *)(v1 + 36) = *(uint16_t *)(v6 + 216) + *(uint16_t *)(v6 + 218) + 4;
   if ( *(uint8_t *)(v6 + 1224) )
   {
-    v15 = sub_12AB80(*(uint8_t *)(v6 + 1225));
+    v15 = rf_calib_valid(*(uint8_t *)(v6 + 1225));
     if ( v15 )
     {
       v16 = dword_125730 + 20 * *(uint8_t *)(a1 + 107);
@@ -106,16 +106,16 @@ int  sub_1255E8(int a1)
     }
     if ( !v14
       || (v18 = *(uint8_t *)(a1 + 107),
-          v19 = (uint8_t *)sub_12C92C(78, 13, 0, 2),
+          v19 = (uint8_t *)ke_msg_alloc(78, 13, 0, 2),
           *v19 = v18,
           v19[1] = v14,
-          sub_12C98C(v19),
+          ke_msg_send(v19),
           !*(uint8_t *)(a1 + 231)) )
     {
       *(uint8_t *)(a1 + 231) = 1;
     }
   }
-  sub_12C4E8(a1, v5);
+  rf_check_temperature(a1, v5);
   return v10;
 }
 

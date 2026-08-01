@@ -12,8 +12,8 @@
 
 extern uint32_t off_1205A4;
 
-// sub_12057C @ 0x12057c, size 40 bytes
-int  sub_12057C(int result)
+// si_watchdog @ 0x12057c, size 40 bytes
+int  si_watchdog(int result)
 {
   int v1; // r4
 
@@ -22,8 +22,8 @@ int  sub_12057C(int result)
     v1 = result;
     if ( !*(uint32_t *)(result + 4) )
     {
-      timestamp_remove_058(result + 48);
-      return sub_11F82C(v1);
+      ke_event_set_lock(result + 48);
+      return wlc_ucode_download(v1);
     }
   }
   return result;

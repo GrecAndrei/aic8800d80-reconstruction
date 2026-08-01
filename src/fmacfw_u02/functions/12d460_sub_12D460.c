@@ -16,8 +16,8 @@ extern uint32_t dword_12D4E4;
 extern uint32_t dword_12D4E8;
 extern uint32_t dword_12D4EC;
 
-// sub_12D460 @ 0x12d460, size 126 bytes
-int  sub_12D460(int result, uint32_t *a2, uint32_t *a3)
+// rf_cal_check @ 0x12d460, size 126 bytes
+int  rf_cal_check(int result, uint32_t *a2, uint32_t *a3)
 {
   int16_t **v3; // r7
   uint32_t *v4; // r6
@@ -26,13 +26,13 @@ int  sub_12D460(int result, uint32_t *a2, uint32_t *a3)
   v4 = (uint32_t *)result;
   if ( **(int16_t **)off_12D4E0 < 0 )
   {
-    if ( result || (result = sub_12F46C(dword_12D4F0, dword_12D4E4, 384), **v3 < 0) )
+    if ( result || (result = mmio_clear_register(dword_12D4F0, dword_12D4E4, 384), **v3 < 0) )
     {
       if ( a2 )
       {
         if ( (uint32_t *)*a2 != a3 )
         {
-          result = sub_12F46C(dword_12D4E8, dword_12D4E4, 385);
+          result = mmio_clear_register(dword_12D4E8, dword_12D4E4, 385);
           if ( **v3 >= 0 )
             goto LABEL_3;
         }
@@ -43,7 +43,7 @@ int  sub_12D460(int result, uint32_t *a2, uint32_t *a3)
       {
         goto LABEL_14;
       }
-      result = sub_12F46C(dword_12D4EC, dword_12D4E4, 386);
+      result = mmio_clear_register(dword_12D4EC, dword_12D4E4, 386);
     }
   }
   if ( a2 )

@@ -1,1 +1,1 @@
-{"fn": "sub_12110CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12110cc", "status": "ok", "name": "msg_alloc_and_send_n0cc", "params": [], "docstring": "Allocate message slot and forward to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12110CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12110cc", "status": "ok", "name": "ke_mem_alloc", "params": [], "docstring": "Allocate message slot and forward to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_ncd", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ac8", "status": "ok", "name": "rf_bus_reset2_ncd", "params": [], "docstring": "Alternate RF bus reset manipulating register 0x804 and writing 0x2e", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_ncd", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ac8", "status": "ok", "name": "rf_bus_init_n_2f0", "params": [], "docstring": "Alternate RF bus reset manipulating register 0x804 and writing 0x2e", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

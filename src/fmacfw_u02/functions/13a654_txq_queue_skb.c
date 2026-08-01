@@ -13,10 +13,10 @@
 extern uint32_t dword_13A6FC;
 extern uint32_t dword_13A700;
 
-// txq_queue_skb @ 0x13a654, size 168 bytes
-// Doc: txq_queue_skb [tx]: Program a TX DMA descriptor and submit an skb to the hardware transmit queue.
-// txq_queue_skb [tx]: Program a TX DMA descriptor and submit an skb to the hardware transmit queue.
-int  txq_queue_skb(int a1)
+// rf_reset_chan_cfg @ 0x13a654, size 168 bytes
+// Doc: rf_reset_chan_cfg [tx]: Program a TX DMA descriptor and submit an skb to the hardware transmit queue.
+// rf_reset_chan_cfg [tx]: Program a TX DMA descriptor and submit an skb to the hardware transmit queue.
+int  rf_reset_chan_cfg(int a1)
 {
   int16_t v1; // r2
   int result; // r0
@@ -57,7 +57,7 @@ int  txq_queue_skb(int a1)
     if ( !*(uint8_t *)(v9 + 106) && (*(uint32_t *)(dword_13A6FC + 696 * result + 4) & 0x20) != 0 )
       v7 += 4;
     *(uint8_t *)(a1 + 50) = v7;
-    result = sub_13A528(a1, &v13);
+    result = rf_get_chan_cfg(a1, &v13);
     v10 = *(uint16_t *)(a1 + 24);
     *(uint16_t *)(a1 + 48) = *(uint16_t *)(a1 + 4);
     v11 = v7 + result;

@@ -49,8 +49,8 @@ extern uint32_t dword_103DDC;
 extern uint32_t dword_103DA0;
 extern uint32_t off_103DA4;
 
-// sub_103B8C @ 0x103b8c, size 496 bytes
-int  sub_103B8C(int a1)
+// bb_start_cmd @ 0x103b8c, size 496 bytes
+int  bb_start_cmd(int a1)
 {
   unsigned int *v1; // r2
   int *v2; // r4
@@ -194,7 +194,7 @@ int  sub_103B8C(int a1)
                     *(uint32_t *)off_103D84 &= 0xFFFFFF70;
                     *v23 = *v23 & 0xFF00FFFF | 0x540000;
                     *v24 = v25;
-                    sub_12E948(v26, v27, v22);
+                    alloc_tx_event(v26, v27, v22);
                     goto LABEL_22;
                   case 8:
                     v1 = (unsigned int *)off_103D84;
@@ -241,13 +241,13 @@ LABEL_24:
         v14 = v3 & 0x70;
         *v1 = v5 & 0xFFFFFF00 | v14;
         *v2 = v4;
-        sub_12E948(v6, v14, v1);
+        alloc_tx_event(v6, v14, v1);
         goto LABEL_22;
     }
     v21 = v18 & 0xFFFFFF00;
     *v15 = v20 | v21;
     *v16 = v17;
-    sub_12E948(v19, v21, v15);
+    alloc_tx_event(v19, v21, v15);
     goto LABEL_22;
   }
   v7 = off_103D84;
@@ -259,9 +259,9 @@ LABEL_24:
   *(uint32_t *)off_103D84 &= 0xFFFFFF70;
   *v8 = *v8 & 0xFF00FFFF | 0x770000;
   *v9 = v10;
-  sub_12E948(v11, v12, v7);
+  alloc_tx_event(v11, v12, v7);
 LABEL_22:
   *(uint32_t *)off_103DA4 = 769;
-  return sub_100644(500);
+  return mmio_read32(500);
 }
 

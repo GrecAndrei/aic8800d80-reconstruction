@@ -1,1 +1,1 @@
-{"fn": "log_queue_push2", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x110edc", "status": "ok", "name": "log_queue_push2", "params": [], "docstring": "Push a log entry onto the log queue with 3 parameters", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_queue_push2", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x110edc", "status": "ok", "name": "memmove", "params": [], "docstring": "Push a log entry onto the log queue with 3 parameters", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sub_1217BBC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217bbc", "status": "ok", "name": "fw_init_umac_subsystem", "params": [], "docstring": "Initialize UMAC subsystem with 0x1f000 base", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217BBC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217bbc", "status": "ok", "name": "mem_pool_init", "params": [], "docstring": "Initialize UMAC subsystem with 0x1f000 base", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

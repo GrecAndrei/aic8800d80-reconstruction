@@ -20,10 +20,10 @@ extern uint32_t dword_125050;
 extern uint32_t off_125040;
 extern uint32_t off_125044;
 
-// timestamp_update_4f60 @ 0x124f60, size 212 bytes
-// Doc: timestamp_update_4f60 [util]: Update firmware timestamp counter
-// timestamp_update_4f60 [util]: Update firmware timestamp counter
-int  timestamp_update_4f60(int a1, int a2)
+// ke_event_lock @ 0x124f60, size 212 bytes
+// Doc: ke_event_lock [util]: Update firmware timestamp counter
+// ke_event_lock [util]: Update firmware timestamp counter
+int  ke_event_lock(int a1, int a2)
 {
   int *v4; // r7
   uint32_t *v5; // r2
@@ -47,17 +47,17 @@ int  timestamp_update_4f60(int a1, int a2)
   ++*(uint32_t *)off_125038;
   if ( a2 - v5[4] < 0 )
   {
-    sub_12ECB0(dword_125048, *(uint32_t *)(a1 + 4), a2);
+    ke_event_schedule(dword_125048, *(uint32_t *)(a1 + 4), a2);
     if ( **(int16_t **)off_12504C < 0 )
-      sub_12F694(dword_125054, dword_125050, 131);
+      mmio_irq_clear(dword_125054, dword_125050, 131);
   }
   v6 = (int *)off_125040;
   if ( a1 == *(uint32_t *)off_125040 )
   {
-    sub_12D4F8(off_125040);
+    list_pop_front(off_125040);
     v12 = off_125044;
     *(uint32_t *)(a1 + 12) = a2;
-    result = list_insert_sorted(v6, a1, v12);
+    result = list_find(v6, a1, v12);
     v9 = *v6;
     if ( !*v6 )
     {
@@ -66,10 +66,10 @@ int  timestamp_update_4f60(int a1, int a2)
     }
     goto LABEL_14;
   }
-  list_remove_node_d510(off_125040, a1);
+  check_abort_flag_3(off_125040, a1);
   v7 = off_125044;
   *(uint32_t *)(a1 + 12) = a2;
-  result = list_insert_sorted(v6, a1, v7);
+  result = list_find(v6, a1, v7);
   v9 = *v6;
   if ( a1 == *v6 )
   {
@@ -86,11 +86,11 @@ LABEL_6:
   {
     __enable_irq();
     if ( a2 - *((uint32_t *)off_12503C + 4) < 0 )
-      return irq_nesting_or(0x20000000);
+      return set_system_flag_1(0x20000000);
   }
   else if ( a2 - *((uint32_t *)off_12503C + 4) < 0 )
   {
-    return irq_nesting_or(0x20000000);
+    return set_system_flag_1(0x20000000);
   }
   return result;
 }

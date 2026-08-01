@@ -17,8 +17,8 @@ extern uint32_t off_128A8C;
 extern uint32_t off_128A94;
 extern uint32_t dword_128A98;
 
-// sub_1289EC @ 0x1289ec, size 154 bytes
-int  sub_1289EC(int a1, int a2, int a3)
+// log_printf @ 0x1289ec, size 154 bytes
+int  log_printf(int a1, int a2, int a3)
 {
   int v4; // r0
   int v5; // r1
@@ -43,8 +43,8 @@ int  sub_1289EC(int a1, int a2, int a3)
     {
       v11 = dword_128A9C;
       *(uint8_t *)(a1 + 115) = 0;
-      sub_12EB90(1024, v11);
-      sub_121ED4(a1);
+      check_feature_flag(1024, v11);
+      rf_read_reg(a1);
       return 1;
     }
     else
@@ -52,7 +52,7 @@ int  sub_1289EC(int a1, int a2, int a3)
       v6 = *(uint8_t *)(a1 + 108);
       if ( *(uint8_t *)(a1 + 108) )
       {
-        sub_118C84(*(uint8_t *)(a1 + 116), a3, a1);
+        phy_get_channel(*(uint8_t *)(a1 + 116), a3, a1);
         return 0;
       }
       else
@@ -66,7 +66,7 @@ int  sub_1289EC(int a1, int a2, int a3)
           --v7[8];
         v9 = dword_128A98;
         v7[29] = 0;
-        sub_124CF4(v9);
+        mem_set_util(v9);
         *(uint32_t *)(a1 + 4) &= ~0x200u;
         return v6;
       }

@@ -14,10 +14,10 @@ extern uint32_t off_103E7C;
 extern uint32_t off_103E78;
 extern uint32_t dword_103E80;
 
-// mac_init_set_bits @ 0x103e00, size 118 bytes
-// Doc: mac_init_set_bits [mac]: Set MMIO bits to initialize MAC subsystem
-// mac_init_set_bits [mac]: Set MMIO bits to initialize MAC subsystem
-int * mac_init_set_bits(int a1)
+// mac_tx_enable @ 0x103e00, size 118 bytes
+// Doc: mac_tx_enable [mac]: Set MMIO bits to initialize MAC subsystem
+// mac_tx_enable [mac]: Set MMIO bits to initialize MAC subsystem
+int * mac_tx_enable(int a1)
 {
   unsigned int *v1; // r3
   int v2; // r5

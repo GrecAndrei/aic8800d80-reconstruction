@@ -1,1 +1,1 @@
-{"fn": "sub_1243D7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1243d7c", "status": "ok", "name": "memcpy_aligned_n7c", "params": [], "docstring": "Word-aligned memory copy routine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1243D7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1243d7c", "status": "ok", "name": "memcpy", "params": [], "docstring": "Word-aligned memory copy routine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

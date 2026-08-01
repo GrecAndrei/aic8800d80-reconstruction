@@ -16,8 +16,8 @@ extern uint32_t dword_1254FC;
 extern uint32_t dword_125508;
 extern uint32_t dword_12550C;
 
-// sub_1252C4 @ 0x1252c4, size 566 bytes
-int  sub_1252C4(uint16_t *a1)
+// hci_acl_header_parse @ 0x1252c4, size 566 bytes
+int  hci_acl_header_parse(uint16_t *a1)
 {
   unsigned int v1; // r2
   int v2; // r3
@@ -189,7 +189,7 @@ LABEL_28:
   {
     *(uint8_t *)(dword_1254FC + 1320 * v2 + 230) = 0;
   }
-  sub_12CA10(66, *(a1 - 2), 0);
-  return sub_12CA38(a1 - 6);
+  ke_msg_send_no_param(66, *(a1 - 2), 0);
+  return branch_to_12cbc8(a1 - 6);
 }
 

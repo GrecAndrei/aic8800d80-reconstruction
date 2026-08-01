@@ -1,1 +1,1 @@
-{"fn": "sub_1201A9C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1201a9c", "status": "ok", "name": "lmac_rf_unk_1a9c", "params": [], "docstring": "unknown lmac RF helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1201A9C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1201a9c", "status": "ok", "name": "chip_info_nibble1_get", "params": [], "docstring": "unknown lmac RF helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -16,8 +16,8 @@ extern uint32_t off_11B484;
 extern uint32_t dword_11B48C;
 extern uint32_t off_11B488;
 
-// sub_11B3B8 @ 0x11b3b8, size 194 bytes
-int  sub_11B3B8(int a1)
+// invalid_handler @ 0x11b3b8, size 194 bytes
+int  invalid_handler(int a1)
 {
   unsigned int CPSR; // r3
   int result; // r0
@@ -51,7 +51,7 @@ int  sub_11B3B8(int a1)
     if ( v9 << 28 )
     {
       *(uint32_t *)(dword_11B48C + 4 * a1) = v9;
-      sub_11B368((uint8_t)a1);
+      get_slot_context((uint8_t)a1);
     }
     else if ( !v6[46] )
     {
@@ -71,12 +71,12 @@ LABEL_17:
   if ( !v12 )
   {
     *(uint32_t *)(dword_11B48C + 4 * a1) = *(uint32_t *)(*((uint32_t *)v4 + 4) + 4 * (a1 + 2));
-    result = sub_11B368((uint8_t)a1);
+    result = get_slot_context((uint8_t)a1);
     v8 = *v5;
     goto LABEL_17;
   }
 LABEL_8:
-  result = timestamp_update(&v4[28 * a1 + 20], *((uint32_t *)off_11B488 + 4) + 0x2000);
+  result = unknown_worker(&v4[28 * a1 + 20], *((uint32_t *)off_11B488 + 4) + 0x2000);
   v8 = *v5;
 LABEL_9:
   if ( v8 )

@@ -1,1 +1,1 @@
-{"fn": "sub_1228CF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1228cf8", "status": "ok", "name": "fw_state_lookup_n_528", "params": [], "docstring": "Look up state slot in 0x528-stride table indexed by byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1228CF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1228cf8", "status": "ok", "name": "get_current_entry_owner", "params": [], "docstring": "Look up state slot in 0x528-stride table indexed by byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

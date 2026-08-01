@@ -18,8 +18,8 @@ extern uint32_t off_11D8E4;
 extern uint32_t off_11D8DC;
 extern uint32_t off_11D8D8;
 
-// sub_11D830 @ 0x11d830, size 158 bytes
-int sub_11D830()
+// mac_wait_rx @ 0x11d830, size 158 bytes
+int mac_wait_rx()
 {
   uint16_t *v0; // r5
   int v1; // r4
@@ -34,7 +34,7 @@ int sub_11D830()
 
   v0 = off_11D8D0;
   v1 = *(uint32_t *)off_11D8D0;
-  result = clear_flags(0x200000);
+  result = unknown_func_12d14c(0x200000);
   if ( v1 )
   {
     v3 = (int *)off_11D8E8;
@@ -43,7 +43,7 @@ int sub_11D830()
     {
       if ( (*(uint8_t *)(v1 + 16) & 1) == 0 )
         ++v0[4];
-      rf_bus_mark_n100_d2d0(v0);
+      mem_word_load(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -56,7 +56,7 @@ int sub_11D830()
         v5(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_11E0B4();
+        result = radio_get_status();
       if ( *v3 )
       {
         v6 = *v3 - 1;

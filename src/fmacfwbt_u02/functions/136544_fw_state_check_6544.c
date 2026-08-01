@@ -14,20 +14,20 @@ extern uint32_t off_13657C;
 extern uint32_t dword_136584;
 extern uint32_t dword_136580;
 
-// fw_state_check_6544 @ 0x136544, size 56 bytes
-// Doc: fw_state_check_6544 [util]: Read global halfword and branch on zero/nonzero
-// fw_state_check_6544 [util]: Read global halfword and branch on zero/nonzero
-int fw_state_check_6544()
+// txpwr_apply_path @ 0x136544, size 56 bytes
+// Doc: txpwr_apply_path [util]: Read global halfword and branch on zero/nonzero
+// txpwr_apply_path [util]: Read global halfword and branch on zero/nonzero
+int txpwr_apply_path()
 {
-  if ( **(int16_t **)off_13657C >= 0 || msg_get_value(7u) == 2 )
+  if ( **(int16_t **)off_13657C >= 0 || hci_cmd_send_short(7u) == 2 )
   {
-    sub_136890(0);
+    txpwr_send_cmd(0);
     return 0;
   }
   else
   {
-    sub_12F694(dword_136584, dword_136580, 388);
-    sub_136890(0);
+    mmio_irq_clear(dword_136584, dword_136580, 388);
+    txpwr_send_cmd(0);
     return 0;
   }
 }

@@ -12,14 +12,14 @@
 
 extern uint32_t off_13501C;
 
-// sub_13500C @ 0x13500c, size 14 bytes
+// check_fw_ready @ 0x13500c, size 14 bytes
 // Doc: sub_123500C [unknown]: Stub: compares r5 against 0x38 and moves value
 // sub_123500C [unknown]: Stub: compares r5 against 0x38 and moves value
-int sub_13500C()
+int check_fw_ready()
 {
   if ( *((uint8_t *)off_13501C + 4) )
-    return bt_state_poll_n_cac();
+    return rx_desc_read_status();
   else
-    return sub_134B30();
+    return mac_tx_start();
 }
 

@@ -14,8 +14,8 @@ extern uint32_t dword_131898;
 extern uint32_t dword_13189C;
 extern uint32_t off_1318A0;
 
-// sub_131820 @ 0x131820, size 118 bytes
-int  sub_131820(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// rx_pdu_process @ 0x131820, size 118 bytes
+int  rx_pdu_process(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v4; // r0
   int v7; // r4
@@ -32,17 +32,17 @@ int  sub_131820(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     *(uint8_t *)(v7 + 52) = 2;
     if ( !v9 && ((*((uint32_t *)off_1318A0 + 1) >> v8) & 1) != 0 )
     {
-      v10 = (uint8_t *)rf_bus_setup_n3a8(5145, 5, 6, 2u);
+      v10 = (uint8_t *)bt_buf_alloc(5145, 5, 6, 2u);
       *v10 = 0;
       v10[1] = *(uint8_t *)(v7 + 34);
-      sub_12CBB4((int)v10);
+      hci_evt_send((int)v10);
     }
   }
   else
   {
     *(uint8_t *)(dword_131898 + 696 * v4 + 52) = 1;
   }
-  message_dispatch_n84(5125, a4, a3);
+  hci_evt_alloc_send(5125, a4, a3);
   return 0;
 }
 

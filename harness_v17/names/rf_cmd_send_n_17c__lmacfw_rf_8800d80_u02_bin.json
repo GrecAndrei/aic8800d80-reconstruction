@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_17c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121279c", "status": "ok", "name": "rf_cmd_send_n_17c", "params": [], "docstring": "Send RF command via IPC mailbox, store desc at 0xb00/0xb14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_17c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121279c", "status": "ok", "name": "rf_bus_reset_n4ad", "params": [], "docstring": "Send RF command via IPC mailbox, store desc at 0xb00/0xb14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

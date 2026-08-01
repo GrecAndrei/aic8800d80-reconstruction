@@ -14,8 +14,8 @@ extern uint32_t off_1101B0;
 extern uint32_t off_1101B4;
 extern uint32_t dword_1101B8;
 
-// sub_11017C @ 0x11017c, size 52 bytes
-int sub_11017C()
+// mmio_read_0 @ 0x11017c, size 52 bytes
+int mmio_read_0()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_11017C()
   v0 = (int *)off_1101B4;
   v1 = dword_1101B8;
   ++*(uint32_t *)off_1101B4;
-  result = sub_12D190(v1);
+  result = list_pop(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DBE8;
 
-// sub_10DBD4 @ 0x10dbd4, size 18 bytes
-int  sub_10DBD4(char a1)
+// mmio_clear_bit @ 0x10dbd4, size 18 bytes
+int  mmio_clear_bit(char a1)
 {
   int result; // r0
 

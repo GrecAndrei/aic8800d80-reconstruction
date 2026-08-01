@@ -14,8 +14,8 @@ extern uint32_t off_134474;
 extern uint32_t off_134478;
 extern uint32_t off_13447C;
 
-// sub_134380 @ 0x134380, size 242 bytes
-uint32_t * sub_134380(int a1, int a2)
+// hci_build_acl @ 0x134380, size 242 bytes
+uint32_t * hci_build_acl(int a1, int a2)
 {
   int *v4; // r5
   int v5; // r0
@@ -36,7 +36,7 @@ uint32_t * sub_134380(int a1, int a2)
   uint32_t v21[2]; // [sp+8h] [bp-8h]
 
   v4 = *((int **)off_134474 + 4);
-  v5 = sub_12C7EC(4096, 4, 6, 0x178u);
+  v5 = tx_send_pdu(4096, 4, 6, 0x178u);
   *(uint8_t *)(v5 + 366) = *((uint8_t *)v4 + 61);
   v6 = v5;
   v7 = *v4;
@@ -111,7 +111,7 @@ LABEL_3:
     a2 = 1;
   }
 LABEL_4:
-  sub_12C84C(v6);
-  return sub_12CBF4(6u, 1);
+  rx_process_packet(v6);
+  return hci_cmd_preprocess(6u, 1);
 }
 

@@ -22,10 +22,10 @@ extern uint32_t off_1244E4;
 extern uint32_t dword_1244F4;
 extern uint32_t off_1244F0;
 
-// rf_table_lookup @ 0x1242f0, size 476 bytes
-// Doc: rf_table_lookup [rf]: Lookup RF table entry by index (<=0x80)
-// rf_table_lookup [rf]: Lookup RF table entry by index (<=0x80)
-int  rf_table_lookup(unsigned int a1)
+// ke_handle_message @ 0x1242f0, size 476 bytes
+// Doc: ke_handle_message [rf]: Lookup RF table entry by index (<=0x80)
+// ke_handle_message [rf]: Lookup RF table entry by index (<=0x80)
+int  ke_handle_message(unsigned int a1)
 {
   int v2; // r7
   int v3; // r5
@@ -79,11 +79,11 @@ int  rf_table_lookup(unsigned int a1)
       v2 = 10240;
     }
   }
-  get_cached_1828f8(&v29, 0);
+  mac_time_get(&v29, 0);
   v4 = (uint8_t)v29;
   if ( (uint8_t)v29 )
     v4 = 1;
-  result = rf_alloc_or_init(v4, v3);
+  result = call_global_185c7c(v4, v3);
   v6 = result;
   if ( result )
   {
@@ -96,7 +96,7 @@ int  rf_table_lookup(unsigned int a1)
     *(uint32_t *)(v7 + 52) = v8;
     if ( a1 == 128 )
     {
-      sub_123AB4(v7 + 104);
+      build_hci_event(v7 + 104);
       v23 = *(uint8_t *)off_1244EC;
       v24 = (char *)off_1244E0;
       v25 = *(uint16_t *)off_1244DC;
@@ -122,7 +122,7 @@ int  rf_table_lookup(unsigned int a1)
     {
       if ( a1 == 129 )
       {
-        sub_123AB4(v7 + 104);
+        build_hci_event(v7 + 104);
         v13 = off_1244D8;
         v14 = *(uint16_t *)off_1244DC;
         v15 = *(uint16_t *)off_1244D8;
@@ -153,9 +153,9 @@ int  rf_table_lookup(unsigned int a1)
                / (unsigned int)*(uint16_t *)off_1244DC)
               + 20000;
           *(uint32_t *)off_1244E8 = *(uint32_t *)off_1244E4 + v19;
-          msg_parse(v28, v19);
+          dispatch_event_handler(v28, v19);
         }
-        rf_chan_config_set(v7 + 104);
+        build_hci_command(v7 + 104);
         v20 = *v18;
         v21 = off_1244E0;
         *(uint8_t *)(v7 + 130) = *v18;
@@ -172,7 +172,7 @@ int  rf_table_lookup(unsigned int a1)
       }
       if ( a1 == 2 )
       {
-        rf_chan_config_set(v7 + 104);
+        build_hci_command(v7 + 104);
         v10 = off_1244D8;
         *(uint8_t *)(v7 + 128) = 2;
         v11 = v10[3];
@@ -185,10 +185,10 @@ int  rf_table_lookup(unsigned int a1)
 LABEL_14:
         *(uint32_t *)(v6 + 44) = 0;
         *(uint32_t *)(v6 + 48) = 0;
-        return sub_1165B0(v6, 0);
+        return wlan_tx_submit(v6, 0);
       }
     }
-    rf_chan_config_set(v7 + 104);
+    build_hci_command(v7 + 104);
     *(uint8_t *)(v7 + 128) = 0;
     *(uint8_t *)(v7 + 129) = -1;
     goto LABEL_14;

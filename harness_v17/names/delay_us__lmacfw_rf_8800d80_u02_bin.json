@@ -1,1 +1,1 @@
-{"fn": "delay_us", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1200560", "status": "ok", "name": "delay_us", "params": [], "docstring": "Microsecond delay loop using 0x40501000 timer base", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "delay_us", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1200560", "status": "ok", "name": "write_timer_reg", "params": [], "docstring": "Microsecond delay loop using 0x40501000 timer base", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

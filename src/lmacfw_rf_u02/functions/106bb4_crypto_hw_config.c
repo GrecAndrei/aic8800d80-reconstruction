@@ -24,10 +24,10 @@ extern uint32_t dword_106DB0;
 extern uint32_t off_106DB4;
 extern uint32_t off_106DB8;
 
-// crypto_hw_config @ 0x106bb4, size 468 bytes
-// Doc: crypto_hw_config [mmio]: Configures crypto engine MMIO registers
-// crypto_hw_config [mmio]: Configures crypto engine MMIO registers
-int *crypto_hw_config()
+// clk_enable @ 0x106bb4, size 468 bytes
+// Doc: clk_enable [mmio]: Configures crypto engine MMIO registers
+// clk_enable [mmio]: Configures crypto engine MMIO registers
+int *clk_enable()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r6
@@ -47,7 +47,7 @@ int *crypto_hw_config()
   v1 = off_106D90;
   v2 = (unsigned int *)off_106D94;
   *v0 &= ~0x20000u;
-  delay_us(2);
+  write_timer_reg(2);
   v3 = off_106D98;
   v4 = dword_106D9C;
   *v0 |= 0x10000u;
@@ -64,7 +64,7 @@ int *crypto_hw_config()
   *v3 |= 0x10000000u;
   *v3 = *v3 & 0xFC000FFF | 0x666000;
   *v3 = *v3 & 0xFFFFF000 | 0xC0;
-  delay_us(10);
+  write_timer_reg(10);
   v6 = (unsigned int *)off_106DA4;
   v7 = off_106DA8;
   result = (int *)off_106DAC;

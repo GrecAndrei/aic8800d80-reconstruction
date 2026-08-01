@@ -17,8 +17,8 @@ extern uint32_t off_104268;
 extern uint32_t off_10426C;
 extern uint32_t off_104270;
 
-// sub_104180 @ 0x104180, size 220 bytes
-unsigned int *sub_104180()
+// rf_disable @ 0x104180, size 220 bytes
+unsigned int *rf_disable()
 {
   unsigned int *v0; // r1
   uint32_t *v1; // r0

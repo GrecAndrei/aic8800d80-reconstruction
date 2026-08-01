@@ -21,10 +21,10 @@ extern uint32_t dword_14E9E8;
 extern uint32_t dword_12EC34;
 extern uint32_t dword_12EC2C;
 
-// sub_12E344 @ 0x12e344, size 2264 bytes
+// main_loop_dispatch @ 0x12e344, size 2264 bytes
 // Doc: sdio_buffer_prepare_n3a [tx]: SDIO buffer prepare with shift/mask operations on length
 // sdio_buffer_prepare_n3a [tx]: SDIO buffer prepare with shift/mask operations on length
-unsigned int  sub_12E344(int a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
+unsigned int  main_loop_dispatch(int a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
 {
   int v7; // r2
   int v8; // r5
@@ -218,7 +218,7 @@ LABEL_164:
                   a2 = dword_12E6B8;
 LABEL_162:
                   if ( **(int16_t **)off_12EC28 < 0 )
-                    a1 = sub_12F694(dword_12EC24, dword_12EC20, 594);
+                    a1 = mmio_irq_clear(dword_12EC24, dword_12EC20, 594);
                   break;
               }
               goto LABEL_12;
@@ -269,7 +269,7 @@ LABEL_162:
                 break;
               default:
                 if ( **(int16_t **)off_12E6BC < 0 )
-                  a1 = sub_12F694(dword_12EC24, dword_12EC20, 283);
+                  a1 = mmio_irq_clear(dword_12EC24, dword_12EC20, 283);
                 v13 = 2;
                 break;
             }
@@ -316,7 +316,7 @@ LABEL_162:
             else
             {
               if ( **(int16_t **)off_12E6BC < 0 )
-                a1 = sub_12F694(dword_12EC24, dword_12EC20, 334);
+                a1 = mmio_irq_clear(dword_12EC24, dword_12EC20, 334);
               v13 = 6;
             }
             goto LABEL_12;

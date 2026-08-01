@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_33", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e78", "status": "ok", "name": "patch_apply_n_33", "params": [], "docstring": "Apply firmware patch at offset 0x33", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_33", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e78", "status": "ok", "name": "patch_get_field", "params": [], "docstring": "Apply firmware patch at offset 0x33", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

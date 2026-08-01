@@ -15,8 +15,8 @@ extern uint32_t off_111E94;
 extern uint32_t dword_111EA0;
 extern uint32_t off_111E98;
 
-// sub_111D58 @ 0x111d58, size 316 bytes
-int * sub_111D58(int *result, unsigned int a2, int a3, unsigned int a4)
+// ke_cmd_handler @ 0x111d58, size 316 bytes
+int * ke_cmd_handler(int *result, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   unsigned int v7; // r11
@@ -72,14 +72,14 @@ int * sub_111D58(int *result, unsigned int a2, int a3, unsigned int a4)
         v10 = (uint16_t)v8 << 16;
       }
       if ( (*((uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111BA0(result, a2);
+        result = rf_reg_write(result, a2);
       v11 = (a3 << 18) & 0xC0000;
       v12 = off_111E94;
       v13 = *(uint16_t *)off_111E94;
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)sub_10DA7C(dword_111EA0, v13, v9, 2048);
+        result = (int *)printf_wrapper(dword_111EA0, v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = off_111E98;
@@ -92,7 +92,7 @@ int * sub_111D58(int *result, unsigned int a2, int a3, unsigned int a4)
     {
       v16 = 32 * a2 + 1075838976;
       if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111BA0(0, a2);
+        result = rf_reg_write(0, a2);
       v17 = off_111E98;
       *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
       v17[519] |= 0x10000 << a2;

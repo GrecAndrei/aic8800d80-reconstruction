@@ -1,1 +1,1 @@
-{"fn": "rf_mem_read_n4d", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5e0", "status": "ok", "name": "rf_mem_read16_burst", "params": [], "docstring": "Burst read 16-bit words from RF memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_read_n4d", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5e0", "status": "ok", "name": "rf_mem_read_n4c", "params": [], "docstring": "Burst read 16-bit words from RF memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -21,8 +21,8 @@ extern uint32_t off_1139BC;
 extern uint32_t dword_1139C0;
 extern uint32_t off_1139C4;
 
-// sub_113904 @ 0x113904, size 156 bytes
-void sub_113904()
+// assert_fault @ 0x113904, size 156 bytes
+void assert_fault()
 {
   int *v0; // r4
   int v1; // r0
@@ -41,7 +41,7 @@ void sub_113904()
   v0 = (int *)off_1139A4;
   v1 = dword_1139A8;
   ++*(uint32_t *)off_1139A4;
-  sub_12D248(v1);
+  cmd_handler_a(v1);
   v2 = off_1139B0;
   v3 = *(uint8_t *)off_1139B0;
   v4 = *(uint16_t *)off_1139AC + 1;
@@ -54,11 +54,11 @@ void sub_113904()
       *((uint32_t *)off_1139BC + 512) &= ~0x2000u;
     else
       *((uint32_t *)off_1139BC + 713) &= ~1u;
-    sub_1120FC(1);
-    sub_12C73C(1069, 1);
-    sub_12ECD0(512, dword_1139C0);
+    state_check_4_b(1);
+    ke_int_lock(1069, 1);
+    check_status_bits(512, dword_1139C0);
     if ( !*(uint8_t *)off_1139C4 )
-      sub_1136B8();
+      read_state_flag();
   }
   if ( *v0 )
   {

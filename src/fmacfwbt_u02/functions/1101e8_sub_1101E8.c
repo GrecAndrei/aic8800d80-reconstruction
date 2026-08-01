@@ -12,10 +12,10 @@
 
 extern uint32_t dword_110230;
 
-// sub_1101E8 @ 0x1101e8, size 62 bytes
+// critical_enter_3 @ 0x1101e8, size 62 bytes
 // Doc: ipc_doorbell_handler_n44 [ipc]: Handle IPC doorbell interrupt, set MSB and check doorbell flag
 // ipc_doorbell_handler_n44 [ipc]: Handle IPC doorbell interrupt, set MSB and check doorbell flag
-int sub_1101E8()
+int critical_enter_3()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int sub_1101E8()
   v0 = (int *)log_free_dispatch_n3cc;
   v1 = dword_110230;
   ++*(uint32_t *)log_free_dispatch_n3cc;
-  result = list_push_tail(v1);
+  result = check_abort_flag(v1);
   v3 = *v0;
   ++*(uint32_t *)log_free_dispatch_n3d4;
   if ( v3 )

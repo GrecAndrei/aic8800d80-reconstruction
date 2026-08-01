@@ -13,10 +13,10 @@
 extern uint32_t off_10DB74;
 extern uint32_t dword_40504080;
 
-// irq_prio_set_db48 @ 0x10db48, size 42 bytes
-// Doc: irq_prio_set_db48 [util]: Set interrupt priority (validate irq < 8)
-// irq_prio_set_db48 [util]: Set interrupt priority (validate irq < 8)
-int  irq_prio_set_db48(int result)
+// pinmux_config @ 0x10db48, size 42 bytes
+// Doc: pinmux_config [util]: Set interrupt priority (validate irq < 8)
+// pinmux_config [util]: Set interrupt priority (validate irq < 8)
+int  pinmux_config(int result)
 {
   uint32_t *v1; // r1
 

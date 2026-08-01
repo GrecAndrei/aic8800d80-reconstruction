@@ -17,8 +17,8 @@ extern uint32_t dword_13F2CC;
 extern uint32_t dword_13F2D8;
 extern uint32_t dword_13F2D4;
 
-// sub_13F218 @ 0x13f218, size 174 bytes
-int  sub_13F218(int a1, unsigned int a2, unsigned int a3)
+// get_connection_state @ 0x13f218, size 174 bytes
+int  get_connection_state(int a1, unsigned int a2, unsigned int a3)
 {
   int16_t **v3; // r8
   int v4; // r3
@@ -31,23 +31,23 @@ int  sub_13F218(int a1, unsigned int a2, unsigned int a3)
   result = **(int16_t **)off_13F2DC;
   v7 = *(uint8_t **)(v4 + 340);
   if ( result < 0 && !v7 )
-    result = sub_12F694(dword_13F2D0, dword_13F2CC, 3326);
+    result = mmio_irq_clear(dword_13F2D0, dword_13F2CC, 3326);
   if ( (uint8_t)v7[179] != a2 || (uint8_t)v7[180] != a3 )
   {
     v10 = *v3;
     v7[179] = a2;
     if ( *v10 < 0 && a2 > 3 )
     {
-      result = sub_12F694(dword_13F2D8, dword_13F2CC, 3332);
+      result = mmio_irq_clear(dword_13F2D8, dword_13F2CC, 3332);
       v10 = *v3;
     }
     v7[180] = a3;
     if ( *v10 < 0 && a3 > 7 )
-      result = sub_12F694(dword_13F2D4, dword_13F2CC, 3334);
+      result = mmio_irq_clear(dword_13F2D4, dword_13F2CC, 3334);
     if ( (v7[166] & 0x20) != 0 )
       v7[166] |= 0x80u;
     else
-      return sub_13F158(a1);
+      return is_connection_active(a1);
   }
   return result;
 }

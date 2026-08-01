@@ -14,8 +14,8 @@ extern uint32_t off_1327B8;
 extern uint32_t dword_1327BC;
 extern uint32_t dword_1327C0;
 
-// sub_13275C @ 0x13275c, size 92 bytes
-int  sub_13275C(int a1)
+// get_phy_status_byte @ 0x13275c, size 92 bytes
+int  get_phy_status_byte(int a1)
 {
   int v2; // r0
   int v3; // r3
@@ -36,7 +36,7 @@ LABEL_2:
   }
   if ( !v2 )
   {
-    sub_12F32C(dword_1327BC, dword_1327C0, 707);
+    irq_disable_mmio_write(dword_1327BC, dword_1327C0, 707);
     v2 = *(uint8_t *)(a1 + 192);
     goto LABEL_2;
   }
@@ -53,8 +53,8 @@ LABEL_3:
   }
   while ( v3 != v4 );
 LABEL_7:
-  sub_1325B4();
-  result = sub_13F278(a1, v8);
+  cmd_char_validate();
+  result = rf_set_mode(a1, v8);
   *(uint8_t *)(a1 + 350) = 0;
   return result;
 }

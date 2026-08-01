@@ -1,1 +1,1 @@
-{"fn": "sub_1229C98", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1229c98", "status": "ok", "name": "ipc_array_lookup_n_4c0", "params": [], "docstring": "Look up element in 0x528-stride IPC array via mla index", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1229C98", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1229c98", "status": "ok", "name": "llc_get_context_ptr", "params": [], "docstring": "Look up element in 0x528-stride IPC array via mla index", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

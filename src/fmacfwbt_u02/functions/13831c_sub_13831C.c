@@ -12,10 +12,10 @@
 
 extern uint32_t dword_138374;
 
-// sub_13831C @ 0x13831c, size 86 bytes
+// lookup_handle_entry @ 0x13831c, size 86 bytes
 // Doc: sub_123831C [util]: Loads pointer from 0x192d84, accesses +0xf00 offset byte
 // sub_123831C [util]: Loads pointer from 0x192d84, accesses +0xf00 offset byte
-int  sub_13831C(uint16_t *a1)
+int  lookup_handle_entry(uint16_t *a1)
 {
   int v1; // r3
   int v2; // r1

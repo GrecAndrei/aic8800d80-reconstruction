@@ -1,1 +1,1 @@
-{"fn": "mac_phy_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1220720", "status": "ok", "name": "mac_phy_init", "params": [], "docstring": "Initialize MAC/PHY from config table at 0x182b64", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "mac_phy_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1220720", "status": "ok", "name": "get_bt_state", "params": [], "docstring": "Initialize MAC/PHY from config table at 0x182b64", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

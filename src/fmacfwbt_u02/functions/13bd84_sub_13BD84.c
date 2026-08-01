@@ -14,8 +14,8 @@ extern uint32_t dword_13BDF0;
 extern uint32_t dword_13BDF4;
 extern uint32_t dword_13BDF8;
 
-// sub_13BD84 @ 0x13bd84, size 108 bytes
-int  sub_13BD84(int result)
+// rf_scan_start @ 0x13bd84, size 108 bytes
+int  rf_scan_start(int result)
 {
   int v1; // r4
   int v2; // r5
@@ -39,9 +39,9 @@ int  sub_13BD84(int result)
     {
       if ( *(uint8_t *)(v2 + 16) == v4 )
       {
-        rf_bus_mark_n_3b7((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
+        hci_cmd_send((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(uint8_t *)(v2 + 25) = 0;
-        result = rf_bus_write_n_25c(v4, v2, 2, 0, 0, 39, v3);
+        result = dbg_printf(v4, v2, 2, 0, 0, 39, v3);
       }
     }
     v2 += 32;

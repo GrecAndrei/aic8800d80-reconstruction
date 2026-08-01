@@ -1,1 +1,1 @@
-{"fn": "crypto_hw_clear_regs", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207518", "status": "ok", "name": "crypto_engine_clear_sram_regs", "params": [], "docstring": "Clear hardware crypto SRAM control registers", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_hw_clear_regs", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207518", "status": "ok", "name": "rf_synth_set_freq", "params": [], "docstring": "Clear hardware crypto SRAM control registers", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

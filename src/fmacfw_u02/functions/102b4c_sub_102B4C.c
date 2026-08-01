@@ -12,8 +12,8 @@
 
 extern uint32_t off_102B5C;
 
-// sub_102B4C @ 0x102b4c, size 16 bytes
-uint8_t * sub_102B4C(uint8_t *result, uint8_t *a2)
+// get_calibration_offsets @ 0x102b4c, size 16 bytes
+uint8_t * get_calibration_offsets(uint8_t *result, uint8_t *a2)
 {
   uint8_t *v2; // r3
 

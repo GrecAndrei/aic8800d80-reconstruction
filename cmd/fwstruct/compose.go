@@ -27,13 +27,17 @@ import (
 )
 
 type fnUnit struct {
-	Addr    int
-	Orig    string // original function name
-	New     string // final name (LLM or original)
-	Sig     string // full signature line(s) ending with "{"
-	Body    string // everything from "{" to EOF
-	HasBody bool
+	Addr       int
+	Orig       string // original function name
+	PreRename  string // address-derived sub_<HEX> name (unique per address)
+	New        string // final name (LLM or original)
+	Sig        string // full signature line(s) ending with "{"
+	Body       string // everything from "{" to EOF
+	HasBody    bool
+	IsPlainSub bool // from a plain <hex>_sub_<HEX>.c file (pre-rename decompile)
 }
+
+var plainSubFileRe = regexp.MustCompile(`^[0-9a-fA-F]+_sub_[0-9a-fA-F]+\.c$`)
 
 var fnMarkerRe = regexp.MustCompile(`(?m)^// (\w+) @ 0x([0-9a-fA-F]+)[^\n]*`)
 var sigTailRe = regexp.MustCompile(`(?s)^((?:[A-Za-z_][\w ]*?|\*|\(|\s)+?)\s+(\w+)\s*\((.*)\)\s*\{?\s*$`)
@@ -90,12 +94,16 @@ func runCompose(args []string) error {
 				}
 			}
 		}
-		// Global rename map: orig -> new (first winner)
+		// Global rename map: sub_<ADDR> -> final name (first winner). Keyed on
+		// the address-derived name (unique per address), NOT the marker name:
+		// the LLM naming pass can give two different functions the same name,
+		// and a marker-name-keyed map would rewrite all call sites to the
+		// second unit's deduped name, collapsing distinct targets.
 		rename := map[string]string{}
 		for _, u := range units {
-			if u.New != u.Orig {
-				if _, ok := rename[u.Orig]; !ok {
-					rename[u.Orig] = u.New
+			if u.New != u.PreRename {
+				if _, ok := rename[u.PreRename]; !ok {
+					rename[u.PreRename] = u.New
 				}
 			}
 		}
@@ -132,11 +140,17 @@ func runCompose(args []string) error {
 				if forbiddenCName[n] || cKeywords[n] || strings.HasPrefix(n, "REG_") {
 					continue // header macro / intrinsic / keyword, not a function
 				}
+				if headerIntrinsic[n] {
+					continue // static inline defined in aic8800d80_types.h
+				}
 				if n == "va_start" || n == "va_end" || n == "va_arg" || n == "va_copy" {
 					continue // stdarg macros, not functions
 				}
 				if isDataSymName(n) {
 					continue // data symbol (possibly a fn-ptr in data.c), not a C function
+				}
+				if strings.HasPrefix(n, "loc_") {
+					continue // code-label lvalue defined in data.c
 				}
 				if !defined[n] {
 					callees[n] = true
@@ -203,6 +217,21 @@ var forbiddenCName = map[string]bool{
 	"__und": true, "__dsb": true, "__isb": true, "__wfi": true,
 	"nullptr": true, "BOOL": true, "REG": true, "start": false,
 	"__OFADD__": true, "__OFSUB__": true,
+}
+
+// headerIntrinsic lists static inline helpers defined in
+// src/include/aic8800d80_types.h (never emit forward decls for them).
+var headerIntrinsic = map[string]bool{
+	"JUMPOUT": true, "COERCE_FLOAT": true, "COERCE_UINT32": true,
+	"__CFADD__": true, "__OFADD__": true, "__OFSUB__": true,
+	"bswap32": true, "abs16": true, "abs32": true,
+	"vcvts_n_s32_f32": true, "vcvts_n_f32_u32": true,
+	"__rev": true, "__rev16": true, "__usat": true,
+	"__get_CPSR": true, "__disable_irq": true, "__enable_irq": true,
+	"__pld": true, "MEMD": true,
+	"SHIBYTE": true, "SLOBYTE": true, "WORD1": true, "WORD2": true,
+	"SHIDWORD": true, "__ROR4__": true, "_byteswap_ushort": true,
+	"BYTE1": true, "BYTE2": true, "BYTE3": true, "BYTE4": true,
 }
 
 // cKeywords can never be function names or callees.
@@ -291,23 +320,36 @@ func readFunctionUnits(funcDir string) ([]fnUnit, error) {
 		u.Sig = strings.TrimRight(sig, " {")
 		u.Body = string(text[braceIdx:])
 		u.HasBody = true
+		u.IsPlainSub = plainSubFileRe.MatchString(e.Name())
+		u.PreRename = fmt.Sprintf("sub_%X", u.Addr)
 		units = append(units, u)
 	}
 	sort.Slice(units, func(i, j int) bool { return units[i].Addr < units[j].Addr })
 	// Dedupe by address: the naming era left renamed re-decompiles alongside
 	// the original sub_<ADDR> files. Keep ONE body per address, preferring
 	// the plain sub_<ADDR> unit (pre-rename decompile with data symbols).
+	// sort.Slice is NOT stable, so resolve the preference in a second pass.
 	kept := make([]fnUnit, 0, len(units))
 	addrIdx := map[int]int{}
 	for _, u := range units {
 		if i, ok := addrIdx[u.Addr]; ok {
-			if u.Orig == fmt.Sprintf("sub_%X", u.Addr) {
-				kept[i] = u
-			}
+			_ = i
 			continue
 		}
 		addrIdx[u.Addr] = len(kept)
 		kept = append(kept, u)
+	}
+	plain := map[int]int{}
+	for i, u := range units {
+		if u.IsPlainSub {
+			plain[u.Addr] = i
+		}
+	}
+	for addr, ui := range plain {
+		ki := addrIdx[addr]
+		if ki >= 0 && !kept[ki].IsPlainSub {
+			kept[ki] = units[ui]
+		}
 	}
 	units = kept
 	return units, nil

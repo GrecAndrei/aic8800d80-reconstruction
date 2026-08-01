@@ -1,1 +1,1 @@
-{"fn": "sub_121B490", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121b490", "status": "ok", "name": "fmac_flag_read_a0", "params": [], "docstring": "Reads status flag byte at offset 0xa0 from fmac state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121B490", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121b490", "status": "ok", "name": "get_phy_status", "params": [], "docstring": "Reads status flag byte at offset 0xa0 from fmac state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

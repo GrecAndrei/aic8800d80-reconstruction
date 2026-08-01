@@ -14,10 +14,10 @@ extern uint32_t off_12EF20;
 extern uint32_t dword_12EF28;
 extern uint32_t dword_12EF24;
 
-// mmio_reg_write_n6c @ 0x12ee6c, size 178 bytes
-// Doc: mmio_reg_write_n6c [mmio]: Write MMIO register with value 0x412
-// mmio_reg_write_n6c [mmio]: Write MMIO register with value 0x412
-int  mmio_reg_write_n6c(int a1, int *a2, int16_t a3, int16_t a4)
+// msg_alloc_0x412 @ 0x12ee6c, size 178 bytes
+// Doc: msg_alloc_0x412 [mmio]: Write MMIO register with value 0x412
+// msg_alloc_0x412 [mmio]: Write MMIO register with value 0x412
+int  msg_alloc_0x412(int a1, int *a2, int16_t a3, int16_t a4)
 {
   uint64_t *v5; // r0
   int v6; // r5
@@ -25,7 +25,7 @@ int  mmio_reg_write_n6c(int a1, int *a2, int16_t a3, int16_t a4)
   uint64_t v8; // r2
   int v9; // r0
 
-  v5 = (uint64_t *)sub_12C92C(1042, a4, a3, 8u);
+  v5 = (uint64_t *)ke_msg_alloc(1042, a4, a3, 8u);
   v6 = (int)v5;
   if ( (unsigned int)**(uint8_t **)off_12EF20 - 1 <= 1 )
   {
@@ -50,8 +50,8 @@ int  mmio_reg_write_n6c(int a1, int *a2, int16_t a3, int16_t a4)
     v7 = (uint32_t *)*a2;
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      sub_10EE2C((int)v7, a2[2], a2[1], 1);
-      v9 = sub_10ED84(*a2, 1);
+      mmio_rmw32((int)v7, a2[2], a2[1], 1);
+      v9 = mmio_read32(*a2, 1);
       LODWORD(v8) = *a2;
     }
     else
@@ -64,8 +64,8 @@ int  mmio_reg_write_n6c(int a1, int *a2, int16_t a3, int16_t a4)
     HIDWORD(v8) = a2[2];
     *(uint32_t *)v6 = v8;
   }
-  msg_parse(dword_12EF24, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
-  sdio_buffer_prepare_n_4e8(v6);
+  event_dispatch(dword_12EF24, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
+  ke_msg_send(v6);
   return 0;
 }
 

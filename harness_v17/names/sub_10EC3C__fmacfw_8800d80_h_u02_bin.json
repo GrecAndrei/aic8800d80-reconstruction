@@ -1,0 +1,1 @@
+{"fn": "sub_10EC3C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10ec3c", "status": "ok", "name": "call_patch_hook_2", "params": [], "docstring": "Jump to patch hook at 0x1b8", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

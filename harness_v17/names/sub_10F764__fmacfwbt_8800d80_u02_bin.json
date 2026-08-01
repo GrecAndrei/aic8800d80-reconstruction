@@ -1,0 +1,1 @@
+{"fn": "sub_10F764", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10f764", "status": "ok", "name": "send_cmd_040d", "params": [], "docstring": "Send command 0x040d with parameters (1,13,8) to handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

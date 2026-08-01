@@ -12,9 +12,9 @@
 
 extern uint32_t off_120578;
 
-// sub_120568 @ 0x120568, size 16 bytes
-int  sub_120568(int a1)
+// wlc_bmac_write_shm @ 0x120568, size 16 bytes
+int  wlc_bmac_write_shm(int a1)
 {
-  return sub_124F60(a1 + 48, *((uint32_t *)off_120578 + 4) + 10000);
+  return ke_event_lock(a1 + 48, *((uint32_t *)off_120578 + 4) + 10000);
 }
 

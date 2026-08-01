@@ -16,12 +16,12 @@ extern uint32_t off_134640;
 extern uint32_t dword_134648;
 extern uint32_t dword_13464C;
 
-// sub_134608 @ 0x134608, size 52 bytes
-uint32_t *sub_134608()
+// llm_reset_cleanup @ 0x134608, size 52 bytes
+uint32_t *llm_reset_cleanup()
 {
   if ( **(int16_t **)off_13463C >= 0 || !*((uint32_t *)off_134644 + 6) )
-    return bt_xtal_init_check(off_134640);
-  sub_12F694(dword_134648, dword_13464C, 132);
-  return bt_xtal_init_check(off_134640);
+    return zero_struct(off_134640);
+  mmio_irq_clear(dword_134648, dword_13464C, 132);
+  return zero_struct(off_134640);
 }
 

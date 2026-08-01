@@ -14,8 +14,8 @@ extern uint32_t off_1347D0;
 extern uint32_t off_1347D4;
 extern uint32_t off_1347D8;
 
-// sub_1346DC @ 0x1346dc, size 242 bytes
-uint32_t * sub_1346DC(int a1, int a2)
+// wlan_hw_init @ 0x1346dc, size 242 bytes
+uint32_t * wlan_hw_init(int a1, int a2)
 {
   int *v4; // r5
   int v5; // r0
@@ -36,7 +36,7 @@ uint32_t * sub_1346DC(int a1, int a2)
   uint32_t v21[2]; // [sp+8h] [bp-8h]
 
   v4 = *((int **)off_1347D0 + 4);
-  v5 = rf_bus_setup_n3a8(4096, 4, 6, 0x178u);
+  v5 = bt_buf_alloc(4096, 4, 6, 0x178u);
   *(uint8_t *)(v5 + 366) = *((uint8_t *)v4 + 61);
   v6 = v5;
   v7 = *v4;
@@ -111,7 +111,7 @@ LABEL_3:
     a2 = 1;
   }
 LABEL_4:
-  sub_12CBB4(v6);
-  return rf_bus_mark_n_3b7(6u, 1);
+  hci_evt_send(v6);
+  return hci_cmd_send(6u, 1);
 }
 

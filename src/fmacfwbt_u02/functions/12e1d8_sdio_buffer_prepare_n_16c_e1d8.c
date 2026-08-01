@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sdio_buffer_prepare_n_16c_e1d8 @ 0x12e1d8, size 30 bytes
-// Doc: sdio_buffer_prepare_n_16c_e1d8 [mmio]: Prepare SDIO transfer buffer address with channel offset
-// sdio_buffer_prepare_n_16c_e1d8 [mmio]: Prepare SDIO transfer buffer address with channel offset
-int  sdio_buffer_prepare_n_16c_e1d8(int a1, int16_t a2)
+// pack_chan_bits @ 0x12e1d8, size 30 bytes
+// Doc: pack_chan_bits [mmio]: Prepare SDIO transfer buffer address with channel offset
+// pack_chan_bits [mmio]: Prepare SDIO transfer buffer address with channel offset
+int  pack_chan_bits(int a1, int16_t a2)
 {
   return sdio_buffer_prepare_n_14c
        & ((((32 * (*(uint8_t *)(a1 + 5) ^ (*(uint8_t *)(a1 + 5) >> 4))) & 0x1E0) + (a2 & 0x1FF)) << 22)

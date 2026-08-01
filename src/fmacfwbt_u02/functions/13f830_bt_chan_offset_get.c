@@ -15,10 +15,10 @@ extern uint32_t off_13F8C0;
 extern uint32_t dword_13F8CC;
 extern uint32_t dword_13F8C8;
 
-// bt_chan_offset_get @ 0x13f830, size 142 bytes
-// Doc: bt_chan_offset_get [bt]: Compute Bluetooth channel offset via 0x2b8 stride lookup
-// bt_chan_offset_get [bt]: Compute Bluetooth channel offset via 0x2b8 stride lookup
-int  bt_chan_offset_get(int a1)
+// check_connection_busy @ 0x13f830, size 142 bytes
+// Doc: check_connection_busy [bt]: Compute Bluetooth channel offset via 0x2b8 stride lookup
+// check_connection_busy [bt]: Compute Bluetooth channel offset via 0x2b8 stride lookup
+int  check_connection_busy(int a1)
 {
   int v1; // r4
   int v2; // r3
@@ -27,8 +27,8 @@ int  bt_chan_offset_get(int a1)
 
   v1 = *(uint32_t *)(dword_13F8C4 + 696 * a1 + 340);
   if ( **(int16_t **)off_13F8C0 < 0 && !v1 )
-    sub_12F694(dword_13F8CC, dword_13F8C8, 2194);
-  sub_13E3C4(v1);
+    mmio_irq_clear(dword_13F8CC, dword_13F8C8, 2194);
+  process_packet_queue(v1);
   v2 = *(uint16_t *)(v1 + 184);
   *(uint16_t *)(v1 + 136) = (v2 - 1) & ~(uint16_t)((v2 - 1) >> 31);
   *(uint16_t *)(v1 + 138) = (v2 - 2) & ~(uint16_t)((v2 - 2) >> 31);
@@ -37,7 +37,7 @@ int  bt_chan_offset_get(int a1)
   *(uint16_t *)(v1 + 190) = -1;
   *(uint16_t *)(v1 + 142) = 0;
   *(uint8_t *)(v1 + 166) = 0;
-  result = sub_13F66C(v1, 1);
+  result = build_ll_data_packet(v1, 1);
   v4 = *(uint8_t *)(v1 + 184);
   *(uint8_t *)(v1 + 154) = 0;
   *(uint8_t *)(v1 + 164) = v4 - 4;

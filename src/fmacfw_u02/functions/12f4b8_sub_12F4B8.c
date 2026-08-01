@@ -13,8 +13,8 @@
 extern uint32_t off_12F4E0;
 extern uint32_t off_12F4E4;
 
-// sub_12F4B8 @ 0x12f4b8, size 40 bytes
-void sub_12F4B8()
+// bad_func_0x12f4b8 @ 0x12f4b8, size 40 bytes
+void bad_func_0x12f4b8()
 {
   uint32_t *v0; // r3
   int v1; // r2

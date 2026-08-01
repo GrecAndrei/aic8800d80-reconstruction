@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_cmd_send_n_374 @ 0x112c9c, size 6 bytes
-// Doc: rf_cmd_send_n_374 [rf]: Sends an RF command by reading descriptor pointer
-// rf_cmd_send_n_374 [rf]: Sends an RF command by reading descriptor pointer
-int rf_cmd_send_n_374()
+// mmio_read_flag_b @ 0x112c9c, size 6 bytes
+// Doc: mmio_read_flag_b [rf]: Sends an RF command by reading descriptor pointer
+// mmio_read_flag_b [rf]: Sends an RF command by reading descriptor pointer
+int mmio_read_flag_b()
 {
   return *(uint8_t *)rf_bus_mark_n476;
 }

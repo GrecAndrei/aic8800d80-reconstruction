@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11A93C;
 
-// sub_11A900 @ 0x11a900, size 58 bytes
-int  sub_11A900(int result)
+// get_channel_by_handle @ 0x11a900, size 58 bytes
+int  get_channel_by_handle(int result)
 {
   int v1; // r5
   int v2; // r1
@@ -28,7 +28,7 @@ int  sub_11A900(int result)
     v4 = result;
     *(uint8_t *)(v2 + 14) = v3;
     if ( !v3 )
-      sub_12D248(*(uint32_t *)(v2 + 340));
+      cmd_handler_a(*(uint32_t *)(v2 + 340));
     *(uint32_t *)(v1 + 84 * v4 + 40) = 0;
     return 84;
   }

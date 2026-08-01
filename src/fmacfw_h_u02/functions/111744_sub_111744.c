@@ -17,8 +17,8 @@ extern uint32_t off_1117B8;
 extern uint32_t off_1117C8;
 extern uint32_t off_1117CC;
 
-// sub_111744 @ 0x111744, size 114 bytes
-int sub_111744()
+// update_packet_buffer @ 0x111744, size 114 bytes
+int update_packet_buffer()
 {
   int v0; // r3
   int *v1; // r2

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_116", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153d2", "status": "ok", "name": "patch_apply_n_116", "params": [], "docstring": "Apply firmware patch and verify WIFIIFI magic header", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_116", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153d2", "status": "ok", "name": "panic_entry", "params": [], "docstring": "Apply firmware patch and verify WIFIIFI magic header", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

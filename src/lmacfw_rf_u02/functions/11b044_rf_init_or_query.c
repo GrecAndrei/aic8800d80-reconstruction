@@ -14,28 +14,28 @@ extern uint32_t dword_11B07C;
 extern uint32_t off_11B080;
 extern uint32_t dword_11B084;
 
-// rf_init_or_query @ 0x11b044, size 56 bytes
-// Doc: rf_init_or_query [rf]: RF subsystem init/query: calls helper and stores result on stack
-// rf_init_or_query [rf]: RF subsystem init/query: calls helper and stores result on stack
-int rf_init_or_query()
+// rx_buffer_alloc @ 0x11b044, size 56 bytes
+// Doc: rx_buffer_alloc [rf]: RF subsystem init/query: calls helper and stores result on stack
+// rx_buffer_alloc [rf]: RF subsystem init/query: calls helper and stores result on stack
+int rx_buffer_alloc()
 {
   int result; // r0
   uint32_t *v1; // r4
   char *v2; // r5
   char *v3; // r4
 
-  result = sub_11E7AC(dword_11B07C);
+  result = list_pop_front(dword_11B07C);
   if ( result )
   {
     v1 = off_11B080;
-    timestamp_remove(dword_11B084);
+    ke_exit_critical(dword_11B084);
     v1[18] = 0;
     v2 = (char *)(v1 + 6);
     v3 = (char *)(v1 + 8);
     do
     {
-      list_push_tail(v2);
-      result = sub_11E7AC(v3);
+      check_kernel_state(v2);
+      result = list_pop_front(v3);
     }
     while ( result );
   }

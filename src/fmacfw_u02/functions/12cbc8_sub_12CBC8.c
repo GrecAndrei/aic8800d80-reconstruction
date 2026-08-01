@@ -13,10 +13,10 @@
 extern uint32_t off_12CCAC;
 extern uint32_t dword_12CCB8;
 
-// sub_12CBC8 @ 0x12cbc8, size 226 bytes
+// tx_pkt_enqueue @ 0x12cbc8, size 226 bytes
 // Doc: message_dispatch_n2fa [ipc]: Dispatches host messages to subsystem handlers
 // message_dispatch_n2fa [ipc]: Dispatches host messages to subsystem handlers
-uint32_t * sub_12CBC8(char *a1)
+uint32_t * tx_pkt_enqueue(char *a1)
 {
   int16_t **v1; // r9
   char *v2; // r4
@@ -39,7 +39,7 @@ uint32_t * sub_12CBC8(char *a1)
   v3 = *((uint32_t *)a1 - 1);
   v5 = a1 - 4;
   if ( **(int16_t **)message_id_match_n338 < 0 && a1 <= v2 )
-    sub_12F46C(message_dispatch_ccbc, dword_12CCB8, 220);
+    mmio_clear_register(message_dispatch_ccbc, dword_12CCB8, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -60,7 +60,7 @@ uint32_t * sub_12CBC8(char *a1)
     if ( v2 > v5 )
     {
       if ( **v1 < 0 )
-        sub_12F46C(message_dispatch_n334, dword_12CCB8, 247);
+        mmio_clear_register(message_dispatch_n334, dword_12CCB8, 247);
       MEMORY[0] = v5;
       __und(0xFFu);
     }

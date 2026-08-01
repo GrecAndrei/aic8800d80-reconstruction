@@ -12,8 +12,8 @@
 
 extern uint32_t off_123FC4;
 
-// sub_123FB4 @ 0x123fb4, size 16 bytes
-int  sub_123FB4(int result)
+// set_reg_1807fc_bits24_27 @ 0x123fb4, size 16 bytes
+int  set_reg_1807fc_bits24_27(int result)
 {
   *(uint32_t *)off_123FC4 = *(uint32_t *)off_123FC4 & 0xF0FFFFFF | (result << 24);
   return result;

@@ -1,1 +1,1 @@
-{"fn": "sub_122A3BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a3bc", "status": "ok", "name": "sub_122A3BC", "params": [], "docstring": "Check shared flag word and branch on signed halfword", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A3BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a3bc", "status": "ok", "name": "rf_read_state", "params": [], "docstring": "Check shared flag word and branch on signed halfword", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

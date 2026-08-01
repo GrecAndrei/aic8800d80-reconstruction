@@ -16,8 +16,8 @@ extern uint32_t dword_1121C4;
 extern uint32_t dword_1121C8;
 extern uint32_t dword_1121CC;
 
-// sub_11211C @ 0x11211c, size 162 bytes
-int  sub_11211C(int a1, int a2, unsigned int a3)
+// global_copy_u16 @ 0x11211c, size 162 bytes
+int  global_copy_u16(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -35,7 +35,7 @@ int  sub_11211C(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DC24(dword_1121D0);
+    log_printf(dword_1121D0);
     return 3;
   }
   else

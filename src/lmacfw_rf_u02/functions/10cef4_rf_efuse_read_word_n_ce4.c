@@ -13,10 +13,10 @@
 extern uint32_t off_10CF20;
 extern uint32_t off_10CF24;
 
-// rf_efuse_read_word_n_ce4 @ 0x10cef4, size 44 bytes
-// Doc: rf_efuse_read_word_n_ce4 [rf]: Loads pointer table and reads eFuse/RF configuration word at offset 0x214
-// rf_efuse_read_word_n_ce4 [rf]: Loads pointer table and reads eFuse/RF configuration word at offset 0x214
-int rf_efuse_read_word_n_ce4()
+// poll_hw_status @ 0x10cef4, size 44 bytes
+// Doc: poll_hw_status [rf]: Loads pointer table and reads eFuse/RF configuration word at offset 0x214
+// poll_hw_status [rf]: Loads pointer table and reads eFuse/RF configuration word at offset 0x214
+int poll_hw_status()
 {
   uint32_t *v0; // r4
   int result; // r0
@@ -27,7 +27,7 @@ int rf_efuse_read_word_n_ce4()
   result = *(uint32_t *)(*(uint32_t *)off_10CF24 + 532);
   if ( result )
   {
-    result = sub_11E7AC(*(uint32_t *)off_10CF24 + 532);
+    result = list_pop_front(*(uint32_t *)off_10CF24 + 532);
     *v0 = 1;
     if ( result )
       result += 4;

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DD48 @ 0x12dd48, size 64 bytes
+// check_one_12dd48 @ 0x12dd48, size 64 bytes
 // Doc: sdio_buffer_prepare_n_3ac [mmio]: Validate channel/type against 6 and return status
 // sdio_buffer_prepare_n_3ac [mmio]: Validate channel/type against 6 and return status
-uint8_t * sub_12DD48(uint8_t *result, int a2)
+uint8_t * check_one_12dd48(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   unsigned int v3; // r3

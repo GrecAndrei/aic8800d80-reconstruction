@@ -1,1 +1,1 @@
-{"fn": "sub_123BE14", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123be14", "status": "ok", "name": "sub_123BE14", "params": [], "docstring": "Unknown behavioral helper, likely init/state helper", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BE14", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123be14", "status": "ok", "name": "rf_scan_chan", "params": [], "docstring": "Unknown behavioral helper, likely init/state helper", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

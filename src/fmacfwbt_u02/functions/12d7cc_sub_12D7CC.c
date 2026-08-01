@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D7CC @ 0x12d7cc, size 242 bytes
-float  sub_12D7CC(unsigned int a1)
+// float32_decompose @ 0x12d7cc, size 242 bytes
+float  float32_decompose(unsigned int a1)
 {
   unsigned int v1; // r3
   int v2; // s15

@@ -18,8 +18,8 @@ extern uint32_t dword_130F2C;
 extern uint32_t off_130ECC;
 extern uint32_t dword_130EC8;
 
-// sub_130A5C @ 0x130a5c, size 1230 bytes
-int  sub_130A5C(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6, int a7)
+// rf_calc_tx_power_offset @ 0x130a5c, size 1230 bytes
+int  rf_calc_tx_power_offset(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6, int a7)
 {
   int v8; // r5
   int16_t v9; // r7
@@ -114,7 +114,7 @@ int  sub_130A5C(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6
   if ( !v9 )
     v9 = 5;
   v89 = (uint8_t *)a1;
-  v12 = sub_132A7C(a4);
+  v12 = rf_chan_valid_check(a4);
   v13 = v89;
   v14 = v12 | (*(uint32_t *)(a2 + 224) >> 1) & 0x10;
   *((uint16_t *)v89 + 1) = v9;
@@ -202,7 +202,7 @@ int  sub_130A5C(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6
   *v61 = 33;
   v62 = v89++;
   *v62 = 2;
-  bt_fw_init_or_handler(v91, &v90);
+  read_calibration_offsets(v91, &v90);
   if ( SLOBYTE(v91[0]) > *(char *)(a2 + 172) )
     LOBYTE(v91[0]) = *(uint8_t *)(a2 + 172);
   v63 = v89++;
@@ -323,7 +323,7 @@ LABEL_64:
   v83 += v78 + 6;
   *v86 = v77;
 LABEL_17:
-  v34 = sub_1309F0((int)&v89);
+  v34 = rf_write_pattern_4605((int)&v89);
   v35 = (int)v89;
   if ( v10 )
   {
@@ -365,7 +365,7 @@ LABEL_17:
   }
   if ( (v38 & 2) != 0 && (*((uint8_t *)off_130EC4 + 374) & 1) != 0 )
   {
-    v82 = ipc_msg_write_hdr((int *)&v89);
+    v82 = build_tx_packet((int *)&v89);
     v41 = *(uint32_t *)(a2 + 224);
     v40 = (uint16_t)(v82 + v40);
   }
@@ -377,17 +377,17 @@ LABEL_17:
     {
       v58 = *((uint8_t *)off_130EC4 + 373);
       if ( (*(uint8_t *)off_130ED0 & 8) != 0
-        || (sub_12ECB0(dword_130F2C, v49 << 30), *((uint8_t *)v48 + 373) <= 1u) )
+        || (ke_event_schedule(dword_130F2C, v49 << 30), *((uint8_t *)v48 + 373) <= 1u) )
       {
-        v59 = v40 + sub_1309B4((int)&v89);
-        v60 = sub_1327E8(v48[28]);
+        v59 = v40 + rf_write_pattern_bf0c((int)&v89);
+        v60 = rf_get_chan_index(v48[28]);
         if ( v58 == 4 )
           LOBYTE(v58) = 3;
       }
       else
       {
-        v59 = v40 + sub_1309B4((int)&v89);
-        v60 = sub_1327E8(v48[28]);
+        v59 = v40 + rf_write_pattern_bf0c((int)&v89);
+        v60 = rf_get_chan_index(v48[28]);
         LOBYTE(v58) = 1;
       }
       *v89 = -57;
@@ -399,13 +399,13 @@ LABEL_17:
     }
   }
   if ( (v41 & 8) != 0 && (*((uint8_t *)off_130EC4 + 374) & 4) != 0 )
-    v40 = (uint16_t)((uint16_t)sub_1308DC((int)&v89) + v40);
-  v50 = sub_12DEC8(v15, v10);
-  sub_137358(v15, v10, v84, v91);
+    v40 = (uint16_t)((uint16_t)rf_write_pattern_ff23((int)&v89) + v40);
+  v50 = parse_data_1(v15, v10);
+  init_radio_params(v15, v10, v84, v91);
   if ( *(uint16_t *)(a2 + 228)
     && (!v50 && (v51 = v95 << 26, (v95 & 0x20) != 0) || (*(uint32_t *)(*((uint32_t *)off_130ECC + 4) + 48) & 0x40) != 0) )
   {
-    feature_guard_sdio(256, dword_130EC8, v51);
+    state_check_feature(256, dword_130EC8, v51);
     *v89 = 54;
     v89[1] = 3;
     v52 = (int)v89;

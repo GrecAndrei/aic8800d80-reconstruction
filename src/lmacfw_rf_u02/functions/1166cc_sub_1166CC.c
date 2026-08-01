@@ -17,8 +17,8 @@ extern uint32_t dword_11682C;
 extern uint32_t dword_116828;
 extern uint32_t off_116824;
 
-// sub_1166CC @ 0x1166cc, size 340 bytes
-int  sub_1166CC(int a1, int a2, int a3)
+// rate_index_lookup @ 0x1166cc, size 340 bytes
+int  rate_index_lookup(int a1, int a2, int a3)
 {
   int v3; // r10
   int v4; // r11
@@ -49,24 +49,24 @@ int  sub_1166CC(int a1, int a2, int a3)
     if ( **(int16_t **)off_116820 >= 0 )
     {
 LABEL_9:
-      v11 = rf_alloc_or_init(1, 24);
+      v11 = call_global_185c7c(1, 24);
       if ( !v11 )
         return 1;
       goto LABEL_4;
     }
 LABEL_8:
-    rf_cmd_send_n264(dword_11682C, dword_116828, 520);
+    flash_ctrl_init(dword_11682C, dword_116828, 520);
     goto LABEL_9;
   }
   v10 = *(uint8_t *)(v8 + 4);
   if ( **(int16_t **)off_116820 < 0 && v10 == 2 )
     goto LABEL_8;
-  v11 = rf_alloc_or_init(v10 != 0, 24);
+  v11 = call_global_185c7c(v10 != 0, 24);
   if ( !v11 )
     return 1;
 LABEL_4:
   v12 = v4 + 224 * v6;
-  sub_11DA78(v12, v11);
+  rf_init_check(v12, v11);
   v13 = *(uint32_t *)(v11 + 28);
   if ( *(uint8_t *)(v12 + 94) == 2 )
   {
@@ -112,7 +112,7 @@ LABEL_4:
   *(uint32_t *)(v11 + 48) = a3;
   *(uint8_t *)(v11 + 15) = v20;
   *(uint8_t *)(v11 + 16) = a1;
-  sub_1165B0(v11, 5);
+  wlan_tx_submit(v11, 5);
   return 0;
 }
 

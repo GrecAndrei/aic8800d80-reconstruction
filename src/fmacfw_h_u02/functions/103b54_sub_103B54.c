@@ -12,8 +12,8 @@
 
 extern uint32_t off_103B88;
 
-// sub_103B54 @ 0x103b54, size 50 bytes
-int sub_103B54()
+// rf_clear_ana_bits @ 0x103b54, size 50 bytes
+int rf_clear_ana_bits()
 {
   uint32_t *v0; // r4
   int result; // r0
@@ -21,9 +21,9 @@ int sub_103B54()
   v0 = off_103B88;
   *(uint32_t *)off_103B88 &= ~0x400000u;
   *v0 &= ~0x200000u;
-  sub_100644(2);
+  mmio_read32(2);
   *v0 |= 0x200000u;
-  result = sub_100644(2);
+  result = mmio_read32(2);
   *v0 |= 0x400000u;
   return result;
 }

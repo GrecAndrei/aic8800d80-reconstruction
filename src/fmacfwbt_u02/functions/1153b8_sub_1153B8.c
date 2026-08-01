@@ -12,10 +12,10 @@
 
 extern uint32_t off_1154A0;
 
-// sub_1153B8 @ 0x1153b8, size 228 bytes
+// ioctl_dispatch2 @ 0x1153b8, size 228 bytes
 // Doc: patch_apply_n_e4_5404 [patch]: Compute patch offset by shifting index left by 7
 // patch_apply_n_e4_5404 [patch]: Compute patch offset by shifting index left by 7
-int  sub_1153B8(int a1, int a2, unsigned int a3)
+int  ioctl_dispatch2(int a1, int a2, unsigned int a3)
 {
   unsigned int v6; // r4
   int v8; // [sp+0h] [bp-144h] BYREF
@@ -28,7 +28,7 @@ int  sub_1153B8(int a1, int a2, unsigned int a3)
   uint8_t v15[14]; // [sp+136h] [bp-Eh] BYREF
 
   if ( !*(uint32_t *)patch_apply_n_4c_549c )
-    patch_apply_n_2b4();
+    check_status_flags();
   MEMORY[0x1D8](*(uint32_t *)off_1154A0 + 4096, 320, &v8);
   if ( v8 != patch_apply_n_44_4a4 )
     return -1;
@@ -37,7 +37,7 @@ int  sub_1153B8(int a1, int a2, unsigned int a3)
   v6 = (uint8_t)v9 & (uint8_t)a1 & 2;
   if ( ((uint8_t)v9 & (uint8_t)a1 & 2) != 0 )
   {
-    sub_14380C(a2, v10, 6);
+    memcpy_aligned(a2, v10, 6);
     v6 = 6;
     if ( (a1 & 0x100000) == 0 )
     {
@@ -51,7 +51,7 @@ patch_apply_n_f0:
   {
     goto patch_apply_n_f0;
   }
-  sub_14380C(a2 + v6, v11, 2);
+  memcpy_aligned(a2 + v6, v11, 2);
   v6 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -61,7 +61,7 @@ patch_apply_n_ec_53fc:
     goto LABEL_17;
   }
 rf_cmd_build_44e:
-  sub_14380C(a2 + v6, v12, 8);
+  memcpy_aligned(a2 + v6, v12, 8);
   v6 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
@@ -71,7 +71,7 @@ patch_apply_400:
     goto LABEL_15;
   }
 LABEL_17:
-  sub_14380C(a2 + v6, v13, 4);
+  memcpy_aligned(a2 + v6, v13, 4);
   v6 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
@@ -81,12 +81,12 @@ patch_apply_n_e4_5404:
     goto LABEL_14;
   }
 LABEL_15:
-  sub_14380C(a2 + v6, v14, 2);
+  memcpy_aligned(a2 + v6, v14, 2);
   v6 += 2;
   if ( (a1 & 0x1000000) != 0 )
   {
 LABEL_14:
-    sub_14380C(a2 + v6, v15, 10);
+    memcpy_aligned(a2 + v6, v15, 10);
     v6 += 10;
   }
 patch_apply_range:

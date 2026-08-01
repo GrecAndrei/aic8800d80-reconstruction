@@ -14,8 +14,8 @@ extern uint32_t off_12D750;
 extern uint32_t dword_12D758;
 extern uint32_t dword_12D754;
 
-// sub_12D6EC @ 0x12d6ec, size 100 bytes
-uint8_t * sub_12D6EC(uint8_t *a1, int a2, int a3, uint16_t *a4)
+// range_overflow_check @ 0x12d6ec, size 100 bytes
+uint8_t * range_overflow_check(uint8_t *a1, int a2, int a3, uint16_t *a4)
 {
   unsigned int v4; // r7
   unsigned int v5; // r12
@@ -55,7 +55,7 @@ uint8_t * sub_12D6EC(uint8_t *a1, int a2, int a3, uint16_t *a4)
   {
 LABEL_13:
     if ( **(int16_t **)off_12D750 < 0 && (uint8_t *)v5 != a1 )
-      sub_12F35C(dword_12D758, dword_12D754, 127);
+      mmio_write_field(dword_12D758, dword_12D754, 127);
   }
   return 0;
 }

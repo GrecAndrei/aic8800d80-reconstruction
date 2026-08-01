@@ -21,8 +21,8 @@ extern uint32_t off_1249FC;
 extern uint32_t dword_124A04;
 extern uint32_t dword_124A08;
 
-// sub_124968 @ 0x124968, size 128 bytes
-int sub_124968()
+// mmio_check_status @ 0x124968, size 128 bytes
+int mmio_check_status()
 {
   int *v0; // r6
   uint32_t *v1; // r4
@@ -48,7 +48,7 @@ int sub_124968()
     while ( *v1 << 28 )
     {
       if ( (unsigned int)(v2[4] - v3) > 0x7530 )
-        sub_11F504(dword_124A0C, *v1 << 28, 30000);
+        dispatch_event_handler(dword_124A0C, *v1 << 28, 30000);
     }
     v4 = off_1249F8;
     while ( (*(uint32_t *)off_1249F8 & *(uint32_t *)off_1249F4 & 4) == 0 )
@@ -65,9 +65,9 @@ int sub_124968()
           __enable_irq();
       }
     }
-    sub_11F504(dword_124A04, v4);
+    dispatch_event_handler(dword_124A04, v4);
   }
-  sub_11F504(dword_124A08);
+  dispatch_event_handler(dword_124A08);
   return 0;
 }
 

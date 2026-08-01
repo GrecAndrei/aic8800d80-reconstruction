@@ -12,8 +12,8 @@
 
 extern uint32_t off_11F500;
 
-// sub_11F4D8 @ 0x11f4d8, size 40 bytes
-BOOL  sub_11F4D8(unsigned int a1, unsigned int a2)
+// test_event_flag @ 0x11f4d8, size 40 bytes
+BOOL  test_event_flag(unsigned int a1, unsigned int a2)
 {
   BOOL result; // r0
 

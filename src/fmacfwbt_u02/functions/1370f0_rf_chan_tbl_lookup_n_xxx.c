@@ -16,10 +16,10 @@ extern uint32_t off_1371C4;
 extern uint32_t dword_1371CC;
 extern uint32_t dword_1371C8;
 
-// rf_chan_tbl_lookup_n_xxx @ 0x1370f0, size 202 bytes
-// Doc: rf_chan_tbl_lookup_n_xxx [rf]: Channel table lookup: index into RF params table by sta index
-// rf_chan_tbl_lookup_n_xxx [rf]: Channel table lookup: index into RF params table by sta index
-int  rf_chan_tbl_lookup_n_xxx(int a1, int a2, int a3, int16_t a4)
+// get_link_context @ 0x1370f0, size 202 bytes
+// Doc: get_link_context [rf]: Channel table lookup: index into RF params table by sta index
+// get_link_context [rf]: Channel table lookup: index into RF params table by sta index
+int  get_link_context(int a1, int a2, int a3, int16_t a4)
 {
   int v4; // r2
   uint16_t *v5; // r4
@@ -52,7 +52,7 @@ int  rf_chan_tbl_lookup_n_xxx(int a1, int a2, int a3, int16_t a4)
   v5[1928] = v9;
   *(uint32_t *)v5 = a2;
   *((uint8_t *)v5 + 3899) = 0;
-  inited = fmac_init_context(a2 + 352, 0);
+  inited = find_table_entry(a2 + 352, 0);
   if ( inited && (v11 = *(uint8_t *)(inited + 57), v12 = inited, *(uint8_t *)(inited + 57)) )
   {
     v18 = *(uint8_t *)(inited + 58);
@@ -80,14 +80,14 @@ int  rf_chan_tbl_lookup_n_xxx(int a1, int a2, int a3, int16_t a4)
     if ( *v16 >= 0 )
     {
 LABEL_4:
-      sub_13876C(v13);
+      periodic_task_handler(v13);
       return 1;
     }
   }
   if ( (*(uint8_t *)(a2 + 352) & 1) == 0 )
     goto LABEL_4;
-  v23 = sub_12F694(dword_1371CC, dword_1371C8, 178);
-  sub_13876C(v23);
+  v23 = mmio_irq_clear(dword_1371CC, dword_1371C8, 178);
+  periodic_task_handler(v23);
   return 1;
 }
 

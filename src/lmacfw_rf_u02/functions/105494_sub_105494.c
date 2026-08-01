@@ -16,8 +16,8 @@ extern uint32_t dword_105564;
 extern uint32_t dword_10556C;
 extern uint32_t dword_105568;
 
-// sub_105494 @ 0x105494, size 206 bytes
-int  sub_105494(unsigned int a1, int a2, int a3, int a4)
+// phy_set_txpower @ 0x105494, size 206 bytes
+int  phy_set_txpower(unsigned int a1, int a2, int a3, int a4)
 {
   int v6; // r5
   int v7; // r8
@@ -45,7 +45,7 @@ int  sub_105494(unsigned int a1, int a2, int a3, int a4)
     v10 = 15;
   else
     v10 = 13;
-  result = sub_11F74C(1, dword_105564, a1, a4);
+  result = check_interrupt_flag(1, dword_105564, a1, a4);
   do
   {
     if ( a1 )
@@ -53,24 +53,24 @@ int  sub_105494(unsigned int a1, int a2, int a3, int a4)
       if ( ((1 << v6) & a1) >> v6 == 1 )
       {
         *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148)) = v6;
-        sub_11F74C(1, v7, v6, v13);
+        check_interrupt_flag(1, v7, v6, v13);
         v15 = ((1 << v6) & a1) >> v6;
         v16 = *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148));
         if ( v16 < v9 )
         {
-          result = sub_11F74C(v15, v8, v16, v14);
+          result = check_interrupt_flag(v15, v8, v16, v14);
           if ( !*(uint32_t *)(a2 + 624) )
             *(uint32_t *)(a2 + 632) = *(uint32_t *)(a2 + 592);
         }
         else if ( v16 > v10 )
         {
-          result = sub_11F74C(v15, v8, v16, v14);
+          result = check_interrupt_flag(v15, v8, v16, v14);
           if ( !*(uint32_t *)(a2 + 624) )
             *(uint32_t *)(a2 + 628) = *(uint32_t *)(a2 + 592);
         }
         else
         {
-          result = sub_11F74C(v15, dword_10556C, v16, v14);
+          result = check_interrupt_flag(v15, dword_10556C, v16, v14);
           v17 = *(uint32_t *)(a2 + 624);
           v12 = *(uint32_t *)(a2 + 4 * (v17 + 148));
           *(uint32_t *)(a2 + 624) = v17 + 1;
@@ -80,7 +80,7 @@ int  sub_105494(unsigned int a1, int a2, int a3, int a4)
     }
     else
     {
-      result = msg_parse(dword_105568, v12);
+      result = dispatch_event_handler(dword_105568, v12);
     }
     ++v6;
   }

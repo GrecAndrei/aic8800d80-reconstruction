@@ -12,10 +12,10 @@
 
 extern uint32_t off_110108;
 
-// log_free_dispatch_n274 @ 0x1100d4, size 52 bytes
+// scan_irq_handler @ 0x1100d4, size 52 bytes
 // Doc: log_free_dispatch_2a6 [util]: Dispatches freed log buffer entries
 // log_free_dispatch_2a6 [util]: Dispatches freed log buffer entries
-int log_free_dispatch_n274()
+int scan_irq_handler()
 {
   void *v0; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int log_free_dispatch_n274()
   int v4; // r4
 
   v0 = off_110108;
-  result = bt_xtal_init_check(log_free_dispatch_n2ac);
+  result = zero_struct(log_free_dispatch_n2ac);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 4) )
   {
     v2 = log_free_dispatch_n2b0;
@@ -32,8 +32,8 @@ int log_free_dispatch_n274()
     v4 = 0;
     do
     {
-      log_pool_alloc2(v2, 0x7Cu);
-      result = list_push_tail(v3);
+      rx_process_item(v2, 0x7Cu);
+      result = check_abort_flag(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );

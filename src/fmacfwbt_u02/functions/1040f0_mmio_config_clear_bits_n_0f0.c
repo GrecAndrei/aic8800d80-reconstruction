@@ -17,10 +17,10 @@ extern uint32_t off_1041D8;
 extern uint32_t off_1041DC;
 extern uint32_t off_1041E0;
 
-// mmio_config_clear_bits_n_0f0 @ 0x1040f0, size 220 bytes
-// Doc: mmio_config_clear_bits_n_0f0 [mmio]: Clear bits in MMIO control registers
-// mmio_config_clear_bits_n_0f0 [mmio]: Clear bits in MMIO control registers
-unsigned int *mmio_config_clear_bits_n_0f0()
+// mac_irq_pending_clear @ 0x1040f0, size 220 bytes
+// Doc: mac_irq_pending_clear [mmio]: Clear bits in MMIO control registers
+// mac_irq_pending_clear [mmio]: Clear bits in MMIO control registers
+unsigned int *mac_irq_pending_clear()
 {
   unsigned int *v0; // r1
   uint32_t *v1; // r0

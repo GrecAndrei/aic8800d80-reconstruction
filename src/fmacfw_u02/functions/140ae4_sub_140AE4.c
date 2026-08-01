@@ -15,10 +15,10 @@ extern uint32_t dword_140B6C;
 extern uint32_t off_140B74;
 extern uint32_t dword_140B70;
 
-// sub_140AE4 @ 0x140ae4, size 130 bytes
+// ble_ll_adv_sm_check @ 0x140ae4, size 130 bytes
 // Doc: sub_1240AE4 [util]: Check firmware state flag against value 3
 // sub_1240AE4 [util]: Check firmware state flag against value 3
-int  sub_140AE4(int result, int a2)
+int  ble_ll_adv_sm_check(int result, int a2)
 {
   int v2; // r6
   unsigned int v3; // r4
@@ -34,7 +34,7 @@ int  sub_140AE4(int result, int a2)
     v4 = result;
     v5 = *(uint32_t *)(dword_140B6C + 1320 * v3 + 72);
     v7 = v5 ? *(uint8_t *)(v5 + 4) : *((uint8_t *)off_140B74 + 36);
-    result = sub_118C44(v7 != 0, 512);
+    result = ke_mutex_guard(v7 != 0, 512);
     v8 = result;
     if ( result )
     {
@@ -47,8 +47,8 @@ int  sub_140AE4(int result, int a2)
         *(uint32_t *)(result + 88) = dword_140B70;
         *(uint32_t *)(result + 92) = result;
       }
-      sub_140540(result, 1, a2, v4);
-      return rf_param_get_status(v8, 3);
+      ble_ll_adv_event_start(result, 1, a2, v4);
+      return tx_path_status(v8, 3);
     }
   }
   return result;

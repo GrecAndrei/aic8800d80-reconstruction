@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n1d9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214920", "status": "ok", "name": "rf_fault_dump_n1d9", "params": [], "docstring": "Dumps RF fault context (3 words) onto stack for diagnostics", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n1d9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214920", "status": "ok", "name": "copy_global_1672ec", "params": [], "docstring": "Dumps RF fault context (3 words) onto stack for diagnostics", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

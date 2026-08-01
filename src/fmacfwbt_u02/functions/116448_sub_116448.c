@@ -15,16 +15,16 @@ extern uint32_t off_116478;
 extern uint32_t dword_116480;
 extern uint32_t dword_11647C;
 
-// sub_116448 @ 0x116448, size 42 bytes
-int sub_116448()
+// scan_check_response @ 0x116448, size 42 bytes
+int scan_check_response()
 {
   int v0; // r0
   int v1; // r4
 
-  v0 = sub_12D4F8(dword_116474);
+  v0 = list_pop_front(dword_116474);
   v1 = v0;
   if ( **(int16_t **)off_116478 < 0 && !v0 )
-    sub_12F694(dword_116480, dword_11647C, 119);
+    mmio_irq_clear(dword_116480, dword_11647C, 119);
   return v1;
 }
 

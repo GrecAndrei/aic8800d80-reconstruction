@@ -12,8 +12,8 @@
 
 extern uint32_t off_12E918;
 
-// sub_12E910 @ 0x12e910, size 6 bytes
-int sub_12E910()
+// get_global_field4 @ 0x12e910, size 6 bytes
+int get_global_field4()
 {
   return *((uint32_t *)off_12E918 + 1);
 }

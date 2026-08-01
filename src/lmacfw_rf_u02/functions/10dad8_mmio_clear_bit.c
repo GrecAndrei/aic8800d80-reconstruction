@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DAEC;
 
-// mmio_clear_bit @ 0x10dad8, size 18 bytes
-// Doc: mmio_clear_bit [mmio]: Clear a single bit in MMIO register at 0x4010b008
-// mmio_clear_bit [mmio]: Clear a single bit in MMIO register at 0x4010b008
-int  mmio_clear_bit(char a1)
+// gpio_cfg_clear @ 0x10dad8, size 18 bytes
+// Doc: gpio_cfg_clear [mmio]: Clear a single bit in MMIO register at 0x4010b008
+// gpio_cfg_clear [mmio]: Clear a single bit in MMIO register at 0x4010b008
+int  gpio_cfg_clear(char a1)
 {
   int result; // r0
 

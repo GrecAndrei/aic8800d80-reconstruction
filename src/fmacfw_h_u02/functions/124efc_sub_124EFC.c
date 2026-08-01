@@ -19,8 +19,8 @@ extern uint32_t dword_124FB0;
 extern uint32_t dword_124FAC;
 extern uint32_t dword_124FA4;
 
-// sub_124EFC @ 0x124efc, size 152 bytes
-int  sub_124EFC(int a1, int a2)
+// bt_config_check @ 0x124efc, size 152 bytes
+int  bt_config_check(int a1, int a2)
 {
   int v4; // r5
 
@@ -32,7 +32,7 @@ int  sub_124EFC(int a1, int a2)
       break;
     case 3:
       v4 = dword_124F98;
-      sub_12AA90(*(uint8_t *)(dword_124F98 + 1320 * a1 + 1225), dword_124FA8 + 38 * a1);
+      get_channel_entry_info(*(uint8_t *)(dword_124F98 + 1320 * a1 + 1225), dword_124FA8 + 38 * a1);
       break;
     case 1:
       v4 = dword_124F98;
@@ -41,10 +41,10 @@ int  sub_124EFC(int a1, int a2)
     default:
       v4 = dword_124F98;
       if ( **(int16_t **)off_124F94 < 0 )
-        sub_12F32C(dword_124FB0, dword_124FAC, 1214);
+        irq_disable_mmio_write(dword_124FB0, dword_124FAC, 1214);
       break;
   }
   *(uint8_t *)(a1 + dword_124FA4 + 20) = 0;
-  return sub_12AB58(*(uint8_t *)(v4 + 1320 * a1 + 1225), a2);
+  return is_state_arg_valid(*(uint8_t *)(v4 + 1320 * a1 + 1225), a2);
 }
 

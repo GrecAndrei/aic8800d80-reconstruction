@@ -1,1 +1,1 @@
-{"fn": "sub_1216C94", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1216c94", "status": "ok", "name": "rf_calib_table_init", "params": [], "docstring": "Initializes RF calibration table pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1216C94", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1216c94", "status": "ok", "name": "call_sub_117410_then_11683c", "params": [], "docstring": "Initializes RF calibration table pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

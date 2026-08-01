@@ -14,8 +14,8 @@ extern uint32_t off_1326D4;
 extern uint32_t dword_1326D8;
 extern uint32_t dword_1326DC;
 
-// sub_132654 @ 0x132654, size 128 bytes
-int  sub_132654(uint8_t *a1, int a2)
+// handle_rx_packet @ 0x132654, size 128 bytes
+int  handle_rx_packet(uint8_t *a1, int a2)
 {
   int v2; // r11
   int16_t **v3; // r8
@@ -37,7 +37,7 @@ int  sub_132654(uint8_t *a1, int a2)
     {
       if ( a2 && (v8[1] & 0x80u) == 0 )
         goto LABEL_6;
-      sub_1325B4();
+      cmd_char_validate();
       if ( **v3 < 0 )
         break;
       if ( v10 <= 11 )
@@ -48,7 +48,7 @@ LABEL_6:
     }
     if ( v10 > 11 )
     {
-      sub_12F35C(v5, v4, 598);
+      mmio_write_field(v5, v4, 598);
       v2 = *a1;
       goto LABEL_6;
     }

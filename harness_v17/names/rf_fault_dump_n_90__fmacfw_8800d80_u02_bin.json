@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146b8", "status": "ok", "name": "rf_flag_clear_n_90", "params": [], "docstring": "Clear a global RF status flag by zeroing word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146b8", "status": "ok", "name": "dummy_store_global", "params": [], "docstring": "Clear a global RF status flag by zeroing word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

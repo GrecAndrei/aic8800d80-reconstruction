@@ -12,8 +12,8 @@
 
 extern uint32_t off_137120;
 
-// sub_1370CC @ 0x1370cc, size 82 bytes
-int  sub_1370CC(int a1, int a2, int a3, int a4)
+// phy_select_channel @ 0x1370cc, size 82 bytes
+int  phy_select_channel(int a1, int a2, int a3, int a4)
 {
   uint16_t *v4; // r2
   uint64_t v6; // r0
@@ -29,16 +29,16 @@ int  sub_1370CC(int a1, int a2, int a3, int a4)
   v4[1928] = WORD2(v6);
   if ( a4 == 11 || a4 == 6 )
   {
-    sub_138668(v6);
+    ll_task_run(v6);
     return 1;
   }
   else
   {
-    v8 = (uint8_t *)sub_12C92C(4105, a4, 4, 2u);
+    v8 = (uint8_t *)ke_msg_alloc(4105, a4, 4, 2u);
     v8[1] = 1;
     *v8 = *(uint8_t *)(a2 + 366);
-    v9 = sub_12C98C((int)v8);
-    sub_138668(v9);
+    v9 = ke_msg_send((int)v8);
+    ll_task_run(v9);
     return 1;
   }
 }

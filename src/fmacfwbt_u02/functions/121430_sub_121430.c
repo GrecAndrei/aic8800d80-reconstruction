@@ -19,10 +19,10 @@ extern uint32_t off_121590;
 extern uint32_t off_121594;
 extern uint32_t dword_121598;
 
-// sub_121430 @ 0x121430, size 332 bytes
+// irq_lock_save @ 0x121430, size 332 bytes
 // Doc: sub_1221430 [unknown]: Unknown helper in fmacfwbt module
 // sub_1221430 [unknown]: Unknown helper in fmacfwbt module
-int sub_121430()
+int irq_lock_save()
 {
   int v0; // r4
   int *v1; // r5
@@ -52,8 +52,8 @@ int sub_121430()
   }
   v1 = (int *)off_121584;
   ++*(uint32_t *)off_121584;
-  patch_sub_1217374(4);
-  updated = sub_1178DC(4);
+  mmio_set_bit(4);
+  updated = conn_get(4);
   if ( *v1 )
   {
     v4 = *v1 - 1;
@@ -85,18 +85,18 @@ int sub_121430()
         if ( v10 )
           break;
 LABEL_15:
-        mmio_reg_write_helper(v0);
-        updated = sub_12A4A8(v0, *(uint32_t *)(v0 + 36) + 3048);
+        wlc_bmac_write_shm(v0);
+        updated = bt_conn_event_process(v0, *(uint32_t *)(v0 + 36) + 3048);
         v3 = *(uint16_t *)(v0 + 222);
         v12 = 32 * *v6;
         if ( v12 <= 0xBE7 )
           v12 += v3 << 10;
         v13 = v12 + v8[4] - 3048;
         if ( *(uint32_t *)(v0 + 72) )
-          updated = sub_128160(v0, *(uint32_t *)(v0 + 36), v13);
+          updated = hci_command_handler(v0, *(uint32_t *)(v0 + 36), v13);
         if ( *(uint8_t *)(v0 + 1224) )
         {
-          updated = timestamp_update_4f60(v0 + 24, v13);
+          updated = ke_event_lock(v0 + 24, v13);
           goto LABEL_7;
         }
         if ( *((uint8_t *)off_121594 + 90) > 1u )
@@ -126,7 +126,7 @@ LABEL_15:
         *(uint32_t *)(v0 + 36) = v13;
         v0 = *(uint32_t *)v0;
         if ( !v0 )
-          return rf_msg_process_body_n446(updated);
+          return rf_status_poll(updated);
       }
       v11 = (uint32_t *)(v0 + 48);
       while ( v10 != v11 )
@@ -135,12 +135,12 @@ LABEL_15:
         if ( !v10 )
           goto LABEL_15;
       }
-      updated = sub_12ECB0(dword_121598, v3, v11);
+      updated = ke_event_schedule(dword_121598, v3, v11);
 LABEL_7:
       v0 = *(uint32_t *)v0;
     }
     while ( v0 );
   }
-  return rf_msg_process_body_n446(updated);
+  return rf_status_poll(updated);
 }
 

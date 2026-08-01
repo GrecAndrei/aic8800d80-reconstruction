@@ -17,8 +17,8 @@ extern uint32_t dword_14156C;
 extern uint32_t dword_141574;
 extern uint32_t dword_141570;
 
-// sub_1414AC @ 0x1414ac, size 186 bytes
-int sub_1414AC()
+// ke_timer_check @ 0x1414ac, size 186 bytes
+int ke_timer_check()
 {
   int16_t **v0; // r8
   int v1; // r5
@@ -30,26 +30,26 @@ int sub_1414AC()
   v0 = (int16_t **)off_14157C;
   v1 = dword_141568;
   v2 = *(uint32_t *)(dword_141568 + 6480);
-  if ( **(int16_t **)off_14157C >= 0 || v2 < 0 && (result = sub_12F32C(dword_141578, dword_14156C, 1734), **v0 >= 0) )
+  if ( **(int16_t **)off_14157C >= 0 || v2 < 0 && (result = irq_disable_mmio_write(dword_141578, dword_14156C, 1734), **v0 >= 0) )
   {
     v3 = 16 * v2;
     if ( *(uint8_t *)(v1 + 136 * v2 + 6339) > 1u )
       return result;
-    return sub_140AAC(v1 + 8 * (v2 + v3) + 6336, 0);
+    return bt_event_dispatch(v1 + 8 * (v2 + v3) + 6336, 0);
   }
   v4 = v1 + 136 * v2;
   v3 = 16 * v2;
   if ( *(uint8_t *)(v4 + 6338) == 5 )
   {
     if ( *(uint8_t *)(v4 + 6339) <= 1u )
-      return sub_140AAC(v1 + 8 * (v2 + v3) + 6336, 0);
-    return sub_12F32C(dword_141574, dword_14156C, 1744);
+      return bt_event_dispatch(v1 + 8 * (v2 + v3) + 6336, 0);
+    return irq_disable_mmio_write(dword_141574, dword_14156C, 1744);
   }
-  result = sub_12F32C(dword_141570, dword_14156C, 1735);
+  result = irq_disable_mmio_write(dword_141570, dword_14156C, 1735);
   if ( *(uint8_t *)(v4 + 6339) <= 1u )
-    return sub_140AAC(v1 + 8 * (v2 + v3) + 6336, 0);
+    return bt_event_dispatch(v1 + 8 * (v2 + v3) + 6336, 0);
   if ( **v0 < 0 )
-    return sub_12F32C(dword_141574, dword_14156C, 1744);
+    return irq_disable_mmio_write(dword_141574, dword_14156C, 1744);
   return result;
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t off_1251C0;
 
-// timestamp_list_contains_51a0 @ 0x1251a0, size 30 bytes
-// Doc: timestamp_list_contains_51a0 [util]: Check if a timestamp value exists in a list
-// timestamp_list_contains_51a0 [util]: Check if a timestamp value exists in a list
-int  timestamp_list_contains_51a0(uint32_t *a1)
+// ke_event_pending @ 0x1251a0, size 30 bytes
+// Doc: ke_event_pending [util]: Check if a timestamp value exists in a list
+// ke_event_pending [util]: Check if a timestamp value exists in a list
+int  ke_event_pending(uint32_t *a1)
 {
   uint32_t *v1; // r3
 

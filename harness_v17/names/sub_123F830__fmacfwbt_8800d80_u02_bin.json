@@ -1,1 +1,1 @@
-{"fn": "sub_123F830", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f830", "status": "ok", "name": "bt_chan_offset_get", "params": [], "docstring": "Compute Bluetooth channel offset via 0x2b8 stride lookup", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123F830", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f830", "status": "ok", "name": "check_connection_busy", "params": [], "docstring": "Compute Bluetooth channel offset via 0x2b8 stride lookup", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

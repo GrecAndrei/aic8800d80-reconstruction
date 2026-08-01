@@ -13,8 +13,8 @@
 extern uint32_t off_11EF6C;
 extern uint32_t off_11EF70;
 
-// sub_11EF38 @ 0x11ef38, size 52 bytes
-unsigned int sub_11EF38()
+// mac_irq_check @ 0x11ef38, size 52 bytes
+unsigned int mac_irq_check()
 {
   int v0; // r3
   unsigned int result; // r0

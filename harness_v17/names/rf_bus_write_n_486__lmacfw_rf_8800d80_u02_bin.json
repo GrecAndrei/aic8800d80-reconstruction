@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_486", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fe6", "status": "ok", "name": "rf_bus_write_n_486", "params": [], "docstring": "Write byte 0x24 to RF bus register (variant 486)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_486", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fe6", "status": "ok", "name": "rf_bus_write_n_485", "params": [], "docstring": "Write byte 0x24 to RF bus register (variant 486)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -13,10 +13,10 @@
 extern uint32_t off_117AC0;
 extern uint32_t dword_117AC4;
 
-// sub_117A7C @ 0x117a7c, size 68 bytes
+// stack_canary_setup @ 0x117a7c, size 68 bytes
 // Doc: sub_1217A7C [unknown]: Unknown firmware helper at 0x1217a7c
 // sub_1217A7C [unknown]: Unknown firmware helper at 0x1217a7c
-uint64_t *sub_117A7C()
+uint64_t *stack_canary_setup()
 {
   uint64_t *result; // r0
   uint64_t v1; // [sp+4h] [bp-20h] BYREF
@@ -29,9 +29,9 @@ uint64_t *sub_117A7C()
   v3 = *(uint32_t *)dword_117AC4;
   v4 = *(uint32_t *)(dword_117AC4 + 8 + 0xFFFFFFFC);
   v5 = *(uint32_t *)(dword_117AC4 + 8);
-  result = get_cached_1828f8(&v1, 0);
+  result = mac_time_get(&v1, 0);
   if ( (v2 & 0xF) == 2 )
-    return (uint64_t *)rf_cmd_dispatch_a84(&v1);
+    return (uint64_t *)patch_check_enabled_ctx(&v1);
   return result;
 }
 

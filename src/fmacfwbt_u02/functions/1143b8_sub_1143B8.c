@@ -12,9 +12,9 @@
 
 extern uint32_t dword_1143C0;
 
-// sub_1143B8 @ 0x1143b8, size 6 bytes
-int  sub_1143B8(int a1, int a2, int a3)
+// log_debug_b @ 0x1143b8, size 6 bytes
+int  log_debug_b(int a1, int a2, int a3)
 {
-  return sub_12ECB0(dword_1143C0, a2, a3);
+  return ke_event_schedule(dword_1143C0, a2, a3);
 }
 

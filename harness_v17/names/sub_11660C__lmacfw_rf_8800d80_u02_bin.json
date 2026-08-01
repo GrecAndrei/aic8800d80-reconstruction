@@ -1,0 +1,1 @@
+{"fn": "sub_11660C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11660c", "status": "ok", "name": "log_and_disable_irq", "params": [], "docstring": "Log then disable interrupt mask 0x200000", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

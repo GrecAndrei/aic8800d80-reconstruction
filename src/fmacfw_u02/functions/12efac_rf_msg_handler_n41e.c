@@ -13,14 +13,14 @@
 extern uint32_t dword_12EFD8;
 extern uint32_t off_12EFDC;
 
-// rf_msg_handler_n41e @ 0x12efac, size 42 bytes
-// Doc: rf_msg_handler_n41e [rf]: RF message handler initializing with status code 0x9e
-// rf_msg_handler_n41e [rf]: RF message handler initializing with status code 0x9e
-int  rf_msg_handler_n41e(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// cb_send_0x16ae2c @ 0x12efac, size 42 bytes
+// Doc: cb_send_0x16ae2c [rf]: RF message handler initializing with status code 0x9e
+// cb_send_0x16ae2c [rf]: RF message handler initializing with status code 0x9e
+int  cb_send_0x16ae2c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
-  msg_parse(dword_12EFD8, *a2);
+  event_dispatch(dword_12EFD8, *a2);
   *(uint32_t *)off_12EFDC = *a2;
-  sub_12CA10(1029, a4, a3);
+  ke_msg_send_no_param(1029, a4, a3);
   return 0;
 }
 

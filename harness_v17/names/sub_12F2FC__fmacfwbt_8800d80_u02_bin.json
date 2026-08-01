@@ -1,0 +1,1 @@
+{"fn": "sub_12F2FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f2fc", "status": "ok", "name": "send_hci_event_42d", "params": [], "docstring": "Send HCI event 0x42d then poll tasks", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

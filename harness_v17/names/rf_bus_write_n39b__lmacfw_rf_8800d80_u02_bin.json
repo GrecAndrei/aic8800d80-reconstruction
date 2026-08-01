@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n39b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211806", "status": "ok", "name": "rf_bus_write_n39b", "params": [], "docstring": "RF bus write variant n39b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n39b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211806", "status": "ok", "name": "patch_apply_n_2a", "params": [], "docstring": "RF bus write variant n39b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

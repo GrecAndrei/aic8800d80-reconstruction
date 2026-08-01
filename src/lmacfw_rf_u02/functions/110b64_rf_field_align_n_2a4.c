@@ -19,10 +19,10 @@ extern uint32_t off_110BEC;
 extern uint32_t off_110BF4;
 extern uint32_t off_110BF0;
 
-// rf_field_align_n_2a4 @ 0x110b64, size 116 bytes
-// Doc: rf_field_align_n_2a4 [rf]: RF register field alignment utility (variant 2a4)
-// rf_field_align_n_2a4 [rf]: RF register field alignment utility (variant 2a4)
-int  rf_field_align_n_2a4(int result)
+// irq_disable_set_flag_4 @ 0x110b64, size 116 bytes
+// Doc: irq_disable_set_flag_4 [rf]: RF register field alignment utility (variant 2a4)
+// irq_disable_set_flag_4 [rf]: RF register field alignment utility (variant 2a4)
+int  irq_disable_set_flag_4(int result)
 {
   uint32_t *v1; // r1
   uint32_t *v2; // r2

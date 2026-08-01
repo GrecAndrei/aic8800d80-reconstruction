@@ -14,14 +14,14 @@ extern uint32_t dword_12B198;
 extern uint32_t off_12B19C;
 extern uint32_t dword_12B1A0;
 
-// sub_12B170 @ 0x12b170, size 40 bytes
-int sub_12B170()
+// rf_env_reset @ 0x12b170, size 40 bytes
+int rf_env_reset()
 {
   int result; // r0
   uint32_t *v1; // r3
 
-  memset_thunk((int *)dword_12B198, 0, 0xCu);
-  result = sub_12CD34(2);
+  memset((int *)dword_12B198, 0, 0xCu);
+  result = rx_phy_status_parse(2);
   v1 = off_12B19C;
   *(uint32_t *)off_12B19C = dword_12B1A0;
   v1[2] = v1 + 5;

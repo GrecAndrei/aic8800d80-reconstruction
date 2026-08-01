@@ -1,0 +1,1 @@
+{"fn": "sub_10D404", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d404", "status": "ok", "name": "clear_global_182aac", "params": [], "docstring": "Zeroes 56 bytes at 0x182aac.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

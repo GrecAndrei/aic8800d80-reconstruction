@@ -12,8 +12,8 @@
 
 extern uint32_t off_11C250;
 
-// sub_11C224 @ 0x11c224, size 44 bytes
-int  sub_11C224(int a1, int a2)
+// get_frame_info @ 0x11c224, size 44 bytes
+int  get_frame_info(int a1, int a2)
 {
   int v2; // r3
 

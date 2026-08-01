@@ -12,10 +12,10 @@
 
 extern uint32_t dword_113704;
 
-// sub_113670 @ 0x113670, size 124 bytes
+// bt_evt_sched_high @ 0x113670, size 124 bytes
 // Doc: rf_stream_start2_n460 [rf]: Start RF stream variant 2 with argument
 // rf_stream_start2_n460 [rf]: Start RF stream variant 2 with argument
-int sub_113670()
+int bt_evt_sched_high()
 {
   void *v0; // r7
   int result; // r0
@@ -29,7 +29,7 @@ int sub_113670()
   int v9; // r2
 
   v0 = rf_stream_start2_n4a0;
-  result = bt_xtal_init_check(rf_stream_start2_n4a4);
+  result = zero_struct(rf_stream_start2_n4a4);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = rf_stream_start2_3700;
@@ -40,13 +40,13 @@ int sub_113670()
     v7 = 0;
     do
     {
-      if ( !log_pool_alloc2(v4, (uint16_t)(v2[153] - 4)) )
+      if ( !rx_process_item(v4, (uint16_t)(v2[153] - 4)) )
       {
-        sub_12ECB0(v5, v7, v9);
+        ke_event_schedule(v5, v7, v9);
         if ( **v6 < 0 )
-          sub_12F694(rf_stream_start2_n4b0, rf_stream_start2_n4ac, 495);
+          mmio_irq_clear(rf_stream_start2_n4b0, rf_stream_start2_n4ac, 495);
       }
-      result = list_push_tail(rf_stream_start2_n4a4);
+      result = check_abort_flag(rf_stream_start2_n4a4);
       v8 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v7;
       ++*v3;

@@ -15,8 +15,8 @@ extern uint32_t dword_141C78;
 extern uint32_t dword_141C74;
 extern uint32_t off_141C7C;
 
-// sub_141B70 @ 0x141b70, size 256 bytes
-int  sub_141B70(int a1, int a2, int a3, int a4, char a5)
+// ke_event_handler @ 0x141b70, size 256 bytes
+int  ke_event_handler(int a1, int a2, int a3, int a4, char a5)
 {
   int v6; // r1
   int v10; // r3
@@ -47,11 +47,11 @@ int  sub_141B70(int a1, int a2, int a3, int a4, char a5)
   {
     goto LABEL_16;
   }
-  sub_12F46C(dword_141C78, dword_141C74, 520);
+  mmio_clear_register(dword_141C78, dword_141C74, 520);
 LABEL_16:
   v11 = 1;
 LABEL_4:
-  result = sub_118C44(v11, 512);
+  result = ke_mutex_guard(v11, 512);
   *(uint32_t *)a1 = result;
   if ( result )
   {

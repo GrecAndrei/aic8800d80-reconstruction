@@ -14,8 +14,8 @@ extern uint32_t dword_10803C;
 extern uint32_t dword_108034;
 extern uint32_t dword_108038;
 
-// sub_107ED8 @ 0x107ed8, size 348 bytes
-int  sub_107ED8(int a1, int *a2, uint32_t *a3)
+// rx_descriptor_check @ 0x107ed8, size 348 bytes
+int  rx_descriptor_check(int a1, int *a2, uint32_t *a3)
 {
   int v4; // r3
   uint64_t v5; // kr08_8
@@ -44,8 +44,8 @@ int  sub_107ED8(int a1, int *a2, uint32_t *a3)
   v6 = *(uint32_t *)(a1 + 12);
   if ( *(uint32_t *)a1 < v4 && v6 <= 49 )
   {
-    feature_guard_sdio(1, dword_10803C);
-    sub_107734((int)a2, a3, a1);
+    state_check_feature(1, dword_10803C);
+    rf_configure_whitening((int)a2, a3, a1);
     v6 = *(uint32_t *)(a1 + 12);
   }
   if ( *(uint32_t *)(a1 + 16) - v6 >= a3[6] )
@@ -99,6 +99,6 @@ LABEL_8:
   }
 LABEL_9:
   *((uint64_t *)a2 + 1) = v14;
-  return feature_guard_sdio(1, dword_108038);
+  return state_check_feature(1, dword_108038);
 }
 

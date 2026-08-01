@@ -14,8 +14,8 @@ extern uint32_t off_11BA0C;
 extern uint32_t dword_11BA10;
 extern uint32_t dword_11BA14;
 
-// sub_11B9E0 @ 0x11b9e0, size 44 bytes
-int sub_11B9E0()
+// state_flag_check @ 0x11b9e0, size 44 bytes
+int state_flag_check()
 {
   uint32_t *v0; // r3
   int v1; // r1
@@ -39,10 +39,10 @@ LABEL_6:
         *(uint8_t *)(v2 + 16) = 1;
       v0[11] = v1;
     }
-    return rf_msg_alloc_init();
+    return rx_queue_reset();
   }
   if ( *((uint32_t *)off_11BA0C + 11) )
-    return rf_msg_alloc_init();
+    return rx_queue_reset();
   return result;
 }
 

@@ -13,8 +13,8 @@
 extern uint32_t off_1365B8;
 extern uint32_t off_1365BC;
 
-// sub_136570 @ 0x136570, size 72 bytes
-uint32_t * sub_136570(uint32_t *result)
+// is_ble_connected @ 0x136570, size 72 bytes
+uint32_t * is_ble_connected(uint32_t *result)
 {
   uint32_t *v1; // r4
   uint32_t *v2; // r6
@@ -30,16 +30,16 @@ uint32_t * sub_136570(uint32_t *result)
       if ( *((uint8_t *)off_1365B8 + 13) )
       {
         *((uint8_t *)off_1365B8 + 13) = 0;
-        return sub_100B90();
+        return radio_clock_disable();
       }
       else
       {
-        sub_100B14();
+        pmu_init();
         v3 = v2[4];
         v4 = *((uint32_t *)off_1365BC + 4);
         *((uint8_t *)v2 + 13) = 1;
         v2[7] = v1;
-        return (uint32_t *)sub_124BFC((int)(v2 + 5), v4 + v3);
+        return (uint32_t *)mem_copy_util((int)(v2 + 5), v4 + v3);
       }
     }
   }

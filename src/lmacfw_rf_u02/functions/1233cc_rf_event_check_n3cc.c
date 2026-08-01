@@ -18,10 +18,10 @@ extern uint32_t off_123484;
 extern uint32_t off_123488;
 extern uint32_t off_12348C;
 
-// rf_event_check_n3cc @ 0x1233cc, size 168 bytes
-// Doc: rf_event_check_n3cc [rf]: Checks RF event/state with byte compare from constant
-// rf_event_check_n3cc [rf]: Checks RF event/state with byte compare from constant
-float  rf_event_check_n3cc(uint8_t *a1)
+// check_chip_version @ 0x1233cc, size 168 bytes
+// Doc: check_chip_version [rf]: Checks RF event/state with byte compare from constant
+// check_chip_version [rf]: Checks RF event/state with byte compare from constant
+float  check_chip_version(uint8_t *a1)
 {
   int v1; // r2
   int v2; // r5
@@ -52,9 +52,9 @@ float  rf_event_check_n3cc(uint8_t *a1)
     *(uint8_t *)(v7 + 2) = v6 + 1;
     *v5 = v9 + v8;
   }
-  mmio_write_40320150(*(uint32_t *)off_123488 + 20000);
-  v10 = sub_11EAA0(COERCE_UNSIGNED_INT((float)(unsigned int)v3));
-  result = sub_11EAA0(COERCE_UNSIGNED_INT((float)(1 << v2)));
+  mmio_write_register(*(uint32_t *)off_123488 + 20000);
+  v10 = float_to_double(COERCE_UNSIGNED_INT((float)(unsigned int)v3));
+  result = float_to_double(COERCE_UNSIGNED_INT((float)(1 << v2)));
   *(float *)off_12348C = (float)((float)(v10 * 10.0) - (float)(result * 10.0)) + *(float *)off_12348C;
   return result;
 }

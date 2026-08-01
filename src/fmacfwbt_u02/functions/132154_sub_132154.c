@@ -14,8 +14,8 @@ extern uint32_t off_13229C;
 extern uint32_t dword_1322A0;
 extern uint32_t dword_1322A4;
 
-// sub_132154 @ 0x132154, size 328 bytes
-int  sub_132154(int a1, int a2, int16_t a3, int16_t a4)
+// llm_ctrl_config @ 0x132154, size 328 bytes
+int  llm_ctrl_config(int a1, int a2, int16_t a3, int16_t a4)
 {
   uint8_t *v4; // r4
   int v8; // r1
@@ -79,7 +79,7 @@ int  sub_132154(int a1, int a2, int16_t a3, int16_t a4)
     v14[1] = v15;
     v14[2] = v16;
   }
-  if ( sub_1151C0() )
+  if ( get_hw_info_bit19() )
   {
     *(uint8_t *)(a2 + 105) = 0;
     *(uint8_t *)(a2 + 106) = 0;
@@ -122,10 +122,10 @@ int  sub_132154(int a1, int a2, int16_t a3, int16_t a4)
       v4[374] |= 8u;
   }
   v4[373] = *(uint8_t *)(a2 + 102);
-  message_dispatch_n84(5121, a4, a3);
+  hci_evt_alloc_send(5121, a4, a3);
   if ( (v4[374] & 1) != 0 )
   {
-    v34 = chip_rev_get();
+    v34 = sys_mode_get();
     v35 = (uint8_t)v4[374] << 29;
     v4[372] = (v34 + 1) >> 1;
     if ( v35 < 0 )
@@ -157,10 +157,10 @@ int  sub_132154(int a1, int a2, int16_t a3, int16_t a4)
   if ( v17 )
   {
     *((uint16_t *)v4 + 4) = 255;
-    v33 = (uint8_t *)rf_bus_setup_n3a8(49, 0, 5, 1u);
+    v33 = (uint8_t *)bt_buf_alloc(49, 0, 5, 1u);
     *v33 = v4[376];
-    sub_12CBB4((int)v33);
-    rf_bus_mark_n_3b7(5u, 1);
+    hci_evt_send((int)v33);
+    hci_cmd_send(5u, 1);
   }
   return 0;
 }

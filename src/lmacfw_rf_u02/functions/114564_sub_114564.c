@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114564 @ 0x114564, size 10 bytes
+// bus_write32 @ 0x114564, size 10 bytes
 // Doc: sub_1214564 [unknown]: Unidentified helper at 0x1214564
 // sub_1214564 [unknown]: Unidentified helper at 0x1214564
-int  sub_114564(int a1)
+int  bus_write32(int a1)
 {
-  return rf_param_setup_44(1, a1, 4u);
+  return ke_task_process(1, a1, 4u);
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11D9D8;
 
-// sub_11D9C0 @ 0x11d9c0, size 22 bytes
-int sub_11D9C0()
+// timer_disable_delay @ 0x11d9c0, size 22 bytes
+int timer_disable_delay()
 {
   *(uint32_t *)(dword_11D9D8 + 4680) &= ~1u;
-  return irq_nesting_or(0x8000);
+  return set_busy_flag_alt(0x8000);
 }
 

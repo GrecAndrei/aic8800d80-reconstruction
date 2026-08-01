@@ -14,16 +14,16 @@ extern uint32_t off_11DE44;
 extern uint32_t dword_11DE4C;
 extern uint32_t dword_11DE48;
 
-// sub_11DDF0 @ 0x11ddf0, size 82 bytes
-int  sub_11DDF0(int16_t a1, int16_t a2, int16_t a3, unsigned int a4)
+// ke_msg_send @ 0x11ddf0, size 82 bytes
+int  ke_msg_send(int16_t a1, int16_t a2, int16_t a3, unsigned int a4)
 {
   int v8; // r0
   int v9; // r4
 
-  v8 = sub_11DF94(a4 + 12);
+  v8 = align_size_plus4(a4 + 12);
   v9 = v8;
   if ( **(int16_t **)off_11DE44 < 0 && !v8 )
-    sub_1219C4(dword_11DE4C, dword_11DE48, 145);
+    flash_ctrl_init(dword_11DE4C, dword_11DE48, 145);
   *(uint16_t *)(v9 + 4) = a1;
   *(uint16_t *)(v9 + 6) = a2;
   *(uint16_t *)(v9 + 8) = a3;

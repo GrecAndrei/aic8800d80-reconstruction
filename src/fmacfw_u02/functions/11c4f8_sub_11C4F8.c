@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11C524;
 
-// sub_11C4F8 @ 0x11c4f8, size 44 bytes
-int  sub_11C4F8(int result, int a2)
+// get_pair_by_id @ 0x11c4f8, size 44 bytes
+int  get_pair_by_id(int result, int a2)
 {
   int v2; // r2
   int v3; // r3

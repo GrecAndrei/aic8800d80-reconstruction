@@ -24,8 +24,8 @@ extern uint32_t dword_116310;
 extern uint32_t dword_116314;
 extern uint32_t off_1162F4;
 
-// sub_1160FC @ 0x1160fc, size 502 bytes
-int  sub_1160FC(int a1, int a2)
+// wlan_hw_init @ 0x1160fc, size 502 bytes
+int  wlan_hw_init(int a1, int a2)
 {
   uint8_t **v2; // r11
   int v3; // r10
@@ -61,7 +61,7 @@ int  sub_1160FC(int a1, int a2)
   v3 = dword_11631C;
   while ( 1 )
   {
-    v8 = sub_11E7AC(a2);
+    v8 = list_pop_front(a2);
     if ( !v8 )
       break;
     while ( 1 )
@@ -77,10 +77,10 @@ int  sub_1160FC(int a1, int a2)
       }
       if ( *(uint16_t *)(v8 + 4) )
         break;
-      sub_11660C(v8, v6, v7);
-      v8 = sub_11E7AC(a2);
+      log_and_disable_irq(v8, v6, v7);
+      v8 = list_pop_front(a2);
       if ( !v8 )
-        return sub_116654();
+        return pool_alloc_init();
     }
     v11 = *v9;
     v12 = *(uint32_t *)(v8 + 40);
@@ -91,12 +91,12 @@ int  sub_1160FC(int a1, int a2)
       switch ( v14 )
       {
         case 2:
-          v15 = sub_1132C0();
+          v15 = disable_interrupts();
           if ( v15 )
           {
             if ( *(uint32_t *)off_1162F8 )
             {
-              v16 = sub_11E7AC(off_1162F8);
+              v16 = list_pop_front(off_1162F8);
               *(uint8_t *)v15 = 8;
               *(uint8_t *)(v15 + 1) = 0;
               *(uint16_t *)(v15 + 2) = 18;
@@ -104,7 +104,7 @@ int  sub_1160FC(int a1, int a2)
               v18 = v16;
               v32 = *v9 & 0xF;
               v33 = v17;
-              sub_1282E8(v15 + 4, &v32, 8);
+              memcpy_large(v15 + 4, &v32, 8);
               v19 = (int16_t *)off_116320;
               v20 = *(uint16_t *)off_116320;
               if ( v20 > 0x186 )
@@ -138,9 +138,9 @@ int  sub_1160FC(int a1, int a2)
               }
               v26 = (int *)off_116324;
               ++*(uint32_t *)off_116324;
-              sub_11F504(v3, v8);
-              v27 = sub_11E724(dword_11630C);
-              sub_112D84(v27, v28);
+              dispatch_event_handler(v3, v8);
+              v27 = check_kernel_state(dword_11630C);
+              process_event(v27, v28);
               if ( *v26 )
               {
                 v29 = *v26 - 1;
@@ -155,29 +155,29 @@ int  sub_1160FC(int a1, int a2)
             }
             else
             {
-              sub_10DA6C(dword_116310);
+              log_printf(dword_116310);
             }
           }
           else
           {
-            sub_10DA6C(dword_116314);
+            log_printf(dword_116314);
           }
           break;
         case 1:
           v32 = v11 & 0xF;
           v33 = v12 & 0x3FFFFFFF;
-          sub_110BF8(18, (int)&v32, 8);
-          sub_11F504(v3, v8);
+          ke_alloc_node(18, (int)&v32, 8);
+          dispatch_event_handler(v3, v8);
           break;
         case 3:
           **(uint32_t **)off_1162F4 = v11 & 0xF;
-          sub_10CF2C();
+          enable_uart();
           break;
       }
     }
-    sub_115314(v8);
-    sub_121AF0(a1, v8, v13);
+    deferred_cb_clear(v8);
+    ke_int_lock_mode(a1, v8, v13);
   }
-  return sub_116654();
+  return pool_alloc_init();
 }
 

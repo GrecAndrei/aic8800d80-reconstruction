@@ -22,10 +22,10 @@ extern uint32_t off_11E4AC;
 extern uint32_t off_11E4B0;
 extern uint32_t dword_11E4B4;
 
-// init_global_table_121E430 @ 0x11e430, size 100 bytes
-// Doc: init_global_table_121E430 [util]: Loads shared globals and prepares a context struct
-// init_global_table_121E430 [util]: Loads shared globals and prepares a context struct
-int init_global_table_121E430()
+// rf_fifo_status @ 0x11e430, size 100 bytes
+// Doc: rf_fifo_status [util]: Loads shared globals and prepares a context struct
+// rf_fifo_status [util]: Loads shared globals and prepares a context struct
+int rf_fifo_status()
 {
   int *v0; // r2
   int v1; // r0

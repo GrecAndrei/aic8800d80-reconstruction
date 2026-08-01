@@ -17,14 +17,14 @@ extern uint32_t off_121AD0;
 extern uint32_t off_121AD4;
 extern uint32_t off_121AD8;
 
-// sub_121A74 @ 0x121a74, size 86 bytes
-int sub_121A74()
+// get_shared_s16 @ 0x121a74, size 86 bytes
+int get_shared_s16()
 {
-  if ( **(int16_t **)off_121ACC < 0 && msg_get_value(0) != 3 )
-    sub_12F46C(dword_121AE0, dword_121ADC, 1785);
+  if ( **(int16_t **)off_121ACC < 0 && rx_rate_field_parse(0) != 3 )
+    mmio_clear_register(dword_121AE0, dword_121ADC, 1785);
   if ( *((uint8_t *)off_121AD0 + 31) && *((uint8_t *)off_121AD4 + 18) + *((uint8_t *)off_121AD4 + 17) <= 1 )
-    return sub_12CD34(0);
+    return rx_phy_status_parse(0);
   *(uint32_t *)off_121AD8 = 48;
-  return sub_12CD34(0);
+  return rx_phy_status_parse(0);
 }
 

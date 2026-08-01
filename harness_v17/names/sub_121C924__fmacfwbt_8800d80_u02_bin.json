@@ -1,1 +1,1 @@
-{"fn": "sub_121C924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c924", "status": "ok", "name": "mac_addr_copy_to_global", "params": [], "docstring": "Copy 2-byte MAC address fragment to global state buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c924", "status": "ok", "name": "set_rf_channel", "params": [], "docstring": "Copy 2-byte MAC address fragment to global state buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

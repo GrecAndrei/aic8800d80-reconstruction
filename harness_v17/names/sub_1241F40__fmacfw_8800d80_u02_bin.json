@@ -1,1 +1,1 @@
-{"fn": "sub_1241F40", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1241f40", "status": "ok", "name": "sub_1241F40", "params": [], "docstring": "Parse 2-byte header then process 4-tuple of args", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1241F40", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1241f40", "status": "ok", "name": "tx_packet_build", "params": [], "docstring": "Parse 2-byte header then process 4-tuple of args", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

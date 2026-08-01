@@ -1,0 +1,1 @@
+{"fn": "sub_110794", "img": "fmacfw_8800d80_u02_bin", "addr": "0x110794", "status": "ok", "name": "call_110e24", "params": [], "docstring": "Calls sub_110e24 and returns 1.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

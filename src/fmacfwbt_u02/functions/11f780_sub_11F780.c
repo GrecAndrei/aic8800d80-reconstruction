@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F780 @ 0x11f780, size 172 bytes
-int  sub_11F780(int a1, int a2, int a3)
+// wlc_bsscfg_dump @ 0x11f780, size 172 bytes
+int  wlc_bsscfg_dump(int a1, int a2, int a3)
 {
   int v3; // r5
   int v7; // r10
@@ -27,7 +27,7 @@ int  sub_11F780(int a1, int a2, int a3)
   v7 = a2 + 624;
   v8 = a2 + 584;
   v15 = 0;
-  while ( sub_11733C(a1) )
+  while ( init_once(a1) )
   {
     v9 = 0;
     while ( 1 )
@@ -35,7 +35,7 @@ int  sub_11F780(int a1, int a2, int a3)
       v10 = (uint8_t)v9;
       if ( *(uint32_t *)(v7 + 8 * v9) )
       {
-        v11 = sub_12D4F8(a2 + 8 * (v9 + 78));
+        v11 = list_pop_front(a2 + 8 * (v9 + 78));
         goto LABEL_9;
       }
       if ( *(uint32_t *)(v8 + 8 * v9) )
@@ -43,7 +43,7 @@ int  sub_11F780(int a1, int a2, int a3)
       if ( ++v9 == 4 )
         return v3;
     }
-    v11 = sub_12D4F8(a2 + 8 * (v9 + 73));
+    v11 = list_pop_front(a2 + 8 * (v9 + 73));
 LABEL_9:
     if ( !v11 )
       break;
@@ -65,9 +65,9 @@ LABEL_9:
     *(uint16_t *)(v12 + 108) |= 0x2000u;
     v15 = 1;
 LABEL_15:
-    sub_13AC44(v11, v10, v12);
+    tx_prepare_frame_path(v11, v10, v12);
     ++v3;
-    sub_11AC28(v10);
+    ke_int_disable(v10);
     if ( a3 )
     {
       if ( v3 == a3 )

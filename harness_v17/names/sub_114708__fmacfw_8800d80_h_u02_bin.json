@@ -1,0 +1,1 @@
+{"fn": "sub_114708", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114708", "status": "ok", "name": "call_patch_1fc_check", "params": [], "docstring": "Call patch function and return result bit 9", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

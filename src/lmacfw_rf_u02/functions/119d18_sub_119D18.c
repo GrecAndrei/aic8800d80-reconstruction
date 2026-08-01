@@ -12,8 +12,8 @@
 
 extern uint32_t dword_119D54;
 
-// sub_119D18 @ 0x119d18, size 58 bytes
-int  sub_119D18(int a1, uint8_t *a2, int a3, int a4)
+// util_scale_index @ 0x119d18, size 58 bytes
+int  util_scale_index(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r5
   int v6; // r6
@@ -24,13 +24,13 @@ int  sub_119D18(int a1, uint8_t *a2, int a3, int a4)
 
   v4 = dword_119D54;
   v6 = 7 * *a2;
-  v7 = rf_setup_dispatch(47, a4, a3, 2);
+  v7 = ke_msg_send(47, a4, a3, 2);
   v8 = v4 + 32 * v6;
   v9 = (char)a2[1];
   v10 = v7;
-  sub_11DA5C(v8, v9);
-  sub_11DA3C(v8, v10 + 1, v10);
-  sub_11DE50(v10);
+  rf_set_temperature(v8, v9);
+  rf_get_temperature(v8, v10 + 1, v10);
+  rx_irq_handler(v10);
   return 0;
 }
 

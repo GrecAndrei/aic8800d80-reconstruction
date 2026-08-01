@@ -15,10 +15,10 @@ extern uint32_t off_115380;
 extern uint32_t dword_115388;
 extern uint32_t dword_115384;
 
-// rf_subcmd_dispatch @ 0x11532c, size 80 bytes
-// Doc: rf_subcmd_dispatch [rf]: Dispatch on subcommand (cmp r0, 5)
-// rf_subcmd_dispatch [rf]: Dispatch on subcommand (cmp r0, 5)
-int  rf_subcmd_dispatch(int result)
+// radio_pdu_type_cfg @ 0x11532c, size 80 bytes
+// Doc: radio_pdu_type_cfg [rf]: Dispatch on subcommand (cmp r0, 5)
+// radio_pdu_type_cfg [rf]: Dispatch on subcommand (cmp r0, 5)
+int  radio_pdu_type_cfg(int result)
 {
   switch ( result )
   {
@@ -39,7 +39,7 @@ int  rf_subcmd_dispatch(int result)
       break;
     default:
       if ( **(int16_t **)off_115380 < 0 )
-        result = rf_cmd_send_n264(dword_115388, dword_115384, 944);
+        result = flash_ctrl_init(dword_115388, dword_115384, 944);
       break;
   }
   return result;

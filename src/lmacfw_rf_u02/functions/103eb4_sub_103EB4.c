@@ -24,8 +24,8 @@ extern uint32_t dword_103FB0;
 extern uint32_t dword_103FB4;
 extern uint32_t off_103FB8;
 
-// sub_103EB4 @ 0x103eb4, size 212 bytes
-int sub_103EB4()
+// load_patch_data @ 0x103eb4, size 212 bytes
+int load_patch_data()
 {
   int *v0; // r1
   uint32_t *v1; // r3
@@ -54,20 +54,20 @@ int sub_103EB4()
   *v1 = ~(~(*v1 >> 12) << 12);
   v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
   *v1 |= 0x10000000u;
-  sub_100560(10);
+  write_timer_reg(10);
   *v4 = dword_103FA4;
-  sub_100560(125);
+  write_timer_reg(125);
   *v4 = dword_103FA8;
   while ( *v5 < 0 )
-    sub_100560(1);
-  sub_11F74C(1, dword_103FAC, *(uint32_t *)off_103FA0, off_103FA0);
+    write_timer_reg(1);
+  check_interrupt_flag(1, dword_103FAC, *(uint32_t *)off_103FA0, off_103FA0);
   v6 = off_103F9C;
   v7 = dword_103FB0;
   *(uint32_t *)off_103F9C = 0;
-  sub_11F74C(1, v7, 0, v6);
+  check_interrupt_flag(1, v7, 0, v6);
   *(uint32_t *)off_103F8C = v3;
-  sub_103DA8();
-  result = sub_11F74C(1, dword_103FB4, 0x4000, v8);
+  wait_rf_ready();
+  result = check_interrupt_flag(1, dword_103FB4, 0x4000, v8);
   v10 = off_103F90;
   v11 = off_103FB8;
   *(uint32_t *)off_103F90 &= 0xF3FFFFFF;

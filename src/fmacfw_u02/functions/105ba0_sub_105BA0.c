@@ -51,8 +51,8 @@ extern uint32_t off_10620C;
 extern uint32_t off_106210;
 extern uint32_t off_1063E8;
 
-// sub_105BA0 @ 0x105ba0, size 2120 bytes
-unsigned int * sub_105BA0(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6)
+// rf_phy_regs_snapshot @ 0x105ba0, size 2120 bytes
+unsigned int * rf_phy_regs_snapshot(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6)
 {
   uint32_t *v6; // lr
   unsigned int *v7; // r4
@@ -255,7 +255,7 @@ LABEL_3:
   *(uint32_t *)off_105E80 = *(uint32_t *)off_105E80 & 0xFFFE00FF | 0x100;
   *v19 |= 0x20000u;
   *v19 |= 0x40000u;
-  feature_guard_check(1, v20);
+  check_status_bits(1, v20);
   v34 = off_105E8C;
   v24 = off_105E94;
   v25 = *(uint32_t *)off_105E90;
@@ -349,9 +349,9 @@ LABEL_3:
   v40 -= 465770;
   *(uint32_t *)&v39[-28] |= 0x400000u;
   *v40 &= ~0x100u;
-  crypto_hw_clk_toggle_3c6c();
-  feature_guard_check(1, dword_1061D8);
-  crypto_key_load_09dc(dword_1061DC + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_1061DC);
+  clear_chip_ctrl_clk();
+  check_status_bits(1, dword_1061D8);
+  bt_control_set(dword_1061DC + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_1061DC);
   *v40 &= ~0x200u;
   *v40 |= 0x200u;
   *v40 &= ~0x200u;
@@ -394,26 +394,26 @@ LABEL_3:
   v48 = (unsigned int *)off_1061E0;
   v49 = (unsigned int *)off_1061E8;
   v50 = (unsigned int *)off_1061C8;
-  feature_guard_check(1, dword_1061E4);
-  sub_10402C(a2, v47, a6);
+  check_status_bits(1, dword_1061E4);
+  parse_table_entry(a2, v47, a6);
   v51 = (unsigned int *)off_1061F0;
-  feature_guard_check(1, dword_1061EC);
+  check_status_bits(1, dword_1061EC);
   *v48 = v45 | v46 | (a4 << 8) | 0x3F4080;
-  crypto_hw_reset_seq_4198();
+  mac_hw_init();
   v52 = (unsigned int *)off_1061F8;
   v53 = (unsigned int *)off_1061CC;
   v54 = (unsigned int *)off_1061D4;
-  feature_guard_check(1, dword_1061F4);
+  check_status_bits(1, dword_1061F4);
   v55 = off_1061FC;
   *v49 &= ~0x200u;
   *v49 |= 0x200u;
   *v49 &= ~0x200u;
   *v55 |= 0x10000000u;
-  delay_us_0644(6500);
-  crypto_calibrate();
+  timer_delay(6500);
+  start_arm_boot();
   *v51 = *v51 & 0xFFBFFFFF | (v113 << 22);
   *v51 = *v51 & 0xFFDFFFFF | (v112 << 21);
-  sub_104298();
+  mac_irq_disable();
   v56 = (unsigned int *)off_106200;
   v57 = (unsigned int *)off_106208;
   v58 = (unsigned int *)off_106204;

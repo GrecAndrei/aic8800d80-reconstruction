@@ -16,8 +16,8 @@ extern uint32_t off_10752C;
 extern uint32_t dword_107530;
 extern uint32_t dword_107534;
 
-// sub_107444 @ 0x107444, size 222 bytes
-int  sub_107444(int a1, int a2)
+// pll_set_ratio @ 0x107444, size 222 bytes
+int  pll_set_ratio(int a1, int a2)
 {
   unsigned int *v2; // r5
   unsigned int *v3; // r4
@@ -36,17 +36,17 @@ int  sub_107444(int a1, int a2)
   *v3 |= 0x100000u;
   *v3 |= 0x1000000u;
   *v3 = (a2 << 25) & 0x2000000 | *v3 & 0xFDFFFFFF;
-  sub_1073D8();
+  pll_set_clock();
   *v2 &= ~1u;
-  sub_100644(140);
+  mmio_read32(140);
   v5 = off_10752C;
   *v3 |= 0x4000000u;
   v6 = *v5 & 0x7FFF;
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
-  sub_100644(5);
-  sub_12EB90(1, dword_107530);
-  result = sub_12EB90(1, dword_107534);
+  mmio_read32(5);
+  check_feature_flag(1, dword_107530);
+  result = check_feature_flag(1, dword_107534);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;

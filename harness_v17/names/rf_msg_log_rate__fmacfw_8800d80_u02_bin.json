@@ -1,1 +1,1 @@
-{"fn": "rf_msg_log_rate", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12141c8", "status": "ok", "name": "rf_msg_log_rate", "params": [], "docstring": "Log RF message rate if counter changed", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_msg_log_rate", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12141c8", "status": "ok", "name": "is_current_task", "params": [], "docstring": "Log RF message rate if counter changed", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

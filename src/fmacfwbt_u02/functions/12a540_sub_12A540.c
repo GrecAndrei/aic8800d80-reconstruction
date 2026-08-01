@@ -12,13 +12,13 @@
 
 extern uint32_t dword_12A564;
 
-// sub_12A540 @ 0x12a540, size 34 bytes
-uint8_t * sub_12A540(int a1)
+// bt_conn_flush @ 0x12a540, size 34 bytes
+uint8_t * bt_conn_flush(int a1)
 {
   uint8_t *v1; // r0
 
   v1 = (uint8_t *)(dword_12A564 + 140 * *(uint8_t *)(a1 + 1225));
   v1[134] = 0;
-  return sub_129A28(v1);
+  return state_machine_step(v1);
 }
 

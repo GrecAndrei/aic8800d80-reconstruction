@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1314CC @ 0x1314cc, size 38 bytes
+// rf_phy_unpack @ 0x1314cc, size 38 bytes
 // Doc: sub_12314CC [util]: Thin wrapper that calls helper at 0x12e1a8 preserving r2 as r4
 // sub_12314CC [util]: Thin wrapper that calls helper at 0x12e1a8 preserving r2 as r4
-uint8_t * sub_1314CC(uint8_t *a1, int a2, uint8_t *a3)
+uint8_t * rf_phy_unpack(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   unsigned int v5; // r3
 
-  result = sdio_buffer_prepare_alt_1a8(a1, a2);
+  result = parse_pct_u16(a1, a2);
   if ( result )
   {
     v5 = result[3];

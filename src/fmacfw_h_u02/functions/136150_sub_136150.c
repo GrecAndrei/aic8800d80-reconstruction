@@ -14,21 +14,21 @@ extern uint32_t off_1361AC;
 extern uint32_t dword_1361B4;
 extern uint32_t dword_1361B0;
 
-// sub_136150 @ 0x136150, size 90 bytes
-int sub_136150()
+// is_tx_enabled @ 0x136150, size 90 bytes
+int is_tx_enabled()
 {
   int v0; // r0
 
-  if ( **(int16_t **)off_1361AC < 0 && sub_12CD48(7u) != 1 && sub_12CD48(7u) && sub_12CD48(7u) != 3 )
-    sub_12F32C(dword_1361B4, dword_1361B0, 274);
-  v0 = sub_12CD48(7u);
+  if ( **(int16_t **)off_1361AC < 0 && hci_cmd_handler(7u) != 1 && hci_cmd_handler(7u) && hci_cmd_handler(7u) != 3 )
+    irq_disable_mmio_write(dword_1361B4, dword_1361B0, 274);
+  v0 = hci_cmd_handler(7u);
   if ( v0 != 1 )
   {
-    v0 = sub_12CD48(7u);
+    v0 = hci_cmd_handler(7u);
     if ( v0 != 3 )
       return 0;
   }
-  sub_1366E0(v0);
+  acquire_lock_check_state(v0);
   return 0;
 }
 

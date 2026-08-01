@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13BDA0;
 
-// sub_13BD60 @ 0x13bd60, size 64 bytes
+// rf_ctrl_send @ 0x13bd60, size 64 bytes
 // Doc: sub_123BD60 [util]: Builds a 16-bit control word with shift/and/or of args and constant 8
 // sub_123BD60 [util]: Builds a 16-bit control word with shift/and/or of args and constant 8
-int  sub_13BD60(char a1, int a2)
+int  rf_ctrl_send(char a1, int a2)
 {
   int v2; // r4
   int v4; // r0
@@ -23,7 +23,7 @@ int  sub_13BD60(char a1, int a2)
   int v6; // r2
 
   v2 = a2;
-  v4 = sub_12C92C(40, 0, ((uint16_t)a2 << 8) | 8, 8u);
+  v4 = ke_msg_alloc(40, 0, ((uint16_t)a2 << 8) | 8, 8u);
   v5 = dword_13BDA0 + 32 * v2;
   v6 = *(uint8_t *)(v5 + 17);
   *(uint8_t *)(v4 + 1) = a1;
@@ -32,6 +32,6 @@ int  sub_13BD60(char a1, int a2)
   LOWORD(v2) = *(uint16_t *)(v5 + 20);
   *(uint16_t *)(v4 + 6) = *(uint16_t *)(v5 + 12);
   *(uint16_t *)(v4 + 4) = v2;
-  return sdio_buffer_prepare_n_4e8(v4);
+  return ke_msg_send(v4);
 }
 

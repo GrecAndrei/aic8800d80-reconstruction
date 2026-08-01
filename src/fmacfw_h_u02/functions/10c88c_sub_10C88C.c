@@ -21,8 +21,8 @@ extern uint32_t off_10C980;
 extern uint32_t dword_10C98C;
 extern uint32_t off_10C988;
 
-// sub_10C88C @ 0x10c88c, size 236 bytes
-int  sub_10C88C(char a1)
+// alloc_rx_buffer @ 0x10c88c, size 236 bytes
+int  alloc_rx_buffer(char a1)
 {
   int v1; // r5
   uint8_t *v2; // r11
@@ -41,7 +41,7 @@ int  sub_10C88C(char a1)
   int v15; // r0
   int result; // r0
 
-  sub_12D00C(2048);
+  irq_disable_global_3(2048);
   v1 = *(uint32_t *)off_10C978;
   if ( *(uint32_t *)(*(uint32_t *)off_10C978 + 636) )
   {
@@ -69,7 +69,7 @@ int  sub_10C88C(char a1)
       ++*(uint32_t *)off_10C99C;
       while ( !*v5 )
         ;
-      v10 = sub_12D190(v1 + 636);
+      v10 = list_pop(v1 + 636);
       v11 = *v9;
       *v5 = 1;
       v12 = v10;
@@ -86,14 +86,14 @@ int  sub_10C88C(char a1)
       }
       v15 = dword_10C984;
       *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10C980;
-      sub_12D108(v15);
+      wlan_ioctl_handler_1(v15);
       if ( !*(uint32_t *)(v1 + 636) )
         goto LABEL_13;
     }
-    sub_10DAE4(dword_10C98C, v6, v7);
+    debug_printf(dword_10C98C, v6, v7);
   }
 LABEL_13:
-  result = sub_12CFC4(256);
+  result = irq_disable_global_2(256);
   *(uint32_t *)off_10C988 = (1 << (a1 + 8)) & 0x1F00;
   return result;
 }

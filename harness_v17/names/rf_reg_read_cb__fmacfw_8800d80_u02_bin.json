@@ -1,1 +1,1 @@
-{"fn": "rf_reg_read_cb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ed6c", "status": "ok", "name": "rf_reg_read_cb", "params": [], "docstring": "Indirect call dispatcher jumping via function pointers at 0x1b0/0x1b4/0x1b8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_reg_read_cb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ed6c", "status": "ok", "name": "call_ptr_1b0", "params": [], "docstring": "Indirect call dispatcher jumping via function pointers at 0x1b0/0x1b4/0x1b8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

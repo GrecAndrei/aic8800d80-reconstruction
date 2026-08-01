@@ -12,8 +12,8 @@
 
 extern uint32_t off_101950;
 
-// sub_101940 @ 0x101940, size 14 bytes
-int sub_101940()
+// sys_mode_get @ 0x101940, size 14 bytes
+int sys_mode_get()
 {
   return (uint8_t)((BYTE1(*(uint32_t *)off_101950) & 0xF) - 1);
 }

@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n_1f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e34", "status": "ok", "name": "rf_mem_write_n_1f8", "params": [], "docstring": "Write RF register/memory entry via MCR coprocessor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n_1f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e34", "status": "ok", "name": "rf_mem_write_n_1f7", "params": [], "docstring": "Write RF register/memory entry via MCR coprocessor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

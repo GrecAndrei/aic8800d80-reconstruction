@@ -25,8 +25,8 @@ extern uint32_t dword_1058C8;
 extern uint32_t dword_1058C4;
 extern uint32_t dword_105824;
 
-// sub_105270 @ 0x105270, size 1618 bytes
-int  sub_105270(
+// rf_calibrate_start @ 0x105270, size 1618 bytes
+int  rf_calibrate_start(
         int a1,
         int a2,
         float *a3,
@@ -190,12 +190,12 @@ int  sub_105270(
       v16 = *(v14 - 2);
       if ( v15 < v16 )
       {
-        v17 = sub_1428B8(LODWORD(v15));
-        v18 = sub_1428B8(LODWORD(v16));
-        v19 = sub_142968(v18, HIDWORD(v18), dword_105550, dword_105554);
-        if ( sub_142E4C(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
+        v17 = float_to_double(LODWORD(v15));
+        v18 = float_to_double(LODWORD(v16));
+        v19 = double_compare_common(v18, HIDWORD(v18), dword_105550, dword_105554);
+        if ( double_less_than(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
         {
-          sub_12EB90(1, v12);
+          check_feature_flag(1, v12);
           v16 = *(v14 - 2);
         }
         *(v14 - 1) = v16;
@@ -205,7 +205,7 @@ int  sub_105270(
   }
   if ( a1 > 0 )
   {
-    v20 = sub_142894(a1);
+    v20 = signed_int_to_double(a1);
     v21 = flt_105548;
     v112 = v11;
     v22 = v124;
@@ -215,9 +215,9 @@ int  sub_105270(
     v26 = v20;
     do
     {
-      v27 = sub_142894(++v24);
-      v28 = sub_142BBC(v27, HIDWORD(v27), v26, HIDWORD(v26));
-      *(uint32_t *)v25++ = sub_142F2C(v28);
+      v27 = signed_int_to_double(++v24);
+      v28 = double_compare_core(v27, HIDWORD(v27), v26, HIDWORD(v26));
+      *(uint32_t *)v25++ = double_to_int(v28);
       *v22++ = 1.0;
       *v23++ = v21;
     }
@@ -228,7 +228,7 @@ int  sub_105270(
   v30 = 0;
   v113 = a2 - 1;
   v122 = a2 - 1;
-  sub_1051D0(a2, v29, &v120, (int)v11, 0);
+  mem_swap_fields(a2, v29, &v120, (int)v11, 0);
   v31 = &v11[v121];
   v32 = &v11[v120];
   v33 = *v31;
@@ -241,7 +241,7 @@ int  sub_105270(
   {
     if ( a1 )
     {
-      sub_12EB90(1, dword_1058CC);
+      check_feature_flag(1, dword_1058CC);
       goto LABEL_44;
     }
   }
@@ -254,7 +254,7 @@ int  sub_105270(
       if ( v30 != v106 )
       {
         v41 = v37 * *v39;
-        sub_1051D0(a2, v41, &v120, (int)v11, 1);
+        mem_swap_fields(a2, v41, &v120, (int)v11, 1);
         if ( v120 )
         {
           v42 = &v11[v120];
@@ -262,8 +262,8 @@ int  sub_105270(
             || (v43 = v11[v121 + 32],
                 v109 = &v11[v121],
                 v44 = v42[32] - v43,
-                v45 = sub_1428B8(LODWORD(v44)),
-                sub_142E4C(v45, HIDWORD(v45), dword_105540, dword_105544)) )
+                v45 = float_to_double(LODWORD(v44)),
+                double_less_than(v45, HIDWORD(v45), dword_105540, dword_105544)) )
           {
             v40 = 1.0;
           }
@@ -293,7 +293,7 @@ int  sub_105270(
   while ( 1 )
   {
     v57 = v124[v48];
-    sub_1051D0(a2, v57, &v120, (int)v11, 0);
+    mem_swap_fields(a2, v57, &v120, (int)v11, 0);
     if ( v120 )
     {
       v110 = &v11[v121];
@@ -306,8 +306,8 @@ int  sub_105270(
       {
         v52 = *v110;
         v53 = *v51 - *v110;
-        v54 = sub_1428B8(LODWORD(v53));
-        if ( !sub_142E88(v54, HIDWORD(v54), dword_105540, dword_105544) )
+        v54 = float_to_double(LODWORD(v53));
+        if ( !double_greater_than(v54, HIDWORD(v54), dword_105540, dword_105544) )
           v53 = v47;
         v55 = (float)((float)((float)(v51[96] - v110[96]) / v53) * (float)(v57 - v52)) + v110[96];
       }
@@ -329,7 +329,7 @@ int  sub_105270(
       break;
     ++v49;
   }
-  sub_12EB90(1, dword_10580C);
+  check_feature_flag(1, dword_10580C);
   if ( v107 > 0 )
   {
     v58 = flt_105810;
@@ -353,7 +353,7 @@ int  sub_105270(
       *v62++ = v69;
       if ( v69 < 0 )
         *(v62 - 1) = v69 + (v69 < 0 ? 0x400 : 0);
-      sub_12EB90(1, v66);
+      check_feature_flag(1, v66);
     }
     while ( v107 != v63 );
   }
@@ -394,7 +394,7 @@ LABEL_48:
     v84 = v78;
     do
     {
-      sub_12EB90(1, v76);
+      check_feature_flag(1, v76);
       *(uint32_t *)(v79 - 40) = v105;
       *(uint32_t *)(v79 - 36) = v108;
       *(uint32_t *)(v79 - 32) = v111;
@@ -422,7 +422,7 @@ LABEL_48:
       v79 += 384;
     }
     while ( v118 != v84 );
-    return sub_12EB90(1, dword_105820);
+    return check_feature_flag(1, dword_105820);
   }
   if ( a8 == 7 )
     v72 = 5;
@@ -431,7 +431,7 @@ LABEL_48:
   if ( a5 == 2 )
   {
     v89 = dword_1058C8;
-    sub_12EB90(1, dword_1058C4);
+    check_feature_flag(1, dword_1058C4);
     v98 = (uint32_t *)(a4 + 48 * v72);
     v98[14] = v105;
     v98[15] = v108;
@@ -464,7 +464,7 @@ LABEL_48:
     v89 = dword_105824;
     v90 = a4 + 96;
   }
-  sub_12EB90(1, dword_10581C);
+  check_feature_flag(1, dword_10581C);
   v91 = 3 * (v72 + 8 * a5);
   v92 = (uint32_t *)(a4 + 16 * v91);
   v92[14] = v105;
@@ -490,6 +490,6 @@ LABEL_48:
     v94 += 4;
   }
   while ( (int *)v95 != v96 );
-  return sub_12EB90(1, dword_105820);
+  return check_feature_flag(1, dword_105820);
 }
 

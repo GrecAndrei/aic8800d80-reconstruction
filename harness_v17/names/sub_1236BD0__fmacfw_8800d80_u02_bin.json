@@ -1,1 +1,1 @@
-{"fn": "sub_1236BD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236bd0", "status": "ok", "name": "sub_1236BD0", "params": [], "docstring": "TX-related state machine dispatch (mode byte at +0x6a vs 2)", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1236BD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236bd0", "status": "ok", "name": "bt_handle_state_event", "params": [], "docstring": "TX-related state machine dispatch (mode byte at +0x6a vs 2)", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

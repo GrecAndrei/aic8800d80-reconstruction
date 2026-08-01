@@ -71,8 +71,8 @@ extern uint32_t dword_111550;
 extern uint32_t dword_11153C;
 extern uint32_t off_111540;
 
-// sub_111250 @ 0x111250, size 1160 bytes
-int sub_111250()
+// check_short_value @ 0x111250, size 1160 bytes
+int check_short_value()
 {
   int v0; // r4
   int v1; // r2
@@ -135,7 +135,7 @@ int sub_111250()
   v0 = *(uint32_t *)off_1114D8;
   if ( **(int16_t **)off_1114D4 < 0 && !v0 )
   {
-    sub_12F35C(dword_1116E8, dword_1116E4, 39);
+    mmio_write_field(dword_1116E8, dword_1116E4, 39);
     goto LABEL_10;
   }
   v1 = v0 << 18;
@@ -146,12 +146,12 @@ int sub_111250()
     *(uint32_t *)off_111708 = *(uint32_t *)off_111708;
     v50 = dword_11170C;
     *v48 &= ~0x20u;
-    sub_12EB90(2, v50);
+    check_feature_flag(2, v50);
     if ( (v49 & 4) != 0 )
     {
       v53 = dword_111730;
       *(uint8_t *)off_111714 = 1;
-      sub_12EB90(2, v53);
+      check_feature_flag(2, v53);
     }
     if ( (v49 & 1) != 0 )
     {
@@ -159,7 +159,7 @@ int sub_111250()
       *(uint32_t *)off_111710 = 16;
       if ( *v52 )
       {
-        sub_12EB90(2, dword_111740);
+        check_feature_flag(2, dword_111740);
         *v52 = 0;
       }
       if ( *(uint8_t *)off_111718 )
@@ -168,7 +168,7 @@ int sub_111250()
         *((uint8_t *)off_111718 + 1) = 1;
         v56 = dword_11173C;
         *v55 |= 1u;
-        sub_12EB90(2, v56);
+        check_feature_flag(2, v56);
       }
       v1 = 0;
       *(uint8_t *)off_11171C = 0;
@@ -177,20 +177,20 @@ int sub_111250()
     {
       v54 = dword_111734;
       *(uint8_t *)off_11171C = 1;
-      sub_12EB90(2, v54);
+      check_feature_flag(2, v54);
     }
     if ( (v49 & 8) != 0 )
-      sub_12E948(dword_111720, v51, v1);
+      alloc_tx_event(dword_111720, v51, v1);
   }
   if ( (v0 & 1) != 0 )
   {
-    sub_12E948(dword_1114DC, v0 << 31, v1);
+    alloc_tx_event(dword_1114DC, v0 << 31, v1);
     *(uint32_t *)off_1114E0 = 1;
   }
   v2 = v0 << 26;
   if ( (v0 & 0x20) != 0 )
   {
-    sub_1111CC(*(uint32_t *)off_1114E4);
+    timer_get_raw(*(uint32_t *)off_1114E4);
     v2 = 32;
     *(uint32_t *)off_1114E0 = 32;
   }
@@ -199,14 +199,14 @@ int sub_111250()
     v3 = *(uint32_t *)off_1114E8;
     v4 = off_1114F0;
     *(uint32_t *)off_1114E8 = *(uint32_t *)off_1114E8;
-    sub_12E948(dword_1114F4, v3, *v4);
+    alloc_tx_event(dword_1114F4, v3, *v4);
   }
   if ( (v0 & 0x8000) == 0 )
     goto LABEL_10;
   v42 = dword_1116F0;
   v43 = *(uint32_t *)off_1116EC;
   *(uint32_t *)off_1116EC = *(uint32_t *)off_1116EC;
-  sub_12E948(v42, v43, v2);
+  alloc_tx_event(v42, v43, v2);
   if ( (v43 & 4) != 0 )
   {
     v2 = (int)off_1116F4;
@@ -222,7 +222,7 @@ LABEL_60:
     v44 = dword_1116FC;
     v45 = *(uint32_t *)off_1116F8;
     *(uint32_t *)off_1116F8 = *(uint32_t *)off_1116F8;
-    sub_12E948(v44, v45, v2);
+    alloc_tx_event(v44, v45, v2);
     v6 = v0 << 8;
     if ( (v0 & 0x800000) == 0 )
       goto LABEL_12;
@@ -241,7 +241,7 @@ LABEL_61:
   v46 = dword_111704;
   v47 = *(uint32_t *)off_111700;
   *(uint32_t *)off_111700 = *(uint32_t *)off_111700;
-  sub_12E948(v46, v47, v6);
+  alloc_tx_event(v46, v47, v6);
 LABEL_12:
   if ( (v0 & 0x400) != 0 )
   {
@@ -250,7 +250,7 @@ LABEL_12:
     v9 = *((uint8_t *)off_1114F8 + 1622);
     if ( v8 >= v9 )
     {
-      sub_12E948(dword_11172C, v8, v9);
+      alloc_tx_event(dword_11172C, v8, v9);
     }
     else
     {
@@ -279,15 +279,15 @@ LABEL_12:
       v17 = off_111514;
       *(uint32_t *)off_111510 = v15;
       *v17 = 16;
-      sub_12D108(dword_111518);
-      sub_12CFC4(256);
+      wlan_ioctl_handler_1(dword_111518);
+      irq_disable_global_2(256);
     }
     v6 = 1024;
     *(uint32_t *)off_1114E0 = 1024;
   }
   if ( (v0 & 0x200) != 0 )
   {
-    sub_12E948(dword_111724, v5, v6);
+    alloc_tx_event(dword_111724, v5, v6);
     *(uint32_t *)off_111728 = 512;
   }
   if ( (v0 & 0x100) != 0 )
@@ -311,12 +311,12 @@ LABEL_12:
       *((uint32_t *)v41 + 410) = v39;
       v41[1644] = v38;
       v18[2433] = v19 + 1;
-      sub_12D108(v18 + 2436);
-      sub_12CFC4(0x400000);
+      wlan_ioctl_handler_1(v18 + 2436);
+      irq_disable_global_2(0x400000);
     }
     else
     {
-      sub_12E948(dword_11151C, v19, v20);
+      alloc_tx_event(dword_11151C, v19, v20);
     }
     *(uint32_t *)off_1114E0 = 256;
   }
@@ -329,11 +329,11 @@ LABEL_12:
       v23 = *((uint8_t *)off_111524 + 369);
       *(uint8_t *)off_111520 = 0;
       if ( v23 )
-        sub_10DBC0(1);
+        mmio_set_bit(1);
       else
-        sub_10DBD4(1);
+        mmio_clear_bit(1);
       if ( v22[374] == 1 )
-        sub_124CF4(dword_111528);
+        mem_set_util(dword_111528);
     }
     v24 = off_11152C;
     v25 = *((uint8_t *)off_11152C + 3074);
@@ -351,12 +351,12 @@ LABEL_12:
       v24[3072] = v35;
       *((uint16_t *)v36 + 4) = *v37;
       v24[3074] = v25 + 1;
-      sub_12D108(v24 + 3080);
-      result = sub_12CFC4(128);
+      wlan_ioctl_handler_1(v24 + 3080);
+      result = irq_disable_global_2(128);
     }
     else
     {
-      result = sub_12E948(dword_111530, v25, v26);
+      result = alloc_tx_event(dword_111530, v25, v26);
     }
     v27 = off_111534;
     *(uint32_t *)off_1114E0 = 4096;
@@ -371,11 +371,11 @@ LABEL_12:
       v29 = *((uint8_t *)off_111524 + 369);
       *(uint8_t *)off_111520 = 0;
       if ( v29 )
-        sub_10DBC0(1);
+        mmio_set_bit(1);
       else
-        sub_10DBD4(1);
+        mmio_clear_bit(1);
       if ( v28[374] == 1 )
-        sub_124CF4(dword_111528);
+        mem_set_util(dword_111528);
     }
     v30 = off_11152C;
     v31 = *((uint8_t *)off_11152C + 6162);
@@ -391,12 +391,12 @@ LABEL_12:
       v30[4 * v33 + 773] = *v34;
       LOWORD(v30[4 * v33 + 774]) = *(uint32_t *)off_11154C;
       *((uint8_t *)v30 + 6162) = v31 + 1;
-      sub_12D108(dword_111550);
-      result = sub_12CFC4(64);
+      wlan_ioctl_handler_1(dword_111550);
+      result = irq_disable_global_2(64);
     }
     else
     {
-      result = sub_12E948(dword_11153C, v31, v31);
+      result = alloc_tx_event(dword_11153C, v31, v31);
     }
     v32 = off_111540;
     *(uint32_t *)off_1114E0 = 2048;

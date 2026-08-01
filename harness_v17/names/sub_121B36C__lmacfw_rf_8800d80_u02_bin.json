@@ -1,1 +1,1 @@
-{"fn": "sub_121B36C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b36c", "status": "ok", "name": "phy_flag_check_or_set", "params": [], "docstring": "Check/set a packed PHY status flag bit", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121B36C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b36c", "status": "ok", "name": "rf_flag_set", "params": [], "docstring": "Check/set a packed PHY status flag bit", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

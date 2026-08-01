@@ -16,8 +16,8 @@ extern uint32_t off_129F08;
 extern uint32_t dword_129EFC;
 extern uint32_t off_129F00;
 
-// sub_129E28 @ 0x129e28, size 206 bytes
-int  sub_129E28(int a1, int a2)
+// bt_is_ready @ 0x129e28, size 206 bytes
+int  bt_is_ready(int a1, int a2)
 {
   char *v2; // r4
   int v5; // r5

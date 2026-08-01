@@ -13,10 +13,10 @@
 extern uint32_t dword_10A9A4;
 extern uint32_t dword_10A9A0;
 
-// sub_10A764 @ 0x10a764, size 572 bytes
+// dispatch_cmd @ 0x10a764, size 572 bytes
 // Doc: sub_120A764 [rf]: Handle command/buffer with up to 9 entries and stack frame setup
 // sub_120A764 [rf]: Handle command/buffer with up to 9 entries and stack frame setup
-int  sub_10A764(int a1, unsigned int a2, uint8_t *a3, int *a4)
+int  dispatch_cmd(int a1, unsigned int a2, uint8_t *a3, int *a4)
 {
   uint8_t *v6; // r6
   uint8_t *v7; // r9
@@ -75,10 +75,10 @@ int  sub_10A764(int a1, unsigned int a2, uint8_t *a3, int *a4)
       }
       while ( v9 != 4 );
       *v7 = 0;
-      v12 = sub_109760(v30, v31);
+      v12 = f32_compare(v30, v31);
       *v7 = v12;
       if ( (v12 & 0xE) == 0 )
-        sub_109B30(a2, v30, v31, (int)v7);
+        f32_pair_compare(a2, v30, v31, (int)v7);
       v7 += 16;
     }
     v13 = (float *)var3C;
@@ -145,7 +145,7 @@ LABEL_21:
     {
 LABEL_42:
       v21 = 32 * (9 - a2);
-      sub_10DC24(dword_10A9A4, a2, v15);
+      log_printf(dword_10A9A4, a2, v15);
       return v21;
     }
     goto LABEL_21;
@@ -163,7 +163,7 @@ LABEL_42:
   v32[0] = 0;
   if ( a2 > 9 )
   {
-    v28 = sub_109760(v30, v31);
+    v28 = f32_compare(v30, v31);
     v32[0] = v28;
     if ( (v28 & 0xE) != 0 )
     {
@@ -171,23 +171,23 @@ LABEL_42:
     }
     else
     {
-      sub_109B30(a2, v30, v31, (int)v32);
+      f32_pair_compare(a2, v30, v31, (int)v32);
       v27 = v32[0];
       v20 = v32[0];
       if ( (v32[0] & 0xE) == 0 )
         goto LABEL_26;
     }
     v21 = 32 * (9 - a2);
-    sub_10DC24(dword_10A9A0, a2, v20);
+    log_printf(dword_10A9A0, a2, v20);
     return v21;
   }
-  sub_109B30(a2, v30, v31, (int)v32);
+  f32_pair_compare(a2, v30, v31, (int)v32);
   v20 = v32[0];
   v27 = v32[0];
   if ( (v32[0] & 0xE) != 0 )
   {
     v21 = 128;
-    sub_10DC24(dword_10A9A0, a2, v32[0]);
+    log_printf(dword_10A9A0, a2, v32[0]);
     return v21;
   }
 LABEL_26:
@@ -195,7 +195,7 @@ LABEL_26:
   if ( v27 )
   {
 LABEL_22:
-    sub_10DC24(dword_10A9A0, a2, v20);
+    log_printf(dword_10A9A0, a2, v20);
     return v21;
   }
   return v21;

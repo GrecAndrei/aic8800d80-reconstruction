@@ -1,1 +1,1 @@
-{"fn": "crypto_table_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203e84", "status": "ok", "name": "crypto_table_init_3e84", "params": [], "docstring": "Initialize cryptographic algorithm lookup table", "subsystem": "ke", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "crypto_table_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203e84", "status": "ok", "name": "mac_tx_wait_ack", "params": [], "docstring": "Initialize cryptographic algorithm lookup table", "subsystem": "ke", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -13,8 +13,8 @@
 extern uint32_t dword_107940;
 extern uint32_t dword_10793C;
 
-// sub_1078D4 @ 0x1078d4, size 104 bytes
-int * sub_1078D4(int *a1)
+// timer_ticks_to_micros @ 0x1078d4, size 104 bytes
+int * timer_ticks_to_micros(int *a1)
 {
   int v1; // r2
   int v2; // r7

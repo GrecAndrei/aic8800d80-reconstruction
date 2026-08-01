@@ -13,10 +13,10 @@
 extern uint32_t off_12CAC8;
 extern uint32_t off_12CACC;
 
-// msg_dispatch_main @ 0x12ca20, size 166 bytes
+// hci_tx_queue_drain @ 0x12ca20, size 166 bytes
 // Doc: message_dispatch_n_15c [ipc]: Dispatch incoming IPC message by type field
 // message_dispatch_n_15c [ipc]: Dispatch incoming IPC message by type field
-int msg_dispatch_main()
+int hci_tx_queue_drain()
 {
   uint32_t *v0; // r7
   int *v1; // r5
@@ -44,7 +44,7 @@ int msg_dispatch_main()
   v4 = (char *)off_12CAC8 + 32;
   while ( 1 )
   {
-    sub_12D374(0x10000000);
+    set_system_flag_2(0x10000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -60,7 +60,7 @@ int msg_dispatch_main()
     v5 = *(uint32_t *)(v12 + 8);
     if ( v5 - v3[4] - 50 >= 0 )
     {
-      result = timestamp_update_4f60((int)v4, v5);
+      result = ke_event_lock((int)v4, v5);
       if ( *(uint32_t *)(v12 + 8) - v3[4] >= 0 )
       {
         if ( *v1 )
@@ -77,7 +77,7 @@ int msg_dispatch_main()
         return result;
       }
     }
-    v7 = sub_12D4F8(message_dispatch_n_e0);
+    v7 = list_pop_front(message_dispatch_n_e0);
     v8 = *v1;
     v9 = v7;
     v10 = *v1 - 1;
@@ -91,8 +91,8 @@ int msg_dispatch_main()
           __enable_irq();
       }
     }
-    message_dispatch_n84(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255, v8);
-    buffer_pool_get(v9);
+    hci_evt_alloc_send(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255, v8);
+    hci_tx_packet(v9);
   }
   if ( v13 )
   {

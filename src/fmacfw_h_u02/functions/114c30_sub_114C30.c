@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114C30 @ 0x114c30, size 10 bytes
-int  sub_114C30(int a1)
+// patch_validate @ 0x114c30, size 10 bytes
+int  patch_validate(int a1)
 {
-  return sub_114AF0(128, a1, 4u);
+  return patch_apply(128, a1, 4u);
 }
 

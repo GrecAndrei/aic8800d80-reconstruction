@@ -19,8 +19,8 @@ extern uint32_t dword_11C8DC;
 extern uint32_t dword_11C8D8;
 extern uint32_t off_11C8D4;
 
-// sub_11C5D8 @ 0x11c5d8, size 748 bytes
-int  sub_11C5D8(int a1, int a2)
+// process_tx_packet @ 0x11c5d8, size 748 bytes
+int  process_tx_packet(int a1, int a2)
 {
   uint8_t *v2; // r5
   int v3; // r11
@@ -67,14 +67,14 @@ int  sub_11C5D8(int a1, int a2)
   v7 = a2;
   if ( (a2 & 0x800000) != 0 )
   {
-    v8 = sub_11EBFC(a1);
+    v8 = rf_irq_status_check(a1);
     v9 = 9;
     while ( 1 )
     {
       v10 = *(uint16_t *)(v3 + 8);
       if ( (v10 & 0x20) != 0 )
         break;
-      v8 = sub_11EBFC(v8);
+      v8 = rf_irq_status_check(v8);
       if ( !--v9 )
       {
         v11 = *(uint16_t *)(v3 + 8);
@@ -84,13 +84,13 @@ int  sub_11C5D8(int a1, int a2)
           {
             v15 = dword_11C8E0;
             v16 = 84 * v5;
-            sub_12D2D0(84 * v5 + 28 + dword_11C8E0);
-            sub_11A2D0(v3);
+            mem_word_load(84 * v5 + 28 + dword_11C8E0);
+            dec_retry_count(v3);
             *(uint32_t *)(a1 + 68) = 0;
             goto LABEL_18;
           }
 LABEL_7:
-          sub_11A2D0(v3);
+          dec_retry_count(v3);
           *(uint32_t *)(a1 + 68) = 0;
           v14 = v2[199];
           v15 = dword_11C8E0;
@@ -98,18 +98,18 @@ LABEL_7:
           if ( v2[199] )
             goto LABEL_19;
 LABEL_8:
-          sub_11B490(v2[190], (int)v12, v13, v14);
-          sub_12D2D0(v16 + 12 + v15);
+          get_phy_status(v2[190], (int)v12, v13, v14);
+          mem_word_load(v16 + 12 + v15);
           if ( *(uint16_t *)(a1 + 4) )
-            return sub_117F18(a1, v7, v5);
-          return sub_118CE0();
+            return ipc_handler_register(a1, v7, v5);
+          return free_buf_1882c0();
         }
         v7 &= ~0x800000u;
         v4[18] &= ~0x800000u;
         if ( (v11 & 0x20) == 0 )
           goto LABEL_22;
 LABEL_31:
-        sub_11A2D0(v3);
+        dec_retry_count(v3);
         v15 = dword_11C8E0;
         *(uint32_t *)(a1 + 68) = 0;
         goto LABEL_12;
@@ -124,15 +124,15 @@ LABEL_31:
   if ( (*(uint16_t *)(v3 + 8) & 0x20) != 0 )
   {
     v15 = dword_11C8E0;
-    sub_11A2D0(*(uint32_t *)(a1 + 68));
+    dec_retry_count(*(uint32_t *)(a1 + 68));
     *(uint32_t *)(a1 + 68) = 0;
   }
   else
   {
 LABEL_22:
     v15 = dword_11C8E0;
-    sub_12D2D0(84 * (int16_t)v5 + 28 + dword_11C8E0);
-    sub_11A2D0(v3);
+    mem_word_load(84 * (int16_t)v5 + 28 + dword_11C8E0);
+    dec_retry_count(v3);
     *(uint32_t *)(a1 + 68) = 0;
   }
 LABEL_12:
@@ -174,7 +174,7 @@ LABEL_12:
           if ( **(int16_t **)off_11C8CC < 0 && !*(uint32_t *)(dword_11C8D0 + 696 * *(uint8_t *)(a1 + 29) + 340) )
           {
             v39 = v26;
-            sub_12F46C(dword_11C8DC, dword_11C8D8, 475);
+            mmio_clear_register(dword_11C8DC, dword_11C8D8, 475);
             v26 = v39;
           }
           v30 = *(uint32_t *)(v38 + 156);
@@ -205,7 +205,7 @@ LABEL_12:
       {
         v21 = v20 + 44;
       }
-      sub_11C588((unsigned int *)a1);
+      wait_channel_clear((unsigned int *)a1);
     }
     v22 = *(uint32_t *)&v2[28 * v5 + 36];
     v23 = *(uint64_t *)(v20 + 96);
@@ -244,10 +244,10 @@ LABEL_18:
       goto LABEL_8;
 LABEL_19:
     *(uint32_t *)off_11C8C8 = (v2[164] << 24) & 0x7000000 | *(uint32_t *)off_11C8C8 & 0xF8FFFFFF;
-    sub_12D2D0(v16 + 12 + v15);
+    mem_word_load(v16 + 12 + v15);
     if ( !*(uint16_t *)(a1 + 4) )
-      return sub_118CE0();
-    return sub_117F18(a1, v7, v5);
+      return free_buf_1882c0();
+    return ipc_handler_register(a1, v7, v5);
   }
   return result;
 }

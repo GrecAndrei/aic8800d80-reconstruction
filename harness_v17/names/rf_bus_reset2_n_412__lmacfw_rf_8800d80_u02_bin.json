@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_412", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ef2", "status": "ok", "name": "rf_bus_reset2_n_412", "params": [], "docstring": "RF bus reset with modulo-192 index computation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_412", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ef2", "status": "ok", "name": "rf_bus_reset2_n_411", "params": [], "docstring": "RF bus reset with modulo-192 index computation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

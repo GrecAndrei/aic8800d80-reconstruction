@@ -12,8 +12,8 @@
 
 extern uint32_t off_1251C0;
 
-// sub_1251A0 @ 0x1251a0, size 30 bytes
-int  sub_1251A0(uint32_t *a1)
+// ke_event_pending @ 0x1251a0, size 30 bytes
+int  ke_event_pending(uint32_t *a1)
 {
   uint32_t *v1; // r3
 

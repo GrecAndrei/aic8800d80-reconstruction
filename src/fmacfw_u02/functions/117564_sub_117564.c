@@ -21,10 +21,10 @@ extern uint32_t off_117684;
 extern uint32_t off_117678;
 extern uint32_t off_11767C;
 
-// sub_117564 @ 0x117564, size 254 bytes
+// phy_chan_set @ 0x117564, size 254 bytes
 // Doc: sub_1217564 [mac]: Dispatch routine with 5-way case switch
 // sub_1217564 [mac]: Dispatch routine with 5-way case switch
-int  sub_117564(int a1, int a2)
+int  phy_chan_set(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r0
@@ -75,13 +75,13 @@ int  sub_117564(int a1, int a2)
   }
   v10 = (int *)off_11767C;
   ++*(uint32_t *)off_11767C;
-  sub_11A090(a1, a2);
-  list_push_tail(v4 + 12);
-  sub_12AE74(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
+  rate_set_config(a1, a2);
+  cmd_handler_a(v4 + 12);
+  tx_len_check(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117664 + 126);
-  sub_1292D4(a1);
-  result = sub_116C4C(a1, a2, 0);
+  wlc_is_ready(a1);
+  result = dma_ring_init(a1, a2, 0);
   v12 = *v10;
   *(uint16_t *)(a1 + 82) |= 1u;
   if ( v12 )

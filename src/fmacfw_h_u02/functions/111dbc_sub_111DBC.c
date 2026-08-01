@@ -15,8 +15,8 @@ extern uint32_t off_111EF8;
 extern uint32_t dword_111F04;
 extern uint32_t off_111EFC;
 
-// sub_111DBC @ 0x111dbc, size 316 bytes
-int * sub_111DBC(int *result, unsigned int a2, int a3, unsigned int a4)
+// wlan_wait_ready @ 0x111dbc, size 316 bytes
+int * wlan_wait_ready(int *result, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   unsigned int v7; // r11
@@ -72,14 +72,14 @@ int * sub_111DBC(int *result, unsigned int a2, int a3, unsigned int a4)
         v10 = (uint16_t)v8 << 16;
       }
       if ( (*((uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111C04(result, a2);
+        result = set_hw_cfg_a(result, a2);
       v11 = (a3 << 18) & 0xC0000;
       v12 = off_111EF8;
       v13 = *(uint16_t *)off_111EF8;
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)sub_10DAE4(dword_111F04, v13, v9, 2048);
+        result = (int *)debug_printf(dword_111F04, v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = off_111EFC;
@@ -92,7 +92,7 @@ int * sub_111DBC(int *result, unsigned int a2, int a3, unsigned int a4)
     {
       v16 = 32 * a2 + 1075838976;
       if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111C04(0, a2);
+        result = set_hw_cfg_a(0, a2);
       v17 = off_111EFC;
       *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
       v17[519] |= 0x10000 << a2;

@@ -17,8 +17,8 @@ extern uint32_t off_113560;
 extern uint32_t dword_113550;
 extern uint32_t dword_11354C;
 
-// sub_1134E0 @ 0x1134e0, size 106 bytes
-uint32_t * sub_1134E0(int a1)
+// rf_is_sleep @ 0x1134e0, size 106 bytes
+uint32_t * rf_is_sleep(int a1)
 {
   uint32_t *result; // r0
   uint32_t *v2; // r4
@@ -29,10 +29,10 @@ uint32_t * sub_1134E0(int a1)
   {
     case 1:
       v2 = off_113554;
-      v3 = sub_143630(off_113554, dword_113558, 18);
-      if ( *((uint8_t *)off_11355C + 370) && sub_114708(v3) )
+      v3 = memcpy(off_113554, dword_113558, 18);
+      if ( *((uint8_t *)off_11355C + 370) && call_patch_1fc_check(v3) )
       {
-        v4 = sub_11471C();
+        v4 = call_patch_1fc_arg2();
         v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
         return v2;
       }

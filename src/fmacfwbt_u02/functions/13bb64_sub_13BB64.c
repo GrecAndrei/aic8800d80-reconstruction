@@ -15,8 +15,8 @@ extern uint32_t off_13BCB8;
 extern uint32_t off_13BCBC;
 extern uint32_t dword_13BCC0;
 
-// sub_13BB64 @ 0x13bb64, size 334 bytes
-int  sub_13BB64(int a1, uint16_t *a2, int a3)
+// rf_set_mode @ 0x13bb64, size 334 bytes
+int  rf_set_mode(int a1, uint16_t *a2, int a3)
 {
   int v4; // r4
   unsigned int v6; // r3
@@ -50,7 +50,7 @@ int  sub_13BB64(int a1, uint16_t *a2, int a3)
       {
         v9 = (uint8_t)a1;
         v10 = *((uint8_t *)a2 + 2);
-        if ( sub_121BC0((uint8_t)a1, (v7 >> 2) & 0xF) )
+        if ( phy_read_channel((uint8_t)a1, (v7 >> 2) & 0xF) )
           return *(uint8_t *)(696 * v9 + 12 * v8 + dword_13BCB4 + 452);
         if ( *((uint32_t *)off_13BCB8 + 4) - 500000 - *(uint32_t *)(696 * v9 + 12 * v8 + dword_13BCB4 + 448) >= 0 )
         {
@@ -58,21 +58,21 @@ int  sub_13BB64(int a1, uint16_t *a2, int a3)
             goto LABEL_22;
           if ( *(uint32_t *)off_13BCBC )
           {
-            v4 = *((uint8_t *)sub_12D4F8((int)off_13BCBC) + 26);
+            v4 = *((uint8_t *)list_pop_front((int)off_13BCBC) + 26);
             if ( v4 != 33 )
               return v4;
           }
-          v11 = sub_13BB14((int **)dword_13BCC0);
+          v11 = rx_queue_flush((int **)dword_13BCC0);
           if ( v11 == 33 )
           {
 LABEL_22:
-            sub_13B734(v9, 0, 1, v10, v7, 37, 0);
+            dbg_printf(v9, 0, 1, v10, v7, 37, 0);
             return 33;
           }
           else
           {
             v4 = v11;
-            sub_12CC38(8193, ((uint16_t)v11 << 8) | 8, 255);
+            hci_evt_alloc_send(8193, ((uint16_t)v11 << 8) | 8, 255);
           }
           return v4;
         }

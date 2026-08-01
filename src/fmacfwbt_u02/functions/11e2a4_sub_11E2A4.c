@@ -16,8 +16,8 @@ extern uint32_t off_11E3A8;
 extern uint32_t dword_11E3B0;
 extern uint32_t dword_11E3AC;
 
-// sub_11E2A4 @ 0x11e2a4, size 258 bytes
-uint32_t * sub_11E2A4(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
+// rx_adv_packet_isr @ 0x11e2a4, size 258 bytes
+uint32_t * rx_adv_packet_isr(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
 {
   uint8_t **v5; // r9
   uint32_t *v6; // r7
@@ -84,7 +84,7 @@ uint32_t * sub_11E2A4(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a
     v16 = v15 + 5;
     if ( **v9 < 0 && !v15 )
     {
-      sub_12F694(dword_11E3B0, dword_11E3AC, 928);
+      mmio_irq_clear(dword_11E3B0, dword_11E3AC, 928);
       v15 = 0;
       v8 = **v5;
     }

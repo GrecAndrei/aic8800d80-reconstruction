@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12E078 @ 0x12e078, size 64 bytes
+// parse_data_7 @ 0x12e078, size 64 bytes
 // Doc: sdio_buffer_prepare_n_2b0 [tx]: Prepare SDIO buffer for transfer (variant n_2b0)
 // sdio_buffer_prepare_n_2b0 [tx]: Prepare SDIO buffer for transfer (variant n_2b0)
-uint8_t * sub_12E078(uint8_t *result, int a2)
+uint8_t * parse_data_7(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   uint8_t *v3; // r2

@@ -20,10 +20,10 @@ extern uint32_t off_122214;
 extern uint32_t off_12220C;
 extern uint32_t dword_122218;
 
-// mmio_region_setup_n148 @ 0x122184, size 116 bytes
-// Doc: mmio_region_setup_n148 [mmio]: Initialize MMIO region around 0x40320204/0x40320210
-// mmio_region_setup_n148 [mmio]: Initialize MMIO region around 0x40320204/0x40320210
-int  mmio_region_setup_n148(int a1)
+// mmio_update @ 0x122184, size 116 bytes
+// Doc: mmio_update [mmio]: Initialize MMIO region around 0x40320204/0x40320210
+// mmio_update [mmio]: Initialize MMIO region around 0x40320204/0x40320210
+int  mmio_update(int a1)
 {
   int *v1; // r3
   int v2; // r6
@@ -69,7 +69,7 @@ LABEL_5:
   }
   while ( v1 != (int *)v3 );
   v9 = off_122208;
-  sub_102B80(*((uint8_t *)off_122208 + 409));
+  write_phy_config(*((uint8_t *)off_122208 + 409));
   v10 = off_122210;
   v11 = off_122214;
   *((uint8_t *)off_12220C + 7) = v9[409];
@@ -78,7 +78,7 @@ LABEL_5:
   v15[0] = 0;
   *v11 = 0;
   v15[5] = 0;
-  rf_bus_reset2_n_357((int)v15);
-  return msg_parse(dword_122218, v12, v13);
+  timer_queue_init((int)v15);
+  return event_dispatch(dword_122218, v12, v13);
 }
 

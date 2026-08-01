@@ -13,8 +13,8 @@
 extern uint32_t dword_12FA24;
 extern uint32_t dword_12FA28;
 
-// sub_12FA04 @ 0x12fa04, size 32 bytes
-int sub_12FA04()
+// init_static_tables @ 0x12fa04, size 32 bytes
+int init_static_tables()
 {
   uint32_t *v0; // r4
   int v1; // r6
@@ -26,7 +26,7 @@ int sub_12FA04()
   do
   {
     if ( v0[1] )
-      sub_10DC24(v1, *v0);
+      log_printf(v1, *v0);
     v0 += 4;
   }
   while ( v0 != (uint32_t *)v2 );

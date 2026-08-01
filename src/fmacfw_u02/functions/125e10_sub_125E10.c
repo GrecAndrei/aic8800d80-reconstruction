@@ -13,10 +13,10 @@
 extern uint32_t dword_125E70;
 extern uint32_t off_125E74;
 
-// sub_125E10 @ 0x125e10, size 94 bytes
+// lld_evt_update @ 0x125e10, size 94 bytes
 // Doc: sub_1225E10 [mac]: Access per-station MAC state indexed by 0x4c9 slot
 // sub_1225E10 [mac]: Access per-station MAC state indexed by 0x4c9 slot
-int  sub_125E10(int result)
+int  lld_evt_update(int result)
 {
   int v1; // r6
   int v2; // r4
@@ -31,10 +31,10 @@ int  sub_125E10(int result)
   v3 = dword_125E70 + 140 * v2;
   v4 = result;
   if ( !*(uint8_t *)(v3 + 32) && *(uint8_t *)(v3 + 16) )
-    result = ((int (*)(void))rf_chan_index_lookup)();
+    result = ((int (*)(void))rf_calib_required)();
   v5 = v1 + 140 * v2;
   if ( !*(uint8_t *)(v5 + 80) && *(uint8_t *)(v5 + 64) )
-    result = rf_chan_index_lookup(v4, 1);
+    result = rf_calib_required(v4, 1);
   v6 = *((int **)off_125E74 + 2);
   if ( v6 )
   {

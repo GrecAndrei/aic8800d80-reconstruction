@@ -12,12 +12,12 @@
 
 extern uint32_t dword_123948;
 
-// sub_123920 @ 0x123920, size 40 bytes
-int  sub_123920(int a1, int a2, int a3, int a4)
+// lld_evt_timer_set @ 0x123920, size 40 bytes
+int  lld_evt_timer_set(int a1, int a2, int a3, int a4)
 {
-  sub_11C490(a2);
-  sub_12ECD0(256, dword_123948);
-  sub_12CA10(108, a4, a3);
+  remove_tx_buffer(a2);
+  check_status_bits(256, dword_123948);
+  ke_msg_send_no_param(108, a4, a3);
   return 0;
 }
 

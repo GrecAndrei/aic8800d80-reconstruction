@@ -1,1 +1,1 @@
-{"fn": "sub_1222FA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222fa4", "status": "ok", "name": "rf_init_handler", "params": [], "docstring": "RF initialization handler calling chip setup routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1222FA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222fa4", "status": "ok", "name": "lookup_entry", "params": [], "docstring": "RF initialization handler calling chip setup routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

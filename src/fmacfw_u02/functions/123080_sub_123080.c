@@ -17,8 +17,8 @@ extern uint32_t off_123158;
 extern uint32_t off_123154;
 extern uint32_t off_12314C;
 
-// sub_123080 @ 0x123080, size 196 bytes
-int  sub_123080(int a1, int a2, int a3, int a4)
+// lookup_connection_entry @ 0x123080, size 196 bytes
+int  lookup_connection_entry(int a1, int a2, int a3, int a4)
 {
   unsigned int v4; // r4
   int v5; // r6
@@ -53,7 +53,7 @@ int  sub_123080(int a1, int a2, int a3, int a4)
       *(uint32_t *)off_123150 = v7;
       v13 = a3;
       v16 = v8;
-      fmac_main_loop();
+      read_hw_register();
       a3 = v13;
       v8 = v16;
     }
@@ -69,7 +69,7 @@ int  sub_123080(int a1, int a2, int a3, int a4)
       {
         *(uint32_t *)off_123158 = v9;
         v14 = a3;
-        fmac_main_loop();
+        read_hw_register();
         a3 = v14;
         v8 = a4;
       }
@@ -80,13 +80,13 @@ int  sub_123080(int a1, int a2, int a3, int a4)
         else
           *(uint32_t *)off_12314C = v9;
         v12 = a3;
-        fmac_main_loop();
+        read_hw_register();
         a3 = v12;
         v8 = a4;
       }
     }
   }
-  sub_12CA10(27, v8, a3);
+  ke_msg_send_no_param(27, v8, a3);
   return 0;
 }
 

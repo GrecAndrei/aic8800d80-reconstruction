@@ -35,10 +35,10 @@ extern uint32_t dword_11F6E8;
 extern uint32_t off_11F6E0;
 extern uint32_t off_11F6DC;
 
-// rf_cmd_dispatch_n_125 @ 0x11f4f4, size 412 bytes
-// Doc: rf_cmd_dispatch_n_125 [rf]: Dispatch RF command by shifted index
-// rf_cmd_dispatch_n_125 [rf]: Dispatch RF command by shifted index
-int  rf_cmd_dispatch_n_125(int result)
+// llm_conn_active_check @ 0x11f4f4, size 412 bytes
+// Doc: llm_conn_active_check [rf]: Dispatch RF command by shifted index
+// llm_conn_active_check [rf]: Dispatch RF command by shifted index
+int  llm_conn_active_check(int result)
 {
   int v1; // r4
   int *v2; // r2
@@ -66,14 +66,14 @@ int  rf_cmd_dispatch_n_125(int result)
 
   v1 = result;
   if ( *(uint8_t *)(result + 1224) )
-    result = sub_12A31C();
+    result = llc_clear_evt_state();
   if ( *(uint32_t *)(v1 + 72) )
-    result = sub_12829C(v1);
+    result = rx_validate_entry(v1);
   if ( (*(uint32_t *)(v1 + 4) & 1) != 0 )
   {
     if ( (*(uint32_t *)off_11F690 & 0x2000000) != 0 || (result = *(uint32_t *)off_11F690 << 6, *((uint8_t *)off_11F694 + 36)) )
     {
-      result = feature_guard_check(2, dword_11F698);
+      result = check_status_bits(2, dword_11F698);
       v2 = (int *)off_11F69C;
       v3 = *((uint8_t *)off_11F69C + 1);
       *(uint32_t *)(v1 + 4) &= ~1u;
@@ -82,7 +82,7 @@ int  rf_cmd_dispatch_n_125(int result)
       {
         if ( **(uint8_t **)off_11F6A4 == 2 )
         {
-          result = sub_117AB8();
+          result = fatal_error_handler();
           v4 = off_11F6A8;
           *(uint32_t *)off_11F6A8 &= ~1u;
           *v4 &= ~0x80u;
@@ -93,7 +93,7 @@ int  rf_cmd_dispatch_n_125(int result)
             v7 = dword_11F6B0;
             *(uint32_t *)off_11F690 &= ~4u;
             if ( (*v6 & v7) == 0 )
-              rf_fault_dump_n_1d4((int)v6, v7, (int)v5);
+              process_global_167204((int)v6, v7, (int)v5);
             if ( *(uint32_t *)off_11F6B4 << 28 )
             {
               if ( (__get_CPSR() & 1) == 0 )
@@ -110,7 +110,7 @@ int  rf_cmd_dispatch_n_125(int result)
               while ( *v9 << 28 )
               {
                 if ( (unsigned int)(v10[4] - v11) > 0x7530 )
-                  feature_guard_check(2, dword_11F6E4);
+                  check_status_bits(2, dword_11F6E4);
               }
               v12 = off_11F6C0;
               v13 = *((uint32_t *)off_11F6C0 + 4);
@@ -122,7 +122,7 @@ int  rf_cmd_dispatch_n_125(int result)
                 {
                   v16 = *v14 & *v15;
                   if ( (unsigned int)(v12[4] - v13) > 0x7530 )
-                    feature_guard_check(2, dword_11F6CC);
+                    check_status_bits(2, dword_11F6CC);
                 }
                 while ( (v16 & 4) == 0 );
               }
@@ -147,7 +147,7 @@ int  rf_cmd_dispatch_n_125(int result)
             {
               if ( *(uint32_t *)off_11F6B4 << 28 )
               {
-                sub_12F49C(dword_11F6EC, dword_11F6E8, 472);
+                call_shared_handler(dword_11F6EC, dword_11F6E8, 472);
                 v21 = v19[1];
               }
             }
@@ -155,7 +155,7 @@ int  rf_cmd_dispatch_n_125(int result)
             v23 = off_11F6E0;
             *(uint32_t *)off_11F6DC = v21 | *v19;
             *v22 = 48;
-            return sub_12B2B0(*(uint8_t *)(v1 + 107), v23, v1);
+            return link_get_connection_info(*(uint8_t *)(v1 + 107), v23, v1);
           }
         }
       }

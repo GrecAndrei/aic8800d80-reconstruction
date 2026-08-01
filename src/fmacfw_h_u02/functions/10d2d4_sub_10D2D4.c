@@ -19,8 +19,8 @@ extern uint32_t dword_40021000;
 extern uint32_t dword_10D464;
 extern uint32_t dword_10D468;
 
-// sub_10D2D4 @ 0x10d2d4, size 378 bytes
-int  sub_10D2D4(int a1, int a2, int a3)
+// handle_radio_event @ 0x10d2d4, size 378 bytes
+int  handle_radio_event(int a1, int a2, int a3)
 {
   int *v6; // r1
   int result; // r0
@@ -32,7 +32,7 @@ int  sub_10D2D4(int a1, int a2, int a3)
   int v13; // r3
 
   if ( **(int16_t **)off_10D450 < 0 && a3 > 13 )
-    sub_12F32C(dword_10D460, dword_10D45C, 69);
+    irq_disable_mmio_write(dword_10D460, dword_10D45C, 69);
   *(uint32_t *)(a2 + 32) = 0;
   if ( (__get_CPSR() & 1) == 0 )
   {

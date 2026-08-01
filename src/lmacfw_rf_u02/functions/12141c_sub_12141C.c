@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12148C;
 
-// sub_12141C @ 0x12141c, size 112 bytes
-int  sub_12141C(int a1, int *a2, int16_t a3, int16_t a4)
+// rf_write_0x412 @ 0x12141c, size 112 bytes
+int  rf_write_0x412(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int *v5; // r5
   int v6; // r2
@@ -21,11 +21,11 @@ int  sub_12141C(int a1, int *a2, int16_t a3, int16_t a4)
   int v8; // r3
   int v9; // r1
 
-  v5 = (int *)rf_setup_dispatch(1042, a4, a3, 8u);
+  v5 = (int *)ke_msg_send(1042, a4, a3, 8u);
   if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
   {
-    sub_10F064(*a2, a2[2], a2[1], 1);
-    v7 = sub_10EFBC(*a2, 1);
+    critical_enter3(*a2, a2[2], a2[1], 1);
+    v7 = critical_enter(*a2, 1);
     v6 = *a2;
   }
   else
@@ -38,8 +38,8 @@ int  sub_12141C(int a1, int *a2, int16_t a3, int16_t a4)
   v8 = a2[2];
   v9 = a2[1];
   *v5 = v6;
-  msg_parse(dword_12148C, v9, v8, v8, v6, v7, v7);
-  sub_11DE50((int)v5);
+  dispatch_event_handler(dword_12148C, v9, v8, v8, v6, v7, v7);
+  rx_irq_handler((int)v5);
   return 0;
 }
 

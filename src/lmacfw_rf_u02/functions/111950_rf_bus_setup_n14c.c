@@ -15,10 +15,10 @@ extern uint32_t dword_1119F4;
 extern uint32_t dword_1119F8;
 extern uint32_t dword_1119FC;
 
-// rf_bus_setup_n14c @ 0x111950, size 158 bytes
+// rf_channel_update @ 0x111950, size 158 bytes
 // Doc: rf_bus_write2_n4b2 [rf]: Write to RF bus returning small status codes
 // rf_bus_write2_n4b2 [rf]: Write to RF bus returning small status codes
-int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3)
+int  rf_channel_update(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -36,7 +36,7 @@ int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA6C(rf_bus_write2_n4dc);
+    log_printf(rf_bus_write2_n4dc);
     return 3;
   }
   else

@@ -1,0 +1,1 @@
+{"fn": "sub_143460", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x143460", "status": "ok", "name": "compare_lo", "params": [], "docstring": "Return 1 if helper result is lower", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

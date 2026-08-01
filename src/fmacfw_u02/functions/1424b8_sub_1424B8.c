@@ -15,8 +15,8 @@ extern uint32_t off_1425C4;
 extern uint32_t dword_1425CC;
 extern uint32_t dword_1425D0;
 
-// sub_1424B8 @ 0x1424b8, size 266 bytes
-int  sub_1424B8(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// table_lookup_byte @ 0x1424b8, size 266 bytes
+int  table_lookup_byte(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v4; // r8
   int v5; // r9
@@ -54,7 +54,7 @@ int  sub_1424B8(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     v10 = (uint8_t)v6[116];
     v11 = dword_1425CC;
     v23 = v6[106];
-    memset_thunk(v24, 0, 0x48u);
+    memset(v24, 0, 0x48u);
     v12 = a2[4];
     v13 = v6[107];
     BYTE2(v24[0]) = *(uint8_t *)off_1425C4;
@@ -74,15 +74,15 @@ int  sub_1424B8(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     v26 = v15 << v18;
     if ( (unsigned int)(v17 - 1) <= 1 )
     {
-      LODWORD(v22) = sub_12BE40();
+      LODWORD(v22) = util_unknown();
       v17 = a2[1];
       v27 = *(uint64_t *)(v4 + 1320 * v5 + 40) + (unsigned int)dword_1425D0 + v22;
     }
-    v19 = sub_141F40(v4 + 1320 * v5, v11 + 696 * v10, (int)v24, v17) == 0;
+    v19 = tx_packet_build(v4 + 1320 * v5, v11 + 696 * v10, (int)v24, v17) == 0;
   }
-  v20 = (int *)sub_12C92C(12289, a4, a3, 1u);
+  v20 = (int *)ke_msg_alloc(12289, a4, a3, 1u);
   *v20 = v19;
-  sdio_buffer_prepare_n_4e8((int)v20);
+  ke_msg_send((int)v20);
   return 0;
 }
 

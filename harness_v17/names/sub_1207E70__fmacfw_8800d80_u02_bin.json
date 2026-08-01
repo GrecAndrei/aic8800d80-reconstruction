@@ -1,1 +1,1 @@
-{"fn": "sub_1207E70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207e70", "status": "ok", "name": "fmac_irq_disable_dispatch", "params": [], "docstring": "Disable IRQ and dispatch to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1207E70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207e70", "status": "ok", "name": "clear_flag_and_invoke", "params": [], "docstring": "Disable IRQ and dispatch to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

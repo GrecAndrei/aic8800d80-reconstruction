@@ -17,8 +17,8 @@ extern uint32_t dword_116C48;
 extern uint32_t dword_116C40;
 extern uint32_t dword_116C44;
 
-// sub_116AB4 @ 0x116ab4, size 384 bytes
-int  sub_116AB4(int a1, int a2, int a3, int a4)
+// mac_flags_set @ 0x116ab4, size 384 bytes
+int  mac_flags_set(int a1, int a2, int a3, int a4)
 {
   int v5; // r6
   int result; // r0
@@ -88,18 +88,18 @@ LABEL_11:
               v20 = *(uint8_t *)(v10 + 9);
               v21[4] = *(uint8_t *)(v10 + 8);
               v21[5] = v20;
-              sub_13A4B0(v21);
+              mac_store_config(v21);
               v17 = *(uint16_t *)(a2 + 30);
             }
             if ( (v17 & 0x80) != 0 )
             {
               if ( *(uint8_t *)(a2 + 51) )
               {
-                fmac_main_loop_0a0(a2, v10, 24);
+                ll_conn_window_calc(a2, v10, 24);
               }
               else if ( *(uint8_t *)(a2 + 53) )
               {
-                sub_13C710(a2, v10, *(uint16_t *)(a2 + 4));
+                is_conn_active(a2, v10, *(uint16_t *)(a2 + 4));
               }
             }
           }
@@ -116,7 +116,7 @@ LABEL_11:
     }
     else
     {
-      sub_12F46C(dword_116C48, dword_116C40, 518);
+      mmio_clear_register(dword_116C48, dword_116C40, 518);
       v10 = *(uint32_t *)(v9 + 28);
       if ( v10 )
         goto LABEL_11;
@@ -126,7 +126,7 @@ LABEL_11:
     v11 = *(uint32_t *)(v9 + 24);
     if ( v11 )
       goto LABEL_10;
-    sub_12F46C(dword_116C44, dword_116C40, 525);
+    mmio_clear_register(dword_116C44, dword_116C40, 525);
 LABEL_9:
     v11 = *(uint32_t *)(v9 + 24);
 LABEL_10:
@@ -134,10 +134,10 @@ LABEL_10:
     goto LABEL_11;
   }
 LABEL_3:
-  result = sub_116324(a2, a4);
+  result = process_tx_packet(a2, a4);
 LABEL_4:
   if ( (*(uint32_t *)(a1 + 36) & 0x200000) == 0 )
-    return sub_1169A0(*(uint32_t *)(a1 + 76) + 12, *(uint32_t *)(a1 + 76) + 12, a4);
+    return radio_channel_validate(*(uint32_t *)(a1 + 76) + 12, *(uint32_t *)(a1 + 76) + 12, a4);
   *(uint16_t *)(*(uint32_t *)(a1 + 68) + 8) |= 2u;
   return result;
 }

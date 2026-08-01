@@ -29,8 +29,8 @@ extern uint32_t dword_1256C4;
 extern uint32_t dword_1256D0;
 extern uint32_t dword_1256D4;
 
-// sub_1253BC @ 0x1253bc, size 730 bytes
-int  sub_1253BC(int a1, uint8_t **a2)
+// process_bt_connection_event @ 0x1253bc, size 730 bytes
+int  process_bt_connection_event(int a1, uint8_t **a2)
 {
   int v4; // r0
   int v5; // r7
@@ -80,7 +80,7 @@ int  sub_1253BC(int a1, uint8_t **a2)
   int v50; // r0
   char v51; // r0
 
-  v4 = parse_int(a2[1], 0, 0);
+  v4 = parse_number(a2[1], 0, 0);
   v5 = v4;
   switch ( v4 )
   {
@@ -89,10 +89,10 @@ int  sub_1253BC(int a1, uint8_t **a2)
       v25 = dword_1256DC;
       v26 = dword_1256B0;
       v27 = (uint8_t *)dword_1256B4;
-      msg_parse(dword_1256A8);
+      dispatch_event_handler(dword_1256A8);
       do
       {
-        msg_parse(v25, v5);
+        dispatch_event_handler(v25, v5);
         v28 = (char *)v24;
         for ( i = 0; i != 12; ++i )
         {
@@ -101,12 +101,12 @@ int  sub_1253BC(int a1, uint8_t **a2)
           if ( v31 != -128 )
           {
             if ( i && !(i << 30) )
-              uart_putc(32);
-            msg_parse(v26, v30);
+              uart_tx_byte(32);
+            dispatch_event_handler(v26, v30);
           }
         }
         ++v5;
-        uart_puts(v27);
+        uart_tx_string(v27);
         v24 += 12;
       }
       while ( v5 != 3 );
@@ -114,11 +114,11 @@ int  sub_1253BC(int a1, uint8_t **a2)
       v33 = dword_1256DC;
       v34 = dword_1256D8;
       v35 = dword_1256B0;
-      msg_parse(dword_1256AC);
+      dispatch_event_handler(dword_1256AC);
       v36 = 0;
       while ( 1 )
       {
-        msg_parse(v33, v36);
+        dispatch_event_handler(v33, v36);
         v37 = (char *)v32;
         for ( j = 0; ; ++j )
         {
@@ -128,18 +128,18 @@ int  sub_1253BC(int a1, uint8_t **a2)
             break;
           if ( j > 3 )
             goto LABEL_48;
-          msg_parse(v34);
+          dispatch_event_handler(v34);
 LABEL_49:
           ;
         }
         if ( j && !(j << 30) )
-          uart_putc(32);
-        msg_parse(v35, v39);
+          uart_tx_byte(32);
+        dispatch_event_handler(v35, v39);
 LABEL_48:
         if ( j != 11 )
           goto LABEL_49;
         ++v36;
-        uart_puts((uint8_t *)dword_1256B4);
+        uart_tx_string((uint8_t *)dword_1256B4);
         v32 += 12;
         if ( v36 == 3 )
           return 0;
@@ -147,43 +147,43 @@ LABEL_48:
     case 1:
       if ( a1 > 4 )
       {
-        v17 = parse_int(a2[2], 0, 0);
+        v17 = parse_number(a2[2], 0, 0);
         v7 = v17;
         if ( v17 > 2 )
         {
-          msg_parse(dword_1256C0, v17);
+          dispatch_event_handler(dword_1256C0, v17);
           return 0;
         }
         if ( a1 > 12 )
         {
           v18 = dword_1256B0;
-          msg_parse(dword_1256A0, v17);
+          dispatch_event_handler(dword_1256A0, v17);
           v19 = a2 + 2;
           v20 = dword_1256A4 + 12 * v7;
           for ( k = 0; v7 != 1 || k <= 9; ++k )
           {
             v22 = v19[1];
             ++v19;
-            v23 = (char)parse_int(v22, 0, 0);
+            v23 = (char)parse_number(v22, 0, 0);
             if ( v23 >= 32 )
               v23 = 32;
             *(uint8_t *)++v20 = v23;
             if ( k )
             {
               if ( !(k << 30) )
-                uart_putc(32);
-              msg_parse(v18, v23);
+                uart_tx_byte(32);
+              dispatch_event_handler(v18, v23);
               if ( k == 11 )
                 goto LABEL_63;
             }
             else
             {
-              msg_parse(v18, v23);
+              dispatch_event_handler(v18, v23);
             }
           }
           goto LABEL_63;
         }
-        v50 = parse_int(a2[3], 0, 0);
+        v50 = parse_number(a2[3], 0, 0);
         v43 = v50;
         if ( v7 == 1 )
           v44 = v50 <= 9;
@@ -191,7 +191,7 @@ LABEL_48:
           v44 = v50 <= 11;
         if ( v44 )
         {
-          v51 = parse_int(a2[4], 0, 0);
+          v51 = parse_number(a2[4], 0, 0);
           v46 = dword_1256C8;
           v47 = v51;
           v48 = dword_1256CC;
@@ -203,18 +203,18 @@ LABEL_48:
     case 2:
       if ( a1 > 4 )
       {
-        v6 = parse_int(a2[2], 0, 0);
+        v6 = parse_number(a2[2], 0, 0);
         v7 = v6;
         if ( v6 > 2 )
         {
-          msg_parse(dword_1256C0, v6);
+          dispatch_event_handler(dword_1256C0, v6);
           return 0;
         }
         if ( a1 > 12 )
         {
           v8 = dword_1256D8;
           v9 = dword_1256B0;
-          msg_parse(dword_125698, v6);
+          dispatch_event_handler(dword_125698, v6);
           v10 = a2 + 2;
           v11 = dword_12569C + 12 * v7;
           for ( m = 0; m != 12; ++m )
@@ -223,24 +223,24 @@ LABEL_48:
               break;
             v13 = v10[1];
             ++v10;
-            v14 = parse_int(v13, 0, 0);
+            v14 = parse_number(v13, 0, 0);
             v15 = v14;
             v16 = v14;
             if ( v14 >= 32 )
               v16 = 32;
             *(uint8_t *)++v11 = v16;
             if ( m && !(m << 30) )
-              uart_putc(32);
+              uart_tx_byte(32);
             if ( v15 == -128 )
-              msg_parse(v8, v16);
+              dispatch_event_handler(v8, v16);
             else
-              msg_parse(v9, v16);
+              dispatch_event_handler(v9, v16);
           }
 LABEL_63:
-          uart_puts((uint8_t *)dword_1256B4);
+          uart_tx_string((uint8_t *)dword_1256B4);
           return 0;
         }
-        v42 = parse_int(a2[3], 0, 0);
+        v42 = parse_number(a2[3], 0, 0);
         v43 = v42;
         if ( v7 == 1 )
           v44 = v42 <= 9;
@@ -248,7 +248,7 @@ LABEL_63:
           v44 = v42 <= 11;
         if ( v44 )
         {
-          v45 = parse_int(a2[4], 0, 0);
+          v45 = parse_number(a2[4], 0, 0);
           v46 = dword_1256B8;
           v47 = v45;
           v48 = dword_1256BC;
@@ -257,18 +257,18 @@ LABEL_59:
           if ( v47 >= 32 )
             v47 = 32;
           *(uint8_t *)(v49 + v43) = v47;
-          msg_parse(v48, v7, v43);
+          dispatch_event_handler(v48, v7, v43);
           return 0;
         }
 LABEL_65:
-        msg_parse(dword_1256C4, v43);
+        dispatch_event_handler(dword_1256C4, v43);
         return v44;
       }
 LABEL_72:
-      msg_parse(dword_1256D0);
+      dispatch_event_handler(dword_1256D0);
       return -1;
   }
-  msg_parse(dword_1256D4);
+  dispatch_event_handler(dword_1256D4);
   return -1;
 }
 

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_19e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fee", "status": "ok", "name": "rf_bus_mark_n_19e", "params": [], "docstring": "RF bus mark/flag manipulation helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_19e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fee", "status": "ok", "name": "rf_bus_mark_n_19d", "params": [], "docstring": "RF bus mark/flag manipulation helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -12,14 +12,14 @@
 
 extern uint32_t off_1305B8;
 
-// rf_temp_read_n590 @ 0x130590, size 38 bytes
-// Doc: rf_temp_read_n590 [rf]: Reads signed byte from RF register and forwards value via sub_10dea0
-// rf_temp_read_n590 [rf]: Reads signed byte from RF register and forwards value via sub_10dea0
-int rf_temp_read_n590()
+// ke_event_handler @ 0x130590, size 38 bytes
+// Doc: ke_event_handler [rf]: Reads signed byte from RF register and forwards value via sub_10dea0
+// ke_event_handler [rf]: Reads signed byte from RF register and forwards value via sub_10dea0
+int ke_event_handler()
 {
   if ( *((uint8_t *)off_1305B8 + 1) )
     return *((char *)off_1305B8 + 3);
-  rf_hw_timer_init();
-  return (int)COERCE_FLOAT(rf_hw_timer_read());
+  gpio_reset();
+  return (int)COERCE_FLOAT(wait_radio_ready());
 }
 

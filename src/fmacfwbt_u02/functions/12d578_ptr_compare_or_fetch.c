@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// ptr_compare_or_fetch @ 0x12d578, size 26 bytes
-// Doc: ptr_compare_or_fetch [util]: Compare pointer at r0 against r1 value
-// ptr_compare_or_fetch [util]: Compare pointer at r0 against r1 value
-BOOL  ptr_compare_or_fetch(uint32_t **a1, uint32_t *a2)
+// list_contains @ 0x12d578, size 26 bytes
+// Doc: list_contains [util]: Compare pointer at r0 against r1 value
+// list_contains [util]: Compare pointer at r0 against r1 value
+BOOL  list_contains(uint32_t **a1, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

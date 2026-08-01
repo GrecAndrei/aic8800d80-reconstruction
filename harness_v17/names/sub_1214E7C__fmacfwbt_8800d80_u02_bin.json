@@ -1,1 +1,1 @@
-{"fn": "sub_1214E7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214e7c", "status": "ok", "name": "indirect_call_trampoline", "params": [], "docstring": "Trampoline performing indirect call through 0x1fc vector", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214E7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214e7c", "status": "ok", "name": "call_vector_1fc", "params": [], "docstring": "Trampoline performing indirect call through 0x1fc vector", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

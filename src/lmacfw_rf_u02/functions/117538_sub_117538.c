@@ -13,8 +13,8 @@
 extern uint32_t off_117588;
 extern uint32_t off_11758C;
 
-// sub_117538 @ 0x117538, size 80 bytes
-int  sub_117538(int a1)
+// scan_ctrl_update @ 0x117538, size 80 bytes
+int  scan_ctrl_update(int a1)
 {
   uint32_t *v1; // r4
   int result; // r0
@@ -37,7 +37,7 @@ int  sub_117538(int a1)
   v1[6] = v5;
   if ( v3 >= result << 9 )
   {
-    result = sub_110AB8(v1[4], v4, v5);
+    result = irq_disable_set_flag_3(v1[4], v4, v5);
     v1[4] = 0;
     v1[5] = 0;
     v1[6] = 0;

@@ -20,8 +20,8 @@ extern uint32_t off_115ABC;
 extern uint32_t off_115AC0;
 extern uint32_t off_115AC4;
 
-// sub_1159C8 @ 0x1159c8, size 226 bytes
-int  sub_1159C8(int result)
+// llm_pdu_cfg_update @ 0x1159c8, size 226 bytes
+int  llm_pdu_cfg_update(int result)
 {
   uint32_t *v1; // r5
   int v2; // r4
@@ -74,13 +74,13 @@ int  sub_1159C8(int result)
       else
       {
         *v1 = 0;
-        rf_event_handler_8a4(v3);
+        mmio_irq_set(v3);
       }
-      sub_11E7AC(v1 + 3);
+      list_pop_front(v1 + 3);
       if ( *(uint16_t *)(v2 + 4) )
-        result = sub_115FF0(v2, v8, v3);
+        result = event_cb_register(v2, v8, v3);
       else
-        result = sub_11660C(v2, v8, v3);
+        result = log_and_disable_irq(v2, v8, v3);
       v2 = v1[3];
       *v6 = *v4 + *(uint32_t *)(v5 + 4 * v3);
       if ( !v2 )

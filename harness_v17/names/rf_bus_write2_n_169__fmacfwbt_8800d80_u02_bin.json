@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_169", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121190e", "status": "ok", "name": "rf_bus_write2_n_169", "params": [], "docstring": "Writes RF bus register 2 and loads response buffer address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_169", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121190e", "status": "ok", "name": "rf_bus_setup_n_44a", "params": [], "docstring": "Writes RF bus register 2 and loads response buffer address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_129544 @ 0x129544, size 82 bytes
-int  sub_129544(int a1, int a2)
+// wlc_bus_cmd @ 0x129544, size 82 bytes
+int  wlc_bus_cmd(int a1, int a2)
 {
   int v4; // r0
   int v5; // r3
   int v6; // r2
   uint64_t v7; // kr00_8
 
-  v4 = sub_12C92C(85, 13, 0, 16);
+  v4 = ke_msg_alloc(85, 13, 0, 16);
   *(uint8_t *)v4 = *(uint8_t *)(a1 + 113);
   v5 = a1 + 48 * a2;
   *(uint8_t *)(v4 + 1) = a2;
@@ -38,6 +38,6 @@ int  sub_129544(int a1, int a2)
   {
     *(uint8_t *)(v4 + 3) = 0;
   }
-  return sdio_buffer_prepare_n_4e8(v4);
+  return ke_msg_send(v4);
 }
 

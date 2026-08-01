@@ -1,1 +1,1 @@
-{"fn": "sub_121D470", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121d470", "status": "ok", "name": "sub_121D470", "params": [], "docstring": "Copies MMIO register value 0x40328084 to 0x40328088", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121D470", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121d470", "status": "ok", "name": "rf_irq_handler", "params": [], "docstring": "Copies MMIO register value 0x40328084 to 0x40328088", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

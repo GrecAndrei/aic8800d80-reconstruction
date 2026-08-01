@@ -16,8 +16,8 @@ extern uint32_t off_100D8C;
 extern uint32_t off_100D80;
 extern uint32_t off_100D90;
 
-// sub_100CD0 @ 0x100cd0, size 174 bytes
-int  sub_100CD0(int result)
+// adc_read_ch0 @ 0x100cd0, size 174 bytes
+int  adc_read_ch0(int result)
 {
   unsigned int *v1; // r3
   uint32_t *v2; // r1

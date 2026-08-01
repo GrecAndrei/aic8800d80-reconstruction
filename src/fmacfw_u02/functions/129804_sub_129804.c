@@ -20,10 +20,10 @@ extern uint32_t off_129C58;
 extern uint32_t dword_129C5C;
 extern uint32_t off_129B4C;
 
-// sub_129804 @ 0x129804, size 1100 bytes
+// wlc_rx_process @ 0x129804, size 1100 bytes
 // Doc: sub_1229804 [mac]: FMAC handler dispatching on field 0x10 type value
 // sub_1229804 [mac]: FMAC handler dispatching on field 0x10 type value
-uint8_t * sub_129804(uint8_t *result)
+uint8_t * wlc_rx_process(uint8_t *result)
 {
   uint8_t *v1; // r4
   int v2; // r9
@@ -121,10 +121,10 @@ LABEL_26:
       }
       v5 = result[113];
       v4 = dword_129B5C;
-      v11 = (uint8_t *)sub_12C92C(77, 13, result[134], 2);
+      v11 = (uint8_t *)ke_msg_alloc(77, 13, result[134], 2);
       *v11 = v1[113];
       v11[1] = v9 != 1;
-      sdio_buffer_prepare_n_4e8(v11);
+      ke_msg_send(v11);
       v1[133] = v10;
       result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), v9 != 1);
       if ( v9 == 1 )
@@ -132,7 +132,7 @@ LABEL_26:
 LABEL_43:
         if ( v1[112] )
         {
-          result = (uint8_t *)irq_nesting_or_d104(512);
+          result = (uint8_t *)unknown_func_12d104(512);
           v28 = v1[112];
         }
         else
@@ -145,7 +145,7 @@ LABEL_43:
             {
               *(uint32_t *)(v15 + 4) |= 0x20u;
               if ( !v2 )
-                return (uint8_t *)sub_120214(v4 + 1320 * v1[113]);
+                return (uint8_t *)read_descriptor(v4 + 1320 * v1[113]);
               return result;
             }
             goto LABEL_59;
@@ -168,11 +168,11 @@ LABEL_43:
                 *(uint32_t *)off_129B58 = 1;
               }
               ++*v20;
-              buf_ptr_deref_n_430(v22 - 40, v19 - 40);
+              list_next(v22 - 40, v19 - 40);
               v23 = *(uint32_t *)(v18 + 588);
               *(uint32_t *)(v15 + 1232) = *(uint32_t *)(v18 + 584);
               *(uint32_t *)(v15 + 1236) = v23;
-              sub_12D240(v22 - 40);
+              zero_8_bytes(v22 - 40);
               v20 = off_129B54;
               v24 = *(uint32_t *)off_129B54 - 1;
               if ( *(uint32_t *)off_129B54 )
@@ -193,15 +193,15 @@ LABEL_43:
             v15 += 8;
             if ( v26 )
             {
-              buf_ptr_deref_n_430(v27, v22);
-              sub_12D240(v22);
+              list_next(v27, v22);
+              zero_8_bytes(v22);
               v20 = off_129B54;
             }
             v22 += 8;
           }
           while ( v22 != v21 );
           v1 = v34;
-          result = (uint8_t *)irq_nesting_or_d104(512);
+          result = (uint8_t *)unknown_func_12d104(512);
           v28 = v34[112];
         }
         v29 = v4 + 1320 * v5;
@@ -217,7 +217,7 @@ LABEL_43:
         }
 LABEL_59:
         if ( !v2 )
-          return (uint8_t *)sub_120214(v4 + 1320 * v1[113]);
+          return (uint8_t *)read_descriptor(v4 + 1320 * v1[113]);
         return result;
       }
 LABEL_30:
@@ -235,8 +235,8 @@ LABEL_30:
           }
           v31 = (int *)off_129C58;
           ++*(uint32_t *)off_129C58;
-          rf_set_bit_flag(4);
-          result = (uint8_t *)category_dispatch_5way(4);
+          mmio_set_bit(4);
+          result = (uint8_t *)phy_band_validate(4);
           if ( *v31 )
           {
             v32 = *v31 - 1;
@@ -307,10 +307,10 @@ LABEL_13:
       v5 = result[113];
       v4 = dword_129B5C;
 LABEL_15:
-      v6 = (uint8_t *)sub_12C92C(77, 13, 0, 2);
+      v6 = (uint8_t *)ke_msg_alloc(77, 13, 0, 2);
       *v6 = v1[113];
       v6[1] = 1;
-      sdio_buffer_prepare_n_4e8(v6);
+      ke_msg_send(v6);
       v1[133] = 0;
       result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), 1);
       goto LABEL_30;
@@ -333,9 +333,9 @@ LABEL_41:
     v5 = result[113];
     v4 = dword_129B5C;
 LABEL_42:
-    v14 = (uint16_t *)sub_12C92C(77, 13, 0, 2);
+    v14 = (uint16_t *)ke_msg_alloc(77, 13, 0, 2);
     *v14 = v1[113];
-    sdio_buffer_prepare_n_4e8(v14);
+    ke_msg_send(v14);
     v1[133] = 1;
     result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), 0);
     goto LABEL_43;
@@ -345,7 +345,7 @@ LABEL_6:
   {
 LABEL_7:
     v4 = dword_129B5C;
-    return (uint8_t *)sub_120214(v4 + 1320 * v1[113]);
+    return (uint8_t *)read_descriptor(v4 + 1320 * v1[113]);
   }
   return result;
 }

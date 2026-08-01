@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13CFF0 @ 0x13cff0, size 620 bytes
-int  sub_13CFF0(int result, uint32_t *a2)
+// scan_process_list @ 0x13cff0, size 620 bytes
+int  scan_process_list(int result, uint32_t *a2)
 {
   unsigned int v2; // r6
   int v3; // r7

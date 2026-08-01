@@ -19,10 +19,10 @@ extern uint32_t dword_1254D0;
 extern uint32_t dword_1254D4;
 extern uint32_t dword_1254D8;
 
-// bt_hci_cmd_dispatch_2b8 @ 0x125318, size 432 bytes
-// Doc: bt_hci_cmd_dispatch_2b8 [bt]: BT HCI command dispatch indexed by slot*0x2b8
-// bt_hci_cmd_dispatch_2b8 [bt]: BT HCI command dispatch indexed by slot*0x2b8
-int  bt_hci_cmd_dispatch_2b8(int result)
+// bt_link_get @ 0x125318, size 432 bytes
+// Doc: bt_link_get [bt]: BT HCI command dispatch indexed by slot*0x2b8
+// bt_link_get [bt]: BT HCI command dispatch indexed by slot*0x2b8
+int  bt_link_get(int result)
 {
   int v1; // r9
   int v2; // r2

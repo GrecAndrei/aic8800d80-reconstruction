@@ -13,10 +13,10 @@
 extern uint32_t off_111960;
 extern uint32_t off_111968;
 
-// rf_bus_init_n_4a8 @ 0x111910, size 74 bytes
+// mmio_sync_2 @ 0x111910, size 74 bytes
 // Doc: rf_bus_write_n_21c_1948 [rf]: Write to RF bus register with bitmask update
 // rf_bus_write_n_21c_1948 [rf]: Write to RF bus register with bitmask update
-int rf_bus_init_n_4a8()
+int mmio_sync_2()
 {
   uint32_t *v0; // r1
   int v1; // r0

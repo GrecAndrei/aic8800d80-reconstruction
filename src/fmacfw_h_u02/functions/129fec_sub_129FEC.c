@@ -12,8 +12,8 @@
 
 extern uint32_t dword_129FFC;
 
-// sub_129FEC @ 0x129fec, size 14 bytes
-int  sub_129FEC(int a1)
+// bt_get_conn_channel @ 0x129fec, size 14 bytes
+int  bt_get_conn_channel(int a1)
 {
   return *(uint8_t *)(dword_129FFC + 140 * a1 + 133);
 }

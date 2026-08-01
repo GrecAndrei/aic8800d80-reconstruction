@@ -13,10 +13,10 @@
 extern uint32_t dword_1204C0;
 extern uint32_t dword_1204B8;
 
-// sub_120370 @ 0x120370, size 326 bytes
+// wlc_phy_chanspec_set @ 0x120370, size 326 bytes
 // Doc: sub_1220370 [rf]: FMAC/BT init/setup routine sizing a 0x528-byte block, indexed by channel/mode byte
 // sub_1220370 [rf]: FMAC/BT init/setup routine sizing a 0x528-byte block, indexed by channel/mode byte
-uint64_t  sub_120370(uint8_t *a1, char a2)
+uint64_t  wlc_phy_chanspec_set(uint8_t *a1, char a2)
 {
   int v3; // r6
   int v4; // r8
@@ -41,12 +41,12 @@ uint64_t  sub_120370(uint8_t *a1, char a2)
   v6[576] = a1[40];
   v8 = (int *)(v7 + 480 + v5);
   v6[577] = v3;
-  v9 = memset_thunk(v8, 0, 0x48u);
+  v9 = memset_byte(v8, 0, 0x48u);
   switch ( v6[576] )
   {
     case 0:
     case 3:
-      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = sub_143A18(v9) & 0xFFFFFFLL;
+      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = random(v9) & 0xFFFFFFLL;
       break;
     case 1:
       v15 = 1320 * v4 + 120 * v3 + v5;
@@ -60,7 +60,7 @@ uint64_t  sub_120370(uint8_t *a1, char a2)
       *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = *(uint64_t *)&dword_1204B8;
       break;
     case 5:
-      sub_14380C(v7 + 560 + v5, a1 + 8, 16);
+      memcpy_aligned(v7 + 560 + v5, a1 + 8, 16);
       goto LABEL_3;
     default:
 LABEL_3:

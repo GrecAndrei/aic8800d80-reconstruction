@@ -1,1 +1,1 @@
-{"fn": "sub_122064C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122064c", "status": "ok", "name": "ipc_msg_alloc", "params": [], "docstring": "Allocate IPC message buffer (id 0xd, size 0x58)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122064C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122064c", "status": "ok", "name": "alloc_buffer", "params": [], "docstring": "Allocate IPC message buffer (id 0xd, size 0x58)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

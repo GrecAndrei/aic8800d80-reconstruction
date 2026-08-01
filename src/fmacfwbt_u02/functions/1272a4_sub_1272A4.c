@@ -13,8 +13,8 @@
 extern uint32_t off_1272D0;
 extern uint32_t off_1272D4;
 
-// sub_1272A4 @ 0x1272a4, size 44 bytes
-int sub_1272A4()
+// timeout_decrement @ 0x1272a4, size 44 bytes
+int timeout_decrement()
 {
   char v0; // r3
   int result; // r0
@@ -26,8 +26,8 @@ int sub_1272A4()
     if ( !v0 && *(uint8_t *)off_1272D4 == 1 )
     {
       *(uint8_t *)off_1272D4 = 0;
-      fw_init_or_check_1221d44();
-      return sub_12726C();
+      mac_cmd_send();
+      return tx_ready_check();
     }
   }
   return result;

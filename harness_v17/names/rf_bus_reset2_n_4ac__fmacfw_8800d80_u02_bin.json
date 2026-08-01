@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_4ac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211550", "status": "ok", "name": "rf_cmd_send_n3ea", "params": [], "docstring": "Sends an RF command byte to the controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_4ac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211550", "status": "ok", "name": "rf_cmd_send_n2b0", "params": [], "docstring": "Sends an RF command byte to the controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

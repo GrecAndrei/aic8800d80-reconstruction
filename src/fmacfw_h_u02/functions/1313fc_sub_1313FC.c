@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1313FC @ 0x1313fc, size 12 bytes
-int  sub_1313FC(int a1, uint8_t *a2)
+// rf_check_channel @ 0x1313fc, size 12 bytes
+int  rf_check_channel(int a1, uint8_t *a2)
 {
-  sub_1321E4(*a2);
+  ke_malloc_wrapper(*a2);
   return 0;
 }
 

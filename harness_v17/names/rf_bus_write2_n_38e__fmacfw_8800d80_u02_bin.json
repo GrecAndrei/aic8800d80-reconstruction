@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_38e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121188e", "status": "ok", "name": "rf_bus_write2_n_38e", "params": [], "docstring": "Write 32-bit value to RF MMIO bus register at offset 0xb14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_38e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121188e", "status": "ok", "name": "rf_bus_write2_n_38d", "params": [], "docstring": "Write 32-bit value to RF MMIO bus register at offset 0xb14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

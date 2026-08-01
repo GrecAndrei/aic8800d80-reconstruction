@@ -14,10 +14,10 @@ extern uint32_t off_113338;
 extern uint32_t off_11333C;
 extern uint32_t dword_113340;
 
-// sub_113300 @ 0x113300, size 54 bytes
+// lock_acquire @ 0x113300, size 54 bytes
 // Doc: sub_1213300 [unknown]: Stub function with invalid instruction (corpus artifact)
 // sub_1213300 [unknown]: Stub function with invalid instruction (corpus artifact)
-int sub_113300()
+int lock_acquire()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_113300()
   v0 = (int *)off_11333C;
   v1 = dword_113340;
   ++*(uint32_t *)off_11333C;
-  result = list_push_tail(v1);
+  result = check_kernel_state(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

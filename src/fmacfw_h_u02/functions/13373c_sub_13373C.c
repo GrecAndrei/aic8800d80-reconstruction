@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13373C @ 0x13373c, size 98 bytes
-int  sub_13373C(int a1, int a2)
+// hci_opcode_check @ 0x13373c, size 98 bytes
+int  hci_opcode_check(int a1, int a2)
 {
   int v2; // r3
 
@@ -19,20 +19,20 @@ int  sub_13373C(int a1, int a2)
   switch ( v2 )
   {
     case 176:
-      if ( sub_12CD48(6u) == 5 )
-        sub_1358C0(a2);
+      if ( hci_cmd_handler(6u) == 5 )
+        ke_msg_handler(a2);
       break;
     case 16:
     case 48:
-      if ( sub_12CD48(6u) == 8 )
-        sub_135458(a2);
+      if ( hci_cmd_handler(6u) == 8 )
+        hci_send_vendor_cmd(a2);
       break;
     case 192:
     case 160:
       return sub_135528(a2);
     default:
       if ( v2 == 208 && *(uint8_t *)(a2 + 12) == 8 )
-        sub_1355C8(a2);
+        ll_conn_get_by_index(a2);
       break;
   }
   return 0;

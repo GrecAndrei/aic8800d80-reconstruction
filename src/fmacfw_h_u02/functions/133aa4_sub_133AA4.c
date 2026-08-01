@@ -13,8 +13,8 @@
 extern uint32_t dword_133AE8;
 extern uint32_t dword_133AEC;
 
-// sub_133AA4 @ 0x133aa4, size 66 bytes
-int  sub_133AA4(int a1, uint8_t *a2)
+// hci_apply_defaults @ 0x133aa4, size 66 bytes
+int  hci_apply_defaults(int a1, uint8_t *a2)
 {
   int v2; // r4
   int result; // r0
@@ -22,8 +22,8 @@ int  sub_133AA4(int a1, uint8_t *a2)
   int v5; // r4
 
   v2 = *a2;
-  sub_12EB90(256, dword_133AE8);
-  result = sub_12CD48(6u);
+  check_feature_flag(256, dword_133AE8);
+  result = hci_cmd_handler(6u);
   if ( result )
     return 2;
   v4 = dword_133AEC + 1320 * v2;
@@ -33,7 +33,7 @@ int  sub_133AA4(int a1, uint8_t *a2)
     result = *(uint8_t *)(v4 + 108);
     if ( *(uint8_t *)(v4 + 108) )
     {
-      sub_134C4C(v4, 1, *(uint8_t *)(v4 + 106));
+      ke_timer_set(v4, 1, *(uint8_t *)(v4 + 106));
       return v5;
     }
   }

@@ -12,8 +12,8 @@
 
 extern uint32_t off_12BAE0;
 
-// sub_12BAD0 @ 0x12bad0, size 16 bytes
-void sub_12BAD0()
+// mmio_write_poll_clear @ 0x12bad0, size 16 bytes
+void mmio_write_poll_clear()
 {
   uint32_t *v0; // r2
 

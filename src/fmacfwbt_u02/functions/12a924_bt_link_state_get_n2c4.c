@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12AA00;
 
-// bt_link_state_get_n2c4 @ 0x12a924, size 218 bytes
-// Doc: bt_link_state_get_n2c4 [bt]: Looks up Bluetooth link state entry indexed by connection slot
-// bt_link_state_get_n2c4 [bt]: Looks up Bluetooth link state entry indexed by connection slot
-int  bt_link_state_get_n2c4(int a1, unsigned int a2, int a3)
+// bt_conn_get_state @ 0x12a924, size 218 bytes
+// Doc: bt_conn_get_state [bt]: Looks up Bluetooth link state entry indexed by connection slot
+// bt_conn_get_state [bt]: Looks up Bluetooth link state entry indexed by connection slot
+int  bt_conn_get_state(int a1, unsigned int a2, int a3)
 {
   int v3; // r6
   int v4; // r5
@@ -39,11 +39,11 @@ int  bt_link_state_get_n2c4(int a1, unsigned int a2, int a3)
     {
       if ( !a3 || *(uint8_t *)(v7 + 32) )
       {
-        timestamp_remove_058(48 * a2 + 140 * v3 + dword_12AA00);
+        ke_event_set_lock(48 * a2 + 140 * v3 + dword_12AA00);
         v8 = 140 * v3 + 48 * a2 + v4;
         *(uint8_t *)(v8 + 16) = 0;
-        sub_1297BC(v4 + 140 * v3);
-        sub_129A28((uint8_t *)(v4 + 140 * v3));
+        mem_fill(v4 + 140 * v3);
+        state_machine_step((uint8_t *)(v4 + 140 * v3));
         v9 = v4 + 140 * v3;
         v10 = *(uint8_t *)(v8 + 32);
         v11 = (uint8_t)(*(uint8_t *)(v9 + 121) - 1);
@@ -52,10 +52,10 @@ int  bt_link_state_get_n2c4(int a1, unsigned int a2, int a3)
           --*(uint8_t *)(v9 + 122);
         v12 = v4 + 140 * v3;
         if ( *(uint8_t *)(v12 + 115) || v11 )
-          sub_125EFC(*(uint8_t *)(v4 + 140 * v3 + 113), 3);
+          set_flag_byte(*(uint8_t *)(v4 + 140 * v3 + 113), 3);
         else
-          sub_125EFC(*(uint8_t *)(v12 + 113), 2);
-        sub_129768(v4 + 140 * v3, a2);
+          set_flag_byte(*(uint8_t *)(v12 + 113), 2);
+        write_cmd(v4 + 140 * v3, a2);
         return 0;
       }
     }

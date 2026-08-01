@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12C300;
 
-// sub_12C2E8 @ 0x12c2e8, size 22 bytes
-int sub_12C2E8()
+// rf_clock_enable @ 0x12c2e8, size 22 bytes
+int rf_clock_enable()
 {
   *(uint32_t *)(dword_12C300 + 4680) &= ~1u;
-  return sub_12CFC4(1024);
+  return irq_disable_global_2(1024);
 }
 

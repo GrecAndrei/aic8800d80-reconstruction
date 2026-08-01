@@ -13,8 +13,8 @@
 extern uint32_t off_1179C0;
 extern uint32_t off_1179C4;
 
-// sub_11798C @ 0x11798c, size 52 bytes
-unsigned int sub_11798C()
+// timer_event_check @ 0x11798c, size 52 bytes
+unsigned int timer_event_check()
 {
   int v0; // r3
   unsigned int result; // r0

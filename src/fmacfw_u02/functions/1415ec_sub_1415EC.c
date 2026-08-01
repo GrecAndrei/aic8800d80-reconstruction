@@ -17,8 +17,8 @@ extern uint32_t dword_1416AC;
 extern uint32_t dword_1416B4;
 extern uint32_t dword_1416B0;
 
-// sub_1415EC @ 0x1415ec, size 186 bytes
-int sub_1415EC()
+// ll_event_process @ 0x1415ec, size 186 bytes
+int ll_event_process()
 {
   int16_t **v0; // r8
   int v1; // r5
@@ -30,26 +30,26 @@ int sub_1415EC()
   v0 = (int16_t **)off_1416BC;
   v1 = dword_1416A8;
   v2 = *(uint32_t *)(dword_1416A8 + 6480);
-  if ( **(int16_t **)off_1416BC >= 0 || v2 < 0 && (result = sub_12F46C(dword_1416B8, dword_1416AC, 1734), **v0 >= 0) )
+  if ( **(int16_t **)off_1416BC >= 0 || v2 < 0 && (result = mmio_clear_register(dword_1416B8, dword_1416AC, 1734), **v0 >= 0) )
   {
     v3 = 16 * v2;
     if ( *(uint8_t *)(v1 + 136 * v2 + 6339) > 1u )
       return result;
-    return sub_140BEC(v1 + 8 * (v2 + v3) + 6336, 0);
+    return ble_ll_adv_reset(v1 + 8 * (v2 + v3) + 6336, 0);
   }
   v4 = v1 + 136 * v2;
   v3 = 16 * v2;
   if ( *(uint8_t *)(v4 + 6338) == 5 )
   {
     if ( *(uint8_t *)(v4 + 6339) <= 1u )
-      return sub_140BEC(v1 + 8 * (v2 + v3) + 6336, 0);
-    return sub_12F46C(dword_1416B4, dword_1416AC, 1744);
+      return ble_ll_adv_reset(v1 + 8 * (v2 + v3) + 6336, 0);
+    return mmio_clear_register(dword_1416B4, dword_1416AC, 1744);
   }
-  result = sub_12F46C(dword_1416B0, dword_1416AC, 1735);
+  result = mmio_clear_register(dword_1416B0, dword_1416AC, 1735);
   if ( *(uint8_t *)(v4 + 6339) <= 1u )
-    return sub_140BEC(v1 + 8 * (v2 + v3) + 6336, 0);
+    return ble_ll_adv_reset(v1 + 8 * (v2 + v3) + 6336, 0);
   if ( **v0 < 0 )
-    return sub_12F46C(dword_1416B4, dword_1416AC, 1744);
+    return mmio_clear_register(dword_1416B4, dword_1416AC, 1744);
   return result;
 }
 

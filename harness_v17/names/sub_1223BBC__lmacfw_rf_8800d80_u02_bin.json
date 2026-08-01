@@ -1,1 +1,1 @@
-{"fn": "sub_1223BBC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223bbc", "status": "ok", "name": "rf_sub_3bbc", "params": [], "docstring": "Auxiliary RF helper routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223BBC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223bbc", "status": "ok", "name": "wait_for_state", "params": [], "docstring": "Auxiliary RF helper routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

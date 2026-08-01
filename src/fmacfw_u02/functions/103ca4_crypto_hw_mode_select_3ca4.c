@@ -49,10 +49,10 @@ extern uint32_t dword_103EF4;
 extern uint32_t dword_103EB8;
 extern uint32_t off_103EBC;
 
-// crypto_hw_mode_select_3ca4 @ 0x103ca4, size 496 bytes
-// Doc: crypto_hw_mode_select_3ca4 [mac]: Selects crypto hardware mode by writing config word to register
-// crypto_hw_mode_select_3ca4 [mac]: Selects crypto hardware mode by writing config word to register
-int  crypto_hw_mode_select_3ca4(int a1)
+// pmu_write_control @ 0x103ca4, size 496 bytes
+// Doc: pmu_write_control [mac]: Selects crypto hardware mode by writing config word to register
+// pmu_write_control [mac]: Selects crypto hardware mode by writing config word to register
+int  pmu_write_control(int a1)
 {
   unsigned int *v1; // r2
   int *v2; // r4
@@ -196,7 +196,7 @@ int  crypto_hw_mode_select_3ca4(int a1)
                     *(uint32_t *)off_103E9C &= 0xFFFFFF70;
                     *v23 = *v23 & 0xFF00FFFF | 0x540000;
                     *v24 = v25;
-                    msg_parse(v26, v27, v22);
+                    event_dispatch(v26, v27, v22);
                     goto LABEL_22;
                   case 8:
                     v1 = (unsigned int *)off_103E9C;
@@ -243,13 +243,13 @@ LABEL_24:
         v14 = v3 & 0x70;
         *v1 = v5 & 0xFFFFFF00 | v14;
         *v2 = v4;
-        msg_parse(v6, v14, v1);
+        event_dispatch(v6, v14, v1);
         goto LABEL_22;
     }
     v21 = v18 & 0xFFFFFF00;
     *v15 = v20 | v21;
     *v16 = v17;
-    msg_parse(v19, v21, v15);
+    event_dispatch(v19, v21, v15);
     goto LABEL_22;
   }
   v7 = off_103E9C;
@@ -261,9 +261,9 @@ LABEL_24:
   *(uint32_t *)off_103E9C &= 0xFFFFFF70;
   *v8 = *v8 & 0xFF00FFFF | 0x770000;
   *v9 = v10;
-  msg_parse(v11, v12, v7);
+  event_dispatch(v11, v12, v7);
 LABEL_22:
   *(uint32_t *)off_103EBC = 769;
-  return delay_us_0644(500);
+  return timer_delay(500);
 }
 

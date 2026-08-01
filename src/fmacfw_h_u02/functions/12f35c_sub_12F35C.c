@@ -12,9 +12,9 @@
 
 extern uint32_t dword_12F374;
 
-// sub_12F35C @ 0x12f35c, size 22 bytes
-int  sub_12F35C(int a1, int a2, int a3)
+// mmio_write_field @ 0x12f35c, size 22 bytes
+int  mmio_write_field(int a1, int a2, int a3)
 {
-  return sub_12E948(dword_12F374, a1, a2, a3 & 0xFFFFF);
+  return alloc_tx_event(dword_12F374, a1, a2, a3 & 0xFFFFF);
 }
 

@@ -16,10 +16,10 @@ extern uint32_t off_11D9A0;
 extern uint32_t off_11D994;
 extern uint32_t dword_11D998;
 
-// sub_11D8EC @ 0x11d8ec, size 162 bytes
+// mac_wait_tx @ 0x11d8ec, size 162 bytes
 // Doc: sub_121D8EC [util]: Initialization routine loading config and calling setup
 // sub_121D8EC [util]: Initialization routine loading config and calling setup
-int sub_11D8EC()
+int mac_wait_tx()
 {
   int *v0; // r5
   int v1; // r4
@@ -34,7 +34,7 @@ int sub_11D8EC()
 
   v0 = (int *)off_11D990;
   v1 = *(uint32_t *)off_11D990;
-  result = clear_flags(0x200000);
+  result = unknown_func_12d14c(0x200000);
   if ( v1 )
   {
     v3 = (int *)off_11D99C;
@@ -48,7 +48,7 @@ int sub_11D8EC()
           break;
         v5 = 1;
       }
-      rf_bus_mark_n100_d2d0(v0);
+      mem_word_load(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -61,7 +61,7 @@ int sub_11D8EC()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_11E0B4();
+        result = radio_get_status();
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -80,8 +80,8 @@ int sub_11D8EC()
   v9 = off_11D994;
   if ( *((uint8_t *)off_11D994 + 69) )
   {
-    irq_nesting_or_d104(0x80000);
-    result = feature_guard_check(1024, dword_11D998);
+    unknown_func_12d104(0x80000);
+    result = check_status_bits(1024, dword_11D998);
     v9[69] = 0;
   }
   return result;

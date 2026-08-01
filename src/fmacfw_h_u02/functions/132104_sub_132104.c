@@ -12,8 +12,8 @@
 
 extern uint32_t off_132174;
 
-// sub_132104 @ 0x132104, size 112 bytes
-char * sub_132104(char *result, int a2)
+// event_code_to_str @ 0x132104, size 112 bytes
+char * event_code_to_str(char *result, int a2)
 {
   int v2; // r1
   char *v3; // r3

@@ -12,8 +12,8 @@
 
 extern uint32_t off_102B60;
 
-// sub_102B00 @ 0x102b00, size 96 bytes
-int * sub_102B00(int a1)
+// set_radio_ctrl_bits @ 0x102b00, size 96 bytes
+int * set_radio_ctrl_bits(int a1)
 {
   int v1; // r4
   int v2; // r1

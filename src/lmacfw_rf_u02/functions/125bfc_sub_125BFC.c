@@ -17,8 +17,8 @@ extern uint32_t dword_125D10;
 extern uint32_t dword_125D04;
 extern uint32_t dword_125D08;
 
-// sub_125BFC @ 0x125bfc, size 258 bytes
-int  sub_125BFC(int a1, uint8_t **a2)
+// process_bt_ble_event @ 0x125bfc, size 258 bytes
+int  process_bt_ble_event(int a1, uint8_t **a2)
 {
   int v4; // r8
   int v5; // r4
@@ -28,13 +28,13 @@ int  sub_125BFC(int a1, uint8_t **a2)
   BOOL v10; // r0
 
   v4 = (*a2)[4];
-  v5 = sub_121E3C(a2[1], 0, 0);
-  v6 = sub_121E3C(a2[2], 0, 0);
+  v5 = parse_number(a2[1], 0, 0);
+  v6 = parse_number(a2[2], 0, 0);
   if ( v6 )
   {
     if ( a1 <= 3 )
       return -1;
-    v7 = sub_121E3C(a2[3], 0, 0);
+    v7 = parse_number(a2[3], 0, 0);
     if ( v4 == 97 )
       goto LABEL_4;
   }
@@ -46,48 +46,48 @@ int  sub_125BFC(int a1, uint8_t **a2)
 LABEL_4:
       if ( v5 <= 15 )
       {
-        sub_10DA88(v5);
+        rf_channel_valid(v5);
         if ( v6 )
         {
-          sub_10DAF0(v5);
+          gpio_cfg_set(v5);
           if ( v7 )
-            sub_10DB04(v5);
+            gpio_out_set(v5);
           else
-            sub_10DB18(v5);
-          sub_11F504(dword_125D00, v5, v7);
+            gpio_out_clear(v5);
+          dispatch_event_handler(dword_125D00, v5, v7);
           return 0;
         }
         else
         {
-          sub_10DAD8(v5);
-          v10 = sub_10DB30(v5);
-          sub_11F504(dword_125D0C, v5, v10);
+          gpio_cfg_clear(v5);
+          v10 = gpio_read_pin(v5);
+          dispatch_event_handler(dword_125D0C, v5, v10);
           return 0;
         }
       }
-      sub_11F504(dword_125D14, v5);
+      dispatch_event_handler(dword_125D14, v5);
       return -2;
     }
   }
   if ( v5 > 15 )
   {
-    sub_11F504(dword_125D10, v5);
+    dispatch_event_handler(dword_125D10, v5);
     return -2;
   }
-  sub_10DB48(v5);
+  pinmux_config(v5);
   if ( !v6 )
   {
-    sub_10DB78(v5);
-    v9 = sub_10DBD0(v5);
-    sub_11F504(dword_125D04, v5, v9);
+    gpio_disable_interrupt(v5);
+    v9 = gpio_get_pin(v5);
+    dispatch_event_handler(dword_125D04, v5, v9);
     return v6;
   }
-  sub_10DB90(v5);
+  gpio_set_pin(v5);
   if ( v7 )
-    sub_10DBA4(v5);
+    gpio_set_pin_out(v5);
   else
-    sub_10DBB8(v5);
-  sub_11F504(dword_125D08, v5, v7);
+    gpio_clear_pin(v5);
+  dispatch_event_handler(dword_125D08, v5, v7);
   return 0;
 }
 

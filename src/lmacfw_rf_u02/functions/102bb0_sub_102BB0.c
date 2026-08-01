@@ -24,8 +24,8 @@ extern uint32_t dword_102D30;
 extern uint32_t dword_102D38;
 extern uint32_t dword_102D3C;
 
-// sub_102BB0 @ 0x102bb0, size 358 bytes
-int  sub_102BB0(int a1, uint16_t *a2)
+// periph_wait_status @ 0x102bb0, size 358 bytes
+int  periph_wait_status(int a1, uint16_t *a2)
 {
   unsigned int v2; // r7
   unsigned int v4; // r11
@@ -59,7 +59,7 @@ int  sub_102BB0(int a1, uint16_t *a2)
   while ( !*(uint32_t *)off_102D18 )
     ;
   v4 = 0;
-  sub_102ADC(0);
+  gpio_set_pin(0);
   v5 = dword_102D48;
   v6 = dword_102D40;
   v27 = 0;
@@ -77,7 +77,7 @@ LABEL_4:
   do
   {
     v10 = *v8;
-    sub_11F74C(0x2000, v5, v4, v9, (uint16_t)(*v8 >> 11));
+    check_interrupt_flag(0x2000, v5, v4, v9, (uint16_t)(*v8 >> 11));
     v11 = *(uint16_t *)(v2 + 2);
     v2 += 2;
     v12 = dword_102D20;
@@ -85,7 +85,7 @@ LABEL_4:
     *v8 = v13;
     v8 += 8;
     v14 = v9++;
-    sub_11F74C(0x2000, v12, v4, v14, (uint16_t)(v13 >> 11));
+    check_interrupt_flag(0x2000, v12, v4, v14, (uint16_t)(v13 >> 11));
   }
   while ( v9 != 16 );
   if ( v4 <= 1 )
@@ -95,7 +95,7 @@ LABEL_4:
   if ( (uint16_t)v4 != 5 )
     goto LABEL_4;
 LABEL_10:
-  result = sub_102B40(0);
+  result = gpio_clear_pin(0);
   *(uint32_t *)off_102D18 = 1;
   if ( v27 )
   {

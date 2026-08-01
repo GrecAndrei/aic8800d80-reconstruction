@@ -1,1 +1,1 @@
-{"fn": "crypto_state_dump", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207760", "status": "ok", "name": "crypto_state_dump", "params": [], "docstring": "Dumps crypto/KE state for debugging", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_state_dump", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207760", "status": "ok", "name": "timer_ticks_to_usec", "params": [], "docstring": "Dumps crypto/KE state for debugging", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -15,10 +15,10 @@ extern uint32_t dword_141ED8;
 extern uint32_t off_141EE0;
 extern uint32_t dword_141EDC;
 
-// mmio_reg_read_sum_n1e6c @ 0x141e6c, size 102 bytes
-// Doc: mmio_reg_read_sum_n1e6c [mmio]: Reads 64-bit register from MMIO base 0x40501000 and adds base offset
-// mmio_reg_read_sum_n1e6c [mmio]: Reads 64-bit register from MMIO base 0x40501000 and adds base offset
-int  mmio_reg_read_sum_n1e6c(int a1)
+// mmio_read_register @ 0x141e6c, size 102 bytes
+// Doc: mmio_read_register [mmio]: Reads 64-bit register from MMIO base 0x40501000 and adds base offset
+// mmio_read_register [mmio]: Reads 64-bit register from MMIO base 0x40501000 and adds base offset
+int  mmio_read_register(int a1)
 {
   int v1; // r2
   int v3; // r3
@@ -36,7 +36,7 @@ int  mmio_reg_read_sum_n1e6c(int a1)
   *(uint32_t *)(a1 + 56) = dword_141ED8;
   *(uint64_t *)(a1 + 24) = v4;
   v5 = *(uint8_t *)(a1 + 47);
-  timestamp_update_4f60(a1 + 52, v3 + v1);
+  ke_event_lock(a1 + 52, v3 + v1);
   v6 = off_141EE0;
   v7 = dword_141EDC + 1320 * v5;
   v8 = *(uint16_t *)a1 | 8;

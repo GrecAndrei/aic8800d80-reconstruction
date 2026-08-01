@@ -1,1 +1,1 @@
-{"fn": "sub_122B540", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b540", "status": "ok", "name": "sub_122B540", "params": [], "docstring": "Compares signed halfword from global state to zero", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122B540", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b540", "status": "ok", "name": "read_cal_value", "params": [], "docstring": "Compares signed halfword from global state to zero", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

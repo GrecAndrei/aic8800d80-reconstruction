@@ -27,8 +27,8 @@ extern uint32_t off_10D758;
 extern uint32_t off_10D75C;
 extern uint32_t off_10D76C;
 
-// sub_10D648 @ 0x10d648, size 236 bytes
-void sub_10D648()
+// is_initialized @ 0x10d648, size 236 bytes
+void is_initialized()
 {
   int v0; // r3
   uint32_t *v1; // r5

@@ -13,10 +13,10 @@
 extern uint32_t off_11E700;
 extern uint32_t off_11E704;
 
-// sub_11E6B0 @ 0x11e6b0, size 80 bytes
+// bt_notify_event @ 0x11e6b0, size 80 bytes
 // Doc: sub_121E6B0 [util]: Helper reading byte offset 0x21 from global state struct
 // sub_121E6B0 [util]: Helper reading byte offset 0x21 from global state struct
-int  sub_11E6B0(int a1)
+int  bt_notify_event(int a1)
 {
   uint32_t *v1; // r4
   int result; // r0
@@ -39,7 +39,7 @@ int  sub_11E6B0(int a1)
   v1[6] = v5;
   if ( v3 >= result << 9 )
   {
-    result = log_queue_push2(v1[4], v4, v5);
+    result = ke_int_lock(v1[4], v4, v5);
     v1[4] = 0;
     v1[5] = 0;
     v1[6] = 0;

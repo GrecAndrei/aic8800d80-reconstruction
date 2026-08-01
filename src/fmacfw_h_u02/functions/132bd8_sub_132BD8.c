@@ -13,8 +13,8 @@
 extern uint32_t off_132C44;
 extern uint32_t off_13231C;
 
-// sub_132BD8 @ 0x132bd8, size 106 bytes
-int  sub_132BD8(int result, uint8_t *a2, int a3)
+// ble_ll_conn_rx_update @ 0x132bd8, size 106 bytes
+int  ble_ll_conn_rx_update(int result, uint8_t *a2, int a3)
 {
   unsigned int v3; // r4
   unsigned int v4; // r2

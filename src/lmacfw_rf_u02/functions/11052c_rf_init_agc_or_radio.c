@@ -25,10 +25,10 @@ extern uint32_t dword_11066C;
 extern uint32_t dword_110670;
 extern uint32_t off_110668;
 
-// rf_init_agc_or_radio @ 0x11052c, size 288 bytes
-// Doc: rf_init_agc_or_radio [rf]: Initialize RF AGC/radio registers from config table
-// rf_init_agc_or_radio [rf]: Initialize RF AGC/radio registers from config table
-int  rf_init_agc_or_radio(int a1, int a2)
+// tx_irq_handler @ 0x11052c, size 288 bytes
+// Doc: tx_irq_handler [rf]: Initialize RF AGC/radio registers from config table
+// tx_irq_handler [rf]: Initialize RF AGC/radio registers from config table
+int  tx_irq_handler(int a1, int a2)
 {
   uint32_t *v2; // r4
   int *v3; // r7
@@ -51,7 +51,7 @@ int  rf_init_agc_or_radio(int a1, int a2)
   v2 = off_110650;
   v3 = (int *)off_110654;
   v21 = *(uint16_t *)(*(uint32_t *)off_11064C + 48);
-  rf_bus_init_n3fa(a2);
+  rx_irq_handler(a2);
   v6 = *(uint16_t *)(a2 + 0xC);
 LABEL_2:
   v7 = off_11067C;
@@ -63,19 +63,19 @@ LABEL_2:
     v9 = (*(int ( **)(uint32_t))(*(uint32_t *)(a1 + 4 + 4) + 16))(*(uint32_t *)(a1 + 4));
     if ( !v9 )
     {
-      sub_10DA6C(dword_110678, *v7);
+      log_printf(dword_110678, *v7);
 LABEL_23:
       if ( *(uint16_t *)(a2 + 0xC) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_11064C + 50) )
         return 1;
 LABEL_24:
-      irq_nesting_or(256);
+      set_busy_flag_alt(256);
       return 1;
     }
-    v10 = (uint32_t *)sub_1101AC();
+    v10 = (uint32_t *)irq_disable();
     v11 = v10;
     if ( !v10 )
     {
-      sub_10DA6C(dword_110674);
+      log_printf(dword_110674);
       (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
       goto LABEL_23;
     }
@@ -105,7 +105,7 @@ LABEL_24:
     {
       if ( **(int16_t **)off_110660 < 0 && *(uint32_t *)off_110664 )
       {
-        rf_cmd_send_n264(dword_11066C, dword_110670, 400);
+        flash_ctrl_init(dword_11066C, dword_110670, 400);
         v13 = (int *)off_11065C;
         v14 = *(uint32_t *)off_11065C;
       }

@@ -15,8 +15,8 @@ extern uint32_t off_1120DC;
 extern uint32_t off_1120E4;
 extern uint32_t off_1120E0;
 
-// sub_112094 @ 0x112094, size 66 bytes
-int sub_112094()
+// wlan_process_packet @ 0x112094, size 66 bytes
+int wlan_process_packet()
 {
   uint8_t *v0; // r4
   int v1; // r0
@@ -32,8 +32,8 @@ int sub_112094()
     {
       *(uint8_t *)off_1120E0 = 4;
       *v0 = 7;
-      if ( !sub_11394C() )
-        sub_114028(0);
+      if ( !rf_calibration_done() )
+        set_config_field(0);
       return 1;
     }
     else

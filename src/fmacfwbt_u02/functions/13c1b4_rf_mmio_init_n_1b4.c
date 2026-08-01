@@ -20,10 +20,10 @@ extern uint32_t dword_13C324;
 extern uint32_t dword_13C32C;
 extern uint32_t off_13C31C;
 
-// rf_mmio_init_n_1b4 @ 0x13c1b4, size 344 bytes
-// Doc: rf_mmio_init_n_1b4 [mmio]: Initialize RF MMIO register block at 0x40501000
-// rf_mmio_init_n_1b4 [mmio]: Initialize RF MMIO register block at 0x40501000
-unsigned int  rf_mmio_init_n_1b4(unsigned int result)
+// rf_modem_status_check @ 0x13c1b4, size 344 bytes
+// Doc: rf_modem_status_check [mmio]: Initialize RF MMIO register block at 0x40501000
+// rf_modem_status_check [mmio]: Initialize RF MMIO register block at 0x40501000
+unsigned int  rf_modem_status_check(unsigned int result)
 {
   int v1; // r1
   int v2; // r2
@@ -69,7 +69,7 @@ unsigned int  rf_mmio_init_n_1b4(unsigned int result)
           {
             result = dword_13C324;
             if ( !*(uint32_t *)(dword_13C324 + 8 * (165 * *(uint8_t *)(v6 + 28) + v9 + 159)) )
-              return sub_13C050(v3, v1, *(uint16_t *)(v6 + 32));
+              return rf_apply_cfg(v3, v1, *(uint16_t *)(v6 + 32));
           }
         }
       }
@@ -78,7 +78,7 @@ unsigned int  rf_mmio_init_n_1b4(unsigned int result)
         v10 = dword_13C32C;
         v11 = dword_13C32C + 32 * v8;
         *(uint32_t *)(v11 + 8) = v2;
-        result = msg_get_value((v8 << 8) | 8);
+        result = hci_cmd_send_short((v8 << 8) | 8);
         v12 = 32 * v8;
         if ( result == 1 )
         {

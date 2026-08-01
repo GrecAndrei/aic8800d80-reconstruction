@@ -1,1 +1,1 @@
-{"fn": "sub_1231A40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1231a40", "status": "ok", "name": "sub_1231A40", "params": [], "docstring": "Sends command 0x140f with payload size 0xc8 then processes reply", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1231A40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1231a40", "status": "ok", "name": "hci_vendor_cmd_send", "params": [], "docstring": "Sends command 0x140f with payload size 0xc8 then processes reply", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

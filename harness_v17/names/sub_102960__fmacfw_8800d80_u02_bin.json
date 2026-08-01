@@ -1,0 +1,1 @@
+{"fn": "sub_102960", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102960", "status": "ok", "name": "mmio_write_40580020", "params": [], "docstring": "Read-modify-writes memory-mapped register 0x40580020.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

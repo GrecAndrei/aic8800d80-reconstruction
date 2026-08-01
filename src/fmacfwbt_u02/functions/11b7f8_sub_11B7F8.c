@@ -16,10 +16,10 @@ extern uint32_t off_11B8C4;
 extern uint32_t dword_11B8CC;
 extern uint32_t off_11B8C8;
 
-// sub_11B7F8 @ 0x11b7f8, size 194 bytes
+// critical_section_enter @ 0x11b7f8, size 194 bytes
 // Doc: sub_121B7F8 [util]: Helper with saved regs r3-r7,lr; lsls shift on r3
 // sub_121B7F8 [util]: Helper with saved regs r3-r7,lr; lsls shift on r3
-int  sub_11B7F8(int a1)
+int  critical_section_enter(int a1)
 {
   unsigned int CPSR; // r3
   int result; // r0
@@ -53,7 +53,7 @@ int  sub_11B7F8(int a1)
     if ( v9 << 28 )
     {
       *(uint32_t *)(dword_11B8CC + 4 * a1) = v9;
-      sub_11B7A8((uint8_t)a1);
+      check_entry_flag((uint8_t)a1);
     }
     else if ( !v6[46] )
     {
@@ -73,12 +73,12 @@ LABEL_17:
   if ( !v12 )
   {
     *(uint32_t *)(dword_11B8CC + 4 * a1) = *(uint32_t *)(*((uint32_t *)v4 + 4) + 4 * (a1 + 2));
-    result = sub_11B7A8((uint8_t)a1);
+    result = check_entry_flag((uint8_t)a1);
     v8 = *v5;
     goto LABEL_17;
   }
 LABEL_8:
-  result = timestamp_update_4f60(&v4[28 * a1 + 20], *((uint32_t *)off_11B8C8 + 4) + 0x2000);
+  result = ke_event_lock(&v4[28 * a1 + 20], *((uint32_t *)off_11B8C8 + 4) + 0x2000);
   v8 = *v5;
 LABEL_9:
   if ( v8 )

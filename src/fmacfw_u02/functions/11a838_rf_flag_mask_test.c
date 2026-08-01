@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11A8AC;
 
-// rf_flag_mask_test @ 0x11a838, size 116 bytes
-// Doc: rf_flag_mask_test [rf]: Test masked flag bits against 0x1c000 threshold
-// rf_flag_mask_test [rf]: Test masked flag bits against 0x1c000 threshold
-unsigned int * rf_flag_mask_test(unsigned int *result, unsigned int *a2)
+// check_event_flags @ 0x11a838, size 116 bytes
+// Doc: check_event_flags [rf]: Test masked flag bits against 0x1c000 threshold
+// check_event_flags [rf]: Test masked flag bits against 0x1c000 threshold
+unsigned int * check_event_flags(unsigned int *result, unsigned int *a2)
 {
   unsigned int v2; // r4
   unsigned int v3; // r5

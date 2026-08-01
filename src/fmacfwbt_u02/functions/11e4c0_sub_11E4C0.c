@@ -13,8 +13,8 @@
 extern uint32_t off_11E4F0;
 extern uint32_t off_11E4EC;
 
-// sub_11E4C0 @ 0x11e4c0, size 44 bytes
-unsigned int  sub_11E4C0(int a1)
+// rf_ant_switch_set @ 0x11e4c0, size 44 bytes
+unsigned int  rf_ant_switch_set(int a1)
 {
   unsigned int *v1; // r1
   unsigned int result; // r0

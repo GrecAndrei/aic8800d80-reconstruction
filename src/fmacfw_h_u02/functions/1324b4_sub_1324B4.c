@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1324B4 @ 0x1324b4, size 26 bytes
-int  sub_1324B4(uint8_t *a1)
+// phy_get_channel_cfg @ 0x1324b4, size 26 bytes
+int  phy_get_channel_cfg(uint8_t *a1)
 {
   if ( a1[3] )
     return 3;

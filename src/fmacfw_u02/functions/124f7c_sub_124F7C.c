@@ -12,8 +12,8 @@
 
 extern uint32_t off_124F9C;
 
-// sub_124F7C @ 0x124f7c, size 30 bytes
-int  sub_124F7C(uint32_t *a1)
+// global_state_get @ 0x124f7c, size 30 bytes
+int  global_state_get(uint32_t *a1)
 {
   uint32_t *v1; // r3
 

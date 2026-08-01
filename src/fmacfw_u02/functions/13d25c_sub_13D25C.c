@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D25C @ 0x13d25c, size 240 bytes
-int  sub_13D25C(int a1, unsigned int a2)
+// ll_pdu_dispatch @ 0x13d25c, size 240 bytes
+int  ll_pdu_dispatch(int a1, unsigned int a2)
 {
   int result; // r0
   int v3; // r2

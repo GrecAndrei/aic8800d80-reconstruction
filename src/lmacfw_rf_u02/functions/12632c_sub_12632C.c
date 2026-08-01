@@ -25,8 +25,8 @@ extern uint32_t off_126444;
 extern uint32_t off_126448;
 extern uint32_t off_12644C;
 
-// sub_12632C @ 0x12632c, size 248 bytes
-int sub_12632C()
+// ll_state_reset @ 0x12632c, size 248 bytes
+int ll_state_reset()
 {
   int v0; // r0
   int v1; // r4
@@ -49,7 +49,7 @@ int sub_12632C()
 
   v0 = dword_126428;
   *(uint8_t *)off_126424 = 0;
-  sub_11F504(v0);
+  dispatch_event_handler(v0);
   v1 = *(uint8_t *)off_12642C;
   if ( v1 == 1 )
   {
@@ -62,7 +62,7 @@ int sub_12632C()
   if ( *(uint8_t *)off_12642C )
   {
 LABEL_15:
-    sub_11F504(
+    dispatch_event_handler(
       dword_126454,
       *(uint8_t *)off_126434,
       *(uint16_t *)off_126430,
@@ -80,7 +80,7 @@ LABEL_15:
     v5 = *(uint8_t *)off_12642C;
     do
     {
-      sub_11F504(
+      dispatch_event_handler(
         v4,
         v5 + 1,
         v3[4 * v5],

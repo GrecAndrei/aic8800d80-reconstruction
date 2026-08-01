@@ -12,8 +12,8 @@
 
 extern uint32_t off_113354;
 
-// sub_113344 @ 0x113344, size 16 bytes
-BOOL sub_113344()
+// is_radio_powered @ 0x113344, size 16 bytes
+BOOL is_radio_powered()
 {
   return *((uint8_t *)off_113354 + 8) == 1;
 }

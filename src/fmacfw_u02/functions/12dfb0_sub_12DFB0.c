@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12DFD0;
 
-// sub_12DFB0 @ 0x12dfb0, size 30 bytes
-int  sub_12DFB0(int a1, int16_t a2)
+// mac_hash_calc @ 0x12dfb0, size 30 bytes
+int  mac_hash_calc(int a1, int16_t a2)
 {
   return dword_12DFD0
        & ((((32 * (*(uint8_t *)(a1 + 5) ^ (*(uint8_t *)(a1 + 5) >> 4))) & 0x1E0) + (a2 & 0x1FF)) << 22)

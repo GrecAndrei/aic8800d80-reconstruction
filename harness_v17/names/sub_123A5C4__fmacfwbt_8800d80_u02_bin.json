@@ -1,1 +1,1 @@
-{"fn": "sub_123A5C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a5c4", "status": "ok", "name": "sub_123A5C4", "params": [], "docstring": "Index into table with 0x2b8 stride using byte fields", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123A5C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a5c4", "status": "ok", "name": "rf_get_cal_entry", "params": [], "docstring": "Index into table with 0x2b8 stride using byte fields", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -18,8 +18,8 @@ extern uint32_t dword_1271F0;
 extern uint32_t dword_127200;
 extern uint32_t dword_1271F4;
 
-// sub_127160 @ 0x127160, size 134 bytes
-int sub_127160()
+// llc_flag_test_bit0 @ 0x127160, size 134 bytes
+int llc_flag_test_bit0()
 {
   uint8_t *v0; // r4
   int v1; // r3
@@ -32,21 +32,21 @@ int sub_127160()
   {
     if ( **(int16_t **)off_1271EC < 0 && (v1 & 4) != 0 )
     {
-      sub_12F32C(dword_1271FC, dword_1271F8, 1720);
+      irq_disable_mmio_write(dword_1271FC, dword_1271F8, 1720);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xFA | 4;
-    return sub_127030(dword_1271F0);
+    return llc_hw_reg_sync(dword_1271F0);
   }
   else if ( (v1 & 6) == 2 )
   {
     if ( **(int16_t **)off_1271EC < 0 && (v1 & 8) != 0 )
     {
-      sub_12F32C(dword_127200, dword_1271F8, 1731);
+      irq_disable_mmio_write(dword_127200, dword_1271F8, 1731);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xF5 | 8;
-    return sub_127030(dword_1271F4);
+    return llc_hw_reg_sync(dword_1271F4);
   }
   return result;
 }

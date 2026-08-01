@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_fault_dump_n384 @ 0x114acc, size 58 bytes
+// rom_get_chip_version @ 0x114acc, size 58 bytes
 // Doc: rf_fault_dump [rf]: Dumps RF fault state to debug register
 // rf_fault_dump [rf]: Dumps RF fault state to debug register
-int  rf_fault_dump_n384(int *a1)
+int  rom_get_chip_version(int *a1)
 {
   uint8_t v2; // r0
   int v3; // r2

@@ -1,1 +1,1 @@
-{"fn": "sub_1236504", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236504", "status": "ok", "name": "sub_1236504", "params": [], "docstring": "Loads a signed halfword from a global pointer table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1236504", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236504", "status": "ok", "name": "txpwr_update_state", "params": [], "docstring": "Loads a signed halfword from a global pointer table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

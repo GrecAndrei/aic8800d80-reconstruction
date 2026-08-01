@@ -24,8 +24,8 @@ extern uint32_t off_111254;
 extern uint32_t off_11125C;
 extern uint32_t off_111258;
 
-// sub_11115C @ 0x11115c, size 222 bytes
-int  sub_11115C(int a1)
+// unknown_3 @ 0x11115c, size 222 bytes
+int  unknown_3(int a1)
 {
   int *v2; // r5
   uint8_t *v3; // r3
@@ -59,25 +59,25 @@ int  sub_11115C(int a1)
       v14 = *((uint8_t *)off_111264 + 374);
       if ( v14 != 1 )
         goto LABEL_4;
-      if ( rf_msg_handler_n22e(dword_111268) )
+      if ( global_state_get(dword_111268) )
         goto LABEL_18;
       if ( v12[369] )
-        sub_10DD14(v14);
+        gpio_clear_bit(v14);
       else
-        rf_mem_read_n47e(v14);
+        gpio_set_bit(v14);
     }
     else
     {
       if ( *((uint8_t *)off_111264 + 369) )
-        sub_10DD14(1);
+        gpio_clear_bit(1);
       else
-        rf_mem_read_n47e(1);
+        gpio_set_bit(1);
       v13 = (uint8_t)v12[374];
       *v11 = 1;
       if ( v13 != 1 )
         goto LABEL_18;
     }
-    timestamp_update(dword_111268, *((uint32_t *)off_11126C + 4) + 10000);
+    unknown_worker(dword_111268, *((uint32_t *)off_11126C + 4) + 10000);
 LABEL_18:
     v4 = *v2;
   }

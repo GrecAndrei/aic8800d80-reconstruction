@@ -13,10 +13,10 @@
 extern uint32_t off_138D10;
 extern uint32_t off_138D14;
 
-// sub_138CB4 @ 0x138cb4, size 92 bytes
+// rf_get_rssi @ 0x138cb4, size 92 bytes
 // Doc: sub_1238CB4 [unknown]: Unknown internal function (fmacfw)
 // sub_1238CB4 [unknown]: Unknown internal function (fmacfw)
-uint32_t * sub_138CB4(int a1, int16_t a2)
+uint32_t * rf_get_rssi(int a1, int16_t a2)
 {
   uint32_t *v2; // r6
   int16_t v4; // r5
@@ -48,7 +48,7 @@ LABEL_4:
   else
     v6 = v5 & 0xFFFFFFBF;
   *(uint32_t *)(a1 + 96) = v6;
-  message_dispatch_n_16e(a1);
-  return sub_1389D0(a1, v4, v2[16]);
+  mac_mlme_scan(a1);
+  return tx_power_lookup(a1, v4, v2[16]);
 }
 

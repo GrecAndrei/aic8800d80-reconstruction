@@ -14,8 +14,8 @@ extern uint32_t off_136974;
 extern uint32_t dword_136970;
 extern uint32_t dword_136978;
 
-// sub_136890 @ 0x136890, size 222 bytes
-uint32_t * sub_136890(int a1)
+// txpwr_send_cmd @ 0x136890, size 222 bytes
+uint32_t * txpwr_send_cmd(int a1)
 {
   uint32_t *v1; // r8
   int v3; // r6
@@ -35,7 +35,7 @@ uint32_t * sub_136890(int a1)
 
   v1 = off_136974;
   v3 = *(uint32_t *)off_136974;
-  v4 = (uint8_t *)rf_bus_setup_n3a8(7169, 13, 7, 4u);
+  v4 = (uint8_t *)bt_buf_alloc(7169, 13, 7, 4u);
   if ( a1 )
   {
     v5 = *(uint8_t *)(v3 + 51);
@@ -43,11 +43,11 @@ uint32_t * sub_136890(int a1)
   else
   {
     v7 = *(uint8_t *)(v3 + 51);
-    v8 = rf_bus_setup_n3a8(30, 0, 7, 4u);
+    v8 = bt_buf_alloc(30, 0, 7, 4u);
     v9 = dword_136970 + 1320 * v7;
     *(uint8_t *)(v8 + 2) = 1;
     *(uint8_t *)(v8 + 3) = *(uint8_t *)(v9 + 107);
-    sub_12CBB4(v8);
+    hci_evt_send(v8);
     v10 = *(uint16_t *)(v3 + 48);
     v11 = *(uint32_t *)(v9 + 72);
     *(uint32_t *)(v9 + 1208) = *(uint32_t *)(v3 + 44);
@@ -65,7 +65,7 @@ uint32_t * sub_136890(int a1)
     *(uint32_t *)(v16 + 200) = v14;
     *(uint8_t *)(v16 + 52) = 2;
     *(uint8_t *)(v16 + 204) = v15;
-    bt_link_state_check(v16);
+    bt_get_local_addr_type(v16);
     v17 = *(uint8_t *)(v16 + 350);
     *(uint16_t *)(v16 + 38) = 1;
     *(uint8_t *)(v16 + 350) = v17 | 0x10;
@@ -75,9 +75,9 @@ uint32_t * sub_136890(int a1)
   }
   v4[1] = v5;
   *v4 = a1;
-  sub_12CBB4((int)v4);
-  j_buffer_pool_get(v3 - 12);
+  hci_evt_send((int)v4);
+  jump_to_tx_entry(v3 - 12);
   *v1 = 0;
-  return rf_bus_mark_n_3b7(7u, 0);
+  return hci_cmd_send(7u, 0);
 }
 

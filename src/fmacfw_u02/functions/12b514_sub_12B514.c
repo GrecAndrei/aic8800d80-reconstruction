@@ -12,8 +12,8 @@
 
 extern uint32_t off_12B524;
 
-// sub_12B514 @ 0x12b514, size 16 bytes
-int sub_12B514()
+// get_queue_entry_ptr @ 0x12b514, size 16 bytes
+int get_queue_entry_ptr()
 {
   return *(uint32_t *)off_12B524 + 6 * *((uint8_t *)off_12B524 + 10);
 }

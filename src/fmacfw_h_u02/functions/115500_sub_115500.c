@@ -30,8 +30,8 @@ extern uint32_t dword_115658;
 extern uint32_t dword_11565C;
 extern uint32_t off_115660;
 
-// sub_115500 @ 0x115500, size 296 bytes
-int sub_115500()
+// rf_power_control @ 0x115500, size 296 bytes
+int rf_power_control()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r4
@@ -51,7 +51,7 @@ int sub_115500()
   *((uint32_t *)off_115628 + 14) |= 0x10u;
   *v0 &= ~0x2000000u;
   v1 = off_115634;
-  sub_12EB90(2, dword_115630);
+  check_feature_flag(2, dword_115630);
   v2 = off_115638;
   *(uint32_t *)off_115638 |= 0x80000000;
   v1[1] = 0;
@@ -59,7 +59,7 @@ int sub_115500()
     ;
   v3 = off_11563C;
   if ( *((uint8_t *)off_11563C + 189) && **(int16_t **)off_115640 < 0 && *v1 != (*(uint32_t *)off_115654 & 0xF) )
-    sub_12F32C(dword_115670, dword_11566C, 968);
+    irq_disable_mmio_write(dword_115670, dword_11566C, 968);
   v4 = off_115638;
   v5 = (uint8_t **)off_115644;
   *(uint32_t *)off_115638 &= ~0x40000000u;
@@ -77,7 +77,7 @@ int sub_115500()
     *(uint32_t *)off_11562C |= 0x2000000u;
   else
     *((uint32_t *)off_115628 + 14) &= ~0x10u;
-  result = sub_12EB90(2, dword_11564C);
+  result = check_feature_flag(2, dword_11564C);
   v8 = *(uint8_t **)off_115650;
   v9 = **(uint8_t **)off_115650;
   if ( v9 == 2 )

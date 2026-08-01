@@ -1,1 +1,1 @@
-{"fn": "sub_120076C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120076c", "status": "ok", "name": "fw_init_entry", "params": [], "docstring": "Firmware initialization early entry point", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120076C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120076c", "status": "ok", "name": "disable_interrupt", "params": [], "docstring": "Firmware initialization early entry point", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

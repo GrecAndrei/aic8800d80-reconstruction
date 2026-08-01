@@ -49,8 +49,8 @@ extern uint32_t dword_1038C8;
 extern uint32_t dword_10388C;
 extern uint32_t off_103890;
 
-// sub_103678 @ 0x103678, size 496 bytes
-int  sub_103678(int a1)
+// set_system_mode @ 0x103678, size 496 bytes
+int  set_system_mode(int a1)
 {
   unsigned int *v1; // r2
   int *v2; // r4
@@ -191,7 +191,7 @@ int  sub_103678(int a1)
                     *(uint32_t *)off_103870 &= 0xFFFFFF70;
                     *v21 = *v21 & 0xFF00FFFF | 0x540000;
                     *v22 = v23;
-                    msg_parse(v24, v25);
+                    dispatch_event_handler(v24, v25);
                     goto LABEL_22;
                   case 8:
                     v1 = (unsigned int *)off_103870;
@@ -238,13 +238,13 @@ LABEL_24:
         v13 = v3 & 0x70;
         *v1 = v5 & 0xFFFFFF00 | v13;
         *v2 = v4;
-        msg_parse(v6, v13);
+        dispatch_event_handler(v6, v13);
         goto LABEL_22;
     }
     v20 = v17 & 0xFFFFFF00;
     *v14 = v19 | v20;
     *v15 = v16;
-    msg_parse(v18, v20);
+    dispatch_event_handler(v18, v20);
     goto LABEL_22;
   }
   v7 = (unsigned int *)off_103884;
@@ -255,9 +255,9 @@ LABEL_24:
   *(uint32_t *)off_103870 &= 0xFFFFFF70;
   *v7 = *v7 & 0xFF00FFFF | 0x770000;
   *v8 = v9;
-  msg_parse(v10, v11);
+  dispatch_event_handler(v10, v11);
 LABEL_22:
   *(uint32_t *)off_103890 = 769;
-  return delay_us(500);
+  return write_timer_reg(500);
 }
 

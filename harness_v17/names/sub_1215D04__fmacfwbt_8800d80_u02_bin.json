@@ -1,1 +1,1 @@
-{"fn": "sub_1215D04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215d04", "status": "ok", "name": "fw_init_seq_n_12", "params": [], "docstring": "FW init sequence: clear state and call subroutines", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1215D04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215d04", "status": "ok", "name": "shutdown_sequence", "params": [], "docstring": "FW init sequence: clear state and call subroutines", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

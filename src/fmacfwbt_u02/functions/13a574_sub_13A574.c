@@ -12,8 +12,8 @@
 
 extern uint32_t off_13A584;
 
-// sub_13A574 @ 0x13a574, size 14 bytes
-int sub_13A574()
+// rf_clear_flag @ 0x13a574, size 14 bytes
+int rf_clear_flag()
 {
   int result; // r0
 

@@ -1,1 +1,1 @@
-{"fn": "sub_121E604", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121e604", "status": "ok", "name": "message_dispatch_n_16e", "params": [], "docstring": "Message dispatch handler with size/offset subtraction", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121E604", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121e604", "status": "ok", "name": "mac_mlme_scan", "params": [], "docstring": "Message dispatch handler with size/offset subtraction", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -14,10 +14,10 @@ extern uint32_t off_1234DC;
 extern uint32_t off_1234D8;
 extern uint32_t off_1234E0;
 
-// parse_subframe_header @ 0x123490, size 70 bytes
-// Doc: parse_subframe_header [rx]: Parses subframe header bytes, checks tag 0xc0
-// parse_subframe_header [rx]: Parses subframe header bytes, checks tag 0xc0
-uint8_t * parse_subframe_header(uint8_t *result)
+// validate_signature @ 0x123490, size 70 bytes
+// Doc: validate_signature [rx]: Parses subframe header bytes, checks tag 0xc0
+// validate_signature [rx]: Parses subframe header bytes, checks tag 0xc0
+uint8_t * validate_signature(uint8_t *result)
 {
   int v1; // r4
   uint32_t *v2; // r3
@@ -30,7 +30,7 @@ uint8_t * parse_subframe_header(uint8_t *result)
     {
       v2 = off_1234DC;
       *(uint8_t *)off_1234D8 = result[5];
-      result = (uint8_t *)mmio_write_40320150(*v2 + 20000);
+      result = (uint8_t *)mmio_write_register(*v2 + 20000);
       if ( v1 == 150 )
         v3 = 2;
       else

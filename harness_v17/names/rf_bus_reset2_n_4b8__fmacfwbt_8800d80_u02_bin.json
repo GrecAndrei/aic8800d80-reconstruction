@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_4b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113a0", "status": "ok", "name": "rf_bus_reset2_n_4b8", "params": [], "docstring": "Reset RF bus controller (variant 4b8)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_4b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113a0", "status": "ok", "name": "rf_bus_reset2_n_4b7", "params": [], "docstring": "Reset RF bus controller (variant 4b8)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

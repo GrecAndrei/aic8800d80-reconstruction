@@ -13,8 +13,8 @@
 extern uint32_t off_1306B8;
 extern uint32_t dword_1306BC;
 
-// sub_130640 @ 0x130640, size 120 bytes
-int  sub_130640(int *a1)
+// format_mac_address @ 0x130640, size 120 bytes
+int  format_mac_address(int *a1)
 {
   char *v1; // r4
   int16_t v2; // r3

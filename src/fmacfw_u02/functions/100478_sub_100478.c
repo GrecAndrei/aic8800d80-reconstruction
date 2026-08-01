@@ -29,8 +29,8 @@ extern uint32_t off_1005A0;
 extern uint32_t dword_1005AC;
 extern uint32_t off_1005A8;
 
-// sub_100478 @ 0x100478, size 240 bytes
-void __noreturn sub_100478()
+// queue_init @ 0x100478, size 240 bytes
+void __noreturn queue_init()
 {
   uint8_t *v0; // r4
   uint32_t *v1; // r5
@@ -68,7 +68,7 @@ void __noreturn sub_100478()
   *v4 = v0 + 152;
   *v5 = v0 + 178;
   *v6 = v0 + 176;
-  v7 = sub_1002A0();
+  v7 = ke_event_handler();
   if ( *(uint8_t *)*v1 == 1 )
   {
     v8 = off_10058C;
@@ -78,33 +78,33 @@ void __noreturn sub_100478()
   }
   v9 = off_100594;
   *((uint8_t *)off_100594 + 2) = (*(uint32_t *)off_100590 & 0xF) == 10;
-  v10 = sub_12FF98(v7);
-  v11 = sub_10D1A8(v10);
-  v12 = sub_10F204(v11);
-  v13 = sub_1157B4(v12);
+  v10 = call_handler(v7);
+  v11 = dma_reset_regs(v10);
+  v12 = rf_copy_stats(v11);
+  v13 = system_init(v12);
   if ( v0[363] )
   {
-    v20 = sub_1304F8(v13);
-    sub_1305B4(v20);
+    v20 = rf_get_channel_calibration(v13);
+    rf_enable(v20);
   }
-  v14 = sub_12EA88(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
-  v15 = sub_110100(v14);
-  v16 = sub_10F458(v15);
+  v14 = event_dispatch(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
+  v15 = calculate_rf_power(v14);
+  v16 = rf_wait_ready(v15);
   if ( v9[2] )
   {
-    sub_114568(v16);
+    get_global_167204(v16);
     v17 = off_100590;
     v18 = dword_1005A4;
     *(uint32_t *)off_1005A0 &= ~8u;
     *v17 &= 0xFFFFFFF0;
-    v19 = sub_12ECD0(2, v18);
+    v19 = check_status_bits(2, v18);
   }
   else
   {
-    v19 = sub_12ECD0(2, dword_1005AC);
+    v19 = check_status_bits(2, dword_1005AC);
   }
   if ( *(uint8_t *)*v1 == 3 )
     *(uint32_t *)off_1005A8 = 1;
-  sub_115D60(v19);
+  copy_global_data(v19);
 }
 

@@ -16,8 +16,8 @@ extern uint32_t off_124B68;
 extern uint32_t off_124B6C;
 extern uint32_t dword_124B70;
 
-// sub_124AD4 @ 0x124ad4, size 140 bytes
-int  sub_124AD4(uint8_t *a1, void *a2)
+// check_flag_bit @ 0x124ad4, size 140 bytes
+int  check_flag_bit(uint8_t *a1, void *a2)
 {
   int v2; // r3
   unsigned int v3; // r2
@@ -59,7 +59,7 @@ int  sub_124AD4(uint8_t *a1, void *a2)
     v3 = *(uint32_t *)off_124B6C & 0xFFF00FFF;
     *(uint32_t *)off_124B6C = v3 | (a1[4] << 12);
   }
-  sub_12E948(dword_124B70, a2, v3);
-  return sub_12E9D8(a1, 5, 1, 0);
+  alloc_tx_event(dword_124B70, a2, v3);
+  return process_packet_params(a1, 5, 1, 0);
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1220214", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1220214", "status": "ok", "name": "sub_1220214", "params": [], "docstring": "Handle operation on context field at offset 0xf0", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1220214", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1220214", "status": "ok", "name": "read_descriptor", "params": [], "docstring": "Handle operation on context field at offset 0xf0", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

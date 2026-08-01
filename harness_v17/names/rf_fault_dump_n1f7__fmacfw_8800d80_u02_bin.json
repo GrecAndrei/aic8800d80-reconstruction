@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n1f7", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121493e", "status": "ok", "name": "rf_fault_dump_493e", "params": [], "docstring": "Dump RF fault state and call fault callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_fault_dump_n1f7", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121493e", "status": "ok", "name": "rf_fault_dump_n1f6", "params": [], "docstring": "Dump RF fault state and call fault callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

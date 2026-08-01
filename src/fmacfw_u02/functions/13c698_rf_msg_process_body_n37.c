@@ -13,10 +13,10 @@
 extern uint32_t dword_13C708;
 extern uint32_t dword_13C70C;
 
-// rf_msg_process_body_n37 @ 0x13c698, size 110 bytes
-// Doc: rf_msg_process_body_n37 [rf]: Process RF message body with offset 0x6c and zero check
-// rf_msg_process_body_n37 [rf]: Process RF message body with offset 0x6c and zero check
-int  rf_msg_process_body_n37(int a1, int a2, int a3)
+// get_channel_tx_power @ 0x13c698, size 110 bytes
+// Doc: get_channel_tx_power [rf]: Process RF message body with offset 0x6c and zero check
+// get_channel_tx_power [rf]: Process RF message body with offset 0x6c and zero check
+int  get_channel_tx_power(int a1, int a2, int a3)
 {
   int v3; // r5
   int v4; // r6

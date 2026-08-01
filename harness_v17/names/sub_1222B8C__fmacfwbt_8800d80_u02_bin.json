@@ -1,1 +1,1 @@
-{"fn": "sub_1222B8C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222b8c", "status": "ok", "name": "rf_bus_write_n_415", "params": [], "docstring": "Write to RF bus register with masking", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1222B8C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222b8c", "status": "ok", "name": "send_cmd_0x76", "params": [], "docstring": "Write to RF bus register with masking", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

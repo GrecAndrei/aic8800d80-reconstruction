@@ -33,8 +33,8 @@ extern uint32_t off_110E70;
 extern uint32_t off_110E6C;
 extern uint32_t dword_110E74;
 
-// sub_110C80 @ 0x110c80, size 414 bytes
-int sub_110C80()
+// rf_tx_start @ 0x110c80, size 414 bytes
+int rf_tx_start()
 {
   int *v0; // r3
   int v1; // r3
@@ -70,11 +70,11 @@ int sub_110C80()
     *(uint32_t *)off_110E54 = *(uint32_t *)off_110E54 & 0x8000FFFF | 0x4E200000;
     *v21 = *v21 & 0xFFFF8000 | 0x4E20;
     *v22 = *v22 & 0xFFFFF000 | 0x960;
-    result = sub_10F764();
+    result = send_cmd_040d();
   }
   else
   {
-    sub_12ECB0(dword_110E28, 16, v1 << 29);
+    ke_event_schedule(dword_110E28, 16, v1 << 29);
     do
     {
       while ( (*(uint32_t *)off_110E2C & 0x20000000) != 0 )
@@ -121,7 +121,7 @@ int sub_110C80()
     v14 = dword_110E60;
     *v8 = 15;
     *v11 = v13;
-    sub_12ECB0(v14, v13, v11);
+    ke_event_schedule(v14, v13, v11);
     v15 = (int *)off_110E2C;
     v16 = dword_110E30;
     while ( 1 )
@@ -148,7 +148,7 @@ int sub_110C80()
     *(uint32_t *)off_110E2C = dword_110E64;
     while ( (*v18 & 0x20000000) != 0 )
       ;
-    result = sub_12ECB0(dword_110E68, v18, v17);
+    result = ke_event_schedule(dword_110E68, v18, v17);
     *(uint32_t *)off_110E38 = *(uint32_t *)off_110E38 & 0xFFFFF000 | 0x960;
   }
   v20 = off_110E70;

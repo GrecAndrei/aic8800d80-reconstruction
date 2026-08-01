@@ -1,1 +1,1 @@
-{"fn": "sub_12248F0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12248f0", "status": "ok", "name": "rf_lmac_init_n190", "params": [], "docstring": "LMAC RF subsystem init: clear status byte and invoke bringup at 0x11dc54", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12248F0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12248f0", "status": "ok", "name": "mmio_clear_flag", "params": [], "docstring": "LMAC RF subsystem init: clear status byte and invoke bringup at 0x11dc54", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

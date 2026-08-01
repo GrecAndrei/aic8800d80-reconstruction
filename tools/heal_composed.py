@@ -145,6 +145,10 @@ def lvalue_rewrite(stmt):
         val = m.group(1).strip()
         if val.count("(") != val.count(")"):
             continue  # truncated multi-line value; caller must join first
+        if re.fullmatch(r"0|0x0+[uUlL]*|0u|0U", inner):
+            # LODWORD(0) = v : the 64-bit local folded to a constant 0 is
+            # write-only (dead store). Keep RHS side effects, drop the store.
+            return stmt[:start] + f"(void)({val});" + stmt[j + m.end():]
         if shift == 32:
             out = f"{inner} = ({inner} & {keep}) | ((uint64_t)({wtype})({val}) << 32)"
         elif shift:
@@ -184,7 +188,7 @@ VOID_BINOP = re.compile(r"invalid operands to binary ([&|^+<>\-]{1,2}) \(have '(
 AGGREGATE_CAST = re.compile(r"aggregate value used where an integer was expected")
 CALLED_OBJECT = re.compile(r"called object is not a function or function pointer")
 FNP_TABLE_CALL = re.compile(r"\(\(uint32_t \*\)\(uintptr_t\)&(\w+)\)\[(0x[0-9A-Fa-f]+|[0-9]+)\]")
-MEM_ARRAY_CALL = re.compile(r"\bMEMORY\[(0x[0-9A-Fa-f]+|[0-9]+)\]")
+MEM_ARRAY_CALL = re.compile(r"\bMEMORY\[(0x[0-9A-Fa-f]+|[0-9]+)\]|MEMD\((0x[0-9A-Fa-f]+|[0-9]+)\)")
 
 
 def compile_one(main_c: Path, wd: Path):
@@ -258,6 +262,8 @@ def heal_compound(stmt):
     mm = re.match(r"^(\+\+|--)(HIDWORD|HIBYTE|HIWORD)\((.*)\)$", stmt)
     if mm:
         op, mac, inner = mm.group(1), mm.group(2), mm.group(3)
+        if re.fullmatch(r"0x?0*[uUlL]*", inner):
+            return f"(void)(1);" if op == "++" else f"(void)(1);"
         shift, mask = {"HIDWORD": (32, "0xFFFFFFFFu"),
                        "HIBYTE": (8, "0xFF"),
                        "HIWORD": (16, "0xFFFF")}[mac]
@@ -269,6 +275,8 @@ def heal_compound(stmt):
         mm = re.match(rf"^{mac}\((.*)\)\s*([&|^+<>-]+)=(.+)$", stmt)
         if mm:
             inner, op, val = mm.group(1), mm.group(2), mm.group(3).strip()
+            if re.fullmatch(r"0x?0*[uUlL]*", inner):
+                return f"(void)(({utype})({val}));"
             field = f"(({utype})({inner} >> {shift}){(' & ' + mask) if mask else ''})"
             return (f"{inner} = ({inner} & {keep}) | "
                     f"(({wtype})({utype})({field} {op} ({utype})({val}))) << {shift};")
@@ -276,12 +284,16 @@ def heal_compound(stmt):
         mm = re.match(rf"^{mac}\((.*)\)\s*([&|^+<>-]+)=(.+)$", stmt)
         if mm:
             inner, op, val = mm.group(1), mm.group(2), mm.group(3).strip()
+            if re.fullmatch(r"0x?0*[uUlL]*", inner):
+                return f"(void)(({val}));"
             return (f"{inner} = ({inner} & {keep}) | "
                     f"((uint32_t)(((uint32_t)({inner}) & {mask}) "
                     f"{op} (uint32_t)({val})));")
     mm = re.match(r"^LODWORD\((.*)\)\s*([&|^+<>-]+)=(.+)$", stmt)
     if mm:
         inner, op, val = mm.group(1), mm.group(2), mm.group(3).strip()
+        if re.fullmatch(r"0x?0*[uUlL]*", inner):
+            return f"(void)(({val}));"
         return (f"{inner} = ({inner} & ~0xFFFFFFFFull) | "
                 f"(uint64_t)(uint32_t)((uint32_t)({inner}) {op} (uint32_t)({val}));")
     return None
@@ -303,7 +315,7 @@ def heal_line(line: str, msg: str):
         return line, False
     indent, stmt, term, trail = st
 
-    if "& ~0x" not in stmt and "(uintptr_t)" not in stmt:
+    if "& ~0x" not in stmt:
         new_stmt = lvalue_rewrite(stmt)
         if new_stmt:
             return f"{indent}{new_stmt}{term}{trail}", True
@@ -533,6 +545,8 @@ def header_declared_names():
         txt = p.read_text()
         for m in re.finditer(r"^#\s*define\s+([A-Za-z_]\w*)", txt, re.M):
             names.add(m.group(1))
+        for m in re.finditer(r"\bstatic\s+inline\s+[^;{]*\b([A-Za-z_]\w*)\s*\(", txt):
+            names.add(m.group(1))
         for m in re.finditer(r"\btypedef\s+struct\s+\w*\s*\{[^}]*\}\s*([A-Za-z_]\w*)\s*;", txt, re.S):
             names.add(m.group(1))
         for m in re.finditer(r"\btypedef\s+[^;{]*?\s([A-Za-z_]\w*)\s*;", txt):
@@ -598,6 +612,26 @@ def main():
             fixed = 0
             shift = 0
             lines = main_c.read_text().split("\n")
+            # Proactive: wrap MEMD(idx)(...) / MEMORY[idx](...) function-pointer
+            # call sites (expansions fail inside the header; error-driven path
+            # cannot see them). Idempotent: after wrapping, '(' no longer follows.
+            for ln, line in enumerate(lines):
+                for m in reversed(list(MEM_ARRAY_CALL.finditer(line))):
+                    i = m.end()
+                    if i < len(line) and line[i] == "(":
+                        j = i + 1
+                        depth = 1
+                        while j < len(line) and depth > 0:
+                            if line[j] == "(":
+                                depth += 1
+                            elif line[j] == ")":
+                                depth -= 1
+                            j += 1
+                        if depth == 0:
+                            lines[ln] = (line[:m.start()] + f"((int (*)()){m.group(0)})"
+                                         + line[i:j] + line[j:])
+                            fixed += 1
+                            line = lines[ln]
             decl_fix = {"int MEMORY();": "extern uint32_t MEMORY[];",
                         "int _T1();": "extern volatile uint32_t _T1;"}
             lines = [decl_fix.get(ln.strip(), ln) for ln in lines]

@@ -30,10 +30,10 @@ extern uint32_t dword_12763C;
 extern uint32_t off_127660;
 extern uint32_t off_127640;
 
-// sub_12737C @ 0x12737c, size 670 bytes
+// ctrl_reset_handler @ 0x12737c, size 670 bytes
 // Doc: sub_122737C [unknown]: unknown FMAC routine at 0x122737c
 // sub_122737C [unknown]: unknown FMAC routine at 0x122737c
-int  sub_12737C(int a1, int a2)
+int  ctrl_reset_handler(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint32_t *v5; // r2
@@ -103,7 +103,7 @@ int  sub_12737C(int a1, int a2)
   *(uint32_t *)off_12762C = (4 * (uint8_t)v2[92]) & 4 | *(uint32_t *)off_12762C & 0xFFFFFFFB;
   if ( a2 )
     goto LABEL_6;
-  result = sub_121AE4();
+  result = shared_s16_worker();
   if ( !*((uint8_t *)off_127630 + 408) )
     goto LABEL_6;
   v12 = *(uint8_t *)(a1 + 24);
@@ -117,7 +117,7 @@ LABEL_7:
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
-        result = sub_125D98(a1);
+        result = hci_cmd_send_simple(a1);
         v14 = (uint8_t)v2[88];
       }
       else
@@ -152,7 +152,7 @@ LABEL_50:
     v42 = **(int16_t **)off_127644;
     *((uint32_t *)off_127648 + 1) |= 0x100040u;
     if ( v42 < 0 && *(uint32_t *)off_127650 << 28 )
-      sub_12F49C(dword_127658, dword_127654, 472);
+      call_shared_handler(dword_127658, dword_127654, 472);
     v38 = off_12764C;
     v39 = 1;
     *(uint32_t *)off_12764C = *v41 | v41[1];
@@ -187,25 +187,25 @@ LABEL_38:
   v37 = **(int16_t **)off_127644;
   *((uint32_t *)off_127648 + 1) &= 0xFFEFFFBF;
   if ( v37 < 0 && *(uint32_t *)off_127650 << 28 )
-    sub_12F49C(dword_127658, dword_127654, 472);
+    call_shared_handler(dword_127658, dword_127654, 472);
   v38 = off_12764C;
   *(uint32_t *)off_12764C = *v36 | v36[1];
   v39 = 0;
 LABEL_48:
   v40 = dword_12765C;
   v30[8] = v15;
-  result = msg_parse(v40, v39, v38);
+  result = event_dispatch(v40, v39, v38);
 LABEL_6:
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
     goto LABEL_7;
 LABEL_23:
   v2[88] &= ~8u;
-  v19 = (uint16_t *)sub_12B514();
-  v20 = (uint16_t *)sub_12C92C(79, 13, 0, 12);
+  v19 = (uint16_t *)get_queue_entry_ptr();
+  v20 = (uint16_t *)ke_msg_alloc(79, 13, 0, 12);
   *v20 = *v19;
   v21 = v20;
-  v22 = sub_12B528(v19);
+  v22 = rx_get_packet(v19);
   v23 = dword_12763C;
   v24 = (unsigned int *)off_127660;
   v25 = off_127640;
@@ -223,18 +223,18 @@ LABEL_23:
   }
   *((uint8_t *)v21 + 2) = *v25;
 LABEL_26:
-  sdio_buffer_prepare_n_4e8(v21);
+  ke_msg_send(v21);
   v27 = off_127648;
   v28 = **(int16_t **)off_127644;
   v29 = *((uint32_t *)off_127648 + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_127648 + 1) = v29;
   if ( v28 < 0 && *(uint32_t *)off_127650 << 28 )
   {
-    sub_12F49C(dword_127658, dword_127654, 472);
+    call_shared_handler(dword_127658, dword_127654, 472);
     v29 = v27[1];
   }
   *(uint32_t *)off_12764C = v29 | *v27;
-  result = sub_12CA10(142, 2, 255);
+  result = ke_msg_send_no_param(142, 2, 255);
   v14 = (uint8_t)v2[88];
 LABEL_8:
   *(uint8_t *)(a1 + 24) = -1;
@@ -243,11 +243,11 @@ LABEL_8:
   {
     if ( a2 )
       return result;
-    return sub_121A74();
+    return get_shared_s16();
   }
-  result = sub_127344();
+  result = scan_start_request();
   if ( !a2 )
-    return sub_121A74();
+    return get_shared_s16();
   return result;
 }
 

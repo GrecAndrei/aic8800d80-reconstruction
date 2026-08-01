@@ -15,10 +15,10 @@ extern uint32_t dword_121D78;
 extern uint32_t off_121D80;
 extern uint32_t off_121D7C;
 
-// sub_121CD8 @ 0x121cd8, size 156 bytes
+// call_fw_handler @ 0x121cd8, size 156 bytes
 // Doc: sub_1221CD8 [unknown]: Generic dispatcher wrapper saving r4-r8,sb,lr and calling sub-function
 // sub_1221CD8 [unknown]: Generic dispatcher wrapper saving r4-r8,sb,lr and calling sub-function
-int  sub_121CD8(int a1, uint8_t *a2, uint8_t *a3)
+int  call_fw_handler(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v6; // r4
   int v8; // r5
@@ -28,18 +28,18 @@ int  sub_121CD8(int a1, uint8_t *a2, uint8_t *a3)
   uint8_t *v12; // r3
   int v13; // r1
 
-  v6 = sub_11EF08((int *)a1, a2);
+  v6 = ble_event_wait((int *)a1, a2);
   if ( v6 )
     return v6;
   v8 = *(uint8_t *)(a1 + 25);
   v9 = dword_121D74 + 696 * (uint8_t)*a2;
   *(uint8_t *)(v9 + 669) = 0;
   *(uint16_t *)(v9 + 670) = 0;
-  inited = rf_chan_table_init_n_74((uint8_t)*a2, v8);
+  inited = mac_core_setup((uint8_t)*a2, v8);
   *a3 = inited;
   v11 = *(uint32_t *)(v9 + 44);
   if ( v11 )
-    inited = rf_chan_table_init_n_74(*(uint8_t *)(v11 + 35), *(uint8_t *)(a1 + 25));
+    inited = mac_core_setup(*(uint8_t *)(v11 + 35), *(uint8_t *)(a1 + 25));
   v12 = (uint8_t *)(dword_121D78 + 1320 * v8);
   if ( v12[106] )
   {
@@ -48,7 +48,7 @@ int  sub_121CD8(int a1, uint8_t *a2, uint8_t *a3)
       v13 = *(uint8_t *)off_121D80;
       ++*(uint8_t *)off_121D7C;
       if ( v13 == 1 )
-        cmd_dispatch_0xc6(inited);
+        rf_power_off(inited);
     }
     return v6;
   }

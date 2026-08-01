@@ -14,10 +14,10 @@ extern uint32_t off_123AA8;
 extern uint32_t dword_123AAC;
 extern uint32_t off_123AB0;
 
-// rf_chan_config_set @ 0x123a20, size 136 bytes
-// Doc: rf_chan_config_set [rf]: RF channel/configuration init from data tables 0x150040/0x14fe5c
-// rf_chan_config_set [rf]: RF channel/configuration init from data tables 0x150040/0x14fe5c
-int  rf_chan_config_set(int a1)
+// build_hci_command @ 0x123a20, size 136 bytes
+// Doc: build_hci_command [rf]: RF channel/configuration init from data tables 0x150040/0x14fe5c
+// build_hci_command [rf]: RF channel/configuration init from data tables 0x150040/0x14fe5c
+int  build_hci_command(int a1)
 {
   int v2; // r1
   uint64_t v3; // r0
@@ -47,9 +47,9 @@ int  rf_chan_config_set(int a1)
   HIDWORD(v3) = *(uint32_t *)(dword_123AAC + 4);
   v14 = *(uint32_t *)dword_123AAC;
   v15 = WORD2(v3);
-  sub_1282E8(&v16, &v10, 6);
-  sub_1282E8(v18, &v12, 6);
-  sub_1282E8(&v19, &v14, 6);
+  memcpy_large(&v16, &v10, 6);
+  memcpy_large(v18, &v12, 6);
+  memcpy_large(&v19, &v14, 6);
   v4 = off_123AB0;
   v5 = *((uint16_t *)off_123AB0 + 70);
   *(uint32_t *)(a1 + 10) = v16;

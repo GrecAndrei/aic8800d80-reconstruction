@@ -20,10 +20,10 @@ extern uint32_t off_103AC0;
 extern uint32_t dword_103ADC;
 extern uint32_t off_103ABC;
 
-// crypto_table_init @ 0x103a00, size 186 bytes
-// Doc: crypto_table_init [ke]: Initialize crypto/cipher key table entries
-// crypto_table_init [ke]: Initialize crypto/cipher key table entries
-int  crypto_table_init(int a1, int a2, int a3)
+// configure_bb_winsize @ 0x103a00, size 186 bytes
+// Doc: configure_bb_winsize [ke]: Initialize crypto/cipher key table entries
+// configure_bb_winsize [ke]: Initialize crypto/cipher key table entries
+int  configure_bb_winsize(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r2

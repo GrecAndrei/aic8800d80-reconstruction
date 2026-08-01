@@ -20,8 +20,8 @@ extern uint32_t off_1220D4;
 extern uint32_t off_1220CC;
 extern uint32_t dword_1220D8;
 
-// sub_122044 @ 0x122044, size 116 bytes
-int  sub_122044(int a1)
+// rf_setup_channel @ 0x122044, size 116 bytes
+int  rf_setup_channel(int a1)
 {
   int *v1; // r3
   int v2; // r6
@@ -67,7 +67,7 @@ LABEL_5:
   }
   while ( v1 != (int *)v3 );
   v9 = off_1220C8;
-  sub_102AD0(*((uint8_t *)off_1220C8 + 409));
+  rf_reg_write_byte(*((uint8_t *)off_1220C8 + 409));
   v10 = off_1220D0;
   v11 = off_1220D4;
   *((uint8_t *)off_1220CC + 7) = v9[409];
@@ -76,7 +76,7 @@ LABEL_5:
   v15[0] = 0;
   *v11 = 0;
   v15[5] = 0;
-  sub_117B84((int)v15);
-  return sub_12E948(dword_1220D8, v12, v13);
+  poll_hw_ready((int)v15);
+  return alloc_tx_event(dword_1220D8, v12, v13);
 }
 

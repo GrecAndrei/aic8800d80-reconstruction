@@ -15,8 +15,8 @@ extern uint32_t off_116758;
 extern uint32_t dword_116760;
 extern uint32_t dword_11675C;
 
-// sub_1166FC @ 0x1166fc, size 88 bytes
-int  sub_1166FC(int result)
+// switch_rf_path @ 0x1166fc, size 88 bytes
+int  switch_rf_path(int result)
 {
   switch ( result )
   {
@@ -40,7 +40,7 @@ int  sub_1166FC(int result)
       break;
     default:
       if ( **(int16_t **)off_116758 < 0 )
-        result = sub_12F694(dword_116760, dword_11675C, 944);
+        result = mmio_irq_clear(dword_116760, dword_11675C, 944);
       break;
   }
   return result;

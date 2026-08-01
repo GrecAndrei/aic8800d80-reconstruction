@@ -13,12 +13,12 @@
 extern uint32_t dword_12F1CC;
 extern uint32_t off_12F1D0;
 
-// sub_12F1A0 @ 0x12f1a0, size 42 bytes
-int  sub_12F1A0(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// ke_event_send_a @ 0x12f1a0, size 42 bytes
+int  ke_event_send_a(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
-  sub_12ECB0(dword_12F1CC, *a2);
+  ke_event_schedule(dword_12F1CC, *a2);
   *((uint32_t *)off_12F1D0 + 1) = *a2;
-  sub_12CC38(1031, a4, a3);
+  hci_evt_alloc_send(1031, a4, a3);
   return 0;
 }
 

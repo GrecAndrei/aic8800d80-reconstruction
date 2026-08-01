@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13D550;
 
-// sub_13D40C @ 0x13d40c, size 322 bytes
-int  sub_13D40C(int a1, unsigned int a2)
+// mac_parse_fcf @ 0x13d40c, size 322 bytes
+int  mac_parse_fcf(int a1, unsigned int a2)
 {
   int v4; // r5
   int16_t v5; // r0
@@ -31,7 +31,7 @@ int  sub_13D40C(int a1, unsigned int a2)
   v4 = (a2 >> 11) & 7;
   if ( (a2 & 0x2000) != 0 )
   {
-    v5 = sub_14383C(a1);
+    v5 = hash32(a1);
     v6 = a2 & 0xF;
     switch ( v4 )
     {
@@ -77,7 +77,7 @@ LABEL_21:
   {
     v7 = a2;
     v8 = a2 & 0x7F;
-    sub_14383C(a1);
+    hash32(a1);
     if ( (v7 & 0x7C) != 0 )
     {
       v9 = *(uint8_t *)(a1 + 177);
@@ -104,7 +104,7 @@ LABEL_21:
     }
     return a2;
   }
-  v5 = sub_14383C(a1);
+  v5 = hash32(a1);
   v12 = a2 & 7;
   while ( 1 )
   {

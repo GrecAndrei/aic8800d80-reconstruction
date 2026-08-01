@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n_245", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dea", "status": "ok", "name": "rf_state_check_n_245", "params": [], "docstring": "Checks RF state register flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n_245", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dea", "status": "ok", "name": "rf_bus_write_n42a", "params": [], "docstring": "Checks RF state register flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

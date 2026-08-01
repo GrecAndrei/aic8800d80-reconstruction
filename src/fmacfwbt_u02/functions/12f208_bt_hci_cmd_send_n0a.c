@@ -13,10 +13,10 @@
 extern uint32_t off_12F280;
 extern uint32_t dword_12F284;
 
-// bt_hci_cmd_send_n0a @ 0x12f208, size 120 bytes
+// msg_alloc_403 @ 0x12f208, size 120 bytes
 // Doc: rf_level_apply_n352_25e [rf]: Applies calibrated RF TX power level table
 // rf_level_apply_n352_25e [rf]: Applies calibrated RF TX power level table
-int  bt_hci_cmd_send_n0a(int a1, int *a2, int16_t a3, int16_t a4)
+int  msg_alloc_403(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int *v5; // r0
   int *v6; // r5
@@ -25,7 +25,7 @@ int  bt_hci_cmd_send_n0a(int a1, int *a2, int16_t a3, int16_t a4)
   int v9; // r0
   int v10; // r2
 
-  v5 = (int *)rf_bus_setup_n3a8(1027, a4, a3, 8u);
+  v5 = (int *)bt_buf_alloc(1027, a4, a3, 8u);
   v6 = v5;
   if ( (unsigned int)**(uint8_t **)off_12F280 - 1 <= 1 )
   {
@@ -37,8 +37,8 @@ int  bt_hci_cmd_send_n0a(int a1, int *a2, int16_t a3, int16_t a4)
     v7 = (uint32_t *)*a2;
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      sub_10EC30((int)v7, a2[1], 1);
-      v9 = sub_10EBDC(*a2, 1);
+      atomic_reg_read_alt((int)v7, a2[1], 1);
+      v9 = atomic_reg_read(*a2, 1);
       v8 = *a2;
     }
     else
@@ -51,8 +51,8 @@ int  bt_hci_cmd_send_n0a(int a1, int *a2, int16_t a3, int16_t a4)
     v10 = a2[1];
     *v6 = v8;
   }
-  sub_12ECB0(dword_12F284, v10);
-  sub_12CBB4((int)v6);
+  ke_event_schedule(dword_12F284, v10);
+  hci_evt_send((int)v6);
   return 0;
 }
 

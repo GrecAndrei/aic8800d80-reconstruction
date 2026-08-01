@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_118324 @ 0x118324, size 26 bytes
-int  sub_118324(int a1)
+// setup_packet_buffer @ 0x118324, size 26 bytes
+int  setup_packet_buffer(int a1)
 {
   int result; // r0
 
-  result = sub_11AC10(a1 + 48);
+  result = ke_exit_critical(a1 + 48);
   if ( *(uint32_t *)(a1 + 72) )
-    return sub_11C158(a1);
+    return bt_link_rx_check(a1);
   return result;
 }
 

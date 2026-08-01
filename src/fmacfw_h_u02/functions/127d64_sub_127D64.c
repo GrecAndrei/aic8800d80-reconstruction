@@ -15,8 +15,8 @@ extern uint32_t off_127DEC;
 extern uint32_t off_127DF4;
 extern uint32_t off_127DF8;
 
-// sub_127D64 @ 0x127d64, size 136 bytes
-int  sub_127D64(uint8_t *a1)
+// cfm_mac_info @ 0x127d64, size 136 bytes
+int  cfm_mac_info(uint8_t *a1)
 {
   int v1; // r4
   int result; // r0
@@ -48,8 +48,8 @@ int  sub_127D64(uint8_t *a1)
     }
     v8 = (int *)off_127DF8;
     ++*(uint32_t *)off_127DF8;
-    sub_11EA84();
-    sub_11D930(0);
+    disable_watchdog();
+    dma_ring_init(0);
     if ( *v8 )
     {
       v9 = *v8 - 1;
@@ -61,8 +61,8 @@ int  sub_127D64(uint8_t *a1)
           __enable_irq();
       }
     }
-    sub_102970((uint16_t *)v3, 0);
-    return sub_12C344(*(char *)(v4 + 28 * v1 + 12));
+    check_boot_flag((uint16_t *)v3, 0);
+    return call_stack_helper(*(char *)(v4 + 28 * v1 + 12));
   }
   return result;
 }

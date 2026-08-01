@@ -12,8 +12,8 @@
 
 extern uint32_t off_141DD8;
 
-// sub_141D94 @ 0x141d94, size 68 bytes
-int  sub_141D94(int a1)
+// update_ll_flags @ 0x141d94, size 68 bytes
+int  update_ll_flags(int a1)
 {
   int16_t v1; // r3
   uint8_t *v3; // r1
@@ -27,10 +27,10 @@ int  sub_141D94(int a1)
     if ( v3[1] )
     {
       if ( (v1 & 9) == 9 )
-        sub_141D08(a1);
+        handle_ll_event(a1);
     }
   }
-  result = sub_124CF4(a1 + 52);
+  result = mem_set_util(a1 + 52);
   if ( !*(uint8_t *)(a1 + 4) )
   {
     result = *(uint8_t *)(a1 + 47);

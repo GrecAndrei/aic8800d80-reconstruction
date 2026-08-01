@@ -13,8 +13,8 @@
 extern uint32_t dword_1229B4;
 extern uint32_t dword_1229B8;
 
-// sub_122958 @ 0x122958, size 90 bytes
-int  sub_122958(int a1, uint8_t *a2, int a3, int a4)
+// hci_send_cmd_0x76 @ 0x122958, size 90 bytes
+int  hci_send_cmd_0x76(int a1, uint8_t *a2, int a3, int a4)
 {
   int v5; // r0
   int v6; // r3
@@ -22,7 +22,7 @@ int  sub_122958(int a1, uint8_t *a2, int a3, int a4)
   int v8; // r2
   int v9; // r1
 
-  v5 = sub_12C92C(118, a4, a3, 12);
+  v5 = ke_msg_alloc(118, a4, a3, 12);
   v6 = dword_1229B4 + 696 * *a2;
   v7 = *(uint8_t *)(v6 + 34);
   if ( v7 == 255 )
@@ -35,11 +35,11 @@ int  sub_122958(int a1, uint8_t *a2, int a3, int a4)
   {
     *(uint8_t *)(v5 + 8) = *(uint8_t *)(v8 + 142);
 LABEL_4:
-    sdio_buffer_prepare_n_4e8(v5);
+    ke_msg_send(v5);
     return 0;
   }
   *(uint8_t *)(v5 + 8) = *(uint8_t *)(v6 + 689);
-  sdio_buffer_prepare_n_4e8(v5);
+  ke_msg_send(v5);
   return 0;
 }
 

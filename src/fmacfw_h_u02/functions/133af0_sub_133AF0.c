@@ -18,8 +18,8 @@ extern uint32_t dword_133CA8;
 extern uint32_t off_133C98;
 extern uint32_t off_133C9C;
 
-// sub_133AF0 @ 0x133af0, size 414 bytes
-int sub_133AF0()
+// hci_process_event @ 0x133af0, size 414 bytes
+int hci_process_event()
 {
   uint8_t *v0; // r6
   int v1; // r7
@@ -44,22 +44,22 @@ int sub_133AF0()
 
   v0 = off_133C94;
   v1 = *((uint32_t *)off_133C94 + 4);
-  if ( **(int16_t **)off_133C90 < 0 && sub_12CD48(6u) != 2 )
-    sub_12F32C(dword_133CA4, dword_133CA0, 344);
+  if ( **(int16_t **)off_133C90 < 0 && hci_cmd_handler(6u) != 2 )
+    irq_disable_mmio_write(dword_133CA4, dword_133CA0, 344);
   v2 = *(uint8_t *)(v1 + 61);
   v3 = dword_133CA8;
   v4 = 1320 * v2;
   v5 = dword_133CA8 + 1320 * v2;
   if ( *(int *)(v5 + 472) < 0 )
   {
-    if ( sub_13465C(v20) )
+    if ( get_acl_conn_slot(v20) )
     {
-      sub_134CC4(1);
+      assert_trace(1);
     }
     else
     {
-      v11 = sub_12C7EC(10, 0, 6, 0x20u);
-      sub_128748(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
+      v11 = tx_send_pdu(10, 0, 6, 0x20u);
+      bsscfg_index(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
       *(uint32_t *)v11 = 0;
       *(uint8_t *)(v11 + 25) = *(uint8_t *)(v1 + 61);
       v12 = *(uint32_t *)(v5 + 368);
@@ -76,7 +76,7 @@ int sub_133AF0()
         v15 = v14 & 4;
         if ( (v14 & 4) != 0 )
         {
-          v18 = sub_12DE60(v4 + 368 + v3);
+          v18 = rf_get_freq_field(v4 + 368 + v3);
           v14 = *(uint32_t *)(v5 + 472);
           v16 = (uint32_t *)(v4 + 280 + v3);
           v15 = v18;
@@ -88,11 +88,11 @@ int sub_133AF0()
         v17 = v14 & 8;
         if ( (v14 & 8) != 0 )
           v17 = v4 + 292 + v3;
-        sub_132518(v4 + 248 + v3, v16, v17, (uint16_t *)(v11 + 16), (int *)(v11 + 8), (int *)(v11 + 4), (char *)(v11 + 24));
+        clear_measurements(v4 + 248 + v3, v16, v17, (uint16_t *)(v11 + 16), (int *)(v11 + 8), (int *)(v11 + 4), (char *)(v11 + 24));
       }
       *(uint32_t *)(v11 + 12) = v15;
-      sub_12C84C(v11);
-      sub_12CBF4(6u, 3);
+      rx_process_packet(v11);
+      hci_cmd_preprocess(6u, 3);
     }
     v9 = *(uint32_t *)(v1 + 48);
     v10 = v3 + 1320 * v2;
@@ -107,24 +107,24 @@ int sub_133AF0()
   v6 = (uint8_t)v0[32];
   if ( v0[32] )
   {
-    sub_134CC4(1);
+    assert_trace(1);
     return 0;
   }
   v19 = (uint8_t)v0[32];
   v20[0] = v6;
-  sub_134334(&v19, v20);
+  ble_get_addr_flag(&v19, v20);
   if ( *(uint8_t *)off_133C98 != 1 && *((uint8_t *)off_133C9C + 3) != 1 )
   {
     *((uint8_t *)off_133C9C + 32) = 2;
 LABEL_7:
-    sub_134480(v19, v20[0], 1);
+    ble_parse_event(v19, v20[0], 1);
     return 0;
   }
   v8 = (uint8_t)(*((uint8_t *)off_133C9C + 32) + 1);
   *((uint8_t *)off_133C9C + 32) = v8;
   if ( v8 > 1 )
     goto LABEL_7;
-  sub_134480(v19, v20[0], 0);
+  ble_parse_event(v19, v20[0], 0);
   return 0;
 }
 

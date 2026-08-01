@@ -14,8 +14,8 @@ extern uint32_t off_1327B4;
 extern uint32_t off_1327AC;
 extern uint32_t dword_1327B0;
 
-// sub_13267C @ 0x13267c, size 302 bytes
-BOOL  sub_13267C(int a1, int a2)
+// llm_get_adv_addr @ 0x13267c, size 302 bytes
+BOOL  llm_get_adv_addr(int a1, int a2)
 {
   uint8_t *v2; // r8
   unsigned int v3; // r6
@@ -37,7 +37,7 @@ BOOL  sub_13267C(int a1, int a2)
   v4 = *((uint8_t *)off_1327B4 + 372);
   if ( (*(uint8_t *)off_1327AC & 8) == 0 )
   {
-    sub_12ECB0(dword_1327B0);
+    ke_event_schedule(dword_1327B0);
     v3 = v3 != 0;
   }
   v7 = *(uint32_t *)(a1 + 4);

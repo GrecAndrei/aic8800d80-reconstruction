@@ -12,10 +12,10 @@
 
 extern uint32_t dword_127224;
 
-// math_round @ 0x127194, size 142 bytes
+// parse_data_field @ 0x127194, size 142 bytes
 // Doc: rf_level_apply_n3dd [rf]: Applies RF level value via OR with mask register
 // rf_level_apply_n3dd [rf]: Applies RF level value via OR with mask register
-uint64_t  math_round(uint64_t a1)
+uint64_t  parse_data_field(uint64_t a1)
 {
   int v1; // r7
   int v2; // r4
@@ -49,7 +49,7 @@ uint64_t  math_round(uint64_t a1)
     }
     else if ( v1 == 2047 )
     {
-      return sub_1272B4(a1, HIDWORD(a1), a1, HIDWORD(a1));
+      return double_add(a1, HIDWORD(a1), a1, HIDWORD(a1));
     }
   }
   else

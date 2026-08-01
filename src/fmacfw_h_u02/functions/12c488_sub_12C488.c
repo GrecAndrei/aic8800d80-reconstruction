@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12C488 @ 0x12c488, size 26 bytes
-BOOL  sub_12C488(int a1, unsigned int a2)
+// match_packet_header @ 0x12c488, size 26 bytes
+BOOL  match_packet_header(int a1, unsigned int a2)
 {
   return *(uint16_t *)(a1 + 4) == HIWORD(a2) && *(uint16_t *)(a1 + 6) == (uint16_t)a2;
 }

@@ -30,8 +30,8 @@ extern uint32_t dword_12BFE0;
 extern uint32_t dword_12BFDC;
 extern uint32_t dword_12BFC8;
 
-// sub_12BE8C @ 0x12be8c, size 280 bytes
-int  sub_12BE8C(int a1, int a2)
+// mmio_copy_reg @ 0x12be8c, size 280 bytes
+int  mmio_copy_reg(int a1, int a2)
 {
   void *v2; // r2
   int v3; // r4
@@ -52,7 +52,7 @@ int  sub_12BE8C(int a1, int a2)
   result = v3 << 21;
   if ( (v3 & 0x400) != 0 )
   {
-    msg_parse(dword_12BFC0, a2, v2);
+    event_dispatch(dword_12BFC0, a2, v2);
     while ( 1 )
       ;
   }
@@ -63,29 +63,29 @@ int  sub_12BE8C(int a1, int a2)
     if ( (v3 & 0x200) == 0 )
       goto LABEL_4;
 LABEL_13:
-    msg_parse(dword_12BFBC, v5, v6);
+    event_dispatch(dword_12BFBC, v5, v6);
     while ( 1 )
       ;
   }
-  result = fw_state_check();
+  result = rf_counter_get();
   v6 = v3 << 22;
   if ( (v3 & 0x200) != 0 )
     goto LABEL_13;
 LABEL_4:
   if ( (v3 & 0x10) != 0 )
   {
-    rf_set_bit_flag(4);
-    result = category_dispatch_5way(4);
+    mmio_set_bit(4);
+    result = phy_band_validate(4);
   }
   if ( (v3 & 0x2F) != 0 )
   {
     if ( *(uint8_t *)off_12BFAC )
     {
       v11 = (char *)off_12BFD0;
-      sub_102B80(*((uint8_t *)off_12BFD0 + 411));
+      write_phy_config(*((uint8_t *)off_12BFD0 + 411));
       v12 = v11[411];
       *((uint8_t *)off_12BFD4 + 9) = v12;
-      return msg_parse(dword_12BFD8, v12, v13);
+      return event_dispatch(dword_12BFD8, v12, v13);
     }
     if ( *(uint8_t *)off_12BFB0 )
     {
@@ -150,7 +150,7 @@ LABEL_4:
         }
       }
     }
-    return fmac_phy_op_handler(v9, v8, v10, v7);
+    return bad_func_0x12f408(v9, v8, v10, v7);
   }
   return result;
 }

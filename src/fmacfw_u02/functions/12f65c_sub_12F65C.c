@@ -15,8 +15,8 @@ extern uint32_t dword_12F6F4;
 extern uint32_t dword_12F6F8;
 extern uint32_t off_12F6F0;
 
-// sub_12F65C @ 0x12f65c, size 144 bytes
-unsigned int  sub_12F65C(unsigned int a1, int a2, int a3)
+// trim_leading_tab @ 0x12f65c, size 144 bytes
+unsigned int  trim_leading_tab(unsigned int a1, int a2, int a3)
 {
   unsigned int v3; // r7
   int *v4; // r5
@@ -36,7 +36,7 @@ unsigned int  sub_12F65C(unsigned int a1, int a2, int a3)
       v8 = (uint8_t *)dword_12F6F4;
       do
       {
-        uart_puts(v8);
+        read_memory_byte(v8);
         v9 = *v4 - 1;
         *v4 = v9;
       }
@@ -55,11 +55,11 @@ unsigned int  sub_12F65C(unsigned int a1, int a2, int a3)
           if ( v13 == 9 )
             break;
           ++*v4;
-          uart_putc(*v11);
+          gpio_write(*v11);
           if ( v11 == v12 )
             goto LABEL_10;
         }
-        uart_puts((uint8_t *)((*v4 & 7) + v10));
+        read_memory_byte((uint8_t *)((*v4 & 7) + v10));
         *v4 = (*v4 & 0xFFFFFFF8) + 8;
       }
       while ( v11 != v12 );
@@ -67,7 +67,7 @@ unsigned int  sub_12F65C(unsigned int a1, int a2, int a3)
   }
   else
   {
-    uart_puts((uint8_t *)dword_12F6F4);
+    read_memory_byte((uint8_t *)dword_12F6F4);
     --*(uint32_t *)off_12F6EC;
   }
 LABEL_10:

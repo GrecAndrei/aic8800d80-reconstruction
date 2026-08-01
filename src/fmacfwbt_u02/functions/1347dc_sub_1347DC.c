@@ -20,10 +20,10 @@ extern uint32_t off_1348F8;
 extern uint32_t dword_1348FC;
 extern uint32_t off_134900;
 
-// sub_1347DC @ 0x1347dc, size 260 bytes
+// rx_security_check @ 0x1347dc, size 260 bytes
 // Doc: sub_12347DC [unknown]: Generic helper pushing multiple regs, reads byte from r1, accesses global table
 // sub_12347DC [unknown]: Generic helper pushing multiple regs, reads byte from r1, accesses global table
-void  sub_1347DC(int a1, int a2, int a3)
+void  rx_security_check(int a1, int a2, int a3)
 {
   uint32_t *v4; // r3
   uint8_t *v7; // r9
@@ -61,8 +61,8 @@ void  sub_1347DC(int a1, int a2, int a3)
       *((uint16_t *)v4 + 1) = 257;
       v20 = dword_1348FC;
       v18[35594] = 0;
-      rf_level_apply_80c(6155, 6, v20);
-      mmio_reg_init_n0d08c();
+      patch_aware_dispatch(6155, 6, v20);
+      clock_disable();
       return;
     }
     *((uint8_t *)off_1348E0 + 3) = 0;
@@ -75,7 +75,7 @@ void  sub_1347DC(int a1, int a2, int a3)
   }
   v7 = off_134900;
   v8 = *((int **)off_134900 + 4);
-  v9 = rf_bus_setup_n3a8(4098, 4, 6, 0x178u);
+  v9 = bt_buf_alloc(4098, 4, 6, 0x178u);
   *(uint32_t *)v9 = *(uint32_t *)a2;
   v10 = *(uint16_t *)(a2 + 4);
   *(uint8_t *)(v9 + 367) = 1;
@@ -105,7 +105,7 @@ void  sub_1347DC(int a1, int a2, int a3)
   if ( a3 )
     *(uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
-  sub_12CBB4(v9);
-  rf_bus_mark_n_3b7(6u, 2);
+  hci_evt_send(v9);
+  hci_cmd_send(6u, 2);
 }
 

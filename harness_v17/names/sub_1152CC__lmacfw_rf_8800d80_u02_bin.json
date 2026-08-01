@@ -1,0 +1,1 @@
+{"fn": "sub_1152CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1152cc", "status": "ok", "name": "log_u32_value", "params": [], "docstring": "Log a value using a global format string", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

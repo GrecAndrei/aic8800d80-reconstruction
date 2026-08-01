@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111C28 @ 0x111c28, size 36 bytes
-int * sub_111C28(int *result, unsigned int a2)
+// set_hw_cfg_b @ 0x111c28, size 36 bytes
+int * set_hw_cfg_b(int *result, unsigned int a2)
 {
   if ( result )
   {
     if ( a2 <= 5 )
-      return (int *)sub_111ADC(a2, 0x200000, 0);
+      return (int *)unknown_handler2(a2, 0x200000, 0);
   }
   else if ( a2 <= 5 )
   {
-    return sub_111A24(a2, 0x200000, 0);
+    return unknown_handler(a2, 0x200000, 0);
   }
   return result;
 }

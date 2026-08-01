@@ -1,1 +1,1 @@
-{"fn": "sub_122A350", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a350", "status": "ok", "name": "mac_txq_flag_get", "params": [], "docstring": "Read flag byte from per-TID tx queue entry table", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A350", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a350", "status": "ok", "name": "rf_channel_offset_get", "params": [], "docstring": "Read flag byte from per-TID tx queue entry table", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

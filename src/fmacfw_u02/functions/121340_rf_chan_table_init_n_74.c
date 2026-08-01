@@ -19,10 +19,10 @@ extern uint32_t off_121404;
 extern uint32_t off_121408;
 extern uint32_t off_12140C;
 
-// rf_chan_table_init_n_74 @ 0x121340, size 184 bytes
-// Doc: rf_chan_table_init_n_74 [rf]: Initialize per-channel RF register table at 0x403200ac..bc sized 0x2b8
-// rf_chan_table_init_n_74 [rf]: Initialize per-channel RF register table at 0x403200ac..bc sized 0x2b8
-int  rf_chan_table_init_n_74(int a1, int a2)
+// mac_core_setup @ 0x121340, size 184 bytes
+// Doc: mac_core_setup [rf]: Initialize per-channel RF register table at 0x403200ac..bc sized 0x2b8
+// mac_core_setup [rf]: Initialize per-channel RF register table at 0x403200ac..bc sized 0x2b8
+int  mac_core_setup(int a1, int a2)
 {
   int v2; // r6
   uint32_t *v3; // r3

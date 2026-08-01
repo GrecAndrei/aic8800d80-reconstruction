@@ -1,1 +1,1 @@
-{"fn": "sub_122F630", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f630", "status": "ok", "name": "sub_122F630", "params": [], "docstring": "BT/LMAC helper: branches on shifted flag and dispatches", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122F630", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f630", "status": "ok", "name": "ke_int_lock", "params": [], "docstring": "BT/LMAC helper: branches on shifted flag and dispatches", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

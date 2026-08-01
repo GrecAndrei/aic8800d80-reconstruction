@@ -14,8 +14,8 @@ extern uint32_t off_100764;
 extern uint32_t off_100768;
 extern uint32_t off_100760;
 
-// sub_100730 @ 0x100730, size 46 bytes
-uint32_t *sub_100730()
+// mmio_set_bit @ 0x100730, size 46 bytes
+uint32_t *mmio_set_bit()
 {
   uint32_t *result; // r0
   int *v1; // r2

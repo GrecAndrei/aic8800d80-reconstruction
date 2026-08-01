@@ -13,16 +13,16 @@
 extern uint32_t dword_11C9C0;
 extern uint32_t off_11C9C4;
 
-// sub_11C990 @ 0x11c990, size 46 bytes
+// get_cal_value @ 0x11c990, size 46 bytes
 // Doc: sub_121C990 [scan]: Indexed table lookup using sub-id * 0x528 stride, cap compare 0x3ff
 // sub_121C990 [scan]: Indexed table lookup using sub-id * 0x528 stride, cap compare 0x3ff
-unsigned int * sub_11C990(unsigned int *result)
+unsigned int * get_cal_value(unsigned int *result)
 {
   int v1; // r2
 
   v1 = *(uint16_t *)(dword_11C9C0 + 1320 * *((uint8_t *)result + 28) + 1222);
   if ( v1 != 1023 && *((uint8_t *)off_11C9C4 + 361) != 2 )
-    return sub_11B510((unsigned int *)(result[17] + 4), *(uint32_t *)(result[17] + 40), v1);
+    return check_packet_bits((unsigned int *)(result[17] + 4), *(uint32_t *)(result[17] + 40), v1);
   return result;
 }
 

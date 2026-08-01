@@ -28,8 +28,8 @@ extern uint32_t off_10AEC4;
 extern uint32_t off_10AEC8;
 extern uint32_t dword_10AECC;
 
-// sub_10A868 @ 0x10a868, size 1610 bytes
-int  sub_10A868(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6)
+// rf_set_channel @ 0x10a868, size 1610 bytes
+int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6)
 {
   unsigned int v8; // s17
   int v9; // r3
@@ -79,7 +79,7 @@ int  sub_10A868(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
   int16_t v57[6]; // [sp+68h] [bp-77Ch] BYREF
   int16_t v58[952]; // [sp+74h] [bp-770h] BYREF
 
-  sub_12EB90(0x2000, dword_10AB78);
+  check_feature_flag(0x2000, dword_10AB78);
   v8 = ((a1 >> 1) & 1) + 3;
   if ( (a1 & 0xC) != 0 )
   {
@@ -141,7 +141,7 @@ int  sub_10A868(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
           *v16 = dword_10AB98 & (((int16_t)v49 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
           *v16 |= 0x20000u;
           *v16 |= 0x40000u;
-          sub_100644(1);
+          mmio_read32(1);
           if ( v43 )
           {
             if ( v45 )
@@ -150,31 +150,31 @@ int  sub_10A868(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
             }
             else
             {
-              sub_1093B8(v18, v20, &v52, (char *)&v58[6] + 3 * v20, (int *)&v58[8 * v20 + 54]);
+              crypto_aes_setkey(v18, v20, &v52, (char *)&v58[6] + 3 * v20, (int *)&v58[8 * v20 + 54]);
               v21 = (int16_t)v20;
-              sub_1093B8(v18, v20, &v53, (char *)&v58[30] + 3 * v20, (int *)&v58[8 * v20 + 182]);
+              crypto_aes_setkey(v18, v20, &v53, (char *)&v58[30] + 3 * v20, (int *)&v58[8 * v20 + 182]);
             }
             v22 = *((uint8_t *)&v58[6] + 3 * v20 + v46);
             v23 = *((uint8_t *)&v58[30] + 3 * v20 + v46);
             *v19 = *v19 & 0xFE01FFFF | (v22 << 17);
             *v19 = *v19 & 0xFFFF00FF | (v22 << 8);
-            sub_109188(&v55, (unsigned int *)&v56);
+            mmio_write_reg2(&v55, (unsigned int *)&v56);
             if ( v22 != v23 )
             {
               *v19 = *v19 & 0xFE01FFFF | (v23 << 17);
               *v19 = *v19 & 0xFFFF00FF | (v23 << 8);
-              sub_109188(&v54, (unsigned int *)&v56);
+              mmio_write_reg2(&v54, (unsigned int *)&v56);
             }
           }
           else
           {
             *v19 = *v19 & 0xFE01FFFF | 0x1000000;
             *v19 = *v19 & 0xFFFF00FF | 0x8000;
-            sub_109188(&v55, (unsigned int *)&v56);
+            mmio_write_reg2(&v55, (unsigned int *)&v56);
             v21 = (int16_t)v20;
           }
-          sub_1093D8((uint8_t)v45, v55, &v58[20 * v21 + 310]);
-          sub_1093D8((uint8_t)v45, v56, &v58[20 * v20 + 630]);
+          check_nonzero_word((uint8_t)v45, v55, &v58[20 * v21 + 310]);
+          check_nonzero_word((uint8_t)v45, v56, &v58[20 * v20 + 630]);
           v20 = (uint8_t)(v20 + 1);
         }
         while ( a5 >= v20 );
@@ -203,8 +203,8 @@ int  sub_10A868(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
         else
           v26 = 50;
         v44 = v26;
-        *(uint32_t *)&v58[2 * v27 + 54] = sub_10943C(v48, v26, (int *)&v58[20 * v25 + 310]);
-        *(uint32_t *)&v58[2 * v27 + 182] = sub_10943C(v48, v44, (int *)&v58[20 * v25 + 630]);
+        *(uint32_t *)&v58[2 * v27 + 54] = aligned_word_masks(v48, v26, (int *)&v58[20 * v25 + 310]);
+        *(uint32_t *)&v58[2 * v27 + 182] = aligned_word_masks(v48, v44, (int *)&v58[20 * v25 + 630]);
         v25 = (uint8_t)(v25 + 1);
       }
       while ( a5 >= v25 );
@@ -216,16 +216,16 @@ LABEL_28:
   while ( v8 > (uint8_t)v43 );
   if ( a4 > a5 )
   {
-    sub_109738((a1 >> 5) & 1, v57);
-    sub_109738((a1 >> 5) & 1, v58);
+    is_null_pointer((a1 >> 5) & 1, v57);
+    is_null_pointer((a1 >> 5) & 1, v58);
   }
   else
   {
     v28 = a4;
     do
     {
-      v29 = sub_10A624(v8, v28, (uint8_t *)&v58[6] + 3 * v28, (int *)&v58[8 * v28 + 54]);
-      v30 = sub_10A624(v8, v28, (uint8_t *)&v58[30] + 3 * v28, (int *)&v58[8 * v28 + 182]);
+      v29 = rf_channel_switch(v8, v28, (uint8_t *)&v58[6] + 3 * v28, (int *)&v58[8 * v28 + 54]);
+      v30 = rf_channel_switch(v8, v28, (uint8_t *)&v58[30] + 3 * v28, (int *)&v58[8 * v28 + 182]);
       v31 = v28 - 10;
       if ( v28 > 9 )
         v57[v31] = v29;
@@ -239,8 +239,8 @@ LABEL_28:
       v28 = v32;
     }
     while ( a5 >= (unsigned int)v32 );
-    sub_109738((a1 >> 5) & 1, v57);
-    sub_109738((a1 >> 5) & 1, v58);
+    is_null_pointer((a1 >> 5) & 1, v57);
+    is_null_pointer((a1 >> 5) & 1, v58);
     for ( i = a4; ; i = (uint8_t)(i + 1) )
     {
       if ( i > 9 )
@@ -251,8 +251,8 @@ LABEL_28:
     v34 = a4;
     do
     {
-      sub_12EB90(0x2000, dword_10AEB4);
-      sub_12EB90(0x2000, dword_10AEB8);
+      check_feature_flag(0x2000, dword_10AEB4);
+      check_feature_flag(0x2000, dword_10AEB8);
       v24 = a5 == v34;
       v34 = (uint8_t)(v34 + 1);
     }
@@ -287,6 +287,6 @@ LABEL_28:
   *(uint32_t *)off_10AEC8 &= 0xFFFE00FF;
   *v39 &= ~0x20000u;
   *v39 |= 0x40000u;
-  return sub_12EB90(0x2000, v40);
+  return check_feature_flag(0x2000, v40);
 }
 

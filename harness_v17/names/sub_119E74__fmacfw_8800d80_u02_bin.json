@@ -1,0 +1,1 @@
+{"fn": "sub_119E74", "img": "fmacfw_8800d80_u02_bin", "addr": "0x119e74", "status": "ok", "name": "process_event_loop", "params": [], "docstring": "Processes events from list.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

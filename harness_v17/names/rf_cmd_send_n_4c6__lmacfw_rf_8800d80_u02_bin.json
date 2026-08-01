@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212452", "status": "ok", "name": "rf_cmd_send_n_4c6", "params": [], "docstring": "Configure RF MMIO regs and send RF command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212452", "status": "ok", "name": "rf_bus_reset_n163", "params": [], "docstring": "Configure RF MMIO regs and send RF command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

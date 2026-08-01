@@ -14,8 +14,8 @@ extern uint32_t off_130828;
 extern uint32_t dword_130830;
 extern uint32_t off_13082C;
 
-// sub_1307D0 @ 0x1307d0, size 88 bytes
-int sub_1307D0()
+// rf_afe_enable @ 0x1307d0, size 88 bytes
+int rf_afe_enable()
 {
   uint8_t *v0; // r4
   int result; // r0
@@ -25,22 +25,22 @@ int sub_1307D0()
 
   v0 = off_130828;
   *((uint8_t *)off_130828 + 1) = 1;
-  result = message_dispatch_n_d8(1070, 1);
+  result = find_hci_conn_by_handle(1070, 1);
   if ( !result )
   {
-    rf_hw_timer_init();
-    v0[6] = mmio_read_bitfield_7000101c();
-    sub_1306CC();
+    gpio_reset();
+    v0[6] = get_periph_status();
+    rf_calibrate_value();
     v2 = (uint8_t)v0[5];
     if ( (uint8_t)v0[6] != v2 )
     {
-      sub_10ED90(v2);
+      set_periph_status(v2);
       v3 = (uint8_t)v0[5];
       v4 = dword_130830;
       v0[6] = v3;
-      sub_12ECB0(v4, v3);
+      ke_event_schedule(v4, v3);
     }
-    return rf_level_apply_80c(1070, 1, 1000 * *((uint32_t *)off_13082C + 91));
+    return patch_aware_dispatch(1070, 1, 1000 * *((uint32_t *)off_13082C + 91));
   }
   return result;
 }

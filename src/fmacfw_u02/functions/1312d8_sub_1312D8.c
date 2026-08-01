@@ -33,10 +33,10 @@ extern uint32_t off_131510;
 extern uint32_t off_131514;
 extern uint32_t off_13150C;
 
-// sub_1312D8 @ 0x1312d8, size 486 bytes
+// ke_event_lookup @ 0x1312d8, size 486 bytes
 // Doc: sub_12312D8 [tx]: Parse header bytes and dispatch via table lookup
 // sub_12312D8 [tx]: Parse header bytes and dispatch via table lookup
-int  sub_1312D8(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+int  ke_event_lookup(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r1
   uint8_t *v8; // r3
@@ -67,7 +67,7 @@ int  sub_1312D8(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   unsigned int *v34; // r1
   uint32_t *v35; // r2
 
-  feature_guard_check(2, dword_1314C0, *a2, a2[1]);
+  check_status_bits(2, dword_1314C0, *a2, a2[1]);
   v7 = *a2;
   v8 = off_1314C8;
   **(uint8_t **)off_1314C4 = v7;
@@ -114,7 +114,7 @@ int  sub_1312D8(int a1, uint8_t *a2, int16_t a3, int16_t a4)
             v26 = dword_1314F4;
             *((uint32_t *)off_1314DC + 5) = v23;
             v22[29] = 4;
-            timestamp_update(v26, v25 + v24);
+            unknown_worker(v26, v25 + v24);
             v23[1] |= 0x200u;
           }
         }
@@ -142,9 +142,9 @@ LABEL_21:
       v17 = *(uint16_t *)(*(uint32_t *)off_1314E4 + 54);
       v13[5] = v14;
       *((uint8_t *)v13 + 29) = 4;
-      timestamp_update((int)(v13 + 3), v17 + v16);
+      unknown_worker((int)(v13 + 3), v17 + v16);
       *(uint32_t *)(v14 + 4) |= 0x200u;
-      timestamp_remove(v14 + 24);
+      fault_handler(v14 + 24);
     }
   }
   else if ( !v7 && **(uint8_t **)off_1314CC == 3 )
@@ -168,8 +168,8 @@ LABEL_21:
         *v33 &= ~0x80u;
       }
       *(uint32_t *)off_131504 = 48;
-      sub_117AB8();
-      sub_128EA0();
+      fatal_error_handler();
+      wlc_core_state();
     }
     if ( !*((uint8_t *)off_131508 + 36) )
     {
@@ -180,7 +180,7 @@ LABEL_21:
       *v35 |= 1u;
     }
   }
-  sub_12CA10(5142, a4, a3);
+  ke_msg_send_no_param(5142, a4, a3);
   return 0;
 }
 

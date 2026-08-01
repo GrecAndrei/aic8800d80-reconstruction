@@ -14,8 +14,8 @@ extern uint32_t off_110108;
 extern uint32_t dword_11010C;
 extern uint32_t dword_110110;
 
-// sub_1100D4 @ 0x1100d4, size 52 bytes
-int sub_1100D4()
+// rx_packet_event @ 0x1100d4, size 52 bytes
+int rx_packet_event()
 {
   void *v0; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int sub_1100D4()
   int v4; // r4
 
   v0 = off_110108;
-  result = sub_11E71C(dword_11010C);
+  result = list_init(dword_11010C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_110110;
@@ -32,8 +32,8 @@ int sub_1100D4()
     v4 = 0;
     do
     {
-      sub_10FA18(v2, 0xCu);
-      result = sub_11E724(v3);
+      list_iterate(v2, 0xCu);
+      result = check_kernel_state(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );

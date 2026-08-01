@@ -21,8 +21,8 @@ extern uint32_t off_129248;
 extern uint32_t off_129250;
 extern uint32_t off_12924C;
 
-// sub_129194 @ 0x129194, size 150 bytes
-void  sub_129194(int a1)
+// mfp_is_enabled @ 0x129194, size 150 bytes
+void  mfp_is_enabled(int a1)
 {
   uint8_t *v1; // r2
   int v2; // r3
@@ -46,7 +46,7 @@ void  sub_129194(int a1)
           v5 = *(uint16_t *)(*(uint32_t *)off_129238 + 54);
           *((uint32_t *)off_12922C + 5) = v3;
           v1[29] = 3;
-          sub_124BFC((int)(v1 + 12), v4 + v5);
+          mem_copy_util((int)(v1 + 12), v4 + v5);
           if ( (*(uint32_t *)off_129240 & 4) != 0 )
           {
             if ( *((uint8_t *)off_129244 + 190) )
@@ -59,7 +59,7 @@ void  sub_129194(int a1)
                 *v6 &= ~0x80u;
               }
             }
-            sub_128D60();
+            mfp_get_config();
           }
         }
       }

@@ -1,1 +1,1 @@
-{"fn": "msg_get_value", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d0b0", "status": "ok", "name": "msg_get_value", "params": [], "docstring": "Extracts a 16-bit value from a message indexed by id and sub-id", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "msg_get_value", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d0b0", "status": "ok", "name": "hci_cmd_send_short", "params": [], "docstring": "Extracts a 16-bit value from a message indexed by id and sub-id", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

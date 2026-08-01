@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_109738 @ 0x109738, size 690 bytes
-int  sub_109738(int a1, int16_t *a2)
+// is_null_pointer @ 0x109738, size 690 bytes
+int  is_null_pointer(int a1, int16_t *a2)
 {
   unsigned int v2; // r2
   int16_t *v3; // r8

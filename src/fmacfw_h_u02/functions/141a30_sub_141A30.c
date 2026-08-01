@@ -15,8 +15,8 @@ extern uint32_t dword_141B38;
 extern uint32_t dword_141B34;
 extern uint32_t off_141B3C;
 
-// sub_141A30 @ 0x141a30, size 256 bytes
-int  sub_141A30(int a1, int a2, int a3, int a4, char a5)
+// acl_rx_setup @ 0x141a30, size 256 bytes
+int  acl_rx_setup(int a1, int a2, int a3, int a4, char a5)
 {
   int v6; // r1
   int v10; // r3
@@ -47,11 +47,11 @@ int  sub_141A30(int a1, int a2, int a3, int a4, char a5)
   {
     goto LABEL_16;
   }
-  sub_12F32C(dword_141B38, dword_141B34, 520);
+  irq_disable_mmio_write(dword_141B38, dword_141B34, 520);
 LABEL_16:
   v11 = 1;
 LABEL_4:
-  result = sub_118B04(v11, 512);
+  result = lock_acquire(v11, 512);
   *(uint32_t *)a1 = result;
   if ( result )
   {

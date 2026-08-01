@@ -19,10 +19,10 @@ extern uint32_t dword_1252AC;
 extern uint32_t dword_1252B0;
 extern uint32_t dword_1252B4;
 
-// ke_elem_lookup_n_2bc @ 0x1250f4, size 432 bytes
-// Doc: ke_elem_lookup_n_2bc [ke]: Look up KE element by id+offset 0x6b, stride 0x2b8
-// ke_elem_lookup_n_2bc [ke]: Look up KE element by id+offset 0x6b, stride 0x2b8
-int  ke_elem_lookup_n_2bc(int result)
+// link_env_get @ 0x1250f4, size 432 bytes
+// Doc: link_env_get [ke]: Look up KE element by id+offset 0x6b, stride 0x2b8
+// link_env_get [ke]: Look up KE element by id+offset 0x6b, stride 0x2b8
+int  link_env_get(int result)
 {
   int v1; // r9
   int v2; // r2

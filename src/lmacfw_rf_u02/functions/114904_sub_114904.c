@@ -15,8 +15,8 @@ extern uint32_t off_114998;
 extern uint32_t dword_1149A0;
 extern uint32_t dword_11499C;
 
-// sub_114904 @ 0x114904, size 142 bytes
-int  sub_114904(int a1, int a2, unsigned int a3)
+// hci_rx_data @ 0x114904, size 142 bytes
+int  hci_rx_data(int a1, int a2, unsigned int a3)
 {
   uint32_t *v6; // r4
   int v7; // r8
@@ -26,7 +26,7 @@ int  sub_114904(int a1, int a2, unsigned int a3)
   uint8_t v12[64]; // [sp+10h] [bp-40h] BYREF
 
   if ( !*(uint32_t *)off_114994 )
-    lmac_state_get_n_e0();
+    ke_event_busy_check();
   v6 = off_114998;
   v7 = dword_1149A0;
   MEMORY[0x1D8](*(uint32_t *)off_114998, 80, &v10);
@@ -44,12 +44,12 @@ int  sub_114904(int a1, int a2, unsigned int a3)
     if ( (a1 & 1) == 0 )
       goto LABEL_5;
   }
-  sub_1282E8(v12, a2, 64);
+  memcpy_large(v12, a2, 64);
   if ( a3 <= 0x3F )
-    msg_parse(dword_11499C, v9);
+    dispatch_event_handler(dword_11499C, v9);
 LABEL_5:
-  rf_event_handler_n258();
-  sub_114298();
+  ke_event_schedule_alt();
+  ke_event_schedule_prio();
   return MEMORY[0x1E0](*v6, 80);
 }
 

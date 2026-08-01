@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_122358 @ 0x122358, size 94 bytes
+// rf_iq_calibrate @ 0x122358, size 94 bytes
 // Doc: sub_1222358 [unknown]: Update signed/unsigned fields in structure at offsets 0x8e-0x91
 // sub_1222358 [unknown]: Update signed/unsigned fields in structure at offsets 0x8e-0x91
-int  sub_122358(uint8_t *a1, int a2)
+int  rf_iq_calibrate(uint8_t *a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -42,11 +42,11 @@ int  sub_122358(uint8_t *a1, int a2)
         goto LABEL_7;
       LOBYTE(v6) = 1;
     }
-    v8 = (uint8_t *)rf_bus_setup_n3a8(87, 13, 0, 3);
+    v8 = (uint8_t *)bt_buf_alloc(87, 13, 0, 3);
     *v8 = a1[107];
     v8[1] = v6;
     v8[2] = v7;
-    result = sub_12CBB4(v8);
+    result = hci_evt_send(v8);
 LABEL_7:
     a1[145] = v6;
   }

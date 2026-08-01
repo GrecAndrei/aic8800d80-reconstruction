@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_358", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e34", "status": "ok", "name": "rf_bus_mark_n_358", "params": [], "docstring": "Compare byte at offset 0xc01 against parameter, conditional RF bus mark", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_358", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e34", "status": "ok", "name": "rf_bus_mark_owner", "params": [], "docstring": "Compare byte at offset 0xc01 against parameter, conditional RF bus mark", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

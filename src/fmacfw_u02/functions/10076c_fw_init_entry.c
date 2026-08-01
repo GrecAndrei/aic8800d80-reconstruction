@@ -14,10 +14,10 @@ extern uint32_t off_10079C;
 extern uint32_t off_1007A0;
 extern uint32_t off_100798;
 
-// fw_init_entry @ 0x10076c, size 42 bytes
-// Doc: fw_init_entry [util]: Firmware initialization early entry point
-// fw_init_entry [util]: Firmware initialization early entry point
-uint32_t *fw_init_entry()
+// disable_interrupt @ 0x10076c, size 42 bytes
+// Doc: disable_interrupt [util]: Firmware initialization early entry point
+// disable_interrupt [util]: Firmware initialization early entry point
+uint32_t *disable_interrupt()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

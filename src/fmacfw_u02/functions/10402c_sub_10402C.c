@@ -20,8 +20,8 @@ extern uint32_t off_1040EC;
 extern uint32_t dword_104108;
 extern uint32_t off_1040E8;
 
-// sub_10402C @ 0x10402c, size 186 bytes
-int  sub_10402C(int a1, int a2, int a3)
+// parse_table_entry @ 0x10402c, size 186 bytes
+int  parse_table_entry(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r2

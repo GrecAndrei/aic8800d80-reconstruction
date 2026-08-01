@@ -16,10 +16,10 @@ extern uint32_t dword_1050B4;
 extern uint32_t dword_1050B8;
 extern uint32_t dword_1050BC;
 
-// sub_104DE0 @ 0x104de0, size 710 bytes
+// rf_calibrate_power @ 0x104de0, size 710 bytes
 // Doc: sub_1204DE0 [util]: Helper: bl-call wrapper with FPU save and stack alloc
 // sub_1204DE0 [util]: Helper: bl-call wrapper with FPU save and stack alloc
-int  sub_104DE0(int *a1, int a2, int a3, int a4, uint64_t *a5)
+int  rf_calibrate_power(int *a1, int a2, int a3, int a4, uint64_t *a5)
 {
   int v6; // r0
   int v8; // r2
@@ -79,83 +79,83 @@ int  sub_104DE0(int *a1, int a2, int a3, int a4, uint64_t *a5)
   uint64_t v62; // [sp+8h] [bp-14h]
   uint64_t v63; // [sp+10h] [bp-Ch]
 
-  v6 = sub_142FDC(a3, a4);
-  v9 = msg_parse(dword_1050A8, v6, v8);
-  v10 = sub_10DF48(v9);
+  v6 = double_to_float(a3, a4);
+  v9 = event_dispatch(dword_1050A8, v6, v8);
+  v10 = rf_core_reset(v9);
   v11 = a1;
-  msg_parse(dword_1050B0, (int)(float)(v10 * flt_1050AC), v12);
+  event_dispatch(dword_1050B0, (int)(float)(v10 * flt_1050AC), v12);
   v13 = a5[2];
-  v14 = sub_142AA8(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_1050B4);
-  sub_142FDC(v14, HIDWORD(v14));
+  v14 = double_add(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_1050B4);
+  double_to_float(v14, HIDWORD(v14));
   v15 = a5[1];
-  v16 = sub_142AA8(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_1050B4);
-  v17 = sub_142FDC(v16, HIDWORD(v16));
+  v16 = double_add(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_1050B4);
+  v17 = double_to_float(v16, HIDWORD(v16));
   v18 = *a5;
   v19 = v17;
-  v20 = sub_142AA8(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_1050B4);
-  v21 = sub_142FDC(v20, HIDWORD(v20));
+  v20 = double_add(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_1050B4);
+  v21 = double_to_float(v20, HIDWORD(v20));
   v22 = a5[5];
   v63 = a5[4];
   v62 = a5[3];
-  msg_parse(dword_1050B8, v21, v19);
-  v23 = sub_142AA8(v22, HIDWORD(v22), 0, dword_1050B4);
-  sub_142FDC(v23, HIDWORD(v23));
-  v24 = sub_142AA8(v63, HIDWORD(v63), 0, dword_1050B4);
-  v25 = sub_142FDC(v24, HIDWORD(v24));
-  v26 = sub_142AA8(v62, HIDWORD(v62), 0, dword_1050B4);
-  v27 = sub_142FDC(v26, HIDWORD(v26));
-  msg_parse(dword_1050BC, v27, v25);
+  event_dispatch(dword_1050B8, v21, v19);
+  v23 = double_add(v22, HIDWORD(v22), 0, dword_1050B4);
+  double_to_float(v23, HIDWORD(v23));
+  v24 = double_add(v63, HIDWORD(v63), 0, dword_1050B4);
+  v25 = double_to_float(v24, HIDWORD(v24));
+  v26 = double_add(v62, HIDWORD(v62), 0, dword_1050B4);
+  v27 = double_to_float(v26, HIDWORD(v26));
+  event_dispatch(dword_1050BC, v27, v25);
   v28 = v11 + 32;
   do
   {
     v59 = *v11++;
-    v60 = sub_1429F8(v59);
-    if ( sub_142FB4(v18, HIDWORD(v18), v60, HIDWORD(v60)) )
+    v60 = float_to_double(v59);
+    if ( double_ge(v18, HIDWORD(v18), v60, HIDWORD(v60)) )
     {
       v55 = v62;
     }
-    else if ( sub_142F78(v15, HIDWORD(v15), v60, HIDWORD(v60)) )
+    else if ( double_eq(v15, HIDWORD(v15), v60, HIDWORD(v60)) )
     {
       v55 = v63;
     }
-    else if ( sub_142FA0(v13, HIDWORD(v13), v60, HIDWORD(v60)) )
+    else if ( double_le(v13, HIDWORD(v13), v60, HIDWORD(v60)) )
     {
       v55 = v22;
     }
     else
     {
-      v29 = sub_142738(v60, HIDWORD(v60), v15, HIDWORD(v15));
-      v30 = sub_142738(v60, HIDWORD(v60), v13, HIDWORD(v13));
-      v31 = sub_142738(v60, HIDWORD(v60), v18, HIDWORD(v18));
+      v29 = double_compare_wrapper(v60, HIDWORD(v60), v15, HIDWORD(v15));
+      v30 = double_compare_wrapper(v60, HIDWORD(v60), v13, HIDWORD(v13));
+      v31 = double_compare_wrapper(v60, HIDWORD(v60), v18, HIDWORD(v18));
       v32 = v30;
       v33 = v31;
-      v34 = sub_142AA8(v62, HIDWORD(v62), v29, HIDWORD(v29));
+      v34 = double_add(v62, HIDWORD(v62), v29, HIDWORD(v29));
       v35 = v33;
-      v36 = sub_142AA8(v34, HIDWORD(v34), v32, HIDWORD(v32));
-      v37 = sub_142738(v18, HIDWORD(v18), v15, HIDWORD(v15));
-      v38 = sub_142CFC(v36, HIDWORD(v36), v37, HIDWORD(v37));
-      v39 = sub_142738(v18, HIDWORD(v18), v13, HIDWORD(v13));
-      v40 = sub_142CFC(v38, HIDWORD(v38), v39, HIDWORD(v39));
-      v41 = sub_142AA8(v63, HIDWORD(v63), v35, HIDWORD(v35));
+      v36 = double_add(v34, HIDWORD(v34), v32, HIDWORD(v32));
+      v37 = double_compare_wrapper(v18, HIDWORD(v18), v15, HIDWORD(v15));
+      v38 = double_subtract(v36, HIDWORD(v36), v37, HIDWORD(v37));
+      v39 = double_compare_wrapper(v18, HIDWORD(v18), v13, HIDWORD(v13));
+      v40 = double_subtract(v38, HIDWORD(v38), v39, HIDWORD(v39));
+      v41 = double_add(v63, HIDWORD(v63), v35, HIDWORD(v35));
       v42 = v40;
-      v43 = sub_142AA8(v41, HIDWORD(v41), v32, HIDWORD(v32));
-      v44 = sub_142738(v15, HIDWORD(v15), v18, HIDWORD(v18));
-      v45 = sub_142CFC(v43, HIDWORD(v43), v44, HIDWORD(v44));
-      v46 = sub_142738(v15, HIDWORD(v15), v13, HIDWORD(v13));
-      v47 = sub_142CFC(v45, HIDWORD(v45), v46, HIDWORD(v46));
-      v48 = sub_14273C(v42, HIDWORD(v42), v47, HIDWORD(v47));
-      v49 = sub_142AA8(v22, HIDWORD(v22), v35, HIDWORD(v35));
-      v50 = sub_142AA8(v49, HIDWORD(v49), v29, HIDWORD(v29));
-      v51 = sub_142738(v13, HIDWORD(v13), v18, HIDWORD(v18));
-      v52 = sub_142CFC(v50, HIDWORD(v50), v51, HIDWORD(v51));
-      v53 = sub_142738(v13, HIDWORD(v13), v15, HIDWORD(v15));
-      v54 = sub_142CFC(v52, HIDWORD(v52), v53, HIDWORD(v53));
-      v55 = sub_14273C(v48, HIDWORD(v48), v54, HIDWORD(v54));
+      v43 = double_add(v41, HIDWORD(v41), v32, HIDWORD(v32));
+      v44 = double_compare_wrapper(v15, HIDWORD(v15), v18, HIDWORD(v18));
+      v45 = double_subtract(v43, HIDWORD(v43), v44, HIDWORD(v44));
+      v46 = double_compare_wrapper(v15, HIDWORD(v15), v13, HIDWORD(v13));
+      v47 = double_subtract(v45, HIDWORD(v45), v46, HIDWORD(v46));
+      v48 = double_compare(v42, HIDWORD(v42), v47, HIDWORD(v47));
+      v49 = double_add(v22, HIDWORD(v22), v35, HIDWORD(v35));
+      v50 = double_add(v49, HIDWORD(v49), v29, HIDWORD(v29));
+      v51 = double_compare_wrapper(v13, HIDWORD(v13), v18, HIDWORD(v18));
+      v52 = double_subtract(v50, HIDWORD(v50), v51, HIDWORD(v51));
+      v53 = double_compare_wrapper(v13, HIDWORD(v13), v15, HIDWORD(v15));
+      v54 = double_subtract(v52, HIDWORD(v52), v53, HIDWORD(v53));
+      v55 = double_compare(v48, HIDWORD(v48), v54, HIDWORD(v54));
     }
     v61 = v55;
-    v56 = sub_1429F8(v11[63]);
-    v57 = sub_142AA8(v56, HIDWORD(v56), v61, HIDWORD(v61));
-    result = sub_14306C(v57);
+    v56 = float_to_double(v11[63]);
+    v57 = double_add(v56, HIDWORD(v56), v61, HIDWORD(v61));
+    result = double_to_uint(v57);
     v11[31] = result;
   }
   while ( v11 != v28 );

@@ -12,9 +12,9 @@
 
 extern uint32_t dword_10EDF4;
 
-// sub_10EDE4 @ 0x10ede4, size 16 bytes
-int sub_10EDE4()
+// rf_get_status @ 0x10ede4, size 16 bytes
+int rf_get_status()
 {
-  return (uint16_t)sub_10EC44(dword_10EDF4, 1) >> 11;
+  return (uint16_t)mmio_read32(dword_10EDF4, 1) >> 11;
 }
 

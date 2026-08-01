@@ -16,10 +16,10 @@ extern uint32_t off_107678;
 extern uint32_t off_107670;
 extern uint32_t dword_107674;
 
-// crypto_state_dump @ 0x1075b8, size 176 bytes
-// Doc: crypto_state_dump [ke]: Dump crypto engine state to memory buffer for debug
-// crypto_state_dump [ke]: Dump crypto engine state to memory buffer for debug
-int  crypto_state_dump(int a1)
+// rf_load_tx_config @ 0x1075b8, size 176 bytes
+// Doc: rf_load_tx_config [ke]: Dump crypto engine state to memory buffer for debug
+// rf_load_tx_config [ke]: Dump crypto engine state to memory buffer for debug
+int  rf_load_tx_config(int a1)
 {
   int v2; // r1
   int v3; // r2
@@ -133,6 +133,6 @@ int  crypto_state_dump(int a1)
   *v24 = (v25 << 12) & 0x7000 | v26 & 0xFFFF8FFF;
   *v27 |= 0x400u;
   *v27 = (v28 << 8) & 0x300 | *v27 & 0xFFFFFCFF;
-  return feature_guard_sdio(1, v29);
+  return state_check_feature(1, v29);
 }
 

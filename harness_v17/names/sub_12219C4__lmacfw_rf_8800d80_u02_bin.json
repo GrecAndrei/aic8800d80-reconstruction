@@ -1,1 +1,1 @@
-{"fn": "sub_12219C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12219c4", "status": "ok", "name": "rf_cmd_send_n264", "params": [], "docstring": "Send RF command (n264 variant) via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12219C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12219c4", "status": "ok", "name": "flash_ctrl_init", "params": [], "docstring": "Send RF command (n264 variant) via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

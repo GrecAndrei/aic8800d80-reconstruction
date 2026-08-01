@@ -13,8 +13,8 @@
 extern uint32_t off_120838;
 extern uint32_t off_12083C;
 
-// sub_12077C @ 0x12077c, size 188 bytes
-int * sub_12077C(int *result, int a2, int a3)
+// is_valid_id @ 0x12077c, size 188 bytes
+int * is_valid_id(int *result, int a2, int a3)
 {
   int *v3; // r3
   unsigned int *v4; // r3

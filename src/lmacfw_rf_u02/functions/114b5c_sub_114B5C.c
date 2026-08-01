@@ -20,8 +20,8 @@ extern uint32_t off_114C48;
 extern uint32_t off_114C4C;
 extern uint32_t off_114C54;
 
-// sub_114B5C @ 0x114b5c, size 230 bytes
-int sub_114B5C()
+// wait_hw_ready @ 0x114b5c, size 230 bytes
+int wait_hw_ready()
 {
   int v0; // r4
   uint32_t *v1; // r3
@@ -34,21 +34,21 @@ int sub_114B5C()
 
   if ( **(uint8_t **)off_114C44 == 2 )
   {
-    if ( sub_1125A4() )
+    if ( util_read_status() )
       v0 = *((uint32_t *)off_114C64 + 87);
     else
       v0 = 16;
-    sub_1122F0();
+    rf_init();
     *((uint32_t *)off_114C50 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    sub_11F504(dword_114C58, v6);
+    dispatch_event_handler(dword_114C58, v6);
     v8 = off_114C5C;
     *((uint32_t *)off_114C5C + 513) |= 2u;
     v8[4] |= 1u;
     while ( (v8[4] & 1) != 0 )
       ;
-    sub_11F504(dword_114C60, v7);
+    dispatch_event_handler(dword_114C60, v7);
   }
   else
   {
@@ -80,9 +80,9 @@ int sub_114B5C()
   v4[34] = 1;
   __dsb(0xFu);
   __isb(0xFu);
-  sub_10D624();
+  trace_sync();
   if ( *(uint8_t *)(*(uint32_t *)off_114C54 + 3) )
-    sub_1138F4();
+    check_rx_active();
   __disable_irq();
   return v0;
 }

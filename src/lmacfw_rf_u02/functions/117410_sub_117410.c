@@ -23,8 +23,8 @@ extern uint32_t off_1174A0;
 extern uint32_t off_1174A4;
 extern uint32_t dword_1174A8;
 
-// sub_117410 @ 0x117410, size 118 bytes
-int sub_117410()
+// ipc_regs_init @ 0x117410, size 118 bytes
+int ipc_regs_init()
 {
   int v0; // r3
   uint32_t *v1; // r2

@@ -1,1 +1,1 @@
-{"fn": "rf_msg_process_body_n_180", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213ac8", "status": "ok", "name": "rf_msg_process_body_n_180", "params": [], "docstring": "Processes RF message body, stores fields into shared struct", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_msg_process_body_n_180", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213ac8", "status": "ok", "name": "rf_bus_setup_n428", "params": [], "docstring": "Processes RF message body, stores fields into shared struct", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1105EC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1105ec", "status": "ok", "name": "init_after_reset", "params": [], "docstring": "Call boot initialization routines and return 1", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

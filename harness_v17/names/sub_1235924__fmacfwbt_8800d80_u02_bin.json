@@ -1,1 +1,1 @@
-{"fn": "sub_1235924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235924", "status": "ok", "name": "sub_1235924", "params": [], "docstring": "Unidentified helper routine in fmacfwbt image", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235924", "status": "ok", "name": "rf_get_power_by_index", "params": [], "docstring": "Unidentified helper routine in fmacfwbt image", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

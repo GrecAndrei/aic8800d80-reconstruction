@@ -17,8 +17,8 @@ extern uint32_t off_128BCC;
 extern uint32_t off_128BD4;
 extern uint32_t dword_128BD8;
 
-// sub_128B2C @ 0x128b2c, size 154 bytes
-int  sub_128B2C(int a1, int a2, int a3)
+// wlc_check_rate_flag @ 0x128b2c, size 154 bytes
+int  wlc_check_rate_flag(int a1, int a2, int a3)
 {
   int v4; // r0
   int v5; // r1
@@ -43,8 +43,8 @@ int  sub_128B2C(int a1, int a2, int a3)
     {
       v11 = dword_128BDC;
       *(uint8_t *)(a1 + 115) = 0;
-      feature_guard_check(1024, v11);
-      send_msg_to_host_c43(a1);
+      check_status_bits(1024, v11);
+      send_fw_cmd(a1);
       return 1;
     }
     else
@@ -52,7 +52,7 @@ int  sub_128B2C(int a1, int a2, int a3)
       v6 = *(uint8_t *)(a1 + 108);
       if ( *(uint8_t *)(a1 + 108) )
       {
-        sub_118DC4(*(uint8_t *)(a1 + 116), a3, a1);
+        rf_channel_get(*(uint8_t *)(a1 + 116), a3, a1);
         return 0;
       }
       else
@@ -66,7 +66,7 @@ int  sub_128B2C(int a1, int a2, int a3)
           --v7[8];
         v9 = dword_128BD8;
         v7[29] = 0;
-        timestamp_remove(v9);
+        fault_handler(v9);
         *(uint32_t *)(a1 + 4) &= ~0x200u;
         return v6;
       }

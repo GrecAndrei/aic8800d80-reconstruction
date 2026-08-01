@@ -14,8 +14,8 @@ extern uint32_t off_10D640;
 extern uint32_t off_10D63C;
 extern uint32_t dword_10D644;
 
-// sub_10D628 @ 0x10d628, size 20 bytes
-void sub_10D628()
+// irq_install_handler @ 0x10d628, size 20 bytes
+void irq_install_handler()
 {
   uint32_t *v0; // r3
 

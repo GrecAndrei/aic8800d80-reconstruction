@@ -1,1 +1,1 @@
-{"fn": "sub_12267E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12267e0", "status": "ok", "name": "bt_event_handler", "params": [], "docstring": "BT firmware event/task handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12267E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12267e0", "status": "ok", "name": "ke_task_poll", "params": [], "docstring": "BT firmware event/task handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

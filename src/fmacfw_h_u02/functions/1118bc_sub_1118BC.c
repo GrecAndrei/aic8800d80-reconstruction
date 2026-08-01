@@ -14,8 +14,8 @@ extern uint32_t off_1119B0;
 extern uint32_t dword_1119B4;
 extern uint32_t dword_1119B8;
 
-// sub_1118BC @ 0x1118bc, size 242 bytes
-int sub_1118BC()
+// mmio_set_bit @ 0x1118bc, size 242 bytes
+int mmio_set_bit()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r2
@@ -73,6 +73,6 @@ LABEL_11:
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return sub_12E948(v7, v4, 46);
+  return alloc_tx_event(v7, v4, 46);
 }
 

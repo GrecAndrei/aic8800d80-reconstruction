@@ -21,8 +21,8 @@ extern uint32_t off_1219B8;
 extern uint32_t off_1219BC;
 extern uint32_t off_1219B4;
 
-// sub_1218D4 @ 0x1218d4, size 198 bytes
-uint32_t * sub_1218D4(int a1)
+// check_hw_version @ 0x1218d4, size 198 bytes
+uint32_t * check_hw_version(int a1)
 {
   int v2; // r1
   uint32_t *v3; // r5
@@ -35,14 +35,14 @@ uint32_t * sub_1218D4(int a1)
   uint32_t *v10; // r2
 
   if ( (unsigned int)a1 > HIBYTE(*(uint32_t *)off_12199C) )
-    return (uint32_t *)rf_chan_table_init(
+    return (uint32_t *)dma_tx_reset(
                        dword_1219A4 + 1320 * ((a1 - (HIBYTE(*(uint32_t *)off_12199C) + 1)) / 2),
                        (((uint8_t)a1 - 1 - HIBYTE(*(uint32_t *)off_12199C)) & 1) + 4);
   if ( (unsigned int)a1 > 0xF )
   {
     v8 = dword_1219C0 + 696 * (uint8_t)(a1 - 16);
     v9 = *(uint8_t *)(v8 + 34);
-    result = (uint32_t *)sub_11F6F0(v8);
+    result = (uint32_t *)wlc_phy_band_init(v8);
     if ( *(uint8_t *)(dword_1219A4 + 1320 * v9 + 106) == 2 )
       return result;
     v10 = off_1219A8;
@@ -55,7 +55,7 @@ uint32_t * sub_1218D4(int a1)
     v3 = off_1219A8;
     *(uint32_t *)off_1219A0 = -1;
     *v3 = -1;
-    rf_chan_table_init(v2 + 1320 * (a1 >> 2), a1 & 3);
+    dma_tx_reset(v2 + 1320 * (a1 >> 2), a1 & 3);
   }
   v4 = off_1219AC;
   v5 = (int *)off_1219B0;

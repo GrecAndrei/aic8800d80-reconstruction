@@ -20,8 +20,8 @@ extern uint32_t off_118FE4;
 extern uint32_t off_118FE8;
 extern uint32_t dword_118FEC;
 
-// sub_118EF0 @ 0x118ef0, size 228 bytes
-int  sub_118EF0(int a1)
+// ke_task_init @ 0x118ef0, size 228 bytes
+int  ke_task_init(int a1)
 {
   int v2; // r4
   uint32_t *v3; // r6
@@ -43,14 +43,14 @@ int  sub_118EF0(int a1)
   v5 = dword_118FF0;
   v6 = dword_118FF4;
   v7 = dword_118FD4;
-  sub_12D468(dword_118FD4);
-  sub_12D468(v7 + 8);
+  zero_struct(dword_118FD4);
+  zero_struct(v7 + 8);
   v8 = v2 + 400;
   do
   {
     if ( !a1 || !*(uint8_t *)(v2 + 97) )
     {
-      sub_100200((int *)v2, 0, 0x64u);
+      memset_byte((int *)v2, 0, 0x64u);
       *(uint32_t *)(v2 + 44) = v3 + 11;
       *(uint32_t *)(v2 + 72) = v3;
       *(uint32_t *)(v2 + 76) = v4;
@@ -64,7 +64,7 @@ int  sub_118EF0(int a1)
       v4[10] = 0;
       v4[15] = 0;
       v4[7] = v3 + 27;
-      sub_12D470(v7);
+      check_abort_flag(v7);
     }
     v2 += 100;
     v3 += 155;
@@ -78,7 +78,7 @@ int  sub_118EF0(int a1)
   v9[14] = 0;
   v9[15] = 0;
   v9[1] = sub_101954() << 14;
-  v11 = sub_1029D8();
+  v11 = get_hw_flash_size();
   v12 = (int *)off_118FE8;
   v13 = dword_118FEC;
   v9[2] = v11;
@@ -96,7 +96,7 @@ int  sub_118EF0(int a1)
   v9[12] = 0;
   v12[15] = 0;
   v12[1] = sub_101954() << 14;
-  result = sub_1029D8();
+  result = get_hw_flash_size();
   v12[2] = result;
   v12[3] = 0;
   v12[6] = 0;

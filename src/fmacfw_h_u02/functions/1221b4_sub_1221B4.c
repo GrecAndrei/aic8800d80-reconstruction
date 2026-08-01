@@ -30,8 +30,8 @@ extern uint32_t off_12246C;
 extern uint32_t off_12247C;
 extern uint32_t off_122478;
 
-// sub_1221B4 @ 0x1221b4, size 660 bytes
-uint32_t * sub_1221B4(uint32_t *result, int a2)
+// process_hci_packet @ 0x1221b4, size 660 bytes
+uint32_t * process_hci_packet(uint32_t *result, int a2)
 {
   float *v2; // r4
   int v3; // r7
@@ -78,7 +78,7 @@ uint32_t * sub_1221B4(uint32_t *result, int a2)
   v5 = *((uint8_t *)off_122448 + 2);
   v6 = *((char *)off_122448 + 1);
   v7 = *((float *)off_122448 + 1);
-  result = (uint32_t *)sub_12CD48(4);
+  result = (uint32_t *)hci_cmd_handler(4);
   if ( result )
     return result;
   v8 = (float)((float)(v7 * flt_12244C) + (float)a2) * flt_122450;
@@ -150,7 +150,7 @@ LABEL_8:
       v38 = (uint8_t *)off_122468;
       *(uint8_t *)off_122468 = 1;
     }
-    sub_12EB90(64, dword_122490);
+    check_feature_flag(64, dword_122490);
     v25 = *v38;
     *v16 = 0;
     *v11 = 0;
@@ -199,12 +199,12 @@ LABEL_8:
   if ( *(uint8_t *)off_122470 > v28 )
   {
     if ( *(uint8_t *)off_122474 != 1 )
-      result = (uint32_t *)sub_1220DC(v4);
+      result = (uint32_t *)rf_switch_channel(v4);
     goto LABEL_22;
   }
   if ( *(uint8_t *)off_12248C > v28 >> 1 && *(uint8_t *)off_122474 )
 LABEL_28:
-    result = (uint32_t *)sub_122044(v4);
+    result = (uint32_t *)rf_setup_channel(v4);
 LABEL_22:
   if ( !v5 || *((uint8_t *)off_12247C + 18) )
     *(uint32_t *)off_122478 &= ~0x200u;

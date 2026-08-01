@@ -14,8 +14,8 @@ extern uint32_t off_12A3E8;
 extern uint32_t dword_12A3EC;
 extern uint32_t dword_12A3F0;
 
-// sub_12A344 @ 0x12a344, size 164 bytes
-unsigned int  sub_12A344(uint8_t *a1, int a2, int a3)
+// llc_conn_idx_valid @ 0x12a344, size 164 bytes
+unsigned int  llc_conn_idx_valid(uint8_t *a1, int a2, int a3)
 {
   unsigned int v3; // r4
   unsigned int v5; // r0
@@ -35,7 +35,7 @@ unsigned int  sub_12A344(uint8_t *a1, int a2, int a3)
     v5 = (uint8_t)a1[1225];
     if ( **(int16_t **)off_12A3E8 < 0 && v5 > 1 )
     {
-      sub_12F46C(dword_12A3EC, dword_12A3F0, 1420);
+      mmio_clear_register(dword_12A3EC, dword_12A3F0, 1420);
       v5 = (uint8_t)a1[1225];
     }
     v8 = *(uint32_t *)(a2 + 8);
@@ -75,7 +75,7 @@ LABEL_6:
 LABEL_19:
       v3 = 0;
     }
-    sub_129D88(v5, v3, *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(a3 + 8) + 8) + 24));
+    llc_evt_schedule(v5, v3, *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(a3 + 8) + 8) + 24));
     return v3;
   }
   return 0;

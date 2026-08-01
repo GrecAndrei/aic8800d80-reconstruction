@@ -14,8 +14,8 @@ extern uint32_t dword_100000;
 extern uint32_t dword_104330;
 extern uint32_t dword_104334;
 
-// sub_10422C @ 0x10422c, size 258 bytes
-int sub_10422C()
+// util_get_buf_addr @ 0x10422c, size 258 bytes
+int util_get_buf_addr()
 {
   BOOL v0; // r1
   int v1; // r2
@@ -65,8 +65,8 @@ int sub_10422C()
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    sub_12EEF8(1, dword_104330);
-  sub_12EEF8(1, dword_104334);
+    state_check_feature(1, dword_104330);
+  state_check_feature(1, dword_104334);
   do
   {
     v12 = *v2;

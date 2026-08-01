@@ -15,10 +15,10 @@ extern uint32_t off_10C744;
 extern uint32_t off_10C748;
 extern uint32_t dword_10C74C;
 
-// sdio_dma_config @ 0x10c698, size 166 bytes
-// Doc: sdio_dma_config [mac]: Configures SDIO DMA control registers at 0x400351xx
-// sdio_dma_config [mac]: Configures SDIO DMA control registers at 0x400351xx
-int *sdio_dma_config()
+// pmu_clock_config @ 0x10c698, size 166 bytes
+// Doc: pmu_clock_config [mac]: Configures SDIO DMA control registers at 0x400351xx
+// pmu_clock_config [mac]: Configures SDIO DMA control registers at 0x400351xx
+int *pmu_clock_config()
 {
   unsigned int *v0; // r3
   unsigned int *v1; // r2

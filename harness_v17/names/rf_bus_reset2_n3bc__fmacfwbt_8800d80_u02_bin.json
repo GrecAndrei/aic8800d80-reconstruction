@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n3bc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c14", "status": "ok", "name": "mmio_init_block_clear", "params": [], "docstring": "Clears 0x28 bytes of MMIO block at 0x182a84 with zero", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n3bc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c14", "status": "ok", "name": "ipc_send_request", "params": [], "docstring": "Clears 0x28 bytes of MMIO block at 0x182a84 with zero", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

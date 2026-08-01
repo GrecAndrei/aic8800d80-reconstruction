@@ -21,10 +21,10 @@ extern uint32_t dword_130270;
 extern uint32_t dword_130274;
 extern uint32_t dword_130278;
 
-// sub_130170 @ 0x130170, size 238 bytes
+// parse_large_ioctl @ 0x130170, size 238 bytes
 // Doc: sub_1230170_handler [unknown]: Pushes r4-r8,sb,lr; allocates 0x4c stack; handler stub
 // sub_1230170_handler [unknown]: Pushes r4-r8,sb,lr; allocates 0x4c stack; handler stub
-uint8_t *sub_130170()
+uint8_t *parse_large_ioctl()
 {
   int *v0; // r6
   int v1; // r0
@@ -51,7 +51,7 @@ uint8_t *sub_130170()
   v0 = (int *)off_130264;
   v1 = dword_130268;
   ++*(uint32_t *)off_130264;
-  result = (uint8_t *)rf_bus_mark_n100_d2d0(v1);
+  result = (uint8_t *)mem_word_load(v1);
   v3 = result;
   if ( *v0 )
   {
@@ -71,33 +71,33 @@ uint8_t *sub_130170()
     v8 = dword_130284;
     do
     {
-      v9 = sub_12F6FC(v3 + 4, (int)v15);
+      v9 = parse_token_until_space(v3 + 4, (int)v15);
       if ( v9 )
       {
-        v13 = sub_12F788(v15[0], v6, 7);
+        v13 = parse_ipv4_dot(v15[0], v6, 7);
         if ( v13 )
         {
           if ( *((int16_t *)v13 + 5) < v9 || *((int16_t *)v13 + 4) > v9 )
           {
-            sub_10DC24(v7, *v13, v13[1]);
+            log_printf(v7, *v13, v13[1]);
           }
           else
           {
             v14 = ((int ( *)(int, int *))v13[3])(v9, v15);
             if ( v14 )
-              sub_10DC24(v8, v14);
+              log_printf(v8, v14);
           }
         }
         else
         {
-          sub_10DC24(dword_13027C, v15[0]);
+          log_printf(dword_13027C, v15[0]);
         }
       }
       else
       {
-        uart_puts((uint8_t *)dword_130270);
+        read_memory_byte((uint8_t *)dword_130270);
       }
-      uart_puts((uint8_t *)dword_130274);
+      read_memory_byte((uint8_t *)dword_130274);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -105,8 +105,8 @@ uint8_t *sub_130170()
       }
       v10 = dword_130278;
       ++*v0;
-      list_push_tail(v10, v3);
-      result = (uint8_t *)rf_bus_mark_n100_d2d0(dword_130268);
+      cmd_handler_a(v10, v3);
+      result = (uint8_t *)mem_word_load(dword_130268);
       v3 = result;
       if ( *v0 )
       {

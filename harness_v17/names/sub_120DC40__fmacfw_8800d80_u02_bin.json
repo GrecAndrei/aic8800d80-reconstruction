@@ -1,1 +1,1 @@
-{"fn": "sub_120DC40", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120dc40", "status": "ok", "name": "sub_120DC40", "params": [], "docstring": "Reads status register block at 0x40505000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120DC40", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120dc40", "status": "ok", "name": "rf_get_int_status", "params": [], "docstring": "Reads status register block at 0x40505000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

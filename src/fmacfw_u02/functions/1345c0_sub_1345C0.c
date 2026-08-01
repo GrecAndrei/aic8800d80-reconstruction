@@ -20,10 +20,10 @@ extern uint32_t off_1346DC;
 extern uint32_t dword_1346E0;
 extern uint32_t off_1346E4;
 
-// sub_1345C0 @ 0x1345c0, size 260 bytes
+// rx_packet_handler @ 0x1345c0, size 260 bytes
 // Doc: sub_12345C0 [unknown]: Push-heavy setup reading byte from arg1 and table
 // sub_12345C0 [unknown]: Push-heavy setup reading byte from arg1 and table
-void  sub_1345C0(int a1, int a2, int a3)
+void  rx_packet_handler(int a1, int a2, int a3)
 {
   uint32_t *v4; // r3
   uint8_t *v7; // r9
@@ -61,8 +61,8 @@ void  sub_1345C0(int a1, int a2, int a3)
       *((uint16_t *)v4 + 1) = 257;
       v20 = dword_1346E0;
       v18[35594] = 0;
-      timer_set_relative(6155, 6, v20);
-      mac_tx_completion_n234();
+      ke_task_create(6155, 6, v20);
+      mmio_set_control_bit_26();
       return;
     }
     *((uint8_t *)off_1346C4 + 3) = 0;
@@ -75,7 +75,7 @@ void  sub_1345C0(int a1, int a2, int a3)
   }
   v7 = off_1346E4;
   v8 = *((int **)off_1346E4 + 4);
-  v9 = sub_12C92C(4098, 4, 6, 0x178u);
+  v9 = ke_msg_alloc(4098, 4, 6, 0x178u);
   *(uint32_t *)v9 = *(uint32_t *)a2;
   v10 = *(uint16_t *)(a2 + 4);
   *(uint8_t *)(v9 + 367) = 1;
@@ -105,7 +105,7 @@ void  sub_1345C0(int a1, int a2, int a3)
   if ( a3 )
     *(uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
-  sdio_buffer_prepare_n_4e8(v9);
-  sub_12CD34(6u, 2);
+  ke_msg_send(v9);
+  rx_phy_status_parse(6u, 2);
 }
 

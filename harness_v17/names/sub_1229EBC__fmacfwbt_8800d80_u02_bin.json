@@ -1,1 +1,1 @@
-{"fn": "sub_1229EBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1229ebc", "status": "ok", "name": "sub_1229EBC", "params": [], "docstring": "Computes array offset via mla with stride 0x528 and reads from data table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1229EBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1229ebc", "status": "ok", "name": "lookup_table_entry", "params": [], "docstring": "Computes array offset via mla with stride 0x528 and reads from data table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

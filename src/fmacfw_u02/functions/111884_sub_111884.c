@@ -17,10 +17,10 @@ extern uint32_t off_1118F8;
 extern uint32_t off_111908;
 extern uint32_t off_11190C;
 
-// sub_111884 @ 0x111884, size 114 bytes
+// mmio_sync @ 0x111884, size 114 bytes
 // Doc: rf_bus_mark_owner_n62 [rf]: Mark RF bus n62 as owned: set request+grant bits (0xc0) in bus state and record owner id.
 // rf_bus_mark_owner_n62 [rf]: Mark RF bus n62 as owned: set request+grant bits (0xc0) in bus state and record owner id.
-int sub_111884()
+int mmio_sync()
 {
   int v0; // r3
   int *v1; // r2

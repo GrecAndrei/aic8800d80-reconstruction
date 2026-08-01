@@ -17,8 +17,8 @@ extern uint32_t dword_13457C;
 extern uint32_t dword_134580;
 extern uint32_t off_134570;
 
-// sub_134330 @ 0x134330, size 570 bytes
-int  sub_134330(int a1, uint8_t *a2)
+// llm_reset_notify @ 0x134330, size 570 bytes
+int  llm_reset_notify(int a1, uint8_t *a2)
 {
   int v3; // r5
   int v4; // r8
@@ -74,12 +74,12 @@ int  sub_134330(int a1, uint8_t *a2)
   uint32_t v55[3]; // [sp+10h] [bp-1Ch] BYREF
   uint32_t v56[4]; // [sp+1Ch] [bp-10h] BYREF
 
-  if ( **(int16_t **)off_13456C < 0 && msg_get_value(6u) != 3 )
-    sub_12F694(dword_134578, dword_134574, 481);
+  if ( **(int16_t **)off_13456C < 0 && hci_cmd_send_short(6u) != 3 )
+    mmio_irq_clear(dword_134578, dword_134574, 481);
   v3 = *a2;
   if ( *a2 )
   {
-    sub_135020(1);
+    event_dispatch(1);
     return 0;
   }
   else
@@ -166,9 +166,9 @@ int  sub_134330(int a1, uint8_t *a2)
         v37[62] = v36;
         v37[1] |= 4u;
       }
-      v9 = sub_13267C(v6, v5 + 1320 * v7 + 248);
+      v9 = llm_get_adv_addr(v6, v5 + 1320 * v7 + 248);
     }
-    sub_134DEC(v9);
+    phy_rate_power_update(v9);
     if ( *(uint8_t *)off_134570 )
     {
       v38 = *(uint8_t *)(v4 + 696 * v51 + 192);
@@ -222,7 +222,7 @@ LABEL_20:
       }
       *(uint8_t *)(v4 + 696 * v51 + 192) = v3;
     }
-    sub_132F20(v6);
+    llm_adv_pdu_build_cmd(v6);
     return 0;
   }
 }

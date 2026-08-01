@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127874 @ 0x127874, size 360 bytes
-unsigned int  sub_127874(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4)
+// aeabi_dsub @ 0x127874, size 360 bytes
+unsigned int  aeabi_dsub(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   int v4; // r5
   unsigned int v5; // r12
@@ -53,7 +53,7 @@ unsigned int  sub_127874(unsigned int result, unsigned int a2, unsigned int a3, 
       v6 = v4 == 0x7FF;
   }
   if ( v6 )
-    result = sub_1279E2();
+    result = double_unordered();
   v8 = v7 - v4;
   v9 = a2 ^ a4;
   v10 = a2 << 12;

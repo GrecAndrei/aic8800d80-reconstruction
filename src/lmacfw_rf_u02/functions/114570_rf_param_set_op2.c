@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_param_set_op2 @ 0x114570, size 10 bytes
-// Doc: rf_param_set_op2 [rf]: Set RF parameter via opcode 2 with 12-byte payload
-// rf_param_set_op2 [rf]: Set RF parameter via opcode 2 with 12-byte payload
-int  rf_param_set_op2(int a1)
+// bus_read_12 @ 0x114570, size 10 bytes
+// Doc: bus_read_12 [rf]: Set RF parameter via opcode 2 with 12-byte payload
+// bus_read_12 [rf]: Set RF parameter via opcode 2 with 12-byte payload
+int  bus_read_12(int a1)
 {
-  return rf_init_or_config_n_318(2, a1, 0xCu);
+  return ke_task_handler(2, a1, 0xCu);
 }
 

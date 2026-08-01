@@ -13,10 +13,10 @@
 extern uint32_t off_120B70;
 extern uint32_t off_120B74;
 
-// sub_120AB4 @ 0x120ab4, size 188 bytes
+// bt_coex_control @ 0x120ab4, size 188 bytes
 // Doc: sub_121E604 [util]: Processes r0 object, reads from global table, updates state
 // sub_121E604 [util]: Processes r0 object, reads from global table, updates state
-int * sub_120AB4(int *result, int a2, int a3)
+int * bt_coex_control(int *result, int a2, int a3)
 {
   int *v3; // r3
   unsigned int *v4; // r3

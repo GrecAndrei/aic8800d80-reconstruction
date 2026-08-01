@@ -12,12 +12,12 @@
 
 extern uint32_t off_128404;
 
-// sub_1283E0 @ 0x1283e0, size 34 bytes
-BOOL  sub_1283E0(int a1)
+// cfm_call_ops @ 0x1283e0, size 34 bytes
+BOOL  cfm_call_ops(int a1)
 {
   BOOL result; // r0
 
-  result = sub_128390(a1);
+  result = cfm_ops_get2(a1);
   if ( result )
     return !*((uint32_t *)off_128404 + 11) || *(uint8_t *)(*((uint32_t *)off_128404 + 10) + 16) == 6;
   return result;

@@ -14,10 +14,10 @@ extern uint32_t off_104024;
 extern uint32_t off_104020;
 extern uint32_t dword_104028;
 
-// sub_103FA8 @ 0x103fa8, size 118 bytes
+// mac_irq_enable @ 0x103fa8, size 118 bytes
 // Doc: sub_1203FA8 [mmio]: Set MMIO control bits at 0x4034224c/0x403422c4
 // sub_1203FA8 [mmio]: Set MMIO control bits at 0x4034224c/0x403422c4
-int * sub_103FA8(int a1)
+int * mac_irq_enable(int a1)
 {
   unsigned int *v1; // r3
   int v2; // r5

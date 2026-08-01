@@ -14,8 +14,8 @@ extern uint32_t off_127298;
 extern uint32_t dword_12729C;
 extern uint32_t dword_1272A0;
 
-// sub_12726C @ 0x12726c, size 44 bytes
-int sub_12726C()
+// tx_ready_check @ 0x12726c, size 44 bytes
+int tx_ready_check()
 {
   uint32_t *v0; // r3
   int v1; // r1
@@ -39,10 +39,10 @@ LABEL_6:
         *(uint8_t *)(v2 + 16) = 1;
       v0[11] = v1;
     }
-    return rf_status_query_n704();
+    return clear_tx_buffer();
   }
   if ( *((uint32_t *)off_127298 + 11) )
-    return rf_status_query_n704();
+    return clear_tx_buffer();
   return result;
 }
 

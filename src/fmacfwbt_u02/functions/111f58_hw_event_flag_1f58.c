@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// hw_event_flag_1f58 @ 0x111f58, size 32 bytes
-// Doc: hw_event_flag_1f58 [mmio]: Check hardware event flag status from MMIO register
-// hw_event_flag_1f58 [mmio]: Check hardware event flag status from MMIO register
-int  hw_event_flag_1f58(int a1)
+// phy_reg_modify @ 0x111f58, size 32 bytes
+// Doc: phy_reg_modify [mmio]: Check hardware event flag status from MMIO register
+// phy_reg_modify [mmio]: Check hardware event flag status from MMIO register
+int  phy_reg_modify(int a1)
 {
   int result; // r0
   int v2; // r3

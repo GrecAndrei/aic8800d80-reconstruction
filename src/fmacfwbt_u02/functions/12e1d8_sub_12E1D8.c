@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12E1F8;
 
-// sub_12E1D8 @ 0x12e1d8, size 30 bytes
-int  sub_12E1D8(int a1, int16_t a2)
+// pack_chan_bits @ 0x12e1d8, size 30 bytes
+int  pack_chan_bits(int a1, int16_t a2)
 {
   return dword_12E1F8
        & ((((32 * (*(uint8_t *)(a1 + 5) ^ (*(uint8_t *)(a1 + 5) >> 4))) & 0x1E0) + (a2 & 0x1FF)) << 22)

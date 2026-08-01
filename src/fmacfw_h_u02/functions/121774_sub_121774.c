@@ -22,8 +22,8 @@ extern uint32_t off_1217E8;
 extern uint32_t off_1217E4;
 extern uint32_t dword_1217EC;
 
-// sub_121774 @ 0x121774, size 90 bytes
-unsigned int sub_121774()
+// rf_irq_disable @ 0x121774, size 90 bytes
+unsigned int rf_irq_disable()
 {
   int16_t **v0; // r0
   int v1; // r3
@@ -40,11 +40,11 @@ unsigned int sub_121774()
   *(uint32_t *)off_1217DC = v1;
   if ( v3 < 0 && *(uint32_t *)off_1217F0 << 28 )
   {
-    sub_12F35C(dword_1217F8, dword_1217F4, 472);
+    mmio_write_field(dword_1217F8, dword_1217F4, 472);
     v1 = *v2;
   }
   *(uint32_t *)off_1217E0 = v1 | v2[1];
-  result = sub_11DF40(0);
+  result = mmio_reg_update(0);
   v5 = off_1217E8;
   *(uint32_t *)off_1217E4 = dword_1217EC;
   *v5 &= 0xFFFBFFFE;

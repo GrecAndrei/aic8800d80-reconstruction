@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1165B0;
 
-// sub_116508 @ 0x116508, size 166 bytes
-int  sub_116508(int result, int a2)
+// build_tx_packet @ 0x116508, size 166 bytes
+int  build_tx_packet(int result, int a2)
 {
   int v2; // r3
   int v3; // r8

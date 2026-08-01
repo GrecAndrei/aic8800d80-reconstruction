@@ -1,1 +1,1 @@
-{"fn": "sub_123831C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123831c", "status": "ok", "name": "sub_123831C", "params": [], "docstring": "Loads pointer from 0x192d84, accesses +0xf00 offset byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123831C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123831c", "status": "ok", "name": "lookup_handle_entry", "params": [], "docstring": "Loads pointer from 0x192d84, accesses +0xf00 offset byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -13,13 +13,13 @@
 extern uint32_t off_10297C;
 extern uint32_t off_102980;
 
-// sub_10294C @ 0x10294c, size 48 bytes
-int sub_10294C()
+// check_event_state @ 0x10294c, size 48 bytes
+int check_event_state()
 {
   int result; // r0
   int *i; // r4
 
-  result = sub_1009A0(*((uint8_t *)off_10297C + 36), *((uint16_t *)off_10297C + 20));
+  result = radio_init(*((uint8_t *)off_10297C + 36), *((uint16_t *)off_10297C + 20));
   for ( i = *((int **)off_102980 + 2); i; i = (int *)*i )
   {
     while ( !*((uint8_t *)i + 108) )
@@ -28,7 +28,7 @@ int sub_10294C()
       if ( !i )
         return result;
     }
-    result = sub_12C7AC(i);
+    result = scan_rssi_compare(i);
   }
   return result;
 }

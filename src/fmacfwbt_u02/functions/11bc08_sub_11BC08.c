@@ -19,8 +19,8 @@ extern uint32_t off_11BC80;
 extern uint32_t off_11BC84;
 extern uint32_t off_11BC88;
 
-// sub_11BC08 @ 0x11bc08, size 100 bytes
-uint32_t * sub_11BC08(uint32_t *result)
+// crypto_aes_setup @ 0x11bc08, size 100 bytes
+uint32_t * crypto_aes_setup(uint32_t *result)
 {
   uint32_t *v1; // r2
   int v2; // r5

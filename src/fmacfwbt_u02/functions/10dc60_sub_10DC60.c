@@ -12,12 +12,12 @@
 
 extern uint32_t off_10DC74;
 
-// sub_10DC60 @ 0x10dc60, size 18 bytes
-int sub_10DC60()
+// gpio_write_pin2 @ 0x10dc60, size 18 bytes
+int gpio_write_pin2()
 {
   if ( *((uint8_t *)off_10DC74 + 369) )
-    return irq_enable(2);
+    return gpio_set_bit_reg0(2);
   else
-    return sub_10DB6C(2);
+    return gpio_clear_bit_reg0(2);
 }
 

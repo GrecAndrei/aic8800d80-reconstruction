@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_109760 @ 0x109760, size 278 bytes
-int  sub_109760(float *a1, float *a2)
+// f32_compare @ 0x109760, size 278 bytes
+int  f32_compare(float *a1, float *a2)
 {
   float v2; // s15
   float v3; // s14

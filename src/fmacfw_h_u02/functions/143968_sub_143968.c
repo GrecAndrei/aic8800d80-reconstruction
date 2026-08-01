@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143968 @ 0x143968, size 724 bytes
-int  sub_143968(unsigned int a1, unsigned int *a2)
+// strcmp @ 0x143968, size 724 bytes
+int  strcmp(unsigned int a1, unsigned int *a2)
 {
   int v3; // r2
   int v4; // r3

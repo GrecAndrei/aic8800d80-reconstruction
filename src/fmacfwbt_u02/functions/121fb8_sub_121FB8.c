@@ -22,8 +22,8 @@ extern uint32_t off_12223C;
 extern uint32_t dword_122240;
 extern uint32_t dword_122244;
 
-// sub_121FB8 @ 0x121fb8, size 610 bytes
-unsigned int  sub_121FB8(int a1)
+// phy_txpower_calc @ 0x121fb8, size 610 bytes
+unsigned int  phy_txpower_calc(int a1)
 {
   int v1; // r5
   int v2; // r7
@@ -83,13 +83,13 @@ unsigned int  sub_121FB8(int a1)
   {
     v7 = (uint8_t)v6++;
     if ( *(uint32_t *)(v2 + 584) )
-      sub_118D80(v7, v5 - 40, 0);
+      rf_calib_config(v7, v5 - 40, 0);
     v8 = *(uint32_t *)(v2 + 624);
     v9 = v5;
     v2 += 8;
     v5 += 8;
     if ( v8 )
-      sub_118D80(v7, v9, 0);
+      rf_calib_config(v7, v9, 0);
   }
   while ( v6 != 5 );
   v10 = dword_122220;
@@ -132,7 +132,7 @@ LABEL_9:
       while ( (*v24 & 0x40000000) != 0 )
         ;
     }
-    return sub_11F4A8(v4);
+    return wlc_phy_cal_init(v4);
   }
   if ( *(uint8_t *)(v1 + 696 * v4 + 36) == 1 )
   {
@@ -149,10 +149,10 @@ LABEL_9:
         v29[36] = 0;
         if ( v30 <= 0x1F )
         {
-          v32 = (uint8_t *)sub_12CB54(73, 13, 0, 2);
+          v32 = (uint8_t *)bt_buf_alloc(73, 13, 0, 2);
           *v32 = v27;
           v32[1] = 0;
-          sub_12CBB4(v32);
+          hci_evt_send(v32);
           if ( !v29[36] && v29[35] <= 0x1Fu )
           {
             v33 = (int *)off_122238;
@@ -179,12 +179,12 @@ LABEL_9:
                 v43 = dword_122240;
                 v44 = *v33 + 1;
                 *v33 = v44;
-                sub_12ECB0(v43, v44, v42);
-                sub_12D658(v37 - 40, v38 - 40);
+                ke_event_schedule(v43, v44, v42);
+                list_merge(v37 - 40, v38 - 40);
                 v45 = v36[147];
                 v39[308] = v36[146];
                 v39[309] = v45;
-                sub_12D468(v37 - 40);
+                zero_struct(v37 - 40);
                 v33 = (int *)off_122238;
                 v46 = *(uint32_t *)off_122238 - 1;
                 if ( *(uint32_t *)off_122238 )
@@ -203,9 +203,9 @@ LABEL_9:
               v36 += 2;
               if ( v47 )
               {
-                sub_12ECB0(dword_122244, v47, v34);
-                sub_12D658(v38, v37);
-                sub_12D468(v37);
+                ke_event_schedule(dword_122244, v47, v34);
+                list_merge(v38, v37);
+                zero_struct(v37);
                 v33 = (int *)off_122238;
               }
               v37 += 8;
@@ -213,17 +213,17 @@ LABEL_9:
             }
             while ( v37 != v40 );
             v4 = v48;
-            sub_12D32C(512);
+            set_system_flag_1(512);
           }
         }
       }
       v31 = v10 + 1320 * v3;
-      sub_136E40(v31, (uint8_t)(*(uint8_t *)(v31 + 107) + 32));
+      txpwr_cal_entry_get(v31, (uint8_t)(*(uint8_t *)(v31 + 107) + 32));
       v12 = *(uint8_t *)(v31 + 106);
     }
   }
   if ( v12 != 2 )
     goto LABEL_9;
-  return sub_11F4A8(v4);
+  return wlc_phy_cal_init(v4);
 }
 

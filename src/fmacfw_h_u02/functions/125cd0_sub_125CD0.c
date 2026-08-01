@@ -13,8 +13,8 @@
 extern uint32_t dword_125D30;
 extern uint32_t off_125D34;
 
-// sub_125CD0 @ 0x125cd0, size 94 bytes
-int  sub_125CD0(int result)
+// scan_entry_lookup @ 0x125cd0, size 94 bytes
+int  scan_entry_lookup(int result)
 {
   int v1; // r6
   int v2; // r4
@@ -29,10 +29,10 @@ int  sub_125CD0(int result)
   v3 = dword_125D30 + 140 * v2;
   v4 = result;
   if ( !*(uint8_t *)(v3 + 32) && *(uint8_t *)(v3 + 16) )
-    result = ((int (*)(void))sub_12A5C0)();
+    result = ((int (*)(void))lll_conn_ready_check)();
   v5 = v1 + 140 * v2;
   if ( !*(uint8_t *)(v5 + 80) && *(uint8_t *)(v5 + 64) )
-    result = sub_12A5C0(v4, 1);
+    result = lll_conn_ready_check(v4, 1);
   v6 = *((int **)off_125D34 + 2);
   if ( v6 )
   {

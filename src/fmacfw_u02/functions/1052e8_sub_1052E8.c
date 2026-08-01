@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1052E8 @ 0x1052e8, size 154 bytes
-int  sub_1052E8(int a1, float a2, int *a3, int a4, int a5)
+// rx_status_shift @ 0x1052e8, size 154 bytes
+int  rx_status_shift(int a1, float a2, int *a3, int a4, int a5)
 {
   int result; // r0
   int v7; // r3

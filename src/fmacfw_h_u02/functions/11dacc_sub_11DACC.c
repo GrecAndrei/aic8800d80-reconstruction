@@ -19,8 +19,8 @@ extern uint32_t off_11DBEC;
 extern uint32_t dword_11DBF4;
 extern uint32_t dword_11DBF0;
 
-// sub_11DACC @ 0x11dacc, size 278 bytes
-int  sub_11DACC(int *a1, int a2, uint16_t *a3)
+// rx_packet_handler @ 0x11dacc, size 278 bytes
+int  rx_packet_handler(int *a1, int a2, uint16_t *a3)
 {
   uint8_t *v3; // r7
   int v4; // r6
@@ -118,7 +118,7 @@ LABEL_10:
     v18 = *(uint32_t *)(v4 + 4);
     if ( **(int16_t **)off_11DBEC < 0 && !v18 )
     {
-      sub_12F32C(dword_11DBF4, dword_11DBF0, 615);
+      irq_disable_mmio_write(dword_11DBF4, dword_11DBF0, 615);
       v18 = 0;
     }
     v26 = v4;

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12ABAC;
 
-// scan_peer_table_lookup_n0 @ 0x12ab80, size 44 bytes
-// Doc: scan_peer_table_lookup_n0 [scan]: Lookup peer entry in indexed 0x8c-stride table
-// scan_peer_table_lookup_n0 [scan]: Lookup peer entry in indexed 0x8c-stride table
-int  scan_peer_table_lookup_n0(int a1)
+// rf_calib_valid @ 0x12ab80, size 44 bytes
+// Doc: rf_calib_valid [scan]: Lookup peer entry in indexed 0x8c-stride table
+// rf_calib_valid [scan]: Lookup peer entry in indexed 0x8c-stride table
+int  rf_calib_valid(int a1)
 {
   uint8_t *v1; // r3
   int result; // r0

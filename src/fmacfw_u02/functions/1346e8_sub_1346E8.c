@@ -14,8 +14,8 @@ extern uint32_t off_134790;
 extern uint32_t off_134798;
 extern uint32_t dword_134794;
 
-// sub_1346E8 @ 0x1346e8, size 166 bytes
-uint32_t *sub_1346E8()
+// tx_packet_handler @ 0x1346e8, size 166 bytes
+uint32_t *tx_packet_handler()
 {
   char *v0; // r5
   uint8_t *v1; // r8
@@ -34,9 +34,9 @@ uint32_t *sub_1346E8()
   v1 = off_134798;
   v2 = *((uint8_t *)off_134790 + 12);
   v3 = *((int **)off_134798 + 4);
-  v4 = sub_12C92C(4098, 4, 6, 0x178u);
-  msg_parse(dword_134794);
-  event_queue_push(6155, 6);
+  v4 = ke_msg_alloc(4098, 4, 6, 0x178u);
+  event_dispatch(dword_134794);
+  ke_int_lock(6155, 6);
   v5 = *(uint64_t *)(v0 + 4);
   v0[14] = 0;
   *(uint32_t *)(v4 + 352) = *(uint32_t *)v5;
@@ -65,7 +65,7 @@ uint32_t *sub_1346E8()
   if ( v2 )
     *(uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
-  sdio_buffer_prepare_n_4e8(v4);
-  return sub_12CD34(6u, 2);
+  ke_msg_send(v4);
+  return rx_phy_status_parse(6u, 2);
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1200D94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1200d94", "status": "ok", "name": "mmio_status_check_n0d94", "params": [], "docstring": "Reads and checks status from MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1200D94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1200d94", "status": "ok", "name": "adc_read_ch1", "params": [], "docstring": "Reads and checks status from MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

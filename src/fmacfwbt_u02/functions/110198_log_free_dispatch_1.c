@@ -12,10 +12,10 @@
 
 extern uint32_t off_1101E4;
 
-// log_free_dispatch_1 @ 0x110198, size 62 bytes
+// critical_enter_2 @ 0x110198, size 62 bytes
 // Doc: log_free_dispatch [util]: Free a log buffer entry and dispatch
 // log_free_dispatch [util]: Free a log buffer entry and dispatch
-int log_free_dispatch_1()
+int critical_enter_2()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int log_free_dispatch_1()
   v0 = (int *)log_free_dispatch_n37c;
   v1 = log_free_dispatch_n380;
   ++*(uint32_t *)log_free_dispatch_n37c;
-  result = sub_12D4F8(v1);
+  result = list_pop_front(v1);
   if ( result )
     --*(uint32_t *)off_1101E4;
   if ( *v0 )

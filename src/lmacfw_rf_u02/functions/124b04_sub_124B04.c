@@ -17,8 +17,8 @@ extern uint32_t off_124C5C;
 extern uint32_t off_124C60;
 extern uint32_t dword_124C64;
 
-// sub_124B04 @ 0x124b04, size 338 bytes
-int  sub_124B04(int a1, int a2)
+// set_adv_type @ 0x124b04, size 338 bytes
+int  set_adv_type(int a1, int a2)
 {
   uint8_t v3; // r0
   unsigned int v4; // r4
@@ -33,14 +33,14 @@ int  sub_124B04(int a1, int a2)
   int16_t v14; // [sp+12h] [bp-Ah]
   char v15; // [sp+16h] [bp-6h]
 
-  v3 = sub_121E3C(*(uint8_t **)(a2 + 4), 0, 0xAu);
+  v3 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
   if ( a1 <= 1 || (v4 = v3) == 0 )
   {
-    sub_11F504(dword_124C68);
+    dispatch_event_handler(dword_124C68);
     return -1;
   }
   *(uint32_t *)off_124C58 |= 0x500000u;
-  sub_1019EC(&v9, 0);
+  mac_time_get(&v9, 0);
   if ( v4 <= 0x23 )
   {
     v5 = BYTE1(v9);
@@ -50,7 +50,7 @@ int  sub_124B04(int a1, int a2)
     {
       if ( v4 != 14 )
       {
-        sub_11F504(dword_124C6C, v4, (uint32_t)v9);
+        dispatch_event_handler(dword_124C6C, v4, (uint32_t)v9);
         return -2;
       }
       v13 = 2484;
@@ -106,12 +106,12 @@ LABEL_6:
   v12 = v13;
 LABEL_7:
   *(uint8_t *)off_124C5C = 1;
-  sub_1246F0(0, (int)&v10);
+  rx_process_pending(0, (int)&v10);
   v6 = off_124C60;
   *(uint32_t *)off_124C58 &= 0xFF87FFFF;
   if ( *v6 )
-    sub_1268EC(*v6);
-  sub_11F504(dword_124C64, v4, v13, v11);
+    init_with_stack(*v6);
+  dispatch_event_handler(dword_124C64, v4, v13, v11);
   return 0;
 }
 

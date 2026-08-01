@@ -13,8 +13,8 @@
 extern uint32_t off_1304D8;
 extern uint32_t off_1304DC;
 
-// sub_1304A4 @ 0x1304a4, size 50 bytes
-void sub_1304A4()
+// mmio_wait_reg @ 0x1304a4, size 50 bytes
+void mmio_wait_reg()
 {
   uint32_t *v0; // r4
   unsigned int u8; // r0
@@ -24,11 +24,11 @@ void sub_1304A4()
   {
     if ( (*v0 & 0xF) == 4 )
     {
-      u8 = mmio_read_u8();
-      if ( sub_130234(u8) > 0 )
+      u8 = uart_getc();
+      if ( ke_malloc(u8) > 0 )
       {
         if ( *(uint8_t *)off_1304DC )
-          sub_13038C();
+          ke_event_send();
         return;
       }
     }

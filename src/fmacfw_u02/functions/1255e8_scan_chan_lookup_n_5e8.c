@@ -15,10 +15,10 @@ extern uint32_t dword_125730;
 extern uint32_t off_125728;
 extern uint32_t off_12572C;
 
-// scan_chan_lookup_n_5e8 @ 0x1255e8, size 316 bytes
-// Doc: scan_chan_lookup_n_5e8 [scan]: Looks up channel/scan entry from indexed table and copies state block
-// scan_chan_lookup_n_5e8 [scan]: Looks up channel/scan entry from indexed table and copies state block
-int  scan_chan_lookup_n_5e8(int a1)
+// hci_acl_tx_done @ 0x1255e8, size 316 bytes
+// Doc: hci_acl_tx_done [scan]: Looks up channel/scan entry from indexed table and copies state block
+// hci_acl_tx_done [scan]: Looks up channel/scan entry from indexed table and copies state block
+int  hci_acl_tx_done(int a1)
 {
   int v1; // r8
   uint8_t *v2; // r5
@@ -43,11 +43,11 @@ int  scan_chan_lookup_n_5e8(int a1)
   v2 = (uint8_t *)(dword_125724 + 8 * *(uint8_t *)(a1 + 107));
   v4 = v2[4];
   v5 = a1 + 116;
-  v6 = ke_elem_lookup_n_2bc(a1);
+  v6 = link_env_get(a1);
   *(uint32_t *)(v1 + 36) = *(uint16_t *)(v6 + 216) + *(uint16_t *)(v6 + 218) + 4;
   if ( *(uint8_t *)(v6 + 1224) )
   {
-    v15 = scan_peer_table_lookup_n0(*(uint8_t *)(v6 + 1225));
+    v15 = rf_calib_valid(*(uint8_t *)(v6 + 1225));
     if ( v15 )
     {
       v16 = dword_125730 + 20 * *(uint8_t *)(a1 + 107);
@@ -108,16 +108,16 @@ int  scan_chan_lookup_n_5e8(int a1)
     }
     if ( !v14
       || (v18 = *(uint8_t *)(a1 + 107),
-          v19 = (uint8_t *)sub_12C92C(78, 13, 0, 2),
+          v19 = (uint8_t *)ke_msg_alloc(78, 13, 0, 2),
           *v19 = v18,
           v19[1] = v14,
-          sdio_buffer_prepare_n_4e8(v19),
+          ke_msg_send(v19),
           !*(uint8_t *)(a1 + 231)) )
     {
       *(uint8_t *)(a1 + 231) = 1;
     }
   }
-  sub_12C4E8(a1, v5);
+  rf_check_temperature(a1, v5);
   return v10;
 }
 

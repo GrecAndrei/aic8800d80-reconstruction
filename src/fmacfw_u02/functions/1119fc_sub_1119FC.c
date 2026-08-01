@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1119FC @ 0x1119fc, size 242 bytes
+// mmio_set_bit @ 0x1119fc, size 242 bytes
 // Doc: rf_bus_reg_set_bits_n_20e [rf]: Set OR-mask bits in RF bus control register
 // rf_bus_reg_set_bits_n_20e [rf]: Set OR-mask bits in RF bus control register
-int sub_1119FC()
+int mmio_set_bit()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r2
@@ -71,6 +71,6 @@ LABEL_11:
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return msg_parse(v7, v4, 46);
+  return event_dispatch(v7, v4, 46);
 }
 

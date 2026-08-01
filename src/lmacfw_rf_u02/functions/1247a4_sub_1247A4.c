@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1247A4 @ 0x1247a4, size 50 bytes
-int  sub_1247A4(uint8_t **a1, uint8_t *a2)
+// util_list_find @ 0x1247a4, size 50 bytes
+int  util_list_find(uint8_t **a1, uint8_t *a2)
 {
   uint8_t *v2; // r3
   uint8_t *v3; // t1

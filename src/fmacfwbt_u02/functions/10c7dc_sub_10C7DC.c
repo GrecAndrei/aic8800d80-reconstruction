@@ -16,8 +16,8 @@ extern uint32_t off_10C81C;
 extern uint32_t off_10C818;
 extern uint32_t off_10C820;
 
-// sub_10C7DC @ 0x10c7dc, size 52 bytes
-int sub_10C7DC()
+// pmu_wait_status @ 0x10c7dc, size 52 bytes
+int pmu_wait_status()
 {
   int v0; // r4
   int result; // r0
@@ -28,7 +28,7 @@ int sub_10C7DC()
   v0 = *(uint32_t *)off_10C810 & 0x1F00;
   if ( v0 )
   {
-    result = irq_nesting_or(2048);
+    result = set_system_flag_1(2048);
     v2 = (int *)off_10C814;
     v3 = off_10C81C;
     *(uint32_t *)off_10C818 = v0;

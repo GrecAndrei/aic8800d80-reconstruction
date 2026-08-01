@@ -15,8 +15,8 @@ extern uint32_t dword_109E9C;
 extern uint32_t dword_109EAC;
 extern uint32_t dword_109EA4;
 
-// sub_109C74 @ 0x109c74, size 546 bytes
-int  sub_109C74(int a1, int a2, int a3, int a4)
+// rf_load_cal_config @ 0x109c74, size 546 bytes
+int  rf_load_cal_config(int a1, int a2, int a3, int a4)
 {
   int v8; // r1
   int v9; // r2
@@ -102,7 +102,7 @@ int  sub_109C74(int a1, int a2, int a3, int a4)
   v56 = a3;
   v59[1] = v20;
   v59[2] = v17;
-  sub_1099F0(0, v58, v59, a4);
+  f32_pair_compare(0, v58, v59, a4);
   if ( v19 > 0 )
   {
     v21 = v60;
@@ -119,13 +119,13 @@ int  sub_109C74(int a1, int a2, int a3, int a4)
         v25 = *(float *)(a4 + 8);
         v26 = v22[32];
         v27 = v25 * *v22++;
-        v28 = sub_1428B8((float)(v27 - v26) + *(float *)(a4 + 12));
-        v29 = sub_142968(v28, HIDWORD(v28), v28, HIDWORD(v28));
-        v30 = sub_1428B8((float)(v25 * v25) + 1.0);
-        v31 = sub_142BBC(v29, HIDWORD(v29), v30, HIDWORD(v30));
-        v32 = sub_1428B8(LODWORD(v18));
-        v33 = sub_1425FC(v31, HIDWORD(v31), v32, HIDWORD(v32));
-        v18 = COERCE_FLOAT(sub_142F2C(v33));
+        v28 = float_to_double((float)(v27 - v26) + *(float *)(a4 + 12));
+        v29 = double_compare_common(v28, HIDWORD(v28), v28, HIDWORD(v28));
+        v30 = float_to_double((float)(v25 * v25) + 1.0);
+        v31 = double_compare_core(v29, HIDWORD(v29), v30, HIDWORD(v30));
+        v32 = float_to_double(LODWORD(v18));
+        v33 = double_compare_eq(v31, HIDWORD(v31), v32, HIDWORD(v32));
+        v18 = COERCE_FLOAT(double_to_int(v33));
         if ( v22 == v23 )
           goto LABEL_6;
       }
@@ -134,7 +134,7 @@ int  sub_109C74(int a1, int a2, int a3, int a4)
 LABEL_6:
   if ( !v56 )
   {
-    sub_12EB90(1, dword_109E9C);
+    check_feature_flag(1, dword_109E9C);
     v34 = v57;
     if ( v57 > 0 )
       goto LABEL_8;
@@ -144,7 +144,7 @@ LABEL_20:
     v49 = 4 * v56;
     goto LABEL_18;
   }
-  sub_12EB90(1, dword_109EAC);
+  check_feature_flag(1, dword_109EAC);
   v34 = v57;
   if ( v57 <= 0 )
     goto LABEL_20;
@@ -188,8 +188,8 @@ LABEL_12:
       if ( v51 != 1 )
         break;
       v52 = *v37 - v47;
-      if ( (float)sub_1435C8((int)v52) > *(float *)(v50 + 636) )
-        *(float *)(v50 + 636) = (float)sub_1435C8((int)v52);
+      if ( (float)int_abs((int)v52) > *(float *)(v50 + 636) )
+        *(float *)(v50 + 636) = (float)int_abs((int)v52);
       ++v37;
       v46 = v46 + (float)(v52 * v52);
       if ( v48 == v37 )
@@ -201,6 +201,6 @@ LABEL_18:
   v54 = dword_109EA4;
   *(float *)(v53 + 512) = v18 / v45;
   *(float *)(v53 + 520) = v46 / v45;
-  return sub_12EB90(1, v54);
+  return check_feature_flag(1, v54);
 }
 

@@ -15,8 +15,8 @@ extern uint32_t off_1194E4;
 extern uint32_t dword_1194F0;
 extern uint32_t dword_1194EC;
 
-// sub_119478 @ 0x119478, size 108 bytes
-int  sub_119478(int a1, uint8_t *a2, int a3, int a4)
+// rx_packet_check @ 0x119478, size 108 bytes
+int  rx_packet_check(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r4
   int v6; // r8
@@ -29,7 +29,7 @@ int  sub_119478(int a1, uint8_t *a2, int a3, int a4)
   {
     v9 = 8 * v6;
     if ( *(uint8_t *)(dword_1194E8 + 224 * v6 + 94) )
-      rf_cmd_send_n264(dword_1194F0, dword_1194EC, 3702);
+      flash_ctrl_init(dword_1194F0, dword_1194EC, 3702);
   }
   else
   {
@@ -39,7 +39,7 @@ int  sub_119478(int a1, uint8_t *a2, int a3, int a4)
   v10[118] = a2[1];
   v10[119] = a2[2];
   v10[120] = 0;
-  sub_11DED8(134, a4, a3);
+  ke_evt_handler(134, a4, a3);
   return 0;
 }
 

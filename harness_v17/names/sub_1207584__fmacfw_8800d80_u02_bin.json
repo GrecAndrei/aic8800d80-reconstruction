@@ -1,1 +1,1 @@
-{"fn": "sub_1207584", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207584", "status": "ok", "name": "mmio_config_bits_n_5a0", "params": [], "docstring": "Configure MMIO register bit field using bic/orr mask pattern", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1207584", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207584", "status": "ok", "name": "rf_mode_select", "params": [], "docstring": "Configure MMIO register bit field using bic/orr mask pattern", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

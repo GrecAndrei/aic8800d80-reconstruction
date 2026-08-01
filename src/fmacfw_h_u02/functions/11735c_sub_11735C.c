@@ -18,8 +18,8 @@ extern uint32_t off_1173E4;
 extern uint32_t off_1173E8;
 extern uint32_t off_1173EC;
 
-// sub_11735C @ 0x11735c, size 124 bytes
-int  sub_11735C(int a1)
+// phy_get_cfg_ptr @ 0x11735c, size 124 bytes
+int  phy_get_cfg_ptr(int a1)
 {
   uint32_t *v2; // r5
   int v3; // r3
@@ -35,11 +35,11 @@ int  sub_11735C(int a1)
     v2 = (uint32_t *)dword_1173F0;
   else
     v2 = (uint32_t *)(dword_1173D8 + 84 * a1);
-  sub_118800(a1, dword_1173DC + 8 * a1, 0);
-  sub_118800(a1, v2 + 3, 0);
+  phy_dispatch(a1, dword_1173DC + 8 * a1, 0);
+  phy_dispatch(a1, v2 + 3, 0);
   *v2 = 0;
   v2[5] = 0;
-  sub_115F10(a1);
+  ll_event_clear(a1);
   v3 = *(uint32_t *)off_1173E0;
   v4 = 1 << a1;
   if ( (__get_CPSR() & 1) == 0 )

@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_119D58 @ 0x119d58, size 22 bytes
+// timer_start_reset @ 0x119d58, size 22 bytes
 // Doc: sub_1219D58 [rf]: Unknown helper in lmacfw_rf image (reconstructed flow)
 // sub_1219D58 [rf]: Unknown helper in lmacfw_rf image (reconstructed flow)
-int  sub_119D58(int a1, int a2, int a3, int a4)
+int  timer_start_reset(int a1, int a2, int a3, int a4)
 {
-  sub_11DED8(1, a4, a3);
-  sub_11E1E4(0);
+  ke_evt_handler(1, a4, a3);
+  flash_erase_sector(0);
   return 0;
 }
 

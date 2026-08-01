@@ -1,1 +1,1 @@
-{"fn": "sub_120DC40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120dc40", "status": "ok", "name": "rf_subsystem_init", "params": [], "docstring": "Initialize lmac RF subsystem helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120DC40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120dc40", "status": "ok", "name": "gpio_init_pin_11", "params": [], "docstring": "Initialize lmac RF subsystem helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

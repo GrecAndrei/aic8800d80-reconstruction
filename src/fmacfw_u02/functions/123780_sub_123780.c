@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_123780 @ 0x123780, size 32 bytes
-int  sub_123780(int a1, uint8_t *a2, int a3, int a4)
+// ble_msg_helper @ 0x123780, size 32 bytes
+int  ble_msg_helper(int a1, uint8_t *a2, int a3, int a4)
 {
-  rf_chan_table_init_1d84(*a2);
-  sub_12CA10(13, a4, a3);
+  rf_channel_calc(*a2);
+  ke_msg_send_no_param(13, a4, a3);
   return 0;
 }
 

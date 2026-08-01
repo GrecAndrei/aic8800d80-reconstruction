@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// phy_flag_get_123f454 @ 0x13f454, size 44 bytes
-// Doc: phy_flag_get_123f454 [mac]: Get PHY capability flag from offset 0x15c, branch on mode
-// phy_flag_get_123f454 [mac]: Get PHY capability flag from offset 0x15c, branch on mode
-int  phy_flag_get_123f454(int result, unsigned int a2)
+// set_flow_control_mode @ 0x13f454, size 44 bytes
+// Doc: set_flow_control_mode [mac]: Get PHY capability flag from offset 0x15c, branch on mode
+// set_flow_control_mode [mac]: Get PHY capability flag from offset 0x15c, branch on mode
+int  set_flow_control_mode(int result, unsigned int a2)
 {
   int v2; // r2
   uint32_t *v3; // r4

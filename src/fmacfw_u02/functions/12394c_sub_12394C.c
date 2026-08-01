@@ -14,8 +14,8 @@ extern uint32_t off_1239B8;
 extern uint32_t off_1239BC;
 extern uint32_t off_1239C0;
 
-// sub_12394C @ 0x12394c, size 106 bytes
-int  sub_12394C(int a1, int a2, int a3, int a4)
+// unknown_handler @ 0x12394c, size 106 bytes
+int  unknown_handler(int a1, int a2, int a3, int a4)
 {
   int *v4; // r4
   uint32_t *v5; // r5
@@ -37,12 +37,12 @@ int  sub_12394C(int a1, int a2, int a3, int a4)
   v5 = off_1239C0;
   v6 = *(uint32_t *)off_1239C0;
   ++*(uint32_t *)off_1239BC;
-  v7 = mmio_set_reset_vector_n_b8();
-  v9 = sub_1019D0(v7, SHIDWORD(v7), v8);
-  v10 = message_dispatch_n_b4(v9);
-  sub_1321C8(v10);
-  fw_init_umac_subsystem();
-  mac_phy_init();
+  v7 = mmio_write_one();
+  v9 = rf_get_status(v7, SHIDWORD(v7), v8);
+  v10 = ke_int_lock_save(v9);
+  ke_task_reset(v10);
+  mem_pool_init();
+  get_bt_state();
   v11 = *v4;
   *v5 = v6;
   if ( v11 )
@@ -56,8 +56,8 @@ int  sub_12394C(int a1, int a2, int a3, int a4)
         __enable_irq();
     }
   }
-  sub_12CA10(1, a4, a3);
-  sub_12CD34(0);
+  ke_msg_send_no_param(1, a4, a3);
+  rx_phy_status_parse(0);
   return 0;
 }
 

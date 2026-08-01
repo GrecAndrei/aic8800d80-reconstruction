@@ -1,1 +1,1 @@
-{"fn": "rf_msg_handler_n_25f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212ea4", "status": "ok", "name": "rf_cmd_send_n_2a", "params": [], "docstring": "RF command send with table index lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_msg_handler_n_25f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212ea4", "status": "ok", "name": "rf_cmd_wait_n_cc", "params": [], "docstring": "RF command send with table index lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

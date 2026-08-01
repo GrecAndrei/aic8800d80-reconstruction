@@ -14,8 +14,8 @@ extern uint32_t off_110C04;
 extern uint32_t off_110BFC;
 extern uint32_t off_110C00;
 
-// sub_110B20 @ 0x110b20, size 218 bytes
-int sub_110B20()
+// rx_task @ 0x110b20, size 218 bytes
+int rx_task()
 {
   uint32_t *v0; // r8
   int *v1; // r7
@@ -63,15 +63,15 @@ int sub_110B20()
             v6 = *(uint32_t *)(v6 + 4);
             if ( v9 == v8 )
               break;
-            sub_1101BC();
+            mmio_write_0();
             v9 = v7;
             if ( v7 >= v5 )
               goto LABEL_8;
           }
           v17 = v10;
-          sub_11D7AC();
+          dma_ring_alloc_1();
           LOWORD(v8) = v8 + (*(uint8_t *)(v17 + 11) & 0x7F);
-          sub_1101BC();
+          mmio_write_0();
           v9 = v7;
           v8 = (uint16_t)v8;
         }
@@ -84,7 +84,7 @@ LABEL_8:
         *v2 = 1;
       }
       ++*v1;
-      sub_12D190(v3);
+      list_pop(v3);
       v11 = *v1;
       --*((uint8_t *)v0 + 3074);
       if ( !v11 )
@@ -107,7 +107,7 @@ LABEL_14:
     *(uint32_t *)off_110C00 = 1;
   }
   ++*v1;
-  result = sub_12D00C(128);
+  result = irq_disable_global_3(128);
   if ( *v1 )
   {
     v15 = *v1 - 1;

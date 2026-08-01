@@ -23,8 +23,8 @@ extern uint32_t dword_10F6A0;
 extern uint32_t dword_10F6B0;
 extern uint32_t dword_10F6A4;
 
-// sub_10F3A8 @ 0x10f3a8, size 740 bytes
-int sub_10F3A8()
+// ke_msg_alloc @ 0x10f3a8, size 740 bytes
+int ke_msg_alloc()
 {
   int result; // r0
   int *v1; // r9
@@ -54,17 +54,17 @@ int sub_10F3A8()
   int v25; // [sp+0h] [bp-Ch]
   int *v26; // [sp+4h] [bp-8h]
 
-  result = sub_12D374(512);
+  result = set_system_flag_2(512);
   v26 = *((int **)off_10F68C + 2);
   if ( !v26 )
     return result;
   v1 = (int *)off_10F6B8;
   while ( 2 )
   {
-    result = bt_sub_121733C(v26);
+    result = init_once(v26);
     if ( !result && *((uint8_t *)v26 + 108) )
       goto LABEL_4;
-    for ( ; v26[328]; result = sub_13AC44(v2, 3, v3) )
+    for ( ; v26[328]; result = tx_prepare_frame_path(v2, 3, v3) )
     {
       if ( (__get_CPSR() & 1) == 0 )
       {
@@ -72,7 +72,7 @@ int sub_10F3A8()
         *(uint32_t *)off_10F690 = 1;
       }
       ++*v1;
-      v2 = sub_12D4F8(v26 + 328);
+      v2 = list_pop_front(v26 + 328);
       v3 = *v1 - 1;
       if ( *v1 )
       {
@@ -106,12 +106,12 @@ LABEL_39:
       {
         while ( 1 )
         {
-          v11 = sub_12D4F8(v6 + 326);
+          v11 = list_pop_front(v6 + 326);
           v12 = *(uint8_t *)(v11 + 29);
           v13 = v11;
           if ( **v7 < 0 && v12 > 0x1F )
           {
-            sub_12F694(dword_10F6AC, dword_10F6A8, 374);
+            mmio_irq_clear(dword_10F6AC, dword_10F6A8, 374);
             v12 = *(uint8_t *)(v13 + 29);
           }
           v14 = v8 + 696 * v12;
@@ -120,7 +120,7 @@ LABEL_39:
           v15 = *(uint8_t *)(v8 + 696 * v12 + 36);
           if ( v15 != 1 )
           {
-            sub_13AC44(v13, v10, v15);
+            tx_prepare_frame_path(v13, v10, v15);
             goto LABEL_24;
           }
           if ( **v7 < 0 )
@@ -128,21 +128,21 @@ LABEL_39:
             if ( (*(uint16_t *)(v13 + 30) & 1) != 0 )
             {
 LABEL_54:
-              list_push_tail(v8 + 8 * (87 * (int16_t)v12 + v25 + 78));
+              check_abort_flag(v8 + 8 * (87 * (int16_t)v12 + v25 + 78));
               goto LABEL_23;
             }
-            sub_12F694(dword_10F6B4, dword_10F6A8, 383);
+            mmio_irq_clear(dword_10F6B4, dword_10F6A8, 383);
           }
           if ( (*(uint16_t *)(v13 + 30) & 1) != 0 )
             goto LABEL_54;
 LABEL_23:
-          sub_12ECB0(dword_10F6A0, *(uint8_t *)(v8 + 696 * v12 + 35), 696);
+          ke_event_schedule(dword_10F6A0, *(uint8_t *)(v8 + 696 * v12 + 35), 696);
 LABEL_24:
           if ( !v6[326] )
             goto LABEL_25;
         }
-        sub_12ECB0(dword_10F6B0, *(uint8_t *)(v14 + 35), v14);
-        sub_13AB90(v13, v10, 0x80000000);
+        ke_event_schedule(dword_10F6B0, *(uint8_t *)(v14 + 35), v14);
+        rf_set_band_config(v13, v10, 0x80000000);
       }
       while ( v6[326] );
 LABEL_25:
@@ -159,9 +159,9 @@ LABEL_26:
           v18 = (uint8_t *)(v8 + 696 * v17);
           if ( v18[37] )
             break;
-          sub_12ECB0(dword_10F6B0, v18[35], v18[37]);
-          v24 = sub_12D4F8(v6 + 316);
-          sub_13AB90(v24, v10, 0x80000000);
+          ke_event_schedule(dword_10F6B0, v18[35], v18[37]);
+          v24 = list_pop_front(v6 + 316);
+          rf_set_band_config(v24, v10, 0x80000000);
           v16 = v6[316];
           if ( !v16 )
             goto LABEL_37;
@@ -174,8 +174,8 @@ LABEL_26:
             *(uint32_t *)off_10F690 = 1;
           }
           ++*v1;
-          sub_12D4F8(v6 + 316);
-          sub_12ECB0(dword_10F6A4, *(uint8_t *)(v8 + 696 * v17 + 35), v8 + 696 * v17);
+          list_pop_front(v6 + 316);
+          ke_event_schedule(dword_10F6A4, *(uint8_t *)(v8 + 696 * v17 + 35), v8 + 696 * v17);
           if ( *v1 )
           {
             v19 = *v1 - 1;
@@ -187,10 +187,10 @@ LABEL_26:
                 __enable_irq();
             }
           }
-          list_push_tail(v8 + 8 * (87 * (int16_t)v17 + v9 + 73));
+          check_abort_flag(v8 + 8 * (87 * (int16_t)v17 + v9 + 73));
           goto LABEL_36;
         }
-        if ( sub_13C140(v17, *(uint8_t *)(v16 + 27)) )
+        if ( phy_set_chan(v17, *(uint8_t *)(v16 + 27)) )
         {
           if ( (__get_CPSR() & 1) == 0 )
           {
@@ -198,7 +198,7 @@ LABEL_26:
             *(uint32_t *)off_10F690 = 1;
           }
           ++*v1;
-          v21 = sub_12D4F8(v6 + 316);
+          v21 = list_pop_front(v6 + 316);
           if ( *v1 )
           {
             v23 = *v1 - 1;
@@ -210,7 +210,7 @@ LABEL_26:
                 __enable_irq();
             }
           }
-          sub_13AC44(v21, v10, v22);
+          tx_prepare_frame_path(v21, v10, v22);
 LABEL_36:
           v16 = v6[316];
           if ( !v16 )
@@ -222,7 +222,7 @@ LABEL_36:
       *((uint8_t *)off_10F694 + 512) = 1;
 LABEL_37:
       --v9;
-      result = sub_11AC28(v10);
+      result = ke_int_disable(v10);
       v6 -= 2;
       if ( v9 != -1 )
       {

@@ -19,10 +19,10 @@ extern uint32_t off_115D34;
 extern uint32_t dword_115D18;
 extern uint32_t dword_115D5C;
 
-// idle_processing @ 0x115ae4, size 532 bytes
+// clear_rx_config @ 0x115ae4, size 532 bytes
 // Doc: ipc_doorbell_handler_n1d2 [ipc]: Handles IPC doorbell interrupt, sets flag byte
 // ipc_doorbell_handler_n1d2 [ipc]: Handles IPC doorbell interrupt, sets flag byte
-int  idle_processing(int result)
+int  clear_rx_config(int result)
 {
   uint8_t **v1; // r5
   uint8_t **v2; // r6
@@ -42,17 +42,17 @@ int  idle_processing(int result)
     v6 = *(uint8_t *)off_115D1C;
     *(uint8_t *)rf_level_apply_n3aa = 0;
     if ( v6 )
-      return feature_guard_check(2, rf_msg_handler_n4dc_0);
+      return check_status_bits(2, rf_msg_handler_n4dc_0);
     if ( !*(uint8_t *)off_115D24 )
-      return feature_guard_check(2, ipc_doorbell_handler_n3d0);
+      return check_status_bits(2, ipc_doorbell_handler_n3d0);
     if ( *(uint32_t *)off_115D28 && *(uint32_t *)(*(uint32_t *)off_115D28 + 12) - *((uint32_t *)off_115D2C + 4) - 5000 < 0 )
-      return feature_guard_check(2, ipc_doorbell_handler_d54);
+      return check_status_bits(2, ipc_doorbell_handler_d54);
     if ( !*(uint8_t *)off_115D30
       && !*((uint32_t *)ipc_doorbell_handler_n38c + 126)
       && ((ipc_doorbell_handler_n3bc & *(uint32_t *)off_115D34) == 0
        || (unsigned int)(32 * *(uint32_t *)ipc_doorbell_handler_n3c0) > 0x1387) )
     {
-      ((void (*)(void))sdio_wait_busy_clear)();
+      ((void (*)(void))ipc_wait_flag)();
       while ( 1 )
         ;
     }
@@ -78,7 +78,7 @@ ipc_doorbell_handler_n2c8:
     v2 = (uint8_t **)rf_bus_reset2_5d04;
     if ( **(uint8_t **)rf_bus_reset2_5d04 == 3 )
       goto ipc_doorbell_handler_n1a0;
-    result = feature_guard_check(2, dword_115D18);
+    result = check_status_bits(2, dword_115D18);
     *v5 = 1;
 ipc_doorbell_handler_n192:
     v3 = **v2;
@@ -86,18 +86,18 @@ ipc_doorbell_handler_n192:
     {
       if ( **v1 == 3 )
       {
-        v9 = sub_10D304();
+        v9 = rf_read_status_bit();
         v11 = rf_level_apply_n3aa;
         *(uint8_t *)rf_level_apply_n3aa = v9;
         if ( v9 )
-          msg_parse(dword_115D5C, v10, v11);
+          event_dispatch(dword_115D5C, v10, v11);
         else
-          msg_parse(ipc_doorbell_handler_n3d4, v10, v11);
-        if ( sub_1112F4() )
-          ipc_doorbell_handler();
-        return ((int (*)(void))sdio_wait_busy_clear)();
+          event_dispatch(ipc_doorbell_handler_n3d4, v10, v11);
+        if ( get_status_flag() )
+          gpio_read_input();
+        return ((int (*)(void))ipc_wait_flag)();
       }
-      result = sub_1112F4();
+      result = get_status_flag();
       if ( !result || *(uint8_t *)off_115D30 )
         return result;
     }
@@ -106,7 +106,7 @@ ipc_doorbell_handler_n192:
       return result;
     }
 ipc_doorbell_handler_n1a0:
-    result = sub_128F1C(result);
+    result = wlc_bss_state(result);
     if ( result )
     {
       if ( !*((uint32_t *)ipc_doorbell_handler_n38c + 126) )
@@ -115,20 +115,20 @@ ipc_doorbell_handler_n1a0:
         {
           if ( !*((uint8_t *)ipc_doorbell_handler_5d10 + 29) )
           {
-            result = sub_12BD40();
+            result = rf_read_irq_flags();
             if ( result )
             {
-              LOBYTE(result) = sub_10D304();
+              LOBYTE(result) = rf_read_status_bit();
               v8 = rf_level_apply_n3aa;
               result = (uint8_t)result;
               *(uint8_t *)rf_level_apply_n3aa = result;
               if ( !(uint8_t)result )
               {
-                v12 = msg_parse(ipc_doorbell_handler_n3dc, v7, v8);
-                result = sdio_wait_busy_clear(v12);
+                v12 = event_dispatch(ipc_doorbell_handler_n3dc, v7, v8);
+                result = ipc_wait_flag(v12);
               }
               if ( (uint8_t)**v1 <= 1u )
-                return (int)ipc_doorbell_handler();
+                return (int)gpio_read_input();
             }
           }
         }
@@ -149,7 +149,7 @@ LABEL_17:
     goto LABEL_17;
 ipc_doorbell_handler_n1f4:
   if ( **(uint8_t **)rf_bus_reset2_5d04 != 3 )
-    result = feature_guard_check(2, dword_115D18);
+    result = check_status_bits(2, dword_115D18);
 ipc_doorbell_handler_n20e:
   *v5 = 0;
   return result;

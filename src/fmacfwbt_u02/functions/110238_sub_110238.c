@@ -13,10 +13,10 @@
 extern uint32_t off_110278;
 extern uint32_t off_110284;
 
-// sub_110238 @ 0x110238, size 62 bytes
+// critical_enter_4 @ 0x110238, size 62 bytes
 // Doc: log_free_dispatch_0274 [util]: Dispatch and free log buffer entries
 // log_free_dispatch_0274 [util]: Dispatch and free log buffer entries
-int sub_110238()
+int critical_enter_4()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int sub_110238()
   v0 = (int *)log_free_dispatch_n41c;
   v1 = log_free_dispatch_n420;
   ++*(uint32_t *)log_free_dispatch_n41c;
-  result = sub_12D4F8(v1);
+  result = list_pop_front(v1);
   if ( result )
     --*(uint32_t *)off_110284;
   if ( *v0 )

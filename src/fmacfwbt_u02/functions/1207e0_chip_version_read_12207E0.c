@@ -16,10 +16,10 @@ extern uint32_t off_120874;
 extern uint32_t off_120878;
 extern uint32_t off_12087C;
 
-// chip_version_read_12207E0 @ 0x1207e0, size 138 bytes
-// Doc: chip_version_read_12207E0 [util]: Read chip version/revision field (bits 12-27) from MMIO 0x40320200
-// chip_version_read_12207E0 [util]: Read chip version/revision field (bits 12-27) from MMIO 0x40320200
-int chip_version_read_12207E0()
+// wait_rf_calibration @ 0x1207e0, size 138 bytes
+// Doc: wait_rf_calibration [util]: Read chip version/revision field (bits 12-27) from MMIO 0x40320200
+// wait_rf_calibration [util]: Read chip version/revision field (bits 12-27) from MMIO 0x40320200
+int wait_rf_calibration()
 {
   int result; // r0
   uint32_t *v1; // r1

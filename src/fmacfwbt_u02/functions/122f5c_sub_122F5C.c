@@ -18,8 +18,8 @@ extern uint32_t dword_123150;
 extern uint32_t off_123154;
 extern uint32_t dword_123158;
 
-// sub_122F5C @ 0x122f5c, size 472 bytes
-void  __noreturn sub_122F5C(int a1, int *a2, int a3, int a4)
+// send_le_scan_command @ 0x122f5c, size 472 bytes
+void  __noreturn send_le_scan_command(int a1, int *a2, int a3, int a4)
 {
   int v5; // r2
   int v6; // r3
@@ -36,19 +36,19 @@ void  __noreturn sub_122F5C(int a1, int *a2, int a3, int a4)
   int v17; // [sp+10h] [bp-8Ch]
   int v18; // [sp+14h] [bp-88h] BYREF
 
-  rf_bus_setup_n3a8(106, a4, a3, 16);
+  bt_buf_alloc(106, a4, a3, 16);
   v15 = 0;
   if ( (*(uint32_t *)off_123134 & 0x2000000) != 0 )
   {
-    sub_114EA4(&v15);
-    sub_114ED0((uint8_t *)&v15 + 1);
-    sub_12ECB0(dword_12314C, (uint8_t)v15, HIBYTE(v15));
+    syscall6_get_status(&v15);
+    syscall6_check_done((uint8_t *)&v15 + 1);
+    ke_event_schedule(dword_12314C, (uint8_t)v15, HIBYTE(v15));
     v6 = (uint8_t)v15;
   }
   else
   {
     v18 = 0;
-    if ( sub_115370((int)&v18) )
+    if ( ioctl_cmd_1((int)&v18) )
     {
       v6 = (uint8_t)v15;
     }
@@ -61,7 +61,7 @@ void  __noreturn sub_122F5C(int a1, int *a2, int a3, int a4)
   }
   if ( !v6 && *((uint8_t *)a2 + 20) )
   {
-    sub_12ECB0(dword_123160, *((uint8_t *)a2 + 20), v5);
+    ke_event_schedule(dword_123160, *((uint8_t *)a2 + 20), v5);
     LOBYTE(v15) = *((uint8_t *)a2 + 20);
   }
   v7 = HIBYTE(v15);
@@ -73,7 +73,7 @@ void  __noreturn sub_122F5C(int a1, int *a2, int a3, int a4)
   }
   else if ( *((uint8_t *)a2 + 21) )
   {
-    sub_12ECB0(dword_12315C, *((uint8_t *)a2 + 21), v5);
+    ke_event_schedule(dword_12315C, *((uint8_t *)a2 + 21), v5);
     v8 = (uint8_t)v15;
     v7 = *((uint8_t *)a2 + 21);
     HIBYTE(v15) = *((uint8_t *)a2 + 21);
@@ -91,8 +91,8 @@ void  __noreturn sub_122F5C(int a1, int *a2, int a3, int a4)
     v8 = 31;
     LOBYTE(v15) = 31;
   }
-  sub_10ED90(v8);
-  sub_12ECB0(dword_123150, (uint8_t)v15, v10);
+  set_periph_status(v8);
+  ke_event_schedule(dword_123150, (uint8_t)v15, v10);
   v7 = HIBYTE(v15);
 LABEL_17:
   if ( !v7 )
@@ -117,17 +117,17 @@ LABEL_18:
   v13 = off_123154;
   v14 = dword_123158;
   *(uint32_t *)off_123154 = *(uint32_t *)off_123154 & 0xFF03FFFF | v12;
-  sub_12ECB0(v14, v11, v13);
+  ke_event_schedule(v14, v11, v13);
   if ( !a2[3] )
   {
 LABEL_11:
     v9 = *a2;
     v17 = a2[2];
     v16 = v9;
-    tx_phy_dispatch(0, 2437);
+    sdio_transfer_setup(0, 2437);
   }
 LABEL_21:
-  sub_10C688();
+  bt_dispatch();
   goto LABEL_11;
 }
 

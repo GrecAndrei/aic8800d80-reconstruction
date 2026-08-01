@@ -13,10 +13,10 @@
 extern uint32_t dword_112040;
 extern uint32_t off_112038;
 
-// sub_111EFC @ 0x111efc, size 316 bytes
+// state_check_4 @ 0x111efc, size 316 bytes
 // Doc: rf_bus_write_f88 [rf]: Writes a value to the RF control bus
 // rf_bus_write_f88 [rf]: Writes a value to the RF control bus
-int * sub_111EFC(int *result, unsigned int a2, int a3, unsigned int a4)
+int * state_check_4(int *result, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   unsigned int v7; // r11
@@ -72,14 +72,14 @@ int * sub_111EFC(int *result, unsigned int a2, int a3, unsigned int a4)
         v10 = (uint16_t)v8 << 16;
       }
       if ( (*((uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111D44(result, a2);
+        result = flash_erase_main(result, a2);
       v11 = (a3 << 18) & 0xC0000;
       v12 = off_112038;
       v13 = *(uint16_t *)off_112038;
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)sub_10DC24(rf_bus_write2_0, v13, v9, 2048);
+        result = (int *)log_printf(rf_bus_write2_0, v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = rf_bus_setup_203c;
@@ -92,7 +92,7 @@ int * sub_111EFC(int *result, unsigned int a2, int a3, unsigned int a4)
     {
       v16 = 32 * a2 + 1075838976;
       if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111D44(0, a2);
+        result = flash_erase_main(0, a2);
       v17 = rf_bus_setup_203c;
       *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
       v17[519] |= 0x10000 << a2;

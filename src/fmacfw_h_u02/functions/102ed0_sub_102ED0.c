@@ -39,8 +39,8 @@ extern uint32_t off_103164;
 extern uint32_t off_103160;
 extern uint32_t off_10316C;
 
-// sub_102ED0 @ 0x102ed0, size 576 bytes
-int sub_102ED0()
+// radio_is_idle @ 0x102ed0, size 576 bytes
+int radio_is_idle()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r2
@@ -83,7 +83,7 @@ int sub_102ED0()
     *(uint32_t *)off_10311C &= ~2u;
     if ( (*v2 & 1) == 0 )
     {
-      sub_100E24(1);
+      rf_config_read_a(1);
       v23 = off_103128;
       *(uint32_t *)off_10317C = *(uint32_t *)off_10317C & 0xFFFFFFF0 | 4;
       *v23 |= 2u;

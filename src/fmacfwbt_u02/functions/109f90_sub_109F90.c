@@ -43,8 +43,8 @@ extern uint32_t dword_10A590;
 extern uint32_t dword_10A59C;
 extern uint32_t off_10A5A0;
 
-// sub_109F90 @ 0x109f90, size 1512 bytes
-int  sub_109F90(
+// dsp_filter_process @ 0x109f90, size 1512 bytes
+int  dsp_filter_process(
         uint32_t *a1,
         int a2,
         int a3,
@@ -116,20 +116,20 @@ int  sub_109F90(
     v20 = (uint8_t)v17;
     if ( !v19 )
     {
-      feature_guard_sdio(1, dword_10A5A4);
-      feature_guard_sdio(1, dword_10A5A8);
+      state_check_feature(1, dword_10A5A4);
+      state_check_feature(1, dword_10A5A8);
       goto LABEL_28;
     }
     if ( !a4 && v17 == 1 )
     {
-      feature_guard_sdio(1, dword_10A5AC);
+      state_check_feature(1, dword_10A5AC);
       goto LABEL_29;
     }
-    feature_guard_sdio(1, dword_10A2C8);
+    state_check_feature(1, dword_10A2C8);
     v21 = *v45;
     v49 = 0;
-    rf_xo_pll_config(v21, (int)v47, a4);
-    feature_guard_sdio(1, dword_10A2CC);
+    llc_connection_init(v21, (int)v47, a4);
+    state_check_feature(1, dword_10A2CC);
     v39 = *v43;
     if ( v49 <= 0 )
       goto LABEL_27;
@@ -140,30 +140,30 @@ int  sub_109F90(
     {
       v23 = *((uint32_t *)v22 + 16);
       while ( !*a1 )
-        delay_us(1);
-      feature_guard_sdio(1, dword_10A2D0);
-      sub_1059F8((int)v47, (int)v51, v20, v23, a4, 0);
+        timer_set(1);
+      state_check_feature(1, dword_10A2D0);
+      rf_init((int)v47, (int)v51, v20, v23, a4, 0);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      sub_109E48(v23, v47, (int)v51, v20, 0, a4, a6, a7, a9, a10, a11);
+      mmio_set_bits(v23, v47, (int)v51, v20, 0, a4, a6, a7, a9, a10, a11);
       v24 = dword_10A2D4;
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
-      feature_guard_sdio(1, v24);
+      state_check_feature(1, v24);
       while ( !a1[1] )
-        delay_us(1);
-      feature_guard_sdio(1, dword_10A2D8);
-      sub_1059F8((int)v47, (int)v51, v20, v23, a4, 1);
+        timer_set(1);
+      state_check_feature(1, dword_10A2D8);
+      rf_init((int)v47, (int)v51, v20, v23, a4, 1);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      sub_109E48(v23, v47, (int)v51, v20, 1, a4, a6, 0, a9, a10, a11);
+      mmio_set_bits(v23, v47, (int)v51, v20, 1, a4, a6, 0, a9, a10, a11);
       v25 = dword_10A2D4;
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
-      feature_guard_sdio(1, v25);
-      feature_guard_sdio(1, dword_10A2E0);
-      feature_guard_sdio(1, dword_10A2E4);
-      feature_guard_sdio(1, dword_10A2E8);
+      state_check_feature(1, v25);
+      state_check_feature(1, dword_10A2E0);
+      state_check_feature(1, dword_10A2E4);
+      state_check_feature(1, dword_10A2E8);
       v26 = *(float *)&v47[128] / *(float *)&v47[129];
       v27 = *(float *)&v47[130] / *(float *)&v47[131];
       if ( v23 == 11 )
@@ -191,11 +191,11 @@ int  sub_109F90(
         v28 = flt_10A2EC;
         v29 = flt_10A2EC;
       }
-      feature_guard_sdio(1, dword_10A2F4);
-      feature_guard_sdio(1, dword_10A2F8);
-      feature_guard_sdio(1, dword_10A2FC);
-      feature_guard_sdio(1, dword_10A300);
-      feature_guard_sdio(1, dword_10A304);
+      state_check_feature(1, dword_10A2F4);
+      state_check_feature(1, dword_10A2F8);
+      state_check_feature(1, dword_10A2FC);
+      state_check_feature(1, dword_10A300);
+      state_check_feature(1, dword_10A304);
       if ( v29 >= v26 )
       {
         v30 = v50;
@@ -204,15 +204,15 @@ int  sub_109F90(
         v34 = dword_10A578;
         *(uint32_t *)v22 = 0;
         *((uint32_t *)v22 + 8) = 0;
-        feature_guard_sdio(1, v34);
-        feature_guard_sdio(1, dword_10A57C);
-        feature_guard_sdio(1, dword_10A580);
-        feature_guard_sdio(1, dword_10A584);
-        feature_guard_sdio(1, dword_10A588);
+        state_check_feature(1, v34);
+        state_check_feature(1, dword_10A57C);
+        state_check_feature(1, dword_10A580);
+        state_check_feature(1, dword_10A584);
+        state_check_feature(1, dword_10A588);
         if ( v23 <= 10 && v42 == 1 )
         {
           v41 = 0;
-          sub_12ECB0(dword_10A58C, v23, v35);
+          ke_event_schedule(dword_10A58C, v23, v35);
           *(uint32_t *)v22 = 1;
           *((uint32_t *)v22 + 8) = 1;
         }
@@ -227,20 +227,20 @@ LABEL_19:
           *((uint32_t *)v22 + 8) = 1;
           if ( v23 <= 8
             && v28 > v27
-            && (v31 = sub_142A94(LODWORD(v30)), sub_143064(v31, HIDWORD(v31), dword_10A2B8, dword_10A2BC))
+            && (v31 = __aeabi_f2d(LODWORD(v30)), __aeabi_dcmpgt(v31, HIDWORD(v31), dword_10A2B8, dword_10A2BC))
             && v42 == 1 )
           {
-            feature_guard_sdio(1, dword_10A578);
-            feature_guard_sdio(1, dword_10A57C);
-            feature_guard_sdio(1, dword_10A580);
-            feature_guard_sdio(1, dword_10A584);
-            feature_guard_sdio(1, dword_10A5B4);
-            feature_guard_sdio(1, dword_10A5B8);
+            state_check_feature(1, dword_10A578);
+            state_check_feature(1, dword_10A57C);
+            state_check_feature(1, dword_10A580);
+            state_check_feature(1, dword_10A584);
+            state_check_feature(1, dword_10A5B4);
+            state_check_feature(1, dword_10A5B8);
             v41 = 0;
           }
           else
           {
-            feature_guard_sdio(1, dword_10A308);
+            state_check_feature(1, dword_10A308);
             v41 = 1;
           }
           goto LABEL_24;
@@ -251,19 +251,19 @@ LABEL_19:
         v36 = dword_10A590;
         *(uint32_t *)v22 = 1;
         *((uint32_t *)v22 + 8) = 0;
-        feature_guard_sdio(1, v36);
+        state_check_feature(1, v36);
         if ( v23 <= 8 && v42 == 1 )
         {
           if ( v50 > 2.0 )
           {
-            feature_guard_sdio(1, dword_10A578);
-            feature_guard_sdio(1, dword_10A57C);
-            feature_guard_sdio(1, dword_10A580);
-            feature_guard_sdio(1, dword_10A584);
-            feature_guard_sdio(1, dword_10A5B4);
-            feature_guard_sdio(1, dword_10A5B8);
+            state_check_feature(1, dword_10A578);
+            state_check_feature(1, dword_10A57C);
+            state_check_feature(1, dword_10A580);
+            state_check_feature(1, dword_10A584);
+            state_check_feature(1, dword_10A5B4);
+            state_check_feature(1, dword_10A5B8);
             v41 = 0;
-            feature_guard_sdio(1, dword_10A58C);
+            state_check_feature(1, dword_10A58C);
           }
           else
           {
@@ -298,8 +298,8 @@ LABEL_29:
     break;
   }
   while ( !a1[2] )
-    delay_us(1);
-  result = feature_guard_sdio(1, dword_10A59C);
+    timer_set(1);
+  result = state_check_feature(1, dword_10A59C);
   v38 = off_10A5A0;
   *(uint32_t *)off_10A5A0 &= ~0x200u;
   *v38 |= 0x200u;

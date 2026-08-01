@@ -22,10 +22,10 @@ extern uint32_t off_119678;
 extern uint32_t dword_119680;
 extern uint32_t off_11967C;
 
-// sub_11954C @ 0x11954c, size 288 bytes
+// ke_alloc_msg_0x6a @ 0x11954c, size 288 bytes
 // Doc: sub_121954C [rf]: Issue sub-call with opcode 0x6a via dispatch
 // sub_121954C [rf]: Issue sub-call with opcode 0x6a via dispatch
-int  sub_11954C(int a1, int a2, int a3, int a4)
+int  ke_alloc_msg_0x6a(int a1, int a2, int a3, int a4)
 {
   int v5; // r4
   int v6; // r3
@@ -40,16 +40,16 @@ int  sub_11954C(int a1, int a2, int a3, int a4)
   int v16; // [sp+4h] [bp-8h] BYREF
 
   v15 = 0;
-  v5 = rf_setup_dispatch(106, a4, a3, 16);
+  v5 = ke_msg_send(106, a4, a3, 16);
   if ( (*(uint32_t *)off_11966C & 0x2000000) != 0 )
   {
-    sub_113B88(&v15);
-    rf_cmd_query_status((uint8_t *)&v15 + 1);
-    msg_parse(dword_119684, (uint8_t)v15);
+    mmio_read_status(&v15);
+    mmio_read_byte((uint8_t *)&v15 + 1);
+    dispatch_event_handler(dword_119684, (uint8_t)v15);
     goto LABEL_16;
   }
   v16 = 0;
-  if ( sub_114558((int)&v16) )
+  if ( bus_read32((int)&v16) )
   {
 LABEL_16:
     v6 = (uint8_t)v15;
@@ -60,7 +60,7 @@ LABEL_16:
 LABEL_4:
   if ( !v6 && *(uint8_t *)(a2 + 20) )
   {
-    msg_parse(dword_119694, *(uint8_t *)(a2 + 20));
+    dispatch_event_handler(dword_119694, *(uint8_t *)(a2 + 20));
     LOBYTE(v15) = *(uint8_t *)(a2 + 20);
   }
   v7 = HIBYTE(v15);
@@ -68,7 +68,7 @@ LABEL_4:
   {
     if ( *(uint8_t *)(a2 + 21) )
     {
-      msg_parse(dword_119690, *(uint8_t *)(a2 + 21));
+      dispatch_event_handler(dword_119690, *(uint8_t *)(a2 + 21));
       v8 = (uint8_t)v15;
       v7 = *(uint8_t *)(a2 + 21);
       HIBYTE(v15) = *(uint8_t *)(a2 + 21);
@@ -87,8 +87,8 @@ LABEL_10:
       v8 = 31;
       LOBYTE(v15) = 31;
     }
-    sub_10F170(v8);
-    msg_parse(dword_119670, (uint8_t)v15);
+    set_xtal_ftune(v8);
+    dispatch_event_handler(dword_119670, (uint8_t)v15);
     v7 = HIBYTE(v15);
 LABEL_13:
     if ( !v7 )
@@ -112,7 +112,7 @@ LABEL_18:
   }
   v14 = dword_11968C;
   *(uint32_t *)off_119688 = *(uint32_t *)off_119688 & 0xFF03FFFF | v13;
-  msg_parse(v14, v12);
+  dispatch_event_handler(v14, v12);
 LABEL_14:
   LODWORD(v9) = *((uint32_t *)off_119674 + 2);
   HIDWORD(v9) = *(uint32_t *)off_119678;
@@ -120,7 +120,7 @@ LABEL_14:
   *(uint32_t *)(v5 + 12) = *(uint32_t *)off_11967C;
   *(uint64_t *)(v5 + 4) = v9;
   *(uint32_t *)v5 = v10;
-  sub_11DE50(v5);
+  rx_irq_handler(v5);
   return 0;
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t off_1102CC;
 
-// sub_110288 @ 0x110288, size 62 bytes
+// critical_enter_5 @ 0x110288, size 62 bytes
 // Doc: log_free_dispatch_n444 [util]: Dispatches log buffer free request variant n444
 // log_free_dispatch_n444 [util]: Dispatches log buffer free request variant n444
-int sub_110288()
+int critical_enter_5()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int sub_110288()
   v0 = (int *)off_1102CC;
   v1 = log_free_dispatch_02d0;
   ++*(uint32_t *)off_1102CC;
-  result = list_push_tail(v1);
+  result = check_abort_flag(v1);
   v3 = *v0;
   ++*(uint32_t *)log_free_dispatch_n474;
   if ( v3 )

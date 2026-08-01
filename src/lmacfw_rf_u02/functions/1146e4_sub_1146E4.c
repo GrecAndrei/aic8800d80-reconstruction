@@ -15,10 +15,10 @@ extern uint32_t off_114814;
 extern uint32_t dword_114818;
 extern uint32_t dword_11481C;
 
-// sub_1146E4 @ 0x1146e4, size 298 bytes
+// bus_write_buf @ 0x1146e4, size 298 bytes
 // Doc: sub_12146E4 [util]: LMAC helper with large stack frame and pointer dereference
 // sub_12146E4 [util]: LMAC helper with large stack frame and pointer dereference
-int  sub_1146E4(int a1, int a2, unsigned int a3)
+int  bus_write_buf(int a1, int a2, unsigned int a3)
 {
   uint32_t *v6; // r6
   int v7; // r5
@@ -37,7 +37,7 @@ int  sub_1146E4(int a1, int a2, unsigned int a3)
   uint8_t v21[10]; // [sp+136h] [bp-Ah] BYREF
 
   if ( !*(uint32_t *)off_114810 )
-    lmac_state_get_n_e0();
+    ke_event_busy_check();
   v6 = off_114814;
   v7 = dword_114818;
   MEMORY[0x1D8](*(uint32_t *)off_114814 + 4096, 320, &v11);
@@ -65,7 +65,7 @@ LABEL_5:
       goto LABEL_14;
     }
   }
-  sub_1282E8(v14, a2, 6);
+  memcpy_large(v14, a2, 6);
   v8 = 6;
   if ( (a1 & 0x100000) == 0 )
   {
@@ -75,7 +75,7 @@ LABEL_6:
     goto LABEL_15;
   }
 LABEL_14:
-  sub_1282E8(v17, a2 + v8, 2);
+  memcpy_large(v17, a2 + v8, 2);
   v8 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -86,7 +86,7 @@ LABEL_7:
     goto LABEL_16;
   }
 LABEL_15:
-  sub_1282E8(v18, a2 + v8, 8);
+  memcpy_large(v18, a2 + v8, 8);
   v9 = a1 << 9;
   v8 += 8;
   if ( (a1 & 0x400000) == 0 )
@@ -97,7 +97,7 @@ LABEL_8:
     goto LABEL_17;
   }
 LABEL_16:
-  sub_1282E8(v19, a2 + v8, 4);
+  memcpy_large(v19, a2 + v8, 4);
   v8 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
@@ -105,15 +105,15 @@ LABEL_9:
     if ( (a1 & 0x1000000) == 0 )
       goto LABEL_10;
 LABEL_18:
-    sub_1282E8(v21, a2 + v8, 10);
+    memcpy_large(v21, a2 + v8, 10);
     if ( a3 >= v8 + 10 )
       goto LABEL_11;
 LABEL_19:
-    msg_parse(dword_11481C, v9);
+    dispatch_event_handler(dword_11481C, v9);
     goto LABEL_11;
   }
 LABEL_17:
-  sub_1282E8(v20, a2 + v8, 2);
+  memcpy_large(v20, a2 + v8, 2);
   v8 += 2;
   if ( (a1 & 0x1000000) != 0 )
     goto LABEL_18;
@@ -121,8 +121,8 @@ LABEL_10:
   if ( a3 < v8 )
     goto LABEL_19;
 LABEL_11:
-  rf_event_handler_n258();
-  sub_114298();
+  ke_event_schedule_alt();
+  ke_event_schedule_prio();
   return MEMORY[0x1E0](*v6 + 4096, 320);
 }
 

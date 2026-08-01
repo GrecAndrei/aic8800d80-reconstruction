@@ -1,1 +1,1 @@
-{"fn": "sub_12371D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12371d0", "status": "ok", "name": "bt_cmd_dispatch_setup", "params": [], "docstring": "Initializes BT command slots/queue at f08/f0a offsets", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12371D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12371d0", "status": "ok", "name": "radio_state_control", "params": [], "docstring": "Initializes BT command slots/queue at f08/f0a offsets", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

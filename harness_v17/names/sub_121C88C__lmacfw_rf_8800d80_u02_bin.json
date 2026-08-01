@@ -1,1 +1,1 @@
-{"fn": "sub_121C88C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121c88c", "status": "ok", "name": "rf_chan_set_n1cc", "params": [], "docstring": "Set RF channel via 0x11e34c, validate result==3", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C88C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121c88c", "status": "ok", "name": "ke_timer_check", "params": [], "docstring": "Set RF channel via 0x11e34c, validate result==3", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_143284", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143284", "status": "ok", "name": "is_greater_equal", "params": [], "docstring": "Returns 1 if first value is >= second (unsigned), else 0.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

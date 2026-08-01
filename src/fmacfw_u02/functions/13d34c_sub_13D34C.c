@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D34C @ 0x13d34c, size 302 bytes
-unsigned int  sub_13D34C(unsigned int result)
+// bt_state_handler @ 0x13d34c, size 302 bytes
+unsigned int  bt_state_handler(unsigned int result)
 {
   unsigned int v1; // r4
   int v2; // r1

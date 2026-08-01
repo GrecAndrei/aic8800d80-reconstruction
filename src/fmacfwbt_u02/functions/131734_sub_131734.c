@@ -12,11 +12,11 @@
 
 extern uint32_t dword_131754;
 
-// sub_131734 @ 0x131734, size 30 bytes
-int  sub_131734(int a1, int a2, int16_t a3, int16_t a4)
+// rf_calib_load @ 0x131734, size 30 bytes
+int  rf_calib_load(int a1, int a2, int16_t a3, int16_t a4)
 {
-  sub_14380C(dword_131754, a2, 254);
-  message_dispatch_n84(5123, a4, a3);
+  memcpy_aligned(dword_131754, a2, 254);
+  hci_evt_alloc_send(5123, a4, a3);
   return 0;
 }
 

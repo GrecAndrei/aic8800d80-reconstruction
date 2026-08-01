@@ -14,10 +14,10 @@ extern uint32_t dword_13078C;
 extern uint32_t dword_130790;
 extern uint32_t dword_130794;
 
-// mac_frame_hdr_init @ 0x1306c0, size 204 bytes
-// Doc: mac_frame_hdr_init [mac]: Initializes MAC frame header with type/length bytes
-// mac_frame_hdr_init [mac]: Initializes MAC frame header with type/length bytes
-char * mac_frame_hdr_init(int a1)
+// format_bt_address @ 0x1306c0, size 204 bytes
+// Doc: format_bt_address [mac]: Initializes MAC frame header with type/length bytes
+// format_bt_address [mac]: Initializes MAC frame header with type/length bytes
+char * format_bt_address(int a1)
 {
   int v1; // r2
   uint16_t *v2; // r5
@@ -85,7 +85,7 @@ char * mac_frame_hdr_init(int a1)
   }
   if ( *(uint8_t *)(v8 + 0x48) >> 7 )
   {
-    v18 = sub_1325CC();
+    v18 = util_extract_bits();
     v19 = v18 + 1 + *(uint8_t *)(v8 + 0x175) * (v18 + 1);
     v20 = (uint8_t)((unsigned int)(6 * v19 + 14) >> 3);
     if ( (uint8_t)((unsigned int)(6 * v19 + 14) >> 3) )

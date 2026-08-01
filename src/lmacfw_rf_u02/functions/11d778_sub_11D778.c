@@ -22,8 +22,8 @@ extern uint32_t off_11D8B8;
 extern uint32_t dword_11D8CC;
 extern uint32_t off_11D8C4;
 
-// sub_11D778 @ 0x11d778, size 290 bytes
-void  sub_11D778(int a1, int a2)
+// rf_cmd_clear @ 0x11d778, size 290 bytes
+void  rf_cmd_clear(int a1, int a2)
 {
   int v2; // r4
   int *v3; // r0
@@ -50,7 +50,7 @@ void  sub_11D778(int a1, int a2)
       *v4 = v6 | 0x500000;
       v10 = dword_11D8D0;
       *v4 = v6 | 0xF00000;
-      msg_parse(v10, v4);
+      dispatch_event_handler(v10, v4);
     }
     else
     {
@@ -58,7 +58,7 @@ void  sub_11D778(int a1, int a2)
       v8 = dword_11D8B0;
       *(uint32_t *)off_11D8A4 = v5 & 0xFFFF57FF;
       *v7 = v6 & 0xFF5FFFFF;
-      msg_parse(v8, v7);
+      dispatch_event_handler(v8, v7);
     }
   }
   if ( (v2 & 4) != 0 )
@@ -71,7 +71,7 @@ void  sub_11D778(int a1, int a2)
     }
     v9 = dword_11D8CC;
     *(uint32_t *)off_11D8C4 |= 1u;
-    msg_parse(v9, a2);
+    dispatch_event_handler(v9, a2);
   }
 }
 

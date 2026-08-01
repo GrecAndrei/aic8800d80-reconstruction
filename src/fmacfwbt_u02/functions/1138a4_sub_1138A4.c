@@ -14,8 +14,8 @@ extern uint32_t off_1138DC;
 extern uint32_t off_1138E0;
 extern uint32_t dword_1138E4;
 
-// sub_1138A4 @ 0x1138a4, size 54 bytes
-int sub_1138A4()
+// critical_section_enter_no_set @ 0x1138a4, size 54 bytes
+int critical_section_enter_no_set()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_1138A4()
   v0 = (int *)off_1138E0;
   v1 = dword_1138E4;
   ++*(uint32_t *)off_1138E0;
-  result = sub_12D470(v1);
+  result = check_abort_flag(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

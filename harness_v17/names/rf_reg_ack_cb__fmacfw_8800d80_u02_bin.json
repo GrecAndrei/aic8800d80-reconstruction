@@ -1,1 +1,1 @@
-{"fn": "rf_reg_ack_cb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ed74", "status": "ok", "name": "rf_reg_ack_cb", "params": [], "docstring": "RF register-write acknowledge callback dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_reg_ack_cb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ed74", "status": "ok", "name": "call_ptr_1b4", "params": [], "docstring": "RF register-write acknowledge callback dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

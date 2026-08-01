@@ -13,10 +13,10 @@
 extern uint32_t dword_1370A4;
 extern uint32_t off_1370A0;
 
-// sub_137088 @ 0x137088, size 22 bytes
-int  sub_137088(int a1, int a2, int a3, int a4)
+// rf_state_update @ 0x137088, size 22 bytes
+int  rf_state_update(int a1, int a2, int a3, int a4)
 {
-  feature_guard_sdio(8, dword_1370A4, a4, *((uint16_t *)off_1370A0 + 1924));
+  state_check_feature(8, dword_1370A4, a4, *((uint16_t *)off_1370A0 + 1924));
   return 2;
 }
 

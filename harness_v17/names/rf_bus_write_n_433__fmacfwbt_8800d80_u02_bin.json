@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_433", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121158c", "status": "ok", "name": "rf_bus_write_n_433", "params": [], "docstring": "Write to RF bus register at 0x40240210 via memory address 0x166bbc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_433", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121158c", "status": "ok", "name": "rf_bus_reset2_n_2cc", "params": [], "docstring": "Write to RF bus register at 0x40240210 via memory address 0x166bbc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

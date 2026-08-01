@@ -1,1 +1,1 @@
-{"fn": "sub_121B9D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121b9d8", "status": "ok", "name": "sub_121B9D8", "params": [], "docstring": "Unknown behavioral function in fmacfw", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121B9D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121b9d8", "status": "ok", "name": "check_power_flag", "params": [], "docstring": "Unknown behavioral function in fmacfw", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

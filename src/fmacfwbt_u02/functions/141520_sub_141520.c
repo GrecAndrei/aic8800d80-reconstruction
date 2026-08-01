@@ -12,8 +12,8 @@
 
 extern uint32_t dword_141578;
 
-// sub_141520 @ 0x141520, size 88 bytes
-uint32_t *sub_141520()
+// increment_event_counter @ 0x141520, size 88 bytes
+uint32_t *increment_event_counter()
 {
   int v0; // r3
   int v1; // r0
@@ -33,13 +33,13 @@ uint32_t *sub_141520()
   while ( v2 != v0 + 6336 );
   if ( v1 >= *(uint32_t *)(v2 + 148) )
   {
-    result = rf_bus_mark_n_3b7(0xBu, 0);
+    result = hci_cmd_send(0xBu, 0);
     *(uint32_t *)(v2 + 144) = -1;
   }
   else
   {
-    rf_bus_mark_n_3b7(0xBu, 4);
-    return (uint32_t *)message_dispatch_n84(11264, 11, 11);
+    hci_cmd_send(0xBu, 4);
+    return (uint32_t *)hci_evt_alloc_send(11264, 11, 11);
   }
   return result;
 }

@@ -17,8 +17,8 @@ extern uint32_t dword_127CD8;
 extern uint32_t off_127CF0;
 extern uint32_t dword_127CEC;
 
-// sub_127C40 @ 0x127c40, size 140 bytes
-int sub_127C40()
+// bt_init @ 0x127c40, size 140 bytes
+int bt_init()
 {
   int *v0; // r7
   void *v1; // r6
@@ -30,17 +30,17 @@ int sub_127C40()
 
   v0 = (int *)off_127CD0;
   v1 = off_127CCC;
-  sub_100200((int *)off_127CCC, 0, 0x60u);
+  memset_byte((int *)off_127CCC, 0, 0x60u);
   v2 = 0;
   for ( i = v0; ; i += 7 )
   {
-    sub_100200(i, 0, 0x1Cu);
+    memset_byte(i, 0, 0x1Cu);
     *((uint16_t *)i + 7) = 255;
     *((uint8_t *)i + 24) = -1;
     *((uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      sub_12D470(v1);
+      check_abort_flag(v1);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -52,12 +52,12 @@ LABEL_4:
   }
   if ( v2 != 4 )
     goto LABEL_4;
-  sub_12D468(dword_127CD4);
-  sub_12D468(dword_127CD8);
-  sub_12D470(dword_127CD4);
-  sub_12D470(dword_127CD4);
-  sub_12D470(dword_127CD4);
-  result = sub_12D470(dword_127CD4);
+  zero_struct(dword_127CD4);
+  zero_struct(dword_127CD8);
+  check_abort_flag(dword_127CD4);
+  check_abort_flag(dword_127CD4);
+  check_abort_flag(dword_127CD4);
+  result = check_abort_flag(dword_127CD4);
   v5 = off_127CCC;
   v6 = off_127CF0;
   *((uint32_t *)off_127CCC + 13) = dword_127CEC;

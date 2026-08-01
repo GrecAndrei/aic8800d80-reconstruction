@@ -1,1 +1,1 @@
-{"fn": "crypto_iq_calculate", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120422c", "status": "ok", "name": "crypto_iq_calculate", "params": [], "docstring": "Compute crypto I/Q table pointer from PHY reg", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_iq_calculate", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120422c", "status": "ok", "name": "util_get_buf_addr", "params": [], "docstring": "Compute crypto I/Q table pointer from PHY reg", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

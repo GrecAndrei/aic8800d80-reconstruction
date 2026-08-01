@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_3b2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121186a", "status": "ok", "name": "patch_apply_n1ba", "params": [], "docstring": "Trigger patch via NVIC STIR (write 0x88 offset with dsb/isb)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_3b2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121186a", "status": "ok", "name": "rf_bus_mark_n_19", "params": [], "docstring": "Trigger patch via NVIC STIR (write 0x88 offset with dsb/isb)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

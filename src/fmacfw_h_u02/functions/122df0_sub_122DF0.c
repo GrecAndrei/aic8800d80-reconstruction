@@ -13,8 +13,8 @@
 extern uint32_t off_122E68;
 extern uint32_t dword_122E6C;
 
-// sub_122DF0 @ 0x122df0, size 120 bytes
-int  sub_122DF0(int a1, int a2, int a3, int a4)
+// ke_send_msg_74 @ 0x122df0, size 120 bytes
+int  ke_send_msg_74(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r4
   uint16_t v5; // r3
@@ -26,17 +26,17 @@ int  sub_122DF0(int a1, int a2, int a3, int a4)
 
   v9 = 0;
   v10 = 0;
-  v4 = (uint8_t *)sub_12C7EC(116, a4, a3, 6);
+  v4 = (uint8_t *)tx_send_pdu(116, a4, a3, 6);
   if ( (*(uint32_t *)off_122E68 & 0x2000000) != 0 )
   {
-    sub_114784(&v9, &v10);
+    rf_cmd_8_write(&v9, &v10);
     v6 = v9;
     v5 = v10;
   }
   else
   {
     memset(v11, 0, 6);
-    sub_114D2C((int)v11);
+    send_smc_cmd_0x400000((int)v11);
     v5 = __rev16(LOWORD(v11[0]));
     v6 = bswap32(*(unsigned int *)((char *)v11 + 2));
     v9 = v6;
@@ -49,8 +49,8 @@ int  sub_122DF0(int a1, int a2, int a3, int a4)
   v4[2] = HIBYTE(v6);
   v7 = dword_122E6C;
   v4[4] = BYTE1(v6);
-  sub_12E948(v7, HIBYTE(v5), (uint8_t)v6);
-  sub_12C84C(v4);
+  alloc_tx_event(v7, HIBYTE(v5), (uint8_t)v6);
+  rx_process_packet(v4);
   return 0;
 }
 

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13ADE4 @ 0x13ade4, size 24 bytes
-int  sub_13ADE4(int a1, int a2)
+// phy_enable @ 0x13ade4, size 24 bytes
+int  phy_enable(int a1, int a2)
 {
   int16_t v2; // r2
 
@@ -19,6 +19,6 @@ int  sub_13ADE4(int a1, int a2)
   *(uint32_t *)(a1 + 68) = 0;
   *(uint32_t *)(a1 + 80) = 0;
   *(uint16_t *)(a1 + 30) = v2;
-  return sub_13AA68(a1, a2);
+  return phy_txpower_calc(a1, a2);
 }
 

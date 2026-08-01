@@ -19,10 +19,10 @@ extern uint32_t off_107364;
 extern uint32_t off_107368;
 extern uint32_t off_10736C;
 
-// subsystem_init_n7224 @ 0x107224, size 298 bytes
-// Doc: subsystem_init_n7224 [mmio]: Initialize peripheral subsystem by clearing reset bits
-// subsystem_init_n7224 [mmio]: Initialize peripheral subsystem by clearing reset bits
-uint32_t *subsystem_init_n7224()
+// rf_disable @ 0x107224, size 298 bytes
+// Doc: rf_disable [mmio]: Initialize peripheral subsystem by clearing reset bits
+// rf_disable [mmio]: Initialize peripheral subsystem by clearing reset bits
+uint32_t *rf_disable()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

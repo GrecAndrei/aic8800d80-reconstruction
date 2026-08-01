@@ -15,8 +15,8 @@ extern uint32_t off_12CAD8;
 extern uint32_t off_12CADC;
 extern uint32_t dword_12CAE0;
 
-// sub_12CA94 @ 0x12ca94, size 64 bytes
-uint32_t *sub_12CA94()
+// mmio_base_read @ 0x12ca94, size 64 bytes
+uint32_t *mmio_base_read()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2

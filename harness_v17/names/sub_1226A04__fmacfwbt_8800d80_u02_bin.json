@@ -1,1 +1,1 @@
-{"fn": "sub_1226A04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1226a04", "status": "ok", "name": "fmacfwbt_init_load", "params": [], "docstring": "Initialize FMAC+BT firmware image from 0x190c50 table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1226A04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1226a04", "status": "ok", "name": "hci_acl_buf_alloc", "params": [], "docstring": "Initialize FMAC+BT firmware image from 0x190c50 table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

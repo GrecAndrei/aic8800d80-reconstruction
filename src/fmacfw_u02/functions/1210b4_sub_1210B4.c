@@ -12,11 +12,11 @@
 
 extern uint32_t off_1210E0;
 
-// sub_1210B4 @ 0x1210b4, size 42 bytes
-int sub_1210B4()
+// radio_is_ready @ 0x1210b4, size 42 bytes
+int radio_is_ready()
 {
-  if ( sub_12CE88(0) == 1 )
+  if ( rx_rate_field_parse(0) == 1 )
     *(uint32_t *)off_1210E0 = 48;
-  return sub_12CD34(0);
+  return rx_phy_status_parse(0);
 }
 

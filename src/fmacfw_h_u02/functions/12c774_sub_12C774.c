@@ -12,8 +12,8 @@
 
 extern uint32_t off_12C794;
 
-// sub_12C774 @ 0x12c774, size 32 bytes
-int  sub_12C774(int a1, int a2)
+// rf_get_state @ 0x12c774, size 32 bytes
+int  rf_get_state(int a1, int a2)
 {
   int **v2; // r3
 

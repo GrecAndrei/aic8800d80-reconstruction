@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_setup_n_148 @ 0x1116bc, size 4 bytes
+// rf_enable_tx_patch_dup @ 0x1116bc, size 4 bytes
 // Doc: rf_bus_reset2_n3ba [rf]: Reset RF bus and initialize MMIO state
 // rf_bus_reset2_n3ba [rf]: Reset RF bus and initialize MMIO state
 // attributes: thunk
-int * rf_bus_setup_n_148(int *result, unsigned int a2)
+int * rf_enable_tx_patch_dup(int *result, unsigned int a2)
 {
-  return sub_11164C(result, a2);
+  return rf_enable_tx_patch(result, a2);
 }
 

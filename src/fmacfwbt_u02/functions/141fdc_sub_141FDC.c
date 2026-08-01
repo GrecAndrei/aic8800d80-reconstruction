@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_141FDC @ 0x141fdc, size 160 bytes
-int  sub_141FDC(int a1, int a2, int a3, int a4)
+// build_scan_report @ 0x141fdc, size 160 bytes
+int  build_scan_report(int a1, int a2, int a3, int a4)
 {
   int v6; // r0
   int v7; // r1
@@ -24,7 +24,7 @@ int  sub_141FDC(int a1, int a2, int a3, int a4)
   uint64_t v14; // r2
   int v16; // [sp+Ch] [bp-8h] BYREF
 
-  v6 = msg_handler_1241c0c((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
+  v6 = hci_le_connection_update((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
   v7 = *(uint32_t *)(v16 + 72) + 108;
   *(uint8_t *)(v7 + v6) = -40;
   v8 = v7 + v6;
@@ -47,6 +47,6 @@ int  sub_141FDC(int a1, int a2, int a3, int a4)
   LODWORD(v14) = *(uint32_t *)(v13 + 28) - 1 + HIDWORD(v14);
   HIDWORD(v14) += 4;
   *(uint64_t *)(v13 + 32) = v14;
-  return sub_1190B4(v12, 3);
+  return ble_event_dispatch(v12, 3);
 }
 

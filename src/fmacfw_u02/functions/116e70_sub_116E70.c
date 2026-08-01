@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_116E70 @ 0x116e70, size 12 bytes
-int  sub_116E70(unsigned int a1)
+// mem_size_classify @ 0x116e70, size 12 bytes
+int  mem_size_classify(unsigned int a1)
 {
   if ( a1 > 0x2000 )
     return 4;

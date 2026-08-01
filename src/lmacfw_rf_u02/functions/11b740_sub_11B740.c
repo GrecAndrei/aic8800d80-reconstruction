@@ -16,8 +16,8 @@ extern uint32_t off_11B7FC;
 extern uint32_t dword_11B804;
 extern uint32_t off_11B808;
 
-// sub_11B740 @ 0x11b740, size 182 bytes
-int sub_11B740()
+// tx_schedule @ 0x11b740, size 182 bytes
+int tx_schedule()
 {
   uint32_t *v0; // r6
   int v1; // r5
@@ -68,7 +68,7 @@ int sub_11B740()
       }
       v9 = *(uint8_t *)(v1 + 16);
       *(uint8_t *)(v1 + 16) = 6;
-      if ( !rf_channel_set_n6838(v8, v5, v7) )
+      if ( !rate_index_lookup_fast(v8, v5, v7) )
       {
         ++v2;
         *v6 = 1;
@@ -86,7 +86,7 @@ LABEL_12:
   v12 = v2 - v10;
   if ( !v11 )
   {
-    mmio_init_clock_gate_n121();
+    write_bb_control();
     if ( v2 )
     {
       v12 = 0;
@@ -98,7 +98,7 @@ LABEL_12:
   if ( !v12 )
     return v12;
   *(uint8_t *)(v11 + 16) = 3;
-  mmio_init_clock_gate_n121();
+  write_bb_control();
   return v12;
 }
 

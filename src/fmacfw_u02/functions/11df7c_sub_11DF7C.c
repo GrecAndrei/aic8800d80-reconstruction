@@ -15,8 +15,8 @@ extern uint32_t off_11DFE0;
 extern uint32_t dword_11DFE8;
 extern uint32_t dword_11DFE4;
 
-// sub_11DF7C @ 0x11df7c, size 98 bytes
-int  sub_11DF7C(int a1, int a2)
+// get_connection_state @ 0x11df7c, size 98 bytes
+int  get_connection_state(int a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -54,7 +54,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(int16_t **)off_11DFE0 < 0 && !a2 )
-      return fmac_phy_op_handler(dword_11DFE8, dword_11DFE4, 1119, v2);
+      return bad_func_0x12f408(dword_11DFE8, dword_11DFE4, 1119, v2);
     v2 = *(uint16_t *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;

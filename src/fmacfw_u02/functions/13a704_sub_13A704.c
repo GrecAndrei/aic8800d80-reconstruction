@@ -13,8 +13,8 @@
 extern uint32_t dword_13A97C;
 extern uint32_t dword_13A978;
 
-// sub_13A704 @ 0x13a704, size 626 bytes
-int  sub_13A704(int a1, int a2)
+// rf_apply_chan_cfg @ 0x13a704, size 626 bytes
+int  rf_apply_chan_cfg(int a1, int a2)
 {
   int v2; // r11
   int v3; // r10
@@ -72,7 +72,7 @@ int  sub_13A704(int a1, int a2)
       goto LABEL_26;
     }
     v33 = **(uint32_t **)(v7 + 188);
-    v29 = sub_11C364(a1, dword_13A97C + 696 * v2);
+    v29 = get_phy_descriptor(a1, dword_13A97C + 696 * v2);
     v10 = v33;
     *(uint32_t *)(a2 - 4) = v29;
     v13 = 0x8000;

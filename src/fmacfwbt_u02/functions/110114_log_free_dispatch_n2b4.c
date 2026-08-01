@@ -12,10 +12,10 @@
 
 extern uint32_t off_11014C;
 
-// log_free_dispatch_n2b4 @ 0x110114, size 52 bytes
+// critical_enter_0 @ 0x110114, size 52 bytes
 // Doc: log_free_dispatch_n2ca [util]: Increment counter and call log free helper
 // log_free_dispatch_n2ca [util]: Increment counter and call log free helper
-int log_free_dispatch_n2b4()
+int critical_enter_0()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int log_free_dispatch_n2b4()
   v0 = (int *)off_11014C;
   v1 = log_free_dispatch_n2f0;
   ++*(uint32_t *)off_11014C;
-  result = sub_12D4F8(v1);
+  result = list_pop_front(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

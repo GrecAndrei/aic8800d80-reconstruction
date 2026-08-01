@@ -1,1 +1,1 @@
-{"fn": "rf_bus_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211db8", "status": "ok", "name": "rf_bus_init", "params": [], "docstring": "Initialize RF bus with given parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211db8", "status": "ok", "name": "cmd_dispatch", "params": [], "docstring": "Initialize RF bus with given parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -14,18 +14,18 @@ extern uint32_t dword_13B634;
 extern uint32_t dword_13B630;
 extern uint32_t dword_13B62C;
 
-// sub_13B600 @ 0x13b600, size 42 bytes
-int  sub_13B600(int a1, int a2, unsigned int a3)
+// adv_pdu_conn_req_check @ 0x13b600, size 42 bytes
+int  adv_pdu_conn_req_check(int a1, int a2, unsigned int a3)
 {
   int v4; // r0
 
-  if ( sub_12CE88(a3) == 1 )
+  if ( rx_rate_field_parse(a3) == 1 )
   {
     if ( a3 < 0x1000 )
       v4 = dword_13B634;
     else
       v4 = dword_13B630;
-    sub_12D248(v4, (uint32_t *)(dword_13B62C + 32 * (a3 >> 8)));
+    cmd_handler_a(v4, (uint32_t *)(dword_13B62C + 32 * (a3 >> 8)));
   }
   return 0;
 }

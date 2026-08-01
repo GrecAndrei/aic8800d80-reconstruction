@@ -15,10 +15,10 @@ extern uint32_t off_100638;
 extern uint32_t dword_100640;
 extern uint32_t dword_10063C;
 
-// sub_1005B0 @ 0x1005b0, size 132 bytes
+// chip_periph_init @ 0x1005b0, size 132 bytes
 // Doc: sub_12005B0 [unknown]: Generic init helper calling paired setup routines
 // sub_12005B0 [unknown]: Generic init helper calling paired setup routines
-int  sub_1005B0(int a1)
+int  chip_periph_init(int a1)
 {
   unsigned int v2; // r6
   unsigned int v3; // r5
@@ -29,8 +29,8 @@ int  sub_1005B0(int a1)
 
   v2 = *(uint32_t *)off_100634;
   v3 = *(uint32_t *)off_100634;
-  v4 = sub_1019F8();
-  v5 = sub_1019FC();
+  v4 = return_true();
+  v5 = rf_get_status_bit21();
   v6 = (v2 >> 8) & 0xF;
   v7 = (v3 >> 27) & 1;
   if ( a1 == 1 )
@@ -69,7 +69,7 @@ int  sub_1005B0(int a1)
   else if ( a1 )
   {
     if ( **(int16_t **)off_100638 < 0 )
-      sub_12F46C(dword_100640, dword_10063C, 434);
+      mmio_clear_register(dword_100640, dword_10063C, 434);
     return 0;
   }
   else if ( v5 )

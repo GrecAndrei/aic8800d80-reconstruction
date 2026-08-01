@@ -15,10 +15,10 @@ extern uint32_t off_10D4C0;
 extern uint32_t off_10D4BC;
 extern uint32_t off_10D4C4;
 
-// timer_init @ 0x10d474, size 68 bytes
-// Doc: timer_init [util]: Initialize hardware timer subsystem
-// timer_init [util]: Initialize hardware timer subsystem
-int timer_init()
+// rf_phy_init @ 0x10d474, size 68 bytes
+// Doc: rf_phy_init [util]: Initialize hardware timer subsystem
+// rf_phy_init [util]: Initialize hardware timer subsystem
+int rf_phy_init()
 {
   unsigned int *v0; // r2
   unsigned int v1; // r3

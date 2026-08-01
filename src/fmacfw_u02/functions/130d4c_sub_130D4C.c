@@ -12,8 +12,8 @@
 
 extern uint32_t off_130D8C;
 
-// sub_130D4C @ 0x130d4c, size 64 bytes
-int  sub_130D4C(int a1, int a2, int16_t a3, char a4, int16_t a5)
+// build_packet_header @ 0x130d4c, size 64 bytes
+int  build_packet_header(int a1, int a2, int16_t a3, char a4, int16_t a5)
 {
   uint8_t *v5; // r4
 

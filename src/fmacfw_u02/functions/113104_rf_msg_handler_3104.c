@@ -15,10 +15,10 @@ extern uint32_t dword_113284;
 extern uint32_t dword_113288;
 extern uint32_t dword_1132A0;
 
-// rf_msg_handler_3104 @ 0x113104, size 360 bytes
+// read_periph_status @ 0x113104, size 360 bytes
 // Doc: rf_cmd_queue_next_n_260 [rf]: Process next RF command from queue
 // rf_cmd_queue_next_n_260 [rf]: Process next RF command from queue
-int  rf_msg_handler_3104(uint8_t *a1, unsigned int a2, int a3)
+int  read_periph_status(uint8_t *a1, unsigned int a2, int a3)
 {
   uint16_t *v3; // r7
   uint8_t *v4; // r6
@@ -47,31 +47,31 @@ int  rf_msg_handler_3104(uint8_t *a1, unsigned int a2, int a3)
   v7 = a1;
   if ( *v4 != 2 )
   {
-    sub_10DC24(dword_113284, *v3, *v4);
-    rf_msg_log_rate(dword_113288, v7, a2, *v4);
+    log_printf(dword_113284, *v3, *v4);
+    is_current_task(dword_113288, v7, a2, *v4);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    sub_10DC24(rf_cmd_queue_next_n_228, *v3, a2);
+    log_printf(rf_cmd_queue_next_n_228, *v3, a2);
   }
   else
   {
     v9 = a1[2];
     v10 = *a1 | (a1[1] << 8) & 0xF00;
     if ( *(uint8_t *)patch_apply_n_2e )
-      a1 = (uint8_t *)feature_guard_check(512, rf_cmd_send_n288);
+      a1 = (uint8_t *)check_status_bits(512, rf_cmd_send_n288);
     if ( v9 == 1 )
     {
       if ( a2 == v10 || v10 + 1 == a2 )
       {
-        ((void (*)(void))rf_stream_kick)();
-        sub_113C48(v7 + 4);
-        irq_nesting_or_d104(512);
+        ((void (*)(void))timer_delay)();
+        check_packet_length(v7 + 4);
+        unknown_func_12d104(512);
         return 1;
       }
-      sub_10DC24(rf_stream_start2_n_154, *v3, v10, a2);
+      log_printf(rf_stream_start2_n_154, *v3, v10, a2);
     }
     else if ( v9 == 17 )
     {
@@ -79,13 +79,13 @@ int  rf_msg_handler_3104(uint8_t *a1, unsigned int a2, int a3)
       if ( *((uint8_t *)mm_chan_ctxt_unlink_cfm_handler + 2433) >= (unsigned int)*((uint8_t *)mm_chan_ctxt_unlink_cfm_handler
                                                                                          + 2434) )
       {
-        sub_10DC24(rf_stream_start2_n_14c);
+        log_printf(rf_stream_start2_n_14c);
       }
       else
       {
         if ( v10 + 4 == a2 || a2 == v10 + 5 )
         {
-          rf_stream_kick(a1);
+          timer_delay(a1);
           v12 = v11[2433];
           v13 = rf_cmd_send_n270_3280;
           v14 = (uint8_t)v11[2432]
@@ -98,20 +98,20 @@ int  rf_msg_handler_3104(uint8_t *a1, unsigned int a2, int a3)
           *((uint32_t *)v15 + 409) = v7 + 4;
           *((uint32_t *)v15 + 412) = v10;
           v11[2433] = v12 + 1;
-          list_push_tail(v13);
-          irq_nesting_or_d104(0x400000);
+          cmd_handler_a(v13);
+          unknown_func_12d104(0x400000);
           return 1;
         }
-        sub_10DC24(dword_1132A0, *v3, v10, a2);
+        log_printf(dword_1132A0, *v3, v10, a2);
       }
     }
     else
     {
-      sub_10DC24(rf_cmd_process_0, *v3, v9, v10, a2);
+      log_printf(rf_cmd_process_0, *v3, v9, v10, a2);
     }
   }
-  v17 = log_free_dispatch_2(&v7[-*(uint32_t *)rf_cmd_send_n280]);
-  rf_stream_kick(v17);
+  v17 = is_controller_mode(&v7[-*(uint32_t *)rf_cmd_send_n280]);
+  timer_delay(v17);
   return 1;
 }
 

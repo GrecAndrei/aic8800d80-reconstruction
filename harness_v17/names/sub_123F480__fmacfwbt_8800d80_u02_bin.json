@@ -1,1 +1,1 @@
-{"fn": "sub_123F480", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f480", "status": "ok", "name": "rf_entry_lookup_n3a0", "params": [], "docstring": "Look up RF entry by index in table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123F480", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f480", "status": "ok", "name": "validate_channel_map", "params": [], "docstring": "Look up RF entry by index in table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

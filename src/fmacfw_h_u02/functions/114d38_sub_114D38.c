@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114D38 @ 0x114d38, size 12 bytes
-int  sub_114D38(int a1)
+// get_rssi @ 0x114d38, size 12 bytes
+int  get_rssi(int a1)
 {
-  return sub_114C3C(0x400000, a1, 4u);
+  return patch_apply_ext(0x400000, a1, 4u);
 }
 

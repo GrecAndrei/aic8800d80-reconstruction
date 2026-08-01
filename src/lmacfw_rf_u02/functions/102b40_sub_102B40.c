@@ -12,8 +12,8 @@
 
 extern uint32_t off_102BAC;
 
-// sub_102B40 @ 0x102b40, size 106 bytes
-int  sub_102B40(int result)
+// gpio_clear_pin @ 0x102b40, size 106 bytes
+int  gpio_clear_pin(int result)
 {
   int v1; // r4
   int v2; // zf

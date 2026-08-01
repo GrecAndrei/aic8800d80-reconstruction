@@ -25,8 +25,8 @@ extern uint32_t dword_102FE4;
 extern uint32_t off_102FEC;
 extern uint32_t off_102FE8;
 
-// sub_102E84 @ 0x102e84, size 334 bytes
-int  sub_102E84(int a1, int a2, int a3)
+// clock_set_source @ 0x102e84, size 334 bytes
+int  clock_set_source(int a1, int a2, int a3)
 {
   uint32_t *v3; // r3
   uint32_t *v4; // r5
@@ -88,8 +88,8 @@ LABEL_20:
       v8 = 409600;
     }
 LABEL_13:
-    lmac_sub_init(0, 32, 0x10u, v15);
-    result = msg_parse(dword_102FFC, v14);
+    memcpy_advance(0, 32, 0x10u, v15);
+    result = dispatch_event_handler(dword_102FFC, v14);
     v9 = 12;
     goto LABEL_7;
   }
@@ -150,8 +150,8 @@ LABEL_17:
   v8 = 1540096;
   v9 = 17;
 LABEL_6:
-  lmac_sub_init(0, 0, 0x10u, v7);
-  result = msg_parse(dword_102FE4, v6);
+  memcpy_advance(0, 0, 0x10u, v7);
+  result = dispatch_event_handler(dword_102FE4, v6);
 LABEL_7:
   v11 = (int *)off_102FEC;
   *(uint32_t *)off_102FE8 = *(uint32_t *)off_102FE8 & 0xFFC01FFF | v8;

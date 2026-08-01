@@ -1,1 +1,1 @@
-{"fn": "sub_1201DA4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1201da4", "status": "ok", "name": "mmio_set_byte_field", "params": [], "docstring": "Set a byte field in MMIO register by masking and OR-ing shifted value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1201DA4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1201da4", "status": "ok", "name": "rf_tx_power_set", "params": [], "docstring": "Set a byte field in MMIO register by masking and OR-ing shifted value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

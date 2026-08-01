@@ -12,10 +12,10 @@
 
 extern uint32_t off_12EA28;
 
-// sdio_wait_busy_clear @ 0x12ea10, size 24 bytes
-// Doc: sdio_wait_busy_clear [mmio]: Polls SDIO status register until busy flag clears
-// sdio_wait_busy_clear [mmio]: Polls SDIO status register until busy flag clears
-void sdio_wait_busy_clear()
+// ipc_wait_flag @ 0x12ea10, size 24 bytes
+// Doc: ipc_wait_flag [mmio]: Polls SDIO status register until busy flag clears
+// ipc_wait_flag [mmio]: Polls SDIO status register until busy flag clears
+void ipc_wait_flag()
 {
   while ( (*(uint32_t *)off_12EA28 & 0x40000) == 0 )
     ;

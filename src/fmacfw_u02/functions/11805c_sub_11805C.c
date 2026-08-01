@@ -22,8 +22,8 @@ extern uint32_t off_118128;
 extern uint32_t dword_118134;
 extern uint32_t off_118130;
 
-// sub_11805C @ 0x11805c, size 178 bytes
-uint32_t *sub_11805C()
+// invoke_callback @ 0x11805c, size 178 bytes
+uint32_t *invoke_callback()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r4
@@ -46,7 +46,7 @@ uint32_t *sub_11805C()
   if ( result )
   {
     v1 = result;
-    v2 = (uint32_t *)sub_1102BC();
+    v2 = (uint32_t *)is_scan_enabled();
     v3 = v2;
     if ( v2 )
     {
@@ -78,7 +78,7 @@ uint32_t *sub_11805C()
         }
         else
         {
-          msg_parse(dword_118138, v8, v7);
+          event_dispatch(dword_118138, v8, v7);
           v8 = *v6;
         }
       }
@@ -86,7 +86,7 @@ uint32_t *sub_11805C()
       {
         if ( *(uint32_t *)off_118128 )
         {
-          msg_parse(dword_118134, v8, v7);
+          event_dispatch(dword_118134, v8, v7);
           v8 = *v6;
         }
         v9 = off_11812C;
@@ -114,7 +114,7 @@ uint32_t *sub_11805C()
     }
     else
     {
-      return (uint32_t *)log_free_dispatch_2(v1);
+      return (uint32_t *)is_controller_mode(v1);
     }
   }
   return result;

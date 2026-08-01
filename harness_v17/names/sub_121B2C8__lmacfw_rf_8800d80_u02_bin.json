@@ -1,1 +1,1 @@
-{"fn": "sub_121B2C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b2c8", "status": "ok", "name": "sub_121B2C8", "params": [], "docstring": "Checks a flag byte from a global struct and shifts it, branches on result", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121B2C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b2c8", "status": "ok", "name": "rf_status_check", "params": [], "docstring": "Checks a flag byte from a global struct and shifts it, branches on result", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_125F18 @ 0x125f18, size 162 bytes
-unsigned int  sub_125F18(unsigned int *a1, unsigned int *a2, unsigned int *a3, unsigned int a4)
+// check_sequence_diff @ 0x125f18, size 162 bytes
+unsigned int  check_sequence_diff(unsigned int *a1, unsigned int *a2, unsigned int *a3, unsigned int a4)
 {
   unsigned int v4; // r5
   unsigned int *v5; // lr

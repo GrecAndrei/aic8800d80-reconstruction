@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_4bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113c8", "status": "ok", "name": "ipc_doorbell_handler_n374", "params": [], "docstring": "Handles IPC doorbell interrupts, dispatches by value vs 0x9c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_4bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113c8", "status": "ok", "name": "rf_bus_mark_n_4bb_13c8", "params": [], "docstring": "Handles IPC doorbell interrupts, dispatches by value vs 0x9c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

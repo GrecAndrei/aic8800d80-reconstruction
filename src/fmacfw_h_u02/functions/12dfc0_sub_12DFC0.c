@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DFC0 @ 0x12dfc0, size 26 bytes
-int  sub_12DFC0(int a1)
+// is_ptr_nonnull @ 0x12dfc0, size 26 bytes
+int  is_ptr_nonnull(int a1)
 {
   if ( a1 >= 0 )
     return 220;

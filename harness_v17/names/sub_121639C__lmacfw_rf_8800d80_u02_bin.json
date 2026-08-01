@@ -1,1 +1,1 @@
-{"fn": "sub_121639C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121639c", "status": "ok", "name": "rf_init_load_globals", "params": [], "docstring": "Loads RF subsystem globals from ROM/RAM pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121639C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121639c", "status": "ok", "name": "wlan_attach", "params": [], "docstring": "Loads RF subsystem globals from ROM/RAM pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

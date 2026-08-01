@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_stream_start_1ac @ 0x1131ac, size 130 bytes
+// global_env_init @ 0x1131ac, size 130 bytes
 // Doc: rf_cmd_send_3204 [rf]: Send RF command via bus and store result
 // rf_cmd_send_3204 [rf]: Send RF command via bus and store result
-int  rf_stream_start_1ac(int a1, unsigned int a2)
+int  global_env_init(int a1, unsigned int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r6
@@ -29,7 +29,7 @@ int  rf_stream_start_1ac(int a1, unsigned int a2)
   v3 = rf_msg_handler_n2d4;
   if ( *(uint8_t *)rf_msg_handler_n2d4 )
   {
-    log_printf(rf_cmd_send_n3d8, rf_msg_handler_n2e0, *(uint8_t *)rf_msg_handler_n2d4);
+    printf_wrapper(rf_cmd_send_n3d8, rf_msg_handler_n2e0, *(uint8_t *)rf_msg_handler_n2d4);
     return -3;
   }
   else
@@ -37,11 +37,11 @@ int  rf_stream_start_1ac(int a1, unsigned int a2)
     v4 = sdio_buffer_prepare_n_210;
     *(uint8_t *)rf_msg_handler_n2d4 = 1;
     v4[716] &= 0xE007FFFF;
-    v5 = rf_bus_write2_n42c(1, a1, a2);
+    v5 = ke_msg_handler(1, a1, a2);
     v6 = v5;
     if ( v5 )
     {
-      log_printf(rf_msg_handler_n2e8, rf_msg_handler_n2e0, v5);
+      printf_wrapper(rf_msg_handler_n2e8, rf_msg_handler_n2e0, v5);
       return -1;
     }
     else
@@ -49,7 +49,7 @@ int  rf_stream_start_1ac(int a1, unsigned int a2)
       *(uint8_t *)rf_msg_handler_n2dc = 1;
       if ( *v2 )
       {
-        rf_bus_reset2_n3b8(0, 1u);
+        rf_reg_write_alias(0, 1u);
         *v3 = 0;
         return -14;
       }

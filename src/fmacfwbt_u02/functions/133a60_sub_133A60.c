@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_133A60 @ 0x133a60, size 54 bytes
-int  sub_133A60(int a1, int a2, int16_t a3, int16_t a4)
+// ipc_send_command @ 0x133a60, size 54 bytes
+int  ipc_send_command(int a1, int a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int16_t v6; // r1
@@ -19,18 +19,18 @@ int  sub_133A60(int a1, int a2, int16_t a3, int16_t a4)
   int16_t v10; // [sp+0h] [bp-8h]
   int16_t v12; // [sp+4h] [bp-4h]
 
-  v5 = sub_12D0B0(6u);
+  v5 = hci_cmd_send_short(6u);
   v6 = a4;
   v7 = a3;
   if ( v5 == 6 )
   {
     v10 = a3;
     v12 = v6;
-    sub_135B4C(*(uint16_t *)(a2 + 2));
+    hci_vendor_cmd_dispatch(*(uint16_t *)(a2 + 2));
     v7 = v10;
     v6 = v12;
   }
-  sub_12CC38(6156, v6, v7);
+  hci_evt_alloc_send(6156, v6, v7);
   return 0;
 }
 

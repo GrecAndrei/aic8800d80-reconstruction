@@ -26,8 +26,8 @@ extern uint32_t off_121AAC;
 extern uint32_t off_121AB0;
 extern uint32_t off_121AB4;
 
-// sub_1219A4 @ 0x1219a4, size 230 bytes
-int sub_1219A4()
+// ke_evt_handler @ 0x1219a4, size 230 bytes
+int ke_evt_handler()
 {
   int *v0; // r8
   int *v1; // r4
@@ -44,9 +44,9 @@ int sub_1219A4()
   int v12; // r3
   int v13; // r2
 
-  if ( **(int16_t **)off_121A8C < 0 && sub_12CD48(0) == 4 )
-    sub_12F32C(dword_121AC0, dword_121ABC, 1799);
-  sub_12EB90(4, dword_121A90);
+  if ( **(int16_t **)off_121A8C < 0 && hci_cmd_handler(0) == 4 )
+    irq_disable_mmio_write(dword_121AC0, dword_121ABC, 1799);
+  check_feature_flag(4, dword_121A90);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -62,9 +62,9 @@ int sub_1219A4()
   v5 = v3 & 0xF;
   while ( *v1 << 28 )
   {
-    sub_1178B4();
+    radio_irq_clear();
     if ( (unsigned int)(v2[4] - v4) > 0x7530 )
-      sub_12EB90(4, dword_121AB8);
+      check_feature_flag(4, dword_121AB8);
   }
   v6 = off_121AA4;
   v7 = off_121AA8;
@@ -78,8 +78,8 @@ int sub_1219A4()
   v9 = *((uint8_t *)off_121AAC + 90);
   *(uint32_t *)off_121AB0 = 4;
   if ( v9 )
-    sub_1178E4();
-  result = sub_12CBF4(0);
+    critical_section_enter();
+  result = hci_cmd_preprocess(0);
   v11 = *v0;
   *((uint16_t *)off_121AB4 + 9) = 0;
   if ( v11 )

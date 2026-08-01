@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_491", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115e6", "status": "ok", "name": "rf_bus_write2_n_491", "params": [], "docstring": "Write byte to RF bus with zero-check guard", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_491", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115e6", "status": "ok", "name": "rf_bus_reset2_n_272", "params": [], "docstring": "Write byte to RF bus with zero-check guard", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -17,8 +17,8 @@ extern uint32_t dword_13BE24;
 extern uint32_t dword_13BE28;
 extern uint32_t dword_13BE2C;
 
-// sub_13BDB8 @ 0x13bdb8, size 104 bytes
-int  sub_13BDB8(unsigned int a1)
+// ke_task_get @ 0x13bdb8, size 104 bytes
+int  ke_task_get(unsigned int a1)
 {
   int v1; // r5
   int v2; // r6
@@ -33,18 +33,18 @@ int  sub_13BDB8(unsigned int a1)
   v5 = 32 * a1;
   if ( a1 <= 0xF )
   {
-    sub_12D1A8(dword_13BE30, (uint32_t *)v2);
-    sub_12D108(dword_13BE34, (uint32_t *)v2);
+    wlan_ioctl_handler_3(dword_13BE30, (uint32_t *)v2);
+    wlan_ioctl_handler_1(dword_13BE34, (uint32_t *)v2);
   }
   else
   {
-    sub_12D1A8(dword_13BE24, (uint32_t *)v2);
-    sub_12D108(dword_13BE28, (uint32_t *)v2);
+    wlan_ioctl_handler_3(dword_13BE24, (uint32_t *)v2);
+    wlan_ioctl_handler_1(dword_13BE28, (uint32_t *)v2);
   }
   v6 = (a1 << 8) & 0xFF00;
   v7 = dword_13BE2C;
-  sub_12CBF4(v6 | 8, 4);
+  hci_cmd_preprocess(v6 | 8, 4);
   *(uint8_t *)(v1 + v5 + 25) = 0;
-  return sub_13B558(v3, v2, 2, 0, 0, 39, v7);
+  return init_state_table(v3, v2, 2, 0, 0, 39, v7);
 }
 

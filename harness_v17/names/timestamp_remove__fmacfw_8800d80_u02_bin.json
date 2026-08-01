@@ -1,1 +1,1 @@
-{"fn": "timestamp_remove", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1224e34", "status": "ok", "name": "timestamp_remove", "params": [], "docstring": "Remove/clear timestamp from data structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "timestamp_remove", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1224e34", "status": "ok", "name": "fault_handler", "params": [], "docstring": "Remove/clear timestamp from data structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

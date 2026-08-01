@@ -14,8 +14,8 @@ extern uint32_t off_119F0C;
 extern uint32_t dword_119F08;
 extern uint32_t dword_119F04;
 
-// sub_119E3C @ 0x119e3c, size 184 bytes
-void  __noreturn sub_119E3C(int a1, int a2, int a3)
+// rf_get_rssi @ 0x119e3c, size 184 bytes
+void  __noreturn rf_get_rssi(int a1, int a2, int a3)
 {
   int v3; // r0
   int v4; // [sp+Ch] [bp-14h]
@@ -32,9 +32,9 @@ void  __noreturn sub_119E3C(int a1, int a2, int a3)
   v8 = 0;
   if ( v3 < 0 )
   {
-    if ( sub_11E34C(a3) )
-      rf_cmd_send_n264(dword_119F08, dword_119F04, 337);
+    if ( flash_write_byte(a3) )
+      flash_ctrl_init(dword_119F08, dword_119F04, 337);
   }
-  sub_1028B8();
+  wifi_set_channel();
 }
 

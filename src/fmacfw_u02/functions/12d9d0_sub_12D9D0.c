@@ -12,13 +12,13 @@
 
 extern uint32_t dword_12D9F8;
 
-// sub_12D9D0 @ 0x12d9d0, size 40 bytes
-uint8_t * sub_12D9D0(uint8_t *a1, int a2, uint8_t *a3)
+// log_with_format @ 0x12d9d0, size 40 bytes
+uint8_t * log_with_format(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   uint16_t v5; // [sp+Eh] [bp-2h] BYREF
 
-  result = sub_12D788(a1, a2, (uint8_t *)dword_12D9F8, 5, &v5);
+  result = mem_range_setup(a1, a2, (uint8_t *)dword_12D9F8, 5, &v5);
   if ( result )
   {
     if ( v5 <= 0x17u )

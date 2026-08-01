@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_33 @ 0x114e78, size 12 bytes
+// patch_get_field @ 0x114e78, size 12 bytes
 // Doc: patch_apply_n_30 [patch]: apply firmware patch with signed-offset lookup and conditional branch
 // patch_apply_n_30 [patch]: apply firmware patch with signed-offset lookup and conditional branch
-int  patch_apply_n_33(int a1)
+int  patch_get_field(int a1)
 {
-  return patch_apply_n_130(0x400000, a1, 4u);
+  return ke_task_handler_large(0x400000, a1, 4u);
 }
 

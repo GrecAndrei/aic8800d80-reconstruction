@@ -14,8 +14,8 @@ extern uint32_t off_122A78;
 extern uint32_t off_122A74;
 extern uint32_t off_122A7C;
 
-// sub_122A28 @ 0x122a28, size 76 bytes
-int  sub_122A28(int a1, int *a2, int a3, int a4)
+// scan_validate @ 0x122a28, size 76 bytes
+int  scan_validate(int a1, int *a2, int a3, int a4)
 {
   char *v7; // r7
   uint32_t *v8; // r3
@@ -45,7 +45,7 @@ int  sub_122A28(int a1, int *a2, int a3, int a4)
       v8[5] = v12;
     }
   }
-  sub_12C8D0(122, a4, a3);
+  mac_write_header_word(122, a4, a3);
   return 0;
 }
 

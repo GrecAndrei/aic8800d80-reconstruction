@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_104200 @ 0x104200, size 466 bytes
-int  sub_104200(int a1, int a2, uint32_t *a3)
+// tx_power_calibrate @ 0x104200, size 466 bytes
+int  tx_power_calibrate(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v6; // r10
@@ -74,8 +74,8 @@ int  sub_104200(int a1, int a2, uint32_t *a3)
   {
     v12 = v10;
     v10 += v8;
-    v13 = sub_103FBC(v10, a2, a3);
-    v14 = v13 - sub_103FBC(v12, a2, a3);
+    v13 = lookup_rf_table(v10, a2, a3);
+    v14 = v13 - lookup_rf_table(v12, a2, a3);
     if ( (float)v14 < v9 )
     {
       v9 = (float)v14;
@@ -110,8 +110,8 @@ int  sub_104200(int a1, int a2, uint32_t *a3)
       v19 = 5;
       do
       {
-        v20 = sub_103FBC(v18, a2, a3);
-        v21 = sub_103FBC(v33 - v34 + v18, a2, a3);
+        v20 = lookup_rf_table(v18, a2, a3);
+        v21 = lookup_rf_table(v33 - v34 + v18, a2, a3);
         --v19;
         v18 += v8;
         *((float *)v17 - 1) = *((float *)v17 - 1) + (float)(v20 - v21);

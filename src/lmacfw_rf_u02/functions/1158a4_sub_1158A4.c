@@ -21,8 +21,8 @@ extern uint32_t off_1159BC;
 extern uint32_t dword_1159C4;
 extern uint32_t dword_1159C0;
 
-// sub_1158A4 @ 0x1158a4, size 250 bytes
-int  sub_1158A4(int result)
+// mmio_irq_set @ 0x1158a4, size 250 bytes
+int  mmio_irq_set(int result)
 {
   int v1; // r3
   int v2; // r6
@@ -102,7 +102,7 @@ int  sub_1158A4(int result)
       break;
     default:
       if ( **(int16_t **)off_1159BC < 0 )
-        result = sub_1219C4(dword_1159C4, dword_1159C0, 2338);
+        result = flash_ctrl_init(dword_1159C4, dword_1159C0, 2338);
       break;
   }
   return result;

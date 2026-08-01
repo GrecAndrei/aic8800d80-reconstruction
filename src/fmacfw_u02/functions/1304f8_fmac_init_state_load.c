@@ -14,10 +14,10 @@ extern uint32_t off_1305A8;
 extern uint32_t off_1305AC;
 extern uint32_t dword_1305B0;
 
-// fmac_init_state_load @ 0x1304f8, size 174 bytes
-// Doc: fmac_init_state_load [util]: Loads signed byte state and initializes context
-// fmac_init_state_load [util]: Loads signed byte state and initializes context
-void fmac_init_state_load()
+// rf_get_channel_calibration @ 0x1304f8, size 174 bytes
+// Doc: rf_get_channel_calibration [util]: Loads signed byte state and initializes context
+// rf_get_channel_calibration [util]: Loads signed byte state and initializes context
+void rf_get_channel_calibration()
 {
   uint8_t *v0; // r4
   int v1; // r2
@@ -41,15 +41,15 @@ void fmac_init_state_load()
   v9 = v1;
   if ( (v2 & 0x2000000) != 0 )
   {
-    rf_cmd_wait_n_7e(&v8);
-    rf_fault_dump_n384(&v9);
+    rf_cmd6_read(&v8);
+    rom_get_chip_version(&v9);
     goto LABEL_4;
   }
   v10 = 0;
   v11 = 0;
-  if ( !sub_114D34((int)&v10) )
+  if ( !ke_event_send_2((int)&v10) )
     v8 = v10;
-  if ( sub_114D64((int)&v11) )
+  if ( ke_event_send_0x80((int)&v11) )
   {
 LABEL_4:
     v3 = v8;
@@ -73,7 +73,7 @@ LABEL_19:
   LOBYTE(v3) = 15;
 LABEL_7:
   v0[4] = v3;
-  v4 = sub_10EF24();
+  v4 = rf_get_rssi();
   v5 = v9;
   v0[6] = v4;
   if ( v5 )
@@ -96,7 +96,7 @@ LABEL_7:
     }
     v7 = dword_1305B0;
     v0[2] = v6;
-    msg_parse(v7, v5);
+    event_dispatch(v7, v5);
   }
   v0[3] = 0x80;
   *v0 = 1;

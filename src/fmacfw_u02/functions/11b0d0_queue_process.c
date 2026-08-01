@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11B154;
 
-// queue_process @ 0x11b0d0, size 132 bytes
-// Doc: queue_process [util]: Process pending work queue entries
-// queue_process [util]: Process pending work queue entries
-unsigned int * queue_process(unsigned int *result, unsigned int a2, int a3)
+// check_packet_type @ 0x11b0d0, size 132 bytes
+// Doc: check_packet_type [util]: Process pending work queue entries
+// check_packet_type [util]: Process pending work queue entries
+unsigned int * check_packet_type(unsigned int *result, unsigned int a2, int a3)
 {
   unsigned int v3; // r3
   int v4; // r4

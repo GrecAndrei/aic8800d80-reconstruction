@@ -1,0 +1,1 @@
+{"fn": "sub_1028B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1028b8", "status": "ok", "name": "wifi_set_channel", "params": [], "docstring": "Set Wi-Fi channel to 2412 MHz", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

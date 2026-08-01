@@ -13,10 +13,10 @@
 extern uint32_t off_121E2C;
 extern uint32_t dword_121E38;
 
-// rf_cmd_dispatch_1cf4 @ 0x121cf4, size 304 bytes
+// co_list_insert @ 0x121cf4, size 304 bytes
 // Doc: rf_cmd_dispatch_table [rf]: Dispatches RF command via table with size bounds 0x60/0x7f
 // rf_cmd_dispatch_table [rf]: Dispatches RF command via table with size bounds 0x60/0x7f
-int  rf_cmd_dispatch_1cf4(unsigned int a1, uint8_t *a2, int a3)
+int  co_list_insert(unsigned int a1, uint8_t *a2, int a3)
 {
   int *v3; // r6
   char v4; // r4
@@ -47,7 +47,7 @@ int  rf_cmd_dispatch_1cf4(unsigned int a1, uint8_t *a2, int a3)
     if ( !a3 )
       goto rf_cmd_queue_next_n_42b;
 rf_cmd_dispatch_n_1f0:
-    v11 = sub_1288C0(a3);
+    v11 = memset_ff(a3);
     v12 = (int *)rf_state_check_n_20c;
     v13 = rf_cmd_dispatch_e30;
     *v3 = (int)a2;
@@ -79,7 +79,7 @@ rf_cmd_queue_next_n_42b:
       case 0xDu:
         v21 = (uint8_t *)rf_mem_write_n_1f7;
         *(uint8_t *)*v3 = 0;
-        uart_puts(v21);
+        uart_tx_string(v21);
         return *v3 - (uint32_t)a2;
       case 0x15u:
         v22 = rf_cmd_dispatch_e30;
@@ -94,7 +94,7 @@ rf_cmd_queue_next_n_42b:
           v16 = (unsigned int)a2;
           while ( 1 )
           {
-            v17 = (uint8_t *)sub_121B40(v16, v15, v8);
+            v17 = (uint8_t *)tlv_find(v16, v15, v8);
             v18 = *v14;
             *v3 = (int)v17;
             v15 = (int)v17;
@@ -114,7 +114,7 @@ rf_cmd_queue_next_n_42b:
           goto rf_cmd_dispatch_n_204;
         if ( a1 != 9 )
           goto rf_mem_write_n_213;
-        uart_puts((uint8_t *)(dword_121E38 + (v8 & 7)));
+        uart_tx_string((uint8_t *)(dword_121E38 + (v8 & 7)));
         *(uint32_t *)off_121E2C = (*(uint32_t *)off_121E2C & 0xFFFFFFF8) + 8;
         break;
     }
@@ -125,7 +125,7 @@ rf_cmd_queue_next_n_42b:
 rf_mem_write_n_28c:
     v20 = *v3;
     if ( *(uint32_t *)rf_cmd_dispatch_e30 )
-      v20 = sub_121B40((unsigned int)a2, v20, v8);
+      v20 = tlv_find((unsigned int)a2, v20, v8);
     *v3 = v20;
     return -1;
   }
@@ -136,7 +136,7 @@ rf_mem_write_n_28c:
     {
 rf_mem_write_n_213:
       *v7 = v8 + 1;
-      uart_putc(a1);
+      uart_tx_byte(a1);
 rf_mem_write_n_22b:
       v23 = (uint8_t *)*v3;
       *v23 = v4;
@@ -146,7 +146,7 @@ rf_mem_write_n_22b:
       return -1;
     }
 rf_cmd_dispatch_n_204:
-    uart_putc(7);
+    uart_tx_byte(7);
     return -1;
   }
 }

@@ -25,8 +25,8 @@ extern uint32_t dword_12C5D4;
 extern uint32_t off_12C5D0;
 extern uint32_t dword_12C5D8;
 
-// sub_12C4A4 @ 0x12c4a4, size 288 bytes
-int  sub_12C4A4(int a1, int a2, unsigned int a3)
+// ke_event_handler @ 0x12c4a4, size 288 bytes
+int  ke_event_handler(int a1, int a2, unsigned int a3)
 {
   int16_t **v3; // r11
   int *v7; // r8
@@ -47,11 +47,11 @@ int  sub_12C4A4(int a1, int a2, unsigned int a3)
     if ( a3 )
     {
       if ( a3 > dword_12C5DC )
-        sub_12F32C(dword_12C5E4, dword_12C5E0, 148);
+        irq_disable_mmio_write(dword_12C5E4, dword_12C5E0, 148);
     }
     else
     {
-      sub_12F32C(dword_12C5E8, dword_12C5E0, 147);
+      irq_disable_mmio_write(dword_12C5E8, dword_12C5E0, 147);
     }
   }
   if ( (__get_CPSR() & 1) == 0 )
@@ -65,13 +65,13 @@ int  sub_12C4A4(int a1, int a2, unsigned int a3)
   ++*(uint32_t *)off_12C5F4;
   if ( v9 )
     v9 = *(uint16_t *)(v9 + 4) == a1 && *(uint16_t *)(v9 + 6) == a2;
-  v10 = sub_12C8FC(dword_12C5CC, off_12C5C8, a2 | (a1 << 16));
+  v10 = rx_read_buffer(dword_12C5CC, off_12C5C8, a2 | (a1 << 16));
   if ( !v10 )
   {
     v17 = ((int ( *)(int))loc_12C9A4)(12);
     v10 = v17;
     if ( **v3 < 0 && !v17 )
-      sub_12F32C(dword_12C5EC, dword_12C5E0, 165);
+      irq_disable_mmio_write(dword_12C5EC, dword_12C5E0, 165);
     *(uint16_t *)(v10 + 4) = a1;
     *(uint16_t *)(v10 + 6) = a2;
   }
@@ -79,14 +79,14 @@ int  sub_12C4A4(int a1, int a2, unsigned int a3)
   v12 = dword_12C5CC;
   v13 = a3 + *((uint32_t *)off_12C5D0 + 4);
   *(uint32_t *)(v10 + 8) = v13;
-  result = sub_12D240(v12, v10, v11);
+  result = list_foreach(v12, v10, v11);
   if ( v9 )
   {
     v10 = v8[5];
     if ( !v10 )
       goto LABEL_10;
 LABEL_15:
-    result = sub_124BFC(dword_12C5D8, *(uint32_t *)(v10 + 8));
+    result = mem_copy_util(dword_12C5D8, *(uint32_t *)(v10 + 8));
     goto LABEL_10;
   }
   if ( v8[5] == v10 )
@@ -96,11 +96,11 @@ LABEL_10:
   {
     __enable_irq();
     if ( (int)(v13 - *((uint32_t *)off_12C5D0 + 4)) < 0 )
-      return sub_12CFC4(0x10000000);
+      return irq_disable_global_2(0x10000000);
   }
   else if ( (int)(v13 - *((uint32_t *)off_12C5D0 + 4)) < 0 )
   {
-    return sub_12CFC4(0x10000000);
+    return irq_disable_global_2(0x10000000);
   }
   return result;
 }

@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_56", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128c2", "status": "ok", "name": "rf_cmd_send_56", "params": [], "docstring": "Send RF command 0x56 and clear pending bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_56", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128c2", "status": "ok", "name": "rf_cmd_send_setup_n55", "params": [], "docstring": "Send RF command 0x56 and clear pending bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

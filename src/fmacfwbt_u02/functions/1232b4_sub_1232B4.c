@@ -17,8 +17,8 @@ extern uint32_t off_12338C;
 extern uint32_t off_123388;
 extern uint32_t off_123380;
 
-// sub_1232B4 @ 0x1232b4, size 196 bytes
-int  sub_1232B4(int a1, int a2, int a3, int a4)
+// lookup_tx_power_table @ 0x1232b4, size 196 bytes
+int  lookup_tx_power_table(int a1, int a2, int a3, int a4)
 {
   unsigned int v4; // r4
   int v5; // r6
@@ -55,7 +55,7 @@ int  sub_1232B4(int a1, int a2, int a3, int a4)
       *(uint32_t *)off_123384 = v7;
       v14 = a3;
       v17 = a4;
-      chip_version_read_12207E0();
+      wait_rf_calibration();
       a3 = v14;
       a4 = v17;
     }
@@ -73,7 +73,7 @@ int  sub_1232B4(int a1, int a2, int a3, int a4)
         *(uint32_t *)off_12338C = v9;
         v15 = a3;
         v18 = a4;
-        chip_version_read_12207E0();
+        wait_rf_calibration();
         a3 = v15;
         a4 = v18;
       }
@@ -85,13 +85,13 @@ int  sub_1232B4(int a1, int a2, int a3, int a4)
           *(uint32_t *)off_123380 = v9;
         v13 = a3;
         v16 = a4;
-        chip_version_read_12207E0();
+        wait_rf_calibration();
         a3 = v13;
         a4 = v16;
       }
     }
   }
-  message_dispatch_n84(27, a4, a3, v10);
+  hci_evt_alloc_send(27, a4, a3, v10);
   return 0;
 }
 

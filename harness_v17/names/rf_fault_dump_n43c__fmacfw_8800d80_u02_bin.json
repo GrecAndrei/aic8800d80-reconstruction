@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n43c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b84", "status": "ok", "name": "rf_fault_dump_ext_b84", "params": [], "docstring": "Extended RF fault state dump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_fault_dump_n43c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b84", "status": "ok", "name": "get_hook_bit_19", "params": [], "docstring": "Extended RF fault state dump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_137274", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x137274", "status": "ok", "name": "sdio_set_blocksize", "params": [], "docstring": "Configure SDIO block size for function 2", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

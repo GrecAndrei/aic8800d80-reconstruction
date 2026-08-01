@@ -14,20 +14,20 @@ extern uint32_t off_1338BC;
 extern uint32_t dword_1338C4;
 extern uint32_t dword_1338C0;
 
-// sub_133888 @ 0x133888, size 52 bytes
-int  sub_133888(int a1)
+// ble_state_check_133888 @ 0x133888, size 52 bytes
+int  ble_state_check_133888(int a1)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_1338BC >= 0 || (a1 = sub_12CD48(6u), a1 == 4) )
+  if ( **(int16_t **)off_1338BC >= 0 || (a1 = hci_cmd_handler(6u), a1 == 4) )
   {
-    sub_13467C(a1);
+    ble_reset_controller(a1);
     return 0;
   }
   else
   {
-    v2 = sub_12F32C(dword_1338C4, dword_1338C0, 670);
-    sub_13467C(v2);
+    v2 = irq_disable_mmio_write(dword_1338C4, dword_1338C0, 670);
+    ble_reset_controller(v2);
     return 0;
   }
 }

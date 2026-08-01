@@ -1,1 +1,1 @@
-{"fn": "sub_121522C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121522c", "status": "ok", "name": "rf_chan_check_enter", "params": [], "docstring": "Checks RF channel/state flag and enters RF path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121522C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121522c", "status": "ok", "name": "read_sensor_value", "params": [], "docstring": "Checks RF channel/state flag and enters RF path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

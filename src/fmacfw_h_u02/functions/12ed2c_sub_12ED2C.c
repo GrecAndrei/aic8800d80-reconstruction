@@ -14,8 +14,8 @@ extern uint32_t off_12EDE0;
 extern uint32_t dword_12EDE8;
 extern uint32_t dword_12EDE4;
 
-// sub_12ED2C @ 0x12ed2c, size 178 bytes
-int  sub_12ED2C(int a1, int *a2, int16_t a3, int16_t a4)
+// send_mcu_cmd_0x412 @ 0x12ed2c, size 178 bytes
+int  send_mcu_cmd_0x412(int a1, int *a2, int16_t a3, int16_t a4)
 {
   uint64_t *v5; // r0
   int v6; // r5
@@ -23,7 +23,7 @@ int  sub_12ED2C(int a1, int *a2, int16_t a3, int16_t a4)
   uint64_t v8; // r2
   int v9; // r0
 
-  v5 = (uint64_t *)sub_12C7EC(1042, a4, a3, 8u);
+  v5 = (uint64_t *)tx_send_pdu(1042, a4, a3, 8u);
   v6 = (int)v5;
   if ( (unsigned int)**(uint8_t **)off_12EDE0 - 1 <= 1 )
   {
@@ -48,8 +48,8 @@ int  sub_12ED2C(int a1, int *a2, int16_t a3, int16_t a4)
     v7 = (uint32_t *)*a2;
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      sub_10ECEC((int)v7, a2[2], a2[1], 1);
-      v9 = sub_10EC44(*a2, 1);
+      mmio_rmw32((int)v7, a2[2], a2[1], 1);
+      v9 = mmio_read32(*a2, 1);
       LODWORD(v8) = *a2;
     }
     else
@@ -62,8 +62,8 @@ int  sub_12ED2C(int a1, int *a2, int16_t a3, int16_t a4)
     HIDWORD(v8) = a2[2];
     *(uint32_t *)v6 = v8;
   }
-  sub_12E948(dword_12EDE4, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
-  sub_12C84C(v6);
+  alloc_tx_event(dword_12EDE4, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
+  rx_process_packet(v6);
   return 0;
 }
 

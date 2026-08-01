@@ -15,10 +15,10 @@ extern uint32_t off_11AC74;
 extern uint32_t off_11AC78;
 extern uint32_t off_11AC7C;
 
-// timestamp_remove @ 0x11ac10, size 96 bytes
-// Doc: timestamp_remove [rx]: Strip/remove timestamp field from received frame
-// timestamp_remove [rx]: Strip/remove timestamp field from received frame
-int  timestamp_remove(int a1)
+// ke_exit_critical @ 0x11ac10, size 96 bytes
+// Doc: ke_exit_critical [rx]: Strip/remove timestamp field from received frame
+// ke_exit_critical [rx]: Strip/remove timestamp field from received frame
+int  ke_exit_critical(int a1)
 {
   int *v1; // r4
   void *v2; // r5
@@ -40,7 +40,7 @@ int  timestamp_remove(int a1)
   ++*(uint32_t *)off_11AC74;
   if ( v3 )
   {
-    result = sub_11E7AC(v2);
+    result = list_pop_front(v2);
     v7 = off_11AC7C;
     if ( *(uint32_t *)v2 )
     {
@@ -57,7 +57,7 @@ int  timestamp_remove(int a1)
   }
   else
   {
-    result = list_remove_node(v2, a1);
+    result = check_kernel_state_alt2(v2, a1);
   }
   if ( *v1 )
   {

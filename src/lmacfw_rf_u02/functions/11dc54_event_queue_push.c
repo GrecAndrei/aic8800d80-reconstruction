@@ -20,10 +20,10 @@ extern uint32_t dword_11DD08;
 extern uint32_t dword_11DCFC;
 extern uint32_t dword_11DCF8;
 
-// event_queue_push @ 0x11dc54, size 152 bytes
-// Doc: event_queue_push [util]: Pushes an event onto the firmware event queue
-// event_queue_push [util]: Pushes an event onto the firmware event queue
-int  event_queue_push(int result, int a2)
+// ke_int_lock @ 0x11dc54, size 152 bytes
+// Doc: ke_int_lock [util]: Pushes an event onto the firmware event queue
+// ke_int_lock [util]: Pushes an event onto the firmware event queue
+int  ke_int_lock(int result, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r6
@@ -48,23 +48,23 @@ int  event_queue_push(int result, int a2)
   {
     if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
-      sub_11E7AC(v3 + 5);
+      list_pop_front(v3 + 5);
       v8 = v3[5];
       v9 = (int)(v3 + 8);
       if ( v8 )
       {
-        sub_11AB18(v9, *(uint32_t *)(v8 + 8));
+        ke_enter_critical(v9, *(uint32_t *)(v8 + 8));
         if ( **(int16_t **)off_11DD00 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_11DD04 + 4) < 0 )
-          rf_cmd_send_n264(dword_11DD0C, dword_11DD08, 232);
+          flash_ctrl_init(dword_11DD0C, dword_11DD08, 232);
       }
       else
       {
-        timestamp_remove(v9);
+        ke_exit_critical(v9);
       }
     }
     else
     {
-      result = list_find_remove(dword_11DCFC, dword_11DCF8, a2 | (result << 16));
+      result = co_list_process(dword_11DCFC, dword_11DCF8, a2 | (result << 16));
       v4 = result;
       if ( !result )
       {
@@ -72,7 +72,7 @@ int  event_queue_push(int result, int a2)
         goto LABEL_8;
       }
     }
-    result = sub_11E078(v4);
+    result = check_buffer_size(v4);
     v5 = *v2;
   }
 LABEL_8:

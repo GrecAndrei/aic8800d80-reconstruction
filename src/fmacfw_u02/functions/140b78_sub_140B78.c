@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_140B78 @ 0x140b78, size 116 bytes
+// ble_ll_adv_set_params @ 0x140b78, size 116 bytes
 // Doc: fmac_irq_handler_n0b7c [mac]: FMAC interrupt handler
 // fmac_irq_handler_n0b7c [mac]: FMAC interrupt handler
-int  sub_140B78(uint16_t *a1, int a2, int a3)
+int  ble_ll_adv_set_params(uint16_t *a1, int a2, int a3)
 {
   int result; // r0
   int v6; // r2
@@ -46,7 +46,7 @@ int  sub_140B78(uint16_t *a1, int a2, int a3)
       ++v7;
     }
     while ( v7 != (uint8_t *)v8 );
-    return v9 == v6 && !sub_143710(a3 + 59, &v10, v6);
+    return v9 == v6 && !memcmp(a3 + 59, &v10, v6);
   }
   return result;
 }

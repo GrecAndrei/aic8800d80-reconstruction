@@ -13,14 +13,14 @@
 extern uint32_t off_12D238;
 extern uint32_t off_12D23C;
 
-// sub_12D210 @ 0x12d210, size 40 bytes
-int sub_12D210()
+// assert_fail_record @ 0x12d210, size 40 bytes
+int assert_fail_record()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
   void *v2; // r1
 
-  v0 = rx_queue_head_init();
+  v0 = mmio_base_read();
   v1 = off_12D238;
   v2 = off_12D23C;
   *((uint32_t *)off_12D238 + 7) = v0;
@@ -31,6 +31,6 @@ int sub_12D210()
   v1[5] = 0;
   v1[6] = 0;
   v1[9] = v2;
-  return clear_flags(-1);
+  return unknown_func_12d14c(-1);
 }
 

@@ -62,8 +62,8 @@ extern uint32_t off_1015BC;
 extern uint32_t off_1015C0;
 extern uint32_t off_1015C4;
 
-// sub_10110C @ 0x10110c, size 1142 bytes
-uint32_t * sub_10110C(unsigned int a1)
+// rf_analog_disable @ 0x10110c, size 1142 bytes
+uint32_t * rf_analog_disable(unsigned int a1)
 {
   uint32_t *v1; // r2
   uint32_t *v2; // r3
@@ -245,10 +245,10 @@ LABEL_4:
     v20 += 12;
   }
   while ( (unsigned int *)(v13 + 192) != v21 );
-  sub_102D10(1, 0, 16, v13);
-  sub_102D10(1, 16, 16, *v14);
-  sub_102D10(1, 32, 16, *v15);
-  sub_1009A0(1, a1);
+  memcpy(1, 0, 16, v13);
+  memcpy(1, 16, 16, *v14);
+  memcpy(1, 32, 16, *v15);
+  radio_init(1, a1);
   v24 = off_1013D0;
   v25 = (unsigned int *)off_1013D4;
   *(uint32_t *)off_1013D0 |= 8u;
@@ -348,7 +348,7 @@ LABEL_26:
   }
   v41 = off_1015BC;
   if ( *(uint8_t *)off_1015BC != v40 )
-    sub_102DA4(0);
+    copy_config_struct(0);
   v42 = off_1015C0;
   *v41 = v40;
   while ( !*v42 )
@@ -358,12 +358,12 @@ LABEL_26:
     goto LABEL_40;
   if ( a1 - 5270 <= 0x32 || a1 - 5550 <= 0x64 )
   {
-    result = sub_100D94();
+    result = adc_read_ch1();
 LABEL_40:
     *(uint32_t *)off_1015C0 = 1;
     return result;
   }
-  result = (uint32_t *)sub_100CD0(0);
+  result = (uint32_t *)adc_read_ch0(0);
   *(uint32_t *)off_1015C0 = 1;
   return result;
 }

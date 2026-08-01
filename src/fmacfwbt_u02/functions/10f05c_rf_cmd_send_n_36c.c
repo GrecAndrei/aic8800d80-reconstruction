@@ -13,10 +13,10 @@
 extern uint32_t off_10F0A8;
 extern uint32_t off_10F0AC;
 
-// rf_cmd_send_n_36c @ 0x10f05c, size 74 bytes
-// Doc: rf_cmd_send_n_36c [mac]: Send RF command 0x22 reading window length from MMIO
-// rf_cmd_send_n_36c [mac]: Send RF command 0x22 reading window length from MMIO
-void __noreturn rf_cmd_send_n_36c()
+// copy_stats @ 0x10f05c, size 74 bytes
+// Doc: copy_stats [mac]: Send RF command 0x22 reading window length from MMIO
+// copy_stats [mac]: Send RF command 0x22 reading window length from MMIO
+void __noreturn copy_stats()
 {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -39,6 +39,6 @@ void __noreturn rf_cmd_send_n_36c()
   *((uint32_t *)v2 + 2) = v4;
   *(uint64_t *)(v2 + 12) = v3;
   *((uint32_t *)v2 + 5) = v5;
-  phy_rf_init_2d0();
+  hw_enable();
 }
 

@@ -1,0 +1,1 @@
+{"fn": "sub_116044", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116044", "status": "ok", "name": "call_func_182588", "params": [], "docstring": "Calls function with global argument and r0.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

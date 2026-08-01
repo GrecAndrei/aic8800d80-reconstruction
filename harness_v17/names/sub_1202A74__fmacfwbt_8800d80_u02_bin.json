@@ -1,1 +1,1 @@
-{"fn": "sub_1202A74", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202a74", "status": "ok", "name": "scb_vtor_setup", "params": [], "docstring": "Set VTOR and enable NVIC interrupts in system control block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1202A74", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202a74", "status": "ok", "name": "enable_nvic_irq", "params": [], "docstring": "Set VTOR and enable NVIC interrupts in system control block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

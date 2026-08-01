@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_117D10 @ 0x117d10, size 30 bytes
-BOOL  sub_117D10(int a1, int a2)
+// compare_uint16_field @ 0x117d10, size 30 bytes
+BOOL  compare_uint16_field(int a1, int a2)
 {
   unsigned int v2; // r3
   unsigned int v3; // r0

@@ -16,10 +16,10 @@ extern uint32_t off_119868;
 extern uint32_t off_119864;
 extern uint32_t off_11986C;
 
-// rx_desc_compare_n6e0 @ 0x1196e0, size 384 bytes
-// Doc: rx_desc_compare_n6e0 [rx]: Compare two RX descriptor fields at offset 0x1d
-// rx_desc_compare_n6e0 [rx]: Compare two RX descriptor fields at offset 0x1d
-int  rx_desc_compare_n6e0(int a1, int a2, int a3)
+// phy_channel_same @ 0x1196e0, size 384 bytes
+// Doc: phy_channel_same [rx]: Compare two RX descriptor fields at offset 0x1d
+// phy_channel_same [rx]: Compare two RX descriptor fields at offset 0x1d
+int  phy_channel_same(int a1, int a2, int a3)
 {
   unsigned int v3; // r7
   int result; // r0
@@ -104,11 +104,11 @@ LABEL_16:
           v17 = *(uint32_t *)(v13 + 48);
           *(uint32_t *)(v15 + 36) |= 0x380000u;
           *(uint32_t *)(v8 + 324) = v15;
-          rf_chan_field_get_n_4c6(v17);
+          check_channel_busy(v17);
           v18 = *(uint8_t *)(*(uint32_t *)off_11986C + 1);
           if ( *(uint8_t *)(*(uint32_t *)off_11986C + 1) )
           {
-            sub_1193BC(
+            phy_channel_select(
               v8,
               *(uint16_t *)(v15 + 34),
               *(uint8_t *)(v8 + 12),
@@ -143,7 +143,7 @@ LABEL_16:
           if ( (v23 & 2) != 0 )
             *(uint32_t *)(*(uint32_t *)(v8 + 52) + 20) = *(uint32_t *)(v8 + 4);
           *(uint16_t *)(v8 + 8) = v23 | 0xF;
-          list_push_tail(v12 + 84 * a3 + 28);
+          cmd_handler_a(v12 + 84 * a3 + 28);
           v24 = v12 + 84 * a3;
           v25 = *(uint8_t *)(v24 + 80);
           *(uint32_t *)(v24 + 44) = 0;

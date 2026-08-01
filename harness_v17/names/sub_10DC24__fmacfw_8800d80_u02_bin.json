@@ -1,0 +1,1 @@
+{"fn": "sub_10DC24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dc24", "status": "ok", "name": "log_printf", "params": [], "docstring": "Variadic log/format helper forwarding to sub_10d808.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

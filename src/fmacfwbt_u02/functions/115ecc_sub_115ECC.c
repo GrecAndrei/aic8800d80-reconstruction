@@ -26,8 +26,8 @@ extern uint32_t off_116030;
 extern uint32_t off_11602C;
 extern uint32_t off_11601C;
 
-// sub_115ECC @ 0x115ecc, size 300 bytes
-uint8_t *sub_115ECC()
+// mmio_read_low_nibble @ 0x115ecc, size 300 bytes
+uint8_t *mmio_read_low_nibble()
 {
   uint32_t *v0; // r4
   uint8_t *v1; // r5
@@ -50,7 +50,7 @@ uint8_t *sub_115ECC()
   v1 = off_115FFC;
   v2 = dword_116000;
   *(uint8_t *)off_115FFC = *(uint8_t *)off_115FF8 & 0xF;
-  sub_12EEF8(2, v2);
+  state_check_feature(2, v2);
   if ( *v0 << 28 )
   {
     v3 = off_116008;
@@ -87,7 +87,7 @@ uint8_t *sub_115ECC()
   }
   else if ( v10 == 1 )
   {
-    sub_12EC38();
+    hw_poll_flag();
     v15 = off_116030;
     *(uint32_t *)off_11602C |= 0x20u;
     v15[20] |= 0x20000u;

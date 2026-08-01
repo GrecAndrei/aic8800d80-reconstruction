@@ -1,1 +1,1 @@
-{"fn": "sub_12041E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12041e4", "status": "ok", "name": "seqno_incr_check_3fff", "params": [], "docstring": "Increment and bound-check 14-bit sequence number against 0x3fff.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12041E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12041e4", "status": "ok", "name": "util_get_hw_index", "params": [], "docstring": "Increment and bound-check 14-bit sequence number against 0x3fff.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

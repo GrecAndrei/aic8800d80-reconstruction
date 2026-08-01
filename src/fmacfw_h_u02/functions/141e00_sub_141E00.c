@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_141E00 @ 0x141e00, size 160 bytes
-int  sub_141E00(int a1, int a2, int a3, int a4)
+// queue_ipc_msg @ 0x141e00, size 160 bytes
+int  queue_ipc_msg(int a1, int a2, int a3, int a4)
 {
   int v6; // r0
   int v7; // r1
@@ -24,7 +24,7 @@ int  sub_141E00(int a1, int a2, int a3, int a4)
   uint64_t v14; // r2
   int v16; // [sp+Ch] [bp-8h] BYREF
 
-  v6 = sub_141A30((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
+  v6 = acl_rx_setup((int)&v16, a1, a2, 6, *(uint8_t *)(a3 + 2));
   v7 = *(uint32_t *)(v16 + 72) + 108;
   *(uint8_t *)(v7 + v6) = -40;
   v8 = v7 + v6;
@@ -47,6 +47,6 @@ int  sub_141E00(int a1, int a2, int a3, int a4)
   LODWORD(v14) = *(uint32_t *)(v13 + 28) - 1 + HIDWORD(v14);
   HIDWORD(v14) += 4;
   *(uint64_t *)(v13 + 32) = v14;
-  return sub_118B34(v12, 3);
+  return sec_check(v12, 3);
 }
 

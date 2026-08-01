@@ -14,10 +14,10 @@ extern uint32_t off_12BE4C;
 extern uint32_t off_12BE50;
 extern uint32_t off_12BE48;
 
-// mmio_block_write_n_e18 @ 0x12be18, size 48 bytes
-// Doc: mmio_block_write_n_e18 [mmio]: Writes a contiguous block to MMIO register space
-// mmio_block_write_n_e18 [mmio]: Writes a contiguous block to MMIO register space
-int  mmio_block_write_n_e18(int *a1)
+// mac_dma_write @ 0x12be18, size 48 bytes
+// Doc: mac_dma_write [mmio]: Writes a contiguous block to MMIO register space
+// mac_dma_write [mmio]: Writes a contiguous block to MMIO register space
+int  mac_dma_write(int *a1)
 {
   uint32_t *v1; // r2
   int *v2; // r3

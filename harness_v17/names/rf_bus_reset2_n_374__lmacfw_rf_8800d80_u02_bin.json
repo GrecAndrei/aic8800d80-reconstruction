@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_374", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f90", "status": "ok", "name": "rf_bus_reset2_n_374", "params": [], "docstring": "RF bus secondary reset with byte extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_374", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f90", "status": "ok", "name": "rf_bus_reset2_n_373", "params": [], "docstring": "RF bus secondary reset with byte extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

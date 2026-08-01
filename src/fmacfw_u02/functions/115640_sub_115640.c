@@ -30,8 +30,8 @@ extern uint32_t dword_115798;
 extern uint32_t dword_11579C;
 extern uint32_t off_1157A0;
 
-// sub_115640 @ 0x115640, size 296 bytes
-int sub_115640()
+// peripheral_clock_enable @ 0x115640, size 296 bytes
+int peripheral_clock_enable()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r4
@@ -51,7 +51,7 @@ int sub_115640()
   *((uint32_t *)off_115768 + 14) |= 0x10u;
   *v0 &= ~0x2000000u;
   v1 = off_115774;
-  sub_12ECD0(2, dword_115770);
+  check_status_bits(2, dword_115770);
   v2 = off_115778;
   *(uint32_t *)off_115778 |= 0x80000000;
   v1[1] = 0;
@@ -59,7 +59,7 @@ int sub_115640()
     ;
   v3 = off_11577C;
   if ( *((uint8_t *)off_11577C + 189) && **(int16_t **)off_115780 < 0 && *v1 != (*(uint32_t *)off_115794 & 0xF) )
-    sub_12F46C(dword_1157B0, dword_1157AC, 968);
+    mmio_clear_register(dword_1157B0, dword_1157AC, 968);
   v4 = off_115778;
   v5 = (uint8_t **)off_115784;
   *(uint32_t *)off_115778 &= ~0x40000000u;
@@ -77,7 +77,7 @@ int sub_115640()
     *(uint32_t *)off_11576C |= 0x2000000u;
   else
     *((uint32_t *)off_115768 + 14) &= ~0x10u;
-  result = sub_12ECD0(2, dword_11578C);
+  result = check_status_bits(2, dword_11578C);
   v8 = *(uint8_t **)off_115790;
   v9 = **(uint8_t **)off_115790;
   if ( v9 == 2 )

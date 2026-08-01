@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DAD4;
 
-// sub_10DA88 @ 0x10da88, size 74 bytes
-int  sub_10DA88(int result)
+// rf_channel_valid @ 0x10da88, size 74 bytes
+int  rf_channel_valid(int result)
 {
   int v1; // r2
 

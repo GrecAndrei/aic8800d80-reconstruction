@@ -16,8 +16,8 @@ extern uint32_t off_120308;
 extern uint32_t dword_12030C;
 extern uint32_t off_120310;
 
-// sub_120270 @ 0x120270, size 144 bytes
-int  sub_120270(int result, unsigned int a2)
+// set_attribute_word @ 0x120270, size 144 bytes
+int  set_attribute_word(int result, unsigned int a2)
 {
   uint32_t *v2; // r5
   uint8_t *v3; // r3

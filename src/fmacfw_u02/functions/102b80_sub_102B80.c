@@ -13,8 +13,8 @@
 extern uint32_t off_102BB8;
 extern uint32_t off_102BBC;
 
-// sub_102B80 @ 0x102b80, size 56 bytes
-unsigned int  sub_102B80(uint8_t a1)
+// write_phy_config @ 0x102b80, size 56 bytes
+unsigned int  write_phy_config(uint8_t a1)
 {
   unsigned int *v1; // r1
   unsigned int *v2; // r2

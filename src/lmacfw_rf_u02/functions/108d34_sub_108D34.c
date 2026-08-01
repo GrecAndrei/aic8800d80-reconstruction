@@ -22,8 +22,8 @@ extern uint32_t dword_108F48;
 extern uint32_t off_108F34;
 extern uint32_t off_108F3C;
 
-// sub_108D34 @ 0x108d34, size 492 bytes
-uint32_t * sub_108D34(int a1, int a2)
+// rf_core_init @ 0x108d34, size 492 bytes
+uint32_t * rf_core_init(int a1, int a2)
 {
   uint32_t *v2; // r2
   unsigned int *v3; // r3
@@ -90,8 +90,8 @@ uint32_t * sub_108D34(int a1, int a2)
     *v12 = *v12 & v9 | ((int16_t)(v15 | (4 * i)) << 8);
     *v12 |= 0x20000u;
     *v12 |= 0x40000u;
-    delay_us(1);
-    sub_108CB8(&v23, (unsigned int *)&v24);
+    write_timer_reg(1);
+    rf_wait_for_command(&v23, (unsigned int *)&v24);
     v17 = v24 / 8;
     v18 = i;
     if ( a2 )
@@ -100,7 +100,7 @@ uint32_t * sub_108D34(int a1, int a2)
       v19 = a2 + 4 * v11++;
       *(uint16_t *)(v19 + 2) = v17;
     }
-    msg_parse(v10, v18);
+    dispatch_event_handler(v10, v18);
   }
 LABEL_7:
   v20 = (unsigned int *)off_108F24;

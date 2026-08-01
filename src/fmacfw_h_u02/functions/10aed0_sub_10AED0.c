@@ -31,8 +31,8 @@ extern uint32_t dword_10B210;
 extern uint32_t dword_10B228;
 extern uint32_t dword_10B22C;
 
-// sub_10AED0 @ 0x10aed0, size 1046 bytes
-int  sub_10AED0(unsigned int *a1, uint8_t *a2, int a3)
+// rf_iqk_init @ 0x10aed0, size 1046 bytes
+int  rf_iqk_init(unsigned int *a1, uint8_t *a2, int a3)
 {
   int v3; // r9
   int v4; // r10
@@ -122,7 +122,7 @@ int  sub_10AED0(unsigned int *a1, uint8_t *a2, int a3)
   v4 = dword_10B21C;
   v5 = dword_10B240;
   v6 = a3;
-  sub_12E948(dword_10B1F8, a2, a3);
+  alloc_tx_event(dword_10B1F8, a2, a3);
   v7 = *(uint32_t *)off_10B1FC;
   v8 = *(uint32_t *)off_10B1FC & 0xFFFFFFFE;
   v82 = 0;
@@ -130,7 +130,7 @@ int  sub_10AED0(unsigned int *a1, uint8_t *a2, int a3)
   v84 = 0;
   *(uint32_t *)off_10B1FC = v8;
   v78 = v7 & 1;
-  sub_102BF8(0);
+  rf_clear_control_bit_a(0);
   v9 = dword_10B218;
   v10 = dword_10B220;
   v11 = 0;
@@ -180,13 +180,13 @@ LABEL_5:
   }
   while ( v11 != 3 );
   v18 = off_10B200;
-  sub_102C5C(0);
-  sub_12EB90(1, dword_10B204);
+  rf_clear_control_bit_b(0);
+  check_feature_flag(1, dword_10B204);
   v19 = dword_10B208;
   *v18 |= 0x400u;
   *v18 &= ~0x400u;
-  sub_12E948(v19, v20, v21);
-  sub_12EB90(1, dword_10B20C);
+  alloc_tx_event(v19, v20, v21);
+  check_feature_flag(1, dword_10B20C);
   v24 = v18;
   v73 = v6 + 56;
   do
@@ -197,7 +197,7 @@ LABEL_5:
     *v24 &= ~0x400u;
     if ( v25 == 1 )
     {
-      sub_12EB90(1, dword_10B230);
+      check_feature_flag(1, dword_10B230);
       if ( v26 > 0x1388 )
       {
         LOBYTE(v84) = 0;
@@ -205,8 +205,8 @@ LABEL_5:
         HIWORD(v82) = v26;
         LOWORD(v83) = v26;
         HIWORD(v83) = v26;
-        sub_102970((uint16_t *)&v82, 0);
-        v72 = sub_102A5C(v26);
+        check_boot_flag((uint16_t *)&v82, 0);
+        v72 = check_magic_value(v26);
         v77 = dword_10B2E8 + 384 * v72;
         v75 = &a1[316 * (uint8_t)(v72 + 1)];
         v76 = &a2[(uint8_t)(v72 + 1)];
@@ -216,21 +216,21 @@ LABEL_5:
         LOWORD(v83) = v26;
         LOBYTE(v82) = 0;
         LOBYTE(v84) = 0;
-        sub_102970((uint16_t *)&v82, 0);
+        check_boot_flag((uint16_t *)&v82, 0);
         v77 = dword_10B234;
         v76 = a2;
         v75 = a1;
         v25 = 0;
       }
-      sub_108140((int)(v75 + 292), v75, 255, 0, 0, dword_10B238, 0);
-      sub_100644(10000);
+      rf_phy_init((int)(v75 + 292), v75, 255, 0, 0, dword_10B238, 0);
+      mmio_read32(10000);
       v81 = v6;
       *v76 = 1;
       v74 = v25;
       for ( i = 0; i != 3; ++i )
       {
         if ( !v75[i] )
-          sub_12EB90(1, dword_10B2EC);
+          check_feature_flag(1, dword_10B2EC);
         if ( v74 == 1 )
         {
           if ( i )
@@ -269,8 +269,8 @@ LABEL_5:
         }
         v58 = dword_10B23C;
         *v76 &= (v75[v54] & 0x20000) != 0;
-        sub_12EB90(1, v58);
-        sub_1058D0(v75[v54], v85);
+        check_feature_flag(1, v58);
+        dma_chan_init(v75[v54], v85);
         if ( v57 < v56 )
         {
           v59 = v86;
@@ -341,8 +341,8 @@ LABEL_45:
   v28 = dword_10B218;
   v29 = dword_10B21C;
   v30 = dword_10B240;
-  sub_12E948(dword_10B210, v22, v23);
-  sub_102BF8(0);
+  alloc_tx_event(dword_10B210, v22, v23);
+  rf_clear_control_bit_a(0);
   v31 = dword_10B220;
   v32 = (int *)v88;
   v33 = 0;
@@ -390,10 +390,10 @@ LABEL_15:
       continue;
     break;
   }
-  sub_102C5C(0);
+  rf_clear_control_bit_b(0);
   v39 = dword_10B228;
   *(uint32_t *)off_10B1FC = *(uint32_t *)off_10B1FC & 0xFFFFFFFE | v78;
-  sub_12EB90(1, v39);
-  return sub_12E948(dword_10B22C, v40, v41);
+  check_feature_flag(1, v39);
+  return alloc_tx_event(dword_10B22C, v40, v41);
 }
 

@@ -1,0 +1,1 @@
+{"fn": "sub_10EBC4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ebc4", "status": "ok", "name": "jump_table_1b0", "params": [], "docstring": "Indirect branch through function pointer at 0x1b0", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

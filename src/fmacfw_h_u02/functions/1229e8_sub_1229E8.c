@@ -12,11 +12,11 @@
 
 extern uint32_t dword_122A04;
 
-// sub_1229E8 @ 0x1229e8, size 28 bytes
-int  sub_1229E8(int a1, int a2, int a3, int a4)
+// copy_config_data @ 0x1229e8, size 28 bytes
+int  copy_config_data(int a1, int a2, int a3, int a4)
 {
-  sub_143630(dword_122A04, a2, 69);
-  sub_12C8D0(120, a4, a3);
+  memcpy(dword_122A04, a2, 69);
+  mac_write_header_word(120, a4, a3);
   return 0;
 }
 

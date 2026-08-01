@@ -21,8 +21,8 @@ extern uint32_t off_100904;
 extern uint32_t off_1008EC;
 extern uint32_t dword_1008F0;
 
-// sub_1007B4 @ 0x1007b4, size 302 bytes
-int  sub_1007B4(int a1, unsigned int a2, uint32_t *a3)
+// smem_access @ 0x1007b4, size 302 bytes
+int  smem_access(int a1, unsigned int a2, uint32_t *a3)
 {
   int v4; // r4
   int v5; // r6
@@ -139,7 +139,7 @@ LABEL_6:
   v6 = off_1008EC;
   if ( *(char *)off_1008EC > 0 )
   {
-    msg_parse(dword_1008F0, a2);
+    dispatch_event_handler(dword_1008F0, a2);
     --*v6;
   }
   *a3 = v4;

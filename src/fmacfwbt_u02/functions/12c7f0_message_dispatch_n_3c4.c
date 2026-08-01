@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// message_dispatch_n_3c4 @ 0x12c7f0, size 26 bytes
-// Doc: message_dispatch_n_3c4 [ipc]: Dispatches incoming message based on length/type field
-// message_dispatch_n_3c4 [ipc]: Dispatches incoming message based on length/type field
-BOOL  message_dispatch_n_3c4(int a1, unsigned int a2)
+// match_and_sub @ 0x12c7f0, size 26 bytes
+// Doc: match_and_sub [ipc]: Dispatches incoming message based on length/type field
+// match_and_sub [ipc]: Dispatches incoming message based on length/type field
+BOOL  match_and_sub(int a1, unsigned int a2)
 {
   return *(uint16_t *)(a1 + 4) == HIWORD(a2) && *(uint16_t *)(a1 + 6) == (uint16_t)a2;
 }

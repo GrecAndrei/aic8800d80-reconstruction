@@ -30,8 +30,8 @@ extern uint32_t off_1227E0;
 extern uint32_t off_1227F0;
 extern uint32_t off_1227EC;
 
-// sub_122528 @ 0x122528, size 660 bytes
-uint32_t * sub_122528(uint32_t *result, int a2)
+// event_dispatch @ 0x122528, size 660 bytes
+uint32_t * event_dispatch(uint32_t *result, int a2)
 {
   float *v2; // r4
   int v3; // r7
@@ -78,7 +78,7 @@ uint32_t * sub_122528(uint32_t *result, int a2)
   v5 = *((uint8_t *)off_1227BC + 2);
   v6 = *((char *)off_1227BC + 1);
   v7 = *((float *)off_1227BC + 1);
-  result = (uint32_t *)msg_get_value(4);
+  result = (uint32_t *)hci_cmd_send_short(4);
   if ( result )
     return result;
   v8 = (float)((float)(v7 * flt_1227C0) + (float)a2) * flt_1227C4;
@@ -150,7 +150,7 @@ LABEL_8:
       v38 = (uint8_t *)off_1227DC;
       *(uint8_t *)off_1227DC = 1;
     }
-    feature_guard_sdio(64, dword_122804);
+    state_check_feature(64, dword_122804);
     v25 = *v38;
     *v16 = 0;
     *v11 = 0;
@@ -199,12 +199,12 @@ LABEL_8:
   if ( *(uint8_t *)off_1227E4 > v28 )
   {
     if ( *(uint8_t *)off_1227E8 != 1 )
-      result = (uint32_t *)mmio_reg_read_modify(v4);
+      result = (uint32_t *)dma_rx_setup(v4);
     goto LABEL_22;
   }
   if ( *(uint8_t *)off_122800 > v28 >> 1 && *(uint8_t *)off_1227E8 )
 LABEL_28:
-    result = (uint32_t *)mmio_reg_init_patch(v4);
+    result = (uint32_t *)dma_tx_setup(v4);
 LABEL_22:
   if ( !v5 || *((uint8_t *)off_1227F0 + 18) )
     *(uint32_t *)off_1227EC &= ~0x200u;

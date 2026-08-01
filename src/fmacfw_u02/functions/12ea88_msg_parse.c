@@ -15,10 +15,10 @@ extern uint32_t off_12EB0C;
 extern uint32_t dword_12EB10;
 extern uint32_t dword_12EB14;
 
-// msg_parse @ 0x12ea88, size 128 bytes
-// Doc: msg_parse [ipc]: Parse incoming IPC message from shared buffer
-// msg_parse [ipc]: Parse incoming IPC message from shared buffer
-int msg_parse(int result, ...)
+// event_dispatch @ 0x12ea88, size 128 bytes
+// Doc: event_dispatch [ipc]: Parse incoming IPC message from shared buffer
+// event_dispatch [ipc]: Parse incoming IPC message from shared buffer
+int event_dispatch(int result, ...)
 {
   uint32_t *v1; // r6
   uint8_t *v2; // r4
@@ -51,7 +51,7 @@ int msg_parse(int result, ...)
       if ( v6 > 0x89 )
       {
         if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
-          result = sub_12F46C(v5, v4, 812);
+          result = mmio_clear_register(v5, v4, 812);
         if ( v1[1] <= v6 - 154 )
           return result;
       }
@@ -62,7 +62,7 @@ int msg_parse(int result, ...)
       result = (int)v2;
     }
     while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return sdio_transfer_808(result, (int)varg_r1);
+    return prepare_debug_buffer(result, (int)varg_r1);
   }
   return result;
 }

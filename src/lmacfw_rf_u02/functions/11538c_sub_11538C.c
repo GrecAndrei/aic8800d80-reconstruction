@@ -14,8 +14,8 @@ extern uint32_t off_1153E8;
 extern uint32_t dword_1153F0;
 extern uint32_t dword_1153EC;
 
-// sub_11538C @ 0x11538c, size 90 bytes
-int  sub_11538C(int result)
+// llm_adv_pdu_build @ 0x11538c, size 90 bytes
+int  llm_adv_pdu_build(int result)
 {
   uint64_t v1; // kr00_8
   int v2; // r2
@@ -34,7 +34,7 @@ int  sub_11538C(int result)
     v4 = *(uint32_t *)(HIDWORD(v1) + 20);
     if ( **(int16_t **)off_1153E8 < 0 && !v4 )
     {
-      result = rf_cmd_send_n264(dword_1153F0, dword_1153EC, 525);
+      result = flash_ctrl_init(dword_1153F0, dword_1153EC, 525);
       v4 = *(uint32_t *)(HIDWORD(v1) + 20);
       v3 = *(uint32_t *)(HIDWORD(v1) + 60);
     }

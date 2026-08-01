@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_3a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121133a", "status": "ok", "name": "rf_bus_mark_n_3a6", "params": [], "docstring": "Mark RF bus state by reading offset 0xC02 and 0xC01 bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_3a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121133a", "status": "ok", "name": "rf_bus_mark_3a5", "params": [], "docstring": "Mark RF bus state by reading offset 0xC02 and 0xC01 bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

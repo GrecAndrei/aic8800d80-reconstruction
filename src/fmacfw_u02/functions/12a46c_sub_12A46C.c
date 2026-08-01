@@ -14,8 +14,8 @@ extern uint32_t off_12A4B8;
 extern uint32_t off_12A4BC;
 extern uint32_t dword_12A4C0;
 
-// sub_12A46C @ 0x12a46c, size 74 bytes
-int sub_12A46C()
+// controller_status_byte @ 0x12a46c, size 74 bytes
+int controller_status_byte()
 {
   int result; // r0
   int *v1; // r3

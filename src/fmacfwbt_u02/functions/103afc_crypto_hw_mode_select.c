@@ -49,10 +49,10 @@ extern uint32_t dword_103D4C;
 extern uint32_t dword_103D10;
 extern uint32_t off_103D14;
 
-// crypto_hw_mode_select @ 0x103afc, size 496 bytes
-// Doc: crypto_hw_mode_select [mmio]: Select crypto hardware mode by writing 0x10000002 to 0x40330800
-// crypto_hw_mode_select [mmio]: Select crypto hardware mode by writing 0x10000002 to 0x40330800
-int  crypto_hw_mode_select(int a1)
+// ke_sleep_set_mode @ 0x103afc, size 496 bytes
+// Doc: ke_sleep_set_mode [mmio]: Select crypto hardware mode by writing 0x10000002 to 0x40330800
+// ke_sleep_set_mode [mmio]: Select crypto hardware mode by writing 0x10000002 to 0x40330800
+int  ke_sleep_set_mode(int a1)
 {
   unsigned int *v1; // r2
   int *v2; // r4
@@ -196,7 +196,7 @@ int  crypto_hw_mode_select(int a1)
                     *(uint32_t *)off_103CF4 &= 0xFFFFFF70;
                     *v23 = *v23 & 0xFF00FFFF | 0x540000;
                     *v24 = v25;
-                    sub_12ECB0(v26, v27, v22);
+                    ke_event_schedule(v26, v27, v22);
                     goto LABEL_22;
                   case 8:
                     v1 = (unsigned int *)off_103CF4;
@@ -243,13 +243,13 @@ LABEL_24:
         v14 = v3 & 0x70;
         *v1 = v5 & 0xFFFFFF00 | v14;
         *v2 = v4;
-        sub_12ECB0(v6, v14, v1);
+        ke_event_schedule(v6, v14, v1);
         goto LABEL_22;
     }
     v21 = v18 & 0xFFFFFF00;
     *v15 = v20 | v21;
     *v16 = v17;
-    sub_12ECB0(v19, v21, v15);
+    ke_event_schedule(v19, v21, v15);
     goto LABEL_22;
   }
   v7 = off_103CF4;
@@ -261,9 +261,9 @@ LABEL_24:
   *(uint32_t *)off_103CF4 &= 0xFFFFFF70;
   *v8 = *v8 & 0xFF00FFFF | 0x770000;
   *v9 = v10;
-  sub_12ECB0(v11, v12, v7);
+  ke_event_schedule(v11, v12, v7);
 LABEL_22:
   *(uint32_t *)off_103D14 = 769;
-  return delay_us(500);
+  return timer_set(500);
 }
 

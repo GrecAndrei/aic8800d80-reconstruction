@@ -15,10 +15,10 @@ extern uint32_t off_12AD9C;
 extern uint32_t off_12ADA0;
 extern uint32_t dword_12AD94;
 
-// rf_bus_reset_n_1b2_acf8 @ 0x12acf8, size 156 bytes
-// Doc: rf_bus_reset_n_1b2_acf8 [rf]: Resets RF bus control registers
-// rf_bus_reset_n_1b2_acf8 [rf]: Resets RF bus control registers
-int  rf_bus_reset_n_1b2_acf8(int result, int a2)
+// rf_write_register @ 0x12acf8, size 156 bytes
+// Doc: rf_write_register [rf]: Resets RF bus control registers
+// rf_write_register [rf]: Resets RF bus control registers
+int  rf_write_register(int result, int a2)
 {
   int *v2; // r7
   uint32_t *v3; // r9
@@ -57,7 +57,7 @@ int  rf_bus_reset_n_1b2_acf8(int result, int a2)
       if ( v11 - 62 >= 0 )
       {
         *(uint32_t *)(v8 + 88) = 0;
-        result = timestamp_update_4f60(v9, result);
+        result = ke_event_lock(v9, result);
         v12 = *v2;
         v10 = 1;
         if ( !*v2 )
@@ -80,7 +80,7 @@ LABEL_8:
     v6 = 1;
   }
   if ( v10 )
-    return sub_1297BC(v5);
+    return mem_fill(v5);
   return result;
 }
 

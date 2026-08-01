@@ -28,10 +28,10 @@ extern uint32_t dword_10EA68;
 extern uint32_t dword_10EA6C;
 extern uint32_t off_10EA70;
 
-// rf_init_blockb_e798 @ 0x10e798, size 664 bytes
-// Doc: rf_init_blockb_e798 [rf]: Initialize RF subsystem block B with control registers and vector table
-// rf_init_blockb_e798 [rf]: Initialize RF subsystem block B with control registers and vector table
-int rf_init_blockb_e798()
+// periph_cmd_poll @ 0x10e798, size 664 bytes
+// Doc: periph_cmd_poll [rf]: Initialize RF subsystem block B with control registers and vector table
+// periph_cmd_poll [rf]: Initialize RF subsystem block B with control registers and vector table
+int periph_cmd_poll()
 {
   uint32_t *v0; // r1
   int v1; // r3
@@ -88,14 +88,14 @@ int rf_init_blockb_e798()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v3 = sub_12752C(v0[4]);
-  v4 = sub_127620(v3, HIDWORD(v3), dword_10EA30, dword_10EA34);
-  v5 = sub_127874(v4, HIDWORD(v4), dword_10EA38, dword_10EA3C);
-  v6 = sub_1272B0(v5, HIDWORD(v5), dword_10EA30, dword_10EA34);
-  v7 = sub_127B54(v6, HIDWORD(v6));
-  v8 = rf_reg_read_cb_efa4(dword_10EA58) & 0x1F;
+  v3 = double_to_float(v0[4]);
+  v4 = aeabi_dadd(v3, HIDWORD(v3), dword_10EA30, dword_10EA34);
+  v5 = aeabi_dsub(v4, HIDWORD(v4), dword_10EA38, dword_10EA3C);
+  v6 = double_subtract(v5, HIDWORD(v5), dword_10EA30, dword_10EA34);
+  v7 = double_to_float(v6, HIDWORD(v6));
+  v8 = call_indirect_table(dword_10EA58) & 0x1F;
   v9 = v7 - 840;
-  sub_10DA6C(dword_10EA5C, v7, v8);
+  log_printf(dword_10EA5C, v7, v8);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -113,9 +113,9 @@ int rf_init_blockb_e798()
   }
   else
   {
-    v11 = sub_12754C(v10);
-    v12 = sub_127620(v11, HIDWORD(v11), dword_10EA40, dword_10EA44);
-    v13 = sub_127B54(v12, HIDWORD(v12));
+    v11 = aeabi_i2d(v10);
+    v12 = aeabi_dadd(v11, HIDWORD(v11), dword_10EA40, dword_10EA44);
+    v13 = double_to_float(v12, HIDWORD(v12));
     v14 = v13;
     if ( v9 <= 0 )
     {
@@ -139,18 +139,18 @@ int rf_init_blockb_e798()
       v9 = -9;
       goto LABEL_33;
     }
-    rf_reg_write_cb(dword_10EA58, v15, 31);
+    call_slot_0x1b8(dword_10EA58, v15, 31);
     v16 = off_10EA4C;
     *((uint32_t *)off_10EA4C + 1) = 1;
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
-    v17 = sub_12752C(v16[4]);
-    v18 = sub_127620(v17, HIDWORD(v17), dword_10EA30, dword_10EA34);
-    v19 = sub_127874(v18, HIDWORD(v18), dword_10EA38, dword_10EA3C);
-    v20 = sub_1272B0(v19, HIDWORD(v19), dword_10EA30, dword_10EA34);
-    v7 = sub_127B54(v20, HIDWORD(v20));
-    msg_parse(dword_10EA60, v14);
+    v17 = double_to_float(v16[4]);
+    v18 = aeabi_dadd(v17, HIDWORD(v17), dword_10EA30, dword_10EA34);
+    v19 = aeabi_dsub(v18, HIDWORD(v18), dword_10EA38, dword_10EA3C);
+    v20 = double_subtract(v19, HIDWORD(v19), dword_10EA30, dword_10EA34);
+    v7 = double_to_float(v20, HIDWORD(v20));
+    dispatch_event_handler(dword_10EA60, v14);
     if ( v7 <= 840 )
       v21 = 1;
     else
@@ -172,17 +172,17 @@ int rf_init_blockb_e798()
       v8 = v43 + v42 * v27;
       goto LABEL_33;
     }
-    rf_reg_write_cb(v23, v25, 31);
+    call_slot_0x1b8(v23, v25, 31);
     v24[1] = 1;
     while ( v24[7] != 1 )
       ;
     v24[7] = 1;
-    v28 = sub_12752C(v24[4]);
-    v29 = sub_127620(v28, HIDWORD(v28), dword_10EA30, dword_10EA34);
-    v30 = sub_127874(v29, HIDWORD(v29), dword_10EA38, dword_10EA3C);
-    v31 = sub_1272B0(v30, HIDWORD(v30), dword_10EA30, dword_10EA34);
-    v32 = sub_127B54(v31, HIDWORD(v31));
-    msg_parse(dword_10EA64, v9);
+    v28 = double_to_float(v24[4]);
+    v29 = aeabi_dadd(v28, HIDWORD(v28), dword_10EA30, dword_10EA34);
+    v30 = aeabi_dsub(v29, HIDWORD(v29), dword_10EA38, dword_10EA3C);
+    v31 = double_subtract(v30, HIDWORD(v30), dword_10EA30, dword_10EA34);
+    v32 = double_to_float(v31, HIDWORD(v31));
+    dispatch_event_handler(dword_10EA64, v9);
     v33 = v7 - 840;
     v34 = v32 - 840;
     if ( v33 * (v32 - 840) <= 0 )
@@ -204,22 +204,22 @@ int rf_init_blockb_e798()
     v8 = v25;
   }
 LABEL_33:
-  sub_10DA6C(dword_10EA68, v9);
-  rf_reg_write_cb(dword_10EA58, v8, 31);
+  log_printf(dword_10EA68, v9);
+  call_slot_0x1b8(dword_10EA58, v8, 31);
   v35 = off_10EA4C;
   *((uint32_t *)off_10EA4C + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_12752C(v35[4]);
-  v37 = sub_127620(v36, HIDWORD(v36), dword_10EA30, dword_10EA34);
-  v38 = sub_127874(v37, HIDWORD(v37), dword_10EA38, dword_10EA3C);
-  v39 = sub_1272B0(v38, HIDWORD(v38), dword_10EA30, dword_10EA34);
-  v40 = sub_127B54(v39, HIDWORD(v39));
-  sub_10DA6C(dword_10EA6C, v40);
+  v36 = double_to_float(v35[4]);
+  v37 = aeabi_dadd(v36, HIDWORD(v36), dword_10EA30, dword_10EA34);
+  v38 = aeabi_dsub(v37, HIDWORD(v37), dword_10EA38, dword_10EA3C);
+  v39 = double_subtract(v38, HIDWORD(v38), dword_10EA30, dword_10EA34);
+  v40 = double_to_float(v39, HIDWORD(v39));
+  log_printf(dword_10EA6C, v40);
   result = *((uint32_t *)off_10EA70 + 94);
   if ( result != 0x80000000 )
-    return sub_110C7C();
+    return rf_reg_update();
   return result;
 }
 

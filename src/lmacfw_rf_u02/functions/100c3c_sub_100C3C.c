@@ -17,10 +17,10 @@ extern uint32_t off_100D00;
 extern uint32_t off_100D10;
 extern uint32_t off_100D14;
 
-// sub_100C3C @ 0x100c3c, size 194 bytes
+// rf_cal_read_0 @ 0x100c3c, size 194 bytes
 // Doc: sub_1200C3C [util]: Read linked state from globals and initialize context struct
 // sub_1200C3C [util]: Read linked state from globals and initialize context struct
-int  sub_100C3C(int result)
+int  rf_cal_read_0(int result)
 {
   int *v1; // r2
   unsigned int v2; // r1

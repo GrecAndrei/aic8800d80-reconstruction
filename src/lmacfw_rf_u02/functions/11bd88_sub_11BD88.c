@@ -17,8 +17,8 @@ extern uint32_t dword_11BE18;
 extern uint32_t dword_11BE1C;
 extern uint32_t dword_11BE14;
 
-// sub_11BD88 @ 0x11bd88, size 136 bytes
-int * sub_11BD88(int a1)
+// lookup_7byte_channel @ 0x11bd88, size 136 bytes
+int * lookup_7byte_channel(int a1)
 {
   int16_t **v1; // r8
   int v2; // r5
@@ -34,17 +34,17 @@ int * sub_11BD88(int a1)
   {
     v5 = 8 * a1;
     if ( *(uint8_t *)(dword_11BE10 + 28 * a1 + 24) != 255
-      || (sub_1219C4(dword_11BE20, dword_11BE18, 3044), **v1 < 0) )
+      || (flash_ctrl_init(dword_11BE20, dword_11BE18, 3044), **v1 < 0) )
     {
       if ( *(uint8_t *)(v2 + 4 * (v5 - a1) + 25) )
-        sub_1219C4(dword_11BE1C, dword_11BE18, 3046);
+        flash_ctrl_init(dword_11BE1C, dword_11BE18, 3046);
     }
   }
   else
   {
     v5 = 8 * a1;
   }
-  sub_11E724(dword_11BE14);
+  check_kernel_state(dword_11BE14);
   v6 = v2 + 4 * (v5 - a1);
   result = sub_100200(v4, 0, 0x1Cu);
   *(uint16_t *)(v6 + 14) = 255;

@@ -21,8 +21,8 @@ extern uint32_t dword_11E5D8;
 extern uint32_t dword_11E5D0;
 extern uint32_t off_11E5CC;
 
-// sub_11E4D8 @ 0x11e4d8, size 222 bytes
-int sub_11E4D8()
+// set_busy_flag @ 0x11e4d8, size 222 bytes
+int set_busy_flag()
 {
   int *v0; // r5
   int v1; // r0
@@ -44,7 +44,7 @@ int sub_11E4D8()
   v0 = (int *)off_11E5BC;
   v1 = dword_11E5C0;
   ++*(uint32_t *)off_11E5BC;
-  result = sub_11E7AC(v1);
+  result = list_pop_front(v1);
   v3 = (uint16_t *)result;
   if ( *v0 )
   {
@@ -59,10 +59,10 @@ int sub_11E4D8()
   }
   if ( result )
   {
-    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))sub_11E3FC(
+    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))flash_read_byte(
                                                                            *(uint16_t *)(result + 4),
                                                                            *(uint16_t *)(result + 6));
-    msg_parse(dword_11E5C4, v3[2]);
+    dispatch_event_handler(dword_11E5C4, v3[2]);
     if ( v6 )
     {
       result = v6(v3[2], v3 + 6, v3[3], v3[4]);
@@ -70,21 +70,21 @@ int sub_11E4D8()
         goto LABEL_12;
       if ( result == 2 )
       {
-        result = list_push_tail(dword_11E5D4);
+        result = check_kernel_state(dword_11E5D4);
         goto LABEL_12;
       }
       if ( result )
       {
         if ( **(int16_t **)off_11E5C8 < 0 )
-          result = rf_cmd_send_n264(dword_11E5DC, dword_11E5D8, 360);
+          result = flash_ctrl_init(dword_11E5DC, dword_11E5D8, 360);
         goto LABEL_12;
       }
     }
     else
     {
-      msg_parse(dword_11E5D0, v3[2]);
+      dispatch_event_handler(dword_11E5D0, v3[2]);
     }
-    result = sub_11DEE8((int)v3);
+    result = isr_forward((int)v3);
   }
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -97,7 +97,7 @@ LABEL_12:
   *v0 = v8;
   if ( !v7 )
   {
-    result = sub_11E628(0x4000000);
+    result = enter_critical_section(0x4000000);
     v8 = *v0;
   }
   if ( v8 )

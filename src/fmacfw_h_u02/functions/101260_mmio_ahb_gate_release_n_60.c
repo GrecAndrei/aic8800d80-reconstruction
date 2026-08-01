@@ -203,10 +203,10 @@ uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1)
     *v10 = v12;
     *v11 = v13;
   }
-  sub_102E08(1, 0, 16, v12);
-  sub_102E08(1, 16, 16, *v11);
-  sub_102E08(1, 32, 16, *v10);
-  sub_1009A0(1, a1);
+  uart_send_data(1, 0, 16, v12);
+  uart_send_data(1, 16, 16, *v11);
+  uart_send_data(1, 32, 16, *v10);
+  sdio_irq_enable(1, a1);
   v14 = off_1014AC;
   v15 = (unsigned int *)off_1014B0;
   *(uint32_t *)off_1014AC |= 8u;
@@ -292,7 +292,7 @@ uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1)
   }
   v32 = off_101660;
   if ( *(uint8_t *)off_101660 != v31 )
-    sub_102E9C(0);
+    hci_send_command(0);
   v33 = off_101664;
   *v32 = v31;
   while ( !*v33 )
@@ -302,12 +302,12 @@ uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1)
     goto LABEL_30;
   if ( a1 - 5270 <= 0x32 || a1 - 5550 <= 0x64 )
   {
-    result = sub_100EE8();
+    result = rf_config_read_b();
 LABEL_30:
     *(uint32_t *)off_101664 = 1;
     return result;
   }
-  result = (uint32_t *)sub_100E24(0);
+  result = (uint32_t *)rf_config_read_a(0);
   *(uint32_t *)off_101664 = 1;
   return result;
 }

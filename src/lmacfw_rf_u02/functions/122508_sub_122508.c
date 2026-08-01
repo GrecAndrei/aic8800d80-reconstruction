@@ -14,10 +14,10 @@ extern uint32_t dword_1225B8;
 extern uint32_t dword_1225C0;
 extern uint32_t dword_1225BC;
 
-// sub_122508 @ 0x122508, size 174 bytes
+// copy_packet_data @ 0x122508, size 174 bytes
 // Doc: rf_mem_write_n4de [rf]: Write to RF memory, allocates 0x200 byte stack frame for data
 // rf_mem_write_n4de [rf]: Write to RF memory, allocates 0x200 byte stack frame for data
-int  sub_122508(int a1, int a2)
+int  copy_packet_data(int a1, int a2)
 {
   int result; // r0
   int v5; // r6
@@ -31,32 +31,32 @@ int  sub_122508(int a1, int a2)
   float v13; // [sp+0h] [bp-200h] BYREF
   char v14; // [sp+4h] [bp-1FCh] BYREF
 
-  result = parse_int(*(uint8_t **)(a2 + 4), 0, 0);
+  result = parse_number(*(uint8_t **)(a2 + 4), 0, 0);
   v5 = result;
   if ( a1 == 2 )
   {
     if ( result )
       return result;
-    sub_10DDC8((int)&v13, 64);
-    msg_parse(dword_1225B8, 63);
+    sdio_core_reset((int)&v13, 64);
+    dispatch_event_handler(dword_1225B8, 63);
     v6 = 64;
     goto LABEL_10;
   }
-  result = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
+  result = parse_number(*(uint8_t **)(a2 + 8), 0, 0);
   v6 = result;
   v7 = result;
   if ( result >= 128 )
     v6 = 128;
   if ( !v5 )
   {
-    sub_10DDC8((int)&v13, v6);
-    result = msg_parse(dword_1225B8, v6 - 1);
+    sdio_core_reset((int)&v13, v6);
+    result = dispatch_event_handler(dword_1225B8, v6 - 1);
     if ( v7 > 0 )
     {
 LABEL_10:
       v8 = dword_1225C0;
       v9 = dword_1225BC;
-      msg_parse(dword_1225BC, (int)v13);
+      dispatch_event_handler(dword_1225BC, (int)v13);
       v10 = (float *)&v14;
       v11 = 0;
       while ( 1 )
@@ -66,9 +66,9 @@ LABEL_10:
         if ( v11 == v6 )
           break;
         v12 = *v10++;
-        msg_parse(v9, (int)v12);
+        dispatch_event_handler(v9, (int)v12);
         if ( (v11 & 7) == 7 )
-          msg_parse(v8);
+          dispatch_event_handler(v8);
       }
     }
   }

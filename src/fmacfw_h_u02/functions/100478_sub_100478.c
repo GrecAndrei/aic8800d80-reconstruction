@@ -29,8 +29,8 @@ extern uint32_t off_1005A0;
 extern uint32_t dword_1005AC;
 extern uint32_t off_1005A8;
 
-// sub_100478 @ 0x100478, size 240 bytes
-void __noreturn sub_100478()
+// mac_state_init @ 0x100478, size 240 bytes
+void __noreturn mac_state_init()
 {
   uint8_t *v0; // r4
   uint32_t *v1; // r5
@@ -68,7 +68,7 @@ void __noreturn sub_100478()
   *v4 = v0 + 152;
   *v5 = v0 + 178;
   *v6 = v0 + 176;
-  v7 = sub_1002A0();
+  v7 = mac_event_handler();
   if ( *(uint8_t *)*v1 == 1 )
   {
     v8 = off_10058C;
@@ -78,33 +78,33 @@ void __noreturn sub_100478()
   }
   v9 = off_100594;
   *((uint8_t *)off_100594 + 2) = (*(uint32_t *)off_100590 & 0xF) == 10;
-  v10 = sub_12FE58(v7);
-  v11 = sub_10D068(v10);
-  v12 = sub_10F0C4(v11);
-  v13 = sub_115674(v12);
+  v10 = debug_assert(v7);
+  v11 = power_domain_enable(v10);
+  v12 = rx_copy_stats(v11);
+  v13 = system_init(v12);
   if ( v0[363] )
   {
-    v20 = sub_1303B8(v13);
-    sub_130474(v20);
+    v20 = read_global_signed_flag(v13);
+    set_flag_send_event_42e(v20);
   }
-  v14 = sub_12E948(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
-  v15 = sub_10FFC0(v14);
-  v16 = sub_10F318(v15);
+  v14 = alloc_tx_event(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
+  v15 = get_rx_stats(v14);
+  v16 = rf_get_state(v15);
   if ( v9[2] )
   {
-    sub_114428(v16);
+    get_config_c(v16);
     v17 = off_100590;
     v18 = dword_1005A4;
     *(uint32_t *)off_1005A0 &= ~8u;
     *v17 &= 0xFFFFFFF0;
-    v19 = sub_12EB90(2, v18);
+    v19 = check_feature_flag(2, v18);
   }
   else
   {
-    v19 = sub_12EB90(2, dword_1005AC);
+    v19 = check_feature_flag(2, dword_1005AC);
   }
   if ( *(uint8_t *)*v1 == 3 )
     *(uint32_t *)off_1005A8 = 1;
-  sub_115C20(v19);
+  ll_init_tables(v19);
 }
 

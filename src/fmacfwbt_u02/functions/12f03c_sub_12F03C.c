@@ -12,15 +12,15 @@
 
 extern uint32_t dword_12F090;
 
-// sub_12F03C @ 0x12f03c, size 82 bytes
-int  sub_12F03C(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// msg_alloc_40c @ 0x12f03c, size 82 bytes
+int  msg_alloc_40c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
   uint32_t *v5; // r5
   int v6; // r0
   int v7; // zf
   int v8; // r2
 
-  v5 = (uint32_t *)rf_bus_setup_n3a8(1036, a4, a3, 4u);
+  v5 = (uint32_t *)bt_buf_alloc(1036, a4, a3, 4u);
   v6 = *a2;
   v7 = *a2 << 30 == 0;
   v8 = a2[1];
@@ -29,9 +29,9 @@ int  sub_12F03C(int a1, uint32_t *a2, int16_t a3, int16_t a4)
     *v5 = 255;
   if ( v8 << 30 )
     *v5 = 1;
-  sub_14380C(v6, a2 + 2, v8);
-  sub_12ECB0(dword_12F090, *a2, a2[1] + *a2, a2[2], *v5);
-  sub_12CBB4((int)v5);
+  memcpy_aligned(v6, a2 + 2, v8);
+  ke_event_schedule(dword_12F090, *a2, a2[1] + *a2, a2[2], *v5);
+  hci_evt_send((int)v5);
   return 0;
 }
 

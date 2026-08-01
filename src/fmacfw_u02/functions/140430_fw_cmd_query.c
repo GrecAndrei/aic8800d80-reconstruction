@@ -14,20 +14,20 @@ extern uint32_t off_140464;
 extern uint32_t dword_14046C;
 extern uint32_t dword_140468;
 
-// fw_cmd_query @ 0x140430, size 50 bytes
-// Doc: fw_cmd_query [ipc]: Queries firmware command status (op 0xb)
-// fw_cmd_query [ipc]: Queries firmware command status (op 0xb)
-int fw_cmd_query()
+// ble_ll_adv_enable @ 0x140430, size 50 bytes
+// Doc: ble_ll_adv_enable [ipc]: Queries firmware command status (op 0xb)
+// ble_ll_adv_enable [ipc]: Queries firmware command status (op 0xb)
+int ble_ll_adv_enable()
 {
-  if ( msg_get_value(0xBu) == 1 )
+  if ( rx_rate_field_parse(0xBu) == 1 )
   {
-    sub_1415EC();
+    ll_event_process();
     return 0;
   }
   else
   {
     if ( **(int16_t **)off_140464 < 0 )
-      sub_12F49C(dword_14046C, dword_140468, 157);
+      call_shared_handler(dword_14046C, dword_140468, 157);
     return 0;
   }
 }

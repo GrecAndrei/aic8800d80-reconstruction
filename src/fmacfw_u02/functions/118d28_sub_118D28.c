@@ -16,8 +16,8 @@ extern uint32_t dword_118DB4;
 extern uint32_t off_118DB8;
 extern uint32_t dword_118DBC;
 
-// sub_118D28 @ 0x118d28, size 134 bytes
-uint32_t *sub_118D28()
+// tx_pool_init @ 0x118d28, size 134 bytes
+uint32_t *tx_pool_init()
 {
   int *v0; // r8
   int *v1; // r7
@@ -29,7 +29,7 @@ uint32_t *sub_118D28()
   int v7; // r2
   void ( *v8)(uint32_t, uint32_t); // r2
 
-  clear_flags(0x20000);
+  unknown_func_12d14c(0x20000);
   v0 = (int *)off_118DC0;
   v1 = (int *)off_118DB0;
   v2 = dword_118DB4;
@@ -42,7 +42,7 @@ uint32_t *sub_118D28()
       *v1 = 1;
     }
     ++*v0;
-    result = (uint32_t *)rf_bus_mark_n100_d2d0(v2);
+    result = (uint32_t *)mem_word_load(v2);
     v5 = result;
     if ( *v0 )
     {
@@ -65,7 +65,7 @@ uint32_t *sub_118D28()
     }
     else if ( !*((uint8_t *)v5 + 96) )
     {
-      list_push_tail(dword_118DBC);
+      cmd_handler_a(dword_118DBC);
     }
   }
   return result;

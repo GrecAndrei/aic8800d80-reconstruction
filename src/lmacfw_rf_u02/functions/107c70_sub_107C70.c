@@ -105,8 +105,8 @@ extern uint32_t dword_108624;
 extern uint32_t off_108628;
 extern uint32_t dword_10862C;
 
-// sub_107C70 @ 0x107c70, size 4140 bytes
-uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, int16_t a7)
+// rf_transmit_packet @ 0x107c70, size 4140 bytes
+uint32_t * rf_transmit_packet(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, int16_t a7)
 {
   int *v7; // r4
   unsigned int *v8; // lr
@@ -421,23 +421,23 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *v24 |= 4u;
   *v25 |= 0x800000u;
   *v25 |= 0x400000u;
-  sub_103640();
-  sub_11F74C(1, dword_10829C, v26, v27);
+  disable_bb_timer_irq();
+  check_interrupt_flag(1, dword_10829C, v26, v27);
   v138 = *(uint32_t *)off_1082A0;
   *(uint32_t *)off_1082A0 = *(uint32_t *)off_1082A0 & 0xFFFFFFF | 0x10000000;
   do
   {
-    sub_103AE0(v21, 0);
+    enable_rf_dll(v21, 0);
     v28 = (uint8_t)(v21 + 1);
     v21 = (uint8_t)(v21 + 2);
-    sub_103AE0(v28, 0);
+    enable_rf_dll(v28, 0);
   }
   while ( v21 != 32 );
   v29 = off_1082A4;
   *(uint32_t *)off_1082A4 &= ~0x200u;
   *v29 |= 0x200u;
   *v29 &= ~0x200u;
-  v30 = crypto_hw_config();
+  v30 = clk_enable();
   if ( a3 == 255 )
   {
     v32 = (unsigned int *)off_1082E4;
@@ -477,9 +477,9 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
         v190 = a2 + 2;
         v39 = 2;
       }
-      sub_11F74C(1, dword_1082AC, v37, v38);
-      crypto_key_schedule(a2[v37], v198);
-      sub_11F74C(1, dword_1082B0, v200, v40);
+      check_interrupt_flag(1, dword_1082AC, v37, v38);
+      mac_get_params(a2[v37], v198);
+      check_interrupt_flag(1, dword_1082B0, v200, v40);
       if ( v200 <= 0 )
       {
         v131 = v191[v39];
@@ -502,10 +502,10 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           v44 = dword_1082B8 | v187 | (*v133 << 8);
           *(uint32_t *)off_1082C0 = v44;
           v45 = *v133++;
-          sub_11F74C(1, v43, v37, v45);
-          sub_11F74C(1, dword_1082C4, v44, v46);
+          check_interrupt_flag(1, v43, v37, v45);
+          check_interrupt_flag(1, dword_1082C4, v44, v46);
           v195 = 0;
-          sub_107150((int)&v193);
+          load_patch_bundle((int)&v193);
           v47 = v134;
           for ( i = v137; ; i = v47 << 8 )
           {
@@ -514,12 +514,12 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
             *v33 &= v42;
             *v34 &= v41;
             *v34 &= v42;
-            sub_10747C((int)&v193);
-            sub_1077F8();
-            mmio_read_field_n_bd8();
-            sdio_buffer_prepare_2((int)&v193);
-            sub_107860();
-            rf_chan_param_get();
+            rf_core_irq_poll((int)&v193);
+            rf_clear_irq_flag();
+            rf_get_cca_status();
+            rf_core_irq_dispatch((int)&v193);
+            rf_clear_irq_flag_alt();
+            rf_get_rx_rssi();
             v49 = *v34 & 0xFFF;
             v50 = (*v34 & 0x8000000) != 0 ? (HIWORD(*v34) & 0xFFF) - 4096 : HIWORD(*v34) & 0xFFF;
             v51 = (*v34 & 0x800) != 0 ? v49 - 4096 : *v34 & 0xFFF;
@@ -527,7 +527,7 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
               break;
             v123 = v47;
             v47 = (uint8_t)(v47 - 1);
-            sub_11F74C(1, dword_108CA8, v123, v50);
+            check_interrupt_flag(1, dword_108CA8, v123, v50);
           }
           v134 = v47;
           v52 = *v32 & 0xFFFFF0FF;
@@ -535,16 +535,16 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           v137 = i;
           v54 = HIWORD(*v34) & 0xFFF;
           *v32 = v53;
-          sub_11F74C(1, dword_1082C8, v52, v53);
+          check_interrupt_flag(1, dword_1082C8, v52, v53);
           *v34 = dword_1082CC & (v54 << 17) | *v34 & v41;
-          sub_10747C((int)&v193);
-          sub_1077F8();
-          mmio_read_field_n_bd8();
-          sub_11F74C(1, dword_1082D0, v55, v56);
+          rf_core_irq_poll((int)&v193);
+          rf_clear_irq_flag();
+          rf_get_cca_status();
+          check_interrupt_flag(1, dword_1082D0, v55, v56);
           *v34 = (2 * v49) & 0xFFF | *v34 & v42;
-          sdio_buffer_prepare_2((int)&v193);
-          sub_107860();
-          rf_chan_param_get();
+          rf_core_irq_dispatch((int)&v193);
+          rf_clear_irq_flag_alt();
+          rf_get_rx_rssi();
           v57 = dword_1082D4;
           v58 = HIWORD(*v34) & 0xFFF;
           v59 = *v34 & 0xFFF;
@@ -553,44 +553,44 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           v61 = v60 | (*v32 >> 8 << 28);
           *(uint32_t *)(v130 + 8) = v61;
           v125 = v58 << 16;
-          sub_11F74C(1, v57, v132, v61);
+          check_interrupt_flag(1, v57, v132, v61);
           *v34 &= v41;
           *v34 &= v42;
-          log_free_pool_dispatch2_n324((int)&v193, 1);
+          gpio_output((int)&v193, 1);
           v192[0] = v197;
-          sub_1073BC(v192, (int)&v193);
-          sub_106F74((int)&v193, 1);
+          timer_delta_compare(v192, (int)&v193);
+          pinmux_config((int)&v193, 1);
           v62 = v197;
-          sub_11F74C(1, dword_1082D8, HIWORD(*v34) & 0xFFF, *v34 & 0xFFF);
+          check_interrupt_flag(1, dword_1082D8, HIWORD(*v34) & 0xFFF, *v34 & 0xFFF);
           *v34 = *v34 & v41 | v125;
           *v34 = v59 | *v34 & v42;
-          sub_106F74((int)&v193, 1);
+          pinmux_config((int)&v193, 1);
           v63 = v197;
-          sub_11F74C(1, dword_1082DC, HIWORD(*v34) & 0xFFF, *v34 & 0xFFF);
+          check_interrupt_flag(1, dword_1082DC, HIWORD(*v34) & 0xFFF, *v34 & 0xFFF);
           if ( v62 <= v63 )
           {
-            sub_11F74C(1, dword_108CB0, v64, v65);
+            check_interrupt_flag(1, dword_108CB0, v64, v65);
             v131 = 0;
             *(uint32_t *)(v130 + 8) = 0;
           }
           else
           {
             v131 &= 1u;
-            sub_11F74C(1, dword_1082E0, v64, v131);
+            check_interrupt_flag(1, dword_1082E0, v64, v131);
           }
           v66 = *v32;
           v126 = *v34;
           v67 = *v34;
           v68 = *(v133 - 1);
           v191[v188] = v131;
-          sub_11F74C(1, dword_1085DC, v68, v37);
-          sub_11F74C(1, dword_1085E0, (v67 & 0xFFF) + ((HIWORD(v126) & 0xFFF) << 16) + (v66 >> 8 << 28), v126);
+          check_interrupt_flag(1, dword_1085DC, v68, v37);
+          check_interrupt_flag(1, dword_1085E0, (v67 & 0xFFF) + ((HIWORD(v126) & 0xFFF) << 16) + (v66 >> 8 << 28), v126);
           v69 = dword_1085E4;
           v70 = dword_1085E8;
           *v34 = *v34 & v41 | ((*(uint16_t *)(v130 + 10) & 0xFFF) << 16);
           *v34 = *(uint32_t *)(v130 + 8) & 0xFFF | *v34 & v42;
-          sub_11F74C(1, v69, HIWORD(*v34) & 0xFFF, *v34 & 0xFFF);
-          sub_11F74C(1, dword_1085EC, v71, v72);
+          check_interrupt_flag(1, v69, HIWORD(*v34) & 0xFFF, *v34 & 0xFFF);
+          check_interrupt_flag(1, dword_1085EC, v71, v72);
           v73 = (int *)off_1085F0;
           v74 = (unsigned int *)off_1085F4;
           v75 = (unsigned int *)off_1085F8;
@@ -612,7 +612,7 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           *v75 = *v75 & 0xFFFFFFF0 | 3;
           v195 = 10;
           v77 = 0;
-          sub_107150((int)&v193);
+          load_patch_bundle((int)&v193);
           v135 = 0;
           do
           {
@@ -623,9 +623,9 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
               v78 = v203;
               v127 = v204;
               v193 = v77;
-              divmod64_compute(&v201);
-              ipc_doorbell_handler_n_21a((int)&v201, &v193);
-              sub_107A70((int)&v193, &v201, v198);
+              timer_ticks_to_micros(&v201);
+              rf_core_set_clock_override((int)&v201, &v193);
+              rx_queue_pop_packet((int)&v193, &v201, v198);
               v79 = v77;
               if ( v77 )
                 break;
@@ -637,10 +637,10 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
               }
               else
               {
-                sub_11F74C(1, dword_108CAC, HIDWORD(v196), v196 | HIDWORD(v196));
+                check_interrupt_flag(1, dword_108CAC, HIDWORD(v196), v196 | HIDWORD(v196));
                 ++v135;
                 v195 += 6;
-                sub_107150((int)&v193);
+                load_patch_bundle((int)&v193);
                 v201 = v128;
                 v202 = v129;
                 v203 = v78;
@@ -648,10 +648,10 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
                 v80 = -(v135 <= 2);
                 v77 = v135 > 2;
               }
-              sub_11F74C(1, v70, v80, v78);
+              check_interrupt_flag(1, v70, v80, v78);
             }
             ++v77;
-            sub_11F74C(1, v70, v79, v203);
+            check_interrupt_flag(1, v70, v79, v203);
           }
           while ( v77 != 5 );
           v93 = dword_10896C;
@@ -660,21 +660,21 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           v96 = HIWORD(*v32) & 7;
           v97 = v203 & 0xFFF;
           *(uint32_t *)(v130 + 12) = v95 + (v94 << 28) + (v96 << 12) + v97;
-          sub_11F74C(1, v93, v94, v96);
-          sub_11F74C(1, dword_108970, v132 + 1, *(uint32_t *)(v130 + 12));
+          check_interrupt_flag(1, v93, v94, v96);
+          check_interrupt_flag(1, dword_108970, v132 + 1, *(uint32_t *)(v130 + 12));
           *v33 &= v41;
           *v33 &= v42;
-          log_free_pool_dispatch2_n324((int)&v193, 0);
+          gpio_output((int)&v193, 0);
           v192[0] = v197;
-          sub_1073BC(v192, (int)&v193);
-          sub_106F74((int)&v193, 0);
+          timer_delta_compare(v192, (int)&v193);
+          pinmux_config((int)&v193, 0);
           v98 = v197;
-          sub_11F74C(1, dword_108974, *v33 & 0xFFF, HIWORD(*v33) & 0xFFF);
+          check_interrupt_flag(1, dword_108974, *v33 & 0xFFF, HIWORD(*v33) & 0xFFF);
           *v33 = v95 | *v33 & v41;
           *v33 = v97 | *v33 & v42;
-          sub_106F74((int)&v193, 0);
+          pinmux_config((int)&v193, 0);
           v99 = v197;
-          sub_11F74C(1, dword_108978, *v33 & 0xFFF, HIWORD(*v33) & 0xFFF);
+          check_interrupt_flag(1, dword_108978, *v33 & 0xFFF, HIWORD(*v33) & 0xFFF);
           v100 = (unsigned int *)off_108980;
           v101 = (unsigned int *)off_108984;
           *(uint32_t *)off_10897C = *(uint32_t *)off_10897C & v42 | 0xC0;
@@ -687,12 +687,12 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
           *v101 = v102;
           if ( v98 <= v99 )
           {
-            sub_11F74C(1, dword_108CB4, v102, v101);
+            check_interrupt_flag(1, dword_108CB4, v102, v101);
             *(uint32_t *)(v130 + 12) = 0;
           }
           else
           {
-            sub_11F74C(1, dword_108988, v102, v101);
+            check_interrupt_flag(1, dword_108988, v102, v101);
           }
           v130 += 8;
           v103 = v200 <= ++v136;
@@ -702,12 +702,12 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
       }
       v104 = dword_10898C;
       *v190 = *v190 & 0xFFFDFFFF | (v131 << 17);
-      sub_11F74C(1, v104, v37, v131);
-      sub_11F74C(1, dword_108990, *v190, v105);
+      check_interrupt_flag(1, v104, v37, v131);
+      check_interrupt_flag(1, dword_108990, *v190, v105);
       ++v37;
     }
     while ( v37 != 3 );
-    sub_106DBC();
+    clk_disable();
     v106 = (unsigned int *)off_108994;
     v107 = (unsigned int *)off_108998;
     v108 = (unsigned int *)off_1089C0;
@@ -784,21 +784,21 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
     v82 = dword_1085FC * (uint64_t)a3;
     v83 = (SHIDWORD(v82) >> 5) - (a3 >> 31);
     v84 = a3 - 100 * v83;
-    crypto_hw_power_up((int)v30, SHIDWORD(v82), v31, 100, v124);
+    poll_rf_status((int)v30, SHIDWORD(v82), v31, 100, v124);
     v85 = dword_108608;
     *(uint32_t *)off_108604 &= ~1u;
     v194 = 30;
     v195 = v83;
-    msg_parse(v85, v83);
+    dispatch_event_handler(v85, v83);
     v86 = HIWORD(v15) & 0xFFF;
-    msg_parse(dword_10860C, v84);
-    msg_parse(dword_108610, v86);
+    dispatch_event_handler(dword_10860C, v84);
+    dispatch_event_handler(dword_108610, v86);
     *(uint32_t *)off_108614 = a6;
-    msg_parse(dword_108618, a6);
+    dispatch_event_handler(dword_108618, a6);
     v87 = dword_10861C;
     *(uint32_t *)off_1085F0 = *(uint32_t *)off_1085F0 & v81 | a7 & 0xFFF;
-    msg_parse(v87, a7);
-    sub_103678(v84);
+    dispatch_event_handler(v87, a7);
+    set_system_mode(v84);
     v88 = (unsigned int *)off_1085F8;
     v89 = (int *)off_108620;
     v90 = dword_108624;
@@ -812,14 +812,14 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
     *v89 = v15 & 0xFFF | *v89 & v81;
     *v91 = *v91 & v90 | ((HIWORD(a5) & 0xFFF) << 16);
     *v91 = a5 & 0xFFF | *v91 & v81;
-    crypto_hw_clear_regs();
-    sub_107150((int)&v193);
-    sub_106F74((int)&v193, 0);
-    sub_11F74C(1, dword_10862C, *v91 & 0xFFF, HIWORD(*v91) & 0xFFF);
-    sub_106F74((int)&v193, 0);
-    sub_11F74C(1, dword_10862C, *v91 & 0xFFF, HIWORD(*v91) & 0xFFF);
-    delay_us(500);
-    return (uint32_t *)rf_pll_init_n900();
+    clk_set_divider();
+    load_patch_bundle((int)&v193);
+    pinmux_config((int)&v193, 0);
+    check_interrupt_flag(1, dword_10862C, *v91 & 0xFFF, HIWORD(*v91) & 0xFFF);
+    pinmux_config((int)&v193, 0);
+    check_interrupt_flag(1, dword_10862C, *v91 & 0xFFF, HIWORD(*v91) & 0xFFF);
+    write_timer_reg(500);
+    return (uint32_t *)enable_bb_clock();
   }
   return result;
 }

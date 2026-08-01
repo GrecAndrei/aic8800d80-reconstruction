@@ -12,8 +12,8 @@
 
 extern uint32_t off_1029B8;
 
-// sub_1029A8 @ 0x1029a8, size 16 bytes
-uint8_t * sub_1029A8(uint8_t *result, uint8_t *a2)
+// rf_get_rssi @ 0x1029a8, size 16 bytes
+uint8_t * rf_get_rssi(uint8_t *result, uint8_t *a2)
 {
   uint8_t *v2; // r3
 

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_3c3", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12110a8", "status": "ok", "name": "rf_bus_write_n_3c3", "params": [], "docstring": "Writes a value to the RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_3c3", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12110a8", "status": "ok", "name": "rf_bus_mark_n_e4", "params": [], "docstring": "Writes a value to the RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -17,8 +17,8 @@ extern uint32_t dword_107F30;
 extern uint32_t dword_107F34;
 extern uint32_t off_107F38;
 
-// sub_107E14 @ 0x107e14, size 276 bytes
-int  sub_107E14(int a1, uint32_t *a2)
+// mmio_set_bit24 @ 0x107e14, size 276 bytes
+int  mmio_set_bit24(int a1, uint32_t *a2)
 {
   uint32_t *v2; // r6
   unsigned int *v3; // r8
@@ -45,7 +45,7 @@ int  sub_107E14(int a1, uint32_t *a2)
   v4 = 1;
   *v2 &= ~0x2000000u;
   v6 = 1000;
-  sub_12EB90(1, dword_107F2C);
+  check_feature_flag(1, dword_107F2C);
   v7 = (int *)(a1 + 12);
   v20 = 1;
   v21 = 1;
@@ -63,12 +63,12 @@ int  sub_107E14(int a1, uint32_t *a2)
       ++v7;
       *v3 = dword_107F30 & (v10 << 16) | *v3 & 0xF000FFFF;
       *v3 = v11 & 0xFFF | *v3 & 0xFFFFF000;
-      sub_100644(40);
+      mmio_read32(40);
       v12 = dword_107F34;
       *v2 |= 0x4000000u;
       v13 = *(uint32_t *)off_107F38 & 0x7FFF;
       *v2 &= ~0x4000000u;
-      sub_12EB90(1, v12);
+      check_feature_flag(1, v12);
       if ( v13 >= v6 )
         break;
       v20 = v18;

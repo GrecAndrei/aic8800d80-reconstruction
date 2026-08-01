@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114E78 @ 0x114e78, size 12 bytes
-int  sub_114E78(int a1)
+// patch_get_field @ 0x114e78, size 12 bytes
+int  patch_get_field(int a1)
 {
-  return sub_114D7C(0x400000, a1, 4u);
+  return ke_task_handler_large(0x400000, a1, 4u);
 }
 

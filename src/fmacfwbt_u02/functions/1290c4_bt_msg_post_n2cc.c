@@ -15,10 +15,10 @@ extern uint32_t off_129110;
 extern uint32_t off_129114;
 extern uint32_t off_129118;
 
-// bt_msg_post_n2cc @ 0x1290c4, size 72 bytes
-// Doc: bt_msg_post_n2cc [bt]: BT mailbox message post via shared data structure at 0x190d1c
-// bt_msg_post_n2cc [bt]: BT mailbox message post via shared data structure at 0x190d1c
-void bt_msg_post_n2cc()
+// mm_beacon_irq @ 0x1290c4, size 72 bytes
+// Doc: mm_beacon_irq [bt]: BT mailbox message post via shared data structure at 0x190d1c
+// mm_beacon_irq [bt]: BT mailbox message post via shared data structure at 0x190d1c
+void mm_beacon_irq()
 {
   uint8_t *v0; // r5
   unsigned int *v1; // r1
@@ -45,7 +45,7 @@ void bt_msg_post_n2cc()
           if ( *(uint8_t *)(v3 + 108) )
           {
             v5 = *(uint8_t *)(v3 + 116);
-            if ( v5 != 255 && !fmacfwbt_phy_chan_init(v5, (int)v4, v3) )
+            if ( v5 != 255 && !ble_conn_get(v5, (int)v4, v3) )
               ++v0[8];
           }
         }

@@ -1,1 +1,1 @@
-{"fn": "sub_120C1EC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120c1ec", "status": "ok", "name": "sub_120C1EC", "params": [], "docstring": "Generic handler with multiple args, likely scan/init setup", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120C1EC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120c1ec", "status": "ok", "name": "call_rx_function", "params": [], "docstring": "Generic handler with multiple args, likely scan/init setup", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

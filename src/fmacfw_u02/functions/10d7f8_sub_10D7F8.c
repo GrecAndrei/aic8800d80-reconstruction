@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D804;
 
-// sub_10D7F8 @ 0x10d7f8, size 10 bytes
-int sub_10D7F8()
+// gpio_read_pin @ 0x10d7f8, size 10 bytes
+int gpio_read_pin()
 {
   return *(uint32_t *)off_10D804 & 1;
 }

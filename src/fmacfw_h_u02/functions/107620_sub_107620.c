@@ -16,8 +16,8 @@ extern uint32_t off_1076E0;
 extern uint32_t off_1076D8;
 extern uint32_t dword_1076DC;
 
-// sub_107620 @ 0x107620, size 176 bytes
-int  sub_107620(int a1)
+// load_phy_table @ 0x107620, size 176 bytes
+int  load_phy_table(int a1)
 {
   int v2; // r1
   int v3; // r2
@@ -131,6 +131,6 @@ int  sub_107620(int a1)
   *v24 = (v25 << 12) & 0x7000 | v26 & 0xFFFF8FFF;
   *v27 |= 0x400u;
   *v27 = (v28 << 8) & 0x300 | *v27 & 0xFFFFFCFF;
-  return sub_12EB90(1, v29);
+  return check_feature_flag(1, v29);
 }
 

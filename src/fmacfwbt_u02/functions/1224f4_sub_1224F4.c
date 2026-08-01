@@ -13,8 +13,8 @@
 extern uint32_t off_122520;
 extern uint32_t dword_122524;
 
-// sub_1224F4 @ 0x1224f4, size 42 bytes
-int sub_1224F4()
+// util_wait_loop @ 0x1224f4, size 42 bytes
+int util_wait_loop()
 {
   uint32_t *v0; // r1
   int result; // r0

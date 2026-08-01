@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131184 @ 0x131184, size 170 bytes
+// ll_get_channel @ 0x131184, size 170 bytes
 // Doc: sub_1231184 [unknown]: Wrapper that calls helper 0x12de90 with stack-based out param, checks r0==0
 // sub_1231184 [unknown]: Wrapper that calls helper 0x12de90 with stack-based out param, checks r0==0
-int  sub_131184(uint8_t *a1, int a2, int a3)
+int  ll_get_channel(uint8_t *a1, int a2, int a3)
 {
   uint8_t *v4; // r0
   unsigned int v5; // r6
@@ -30,7 +30,7 @@ int  sub_131184(uint8_t *a1, int a2, int a3)
   int16_t v16; // r3
   uint8_t v18[5]; // [sp+7h] [bp-5h] BYREF
 
-  v4 = sdio_buffer_prepare_n_28c(a1, a2, v18);
+  v4 = copy_config_data(a1, a2, v18);
   if ( !v4 )
     return 0;
   v5 = (unsigned int)&v4[v18[0] + 3];

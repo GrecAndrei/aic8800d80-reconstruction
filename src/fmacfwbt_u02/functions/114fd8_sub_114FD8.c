@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114FD8 @ 0x114fd8, size 156 bytes
+// load_calib_data2 @ 0x114fd8, size 156 bytes
 // Doc: patch_apply_n_4c6 [patch]: Apply firmware patch entries with sign-extended byte multiply
 // patch_apply_n_4c6 [patch]: Apply firmware patch entries with sign-extended byte multiply
-int  sub_114FD8(int a1, int a2)
+int  load_calib_data2(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2

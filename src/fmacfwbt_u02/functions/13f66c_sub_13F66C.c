@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13F66C @ 0x13f66c, size 452 bytes
+// build_ll_data_packet @ 0x13f66c, size 452 bytes
 // Doc: sub_123F66C [util]: Initializes struct field at offset 0x88 with provided data
 // sub_123F66C [util]: Initializes struct field at offset 0x88 with provided data
-int  sub_13F66C(int a1, int a2)
+int  build_ll_data_packet(int a1, int a2)
 {
   uint16_t *v2; // r5
   uint16_t *v3; // r9
@@ -65,7 +65,7 @@ int  sub_13F66C(int a1, int a2)
     LODWORD(v10) = 0;
     *(uint64_t *)(a1 + 144) = v10;
   }
-  sub_13E30C((uint16_t *)(a1 + 124));
+  rx_init_packet_buf((uint16_t *)(a1 + 124));
   v11 = *(uint16_t *)(a1 + 184);
   if ( *(uint16_t *)(a1 + 124) )
   {
@@ -77,7 +77,7 @@ LABEL_26:
       *(uint16_t *)(a1 + 124) = 0;
       *(uint16_t *)(a1 + 126) = 0;
       if ( v29 != 0xFFFF )
-        return sub_13E57C(a1);
+        return check_tx_pending(a1);
       return result;
     }
     v12 = v11 - 1;
@@ -103,7 +103,7 @@ LABEL_26:
       if ( *(uint16_t *)(a1 + 190) == 0xFFFF )
         goto LABEL_18;
 LABEL_29:
-      result = sub_13E57C(a1);
+      result = check_tx_pending(a1);
       goto LABEL_23;
     }
     v12 = v11 - 1;
@@ -124,16 +124,16 @@ LABEL_29:
   do
   {
     v19 = v18;
-    sub_13E30C((uint16_t *)(a1 + 12 * v18 + 4));
+    rx_init_packet_buf((uint16_t *)(a1 + 12 * v18 + 4));
     v20 = (uint8_t)v18++;
-    v21 = sub_13F54C(a1, v20, 1);
+    v21 = query_tx_power_table(a1, v20, 1);
     v22 = *(uint16_t *)(a1 + 184);
     v32[v19] = v21;
   }
   while ( v22 > v18 );
 LABEL_18:
-  sub_13E26C(a1, (int)v32);
-  sub_13D08C(a1, v32);
+  tx_process_ll_queue(a1, (int)v32);
+  tx_handle_acked_list(a1, v32);
   if ( !a2 )
   {
     v23 = *(uint16_t *)(a1 + 184);

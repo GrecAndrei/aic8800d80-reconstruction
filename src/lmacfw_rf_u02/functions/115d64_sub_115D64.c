@@ -14,10 +14,10 @@ extern uint32_t off_115DB0;
 extern uint32_t off_115DB4;
 extern uint32_t off_115DB8;
 
-// sub_115D64 @ 0x115d64, size 76 bytes
+// critical_section_enter @ 0x115d64, size 76 bytes
 // Doc: sub_1215D64 [util]: Helper routine with stack frame and shift op
 // sub_1215D64 [util]: Helper routine with stack frame and shift op
-int sub_115D64()
+int critical_section_enter()
 {
   int *v0; // r6
   uint8_t *v1; // r7
@@ -44,7 +44,7 @@ int sub_115D64()
     result = (uint8_t)i;
     v2 -= 28;
     if ( v4 )
-      result = rf_event_handler_8a4(result);
+      result = mmio_irq_set(result);
   }
   v6 = *v0;
   v1[143] = 1;

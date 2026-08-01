@@ -12,8 +12,8 @@
 
 extern uint32_t dword_111018;
 
-// sub_110FFC @ 0x110ffc, size 28 bytes
-uint32_t * sub_110FFC(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
+// tx_desc_set_control @ 0x110ffc, size 28 bytes
+uint32_t * tx_desc_set_control(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
 {
   result[2] = dword_111018 & result[2] | a4 | (a5 << 31);
   *result = a2;

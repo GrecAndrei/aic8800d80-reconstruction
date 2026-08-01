@@ -14,10 +14,10 @@ extern uint32_t dword_118980;
 extern uint32_t off_118984;
 extern uint32_t dword_118988;
 
-// sub_118908 @ 0x118908, size 118 bytes
+// link_context_by_handle @ 0x118908, size 118 bytes
 // Doc: sub_1218914 [unknown]: Indexed table entry lookup with multiplied offset
 // sub_1218914 [unknown]: Indexed table entry lookup with multiplied offset
-int  sub_118908(int result)
+int  link_context_by_handle(int result)
 {
   int v1; // r5
   int v2; // r4
@@ -31,9 +31,9 @@ int  sub_118908(int result)
     v1 = *(uint32_t *)(result + 36);
     v2 = result;
     v6 = *(uint32_t *)(dword_118980 + 152 * *(uint8_t *)(result + 102) + 8) + v1;
-    sub_11AB18(result + 24, v6);
-    sub_118310(v2);
-    result = unknown_helper_2(v2, v1, v6);
+    ke_enter_critical(result + 24, v6);
+    copy_patch_region(v2);
+    result = ke_event_process(v2, v1, v6);
     if ( !result )
     {
       v3 = (uint8_t)(*(uint8_t *)(v2 + 116) + 1);
@@ -42,11 +42,11 @@ int  sub_118908(int result)
       v5 = *v4;
       if ( v3 > v5 )
       {
-        return rf_channel_set_n6838(*(uint8_t *)(v2 + 102), dword_118988, v2);
+        return rate_index_lookup_fast(*(uint8_t *)(v2 + 102), dword_118988, v2);
       }
       else if ( v3 == v5 )
       {
-        return rf_msg_handler_n0ec(v2);
+        return rf_get_status(v2);
       }
     }
   }

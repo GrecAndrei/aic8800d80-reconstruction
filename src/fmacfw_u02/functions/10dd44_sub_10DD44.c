@@ -17,8 +17,8 @@ extern uint32_t dword_10DDFC;
 extern uint32_t dword_10DE04;
 extern uint32_t off_10DE00;
 
-// sub_10DD44 @ 0x10dd44, size 174 bytes
-int  sub_10DD44(int result, int a2, int a3)
+// gpio_configure_pin @ 0x10dd44, size 174 bytes
+int  gpio_configure_pin(int result, int a2, int a3)
 {
   int v3; // r4
   uint32_t *v4; // r6

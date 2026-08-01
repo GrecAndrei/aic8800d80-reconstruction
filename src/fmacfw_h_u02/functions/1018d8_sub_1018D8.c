@@ -13,8 +13,8 @@
 extern uint32_t off_1018EC;
 extern uint32_t off_1018E8;
 
-// sub_1018D8 @ 0x1018d8, size 14 bytes
-uint32_t * sub_1018D8(uint32_t *result, uint32_t *a2)
+// read_mmio_pair @ 0x1018d8, size 14 bytes
+uint32_t * read_mmio_pair(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

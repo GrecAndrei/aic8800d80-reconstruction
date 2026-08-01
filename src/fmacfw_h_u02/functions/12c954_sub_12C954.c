@@ -14,8 +14,8 @@ extern uint32_t dword_12C994;
 extern uint32_t off_12C998;
 extern uint32_t off_12C99C;
 
-// sub_12C954 @ 0x12c954, size 64 bytes
-uint32_t *sub_12C954()
+// patch_alignment @ 0x12c954, size 64 bytes
+uint32_t *patch_alignment()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2
@@ -34,7 +34,7 @@ uint32_t *sub_12C954()
   v1 = off_12C99C;
   v2 = *(uint32_t *)off_12C99C;
   v3 = *(uint32_t *)off_12C99C + 1;
-  v4 = (*(uint32_t *)sub_12C9A0 & 0xFFFFFFFC) - (uint32_t)result;
+  v4 = (*(uint32_t *)hci_tx_alloc & 0xFFFFFFFC) - (uint32_t)result;
   *(uint32_t *)off_12C99C = v3;
   *result = 0;
   result[1] = v4;

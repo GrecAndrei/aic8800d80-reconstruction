@@ -1,1 +1,1 @@
-{"fn": "sub_120F5C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f5c8", "status": "ok", "name": "sub_120F5C8", "params": [], "docstring": "lmacfw RF initialization subroutine, stores bytes and calls helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120F5C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f5c8", "status": "ok", "name": "bt_msg_init", "params": [], "docstring": "lmacfw RF initialization subroutine, stores bytes and calls helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

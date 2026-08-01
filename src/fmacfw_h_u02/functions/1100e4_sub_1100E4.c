@@ -15,8 +15,8 @@ extern uint32_t dword_11012C;
 extern uint32_t off_110130;
 extern uint32_t dword_110134;
 
-// sub_1100E4 @ 0x1100e4, size 72 bytes
-int sub_1100E4()
+// get_core_temp @ 0x1100e4, size 72 bytes
+int get_core_temp()
 {
   void *v0; // r8
   int result; // r0
@@ -27,7 +27,7 @@ int sub_1100E4()
   unsigned int v6; // r1
 
   v0 = off_110138;
-  result = sub_12D100(dword_11012C);
+  result = clear_stats_buf(dword_11012C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = off_110130;
@@ -36,8 +36,8 @@ int sub_1100E4()
     v5 = 0;
     do
     {
-      sub_10F9E8(v3, 0x6B8u);
-      result = sub_12D108(v4);
+      tx_irq_handler(v3, 0x6B8u);
+      result = wlan_ioctl_handler_1(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;

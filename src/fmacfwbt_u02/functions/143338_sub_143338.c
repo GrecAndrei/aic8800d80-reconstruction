@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143338 @ 0x143338, size 140 bytes
-int  sub_143338(uint64_t a1)
+// double_to_int @ 0x143338, size 140 bytes
+int  double_to_int(uint64_t a1)
 {
   int v1; // zf
   unsigned int v2; // r12

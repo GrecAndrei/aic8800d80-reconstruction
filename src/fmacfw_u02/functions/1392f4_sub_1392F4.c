@@ -13,8 +13,8 @@
 extern uint32_t dword_139338;
 extern uint32_t dword_13933C;
 
-// sub_1392F4 @ 0x1392f4, size 66 bytes
-uint32_t ** sub_1392F4(int a1, int a2)
+// rf_get_chan_param @ 0x1392f4, size 66 bytes
+uint32_t ** rf_get_chan_param(int a1, int a2)
 {
   uint32_t **result; // r0
   unsigned int v3; // r2
@@ -33,8 +33,8 @@ uint32_t ** sub_1392F4(int a1, int a2)
       v6 = (v3 >> 4) - v4;
       if ( (v5 & 0x800) == 0 )
       {
-        sub_1392A8((int)result, v6 & 0xFFF);
-        return sub_12F554((uint32_t **)dword_13933C);
+        list_find((int)result, v6 & 0xFFF);
+        return load_and_process_r0((uint32_t **)dword_13933C);
       }
     }
   }

@@ -14,8 +14,8 @@ extern uint32_t dword_102DA0;
 extern uint32_t dword_102D98;
 extern uint32_t off_102D9C;
 
-// sub_102D10 @ 0x102d10, size 136 bytes
-int  sub_102D10(int a1, int a2, unsigned int a3, int a4)
+// memcpy @ 0x102d10, size 136 bytes
+int  memcpy(int a1, int a2, unsigned int a3, int a4)
 {
   int v6; // r6
   int v7; // r4
@@ -44,7 +44,7 @@ int  sub_102D10(int a1, int a2, unsigned int a3, int a4)
   }
   while ( !*(uint32_t *)off_102D9C )
     ;
-  crypto_hw_enable(a1);
+  set_radio_ctrl_bits(a1);
   if ( a3 )
   {
     v9 = 0;
@@ -69,7 +69,7 @@ int  sub_102D10(int a1, int a2, unsigned int a3, int a4)
     }
     while ( a3 > (uint8_t)v12 );
   }
-  result = crypto_hw_disable(a1);
+  result = set_radio_ctrl_bits2(a1);
   *(uint32_t *)off_102D9C = 1;
   return result;
 }

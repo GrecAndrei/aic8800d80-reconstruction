@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_stream_start2_324c @ 0x11324c, size 164 bytes
+// global_env_init_params @ 0x11324c, size 164 bytes
 // Doc: rf_cmd_send_n47c [rf]: Send RF command sequence n47c
 // rf_cmd_send_n47c [rf]: Send RF command sequence n47c
-int  rf_stream_start2_324c(int a1, unsigned int a2)
+int  global_env_init_params(int a1, unsigned int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
@@ -30,7 +30,7 @@ int  rf_stream_start2_324c(int a1, unsigned int a2)
   v3 = rf_bus_mark_n_250_32f4;
   if ( *(uint8_t *)rf_bus_mark_n_250_32f4 )
   {
-    log_printf(rf_stream_start2_nbc, rf_cmd_send_n498, *(uint8_t *)rf_bus_mark_n_250_32f4);
+    printf_wrapper(rf_stream_start2_nbc, rf_cmd_send_n498, *(uint8_t *)rf_bus_mark_n_250_32f4);
     return -3;
   }
   else
@@ -47,11 +47,11 @@ int  rf_stream_start2_324c(int a1, unsigned int a2)
     {
       *((uint32_t *)rf_msg_handler_n39c + 713) |= 1u;
     }
-    v6 = rf_bus_write2_n500(1, a1, a2);
+    v6 = ke_msg_handler_b(1, a1, a2);
     v7 = v6;
     if ( v6 )
     {
-      log_printf(rf_msg_handler_n3ac, rf_cmd_send_n498, v6);
+      printf_wrapper(rf_msg_handler_n3ac, rf_cmd_send_n498, v6);
       return -1;
     }
     else
@@ -59,7 +59,7 @@ int  rf_stream_start2_324c(int a1, unsigned int a2)
       *(uint8_t *)rf_msg_handler_n3a0 = 1;
       if ( *v2 )
       {
-        rf_bus_reset2_n3b8(0, 1u);
+        rf_reg_write_alias(0, 1u);
         *v3 = 0;
         return -14;
       }

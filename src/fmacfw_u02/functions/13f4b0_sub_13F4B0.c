@@ -15,8 +15,8 @@ extern uint32_t dword_13F5C4;
 extern uint32_t dword_13F5C8;
 extern uint32_t off_13F5CC;
 
-// sub_13F4B0 @ 0x13f4b0, size 272 bytes
-unsigned int  sub_13F4B0(int a1, int a2, int a3)
+// ble_ll_sched_item_check @ 0x13f4b0, size 272 bytes
+unsigned int  ble_ll_sched_item_check(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r3
@@ -72,7 +72,7 @@ LABEL_4:
     goto LABEL_6;
   }
 LABEL_7:
-  result = (dword_13F5C8 * (1000 * v5 / (sub_13EB20(a1 + v8 + 4) + v13))) >> 16;
+  result = (dword_13F5C8 * (1000 * v5 / (rx_header_parse(a1 + v8 + 4) + v13))) >> 16;
   if ( a3 )
   {
     if ( v5 <= 0x3332 )

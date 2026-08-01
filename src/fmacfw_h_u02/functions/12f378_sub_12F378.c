@@ -13,8 +13,8 @@
 extern uint32_t off_12F3A0;
 extern uint32_t off_12F3A4;
 
-// sub_12F378 @ 0x12f378, size 40 bytes
-void sub_12F378()
+// unknown_12f378 @ 0x12f378, size 40 bytes
+void unknown_12f378()
 {
   uint32_t *v0; // r3
   int v1; // r2

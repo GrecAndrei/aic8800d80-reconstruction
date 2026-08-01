@@ -13,8 +13,8 @@
 extern uint32_t dword_11BF34;
 extern uint32_t dword_11BF38;
 
-// sub_11BE6C @ 0x11be6c, size 198 bytes
-int  sub_11BE6C(int a1, int a2)
+// tx_frame_build @ 0x11be6c, size 198 bytes
+int  tx_frame_build(int a1, int a2)
 {
   int v2; // r2
   int v3; // r5
@@ -74,7 +74,7 @@ LABEL_13:
         }
         else if ( *(uint8_t *)(a2 + 13) == v12 >> 12 )
         {
-          sub_143630(a2 + 228, v8 + 1, v11 - 2);
+          memcpy(a2 + 228, v8 + 1, v11 - 2);
           *(uint32_t *)(a2 + 224) = a2 + 228;
           return 1;
         }

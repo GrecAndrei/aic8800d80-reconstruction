@@ -12,10 +12,10 @@
 
 extern uint32_t dword_111158;
 
-// sub_11113C @ 0x11113c, size 28 bytes
+// pack_control_word @ 0x11113c, size 28 bytes
 // Doc: sub_121113C [util]: Pack bitfield value from fields (mask OR shift OR shift31)
 // sub_121113C [util]: Pack bitfield value from fields (mask OR shift OR shift31)
-uint32_t * sub_11113C(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
+uint32_t * pack_control_word(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
 {
   result[2] = dword_111158 & result[2] | a4 | (a5 << 31);
   *result = a2;

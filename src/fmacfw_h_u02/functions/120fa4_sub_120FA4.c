@@ -12,10 +12,10 @@
 
 extern uint32_t off_120FB4;
 
-// sub_120FA4 @ 0x120fa4, size 14 bytes
-int sub_120FA4()
+// rf_write_reg @ 0x120fa4, size 14 bytes
+int rf_write_reg()
 {
   *(uint32_t *)off_120FB4 = 48;
-  return sub_12CBF4(0);
+  return hci_cmd_preprocess(0);
 }
 

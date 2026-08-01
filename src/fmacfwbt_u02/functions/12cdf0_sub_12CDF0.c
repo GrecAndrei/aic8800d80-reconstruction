@@ -18,8 +18,8 @@ extern uint32_t off_12CED8;
 extern uint32_t off_12CEDC;
 extern uint32_t dword_12CEE8;
 
-// sub_12CDF0 @ 0x12cdf0, size 226 bytes
-uint32_t * sub_12CDF0(char *a1)
+// hci_tx_packet @ 0x12cdf0, size 226 bytes
+uint32_t * hci_tx_packet(char *a1)
 {
   int16_t **v1; // r9
   char *v2; // r4
@@ -42,7 +42,7 @@ uint32_t * sub_12CDF0(char *a1)
   v3 = *((uint32_t *)a1 - 1);
   v5 = a1 - 4;
   if ( **(int16_t **)off_12CEEC < 0 && a1 <= v2 )
-    sub_12F694(dword_12CEE4, dword_12CEE0, 220);
+    mmio_irq_clear(dword_12CEE4, dword_12CEE0, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -63,7 +63,7 @@ uint32_t * sub_12CDF0(char *a1)
     if ( v2 > v5 )
     {
       if ( **v1 < 0 )
-        sub_12F694(dword_12CEE8, dword_12CEE0, 247);
+        mmio_irq_clear(dword_12CEE8, dword_12CEE0, 247);
       MEMORY[0] = v5;
       __und(0xFFu);
     }

@@ -13,8 +13,8 @@
 extern uint32_t off_126F6C;
 extern uint32_t off_126F70;
 
-// sub_126F40 @ 0x126f40, size 44 bytes
-int sub_126F40()
+// llc_state_get @ 0x126f40, size 44 bytes
+int llc_state_get()
 {
   char v0; // r3
   int result; // r0
@@ -26,8 +26,8 @@ int sub_126F40()
     if ( !v0 && *(uint8_t *)off_126F70 == 1 )
     {
       *(uint8_t *)off_126F70 = 0;
-      sub_1219A4();
-      return sub_126F08();
+      ke_evt_handler();
+      return llc_flag_test_bit3();
     }
   }
   return result;

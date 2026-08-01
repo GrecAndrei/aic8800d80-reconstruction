@@ -15,8 +15,8 @@ extern uint32_t off_131A30;
 extern uint32_t dword_131A3C;
 extern uint32_t dword_131A38;
 
-// sub_1319A0 @ 0x1319a0, size 142 bytes
-int  sub_1319A0(int a1, uint8_t *a2)
+// llc_conn_env_get_by_handle @ 0x1319a0, size 142 bytes
+int  llc_conn_env_get_by_handle(int a1, uint8_t *a2)
 {
   int v3; // r5
   int v4; // r6
@@ -25,7 +25,7 @@ int  sub_1319A0(int a1, uint8_t *a2)
 
   v3 = *(uint32_t *)(dword_131A34 + 696 * *a2 + 340);
   if ( **(int16_t **)off_131A30 < 0 && !v3 )
-    sub_12F694(dword_131A3C, dword_131A38, 1031);
+    mmio_irq_clear(dword_131A3C, dword_131A38, 1031);
   v4 = *((uint16_t *)a2 + 1);
   if ( v4 == 0xFFFF )
   {
@@ -35,13 +35,13 @@ int  sub_1319A0(int a1, uint8_t *a2)
     *(uint8_t *)(v3 + 166) = v5;
     if ( (v5 & 0x80) == 0 )
       return 0;
-    sub_13F158(*a2);
+    is_connection_active(*a2);
     *(uint8_t *)(v3 + 166) &= ~0x80u;
     return 0;
   }
   else
   {
-    if ( !rf_entry_lookup_n3a0(v3, *((uint16_t *)a2 + 1)) )
+    if ( !validate_channel_map(v3, *((uint16_t *)a2 + 1)) )
       return 0;
     v7 = *(uint8_t *)(v3 + 166);
     *(uint16_t *)(v3 + 190) = v4;

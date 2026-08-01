@@ -12,8 +12,8 @@
 
 extern uint32_t off_11CA90;
 
-// sub_11CA38 @ 0x11ca38, size 88 bytes
-int  sub_11CA38(uint16_t *a1)
+// rf_channel_compare @ 0x11ca38, size 88 bytes
+int  rf_channel_compare(uint16_t *a1)
 {
   int v1; // r3
   int result; // r0

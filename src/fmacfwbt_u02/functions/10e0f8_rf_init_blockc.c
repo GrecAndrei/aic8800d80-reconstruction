@@ -28,10 +28,10 @@ extern uint32_t dword_10E3B0;
 extern uint32_t dword_10E3A8;
 extern uint32_t dword_10E3AC;
 
-// rf_init_blockc @ 0x10e0f8, size 628 bytes
-// Doc: rf_init_blockc [rf]: Initialize RF subsystem with base addresses and register setup
-// rf_init_blockc [rf]: Initialize RF subsystem with base addresses and register setup
-int rf_init_blockc()
+// radio_init @ 0x10e0f8, size 628 bytes
+// Doc: radio_init [rf]: Initialize RF subsystem with base addresses and register setup
+// radio_init [rf]: Initialize RF subsystem with base addresses and register setup
+int radio_init()
 {
   int v0; // r3
   int v1; // r0
@@ -83,27 +83,27 @@ int rf_init_blockc()
   v2 = off_10E394;
   *((uint32_t *)off_10E388 + 14) = 296;
   v2[3] = v0 | v2[3] & 0xE0000000;
-  sub_10EBD4(v1, 1024, 15360);
+  call_vector_1b8(v1, 1024, 15360);
   v2[2] = dword_10E398 & v2[2] | 0x1200000F;
   v2[1] = 1;
   while ( v2[7] != 1 )
     ;
   v2[7] = 1;
-  v3 = sub_142A50(v2[4]);
-  v4 = sub_142B44(v3, HIDWORD(v3), dword_10E370, dword_10E374);
-  v5 = sub_1427D4(v4, HIDWORD(v4), dword_10E378, dword_10E37C);
-  v6 = sub_143078(v5, HIDWORD(v5));
-  sub_12ECB0(dword_10E39C, v6, v7);
-  v8 = sub_10EBC4(dword_10E3A0);
+  v3 = __aeabi_ui2d(v2[4]);
+  v4 = __aeabi_dmul(v3, HIDWORD(v3), dword_10E370, dword_10E374);
+  v5 = __aeabi_dsub(v4, HIDWORD(v4), dword_10E378, dword_10E37C);
+  v6 = __aeabi_d2lz(v5, HIDWORD(v5));
+  ke_event_schedule(dword_10E39C, v6, v7);
+  v8 = jump_table_1b0(dword_10E3A0);
   v10 = v6 - 1400;
   v11 = abs32(v6 - 1400);
   v12 = v8 & 0x3F;
   v43 = v12;
   if ( v11 > 49 )
   {
-    v13 = sub_142A70(v11);
-    v14 = sub_142B44(v13, HIDWORD(v13), dword_10E380, dword_10E384);
-    v15 = sub_143078(v14, HIDWORD(v14));
+    v13 = __aeabi_i2d(v11);
+    v14 = __aeabi_dmul(v13, HIDWORD(v13), dword_10E380, dword_10E384);
+    v15 = __aeabi_d2lz(v14, HIDWORD(v14));
     v16 = v15;
     if ( v10 <= 0 )
     {
@@ -124,17 +124,17 @@ int rf_init_blockc()
     }
     if ( v17 > 11 )
     {
-      sub_10EBD4(dword_10E3A0, v17, 63);
+      call_vector_1b8(dword_10E3A0, v17, 63);
       v18 = off_10E394;
       *((uint32_t *)off_10E394 + 1) = 1;
       while ( v18[7] != 1 )
         ;
       v18[7] = 1;
-      v19 = sub_142A50(v18[4]);
-      v20 = sub_142B44(v19, HIDWORD(v19), dword_10E370, dword_10E374);
-      v21 = sub_1427D4(v20, HIDWORD(v20), dword_10E378, dword_10E37C);
-      v6 = sub_143078(v21, HIDWORD(v21));
-      sub_12ECB0(dword_10E3A4, v16, v17);
+      v19 = __aeabi_ui2d(v18[4]);
+      v20 = __aeabi_dmul(v19, HIDWORD(v19), dword_10E370, dword_10E374);
+      v21 = __aeabi_dsub(v20, HIDWORD(v20), dword_10E378, dword_10E37C);
+      v6 = __aeabi_d2lz(v21, HIDWORD(v21));
+      ke_event_schedule(dword_10E3A4, v16, v17);
       if ( v6 <= 1400 )
         v22 = 1;
       else
@@ -177,16 +177,16 @@ LABEL_19:
       v28 = v43 + v44 * v9;
       goto LABEL_28;
     }
-    sub_10EBD4(v24, v28, 63);
+    call_vector_1b8(v24, v28, 63);
     v25[1] = 1;
     while ( v25[7] != 1 )
       ;
     v25[7] = 1;
-    v30 = sub_142A50(v25[4]);
-    v31 = sub_142B44(v30, HIDWORD(v30), dword_10E370, dword_10E374);
-    v32 = sub_1427D4(v31, HIDWORD(v31), dword_10E378, dword_10E37C);
-    v42 = sub_143078(v32, HIDWORD(v32));
-    sub_12ECB0(v26, v29, v28);
+    v30 = __aeabi_ui2d(v25[4]);
+    v31 = __aeabi_dmul(v30, HIDWORD(v30), dword_10E370, dword_10E374);
+    v32 = __aeabi_dsub(v31, HIDWORD(v31), dword_10E378, dword_10E37C);
+    v42 = __aeabi_d2lz(v32, HIDWORD(v32));
+    ke_event_schedule(v26, v29, v28);
     v33 = v6 - 1400;
     v9 = v42 - 1400;
     if ( v33 * (v42 - 1400) <= 0 )
@@ -205,18 +205,18 @@ LABEL_19:
     v28 = v43 + v29;
   }
 LABEL_28:
-  sub_12ECB0(dword_10E3A8, v29, v9);
-  sub_10EBD4(dword_10E3A0, v28, 63);
+  ke_event_schedule(dword_10E3A8, v29, v9);
+  call_vector_1b8(dword_10E3A0, v28, 63);
   v35 = off_10E394;
   *((uint32_t *)off_10E394 + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_142A50(v35[4]);
-  v37 = sub_142B44(v36, HIDWORD(v36), dword_10E370, dword_10E374);
-  v38 = sub_1427D4(v37, HIDWORD(v37), dword_10E378, dword_10E37C);
-  v39 = sub_143078(v38, HIDWORD(v38));
-  sub_12ECB0(dword_10E3AC, v39, v40);
-  return sub_10EBD4(dword_10E390, 0, 15360);
+  v36 = __aeabi_ui2d(v35[4]);
+  v37 = __aeabi_dmul(v36, HIDWORD(v36), dword_10E370, dword_10E374);
+  v38 = __aeabi_dsub(v37, HIDWORD(v37), dword_10E378, dword_10E37C);
+  v39 = __aeabi_d2lz(v38, HIDWORD(v38));
+  ke_event_schedule(dword_10E3AC, v39, v40);
+  return call_vector_1b8(dword_10E390, 0, 15360);
 }
 

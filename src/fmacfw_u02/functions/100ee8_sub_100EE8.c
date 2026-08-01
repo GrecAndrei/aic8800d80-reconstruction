@@ -16,8 +16,8 @@ extern uint32_t off_100FA0;
 extern uint32_t off_100F94;
 extern uint32_t off_100FA4;
 
-// sub_100EE8 @ 0x100ee8, size 172 bytes
-uint32_t *sub_100EE8()
+// rng_read_alt @ 0x100ee8, size 172 bytes
+uint32_t *rng_read_alt()
 {
   unsigned int *v0; // r3
   uint32_t *v1; // r1

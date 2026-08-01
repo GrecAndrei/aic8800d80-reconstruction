@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_chan_table_init @ 0x1204c4, size 136 bytes
-// Doc: rf_chan_table_init [rf]: Initializes RF channel table at offset 0x1e0 with size 0x78
-// rf_chan_table_init [rf]: Initializes RF channel table at offset 0x1e0 with size 0x78
-int  rf_chan_table_init(int result, int a2)
+// dma_tx_reset @ 0x1204c4, size 136 bytes
+// Doc: dma_tx_reset [rf]: Initializes RF channel table at offset 0x1e0 with size 0x78
+// dma_tx_reset [rf]: Initializes RF channel table at offset 0x1e0 with size 0x78
+int  dma_tx_reset(int result, int a2)
 {
   int v2; // r4
   int v3; // r3

@@ -12,8 +12,8 @@
 
 extern uint32_t off_13245C;
 
-// sub_132418 @ 0x132418, size 66 bytes
-char * sub_132418(int a1, int a2)
+// llm_adv_state_get @ 0x132418, size 66 bytes
+char * llm_adv_state_get(int a1, int a2)
 {
   char *result; // r0
   char *v3; // r3

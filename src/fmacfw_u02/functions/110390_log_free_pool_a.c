@@ -12,10 +12,10 @@
 
 extern uint32_t off_1103D0;
 
-// log_free_pool_a @ 0x110390, size 62 bytes
+// is_connected_flag @ 0x110390, size 62 bytes
 // Doc: log_free_dispatch_n39d [util]: Dispatches and frees log entry from log ring
 // log_free_dispatch_n39d [util]: Dispatches and frees log entry from log ring
-int log_free_pool_a()
+int is_connected_flag()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int log_free_pool_a()
   v0 = (int *)log_free_dispatch_n3cc;
   v1 = log_free_dispatch_n3d0;
   ++*(uint32_t *)log_free_dispatch_n3cc;
-  result = list_push_tail(v1);
+  result = cmd_handler_a(v1);
   v3 = *v0;
   ++*(uint32_t *)log_free_dispatch_n3d4_03dc;
   if ( v3 )

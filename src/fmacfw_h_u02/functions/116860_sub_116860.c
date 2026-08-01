@@ -18,8 +18,8 @@ extern uint32_t dword_116964;
 extern uint32_t off_116970;
 extern uint32_t off_116960;
 
-// sub_116860 @ 0x116860, size 248 bytes
-int  sub_116860(int result, int a2, int a3)
+// phy_set_cfg @ 0x116860, size 248 bytes
+int  phy_set_cfg(int result, int a2, int a3)
 {
   int v4; // r6
   int *v6; // r5
@@ -38,7 +38,7 @@ int  sub_116860(int result, int a2, int a3)
   v7 = *v6;
   v8 = **(int16_t **)off_11695C;
   if ( v8 < 0 && v7 == result )
-    return sub_12F2C8(dword_116968, dword_116964, 1972, v8);
+    return unknown_12f2c8(dword_116968, dword_116964, 1972, v8);
   if ( v7 )
   {
     v9 = off_116970;
@@ -52,7 +52,7 @@ int  sub_116860(int result, int a2, int a3)
       && ((v11 = *((uint32_t *)off_116960 + 52), result = v11 << 31, (v11 & 1) == 0)
        || *((uint8_t *)off_116960 + 190) != a3) )
     {
-      result = sub_11617C(a3);
+      result = adv_type_valid(a3);
       v10 = *(uint8_t *)(*(uint32_t *)v9 + 1);
     }
   }
@@ -66,7 +66,7 @@ int  sub_116860(int result, int a2, int a3)
   }
   else
   {
-    result = sub_116574(v4, a3, v7, v8);
+    result = rf_switch_case(v4, a3, v7, v8);
     v10 = *(uint8_t *)(*(uint32_t *)off_116970 + 1);
   }
   if ( !v10 )

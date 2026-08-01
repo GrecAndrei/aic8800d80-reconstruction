@@ -12,8 +12,8 @@
 
 extern uint32_t off_124090;
 
-// sub_12407C @ 0x12407c, size 18 bytes
-int  sub_12407C(int a1)
+// set_reg_180800_bits7_8 @ 0x12407c, size 18 bytes
+int  set_reg_180800_bits7_8(int a1)
 {
   *(uint32_t *)off_124090 = *(uint32_t *)off_124090 & 0xFFFFFE7F | (a1 << 7);
   return 0;

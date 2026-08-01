@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12228C;
 
-// sub_122268 @ 0x122268, size 36 bytes
-int  sub_122268(int result, int a2)
+// tx_rate_set @ 0x122268, size 36 bytes
+int  tx_rate_set(int result, int a2)
 {
   int v2; // r4
 
@@ -24,8 +24,8 @@ int  sub_122268(int result, int a2)
   }
   else
   {
-    feature_guard_sdio(1024, dword_12228C);
-    return mac_cmd_send_status_query(v2);
+    state_check_feature(1024, dword_12228C);
+    return mmio_read_phy(v2);
   }
   return result;
 }

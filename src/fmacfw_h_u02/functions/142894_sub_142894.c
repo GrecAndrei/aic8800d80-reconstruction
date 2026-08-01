@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142894 @ 0x142894, size 34 bytes
-int  sub_142894(int result)
+// signed_int_to_double @ 0x142894, size 34 bytes
+int  signed_int_to_double(int result)
 {
   if ( result )
     JUMPOUT(0x142734);

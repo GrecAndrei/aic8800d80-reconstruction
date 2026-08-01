@@ -14,20 +14,20 @@ extern uint32_t off_133C18;
 extern uint32_t dword_133C20;
 extern uint32_t dword_133C1C;
 
-// sub_133BE4 @ 0x133be4, size 52 bytes
-int  sub_133BE4(int value)
+// patch_stop @ 0x133be4, size 52 bytes
+int  patch_stop(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_133C18 >= 0 || (value = msg_get_value(6u), value == 4) )
+  if ( **(int16_t **)off_133C18 >= 0 || (value = hci_cmd_send_short(6u), value == 4) )
   {
-    sub_1349D8(value);
+    check_hw_ready_status(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F694(dword_133C20, dword_133C1C, 670);
-    sub_1349D8(v2);
+    v2 = mmio_irq_clear(dword_133C20, dword_133C1C, 670);
+    check_hw_ready_status(v2);
     return 0;
   }
 }

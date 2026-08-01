@@ -15,10 +15,10 @@ extern uint32_t dword_13BE8C;
 extern uint32_t dword_13BE90;
 extern uint32_t dword_13BE94;
 
-// sub_13BE14 @ 0x13be14, size 120 bytes
+// rf_scan_chan @ 0x13be14, size 120 bytes
 // Doc: sub_123BE14 [unknown]: Unknown behavioral helper, likely init/state helper
 // sub_123BE14 [unknown]: Unknown behavioral helper, likely init/state helper
-int  sub_13BE14(int result)
+int  rf_scan_chan(int result)
 {
   int v1; // r9
   int v2; // r6
@@ -43,16 +43,16 @@ int  sub_13BE14(int result)
     {
       if ( i > 15 )
       {
-        sub_12D2E8(v6, (uint32_t *)v3);
-        list_push_tail(dword_13BE94, (uint32_t *)v3);
+        cmd_handler_c(v6, (uint32_t *)v3);
+        cmd_handler_a(dword_13BE94, (uint32_t *)v3);
       }
       else
       {
-        sub_12D2E8(v1, (uint32_t *)v3);
-        list_push_tail(v5, (uint32_t *)v3);
+        cmd_handler_c(v1, (uint32_t *)v3);
+        cmd_handler_a(v5, (uint32_t *)v3);
       }
-      sub_12CD34((uint16_t)((uint16_t)i << 8) | 8, 4);
-      result = tx_build_frame_header(v4, (uint16_t)i);
+      rx_phy_status_parse((uint16_t)((uint16_t)i << 8) | 8, 4);
+      result = rf_phy_write(v4, (uint16_t)i);
     }
     v3 += 32;
   }

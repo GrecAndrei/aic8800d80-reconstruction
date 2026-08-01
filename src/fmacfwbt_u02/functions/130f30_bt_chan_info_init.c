@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// bt_chan_info_init @ 0x130f30, size 54 bytes
-// Doc: bt_chan_info_init [bt]: Initialize channel/connection info struct from BT params
-// bt_chan_info_init [bt]: Initialize channel/connection info struct from BT params
-int  bt_chan_info_init(int a1, int a2)
+// rf_build_cal_block_v3 @ 0x130f30, size 54 bytes
+// Doc: rf_build_cal_block_v3 [bt]: Initialize channel/connection info struct from BT params
+// rf_build_cal_block_v3 [bt]: Initialize channel/connection info struct from BT params
+int  rf_build_cal_block_v3(int a1, int a2)
 {
   int16_t v2; // r3
   int16_t v3; // r4

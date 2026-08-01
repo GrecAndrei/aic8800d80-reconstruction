@@ -15,8 +15,8 @@ extern uint32_t off_11A080;
 extern uint32_t dword_11A084;
 extern uint32_t off_11A08C;
 
-// sub_119EC8 @ 0x119ec8, size 440 bytes
-int  sub_119EC8(int a1)
+// rate_get_config @ 0x119ec8, size 440 bytes
+int  rate_get_config(int a1)
 {
   int v1; // r8
   int v2; // r3
@@ -50,7 +50,7 @@ int  sub_119EC8(int a1)
     *(uint32_t *)(HIDWORD(v5) + 68) = 256;
     *(uint32_t *)(v3 + 68) = 0;
     if ( (uint32_t)v5 )
-      sub_116324(v3, a1);
+      process_tx_packet(v3, a1);
     v8 = *(uint16_t *)(v4 + 8);
     if ( (v8 & 2) != 0 )
     {
@@ -60,7 +60,7 @@ int  sub_119EC8(int a1)
       {
         v19 = *(uint32_t *)(HIDWORD(v5) + 48);
         if ( v19 )
-          *(uint8_t *)(v19 + 36) = sub_101D58(
+          *(uint8_t *)(v19 + 36) = rx_packet_handler(
                                    (*(uint32_t *)(v19 + 20) >> 11) & 7,
                                    *(uint32_t *)(v19 + 20) & 0x7F,
                                    (uint8_t *)(*(uint32_t *)(dword_11A084
@@ -68,7 +68,7 @@ int  sub_119EC8(int a1)
                                                                  + 72)
                                                      + 4));
       }
-      sub_1169A0(v7, v7, a1);
+      radio_channel_validate(v7, v7, a1);
     }
     else if ( (v8 & 4) != 0 )
     {
@@ -77,9 +77,9 @@ int  sub_119EC8(int a1)
     else if ( (uint32_t)v5 )
     {
       *(uint16_t *)(v3 + 82) |= 2u;
-      sub_1160A0(a1, v5);
+      set_table_callback_data(a1, v5);
     }
-    list_push_tail(*(uint32_t *)(v4 + 340));
+    cmd_handler_a(*(uint32_t *)(v4 + 340));
   }
   else
   {
@@ -87,12 +87,12 @@ int  sub_119EC8(int a1)
     v20 = v2;
     *(uint32_t *)(v3 + 36) |= 0x380000u;
     *(uint32_t *)(v4 + 324) = v3;
-    rf_chan_field_get_n_4c6(v13);
+    check_channel_busy(v13);
     v14 = off_11A08C;
     *(uint8_t *)(HIDWORD(v5) + 1) = *(uint8_t *)(v20 + 77);
     if ( *(uint8_t *)(*(uint32_t *)v14 + 1) )
     {
-      sub_1193BC(
+      phy_channel_select(
         v4,
         *(uint16_t *)(v3 + 34),
         *(uint8_t *)(v4 + 12),
@@ -116,19 +116,19 @@ int  sub_119EC8(int a1)
       v18 = off_11A080;
       *(uint32_t *)(v16 + 20) = v17;
       if ( v18[197] && v16 )
-        *(uint8_t *)(v16 + 36) = sub_101D58(
+        *(uint8_t *)(v16 + 36) = rx_packet_handler(
                                  (v17 >> 11) & 7,
                                  v17 & 0x7F,
                                  (uint8_t *)(*(uint32_t *)(dword_11A084 + 1320 * *(uint8_t *)(v3 + 28) + 72)
                                                    + 4));
-      sub_1169A0(v4 + 16, v7, a1);
+      radio_channel_validate(v4 + 16, v7, a1);
     }
     else if ( (uint32_t)v5 && (v15 & 4) == 0 )
     {
       *(uint16_t *)(v4 + 8) = v15 | 5;
-      sub_1160A0(a1, v5);
+      set_table_callback_data(a1, v5);
     }
-    list_push_tail(v1 + 84 * a1 + 28);
+    cmd_handler_a(v1 + 84 * a1 + 28);
   }
   v11 = v1 + 84 * a1;
   v12 = *(uint8_t *)(v11 + 80);

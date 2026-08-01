@@ -14,10 +14,10 @@ extern uint32_t dword_1081E4;
 extern uint32_t dword_1081DC;
 extern uint32_t dword_1081E0;
 
-// crypto_channel_calc @ 0x108080, size 348 bytes
-// Doc: crypto_channel_calc [mac]: Calculate crypto channel parameters from context
-// crypto_channel_calc [mac]: Calculate crypto channel parameters from context
-int  crypto_channel_calc(int a1, int *a2, uint32_t *a3)
+// list_get_at @ 0x108080, size 348 bytes
+// Doc: list_get_at [mac]: Calculate crypto channel parameters from context
+// list_get_at [mac]: Calculate crypto channel parameters from context
+int  list_get_at(int a1, int *a2, uint32_t *a3)
 {
   int v4; // r3
   uint64_t v5; // kr08_8
@@ -46,8 +46,8 @@ int  crypto_channel_calc(int a1, int *a2, uint32_t *a3)
   v6 = *(uint32_t *)(a1 + 12);
   if ( *(uint32_t *)a1 < v4 && v6 <= 49 )
   {
-    feature_guard_check(1, dword_1081E4);
-    sub_1078DC((int)a2, a3, a1);
+    check_status_bits(1, dword_1081E4);
+    rf_tx_power_set((int)a2, a3, a1);
     v6 = *(uint32_t *)(a1 + 12);
   }
   if ( *(uint32_t *)(a1 + 16) - v6 >= a3[6] )
@@ -101,6 +101,6 @@ LABEL_8:
   }
 LABEL_9:
   *((uint64_t *)a2 + 1) = v14;
-  return feature_guard_check(1, dword_1081E0);
+  return check_status_bits(1, dword_1081E0);
 }
 

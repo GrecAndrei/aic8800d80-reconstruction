@@ -1,1 +1,1 @@
-{"fn": "sub_121F284", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f284", "status": "ok", "name": "sub_121F284", "params": [], "docstring": "Lookup helper using flag byte and table call, returns bool", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121F284", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f284", "status": "ok", "name": "wlc_detach", "params": [], "docstring": "Lookup helper using flag byte and table call, returns bool", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

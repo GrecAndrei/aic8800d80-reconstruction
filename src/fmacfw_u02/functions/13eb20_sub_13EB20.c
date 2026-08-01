@@ -17,10 +17,10 @@ extern uint32_t dword_13EC5C;
 extern uint32_t dword_13EC68;
 extern uint32_t dword_13EC58;
 
-// sub_13EB20 @ 0x13eb20, size 312 bytes
+// rx_header_parse @ 0x13eb20, size 312 bytes
 // Doc: sub_123EB20 [util]: Extract fields from a 16-bit word with bitfield ops
 // sub_123EB20 [util]: Extract fields from a 16-bit word with bitfield ops
-unsigned int  sub_13EB20(int a1)
+unsigned int  rx_header_parse(int a1)
 {
   unsigned int v1; // r3
   int v2; // r1

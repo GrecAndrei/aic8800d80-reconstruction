@@ -1,1 +1,1 @@
-{"fn": "sub_12197DC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12197dc", "status": "ok", "name": "rf_iq_dc_calib_n7c", "params": [], "docstring": "RF IQ/DC calibration init using 0x7c register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12197DC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12197dc", "status": "ok", "name": "ke_alloc_msg_0x7c", "params": [], "docstring": "RF IQ/DC calibration init using 0x7c register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

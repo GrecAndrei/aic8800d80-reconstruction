@@ -27,8 +27,8 @@ extern uint32_t dword_13AFBC;
 extern uint32_t dword_13AFB8;
 extern uint32_t off_13AF78;
 
-// sub_13AC44 @ 0x13ac44, size 882 bytes
-int  sub_13AC44(int a1, int a2)
+// tx_prepare_frame_path @ 0x13ac44, size 882 bytes
+int  tx_prepare_frame_path(int a1, int a2)
 {
   unsigned int v2; // r6
   int v5; // r3
@@ -70,21 +70,21 @@ int  sub_13AC44(int a1, int a2)
 
   v2 = *(uint8_t *)(a1 + 28);
   if ( v2 > 3 )
-    return sub_13AB90(a1, a2, 0x80000000);
+    return rf_set_band_config(a1, a2, 0x80000000);
   v5 = *(uint8_t *)(a1 + 29);
   if ( v5 == 255 )
   {
     if ( (*(uint16_t *)(a1 + 30) & 8) == 0 )
     {
-      sub_12ECB0(dword_13AF74);
-      return sub_13AB90(a1, a2, 0x80000000);
+      ke_event_schedule(dword_13AF74);
+      return rf_set_band_config(a1, a2, 0x80000000);
     }
     goto LABEL_11;
   }
   v6 = dword_13AF48;
   v7 = dword_13AF48 + 696 * v5;
   if ( !*(uint8_t *)(v7 + 37) || *(uint8_t *)(v7 + 48) )
-    return sub_13AB90(a1, a2, 0x80000000);
+    return rf_set_band_config(a1, a2, 0x80000000);
   v9 = *(uint16_t *)(a1 + 30);
   if ( (v9 & 8) != 0 )
   {
@@ -94,8 +94,8 @@ LABEL_11:
     v41 = 0;
     if ( v12 && (*((uint8_t *)off_13AF50 + 15) & 6) == 2 && (*(uint16_t *)(*(uint32_t *)(a1 + 72) + 172) & 0xFC) == 0xB0 )
     {
-      rf_level_apply_80c(6155, 6, dword_13AF54);
-      mmio_reg_init_n0d08c();
+      patch_aware_dispatch(6155, 6, dword_13AF54);
+      clock_disable();
       v11[15] |= 4u;
     }
     v13 = *(uint16_t *)(a1 + 30);
@@ -114,11 +114,11 @@ LABEL_11:
     v15 = v13 & 0x80;
     if ( v15 )
     {
-      v33 = sub_13C734(a1, 192, 0);
+      v33 = bt_get_conn_ctx(a1, 192, 0);
       if ( v33 == 1 )
       {
-        LOBYTE(v15) = sub_13A5C4(a1, &v41);
-        sub_14380C(*(uint32_t *)(a1 + 72) + 164, *(uint32_t *)(a1 + 72) + 172, 24);
+        LOBYTE(v15) = rf_get_cal_entry(a1, &v41);
+        memcpy_aligned(*(uint32_t *)(a1 + 72) + 164, *(uint32_t *)(a1 + 72) + 172, 24);
         v40 = 24;
       }
       else
@@ -158,11 +158,11 @@ LABEL_11:
         {
 LABEL_22:
           if ( **v17 < 0 )
-            sub_12F694(dword_13AF6C, v18, 414);
+            mmio_irq_clear(dword_13AF6C, v18, 414);
           goto LABEL_24;
         }
       }
-      v31 = scan_chan_parse_n1bd4(v22, v21, (uint8_t *)(*(uint32_t *)(v14 + 72) + 4));
+      v31 = llm_rx_pdu_handler(v22, v21, (uint8_t *)(*(uint32_t *)(v14 + 72) + 4));
       *(uint32_t *)(*(uint32_t *)(a1 + 44) + 4 * v19 + 36) = v31 | (v31 << 8);
 LABEL_24:
       if ( ++v19 == 4 )
@@ -174,7 +174,7 @@ LABEL_24:
         *(uint8_t *)(a1 + 51) = v15;
         *(uint8_t *)(a1 + 66) = v15;
         *(uint8_t *)(a1 + 53) = v23;
-        return bt_msg_handler(a1, a2);
+        return conn_tx(a1, a2);
       }
     }
   }
@@ -188,17 +188,17 @@ LABEL_24:
   else if ( v10 != 2 )
   {
 LABEL_9:
-    feature_guard_sdio(32, dword_13AF4C);
-    return sub_13AB90(a1, a2, 0x80000000);
+    state_check_feature(32, dword_13AF4C);
+    return rf_set_band_config(a1, a2, 0x80000000);
   }
   v24 = dword_13AF58;
   v25 = (uint8_t *)(dword_13AF58 + 1320 * v2);
   if ( !v25[108] )
   {
-    sub_12ECB0(dword_13AF70);
-    return sub_13AB90(a1, a2, 0x80000000);
+    ke_event_schedule(dword_13AF70);
+    return rf_set_band_config(a1, a2, 0x80000000);
   }
-  sub_13A6F0(a1);
+  rf_reset_tx_state(a1);
   v26 = v6 + 696 * *(uint8_t *)(a1 + 29);
   if ( *(uint8_t *)(v26 + 52) != 2 )
     goto LABEL_30;
@@ -215,14 +215,14 @@ LABEL_30:
     *(uint32_t *)(a1 + 44) = v28;
     if ( v29[197] )
     {
-      v36 = scan_chan_parse_n1bd4((v28[5] >> 11) & 7, v28[5] & 0x7F, (uint8_t *)(*(uint32_t *)(v27 + 72) + 4));
+      v36 = llm_rx_pdu_handler((v28[5] >> 11) & 7, v28[5] & 0x7F, (uint8_t *)(*(uint32_t *)(v27 + 72) + 4));
       v30 = *(uint16_t *)(a1 + 30);
       v28[9] = v36 | (v36 << 8);
     }
     else
     {
       if ( **(int16_t **)off_13AF68 < 0 )
-        sub_12F694(dword_13AFBC, dword_13AFB8, 1195);
+        mmio_irq_clear(dword_13AFBC, dword_13AFB8, 1195);
       v30 = *(uint16_t *)(a1 + 30);
     }
     goto LABEL_36;
@@ -231,9 +231,9 @@ LABEL_30:
     goto LABEL_30;
 LABEL_52:
   if ( !*(uint8_t *)off_13AF78 )
-    rf_mmio_init_n_1b4(a1);
-  sub_1402A0(a1);
-  v34 = sub_132B20(v6 + 696 * *(uint8_t *)(a1 + 29));
+    rf_modem_status_check(a1);
+  send_data_packet(a1);
+  v34 = llm_adv_pdu_build(v6 + 696 * *(uint8_t *)(a1 + 29));
   v30 = *(uint16_t *)(a1 + 30);
   *(uint32_t *)(a1 + 44) = v34;
   if ( (v30 & 0x2000) != 0 )
@@ -254,7 +254,7 @@ LABEL_52:
   }
 LABEL_36:
   if ( (v30 & 1) == 0 )
-    ethertype_check_0x600(a1, (uint16_t *)(*(uint32_t *)(a1 + 72) + 172));
-  return bt_msg_handler(a1, a2);
+    rx_validate_frame_type(a1, (uint16_t *)(*(uint32_t *)(a1 + 72) + 172));
+  return conn_tx(a1, a2);
 }
 

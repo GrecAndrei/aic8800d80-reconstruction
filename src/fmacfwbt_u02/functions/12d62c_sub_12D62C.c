@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D62C @ 0x12d62c, size 42 bytes
-uint32_t * sub_12D62C(uint32_t *result, uint32_t *a2, uint32_t *a3)
+// list_find_prev @ 0x12d62c, size 42 bytes
+uint32_t * list_find_prev(uint32_t *result, uint32_t *a2, uint32_t *a3)
 {
   uint32_t **v3; // r3
 
   if ( !a2 )
-    return (uint32_t *)list_push_tail((int)result, a3);
+    return (uint32_t *)check_abort_flag((int)result, a3);
   v3 = (uint32_t **)*result;
   if ( (uint32_t *)*result == a2 )
-    return (uint32_t *)bt_state_check_or_init((int)result, a3);
+    return (uint32_t *)check_abort_flag_2((int)result, a3);
   if ( v3 )
   {
     while ( 1 )

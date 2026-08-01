@@ -13,8 +13,8 @@
 extern uint32_t dword_12DFB8;
 extern uint32_t dword_12DFBC;
 
-// sub_12DF40 @ 0x12df40, size 120 bytes
-int  sub_12DF40(unsigned int a1)
+// is_factory_mode_b @ 0x12df40, size 120 bytes
+int  is_factory_mode_b(unsigned int a1)
 {
   int result; // r0
 

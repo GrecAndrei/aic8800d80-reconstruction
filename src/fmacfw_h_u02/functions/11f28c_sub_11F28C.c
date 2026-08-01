@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F28C @ 0x11f28c, size 122 bytes
-int  sub_11F28C(int a1, int a2, int a3)
+// is_ll_event_pending @ 0x11f28c, size 122 bytes
+int  is_ll_event_pending(int a1, int a2, int a3)
 {
   int v3; // r10
   int v4; // r4
@@ -28,19 +28,19 @@ int  sub_11F28C(int a1, int a2, int a3)
   do
   {
     v12 = 0;
-    if ( !sub_116DBC(a1) )
+    if ( !phy_lock(a1) )
       break;
-    if ( !sub_1369C8(v3) )
+    if ( !get_connection_state(v3) )
       break;
-    v10 = sub_136A90(a1, a2, &v12);
+    v10 = handle_acl_packet(a1, a2, &v12);
     if ( v12 )
       break;
     if ( !v10 )
-      v10 = sub_12D190(v8);
+      v10 = list_pop(v8);
     v9 = *(uint8_t *)(v10 + 27);
     *(uint8_t *)(v10 + 97) = 0;
     ++v4;
-    sub_117560(v10, v9);
+    ke_msg_dispatch(v10, v9);
     if ( a3 )
     {
       if ( v4 == a3 )

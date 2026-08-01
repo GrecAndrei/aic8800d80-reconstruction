@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12F9A4 @ 0x12f9a4, size 136 bytes
-uint32_t * sub_12F9A4(int a1, uint32_t *a2, int a3)
+// find_extension @ 0x12f9a4, size 136 bytes
+uint32_t * find_extension(int a1, uint32_t *a2, int a3)
 {
   int v5; // r0
   int v6; // r11
@@ -21,11 +21,11 @@ uint32_t * sub_12F9A4(int a1, uint32_t *a2, int a3)
   int v10; // r6
   uint32_t *v11; // r10
 
-  v5 = sub_143A54(a1, 46);
+  v5 = memset(a1, 46);
   if ( v5 )
     v6 = v5 - a1;
   else
-    v6 = sub_143F00(a1);
+    v6 = memmove(a1);
   if ( a3 )
   {
     v7 = 0;
@@ -38,13 +38,13 @@ uint32_t * sub_12F9A4(int a1, uint32_t *a2, int a3)
         v10 = *v8;
         ++v9;
         v11 = v8;
-        if ( !sub_143FDC(a1, *v8, v6) )
+        if ( !memset(a1, *v8, v6) )
           break;
         v8 += 4;
         if ( a3 == v9 )
           goto LABEL_9;
       }
-      if ( sub_143F00(v10) == v6 )
+      if ( memmove(v10) == v6 )
         return v11;
       a2 = v8;
       ++v7;

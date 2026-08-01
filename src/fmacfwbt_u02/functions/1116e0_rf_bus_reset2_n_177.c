@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_reset2_n_177 @ 0x1116e0, size 114 bytes
+// tx_pkt_config @ 0x1116e0, size 114 bytes
 // Doc: rf_bus_write_n_2dc [rf]: Writes value to RF bus register with offset 0x2dc
 // rf_bus_write_n_2dc [rf]: Writes value to RF bus register with offset 0x2dc
-int rf_bus_reset2_n_177()
+int tx_pkt_config()
 {
   int v0; // r3
   int *v1; // r2

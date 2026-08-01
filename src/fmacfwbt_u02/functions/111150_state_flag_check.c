@@ -13,10 +13,10 @@
 extern uint32_t off_111160;
 extern uint32_t off_111164;
 
-// state_flag_check @ 0x111150, size 16 bytes
-// Doc: state_flag_check [rf]: Check internal state flags
-// state_flag_check [rf]: Check internal state flags
-int state_flag_check()
+// ll_util_get_state @ 0x111150, size 16 bytes
+// Doc: ll_util_get_state [rf]: Check internal state flags
+// ll_util_get_state [rf]: Check internal state flags
+int ll_util_get_state()
 {
   if ( *(uint8_t *)off_111160 )
     return 1;

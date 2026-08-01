@@ -20,10 +20,10 @@ extern uint32_t off_122448;
 extern uint32_t off_122440;
 extern uint32_t dword_12244C;
 
-// mmio_reg_init_patch @ 0x1223b8, size 116 bytes
-// Doc: mmio_reg_init_patch [mmio]: Initialize MMIO control registers with patch flags
-// mmio_reg_init_patch [mmio]: Initialize MMIO control registers with patch flags
-int  mmio_reg_init_patch(int a1)
+// dma_tx_setup @ 0x1223b8, size 116 bytes
+// Doc: dma_tx_setup [mmio]: Initialize MMIO control registers with patch flags
+// dma_tx_setup [mmio]: Initialize MMIO control registers with patch flags
+int  dma_tx_setup(int a1)
 {
   int *v1; // r3
   int v2; // r6
@@ -69,7 +69,7 @@ LABEL_5:
   }
   while ( v1 != (int *)v3 );
   v9 = off_12243C;
-  rf_power_set(*((uint8_t *)off_12243C + 409));
+  write_mmio_byte(*((uint8_t *)off_12243C + 409));
   v10 = off_122444;
   v11 = off_122448;
   *((uint8_t *)off_122440 + 7) = v9[409];
@@ -78,7 +78,7 @@ LABEL_5:
   v15[0] = 0;
   *v11 = 0;
   v15[5] = 0;
-  sub_118104((int)v15);
-  return sub_12ECB0(dword_12244C, v12, v13);
+  delay_loop((int)v15);
+  return ke_event_schedule(dword_12244C, v12, v13);
 }
 

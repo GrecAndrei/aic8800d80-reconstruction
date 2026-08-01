@@ -14,8 +14,8 @@ extern uint32_t off_123B64;
 extern uint32_t dword_123B60;
 extern uint32_t dword_123B5C;
 
-// sub_123A94 @ 0x123a94, size 182 bytes
-void  __noreturn sub_123A94(int a1, int a2, int a3)
+// lld_evt_schedule_next @ 0x123a94, size 182 bytes
+void  __noreturn lld_evt_schedule_next(int a1, int a2, int a3)
 {
   int v3; // r0
   int v4; // [sp+10h] [bp-18h]
@@ -34,9 +34,9 @@ void  __noreturn sub_123A94(int a1, int a2, int a3)
   v9 = 0;
   if ( v3 < 0 )
   {
-    if ( msg_get_value(a3) )
-      sub_12F46C(dword_123B60, dword_123B5C, 337);
+    if ( rx_rate_field_parse(a3) )
+      mmio_clear_register(dword_123B60, dword_123B5C, 337);
   }
-  fmac_init_step();
+  periph_init();
 }
 

@@ -12,11 +12,11 @@
 
 extern uint32_t off_1188F0;
 
-// sub_1188C4 @ 0x1188c4, size 42 bytes
-int sub_1188C4()
+// chip_id_is_one @ 0x1188c4, size 42 bytes
+int chip_id_is_one()
 {
-  if ( sub_11E34C(0) == 1 )
+  if ( flash_write_byte(0) == 1 )
     *(uint32_t *)off_1188F0 = 48;
-  return sub_11E1E4(0);
+  return flash_erase_sector(0);
 }
 

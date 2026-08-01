@@ -1,1 +1,1 @@
-{"fn": "sub_124216C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124216c", "status": "ok", "name": "bt_hci_cmd_dispatch_n_dc", "params": [], "docstring": "Dispatch Bluetooth HCI command from IPC message", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_124216C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124216c", "status": "ok", "name": "parse_ll_control", "params": [], "docstring": "Dispatch Bluetooth HCI command from IPC message", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

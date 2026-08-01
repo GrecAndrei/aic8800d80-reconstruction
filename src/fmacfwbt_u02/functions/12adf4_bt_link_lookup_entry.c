@@ -14,10 +14,10 @@ extern uint32_t dword_12AEB0;
 extern uint32_t off_12AEB4;
 extern uint32_t off_12AEB8;
 
-// bt_link_lookup_entry @ 0x12adf4, size 188 bytes
-// Doc: bt_link_lookup_entry [bt]: Look up a BT link entry by index from the link table
-// bt_link_lookup_entry [bt]: Look up a BT link entry by index from the link table
-int  bt_link_lookup_entry(int a1, int a2)
+// bt_conn_read_info @ 0x12adf4, size 188 bytes
+// Doc: bt_conn_read_info [bt]: Look up a BT link entry by index from the link table
+// bt_conn_read_info [bt]: Look up a BT link entry by index from the link table
+int  bt_conn_read_info(int a1, int a2)
 {
   int v2; // r6
   int v3; // r3

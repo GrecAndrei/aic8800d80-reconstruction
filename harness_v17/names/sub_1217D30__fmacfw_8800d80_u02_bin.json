@@ -1,1 +1,1 @@
-{"fn": "sub_1217D30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217d30", "status": "ok", "name": "rf_status_check", "params": [], "docstring": "Check RF status flag from global state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217D30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217d30", "status": "ok", "name": "ll_state_check", "params": [], "docstring": "Check RF status flag from global state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

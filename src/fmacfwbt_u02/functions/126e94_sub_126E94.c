@@ -17,8 +17,8 @@ extern uint32_t off_126F1C;
 extern uint32_t dword_126F24;
 extern uint32_t off_126F20;
 
-// sub_126E94 @ 0x126e94, size 124 bytes
-void sub_126E94()
+// patch_mmio_write @ 0x126e94, size 124 bytes
+void patch_mmio_write()
 {
   int *v0; // r4
   int v1; // r5
@@ -28,7 +28,7 @@ void sub_126E94()
 
   v0 = *((int **)off_126F10 + 2);
   v1 = *((uint32_t *)off_126F14 + 10);
-  mmio_set_bit7();
+  enable_irq();
   *(uint32_t *)off_126F18 &= ~4u;
   if ( v0 )
   {
@@ -50,7 +50,7 @@ void sub_126E94()
         if ( !v0 )
           return;
       }
-      sub_1194CC(*((uint8_t *)v0 + 116), 0, 0);
+      phy_channel_validate(*((uint8_t *)v0 + 116), 0, 0);
       v0 = (int *)*v0;
     }
     while ( v0 );

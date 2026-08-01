@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E130 @ 0x13e130, size 78 bytes
-uint16_t * sub_13E130(uint16_t *result)
+// util_read_halfword @ 0x13e130, size 78 bytes
+uint16_t * util_read_halfword(uint16_t *result)
 {
   unsigned int v1; // r3
   int v2; // r1

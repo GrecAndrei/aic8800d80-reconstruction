@@ -13,8 +13,8 @@
 extern uint32_t dword_136B60;
 extern uint32_t dword_136B64;
 
-// sub_136B08 @ 0x136b08, size 88 bytes
-int  sub_136B08(int a1)
+// bt_is_link_active @ 0x136b08, size 88 bytes
+int  bt_is_link_active(int a1)
 {
   unsigned int v1; // r3
   int v2; // r2

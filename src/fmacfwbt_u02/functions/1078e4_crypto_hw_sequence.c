@@ -18,10 +18,10 @@ extern uint32_t off_107A9C;
 extern uint32_t dword_107A94;
 extern uint32_t dword_107A98;
 
-// crypto_hw_sequence @ 0x1078e4, size 414 bytes
-// Doc: crypto_hw_sequence [ke]: Runs hardware crypto sequence via MMIO register block
-// crypto_hw_sequence [ke]: Runs hardware crypto sequence via MMIO register block
-int  crypto_hw_sequence(int a1)
+// rf_configure_rx @ 0x1078e4, size 414 bytes
+// Doc: rf_configure_rx [ke]: Runs hardware crypto sequence via MMIO register block
+// rf_configure_rx [ke]: Runs hardware crypto sequence via MMIO register block
+int  rf_configure_rx(int a1)
 {
   uint32_t *v1; // r4
   uint32_t *v2; // r6
@@ -45,26 +45,26 @@ int  crypto_hw_sequence(int a1)
   v3 = (int *)off_107A8C;
   v4 = dword_107A90;
   v5 = off_107A9C;
-  crypto_state_dump(a1);
+  rf_load_tx_config(a1);
   v7 = dword_107A94;
   *v1 |= 0x1000000u;
   *v1 |= 0x2000000u;
-  feature_guard_sdio(1, v7);
-  sub_107370();
+  state_check_feature(1, v7);
+  rf_set_frequency();
   *v2 &= ~1u;
-  delay_us(20);
+  timer_set(20);
   *v2 |= 4u;
   *v2 |= 8u;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x800000u;
   *v3 = *v3 & v4 | 0xC000000;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x4000000u;
   v8 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   v14 = v8;
   *v3 = *v3 & v4 | 0x4000000;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x4000000u;
   v15 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
@@ -78,19 +78,19 @@ int  crypto_hw_sequence(int a1)
     v11 = 0x2000000;
   else
     v11 = 167772160;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x4000000u;
   v16 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   *v3 = *v3 & v4 | v11;
-  delay_us(20);
+  timer_set(20);
   v12 = dword_107A98;
   *v1 |= 0x4000000u;
   v17 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   *v1 &= ~0x800000u;
-  feature_guard_sdio(1, v12);
-  result = crypto_power_calc(&v14, a1);
+  state_check_feature(1, v12);
+  result = util_min_max(&v14, a1);
   *v2 &= ~4u;
   *v2 &= ~8u;
   *v3 &= v4;

@@ -14,22 +14,22 @@ extern uint32_t off_136538;
 extern uint32_t dword_136540;
 extern uint32_t dword_13653C;
 
-// sub_136504 @ 0x136504, size 52 bytes
+// txpwr_update_state @ 0x136504, size 52 bytes
 // Doc: sub_1236504 [util]: Loads a signed halfword from a global pointer table
 // sub_1236504 [util]: Loads a signed halfword from a global pointer table
-int  sub_136504(int value)
+int  txpwr_update_state(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_136538 >= 0 || (value = msg_get_value(7u), value == 1) )
+  if ( **(int16_t **)off_136538 >= 0 || (value = hci_cmd_send_short(7u), value == 1) )
   {
-    sub_13697C(value);
+    txpwr_get_state(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F694(dword_136540, dword_13653C, 311);
-    sub_13697C(v2);
+    v2 = mmio_irq_clear(dword_136540, dword_13653C, 311);
+    txpwr_get_state(v2);
     return 0;
   }
 }

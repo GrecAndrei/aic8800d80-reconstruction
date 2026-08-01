@@ -1,0 +1,1 @@
+{"fn": "sub_12C564", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c564", "status": "ok", "name": "rx_env_list_init", "params": [], "docstring": "Initialize two list heads in RX env at 0x190f50", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

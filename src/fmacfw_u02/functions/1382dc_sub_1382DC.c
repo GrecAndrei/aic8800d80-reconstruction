@@ -24,10 +24,10 @@ extern uint32_t off_138614;
 extern uint32_t dword_138620;
 extern uint32_t dword_13861C;
 
-// sub_1382DC @ 0x1382dc, size 902 bytes
+// ll_state_machine @ 0x1382dc, size 902 bytes
 // Doc: sub_12382DC [mac]: Initialize channel/scan context from global state struct
 // sub_12382DC [mac]: Initialize channel/scan context from global state struct
-uint32_t *sub_1382DC()
+uint32_t *ll_state_machine()
 {
   uint8_t *v0; // r5
   unsigned int v1; // r1
@@ -99,7 +99,7 @@ uint32_t *sub_1382DC()
   v1 = *((uint8_t *)off_1385F8 + 3851);
   v2 = *(uint32_t *)off_1385F8;
   if ( v1 > 1 )
-    return sub_1374C8(0);
+    return hci_cmd_process(0);
   v3 = 0;
   while ( !*(uint8_t *)(v2 + 367) )
   {
@@ -108,7 +108,7 @@ LABEL_59:
     if ( v1 == 1 )
     {
       *((uint8_t *)off_1385F8 + 3851) = 2;
-      return sub_1374C8(0);
+      return hci_cmd_process(0);
     }
     v1 = 1;
   }
@@ -125,7 +125,7 @@ LABEL_59:
   }
   if ( v3 )
     *((uint8_t *)off_1385F8 + 3851) = v1;
-  v7 = sub_12C92C(2048, 2, 4, 0x178u);
+  v7 = ke_msg_alloc(2048, 2, 4, 0x178u);
   *(uint8_t *)(v7 + 366) = *(uint8_t *)(v2 + 366);
   v8 = v7;
   v9 = *(uint64_t *)(v2 + 352);
@@ -277,7 +277,7 @@ LABEL_59:
     v48 = *((uint8_t *)off_138624 + 374);
     if ( (v48 & 1) == 0 )
       goto LABEL_48;
-    fmac_msg_init_header(&v65);
+    format_mac_address(&v65);
 LABEL_74:
     v48 = v43[374];
 LABEL_48:
@@ -330,7 +330,7 @@ LABEL_69:
     }
 LABEL_72:
     v64 = v24;
-    fmac_msg_init_header(&v65);
+    format_mac_address(&v65);
     v24 = v64;
     goto LABEL_69;
   }
@@ -357,23 +357,23 @@ LABEL_40:
 LABEL_44:
   if ( (v48 & 2) == 0 )
     goto LABEL_49;
-  fmac_dbg_marker_set((int)&v65);
+  format_hw_version((int)&v65);
   if ( (v43[374] & 4) != 0 )
 LABEL_46:
-    mac_frame_hdr_init((int)&v65);
+    format_bt_address((int)&v65);
 LABEL_50:
   v50 = (uint16_t *)off_138610;
-  sub_143770(v65, (char *)off_138610 + 3, *(uint16_t *)off_138610);
+  memcpy(v65, (char *)off_138610 + 3, *(uint16_t *)off_138610);
   v51 = **(int16_t **)off_138614;
   v65 += *v50;
   v52 = v65 - (uint32_t)v25;
   if ( v51 < 0 && v52 > 0x12C )
   {
-    sub_12F46C(dword_138620, dword_13861C, 182);
+    mmio_clear_register(dword_138620, dword_13861C, 182);
     LOWORD(v52) = v65 - (uint16_t)v25;
   }
   *(uint16_t *)(v8 + 364) = v52;
   *(uint32_t *)(v8 + 360) = 0;
-  return (uint32_t *)sdio_buffer_prepare_n_4e8(v8);
+  return (uint32_t *)ke_msg_send(v8);
 }
 

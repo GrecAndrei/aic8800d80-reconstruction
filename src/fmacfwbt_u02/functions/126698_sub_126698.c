@@ -14,8 +14,8 @@ extern uint32_t dword_1267A0;
 extern uint32_t dword_12679C;
 extern uint32_t dword_1267A4;
 
-// sub_126698 @ 0x126698, size 258 bytes
-BOOL  sub_126698(int a1, int a2, int a3)
+// rx_packet_handler @ 0x126698, size 258 bytes
+BOOL  rx_packet_handler(int a1, int a2, int a3)
 {
   int v6; // r5
   int v7; // r3
@@ -53,7 +53,7 @@ BOOL  sub_126698(int a1, int a2, int a3)
   }
   if ( !a3 || *(uint8_t *)(a3 + 10) == 255 )
   {
-    v14 = sub_10186C() + 14000;
+    v14 = return_1000() + 14000;
   }
   else
   {
@@ -78,8 +78,8 @@ BOOL  sub_126698(int a1, int a2, int a3)
       v8 = v9 >> 1;
     }
     v10 = *(uint32_t *)(a3 + 4);
-    v11 = v10 + 10000 + sub_10186C();
-    v12 = sub_12A3BC(a1, *(uint8_t *)(a3 + 11));
+    v11 = v10 + 10000 + return_1000();
+    v12 = rf_read_state(a1, *(uint8_t *)(a3 + 11));
     v13 = v12 - a2;
     if ( v12 - a2 + v8 < 0 )
     {
@@ -95,6 +95,6 @@ BOOL  sub_126698(int a1, int a2, int a3)
     else
       v14 = v11 + 4000 - a2;
   }
-  return sub_12A818(v6, 1, 0, 1, 0, v14, a2) != 255;
+  return bt_conn_state_machine(v6, 1, 0, 1, 0, v14, a2) != 255;
 }
 

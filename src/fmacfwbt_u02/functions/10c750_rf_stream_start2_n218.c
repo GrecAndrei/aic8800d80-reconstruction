@@ -17,10 +17,10 @@ extern uint32_t off_10C7D0;
 extern uint32_t off_10C7D4;
 extern uint32_t off_10C7D8;
 
-// rf_stream_start2_n218 @ 0x10c750, size 114 bytes
-// Doc: rf_stream_start2_n218 [rf]: RF stream start path 2 initialization
-// rf_stream_start2_n218 [rf]: RF stream start path 2 initialization
-int *rf_stream_start2_n218()
+// clear_context_182b48 @ 0x10c750, size 114 bytes
+// Doc: clear_context_182b48 [rf]: RF stream start path 2 initialization
+// clear_context_182b48 [rf]: RF stream start path 2 initialization
+int *clear_context_182b48()
 {
   int v0; // r4
   int v1; // zf
@@ -28,8 +28,8 @@ int *rf_stream_start2_n218()
   int **v3; // r4
 
   v0 = *((uint32_t *)off_10C7C4 + 23);
-  memset_thunk((int *)dword_10C7C8, 0, 0x28u);
-  memset_thunk((int *)dword_10C7CC, 0, 0x1E6Cu);
+  memset_byte((int *)dword_10C7C8, 0, 0x28u);
+  memset_byte((int *)dword_10C7CC, 0, 0x1E6Cu);
   if ( (*(uint32_t *)off_10C7D0 & 8) != 0 )
   {
     while ( (*(uint32_t *)off_10C7D0 & 0x10) == 0 )
@@ -43,10 +43,10 @@ int *rf_stream_start2_n218()
     v3 = (int **)off_10C7D4;
     *(uint32_t *)off_10C7D0 |= 8u;
     if ( v1 )
-      memset_thunk(*v3, v2, 0x248u);
+      memset_byte(*v3, v2, 0x248u);
     *(uint32_t *)off_10C7D0 |= 0x10u;
   }
   (*v3)[145] = *(uint32_t *)off_10C7D8;
-  return sdio_dma_config();
+  return pmu_clock_config();
 }
 

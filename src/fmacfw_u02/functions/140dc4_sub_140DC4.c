@@ -12,8 +12,8 @@
 
 extern uint32_t dword_140DF8;
 
-// sub_140DC4 @ 0x140dc4, size 52 bytes
-int  sub_140DC4(char a1, char a2, char a3, int a4, char a5)
+// ll_sched_config @ 0x140dc4, size 52 bytes
+int  ll_sched_config(char a1, char a2, char a3, int a4, char a5)
 {
   int v5; // r4
   int16_t v6; // r6
@@ -26,7 +26,7 @@ int  sub_140DC4(char a1, char a2, char a3, int a4, char a5)
   *(uint8_t *)(dword_140DF8 + 6488) = a2;
   *(uint8_t *)(v5 + 6489) = a1;
   v8[0] = a3;
-  result = sub_140AE4((int)v8, a4);
+  result = ble_ll_adv_sm_check((int)v8, a4);
   *(uint16_t *)(v5 + 6488) = v6;
   return result;
 }

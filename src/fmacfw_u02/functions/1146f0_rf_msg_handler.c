@@ -14,10 +14,10 @@ extern uint32_t off_114734;
 extern uint32_t off_11473C;
 extern uint32_t off_114744;
 
-// rf_msg_handler @ 0x1146f0, size 68 bytes
+// check_bt_ptr_state @ 0x1146f0, size 68 bytes
 // Doc: nvic_irq_disable_n_2a [util]: Write to NVIC ISER/ICER (0xE000E100) to disable an interrupt
 // nvic_irq_disable_n_2a [util]: Write to NVIC ISER/ICER (0xE000E100) to disable an interrupt
-int rf_msg_handler()
+int check_bt_ptr_state()
 {
   int v0; // r2
   int v1; // r1

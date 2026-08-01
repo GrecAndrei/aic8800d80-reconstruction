@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130E44 @ 0x130e44, size 18 bytes
-uint8_t * sub_130E44(uint8_t *a1, int a2, int a3)
+// call_config_setter @ 0x130e44, size 18 bytes
+uint8_t * call_config_setter(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
 
-  result = sub_12DC60(a1, a2);
+  result = check_one_12dc60(a1, a2);
   if ( result )
     result = (uint8_t *)(uint8_t)result[2];
   *(uint8_t *)(a3 + 216) = (uint8_t)result;

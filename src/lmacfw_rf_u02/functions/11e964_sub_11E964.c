@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11E964 @ 0x11e964, size 242 bytes
-float  sub_11E964(unsigned int a1)
+// float_extract_parts @ 0x11e964, size 242 bytes
+float  float_extract_parts(unsigned int a1)
 {
   unsigned int v1; // r3
   int v2; // s15

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1102B8;
 
-// sub_11027C @ 0x11027c, size 52 bytes
+// get_link_tx_power @ 0x11027c, size 52 bytes
 // Doc: log_free_dispatch_n286 [util]: Free log entry then dispatch to logging sink
 // log_free_dispatch_n286 [util]: Free log entry then dispatch to logging sink
-int sub_11027C()
+int get_link_tx_power()
 {
   void *v0; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int sub_11027C()
   int v4; // r4
 
   v0 = log_free_dispatch_n2a8;
-  result = sub_12D240(log_free_dispatch_n2ac_02b4);
+  result = zero_8_bytes(log_free_dispatch_n2ac_02b4);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 4) )
   {
     v2 = dword_1102B8;
@@ -32,8 +32,8 @@ int sub_11027C()
     v4 = 0;
     do
     {
-      sub_10FB28(v2, 0x7Cu);
-      result = list_push_tail(v3);
+      rx_packet_handler(v2, 0x7Cu);
+      result = cmd_handler_a(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );

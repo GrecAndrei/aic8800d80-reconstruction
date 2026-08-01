@@ -1,0 +1,1 @@
+{"fn": "sub_113358", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113358", "status": "ok", "name": "init_driver_states", "params": [], "docstring": "Initialize two globals and return 1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

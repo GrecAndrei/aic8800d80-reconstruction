@@ -15,8 +15,8 @@ extern uint32_t dword_11BC40;
 extern uint32_t dword_11BC3C;
 extern uint32_t dword_11BC44;
 
-// sub_11BAC0 @ 0x11bac0, size 374 bytes
-uint8_t * sub_11BAC0(uint8_t *result)
+// bt_start_operation @ 0x11bac0, size 374 bytes
+uint8_t * bt_start_operation(uint8_t *result)
 {
   unsigned int v1; // r4
   int v2; // r5

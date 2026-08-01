@@ -14,10 +14,10 @@ extern uint32_t off_1138DC;
 extern uint32_t off_1138E0;
 extern uint32_t dword_1138E4;
 
-// log_free_pool_d @ 0x1138a4, size 54 bytes
-// Doc: log_free_pool_d [util]: Logs a free pool entry with debug info
-// log_free_pool_d [util]: Logs a free pool entry with debug info
-int log_free_pool_d()
+// critical_section_enter_no_set @ 0x1138a4, size 54 bytes
+// Doc: critical_section_enter_no_set [util]: Logs a free pool entry with debug info
+// critical_section_enter_no_set [util]: Logs a free pool entry with debug info
+int critical_section_enter_no_set()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int log_free_pool_d()
   v0 = (int *)off_1138E0;
   v1 = dword_1138E4;
   ++*(uint32_t *)off_1138E0;
-  result = list_push_tail(v1);
+  result = check_abort_flag(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

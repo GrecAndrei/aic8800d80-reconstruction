@@ -1,1 +1,1 @@
-{"fn": "sub_12240AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12240ac", "status": "ok", "name": "rf_pll_config_patch_n_8c", "params": [], "docstring": "Configures RF PLL/clock registers by clearing mask bits 0x30000 and 0x600", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12240AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12240ac", "status": "ok", "name": "rf_disable", "params": [], "docstring": "Configures RF PLL/clock registers by clearing mask bits 0x30000 and 0x600", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

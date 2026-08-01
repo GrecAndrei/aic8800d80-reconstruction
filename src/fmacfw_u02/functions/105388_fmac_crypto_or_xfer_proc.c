@@ -25,10 +25,10 @@ extern uint32_t dword_1059E0;
 extern uint32_t dword_1059DC;
 extern uint32_t dword_10593C;
 
-// fmac_crypto_or_xfer_proc @ 0x105388, size 1618 bytes
-// Doc: fmac_crypto_or_xfer_proc [mac]: FMAC large handler with vpush/d8-d9, dispatches on r1==1
-// fmac_crypto_or_xfer_proc [mac]: FMAC large handler with vpush/d8-d9, dispatches on r1==1
-int  fmac_crypto_or_xfer_proc(
+// rx_packet_process @ 0x105388, size 1618 bytes
+// Doc: rx_packet_process [mac]: FMAC large handler with vpush/d8-d9, dispatches on r1==1
+// rx_packet_process [mac]: FMAC large handler with vpush/d8-d9, dispatches on r1==1
+int  rx_packet_process(
         int a1,
         int a2,
         float *a3,
@@ -192,12 +192,12 @@ int  fmac_crypto_or_xfer_proc(
       v16 = *(v14 - 2);
       if ( v15 < v16 )
       {
-        v17 = sub_1429F8(LODWORD(v15));
-        v18 = sub_1429F8(LODWORD(v16));
-        v19 = sub_142AA8(v18, HIDWORD(v18), dword_105668, dword_10566C);
-        if ( sub_142F8C(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
+        v17 = float_to_double(LODWORD(v15));
+        v18 = float_to_double(LODWORD(v16));
+        v19 = double_add(v18, HIDWORD(v18), dword_105668, dword_10566C);
+        if ( double_lt(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
         {
-          feature_guard_check(1, v12);
+          check_status_bits(1, v12);
           v16 = *(v14 - 2);
         }
         *(v14 - 1) = v16;
@@ -207,7 +207,7 @@ int  fmac_crypto_or_xfer_proc(
   }
   if ( a1 > 0 )
   {
-    v20 = sub_1429D4(a1);
+    v20 = int_to_double(a1);
     v21 = flt_105660;
     v112 = v11;
     v22 = v124;
@@ -217,9 +217,9 @@ int  fmac_crypto_or_xfer_proc(
     v26 = v20;
     do
     {
-      v27 = sub_1429D4(++v24);
-      v28 = sub_142CFC(v27, HIDWORD(v27), v26, HIDWORD(v26));
-      *(uint32_t *)v25++ = sub_14306C(v28);
+      v27 = int_to_double(++v24);
+      v28 = double_subtract(v27, HIDWORD(v27), v26, HIDWORD(v26));
+      *(uint32_t *)v25++ = double_to_uint(v28);
       *v22++ = 1.0;
       *v23++ = v21;
     }
@@ -230,7 +230,7 @@ int  fmac_crypto_or_xfer_proc(
   v30 = 0;
   v113 = a2 - 1;
   v122 = a2 - 1;
-  sub_1052E8(a2, v29, &v120, (int)v11, 0);
+  rx_status_shift(a2, v29, &v120, (int)v11, 0);
   v31 = &v11[v121];
   v32 = &v11[v120];
   v33 = *v31;
@@ -243,7 +243,7 @@ int  fmac_crypto_or_xfer_proc(
   {
     if ( a1 )
     {
-      feature_guard_check(1, dword_1059E4);
+      check_status_bits(1, dword_1059E4);
       goto LABEL_44;
     }
   }
@@ -256,7 +256,7 @@ int  fmac_crypto_or_xfer_proc(
       if ( v30 != v106 )
       {
         v41 = v37 * *v39;
-        sub_1052E8(a2, v41, &v120, (int)v11, 1);
+        rx_status_shift(a2, v41, &v120, (int)v11, 1);
         if ( v120 )
         {
           v42 = &v11[v120];
@@ -264,8 +264,8 @@ int  fmac_crypto_or_xfer_proc(
             || (v43 = v11[v121 + 32],
                 v109 = &v11[v121],
                 v44 = v42[32] - v43,
-                v45 = sub_1429F8(LODWORD(v44)),
-                sub_142F8C(v45, HIDWORD(v45), dword_105658, dword_10565C)) )
+                v45 = float_to_double(LODWORD(v44)),
+                double_lt(v45, HIDWORD(v45), dword_105658, dword_10565C)) )
           {
             v40 = 1.0;
           }
@@ -295,7 +295,7 @@ int  fmac_crypto_or_xfer_proc(
   while ( 1 )
   {
     v57 = v124[v48];
-    sub_1052E8(a2, v57, &v120, (int)v11, 0);
+    rx_status_shift(a2, v57, &v120, (int)v11, 0);
     if ( v120 )
     {
       v110 = &v11[v121];
@@ -308,8 +308,8 @@ int  fmac_crypto_or_xfer_proc(
       {
         v52 = *v110;
         v53 = *v51 - *v110;
-        v54 = sub_1429F8(LODWORD(v53));
-        if ( !sub_142FC8(v54, HIDWORD(v54), dword_105658, dword_10565C) )
+        v54 = float_to_double(LODWORD(v53));
+        if ( !double_gt(v54, HIDWORD(v54), dword_105658, dword_10565C) )
           v53 = v47;
         v55 = (float)((float)((float)(v51[96] - v110[96]) / v53) * (float)(v57 - v52)) + v110[96];
       }
@@ -331,7 +331,7 @@ int  fmac_crypto_or_xfer_proc(
       break;
     ++v49;
   }
-  feature_guard_check(1, dword_105924);
+  check_status_bits(1, dword_105924);
   if ( v107 > 0 )
   {
     v58 = flt_105928;
@@ -355,7 +355,7 @@ int  fmac_crypto_or_xfer_proc(
       *v62++ = v69;
       if ( v69 < 0 )
         *(v62 - 1) = v69 + (v69 < 0 ? 0x400 : 0);
-      feature_guard_check(1, v66);
+      check_status_bits(1, v66);
     }
     while ( v107 != v63 );
   }
@@ -396,7 +396,7 @@ LABEL_48:
     v84 = v78;
     do
     {
-      feature_guard_check(1, v76);
+      check_status_bits(1, v76);
       *(uint32_t *)(v79 - 40) = v105;
       *(uint32_t *)(v79 - 36) = v108;
       *(uint32_t *)(v79 - 32) = v111;
@@ -424,7 +424,7 @@ LABEL_48:
       v79 += 384;
     }
     while ( v118 != v84 );
-    return feature_guard_check(1, dword_105938);
+    return check_status_bits(1, dword_105938);
   }
   if ( a8 == 7 )
     v72 = 5;
@@ -433,7 +433,7 @@ LABEL_48:
   if ( a5 == 2 )
   {
     v89 = dword_1059E0;
-    feature_guard_check(1, dword_1059DC);
+    check_status_bits(1, dword_1059DC);
     v98 = (uint32_t *)(a4 + 48 * v72);
     v98[14] = v105;
     v98[15] = v108;
@@ -466,7 +466,7 @@ LABEL_48:
     v89 = dword_10593C;
     v90 = a4 + 96;
   }
-  feature_guard_check(1, dword_105934);
+  check_status_bits(1, dword_105934);
   v91 = 3 * (v72 + 8 * a5);
   v92 = (uint32_t *)(a4 + 16 * v91);
   v92[14] = v105;
@@ -492,6 +492,6 @@ LABEL_48:
     v94 += 4;
   }
   while ( (int *)v95 != v96 );
-  return feature_guard_check(1, dword_105938);
+  return check_status_bits(1, dword_105938);
 }
 

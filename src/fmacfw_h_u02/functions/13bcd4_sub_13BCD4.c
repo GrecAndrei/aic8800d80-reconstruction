@@ -15,8 +15,8 @@ extern uint32_t dword_13BD4C;
 extern uint32_t dword_13BD50;
 extern uint32_t dword_13BD54;
 
-// sub_13BCD4 @ 0x13bcd4, size 120 bytes
-int  sub_13BCD4(int result)
+// ke_event_schedule @ 0x13bcd4, size 120 bytes
+int  ke_event_schedule(int result)
 {
   int v1; // r9
   int v2; // r6
@@ -41,16 +41,16 @@ int  sub_13BCD4(int result)
     {
       if ( i > 15 )
       {
-        sub_12D1A8(v6, (uint32_t *)v3);
-        sub_12D108(dword_13BD54, (uint32_t *)v3);
+        wlan_ioctl_handler_3(v6, (uint32_t *)v3);
+        wlan_ioctl_handler_1(dword_13BD54, (uint32_t *)v3);
       }
       else
       {
-        sub_12D1A8(v1, (uint32_t *)v3);
-        sub_12D108(v5, (uint32_t *)v3);
+        wlan_ioctl_handler_3(v1, (uint32_t *)v3);
+        wlan_ioctl_handler_1(v5, (uint32_t *)v3);
       }
-      sub_12CBF4((uint16_t)((uint16_t)i << 8) | 8, 4);
-      result = sub_13BC64(v4, (uint16_t)i);
+      hci_cmd_preprocess((uint16_t)((uint16_t)i << 8) | 8, 4);
+      result = rf_set_frequency(v4, (uint16_t)i);
     }
     v3 += 32;
   }

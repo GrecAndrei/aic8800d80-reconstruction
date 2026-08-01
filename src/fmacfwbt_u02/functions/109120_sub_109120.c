@@ -13,8 +13,8 @@
 extern uint32_t off_109194;
 extern uint32_t off_109198;
 
-// sub_109120 @ 0x109120, size 114 bytes
-uint32_t * sub_109120(uint32_t *result, unsigned int *a2)
+// udelay_50 @ 0x109120, size 114 bytes
+uint32_t * udelay_50(uint32_t *result, unsigned int *a2)
 {
   int v2; // r3
   int v3; // r3

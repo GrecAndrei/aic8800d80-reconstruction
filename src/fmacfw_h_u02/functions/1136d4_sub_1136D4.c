@@ -20,8 +20,8 @@ extern uint32_t off_113770;
 extern uint32_t dword_113760;
 extern uint32_t dword_11375C;
 
-// sub_1136D4 @ 0x1136d4, size 124 bytes
-int sub_1136D4()
+// rf_read_status @ 0x1136d4, size 124 bytes
+int rf_read_status()
 {
   void *v0; // r7
   int result; // r0
@@ -35,7 +35,7 @@ int sub_1136D4()
   int v9; // r2
 
   v0 = off_113750;
-  result = sub_12D100(dword_113754);
+  result = clear_stats_buf(dword_113754);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = off_113764;
@@ -46,13 +46,13 @@ int sub_1136D4()
     v7 = 0;
     do
     {
-      if ( !sub_10F9E8(v4, (uint16_t)(v2[153] - 4)) )
+      if ( !tx_irq_handler(v4, (uint16_t)(v2[153] - 4)) )
       {
-        sub_12E948(v5, v7, v9);
+        alloc_tx_event(v5, v7, v9);
         if ( **v6 < 0 )
-          sub_12F32C(dword_113760, dword_11375C, 495);
+          irq_disable_mmio_write(dword_113760, dword_11375C, 495);
       }
-      result = sub_12D108(dword_113754);
+      result = wlan_ioctl_handler_1(dword_113754);
       v8 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v7;
       ++*v3;

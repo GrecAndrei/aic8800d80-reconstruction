@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_368 @ 0x115180, size 44 bytes
+// rom_call_extract_byte @ 0x115180, size 44 bytes
 // Doc: rf_bus_reset2_n_312 [rf]: Resets RF bus using config pointers from data section
 // rf_bus_reset2_n_312 [rf]: Resets RF bus using config pointers from data section
-int  patch_apply_n_368(uint8_t *a1)
+int  rom_call_extract_byte(uint8_t *a1)
 {
   int16_t v2; // r0
 

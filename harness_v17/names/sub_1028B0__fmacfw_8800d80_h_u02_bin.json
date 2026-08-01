@@ -1,0 +1,1 @@
+{"fn": "sub_1028B0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1028b0", "status": "ok", "name": "pll_clock_config", "params": [], "docstring": "Configure PLL clock register and set enable bit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

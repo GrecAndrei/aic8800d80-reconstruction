@@ -13,14 +13,14 @@
 extern uint32_t off_128E10;
 extern uint32_t off_128E14;
 
-// sub_128DDC @ 0x128ddc, size 50 bytes
-int sub_128DDC()
+// mfp_key_get_status @ 0x128ddc, size 50 bytes
+int mfp_key_get_status()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r3
 
   v0 = off_128E10;
-  if ( !*(uint8_t *)off_128E10 && !sub_12A32C() )
+  if ( !*(uint8_t *)off_128E10 && !bt_ll_flow_control_check() )
     return 0;
   if ( v0[1] )
     return 0;

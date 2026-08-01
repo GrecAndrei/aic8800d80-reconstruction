@@ -1,1 +1,1 @@
-{"fn": "sub_1202E04", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1202e04", "status": "ok", "name": "rf_init_or_config_helper", "params": [], "docstring": "RF firmware initialization/config helper saving r4-r6,lr", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1202E04", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1202e04", "status": "ok", "name": "dma_init", "params": [], "docstring": "RF firmware initialization/config helper saving r4-r6,lr", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

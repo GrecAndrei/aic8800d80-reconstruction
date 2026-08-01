@@ -18,8 +18,8 @@ extern uint32_t off_1077E4;
 extern uint32_t dword_1077E8;
 extern uint32_t dword_1077F4;
 
-// sub_107638 @ 0x107638, size 418 bytes
-int  sub_107638(int a1)
+// rf_core_irq_dispatch @ 0x107638, size 418 bytes
+int  rf_core_irq_dispatch(int a1)
 {
   int *v1; // r4
   uint32_t *v2; // r5
@@ -52,28 +52,28 @@ int  sub_107638(int a1)
   v4 = dword_1077F0;
   v5 = (int *)off_1077E4;
   v6 = off_1077E4;
-  sub_107150(a1);
+  load_patch_bundle(a1);
   v8 = dword_1077E8;
   *v1 |= 0x1000000u;
   v9 = *v1 | 0x2000000;
   *v1 = v9;
-  sub_11F74C(1, v8, v10, v9);
-  sub_106F08();
+  check_interrupt_flag(1, v8, v10, v9);
+  clk_set_divider();
   *v2 &= ~1u;
-  sub_100560(20);
+  write_timer_reg(20);
   *v2 |= 4u;
   *v2 |= 8u;
-  sub_100560(20);
+  write_timer_reg(20);
   v11 = (int *)off_1077EC;
   *v1 |= 0x400000u;
   *v3 = *v3 & v4 | 0xC00;
-  sub_100560(20);
+  write_timer_reg(20);
   *v1 |= 0x4000000u;
   v12 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   v22 = v12;
   *v3 = *v3 & v4 | 0x400;
-  sub_100560(20);
+  write_timer_reg(20);
   *v1 |= 0x4000000u;
   v13 = *v5;
   v14 = dword_1077F0;
@@ -90,19 +90,19 @@ int  sub_107638(int a1)
     v18 = 512;
   else
     v18 = 2560;
-  sub_100560(20);
+  write_timer_reg(20);
   *v16 |= 0x4000000u;
   v24 = *v6 & 0x7FFF;
   *v16 &= ~0x4000000u;
   *v11 = *v11 & v14 | v18;
-  sub_100560(20);
+  write_timer_reg(20);
   v19 = dword_1077F4;
   *v16 |= 0x4000000u;
   v25 = *v6 & 0x7FFF;
   *v16 &= ~0x4000000u;
   *v16 &= ~0x400000u;
-  sub_11F74C(1, v19, 3072, v22);
-  result = sub_1073BC(&v22, a1);
+  check_interrupt_flag(1, v19, 3072, v22);
+  result = timer_delta_compare(&v22, a1);
   v21 = off_1077E0;
   *(uint32_t *)off_1077E0 &= ~4u;
   *v21 &= ~8u;

@@ -18,8 +18,8 @@ extern uint32_t dword_10DF44;
 extern uint32_t dword_10DF48;
 extern uint32_t dword_10DF4C;
 
-// sub_10DEF0 @ 0x10def0, size 72 bytes
-int sub_10DEF0()
+// wait_sdio_core_ready @ 0x10def0, size 72 bytes
+int wait_sdio_core_ready()
 {
   uint32_t *v0; // r3
   uint64_t v1; // r0
@@ -31,10 +31,10 @@ int sub_10DEF0()
     ;
   v0 = off_10DF50;
   *((uint32_t *)off_10DF50 + 7) = 1;
-  v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), dword_10DF38, dword_10DF3C);
-  v3 = sub_127874(v2, HIDWORD(v2), dword_10DF40, dword_10DF44);
-  v4 = sub_1272B0(v3, HIDWORD(v3), dword_10DF48, dword_10DF4C);
-  return sub_127BE4(v4);
+  v1 = double_to_float(v0[4]);
+  v2 = aeabi_dadd(v1, HIDWORD(v1), dword_10DF38, dword_10DF3C);
+  v3 = aeabi_dsub(v2, HIDWORD(v2), dword_10DF40, dword_10DF44);
+  v4 = double_subtract(v3, HIDWORD(v3), dword_10DF48, dword_10DF4C);
+  return aeabi_dmul(v4);
 }
 

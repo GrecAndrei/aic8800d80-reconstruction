@@ -17,8 +17,8 @@ extern uint32_t off_1041D8;
 extern uint32_t off_1041DC;
 extern uint32_t off_1041E0;
 
-// sub_1040F0 @ 0x1040f0, size 220 bytes
-unsigned int *sub_1040F0()
+// mac_irq_pending_clear @ 0x1040f0, size 220 bytes
+unsigned int *mac_irq_pending_clear()
 {
   unsigned int *v0; // r1
   uint32_t *v1; // r0

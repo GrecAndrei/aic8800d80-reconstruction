@@ -18,8 +18,8 @@ extern uint32_t off_11BFE4;
 extern uint32_t off_11BFEC;
 extern uint32_t dword_11BFF0;
 
-// sub_11BE18 @ 0x11be18, size 446 bytes
-void sub_11BE18()
+// ke_event_poll @ 0x11be18, size 446 bytes
+void ke_event_poll()
 {
   uint32_t *v0; // r4
   int v1; // r3
@@ -72,7 +72,7 @@ void sub_11BE18()
     {
       if ( *((uint8_t *)off_11BFD8 + 191) == 4 )
       {
-        sub_11B9B8((int)off_11BFD8 + 168);
+        ke_timer_update((int)off_11BFD8 + 168);
       }
       else
       {
@@ -112,13 +112,13 @@ void sub_11BE18()
         }
         if ( (v1 & 1) == 0 )
         {
-          v21 = (uint32_t *)sub_11B680(&v35);
+          v21 = (uint32_t *)state_check_and_setup(&v35);
           if ( v21 )
           {
-            mmio_rf_table_init(v21);
+            crypto_aes_setup(v21);
             v22 = v35;
             *(uint32_t *)off_11BFEC &= ~0x200u;
-            bt_hci_cmd_send(v22);
+            bt_controller_event_handler(v22);
             return;
           }
           v1 = v0[52];

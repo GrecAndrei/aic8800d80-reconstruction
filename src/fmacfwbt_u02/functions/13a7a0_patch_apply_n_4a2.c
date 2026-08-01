@@ -13,10 +13,10 @@
 extern uint32_t dword_13AA18;
 extern uint32_t dword_13AA14;
 
-// patch_apply_n_4a2 @ 0x13a7a0, size 626 bytes
-// Doc: patch_apply_n_4a2 [patch]: apply firmware patch table entry
-// patch_apply_n_4a2 [patch]: apply firmware patch table entry
-int  patch_apply_n_4a2(int a1, int a2)
+// rf_configure_channel @ 0x13a7a0, size 626 bytes
+// Doc: rf_configure_channel [patch]: apply firmware patch table entry
+// rf_configure_channel [patch]: apply firmware patch table entry
+int  rf_configure_channel(int a1, int a2)
 {
   int v2; // r11
   int v3; // r10
@@ -74,7 +74,7 @@ int  patch_apply_n_4a2(int a1, int a2)
       goto LABEL_26;
     }
     v33 = **(uint32_t **)(v7 + 188);
-    v29 = sub_11C7A4(a1, dword_13AA18 + 696 * v2);
+    v29 = is_associated(a1, dword_13AA18 + 696 * v2);
     v10 = v33;
     *(uint32_t *)(a2 - 4) = v29;
     v13 = 0x8000;

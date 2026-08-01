@@ -1,1 +1,1 @@
-{"fn": "sub_121A838", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121a838", "status": "ok", "name": "rf_flag_mask_test", "params": [], "docstring": "Test masked flag bits against 0x1c000 threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121A838", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121a838", "status": "ok", "name": "check_event_flags", "params": [], "docstring": "Test masked flag bits against 0x1c000 threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

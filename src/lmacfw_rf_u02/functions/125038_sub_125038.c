@@ -13,21 +13,21 @@
 extern uint32_t dword_125068;
 extern uint32_t dword_125064;
 
-// sub_125038 @ 0x125038, size 42 bytes
-int  sub_125038(int a1, int a2)
+// set_rf_channel_map @ 0x125038, size 42 bytes
+int  set_rf_channel_map(int a1, int a2)
 {
   uint8_t v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse(dword_125068);
+    dispatch_event_handler(dword_125068);
     return 1;
   }
   else
   {
-    v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    sub_123F8C(v2);
-    msg_parse(dword_125064);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    set_reg_1807fc_bit21(v2);
+    dispatch_event_handler(dword_125064);
     return 0;
   }
 }

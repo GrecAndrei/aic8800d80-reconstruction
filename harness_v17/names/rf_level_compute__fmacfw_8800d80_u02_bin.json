@@ -1,1 +1,1 @@
-{"fn": "rf_level_compute", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1230430", "status": "ok", "name": "rf_level_compute", "params": [], "docstring": "Compute RF signal level/threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_level_compute", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1230430", "status": "ok", "name": "rf_is_channel_valid", "params": [], "docstring": "Compute RF signal level/threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

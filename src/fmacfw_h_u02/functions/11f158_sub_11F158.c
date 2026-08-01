@@ -15,8 +15,8 @@ extern uint32_t dword_11F270;
 extern uint32_t dword_11F260;
 extern uint32_t dword_11F268;
 
-// sub_11F158 @ 0x11f158, size 258 bytes
-int  sub_11F158(int a1, uint8_t a2)
+// set_connection_flag @ 0x11f158, size 258 bytes
+int  set_connection_flag(int a1, uint8_t a2)
 {
   int v2; // r4
   int v3; // r8
@@ -48,7 +48,7 @@ int  sub_11F158(int a1, uint8_t a2)
   {
     case 0u:
     case 3u:
-      v9 = sub_14383C(v8);
+      v9 = hash32(v8);
       v10 = (int *)(v3 + 696 * v2 + 136);
       *v10 = v9 & 0xFFFFFF;
       v10[1] = 0;

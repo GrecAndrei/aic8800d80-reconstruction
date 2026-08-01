@@ -1,0 +1,1 @@
+{"fn": "sub_10F14C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f14c", "status": "ok", "name": "mmio_set_reg_0x70001408", "params": [], "docstring": "Set mmio register 0x70001408 via helper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

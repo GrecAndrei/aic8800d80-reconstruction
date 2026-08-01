@@ -21,8 +21,8 @@ extern uint32_t dword_10DDAC;
 extern uint32_t dword_10DDB0;
 extern uint32_t dword_10DDB4;
 
-// sub_10DD20 @ 0x10dd20, size 128 bytes
-int sub_10DD20()
+// gpio_port_init @ 0x10dd20, size 128 bytes
+int gpio_port_init()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
@@ -46,10 +46,10 @@ int sub_10DD20()
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v4 = sub_12752C(v1[4]);
-  v5 = sub_127620(v4, HIDWORD(v4), dword_10DDA0, dword_10DDA4);
-  v6 = sub_127874(v5, HIDWORD(v5), dword_10DDA8, dword_10DDAC);
-  v7 = sub_1272B0(v6, HIDWORD(v6), dword_10DDB0, dword_10DDB4);
-  return sub_127BE4(v7);
+  v4 = double_to_float(v1[4]);
+  v5 = aeabi_dadd(v4, HIDWORD(v4), dword_10DDA0, dword_10DDA4);
+  v6 = aeabi_dsub(v5, HIDWORD(v5), dword_10DDA8, dword_10DDAC);
+  v7 = double_subtract(v6, HIDWORD(v6), dword_10DDB0, dword_10DDB4);
+  return aeabi_dmul(v7);
 }
 

@@ -1,0 +1,1 @@
+{"fn": "sub_10186C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10186c", "status": "ok", "name": "return_1000", "params": [], "docstring": "Return constant 1000", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

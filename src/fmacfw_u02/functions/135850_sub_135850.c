@@ -17,10 +17,10 @@ extern uint32_t dword_13592C;
 extern uint32_t dword_135928;
 extern uint32_t dword_135924;
 
-// sub_135850 @ 0x135850, size 200 bytes
+// bt_get_current_profile_conn @ 0x135850, size 200 bytes
 // Doc: sub_1235850 [scan]: Reads shared scan/state structure and dispatches action
 // sub_1235850 [scan]: Reads shared scan/state structure and dispatches action
-int  sub_135850(unsigned int a1)
+int  bt_get_current_profile_conn(unsigned int a1)
 {
   int v1; // r8
   int v2; // r7
@@ -41,8 +41,8 @@ int  sub_135850(unsigned int a1)
   v2 = dword_135920;
   v3 = *(uint8_t *)(v1 + 61);
   if ( **(int16_t **)off_135918 < 0 && *(int *)(dword_135920 + 1320 * v3 + 472) >= 0 )
-    sub_12F46C(dword_13592C, dword_135928, 1398);
-  v5 = (uint8_t *)sub_12C92C(6150, 13, 6, 0x2Cu);
+    mmio_clear_register(dword_13592C, dword_135928, 1398);
+  v5 = (uint8_t *)ke_msg_alloc(6150, 13, 6, 0x2Cu);
   *v5 = *(uint8_t *)(v1 + 61);
   v6 = v5 + 1;
   v7 = v2 + 1320 * v3;
@@ -68,8 +68,8 @@ int  sub_135850(unsigned int a1)
   *(uint16_t *)(v9 + 38) = *(uint16_t *)(v14 + 372);
   *(uint32_t *)(v9 + 34) = v15;
   *(uint32_t *)(v9 + 40) = bswap32(a1);
-  sub_12CD34(6u, 6);
-  timer_set_relative(6154, 6, dword_135924);
-  return sdio_buffer_prepare_n_4e8(v9);
+  rx_phy_status_parse(6u, 6);
+  ke_task_create(6154, 6, dword_135924);
+  return ke_msg_send(v9);
 }
 

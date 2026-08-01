@@ -14,8 +14,8 @@ extern uint32_t off_1103E8;
 extern uint32_t off_1103EC;
 extern uint32_t dword_1103F0;
 
-// sub_1103B0 @ 0x1103b0, size 54 bytes
-int sub_1103B0()
+// irq_disable_set_flag_preserve_2 @ 0x1103b0, size 54 bytes
+int irq_disable_set_flag_preserve_2()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_1103B0()
   v0 = (int *)off_1103EC;
   v1 = dword_1103F0;
   ++*(uint32_t *)off_1103EC;
-  result = list_push_tail(v1);
+  result = check_kernel_state(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

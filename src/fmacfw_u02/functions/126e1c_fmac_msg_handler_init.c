@@ -29,10 +29,10 @@ extern uint32_t off_12701C;
 extern uint32_t off_127010;
 extern uint32_t dword_127014;
 
-// fmac_msg_handler_init @ 0x126e1c, size 484 bytes
-// Doc: fmac_msg_handler_init [mac]: Initialize FMAC message handling state and post event
-// fmac_msg_handler_init [mac]: Initialize FMAC message handling state and post event
-int fmac_msg_handler_init()
+// ctrl_poll_events @ 0x126e1c, size 484 bytes
+// Doc: ctrl_poll_events [mac]: Initialize FMAC message handling state and post event
+// ctrl_poll_events [mac]: Initialize FMAC message handling state and post event
+int ctrl_poll_events()
 {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
@@ -60,8 +60,8 @@ int fmac_msg_handler_init()
   v0 = off_127000;
   v1 = off_127004;
   v2 = *((uint32_t *)off_127000 + 11);
-  sub_102A20((uint16_t *)(v2 + 4), 0);
-  mac_rx_reorder(*(char *)(v2 + 12));
+  rf_enable((uint16_t *)(v2 + 4), 0);
+  util_format(*(char *)(v2 + 12));
   *(uint32_t *)off_127008 = v1[*(uint8_t *)(v2 + 4) + 5];
   if ( *(uint8_t *)(v2 + 24) == 3 )
   {
@@ -78,7 +78,7 @@ int fmac_msg_handler_init()
     v6 = 0;
     goto LABEL_7;
   }
-  v3 = (uint8_t *)sub_12C92C(68, 13, 0, 4);
+  v3 = (uint8_t *)ke_msg_alloc(68, 13, 0, 4);
   v4 = *(uint8_t *)(v2 + 24);
   *v3 = v4;
   if ( v4 == 4 )
@@ -95,7 +95,7 @@ int fmac_msg_handler_init()
   v3[1] = v5;
   v3[3] = 0;
   v3[2] = *(uint8_t *)(v2 + 26);
-  sdio_buffer_prepare_n_4e8(v3);
+  ke_msg_send(v3);
   v7 = v0[10];
   if ( v7 )
   {
@@ -132,7 +132,7 @@ LABEL_8:
     goto LABEL_10;
   }
 LABEL_27:
-  sub_117AB8();
+  fatal_error_handler();
   v16 = *(uint8_t *)(v2 + 24);
   if ( v16 > 2 )
   {
@@ -145,11 +145,11 @@ LABEL_29:
       v1[1] = v18;
       if ( v17 < 0 && *(uint32_t *)off_12703C << 28 )
       {
-        sub_12F49C(dword_127044, dword_127040, 472);
+        call_shared_handler(dword_127044, dword_127040, 472);
         v18 = v1[1];
       }
       *(uint32_t *)off_127028 = v18 | *v1;
-      sub_12CA10(141, 2, 255);
+      ke_msg_send_no_param(141, 2, 255);
       if ( *((uint8_t *)off_12702C + 3851) == 1 && !*((uint8_t *)off_127030 + 10) )
       {
         v19 = *(uint32_t **)off_127034;
@@ -182,10 +182,10 @@ LABEL_22:
     *((uint8_t *)v0 + 92) = (*(uint32_t *)off_127018 & 4) != 0;
     *v11 = v13 & 0xFFFFFFFB;
     v12[1] = v14;
-    return mmio_init_reset();
+    return set_clock_divisor();
   }
 LABEL_10:
-  fmac_msg_handler_dispatch();
+  rf_mmio_write();
   v9 = *((uint32_t *)off_127010 + 2);
   if ( v9 )
   {
@@ -196,14 +196,14 @@ LABEL_10:
       {
         v9 = *(uint32_t *)v9;
         if ( !v9 )
-          return mmio_init_reset();
+          return set_clock_divisor();
       }
       *(uint8_t *)(v10 + 32 * *(uint8_t *)(v9 + 107) + 31) = 1;
-      sub_120214(v9);
+      read_descriptor(v9);
       v9 = *(uint32_t *)v9;
     }
     while ( v9 );
   }
-  return mmio_init_reset();
+  return set_clock_divisor();
 }
 

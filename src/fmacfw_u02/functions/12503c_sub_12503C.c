@@ -19,10 +19,10 @@ extern uint32_t dword_1250F0;
 extern uint32_t dword_1250EC;
 extern uint32_t dword_1250E4;
 
-// sub_12503C @ 0x12503c, size 152 bytes
+// hci_packet_type_router @ 0x12503c, size 152 bytes
 // Doc: sub_122503E [unknown]: Helper routine saving r4-r6 and remapping args
 // sub_122503E [unknown]: Helper routine saving r4-r6 and remapping args
-int  sub_12503C(int a1, int a2)
+int  hci_packet_type_router(int a1, int a2)
 {
   int v4; // r5
 
@@ -34,7 +34,7 @@ int  sub_12503C(int a1, int a2)
       break;
     case 3:
       v4 = dword_1250D8;
-      rf_chan_info_copy_n_2d0(*(uint8_t *)(dword_1250D8 + 1320 * a1 + 1225), dword_1250E8 + 38 * a1);
+      rf_calib_params_get(*(uint8_t *)(dword_1250D8 + 1320 * a1 + 1225), dword_1250E8 + 38 * a1);
       break;
     case 1:
       v4 = dword_1250D8;
@@ -43,10 +43,10 @@ int  sub_12503C(int a1, int a2)
     default:
       v4 = dword_1250D8;
       if ( **(int16_t **)off_1250D4 < 0 )
-        sub_12F46C(dword_1250F0, dword_1250EC, 1214);
+        mmio_clear_register(dword_1250F0, dword_1250EC, 1214);
       break;
   }
   *(uint8_t *)(a1 + dword_1250E4 + 20) = 0;
-  return sub_12AC98(*(uint8_t *)(v4 + 1320 * a1 + 1225), a2);
+  return unknown_check(*(uint8_t *)(v4 + 1320 * a1 + 1225), a2);
 }
 

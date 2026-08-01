@@ -12,17 +12,17 @@
 
 extern uint32_t dword_12B094;
 
-// sub_12B064 @ 0x12b064, size 48 bytes
-int *sub_12B064()
+// tx_slot_state_init @ 0x12b064, size 48 bytes
+int *tx_slot_state_init()
 {
   int *result; // r0
   uint8_t *v1; // r3
   int v2; // r1
 
-  sub_12B028(0);
-  sub_12B028(1);
-  sub_12B028(2);
-  result = sub_12B028(3);
+  tx_slot_state_get(0);
+  tx_slot_state_get(1);
+  tx_slot_state_get(2);
+  result = tx_slot_state_get(3);
   v1 = (uint8_t *)dword_12B094;
   v2 = dword_12B094 + 96;
   do

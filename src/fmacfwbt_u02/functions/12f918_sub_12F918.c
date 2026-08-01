@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12F9A0;
 
-// sub_12F918 @ 0x12f918, size 134 bytes
-int  sub_12F918(uint8_t *a1, int a2)
+// parse_space_token @ 0x12f918, size 134 bytes
+int  parse_space_token(uint8_t *a1, int a2)
 {
   int v2; // r4
   uint8_t *v4; // r0
@@ -69,7 +69,7 @@ LABEL_11:
     v2 = v9;
     if ( v9 == 16 )
     {
-      sub_10D60C((uint8_t *)dword_12F9A0);
+      uart_puts((uint8_t *)dword_12F9A0);
       return 16;
     }
   }

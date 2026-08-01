@@ -20,8 +20,8 @@ extern uint32_t dword_12C7F0;
 extern uint32_t dword_12C7E4;
 extern uint32_t dword_12C7E0;
 
-// sub_12C73C @ 0x12c73c, size 152 bytes
-int  sub_12C73C(int result, int a2)
+// ke_int_lock @ 0x12c73c, size 152 bytes
+int  ke_int_lock(int result, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r6
@@ -46,23 +46,23 @@ int  sub_12C73C(int result, int a2)
   {
     if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
-      sub_12D2D0(v3 + 5);
+      mem_word_load(v3 + 5);
       v8 = v3[5];
       v9 = (int)(v3 + 8);
       if ( v8 )
       {
-        sub_124D3C(v9, *(uint32_t *)(v8 + 8));
+        unknown_worker(v9, *(uint32_t *)(v8 + 8));
         if ( **(int16_t **)off_12C7E8 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_12C7EC + 4) < 0 )
-          sub_12F46C(dword_12C7F4, dword_12C7F0, 232);
+          mmio_clear_register(dword_12C7F4, dword_12C7F0, 232);
       }
       else
       {
-        sub_124E34(v9);
+        fault_handler(v9);
       }
     }
     else
     {
-      result = sub_12CA3C(dword_12C7E4, dword_12C7E0, a2 | (result << 16));
+      result = pkt_word_get(dword_12C7E4, dword_12C7E0, a2 | (result << 16));
       v4 = result;
       if ( !result )
       {
@@ -70,7 +70,7 @@ int  sub_12C73C(int result, int a2)
         goto LABEL_8;
       }
     }
-    result = sub_12CBC8(v4);
+    result = tx_pkt_enqueue(v4);
     v5 = *v2;
   }
 LABEL_8:

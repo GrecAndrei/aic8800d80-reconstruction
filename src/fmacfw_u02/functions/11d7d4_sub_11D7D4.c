@@ -13,8 +13,8 @@
 extern uint32_t off_11D7F4;
 extern uint32_t off_11D7F8;
 
-// sub_11D7D4 @ 0x11d7d4, size 30 bytes
-int sub_11D7D4()
+// rf_counter_get @ 0x11d7d4, size 30 bytes
+int rf_counter_get()
 {
   uint8_t *v0; // r4
   unsigned int *v1; // r2

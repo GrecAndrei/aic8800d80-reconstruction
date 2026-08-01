@@ -1,1 +1,1 @@
-{"fn": "sub_12156A0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12156a0", "status": "ok", "name": "rf_init_handler", "params": [], "docstring": "RF initialization handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12156A0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12156a0", "status": "ok", "name": "pdu_type_init", "params": [], "docstring": "RF initialization handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

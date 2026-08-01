@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DB8C;
 
-// sub_10DB78 @ 0x10db78, size 18 bytes
-int  sub_10DB78(char a1)
+// gpio_disable_interrupt @ 0x10db78, size 18 bytes
+int  gpio_disable_interrupt(char a1)
 {
   int result; // r0
 

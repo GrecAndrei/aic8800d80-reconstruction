@@ -14,8 +14,8 @@ extern uint32_t dword_102F48;
 extern uint32_t dword_102F40;
 extern uint32_t off_102F44;
 
-// sub_102EB8 @ 0x102eb8, size 136 bytes
-int  sub_102EB8(int a1, int a2, unsigned int a3, int a4)
+// peripheral_read_32 @ 0x102eb8, size 136 bytes
+int  peripheral_read_32(int a1, int a2, unsigned int a3, int a4)
 {
   int v6; // r6
   int v7; // r4
@@ -44,7 +44,7 @@ int  sub_102EB8(int a1, int a2, unsigned int a3, int a4)
   }
   while ( !*(uint32_t *)off_102F44 )
     ;
-  crypto_hw_enable_2ca8(a1);
+  set_wakeup_trigger(a1);
   if ( a3 )
   {
     v9 = 0;
@@ -69,7 +69,7 @@ int  sub_102EB8(int a1, int a2, unsigned int a3, int a4)
     }
     while ( a3 > (uint8_t)v12 );
   }
-  result = sub_102D0C(a1);
+  result = set_wakeup_polarity(a1);
   *(uint32_t *)off_102F44 = 1;
   return result;
 }

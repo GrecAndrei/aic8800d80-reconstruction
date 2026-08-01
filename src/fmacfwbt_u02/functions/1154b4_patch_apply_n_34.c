@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_34 @ 0x1154b4, size 12 bytes
-// Doc: patch_apply_n_34 [patch]: Apply firmware patch table entry 34 via indirect load
-// patch_apply_n_34 [patch]: Apply firmware patch table entry 34 via indirect load
-int  patch_apply_n_34(int a1)
+// ioctl2_cmd_0x400000 @ 0x1154b4, size 12 bytes
+// Doc: ioctl2_cmd_0x400000 [patch]: Apply firmware patch table entry 34 via indirect load
+// ioctl2_cmd_0x400000 [patch]: Apply firmware patch table entry 34 via indirect load
+int  ioctl2_cmd_0x400000(int a1)
 {
-  return sub_1153B8(0x400000, a1, 4u);
+  return ioctl_dispatch2(0x400000, a1, 4u);
 }
 

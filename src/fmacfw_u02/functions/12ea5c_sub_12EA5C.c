@@ -12,8 +12,8 @@
 
 extern uint32_t off_12EA84;
 
-// sub_12EA5C @ 0x12ea5c, size 40 bytes
-BOOL  sub_12EA5C(unsigned int a1, unsigned int a2)
+// get_flag_bit @ 0x12ea5c, size 40 bytes
+BOOL  get_flag_bit(unsigned int a1, unsigned int a2)
 {
   BOOL result; // r0
 

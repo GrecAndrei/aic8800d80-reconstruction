@@ -1,1 +1,1 @@
-{"fn": "sub_122D430", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d430", "status": "ok", "name": "buf_ptr_deref_n_430", "params": [], "docstring": "Dereference buffer pointer chain", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122D430", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d430", "status": "ok", "name": "list_next", "params": [], "docstring": "Dereference buffer pointer chain", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

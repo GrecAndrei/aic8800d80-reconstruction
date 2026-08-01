@@ -13,8 +13,8 @@
 extern uint32_t off_11B0F8;
 extern uint32_t off_11B0FC;
 
-// sub_11B0B4 @ 0x11b0b4, size 68 bytes
-BOOL  sub_11B0B4(BOOL result)
+// radio_status_read @ 0x11b0b4, size 68 bytes
+BOOL  radio_status_read(BOOL result)
 {
   int v1; // r3
   uint32_t *v2; // r2
@@ -24,8 +24,8 @@ BOOL  sub_11B0B4(BOOL result)
   if ( *(uint8_t *)(result + 37) )
   {
     v3 = result;
-    sub_124BFC(off_11B0F8, *((uint32_t *)off_11B0FC + 4) + 5000);
-    return sub_118F74(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
+    mem_copy_util(off_11B0F8, *((uint32_t *)off_11B0FC + 4) + 5000);
+    return btm_acl_get_state(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
   }
   else
   {

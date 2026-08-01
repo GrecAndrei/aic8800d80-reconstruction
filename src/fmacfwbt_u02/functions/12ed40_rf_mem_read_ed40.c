@@ -20,10 +20,10 @@ extern uint32_t dword_12EEF0;
 extern uint32_t dword_12EEDC;
 extern uint32_t dword_12EEF4;
 
-// rf_mem_read_ed40 @ 0x12ed40, size 404 bytes
-// Doc: rf_mem_read_ed40 [rf]: Read from RF memory region with extended register save and null-length check
-// rf_mem_read_ed40 [rf]: Read from RF memory region with extended register save and null-length check
-unsigned int  rf_mem_read_ed40(unsigned int result, int a2, int a3, int a4)
+// rx_packet_handler @ 0x12ed40, size 404 bytes
+// Doc: rx_packet_handler [rf]: Read from RF memory region with extended register save and null-length check
+// rx_packet_handler [rf]: Read from RF memory region with extended register save and null-length check
+unsigned int  rx_packet_handler(unsigned int result, int a2, int a3, int a4)
 {
   int v4; // r4
   int v5; // r9
@@ -57,25 +57,25 @@ unsigned int  rf_mem_read_ed40(unsigned int result, int a2, int a3, int a4)
   v6 = -a3 & result;
   while ( 1 )
   {
-    sub_12ECB0(dword_12EED4, v6);
+    ke_event_schedule(dword_12EED4, v6);
     v7 = v24;
     if ( v24 >= 0x10 )
       v7 = 16;
     if ( ((v6 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       if ( !v24 )
-        return (unsigned int)sub_10D60C((uint8_t *)dword_12EEE0);
+        return (unsigned int)uart_puts((uint8_t *)dword_12EEE0);
       v21 = dword_12EED8;
       v22 = 0;
       while ( 1 )
       {
-        v23 = sub_10EBC4();
+        v23 = jump_table_1b0();
         if ( v4 == 4 )
           break;
         if ( v4 == 2 )
         {
           v22 += 4;
-          sub_12ECB0(dword_12EEE4, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
+          ke_event_schedule(dword_12EEE4, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -86,7 +86,7 @@ LABEL_40:
         }
         else
         {
-          sub_12ECB0(v5);
+          ke_event_schedule(v5);
 LABEL_36:
           v22 += 4;
           v6 += 4;
@@ -94,7 +94,7 @@ LABEL_36:
             goto LABEL_40;
         }
       }
-      sub_12ECB0(v21, v23, BYTE1(v23), BYTE2(v23));
+      ke_event_schedule(v21, v23, BYTE1(v23), BYTE2(v23));
       goto LABEL_36;
     }
     if ( v24 )
@@ -105,7 +105,7 @@ LABEL_36:
       goto LABEL_20;
     }
 LABEL_31:
-    result = (unsigned int)sub_10D60C((uint8_t *)dword_12EEE0);
+    result = (unsigned int)uart_puts((uint8_t *)dword_12EEE0);
     v24 -= v7;
     if ( !v24 )
       return result;
@@ -122,7 +122,7 @@ LABEL_31:
       if ( v4 != 4 )
         break;
       v11 += 4;
-      sub_12ECB0(dword_12EED8, *(uint32_t *)v10);
+      ke_event_schedule(dword_12EED8, *(uint32_t *)v10);
       v10 += 2;
       if ( v7 <= v11 )
         goto LABEL_18;
@@ -134,7 +134,7 @@ LABEL_31:
     if ( v4 == 2 )
       v13 = v9;
     v11 += v4;
-    sub_12ECB0(v13, v12);
+    ke_event_schedule(v13, v12);
     v10 = (uint16_t *)((char *)v10 + v4);
   }
   while ( v7 > v11 );
@@ -143,7 +143,7 @@ LABEL_18:
     goto LABEL_30;
   if ( v24 > 0xF )
   {
-    sub_10D60C((uint8_t *)dword_12EEDC);
+    uart_puts((uint8_t *)dword_12EEDC);
     goto LABEL_26;
   }
 LABEL_20:
@@ -156,17 +156,17 @@ LABEL_20:
   {
     while ( (v14 & v16++) != 0 )
     {
-      sub_10D60C(v15);
+      uart_puts(v15);
       if ( v17 == v16 )
         goto LABEL_25;
     }
     uart_putc(32);
-    sub_10D60C(v15);
+    uart_puts(v15);
   }
   while ( v17 != v16 );
 LABEL_25:
   v4 = v26;
-  sub_10D60C((uint8_t *)dword_12EEDC);
+  uart_puts((uint8_t *)dword_12EEDC);
   if ( v24 )
   {
 LABEL_26:
@@ -184,6 +184,6 @@ LABEL_30:
     v6 = (unsigned int)v10;
     goto LABEL_31;
   }
-  return (unsigned int)sub_10D60C((uint8_t *)dword_12EEE0);
+  return (unsigned int)uart_puts((uint8_t *)dword_12EEE0);
 }
 

@@ -14,8 +14,8 @@ extern uint32_t off_123878;
 extern uint32_t off_12387C;
 extern uint32_t off_123880;
 
-// sub_12380C @ 0x12380c, size 106 bytes
-int  sub_12380C(int a1, int a2, int a3, int a4)
+// parse_parameter @ 0x12380c, size 106 bytes
+int  parse_parameter(int a1, int a2, int a3, int a4)
 {
   int *v4; // r4
   uint32_t *v5; // r5
@@ -37,12 +37,12 @@ int  sub_12380C(int a1, int a2, int a3, int a4)
   v5 = off_123880;
   v6 = *(uint32_t *)off_123880;
   ++*(uint32_t *)off_12387C;
-  v7 = sub_12B768();
-  v9 = sub_101924(v7, SHIDWORD(v7), v8);
-  v10 = sub_12C798(v9);
-  sub_132088(v10);
-  sub_117A7C();
-  sub_1205E0();
+  v7 = rf_set_power_on();
+  v9 = check_clock_status(v7, SHIDWORD(v7), v8);
+  v10 = unknown_handler_12c798(v9);
+  vendor_platform_init(v10);
+  alloc_shared_ctx();
+  get_rf_state();
   v11 = *v4;
   *v5 = v6;
   if ( v11 )
@@ -56,8 +56,8 @@ int  sub_12380C(int a1, int a2, int a3, int a4)
         __enable_irq();
     }
   }
-  sub_12C8D0(1, a4, a3);
-  sub_12CBF4(0);
+  mac_write_header_word(1, a4, a3);
+  hci_cmd_preprocess(0);
   return 0;
 }
 

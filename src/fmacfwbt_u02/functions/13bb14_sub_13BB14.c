@@ -13,8 +13,8 @@
 extern uint32_t off_13BB5C;
 extern uint32_t dword_13BB60;
 
-// sub_13BB14 @ 0x13bb14, size 72 bytes
-int  sub_13BB14(int **a1)
+// rx_queue_flush @ 0x13bb14, size 72 bytes
+int  rx_queue_flush(int **a1)
 {
   int *v1; // r6
   int result; // r0

@@ -1,1 +1,1 @@
-{"fn": "sub_1234008", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234008", "status": "ok", "name": "sub_1234008", "params": [], "docstring": "Helper routine processing byte fields from r1 struct", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1234008", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234008", "status": "ok", "name": "llm_le_set_scan_enable", "params": [], "docstring": "Helper routine processing byte fields from r1 struct", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

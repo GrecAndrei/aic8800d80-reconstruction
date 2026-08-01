@@ -12,8 +12,8 @@
 
 extern uint32_t dword_131140;
 
-// sub_131074 @ 0x131074, size 202 bytes
-uint8_t * sub_131074(uint8_t *a1, int a2, int a3)
+// rf_set_cal_byte_a4 @ 0x131074, size 202 bytes
+uint8_t * rf_set_cal_byte_a4(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
   int v5; // r5
@@ -25,7 +25,7 @@ uint8_t * sub_131074(uint8_t *a1, int a2, int a3)
   int v11; // zf
   uint8_t v12[5]; // [sp+7h] [bp-5h] BYREF
 
-  result = sub_12DB80(a1, a2, v12);
+  result = find_char_2(a1, a2, v12);
   if ( result )
   {
     v5 = *(uint8_t *)(a3 + 164);

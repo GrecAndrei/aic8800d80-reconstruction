@@ -1,0 +1,1 @@
+{"fn": "sub_113B40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113b40", "status": "ok", "name": "rf_set_reg1_bit9", "params": [], "docstring": "Set RF register 1 bit 9", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

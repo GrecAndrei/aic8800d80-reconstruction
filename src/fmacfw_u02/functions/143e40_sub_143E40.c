@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143E40 @ 0x143e40, size 220 bytes
-unsigned int  sub_143E40(unsigned int a1)
+// memmove @ 0x143e40, size 220 bytes
+unsigned int  memmove(unsigned int a1)
 {
   uint64_t *v1; // r1
   int v3; // r4

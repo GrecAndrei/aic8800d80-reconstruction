@@ -23,8 +23,8 @@ extern uint32_t dword_117D90;
 extern uint32_t dword_117D94;
 extern uint32_t off_117D8C;
 
-// sub_117BF0 @ 0x117bf0, size 380 bytes
-void  sub_117BF0(int a1, uint32_t *a2)
+// check_cal_status @ 0x117bf0, size 380 bytes
+void  check_cal_status(int a1, uint32_t *a2)
 {
   int v2; // r3
   int v3; // r2
@@ -57,13 +57,13 @@ void  sub_117BF0(int a1, uint32_t *a2)
     switch ( v3 )
     {
       case 2:
-        v6 = (uint8_t *)sub_1138C8();
+        v6 = (uint8_t *)util_call_void();
         if ( v6 )
         {
           v7 = off_117D98;
           if ( *((uint32_t *)off_117D98 + 2057) )
           {
-            v8 = sub_12D190(dword_117D70);
+            v8 = list_pop(dword_117D70);
             *v6 = 8;
             v6[1] = 0;
             v6[3] = 0;
@@ -72,7 +72,7 @@ void  sub_117BF0(int a1, uint32_t *a2)
             v10 = v8;
             v26 = *(uint32_t *)(a1 + 84) & 0x3FFFFFFF;
             v25 = v9;
-            sub_143630(v6 + 4, &v25, 8);
+            memcpy(v6 + 4, &v25, 8);
             v11 = *((uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -107,9 +107,9 @@ void  sub_117BF0(int a1, uint32_t *a2)
             v18 = *(uint16_t *)(a1 + 32);
             v19 = dword_117D84;
             ++*(uint32_t *)off_117D80;
-            sub_12E948(v19, a1, v18);
-            v20 = sub_12D108(dword_117D88);
-            sub_113374(v20, v21);
+            alloc_tx_event(v19, a1, v18);
+            v20 = wlan_ioctl_handler_1(dword_117D88);
+            rf_is_idle(v20, v21);
             if ( *v17 )
             {
               v22 = *v17 - 1;
@@ -124,24 +124,24 @@ void  sub_117BF0(int a1, uint32_t *a2)
           }
           else
           {
-            sub_10DAE4(dword_117D90);
+            debug_printf(dword_117D90);
           }
         }
         else
         {
-          sub_10DAE4(dword_117D94);
+          debug_printf(dword_117D94);
         }
         break;
       case 1:
         v24 = *a2 & 0xF;
         v26 = v2 & 0x3FFFFFFF;
         v25 = v24;
-        sub_111130(18, (int)&v25, 8);
-        sub_12E948(dword_117D84, a1, *(uint16_t *)(a1 + 32));
+        kmalloc(18, (int)&v25, 8);
+        alloc_tx_event(dword_117D84, a1, *(uint16_t *)(a1 + 32));
         break;
       case 3:
         **(uint32_t **)off_117D8C = *a2 & 0xF;
-        sub_10CB54();
+        rf_cmd_wakeup();
         break;
     }
   }

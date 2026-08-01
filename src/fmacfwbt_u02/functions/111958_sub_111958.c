@@ -15,8 +15,8 @@ extern uint32_t off_1119B0;
 extern uint32_t off_1119B8;
 extern uint32_t off_1119BC;
 
-// sub_111958 @ 0x111958, size 88 bytes
-int  sub_111958(int result, int a2)
+// tx_pkt_set_len @ 0x111958, size 88 bytes
+int  tx_pkt_set_len(int result, int a2)
 {
   int *v2; // r4
   int v3; // r5
@@ -38,7 +38,7 @@ int  sub_111958(int result, int a2)
   *(uint16_t *)v4 = a2;
   if ( result && a2 )
   {
-    result = sub_14380C(v3, result, a2);
+    result = memcpy_aligned(v3, result, a2);
     v4 = *v2;
   }
   v6 = off_1119BC;

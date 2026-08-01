@@ -1,1 +1,1 @@
-{"fn": "sub_122911C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122911c", "status": "ok", "name": "mm_state_init_check", "params": [], "docstring": "Initialize MM state and assert MM_IDLE transition", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122911C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122911c", "status": "ok", "name": "mm_state_idle", "params": [], "docstring": "Initialize MM state and assert MM_IDLE transition", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

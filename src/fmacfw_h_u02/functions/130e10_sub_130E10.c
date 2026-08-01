@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130E10 @ 0x130e10, size 266 bytes
-int  sub_130E10(uint8_t *a1, int a2, uint8_t *a3, int a4)
+// handle_ampdu_action @ 0x130e10, size 266 bytes
+int  handle_ampdu_action(uint8_t *a1, int a2, uint8_t *a3, int a4)
 {
   unsigned int v8; // r7
   unsigned int v9; // r0
@@ -25,18 +25,18 @@ int  sub_130E10(uint8_t *a1, int a2, uint8_t *a3, int a4)
   int v18; // r2
   int v19; // [sp+7h] [bp-1h] BYREF
 
-  v8 = (unsigned int)sub_12D8F8(a1, a2);
-  v9 = (unsigned int)sub_12D938(a1, a2);
+  v8 = (unsigned int)check_buf_range_12d8f8(a1, a2);
+  v9 = (unsigned int)check_buf_range_12d938(a1, a2);
   if ( !(v8 | v9) )
     return 0;
   v10 = (uint8_t *)v9;
-  v11 = sub_12D978(a1, a2, &v19);
+  v11 = test_arg2_one_12d978(a1, a2, &v19);
   if ( v11 )
   {
     if ( !v19 )
       return 0;
   }
-  v12 = sub_12D9BC(a1, a2, &v19);
+  v12 = test_arg2_one_12d9bc(a1, a2, &v19);
   if ( v12 )
   {
     if ( !v19 )
@@ -97,14 +97,14 @@ LABEL_17:
       if ( !v12 )
         goto LABEL_21;
 LABEL_25:
-      sub_133458(v12[2], v12[3], v12[4], a4);
+      empty_ret(v12[2], v12[3], v12[4], a4);
       goto LABEL_21;
     }
   }
   if ( v12 )
     goto LABEL_25;
 LABEL_21:
-  sub_132178(a4);
+  get_device_id(a4);
   return v13;
 }
 

@@ -18,8 +18,8 @@ extern uint32_t off_125190;
 extern uint32_t dword_125198;
 extern uint32_t dword_125194;
 
-// sub_1250C8 @ 0x1250c8, size 186 bytes
-int sub_1250C8()
+// ke_timer_service @ 0x1250c8, size 186 bytes
+int ke_timer_service()
 {
   uint32_t *v0; // r7
   int *v1; // r6
@@ -44,7 +44,7 @@ int sub_1250C8()
   v4 = off_125184;
   while ( 1 )
   {
-    sub_12D374(0x20000000);
+    set_system_flag_2(0x20000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -74,7 +74,7 @@ int sub_1250C8()
         goto LABEL_17;
       }
     }
-    sub_12D4F8(v4);
+    list_pop_front(v4);
     if ( *v1 )
     {
       v9 = *v1 - 1;
@@ -93,7 +93,7 @@ int sub_1250C8()
     }
     else
     {
-      sub_12F694(dword_125198, dword_125194, 246);
+      mmio_irq_clear(dword_125198, dword_125194, 246);
       ((void ( *)(uint32_t))v6[1])(v6[2]);
     }
   }

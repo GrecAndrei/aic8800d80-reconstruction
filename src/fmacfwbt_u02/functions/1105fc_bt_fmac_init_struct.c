@@ -13,10 +13,10 @@
 extern uint32_t off_110630;
 extern uint32_t off_110634;
 
-// bt_fmac_init_struct @ 0x1105fc, size 52 bytes
-// Doc: bt_fmac_init_struct [bt]: Initialize FMAC/BT linked-list struct to zero
-// bt_fmac_init_struct [bt]: Initialize FMAC/BT linked-list struct to zero
-int  bt_fmac_init_struct(int a1)
+// ke_event_init @ 0x1105fc, size 52 bytes
+// Doc: ke_event_init [bt]: Initialize FMAC/BT linked-list struct to zero
+// ke_event_init [bt]: Initialize FMAC/BT linked-list struct to zero
+int  ke_event_init(int a1)
 {
   uint32_t *v1; // r2
   uint32_t *v2; // r1
@@ -39,7 +39,7 @@ int  bt_fmac_init_struct(int a1)
   *((uint16_t *)v2 + 14) = 0;
   v2[6] = 0;
   *((uint8_t *)v2 + 30) = 0;
-  fmac_main_task((int)v1, (int)v2);
+  rf_isr((int)v1, (int)v2);
   return 1;
 }
 

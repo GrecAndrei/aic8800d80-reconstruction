@@ -14,8 +14,8 @@ extern uint32_t off_1138FC;
 extern uint32_t off_113900;
 extern uint32_t dword_113904;
 
-// sub_1138C8 @ 0x1138c8, size 52 bytes
-int sub_1138C8()
+// util_call_void @ 0x1138c8, size 52 bytes
+int util_call_void()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_1138C8()
   v0 = (int *)off_113900;
   v1 = dword_113904;
   ++*(uint32_t *)off_113900;
-  result = sub_12D190(v1);
+  result = list_pop(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

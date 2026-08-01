@@ -14,16 +14,16 @@ extern uint32_t off_11C344;
 extern uint32_t off_11C34C;
 extern uint32_t off_11C348;
 
-// sub_11C310 @ 0x11c310, size 52 bytes
-int sub_11C310()
+// check_radio_interrupt @ 0x11c310, size 52 bytes
+int check_radio_interrupt()
 {
   int result; // r0
   int v1; // r4
   int *v2; // r2
   int v3; // r3
 
-  result = sub_1203F4();
-  if ( (*(uint32_t *)off_11C344 & 0x8000) != 0 && (v1 = result, (result = sub_1019FC()) != 0) && v1 )
+  result = is_radio_ready();
+  if ( (*(uint32_t *)off_11C344 & 0x8000) != 0 && (v1 = result, (result = rf_get_status_bit21()) != 0) && v1 )
   {
     v2 = (int *)off_11C34C;
     v3 = *(uint32_t *)off_11C34C;

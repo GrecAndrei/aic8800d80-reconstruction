@@ -1,0 +1,1 @@
+{"fn": "sub_1433C4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1433c4", "status": "ok", "name": "cmp_lo", "params": [], "docstring": "Return 1 if underlying compare result is lower", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

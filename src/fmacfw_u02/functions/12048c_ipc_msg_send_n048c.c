@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// ipc_msg_send_n048c @ 0x12048c, size 26 bytes
-// Doc: ipc_msg_send_n048c [ipc]: Allocate IPC message (id 0x8f) and store caller's context pointer
-// ipc_msg_send_n048c [ipc]: Allocate IPC message (id 0x8f) and store caller's context pointer
-int  ipc_msg_send_n048c(int a1)
+// alloc_bt_message @ 0x12048c, size 26 bytes
+// Doc: alloc_bt_message [ipc]: Allocate IPC message (id 0x8f) and store caller's context pointer
+// alloc_bt_message [ipc]: Allocate IPC message (id 0x8f) and store caller's context pointer
+int  alloc_bt_message(int a1)
 {
   uint32_t *v2; // r0
 
-  v2 = (uint32_t *)sub_12C92C(143, 0, 255, 4);
+  v2 = (uint32_t *)ke_msg_alloc(143, 0, 255, 4);
   *v2 = a1;
-  return sdio_buffer_prepare_n_4e8(v2);
+  return ke_msg_send(v2);
 }
 

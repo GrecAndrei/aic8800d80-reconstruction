@@ -14,10 +14,10 @@ extern uint32_t off_12A4B8;
 extern uint32_t off_12A4BC;
 extern uint32_t dword_12A4C0;
 
-// rf_bus_setup_nd0 @ 0x12a46c, size 74 bytes
-// Doc: rf_bus_setup_nd0 [rf]: Set up RF bus register window (0x81c) and validate size
-// rf_bus_setup_nd0 [rf]: Set up RF bus register window (0x81c) and validate size
-int rf_bus_setup_nd0()
+// controller_status_byte @ 0x12a46c, size 74 bytes
+// Doc: controller_status_byte [rf]: Set up RF bus register window (0x81c) and validate size
+// controller_status_byte [rf]: Set up RF bus register window (0x81c) and validate size
+int controller_status_byte()
 {
   int result; // r0
   int *v1; // r3

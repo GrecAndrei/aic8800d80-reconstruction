@@ -13,8 +13,8 @@
 extern uint32_t off_11EC5C;
 extern uint32_t dword_11EC60;
 
-// sub_11EC18 @ 0x11ec18, size 68 bytes
-uint64_t *sub_11EC18()
+// read_hw_clock @ 0x11ec18, size 68 bytes
+uint64_t *read_hw_clock()
 {
   uint64_t *result; // r0
   uint64_t v1; // [sp+4h] [bp-20h] BYREF
@@ -27,9 +27,9 @@ uint64_t *sub_11EC18()
   v3 = *(uint32_t *)dword_11EC60;
   v4 = *(uint32_t *)(dword_11EC60 + 8 + 0xFFFFFFFC);
   v5 = *(uint32_t *)(dword_11EC60 + 8);
-  result = sub_1018F0(&v1, 0);
+  result = unknown_1018f0(&v1, 0);
   if ( (v2 & 0xF) == 2 )
-    return (uint64_t *)sub_12F448(&v1);
+    return (uint64_t *)state_check_0x182ba0_b(&v1);
   return result;
 }
 

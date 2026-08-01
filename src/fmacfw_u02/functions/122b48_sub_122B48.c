@@ -12,8 +12,8 @@
 
 extern uint32_t dword_122B64;
 
-// sub_122B48 @ 0x122b48, size 28 bytes
-int  sub_122B48(int a1, uint32_t *a2, int a3, int a4)
+// store_hci_event @ 0x122b48, size 28 bytes
+int  store_hci_event(int a1, uint32_t *a2, int a3, int a4)
 {
   int v4; // r0
   uint32_t *v5; // r5
@@ -28,7 +28,7 @@ int  sub_122B48(int a1, uint32_t *a2, int a3, int a4)
   *(uint32_t *)dword_122B64 = v4;
   *(uint32_t *)(v6 + 4) = v7;
   *(uint16_t *)(v6 + 8) = (uint16_t)v5;
-  sub_12CA10(138, a4, a3);
+  ke_msg_send_no_param(138, a4, a3);
   return 0;
 }
 

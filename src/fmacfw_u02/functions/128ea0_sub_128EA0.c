@@ -15,8 +15,8 @@ extern uint32_t off_128EEC;
 extern uint32_t off_128EF0;
 extern uint32_t dword_128EF4;
 
-// sub_128EA0 @ 0x128ea0, size 72 bytes
-void sub_128EA0()
+// wlc_core_state @ 0x128ea0, size 72 bytes
+void wlc_core_state()
 {
   uint8_t *v0; // r5
   unsigned int *v1; // r1
@@ -43,7 +43,7 @@ void sub_128EA0()
           if ( *(uint8_t *)(v3 + 108) )
           {
             v5 = *(uint8_t *)(v3 + 116);
-            if ( v5 != 255 && !sub_118DC4(v5, v4, v3) )
+            if ( v5 != 255 && !rf_channel_get(v5, v4, v3) )
               ++v0[8];
           }
         }

@@ -21,8 +21,8 @@ extern uint32_t dword_12BE34;
 extern uint32_t off_12BE2C;
 extern uint32_t dword_12BE3C;
 
-// sub_12BD40 @ 0x12bd40, size 214 bytes
-int sub_12BD40()
+// rf_read_irq_flags @ 0x12bd40, size 214 bytes
+int rf_read_irq_flags()
 {
   int v0; // r4
   int v1; // r5
@@ -50,7 +50,7 @@ int sub_12BD40()
   {
     if ( **(int16_t **)off_12BE30 < 0 && v3 - *((uint32_t *)off_12BE1C + 4) + 5000 < 0 )
     {
-      sub_12F46C(dword_12BE38, dword_12BE34, 575);
+      mmio_clear_register(dword_12BE38, dword_12BE34, 575);
       return 0;
     }
     return 0;
@@ -61,7 +61,7 @@ int sub_12BD40()
       return 1;
     if ( **(int16_t **)off_12BE30 < 0 && v3 - *((uint32_t *)off_12BE1C + 4) - v4 < 0 )
     {
-      sub_12F46C(dword_12BE3C, dword_12BE34, 580);
+      mmio_clear_register(dword_12BE3C, dword_12BE34, 580);
       v3 = *(uint32_t *)(v1 + 12);
       v4 = v2[93];
     }

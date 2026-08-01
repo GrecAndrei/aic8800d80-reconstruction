@@ -18,8 +18,8 @@ extern uint32_t off_12CDDC;
 extern uint32_t off_12CDE0;
 extern uint32_t dword_12CDE8;
 
-// sub_12CD0C @ 0x12cd0c, size 200 bytes
-int  sub_12CD0C(int a1)
+// mem_alloc_align @ 0x12cd0c, size 200 bytes
+int  mem_alloc_align(int a1)
 {
   int16_t **v1; // r7
   unsigned int v2; // r4
@@ -38,7 +38,7 @@ int  sub_12CD0C(int a1)
   v2 = (a1 + 3) & 0xFFFFFFFC;
   v3 = v2 + 4;
   if ( **(int16_t **)off_12CDD4 < 0 && v3 <= 7 )
-    sub_12F694(dword_12CDEC, dword_12CDE4, 132);
+    mmio_irq_clear(dword_12CDEC, dword_12CDE4, 132);
   v4 = *((uint32_t **)off_12CDD8 + 7);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -84,7 +84,7 @@ LABEL_12:
   if ( **v1 >= 0 )
     __und(0xFFu);
 LABEL_20:
-  sub_12F694(dword_12CDE8, dword_12CDE4, 160);
+  mmio_irq_clear(dword_12CDE8, dword_12CDE4, 160);
   v9 = 0;
   v6 = *v5;
   v7 = 0;

@@ -13,8 +13,8 @@
 extern uint32_t dword_122874;
 extern uint32_t dword_122878;
 
-// sub_122818 @ 0x122818, size 90 bytes
-int  sub_122818(int a1, uint8_t *a2, int a3, int a4)
+// send_hci_le_meta_event @ 0x122818, size 90 bytes
+int  send_hci_le_meta_event(int a1, uint8_t *a2, int a3, int a4)
 {
   int v5; // r0
   int v6; // r3
@@ -22,7 +22,7 @@ int  sub_122818(int a1, uint8_t *a2, int a3, int a4)
   int v8; // r2
   int v9; // r1
 
-  v5 = sub_12C7EC(118, a4, a3, 12);
+  v5 = tx_send_pdu(118, a4, a3, 12);
   v6 = dword_122874 + 696 * *a2;
   v7 = *(uint8_t *)(v6 + 34);
   if ( v7 == 255 )
@@ -35,11 +35,11 @@ int  sub_122818(int a1, uint8_t *a2, int a3, int a4)
   {
     *(uint8_t *)(v5 + 8) = *(uint8_t *)(v8 + 142);
 LABEL_4:
-    sub_12C84C(v5);
+    rx_process_packet(v5);
     return 0;
   }
   *(uint8_t *)(v5 + 8) = *(uint8_t *)(v6 + 689);
-  sub_12C84C(v5);
+  rx_process_packet(v5);
   return 0;
 }
 

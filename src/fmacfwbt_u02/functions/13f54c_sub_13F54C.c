@@ -15,10 +15,10 @@ extern uint32_t dword_13F660;
 extern uint32_t dword_13F664;
 extern uint32_t off_13F668;
 
-// sub_13F54C @ 0x13f54c, size 272 bytes
+// query_tx_power_table @ 0x13f54c, size 272 bytes
 // Doc: sub_123F54C [bt]: Process indexed entry list (3x stride) with magic 0x1998 threshold
 // sub_123F54C [bt]: Process indexed entry list (3x stride) with magic 0x1998 threshold
-unsigned int  sub_13F54C(int a1, int a2, int a3)
+unsigned int  query_tx_power_table(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r3
@@ -74,7 +74,7 @@ LABEL_4:
     goto LABEL_6;
   }
 LABEL_7:
-  result = (dword_13F664 * (1000 * v5 / (rx_desc_parse_n_ebbc(a1 + v8 + 4) + v13))) >> 16;
+  result = (dword_13F664 * (1000 * v5 / (parse_ll_header(a1 + v8 + 4) + v13))) >> 16;
   if ( a3 )
   {
     if ( v5 <= 0x3332 )

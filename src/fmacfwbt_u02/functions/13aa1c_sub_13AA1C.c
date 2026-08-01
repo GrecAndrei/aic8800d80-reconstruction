@@ -17,8 +17,8 @@ extern uint32_t dword_13AB8C;
 extern uint32_t dword_13AB88;
 extern uint32_t dword_13AB80;
 
-// sub_13AA1C @ 0x13aa1c, size 346 bytes
-uint16_t * sub_13AA1C(int a1, uint16_t *a2, int a3)
+// rf_set_channel_table @ 0x13aa1c, size 346 bytes
+uint16_t * rf_set_channel_table(int a1, uint16_t *a2, int a3)
 {
   int v4; // r5
   int v5; // r3
@@ -87,7 +87,7 @@ LABEL_9:
               break;
             default:
               if ( **(int16_t **)off_13AB84 < 0 )
-                sub_12F694(dword_13AB8C, dword_13AB88, 743);
+                mmio_irq_clear(dword_13AB8C, dword_13AB88, 743);
               break;
           }
           if ( a3 )

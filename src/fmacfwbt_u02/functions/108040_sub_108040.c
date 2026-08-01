@@ -16,8 +16,8 @@ extern uint32_t dword_108084;
 extern uint32_t off_10808C;
 extern uint32_t dword_108088;
 
-// sub_108040 @ 0x108040, size 60 bytes
-int sub_108040()
+// trace_system_count @ 0x108040, size 60 bytes
+int trace_system_count()
 {
   unsigned int *v0; // r5
   unsigned int v1; // r4
@@ -28,7 +28,7 @@ int sub_108040()
   v0 = (unsigned int *)off_108080;
   v1 = *(uint32_t *)off_108080;
   v2 = *(uint32_t *)off_10807C >> 20;
-  result = sub_12EEF8(1, dword_108084);
+  result = state_check_feature(1, dword_108084);
   v4 = off_10808C;
   *v0 = dword_108088 & (((HIWORD(v1) & 0xFFF) + v2) << 16) | *v0 & 0xF000FFFF;
   *v4 |= 0x800000u;

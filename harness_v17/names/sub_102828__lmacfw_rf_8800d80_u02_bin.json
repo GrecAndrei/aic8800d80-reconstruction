@@ -1,0 +1,1 @@
+{"fn": "sub_102828", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x102828", "status": "ok", "name": "pmu_write_ctrl", "params": [], "docstring": "Write PMU control register 0x40580020", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

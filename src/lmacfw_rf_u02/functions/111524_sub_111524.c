@@ -14,10 +14,10 @@ extern uint32_t dword_111604;
 extern uint32_t off_111610;
 extern uint32_t dword_111614;
 
-// sub_111524 @ 0x111524, size 224 bytes
+// rf_channel_get_flag @ 0x111524, size 224 bytes
 // Doc: rf_bus_mark_n45e [rf]: Clear/mark RF bus register bits via mask
 // rf_bus_mark_n45e [rf]: Clear/mark RF bus register bits via mask
-int  sub_111524(int a1, int a2, int a3)
+int  rf_channel_get_flag(int a1, int a2, int a3)
 {
   int v3; // r6
   uint32_t *v4; // r4
@@ -31,7 +31,7 @@ int  sub_111524(int a1, int a2, int a3)
     v4 = (uint32_t *)(dword_111604 + v3);
     v5 = *(uint32_t *)(v3 + dword_111604);
     if ( (v5 & 0x80008000) == 0 )
-      return (int)sub_1112AC(a1);
+      return (int)timer_entry_reset(a1);
     v6 = (uint32_t *)(dword_111604 + v3 + 8);
     if ( (rf_bus_mark_n47c & v5) == 0x20000 )
       goto rf_bus_write_ndc;
@@ -63,7 +63,7 @@ LABEL_7:
 LABEL_11:
         if ( !a1 )
           return a1;
-        return (int)sub_1112AC(a1);
+        return (int)timer_entry_reset(a1);
       }
       *v6 = 64;
       *v4 |= a2 | 0x8008000;

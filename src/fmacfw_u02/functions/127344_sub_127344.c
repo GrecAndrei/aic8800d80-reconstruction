@@ -13,8 +13,8 @@
 extern uint32_t off_127374;
 extern uint32_t off_127378;
 
-// sub_127344 @ 0x127344, size 48 bytes
-int sub_127344()
+// scan_start_request @ 0x127344, size 48 bytes
+int scan_start_request()
 {
   void *v0; // r2
   int v1; // r0
@@ -26,9 +26,9 @@ int sub_127344()
     v1 = *((uint8_t *)off_127374 + 90);
     *((uint8_t *)off_127374 + 88) |= 0x10u;
     if ( v1 )
-      return timestamp_update((int)v0 + 48, *((uint32_t *)off_127378 + 4) + 30000);
+      return unknown_worker((int)v0 + 48, *((uint32_t *)off_127378 + 4) + 30000);
     else
-      return sub_1272A0();
+      return rf_read_calibration();
   }
   return result;
 }

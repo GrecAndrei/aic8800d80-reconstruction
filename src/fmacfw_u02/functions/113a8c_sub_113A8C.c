@@ -12,8 +12,8 @@
 
 extern uint32_t off_113A9C;
 
-// sub_113A8C @ 0x113a8c, size 16 bytes
-BOOL sub_113A8C()
+// is_flag_one @ 0x113a8c, size 16 bytes
+BOOL is_flag_one()
 {
   return *((uint8_t *)off_113A9C + 8) == 1;
 }

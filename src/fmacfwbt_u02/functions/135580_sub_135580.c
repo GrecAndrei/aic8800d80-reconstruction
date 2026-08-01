@@ -23,8 +23,8 @@ extern uint32_t dword_135774;
 extern uint32_t off_135764;
 extern uint32_t dword_135768;
 
-// sub_135580 @ 0x135580, size 462 bytes
-uint32_t *sub_135580()
+// rf_lookup_alt_by_index @ 0x135580, size 462 bytes
+uint32_t *rf_lookup_alt_by_index()
 {
   int v0; // r8
   int v1; // r9
@@ -66,25 +66,25 @@ uint32_t *sub_135580()
   v2 = *(uint8_t *)(v1 + 61);
   v3 = (uint8_t *)(dword_13577C + 1320 * v2);
   v4 = v3[116];
-  sub_12EEF8(256, dword_135758, dword_135754);
+  state_check_feature(256, dword_135758, dword_135754);
   if ( !v3[1224] )
   {
     v5 = v3[412];
     if ( v3[412] )
       v5 = 1;
-    v6 = sub_119084(v5, 512);
+    v6 = event_notify(v5, 512);
     if ( v6 )
       goto LABEL_5;
-    return (uint32_t *)sub_135020(1);
+    return (uint32_t *)event_dispatch(1);
   }
-  v6 = sub_119084(1, 512);
+  v6 = event_notify(1, 512);
   if ( !v6 )
-    return (uint32_t *)sub_135020(1);
+    return (uint32_t *)event_dispatch(1);
 LABEL_5:
   v7 = off_135750;
   v31 = 1320 * v2;
   v8 = *((uint32_t *)off_135750 + 5);
-  sub_12C710(v0 + 1320 * v2, v6);
+  scan_done_check(v0 + 1320 * v2, v6);
   v9 = *(uint32_t *)(v6 + 72);
   v10 = (uint8_t)v7[33];
   if ( v7[33] )
@@ -119,7 +119,7 @@ LABEL_5:
   v19[254] = v16;
   v20 = *(uint8_t *)(v17 + 107);
   *(uint16_t *)(v9 + 130) = v15;
-  v21 = sub_130A5C(v9 + 132, v31 + 248 + v0, v11, v20, &v34, &v33, v1);
+  v21 = rf_calc_tx_power_offset(v9 + 132, v31 + 248 + v0, v11, v20, &v34, &v33, v1);
   *(uint8_t *)(v6 + 28) = *(uint8_t *)(v17 + 107);
   v22 = *(uint32_t **)(v6 + 76);
   *(uint8_t *)(v6 + 29) = *(uint8_t *)(v17 + 116);
@@ -130,7 +130,7 @@ LABEL_5:
   if ( v24 )
   {
     if ( **(int16_t **)off_135770 < 0 )
-      sub_12F6C4(dword_135778, dword_135774, 1115);
+      mmio_field_update(dword_135778, dword_135774, 1115);
     *(uint16_t *)(v8 + 14) = 0;
   }
   else
@@ -155,9 +155,9 @@ LABEL_5:
   *(uint32_t *)(v6 + 88) = dword_135768;
   *(uint32_t *)(v6 + 92) = v6;
   v29 = off_135750;
-  sub_1190B4(v28, 5);
+  ble_event_dispatch(v28, 5);
   v29[34] = 1;
-  sub_12C80C(6154, 6, v32);
-  return sub_12CF5C(6u, 8);
+  patch_aware_dispatch(6154, 6, v32);
+  return hci_cmd_send(6u, 8);
 }
 

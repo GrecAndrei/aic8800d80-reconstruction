@@ -14,8 +14,8 @@ extern uint32_t off_126F34;
 extern uint32_t dword_126F38;
 extern uint32_t dword_126F3C;
 
-// sub_126F08 @ 0x126f08, size 44 bytes
-int sub_126F08()
+// llc_flag_test_bit3 @ 0x126f08, size 44 bytes
+int llc_flag_test_bit3()
 {
   uint32_t *v0; // r3
   int v1; // r1
@@ -39,10 +39,10 @@ LABEL_6:
         *(uint8_t *)(v2 + 16) = 1;
       v0[11] = v1;
     }
-    return sub_126CDC();
+    return llc_sem_lock();
   }
   if ( *((uint32_t *)off_126F34 + 11) )
-    return sub_126CDC();
+    return llc_sem_lock();
   return result;
 }
 

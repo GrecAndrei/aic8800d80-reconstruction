@@ -18,8 +18,8 @@ extern uint32_t off_10D25C;
 extern uint32_t dword_10D268;
 extern uint32_t off_10D264;
 
-// sub_10D1C4 @ 0x10d1c4, size 130 bytes
-int sub_10D1C4()
+// wait_radio_flag @ 0x10d1c4, size 130 bytes
+int wait_radio_flag()
 {
   int v0; // r4
   int v2; // r1
@@ -40,7 +40,7 @@ int sub_10D1C4()
       v3 = (char *)off_10D24C + 5050236;
       *(uint32_t *)off_10D250 = 0x200000;
       *((uint32_t *)v3 + 1) |= 0x400000u;
-      sub_12EB90(2, v2);
+      check_feature_flag(2, v2);
       do
       {
         v4 = *(uint32_t *)off_10D25C;
@@ -50,7 +50,7 @@ int sub_10D1C4()
       v6 = dword_10D268;
       *(uint32_t *)off_10D264 = v5;
       v0 = (v4 >> 20) & 1;
-      sub_12EB90(2, v6);
+      check_feature_flag(2, v6);
     }
   }
   return v0;

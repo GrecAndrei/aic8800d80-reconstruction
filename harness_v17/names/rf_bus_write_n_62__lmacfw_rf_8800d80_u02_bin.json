@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_62", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121140a", "status": "ok", "name": "rf_bus_write_n_62", "params": [], "docstring": "Write multiple words to RF control bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_62", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121140a", "status": "ok", "name": "rf_fault_dump_n_a4", "params": [], "docstring": "Write multiple words to RF control bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

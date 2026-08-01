@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114754 @ 0x114754, size 48 bytes
-int  sub_114754(uint8_t *a1)
+// rf_cmd_6_version @ 0x114754, size 48 bytes
+int  rf_cmd_6_version(uint8_t *a1)
 {
   unsigned int v2; // r0
   char v4; // r3

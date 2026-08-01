@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142FF4 @ 0x142ff4, size 14 bytes
-int  sub_142FF4(int a1, int a2, int a3, int a4)
+// __aeabi_cdrcmple @ 0x142ff4, size 14 bytes
+int  __aeabi_cdrcmple(int a1, int a2, int a3, int a4)
 {
-  return sub_143004(a3, a4, a1, a2);
+  return __aeabi_cdcmple(a3, a4, a1, a2);
 }
 

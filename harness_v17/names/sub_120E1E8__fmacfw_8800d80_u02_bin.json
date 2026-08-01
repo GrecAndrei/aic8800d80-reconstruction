@@ -1,1 +1,1 @@
-{"fn": "sub_120E1E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120e1e8", "status": "ok", "name": "mmio_set_reg_4010d000", "params": [], "docstring": "Set bit in hardware register at 0x4010d000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120E1E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120e1e8", "status": "ok", "name": "rf_core_power_on", "params": [], "docstring": "Set bit in hardware register at 0x4010d000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

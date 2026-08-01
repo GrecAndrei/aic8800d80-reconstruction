@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_136", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212eda", "status": "ok", "name": "rf_cmd_send_n_136", "params": [], "docstring": "Send RF command and wait for completion poll", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_136", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212eda", "status": "ok", "name": "rf_bus_reset_eda", "params": [], "docstring": "Send RF command and wait for completion poll", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

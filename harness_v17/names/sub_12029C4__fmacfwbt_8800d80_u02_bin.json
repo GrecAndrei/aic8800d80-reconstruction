@@ -1,1 +1,1 @@
-{"fn": "sub_12029C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12029c4", "status": "ok", "name": "bt_fw_init_or_handler", "params": [], "docstring": "Bluetooth firmware init/handler routine", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12029C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12029c4", "status": "ok", "name": "read_calibration_offsets", "params": [], "docstring": "Bluetooth firmware init/handler routine", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

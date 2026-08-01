@@ -1,1 +1,1 @@
-{"fn": "sub_12143C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12143c4", "status": "ok", "name": "sub_12143C4", "params": [], "docstring": "Load and return a pointer to a global config structure (0x1672ac)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12143C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12143c4", "status": "ok", "name": "log_debug_c", "params": [], "docstring": "Load and return a pointer to a global config structure (0x1672ac)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

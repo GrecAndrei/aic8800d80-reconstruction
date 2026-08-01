@@ -1,1 +1,1 @@
-{"fn": "irq_enable", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120db58", "status": "ok", "name": "irq_enable", "params": [], "docstring": "Enables IRQ handling for the firmware core", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "irq_enable", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120db58", "status": "ok", "name": "gpio_set_bit_reg0", "params": [], "docstring": "Enables IRQ handling for the firmware core", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

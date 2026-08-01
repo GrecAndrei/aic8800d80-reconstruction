@@ -1,0 +1,1 @@
+{"fn": "sub_12159C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159c", "status": "ok", "name": "jump_to_12af2c", "params": [], "docstring": "Tail-branch to common handler at 0x12af2c", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1211FC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1211fc", "status": "ok", "name": "jump_0x12abc8", "params": [], "docstring": "Tail-jump to function at 0x12abc8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

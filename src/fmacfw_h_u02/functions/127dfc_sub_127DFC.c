@@ -15,8 +15,8 @@ extern uint32_t dword_127FD8;
 extern uint32_t dword_127FCC;
 extern uint32_t dword_127FD0;
 
-// sub_127DFC @ 0x127dfc, size 464 bytes
-BOOL  sub_127DFC(int a1, int a2, int a3)
+// cfm_dword_get @ 0x127dfc, size 464 bytes
+BOOL  cfm_dword_get(int a1, int a2, int a3)
 {
   uint8_t *v3; // r11
   int *v4; // r4
@@ -59,8 +59,8 @@ LABEL_10:
       v12 = *((uint8_t *)v4 + 8);
       if ( v12 == *(uint8_t *)(a1 + 107) )
       {
-        sub_12E948(v11, v12, v9);
-        sub_12D1A8(v3 + 16, v4);
+        alloc_tx_event(v11, v12, v9);
+        wlan_ioctl_handler_3(v3 + 16, v4);
         *((uint8_t *)v4 + 9) &= ~1u;
       }
       v4 = (int *)*v4;
@@ -82,7 +82,7 @@ LABEL_10:
 LABEL_13:
   if ( *(uint8_t *)(a1 + 86) != 255 )
   {
-    sub_127818(a1, a2);
+    llc_env_by_conhdl(a1, a2);
     if ( v13 )
       goto LABEL_31;
     goto LABEL_25;
@@ -119,7 +119,7 @@ LABEL_19:
   v17 = *(uint8_t *)(a1 + 85);
   if ( (v17 & 0x10) != 0 )
   {
-    sub_125D38((uint32_t *)a1);
+    rf_mode_setup((uint32_t *)a1);
     *(uint8_t *)(a1 + 85) &= ~0x10u;
     if ( v13 )
       goto LABEL_31;
@@ -127,7 +127,7 @@ LABEL_25:
     if ( !*(uint8_t *)(a1 + 1224) || *(uint8_t *)(dword_127FCC + 140 * *(uint8_t *)(a1 + 1225) + 112) != 1 )
     {
 LABEL_26:
-      sub_12D1A8(dword_127FD0, a1 + 76);
+      wlan_ioctl_handler_3(dword_127FD0, a1 + 76);
       v19 = *(uint8_t *)(a1 + 85) & 0xFE;
 LABEL_27:
       *(uint8_t *)(a1 + 85) = v19 | 2;
@@ -135,7 +135,7 @@ LABEL_27:
       return v10 != v21;
     }
 LABEL_36:
-    sub_126444(a1, a3, 0);
+    llc_rx_event_save(a1, a3, 0);
     v19 = *(uint8_t *)(a1 + 85) | 8;
     goto LABEL_27;
   }
@@ -145,7 +145,7 @@ LABEL_36:
       goto LABEL_18;
     goto LABEL_36;
   }
-  sub_127788(a1);
+  llc_obj_release(a1);
   if ( !v13 )
     goto LABEL_25;
 LABEL_31:

@@ -14,8 +14,8 @@ extern uint32_t off_10FE08;
 extern uint32_t dword_10FE0C;
 extern uint32_t off_10FE10;
 
-// sub_10FDC4 @ 0x10fdc4, size 66 bytes
-int  sub_10FDC4(int a1, int a2, int a3)
+// timer_arm @ 0x10fdc4, size 66 bytes
+int  timer_arm(int a1, int a2, int a3)
 {
   uint32_t *v3; // r3
   uint32_t *v4; // r3
@@ -25,7 +25,7 @@ int  sub_10FDC4(int a1, int a2, int a3)
   *v3 = a2;
   v3[1] = a3;
   *((uint8_t *)v3 + 8) = 4;
-  sub_10F77C(v3, a1, 0x20u);
+  ke_msg_handler(v3, a1, 0x20u);
   v4 = off_10FE10;
   *((uint32_t *)off_10FE10 + 5) = 4;
   v4[1] = 0x10000;

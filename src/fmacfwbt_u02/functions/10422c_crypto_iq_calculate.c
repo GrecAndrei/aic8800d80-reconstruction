@@ -14,10 +14,10 @@ extern uint32_t dword_100000;
 extern uint32_t dword_104330;
 extern uint32_t dword_104334;
 
-// crypto_iq_calculate @ 0x10422c, size 258 bytes
-// Doc: crypto_iq_calculate [mac]: Compute crypto I/Q table pointer from PHY reg
-// crypto_iq_calculate [mac]: Compute crypto I/Q table pointer from PHY reg
-int crypto_iq_calculate()
+// util_get_buf_addr @ 0x10422c, size 258 bytes
+// Doc: util_get_buf_addr [mac]: Compute crypto I/Q table pointer from PHY reg
+// util_get_buf_addr [mac]: Compute crypto I/Q table pointer from PHY reg
+int util_get_buf_addr()
 {
   BOOL v0; // r1
   int v1; // r2
@@ -67,8 +67,8 @@ int crypto_iq_calculate()
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    feature_guard_sdio(1, dword_104330);
-  feature_guard_sdio(1, dword_104334);
+    state_check_feature(1, dword_104330);
+  state_check_feature(1, dword_104334);
   do
   {
     v12 = *v2;

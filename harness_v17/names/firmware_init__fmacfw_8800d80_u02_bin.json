@@ -1,1 +1,1 @@
-{"fn": "firmware_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200478", "status": "ok", "name": "firmware_init", "params": [], "docstring": "Initialize fmacfw globals and data structures", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "firmware_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200478", "status": "ok", "name": "queue_init", "params": [], "docstring": "Initialize fmacfw globals and data structures", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

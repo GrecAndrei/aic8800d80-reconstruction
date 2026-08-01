@@ -1,1 +1,1 @@
-{"fn": "sub_12051E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12051e0", "status": "ok", "name": "scan_chan_meas_12051e0", "params": [], "docstring": "Channel measurement/processing with VFP math and large stack frame", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12051E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12051e0", "status": "ok", "name": "llm_pdu_handle", "params": [], "docstring": "Channel measurement/processing with VFP math and large stack frame", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

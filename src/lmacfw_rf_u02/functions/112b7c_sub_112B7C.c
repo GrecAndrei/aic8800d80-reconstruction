@@ -19,10 +19,10 @@ extern uint32_t off_112C08;
 extern uint32_t dword_112C14;
 extern uint32_t dword_112C18;
 
-// sub_112B7C @ 0x112b7c, size 126 bytes
+// wait_rf_ready @ 0x112b7c, size 126 bytes
 // Doc: rf_cmd_send_n2c0 [rf]: Send RF command 0xC0 and check status
 // rf_cmd_send_n2c0 [rf]: Send RF command 0xC0 and check status
-int  sub_112B7C(int a1)
+int  wait_rf_ready(int a1)
 {
   uint16_t *v2; // r4
   int v3; // r1
@@ -41,10 +41,10 @@ int  sub_112B7C(int a1)
   {
     v2 = (uint16_t *)off_112C00;
     sub_100200((int *)off_112C00, 0xFFu, 4u);
-    if ( sub_114850(v2) || v2[1] == 0xFFFF || (v3 = *v2, v3 == 0xFFFF) )
-      msg_parse(dword_112C04, v3);
+    if ( mmio_write_400000_4(v2) || v2[1] == 0xFFFF || (v3 = *v2, v3 == 0xFFFF) )
+      dispatch_event_handler(dword_112C04, v3);
     else
-      msg_parse(rf_cmd_dispatch_n459, v3);
+      dispatch_event_handler(rf_cmd_dispatch_n459, v3);
   }
   v4 = off_112C0C;
   v5 = off_112C10;
@@ -58,8 +58,8 @@ int  sub_112B7C(int a1)
     v8 = *(uint8_t *)(a1 + 8);
     if ( *(uint8_t *)(a1 + 8) )
       v8 = 1;
-    v9 = rf_bus_write_n274(v6, v8);
-    msg_parse(v7, v9);
+    v9 = ke_send_event(v6, v8);
+    dispatch_event_handler(v7, v9);
   }
   while ( v9 );
   return 0;

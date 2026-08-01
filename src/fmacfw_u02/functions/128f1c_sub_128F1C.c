@@ -13,14 +13,14 @@
 extern uint32_t off_128F50;
 extern uint32_t off_128F54;
 
-// sub_128F1C @ 0x128f1c, size 50 bytes
-int sub_128F1C()
+// wlc_bss_state @ 0x128f1c, size 50 bytes
+int wlc_bss_state()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r3
 
   v0 = off_128F50;
-  if ( !*(uint8_t *)off_128F50 && !rf_bus_setup_nd0() )
+  if ( !*(uint8_t *)off_128F50 && !controller_status_byte() )
     return 0;
   if ( v0[1] )
     return 0;

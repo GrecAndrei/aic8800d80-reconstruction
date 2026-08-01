@@ -13,8 +13,8 @@
 extern uint32_t dword_1287D8;
 extern uint32_t off_1287DC;
 
-// sub_12876C @ 0x12876c, size 106 bytes
-int  sub_12876C(int result)
+// remove_entry_by_owner @ 0x12876c, size 106 bytes
+int  remove_entry_by_owner(int result)
 {
   int v1; // r3
   int v2; // r2
@@ -52,14 +52,14 @@ LABEL_6:
     v5 = off_1287DC;
     *(uint8_t *)(result + 12) = v4;
     if ( v5[10] == result )
-      return bt_hci_cmd_build_n6ac(v4);
+      return util_format_string(v4);
   }
   else
   {
     v6 = off_1287DC;
     *(uint8_t *)(result + 12) = 15;
     if ( v6[10] == result )
-      return bt_hci_cmd_build_n6ac(15);
+      return util_format_string(15);
   }
   return result;
 }

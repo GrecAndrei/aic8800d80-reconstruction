@@ -13,8 +13,8 @@
 extern uint32_t off_110630;
 extern uint32_t off_110634;
 
-// sub_1105FC @ 0x1105fc, size 52 bytes
-int  sub_1105FC(int a1)
+// ke_event_init @ 0x1105fc, size 52 bytes
+int  ke_event_init(int a1)
 {
   uint32_t *v1; // r2
   uint32_t *v2; // r1
@@ -37,7 +37,7 @@ int  sub_1105FC(int a1)
   *((uint16_t *)v2 + 14) = 0;
   v2[6] = 0;
   *((uint8_t *)v2 + 30) = 0;
-  sub_110494((int)v1, (int)v2);
+  rf_isr((int)v1, (int)v2);
   return 1;
 }
 

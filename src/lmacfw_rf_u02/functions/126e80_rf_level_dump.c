@@ -15,10 +15,10 @@ extern uint32_t dword_126F04;
 extern uint32_t off_126F08;
 extern uint32_t dword_126F0C;
 
-// rf_level_dump @ 0x126e80, size 118 bytes
+// rf_param_build @ 0x126e80, size 118 bytes
 // Doc: rf_level_apply_nd8 [rf]: Apply RF power/level parameters from struct fields
 // rf_level_apply_nd8 [rf]: Apply RF power/level parameters from struct fields
-int rf_level_dump()
+int rf_param_build()
 {
   uint8_t *v0; // r4
   int v1; // r4
@@ -26,17 +26,17 @@ int rf_level_dump()
   int v4; // [sp+14h] [bp-4h]
 
   v0 = (uint8_t *)rf_level_apply_n120;
-  msg_parse(
+  dispatch_event_handler(
     rf_level_apply_n124,
     *(char *)rf_level_apply_n120,
     *((char *)rf_level_apply_n120 + 1),
     *((char *)rf_level_apply_n120 + 2),
     *((char *)rf_level_apply_n120 + 3));
-  msg_parse(dword_126F00, v0[4], v0[5], v0[6]);
-  msg_parse(dword_126F04, (char)v0[8], (char)v0[9], (char)v0[10], (char)v0[11], (char)v0[12], (char)v0[13]);
+  dispatch_event_handler(dword_126F00, v0[4], v0[5], v0[6]);
+  dispatch_event_handler(dword_126F04, (char)v0[8], (char)v0[9], (char)v0[10], (char)v0[11], (char)v0[12], (char)v0[13]);
   v1 = *((uint8_t *)off_126F08 + 363);
   v4 = *((uint32_t *)off_126F08 + 91);
-  v2 = sub_11DDCC(1070, 1);
-  return msg_parse(dword_126F0C, v1, v4, v2);
+  v2 = ke_task_retrieve(1070, 1);
+  return dispatch_event_handler(dword_126F0C, v1, v4, v2);
 }
 

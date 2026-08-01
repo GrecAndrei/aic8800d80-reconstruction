@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_113B5C @ 0x113b5c, size 26 bytes
-unsigned int  sub_113B5C(int a1)
+// mmio_rmw_field @ 0x113b5c, size 26 bytes
+unsigned int  mmio_rmw_field(int a1)
 {
-  host_reg_wait_set(1u, (a1 << 13) & 0x1E000);
-  return ((unsigned int)sub_113A44(1u) >> 13) & 0xF;
+  mmio_write32(1u, (a1 << 13) & 0x1E000);
+  return ((unsigned int)mmio_read32(1u) >> 13) & 0xF;
 }
 

@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11485C @ 0x11485c, size 12 bytes
-int  sub_11485C(int a1)
+// mmio_write_400000_4_alt @ 0x11485c, size 12 bytes
+int  mmio_write_400000_4_alt(int a1)
 {
-  return sub_1146E4(0x400000, a1, 4u);
+  return bus_write_buf(0x400000, a1, 4u);
 }
 

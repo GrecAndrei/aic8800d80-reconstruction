@@ -21,8 +21,8 @@ extern uint32_t off_1178A4;
 extern uint32_t dword_1178B0;
 extern uint32_t dword_1178AC;
 
-// sub_1177E4 @ 0x1177e4, size 168 bytes
-int  sub_1177E4(int result)
+// radio_event_handler @ 0x1177e4, size 168 bytes
+int  radio_event_handler(int result)
 {
   int v1; // r4
   int v2; // r5
@@ -32,13 +32,13 @@ int  sub_1177E4(int result)
   v1 = *(uint32_t *)off_11788C;
   if ( (*(uint32_t *)off_11788C & 0x1000) != 0 )
   {
-    result = sub_11C7A4(result, *(uint32_t *)off_11788C << 19);
+    result = dma_clear_interrupt(result, *(uint32_t *)off_11788C << 19);
     *(uint32_t *)off_1178A0 = 4096;
   }
   v2 = dword_117890;
   if ( (v1 & dword_117890) != 0 )
   {
-    result = sub_11C954();
+    result = is_fw_ready();
     *(uint32_t *)off_1178A0 = v2;
   }
   if ( (dword_117894 & v1) != 0 && (*(uint32_t *)off_117898 & 0x300000) == 0 )
@@ -58,7 +58,7 @@ int  sub_1177E4(int result)
   {
 LABEL_9:
     *(uint32_t *)off_1178A0 = 0x80000;
-    return sub_116F34(5);
+    return phy_config_table(5);
   }
   v4 = (uint8_t)(25 - __clz(v3));
   if ( **(int16_t **)off_1178A4 >= 0 || v4 <= 6 )
@@ -68,9 +68,9 @@ LABEL_9:
   }
   else
   {
-    sub_12F32C(dword_1178B0, dword_1178AC, 2883);
+    irq_disable_mmio_write(dword_1178B0, dword_1178AC, 2883);
   }
   *(uint32_t *)off_1178A0 = 1 << (v4 + 6);
-  return sub_116F34(v4);
+  return phy_config_table(v4);
 }
 

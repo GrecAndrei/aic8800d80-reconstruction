@@ -12,8 +12,8 @@
 
 extern uint32_t off_1042B8;
 
-// sub_104274 @ 0x104274, size 66 bytes
-int  sub_104274(int a1, int a2, uint32_t *a3)
+// tx_ring_next_idx @ 0x104274, size 66 bytes
+int  tx_ring_next_idx(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v4; // r4

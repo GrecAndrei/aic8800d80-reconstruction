@@ -1,0 +1,1 @@
+{"fn": "sub_115F04", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x115f04", "status": "ok", "name": "set_string_0x182588", "params": [], "docstring": "Copy argument string to global buffer at 0x182588", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

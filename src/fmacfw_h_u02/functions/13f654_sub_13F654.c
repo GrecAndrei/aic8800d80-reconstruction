@@ -15,8 +15,8 @@ extern uint32_t off_13F6E4;
 extern uint32_t dword_13F6F0;
 extern uint32_t dword_13F6EC;
 
-// sub_13F654 @ 0x13f654, size 142 bytes
-int  sub_13F654(int a1)
+// l2c_ccb_by_index @ 0x13f654, size 142 bytes
+int  l2c_ccb_by_index(int a1)
 {
   int v1; // r4
   int v2; // r3
@@ -25,8 +25,8 @@ int  sub_13F654(int a1)
 
   v1 = *(uint32_t *)(dword_13F6E8 + 696 * a1 + 340);
   if ( **(int16_t **)off_13F6E4 < 0 && !v1 )
-    sub_12F32C(dword_13F6F0, dword_13F6EC, 2194);
-  sub_13E1E8(v1);
+    irq_disable_mmio_write(dword_13F6F0, dword_13F6EC, 2194);
+  rx_process(v1);
   v2 = *(uint16_t *)(v1 + 184);
   *(uint16_t *)(v1 + 136) = (v2 - 1) & ~(uint16_t)((v2 - 1) >> 31);
   *(uint16_t *)(v1 + 138) = (v2 - 2) & ~(uint16_t)((v2 - 2) >> 31);
@@ -35,7 +35,7 @@ int  sub_13F654(int a1)
   *(uint16_t *)(v1 + 190) = -1;
   *(uint16_t *)(v1 + 142) = 0;
   *(uint8_t *)(v1 + 166) = 0;
-  result = sub_13F490(v1, 1);
+  result = l2c_ccb_prepare(v1, 1);
   v4 = *(uint8_t *)(v1 + 184);
   *(uint8_t *)(v1 + 154) = 0;
   *(uint8_t *)(v1 + 164) = v4 - 4;

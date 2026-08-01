@@ -1,1 +1,1 @@
-{"fn": "sub_12078D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12078d4", "status": "ok", "name": "divmod64_compute", "params": [], "docstring": "64-bit division/modulo via magic-number multiply", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12078D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12078d4", "status": "ok", "name": "timer_ticks_to_micros", "params": [], "docstring": "64-bit division/modulo via magic-number multiply", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

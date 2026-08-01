@@ -13,10 +13,10 @@
 extern uint32_t off_138E14;
 extern uint32_t off_138E18;
 
-// bt_channel_parse_n_db8 @ 0x138db8, size 92 bytes
-// Doc: bt_channel_parse_n_db8 [bt]: Parses channel/band info from BT config block into output
-// bt_channel_parse_n_db8 [bt]: Parses channel/band info from BT config block into output
-uint32_t * bt_channel_parse_n_db8(int a1, int16_t a2)
+// rf_cal_freq_from_channel @ 0x138db8, size 92 bytes
+// Doc: rf_cal_freq_from_channel [bt]: Parses channel/band info from BT config block into output
+// rf_cal_freq_from_channel [bt]: Parses channel/band info from BT config block into output
+uint32_t * rf_cal_freq_from_channel(int a1, int16_t a2)
 {
   uint32_t *v2; // r6
   int16_t v4; // r5
@@ -48,7 +48,7 @@ LABEL_4:
   else
     v6 = v5 & 0xFFFFFFBF;
   *(uint32_t *)(a1 + 96) = v6;
-  rf_bus_setup_n39a_ea44(a1);
-  return sub_138AD4(a1, v4, v2[16]);
+  rx_packet_setup(a1);
+  return tx_power_cal_read(a1, v4, v2[16]);
 }
 

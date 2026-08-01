@@ -13,8 +13,8 @@
 extern uint32_t dword_11C4B4;
 extern uint32_t dword_11C4B8;
 
-// sub_11C3EC @ 0x11c3ec, size 198 bytes
-int  sub_11C3EC(int a1, int a2)
+// txpacket_prepare @ 0x11c3ec, size 198 bytes
+int  txpacket_prepare(int a1, int a2)
 {
   int v2; // r2
   int v3; // r5
@@ -74,7 +74,7 @@ LABEL_13:
         }
         else if ( *(uint8_t *)(a2 + 13) == v12 >> 12 )
         {
-          sub_14380C(a2 + 228, v8 + 1, v11 - 2);
+          memcpy_aligned(a2 + 228, v8 + 1, v11 - 2);
           *(uint32_t *)(a2 + 224) = a2 + 228;
           return 1;
         }

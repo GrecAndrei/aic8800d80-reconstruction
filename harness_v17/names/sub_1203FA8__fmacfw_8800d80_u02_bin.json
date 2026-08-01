@@ -1,1 +1,1 @@
-{"fn": "sub_1203FA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1203fa8", "status": "ok", "name": "sub_1203FA8", "params": [], "docstring": "Set MMIO control bits at 0x4034224c/0x403422c4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1203FA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1203fa8", "status": "ok", "name": "mac_irq_enable", "params": [], "docstring": "Set MMIO control bits at 0x4034224c/0x403422c4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13105C @ 0x13105c, size 162 bytes
-uint8_t * sub_13105C(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// ll_get_conn_state @ 0x13105c, size 162 bytes
+uint8_t * ll_get_conn_state(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   uint8_t *result; // r0
   uint8_t v7; // r2
@@ -19,7 +19,7 @@ uint8_t * sub_13105C(uint8_t *a1, int a2, int a3, uint8_t *a4)
   unsigned int v9; // r5
   uint64_t v10; // r2
 
-  result = sub_12DCE0(a1, a2);
+  result = log_format_message(a1, a2);
   *a4 = 0;
   if ( result )
   {

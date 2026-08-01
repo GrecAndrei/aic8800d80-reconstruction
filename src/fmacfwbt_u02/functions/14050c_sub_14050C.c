@@ -14,18 +14,18 @@ extern uint32_t off_140540;
 extern uint32_t dword_140548;
 extern uint32_t dword_140544;
 
-// sub_14050C @ 0x14050c, size 50 bytes
-int sub_14050C()
+// check_module_state @ 0x14050c, size 50 bytes
+int check_module_state()
 {
-  if ( sub_12D0B0(0xBu) == 4 )
+  if ( hci_cmd_send_short(0xBu) == 4 )
   {
-    sub_14157C();
+    get_adv_tx_power();
     return 0;
   }
   else
   {
     if ( **(int16_t **)off_140540 < 0 )
-      sub_12F6C4(dword_140548, dword_140544, 129);
+      mmio_field_update(dword_140548, dword_140544, 129);
     return 0;
   }
 }

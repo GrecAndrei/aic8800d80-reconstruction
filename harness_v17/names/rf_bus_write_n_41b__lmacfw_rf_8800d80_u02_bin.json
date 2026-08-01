@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_41b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211050", "status": "ok", "name": "rf_bus_write_n_41b", "params": [], "docstring": "RF bus write variant n_41b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_41b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211050", "status": "ok", "name": "rf_bus_write2_n_4d4", "params": [], "docstring": "RF bus write variant n_41b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t dword_13C490;
 extern uint32_t dword_13C494;
 extern uint32_t dword_13C498;
 
-// sub_13C448 @ 0x13c448, size 72 bytes
-int  sub_13C448(int a1)
+// tx_init_data_buffer @ 0x13c448, size 72 bytes
+int  tx_init_data_buffer(int a1)
 {
   int v1; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int  sub_13C448(int a1)
   int v6; // zf
 
   v1 = *(uint32_t *)(a1 + 28);
-  memset_thunk((int *)(v1 + 6), 0, 0x100u);
+  memset_byte((int *)(v1 + 6), 0, 0x100u);
   result = 348;
   v4 = *(uint16_t *)(dword_13C490 + 2 * (*(uint8_t *)(a1 + 22) + 348 * *(uint8_t *)(a1 + 16)) + 316);
   *(uint8_t *)(v1 + 262) = 0;

@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DB2C;
 
-// sub_10DB18 @ 0x10db18, size 18 bytes
-int  sub_10DB18(char a1)
+// gpio_out_clear @ 0x10db18, size 18 bytes
+int  gpio_out_clear(char a1)
 {
   int result; // r0
 

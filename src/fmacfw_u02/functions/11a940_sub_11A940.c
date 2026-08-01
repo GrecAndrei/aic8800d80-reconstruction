@@ -21,8 +21,8 @@ extern uint32_t dword_11AC38;
 extern uint32_t dword_11AC3C;
 extern uint32_t dword_11AC48;
 
-// sub_11A940 @ 0x11a940, size 814 bytes
-int  sub_11A940(int a1, int a2)
+// parse_rx_frame @ 0x11a940, size 814 bytes
+int  parse_rx_frame(int a1, int a2)
 {
   int v2; // r10
   int v3; // r4
@@ -89,13 +89,13 @@ int  sub_11A940(int a1, int a2)
   if ( v6 == 3670016 )
   {
     ++*(uint8_t *)(dword_11AC44 + 84 * v52 + 80);
-    inited = crypto_ke_ctx_init_n_38(a1, 0);
+    inited = tx_queue_init(a1, 0);
     v30 = *(uint16_t *)(v2 + 8) << 21;
     v5 = inited;
     *(uint32_t *)a2 = inited;
     if ( v30 < 0 )
     {
-      list_push_tail(*(uint32_t *)(v2 + 340));
+      cmd_handler_a(*(uint32_t *)(v2 + 340));
       return *(uint32_t *)a2;
     }
     return v5;
@@ -122,19 +122,19 @@ LABEL_5:
   }
   else
   {
-    v11 = rf_bus_mark_n100_d2d0(dword_11AC34 + 8 * v52);
+    v11 = mem_word_load(dword_11AC34 + 8 * v52);
     v12 = v11;
     if ( !v11 )
     {
       v43 = dword_11AC70;
       goto LABEL_41;
     }
-    sub_143770(v11, v2, 360);
+    memcpy(v11, v2, 360);
     v13 = *(uint8_t *)(v3 + *(uint8_t *)(v12 + 13));
   }
   v14 = *(uint32_t *)(v7 + 76);
   v15 = (int16_t **)off_11AC4C;
-  sub_1194A8(v12, v13, (int)v55);
+  rf_get_rssi(v12, v13, (int)v55);
   v16 = *(uint32_t *)(v14 + 36);
   v17 = *(uint32_t *)(v7 + 36);
   v18 = *(uint16_t *)(v7 + 80);
@@ -161,7 +161,7 @@ LABEL_5:
       break;
     if ( **v15 < 0 )
     {
-      sub_12F46C(dword_11AC40, dword_11AC38, 721);
+      mmio_clear_register(dword_11AC40, dword_11AC38, 721);
       v25 = *(uint32_t *)(v19 + 36);
     }
 LABEL_20:
@@ -185,7 +185,7 @@ LABEL_20:
       ++*(uint8_t *)(v34 + 80);
       if ( !v53 )
       {
-        sub_12D3C8(v34 + 28, v2, v12);
+        read_word(v34 + 28, v2, v12);
         v8 = *(uint8_t *)(*v32 + 1);
       }
       v35 = v54[18];
@@ -215,7 +215,7 @@ LABEL_20:
     }
     v28 = *(uint32_t *)v19;
     if ( **v15 < 0 && !v28 )
-      sub_12F46C(dword_11AC3C, dword_11AC38, 744);
+      mmio_clear_register(dword_11AC3C, dword_11AC38, 744);
     v22 = v19;
     v20 = v26;
     v19 = v28;
@@ -232,13 +232,13 @@ LABEL_20:
   if ( v53 )
   {
     v43 = dword_11AC70;
-    sub_12D2E8(84 * (int16_t)v52 + 28 + dword_11AC70, v12);
+    cmd_handler_c(84 * (int16_t)v52 + 28 + dword_11AC70, v12);
   }
   else
   {
     v43 = dword_11AC44;
   }
-  list_push_tail(*(uint32_t *)(v12 + 340));
+  cmd_handler_a(*(uint32_t *)(v12 + 340));
 LABEL_41:
   v44 = 0;
   v45 = v43 + 84 * v52;
@@ -249,7 +249,7 @@ LABEL_41:
     v48 = *(uint32_t *)(v7 + 36);
     ++*(uint8_t *)(v45 + 80);
     v49 = v48 & 0x380000;
-    v50 = crypto_ke_ctx_init_n_38(v7, 0);
+    v50 = tx_queue_init(v7, 0);
     if ( !v50 )
     {
 LABEL_45:
@@ -270,7 +270,7 @@ LABEL_45:
 LABEL_46:
       v7 = *(uint32_t *)v7;
       if ( **v46 < 0 && !v7 )
-        sub_12F46C(dword_11AC3C, dword_11AC48, 3509);
+        mmio_clear_register(dword_11AC3C, dword_11AC48, 3509);
       continue;
     }
     break;

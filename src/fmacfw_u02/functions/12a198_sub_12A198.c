@@ -16,8 +16,8 @@ extern uint32_t dword_12A27C;
 extern uint32_t dword_12A278;
 extern uint32_t dword_12A280;
 
-// sub_12A198 @ 0x12a198, size 214 bytes
-int  sub_12A198(int a1, unsigned int a2)
+// bt_runtime_check2 @ 0x12a198, size 214 bytes
+int  bt_runtime_check2(int a1, unsigned int a2)
 {
   int16_t **v2; // r6
   int v5; // r2
@@ -63,7 +63,7 @@ LABEL_10:
     v12 = v6 + 140 * v5 + 16 * (a2 + v8);
     return *(uint32_t *)(v12 + 12) + *(uint32_t *)(v12 + 24);
   }
-  sub_12F46C(dword_12A27C, dword_12A278, 1325);
+  mmio_clear_register(dword_12A27C, dword_12A278, 1325);
   v5 = *(uint8_t *)(a1 + 1225);
   v6 = dword_12A274;
   v8 = 2 * a2;
@@ -75,7 +75,7 @@ LABEL_10:
   if ( **v2 >= 0 )
     return 0;
 LABEL_15:
-  sub_12F49C(dword_12A280, dword_12A278, 1337);
+  call_shared_handler(dword_12A280, dword_12A278, 1337);
   return 0;
 }
 

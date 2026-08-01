@@ -1,1 +1,1 @@
-{"fn": "sub_1202F80", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202f80", "status": "ok", "name": "patch_check_1202f80", "params": [], "docstring": "Checks firmware patch state byte before applying", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1202F80", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202f80", "status": "ok", "name": "is_radio_busy", "params": [], "docstring": "Checks firmware patch state byte before applying", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

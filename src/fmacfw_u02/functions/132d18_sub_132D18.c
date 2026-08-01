@@ -13,8 +13,8 @@
 extern uint32_t off_132D84;
 extern uint32_t off_13245C;
 
-// sub_132D18 @ 0x132d18, size 106 bytes
-int  sub_132D18(int result, uint8_t *a2, int a3)
+// scan_interval_update @ 0x132d18, size 106 bytes
+int  scan_interval_update(int result, uint8_t *a2, int a3)
 {
   unsigned int v3; // r4
   unsigned int v4; // r2

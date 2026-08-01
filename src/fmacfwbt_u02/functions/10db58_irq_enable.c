@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DB68;
 
-// irq_enable @ 0x10db58, size 16 bytes
-// Doc: irq_enable [util]: Enables IRQ handling for the firmware core
-// irq_enable [util]: Enables IRQ handling for the firmware core
-int  irq_enable(char a1)
+// gpio_set_bit_reg0 @ 0x10db58, size 16 bytes
+// Doc: gpio_set_bit_reg0 [util]: Enables IRQ handling for the firmware core
+// gpio_set_bit_reg0 [util]: Enables IRQ handling for the firmware core
+int  gpio_set_bit_reg0(char a1)
 {
   int result; // r0
 

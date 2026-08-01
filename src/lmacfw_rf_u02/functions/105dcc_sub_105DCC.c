@@ -14,8 +14,8 @@ extern uint32_t dword_105E90;
 extern uint32_t off_105E88;
 extern uint32_t dword_105E8C;
 
-// sub_105DCC @ 0x105dcc, size 188 bytes
-int  sub_105DCC(int a1, int a2, int a3, int a4, int a5)
+// validate_handle @ 0x105dcc, size 188 bytes
+int  validate_handle(int a1, int a2, int a3, int a4, int a5)
 {
   int v9; // r4
   unsigned int v10; // r4
@@ -25,7 +25,7 @@ int  sub_105DCC(int a1, int a2, int a3, int a4, int a5)
 
   if ( *(uint32_t *)(a4 + 132) <= a2 )
   {
-    crypto_gain_clamp(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
+    scale_f32(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
     v9 = *(uint8_t *)(a4 + 104);
   }
   else
@@ -70,7 +70,7 @@ LABEL_6:
   {
 LABEL_14:
     v10 |= 0xC08000u;
-    sub_11F74C(1, dword_105E90, a5, a2);
+    check_interrupt_flag(1, dword_105E90, a5, a2);
     goto LABEL_9;
   }
   v11 = a3 << 24;
@@ -80,6 +80,6 @@ LABEL_9:
   v12 = off_105E88;
   v13 = dword_105E8C;
   *(uint32_t *)off_105E88 = v10;
-  return sub_11F74C(1, v13, *v12, v12);
+  return check_interrupt_flag(1, v13, *v12, v12);
 }
 

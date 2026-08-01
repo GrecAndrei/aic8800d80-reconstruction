@@ -16,10 +16,10 @@ extern uint32_t off_1075AC;
 extern uint32_t dword_1075B0;
 extern uint32_t dword_1075B4;
 
-// bt_init_handler @ 0x1074d0, size 212 bytes
-// Doc: bt_init_handler [bt]: Bluetooth firmware initialization entry
-// bt_init_handler [bt]: Bluetooth firmware initialization entry
-int  bt_init_handler(int a1, int a2)
+// rf_enable_interrupt @ 0x1074d0, size 212 bytes
+// Doc: rf_enable_interrupt [bt]: Bluetooth firmware initialization entry
+// rf_enable_interrupt [bt]: Bluetooth firmware initialization entry
+int  rf_enable_interrupt(int a1, int a2)
 {
   uint32_t *v2; // r5
   unsigned int *v3; // r4
@@ -38,18 +38,18 @@ int  bt_init_handler(int a1, int a2)
   *v3 |= 0x800000u;
   *v3 |= 0x200000u;
   *v3 |= 0x100000u;
-  sub_107370();
+  rf_set_frequency();
   *v2 &= ~1u;
-  delay_us(100);
+  timer_set(100);
   v5 = off_1075AC;
   v6 = dword_1075B0;
   *v3 |= 0x4000000u;
   v7 = *v5 & 0x7FFF;
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v7;
-  feature_guard_sdio(1, v6);
-  delay_us(5);
-  result = feature_guard_sdio(1, dword_1075B4);
+  state_check_feature(1, v6);
+  timer_set(5);
+  result = state_check_feature(1, dword_1075B4);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v2 &= ~4u;

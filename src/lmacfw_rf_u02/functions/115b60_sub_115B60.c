@@ -17,8 +17,8 @@ extern uint32_t off_115C78;
 extern uint32_t off_115C7C;
 extern uint32_t dword_115C88;
 
-// sub_115B60 @ 0x115b60, size 276 bytes
-int  sub_115B60(int a1, int a2)
+// llm_scan_pdu_cfg @ 0x115b60, size 276 bytes
+int  llm_scan_pdu_cfg(int a1, int a2)
 {
   uint8_t *v4; // r3
   char *v5; // r0
@@ -54,7 +54,7 @@ int  sub_115B60(int a1, int a2)
     v20 = *(uint8_t *)(a1 + 16);
     if ( v20 == 255 )
     {
-      sub_116628(a1, 0);
+      wlan_tx_kick(a1, 0);
       return 0;
     }
     else
@@ -62,7 +62,7 @@ int  sub_115B60(int a1, int a2)
       v21 = dword_115C80;
       *(uint8_t *)(a1 + 14) = a2;
       *(uint8_t *)(a1 + 53) = 1;
-      sub_11E724(v21 + 152 * (int16_t)v20 + 48);
+      check_kernel_state(v21 + 152 * (int16_t)v20 + 48);
       return 1;
     }
   }
@@ -77,7 +77,7 @@ int  sub_115B60(int a1, int a2)
   ++*(uint32_t *)off_115C7C;
   if ( v7 )
   {
-    sub_11E724(v5 + 12);
+    check_kernel_state(v5 + 12);
     v8 = *v6;
     if ( *v6 )
     {
@@ -95,7 +95,7 @@ LABEL_8:
     v22[4] = dword_115C88;
     v22[2] = a1;
     v22[3] = a1;
-    sub_11E724(v5 + 12);
+    check_kernel_state(v5 + 12);
     v8 = *v6;
     if ( *v6 )
       goto LABEL_8;
@@ -128,7 +128,7 @@ LABEL_8:
   }
   v16 = *(uint32_t *)(a1 + 28);
   ++*v6;
-  sub_115754(a1, a1, v16, a2);
+  rx_pkt_status_update(a1, a1, v16, a2);
   if ( *v6 )
   {
     v17 = *v6 - 1;

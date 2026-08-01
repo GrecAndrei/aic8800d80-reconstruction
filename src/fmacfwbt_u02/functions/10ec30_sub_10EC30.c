@@ -14,8 +14,8 @@ extern uint32_t off_10EC78;
 extern uint32_t off_10EC7C;
 extern uint32_t off_10EC80;
 
-// sub_10EC30 @ 0x10ec30, size 70 bytes
-int  sub_10EC30(int a1, int a2, int a3)
+// atomic_reg_read_alt @ 0x10ec30, size 70 bytes
+int  atomic_reg_read_alt(int a1, int a2, int a3)
 {
   int *v3; // r5
   uint32_t *v4; // r4
@@ -35,12 +35,12 @@ int  sub_10EC30(int a1, int a2, int a3)
     v4 = off_10EC80;
     while ( !*(uint32_t *)off_10EC80 )
       ;
-    result = sub_10EBCC();
+    result = jump_table_1b4();
     *v4 = 1;
   }
   else
   {
-    result = sub_10EBCC();
+    result = jump_table_1b4();
   }
   if ( *v3 )
   {

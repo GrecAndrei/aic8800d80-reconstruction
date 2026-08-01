@@ -15,8 +15,8 @@ extern uint32_t dword_123948;
 extern uint32_t off_12394C;
 extern uint32_t dword_123950;
 
-// sub_123884 @ 0x123884, size 192 bytes
-int  sub_123884(int a1, int a2, int a3, int a4)
+// mmio_ring_init @ 0x123884, size 192 bytes
+int  mmio_ring_init(int a1, int a2, int a3, int a4)
 {
   int v4; // r0
   uint32_t *v5; // r5
@@ -25,7 +25,7 @@ int  sub_123884(int a1, int a2, int a3, int a4)
   BOOL v8; // r0
   int v9; // r3
 
-  v4 = sub_12C7EC(5, a4, a3, 28);
+  v4 = tx_send_pdu(5, a4, a3, 28);
   v5 = off_123944;
   *(uint32_t *)v4 = dword_123948;
   v6 = off_12394C;
@@ -34,9 +34,9 @@ int  sub_123884(int a1, int a2, int a3, int a4)
   *(uint8_t *)(v4 + 26) = 4;
   *(uint16_t *)(v4 + 24) = 32;
   v7 = v4;
-  sub_1018D8((uint32_t *)(v4 + 12), (uint32_t *)(v4 + 16));
+  read_mmio_pair((uint32_t *)(v4 + 12), (uint32_t *)(v4 + 16));
   *(uint32_t *)(v7 + 20) = dword_123950;
-  if ( (*v5 & 0x20000) != 0 && sub_10199C() )
+  if ( (*v5 & 0x20000) != 0 && rf_status_bit28() )
   {
     *(uint32_t *)(v7 + 20) |= 0x400u;
     if ( (*(uint32_t *)off_123944 & 0x20000) == 0 )
@@ -46,21 +46,21 @@ int  sub_123884(int a1, int a2, int a3, int a4)
   {
     goto LABEL_3;
   }
-  if ( sub_1019AC() )
+  if ( rf_status_bit30() )
     *(uint32_t *)(v7 + 20) |= 0x4000u;
 LABEL_3:
   if ( (*(uint32_t *)off_123944 & 0x2000) != 0 )
     *(uint32_t *)(v7 + 20) |= 0x1000u;
-  if ( sub_10194C() )
+  if ( return_true() )
     *(uint32_t *)(v7 + 20) |= 0x200u;
-  if ( (*(uint32_t *)off_123944 & 0x8000) != 0 && sub_101950() )
+  if ( (*(uint32_t *)off_123944 & 0x8000) != 0 && rf_status_bit21() )
     *(uint32_t *)(v7 + 20) |= 0x800000u;
-  v8 = sub_101960();
+  v8 = check_rf_ready();
   v9 = *(uint32_t *)(v7 + 20);
   if ( v8 )
     v9 |= 0x80000u;
   *(uint32_t *)(v7 + 20) = v9 | 0x600000;
-  sub_12C84C(v7);
+  rx_process_packet(v7);
   return 0;
 }
 

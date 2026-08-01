@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12C31C;
 
-// sub_12C304 @ 0x12c304, size 22 bytes
-int sub_12C304()
+// mmio_clear_bit @ 0x12c304, size 22 bytes
+int mmio_clear_bit()
 {
   *(uint32_t *)(dword_12C31C + 4808) &= ~1u;
-  return sub_12CFC4(0x40000000);
+  return irq_disable_global_2(0x40000000);
 }
 

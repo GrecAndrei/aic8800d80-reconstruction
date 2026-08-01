@@ -13,8 +13,8 @@
 extern uint32_t off_1019E8;
 extern uint32_t off_1019E4;
 
-// sub_1019D4 @ 0x1019d4, size 14 bytes
-uint32_t * sub_1019D4(uint32_t *result, uint32_t *a2)
+// chip_id_get @ 0x1019d4, size 14 bytes
+uint32_t * chip_id_get(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

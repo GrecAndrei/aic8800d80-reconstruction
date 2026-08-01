@@ -14,28 +14,28 @@ extern uint32_t dword_126A3C;
 extern uint32_t off_126A40;
 extern uint32_t dword_126A44;
 
-// fmacfwbt_init_load @ 0x126a04, size 56 bytes
-// Doc: fmacfwbt_init_load [util]: Initialize FMAC+BT firmware image from 0x190c50 table
-// fmacfwbt_init_load [util]: Initialize FMAC+BT firmware image from 0x190c50 table
-int fmacfwbt_init_load()
+// hci_acl_buf_alloc @ 0x126a04, size 56 bytes
+// Doc: hci_acl_buf_alloc [util]: Initialize FMAC+BT firmware image from 0x190c50 table
+// hci_acl_buf_alloc [util]: Initialize FMAC+BT firmware image from 0x190c50 table
+int hci_acl_buf_alloc()
 {
   int result; // r0
   uint32_t *v1; // r4
   char *v2; // r5
   char *v3; // r4
 
-  result = sub_12D4F8(dword_126A3C);
+  result = list_pop_front(dword_126A3C);
   if ( result )
   {
     v1 = off_126A40;
-    timestamp_remove_058(dword_126A44);
+    ke_event_set_lock(dword_126A44);
     v1[18] = 0;
     v2 = (char *)(v1 + 6);
     v3 = (char *)(v1 + 8);
     do
     {
-      list_push_tail(v2);
-      result = sub_12D4F8(v3);
+      check_abort_flag(v2);
+      result = list_pop_front(v3);
     }
     while ( result );
   }

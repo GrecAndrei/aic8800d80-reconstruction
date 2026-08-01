@@ -29,10 +29,10 @@ extern uint32_t off_1005A0;
 extern uint32_t dword_1005AC;
 extern uint32_t off_1005A8;
 
-// firmware_init @ 0x100478, size 240 bytes
-// Doc: firmware_init [util]: Initialize fmacfw globals and data structures
-// firmware_init [util]: Initialize fmacfw globals and data structures
-void __noreturn firmware_init()
+// queue_init @ 0x100478, size 240 bytes
+// Doc: queue_init [util]: Initialize fmacfw globals and data structures
+// queue_init [util]: Initialize fmacfw globals and data structures
+void __noreturn queue_init()
 {
   uint8_t *v0; // r4
   uint32_t *v1; // r5
@@ -70,7 +70,7 @@ void __noreturn firmware_init()
   *v4 = v0 + 152;
   *v5 = v0 + 178;
   *v6 = v0 + 176;
-  v7 = fw_config_apply();
+  v7 = ke_event_handler();
   if ( *(uint8_t *)*v1 == 1 )
   {
     v8 = off_10058C;
@@ -80,33 +80,33 @@ void __noreturn firmware_init()
   }
   v9 = off_100594;
   *((uint8_t *)off_100594 + 2) = (*(uint32_t *)off_100590 & 0xF) == 10;
-  v10 = log_list_init(v7);
-  v11 = log_hw_regs_init(v10);
-  v12 = sub_10F204(v11);
-  inited = system_init_chain(v12);
+  v10 = call_handler(v7);
+  v11 = dma_reset_regs(v10);
+  v12 = rf_copy_stats(v11);
+  inited = system_init(v12);
   if ( v0[363] )
   {
-    v20 = fmac_init_state_load(inited);
-    fmac_subhandler_n_05b4(v20);
+    v20 = rf_get_channel_calibration(inited);
+    rf_enable(v20);
   }
-  v14 = msg_parse(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
-  v15 = sub_110100(v14);
-  v16 = log_system_init(v15);
+  v14 = event_dispatch(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
+  v15 = calculate_rf_power(v14);
+  v16 = rf_wait_ready(v15);
   if ( v9[2] )
   {
-    rf_fault_dump_n_1df(v16);
+    get_global_167204(v16);
     v17 = off_100590;
     v18 = dword_1005A4;
     *(uint32_t *)off_1005A0 &= ~8u;
     *v17 &= 0xFFFFFFF0;
-    v19 = feature_guard_check(2, v18);
+    v19 = check_status_bits(2, v18);
   }
   else
   {
-    v19 = feature_guard_check(2, dword_1005AC);
+    v19 = check_status_bits(2, dword_1005AC);
   }
   if ( *(uint8_t *)*v1 == 3 )
     *(uint32_t *)off_1005A8 = 1;
-  main_loop(v19);
+  copy_global_data(v19);
 }
 

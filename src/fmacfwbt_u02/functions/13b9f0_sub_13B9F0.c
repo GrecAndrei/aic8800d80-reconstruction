@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B9F0 @ 0x13b9f0, size 24 bytes
-int  sub_13B9F0(int a1, int16_t a2, char a3)
+// rx_invoke_cb @ 0x13b9f0, size 24 bytes
+int  rx_invoke_cb(int a1, int16_t a2, char a3)
 {
   int result; // r0
 

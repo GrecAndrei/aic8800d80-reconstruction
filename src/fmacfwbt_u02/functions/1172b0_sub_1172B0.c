@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1172B0 @ 0x1172b0, size 12 bytes
-int  sub_1172B0(unsigned int a1)
+// get_chunk_size @ 0x1172b0, size 12 bytes
+int  get_chunk_size(unsigned int a1)
 {
   if ( a1 > 0x2000 )
     return 4;

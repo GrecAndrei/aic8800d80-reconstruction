@@ -1,1 +1,1 @@
-{"fn": "sub_1207C60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1207c60", "status": "ok", "name": "sub_1207C60", "params": [], "docstring": "Clear low bit of 0x403420c8 register and trigger callback", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1207C60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1207c60", "status": "ok", "name": "rf_irq_clear_a", "params": [], "docstring": "Clear low bit of 0x403420c8 register and trigger callback", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

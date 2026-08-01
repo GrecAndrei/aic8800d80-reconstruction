@@ -32,8 +32,8 @@ extern uint32_t dword_12FEA0;
 extern uint32_t off_12FE7C;
 extern uint32_t dword_12FE80;
 
-// sub_12FCE4 @ 0x12fce4, size 362 bytes
-int  sub_12FCE4(int a1, int a2)
+// parse_hex12 @ 0x12fce4, size 362 bytes
+int  parse_hex12(int a1, int a2)
 {
   uint8_t *v3; // r6
   unsigned int v4; // r6
@@ -60,22 +60,22 @@ int  sub_12FCE4(int a1, int a2)
   uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
   char v27; // [sp+Ch] [bp-8h]
 
-  if ( sub_143E40(*(uint32_t *)(a2 + 4)) != 12 || sub_143E40(*(uint32_t *)(a2 + 8)) != 12 )
+  if ( memmove(*(uint32_t *)(a2 + 4)) != 12 || memmove(*(uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(uint8_t **)(a2 + 4);
-  sub_143770(v26, v3 + 8, 4);
+  memcpy(v26, v3 + 8, 4);
   v3[8] = 0;
   v27 = 0;
-  v4 = sub_12F958(v3, 0, 0x10u);
-  v5 = sub_12F958(v26, 0, 0x10u);
+  v4 = parse_hex_or_dec(v3, 0, 0x10u);
+  v5 = parse_hex_or_dec(v26, 0, 0x10u);
   v6 = *(uint8_t **)(a2 + 8);
   v7 = v5;
-  sub_143770(v26, v6 + 8, 4);
+  memcpy(v26, v6 + 8, 4);
   v6[8] = 0;
   v27 = 0;
-  v8 = sub_12F958(v6, 0, 0x10u);
-  LOWORD(v6) = sub_12F958(v26, 0, 0x10u);
-  msg_parse(dword_12FE50);
+  v8 = parse_hex_or_dec(v6, 0, 0x10u);
+  LOWORD(v6) = parse_hex_or_dec(v26, 0, 0x10u);
+  event_dispatch(dword_12FE50);
   v9 = off_12FE58;
   v10 = off_12FE5C;
   v11 = off_12FE84;
@@ -120,7 +120,7 @@ int  sub_12FCE4(int a1, int a2)
   *(uint32_t *)&v20[-148] = v23;
   v24 = dword_12FE80;
   *v21 = v22;
-  msg_parse(v24, v4, v7, v8, (uint16_t)v6);
+  event_dispatch(v24, v4, v7, v8, (uint16_t)v6);
   return 0;
 }
 

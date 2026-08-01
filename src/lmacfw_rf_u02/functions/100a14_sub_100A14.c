@@ -15,8 +15,8 @@ extern uint32_t dword_100A74;
 extern uint32_t dword_100A78;
 extern uint32_t off_100A7C;
 
-// sub_100A14 @ 0x100a14, size 90 bytes
-int sub_100A14()
+// rf_band_config @ 0x100a14, size 90 bytes
+int rf_band_config()
 {
   uint32_t *v0; // r2
   int *v1; // r3

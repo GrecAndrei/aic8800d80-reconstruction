@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_123B34 @ 0x123b34, size 32 bytes
-int  sub_123B34(int a1, uint8_t *a2, int a3, int a4)
+// output_n_char @ 0x123b34, size 32 bytes
+int  output_n_char(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r3
 
-  mac_addr_copy_to_global(a2);
-  message_dispatch_n84(110, a4, a3, v4);
+  set_rf_channel(a2);
+  hci_evt_alloc_send(110, a4, a3, v4);
   return 0;
 }
 

@@ -17,8 +17,8 @@ extern uint32_t off_111754;
 extern uint32_t off_111764;
 extern uint32_t off_111768;
 
-// sub_1116E0 @ 0x1116e0, size 114 bytes
-int sub_1116E0()
+// tx_pkt_config @ 0x1116e0, size 114 bytes
+int tx_pkt_config()
 {
   int v0; // r3
   int *v1; // r2

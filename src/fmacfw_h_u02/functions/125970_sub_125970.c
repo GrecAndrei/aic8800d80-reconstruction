@@ -25,8 +25,8 @@ extern uint32_t dword_125B8C;
 extern uint32_t off_125B70;
 extern uint32_t dword_125B74;
 
-// sub_125970 @ 0x125970, size 496 bytes
-int  sub_125970(int result)
+// patch_init_check @ 0x125970, size 496 bytes
+int  patch_init_check(int result)
 {
   int *v1; // r4
   int v2; // r5
@@ -70,15 +70,15 @@ int  sub_125970(int result)
     {
 LABEL_20:
       v16 = off_125B90;
-      sub_121B7C();
+      check_config_flag();
       v17 = *(uint8_t *)(v3 + 107) + 32;
       if ( *v16 )
       {
-        v25 = (uint8_t *)sub_12C7EC(74, 13, v4, 4);
+        v25 = (uint8_t *)tx_send_pdu(74, 13, v4, 4);
         *v25 = v17;
         v25[1] = v4;
         v25[2] = v4;
-        sub_12C84C(v25);
+        rx_process_packet(v25);
         v5 = dword_125B68;
         if ( *v16 )
         {
@@ -86,7 +86,7 @@ LABEL_20:
           if ( (*(uint8_t *)(v26 + 53) & 2) != 0 )
           {
             *(uint8_t *)(v26 + 54) = 9;
-            sub_11F28C(v3, v5 + 696 * v17, v4);
+            is_ll_event_pending(v3, v5 + 696 * v17, v4);
             *(uint8_t *)(v26 + 54) = v4;
           }
           *v16 = 0;
@@ -104,14 +104,14 @@ LABEL_20:
         {
           while ( *(uint32_t *)(v21 + 584) )
           {
-            v23 = sub_12D190(v21 + 584);
-            sub_13AA68(v23, (uint8_t)i, v24);
+            v23 = list_pop(v21 + 584);
+            phy_txpower_calc(v23, (uint8_t)i, v24);
           }
           if ( *(uint32_t *)(v21 + 624) )
           {
-            v27 = sub_12D190(v5 + 8 * (87 * v17 + 78 + i));
-            sub_13AA68(v27, (uint8_t)i, v28);
-            sub_12E948(dword_125B84, v29, v30);
+            v27 = list_pop(v5 + 8 * (87 * v17 + 78 + i));
+            phy_txpower_calc(v27, (uint8_t)i, v28);
+            alloc_tx_event(dword_125B84, v29, v30);
             while ( 1 )
               ;
           }
@@ -120,28 +120,28 @@ LABEL_20:
         *v18 = 0;
       }
       if ( *((uint8_t *)v1 + 10) )
-        sub_125904(*v1);
+        bt_task_init(*v1);
       if ( v1[3] )
       {
         v19 = dword_125B80;
         do
         {
-          v20 = sub_12D190(v19);
-          sub_125184((uint16_t *)(v20 + 12));
+          v20 = list_pop(v19);
+          rx_pkt_parse((uint16_t *)(v20 + 12));
         }
         while ( v1[3] );
       }
       result = *(uint8_t *)(v3 + 107);
       if ( *((uint8_t *)v1 + result + 20) && !v1[1] )
-        result = sub_124EFC(result, *((uint8_t *)v1 + result + 20));
+        result = bt_config_check(result, *((uint8_t *)v1 + result + 20));
       if ( *(uint8_t *)(v3 + 231) == 1 )
-        result = sub_1201D4(v3);
+        result = alloc_ctrl_block(v3);
       goto LABEL_4;
     }
   }
   else
   {
-    result = sub_12F32C(dword_125B7C, dword_125B78, 764);
+    result = irq_disable_mmio_write(dword_125B7C, dword_125B78, 764);
     v4 = v1[1] - 1;
     v1[1] = v4;
     if ( !v4 )
@@ -175,10 +175,10 @@ LABEL_4:
           v13 = *(uint32_t *)(v11 + 664);
         if ( v9 - v8[4] + v13 < 0 )
         {
-          result = sub_116DBC(v3);
+          result = phy_lock(v3);
           if ( result )
           {
-            result = sub_118C84(v6[35], (int)off_125B70, (int)v6);
+            result = phy_get_channel(v6[35], (int)off_125B70, (int)v6);
             if ( !result )
               break;
           }
@@ -190,7 +190,7 @@ LABEL_4:
     }
     v15 = v6[35];
     v6 += 696;
-    result = sub_12E948(dword_125B74, v15, v14);
+    result = alloc_tx_event(dword_125B74, v15, v14);
   }
   while ( v6 != (uint8_t *)v10 );
   return result;

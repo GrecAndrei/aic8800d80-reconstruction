@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DBE4;
 
-// sub_10DBD0 @ 0x10dbd0, size 20 bytes
-BOOL  sub_10DBD0(char a1)
+// gpio_get_pin @ 0x10dbd0, size 20 bytes
+BOOL  gpio_get_pin(char a1)
 {
   return ((1 << a1) & *(uint32_t *)off_10DBE4) != 0;
 }

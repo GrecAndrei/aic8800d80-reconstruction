@@ -13,10 +13,10 @@
 extern uint32_t off_11EB2C;
 extern uint32_t off_11EB30;
 
-// mmio_reg_poll_ready @ 0x11eaf8, size 52 bytes
-// Doc: mmio_reg_poll_ready [mmio]: Polls MMIO register until expected value appears
-// mmio_reg_poll_ready [mmio]: Polls MMIO register until expected value appears
-unsigned int mmio_reg_poll_ready()
+// rf_status_poll @ 0x11eaf8, size 52 bytes
+// Doc: rf_status_poll [mmio]: Polls MMIO register until expected value appears
+// rf_status_poll [mmio]: Polls MMIO register until expected value appears
+unsigned int rf_status_poll()
 {
   int v0; // r3
   unsigned int result; // r0

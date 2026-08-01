@@ -13,8 +13,8 @@
 extern uint32_t dword_120048;
 extern uint32_t dword_120040;
 
-// sub_11FEF8 @ 0x11fef8, size 326 bytes
-uint64_t  sub_11FEF8(uint8_t *a1, char a2)
+// get_bss_by_channel @ 0x11fef8, size 326 bytes
+uint64_t  get_bss_by_channel(uint8_t *a1, char a2)
 {
   int v3; // r6
   int v4; // r8
@@ -44,7 +44,7 @@ uint64_t  sub_11FEF8(uint8_t *a1, char a2)
   {
     case 0:
     case 3:
-      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = sub_14383C(v9) & 0xFFFFFFLL;
+      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = hash32(v9) & 0xFFFFFFLL;
       break;
     case 1:
       v15 = 1320 * v4 + 120 * v3 + v5;
@@ -58,7 +58,7 @@ uint64_t  sub_11FEF8(uint8_t *a1, char a2)
       *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = *(uint64_t *)&dword_120040;
       break;
     case 5:
-      sub_143630(v7 + 560 + v5, a1 + 8, 16);
+      memcpy(v7 + 560 + v5, a1 + 8, 16);
       goto LABEL_3;
     default:
 LABEL_3:

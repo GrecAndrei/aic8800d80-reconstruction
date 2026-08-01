@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// memcpy_aligned_n7c @ 0x143d7c, size 186 bytes
-// Doc: memcpy_aligned_n7c [util]: Word-aligned memory copy routine
-// memcpy_aligned_n7c [util]: Word-aligned memory copy routine
-unsigned int  memcpy_aligned_n7c(unsigned int result, unsigned int a2)
+// memcpy @ 0x143d7c, size 186 bytes
+// Doc: memcpy [util]: Word-aligned memory copy routine
+// memcpy [util]: Word-aligned memory copy routine
+unsigned int  memcpy(unsigned int result, unsigned int a2)
 {
   uint8_t *v2; // r12
   int *v3; // r1

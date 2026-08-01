@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143940 @ 0x143940, size 214 bytes
+// memmove @ 0x143940, size 214 bytes
 // Doc: sub_1243940 [unknown]: Unknown helper in BT firmware
 // sub_1243940 [unknown]: Unknown helper in BT firmware
-unsigned int  sub_143940(unsigned int result, unsigned int a2, unsigned int a3)
+unsigned int  memmove(unsigned int result, unsigned int a2, unsigned int a3)
 {
   uint8_t *v3; // r3
   unsigned int v4; // r2

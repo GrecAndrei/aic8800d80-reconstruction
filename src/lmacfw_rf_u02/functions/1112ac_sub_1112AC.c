@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1112DC;
 
-// sub_1112AC @ 0x1112ac, size 48 bytes
+// timer_entry_reset @ 0x1112ac, size 48 bytes
 // Doc: rf_cmd_dispatch_n1b4 [rf]: Dispatches RF command requests from MAC scheduler
 // rf_cmd_dispatch_n1b4 [rf]: Dispatches RF command requests from MAC scheduler
-int * sub_1112AC(int a1)
+int * timer_entry_reset(int a1)
 {
   int v2; // r0
   int v3; // r5

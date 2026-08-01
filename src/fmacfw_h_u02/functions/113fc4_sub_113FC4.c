@@ -12,10 +12,10 @@
 
 extern uint32_t off_113FD0;
 
-// sub_113FC4 @ 0x113fc4, size 12 bytes
-void sub_113FC4()
+// util_init_buffer @ 0x113fc4, size 12 bytes
+void util_init_buffer()
 {
   if ( !*(uint8_t *)off_113FD0 )
-    sub_113578();
+    rf_get_flag();
 }
 

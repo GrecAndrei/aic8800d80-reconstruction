@@ -13,8 +13,8 @@
 extern uint32_t off_137094;
 extern uint32_t off_137098;
 
-// sub_137064 @ 0x137064, size 48 bytes
-int sub_137064()
+// rf_get_band @ 0x137064, size 48 bytes
+int rf_get_band()
 {
   uint8_t *v0; // r2
   char v1; // r3
@@ -30,7 +30,7 @@ int sub_137064()
     *(uint32_t *)off_137098 = *(uint32_t *)off_137098 & 0xFFFFFE3F | (v2 << 6);
   }
   v0[3851] = v1 + 1;
-  sub_13819C();
+  check_event_flag();
   return 0;
 }
 

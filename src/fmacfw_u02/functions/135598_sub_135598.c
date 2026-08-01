@@ -16,8 +16,8 @@ extern uint32_t off_135658;
 extern uint32_t dword_135664;
 extern uint32_t dword_135660;
 
-// sub_135598 @ 0x135598, size 186 bytes
-void  sub_135598(
+// bt_send_profile_cmd @ 0x135598, size 186 bytes
+void  bt_send_profile_cmd(
         char *a1,
         int a2,
         int a3,
@@ -46,18 +46,18 @@ void  sub_135598(
   int v25; // r1
 
   v14 = *((uint32_t *)off_135654 + 5);
-  sub_12C73C(6154, 6);
+  ke_int_lock(6154, 6);
   v15 = *(uint16_t *)a1;
   v16 = *((uint16_t *)a1 + 7);
   if ( v15 <= 5 )
   {
     v25 = dword_13565C;
     *(uint16_t *)(v14 + 16) = 0;
-    sub_12ECD0(256, v25, v16);
+    check_status_bits(256, v25, v16);
     if ( !v16 )
     {
 LABEL_9:
-      sub_135564(*((uint16_t *)a1 + 8) & 0x3FFF);
+      bt_send_vendor_cmd(*((uint16_t *)a1 + 8) & 0x3FFF);
       return;
     }
   }
@@ -70,7 +70,7 @@ LABEL_9:
     {
       if ( **(int16_t **)off_135658 < 0 )
       {
-        sub_12F49C(dword_135664, dword_135660, 1236);
+        call_shared_handler(dword_135664, dword_135660, 1236);
         v17 = *(uint16_t *)(v14 + 14);
       }
       v18 = (uint16_t)(800 - v17);
@@ -87,10 +87,10 @@ LABEL_9:
       while ( v19 != &a1[v18 + 18] );
     }
     *(uint16_t *)(v14 + 16) = v18;
-    sub_12ECD0(256, dword_13565C, v16);
+    check_status_bits(256, dword_13565C, v16);
     if ( !v16 )
       goto LABEL_9;
   }
-  sub_134E04(v16, v23, v24, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+  bt_setup_conn_profile(v16, v23, v24, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
 }
 

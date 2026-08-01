@@ -1,1 +1,1 @@
-{"fn": "sub_1224F54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224f54", "status": "ok", "name": "sub_1224F54", "params": [], "docstring": "Loads and dispatches a function pointer from data table", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1224F54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224f54", "status": "ok", "name": "env_list_init_1903c8", "params": [], "docstring": "Loads and dispatches a function pointer from data table", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sub_120F7FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f7fc", "status": "ok", "name": "sub_120F7FC", "params": [], "docstring": "Unknown helper in lmacfw RF image", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120F7FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f7fc", "status": "ok", "name": "ipc_send_0x40d", "params": [], "docstring": "Unknown helper in lmacfw RF image", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

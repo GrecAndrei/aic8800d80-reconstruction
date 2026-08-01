@@ -23,8 +23,8 @@ extern uint32_t off_110F78;
 extern uint32_t off_110F7C;
 extern uint32_t off_110F80;
 
-// sub_110E78 @ 0x110e78, size 238 bytes
-int  sub_110E78(int a1, int a2, int a3)
+// ke_int_lock @ 0x110e78, size 238 bytes
+int  ke_int_lock(int a1, int a2, int a3)
 {
   int *v6; // r9
   uint8_t *v7; // r3
@@ -61,27 +61,27 @@ int  sub_110E78(int a1, int a2, int a3)
       v20 = *((uint8_t *)off_110F88 + 374);
       if ( v20 != 1 )
         goto LABEL_4;
-      result = sub_1251A0(dword_110F8C);
+      result = ke_event_pending(dword_110F8C);
       if ( result )
         goto LABEL_18;
       if ( v19[369] )
-        sub_10DB6C(v20);
+        gpio_clear_bit_reg0(v20);
       else
-        sub_10DB58(v20);
+        gpio_set_bit_reg0(v20);
     }
     else
     {
       v17 = (uint8_t *)off_110F88;
       if ( *((uint8_t *)off_110F88 + 369) )
-        result = sub_10DB6C(1);
+        result = gpio_clear_bit_reg0(1);
       else
-        result = sub_10DB58(1);
+        result = gpio_set_bit_reg0(1);
       v18 = v17[374];
       *v16 = 1;
       if ( v18 != 1 )
         goto LABEL_18;
     }
-    result = sub_124F60(dword_110F8C, *((uint32_t *)off_110F90 + 4) + 10000);
+    result = ke_event_lock(dword_110F8C, *((uint32_t *)off_110F90 + 4) + 10000);
 LABEL_18:
     v8 = *v6;
   }

@@ -1,1 +1,1 @@
-{"fn": "sub_120767C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120767c", "status": "ok", "name": "rf_level_apply_n_1f8", "params": [], "docstring": "Applies RF level/tx-power settings", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120767C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120767c", "status": "ok", "name": "ke_event_schedule", "params": [], "docstring": "Applies RF level/tx-power settings", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

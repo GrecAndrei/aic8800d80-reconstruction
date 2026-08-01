@@ -21,8 +21,8 @@ extern uint32_t off_117E24;
 extern uint32_t dword_117E30;
 extern uint32_t dword_117E2C;
 
-// sub_117D64 @ 0x117d64, size 168 bytes
-int  sub_117D64(int result)
+// rf_irq_check @ 0x117d64, size 168 bytes
+int  rf_irq_check(int result)
 {
   int v1; // r4
   int v2; // r5
@@ -32,13 +32,13 @@ int  sub_117D64(int result)
   v1 = *(uint32_t *)off_117E0C;
   if ( (*(uint32_t *)off_117E0C & 0x1000) != 0 )
   {
-    result = sub_11CD24(result, *(uint32_t *)off_117E0C << 19);
+    result = poll_hw_cmd(result, *(uint32_t *)off_117E0C << 19);
     *(uint32_t *)off_117E20 = 4096;
   }
   v2 = dword_117E10;
   if ( (v1 & dword_117E10) != 0 )
   {
-    result = sub_11CED4();
+    result = rf_init();
     *(uint32_t *)off_117E20 = v2;
   }
   if ( (dword_117E14 & v1) != 0 && (*(uint32_t *)off_117E18 & 0x300000) == 0 )
@@ -58,7 +58,7 @@ int  sub_117D64(int result)
   {
 LABEL_9:
     *(uint32_t *)off_117E20 = 0x80000;
-    return sub_1174B4(5);
+    return conn_schedule(5);
   }
   v4 = (uint8_t)(25 - __clz(v3));
   if ( **(int16_t **)off_117E24 >= 0 || v4 <= 6 )
@@ -68,9 +68,9 @@ LABEL_9:
   }
   else
   {
-    sub_12F694(dword_117E30, dword_117E2C, 2883);
+    mmio_irq_clear(dword_117E30, dword_117E2C, 2883);
   }
   *(uint32_t *)off_117E20 = 1 << (v4 + 6);
-  return sub_1174B4(v4);
+  return conn_schedule(v4);
 }
 

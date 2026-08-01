@@ -14,10 +14,10 @@ extern uint32_t off_112848;
 extern uint32_t dword_112858;
 extern uint32_t dword_112874;
 
-// sub_1125F4 @ 0x1125f4, size 594 bytes
+// mmio_read_irq_status @ 0x1125f4, size 594 bytes
 // Doc: rf_bus_mark_n_372 [rf]: Mark/latch RF bus transaction state
 // rf_bus_mark_n_372 [rf]: Mark/latch RF bus transaction state
-int sub_1125F4()
+int mmio_read_irq_status()
 {
   uint32_t *v0; // r3
   int v1; // r2
@@ -65,7 +65,7 @@ int sub_1125F4()
   LODWORD(v3) = v2 << 19;
   if ( (v2 & 0x1000) != 0 )
   {
-    LODWORD(v3) = sub_1122F0();
+    LODWORD(v3) = rf_init();
     v4 = v2 & 0x2000;
     if ( (v2 & 0x2000) == 0 )
       return v3;
@@ -121,11 +121,11 @@ rf_bus_reset_n334:
           if ( (v23 & 0x18) != 0 )
           {
             v8[516] &= ~0x10u;
-            sub_111524(0, 0x200000, 0);
+            rf_channel_get_flag(0, 0x200000, 0);
           }
           else if ( (v23 & 1) != 0 )
           {
-            rf_level_apply_n_358(v3);
+            util_check_flags(v3);
           }
           goto rf_cmd_send_n_272;
         }
@@ -141,7 +141,7 @@ rf_bus_reset_n334:
             v37 = *(uint32_t *)(v9 - 16);
             v33 = (v13 & 1) == 0;
             if ( (v13 & 1) == 0 )
-              sub_11164C((int *)1, (uint8_t)v10);
+              rf_enable_tx_patch((int *)1, (uint8_t)v10);
             LODWORD(v3) = sub_100200((int *)(v9 - 16), 0, 0x10u);
             v14 = *(int ( **)(int, int, BOOL))(rf_cmd_send_n_c8 + 4 * v10 + 52);
             if ( v14 )
@@ -150,7 +150,7 @@ rf_bus_reset_n334:
         }
         else
         {
-          LODWORD(v3) = sub_10DA6C(dword_112858);
+          LODWORD(v3) = log_printf(dword_112858);
         }
       }
       if ( (uint8_t)v10 == 5 )
@@ -178,12 +178,12 @@ rf_cmd_send_n_272:
           if ( (v22 & 0x10) != 0 )
           {
             v15[517] &= ~0x10u;
-            LODWORD(v3) = rf_bus_write_1(0, 0x200000, 0);
+            LODWORD(v3) = rf_channel_set_flag(0, 0x200000, 0);
           }
           else if ( (v22 & 0x29) != 0 )
           {
             LODWORD(v3) = 0;
-            LODWORD(v3) = rf_level_apply_n_358(v3);
+            LODWORD(v3) = util_check_flags(v3);
           }
           goto LABEL_19;
         }
@@ -212,7 +212,7 @@ LABEL_19:
   }
   if ( v7 )
   {
-    LODWORD(v3) = rf_cmd_send_n_3ac(v3, SHIDWORD(v3));
+    LODWORD(v3) = ke_poll_event_a(v3, SHIDWORD(v3));
     if ( v4 >= 0 )
       return v3;
   }
@@ -220,7 +220,7 @@ LABEL_19:
   {
     return v3;
   }
-  LODWORD(v3) = sub_1125B0(v3, SHIDWORD(v3));
+  LODWORD(v3) = ke_poll_event_b(v3, SHIDWORD(v3));
   return v3;
 }
 

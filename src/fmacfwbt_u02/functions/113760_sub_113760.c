@@ -21,8 +21,8 @@ extern uint32_t off_113818;
 extern uint32_t dword_11381C;
 extern uint32_t off_113820;
 
-// sub_113760 @ 0x113760, size 156 bytes
-void sub_113760()
+// critical_section_enter @ 0x113760, size 156 bytes
+void critical_section_enter()
 {
   int *v0; // r4
   int v1; // r0
@@ -41,7 +41,7 @@ void sub_113760()
   v0 = (int *)off_113800;
   v1 = dword_113804;
   ++*(uint32_t *)off_113800;
-  list_push_tail(v1);
+  check_abort_flag(v1);
   v2 = off_11380C;
   v3 = *(uint8_t *)off_11380C;
   v4 = *(uint16_t *)off_113808 + 1;
@@ -54,11 +54,11 @@ void sub_113760()
       *((uint32_t *)off_113818 + 512) &= ~0x2000u;
     else
       *((uint32_t *)off_113818 + 713) &= ~1u;
-    hw_event_flag_1f58(1);
-    sub_12C964(1069, 1);
-    feature_guard_sdio(512, dword_11381C);
+    phy_reg_modify(1);
+    irq_lock(1069, 1);
+    state_check_feature(512, dword_11381C);
     if ( !*(uint8_t *)off_113820 )
-      log_flush();
+      bt_ctrl_main_task();
   }
   if ( *v0 )
   {

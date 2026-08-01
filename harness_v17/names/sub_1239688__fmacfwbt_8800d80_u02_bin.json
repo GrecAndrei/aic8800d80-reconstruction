@@ -1,1 +1,1 @@
-{"fn": "sub_1239688", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239688", "status": "ok", "name": "parse_rx_frame_n688", "params": [], "docstring": "Parses received frame with type-tagged header (0xff sentinel)", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1239688", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239688", "status": "ok", "name": "rf_cal_config", "params": [], "docstring": "Parses received frame with type-tagged header (0xff sentinel)", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -14,10 +14,10 @@ extern uint32_t off_11A82C;
 extern uint32_t off_11A834;
 extern uint32_t dword_11A830;
 
-// sub_11A7E8 @ 0x11a7e8, size 68 bytes
+// test_flag @ 0x11a7e8, size 68 bytes
 // Doc: sub_121A7E8 [unknown]: Unknown stub function with invalid instruction
 // sub_121A7E8 [unknown]: Unknown stub function with invalid instruction
-int  sub_11A7E8(int result)
+int  test_flag(int result)
 {
   int *v1; // r4
   int v2; // r2
@@ -38,7 +38,7 @@ int  sub_11A7E8(int result)
   *(uint32_t *)off_11A834 = v4;
   if ( !v3 && *(uint32_t *)(v2 + 44) )
   {
-    result = sub_119EC8(result);
+    result = rate_get_config(result);
     v4 = *v1;
   }
   if ( v4 )

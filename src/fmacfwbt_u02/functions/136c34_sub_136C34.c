@@ -13,10 +13,10 @@
 extern uint32_t dword_136C8C;
 extern uint32_t dword_136C90;
 
-// sub_136C34 @ 0x136c34, size 88 bytes
+// phy_check_core_mode @ 0x136c34, size 88 bytes
 // Doc: sub_1236C34 [util]: Lookup indexed table by 0x528-stride byte field, compare to 2
 // sub_1236C34 [util]: Lookup indexed table by 0x528-stride byte field, compare to 2
-int  sub_136C34(int a1)
+int  phy_check_core_mode(int a1)
 {
   unsigned int v1; // r3
   int v2; // r2

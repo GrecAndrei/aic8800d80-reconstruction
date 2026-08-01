@@ -12,10 +12,10 @@
 
 extern uint32_t off_1158A0;
 
-// is_flag_set_clz @ 0x115890, size 14 bytes
-// Doc: is_flag_set_clz [util]: Check if flag byte is set using clz, returns 0/1
-// is_flag_set_clz [util]: Check if flag byte is set using clz, returns 0/1
-BOOL is_flag_set_clz()
+// rf_is_idle @ 0x115890, size 14 bytes
+// Doc: rf_is_idle [util]: Check if flag byte is set using clz, returns 0/1
+// rf_is_idle [util]: Check if flag byte is set using clz, returns 0/1
+BOOL rf_is_idle()
 {
   return *((uint8_t *)off_1158A0 + 142) == 0;
 }

@@ -1,0 +1,1 @@
+{"fn": "sub_1029E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1029e4", "status": "ok", "name": "periph_init", "params": [], "docstring": "Performs peripheral init sequence and calls sub_102960.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

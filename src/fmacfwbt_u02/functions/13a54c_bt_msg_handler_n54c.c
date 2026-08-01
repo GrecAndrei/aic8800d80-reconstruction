@@ -12,10 +12,10 @@
 
 extern uint32_t off_13A570;
 
-// bt_msg_handler_n54c @ 0x13a54c, size 36 bytes
-// Doc: bt_msg_handler_n54c [bt]: Handles incoming Bluetooth message
-// bt_msg_handler_n54c [bt]: Handles incoming Bluetooth message
-uint16_t * bt_msg_handler_n54c(uint16_t *result)
+// rf_save_cal_values @ 0x13a54c, size 36 bytes
+// Doc: rf_save_cal_values [bt]: Handles incoming Bluetooth message
+// rf_save_cal_values [bt]: Handles incoming Bluetooth message
+uint16_t * rf_save_cal_values(uint16_t *result)
 {
   uint16_t *v1; // r3
 

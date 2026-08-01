@@ -1,0 +1,1 @@
+{"fn": "sub_12C33C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c33c", "status": "ok", "name": "lock_core_pair", "params": [], "docstring": "Acquire two core locks at fixed addresses", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

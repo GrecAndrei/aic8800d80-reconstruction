@@ -15,10 +15,10 @@ extern uint32_t off_111D2C;
 extern uint32_t off_111D4C;
 extern uint32_t off_111D34;
 
-// mmio_init_block_clear @ 0x111c14, size 262 bytes
+// ipc_send_request @ 0x111c14, size 262 bytes
 // Doc: rf_bus_write_n288 [rf]: Write a value to the RF control bus register
 // rf_bus_write_n288 [rf]: Write a value to the RF control bus register
-int  mmio_init_block_clear(uint32_t *a1, int a2)
+int  ipc_send_request(uint32_t *a1, int a2)
 {
   uint8_t *v4; // r6
   uint32_t *v5; // r7
@@ -35,7 +35,7 @@ int  mmio_init_block_clear(uint32_t *a1, int a2)
   int v17; // r1
   uint32_t *v18; // r3
 
-  sub_12ECB0(log_free_dispatch_d1c, 0, a2);
+  ke_event_schedule(log_free_dispatch_d1c, 0, a2);
   if ( !a1 )
     return 1;
   if ( !*a1 || !a1[1] || !a1[2] || !a1[5] )
@@ -46,12 +46,12 @@ int  mmio_init_block_clear(uint32_t *a1, int a2)
   v5 = rf_bus_write2_n2ac;
   v6 = off_111D28;
   *(uint8_t *)rf_state_check_n_310 = 1;
-  sub_14380C(v6, a1, 80);
+  memcpy_aligned(v6, a1, 80);
   v8 = v5[97];
   if ( v8 )
   {
-    sub_12ECB0(rf_state_check_n_2dc, v8, v7);
-    delay_us(v5[97]);
+    ke_event_schedule(rf_state_check_n_2dc, v8, v7);
+    timer_set(v5[97]);
   }
   v9 = off_111D2C;
   if ( (*((uint32_t *)off_111D2C + 512) & 0x7F0) != 0 )
@@ -61,7 +61,7 @@ int  mmio_init_block_clear(uint32_t *a1, int a2)
     *((uint32_t *)v15 + 2) = 0;
     *v15 = 0;
     *v4 = 4;
-    v16 = rf_bus_reset2_n_177();
+    v16 = tx_pkt_config();
     v17 = *(uint32_t *)rf_bus_write_n388;
     v18 = *(uint32_t **)off_111D4C;
     *v18 = rf_bus_setup_n_8;
@@ -82,9 +82,9 @@ int  mmio_init_block_clear(uint32_t *a1, int a2)
       *((uint32_t *)off_111D2C + 2) &= ~1u;
       v9[513] |= 2u;
     }
-    sub_111858();
+    rf_radio_enable();
   }
-  sub_12ECB0(rf_bus_write2_n2b8, v10, v11);
+  ke_event_schedule(rf_bus_write2_n2b8, v10, v11);
   v12 = rf_bus_write2_n2c0;
   v13 = message_dispatch_d3c;
   *(uint32_t *)(*((uint32_t *)off_111D34 + 2) + 320) = rf_bus_write2_n2c0;
@@ -94,7 +94,7 @@ int  mmio_init_block_clear(uint32_t *a1, int a2)
     while ( *v4 != 4 )
       ;
   }
-  sub_12ECB0(rf_bus_setup_n_18, v12, 1);
+  ke_event_schedule(rf_bus_setup_n_18, v12, 1);
   return 0;
 }
 

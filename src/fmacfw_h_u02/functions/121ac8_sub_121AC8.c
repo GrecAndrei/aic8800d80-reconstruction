@@ -19,16 +19,16 @@ extern uint32_t off_121B68;
 extern uint32_t off_121B6C;
 extern uint32_t off_121B70;
 
-// sub_121AC8 @ 0x121ac8, size 148 bytes
-int sub_121AC8()
+// ke_evt_peek @ 0x121ac8, size 148 bytes
+int ke_evt_peek()
 {
   int *v1; // r4
   int v2; // r3
   int v3; // r2
 
-  if ( **(int16_t **)off_121B5C < 0 && (sub_12CD48(0) == 3 || !sub_12CD48(0)) )
-    sub_12F32C(dword_121B78, dword_121B74, 1862);
-  if ( sub_12CD48(0) == 2 )
+  if ( **(int16_t **)off_121B5C < 0 && (hci_cmd_handler(0) == 3 || !hci_cmd_handler(0)) )
+    irq_disable_mmio_write(dword_121B78, dword_121B74, 1862);
+  if ( hci_cmd_handler(0) == 2 )
   {
     *(uint32_t *)off_121B60 = 48;
     if ( (__get_CPSR() & 1) == 0 )
@@ -38,7 +38,7 @@ int sub_121AC8()
     }
     v1 = (int *)off_121B68;
     ++*(uint32_t *)off_121B68;
-    sub_12D00C(0x2000000);
+    irq_disable_global_3(0x2000000);
     if ( (*(uint32_t *)off_121B6C & 4) != 0 )
       *(uint32_t *)off_121B70 = 4;
     if ( *v1 )
@@ -53,6 +53,6 @@ int sub_121AC8()
       }
     }
   }
-  return sub_12CBF4(0);
+  return hci_cmd_preprocess(0);
 }
 

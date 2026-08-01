@@ -21,10 +21,10 @@ extern uint32_t off_10EE74;
 extern uint32_t off_10EE6C;
 extern uint32_t dword_10EE70;
 
-// sub_10ED50 @ 0x10ed50, size 260 bytes
+// gpio_bank_init @ 0x10ed50, size 260 bytes
 // Doc: sub_120ED50 [mmio]: hardware/NVIC initialization touching system control and IRQ registers
 // sub_120ED50 [mmio]: hardware/NVIC initialization touching system control and IRQ registers
-int  sub_10ED50(unsigned int *a1)
+int  gpio_bank_init(unsigned int *a1)
 {
   uint32_t *v1; // r2
   int v2; // r7
@@ -58,7 +58,7 @@ int  sub_10ED50(unsigned int *a1)
   *v4 &= ~1u;
   v16[0] = v6;
   v16[1] = 5610;
-  sub_102908((uint8_t *)v16, 0);
+  tx_set_power((uint8_t *)v16, 0);
   v8 = (int *)off_10EE6C;
   v9 = dword_10EE70;
   *v5 |= 0x80000000;
@@ -71,7 +71,7 @@ int  sub_10ED50(unsigned int *a1)
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = sub_10EA74(4u, 8u, a1);
+  result = gpio_mode_set(4u, 8u, a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;

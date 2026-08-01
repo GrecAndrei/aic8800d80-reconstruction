@@ -14,8 +14,8 @@ extern uint32_t dword_110C78;
 extern uint32_t dword_110C70;
 extern uint32_t dword_110C74;
 
-// sub_110BF8 @ 0x110bf8, size 118 bytes
-int  sub_110BF8(char a1, int a2, int a3)
+// ke_alloc_node @ 0x110bf8, size 118 bytes
+int  ke_alloc_node(char a1, int a2, int a3)
 {
   uint32_t *v6; // r0
   uint32_t *v7; // r4
@@ -23,29 +23,29 @@ int  sub_110BF8(char a1, int a2, int a3)
   int v9; // r2
   int v10; // r3
 
-  v6 = sub_10FEAC(4);
+  v6 = mem_alloc_checked(4);
   if ( !v6 )
-    return sub_10DA6C(dword_110C78);
+    return log_printf(dword_110C78);
   v7 = v6;
-  v8 = (uint32_t *)sub_1101AC();
+  v8 = (uint32_t *)irq_disable();
   if ( v8 )
   {
     *(uint8_t *)v7 = a3;
     *((uint8_t *)v7 + 1) = BYTE1(a3) & 0xF;
     *((uint8_t *)v7 + 2) = a1;
     *((uint8_t *)v7 + 3) = 0;
-    sub_1282E8(v7 + 1, a2, a3);
+    memcpy_large(v7 + 1, a2, a3);
     v9 = v8[2];
     v10 = dword_110C70;
     v8[1] = 0;
     *v8 = v7;
     v8[2] = (uint16_t)(a3 + 4) | v10 & v9 | 0x80000000;
-    return sub_110B64((int)v8);
+    return irq_disable_set_flag_4((int)v8);
   }
   else
   {
-    sub_10DA6C(dword_110C74);
-    return sub_10FEF8(v7);
+    log_printf(dword_110C74);
+    return mem_free(v7);
   }
 }
 

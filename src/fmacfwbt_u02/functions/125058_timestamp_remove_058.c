@@ -15,10 +15,10 @@ extern uint32_t off_1250BC;
 extern uint32_t off_1250C0;
 extern uint32_t off_1250C4;
 
-// timestamp_remove_058 @ 0x125058, size 96 bytes
-// Doc: timestamp_remove_058 [util]: strip/clear timestamp field from message
-// timestamp_remove_058 [util]: strip/clear timestamp field from message
-int  timestamp_remove_058(int a1)
+// ke_event_set_lock @ 0x125058, size 96 bytes
+// Doc: ke_event_set_lock [util]: strip/clear timestamp field from message
+// ke_event_set_lock [util]: strip/clear timestamp field from message
+int  ke_event_set_lock(int a1)
 {
   int *v1; // r4
   void *v2; // r5
@@ -40,7 +40,7 @@ int  timestamp_remove_058(int a1)
   ++*(uint32_t *)off_1250BC;
   if ( v3 )
   {
-    result = sub_12D4F8(v2);
+    result = list_pop_front(v2);
     v7 = off_1250C4;
     if ( *(uint32_t *)v2 )
     {
@@ -57,7 +57,7 @@ int  timestamp_remove_058(int a1)
   }
   else
   {
-    result = list_remove_node_d510(v2, a1);
+    result = check_abort_flag_3(v2, a1);
   }
   if ( *v1 )
   {

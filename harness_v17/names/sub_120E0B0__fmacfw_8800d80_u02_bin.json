@@ -1,1 +1,1 @@
-{"fn": "sub_120E0B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120e0b0", "status": "ok", "name": "phy_init_n_3ac", "params": [], "docstring": "Initialize PHY/MMIO block at 0x4010d000 with enable", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120E0B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120e0b0", "status": "ok", "name": "rf_core_enable", "params": [], "docstring": "Initialize PHY/MMIO block at 0x4010d000 with enable", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

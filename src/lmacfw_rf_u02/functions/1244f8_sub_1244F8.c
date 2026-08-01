@@ -12,18 +12,18 @@
 
 extern uint32_t off_12451C;
 
-// sub_1244F8 @ 0x1244f8, size 36 bytes
-int sub_1244F8()
+// ke_timer_tick @ 0x1244f8, size 36 bytes
+int ke_timer_tick()
 {
   int result; // r0
   int v1; // r3
 
-  result = sub_1242F0(2u);
+  result = ke_handle_message(2u);
   v1 = (uint16_t)(*(uint16_t *)off_12451C + 1);
   if ( v1 == 10 )
   {
     *(uint16_t *)off_12451C = 0;
-    return sub_12632C(result);
+    return ll_state_reset(result);
   }
   else
   {

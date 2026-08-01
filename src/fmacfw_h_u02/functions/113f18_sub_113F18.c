@@ -13,15 +13,15 @@
 extern uint32_t off_113F50;
 extern uint32_t off_113F54;
 
-// sub_113F18 @ 0x113f18, size 56 bytes
-int sub_113F18()
+// util_call_deep @ 0x113f18, size 56 bytes
+int util_call_deep()
 {
   int *v0; // r4
   int result; // r0
   int v2; // r3
   int v3; // r2
 
-  sub_11D864();
+  dma_ring_alloc_2();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -29,7 +29,7 @@ int sub_113F18()
   }
   v0 = (int *)off_113F54;
   ++*(uint32_t *)off_113F54;
-  result = sub_12D00C(128);
+  result = irq_disable_global_3(128);
   if ( *v0 )
   {
     v2 = *v0 - 1;

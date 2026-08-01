@@ -13,11 +13,11 @@
 extern uint32_t dword_12EBD8;
 extern uint32_t off_12EBDC;
 
-// sub_12EBB8 @ 0x12ebb8, size 32 bytes
-int sub_12EBB8()
+// radio_init @ 0x12ebb8, size 32 bytes
+int radio_init()
 {
-  sub_12E948(dword_12EBD8);
-  sub_12C5FC(1071, 1);
+  alloc_tx_event(dword_12EBD8);
+  invalid_handler_12c5fc(1071, 1);
   *((uint32_t *)off_12EBDC + 20) &= ~2u;
   return 0;
 }

@@ -12,9 +12,9 @@
 
 extern uint32_t dword_10EF4C;
 
-// sub_10EF38 @ 0x10ef38, size 18 bytes
-int  sub_10EF38(int a1)
+// rf_get_state @ 0x10ef38, size 18 bytes
+int  rf_get_state(int a1)
 {
-  return sub_10EE2C(dword_10EF4C, (a1 << 11) & 0xF800, 63488, 1);
+  return mmio_rmw32(dword_10EF4C, (a1 << 11) & 0xF800, 63488, 1);
 }
 

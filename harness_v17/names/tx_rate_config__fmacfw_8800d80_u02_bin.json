@@ -1,1 +1,1 @@
-{"fn": "tx_rate_config", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202d7c", "status": "ok", "name": "rf_level_apply_n_18c", "params": [], "docstring": "Applies RF level setting via MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "tx_rate_config", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202d7c", "status": "ok", "name": "peripheral_write_32", "params": [], "docstring": "Applies RF level setting via MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

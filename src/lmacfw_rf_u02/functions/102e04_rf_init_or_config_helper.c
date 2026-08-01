@@ -13,10 +13,10 @@
 extern uint32_t off_102E40;
 extern uint32_t off_102E44;
 
-// rf_init_or_config_helper @ 0x102e04, size 60 bytes
-// Doc: rf_init_or_config_helper [rf]: RF firmware initialization/config helper saving r4-r6,lr
-// rf_init_or_config_helper [rf]: RF firmware initialization/config helper saving r4-r6,lr
-int  rf_init_or_config_helper(int a1)
+// dma_init @ 0x102e04, size 60 bytes
+// Doc: dma_init [rf]: RF firmware initialization/config helper saving r4-r6,lr
+// dma_init [rf]: RF firmware initialization/config helper saving r4-r6,lr
+int  dma_init(int a1)
 {
   uint64_t v1; // kr00_8
   int v2; // r4
@@ -31,8 +31,8 @@ int  rf_init_or_config_helper(int a1)
     v2 = *(uint32_t *)off_102E44;
     v1 = *(uint64_t *)((char *)off_102E44 + 4);
   }
-  lmac_sub_init(0, 32, 0x10u, SHIDWORD(v1));
-  lmac_sub_init(0, 48, 0x10u, v1);
-  return lmac_sub_init(0, 64, 0x10u, v2);
+  memcpy_advance(0, 32, 0x10u, SHIDWORD(v1));
+  memcpy_advance(0, 48, 0x10u, v1);
+  return memcpy_advance(0, 64, 0x10u, v2);
 }
 

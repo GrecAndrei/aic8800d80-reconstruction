@@ -13,14 +13,14 @@
 extern uint32_t off_11297C;
 extern uint32_t dword_112980;
 
-// sub_112918 @ 0x112918, size 100 bytes
-int  sub_112918(int a1, uint16_t *a2)
+// wait_radio_state @ 0x112918, size 100 bytes
+int  wait_radio_state(int a1, uint16_t *a2)
 {
   int v4; // r2
   int v5; // r3
   int v6; // r2
 
-  sub_112878();
+  critical_section_enter();
   if ( *(uint8_t *)off_11297C != 4 )
     return 1;
   v4 = a1 - 1;

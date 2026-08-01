@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211880", "status": "ok", "name": "rf_bus_mark_n_4", "params": [], "docstring": "Marks RF bus state using global pointers (0x187eb0, 0x187eac, 0x187e8c)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211880", "status": "ok", "name": "ipc_mailbox_init", "params": [], "docstring": "Marks RF bus state using global pointers (0x187eb0, 0x187eac, 0x187e8c)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

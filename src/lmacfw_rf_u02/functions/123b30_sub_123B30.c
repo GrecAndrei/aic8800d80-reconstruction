@@ -13,8 +13,8 @@
 extern uint32_t dword_123BB4;
 extern uint32_t dword_123BB8;
 
-// sub_123B30 @ 0x123b30, size 130 bytes
-int  sub_123B30(uint32_t *a1, int a2, int a3)
+// init_timer_slot @ 0x123b30, size 130 bytes
+int  init_timer_slot(uint32_t *a1, int a2, int a3)
 {
   int v3; // r2
   int v4; // r4

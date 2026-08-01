@@ -45,8 +45,8 @@ extern uint32_t off_10D970;
 extern uint32_t dword_10D974;
 extern uint32_t dword_10DA70;
 
-// sub_10D660 @ 0x10d660, size 1016 bytes
-int  sub_10D660(int a1, int a2)
+// debug_printf @ 0x10d660, size 1016 bytes
+int  debug_printf(int a1, int a2)
 {
   int v2; // r4
   unsigned int CPSR; // r6
@@ -130,7 +130,7 @@ int  sub_10D660(int a1, int a2)
   uint8_t v82[260]; // [sp+10h] [bp-104h] BYREF
 
   CPSR = __get_CPSR();
-  v4 = sub_12E344(v82, 256, 0, a1, a2);
+  v4 = main_loop_dispatch(v82, 256, 0, a1, a2);
   v6 = v4;
   if ( v4 <= 0 )
     return v6;
@@ -142,7 +142,7 @@ int  sub_10D660(int a1, int a2)
   }
   else
   {
-    sub_10D4A0();
+    event_loop();
     if ( CPSR )
       goto LABEL_5;
   }
@@ -189,7 +189,7 @@ LABEL_5:
     {
       if ( v7 >= 124 )
         LOWORD(v7) = 124;
-      sub_1110CC(19, v82, (uint16_t)v7);
+      ke_mem_alloc(19, v82, (uint16_t)v7);
     }
     goto LABEL_13;
   }
@@ -214,13 +214,13 @@ LABEL_19:
     while ( v22 );
     goto LABEL_13;
   }
-  if ( (unsigned int)sub_12D594(dword_10D950, v5) <= 4 )
+  if ( (unsigned int)list_length(dword_10D950, v5) <= 4 )
   {
     if ( **(uint8_t **)off_10D944 == 2 )
     {
       if ( **v17 != 3 )
       {
-        if ( (unsigned int)sub_12D594(dword_10D950, v23) > 4 )
+        if ( (unsigned int)list_length(dword_10D950, v23) > 4 )
         {
           v60 = dword_10D97C;
           v61 = off_10D938;
@@ -266,7 +266,7 @@ LABEL_13:
   while ( 1 )
   {
     v26 = v24++;
-    if ( !sub_1437AC(v26, v25, 20) )
+    if ( !memcpy(v26, v25, 20) )
       break;
     if ( &v82[v7] == v24 )
     {
@@ -301,7 +301,7 @@ LABEL_37:
   if ( *v27 )
   {
     v28 = off_10D988;
-    if ( !sub_1437AC(v82, dword_10D954, 5) )
+    if ( !memcpy(v82, dword_10D954, 5) )
     {
       v29 = dword_10D958;
       v30 = off_10D938;
@@ -323,7 +323,7 @@ LABEL_37:
     if ( v35 + v7 <= 1720 )
     {
       v81 = (int *)off_10DA64;
-      sub_14380C(*(uint32_t *)off_10DA64 + v35, v82, v7);
+      memcpy_aligned(*(uint32_t *)off_10DA64 + v35, v82, v7);
       v75 = (uint8_t)*v28;
       v41 = v81;
       v76 = v7 + *v34;
@@ -356,18 +356,18 @@ LABEL_37:
     *v34 = 4;
     *v41 = 0;
     v6 = v35;
-    sub_12D4F8(v42);
+    list_pop_front(v42);
     goto LABEL_48;
   }
-  v2 = sub_12D4F8(dword_10DA6C);
+  v2 = list_pop_front(dword_10DA6C);
   if ( v7 <= 122 )
-    v43 = sub_113864();
+    v43 = int_disable_set_flag();
   else
     v43 = (*(int ( **)(uint32_t))(*(uint32_t *)(*(uint32_t *)off_10DA60 + 8) + 16))(*(uint32_t *)(*(uint32_t *)off_10DA60
                                                                                                   + 4));
   if ( v43 )
   {
-    sub_14380C(v43 + 4, v82, v7);
+    memcpy_aligned(v43 + 4, v82, v7);
     LOWORD(v35) = v7;
 LABEL_48:
     *(uint16_t *)v43 = v6 + 1;
@@ -408,8 +408,8 @@ LABEL_48:
     v50 = (int *)off_10D970;
     v51 = dword_10D974;
     ++*(uint32_t *)off_10D970;
-    v52 = sub_12D470(v51);
-    sub_113310(v52);
+    v52 = check_abort_flag(v51);
+    rf_calib_init(v52);
     if ( *v50 )
     {
       v53 = *v50 - 1;

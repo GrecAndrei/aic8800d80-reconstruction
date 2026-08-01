@@ -12,8 +12,8 @@
 
 extern uint32_t off_101900;
 
-// sub_1018E4 @ 0x1018e4, size 28 bytes
-uint32_t * sub_1018E4(uint32_t *result, uint32_t *a2)
+// rf_config_write @ 0x1018e4, size 28 bytes
+uint32_t * rf_config_write(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

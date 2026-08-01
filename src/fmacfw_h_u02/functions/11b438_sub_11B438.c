@@ -18,8 +18,8 @@ extern uint32_t off_11B674;
 extern uint32_t off_11B678;
 extern uint32_t dword_11B67C;
 
-// sub_11B438 @ 0x11b438, size 562 bytes
-int  sub_11B438(int a1)
+// save_rx_packet @ 0x11b438, size 562 bytes
+int  save_rx_packet(int a1)
 {
   uint32_t *v1; // r8
   char *v2; // r6
@@ -77,7 +77,7 @@ int  sub_11B438(int a1)
   *((uint32_t *)v2 + 275) = 0;
   *((uint32_t *)v2 + 276) = 0;
   *((uint32_t *)v2 + 6) = 0;
-  v11 = sub_119BEC((int)(v2 + 92), v8);
+  v11 = align_alloc_size((int)(v2 + 92), v8);
   v12 = *((uint32_t *)v2 + 6);
   v13 = v2;
   v14 = (uint16_t)(((*((uint16_t *)v2 + 58) + 3) & 0xFFFC) + 4 + 4 * v11);

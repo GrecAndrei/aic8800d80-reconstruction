@@ -16,8 +16,8 @@ extern uint32_t dword_11C928;
 extern uint32_t dword_11C924;
 extern uint32_t off_11C920;
 
-// sub_11C88C @ 0x11c88c, size 138 bytes
-int sub_11C88C()
+// ke_timer_check @ 0x11c88c, size 138 bytes
+int ke_timer_check()
 {
   int v0; // r0
   uint8_t *v1; // r4
@@ -26,13 +26,13 @@ int sub_11C88C()
   unsigned int v4; // r3
   int v5; // r1
 
-  if ( sub_11E34C(2) != 3 )
+  if ( flash_write_byte(2) != 3 )
   {
-    v0 = sub_11E34C(2);
-    sub_11F504(dword_11C918, v0);
+    v0 = flash_write_byte(2);
+    dispatch_event_handler(dword_11C918, v0);
   }
-  if ( **(int16_t **)off_11C91C < 0 && sub_11E34C(2) != 3 )
-    sub_1219C4(dword_11C928, dword_11C924, 201);
+  if ( **(int16_t **)off_11C91C < 0 && flash_write_byte(2) != 3 )
+    flash_ctrl_init(dword_11C928, dword_11C924, 201);
   v1 = off_11C920;
   v2 = *(uint32_t *)off_11C920;
   v3 = *(uint8_t *)(*(uint32_t *)off_11C920 + 367);
@@ -40,23 +40,23 @@ int sub_11C88C()
   *((uint8_t *)off_11C920 + 10) = v4;
   if ( v3 <= v4 || v1[11] )
   {
-    sub_11DEE8(v2 - 12);
+    isr_forward(v2 - 12);
     v5 = *((uint16_t *)v1 + 4);
     if ( v1[11] )
     {
-      sub_11CD0C(0, v5);
+      tx_buf_alloc(0, v5);
       v1[11] = 0;
     }
     else
     {
-      sub_11DED8(2050, v5, 2);
+      ke_evt_handler(2050, v5, 2);
     }
-    sub_11E1E4(2);
+    flash_erase_sector(2);
     return 0;
   }
   else
   {
-    sub_11CAC8();
+    queue_remove();
     return 0;
   }
 }

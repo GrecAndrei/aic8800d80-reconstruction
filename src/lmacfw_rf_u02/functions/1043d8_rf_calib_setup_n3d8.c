@@ -18,10 +18,10 @@ extern uint32_t dword_104710;
 extern uint32_t dword_1047B4;
 extern uint32_t dword_1047AC;
 
-// rf_calib_setup_n3d8 @ 0x1043d8, size 978 bytes
-// Doc: rf_calib_setup_n3d8 [rf]: RF calibration init with FPU context and table setup
-// rf_calib_setup_n3d8 [rf]: RF calibration init with FPU context and table setup
-int  rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
+// wlan_init_globals @ 0x1043d8, size 978 bytes
+// Doc: wlan_init_globals [rf]: RF calibration init with FPU context and table setup
+// wlan_init_globals [rf]: RF calibration init with FPU context and table setup
+int  wlan_init_globals(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
 {
   int *v7; // r6
   int v11; // r0
@@ -79,8 +79,8 @@ int  rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int
   uint8_t v64[132]; // [sp+D0h] [bp-84h] BYREF
 
   v7 = (int *)dword_104704;
-  sub_11F74C(1, dword_104700, a3, a4);
-  sub_1282E8(v63, dword_104708, 128);
+  check_interrupt_flag(1, dword_104700, a3, a4);
+  memcpy_large(v63, dword_104708, 128);
   v11 = *v7;
   v12 = v7[1];
   v13 = v7[2];
@@ -97,13 +97,13 @@ int  rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int
   v62[5] = v15;
   v62[6] = v16;
   v62[7] = v17;
-  sub_1282E8(v64, v7 + 4, 128);
-  v18 = sub_104200(0, 0, a3);
+  memcpy_large(v64, v7 + 4, 128);
+  v18 = tx_power_calibrate(0, 0, a3);
   v57 = (float *)(a1 + 128);
   v58 = a1 + 384;
   if ( a2 == 1 )
   {
-    v54 = sub_104200(0, 1, a4);
+    v54 = tx_power_calibrate(0, 1, a4);
     if ( v18 < v54 )
       v18 += 1280;
     v19 = v54;
@@ -125,7 +125,7 @@ int  rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int
       v20 = 10;
     v59 = v20;
   }
-  sub_11F74C(1, dword_104710, v19, v18);
+  check_interrupt_flag(1, dword_104710, v19, v18);
   v21 = (uint32_t *)(a1 + 128);
   do
   {
@@ -156,7 +156,7 @@ int  rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int
         v32 = v55 + v56;
         do
         {
-          v33 = sub_103FBC(v32++, 0, a3);
+          v33 = lookup_rf_table(v32++, 0, a3);
           v31 = v31 + (float)v33;
         }
         while ( v32 != v55 + v56 + 12 );
@@ -172,8 +172,8 @@ LABEL_13:
         v34 = flt_104714;
         for ( i = 1; ; ++i )
         {
-          v36 = COERCE_FLOAT(sub_103FF0(v55 + v56 - 1 + i, 0, a3));
-          v37 = v36 - COERCE_FLOAT(sub_103FF0(v55 + v60 + v56 - 1 + i, 1, a4));
+          v36 = COERCE_FLOAT(apply_tx_power(v55 + v56 - 1 + i, 0, a3));
+          v37 = v36 - COERCE_FLOAT(apply_tx_power(v55 + v60 + v56 - 1 + i, 1, a4));
           if ( v37 < v23 )
             v37 = v37 + v24;
           if ( v37 > v25 )
@@ -247,7 +247,7 @@ LABEL_14:
   v43 = (float *)a1;
   for ( j = 1; ; ++j )
   {
-    v46 = sdio_buffer_prepare_n_e8((float)(v43[32] / v42) / 12.0);
+    v46 = hash_const_init((float)(v43[32] / v42) / 12.0);
     v47 = &v63[j];
     *((uint32_t *)v43 + 32) = v46;
     if ( (unsigned int)(j - 1) > 1 )
@@ -265,12 +265,12 @@ LABEL_43:
     goto LABEL_43;
   v49 = flt_1047B0;
   v50 = dword_1047B4;
-  sub_11F74C(1, dword_1047AC, v47, 31);
+  check_interrupt_flag(1, dword_1047AC, v47, 31);
   v51 = (float *)a1;
   do
   {
     v52 = *v51++;
-    result = sub_11F74C(1, v50, (int)(float)(v52 * v49), (int)(float)(v51[31] * v49));
+    result = check_interrupt_flag(1, v50, (int)(float)(v52 * v49), (int)(float)(v51[31] * v49));
   }
   while ( v57 != v51 );
   return result;

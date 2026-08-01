@@ -14,8 +14,8 @@ extern uint32_t off_122DEC;
 extern uint32_t off_122DE8;
 extern uint32_t off_122DF0;
 
-// sub_122D9C @ 0x122d9c, size 76 bytes
-int  sub_122D9C(int a1, int *a2, int a3, uint32_t *a4)
+// handle_hci_command @ 0x122d9c, size 76 bytes
+int  handle_hci_command(int a1, int *a2, int a3, uint32_t *a4)
 {
   int v4; // r4
   uint32_t *v6; // r1
@@ -49,7 +49,7 @@ int  sub_122D9C(int a1, int *a2, int a3, uint32_t *a4)
       a4[5] = v11;
     }
   }
-  message_dispatch_n84(122, v6, a3, a4);
+  hci_evt_alloc_send(122, v6, a3, a4);
   return 0;
 }
 

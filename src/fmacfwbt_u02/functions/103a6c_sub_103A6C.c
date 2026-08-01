@@ -16,8 +16,8 @@ extern uint32_t off_103ABC;
 extern uint32_t off_103AB0;
 extern uint32_t dword_103AC0;
 
-// sub_103A6C @ 0x103a6c, size 66 bytes
-int sub_103A6C()
+// mac_irq_disable @ 0x103a6c, size 66 bytes
+int mac_irq_disable()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r1
@@ -30,7 +30,7 @@ int sub_103A6C()
   *v0 &= ~0x20000u;
   *v1 &= ~0x1000000u;
   *v2 &= 0xFFE7FFFF;
-  sub_100644(10);
-  return sub_12EEF8(0x2000, dword_103AC0);
+  timer_set(10);
+  return state_check_feature(0x2000, dword_103AC0);
 }
 

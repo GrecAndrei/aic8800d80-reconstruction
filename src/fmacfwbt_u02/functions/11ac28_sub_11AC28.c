@@ -14,10 +14,10 @@ extern uint32_t off_11AC6C;
 extern uint32_t off_11AC74;
 extern uint32_t dword_11AC70;
 
-// sub_11AC28 @ 0x11ac28, size 68 bytes
+// ke_int_disable @ 0x11ac28, size 68 bytes
 // Doc: sub_121ac28 [unknown]: Unknown helper with push and shifted value setup
 // sub_121ac28 [unknown]: Unknown helper with push and shifted value setup
-int  sub_11AC28(int result)
+int  ke_int_disable(int result)
 {
   int *v1; // r4
   int v2; // r2
@@ -38,7 +38,7 @@ int  sub_11AC28(int result)
   *(uint32_t *)off_11AC74 = v4;
   if ( !v3 && *(uint32_t *)(v2 + 44) )
   {
-    result = sub_11A308(result);
+    result = llc_tx_llcp_handler(result);
     v4 = *v1;
   }
   if ( v4 )

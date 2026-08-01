@@ -12,11 +12,11 @@
 
 extern uint32_t dword_12A814;
 
-// sub_12A7F4 @ 0x12a7f4, size 30 bytes
-uint8_t * sub_12A7F4(uint8_t *result)
+// bt_conn_get_entry @ 0x12a7f4, size 30 bytes
+uint8_t * bt_conn_get_entry(uint8_t *result)
 {
   if ( result[1224] )
-    return sub_129A28((uint8_t *)(dword_12A814 + 140 * result[1225]));
+    return state_machine_step((uint8_t *)(dword_12A814 + 140 * result[1225]));
   return result;
 }
 

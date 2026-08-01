@@ -12,16 +12,16 @@
 
 extern uint32_t off_135CC8;
 
-// sub_135C9C @ 0x135c9c, size 44 bytes
-uint32_t * sub_135C9C(int a1)
+// hci_vendor_get_state @ 0x135c9c, size 44 bytes
+uint32_t * hci_vendor_get_state(int a1)
 {
   uint32_t *v1; // r5
 
   v1 = off_135CC8;
-  sub_12C964(6154, 6);
-  sub_14380C(a1, v1[4], 54);
-  j_buffer_pool_get(v1[4] - 12);
+  irq_lock(6154, 6);
+  memcpy_aligned(a1, v1[4], 54);
+  jump_to_tx_entry(v1[4] - 12);
   v1[4] = a1;
-  return fmacfwbt_init_handler();
+  return rf_lookup_alt_by_index();
 }
 

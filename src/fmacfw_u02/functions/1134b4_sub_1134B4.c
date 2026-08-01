@@ -15,8 +15,8 @@ extern uint32_t off_11354C;
 extern uint32_t off_113554;
 extern uint32_t dword_113550;
 
-// sub_1134B4 @ 0x1134b4, size 148 bytes
-int  sub_1134B4(int a1, int a2)
+// check_init_flag @ 0x1134b4, size 148 bytes
+int  check_init_flag(int a1, int a2)
 {
   uint8_t *v2; // r6
   int **v3; // r4
@@ -36,7 +36,7 @@ int  sub_1134B4(int a1, int a2)
   if ( *(uint8_t *)off_113548 )
     return -99;
   v3 = (int **)off_11354C;
-  v4 = sub_12D36C(off_11354C, a2);
+  v4 = read_u32(off_11354C, a2);
   v5 = off_113554;
   *(uint8_t *)off_113554 = v4;
   if ( v4 )
@@ -77,7 +77,7 @@ LABEL_11:
       v14 = *(uint8_t *)(v13 + 3);
       *v2 = 1;
       *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return sub_113010(1, v12);
+      return rx_counter_inc(1, v12);
     }
   }
   return -98;

@@ -19,8 +19,8 @@ extern uint32_t off_121404;
 extern uint32_t off_121408;
 extern uint32_t off_12140C;
 
-// sub_121340 @ 0x121340, size 184 bytes
-int  sub_121340(int a1, int a2)
+// mac_core_setup @ 0x121340, size 184 bytes
+int  mac_core_setup(int a1, int a2)
 {
   int v2; // r6
   uint32_t *v3; // r3

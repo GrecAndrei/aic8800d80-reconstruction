@@ -12,11 +12,11 @@
 
 extern uint32_t dword_10F16C;
 
-// mmio_bit_extract_n @ 0x10f15c, size 16 bytes
-// Doc: mmio_bit_extract_n [mmio]: Reads MMIO register 0x7000101c and extracts 5-bit field at bit 11
-// mmio_bit_extract_n [mmio]: Reads MMIO register 0x7000101c and extracts 5-bit field at bit 11
-int mmio_bit_extract_n()
+// get_xtal_ftune @ 0x10f15c, size 16 bytes
+// Doc: get_xtal_ftune [mmio]: Reads MMIO register 0x7000101c and extracts 5-bit field at bit 11
+// get_xtal_ftune [mmio]: Reads MMIO register 0x7000101c and extracts 5-bit field at bit 11
+int get_xtal_ftune()
 {
-  return (uint16_t)sub_10EFBC(dword_10F16C, 1) >> 11;
+  return (uint16_t)critical_enter(dword_10F16C, 1) >> 11;
 }
 

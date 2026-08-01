@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// ipc_msg_init_struct @ 0x11f3b8, size 18 bytes
-// Doc: ipc_msg_init_struct [ipc]: Initialize IPC/control struct fields to zero/one
-// ipc_msg_init_struct [ipc]: Initialize IPC/control struct fields to zero/one
-int  ipc_msg_init_struct(int result)
+// llm_conn_reset_state @ 0x11f3b8, size 18 bytes
+// Doc: llm_conn_reset_state [ipc]: Initialize IPC/control struct fields to zero/one
+// llm_conn_reset_state [ipc]: Initialize IPC/control struct fields to zero/one
+int  llm_conn_reset_state(int result)
 {
   *(uint8_t *)(result + 52) = 1;
   *(uint8_t *)(result + 163) = 0;

@@ -20,8 +20,8 @@ extern uint32_t off_126698;
 extern uint32_t off_126694;
 extern uint32_t dword_12669C;
 
-// sub_1265D4 @ 0x1265d4, size 166 bytes
-int  sub_1265D4(int a1, int a2, int a3)
+// llc_env_lookup @ 0x1265d4, size 166 bytes
+int  llc_env_lookup(int a1, int a2, int a3)
 {
   int v6; // r0
   uint32_t *v7; // r4
@@ -39,17 +39,17 @@ int  sub_1265D4(int a1, int a2, int a3)
   int v19; // r3
   int v20; // r2
 
-  v6 = sub_12D190(dword_12667C);
+  v6 = list_pop(dword_12667C);
   v7 = (uint32_t *)v6;
   if ( **(int16_t **)off_126680 < 0 && !v6 )
-    sub_12F32C(dword_12668C, dword_126688, 227);
+    irq_disable_mmio_write(dword_12668C, dword_126688, 227);
   v8 = off_126684;
   v9 = (char *)off_126684 + 32;
   v10 = *((uint32_t *)off_126684 + 8);
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = sub_12D108(v9);
+  result = wlan_ioctl_handler_1(v9);
   if ( !v10 )
   {
     v8[18] = v7;
@@ -66,7 +66,7 @@ int  sub_1265D4(int a1, int a2, int a3)
     *(uint32_t *)off_126698 = v16;
     if ( v15 - 64 >= 0 )
     {
-      result = sub_124BFC(dword_12669C, v13);
+      result = mem_copy_util(dword_12669C, v13);
       if ( *v12 )
       {
         v19 = *v12 - 1;

@@ -20,8 +20,8 @@ extern uint32_t off_139390;
 extern uint32_t dword_139394;
 extern uint32_t dword_13939C;
 
-// sub_1390E8 @ 0x1390e8, size 672 bytes
-int  sub_1390E8(unsigned int a1, int a2, int a3)
+// rf_cal_handle_cmd @ 0x1390e8, size 672 bytes
+int  rf_cal_handle_cmd(unsigned int a1, int a2, int a3)
 {
   uint16_t *v3; // r6
   char v5; // r5
@@ -64,14 +64,14 @@ LABEL_14:
 LABEL_15:
     if ( v9 )
       return 0;
-    v10 = sub_12D4F8(dword_13938C);
+    v10 = list_pop_front(dword_13938C);
     if ( !v10 )
     {
-      v27 = sub_12D4F8(dword_139398);
+      v27 = list_pop_front(dword_139398);
       v10 = v27;
       if ( **(int16_t **)off_1393A0 < 0 && !v27 )
-        sub_12F694(dword_1393A8, dword_1393A4, 1111);
-      sub_138AD4(0, 4, v10[5]);
+        mmio_irq_clear(dword_1393A8, dword_1393A4, 1111);
+      tx_power_cal_read(0, 4, v10[5]);
     }
     v13 = v3[2];
     *((uint8_t *)v10 + 6) = v5;
@@ -87,18 +87,18 @@ LABEL_15:
     *((uint16_t *)v10 + 5) = v13;
     v10[14] = v17;
     v10[15] = v10;
-    sub_124F60((int)(v10 + 13), v16 + 100000);
+    ke_event_lock((int)(v10 + 13), v16 + 100000);
     if ( (v3[24] & 1) != 0 )
-      sub_138EA8(a1, (int)(v10 + 7), 1, 0);
+      rf_cal_process(a1, (int)(v10 + 7), 1, 0);
     *(uint32_t *)(a1 + 96) &= ~0x20u;
-    sub_138DB8(a1, 1);
+    rf_cal_freq_from_channel(a1, 1);
     HIDWORD(v18) = *((uint32_t *)v3 + 16);
     LODWORD(v18) = *((uint32_t *)v3 + 7);
     v19 = dword_139398;
     *((uint64_t *)v10 + 2) = v18;
     *((uint8_t *)v10 + 5) = *((uint8_t *)v3 + 49);
     *((uint16_t *)v10 + 6) = *(uint16_t *)(a1 + 48);
-    sub_12D470(v19, v10);
+    check_abort_flag(v19, v10);
     goto LABEL_20;
   }
   v8 = *(uint16_t *)off_139388 & 0x400;
@@ -130,20 +130,20 @@ LABEL_7:
     *((uint16_t *)v10 + 6) = v22;
     if ( (v3[24] & 1) != 0 )
     {
-      if ( sub_138EA8(a1, (int)(v10 + 7), 0, v8 == 0) )
+      if ( rf_cal_process(a1, (int)(v10 + 7), 0, v8 == 0) )
       {
         v26 = *(uint32_t *)(a1 + 96);
         if ( !v8 )
         {
           *((uint16_t *)v10 + 6) -= 8;
           *(uint32_t *)(a1 + 96) = v26 & 0xFFFFFF9F | 0x40;
-          sub_11E708(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+          tx_packet_setup(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
           v10[4] += v21;
           v23 = 1;
           goto LABEL_30;
         }
         *(uint32_t *)(a1 + 96) = v26 & 0xFFFFFF9F | 0x40;
-        sub_11E708(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+        tx_packet_setup(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
         v10[4] += v21;
 LABEL_20:
         v10[6] = *((uint32_t *)off_139390 + 4);
@@ -156,7 +156,7 @@ LABEL_20:
       v23 = 1;
     }
     *(uint32_t *)(a1 + 96) = *(uint32_t *)(a1 + 96) & 0xFFFFFF9F | 0x40;
-    sub_11E708(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+    tx_packet_setup(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
     v10[4] += v21;
     if ( !v8 )
     {
@@ -165,30 +165,30 @@ LABEL_30:
         v24 = 24;
       else
         v24 = 8;
-      v25 = sub_138AD4(0, v24, v10[5]);
+      v25 = tx_power_cal_read(0, v24, v10[5]);
       if ( v25 )
         v25[18] = *((uint16_t *)v10 + 6);
-      sub_138AD4(0, v23, v10[5]);
-      sub_125058((int)(v10 + 13));
-      sub_12D510(dword_139398, v10);
-      sub_12D470(dword_13938C, v10);
+      tx_power_cal_read(0, v23, v10[5]);
+      ke_event_set_lock((int)(v10 + 13));
+      check_abort_flag_3(dword_139398, v10);
+      check_abort_flag(dword_13938C, v10);
       goto LABEL_20;
     }
     goto LABEL_20;
   }
   if ( (*((uint8_t *)off_139388 + 48) & 1) != 0 )
   {
-    if ( !sub_138EA8(a1, (int)v28, 1, 1) )
+    if ( !rf_cal_process(a1, (int)v28, 1, 1) )
       return v9;
     *(uint16_t *)(a1 + 48) -= 8;
   }
   v20 = dword_13939C + 1320 * *((uint8_t *)v3 + 10);
   if ( *(uint8_t *)(v20 + 1227)
-    && sub_138BAC((uint8_t *)(v20 + 107), (uint32_t *)(v20 + 1228), *(char **)(*(uint32_t *)(a1 + 28) + 8), a3) == 1 )
+    && rate_to_phy_mode((uint8_t *)(v20 + 107), (uint32_t *)(v20 + 1228), *(char **)(*(uint32_t *)(a1 + 28) + 8), a3) == 1 )
   {
     return v9;
   }
-  sub_138DB8(a1, 3);
+  rf_cal_freq_from_channel(a1, 3);
   return 1;
 }
 

@@ -14,26 +14,26 @@ extern uint32_t dword_11B07C;
 extern uint32_t off_11B080;
 extern uint32_t dword_11B084;
 
-// sub_11B044 @ 0x11b044, size 56 bytes
-int sub_11B044()
+// rx_buffer_alloc @ 0x11b044, size 56 bytes
+int rx_buffer_alloc()
 {
   int result; // r0
   uint32_t *v1; // r4
   char *v2; // r5
   char *v3; // r4
 
-  result = sub_11E7AC(dword_11B07C);
+  result = list_pop_front(dword_11B07C);
   if ( result )
   {
     v1 = off_11B080;
-    sub_11AC10(dword_11B084);
+    ke_exit_critical(dword_11B084);
     v1[18] = 0;
     v2 = (char *)(v1 + 6);
     v3 = (char *)(v1 + 8);
     do
     {
-      sub_11E724(v2);
-      result = sub_11E7AC(v3);
+      check_kernel_state(v2);
+      result = list_pop_front(v3);
     }
     while ( result );
   }

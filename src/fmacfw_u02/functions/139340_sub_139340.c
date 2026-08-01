@@ -19,8 +19,8 @@ extern uint32_t off_139574;
 extern uint32_t dword_13957C;
 extern uint32_t dword_139578;
 
-// sub_139340 @ 0x139340, size 546 bytes
-int  sub_139340(int a1, int a2)
+// ll_get_conn @ 0x139340, size 546 bytes
+int  ll_get_conn(int a1, int a2)
 {
   uint16_t *v2; // r6
   int v3; // r7
@@ -61,7 +61,7 @@ int  sub_139340(int a1, int a2)
     goto LABEL_28;
   }
   v8 = dword_139580;
-  v17 = rf_msg_process_body_n422(
+  v17 = phy_config_set(
           (uint8_t *)(v3 + 107),
           (uint32_t *)(v3 + 1228),
           *(char **)(*(uint32_t *)(a1 + 28) + 8),
@@ -91,15 +91,15 @@ LABEL_17:
       v21 = (*(uint16_t *)(v10 + 8) + 1) & 0xFFF;
       *(uint8_t *)(v10 + 10) = (v19 + 1) & 0x3F;
       *(uint16_t *)(v10 + 8) = v21;
-      idx_table_lookup_n3958(v10);
-      tx_rate_idx_lookup_n2b8(a2, *((uint8_t *)v2 + 7));
+      ke_msg_dispatch(v10);
+      lookup_tx_power_limit(a2, *((uint8_t *)v2 + 7));
       return v16;
     }
 LABEL_28:
     v26 = *(uint16_t *)(a1 + 50) & 0xFF00;
     *(uint32_t *)(a1 + 96) |= 0x20u;
     *(uint16_t *)(a1 + 50) = v26;
-    sub_138CB4(a1, 3);
+    rf_get_rssi(a1, 3);
     v16 = 1;
     goto LABEL_17;
   }
@@ -124,10 +124,10 @@ LABEL_8:
             v22 = *(uint16_t *)(a1 + 50) & 0xFF00;
             *(uint32_t *)(a1 + 96) |= 0x20u;
             *(uint16_t *)(a1 + 50) = v22;
-            sub_138CB4(a1, 3);
+            rf_get_rssi(a1, 3);
           }
 LABEL_10:
-          tx_rate_idx_lookup_n2b8(a2, *((uint8_t *)v2 + 7));
+          lookup_tx_power_limit(a2, *((uint8_t *)v2 + 7));
           return (uint8_t)(1 - v5);
         }
         v14 = (uint16_t)v2[1];
@@ -136,7 +136,7 @@ LABEL_10:
       }
       return 0;
     }
-    sub_1392A8(v10, (uint16_t)(v13 - 63));
+    list_find(v10, (uint16_t)(v13 - 63));
     v7 = *((uint8_t *)v2 + 7);
     v9 = (uint16_t)v2[2];
     v10 = *(uint32_t *)(v8 + 4 * (174 * a2 + v7 + 102));
@@ -153,7 +153,7 @@ LABEL_10:
       v27 = *(uint16_t *)(a1 + 50) & 0xFF00;
       *(uint32_t *)(a1 + 96) |= 0x20u;
       *(uint16_t *)(a1 + 50) = v27;
-      sub_138CB4(a1, 3);
+      rf_get_rssi(a1, 3);
     }
     *(uint32_t *)(v23 + 16) = dword_139570;
     v24 = *(int16_t **)off_139574;
@@ -161,11 +161,11 @@ LABEL_10:
     *(uint8_t *)(v10 + 11) = v25;
     if ( *v24 < 0 && v25 > 0x40 )
     {
-      sub_12F46C(dword_13957C, dword_139578, 1860);
+      mmio_clear_register(dword_13957C, dword_139578, 1860);
       v25 = *(uint8_t *)(v10 + 11);
     }
     if ( v25 == 1 )
-      timestamp_update(v10 + 272, *((uint32_t *)off_13956C + 4) + 50000);
+      unknown_worker(v10 + 272, *((uint32_t *)off_13956C + 4) + 50000);
     goto LABEL_10;
   }
   return 0;

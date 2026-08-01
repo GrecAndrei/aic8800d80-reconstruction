@@ -18,10 +18,10 @@ extern uint32_t dword_12351C;
 extern uint32_t dword_123520;
 extern uint32_t dword_123510;
 
-// sub_123408 @ 0x123408, size 254 bytes
+// rf_reg_write_88 @ 0x123408, size 254 bytes
 // Doc: sub_1223408 [util]: Allocates 0x88-byte context, fills it from arguments and calls sub-function
 // sub_1223408 [util]: Allocates 0x88-byte context, fills it from arguments and calls sub-function
-int  sub_123408(int a1, int *a2, int a3, int a4)
+int  rf_reg_write_88(int a1, int *a2, int a3, int a4)
 {
   int v5; // r6
   int v6; // r0
@@ -47,7 +47,7 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
   int v26; // r1
 
   v5 = *a2;
-  v6 = rf_bus_setup_n3a8(136, a4, a3, 8);
+  v6 = bt_buf_alloc(136, a4, a3, 8);
   v8 = v6;
   *(uint32_t *)v6 = v5;
   switch ( v5 )
@@ -57,7 +57,7 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
       *((uint8_t *)off_123508 + 373) = v9;
       v10 = dword_12350C;
       *(uint8_t *)(v8 + 4) = v9;
-      sub_12ECB0(v10, v9, v7);
+      ke_event_schedule(v10, v9, v7);
       goto LABEL_3;
     case 1:
       v15 = off_123508;
@@ -70,27 +70,27 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
       {
         if ( v16 )
         {
-          v19 = sub_130714(v6);
-          sub_1307D0(v19);
+          v19 = mmio_init_check(v6);
+          rf_afe_enable(v19);
         }
         else
         {
-          bt_fmac_init_n_42e();
+          rf_afe_disable();
         }
         v17 = *((uint8_t *)v15 + 363);
       }
       *(uint8_t *)(v8 + 4) = v17;
-      sub_12ECB0(dword_123514, v17, v18);
-      sub_12CBB4(v8);
+      ke_event_schedule(dword_123514, v17, v18);
+      hci_evt_send(v8);
       result = 0;
       break;
     case 2:
       v20 = (uint8_t *)off_123508;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_123508 + 363);
-      n590 = rf_temp_read_n590();
+      n590 = ke_event_handler();
       *(uint8_t *)(v8 + 5) = n590;
-      sub_12ECB0(dword_123518, v20[363], n590);
-      sub_12CBB4(v8);
+      ke_event_schedule(dword_123518, v20[363], n590);
+      hci_evt_send(v8);
       result = 0;
       break;
     case 3:
@@ -98,17 +98,17 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
       v23 = off_123508;
       v24 = dword_12351C;
       *((uint32_t *)off_123508 + 98) = v22;
-      sub_12ECB0(v24, v22, v7);
+      ke_event_schedule(v24, v22, v7);
       *(uint32_t *)(v8 + 4) = v23[98];
-      sub_12CBB4(v8);
+      hci_evt_send(v8);
       result = 0;
       break;
     case 4:
       v25 = dword_123520;
       v26 = *((uint32_t *)off_123508 + 98);
       *(uint32_t *)(v8 + 4) = v26;
-      sub_12ECB0(v25, v26, v7);
-      sub_12CBB4(v8);
+      ke_event_schedule(v25, v26, v7);
+      hci_evt_send(v8);
       result = 0;
       break;
     case 5:
@@ -117,13 +117,13 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
       v14 = (a2[2] ^ v12) & a2[1] ^ v12;
       *((uint32_t *)off_123508 + 98) = v14;
       *(uint32_t *)(v8 + 4) = v14;
-      sub_12ECB0(v13, v14, v12);
-      sub_12CBB4(v8);
+      ke_event_schedule(v13, v14, v12);
+      hci_evt_send(v8);
       result = 0;
       break;
     default:
 LABEL_3:
-      sub_12CBB4(v8);
+      hci_evt_send(v8);
       result = 0;
       break;
   }

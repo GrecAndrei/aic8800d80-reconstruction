@@ -17,10 +17,10 @@ extern uint32_t off_12287C;
 extern uint32_t off_122874;
 extern uint32_t off_122880;
 
-// sub_122794 @ 0x122794, size 214 bytes
+// read_config_byte @ 0x122794, size 214 bytes
 // Doc: sub_12227A0 [unknown]: Helper: save r0 in r4 and call with r4,r5,r6,lr
 // sub_12227A0 [unknown]: Helper: save r0 in r4 and call with r4,r5,r6,lr
-char * sub_122794(char *result)
+char * read_config_byte(char *result)
 {
   int v1; // r4
   int v2; // r6
@@ -40,20 +40,20 @@ char * sub_122794(char *result)
       v9 = (uint8_t)(result[146] - 1);
       result[146] = v9;
       if ( v9 <= 1 )
-        return (char *)sub_120314((int)result);
+        return (char *)alloc_kernel_message((int)result);
       if ( v9 == 2 )
-        tx_send_msg_n25dc(result[107], 0);
+        hci_send_cmd_0x59(result[107], 0);
     }
     v2 = *(uint32_t *)(v1 + 36);
     v3 = *(uint32_t *)(dword_12286C + 696 * *(uint8_t *)(v1 + 116) + 8) + v2;
     if ( v1 != *((uint32_t *)off_122870 + 8)
       || (v8 = off_122878, *(uint32_t *)(v1 + 36) = v3, !v8[189]) && **(uint8_t **)off_12287C != 2 )
     {
-      timestamp_update(v1 + 24, v3);
+      unknown_worker(v1 + 24, v3);
     }
-    mmio_read_status_reg(v1);
-    fmac_status_chk_4c8(v1, *(uint32_t *)(v1 + 136) + v2);
-    result = (char *)fmac_handler_dispatch(v1, v2, v3);
+    configure_mmio(v1);
+    llc_get_conn_idx(v1, *(uint32_t *)(v1 + 136) + v2);
+    result = (char *)rx_dispatch_frame(v1, v2, v3);
     if ( !result )
     {
       v4 = (uint8_t)(*(uint8_t *)(v1 + 128) + 1);
@@ -64,11 +64,11 @@ char * sub_122794(char *result)
       v7 = *v6;
       if ( v4 > v7 )
       {
-        return (char *)sub_11908C(*(uint8_t *)(v1 + 116), (int)off_122880, v1);
+        return (char *)phy_channel_is_5g(*(uint8_t *)(v1 + 116), (int)off_122880, v1);
       }
       else if ( v4 == v7 )
       {
-        return (char *)rf_status_get_or_init(v1);
+        return (char *)tx_enqueue_frame(v1);
       }
     }
   }

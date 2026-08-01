@@ -13,8 +13,8 @@
 extern uint32_t dword_111BFC;
 extern uint32_t dword_111C00;
 
-// sub_111BD0 @ 0x111bd0, size 42 bytes
-int  sub_111BD0(int a1, int a2)
+// read_hw_sel @ 0x111bd0, size 42 bytes
+int  read_hw_sel(int a1, int a2)
 {
   uint32_t *v2; // r0
   int v4; // r0

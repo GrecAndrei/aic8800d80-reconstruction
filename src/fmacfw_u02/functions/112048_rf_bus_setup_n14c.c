@@ -16,10 +16,10 @@ extern uint32_t dword_1120EC;
 extern uint32_t dword_1120F0;
 extern uint32_t dword_1120F4;
 
-// rf_bus_setup_n14c @ 0x112048, size 158 bytes
+// periph_channel_flag @ 0x112048, size 158 bytes
 // Doc: rf_bus_write2_n4b6 [rf]: Tail of RF bus write routine with 3/5 status returns
 // rf_bus_write2_n4b6 [rf]: Tail of RF bus write routine with 3/5 status returns
-int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3)
+int  periph_channel_flag(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -37,7 +37,7 @@ int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DC24(dword_1120F8);
+    log_printf(dword_1120F8);
     return 3;
   }
   else

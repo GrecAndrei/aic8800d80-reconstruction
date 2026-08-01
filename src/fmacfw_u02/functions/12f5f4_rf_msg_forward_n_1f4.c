@@ -15,10 +15,10 @@ extern uint32_t off_12F648;
 extern uint32_t dword_12F64C;
 extern uint32_t off_12F650;
 
-// rf_msg_forward_n_1f4 @ 0x12f5f4, size 78 bytes
-// Doc: rf_msg_forward_n_1f4 [rf]: RF message forward/relay handler
-// rf_msg_forward_n_1f4 [rf]: RF message forward/relay handler
-int  rf_msg_forward_n_1f4(unsigned int a1)
+// save_context_args @ 0x12f5f4, size 78 bytes
+// Doc: save_context_args [rf]: RF message forward/relay handler
+// save_context_args [rf]: RF message forward/relay handler
+int  save_context_args(unsigned int a1)
 {
   int *v2; // r5
   int result; // r0
@@ -32,7 +32,7 @@ int  rf_msg_forward_n_1f4(unsigned int a1)
   }
   v2 = (int *)off_12F648;
   ++*(uint32_t *)off_12F648;
-  result = lookup_table_get();
+  result = call_func_182588();
   if ( a1 <= 4 )
     --*(uint8_t *)(dword_12F64C + a1);
   if ( *v2 )

@@ -28,8 +28,8 @@ extern uint32_t dword_10E6F0;
 extern uint32_t dword_10E6F4;
 extern uint32_t off_10E6F8;
 
-// sub_10E420 @ 0x10e420, size 664 bytes
-int sub_10E420()
+// rf_hw_init_alt @ 0x10e420, size 664 bytes
+int rf_hw_init_alt()
 {
   uint32_t *v0; // r1
   int v1; // r3
@@ -86,14 +86,14 @@ int sub_10E420()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v3 = sub_142874(v0[4]);
-  v4 = sub_142968(v3, HIDWORD(v3), dword_10E6B8, dword_10E6BC);
-  v5 = sub_142BBC(v4, HIDWORD(v4), dword_10E6C0, dword_10E6C4);
-  v6 = sub_1425F8(v5, HIDWORD(v5), dword_10E6B8, dword_10E6BC);
-  v7 = sub_142E9C(v6, HIDWORD(v6));
-  v8 = sub_10EC2C(dword_10E6E0) & 0x1F;
+  v3 = unsigned_int_to_double(v0[4]);
+  v4 = double_compare_common(v3, HIDWORD(v3), dword_10E6B8, dword_10E6BC);
+  v5 = double_compare_core(v4, HIDWORD(v4), dword_10E6C0, dword_10E6C4);
+  v6 = double_compare_neg(v5, HIDWORD(v5), dword_10E6B8, dword_10E6BC);
+  v7 = double_to_float(v6, HIDWORD(v6));
+  v8 = call_patch_hook_0(dword_10E6E0) & 0x1F;
   v9 = v7 - 840;
-  sub_10DAE4(dword_10E6E4, v7, v8);
+  debug_printf(dword_10E6E4, v7, v8);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -111,9 +111,9 @@ int sub_10E420()
   }
   else
   {
-    v11 = sub_142894(v10);
-    v12 = sub_142968(v11, HIDWORD(v11), dword_10E6C8, dword_10E6CC);
-    v13 = sub_142E9C(v12, HIDWORD(v12));
+    v11 = signed_int_to_double(v10);
+    v12 = double_compare_common(v11, HIDWORD(v11), dword_10E6C8, dword_10E6CC);
+    v13 = double_to_float(v12, HIDWORD(v12));
     v14 = v13;
     if ( v9 <= 0 )
     {
@@ -137,18 +137,18 @@ int sub_10E420()
       v9 = -9;
       goto LABEL_33;
     }
-    sub_10EC3C(dword_10E6E0, v15, 31);
+    call_patch_hook_2(dword_10E6E0, v15, 31);
     v16 = off_10E6D4;
     *((uint32_t *)off_10E6D4 + 1) = 1;
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
-    v17 = sub_142874(v16[4]);
-    v18 = sub_142968(v17, HIDWORD(v17), dword_10E6B8, dword_10E6BC);
-    v19 = sub_142BBC(v18, HIDWORD(v18), dword_10E6C0, dword_10E6C4);
-    v20 = sub_1425F8(v19, HIDWORD(v19), dword_10E6B8, dword_10E6BC);
-    v7 = sub_142E9C(v20, HIDWORD(v20));
-    sub_12E948(dword_10E6E8, v14, v15);
+    v17 = unsigned_int_to_double(v16[4]);
+    v18 = double_compare_common(v17, HIDWORD(v17), dword_10E6B8, dword_10E6BC);
+    v19 = double_compare_core(v18, HIDWORD(v18), dword_10E6C0, dword_10E6C4);
+    v20 = double_compare_neg(v19, HIDWORD(v19), dword_10E6B8, dword_10E6BC);
+    v7 = double_to_float(v20, HIDWORD(v20));
+    alloc_tx_event(dword_10E6E8, v14, v15);
     if ( v7 <= 840 )
       v21 = 1;
     else
@@ -170,17 +170,17 @@ int sub_10E420()
       v8 = v43 + v42 * v27;
       goto LABEL_33;
     }
-    sub_10EC3C(v23, v25, 31);
+    call_patch_hook_2(v23, v25, 31);
     v24[1] = 1;
     while ( v24[7] != 1 )
       ;
     v24[7] = 1;
-    v28 = sub_142874(v24[4]);
-    v29 = sub_142968(v28, HIDWORD(v28), dword_10E6B8, dword_10E6BC);
-    v30 = sub_142BBC(v29, HIDWORD(v29), dword_10E6C0, dword_10E6C4);
-    v31 = sub_1425F8(v30, HIDWORD(v30), dword_10E6B8, dword_10E6BC);
-    v32 = sub_142E9C(v31, HIDWORD(v31));
-    sub_12E948(dword_10E6EC, v9, v25);
+    v28 = unsigned_int_to_double(v24[4]);
+    v29 = double_compare_common(v28, HIDWORD(v28), dword_10E6B8, dword_10E6BC);
+    v30 = double_compare_core(v29, HIDWORD(v29), dword_10E6C0, dword_10E6C4);
+    v31 = double_compare_neg(v30, HIDWORD(v30), dword_10E6B8, dword_10E6BC);
+    v32 = double_to_float(v31, HIDWORD(v31));
+    alloc_tx_event(dword_10E6EC, v9, v25);
     v33 = v7 - 840;
     v34 = v32 - 840;
     if ( v33 * (v32 - 840) <= 0 )
@@ -202,22 +202,22 @@ int sub_10E420()
     v8 = v25;
   }
 LABEL_33:
-  sub_10DAE4(dword_10E6F0, v9);
-  sub_10EC3C(dword_10E6E0, v8, 31);
+  debug_printf(dword_10E6F0, v9);
+  call_patch_hook_2(dword_10E6E0, v8, 31);
   v35 = off_10E6D4;
   *((uint32_t *)off_10E6D4 + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_142874(v35[4]);
-  v37 = sub_142968(v36, HIDWORD(v36), dword_10E6B8, dword_10E6BC);
-  v38 = sub_142BBC(v37, HIDWORD(v37), dword_10E6C0, dword_10E6C4);
-  v39 = sub_1425F8(v38, HIDWORD(v38), dword_10E6B8, dword_10E6BC);
-  v40 = sub_142E9C(v39, HIDWORD(v39));
-  sub_10DAE4(dword_10E6F4, v40);
+  v36 = unsigned_int_to_double(v35[4]);
+  v37 = double_compare_common(v36, HIDWORD(v36), dword_10E6B8, dword_10E6BC);
+  v38 = double_compare_core(v37, HIDWORD(v37), dword_10E6C0, dword_10E6C4);
+  v39 = double_compare_neg(v38, HIDWORD(v38), dword_10E6B8, dword_10E6BC);
+  v40 = double_to_float(v39, HIDWORD(v39));
+  debug_printf(dword_10E6F4, v40);
   result = *((uint32_t *)off_10E6F8 + 94);
   if ( result != 0x80000000 )
-    return sub_1111CC();
+    return timer_get_raw();
   return result;
 }
 

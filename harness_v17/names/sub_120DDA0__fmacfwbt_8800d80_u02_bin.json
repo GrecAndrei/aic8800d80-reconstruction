@@ -1,1 +1,1 @@
-{"fn": "sub_120DDA0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120dda0", "status": "ok", "name": "mmio_init_block_120DDA0", "params": [], "docstring": "Initialize MMIO block at 0x40100000/0x4010d000 with constant values", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120DDA0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120dda0", "status": "ok", "name": "gpio_init", "params": [], "docstring": "Initialize MMIO block at 0x40100000/0x4010d000 with constant values", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

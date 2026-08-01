@@ -1,1 +1,1 @@
-{"fn": "sub_1219B20", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219b20", "status": "ok", "name": "bt_state_field_cmp", "params": [], "docstring": "Compare state/version byte fields between two contexts", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1219B20", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219b20", "status": "ok", "name": "bt_conn_param_compare", "params": [], "docstring": "Compare state/version byte fields between two contexts", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -26,8 +26,8 @@ extern uint32_t off_1159A0;
 extern uint32_t off_11599C;
 extern uint32_t off_11598C;
 
-// sub_11583C @ 0x11583c, size 300 bytes
-uint8_t *sub_11583C()
+// chip_revision_read @ 0x11583c, size 300 bytes
+uint8_t *chip_revision_read()
 {
   uint32_t *v0; // r4
   uint8_t *v1; // r5
@@ -50,7 +50,7 @@ uint8_t *sub_11583C()
   v1 = off_11596C;
   v2 = dword_115970;
   *(uint8_t *)off_11596C = *(uint8_t *)off_115968 & 0xF;
-  sub_12EB90(2, v2);
+  check_feature_flag(2, v2);
   if ( *v0 << 28 )
   {
     v3 = off_115978;
@@ -87,7 +87,7 @@ uint8_t *sub_11583C()
   }
   else if ( v10 == 1 )
   {
-    sub_12E8D0();
+    mmio_read_bit13();
     v15 = off_1159A0;
     *(uint32_t *)off_11599C |= 0x20u;
     v15[20] |= 0x20000u;

@@ -1,1 +1,1 @@
-{"fn": "sub_1221E68", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221e68", "status": "ok", "name": "fmacfwbt_sub_1221E68", "params": [], "docstring": "Check/return firmware build version from signature word", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221E68", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221e68", "status": "ok", "name": "mac_util_event", "params": [], "docstring": "Check/return firmware build version from signature word", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

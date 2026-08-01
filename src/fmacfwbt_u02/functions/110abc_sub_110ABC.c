@@ -14,10 +14,10 @@ extern uint32_t off_110BA0;
 extern uint32_t off_110B98;
 extern uint32_t off_110B9C;
 
-// sub_110ABC @ 0x110abc, size 218 bytes
+// sch_arbitrate @ 0x110abc, size 218 bytes
 // Doc: sub_1210ABC [rf]: Init RF subsystem by loading base globals
 // sub_1210ABC [rf]: Init RF subsystem by loading base globals
-int sub_110ABC()
+int sch_arbitrate()
 {
   uint32_t *v0; // r8
   int *v1; // r7
@@ -65,15 +65,15 @@ int sub_110ABC()
             v6 = *(uint32_t *)(v6 + 4);
             if ( v9 == v8 )
               break;
-            sub_110154();
+            critical_enter_1();
             v9 = v7;
             if ( v7 >= v5 )
               goto LABEL_8;
           }
           v17 = v10;
-          fw_subsystem_init();
+          tx_unlock();
           LOWORD(v8) = v8 + (*(uint8_t *)(v17 + 11) & 0x7F);
-          sub_110154();
+          critical_enter_1();
           v9 = v7;
           v8 = (uint16_t)v8;
         }
@@ -86,7 +86,7 @@ LABEL_8:
         *v2 = 1;
       }
       ++*v1;
-      sub_12D4F8(v3);
+      list_pop_front(v3);
       v11 = *v1;
       --*((uint8_t *)v0 + 3074);
       if ( !v11 )
@@ -109,7 +109,7 @@ LABEL_14:
     *(uint32_t *)off_110B9C = 1;
   }
   ++*v1;
-  result = sub_12D374(128);
+  result = set_system_flag_2(128);
   if ( *v1 )
   {
     v15 = *v1 - 1;

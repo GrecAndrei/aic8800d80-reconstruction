@@ -18,10 +18,10 @@ extern uint32_t dword_1242E8;
 extern uint32_t dword_1242D8;
 extern uint32_t off_1242E4;
 
-// check_param_eq1 @ 0x124244, size 144 bytes
-// Doc: check_param_eq1 [util]: Compare parameter against 1 and branch
-// check_param_eq1 [util]: Compare parameter against 1 and branch
-unsigned int  check_param_eq1(unsigned int result, unsigned int a2, int a3)
+// mac_validate_rate @ 0x124244, size 144 bytes
+// Doc: mac_validate_rate [util]: Compare parameter against 1 and branch
+// mac_validate_rate [util]: Compare parameter against 1 and branch
+unsigned int  mac_validate_rate(unsigned int result, unsigned int a2, int a3)
 {
   int v3; // r2
   int v4; // r3

@@ -29,8 +29,8 @@ extern uint32_t off_120714;
 extern uint32_t off_120700;
 extern uint32_t off_120718;
 
-// sub_1205BC @ 0x1205bc, size 284 bytes
-uint32_t *sub_1205BC()
+// poll_rf_interrupts @ 0x1205bc, size 284 bytes
+uint32_t *poll_rf_interrupts()
 {
   int *v0; // r4
   int *v1; // r5

@@ -1,1 +1,1 @@
-{"fn": "sub_1223240", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223240", "status": "ok", "name": "sub_1223240", "params": [], "docstring": "Helper routine with large stack frame and shifted operand", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223240", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223240", "status": "ok", "name": "exit_critical_section", "params": [], "docstring": "Helper routine with large stack frame and shifted operand", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

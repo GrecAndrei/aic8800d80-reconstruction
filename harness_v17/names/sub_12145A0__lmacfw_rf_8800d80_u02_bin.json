@@ -1,1 +1,1 @@
-{"fn": "sub_12145A0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12145a0", "status": "ok", "name": "sub_12145A0_5a0", "params": [], "docstring": "lmac RF behavioral stub", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "sub_12145A0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12145a0", "status": "ok", "name": "mmio_read_8", "params": [], "docstring": "lmac RF behavioral stub", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

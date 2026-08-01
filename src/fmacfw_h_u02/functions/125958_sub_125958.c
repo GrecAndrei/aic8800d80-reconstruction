@@ -12,8 +12,8 @@
 
 extern uint32_t off_12596C;
 
-// sub_125958 @ 0x125958, size 18 bytes
-int  sub_125958(int a1)
+// ke_event_set @ 0x125958, size 18 bytes
+int  ke_event_set(int a1)
 {
   uint8_t *v1; // r3
   int v2; // r2
@@ -22,7 +22,7 @@ int  sub_125958(int a1)
   v2 = *((uint32_t *)off_12596C + 1);
   *(uint32_t *)off_12596C = a1;
   if ( !v2 )
-    return sub_125904(a1);
+    return bt_task_init(a1);
   v1[10] = 1;
   return a1;
 }

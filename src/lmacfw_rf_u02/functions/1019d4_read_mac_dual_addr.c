@@ -13,10 +13,10 @@
 extern uint32_t off_1019E8;
 extern uint32_t off_1019E4;
 
-// read_mac_dual_addr @ 0x1019d4, size 14 bytes
-// Doc: read_mac_dual_addr [mmio]: Read two 32-bit words from 0x40330000 and 0x4033003c into output pointers
-// read_mac_dual_addr [mmio]: Read two 32-bit words from 0x40330000 and 0x4033003c into output pointers
-uint32_t * read_mac_dual_addr(uint32_t *result, uint32_t *a2)
+// chip_id_get @ 0x1019d4, size 14 bytes
+// Doc: chip_id_get [mmio]: Read two 32-bit words from 0x40330000 and 0x4033003c into output pointers
+// chip_id_get [mmio]: Read two 32-bit words from 0x40330000 and 0x4033003c into output pointers
+uint32_t * chip_id_get(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

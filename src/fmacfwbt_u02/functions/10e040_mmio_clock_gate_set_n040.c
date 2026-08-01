@@ -23,10 +23,10 @@ extern uint32_t dword_10E0E0;
 extern uint32_t dword_10E0E4;
 extern uint32_t dword_10E0F4;
 
-// mmio_clock_gate_set_n040 @ 0x10e040, size 130 bytes
-// Doc: mmio_clock_gate_set_n040 [mmio]: Set MMIO clock gate enable bit at 0x4010d000+4
-// mmio_clock_gate_set_n040 [mmio]: Set MMIO clock gate enable bit at 0x4010d000+4
-int mmio_clock_gate_set_n040()
+// radio_enable @ 0x10e040, size 130 bytes
+// Doc: radio_enable [mmio]: Set MMIO clock gate enable bit at 0x4010d000+4
+// radio_enable [mmio]: Set MMIO clock gate enable bit at 0x4010d000+4
+int radio_enable()
 {
   uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -46,17 +46,17 @@ int mmio_clock_gate_set_n040()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = sub_142A50(v0[4]);
-  v2 = sub_142B44(v1, HIDWORD(v1), dword_10E0C8, dword_10E0CC);
-  v3 = sub_142D98(v2, HIDWORD(v2), dword_10E0D0, dword_10E0D4);
-  v4 = sub_1427D4(v3, HIDWORD(v3), dword_10E0C8, dword_10E0CC);
-  v5 = sub_143108(v4);
-  v6 = sub_142A94(LODWORD(v5));
-  v7 = sub_142D98(v6, HIDWORD(v6), dword_10E0D8, dword_10E0DC);
-  v8 = sub_142B44(v7, HIDWORD(v7), 0, dword_10E0EC);
-  v9 = sub_142B44(v8, HIDWORD(v8), 0, dword_10E0F0);
-  v10 = sub_142B44(v9, HIDWORD(v9), dword_10E0E0, dword_10E0E4);
-  v11 = sub_142D98(v10, HIDWORD(v10), 0, dword_10E0F4);
-  return (int)sub_143108(v11);
+  v1 = __aeabi_ui2d(v0[4]);
+  v2 = __aeabi_dmul(v1, HIDWORD(v1), dword_10E0C8, dword_10E0CC);
+  v3 = __aeabi_ddiv(v2, HIDWORD(v2), dword_10E0D0, dword_10E0D4);
+  v4 = __aeabi_dsub(v3, HIDWORD(v3), dword_10E0C8, dword_10E0CC);
+  v5 = double_to_float(v4);
+  v6 = __aeabi_f2d(LODWORD(v5));
+  v7 = __aeabi_ddiv(v6, HIDWORD(v6), dword_10E0D8, dword_10E0DC);
+  v8 = __aeabi_dmul(v7, HIDWORD(v7), 0, dword_10E0EC);
+  v9 = __aeabi_dmul(v8, HIDWORD(v8), 0, dword_10E0F0);
+  v10 = __aeabi_dmul(v9, HIDWORD(v9), dword_10E0E0, dword_10E0E4);
+  v11 = __aeabi_ddiv(v10, HIDWORD(v10), 0, dword_10E0F4);
+  return (int)double_to_float(v11);
 }
 

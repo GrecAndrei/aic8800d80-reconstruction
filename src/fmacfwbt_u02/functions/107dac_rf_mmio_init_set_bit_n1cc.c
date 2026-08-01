@@ -17,10 +17,10 @@ extern uint32_t dword_107EC8;
 extern uint32_t dword_107ECC;
 extern uint32_t off_107ED0;
 
-// rf_mmio_init_set_bit_n1cc @ 0x107dac, size 276 bytes
-// Doc: rf_mmio_init_set_bit_n1cc [mmio]: Sets bit 0x1000000 in RF MMIO control register with large register frame setup
-// rf_mmio_init_set_bit_n1cc [mmio]: Sets bit 0x1000000 in RF MMIO control register with large register frame setup
-int  rf_mmio_init_set_bit_n1cc(int a1, uint32_t *a2)
+// rf_mmio_set_amp @ 0x107dac, size 276 bytes
+// Doc: rf_mmio_set_amp [mmio]: Sets bit 0x1000000 in RF MMIO control register with large register frame setup
+// rf_mmio_set_amp [mmio]: Sets bit 0x1000000 in RF MMIO control register with large register frame setup
+int  rf_mmio_set_amp(int a1, uint32_t *a2)
 {
   uint32_t *v2; // r6
   unsigned int *v3; // r8
@@ -47,7 +47,7 @@ int  rf_mmio_init_set_bit_n1cc(int a1, uint32_t *a2)
   v4 = 1;
   *v2 &= ~0x2000000u;
   v6 = 1000;
-  feature_guard_sdio(1, dword_107EC4);
+  state_check_feature(1, dword_107EC4);
   v7 = (int *)(a1 + 12);
   v20 = 1;
   v21 = 1;
@@ -65,12 +65,12 @@ int  rf_mmio_init_set_bit_n1cc(int a1, uint32_t *a2)
       ++v7;
       *v3 = dword_107EC8 & (v10 << 16) | *v3 & 0xF000FFFF;
       *v3 = v11 & 0xFFF | *v3 & 0xFFFFF000;
-      delay_us(40);
+      timer_set(40);
       v12 = dword_107ECC;
       *v2 |= 0x4000000u;
       v13 = *(uint32_t *)off_107ED0 & 0x7FFF;
       *v2 &= ~0x4000000u;
-      feature_guard_sdio(1, v12);
+      state_check_feature(1, v12);
       if ( v13 >= v6 )
         break;
       v20 = v18;

@@ -15,8 +15,8 @@ extern uint32_t off_111820;
 extern uint32_t off_111824;
 extern uint32_t off_111828;
 
-// sub_1117D0 @ 0x1117d0, size 74 bytes
-int sub_1117D0()
+// set_tx_control @ 0x1117d0, size 74 bytes
+int set_tx_control()
 {
   uint32_t *v0; // r1
   int v1; // r0

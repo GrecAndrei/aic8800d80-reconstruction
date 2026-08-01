@@ -1,1 +1,1 @@
-{"fn": "sub_1237228", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1237228", "status": "ok", "name": "ipc_msg_send_0x100b", "params": [], "docstring": "Send IPC message with code 0x100b using message dispatch helper", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1237228", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1237228", "status": "ok", "name": "rf_cmd_read", "params": [], "docstring": "Send IPC message with code 0x100b using message dispatch helper", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

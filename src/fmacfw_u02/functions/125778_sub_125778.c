@@ -22,8 +22,8 @@ extern uint32_t dword_125890;
 extern uint32_t dword_125894;
 extern uint32_t dword_125898;
 
-// sub_125778 @ 0x125778, size 254 bytes
-int * sub_125778(int a1)
+// stack_canary_check @ 0x125778, size 254 bytes
+int * stack_canary_check(int a1)
 {
   int v1; // r7
   int v2; // r9
@@ -47,7 +47,7 @@ int * sub_125778(int a1)
 
   v1 = dword_125880;
   v2 = dword_12589C;
-  sub_118A6C(
+  ll_event_init(
     a1 + 116,
     dword_125878 + 620 * *(uint8_t *)(a1 + 107),
     (uint32_t *)(dword_12587C + 80 * *(uint8_t *)(a1 + 107)),
@@ -80,7 +80,7 @@ int * sub_125778(int a1)
   v11[1] = v12;
   v11[6] = v12;
   v11[5] = v2;
-  result = memset_thunk(v10, 0, 0xFCu);
+  result = memset(v10, 0, 0xFCu);
   v14 = (int *)(v1 + 4 * v9);
   *v14 = v2;
   v14[1] = 0;

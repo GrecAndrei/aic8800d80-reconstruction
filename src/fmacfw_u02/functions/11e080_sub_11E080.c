@@ -13,8 +13,8 @@
 extern uint32_t off_11E0B0;
 extern uint32_t off_11E0AC;
 
-// sub_11E080 @ 0x11e080, size 44 bytes
-unsigned int  sub_11E080(int a1)
+// radio_set_peripheral_field @ 0x11e080, size 44 bytes
+unsigned int  radio_set_peripheral_field(int a1)
 {
   unsigned int *v1; // r1
   unsigned int result; // r0

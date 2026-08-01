@@ -13,8 +13,8 @@
 extern uint32_t dword_109758;
 extern uint32_t dword_10975C;
 
-// sub_10957C @ 0x10957c, size 476 bytes
-int  sub_10957C(unsigned int a1, int a2, int *a3)
+// strlen @ 0x10957c, size 476 bytes
+int  strlen(unsigned int a1, int a2, int *a3)
 {
   int v3; // r12
   int v4; // r4

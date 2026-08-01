@@ -12,13 +12,13 @@
 
 extern uint32_t off_1210E0;
 
-// ipc_doorbell_handler_n_3d6 @ 0x1210b4, size 42 bytes
-// Doc: ipc_doorbell_handler_n_3d6 [ipc]: IPC doorbell interrupt handler variant 3d6
-// ipc_doorbell_handler_n_3d6 [ipc]: IPC doorbell interrupt handler variant 3d6
-int ipc_doorbell_handler_n_3d6()
+// radio_is_ready @ 0x1210b4, size 42 bytes
+// Doc: radio_is_ready [ipc]: IPC doorbell interrupt handler variant 3d6
+// radio_is_ready [ipc]: IPC doorbell interrupt handler variant 3d6
+int radio_is_ready()
 {
-  if ( msg_get_value(0) == 1 )
+  if ( rx_rate_field_parse(0) == 1 )
     *(uint32_t *)off_1210E0 = 48;
-  return sub_12CD34(0);
+  return rx_phy_status_parse(0);
 }
 

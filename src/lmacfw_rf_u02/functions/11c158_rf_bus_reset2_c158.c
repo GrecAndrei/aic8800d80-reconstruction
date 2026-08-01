@@ -14,10 +14,10 @@ extern uint32_t off_11C260;
 extern uint32_t dword_11C268;
 extern uint32_t off_11C264;
 
-// rf_bus_reset2_c158 @ 0x11c158, size 264 bytes
-// Doc: rf_bus_reset2_c158 [rf]: Tear down RF bus state and trigger secondary reset sequence
-// rf_bus_reset2_c158 [rf]: Tear down RF bus state and trigger secondary reset sequence
-int  rf_bus_reset2_c158(int result)
+// bt_link_rx_check @ 0x11c158, size 264 bytes
+// Doc: bt_link_rx_check [rf]: Tear down RF bus state and trigger secondary reset sequence
+// bt_link_rx_check [rf]: Tear down RF bus state and trigger secondary reset sequence
+int  bt_link_rx_check(int result)
 {
   void *v1; // r5
   int v2; // r4
@@ -44,7 +44,7 @@ int  rf_bus_reset2_c158(int result)
       *((uint8_t *)v1 + 91) = v11;
       if ( !v11 && (*((uint8_t *)v1 + 88) & 0x40) != 0 )
       {
-        rf_mailbox_post_n44(*((uint32_t *)v1 + 20));
+        rf_register_access(*((uint32_t *)v1 + 20));
         v3 = *(uint8_t *)(v2 + 85);
       }
     }
@@ -65,7 +65,7 @@ int  rf_bus_reset2_c158(int result)
     {
       if ( (v3 & 1) == 0 )
       {
-        result = rf_cal_or_init_handler(result, *(uint32_t *)(result + 36), 0);
+        result = rf_event_dispatch(result, *(uint32_t *)(result + 36), 0);
         LOBYTE(v3) = *(uint8_t *)(v2 + 85);
       }
       *(uint8_t *)(v2 + 85) = v3 & 0xFB;
@@ -80,7 +80,7 @@ int  rf_bus_reset2_c158(int result)
       {
         if ( (*((uint8_t *)v1 + 88) & 0x40) != 0 )
         {
-          result = rf_mailbox_post_n44(*((uint32_t *)v1 + 20));
+          result = rf_register_access(*((uint32_t *)v1 + 20));
           v6 = *(uint8_t *)(v2 + 85);
         }
         else
@@ -101,12 +101,12 @@ int  rf_bus_reset2_c158(int result)
       }
       else
       {
-        result = rf_cal_or_init_handler(v2, v5, 0);
+        result = rf_event_dispatch(v2, v5, 0);
       }
       if ( v4 )
       {
         if ( !*((uint32_t *)v1 + 11) )
-          return sub_11B088(v2, *((uint32_t *)off_11C264 + 4), *((uint32_t *)off_11C264 + 4) - v8);
+          return rf_calibrate(v2, *((uint32_t *)off_11C264 + 4), *((uint32_t *)off_11C264 + 4) - v8);
       }
     }
   }

@@ -12,10 +12,10 @@
 
 extern uint32_t off_141FB4;
 
-// sub_141F70 @ 0x141f70, size 68 bytes
+// set_conn_flag @ 0x141f70, size 68 bytes
 // Doc: sub_1241F70 [unknown]: Unknown behavioral stub
 // sub_1241F70 [unknown]: Unknown behavioral stub
-int  sub_141F70(int a1)
+int  set_conn_flag(int a1)
 {
   int16_t v1; // r3
   uint8_t *v3; // r1
@@ -29,10 +29,10 @@ int  sub_141F70(int a1)
     if ( v3[1] )
     {
       if ( (v1 & 9) == 9 )
-        sub_141EE4(a1);
+        build_tx_packet(a1);
     }
   }
-  result = timestamp_remove_058(a1 + 52);
+  result = ke_event_set_lock(a1 + 52);
   if ( !*(uint8_t *)(a1 + 4) )
   {
     result = *(uint8_t *)(a1 + 47);

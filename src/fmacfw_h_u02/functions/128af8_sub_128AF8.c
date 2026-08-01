@@ -18,8 +18,8 @@ extern uint32_t off_128B58;
 extern uint32_t off_128B54;
 extern uint32_t dword_128B5C;
 
-// sub_128AF8 @ 0x128af8, size 76 bytes
-int  sub_128AF8(int a1, int a2)
+// hex_log @ 0x128af8, size 76 bytes
+int  hex_log(int a1, int a2)
 {
   int result; // r0
   uint8_t *v4; // r3
@@ -28,7 +28,7 @@ int  sub_128AF8(int a1, int a2)
   int v7; // r1
   int v8; // r0
 
-  result = sub_1289EC(a1, a2, dword_128B44);
+  result = log_printf(a1, a2, dword_128B44);
   if ( result )
   {
     v4 = off_128B4C;
@@ -43,7 +43,7 @@ int  sub_128AF8(int a1, int a2)
     v8 = dword_128B5C;
     *((uint32_t *)v4 + 5) = a1;
     v4[29] = 4;
-    result = sub_124BFC(v8, v7 + v6);
+    result = mem_copy_util(v8, v7 + v6);
     *(uint32_t *)(a1 + 4) |= 0x200u;
   }
   return result;

@@ -14,10 +14,10 @@ extern uint32_t dword_119DFC;
 extern uint32_t off_119E04;
 extern uint32_t off_119E00;
 
-// sub_119CB4 @ 0x119cb4, size 326 bytes
+// rf_channel_switch @ 0x119cb4, size 326 bytes
 // Doc: sub_1219CB4 [unknown]: Unknown function in FMAC/BT firmware
 // sub_1219CB4 [unknown]: Unknown function in FMAC/BT firmware
-int  sub_119CB4(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+int  rf_channel_switch(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int *v5; // r4
   int v6; // r5

@@ -13,8 +13,8 @@
 extern uint32_t off_11B39C;
 extern uint32_t off_11B3A0;
 
-// sub_11B36C @ 0x11b36c, size 48 bytes
-int sub_11B36C()
+// rf_flag_set @ 0x11b36c, size 48 bytes
+int rf_flag_set()
 {
   void *v0; // r2
   int v1; // r0
@@ -26,9 +26,9 @@ int sub_11B36C()
     v1 = *((uint8_t *)off_11B39C + 90);
     *((uint8_t *)off_11B39C + 88) |= 0x10u;
     if ( v1 )
-      return sub_11AB18((int)v0 + 48, *((uint32_t *)off_11B3A0 + 4) + 30000);
+      return ke_enter_critical((int)v0 + 48, *((uint32_t *)off_11B3A0 + 4) + 30000);
     else
-      return sub_11B2C8();
+      return rf_status_check();
   }
   return result;
 }

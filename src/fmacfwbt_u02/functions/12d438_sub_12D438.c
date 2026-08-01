@@ -13,14 +13,14 @@
 extern uint32_t off_12D460;
 extern uint32_t dword_12D464;
 
-// sub_12D438 @ 0x12d438, size 40 bytes
-int sub_12D438()
+// state_init @ 0x12d438, size 40 bytes
+int state_init()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
   int v2; // r1
 
-  v0 = rf_cmd_dispatch_n_44a();
+  v0 = align_and_irq_lock();
   v1 = off_12D460;
   v2 = dword_12D464;
   *((uint32_t *)off_12D460 + 7) = v0;
@@ -31,6 +31,6 @@ int sub_12D438()
   v1[5] = 0;
   v1[6] = 0;
   v1[9] = v2;
-  return sub_12D374(-1);
+  return set_system_flag_2(-1);
 }
 

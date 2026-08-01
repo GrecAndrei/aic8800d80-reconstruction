@@ -26,8 +26,8 @@ extern uint32_t off_111DA0;
 extern uint32_t off_111D98;
 extern uint32_t dword_111DA4;
 
-// sub_111C78 @ 0x111c78, size 262 bytes
-int  sub_111C78(uint32_t *a1, int a2)
+// wlan_set_band @ 0x111c78, size 262 bytes
+int  wlan_set_band(uint32_t *a1, int a2)
 {
   uint8_t *v4; // r6
   uint32_t *v5; // r7
@@ -44,7 +44,7 @@ int  sub_111C78(uint32_t *a1, int a2)
   int v17; // r1
   uint32_t *v18; // r3
 
-  sub_12E948(dword_111D80, 0, a2);
+  alloc_tx_event(dword_111D80, 0, a2);
   if ( !a1 )
     return 1;
   if ( !*a1 || !a1[1] || !a1[2] || !a1[5] )
@@ -55,12 +55,12 @@ int  sub_111C78(uint32_t *a1, int a2)
   v5 = off_111D88;
   v6 = off_111D8C;
   *(uint8_t *)off_111D84 = 1;
-  sub_143630(v6, a1, 80);
+  memcpy(v6, a1, 80);
   v8 = v5[97];
   if ( v8 )
   {
-    sub_12E948(dword_111DB8, v8, v7);
-    sub_100644(v5[97]);
+    alloc_tx_event(dword_111DB8, v8, v7);
+    mmio_read32(v5[97]);
   }
   v9 = off_111D90;
   if ( (*((uint32_t *)off_111D90 + 512) & 0x7F0) != 0 )
@@ -70,7 +70,7 @@ int  sub_111C78(uint32_t *a1, int a2)
     *((uint32_t *)v15 + 2) = 0;
     *v15 = 0;
     *v4 = 4;
-    v16 = sub_111744();
+    v16 = update_packet_buffer();
     v17 = *(uint32_t *)off_111DAC;
     v18 = *(uint32_t **)off_111DB0;
     *v18 = dword_111DB4;
@@ -91,9 +91,9 @@ int  sub_111C78(uint32_t *a1, int a2)
       *((uint32_t *)off_111D90 + 2) &= ~1u;
       v9[513] |= 2u;
     }
-    sub_1118BC();
+    mmio_set_bit();
   }
-  sub_12E948(dword_111D94, v10, v11);
+  alloc_tx_event(dword_111D94, v10, v11);
   v12 = dword_111D9C;
   v13 = off_111DA0;
   *(uint32_t *)(*((uint32_t *)off_111D98 + 2) + 320) = dword_111D9C;
@@ -103,7 +103,7 @@ int  sub_111C78(uint32_t *a1, int a2)
     while ( *v4 != 4 )
       ;
   }
-  sub_12E948(dword_111DA4, v12, 1);
+  alloc_tx_event(dword_111DA4, v12, 1);
   return 0;
 }
 

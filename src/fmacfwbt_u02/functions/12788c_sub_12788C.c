@@ -31,8 +31,8 @@ extern uint32_t dword_127AB0;
 extern uint32_t off_127AB8;
 extern uint32_t dword_127AD0;
 
-// sub_12788C @ 0x12788c, size 526 bytes
-int  sub_12788C(int a1)
+// scan_process @ 0x12788c, size 526 bytes
+int  scan_process(int a1)
 {
   int16_t **v1; // r7
   uint8_t *v2; // r6
@@ -74,7 +74,7 @@ int  sub_12788C(int a1)
 
   v1 = (int16_t **)off_127A9C;
   v2 = off_127AA0;
-  v4 = sub_12D4F8(dword_127AA4);
+  v4 = list_pop_front(dword_127AA4);
   v5 = v4;
   if ( **v1 >= 0 )
   {
@@ -95,7 +95,7 @@ LABEL_3:
   }
   else
   {
-    sub_12F694(dword_127AD8, dword_127AD4, 1958);
+    mmio_irq_clear(dword_127AD8, dword_127AD4, 1958);
     v6 = (uint8_t)*v2;
     if ( *v2 )
       goto LABEL_3;
@@ -110,7 +110,7 @@ LABEL_25:
   v8 = *((uint32_t *)off_127AA8 + 10);
   if ( v8 )
     goto LABEL_6;
-  sub_12F694(dword_127ADC, dword_127AD4, 1960);
+  mmio_irq_clear(dword_127ADC, dword_127AD4, 1960);
   v6 = (uint8_t)*v2;
 LABEL_4:
   if ( v6 != 1 )
@@ -119,7 +119,7 @@ LABEL_5:
     v8 = v7[10];
     goto LABEL_6;
   }
-  sub_12ECB0(dword_127AC0, *((uint8_t *)v7 + 88), v7[11]);
+  ke_event_schedule(dword_127AC0, *((uint8_t *)v7 + 88), v7[11]);
   v24 = *((uint8_t *)v7 + 88);
   if ( (v24 & 8) != 0 )
   {
@@ -156,8 +156,8 @@ LABEL_32:
   *(uint8_t *)(v25 + 16) = 4;
   if ( v28 == 3 )
   {
-    sub_12ECB0(dword_127AE8, v22, v23);
-    rf_bus_mark_n_3b7(2);
+    ke_event_schedule(dword_127AE8, v22, v23);
+    hci_cmd_send(2);
     v28 = *(uint8_t *)(v25 + 24);
   }
   if ( v28 <= 2 )
@@ -234,12 +234,12 @@ LABEL_6:
     v12 = *(char **)(v5 + 8);
   }
   if ( v12 )
-    sub_1272F0((int)v12);
+    set_tx_buffer((int)v12);
 LABEL_14:
-  list_push_tail(dword_127AB0);
+  check_abort_flag(dword_127AB0);
   v13 = v7[10];
   if ( *(uint8_t *)(v13 + 24) > 2u )
-    sub_1275A0(v13, 0);
+    rf_reset(v13, 0);
   result = v7[8];
   v7[18] = result;
   if ( result )
@@ -257,7 +257,7 @@ LABEL_14:
     *(uint32_t *)off_127ABC = v19;
     if ( v18 - 64 >= 0 )
     {
-      result = timestamp_update_4f60(dword_127AD0, v16);
+      result = ke_event_lock(dword_127AD0, v16);
       if ( *v15 )
       {
         v37 = *v15 - 1;

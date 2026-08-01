@@ -1,1 +1,1 @@
-{"fn": "sub_1210BF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210bf8", "status": "ok", "name": "rf_chan_setup_init", "params": [], "docstring": "Initialize RF channel setup with 4-byte config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1210BF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210bf8", "status": "ok", "name": "ke_alloc_node", "params": [], "docstring": "Initialize RF channel setup with 4-byte config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

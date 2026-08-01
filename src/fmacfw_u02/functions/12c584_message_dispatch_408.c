@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// message_dispatch_408 @ 0x12c584, size 44 bytes
+// rf_temperature_comp @ 0x12c584, size 44 bytes
 // Doc: message_dispatch_n_3f2 [ipc]: Message dispatch stub (returns immediately)
 // message_dispatch_n_3f2 [ipc]: Message dispatch stub (returns immediately)
-int  message_dispatch_408(int result)
+int  rf_temperature_comp(int result)
 {
   int *i; // r3
   int v2; // r2
@@ -36,7 +36,7 @@ int  message_dispatch_408(int result)
     *((uint8_t *)i + 350) |= 0x10u;
   result = *(uint32_t *)(result + 72);
   if ( result )
-    return sub_128548(result);
+    return get_control_byte(result);
   return result;
 }
 

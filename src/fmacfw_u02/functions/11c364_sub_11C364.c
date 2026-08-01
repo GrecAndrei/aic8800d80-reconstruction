@@ -12,8 +12,8 @@
 
 extern uint32_t off_11C390;
 
-// sub_11C364 @ 0x11c364, size 44 bytes
-int  sub_11C364(int a1, int a2)
+// get_phy_descriptor @ 0x11c364, size 44 bytes
+int  get_phy_descriptor(int a1, int a2)
 {
   int v2; // r3
 

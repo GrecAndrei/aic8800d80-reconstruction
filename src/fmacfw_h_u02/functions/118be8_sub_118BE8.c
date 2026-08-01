@@ -16,8 +16,8 @@ extern uint32_t dword_118C74;
 extern uint32_t off_118C78;
 extern uint32_t dword_118C7C;
 
-// sub_118BE8 @ 0x118be8, size 134 bytes
-uint32_t *sub_118BE8()
+// alloc_dma_buf @ 0x118be8, size 134 bytes
+uint32_t *alloc_dma_buf()
 {
   int *v0; // r8
   int *v1; // r7
@@ -29,7 +29,7 @@ uint32_t *sub_118BE8()
   int v7; // r2
   void ( *v8)(uint32_t, uint32_t); // r2
 
-  sub_12D00C(0x20000);
+  irq_disable_global_3(0x20000);
   v0 = (int *)off_118C80;
   v1 = (int *)off_118C70;
   v2 = dword_118C74;
@@ -42,7 +42,7 @@ uint32_t *sub_118BE8()
       *v1 = 1;
     }
     ++*v0;
-    result = (uint32_t *)sub_12D190(v2);
+    result = (uint32_t *)list_pop(v2);
     v5 = result;
     if ( *v0 )
     {
@@ -65,7 +65,7 @@ uint32_t *sub_118BE8()
     }
     else if ( !*((uint8_t *)v5 + 96) )
     {
-      sub_12D108(dword_118C7C);
+      wlan_ioctl_handler_1(dword_118C7C);
     }
   }
   return result;

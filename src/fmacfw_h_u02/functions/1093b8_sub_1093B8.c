@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1093B8 @ 0x1093b8, size 32 bytes
-int  sub_1093B8(int result, int a2, uint8_t *a3, char *a4, int *a5)
+// crypto_aes_setkey @ 0x1093b8, size 32 bytes
+int  crypto_aes_setkey(int result, int a2, uint8_t *a3, char *a4, int *a5)
 {
   unsigned int v5; // r3
   uint64_t v6; // kr00_8

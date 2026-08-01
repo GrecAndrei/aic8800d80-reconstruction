@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12C7F0;
 
-// event_queue_push @ 0x12c73c, size 152 bytes
+// ke_int_lock @ 0x12c73c, size 152 bytes
 // Doc: message_dispatch_n_24a [ipc]: Dispatch message using sign-bit shift lookup
 // message_dispatch_n_24a [ipc]: Dispatch message using sign-bit shift lookup
-int  event_queue_push(int result, int a2)
+int  ke_int_lock(int result, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r6
@@ -40,26 +40,26 @@ int  event_queue_push(int result, int a2)
   {
     if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
-      rf_bus_mark_n100_d2d0(v3 + 5);
+      mem_word_load(v3 + 5);
       v8 = v3[5];
       v9 = (int)(v3 + 8);
       if ( v8 )
       {
-        timestamp_update(v9, *(uint32_t *)(v8 + 8));
+        unknown_worker(v9, *(uint32_t *)(v8 + 8));
         if ( **(int16_t **)message_dispatch_n_1a4 < 0
           && *(uint32_t *)(v8 + 8) - *((uint32_t *)message_dispatch_n_1a0 + 4) < 0 )
         {
-          sub_12F46C(message_dispatch_n_198, dword_12C7F0, 232);
+          mmio_clear_register(message_dispatch_n_198, dword_12C7F0, 232);
         }
       }
       else
       {
-        timestamp_remove(v9);
+        fault_handler(v9);
       }
     }
     else
     {
-      result = list_find_remove_ca3c(message_dispatch_n_1a8, message_dispatch_n_1ac, a2 | (result << 16));
+      result = pkt_word_get(message_dispatch_n_1a8, message_dispatch_n_1ac, a2 | (result << 16));
       v4 = result;
       if ( !result )
       {
@@ -67,7 +67,7 @@ int  event_queue_push(int result, int a2)
         goto LABEL_8;
       }
     }
-    result = sub_12CBC8(v4);
+    result = tx_pkt_enqueue(v4);
     v5 = *v2;
   }
 LABEL_8:

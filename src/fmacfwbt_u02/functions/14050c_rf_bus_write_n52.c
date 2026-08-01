@@ -14,20 +14,20 @@ extern uint32_t off_140540;
 extern uint32_t dword_140548;
 extern uint32_t dword_140544;
 
-// rf_bus_write_n52 @ 0x14050c, size 50 bytes
-// Doc: rf_bus_write_n52 [rf]: RF bus MMIO write to 0x40200b08/0x40200b00 control registers
-// rf_bus_write_n52 [rf]: RF bus MMIO write to 0x40200b08/0x40200b00 control registers
-int rf_bus_write_n52()
+// check_module_state @ 0x14050c, size 50 bytes
+// Doc: check_module_state [rf]: RF bus MMIO write to 0x40200b08/0x40200b00 control registers
+// check_module_state [rf]: RF bus MMIO write to 0x40200b08/0x40200b00 control registers
+int check_module_state()
 {
-  if ( msg_get_value(0xBu) == 4 )
+  if ( hci_cmd_send_short(0xBu) == 4 )
   {
-    sub_14157C();
+    get_adv_tx_power();
     return 0;
   }
   else
   {
     if ( **(int16_t **)off_140540 < 0 )
-      sub_12F6C4(dword_140548, dword_140544, 129);
+      mmio_field_update(dword_140548, dword_140544, 129);
     return 0;
   }
 }

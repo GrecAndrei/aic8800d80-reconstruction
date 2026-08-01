@@ -13,8 +13,8 @@
 extern uint32_t dword_107DA8;
 extern uint32_t dword_107DA4;
 
-// sub_107D3C @ 0x107d3c, size 104 bytes
-int * sub_107D3C(int *a1)
+// div_by_three_calc @ 0x107d3c, size 104 bytes
+int * div_by_three_calc(int *a1)
 {
   int v1; // r2
   int v2; // r7

@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DC00;
 
-// sub_10DBEC @ 0x10dbec, size 20 bytes
-BOOL  sub_10DBEC(char a1)
+// mmio_get_bit @ 0x10dbec, size 20 bytes
+BOOL  mmio_get_bit(char a1)
 {
   return ((1 << a1) & *(uint32_t *)off_10DC00) != 0;
 }

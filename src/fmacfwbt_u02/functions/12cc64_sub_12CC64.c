@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12CC64 @ 0x12cc64, size 86 bytes
+// tx_list_foreach @ 0x12cc64, size 86 bytes
 // Doc: message_dispatch_nee [ipc]: Helper tail of message dispatch that stores a field
 // message_dispatch_nee [ipc]: Helper tail of message dispatch that stores a field
-uint32_t * sub_12CC64(int a1, int ( *a2)(uint32_t *, int), int a3)
+uint32_t * tx_list_foreach(int a1, int ( *a2)(uint32_t *, int), int a3)
 {
   uint32_t *v3; // r4
   uint32_t *v7; // r8

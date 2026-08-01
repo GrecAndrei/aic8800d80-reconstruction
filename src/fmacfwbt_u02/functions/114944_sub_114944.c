@@ -16,8 +16,8 @@ extern uint32_t dword_1149F0;
 extern uint32_t dword_1149F8;
 extern uint32_t dword_1149F4;
 
-// sub_114944 @ 0x114944, size 164 bytes
-int  sub_114944(char a1, int16_t a2, uint32_t *a3)
+// find_object_by_key @ 0x114944, size 164 bytes
+int  find_object_by_key(char a1, int16_t a2, uint32_t *a3)
 {
   int v6; // r0
   int v7; // r1
@@ -36,11 +36,11 @@ int  sub_114944(char a1, int16_t a2, uint32_t *a3)
   int v20; // r3
   uint64_t v21; // r4
 
-  v6 = log_free_dispatch_1();
+  v6 = critical_enter_2();
   if ( v6 )
   {
     v9 = v6;
-    v12 = log_free_dispatch_n2b4();
+    v12 = critical_enter_0();
     if ( v12 )
     {
       v13 = *a3;
@@ -61,7 +61,7 @@ int  sub_114944(char a1, int16_t a2, uint32_t *a3)
       if ( v15 )
       {
         *(uint32_t *)(v9 + 16) = *a3;
-        sub_14380C(v9 + 20, a3 + 1, *a3);
+        memcpy_aligned(v9 + 20, a3 + 1, *a3);
       }
       v19 = *(uint32_t *)(v12 + 8);
       v20 = dword_1149F0;
@@ -69,19 +69,19 @@ int  sub_114944(char a1, int16_t a2, uint32_t *a3)
       LODWORD(v21) = 0;
       HIDWORD(v21) = (uint16_t)(v15 + 16) | v20 & v19 | 0x80000000;
       *(uint64_t *)(v12 + 4) = v21;
-      log_queue_push(v12);
+      ke_mutex_lock(v12);
       return 0;
     }
     else
     {
-      sub_12ECB0(dword_1149F8, v10, v11);
-      log_free_dispatch_2((uint32_t *)v9);
+      ke_event_schedule(dword_1149F8, v10, v11);
+      memory_pool_free((uint32_t *)v9);
       return -2;
     }
   }
   else
   {
-    sub_12ECB0(dword_1149F4, v7, v8);
+    ke_event_schedule(dword_1149F4, v7, v8);
     return -1;
   }
 }

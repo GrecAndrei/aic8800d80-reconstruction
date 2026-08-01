@@ -21,8 +21,8 @@ extern uint32_t dword_116D08;
 extern uint32_t off_116CE8;
 extern uint32_t dword_116CEC;
 
-// sub_116B0C @ 0x116b0c, size 474 bytes
-int  sub_116B0C(int a1, int a2, char a3)
+// rx_process_packet @ 0x116b0c, size 474 bytes
+int  rx_process_packet(int a1, int a2, char a3)
 {
   int v4; // r0
   int v5; // r8
@@ -72,7 +72,7 @@ int  sub_116B0C(int a1, int a2, char a3)
       else
       {
         v29 = v12;
-        sub_12F32C(dword_116D00, dword_116CFC, 475);
+        irq_disable_mmio_write(dword_116D00, dword_116CFC, 475);
         v17 = *(uint32_t *)(a1 + 72);
         v12 = v29;
       }
@@ -102,21 +102,21 @@ int  sub_116B0C(int a1, int a2, char a3)
     }
   }
   *(uint8_t *)(v5 + 36) = a3;
-  sub_115F88(a1, a2);
+  rx_packet_process(a1, a2);
   if ( *(uint16_t *)(a1 + 24) == 36488 )
-    sub_12E948(dword_116CF8, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
+    alloc_tx_event(dword_116CF8, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
   v8 = *(uint32_t *)(a1 + 8);
   v9 = *(uint32_t *)(a1 + 72);
   if ( v8 >= 0 || (v20 = *(uint16_t *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
   {
-    if ( sub_12CD48(6) == 6 )
+    if ( hci_cmd_handler(6) == 6 )
       goto LABEL_24;
 LABEL_7:
     v10 = *(uint32_t **)(a1 + 72);
     goto LABEL_8;
   }
   *(uint32_t *)(v9 + 60) = *(uint32_t *)(v9 + 60) & 0xFFFF00FF | 0xE00;
-  if ( sub_12CD48(6) != 6 )
+  if ( hci_cmd_handler(6) != 6 )
     goto LABEL_7;
 LABEL_24:
   v21 = (int16_t **)off_116CF0;
@@ -135,7 +135,7 @@ LABEL_28:
   v10 = *(uint32_t **)(a1 + 72);
   if ( !v10 )
   {
-    sub_12F32C(dword_116D0C, dword_116D04, 518);
+    irq_disable_mmio_write(dword_116D0C, dword_116D04, 518);
     v23 = *(uint16_t **)(v22 + 28);
     if ( v23 )
       goto LABEL_28;
@@ -150,7 +150,7 @@ LABEL_41:
     v24 = *(uint32_t *)(v22 + 24);
     if ( v24 )
       goto LABEL_27;
-    sub_12F32C(dword_116D08, dword_116D04, 525);
+    irq_disable_mmio_write(dword_116D08, dword_116D04, 525);
 LABEL_26:
     v24 = *(uint32_t *)(v22 + 24);
 LABEL_27:
@@ -166,7 +166,7 @@ LABEL_8:
   v10[4] = dword_116CEC;
   v10[2] = a1;
   v10[3] = a1;
-  sub_116974(a1, a1, (int)v10, a2);
+  mac_update_flags(a1, a1, (int)v10, a2);
   return 0;
 }
 

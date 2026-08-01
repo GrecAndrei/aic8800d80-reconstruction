@@ -1,1 +1,1 @@
-{"fn": "sub_1227F3C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1227f3c", "status": "ok", "name": "fmac_handler_dispatch", "params": [], "docstring": "FMAC handler dispatch with extended register save and global pointer load", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1227F3C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1227f3c", "status": "ok", "name": "rx_dispatch_frame", "params": [], "docstring": "FMAC handler dispatch with extended register save and global pointer load", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

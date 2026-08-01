@@ -15,10 +15,10 @@ extern uint32_t off_1102E4;
 extern uint32_t dword_1102E8;
 extern uint32_t off_1102EC;
 
-// log_pool_alloc_b @ 0x1102a0, size 62 bytes
-// Doc: log_pool_alloc_b [util]: Allocate a buffer from log pool variant B
-// log_pool_alloc_b [util]: Allocate a buffer from log pool variant B
-int log_pool_alloc_b()
+// mmio_read_1 @ 0x1102a0, size 62 bytes
+// Doc: mmio_read_1 [util]: Allocate a buffer from log pool variant B
+// mmio_read_1 [util]: Allocate a buffer from log pool variant B
+int mmio_read_1()
 {
   int *v0; // r4
   int v1; // r0
@@ -34,7 +34,7 @@ int log_pool_alloc_b()
   v0 = (int *)off_1102E4;
   v1 = dword_1102E8;
   ++*(uint32_t *)off_1102E4;
-  result = sub_12D190(v1);
+  result = list_pop(v1);
   if ( result )
     --*(uint32_t *)off_1102EC;
   if ( *v0 )

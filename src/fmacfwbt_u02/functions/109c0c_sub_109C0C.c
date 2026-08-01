@@ -15,8 +15,8 @@ extern uint32_t dword_109E34;
 extern uint32_t dword_109E44;
 extern uint32_t dword_109E3C;
 
-// sub_109C0C @ 0x109c0c, size 546 bytes
-int  sub_109C0C(int a1, int a2, int a3, int a4)
+// invoke_handler_165fcc @ 0x109c0c, size 546 bytes
+int  invoke_handler_165fcc(int a1, int a2, int a3, int a4)
 {
   int v8; // r1
   int v9; // r2
@@ -102,7 +102,7 @@ int  sub_109C0C(int a1, int a2, int a3, int a4)
   v56 = a3;
   v59[1] = v20;
   v59[2] = v17;
-  float_compare_9988(0, v58, v59, a4);
+  f32_compare(0, v58, v59, a4);
   if ( v19 > 0 )
   {
     v21 = v60;
@@ -119,13 +119,13 @@ int  sub_109C0C(int a1, int a2, int a3, int a4)
         v25 = *(float *)(a4 + 8);
         v26 = v22[32];
         v27 = v25 * *v22++;
-        v28 = sub_142A94((float)(v27 - v26) + *(float *)(a4 + 12));
-        v29 = sub_142B44(v28, HIDWORD(v28), v28, HIDWORD(v28));
-        v30 = sub_142A94((float)(v25 * v25) + 1.0);
-        v31 = sub_142D98(v29, HIDWORD(v29), v30, HIDWORD(v30));
-        v32 = sub_142A94(LODWORD(v18));
-        v33 = sub_1427D8(v31, HIDWORD(v31), v32, HIDWORD(v32));
-        v18 = COERCE_FLOAT(sub_143108(v33));
+        v28 = __aeabi_f2d((float)(v27 - v26) + *(float *)(a4 + 12));
+        v29 = __aeabi_dmul(v28, HIDWORD(v28), v28, HIDWORD(v28));
+        v30 = __aeabi_f2d((float)(v25 * v25) + 1.0);
+        v31 = __aeabi_ddiv(v29, HIDWORD(v29), v30, HIDWORD(v30));
+        v32 = __aeabi_f2d(LODWORD(v18));
+        v33 = __aeabi_dadd(v31, HIDWORD(v31), v32, HIDWORD(v32));
+        v18 = COERCE_FLOAT(double_to_float(v33));
         if ( v22 == v23 )
           goto LABEL_6;
       }
@@ -134,7 +134,7 @@ int  sub_109C0C(int a1, int a2, int a3, int a4)
 LABEL_6:
   if ( !v56 )
   {
-    feature_guard_sdio(1, dword_109E34);
+    state_check_feature(1, dword_109E34);
     v34 = v57;
     if ( v57 > 0 )
       goto LABEL_8;
@@ -144,7 +144,7 @@ LABEL_20:
     v49 = 4 * v56;
     goto LABEL_18;
   }
-  feature_guard_sdio(1, dword_109E44);
+  state_check_feature(1, dword_109E44);
   v34 = v57;
   if ( v57 <= 0 )
     goto LABEL_20;
@@ -188,8 +188,8 @@ LABEL_12:
       if ( v51 != 1 )
         break;
       v52 = *v37 - v47;
-      if ( (float)sub_1437A4((int)v52) > *(float *)(v50 + 636) )
-        *(float *)(v50 + 636) = (float)sub_1437A4((int)v52);
+      if ( (float)absolute_value((int)v52) > *(float *)(v50 + 636) )
+        *(float *)(v50 + 636) = (float)absolute_value((int)v52);
       ++v37;
       v46 = v46 + (float)(v52 * v52);
       if ( v48 == v37 )
@@ -201,6 +201,6 @@ LABEL_18:
   v54 = dword_109E3C;
   *(float *)(v53 + 512) = v18 / v45;
   *(float *)(v53 + 520) = v46 / v45;
-  return feature_guard_sdio(1, v54);
+  return state_check_feature(1, v54);
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_111C0C;
 
-// rf_bus_write_1b64 @ 0x111b64, size 162 bytes
+// unknown_15 @ 0x111b64, size 162 bytes
 // Doc: rf_bus_write_n14 [rf]: Write to RF bus register (n14 variant)
 // rf_bus_write_n14 [rf]: Write to RF bus register (n14 variant)
-int * rf_bus_write_1b64(int a1, int a2, int a3)
+int * unknown_15(int a1, int a2, int a3)
 {
   uint32_t *v3; // r6
   int *v4; // r5
@@ -57,11 +57,11 @@ int * rf_bus_write_1b64(int a1, int a2, int a3)
     {
 rf_bus_write2_n_66_1bb6:
       *((uint32_t *)rf_bus_init_n_1a8 + 513) |= 0x400u;
-      return sub_11196C(a1);
+      return table_lookup_entry(a1);
     }
     *v4 &= ~0x8000u;
     goto rf_bus_write2_n_66_1bb6;
   }
-  return sub_11196C(a1);
+  return table_lookup_entry(a1);
 }
 

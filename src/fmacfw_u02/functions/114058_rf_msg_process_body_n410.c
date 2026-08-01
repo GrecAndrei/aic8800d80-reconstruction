@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_msg_process_body_n410 @ 0x114058, size 56 bytes
+// call_checked @ 0x114058, size 56 bytes
 // Doc: rf_msg_process_body_n43e [rx]: Process RF message body 0x60 bytes
 // rf_msg_process_body_n43e [rx]: Process RF message body 0x60 bytes
-int rf_msg_process_body_n410()
+int call_checked()
 {
   int *v0; // r4
   int result; // r0
   int v2; // r3
   int v3; // r2
 
-  mem_buf_alloc_n_c30();
+  mac_wait_scan();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -28,7 +28,7 @@ int rf_msg_process_body_n410()
   }
   v0 = (int *)rf_msg_process_body_n44c;
   ++*(uint32_t *)rf_msg_process_body_n44c;
-  result = clear_flags(128);
+  result = unknown_func_12d14c(128);
   if ( *v0 )
   {
     v2 = *v0 - 1;

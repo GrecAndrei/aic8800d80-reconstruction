@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_param_load_byte @ 0x119b2c, size 32 bytes
-// Doc: rf_param_load_byte [util]: Load a single parameter byte and dispatch to handler
-// rf_param_load_byte [util]: Load a single parameter byte and dispatch to handler
-int  rf_param_load_byte(int a1, uint8_t *a2, int a3, int a4)
+// hci_build_event_0x3a @ 0x119b2c, size 32 bytes
+// Doc: hci_build_event_0x3a [util]: Load a single parameter byte and dispatch to handler
+// hci_build_event_0x3a [util]: Load a single parameter byte and dispatch to handler
+int  hci_build_event_0x3a(int a1, uint8_t *a2, int a3, int a4)
 {
-  lmac_table_lookup_n540(*a2);
-  sub_11DED8(58, a4, a3);
+  bt_conn_rx_schedule(*a2);
+  ke_evt_handler(58, a4, a3);
   return 0;
 }
 

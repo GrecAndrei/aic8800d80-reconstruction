@@ -18,10 +18,10 @@ extern uint32_t off_139D80;
 extern uint32_t dword_139D8C;
 extern uint32_t dword_139D88;
 
-// sub_139B4C @ 0x139b4c, size 550 bytes
+// rx_control_packet @ 0x139b4c, size 550 bytes
 // Doc: sub_1239B4C [unknown]: Function with extensive register save; loads struct from arg+0x1c, processes 16-bit header
 // sub_1239B4C [unknown]: Function with extensive register save; loads struct from arg+0x1c, processes 16-bit header
-int  sub_139B4C(int a1, int a2)
+int  rx_control_packet(int a1, int a2)
 {
   int v2; // r7
   int16_t *v3; // r9
@@ -97,7 +97,7 @@ LABEL_31:
             *((uint8_t *)off_139D78 + 10) = -1;
         }
       }
-      if ( sub_13C5B4(off_139D78, v3, *(uint16_t *)(a1 + 48), &v22) )
+      if ( tx_prepare_ll_packet(off_139D78, v3, *(uint16_t *)(a1 + 48), &v22) )
       {
         v8 = v22;
       }
@@ -110,34 +110,34 @@ LABEL_31:
         v11 = *v3;
         v23 = 0;
         v24 = 255;
-        v8 = parse_rx_frame_n688(v11, v10, v19, a2, (uint8_t *)dword_139D7C, v21, &v24, &v23);
+        v8 = rf_cal_config(v11, v10, v19, a2, (uint8_t *)dword_139D7C, v21, &v24, &v23);
         if ( v24 != 255 )
         {
-          v12 = rf_bus_setup_n3a8(10240, v24, 10, (uint16_t)(v10 + 12));
-          sub_101818(&v25, 0);
+          v12 = bt_buf_alloc(10240, v24, 10, (uint16_t)(v10 + 12));
+          timer_count_read(&v25, 0);
           v13 = v10;
           if ( !v23 )
           {
             if ( **(int16_t **)off_139D80 < 0 && v19 << 30 )
-              sub_12F6C4(dword_139D8C, dword_139D88, 2608);
+              mmio_field_update(dword_139D8C, dword_139D88, 2608);
             v4 = v19;
             v13 = v10 - v19;
             v10 = (uint16_t)(v10 - v19);
           }
           *(uint16_t *)v12 = v10;
-          sub_11E610(v2, v10, v4, v12 + 12);
+          ke_message_send(v2, v10, v4, v12 + 12);
           *(uint8_t *)(v12 + 8) = v7[10];
           *(uint8_t *)(v12 + 7) = a2;
           *(uint16_t *)(v12 + 2) = v20;
           v14 = *(uint8_t *)(a1 + 65);
-          sub_101968();
+          sys_mode_get_low();
           v15 = WORD1(v25);
           *(uint8_t *)(v12 + 6) = v25;
           *(uint8_t *)(v12 + 9) = v14;
           *(uint16_t *)(v12 + 4) = v15;
-          sub_12CBB4(v12);
+          hci_evt_send(v12);
           if ( v24 == 4 )
-            sub_1417CC(
+            hci_le_create_connection(
               v21,
               v13,
               *(uint32_t *)(a1 + 52),
@@ -151,7 +151,7 @@ LABEL_31:
       }
       if ( v8 )
       {
-        sub_138E1C(a1, 3);
+        rf_cal_validate_channel(a1, 3);
         return 1;
       }
     }

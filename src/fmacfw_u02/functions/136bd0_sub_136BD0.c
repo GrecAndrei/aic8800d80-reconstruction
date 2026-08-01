@@ -15,10 +15,10 @@ extern uint32_t dword_136D10;
 extern uint32_t dword_136D0C;
 extern uint32_t dword_136D04;
 
-// sub_136BD0 @ 0x136bd0, size 306 bytes
+// bt_handle_state_event @ 0x136bd0, size 306 bytes
 // Doc: sub_1236BD0 [tx]: TX-related state machine dispatch (mode byte at +0x6a vs 2)
 // sub_1236BD0 [tx]: TX-related state machine dispatch (mode byte at +0x6a vs 2)
-int ** sub_136BD0(int a1, int a2, uint32_t *a3)
+int ** bt_handle_state_event(int a1, int a2, uint32_t *a3)
 {
   int v3; // r7
   int v5; // r2
@@ -54,7 +54,7 @@ int ** sub_136BD0(int a1, int a2, uint32_t *a3)
   {
 LABEL_24:
     if ( **(int16_t **)off_136D08 < 0 )
-      sub_12F49C(dword_136D10, dword_136D0C, 441);
+      call_shared_handler(dword_136D10, dword_136D0C, 441);
 LABEL_26:
     *a3 = 1;
     return 0;
@@ -70,7 +70,7 @@ LABEL_26:
       goto LABEL_24;
     v8 = (int **)*v8;
   }
-  sub_12D460(a2 + 572, v12, v8);
+  rf_cal_check(a2 + 572, v12, v8);
   v13 = *(uint8_t *)(a2 + 54);
   if ( (v13 & 8) != 0 )
     v14 = 4;
@@ -101,11 +101,11 @@ LABEL_20:
     *((uint16_t *)v8[18] + 54) |= 0x2000u;
     return v8;
   }
-  v19 = sub_12C92C(65, 0, 5, 4u);
+  v19 = ke_msg_alloc(65, 0, 5, 4u);
   *(uint16_t *)v19 = *(uint16_t *)(a2 + 32);
   *(uint8_t *)(v19 + 3) = *(uint8_t *)(a2 + 34);
   *(uint8_t *)(v19 + 2) = 0;
-  sdio_buffer_prepare_n_4e8(v19);
+  ke_msg_send(v19);
   return v8;
 }
 

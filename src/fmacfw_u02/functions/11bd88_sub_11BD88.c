@@ -19,8 +19,8 @@ extern uint32_t dword_11BED0;
 extern uint32_t dword_11BED4;
 extern uint32_t off_11BED8;
 
-// sub_11BD88 @ 0x11bd88, size 312 bytes
-int sub_11BD88()
+// init_radio_data @ 0x11bd88, size 312 bytes
+int init_radio_data()
 {
   int *v0; // r4
   int v1; // r3
@@ -36,8 +36,8 @@ int sub_11BD88()
   unsigned int v11; // r3
 
   v0 = (int *)off_11BEC0;
-  memset_thunk((int *)off_11BEC4, 0, 0xD4u);
-  memset_thunk(v0, 0, 0x4C8u);
+  memset((int *)off_11BEC4, 0, 0xD4u);
+  memset(v0, 0, 0x4C8u);
   v1 = dword_11BEC8;
   v0[272] = dword_11BECC;
   *((uint16_t *)v0 + 34) = 456;
@@ -91,7 +91,7 @@ int sub_11BD88()
   v0[290] = v7;
   v6[43] = 467;
   *((uint16_t *)v0 + 604) = 164;
-  bit1a = mmio_flag_get_bit1a();
+  bit1a = rf_get_status_bit26();
   v10 = *(uint32_t *)off_11BED8 & 0xFFFFFFF;
   if ( bit1a )
     v11 = v10 | 0xB0000000;

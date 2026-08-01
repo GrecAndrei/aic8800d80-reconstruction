@@ -12,8 +12,8 @@
 
 extern uint32_t dword_141F5C;
 
-// sub_141F1C @ 0x141f1c, size 64 bytes
-int  sub_141F1C(int a1, int a2, int a3)
+// scan_slot_init @ 0x141f1c, size 64 bytes
+int  scan_slot_init(int a1, int a2, int a3)
 {
   int v3; // r4
   int v4; // r3

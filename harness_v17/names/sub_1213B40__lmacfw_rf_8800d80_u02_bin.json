@@ -1,1 +1,1 @@
-{"fn": "sub_1213B40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213b40", "status": "ok", "name": "rf_cmd_status_get_n1c0", "params": [], "docstring": "Read RF command status field and extract nibble", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1213B40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213b40", "status": "ok", "name": "rf_set_reg1_bit9", "params": [], "docstring": "Read RF command status field and extract nibble", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

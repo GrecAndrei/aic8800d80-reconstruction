@@ -12,8 +12,8 @@
 
 extern uint32_t off_100588;
 
-// sub_100560 @ 0x100560, size 40 bytes
-int  sub_100560(int a1)
+// write_timer_reg @ 0x100560, size 40 bytes
+int  write_timer_reg(int a1)
 {
   int result; // r0
   int v3; // [sp+4h] [bp-8h]

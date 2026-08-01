@@ -1,1 +1,1 @@
-{"fn": "log_printf", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120da7c", "status": "ok", "name": "log_printf", "params": [], "docstring": "Variadic log printf forwarding to core formatter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_printf", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120da7c", "status": "ok", "name": "printf_wrapper", "params": [], "docstring": "Variadic log printf forwarding to core formatter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

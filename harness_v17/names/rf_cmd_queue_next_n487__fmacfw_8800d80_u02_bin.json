@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_queue_next_n487", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121393a", "status": "ok", "name": "rf_cmd_queue_next_n487", "params": [], "docstring": "Advance to next queued RF command (variant n487)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_queue_next_n487", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121393a", "status": "ok", "name": "rf_cmd_queue_next_cmp", "params": [], "docstring": "Advance to next queued RF command (variant n487)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

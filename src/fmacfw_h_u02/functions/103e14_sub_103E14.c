@@ -20,8 +20,8 @@ extern uint32_t off_103E88;
 extern uint32_t off_103E7C;
 extern uint32_t dword_103E8C;
 
-// sub_103E14 @ 0x103e14, size 86 bytes
-int sub_103E14()
+// tx_wait_ready @ 0x103e14, size 86 bytes
+int tx_wait_ready()
 {
   int v0; // r2
   int *v1; // r4
@@ -37,11 +37,11 @@ int sub_103E14()
   v1 = (int *)off_103E70;
   *(uint32_t *)off_103E6C = 777;
   while ( *v1 < 0 )
-    sub_100644(1);
-  sub_12E948(dword_103E74, *(uint32_t *)off_103E70, v0);
+    mmio_read32(1);
+  alloc_tx_event(dword_103E74, *(uint32_t *)off_103E70, v0);
   v2 = dword_103E78;
   *(uint32_t *)off_103E6C = 0;
-  sub_12E948(v2, v3, v4);
+  alloc_tx_event(v2, v3, v4);
   v5 = (int *)off_103E80;
   v6 = dword_103E84;
   v7 = off_103E88;
@@ -49,6 +49,6 @@ int sub_103E14()
   *v5 = v6;
   v8 = dword_103E8C;
   *v7 &= 0xFF00FFFF;
-  return sub_12E948(v8, 0x4000, v7);
+  return alloc_tx_event(v8, 0x4000, v7);
 }
 

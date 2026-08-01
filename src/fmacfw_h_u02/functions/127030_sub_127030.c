@@ -20,8 +20,8 @@ extern uint32_t off_12714C;
 extern uint32_t dword_127154;
 extern uint32_t dword_127150;
 
-// sub_127030 @ 0x127030, size 266 bytes
-int  sub_127030(int result)
+// llc_hw_reg_sync @ 0x127030, size 266 bytes
+int  llc_hw_reg_sync(int result)
 {
   uint8_t *v1; // r5
   uint64_t v2; // r6
@@ -43,7 +43,7 @@ int  sub_127030(int result)
   {
     if ( *((uint32_t *)off_127144 + 10) != result )
     {
-      result = sub_101944();
+      result = get_timeout_1000();
       HIDWORD(v2) += 4000 + result;
     }
     v3 = (uint8_t)v1[91];
@@ -56,8 +56,8 @@ int  sub_127030(int result)
     else
     {
       v1[88] = v4 & 0xBF;
-      sub_1266A0();
-      result = sub_1265D4(SHIDWORD(v2), 0, 0);
+      llc_env_get();
+      result = llc_env_lookup(SHIDWORD(v2), 0, 0);
       v5 = *((uint32_t *)v1 + 4);
       if ( v5 )
       {
@@ -67,7 +67,7 @@ int  sub_127030(int result)
         while ( 1 )
         {
           v10 = *(uint32_t *)(v5 + 4);
-          result = v10 - sub_101944();
+          result = v10 - get_timeout_1000();
           if ( result + v8 >= 0 )
             break;
           v11 = *(uint32_t *)(v5 + 4);
@@ -77,14 +77,14 @@ int  sub_127030(int result)
           {
             if ( *(uint8_t *)(v12 + 106) == 2 )
               v9 = *(uint16_t *)(v12 + 222) << 10;
-            result = sub_126444(v12, v11 + v9, 0);
+            result = llc_rx_event_save(v12, v11 + v9, 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
               break;
           }
           else
           {
-            result = sub_126444(v12, v11 + *(uint32_t *)(v7 + 696 * *(uint8_t *)(v12 + 116) + 8), 0);
+            result = llc_rx_event_save(v12, v11 + *(uint32_t *)(v7 + 696 * *(uint8_t *)(v12 + 116) + 8), 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
               break;
@@ -94,11 +94,11 @@ int  sub_127030(int result)
       if ( *((uint32_t *)v1 + 11) )
       {
         if ( **(int16_t **)off_12714C < 0 && (v1[88] & 0xC) == 0 )
-          return sub_12F32C(dword_127154, dword_127150, 1698);
+          return irq_disable_mmio_write(dword_127154, dword_127150, 1698);
       }
       else
       {
-        return sub_126F8C(v2);
+        return llc_conn_command(v2);
       }
     }
   }

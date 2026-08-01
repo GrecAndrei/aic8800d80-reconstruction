@@ -1,0 +1,1 @@
+{"fn": "sub_119AE8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119ae8", "status": "ok", "name": "call_1238e0_return_zero", "params": [], "docstring": "Call 0x1238e0 and return 0", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

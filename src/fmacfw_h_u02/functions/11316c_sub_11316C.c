@@ -20,8 +20,8 @@ extern uint32_t off_1131F8;
 extern uint32_t dword_113204;
 extern uint32_t dword_113208;
 
-// sub_11316C @ 0x11316c, size 126 bytes
-int  sub_11316C(int a1)
+// bt_wait_ready @ 0x11316c, size 126 bytes
+int  bt_wait_ready(int a1)
 {
   uint16_t *v2; // r4
   int v3; // r1
@@ -42,10 +42,10 @@ int  sub_11316C(int a1)
   {
     v2 = (uint16_t *)off_1131F0;
     sub_100200((int *)off_1131F0, 0xFFu, 4u);
-    if ( sub_114D38(v2) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) )
-      sub_12E948(dword_1131F4, v3, v4);
+    if ( get_rssi(v2) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) )
+      alloc_tx_event(dword_1131F4, v3, v4);
     else
-      sub_12E948(dword_11320C, v3, v4);
+      alloc_tx_event(dword_11320C, v3, v4);
   }
   v5 = off_1131FC;
   v6 = off_113200;
@@ -59,8 +59,8 @@ int  sub_11316C(int a1)
     v9 = *(uint8_t *)(a1 + 8);
     if ( *(uint8_t *)(a1 + 8) )
       v9 = 1;
-    v10 = sub_111C78(v7, v9);
-    sub_12E948(v8, v10, v11);
+    v10 = wlan_set_band(v7, v9);
+    alloc_tx_event(v8, v10, v11);
   }
   while ( v10 );
   return 0;

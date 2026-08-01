@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_fault_dump_n_1ec @ 0x11455c, size 6 bytes
-// Doc: rf_fault_dump_n_1ec [rf]: RF fault dump entry referencing fault table
-// rf_fault_dump_n_1ec [rf]: RF fault dump entry referencing fault table
-int  rf_fault_dump_n_1ec(int a1, int a2, int a3)
+// get_global_1671e0 @ 0x11455c, size 6 bytes
+// Doc: get_global_1671e0 [rf]: RF fault dump entry referencing fault table
+// get_global_1671e0 [rf]: RF fault dump entry referencing fault table
+int  get_global_1671e0(int a1, int a2, int a3)
 {
-  return msg_parse(rf_fault_dump_564, a2, a3);
+  return event_dispatch(rf_fault_dump_564, a2, a3);
 }
 

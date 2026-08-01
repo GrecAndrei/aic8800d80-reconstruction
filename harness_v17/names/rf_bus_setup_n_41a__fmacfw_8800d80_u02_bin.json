@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n_41a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ae2", "status": "ok", "name": "rf_bus_setup_n_41a", "params": [], "docstring": "Sets up RF bus control register with bit OR mask.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n_41a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ae2", "status": "ok", "name": "rf_bus_init_ae2", "params": [], "docstring": "Sets up RF bus control register with bit OR mask.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -12,9 +12,9 @@
 
 extern uint32_t dword_10EDA4;
 
-// sub_10ED90 @ 0x10ed90, size 18 bytes
-int  sub_10ED90(int a1)
+// set_periph_status @ 0x10ed90, size 18 bytes
+int  set_periph_status(int a1)
 {
-  return rf_reg_write_guard(dword_10EDA4, (a1 << 11) & 0xF800, 63488, 1);
+  return atomic_reg_write(dword_10EDA4, (a1 << 11) & 0xF800, 63488, 1);
 }
 

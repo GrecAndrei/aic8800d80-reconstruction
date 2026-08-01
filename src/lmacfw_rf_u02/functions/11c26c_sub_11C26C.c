@@ -17,8 +17,8 @@ extern uint32_t off_11C310;
 extern uint32_t dword_11C314;
 extern uint32_t dword_11C318;
 
-// sub_11C26C @ 0x11c26c, size 158 bytes
-int  sub_11C26C(int result)
+// rf_get_status @ 0x11c26c, size 158 bytes
+int  rf_get_status(int result)
 {
   int v1; // r7
   int v2; // r5
@@ -32,12 +32,12 @@ int  sub_11C26C(int result)
   v1 = *(uint32_t *)(result + 72);
   v2 = result;
   if ( **(int16_t **)off_11C30C < 0 && !v1 )
-    result = sub_1219C4(dword_11C320, dword_11C31C, 3591);
+    result = flash_ctrl_init(dword_11C320, dword_11C31C, 3591);
   v3 = off_11C310;
   if ( (*((uint8_t *)off_11C310 + 88) & 0x20) == 0 && *((uint8_t *)off_11C310 + 90) > 1u )
   {
     v4 = *(uint8_t *)(v2 + 102);
-    v5 = sub_11DDF0(70, *((uint8_t *)off_11C310 + 88) & 0x20, *((uint8_t *)off_11C310 + 88) & 0x20, 20);
+    v5 = ke_msg_send(70, *((uint8_t *)off_11C310 + 88) & 0x20, *((uint8_t *)off_11C310 + 88) & 0x20, 20);
     *(uint8_t *)v5 = 0;
     *(uint8_t *)(v5 + 1) = *(uint8_t *)(v2 + 95);
     *(uint8_t *)(v5 + 2) = *(uint8_t *)(v1 + 4);
@@ -51,7 +51,7 @@ int  sub_11C26C(int result)
     *(uint8_t *)(v5 + 16) = *(uint8_t *)(v1 + 12);
     *(uint32_t *)(v5 + 12) = (unsigned int)(((unsigned int)dword_11C318
                                          * (unsigned uint64_t)(unsigned int)(*(uint32_t *)(v8 + 152 * v4 + 8) - 5000)) >> 32) >> 6;
-    result = sub_11DE50(v5);
+    result = rx_irq_handler(v5);
     v3[88] |= 0x20u;
   }
   return result;

@@ -15,8 +15,8 @@ extern uint32_t off_128DBC;
 extern uint32_t off_128DB8;
 extern uint32_t dword_128DC0;
 
-// sub_128D64 @ 0x128d64, size 78 bytes
-void sub_128D64()
+// wlc_chip_state @ 0x128d64, size 78 bytes
+void wlc_chip_state()
 {
   uint8_t *v0; // r5
   int v1; // r4
@@ -41,7 +41,7 @@ void sub_128D64()
             if ( *(uint8_t *)(v1 + 108) )
             {
               v3 = *(uint8_t *)(v1 + 116);
-              if ( v3 != 255 && !sub_118DC4(v3, v2, v1) )
+              if ( v3 != 255 && !rf_channel_get(v3, v2, v1) )
                 ++v0[8];
             }
           }

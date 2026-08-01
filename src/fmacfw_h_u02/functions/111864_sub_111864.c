@@ -13,8 +13,8 @@
 extern uint32_t dword_111894;
 extern uint32_t dword_111898;
 
-// sub_111864 @ 0x111864, size 48 bytes
-int * sub_111864(int a1)
+// get_node_offset_b @ 0x111864, size 48 bytes
+int * get_node_offset_b(int a1)
 {
   int v2; // r0
   int v3; // r5

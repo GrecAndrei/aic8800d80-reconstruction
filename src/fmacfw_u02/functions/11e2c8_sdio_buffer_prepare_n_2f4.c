@@ -30,10 +30,10 @@ extern uint32_t off_11E5F4;
 extern uint32_t off_11E5F8;
 extern uint32_t dword_11E5FC;
 
-// sdio_buffer_prepare_n_2f4 @ 0x11e2c8, size 810 bytes
-// Doc: sdio_buffer_prepare_n_2f4 [mmio]: Compares two buffer pointers for SDIO prepare operation
-// sdio_buffer_prepare_n_2f4 [mmio]: Compares two buffer pointers for SDIO prepare operation
-int  sdio_buffer_prepare_n_2f4(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
+// mac_mcps_request @ 0x11e2c8, size 810 bytes
+// Doc: mac_mcps_request [mmio]: Compares two buffer pointers for SDIO prepare operation
+// mac_mcps_request [mmio]: Compares two buffer pointers for SDIO prepare operation
+int  mac_mcps_request(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
 {
   int v6; // r8
   uint8_t **v7; // r7
@@ -108,7 +108,7 @@ int  sdio_buffer_prepare_n_2f4(int a1, unsigned int a2, int a3, int16_t a4, int 
     v25 = dword_11E574;
     if ( v24 )
       v21[4122] = 0;
-    v26 = rf_bus_mark_n100_d2d0(v25);
+    v26 = mem_word_load(v25);
     v27 = *(uint32_t *)off_11E578;
     v28 = (uint16_t)v21[4122];
     v6 = v26;
@@ -138,7 +138,7 @@ int  sdio_buffer_prepare_n_2f4(int a1, unsigned int a2, int a3, int16_t a4, int 
     v11 = **v7;
     if ( v11 == 2 )
     {
-      fmac_init_dispatch(v58, a2, &v57);
+      mac_rx_handler(v58, a2, &v57);
       v14 = **v7;
       if ( v14 != 2 )
         goto LABEL_5;
@@ -159,8 +159,8 @@ LABEL_25:
       v37 = (int *)off_11E590;
       v38 = dword_11E580;
       ++*(uint32_t *)off_11E590;
-      v39 = list_push_tail(v38);
-      rf_cmd_queue_next_4b4(v39, v40);
+      v39 = cmd_handler_a(v38);
+      check_init_flag(v39, v40);
       if ( *v37 )
       {
         v41 = *v37 - 1;
@@ -181,7 +181,7 @@ LABEL_5:
         v18 = (int *)off_11E564;
         if ( *((uint8_t *)off_11E564 + 32) )
         {
-          v43 = (uint32_t *)sub_1102BC();
+          v43 = (uint32_t *)is_scan_enabled();
           v46 = (int)v43;
           if ( v43 )
           {
@@ -191,13 +191,13 @@ LABEL_5:
               v48 = v18[1] + 1;
               v43[2] = (v48 << 24) & 0x7F000000 | v43[2] & 0x80FFFFFF;
               v18[1] = v48;
-              sub_11113C(v43, a1 + 48, v47, 0x3Au, 0);
+              pack_control_word(v43, a1 + 48, v47, 0x3Au, 0);
               v49 = *((uint8_t *)off_11E588 + 192);
               v18[3] += 58;
               if ( v49 )
-                sub_11E270(v46);
+                mac_get_flag(v46);
               else
-                sub_11101C(v46, v18[1], v18[2]);
+                unknown_1(v46, v18[1], v18[2]);
               *(uint8_t *)off_11E58C |= 1u;
               v18[1] = 0;
               v18[3] = 0;
@@ -211,11 +211,11 @@ LABEL_5:
           {
             v56 = dword_11E600;
             *(uint8_t *)(a1 + 16) |= 1u;
-            msg_parse(v56, v44, v45);
+            event_dispatch(v56, v44, v45);
             *((uint8_t *)v18 + 32) = 0;
           }
         }
-        feature_guard_check(1024, dword_11E568);
+        check_status_bits(1024, dword_11E568);
         v19 = *v18;
         *(uint8_t *)(a1 + 16) |= 1u;
         if ( v19 && v18[1] )
@@ -224,7 +224,7 @@ LABEL_5:
           do
           {
             v19 = *(uint32_t *)(v19 + 4);
-            log_free_dispatch_n2f4_0();
+            is_inquiry_enabled();
             ++v20;
           }
           while ( v20 < (unsigned int)v18[1] );
@@ -235,28 +235,28 @@ LABEL_5:
         v18[2] = 0;
       }
 LABEL_6:
-      sub_11DF7C(a1, v58[0]);
+      get_connection_state(a1, v58[0]);
       v15 = off_11E560;
       *(uint32_t *)(a1 + 4) = a5;
       v16 = v15[14];
       *(uint32_t *)(a1 + 8) = a6;
       if ( v16 )
-        return list_push_tail(v15 + 14);
+        return cmd_handler_a(v15 + 14);
       else
-        return list_push_tail(dword_11E584);
+        return cmd_handler_a(dword_11E584);
     }
 LABEL_2:
     if ( v11 == 1 )
-      sub_11DD44(v58, a2, &v57);
+      mac_tx_handler(v58, a2, &v57);
     else
-      main_event_handler(v58, a2, a3, &v57, 0);
+      mac_mlme_request(v58, a2, a3, &v57, 0);
     v14 = **v7;
     if ( v14 != 2 )
       goto LABEL_5;
     goto LABEL_25;
   }
   *(uint8_t *)(a1 + 16) |= 1u;
-  v50 = sub_11DF7C(a1, v8);
+  v50 = get_connection_state(a1, v8);
   CPSR = __get_CPSR();
   if ( (CPSR & 1) == 0 )
   {
@@ -265,7 +265,7 @@ LABEL_2:
   }
   v52 = (int *)off_11E5F8;
   ++*(uint32_t *)off_11E5F8;
-  _4b4 = rf_cmd_queue_next_4b4(v50, CPSR << 31);
+  _4b4 = check_init_flag(v50, CPSR << 31);
   if ( *v52 )
   {
     v55 = *v52 - 1;
@@ -277,6 +277,6 @@ LABEL_2:
         __enable_irq();
     }
   }
-  return sub_10DC24(dword_11E5FC, _4b4, v54);
+  return log_printf(dword_11E5FC, _4b4, v54);
 }
 

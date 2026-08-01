@@ -20,8 +20,8 @@ extern uint32_t dword_11D46C;
 extern uint32_t dword_11D468;
 extern uint32_t off_11D460;
 
-// sub_11D3DC @ 0x11d3dc, size 110 bytes
-unsigned int sub_11D3DC()
+// rf_shutdown @ 0x11d3dc, size 110 bytes
+unsigned int rf_shutdown()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r0
@@ -44,11 +44,11 @@ unsigned int sub_11D3DC()
   *v3 = v4;
   if ( *v5 < 0 && *(uint32_t *)off_11D464 << 28 )
   {
-    sub_1219F4(dword_11D46C, dword_11D468, 472);
+    flash_cmd_exec(dword_11D46C, dword_11D468, 472);
     v4 = *v3;
   }
   *(uint32_t *)off_11D460 = v4 | v3[1];
-  result = sub_1174B8(1);
+  result = gpio_set_bit10(1);
   v7 = off_11D450;
   *(uint32_t *)off_11D450 = *(uint32_t *)off_11D450 & 0xFFFE3FFF | 0x10000;
   *v7 |= 0x2000u;

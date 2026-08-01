@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11AB00 @ 0x11ab00, size 10 bytes
-unsigned int  sub_11AB00(int a1, int a2)
+// cmp_before @ 0x11ab00, size 10 bytes
+unsigned int  cmp_before(int a1, int a2)
 {
   return (unsigned int)(*(uint32_t *)(a1 + 12) - *(uint32_t *)(a2 + 12)) >> 31;
 }

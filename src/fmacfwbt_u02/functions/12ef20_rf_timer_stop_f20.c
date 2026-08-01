@@ -13,13 +13,13 @@
 extern uint32_t dword_12EF40;
 extern uint32_t off_12EF44;
 
-// rf_timer_stop_f20 @ 0x12ef20, size 32 bytes
-// Doc: rf_timer_stop_f20 [rf]: Stops RF timer, disables timer interrupt
-// rf_timer_stop_f20 [rf]: Stops RF timer, disables timer interrupt
-int rf_timer_stop_f20()
+// bt_init_controller @ 0x12ef20, size 32 bytes
+// Doc: bt_init_controller [rf]: Stops RF timer, disables timer interrupt
+// bt_init_controller [rf]: Stops RF timer, disables timer interrupt
+int bt_init_controller()
 {
-  sub_12ECB0(dword_12EF40);
-  sub_12C964(1071, 1);
+  ke_event_schedule(dword_12EF40);
+  irq_lock(1071, 1);
   *((uint32_t *)off_12EF44 + 20) &= ~2u;
   return 0;
 }

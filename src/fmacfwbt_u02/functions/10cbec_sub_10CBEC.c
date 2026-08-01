@@ -15,8 +15,8 @@ extern uint32_t off_10CC20;
 extern uint32_t off_10CC24;
 extern uint32_t off_10CC28;
 
-// sub_10CBEC @ 0x10cbec, size 48 bytes
-int sub_10CBEC()
+// pmu_isr_extra @ 0x10cbec, size 48 bytes
+int pmu_isr_extra()
 {
   uint32_t *v0; // r4
   int *v1; // r7
@@ -33,11 +33,11 @@ int sub_10CBEC()
     {
       v3 = *v1;
       *v2 = 2;
-      sub_10CB08((uint16_t *)(v3 + 4));
+      pkt_buf_alloc((uint16_t *)(v3 + 4));
     }
     while ( (*v0 & 2) != 0 );
   }
-  result = sub_12D374(0x8000000);
+  result = set_system_flag_2(0x8000000);
   *(uint32_t *)off_10CC28 = 2;
   return result;
 }

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// list_insert_sorted @ 0x12d5a8, size 70 bytes
-// Doc: list_insert_sorted [util]: Inserts node into sorted linked list maintaining order
-// list_insert_sorted [util]: Inserts node into sorted linked list maintaining order
-int  list_insert_sorted(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *))
+// list_find @ 0x12d5a8, size 70 bytes
+// Doc: list_find [util]: Inserts node into sorted linked list maintaining order
+// list_find [util]: Inserts node into sorted linked list maintaining order
+int  list_find(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *))
 {
   uint32_t *v3; // r4
   uint32_t *v4; // r7

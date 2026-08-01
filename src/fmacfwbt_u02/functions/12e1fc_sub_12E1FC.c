@@ -13,10 +13,10 @@
 extern uint32_t dword_12E2A0;
 extern uint32_t dword_12E2A4;
 
-// sub_12E1FC @ 0x12e1fc, size 158 bytes
+// freq_to_chan_map @ 0x12e1fc, size 158 bytes
 // Doc: sdio_buffer_prepare_20e [ipc]: Prepare SDIO DMA buffer for transfer
 // sdio_buffer_prepare_20e [ipc]: Prepare SDIO DMA buffer for transfer
-int  sub_12E1FC(unsigned int a1)
+int  freq_to_chan_map(unsigned int a1)
 {
   int result; // r0
 

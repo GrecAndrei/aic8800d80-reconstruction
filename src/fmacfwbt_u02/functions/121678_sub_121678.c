@@ -28,8 +28,8 @@ extern uint32_t dword_1218D0;
 extern uint32_t dword_1218CC;
 extern uint32_t off_1218BC;
 
-// sub_121678 @ 0x121678, size 534 bytes
-int  sub_121678(uint8_t *a1)
+// rx_handle_frame @ 0x121678, size 534 bytes
+int  rx_handle_frame(uint8_t *a1)
 {
   unsigned int v1; // r7
   int v2; // r5
@@ -61,7 +61,7 @@ int  sub_121678(uint8_t *a1)
     {
       v23 = HIBYTE(*(uint32_t *)off_1218C8) - 3 + *a1 + 2 * v2;
       v4 = (uint8_t)v23;
-      sub_120370(a1, v23);
+      wlc_phy_chanspec_set(a1, v23);
       return v4;
     }
     v15 = *a1;
@@ -70,16 +70,16 @@ int  sub_121678(uint8_t *a1)
     *(uint32_t *)off_12189C = -1;
     *v16 = -1;
     v4 = (uint8_t)(v15 + 4 * v2);
-    feature_guard_sdio(256, v17);
-    sub_120370(a1, v4);
+    state_check_feature(256, v17);
+    wlc_phy_chanspec_set(a1, v4);
   }
   else
   {
     if ( **(int16_t **)off_121890 < 0 && v1 > 0x23 )
-      sub_12F694(dword_1218A8, dword_1218A4, 1424);
+      mmio_irq_clear(dword_1218A8, dword_1218A4, 1424);
     v4 = (uint8_t)(v1 + 16);
-    feature_guard_sdio(256, dword_121894);
-    bt_rf_param_set_n_5d0((int)a1, v1 + 16);
+    state_check_feature(256, dword_121894);
+    wlc_phy_radio_set((int)a1, v1 + 16);
     v5 = off_1218A0;
     v6 = (uint16_t *)(dword_121898 + 696 * v1);
     *(uint32_t *)off_12189C = v6[19] | (v6[20] << 16);
@@ -165,7 +165,7 @@ LABEL_20:
       break;
     default:
       if ( **(int16_t **)off_121890 < 0 )
-        sub_12F694(dword_1218D0, dword_1218CC, 159);
+        mmio_irq_clear(dword_1218D0, dword_1218CC, 159);
       v10 = 0;
       v11 = 4096;
 LABEL_22:

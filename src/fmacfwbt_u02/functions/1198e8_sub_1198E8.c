@@ -24,8 +24,8 @@ extern uint32_t dword_119B1C;
 extern uint32_t off_119AF8;
 extern uint32_t off_119AFC;
 
-// sub_1198E8 @ 0x1198e8, size 514 bytes
-unsigned int  sub_1198E8(int a1, int a2, int a3)
+// rx_descriptor_process @ 0x1198e8, size 514 bytes
+unsigned int  rx_descriptor_process(int a1, int a2, int a3)
 {
   int16_t **v3; // r10
   unsigned int v5; // r3
@@ -69,7 +69,7 @@ unsigned int  sub_1198E8(int a1, int a2, int a3)
   v8 = (v5 >> 7) & 3;
   v9 = (v5 >> 11) & 7;
   if ( **(int16_t **)off_119B18 < 0 && ((v5 >> 11) & 6) == 0 )
-    sub_12F694(dword_119B04, dword_119B00, 397);
+    mmio_irq_clear(dword_119B04, dword_119B00, 397);
   v10 = v9 == 4;
   if ( v9 <= 4 )
   {
@@ -86,10 +86,10 @@ unsigned int  sub_1198E8(int a1, int a2, int a3)
       v38 = v33;
       if ( v31 < 0 )
       {
-        if ( v32 <= 3 || (sub_12F694(dword_119B14, dword_119B08, 340), **v3 < 0) )
+        if ( v32 <= 3 || (mmio_irq_clear(dword_119B14, dword_119B08, 340), **v3 < 0) )
         {
           if ( v12 > 9 )
-            sub_12F694(dword_119B10, dword_119B08, 341);
+            mmio_irq_clear(dword_119B10, dword_119B08, 341);
         }
       }
       v34 = dword_119AEC;
@@ -100,7 +100,7 @@ unsigned int  sub_1198E8(int a1, int a2, int a3)
       if ( **v3 < 0 && (v22 & 0x60) != 0 )
       {
         v35 = *(uint32_t *)(a1 + 4);
-        sub_12F694(dword_119B0C, dword_119B08, 349);
+        mmio_irq_clear(dword_119B0C, dword_119B08, 349);
         LOBYTE(v22) = v35;
       }
       v34 = dword_119AEC;
@@ -116,7 +116,7 @@ unsigned int  sub_1198E8(int a1, int a2, int a3)
     LOBYTE(v12) = 0;
     goto LABEL_14;
   }
-  v11 = sub_11C7D4(a1, v9, &v39, v40, &v37, &v38);
+  v11 = get_rate_index(a1, v9, &v39, v40, &v37, &v38);
   v12 = (*(uint8_t *)(a1 + 344) >> 5) & 1;
   if ( v9 != 7 )
   {

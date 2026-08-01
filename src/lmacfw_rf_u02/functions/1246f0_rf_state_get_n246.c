@@ -18,10 +18,10 @@ extern uint32_t off_124794;
 extern uint32_t off_12479C;
 extern uint32_t off_124798;
 
-// rf_state_get_n246 @ 0x1246f0, size 152 bytes
-// Doc: rf_state_get_n246 [rf]: Get current RF state value
-// rf_state_get_n246 [rf]: Get current RF state value
-int  rf_state_get_n246(int a1, int a2)
+// rx_process_pending @ 0x1246f0, size 152 bytes
+// Doc: rx_process_pending [rf]: Get current RF state value
+// rx_process_pending [rf]: Get current RF state value
+int  rx_process_pending(int a1, int a2)
 {
   uint8_t *v3; // r6
   int *v4; // r5
@@ -32,7 +32,7 @@ int  rf_state_get_n246(int a1, int a2)
 
   if ( (*(uint32_t *)off_124788 & 2) != 0 && (*(uint8_t *)a2 == 1 || *(uint16_t *)(a2 + 4) > 0x1387u) )
   {
-    msg_parse(dword_1247A0);
+    dispatch_event_handler(dword_1247A0);
     return -1;
   }
   else
@@ -47,8 +47,8 @@ int  rf_state_get_n246(int a1, int a2)
       }
       v4 = (int *)off_124794;
       ++*(uint32_t *)off_124794;
-      message_dispatch_n2fe();
-      rf_fault_dump_n_26c();
+      rf_cmd_wait();
+      rf_acquire();
       if ( *v4 )
       {
         v5 = *v4 - 1;
@@ -64,7 +64,7 @@ int  rf_state_get_n246(int a1, int a2)
     v7 = off_12479C;
     ++*(uint8_t *)off_124798;
     *v7 |= 0x500000u;
-    sub_102908((uint8_t *)a2, 0);
+    tx_set_power((uint8_t *)a2, 0);
     *v7 &= 0xFF87FFFF;
     v8 = (uint8_t)*v3;
     if ( *v3 )
@@ -73,8 +73,8 @@ int  rf_state_get_n246(int a1, int a2)
     }
     else
     {
-      mmio_init_clock_gate_n121();
-      sub_12466C();
+      write_bb_control();
+      util_alloc_buffer();
       return v8;
     }
   }

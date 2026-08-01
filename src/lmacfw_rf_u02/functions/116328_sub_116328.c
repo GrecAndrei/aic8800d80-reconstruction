@@ -14,8 +14,8 @@ extern uint32_t off_116390;
 extern uint32_t dword_116394;
 extern uint32_t dword_116398;
 
-// sub_116328 @ 0x116328, size 102 bytes
-int  sub_116328(int a1, int a2)
+// wlan_clk_init @ 0x116328, size 102 bytes
+int  wlan_clk_init(int a1, int a2)
 {
   int16_t **v2; // r5
   int v3; // r7
@@ -30,7 +30,7 @@ int  sub_116328(int a1, int a2)
   v3 = dword_116394;
   v4 = dword_116398;
 LABEL_2:
-  v6 = sub_11E7AC(a2);
+  v6 = list_pop_front(a2);
   v7 = 2080374784;
   v8 = v6;
   if ( v6 )
@@ -46,23 +46,23 @@ LABEL_2:
 LABEL_5:
       if ( !*(uint16_t *)(v8 + 4) )
       {
-        sub_11660C(v8, v7, *(uint16_t *)(v8 + 4));
+        log_and_disable_irq(v8, v7, *(uint16_t *)(v8 + 4));
         goto LABEL_2;
       }
       if ( **v2 >= 0 )
         goto LABEL_2;
-      rf_cmd_send_n264(v4, v3, 1147);
-      v10 = sub_11E7AC(a2);
+      flash_ctrl_init(v4, v3, 1147);
+      v10 = list_pop_front(a2);
       v7 = 2080374784;
       v8 = v10;
       if ( !v10 )
-        return sub_116654();
+        return pool_alloc_init();
     }
     v7 = 0x40000000;
 LABEL_4:
     *v9 = v7;
     goto LABEL_5;
   }
-  return sub_116654();
+  return pool_alloc_init();
 }
 

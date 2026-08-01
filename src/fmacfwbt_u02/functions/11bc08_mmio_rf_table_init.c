@@ -19,10 +19,10 @@ extern uint32_t off_11BC80;
 extern uint32_t off_11BC84;
 extern uint32_t off_11BC88;
 
-// mmio_rf_table_init @ 0x11bc08, size 100 bytes
-// Doc: mmio_rf_table_init [mmio]: Initialize RF table pointers via MMIO register reads
-// mmio_rf_table_init [mmio]: Initialize RF table pointers via MMIO register reads
-uint32_t * mmio_rf_table_init(uint32_t *result)
+// crypto_aes_setup @ 0x11bc08, size 100 bytes
+// Doc: crypto_aes_setup [mmio]: Initialize RF table pointers via MMIO register reads
+// crypto_aes_setup [mmio]: Initialize RF table pointers via MMIO register reads
+uint32_t * crypto_aes_setup(uint32_t *result)
 {
   uint32_t *v1; // r2
   int v2; // r5

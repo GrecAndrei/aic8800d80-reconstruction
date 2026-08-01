@@ -1,0 +1,1 @@
+{"fn": "sub_1376D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1376d4", "status": "ok", "name": "dma_rx_reset", "params": [], "docstring": "Stop DMA RX channel and clear RX buffer", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// ethertype_check_0x600 @ 0x13ac0c, size 54 bytes
-// Doc: ethertype_check_0x600 [rx]: Check ethertype field (0x600) on frame
-// ethertype_check_0x600 [rx]: Check ethertype field (0x600) on frame
-int  ethertype_check_0x600(int a1, uint16_t *a2)
+// rx_validate_frame_type @ 0x13ac0c, size 54 bytes
+// Doc: rx_validate_frame_type [rx]: Check ethertype field (0x600) on frame
+// rx_validate_frame_type [rx]: Check ethertype field (0x600) on frame
+int  rx_validate_frame_type(int a1, uint16_t *a2)
 {
   unsigned int v2; // r2
   uint16_t *v4; // r1
@@ -27,7 +27,7 @@ int  ethertype_check_0x600(int a1, uint16_t *a2)
     a2[1] = 3;
     a2[2] = 0;
   }
-  v4 = sub_13AA1C(a1, a2, 1);
-  return patch_apply_n_4a2(a1, (int)v4);
+  v4 = rf_set_channel_table(a1, a2, 1);
+  return rf_configure_channel(a1, (int)v4);
 }
 

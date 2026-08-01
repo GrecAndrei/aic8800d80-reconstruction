@@ -29,10 +29,10 @@ extern uint32_t off_1003BC;
 extern uint32_t dword_1003C0;
 extern uint32_t dword_1003C4;
 
-// rf_init_setup_n_2a0 @ 0x1002a0, size 234 bytes
-// Doc: rf_init_setup_n_2a0 [rf]: Initialize RF subsystem loading config constants
-// rf_init_setup_n_2a0 [rf]: Initialize RF subsystem loading config constants
-int rf_init_setup_n_2a0()
+// process_state_update @ 0x1002a0, size 234 bytes
+// Doc: process_state_update [rf]: Initialize RF subsystem loading config constants
+// process_state_update [rf]: Initialize RF subsystem loading config constants
+int process_state_update()
 {
   uint8_t **v0; // r5
   int v1; // r0
@@ -72,9 +72,9 @@ int rf_init_setup_n_2a0()
   *v6 = v3;
   v6[2] = v4;
   v6[3] = HIDWORD(v4);
-  sub_10DA6C(v9, v2, v7);
+  log_printf(v9, v2, v7);
   if ( **v8 < 0 && v7 >= v2 )
-    rf_cmd_send_n264(dword_1003D0, dword_1003C8, 120);
+    flash_ctrl_init(dword_1003D0, dword_1003C8, 120);
   v10 = *(uint32_t **)off_1003A8;
   v11 = dword_1003AC;
   v12 = 76 * *((uint16_t *)*v0 + 4) + 76;
@@ -94,9 +94,9 @@ int rf_init_setup_n_2a0()
     v14 += v16;
   }
   v17 = dword_1003B4;
-  result = sub_10DA6C(dword_1003B8, dword_1003AC, dword_1003B4);
+  result = log_printf(dword_1003B8, dword_1003AC, dword_1003B4);
   if ( **v8 < 0 && v14 >= v17 )
-    result = rf_cmd_send_n264(dword_1003CC, dword_1003C8, 156);
+    result = flash_ctrl_init(dword_1003CC, dword_1003C8, 156);
   v19 = *v0;
   *(uint32_t *)off_1003BC = *((uint32_t *)*v0 + 3);
   v20 = *v19;
@@ -113,7 +113,7 @@ int rf_init_setup_n_2a0()
   if ( v21 )
   {
     if ( dword_1003C0 > v21 )
-      return sub_10DA6C(dword_1003C4, dword_1003C0, v21);
+      return log_printf(dword_1003C4, dword_1003C0, v21);
   }
   return result;
 }

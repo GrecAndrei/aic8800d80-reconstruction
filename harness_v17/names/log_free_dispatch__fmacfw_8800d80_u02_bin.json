@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210008", "status": "ok", "name": "log_free_dispatch", "params": [], "docstring": "Dispatches a log entry to the free-log path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210008", "status": "ok", "name": "is_controller_mode", "params": [], "docstring": "Dispatches a log entry to the free-log path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

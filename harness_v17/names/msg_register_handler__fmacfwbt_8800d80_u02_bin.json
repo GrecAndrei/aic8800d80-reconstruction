@@ -1,1 +1,1 @@
-{"fn": "msg_register_handler", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf5c", "status": "ok", "name": "rf_bus_mark_n_3b7", "params": [], "docstring": "Clears a byte and toggles an RF bus marker flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "msg_register_handler", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf5c", "status": "ok", "name": "hci_cmd_send", "params": [], "docstring": "Clears a byte and toggles an RF bus marker flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

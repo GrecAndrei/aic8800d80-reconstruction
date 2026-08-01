@@ -1,1 +1,1 @@
-{"fn": "sub_121B5E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121b5e8", "status": "ok", "name": "scan_chan_entry_alloc_n_54", "params": [], "docstring": "Allocate a 0x54-byte scan channel entry from pool", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121B5E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121b5e8", "status": "ok", "name": "off_84_table", "params": [], "docstring": "Allocate a 0x54-byte scan channel entry from pool", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

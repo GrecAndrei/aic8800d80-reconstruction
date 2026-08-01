@@ -17,10 +17,10 @@ extern uint32_t dword_11BD38;
 extern uint32_t dword_11BD40;
 extern uint32_t off_11BD3C;
 
-// sub_11BBA4 @ 0x11bba4, size 392 bytes
+// tx_header_prepare @ 0x11bba4, size 392 bytes
 // Doc: sub_121BBA4 [unknown]: Init handler reading control byte from 0x1863b0+0x80 and struct fields
 // sub_121BBA4 [unknown]: Init handler reading control byte from 0x1863b0+0x80 and struct fields
-int  sub_11BBA4(uint8_t *a1, int a2)
+int  tx_header_prepare(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
@@ -37,7 +37,7 @@ int  sub_11BBA4(uint8_t *a1, int a2)
   int v17; // r0
 
   v2 = off_11BD2C;
-  sub_11F74C(8, dword_11BD30, *a1, *((uint32_t *)a1 + 3));
+  check_interrupt_flag(8, dword_11BD30, *a1, *((uint32_t *)a1 + 3));
   v5 = *a1;
   if ( *a1 )
   {
@@ -51,10 +51,10 @@ int  sub_11BBA4(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          timestamp_remove((int)off_11BD34 + 64);
+          ke_exit_critical((int)off_11BD34 + 64);
           v10 = v7[8];
           v7[18] = 0;
-          rf_chan_init_n4e8(v10);
+          tx_processing(v10);
         }
       }
       else if ( v6 > 1 )
@@ -65,17 +65,17 @@ int  sub_11BBA4(uint8_t *a1, int a2)
         {
           if ( v11 == v2 + 112 && (uint8_t *)v7[20] == v11 )
           {
-            timestamp_remove((int)(v7 + 16));
+            ke_exit_critical((int)(v7 + 16));
             v7[18] = 0;
           }
           v7[11] = 0;
         }
-        ipc_msg_send_n_d58(dword_11BD38);
+        send_hci_event(dword_11BD38);
       }
       else if ( v6 == 1 )
       {
         *((uint8_t *)off_11BD34 + 88) &= 0xFAu;
-        ipc_msg_send_n_d58((int)(v2 + 112));
+        send_hci_event((int)(v2 + 112));
       }
       v8 = *((uint8_t *)v7 + 88);
       v2[136] = -1;
@@ -84,7 +84,7 @@ int  sub_11BBA4(uint8_t *a1, int a2)
       v16 = dword_11BD40;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
-      timestamp_remove(v16);
+      ke_exit_critical(v16);
       return v5;
     }
     return 1;
@@ -112,13 +112,13 @@ int  sub_11BBA4(uint8_t *a1, int a2)
     if ( a2 )
     {
       v15[88] |= 1u;
-      phy_flag_check_or_set();
+      rf_flag_set();
     }
     else
     {
       v17 = dword_11BD38;
       v15[88] |= 4u;
-      rf_mailbox_post_n44(v17);
+      rf_register_access(v17);
     }
     *(uint32_t *)off_11BD3C |= 4u;
     return v5;

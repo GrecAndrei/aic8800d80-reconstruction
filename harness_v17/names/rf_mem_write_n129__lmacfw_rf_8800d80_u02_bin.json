@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n129", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222154", "status": "ok", "name": "rf_mem_write_n129", "params": [], "docstring": "Write to RF register with bit clear/set mask sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n129", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222154", "status": "ok", "name": "rf_cmd_dispatch", "params": [], "docstring": "Write to RF register with bit clear/set mask sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

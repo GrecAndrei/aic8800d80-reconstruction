@@ -14,10 +14,10 @@ extern uint32_t dword_124964;
 extern uint32_t off_12495C;
 extern uint32_t off_124960;
 
-// sub_124944 @ 0x124944, size 22 bytes
-int sub_124944()
+// mmio_read_timer @ 0x124944, size 22 bytes
+int mmio_read_timer()
 {
-  sub_11F504(dword_124964, *(uint32_t *)off_12495C, *(uint32_t *)off_124960 + *(uint32_t *)off_12495C);
+  dispatch_event_handler(dword_124964, *(uint32_t *)off_12495C, *(uint32_t *)off_124960 + *(uint32_t *)off_12495C);
   return 0;
 }
 

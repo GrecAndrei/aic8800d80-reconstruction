@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1374FC;
 
-// sub_1374B0 @ 0x1374b0, size 76 bytes
-int  sub_1374B0(uint16_t *a1, int a2)
+// rf_hw_init @ 0x1374b0, size 76 bytes
+int  rf_hw_init(uint16_t *a1, int a2)
 {
   int v2; // r3
   int v3; // r4

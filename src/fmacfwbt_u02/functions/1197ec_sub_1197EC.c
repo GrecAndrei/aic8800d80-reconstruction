@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1197F8;
 
-// sub_1197EC @ 0x1197ec, size 10 bytes
-int  sub_1197EC(int a1, int a2)
+// rf_channel_lookup_uint8 @ 0x1197ec, size 10 bytes
+int  rf_channel_lookup_uint8(int a1, int a2)
 {
   return *(uint8_t *)(dword_1197F8 + (a1 | (2 * a2)));
 }

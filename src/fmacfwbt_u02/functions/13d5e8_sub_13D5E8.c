@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13D72C;
 
-// sub_13D5E8 @ 0x13d5e8, size 322 bytes
-int  sub_13D5E8(int a1, unsigned int a2)
+// bt_handle_ll_control @ 0x13d5e8, size 322 bytes
+int  bt_handle_ll_control(int a1, unsigned int a2)
 {
   int v4; // r5
   int16_t v5; // r0
@@ -31,7 +31,7 @@ int  sub_13D5E8(int a1, unsigned int a2)
   v4 = (a2 >> 11) & 7;
   if ( (a2 & 0x2000) != 0 )
   {
-    v5 = sub_143A18(a1);
+    v5 = random(a1);
     v6 = a2 & 0xF;
     switch ( v4 )
     {
@@ -77,7 +77,7 @@ LABEL_21:
   {
     v7 = a2;
     v8 = a2 & 0x7F;
-    sub_143A18(a1);
+    random(a1);
     if ( (v7 & 0x7C) != 0 )
     {
       v9 = *(uint8_t *)(a1 + 177);
@@ -104,7 +104,7 @@ LABEL_21:
     }
     return a2;
   }
-  v5 = sub_143A18(a1);
+  v5 = random(a1);
   v12 = a2 & 7;
   while ( 1 )
   {

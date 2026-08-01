@@ -12,8 +12,8 @@
 
 extern uint32_t off_10CCAC;
 
-// sub_10CCA4 @ 0x10cca4, size 8 bytes
-void sub_10CCA4()
+// gpio_set_pin7 @ 0x10cca4, size 8 bytes
+void gpio_set_pin7()
 {
   *(uint32_t *)off_10CCAC = 128;
 }

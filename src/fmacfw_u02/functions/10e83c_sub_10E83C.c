@@ -17,8 +17,8 @@ extern uint32_t dword_10E9E8;
 extern uint32_t dword_10E9EC;
 extern uint32_t dword_10E9F0;
 
-// sub_10E83C @ 0x10e83c, size 416 bytes
-int  sub_10E83C(unsigned int a1, unsigned int a2, unsigned int *a3)
+// rf_analog_ctrl_set @ 0x10e83c, size 416 bytes
+int  rf_analog_ctrl_set(unsigned int a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r4
   unsigned int *v4; // r6
@@ -48,8 +48,8 @@ int  sub_10E83C(unsigned int a1, unsigned int a2, unsigned int *a3)
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
   v8 = (int16_t *)off_10E9E4;
-  inited = phy_init_n_3ac();
-  msg_parse(dword_10E9E8, a1, a2);
+  inited = rf_core_enable();
+  event_dispatch(dword_10E9E8, a1, a2);
   v10 = *v8;
   if ( v10 > inited )
   {
@@ -84,8 +84,8 @@ int  sub_10E83C(unsigned int a1, unsigned int a2, unsigned int *a3)
     *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
     *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
     v15 = inited;
-    inited = phy_init_n_3ac();
-    msg_parse(dword_10E9EC, v13, v3);
+    inited = rf_core_enable();
+    event_dispatch(dword_10E9EC, v13, v3);
     v16 = *(int16_t *)off_10E9E4;
     v17 = inited - v16;
     v18 = v15 - v16;
@@ -107,7 +107,7 @@ int  sub_10E83C(unsigned int a1, unsigned int a2, unsigned int *a3)
     v13 = v24;
     *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  msg_parse(dword_10E9F0, v20, v13 - v21);
+  event_dispatch(dword_10E9F0, v20, v13 - v21);
 LABEL_9:
   *a3 = v3;
   return v20;

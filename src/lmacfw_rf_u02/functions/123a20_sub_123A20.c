@@ -14,8 +14,8 @@ extern uint32_t off_123AA8;
 extern uint32_t dword_123AAC;
 extern uint32_t off_123AB0;
 
-// sub_123A20 @ 0x123a20, size 136 bytes
-int  sub_123A20(int a1)
+// build_hci_command @ 0x123a20, size 136 bytes
+int  build_hci_command(int a1)
 {
   int v2; // r1
   uint64_t v3; // r0
@@ -45,9 +45,9 @@ int  sub_123A20(int a1)
   HIDWORD(v3) = *(uint32_t *)(dword_123AAC + 4);
   v14 = *(uint32_t *)dword_123AAC;
   v15 = WORD2(v3);
-  sub_1282E8(&v16, &v10, 6);
-  sub_1282E8(v18, &v12, 6);
-  sub_1282E8(&v19, &v14, 6);
+  memcpy_large(&v16, &v10, 6);
+  memcpy_large(v18, &v12, 6);
+  memcpy_large(&v19, &v14, 6);
   v4 = off_123AB0;
   v5 = *((uint16_t *)off_123AB0 + 70);
   *(uint32_t *)(a1 + 10) = v16;

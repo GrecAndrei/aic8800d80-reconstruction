@@ -14,8 +14,8 @@ extern uint32_t off_1297F8;
 extern uint32_t dword_129800;
 extern uint32_t dword_1297FC;
 
-// sub_129598 @ 0x129598, size 606 bytes
-int  sub_129598(int result)
+// wlc_tx_process @ 0x129598, size 606 bytes
+int  wlc_tx_process(int result)
 {
   int v1; // r12
   int v2; // r6
@@ -244,7 +244,7 @@ LABEL_19:
           goto LABEL_28;
         }
         if ( **(int16_t **)off_1297F8 < 0 )
-          result = sub_12F49C(dword_129800, dword_1297FC, 347);
+          result = call_shared_handler(dword_129800, dword_1297FC, 347);
         v1 = v24;
         v10 = v23 + *(uint32_t *)(v15 + 28);
       }

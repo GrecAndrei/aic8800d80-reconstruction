@@ -14,8 +14,8 @@ extern uint32_t off_110070;
 extern uint32_t dword_110074;
 extern uint32_t dword_110078;
 
-// sub_11003C @ 0x11003c, size 52 bytes
-int sub_11003C()
+// tx_irq_handler @ 0x11003c, size 52 bytes
+int tx_irq_handler()
 {
   void *v0; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int sub_11003C()
   int v4; // r4
 
   v0 = off_110070;
-  result = sub_12D468(dword_110074);
+  result = zero_struct(dword_110074);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_110078;
@@ -32,8 +32,8 @@ int sub_11003C()
     v4 = 0;
     do
     {
-      sub_10F980(v2, 0xCu);
-      result = sub_12D470(v3);
+      rx_process_item(v2, 0xCu);
+      result = check_abort_flag(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );

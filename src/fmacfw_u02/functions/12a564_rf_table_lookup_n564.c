@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12A5CC;
 
-// rf_table_lookup_n564 @ 0x12a564, size 102 bytes
-// Doc: rf_table_lookup_n564 [rf]: Indexed lookup in RF table by entry id with offset math
-// rf_table_lookup_n564 [rf]: Indexed lookup in RF table by entry id with offset math
-char * rf_table_lookup_n564(int a1)
+// llc_get_conn_role @ 0x12a564, size 102 bytes
+// Doc: llc_get_conn_role [rf]: Indexed lookup in RF table by entry id with offset math
+// llc_get_conn_role [rf]: Indexed lookup in RF table by entry id with offset math
+char * llc_get_conn_role(int a1)
 {
   int v1; // r7
   int v2; // r4
@@ -31,15 +31,15 @@ char * rf_table_lookup_n564(int a1)
   v3[115] = 0;
   if ( v4 )
   {
-    timestamp_remove(140 * v2 + 96 + v1);
+    fault_handler(140 * v2 + 96 + v1);
     v3[114] = 0;
   }
-  sub_129804(v3);
+  wlc_rx_process(v3);
   v5 = v1 + 140 * v2;
   if ( *(uint8_t *)(v5 + 121) )
     v6 = 3;
   else
     v6 = 2;
-  return sub_125CD8(*(uint8_t *)(v5 + 113), v6);
+  return ke_queue_front(*(uint8_t *)(v5 + 113), v6);
 }
 

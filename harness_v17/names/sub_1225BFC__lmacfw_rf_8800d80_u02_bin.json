@@ -1,1 +1,1 @@
-{"fn": "sub_1225BFC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225bfc", "status": "ok", "name": "ipc_msg_handler", "params": [], "docstring": "Handles IPC message with payload parsing", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1225BFC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225bfc", "status": "ok", "name": "process_bt_ble_event", "params": [], "docstring": "Handles IPC message with payload parsing", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

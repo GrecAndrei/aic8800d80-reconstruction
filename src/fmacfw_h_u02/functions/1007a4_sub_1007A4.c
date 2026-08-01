@@ -12,8 +12,8 @@
 
 extern uint32_t dword_100894;
 
-// sub_1007A4 @ 0x1007a4, size 238 bytes
-int  sub_1007A4(int result, int a2, int a3, unsigned int a4)
+// memcpy_opt @ 0x1007a4, size 238 bytes
+int  memcpy_opt(int result, int a2, int a3, unsigned int a4)
 {
   int v4; // r8
   unsigned int v5; // r12

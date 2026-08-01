@@ -14,23 +14,23 @@ extern uint32_t off_10FEEC;
 extern uint32_t dword_10FEF0;
 extern uint32_t dword_10FEF4;
 
-// sub_10FEAC @ 0x10feac, size 62 bytes
-uint32_t * sub_10FEAC(char a1)
+// mem_alloc_checked @ 0x10feac, size 62 bytes
+uint32_t * mem_alloc_checked(char a1)
 {
   uint32_t *v2; // r4
 
   if ( **(uint8_t **)off_10FEEC == 1 )
-    v2 = (uint32_t *)sub_110370();
+    v2 = (uint32_t *)irq_disable_set_flag_2();
   else
-    v2 = log_pool_alloc2_a18(dword_10FEF0, 0x7Cu);
+    v2 = list_iterate(dword_10FEF0, 0x7Cu);
   if ( !v2 )
     return v2;
-  if ( log_ptr_in_range((unsigned int)v2) )
+  if ( mem_is_in_heap((unsigned int)v2) )
   {
     *((uint8_t *)v2 - 1) = a1;
     return v2;
   }
-  sub_10DA6C(dword_10FEF4, v2);
+  log_printf(dword_10FEF4, v2);
   return v2;
 }
 

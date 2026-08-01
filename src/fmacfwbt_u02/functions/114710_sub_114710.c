@@ -14,8 +14,8 @@ extern uint32_t off_114748;
 extern uint32_t off_11474C;
 extern uint32_t dword_114750;
 
-// sub_114710 @ 0x114710, size 54 bytes
-int sub_114710()
+// lock_release @ 0x114710, size 54 bytes
+int lock_release()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_114710()
   v0 = (int *)off_11474C;
   v1 = dword_114750;
   ++*(uint32_t *)off_11474C;
-  result = list_push_tail(v1);
+  result = check_abort_flag(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

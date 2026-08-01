@@ -15,8 +15,8 @@ extern uint32_t off_1291A0;
 extern uint32_t off_1291A8;
 extern uint32_t off_1291AC;
 
-// sub_12917C @ 0x12917c, size 34 bytes
-int  sub_12917C(int a1, int16_t a2)
+// ipc_msg_send @ 0x12917c, size 34 bytes
+int  ipc_msg_send(int a1, int16_t a2)
 {
   uint8_t *v2; // r2
   uint8_t *v3; // r3

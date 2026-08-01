@@ -1,1 +1,1 @@
-{"fn": "sub_121E184", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e184", "status": "ok", "name": "sub_121E184", "params": [], "docstring": "Complex handler with many saved regs and table loads (likely crypto/auth)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121E184", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e184", "status": "ok", "name": "tx_packet_isr", "params": [], "docstring": "Complex handler with many saved regs and table loads (likely crypto/auth)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

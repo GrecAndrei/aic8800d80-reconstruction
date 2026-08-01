@@ -12,10 +12,10 @@
 
 extern uint32_t off_1006D4;
 
-// get_variant_cached @ 0x1006cc, size 6 bytes
-// Doc: get_variant_cached [util]: Returns cached chip variant byte from global table
-// get_variant_cached [util]: Returns cached chip variant byte from global table
-int get_variant_cached()
+// get_timer_flag @ 0x1006cc, size 6 bytes
+// Doc: get_timer_flag [util]: Returns cached chip variant byte from global table
+// get_timer_flag [util]: Returns cached chip variant byte from global table
+int get_timer_flag()
 {
   return *((uint8_t *)off_1006D4 + 1);
 }

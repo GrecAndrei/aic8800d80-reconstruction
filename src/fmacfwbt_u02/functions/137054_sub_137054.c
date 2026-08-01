@@ -12,16 +12,16 @@
 
 extern uint32_t dword_137084;
 
-// sub_137054 @ 0x137054, size 48 bytes
-int  sub_137054(int a1, int a2, int a3, int16_t a4)
+// rf_cmd_write @ 0x137054, size 48 bytes
+int  rf_cmd_write(int a1, int a2, int a3, int16_t a4)
 {
   uint8_t *v5; // r4
 
-  v5 = (uint8_t *)rf_bus_setup_n3a8(4104, a4, 4, 2u);
-  feature_guard_sdio(8, dword_137084);
+  v5 = (uint8_t *)bt_buf_alloc(4104, a4, 4, 2u);
+  state_check_feature(8, dword_137084);
   *v5 = 1;
   v5[1] = *(uint8_t *)(a2 + 2);
-  sub_12CBB4((int)v5);
+  hci_evt_send((int)v5);
   return 0;
 }
 

@@ -15,10 +15,10 @@ extern uint32_t off_11DF88;
 extern uint32_t off_11DF8C;
 extern uint32_t dword_11DF90;
 
-// rx_queue_head_init @ 0x11df44, size 64 bytes
-// Doc: rx_queue_head_init [rx]: Initialize RX queue head pointer from descriptor base
-// rx_queue_head_init [rx]: Initialize RX queue head pointer from descriptor base
-uint32_t *rx_queue_head_init()
+// critical_enter @ 0x11df44, size 64 bytes
+// Doc: critical_enter [rx]: Initialize RX queue head pointer from descriptor base
+// critical_enter [rx]: Initialize RX queue head pointer from descriptor base
+uint32_t *critical_enter()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2

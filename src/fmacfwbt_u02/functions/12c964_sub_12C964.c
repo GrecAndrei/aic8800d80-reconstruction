@@ -16,10 +16,10 @@ extern uint32_t dword_12CA18;
 extern uint32_t dword_12CA0C;
 extern uint32_t dword_12CA08;
 
-// sub_12C964 @ 0x12c964, size 152 bytes
+// irq_lock @ 0x12c964, size 152 bytes
 // Doc: message_dispatch_n_1de [ipc]: Dispatch message and compare against timestamp at 0x40501000
 // message_dispatch_n_1de [ipc]: Dispatch message and compare against timestamp at 0x40501000
-int  sub_12C964(int result, int a2)
+int  irq_lock(int result, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r6
@@ -44,26 +44,26 @@ int  sub_12C964(int result, int a2)
   {
     if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
-      sub_12D4F8(v3 + 5);
+      list_pop_front(v3 + 5);
       v8 = v3[5];
       v9 = (int)(v3 + 8);
       if ( v8 )
       {
-        timestamp_update_4f60(v9, *(uint32_t *)(v8 + 8));
+        ke_event_lock(v9, *(uint32_t *)(v8 + 8));
         if ( **(int16_t **)message_dispatch_n_1a4_ca10 < 0
           && *(uint32_t *)(v8 + 8) - *((uint32_t *)message_dispatch_n_1a0_ca14 + 4) < 0 )
         {
-          sub_12F694(dword_12CA1C, dword_12CA18, 232);
+          mmio_irq_clear(dword_12CA1C, dword_12CA18, 232);
         }
       }
       else
       {
-        timestamp_remove_058(v9);
+        ke_event_set_lock(v9);
       }
     }
     else
     {
-      result = sub_12CC64(dword_12CA0C, dword_12CA08, a2 | (result << 16));
+      result = tx_list_foreach(dword_12CA0C, dword_12CA08, a2 | (result << 16));
       v4 = result;
       if ( !result )
       {
@@ -71,7 +71,7 @@ int  sub_12C964(int result, int a2)
         goto LABEL_8;
       }
     }
-    result = buffer_pool_get(v4);
+    result = hci_tx_packet(v4);
     v5 = *v2;
   }
 LABEL_8:

@@ -26,8 +26,8 @@ extern uint32_t off_115E08;
 extern uint32_t off_115E18;
 extern uint32_t off_115E0C;
 
-// sub_115C20 @ 0x115c20, size 452 bytes
-void __noreturn sub_115C20()
+// ll_init_tables @ 0x115c20, size 452 bytes
+void __noreturn ll_init_tables()
 {
   int *v0; // r5
   uint8_t **v1; // r10
@@ -46,12 +46,12 @@ void __noreturn sub_115C20()
   int v14; // r3
 
   v0 = (int *)off_115DF0;
-  sub_12E948(dword_115DEC, dword_115DE8, dword_115DE4);
+  alloc_tx_event(dword_115DEC, dword_115DE8, dword_115DE4);
   if ( *(uint32_t *)off_115DF4 )
   {
-    sub_10EDD4();
+    write_mmio_register();
     if ( *(uint16_t *)(*v0 + 8) )
-      sub_10ED98(*(uint16_t *)(*v0 + 8));
+      rf_set_channel(*(uint16_t *)(*v0 + 8));
   }
   v1 = (uint8_t **)off_115E1C;
   if ( **(uint8_t **)off_115E1C == 2 )
@@ -60,7 +60,7 @@ void __noreturn sub_115C20()
     *(uint8_t *)(v2 + 6) = 2;
     *(uint8_t *)(v2 + 3) = 1;
   }
-  v3 = sub_1144FC(*(uint16_t *)(*v0 + 4));
+  v3 = scheduler_entry(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
     sub_114588();
   __enable_irq();
@@ -76,10 +76,10 @@ void __noreturn sub_115C20()
     while ( 1 )
     {
       if ( *(uint8_t *)(*v0 + 3) )
-        sub_114578();
+        memory_barrier();
       if ( !*v4 )
-        v3 = sub_12D050(v3);
-      v3 = sub_130030(v3);
+        v3 = process_event_queue(v3);
+      v3 = rf_calibration_proc(v3);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -93,7 +93,7 @@ void __noreturn sub_115C20()
       if ( v10 )
         goto LABEL_15;
     }
-    v3 = sub_1159A4(v3);
+    v3 = sleep_mode_read(v3);
     if ( *(uint8_t *)(*v0 + 3) )
       sub_114588();
     if ( **v1 == 1 && *(uint8_t *)off_115E04 )
@@ -113,16 +113,16 @@ LABEL_23:
           goto LABEL_29;
         goto LABEL_24;
       }
-      v3 = sub_115470(v3, v13);
+      v3 = fault_status_read(v3, v13);
     }
     while ( !v3 );
     if ( !*(uint8_t *)(*v0 + 3) )
       goto LABEL_23;
 LABEL_28:
-    sub_11459C();
+    set_state_flag();
     if ( v8[1] )
 LABEL_29:
-      v3 = sub_115500();
+      v3 = rf_power_control();
 LABEL_24:
     v10 = *v6;
     if ( *v6 )
@@ -141,7 +141,7 @@ LABEL_15:
   v14 = **(uint8_t **)off_115E08;
   if ( v14 == 3 )
   {
-    v3 = sub_1111B4();
+    v3 = get_init_flag();
     if ( v3 )
       goto LABEL_36;
     v14 = **(uint8_t **)off_115E08;
@@ -156,7 +156,7 @@ LABEL_15:
     goto LABEL_21;
   }
 LABEL_36:
-  sub_12E8D0(v3);
+  mmio_read_bit13(v3);
   while ( 1 )
     ;
 }

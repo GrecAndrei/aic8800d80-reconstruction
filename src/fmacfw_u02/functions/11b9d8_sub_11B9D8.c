@@ -18,10 +18,10 @@ extern uint32_t off_11BBA4;
 extern uint32_t off_11BBAC;
 extern uint32_t dword_11BBB0;
 
-// sub_11B9D8 @ 0x11b9d8, size 446 bytes
+// check_power_flag @ 0x11b9d8, size 446 bytes
 // Doc: sub_121B9D8 [unknown]: Unknown behavioral function in fmacfw
 // sub_121B9D8 [unknown]: Unknown behavioral function in fmacfw
-void sub_11B9D8()
+void check_power_flag()
 {
   uint32_t *v0; // r4
   int v1; // r3
@@ -74,7 +74,7 @@ void sub_11B9D8()
     {
       if ( *((uint8_t *)off_11BB98 + 191) == 4 )
       {
-        sub_11B578((int)off_11BB98 + 168);
+        process_control_event((int)off_11BB98 + 168);
       }
       else
       {
@@ -114,13 +114,13 @@ void sub_11B9D8()
         }
         if ( (v1 & 1) == 0 )
         {
-          v21 = (uint32_t *)sub_11B240(&v35);
+          v21 = (uint32_t *)check_link_state(&v35);
           if ( v21 )
           {
-            sub_11B7C8(v21);
+            mmio_wait_update(v21);
             v22 = v35;
             *(uint32_t *)off_11BBAC &= ~0x200u;
-            sub_11B84C(v22);
+            handle_connection_slot(v22);
             return;
           }
           v1 = v0[52];

@@ -14,8 +14,8 @@ extern uint32_t off_12C920;
 extern uint32_t off_12C924;
 extern uint32_t dword_12C928;
 
-// sub_12C8D8 @ 0x12c8d8, size 72 bytes
-int sub_12C8D8()
+// ke_int_lock_save @ 0x12c8d8, size 72 bytes
+int ke_int_lock_save()
 {
   int *v0; // r5
   int v1; // r4
@@ -31,13 +31,13 @@ int sub_12C8D8()
   v0 = (int *)off_12C924;
   v1 = dword_12C928;
   ++*(uint32_t *)off_12C924;
-  sub_12D14C(0x10000000);
+  unknown_func_12d14c(0x10000000);
   while ( 1 )
   {
-    result = sub_12D2D0(v1);
+    result = mem_word_load(v1);
     if ( !result )
       break;
-    sub_12CBC8(result);
+    tx_pkt_enqueue(result);
   }
   if ( *v0 )
   {

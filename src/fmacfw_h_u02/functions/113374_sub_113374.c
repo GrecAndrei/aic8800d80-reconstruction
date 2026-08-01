@@ -15,8 +15,8 @@ extern uint32_t off_11340C;
 extern uint32_t off_113414;
 extern uint32_t dword_113410;
 
-// sub_113374 @ 0x113374, size 148 bytes
-int  sub_113374(int a1, int a2)
+// rf_is_idle @ 0x113374, size 148 bytes
+int  rf_is_idle(int a1, int a2)
 {
   uint8_t *v2; // r6
   int **v3; // r4
@@ -36,7 +36,7 @@ int  sub_113374(int a1, int a2)
   if ( *(uint8_t *)off_113408 )
     return -99;
   v3 = (int **)off_11340C;
-  v4 = sub_12D22C(off_11340C, a2);
+  v4 = list_length(off_11340C, a2);
   v5 = off_113414;
   *(uint8_t *)off_113414 = v4;
   if ( v4 )
@@ -77,7 +77,7 @@ LABEL_11:
       v14 = *(uint8_t *)(v13 + 3);
       *v2 = 1;
       *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return sub_112ED0(1, v12);
+      return rx_increment_count(1, v12);
     }
   }
   return -98;

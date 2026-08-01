@@ -16,8 +16,8 @@ extern uint32_t dword_115944;
 extern uint32_t off_11593C;
 extern uint32_t off_115948;
 
-// sub_1157D8 @ 0x1157d8, size 346 bytes
-void  sub_1157D8(int a1, int a2)
+// check_event_flag @ 0x1157d8, size 346 bytes
+void  check_event_flag(int a1, int a2)
 {
   int v2; // r3
   int v3; // r1
@@ -34,9 +34,9 @@ void  sub_1157D8(int a1, int a2)
   }
   v3 = dword_115944;
   ++*(uint32_t *)off_11593C;
-  sub_12ECD0(1024, v3);
-  v4 = sub_12D14C(0x80000000);
-  sub_12BB4C(v4);
+  check_status_bits(1024, v3);
+  v4 = unknown_func_12d14c(0x80000000);
+  rf_clear_status(v4);
   v5 = off_115948;
   *(uint32_t *)off_115948 &= 0xFFFFFFu;
   *v5 |= 0x10u;

@@ -16,10 +16,10 @@ extern uint32_t dword_138FD4;
 extern uint32_t dword_138FD0;
 extern uint32_t dword_138FD8;
 
-// fmac_msg_handler_n3a4 @ 0x138da4, size 554 bytes
-// Doc: fmac_msg_handler_n3a4 [mac]: FMAC message handler with frame context
-// fmac_msg_handler_n3a4 [mac]: FMAC message handler with frame context
-int  fmac_msg_handler_n3a4(unsigned int a1, int a2, int a3, int a4)
+// ll_state_machine @ 0x138da4, size 554 bytes
+// Doc: ll_state_machine [mac]: FMAC message handler with frame context
+// ll_state_machine [mac]: FMAC message handler with frame context
+int  ll_state_machine(unsigned int a1, int a2, int a3, int a4)
 {
   uint32_t *v4; // r8
   unsigned int v5; // r4
@@ -65,7 +65,7 @@ int  fmac_msg_handler_n3a4(unsigned int a1, int a2, int a3, int a4)
   v5 = a1;
   if ( a3 )
   {
-    sub_1335E4(
+    crypto_load_args(
       a2,
       (uint32_t *)(*((uint32_t *)off_138FDC + 8) + 88),
       (int)off_138FDC + 36,
@@ -86,7 +86,7 @@ int  fmac_msg_handler_n3a4(unsigned int a1, int a2, int a3, int a4)
     {
       v44 = v10;
       v32 = (uint8_t *)(v8 + v9[2]);
-      fmac_data_unpack_n_630((uint32_t *)a2, v10, v5);
+      unaligned_read((uint32_t *)a2, v10, v5);
       v33 = (char *)&v45;
       v34 = (char *)&v45 + (uint8_t)(8 - v5);
       do
@@ -110,7 +110,7 @@ int  fmac_msg_handler_n3a4(unsigned int a1, int a2, int a3, int a4)
       }
       goto LABEL_36;
     }
-    fmac_data_unpack_n_630((uint32_t *)a2, v10, 8u);
+    unaligned_read((uint32_t *)a2, v10, 8u);
     v11 = *((uint8_t *)v4 + 8);
     v12 = *((uint8_t *)v4 + 8);
   }
@@ -123,7 +123,7 @@ int  fmac_msg_handler_n3a4(unsigned int a1, int a2, int a3, int a4)
   {
     v15 = (uint16_t)(v12 + v14);
 LABEL_11:
-    fmac_data_unpack_n_630((uint32_t *)a2, v17, v14);
+    unaligned_read((uint32_t *)a2, v17, v14);
   }
   else
   {
@@ -131,14 +131,14 @@ LABEL_11:
     while ( 1 )
     {
       v14 = (uint16_t)(v14 + v12 - v15);
-      fmac_data_unpack_n_630((uint32_t *)a2, v17, (uint16_t)(v15 - v12));
+      unaligned_read((uint32_t *)a2, v17, (uint16_t)(v15 - v12));
       v12 = 0;
       if ( !(uint16_t)v14 )
         break;
       v9 = (uint32_t *)v9[1];
       if ( **v18 < 0 && !v9 )
       {
-        fmac_phy_op_handler(dword_138FD4, dword_138FD0, 963);
+        bad_func_0x12f408(dword_138FD4, dword_138FD0, 963);
         return 0;
       }
       v17 = v9[2];
@@ -175,7 +175,7 @@ LABEL_19:
     v15 = 0;
     if ( **v19 < 0 && !v9 )
     {
-      fmac_phy_op_handler(dword_138FD4, dword_138FD0, 1005);
+      bad_func_0x12f408(dword_138FD4, dword_138FD0, 1005);
       return 0;
     }
   }
@@ -200,10 +200,10 @@ LABEL_16:
     return 1;
   }
 LABEL_36:
-  sub_13376C(a2);
+  patch_handle_data(a2);
   if ( v45 == *(uint64_t *)a2 )
     return 1;
-  v39 = sub_12C92C(5126, 13, 5, 0x18u);
+  v39 = ke_msg_alloc(5126, 13, 5, 0x18u);
   v40 = v4[6];
   v41 = dword_138FD8 + 696 * *((uint8_t *)v4 + 9);
   v42 = *((uint64_t *)v4 + 2);
@@ -214,7 +214,7 @@ LABEL_36:
   *(uint8_t *)(v39 + 18) = *((uint8_t *)v4 + 10);
   *(uint8_t *)(v39 + 16) = (v40 & 0x400) != 0;
   *(uint8_t *)(v39 + 17) = *(uint8_t *)(v4[8] + 97);
-  sdio_buffer_prepare_n_4e8(v39);
+  ke_msg_send(v39);
   return 0;
 }
 

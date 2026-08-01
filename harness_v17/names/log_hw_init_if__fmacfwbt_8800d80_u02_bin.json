@@ -1,1 +1,1 @@
-{"fn": "log_hw_init_if", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d5cc", "status": "ok", "name": "log_hw_init_if", "params": [], "docstring": "Initialize logging hardware (NVIC IRQ enable)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_hw_init_if", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d5cc", "status": "ok", "name": "event_loop_check", "params": [], "docstring": "Initialize logging hardware (NVIC IRQ enable)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114570 @ 0x114570, size 10 bytes
-int  sub_114570(int a1)
+// bus_read_12 @ 0x114570, size 10 bytes
+int  bus_read_12(int a1)
 {
-  return sub_114318(2, a1, 0xCu);
+  return ke_task_handler(2, a1, 0xCu);
 }
 

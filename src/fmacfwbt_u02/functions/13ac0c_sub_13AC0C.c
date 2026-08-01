@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13AC0C @ 0x13ac0c, size 54 bytes
-int  sub_13AC0C(int a1, uint16_t *a2)
+// rx_validate_frame_type @ 0x13ac0c, size 54 bytes
+int  rx_validate_frame_type(int a1, uint16_t *a2)
 {
   unsigned int v2; // r2
   uint16_t *v4; // r1
@@ -25,7 +25,7 @@ int  sub_13AC0C(int a1, uint16_t *a2)
     a2[1] = 3;
     a2[2] = 0;
   }
-  v4 = sub_13AA1C(a1, a2, 1);
-  return sub_13A7A0(a1, (int)v4);
+  v4 = rf_set_channel_table(a1, a2, 1);
+  return rf_configure_channel(a1, (int)v4);
 }
 

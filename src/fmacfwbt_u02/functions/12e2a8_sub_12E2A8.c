@@ -13,10 +13,10 @@
 extern uint32_t dword_12E320;
 extern uint32_t dword_12E324;
 
-// sub_12E2A8 @ 0x12e2a8, size 120 bytes
+// freq_to_chan_map2 @ 0x12e2a8, size 120 bytes
 // Doc: sdio_buffer_prepare_2ba [mac]: Prepare SDIO scatter-gather buffer descriptor
 // sdio_buffer_prepare_2ba [mac]: Prepare SDIO scatter-gather buffer descriptor
-int  sub_12E2A8(unsigned int a1)
+int  freq_to_chan_map2(unsigned int a1)
 {
   int result; // r0
 

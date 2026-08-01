@@ -1,1 +1,1 @@
-{"fn": "irq23_enable", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d628", "status": "ok", "name": "irq23_enable_d628", "params": [], "docstring": "Set pending bit 0x200000 in NVIC ISER to enable IRQ23", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "irq23_enable", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d628", "status": "ok", "name": "irq_install_handler", "params": [], "docstring": "Set pending bit 0x200000 in NVIC ISER to enable IRQ23", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

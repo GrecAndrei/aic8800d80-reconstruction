@@ -15,8 +15,8 @@ extern uint32_t off_101A10;
 extern uint32_t off_101A14;
 extern uint32_t off_101A08;
 
-// sub_1019DC @ 0x1019dc, size 44 bytes
-int  sub_1019DC(int16_t a1)
+// set_rf_frequency @ 0x1019dc, size 44 bytes
+int  set_rf_frequency(int16_t a1)
 {
   int v1; // r4
   uint32_t *v2; // r1

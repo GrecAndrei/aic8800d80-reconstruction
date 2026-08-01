@@ -18,10 +18,10 @@ extern uint32_t dword_115FFC;
 extern uint32_t dword_116000;
 extern uint32_t off_116004;
 
-// rf_fault_status_get_n_xxx @ 0x115f68, size 132 bytes
-// Doc: rf_fault_status_get_n_xxx [rf]: Reads RF fault status flag and dispatches accordingly
-// rf_fault_status_get_n_xxx [rf]: Reads RF fault status flag and dispatches accordingly
-int rf_fault_status_get_n_xxx()
+// kernel_event_wait @ 0x115f68, size 132 bytes
+// Doc: kernel_event_wait [rf]: Reads RF fault status flag and dispatches accordingly
+// kernel_event_wait [rf]: Reads RF fault status flag and dispatches accordingly
+int kernel_event_wait()
 {
   int **v0; // r5
   uint32_t *v1; // r6
@@ -32,14 +32,14 @@ int rf_fault_status_get_n_xxx()
   int result; // r0
 
   v0 = (int **)off_115FF0;
-  sub_12D240(dword_115FEC);
+  zero_8_bytes(dword_115FEC);
   if ( **(int16_t **)off_115FF4 < 0 )
   {
     v2 = *v0;
     v1 = off_115FF8;
     if ( !*v0 || !*(uint32_t *)off_115FF8 )
     {
-      sub_12F46C(dword_115FFC, dword_116000, 90);
+      mmio_clear_register(dword_115FFC, dword_116000, 90);
       v2 = *v0;
     }
   }
@@ -50,12 +50,12 @@ int rf_fault_status_get_n_xxx()
   }
   v3 = off_116004;
   v4 = dword_115FEC;
-  memset_thunk(v2, 0, 88 * *(uint16_t *)(*(uint32_t *)off_116004 + 8) + 88);
+  memset(v2, 0, 88 * *(uint16_t *)(*(uint32_t *)off_116004 + 8) + 88);
   v5 = 0;
   do
   {
     (*v0)[22 * v5 + 19] = *v1 + 80 * v5;
-    result = list_push_tail(v4);
+    result = cmd_handler_a(v4);
     ++v5;
   }
   while ( *(uint16_t *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );

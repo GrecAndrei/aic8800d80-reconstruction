@@ -13,10 +13,10 @@
 extern uint32_t off_10DC9C;
 extern uint32_t dword_10DCA0;
 
-// sub_10DC40 @ 0x10dc40, size 90 bytes
+// rf_get_int_status @ 0x10dc40, size 90 bytes
 // Doc: sub_120DC40 [mmio]: Reads status register block at 0x40505000
 // sub_120DC40 [mmio]: Reads status register block at 0x40505000
-void sub_10DC40()
+void rf_get_int_status()
 {
   uint32_t *v0; // r4
   unsigned int v1; // r3

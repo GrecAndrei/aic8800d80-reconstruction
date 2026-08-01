@@ -14,10 +14,10 @@ extern uint32_t off_114704;
 extern uint32_t off_114708;
 extern uint32_t dword_11470C;
 
-// sub_1146D0 @ 0x1146d0, size 52 bytes
+// lock_acquire @ 0x1146d0, size 52 bytes
 // Doc: sub_12146D0 [util]: Helper routine in fmacfwbt with shift/branch logic
 // sub_12146D0 [util]: Helper routine in fmacfwbt with shift/branch logic
-int sub_1146D0()
+int lock_acquire()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_1146D0()
   v0 = (int *)off_114708;
   v1 = dword_11470C;
   ++*(uint32_t *)off_114708;
-  result = sub_12D4F8(v1);
+  result = list_pop_front(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

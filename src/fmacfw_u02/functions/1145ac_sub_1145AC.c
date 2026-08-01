@@ -19,8 +19,8 @@ extern uint32_t off_11462C;
 extern uint32_t off_114630;
 extern uint32_t dword_114638;
 
-// sub_1145AC @ 0x1145ac, size 110 bytes
-int  sub_1145AC(int result)
+// sub_1145ac @ 0x1145ac, size 110 bytes
+int  sub_1145ac(int result)
 {
   if ( !result )
   {
@@ -28,7 +28,7 @@ int  sub_1145AC(int result)
       && (result = *((uint32_t *)off_114620 + 4),
           *(uint32_t *)(*(uint32_t *)off_11461C + 12) - result - *((uint16_t *)off_114624 + 92) - 2000 < 0) )
     {
-      result = sub_12ECD0(2, dword_114634);
+      result = check_status_bits(2, dword_114634);
     }
     else
     {
@@ -43,7 +43,7 @@ int  sub_1145AC(int result)
         *(uint32_t *)off_114630 = 0x40000000;
         return result;
       }
-      result = sub_12ECD0(2, dword_114638);
+      result = check_status_bits(2, dword_114638);
     }
   }
   *(uint32_t *)off_114630 = 0x80000000;

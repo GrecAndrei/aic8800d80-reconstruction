@@ -12,8 +12,8 @@
 
 extern uint32_t dword_139E18;
 
-// sub_139DB8 @ 0x139db8, size 96 bytes
-int  sub_139DB8(char *a1, char a2, int a3)
+// rf_get_power @ 0x139db8, size 96 bytes
+int  rf_get_power(char *a1, char a2, int a3)
 {
   char v3; // r3
   int result; // r0
@@ -32,9 +32,9 @@ int  sub_139DB8(char *a1, char a2, int a3)
   {
     v3 += 4;
   }
-  result = sub_143630(&v6, &a1[(uint8_t)(v3 + 6)], 2);
+  result = memcpy(&v6, &a1[(uint8_t)(v3 + 6)], 2);
   if ( v6 == 36488 )
-    return sub_12E948(dword_139E18, 36488, a3);
+    return alloc_tx_event(dword_139E18, 36488, a3);
   return result;
 }
 

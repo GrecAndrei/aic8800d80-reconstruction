@@ -25,10 +25,10 @@ extern uint32_t dword_10F548;
 extern uint32_t dword_10F544;
 extern uint32_t dword_10F53C;
 
-// log_system_init @ 0x10f458, size 192 bytes
+// rf_wait_ready @ 0x10f458, size 192 bytes
 // Doc: log_system_init_mode2 [util]: Initialize firmware logging subsystem mode 2
 // log_system_init_mode2 [util]: Initialize firmware logging subsystem mode 2
-int log_system_init()
+int rf_wait_ready()
 {
   uint8_t **v0; // r4
   int v1; // r3
@@ -76,17 +76,17 @@ int log_system_init()
       v6[9] = v7;
       break;
   }
-  log_pool_default_config();
-  v4 = log_global_init();
+  tx_send_packet();
+  v4 = rf_timer_init();
   v5 = **v0;
   if ( v5 == 1 )
   {
     v17 = (int ( **)(int))off_10F51C;
     *(uint32_t *)off_10F538 = dword_10F54C;
-    inited = log_pool_init_queue(v4, HIDWORD(v4));
-    v19 = sub_110224(inited);
-    v20 = sub_11027C(v19);
-    log_pool_init_b(v20);
+    inited = get_link_rate(v4, HIDWORD(v4));
+    v19 = get_modulation_type(inited);
+    v20 = get_link_tx_power(v19);
+    get_link_channel(v20);
     v21 = v17[2](dword_10F540);
     LODWORD(v4) = v17[3](v21);
     v5 = **v0;
@@ -97,18 +97,18 @@ int log_system_init()
     *(uint32_t *)off_10F538 = dword_10F544;
     v13 = (int ( **)(int))off_10F51C;
     *(uint16_t *)(v12 + 8244) = 0;
-    v14 = sub_1139C8();
-    sub_113814(v14);
+    v14 = ke_state_get_fast();
+    ke_state_get(v14);
     v15 = v13[6](dword_10F540);
     v16 = v13[7](v15);
-    LODWORD(v4) = sub_114168(v16);
+    LODWORD(v4) = store_byte_field(v16);
     v5 = **v0;
   }
   if ( v5 == 3 )
   {
     v10 = (int ( **)(int))off_10F51C;
     *(uint32_t *)off_10F538 = dword_10F53C;
-    sub_114234();
+    process_task_queue();
     v11 = v10[8](dword_10F540);
     LODWORD(v4) = v10[9](v11);
   }

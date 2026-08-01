@@ -1,1 +1,1 @@
-{"fn": "sub_123B9AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123b9ac", "status": "ok", "name": "rf_state_get_or_set", "params": [], "docstring": "Inspect or modify RF state byte at offset 0x106+6 based on value 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123B9AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123b9ac", "status": "ok", "name": "rf_scan_entry", "params": [], "docstring": "Inspect or modify RF state byte at offset 0x106+6 based on value 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

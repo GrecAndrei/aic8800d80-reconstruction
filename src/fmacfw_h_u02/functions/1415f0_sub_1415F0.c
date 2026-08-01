@@ -13,8 +13,8 @@
 extern uint32_t dword_1418D4;
 extern uint32_t dword_141A2C;
 
-// sub_1415F0 @ 0x1415f0, size 1082 bytes
-int * sub_1415F0(int a1, int a2, int a3, int a4, char a5, char a6, char a7)
+// ke_timer_set @ 0x1415f0, size 1082 bytes
+int * ke_timer_set(int a1, int a2, int a3, int a4, char a5, char a6, char a7)
 {
   int v7; // r7
   int v9; // r0
@@ -74,7 +74,7 @@ int * sub_1415F0(int a1, int a2, int a3, int a4, char a5, char a6, char a7)
   if ( v10 )
     v7 = 0;
   HIBYTE(v51) = *(uint8_t *)(a1 + 21);
-  result = (int *)sub_140A38(&v49, 0, v7);
+  result = (int *)util_memcmp(&v49, 0, v7);
   if ( !result )
     return result;
   v14 = dword_1418D4;
@@ -289,8 +289,8 @@ LABEL_39:
           else
           {
             v45 = v21[2];
-            sub_143630(v18 + 28, v21, v21[1] + 2);
-            result = (int *)sub_140A38((uint16_t *)(v18 + 6), (int)v21, v7);
+            memcpy(v18 + 28, v21, v21[1] + 2);
+            result = (int *)util_memcmp((uint16_t *)(v18 + 6), (int)v21, v7);
             v29 = v45;
             if ( !result )
             {
@@ -299,7 +299,7 @@ LABEL_39:
             }
           }
 LABEL_41:
-          if ( (int)v30 <= v27 && (result = (int *)sub_140370(v28, v29, v7)) != 0 )
+          if ( (int)v30 <= v27 && (result = (int *)find_ll_item(v28, v29, v7)) != 0 )
           {
             v36 = v21;
             v37 = v26 - (uint32_t)v21;

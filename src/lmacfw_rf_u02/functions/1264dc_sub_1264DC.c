@@ -16,8 +16,8 @@ extern uint32_t off_12652C;
 extern uint32_t off_126530;
 extern uint32_t off_126534;
 
-// sub_1264DC @ 0x1264dc, size 70 bytes
-int  sub_1264DC(int a1)
+// mmio_write_register @ 0x1264dc, size 70 bytes
+int  mmio_write_register(int a1)
 {
   uint32_t *v1; // r3
   int *v2; // r4

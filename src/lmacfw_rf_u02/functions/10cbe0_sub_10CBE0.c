@@ -15,8 +15,8 @@ extern uint32_t off_10CC8C;
 extern uint32_t off_10CC90;
 extern uint32_t dword_10CC94;
 
-// sub_10CBE0 @ 0x10cbe0, size 166 bytes
-int *sub_10CBE0()
+// config_uart_control @ 0x10cbe0, size 166 bytes
+int *config_uart_control()
 {
   unsigned int *v0; // r3
   unsigned int *v1; // r2

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E26C @ 0x13e26c, size 160 bytes
-int  sub_13E26C(int result, int a2)
+// tx_process_ll_queue @ 0x13e26c, size 160 bytes
+int  tx_process_ll_queue(int result, int a2)
 {
   unsigned int v2; // r11
   int v4; // r9
@@ -53,9 +53,9 @@ int  sub_13E26C(int result, int a2)
             if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
-          sub_143940(v13, v8);
-          sub_143940(v8, v8 + 12);
-          result = sub_143940(v8 + 12, v13);
+          memmove(v13, v8);
+          memmove(v8, v8 + 12);
+          result = memmove(v8 + 12, v13);
           ++v5;
           v12 = *(uint64_t *)(v7 - 1);
           v9 = v6;

@@ -17,8 +17,8 @@ extern uint32_t dword_10FB14;
 extern uint32_t dword_10FB18;
 extern uint32_t dword_10FB1C;
 
-// sub_10F924 @ 0x10f924, size 492 bytes
-unsigned int  sub_10F924(int *a1, int a2, unsigned int a3)
+// hci_handle_command @ 0x10f924, size 492 bytes
+unsigned int  hci_handle_command(int *a1, int a2, unsigned int a3)
 {
   unsigned int result; // r0
   int v6; // r2
@@ -98,7 +98,7 @@ unsigned int  sub_10F924(int *a1, int a2, unsigned int a3)
       }
       else
       {
-        sub_10DC24(dword_10FB10, v15);
+        log_printf(dword_10FB10, v15);
         v17 = *v8;
         if ( *v8 > (unsigned int)v15 )
           goto LABEL_22;
@@ -115,7 +115,7 @@ LABEL_12:
           goto LABEL_25;
         goto LABEL_13;
       }
-      sub_10DC24(dword_10FB14, v15);
+      log_printf(dword_10FB14, v15);
       v18 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_25;
@@ -132,7 +132,7 @@ LABEL_14:
           goto LABEL_28;
         goto LABEL_15;
       }
-      sub_10DC24(dword_10FB18, v15);
+      log_printf(dword_10FB18, v15);
       v19 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_28;
@@ -146,7 +146,7 @@ LABEL_16:
         *v15 = v20;
         goto LABEL_17;
       }
-      sub_10DC24(dword_10FB1C, v15);
+      log_printf(dword_10FB1C, v15);
 LABEL_17:
       ++v12;
       ++*(uint16_t *)v14;

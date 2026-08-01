@@ -19,8 +19,8 @@ extern uint32_t off_106EFC;
 extern uint32_t off_106F00;
 extern uint32_t off_106F04;
 
-// sub_106DBC @ 0x106dbc, size 298 bytes
-uint32_t *sub_106DBC()
+// clk_disable @ 0x106dbc, size 298 bytes
+uint32_t *clk_disable()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

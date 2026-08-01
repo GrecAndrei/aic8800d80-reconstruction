@@ -15,10 +15,10 @@ extern uint32_t off_1340A8;
 extern uint32_t off_1340AC;
 extern uint32_t dword_1340B0;
 
-// sub_134008 @ 0x134008, size 154 bytes
+// llm_le_set_scan_enable @ 0x134008, size 154 bytes
 // Doc: sub_1234008 [unknown]: Helper routine processing byte fields from r1 struct
 // sub_1234008 [unknown]: Helper routine processing byte fields from r1 struct
-int  sub_134008(int a1, uint16_t *a2)
+int  llm_le_set_scan_enable(int a1, uint16_t *a2)
 {
   int v3; // r6
   int *v4; // r4
@@ -37,7 +37,7 @@ int  sub_134008(int a1, uint16_t *a2)
   }
   v4 = (int *)off_1340A8;
   ++*(uint32_t *)off_1340A8;
-  if ( msg_get_value(6u) || *((uint8_t *)off_1340AC + 14) && message_dispatch_n_d8(6155, 6) )
+  if ( hci_cmd_send_short(6u) || *((uint8_t *)off_1340AC + 14) && find_hci_conn_by_handle(6155, 6) )
   {
     if ( *v4 )
     {
@@ -69,12 +69,12 @@ int  sub_134008(int a1, uint16_t *a2)
     v6 = *(uint8_t *)(v5 + 106);
     if ( !*(uint8_t *)(v5 + 106) && *(uint8_t *)(v5 + 108) )
     {
-      sub_134FA8(v5, *a2, 1);
+      init_rf_config(v5, *a2, 1);
       return v6;
     }
     else
     {
-      message_dispatch_n84(6148, 13, 6);
+      hci_evt_alloc_send(6148, 13, 6);
       return 0;
     }
   }

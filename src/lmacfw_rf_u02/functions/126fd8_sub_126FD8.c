@@ -14,8 +14,8 @@ extern uint32_t off_127040;
 extern uint32_t dword_127048;
 extern uint32_t dword_127044;
 
-// sub_126FD8 @ 0x126fd8, size 104 bytes
-int  sub_126FD8(char a1)
+// rf_cmd_check @ 0x126fd8, size 104 bytes
+int  rf_cmd_check(char a1)
 {
   uint8_t *v1; // r4
   int v3; // r0
@@ -30,8 +30,8 @@ int  sub_126FD8(char a1)
   }
   else
   {
-    sub_10DE98();
-    v4 = (int)COERCE_FLOAT(sub_10DEF0());
+    sdio_core_reset_alt();
+    v4 = (int)COERCE_FLOAT(wait_sdio_core_ready());
     v3 = (char)v4;
   }
   v1[4] = a1;
@@ -45,6 +45,6 @@ int  sub_126FD8(char a1)
   if ( v5 < -7 )
     LOBYTE(v5) = -7;
   v1[2] = v5;
-  return sub_126F10(v3);
+  return freq_offset_to_channel(v3);
 }
 

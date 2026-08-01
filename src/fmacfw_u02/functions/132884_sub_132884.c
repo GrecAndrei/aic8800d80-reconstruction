@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132884 @ 0x132884, size 22 bytes
-int  sub_132884(int a1)
+// rf_get_tx_chan @ 0x132884, size 22 bytes
+int  rf_get_tx_chan(int a1)
 {
   unsigned int v1; // r3
   int v2; // r0

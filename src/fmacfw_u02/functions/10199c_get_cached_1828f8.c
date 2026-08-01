@@ -14,17 +14,17 @@ extern uint32_t dword_1019C8;
 extern uint32_t dword_1019CC;
 extern uint32_t off_1019C4;
 
-// get_cached_1828f8 @ 0x10199c, size 40 bytes
-// Doc: get_cached_1828f8 [util]: Retrieve cached pointer/value from 0x1828f8
-// get_cached_1828f8 [util]: Retrieve cached pointer/value from 0x1828f8
-uint64_t * get_cached_1828f8(uint64_t *result, int a2)
+// rf_call_handler @ 0x10199c, size 40 bytes
+// Doc: rf_call_handler [util]: Retrieve cached pointer/value from 0x1828f8
+// rf_call_handler [util]: Retrieve cached pointer/value from 0x1828f8
+uint64_t * rf_call_handler(uint64_t *result, int a2)
 {
   uint64_t *v2; // r4
 
   v2 = result;
   if ( a2 )
   {
-    result = (uint64_t *)msg_parse(dword_1019C8, dword_1019CC, a2);
+    result = (uint64_t *)event_dispatch(dword_1019C8, dword_1019CC, a2);
     *v2 = *(uint64_t *)((char *)off_1019C4 + 36);
   }
   else

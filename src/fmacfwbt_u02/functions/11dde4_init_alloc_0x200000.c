@@ -17,10 +17,10 @@ extern uint32_t off_11DEAC;
 extern uint32_t off_11DEA0;
 extern uint32_t dword_11DEA4;
 
-// init_alloc_0x200000 @ 0x11dde4, size 180 bytes
-// Doc: init_alloc_0x200000 [util]: Allocate 0x200000-byte buffer and initialize related state
-// init_alloc_0x200000 [util]: Allocate 0x200000-byte buffer and initialize related state
-int init_alloc_0x200000()
+// rf_wait_idle @ 0x11dde4, size 180 bytes
+// Doc: rf_wait_idle [util]: Allocate 0x200000-byte buffer and initialize related state
+// rf_wait_idle [util]: Allocate 0x200000-byte buffer and initialize related state
+int rf_wait_idle()
 {
   int *v0; // r6
   int v1; // r4
@@ -36,7 +36,7 @@ int init_alloc_0x200000()
 
   v0 = (int *)off_11DE98;
   v1 = *(uint32_t *)off_11DE98;
-  result = sub_12D374(0x200000);
+  result = set_system_flag_2(0x200000);
   if ( v1 )
   {
     v3 = off_11DE9C;
@@ -48,7 +48,7 @@ int init_alloc_0x200000()
       {
         if ( (*(uint8_t *)(v1 + 16) & 1) == 0 && !*v3 )
           break;
-        sub_12D4F8(v0);
+        list_pop_front(v0);
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();
@@ -64,7 +64,7 @@ int init_alloc_0x200000()
           v7(*(uint32_t *)(v1 + 8));
         result = *(uint32_t *)(v1 + 12);
         if ( result )
-          result = rx_desc_status_get();
+          result = rf_tx_timestamp_check();
         if ( *v5 )
         {
           v8 = *v5 - 1;
@@ -82,8 +82,8 @@ int init_alloc_0x200000()
       v10 = off_11DEA0;
       if ( *((uint8_t *)off_11DEA0 + 69) )
       {
-        irq_nesting_or(0x80000);
-        result = feature_guard_sdio(1024, dword_11DEA4);
+        set_system_flag_1(0x80000);
+        result = state_check_feature(1024, dword_11DEA4);
         v10[69] = 0;
       }
     }

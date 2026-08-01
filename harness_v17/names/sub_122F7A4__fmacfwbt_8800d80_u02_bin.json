@@ -1,1 +1,1 @@
-{"fn": "sub_122F7A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f7a4", "status": "ok", "name": "rf_bt_state_check_n0a4", "params": [], "docstring": "Check current BT state against expected value 3", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122F7A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f7a4", "status": "ok", "name": "dispatch_if_ready", "params": [], "docstring": "Check current BT state against expected value 3", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

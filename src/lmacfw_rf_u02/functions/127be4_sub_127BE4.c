@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127BE4 @ 0x127be4, size 158 bytes
-unsigned int  sub_127BE4(unsigned int a1, int a2)
+// aeabi_dmul @ 0x127be4, size 158 bytes
+unsigned int  aeabi_dmul(unsigned int a1, int a2)
 {
   unsigned int v2; // r12
   int v3; // cf

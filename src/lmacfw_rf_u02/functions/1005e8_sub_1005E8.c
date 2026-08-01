@@ -12,8 +12,8 @@
 
 extern uint32_t off_1005F0;
 
-// sub_1005E8 @ 0x1005e8, size 6 bytes
-int sub_1005E8()
+// read_byte_register @ 0x1005e8, size 6 bytes
+int read_byte_register()
 {
   return *((uint8_t *)off_1005F0 + 1);
 }

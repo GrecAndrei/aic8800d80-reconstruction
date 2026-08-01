@@ -13,10 +13,10 @@
 extern uint32_t off_11018C;
 extern uint32_t dword_110194;
 
-// sub_110154 @ 0x110154, size 54 bytes
+// critical_enter_1 @ 0x110154, size 54 bytes
 // Doc: log_free_dispatch_n31e [util]: Dispatch log buffer free and load next entry header
 // log_free_dispatch_n31e [util]: Dispatch log buffer free and load next entry header
-int sub_110154()
+int critical_enter_1()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int sub_110154()
   v0 = (int *)log_free_dispatch_n330;
   v1 = dword_110194;
   ++*(uint32_t *)log_free_dispatch_n330;
-  result = list_push_tail(v1);
+  result = check_abort_flag(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

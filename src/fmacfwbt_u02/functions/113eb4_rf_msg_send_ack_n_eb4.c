@@ -13,17 +13,17 @@
 extern uint32_t off_113EEC;
 extern uint32_t off_113EF0;
 
-// rf_msg_send_ack_n_eb4 @ 0x113eb4, size 56 bytes
-// Doc: rf_msg_send_ack_n_eb4 [ipc]: Send RF message ack to host via IPC call
-// rf_msg_send_ack_n_eb4 [ipc]: Send RF message ack to host via IPC call
-int rf_msg_send_ack_n_eb4()
+// sleep_exit_critical @ 0x113eb4, size 56 bytes
+// Doc: sleep_exit_critical [ipc]: Send RF message ack to host via IPC call
+// sleep_exit_critical [ipc]: Send RF message ack to host via IPC call
+int sleep_exit_critical()
 {
   int *v0; // r4
   int result; // r0
   int v2; // r3
   int v3; // r2
 
-  init_alloc_0x200000();
+  rf_wait_idle();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -31,7 +31,7 @@ int rf_msg_send_ack_n_eb4()
   }
   v0 = (int *)off_113EF0;
   ++*(uint32_t *)off_113EF0;
-  result = sub_12D374(128);
+  result = set_system_flag_2(128);
   if ( *v0 )
   {
     v2 = *v0 - 1;

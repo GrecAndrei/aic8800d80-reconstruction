@@ -12,10 +12,10 @@
 
 extern uint32_t off_125A40;
 
-// sub_1259E0 @ 0x1259e0, size 94 bytes
+// ke_msg_send @ 0x1259e0, size 94 bytes
 // Doc: sub_12259E0 [ipc]: Helper: fetch FW header word and issue mailbox/IPC call (0x40)
 // sub_12259E0 [ipc]: Helper: fetch FW header word and issue mailbox/IPC call (0x40)
-int  sub_1259E0(int a1)
+int  ke_msg_send(int a1)
 {
   int *v1; // r5
   int v2; // r6
@@ -26,8 +26,8 @@ int  sub_1259E0(int a1)
 
   v1 = (int *)off_125A40;
   v2 = *(uint32_t *)off_125A40;
-  sub_12CA10(64, *(uint16_t *)(*(uint32_t *)off_125A40 - 4), 0);
-  sub_125510(a1, *v1);
+  ke_msg_send_no_param(64, *(uint16_t *)(*(uint32_t *)off_125A40 - 4), 0);
+  hci_acl_tx_setup(a1, *v1);
   v4 = *v1;
   *(uint8_t *)(a1 + 231) = 0;
   v5 = *(uint8_t *)(v4 + 10);
@@ -39,8 +39,8 @@ int  sub_1259E0(int a1)
   v7 = *((uint8_t *)v1 + 8);
   *((uint8_t *)v1 + 9) = 0;
   if ( v7 )
-    sub_1258C0();
+    ke_event_dispatch();
   *v1 = 0;
-  return sub_12CA38(v6);
+  return branch_to_12cbc8(v6);
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1226E1C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1226e1c", "status": "ok", "name": "fmac_msg_handler_init", "params": [], "docstring": "Initialize FMAC message handling state and post event", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1226E1C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1226e1c", "status": "ok", "name": "ctrl_poll_events", "params": [], "docstring": "Initialize FMAC message handling state and post event", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

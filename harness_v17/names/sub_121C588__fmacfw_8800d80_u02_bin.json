@@ -1,1 +1,1 @@
-{"fn": "sub_121C588", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121c588", "status": "ok", "name": "sub_121C588", "params": [], "docstring": "Unknown fmac helper function", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C588", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121c588", "status": "ok", "name": "wait_channel_clear", "params": [], "docstring": "Unknown fmac helper function", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

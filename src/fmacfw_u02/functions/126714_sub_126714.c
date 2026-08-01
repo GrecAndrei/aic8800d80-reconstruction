@@ -20,8 +20,8 @@ extern uint32_t off_1267D8;
 extern uint32_t off_1267D4;
 extern uint32_t dword_1267DC;
 
-// sub_126714 @ 0x126714, size 166 bytes
-int  sub_126714(int a1, int a2, int a3)
+// llm_ctrl_msg_handler @ 0x126714, size 166 bytes
+int  llm_ctrl_msg_handler(int a1, int a2, int a3)
 {
   int v6; // r0
   uint32_t *v7; // r4
@@ -39,17 +39,17 @@ int  sub_126714(int a1, int a2, int a3)
   int v19; // r3
   int v20; // r2
 
-  v6 = rf_bus_mark_n100_d2d0(dword_1267BC);
+  v6 = mem_word_load(dword_1267BC);
   v7 = (uint32_t *)v6;
   if ( **(int16_t **)off_1267C0 < 0 && !v6 )
-    sub_12F46C(dword_1267CC, dword_1267C8, 227);
+    mmio_clear_register(dword_1267CC, dword_1267C8, 227);
   v8 = off_1267C4;
   v9 = (char *)off_1267C4 + 32;
   v10 = *((uint32_t *)off_1267C4 + 8);
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = list_push_tail(v9);
+  result = cmd_handler_a(v9);
   if ( !v10 )
   {
     v8[18] = v7;
@@ -66,7 +66,7 @@ int  sub_126714(int a1, int a2, int a3)
     *(uint32_t *)off_1267D8 = v16;
     if ( v15 - 64 >= 0 )
     {
-      result = timestamp_update(dword_1267DC, v13);
+      result = unknown_worker(dword_1267DC, v13);
       if ( *v12 )
       {
         v19 = *v12 - 1;

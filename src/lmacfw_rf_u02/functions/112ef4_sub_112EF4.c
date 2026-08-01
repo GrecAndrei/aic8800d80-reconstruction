@@ -16,10 +16,10 @@ extern uint32_t off_112F54;
 extern uint32_t dword_112F48;
 extern uint32_t dword_112F44;
 
-// sub_112EF4 @ 0x112ef4, size 80 bytes
+// map_event_type @ 0x112ef4, size 80 bytes
 // Doc: rf_init_helper_n0c [util]: RF init helper, copies 18 bytes and checks config byte
 // rf_init_helper_n0c [util]: RF init helper, copies 18 bytes and checks config byte
-uint32_t * sub_112EF4(int a1)
+uint32_t * map_event_type(int a1)
 {
   uint32_t *v2; // r4
   int v3; // r0
@@ -29,10 +29,10 @@ uint32_t * sub_112EF4(int a1)
   {
     case 1:
       v2 = off_112F4C;
-      v3 = sub_1282E8(off_112F4C, dword_112F50, 18);
-      if ( *((uint8_t *)off_112F54 + 370) && sub_113B30(v3) )
+      v3 = memcpy_large(off_112F4C, dword_112F50, 18);
+      if ( *((uint8_t *)off_112F54 + 370) && rf_get_reg1_bit9(v3) )
       {
-        v4 = rf_helper_sub_n_3b78();
+        v4 = rf_get_reg2();
         v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
         return v2;
       }

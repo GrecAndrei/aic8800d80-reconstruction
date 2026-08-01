@@ -21,8 +21,8 @@ extern uint32_t dword_12C05C;
 extern uint32_t off_12C054;
 extern uint32_t dword_12C064;
 
-// sub_12BF68 @ 0x12bf68, size 214 bytes
-int sub_12BF68()
+// mac_isr_handler @ 0x12bf68, size 214 bytes
+int mac_isr_handler()
 {
   int v0; // r4
   int v1; // r5
@@ -50,7 +50,7 @@ int sub_12BF68()
   {
     if ( **(int16_t **)off_12C058 < 0 && v3 - *((uint32_t *)off_12C044 + 4) + 5000 < 0 )
     {
-      sub_12F694(dword_12C060, dword_12C05C, 575);
+      mmio_irq_clear(dword_12C060, dword_12C05C, 575);
       return 0;
     }
     return 0;
@@ -61,7 +61,7 @@ int sub_12BF68()
       return 1;
     if ( **(int16_t **)off_12C058 < 0 && v3 - *((uint32_t *)off_12C044 + 4) - v4 < 0 )
     {
-      sub_12F694(dword_12C064, dword_12C05C, 580);
+      mmio_irq_clear(dword_12C064, dword_12C05C, 580);
       v3 = *(uint32_t *)(v1 + 12);
       v4 = v2[93];
     }

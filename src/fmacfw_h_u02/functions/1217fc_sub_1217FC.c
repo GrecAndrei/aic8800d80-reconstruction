@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12181C;
 
-// sub_1217FC @ 0x1217fc, size 32 bytes
-BOOL  sub_1217FC(int a1, int a2)
+// ll_get_tx_power @ 0x1217fc, size 32 bytes
+BOOL  ll_get_tx_power(int a1, int a2)
 {
   return *(uint8_t *)(696 * a1 + 12 * a2 + dword_12181C + 453) != 33;
 }

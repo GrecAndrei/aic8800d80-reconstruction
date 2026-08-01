@@ -12,8 +12,8 @@
 
 extern uint32_t off_101A38;
 
-// sub_101A2C @ 0x101a2c, size 10 bytes
-int sub_101A2C()
+// sys_status_bit21_get @ 0x101a2c, size 10 bytes
+int sys_status_bit21_get()
 {
   return (*(uint32_t *)off_101A38 >> 21) & 1;
 }

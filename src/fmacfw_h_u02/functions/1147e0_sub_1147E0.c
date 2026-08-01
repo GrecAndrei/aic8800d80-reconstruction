@@ -12,8 +12,8 @@
 
 extern uint32_t dword_114858;
 
-// sub_1147E0 @ 0x1147e0, size 120 bytes
-int  sub_1147E0(int a1, int a2)
+// packet_prepare_a @ 0x1147e0, size 120 bytes
+int  packet_prepare_a(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2

@@ -14,8 +14,8 @@ extern uint32_t dword_13A4F0;
 extern uint32_t off_13A4F4;
 extern uint32_t dword_13A4F8;
 
-// sub_13A490 @ 0x13a490, size 94 bytes
-int  sub_13A490(int a1, int a2, int16_t a3)
+// get_instance_handle @ 0x13a490, size 94 bytes
+int  get_instance_handle(int a1, int a2, int16_t a3)
 {
   int v3; // r4
   char v5; // r5
@@ -29,11 +29,11 @@ int  sub_13A490(int a1, int a2, int16_t a3)
   if ( *(uint32_t *)(v3 + 408) )
     return 0;
   v5 = a2;
-  v7 = sub_12D4F8(dword_13A4F0);
+  v7 = list_pop_front(dword_13A4F0);
   v8 = v7;
   if ( !v7 )
     return 0;
-  memset_thunk(v7, 0, 0x124u);
+  memset_byte(v7, 0, 0x124u);
   v9 = off_13A4F4;
   *((uint8_t *)v8 + 10) = a3 & 0x3F;
   *((uint8_t *)v8 + 12) = v5;
@@ -44,7 +44,7 @@ int  sub_13A490(int a1, int a2, int16_t a3)
   v8[70] = (int)v8;
   v8[1] = v10;
   *(uint32_t *)(v3 + 408) = v8;
-  timestamp_update_4f60((int)(v8 + 68), v10 + 50000);
+  ke_event_lock((int)(v8 + 68), v10 + 50000);
   return 1;
 }
 

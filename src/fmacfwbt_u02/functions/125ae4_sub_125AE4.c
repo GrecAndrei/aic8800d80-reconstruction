@@ -18,8 +18,8 @@ extern uint32_t dword_125BF8;
 extern uint32_t off_125BF4;
 extern uint32_t off_125C00;
 
-// sub_125AE4 @ 0x125ae4, size 258 bytes
-void sub_125AE4()
+// rf_status_poll @ 0x125ae4, size 258 bytes
+void rf_status_poll()
 {
   int v0; // r4
   uint8_t *v1; // r6
@@ -36,7 +36,7 @@ void sub_125AE4()
   v1 = off_125BF0;
   if ( **(int16_t **)off_125BE8 < 0 && *((uint32_t *)off_125BF0 + 1) )
   {
-    sub_12F694(dword_125BFC, dword_125BF8, 1074);
+    mmio_irq_clear(dword_125BFC, dword_125BF8, 1074);
     v2 = (uint8_t)v1[9];
     if ( v1[9] )
       goto LABEL_20;
@@ -68,11 +68,11 @@ LABEL_20:
       {
         goto LABEL_6;
       }
-      if ( sub_12580C(v0) )
+      if ( tx_complete_handle(v0) )
         ++*v5;
       if ( v7 && (unsigned int)(v4 - 50) > 0xBB6 )
       {
-        sub_1286B4(v0);
+        bt_link_active(v0);
 LABEL_16:
         *v5 = v6;
         v0 = *(uint32_t *)v0;
@@ -85,17 +85,17 @@ LABEL_16:
       {
         if ( v2 )
           goto LABEL_16;
-        v7 = sub_1286B4(v0);
+        v7 = bt_link_active(v0);
         if ( v7 )
         {
           *(uint8_t *)(v0 + 144) = *(uint8_t *)(v0 + 107);
           *(uint8_t *)(v0 + 145) = -1;
-          v8 = sub_1190B4(v0 + 116, 4);
+          v8 = ble_event_dispatch(v0 + 116, 4);
           v9 = *((uint32_t *)v1 + 1);
           if ( v8 )
             *((uint32_t *)v1 + 1) = ++v9;
           if ( v9 == 1 )
-            sub_121E68();
+            mac_util_event();
           v7 = 0;
         }
         else

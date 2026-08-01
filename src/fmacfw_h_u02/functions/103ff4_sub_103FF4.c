@@ -14,8 +14,8 @@ extern uint32_t off_104074;
 extern uint32_t off_104078;
 extern uint32_t off_10407C;
 
-// sub_103FF4 @ 0x103ff4, size 126 bytes
-unsigned int  sub_103FF4(int a1, int a2)
+// rf_enable_switch @ 0x103ff4, size 126 bytes
+unsigned int  rf_enable_switch(int a1, int a2)
 {
   unsigned int *v2; // r2
   unsigned int *v3; // r3

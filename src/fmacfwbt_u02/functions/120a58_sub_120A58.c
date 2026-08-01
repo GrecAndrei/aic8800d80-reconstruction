@@ -12,8 +12,8 @@
 
 extern uint32_t off_120AB0;
 
-// sub_120A58 @ 0x120a58, size 88 bytes
-uint32_t *sub_120A58()
+// run_deferred_init @ 0x120a58, size 88 bytes
+uint32_t *run_deferred_init()
 {
   uint8_t *v0; // r4
   int *v1; // r0
@@ -28,24 +28,24 @@ uint32_t *sub_120A58()
 
   v0 = off_120AB0;
   if ( !*((uint8_t *)off_120AB0 + 2) )
-    sub_12BAE4();
-  sub_120880();
-  sub_11FA5C();
-  v1 = sub_11F16C();
-  inited = bt_chan_init_all(v1);
-  v3 = mm_state_init_check(inited);
-  sub_12A168(v3);
-  v4 = sub_1172BC();
+    mmio_poll_status();
+  init_ctx_struct();
+  si_attach();
+  v1 = wlc_attach();
+  inited = tx_slot_state_init(v1);
+  v3 = mm_state_idle(inited);
+  hw_init(v3);
+  v4 = bt_init();
   if ( v0[2] )
     v5 = nullsub_4(v4);
   else
-    v5 = sub_11DC3C();
-  v6 = sub_124F54(v5);
-  v7 = sub_12B394(v6);
-  v8 = bt_hci_reset_init(v7);
-  v9 = rf_bus_setup_n_39c(v8);
-  sub_125958(v9);
-  util_sub_f0b4();
-  return sub_1208F4();
+    v5 = is_tx_ready();
+  v6 = env_list_init_1903c8(v5);
+  v7 = bt_reset_controller(v6);
+  v8 = bt_init(v7);
+  v9 = rx_env_list_init(v8);
+  reset_bt_env(v9);
+  check_hw_flag();
+  return hal_phy_init();
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_12003D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12003d4", "status": "ok", "name": "lmac_rf_init_globals", "params": [], "docstring": "Initializes lmac RF global pointer table at boot", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12003D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12003d4", "status": "ok", "name": "init_buffer_list", "params": [], "docstring": "Initializes lmac RF global pointer table at boot", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

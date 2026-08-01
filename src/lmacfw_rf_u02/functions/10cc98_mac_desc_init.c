@@ -17,10 +17,10 @@ extern uint32_t off_10CD18;
 extern uint32_t off_10CD1C;
 extern uint32_t off_10CD20;
 
-// mac_desc_init @ 0x10cc98, size 114 bytes
-// Doc: mac_desc_init [mac]: Initialize a 0x28-byte MAC descriptor/buffer entry
-// mac_desc_init [mac]: Initialize a 0x28-byte MAC descriptor/buffer entry
-int *mac_desc_init()
+// clear_buffer_180a0c @ 0x10cc98, size 114 bytes
+// Doc: clear_buffer_180a0c [mac]: Initialize a 0x28-byte MAC descriptor/buffer entry
+// clear_buffer_180a0c [mac]: Initialize a 0x28-byte MAC descriptor/buffer entry
+int *clear_buffer_180a0c()
 {
   int v0; // r4
   int v1; // zf
@@ -47,6 +47,6 @@ int *mac_desc_init()
     *(uint32_t *)off_10CD18 |= 0x10u;
   }
   (*v3)[149] = *(uint32_t *)off_10CD20;
-  return sub_10CBE0();
+  return config_uart_control();
 }
 

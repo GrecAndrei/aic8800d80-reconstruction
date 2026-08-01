@@ -15,14 +15,14 @@ extern uint32_t off_10187C;
 extern uint32_t dword_101884;
 extern uint32_t dword_101880;
 
-// sub_1016A8 @ 0x1016a8, size 390 bytes
-void __noreturn sub_1016A8()
+// is_scan_active @ 0x1016a8, size 390 bytes
+void __noreturn is_scan_active()
 {
   if ( **(int16_t **)off_101830 < 0
     && (uint8_t)BYTE2(*(uint32_t *)off_10187C) + 10 * (HIBYTE(*(uint32_t *)off_10187C) + 2) != 32 )
   {
-    sub_12F32C(dword_101884, dword_101880, 6119);
+    irq_disable_mmio_write(dword_101884, dword_101880, 6119);
   }
-  sub_1006D8();
+  mmio_write_cmd();
 }
 

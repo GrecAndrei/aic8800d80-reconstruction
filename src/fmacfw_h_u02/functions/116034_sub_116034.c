@@ -12,8 +12,8 @@
 
 extern uint32_t off_116090;
 
-// sub_116034 @ 0x116034, size 92 bytes
-int * sub_116034(int a1, int a2, int a3, int a4)
+// rf_channel_select @ 0x116034, size 92 bytes
+int * rf_channel_select(int a1, int a2, int a3, int a4)
 {
   int *result; // r0
   char *v7; // r4
@@ -25,9 +25,9 @@ int * sub_116034(int a1, int a2, int a3, int a4)
   if ( (**(uint8_t **)off_116090 & 1) != 0 )
     return sub_100200((int *)(a3 + a4), 0, 8u);
   v7 = v10;
-  sub_1334A4(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
-  sub_1334F0(v10, a3, a4);
-  sub_13362C(v10);
+  bt_packet_parse(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
+  unaligned_word_load(v10, a3, a4);
+  ble_state_check_13362c(v10);
   v8 = a4 + a3;
   do
   {

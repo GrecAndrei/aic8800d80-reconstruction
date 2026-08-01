@@ -14,8 +14,8 @@ extern uint32_t off_10F30C;
 extern uint32_t dword_10F310;
 extern uint32_t dword_10F314;
 
-// sub_10F270 @ 0x10f270, size 156 bytes
-uint64_t sub_10F270()
+// rf_config_bb @ 0x10f270, size 156 bytes
+uint64_t rf_config_bb()
 {
   uint16_t *v0; // r5
   int *v1; // r4
@@ -34,10 +34,10 @@ uint64_t sub_10F270()
   *((uint8_t *)v0 + 6176) = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  sub_12D100(v0 + 1540);
-  sub_12D100(v1 - 3);
-  sub_12D100(v1 + 512);
-  sub_12D100(v1 + 514);
+  clear_stats_buf(v0 + 1540);
+  clear_stats_buf(v1 - 3);
+  clear_stats_buf(v1 + 512);
+  clear_stats_buf(v1 + 514);
   v0[4122] = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
@@ -47,7 +47,7 @@ uint64_t sub_10F270()
   do
   {
     v1 += 4;
-    sub_12D108(v3);
+    wlan_ioctl_handler_1(v3);
   }
   while ( v1 != v2 );
   v4 = dword_10F314;

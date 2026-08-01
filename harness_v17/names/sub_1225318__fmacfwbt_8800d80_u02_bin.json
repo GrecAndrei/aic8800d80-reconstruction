@@ -1,1 +1,1 @@
-{"fn": "sub_1225318", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1225318", "status": "ok", "name": "bt_hci_cmd_dispatch_2b8", "params": [], "docstring": "BT HCI command dispatch indexed by slot*0x2b8", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1225318", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1225318", "status": "ok", "name": "bt_link_get", "params": [], "docstring": "BT HCI command dispatch indexed by slot*0x2b8", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

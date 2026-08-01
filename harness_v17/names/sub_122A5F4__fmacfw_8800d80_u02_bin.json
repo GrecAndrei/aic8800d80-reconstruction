@@ -1,1 +1,1 @@
-{"fn": "sub_122A5F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a5f4", "status": "ok", "name": "scan_state_handler_main", "params": [], "docstring": "Main scan/state task handler iterating per-station entries", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A5F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a5f4", "status": "ok", "name": "llc_evt_dispatch", "params": [], "docstring": "Main scan/state task handler iterating per-station entries", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

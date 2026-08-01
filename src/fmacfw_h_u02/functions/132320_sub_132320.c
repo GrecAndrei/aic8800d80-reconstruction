@@ -14,8 +14,8 @@ extern uint32_t off_132458;
 extern uint32_t off_132450;
 extern uint32_t dword_132454;
 
-// sub_132320 @ 0x132320, size 76 bytes
-BOOL  sub_132320(int a1, int a2)
+// rf_get_calibration @ 0x132320, size 76 bytes
+BOOL  rf_get_calibration(int a1, int a2)
 {
   uint8_t *v2; // r8
   unsigned int v3; // r6
@@ -37,7 +37,7 @@ BOOL  sub_132320(int a1, int a2)
   v4 = *((uint8_t *)off_132458 + 372);
   if ( (*(uint8_t *)off_132450 & 8) == 0 )
   {
-    sub_12E948(dword_132454);
+    alloc_tx_event(dword_132454);
     v3 = v3 != 0;
   }
   v7 = *(uint32_t *)(a1 + 4);

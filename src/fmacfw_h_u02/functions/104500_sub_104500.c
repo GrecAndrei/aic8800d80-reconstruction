@@ -21,8 +21,8 @@ extern uint32_t dword_104704;
 extern uint32_t dword_104708;
 extern uint32_t dword_10470C;
 
-// sub_104500 @ 0x104500, size 486 bytes
-int  sub_104500(int a1, int a2, uint32_t *a3)
+// rx_packet_process @ 0x104500, size 486 bytes
+int  rx_packet_process(int a1, int a2, uint32_t *a3)
 {
   unsigned int v3; // r3
   int v4; // r5
@@ -56,7 +56,7 @@ int  sub_104500(int a1, int a2, uint32_t *a3)
   uint64_t v32; // r0
   int v33; // r0
 
-  v3 = a3[sub_104274(a1, a2, a3)];
+  v3 = a3[tx_ring_next_idx(a1, a2, a3)];
   v4 = (uint16_t)v3 >> 4;
   if ( (v3 & 0x80000000) == 0 )
   {
@@ -73,8 +73,8 @@ int  sub_104500(int a1, int a2, uint32_t *a3)
       v7 = 1;
     }
 LABEL_4:
-    v8 = sub_1435C8(v5);
-    v9 = sub_1435C8(v4);
+    v8 = int_abs(v5);
+    v9 = int_abs(v4);
     if ( v8 < v9 )
       goto LABEL_5;
     goto LABEL_11;
@@ -86,54 +86,54 @@ LABEL_4:
     v7 = 1;
     goto LABEL_4;
   }
-  v8 = sub_1435C8(v5);
-  v9 = sub_1435C8(v4 - 4096);
+  v8 = int_abs(v5);
+  v9 = int_abs(v4 - 4096);
   v6 = -1;
   v7 = -1;
   if ( v8 < v9 )
   {
 LABEL_5:
     v10 = (float)v8 / (float)v9;
-    v11 = sub_1428B8(LODWORD(v10));
-    v12 = sub_142968(v11, HIDWORD(v11), dword_1046E8, dword_1046EC);
-    v13 = sub_1428B8((float)(v10 - 1.0) * v10);
-    v14 = sub_142968(v11, HIDWORD(v11), dword_1046F0, dword_1046F4);
-    v15 = sub_1425FC(v14, HIDWORD(v14), dword_1046F8, dword_1046FC);
-    v16 = sub_142968(v13, HIDWORD(v13), v15, HIDWORD(v15));
-    v17 = sub_1425F8(v12, HIDWORD(v12), v16, HIDWORD(v16));
-    v18 = sub_142F2C(v17);
-    v19 = sub_1428B8(v18);
-    v20 = sub_1425F8(dword_104700, dword_104704, v19, HIDWORD(v19));
-    result = sub_142F2C(v20);
+    v11 = float_to_double(LODWORD(v10));
+    v12 = double_compare_common(v11, HIDWORD(v11), dword_1046E8, dword_1046EC);
+    v13 = float_to_double((float)(v10 - 1.0) * v10);
+    v14 = double_compare_common(v11, HIDWORD(v11), dword_1046F0, dword_1046F4);
+    v15 = double_compare_eq(v14, HIDWORD(v14), dword_1046F8, dword_1046FC);
+    v16 = double_compare_common(v13, HIDWORD(v13), v15, HIDWORD(v15));
+    v17 = double_compare_neg(v12, HIDWORD(v12), v16, HIDWORD(v16));
+    v18 = double_to_int(v17);
+    v19 = float_to_double(v18);
+    v20 = double_compare_neg(dword_104700, dword_104704, v19, HIDWORD(v19));
+    result = double_to_int(v20);
     if ( v7 != 1 )
       goto LABEL_16;
     goto LABEL_12;
   }
 LABEL_11:
   v24 = (float)v9 / (float)v8;
-  v25 = sub_1428B8(LODWORD(v24));
-  v26 = sub_142968(v25, HIDWORD(v25), dword_1046E8, dword_1046EC);
-  v27 = sub_1428B8((float)(v24 - 1.0) * v24);
-  v28 = sub_142968(v25, HIDWORD(v25), dword_1046F0, dword_1046F4);
-  v29 = sub_1425FC(v28, HIDWORD(v28), dword_1046F8, dword_1046FC);
-  v30 = sub_142968(v27, HIDWORD(v27), v29, HIDWORD(v29));
-  v31 = sub_1425F8(v26, HIDWORD(v26), v30, HIDWORD(v30));
-  result = sub_142F2C(v31);
+  v25 = float_to_double(LODWORD(v24));
+  v26 = double_compare_common(v25, HIDWORD(v25), dword_1046E8, dword_1046EC);
+  v27 = float_to_double((float)(v24 - 1.0) * v24);
+  v28 = double_compare_common(v25, HIDWORD(v25), dword_1046F0, dword_1046F4);
+  v29 = double_compare_eq(v28, HIDWORD(v28), dword_1046F8, dword_1046FC);
+  v30 = double_compare_common(v27, HIDWORD(v27), v29, HIDWORD(v29));
+  v31 = double_compare_neg(v26, HIDWORD(v26), v30, HIDWORD(v30));
+  result = double_to_int(v31);
   if ( v7 != 1 )
   {
 LABEL_16:
     if ( v6 == 1 )
       return result ^ 0x80000000;
-    v22 = sub_1428B8(result);
-    v23 = sub_1425F8(v22, HIDWORD(v22), dword_104708, dword_10470C);
-    return sub_142F2C(v23);
+    v22 = float_to_double(result);
+    v23 = double_compare_neg(v22, HIDWORD(v22), dword_104708, dword_10470C);
+    return double_to_int(v23);
   }
 LABEL_12:
   if ( v6 != 1 )
   {
-    v32 = sub_1428B8(result ^ 0x80000000);
-    v33 = sub_1425FC(v32, HIDWORD(v32), dword_104708, dword_10470C);
-    return sub_142F2C(v33);
+    v32 = float_to_double(result ^ 0x80000000);
+    v33 = double_compare_eq(v32, HIDWORD(v32), dword_104708, dword_10470C);
+    return double_to_int(v33);
   }
   return result;
 }

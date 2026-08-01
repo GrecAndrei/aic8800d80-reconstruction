@@ -19,10 +19,10 @@ extern uint32_t off_11E16C;
 extern uint32_t dword_11E174;
 extern uint32_t dword_11E170;
 
-// sub_11E04C @ 0x11e04c, size 278 bytes
+// rx_packet_isr @ 0x11e04c, size 278 bytes
 // Doc: sub_1217CC4 [util]: Iterative helper with 1000-iteration loop, likely polling
 // sub_1217CC4 [util]: Iterative helper with 1000-iteration loop, likely polling
-int  sub_11E04C(int *a1, int a2, uint16_t *a3)
+int  rx_packet_isr(int *a1, int a2, uint16_t *a3)
 {
   uint8_t *v3; // r7
   int v4; // r6
@@ -120,7 +120,7 @@ LABEL_10:
     v18 = *(uint32_t *)(v4 + 4);
     if ( **(int16_t **)off_11E16C < 0 && !v18 )
     {
-      sub_12F694(dword_11E174, dword_11E170, 615);
+      mmio_irq_clear(dword_11E174, dword_11E170, 615);
       v18 = 0;
     }
     v26 = v4;

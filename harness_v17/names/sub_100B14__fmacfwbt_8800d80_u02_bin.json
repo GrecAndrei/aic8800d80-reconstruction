@@ -1,0 +1,1 @@
+{"fn": "sub_100B14", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x100b14", "status": "ok", "name": "call_1006d8_with_args", "params": [], "docstring": "Forward four arguments plus stack byte to helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_scan_19dc @ 0x1119dc, size 30 bytes
-// Doc: rf_bus_scan_19dc [rf]: Scans RF bus indices invoking sub_121196c per slot
-// rf_bus_scan_19dc [rf]: Scans RF bus indices invoking sub_121196c per slot
-int *rf_bus_scan_19dc()
+// table_lookup_wrapper @ 0x1119dc, size 30 bytes
+// Doc: table_lookup_wrapper [rf]: Scans RF bus indices invoking sub_121196c per slot
+// table_lookup_wrapper [rf]: Scans RF bus indices invoking sub_121196c per slot
+int *table_lookup_wrapper()
 {
   int i; // r4
   int v1; // r0
@@ -24,8 +24,8 @@ int *rf_bus_scan_19dc()
   {
     v1 = (uint8_t)i;
     v3 = (uint8_t)i;
-    sub_11196C(v1);
-    result = rf_bus_write_9a4(v3);
+    table_lookup_entry(v1);
+    result = table_lookup_entry_2(v3);
   }
   return result;
 }

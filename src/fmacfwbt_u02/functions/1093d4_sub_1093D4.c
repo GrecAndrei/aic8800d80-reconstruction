@@ -13,8 +13,8 @@
 extern uint32_t dword_1095B0;
 extern uint32_t dword_1095B4;
 
-// sub_1093D4 @ 0x1093d4, size 476 bytes
-int  sub_1093D4(unsigned int a1, int a2, int *a3)
+// strlen @ 0x1093d4, size 476 bytes
+int  strlen(unsigned int a1, int a2, int *a3)
 {
   int v3; // r12
   int v4; // r4

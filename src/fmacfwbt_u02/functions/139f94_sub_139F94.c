@@ -12,10 +12,10 @@
 
 extern uint32_t dword_139FF4;
 
-// sub_139F94 @ 0x139f94, size 96 bytes
+// tx_power_set_band_alt @ 0x139f94, size 96 bytes
 // Doc: sub_1239F94 [util]: Parses a signed byte string with bitmask extraction (mask 0x78)
 // sub_1239F94 [util]: Parses a signed byte string with bitmask extraction (mask 0x78)
-int  sub_139F94(char *a1, char a2, int a3)
+int  tx_power_set_band_alt(char *a1, char a2, int a3)
 {
   char v3; // r3
   int result; // r0
@@ -34,9 +34,9 @@ int  sub_139F94(char *a1, char a2, int a3)
   {
     v3 += 4;
   }
-  result = sub_14380C(&v6, &a1[(uint8_t)(v3 + 6)], 2);
+  result = memcpy_aligned(&v6, &a1[(uint8_t)(v3 + 6)], 2);
   if ( v6 == 36488 )
-    return sub_12ECB0(dword_139FF4, 36488, a3);
+    return ke_event_schedule(dword_139FF4, 36488, a3);
   return result;
 }
 

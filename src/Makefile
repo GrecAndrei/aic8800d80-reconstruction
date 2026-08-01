@@ -2,7 +2,7 @@
 
 CROSS_COMPILE ?= arm-none-eabi-
 CC            = $(CROSS_COMPILE)gcc
-CFLAGS        = -mcpu=cortex-m4 -mthumb -O2 -Iinclude -w -std=gnu99 -ffunction-sections -fdata-sections -include include/aic8800d80_types.h
+CFLAGS        = -mcpu=cortex-m4 -mthumb -O2 -Iinclude -w -std=gnu99 -ffunction-sections -fdata-sections -include include/aic8800d80_types.h -Wno-int-conversion -Wno-incompatible-pointer-types -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
 
 SRCS_FMAC_U02  = fmacfw_u02/main.c
 SRCS_FMAC_H    = fmacfw_h_u02/main.c

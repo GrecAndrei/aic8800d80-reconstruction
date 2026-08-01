@@ -15,8 +15,8 @@ extern uint32_t off_12AF1C;
 extern uint32_t dword_12AF28;
 extern uint32_t dword_12AF24;
 
-// sub_12AEBC @ 0x12aebc, size 94 bytes
-int  sub_12AEBC(int result, int a2)
+// bt_control_dispatch @ 0x12aebc, size 94 bytes
+int  bt_control_dispatch(int result, int a2)
 {
   switch ( a2 )
   {
@@ -27,7 +27,7 @@ int  sub_12AEBC(int result, int a2)
     case 3:
       result = dword_12AF20 + 140 * result;
       if ( !*(uint8_t *)(result + 132) )
-        return (int)sub_125EFC(*(uint8_t *)(result + 113), 1);
+        return (int)set_flag_byte(*(uint8_t *)(result + 113), 1);
       break;
     case 1:
       result = dword_12AF20 + 140 * result;
@@ -35,7 +35,7 @@ int  sub_12AEBC(int result, int a2)
       break;
     default:
       if ( **(int16_t **)off_12AF1C < 0 )
-        return sub_12F694(dword_12AF28, dword_12AF24, 1898);
+        return mmio_irq_clear(dword_12AF28, dword_12AF24, 1898);
       break;
   }
   return result;

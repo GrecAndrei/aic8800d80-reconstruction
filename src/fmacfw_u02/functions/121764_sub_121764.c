@@ -12,11 +12,11 @@
 
 extern uint32_t off_121784;
 
-// sub_121764 @ 0x121764, size 32 bytes
-int sub_121764()
+// delay_and_clear_flag @ 0x121764, size 32 bytes
+int delay_and_clear_flag()
 {
-  clear_flags(0x2000000);
+  unknown_func_12d14c(0x2000000);
   *((uint32_t *)off_121784 + 1) &= ~4u;
-  return sub_12CD34(0);
+  return rx_phy_status_parse(0);
 }
 

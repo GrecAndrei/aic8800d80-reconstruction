@@ -21,8 +21,8 @@ extern uint32_t dword_12BCF4;
 extern uint32_t off_12BCEC;
 extern uint32_t dword_12BCFC;
 
-// sub_12BC00 @ 0x12bc00, size 214 bytes
-int sub_12BC00()
+// rf_radio_status @ 0x12bc00, size 214 bytes
+int rf_radio_status()
 {
   int v0; // r4
   int v1; // r5
@@ -50,7 +50,7 @@ int sub_12BC00()
   {
     if ( **(int16_t **)off_12BCF0 < 0 && v3 - *((uint32_t *)off_12BCDC + 4) + 5000 < 0 )
     {
-      sub_12F32C(dword_12BCF8, dword_12BCF4, 575);
+      irq_disable_mmio_write(dword_12BCF8, dword_12BCF4, 575);
       return 0;
     }
     return 0;
@@ -61,7 +61,7 @@ int sub_12BC00()
       return 1;
     if ( **(int16_t **)off_12BCF0 < 0 && v3 - *((uint32_t *)off_12BCDC + 4) - v4 < 0 )
     {
-      sub_12F32C(dword_12BCFC, dword_12BCF4, 580);
+      irq_disable_mmio_write(dword_12BCFC, dword_12BCF4, 580);
       v3 = *(uint32_t *)(v1 + 12);
       v4 = v2[93];
     }

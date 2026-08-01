@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142CFC @ 0x142cfc, size 360 bytes
-unsigned int  sub_142CFC(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4)
+// double_subtract @ 0x142cfc, size 360 bytes
+unsigned int  double_subtract(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   int v4; // r5
   unsigned int v5; // r12
@@ -53,7 +53,7 @@ unsigned int  sub_142CFC(unsigned int result, unsigned int a2, unsigned int a3, 
       v6 = v4 == 0x7FF;
   }
   if ( v6 )
-    result = sub_142E6A();
+    result = double_divide();
   v8 = v7 - v4;
   v9 = a2 ^ a4;
   v10 = a2 << 12;

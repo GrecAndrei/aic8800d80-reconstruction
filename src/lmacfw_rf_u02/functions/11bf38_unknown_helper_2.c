@@ -14,10 +14,10 @@ extern uint32_t off_11C014;
 extern uint32_t dword_11C018;
 extern uint32_t dword_11C010;
 
-// unknown_helper_2 @ 0x11bf38, size 216 bytes
-// Doc: unknown_helper_2 [unknown]: unknown helper, low-confidence guess
-// unknown_helper_2 [unknown]: unknown helper, low-confidence guess
-BOOL  unknown_helper_2(int a1, int a2)
+// ke_event_process @ 0x11bf38, size 216 bytes
+// Doc: ke_event_process [unknown]: unknown helper, low-confidence guess
+// ke_event_process [unknown]: unknown helper, low-confidence guess
+BOOL  ke_event_process(int a1, int a2)
 {
   uint8_t *v2; // r10
   int *v3; // r4
@@ -46,8 +46,8 @@ BOOL  unknown_helper_2(int a1, int a2)
       v10 = *((uint8_t *)v3 + 8);
       if ( v10 == *(uint8_t *)(a1 + 95) )
       {
-        msg_parse(v9, v10);
-        list_remove_node(v2 + 16, v3);
+        dispatch_event_handler(v9, v10);
+        check_kernel_state_alt2(v2 + 16, v3);
         *((uint8_t *)v3 + 9) &= ~1u;
         v3 = (int *)*v3;
         if ( !v3 )
@@ -74,7 +74,7 @@ LABEL_11:
 LABEL_8:
   if ( (uint8_t)v2[90] > 1u )
   {
-    list_remove_node(dword_11C010, a1 + 76);
+    check_kernel_state_alt2(dword_11C010, a1 + 76);
     *(uint8_t *)(a1 + 85) = *(uint8_t *)(a1 + 85) & 0xFC | 2;
     ++v2[91];
     return v6 != v7;

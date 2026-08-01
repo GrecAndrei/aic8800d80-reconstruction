@@ -23,10 +23,10 @@ extern uint32_t off_1294B8;
 extern uint32_t off_1294C0;
 extern uint32_t off_1294BC;
 
-// sub_129394 @ 0x129394, size 254 bytes
+// wlc_mmio_regs @ 0x129394, size 254 bytes
 // Doc: mmio_reg_init_n_39c [mmio]: Initialize MMIO control registers at 0x4032xxxx with status read
 // mmio_reg_init_n_39c [mmio]: Initialize MMIO control registers at 0x4032xxxx with status read
-int sub_129394()
+int wlc_mmio_regs()
 {
   unsigned int *v0; // r12
   int *v1; // r1
@@ -57,7 +57,7 @@ int sub_129394()
   *v0 = *v0 & 0xFFFFFF00 | 0x10;
   *v5 = *v5 & 0xFFFFFF03 | 0x10;
   *v1 = *v1 & 0x3FFFFF | (((v4 >> 5) + 32) << 22);
-  result = feature_guard_check(2, dword_1294B0);
+  result = check_status_bits(2, dword_1294B0);
   v8 = *v6;
   v9 = **v6;
   if ( v9 == 1 )

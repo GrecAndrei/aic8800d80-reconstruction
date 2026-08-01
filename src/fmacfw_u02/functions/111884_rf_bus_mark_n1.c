@@ -13,10 +13,10 @@
 extern uint32_t off_1118FC;
 extern uint32_t off_1118F8;
 
-// rf_bus_mark_n1 @ 0x111884, size 114 bytes
+// mmio_sync @ 0x111884, size 114 bytes
 // Doc: rf_bus_reset [rf]: Resets RF bus interface by toggling control bits
 // rf_bus_reset [rf]: Resets RF bus interface by toggling control bits
-int rf_bus_mark_n1()
+int mmio_sync()
 {
   int v0; // r3
   int *v1; // r2

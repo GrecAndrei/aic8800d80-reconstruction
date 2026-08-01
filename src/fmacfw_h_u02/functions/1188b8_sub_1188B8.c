@@ -14,8 +14,8 @@ extern uint32_t off_118920;
 extern uint32_t dword_118924;
 extern uint32_t dword_118928;
 
-// sub_1188B8 @ 0x1188b8, size 102 bytes
-int  sub_1188B8(int a1, int a2)
+// mmio_write @ 0x1188b8, size 102 bytes
+int  mmio_write(int a1, int a2)
 {
   int16_t **v2; // r5
   int v3; // r7
@@ -30,7 +30,7 @@ int  sub_1188B8(int a1, int a2)
   v3 = dword_118924;
   v4 = dword_118928;
 LABEL_2:
-  v6 = sub_12D190(a2);
+  v6 = list_pop(a2);
   v7 = 2080374784;
   v8 = v6;
   if ( v6 )
@@ -45,23 +45,23 @@ LABEL_2:
 LABEL_5:
       if ( !*(uint16_t *)(v8 + 4) )
       {
-        sub_118BA0(v8);
+        set_string_0x1882c0(v8);
         goto LABEL_2;
       }
       if ( **v2 >= 0 )
         goto LABEL_2;
-      sub_12F32C(v4, v3, 1147);
-      v10 = sub_12D190(a2);
+      irq_disable_mmio_write(v4, v3, 1147);
+      v10 = list_pop(a2);
       v7 = 2080374784;
       v8 = v10;
       if ( !v10 )
-        return sub_118BE8();
+        return alloc_dma_buf();
     }
     v7 = 0x40000000;
 LABEL_4:
     *(uint32_t *)(v9 + 4) = v7;
     goto LABEL_5;
   }
-  return sub_118BE8();
+  return alloc_dma_buf();
 }
 

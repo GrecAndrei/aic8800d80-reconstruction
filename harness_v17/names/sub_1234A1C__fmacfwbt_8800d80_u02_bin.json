@@ -1,1 +1,1 @@
-{"fn": "sub_1234A1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234a1c", "status": "ok", "name": "bt_fw_init_handler", "params": [], "docstring": "Bluetooth firmware initialization entry; sets up stack and calls sub-routine", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1234A1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234a1c", "status": "ok", "name": "write_hw_mmio_word", "params": [], "docstring": "Bluetooth firmware initialization entry; sets up stack and calls sub-routine", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

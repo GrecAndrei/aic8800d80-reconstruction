@@ -13,8 +13,8 @@
 extern uint32_t off_1365EC;
 extern uint32_t dword_1365F0;
 
-// sub_1365C0 @ 0x1365c0, size 42 bytes
-uint32_t *sub_1365C0()
+// reset_hci_control_block @ 0x1365c0, size 42 bytes
+uint32_t *reset_hci_control_block()
 {
   uint8_t *v0; // r4
   int v1; // r3
@@ -26,6 +26,6 @@ uint32_t *sub_1365C0()
   *((uint32_t *)v0 + 4) = 20000;
   *((uint32_t *)v0 + 6) = v1;
   v0[12] = 0;
-  return sub_12CBF4(7u, 0);
+  return hci_cmd_preprocess(7u, 0);
 }
 

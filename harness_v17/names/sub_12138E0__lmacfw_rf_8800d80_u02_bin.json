@@ -1,1 +1,1 @@
-{"fn": "sub_12138E0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12138e0", "status": "ok", "name": "rf_clear_flag_bit1", "params": [], "docstring": "Clears bit 1 in shared mmio control register (bic r3, r3, 2)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12138E0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12138e0", "status": "ok", "name": "clear_irq_flag", "params": [], "docstring": "Clears bit 1 in shared mmio control register (bic r3, r3, 2)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

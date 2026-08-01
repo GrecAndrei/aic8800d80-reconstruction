@@ -14,8 +14,8 @@ extern uint32_t off_12CBE8;
 extern uint32_t dword_12CBF0;
 extern uint32_t dword_12CBEC;
 
-// sub_12CB94 @ 0x12cb94, size 82 bytes
-int  sub_12CB94(int a1, int *a2, int a3)
+// list_node_count @ 0x12cb94, size 82 bytes
+int  list_node_count(int a1, int *a2, int a3)
 {
   int v3; // r3
   int v5; // r2
@@ -41,7 +41,7 @@ int  sub_12CB94(int a1, int *a2, int a3)
   result = *(uint32_t *)(v8 + 4);
   if ( **(int16_t **)off_12CBE8 < 0 && !result )
   {
-    sub_12F32C(dword_12CBF0, dword_12CBEC, 239);
+    irq_disable_mmio_write(dword_12CBF0, dword_12CBEC, 239);
     return *(uint32_t *)(v7 + *a2 + 4);
   }
   return result;

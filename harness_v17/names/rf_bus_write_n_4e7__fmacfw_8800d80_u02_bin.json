@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_4e7", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121167c", "status": "ok", "name": "rf_bus_write_n_4e7", "params": [], "docstring": "Write value to RF bus register with shift mask", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_4e7", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121167c", "status": "ok", "name": "rf_bus_reset2_n_380", "params": [], "docstring": "Write value to RF bus register with shift mask", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

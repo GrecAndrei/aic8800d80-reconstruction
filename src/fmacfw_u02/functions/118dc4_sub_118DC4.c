@@ -17,8 +17,8 @@ extern uint32_t dword_118F40;
 extern uint32_t dword_118F3C;
 extern uint32_t off_118F38;
 
-// sub_118DC4 @ 0x118dc4, size 362 bytes
-int  sub_118DC4(int a1, int a2, int a3)
+// rf_channel_get @ 0x118dc4, size 362 bytes
+int  rf_channel_get(int a1, int a2, int a3)
 {
   int v3; // r9
   int v4; // r5
@@ -51,24 +51,24 @@ int  sub_118DC4(int a1, int a2, int a3)
     if ( **(int16_t **)off_118F34 >= 0 )
     {
 LABEL_9:
-      v11 = sub_118C44(1, 24);
+      v11 = ke_mutex_guard(1, 24);
       if ( !v11 )
         return 1;
       goto LABEL_4;
     }
 LABEL_8:
-    sub_12F46C(dword_118F40, dword_118F3C, 520);
+    mmio_clear_register(dword_118F40, dword_118F3C, 520);
     goto LABEL_9;
   }
   v10 = *(uint8_t *)(v8 + 4);
   if ( **(int16_t **)off_118F34 < 0 && v10 == 2 )
     goto LABEL_8;
-  v11 = sub_118C44((*(uint8_t *)(dword_118F30 + 1320 * v6 + 1224) | v10) != 0, 24);
+  v11 = ke_mutex_guard((*(uint8_t *)(dword_118F30 + 1320 * v6 + 1224) | v10) != 0, 24);
   if ( !v11 )
     return 1;
 LABEL_4:
   v12 = v4 + 1320 * v6;
-  sub_12C4E8(v12, v11);
+  rf_check_temperature(v12, v11);
   v13 = *(uint32_t *)(v11 + 72);
   if ( *(uint8_t *)(v12 + 106) == 2 )
   {
@@ -117,7 +117,7 @@ LABEL_4:
   *(uint32_t *)(v11 + 92) = a3;
   *(uint8_t *)(v11 + 28) = v21;
   *(uint8_t *)(v11 + 29) = a1;
-  rf_param_get_status(v11, 5);
+  tx_path_status(v11, 5);
   return 0;
 }
 

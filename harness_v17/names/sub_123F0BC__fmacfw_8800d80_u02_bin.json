@@ -1,1 +1,1 @@
-{"fn": "sub_123F0BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123f0bc", "status": "ok", "name": "mac_table_lookup", "params": [], "docstring": "Indexed lookup into 0x2b8-stride table keyed by r0", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123F0BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123f0bc", "status": "ok", "name": "ble_ll_conn_sm_get", "params": [], "docstring": "Indexed lookup into 0x2b8-stride table keyed by r0", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -35,8 +35,8 @@ extern uint32_t off_115BCC;
 extern uint32_t off_115BD0;
 extern uint32_t dword_115C18;
 
-// sub_1159A4 @ 0x1159a4, size 532 bytes
-int  sub_1159A4(int result)
+// sleep_mode_read @ 0x1159a4, size 532 bytes
+int  sleep_mode_read(int result)
 {
   uint8_t **v1; // r5
   uint8_t **v2; // r6
@@ -56,16 +56,16 @@ int  sub_1159A4(int result)
     v6 = *(uint8_t *)off_115BDC;
     *(uint8_t *)off_115BE0 = 0;
     if ( v6 )
-      return sub_12EB90(2, dword_115C08);
+      return check_feature_flag(2, dword_115C08);
     if ( !*(uint8_t *)off_115BE4 )
-      return sub_12EB90(2, dword_115C0C);
+      return check_feature_flag(2, dword_115C0C);
     if ( *(uint32_t *)off_115BE8 && *(uint32_t *)(*(uint32_t *)off_115BE8 + 12) - *((uint32_t *)off_115BEC + 4) - 5000 < 0 )
-      return sub_12EB90(2, dword_115C14);
+      return check_feature_flag(2, dword_115C14);
     if ( !*(uint8_t *)off_115BF0
       && !*((uint32_t *)off_115BC8 + 126)
       && ((dword_115BF8 & *(uint32_t *)off_115BF4) == 0 || (unsigned int)(32 * *(uint32_t *)off_115BFC) > 0x1387) )
     {
-      ((void (*)(void))sub_12E8D0)();
+      ((void (*)(void))mmio_read_bit13)();
       while ( 1 )
         ;
     }
@@ -91,7 +91,7 @@ LABEL_38:
     v2 = (uint8_t **)off_115BC4;
     if ( **(uint8_t **)off_115BC4 == 3 )
       goto LABEL_8;
-    result = sub_12EB90(2, dword_115BD8);
+    result = check_feature_flag(2, dword_115BD8);
     *v5 = 1;
 LABEL_6:
     v3 = **v2;
@@ -99,18 +99,18 @@ LABEL_6:
     {
       if ( **v1 == 3 )
       {
-        v9 = sub_10D1C4();
+        v9 = wait_radio_flag();
         v11 = off_115BE0;
         *(uint8_t *)off_115BE0 = v9;
         if ( v9 )
-          sub_12E948(dword_115C1C, v10, v11);
+          alloc_tx_event(dword_115C1C, v10, v11);
         else
-          sub_12E948(dword_115C10, v10, v11);
-        if ( sub_1111B4() )
-          sub_11583C();
-        return ((int (*)(void))sub_12E8D0)();
+          alloc_tx_event(dword_115C10, v10, v11);
+        if ( get_init_flag() )
+          chip_revision_read();
+        return ((int (*)(void))mmio_read_bit13)();
       }
-      result = sub_1111B4();
+      result = get_init_flag();
       if ( !result || *(uint8_t *)off_115BF0 )
         return result;
     }
@@ -119,7 +119,7 @@ LABEL_6:
       return result;
     }
 LABEL_8:
-    result = sub_128DDC(result);
+    result = mfp_key_get_status(result);
     if ( result )
     {
       if ( !*((uint32_t *)off_115BC8 + 126) )
@@ -128,20 +128,20 @@ LABEL_8:
         {
           if ( !*((uint8_t *)off_115BD0 + 29) )
           {
-            result = sub_12BC00();
+            result = rf_radio_status();
             if ( result )
             {
-              LOBYTE(result) = sub_10D1C4();
+              LOBYTE(result) = wait_radio_flag();
               v8 = off_115BE0;
               result = (uint8_t)result;
               *(uint8_t *)off_115BE0 = result;
               if ( !(uint8_t)result )
               {
-                v12 = sub_12E948(dword_115C18, v7, v8);
-                result = sub_12E8D0(v12);
+                v12 = alloc_tx_event(dword_115C18, v7, v8);
+                result = mmio_read_bit13(v12);
               }
               if ( (uint8_t)**v1 <= 1u )
-                return (int)sub_11583C();
+                return (int)chip_revision_read();
             }
           }
         }
@@ -162,7 +162,7 @@ LABEL_17:
     goto LABEL_17;
 LABEL_20:
   if ( **(uint8_t **)off_115BC4 != 3 )
-    result = sub_12EB90(2, dword_115BD8);
+    result = check_feature_flag(2, dword_115BD8);
 LABEL_23:
   *v5 = 0;
   return result;

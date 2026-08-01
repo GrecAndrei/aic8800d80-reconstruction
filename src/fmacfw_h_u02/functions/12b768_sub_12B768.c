@@ -12,8 +12,8 @@
 
 extern uint32_t off_12B778;
 
-// sub_12B768 @ 0x12b768, size 16 bytes
-void sub_12B768()
+// rf_set_power_on @ 0x12b768, size 16 bytes
+void rf_set_power_on()
 {
   uint32_t *v0; // r2
 

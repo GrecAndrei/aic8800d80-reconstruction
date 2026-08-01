@@ -12,8 +12,8 @@
 
 extern uint32_t off_10CB6C;
 
-// sub_10CB64 @ 0x10cb64, size 8 bytes
-void sub_10CB64()
+// rf_cmd_reset @ 0x10cb64, size 8 bytes
+void rf_cmd_reset()
 {
   *(uint32_t *)off_10CB6C = 128;
 }

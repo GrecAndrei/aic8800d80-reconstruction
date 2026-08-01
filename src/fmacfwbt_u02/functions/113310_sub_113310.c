@@ -15,8 +15,8 @@ extern uint32_t off_1133A8;
 extern uint32_t off_1133B0;
 extern uint32_t dword_1133AC;
 
-// sub_113310 @ 0x113310, size 148 bytes
-int  sub_113310(int a1, int a2)
+// rf_calib_init @ 0x113310, size 148 bytes
+int  rf_calib_init(int a1, int a2)
 {
   uint8_t *v2; // r6
   int **v3; // r4
@@ -36,7 +36,7 @@ int  sub_113310(int a1, int a2)
   if ( *(uint8_t *)off_1133A4 )
     return -99;
   v3 = (int **)off_1133A8;
-  v4 = sub_12D594(off_1133A8, a2);
+  v4 = list_length(off_1133A8, a2);
   v5 = off_1133B0;
   *(uint8_t *)off_1133B0 = v4;
   if ( v4 )
@@ -77,7 +77,7 @@ LABEL_11:
       v14 = *(uint8_t *)(v13 + 3);
       *v2 = 1;
       *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return sub_112E6C(1, v12);
+      return critical_section_run(1, v12);
     }
   }
   return -98;

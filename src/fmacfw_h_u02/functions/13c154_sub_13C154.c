@@ -15,8 +15,8 @@ extern uint32_t dword_13C260;
 extern uint32_t off_13C264;
 extern uint32_t dword_13C268;
 
-// sub_13C154 @ 0x13c154, size 264 bytes
-int  sub_13C154(int a1, int a2, int a3)
+// bt_conn_get @ 0x13c154, size 264 bytes
+int  bt_conn_get(int a1, int a2, int a3)
 {
   int v4; // r3
   int v5; // r3
@@ -38,7 +38,7 @@ int  sub_13C154(int a1, int a2, int a3)
   if ( (*(uint16_t *)(a1 + 30) & 2) == 0 )
     return 1;
   v8 = *(uint8_t *)(v5 + 453);
-  if ( v8 == 33 || sub_12CD48((v8 << 8) | 8) != 1 )
+  if ( v8 == 33 || hci_cmd_handler((v8 << 8) | 8) != 1 )
     return 1;
   v11 = dword_13C260 + 32 * v8;
   v12 = *(uint32_t *)(a1 + 36) << 10;
@@ -52,7 +52,7 @@ int  sub_13C154(int a1, int a2, int a3)
       {
         v14 = *(uint16_t *)(a1 + 64);
         if ( ((v14 - (*((uint32_t *)off_13C264 + 4) >> 10)) & 0x8000) == 0 )
-          sub_12E948(dword_13C268, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C264 + 4) >> 10)) >> 15) & 1);
+          alloc_tx_event(dword_13C268, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C264 + 4) >> 10)) >> 15) & 1);
       }
     }
     else if ( !a2 && ((*(uint16_t *)(a1 + 64) - (*((uint32_t *)off_13C264 + 4) >> 10)) & 0x8000) == 0 )

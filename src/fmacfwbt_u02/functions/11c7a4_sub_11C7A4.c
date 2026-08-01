@@ -12,10 +12,10 @@
 
 extern uint32_t off_11C7D0;
 
-// sub_11C7A4 @ 0x11c7a4, size 44 bytes
+// is_associated @ 0x11c7a4, size 44 bytes
 // Doc: sub_121C7A4 [unknown]: Load 32-bit value from struct offset 0x44
 // sub_121C7A4 [unknown]: Load 32-bit value from struct offset 0x44
-int  sub_11C7A4(int a1, int a2)
+int  is_associated(int a1, int a2)
 {
   int v2; // r3
 

@@ -1,1 +1,1 @@
-{"fn": "sub_12004CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12004cc", "status": "ok", "name": "sub_12004CC", "params": [], "docstring": "Initializes LMAC RF context from MMIO 0x40330000 via helper calls", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12004CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12004cc", "status": "ok", "name": "read_control_reg", "params": [], "docstring": "Initializes LMAC RF context from MMIO 0x40330000 via helper calls", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

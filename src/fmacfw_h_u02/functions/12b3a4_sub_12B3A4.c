@@ -12,14 +12,14 @@
 
 extern uint32_t dword_12B3D0;
 
-// sub_12B3A4 @ 0x12b3a4, size 40 bytes
-int  sub_12B3A4(char a1, int a2)
+// rf_execute_cmd @ 0x12b3a4, size 40 bytes
+int  rf_execute_cmd(char a1, int a2)
 {
   uint8_t *v3; // r4
 
-  v3 = (uint8_t *)sub_12C7EC(2052, a2, 2, 1);
-  sub_12EB90(4, dword_12B3D0);
+  v3 = (uint8_t *)tx_send_pdu(2052, a2, 2, 1);
+  check_feature_flag(4, dword_12B3D0);
   *v3 = a1;
-  return sub_12C84C(v3);
+  return rx_process_packet(v3);
 }
 

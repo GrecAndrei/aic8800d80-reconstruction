@@ -1,1 +1,1 @@
-{"fn": "sub_1235598", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235598", "status": "ok", "name": "msg_send_cmd_180a", "params": [], "docstring": "Sends firmware command 0x180a via IPC mailbox", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235598", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235598", "status": "ok", "name": "bt_send_profile_cmd", "params": [], "docstring": "Sends firmware command 0x180a via IPC mailbox", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

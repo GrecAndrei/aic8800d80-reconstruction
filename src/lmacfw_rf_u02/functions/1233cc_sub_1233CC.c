@@ -18,8 +18,8 @@ extern uint32_t off_123484;
 extern uint32_t off_123488;
 extern uint32_t off_12348C;
 
-// sub_1233CC @ 0x1233cc, size 168 bytes
-float  sub_1233CC(uint8_t *a1)
+// check_chip_version @ 0x1233cc, size 168 bytes
+float  check_chip_version(uint8_t *a1)
 {
   int v1; // r2
   int v2; // r5
@@ -50,9 +50,9 @@ float  sub_1233CC(uint8_t *a1)
     *(uint8_t *)(v7 + 2) = v6 + 1;
     *v5 = v9 + v8;
   }
-  sub_1264DC(*(uint32_t *)off_123488 + 20000);
-  v10 = sub_11EAA0(COERCE_UNSIGNED_INT((float)(unsigned int)v3));
-  result = sub_11EAA0(COERCE_UNSIGNED_INT((float)(1 << v2)));
+  mmio_write_register(*(uint32_t *)off_123488 + 20000);
+  v10 = float_to_double(COERCE_UNSIGNED_INT((float)(unsigned int)v3));
+  result = float_to_double(COERCE_UNSIGNED_INT((float)(1 << v2)));
   *(float *)off_12348C = (float)((float)(v10 * 10.0) - (float)(result * 10.0)) + *(float *)off_12348C;
   return result;
 }

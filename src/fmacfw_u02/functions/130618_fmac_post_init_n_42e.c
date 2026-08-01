@@ -12,17 +12,17 @@
 
 extern uint32_t off_13063C;
 
-// fmac_post_init_n_42e @ 0x130618, size 36 bytes
-// Doc: fmac_post_init_n_42e [util]: FMAC post-init/config write to MMIO 0x42e
-// fmac_post_init_n_42e [util]: FMAC post-init/config write to MMIO 0x42e
-int fmac_post_init_n_42e()
+// rf_disable @ 0x130618, size 36 bytes
+// Doc: rf_disable [util]: FMAC post-init/config write to MMIO 0x42e
+// rf_disable [util]: FMAC post-init/config write to MMIO 0x42e
+int rf_disable()
 {
   int result; // r0
 
   *((uint8_t *)off_13063C + 1) = 0;
-  result = message_dispatch_c8b4(1070, 1);
+  result = ke_task_find(1070, 1);
   if ( result )
-    return event_queue_push(1070, 1);
+    return ke_int_lock(1070, 1);
   return result;
 }
 

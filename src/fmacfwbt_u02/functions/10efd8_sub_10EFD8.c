@@ -12,12 +12,12 @@
 
 extern uint32_t off_10EFEC;
 
-// sub_10EFD8 @ 0x10efd8, size 18 bytes
-unsigned int sub_10EFD8()
+// fw_set_cmd @ 0x10efd8, size 18 bytes
+unsigned int fw_set_cmd()
 {
   unsigned int result; // r0
 
-  result = rf_power_set(0xC2u);
+  result = write_mmio_byte(0xC2u);
   *((uint8_t *)off_10EFEC + 7) = -62;
   return result;
 }

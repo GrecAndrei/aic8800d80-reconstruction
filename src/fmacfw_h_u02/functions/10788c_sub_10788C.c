@@ -15,8 +15,8 @@ extern uint32_t dword_107940;
 extern uint32_t dword_107948;
 extern uint32_t dword_107944;
 
-// sub_10788C @ 0x10788c, size 174 bytes
-int  sub_10788C(unsigned int *a1, int a2)
+// timer_get_interval @ 0x10788c, size 174 bytes
+int  timer_get_interval(unsigned int *a1, int a2)
 {
   unsigned int v2; // r3
   unsigned int v3; // r5
@@ -34,18 +34,18 @@ int  sub_10788C(unsigned int *a1, int a2)
   if ( v3 < v2 )
     v3 = v2;
   v5 = *(uint32_t *)(a2 + 8);
-  sub_12EB90(1, dword_10793C);
-  v6 = (int)(float)(COERCE_FLOAT(((int ( *)(uint32_t))sub_12D5A0)(vcvts_n_f32_u32(v3, 0xFu))) * 10.0);
-  sub_12EB90(1, dword_107940);
+  check_feature_flag(1, dword_10793C);
+  v6 = (int)(float)(COERCE_FLOAT(((int ( *)(uint32_t))log_float_converted)(vcvts_n_f32_u32(v3, 0xFu))) * 10.0);
+  check_feature_flag(1, dword_107940);
   if ( v6 >= -1 )
   {
-    sub_12EB90(1, dword_107948);
+    check_feature_flag(1, dword_107948);
   }
   else if ( v6 < -30 )
   {
-    sub_12EB90(1, dword_107944);
+    check_feature_flag(1, dword_107944);
   }
-  *(uint32_t *)(a2 + 8) = (int)((float ( *)(uint32_t))sub_12D5C8)((float)(~v6 + v5));
-  return sub_107620(a2);
+  *(uint32_t *)(a2 + 8) = (int)((float ( *)(uint32_t))trampoline_142570)((float)(~v6 + v5));
+  return load_phy_table(a2);
 }
 

@@ -14,11 +14,11 @@ extern uint32_t off_114D60;
 extern uint32_t dword_114D68;
 extern uint32_t dword_114D64;
 
-// sub_114D44 @ 0x114d44, size 28 bytes
-void __noreturn sub_114D44()
+// is_rssi_valid @ 0x114d44, size 28 bytes
+void __noreturn is_rssi_valid()
 {
   if ( **(int16_t **)off_114D60 < 0 )
-    sub_12F32C(dword_114D68, dword_114D64, 242);
+    irq_disable_mmio_write(dword_114D68, dword_114D64, 242);
   while ( 1 )
     ;
 }

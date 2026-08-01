@@ -12,22 +12,22 @@
 
 extern uint32_t dword_12EF74;
 
-// sub_12EF2C @ 0x12ef2c, size 72 bytes
+// msg_alloc_0x401 @ 0x12ef2c, size 72 bytes
 // Doc: sub_122EF2C [mmio]: Read register with mask 0x10000 shift and dispatch to handler
 // sub_122EF2C [mmio]: Read register with mask 0x10000 shift and dispatch to handler
-int  sub_12EF2C(int a1, int *a2, int16_t a3, int16_t a4)
+int  msg_alloc_0x401(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   uint32_t *v6; // r1
   uint32_t *v7; // r4
   int v9; // r0
 
-  v5 = sub_12C92C(1025, a4, a3, 8u);
+  v5 = ke_msg_alloc(1025, a4, a3, 8u);
   v6 = (uint32_t *)*a2;
   v7 = (uint32_t *)v5;
   if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
   {
-    v9 = sub_10ED84(*a2, 1);
+    v9 = mmio_read32(*a2, 1);
     v6 = (uint32_t *)*a2;
     v7[1] = v9;
   }
@@ -36,8 +36,8 @@ int  sub_12EF2C(int a1, int *a2, int16_t a3, int16_t a4)
     *(uint32_t *)(v5 + 4) = *v6;
   }
   *v7 = v6;
-  msg_parse(dword_12EF74);
-  sdio_buffer_prepare_n_4e8((int)v7);
+  event_dispatch(dword_12EF74);
+  ke_msg_send((int)v7);
   return 0;
 }
 

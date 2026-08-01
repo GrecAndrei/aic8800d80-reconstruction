@@ -12,11 +12,11 @@
 
 extern uint32_t off_120FA0;
 
-// sub_120F74 @ 0x120f74, size 42 bytes
-int sub_120F74()
+// is_band_5g @ 0x120f74, size 42 bytes
+int is_band_5g()
 {
-  if ( sub_12CD48(0) == 1 )
+  if ( hci_cmd_handler(0) == 1 )
     *(uint32_t *)off_120FA0 = 48;
-  return sub_12CBF4(0);
+  return hci_cmd_preprocess(0);
 }
 

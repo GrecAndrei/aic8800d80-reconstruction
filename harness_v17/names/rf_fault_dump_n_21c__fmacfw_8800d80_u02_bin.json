@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_21c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121452c", "status": "ok", "name": "rf_fault_dump_n_21c", "params": [], "docstring": "Dumps RF fault data to output buffer indexed by argument", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_21c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121452c", "status": "ok", "name": "rf_fault_dump_n_21b", "params": [], "docstring": "Dumps RF fault data to output buffer indexed by argument", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

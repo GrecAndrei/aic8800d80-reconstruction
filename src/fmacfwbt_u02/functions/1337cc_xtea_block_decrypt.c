@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// xtea_block_decrypt @ 0x1337cc, size 52 bytes
-// Doc: xtea_block_decrypt [ke]: XTEA-style block cipher round (XOR + ROR15 key schedule)
-// xtea_block_decrypt [ke]: XTEA-style block cipher round (XOR + ROR15 key schedule)
-uint32_t * xtea_block_decrypt(uint32_t *result, int *a2, int a3)
+// hash_mix_words @ 0x1337cc, size 52 bytes
+// Doc: hash_mix_words [ke]: XTEA-style block cipher round (XOR + ROR15 key schedule)
+// hash_mix_words [ke]: XTEA-style block cipher round (XOR + ROR15 key schedule)
+uint32_t * hash_mix_words(uint32_t *result, int *a2, int a3)
 {
   int v3; // r2
   int v4; // r4

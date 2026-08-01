@@ -15,8 +15,8 @@ extern uint32_t off_126D58;
 extern uint32_t off_126D60;
 extern uint32_t off_126E90;
 
-// sub_126A48 @ 0x126a48, size 1096 bytes
-int  sub_126A48(int a1, int a2, unsigned int a3)
+// hci_send_acl @ 0x126a48, size 1096 bytes
+int  hci_send_acl(int a1, int a2, unsigned int a3)
 {
   int v3; // r7
   int v4; // r5
@@ -85,11 +85,11 @@ int  sub_126A48(int a1, int a2, unsigned int a3)
   v6 = *(uint8_t *)(v4 + 8);
   v7 = dword_126D5C + 1320 * v6;
   v52 = *(uint32_t *)(v4 + 4) - 4000;
-  v53 = v52 - a2 - sub_10186C();
+  v53 = v52 - a2 - return_1000();
   if ( *(uint32_t *)(v7 + 72) != v5 )
   {
     v57 = *(uint32_t *)(v4 + 4);
-    v10 = sub_10186C();
+    v10 = return_1000();
     v11 = *(uint8_t *)(v5 + 27);
     v61 = v10;
     v12 = v57 - 4000;
@@ -105,32 +105,32 @@ int  sub_126A48(int a1, int a2, unsigned int a3)
         v14 = a2 - a3 + ((v53 + a3) >> 1);
 LABEL_6:
         if ( a2 != v14 )
-          return sub_126938(v14, *(uint32_t *)(v3 + 1320 * v6 + 72), v4);
+          return send_event_to_host(v14, *(uint32_t *)(v3 + 1320 * v6 + 72), v4);
 LABEL_31:
-        sub_126A04();
+        hci_acl_buf_alloc();
         v14 = a2;
-        return sub_126938(v14, *(uint32_t *)(v3 + 1320 * v6 + 72), v4);
+        return send_event_to_host(v14, *(uint32_t *)(v3 + 1320 * v6 + 72), v4);
       }
       v30 = v3 + 1320 * v13;
-      v31 = sub_12A364(v30, &v64, v65);
-      v14 = v64 - 4000 - sub_10186C();
+      v31 = util_feature_get(v30, &v64, v65);
+      v14 = v64 - 4000 - return_1000();
       v64 = v14;
       if ( !v31 )
       {
         if ( v14 + v61 - v63 >= 0 )
           v14 = v58;
-        if ( v61 - v63 + v65[0] + 9000 + sub_10186C() < 0 )
+        if ( v61 - v63 + v65[0] + 9000 + return_1000() < 0 )
         {
-          sub_126938(v14, *(uint32_t *)(v30 + 72), 0);
+          send_event_to_host(v14, *(uint32_t *)(v30 + 72), 0);
           v14 = v58;
-          sub_126938(v65[0], v5, 0);
+          send_event_to_host(v65[0], v5, 0);
         }
         goto LABEL_6;
       }
-      if ( v65[0] + 9000 + v61 - v63 + sub_10186C() < 0 )
+      if ( v65[0] + 9000 + v61 - v63 + return_1000() < 0 )
       {
-        sub_126938(a2, *(uint32_t *)(v30 + 72), 0);
-        sub_126938(v65[0], v5, 0);
+        send_event_to_host(a2, *(uint32_t *)(v30 + 72), 0);
+        send_event_to_host(v65[0], v5, 0);
         v14 = v64;
         if ( v64 + v61 - v63 >= 0 )
           v14 = v58;
@@ -143,7 +143,7 @@ LABEL_26:
     v16 = v3 + 1320 * v11;
     v17 = *(uint32_t *)(v7 + 72);
     v54 = v12;
-    if ( sub_12A364(v16, &v64, v65) )
+    if ( util_feature_get(v16, &v64, v65) )
     {
       v14 = v65[0];
       if ( v58 - v65[0] >= 0 )
@@ -151,13 +151,13 @@ LABEL_26:
         if ( v64 - v54 + v61 >= 0 )
           goto LABEL_6;
         v18 = v64 - v65[0];
-        if ( v18 > sub_10186C() + 9000 )
+        if ( v18 > return_1000() + 9000 )
         {
-          sub_126938(v65[0], v17, 0);
+          send_event_to_host(v65[0], v17, 0);
           v19 = v64;
-          v20 = v19 - 4000 - sub_10186C();
+          v20 = v19 - 4000 - return_1000();
           v14 = v58;
-          sub_126938(v20, *(uint32_t *)(v16 + 72), 0);
+          send_event_to_host(v20, *(uint32_t *)(v16 + 72), 0);
           goto LABEL_6;
         }
       }
@@ -167,12 +167,12 @@ LABEL_26:
       if ( v58 - v64 < 0 )
         goto LABEL_26;
       v32 = v64 - a2;
-      if ( v32 > sub_10186C() + 9000 )
+      if ( v32 > return_1000() + 9000 )
       {
-        sub_126938(a2, v17, 0);
+        send_event_to_host(a2, v17, 0);
         v44 = v64;
-        v45 = sub_10186C();
-        sub_126938(v44 - 4000 - v45, *(uint32_t *)(v16 + 72), 0);
+        v45 = return_1000();
+        send_event_to_host(v44 - 4000 - v45, *(uint32_t *)(v16 + 72), 0);
       }
       v14 = v65[0];
       if ( v58 - v65[0] >= 0 )
@@ -181,12 +181,12 @@ LABEL_26:
     v14 = v58;
     goto LABEL_6;
   }
-  result = sub_10186C();
+  result = return_1000();
   v55 = v53 - 4000 - result;
   if ( v55 <= 4999 )
     return result;
   v59 = *(uint32_t *)(v4 + 4);
-  v21 = sub_10186C();
+  v21 = return_1000();
   v62 = *(uint8_t *)(v5 + 27);
   v22 = v59 - v21;
   v23 = v21;
@@ -209,14 +209,14 @@ LABEL_26:
     }
     else
     {
-      sub_12A364(v3 + 1320 * v33, &v64, v65);
+      util_feature_get(v3 + 1320 * v33, &v64, v65);
       v40 = v64;
-      result = sub_10186C();
+      result = return_1000();
       if ( v56 - v40 + result < 0 )
         return result;
       v41 = v64;
       v29 = (char *)off_126D60;
-      v28 = v41 - 4000 - sub_10186C();
+      v28 = v41 - 4000 - return_1000();
       v42 = v25 - v65[0] < 0;
       v25 &= (v25 - v65[0]) >> 31;
       if ( !v42 )
@@ -255,42 +255,42 @@ LABEL_44:
         }
       }
 LABEL_47:
-      sub_126938(v28, (int)v36, 0);
-      return sub_126938(v25, v5, v4);
+      send_event_to_host(v28, (int)v36, 0);
+      return send_event_to_host(v25, v5, v4);
     }
 LABEL_39:
-    sub_126A04();
+    hci_acl_buf_alloc();
     v28 = a2;
     goto LABEL_40;
   }
-  if ( sub_12A364(v3 + 1320 * v62, &v64, v65) )
+  if ( util_feature_get(v3 + 1320 * v62, &v64, v65) )
   {
     v43 = v64;
     v28 = v65[0];
-    if ( v43 - v59 + v23 - sub_10186C() < 0 )
+    if ( v43 - v59 + v23 - return_1000() < 0 )
     {
       v46 = v64;
-      v25 = v46 - 4000 - sub_10186C();
+      v25 = v46 - 4000 - return_1000();
     }
-    result = v25 - v28 - 9000 - sub_10186C();
+    result = v25 - v28 - 9000 - return_1000();
     if ( result >= 0 )
       goto LABEL_19;
     return result;
   }
-  v26 = sub_10186C();
+  v26 = return_1000();
   v27 = v64;
   if ( 5000 - v64 + a2 + 2 * (v26 + 4000) < 0 )
   {
-    if ( v27 - v59 + v23 - sub_10186C() < 0 )
+    if ( v27 - v59 + v23 - return_1000() < 0 )
     {
       v51 = v64;
-      v47 = v51 - 4000 - sub_10186C();
+      v47 = v51 - 4000 - return_1000();
     }
     else
     {
       v47 = v25;
     }
-    if ( v65[0] + 9000 - v25 + sub_10186C() >= 0 )
+    if ( v65[0] + 9000 - v25 + return_1000() >= 0 )
     {
       v29 = (char *)off_126E90;
       v25 = v47;
@@ -320,8 +320,8 @@ LABEL_39:
     {
       v50 = 0;
 LABEL_70:
-      sub_126938(a2, (int)v50, 0);
-      sub_126938(v47, *(uint32_t *)(v3 + 1320 * v62 + 72), 0);
+      send_event_to_host(a2, (int)v50, 0);
+      send_event_to_host(v47, *(uint32_t *)(v3 + 1320 * v62 + 72), 0);
       v28 = v65[0];
       goto LABEL_51;
     }
@@ -329,7 +329,7 @@ LABEL_77:
     v50 = (char *)off_126E90 + 28 * v49;
     goto LABEL_70;
   }
-  result = sub_10186C();
+  result = return_1000();
   v28 = v65[0];
   if ( v65[0] + 9000 - v25 + result < 0 )
   {

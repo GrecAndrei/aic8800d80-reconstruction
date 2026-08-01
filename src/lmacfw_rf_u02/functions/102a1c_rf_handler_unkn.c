@@ -16,16 +16,16 @@ extern uint32_t off_102A4C;
 extern uint32_t dword_102A54;
 extern uint32_t dword_102A50;
 
-// rf_handler_unkn @ 0x102a1c, size 38 bytes
-// Doc: rf_handler_unkn [rf]: Unidentified RF helper routine
-// rf_handler_unkn [rf]: Unidentified RF helper routine
-int rf_handler_unkn()
+// check_button @ 0x102a1c, size 38 bytes
+// Doc: check_button [rf]: Unidentified RF helper routine
+// check_button [rf]: Unidentified RF helper routine
+int check_button()
 {
   int result; // r0
 
-  result = msg_parse(dword_102A48, dword_102A44);
+  result = dispatch_event_handler(dword_102A48, dword_102A44);
   if ( **(int16_t **)off_102A4C < 0 )
-    return rf_cmd_send_n264(dword_102A54, dword_102A50, 61);
+    return flash_ctrl_init(dword_102A54, dword_102A50, 61);
   return result;
 }
 

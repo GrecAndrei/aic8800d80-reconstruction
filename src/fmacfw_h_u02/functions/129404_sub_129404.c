@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_129404 @ 0x129404, size 82 bytes
-int  sub_129404(int a1, int a2)
+// bus_cmd52_write @ 0x129404, size 82 bytes
+int  bus_cmd52_write(int a1, int a2)
 {
   int v4; // r0
   int v5; // r3
   int v6; // r2
   uint64_t v7; // kr00_8
 
-  v4 = sub_12C7EC(85, 13, 0, 16);
+  v4 = tx_send_pdu(85, 13, 0, 16);
   *(uint8_t *)v4 = *(uint8_t *)(a1 + 113);
   v5 = a1 + 48 * a2;
   *(uint8_t *)(v4 + 1) = a2;
@@ -38,6 +38,6 @@ int  sub_129404(int a1, int a2)
   {
     *(uint8_t *)(v4 + 3) = 0;
   }
-  return sub_12C84C(v4);
+  return rx_process_packet(v4);
 }
 

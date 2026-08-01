@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_38f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116e8", "status": "ok", "name": "rf_bus_write2_n_38f", "params": [], "docstring": "Write word to RF peripheral bus (0x40200000) with context index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_38f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116e8", "status": "ok", "name": "rf_bus_reset2_n_170", "params": [], "docstring": "Write word to RF peripheral bus (0x40200000) with context index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -13,8 +13,8 @@
 extern uint32_t off_102DFC;
 extern uint32_t off_102E00;
 
-// sub_102DE0 @ 0x102de0, size 26 bytes
-BOOL sub_102DE0()
+// get_reset_reason @ 0x102de0, size 26 bytes
+BOOL get_reset_reason()
 {
   BOOL result; // r0
 

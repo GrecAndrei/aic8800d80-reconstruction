@@ -20,8 +20,8 @@ extern uint32_t dword_102AD0;
 extern uint32_t dword_102AD4;
 extern uint32_t off_102AD8;
 
-// sub_102A58 @ 0x102a58, size 96 bytes
-int sub_102A58()
+// nvic_enable_irq @ 0x102a58, size 96 bytes
+int nvic_enable_irq()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r3

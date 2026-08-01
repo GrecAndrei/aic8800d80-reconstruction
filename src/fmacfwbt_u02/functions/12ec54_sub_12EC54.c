@@ -12,8 +12,8 @@
 
 extern uint32_t off_12EC5C;
 
-// sub_12EC54 @ 0x12ec54, size 6 bytes
-int  sub_12EC54(int result)
+// state_set_flags @ 0x12ec54, size 6 bytes
+int  state_set_flags(int result)
 {
   *(uint32_t *)off_12EC5C = result;
   return result;

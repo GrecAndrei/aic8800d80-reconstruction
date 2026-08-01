@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146dc", "status": "ok", "name": "rf_bus_reset_n_90", "params": [], "docstring": "RF bus reset byte readback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146dc", "status": "ok", "name": "set_global_flag_2", "params": [], "docstring": "RF bus reset byte readback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

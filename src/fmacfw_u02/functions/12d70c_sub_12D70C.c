@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12D784;
 
-// sub_12D70C @ 0x12d70c, size 120 bytes
-float  sub_12D70C(float a1)
+// apply_patch_block @ 0x12d70c, size 120 bytes
+float  apply_patch_block(float a1)
 {
   int v1; // r1
   int v2; // r2

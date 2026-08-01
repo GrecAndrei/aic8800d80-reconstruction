@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DB14;
 
-// sub_10DB04 @ 0x10db04, size 16 bytes
+// gpio_out_set @ 0x10db04, size 16 bytes
 // Doc: sub_120DB04 [rf]: Unknown LMAC RF helper function
 // sub_120DB04 [rf]: Unknown LMAC RF helper function
-int  sub_10DB04(char a1)
+int  gpio_out_set(char a1)
 {
   int result; // r0
 

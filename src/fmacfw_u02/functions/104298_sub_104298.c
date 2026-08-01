@@ -17,8 +17,8 @@ extern uint32_t off_104380;
 extern uint32_t off_104384;
 extern uint32_t off_104388;
 
-// sub_104298 @ 0x104298, size 220 bytes
-unsigned int *sub_104298()
+// mac_irq_disable @ 0x104298, size 220 bytes
+unsigned int *mac_irq_disable()
 {
   unsigned int *v0; // r1
   uint32_t *v1; // r0

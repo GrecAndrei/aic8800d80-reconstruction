@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A420;
 
-// sub_12A3E8 @ 0x12a3e8, size 54 bytes
-uint8_t * sub_12A3E8(int a1, uint8_t a2)
+// lll_conn_phy_get @ 0x12a3e8, size 54 bytes
+uint8_t * lll_conn_phy_get(int a1, uint8_t a2)
 {
   int v2; // r5
   int v3; // r4
@@ -26,7 +26,7 @@ uint8_t * sub_12A3E8(int a1, uint8_t a2)
   v5 = v4[113];
   v4[115] = a2;
   v4[114] = 1;
-  sub_125B98(v5, 3);
-  return sub_1296C4((uint8_t *)(v2 + 140 * v3));
+  util_get_state(v5, 3);
+  return rsn_parse_ie((uint8_t *)(v2 + 140 * v3));
 }
 

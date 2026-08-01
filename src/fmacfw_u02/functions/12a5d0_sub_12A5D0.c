@@ -12,11 +12,11 @@
 
 extern uint32_t dword_12A5F0;
 
-// sub_12A5D0 @ 0x12a5d0, size 30 bytes
-uint8_t * sub_12A5D0(uint8_t *result)
+// llc_get_evt_ptr @ 0x12a5d0, size 30 bytes
+uint8_t * llc_get_evt_ptr(uint8_t *result)
 {
   if ( result[1224] )
-    return sub_129804((uint8_t *)(dword_12A5F0 + 140 * result[1225]));
+    return wlc_rx_process((uint8_t *)(dword_12A5F0 + 140 * result[1225]));
   return result;
 }
 

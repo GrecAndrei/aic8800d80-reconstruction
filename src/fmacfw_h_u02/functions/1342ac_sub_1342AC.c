@@ -16,12 +16,12 @@ extern uint32_t dword_1342E4;
 extern uint32_t dword_1342EC;
 extern uint32_t dword_1342F0;
 
-// sub_1342AC @ 0x1342ac, size 52 bytes
-uint32_t *sub_1342AC()
+// controller_is_ready @ 0x1342ac, size 52 bytes
+uint32_t *controller_is_ready()
 {
   if ( **(int16_t **)off_1342E0 >= 0 || !*((uint32_t *)off_1342E8 + 6) )
-    return sub_12D100((uint32_t *)dword_1342E4);
-  sub_12F32C(dword_1342EC, dword_1342F0, 132);
-  return sub_12D100((uint32_t *)dword_1342E4);
+    return clear_stats_buf((uint32_t *)dword_1342E4);
+  irq_disable_mmio_write(dword_1342EC, dword_1342F0, 132);
+  return clear_stats_buf((uint32_t *)dword_1342E4);
 }
 

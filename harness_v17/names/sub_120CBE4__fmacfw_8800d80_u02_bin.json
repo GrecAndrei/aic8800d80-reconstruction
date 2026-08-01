@@ -1,1 +1,1 @@
-{"fn": "sub_120CBE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120cbe4", "status": "ok", "name": "fmac_tx_dispatch", "params": [], "docstring": "FMAC transmit path dispatcher", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120CBE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120cbe4", "status": "ok", "name": "controller_status_read", "params": [], "docstring": "FMAC transmit path dispatcher", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -21,8 +21,8 @@ extern uint32_t off_117544;
 extern uint32_t off_117538;
 extern uint32_t off_11753C;
 
-// sub_117424 @ 0x117424, size 254 bytes
-int  sub_117424(int a1, int a2)
+// phy_set_rate_power @ 0x117424, size 254 bytes
+int  phy_set_rate_power(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r0
@@ -73,13 +73,13 @@ int  sub_117424(int a1, int a2)
   }
   v10 = (int *)off_11753C;
   ++*(uint32_t *)off_11753C;
-  sub_119F50(a1, a2);
-  sub_12D108(v4 + 12);
-  sub_12AD34(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
+  btm_init_conn_entry(a1, a2);
+  wlan_ioctl_handler_1(v4 + 12);
+  is_channel_index_valid(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117524 + 126);
-  sub_129194(a1);
-  result = sub_116B0C(a1, a2, 0);
+  mfp_is_enabled(a1);
+  result = rx_process_packet(a1, a2, 0);
   v12 = *v10;
   *(uint16_t *)(a1 + 82) |= 1u;
   if ( v12 )

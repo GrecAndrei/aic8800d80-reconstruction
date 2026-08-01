@@ -31,10 +31,10 @@ extern uint32_t off_101254;
 extern uint32_t off_101258;
 extern uint32_t off_10125C;
 
-// rf_clock_gate_init @ 0x100fa8, size 616 bytes
-// Doc: rf_clock_gate_init [rf]: Ungates RF peripheral clock and configures control registers
-// rf_clock_gate_init [rf]: Ungates RF peripheral clock and configures control registers
-int  rf_clock_gate_init(unsigned int a1, int a2)
+// bb_enable @ 0x100fa8, size 616 bytes
+// Doc: bb_enable [rf]: Ungates RF peripheral clock and configures control registers
+// bb_enable [rf]: Ungates RF peripheral clock and configures control registers
+int  bb_enable(unsigned int a1, int a2)
 {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
@@ -92,9 +92,9 @@ int  rf_clock_gate_init(unsigned int a1, int a2)
   *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
   *v8 &= ~1u;
   *(v6 - 1903) |= 8u;
-  sub_102EB8(1, 0, 16, *v9);
-  sub_102EB8(1, 16, 16, *(uint32_t *)off_10122C);
-  sub_1009A0(0, a1);
+  peripheral_read_32(1, 0, 16, *v9);
+  peripheral_read_32(1, 16, 16, *(uint32_t *)off_10122C);
+  bt_enable(0, a1);
   if ( a1 > 0x98A )
   {
     v11 = 6;
@@ -155,7 +155,7 @@ int  rf_clock_gate_init(unsigned int a1, int a2)
     ;
   result = *(uint32_t *)off_10125C & 1;
   if ( !result )
-    result = message_dispatch_n244(0);
+    result = rng_read(0);
   *(uint32_t *)off_101258 = 1;
   return result;
 }

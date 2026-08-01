@@ -13,12 +13,12 @@
 extern uint32_t off_113B28;
 extern uint32_t off_113B2C;
 
-// sub_113AD0 @ 0x113ad0, size 88 bytes
-int  sub_113AD0(unsigned int a1, int a2)
+// mmio_write32 @ 0x113ad0, size 88 bytes
+int  mmio_write32(unsigned int a1, int a2)
 {
   uint32_t *v4; // r3
 
-  sub_10F188(1);
+  get_bandgap_trim(1);
   while ( !*(uint32_t *)off_113B28 )
     ;
   if ( a1 <= 0x1F )
@@ -34,6 +34,6 @@ int  sub_113AD0(unsigned int a1, int a2)
     v4[21] &= ~4u;
   }
   *(uint32_t *)off_113B28 = 1;
-  return sub_10F188(0);
+  return get_bandgap_trim(0);
 }
 

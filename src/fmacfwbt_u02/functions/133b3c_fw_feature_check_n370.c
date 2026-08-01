@@ -14,22 +14,22 @@ extern uint32_t off_133B70;
 extern uint32_t dword_133B78;
 extern uint32_t dword_133B74;
 
-// fw_feature_check_n370 @ 0x133b3c, size 52 bytes
-// Doc: fw_feature_check_n370 [util]: Check firmware feature/flag word at shared address
-// fw_feature_check_n370 [util]: Check firmware feature/flag word at shared address
-int  fw_feature_check_n370(int value)
+// bt_stop @ 0x133b3c, size 52 bytes
+// Doc: bt_stop [util]: Check firmware feature/flag word at shared address
+// bt_stop [util]: Check firmware feature/flag word at shared address
+int  bt_stop(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_133B70 >= 0 || (value = msg_get_value(6u), value == 10) )
+  if ( **(int16_t **)off_133B70 >= 0 || (value = hci_cmd_send_short(6u), value == 10) )
   {
-    sub_1349D8(value);
+    check_hw_ready_status(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F694(dword_133B78, dword_133B74, 871);
-    sub_1349D8(v2);
+    v2 = mmio_irq_clear(dword_133B78, dword_133B74, 871);
+    check_hw_ready_status(v2);
     return 0;
   }
 }

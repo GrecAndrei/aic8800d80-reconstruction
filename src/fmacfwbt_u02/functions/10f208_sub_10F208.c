@@ -14,8 +14,8 @@ extern uint32_t off_10F2A4;
 extern uint32_t dword_10F2A8;
 extern uint32_t dword_10F2AC;
 
-// sub_10F208 @ 0x10f208, size 156 bytes
-uint64_t sub_10F208()
+// init_fw_table @ 0x10f208, size 156 bytes
+uint64_t init_fw_table()
 {
   uint16_t *v0; // r5
   int *v1; // r4
@@ -34,20 +34,20 @@ uint64_t sub_10F208()
   *((uint8_t *)v0 + 6176) = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  bt_xtal_init_check(v0 + 1540);
-  bt_xtal_init_check(v1 - 3);
-  bt_xtal_init_check(v1 + 512);
-  bt_xtal_init_check(v1 + 514);
+  zero_struct(v0 + 1540);
+  zero_struct(v1 - 3);
+  zero_struct(v1 + 512);
+  zero_struct(v1 + 514);
   v0[4122] = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  memset_thunk(v1, 0, 0x800u);
+  memset_byte(v1, 0, 0x800u);
   v2 = v1 + 512;
   v3 = v1 + 512;
   do
   {
     v1 += 4;
-    list_push_tail(v3);
+    check_abort_flag(v3);
   }
   while ( v1 != v2 );
   v4 = dword_10F2AC;

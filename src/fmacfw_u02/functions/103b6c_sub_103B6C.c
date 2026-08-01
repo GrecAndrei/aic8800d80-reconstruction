@@ -18,8 +18,8 @@ extern uint32_t off_103C0C;
 extern uint32_t dword_103C10;
 extern uint32_t off_103C04;
 
-// sub_103B6C @ 0x103b6c, size 138 bytes
-int sub_103B6C()
+// enable_pa @ 0x103b6c, size 138 bytes
+int enable_pa()
 {
   uint32_t *v0; // r2
   int v1; // r3
@@ -57,6 +57,6 @@ int sub_103B6C()
   *v5 |= 0x1000000u;
   *v5 |= 0x8000000u;
   *v6 |= 0x524u;
-  return sub_12ECD0(0x2000, v7);
+  return check_status_bits(0x2000, v7);
 }
 

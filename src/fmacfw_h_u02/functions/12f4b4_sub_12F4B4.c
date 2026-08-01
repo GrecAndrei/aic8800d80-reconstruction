@@ -15,8 +15,8 @@ extern uint32_t off_12F508;
 extern uint32_t dword_12F50C;
 extern uint32_t off_12F510;
 
-// sub_12F4B4 @ 0x12f4b4, size 78 bytes
-int  sub_12F4B4(unsigned int a1)
+// unknown_12f4b4 @ 0x12f4b4, size 78 bytes
+int  unknown_12f4b4(unsigned int a1)
 {
   int *v2; // r5
   int result; // r0
@@ -30,7 +30,7 @@ int  sub_12F4B4(unsigned int a1)
   }
   v2 = (int *)off_12F508;
   ++*(uint32_t *)off_12F508;
-  result = sub_115F04();
+  result = set_string_0x182588();
   if ( a1 <= 4 )
     --*(uint8_t *)(dword_12F50C + a1);
   if ( *v2 )

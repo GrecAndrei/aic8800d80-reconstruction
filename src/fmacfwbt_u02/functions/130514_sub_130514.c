@@ -14,8 +14,8 @@ extern uint32_t off_130580;
 extern uint32_t dword_130588;
 extern uint32_t dword_130584;
 
-// sub_130514 @ 0x130514, size 108 bytes
-int  sub_130514(int a1)
+// rf_map_channel @ 0x130514, size 108 bytes
+int  rf_map_channel(int a1)
 {
   uint8_t *v1; // r3
   int v2; // r2
@@ -52,6 +52,6 @@ int  sub_130514(int a1)
   v1[11] = v3 - v4;
   v1[12] = v12 - v11;
   v1[13] = v2;
-  return rf_msg_handler_n_13a();
+  return check_event_state();
 }
 

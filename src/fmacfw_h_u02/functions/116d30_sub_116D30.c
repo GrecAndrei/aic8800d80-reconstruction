@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_116D30 @ 0x116d30, size 12 bytes
-int  sub_116D30(unsigned int a1)
+// size_to_class @ 0x116d30, size 12 bytes
+int  size_to_class(unsigned int a1)
 {
   if ( a1 > 0x2000 )
     return 4;

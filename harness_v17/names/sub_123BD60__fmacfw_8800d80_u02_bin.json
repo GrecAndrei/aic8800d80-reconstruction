@@ -1,1 +1,1 @@
-{"fn": "sub_123BD60", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123bd60", "status": "ok", "name": "sub_123BD60", "params": [], "docstring": "Builds a 16-bit control word with shift/and/or of args and constant 8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BD60", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123bd60", "status": "ok", "name": "rf_ctrl_send", "params": [], "docstring": "Builds a 16-bit control word with shift/and/or of args and constant 8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

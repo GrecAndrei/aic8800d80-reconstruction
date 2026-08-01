@@ -1,1 +1,1 @@
-{"fn": "sub_1213B80", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213b80", "status": "ok", "name": "rf_fault_dump_n_b2", "params": [], "docstring": "Dump RF fault state, iterating up to 0x5c entries", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1213B80", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213b80", "status": "ok", "name": "mmio_write_reg2", "params": [], "docstring": "Dump RF fault state, iterating up to 0x5c entries", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11499C @ 0x11499c, size 156 bytes
+// copy_global_1672f8 @ 0x11499c, size 156 bytes
 // Doc: rf_fault_dump_n2ac [rf]: RF fault dump helper n2ac
 // rf_fault_dump_n2ac [rf]: RF fault dump helper n2ac
-int  sub_11499C(int a1, int a2)
+int  copy_global_1672f8(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2

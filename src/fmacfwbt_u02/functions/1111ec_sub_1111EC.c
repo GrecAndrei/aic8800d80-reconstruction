@@ -25,10 +25,10 @@ extern uint32_t off_1114A8;
 extern uint32_t off_1116C4;
 extern uint32_t dword_111678;
 
-// sub_1111EC @ 0x1111ec, size 1160 bytes
+// rx_isr_status @ 0x1111ec, size 1160 bytes
 // Doc: rf_bus_mark_n_426 [rf]: Marks RF bus slot/entry with ownership and lookup metadata
 // rf_bus_mark_n_426 [rf]: Marks RF bus slot/entry with ownership and lookup metadata
-int sub_1111EC()
+int rx_isr_status()
 {
   int v0; // r4
   int v1; // r2
@@ -91,7 +91,7 @@ int sub_1111EC()
   v0 = *(uint32_t *)rf_bus_reset2;
   if ( **(int16_t **)rf_bus_reset2_n_3e8 < 0 && !v0 )
   {
-    sub_12F6C4(rf_bus_write_n_33c, rf_bus_write2_n_3f8, 39);
+    mmio_field_update(rf_bus_write_n_33c, rf_bus_write2_n_3f8, 39);
     goto rf_bus_mark_n_499_0;
   }
   v1 = v0 << 18;
@@ -102,12 +102,12 @@ int sub_1111EC()
     *(uint32_t *)rf_bus_mark_shift = *(uint32_t *)rf_bus_mark_shift;
     v50 = dword_1116A8;
     *v48 &= ~0x20u;
-    feature_guard_sdio(2, v50);
+    state_check_feature(2, v50);
     if ( (v49 & 4) != 0 )
     {
       v53 = rf_bus_write2_n_3ab;
       *(uint8_t *)rf_bus_reset2_n_1a8 = 1;
-      feature_guard_sdio(2, v53);
+      state_check_feature(2, v53);
     }
     if ( (v49 & 1) != 0 )
     {
@@ -115,7 +115,7 @@ int sub_1111EC()
       *(uint32_t *)rf_bus_write_n_314 = 16;
       if ( *v52 )
       {
-        feature_guard_sdio(2, rf_bus_write_n_2e4);
+        state_check_feature(2, rf_bus_write_n_2e4);
         *v52 = 0;
       }
       if ( *(uint8_t *)rf_bus_mark_n_2c )
@@ -124,7 +124,7 @@ int sub_1111EC()
         *((uint8_t *)rf_bus_mark_n_2c + 1) = 1;
         v56 = rf_bus_write2_n_3a0_16d8;
         *v55 |= 1u;
-        feature_guard_sdio(2, v56);
+        state_check_feature(2, v56);
       }
       v1 = 0;
       *(uint8_t *)rf_bus_reset2_n_19f = 0;
@@ -133,20 +133,20 @@ int sub_1111EC()
     {
       v54 = dword_1116D0;
       *(uint8_t *)rf_bus_reset2_n_19f = 1;
-      feature_guard_sdio(2, v54);
+      state_check_feature(2, v54);
     }
     if ( (v49 & 8) != 0 )
-      sub_12ECB0(dword_1116BC, v51, v1);
+      ke_event_schedule(dword_1116BC, v51, v1);
   }
   if ( (v0 & 1) != 0 )
   {
-    sub_12ECB0(dword_111478, v0 << 31, v1);
+    ke_event_schedule(dword_111478, v0 << 31, v1);
     *(uint32_t *)rf_bus_mark_from_stack_args = 1;
   }
   v2 = v0 << 26;
   if ( (v0 & 0x20) != 0 )
   {
-    mmio_field_extract_n1168(*(uint32_t *)rf_bus_mark_n_260_1480);
+    rf_set_tx_power(*(uint32_t *)rf_bus_mark_n_260_1480);
     v2 = 32;
     *(uint32_t *)rf_bus_mark_from_stack_args = 32;
   }
@@ -155,14 +155,14 @@ int sub_1111EC()
     v3 = *(uint32_t *)rf_bus_mark_n_25c;
     v4 = off_11148C;
     *(uint32_t *)rf_bus_mark_n_25c = *(uint32_t *)rf_bus_mark_n_25c;
-    sub_12ECB0(rf_bus_mark_n_250_1490, v3, *v4);
+    ke_event_schedule(rf_bus_mark_n_250_1490, v3, *v4);
   }
   if ( (v0 & 0x8000) == 0 )
     goto rf_bus_mark_n_499_0;
   v42 = rf_bus_mark_n_54;
   v43 = *(uint32_t *)off_111688;
   *(uint32_t *)off_111688 = *(uint32_t *)off_111688;
-  sub_12ECB0(v42, v43, v2);
+  ke_event_schedule(v42, v43, v2);
   if ( (v43 & 4) != 0 )
   {
     v2 = (int)rf_bus_write_n_330;
@@ -178,7 +178,7 @@ rf_bus_mark_n_144:
     v44 = dword_111698;
     v45 = *(uint32_t *)off_111694;
     *(uint32_t *)off_111694 = *(uint32_t *)off_111694;
-    sub_12ECB0(v44, v45, v2);
+    ke_event_schedule(v44, v45, v2);
     v6 = v0 << 8;
     if ( (v0 & 0x800000) == 0 )
       goto rf_bus_mark_n_48d;
@@ -197,7 +197,7 @@ rf_bus_mark_n_131:
   v46 = dword_1116A0;
   v47 = *(uint32_t *)rf_bus_write_n_324;
   *(uint32_t *)rf_bus_write_n_324 = *(uint32_t *)rf_bus_write_n_324;
-  sub_12ECB0(v46, v47, v6);
+  ke_event_schedule(v46, v47, v6);
 rf_bus_mark_n_48d:
   if ( (v0 & 0x400) != 0 )
   {
@@ -206,7 +206,7 @@ rf_bus_mark_n_48d:
     v9 = *((uint8_t *)rf_bus_mark_n_24c + 1622);
     if ( v8 >= v9 )
     {
-      sub_12ECB0(rf_bus_reset2_n_18f, v8, v9);
+      ke_event_schedule(rf_bus_reset2_n_18f, v8, v9);
     }
     else
     {
@@ -235,15 +235,15 @@ rf_bus_mark_n_48d:
       v17 = rf_bus_reset2_n_3a8_14b0;
       *(uint32_t *)rf_bus_mark_n_234 = v15;
       *v17 = 16;
-      list_push_tail(rf_bus_mark_n_22c);
-      irq_nesting_or(256);
+      check_abort_flag(rf_bus_mark_n_22c);
+      set_system_flag_1(256);
     }
     v6 = 1024;
     *(uint32_t *)rf_bus_mark_from_stack_args = 1024;
   }
   if ( (v0 & 0x200) != 0 )
   {
-    sub_12ECB0(rf_stream_start2_n_1a8, v5, v6);
+    ke_event_schedule(rf_stream_start2_n_1a8, v5, v6);
     *(uint32_t *)off_1116C4 = 512;
   }
   if ( (v0 & 0x100) != 0 )
@@ -267,12 +267,12 @@ rf_bus_mark_n_48d:
       *((uint32_t *)v41 + 410) = v39;
       v41[1644] = v38;
       v18[2433] = v19 + 1;
-      list_push_tail(v18 + 2436);
-      irq_nesting_or(0x400000);
+      check_abort_flag(v18 + 2436);
+      set_system_flag_1(0x400000);
     }
     else
     {
-      sub_12ECB0(rf_bus_mark_n_228, v19, v20);
+      ke_event_schedule(rf_bus_mark_n_228, v19, v20);
     }
     *(uint32_t *)rf_bus_mark_from_stack_args = 256;
   }
@@ -285,11 +285,11 @@ rf_bus_mark_n_48d:
       v23 = *((uint8_t *)rf_bus_write_14c0 + 369);
       *(uint8_t *)rf_bus_reset2_n_39b = 0;
       if ( v23 )
-        irq_enable(1);
+        gpio_set_bit_reg0(1);
       else
-        sub_10DB6C(1);
+        gpio_clear_bit_reg0(1);
       if ( v22[374] == 1 )
-        timestamp_remove_058(rf_bus_write_n_4fc);
+        ke_event_set_lock(rf_bus_write_n_4fc);
     }
     v24 = rf_bus_write_4c8;
     v25 = *((uint8_t *)rf_bus_write_4c8 + 3074);
@@ -307,12 +307,12 @@ rf_bus_mark_n_48d:
       v24[3072] = v35;
       *((uint16_t *)v36 + 4) = *v37;
       v24[3074] = v25 + 1;
-      list_push_tail(v24 + 3080);
-      result = irq_nesting_or(128);
+      check_abort_flag(v24 + 3080);
+      result = set_system_flag_1(128);
     }
     else
     {
-      result = sub_12ECB0(rf_bus_write_n_4f3, v25, v26);
+      result = ke_event_schedule(rf_bus_write_n_4f3, v25, v26);
     }
     v27 = rf_bus_mark_n_210;
     *(uint32_t *)rf_bus_mark_from_stack_args = 4096;
@@ -327,11 +327,11 @@ rf_bus_mark_n_48d:
       v29 = *((uint8_t *)rf_bus_write_14c0 + 369);
       *(uint8_t *)rf_bus_reset2_n_39b = 0;
       if ( v29 )
-        irq_enable(1);
+        gpio_set_bit_reg0(1);
       else
-        sub_10DB6C(1);
+        gpio_clear_bit_reg0(1);
       if ( v28[374] == 1 )
-        timestamp_remove_058(rf_bus_write_n_4fc);
+        ke_event_set_lock(rf_bus_write_n_4fc);
     }
     v30 = rf_bus_write_4c8;
     v31 = *((uint8_t *)rf_bus_write_4c8 + 6162);
@@ -347,12 +347,12 @@ rf_bus_mark_n_48d:
       v30[4 * v33 + 773] = *v34;
       LOWORD(v30[4 * v33 + 774]) = *(uint32_t *)rf_bus_write_14e8;
       *((uint8_t *)v30 + 6162) = v31 + 1;
-      list_push_tail(rf_bus_write_4ec);
-      result = irq_nesting_or(64);
+      check_abort_flag(rf_bus_write_4ec);
+      result = set_system_flag_1(64);
     }
     else
     {
-      result = sub_12ECB0(rf_bus_reset2_n_37f, v31, v31);
+      result = ke_event_schedule(rf_bus_reset2_n_37f, v31, v31);
     }
     v32 = rf_bus_mark_n_204;
     *(uint32_t *)rf_bus_mark_from_stack_args = 2048;

@@ -14,8 +14,8 @@ extern uint32_t dword_12E074;
 extern uint32_t dword_12E078;
 extern uint32_t dword_12E07C;
 
-// sub_12DFD4 @ 0x12dfd4, size 158 bytes
-int  sub_12DFD4(unsigned int a1)
+// rf_trim_high @ 0x12dfd4, size 158 bytes
+int  rf_trim_high(unsigned int a1)
 {
   int result; // r0
 

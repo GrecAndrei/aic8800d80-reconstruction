@@ -29,10 +29,10 @@ extern uint32_t off_1005A0;
 extern uint32_t dword_1005AC;
 extern uint32_t off_1005A8;
 
-// firmware_init_0478 @ 0x100478, size 240 bytes
-// Doc: firmware_init_0478 [util]: Initialize firmware globals and link module table pointers
-// firmware_init_0478 [util]: Initialize firmware globals and link module table pointers
-void __noreturn firmware_init_0478()
+// ke_task_init @ 0x100478, size 240 bytes
+// Doc: ke_task_init [util]: Initialize firmware globals and link module table pointers
+// ke_task_init [util]: Initialize firmware globals and link module table pointers
+void __noreturn ke_task_init()
 {
   uint8_t *v0; // r4
   uint32_t *v1; // r5
@@ -70,7 +70,7 @@ void __noreturn firmware_init_0478()
   *v4 = v0 + 152;
   *v5 = v0 + 178;
   *v6 = v0 + 176;
-  v7 = sub_1002A0();
+  v7 = ke_evt_handler();
   if ( *(uint8_t *)*v1 == 1 )
   {
     v8 = off_10058C;
@@ -80,33 +80,33 @@ void __noreturn firmware_init_0478()
   }
   v9 = off_100594;
   *((uint8_t *)off_100594 + 2) = (*(uint32_t *)off_100590 & 0xF) == 10;
-  v10 = sub_1301B4(v7);
-  v11 = log_hw_regs_init(v10);
-  v12 = rf_cmd_send_n_36c(v11);
-  inited = fw_init_seq_n_12(v12);
+  v10 = ke_irq_lock(v7);
+  v11 = gpio_pad_config(v10);
+  v12 = copy_stats(v11);
+  inited = shutdown_sequence(v12);
   if ( v0[363] )
   {
-    v20 = sub_130714(inited);
-    sub_1307D0(v20);
+    v20 = mmio_init_check(inited);
+    rf_afe_enable(v20);
   }
-  v14 = sub_12ECB0(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
-  v15 = sub_10FF58(v14);
-  v16 = log_system_init(v15);
+  v14 = ke_event_schedule(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
+  v15 = rf_channel_config(v14);
+  v16 = process_state(v15);
   if ( v9[2] )
   {
-    sub_1143C4(v16);
+    log_debug_c(v16);
     v17 = off_100590;
     v18 = dword_1005A4;
     *(uint32_t *)off_1005A0 &= ~8u;
     *v17 &= 0xFFFFFFF0;
-    v19 = feature_guard_sdio(2, v18);
+    v19 = state_check_feature(2, v18);
   }
   else
   {
-    v19 = feature_guard_sdio(2, dword_1005AC);
+    v19 = state_check_feature(2, dword_1005AC);
   }
   if ( *(uint8_t *)*v1 == 3 )
     *(uint32_t *)off_1005A8 = 1;
-  sub_116188(v19);
+  ke_init_structures(v19);
 }
 

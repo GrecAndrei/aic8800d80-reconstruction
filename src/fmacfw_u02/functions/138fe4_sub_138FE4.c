@@ -20,10 +20,10 @@ extern uint32_t off_13928C;
 extern uint32_t dword_139290;
 extern uint32_t dword_139298;
 
-// sub_138FE4 @ 0x138fe4, size 672 bytes
+// ll_rx_irq @ 0x138fe4, size 672 bytes
 // Doc: sub_1238FE4 [ipc]: Generic handler with 8 saved regs; likely IPC or command dispatcher
 // sub_1238FE4 [ipc]: Generic handler with 8 saved regs; likely IPC or command dispatcher
-int  sub_138FE4(unsigned int a1, int a2, int a3)
+int  ll_rx_irq(unsigned int a1, int a2, int a3)
 {
   uint16_t *v3; // r6
   char v5; // r5
@@ -66,14 +66,14 @@ LABEL_14:
 LABEL_15:
     if ( v9 )
       return 0;
-    v10 = rf_bus_mark_n100_d2d0(dword_139288);
+    v10 = mem_word_load(dword_139288);
     if ( !v10 )
     {
-      v27 = rf_bus_mark_n100_d2d0(dword_139294);
+      v27 = mem_word_load(dword_139294);
       v10 = v27;
       if ( **(int16_t **)off_13929C < 0 && !v27 )
-        sub_12F46C(dword_1392A4, dword_1392A0, 1111);
-      sub_1389D0(0, 4, v10[5]);
+        mmio_clear_register(dword_1392A4, dword_1392A0, 1111);
+      tx_power_lookup(0, 4, v10[5]);
     }
     v13 = v3[2];
     *((uint8_t *)v10 + 6) = v5;
@@ -89,18 +89,18 @@ LABEL_15:
     *((uint16_t *)v10 + 5) = v13;
     v10[14] = v17;
     v10[15] = v10;
-    timestamp_update((int)(v10 + 13), v16 + 100000);
+    unknown_worker((int)(v10 + 13), v16 + 100000);
     if ( (v3[24] & 1) != 0 )
-      fmac_msg_handler_n3a4(a1, (int)(v10 + 7), 1, 0);
+      ll_state_machine(a1, (int)(v10 + 7), 1, 0);
     *(uint32_t *)(a1 + 96) &= ~0x20u;
-    sub_138CB4(a1, 1);
+    rf_get_rssi(a1, 1);
     HIDWORD(v18) = *((uint32_t *)v3 + 16);
     LODWORD(v18) = *((uint32_t *)v3 + 7);
     v19 = dword_139294;
     *((uint64_t *)v10 + 2) = v18;
     *((uint8_t *)v10 + 5) = *((uint8_t *)v3 + 49);
     *((uint16_t *)v10 + 6) = *(uint16_t *)(a1 + 48);
-    list_push_tail(v19, v10);
+    cmd_handler_a(v19, v10);
     goto LABEL_20;
   }
   v8 = *(uint16_t *)off_139284 & 0x400;
@@ -132,20 +132,20 @@ LABEL_7:
     *((uint16_t *)v10 + 6) = v22;
     if ( (v3[24] & 1) != 0 )
     {
-      if ( fmac_msg_handler_n3a4(a1, (int)(v10 + 7), 0, v8 == 0) )
+      if ( ll_state_machine(a1, (int)(v10 + 7), 0, v8 == 0) )
       {
         v26 = *(uint32_t *)(a1 + 96);
         if ( !v8 )
         {
           *((uint16_t *)v10 + 6) -= 8;
           *(uint32_t *)(a1 + 96) = v26 & 0xFFFFFF9F | 0x40;
-          sdio_buffer_prepare_n_2f4(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+          mac_mcps_request(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
           v10[4] += v21;
           v23 = 1;
           goto LABEL_30;
         }
         *(uint32_t *)(a1 + 96) = v26 & 0xFFFFFF9F | 0x40;
-        sdio_buffer_prepare_n_2f4(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+        mac_mcps_request(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
         v10[4] += v21;
 LABEL_20:
         v10[6] = *((uint32_t *)off_13928C + 4);
@@ -158,7 +158,7 @@ LABEL_20:
       v23 = 1;
     }
     *(uint32_t *)(a1 + 96) = *(uint32_t *)(a1 + 96) & 0xFFFFFF9F | 0x40;
-    sdio_buffer_prepare_n_2f4(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+    mac_mcps_request(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
     v10[4] += v21;
     if ( !v8 )
     {
@@ -167,26 +167,26 @@ LABEL_30:
         v24 = 24;
       else
         v24 = 8;
-      v25 = sub_1389D0(0, v24, v10[5]);
+      v25 = tx_power_lookup(0, v24, v10[5]);
       if ( v25 )
         v25[18] = *((uint16_t *)v10 + 6);
-      sub_1389D0(0, v23, v10[5]);
-      timestamp_remove((int)(v10 + 13));
-      sub_12D2E8(dword_139294, v10);
-      list_push_tail(dword_139288, v10);
+      tx_power_lookup(0, v23, v10[5]);
+      fault_handler((int)(v10 + 13));
+      cmd_handler_c(dword_139294, v10);
+      cmd_handler_a(dword_139288, v10);
       goto LABEL_20;
     }
     goto LABEL_20;
   }
   if ( (*((uint8_t *)off_139284 + 48) & 1) != 0 )
   {
-    if ( !fmac_msg_handler_n3a4(a1, (int)v28, 1, 1) )
+    if ( !ll_state_machine(a1, (int)v28, 1, 1) )
       return v9;
     *(uint16_t *)(a1 + 48) -= 8;
   }
   v20 = dword_139298 + 1320 * *((uint8_t *)v3 + 10);
   if ( *(uint8_t *)(v20 + 1227)
-    && rf_msg_process_body_n422(
+    && phy_config_set(
          (uint8_t *)(v20 + 107),
          (uint32_t *)(v20 + 1228),
          *(char **)(*(uint32_t *)(a1 + 28) + 8),
@@ -194,7 +194,7 @@ LABEL_30:
   {
     return v9;
   }
-  sub_138CB4(a1, 3);
+  rf_get_rssi(a1, 3);
   return 1;
 }
 

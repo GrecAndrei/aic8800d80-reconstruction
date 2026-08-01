@@ -16,8 +16,8 @@ extern uint32_t off_119868;
 extern uint32_t off_119864;
 extern uint32_t off_11986C;
 
-// sub_1196E0 @ 0x1196e0, size 384 bytes
-int  sub_1196E0(int a1, int a2, int a3)
+// phy_channel_same @ 0x1196e0, size 384 bytes
+int  phy_channel_same(int a1, int a2, int a3)
 {
   unsigned int v3; // r7
   int result; // r0
@@ -102,11 +102,11 @@ LABEL_16:
           v17 = *(uint32_t *)(v13 + 48);
           *(uint32_t *)(v15 + 36) |= 0x380000u;
           *(uint32_t *)(v8 + 324) = v15;
-          sub_11C550(v17);
+          check_channel_busy(v17);
           v18 = *(uint8_t *)(*(uint32_t *)off_11986C + 1);
           if ( *(uint8_t *)(*(uint32_t *)off_11986C + 1) )
           {
-            sub_1193BC(
+            phy_channel_select(
               v8,
               *(uint16_t *)(v15 + 34),
               *(uint8_t *)(v8 + 12),
@@ -141,7 +141,7 @@ LABEL_16:
           if ( (v23 & 2) != 0 )
             *(uint32_t *)(*(uint32_t *)(v8 + 52) + 20) = *(uint32_t *)(v8 + 4);
           *(uint16_t *)(v8 + 8) = v23 | 0xF;
-          sub_12D248(v12 + 84 * a3 + 28);
+          cmd_handler_a(v12 + 84 * a3 + 28);
           v24 = v12 + 84 * a3;
           v25 = *(uint8_t *)(v24 + 80);
           *(uint32_t *)(v24 + 44) = 0;

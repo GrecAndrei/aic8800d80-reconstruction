@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13CE78 @ 0x13ce78, size 374 bytes
-unsigned int  sub_13CE78(int a1, unsigned int a2)
+// ll_pdu_type_get @ 0x13ce78, size 374 bytes
+unsigned int  ll_pdu_type_get(int a1, unsigned int a2)
 {
   unsigned int v2; // r2
   int v3; // nf

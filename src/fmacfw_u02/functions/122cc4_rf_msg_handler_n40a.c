@@ -12,13 +12,13 @@
 
 extern uint32_t off_122CD8;
 
-// rf_msg_handler_n40a @ 0x122cc4, size 20 bytes
-// Doc: rf_msg_handler_n40a [rf]: Handles RF message parsing, computing offset from header field
-// rf_msg_handler_n40a [rf]: Handles RF message parsing, computing offset from header field
-int  rf_msg_handler_n40a(int a1, uint32_t *a2, int a3, int a4)
+// set_mmio_and_send_cmd @ 0x122cc4, size 20 bytes
+// Doc: set_mmio_and_send_cmd [rf]: Handles RF message parsing, computing offset from header field
+// set_mmio_and_send_cmd [rf]: Handles RF message parsing, computing offset from header field
+int  set_mmio_and_send_cmd(int a1, uint32_t *a2, int a3, int a4)
 {
   *(uint32_t *)off_122CD8 = *a2;
-  sub_12CA10(114, a4, a3);
+  ke_msg_send_no_param(114, a4, a3);
   return 0;
 }
 

@@ -17,29 +17,29 @@ extern uint32_t off_10DDC4;
 extern uint32_t dword_10DDC8;
 extern uint32_t off_10DDC0;
 
-// sub_10DD54 @ 0x10dd54, size 94 bytes
-int sub_10DD54()
+// rf_chain_enable @ 0x10dd54, size 94 bytes
+int rf_chain_enable()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r3
   int result; // r0
 
-  sub_10DB64(1);
-  sub_10DBAC(1);
-  sub_10DB64(2);
-  sub_10DBAC(2);
+  rf_irq_clear(1);
+  gpio_set_pin(1);
+  rf_irq_clear(2);
+  gpio_set_pin(2);
   if ( *((uint8_t *)off_10DDB4 + 369) )
   {
-    sub_10DBC0(1);
-    sub_10DBC0(2);
+    mmio_set_bit(1);
+    mmio_set_bit(2);
   }
   else
   {
-    sub_10DBD4(1);
-    sub_10DBD4(2);
+    mmio_clear_bit(1);
+    mmio_clear_bit(2);
   }
-  sub_10DB94(3);
-  sub_10DC04(3, 2, dword_10DDB8);
+  rf_irq_disable(3);
+  make_bit_mask(3, 2, dword_10DDB8);
   v0 = off_10DDBC;
   v1 = off_10DDC4;
   result = dword_10DDC8;

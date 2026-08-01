@@ -15,8 +15,8 @@ extern uint32_t off_110044;
 extern uint32_t off_110040;
 extern uint32_t dword_110048;
 
-// sub_10FFC0 @ 0x10ffc0, size 122 bytes
-int sub_10FFC0()
+// get_rx_stats @ 0x10ffc0, size 122 bytes
+int get_rx_stats()
 {
   void *v0; // r4
   int v1; // r3
@@ -47,7 +47,7 @@ int sub_10FFC0()
   v8[4] = 1596;
   v8[0] = 124;
   v8[3] = 0;
-  sub_10F7E4(v2, (int)v7, 0x20u);
-  return sub_10FE2C((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
+  rx_handle_packet(v2, (int)v7, 0x20u);
+  return log_event((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
 }
 

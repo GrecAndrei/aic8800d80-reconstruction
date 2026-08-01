@@ -22,8 +22,8 @@ extern uint32_t off_12B754;
 extern uint32_t off_12B744;
 extern uint32_t off_12B75C;
 
-// sub_12B6C4 @ 0x12b6c4, size 120 bytes
-int sub_12B6C4()
+// rf_status_check @ 0x12b6c4, size 120 bytes
+int rf_status_check()
 {
   uint32_t *v0; // r1
   int v1; // r6
@@ -39,7 +39,7 @@ int sub_12B6C4()
   int v11; // r3
 
   if ( **(int16_t **)off_12B73C < 0 && !(*(uint32_t *)off_12B758 << 28) )
-    return sub_12F2C8(dword_12B764, dword_12B760, 213, *(uint32_t *)off_12B758);
+    return unknown_12f2c8(dword_12B764, dword_12B760, 213, *(uint32_t *)off_12B758);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();

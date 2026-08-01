@@ -14,8 +14,8 @@ extern uint32_t off_10D500;
 extern uint32_t off_10D4FC;
 extern uint32_t dword_10D504;
 
-// sub_10D4E8 @ 0x10d4e8, size 20 bytes
-void sub_10D4E8()
+// enable_irq @ 0x10d4e8, size 20 bytes
+void enable_irq()
 {
   uint32_t *v0; // r3
 

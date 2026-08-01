@@ -13,8 +13,8 @@
 extern uint32_t off_108D2C;
 extern uint32_t off_108D30;
 
-// sub_108CB8 @ 0x108cb8, size 114 bytes
-uint32_t * sub_108CB8(uint32_t *result, unsigned int *a2)
+// rf_wait_for_command @ 0x108cb8, size 114 bytes
+uint32_t * rf_wait_for_command(uint32_t *result, unsigned int *a2)
 {
   int v2; // r3
   int v3; // r3

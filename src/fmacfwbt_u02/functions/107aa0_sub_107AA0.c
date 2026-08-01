@@ -18,8 +18,8 @@ extern uint32_t off_107C4C;
 extern uint32_t dword_107C50;
 extern uint32_t dword_107C5C;
 
-// sub_107AA0 @ 0x107aa0, size 418 bytes
-int  sub_107AA0(int a1)
+// rf_mmio_init @ 0x107aa0, size 418 bytes
+int  rf_mmio_init(int a1)
 {
   uint32_t *v1; // r4
   uint32_t *v2; // r5
@@ -50,27 +50,27 @@ int  sub_107AA0(int a1)
   v4 = dword_107C58;
   v5 = (int *)off_107C4C;
   v6 = off_107C4C;
-  crypto_state_dump(a1);
+  rf_load_tx_config(a1);
   v8 = dword_107C50;
   *v1 |= 0x1000000u;
   *v1 |= 0x2000000u;
-  feature_guard_sdio(1, v8);
-  sub_107370();
+  state_check_feature(1, v8);
+  rf_set_frequency();
   *v2 &= ~1u;
-  delay_us(20);
+  timer_set(20);
   *v2 |= 4u;
   *v2 |= 8u;
-  delay_us(20);
+  timer_set(20);
   v9 = (int *)off_107C54;
   *v1 |= 0x400000u;
   *v3 = *v3 & v4 | 0xC00;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x4000000u;
   v10 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   v20 = v10;
   *v3 = *v3 & v4 | 0x400;
-  delay_us(20);
+  timer_set(20);
   *v1 |= 0x4000000u;
   v11 = *v5;
   v12 = dword_107C58;
@@ -87,19 +87,19 @@ int  sub_107AA0(int a1)
     v16 = 512;
   else
     v16 = 2560;
-  delay_us(20);
+  timer_set(20);
   *v14 |= 0x4000000u;
   v22 = *v6 & 0x7FFF;
   *v14 &= ~0x4000000u;
   *v9 = *v9 & v12 | v16;
-  delay_us(20);
+  timer_set(20);
   v17 = dword_107C5C;
   *v14 |= 0x4000000u;
   v23 = *v6 & 0x7FFF;
   *v14 &= ~0x4000000u;
   *v14 &= ~0x400000u;
-  feature_guard_sdio(1, v17);
-  result = crypto_power_calc(&v20, a1);
+  state_check_feature(1, v17);
+  result = util_min_max(&v20, a1);
   v19 = off_107C48;
   *(uint32_t *)off_107C48 &= ~4u;
   *v19 &= ~8u;

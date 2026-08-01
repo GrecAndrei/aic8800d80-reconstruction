@@ -14,10 +14,10 @@ extern uint32_t off_107CBC;
 extern uint32_t off_107CC0;
 extern uint32_t off_107CC4;
 
-// sub_107C60 @ 0x107c60, size 92 bytes
+// rf_irq_clear_a @ 0x107c60, size 92 bytes
 // Doc: sub_1207C60 [util]: Clear low bit of 0x403420c8 register and trigger callback
 // sub_1207C60 [util]: Clear low bit of 0x403420c8 register and trigger callback
-int sub_107C60()
+int rf_irq_clear_a()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r3
@@ -26,13 +26,13 @@ int sub_107C60()
   int v4; // r3
 
   v0 = off_107CBC;
-  sub_107370();
+  rf_set_frequency();
   *v0 &= ~1u;
-  delay_us(1);
+  timer_set(1);
   v1 = off_107CC0;
   *(uint32_t *)off_107CC0 &= 0xCFFFFFFF;
   *v1 |= 0x40000000u;
-  result = delay_us(1);
+  result = timer_set(1);
   v3 = off_107CC4;
   *v0 |= 1u;
   while ( (*v3 & 1) == 0 )

@@ -1,1 +1,1 @@
-{"fn": "sub_122A364", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a364", "status": "ok", "name": "bt_msg_post_n364", "params": [], "docstring": "Posts a message; loads shared flag, branches on it then dispatches.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A364", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a364", "status": "ok", "name": "util_feature_get", "params": [], "docstring": "Posts a message; loads shared flag, branches on it then dispatches.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

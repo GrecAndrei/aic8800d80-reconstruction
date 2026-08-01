@@ -16,8 +16,8 @@ extern uint32_t off_114598;
 extern uint32_t off_1145A0;
 extern uint32_t off_11459C;
 
-// sub_11454C @ 0x11454c, size 68 bytes
-int sub_11454C()
+// get_core_state @ 0x11454c, size 68 bytes
+int get_core_state()
 {
   int v0; // r2
   int v1; // r1

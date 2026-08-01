@@ -37,10 +37,10 @@ extern uint32_t off_1178CC;
 extern uint32_t off_1178D0;
 extern uint32_t off_1178D4;
 
-// sub_1174B4 @ 0x1174b4, size 1016 bytes
+// conn_schedule @ 0x1174b4, size 1016 bytes
 // Doc: sub_12174B4 [util]: Multi-case state handler dispatching on r0 (0..5)
 // sub_12174B4 [util]: Multi-case state handler dispatching on r0 (0..5)
-int  sub_1174B4(int result)
+int  conn_schedule(int result)
 {
   int v1; // r6
   char *v2; // r4
@@ -117,19 +117,19 @@ LABEL_9:
             LOWORD(v10) = *(uint16_t *)(v7 + 8);
             if ( (v10 & 0x20) == 0 )
             {
-              sub_11F03C(result);
+              mac_irq_handler(result);
               v29 = 4;
               while ( 1 )
               {
                 v10 = *(uint16_t *)(v7 + 8);
                 if ( (v10 & 0x20) != 0 )
                   break;
-                sub_11F03C(v10 << 26);
+                mac_irq_handler(v10 << 26);
                 if ( !--v29 )
                 {
                   v10 = *(uint16_t *)(v7 + 8);
                   if ( **(int16_t **)off_1178AC < 0 && (v10 & 0x20) == 0 )
-                    return sub_12F630(dword_1178B4, dword_1178B0, 1262, v10);
+                    return ke_int_lock(dword_1178B4, dword_1178B0, 1262, v10);
                   goto LABEL_11;
                 }
               }
@@ -138,7 +138,7 @@ LABEL_9:
           else
           {
 LABEL_36:
-            sub_12D4F8(v2 + 28);
+            list_pop_front(v2 + 28);
             LOWORD(v10) = *(uint16_t *)(v7 + 8);
           }
           goto LABEL_11;
@@ -159,7 +159,7 @@ LABEL_36:
         && !*((uint8_t *)off_1178D8 + 511) )
       {
         v40 = *(uint32_t *)(v7 + 144);
-        sub_11A308(v1);
+        llc_tx_llcp_handler(v1);
         v9 = v40;
         v8 = *(uint8_t *)(*v3 + 1);
       }
@@ -171,14 +171,14 @@ LABEL_31:
       LOWORD(v10) = *(uint16_t *)(v7 + 8);
       if ( (v10 & 0x20) == 0 )
       {
-        ((void (*)(void))sub_11F03C)();
+        ((void (*)(void))mac_irq_handler)();
         v22 = 4;
         while ( 1 )
         {
           v10 = *(uint16_t *)(v7 + 8);
           if ( (v10 & 0x20) != 0 )
             break;
-          sub_11F03C(v10 << 26);
+          mac_irq_handler(v10 << 26);
           if ( !--v22 )
           {
             LOWORD(v10) = *(uint16_t *)(v7 + 8);
@@ -191,7 +191,7 @@ LABEL_31:
 LABEL_11:
       v11 = *(uint32_t *)(dword_11778C + 4 * v1);
       *(uint16_t *)(v7 + 8) = v10 | 0x10;
-      result = irq_nesting_or(v11);
+      result = set_system_flag_1(v11);
       v12 = *v3;
       --v2[80];
       v2[26] = 0;
@@ -244,11 +244,11 @@ LABEL_14:
     if ( v16 >= 0 )
     {
       if ( (*(uint32_t *)(v14 + 36) & 0x380000) == 0x280000 )
-        return sub_11ACF0(*(uint32_t *)(v14 + 68) + 16, v1);
+        return assert_fail_handler(*(uint32_t *)(v14 + 68) + 16, v1);
       return result;
     }
     v15[1] = v16;
-    sub_11AD40(v1);
+    llc_conn_timer_tick(v1);
     v17 = *(uint32_t *)(v14 + 36) & 0x200000;
     if ( !v17 )
     {
@@ -260,7 +260,7 @@ LABEL_14:
         {
           if ( **(int16_t **)off_1177AC < 0 && !*(uint32_t *)(v18 + 8) )
           {
-            sub_12F694(dword_1178C0, dword_1178B0, 1077);
+            mmio_irq_clear(dword_1178C0, dword_1178B0, 1077);
             __und(0xFFu);
           }
           v17 = v15[4];
@@ -270,7 +270,7 @@ LABEL_14:
         {
           result = v17;
           if ( v17 )
-            result = sub_11ACF0(v17, v1);
+            result = assert_fail_handler(v17, v1);
           *(uint32_t *)(4 * v39) = *(uint32_t *)off_1178BC + *(uint32_t *)(dword_1178B8 + 4 * v1);
           return result;
         }
@@ -278,13 +278,13 @@ LABEL_14:
       else
       {
         *(uint32_t *)v2 = 0;
-        patch_sub_1217374(v1);
+        mmio_set_bit(v1);
         if ( v2[80] == 1
           && *((uint32_t *)v2 + 11)
           && !*(uint32_t *)(dword_1177A8 + 8 * (165 * *(uint8_t *)(*((uint32_t *)v2 + 12) + 28) + v1 + 154))
           && !*((uint8_t *)off_11777C + 511) )
         {
-          sub_11A308(v1);
+          llc_tx_llcp_handler(v1);
         }
       }
     }
@@ -294,11 +294,11 @@ LABEL_14:
       if ( v20 <= 0x23 )
         *(uint32_t *)(dword_117790 + 696 * v20 + 664) = *((uint32_t *)off_117794 + 4);
     }
-    sub_12D4F8(v2 + 12);
+    list_pop_front(v2 + 12);
     if ( *(uint16_t *)(v14 + 4) )
-      sub_118358(v14, v16, v1);
+      list_append(v14, v16, v1);
     else
-      sub_119120(v14);
+      btlp_enter_sleep(v14);
     v21 = *(uint32_t *)(v14 + 36);
     result = v21 << 10;
     if ( (v21 & 0x200000) != 0 )
@@ -307,7 +307,7 @@ LABEL_14:
       {
         *((uint32_t *)v2 + 9) = *(uint32_t *)(v14 + 68);
         v2[26] = 1;
-        result = irq_nesting_or(512);
+        result = set_system_flag_1(512);
       }
     }
     else

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1307D4 @ 0x1307d4, size 46 bytes
+// chip_id_to_string @ 0x1307d4, size 46 bytes
 // Doc: sub_12307D4 [util]: Initialize descriptor header with magic bytes F/5/p
 // sub_12307D4 [util]: Initialize descriptor header with magic bytes F/5/p
-int  sub_1307D4(int a1)
+int  chip_id_to_string(int a1)
 {
   **(uint8_t **)a1 = 70;
   *(uint8_t *)(*(uint32_t *)a1 + 1) = 5;

@@ -1,1 +1,1 @@
-{"fn": "sub_1218CFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218cfc", "status": "ok", "name": "sub_1218CFC", "params": [], "docstring": "Unknown helper at 0x1218cfc in fmacfw", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1218CFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218cfc", "status": "ok", "name": "scan_control", "params": [], "docstring": "Unknown helper at 0x1218cfc in fmacfw", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

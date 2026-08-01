@@ -22,8 +22,8 @@ extern uint32_t off_131F28;
 extern uint32_t dword_131F2C;
 extern uint32_t dword_131F30;
 
-// sub_131A60 @ 0x131a60, size 1220 bytes
-int  sub_131A60(int a1, int a2, int16_t a3, int16_t a4)
+// ke_msg_alloc @ 0x131a60, size 1220 bytes
+int  ke_msg_alloc(int a1, int a2, int16_t a3, int16_t a4)
 {
   uint8_t *v5; // r4
   int v6; // r0
@@ -115,10 +115,10 @@ int  sub_131A60(int a1, int a2, int16_t a3, int16_t a4)
 
   v83 = 0;
   v84 = 0;
-  v5 = (uint8_t *)sub_12C92C(5128, a4, a3, 3u);
+  v5 = (uint8_t *)ke_msg_alloc(5128, a4, a3, 3u);
   v82 = 0;
   v80 = 0;
-  v6 = sub_13A4D8();
+  v6 = clear_flag();
   v7 = *(uint8_t *)(a2 + 129);
   v8 = *(uint32_t *)(a2 + 120);
   v73 = v6;
@@ -142,7 +142,7 @@ int  sub_131A60(int a1, int a2, int16_t a3, int16_t a4)
     {
       if ( v36 == 3 )
       {
-        v61 = sdio_buffer_prepare_n_17c(a2);
+        v61 = extract_9bit_field(a2);
         v8 = *(uint32_t *)(a2 + 120);
         v9 = v61;
         goto LABEL_4;
@@ -154,7 +154,7 @@ int  sub_131A60(int a1, int a2, int16_t a3, int16_t a4)
       }
       v59 = v74 + 368;
     }
-    v60 = sdio_buffer_prepare_n_16c(v59 + dword_131E34, *(uint16_t *)(a2 + 124));
+    v60 = mac_hash_calc(v59 + dword_131E34, *(uint16_t *)(a2 + 124));
     v8 = *(uint32_t *)(a2 + 120);
     v9 = v60;
     goto LABEL_4;
@@ -164,7 +164,7 @@ LABEL_4:
   v11 = v8 & 0x20;
   if ( v11 )
     v11 = a2 + 64;
-  sub_132658(a2 + 20, v10, v11, &v82, &v83, &v84, &v80);
+  util_init_outputs(a2 + 20, v10, v11, &v82, &v83, &v84, &v80);
   v12 = *(uint8_t *)(a2 + 129);
 LABEL_8:
   v87 = *(uint32_t *)a2;
@@ -179,7 +179,7 @@ LABEL_8:
   v85[2] = v83;
   v85[1] = v84;
   v89 = v80;
-  v14 = sub_121CD8((int)v85, v5, &v81);
+  v14 = call_fw_handler((int)v85, v5, &v81);
   v5[1] = v14;
   if ( v14 )
     goto LABEL_24;
@@ -244,7 +244,7 @@ LABEL_8:
       v21[76] = v53;
       if ( (v79 & 8) != 0 )
       {
-        sub_11C528(v20);
+        arm_timer(v20);
         v16 = *(uint32_t *)(a2 + 120);
       }
     }
@@ -263,7 +263,7 @@ LABEL_8:
       }
     }
     v22 = dword_131E34;
-    v58 = sub_132460(v20, v74 + 248 + dword_131E34);
+    v58 = rf_check_status(v20, v74 + 248 + dword_131E34);
     v16 = *(uint32_t *)(a2 + 120);
     v14 = v58;
   }
@@ -279,10 +279,10 @@ LABEL_8:
   *(uint16_t *)(v23 + 32) = *(uint16_t *)(a2 + 124);
   *(uint8_t *)(v23 + 311) = v24;
   v76 = v23;
-  stub_push_r4(v20);
+  stub_ret(v20);
   if ( (*(uint32_t *)(a2 + 120) & 0x10) != 0 && *(char *)(a2 + 128) >= 0 )
   {
-    chan_ctx_lookup_n2b8(*(uint8_t *)(v76 + 35), *(uint8_t *)(a2 + 128) & 3, *(uint8_t *)(a2 + 128) >> 4);
+    bt_get_conn_entry(*(uint8_t *)(v76 + 35), *(uint8_t *)(a2 + 128) & 3, *(uint8_t *)(a2 + 128) >> 4);
     if ( !v14 )
       goto LABEL_19;
   }
@@ -290,7 +290,7 @@ LABEL_8:
   {
     goto LABEL_19;
   }
-  chan_ctx_lookup_n2b8(*(uint8_t *)(dword_131E30 + 696 * v15 + 35), 255, 0);
+  bt_get_conn_entry(*(uint8_t *)(dword_131E30 + 696 * v15 + 35), 255, 0);
 LABEL_19:
   v25 = v22 + 1320 * v7;
   v26 = *(uint16_t *)(v25 + 236);
@@ -305,7 +305,7 @@ LABEL_19:
   *(uint8_t *)(v27 + 350) = v29 | 0x10;
   *(uint8_t *)(v27 + 688) = 1;
   v77 = v27;
-  timestamp_update(696 * v15 + 672 + dword_131E30, dword_131E40 + v30[4]);
+  unknown_worker(696 * v15 + 672 + dword_131E30, dword_131E40 + v30[4]);
   v5[2] = v73;
   if ( v73 )
   {
@@ -321,10 +321,10 @@ LABEL_19:
         v33[36] = 1;
         if ( v34 <= 0x1F )
         {
-          v62 = (uint8_t *)sub_12C92C(73, 13, 0, 2u);
+          v62 = (uint8_t *)ke_msg_alloc(73, 13, 0, 2u);
           *v62 = v32;
           v62[1] = 1;
-          sdio_buffer_prepare_n_4e8((int)v62);
+          ke_msg_send((int)v62);
           if ( v33[36] || v33[35] > 0x1Fu )
           {
             LOBYTE(v31) = *(uint8_t *)(v25 + 234);
@@ -349,10 +349,10 @@ LABEL_19:
                 }
                 v69 = dword_131F2C;
                 ++*v63;
-                msg_parse(v69);
-                buf_ptr_deref_n_430(v65 - 10, v66 - 10);
+                event_dispatch(v69);
+                list_next(v65 - 10, v66 - 10);
                 *(uint64_t *)(v68 + 1232) = *((uint64_t *)v64 + 73);
-                sub_12D240(v65 - 10);
+                zero_8_bytes(v65 - 10);
                 v70 = *v63 - 1;
                 if ( *v63 )
                 {
@@ -370,26 +370,26 @@ LABEL_19:
               v64 += 8;
               if ( v72 )
               {
-                msg_parse(dword_131F30);
-                buf_ptr_deref_n_430(v66, v65);
-                sub_12D240(v65);
+                event_dispatch(dword_131F30);
+                list_next(v66, v65);
+                zero_8_bytes(v65);
               }
               v65 += 2;
               v66 += 2;
             }
             while ( (uint32_t *)v67 != v65 );
             v5 = v78;
-            irq_nesting_or_d104(512);
+            unknown_func_12d104(512);
             LOBYTE(v31) = *(uint8_t *)(v22 + 1320 * v7 + 234);
           }
         }
       }
     }
     *(uint8_t *)(v22 + 1320 * v7 + 234) = v31 + 1;
-    sub_12A5D0((uint8_t *)(v74 + v22));
+    llc_get_evt_ptr((uint8_t *)(v74 + v22));
   }
 LABEL_24:
-  sdio_buffer_prepare_n_4e8((int)v5);
+  ke_msg_send((int)v5);
   return 0;
 }
 

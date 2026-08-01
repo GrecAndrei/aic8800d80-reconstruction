@@ -1,1 +1,1 @@
-{"fn": "sub_121930C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121930c", "status": "ok", "name": "sub_121930C", "params": [], "docstring": "Unknown RF helper routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121930C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121930c", "status": "ok", "name": "kernel_send_msg", "params": [], "docstring": "Unknown RF helper routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

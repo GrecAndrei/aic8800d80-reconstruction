@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n_19b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e90", "status": "ok", "name": "rf_mem_write_n_19b", "params": [], "docstring": "RF memory write with range check 0x41-0x5A then conditional store", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n_19b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e90", "status": "ok", "name": "rf_cmd_dispatch_n_b4", "params": [], "docstring": "RF memory write with range check 0x41-0x5A then conditional store", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

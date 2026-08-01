@@ -20,8 +20,8 @@ extern uint32_t off_10CA04;
 extern uint32_t off_10CA08;
 extern uint32_t dword_10CA0C;
 
-// sub_10C938 @ 0x10c938, size 182 bytes
-int sub_10C938()
+// pmu_status_interrupt @ 0x10c938, size 182 bytes
+int pmu_status_interrupt()
 {
   int v0; // r4
   int result; // r0
@@ -37,7 +37,7 @@ int sub_10C938()
     v6 = off_10C9F8;
     *(uint32_t *)off_10CA10 = 32;
     *v6 = 32;
-    sub_12D32C(0x80000);
+    set_system_flag_1(0x80000);
   }
   result = v0 << 27;
   if ( (v0 & 0x10) != 0 )
@@ -45,16 +45,16 @@ int sub_10C938()
     v5 = off_10C9F8;
     *(uint32_t *)off_10CA10 = 16;
     *v5 = 16;
-    result = sub_12D32C(0x100000);
+    result = set_system_flag_1(0x100000);
   }
   if ( (v0 & 2) != 0 )
   {
-    result = sub_12D32C(0x8000000);
+    result = set_system_flag_1(0x8000000);
     *(uint32_t *)off_10CA10 = 2;
   }
   if ( (v0 & 0x40000000) != 0 )
   {
-    result = sub_114408(1);
+    result = check_radio_flag(1);
     *(uint32_t *)off_10C9F8 = 0x40000000;
   }
   if ( v0 < 0 )
@@ -79,7 +79,7 @@ LABEL_16:
   if ( *v3 )
     goto LABEL_16;
   if ( (*(uint32_t *)off_10CA08 & dword_10CA0C) == 0x10000 )
-    return sub_1143D0();
+    return log_and_check_hw();
   return result;
 }
 

@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_cmd_dispatch_n_34 @ 0x121f10, size 50 bytes
+// str_has_extension @ 0x121f10, size 50 bytes
 // Doc: rf_mem_write_n_ee [rf]: RF memory write with parameter validation
 // rf_mem_write_n_ee [rf]: RF memory write with parameter validation
-int  rf_cmd_dispatch_n_34(int a1)
+int  str_has_extension(int a1)
 {
   int v2; // r0
   int v3; // r0
   int v5; // r3
 
-  v2 = sub_1288C0(a1);
+  v2 = memset_ff(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;

@@ -14,8 +14,8 @@ extern uint32_t dword_12DF34;
 extern uint32_t off_12DF38;
 extern uint32_t dword_12DF3C;
 
-// sub_12DE94 @ 0x12de94, size 158 bytes
-int  sub_12DE94(char *a1)
+// is_factory_mode_a @ 0x12de94, size 158 bytes
+int  is_factory_mode_a(char *a1)
 {
   int result; // r0
 

@@ -13,8 +13,8 @@
 extern uint32_t off_113AC8;
 extern uint32_t off_113ACC;
 
-// sub_113A44 @ 0x113a44, size 130 bytes
-int  sub_113A44(unsigned int a1)
+// mmio_read32 @ 0x113a44, size 130 bytes
+int  mmio_read32(unsigned int a1)
 {
   int v1; // r8
   uint32_t *v3; // r3
@@ -52,7 +52,7 @@ LABEL_7:
       if ( v7 <= 0x26 )
         goto LABEL_7;
       ++v6;
-      uart_putc(101);
+      uart_tx_byte(101);
       if ( v6 == 32 )
       {
 LABEL_11:

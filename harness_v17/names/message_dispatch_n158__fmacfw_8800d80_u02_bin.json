@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n158", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cae4", "status": "ok", "name": "message_dispatch_n158", "params": [], "docstring": "Dispatch IPC message, aligns payload and resolves handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n158", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cae4", "status": "ok", "name": "pkt_buf_alloc", "params": [], "docstring": "Dispatch IPC message, aligns payload and resolves handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

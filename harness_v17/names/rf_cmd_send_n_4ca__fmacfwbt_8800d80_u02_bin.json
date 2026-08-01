@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_4ca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129a2", "status": "ok", "name": "rf_cmd_send_n_4ca", "params": [], "docstring": "Send RF command by writing to cmd register 0x810 and setting flag bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_4ca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129a2", "status": "ok", "name": "rf_bus_reset_n15f", "params": [], "docstring": "Send RF command by writing to cmd register 0x810 and setting flag bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1182F0;
 
-// rf_init_or_setup_n32c @ 0x1182c8, size 40 bytes
-// Doc: rf_init_or_setup_n32c [rf]: RF initialization/setup routine
-// rf_init_or_setup_n32c [rf]: RF initialization/setup routine
-int  rf_init_or_setup_n32c(int result)
+// check_link_id @ 0x1182c8, size 40 bytes
+// Doc: check_link_id [rf]: RF initialization/setup routine
+// check_link_id [rf]: RF initialization/setup routine
+int  check_link_id(int result)
 {
   int v1; // r4
   int v2; // r5
@@ -27,7 +27,7 @@ int  rf_init_or_setup_n32c(int result)
   do
   {
     if ( *(uint8_t *)(v1 + 32) == *(uint8_t *)(v2 + 95) )
-      result = sub_117D6C(v2, v1, 0);
+      result = rx_queue_flush(v2, v1, 0);
     v1 += 152;
   }
   while ( v3 != v1 );

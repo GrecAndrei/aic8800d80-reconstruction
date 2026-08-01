@@ -13,8 +13,8 @@
 extern uint32_t off_117E5C;
 extern uint32_t off_117E60;
 
-// sub_117E34 @ 0x117e34, size 38 bytes
-int sub_117E34()
+// rf_irq_clear @ 0x117e34, size 38 bytes
+int rf_irq_clear()
 {
   unsigned int v0; // r4
   int result; // r0
@@ -22,7 +22,7 @@ int sub_117E34()
   v0 = *(uint32_t *)off_117E5C & 0xF00000;
   if ( v0 )
   {
-    result = sub_11B0B4((uint8_t)(11 - __clz(v0)));
+    result = get_84_entry((uint8_t)(11 - __clz(v0)));
     *(uint32_t *)off_117E60 = v0;
   }
   else

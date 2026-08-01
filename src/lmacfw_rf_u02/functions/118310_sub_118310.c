@@ -12,9 +12,9 @@
 
 extern uint32_t off_118320;
 
-// sub_118310 @ 0x118310, size 16 bytes
-int  sub_118310(int a1)
+// copy_patch_region @ 0x118310, size 16 bytes
+int  copy_patch_region(int a1)
 {
-  return sub_11AB18(a1 + 48, *((uint32_t *)off_118320 + 4) + 10000);
+  return ke_enter_critical(a1 + 48, *((uint32_t *)off_118320 + 4) + 10000);
 }
 

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1032E8 @ 0x1032e8, size 14 bytes
-int  sub_1032E8(int result)
+// get_controller_state @ 0x1032e8, size 14 bytes
+int  get_controller_state(int result)
 {
   while ( result )
     ;

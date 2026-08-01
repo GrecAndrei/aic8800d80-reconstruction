@@ -1,0 +1,1 @@
+{"fn": "sub_126E50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x126e50", "status": "ok", "name": "jump_10de98", "params": [], "docstring": "Unconditional branch to 0x10de98", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -12,12 +12,12 @@
 
 extern uint32_t off_1258BC;
 
-// sub_1258A4 @ 0x1258a4, size 22 bytes
-int  sub_1258A4(uint16_t *a1)
+// co_list_remove @ 0x1258a4, size 22 bytes
+int  co_list_remove(uint16_t *a1)
 {
   if ( *((uint32_t *)off_1258BC + 1) )
-    return list_push_tail((char *)off_1258BC + 12);
+    return cmd_handler_a((char *)off_1258BC + 12);
   else
-    return rf_parse_descriptor_n3f8(a1);
+    return hci_acl_header_parse(a1);
 }
 

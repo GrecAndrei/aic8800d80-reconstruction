@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B9AC @ 0x13b9ac, size 68 bytes
-int  sub_13B9AC(int a1)
+// rf_scan_entry @ 0x13b9ac, size 68 bytes
+int  rf_scan_entry(int a1)
 {
   int v1; // r3
   int v2; // r6

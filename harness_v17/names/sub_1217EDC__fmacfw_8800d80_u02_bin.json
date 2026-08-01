@@ -1,1 +1,1 @@
-{"fn": "sub_1217EDC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217edc", "status": "ok", "name": "subsys_init", "params": [], "docstring": "Initializes subsystem via callback registration", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217EDC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217edc", "status": "ok", "name": "init_buf_188290", "params": [], "docstring": "Initializes subsystem via callback registration", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

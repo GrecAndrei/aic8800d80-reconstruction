@@ -1,1 +1,1 @@
-{"fn": "sub_121C790", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c790", "status": "ok", "name": "mmio_set_bit7", "params": [], "docstring": "Set bit 0x80 in MMIO register at 0x40320324", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C790", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c790", "status": "ok", "name": "enable_irq", "params": [], "docstring": "Set bit 0x80 in MMIO register at 0x40320324", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

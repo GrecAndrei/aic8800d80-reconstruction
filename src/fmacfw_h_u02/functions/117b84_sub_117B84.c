@@ -13,8 +13,8 @@
 extern uint32_t off_117BC8;
 extern uint32_t off_117BCC;
 
-// sub_117B84 @ 0x117b84, size 66 bytes
-int  sub_117B84(int a1)
+// poll_hw_ready @ 0x117b84, size 66 bytes
+int  poll_hw_ready(int a1)
 {
   uint64_t *v1; // r6
   uint64_t *v2; // r7

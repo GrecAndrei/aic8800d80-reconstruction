@@ -14,8 +14,8 @@ extern uint32_t off_11413C;
 extern uint32_t off_114140;
 extern uint32_t dword_114144;
 
-// sub_1140F4 @ 0x1140f4, size 72 bytes
-int sub_1140F4()
+// rf_power_down @ 0x1140f4, size 72 bytes
+int rf_power_down()
 {
   uint32_t *v0; // r5
   void *v1; // r7
@@ -25,16 +25,16 @@ int sub_1140F4()
 
   v0 = off_11413C;
   v1 = off_114140;
-  sub_12D100(*(uint32_t *)off_11413C + 628);
-  result = sub_12D100(*v0 + 636);
+  clear_stats_buf(*(uint32_t *)off_11413C + 628);
+  result = clear_stats_buf(*v0 + 636);
   if ( *(uint16_t *)(*(uint32_t *)v1 + 8) )
   {
     v3 = dword_114144;
     v4 = 0;
     do
     {
-      sub_10F9E8(v3, 0x6B8u);
-      result = sub_12D108(*v0 + 628);
+      tx_irq_handler(v3, 0x6B8u);
+      result = wlan_ioctl_handler_1(*v0 + 628);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );

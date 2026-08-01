@@ -12,8 +12,8 @@
 
 extern uint32_t off_128740;
 
-// sub_1286F4 @ 0x1286f4, size 74 bytes
-BOOL  sub_1286F4(int a1)
+// bt_link_check @ 0x1286f4, size 74 bytes
+BOOL  bt_link_check(int a1)
 {
   int v1; // r3
   unsigned int v2; // r1
@@ -25,7 +25,7 @@ BOOL  sub_1286F4(int a1)
   if ( v2 <= 2 )
     return *(uint32_t *)(a1 + 72) == v1;
   if ( *(uint32_t *)(a1 + 72) && !*(uint8_t *)(a1 + 1224) && v2 == 4 )
-    return sub_1286B4(a1);
+    return bt_link_active(a1);
   return *(uint8_t *)(v1 + 26) == *(uint8_t *)(a1 + 107);
 }
 

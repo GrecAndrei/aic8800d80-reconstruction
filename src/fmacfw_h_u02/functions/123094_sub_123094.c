@@ -18,8 +18,8 @@ extern uint32_t dword_1231A8;
 extern uint32_t dword_1231AC;
 extern uint32_t dword_12319C;
 
-// sub_123094 @ 0x123094, size 254 bytes
-int  sub_123094(int a1, int *a2, int a3, int a4)
+// ke_send_msg_88 @ 0x123094, size 254 bytes
+int  ke_send_msg_88(int a1, int *a2, int a3, int a4)
 {
   int v5; // r6
   int v6; // r0
@@ -45,7 +45,7 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
   int v26; // r1
 
   v5 = *a2;
-  v6 = sub_12C7EC(136, a4, a3, 8);
+  v6 = tx_send_pdu(136, a4, a3, 8);
   v8 = v6;
   *(uint32_t *)v6 = v5;
   switch ( v5 )
@@ -55,7 +55,7 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
       *((uint8_t *)off_123194 + 373) = v9;
       v10 = dword_123198;
       *(uint8_t *)(v8 + 4) = v9;
-      sub_12E948(v10, v9, v7);
+      alloc_tx_event(v10, v9, v7);
       goto LABEL_3;
     case 1:
       v15 = off_123194;
@@ -68,27 +68,27 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
       {
         if ( v16 )
         {
-          v19 = sub_1303B8(v6);
-          sub_130474(v19);
+          v19 = read_global_signed_flag(v6);
+          set_flag_send_event_42e(v19);
         }
         else
         {
-          sub_1304D8();
+          clear_flag_send_event_42e();
         }
         v17 = *((uint8_t *)v15 + 363);
       }
       *(uint8_t *)(v8 + 4) = v17;
-      sub_12E948(dword_1231A0, v17, v18);
-      sub_12C84C(v8);
+      alloc_tx_event(dword_1231A0, v17, v18);
+      rx_process_packet(v8);
       result = 0;
       break;
     case 2:
       v20 = (uint8_t *)off_123194;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_123194 + 363);
-      v21 = sub_130234();
+      v21 = rf_power_adjust();
       *(uint8_t *)(v8 + 5) = v21;
-      sub_12E948(dword_1231A4, v20[363], v21);
-      sub_12C84C(v8);
+      alloc_tx_event(dword_1231A4, v20[363], v21);
+      rx_process_packet(v8);
       result = 0;
       break;
     case 3:
@@ -96,17 +96,17 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
       v23 = off_123194;
       v24 = dword_1231A8;
       *((uint32_t *)off_123194 + 98) = v22;
-      sub_12E948(v24, v22, v7);
+      alloc_tx_event(v24, v22, v7);
       *(uint32_t *)(v8 + 4) = v23[98];
-      sub_12C84C(v8);
+      rx_process_packet(v8);
       result = 0;
       break;
     case 4:
       v25 = dword_1231AC;
       v26 = *((uint32_t *)off_123194 + 98);
       *(uint32_t *)(v8 + 4) = v26;
-      sub_12E948(v25, v26, v7);
-      sub_12C84C(v8);
+      alloc_tx_event(v25, v26, v7);
+      rx_process_packet(v8);
       result = 0;
       break;
     case 5:
@@ -115,13 +115,13 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
       v14 = (a2[2] ^ v12) & a2[1] ^ v12;
       *((uint32_t *)off_123194 + 98) = v14;
       *(uint32_t *)(v8 + 4) = v14;
-      sub_12E948(v13, v14, v12);
-      sub_12C84C(v8);
+      alloc_tx_event(v13, v14, v12);
+      rx_process_packet(v8);
       result = 0;
       break;
     default:
 LABEL_3:
-      sub_12C84C(v8);
+      rx_process_packet(v8);
       result = 0;
       break;
   }

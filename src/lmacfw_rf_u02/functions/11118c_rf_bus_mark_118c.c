@@ -12,10 +12,10 @@
 
 extern uint32_t off_111214;
 
-// rf_bus_mark_118c @ 0x11118c, size 114 bytes
+// timer_set_alarm @ 0x11118c, size 114 bytes
 // Doc: rf_bus_reset2_n_150 [rf]: Second-stage RF bus reset using MMIO constants
 // rf_bus_reset2_n_150 [rf]: Second-stage RF bus reset using MMIO constants
-int rf_bus_mark_118c()
+int timer_set_alarm()
 {
   int v0; // r3
   int *v1; // r2

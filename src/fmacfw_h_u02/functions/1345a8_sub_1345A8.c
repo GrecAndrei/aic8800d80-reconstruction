@@ -14,8 +14,8 @@ extern uint32_t off_134650;
 extern uint32_t off_134658;
 extern uint32_t dword_134654;
 
-// sub_1345A8 @ 0x1345a8, size 166 bytes
-uint32_t *sub_1345A8()
+// ble_scan_config @ 0x1345a8, size 166 bytes
+uint32_t *ble_scan_config()
 {
   char *v0; // r5
   uint8_t *v1; // r8
@@ -34,9 +34,9 @@ uint32_t *sub_1345A8()
   v1 = off_134658;
   v2 = *((uint8_t *)off_134650 + 12);
   v3 = *((int **)off_134658 + 4);
-  v4 = sub_12C7EC(4098, 4, 6, 0x178u);
-  sub_12E948(dword_134654);
-  sub_12C5FC(6155, 6);
+  v4 = tx_send_pdu(4098, 4, 6, 0x178u);
+  alloc_tx_event(dword_134654);
+  invalid_handler_12c5fc(6155, 6);
   v5 = *(uint64_t *)(v0 + 4);
   v0[14] = 0;
   *(uint32_t *)(v4 + 352) = *(uint32_t *)v5;
@@ -65,7 +65,7 @@ uint32_t *sub_1345A8()
   if ( v2 )
     *(uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
-  sub_12C84C(v4);
-  return sub_12CBF4(6u, 2);
+  rx_process_packet(v4);
+  return hci_cmd_preprocess(6u, 2);
 }
 

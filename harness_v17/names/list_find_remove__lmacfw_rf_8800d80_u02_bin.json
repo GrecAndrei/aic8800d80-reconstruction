@@ -1,1 +1,1 @@
-{"fn": "list_find_remove", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121deec", "status": "ok", "name": "list_find_remove", "params": [], "docstring": "Find node in singly-linked list and unlink it.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "list_find_remove", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121deec", "status": "ok", "name": "co_list_process", "params": [], "docstring": "Find node in singly-linked list and unlink it.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

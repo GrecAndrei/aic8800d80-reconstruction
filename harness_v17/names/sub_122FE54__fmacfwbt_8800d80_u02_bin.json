@@ -1,1 +1,1 @@
-{"fn": "sub_122FE54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122fe54", "status": "ok", "name": "sub_122FE54", "params": [], "docstring": "Allocate/initialize object with 10-byte memset call", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122FE54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122fe54", "status": "ok", "name": "buf_clear10", "params": [], "docstring": "Allocate/initialize object with 10-byte memset call", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

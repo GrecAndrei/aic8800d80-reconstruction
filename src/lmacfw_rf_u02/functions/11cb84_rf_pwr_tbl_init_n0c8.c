@@ -13,10 +13,10 @@
 extern uint32_t off_11CBC0;
 extern uint32_t off_11CBC4;
 
-// rf_pwr_tbl_init_n0c8 @ 0x11cb84, size 60 bytes
-// Doc: rf_pwr_tbl_init_n0c8 [rf]: init RF power table from offset 0x168/0x16c
-// rf_pwr_tbl_init_n0c8 [rf]: init RF power table from offset 0x168/0x16c
-int  rf_pwr_tbl_init_n0c8(int a1)
+// aes_encrypt @ 0x11cb84, size 60 bytes
+// Doc: aes_encrypt [rf]: init RF power table from offset 0x168/0x16c
+// aes_encrypt [rf]: init RF power table from offset 0x168/0x16c
+int  aes_encrypt(int a1)
 {
   char *v1; // r4
   uint32_t *v2; // r6
@@ -24,9 +24,9 @@ int  rf_pwr_tbl_init_n0c8(int a1)
 
   v1 = (char *)off_11CBC0;
   v2 = off_11CBC4;
-  sub_1282E8(off_11CBC0, *(uint32_t *)(a1 + 360), *(uint16_t *)(a1 + 364));
-  v2[1] = sub_11EB74(v1, *(uint16_t *)(*v2 + 364));
-  result = sub_11CAC8();
+  memcpy_large(off_11CBC0, *(uint32_t *)(a1 + 360), *(uint16_t *)(a1 + 364));
+  v2[1] = memchr(v1, *(uint16_t *)(*v2 + 364));
+  result = queue_remove();
   *(uint32_t *)&v1[-8] = *(uint32_t *)&v1[-12] - 1 + *(uint16_t *)(a1 + 364);
   *((uint32_t *)v1 - 1) = 0;
   return result;

@@ -18,8 +18,8 @@ extern uint32_t off_112EE8;
 extern uint32_t dword_112EEC;
 extern uint32_t dword_112EF0;
 
-// sub_112E28 @ 0x112e28, size 174 bytes
-int  sub_112E28(int f594, int a2, int a3)
+// set_event_mode @ 0x112e28, size 174 bytes
+int  set_event_mode(int f594, int a2, int a3)
 {
   uint8_t *v3; // r5
   char v4; // r3
@@ -52,38 +52,38 @@ int  sub_112E28(int f594, int a2, int a3)
       {
         while ( 1 )
         {
-          v10 = *(uint32_t *)(*(uint32_t *)(sub_11E7AC(v7) + 4) + 4);
+          v10 = *(uint32_t *)(*(uint32_t *)(list_pop_front(v7) + 4) + 4);
           --*v5;
-          list_push_tail(v9);
+          check_kernel_state(v9);
           v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
           ++*(uint16_t *)off_112EE8;
-          f594 = irq_nesting_or(1024);
+          f594 = set_busy_flag_alt(1024);
           if ( !*v5 )
             goto LABEL_12;
         }
         if ( v11 == 1 )
         {
-          f594 = sub_10FEF8((uint32_t *)v10);
+          f594 = mem_free((uint32_t *)v10);
         }
         else
         {
-          sub_10DA6C(v8);
-          f594 = rf_mem_read_f594(v10, 32, 1, 0);
+          log_printf(v8);
+          f594 = handle_ipc_request(v10, 32, 1, 0);
         }
       }
       while ( *v5 );
     }
 LABEL_12:
-    rf_bus_mark_ne0(f594, a2);
+    process_event(f594, a2);
     return 1;
   }
   else
   {
     v13 = f594;
-    sub_10DA6C(dword_112EEC, *v3);
-    ipc_msg_post_check(dword_112EF0, v13, a2, *v3);
+    log_printf(dword_112EEC, *v3);
+    lookup_task_id(dword_112EF0, v13, a2, *v3);
     return 1;
   }
 }

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_126DD8 @ 0x126dd8, size 108 bytes
+// tx_packet_pointer @ 0x126dd8, size 108 bytes
 // Doc: rf_level_apply_n54 [rf]: Applies RF TX power level bytes to register block
 // rf_level_apply_n54 [rf]: Applies RF TX power level bytes to register block
-int  sub_126DD8(int a1)
+int  tx_packet_pointer(int a1)
 {
   uint8_t *v1; // r3
   int v2; // r2
@@ -50,6 +50,6 @@ int  sub_126DD8(int a1)
   v1[11] = v3 - v4;
   v1[12] = v12 - v11;
   v1[13] = v2;
-  return sub_102948();
+  return event_counter();
 }
 

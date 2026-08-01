@@ -14,10 +14,10 @@ extern uint32_t off_113188;
 extern uint32_t off_11318C;
 extern uint32_t off_11319C;
 
-// rf_stream_start2_n_144 @ 0x113108, size 126 bytes
+// sys_cmu_clock_get @ 0x113108, size 126 bytes
 // Doc: rf_stream_start2_n_138 [rf]: Start RF stream channel 2 by zeroing struct and invoking stream start helper
 // rf_stream_start2_n_138 [rf]: Start RF stream channel 2 by zeroing struct and invoking stream start helper
-int  rf_stream_start2_n_144(int a1)
+int  sys_cmu_clock_get(int a1)
 {
   uint16_t *v2; // r4
   int v3; // r1
@@ -32,16 +32,16 @@ int  rf_stream_start2_n_144(int a1)
 
   if ( (*(uint32_t *)off_113188 & 0x2000000) != 0 )
   {
-    memset_thunk((int *)off_11318C, 0xFFu, 4u);
+    memset_byte((int *)off_11318C, 0xFFu, 4u);
   }
   else
   {
     v2 = (uint16_t *)off_11318C;
-    memset_thunk((int *)off_11318C, 0xFFu, 4u);
-    if ( patch_apply_n_34(v2) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) )
-      sub_12ECB0(rf_msg_handler_n230, v3, v4);
+    memset_byte((int *)off_11318C, 0xFFu, 4u);
+    if ( ioctl2_cmd_0x400000(v2) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) )
+      ke_event_schedule(rf_msg_handler_n230, v3, v4);
     else
-      sub_12ECB0(rf_cmd_send_n33c, v3, v4);
+      ke_event_schedule(rf_cmd_send_n33c, v3, v4);
   }
   v5 = rf_msg_handler_n238;
   v6 = off_11319C;
@@ -55,8 +55,8 @@ int  rf_stream_start2_n_144(int a1)
     v9 = *(uint8_t *)(a1 + 8);
     if ( *(uint8_t *)(a1 + 8) )
       v9 = 1;
-    inited = mmio_init_block_clear(v7, v9);
-    sub_12ECB0(v8, inited, v11);
+    inited = ipc_send_request(v7, v9);
+    ke_event_schedule(v8, inited, v11);
   }
   while ( inited );
   return 0;

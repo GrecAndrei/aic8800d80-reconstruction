@@ -14,10 +14,10 @@ extern uint32_t off_10EC24;
 extern uint32_t off_10EC28;
 extern uint32_t off_10EC2C;
 
-// sub_10EBDC @ 0x10ebdc, size 70 bytes
+// atomic_reg_read @ 0x10ebdc, size 70 bytes
 // Doc: sub_120EBDC [util]: helper routine, sets up state in fmacfwbt
 // sub_120EBDC [util]: helper routine, sets up state in fmacfwbt
-int  sub_10EBDC(int a1, int a2)
+int  atomic_reg_read(int a1, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r4
@@ -37,12 +37,12 @@ int  sub_10EBDC(int a1, int a2)
     v3 = off_10EC2C;
     while ( !*(uint32_t *)off_10EC2C )
       ;
-    result = sub_10EBC4();
+    result = jump_table_1b0();
     *v3 = 1;
   }
   else
   {
-    result = sub_10EBC4();
+    result = jump_table_1b0();
   }
   if ( *v2 )
   {

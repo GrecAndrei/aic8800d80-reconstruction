@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111C74 @ 0x111c74, size 4 bytes
+// wlan_ctrl_check @ 0x111c74, size 4 bytes
 // attributes: thunk
-int * sub_111C74(int *result, unsigned int a2)
+int * wlan_ctrl_check(int *result, unsigned int a2)
 {
-  return sub_111C04(result, a2);
+  return set_hw_cfg_a(result, a2);
 }
 

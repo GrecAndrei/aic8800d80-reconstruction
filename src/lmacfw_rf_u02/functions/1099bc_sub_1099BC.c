@@ -15,8 +15,8 @@ extern uint32_t dword_109BE4;
 extern uint32_t dword_109BF4;
 extern uint32_t dword_109BEC;
 
-// sub_1099BC @ 0x1099bc, size 546 bytes
-int  sub_1099BC(int a1, int a2, int a3, int a4)
+// invoke_handler_14a99c @ 0x1099bc, size 546 bytes
+int  invoke_handler_14a99c(int a1, int a2, int a3, int a4)
 {
   int v8; // r1
   int v9; // r2
@@ -104,7 +104,7 @@ int  sub_1099BC(int a1, int a2, int a3, int a4)
   v58 = a3;
   v61[1] = v20;
   v61[2] = v17;
-  sub_109738(0, v60, v61, a4);
+  compare_float_samples(0, v60, v61, a4);
   if ( v19 > 0 )
   {
     v22 = v62;
@@ -121,13 +121,13 @@ int  sub_1099BC(int a1, int a2, int a3, int a4)
         v26 = *(float *)(a4 + 8);
         v27 = v23[32];
         v28 = v26 * *v23++;
-        v29 = sub_127570((float)(v28 - v27) + *(float *)(a4 + 12));
-        v30 = sub_127620(v29, HIDWORD(v29), v29, HIDWORD(v29));
-        v31 = sub_127570((float)(v26 * v26) + 1.0);
-        v32 = sub_127874(v30, HIDWORD(v30), v31, HIDWORD(v31));
-        v33 = sub_127570(LODWORD(v18));
-        v34 = sub_1272B4(v32, HIDWORD(v32), v33, HIDWORD(v33));
-        v18 = COERCE_FLOAT(sub_127BE4(v34));
+        v29 = aeabi_d2f((float)(v28 - v27) + *(float *)(a4 + 12));
+        v30 = aeabi_dadd(v29, HIDWORD(v29), v29, HIDWORD(v29));
+        v31 = aeabi_d2f((float)(v26 * v26) + 1.0);
+        v32 = aeabi_dsub(v30, HIDWORD(v30), v31, HIDWORD(v31));
+        v33 = aeabi_d2f(LODWORD(v18));
+        v34 = double_add(v32, HIDWORD(v32), v33, HIDWORD(v33));
+        v18 = COERCE_FLOAT(aeabi_dmul(v34));
         if ( v23 == v24 )
           goto LABEL_6;
       }
@@ -136,7 +136,7 @@ int  sub_1099BC(int a1, int a2, int a3, int a4)
 LABEL_6:
   if ( !v58 )
   {
-    sub_11F74C(1, dword_109BE4, v21, 0);
+    check_interrupt_flag(1, dword_109BE4, v21, 0);
     v35 = v59;
     if ( v59 > 0 )
       goto LABEL_8;
@@ -146,7 +146,7 @@ LABEL_20:
     v50 = 4 * v58;
     goto LABEL_18;
   }
-  sub_11F74C(1, dword_109BF4, v21, v58);
+  check_interrupt_flag(1, dword_109BF4, v21, v58);
   v35 = v59;
   if ( v59 <= 0 )
     goto LABEL_20;
@@ -190,8 +190,8 @@ LABEL_12:
       if ( v52 != 1 )
         break;
       v53 = *v38 - v48;
-      if ( (float)sub_128280((int)v53) > *(float *)(v51 + 636) )
-        *(float *)(v51 + 636) = (float)sub_128280((int)v53);
+      if ( (float)i32_abs((int)v53) > *(float *)(v51 + 636) )
+        *(float *)(v51 + 636) = (float)i32_abs((int)v53);
       ++v38;
       v47 = v47 + (float)(v53 * v53);
       if ( v49 == v38 )
@@ -204,6 +204,6 @@ LABEL_18:
   v56 = flt_109BF0;
   *(float *)(v54 + 512) = v18 / v46;
   *(float *)(v54 + 520) = v47 / v46;
-  return sub_11F74C(1, v55, (int)(float)((float)(v18 / v46) * v56), (int)(float)((float)(v47 / v46) * v56));
+  return check_interrupt_flag(1, v55, (int)(float)((float)(v18 / v46) * v56), (int)(float)((float)(v47 / v46) * v56));
 }
 

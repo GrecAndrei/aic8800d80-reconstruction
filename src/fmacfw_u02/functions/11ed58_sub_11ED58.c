@@ -13,10 +13,10 @@
 extern uint32_t off_11ED9C;
 extern uint32_t dword_11EDA0;
 
-// sub_11ED58 @ 0x11ed58, size 68 bytes
+// timer_get_counter @ 0x11ed58, size 68 bytes
 // Doc: sub_121ED58 [mmio]: MMIO helper reading from 0x403410b0/0x403410b4 peripheral registers
 // sub_121ED58 [mmio]: MMIO helper reading from 0x403410b0/0x403410b4 peripheral registers
-uint64_t *sub_11ED58()
+uint64_t *timer_get_counter()
 {
   uint64_t *result; // r0
   uint64_t v1; // [sp+4h] [bp-20h] BYREF
@@ -29,9 +29,9 @@ uint64_t *sub_11ED58()
   v3 = *(uint32_t *)dword_11EDA0;
   v4 = *(uint32_t *)(dword_11EDA0 + 8 + 0xFFFFFFFC);
   v5 = *(uint32_t *)(dword_11EDA0 + 8);
-  result = get_cached_1828f8(&v1, 0);
+  result = rf_call_handler(&v1, 0);
   if ( (v2 & 0xF) == 2 )
-    return (uint64_t *)sub_12F588(&v1);
+    return (uint64_t *)check_chip_mode(&v1);
   return result;
 }
 

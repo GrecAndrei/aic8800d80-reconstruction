@@ -14,8 +14,8 @@ extern uint32_t off_1349AC;
 extern uint32_t off_1349B4;
 extern uint32_t dword_1349B0;
 
-// sub_134904 @ 0x134904, size 166 bytes
-uint32_t *sub_134904()
+// rx_descriptor_reset @ 0x134904, size 166 bytes
+uint32_t *rx_descriptor_reset()
 {
   char *v0; // r5
   uint8_t *v1; // r8
@@ -34,9 +34,9 @@ uint32_t *sub_134904()
   v1 = off_1349B4;
   v2 = *((uint8_t *)off_1349AC + 12);
   v3 = *((int **)off_1349B4 + 4);
-  v4 = sub_12CB54(4098, 4, 6, 0x178u);
-  sub_12ECB0(dword_1349B0);
-  sub_12C964(6155, 6);
+  v4 = bt_buf_alloc(4098, 4, 6, 0x178u);
+  ke_event_schedule(dword_1349B0);
+  irq_lock(6155, 6);
   v5 = *(uint64_t *)(v0 + 4);
   v0[14] = 0;
   *(uint32_t *)(v4 + 352) = *(uint32_t *)v5;
@@ -65,7 +65,7 @@ uint32_t *sub_134904()
   if ( v2 )
     *(uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
-  sub_12CBB4(v4);
-  return sub_12CF5C(6u, 2);
+  hci_evt_send(v4);
+  return hci_cmd_send(6u, 2);
 }
 

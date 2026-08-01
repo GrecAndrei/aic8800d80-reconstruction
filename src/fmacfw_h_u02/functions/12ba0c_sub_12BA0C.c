@@ -20,8 +20,8 @@ extern uint32_t dword_12BAA4;
 extern uint32_t off_12BAA8;
 extern uint32_t off_12BAAC;
 
-// sub_12BA0C @ 0x12ba0c, size 126 bytes
-int *sub_12BA0C()
+// rf_radio_calibrate @ 0x12ba0c, size 126 bytes
+int *rf_radio_calibrate()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r0

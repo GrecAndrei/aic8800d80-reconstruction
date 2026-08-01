@@ -1,1 +1,1 @@
-{"fn": "sub_1205FD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1205fd0", "status": "ok", "name": "sub_1205FD0", "params": [], "docstring": "Initializes RF calibration/lookup tables from constant pool", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1205FD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1205fd0", "status": "ok", "name": "prcm_start", "params": [], "docstring": "Initializes RF calibration/lookup tables from constant pool", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -12,8 +12,8 @@
 
 extern uint32_t off_11395C;
 
-// sub_11394C @ 0x11394c, size 16 bytes
-BOOL sub_11394C()
+// rf_calibration_done @ 0x11394c, size 16 bytes
+BOOL rf_calibration_done()
 {
   return *((uint8_t *)off_11395C + 8) == 1;
 }

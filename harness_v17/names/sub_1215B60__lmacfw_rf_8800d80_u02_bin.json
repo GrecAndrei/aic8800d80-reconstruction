@@ -1,1 +1,1 @@
-{"fn": "sub_1215B60", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1215b60", "status": "ok", "name": "rf_subcmd_dispatch_n5b60", "params": [], "docstring": "Dispatches RF subcommand based on opcode (cmp r1, 5)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1215B60", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1215b60", "status": "ok", "name": "llm_scan_pdu_cfg", "params": [], "docstring": "Dispatches RF subcommand based on opcode (cmp r1, 5)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

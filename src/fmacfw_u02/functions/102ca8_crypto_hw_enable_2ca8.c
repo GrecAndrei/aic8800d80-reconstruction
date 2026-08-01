@@ -12,10 +12,10 @@
 
 extern uint32_t off_102D08;
 
-// crypto_hw_enable_2ca8 @ 0x102ca8, size 96 bytes
-// Doc: crypto_hw_enable_2ca8 [ke]: Enable crypto hardware block by clearing reset bits
-// crypto_hw_enable_2ca8 [ke]: Enable crypto hardware block by clearing reset bits
-int * crypto_hw_enable_2ca8(int a1)
+// set_wakeup_trigger @ 0x102ca8, size 96 bytes
+// Doc: set_wakeup_trigger [ke]: Enable crypto hardware block by clearing reset bits
+// set_wakeup_trigger [ke]: Enable crypto hardware block by clearing reset bits
+int * set_wakeup_trigger(int a1)
 {
   int v1; // r4
   int v2; // r1

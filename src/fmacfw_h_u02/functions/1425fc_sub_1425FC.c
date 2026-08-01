@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1425FC @ 0x1425fc, size 630 bytes
-int  sub_1425FC(uint64_t a1, uint64_t a2)
+// double_compare_eq @ 0x1425fc, size 630 bytes
+int  double_compare_eq(uint64_t a1, uint64_t a2)
 {
   int v2; // r4
   int v3; // r5

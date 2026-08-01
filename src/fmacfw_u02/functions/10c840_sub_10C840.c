@@ -15,8 +15,8 @@ extern uint32_t off_10C8EC;
 extern uint32_t off_10C8F0;
 extern uint32_t dword_10C8F4;
 
-// sub_10C840 @ 0x10c840, size 166 bytes
-int *sub_10C840()
+// gpio_af_select @ 0x10c840, size 166 bytes
+int *gpio_af_select()
 {
   unsigned int *v0; // r3
   unsigned int *v1; // r2

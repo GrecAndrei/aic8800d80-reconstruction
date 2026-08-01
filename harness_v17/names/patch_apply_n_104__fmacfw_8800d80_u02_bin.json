@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_104", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214da8", "status": "ok", "name": "patch_apply_n_104", "params": [], "docstring": "Patch application stub #104 with comparison branch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_104", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214da8", "status": "ok", "name": "patch_apply_n_103", "params": [], "docstring": "Patch application stub #104 with comparison branch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

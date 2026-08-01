@@ -15,8 +15,8 @@ extern uint32_t off_115380;
 extern uint32_t dword_115388;
 extern uint32_t dword_115384;
 
-// sub_11532C @ 0x11532c, size 80 bytes
-int  sub_11532C(int result)
+// radio_pdu_type_cfg @ 0x11532c, size 80 bytes
+int  radio_pdu_type_cfg(int result)
 {
   switch ( result )
   {
@@ -37,7 +37,7 @@ int  sub_11532C(int result)
       break;
     default:
       if ( **(int16_t **)off_115380 < 0 )
-        result = sub_1219C4(dword_115388, dword_115384, 944);
+        result = flash_ctrl_init(dword_115388, dword_115384, 944);
       break;
   }
   return result;

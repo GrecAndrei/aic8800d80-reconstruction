@@ -14,8 +14,8 @@ extern uint32_t dword_12AB4C;
 extern uint32_t off_12AB50;
 extern uint32_t off_12AB54;
 
-// sub_12AA90 @ 0x12aa90, size 188 bytes
-int  sub_12AA90(int a1, int a2)
+// get_channel_entry_info @ 0x12aa90, size 188 bytes
+int  get_channel_entry_info(int a1, int a2)
 {
   int v2; // r6
   int v3; // r3

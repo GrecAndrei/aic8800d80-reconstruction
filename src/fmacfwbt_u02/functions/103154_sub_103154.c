@@ -13,8 +13,8 @@
 extern uint32_t off_1032B8;
 extern uint32_t off_1032BC;
 
-// sub_103154 @ 0x103154, size 356 bytes
-void __noreturn sub_103154()
+// hw_init @ 0x103154, size 356 bytes
+void __noreturn hw_init()
 {
   unsigned int *v0; // r6
   unsigned int *v1; // r5

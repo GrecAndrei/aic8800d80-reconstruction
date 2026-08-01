@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_35c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e30", "status": "ok", "name": "rf_bus_mark_n_35c", "params": [], "docstring": "Marks/checks RF bus state by comparing control bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_35c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e30", "status": "ok", "name": "rf_bus_mark_n_35b", "params": [], "docstring": "Marks/checks RF bus state by comparing control bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

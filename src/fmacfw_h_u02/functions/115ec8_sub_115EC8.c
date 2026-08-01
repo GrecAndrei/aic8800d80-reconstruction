@@ -15,16 +15,16 @@ extern uint32_t off_115EF8;
 extern uint32_t dword_115F00;
 extern uint32_t dword_115EFC;
 
-// sub_115EC8 @ 0x115ec8, size 42 bytes
-int sub_115EC8()
+// rssi_compare @ 0x115ec8, size 42 bytes
+int rssi_compare()
 {
   int v0; // r0
   int v1; // r4
 
-  v0 = sub_12D190(dword_115EF4);
+  v0 = list_pop(dword_115EF4);
   v1 = v0;
   if ( **(int16_t **)off_115EF8 < 0 && !v0 )
-    sub_12F32C(dword_115F00, dword_115EFC, 119);
+    irq_disable_mmio_write(dword_115F00, dword_115EFC, 119);
   return v1;
 }
 

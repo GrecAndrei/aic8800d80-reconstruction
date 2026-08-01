@@ -1,1 +1,1 @@
-{"fn": "sub_122F710", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f710", "status": "ok", "name": "fw_buffer_init_n478", "params": [], "docstring": "Initialize firmware buffer/memory region", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122F710", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f710", "status": "ok", "name": "timer_clear", "params": [], "docstring": "Initialize firmware buffer/memory region", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_msg_handler_n_240", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d20", "status": "ok", "name": "rf_msg_handler_n_240", "params": [], "docstring": "Handle RF message dispatch via table lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_msg_handler_n_240", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d20", "status": "ok", "name": "rf_bus_reset_n4dd", "params": [], "docstring": "Handle RF message dispatch via table lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

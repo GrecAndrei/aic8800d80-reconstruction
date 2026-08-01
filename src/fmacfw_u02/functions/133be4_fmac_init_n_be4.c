@@ -13,10 +13,10 @@
 extern uint32_t dword_133C28;
 extern uint32_t dword_133C2C;
 
-// fmac_init_n_be4 @ 0x133be4, size 66 bytes
-// Doc: fmac_init_n_be4 [mac]: Initializes FMAC subsystem with 0x100 size and dispatches event
-// fmac_init_n_be4 [mac]: Initializes FMAC subsystem with 0x100 size and dispatches event
-int  fmac_init_n_be4(int a1, uint8_t *a2)
+// send_control_command @ 0x133be4, size 66 bytes
+// Doc: send_control_command [mac]: Initializes FMAC subsystem with 0x100 size and dispatches event
+// send_control_command [mac]: Initializes FMAC subsystem with 0x100 size and dispatches event
+int  send_control_command(int a1, uint8_t *a2)
 {
   int v2; // r4
   int result; // r0
@@ -24,8 +24,8 @@ int  fmac_init_n_be4(int a1, uint8_t *a2)
   int v5; // r4
 
   v2 = *a2;
-  feature_guard_check(256, dword_133C28);
-  result = msg_get_value(6u);
+  check_status_bits(256, dword_133C28);
+  result = rx_rate_field_parse(6u);
   if ( result )
     return 2;
   v4 = dword_133C2C + 1320 * v2;
@@ -35,7 +35,7 @@ int  fmac_init_n_be4(int a1, uint8_t *a2)
     result = *(uint8_t *)(v4 + 108);
     if ( *(uint8_t *)(v4 + 108) )
     {
-      fmac_msg_alloc_and_send(v4, 1, *(uint8_t *)(v4 + 106));
+      bt_schedule_ack_timeout(v4, 1, *(uint8_t *)(v4 + 106));
       return v5;
     }
   }

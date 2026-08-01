@@ -15,8 +15,8 @@ extern uint32_t off_11A44C;
 extern uint32_t dword_11A458;
 extern uint32_t dword_11A454;
 
-// sub_11A2E8 @ 0x11a2e8, size 354 bytes
-int  sub_11A2E8(int a1, int a2)
+// tx_queue_init @ 0x11a2e8, size 354 bytes
+int  tx_queue_init(int a1, int a2)
 {
   uint64_t v2; // r6
   int *v3; // r10
@@ -66,7 +66,7 @@ int  sub_11A2E8(int a1, int a2)
       }
       else
       {
-        sub_12F46C(dword_11A458, dword_11A454, 475);
+        mmio_clear_register(dword_11A458, dword_11A454, 475);
         v11 = *(uint32_t *)(a1 + 76);
       }
       v12 = *(uint32_t *)(v10 + 156);
@@ -111,7 +111,7 @@ int  sub_11A2E8(int a1, int a2)
       {
 LABEL_16:
         *(uint8_t *)(v11 + 1) = 1;
-        sub_11C588(a1, v6);
+        wait_channel_clear(a1, v6);
         v18 = *(uint64_t *)(v2 + 96);
         v19 = *(uint16_t *)(a1 + 82) | 6;
         *(uint32_t *)(HIDWORD(v2) + 44) = HIDWORD(v18);

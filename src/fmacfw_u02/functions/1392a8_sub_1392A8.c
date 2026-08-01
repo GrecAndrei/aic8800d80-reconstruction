@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1392A8 @ 0x1392a8, size 76 bytes
+// list_find @ 0x1392a8, size 76 bytes
 // Doc: sub_12392A8 [util]: Generic firmware helper, context unclear
 // sub_12392A8 [util]: Generic firmware helper, context unclear
-int  sub_1392A8(int result, unsigned int a2)
+int  list_find(int result, unsigned int a2)
 {
   uint16_t v2; // r2
   char v3; // r7
@@ -50,6 +50,6 @@ int  sub_1392A8(int result, unsigned int a2)
   v8 = (a2 + *(uint16_t *)(result + 8)) & 0xFFF;
   *(uint8_t *)(result + 10) = v7 & 0x3F;
   *(uint16_t *)(result + 8) = v8;
-  return idx_table_lookup_n3958(result);
+  return ke_msg_dispatch(result);
 }
 

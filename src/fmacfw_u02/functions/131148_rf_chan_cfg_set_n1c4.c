@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_chan_cfg_set_n1c4 @ 0x131148, size 60 bytes
-// Doc: rf_chan_cfg_set_n1c4 [rf]: Configure channel parameters, calls helper at 0x12de50
-// rf_chan_cfg_set_n1c4 [rf]: Configure channel parameters, calls helper at 0x12de50
-uint8_t * rf_chan_cfg_set_n1c4(uint8_t *a1, int a2, int a3)
+// ll_get_conn_evt_cnt @ 0x131148, size 60 bytes
+// Doc: ll_get_conn_evt_cnt [rf]: Configure channel parameters, calls helper at 0x12de50
+// ll_get_conn_evt_cnt [rf]: Configure channel parameters, calls helper at 0x12de50
+uint8_t * ll_get_conn_evt_cnt(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
   int16_t v5; // r1
@@ -24,7 +24,7 @@ uint8_t * rf_chan_cfg_set_n1c4(uint8_t *a1, int a2, int a3)
   int16_t v10; // r3
   int16_t v11; // r0
 
-  result = sub_12DE50(a1, a2);
+  result = check_one_12de50(a1, a2);
   if ( result )
   {
     v5 = result[10];

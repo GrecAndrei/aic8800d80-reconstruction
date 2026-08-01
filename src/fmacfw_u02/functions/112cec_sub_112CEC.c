@@ -23,8 +23,8 @@ extern uint32_t dword_112F50;
 extern uint32_t dword_112F4C;
 extern uint32_t dword_112F6C;
 
-// sub_112CEC @ 0x112cec, size 594 bytes
-int sub_112CEC()
+// undef_stub @ 0x112cec, size 594 bytes
+int undef_stub()
 {
   uint32_t *v0; // r3
   int v1; // r2
@@ -70,7 +70,7 @@ int sub_112CEC()
   LODWORD(v3) = v2 << 19;
   if ( (v2 & 0x1000) != 0 )
   {
-    LODWORD(v3) = sub_1129E8();
+    LODWORD(v3) = mmio_read_flag();
     v4 = v2 & 0x2000;
     if ( (v2 & 0x2000) == 0 )
       return v3;
@@ -127,11 +127,11 @@ LABEL_3:
           if ( (v21 & 0x18) != 0 )
           {
             v8[516] &= ~0x10u;
-            sub_111C1C(0, 0x200000, 0);
+            unknown_16(0, 0x200000, 0);
           }
           else if ( (v21 & 1) != 0 )
           {
-            sub_112228(v3);
+            rf_init(v3);
           }
           goto LABEL_14;
         }
@@ -147,8 +147,8 @@ LABEL_3:
             v35 = *(uint32_t *)(v9 - 16);
             v31 = (v5 & 1) == 0;
             if ( (v5 & 1) == 0 )
-              sub_111D44((int *)1, (uint8_t)v10);
-            LODWORD(v3) = sub_100200((int *)(v9 - 16), 0, 0x10u);
+              flash_erase_main((int *)1, (uint8_t)v10);
+            LODWORD(v3) = memset((int *)(v9 - 16), 0, 0x10u);
             v13 = *(int ( **)(int, int, BOOL))(dword_112F48 + 4 * v10 + 52);
             if ( v13 )
               LODWORD(v3) = v13(v35, v33, v31);
@@ -156,7 +156,7 @@ LABEL_3:
         }
         else
         {
-          LODWORD(v3) = sub_10DC24(dword_112F50);
+          LODWORD(v3) = log_printf(dword_112F50);
         }
       }
       if ( (uint8_t)v10 == 5 )
@@ -185,12 +185,12 @@ LABEL_14:
           if ( (v20 & 0x10) != 0 )
           {
             v14[517] &= ~0x10u;
-            LODWORD(v3) = sub_111B64(0, 0x200000, 0);
+            LODWORD(v3) = unknown_15(0, 0x200000, 0);
           }
           else if ( (v20 & 0x29) != 0 )
           {
             LODWORD(v3) = 0;
-            LODWORD(v3) = sub_112228(v3);
+            LODWORD(v3) = rf_init(v3);
           }
           goto LABEL_19;
         }
@@ -204,7 +204,7 @@ LABEL_14:
             v34 = **(uint16_t **)(v16 + 4 * i);
             v32 = *(uint32_t *)(v15 - 12);
             v36 = *(uint32_t *)(v15 - 16);
-            LODWORD(v3) = sub_100200((int *)(v15 - 16), 0, 0x10u);
+            LODWORD(v3) = memset((int *)(v15 - 16), 0, 0x10u);
             v29 = *(int ( **)(int, int, uint32_t))(4 * i + dword_112F48 + 32);
             if ( v29 )
               LODWORD(v3) = v29(v36, v32 - v34, 0);
@@ -219,7 +219,7 @@ LABEL_19:
   }
   if ( v7 )
   {
-    LODWORD(v3) = sub_112C64(v3, SHIDWORD(v3), v5);
+    LODWORD(v3) = get_state_byte(v3, SHIDWORD(v3), v5);
     if ( v4 >= 0 )
       return v3;
   }
@@ -227,7 +227,7 @@ LABEL_19:
   {
     return v3;
   }
-  LODWORD(v3) = sub_112CA8(v3, SHIDWORD(v3), v5);
+  LODWORD(v3) = rf_isr_clear(v3, SHIDWORD(v3), v5);
   return v3;
 }
 

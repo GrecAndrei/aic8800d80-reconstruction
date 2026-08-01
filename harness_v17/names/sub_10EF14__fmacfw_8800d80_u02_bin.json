@@ -1,0 +1,1 @@
+{"fn": "sub_10EF14", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ef14", "status": "ok", "name": "mmio_write_70001408", "params": [], "docstring": "Invokes sub_10ee2c with base 0x70001408 and command args.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t off_107E64;
 extern uint32_t off_107E68;
 extern uint32_t off_107E6C;
 
-// sub_107E08 @ 0x107e08, size 92 bytes
-int sub_107E08()
+// rf_power_off @ 0x107e08, size 92 bytes
+int rf_power_off()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r3
@@ -24,13 +24,13 @@ int sub_107E08()
   int v4; // r3
 
   v0 = off_107E64;
-  crypto_engine_clear_sram_regs();
+  rf_synth_set_freq();
   *v0 &= ~1u;
-  delay_us_0644(1);
+  timer_delay(1);
   v1 = off_107E68;
   *(uint32_t *)off_107E68 &= 0xCFFFFFFF;
   *v1 |= 0x40000000u;
-  result = delay_us_0644(1);
+  result = timer_delay(1);
   v3 = off_107E6C;
   *v0 |= 1u;
   while ( (*v3 & 1) == 0 )

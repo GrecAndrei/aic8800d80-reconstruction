@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_33b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b70", "status": "ok", "name": "patch_apply_bit", "params": [], "docstring": "Apply patch returning single bit from reg", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_33b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b70", "status": "ok", "name": "get_hook_bit_18", "params": [], "docstring": "Apply patch returning single bit from reg", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

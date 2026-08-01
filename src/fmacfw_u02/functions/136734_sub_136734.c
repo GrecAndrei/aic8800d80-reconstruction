@@ -14,8 +14,8 @@ extern uint32_t off_136818;
 extern uint32_t dword_136814;
 extern uint32_t dword_13681C;
 
-// sub_136734 @ 0x136734, size 222 bytes
-uint32_t * sub_136734(int a1)
+// bt_vendor_send @ 0x136734, size 222 bytes
+uint32_t * bt_vendor_send(int a1)
 {
   uint32_t *v1; // r8
   int v3; // r6
@@ -35,7 +35,7 @@ uint32_t * sub_136734(int a1)
 
   v1 = off_136818;
   v3 = *(uint32_t *)off_136818;
-  v4 = (uint8_t *)sub_12C92C(7169, 13, 7, 4u);
+  v4 = (uint8_t *)ke_msg_alloc(7169, 13, 7, 4u);
   if ( a1 )
   {
     v5 = *(uint8_t *)(v3 + 51);
@@ -43,11 +43,11 @@ uint32_t * sub_136734(int a1)
   else
   {
     v7 = *(uint8_t *)(v3 + 51);
-    v8 = sub_12C92C(30, 0, 7, 4u);
+    v8 = ke_msg_alloc(30, 0, 7, 4u);
     v9 = dword_136814 + 1320 * v7;
     *(uint8_t *)(v8 + 2) = 1;
     *(uint8_t *)(v8 + 3) = *(uint8_t *)(v9 + 107);
-    sub_12C98C(v8);
+    ke_msg_send(v8);
     v10 = *(uint16_t *)(v3 + 48);
     v11 = *(uint32_t *)(v9 + 72);
     *(uint32_t *)(v9 + 1208) = *(uint32_t *)(v3 + 44);
@@ -65,7 +65,7 @@ uint32_t * sub_136734(int a1)
     *(uint32_t *)(v16 + 200) = v14;
     *(uint8_t *)(v16 + 52) = 2;
     *(uint8_t *)(v16 + 204) = v15;
-    sub_13289C(v16);
+    patch_check_version(v16);
     v17 = *(uint8_t *)(v16 + 350);
     *(uint16_t *)(v16 + 38) = 1;
     *(uint8_t *)(v16 + 350) = v17 | 0x10;
@@ -75,9 +75,9 @@ uint32_t * sub_136734(int a1)
   }
   v4[1] = v5;
   *v4 = a1;
-  sub_12C98C((int)v4);
-  sub_12CA38(v3 - 12);
+  ke_msg_send((int)v4);
+  branch_to_12cbc8(v3 - 12);
   *v1 = 0;
-  return sub_12CD34(7u, 0);
+  return rx_phy_status_parse(7u, 0);
 }
 

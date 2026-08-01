@@ -1,1 +1,1 @@
-{"fn": "sub_1202BC0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202bc0", "status": "ok", "name": "fw_init_or_status_check", "params": [], "docstring": "Initialize FW state and poll sign halfword status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1202BC0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202bc0", "status": "ok", "name": "check_radio_state", "params": [], "docstring": "Initialize FW state and poll sign halfword status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

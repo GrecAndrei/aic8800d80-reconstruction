@@ -21,10 +21,10 @@ extern uint32_t dword_13B5F4;
 extern uint32_t dword_13B5F0;
 extern uint32_t dword_13B5FC;
 
-// rx_skb_classify_dispatch @ 0x13b438, size 414 bytes
-// Doc: rx_skb_classify_dispatch [rx]: Classifies received frame and dispatches by type
-// rx_skb_classify_dispatch [rx]: Classifies received frame and dispatches by type
-int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
+// rx_process_buffer @ 0x13b438, size 414 bytes
+// Doc: rx_process_buffer [rx]: Classifies received frame and dispatches by type
+// rx_process_buffer [rx]: Classifies received frame and dispatches by type
+int  rx_process_buffer(int a1, char *a2, unsigned int a3)
 {
   char *v6; // r8
   char v7; // r10
@@ -37,7 +37,7 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
   int v14; // r2
   uint32_t *v15; // r6
 
-  if ( msg_get_value(a3) == 3 )
+  if ( hci_cmd_send_short(a3) == 3 )
   {
     v6 = (char *)off_13B5DC + 32 * (a3 >> 8);
     if ( v6[17] )
@@ -46,29 +46,29 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
       {
         if ( a2[2] )
         {
-          rx_entry_lookup(a3 >> 8);
-          list_push_tail(dword_13B5F8, v6);
-          rf_bus_mark_n_3b7(a3, 0);
+          rf_get_chan_cfg(a3 >> 8);
+          check_abort_flag(dword_13B5F8, v6);
+          hci_cmd_send(a3, 0);
         }
         else
         {
           v7 = v6[20];
-          sub_13C448((char *)off_13B5DC + 32 * (a3 >> 8));
+          tx_init_data_buffer((char *)off_13B5DC + 32 * (a3 >> 8));
           *((uint32_t *)v6 + 2) = *((uint32_t *)off_13B5E0 + 4);
           v8 = *a2;
           v9 = a2[1];
-          v10 = (uint8_t *)rf_bus_setup_n3a8(5131, 13, 5, 3u);
+          v10 = (uint8_t *)bt_buf_alloc(5131, 13, 5, 3u);
           v10[2] = v7 - 4;
           *v10 = v8;
           v10[1] = v9;
-          sub_12CBB4((int)v10);
-          rf_bus_reset_nac_baa8(a3 >> 8);
-          rf_bus_mark_n_3b7(a3, 1);
+          hci_evt_send((int)v10);
+          sdio_wr_reg(a3 >> 8);
+          hci_cmd_send(a3, 1);
         }
       }
       else if ( **(int16_t **)off_13B5D8 < 0 )
       {
-        sub_12F6C4(dword_13B5E8, dword_13B5E4, 218);
+        mmio_field_update(dword_13B5E8, dword_13B5E4, 218);
       }
     }
     else
@@ -82,7 +82,7 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
       v12 = (char *)off_13B5DC + 32 * (a3 >> 8);
       if ( a2[2] )
       {
-        rf_bus_write_n_25c(
+        dbg_printf(
           (uint8_t)v12[16],
           v12,
           1,
@@ -93,12 +93,12 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
                            | (*((uint16_t *)v12 + 10) << 6)),
           37,
           0);
-        list_push_tail(dword_13B5FC, v12);
-        rf_bus_mark_n_3b7(a3, 0);
+        check_abort_flag(dword_13B5FC, v12);
+        hci_cmd_send(a3, 0);
       }
       else
       {
-        rf_bus_write_n_25c(
+        dbg_printf(
           (uint8_t)v12[16],
           v12,
           1,
@@ -114,15 +114,15 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
         v15 = off_13B5E0;
         *(uint8_t *)(696 * v13 + 12 * v14 + dword_13B5F0 + 452) = BYTE1(a3);
         *((uint32_t *)v12 + 2) = v15[4];
-        rf_bus_reset_nac_baa8(a3 >> 8);
-        rf_bus_mark_n_3b7(a3, 1);
+        sdio_wr_reg(a3 >> 8);
+        hci_cmd_send(a3, 1);
       }
     }
     return 0;
   }
   if ( **(int16_t **)off_13B5D8 >= 0 )
     return 0;
-  sub_12F6C4(dword_13B5E8, dword_13B5E4, 109);
+  mmio_field_update(dword_13B5E8, dword_13B5E4, 109);
   return 0;
 }
 

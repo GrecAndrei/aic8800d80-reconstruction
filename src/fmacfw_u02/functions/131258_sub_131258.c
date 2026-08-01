@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131258 @ 0x131258, size 88 bytes
+// ll_get_adv_state @ 0x131258, size 88 bytes
 // Doc: sub_1231258 [util]: Helper: invoke callback and clear flag byte
 // sub_1231258 [util]: Helper: invoke callback and clear flag byte
-int  sub_131258(uint8_t *a1, int a2, int a3, uint8_t *a4)
+int  ll_get_adv_state(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   int result; // r0
   char v7; // r2
@@ -22,7 +22,7 @@ int  sub_131258(uint8_t *a1, int a2, int a3, uint8_t *a4)
   int v10; // r5
   int v11; // r3
 
-  result = (int)sdio_buffer_prepare_n_1bc(a1, a2);
+  result = (int)parse_frame_0x26(a1, a2);
   *a4 = 0;
   if ( result )
   {

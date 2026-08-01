@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111218 @ 0x111218, size 74 bytes
+// timer_read_count @ 0x111218, size 74 bytes
 // Doc: rf_bus_mark_nbc [rf]: Marks RF bus registers at 0x900-0x914 with flags
 // rf_bus_mark_nbc [rf]: Marks RF bus registers at 0x900-0x914 with flags
-int sub_111218()
+int timer_read_count()
 {
   uint32_t *v0; // r1
   int v1; // r0

@@ -23,8 +23,8 @@ extern uint32_t off_110FDC;
 extern uint32_t off_110FE0;
 extern uint32_t off_110FE4;
 
-// sub_110EDC @ 0x110edc, size 238 bytes
-int  sub_110EDC(int a1, int a2, int a3)
+// memmove @ 0x110edc, size 238 bytes
+int  memmove(int a1, int a2, int a3)
 {
   int *v6; // r9
   uint8_t *v7; // r3
@@ -61,27 +61,27 @@ int  sub_110EDC(int a1, int a2, int a3)
       v20 = *((uint8_t *)off_110FEC + 374);
       if ( v20 != 1 )
         goto LABEL_4;
-      result = sub_124E3C(dword_110FF0);
+      result = get_mmio_state(dword_110FF0);
       if ( result )
         goto LABEL_18;
       if ( v19[369] )
-        sub_10DBD4(v20);
+        mmio_clear_bit(v20);
       else
-        sub_10DBC0(v20);
+        mmio_set_bit(v20);
     }
     else
     {
       v17 = (uint8_t *)off_110FEC;
       if ( *((uint8_t *)off_110FEC + 369) )
-        result = sub_10DBD4(1);
+        result = mmio_clear_bit(1);
       else
-        result = sub_10DBC0(1);
+        result = mmio_set_bit(1);
       v18 = v17[374];
       *v16 = 1;
       if ( v18 != 1 )
         goto LABEL_18;
     }
-    result = sub_124BFC(dword_110FF0, *((uint32_t *)off_110FF4 + 4) + 10000);
+    result = mem_copy_util(dword_110FF0, *((uint32_t *)off_110FF4 + 4) + 10000);
 LABEL_18:
     v8 = *v6;
   }

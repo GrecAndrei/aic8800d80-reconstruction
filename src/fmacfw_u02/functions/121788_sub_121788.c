@@ -24,8 +24,8 @@ extern uint32_t dword_121830;
 extern uint32_t dword_12182C;
 extern uint32_t off_121824;
 
-// sub_121788 @ 0x121788, size 118 bytes
-unsigned int  sub_121788(int *a1)
+// read_mac_int_status @ 0x121788, size 118 bytes
+unsigned int  read_mac_int_status(int *a1)
 {
   uint32_t *v1; // r3
   uint32_t *v2; // r7
@@ -63,10 +63,10 @@ unsigned int  sub_121788(int *a1)
   *v10 = v11;
   if ( *v12 < 0 && *(uint32_t *)off_121828 << 28 )
   {
-    sub_12F49C(dword_121830, dword_12182C, 472);
+    call_shared_handler(dword_121830, dword_12182C, 472);
     v11 = *v10;
   }
   *(uint32_t *)off_121824 = v11 | v10[1];
-  return sub_11E080(0);
+  return radio_set_peripheral_field(0);
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1219168", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219168", "status": "ok", "name": "rx_buf_init_n168", "params": [], "docstring": "Initialize RX buffer pools via allocator", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1219168", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219168", "status": "ok", "name": "system_init", "params": [], "docstring": "Initialize RX buffer pools via allocator", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

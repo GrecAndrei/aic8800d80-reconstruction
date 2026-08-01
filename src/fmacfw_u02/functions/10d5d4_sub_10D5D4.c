@@ -15,8 +15,8 @@ extern uint32_t off_10D620;
 extern uint32_t off_10D61C;
 extern uint32_t dword_10D624;
 
-// sub_10D5D4 @ 0x10d5d4, size 68 bytes
-int sub_10D5D4()
+// rf_get_lock_status @ 0x10d5d4, size 68 bytes
+int rf_get_lock_status()
 {
   unsigned int *v0; // r2
   unsigned int v1; // r3

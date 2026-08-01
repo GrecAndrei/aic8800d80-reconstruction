@@ -19,8 +19,8 @@ extern uint32_t off_10325C;
 extern uint32_t off_103260;
 extern uint32_t off_103258;
 
-// sub_1031D8 @ 0x1031d8, size 112 bytes
-uint32_t *sub_1031D8()
+// aes_load_key @ 0x1031d8, size 112 bytes
+uint32_t *aes_load_key()
 {
   int v0; // r1
   int v1; // r2

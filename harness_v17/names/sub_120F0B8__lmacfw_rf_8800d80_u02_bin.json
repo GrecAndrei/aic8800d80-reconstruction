@@ -1,1 +1,1 @@
-{"fn": "sub_120F0B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f0b8", "status": "ok", "name": "rf_state_check_n2ae", "params": [], "docstring": "Check RF state, store halfword and trigger 0x1119c0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120F0B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f0b8", "status": "ok", "name": "ke_event_set", "params": [], "docstring": "Check RF state, store halfword and trigger 0x1119c0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

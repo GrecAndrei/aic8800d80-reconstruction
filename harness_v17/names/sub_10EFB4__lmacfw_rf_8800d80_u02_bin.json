@@ -1,0 +1,1 @@
+{"fn": "sub_10EFB4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10efb4", "status": "ok", "name": "call_slot_0x1b8", "params": [], "docstring": "Jump to function pointer stored at 0x1b8", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

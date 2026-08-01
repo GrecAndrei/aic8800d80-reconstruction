@@ -21,8 +21,8 @@ extern uint32_t dword_13048C;
 extern uint32_t dword_130490;
 extern uint32_t dword_130494;
 
-// sub_13038C @ 0x13038c, size 238 bytes
-uint8_t *sub_13038C()
+// ke_event_send @ 0x13038c, size 238 bytes
+uint8_t *ke_event_send()
 {
   int *v0; // r6
   int v1; // r0
@@ -49,7 +49,7 @@ uint8_t *sub_13038C()
   v0 = (int *)off_130480;
   v1 = dword_130484;
   ++*(uint32_t *)off_130480;
-  result = (uint8_t *)sub_12D4F8(v1);
+  result = (uint8_t *)list_pop_front(v1);
   v3 = result;
   if ( *v0 )
   {
@@ -69,33 +69,33 @@ uint8_t *sub_13038C()
     v8 = dword_1304A0;
     do
     {
-      v9 = sub_12F918(v3 + 4, (int)v15);
+      v9 = parse_space_token(v3 + 4, (int)v15);
       if ( v9 )
       {
-        v13 = sub_12F9A4(v15[0], v6, 7);
+        v13 = find_extension(v15[0], v6, 7);
         if ( v13 )
         {
           if ( *((int16_t *)v13 + 5) < v9 || *((int16_t *)v13 + 4) > v9 )
           {
-            log_printf(v7, *v13, v13[1]);
+            printf_wrapper(v7, *v13, v13[1]);
           }
           else
           {
             v14 = ((int ( *)(int, int *))v13[3])(v9, v15);
             if ( v14 )
-              log_printf(v8, v14);
+              printf_wrapper(v8, v14);
           }
         }
         else
         {
-          log_printf(dword_130498, v15[0]);
+          printf_wrapper(dword_130498, v15[0]);
         }
       }
       else
       {
-        sub_10D60C((uint8_t *)dword_13048C);
+        uart_puts((uint8_t *)dword_13048C);
       }
-      sub_10D60C((uint8_t *)dword_130490);
+      uart_puts((uint8_t *)dword_130490);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -103,8 +103,8 @@ uint8_t *sub_13038C()
       }
       v10 = dword_130494;
       ++*v0;
-      list_push_tail(v10, v3);
-      result = (uint8_t *)sub_12D4F8(dword_130484);
+      check_abort_flag(v10, v3);
+      result = (uint8_t *)list_pop_front(dword_130484);
       v3 = result;
       if ( *v0 )
       {

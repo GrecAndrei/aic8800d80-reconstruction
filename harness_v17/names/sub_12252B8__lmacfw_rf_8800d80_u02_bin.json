@@ -1,1 +1,1 @@
-{"fn": "sub_12252B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12252b8", "status": "ok", "name": "rf_chan_set_check_52b8", "params": [], "docstring": "Set RF channel and verify selection", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "sub_12252B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12252b8", "status": "ok", "name": "set_local_name", "params": [], "docstring": "Set RF channel and verify selection", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -14,10 +14,10 @@ extern uint32_t off_1283C8;
 extern uint32_t dword_1283D0;
 extern uint32_t off_1283CC;
 
-// sub_12829C @ 0x12829c, size 300 bytes
+// rx_validate_entry @ 0x12829c, size 300 bytes
 // Doc: sub_122829C [util]: helper utility in fmacfw
 // sub_122829C [util]: helper utility in fmacfw
-int  sub_12829C(int result)
+int  rx_validate_entry(int result)
 {
   void *v1; // r5
   int v2; // r4
@@ -45,7 +45,7 @@ int  sub_12829C(int result)
       *((uint8_t *)v1 + 91) = v11;
       if ( !v11 && (*((uint8_t *)v1 + 88) & 0x40) != 0 )
       {
-        result = sub_127170(*((uint32_t *)v1 + 20));
+        result = dma_setup_transfer(*((uint32_t *)v1 + 20));
         LOBYTE(v3) = *(uint8_t *)(v2 + 85);
       }
     }
@@ -61,7 +61,7 @@ int  sub_12829C(int result)
   {
     if ( (v3 & 0x20) != 0 )
     {
-      result = sub_1278F0(result);
+      result = wlc_calc_txrate(result);
       LOBYTE(v3) = *(uint8_t *)(v2 + 85);
       v5 = *(uint32_t *)(v2 + 36);
       v4 = v3 & 4;
@@ -78,7 +78,7 @@ LABEL_4:
           {
             if ( (*((uint8_t *)v1 + 88) & 0x40) != 0 )
             {
-              result = sub_127170(*((uint32_t *)v1 + 20));
+              result = dma_setup_transfer(*((uint32_t *)v1 + 20));
               v6 = *(uint8_t *)(v2 + 85);
             }
             else
@@ -108,12 +108,12 @@ LABEL_4:
           }
           else
           {
-            result = sub_126584(v2, v5, 0);
+            result = llm_scan_sm_execute(v2, v5, 0);
           }
           if ( v4 )
           {
             if ( !*((uint32_t *)v1 + 11) )
-              return sub_126824(v2, *((uint32_t *)off_1283CC + 4), *((uint32_t *)off_1283CC + 4) - v8);
+              return bt_link_cfg_set(v2, *((uint32_t *)off_1283CC + 4), *((uint32_t *)off_1283CC + 4) - v8);
           }
         }
         return result;
@@ -128,7 +128,7 @@ LABEL_4:
     }
     if ( (v3 & 1) == 0 )
     {
-      result = sub_126584(v2, v5, 0);
+      result = llm_scan_sm_execute(v2, v5, 0);
       LOBYTE(v3) = *(uint8_t *)(v2 + 85);
     }
     *(uint8_t *)(v2 + 85) = v3 & 0xFB;

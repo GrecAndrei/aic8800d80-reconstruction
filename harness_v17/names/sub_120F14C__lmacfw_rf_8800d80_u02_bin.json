@@ -1,1 +1,1 @@
-{"fn": "sub_120F14C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f14c", "status": "ok", "name": "rf_byte_extract_save", "params": [], "docstring": "Extracts high byte and saves to stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120F14C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f14c", "status": "ok", "name": "mmio_set_reg_0x70001408", "params": [], "docstring": "Extracts high byte and saves to stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

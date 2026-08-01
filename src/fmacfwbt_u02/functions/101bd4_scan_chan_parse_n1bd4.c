@@ -22,10 +22,10 @@ extern uint32_t dword_101DA0;
 extern uint32_t dword_101D9C;
 extern uint32_t dword_101D98;
 
-// scan_chan_parse_n1bd4 @ 0x101bd4, size 420 bytes
-// Doc: scan_chan_parse_n1bd4 [scan]: Parse scan channel descriptor from buffer
-// scan_chan_parse_n1bd4 [scan]: Parse scan channel descriptor from buffer
-int  scan_chan_parse_n1bd4(unsigned int a1, signed int a2, uint8_t *a3)
+// llm_rx_pdu_handler @ 0x101bd4, size 420 bytes
+// Doc: llm_rx_pdu_handler [scan]: Parse scan channel descriptor from buffer
+// llm_rx_pdu_handler [scan]: Parse scan channel descriptor from buffer
+int  llm_rx_pdu_handler(unsigned int a1, signed int a2, uint8_t *a3)
 {
   int v3; // r6
   unsigned int v4; // r7
@@ -159,7 +159,7 @@ LABEL_12:
 LABEL_18:
   if ( (*((uint32_t *)off_101D78 + 98) & 2) != 0 )
   {
-    v22 = sub_132418(v3, v4);
+    v22 = llm_adv_state_get(v3, v4);
     if ( v22 )
     {
       v23 = *(char *)(v22 + 4);
@@ -167,8 +167,8 @@ LABEL_18:
     else
     {
       if ( **(int16_t **)off_101D94 < 0 )
-        sub_12F6C4(dword_101DA0, dword_101D9C, 7022);
-      sub_12ECB0(dword_101D98, v3, v4);
+        mmio_field_update(dword_101DA0, dword_101D9C, 7022);
+      ke_event_schedule(dword_101D98, v3, v4);
       v23 = 15;
     }
     if ( v8 >= v23 )

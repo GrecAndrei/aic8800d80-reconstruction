@@ -1,1 +1,1 @@
-{"fn": "sub_1226174", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226174", "status": "ok", "name": "rf_init_calibration_n174", "params": [], "docstring": "Performs RF initialization and calibration sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1226174", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226174", "status": "ok", "name": "radio_timer_snapshot", "params": [], "docstring": "Performs RF initialization and calibration sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

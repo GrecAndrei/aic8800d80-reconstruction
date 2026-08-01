@@ -1,1 +1,1 @@
-{"fn": "sub_1240510", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240510", "status": "ok", "name": "mmio_read_status", "params": [], "docstring": "Read status word from global state at offset 0x1948", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1240510", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240510", "status": "ok", "name": "ble_ll_adv_chk_active", "params": [], "docstring": "Read status word from global state at offset 0x1948", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

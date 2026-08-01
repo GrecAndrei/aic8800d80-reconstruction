@@ -1,1 +1,1 @@
-{"fn": "sub_120E420", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e420", "status": "ok", "name": "rf_mmio_reg_enable", "params": [], "docstring": "Writes 1 to MMIO reg 0x4010d004 to enable RF block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120E420", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e420", "status": "ok", "name": "sdio_core_set_enable", "params": [], "docstring": "Writes 1 to MMIO reg 0x4010d004 to enable RF block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

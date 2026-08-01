@@ -12,10 +12,10 @@
 
 extern uint32_t off_124F9C;
 
-// rf_msg_handler_n22e @ 0x124f7c, size 30 bytes
-// Doc: rf_msg_handler_n22e [rf]: Dispatch RF message to sub-handlers based on opcode 0x30/0x29/0x2a
-// rf_msg_handler_n22e [rf]: Dispatch RF message to sub-handlers based on opcode 0x30/0x29/0x2a
-int  rf_msg_handler_n22e(uint32_t *a1)
+// global_state_get @ 0x124f7c, size 30 bytes
+// Doc: global_state_get [rf]: Dispatch RF message to sub-handlers based on opcode 0x30/0x29/0x2a
+// global_state_get [rf]: Dispatch RF message to sub-handlers based on opcode 0x30/0x29/0x2a
+int  global_state_get(uint32_t *a1)
 {
   uint32_t *v1; // r3
 

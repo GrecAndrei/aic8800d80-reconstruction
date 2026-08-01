@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11941C;
 
-// sub_119400 @ 0x119400, size 28 bytes
-int  sub_119400(int a1, uint32_t *a2, int a3, int a4)
+// trace_record_event @ 0x119400, size 28 bytes
+int  trace_record_event(int a1, uint32_t *a2, int a3, int a4)
 {
   int v4; // r0
   uint32_t *v5; // r5
@@ -28,7 +28,7 @@ int  sub_119400(int a1, uint32_t *a2, int a3, int a4)
   *(uint32_t *)dword_11941C = v4;
   *(uint32_t *)(v6 + 4) = v7;
   *(uint16_t *)(v6 + 8) = (uint16_t)v5;
-  sub_11DED8(138, a4, a3);
+  ke_evt_handler(138, a4, a3);
   return 0;
 }
 

@@ -18,10 +18,10 @@ extern uint32_t off_121CC8;
 extern uint32_t off_121CCC;
 extern uint32_t dword_121CD0;
 
-// sub_121BE4 @ 0x121be4, size 212 bytes
+// mac_check_hw_state @ 0x121be4, size 212 bytes
 // Doc: sub_1221BE4 [unknown]: checks flag byte against MMIO address 0x190390, branches on state
 // sub_1221BE4 [unknown]: checks flag byte against MMIO address 0x190390, branches on state
-int  sub_121BE4(int a1)
+int  mac_check_hw_state(int a1)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3
@@ -82,7 +82,7 @@ int  sub_121BE4(int a1)
       {
         v19 = dword_121CD0;
         v1[10] = v4;
-        timestamp_update_4f60(v19, v10 + 100);
+        ke_event_lock(v19, v10 + 100);
         goto LABEL_12;
       }
     }
@@ -93,7 +93,7 @@ int  sub_121BE4(int a1)
         v17 = v10 + v2 - v11;
         v18 = dword_121CD0;
         v1[10] = v4;
-        timestamp_update_4f60(v18, v17);
+        ke_event_lock(v18, v17);
         goto LABEL_12;
       }
       if ( v3 + 100 > v2 - v9 )
@@ -101,7 +101,7 @@ int  sub_121BE4(int a1)
         v12 = v10 - v11;
         v13 = dword_121CD0;
         v1[10] = v4;
-        timestamp_update_4f60(v13, v12);
+        ke_event_lock(v13, v12);
 LABEL_12:
         if ( *v5 )
         {
@@ -117,7 +117,7 @@ LABEL_12:
         return v4;
       }
     }
-    sub_1207C4(v4);
+    register_irq_handler(v4);
     goto LABEL_12;
   }
   return 0;

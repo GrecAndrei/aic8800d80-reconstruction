@@ -17,10 +17,10 @@ extern uint32_t dword_11B7A0;
 extern uint32_t dword_11B79C;
 extern uint32_t off_11B794;
 
-// sub_11B680 @ 0x11b680, size 272 bytes
+// state_check_and_setup @ 0x11b680, size 272 bytes
 // Doc: sub_121B680 [util]: Init/state check comparing a flag byte against 3
 // sub_121B680 [util]: Init/state check comparing a flag byte against 3
-int  sub_11B680(int *a1)
+int  state_check_and_setup(int *a1)
 {
   uint16_t *v1; // r6
   int v2; // r3
@@ -75,7 +75,7 @@ LABEL_13:
             if ( *(int *)(*(uint32_t *)(*v9 + 76) + 72) >= 0 )
               goto LABEL_3;
           }
-          scan_chan_entry_alloc_n_54((int)v9, (uint8_t)v5);
+          off_84_table((int)v9, (uint8_t)v5);
           v9 = *(int **)(v10 + 12);
           if ( !v9 )
             goto LABEL_4;
@@ -87,14 +87,14 @@ LABEL_13:
         v9 = (int *)v11;
       }
 LABEL_3:
-      v6 = sub_11B270(v13, a1, *((uint32_t *)v1 + 44), v1[93], *((uint8_t *)v1 + 190));
+      v6 = process_flags(v13, a1, *((uint32_t *)v1 + 44), v1[93], *((uint8_t *)v1 + 190));
       if ( v6 )
       {
         if ( v9 )
-          scan_chan_entry_alloc_n_54((int)v9, (uint8_t)v5);
+          off_84_table((int)v9, (uint8_t)v5);
         v16 = *(uint32_t *)(v13 + 68);
         if ( **(int16_t **)off_11B798 < 0 && !v16 )
-          sub_12F694(dword_11B7A0, dword_11B79C, 1383);
+          mmio_irq_clear(dword_11B7A0, dword_11B79C, 1383);
         v17 = *(uint16_t *)(v16 + 8);
         *((uint32_t *)v1 + 51) = v16;
         *(uint16_t *)(v16 + 8) = v17 | 0x200;

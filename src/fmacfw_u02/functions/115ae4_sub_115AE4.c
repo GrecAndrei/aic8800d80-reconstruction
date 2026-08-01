@@ -35,10 +35,10 @@ extern uint32_t off_115D0C;
 extern uint32_t off_115D10;
 extern uint32_t dword_115D58;
 
-// sub_115AE4 @ 0x115ae4, size 532 bytes
-// Doc: ipc_doorbell_handler [ipc]: IPC doorbell interrupt handler that processes incoming doorbell messages and dispatches IPC events.
-// ipc_doorbell_handler [ipc]: IPC doorbell interrupt handler that processes incoming doorbell messages and dispatches IPC events.
-int  sub_115AE4(int result)
+// clear_rx_config @ 0x115ae4, size 532 bytes
+// Doc: gpio_read_input [ipc]: IPC doorbell interrupt handler that processes incoming doorbell messages and dispatches IPC events.
+// gpio_read_input [ipc]: IPC doorbell interrupt handler that processes incoming doorbell messages and dispatches IPC events.
+int  clear_rx_config(int result)
 {
   uint8_t **v1; // r5
   uint8_t **v2; // r6
@@ -58,16 +58,16 @@ int  sub_115AE4(int result)
     v6 = *(uint8_t *)off_115D1C;
     *(uint8_t *)off_115D20 = 0;
     if ( v6 )
-      return sub_12ECD0(2, dword_115D48);
+      return check_status_bits(2, dword_115D48);
     if ( !*(uint8_t *)off_115D24 )
-      return sub_12ECD0(2, dword_115D4C);
+      return check_status_bits(2, dword_115D4C);
     if ( *(uint32_t *)off_115D28 && *(uint32_t *)(*(uint32_t *)off_115D28 + 12) - *((uint32_t *)off_115D2C + 4) - 5000 < 0 )
-      return sub_12ECD0(2, dword_115D54);
+      return check_status_bits(2, dword_115D54);
     if ( !*(uint8_t *)off_115D30
       && !*((uint32_t *)off_115D08 + 126)
       && ((dword_115D38 & *(uint32_t *)off_115D34) == 0 || (unsigned int)(32 * *(uint32_t *)off_115D3C) > 0x1387) )
     {
-      ((void (*)(void))sub_12EA10)();
+      ((void (*)(void))ipc_wait_flag)();
       while ( 1 )
         ;
     }
@@ -93,7 +93,7 @@ LABEL_38:
     v2 = (uint8_t **)off_115D04;
     if ( **(uint8_t **)off_115D04 == 3 )
       goto LABEL_8;
-    result = sub_12ECD0(2, dword_115D18);
+    result = check_status_bits(2, dword_115D18);
     *v5 = 1;
 LABEL_6:
     v3 = **v2;
@@ -101,18 +101,18 @@ LABEL_6:
     {
       if ( **v1 == 3 )
       {
-        v9 = sub_10D304();
+        v9 = rf_read_status_bit();
         v11 = off_115D20;
         *(uint8_t *)off_115D20 = v9;
         if ( v9 )
-          sub_12EA88(dword_115D5C, v10, v11);
+          event_dispatch(dword_115D5C, v10, v11);
         else
-          sub_12EA88(dword_115D50, v10, v11);
-        if ( sub_1112F4() )
-          sub_11597C();
-        return ((int (*)(void))sub_12EA10)();
+          event_dispatch(dword_115D50, v10, v11);
+        if ( get_status_flag() )
+          gpio_read_input();
+        return ((int (*)(void))ipc_wait_flag)();
       }
-      result = sub_1112F4();
+      result = get_status_flag();
       if ( !result || *(uint8_t *)off_115D30 )
         return result;
     }
@@ -121,7 +121,7 @@ LABEL_6:
       return result;
     }
 LABEL_8:
-    result = sub_128F1C(result);
+    result = wlc_bss_state(result);
     if ( result )
     {
       if ( !*((uint32_t *)off_115D08 + 126) )
@@ -130,20 +130,20 @@ LABEL_8:
         {
           if ( !*((uint8_t *)off_115D10 + 29) )
           {
-            result = sub_12BD40();
+            result = rf_read_irq_flags();
             if ( result )
             {
-              LOBYTE(result) = sub_10D304();
+              LOBYTE(result) = rf_read_status_bit();
               v8 = off_115D20;
               result = (uint8_t)result;
               *(uint8_t *)off_115D20 = result;
               if ( !(uint8_t)result )
               {
-                v12 = sub_12EA88(dword_115D58, v7, v8);
-                result = sub_12EA10(v12);
+                v12 = event_dispatch(dword_115D58, v7, v8);
+                result = ipc_wait_flag(v12);
               }
               if ( (uint8_t)**v1 <= 1u )
-                return (int)sub_11597C();
+                return (int)gpio_read_input();
             }
           }
         }
@@ -164,7 +164,7 @@ LABEL_17:
     goto LABEL_17;
 LABEL_20:
   if ( **(uint8_t **)off_115D04 != 3 )
-    result = sub_12ECD0(2, dword_115D18);
+    result = check_status_bits(2, dword_115D18);
 LABEL_23:
   *v5 = 0;
   return result;

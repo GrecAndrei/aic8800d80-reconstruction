@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_da", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121466e", "status": "ok", "name": "rf_fault_dump_n_da", "params": [], "docstring": "Dumps RF fault state to buffer with error code", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_da", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121466e", "status": "ok", "name": "rf_fault_dump_n_d9", "params": [], "docstring": "Dumps RF fault state to buffer with error code", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

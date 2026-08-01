@@ -21,10 +21,10 @@ extern uint32_t dword_113BF8;
 extern uint32_t dword_113BEC;
 extern uint32_t dword_113BF4;
 
-// rf_msg_process_body_3aa4 @ 0x113aa4, size 318 bytes
-// Doc: rf_msg_process_body_3aa4 [rf]: Process RF message body parsing header byte and sub-id
-// rf_msg_process_body_3aa4 [rf]: Process RF message body parsing header byte and sub-id
-int  rf_msg_process_body_3aa4(int a1)
+// rx_packet_parse @ 0x113aa4, size 318 bytes
+// Doc: rx_packet_parse [rf]: Process RF message body parsing header byte and sub-id
+// rx_packet_parse [rf]: Process RF message body parsing header byte and sub-id
+int  rx_packet_parse(int a1)
 {
   unsigned int v1; // r3
   int v2; // r7
@@ -42,8 +42,8 @@ int  rf_msg_process_body_3aa4(int a1)
   v2 = *(uint8_t *)(a1 + 24);
   if ( v1 <= 0x1F && !*(uint8_t *)(dword_113BE4 + 696 * v1 + 37) )
   {
-    sub_12ECB0(dword_113C04, 696, dword_113BE4);
-    return log_free_dispatch_2((uint32_t *)(a1 - *(uint32_t *)off_113BF0 - 4));
+    ke_event_schedule(dword_113C04, 696, dword_113BE4);
+    return memory_pool_free((uint32_t *)(a1 - *(uint32_t *)off_113BF0 - 4));
   }
   v4 = dword_113C08;
   if ( (*(uint16_t *)(a1 + 26) & 8) == 0 )
@@ -52,19 +52,19 @@ int  rf_msg_process_body_3aa4(int a1)
     {
       v5 = *(uint8_t *)(a1 + 22);
       if ( **(int16_t **)off_113BE8 < 0 && v5 > 4 )
-        sub_12F694(dword_113C00, dword_113BFC, 926);
-      v6 = sub_116448();
+        mmio_irq_clear(dword_113C00, dword_113BFC, 926);
+      v6 = scan_check_response();
       if ( v6 )
         goto LABEL_7;
 LABEL_13:
-      log_printf(dword_113BF8, *(uint8_t *)(dword_113BEC + v5));
+      printf_wrapper(dword_113BF8, *(uint8_t *)(dword_113BEC + v5));
       while ( 1 )
         ;
     }
-    return log_free_dispatch_2((uint32_t *)(a1 - *(uint32_t *)off_113BF0 - 4));
+    return memory_pool_free((uint32_t *)(a1 - *(uint32_t *)off_113BF0 - 4));
   }
   v5 = 3;
-  v6 = sub_116448();
+  v6 = scan_check_response();
   if ( !v6 )
     goto LABEL_13;
 LABEL_7:
@@ -76,7 +76,7 @@ LABEL_7:
   *(uint32_t *)(v7 + 4) = 0;
   *(uint32_t *)(v7 + 72) = 0;
   *(uint32_t *)(v6 + 44) = 0;
-  sub_14380C(v6 + 4, a1, 28);
+  memcpy_aligned(v6 + 4, a1, 28);
   v9 = *(uint16_t *)(v6 + 30);
   v10 = *(uint32_t *)off_113BF0;
   *(uint16_t *)(v6 + 6) = 0;
@@ -87,7 +87,7 @@ LABEL_7:
   *(uint16_t *)(v6 + 82) = 0;
   *(uint16_t *)(v6 + 30) = v9 & 0xFFFD;
   if ( (v9 & 8) != 0 )
-    return list_push_tail(v4 + 1320 * v2 + 1312);
+    return check_abort_flag(v4 + 1320 * v2 + 1312);
   v11 = *(uint8_t *)(v6 + 29);
   if ( v11 <= 0x1F )
   {
@@ -95,6 +95,6 @@ LABEL_7:
     if ( v12 <= 8 )
       *(uint32_t *)(dword_113BF4 + 4 * (9 * v11 + v12 + 2062)) += *(uint16_t *)(v6 + 4);
   }
-  return list_push_tail(v4 + 8 * (v5 + 165 * v2 + 154));
+  return check_abort_flag(v4 + 8 * (v5 + 165 * v2 + 154));
 }
 

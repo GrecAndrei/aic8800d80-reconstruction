@@ -1,1 +1,1 @@
-{"fn": "sub_1235AB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235ab0", "status": "ok", "name": "rx_descriptor_init", "params": [], "docstring": "Initialize RX descriptor ring", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235AB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235ab0", "status": "ok", "name": "hci_recv_packet", "params": [], "docstring": "Initialize RX descriptor ring", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

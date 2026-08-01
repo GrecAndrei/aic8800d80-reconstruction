@@ -24,10 +24,10 @@ extern uint32_t off_110470;
 extern uint32_t dword_110478;
 extern uint32_t dword_110474;
 
-// sub_11035C @ 0x11035c, size 258 bytes
+// usb_irq_handler @ 0x11035c, size 258 bytes
 // Doc: log_free_dispatch_n500 [util]: Dispatch log buffer free across registered sinks
 // log_free_dispatch_n500 [util]: Dispatch log buffer free across registered sinks
-int  sub_11035C(int result)
+int  usb_irq_handler(int result)
 {
   uint32_t *v1; // r4
   unsigned int v2; // r3
@@ -56,23 +56,23 @@ LABEL_2:
   v7 = (int *)off_110468;
   while ( v2 <= 1 )
   {
-    v8 = sub_110238();
+    v8 = critical_enter_4();
     if ( !v8 )
     {
-      result = log_printf(dword_110484, *(uint32_t *)off_110480);
+      result = printf_wrapper(dword_110484, *(uint32_t *)off_110480);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or(32);
+      return set_system_flag_1(32);
     }
-    v9 = (int *)log_free_dispatch_n2b4();
+    v9 = (int *)critical_enter_0();
     v10 = v9;
     if ( !v9 )
     {
-      log_printf(dword_110488);
-      result = sub_110288();
+      printf_wrapper(dword_110488);
+      result = critical_enter_5();
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or(32);
+      return set_system_flag_1(32);
     }
     *v9 = v8;
     v9[1] = 0;
@@ -96,7 +96,7 @@ LABEL_2:
       }
       else
       {
-        log_printf(dword_11047C);
+        printf_wrapper(dword_11047C);
         v11 = *v7;
       }
     }
@@ -104,7 +104,7 @@ LABEL_2:
     {
       if ( **(int16_t **)off_110470 < 0 && *v4 )
       {
-        sub_12F694(dword_110478, dword_110474, 261);
+        mmio_irq_clear(dword_110478, dword_110474, 261);
         v11 = *v7;
       }
       *v4 = v10;

@@ -1,1 +1,1 @@
-{"fn": "sub_120D638", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d638", "status": "ok", "name": "mmio_read_u8", "params": [], "docstring": "Read a byte from MMIO register at 0x40032000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120D638", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d638", "status": "ok", "name": "uart_getc", "params": [], "docstring": "Read a byte from MMIO register at 0x40032000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -12,20 +12,20 @@
 
 extern uint32_t dword_123B30;
 
-// sub_123AF4 @ 0x123af4, size 60 bytes
-int  sub_123AF4(int a1, uint8_t *a2, int a3, int a4)
+// bsscfg_indexed_lookup @ 0x123af4, size 60 bytes
+int  bsscfg_indexed_lookup(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r5
   int v6; // r0
   int v7; // r4
 
   v4 = dword_123B30 + 1320 * *a2;
-  v6 = rf_bus_setup_n3a8(47, a4, a3, 2);
+  v6 = bt_buf_alloc(47, a4, a3, 2);
   *(uint8_t *)(v4 + 110) = a2[1];
   v7 = v6;
-  message_dispatch_c7ac(v4);
-  message_dispatch_n_4c4(v4, v7 + 1, v7);
-  sub_12CBB4(v7);
+  scan_rssi_compare(v4);
+  util_chk_field(v4, v7 + 1, v7);
+  hci_evt_send(v7);
   return 0;
 }
 

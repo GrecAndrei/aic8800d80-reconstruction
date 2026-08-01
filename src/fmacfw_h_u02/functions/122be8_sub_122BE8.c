@@ -18,8 +18,8 @@ extern uint32_t dword_122DDC;
 extern uint32_t off_122DE0;
 extern uint32_t dword_122DE4;
 
-// sub_122BE8 @ 0x122be8, size 472 bytes
-void  __noreturn sub_122BE8(int a1, int *a2, int a3, int a4)
+// ke_send_msg_6a @ 0x122be8, size 472 bytes
+void  __noreturn ke_send_msg_6a(int a1, int *a2, int a3, int a4)
 {
   int v5; // r2
   int v6; // r3
@@ -36,19 +36,19 @@ void  __noreturn sub_122BE8(int a1, int *a2, int a3, int a4)
   int v17; // [sp+10h] [bp-8Ch]
   int v18; // [sp+14h] [bp-88h] BYREF
 
-  sub_12C7EC(106, a4, a3, 16);
+  tx_send_pdu(106, a4, a3, 16);
   v15 = 0;
   if ( (*(uint32_t *)off_122DC0 & 0x2000000) != 0 )
   {
-    sub_114728(&v15);
-    sub_114754((uint8_t *)&v15 + 1);
-    sub_12E948(dword_122DD8, (uint8_t)v15, HIBYTE(v15));
+    rf_cmd_6_read(&v15);
+    rf_cmd_6_version((uint8_t *)&v15 + 1);
+    alloc_tx_event(dword_122DD8, (uint8_t)v15, HIBYTE(v15));
     v6 = (uint8_t)v15;
   }
   else
   {
     v18 = 0;
-    if ( sub_114BF4((int)&v18) )
+    if ( send_smc_cmd_2((int)&v18) )
     {
       v6 = (uint8_t)v15;
     }
@@ -61,7 +61,7 @@ void  __noreturn sub_122BE8(int a1, int *a2, int a3, int a4)
   }
   if ( !v6 && *((uint8_t *)a2 + 20) )
   {
-    sub_12E948(dword_122DEC, *((uint8_t *)a2 + 20), v5);
+    alloc_tx_event(dword_122DEC, *((uint8_t *)a2 + 20), v5);
     LOBYTE(v15) = *((uint8_t *)a2 + 20);
   }
   v7 = HIBYTE(v15);
@@ -73,7 +73,7 @@ void  __noreturn sub_122BE8(int a1, int *a2, int a3, int a4)
   }
   else if ( *((uint8_t *)a2 + 21) )
   {
-    sub_12E948(dword_122DE8, *((uint8_t *)a2 + 21), v5);
+    alloc_tx_event(dword_122DE8, *((uint8_t *)a2 + 21), v5);
     v8 = (uint8_t)v15;
     v7 = *((uint8_t *)a2 + 21);
     HIBYTE(v15) = *((uint8_t *)a2 + 21);
@@ -91,8 +91,8 @@ void  __noreturn sub_122BE8(int a1, int *a2, int a3, int a4)
     v8 = 31;
     LOBYTE(v15) = 31;
   }
-  sub_10EDF8(v8);
-  sub_12E948(dword_122DDC, (uint8_t)v15, v10);
+  padding_data(v8);
+  alloc_tx_event(dword_122DDC, (uint8_t)v15, v10);
   v7 = HIBYTE(v15);
 LABEL_17:
   if ( !v7 )
@@ -117,17 +117,17 @@ LABEL_18:
   v13 = off_122DE0;
   v14 = dword_122DE4;
   *(uint32_t *)off_122DE0 = *(uint32_t *)off_122DE0 & 0xFF03FFFF | v12;
-  sub_12E948(v14, v11, v13);
+  alloc_tx_event(v14, v11, v13);
   if ( !a2[3] )
   {
 LABEL_11:
     v9 = *a2;
     v17 = a2[2];
     v16 = v9;
-    sub_10C4AC(0, 2437);
+    rf_register_write(0, 2437);
   }
 LABEL_21:
-  sub_10C6F0();
+  interrupt_dispatcher();
   goto LABEL_11;
 }
 

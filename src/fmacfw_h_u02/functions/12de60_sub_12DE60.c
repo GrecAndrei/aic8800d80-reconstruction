@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DE60 @ 0x12de60, size 14 bytes
-int  sub_12DE60(int a1)
+// rf_get_freq_field @ 0x12de60, size 14 bytes
+int  rf_get_freq_field(int a1)
 {
   return ((2 * *(uint8_t *)(a1 + 5)) | (*(uint8_t *)(a1 + 4) >> 7)) << 22;
 }

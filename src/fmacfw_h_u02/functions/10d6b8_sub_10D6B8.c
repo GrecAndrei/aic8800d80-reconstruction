@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D6C4;
 
-// sub_10D6B8 @ 0x10d6b8, size 10 bytes
-int sub_10D6B8()
+// radio_rx_status @ 0x10d6b8, size 10 bytes
+int radio_rx_status()
 {
   return *(uint32_t *)off_10D6C4 & 1;
 }

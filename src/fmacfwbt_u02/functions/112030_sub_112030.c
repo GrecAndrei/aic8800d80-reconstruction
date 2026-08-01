@@ -15,8 +15,8 @@ extern uint32_t off_112078;
 extern uint32_t off_112080;
 extern uint32_t off_11207C;
 
-// sub_112030 @ 0x112030, size 66 bytes
-int sub_112030()
+// hw_status_update @ 0x112030, size 66 bytes
+int hw_status_update()
 {
   uint8_t *v0; // r4
   int v1; // r0
@@ -32,8 +32,8 @@ int sub_112030()
     {
       *(uint8_t *)off_11207C = 4;
       *v0 = 7;
-      if ( !sub_1138E8() )
-        sub_113FC4(0);
+      if ( !is_rf_calib_running() )
+        log_and_handle(0);
       return 1;
     }
     else

@@ -14,8 +14,8 @@ extern uint32_t off_1101E0;
 extern uint32_t off_1101E4;
 extern uint32_t dword_1101E8;
 
-// sub_1101AC @ 0x1101ac, size 52 bytes
-int sub_1101AC()
+// irq_disable @ 0x1101ac, size 52 bytes
+int irq_disable()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_1101AC()
   v0 = (int *)off_1101E4;
   v1 = dword_1101E8;
   ++*(uint32_t *)off_1101E4;
-  result = sub_11E7AC(v1);
+  result = list_pop_front(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

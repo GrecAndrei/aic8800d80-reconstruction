@@ -15,8 +15,8 @@ extern uint32_t off_10F0B4;
 extern uint32_t dword_10F0BC;
 extern uint32_t off_10F0C0;
 
-// sub_10F058 @ 0x10f058, size 90 bytes
-int sub_10F058()
+// rf_get_rssi @ 0x10f058, size 90 bytes
+int rf_get_rssi()
 {
   uint8_t *v0; // r6
   int v1; // r5
@@ -29,12 +29,12 @@ int sub_10F058()
   v2 = *((char *)off_10F0B8 + 7) - v1;
   if ( v2 < -62 )
     LOBYTE(v2) = -62;
-  sub_102AD0(v2);
+  rf_reg_write_byte(v2);
   v3 = dword_10F0BC;
   v0[7] = v2;
-  result = sub_12E948(v3, (char)v2, v1);
+  result = alloc_tx_event(v3, (char)v2, v1);
   if ( (char)v2 >= -61 )
-    return sub_124BFC(v0 + 12, *((uint32_t *)off_10F0C0 + 4) + 30000 * *((uint16_t *)v0 + 4));
+    return mem_copy_util(v0 + 12, *((uint32_t *)off_10F0C0 + 4) + 30000 * *((uint16_t *)v0 + 4));
   v0[11] = 0;
   return result;
 }

@@ -13,10 +13,10 @@
 extern uint32_t off_11C91C;
 extern uint32_t dword_11C920;
 
-// list_init_or_dequeue @ 0x11c8d0, size 74 bytes
-// Doc: list_init_or_dequeue [util]: Initialize/dequeue a list node using 0x188bbc and 0xfffff000 globals
-// list_init_or_dequeue [util]: Initialize/dequeue a list node using 0x188bbc and 0xfffff000 globals
-int  list_init_or_dequeue(int a1)
+// tx_buffer_cleanup @ 0x11c8d0, size 74 bytes
+// Doc: tx_buffer_cleanup [util]: Initialize/dequeue a list node using 0x188bbc and 0xfffff000 globals
+// tx_buffer_cleanup [util]: Initialize/dequeue a list node using 0x188bbc and 0xfffff000 globals
+int  tx_buffer_cleanup(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r7

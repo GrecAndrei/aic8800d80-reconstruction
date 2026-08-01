@@ -15,8 +15,8 @@ extern uint32_t off_117400;
 extern uint32_t dword_117408;
 extern uint32_t dword_117404;
 
-// sub_11739C @ 0x11739c, size 98 bytes
-int  sub_11739C(int a1, int a2)
+// ll_timer_offset_get @ 0x11739c, size 98 bytes
+int  ll_timer_offset_get(int a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -54,7 +54,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(int16_t **)off_117400 < 0 && !a2 )
-      return sub_121960(dword_117408, dword_117404, 1119, v2);
+      return ke_int_lock(dword_117408, dword_117404, 1119, v2);
     v2 = *(uint16_t *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;

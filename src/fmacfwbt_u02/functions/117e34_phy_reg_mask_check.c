@@ -13,10 +13,10 @@
 extern uint32_t off_117E5C;
 extern uint32_t off_117E60;
 
-// phy_reg_mask_check @ 0x117e34, size 38 bytes
-// Doc: phy_reg_mask_check [patch]: Check masked bits of PHY control register 0x40328078
-// phy_reg_mask_check [patch]: Check masked bits of PHY control register 0x40328078
-int phy_reg_mask_check()
+// rf_irq_clear @ 0x117e34, size 38 bytes
+// Doc: rf_irq_clear [patch]: Check masked bits of PHY control register 0x40328078
+// rf_irq_clear [patch]: Check masked bits of PHY control register 0x40328078
+int rf_irq_clear()
 {
   unsigned int v0; // r4
   int result; // r0
@@ -24,7 +24,7 @@ int phy_reg_mask_check()
   v0 = *(uint32_t *)off_117E5C & 0xF00000;
   if ( v0 )
   {
-    result = sub_11B0B4((uint8_t)(11 - __clz(v0)));
+    result = get_84_entry((uint8_t)(11 - __clz(v0)));
     *(uint32_t *)off_117E60 = v0;
   }
   else

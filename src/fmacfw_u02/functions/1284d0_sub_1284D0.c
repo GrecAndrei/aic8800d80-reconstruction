@@ -12,8 +12,8 @@
 
 extern uint32_t off_12851C;
 
-// sub_1284D0 @ 0x1284d0, size 74 bytes
-BOOL  sub_1284D0(int a1)
+// wlc_get_ops_alt @ 0x1284d0, size 74 bytes
+BOOL  wlc_get_ops_alt(int a1)
 {
   int v1; // r3
   unsigned int v2; // r1
@@ -25,7 +25,7 @@ BOOL  sub_1284D0(int a1)
   if ( v2 <= 2 )
     return *(uint32_t *)(a1 + 72) == v1;
   if ( *(uint32_t *)(a1 + 72) && !*(uint8_t *)(a1 + 1224) && v2 == 4 )
-    return sub_128490(a1);
+    return wlc_get_ops(a1);
   return *(uint8_t *)(v1 + 26) == *(uint8_t *)(a1 + 107);
 }
 

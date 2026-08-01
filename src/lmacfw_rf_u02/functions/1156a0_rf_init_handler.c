@@ -17,10 +17,10 @@ extern uint32_t dword_11574C;
 extern uint32_t dword_115748;
 extern uint32_t off_115750;
 
-// rf_init_handler @ 0x1156a0, size 154 bytes
-// Doc: rf_init_handler [rf]: RF initialization handler
-// rf_init_handler [rf]: RF initialization handler
-int * rf_init_handler(int a1, int a2, int a3, int a4)
+// pdu_type_init @ 0x1156a0, size 154 bytes
+// Doc: pdu_type_init [rf]: RF initialization handler
+// pdu_type_init [rf]: RF initialization handler
+int * pdu_type_init(int a1, int a2, int a3, int a4)
 {
   int v4; // zf
   int *v6; // r5
@@ -41,7 +41,7 @@ int * rf_init_handler(int a1, int a2, int a3, int a4)
     v6 += a4;
   v8 = *v6;
   if ( v7 < 0 && v8 == a1 )
-    return (int *)sub_121960(dword_11574C, dword_115748, 1972, v8);
+    return (int *)ke_int_lock(dword_11574C, dword_115748, 1972, v8);
   if ( v8 )
   {
     v11 = off_115750;
@@ -49,11 +49,11 @@ int * rf_init_handler(int a1, int a2, int a3, int a4)
       *(uint32_t *)(v8 + 4) = a1;
     else
       *(uint32_t *)(v6[1] + 4) = a1;
-    result = (int *)rf_subcmd_dispatch(a3);
+    result = (int *)radio_pdu_type_cfg(a3);
   }
   else
   {
-    result = sub_1153F4(a1, a3, v7, 0);
+    result = adv_pdu_type_handler(a1, a3, v7, 0);
     v11 = off_115750;
   }
   if ( !*(uint8_t *)(*(uint32_t *)v11 + 1) )

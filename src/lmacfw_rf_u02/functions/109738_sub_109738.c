@@ -15,8 +15,8 @@ extern uint32_t dword_1099A4;
 extern uint32_t dword_1099AC;
 extern uint32_t dword_1099B0;
 
-// sub_109738 @ 0x109738, size 610 bytes
-int  sub_109738(unsigned int a1, float *a2, float *a3, int a4)
+// compare_float_samples @ 0x109738, size 610 bytes
+int  compare_float_samples(unsigned int a1, float *a2, float *a3, int a4)
 {
   float v4; // s13
   float v5; // s14
@@ -73,20 +73,20 @@ int  sub_109738(unsigned int a1, float *a2, float *a3, int a4)
   v16 = (float)(v14 * 3.0) - (float)(v15 * v15);
   if ( v16 > 0.0 )
   {
-    v17 = sub_127570((float)(v14 * 3.0) - (float)(v15 * v15));
-    if ( !sub_127B04(v17, HIDWORD(v17), dword_1099A0, dword_1099A4) )
+    v17 = aeabi_d2f((float)(v14 * 3.0) - (float)(v15 * v15));
+    if ( !double_lt(v17, HIDWORD(v17), dword_1099A0, dword_1099A4) )
       goto LABEL_11;
     v16 = flt_1099A8;
     goto LABEL_10;
   }
-  v38 = sub_127570(-v16);
-  if ( sub_127B04(v38, HIDWORD(v38), dword_1099A0, dword_1099A4) )
+  v38 = aeabi_d2f(-v16);
+  if ( double_lt(v38, HIDWORD(v38), dword_1099A0, dword_1099A4) )
   {
     v16 = flt_1099B8;
 LABEL_10:
     v20 = dword_1099AC;
     *(uint8_t *)a4 |= 4u;
-    sub_10DA6C(v20, v18, v19);
+    log_printf(v20, v18, v19);
     v11 = *a2;
     v12 = a2[1];
     v13 = a2[2];
@@ -104,11 +104,11 @@ LABEL_11:
               + (float)((float)((float)(v23 * v12) + (float)(v14 * (float)(1.0 / v16))) * v21))
       + (float)((float)((float)(v23 * v13) + (float)(v14 * (float)(1.0 / v16))) * v22);
   if ( a1 > 0xD && v24 < 20.0
-    || (v31 = sub_127570(LODWORD(v24)), (result = sub_127B04(v31, HIDWORD(v31), dword_1099A0, dword_1099A4)) != 0) )
+    || (v31 = aeabi_d2f(LODWORD(v24)), (result = double_lt(v31, HIDWORD(v31), dword_1099A0, dword_1099A4)) != 0) )
   {
     v26 = dword_1099B0;
     *(uint8_t *)a4 |= 8u;
-    result = sub_10DA6C(v26, v18, v19);
+    result = log_printf(v26, v18, v19);
     v24 = 1.0;
     v28 = 2.0;
   }

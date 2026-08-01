@@ -16,8 +16,8 @@ extern uint32_t dword_12B490;
 extern uint32_t off_12B498;
 extern uint32_t dword_12B494;
 
-// sub_12B3C8 @ 0x12b3c8, size 192 bytes
-int sub_12B3C8()
+// bt_get_link_state @ 0x12b3c8, size 192 bytes
+int bt_get_link_state()
 {
   uint32_t *v0; // r6
   int v1; // r7
@@ -46,7 +46,7 @@ int sub_12B3C8()
   }
   else
   {
-    v5 = sub_12B338((uint16_t *)(*(uint32_t *)off_12B488 + 6 * *((uint8_t *)off_12B488 + 10)));
+    v5 = bt_check_vendor_cmd((uint16_t *)(*(uint32_t *)off_12B488 + 6 * *((uint8_t *)off_12B488 + 10)));
     if ( !v5 )
     {
       v5 = 30000;
@@ -56,7 +56,7 @@ int sub_12B3C8()
   if ( (v4 & 1) == 0 && *((uint8_t *)off_12B498 + 3850) == 1 )
     v5 += 170000;
 LABEL_4:
-  bt_chan_state_get((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
+  acl_send_packet((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
   v6 = v0[1];
   if ( v6 )
   {
@@ -76,13 +76,13 @@ LABEL_4:
         if ( v8 == 2484 )
         {
           *(uint8_t *)(v6 + 2) = 14;
-          return rf_bus_mark_n_3b7(2);
+          return hci_cmd_send(2);
         }
         LOBYTE(v7) = (unsigned int)(((unsigned int)dword_12B494 * (unsigned uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2;
       }
       *(uint8_t *)(v6 + 2) = v7;
     }
   }
-  return rf_bus_mark_n_3b7(2);
+  return hci_cmd_send(2);
 }
 

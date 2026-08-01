@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_16b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116ec", "status": "ok", "name": "rf_bus_reset2_n_16b", "params": [], "docstring": "RF bus reset (16-bit) via MMIO with mask 0xC0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_16b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116ec", "status": "ok", "name": "rf_bus_mark_nc", "params": [], "docstring": "RF bus reset (16-bit) via MMIO with mask 0xC0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -13,8 +13,8 @@
 extern uint32_t dword_129E20;
 extern uint32_t off_129E24;
 
-// sub_129E04 @ 0x129e04, size 26 bytes
-int *sub_129E04()
+// rf_patch_init @ 0x129e04, size 26 bytes
+int *rf_patch_init()
 {
   int *result; // r0
   uint8_t *v1; // r3

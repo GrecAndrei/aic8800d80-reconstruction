@@ -12,14 +12,14 @@
 
 extern uint32_t dword_136DDC;
 
-// sub_136DBC @ 0x136dbc, size 32 bytes
-int  sub_136DBC(int a1, int a2, int a3, int16_t a4)
+// rf_trace_lo_offset @ 0x136dbc, size 32 bytes
+int  rf_trace_lo_offset(int a1, int a2, int a3, int16_t a4)
 {
   int v4; // r0
 
-  v4 = sub_12C7EC(4107, a4, 4, 1u);
-  sub_12C84C(v4);
-  sub_12EB90(8, dword_136DDC);
+  v4 = tx_send_pdu(4107, a4, 4, 1u);
+  rx_process_packet(v4);
+  check_feature_flag(8, dword_136DDC);
   return 0;
 }
 

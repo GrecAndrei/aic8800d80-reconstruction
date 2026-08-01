@@ -15,8 +15,8 @@ extern uint32_t off_122EC4;
 extern uint32_t dword_122ED0;
 extern uint32_t dword_122ECC;
 
-// sub_122E68 @ 0x122e68, size 92 bytes
-int  sub_122E68(int a1, uint8_t *a2, int a3, int a4)
+// get_controller_state @ 0x122e68, size 92 bytes
+int  get_controller_state(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r7
   int v6; // r5
@@ -26,12 +26,12 @@ int  sub_122E68(int a1, uint8_t *a2, int a3, int a4)
   v4 = dword_122EC8;
   v6 = *a2;
   if ( **(int16_t **)off_122EC4 < 0 && *(uint8_t *)(dword_122EC8 + 1320 * v6 + 106) )
-    sub_12F694(dword_122ED0, dword_122ECC, 2639);
+    mmio_irq_clear(dword_122ED0, dword_122ECC, 2639);
   v9 = v4 + 1320 * v6;
   *(uint16_t *)(v9 + 112) = *((uint16_t *)a2 + 1);
   v10 = a2[4];
   *(uint8_t *)(v9 + 114) = v10;
-  message_dispatch_n84(76, a4, a3, v10);
+  hci_evt_alloc_send(76, a4, a3, v10);
   return 0;
 }
 

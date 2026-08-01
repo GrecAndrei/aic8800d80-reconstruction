@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12F444;
 
-// sub_12F414 @ 0x12f414, size 48 bytes
-uint32_t ** sub_12F414(uint32_t **result)
+// deref_and_check @ 0x12f414, size 48 bytes
+uint32_t ** deref_and_check(uint32_t **result)
 {
   uint32_t *v1; // r4
   int v2; // r6
@@ -29,11 +29,11 @@ uint32_t ** sub_12F414(uint32_t **result)
     {
       while ( 1 )
       {
-        sub_12D190((int)v3);
+        list_pop((int)v3);
         result = (uint32_t **)v2;
         if ( !v1[3] )
           break;
-        result = (uint32_t **)sub_12D108(v2, v1);
+        result = (uint32_t **)wlan_ioctl_handler_1(v2, v1);
         v1 = (uint32_t *)*v3;
         if ( !*v3 )
           return result;

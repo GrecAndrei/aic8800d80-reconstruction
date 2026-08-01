@@ -16,10 +16,10 @@ extern uint32_t dword_10F0F0;
 extern uint32_t dword_10F0F4;
 extern uint32_t dword_10F0F8;
 
-// util_sub_f0b4 @ 0x10f0b4, size 52 bytes
-// Doc: util_sub_f0b4 [util]: Generic utility function
-// util_sub_f0b4 [util]: Generic utility function
-int util_sub_f0b4()
+// check_hw_flag @ 0x10f0b4, size 52 bytes
+// Doc: check_hw_flag [util]: Generic utility function
+// check_hw_flag [util]: Generic utility function
+int check_hw_flag()
 {
   uint8_t *v0; // r3
   int result; // r0

@@ -15,8 +15,8 @@ extern uint32_t off_124D58;
 extern uint32_t off_124D5C;
 extern uint32_t off_124D60;
 
-// sub_124CF4 @ 0x124cf4, size 96 bytes
-int  sub_124CF4(int a1)
+// mem_set_util @ 0x124cf4, size 96 bytes
+int  mem_set_util(int a1)
 {
   int *v1; // r4
   void *v2; // r5
@@ -38,7 +38,7 @@ int  sub_124CF4(int a1)
   ++*(uint32_t *)off_124D58;
   if ( v3 )
   {
-    result = sub_12D190(v2);
+    result = list_pop(v2);
     v7 = off_124D60;
     if ( *(uint32_t *)v2 )
     {
@@ -55,7 +55,7 @@ int  sub_124CF4(int a1)
   }
   else
   {
-    result = sub_12D1A8(v2, a1);
+    result = wlan_ioctl_handler_3(v2, a1);
   }
   if ( *v1 )
   {

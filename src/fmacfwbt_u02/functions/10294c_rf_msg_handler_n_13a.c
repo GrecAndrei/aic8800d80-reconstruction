@@ -13,15 +13,15 @@
 extern uint32_t off_10297C;
 extern uint32_t off_102980;
 
-// rf_msg_handler_n_13a @ 0x10294c, size 48 bytes
-// Doc: rf_msg_handler_n_13a [rf]: Handle incoming RF message and clear flag
-// rf_msg_handler_n_13a [rf]: Handle incoming RF message and clear flag
-int rf_msg_handler_n_13a()
+// check_event_state @ 0x10294c, size 48 bytes
+// Doc: check_event_state [rf]: Handle incoming RF message and clear flag
+// check_event_state [rf]: Handle incoming RF message and clear flag
+int check_event_state()
 {
   int result; // r0
   int *i; // r4
 
-  result = sub_1009A0(*((uint8_t *)off_10297C + 36), *((uint16_t *)off_10297C + 20));
+  result = radio_init(*((uint8_t *)off_10297C + 36), *((uint16_t *)off_10297C + 20));
   for ( i = *((int **)off_102980 + 2); i; i = (int *)*i )
   {
     while ( !*((uint8_t *)i + 108) )
@@ -30,7 +30,7 @@ int rf_msg_handler_n_13a()
       if ( !i )
         return result;
     }
-    result = message_dispatch_c7ac(i);
+    result = scan_rssi_compare(i);
   }
   return result;
 }

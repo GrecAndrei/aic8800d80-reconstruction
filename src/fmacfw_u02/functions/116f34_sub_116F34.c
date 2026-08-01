@@ -21,8 +21,8 @@ extern uint32_t off_117068;
 extern uint32_t dword_117070;
 extern uint32_t dword_11706C;
 
-// sub_116F34 @ 0x116f34, size 278 bytes
-int  sub_116F34(int result)
+// mmio_set_bit @ 0x116f34, size 278 bytes
+int  mmio_set_bit(int result)
 {
   int v1; // r3
   int v2; // r6
@@ -110,7 +110,7 @@ int  sub_116F34(int result)
       break;
     default:
       if ( **(int16_t **)off_117068 < 0 )
-        result = sub_12F46C(dword_117070, dword_11706C, 2338);
+        result = mmio_clear_register(dword_117070, dword_11706C, 2338);
       break;
   }
   return result;

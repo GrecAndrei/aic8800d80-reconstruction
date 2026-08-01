@@ -14,8 +14,8 @@ extern uint32_t dword_1309A8;
 extern uint32_t dword_1309AC;
 extern uint32_t dword_1309B0;
 
-// sub_1308DC @ 0x1308dc, size 204 bytes
-char * sub_1308DC(int a1)
+// rf_write_pattern_ff23 @ 0x1308dc, size 204 bytes
+char * rf_write_pattern_ff23(int a1)
 {
   int v1; // r2
   uint16_t *v2; // r5
@@ -83,7 +83,7 @@ char * sub_1308DC(int a1)
   }
   if ( *(uint8_t *)(v8 + 0x48) >> 7 )
   {
-    v18 = sub_1327E8();
+    v18 = rf_get_chan_index();
     v19 = v18 + 1 + *(uint8_t *)(v8 + 0x175) * (v18 + 1);
     v20 = (uint8_t)((unsigned int)(6 * v19 + 14) >> 3);
     if ( (uint8_t)((unsigned int)(6 * v19 + 14) >> 3) )

@@ -17,8 +17,8 @@ extern uint32_t off_12F948;
 extern uint32_t dword_12F950;
 extern uint32_t dword_12F954;
 
-// sub_12F810 @ 0x12f810, size 304 bytes
-int  sub_12F810(unsigned int a1, uint8_t *a2, int a3)
+// fetch_global_ptr @ 0x12f810, size 304 bytes
+int  fetch_global_ptr(unsigned int a1, uint8_t *a2, int a3)
 {
   int *v3; // r6
   char v4; // r4
@@ -49,7 +49,7 @@ int  sub_12F810(unsigned int a1, uint8_t *a2, int a3)
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = sub_143E40(a3);
+    v11 = memmove(a3);
     v12 = (int *)off_12F944;
     v13 = off_12F94C;
     *v3 = (int)a2;
@@ -81,7 +81,7 @@ LABEL_3:
       case 0xDu:
         v21 = (uint8_t *)dword_12F950;
         *(uint8_t *)*v3 = 0;
-        uart_puts(v21);
+        read_memory_byte(v21);
         return *v3 - (uint32_t)a2;
       case 0x15u:
         v22 = off_12F94C;
@@ -96,7 +96,7 @@ LABEL_3:
           v16 = (unsigned int)a2;
           while ( 1 )
           {
-            v17 = (uint8_t *)sub_12F65C(v16, v15, v8);
+            v17 = (uint8_t *)trim_leading_tab(v16, v15, v8);
             v18 = *v14;
             *v3 = (int)v17;
             v15 = (int)v17;
@@ -116,7 +116,7 @@ LABEL_3:
           goto LABEL_7;
         if ( a1 != 9 )
           goto LABEL_28;
-        uart_puts((uint8_t *)(dword_12F954 + (v8 & 7)));
+        read_memory_byte((uint8_t *)(dword_12F954 + (v8 & 7)));
         *(uint32_t *)off_12F948 = (*(uint32_t *)off_12F948 & 0xFFFFFFF8) + 8;
         break;
     }
@@ -127,7 +127,7 @@ LABEL_3:
 LABEL_19:
     v20 = *v3;
     if ( *(uint32_t *)off_12F94C )
-      v20 = sub_12F65C((unsigned int)a2, v20, v8);
+      v20 = trim_leading_tab((unsigned int)a2, v20, v8);
     *v3 = v20;
     return -1;
   }
@@ -138,7 +138,7 @@ LABEL_19:
     {
 LABEL_28:
       *v7 = v8 + 1;
-      uart_putc(a1);
+      gpio_write(a1);
 LABEL_27:
       v23 = (uint8_t *)*v3;
       *v23 = v4;
@@ -148,7 +148,7 @@ LABEL_27:
       return -1;
     }
 LABEL_7:
-    uart_putc(7);
+    gpio_write(7);
     return -1;
   }
 }

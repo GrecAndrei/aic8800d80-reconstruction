@@ -14,8 +14,8 @@ extern uint32_t off_12D138;
 extern uint32_t off_12D13C;
 extern uint32_t off_12D140;
 
-// sub_12D104 @ 0x12d104, size 52 bytes
-int  sub_12D104(int a1)
+// unknown_func_12d104 @ 0x12d104, size 52 bytes
+int  unknown_func_12d104(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

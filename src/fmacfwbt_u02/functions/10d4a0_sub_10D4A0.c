@@ -27,8 +27,8 @@ extern uint32_t off_10D5B0;
 extern uint32_t off_10D5B4;
 extern uint32_t off_10D5C4;
 
-// sub_10D4A0 @ 0x10d4a0, size 236 bytes
-void sub_10D4A0()
+// event_loop @ 0x10d4a0, size 236 bytes
+void event_loop()
 {
   int v0; // r3
   uint32_t *v1; // r5

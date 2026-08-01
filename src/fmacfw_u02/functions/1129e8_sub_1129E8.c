@@ -17,10 +17,10 @@ extern uint32_t dword_112C5C;
 extern uint32_t dword_112C4C;
 extern uint32_t off_112C54;
 
-// sub_1129E8 @ 0x1129e8, size 582 bytes
+// mmio_read_flag @ 0x1129e8, size 582 bytes
 // Doc: rf_mem_read_n_41a [rf]: Read RF register/memory block into buffer
 // rf_mem_read_n_41a [rf]: Read RF register/memory block into buffer
-int sub_1129E8()
+int mmio_read_flag()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r4
@@ -57,7 +57,7 @@ int sub_1129E8()
   *v0 = 0;
   v1[896] &= ~1u;
   v1[513] &= ~1u;
-  rf_bus_scan_19dc();
+  table_lookup_wrapper();
   if ( (v1[6] & 0x80) != 0 )
     v1[6] &= ~0x80u;
   v2 = rf_msg_handler_n_4cc;
@@ -195,9 +195,9 @@ rf_cmd_wait_n_48c:
   v18[1] = 0;
   v18[2] = 0;
   *(uint8_t *)v18 = 0;
-  memset_thunk(v19, 0, 0x50u);
-  memset_thunk((int *)rf_cmd_send_n_3c0, 0, 0x50u);
-  result = rf_bus_mark_n1();
+  memset(v19, 0, 0x50u);
+  memset((int *)rf_cmd_send_n_3c0, 0, 0x50u);
+  result = mmio_sync();
   v21 = *((int ( **)(uint32_t))off_112C54 + 8);
   if ( v21 )
     return v21(0);

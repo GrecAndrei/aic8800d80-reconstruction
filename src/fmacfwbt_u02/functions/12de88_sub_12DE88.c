@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DE88 @ 0x12de88, size 64 bytes
+// parse_data_0 @ 0x12de88, size 64 bytes
 // Doc: log_free_dispatch_n2ee_deb2 [util]: Dispatch log free events (logging utility)
 // log_free_dispatch_n2ee_deb2 [util]: Dispatch log free events (logging utility)
-uint8_t * sub_12DE88(uint8_t *result, int a2)
+uint8_t * parse_data_0(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   uint8_t *v3; // r2

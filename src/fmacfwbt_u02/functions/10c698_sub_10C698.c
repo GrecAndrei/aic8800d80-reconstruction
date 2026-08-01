@@ -15,8 +15,8 @@ extern uint32_t off_10C744;
 extern uint32_t off_10C748;
 extern uint32_t dword_10C74C;
 
-// sub_10C698 @ 0x10c698, size 166 bytes
-int *sub_10C698()
+// pmu_clock_config @ 0x10c698, size 166 bytes
+int *pmu_clock_config()
 {
   unsigned int *v0; // r3
   unsigned int *v1; // r2

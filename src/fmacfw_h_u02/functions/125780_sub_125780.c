@@ -18,8 +18,8 @@ extern uint32_t dword_125894;
 extern uint32_t off_125890;
 extern uint32_t off_12589C;
 
-// sub_125780 @ 0x125780, size 258 bytes
-void sub_125780()
+// patch_check_enable @ 0x125780, size 258 bytes
+void patch_check_enable()
 {
   int v0; // r4
   uint8_t *v1; // r6
@@ -36,7 +36,7 @@ void sub_125780()
   v1 = off_12588C;
   if ( **(int16_t **)off_125884 < 0 && *((uint32_t *)off_12588C + 1) )
   {
-    sub_12F32C(dword_125898, dword_125894, 1074);
+    irq_disable_mmio_write(dword_125898, dword_125894, 1074);
     v2 = (uint8_t)v1[9];
     if ( v1[9] )
       goto LABEL_20;
@@ -68,11 +68,11 @@ LABEL_20:
       {
         goto LABEL_6;
       }
-      if ( sub_1254A8(v0) )
+      if ( tx_path_setup(v0) )
         ++*v5;
       if ( v7 && (unsigned int)(v4 - 50) > 0xBB6 )
       {
-        sub_128350(v0);
+        cfm_ops_get(v0);
 LABEL_16:
         *v5 = v6;
         v0 = *(uint32_t *)v0;
@@ -85,17 +85,17 @@ LABEL_16:
       {
         if ( v2 )
           goto LABEL_16;
-        v7 = sub_128350(v0);
+        v7 = cfm_ops_get(v0);
         if ( v7 )
         {
           *(uint8_t *)(v0 + 144) = *(uint8_t *)(v0 + 107);
           *(uint8_t *)(v0 + 145) = -1;
-          v8 = sub_118B34(v0 + 116, 4);
+          v8 = sec_check(v0 + 116, 4);
           v9 = *((uint32_t *)v1 + 1);
           if ( v8 )
             *((uint32_t *)v1 + 1) = ++v9;
           if ( v9 == 1 )
-            sub_121AC8();
+            ke_evt_peek();
           v7 = 0;
         }
         else

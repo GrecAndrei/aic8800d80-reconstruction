@@ -26,10 +26,10 @@ extern uint32_t off_11E320;
 extern uint32_t off_11E324;
 extern uint32_t dword_11E328;
 
-// sub_11E1E4 @ 0x11e1e4, size 300 bytes
+// flash_erase_sector @ 0x11e1e4, size 300 bytes
 // Doc: sub_121E1E4 [rf]: LMAC handler checking RF state flags
 // sub_121E1E4 [rf]: LMAC handler checking RF state flags
-uint32_t * sub_11E1E4(unsigned int a1, int a2)
+uint32_t * flash_erase_sector(unsigned int a1, int a2)
 {
   int16_t **v2; // r7
   unsigned int v5; // r9
@@ -52,7 +52,7 @@ uint32_t * sub_11E1E4(unsigned int a1, int a2)
     goto LABEL_2;
   if ( (uint8_t)a1 <= 4u )
     goto LABEL_15;
-  rf_cmd_send_n264(dword_11E334, dword_11E32C, 173);
+  flash_ctrl_init(dword_11E334, dword_11E32C, 173);
   if ( **v2 >= 0 )
   {
 LABEL_2:
@@ -72,11 +72,11 @@ LABEL_15:
   }
   else
   {
-    rf_cmd_send_n264(dword_11E33C, dword_11E338, 183);
+    flash_ctrl_init(dword_11E33C, dword_11E338, 183);
     if ( (a1 & 0xFC) == 0 )
       goto LABEL_23;
   }
-  rf_cmd_send_n264(dword_11E340, dword_11E32C, 174);
+  flash_ctrl_init(dword_11E340, dword_11E32C, 174);
 LABEL_23:
   if ( **v2 >= 0 )
     goto LABEL_2;
@@ -90,13 +90,13 @@ LABEL_17:
     goto LABEL_18;
   }
 LABEL_25:
-  rf_cmd_send_n264(dword_11E344, dword_11E32C, 175);
+  flash_ctrl_init(dword_11E344, dword_11E32C, 175);
   v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
   if ( **v2 < 0 && !v7 )
 LABEL_18:
-    rf_cmd_send_n264(dword_11E330, dword_11E32C, 180);
+    flash_ctrl_init(dword_11E330, dword_11E32C, 180);
 LABEL_3:
-  result = (uint32_t *)msg_parse(dword_11E318, a1);
+  result = (uint32_t *)dispatch_event_handler(dword_11E318, a1);
   if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(uint32_t *, int))dword_11E348;
@@ -105,7 +105,7 @@ LABEL_3:
     *v7 = a2;
     while ( 1 )
     {
-      result = list_find_remove(v10, v9, a1);
+      result = co_list_process(v10, v9, a1);
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -116,7 +116,7 @@ LABEL_3:
       v12 = (int *)off_11E324;
       v13 = dword_11E328;
       ++*(uint32_t *)off_11E324;
-      list_push_tail(v13);
+      check_kernel_state(v13);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -128,7 +128,7 @@ LABEL_3:
             __enable_irq();
         }
       }
-      irq_nesting_or(0x4000000);
+      set_busy_flag_alt(0x4000000);
     }
   }
   return result;

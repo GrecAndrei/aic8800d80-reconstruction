@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_135970 @ 0x135970, size 76 bytes
-uint8_t * sub_135970(uint8_t *a1, int a2)
+// mac_backoff_rand @ 0x135970, size 76 bytes
+uint8_t * mac_backoff_rand(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   int v3; // r2
@@ -22,7 +22,7 @@ uint8_t * sub_135970(uint8_t *a1, int a2)
   uint8_t *v8; // r0
   char v9[5]; // [sp+7h] [bp-5h] BYREF
 
-  result = sub_12D854(a1, a2, v9);
+  result = check_buf_range_12d854(a1, a2, v9);
   if ( result )
   {
     if ( (uint8_t)v9[0] <= 0x1Du )

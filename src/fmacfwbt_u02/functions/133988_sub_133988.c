@@ -14,8 +14,8 @@ extern uint32_t off_1339CC;
 extern uint32_t dword_1339D4;
 extern uint32_t dword_1339D0;
 
-// sub_133988 @ 0x133988, size 68 bytes
-uint32_t * sub_133988(int a1)
+// bt_process_rx_data @ 0x133988, size 68 bytes
+uint32_t * bt_process_rx_data(int a1)
 {
   int v1; // r5
   unsigned int v2; // r2
@@ -26,10 +26,10 @@ uint32_t * sub_133988(int a1)
   v2 = *(uint8_t *)(a1 + 12);
   if ( **(int16_t **)off_1339CC < 0 && v2 > 3 )
   {
-    sub_12F694(dword_1339D4, dword_1339D0, 321);
+    mmio_irq_clear(dword_1339D4, dword_1339D0, 321);
     LOBYTE(v2) = *(uint8_t *)(a1 + 12);
   }
-  v4 = xtea_block_decrypt((uint32_t *)a1, (int *)(a1 + 4), (90 << (8 * v2)) | v1);
-  return xtea_block_decrypt(v4, v5, 0);
+  v4 = hash_mix_words((uint32_t *)a1, (int *)(a1 + 4), (90 << (8 * v2)) | v1);
+  return hash_mix_words(v4, v5, 0);
 }
 

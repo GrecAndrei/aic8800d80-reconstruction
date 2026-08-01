@@ -13,8 +13,8 @@
 extern uint32_t off_114290;
 extern uint32_t off_114294;
 
-// sub_114258 @ 0x114258, size 54 bytes
-int sub_114258()
+// ke_event_schedule_alt @ 0x114258, size 54 bytes
+int ke_event_schedule_alt()
 {
   int *v0; // r4
   int result; // r0

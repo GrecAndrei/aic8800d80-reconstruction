@@ -1,1 +1,1 @@
-{"fn": "sub_1227C40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1227c40", "status": "ok", "name": "bt_hci_reset_init", "params": [], "docstring": "Initializes BT HCI control structures and buffers", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1227C40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1227c40", "status": "ok", "name": "bt_init", "params": [], "docstring": "Initializes BT HCI control structures and buffers", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// ipc_msg_send @ 0x131278, size 162 bytes
-// Doc: ipc_msg_send [ipc]: Send IPC message via dispatch helper
-// ipc_msg_send [ipc]: Send IPC message via dispatch helper
-uint8_t * ipc_msg_send(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// rf_get_cal_status @ 0x131278, size 162 bytes
+// Doc: rf_get_cal_status [ipc]: Send IPC message via dispatch helper
+// rf_get_cal_status [ipc]: Send IPC message via dispatch helper
+uint8_t * rf_get_cal_status(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   uint8_t *result; // r0
   uint8_t v7; // r2
@@ -21,7 +21,7 @@ uint8_t * ipc_msg_send(uint8_t *a1, int a2, int a3, uint8_t *a4)
   unsigned int v9; // r5
   uint64_t v10; // r2
 
-  result = sdio_buffer_prepare_df08(a1, a2);
+  result = read_rom_info(a1, a2);
   *a4 = 0;
   if ( result )
   {

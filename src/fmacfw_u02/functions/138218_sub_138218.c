@@ -12,8 +12,8 @@
 
 extern uint32_t dword_138270;
 
-// sub_138218 @ 0x138218, size 86 bytes
-int  sub_138218(uint16_t *a1)
+// find_record_by_id @ 0x138218, size 86 bytes
+int  find_record_by_id(uint16_t *a1)
 {
   int v1; // r3
   int v2; // r1

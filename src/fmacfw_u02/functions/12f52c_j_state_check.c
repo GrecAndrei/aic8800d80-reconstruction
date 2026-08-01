@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// j_state_check @ 0x12f52c, size 4 bytes
+// read_mode_0x182ba0 @ 0x12f52c, size 4 bytes
 // attributes: thunk
-int  j_state_check(uint16_t *a1)
+int  read_mode_0x182ba0(uint16_t *a1)
 {
-  return state_check(a1);
+  return rx_state_process(a1);
 }
 

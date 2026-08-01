@@ -37,10 +37,10 @@ extern uint32_t off_103038;
 extern uint32_t off_103034;
 extern uint32_t off_103040;
 
-// phy_rf_init_n_4f8 @ 0x102dd8, size 534 bytes
+// radio_process_packet @ 0x102dd8, size 534 bytes
 // Doc: phy_rf_init_n_4b4 [mac]: Initialize PHY/RF hardware registers with reset defaults
 // phy_rf_init_n_4b4 [mac]: Initialize PHY/RF hardware registers with reset defaults
-int phy_rf_init_n_4f8()
+int radio_process_packet()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r2
@@ -80,7 +80,7 @@ int phy_rf_init_n_4f8()
     *(uint32_t *)off_102FFC &= ~2u;
     if ( (*v2 & 1) == 0 )
     {
-      sub_100CD0(1);
+      adc_read_ch0(1);
       v20 = off_103054;
       *(uint32_t *)off_103050 = *(uint32_t *)off_103050 & 0xFFFFFFF0 | 4;
       *v20 |= 2u;

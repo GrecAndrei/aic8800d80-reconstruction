@@ -24,8 +24,8 @@ extern uint32_t dword_10E088;
 extern uint32_t dword_10E08C;
 extern uint32_t dword_10E0A0;
 
-// sub_10DF70 @ 0x10df70, size 252 bytes
-int sub_10DF70()
+// hw_block_enable @ 0x10df70, size 252 bytes
+int hw_block_enable()
 {
   uint32_t *v0; // r5
   uint64_t v1; // r0
@@ -52,39 +52,39 @@ int sub_10DF70()
   int v22; // r0
 
   v0 = off_10E090;
-  sub_10DDD8(1);
+  rf_table_update(1);
   v0[1] = 1;
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = sub_142874(v0[4]);
-  v2 = sub_142968(v1, HIDWORD(v1), dword_10E070, dword_10E074);
-  v3 = sub_142BBC(v2, HIDWORD(v2), dword_10E078, dword_10E07C);
-  v4 = sub_1425F8(v3, HIDWORD(v3), dword_10E070, dword_10E074);
-  v5 = ((int ( *)(int))sub_142F2C)(v4);
-  sub_10DDD8(2);
+  v1 = unsigned_int_to_double(v0[4]);
+  v2 = double_compare_common(v1, HIDWORD(v1), dword_10E070, dword_10E074);
+  v3 = double_compare_core(v2, HIDWORD(v2), dword_10E078, dword_10E07C);
+  v4 = double_compare_neg(v3, HIDWORD(v3), dword_10E070, dword_10E074);
+  v5 = ((int ( *)(int))double_to_int)(v4);
+  rf_table_update(2);
   v6 = off_10E090;
   v0[1] = 1;
   while ( v6[7] != 1 )
     ;
   v6[7] = 1;
   v7 = v6[4];
-  sub_10DDD8(3);
-  v8 = sub_142874(v7);
-  v9 = sub_142968(v8, HIDWORD(v8), dword_10E070, dword_10E074);
-  v10 = sub_142BBC(v9, HIDWORD(v9), dword_10E078, dword_10E07C);
-  v11 = sub_1425F8(v10, HIDWORD(v10), dword_10E070, dword_10E074);
-  v12 = ((int ( *)(int))sub_142F2C)(v11);
-  v13 = sub_1428B8(v12);
-  v14 = sub_142BBC(v13, HIDWORD(v13), dword_10E080, dword_10E084);
-  v15 = sub_142968(v14, HIDWORD(v14), 0, dword_10E094);
-  v16 = sub_1428B8(v5);
-  v17 = sub_142BBC(v16, HIDWORD(v16), dword_10E080, dword_10E084);
-  v18 = sub_142968(v17, HIDWORD(v17), 0, dword_10E098);
-  v19 = sub_1425FC(v15, HIDWORD(v15), v18, HIDWORD(v18));
-  v20 = sub_142968(v19, HIDWORD(v19), 0, dword_10E09C);
-  v21 = sub_142968(v20, HIDWORD(v20), dword_10E088, dword_10E08C);
-  v22 = sub_142BBC(v21, HIDWORD(v21), 0, dword_10E0A0);
-  return (int)sub_142F2C(v22);
+  rf_table_update(3);
+  v8 = unsigned_int_to_double(v7);
+  v9 = double_compare_common(v8, HIDWORD(v8), dword_10E070, dword_10E074);
+  v10 = double_compare_core(v9, HIDWORD(v9), dword_10E078, dword_10E07C);
+  v11 = double_compare_neg(v10, HIDWORD(v10), dword_10E070, dword_10E074);
+  v12 = ((int ( *)(int))double_to_int)(v11);
+  v13 = float_to_double(v12);
+  v14 = double_compare_core(v13, HIDWORD(v13), dword_10E080, dword_10E084);
+  v15 = double_compare_common(v14, HIDWORD(v14), 0, dword_10E094);
+  v16 = float_to_double(v5);
+  v17 = double_compare_core(v16, HIDWORD(v16), dword_10E080, dword_10E084);
+  v18 = double_compare_common(v17, HIDWORD(v17), 0, dword_10E098);
+  v19 = double_compare_eq(v15, HIDWORD(v15), v18, HIDWORD(v18));
+  v20 = double_compare_common(v19, HIDWORD(v19), 0, dword_10E09C);
+  v21 = double_compare_common(v20, HIDWORD(v20), dword_10E088, dword_10E08C);
+  v22 = double_compare_core(v21, HIDWORD(v21), 0, dword_10E0A0);
+  return (int)double_to_int(v22);
 }
 

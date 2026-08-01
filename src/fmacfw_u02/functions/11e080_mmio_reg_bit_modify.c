@@ -13,10 +13,10 @@
 extern uint32_t off_11E0B0;
 extern uint32_t off_11E0AC;
 
-// mmio_reg_bit_modify @ 0x11e080, size 44 bytes
-// Doc: mmio_reg_bit_modify [mmio]: Reads/modifies MMIO register at 0x40320xxx by setting/clearing a bit field from index
-// mmio_reg_bit_modify [mmio]: Reads/modifies MMIO register at 0x40320xxx by setting/clearing a bit field from index
-unsigned int  mmio_reg_bit_modify(int a1)
+// radio_set_peripheral_field @ 0x11e080, size 44 bytes
+// Doc: radio_set_peripheral_field [mmio]: Reads/modifies MMIO register at 0x40320xxx by setting/clearing a bit field from index
+// radio_set_peripheral_field [mmio]: Reads/modifies MMIO register at 0x40320xxx by setting/clearing a bit field from index
+unsigned int  radio_set_peripheral_field(int a1)
 {
   unsigned int *v1; // r1
   unsigned int result; // r0

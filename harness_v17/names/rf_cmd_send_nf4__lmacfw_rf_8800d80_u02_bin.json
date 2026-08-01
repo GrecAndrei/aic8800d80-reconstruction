@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_nf4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a0c", "status": "ok", "name": "rf_cmd_send_nf4", "params": [], "docstring": "RF command send with sequence counter increment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_nf4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a0c", "status": "ok", "name": "tick_counter_update", "params": [], "docstring": "RF command send with sequence counter increment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

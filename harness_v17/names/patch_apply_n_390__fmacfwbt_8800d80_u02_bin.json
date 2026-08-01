@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_390", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215158", "status": "ok", "name": "patch_apply_n_390", "params": [], "docstring": "Apply firmware patch and return shifted bit field from result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_390", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215158", "status": "ok", "name": "get_hw_info_field1", "params": [], "docstring": "Apply firmware patch and return shifted bit field from result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

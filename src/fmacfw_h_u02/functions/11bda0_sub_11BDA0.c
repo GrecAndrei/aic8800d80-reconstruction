@@ -18,8 +18,8 @@ extern uint32_t dword_11BE60;
 extern uint32_t dword_11BE68;
 extern uint32_t off_11BE64;
 
-// sub_11BDA0 @ 0x11bda0, size 174 bytes
-int sub_11BDA0()
+// rx_queue_process @ 0x11bda0, size 174 bytes
+int rx_queue_process()
 {
   uint32_t *v0; // r4
   int v1; // r6
@@ -41,7 +41,7 @@ int sub_11BDA0()
   if ( v1 )
   {
     v2 = *((uint32_t *)off_11BE50 + 2);
-    sub_124CF4(off_11BE50);
+    mem_set_util(off_11BE50);
     v3 = v0[4];
     if ( v3 )
       goto LABEL_3;
@@ -53,17 +53,17 @@ int sub_11BDA0()
     if ( v3 )
     {
 LABEL_3:
-      sub_143630(v12, dword_11BE54, 144);
+      memcpy(v12, dword_11BE54, 144);
       v4 = *((uint8_t *)v0 + 160);
       if ( v12[1] )
-        sub_124CF4(dword_11BE54);
+        mem_set_util(dword_11BE54);
       if ( v12[8] )
-        sub_124CF4(dword_11BE58);
+        mem_set_util(dword_11BE58);
       if ( v12[15] )
-        sub_124CF4(dword_11BE5C);
+        mem_set_util(dword_11BE5C);
       if ( v12[22] )
-        sub_124CF4(dword_11BE60);
-      sub_11BC48();
+        mem_set_util(dword_11BE60);
+      wifi_core_init();
       v0[4] = v3;
       *((uint8_t *)v0 + 160) = v4;
       v0 = off_11BE50;
@@ -84,7 +84,7 @@ LABEL_3:
       return result;
     }
   }
-  result = sub_11BC48();
+  result = wifi_core_init();
   v0[4] = v3;
   if ( v1 )
   {
@@ -94,7 +94,7 @@ LABEL_14:
     v11 = off_11BE50;
     v0[2] = v2;
     v0[1] = v9;
-    return sub_124BFC(v11, v10 + 5000);
+    return mem_copy_util(v11, v10 + 5000);
   }
   return result;
 }

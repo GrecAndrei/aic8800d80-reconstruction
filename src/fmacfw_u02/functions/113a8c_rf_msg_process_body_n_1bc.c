@@ -12,10 +12,10 @@
 
 extern uint32_t off_113A9C;
 
-// rf_msg_process_body_n_1bc @ 0x113a8c, size 16 bytes
-// Doc: rf_msg_process_body_n_1bc [rf]: RF message processing body dispatcher
-// rf_msg_process_body_n_1bc [rf]: RF message processing body dispatcher
-BOOL rf_msg_process_body_n_1bc()
+// is_flag_one @ 0x113a8c, size 16 bytes
+// Doc: is_flag_one [rf]: RF message processing body dispatcher
+// is_flag_one [rf]: RF message processing body dispatcher
+BOOL is_flag_one()
 {
   return *((uint8_t *)off_113A9C + 8) == 1;
 }

@@ -20,10 +20,10 @@ extern uint32_t dword_12EA08;
 extern uint32_t dword_12EA0C;
 extern uint32_t dword_12EA04;
 
-// sub_12E11C @ 0x12e11c, size 2264 bytes
+// rf_cal_init @ 0x12e11c, size 2264 bytes
 // Doc: sdio_buffer_prepare_evt [mmio]: Prepare SDIO buffer for event path
 // sdio_buffer_prepare_evt [mmio]: Prepare SDIO buffer for event path
-int  sub_12E11C(uint8_t *a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
+int  rf_cal_init(uint8_t *a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
 {
   unsigned int v5; // r12
   int v8; // r2
@@ -208,7 +208,7 @@ LABEL_164:
                   a2 = dword_12E490;
 LABEL_162:
                   if ( **(int16_t **)off_12EA00 < 0 )
-                    sub_12F46C(dword_12E9FC, dword_12E9F8, 594);
+                    mmio_clear_register(dword_12E9FC, dword_12E9F8, 594);
                   break;
               }
               goto sdio_buffer_prepare_n1d6_e2f2;
@@ -259,7 +259,7 @@ LABEL_162:
                 break;
               default:
                 if ( **(int16_t **)off_12E494 < 0 )
-                  sub_12F46C(dword_12E9FC, dword_12E9F8, 283);
+                  mmio_clear_register(dword_12E9FC, dword_12E9F8, 283);
                 v14 = 2;
                 break;
             }
@@ -306,7 +306,7 @@ LABEL_162:
             else
             {
               if ( **(int16_t **)off_12E494 < 0 )
-                sub_12F46C(dword_12E9FC, dword_12E9F8, 334);
+                mmio_clear_register(dword_12E9FC, dword_12E9F8, 334);
               v14 = 6;
             }
             goto sdio_buffer_prepare_n1d6_e2f2;

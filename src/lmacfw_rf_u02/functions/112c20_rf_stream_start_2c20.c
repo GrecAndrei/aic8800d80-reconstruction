@@ -18,10 +18,10 @@ extern uint32_t off_112CAC;
 extern uint32_t dword_112CBC;
 extern uint32_t off_112CB0;
 
-// rf_stream_start_2c20 @ 0x112c20, size 130 bytes
+// send_data_packet @ 0x112c20, size 130 bytes
 // Doc: sdio_buffer_prepare_n1dc [mmio]: Prepare SDIO transfer buffer alignment and descriptor
 // sdio_buffer_prepare_n1dc [mmio]: Prepare SDIO transfer buffer alignment and descriptor
-int  rf_stream_start_2c20(int a1, unsigned int a2)
+int  send_data_packet(int a1, unsigned int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r6
@@ -37,7 +37,7 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
   v3 = off_112CA8;
   if ( *(uint8_t *)off_112CA8 )
   {
-    sub_10DA6C(dword_112CB8, dword_112CB4, *(uint8_t *)off_112CA8);
+    log_printf(dword_112CB8, dword_112CB4, *(uint8_t *)off_112CA8);
     return -3;
   }
   else
@@ -45,11 +45,11 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
     v4 = off_112CAC;
     *(uint8_t *)off_112CA8 = 1;
     v4[716] &= 0xE007FFFF;
-    v5 = rf_bus_setup_n14c(1, a1, a2);
+    v5 = rf_channel_update(1, a1, a2);
     v6 = v5;
     if ( v5 )
     {
-      sub_10DA6C(dword_112CBC, dword_112CB4, v5);
+      log_printf(dword_112CBC, dword_112CB4, v5);
       return -1;
     }
     else
@@ -57,7 +57,7 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
       *(uint8_t *)off_112CB0 = 1;
       if ( *v2 )
       {
-        rf_bus_setup_n_148(0, 1u);
+        rf_enable_tx_patch_dup(0, 1u);
         *v3 = 0;
         return -14;
       }

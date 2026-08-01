@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D350 @ 0x12d350, size 26 bytes
-BOOL  sub_12D350(uint32_t **a1, uint32_t *a2)
+// mem_word_cmp @ 0x12d350, size 26 bytes
+BOOL  mem_word_cmp(uint32_t **a1, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

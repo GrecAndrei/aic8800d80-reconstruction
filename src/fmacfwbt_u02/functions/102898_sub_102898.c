@@ -17,8 +17,8 @@ extern uint32_t off_102938;
 extern uint32_t off_102934;
 extern uint32_t dword_102948;
 
-// sub_102898 @ 0x102898, size 152 bytes
-int  sub_102898(uint16_t *a1, int a2)
+// gpio_init @ 0x102898, size 152 bytes
+int  gpio_init(uint16_t *a1, int a2)
 {
   uint8_t *v3; // r0
   int v4; // r1
@@ -55,9 +55,9 @@ int  sub_102898(uint16_t *a1, int a2)
       || *((uint16_t *)v3 + 21) != a1[3] )
     {
 LABEL_5:
-      sub_101DE8(*(uint8_t *)a1, v5, v6, *((uint8_t *)a1 + 1));
+      format_log_message(*(uint8_t *)a1, v5, v6, *((uint8_t *)a1 + 1));
     }
-    if ( msg_get_value(7) == 1 || msg_get_value(6) == 3 )
+    if ( hci_cmd_send_short(7) == 1 || hci_cmd_send_short(6) == 3 )
     {
 LABEL_4:
       v5 = a1[1];
@@ -67,6 +67,6 @@ LABEL_4:
     v9 = dword_102944;
     v8 = dword_102948;
   }
-  return sub_12ECB0(v8, v9, v7);
+  return ke_event_schedule(v8, v9, v7);
 }
 

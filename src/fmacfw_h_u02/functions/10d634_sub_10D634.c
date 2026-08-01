@@ -12,10 +12,10 @@
 
 extern uint32_t off_10D640;
 
-// sub_10D634 @ 0x10d634, size 12 bytes
-void sub_10D634()
+// system_ready_check @ 0x10d634, size 12 bytes
+void system_ready_check()
 {
   if ( !*(uint32_t *)off_10D640 )
-    sub_10D508();
+    kernel_schedule_check();
 }
 

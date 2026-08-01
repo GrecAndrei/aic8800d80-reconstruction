@@ -12,10 +12,10 @@
 
 extern uint32_t off_1119B4;
 
-// rf_cmd_dispatch_n451 @ 0x111958, size 88 bytes
+// tx_pkt_set_len @ 0x111958, size 88 bytes
 // Doc: message_dispatch_n_4fe [ipc]: Dispatch incoming host message to handler
 // message_dispatch_n_4fe [ipc]: Dispatch incoming host message to handler
-int  rf_cmd_dispatch_n451(int result, int a2)
+int  tx_pkt_set_len(int result, int a2)
 {
   int *v2; // r4
   int v3; // r5
@@ -37,7 +37,7 @@ int  rf_cmd_dispatch_n451(int result, int a2)
   *(uint16_t *)v4 = a2;
   if ( result && a2 )
   {
-    result = sub_14380C(v3, result, a2);
+    result = memcpy_aligned(v3, result, a2);
     v4 = *v2;
   }
   v6 = rf_bus_mark_n2dc;

@@ -24,8 +24,8 @@ extern uint32_t dword_104434;
 extern uint32_t dword_104438;
 extern uint32_t off_10443C;
 
-// sub_104338 @ 0x104338, size 212 bytes
-int sub_104338()
+// rf_power_on_reset @ 0x104338, size 212 bytes
+int rf_power_on_reset()
 {
   int *v0; // r1
   uint32_t *v1; // r3
@@ -52,19 +52,19 @@ int sub_104338()
   *v1 = ~(~(*v1 >> 12) << 12);
   v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
   *v1 |= 0x10000000u;
-  sub_100644(10);
+  timer_set(10);
   *v4 = dword_104428;
-  sub_100644(125);
+  timer_set(125);
   *v4 = dword_10442C;
   while ( *v5 < 0 )
-    sub_100644(1);
-  sub_12EEF8(1, dword_104430);
+    timer_set(1);
+  state_check_feature(1, dword_104430);
   v6 = dword_104434;
   *(uint32_t *)off_104420 = 0;
-  sub_12EEF8(1, v6);
+  state_check_feature(1, v6);
   *(uint32_t *)off_104410 = v3;
-  sub_10422C();
-  result = sub_12EEF8(1, dword_104438);
+  util_get_buf_addr();
+  result = state_check_feature(1, dword_104438);
   v8 = off_104414;
   v9 = off_10443C;
   *(uint32_t *)off_104414 &= 0xF3FFFFFF;

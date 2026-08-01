@@ -26,8 +26,8 @@ extern uint32_t dword_114ED4;
 extern uint32_t off_114ED8;
 extern uint32_t off_114EDC;
 
-// sub_114DE8 @ 0x114de8, size 184 bytes
-void __noreturn sub_114DE8()
+// is_patch_loaded @ 0x114de8, size 184 bytes
+void __noreturn is_patch_loaded()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r3
@@ -87,8 +87,8 @@ void __noreturn sub_114DE8()
   if ( (v11 & 0x10) == 0 )
     *(uint32_t *)off_114ED8 &= ~0x4000u;
   *(uint8_t *)off_114EDC = BYTE2(*(uint32_t *)off_114EC4);
-  sub_1031D8();
-  sub_114D6C();
-  sub_100478();
+  aes_load_key();
+  check_patch_signature();
+  mac_state_init();
 }
 

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_4ef", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121172c", "status": "ok", "name": "rf_bus_write2_72c", "params": [], "docstring": "Writes data to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_bus_write2_n_4ef", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121172c", "status": "ok", "name": "rf_bus_reset2_n_2d0", "params": [], "docstring": "Writes data to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

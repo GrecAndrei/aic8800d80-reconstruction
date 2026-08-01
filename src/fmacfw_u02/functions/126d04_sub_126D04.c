@@ -18,8 +18,8 @@ extern uint32_t dword_126E10;
 extern uint32_t off_126E14;
 extern uint32_t dword_126E18;
 
-// sub_126D04 @ 0x126d04, size 250 bytes
-int  sub_126D04(int a1)
+// rf_mmio_read @ 0x126d04, size 250 bytes
+int  rf_mmio_read(int a1)
 {
   uint32_t *v1; // r6
   int *v2; // r4
@@ -74,7 +74,7 @@ int  sub_126D04(int a1)
       }
       v12 = *(uint8_t *)(v4 + 16);
       *(uint8_t *)(v4 + 16) = 6;
-      if ( !sub_11908C(v11, v8, 0) )
+      if ( !phy_channel_is_5g(v11, v8, 0) )
       {
         ++v7;
         *v9 = 1;
@@ -92,7 +92,7 @@ LABEL_16:
   v15 = v7 - v13;
   if ( !v14 )
   {
-    mmio_init_reset();
+    set_clock_divisor();
     if ( v7 )
     {
       v15 = 0;
@@ -104,7 +104,7 @@ LABEL_16:
   if ( !v15 )
     return v15;
   *(uint8_t *)(v14 + 16) = 3;
-  mmio_init_reset();
+  set_clock_divisor();
   return v15;
 }
 

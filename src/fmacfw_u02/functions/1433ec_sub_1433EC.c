@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1433EC @ 0x1433ec, size 18 bytes
-BOOL  sub_1433EC(int a1, int a2)
+// float_ge @ 0x1433ec, size 18 bytes
+BOOL  float_ge(int a1, int a2)
 {
   char v2; // cf
   char v3; // zf
 
-  sub_143398(a1, a2);
+  float_swap_compare(a1, a2);
   return !(!v3 & v2);
 }
 

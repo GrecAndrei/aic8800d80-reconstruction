@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_103140 @ 0x103140, size 14 bytes
-int  sub_103140(int result)
+// wait_for_hw_data @ 0x103140, size 14 bytes
+int  wait_for_hw_data(int result)
 {
   while ( result )
     ;

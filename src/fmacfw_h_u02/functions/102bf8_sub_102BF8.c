@@ -12,8 +12,8 @@
 
 extern uint32_t off_102C58;
 
-// sub_102BF8 @ 0x102bf8, size 96 bytes
-int * sub_102BF8(int a1)
+// rf_clear_control_bit_a @ 0x102bf8, size 96 bytes
+int * rf_clear_control_bit_a(int a1)
 {
   int v1; // r4
   int v2; // r1

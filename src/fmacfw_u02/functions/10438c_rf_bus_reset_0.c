@@ -12,10 +12,10 @@
 
 extern uint32_t off_1043D0;
 
-// rf_bus_reset_0 @ 0x10438c, size 66 bytes
+// get_next_sequence @ 0x10438c, size 66 bytes
 // Doc: rf_bus_reset [rf]: Resets RF bus state via shifted write
 // rf_bus_reset [rf]: Resets RF bus state via shifted write
-int  rf_bus_reset_0(int a1, int a2, uint32_t *a3)
+int  get_next_sequence(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v4; // r4

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11033C;
 
-// log_free_dispatch_n2f4_0 @ 0x1102fc, size 54 bytes
+// is_inquiry_enabled @ 0x1102fc, size 54 bytes
 // Doc: log_free_dispatch_n30a [util]: Increments free-counter and dispatches a log/free callback
 // log_free_dispatch_n30a [util]: Increments free-counter and dispatches a log/free callback
-int log_free_dispatch_n2f4_0()
+int is_inquiry_enabled()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int log_free_dispatch_n2f4_0()
   v0 = (int *)log_free_dispatch_n330;
   v1 = dword_11033C;
   ++*(uint32_t *)log_free_dispatch_n330;
-  result = list_push_tail(v1);
+  result = cmd_handler_a(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

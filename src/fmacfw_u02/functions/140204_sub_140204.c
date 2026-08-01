@@ -17,8 +17,8 @@ extern uint32_t dword_14032C;
 extern uint32_t off_140334;
 extern uint32_t dword_140328;
 
-// sub_140204 @ 0x140204, size 284 bytes
-int  sub_140204(int result)
+// ble_ll_adv_set_data @ 0x140204, size 284 bytes
+int  ble_ll_adv_set_data(int result)
 {
   unsigned int v1; // r6
   int v2; // r4
@@ -47,7 +47,7 @@ int  sub_140204(int result)
     v3 = dword_140324;
     v4 = *(uint32_t *)(dword_140324 + 696 * v1 + 340);
     if ( **(int16_t **)off_140320 < 0 && !v4 )
-      sub_12F46C(dword_140330, dword_14032C, 2758);
+      mmio_clear_register(dword_140330, dword_14032C, 2758);
     v5 = *(uint8_t *)(v4 + 166);
     if ( (*(uint32_t *)(v2 + 36) & 0x200000) != 0 && (*(uint8_t *)(v4 + 166) & 4) != 0 )
       v6 = v5 | 2;
@@ -57,7 +57,7 @@ int  sub_140204(int result)
     *(uint8_t *)(v4 + 166) = v6;
     if ( v7[4] - *(uint32_t *)v4 > (unsigned int)dword_140328 )
     {
-      v14 = rx_agg_dequeue_n_handle(v4, 0);
+      v14 = ble_ll_conn_tx_pdu(v4, 0);
       v15 = (*(uint8_t *)(v4 + 167) + 1) & 3;
       *(uint8_t *)(v4 + 167) = v15;
       *(uint8_t *)(v4 + 154) = 0;
@@ -66,7 +66,7 @@ int  sub_140204(int result)
       *(uint8_t *)(v2 + 54) = 4 * v15;
       if ( v14 )
       {
-        if ( !sub_13D47C(v4) )
+        if ( !bt_clr_flag(v4) )
           *(uint32_t *)(v2 + 36) &= ~0x200000u;
         *(uint8_t *)(v3 + 696 * v1 + 350) |= 0x11u;
       }
@@ -75,7 +75,7 @@ int  sub_140204(int result)
     {
       *(uint8_t *)(v2 + 54) = *(uint8_t *)(v4 + 168) | (4 * *(uint8_t *)(v4 + 167));
     }
-    result = sub_13EC70(v4);
+    result = ble_ll_conn_rx_pdu(v4);
     if ( result )
     {
       v8 = *(uint32_t *)(v2 + 36);

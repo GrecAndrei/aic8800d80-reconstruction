@@ -12,8 +12,8 @@
 
 extern uint32_t dword_119278;
 
-// sub_11926C @ 0x11926c, size 10 bytes
-int  sub_11926C(int a1, int a2)
+// get_u8_table @ 0x11926c, size 10 bytes
+int  get_u8_table(int a1, int a2)
 {
   return *(uint8_t *)(dword_119278 + (a1 | (2 * a2)));
 }

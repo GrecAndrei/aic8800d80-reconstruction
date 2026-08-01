@@ -19,10 +19,10 @@ extern uint32_t off_139678;
 extern uint32_t dword_139680;
 extern uint32_t dword_13967C;
 
-// tx_desc_slot_lookup @ 0x139444, size 546 bytes
-// Doc: tx_desc_slot_lookup [tx]: Index into TX descriptor slot table using queue id
-// tx_desc_slot_lookup [tx]: Index into TX descriptor slot table using queue id
-int  tx_desc_slot_lookup(int a1, int a2)
+// rf_cal_channel_data @ 0x139444, size 546 bytes
+// Doc: rf_cal_channel_data [tx]: Index into TX descriptor slot table using queue id
+// rf_cal_channel_data [tx]: Index into TX descriptor slot table using queue id
+int  rf_cal_channel_data(int a1, int a2)
 {
   uint16_t *v2; // r6
   int v3; // r7
@@ -63,7 +63,7 @@ int  tx_desc_slot_lookup(int a1, int a2)
     goto LABEL_28;
   }
   v8 = dword_139684;
-  v17 = param_parse_setup((uint8_t *)(v3 + 107), (uint32_t *)(v3 + 1228), *(char **)(*(uint32_t *)(a1 + 28) + 8), 1);
+  v17 = rate_to_phy_mode((uint8_t *)(v3 + 107), (uint32_t *)(v3 + 1228), *(char **)(*(uint32_t *)(a1 + 28) + 8), 1);
   v7 = *((uint8_t *)v2 + 7);
   v9 = (uint16_t)v2[2];
   v10 = *(uint32_t *)(v8 + 4 * (v7 + 174 * a2 + 102));
@@ -89,15 +89,15 @@ LABEL_17:
       v21 = (*(uint16_t *)(v10 + 8) + 1) & 0xFFF;
       *(uint8_t *)(v10 + 10) = (v19 + 1) & 0x3F;
       *(uint16_t *)(v10 + 8) = v21;
-      sub_138A5C(v10);
-      table_lookup_n_696(a2, *((uint8_t *)v2 + 7));
+      opcode_handler_dispatch(v10);
+      rf_get_channel_param(a2, *((uint8_t *)v2 + 7));
       return v16;
     }
 LABEL_28:
     v26 = *(uint16_t *)(a1 + 50) & 0xFF00;
     *(uint32_t *)(a1 + 96) |= 0x20u;
     *(uint16_t *)(a1 + 50) = v26;
-    bt_channel_parse_n_db8(a1, 3);
+    rf_cal_freq_from_channel(a1, 3);
     v16 = 1;
     goto LABEL_17;
   }
@@ -122,10 +122,10 @@ LABEL_8:
             v22 = *(uint16_t *)(a1 + 50) & 0xFF00;
             *(uint32_t *)(a1 + 96) |= 0x20u;
             *(uint16_t *)(a1 + 50) = v22;
-            bt_channel_parse_n_db8(a1, 3);
+            rf_cal_freq_from_channel(a1, 3);
           }
 LABEL_10:
-          table_lookup_n_696(a2, *((uint8_t *)v2 + 7));
+          rf_get_channel_param(a2, *((uint8_t *)v2 + 7));
           return (uint8_t)(1 - v5);
         }
         v14 = (uint16_t)v2[1];
@@ -134,7 +134,7 @@ LABEL_10:
       }
       return 0;
     }
-    sub_1393AC(v10, (uint16_t)(v13 - 63));
+    list_find_nonnull(v10, (uint16_t)(v13 - 63));
     v7 = *((uint8_t *)v2 + 7);
     v9 = (uint16_t)v2[2];
     v10 = *(uint32_t *)(v8 + 4 * (174 * a2 + v7 + 102));
@@ -151,7 +151,7 @@ LABEL_10:
       v27 = *(uint16_t *)(a1 + 50) & 0xFF00;
       *(uint32_t *)(a1 + 96) |= 0x20u;
       *(uint16_t *)(a1 + 50) = v27;
-      bt_channel_parse_n_db8(a1, 3);
+      rf_cal_freq_from_channel(a1, 3);
     }
     *(uint32_t *)(v23 + 16) = dword_139674;
     v24 = *(int16_t **)off_139678;
@@ -159,11 +159,11 @@ LABEL_10:
     *(uint8_t *)(v10 + 11) = v25;
     if ( *v24 < 0 && v25 > 0x40 )
     {
-      sub_12F694(dword_139680, dword_13967C, 1860);
+      mmio_irq_clear(dword_139680, dword_13967C, 1860);
       v25 = *(uint8_t *)(v10 + 11);
     }
     if ( v25 == 1 )
-      timestamp_update_4f60(v10 + 272, *((uint32_t *)off_139670 + 4) + 50000);
+      ke_event_lock(v10 + 272, *((uint32_t *)off_139670 + 4) + 50000);
     goto LABEL_10;
   }
   return 0;

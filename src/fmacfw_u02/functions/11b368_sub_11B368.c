@@ -12,8 +12,8 @@
 
 extern uint32_t off_11B3B4;
 
-// sub_11B368 @ 0x11b368, size 74 bytes
-int  sub_11B368(int result)
+// get_slot_context @ 0x11b368, size 74 bytes
+int  get_slot_context(int result)
 {
   uint32_t *v1; // r6
   char *v2; // r3
@@ -35,7 +35,7 @@ int  sub_11B368(int result)
       v6 = (int)&v1[7 * result];
       result = *(uint32_t *)(v6 + 36);
       if ( result )
-        result = mmio_reg_poll_n6b4(result, v4, v3, v6);
+        result = radio_band_validate(result, v4, v3, v6);
       v1[v5 - v4 + 9] = 0;
     }
   }

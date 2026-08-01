@@ -13,8 +13,8 @@
 extern uint32_t off_117DEC;
 extern uint32_t off_117DF0;
 
-// sub_117DC0 @ 0x117dc0, size 44 bytes
-void sub_117DC0()
+// btcoex_check_state @ 0x117dc0, size 44 bytes
+void btcoex_check_state()
 {
   uint8_t *v0; // r3
   unsigned int v1; // r2

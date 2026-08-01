@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_105140 @ 0x105140, size 154 bytes
+// ke_timer_adjust @ 0x105140, size 154 bytes
 // Doc: sub_1205140 [util]: Trivial trampoline saving arg and copying value with VFP move
 // sub_1205140 [util]: Trivial trampoline saving arg and copying value with VFP move
-int  sub_105140(int a1, float a2, int *a3, int a4, int a5)
+int  ke_timer_adjust(int a1, float a2, int *a3, int a4, int a5)
 {
   int result; // r0
   int v7; // r3

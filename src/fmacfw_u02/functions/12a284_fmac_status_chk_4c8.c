@@ -13,10 +13,10 @@
 extern uint32_t dword_12A314;
 extern uint32_t off_12A318;
 
-// fmac_status_chk_4c8 @ 0x12a284, size 144 bytes
-// Doc: fmac_status_chk_4c8 [mac]: Read status byte at firmware ctx+0x4c8 and branch
-// fmac_status_chk_4c8 [mac]: Read status byte at firmware ctx+0x4c8 and branch
-uint8_t * fmac_status_chk_4c8(uint8_t *result, int a2)
+// llc_get_conn_idx @ 0x12a284, size 144 bytes
+// Doc: llc_get_conn_idx [mac]: Read status byte at firmware ctx+0x4c8 and branch
+// llc_get_conn_idx [mac]: Read status byte at firmware ctx+0x4c8 and branch
+uint8_t * llc_get_conn_idx(uint8_t *result, int a2)
 {
   int v2; // r2
   int v3; // r7
@@ -40,17 +40,17 @@ uint8_t * fmac_status_chk_4c8(uint8_t *result, int a2)
     v8 = (uint8_t *)(v3 + 140 * v2);
     *((uint32_t *)result + 1) = v6;
     if ( !v5 )
-      return sub_129804(v8);
+      return wlc_rx_process(v8);
     v9 = a2 + (v5 << 10);
     if ( *(uint8_t *)(v4 + 112) || (v10 = a2 + 300, *((uint32_t *)off_12A318 + 4) - v10 + 50 >= 0) )
     {
       *(uint8_t *)(v3 + 140 * v2 + 114) = 1;
-      timestamp_update(v7 + 96 + v3, v9);
-      return sub_129804(v8);
+      unknown_worker(v7 + 96 + v3, v9);
+      return wlc_rx_process(v8);
     }
     *(uint32_t *)(v4 + 116) = v9;
     *(uint8_t *)(v4 + 114) = 2;
-    return (uint8_t *)timestamp_update(v7 + 96 + v3, v10);
+    return (uint8_t *)unknown_worker(v7 + 96 + v3, v10);
   }
   return result;
 }

@@ -15,8 +15,8 @@ extern uint32_t off_142484;
 extern uint32_t dword_14248C;
 extern uint32_t dword_142490;
 
-// sub_142378 @ 0x142378, size 266 bytes
-int  sub_142378(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// ll_conn_process @ 0x142378, size 266 bytes
+int  ll_conn_process(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v4; // r8
   int v5; // r9
@@ -74,15 +74,15 @@ int  sub_142378(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     v26 = v15 << v18;
     if ( (unsigned int)(v17 - 1) <= 1 )
     {
-      LODWORD(v22) = sub_12BD00();
+      LODWORD(v22) = rf_delay();
       v17 = a2[1];
       v27 = *(uint64_t *)(v4 + 1320 * v5 + 40) + (unsigned int)dword_142490 + v22;
     }
-    v19 = sub_141E00(v4 + 1320 * v5, v11 + 696 * v10, (int)v24, v17) == 0;
+    v19 = queue_ipc_msg(v4 + 1320 * v5, v11 + 696 * v10, (int)v24, v17) == 0;
   }
-  v20 = (int *)sub_12C7EC(12289, a4, a3, 1u);
+  v20 = (int *)tx_send_pdu(12289, a4, a3, 1u);
   *v20 = v19;
-  sub_12C84C((int)v20);
+  rx_process_packet((int)v20);
   return 0;
 }
 

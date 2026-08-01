@@ -14,8 +14,8 @@ extern uint32_t dword_127CB4;
 extern uint32_t off_127CB8;
 extern uint32_t dword_127CBC;
 
-// sub_127BF4 @ 0x127bf4, size 190 bytes
-int  sub_127BF4(uint8_t *a1, uint8_t *a2)
+// cfm_radio_check @ 0x127bf4, size 190 bytes
+int  cfm_radio_check(uint8_t *a1, uint8_t *a2)
 {
   int v2; // r6
   int v5; // r3
@@ -60,7 +60,7 @@ int  sub_127BF4(uint8_t *a1, uint8_t *a2)
           v16 = v14[10];
           *(uint16_t *)(v13 + 8) = v15;
           if ( v16 == v13 && *((uint8_t *)v14 + 90) == 1 )
-            sub_102970((uint16_t *)(v2 + 28 * i + 4), 0);
+            check_boot_flag((uint16_t *)(v2 + 28 * i + 4), 0);
 LABEL_16:
           *a2 = i;
           return 0;
@@ -71,7 +71,7 @@ LABEL_16:
     }
     v5 += 28;
   }
-  v7 = sub_12D190(off_127CB8);
+  v7 = list_pop(off_127CB8);
   if ( !v7 )
     return 1;
   v8 = dword_127CBC * ((v7 - v2) >> 2);

@@ -1,0 +1,1 @@
+{"fn": "sub_121A44", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a44", "status": "ok", "name": "clear_global_187218", "params": [], "docstring": "Clear 8-byte global at 0x187218 and return 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

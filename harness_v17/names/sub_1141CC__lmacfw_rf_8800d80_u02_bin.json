@@ -1,0 +1,1 @@
+{"fn": "sub_1141CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1141cc", "status": "ok", "name": "rf_get_reg0xf_bit18", "params": [], "docstring": "Read RF register 0xF bit 18", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

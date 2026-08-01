@@ -14,8 +14,8 @@ extern uint32_t dword_12657C;
 extern uint32_t dword_126578;
 extern uint32_t dword_126580;
 
-// sub_126474 @ 0x126474, size 258 bytes
-BOOL  sub_126474(int a1, int a2, int a3)
+// llm_scan_task_handler @ 0x126474, size 258 bytes
+BOOL  llm_scan_task_handler(int a1, int a2, int a3)
 {
   int v6; // r5
   int v7; // r3
@@ -53,7 +53,7 @@ BOOL  sub_126474(int a1, int a2, int a3)
   }
   if ( !a3 || *(uint8_t *)(a3 + 10) == 255 )
   {
-    v14 = sub_1019F0() + 14000;
+    v14 = get_constant_1000() + 14000;
   }
   else
   {
@@ -78,8 +78,8 @@ BOOL  sub_126474(int a1, int a2, int a3)
       v8 = v9 >> 1;
     }
     v10 = *(uint32_t *)(a3 + 4);
-    v11 = v10 + 10000 + sub_1019F0();
-    v12 = sub_12A198(a1, *(uint8_t *)(a3 + 11));
+    v11 = v10 + 10000 + get_constant_1000();
+    v12 = bt_runtime_check2(a1, *(uint8_t *)(a3 + 11));
     v13 = v12 - a2;
     if ( v12 - a2 + v8 < 0 )
     {
@@ -95,6 +95,6 @@ BOOL  sub_126474(int a1, int a2, int a3)
     else
       v14 = v11 + 4000 - a2;
   }
-  return scan_state_handler_main(v6, 1, 0, 1, 0, v14, a2) != 255;
+  return llc_evt_dispatch(v6, 1, 0, 1, 0, v14, a2) != 255;
 }
 

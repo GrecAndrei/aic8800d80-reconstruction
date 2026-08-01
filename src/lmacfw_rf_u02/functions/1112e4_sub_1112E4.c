@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1112E4 @ 0x1112e4, size 30 bytes
-int *sub_1112E4()
+// timer_init @ 0x1112e4, size 30 bytes
+int *timer_init()
 {
   int i; // r4
   int v1; // r0
@@ -22,8 +22,8 @@ int *sub_1112E4()
   {
     v1 = (uint8_t)i;
     v3 = (uint8_t)i;
-    sub_111274(v1);
-    result = sub_1112AC(v3);
+    timer_entry_clear(v1);
+    result = timer_entry_reset(v3);
   }
   return result;
 }

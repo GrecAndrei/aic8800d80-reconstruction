@@ -13,10 +13,10 @@
 extern uint32_t dword_134678;
 extern uint32_t off_134674;
 
-// sub_13465C @ 0x13465c, size 24 bytes
-int  sub_13465C(uint8_t *a1)
+// get_acl_conn_slot @ 0x13465c, size 24 bytes
+int  get_acl_conn_slot(uint8_t *a1)
 {
-  return sub_127BF4(
+  return cfm_radio_check(
            (uint8_t *)(dword_134678 + 1320 * *(uint8_t *)(*((uint32_t *)off_134674 + 4) + 61)),
            a1);
 }

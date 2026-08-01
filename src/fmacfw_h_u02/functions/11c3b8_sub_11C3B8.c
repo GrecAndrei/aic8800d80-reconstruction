@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11C3E4;
 
-// sub_11C3B8 @ 0x11c3b8, size 44 bytes
-int  sub_11C3B8(int result, int a2)
+// channel_table_lookup @ 0x11c3b8, size 44 bytes
+int  channel_table_lookup(int result, int a2)
 {
   int v2; // r2
   int v3; // r3

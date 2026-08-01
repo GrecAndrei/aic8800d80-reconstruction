@@ -1,1 +1,1 @@
-{"fn": "sub_1209480", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1209480", "status": "ok", "name": "sub_1209480", "params": [], "docstring": "Null/zero check utility function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1209480", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1209480", "status": "ok", "name": "memzero_words", "params": [], "docstring": "Null/zero check utility function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

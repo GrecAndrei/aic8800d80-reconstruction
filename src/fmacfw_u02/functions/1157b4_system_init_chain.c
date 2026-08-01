@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// system_init_chain @ 0x1157b4, size 32 bytes
-// Doc: system_init_chain [util]: System initialization chain calling subs
-// system_init_chain [util]: System initialization chain calling subs
-int system_init_chain()
+// system_init @ 0x1157b4, size 32 bytes
+// Doc: system_init [util]: System initialization chain calling subs
+// system_init [util]: System initialization chain calling subs
+int system_init()
 {
   int inited; // r0
   int v1; // r0
@@ -21,10 +21,10 @@ int system_init_chain()
   int v3; // r0
 
   *((uint8_t *)ipc_doorbell_handler_n_1a8 + 1) = 0;
-  inited = ipc_init_buf();
-  v1 = sub_1321C8(inited);
-  v2 = mac_phy_init(v1);
-  v3 = sub_12D210(v2);
-  return sub_12F508(v3);
+  inited = reset_global_0x18274c();
+  v1 = ke_task_reset(inited);
+  v2 = get_bt_state(v1);
+  v3 = assert_fail_record(v2);
+  return init_global_0x1922d4(v3);
 }
 

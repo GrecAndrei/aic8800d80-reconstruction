@@ -12,10 +12,10 @@
 
 extern uint32_t off_12C8D4;
 
-// message_dispatch_c8b4 @ 0x12c8b4, size 32 bytes
+// ke_task_find @ 0x12c8b4, size 32 bytes
 // Doc: message_dispatch_n_c6 [ipc]: Message dispatch helper returning 1; sets r0 from r3
 // message_dispatch_n_c6 [ipc]: Message dispatch helper returning 1; sets r0 from r3
-int  message_dispatch_c8b4(int a1, int a2)
+int  ke_task_find(int a1, int a2)
 {
   int **v2; // r3
 

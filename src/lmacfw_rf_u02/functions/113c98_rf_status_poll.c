@@ -10,33 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_status_poll @ 0x113c98, size 104 bytes
-// Doc: rf_status_poll [rf]: Poll and update RF status register state
-// rf_status_poll [rf]: Poll and update RF status register state
-int  rf_status_poll(unsigned int a1, int a2)
+// rf_status_check @ 0x113c98, size 104 bytes
+// Doc: rf_status_check [rf]: Poll and update RF status register state
+// rf_status_check [rf]: Poll and update RF status register state
+int  rf_status_check(unsigned int a1, int a2)
 {
   int v4; // r4
   unsigned int v5; // r4
 
-  v4 = sub_113A44(7u);
-  if ( (uint16_t)sub_113A44(8u) | v4 )
+  v4 = mmio_read32(7u);
+  if ( (uint16_t)mmio_read32(8u) | v4 )
   {
-    v5 = sub_113A44(8u);
-    if ( (HIWORD(v5) << 16) | sub_113A44(9u) )
+    v5 = mmio_read32(8u);
+    if ( (HIWORD(v5) << 16) | mmio_read32(9u) )
     {
       return -1;
     }
     else
     {
-      host_reg_wait_set(8u, a1 << 16);
-      host_reg_wait_set(9u, HIWORD(a1) | (a2 << 16));
+      mmio_write32(8u, a1 << 16);
+      mmio_write32(9u, HIWORD(a1) | (a2 << 16));
       return 0;
     }
   }
   else
   {
-    host_reg_wait_set(7u, a1);
-    host_reg_wait_set(8u, a2);
+    mmio_write32(7u, a1);
+    mmio_write32(8u, a2);
     return 1;
   }
 }

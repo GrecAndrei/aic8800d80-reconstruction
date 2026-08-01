@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_mark_ne8 @ 0x111274, size 48 bytes
+// timer_entry_clear @ 0x111274, size 48 bytes
 // Doc: rf_bus_mark_n102 [rf]: Mark/flag RF bus slot for pending operation
 // rf_bus_mark_n102 [rf]: Mark/flag RF bus slot for pending operation
-int * rf_bus_mark_ne8(int a1)
+int * timer_entry_clear(int a1)
 {
   int v2; // r0
   int v3; // r5

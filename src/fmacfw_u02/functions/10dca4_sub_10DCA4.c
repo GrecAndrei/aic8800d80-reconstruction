@@ -13,8 +13,8 @@
 extern uint32_t off_10DCD0;
 extern uint32_t dword_40504080;
 
-// sub_10DCA4 @ 0x10dca4, size 42 bytes
-int  sub_10DCA4(int result)
+// switch_on_arg @ 0x10dca4, size 42 bytes
+int  switch_on_arg(int result)
 {
   uint32_t *v1; // r1
 

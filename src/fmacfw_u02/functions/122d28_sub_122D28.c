@@ -18,8 +18,8 @@ extern uint32_t dword_122F1C;
 extern uint32_t off_122F20;
 extern uint32_t dword_122F24;
 
-// sub_122D28 @ 0x122d28, size 472 bytes
-void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
+// send_command_6a @ 0x122d28, size 472 bytes
+void  __noreturn send_command_6a(int a1, int *a2, int a3, int a4)
 {
   int v5; // r2
   int v6; // r3
@@ -36,19 +36,19 @@ void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
   int v17; // [sp+10h] [bp-8Ch]
   int v18; // [sp+14h] [bp-88h] BYREF
 
-  sub_12C92C(106, a4, a3, 16);
+  ke_msg_alloc(106, a4, a3, 16);
   v15 = 0;
   if ( (*(uint32_t *)off_122F00 & 0x2000000) != 0 )
   {
-    rf_cmd_wait_n_7e(&v15);
-    rf_fault_dump_n14c((uint8_t *)&v15 + 1);
-    msg_parse(dword_122F18, (uint8_t)v15, HIBYTE(v15));
+    rf_cmd6_read(&v15);
+    rf_cmd6_read_hi((uint8_t *)&v15 + 1);
+    event_dispatch(dword_122F18, (uint8_t)v15, HIBYTE(v15));
     v6 = (uint8_t)v15;
   }
   else
   {
     v18 = 0;
-    if ( sub_114D34((int)&v18) )
+    if ( ke_event_send_2((int)&v18) )
     {
       v6 = (uint8_t)v15;
     }
@@ -61,7 +61,7 @@ void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
   }
   if ( !v6 && *((uint8_t *)a2 + 20) )
   {
-    msg_parse(dword_122F2C, *((uint8_t *)a2 + 20), v5);
+    event_dispatch(dword_122F2C, *((uint8_t *)a2 + 20), v5);
     LOBYTE(v15) = *((uint8_t *)a2 + 20);
   }
   v7 = HIBYTE(v15);
@@ -73,7 +73,7 @@ void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
   }
   else if ( *((uint8_t *)a2 + 21) )
   {
-    msg_parse(dword_122F28, *((uint8_t *)a2 + 21), v5);
+    event_dispatch(dword_122F28, *((uint8_t *)a2 + 21), v5);
     v8 = (uint8_t)v15;
     v7 = *((uint8_t *)a2 + 21);
     HIBYTE(v15) = *((uint8_t *)a2 + 21);
@@ -91,8 +91,8 @@ void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
     v8 = 31;
     LOBYTE(v15) = 31;
   }
-  rf_reg_write_masked(v8);
-  msg_parse(dword_122F1C, (uint8_t)v15, v10);
+  rf_get_state(v8);
+  event_dispatch(dword_122F1C, (uint8_t)v15, v10);
   v7 = HIBYTE(v15);
 LABEL_17:
   if ( !v7 )
@@ -117,17 +117,17 @@ LABEL_18:
   v13 = off_122F20;
   v14 = dword_122F24;
   *(uint32_t *)off_122F20 = *(uint32_t *)off_122F20 & 0xFF03FFFF | v12;
-  msg_parse(v14, v11, v13);
+  event_dispatch(v14, v11, v13);
   if ( !a2[3] )
   {
 LABEL_11:
     v9 = *a2;
     v17 = a2[2];
     v16 = v9;
-    tx_phy_dispatch_c5ec(0, 2437);
+    rx_packet_init(0, 2437);
   }
 LABEL_21:
-  sub_10C830();
+  uart_putc();
   goto LABEL_11;
 }
 

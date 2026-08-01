@@ -13,13 +13,13 @@
 extern uint32_t dword_134384;
 extern uint32_t off_134388;
 
-// sub_134368 @ 0x134368, size 26 bytes
-int sub_134368()
+// send_app_message @ 0x134368, size 26 bytes
+int send_app_message()
 {
   int result; // r0
 
-  msg_parse(dword_134384);
-  result = event_queue_push(6155, 6);
+  event_dispatch(dword_134384);
+  result = ke_int_lock(6155, 6);
   *((uint8_t *)off_134388 + 15) = 0;
   return result;
 }

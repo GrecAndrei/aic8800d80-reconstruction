@@ -24,8 +24,8 @@ extern uint32_t off_1384D4;
 extern uint32_t dword_1384E0;
 extern uint32_t dword_1384DC;
 
-// sub_13819C @ 0x13819c, size 902 bytes
-uint32_t *sub_13819C()
+// check_event_flag @ 0x13819c, size 902 bytes
+uint32_t *check_event_flag()
 {
   uint8_t *v0; // r5
   unsigned int v1; // r1
@@ -97,7 +97,7 @@ uint32_t *sub_13819C()
   v1 = *((uint8_t *)off_1384B8 + 3851);
   v2 = *(uint32_t *)off_1384B8;
   if ( v1 > 1 )
-    return sub_137388(0);
+    return util_hex_convert(0);
   v3 = 0;
   while ( !*(uint8_t *)(v2 + 367) )
   {
@@ -106,7 +106,7 @@ LABEL_59:
     if ( v1 == 1 )
     {
       *((uint8_t *)off_1384B8 + 3851) = 2;
-      return sub_137388(0);
+      return util_hex_convert(0);
     }
     v1 = 1;
   }
@@ -123,7 +123,7 @@ LABEL_59:
   }
   if ( v3 )
     *((uint8_t *)off_1384B8 + 3851) = v1;
-  v7 = sub_12C7EC(2048, 2, 4, 0x178u);
+  v7 = tx_send_pdu(2048, 2, 4, 0x178u);
   *(uint8_t *)(v7 + 366) = *(uint8_t *)(v2 + 366);
   v8 = v7;
   v9 = *(uint64_t *)(v2 + 352);
@@ -275,7 +275,7 @@ LABEL_59:
     v48 = *((uint8_t *)off_1384E4 + 374);
     if ( (v48 & 1) == 0 )
       goto LABEL_48;
-    sub_130500(&v65);
+    write_dash_header(&v65);
 LABEL_74:
     v48 = v43[374];
 LABEL_48:
@@ -328,7 +328,7 @@ LABEL_69:
     }
 LABEL_72:
     v64 = v24;
-    sub_130500(&v65);
+    write_dash_header(&v65);
     v24 = v64;
     goto LABEL_69;
   }
@@ -355,23 +355,23 @@ LABEL_40:
 LABEL_44:
   if ( (v48 & 2) == 0 )
     goto LABEL_49;
-  sub_130658((int)&v65);
+  write_bf_header((int)&v65);
   if ( (v43[374] & 4) != 0 )
 LABEL_46:
-    sub_130580((int)&v65);
+    write_hash_header((int)&v65);
 LABEL_50:
   v50 = (uint16_t *)off_1384D0;
-  sub_143630(v65, (char *)off_1384D0 + 3, *(uint16_t *)off_1384D0);
+  memcpy(v65, (char *)off_1384D0 + 3, *(uint16_t *)off_1384D0);
   v51 = **(int16_t **)off_1384D4;
   v65 += *v50;
   v52 = v65 - (uint32_t)v25;
   if ( v51 < 0 && v52 > 0x12C )
   {
-    sub_12F32C(dword_1384E0, dword_1384DC, 182);
+    irq_disable_mmio_write(dword_1384E0, dword_1384DC, 182);
     LOWORD(v52) = v65 - (uint16_t)v25;
   }
   *(uint16_t *)(v8 + 364) = v52;
   *(uint32_t *)(v8 + 360) = 0;
-  return (uint32_t *)sub_12C84C(v8);
+  return (uint32_t *)rx_process_packet(v8);
 }
 

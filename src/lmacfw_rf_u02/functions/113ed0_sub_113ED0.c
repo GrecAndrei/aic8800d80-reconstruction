@@ -12,8 +12,8 @@
 
 extern uint32_t dword_113F38;
 
-// sub_113ED0 @ 0x113ed0, size 104 bytes
-int  sub_113ED0(int a1, char a2, int a3)
+// tx_packet_prepare @ 0x113ed0, size 104 bytes
+int  tx_packet_prepare(int a1, char a2, int a3)
 {
   int v5; // r1
   int v6; // r2
@@ -33,7 +33,7 @@ int  sub_113ED0(int a1, char a2, int a3)
   v16[1] = v5;
   v16[2] = v6;
   v7 = v16[a1];
-  v8 = sub_113A44(v7);
+  v8 = mmio_read32(v7);
   v9 = 8 * a2;
   v10 = v8 >> (8 * a2);
   v11 = (uint8_t)v10;
@@ -53,7 +53,7 @@ int  sub_113ED0(int a1, char a2, int a3)
     v15 = 2 * a3;
   else
     v15 = (-2 * a3) | 1;
-  host_reg_wait_set(v7, v15 << v12 << v9);
+  mmio_write32(v7, v15 << v12 << v9);
   return v13;
 }
 

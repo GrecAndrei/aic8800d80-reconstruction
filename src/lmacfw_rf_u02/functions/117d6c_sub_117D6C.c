@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_117D6C @ 0x117d6c, size 70 bytes
+// rx_queue_flush @ 0x117d6c, size 70 bytes
 // Doc: sub_1217D6C [unknown]: Push-context helper loading offset 0x30 from argument struct
 // sub_1217D6C [unknown]: Push-context helper loading offset 0x30 from argument struct
-int  sub_117D6C(int a1, int a2, int a3)
+int  rx_queue_flush(int a1, int a2, int a3)
 {
   int v3; // r4
   int v6; // r8
@@ -27,13 +27,13 @@ int  sub_117D6C(int a1, int a2, int a3)
     v6 = a2 + 48;
     do
     {
-      if ( !is_flag_set_clz() )
+      if ( !rf_is_idle() )
         break;
-      v7 = sub_11E7AC(v6);
+      v7 = list_pop_front(v6);
       v8 = *(uint8_t *)(v7 + 14);
       *(uint8_t *)(v7 + 53) = 0;
       ++v3;
-      rf_subcmd_dispatch_n5b60(v7, v8);
+      llm_scan_pdu_cfg(v7, v8);
       if ( a3 )
       {
         if ( v3 == a3 )

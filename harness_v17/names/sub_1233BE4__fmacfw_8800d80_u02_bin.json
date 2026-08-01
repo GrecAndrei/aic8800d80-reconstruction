@@ -1,1 +1,1 @@
-{"fn": "sub_1233BE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1233be4", "status": "ok", "name": "fmac_init_n_be4", "params": [], "docstring": "Initializes FMAC subsystem with 0x100 size and dispatches event", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1233BE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1233be4", "status": "ok", "name": "send_control_command", "params": [], "docstring": "Initializes FMAC subsystem with 0x100 size and dispatches event", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

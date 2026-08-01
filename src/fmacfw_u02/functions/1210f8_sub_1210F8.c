@@ -26,10 +26,10 @@ extern uint32_t off_12131C;
 extern uint32_t off_121320;
 extern uint32_t dword_121334;
 
-// sub_1210F8 @ 0x1210f8, size 520 bytes
+// event_queue_drain @ 0x1210f8, size 520 bytes
 // Doc: sub_12210F8 [util]: general utility function with register save
 // sub_12210F8 [util]: general utility function with register save
-int sub_1210F8()
+int event_queue_drain()
 {
   uint32_t *v0; // r6
   int v1; // r4
@@ -75,17 +75,17 @@ int sub_1210F8()
   }
   v2 = (int *)off_121308;
   ++*(uint32_t *)off_121308;
-  rf_set_bit_flag(4);
-  v3 = category_dispatch_5way(4);
+  mmio_set_bit(4);
+  v3 = phy_band_validate(4);
   if ( *v2 && (v5 = *v2 - 1, v6 = *(uint32_t *)off_121304, (*v2 = v5) == 0) && v6 )
   {
     __enable_irq();
     if ( !v1 )
-      return sub_1258C0(v3);
+      return ke_event_dispatch(v3);
   }
   else if ( !v1 )
   {
-    return sub_1258C0(v3);
+    return ke_event_dispatch(v3);
   }
   v7 = off_12130C;
   v8 = off_121330;
@@ -112,25 +112,25 @@ int sub_1210F8()
         if ( !v12 )
           goto LABEL_15;
       }
-      v3 = msg_parse(dword_121324, v4, v13);
+      v3 = event_dispatch(dword_121324, v4, v13);
 LABEL_7:
       v1 = *(uint32_t *)v1;
       if ( !v1 )
         goto LABEL_26;
     }
 LABEL_15:
-    mmio_read_status_reg(v1);
-    v3 = fmac_status_chk_4c8(v1, *(uint32_t *)(v1 + 36) + 3048);
+    configure_mmio(v1);
+    v3 = llc_get_conn_idx(v1, *(uint32_t *)(v1 + 36) + 3048);
     v4 = *(uint16_t *)(v1 + 222);
     v14 = 32 * *v7;
     if ( v14 <= 0xBE7 )
       v14 += v4 << 10;
     v15 = v14 + v8[4] - 3048;
     if ( *(uint32_t *)(v1 + 72) )
-      v3 = fmac_handler_dispatch(v1, *(uint32_t *)(v1 + 36), v15);
+      v3 = rx_dispatch_frame(v1, *(uint32_t *)(v1 + 36), v15);
     if ( *(uint8_t *)(v1 + 1224) )
     {
-      v3 = timestamp_update(v1 + 24, v15);
+      v3 = unknown_worker(v1 + 24, v15);
     }
     else
     {
@@ -167,7 +167,7 @@ LABEL_15:
         v22 = (uint16_t)*v9;
         if ( v21 )
         {
-          v3 = timestamp_update(dword_12132C, v18 + 500 * v22);
+          v3 = unknown_worker(dword_12132C, v18 + 500 * v22);
         }
         else
         {
@@ -175,7 +175,7 @@ LABEL_15:
             v23 = 250;
           else
             v23 = 200;
-          v3 = timestamp_update(dword_12132C, v18 + v23 * v22);
+          v3 = unknown_worker(dword_12132C, v18 + v23 * v22);
         }
       }
       *(uint32_t *)(v1 + 36) = v15;
@@ -186,7 +186,7 @@ LABEL_15:
   }
   while ( v1 );
 LABEL_26:
-  result = sub_1258C0(v3);
+  result = ke_event_dispatch(v3);
   if ( *((uint8_t *)off_12131C + 413) )
   {
     if ( v10 )
@@ -194,7 +194,7 @@ LABEL_26:
       v17 = off_121320;
       if ( *((uint8_t *)off_121320 + 15) )
       {
-        result = msg_get_value(4);
+        result = rx_rate_field_parse(4);
         if ( result != 1 )
         {
           if ( !*((uint8_t *)v17 + 14)
@@ -206,7 +206,7 @@ LABEL_26:
             v28 = dword_121334;
             v17[7] = v10;
             *((uint8_t *)v17 + 14) = *((uint8_t *)v17 + 15);
-            return timestamp_update(v28, v27 + ((unsigned int)((v25 << 10) - v26) >> 1));
+            return unknown_worker(v28, v27 + ((unsigned int)((v25 << 10) - v26) >> 1));
           }
         }
       }

@@ -1,0 +1,1 @@
+{"fn": "sub_116484", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x116484", "status": "ok", "name": "send_to_global_queue", "params": [], "docstring": "Send argument to global message queue at 0x18264c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

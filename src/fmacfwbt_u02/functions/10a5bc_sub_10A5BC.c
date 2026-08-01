@@ -13,8 +13,8 @@
 extern uint32_t dword_10A7FC;
 extern uint32_t dword_10A7F8;
 
-// sub_10A5BC @ 0x10a5bc, size 572 bytes
-int  sub_10A5BC(int a1, unsigned int a2, uint8_t *a3, int *a4)
+// tx_packet_dispatch @ 0x10a5bc, size 572 bytes
+int  tx_packet_dispatch(int a1, unsigned int a2, uint8_t *a3, int *a4)
 {
   uint8_t *v6; // r6
   uint8_t *v7; // r9
@@ -73,10 +73,10 @@ int  sub_10A5BC(int a1, unsigned int a2, uint8_t *a3, int *a4)
       }
       while ( v9 != 4 );
       *v7 = 0;
-      v12 = sub_1095B8(v30, v31);
+      v12 = float_compare(v30, v31);
       *v7 = v12;
       if ( (v12 & 0xE) == 0 )
-        sub_109988(a2, v30, v31, (int)v7);
+        f32_compare(a2, v30, v31, (int)v7);
       v7 += 16;
     }
     v13 = (float *)var3C;
@@ -143,7 +143,7 @@ LABEL_21:
     {
 LABEL_42:
       v21 = 32 * (9 - a2);
-      sub_10DA7C(dword_10A7FC, a2, v15);
+      printf_wrapper(dword_10A7FC, a2, v15);
       return v21;
     }
     goto LABEL_21;
@@ -161,7 +161,7 @@ LABEL_42:
   v32[0] = 0;
   if ( a2 > 9 )
   {
-    v28 = sub_1095B8(v30, v31);
+    v28 = float_compare(v30, v31);
     v32[0] = v28;
     if ( (v28 & 0xE) != 0 )
     {
@@ -169,23 +169,23 @@ LABEL_42:
     }
     else
     {
-      sub_109988(a2, v30, v31, (int)v32);
+      f32_compare(a2, v30, v31, (int)v32);
       v27 = v32[0];
       v20 = v32[0];
       if ( (v32[0] & 0xE) == 0 )
         goto LABEL_26;
     }
     v21 = 32 * (9 - a2);
-    sub_10DA7C(dword_10A7F8, a2, v20);
+    printf_wrapper(dword_10A7F8, a2, v20);
     return v21;
   }
-  sub_109988(a2, v30, v31, (int)v32);
+  f32_compare(a2, v30, v31, (int)v32);
   v20 = v32[0];
   v27 = v32[0];
   if ( (v32[0] & 0xE) != 0 )
   {
     v21 = 128;
-    sub_10DA7C(dword_10A7F8, a2, v32[0]);
+    printf_wrapper(dword_10A7F8, a2, v32[0]);
     return v21;
   }
 LABEL_26:
@@ -193,7 +193,7 @@ LABEL_26:
   if ( v27 )
   {
 LABEL_22:
-    sub_10DA7C(dword_10A7F8, a2, v20);
+    printf_wrapper(dword_10A7F8, a2, v20);
     return v21;
   }
   return v21;

@@ -15,8 +15,8 @@ extern uint32_t off_11DEA0;
 extern uint32_t dword_11DEA8;
 extern uint32_t dword_11DEA4;
 
-// sub_11DE3C @ 0x11de3c, size 98 bytes
-int  sub_11DE3C(int a1, int a2)
+// ble_get_rssi @ 0x11de3c, size 98 bytes
+int  ble_get_rssi(int a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -54,7 +54,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(int16_t **)off_11DEA0 < 0 && !a2 )
-      return sub_12F2C8(dword_11DEA8, dword_11DEA4, 1119, v2);
+      return unknown_12f2c8(dword_11DEA8, dword_11DEA4, 1119, v2);
     v2 = *(uint16_t *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;

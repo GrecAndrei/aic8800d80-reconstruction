@@ -21,10 +21,10 @@ extern uint32_t dword_10EF90;
 extern uint32_t off_10EF94;
 extern uint32_t dword_10EF98;
 
-// rf_calib_init_loader @ 0x10ee7c, size 256 bytes
-// Doc: rf_calib_init_loader [rf]: Load calibration constants from ROM tables into RF MMIO block at 0x40100000
-// rf_calib_init_loader [rf]: Load calibration constants from ROM tables into RF MMIO block at 0x40100000
-int rf_calib_init_loader()
+// gpio_bank_init2 @ 0x10ee7c, size 256 bytes
+// Doc: gpio_bank_init2 [rf]: Load calibration constants from ROM tables into RF MMIO block at 0x40100000
+// gpio_bank_init2 [rf]: Load calibration constants from ROM tables into RF MMIO block at 0x40100000
+int gpio_bank_init2()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r2
@@ -60,7 +60,7 @@ int rf_calib_init_loader()
   *v5 &= ~1u;
   v15[0] = v7;
   v15[1] = 2442;
-  sub_102908((uint8_t *)v15, 0);
+  tx_set_power((uint8_t *)v15, 0);
   v8 = (int *)off_10EF94;
   v9 = dword_10EF98;
   v0 += 593954;
@@ -74,7 +74,7 @@ int rf_calib_init_loader()
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
   *v0 |= 0x400000u;
-  result = sub_10EC2C(4);
+  result = gpio_af_set(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
   *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;

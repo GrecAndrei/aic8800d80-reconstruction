@@ -1,1 +1,1 @@
-{"fn": "rf_bus_init_n_2bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211afc", "status": "ok", "name": "rf_bus_init_n_2bc", "params": [], "docstring": "Initialize RF bus with address and bus type", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_init_n_2bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211afc", "status": "ok", "name": "bt_cmd_handler", "params": [], "docstring": "Initialize RF bus with address and bus type", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

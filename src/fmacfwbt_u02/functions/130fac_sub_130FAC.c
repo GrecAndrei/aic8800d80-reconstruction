@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130FAC @ 0x130fac, size 38 bytes
-int  sub_130FAC(int a1, int a2, int16_t a3)
+// rf_build_cal_block_v2 @ 0x130fac, size 38 bytes
+int  rf_build_cal_block_v2(int a1, int a2, int16_t a3)
 {
   int16_t v3; // r3
   int v4; // r1

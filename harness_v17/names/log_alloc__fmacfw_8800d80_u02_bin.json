@@ -1,1 +1,1 @@
-{"fn": "log_alloc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ffbc", "status": "ok", "name": "log_alloc", "params": [], "docstring": "Logs allocation event based on debug flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_alloc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ffbc", "status": "ok", "name": "is_hci_initialized", "params": [], "docstring": "Logs allocation event based on debug flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

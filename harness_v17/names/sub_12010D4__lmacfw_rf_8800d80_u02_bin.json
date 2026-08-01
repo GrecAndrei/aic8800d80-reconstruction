@@ -1,1 +1,1 @@
-{"fn": "sub_12010D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12010d4", "status": "ok", "name": "rf_init_hw_setup", "params": [], "docstring": "Initialize RF hardware and clear MMIO control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12010D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12010d4", "status": "ok", "name": "mac_ctrl_clear", "params": [], "docstring": "Initialize RF hardware and clear MMIO control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

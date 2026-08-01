@@ -1,1 +1,1 @@
-{"fn": "sub_1236C34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236c34", "status": "ok", "name": "sub_1236C34", "params": [], "docstring": "Lookup indexed table by 0x528-stride byte field, compare to 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1236C34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236c34", "status": "ok", "name": "phy_check_core_mode", "params": [], "docstring": "Lookup indexed table by 0x528-stride byte field, compare to 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

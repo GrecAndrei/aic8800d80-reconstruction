@@ -1,1 +1,1 @@
-{"fn": "sub_120D6A8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d6a8", "status": "ok", "name": "message_dispatch_n286", "params": [], "docstring": "Dispatch message by ID/index comparison", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120D6A8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d6a8", "status": "ok", "name": "hci_cmd_init", "params": [], "docstring": "Dispatch message by ID/index comparison", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

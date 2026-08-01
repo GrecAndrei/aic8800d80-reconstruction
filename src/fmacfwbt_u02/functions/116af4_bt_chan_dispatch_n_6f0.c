@@ -35,10 +35,10 @@ extern uint32_t off_116D9C;
 extern uint32_t off_116DA0;
 extern uint32_t off_116DA4;
 
-// bt_chan_dispatch_n_6f0 @ 0x116af4, size 652 bytes
-// Doc: bt_chan_dispatch_n_6f0 [bt]: Dispatch Bluetooth channel command by opcode
-// bt_chan_dispatch_n_6f0 [bt]: Dispatch Bluetooth channel command by opcode
-int  bt_chan_dispatch_n_6f0(int a1, int a2, int a3, int a4)
+// get_cal_item @ 0x116af4, size 652 bytes
+// Doc: get_cal_item [bt]: Dispatch Bluetooth channel command by opcode
+// get_cal_item [bt]: Dispatch Bluetooth channel command by opcode
+int  get_cal_item(int a1, int a2, int a3, int a4)
 {
   uint32_t *v5; // r3
   int *v6; // r0
@@ -72,7 +72,7 @@ LABEL_12:
         *v16 = 512;
         goto LABEL_4;
       }
-      result = sub_12F630(dword_116DD4, dword_116DC0, 1919, a4);
+      result = ke_int_lock(dword_116DD4, dword_116DC0, 1919, a4);
       break;
     case 1:
       if ( ((*(uint32_t *)off_116D80 >> 8) & 3) != 2 )
@@ -87,7 +87,7 @@ LABEL_14:
         *v17 = 1024;
         goto LABEL_4;
       }
-      result = sub_12F630(dword_116DD0, dword_116DC0, 1907, a4);
+      result = ke_int_lock(dword_116DD0, dword_116DC0, 1907, a4);
       break;
     case 2:
       if ( ((*(uint32_t *)off_116D80 >> 12) & 3) != 2 )
@@ -102,7 +102,7 @@ LABEL_16:
         *v18 = 2048;
         goto LABEL_4;
       }
-      result = sub_12F630(dword_116DCC, dword_116DC0, 1895, a4);
+      result = ke_int_lock(dword_116DCC, dword_116DC0, 1895, a4);
       break;
     case 3:
       if ( (HIWORD(*(uint32_t *)off_116D80) & 3) != 2 )
@@ -117,7 +117,7 @@ LABEL_18:
         *v19 = 4096;
         goto LABEL_4;
       }
-      result = sub_12F630(dword_116DC8, dword_116DC0, 1883, a4);
+      result = ke_int_lock(dword_116DC8, dword_116DC0, 1883, a4);
       break;
     case 4:
       if ( **(int16_t **)off_116DB8 >= 0 || (*(uint32_t *)off_116D80 & 3) != 2 )
@@ -127,7 +127,7 @@ LABEL_18:
         *v20 = 256;
         goto LABEL_4;
       }
-      result = sub_12F630(dword_116DC4, dword_116DC0, 1871, a4);
+      result = ke_int_lock(dword_116DC4, dword_116DC0, 1871, a4);
       break;
     case 5:
       if ( (HIBYTE(*(uint32_t *)off_116D80) & 3) != 2 )
@@ -142,11 +142,11 @@ LABEL_3:
         *v5 = 0x4000;
         goto LABEL_4;
       }
-      result = sub_12F630(dword_116DD8, dword_116DC0, 1931, a4);
+      result = ke_int_lock(dword_116DD8, dword_116DC0, 1931, a4);
       break;
     default:
       if ( **(int16_t **)off_116DB8 < 0 )
-        sub_12F694(dword_116DDC, dword_116DC0, 1937);
+        mmio_irq_clear(dword_116DDC, dword_116DC0, 1937);
 LABEL_4:
       v6 = (int *)off_116D98;
       v7 = (int *)(4 * (dword_116D94 + a2));

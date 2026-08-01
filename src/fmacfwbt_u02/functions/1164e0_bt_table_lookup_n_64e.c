@@ -12,10 +12,10 @@
 
 extern uint32_t dword_116504;
 
-// bt_table_lookup_n_64e @ 0x1164e0, size 34 bytes
-// Doc: bt_table_lookup_n_64e [bt]: Lookup entry in BT table by indexed offset
-// bt_table_lookup_n_64e [bt]: Lookup entry in BT table by indexed offset
-int  bt_table_lookup_n_64e(int a1, int a2)
+// set_callback_arg @ 0x1164e0, size 34 bytes
+// Doc: set_callback_arg [bt]: Lookup entry in BT table by indexed offset
+// set_callback_arg [bt]: Lookup entry in BT table by indexed offset
+int  set_callback_arg(int a1, int a2)
 {
   int v2; // r3
   int result; // r0

@@ -12,17 +12,17 @@
 
 extern uint32_t off_133A50;
 
-// sub_133A08 @ 0x133a08, size 72 bytes
-int sub_133A08()
+// handle_state_five @ 0x133a08, size 72 bytes
+int handle_state_five()
 {
-  if ( msg_get_value(6u) != 5 && msg_get_value(6u) != 6 && msg_get_value(6u) != 7 && msg_get_value(6u) != 8 )
+  if ( rx_rate_field_parse(6u) != 5 && rx_rate_field_parse(6u) != 6 && rx_rate_field_parse(6u) != 7 && rx_rate_field_parse(6u) != 8 )
     return 0;
   if ( *((uint8_t *)off_133A50 + 34) )
   {
     *((uint8_t *)off_133A50 + 34) = 0;
     return 0;
   }
-  sub_134E04(1);
+  bt_setup_conn_profile(1);
   return 0;
 }
 

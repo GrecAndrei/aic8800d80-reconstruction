@@ -14,10 +14,10 @@ extern uint32_t off_1149F0;
 extern uint32_t off_1149F4;
 extern uint32_t off_1149F8;
 
-// rf_init_or_reset_helper @ 0x1149bc, size 52 bytes
-// Doc: rf_init_or_reset_helper [rf]: RF subsystem initialization or reset helper
-// rf_init_or_reset_helper [rf]: RF subsystem initialization or reset helper
-int rf_init_or_reset_helper()
+// osal_int_enter @ 0x1149bc, size 52 bytes
+// Doc: osal_int_enter [rf]: RF subsystem initialization or reset helper
+// osal_int_enter [rf]: RF subsystem initialization or reset helper
+int osal_int_enter()
 {
   int *v0; // r4
   int ( *v1)(int); // r2

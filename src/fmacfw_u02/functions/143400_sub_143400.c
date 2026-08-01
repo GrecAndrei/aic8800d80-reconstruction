@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143400 @ 0x143400, size 18 bytes
-BOOL  sub_143400(int a1, int a2)
+// call_helper_bool @ 0x143400, size 18 bytes
+BOOL  call_helper_bool(int a1, int a2)
 {
   char v2; // cf
 
-  sub_143398(a1, a2);
+  float_swap_compare(a1, a2);
   return !v2;
 }
 

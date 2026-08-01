@@ -16,8 +16,8 @@ extern uint32_t dword_10F158;
 extern uint32_t dword_10F15C;
 extern uint32_t off_10F160;
 
-// sub_10F11C @ 0x10f11c, size 52 bytes
-int sub_10F11C()
+// ke_get_state @ 0x10f11c, size 52 bytes
+int ke_get_state()
 {
   uint8_t *v0; // r3
   int result; // r0

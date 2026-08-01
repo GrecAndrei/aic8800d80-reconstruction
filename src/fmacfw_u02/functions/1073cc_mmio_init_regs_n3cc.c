@@ -19,10 +19,10 @@ extern uint32_t off_10750C;
 extern uint32_t off_107510;
 extern uint32_t off_107514;
 
-// mmio_init_regs_n3cc @ 0x1073cc, size 298 bytes
-// Doc: mmio_init_regs_n3cc [mmio]: Initializes MMIO register fields by clearing and setting bits across memory-mapped blocks
-// mmio_init_regs_n3cc [mmio]: Initializes MMIO register fields by clearing and setting bits across memory-mapped blocks
-uint32_t *mmio_init_regs_n3cc()
+// rf_radio_disable @ 0x1073cc, size 298 bytes
+// Doc: rf_radio_disable [mmio]: Initializes MMIO register fields by clearing and setting bits across memory-mapped blocks
+// rf_radio_disable [mmio]: Initializes MMIO register fields by clearing and setting bits across memory-mapped blocks
+uint32_t *rf_radio_disable()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

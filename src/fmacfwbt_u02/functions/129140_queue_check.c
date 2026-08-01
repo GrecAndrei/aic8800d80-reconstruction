@@ -13,16 +13,16 @@
 extern uint32_t off_129174;
 extern uint32_t off_129178;
 
-// queue_check @ 0x129140, size 50 bytes
-// Doc: queue_check [ke]: Check queue flag state
-// queue_check [ke]: Check queue flag state
-int queue_check()
+// mm_state_run @ 0x129140, size 50 bytes
+// Doc: mm_state_run [ke]: Check queue flag state
+// mm_state_run [ke]: Check queue flag state
+int mm_state_run()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r3
 
   v0 = off_129174;
-  if ( !*(uint8_t *)off_129174 && !sub_12A690() )
+  if ( !*(uint8_t *)off_129174 && !bt_scan_get_state() )
     return 0;
   if ( v0[1] )
     return 0;

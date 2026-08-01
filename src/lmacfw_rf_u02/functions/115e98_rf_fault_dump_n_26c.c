@@ -15,10 +15,10 @@ extern uint32_t dword_115F74;
 extern uint32_t off_115F6C;
 extern uint32_t dword_115F70;
 
-// rf_fault_dump_n_26c @ 0x115e98, size 208 bytes
-// Doc: rf_fault_dump_n_26c [rf]: RF fault/state dump handler (variant 26c)
-// rf_fault_dump_n_26c [rf]: RF fault/state dump handler (variant 26c)
-uint32_t *rf_fault_dump_n_26c()
+// rf_acquire @ 0x115e98, size 208 bytes
+// Doc: rf_acquire [rf]: RF fault/state dump handler (variant 26c)
+// rf_acquire [rf]: RF fault/state dump handler (variant 26c)
+uint32_t *rf_acquire()
 {
   uint8_t *v0; // r5
   int v1; // r8
@@ -36,7 +36,7 @@ uint32_t *rf_fault_dump_n_26c()
 
   v0 = off_115F68;
   v1 = dword_115F74;
-  sub_11E628(1966080);
+  enter_critical_section(1966080);
   v0[142] = 1;
   v2 = v0 + 12;
   v3 = &v12;
@@ -44,30 +44,30 @@ uint32_t *rf_fault_dump_n_26c()
   do
   {
     v5 = (uint8_t)v4;
-    sub_11E71C(v3);
-    rf_bus_write_60fc((uint8_t)v4++, v1, v3);
-    rf_bus_write_60fc(v5, v2, v3);
+    list_init(v3);
+    wlan_hw_init((uint8_t)v4++, v1, v3);
+    wlan_hw_init(v5, v2, v3);
     v1 += 8;
     v3 += 2;
     v2 += 28;
   }
   while ( v4 != 4 );
   v6 = (int *)off_115F6C;
-  v7 = sub_116328(5, off_115F6C, 0);
-  sub_115FBC(v7);
+  v7 = wlan_clk_init(5, off_115F6C, 0);
+  clear_config_32(v7);
   v8 = *((uint16_t *)v0 + 70);
   sub_100200(v6 - 31, 0, 0x94u);
   *((uint16_t *)v0 + 70) = v8;
-  sub_11E71C(v6 - 28);
+  list_init(v6 - 28);
   *(int *)((char *)v6 + 0xFFFFFF84) = 0;
   v0[26] = 0;
-  sub_11E71C(v6 - 21);
+  list_init(v6 - 21);
   *((uint32_t *)v0 + 7) = 0;
   v0[54] = 0;
-  sub_11E71C(v6 - 14);
+  list_init(v6 - 14);
   *((uint32_t *)v0 + 14) = 0;
   v0[82] = 0;
-  sub_11E71C(v6 - 7);
+  list_init(v6 - 7);
   v9 = dword_115F70;
   *((uint32_t *)v0 + 21) = 0;
   v0[110] = 0;

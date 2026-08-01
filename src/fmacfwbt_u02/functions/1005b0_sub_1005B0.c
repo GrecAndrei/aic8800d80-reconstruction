@@ -15,8 +15,8 @@ extern uint32_t off_100638;
 extern uint32_t dword_100640;
 extern uint32_t dword_10063C;
 
-// sub_1005B0 @ 0x1005b0, size 132 bytes
-int  sub_1005B0(int a1)
+// timer_read @ 0x1005b0, size 132 bytes
+int  timer_read(int a1)
 {
   unsigned int v2; // r6
   unsigned int v3; // r5
@@ -27,8 +27,8 @@ int  sub_1005B0(int a1)
 
   v2 = *(uint32_t *)off_100634;
   v3 = *(uint32_t *)off_100634;
-  v4 = sub_101874();
-  v5 = sub_101878();
+  v4 = return_one();
+  v5 = sys_status_get_bit21();
   v6 = (v2 >> 8) & 0xF;
   v7 = (v3 >> 27) & 1;
   if ( a1 == 1 )
@@ -67,7 +67,7 @@ int  sub_1005B0(int a1)
   else if ( a1 )
   {
     if ( **(int16_t **)off_100638 < 0 )
-      sub_12F694(dword_100640, dword_10063C, 434);
+      mmio_irq_clear(dword_100640, dword_10063C, 434);
     return 0;
   }
   else if ( v5 )

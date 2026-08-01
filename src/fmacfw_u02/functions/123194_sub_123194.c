@@ -13,17 +13,17 @@
 extern uint32_t dword_1231CC;
 extern uint32_t dword_1231D0;
 
-// sub_123194 @ 0x123194, size 56 bytes
-int  sub_123194(int a1, int a2, int a3, int a4)
+// send_cmd_85 @ 0x123194, size 56 bytes
+int  send_cmd_85(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r4
   unsigned int v5; // r0
 
-  v4 = (uint8_t *)sub_12C92C(133, a4, a3, 1);
-  v5 = sub_10ED84(dword_1231CC, 1);
+  v4 = (uint8_t *)ke_msg_alloc(133, a4, a3, 1);
+  v5 = mmio_read32(dword_1231CC, 1);
   *v4 = (BYTE2(v5) ^ 1) & 1;
-  sub_12EA88(dword_1231D0, v5, HIWORD(v5) & 1);
-  sub_12C98C(v4);
+  event_dispatch(dword_1231D0, v5, HIWORD(v5) & 1);
+  ke_msg_send(v4);
   return 0;
 }
 

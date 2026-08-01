@@ -21,8 +21,8 @@ extern uint32_t dword_12ACD8;
 extern uint32_t dword_12ACF0;
 extern uint32_t dword_12ACE0;
 
-// sub_12AA04 @ 0x12aa04, size 716 bytes
-uint8_t * sub_12AA04(int a1)
+// bt_dev_update @ 0x12aa04, size 716 bytes
+uint8_t * bt_dev_update(int a1)
 {
   int v1; // r9
   int v2; // r8
@@ -61,7 +61,7 @@ uint8_t * sub_12AA04(int a1)
   {
     v20 = *(uint32_t *)(a1 + 44);
     if ( **(int16_t **)off_12ACD4 < 0 && *(uint8_t *)(v6 + 106) )
-      sub_12F694(dword_12ACEC, dword_12ACE8, 98);
+      mmio_irq_clear(dword_12ACEC, dword_12ACE8, 98);
     v8 = v20 + *((uint32_t *)off_12ACDC + 4) - *(uint32_t *)off_12ACE4 - *(uint32_t *)(v6 + 132);
   }
   v9 = (int16_t **)off_12ACD4;
@@ -84,14 +84,14 @@ uint8_t * sub_12AA04(int a1)
           {
             if ( *(uint8_t *)(v1 + 140 * v2 + 112) == 1 )
             {
-              bt_link_state_get_n2c4(v6, *(uint8_t *)(a1 + 18), 0);
+              bt_conn_get_state(v6, *(uint8_t *)(a1 + 18), 0);
               v12 = (int)v7;
             }
             else
             {
               if ( *(uint8_t *)(a1 + 16) )
               {
-                timestamp_remove_058(a1);
+                ke_event_set_lock(a1);
                 *(uint8_t *)(a1 + 16) = 0;
               }
               v12 = (int)v7;
@@ -126,7 +126,7 @@ uint8_t * sub_12AA04(int a1)
               *(uint8_t *)(a1 + 20) = v17;
               if ( v15 )
                 *(uint32_t *)(a1 + 40) = 0x80000000 / v15 - 1;
-              sub_125EFC(*(uint8_t *)(dword_12ACD0 + 1320 * v21 + 107), 3);
+              set_flag_byte(*(uint8_t *)(dword_12ACD0 + 1320 * v21 + 107), 3);
               if ( v8 - *((uint32_t *)off_12ACDC + 4) - 5000 >= 0 )
               {
                 v3 = 1;
@@ -140,10 +140,10 @@ LABEL_27:
           else if ( v8 - *((uint32_t *)off_12ACDC + 4) - 5000 >= 0 )
           {
             v22 = *(uint8_t *)(v13 + 112);
-            timestamp_update_4f60(a1, v8);
+            ke_event_lock(a1, v8);
             *(uint8_t *)(a1 + 16) = v22;
-            sub_1297BC((int)v7);
-            result = sub_129A28(v7);
+            mem_fill((int)v7);
+            result = state_machine_step(v7);
             if ( *(uint8_t *)(dword_12ACD0 + 1320 * v21 + 106) != 2 )
               return result;
             goto LABEL_30;
@@ -162,13 +162,13 @@ LABEL_27:
         goto LABEL_36;
 LABEL_42:
       if ( **(int16_t **)off_12ACD4 < 0 && *(uint8_t *)(v6 + 106) )
-        sub_12F694(dword_12ACEC, dword_12ACF0, 79);
+        mmio_irq_clear(dword_12ACEC, dword_12ACF0, 79);
       *(uint32_t *)(a1 + 44) = *(uint32_t *)off_12ACE4 - *((uint32_t *)off_12ACDC + 4) + *(uint32_t *)(v6 + 132) + v8;
       goto LABEL_36;
     }
     if ( **v9 < 0 )
     {
-      sub_12F694(dword_12ACE0, v10, 720);
+      mmio_irq_clear(dword_12ACE0, v10, 720);
       v9 = (int16_t **)off_12ACD4;
       v10 = dword_12ACD8;
     }
@@ -182,18 +182,18 @@ LABEL_42:
 LABEL_10:
     v12 = (int)v7;
 LABEL_21:
-    sub_1297BC(v12);
-    return sub_129A28(v7);
+    mem_fill(v12);
+    return state_machine_step(v7);
   }
   v16 = *(uint8_t *)(v1 + 140 * v2 + 112);
 LABEL_35:
   if ( !v16 )
     goto LABEL_42;
 LABEL_36:
-  timestamp_update_4f60(a1, v8);
+  ke_event_lock(a1, v8);
   *(uint8_t *)(a1 + 16) = v3;
-  sub_1297BC((int)v7);
-  result = sub_129A28(v7);
+  mem_fill((int)v7);
+  result = state_machine_step(v7);
   if ( *(uint8_t *)(dword_12ACD0 + 1320 * v21 + 106) == 2 && v3 == 1 )
 LABEL_30:
     *(uint32_t *)(dword_12ACD0 + 1320 * v21 + 4) |= 0x20u;

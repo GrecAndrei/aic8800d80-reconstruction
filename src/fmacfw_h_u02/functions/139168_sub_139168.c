@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_139168 @ 0x139168, size 76 bytes
-int  sub_139168(int result, unsigned int a2)
+// short_delay @ 0x139168, size 76 bytes
+int  short_delay(int result, unsigned int a2)
 {
   uint16_t v2; // r2
   char v3; // r7
@@ -48,6 +48,6 @@ int  sub_139168(int result, unsigned int a2)
   v8 = (a2 + *(uint16_t *)(result + 8)) & 0xFFF;
   *(uint8_t *)(result + 10) = v7 & 0x3F;
   *(uint16_t *)(result + 8) = v8;
-  return sub_138818(result);
+  return get_table_entry(result);
 }
 

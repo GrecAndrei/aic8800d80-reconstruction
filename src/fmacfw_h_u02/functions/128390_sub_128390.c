@@ -12,8 +12,8 @@
 
 extern uint32_t off_1283DC;
 
-// sub_128390 @ 0x128390, size 74 bytes
-BOOL  sub_128390(int a1)
+// cfm_ops_get2 @ 0x128390, size 74 bytes
+BOOL  cfm_ops_get2(int a1)
 {
   int v1; // r3
   unsigned int v2; // r1
@@ -25,7 +25,7 @@ BOOL  sub_128390(int a1)
   if ( v2 <= 2 )
     return *(uint32_t *)(a1 + 72) == v1;
   if ( *(uint32_t *)(a1 + 72) && !*(uint8_t *)(a1 + 1224) && v2 == 4 )
-    return sub_128350(a1);
+    return cfm_ops_get(a1);
   return *(uint8_t *)(v1 + 26) == *(uint8_t *)(a1 + 107);
 }
 

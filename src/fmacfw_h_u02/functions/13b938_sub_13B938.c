@@ -13,8 +13,8 @@
 extern uint32_t off_13B980;
 extern uint32_t dword_13B984;
 
-// sub_13B938 @ 0x13b938, size 72 bytes
-int  sub_13B938(int **a1)
+// load_global_pointer @ 0x13b938, size 72 bytes
+int  load_global_pointer(int **a1)
 {
   int *v1; // r6
   int result; // r0

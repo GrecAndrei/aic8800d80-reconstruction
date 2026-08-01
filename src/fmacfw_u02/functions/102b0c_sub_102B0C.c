@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_102B0C @ 0x102b0c, size 62 bytes
-int  sub_102B0C(unsigned int a1)
+// is_magic_value @ 0x102b0c, size 62 bytes
+int  is_magic_value(unsigned int a1)
 {
   if ( a1 > 0x1666 )
     return 5;

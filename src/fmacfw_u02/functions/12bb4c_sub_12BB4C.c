@@ -20,8 +20,8 @@ extern uint32_t dword_12BBE4;
 extern uint32_t off_12BBE8;
 extern uint32_t off_12BBEC;
 
-// sub_12BB4C @ 0x12bb4c, size 126 bytes
-int *sub_12BB4C()
+// rf_clear_status @ 0x12bb4c, size 126 bytes
+int *rf_clear_status()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r0

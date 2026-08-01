@@ -21,10 +21,10 @@ extern uint32_t off_103C60;
 extern uint32_t off_103C64;
 extern uint32_t dword_103C68;
 
-// crypto_hw_reset_seq @ 0x103b6c, size 214 bytes
-// Doc: crypto_hw_reset_seq [ke]: Reset crypto engine register sequence
-// crypto_hw_reset_seq [ke]: Reset crypto engine register sequence
-uint32_t *crypto_hw_reset_seq()
+// bb_hw_init @ 0x103b6c, size 214 bytes
+// Doc: bb_hw_init [ke]: Reset crypto engine register sequence
+// bb_hw_init [ke]: Reset crypto engine register sequence
+uint32_t *bb_hw_init()
 {
   unsigned int *v0; // r4
   unsigned int *v1; // r0
@@ -50,7 +50,7 @@ uint32_t *crypto_hw_reset_seq()
   v0 -= 136;
   *v4 |= 0x2000000u;
   *v0 &= ~0x20000u;
-  delay_us(2);
+  write_timer_reg(2);
   v6 = off_103C5C;
   result = off_103C60;
   v8 = off_103C64;

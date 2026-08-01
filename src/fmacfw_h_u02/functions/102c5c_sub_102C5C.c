@@ -12,8 +12,8 @@
 
 extern uint32_t off_102CC8;
 
-// sub_102C5C @ 0x102c5c, size 106 bytes
-int  sub_102C5C(int result)
+// rf_clear_control_bit_b @ 0x102c5c, size 106 bytes
+int  rf_clear_control_bit_b(int result)
 {
   int v1; // r4
   int v2; // zf

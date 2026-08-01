@@ -13,8 +13,8 @@
 extern uint32_t off_10FF64;
 extern uint32_t off_10FF68;
 
-// sub_10FF34 @ 0x10ff34, size 46 bytes
-BOOL  sub_10FF34(unsigned int a1)
+// check_controller_mode @ 0x10ff34, size 46 bytes
+BOOL  check_controller_mode(unsigned int a1)
 {
   if ( *(uint32_t *)off_10FF64 <= a1 && a1 <= *(uint32_t *)off_10FF64 + *((uint32_t *)off_10FF64 + 1) )
     return 1;

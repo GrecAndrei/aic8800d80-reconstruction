@@ -14,10 +14,10 @@ extern uint32_t dword_128018;
 extern uint32_t off_12801C;
 extern uint32_t dword_128020;
 
-// sub_127F58 @ 0x127f58, size 190 bytes
+// find_free_conn @ 0x127f58, size 190 bytes
 // Doc: sub_1227F58 [bt]: Unidentified BT firmware helper routine
 // sub_1227F58 [bt]: Unidentified BT firmware helper routine
-int  sub_127F58(uint8_t *a1, uint8_t *a2)
+int  find_free_conn(uint8_t *a1, uint8_t *a2)
 {
   int v2; // r6
   int v5; // r3
@@ -62,7 +62,7 @@ int  sub_127F58(uint8_t *a1, uint8_t *a2)
           v16 = v14[10];
           *(uint16_t *)(v13 + 8) = v15;
           if ( v16 == v13 && *((uint8_t *)v14 + 90) == 1 )
-            sub_102898((uint16_t *)(v2 + 28 * i + 4), 0);
+            gpio_init((uint16_t *)(v2 + 28 * i + 4), 0);
 LABEL_16:
           *a2 = i;
           return 0;
@@ -73,7 +73,7 @@ LABEL_16:
     }
     v5 += 28;
   }
-  v7 = sub_12D4F8(off_12801C);
+  v7 = list_pop_front(off_12801C);
   if ( !v7 )
     return 1;
   v8 = dword_128020 * ((v7 - v2) >> 2);

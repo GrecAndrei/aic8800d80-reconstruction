@@ -26,8 +26,8 @@ int hw_config_init_0688()
   int16_t v3; // r2
 
   v0 = (int *)off_1006C0;
-  inited = fw_init_setup(HIBYTE(*(uint32_t *)off_1006BC) & 3);
-  memset_thunk(v0, 0, 8u);
+  inited = timer_read(HIBYTE(*(uint32_t *)off_1006BC) & 3);
+  memset_byte(v0, 0, 8u);
   result = dword_1006C4 + 16 * inited;
   v3 = *(uint16_t *)(result + 6);
   *(uint32_t *)off_1006C8 = *(uint16_t *)(result + 4);

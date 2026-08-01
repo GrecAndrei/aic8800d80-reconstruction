@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1288C0 @ 0x1288c0, size 220 bytes
+// memset_ff @ 0x1288c0, size 220 bytes
 // Doc: sub_12288C0 [util]: Memory copy/fill routine with pld prefetch
 // sub_12288C0 [util]: Memory copy/fill routine with pld prefetch
-unsigned int  sub_1288C0(unsigned int a1)
+unsigned int  memset_ff(unsigned int a1)
 {
   uint64_t *v1; // r1
   int v3; // r4

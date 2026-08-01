@@ -29,8 +29,8 @@ extern uint32_t dword_11C1B0;
 extern uint32_t dword_11C194;
 extern uint32_t off_11C1A8;
 
-// sub_11BF3C @ 0x11bf3c, size 560 bytes
-int  sub_11BF3C(int result)
+// tx_frame_send @ 0x11bf3c, size 560 bytes
+int  tx_frame_send(int result)
 {
   uint32_t *v1; // r2
   int16_t *v2; // r1
@@ -83,7 +83,7 @@ int  sub_11BF3C(int result)
       v29 = dword_11C198;
       v30 = dword_11C1A0;
       v31 = 2509;
-      return sub_12F2C8(v30, v29, v31, v3);
+      return unknown_12f2c8(v30, v29, v31, v3);
     }
   }
   if ( (v3 & 0x2000000) == 0 )
@@ -95,7 +95,7 @@ int  sub_11BF3C(int result)
     v29 = dword_11C198;
     v30 = dword_11C19C;
     v31 = 2522;
-    return sub_12F2C8(v30, v29, v31, v3);
+    return unknown_12f2c8(v30, v29, v31, v3);
   }
   v7 = dword_11C174;
   v8 = (uint8_t)(v3 - 16);

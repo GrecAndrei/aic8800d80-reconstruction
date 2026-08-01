@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_117DB4 @ 0x117db4, size 10 bytes
-int  sub_117DB4(int result)
+// capability_dispatch @ 0x117db4, size 10 bytes
+int  capability_dispatch(int result)
 {
   if ( *(uint32_t *)(result + 72) )
-    return rf_bus_reset2_c158();
+    return bt_link_rx_check();
   return result;
 }
 

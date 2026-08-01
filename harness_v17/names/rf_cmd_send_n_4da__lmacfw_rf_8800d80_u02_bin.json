@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_4da", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121243e", "status": "ok", "name": "rf_cmd_send_n_4da", "params": [], "docstring": "Sends RF command 0x29 with arg length 9 to RF mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_4da", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121243e", "status": "ok", "name": "rf_bus_reset_43e", "params": [], "docstring": "Sends RF command 0x29 with arg length 9 to RF mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

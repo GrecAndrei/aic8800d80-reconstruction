@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13282C @ 0x13282c, size 28 bytes
-int  sub_13282C(int a1)
+// util_find_first_zero @ 0x13282c, size 28 bytes
+int  util_find_first_zero(int a1)
 {
   int v1; // r3
   int v2; // zf

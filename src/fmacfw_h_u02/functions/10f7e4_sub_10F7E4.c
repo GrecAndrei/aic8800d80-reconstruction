@@ -17,8 +17,8 @@ extern uint32_t dword_10F9D4;
 extern uint32_t dword_10F9D8;
 extern uint32_t dword_10F9DC;
 
-// sub_10F7E4 @ 0x10f7e4, size 492 bytes
-unsigned int  sub_10F7E4(int *a1, int a2, unsigned int a3)
+// rx_handle_packet @ 0x10f7e4, size 492 bytes
+unsigned int  rx_handle_packet(int *a1, int a2, unsigned int a3)
 {
   unsigned int result; // r0
   int v6; // r2
@@ -98,7 +98,7 @@ unsigned int  sub_10F7E4(int *a1, int a2, unsigned int a3)
       }
       else
       {
-        sub_10DAE4(dword_10F9D0, v15);
+        debug_printf(dword_10F9D0, v15);
         v17 = *v8;
         if ( *v8 > (unsigned int)v15 )
           goto LABEL_22;
@@ -115,7 +115,7 @@ LABEL_12:
           goto LABEL_25;
         goto LABEL_13;
       }
-      sub_10DAE4(dword_10F9D4, v15);
+      debug_printf(dword_10F9D4, v15);
       v18 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_25;
@@ -132,7 +132,7 @@ LABEL_14:
           goto LABEL_28;
         goto LABEL_15;
       }
-      sub_10DAE4(dword_10F9D8, v15);
+      debug_printf(dword_10F9D8, v15);
       v19 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_28;
@@ -146,7 +146,7 @@ LABEL_16:
         *v15 = v20;
         goto LABEL_17;
       }
-      sub_10DAE4(dword_10F9DC, v15);
+      debug_printf(dword_10F9DC, v15);
 LABEL_17:
       ++v12;
       ++*(uint16_t *)v14;

@@ -58,8 +58,8 @@ extern uint32_t dword_126BF8;
 extern uint32_t off_126C34;
 extern uint32_t off_126C00;
 
-// sub_1268EC @ 0x1268ec, size 1078 bytes
-unsigned int * sub_1268EC(int a1)
+// init_with_stack @ 0x1268ec, size 1078 bytes
+unsigned int * init_with_stack(int a1)
 {
   unsigned int *result; // r0
   int v3; // r6
@@ -117,11 +117,11 @@ unsigned int * sub_1268EC(int a1)
     if ( a1 != 1 )
     {
       if ( (unsigned int)(a1 - 2) > 1 )
-        return (unsigned int *)sub_11F504(dword_126BC4, a1);
-      sub_1019EC(&v51, 0);
+        return (unsigned int *)dispatch_event_handler(dword_126BC4, a1);
+      mac_time_get(&v51, 0);
       v3 = BYTE1(v51);
       v4 = WORD1(v51);
-      sub_11F504(dword_126BC8, a1, WORD2(v51), WORD1(v51), BYTE1(v51));
+      dispatch_event_handler(dword_126BC8, a1, WORD2(v51), WORD1(v51), BYTE1(v51));
       result = (unsigned int *)off_126BD0;
       v5 = off_126BD4;
       v6 = off_126BD8;
@@ -241,12 +241,12 @@ LABEL_10:
     v22 = (*(uint32_t *)off_126C1C >> 11) & 7;
     v23 = *(uint32_t *)off_126C1C & 0x7F;
     v24 = (*(uint32_t *)off_126C1C >> 7) & 3;
-    sub_124244(v22, v23, v24);
+    mac_validate_rate(v22, v23, v24);
     if ( !*v21 )
     {
-      sub_1019EC(&v51, 0);
+      mac_time_get(&v51, 0);
       v33 = WORD1(v51);
-      result = (unsigned int *)sub_11F504(dword_126C20, WORD2(v51), WORD1(v51), BYTE1(v51));
+      result = (unsigned int *)dispatch_event_handler(dword_126C20, WORD2(v51), WORD1(v51), BYTE1(v51));
       if ( v33 == 2412 )
       {
         v34 = (int *)off_126D28;
@@ -275,8 +275,8 @@ LABEL_10:
       *result = v37;
       goto LABEL_10;
     }
-    sub_11F504(dword_126C20, v22, v23, v24);
-    result = (unsigned int *)sub_12686C(a1);
+    dispatch_event_handler(dword_126C20, v22, v23, v24);
+    result = (unsigned int *)tx_descriptor_config(a1);
     if ( !*(uint8_t *)off_126C24 && *(uint32_t *)off_126C28 )
     {
       v25 = off_126BD8;
@@ -295,7 +295,7 @@ LABEL_10:
   }
   else
   {
-    result = (unsigned int *)sub_11F504(dword_126BF8);
+    result = (unsigned int *)dispatch_event_handler(dword_126BF8);
     v11 = off_126BFC;
     if ( (*(uint32_t *)off_126BFC & 0x10000) != 0 )
     {
@@ -306,7 +306,7 @@ LABEL_10:
       *v29 &= ~1u;
       *v29 &= 0xFFFFFF9F;
       *v30 &= 0xFF87FFFF;
-      result = (unsigned int *)sub_12686C(0);
+      result = (unsigned int *)tx_descriptor_config(0);
     }
     if ( *(int *)off_126BDC >= 0 )
     {

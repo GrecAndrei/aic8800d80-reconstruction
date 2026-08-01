@@ -1,1 +1,1 @@
-{"fn": "sub_1235364", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235364", "status": "ok", "name": "queue_pending_check", "params": [], "docstring": "Check whether transmit/receive queue has pending entries", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235364", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1235364", "status": "ok", "name": "init_rf_tables", "params": [], "docstring": "Check whether transmit/receive queue has pending entries", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -21,8 +21,8 @@ extern uint32_t off_1174A8;
 extern uint32_t dword_1174B0;
 extern uint32_t dword_1174AC;
 
-// sub_117374 @ 0x117374, size 278 bytes
-int  sub_117374(int result)
+// mmio_set_bit @ 0x117374, size 278 bytes
+int  mmio_set_bit(int result)
 {
   int v1; // r3
   int v2; // r6
@@ -110,7 +110,7 @@ int  sub_117374(int result)
       break;
     default:
       if ( **(int16_t **)off_1174A8 < 0 )
-        result = sub_12F694(dword_1174B0, dword_1174AC, 2338);
+        result = mmio_irq_clear(dword_1174B0, dword_1174AC, 2338);
       break;
   }
   return result;

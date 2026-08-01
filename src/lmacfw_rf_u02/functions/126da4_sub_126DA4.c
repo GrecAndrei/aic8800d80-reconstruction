@@ -13,8 +13,8 @@
 extern uint32_t off_126DD0;
 extern uint32_t dword_126DD4;
 
-// sub_126DA4 @ 0x126da4, size 44 bytes
-unsigned int sub_126DA4()
+// rx_index_update @ 0x126da4, size 44 bytes
+unsigned int rx_index_update()
 {
   uint8_t *v0; // r4
   unsigned int result; // r0
@@ -31,8 +31,8 @@ unsigned int sub_126DA4()
     else
       v3 = result + 1;
     *((uint8_t *)off_126DD0 + 6) = v3;
-    sub_10F170(v3);
-    return sub_11F504(dword_126DD4, v0[5], v0[6]);
+    set_xtal_ftune(v3);
+    return dispatch_event_handler(dword_126DD4, v0[5], v0[6]);
   }
   return result;
 }

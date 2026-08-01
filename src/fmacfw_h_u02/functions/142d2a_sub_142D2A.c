@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142D2A @ 0x142d2a, size 98 bytes
-int  sub_142D2A(int result, int a2, int a3, unsigned int a4)
+// double_compare_ord @ 0x142d2a, size 98 bytes
+int  double_compare_ord(int result, int a2, int a3, unsigned int a4)
 {
   int v4; // cf
   int v5; // r4

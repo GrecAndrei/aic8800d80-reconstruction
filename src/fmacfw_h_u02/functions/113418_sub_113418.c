@@ -18,8 +18,8 @@ extern uint32_t off_1134D4;
 extern uint32_t dword_1134D8;
 extern uint32_t dword_1134DC;
 
-// sub_113418 @ 0x113418, size 172 bytes
-int  sub_113418(int a1, int a2, int a3)
+// rf_set_state @ 0x113418, size 172 bytes
+int  rf_set_state(int a1, int a2, int a3)
 {
   uint8_t *v3; // r5
   char v4; // r3
@@ -52,38 +52,38 @@ int  sub_113418(int a1, int a2, int a3)
       {
         while ( 1 )
         {
-          v10 = *(uint32_t *)(*(uint32_t *)(sub_12D190(v7) + 4) + 4);
+          v10 = *(uint32_t *)(*(uint32_t *)(list_pop(v7) + 4) + 4);
           --*v5;
-          sub_12D108(v9);
+          wlan_ioctl_handler_1(v9);
           v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
           ++*(uint16_t *)off_1134D4;
-          a1 = sub_12CFC4(128);
+          a1 = irq_disable_global_2(128);
           if ( !*v5 )
             goto LABEL_12;
         }
         if ( v11 == 1 )
         {
-          a1 = sub_10FEC8((uint32_t *)v10);
+          a1 = wait_for_state((uint32_t *)v10);
         }
         else
         {
-          sub_10DAE4(v8);
-          a1 = sub_12E9D8(v10, 32, 1, 0);
+          debug_printf(v8);
+          a1 = process_packet_params(v10, 32, 1, 0);
         }
       }
       while ( *v5 );
     }
 LABEL_12:
-    sub_113374(a1, a2);
+    rf_is_idle(a1, a2);
     return 1;
   }
   else
   {
     v13 = a1;
-    sub_10DAE4(dword_1134D8, *v3);
-    sub_114088(dword_1134DC, v13, a2, *v3);
+    debug_printf(dword_1134D8, *v3);
+    check_global_value(dword_1134DC, v13, a2, *v3);
     return 1;
   }
 }

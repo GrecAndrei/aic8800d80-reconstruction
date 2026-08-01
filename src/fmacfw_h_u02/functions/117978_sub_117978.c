@@ -20,8 +20,8 @@ extern uint32_t off_117A78;
 extern uint32_t dword_117A64;
 extern uint32_t off_117A68;
 
-// sub_117978 @ 0x117978, size 222 bytes
-int sub_117978()
+// critical_section_enter_alt @ 0x117978, size 222 bytes
+int critical_section_enter_alt()
 {
   int *v0; // r7
   uint8_t *v1; // r5
@@ -61,7 +61,7 @@ int sub_117978()
     {
       if ( *((uint32_t *)v1 + 84) )
       {
-        sub_11617C((uint8_t)i);
+        adv_type_valid((uint8_t)i);
         *(uint32_t *)(dword_117A64 + 4 * i) = *v3 + *(uint32_t *)(v4 + 4 * i);
         *(uint32_t *)off_117A68 = 1 << i;
         v8 = (uint8_t)i;
@@ -87,7 +87,7 @@ int sub_117978()
           }
         }
       }
-      sub_11A6A8(v8);
+      invalid_handler(v8);
     }
     v6 -= 7;
     v1 -= 84;
@@ -103,6 +103,6 @@ int sub_117978()
         __enable_irq();
     }
   }
-  return sub_12CFC4(512);
+  return irq_disable_global_2(512);
 }
 

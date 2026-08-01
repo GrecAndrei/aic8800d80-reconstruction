@@ -20,8 +20,8 @@ extern uint32_t dword_11AC08;
 extern uint32_t off_11ABF8;
 extern uint32_t dword_11ABFC;
 
-// sub_11AB18 @ 0x11ab18, size 212 bytes
-int  sub_11AB18(int a1, int a2)
+// ke_enter_critical @ 0x11ab18, size 212 bytes
+int  ke_enter_critical(int a1, int a2)
 {
   int *v4; // r7
   uint32_t *v5; // r2
@@ -45,17 +45,17 @@ int  sub_11AB18(int a1, int a2)
   ++*(uint32_t *)off_11ABF0;
   if ( a2 - v5[4] < 0 )
   {
-    msg_parse(dword_11AC00, *(uint32_t *)(a1 + 4));
+    dispatch_event_handler(dword_11AC00, *(uint32_t *)(a1 + 4));
     if ( **(int16_t **)off_11AC04 < 0 )
-      rf_cmd_send_n264(dword_11AC0C, dword_11AC08, 131);
+      flash_ctrl_init(dword_11AC0C, dword_11AC08, 131);
   }
   v6 = (int *)off_11ABF8;
   if ( a1 == *(uint32_t *)off_11ABF8 )
   {
-    sub_11E7AC(off_11ABF8);
+    list_pop_front(off_11ABF8);
     v12 = dword_11ABFC;
     *(uint32_t *)(a1 + 12) = a2;
-    result = list_insert_sorted(v6, a1, v12);
+    result = list_foreach(v6, a1, v12);
     v9 = *v6;
     if ( !*v6 )
     {
@@ -64,10 +64,10 @@ int  sub_11AB18(int a1, int a2)
     }
     goto LABEL_14;
   }
-  list_remove_node(off_11ABF8, a1);
+  check_kernel_state_alt2(off_11ABF8, a1);
   v7 = dword_11ABFC;
   *(uint32_t *)(a1 + 12) = a2;
-  result = list_insert_sorted(v6, a1, v7);
+  result = list_foreach(v6, a1, v7);
   v9 = *v6;
   if ( a1 == *v6 )
   {
@@ -84,11 +84,11 @@ LABEL_6:
   {
     __enable_irq();
     if ( a2 - *((uint32_t *)off_11ABF4 + 4) < 0 )
-      return irq_nesting_or(0x20000000);
+      return set_busy_flag_alt(0x20000000);
   }
   else if ( a2 - *((uint32_t *)off_11ABF4 + 4) < 0 )
   {
-    return irq_nesting_or(0x20000000);
+    return set_busy_flag_alt(0x20000000);
   }
   return result;
 }

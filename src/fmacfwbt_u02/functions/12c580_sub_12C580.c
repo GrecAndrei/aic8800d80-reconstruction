@@ -19,8 +19,8 @@ extern uint32_t dword_12C648;
 extern uint32_t dword_12C644;
 extern uint32_t dword_40021000;
 
-// sub_12C580 @ 0x12c580, size 178 bytes
-int  sub_12C580(int a1)
+// ke_task_dispatch @ 0x12c580, size 178 bytes
+int  ke_task_dispatch(int a1)
 {
   int v1; // r5
   int *v3; // r7
@@ -35,9 +35,9 @@ int  sub_12C580(int a1)
 
   v1 = *(uint8_t *)(dword_12C634 + a1);
   if ( a1 )
-    sub_12D374(0x40000000);
+    set_system_flag_2(0x40000000);
   else
-    sub_12D374(1024);
+    set_system_flag_2(1024);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -47,7 +47,7 @@ int  sub_12C580(int a1)
   v4 = dword_12C64C;
   v5 = dword_12C64C + 8 * a1;
   ++*(uint32_t *)off_12C63C;
-  v6 = sub_12D4F8(v5);
+  v6 = list_pop_front(v5);
   v7 = v6;
   if ( *v3 && (v8 = *v3 - 1, v9 = *(uint32_t *)off_12C638, (*v3 = v8) == 0) && v9 )
   {
@@ -60,7 +60,7 @@ int  sub_12C580(int a1)
     goto LABEL_8;
   }
   if ( !v6 )
-    sub_12F694(dword_12C648, dword_12C644, 190);
+    mmio_irq_clear(dword_12C648, dword_12C644, 190);
 LABEL_8:
   v10 = *(void ( **)(uint32_t, int))(v7 + 8);
   if ( v10 )

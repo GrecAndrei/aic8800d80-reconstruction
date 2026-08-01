@@ -1,1 +1,1 @@
-{"fn": "sub_1216EFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1216efc", "status": "ok", "name": "scan_chan_setup_n134", "params": [], "docstring": "Initialize channel/scan parameters and invoke setup call", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1216EFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1216efc", "status": "ok", "name": "isr_flag_dispatch", "params": [], "docstring": "Initialize channel/scan parameters and invoke setup call", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

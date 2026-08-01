@@ -17,8 +17,8 @@ extern uint32_t dword_108070;
 extern uint32_t dword_108074;
 extern uint32_t off_108078;
 
-// sub_107F54 @ 0x107f54, size 276 bytes
-int  sub_107F54(int a1, uint32_t *a2)
+// periph_clock_enable @ 0x107f54, size 276 bytes
+int  periph_clock_enable(int a1, uint32_t *a2)
 {
   uint32_t *v2; // r6
   unsigned int *v3; // r8
@@ -45,7 +45,7 @@ int  sub_107F54(int a1, uint32_t *a2)
   v4 = 1;
   *v2 &= ~0x2000000u;
   v6 = 1000;
-  feature_guard_check(1, dword_10806C);
+  check_status_bits(1, dword_10806C);
   v7 = (int *)(a1 + 12);
   v20 = 1;
   v21 = 1;
@@ -63,12 +63,12 @@ int  sub_107F54(int a1, uint32_t *a2)
       ++v7;
       *v3 = dword_108070 & (v10 << 16) | *v3 & 0xF000FFFF;
       *v3 = v11 & 0xFFF | *v3 & 0xFFFFF000;
-      delay_us_0644(40);
+      timer_delay(40);
       v12 = dword_108074;
       *v2 |= 0x4000000u;
       v13 = *(uint32_t *)off_108078 & 0x7FFF;
       *v2 &= ~0x4000000u;
-      feature_guard_check(1, v12);
+      check_status_bits(1, v12);
       if ( v13 >= v6 )
         break;
       v20 = v18;

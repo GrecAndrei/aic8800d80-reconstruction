@@ -34,10 +34,10 @@ extern uint32_t dword_125BAC;
 extern uint32_t dword_125BB0;
 extern uint32_t dword_125BB4;
 
-// sub_125AD8 @ 0x125ad8, size 158 bytes
+// bt_state_machine_dispatch @ 0x125ad8, size 158 bytes
 // Doc: sub_1225AD8 [unknown]: Small helper function called from lmac context
 // sub_1225AD8 [unknown]: Small helper function called from lmac context
-unsigned int  sub_125AD8(unsigned int result)
+unsigned int  bt_state_machine_dispatch(unsigned int result)
 {
   unsigned int v1; // r4
   char *v2; // r3
@@ -59,7 +59,7 @@ unsigned int  sub_125AD8(unsigned int result)
     v1 = result;
     if ( result <= 2 )
     {
-      get_cached_1828f8(&v14, 0);
+      mac_time_get(&v14, 0);
       v2 = (char *)off_125B78;
       v3 = BYTE1(v14);
       *(uint32_t *)off_125B78 = dword_125B7C;
@@ -101,7 +101,7 @@ unsigned int  sub_125AD8(unsigned int result)
       *(uint32_t *)off_125B98 = dword_125BA4;
       v8 = dword_125BA8;
       *v6 = v7;
-      return msg_parse(v8);
+      return dispatch_event_handler(v8);
     }
   }
   else
@@ -111,7 +111,7 @@ unsigned int  sub_125AD8(unsigned int result)
     *(uint32_t *)off_125B78 = dword_125BB0;
     v11 = dword_125BB4;
     *v9 = v10;
-    return msg_parse(v11);
+    return dispatch_event_handler(v11);
   }
   return result;
 }

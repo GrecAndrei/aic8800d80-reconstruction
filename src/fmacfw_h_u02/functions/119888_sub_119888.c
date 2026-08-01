@@ -19,8 +19,8 @@ extern uint32_t off_119B94;
 extern uint32_t dword_119BA0;
 extern uint32_t dword_119B9C;
 
-// sub_119888 @ 0x119888, size 868 bytes
-int  sub_119888(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+// btm_indirect_handler @ 0x119888, size 868 bytes
+int  btm_indirect_handler(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r5
   int v7; // r4
@@ -72,11 +72,11 @@ int  sub_119888(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
   v8 = dword_119B88 + 84 * a5 + 28;
   v9 = *(uint32_t *)(*a2 + 68);
   v10 = *(uint32_t *)(*a2 + 76);
-  sub_12D190(v8);
-  if ( !sub_1195A0(a1, v7, a5)
+  list_pop(v8);
+  if ( !compare_device_state(a1, v7, a5)
     || (v12 = off_119BA4, *(uint8_t *)(*(uint32_t *)off_119BA4 + 62) > (*(uint32_t *)off_119B8C & 0x3Fu)) )
   {
-    sub_12D150(v8, v5);
+    wlan_ioctl_handler_2(v8, v5);
     return 0;
   }
   v13 = *(uint32_t *)(v51 + 36);
@@ -132,8 +132,8 @@ LABEL_7:
       if ( !*(uint8_t *)(v39 + 1) )
         *(uint32_t *)(v5 + 20) = *(uint32_t *)(v9 + 20);
       *(uint8_t *)(v24 + 1) = v50 + v17;
-      sub_12D190(v8);
-      sub_12D108(*(uint32_t *)(v9 + 340));
+      list_pop(v8);
+      wlan_ioctl_handler_1(*(uint32_t *)(v9 + 340));
       v40 = *(uint32_t *)(v7 + 76);
       *a2 = *(uint32_t *)v7;
       *(uint32_t *)(v40 + 20) = 0;
@@ -143,7 +143,7 @@ LABEL_7:
     v23 = *(uint32_t *)v7;
     if ( **(int16_t **)off_119B94 < 0 && !v23 )
     {
-      sub_12F32C(dword_119BA0, dword_119B9C, 1713);
+      irq_disable_mmio_write(dword_119BA0, dword_119B9C, 1713);
       v23 = 0;
     }
     v16 = *(uint32_t *)(v23 + 36);
@@ -183,7 +183,7 @@ LABEL_17:
     *(uint32_t *)(v9 + 268) = v7;
     *(uint16_t *)(v9 + 8) = v27 | 0x400;
     if ( (v30 & 0x380000) == 0x380000 )
-      sub_12D190(v8);
+      list_pop(v8);
     v31 = *(uint32_t *)off_119B98;
     *a2 = v7;
     v32 = *(uint8_t *)(v31 + 1);
@@ -206,7 +206,7 @@ LABEL_17:
       *(uint32_t *)(v5 + 20) = v36;
     }
 LABEL_34:
-    sub_12D150(v8, v5);
+    wlan_ioctl_handler_2(v8, v5);
     return v32;
   }
   v42 = *(uint32_t *)(v51 + 36);
@@ -218,7 +218,7 @@ LABEL_34:
   *(uint32_t *)(v43 + 68) = v42 | 0x380100;
   *(uint32_t *)(v7 + 36) = v44;
   *(uint32_t *)(v24 + 68) = v45;
-  sub_12D150(v8, v5);
+  wlan_ioctl_handler_2(v8, v5);
   v32 = 0;
   *a2 = v7;
   return v32;

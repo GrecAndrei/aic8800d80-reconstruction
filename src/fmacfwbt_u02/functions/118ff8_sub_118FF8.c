@@ -14,8 +14,8 @@ extern uint32_t dword_119080;
 extern uint32_t dword_11907C;
 extern uint32_t off_119078;
 
-// sub_118FF8 @ 0x118ff8, size 126 bytes
-int  sub_118FF8(int a1, int a2, int a3)
+// tx_packet_enqueue @ 0x118ff8, size 126 bytes
+int  tx_packet_enqueue(int a1, int a2, int a3)
 {
   uint64_t v3; // kr00_8
   int v5; // r1
@@ -42,7 +42,7 @@ int  sub_118FF8(int a1, int a2, int a3)
     v5 = dword_11907C;
     v6 = v3 + 44;
   }
-  result = sub_14380C(v6, v5, 52);
+  result = memcpy_aligned(v6, v5, 52);
   v8 = *(uint32_t *)off_119078;
   if ( *(uint32_t *)(v3 + 64) & 0x7C | (*(uint32_t *)(v3 + 64) >> 11) & 6 )
     v9 = (uint16_t)((uint16_t)*(uint32_t *)off_119078 << 8) | (uint8_t)v8;

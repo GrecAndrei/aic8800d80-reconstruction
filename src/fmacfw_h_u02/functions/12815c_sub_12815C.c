@@ -14,8 +14,8 @@ extern uint32_t off_128288;
 extern uint32_t dword_128290;
 extern uint32_t off_12828C;
 
-// sub_12815C @ 0x12815c, size 300 bytes
-int  sub_12815C(int result)
+// radio_disable_check @ 0x12815c, size 300 bytes
+int  radio_disable_check(int result)
 {
   void *v1; // r5
   int v2; // r4
@@ -43,7 +43,7 @@ int  sub_12815C(int result)
       *((uint8_t *)v1 + 91) = v11;
       if ( !v11 && (*((uint8_t *)v1 + 88) & 0x40) != 0 )
       {
-        result = sub_127030(*((uint32_t *)v1 + 20));
+        result = llc_hw_reg_sync(*((uint32_t *)v1 + 20));
         LOBYTE(v3) = *(uint8_t *)(v2 + 85);
       }
     }
@@ -59,7 +59,7 @@ int  sub_12815C(int result)
   {
     if ( (v3 & 0x20) != 0 )
     {
-      result = sub_1277B0(result);
+      result = llc_buf_advance(result);
       LOBYTE(v3) = *(uint8_t *)(v2 + 85);
       v5 = *(uint32_t *)(v2 + 36);
       v4 = v3 & 4;
@@ -76,7 +76,7 @@ LABEL_4:
           {
             if ( (*((uint8_t *)v1 + 88) & 0x40) != 0 )
             {
-              result = sub_127030(*((uint32_t *)v1 + 20));
+              result = llc_hw_reg_sync(*((uint32_t *)v1 + 20));
               v6 = *(uint8_t *)(v2 + 85);
             }
             else
@@ -106,12 +106,12 @@ LABEL_4:
           }
           else
           {
-            result = sub_126444(v2, v5, 0);
+            result = llc_rx_event_save(v2, v5, 0);
           }
           if ( v4 )
           {
             if ( !*((uint32_t *)v1 + 11) )
-              return sub_1266E4(v2, *((uint32_t *)off_12828C + 4), *((uint32_t *)off_12828C + 4) - v8);
+              return llc_tx_evt_handler(v2, *((uint32_t *)off_12828C + 4), *((uint32_t *)off_12828C + 4) - v8);
           }
         }
         return result;
@@ -126,7 +126,7 @@ LABEL_4:
     }
     if ( (v3 & 1) == 0 )
     {
-      result = sub_126444(v2, v5, 0);
+      result = llc_rx_event_save(v2, v5, 0);
       LOBYTE(v3) = *(uint8_t *)(v2 + 85);
     }
     *(uint8_t *)(v2 + 85) = v3 & 0xFB;

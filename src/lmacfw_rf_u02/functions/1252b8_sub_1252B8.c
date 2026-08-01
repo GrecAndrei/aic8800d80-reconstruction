@@ -14,8 +14,8 @@ extern uint32_t dword_125378;
 extern uint32_t dword_125370;
 extern uint32_t dword_125374;
 
-// sub_1252B8 @ 0x1252b8, size 184 bytes
-int  sub_1252B8(int a1, uint8_t **a2)
+// set_local_name @ 0x1252b8, size 184 bytes
+int  set_local_name(int a1, uint8_t **a2)
 {
   int v4; // r0
   unsigned int v6; // r4
@@ -27,47 +27,47 @@ int  sub_1252B8(int a1, uint8_t **a2)
   int v12; // r0
   unsigned int v13; // r1
 
-  v4 = sub_121E3C(a2[1], 0, 0);
+  v4 = parse_number(a2[1], 0, 0);
   if ( v4 == 1 )
   {
     if ( a1 > 3 )
     {
-      v8 = sub_121E3C(a2[2], 0, 0);
-      v9 = sub_121E3C(a2[3], 0, 0x10u);
-      sub_11F504(dword_125378, v8, v9);
-      sub_113AD0(v8, v9);
+      v8 = parse_number(a2[2], 0, 0);
+      v9 = parse_number(a2[3], 0, 0x10u);
+      dispatch_event_handler(dword_125378, v8, v9);
+      mmio_write32(v8, v9);
     }
   }
   else
   {
     if ( v4 != 2 )
       return -(v4 != 0);
-    v6 = sub_121E3C(a2[2], 0, 0);
+    v6 = parse_number(a2[2], 0, 0);
     if ( v6 <= 0x1F )
     {
       if ( a1 > 3 )
       {
-        v10 = sub_121E3C(a2[3], 0, 0) + v6;
+        v10 = parse_number(a2[3], 0, 0) + v6;
         if ( v10 >= 0x20 )
           v10 = 32;
-        sub_11F504(dword_125370);
+        dispatch_event_handler(dword_125370);
         if ( v6 < v10 )
         {
           v11 = dword_125374;
           do
           {
-            v12 = sub_113A44(v6);
+            v12 = mmio_read32(v6);
             v13 = v6++;
-            sub_11F504(v11, v13, v12);
+            dispatch_event_handler(v11, v13, v12);
           }
           while ( v10 > v6 );
         }
       }
       else
       {
-        sub_11F504(dword_125370);
-        v7 = sub_113A44(v6);
-        sub_11F504(dword_125374, v6, v7);
+        dispatch_event_handler(dword_125370);
+        v7 = mmio_read32(v6);
+        dispatch_event_handler(dword_125374, v6, v7);
       }
     }
   }

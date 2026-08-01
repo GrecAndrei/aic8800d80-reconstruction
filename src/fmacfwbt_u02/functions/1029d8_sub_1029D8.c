@@ -12,8 +12,8 @@
 
 extern uint32_t off_1029F4;
 
-// sub_1029D8 @ 0x1029d8, size 26 bytes
-int sub_1029D8()
+// get_hw_flash_size @ 0x1029d8, size 26 bytes
+int get_hw_flash_size()
 {
   return (uint8_t)((1 << ((uint8_t)*(uint32_t *)off_1029F4 >> 4)) - 1);
 }

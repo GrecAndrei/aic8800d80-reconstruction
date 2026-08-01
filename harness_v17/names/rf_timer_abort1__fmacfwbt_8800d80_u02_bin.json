@@ -1,1 +1,1 @@
-{"fn": "rf_timer_abort1", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f2fc", "status": "ok", "name": "rf_timer_abort1", "params": [], "docstring": "Abort an RF timer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_timer_abort1", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f2fc", "status": "ok", "name": "send_hci_event_42d", "params": [], "docstring": "Abort an RF timer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

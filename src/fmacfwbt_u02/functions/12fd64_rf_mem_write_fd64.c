@@ -16,10 +16,10 @@ extern uint32_t dword_12FE40;
 extern uint32_t dword_12FE44;
 extern uint32_t dword_12FE48;
 
-// rf_mem_write_fd64 @ 0x12fd64, size 220 bytes
-// Doc: rf_mem_write_fd64 [rf]: Write data to RF register/memory block
-// rf_mem_write_fd64 [rf]: Write data to RF register/memory block
-int  rf_mem_write_fd64(int a1, int a2)
+// packet_header_parse @ 0x12fd64, size 220 bytes
+// Doc: packet_header_parse [rf]: Write data to RF register/memory block
+// packet_header_parse [rf]: Write data to RF register/memory block
+int  packet_header_parse(int a1, int a2)
 {
   int v4; // r10
   unsigned int v5; // r4
@@ -31,14 +31,14 @@ int  rf_mem_write_fd64(int a1, int a2)
   unsigned int v11; // r4
   int v13; // r0
 
-  v4 = bt_hci_cmd_dispatch_fc48(*(uint32_t *)a2);
+  v4 = has_dot_extension(*(uint32_t *)a2);
   if ( v4 >= 0 )
   {
-    v5 = sub_12FB74(*(uint8_t **)(a2 + 4), 0, 0x10u);
-    v6 = sub_12FB74(*(uint8_t **)(a2 + 8), 0, 0x10u);
+    v5 = parse_integer(*(uint8_t **)(a2 + 4), 0, 0x10u);
+    v6 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0x10u);
     if ( a1 > 3 )
     {
-      v13 = sub_12FB74(*(uint8_t **)(a2 + 12), 0, 0);
+      v13 = parse_integer(*(uint8_t **)(a2 + 12), 0, 0);
       if ( !v13 )
         return 0;
       v7 = v13 - 1;
@@ -55,9 +55,9 @@ int  rf_mem_write_fd64(int a1, int a2)
       while ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
       {
         v11 = v5 & 0xFFFFFFFC;
-        log_printf(dword_12FE44, v11, v6);
+        printf_wrapper(dword_12FE44, v11, v6);
         --v7;
-        sub_10EBCC();
+        jump_table_1b4();
         v5 = v11 + v4;
         if ( v7 == -1 )
           return 0;
@@ -65,15 +65,15 @@ int  rf_mem_write_fd64(int a1, int a2)
       switch ( v4 )
       {
         case 4:
-          log_printf(v10, v5, v6);
+          printf_wrapper(v10, v5, v6);
           *(uint32_t *)v5 = v6;
           break;
         case 2:
-          log_printf(v9, v5);
+          printf_wrapper(v9, v5);
           *(uint16_t *)v5 = v6;
           break;
         case 1:
-          log_printf(v8, v5, (uint8_t)v6);
+          printf_wrapper(v8, v5, (uint8_t)v6);
           *(uint8_t *)v5 = v6;
           break;
       }
@@ -83,7 +83,7 @@ int  rf_mem_write_fd64(int a1, int a2)
     while ( v7 != -1 );
     return 0;
   }
-  log_printf(dword_12FE48, v4);
+  printf_wrapper(dword_12FE48, v4);
   return -1;
 }
 

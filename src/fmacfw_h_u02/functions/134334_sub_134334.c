@@ -12,8 +12,8 @@
 
 extern uint32_t off_13437C;
 
-// sub_134334 @ 0x134334, size 72 bytes
-int  sub_134334(uint32_t *a1, uint32_t *a2)
+// ble_get_addr_flag @ 0x134334, size 72 bytes
+int  ble_get_addr_flag(uint32_t *a1, uint32_t *a2)
 {
   int v2; // r6
   int result; // r0
@@ -23,7 +23,7 @@ int  sub_134334(uint32_t *a1, uint32_t *a2)
   *a2 = 0;
   if ( (*(uint8_t *)(v2 + 34) & 1) != 0 )
   {
-    result = sub_138134(v2);
+    result = get_object_state(v2);
     if ( result )
     {
       *a1 = result + 2;
@@ -35,7 +35,7 @@ LABEL_4:
   else
   {
     *a1 = v2 + 34;
-    result = sub_1380D8();
+    result = rf_check_status();
     if ( result )
       goto LABEL_4;
   }

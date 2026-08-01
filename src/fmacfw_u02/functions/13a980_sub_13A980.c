@@ -17,10 +17,10 @@ extern uint32_t dword_13AAF0;
 extern uint32_t dword_13AAEC;
 extern uint32_t dword_13AAE4;
 
-// sub_13A980 @ 0x13a980, size 346 bytes
+// ll_conn_context_get @ 0x13a980, size 346 bytes
 // Doc: sub_123A980 [unknown]: Init/setup routine reading from data table at 0x188428
 // sub_123A980 [unknown]: Init/setup routine reading from data table at 0x188428
-uint16_t * sub_13A980(int a1, uint16_t *a2, int a3)
+uint16_t * ll_conn_context_get(int a1, uint16_t *a2, int a3)
 {
   int v4; // r5
   int v5; // r3
@@ -89,7 +89,7 @@ LABEL_9:
               break;
             default:
               if ( **(int16_t **)off_13AAE8 < 0 )
-                sub_12F46C(dword_13AAF0, dword_13AAEC, 743);
+                mmio_clear_register(dword_13AAF0, dword_13AAEC, 743);
               break;
           }
           if ( a3 )

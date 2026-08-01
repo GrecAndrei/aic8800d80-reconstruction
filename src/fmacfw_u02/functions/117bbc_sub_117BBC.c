@@ -15,8 +15,8 @@ extern uint32_t dword_117CC0;
 extern uint32_t dword_117CB4;
 extern uint32_t dword_117CB8;
 
-// sub_117BBC @ 0x117bbc, size 246 bytes
-uint64_t sub_117BBC()
+// mem_pool_init @ 0x117bbc, size 246 bytes
+uint64_t mem_pool_init()
 {
   uint8_t *v0; // r8
   int v1; // r10
@@ -40,7 +40,7 @@ uint64_t sub_117BBC()
 
   v0 = off_117CBC;
   v1 = dword_117CC0;
-  sub_12D14C(126976);
+  unknown_func_12d14c(126976);
   v2 = v0 + 12;
   v3 = v18;
   v0[510] = 1;
@@ -50,25 +50,25 @@ uint64_t sub_117BBC()
   do
   {
     v7 = (uint8_t)v6;
-    sub_12D240(v5);
-    sub_118940((uint8_t)v6++, v1, v5);
-    sub_118940(v7, v4, v5);
+    zero_8_bytes(v5);
+    rf_tx_setup((uint8_t)v6++, v1, v5);
+    rf_tx_setup(v7, v4, v5);
     v1 += 8;
     v5 += 8;
     v4 += 84;
   }
   while ( v6 != 5 );
   v8 = dword_117CB4;
-  v9 = sub_1189F8(5);
-  v10 = sub_119E74(v9);
-  v11 = sub_117EDC(v10);
-  sub_11BEE0(v11);
+  v9 = rf_pll_lock(5);
+  v10 = process_event_loop(v9);
+  v11 = init_buf_188290(v10);
+  handle_radio_done(v11);
   v12 = *((uint16_t *)v0 + 254);
-  sub_100200((int *)(v8 - 432), 0, 0x204u);
+  memset((int *)(v8 - 432), 0, 0x204u);
   *((uint16_t *)v0 + 254) = v12;
   do
   {
-    sub_12D240(v2);
+    zero_8_bytes(v2);
     *((uint32_t *)v2 - 3) = 0;
     v2[14] = 0;
     v2[68] = 0;
@@ -76,17 +76,17 @@ uint64_t sub_117BBC()
     *((uint32_t *)v2 + 7) = 0;
     v13 = v2 + 16;
     v2 += 84;
-    sub_12D240(v13);
+    zero_8_bytes(v13);
   }
   while ( v2 != (char *)v8 );
   for ( i = 0; i != 5; ++i )
   {
-    if ( sub_12D2D0(v3) )
+    if ( mem_word_load(v3) )
     {
       do
-        sub_13AF24();
-      while ( sub_12D2D0(v3) );
-      sub_11A7E8((uint8_t)i);
+        ll_conn_reset_flags();
+      while ( mem_word_load(v3) );
+      test_flag((uint8_t)i);
     }
     v3 += 8;
   }

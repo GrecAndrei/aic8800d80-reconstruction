@@ -16,8 +16,8 @@ extern uint32_t dword_10599C;
 extern uint32_t dword_1059A0;
 extern uint32_t dword_105998;
 
-// sub_1058D0 @ 0x1058d0, size 190 bytes
-int  sub_1058D0(unsigned int a1, uint32_t *a2)
+// dma_chan_init @ 0x1058d0, size 190 bytes
+int  dma_chan_init(unsigned int a1, uint32_t *a2)
 {
   int v4; // r1
   int result; // r0
@@ -34,7 +34,7 @@ int  sub_1058D0(unsigned int a1, uint32_t *a2)
   a2[15] = 15;
   v4 = dword_105990;
   a2[16] = 8;
-  result = sub_12EB90(1, v4);
+  result = check_feature_flag(1, v4);
   if ( a1 )
   {
     v6 = dword_105994;
@@ -50,11 +50,11 @@ LABEL_3:
           return result;
       }
       a2[a2[14] + 10] = v9 - 12;
-      sub_12EB90(1, v6);
+      check_feature_flag(1, v6);
       v10 = a2[a2[14] + 10];
       if ( v10 <= 7 )
       {
-        result = sub_12EB90(((1 << v9) & a1) >> v9, v7);
+        result = check_feature_flag(((1 << v9) & a1) >> v9, v7);
         if ( !a2[14] )
           a2[16] = a2[10];
         goto LABEL_3;
@@ -62,12 +62,12 @@ LABEL_3:
       v11 = ((1 << v9) & a1) >> v9;
       if ( v10 > 15 )
       {
-        result = sub_12EB90(v11, v7);
+        result = check_feature_flag(v11, v7);
         if ( !a2[14] )
           a2[15] = a2[10];
         goto LABEL_3;
       }
-      result = sub_12EB90(v11, v8);
+      result = check_feature_flag(v11, v8);
       v12 = a2[14];
       ++v9;
       v13 = a2[v12 + 10];
@@ -77,6 +77,6 @@ LABEL_3:
         return result;
     }
   }
-  return sub_12EB90(1, dword_105998);
+  return check_feature_flag(1, dword_105998);
 }
 

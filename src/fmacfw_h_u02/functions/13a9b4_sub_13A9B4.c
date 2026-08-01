@@ -15,8 +15,8 @@ extern uint32_t dword_13AA24;
 extern uint32_t off_13AA28;
 extern uint32_t off_13AA2C;
 
-// sub_13A9B4 @ 0x13a9b4, size 106 bytes
-int  sub_13A9B4(int a1, int a2, int a3)
+// phy_set_channel @ 0x13a9b4, size 106 bytes
+int  phy_set_channel(int a1, int a2, int a3)
 {
   int v6; // r3
   int v7; // r1
@@ -25,7 +25,7 @@ int  sub_13A9B4(int a1, int a2, int a3)
   int v10; // r3
   int v11; // r2
 
-  sub_12EB90(
+  check_feature_flag(
     32,
     dword_13AA20,
     *(uint16_t *)(a1 + 32),
@@ -33,8 +33,8 @@ int  sub_13A9B4(int a1, int a2, int a3)
     *(uint8_t *)(a1 + 27));
   v6 = *(uint16_t *)(a1 + 30);
   v7 = v6 << 31;
-  if ( (v6 & 1) != 0 || (sub_11754C(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
-    sub_12E948(dword_13AA24, v7);
+  if ( (v6 & 1) != 0 || (phy_stats_count(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
+    alloc_tx_event(dword_13AA24, v7);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -42,7 +42,7 @@ int  sub_13A9B4(int a1, int a2, int a3)
   }
   v8 = (int *)off_13AA2C;
   ++*(uint32_t *)off_13AA2C;
-  result = sub_117DD8(a1, a3, a2);
+  result = register_handler(a1, a3, a2);
   if ( *v8 )
   {
     v10 = *v8 - 1;

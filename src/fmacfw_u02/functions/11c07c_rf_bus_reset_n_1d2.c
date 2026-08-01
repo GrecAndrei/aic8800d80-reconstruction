@@ -29,10 +29,10 @@ extern uint32_t dword_11C2F0;
 extern uint32_t dword_11C2D4;
 extern uint32_t off_11C2E8;
 
-// rf_bus_reset_n_1d2 @ 0x11c07c, size 560 bytes
-// Doc: rf_bus_reset_n_1d2 [rf]: Resets RF bus, computes register offsets, calls helper
-// rf_bus_reset_n_1d2 [rf]: Resets RF bus, computes register offsets, calls helper
-int  rf_bus_reset_n_1d2(int result)
+// update_phy_status @ 0x11c07c, size 560 bytes
+// Doc: update_phy_status [rf]: Resets RF bus, computes register offsets, calls helper
+// update_phy_status [rf]: Resets RF bus, computes register offsets, calls helper
+int  update_phy_status(int result)
 {
   uint32_t *v1; // r2
   int16_t *v2; // r1
@@ -85,7 +85,7 @@ int  rf_bus_reset_n_1d2(int result)
       v29 = dword_11C2D8;
       v30 = dword_11C2E0;
       v31 = 2509;
-      return fmac_phy_op_handler(v30, v29, v31, v3);
+      return bad_func_0x12f408(v30, v29, v31, v3);
     }
   }
   if ( (v3 & 0x2000000) == 0 )
@@ -97,7 +97,7 @@ int  rf_bus_reset_n_1d2(int result)
     v29 = dword_11C2D8;
     v30 = dword_11C2DC;
     v31 = 2522;
-    return fmac_phy_op_handler(v30, v29, v31, v3);
+    return bad_func_0x12f408(v30, v29, v31, v3);
   }
   v7 = dword_11C2B4;
   v8 = (uint8_t)(v3 - 16);

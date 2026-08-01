@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_122248 @ 0x122248, size 30 bytes
-int  sub_122248(int a1)
+// mmio_read_phy @ 0x122248, size 30 bytes
+int  mmio_read_phy(int a1)
 {
   uint8_t *v2; // r0
 
-  v2 = (uint8_t *)sub_12CB54(67, 6, 0, 1);
+  v2 = (uint8_t *)bt_buf_alloc(67, 6, 0, 1);
   *v2 = *(uint8_t *)(a1 + 107);
-  return sub_12CBB4(v2);
+  return hci_evt_send(v2);
 }
 

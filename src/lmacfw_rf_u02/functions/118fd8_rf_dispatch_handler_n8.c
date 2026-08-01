@@ -13,10 +13,10 @@
 extern uint32_t dword_11904C;
 extern uint32_t dword_119050;
 
-// rf_dispatch_handler_n8 @ 0x118fd8, size 116 bytes
-// Doc: rf_dispatch_handler_n8 [rf]: RF handler dispatching to internal worker
-// rf_dispatch_handler_n8 [rf]: RF handler dispatching to internal worker
-int  rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3)
+// memory_allocate @ 0x118fd8, size 116 bytes
+// Doc: memory_allocate [rf]: RF handler dispatching to internal worker
+// memory_allocate [rf]: RF handler dispatching to internal worker
+int  memory_allocate(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v6; // r4
   int v8; // r8
@@ -24,17 +24,17 @@ int  rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3)
   int v10; // r3
   uint8_t *v11; // r8
 
-  v6 = tx_buffer_acquire_or_alloc((int *)a1, a2);
+  v6 = btcoex_update_bt_info((int *)a1, a2);
   if ( v6 )
     return v6;
   v8 = *(uint8_t *)(a1 + 25);
   v9 = dword_11904C + 152 * (uint8_t)*a2;
   *(uint8_t *)(v9 + 125) = 0;
   *(uint16_t *)(v9 + 126) = 0;
-  *a3 = rf_table_lookup_n360((uint8_t)*a2, v8);
+  *a3 = update_rx_credits((uint8_t)*a2, v8);
   v10 = *(uint32_t *)(v9 + 44);
   if ( v10 )
-    rf_table_lookup_n360(*(uint8_t *)(v10 + 33), *(uint8_t *)(a1 + 25));
+    update_rx_credits(*(uint8_t *)(v10 + 33), *(uint8_t *)(a1 + 25));
   v11 = (uint8_t *)(dword_119050 + 224 * v8);
   if ( v11[94] )
     return v6;

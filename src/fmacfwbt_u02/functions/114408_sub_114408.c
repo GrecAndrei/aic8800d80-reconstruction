@@ -19,10 +19,10 @@ extern uint32_t off_114488;
 extern uint32_t off_11448C;
 extern uint32_t dword_114494;
 
-// sub_114408 @ 0x114408, size 110 bytes
+// check_radio_flag @ 0x114408, size 110 bytes
 // Doc: sub_1214408 [ipc]: Unidentified helper, possibly IPC/mailbox glue
 // sub_1214408 [ipc]: Unidentified helper, possibly IPC/mailbox glue
-int  sub_114408(int result)
+int  check_radio_flag(int result)
 {
   if ( !result )
   {
@@ -30,7 +30,7 @@ int  sub_114408(int result)
       && (result = *((uint32_t *)off_11447C + 4),
           *(uint32_t *)(*(uint32_t *)off_114478 + 12) - result - *((uint16_t *)off_114480 + 92) - 2000 < 0) )
     {
-      result = feature_guard_sdio(2, dword_114490);
+      result = state_check_feature(2, dword_114490);
     }
     else
     {
@@ -45,7 +45,7 @@ int  sub_114408(int result)
         *(uint32_t *)off_11448C = 0x40000000;
         return result;
       }
-      result = feature_guard_sdio(2, dword_114494);
+      result = state_check_feature(2, dword_114494);
     }
   }
   *(uint32_t *)off_11448C = 0x80000000;

@@ -12,15 +12,15 @@
 
 extern uint32_t dword_116650;
 
-// sub_116628 @ 0x116628, size 40 bytes
-int  sub_116628(int result, int a2)
+// wlan_tx_kick @ 0x116628, size 40 bytes
+int  wlan_tx_kick(int result, int a2)
 {
   int v2; // r4
   int ( *v4)(uint32_t, uint32_t); // r3
 
   v2 = result;
   if ( !*(uint8_t *)(result + 52) )
-    result = list_push_tail(dword_116650);
+    result = check_kernel_state(dword_116650);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 44);

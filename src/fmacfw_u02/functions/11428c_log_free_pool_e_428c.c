@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_free_pool_e_428c @ 0x11428c, size 72 bytes
+// sub_11428c @ 0x11428c, size 72 bytes
 // Doc: rf_fault_dump_n_4aa [rf]: Dump RF fault information and increment counter
 // rf_fault_dump_n_4aa [rf]: Dump RF fault information and increment counter
-int log_free_pool_e_428c()
+int sub_11428c()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -31,7 +31,7 @@ int log_free_pool_e_428c()
   ++*(uint32_t *)rf_fault_dump_n_470;
   while ( !*v1 )
     ;
-  result = list_push_tail(*(uint32_t *)rf_state_check_n2d6 + 628);
+  result = cmd_handler_a(*(uint32_t *)rf_state_check_n2d6 + 628);
   *v1 = 1;
   if ( *v0 )
   {

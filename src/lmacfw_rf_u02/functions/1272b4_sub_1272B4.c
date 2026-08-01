@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1272B4 @ 0x1272b4, size 630 bytes
-int  sub_1272B4(uint64_t a1, uint64_t a2)
+// double_add @ 0x1272b4, size 630 bytes
+int  double_add(uint64_t a1, uint64_t a2)
 {
   int v2; // r4
   int v3; // r5

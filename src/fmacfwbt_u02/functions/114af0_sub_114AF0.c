@@ -29,8 +29,8 @@ extern uint32_t off_114C84;
 extern uint32_t off_114C88;
 extern uint32_t off_114C94;
 
-// sub_114AF0 @ 0x114af0, size 350 bytes
-void sub_114AF0()
+// read_hw_status @ 0x114af0, size 350 bytes
+void read_hw_status()
 {
   int v0; // r3
   uint32_t *v1; // r7
@@ -64,7 +64,7 @@ void sub_114AF0()
           goto LABEL_35;
       }
       if ( **(int16_t **)off_114C78 < 0 )
-        sub_12F694(dword_114C80, dword_114C7C, 209);
+        mmio_irq_clear(dword_114C80, dword_114C7C, 209);
     }
     else
     {
@@ -88,7 +88,7 @@ LABEL_8:
         if ( *((uint8_t *)v2 + 4) )
         {
           if ( **(int16_t **)off_114C78 < 0 )
-            sub_12F694(dword_114C80, dword_114C90, 316);
+            mmio_irq_clear(dword_114C80, dword_114C90, 316);
         }
         else
         {
@@ -153,7 +153,7 @@ LABEL_16:
     if ( (v0 & 0x4000000) != 0 )
     {
       *(uint32_t *)off_114C54 = 0x4000000;
-      sub_12F2F0(v0 << 12, v0 << 9);
+      task_poll_loop(v0 << 12, v0 << 9);
     }
     if ( (v0 & 0x8000000) != 0 )
     {
@@ -162,11 +162,11 @@ LABEL_16:
       *(uint32_t *)off_114C54 = 0x8000000;
       if ( v13 )
       {
-        sub_134584();
+        ll_state_error_check();
       }
       else if ( v12[14] == 1 )
       {
-        sub_134904();
+        rx_descriptor_reset();
       }
     }
   }

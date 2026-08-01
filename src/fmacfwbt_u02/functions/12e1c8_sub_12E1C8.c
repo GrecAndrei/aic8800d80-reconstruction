@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12E1C8 @ 0x12e1c8, size 14 bytes
-int  sub_12E1C8(int a1)
+// extract_chan_bits @ 0x12e1c8, size 14 bytes
+int  extract_chan_bits(int a1)
 {
   return ((2 * *(uint8_t *)(a1 + 5)) | (*(uint8_t *)(a1 + 4) >> 7)) << 22;
 }

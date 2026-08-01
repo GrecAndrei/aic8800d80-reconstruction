@@ -13,10 +13,10 @@
 extern uint32_t off_13BB5C;
 extern uint32_t dword_13BB60;
 
-// bt_dispatch_3arg @ 0x13bb14, size 72 bytes
-// Doc: bt_dispatch_3arg [bt]: Dispatches handler with r0 pointer and loaded arg from struct
-// bt_dispatch_3arg [bt]: Dispatches handler with r0 pointer and loaded arg from struct
-int  bt_dispatch_3arg(int **a1)
+// rx_queue_flush @ 0x13bb14, size 72 bytes
+// Doc: rx_queue_flush [bt]: Dispatches handler with r0 pointer and loaded arg from struct
+// rx_queue_flush [bt]: Dispatches handler with r0 pointer and loaded arg from struct
+int  rx_queue_flush(int **a1)
 {
   int *v1; // r6
   int result; // r0

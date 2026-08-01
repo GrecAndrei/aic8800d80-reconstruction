@@ -14,13 +14,13 @@ extern uint32_t off_1424D0;
 extern uint32_t dword_1424D8;
 extern uint32_t dword_1424D4;
 
-// sub_142494 @ 0x142494, size 58 bytes
-int  sub_142494(int a1, unsigned int a2)
+// global_table_lookup @ 0x142494, size 58 bytes
+int  global_table_lookup(int a1, unsigned int a2)
 {
   if ( **(int16_t **)off_1424D0 < 0 && *(uint8_t *)(a2 + 8) == 255 )
-    sub_12F32C(dword_1424D8, dword_1424D4, 50);
+    irq_disable_mmio_write(dword_1424D8, dword_1424D4, 50);
   if ( (*(uint16_t *)(a2 + 2) & 0xFC) == 0xD0 )
-    sub_141F90(a2);
+    bt_data_process(a2);
   return 0;
 }
 

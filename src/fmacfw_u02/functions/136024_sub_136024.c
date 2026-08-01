@@ -15,8 +15,8 @@ extern uint32_t dword_136098;
 extern uint32_t dword_13609C;
 extern uint32_t dword_1360A0;
 
-// sub_136024 @ 0x136024, size 112 bytes
-int  sub_136024(int a1, uint16_t *a2, int16_t a3, int16_t a4)
+// ipc_send_msg @ 0x136024, size 112 bytes
+int  ipc_send_msg(int a1, uint16_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r2
   int v9; // r7
@@ -24,7 +24,7 @@ int  sub_136024(int a1, uint16_t *a2, int16_t a3, int16_t a4)
   int v11; // r2
   char v12; // r12
 
-  feature_guard_check(256, dword_136094, *a2);
+  check_status_bits(256, dword_136094, *a2);
   v7 = *a2;
   if ( *(uint8_t *)(dword_136098 + 1320 * v7 + 106) == 2 )
   {
@@ -36,10 +36,10 @@ int  sub_136024(int a1, uint16_t *a2, int16_t a3, int16_t a4)
     *(uint32_t *)(v9 + 196) = v10;
     *(uint32_t *)(v9 + 200) = v11;
     *(uint8_t *)(v9 + 204) = v12;
-    feature_guard_check(256, dword_1360A0, *((uint8_t *)a2 + 2));
-    sub_13289C(v9);
+    check_status_bits(256, dword_1360A0, *((uint8_t *)a2 + 2));
+    patch_check_version(v9);
   }
-  sub_12CA10(7179, a4, a3);
+  ke_msg_send_no_param(7179, a4, a3);
   return 0;
 }
 

@@ -15,10 +15,10 @@ extern uint32_t off_11949C;
 extern uint32_t dword_1194A4;
 extern uint32_t dword_1194A0;
 
-// sub_119448 @ 0x119448, size 80 bytes
+// get_hw_pointer @ 0x119448, size 80 bytes
 // Doc: fmac_status_check_or_set [mac]: Checks a status bitmask (0x380000) and stores a parameter
 // fmac_status_check_or_set [mac]: Checks a status bitmask (0x380000) and stores a parameter
-int16_t * sub_119448(int16_t *result)
+int16_t * get_hw_pointer(int16_t *result)
 {
   int v1; // r2
   int v2; // r1
@@ -40,7 +40,7 @@ int16_t * sub_119448(int16_t *result)
       v3 = (uint32_t *)*v3;
       if ( *result < 0 && !v3 )
       {
-        sub_12F46C(dword_1194A4, dword_1194A0, 909);
+        mmio_clear_register(dword_1194A4, dword_1194A0, 909);
         __und(0xFFu);
       }
       v1 = v3[19];

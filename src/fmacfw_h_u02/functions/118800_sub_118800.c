@@ -14,8 +14,8 @@ extern uint32_t off_1188AC;
 extern uint32_t dword_1188B0;
 extern uint32_t dword_1188B4;
 
-// sub_118800 @ 0x118800, size 172 bytes
-int  sub_118800(int a1, int a2, int a3)
+// phy_dispatch @ 0x118800, size 172 bytes
+int  phy_dispatch(int a1, int a2, int a3)
 {
   int16_t **v3; // r8
   int v4; // r10
@@ -28,7 +28,7 @@ int  sub_118800(int a1, int a2, int a3)
   v5 = dword_1188B4;
   while ( 1 )
   {
-    v9 = sub_12D190(a2);
+    v9 = list_pop(a2);
     if ( !v9 )
       break;
     while ( 1 )
@@ -44,25 +44,25 @@ int  sub_118800(int a1, int a2, int a3)
       }
       if ( *(uint16_t *)(v9 + 4) )
         break;
-      sub_118BA0(v9);
-      v9 = sub_12D190(a2);
+      set_string_0x1882c0(v9);
+      v9 = list_pop(a2);
       if ( !v9 )
-        return sub_118BE8();
+        return alloc_dma_buf();
     }
     *(uint32_t *)(v10 + 4) |= 0x800000u;
-    sub_117BF0(v9, (uint32_t *)(v10 + 4));
-    sub_115F4C(v9);
-    if ( sub_13AE40(v9, 1) )
+    check_cal_status(v9, (uint32_t *)(v10 + 4));
+    conn_handle_get(v9);
+    if ( phy_switch_radio(v9, 1) )
     {
       if ( **v3 < 0 && !a3 )
-        sub_12F32C(v5, v4, 1105);
-      sub_12D108(a3);
+        irq_disable_mmio_write(v5, v4, 1105);
+      wlan_ioctl_handler_1(a3);
     }
     else
     {
-      sub_12F4B4(a1, v9);
+      unknown_12f4b4(a1, v9);
     }
   }
-  return sub_118BE8();
+  return alloc_dma_buf();
 }
 

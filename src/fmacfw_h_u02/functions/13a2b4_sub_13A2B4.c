@@ -14,8 +14,8 @@ extern uint32_t dword_13A314;
 extern uint32_t off_13A318;
 extern uint32_t dword_13A31C;
 
-// sub_13A2B4 @ 0x13a2b4, size 94 bytes
-int  sub_13A2B4(int a1, int a2, int16_t a3)
+// dma_tx_ring @ 0x13a2b4, size 94 bytes
+int  dma_tx_ring(int a1, int a2, int16_t a3)
 {
   int v3; // r4
   char v5; // r5
@@ -29,7 +29,7 @@ int  sub_13A2B4(int a1, int a2, int16_t a3)
   if ( *(uint32_t *)(v3 + 408) )
     return 0;
   v5 = a2;
-  v7 = sub_12D190(dword_13A314);
+  v7 = list_pop(dword_13A314);
   v8 = v7;
   if ( !v7 )
     return 0;
@@ -44,7 +44,7 @@ int  sub_13A2B4(int a1, int a2, int16_t a3)
   v8[70] = (int)v8;
   v8[1] = v10;
   *(uint32_t *)(v3 + 408) = v8;
-  sub_124BFC((int)(v8 + 68), v10 + 50000);
+  mem_copy_util((int)(v8 + 68), v10 + 50000);
   return 1;
 }
 

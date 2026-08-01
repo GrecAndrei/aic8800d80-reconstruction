@@ -13,8 +13,8 @@
 extern uint32_t off_111304;
 extern uint32_t off_111308;
 
-// sub_1112F4 @ 0x1112f4, size 16 bytes
-int sub_1112F4()
+// get_status_flag @ 0x1112f4, size 16 bytes
+int get_status_flag()
 {
   if ( *(uint8_t *)off_111304 )
     return 1;

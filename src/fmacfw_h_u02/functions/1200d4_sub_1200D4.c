@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1200D4 @ 0x1200d4, size 28 bytes
-int  sub_1200D4(int result)
+// get_hw_tsf @ 0x1200d4, size 28 bytes
+int  get_hw_tsf(int result)
 {
   uint32_t *v1; // r4
   int v2; // r5
@@ -22,7 +22,7 @@ int  sub_1200D4(int result)
     v2 = result;
     do
     {
-      result = sub_11F28C(v2, (int)v1, 0);
+      result = is_ll_event_pending(v2, (int)v1, 0);
       v1 = (uint32_t *)*v1;
     }
     while ( v1 );

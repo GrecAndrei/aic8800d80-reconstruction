@@ -14,8 +14,8 @@ extern uint32_t off_10F004;
 extern uint32_t off_10F008;
 extern uint32_t off_10F00C;
 
-// sub_10EFBC @ 0x10efbc, size 70 bytes
-int  sub_10EFBC(int a1, int a2)
+// critical_enter @ 0x10efbc, size 70 bytes
+int  critical_enter(int a1, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r4
@@ -35,12 +35,12 @@ int  sub_10EFBC(int a1, int a2)
     v3 = off_10F00C;
     while ( !*(uint32_t *)off_10F00C )
       ;
-    result = rf_reg_read_cb_efa4();
+    result = call_indirect_table();
     *v3 = 1;
   }
   else
   {
-    result = rf_reg_read_cb_efa4();
+    result = call_indirect_table();
   }
   if ( *v2 )
   {

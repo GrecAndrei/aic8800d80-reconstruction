@@ -15,8 +15,8 @@ extern uint32_t off_128F7C;
 extern uint32_t off_128F84;
 extern uint32_t off_128F88;
 
-// sub_128F58 @ 0x128f58, size 34 bytes
-int  sub_128F58(int a1, int16_t a2)
+// wlc_band_set @ 0x128f58, size 34 bytes
+int  wlc_band_set(int a1, int16_t a2)
 {
   uint8_t *v2; // r2
   uint8_t *v3; // r3

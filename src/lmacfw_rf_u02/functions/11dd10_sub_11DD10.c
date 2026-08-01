@@ -16,8 +16,8 @@ extern uint32_t off_11DDC8;
 extern uint32_t off_11DDC0;
 extern uint32_t dword_11DDC4;
 
-// sub_11DD10 @ 0x11dd10, size 166 bytes
-int sub_11DD10()
+// mmio_poll_wait @ 0x11dd10, size 166 bytes
+int mmio_poll_wait()
 {
   uint32_t *v0; // r7
   int *v1; // r5
@@ -45,7 +45,7 @@ int sub_11DD10()
   v4 = (char *)off_11DDB8 + 32;
   while ( 1 )
   {
-    sub_11E628(0x10000000);
+    enter_critical_section(0x10000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -61,7 +61,7 @@ int sub_11DD10()
     v5 = *(uint32_t *)(v12 + 8);
     if ( v5 - v3[4] - 50 >= 0 )
     {
-      result = sub_11AB18((int)v4, v5);
+      result = ke_enter_critical((int)v4, v5);
       if ( *(uint32_t *)(v12 + 8) - v3[4] >= 0 )
       {
         if ( *v1 )
@@ -78,7 +78,7 @@ int sub_11DD10()
         return result;
       }
     }
-    v7 = sub_11E7AC(dword_11DDC4);
+    v7 = list_pop_front(dword_11DDC4);
     v8 = v7;
     v9 = *v1 - 1;
     if ( *v1 )
@@ -91,8 +91,8 @@ int sub_11DD10()
           __enable_irq();
       }
     }
-    sub_11DED8(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255);
-    sub_11E078(v8);
+    ke_evt_handler(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255);
+    check_buffer_size(v8);
   }
   if ( v13 )
   {

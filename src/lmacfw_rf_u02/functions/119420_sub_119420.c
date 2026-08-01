@@ -14,8 +14,8 @@ extern uint32_t off_119470;
 extern uint32_t off_11946C;
 extern uint32_t off_119474;
 
-// sub_119420 @ 0x119420, size 76 bytes
-int  sub_119420(int a1, int *a2, int a3, int a4)
+// event_dispatch @ 0x119420, size 76 bytes
+int  event_dispatch(int a1, int *a2, int a3, int a4)
 {
   char *v7; // r7
   uint32_t *v8; // r3
@@ -45,7 +45,7 @@ int  sub_119420(int a1, int *a2, int a3, int a4)
       v8[5] = v12;
     }
   }
-  sub_11DED8(122, a4, a3);
+  ke_evt_handler(122, a4, a3);
   return 0;
 }
 

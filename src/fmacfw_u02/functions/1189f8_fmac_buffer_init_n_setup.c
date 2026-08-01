@@ -14,10 +14,10 @@ extern uint32_t off_118A60;
 extern uint32_t dword_118A64;
 extern uint32_t dword_118A68;
 
-// fmac_buffer_init_n_setup @ 0x1189f8, size 102 bytes
-// Doc: fmac_buffer_init_n_setup [unknown]: Initialize FMAC buffer structures and call sub-init with large constant
-// fmac_buffer_init_n_setup [unknown]: Initialize FMAC buffer structures and call sub-init with large constant
-int  fmac_buffer_init_n_setup(int a1, int a2)
+// rf_pll_lock @ 0x1189f8, size 102 bytes
+// Doc: rf_pll_lock [unknown]: Initialize FMAC buffer structures and call sub-init with large constant
+// rf_pll_lock [unknown]: Initialize FMAC buffer structures and call sub-init with large constant
+int  rf_pll_lock(int a1, int a2)
 {
   int16_t **v2; // r5
   int v3; // r7
@@ -32,7 +32,7 @@ int  fmac_buffer_init_n_setup(int a1, int a2)
   v3 = dword_118A64;
   v4 = dword_118A68;
 LABEL_2:
-  v6 = rf_bus_mark_n100_d2d0(a2);
+  v6 = mem_word_load(a2);
   v7 = 2080374784;
   v8 = v6;
   if ( v6 )
@@ -47,23 +47,23 @@ LABEL_2:
 LABEL_5:
       if ( !*(uint16_t *)(v8 + 4) )
       {
-        sub_118CE0(v8);
+        free_buf_1882c0(v8);
         goto LABEL_2;
       }
       if ( **v2 >= 0 )
         goto LABEL_2;
-      sub_12F46C(v4, v3, 1147);
-      v10 = rf_bus_mark_n100_d2d0(a2);
+      mmio_clear_register(v4, v3, 1147);
+      v10 = mem_word_load(a2);
       v7 = 2080374784;
       v8 = v10;
       if ( !v10 )
-        return sub_118D28();
+        return tx_pool_init();
     }
     v7 = 0x40000000;
 LABEL_4:
     *(uint32_t *)(v9 + 4) = v7;
     goto LABEL_5;
   }
-  return sub_118D28();
+  return tx_pool_init();
 }
 

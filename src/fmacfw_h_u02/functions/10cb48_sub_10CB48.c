@@ -12,8 +12,8 @@
 
 extern uint32_t off_10CB50;
 
-// sub_10CB48 @ 0x10cb48, size 8 bytes
-void sub_10CB48()
+// rf_cmd_sleep @ 0x10cb48, size 8 bytes
+void rf_cmd_sleep()
 {
   *(uint32_t *)off_10CB50 = 8;
 }

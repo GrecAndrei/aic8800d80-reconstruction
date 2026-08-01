@@ -13,13 +13,13 @@
 extern uint32_t dword_12ED18;
 extern uint32_t off_12ED1C;
 
-// rf_timer_stop @ 0x12ecf8, size 32 bytes
-// Doc: rf_timer_stop [rf]: Stop RF hardware timer
-// rf_timer_stop [rf]: Stop RF hardware timer
-int rf_timer_stop()
+// controller_init @ 0x12ecf8, size 32 bytes
+// Doc: controller_init [rf]: Stop RF hardware timer
+// controller_init [rf]: Stop RF hardware timer
+int controller_init()
 {
-  msg_parse(dword_12ED18);
-  event_queue_push(1071, 1);
+  event_dispatch(dword_12ED18);
+  ke_int_lock(1071, 1);
   *((uint32_t *)off_12ED1C + 20) &= ~2u;
   return 0;
 }

@@ -18,24 +18,24 @@ extern uint32_t dword_12223C;
 extern uint32_t dword_122234;
 extern uint32_t dword_122238;
 
-// sub_122198 @ 0x122198, size 144 bytes
-int  sub_122198(int a1, int a2)
+// parse_decimal_value @ 0x122198, size 144 bytes
+int  parse_decimal_value(int a1, int a2)
 {
   int v4; // r0
   uint16_t v6; // r0
   int v7; // r0
   int v8; // r4
 
-  v4 = sub_121E3C(*(uint8_t **)(a2 + 4), 0, 0xAu);
+  v4 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
   if ( v4 )
   {
     if ( v4 == 1 )
     {
       if ( a1 <= 2 )
         goto LABEL_5;
-      v6 = sub_121E3C(*(uint8_t **)(a2 + 8), 0, 0x10u);
+      v6 = parse_number(*(uint8_t **)(a2 + 8), 0, 0x10u);
       **(uint16_t **)off_12222C = v6;
-      sub_11F504(dword_122230, v6);
+      dispatch_event_handler(dword_122230, v6);
       return 0;
     }
     else if ( v4 == 2 )
@@ -43,25 +43,25 @@ int  sub_122198(int a1, int a2)
       if ( a1 <= 2 )
       {
 LABEL_5:
-        sub_11F504(dword_122228);
+        dispatch_event_handler(dword_122228);
         return 0;
       }
-      v8 = sub_121E3C(*(uint8_t **)(a2 + 8), 0, 0x10u);
-      sub_11F504(dword_122240, v8);
-      sub_11F4A8(v8);
+      v8 = parse_number(*(uint8_t **)(a2 + 8), 0, 0x10u);
+      dispatch_event_handler(dword_122240, v8);
+      set_global_ptr(v8);
       return 0;
     }
     else
     {
-      sub_11F504(dword_12223C, v4);
+      dispatch_event_handler(dword_12223C, v4);
       return 0;
     }
   }
   else
   {
-    sub_11F504(dword_122234, **(uint16_t **)off_12222C);
-    v7 = sub_11F4C0();
-    sub_11F504(dword_122238, v7);
+    dispatch_event_handler(dword_122234, **(uint16_t **)off_12222C);
+    v7 = get_event_flags();
+    dispatch_event_handler(dword_122238, v7);
     return 0;
   }
 }

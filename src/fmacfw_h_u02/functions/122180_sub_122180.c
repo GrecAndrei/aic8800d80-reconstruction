@@ -13,8 +13,8 @@
 extern uint32_t off_1221AC;
 extern uint32_t dword_1221B0;
 
-// sub_122180 @ 0x122180, size 42 bytes
-int sub_122180()
+// poll_rf_register_done @ 0x122180, size 42 bytes
+int poll_rf_register_done()
 {
   uint32_t *v0; // r1
   int result; // r0

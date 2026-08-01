@@ -13,8 +13,8 @@
 extern uint32_t off_10DB5C;
 extern uint32_t dword_10DB60;
 
-// sub_10DB00 @ 0x10db00, size 90 bytes
-void sub_10DB00()
+// rf_irq_pending @ 0x10db00, size 90 bytes
+void rf_irq_pending()
 {
   uint32_t *v0; // r4
   unsigned int v1; // r3

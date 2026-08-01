@@ -13,10 +13,10 @@
 extern uint32_t off_11E53C;
 extern uint32_t off_11E538;
 
-// rx_desc_status_get @ 0x11e4f4, size 66 bytes
-// Doc: rx_desc_status_get [rx]: Reads descriptor status/control fields at offset 0x98/0x9c
-// rx_desc_status_get [rx]: Reads descriptor status/control fields at offset 0x98/0x9c
-int  rx_desc_status_get(int result)
+// rf_tx_timestamp_check @ 0x11e4f4, size 66 bytes
+// Doc: rf_tx_timestamp_check [rx]: Reads descriptor status/control fields at offset 0x98/0x9c
+// rf_tx_timestamp_check [rx]: Reads descriptor status/control fields at offset 0x98/0x9c
+int  rf_tx_timestamp_check(int result)
 {
   unsigned int v1; // r3
   unsigned int v2; // r2

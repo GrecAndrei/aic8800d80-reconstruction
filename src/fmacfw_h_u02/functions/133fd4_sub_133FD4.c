@@ -17,8 +17,8 @@ extern uint32_t dword_134220;
 extern uint32_t dword_134224;
 extern uint32_t off_134214;
 
-// sub_133FD4 @ 0x133fd4, size 570 bytes
-int  sub_133FD4(int a1, uint8_t *a2)
+// hci_process_acl @ 0x133fd4, size 570 bytes
+int  hci_process_acl(int a1, uint8_t *a2)
 {
   int v3; // r5
   int v4; // r8
@@ -74,12 +74,12 @@ int  sub_133FD4(int a1, uint8_t *a2)
   uint32_t v55[3]; // [sp+10h] [bp-1Ch] BYREF
   uint32_t v56[4]; // [sp+1Ch] [bp-10h] BYREF
 
-  if ( **(int16_t **)off_134210 < 0 && sub_12CD48(6u) != 3 )
-    sub_12F32C(dword_13421C, dword_134218, 481);
+  if ( **(int16_t **)off_134210 < 0 && hci_cmd_handler(6u) != 3 )
+    irq_disable_mmio_write(dword_13421C, dword_134218, 481);
   v3 = *a2;
   if ( *a2 )
   {
-    sub_134CC4(1);
+    assert_trace(1);
     return 0;
   }
   else
@@ -166,9 +166,9 @@ int  sub_133FD4(int a1, uint8_t *a2)
         v37[62] = v36;
         v37[1] |= 4u;
       }
-      v9 = sub_132320(v6, v5 + 1320 * v7 + 248);
+      v9 = rf_get_calibration(v6, v5 + 1320 * v7 + 248);
     }
-    sub_134A90(v9);
+    lld_evt_get_current(v9);
     if ( *(uint8_t *)off_134214 )
     {
       v38 = *(uint8_t *)(v4 + 696 * v51 + 192);
@@ -222,7 +222,7 @@ LABEL_20:
       }
       *(uint8_t *)(v4 + 696 * v51 + 192) = v3;
     }
-    sub_132BC4(v6);
+    nop_stub(v6);
     return 0;
   }
 }

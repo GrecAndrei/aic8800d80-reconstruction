@@ -1,1 +1,1 @@
-{"fn": "sub_1233A60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233a60", "status": "ok", "name": "cmd_dispatch_n_60", "params": [], "docstring": "Dispatch command 6 to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1233A60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233a60", "status": "ok", "name": "ipc_send_command", "params": [], "docstring": "Dispatch command 6 to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

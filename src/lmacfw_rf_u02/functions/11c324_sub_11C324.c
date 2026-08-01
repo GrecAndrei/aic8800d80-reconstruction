@@ -13,8 +13,8 @@
 extern uint32_t dword_11C384;
 extern uint32_t off_11C388;
 
-// sub_11C324 @ 0x11c324, size 96 bytes
-int  sub_11C324(int result)
+// bt_conn_find_by_ptr @ 0x11c324, size 96 bytes
+int  bt_conn_find_by_ptr(int result)
 {
   int v1; // r3
   int v2; // r2
@@ -46,14 +46,14 @@ LABEL_6:
     v5 = off_11C388;
     *(uint8_t *)(result + 12) = v4;
     if ( v5[10] == result )
-      return sub_11D9F8(v4);
+      return util_byte_to_hex(v4);
   }
   else
   {
     v6 = off_11C388;
     *(uint8_t *)(result + 12) = 15;
     if ( v6[10] == result )
-      return sub_11D9F8(15);
+      return util_byte_to_hex(15);
   }
   return result;
 }

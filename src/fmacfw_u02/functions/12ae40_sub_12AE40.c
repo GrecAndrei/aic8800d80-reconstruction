@@ -12,17 +12,17 @@
 
 extern uint32_t dword_12AE70;
 
-// sub_12AE40 @ 0x12ae40, size 48 bytes
-int *sub_12AE40()
+// tx_queue_flush @ 0x12ae40, size 48 bytes
+int *tx_queue_flush()
 {
   int *result; // r0
   uint8_t *v1; // r3
   int v2; // r1
 
-  sub_12AE04(0);
-  sub_12AE04(1);
-  sub_12AE04(2);
-  result = sub_12AE04(3);
+  tx_queue_entry_get(0);
+  tx_queue_entry_get(1);
+  tx_queue_entry_get(2);
+  result = tx_queue_entry_get(3);
   v1 = (uint8_t *)dword_12AE70;
   v2 = dword_12AE70 + 96;
   do

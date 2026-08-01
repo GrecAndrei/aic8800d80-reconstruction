@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A128;
 
-// sub_12A090 @ 0x12a090, size 152 bytes
-uint8_t * sub_12A090(uint8_t *result, int a2)
+// llc_get_local_state_idx @ 0x12a090, size 152 bytes
+uint8_t * llc_get_local_state_idx(uint8_t *result, int a2)
 {
   int v2; // r5
   int v3; // r7
@@ -31,13 +31,13 @@ uint8_t * sub_12A090(uint8_t *result, int a2)
     v5 = 140 * v2;
     if ( v4[16] )
     {
-      timestamp_remove(dword_12A128 + 140 * v2);
+      fault_handler(dword_12A128 + 140 * v2);
       v4[16] = 0;
     }
     v6 = v3 + 140 * v2;
     if ( *(uint8_t *)(v6 + 64) )
     {
-      timestamp_remove(v5 + 48 + v3);
+      fault_handler(v5 + 48 + v3);
       *(uint8_t *)(v6 + 64) = 0;
     }
     v7 = (uint8_t *)(v3 + 140 * v2);
@@ -47,10 +47,10 @@ uint8_t * sub_12A090(uint8_t *result, int a2)
     v7[132] = 0;
     if ( v8 )
     {
-      timestamp_remove(v5 + 96 + v3);
+      fault_handler(v5 + 96 + v3);
       v7[114] = 0;
     }
-    return sub_129804(v4);
+    return wlc_rx_process(v4);
   }
   return result;
 }

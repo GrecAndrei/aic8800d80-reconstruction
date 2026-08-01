@@ -27,8 +27,8 @@ extern uint32_t dword_113160;
 extern uint32_t dword_113154;
 extern uint32_t off_113150;
 
-// sub_112FC4 @ 0x112fc4, size 360 bytes
-int  sub_112FC4(uint8_t *a1, unsigned int a2, int a3)
+// rf_read_status @ 0x112fc4, size 360 bytes
+int  rf_read_status(uint8_t *a1, unsigned int a2, int a3)
 {
   uint16_t *v3; // r7
   uint8_t *v4; // r6
@@ -57,44 +57,44 @@ int  sub_112FC4(uint8_t *a1, unsigned int a2, int a3)
   v7 = a1;
   if ( *v4 != 2 )
   {
-    sub_10DAE4(dword_113144, *v3, *v4);
-    sub_114088(dword_113148, v7, a2, *v4);
+    debug_printf(dword_113144, *v3, *v4);
+    check_global_value(dword_113148, v7, a2, *v4);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    sub_10DAE4(dword_11314C, *v3, a2);
+    debug_printf(dword_11314C, *v3, a2);
   }
   else
   {
     v9 = a1[2];
     v10 = *a1 | (a1[1] << 8) & 0xF00;
     if ( *(uint8_t *)off_113138 )
-      a1 = (uint8_t *)sub_12EB90(512, dword_113158);
+      a1 = (uint8_t *)check_feature_flag(512, dword_113158);
     if ( v9 == 1 )
     {
       if ( a2 == v10 || v10 + 1 == a2 )
       {
-        ((void (*)(void))sub_113FC4)();
-        sub_113B08(v7 + 4);
-        sub_12CFC4(512);
+        ((void (*)(void))util_init_buffer)();
+        adv_parse_report(v7 + 4);
+        irq_disable_global_2(512);
         return 1;
       }
-      sub_10DAE4(dword_11315C, *v3, v10, a2);
+      debug_printf(dword_11315C, *v3, v10, a2);
     }
     else if ( v9 == 17 )
     {
       v11 = off_113168;
       if ( *((uint8_t *)off_113168 + 2433) >= (unsigned int)*((uint8_t *)off_113168 + 2434) )
       {
-        sub_10DAE4(dword_113164);
+        debug_printf(dword_113164);
       }
       else
       {
         if ( v10 + 4 == a2 || a2 == v10 + 5 )
         {
-          sub_113FC4(a1);
+          util_init_buffer(a1);
           v12 = v11[2433];
           v13 = dword_113140;
           v14 = (uint8_t)v11[2432]
@@ -107,20 +107,20 @@ int  sub_112FC4(uint8_t *a1, unsigned int a2, int a3)
           *((uint32_t *)v15 + 409) = v7 + 4;
           *((uint32_t *)v15 + 412) = v10;
           v11[2433] = v12 + 1;
-          sub_12D108(v13);
-          sub_12CFC4(0x400000);
+          wlan_ioctl_handler_1(v13);
+          irq_disable_global_2(0x400000);
           return 1;
         }
-        sub_10DAE4(dword_113160, *v3, v10, a2);
+        debug_printf(dword_113160, *v3, v10, a2);
       }
     }
     else
     {
-      sub_10DAE4(dword_113154, *v3, v9, v10, a2);
+      debug_printf(dword_113154, *v3, v9, v10, a2);
     }
   }
-  v17 = sub_10FEC8(&v7[-*(uint32_t *)off_113150]);
-  sub_113FC4(v17);
+  v17 = wait_for_state(&v7[-*(uint32_t *)off_113150]);
+  util_init_buffer(v17);
   return 1;
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1218170", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1218170", "status": "ok", "name": "flag_check_1218170", "params": [], "docstring": "Checks a flag/subsystem state and global byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1218170", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1218170", "status": "ok", "name": "timer_check_state", "params": [], "docstring": "Checks a flag/subsystem state and global byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

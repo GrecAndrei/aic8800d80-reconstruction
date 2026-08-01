@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D490;
 
-// sub_10D46C @ 0x10d46c, size 36 bytes
-int sub_10D46C()
+// handle_rf_status @ 0x10d46c, size 36 bytes
+int handle_rf_status()
 {
   int v0; // r3
   int result; // r0
@@ -24,7 +24,7 @@ int sub_10D46C()
   if ( (v0 & 0x400) != 0 )
   {
     *((uint32_t *)off_10D490 + 2) = 0x40000;
-    return sub_12CFC4(0x20000000);
+    return irq_disable_global_2(0x20000000);
   }
   return result;
 }

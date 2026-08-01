@@ -17,8 +17,8 @@ extern uint32_t off_13635C;
 extern uint32_t off_136360;
 extern uint32_t off_136364;
 
-// sub_1362C0 @ 0x1362c0, size 142 bytes
-int  sub_1362C0(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// tx_send_packet @ 0x1362c0, size 142 bytes
+int  tx_send_packet(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int16_t v6; // r2
   int v7; // r0
@@ -31,16 +31,16 @@ int  sub_1362C0(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   int *v15; // r3
   int v16; // r3
 
-  sub_12ECB0(dword_136354, dword_136350);
+  ke_event_schedule(dword_136354, dword_136350);
   v6 = a3;
   v7 = dword_136358 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && !*(uint8_t *)(v7 + 108) )
   {
-    value = msg_get_value(7u);
+    value = hci_cmd_send_short(7u);
     v6 = a3;
     if ( !value )
     {
-      sub_1287E0(*a2);
+      get_entry_by_index(*a2);
       v6 = a3;
       if ( (__get_CPSR() & 1) == 0 )
       {
@@ -67,7 +67,7 @@ int  sub_1362C0(int a1, uint8_t *a2, int16_t a3, int16_t a4)
       }
     }
   }
-  message_dispatch_n84(7175, a4, v6);
+  hci_evt_alloc_send(7175, a4, v6);
   return 0;
 }
 

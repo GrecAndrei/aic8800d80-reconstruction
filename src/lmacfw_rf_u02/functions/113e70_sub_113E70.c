@@ -12,8 +12,8 @@
 
 extern uint32_t dword_113ECC;
 
-// sub_113E70 @ 0x113e70, size 92 bytes
-int  sub_113E70(int a1, char a2, uint8_t *a3)
+// tx_desc_build @ 0x113e70, size 92 bytes
+int  tx_desc_build(int a1, char a2, uint8_t *a3)
 {
   int v5; // r1
   int v6; // r2
@@ -28,7 +28,7 @@ int  sub_113E70(int a1, char a2, uint8_t *a3)
   v11[0] = *(uint32_t *)dword_113ECC;
   v11[1] = v5;
   v11[2] = v6;
-  v7 = (unsigned int)sub_113A44(v11[a1]) >> (8 * a2);
+  v7 = (unsigned int)mmio_read32(v11[a1]) >> (8 * a2);
   v8 = (uint8_t)v7 >> 4;
   if ( (v7 & 0xF0) != 0 )
   {

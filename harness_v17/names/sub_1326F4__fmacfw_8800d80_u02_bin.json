@@ -1,0 +1,1 @@
+{"fn": "sub_1326F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1326f4", "status": "ok", "name": "is_valid_rate_code", "params": [], "docstring": "Validate rate code range for transmitter", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

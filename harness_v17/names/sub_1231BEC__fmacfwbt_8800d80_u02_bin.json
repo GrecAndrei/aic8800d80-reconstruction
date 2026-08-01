@@ -1,1 +1,1 @@
-{"fn": "sub_1231BEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1231bec", "status": "ok", "name": "bt_handler_n_1bec", "params": [], "docstring": "Bluetooth firmware handler (reconstructed)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1231BEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1231bec", "status": "ok", "name": "llm_set_adv_data", "params": [], "docstring": "Bluetooth firmware handler (reconstructed)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

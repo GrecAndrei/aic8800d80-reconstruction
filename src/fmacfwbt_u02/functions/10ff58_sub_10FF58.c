@@ -15,10 +15,10 @@ extern uint32_t off_10FFDC;
 extern uint32_t off_10FFD8;
 extern uint32_t dword_10FFE0;
 
-// sub_10FF58 @ 0x10ff58, size 122 bytes
+// rf_channel_config @ 0x10ff58, size 122 bytes
 // Doc: sub_120FF58 [rf]: Read RF control/status halfwords from shared state
 // sub_120FF58 [rf]: Read RF control/status halfwords from shared state
-int sub_10FF58()
+int rf_channel_config()
 {
   void *v0; // r4
   int v1; // r3
@@ -49,7 +49,7 @@ int sub_10FF58()
   v8[4] = 1596;
   v8[0] = 124;
   v8[3] = 0;
-  sub_10F77C(v2, (int)v7, 0x20u);
-  return sub_10FDC4((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
+  ke_msg_handler(v2, (int)v7, 0x20u);
+  return timer_arm((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
 }
 

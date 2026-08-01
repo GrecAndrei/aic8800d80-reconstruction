@@ -12,8 +12,8 @@
 
 extern uint32_t off_124E5C;
 
-// sub_124E3C @ 0x124e3c, size 30 bytes
-int  sub_124E3C(uint32_t *a1)
+// get_mmio_state @ 0x124e3c, size 30 bytes
+int  get_mmio_state(uint32_t *a1)
 {
   uint32_t *v1; // r3
 

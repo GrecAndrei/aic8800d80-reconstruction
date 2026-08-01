@@ -13,8 +13,8 @@
 extern uint32_t off_12FE50;
 extern uint32_t dword_12FE54;
 
-// sub_12FDE0 @ 0x12fde0, size 110 bytes
-int  sub_12FDE0(int a1, int a2)
+// mode_dispatch @ 0x12fde0, size 110 bytes
+int  mode_dispatch(int a1, int a2)
 {
   unsigned int v4; // r0
   int v5; // r7
@@ -24,12 +24,12 @@ int  sub_12FDE0(int a1, int a2)
 
   if ( a1 == 1 )
   {
-    sub_130260();
+    rf_tx_power_lookup();
     return 0;
   }
   else
   {
-    v4 = sub_12F818(*(uint8_t **)(a2 + 4), 0, 0);
+    v4 = parse_uint_base(*(uint8_t **)(a2 + 4), 0, 0);
     v5 = v4;
     if ( v4 )
       v5 = 1;
@@ -37,7 +37,7 @@ int  sub_12FDE0(int a1, int a2)
     if ( a1 > 2 )
     {
       v7 = off_12FE50;
-      v4 = sub_12F818(*(uint8_t **)(a2 + 8), 0, 0);
+      v4 = parse_uint_base(*(uint8_t **)(a2 + 8), 0, 0);
       if ( v4 > 0x7D0 )
         v7[91] = v4;
     }
@@ -50,15 +50,15 @@ int  sub_12FDE0(int a1, int a2)
       *((uint8_t *)v7 + 363) = v5;
       if ( v6 )
       {
-        v8 = sub_1303B8(v4);
-        sub_130474(v8);
+        v8 = read_global_signed_flag(v4);
+        set_flag_send_event_42e(v8);
       }
       else
       {
-        sub_1304D8();
+        clear_flag_send_event_42e();
       }
     }
-    sub_12E948(dword_12FE54, v5, v7[91]);
+    alloc_tx_event(dword_12FE54, v5, v7[91]);
     return 0;
   }
 }

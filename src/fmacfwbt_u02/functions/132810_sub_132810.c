@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132810 @ 0x132810, size 26 bytes
-int  sub_132810(uint8_t *a1)
+// llm_rx_validate_pdu @ 0x132810, size 26 bytes
+int  llm_rx_validate_pdu(uint8_t *a1)
 {
   if ( a1[3] )
     return 3;

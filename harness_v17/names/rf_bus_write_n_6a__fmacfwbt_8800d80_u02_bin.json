@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_6a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211956", "status": "ok", "name": "rf_bus_write_n_6a", "params": [], "docstring": "Write RF configuration to bus registers with masked access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_6a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211956", "status": "ok", "name": "rf_msg_process_body_n45", "params": [], "docstring": "Write RF configuration to bus registers with masked access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

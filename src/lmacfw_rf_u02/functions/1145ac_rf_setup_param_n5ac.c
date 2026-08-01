@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_setup_param_n5ac @ 0x1145ac, size 10 bytes
-// Doc: rf_setup_param_n5ac [rf]: Set up RF parameter (size=4, value=0x20)
-// rf_setup_param_n5ac [rf]: Set up RF parameter (size=4, value=0x20)
-int  rf_setup_param_n5ac(int a1)
+// mmio_write_8 @ 0x1145ac, size 10 bytes
+// Doc: mmio_write_8 [rf]: Set up RF parameter (size=4, value=0x20)
+// mmio_write_8 [rf]: Set up RF parameter (size=4, value=0x20)
+int  mmio_write_8(int a1)
 {
-  return rf_param_setup_44(8, a1, 4u);
+  return ke_task_process(8, a1, 4u);
 }
 

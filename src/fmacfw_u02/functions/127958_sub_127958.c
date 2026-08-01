@@ -13,8 +13,8 @@
 extern uint32_t dword_127A18;
 extern uint32_t off_127A14;
 
-// sub_127958 @ 0x127958, size 186 bytes
-int  sub_127958(int result, int16_t a2)
+// sta_get_flags @ 0x127958, size 186 bytes
+int  sta_get_flags(int result, int16_t a2)
 {
   int v2; // r8
   int v3; // r7
@@ -35,7 +35,7 @@ int  sub_127958(int result, int16_t a2)
   if ( (*(uint8_t *)(v4 + 85) & 0x60) == 0 )
   {
     v6 = result;
-    result = sub_12A198(dword_127A18 + 1320 * v3, *(uint8_t *)(result + 87));
+    result = bt_runtime_check2(dword_127A18 + 1320 * v3, *(uint8_t *)(result + 87));
     v8 = *(uint32_t *)(v6 + 92);
     v9 = abs16(v8 - (result - a2));
     *(uint16_t *)(v6 + 96) = v8 - (result - a2);

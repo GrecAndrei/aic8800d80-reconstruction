@@ -1,1 +1,1 @@
-{"fn": "sub_122F154", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f154", "status": "ok", "name": "bt_hci_cmd_send_n_0a4", "params": [], "docstring": "Build and send HCI-like command (0x401) to lower layer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122F154", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f154", "status": "ok", "name": "msg_alloc_401", "params": [], "docstring": "Build and send HCI-like command (0x401) to lower layer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

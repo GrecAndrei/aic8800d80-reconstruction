@@ -1,1 +1,1 @@
-{"fn": "sub_1217AF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217af8", "status": "ok", "name": "rf_init_subsystem_7af8", "params": [], "docstring": "Initialize RF subsystem state, loop clearing slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217AF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217af8", "status": "ok", "name": "init_table_185d40", "params": [], "docstring": "Initialize RF subsystem state, loop clearing slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

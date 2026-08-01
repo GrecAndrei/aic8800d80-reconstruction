@@ -21,10 +21,10 @@ extern uint32_t dword_113100;
 extern uint32_t dword_1130DC;
 extern uint32_t dword_1130D8;
 
-// sub_112F60 @ 0x112f60, size 360 bytes
+// seq_num_inc @ 0x112f60, size 360 bytes
 // Doc: rf_stream_start2_n_18a [rf]: Start secondary RF streaming/transfer sequence
 // rf_stream_start2_n_18a [rf]: Start secondary RF streaming/transfer sequence
-int  sub_112F60(uint8_t *a1, unsigned int a2, int a3)
+int  seq_num_inc(uint8_t *a1, unsigned int a2, int a3)
 {
   uint16_t *v3; // r7
   uint8_t *v4; // r6
@@ -53,44 +53,44 @@ int  sub_112F60(uint8_t *a1, unsigned int a2, int a3)
   v7 = a1;
   if ( *v4 != 2 )
   {
-    log_printf(rf_stream_start2_n_16c, *v3, *v4);
-    sub_114024(dword_1130E4, v7, a2, *v4);
+    printf_wrapper(rf_stream_start2_n_16c, *v3, *v4);
+    band_is_supported(dword_1130E4, v7, a2, *v4);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    log_printf(dword_1130E8, *v3, a2);
+    printf_wrapper(dword_1130E8, *v3, a2);
   }
   else
   {
     v9 = a1[2];
     v10 = *a1 | (a1[1] << 8) & 0xF00;
     if ( *(uint8_t *)rf_msg_process_body_n_14e )
-      a1 = (uint8_t *)feature_guard_sdio(512, dword_1130F4);
+      a1 = (uint8_t *)state_check_feature(512, dword_1130F4);
     if ( v9 == 1 )
     {
       if ( a2 == v10 || v10 + 1 == a2 )
       {
-        ((void (*)(void))sub_113F60)();
-        rf_msg_process_body_3aa4(v7 + 4);
-        irq_nesting_or(512);
+        ((void (*)(void))bt_task_tail_dispatch)();
+        rx_packet_parse(v7 + 4);
+        set_system_flag_1(512);
         return 1;
       }
-      log_printf(dword_1130F8, *v3, v10, a2);
+      printf_wrapper(dword_1130F8, *v3, v10, a2);
     }
     else if ( v9 == 17 )
     {
       v11 = off_113104;
       if ( *((uint8_t *)off_113104 + 2433) >= (unsigned int)*((uint8_t *)off_113104 + 2434) )
       {
-        log_printf(dword_113100);
+        printf_wrapper(dword_113100);
       }
       else
       {
         if ( v10 + 4 == a2 || a2 == v10 + 5 )
         {
-          sub_113F60(a1);
+          bt_task_tail_dispatch(a1);
           v12 = v11[2433];
           v13 = dword_1130DC;
           v14 = (uint8_t)v11[2432]
@@ -103,20 +103,20 @@ int  sub_112F60(uint8_t *a1, unsigned int a2, int a3)
           *((uint32_t *)v15 + 409) = v7 + 4;
           *((uint32_t *)v15 + 412) = v10;
           v11[2433] = v12 + 1;
-          list_push_tail(v13);
-          irq_nesting_or(0x400000);
+          check_abort_flag(v13);
+          set_system_flag_1(0x400000);
           return 1;
         }
-        log_printf(rf_msg_handler_n19c, *v3, v10, a2);
+        printf_wrapper(rf_msg_handler_n19c, *v3, v10, a2);
       }
     }
     else
     {
-      log_printf(rf_stream_start2_n_15c, *v3, v9, v10, a2);
+      printf_wrapper(rf_stream_start2_n_15c, *v3, v9, v10, a2);
     }
   }
-  v17 = log_free_dispatch_2(&v7[-*(uint32_t *)rf_mem_scan_bytes]);
-  sub_113F60(v17);
+  v17 = memory_pool_free(&v7[-*(uint32_t *)rf_mem_scan_bytes]);
+  bt_task_tail_dispatch(v17);
   return 1;
 }
 

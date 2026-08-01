@@ -12,10 +12,10 @@
 
 extern uint32_t off_12B8B8;
 
-// mmio_set_reset_vector_n_b8 @ 0x12b8a8, size 16 bytes
-// Doc: mmio_set_reset_vector_n_b8 [mmio]: Write 0x40328050 to MMIO control register and return
-// mmio_set_reset_vector_n_b8 [mmio]: Write 0x40328050 to MMIO control register and return
-void mmio_set_reset_vector_n_b8()
+// mmio_write_one @ 0x12b8a8, size 16 bytes
+// Doc: mmio_write_one [mmio]: Write 0x40328050 to MMIO control register and return
+// mmio_write_one [mmio]: Write 0x40328050 to MMIO control register and return
+void mmio_write_one()
 {
   uint32_t *v0; // r2
 

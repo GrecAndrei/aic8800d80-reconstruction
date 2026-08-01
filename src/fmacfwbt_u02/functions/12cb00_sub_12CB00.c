@@ -14,8 +14,8 @@ extern uint32_t off_12CB48;
 extern uint32_t off_12CB4C;
 extern uint32_t dword_12CB50;
 
-// sub_12CB00 @ 0x12cb00, size 72 bytes
-int sub_12CB00()
+// irq_lock_small @ 0x12cb00, size 72 bytes
+int irq_lock_small()
 {
   int *v0; // r5
   int v1; // r4
@@ -31,13 +31,13 @@ int sub_12CB00()
   v0 = (int *)off_12CB4C;
   v1 = dword_12CB50;
   ++*(uint32_t *)off_12CB4C;
-  sub_12D374(0x10000000);
+  set_system_flag_2(0x10000000);
   while ( 1 )
   {
-    result = sub_12D4F8(v1);
+    result = list_pop_front(v1);
     if ( !result )
       break;
-    sub_12CDF0(result);
+    hci_tx_packet(result);
   }
   if ( *v0 )
   {

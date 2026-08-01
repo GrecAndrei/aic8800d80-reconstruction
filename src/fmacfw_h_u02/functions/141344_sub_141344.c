@@ -12,8 +12,8 @@
 
 extern uint32_t dword_14139C;
 
-// sub_141344 @ 0x141344, size 88 bytes
-uint32_t *sub_141344()
+// ke_timer_tick_inc @ 0x141344, size 88 bytes
+uint32_t *ke_timer_tick_inc()
 {
   int v0; // r3
   int v1; // r0
@@ -33,13 +33,13 @@ uint32_t *sub_141344()
   while ( v2 != v0 + 6336 );
   if ( v1 >= *(uint32_t *)(v2 + 148) )
   {
-    result = sub_12CBF4(0xBu, 0);
+    result = hci_cmd_preprocess(0xBu, 0);
     *(uint32_t *)(v2 + 144) = -1;
   }
   else
   {
-    sub_12CBF4(0xBu, 4);
-    return (uint32_t *)sub_12C8D0(11264, 11, 11);
+    hci_cmd_preprocess(0xBu, 4);
+    return (uint32_t *)mac_write_header_word(11264, 11, 11);
   }
   return result;
 }

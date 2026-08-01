@@ -17,10 +17,10 @@ extern uint32_t dword_131778;
 extern uint32_t dword_131774;
 extern uint32_t dword_131780;
 
-// rf_bus_mark_n_27a @ 0x131688, size 226 bytes
-// Doc: rf_bus_mark_n_27a [rf]: Marks RF bus entry with byte/halfword writes and calls update routine
-// rf_bus_mark_n_27a [rf]: Marks RF bus entry with byte/halfword writes and calls update routine
-int  rf_bus_mark_n_27a(int a1, int *a2, int16_t a3, int16_t a4)
+// ke_wait_event @ 0x131688, size 226 bytes
+// Doc: ke_wait_event [rf]: Marks RF bus entry with byte/halfword writes and calls update routine
+// ke_wait_event [rf]: Marks RF bus entry with byte/halfword writes and calls update routine
+int  ke_wait_event(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v7; // r5
   int v8; // r4
@@ -35,16 +35,16 @@ int  rf_bus_mark_n_27a(int a1, int *a2, int16_t a3, int16_t a4)
   int v18; // r1
   int v19; // r2
 
-  if ( msg_get_value(5u) == 1 )
+  if ( rx_rate_field_parse(5u) == 1 )
     return 2;
-  v7 = sub_12C92C(5138, a4, a3, 0xCu);
+  v7 = ke_msg_alloc(5138, a4, a3, 0xCu);
   if ( **(int16_t **)off_13176C < 0 )
   {
     v14 = (uint8_t *)off_131770;
     v8 = *((uint8_t *)off_131770 + 16);
     if ( v8 == 255 )
     {
-      sub_12F46C(dword_13177C, dword_131778, 1092);
+      mmio_clear_register(dword_13177C, dword_131778, 1092);
       v8 = v14[16];
     }
   }
@@ -52,8 +52,8 @@ int  rf_bus_mark_n_27a(int a1, int *a2, int16_t a3, int16_t a4)
   {
     v8 = *((uint8_t *)off_131770 + 16);
   }
-  if ( chip_info_is_fpga_or_emu() )
-    mmio_bit_modify(*((uint8_t *)a2 + 11));
+  if ( rf_check_status() )
+    rf_set_pa_bit(*((uint8_t *)a2 + 11));
   v9 = dword_131774 + 1320 * v8;
   v10 = *(uint32_t *)(v9 + 72);
   if ( v10 )
@@ -61,16 +61,16 @@ int  rf_bus_mark_n_27a(int a1, int *a2, int16_t a3, int16_t a4)
     *(uint8_t *)v7 = *(uint8_t *)(v10 + 24);
     if ( *((uint8_t *)a2 + 10) )
     {
-      if ( list_count((uint32_t **)dword_131780) == 1 )
+      if ( read_u32((uint32_t **)dword_131780) == 1 )
       {
-        v15 = sub_12C92C(59, 0, 5, 0xCu);
+        v15 = ke_msg_alloc(59, 0, 5, 0xCu);
         *(uint8_t *)v15 = *(uint8_t *)(*(uint32_t *)(v9 + 72) + 24);
         v16 = *((uint16_t *)a2 + 4);
         v17 = a2[1];
         *(uint32_t *)(v15 + 2) = *a2;
         *(uint16_t *)(v15 + 10) = v16;
         *(uint32_t *)(v15 + 6) = v17;
-        sdio_buffer_prepare_n_4e8(v15);
+        ke_msg_send(v15);
         v18 = *a2;
         v19 = a2[1];
         *(uint16_t *)(v7 + 10) = *((uint16_t *)a2 + 4);
@@ -86,11 +86,11 @@ int  rf_bus_mark_n_27a(int a1, int *a2, int16_t a3, int16_t a4)
     *(uint32_t *)(v7 + 2) = v11;
     *(uint32_t *)(v7 + 6) = v12;
 LABEL_9:
-    sdio_buffer_prepare_n_4e8(v7);
+    ke_msg_send(v7);
     return 0;
   }
   *(uint8_t *)v7 = -1;
-  sdio_buffer_prepare_n_4e8(v7);
+  ke_msg_send(v7);
   return 0;
 }
 

@@ -20,8 +20,8 @@ extern uint32_t off_10CD74;
 extern uint32_t off_10CD7C;
 extern uint32_t off_10CD78;
 
-// sub_10CCB0 @ 0x10ccb0, size 190 bytes
-int  sub_10CCB0(uint16_t *a1)
+// scan_report_alloc @ 0x10ccb0, size 190 bytes
+int  scan_report_alloc(uint16_t *a1)
 {
   int16_t **v2; // r7
   int v3; // r0
@@ -37,12 +37,12 @@ int  sub_10CCB0(uint16_t *a1)
   int16_t v13; // r3
 
   v2 = (int16_t **)off_10CD70;
-  v3 = message_dispatch_n158((uint16_t)a1[5] + 16);
+  v3 = pkt_buf_alloc((uint16_t)a1[5] + 16);
   v4 = *v2;
   v5 = v3;
   if ( **v2 < 0 && !v3 )
   {
-    sub_12F46C(dword_10CD88, dword_10CD80, 1358);
+    mmio_clear_register(dword_10CD88, dword_10CD80, 1358);
     v4 = *v2;
   }
   v6 = (uint16_t)a1[5];
@@ -69,12 +69,12 @@ int  sub_10CCB0(uint16_t *a1)
   {
     if ( v7 > 0xE )
     {
-      sub_12F46C(dword_10CD90, dword_10CD8C, 183);
-      sub_12F46C(dword_10CD84, dword_10CD80, 1375);
+      mmio_clear_register(dword_10CD90, dword_10CD8C, 183);
+      mmio_clear_register(dword_10CD84, dword_10CD80, 1375);
     }
     else if ( v7 > 0xC )
     {
-      sub_12F46C(dword_10CD84, dword_10CD80, 1375);
+      mmio_clear_register(dword_10CD84, dword_10CD80, 1375);
     }
   }
   if ( **(uint8_t **)off_10CD74 == 3 )
@@ -85,6 +85,6 @@ int  sub_10CCB0(uint16_t *a1)
     a1[4] = v13;
     *v12 = 4;
   }
-  return sdio_buffer_prepare_n_4e8(v5 + 12);
+  return ke_msg_send(v5 + 12);
 }
 

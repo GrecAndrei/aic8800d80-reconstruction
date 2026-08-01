@@ -16,14 +16,14 @@ extern uint32_t off_102A4C;
 extern uint32_t dword_102A54;
 extern uint32_t dword_102A50;
 
-// sub_102A1C @ 0x102a1c, size 38 bytes
-int sub_102A1C()
+// check_button @ 0x102a1c, size 38 bytes
+int check_button()
 {
   int result; // r0
 
-  result = sub_11F504(dword_102A48, dword_102A44);
+  result = dispatch_event_handler(dword_102A48, dword_102A44);
   if ( **(int16_t **)off_102A4C < 0 )
-    return sub_1219C4(dword_102A54, dword_102A50, 61);
+    return flash_ctrl_init(dword_102A54, dword_102A50, 61);
   return result;
 }
 

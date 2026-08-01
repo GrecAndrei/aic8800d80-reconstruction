@@ -10,18 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11E888 @ 0x11e888, size 42 bytes
+// list_find @ 0x11e888, size 42 bytes
 // Doc: sdio_buffer_prepare_n_32a [tx]: Validate/prepare SDIO buffer descriptor
 // sdio_buffer_prepare_n_32a [tx]: Validate/prepare SDIO buffer descriptor
-uint32_t * sub_11E888(uint32_t *result, uint32_t *a2, uint32_t *a3)
+uint32_t * list_find(uint32_t *result, uint32_t *a2, uint32_t *a3)
 {
   uint32_t **v3; // r3
 
   if ( !a2 )
-    return (uint32_t *)list_push_tail((int)result, a3);
+    return (uint32_t *)check_kernel_state((int)result, a3);
   v3 = (uint32_t **)*result;
   if ( (uint32_t *)*result == a2 )
-    return (uint32_t *)sub_11E76C((int)result, a3);
+    return (uint32_t *)check_kernel_state_alt((int)result, a3);
   if ( v3 )
   {
     while ( 1 )

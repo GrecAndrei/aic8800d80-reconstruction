@@ -13,8 +13,8 @@
 extern uint32_t off_10FE24;
 extern uint32_t off_10FE28;
 
-// sub_10FDF4 @ 0x10fdf4, size 46 bytes
-BOOL  sub_10FDF4(unsigned int a1)
+// check_state_flag @ 0x10fdf4, size 46 bytes
+BOOL  check_state_flag(unsigned int a1)
 {
   if ( *(uint32_t *)off_10FE24 <= a1 && a1 <= *(uint32_t *)off_10FE24 + *((uint32_t *)off_10FE24 + 1) )
     return 1;

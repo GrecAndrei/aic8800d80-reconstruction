@@ -13,13 +13,13 @@
 extern uint32_t dword_11F794;
 extern uint32_t off_11F798;
 
-// rf_msg_process_body_n_ee @ 0x11f774, size 32 bytes
+// enable_radio @ 0x11f774, size 32 bytes
 // Doc: rf_mem_read_n1e8 [rf]: Read RF memory region with mailbox kick and flag clear
 // rf_mem_read_n1e8 [rf]: Read RF memory region with mailbox kick and flag clear
-int rf_msg_process_body_n_ee()
+int enable_radio()
 {
-  msg_parse(dword_11F794);
-  event_queue_push(1071, 1);
+  dispatch_event_handler(dword_11F794);
+  ke_int_lock(1071, 1);
   *((uint32_t *)off_11F798 + 20) &= ~2u;
   return 0;
 }

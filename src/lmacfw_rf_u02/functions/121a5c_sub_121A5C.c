@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_121A5C @ 0x121a5c, size 4 bytes
+// patch_trampoline @ 0x121a5c, size 4 bytes
 // attributes: thunk
-int  sub_121A5C(uint16_t *a1)
+int  patch_trampoline(uint16_t *a1)
 {
-  return sub_10D06C(a1);
+  return mac_ll_scheduler(a1);
 }
 

@@ -12,16 +12,16 @@
 
 extern uint32_t dword_1235CC;
 
-// sub_12357C @ 0x12357c, size 80 bytes
+// rf_tx_start_cmd @ 0x12357c, size 80 bytes
 // Doc: sub_122357C [ipc]: Invoke IPC/utility with cmd 0x54 sub 0xd, flag 1, arg 0
 // sub_122357C [ipc]: Invoke IPC/utility with cmd 0x54 sub 0xd, flag 1, arg 0
-int  sub_12357C(int a1, uint8_t *a2)
+int  rf_tx_start_cmd(int a1, uint8_t *a2)
 {
   uint8_t *v3; // r0
   uint8_t *v4; // r4
   unsigned int v5; // r0
 
-  v3 = (uint8_t *)sub_12C92C(84, 13, 0, 1);
+  v3 = (uint8_t *)ke_msg_alloc(84, 13, 0, 1);
   *v3 = 1;
   v4 = v3;
   v5 = *a2;
@@ -30,13 +30,13 @@ int  sub_12357C(int a1, uint8_t *a2)
   *v4 = 0;
   if ( a2[1] )
   {
-    sub_12A528();
+    llc_get_conn_state();
 LABEL_5:
-    sdio_buffer_prepare_n_4e8(v4);
+    ke_msg_send(v4);
     return 0;
   }
-  rf_table_lookup_n564();
-  sdio_buffer_prepare_n_4e8(v4);
+  llc_get_conn_role();
+  ke_msg_send(v4);
   return 0;
 }
 

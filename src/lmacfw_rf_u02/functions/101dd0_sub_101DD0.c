@@ -13,8 +13,8 @@
 extern uint32_t off_101E10;
 extern uint32_t off_101E0C;
 
-// sub_101DD0 @ 0x101dd0, size 58 bytes
-int  sub_101DD0(int result)
+// pll_set_output @ 0x101dd0, size 58 bytes
+int  pll_set_output(int result)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3

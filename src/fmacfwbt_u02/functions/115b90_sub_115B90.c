@@ -30,8 +30,8 @@ extern uint32_t dword_115CE8;
 extern uint32_t dword_115CEC;
 extern uint32_t off_115CF0;
 
-// sub_115B90 @ 0x115b90, size 296 bytes
-int sub_115B90()
+// rf_clock_enable @ 0x115b90, size 296 bytes
+int rf_clock_enable()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r4
@@ -51,7 +51,7 @@ int sub_115B90()
   *((uint32_t *)off_115CB8 + 14) |= 0x10u;
   *v0 &= ~0x2000000u;
   v1 = off_115CC4;
-  feature_guard_sdio(2, dword_115CC0);
+  state_check_feature(2, dword_115CC0);
   v2 = off_115CC8;
   *(uint32_t *)off_115CC8 |= 0x80000000;
   v1[1] = 0;
@@ -59,7 +59,7 @@ int sub_115B90()
     ;
   v3 = off_115CCC;
   if ( *((uint8_t *)off_115CCC + 189) && **(int16_t **)off_115CD0 < 0 && *v1 != (*(uint32_t *)off_115CE4 & 0xF) )
-    sub_12F694(dword_115D00, dword_115CFC, 968);
+    mmio_irq_clear(dword_115D00, dword_115CFC, 968);
   v4 = off_115CC8;
   v5 = (uint8_t **)off_115CD4;
   *(uint32_t *)off_115CC8 &= ~0x40000000u;
@@ -77,7 +77,7 @@ int sub_115B90()
     *(uint32_t *)off_115CBC |= 0x2000000u;
   else
     *((uint32_t *)off_115CB8 + 14) &= ~0x10u;
-  result = feature_guard_sdio(2, dword_115CDC);
+  result = state_check_feature(2, dword_115CDC);
   v8 = *(uint8_t **)off_115CE0;
   v9 = **(uint8_t **)off_115CE0;
   if ( v9 == 2 )

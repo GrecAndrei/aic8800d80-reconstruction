@@ -25,8 +25,8 @@ extern uint32_t dword_10F548;
 extern uint32_t dword_10F544;
 extern uint32_t dword_10F53C;
 
-// sub_10F458 @ 0x10f458, size 192 bytes
-int sub_10F458()
+// rf_wait_ready @ 0x10f458, size 192 bytes
+int rf_wait_ready()
 {
   uint8_t **v0; // r4
   int v1; // r3
@@ -74,17 +74,17 @@ int sub_10F458()
       v6[9] = v7;
       break;
   }
-  sub_10F37C();
-  v4 = sub_10F3B0();
+  tx_send_packet();
+  v4 = rf_timer_init();
   v5 = **v0;
   if ( v5 == 1 )
   {
     v17 = (int ( **)(int))off_10F51C;
     *(uint32_t *)off_10F538 = dword_10F54C;
-    v18 = sub_1101E4(v4, HIDWORD(v4));
-    v19 = sub_110224(v18);
-    v20 = sub_11027C(v19);
-    sub_11018C(v20);
+    v18 = get_link_rate(v4, HIDWORD(v4));
+    v19 = get_modulation_type(v18);
+    v20 = get_link_tx_power(v19);
+    get_link_channel(v20);
     v21 = v17[2](dword_10F540);
     LODWORD(v4) = v17[3](v21);
     v5 = **v0;
@@ -95,18 +95,18 @@ int sub_10F458()
     *(uint32_t *)off_10F538 = dword_10F544;
     v13 = (int ( **)(int))off_10F51C;
     *(uint16_t *)(v12 + 8244) = 0;
-    v14 = sub_1139C8();
-    sub_113814(v14);
+    v14 = ke_state_get_fast();
+    ke_state_get(v14);
     v15 = v13[6](dword_10F540);
     v16 = v13[7](v15);
-    LODWORD(v4) = sub_114168(v16);
+    LODWORD(v4) = store_byte_field(v16);
     v5 = **v0;
   }
   if ( v5 == 3 )
   {
     v10 = (int ( **)(int))off_10F51C;
     *(uint32_t *)off_10F538 = dword_10F53C;
-    sub_114234();
+    process_task_queue();
     v11 = v10[8](dword_10F540);
     LODWORD(v4) = v10[9](v11);
   }

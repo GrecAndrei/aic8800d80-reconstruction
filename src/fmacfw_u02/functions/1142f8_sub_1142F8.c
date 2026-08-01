@@ -13,8 +13,8 @@
 extern uint32_t off_114310;
 extern uint32_t off_114314;
 
-// sub_1142F8 @ 0x1142f8, size 24 bytes
-int  sub_1142F8(int a1)
+// init_bt_global @ 0x1142f8, size 24 bytes
+int  init_bt_global(int a1)
 {
   uint32_t *v1; // r2
   uint16_t *v2; // r1

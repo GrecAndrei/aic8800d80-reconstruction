@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12FA2C @ 0x12fa2c, size 50 bytes
-int  sub_12FA2C(int a1)
+// is_strlen_two @ 0x12fa2c, size 50 bytes
+int  is_strlen_two(int a1)
 {
   int v2; // r0
   int v3; // r0
   int v5; // r3
 
-  v2 = sub_143E40(a1);
+  v2 = memmove(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;

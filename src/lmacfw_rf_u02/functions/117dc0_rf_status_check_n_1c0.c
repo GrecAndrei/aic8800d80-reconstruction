@@ -13,10 +13,10 @@
 extern uint32_t off_117DEC;
 extern uint32_t off_117DF0;
 
-// rf_status_check_n_1c0 @ 0x117dc0, size 44 bytes
-// Doc: rf_status_check_n_1c0 [rf]: Check RF status byte at offset 0x5e from radio state block
-// rf_status_check_n_1c0 [rf]: Check RF status byte at offset 0x5e from radio state block
-void rf_status_check_n_1c0()
+// btcoex_check_state @ 0x117dc0, size 44 bytes
+// Doc: btcoex_check_state [rf]: Check RF status byte at offset 0x5e from radio state block
+// btcoex_check_state [rf]: Check RF status byte at offset 0x5e from radio state block
+void btcoex_check_state()
 {
   uint8_t *v0; // r3
   unsigned int v1; // r2

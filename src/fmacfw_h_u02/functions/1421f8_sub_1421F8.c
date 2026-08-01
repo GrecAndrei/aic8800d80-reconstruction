@@ -13,8 +13,8 @@
 extern uint32_t off_14229C;
 extern uint32_t dword_1422A0;
 
-// sub_1421F8 @ 0x1421f8, size 162 bytes
-int  sub_1421F8(int result, int16_t a2, uint16_t *a3)
+// adv_type_validate @ 0x1421f8, size 162 bytes
+int  adv_type_validate(int result, int16_t a2, uint16_t *a3)
 {
   uint8_t *v3; // r6
   int16_t v4; // r2
@@ -80,7 +80,7 @@ LABEL_13:
           if ( v3[1] )
           {
             if ( v13 == 9 )
-              result = (int)sub_141D08(result);
+              result = (int)handle_ll_event(result);
           }
         }
       }

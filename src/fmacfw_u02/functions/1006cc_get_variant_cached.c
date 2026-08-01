@@ -12,10 +12,10 @@
 
 extern uint32_t off_1006D4;
 
-// get_variant_cached @ 0x1006cc, size 6 bytes
-// Doc: get_variant_cached [util]: Return cached silicon variant byte from global table at offset 1
-// get_variant_cached [util]: Return cached silicon variant byte from global table at offset 1
-int get_variant_cached()
+// get_status_byte @ 0x1006cc, size 6 bytes
+// Doc: get_status_byte [util]: Return cached silicon variant byte from global table at offset 1
+// get_status_byte [util]: Return cached silicon variant byte from global table at offset 1
+int get_status_byte()
 {
   return *((uint8_t *)off_1006D4 + 1);
 }

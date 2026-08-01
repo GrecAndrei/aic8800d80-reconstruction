@@ -13,8 +13,8 @@
 extern uint32_t off_13432C;
 extern uint32_t off_134330;
 
-// sub_1342F4 @ 0x1342f4, size 54 bytes
-uint32_t *sub_1342F4()
+// ble_clear_state @ 0x1342f4, size 54 bytes
+uint32_t *ble_clear_state()
 {
   uint32_t *v0; // r4
   uint16_t *v1; // r3
@@ -28,10 +28,10 @@ uint32_t *sub_1342F4()
   *((uint8_t *)v1 + 3) = 0;
   if ( v2 )
   {
-    sub_12C8F8(v2 - 12);
-    sub_12C8F8(v0[5] - 12);
+    tx_process_jump(v2 - 12);
+    tx_process_jump(v0[5] - 12);
   }
   sub_100200((int *)off_13432C, 0, 0x2Cu);
-  return sub_12CBF4(6u, 0);
+  return hci_cmd_preprocess(6u, 0);
 }
 

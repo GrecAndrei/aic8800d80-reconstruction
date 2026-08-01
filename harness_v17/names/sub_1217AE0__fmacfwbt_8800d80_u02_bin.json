@@ -1,1 +1,1 @@
-{"fn": "sub_1217AE0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217ae0", "status": "ok", "name": "cmd_dispatch_handler", "params": [], "docstring": "Dispatch handler switching on command opcode (r1)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217AE0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217ae0", "status": "ok", "name": "conn_rx", "params": [], "docstring": "Dispatch handler switching on command opcode (r1)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

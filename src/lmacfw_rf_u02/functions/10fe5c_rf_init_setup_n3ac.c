@@ -14,10 +14,10 @@ extern uint32_t off_10FEA0;
 extern uint32_t dword_10FEA4;
 extern uint32_t off_10FEA8;
 
-// rf_init_setup_n3ac @ 0x10fe5c, size 66 bytes
-// Doc: rf_init_setup_n3ac [rf]: Initialize RF subsystem registers from arguments
-// rf_init_setup_n3ac [rf]: Initialize RF subsystem registers from arguments
-int  rf_init_setup_n3ac(int a1, int a2, int a3)
+// mem_region_init @ 0x10fe5c, size 66 bytes
+// Doc: mem_region_init [rf]: Initialize RF subsystem registers from arguments
+// mem_region_init [rf]: Initialize RF subsystem registers from arguments
+int  mem_region_init(int a1, int a2, int a3)
 {
   uint32_t *v3; // r3
   uint32_t *v4; // r3
@@ -27,7 +27,7 @@ int  rf_init_setup_n3ac(int a1, int a2, int a3)
   *v3 = a2;
   v3[1] = a3;
   *((uint8_t *)v3 + 8) = 4;
-  sub_10F814(v3, a1, 0x20u);
+  ke_msg_send(v3, a1, 0x20u);
   v4 = off_10FEA8;
   *((uint32_t *)off_10FEA8 + 5) = 4;
   v4[1] = 0x10000;

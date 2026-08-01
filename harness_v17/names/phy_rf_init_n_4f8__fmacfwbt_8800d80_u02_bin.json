@@ -1,1 +1,1 @@
-{"fn": "phy_rf_init_n_4f8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202dd8", "status": "ok", "name": "phy_rf_init_n_4f8", "params": [], "docstring": "Initializes PHY/RF hardware block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "phy_rf_init_n_4f8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202dd8", "status": "ok", "name": "radio_process_packet", "params": [], "docstring": "Initializes PHY/RF hardware block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

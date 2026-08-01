@@ -1,1 +1,1 @@
-{"fn": "sub_1201DD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1201dd0", "status": "ok", "name": "rf_mmio_set_byte_field", "params": [], "docstring": "Writes a byte field into RF MMIO register at 0x403200a0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1201DD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1201dd0", "status": "ok", "name": "pll_set_output", "params": [], "docstring": "Writes a byte field into RF MMIO register at 0x403200a0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

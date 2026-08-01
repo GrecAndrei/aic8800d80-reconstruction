@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A13C;
 
-// sub_12A12C @ 0x12a12c, size 14 bytes
-int  sub_12A12C(int a1)
+// llc_get_evt_field @ 0x12a12c, size 14 bytes
+int  llc_get_evt_field(int a1)
 {
   return *(uint8_t *)(dword_12A13C + 140 * a1 + 133);
 }

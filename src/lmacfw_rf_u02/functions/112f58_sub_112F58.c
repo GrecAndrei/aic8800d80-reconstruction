@@ -12,8 +12,8 @@
 
 extern uint32_t dword_112F68;
 
-// sub_112F58 @ 0x112f58, size 14 bytes
-int  sub_112F58(unsigned int a1)
+// lookup_table_value @ 0x112f58, size 14 bytes
+int  lookup_table_value(unsigned int a1)
 {
   if ( a1 > 7 )
     return 0;

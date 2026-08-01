@@ -16,8 +16,8 @@ extern uint32_t off_107614;
 extern uint32_t dword_107618;
 extern uint32_t dword_10761C;
 
-// sub_107538 @ 0x107538, size 212 bytes
-int  sub_107538(int a1, int a2)
+// mmio_enable_aux @ 0x107538, size 212 bytes
+int  mmio_enable_aux(int a1, int a2)
 {
   uint32_t *v2; // r5
   unsigned int *v3; // r4
@@ -36,18 +36,18 @@ int  sub_107538(int a1, int a2)
   *v3 |= 0x800000u;
   *v3 |= 0x200000u;
   *v3 |= 0x100000u;
-  sub_1073D8();
+  pll_set_clock();
   *v2 &= ~1u;
-  sub_100644(100);
+  mmio_read32(100);
   v5 = off_107614;
   v6 = dword_107618;
   *v3 |= 0x4000000u;
   v7 = *v5 & 0x7FFF;
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v7;
-  sub_12EB90(1, v6);
-  sub_100644(5);
-  result = sub_12EB90(1, dword_10761C);
+  check_feature_flag(1, v6);
+  mmio_read32(5);
+  result = check_feature_flag(1, dword_10761C);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v2 &= ~4u;

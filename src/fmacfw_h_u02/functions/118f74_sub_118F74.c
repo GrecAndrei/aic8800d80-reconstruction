@@ -20,8 +20,8 @@ extern uint32_t off_119120;
 extern uint32_t dword_119108;
 extern uint32_t dword_11910C;
 
-// sub_118F74 @ 0x118f74, size 394 bytes
-BOOL  sub_118F74(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8)
+// btm_acl_get_state @ 0x118f74, size 394 bytes
+BOOL  btm_acl_get_state(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8)
 {
   int v8; // r10
   int v9; // r8
@@ -66,20 +66,20 @@ BOOL  sub_118F74(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7,
   {
 LABEL_16:
     v32 = v15;
-    sub_12F32C(dword_119110, dword_119114, 520);
+    irq_disable_mmio_write(dword_119110, dword_119114, 520);
     v15 = v32;
     v17 = 1;
     goto LABEL_7;
   }
   v17 = 1;
 LABEL_7:
-  v18 = sub_118B04(v17, v15);
+  v18 = lock_acquire(v17, v15);
   if ( !v18 )
     return 1;
   v19 = v9 + 1320 * v11;
   v20 = *(uint32_t *)(v18 + 72);
   v31 = (uint32_t *)v18;
-  sub_12C3A8(v19, v18);
+  get_status_flag_c5(v19, v18);
   v21 = (uint8_t *)off_119104;
   v22 = v31[18];
   v23 = *(uint16_t *)(v19 + 104);
@@ -116,6 +116,6 @@ LABEL_7:
     *(uint8_t *)(v22 + 137) = *(uint8_t *)(dword_11910C + a6) << 6;
   v31[22] = a7;
   v31[23] = a8;
-  return sub_118B34((int)v31, a6) == 0;
+  return sec_check((int)v31, a6) == 0;
 }
 

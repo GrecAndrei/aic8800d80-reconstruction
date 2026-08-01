@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132D04 @ 0x132d04, size 18 bytes
-uint32_t * sub_132D04(int a1)
+// stub_ret @ 0x132d04, size 18 bytes
+uint32_t * stub_ret(int a1)
 {
-  sub_13F834();
-  return sub_132904(a1);
+  ble_ll_adv_scan_req();
+  return tx_send_controller_pkt(a1);
 }
 

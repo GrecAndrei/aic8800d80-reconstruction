@@ -1,1 +1,1 @@
-{"fn": "feature_guard_sdio", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122eef8", "status": "ok", "name": "feature_guard_sdio", "params": [], "docstring": "Check SDIO feature enable flag from shared state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "feature_guard_sdio", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122eef8", "status": "ok", "name": "state_check_feature", "params": [], "docstring": "Check SDIO feature enable flag from shared state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

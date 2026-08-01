@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_38c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114f8", "status": "ok", "name": "rf_bus_mark_irq", "params": [], "docstring": "Marks RF bus event by writing to MMIO at 0x40240018/0x40240170", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_38c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114f8", "status": "ok", "name": "rf_bus_mark_n_38b_14f8", "params": [], "docstring": "Marks RF bus event by writing to MMIO at 0x40240018/0x40240170", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -17,10 +17,10 @@ extern uint32_t dword_129F84;
 extern uint32_t off_129F80;
 extern uint32_t off_129F7C;
 
-// sub_129EBC @ 0x129ebc, size 182 bytes
+// lookup_table_entry @ 0x129ebc, size 182 bytes
 // Doc: sub_1229EBC [util]: Computes array offset via mla with stride 0x528 and reads from data table
 // sub_1229EBC [util]: Computes array offset via mla with stride 0x528 and reads from data table
-unsigned int  sub_129EBC(int a1, int a2, unsigned int a3, unsigned int a4)
+unsigned int  lookup_table_entry(int a1, int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   int v6; // r7
@@ -51,7 +51,7 @@ unsigned int  sub_129EBC(int a1, int a2, unsigned int a3, unsigned int a4)
   v10 = (int16_t **)off_129F78;
   *(uint32_t *)(a1 + 44) = v4;
   if ( **v10 < 0 && *(uint8_t *)(v6 + 106) )
-    sub_12F694(dword_129F88, dword_129F84, 98);
+    mmio_irq_clear(dword_129F88, dword_129F84, 98);
   v11 = off_129F80;
   v12 = *(uint8_t *)(a1 + 19);
   result = *((uint32_t *)off_129F80 + 4) - *(uint32_t *)off_129F7C - *(uint32_t *)(v6 + 132) + v4;

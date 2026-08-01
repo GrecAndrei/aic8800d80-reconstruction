@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1427D4 @ 0x1427d4, size 4 bytes
-uint64_t  sub_1427D4(int a1, int a2, int a3, int a4)
+// __aeabi_dsub @ 0x1427d4, size 4 bytes
+uint64_t  __aeabi_dsub(int a1, int a2, int a3, int a4)
 {
-  return sub_1427D8(a1, a2, a3, a4 ^ 0x80000000);
+  return __aeabi_dadd(a1, a2, a3, a4 ^ 0x80000000);
 }
 

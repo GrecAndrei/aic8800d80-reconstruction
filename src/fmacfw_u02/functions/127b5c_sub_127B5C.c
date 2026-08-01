@@ -17,8 +17,8 @@ extern uint32_t dword_127D24;
 extern uint32_t dword_127D2C;
 extern uint32_t off_127D28;
 
-// sub_127B5C @ 0x127b5c, size 446 bytes
-int  sub_127B5C(uint8_t *a1, int a2)
+// rx_prep_descriptor @ 0x127b5c, size 446 bytes
+int  rx_prep_descriptor(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
@@ -36,7 +36,7 @@ int  sub_127B5C(uint8_t *a1, int a2)
   int v18; // r0
 
   v2 = off_127D1C;
-  feature_guard_check(8, dword_127D20);
+  check_status_bits(8, dword_127D20);
   v5 = *a1;
   if ( *a1 )
   {
@@ -50,10 +50,10 @@ int  sub_127B5C(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          timestamp_remove((int)off_127D30 + 64);
+          fault_handler((int)off_127D30 + 64);
           v12 = v7[8];
           v7[18] = 0;
-          sub_127668(v12);
+          rf_perform_calibration(v12);
         }
       }
       else if ( v6 > 1 )
@@ -64,17 +64,17 @@ int  sub_127B5C(uint8_t *a1, int a2)
         {
           if ( v13 == v2 + 112 && (uint8_t *)v7[20] == v13 )
           {
-            timestamp_remove((int)(v7 + 16));
+            fault_handler((int)(v7 + 16));
             v7[18] = 0;
           }
           v7[11] = 0;
         }
-        sub_125D98(dword_127D24);
+        hci_cmd_send_simple(dword_127D24);
       }
       else if ( v6 == 1 )
       {
         *((uint8_t *)off_127D30 + 88) &= 0xFAu;
-        sub_125D98((int)(v2 + 112));
+        hci_cmd_send_simple((int)(v2 + 112));
       }
       v8 = *((uint8_t *)v7 + 88);
       v2[136] = -1;
@@ -83,12 +83,12 @@ int  sub_127B5C(uint8_t *a1, int a2)
       v18 = dword_127D2C;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
-      timestamp_remove(v18);
+      fault_handler(v18);
       return v5;
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || msg_get_value(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || rx_rate_field_parse(4) == 1 )
   {
     v10 = off_127D30;
     v11 = *((uint8_t *)off_127D30 + 88);
@@ -127,13 +127,13 @@ LABEL_25:
       if ( a2 )
       {
         v10[88] = v11 | 1;
-        sub_127344();
+        scan_start_request();
       }
       else
       {
         v17 = dword_127D24;
         v10[88] = v11 | 4;
-        sub_127170(v17);
+        dma_setup_transfer(v17);
       }
       *(uint32_t *)off_127D28 |= 4u;
       return v5;

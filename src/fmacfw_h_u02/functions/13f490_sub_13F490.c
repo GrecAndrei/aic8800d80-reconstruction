@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13F490 @ 0x13f490, size 452 bytes
-int  sub_13F490(int a1, int a2)
+// l2c_ccb_prepare @ 0x13f490, size 452 bytes
+int  l2c_ccb_prepare(int a1, int a2)
 {
   uint16_t *v2; // r5
   uint16_t *v3; // r9
@@ -63,7 +63,7 @@ int  sub_13F490(int a1, int a2)
     LODWORD(v10) = 0;
     *(uint64_t *)(a1 + 144) = v10;
   }
-  sub_13E130((uint16_t *)(a1 + 124));
+  util_read_halfword((uint16_t *)(a1 + 124));
   v11 = *(uint16_t *)(a1 + 184);
   if ( *(uint16_t *)(a1 + 124) )
   {
@@ -75,7 +75,7 @@ LABEL_26:
       *(uint16_t *)(a1 + 124) = 0;
       *(uint16_t *)(a1 + 126) = 0;
       if ( v29 != 0xFFFF )
-        return sub_13E3A0(a1);
+        return rx_check_pending(a1);
       return result;
     }
     v12 = v11 - 1;
@@ -101,7 +101,7 @@ LABEL_26:
       if ( *(uint16_t *)(a1 + 190) == 0xFFFF )
         goto LABEL_18;
 LABEL_29:
-      result = sub_13E3A0(a1);
+      result = rx_check_pending(a1);
       goto LABEL_23;
     }
     v12 = v11 - 1;
@@ -122,16 +122,16 @@ LABEL_29:
   do
   {
     v19 = v18;
-    sub_13E130((uint16_t *)(a1 + 12 * v18 + 4));
+    util_read_halfword((uint16_t *)(a1 + 12 * v18 + 4));
     v20 = (uint8_t)v18++;
-    v21 = sub_13F370(a1, v20, 1);
+    v21 = util_find_magic(a1, v20, 1);
     v22 = *(uint16_t *)(a1 + 184);
     v32[v19] = v21;
   }
   while ( v22 > v18 );
 LABEL_18:
-  sub_13E090(a1, (int)v32);
-  sub_13CEB0(a1, v32);
+  rx_get_length(a1, (int)v32);
+  bt_get_conn_interval(a1, v32);
   if ( !a2 )
   {
     v23 = *(uint16_t *)(a1 + 184);

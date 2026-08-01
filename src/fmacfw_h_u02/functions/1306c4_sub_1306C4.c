@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1306C4 @ 0x1306c4, size 52 bytes
-int  sub_1306C4(int a1, int16_t a2, int16_t a3, int16_t a4, char *a5)
+// store_four_halfwords @ 0x1306c4, size 52 bytes
+int  store_four_halfwords(int a1, int16_t a2, int16_t a3, int16_t a4, char *a5)
 {
   char *v5; // r2
   uint8_t *v6; // r3

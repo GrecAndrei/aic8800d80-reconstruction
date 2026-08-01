@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n23f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211bfe", "status": "ok", "name": "rf_bus_write_n23f_1bfe", "params": [], "docstring": "Write to RF bus register 0x23F", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_bus_write_n23f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211bfe", "status": "ok", "name": "rf_bus_setup_n_15a", "params": [], "docstring": "Write to RF bus register 0x23F", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

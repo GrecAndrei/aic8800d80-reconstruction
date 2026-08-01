@@ -15,8 +15,8 @@ extern uint32_t off_11A88C;
 extern uint32_t dword_11A898;
 extern uint32_t dword_11A894;
 
-// sub_11A728 @ 0x11a728, size 354 bytes
-int  sub_11A728(int a1, int a2)
+// llc_conn_init @ 0x11a728, size 354 bytes
+int  llc_conn_init(int a1, int a2)
 {
   uint64_t v2; // r6
   int *v3; // r10
@@ -66,7 +66,7 @@ int  sub_11A728(int a1, int a2)
       }
       else
       {
-        sub_12F694(dword_11A898, dword_11A894, 475);
+        mmio_irq_clear(dword_11A898, dword_11A894, 475);
         v11 = *(uint32_t *)(a1 + 76);
       }
       v12 = *(uint32_t *)(v10 + 156);
@@ -111,7 +111,7 @@ int  sub_11A728(int a1, int a2)
       {
 LABEL_16:
         *(uint8_t *)(v11 + 1) = 1;
-        sub_11C9C8(a1, v6);
+        set_cal_value(a1, v6);
         v18 = *(uint64_t *)(v2 + 96);
         v19 = *(uint16_t *)(a1 + 82) | 6;
         *(uint32_t *)(HIDWORD(v2) + 44) = HIDWORD(v18);

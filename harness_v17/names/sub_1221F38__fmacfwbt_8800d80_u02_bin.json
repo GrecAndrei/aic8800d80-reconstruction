@@ -1,1 +1,1 @@
-{"fn": "sub_1221F38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221f38", "status": "ok", "name": "rf_stream_dispatch", "params": [], "docstring": "Dispatch RF stream events", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221F38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221f38", "status": "ok", "name": "buffer_alloc", "params": [], "docstring": "Dispatch RF stream events", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

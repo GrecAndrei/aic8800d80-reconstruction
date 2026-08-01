@@ -1,1 +1,1 @@
-{"fn": "sub_1201888", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1201888", "status": "ok", "name": "sub_1201888", "params": [], "docstring": "Returns 1 if value equals 1, else 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1201888", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1201888", "status": "ok", "name": "rf_calibration_done", "params": [], "docstring": "Returns 1 if value equals 1, else 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

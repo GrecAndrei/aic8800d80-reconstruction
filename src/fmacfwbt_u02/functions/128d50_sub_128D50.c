@@ -17,8 +17,8 @@ extern uint32_t off_128DF0;
 extern uint32_t off_128DF8;
 extern uint32_t dword_128DFC;
 
-// sub_128D50 @ 0x128d50, size 154 bytes
-int  sub_128D50(int a1, int a2, int a3)
+// is_log_enabled @ 0x128d50, size 154 bytes
+int  is_log_enabled(int a1, int a2, int a3)
 {
   int v4; // r0
   int v5; // r1
@@ -43,8 +43,8 @@ int  sub_128D50(int a1, int a2, int a3)
     {
       v11 = dword_128E00;
       *(uint8_t *)(a1 + 115) = 0;
-      feature_guard_sdio(1024, v11);
-      mac_cmd_send_status_query(a1);
+      state_check_feature(1024, v11);
+      mmio_read_phy(a1);
       return 1;
     }
     else
@@ -52,7 +52,7 @@ int  sub_128D50(int a1, int a2, int a3)
       v6 = *(uint8_t *)(a1 + 108);
       if ( *(uint8_t *)(a1 + 108) )
       {
-        fmacfwbt_phy_chan_init(*(uint8_t *)(a1 + 116), a3, a1);
+        ble_conn_get(*(uint8_t *)(a1 + 116), a3, a1);
         return 0;
       }
       else
@@ -66,7 +66,7 @@ int  sub_128D50(int a1, int a2, int a3)
           --v7[8];
         v9 = dword_128DFC;
         v7[29] = 0;
-        timestamp_remove_058(v9);
+        ke_event_set_lock(v9);
         *(uint32_t *)(a1 + 4) &= ~0x200u;
         return v6;
       }

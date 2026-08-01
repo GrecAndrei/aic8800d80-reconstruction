@@ -13,8 +13,8 @@
 extern uint32_t off_128B24;
 extern uint32_t dword_128B28;
 
-// sub_128AD4 @ 0x128ad4, size 80 bytes
-int  sub_128AD4(int a1)
+// sta_get_current @ 0x128ad4, size 80 bytes
+int  sta_get_current(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r4
@@ -24,15 +24,15 @@ int  sub_128AD4(int a1)
   v2 = dword_128B28 + 1320 * *((uint8_t *)off_128B24 + 16);
   if ( *(uint32_t *)(v2 + 72) )
   {
-    sub_1285BC(*((uint8_t *)off_128B24 + 16));
+    sta_get_by_index(*((uint8_t *)off_128B24 + 16));
   }
   else
   {
-    v4 = (uint8_t *)sub_12C92C(5143, 5, 5, 2);
+    v4 = (uint8_t *)ke_msg_alloc(5143, 5, 5, 2);
     *v4 = 1;
     v4[1] = *(uint8_t *)(v2 + 107);
-    sdio_buffer_prepare_n_4e8(v4);
+    ke_msg_send(v4);
   }
-  return sub_128888(v1[16], a1);
+  return sta_lookup_by_bss(v1[16], a1);
 }
 

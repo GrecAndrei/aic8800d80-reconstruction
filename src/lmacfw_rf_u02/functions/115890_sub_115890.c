@@ -12,8 +12,8 @@
 
 extern uint32_t off_1158A0;
 
-// sub_115890 @ 0x115890, size 14 bytes
-BOOL sub_115890()
+// rf_is_idle @ 0x115890, size 14 bytes
+BOOL rf_is_idle()
 {
   return *((uint8_t *)off_1158A0 + 142) == 0;
 }

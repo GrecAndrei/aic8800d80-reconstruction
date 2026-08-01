@@ -17,10 +17,10 @@ extern uint32_t dword_107A60;
 extern uint32_t dword_107A64;
 extern uint32_t off_107A68;
 
-// ipc_doorbell_handler_n_21a @ 0x107944, size 276 bytes
-// Doc: ipc_doorbell_handler_n_21a [ipc]: Handles IPC doorbell message write/ack
-// ipc_doorbell_handler_n_21a [ipc]: Handles IPC doorbell message write/ack
-int  ipc_doorbell_handler_n_21a(int a1, uint32_t *a2)
+// rf_core_set_clock_override @ 0x107944, size 276 bytes
+// Doc: rf_core_set_clock_override [ipc]: Handles IPC doorbell message write/ack
+// rf_core_set_clock_override [ipc]: Handles IPC doorbell message write/ack
+int  rf_core_set_clock_override(int a1, uint32_t *a2)
 {
   unsigned int *v2; // r6
   unsigned int *v3; // r8
@@ -51,7 +51,7 @@ int  ipc_doorbell_handler_n_21a(int a1, uint32_t *a2)
   v5 = 1;
   *v2 = v4;
   v7 = 1000;
-  sub_11F74C(1, dword_107A5C, a2, v4);
+  check_interrupt_flag(1, dword_107A5C, a2, v4);
   v8 = (int *)(a1 + 12);
   v23 = 1;
   v24 = 1;
@@ -69,14 +69,14 @@ int  ipc_doorbell_handler_n_21a(int a1, uint32_t *a2)
       ++v8;
       *v3 = dword_107A60 & (v11 << 16) | *v3 & 0xF000FFFF;
       *v3 = v12 & 0xFFF | *v3 & 0xFFFFF000;
-      delay_us(40);
+      write_timer_reg(40);
       v13 = v8[9];
       v14 = *v8;
       v15 = dword_107A64;
       *v2 |= 0x4000000u;
       v16 = *(uint32_t *)off_107A68 & 0x7FFF;
       *v2 &= ~0x4000000u;
-      sub_11F74C(1, v15, v14, v13);
+      check_interrupt_flag(1, v15, v14, v13);
       if ( v16 >= v7 )
         break;
       v23 = v21;

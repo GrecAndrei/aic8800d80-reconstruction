@@ -18,8 +18,8 @@ extern uint32_t dword_102EA0;
 extern uint32_t off_102EA4;
 extern uint32_t qword_102EAC;
 
-// sub_102D7C @ 0x102d7c, size 282 bytes
-int  sub_102D7C(int a1, uint16_t *a2)
+// peripheral_write_32 @ 0x102d7c, size 282 bytes
+int  peripheral_write_32(int a1, uint16_t *a2)
 {
   unsigned int v4; // r11
   int v5; // r9
@@ -48,7 +48,7 @@ int  sub_102D7C(int a1, uint16_t *a2)
   while ( !*(uint32_t *)off_102E98 )
     ;
   v4 = 0;
-  sub_102CA8(0);
+  set_wakeup_trigger(0);
   v5 = dword_102EB4;
   v6 = dword_102EA8;
   v23 = 0;
@@ -67,14 +67,14 @@ LABEL_4:
   do
   {
     v11 = *v8;
-    sub_12ECD0(0x2000, v5);
+    check_status_bits(0x2000, v5);
     v12 = v10[1];
     ++v10;
     v13 = dword_102EA0;
     *v8 = v11 & v6 | (v12 << 11);
     v8 += 8;
     ++v9;
-    sub_12ECD0(0x2000, v13);
+    check_status_bits(0x2000, v13);
   }
   while ( v9 != 16 );
   if ( v4 <= 1 )
@@ -83,7 +83,7 @@ LABEL_4:
   if ( (uint16_t)v4 != 5 )
     goto LABEL_4;
 LABEL_10:
-  result = sub_102D0C(0);
+  result = set_wakeup_polarity(0);
   *(uint32_t *)off_102E98 = 1;
   if ( v23 )
   {

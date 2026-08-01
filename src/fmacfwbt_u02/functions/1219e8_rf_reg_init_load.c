@@ -24,10 +24,10 @@ extern uint32_t dword_121A90;
 extern uint32_t dword_121A8C;
 extern uint32_t off_121A84;
 
-// rf_reg_init_load @ 0x1219e8, size 118 bytes
-// Doc: rf_reg_init_load [rf]: Initialize RF register pointers from constant table
-// rf_reg_init_load [rf]: Initialize RF register pointers from constant table
-unsigned int  rf_reg_init_load(int *a1)
+// read_hw_stats @ 0x1219e8, size 118 bytes
+// Doc: read_hw_stats [rf]: Initialize RF register pointers from constant table
+// read_hw_stats [rf]: Initialize RF register pointers from constant table
+unsigned int  read_hw_stats(int *a1)
 {
   uint32_t *v1; // r3
   uint32_t *v2; // r7
@@ -65,10 +65,10 @@ unsigned int  rf_reg_init_load(int *a1)
   *v10 = v11;
   if ( *v12 < 0 && *(uint32_t *)off_121A88 << 28 )
   {
-    sub_12F6C4(dword_121A90, dword_121A8C, 472);
+    mmio_field_update(dword_121A90, dword_121A8C, 472);
     v11 = *v10;
   }
   *(uint32_t *)off_121A84 = v11 | v10[1];
-  return sub_11E4C0(0);
+  return rf_ant_switch_set(0);
 }
 

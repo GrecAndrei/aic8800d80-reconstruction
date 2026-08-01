@@ -12,15 +12,15 @@
 
 extern uint32_t dword_1403FC;
 
-// sub_1403D0 @ 0x1403d0, size 42 bytes
-BOOL sub_1403D0()
+// bt_global_state_read @ 0x1403d0, size 42 bytes
+BOOL bt_global_state_read()
 {
   int v0; // r5
 
   v0 = dword_1403FC;
   if ( !*(uint32_t *)(dword_1403FC + 6472) )
     return 1;
-  if ( sub_12CD48(0xBu) == 3 )
+  if ( hci_cmd_handler(0xBu) == 3 )
     return **(uint32_t **)(v0 + 6472) == 0;
   return 0;
 }

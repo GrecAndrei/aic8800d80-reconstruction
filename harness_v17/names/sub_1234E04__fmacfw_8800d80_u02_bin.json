@@ -1,1 +1,1 @@
-{"fn": "sub_1234E04", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1234e04", "status": "ok", "name": "sub_1234E04", "params": [], "docstring": "Initialize handler table from ROM patches 0x192478/0x18e628/0x16bf80", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1234E04", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1234e04", "status": "ok", "name": "bt_setup_conn_profile", "params": [], "docstring": "Initialize handler table from ROM patches 0x192478/0x18e628/0x16bf80", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

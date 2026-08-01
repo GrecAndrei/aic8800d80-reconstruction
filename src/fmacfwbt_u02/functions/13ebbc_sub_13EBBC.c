@@ -17,8 +17,8 @@ extern uint32_t dword_13ECF8;
 extern uint32_t dword_13ED04;
 extern uint32_t dword_13ECF4;
 
-// sub_13EBBC @ 0x13ebbc, size 312 bytes
-unsigned int  sub_13EBBC(int a1)
+// parse_ll_header @ 0x13ebbc, size 312 bytes
+unsigned int  parse_ll_header(int a1)
 {
   unsigned int v1; // r3
   int v2; // r1

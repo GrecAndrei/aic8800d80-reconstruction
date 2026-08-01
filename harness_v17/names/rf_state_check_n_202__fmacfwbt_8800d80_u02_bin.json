@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n_202", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e2e", "status": "ok", "name": "rf_state_check_n_202", "params": [], "docstring": "Check RF state register against threshold 0x320", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n_202", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e2e", "status": "ok", "name": "rf_state_check_n_201", "params": [], "docstring": "Check RF state register against threshold 0x320", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

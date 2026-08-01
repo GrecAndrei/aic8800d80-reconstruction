@@ -1,1 +1,1 @@
-{"fn": "sub_1241D4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1241d4c", "status": "ok", "name": "rx_desc_lookup_or_build", "params": [], "docstring": "Compute RX descriptor table entry via multiply by 0x528", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1241D4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1241d4c", "status": "ok", "name": "ll_rx_window_calc", "params": [], "docstring": "Compute RX descriptor table entry via multiply by 0x528", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

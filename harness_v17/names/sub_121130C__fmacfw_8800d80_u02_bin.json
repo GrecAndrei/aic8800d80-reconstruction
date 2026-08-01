@@ -1,1 +1,1 @@
-{"fn": "sub_121130C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121130c", "status": "ok", "name": "reg_field_extract_121130C", "params": [], "docstring": "Extracts a 22-bit field from a register with bit shift adjustment", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121130C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121130c", "status": "ok", "name": "read_random_from_mmio", "params": [], "docstring": "Extracts a 22-bit field from a register with bit shift adjustment", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

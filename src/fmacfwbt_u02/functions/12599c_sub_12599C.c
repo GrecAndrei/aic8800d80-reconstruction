@@ -22,8 +22,8 @@ extern uint32_t dword_125AB4;
 extern uint32_t dword_125AB8;
 extern uint32_t dword_125ABC;
 
-// sub_12599C @ 0x12599c, size 254 bytes
-int * sub_12599C(int a1)
+// memory_pool_init @ 0x12599c, size 254 bytes
+int * memory_pool_init(int a1)
 {
   int v1; // r7
   int v2; // r9
@@ -47,7 +47,7 @@ int * sub_12599C(int a1)
 
   v1 = dword_125AA4;
   v2 = dword_125AC0;
-  sub_118EAC(
+  memset_buffer(
     a1 + 116,
     dword_125A9C + 620 * *(uint8_t *)(a1 + 107),
     (uint32_t *)(dword_125AA0 + 80 * *(uint8_t *)(a1 + 107)),
@@ -80,7 +80,7 @@ int * sub_12599C(int a1)
   v11[1] = v12;
   v11[6] = v12;
   v11[5] = v2;
-  result = memset_thunk(v10, 0, 0xFCu);
+  result = memset_byte(v10, 0, 0xFCu);
   v14 = (int *)(v1 + 4 * v9);
   *v14 = v2;
   v14[1] = 0;

@@ -13,16 +13,16 @@
 extern uint32_t off_128F14;
 extern uint32_t off_128F18;
 
-// sub_128EF8 @ 0x128ef8, size 28 bytes
-int sub_128EF8()
+// wlc_mfp_key_clear @ 0x128ef8, size 28 bytes
+int wlc_mfp_key_clear()
 {
   uint32_t *v0; // r4
   int *v1; // r0
   int result; // r0
 
   v0 = off_128F14;
-  v1 = sub_100200((int *)off_128F14, 0, 0x28u);
-  result = sub_1420A0(v1);
+  v1 = memset((int *)off_128F14, 0, 0x28u);
+  result = init_1990b0_buffers(v1);
   v0[4] = off_128F18;
   *((uint8_t *)v0 + 28) = 1;
   return result;

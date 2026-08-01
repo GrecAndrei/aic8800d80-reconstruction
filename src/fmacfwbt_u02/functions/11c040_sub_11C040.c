@@ -15,8 +15,8 @@ extern uint32_t dword_11C1C0;
 extern uint32_t dword_11C1BC;
 extern uint32_t dword_11C1C4;
 
-// sub_11C040 @ 0x11c040, size 374 bytes
-uint8_t * sub_11C040(uint8_t *result)
+// bt_adv_check @ 0x11c040, size 374 bytes
+uint8_t * bt_adv_check(uint8_t *result)
 {
   unsigned int v1; // r4
   int v2; // r5
@@ -55,7 +55,7 @@ uint8_t * sub_11C040(uint8_t *result)
       {
         if ( (*(uint32_t *)(v2 + 4) & 0x20) != 0 )
         {
-          memset_thunk(v25, v1, 0x10u);
+          memset_byte(v25, v1, 0x10u);
           v3 = (uint8_t *)dword_11C1C0;
           v23 = v1;
           v4 = 36 * *(uint8_t *)(v2 + 35) + 8244 + dword_11C1BC;

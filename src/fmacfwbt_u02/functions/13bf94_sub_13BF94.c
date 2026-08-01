@@ -17,10 +17,10 @@ extern uint32_t dword_13C000;
 extern uint32_t dword_13C004;
 extern uint32_t dword_13C008;
 
-// sub_13BF94 @ 0x13bf94, size 104 bytes
+// rf_get_chan_info @ 0x13bf94, size 104 bytes
 // Doc: sub_123BF94 [ipc]: Looks up table entry by 32-byte slot index, bounded to 16 entries
 // sub_123BF94 [ipc]: Looks up table entry by 32-byte slot index, bounded to 16 entries
-int  sub_13BF94(unsigned int a1)
+int  rf_get_chan_info(unsigned int a1)
 {
   int v1; // r5
   int v2; // r6
@@ -35,18 +35,18 @@ int  sub_13BF94(unsigned int a1)
   v5 = 32 * a1;
   if ( a1 <= 0xF )
   {
-    list_remove_node_d510(dword_13C00C, (uint32_t *)v2);
-    list_push_tail(dword_13C010, (uint32_t *)v2);
+    check_abort_flag_3(dword_13C00C, (uint32_t *)v2);
+    check_abort_flag(dword_13C010, (uint32_t *)v2);
   }
   else
   {
-    list_remove_node_d510(dword_13C000, (uint32_t *)v2);
-    list_push_tail(dword_13C004, (uint32_t *)v2);
+    check_abort_flag_3(dword_13C000, (uint32_t *)v2);
+    check_abort_flag(dword_13C004, (uint32_t *)v2);
   }
   v6 = (a1 << 8) & 0xFF00;
   v7 = dword_13C008;
-  rf_bus_mark_n_3b7(v6 | 8, 4);
+  hci_cmd_send(v6 | 8, 4);
   *(uint8_t *)(v1 + v5 + 25) = 0;
-  return rf_bus_write_n_25c(v3, v2, 2, 0, 0, 39, v7);
+  return dbg_printf(v3, v2, 2, 0, 0, 39, v7);
 }
 

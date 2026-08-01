@@ -1,1 +1,1 @@
-{"fn": "sub_12238FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12238fc", "status": "ok", "name": "sub_12238FC", "params": [], "docstring": "Format/build trace message with ':' separator", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12238FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12238fc", "status": "ok", "name": "output_byte_colon", "params": [], "docstring": "Format/build trace message with ':' separator", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

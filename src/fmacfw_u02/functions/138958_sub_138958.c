@@ -14,8 +14,8 @@ extern uint32_t off_1389BC;
 extern uint32_t dword_1389C0;
 extern uint32_t dword_1389C4;
 
-// sub_138958 @ 0x138958, size 100 bytes
-int  sub_138958(int result)
+// ke_msg_dispatch @ 0x138958, size 100 bytes
+int  ke_msg_dispatch(int result)
 {
   int v1; // r1
   int16_t **v2; // r5
@@ -38,7 +38,7 @@ int  sub_138958(int result)
     {
       if ( **v2 < 0 && !v1 )
       {
-        sub_12F46C(v4, v3, 1537);
+        mmio_clear_register(v4, v3, 1537);
         LOBYTE(v1) = *(uint8_t *)(v5 + 11);
       }
       v6 = *(uint8_t *)(v5 + 10);

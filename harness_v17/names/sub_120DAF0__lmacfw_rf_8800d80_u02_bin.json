@@ -1,1 +1,1 @@
-{"fn": "sub_120DAF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120daf0", "status": "ok", "name": "rf_reg_bit_set", "params": [], "docstring": "Sets a bit in RF MMIO register at 0x4010b000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120DAF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120daf0", "status": "ok", "name": "gpio_cfg_set", "params": [], "docstring": "Sets a bit in RF MMIO register at 0x4010b000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

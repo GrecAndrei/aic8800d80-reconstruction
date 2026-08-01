@@ -10,18 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_141D9C @ 0x141d9c, size 50 bytes
-int  sub_141D9C(char a1, int a2)
+// hci_event_send @ 0x141d9c, size 50 bytes
+int  hci_event_send(char a1, int a2)
 {
   int v4; // r0
   int16_t v5; // r2
 
-  v4 = sub_12C92C(12290, 13, 12, 8u);
+  v4 = ke_msg_alloc(12290, 13, 12, 8u);
   v5 = *(uint16_t *)(a2 + 8);
   *(uint32_t *)(v4 + 2) = *(uint32_t *)(a2 + 4);
   *(uint16_t *)(v4 + 6) = v5;
   *(uint8_t *)(v4 + 1) = *(uint8_t *)(a2 + 46);
   *(uint8_t *)v4 = a1;
-  return sub_12C98C(v4);
+  return ke_msg_send(v4);
 }
 

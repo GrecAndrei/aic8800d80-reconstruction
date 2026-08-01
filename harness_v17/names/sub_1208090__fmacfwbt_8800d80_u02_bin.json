@@ -1,1 +1,1 @@
-{"fn": "sub_1208090", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1208090", "status": "ok", "name": "sub_1208090", "params": [], "docstring": "Unknown utility function at 0x108090", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1208090", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1208090", "status": "ok", "name": "trace_event_count", "params": [], "docstring": "Unknown utility function at 0x108090", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

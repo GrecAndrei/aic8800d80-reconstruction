@@ -1,1 +1,1 @@
-{"fn": "sub_1225FFC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225ffc", "status": "ok", "name": "mmio_flag_check_40500000", "params": [], "docstring": "Read MMIO word at 0x40500000 and test bit1 flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1225FFC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225ffc", "status": "ok", "name": "check_radio_flag", "params": [], "docstring": "Read MMIO word at 0x40500000 and test bit1 flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

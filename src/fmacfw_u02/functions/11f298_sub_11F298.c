@@ -15,8 +15,8 @@ extern uint32_t dword_11F3B0;
 extern uint32_t dword_11F3A0;
 extern uint32_t dword_11F3A8;
 
-// sub_11F298 @ 0x11f298, size 258 bytes
-int  sub_11F298(int a1, uint8_t a2)
+// llm_conn_set_flag @ 0x11f298, size 258 bytes
+int  llm_conn_set_flag(int a1, uint8_t a2)
 {
   int v2; // r4
   int v3; // r8
@@ -43,12 +43,12 @@ int  sub_11F298(int a1, uint8_t a2)
   v4[161] = *(uint8_t *)a1;
   v5 = (int *)(696 * v2 + 64 + v3);
   v7 = v4[34];
-  v8 = memset_thunk(v5, 0, 0x48u);
+  v8 = memset(v5, 0, 0x48u);
   switch ( v4[160] )
   {
     case 0u:
     case 3u:
-      v9 = random_mix_64(v8);
+      v9 = scale_timer_value(v8);
       v10 = (int *)(v3 + 696 * v2 + 136);
       *v10 = v9 & 0xFFFFFF;
       v10[1] = 0;

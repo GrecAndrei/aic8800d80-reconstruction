@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B390 @ 0x13b390, size 12 bytes
-int  sub_13B390(int a1, int a2, unsigned int a3)
+// ll_ccm_decrypt @ 0x13b390, size 12 bytes
+int  ll_ccm_decrypt(int a1, int a2, unsigned int a3)
 {
-  sub_13BEF8(a3 >> 8);
+  rf_get_chan_param(a3 >> 8);
   return 0;
 }
 

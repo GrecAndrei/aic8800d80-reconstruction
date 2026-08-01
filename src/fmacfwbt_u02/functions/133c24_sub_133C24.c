@@ -12,17 +12,17 @@
 
 extern uint32_t off_133C6C;
 
-// sub_133C24 @ 0x133c24, size 72 bytes
-int sub_133C24()
+// ke_wait_event @ 0x133c24, size 72 bytes
+int ke_wait_event()
 {
-  if ( msg_get_value(6u) != 5 && msg_get_value(6u) != 6 && msg_get_value(6u) != 7 && msg_get_value(6u) != 8 )
+  if ( hci_cmd_send_short(6u) != 5 && hci_cmd_send_short(6u) != 6 && hci_cmd_send_short(6u) != 7 && hci_cmd_send_short(6u) != 8 )
     return 0;
   if ( *((uint8_t *)off_133C6C + 34) )
   {
     *((uint8_t *)off_133C6C + 34) = 0;
     return 0;
   }
-  sub_135020(1);
+  event_dispatch(1);
   return 0;
 }
 

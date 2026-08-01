@@ -14,16 +14,16 @@ extern uint32_t dword_11BD7C;
 extern uint32_t dword_11BD84;
 extern uint32_t dword_11BD80;
 
-// sub_11BD44 @ 0x11bd44, size 54 bytes
+// env_get @ 0x11bd44, size 54 bytes
 // Doc: sub_121BD44 [util]: LMAC RF helper: load constant and tail-call helper
 // sub_121BD44 [util]: LMAC RF helper: load constant and tail-call helper
-int  sub_11BD44(int a1, uint8_t *a2)
+int  env_get(int a1, uint8_t *a2)
 {
   int v4; // r0
   char v5; // r2
   int v6; // r1
 
-  v4 = sub_11E7AC(dword_11BD7C);
+  v4 = list_pop_front(dword_11BD7C);
   if ( !v4 )
     return 1;
   v5 = dword_11BD84 * ((v4 - dword_11BD80) >> 2);

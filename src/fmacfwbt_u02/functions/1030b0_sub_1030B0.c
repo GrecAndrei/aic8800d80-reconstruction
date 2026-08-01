@@ -19,8 +19,8 @@ extern uint32_t off_103134;
 extern uint32_t off_103138;
 extern uint32_t off_103130;
 
-// sub_1030B0 @ 0x1030b0, size 112 bytes
-uint32_t *sub_1030B0()
+// read_hw_status @ 0x1030b0, size 112 bytes
+uint32_t *read_hw_status()
 {
   int v0; // r1
   int v1; // r2

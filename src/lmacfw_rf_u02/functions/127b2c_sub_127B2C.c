@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127B2C @ 0x127b2c, size 18 bytes
-BOOL  sub_127B2C(int a1, int a2, int a3, int a4)
+// double_ge @ 0x127b2c, size 18 bytes
+BOOL  double_ge(int a1, int a2, int a3, int a4)
 {
   char v4; // cf
   char v5; // zf
 
-  sub_127AD0(a1, a2, a3, a4);
+  double_reverse_compare(a1, a2, a3, a4);
   return !(!v5 & v4);
 }
 

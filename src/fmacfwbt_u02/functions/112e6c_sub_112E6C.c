@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_112E6C @ 0x112e6c, size 100 bytes
+// critical_section_run @ 0x112e6c, size 100 bytes
 // Doc: rf_stream_start2_n_3da [rf]: Start RF streaming after pre-check, gate by mode byte
 // rf_stream_start2_n_3da [rf]: Start RF streaming after pre-check, gate by mode byte
-int  sub_112E6C(int a1, uint16_t *a2)
+int  critical_section_run(int a1, uint16_t *a2)
 {
   int v4; // r2
   int v5; // r3
   int v6; // r2
 
-  sub_112DCC();
+  critical_enter();
   if ( *(uint8_t *)rf_stream_start2_n_37b != 4 )
     return 1;
   v4 = a1 - 1;

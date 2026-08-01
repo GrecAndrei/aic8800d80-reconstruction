@@ -1,1 +1,1 @@
-{"fn": "rf_mem_read_n_c8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4cc", "status": "ok", "name": "rf_mem_read_n_c8", "params": [], "docstring": "Read RF control field from memory-mapped register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_read_n_c8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4cc", "status": "ok", "name": "get_event_handler", "params": [], "docstring": "Read RF control field from memory-mapped register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

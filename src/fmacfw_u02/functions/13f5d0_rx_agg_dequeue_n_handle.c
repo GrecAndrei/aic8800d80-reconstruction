@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rx_agg_dequeue_n_handle @ 0x13f5d0, size 452 bytes
-// Doc: rx_agg_dequeue_n_handle [rx]: Dequeue and handle aggregated RX frame descriptor entry
-// rx_agg_dequeue_n_handle [rx]: Dequeue and handle aggregated RX frame descriptor entry
-int  rx_agg_dequeue_n_handle(int a1, int a2)
+// ble_ll_conn_tx_pdu @ 0x13f5d0, size 452 bytes
+// Doc: ble_ll_conn_tx_pdu [rx]: Dequeue and handle aggregated RX frame descriptor entry
+// ble_ll_conn_tx_pdu [rx]: Dequeue and handle aggregated RX frame descriptor entry
+int  ble_ll_conn_tx_pdu(int a1, int a2)
 {
   uint16_t *v2; // r5
   uint16_t *v3; // r9
@@ -65,7 +65,7 @@ int  rx_agg_dequeue_n_handle(int a1, int a2)
     LODWORD(v10) = 0;
     *(uint64_t *)(a1 + 144) = v10;
   }
-  sub_13E270((uint16_t *)(a1 + 124));
+  rx_desc_validate((uint16_t *)(a1 + 124));
   v11 = *(uint16_t *)(a1 + 184);
   if ( *(uint16_t *)(a1 + 124) )
   {
@@ -77,7 +77,7 @@ LABEL_26:
       *(uint16_t *)(a1 + 124) = 0;
       *(uint16_t *)(a1 + 126) = 0;
       if ( v29 != 0xFFFF )
-        return sub_13E4E0(a1);
+        return tx_flag_check_process(a1);
       return result;
     }
     v12 = v11 - 1;
@@ -103,7 +103,7 @@ LABEL_26:
       if ( *(uint16_t *)(a1 + 190) == 0xFFFF )
         goto LABEL_18;
 LABEL_29:
-      result = sub_13E4E0(a1);
+      result = tx_flag_check_process(a1);
       goto LABEL_23;
     }
     v12 = v11 - 1;
@@ -124,16 +124,16 @@ LABEL_29:
   do
   {
     v19 = v18;
-    sub_13E270((uint16_t *)(a1 + 12 * v18 + 4));
+    rx_desc_validate((uint16_t *)(a1 + 12 * v18 + 4));
     v20 = (uint8_t)v18++;
-    v21 = sub_13F4B0(a1, v20, 1);
+    v21 = ble_ll_sched_item_check(a1, v20, 1);
     v22 = *(uint16_t *)(a1 + 184);
     v32[v19] = v21;
   }
   while ( v22 > v18 );
 LABEL_18:
-  sub_13E1D0(a1, (int)v32);
-  sub_13CFF0(a1, v32);
+  process_entry_list(a1, (int)v32);
+  scan_process_list(a1, v32);
   if ( !a2 )
   {
     v23 = *(uint16_t *)(a1 + 184);

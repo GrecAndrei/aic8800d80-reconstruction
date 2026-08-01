@@ -14,10 +14,10 @@ extern uint32_t off_103B60;
 extern uint32_t off_103B64;
 extern uint32_t off_103B68;
 
-// sub_103AE0 @ 0x103ae0, size 126 bytes
+// enable_rf_dll @ 0x103ae0, size 126 bytes
 // Doc: rf_msg_handler_n_3d2 [rf]: Handles RF control messages by bitmask
 // rf_msg_handler_n_3d2 [rf]: Handles RF control messages by bitmask
-unsigned int  sub_103AE0(int a1, int a2)
+unsigned int  enable_rf_dll(int a1, int a2)
 {
   unsigned int *v2; // r2
   unsigned int *v3; // r3

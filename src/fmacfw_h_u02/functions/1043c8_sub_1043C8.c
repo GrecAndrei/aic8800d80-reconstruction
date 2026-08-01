@@ -24,8 +24,8 @@ extern uint32_t dword_1044C4;
 extern uint32_t dword_1044C8;
 extern uint32_t off_1044CC;
 
-// sub_1043C8 @ 0x1043c8, size 212 bytes
-int sub_1043C8()
+// mac_config_and_start @ 0x1043c8, size 212 bytes
+int mac_config_and_start()
 {
   int *v0; // r1
   uint32_t *v1; // r3
@@ -52,19 +52,19 @@ int sub_1043C8()
   *v1 = ~(~(*v1 >> 12) << 12);
   v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
   *v1 |= 0x10000000u;
-  sub_100644(10);
+  mmio_read32(10);
   *v4 = dword_1044B8;
-  sub_100644(125);
+  mmio_read32(125);
   *v4 = dword_1044BC;
   while ( *v5 < 0 )
-    sub_100644(1);
-  sub_12EB90(1, dword_1044C0);
+    mmio_read32(1);
+  check_feature_flag(1, dword_1044C0);
   v6 = dword_1044C4;
   *(uint32_t *)off_1044B0 = 0;
-  sub_12EB90(1, v6);
+  check_feature_flag(1, v6);
   *(uint32_t *)off_1044A0 = v3;
-  sub_1042BC();
-  result = sub_12EB90(1, dword_1044C8);
+  ke_acquire_lock();
+  result = check_feature_flag(1, dword_1044C8);
   v8 = off_1044A4;
   v9 = off_1044CC;
   *(uint32_t *)off_1044A4 &= 0xF3FFFFFF;

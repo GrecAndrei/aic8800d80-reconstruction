@@ -12,17 +12,17 @@
 
 extern uint32_t dword_118D24;
 
-// sub_118CFC @ 0x118cfc, size 40 bytes
+// scan_control @ 0x118cfc, size 40 bytes
 // Doc: sub_1218CFC [unknown]: Unknown helper at 0x1218cfc in fmacfw
 // sub_1218CFC [unknown]: Unknown helper at 0x1218cfc in fmacfw
-int  sub_118CFC(int result, int a2)
+int  scan_control(int result, int a2)
 {
   int v2; // r4
   int ( *v4)(uint32_t, uint32_t); // r3
 
   v2 = result;
   if ( !*(uint8_t *)(result + 96) )
-    result = list_push_tail(dword_118D24);
+    result = cmd_handler_a(dword_118D24);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 88);

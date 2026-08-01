@@ -14,8 +14,8 @@ extern uint32_t dword_106310;
 extern uint32_t dword_10630C;
 extern uint32_t off_106308;
 
-// sub_10624C @ 0x10624c, size 188 bytes
-int  sub_10624C(int a1, int a2, int a3, int a4, int a5)
+// llc_state_check @ 0x10624c, size 188 bytes
+int  llc_state_check(int a1, int a2, int a3, int a4, int a5)
 {
   int v9; // r4
   unsigned int v10; // r4
@@ -24,7 +24,7 @@ int  sub_10624C(int a1, int a2, int a3, int a4, int a5)
 
   if ( *(uint32_t *)(a4 + 132) <= a2 )
   {
-    sub_105088(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
+    temp_sensor_convert(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
     v9 = *(uint8_t *)(a4 + 104);
   }
   else
@@ -69,7 +69,7 @@ LABEL_6:
   {
 LABEL_14:
     v10 |= 0xC08000u;
-    feature_guard_sdio(1, dword_106310);
+    state_check_feature(1, dword_106310);
     goto LABEL_9;
   }
   v11 = a3 << 24;
@@ -78,6 +78,6 @@ LABEL_8:
 LABEL_9:
   v12 = dword_10630C;
   *(uint32_t *)off_106308 = v10;
-  return feature_guard_sdio(1, v12);
+  return state_check_feature(1, v12);
 }
 

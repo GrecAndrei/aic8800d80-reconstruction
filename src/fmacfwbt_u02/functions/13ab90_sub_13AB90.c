@@ -15,8 +15,8 @@ extern uint32_t dword_13AC00;
 extern uint32_t off_13AC04;
 extern uint32_t off_13AC08;
 
-// sub_13AB90 @ 0x13ab90, size 106 bytes
-int  sub_13AB90(int a1, int a2, int a3)
+// rf_set_band_config @ 0x13ab90, size 106 bytes
+int  rf_set_band_config(int a1, int a2, int a3)
 {
   int v6; // r3
   int v7; // r1
@@ -25,7 +25,7 @@ int  sub_13AB90(int a1, int a2, int a3)
   int v10; // r3
   int v11; // r2
 
-  feature_guard_sdio(
+  state_check_feature(
     32,
     dword_13ABFC,
     *(uint16_t *)(a1 + 32),
@@ -33,8 +33,8 @@ int  sub_13AB90(int a1, int a2, int a3)
     *(uint8_t *)(a1 + 27));
   v6 = *(uint16_t *)(a1 + 30);
   v7 = v6 << 31;
-  if ( (v6 & 1) != 0 || (sub_117ACC(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
-    sub_12ECB0(dword_13AC00, v7);
+  if ( (v6 & 1) != 0 || (irq_counter_inc(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
+    ke_event_schedule(dword_13AC00, v7);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -42,7 +42,7 @@ int  sub_13AB90(int a1, int a2, int a3)
   }
   v8 = (int *)off_13AC08;
   ++*(uint32_t *)off_13AC08;
-  result = sub_118358(a1, a3, a2);
+  result = list_append(a1, a3, a2);
   if ( *v8 )
   {
     v10 = *v8 - 1;

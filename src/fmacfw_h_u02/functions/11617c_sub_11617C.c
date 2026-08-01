@@ -15,8 +15,8 @@ extern uint32_t off_1161D8;
 extern uint32_t dword_1161E0;
 extern uint32_t dword_1161DC;
 
-// sub_11617C @ 0x11617c, size 88 bytes
-int  sub_11617C(int result)
+// adv_type_valid @ 0x11617c, size 88 bytes
+int  adv_type_valid(int result)
 {
   switch ( result )
   {
@@ -40,7 +40,7 @@ int  sub_11617C(int result)
       break;
     default:
       if ( **(int16_t **)off_1161D8 < 0 )
-        result = sub_12F32C(dword_1161E0, dword_1161DC, 944);
+        result = irq_disable_mmio_write(dword_1161E0, dword_1161DC, 944);
       break;
   }
   return result;

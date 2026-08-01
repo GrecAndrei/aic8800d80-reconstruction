@@ -17,8 +17,8 @@ extern uint32_t dword_122720;
 extern uint32_t dword_12271C;
 extern uint32_t dword_122714;
 
-// sub_122688 @ 0x122688, size 134 bytes
-int  sub_122688(int result, int a2)
+// check_system_flag @ 0x122688, size 134 bytes
+int  check_system_flag(int result, int a2)
 {
   int v2; // r4
   uint8_t v4[8]; // [sp+4h] [bp-8h] BYREF
@@ -30,7 +30,7 @@ int  sub_122688(int result, int a2)
     {
       if ( (unsigned int)(a2 - 1) > 6 )
       {
-        msg_parse(dword_122724);
+        dispatch_event_handler(dword_122724);
         return -12;
       }
       else if ( v2 )
@@ -42,28 +42,28 @@ int  sub_122688(int result, int a2)
         v4[0] = a2;
         *(uint16_t *)&v4[1] = 0;
         v4[3] = 0;
-        rf_setup_param_n5ac((int)v4);
-        msg_parse(dword_122718, a2);
+        mmio_write_8((int)v4);
+        dispatch_event_handler(dword_122718, a2);
         return a2;
       }
     }
     else
     {
-      msg_parse(dword_122720);
+      dispatch_event_handler(dword_122720);
       return -21;
     }
   }
   else if ( !v2 )
   {
     *(uint32_t *)v4 = 0;
-    if ( sub_1145A0((int)v4) )
+    if ( mmio_read_8((int)v4) )
     {
-      msg_parse(dword_12271C);
+      dispatch_event_handler(dword_12271C);
       return 0;
     }
     else
     {
-      msg_parse(dword_122714, v4[0]);
+      dispatch_event_handler(dword_122714, v4[0]);
       return v4[0];
     }
   }

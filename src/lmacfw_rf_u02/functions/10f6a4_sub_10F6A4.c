@@ -25,8 +25,8 @@ extern uint32_t dword_10F794;
 extern uint32_t dword_10F790;
 extern uint32_t dword_10F788;
 
-// sub_10F6A4 @ 0x10f6a4, size 192 bytes
-int sub_10F6A4()
+// bt_state_dispatch @ 0x10f6a4, size 192 bytes
+int bt_state_dispatch()
 {
   uint8_t **v0; // r4
   int v1; // r3
@@ -74,17 +74,17 @@ int sub_10F6A4()
       v6[9] = v7;
       break;
   }
-  sub_10F5C8();
-  v4 = sub_10F5FC();
+  bt_msg_init();
+  v4 = mmio_write16();
   v5 = **v0;
   if ( v5 == 1 )
   {
     v17 = (int ( **)(int))off_10F768;
     *(uint32_t *)off_10F784 = dword_10F798;
-    v18 = sub_1100D4(v4, HIDWORD(v4));
+    v18 = rx_packet_event(v4, HIDWORD(v4));
     v19 = sub_110114(v18);
-    v20 = sub_11016C(v19);
-    sub_11007C(v20);
+    v20 = rx_adv_event(v19);
+    rx_channel_event(v20);
     v21 = v17[2](dword_10F78C);
     LODWORD(v4) = v17[3](v21);
     v5 = **v0;
@@ -95,18 +95,18 @@ int sub_10F6A4()
     *(uint32_t *)off_10F784 = dword_10F790;
     v13 = (int ( **)(int))off_10F768;
     *(uint16_t *)(v12 + 8244) = 0;
-    v14 = sub_113280();
-    sub_1130CC(v14);
+    v14 = tx_event_handler();
+    timer_event_handler(v14);
     v15 = v13[6](dword_10F78C);
     v16 = v13[7](v15);
-    LODWORD(v4) = sub_113694(v16);
+    LODWORD(v4) = prepare_and_dispatch(v16);
     v5 = **v0;
   }
   if ( v5 == 3 )
   {
     v10 = (int ( **)(int))off_10F768;
     *(uint32_t *)off_10F784 = dword_10F788;
-    sub_113760();
+    controller_state_machine();
     v11 = v10[8](dword_10F78C);
     LODWORD(v4) = v10[9](v11);
   }

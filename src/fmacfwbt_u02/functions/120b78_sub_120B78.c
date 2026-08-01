@@ -33,8 +33,8 @@ extern uint32_t dword_120F04;
 extern uint32_t dword_120ED4;
 extern uint32_t dword_120ED0;
 
-// sub_120B78 @ 0x120b78, size 898 bytes
-int  sub_120B78(int a1, int a2, int a3, int a4, int a5, int a6)
+// tx_prepare_descriptor @ 0x120b78, size 898 bytes
+int  tx_prepare_descriptor(int a1, int a2, int a3, int a4, int a5, int a6)
 {
   unsigned int v8; // r9
   int v9; // r3
@@ -84,7 +84,7 @@ int  sub_120B78(int a1, int a2, int a3, int a4, int a5, int a6)
   v12 = v9 << 10;
   if ( !*(uint8_t *)(a4 + 106) && (v13 = *(uint16_t *)(a4 + 112), *(uint16_t *)(a4 + 112)) )
   {
-    sub_12B12C(*(uint8_t *)(a4 + 107), v9, (uint8_t)v13);
+    mac_duration_calc(*(uint8_t *)(a4 + 107), v9, (uint8_t)v13);
     v47 = v12 * v13;
   }
   else if ( a6 )
@@ -93,7 +93,7 @@ int  sub_120B78(int a1, int a2, int a3, int a4, int a5, int a6)
     if ( !*(uint8_t *)(a6 + 2) )
     {
       v13 = *(uint8_t *)(a6 + 3);
-      sub_12B12C(*(uint8_t *)(a4 + 107), v9, v13);
+      mac_duration_calc(*(uint8_t *)(a4 + 107), v9, v13);
     }
     v47 = v12 * v13;
   }
@@ -128,7 +128,7 @@ int  sub_120B78(int a1, int a2, int a3, int a4, int a5, int a6)
     }
     else
     {
-      sub_12F630(dword_120EB4, dword_120EB0, 430, off_120E94);
+      ke_int_lock(dword_120EB4, dword_120EB0, 430, off_120E94);
       v19 = 500;
       v18 = (int16_t **)off_120E94;
     }
@@ -150,7 +150,7 @@ int  sub_120B78(int a1, int a2, int a3, int a4, int a5, int a6)
         v24 = v19 - v23;
         goto LABEL_15;
       }
-      sub_12F630(dword_120EB4, dword_120EB0, 430, 2 * *v22);
+      ke_int_lock(dword_120EB4, dword_120EB0, 430, 2 * *v22);
     }
     v24 = v19 - 500;
     v23 = 500;
@@ -164,7 +164,7 @@ LABEL_15:
     *(uint32_t *)(a4 + 132) = v26;
     *(uint32_t *)(a4 + 136) = v44 + 400;
   }
-  v27 = sub_1434B0(v10, v11, v12, v12 >> 31);
+  v27 = double_is_nan(v10, v11, v12, v12 >> 31);
   v43 = v10 - v23;
   v28 = v27 * (v12 >> 31) + v12 * HIDWORD(v27);
   v29 = (unsigned int)v27 * (unsigned uint64_t)(unsigned int)v12;
@@ -178,7 +178,7 @@ LABEL_15:
     v31 = v30 - v44 - 400;
   v32 = off_120EA0;
   v33 = *((uint32_t *)off_120EA0 + 4) - *(uint32_t *)off_120EA4 + v31;
-  if ( v33 - v32[4] - 4300 - sub_10186C() < 0 )
+  if ( v33 - v32[4] - 4300 - return_1000() < 0 )
     v33 += v12;
   if ( (*(uint32_t *)(a4 + 4) & 1) != 0 )
   {
@@ -186,16 +186,16 @@ LABEL_15:
     if ( (v35 & 2) != 0 && v33 - *((uint32_t *)off_120EA0 + 4) - 10000 < 0 )
     {
       v33 += v12;
-      sub_12ECB0(dword_120ED8, v35 << 30, v34);
+      ke_event_schedule(dword_120ED8, v35 << 30, v34);
     }
   }
-  result = v33 - *((uint32_t *)off_120EA0 + 4) - 4300 - sub_10186C();
+  result = v33 - *((uint32_t *)off_120EA0 + 4) - 4300 - return_1000();
   if ( result >= 0 && *(uint32_t *)(a4 + 36) != v33 )
   {
     v37 = off_120EA8;
     if ( *((uint32_t *)off_120EA8 + 8) != a4 || (v38 = off_120E9C, *(uint32_t *)(a4 + 36) = v33, (*v38 & 0x2000000) != 0) )
     {
-      timestamp_update_4f60(a4 + 24, v33);
+      ke_event_lock(a4 + 24, v33);
     }
     else
     {
@@ -214,12 +214,12 @@ LABEL_15:
           *v42 |= 1u;
         }
         if ( *v39 >= (unsigned int)v39[1] )
-          sub_12ECB0(dword_120F04, *v39, v39[1]);
+          ke_event_schedule(dword_120F04, *v39, v39[1]);
         if ( **(int16_t **)off_120E94 < 0 && *v39 >= (unsigned int)v39[1] )
-          sub_12F694(dword_120ED4, dword_120ED0, 523);
+          mmio_irq_clear(dword_120ED4, dword_120ED0, 523);
       }
     }
-    return sub_128340(a4);
+    return hci_event_proc(a4);
   }
   return result;
 }

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13F454 @ 0x13f454, size 44 bytes
-int  sub_13F454(int result, unsigned int a2)
+// set_flow_control_mode @ 0x13f454, size 44 bytes
+int  set_flow_control_mode(int result, unsigned int a2)
 {
   int v2; // r2
   uint32_t *v3; // r4

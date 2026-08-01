@@ -1,1 +1,1 @@
-{"fn": "sub_1205914", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1205914", "status": "ok", "name": "rf_xo_pll_config", "params": [], "docstring": "Configure RF crystal/PLL parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1205914", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1205914", "status": "ok", "name": "llc_connection_init", "params": [], "docstring": "Configure RF crystal/PLL parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

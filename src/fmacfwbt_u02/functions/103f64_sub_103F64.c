@@ -14,8 +14,8 @@ extern uint32_t off_103FE4;
 extern uint32_t off_103FE8;
 extern uint32_t off_103FEC;
 
-// sub_103F64 @ 0x103f64, size 126 bytes
-unsigned int  sub_103F64(int a1, int a2)
+// mmio_irq_enable @ 0x103f64, size 126 bytes
+unsigned int  mmio_irq_enable(int a1, int a2)
 {
   unsigned int *v2; // r2
   unsigned int *v3; // r3

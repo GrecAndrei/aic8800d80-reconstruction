@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11488C @ 0x11488c, size 12 bytes
-int  sub_11488C(int a1)
+// send_cmd_short @ 0x11488c, size 12 bytes
+int  send_cmd_short(int a1)
 {
-  return sub_1146E4(0x1000000, a1, 0xAu);
+  return bus_write_buf(0x1000000, a1, 0xAu);
 }
 

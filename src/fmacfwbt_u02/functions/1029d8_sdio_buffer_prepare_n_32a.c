@@ -12,10 +12,10 @@
 
 extern uint32_t off_1029F4;
 
-// sdio_buffer_prepare_n_32a @ 0x1029d8, size 26 bytes
-// Doc: sdio_buffer_prepare_n_32a [util]: Validate/prepare SDIO buffer length against limit
-// sdio_buffer_prepare_n_32a [util]: Validate/prepare SDIO buffer length against limit
-int sdio_buffer_prepare_n_32a()
+// get_hw_flash_size @ 0x1029d8, size 26 bytes
+// Doc: get_hw_flash_size [util]: Validate/prepare SDIO buffer length against limit
+// get_hw_flash_size [util]: Validate/prepare SDIO buffer length against limit
+int get_hw_flash_size()
 {
   return (uint8_t)((1 << ((uint8_t)*(uint32_t *)off_1029F4 >> 4)) - 1);
 }

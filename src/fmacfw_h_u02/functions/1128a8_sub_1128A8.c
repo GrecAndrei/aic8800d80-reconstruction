@@ -24,8 +24,8 @@ extern uint32_t dword_112B0C;
 extern uint32_t dword_112B10;
 extern uint32_t off_112B14;
 
-// sub_1128A8 @ 0x1128a8, size 582 bytes
-int sub_1128A8()
+// phy_is_calibrated @ 0x1128a8, size 582 bytes
+int phy_is_calibrated()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r4
@@ -62,7 +62,7 @@ int sub_1128A8()
   *v0 = 0;
   v1[896] &= ~1u;
   v1[513] &= ~1u;
-  sub_11189C();
+  call_get_node();
   if ( (v1[6] & 0x80) != 0 )
     v1[6] &= ~0x80u;
   v2 = off_112AF8;
@@ -202,7 +202,7 @@ LABEL_24:
   *(uint8_t *)v18 = 0;
   sub_100200(v19, 0, 0x50u);
   sub_100200((int *)dword_112B10, 0, 0x50u);
-  result = sub_111744();
+  result = update_packet_buffer();
   v21 = *((int ( **)(uint32_t))off_112B14 + 8);
   if ( v21 )
     return v21(0);

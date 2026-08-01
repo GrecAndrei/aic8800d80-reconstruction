@@ -13,17 +13,17 @@
 extern uint32_t dword_12AE20;
 extern uint32_t off_12AE24;
 
-// sub_12ADEC @ 0x12adec, size 48 bytes
-int  sub_12ADEC(int a1, int a2, int a3, int a4)
+// get_state_name @ 0x12adec, size 48 bytes
+int  get_state_name(int a1, int a2, int a3, int a4)
 {
   int v5; // r4
 
-  v5 = sub_12CD48(2);
-  sub_12EB90(4, dword_12AE20);
+  v5 = hci_cmd_handler(2);
+  check_feature_flag(4, dword_12AE20);
   if ( v5 )
     *((uint8_t *)off_12AE24 + 11) = 1;
   else
-    sub_12B3A4(1, a4);
+    rf_execute_cmd(1, a4);
   return 0;
 }
 

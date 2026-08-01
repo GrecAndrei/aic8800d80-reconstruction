@@ -1,1 +1,1 @@
-{"fn": "log_ptr_in_range", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120fd8c", "status": "ok", "name": "log_ptr_in_range", "params": [], "docstring": "Validate pointer is within log buffer range", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_ptr_in_range", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120fd8c", "status": "ok", "name": "is_address_in_heap", "params": [], "docstring": "Validate pointer is within log buffer range", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

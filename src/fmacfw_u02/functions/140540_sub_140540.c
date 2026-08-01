@@ -26,10 +26,10 @@ extern uint32_t dword_140870;
 extern uint32_t dword_14086C;
 extern uint32_t dword_140874;
 
-// sub_140540 @ 0x140540, size 1418 bytes
+// ble_ll_adv_event_start @ 0x140540, size 1418 bytes
 // Doc: sub_1240540 [util]: Helper setting up 9-register save frame, branches on input flag.
 // sub_1240540 [util]: Helper setting up 9-register save frame, branches on input flag.
-uint32_t * sub_140540(int a1, int a2, int a3, int a4)
+uint32_t * ble_ll_adv_event_start(int a1, int a2, int a3, int a4)
 {
   int v4; // r11
   int v5; // r0
@@ -136,9 +136,9 @@ uint32_t * sub_140540(int a1, int a2, int a3, int a4)
   v10 = *((uint16_t *)off_140854 + 254) + 1;
   *((uint16_t *)off_140854 + 254) = v10;
   *(uint16_t *)(v5 + 130) = 16 * v10;
-  if ( rf_msg_process_body_n37(v4, v9, 5) == 1 )
+  if ( get_channel_tx_power(v4, v9, 5) == 1 )
   {
-    fmac_main_loop_0a0(v4, v8, 24);
+    ll_conn_window_calc(v4, v8, 24);
     v24 = *(uint8_t *)(v4 + 51);
     v11 = v24 + 24;
     v64 = v24 + 27;
@@ -202,7 +202,7 @@ uint32_t * sub_140540(int a1, int a2, int a3, int a4)
                 v59 = *(uint8_t *)(v56 + v34);
                 v60 = v58[2];
                 for ( i = (uint8_t)(v58[1] + 2);
-                      !sub_1404B0(v59, v60, a4) || i > 0xD9;
+                      !ble_ll_hci_vendor_cmd(v59, v60, a4) || i > 0xD9;
                       i = (uint8_t)(v58[1] + 2) )
                 {
                   v57 -= i;
@@ -221,7 +221,7 @@ uint32_t * sub_140540(int a1, int a2, int a3, int a4)
               {
 LABEL_90:
                 if ( **(int16_t **)off_140AD0 < 0 )
-                  sub_12F49C(dword_140AE0, dword_140ADC, 1043);
+                  call_shared_handler(dword_140AE0, dword_140ADC, 1043);
               }
             }
             else if ( v35 <= 0xDu )
@@ -260,7 +260,7 @@ LABEL_90:
         *(uint16_t *)(v13 + 15) = *(uint16_t *)(a4 + 48);
         *(uint64_t *)(v13 + 7) = v26;
         *(uint8_t *)(v13 + 17) = *(uint8_t *)(v25 + 18);
-        *(uint8_t *)(v13 + 18) = sub_12E100(*(char *)(v25 + 20));
+        *(uint8_t *)(v13 + 18) = rf_cal_code_idx(*(char *)(v25 + 20));
         *(uint8_t *)(v13 + 19) = -1;
         v27 = (char *)(v25 + 6);
         do
@@ -290,7 +290,7 @@ LABEL_90:
         if ( *(uint16_t *)(v25 + 24) <= 0xBu )
         {
           if ( **(int16_t **)off_140AD0 < 0 && (uint16_t)(v30 - 6) <= 0xBu )
-            sub_12F46C(dword_140AD8, dword_140AD4, 1149);
+            mmio_clear_register(dword_140AD8, dword_140AD4, 1149);
           v38 = (char *)(v25 + 64);
           do
           {
@@ -320,7 +320,7 @@ LABEL_90:
         {
           v46 = *v43;
           v47 = (uint8_t)(v43[1] + 2);
-          if ( sub_1404B0((uint8_t)*v43, (uint8_t)v43[2], a4) && v47 <= 0xD9 )
+          if ( ble_ll_hci_vendor_cmd((uint8_t)*v43, (uint8_t)v43[2], a4) && v47 <= 0xD9 )
           {
             if ( (uint8_t)v47 > v67 )
             {
@@ -347,7 +347,7 @@ LABEL_30:
                 {
                   *v65 = -92;
                   v65[1] = 1;
-                  v65[2] = mmio_read_status();
+                  v65[2] = ble_ll_adv_chk_active();
                   v65 += 3;
                 }
                 v23 = (unsigned int)&v65[-v13];
@@ -356,7 +356,7 @@ LABEL_30:
                 if ( **(int16_t **)off_140864 < 0 && v63 < v23 )
                 {
                   v13 = (int)v65;
-                  sub_12F46C(dword_140870, dword_14086C, 1287);
+                  mmio_clear_register(dword_140870, dword_14086C, 1287);
                   v63 = v21;
                   goto LABEL_14;
                 }
@@ -370,7 +370,7 @@ LABEL_73:
 LABEL_29:
               v31 = off_140868;
               *(uint16_t *)(v25 + 4) = 3;
-              sub_12D2E8((int)v31, (uint32_t *)v25);
+              cmd_handler_c((int)v31, (uint32_t *)v25);
               goto LABEL_30;
             }
             if ( v47 )
@@ -402,10 +402,10 @@ LABEL_29:
 LABEL_14:
       v62 += v23;
     }
-    while ( !mmio_read_status() && v21 > 4 );
+    while ( !ble_ll_adv_chk_active() && v21 > 4 );
     v4 = v66;
     if ( **(int16_t **)off_140864 < 0 && !v62 )
-      sub_12F49C(dword_140874, dword_14086C, 1298);
+      call_shared_handler(dword_140874, dword_14086C, 1298);
     v14 = v62 + v64;
   }
   result = *(uint32_t **)(v4 + 76);

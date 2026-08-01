@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11DEEC @ 0x11deec, size 86 bytes
-uint32_t * sub_11DEEC(int a1, int ( *a2)(uint32_t *, int), int a3)
+// co_list_process @ 0x11deec, size 86 bytes
+uint32_t * co_list_process(int a1, int ( *a2)(uint32_t *, int), int a3)
 {
   uint32_t *v3; // r4
   uint32_t *v7; // r8

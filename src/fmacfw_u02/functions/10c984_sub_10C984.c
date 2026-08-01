@@ -16,8 +16,8 @@ extern uint32_t off_10C9C4;
 extern uint32_t off_10C9C0;
 extern uint32_t off_10C9C8;
 
-// sub_10C984 @ 0x10c984, size 52 bytes
-int sub_10C984()
+// status_flag_poll @ 0x10c984, size 52 bytes
+int status_flag_poll()
 {
   int v0; // r4
   int result; // r0
@@ -28,7 +28,7 @@ int sub_10C984()
   v0 = *(uint32_t *)off_10C9B8 & 0x1F00;
   if ( v0 )
   {
-    result = irq_nesting_or_d104(2048);
+    result = unknown_func_12d104(2048);
     v2 = (int *)off_10C9BC;
     v3 = off_10C9C4;
     *(uint32_t *)off_10C9C0 = v0;

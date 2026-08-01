@@ -1,1 +1,1 @@
-{"fn": "rf_hw_timer_read", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120e048", "status": "ok", "name": "rf_hw_timer_read", "params": [], "docstring": "Reads RF hardware timer register and compares state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_hw_timer_read", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120e048", "status": "ok", "name": "rf_core_is_ready", "params": [], "docstring": "Reads RF hardware timer register and compares state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

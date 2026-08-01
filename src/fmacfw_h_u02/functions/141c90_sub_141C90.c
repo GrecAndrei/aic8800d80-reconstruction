@@ -15,8 +15,8 @@ extern uint32_t dword_141CFC;
 extern uint32_t off_141D04;
 extern uint32_t dword_141D00;
 
-// sub_141C90 @ 0x141c90, size 102 bytes
-int  sub_141C90(int a1)
+// read_rf_timer @ 0x141c90, size 102 bytes
+int  read_rf_timer(int a1)
 {
   int v1; // r2
   int v3; // r3
@@ -34,7 +34,7 @@ int  sub_141C90(int a1)
   *(uint32_t *)(a1 + 56) = dword_141CFC;
   *(uint64_t *)(a1 + 24) = v4;
   v5 = *(uint8_t *)(a1 + 47);
-  sub_124BFC(a1 + 52, v3 + v1);
+  mem_copy_util(a1 + 52, v3 + v1);
   v6 = off_141D04;
   v7 = dword_141D00 + 1320 * v5;
   v8 = *(uint16_t *)a1 | 8;

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_131600;
 
-// sub_131548 @ 0x131548, size 182 bytes
-int  sub_131548(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// scan_report_parse @ 0x131548, size 182 bytes
+int  scan_report_parse(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v5; // r5
   int v6; // r8
@@ -48,15 +48,15 @@ int  sub_131548(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   if ( v11 == 15 )
   {
 LABEL_9:
-    v14 = sub_12C92C(65, 0, 5, 4u);
+    v14 = ke_msg_alloc(65, 0, 5, 4u);
     v15 = v6 + 696 * v5;
     v16 = *(uint8_t *)(v15 + 34);
     *(uint16_t *)v14 = *(uint16_t *)(v15 + 32);
     *(uint8_t *)(v14 + 3) = v16;
     *(uint8_t *)(v14 + 2) = a2[1];
-    sub_12C98C(v14);
+    ke_msg_send(v14);
   }
-  sub_12CA10(5133, a4, a3);
+  ke_msg_send_no_param(5133, a4, a3);
   return 0;
 }
 

@@ -18,8 +18,8 @@ extern uint32_t off_103A64;
 extern uint32_t dword_103A68;
 extern uint32_t off_103A5C;
 
-// sub_1039C4 @ 0x1039c4, size 138 bytes
-int sub_1039C4()
+// rf_pll_enable @ 0x1039c4, size 138 bytes
+int rf_pll_enable()
 {
   uint32_t *v0; // r2
   int v1; // r3
@@ -57,6 +57,6 @@ int sub_1039C4()
   *v5 |= 0x1000000u;
   *v5 |= 0x8000000u;
   *v6 |= 0x524u;
-  return sub_12EEF8(0x2000, v7);
+  return state_check_feature(0x2000, v7);
 }
 

@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_104440 @ 0x104440, size 48 bytes
-int  sub_104440(int a1, int a2, uint32_t *a3)
+// rx_parse_desc @ 0x104440, size 48 bytes
+int  rx_parse_desc(int a1, int a2, uint32_t *a3)
 {
   int v3; // r2
   unsigned int v4; // r0
   int v5; // r3
 
-  v3 = a3[seqno_incr_check_3fff(a1, a2, a3)];
+  v3 = a3[util_get_hw_index(a1, a2, a3)];
   v4 = (unsigned int)v3 >> 20;
   v5 = (uint16_t)v3 >> 4;
   if ( v3 < 0 )

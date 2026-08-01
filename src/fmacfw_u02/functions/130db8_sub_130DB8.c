@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130DB8 @ 0x130db8, size 140 bytes
-uint8_t * sub_130DB8(uint8_t *a1, int a2, uint8_t *a3)
+// hexstr_to_bytes @ 0x130db8, size 140 bytes
+uint8_t * hexstr_to_bytes(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   int v7; // r4
@@ -24,7 +24,7 @@ uint8_t * sub_130DB8(uint8_t *a1, int a2, uint8_t *a3)
   unsigned int v14; // r3
   uint8_t v15; // [sp+7h] [bp-1h] BYREF
 
-  result = sub_12D89C(a1, a2, &v15);
+  result = buf_calc_1(a1, a2, &v15);
   if ( result )
   {
     v7 = v15;
@@ -44,7 +44,7 @@ uint8_t * sub_130DB8(uint8_t *a1, int a2, uint8_t *a3)
       }
       while ( v9 != v8 );
     }
-    result = sub_12D8DC(a1, a2, &v15);
+    result = buf_calc_2(a1, a2, &v15);
     if ( result )
     {
       v11 = result + 2;

@@ -17,8 +17,8 @@ extern uint32_t dword_10EC20;
 extern uint32_t dword_10EC24;
 extern uint32_t dword_10EC28;
 
-// sub_10EA74 @ 0x10ea74, size 416 bytes
-int  sub_10EA74(unsigned int a1, unsigned int a2, unsigned int *a3)
+// gpio_mode_set @ 0x10ea74, size 416 bytes
+int  gpio_mode_set(unsigned int a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r4
   unsigned int *v4; // r6
@@ -48,8 +48,8 @@ int  sub_10EA74(unsigned int a1, unsigned int a2, unsigned int *a3)
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
   v7 = (int16_t *)off_10EC1C;
-  inited = rf_init_wake_n_e8();
-  msg_parse(dword_10EC20, a1);
+  inited = sdio_core_enable();
+  dispatch_event_handler(dword_10EC20, a1);
   v9 = *v7;
   if ( v9 > inited )
   {
@@ -84,8 +84,8 @@ int  sub_10EA74(unsigned int a1, unsigned int a2, unsigned int *a3)
     *v10 = *v10 & 0xFFFFFF87 | (8 * v3);
     *v11 = *v11 & 0xFFF87FFF | (v3 << 15);
     v14 = inited;
-    inited = rf_init_wake_n_e8();
-    msg_parse(dword_10EC24, v12);
+    inited = sdio_core_enable();
+    dispatch_event_handler(dword_10EC24, v12);
     v15 = *(int16_t *)off_10EC1C;
     v16 = inited - v15;
     v17 = v14 - v15;
@@ -106,7 +106,7 @@ int  sub_10EA74(unsigned int a1, unsigned int a2, unsigned int *a3)
     *v10 = (8 * v24) & 0x78 | *v10 & 0xFFFFFF87;
     *v11 = (v24 << 15) & 0x78000 | *v11 & 0xFFF87FFF;
   }
-  msg_parse(dword_10EC28, v19);
+  dispatch_event_handler(dword_10EC28, v19);
 LABEL_9:
   *a3 = v3;
   return v19;

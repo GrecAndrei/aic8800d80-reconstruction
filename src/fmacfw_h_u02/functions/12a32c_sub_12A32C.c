@@ -14,8 +14,8 @@ extern uint32_t off_12A378;
 extern uint32_t off_12A37C;
 extern uint32_t dword_12A380;
 
-// sub_12A32C @ 0x12a32c, size 74 bytes
-int sub_12A32C()
+// bt_ll_flow_control_check @ 0x12a32c, size 74 bytes
+int bt_ll_flow_control_check()
 {
   int result; // r0
   int *v1; // r3

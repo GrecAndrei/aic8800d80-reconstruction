@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_3d0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f34", "status": "ok", "name": "patch_apply_n_15a", "params": [], "docstring": "Minimal patch trampoline (NOP + register move)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_3d0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f34", "status": "ok", "name": "rf_bus_mark_n_257", "params": [], "docstring": "Minimal patch trampoline (NOP + register move)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

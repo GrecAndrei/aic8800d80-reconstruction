@@ -1,0 +1,1 @@
+{"fn": "sub_135224", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x135224", "status": "ok", "name": "mac_dma_setup", "params": [], "docstring": "Initializes MAC DMA context and descriptors.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

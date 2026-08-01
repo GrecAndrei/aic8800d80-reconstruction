@@ -13,8 +13,8 @@
 extern uint32_t dword_11CA10;
 extern uint32_t off_11CA14;
 
-// sub_11C9C8 @ 0x11c9c8, size 70 bytes
-unsigned int * sub_11C9C8(unsigned int *result)
+// set_cal_value @ 0x11c9c8, size 70 bytes
+unsigned int * set_cal_value(unsigned int *result)
 {
   int v1; // r2
   int v2; // r5
@@ -32,7 +32,7 @@ unsigned int * sub_11C9C8(unsigned int *result)
     while ( 1 )
     {
       v5 = v3++;
-      result = sub_11B510(v5, *(uint32_t *)(HIDWORD(v4) + 36), v1);
+      result = check_packet_bits(v5, *(uint32_t *)(HIDWORD(v4) + 36), v1);
       if ( v3 == (unsigned int *)v4 )
         break;
       v1 = *(uint16_t *)(v2 + 1222);

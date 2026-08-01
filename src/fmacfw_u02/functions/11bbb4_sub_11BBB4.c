@@ -13,8 +13,8 @@
 extern uint32_t dword_11BBFC;
 extern uint32_t off_11BBF8;
 
-// sub_11BBB4 @ 0x11bbb4, size 68 bytes
-int  sub_11BBB4(int a1, int a2)
+// get_connection_by_slot @ 0x11bbb4, size 68 bytes
+int  get_connection_by_slot(int a1, int a2)
 {
   int v2; // r6
   int v3; // r5
@@ -23,8 +23,8 @@ int  sub_11BBB4(int a1, int a2)
 
   v2 = dword_11BBFC;
   v3 = *((uint8_t *)off_11BBF8 + 190);
-  rf_bus_mark_n100_d2d0(dword_11BBFC + 84 * v3 + 12);
-  result = sub_117F18(a1, a2, v3);
+  mem_word_load(dword_11BBFC + 84 * v3 + 12);
+  result = ipc_handler_register(a1, a2, v3);
   if ( (*(uint32_t *)(a1 + 36) & 0x380000) == 0x380000 )
   {
     v6 = v2 + 84 * v3;

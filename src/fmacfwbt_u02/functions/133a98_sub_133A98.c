@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_133A98 @ 0x133a98, size 98 bytes
+// rx_parse_descriptor @ 0x133a98, size 98 bytes
 // Doc: rf_cmd_send_n_356 [rf]: Clears cmd flag and disables RF cmd interrupt in MMIO 0x40200e00
 // rf_cmd_send_n_356 [rf]: Clears cmd flag and disables RF cmd interrupt in MMIO 0x40200e00
-int  sub_133A98(int a1, int a2)
+int  rx_parse_descriptor(int a1, int a2)
 {
   int v2; // r3
 
@@ -21,20 +21,20 @@ int  sub_133A98(int a1, int a2)
   switch ( v2 )
   {
     case 176:
-      if ( msg_get_value(6u) == 5 )
-        bt_state_query_n_c3c(a2);
+      if ( hci_cmd_send_short(6u) == 5 )
+        hci_vendor_read_rf_cache(a2);
       break;
     case 16:
     case 48:
-      if ( msg_get_value(6u) == 8 )
-        sub_1357B4(a2);
+      if ( hci_cmd_send_short(6u) == 8 )
+        hci_vendor_read_rf(a2);
       break;
     case 192:
     case 160:
-      return ipc_msg_handle_n_884(a2);
+      return rf_check_channel_10(a2);
     default:
       if ( v2 == 208 && *(uint8_t *)(a2 + 12) == 8 )
-        sub_135924(a2);
+        rf_get_power_by_index(a2);
       break;
   }
   return 0;

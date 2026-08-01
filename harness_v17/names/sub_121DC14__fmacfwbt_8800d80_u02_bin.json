@@ -1,1 +1,1 @@
-{"fn": "sub_121DC14", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121dc14", "status": "ok", "name": "bt_flag_get", "params": [], "docstring": "Reads byte flag from BT global state struct", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121DC14", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121dc14", "status": "ok", "name": "seq_count_restart", "params": [], "docstring": "Reads byte flag from BT global state struct", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -16,8 +16,8 @@ extern uint32_t dword_11DD18;
 extern uint32_t dword_11DD14;
 extern uint32_t dword_11DD1C;
 
-// sub_11DC04 @ 0x11dc04, size 266 bytes
-uint32_t * sub_11DC04(uint32_t *a1, int a2, uint16_t *a3)
+// rx_packet_process @ 0x11dc04, size 266 bytes
+uint32_t * rx_packet_process(uint32_t *a1, int a2, uint16_t *a3)
 {
   int *v3; // r7
   int v4; // r10
@@ -57,7 +57,7 @@ uint32_t * sub_11DC04(uint32_t *a1, int a2, uint16_t *a3)
     if ( a2 + v4 >= v20 )
       break;
     v23 = a2;
-    v11 = sub_11017C();
+    v11 = mmio_read_0();
     v10 = 0;
     v12 = v23;
     v9 = 1;
@@ -75,11 +75,11 @@ LABEL_5:
     if ( v15 < 0 && !v16 )
     {
       v24 = v12;
-      sub_12F32C(dword_11DD18, dword_11DD14, 683);
+      irq_disable_mmio_write(dword_11DD18, dword_11DD14, 683);
       v16 = v5[2];
       LOWORD(v12) = v24;
     }
-    sub_110FFC(v13, v16, 0, v12, v9);
+    tx_desc_set_control(v13, v16, 0, v12, v9);
     if ( v7 )
       v7[1] = v13;
     v3[2] = (int)v13;
@@ -88,7 +88,7 @@ LABEL_5:
     v17 = (uint32_t *)v5[1];
     if ( **v6 < 0 && !v17 )
     {
-      sub_12F32C(dword_11DD1C, dword_11DD14, 704);
+      irq_disable_mmio_write(dword_11DD1C, dword_11DD14, 704);
       v17 = 0;
     }
     v25 = v5;
@@ -100,7 +100,7 @@ LABEL_5:
   v22 = (uint16_t)(v20 - v4);
   if ( !v10 )
     v9 = 1;
-  v11 = sub_11017C();
+  v11 = mmio_read_0();
   v4 = 0;
   v12 = v22;
   v13 = (uint32_t *)v11;

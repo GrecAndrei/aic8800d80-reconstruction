@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_mem_read_n_ec @ 0x11f4a8, size 6 bytes
-// Doc: rf_mem_read_n_ec [rf]: Read RF memory and store to shared pointer
-// rf_mem_read_n_ec [rf]: Read RF memory and store to shared pointer
-int  rf_mem_read_n_ec(int result)
+// set_global_ptr @ 0x11f4a8, size 6 bytes
+// Doc: set_global_ptr [rf]: Read RF memory and store to shared pointer
+// set_global_ptr [rf]: Read RF memory and store to shared pointer
+int  set_global_ptr(int result)
 {
   *(uint32_t *)rf_mem_read_n_e4 = result;
   return result;

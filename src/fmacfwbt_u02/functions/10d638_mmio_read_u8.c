@@ -13,10 +13,10 @@
 extern uint32_t off_10D648;
 extern uint32_t off_10D64C;
 
-// mmio_read_u8 @ 0x10d638, size 16 bytes
-// Doc: mmio_read_u8 [mmio]: Read a byte from MMIO register at 0x40032000
-// mmio_read_u8 [mmio]: Read a byte from MMIO register at 0x40032000
-int mmio_read_u8()
+// uart_getc @ 0x10d638, size 16 bytes
+// Doc: uart_getc [mmio]: Read a byte from MMIO register at 0x40032000
+// uart_getc [mmio]: Read a byte from MMIO register at 0x40032000
+int uart_getc()
 {
   while ( (*(uint32_t *)off_10D648 & 1) == 0 )
     ;

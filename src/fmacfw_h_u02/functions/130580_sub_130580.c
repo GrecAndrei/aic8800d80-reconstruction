@@ -14,8 +14,8 @@ extern uint32_t dword_13064C;
 extern uint32_t dword_130650;
 extern uint32_t dword_130654;
 
-// sub_130580 @ 0x130580, size 204 bytes
-char * sub_130580(int a1)
+// write_hash_header @ 0x130580, size 204 bytes
+char * write_hash_header(int a1)
 {
   int v1; // r2
   uint16_t *v2; // r5
@@ -83,7 +83,7 @@ char * sub_130580(int a1)
   }
   if ( *(uint8_t *)(v8 + 0x48) >> 7 )
   {
-    v18 = sub_13248C();
+    v18 = phy_get_rate_code();
     v19 = v18 + 1 + *(uint8_t *)(v8 + 0x175) * (v18 + 1);
     v20 = (uint8_t)((unsigned int)(6 * v19 + 14) >> 3);
     if ( (uint8_t)((unsigned int)(6 * v19 + 14) >> 3) )

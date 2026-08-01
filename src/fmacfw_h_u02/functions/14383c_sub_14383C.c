@@ -14,8 +14,8 @@ extern uint32_t off_14386C;
 extern uint32_t dword_143870;
 extern uint32_t dword_143874;
 
-// sub_14383C @ 0x14383c, size 46 bytes
-int sub_14383C()
+// hash32 @ 0x14383c, size 46 bytes
+int hash32()
 {
   unsigned uint64_t v0; // kr00_8
 

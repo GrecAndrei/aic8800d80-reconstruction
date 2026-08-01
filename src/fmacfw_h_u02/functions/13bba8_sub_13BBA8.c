@@ -14,8 +14,8 @@ extern uint32_t dword_13BC14;
 extern uint32_t dword_13BC18;
 extern uint32_t dword_13BC1C;
 
-// sub_13BBA8 @ 0x13bba8, size 108 bytes
-int  sub_13BBA8(int result)
+// init_patch_table @ 0x13bba8, size 108 bytes
+int  init_patch_table(int result)
 {
   int v1; // r4
   int v2; // r5
@@ -39,9 +39,9 @@ int  sub_13BBA8(int result)
     {
       if ( *(uint8_t *)(v2 + 16) == v4 )
       {
-        sub_12CBF4((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
+        hci_cmd_preprocess((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(uint8_t *)(v2 + 25) = 0;
-        result = sub_13B558(v4, v2, 2, 0, 0, 39, v3);
+        result = init_state_table(v4, v2, 2, 0, 0, 39, v3);
       }
     }
     v2 += 32;

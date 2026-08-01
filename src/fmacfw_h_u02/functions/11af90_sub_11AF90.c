@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11B014;
 
-// sub_11AF90 @ 0x11af90, size 132 bytes
-unsigned int * sub_11AF90(unsigned int *result, unsigned int a2, int a3)
+// rx_packet_type @ 0x11af90, size 132 bytes
+unsigned int * rx_packet_type(unsigned int *result, unsigned int a2, int a3)
 {
   unsigned int v3; // r3
   int v4; // r4

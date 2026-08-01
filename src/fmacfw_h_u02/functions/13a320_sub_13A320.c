@@ -15,8 +15,8 @@ extern uint32_t dword_13A36C;
 extern uint32_t dword_13A368;
 extern uint32_t dword_13A364;
 
-// sub_13A320 @ 0x13a320, size 64 bytes
-int  sub_13A320(int a1, int a2)
+// dma_rx_ring @ 0x13a320, size 64 bytes
+int  dma_rx_ring(int a1, int a2)
 {
   int v2; // r4
   uint32_t *v3; // r5
@@ -25,9 +25,9 @@ int  sub_13A320(int a1, int a2)
   v2 = a1 + 4 * a2;
   v3 = *(uint32_t **)(v2 + 408);
   if ( **(int16_t **)off_13A360 < 0 && !v3 )
-    sub_12F32C(dword_13A36C, dword_13A368, 3320);
-  sub_124CF4((int)(v3 + 68));
-  result = sub_12D108(dword_13A364, v3);
+    irq_disable_mmio_write(dword_13A36C, dword_13A368, 3320);
+  mem_set_util((int)(v3 + 68));
+  result = wlan_ioctl_handler_1(dword_13A364, v3);
   *(uint32_t *)(v2 + 408) = 0;
   return result;
 }

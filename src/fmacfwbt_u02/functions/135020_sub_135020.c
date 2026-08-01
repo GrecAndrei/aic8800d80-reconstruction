@@ -30,8 +30,8 @@ extern uint32_t dword_1352D4;
 extern uint32_t off_1352D8;
 extern uint32_t dword_1352DC;
 
-// sub_135020 @ 0x135020, size 640 bytes
-int  sub_135020(int a1)
+// event_dispatch @ 0x135020, size 640 bytes
+int  event_dispatch(int a1)
 {
   uint32_t *v2; // r5
   int v3; // r11
@@ -79,7 +79,7 @@ int  sub_135020(int a1)
   v38 = *((uint32_t *)off_1352A0 + 4);
   v6 = dword_1352E8 + 1320 * v4;
   v7 = *(uint8_t *)(v6 + 116);
-  result = sub_12ECB0(dword_1352A4);
+  result = ke_event_schedule(dword_1352A4);
   v9 = v2[4];
   if ( v9 )
   {
@@ -121,13 +121,13 @@ LABEL_8:
           *v35 |= 0x80000000;
           *v36 = v37;
         }
-        rf_bus_mark_n_3b7(6u, 10);
+        hci_cmd_send(6u, 10);
         v2[2] = v6;
         *v2 = v5 - 12;
-        bt_fw_init_handler(v6);
+        write_hw_mmio_word(v6);
 LABEL_10:
-        feature_guard_sdio(256, dword_1352B8, *(uint8_t *)(v5 + 9), a1, *(uint16_t *)(v5 + 820));
-        result = j_buffer_pool_get(v2[4] - 12);
+        state_check_feature(256, dword_1352B8, *(uint8_t *)(v5 + 9), a1, *(uint16_t *)(v5 + 820));
+        result = jump_to_tx_entry(v2[4] - 12);
         v2[4] = 0;
         *((uint8_t *)v2 + 33) = 0;
         return result;
@@ -183,7 +183,7 @@ LABEL_10:
       *(uint32_t *)off_1352CC = *(uint16_t *)(v29 + 68);
     }
     v39 = v14;
-    sub_12CBB4(v5);
+    hci_evt_send(v5);
     v30 = v39;
     *(uint32_t *)off_1352D0 = dword_1352D4;
     if ( v39 == (void *)1 )
@@ -194,15 +194,15 @@ LABEL_10:
       *(uint32_t *)off_1352C4 = v31[52];
     }
     if ( *(uint8_t *)(v3 + 1320 * v4 + 413) == 2 )
-      sub_120AB4((int *)v6, 0, 1);
+      bt_coex_control((int *)v6, 0, 1);
     v32 = v3 + 1320 * v4;
     v33 = *(uint16_t *)(v32 + 416);
     if ( v33 <= 0x1387 )
-      sub_10D054(v33 | (*(uint8_t *)(v32 + 413) << 16) | 0x80000000, (int)v30, 4999);
+      hw_reg_write(v33 | (*(uint8_t *)(v32 + 413) << 16) | 0x80000000, (int)v30, 4999);
     v34 = off_1352D8;
     *(uint8_t *)(v3 + 1320 * v4 + 149) = 1;
-    timestamp_update_4f60(1320 * v4 + 152 + v3, dword_1352DC + v34[4]);
-    rf_bus_mark_n_3b7(6u, 0);
+    ke_event_lock(1320 * v4 + 152 + v3, dword_1352DC + v34[4]);
+    hci_cmd_send(6u, 0);
     goto LABEL_10;
   }
   return result;

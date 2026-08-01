@@ -14,8 +14,8 @@ extern uint32_t dword_107BD4;
 extern uint32_t dword_107BCC;
 extern uint32_t dword_107BD0;
 
-// sub_107A70 @ 0x107a70, size 348 bytes
-int  sub_107A70(int a1, int *a2, uint32_t *a3)
+// rx_queue_pop_packet @ 0x107a70, size 348 bytes
+int  rx_queue_pop_packet(int a1, int *a2, uint32_t *a3)
 {
   int v4; // r3
   uint64_t v5; // kr08_8
@@ -41,8 +41,8 @@ int  sub_107A70(int a1, int *a2, uint32_t *a3)
   v6 = *(uint32_t *)(a1 + 12);
   if ( *(uint32_t *)a1 < v4 && v6 <= 49 )
   {
-    sub_11F74C(1, dword_107BD4, v6, v4);
-    sub_1072CC((int)a2, a3, a1);
+    check_interrupt_flag(1, dword_107BD4, v6, v4);
+    rf_core_irq_clear((int)a2, a3, a1);
     v6 = *(uint32_t *)(a1 + 12);
   }
   if ( *(uint32_t *)(a1 + 16) - v6 >= a3[6] )
@@ -96,6 +96,6 @@ LABEL_8:
   }
 LABEL_9:
   *((uint64_t *)a2 + 1) = v14;
-  return sub_11F74C(1, dword_107BD0, v11, HIDWORD(v11));
+  return check_interrupt_flag(1, dword_107BD0, v11, HIDWORD(v11));
 }
 

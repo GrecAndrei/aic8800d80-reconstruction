@@ -26,10 +26,10 @@ extern uint32_t off_121E4C;
 extern uint32_t off_121E50;
 extern uint32_t off_121E54;
 
-// fw_init_or_check_1221d44 @ 0x121d44, size 230 bytes
-// Doc: fw_init_or_check_1221d44 [util]: Firmware init/version check via shared flag pointer
-// fw_init_or_check_1221d44 [util]: Firmware init/version check via shared flag pointer
-int fw_init_or_check_1221d44()
+// mac_cmd_send @ 0x121d44, size 230 bytes
+// Doc: mac_cmd_send [util]: Firmware init/version check via shared flag pointer
+// mac_cmd_send [util]: Firmware init/version check via shared flag pointer
+int mac_cmd_send()
 {
   int *v0; // r8
   int *v1; // r4
@@ -46,9 +46,9 @@ int fw_init_or_check_1221d44()
   int v12; // r3
   int v13; // r2
 
-  if ( **(int16_t **)off_121E2C < 0 && msg_get_value(0) == 4 )
-    sub_12F694(dword_121E60, dword_121E5C, 1799);
-  feature_guard_sdio(4, dword_121E30);
+  if ( **(int16_t **)off_121E2C < 0 && hci_cmd_send_short(0) == 4 )
+    mmio_irq_clear(dword_121E60, dword_121E5C, 1799);
+  state_check_feature(4, dword_121E30);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -64,9 +64,9 @@ int fw_init_or_check_1221d44()
   v5 = v3 & 0xF;
   while ( *v1 << 28 )
   {
-    phy_reg_mask_check();
+    rf_irq_clear();
     if ( (unsigned int)(v2[4] - v4) > 0x7530 )
-      feature_guard_sdio(4, dword_121E58);
+      state_check_feature(4, dword_121E58);
   }
   v6 = off_121E44;
   v7 = off_121E48;
@@ -80,8 +80,8 @@ int fw_init_or_check_1221d44()
   v9 = *((uint8_t *)off_121E4C + 90);
   *(uint32_t *)off_121E50 = 4;
   if ( v9 )
-    bitfield_pack_n_214();
-  result = rf_bus_mark_n_3b7(0);
+    sleep_critical_enter();
+  result = hci_cmd_send(0);
   v11 = *v0;
   *((uint16_t *)off_121E54 + 9) = 0;
   if ( v11 )

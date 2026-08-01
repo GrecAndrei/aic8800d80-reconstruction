@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F3B8 @ 0x11f3b8, size 18 bytes
-int  sub_11F3B8(int result)
+// llm_conn_reset_state @ 0x11f3b8, size 18 bytes
+int  llm_conn_reset_state(int result)
 {
   *(uint8_t *)(result + 52) = 1;
   *(uint8_t *)(result + 163) = 0;

@@ -19,8 +19,8 @@ extern uint32_t off_11B700;
 extern uint32_t off_11B704;
 extern uint32_t off_11B708;
 
-// sub_11B688 @ 0x11b688, size 100 bytes
-uint32_t * sub_11B688(uint32_t *result)
+// radio_irq_check @ 0x11b688, size 100 bytes
+uint32_t * radio_irq_check(uint32_t *result)
 {
   uint32_t *v1; // r2
   int v2; // r5

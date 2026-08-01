@@ -16,8 +16,8 @@ extern uint32_t off_10766C;
 extern uint32_t dword_107670;
 extern uint32_t dword_107674;
 
-// sub_107584 @ 0x107584, size 222 bytes
-int  sub_107584(int a1, int a2)
+// rf_mode_select @ 0x107584, size 222 bytes
+int  rf_mode_select(int a1, int a2)
 {
   unsigned int *v2; // r5
   unsigned int *v3; // r4
@@ -36,17 +36,17 @@ int  sub_107584(int a1, int a2)
   *v3 |= 0x100000u;
   *v3 |= 0x1000000u;
   *v3 = (a2 << 25) & 0x2000000 | *v3 & 0xFDFFFFFF;
-  sub_107518();
+  rf_synth_set_freq();
   *v2 &= ~1u;
-  sub_100644(140);
+  timer_delay(140);
   v5 = off_10766C;
   *v3 |= 0x4000000u;
   v6 = *v5 & 0x7FFF;
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
-  sub_100644(5);
-  sub_12ECD0(1, dword_107670);
-  result = sub_12ECD0(1, dword_107674);
+  timer_delay(5);
+  check_status_bits(1, dword_107670);
+  result = check_status_bits(1, dword_107674);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;

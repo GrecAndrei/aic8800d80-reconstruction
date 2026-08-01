@@ -12,10 +12,10 @@
 
 extern uint32_t off_12C8A8;
 
-// sub_12C7F8 @ 0x12c7f8, size 166 bytes
+// ke_event_schedule @ 0x12c7f8, size 166 bytes
 // Doc: message_dispatch_n_170 [ipc]: Compares message timestamp/delta against a reference value
 // message_dispatch_n_170 [ipc]: Compares message timestamp/delta against a reference value
-int sub_12C7F8()
+int ke_event_schedule()
 {
   uint32_t *v0; // r7
   int *v1; // r5
@@ -43,7 +43,7 @@ int sub_12C7F8()
   v4 = (char *)msg_dispatch_hash_ec + 32;
   while ( 1 )
   {
-    clear_flags(0x10000000);
+    unknown_func_12d14c(0x10000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -59,7 +59,7 @@ int sub_12C7F8()
     v5 = *(uint32_t *)(v12 + 8);
     if ( v5 - v3[4] - 50 >= 0 )
     {
-      result = timestamp_update((int)v4, v5);
+      result = unknown_worker((int)v4, v5);
       if ( *(uint32_t *)(v12 + 8) - v3[4] >= 0 )
       {
         if ( *v1 )
@@ -76,7 +76,7 @@ int sub_12C7F8()
         return result;
       }
     }
-    v7 = rf_bus_mark_n100_d2d0(message_dispatch_e0);
+    v7 = mem_word_load(message_dispatch_e0);
     v8 = v7;
     v9 = *v1 - 1;
     if ( *v1 )
@@ -89,8 +89,8 @@ int sub_12C7F8()
           __enable_irq();
       }
     }
-    sub_12CA10(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255);
-    sub_12CBC8(v8);
+    ke_msg_send_no_param(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255);
+    tx_pkt_enqueue(v8);
   }
   if ( v13 )
   {

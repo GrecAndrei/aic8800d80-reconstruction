@@ -12,8 +12,8 @@
 
 extern uint32_t off_1138F8;
 
-// sub_1138E8 @ 0x1138e8, size 16 bytes
-BOOL sub_1138E8()
+// is_rf_calib_running @ 0x1138e8, size 16 bytes
+BOOL is_rf_calib_running()
 {
   return *((uint8_t *)off_1138F8 + 8) == 1;
 }

@@ -18,8 +18,8 @@ extern uint32_t dword_116AA4;
 extern uint32_t off_116AB0;
 extern uint32_t off_116AA0;
 
-// sub_1169A0 @ 0x1169a0, size 248 bytes
-int  sub_1169A0(int result, int a2, int a3)
+// radio_channel_validate @ 0x1169a0, size 248 bytes
+int  radio_channel_validate(int result, int a2, int a3)
 {
   int v4; // r6
   int *v6; // r5
@@ -38,7 +38,7 @@ int  sub_1169A0(int result, int a2, int a3)
   v7 = *v6;
   v8 = **(int16_t **)off_116A9C;
   if ( v8 < 0 && v7 == result )
-    return fmac_phy_op_handler(dword_116AA8, dword_116AA4, 1972, v8);
+    return bad_func_0x12f408(dword_116AA8, dword_116AA4, 1972, v8);
   if ( v7 )
   {
     v9 = off_116AB0;
@@ -52,7 +52,7 @@ int  sub_1169A0(int result, int a2, int a3)
       && ((v11 = *((uint32_t *)off_116AA0 + 52), result = v11 << 31, (v11 & 1) == 0)
        || *((uint8_t *)off_116AA0 + 190) != a3) )
     {
-      result = sub_1162BC(a3);
+      result = dispatch_config_command(a3);
       v10 = *(uint8_t *)(*(uint32_t *)v9 + 1);
     }
   }
@@ -66,7 +66,7 @@ int  sub_1169A0(int result, int a2, int a3)
   }
   else
   {
-    result = mmio_reg_poll_n6b4(v4, a3, v7, v8);
+    result = radio_band_validate(v4, a3, v7, v8);
     v10 = *(uint8_t *)(*(uint32_t *)off_116AB0 + 1);
   }
   if ( !v10 )

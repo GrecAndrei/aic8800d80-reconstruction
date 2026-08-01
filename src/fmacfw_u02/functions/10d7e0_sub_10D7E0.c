@@ -13,8 +13,8 @@
 extern uint32_t off_10D7F0;
 extern uint32_t off_10D7F4;
 
-// sub_10D7E0 @ 0x10d7e0, size 16 bytes
-int sub_10D7E0()
+// gpio_read @ 0x10d7e0, size 16 bytes
+int gpio_read()
 {
   while ( (*(uint32_t *)off_10D7F0 & 1) == 0 )
     ;

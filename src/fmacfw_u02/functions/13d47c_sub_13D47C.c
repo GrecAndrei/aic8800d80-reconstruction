@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D47C @ 0x13d47c, size 206 bytes
-int  sub_13D47C(int a1)
+// bt_clr_flag @ 0x13d47c, size 206 bytes
+int  bt_clr_flag(int a1)
 {
   char v1; // r5
   unsigned int v2; // r3

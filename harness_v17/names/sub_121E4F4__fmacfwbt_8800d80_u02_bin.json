@@ -1,1 +1,1 @@
-{"fn": "sub_121E4F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e4f4", "status": "ok", "name": "rx_desc_status_get", "params": [], "docstring": "Reads descriptor status/control fields at offset 0x98/0x9c", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121E4F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e4f4", "status": "ok", "name": "rf_tx_timestamp_check", "params": [], "docstring": "Reads descriptor status/control fields at offset 0x98/0x9c", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

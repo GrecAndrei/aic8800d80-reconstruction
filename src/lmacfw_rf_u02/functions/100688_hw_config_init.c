@@ -14,8 +14,8 @@ extern uint32_t off_1006B8;
 extern uint32_t off_1006BC;
 extern uint32_t off_1006B4;
 
-// hw_config_init @ 0x100688, size 42 bytes
-uint32_t *hw_config_init()
+// get_device_config @ 0x100688, size 42 bytes
+uint32_t *get_device_config()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

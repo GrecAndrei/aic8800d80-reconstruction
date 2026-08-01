@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_fault_dump_n1d9 @ 0x114920, size 120 bytes
+// copy_global_1672ec @ 0x114920, size 120 bytes
 // Doc: rf_fault_decode_nibble [rf]: Extracts high/low nibbles from shifted RF fault register word
 // rf_fault_decode_nibble [rf]: Extracts high/low nibbles from shifted RF fault register word
-int  rf_fault_dump_n1d9(int a1, int a2)
+int  copy_global_1672ec(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2

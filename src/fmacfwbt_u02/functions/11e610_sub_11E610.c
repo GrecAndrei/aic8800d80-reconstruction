@@ -14,8 +14,8 @@ extern uint32_t off_11E6A8;
 extern uint32_t dword_11E6AC;
 extern uint32_t dword_11E6A4;
 
-// sub_11E610 @ 0x11e610, size 148 bytes
-int  sub_11E610(int result, int a2, int a3, int a4)
+// ke_message_send @ 0x11e610, size 148 bytes
+int  ke_message_send(int result, int a2, int a3, int a4)
 {
   int v4; // r7
   int16_t **v5; // r10
@@ -73,7 +73,7 @@ int  sub_11E610(int result, int a2, int a3, int a4)
       v9 = (uint16_t)(v9 + result);
       if ( **v5 < 0 && !v4 )
       {
-        sub_12F694(v6, v7, 1189);
+        mmio_irq_clear(v6, v7, 1189);
         v7 = dword_11E6A4;
       }
       result = v12;

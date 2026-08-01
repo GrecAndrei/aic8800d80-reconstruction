@@ -18,8 +18,8 @@ extern uint32_t off_1138BC;
 extern uint32_t off_1138C0;
 extern uint32_t off_1138C4;
 
-// sub_113854 @ 0x113854, size 94 bytes
-int  sub_113854(int a1)
+// bt_module_init @ 0x113854, size 94 bytes
+int  bt_module_init(int a1)
 {
   int *v1; // r3
   int v2; // r2

@@ -1,0 +1,1 @@
+{"fn": "sub_101A20", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x101a20", "status": "ok", "name": "os_get_tick_hz", "params": [], "docstring": "Return system tick rate 1000 Hz", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

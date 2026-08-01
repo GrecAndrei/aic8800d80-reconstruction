@@ -14,8 +14,8 @@ extern uint32_t off_1140D8;
 extern uint32_t off_1140DC;
 extern uint32_t dword_1140E0;
 
-// sub_114090 @ 0x114090, size 72 bytes
-int sub_114090()
+// init_hw_timers @ 0x114090, size 72 bytes
+int init_hw_timers()
 {
   uint32_t *v0; // r5
   void *v1; // r7
@@ -25,16 +25,16 @@ int sub_114090()
 
   v0 = off_1140D8;
   v1 = off_1140DC;
-  sub_12D468(*(uint32_t *)off_1140D8 + 564);
-  result = sub_12D468(*v0 + 572);
+  zero_struct(*(uint32_t *)off_1140D8 + 564);
+  result = zero_struct(*v0 + 572);
   if ( *(uint16_t *)(*(uint32_t *)v1 + 8) )
   {
     v3 = dword_1140E0;
     v4 = 0;
     do
     {
-      sub_10F980(v3, 0x6B8u);
-      result = sub_12D470(*v0 + 564);
+      rx_process_item(v3, 0x6B8u);
+      result = check_abort_flag(*v0 + 564);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );

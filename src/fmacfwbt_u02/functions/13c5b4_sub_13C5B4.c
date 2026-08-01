@@ -13,8 +13,8 @@
 extern uint32_t dword_13C72C;
 extern uint32_t dword_13C730;
 
-// sub_13C5B4 @ 0x13c5b4, size 374 bytes
-unsigned int  sub_13C5B4(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// tx_prepare_ll_packet @ 0x13c5b4, size 374 bytes
+unsigned int  tx_prepare_ll_packet(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   int v4; // r6
   int v5; // r11
@@ -74,7 +74,7 @@ LABEL_9:
     {
       if ( v4 + 19 >= v10 )
         goto LABEL_9;
-      v15 = sub_12DDC8((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
+      v15 = memmove_1((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
       if ( !v15 )
         goto LABEL_9;
       v16 = *((uint16_t *)v15 + 1);
@@ -96,7 +96,7 @@ LABEL_9:
       do
         *v20++ = 0;
       while ( v20 != v19 );
-      v24 = sub_13CC88(1320 * v12 + 480 + 120 * v16 + dword_13C72C, a2, v13 - 18, v4, 0);
+      v24 = ke_process_event(1320 * v12 + 480 + 120 * v16 + dword_13C72C, a2, v13 - 18, v4, 0);
       v26 = v23 == v25;
       if ( v23 == v25 )
         v26 = v22 == v24;

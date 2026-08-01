@@ -15,8 +15,8 @@ extern uint32_t off_128E3C;
 extern uint32_t off_128E44;
 extern uint32_t off_128E48;
 
-// sub_128E18 @ 0x128e18, size 34 bytes
-int  sub_128E18(int a1, int16_t a2)
+// mfp_key_update @ 0x128e18, size 34 bytes
+int  mfp_key_update(int a1, int16_t a2)
 {
   uint8_t *v2; // r2
   uint8_t *v3; // r3

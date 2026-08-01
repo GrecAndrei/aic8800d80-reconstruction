@@ -18,10 +18,10 @@ extern uint32_t off_11E064;
 extern uint32_t off_11E068;
 extern uint32_t dword_11E070;
 
-// sub_11DF94 @ 0x11df94, size 200 bytes
+// align_size_plus4 @ 0x11df94, size 200 bytes
 // Doc: sub_121DF94 [util]: Allocates and aligns buffer from heap pool
 // sub_121DF94 [util]: Allocates and aligns buffer from heap pool
-int  sub_11DF94(int a1)
+int  align_size_plus4(int a1)
 {
   int16_t **v1; // r7
   unsigned int v2; // r4
@@ -40,7 +40,7 @@ int  sub_11DF94(int a1)
   v2 = (a1 + 3) & 0xFFFFFFFC;
   v3 = v2 + 4;
   if ( **(int16_t **)off_11E05C < 0 && v3 <= 7 )
-    rf_cmd_send_n264(dword_11E074, dword_11E06C, 132);
+    flash_ctrl_init(dword_11E074, dword_11E06C, 132);
   v4 = *((uint32_t **)off_11E060 + 7);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -86,7 +86,7 @@ LABEL_12:
   if ( **v1 >= 0 )
     __und(0xFFu);
 LABEL_20:
-  rf_cmd_send_n264(dword_11E070, dword_11E06C, 160);
+  flash_ctrl_init(dword_11E070, dword_11E06C, 160);
   v9 = 0;
   v6 = *v5;
   v7 = 0;

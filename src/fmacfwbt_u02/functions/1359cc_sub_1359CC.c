@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1359CC @ 0x1359cc, size 148 bytes
+// rf_copy_cal_params @ 0x1359cc, size 148 bytes
 // positive sp value has been detected, the output may be wrong!
-void  sub_1359CC(
+void  rf_copy_cal_params(
         int a1,
         int16_t a2,
         int *a3,
@@ -61,8 +61,8 @@ void  sub_1359CC(
   v21 = a4 + 108;
   *(uint8_t *)(v13 + 51) = v15;
   *(uint8_t *)(v13 + 53) = v15;
-  sub_13C734(v13, 208, 8);
-  sub_13B13C(v13, v21, 24);
+  bt_get_conn_ctx(v13, 208, 8);
+  mac_rx_process_ack(v13, v21, 24);
   v22 = *(uint8_t *)(v13 + 51) + 24;
   v23 = v22 + v21;
   *(uint8_t *)(v22 + v21) = 8;
@@ -73,7 +73,7 @@ void  sub_1359CC(
   LODWORD(v25) = *(uint32_t *)(v24 + 28) - 1 + HIDWORD(v25);
   HIDWORD(v25) += 4;
   *(uint64_t *)(v24 + 32) = v25;
-  sub_1190B4(v13, 5);
+  ble_event_dispatch(v13, 5);
   
 }
 

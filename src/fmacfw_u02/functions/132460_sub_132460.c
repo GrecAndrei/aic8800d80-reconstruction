@@ -14,8 +14,8 @@ extern uint32_t off_132598;
 extern uint32_t off_132590;
 extern uint32_t dword_132594;
 
-// sub_132460 @ 0x132460, size 76 bytes
-BOOL  sub_132460(int a1, int a2)
+// rf_check_status @ 0x132460, size 76 bytes
+BOOL  rf_check_status(int a1, int a2)
 {
   uint8_t *v2; // r8
   unsigned int v3; // r6
@@ -37,7 +37,7 @@ BOOL  sub_132460(int a1, int a2)
   v4 = *((uint8_t *)off_132598 + 372);
   if ( (*(uint8_t *)off_132590 & 8) == 0 )
   {
-    msg_parse(dword_132594);
+    event_dispatch(dword_132594);
     v3 = v3 != 0;
   }
   v7 = *(uint32_t *)(a1 + 4);

@@ -12,8 +12,8 @@
 
 extern uint32_t off_12B8B8;
 
-// sub_12B8A8 @ 0x12b8a8, size 16 bytes
-void sub_12B8A8()
+// mmio_write_one @ 0x12b8a8, size 16 bytes
+void mmio_write_one()
 {
   uint32_t *v0; // r2
 

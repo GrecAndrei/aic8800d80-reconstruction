@@ -12,15 +12,15 @@
 
 extern uint32_t off_117370;
 
-// sub_11733C @ 0x11733c, size 52 bytes
-BOOL  sub_11733C(int a1)
+// init_once @ 0x11733c, size 52 bytes
+BOOL  init_once(int a1)
 {
   if ( *((uint8_t *)off_117370 + 510) )
     return 0;
-  if ( !sub_128744() )
+  if ( !bt_link_type() )
     return 0;
   if ( *(uint8_t *)(a1 + 1224) )
-    return sub_12A350(*(uint8_t *)(a1 + 1225)) != 0;
+    return rf_channel_offset_get(*(uint8_t *)(a1 + 1225)) != 0;
   return 1;
 }
 

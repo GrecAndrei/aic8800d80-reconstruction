@@ -16,13 +16,13 @@ extern uint32_t dword_10ED88;
 extern uint32_t dword_10ED90;
 extern uint32_t dword_10ED94;
 
-// sub_10ED40 @ 0x10ed40, size 66 bytes
-int  sub_10ED40(int a1, int a2, int a3)
+// rf_set_frequency @ 0x10ed40, size 66 bytes
+int  rf_set_frequency(int a1, int a2, int a3)
 {
-  sub_12E948(dword_10ED84, a1, a3);
-  sub_10ECEC(dword_10ED8C, 196608, dword_10ED88, 1);
-  sub_10ECEC(1879048192, 1, 1, 1);
-  sub_10EC98(dword_10ED90, a1, 1);
-  return sub_10ECEC(dword_10ED94, 2, 2, 1);
+  alloc_tx_event(dword_10ED84, a1, a3);
+  mmio_rmw32(dword_10ED8C, 196608, dword_10ED88, 1);
+  mmio_rmw32(1879048192, 1, 1, 1);
+  mmio_read32_variant(dword_10ED90, a1, 1);
+  return mmio_rmw32(dword_10ED94, 2, 2, 1);
 }
 

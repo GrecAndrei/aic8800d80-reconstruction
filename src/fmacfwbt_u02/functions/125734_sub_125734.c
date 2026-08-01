@@ -18,10 +18,10 @@ extern uint32_t dword_125800;
 extern uint32_t off_1257FC;
 extern uint32_t dword_125804;
 
-// sub_125734 @ 0x125734, size 186 bytes
+// tx_desc_prepare @ 0x125734, size 186 bytes
 // Doc: sub_1225734 [unknown]: Parse indexed structure entries from base pointer
 // sub_1225734 [unknown]: Parse indexed structure entries from base pointer
-int  sub_125734(int a1, int a2)
+int  tx_desc_prepare(int a1, int a2)
 {
   uint32_t *v3; // r5
   int v4; // r1
@@ -51,7 +51,7 @@ int  sub_125734(int a1, int a2)
   v9 = dword_1257F0;
   v10 = v4 - v5;
   *(uint16_t *)(a1 + 216) = v4 - v5;
-  sub_1331D4();
+  rf_calibrate_init();
   v12 = *(uint16_t *)(a2 + 6);
   v13 = dword_1257F4;
   v14 = v3[7] + v12 - 1;

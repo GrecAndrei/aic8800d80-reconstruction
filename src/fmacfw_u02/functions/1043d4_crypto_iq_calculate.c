@@ -14,10 +14,10 @@ extern uint32_t dword_100000;
 extern uint32_t dword_1044D8;
 extern uint32_t dword_1044DC;
 
-// crypto_iq_calculate @ 0x1043d4, size 258 bytes
-// Doc: crypto_iq_calculate [ke]: Crypto IQ (I/Q) sample/coefficient calculation
-// crypto_iq_calculate [ke]: Crypto IQ (I/Q) sample/coefficient calculation
-int crypto_iq_calculate()
+// select_fuse_bank @ 0x1043d4, size 258 bytes
+// Doc: select_fuse_bank [ke]: Crypto IQ (I/Q) sample/coefficient calculation
+// select_fuse_bank [ke]: Crypto IQ (I/Q) sample/coefficient calculation
+int select_fuse_bank()
 {
   BOOL v0; // r1
   int v1; // r2
@@ -67,8 +67,8 @@ int crypto_iq_calculate()
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    feature_guard_check(1, dword_1044D8);
-  feature_guard_check(1, dword_1044DC);
+    check_status_bits(1, dword_1044D8);
+  check_status_bits(1, dword_1044DC);
   do
   {
     v12 = *v2;

@@ -1,0 +1,1 @@
+{"fn": "sub_132772", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132772", "status": "ok", "name": "get_hw_rev", "params": [], "docstring": "Return hardware revision 9", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

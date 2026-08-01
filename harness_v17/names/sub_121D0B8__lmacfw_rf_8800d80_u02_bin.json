@@ -1,1 +1,1 @@
-{"fn": "sub_121D0B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121d0b8", "status": "ok", "name": "mmio_init_40328050", "params": [], "docstring": "Initialize MMIO register block at 0x40328050 with value 1", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121D0B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121d0b8", "status": "ok", "name": "rf_cmd_strobe", "params": [], "docstring": "Initialize MMIO register block at 0x40328050 with value 1", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

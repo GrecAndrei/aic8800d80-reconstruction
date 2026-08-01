@@ -12,8 +12,8 @@
 
 extern uint32_t off_1157D4;
 
-// sub_1157B4 @ 0x1157b4, size 32 bytes
-int sub_1157B4()
+// system_init @ 0x1157b4, size 32 bytes
+int system_init()
 {
   int v0; // r0
   int v1; // r0
@@ -21,10 +21,10 @@ int sub_1157B4()
   int v3; // r0
 
   *((uint8_t *)off_1157D4 + 1) = 0;
-  v0 = sub_12F4E8();
-  v1 = sub_1321C8(v0);
-  v2 = sub_120720(v1);
-  v3 = sub_12D210(v2);
-  return sub_12F508(v3);
+  v0 = reset_global_0x18274c();
+  v1 = ke_task_reset(v0);
+  v2 = get_bt_state(v1);
+  v3 = assert_fail_record(v2);
+  return init_global_0x1922d4(v3);
 }
 

@@ -13,10 +13,10 @@
 extern uint32_t off_11354C;
 extern uint32_t dword_113550;
 
-// rf_cmd_queue_next_4b4 @ 0x1134b4, size 148 bytes
+// check_init_flag @ 0x1134b4, size 148 bytes
 // Doc: sub_12145A0 [unknown]: unknown behavioral stub function
 // sub_12145A0 [unknown]: unknown behavioral stub function
-int  rf_cmd_queue_next_4b4(int a1, int a2)
+int  check_init_flag(int a1, int a2)
 {
   uint8_t *v2; // r6
   int **v3; // r4
@@ -36,7 +36,7 @@ int  rf_cmd_queue_next_4b4(int a1, int a2)
   if ( *(uint8_t *)rf_msg_handler_n444 )
     return -99;
   v3 = (int **)off_11354C;
-  v4 = list_count(off_11354C, a2);
+  v4 = read_u32(off_11354C, a2);
   v5 = rf_msg_handler_n450;
   *(uint8_t *)rf_msg_handler_n450 = v4;
   if ( v4 )
@@ -77,7 +77,7 @@ LABEL_11:
       v14 = *(uint8_t *)(v13 + 3);
       *v2 = 1;
       *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return sub_113010(1, v12);
+      return rx_counter_inc(1, v12);
     }
   }
   return -98;

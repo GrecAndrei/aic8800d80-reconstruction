@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142B44 @ 0x142b44, size 120 bytes
-int  sub_142B44(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8)
+// double_compare_nan @ 0x142b44, size 120 bytes
+int  double_compare_nan(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8)
 {
   int v8; // cf
   int v9; // r4

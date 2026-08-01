@@ -14,8 +14,8 @@ extern uint32_t off_1078C8;
 extern uint32_t off_1078CC;
 extern uint32_t off_1078D0;
 
-// sub_107860 @ 0x107860, size 104 bytes
-int sub_107860()
+// rf_clear_irq_flag_alt @ 0x107860, size 104 bytes
+int rf_clear_irq_flag_alt()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
@@ -24,13 +24,13 @@ int sub_107860()
   int v4; // r3
 
   v0 = off_1078C8;
-  crypto_hw_clear_regs();
+  clk_set_divider();
   *v0 &= ~1u;
-  delay_us(1);
+  write_timer_reg(1);
   v1 = off_1078CC;
   *(uint32_t *)off_1078CC = *(uint32_t *)off_1078CC & 0xCFFFFFFF | 0x10000000;
   *v1 |= 0x40000000u;
-  result = delay_us(1);
+  result = write_timer_reg(1);
   v3 = off_1078D0;
   *v0 |= 1u;
   *v0 |= 1u;

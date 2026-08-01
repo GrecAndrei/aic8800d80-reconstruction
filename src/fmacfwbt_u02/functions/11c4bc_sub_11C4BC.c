@@ -29,8 +29,8 @@ extern uint32_t dword_11C730;
 extern uint32_t dword_11C714;
 extern uint32_t off_11C728;
 
-// sub_11C4BC @ 0x11c4bc, size 560 bytes
-int  sub_11C4BC(int result)
+// rxreorder_process @ 0x11c4bc, size 560 bytes
+int  rxreorder_process(int result)
 {
   uint32_t *v1; // r2
   int16_t *v2; // r1
@@ -83,7 +83,7 @@ int  sub_11C4BC(int result)
       v29 = dword_11C718;
       v30 = dword_11C720;
       v31 = 2509;
-      return sub_12F630(v30, v29, v31, v3);
+      return ke_int_lock(v30, v29, v31, v3);
     }
   }
   if ( (v3 & 0x2000000) == 0 )
@@ -95,7 +95,7 @@ int  sub_11C4BC(int result)
     v29 = dword_11C718;
     v30 = dword_11C71C;
     v31 = 2522;
-    return sub_12F630(v30, v29, v31, v3);
+    return ke_int_lock(v30, v29, v31, v3);
   }
   v7 = dword_11C6F4;
   v8 = (uint8_t)(v3 - 16);

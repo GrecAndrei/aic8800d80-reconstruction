@@ -20,8 +20,8 @@ extern uint32_t off_13914C;
 extern uint32_t dword_139150;
 extern uint32_t dword_139158;
 
-// sub_138EA4 @ 0x138ea4, size 672 bytes
-int  sub_138EA4(unsigned int a1, int a2, int a3)
+// bt_send_packet @ 0x138ea4, size 672 bytes
+int  bt_send_packet(unsigned int a1, int a2, int a3)
 {
   uint16_t *v3; // r6
   char v5; // r5
@@ -64,14 +64,14 @@ LABEL_14:
 LABEL_15:
     if ( v9 )
       return 0;
-    v10 = sub_12D190(dword_139148);
+    v10 = list_pop(dword_139148);
     if ( !v10 )
     {
-      v27 = sub_12D190(dword_139154);
+      v27 = list_pop(dword_139154);
       v10 = v27;
       if ( **(int16_t **)off_13915C < 0 && !v27 )
-        sub_12F32C(dword_139164, dword_139160, 1111);
-      sub_138890(0, 4, v10[5]);
+        irq_disable_mmio_write(dword_139164, dword_139160, 1111);
+      rf_lookup_tx_power(0, 4, v10[5]);
     }
     v13 = v3[2];
     *((uint8_t *)v10 + 6) = v5;
@@ -87,18 +87,18 @@ LABEL_15:
     *((uint16_t *)v10 + 5) = v13;
     v10[14] = v17;
     v10[15] = v10;
-    sub_124BFC((int)(v10 + 13), v16 + 100000);
+    mem_copy_util((int)(v10 + 13), v16 + 100000);
     if ( (v3[24] & 1) != 0 )
-      sub_138C64(a1, (int)(v10 + 7), 1, 0);
+      rf_handle_command(a1, (int)(v10 + 7), 1, 0);
     *(uint32_t *)(a1 + 96) &= ~0x20u;
-    sub_138B74(a1, 1);
+    rf_get_channel_freq(a1, 1);
     HIDWORD(v18) = *((uint32_t *)v3 + 16);
     LODWORD(v18) = *((uint32_t *)v3 + 7);
     v19 = dword_139154;
     *((uint64_t *)v10 + 2) = v18;
     *((uint8_t *)v10 + 5) = *((uint8_t *)v3 + 49);
     *((uint16_t *)v10 + 6) = *(uint16_t *)(a1 + 48);
-    sub_12D108(v19, v10);
+    wlan_ioctl_handler_1(v19, v10);
     goto LABEL_20;
   }
   v8 = *(uint16_t *)off_139144 & 0x400;
@@ -130,20 +130,20 @@ LABEL_7:
     *((uint16_t *)v10 + 6) = v22;
     if ( (v3[24] & 1) != 0 )
     {
-      if ( sub_138C64(a1, (int)(v10 + 7), 0, v8 == 0) )
+      if ( rf_handle_command(a1, (int)(v10 + 7), 0, v8 == 0) )
       {
         v26 = *(uint32_t *)(a1 + 96);
         if ( !v8 )
         {
           *((uint16_t *)v10 + 6) -= 8;
           *(uint32_t *)(a1 + 96) = v26 & 0xFFFFFF9F | 0x40;
-          sub_11E188(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+          tx_packet_start(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
           v10[4] += v21;
           v23 = 1;
           goto LABEL_30;
         }
         *(uint32_t *)(a1 + 96) = v26 & 0xFFFFFF9F | 0x40;
-        sub_11E188(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+        tx_packet_start(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
         v10[4] += v21;
 LABEL_20:
         v10[6] = *((uint32_t *)off_13914C + 4);
@@ -156,7 +156,7 @@ LABEL_20:
       v23 = 1;
     }
     *(uint32_t *)(a1 + 96) = *(uint32_t *)(a1 + 96) & 0xFFFFFF9F | 0x40;
-    sub_11E188(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
+    tx_packet_start(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
     v10[4] += v21;
     if ( !v8 )
     {
@@ -165,30 +165,30 @@ LABEL_30:
         v24 = 24;
       else
         v24 = 8;
-      v25 = sub_138890(0, v24, v10[5]);
+      v25 = rf_lookup_tx_power(0, v24, v10[5]);
       if ( v25 )
         v25[18] = *((uint16_t *)v10 + 6);
-      sub_138890(0, v23, v10[5]);
-      sub_124CF4((int)(v10 + 13));
-      sub_12D1A8(dword_139154, v10);
-      sub_12D108(dword_139148, v10);
+      rf_lookup_tx_power(0, v23, v10[5]);
+      mem_set_util((int)(v10 + 13));
+      wlan_ioctl_handler_3(dword_139154, v10);
+      wlan_ioctl_handler_1(dword_139148, v10);
       goto LABEL_20;
     }
     goto LABEL_20;
   }
   if ( (*((uint8_t *)off_139144 + 48) & 1) != 0 )
   {
-    if ( !sub_138C64(a1, (int)v28, 1, 1) )
+    if ( !rf_handle_command(a1, (int)v28, 1, 1) )
       return v9;
     *(uint16_t *)(a1 + 48) -= 8;
   }
   v20 = dword_139158 + 1320 * *((uint8_t *)v3 + 10);
   if ( *(uint8_t *)(v20 + 1227)
-    && sub_138968((uint8_t *)(v20 + 107), (uint32_t *)(v20 + 1228), *(char **)(*(uint32_t *)(a1 + 28) + 8), a3) == 1 )
+    && parse_param_direction((uint8_t *)(v20 + 107), (uint32_t *)(v20 + 1228), *(char **)(*(uint32_t *)(a1 + 28) + 8), a3) == 1 )
   {
     return v9;
   }
-  sub_138B74(a1, 3);
+  rf_get_channel_freq(a1, 3);
   return 1;
 }
 

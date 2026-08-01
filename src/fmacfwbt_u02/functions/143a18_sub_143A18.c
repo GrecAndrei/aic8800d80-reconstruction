@@ -14,8 +14,8 @@ extern uint32_t off_143A48;
 extern uint32_t dword_143A4C;
 extern uint32_t dword_143A50;
 
-// sub_143A18 @ 0x143a18, size 46 bytes
-int sub_143A18()
+// random @ 0x143a18, size 46 bytes
+int random()
 {
   unsigned uint64_t v0; // kr00_8
 

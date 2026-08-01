@@ -18,8 +18,8 @@ extern uint32_t off_11B7B4;
 extern uint32_t off_11B7B8;
 extern uint32_t dword_11B7BC;
 
-// sub_11B578 @ 0x11b578, size 562 bytes
-int  sub_11B578(int a1)
+// process_control_event @ 0x11b578, size 562 bytes
+int  process_control_event(int a1)
 {
   uint32_t *v1; // r8
   char *v2; // r6
@@ -77,7 +77,7 @@ int  sub_11B578(int a1)
   *((uint32_t *)v2 + 275) = 0;
   *((uint32_t *)v2 + 276) = 0;
   *((uint32_t *)v2 + 6) = 0;
-  v11 = sub_119D2C((int)(v2 + 92), v8);
+  v11 = tx_check_size((int)(v2 + 92), v8);
   v12 = *((uint32_t *)v2 + 6);
   v13 = v2;
   v14 = (uint16_t)(((*((uint16_t *)v2 + 58) + 3) & 0xFFFC) + 4 + 4 * v11);

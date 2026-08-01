@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1314C0;
 
-// sub_131408 @ 0x131408, size 182 bytes
-int  sub_131408(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// parse_adv_report @ 0x131408, size 182 bytes
+int  parse_adv_report(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v5; // r5
   int v6; // r8
@@ -48,15 +48,15 @@ int  sub_131408(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   if ( v11 == 15 )
   {
 LABEL_9:
-    v14 = sub_12C7EC(65, 0, 5, 4u);
+    v14 = tx_send_pdu(65, 0, 5, 4u);
     v15 = v6 + 696 * v5;
     v16 = *(uint8_t *)(v15 + 34);
     *(uint16_t *)v14 = *(uint16_t *)(v15 + 32);
     *(uint8_t *)(v14 + 3) = v16;
     *(uint8_t *)(v14 + 2) = a2[1];
-    sub_12C84C(v14);
+    rx_process_packet(v14);
   }
-  sub_12C8D0(5133, a4, a3);
+  mac_write_header_word(5133, a4, a3);
   return 0;
 }
 

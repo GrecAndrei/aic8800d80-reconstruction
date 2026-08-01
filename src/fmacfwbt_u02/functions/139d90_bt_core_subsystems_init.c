@@ -21,10 +21,10 @@ extern uint32_t dword_139E28;
 extern uint32_t dword_139E2C;
 extern uint32_t off_139E24;
 
-// bt_core_subsystems_init @ 0x139d90, size 118 bytes
-// Doc: bt_core_subsystems_init [bt]: Initialize BT core subsystem tables/structures
-// bt_core_subsystems_init [bt]: Initialize BT core subsystem tables/structures
-int bt_core_subsystems_init()
+// init_driver_locks @ 0x139d90, size 118 bytes
+// Doc: init_driver_locks [bt]: Initialize BT core subsystem tables/structures
+// init_driver_locks [bt]: Initialize BT core subsystem tables/structures
+int init_driver_locks()
 {
   uint32_t *v0; // r6
   int v1; // r4
@@ -35,22 +35,22 @@ int bt_core_subsystems_init()
   int v6; // r1
 
   v0 = (uint32_t *)(dword_139E08 + 16);
-  bt_xtal_init_check((uint32_t *)dword_139E08);
+  zero_struct((uint32_t *)dword_139E08);
   v1 = dword_139E0C;
-  bt_xtal_init_check(v0);
+  zero_struct(v0);
   v2 = v1 + 4672;
   do
   {
     v3 = (uint32_t *)v1;
     v1 += 292;
-    list_push_tail((int)v0, v3);
+    check_abort_flag((int)v0, v3);
   }
   while ( v1 != v2 );
-  bt_xtal_init_check((uint32_t *)dword_139E10);
-  bt_xtal_init_check((uint32_t *)dword_139E14);
-  list_push_tail(dword_139E10, (uint32_t *)dword_139E18);
-  list_push_tail(dword_139E10, (uint32_t *)dword_139E1C);
-  list_push_tail(dword_139E10, (uint32_t *)dword_139E20);
+  zero_struct((uint32_t *)dword_139E10);
+  zero_struct((uint32_t *)dword_139E14);
+  check_abort_flag(dword_139E10, (uint32_t *)dword_139E18);
+  check_abort_flag(dword_139E10, (uint32_t *)dword_139E1C);
+  check_abort_flag(dword_139E10, (uint32_t *)dword_139E20);
   v4 = dword_139E28;
   result = dword_139E2C;
   *((uint16_t *)off_139E24 + 51) = -1;

@@ -14,8 +14,8 @@ extern uint32_t off_110218;
 extern uint32_t dword_11021C;
 extern uint32_t dword_110220;
 
-// sub_1101E4 @ 0x1101e4, size 52 bytes
-int sub_1101E4()
+// get_link_rate @ 0x1101e4, size 52 bytes
+int get_link_rate()
 {
   void *v0; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int sub_1101E4()
   int v4; // r4
 
   v0 = off_110218;
-  result = sub_12D240(dword_11021C);
+  result = zero_8_bytes(dword_11021C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_110220;
@@ -32,8 +32,8 @@ int sub_1101E4()
     v4 = 0;
     do
     {
-      sub_10FB28(v2, 0xCu);
-      result = sub_12D248(v3);
+      rx_packet_handler(v2, 0xCu);
+      result = cmd_handler_a(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );

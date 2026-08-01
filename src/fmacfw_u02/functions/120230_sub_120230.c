@@ -12,9 +12,9 @@
 
 extern uint32_t off_120240;
 
-// sub_120230 @ 0x120230, size 16 bytes
-int  sub_120230(int a1)
+// configure_mmio @ 0x120230, size 16 bytes
+int  configure_mmio(int a1)
 {
-  return sub_124D3C(a1 + 48, *((uint32_t *)off_120240 + 4) + 10000);
+  return unknown_worker(a1 + 48, *((uint32_t *)off_120240 + 4) + 10000);
 }
 

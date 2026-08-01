@@ -13,8 +13,8 @@
 extern uint32_t dword_141A14;
 extern uint32_t dword_141B6C;
 
-// sub_141730 @ 0x141730, size 1082 bytes
-int * sub_141730(int a1, int a2, int a3, int a4, char a5, char a6, char a7)
+// ll_event_prepare @ 0x141730, size 1082 bytes
+int * ll_event_prepare(int a1, int a2, int a3, int a4, char a5, char a6, char a7)
 {
   int v7; // r7
   int v9; // r0
@@ -74,7 +74,7 @@ int * sub_141730(int a1, int a2, int a3, int a4, char a5, char a6, char a7)
   if ( v10 )
     v7 = 0;
   HIBYTE(v51) = *(uint8_t *)(a1 + 21);
-  result = (int *)sub_140B78(&v49, 0, v7);
+  result = (int *)ble_ll_adv_set_params(&v49, 0, v7);
   if ( !result )
     return result;
   v14 = dword_141A14;
@@ -148,7 +148,7 @@ LABEL_23:
   {
     v18 = v17;
 LABEL_24:
-    result = memset_thunk((int *)v18, 0, 0x210u);
+    result = memset((int *)v18, 0, 0x210u);
 LABEL_25:
     if ( *(uint16_t *)(v18 + 4) != 3 )
     {
@@ -289,8 +289,8 @@ LABEL_39:
           else
           {
             v45 = v21[2];
-            sub_143770(v18 + 28, v21, v21[1] + 2);
-            result = (int *)sub_140B78((uint16_t *)(v18 + 6), (int)v21, v7);
+            memcpy(v18 + 28, v21, v21[1] + 2);
+            result = (int *)ble_ll_adv_set_params((uint16_t *)(v18 + 6), (int)v21, v7);
             v29 = v45;
             if ( !result )
             {
@@ -299,7 +299,7 @@ LABEL_39:
             }
           }
 LABEL_41:
-          if ( (int)v30 <= v27 && (result = (int *)sub_1404B0(v28, v29, v7)) != 0 )
+          if ( (int)v30 <= v27 && (result = (int *)ble_ll_hci_vendor_cmd(v28, v29, v7)) != 0 )
           {
             v36 = v21;
             v37 = v26 - (uint32_t)v21;

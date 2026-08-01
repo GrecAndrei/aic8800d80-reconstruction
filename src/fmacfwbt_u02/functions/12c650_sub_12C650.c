@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12C668;
 
-// sub_12C650 @ 0x12c650, size 22 bytes
-int sub_12C650()
+// mmio_tail_write @ 0x12c650, size 22 bytes
+int mmio_tail_write()
 {
   *(uint32_t *)(dword_12C668 + 4680) &= ~1u;
-  return irq_nesting_or(1024);
+  return set_system_flag_1(1024);
 }
 

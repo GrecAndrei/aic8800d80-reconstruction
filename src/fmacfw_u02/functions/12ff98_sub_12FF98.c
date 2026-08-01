@@ -19,8 +19,8 @@ extern uint32_t dword_13000C;
 extern uint32_t dword_130010;
 extern uint32_t dword_130014;
 
-// sub_12FF98 @ 0x12ff98, size 94 bytes
-int sub_12FF98()
+// call_handler @ 0x12ff98, size 94 bytes
+int call_handler()
 {
   int *v0; // r4
   uint32_t *v1; // r0
@@ -28,7 +28,7 @@ int sub_12FF98()
   int v3; // r3
   int v4; // r2
 
-  sub_10D774();
+  nvic_configure();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -37,12 +37,12 @@ int sub_12FF98()
   v0 = (int *)off_12FFFC;
   v1 = (uint32_t *)dword_130000;
   ++*(uint32_t *)off_12FFFC;
-  sub_12D240(v1);
-  sub_12D240((uint32_t *)dword_130004);
-  sub_12D248(dword_130000, (uint32_t *)dword_130008);
-  sub_12D248(dword_130000, (uint32_t *)dword_13000C);
-  sub_12D248(dword_130000, (uint32_t *)dword_130010);
-  result = sub_12D248(dword_130000, (uint32_t *)dword_130014);
+  zero_8_bytes(v1);
+  zero_8_bytes((uint32_t *)dword_130004);
+  cmd_handler_a(dword_130000, (uint32_t *)dword_130008);
+  cmd_handler_a(dword_130000, (uint32_t *)dword_13000C);
+  cmd_handler_a(dword_130000, (uint32_t *)dword_130010);
+  result = cmd_handler_a(dword_130000, (uint32_t *)dword_130014);
   if ( *v0 )
   {
     v3 = *v0 - 1;

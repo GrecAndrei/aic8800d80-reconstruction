@@ -23,8 +23,8 @@ extern uint32_t off_13A3EC;
 extern uint32_t dword_13A3F0;
 extern uint32_t dword_13A240;
 
-// sub_139F5C @ 0x139f5c, size 1160 bytes
-int  sub_139F5C(unsigned int a1)
+// tx_check_allow @ 0x139f5c, size 1160 bytes
+int  tx_check_allow(unsigned int a1)
 {
   unsigned int v1; // r7
   int v3; // r3
@@ -79,7 +79,7 @@ int  sub_139F5C(unsigned int a1)
       v4 = off_13A23C;
 LABEL_4:
       v4[10] = v3;
-      sub_138D18(a1, 128);
+      rf_rssi_calibrate(a1, 128);
       v5 = 1;
       goto LABEL_5;
     }
@@ -167,7 +167,7 @@ LABEL_38:
         if ( *((uint16_t *)v4 + 51) == v24 )
         {
           v41 = off_13A3E4;
-          if ( !sub_143710(v7 + 10, off_13A3E4, 6) )
+          if ( !memcmp(v7 + 10, off_13A3E4, 6) )
             goto LABEL_34;
           v8 = *(uint16_t *)v4;
           LOWORD(v24) = *((uint16_t *)v7 + 11);
@@ -183,11 +183,11 @@ LABEL_38:
       v25[2] = *((uint16_t *)v26 + 2);
       *((uint16_t *)v4 + 51) = v24;
       *((uint32_t *)v4 + 24) = v27;
-      if ( (v8 & 0x4000) != 0 && ((v1 & 0x7C) != 4 || !sub_1387E8((int)v7, v1)) )
+      if ( (v8 & 0x4000) != 0 && ((v1 & 0x7C) != 4 || !tx_packet_ack((int)v7, v1)) )
 LABEL_56:
-        v5 = fmac_state_check_nbf4(v7);
+        v5 = rand_gen_u16(v7);
       else
-        v5 = sub_139AB0(a1, 255);
+        v5 = tx_send_packet(a1, 255);
       goto LABEL_57;
     }
   }
@@ -225,7 +225,7 @@ LABEL_22:
   }
   else
   {
-    v29 = mmio_block_write_3reg((int *)dword_13A24C);
+    v29 = fifo_write((int *)dword_13A24C);
     v21 = *(uint16_t *)v4;
     v15 = (uint8_t)((v1 >> 15) - 16);
     v18 = dword_13A244;
@@ -236,7 +236,7 @@ LABEL_22:
   if ( (v21 & 0x4000) != 0 )
   {
     v43 = v15;
-    v34 = sub_1387E8((int)v7, *((uint32_t *)v4 + 6));
+    v34 = tx_packet_ack((int)v7, *((uint32_t *)v4 + 6));
     v15 = v43;
     v18 = dword_13A3E8;
     if ( !v34 )
@@ -251,7 +251,7 @@ LABEL_22:
       if ( !*(uint8_t *)(v18 + 1320 * (uint8_t)v4[10] + 106) )
       {
         v45 = v15;
-        v39 = sub_139D94((char *)v7, v1, v15);
+        v39 = scan_parse_report((char *)v7, v1, v15);
         v15 = v45;
         if ( !v39 )
           goto LABEL_34;
@@ -272,7 +272,7 @@ LABEL_30:
     goto LABEL_30;
 LABEL_83:
   v44 = v15;
-  scan_ie_parse_ef8((char *)v7, v1, *(uint16_t *)(a1 + 48));
+  scan_parse_response((char *)v7, v1, *(uint16_t *)(a1 + 48));
   v15 = v44;
   if ( *(uint8_t *)(v14 + 696 * v44 + 669) > 1u || !v40 || (unsigned int)*(uint8_t *)(v40 + 96) - 1 > 1 )
     goto LABEL_84;
@@ -284,7 +284,7 @@ LABEL_31:
   if ( v23 == 4 )
   {
     if ( v11 == 132 )
-      tx_power_tbl_lookup(v15, (int)v7);
+      rf_get_chan_param(v15, (int)v7);
     goto LABEL_34;
   }
   if ( v23 != 8 )
@@ -309,7 +309,7 @@ LABEL_31:
       v33 = *((uint64_t *)v4 + 2);
       if ( *(uint64_t *)(v32 + 64) >= v33 )
       {
-        msg_parse(dword_13A3F0);
+        event_dispatch(dword_13A3F0);
         goto LABEL_34;
       }
       *(uint64_t *)(v32 + 64) = v33;
@@ -322,7 +322,7 @@ LABEL_34:
         goto LABEL_4;
       goto LABEL_35;
     }
-    v5 = sub_139AB0(a1, (uint8_t)v4[9]);
+    v5 = tx_send_packet(a1, (uint8_t)v4[9]);
     goto LABEL_57;
   }
 LABEL_84:
@@ -334,12 +334,12 @@ LABEL_84:
     if ( (v4[48] & 8) == 0 )
     {
       v42 = v15;
-      v38 = sub_121960(v15, (uint8_t)v4[7]);
+      v38 = phy_read_offset_b(v15, (uint8_t)v4[7]);
       v15 = v42;
       v35 = 1;
       if ( v38 )
       {
-        v5 = sub_139340(a1, v42);
+        v5 = ll_get_conn(a1, v42);
         goto LABEL_57;
       }
     }
@@ -354,13 +354,13 @@ LABEL_84:
   if ( (v8 & 0x800) != 0 && (uint16_t)*v37 == v36 )
     goto LABEL_34;
   *v37 = v36;
-  v5 = sub_138FE4(a1, v15, v35);
+  v5 = ll_rx_irq(a1, v15, v35);
 LABEL_57:
   v3 = *((uint8_t *)off_13A238 + 16);
   if ( v3 != 255 && !v5 )
     goto LABEL_4;
 LABEL_5:
-  sub_12F554((uint32_t **)dword_13A240);
+  load_and_process_r0((uint32_t **)dword_13A240);
   return v5;
 }
 

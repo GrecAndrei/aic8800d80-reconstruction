@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11EB70;
 
-// sub_11EB48 @ 0x11eb48, size 38 bytes
+// crc32_update_lsb @ 0x11eb48, size 38 bytes
 // Doc: sdio_buffer_prepare_n_66 [mmio]: Prepares SDIO DMA buffer for host transfer
 // sdio_buffer_prepare_n_66 [mmio]: Prepares SDIO DMA buffer for host transfer
-unsigned int  sub_11EB48(uint8_t *a1, int a2, unsigned int a3)
+unsigned int  crc32_update_lsb(uint8_t *a1, int a2, unsigned int a3)
 {
   uint8_t *v3; // r4
   int v4; // t1

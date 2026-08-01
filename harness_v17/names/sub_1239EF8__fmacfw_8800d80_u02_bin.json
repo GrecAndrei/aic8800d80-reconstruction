@@ -1,1 +1,1 @@
-{"fn": "sub_1239EF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1239ef8", "status": "ok", "name": "scan_ie_parse_ef8", "params": [], "docstring": "Parses scan info-element with signed byte and 0x78-masked option flags", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1239EF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1239ef8", "status": "ok", "name": "scan_parse_response", "params": [], "docstring": "Parses scan info-element with signed byte and 0x78-masked option flags", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_reg_write_wait", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120edd8", "status": "ok", "name": "rf_reg_write_wait", "params": [], "docstring": "Write RF register and poll/wait for completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_reg_write_wait", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120edd8", "status": "ok", "name": "mmio_write32", "params": [], "docstring": "Write RF register and poll/wait for completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

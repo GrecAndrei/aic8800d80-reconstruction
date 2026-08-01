@@ -1,1 +1,1 @@
-{"fn": "sub_1223390", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223390", "status": "ok", "name": "bt_hci_cmd_dispatch", "params": [], "docstring": "Dispatch BT HCI command with op 0x81/0x40", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223390", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223390", "status": "ok", "name": "rf_reg_write_81", "params": [], "docstring": "Dispatch BT HCI command with op 0x81/0x40", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

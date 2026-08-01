@@ -15,8 +15,8 @@ extern uint32_t off_129110;
 extern uint32_t off_129114;
 extern uint32_t off_129118;
 
-// sub_1290C4 @ 0x1290c4, size 72 bytes
-void sub_1290C4()
+// mm_beacon_irq @ 0x1290c4, size 72 bytes
+void mm_beacon_irq()
 {
   uint8_t *v0; // r5
   unsigned int *v1; // r1
@@ -43,7 +43,7 @@ void sub_1290C4()
           if ( *(uint8_t *)(v3 + 108) )
           {
             v5 = *(uint8_t *)(v3 + 116);
-            if ( v5 != 255 && !sub_119204(v5, (int)v4, v3) )
+            if ( v5 != 255 && !ble_conn_get(v5, (int)v4, v3) )
               ++v0[8];
           }
         }

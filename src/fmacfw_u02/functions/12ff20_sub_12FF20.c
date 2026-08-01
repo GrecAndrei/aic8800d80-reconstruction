@@ -13,8 +13,8 @@
 extern uint32_t off_12FF90;
 extern uint32_t dword_12FF94;
 
-// sub_12FF20 @ 0x12ff20, size 110 bytes
-int  sub_12FF20(int a1, int a2)
+// is_mode_one_v2 @ 0x12ff20, size 110 bytes
+int  is_mode_one_v2(int a1, int a2)
 {
   unsigned int v4; // r0
   int v5; // r7
@@ -24,12 +24,12 @@ int  sub_12FF20(int a1, int a2)
 
   if ( a1 == 1 )
   {
-    sub_1303A0();
+    rf_configure_channel();
     return 0;
   }
   else
   {
-    v4 = sub_12F958(*(uint8_t **)(a2 + 4), 0, 0);
+    v4 = parse_hex_or_dec(*(uint8_t **)(a2 + 4), 0, 0);
     v5 = v4;
     if ( v4 )
       v5 = 1;
@@ -37,7 +37,7 @@ int  sub_12FF20(int a1, int a2)
     if ( a1 > 2 )
     {
       v7 = off_12FF90;
-      v4 = sub_12F958(*(uint8_t **)(a2 + 8), 0, 0);
+      v4 = parse_hex_or_dec(*(uint8_t **)(a2 + 8), 0, 0);
       if ( v4 > 0x7D0 )
         v7[91] = v4;
     }
@@ -50,15 +50,15 @@ int  sub_12FF20(int a1, int a2)
       *((uint8_t *)v7 + 363) = v5;
       if ( v6 )
       {
-        inited = fmac_init_state_load(v4);
-        fmac_subhandler_n_05b4(inited);
+        inited = rf_get_channel_calibration(v4);
+        rf_enable(inited);
       }
       else
       {
-        fmac_post_init_n_42e();
+        rf_disable();
       }
     }
-    msg_parse(dword_12FF94, v5, v7[91]);
+    event_dispatch(dword_12FF94, v5, v7[91]);
     return 0;
   }
 }

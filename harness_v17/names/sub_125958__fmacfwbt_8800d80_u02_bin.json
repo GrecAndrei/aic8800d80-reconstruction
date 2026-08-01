@@ -1,0 +1,1 @@
+{"fn": "sub_125958", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125958", "status": "ok", "name": "reset_bt_env", "params": [], "docstring": "Zero BT env block and return offset pointer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

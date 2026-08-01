@@ -16,8 +16,8 @@ extern uint32_t dword_138E94;
 extern uint32_t dword_138E90;
 extern uint32_t dword_138E98;
 
-// sub_138C64 @ 0x138c64, size 554 bytes
-int  sub_138C64(unsigned int a1, int a2, int a3, int a4)
+// rf_handle_command @ 0x138c64, size 554 bytes
+int  rf_handle_command(unsigned int a1, int a2, int a3, int a4)
 {
   uint32_t *v4; // r8
   unsigned int v5; // r4
@@ -63,7 +63,7 @@ int  sub_138C64(unsigned int a1, int a2, int a3, int a4)
   v5 = a1;
   if ( a3 )
   {
-    sub_1334A4(
+    bt_packet_parse(
       a2,
       (uint32_t *)(*((uint32_t *)off_138E9C + 8) + 88),
       (int)off_138E9C + 36,
@@ -84,7 +84,7 @@ int  sub_138C64(unsigned int a1, int a2, int a3, int a4)
     {
       v44 = v10;
       v32 = (uint8_t *)(v8 + v9[2]);
-      sub_1334F0((uint32_t *)a2, v10, v5);
+      unaligned_word_load((uint32_t *)a2, v10, v5);
       v33 = (char *)&v45;
       v34 = (char *)&v45 + (uint8_t)(8 - v5);
       do
@@ -108,7 +108,7 @@ int  sub_138C64(unsigned int a1, int a2, int a3, int a4)
       }
       goto LABEL_36;
     }
-    sub_1334F0((uint32_t *)a2, v10, 8u);
+    unaligned_word_load((uint32_t *)a2, v10, 8u);
     v11 = *((uint8_t *)v4 + 8);
     v12 = *((uint8_t *)v4 + 8);
   }
@@ -121,7 +121,7 @@ int  sub_138C64(unsigned int a1, int a2, int a3, int a4)
   {
     v15 = (uint16_t)(v12 + v14);
 LABEL_11:
-    sub_1334F0((uint32_t *)a2, v17, v14);
+    unaligned_word_load((uint32_t *)a2, v17, v14);
   }
   else
   {
@@ -129,14 +129,14 @@ LABEL_11:
     while ( 1 )
     {
       v14 = (uint16_t)(v14 + v12 - v15);
-      sub_1334F0((uint32_t *)a2, v17, (uint16_t)(v15 - v12));
+      unaligned_word_load((uint32_t *)a2, v17, (uint16_t)(v15 - v12));
       v12 = 0;
       if ( !(uint16_t)v14 )
         break;
       v9 = (uint32_t *)v9[1];
       if ( **v18 < 0 && !v9 )
       {
-        sub_12F2C8(dword_138E94, dword_138E90, 963);
+        unknown_12f2c8(dword_138E94, dword_138E90, 963);
         return 0;
       }
       v17 = v9[2];
@@ -173,7 +173,7 @@ LABEL_19:
     v15 = 0;
     if ( **v19 < 0 && !v9 )
     {
-      sub_12F2C8(dword_138E94, dword_138E90, 1005);
+      unknown_12f2c8(dword_138E94, dword_138E90, 1005);
       return 0;
     }
   }
@@ -198,10 +198,10 @@ LABEL_16:
     return 1;
   }
 LABEL_36:
-  sub_13362C(a2);
+  ble_state_check_13362c(a2);
   if ( v45 == *(uint64_t *)a2 )
     return 1;
-  v39 = sub_12C7EC(5126, 13, 5, 0x18u);
+  v39 = tx_send_pdu(5126, 13, 5, 0x18u);
   v40 = v4[6];
   v41 = dword_138E98 + 696 * *((uint8_t *)v4 + 9);
   v42 = *((uint64_t *)v4 + 2);
@@ -212,7 +212,7 @@ LABEL_36:
   *(uint8_t *)(v39 + 18) = *((uint8_t *)v4 + 10);
   *(uint8_t *)(v39 + 16) = (v40 & 0x400) != 0;
   *(uint8_t *)(v39 + 17) = *(uint8_t *)(v4[8] + 97);
-  sub_12C84C(v39);
+  rx_process_packet(v39);
   return 0;
 }
 

@@ -16,8 +16,8 @@ extern uint32_t off_1201C8;
 extern uint32_t dword_1201CC;
 extern uint32_t off_1201D0;
 
-// sub_120130 @ 0x120130, size 144 bytes
-int  sub_120130(int result, unsigned int a2)
+// set_bss_cap @ 0x120130, size 144 bytes
+int  set_bss_cap(int result, unsigned int a2)
 {
   uint32_t *v2; // r5
   uint8_t *v3; // r3

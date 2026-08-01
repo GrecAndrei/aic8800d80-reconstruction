@@ -14,20 +14,20 @@ extern uint32_t off_136230;
 extern uint32_t dword_136238;
 extern uint32_t dword_136234;
 
-// sub_1361FC @ 0x1361fc, size 52 bytes
-int  sub_1361FC(int a1)
+// patch_check_loaded @ 0x1361fc, size 52 bytes
+int  patch_check_loaded(int a1)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_136230 >= 0 || (a1 = sub_12CE88(7u), a1 == 3) )
+  if ( **(int16_t **)off_136230 >= 0 || (a1 = rx_rate_field_parse(7u), a1 == 3) )
   {
-    sub_136820(a1);
+    bt_ready_check(a1);
     return 0;
   }
   else
   {
-    v2 = sub_12F46C(dword_136238, dword_136234, 415);
-    sub_136820(v2);
+    v2 = mmio_clear_register(dword_136238, dword_136234, 415);
+    bt_ready_check(v2);
     return 0;
   }
 }

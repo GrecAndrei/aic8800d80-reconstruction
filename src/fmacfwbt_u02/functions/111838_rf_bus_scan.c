@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_scan @ 0x111838, size 30 bytes
+// ll_hdr_init @ 0x111838, size 30 bytes
 // Doc: rf_bus_write2_n_234 [mmio]: Tail of RF bus write helper, restore frame and return
 // rf_bus_write2_n_234 [mmio]: Tail of RF bus write helper, restore frame and return
-int *rf_bus_scan()
+int *ll_hdr_init()
 {
   int i; // r4
   int v1; // r0
@@ -24,8 +24,8 @@ int *rf_bus_scan()
   {
     v1 = (uint8_t)i;
     v3 = (uint8_t)i;
-    sub_1117C8(v1);
-    result = rf_bus_write_n_1c0(v3);
+    tx_hdr_clear(v1);
+    result = rx_hdr_clear(v3);
   }
   return result;
 }

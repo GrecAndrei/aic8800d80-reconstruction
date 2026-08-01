@@ -22,8 +22,8 @@ extern uint32_t dword_121B00;
 extern uint32_t off_121B04;
 extern uint32_t off_121AFC;
 
-// sub_121A94 @ 0x121a94, size 84 bytes
-unsigned int sub_121A94()
+// mmio_set_bit @ 0x121a94, size 84 bytes
+unsigned int mmio_set_bit()
 {
   int16_t **v0; // r0
   int v1; // r3
@@ -41,11 +41,11 @@ unsigned int sub_121A94()
   *(uint32_t *)off_121AF4 = v1;
   if ( v3 < 0 && *(uint32_t *)off_121B08 << 28 )
   {
-    sub_12F6C4(dword_121B10, dword_121B0C, 472);
+    mmio_field_update(dword_121B10, dword_121B0C, 472);
     v1 = *v2;
   }
   *(uint32_t *)off_121AF8 = v1 | v2[1];
-  result = sub_11E4C0(0);
+  result = rf_ant_switch_set(0);
   v5 = dword_121B00;
   v6 = off_121B04;
   *(uint32_t *)off_121AFC = dword_121B00;

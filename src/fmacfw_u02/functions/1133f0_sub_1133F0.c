@@ -18,8 +18,8 @@ extern uint32_t off_1134A0;
 extern uint32_t dword_1134B0;
 extern uint32_t off_1134A4;
 
-// sub_1133F0 @ 0x1133f0, size 164 bytes
-int  sub_1133F0(int a1, unsigned int a2)
+// ke_task_init @ 0x1133f0, size 164 bytes
+int  ke_task_init(int a1, unsigned int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
@@ -36,7 +36,7 @@ int  sub_1133F0(int a1, unsigned int a2)
   v3 = off_113498;
   if ( *(uint8_t *)off_113498 )
   {
-    sub_10DC24(dword_1134AC, rf_cmd_queue_next_n_c, *(uint8_t *)off_113498);
+    log_printf(dword_1134AC, rf_cmd_queue_next_n_c, *(uint8_t *)off_113498);
     return -3;
   }
   else
@@ -53,11 +53,11 @@ int  sub_1133F0(int a1, unsigned int a2)
     {
       *((uint32_t *)off_1134A0 + 713) |= 1u;
     }
-    v6 = sub_11211C(1, a1, a2);
+    v6 = global_copy_u16(1, a1, a2);
     v7 = v6;
     if ( v6 )
     {
-      sub_10DC24(dword_1134B0, rf_cmd_queue_next_n_c, v6);
+      log_printf(dword_1134B0, rf_cmd_queue_next_n_c, v6);
       return -1;
     }
     else
@@ -65,7 +65,7 @@ int  sub_1133F0(int a1, unsigned int a2)
       *(uint8_t *)off_1134A4 = 1;
       if ( *v2 )
       {
-        sub_111DB4(0, 1u);
+        shared_call_check(0, 1u);
         *v3 = 0;
         return -14;
       }

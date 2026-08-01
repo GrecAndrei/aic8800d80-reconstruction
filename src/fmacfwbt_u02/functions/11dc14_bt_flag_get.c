@@ -13,10 +13,10 @@
 extern uint32_t off_11DC34;
 extern uint32_t off_11DC38;
 
-// bt_flag_get @ 0x11dc14, size 30 bytes
-// Doc: bt_flag_get [bt]: Reads byte flag from BT global state struct
-// bt_flag_get [bt]: Reads byte flag from BT global state struct
-int bt_flag_get()
+// seq_count_restart @ 0x11dc14, size 30 bytes
+// Doc: seq_count_restart [bt]: Reads byte flag from BT global state struct
+// seq_count_restart [bt]: Reads byte flag from BT global state struct
+int seq_count_restart()
 {
   uint8_t *v0; // r4
   unsigned int *v1; // r2

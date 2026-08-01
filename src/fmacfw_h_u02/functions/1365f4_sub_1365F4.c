@@ -14,8 +14,8 @@ extern uint32_t off_1366D8;
 extern uint32_t dword_1366D4;
 extern uint32_t dword_1366DC;
 
-// sub_1365F4 @ 0x1365f4, size 222 bytes
-uint32_t * sub_1365F4(int a1)
+// send_vendor_hci_command @ 0x1365f4, size 222 bytes
+uint32_t * send_vendor_hci_command(int a1)
 {
   uint32_t *v1; // r8
   int v3; // r6
@@ -35,7 +35,7 @@ uint32_t * sub_1365F4(int a1)
 
   v1 = off_1366D8;
   v3 = *(uint32_t *)off_1366D8;
-  v4 = (uint8_t *)sub_12C7EC(7169, 13, 7, 4u);
+  v4 = (uint8_t *)tx_send_pdu(7169, 13, 7, 4u);
   if ( a1 )
   {
     v5 = *(uint8_t *)(v3 + 51);
@@ -43,11 +43,11 @@ uint32_t * sub_1365F4(int a1)
   else
   {
     v7 = *(uint8_t *)(v3 + 51);
-    v8 = sub_12C7EC(30, 0, 7, 4u);
+    v8 = tx_send_pdu(30, 0, 7, 4u);
     v9 = dword_1366D4 + 1320 * v7;
     *(uint8_t *)(v8 + 2) = 1;
     *(uint8_t *)(v8 + 3) = *(uint8_t *)(v9 + 107);
-    sub_12C84C(v8);
+    rx_process_packet(v8);
     v10 = *(uint16_t *)(v3 + 48);
     v11 = *(uint32_t *)(v9 + 72);
     *(uint32_t *)(v9 + 1208) = *(uint32_t *)(v3 + 44);
@@ -65,7 +65,7 @@ uint32_t * sub_1365F4(int a1)
     *(uint32_t *)(v16 + 200) = v14;
     *(uint8_t *)(v16 + 52) = 2;
     *(uint8_t *)(v16 + 204) = v15;
-    sub_13275C(v16);
+    get_phy_status_byte(v16);
     v17 = *(uint8_t *)(v16 + 350);
     *(uint16_t *)(v16 + 38) = 1;
     *(uint8_t *)(v16 + 350) = v17 | 0x10;
@@ -75,9 +75,9 @@ uint32_t * sub_1365F4(int a1)
   }
   v4[1] = v5;
   *v4 = a1;
-  sub_12C84C((int)v4);
-  sub_12C8F8(v3 - 12);
+  rx_process_packet((int)v4);
+  tx_process_jump(v3 - 12);
   *v1 = 0;
-  return sub_12CBF4(7u, 0);
+  return hci_cmd_preprocess(7u, 0);
 }
 

@@ -15,10 +15,10 @@ extern uint32_t off_110314;
 extern uint32_t dword_110318;
 extern uint32_t off_11031C;
 
-// lmac_rf_handler_1102d0 @ 0x1102d0, size 62 bytes
-// Doc: lmac_rf_handler_1102d0 [rf]: LMAC RF handler stub at 0x1102d0
-// lmac_rf_handler_1102d0 [rf]: LMAC RF handler stub at 0x1102d0
-int lmac_rf_handler_1102d0()
+// irq_disable_set_flag @ 0x1102d0, size 62 bytes
+// Doc: irq_disable_set_flag [rf]: LMAC RF handler stub at 0x1102d0
+// irq_disable_set_flag [rf]: LMAC RF handler stub at 0x1102d0
+int irq_disable_set_flag()
 {
   int *v0; // r4
   int v1; // r0
@@ -34,7 +34,7 @@ int lmac_rf_handler_1102d0()
   v0 = (int *)off_110314;
   v1 = dword_110318;
   ++*(uint32_t *)off_110314;
-  result = sub_11E7AC(v1);
+  result = list_pop_front(v1);
   if ( result )
     --*(uint32_t *)off_11031C;
   if ( *v0 )

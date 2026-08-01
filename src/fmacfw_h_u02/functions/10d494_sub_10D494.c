@@ -15,8 +15,8 @@ extern uint32_t off_10D4E0;
 extern uint32_t off_10D4DC;
 extern uint32_t dword_10D4E4;
 
-// sub_10D494 @ 0x10d494, size 68 bytes
-int sub_10D494()
+// configure_radio @ 0x10d494, size 68 bytes
+int configure_radio()
 {
   unsigned int *v0; // r2
   unsigned int v1; // r3

@@ -15,10 +15,10 @@ extern uint32_t off_12657C;
 extern uint32_t off_126580;
 extern uint32_t off_126584;
 
-// sub_126538 @ 0x126538, size 64 bytes
+// mmio_set_control @ 0x126538, size 64 bytes
 // Doc: sub_1226538 [unknown]: Unknown helper function in lmacfw_rf image
 // sub_1226538 [unknown]: Unknown helper function in lmacfw_rf image
-int sub_126538()
+int mmio_set_control()
 {
   uint32_t *v0; // r2
   unsigned int *v1; // r4

@@ -1,0 +1,1 @@
+{"fn": "sub_1141A4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1141a4", "status": "ok", "name": "load_bt_config", "params": [], "docstring": "Load BT configuration buffer and return success", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

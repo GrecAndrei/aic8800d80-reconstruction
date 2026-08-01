@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_setup_1d58 @ 0x111d58, size 316 bytes
+// ke_cmd_handler @ 0x111d58, size 316 bytes
 // Doc: rf_state_check_n_260 [rf]: Updates RF state with bitmask and stores halfword
 // rf_state_check_n_260 [rf]: Updates RF state with bitmask and stores halfword
-int * rf_bus_setup_1d58(int *result, unsigned int a2, int a3, unsigned int a4)
+int * ke_cmd_handler(int *result, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   unsigned int v7; // r11
@@ -69,14 +69,14 @@ int * rf_bus_setup_1d58(int *result, unsigned int a2, int a3, unsigned int a4)
         v10 = (uint16_t)v8 << 16;
       }
       if ( (*((uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111BA0(result, a2);
+        result = rf_reg_write(result, a2);
       v11 = (a3 << 18) & 0xC0000;
       v12 = rf_state_check_n_19c;
       v13 = *(uint16_t *)rf_state_check_n_19c;
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)log_printf(rf_bus_write2_ea0, v13, v9, 2048);
+        result = (int *)printf_wrapper(rf_bus_write2_ea0, v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = log_buffer_alloc;
@@ -89,7 +89,7 @@ int * rf_bus_setup_1d58(int *result, unsigned int a2, int a3, unsigned int a4)
     {
       v16 = 32 * a2 + 1075838976;
       if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_111BA0(0, a2);
+        result = rf_reg_write(0, a2);
       v17 = log_buffer_alloc;
       *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
       v17[519] |= 0x10000 << a2;

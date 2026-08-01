@@ -14,14 +14,14 @@ extern uint32_t off_12D4EC;
 extern uint32_t dword_12D4F4;
 extern uint32_t dword_12D4F0;
 
-// sub_12D4B8 @ 0x12d4b8, size 52 bytes
-int  sub_12D4B8(int result, uint32_t *a2)
+// check_abort_flag_2 @ 0x12d4b8, size 52 bytes
+int  check_abort_flag_2(int result, uint32_t *a2)
 {
   uint32_t *v2; // r5
 
   v2 = (uint32_t *)result;
   if ( **(int16_t **)off_12D4EC < 0 && !a2 )
-    result = sub_12F694(dword_12D4F4, dword_12D4F0, 95);
+    result = mmio_irq_clear(dword_12D4F4, dword_12D4F0, 95);
   if ( *v2 )
   {
     *a2 = *v2;

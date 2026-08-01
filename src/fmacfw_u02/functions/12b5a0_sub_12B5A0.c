@@ -28,8 +28,8 @@ extern uint32_t dword_12B7EC;
 extern uint32_t off_12B7F0;
 extern uint32_t off_12B7F4;
 
-// sub_12B5A0 @ 0x12b5a0, size 530 bytes
-unsigned int  sub_12B5A0(unsigned int result)
+// rf_get_irq_status @ 0x12b5a0, size 530 bytes
+unsigned int  rf_get_irq_status(unsigned int result)
 {
   uint32_t *v1; // r6
   unsigned int v2; // r5
@@ -69,20 +69,20 @@ unsigned int  sub_12B5A0(unsigned int result)
     *v1 = v4 & ((result * ((*v1 >> 18) & 0x3FF) / v2) << 18) | *v1 & v5;
     if ( result == 240 )
     {
-      v21 = math_round(dword_12B7C0);
-      *v1 = v4 & (sub_14302C(v21) << 18) | *v1 & v5;
+      v21 = double_add(dword_12B7C0);
+      *v1 = v4 & (double_to_int(v21) << 18) | *v1 & v5;
       v22 = (unsigned int *)off_12B7DC;
-      v23 = math_round(0);
-      *v22 = dword_12B7E0 & (sub_14302C(v23) << 20) | *v22 & 0xC00FFFFF;
+      v23 = double_add(0);
+      *v22 = dword_12B7E0 & (double_to_int(v23) << 20) | *v22 & 0xC00FFFFF;
     }
     else
     {
-      v7 = sub_1429D4(result);
-      v8 = sub_142AA8(v7, HIDWORD(v7), dword_12B7B8, dword_12B7BC);
-      v9 = sub_14306C(v8);
-      v10 = sub_1429F8(LODWORD(v9));
-      v11 = math_round(v10);
-      *v1 = v4 & (sub_14302C(v11) << 18) | *v1 & v5;
+      v7 = int_to_double(result);
+      v8 = double_add(v7, HIDWORD(v7), dword_12B7B8, dword_12B7BC);
+      v9 = double_to_uint(v8);
+      v10 = float_to_double(LODWORD(v9));
+      v11 = double_add(v10);
+      *v1 = v4 & (double_to_int(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_12B7DC;
     *(uint32_t *)off_12B7D4 = dword_12B7D8 & ((v6 * (uint16_t)(*(uint32_t *)off_12B7D4 >> 8) / v2) << 8)

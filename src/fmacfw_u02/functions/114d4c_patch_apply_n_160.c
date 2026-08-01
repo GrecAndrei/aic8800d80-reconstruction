@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_160 @ 0x114d4c, size 10 bytes
-// Doc: patch_apply_n_160 [patch]: Apply firmware patch entry (variant n_160)
-// patch_apply_n_160 [patch]: Apply firmware patch entry (variant n_160)
-int  patch_apply_n_160(int a1)
+// ke_event_send_0x20 @ 0x114d4c, size 10 bytes
+// Doc: ke_event_send_0x20 [patch]: Apply firmware patch entry (variant n_160)
+// ke_event_send_0x20 [patch]: Apply firmware patch entry (variant n_160)
+int  ke_event_send_0x20(int a1)
 {
-  return rf_fault_dump_n4e8(4, a1, 0x14u);
+  return ke_task_handler(4, a1, 0x14u);
 }
 

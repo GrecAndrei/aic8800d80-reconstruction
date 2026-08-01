@@ -17,10 +17,10 @@ extern uint32_t dword_125D10;
 extern uint32_t dword_125D04;
 extern uint32_t dword_125D08;
 
-// ipc_msg_handler @ 0x125bfc, size 258 bytes
-// Doc: ipc_msg_handler [ipc]: Handles IPC message with payload parsing
-// ipc_msg_handler [ipc]: Handles IPC message with payload parsing
-int  ipc_msg_handler(int a1, uint8_t **a2)
+// process_bt_ble_event @ 0x125bfc, size 258 bytes
+// Doc: process_bt_ble_event [ipc]: Handles IPC message with payload parsing
+// process_bt_ble_event [ipc]: Handles IPC message with payload parsing
+int  process_bt_ble_event(int a1, uint8_t **a2)
 {
   int v4; // r8
   int v5; // r4
@@ -30,13 +30,13 @@ int  ipc_msg_handler(int a1, uint8_t **a2)
   BOOL v10; // r0
 
   v4 = (*a2)[4];
-  v5 = parse_int(a2[1], 0, 0);
-  v6 = parse_int(a2[2], 0, 0);
+  v5 = parse_number(a2[1], 0, 0);
+  v6 = parse_number(a2[2], 0, 0);
   if ( v6 )
   {
     if ( a1 <= 3 )
       return -1;
-    v7 = parse_int(a2[3], 0, 0);
+    v7 = parse_number(a2[3], 0, 0);
     if ( v4 == 97 )
       goto LABEL_4;
   }
@@ -48,48 +48,48 @@ int  ipc_msg_handler(int a1, uint8_t **a2)
 LABEL_4:
       if ( v5 <= 15 )
       {
-        bitmask_pow2_set(v5);
+        rf_channel_valid(v5);
         if ( v6 )
         {
-          rf_reg_bit_set(v5);
+          gpio_cfg_set(v5);
           if ( v7 )
-            sub_10DB04(v5);
+            gpio_out_set(v5);
           else
-            sub_10DB18(v5);
-          msg_parse(dword_125D00, v5, v7);
+            gpio_out_clear(v5);
+          dispatch_event_handler(dword_125D00, v5, v7);
           return 0;
         }
         else
         {
-          mmio_clear_bit(v5);
-          v10 = rf_check_bit(v5);
-          msg_parse(dword_125D0C, v5, v10);
+          gpio_cfg_clear(v5);
+          v10 = gpio_read_pin(v5);
+          dispatch_event_handler(dword_125D0C, v5, v10);
           return 0;
         }
       }
-      msg_parse(dword_125D14, v5);
+      dispatch_event_handler(dword_125D14, v5);
       return -2;
     }
   }
   if ( v5 > 15 )
   {
-    msg_parse(dword_125D10, v5);
+    dispatch_event_handler(dword_125D10, v5);
     return -2;
   }
-  irq_prio_set_db48(v5);
+  pinmux_config(v5);
   if ( !v6 )
   {
-    sub_10DB78(v5);
-    v9 = irq_mask_test(v5);
-    msg_parse(dword_125D04, v5, v9);
+    gpio_disable_interrupt(v5);
+    v9 = gpio_get_pin(v5);
+    dispatch_event_handler(dword_125D04, v5, v9);
     return v6;
   }
-  irq_prio_set2(v5);
+  gpio_set_pin(v5);
   if ( v7 )
-    irq_enable(v5);
+    gpio_set_pin_out(v5);
   else
-    irq_disable(v5);
-  msg_parse(dword_125D08, v5, v7);
+    gpio_clear_pin(v5);
+  dispatch_event_handler(dword_125D08, v5, v7);
   return 0;
 }
 

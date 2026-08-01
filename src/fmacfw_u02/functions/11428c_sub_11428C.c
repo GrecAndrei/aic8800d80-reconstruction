@@ -15,10 +15,10 @@ extern uint32_t off_1142D8;
 extern uint32_t off_1142DC;
 extern uint32_t off_1142E0;
 
-// sub_11428C @ 0x11428c, size 72 bytes
+// sub_11428c @ 0x11428c, size 72 bytes
 // Doc: rf_fault_dump_n [rf]: Dumps the n-th RF fault state (field at offset 0x274 in the global RF state struct), increments the fault counter, and sets the handled flag.
 // rf_fault_dump_n [rf]: Dumps the n-th RF fault state (field at offset 0x274 in the global RF state struct), increments the fault counter, and sets the handled flag.
-int sub_11428C()
+int sub_11428c()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -36,7 +36,7 @@ int sub_11428C()
   ++*(uint32_t *)off_1142D8;
   while ( !*v1 )
     ;
-  result = sub_12D248(*(uint32_t *)off_1142E0 + 628);
+  result = cmd_handler_a(*(uint32_t *)off_1142E0 + 628);
   *v1 = 1;
   if ( *v0 )
   {

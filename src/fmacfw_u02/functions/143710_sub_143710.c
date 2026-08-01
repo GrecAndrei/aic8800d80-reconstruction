@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143710 @ 0x143710, size 94 bytes
+// memcmp @ 0x143710, size 94 bytes
 // Doc: sub_1243710 [util]: Small dispatch helper comparing r2 against 3
 // sub_1243710 [util]: Small dispatch helper comparing r2 against 3
-int  sub_143710(unsigned int a1, unsigned int a2, unsigned int a3)
+int  memcmp(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   int *v3; // r4
   int *v4; // r3

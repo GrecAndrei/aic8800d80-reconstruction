@@ -18,8 +18,8 @@ extern uint32_t off_10D1F4;
 extern uint32_t dword_10D200;
 extern uint32_t off_10D1FC;
 
-// sub_10D15C @ 0x10d15c, size 130 bytes
-int sub_10D15C()
+// status_poll @ 0x10d15c, size 130 bytes
+int status_poll()
 {
   int v0; // r4
   int v2; // r1
@@ -40,7 +40,7 @@ int sub_10D15C()
       v3 = (char *)off_10D1E4 + 5050236;
       *(uint32_t *)off_10D1E8 = 0x200000;
       *((uint32_t *)v3 + 1) |= 0x400000u;
-      sub_12EEF8(2, v2);
+      state_check_feature(2, v2);
       do
       {
         v4 = *(uint32_t *)off_10D1F4;
@@ -50,7 +50,7 @@ int sub_10D15C()
       v6 = dword_10D200;
       *(uint32_t *)off_10D1FC = v5;
       v0 = (v4 >> 20) & 1;
-      sub_12EEF8(2, v6);
+      state_check_feature(2, v6);
     }
   }
   return v0;

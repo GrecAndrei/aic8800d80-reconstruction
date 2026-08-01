@@ -16,8 +16,8 @@ extern uint32_t off_139DB0;
 extern uint32_t dword_139DAC;
 extern uint32_t dword_139DB4;
 
-// sub_139C54 @ 0x139c54, size 336 bytes
-int  sub_139C54(char *a1, char a2, int a3)
+// rf_set_power @ 0x139c54, size 336 bytes
+int  rf_set_power(char *a1, char a2, int a3)
 {
   char v4; // r3
   int v6; // r4
@@ -46,7 +46,7 @@ int  sub_139C54(char *a1, char a2, int a3)
   }
   v6 = (uint8_t)(v4 + 6);
   v7 = &a1[v6];
-  sub_143630(&v16, &a1[v6], 2);
+  memcpy(&v16, &a1[v6], 2);
   v8 = a1[4] & 1;
   if ( (a1[4] & 1) != 0 )
   {
@@ -62,7 +62,7 @@ int  sub_139C54(char *a1, char a2, int a3)
       v10 = (uint8_t)v7[11];
       if ( v10 == 2 )
       {
-        sub_12E948(dword_139DA8, (uint8_t)v7[10], 2, 8);
+        alloc_tx_event(dword_139DA8, (uint8_t)v7[10], 2, 8);
         return v8;
       }
       if ( v10 == 17 )
@@ -73,7 +73,7 @@ int  sub_139C54(char *a1, char a2, int a3)
           && (uint8_t)*(v12 - 2) == 255
           && (uint8_t)*(v12 - 1) == 250 )
         {
-          sub_12E948(dword_139DA4, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
+          alloc_tx_event(dword_139DA4, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
           return v8;
         }
       }

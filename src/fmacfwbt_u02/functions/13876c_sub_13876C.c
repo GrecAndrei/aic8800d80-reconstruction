@@ -28,10 +28,10 @@ extern uint32_t off_1388D4;
 extern uint32_t off_1388CC;
 extern uint32_t dword_1388D8;
 
-// sub_13876C @ 0x13876c, size 316 bytes
+// periodic_task_handler @ 0x13876c, size 316 bytes
 // Doc: sub_123876C [bt]: Bluetooth firmware handler, checks flag and processes state
 // sub_123876C [bt]: Bluetooth firmware handler, checks flag and processes state
-uint32_t *sub_13876C()
+uint32_t *periodic_task_handler()
 {
   uint32_t *v0; // r6
   uint16_t *v1; // r4
@@ -53,7 +53,7 @@ uint32_t *sub_13876C()
   int v18; // r2
 
   if ( *(uint8_t *)off_1388A8 )
-    rf_power_set(0xC2u);
+    write_mmio_byte(0xC2u);
   if ( **(uint8_t **)off_1388AC == 1 )
     *(uint32_t *)off_1388B0 &= ~0x200000u;
   v0 = off_1388B4;
@@ -67,7 +67,7 @@ uint32_t *sub_13876C()
     *((uint8_t *)off_1388BC + 29) = 3;
     v18 = v16[4];
     v2[5] = v17;
-    timestamp_update_4f60((int)(v2 + 3), v15 + v18);
+    ke_event_lock((int)(v2 + 3), v15 + v18);
     *((uint8_t *)v2 + 28) = 1;
     *v0 &= ~4u;
   }
@@ -90,7 +90,7 @@ uint32_t *sub_13876C()
   v7 = *(uint8_t **)v1;
   if ( *(uint8_t *)(*(uint32_t *)v1 + 368) == 1 && v7[252] == 7 )
   {
-    v9 = sub_1437AC(v7 + 253, dword_1388DC, 7) == 0;
+    v9 = memcpy(v7 + 253, dword_1388DC, 7) == 0;
     v7 = *(uint8_t **)v1;
     v3 = *((uint8_t *)v1 + 3850);
     v8 = v9;
@@ -101,21 +101,21 @@ uint32_t *sub_13876C()
     LOBYTE(v9) = 0;
   }
   *((uint8_t *)v1 + 3898) = v9;
-  feature_guard_sdio(8, dword_1388C8, dword_1388C4, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
+  state_check_feature(8, dword_1388C8, dword_1388C4, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
   v10 = (int *)off_1388D0;
   v11 = off_1388D4;
   *(uint32_t *)off_1388CC |= 4u;
   *v11 = *v10;
   *v10 = (HIWORD(*v10) << 16) | 0x5DC;
   v2[1] |= 0x20u;
-  rf_bus_mark_n_3b7(4u, 1);
+  hci_cmd_send(4u, 1);
   v12 = *(uint32_t *)(*(uint32_t *)v1 + 360);
   if ( v12 )
   {
     v13 = *(uint16_t *)(*(uint32_t *)v1 + 364);
     if ( v13 <= 0xC8 )
-      sub_14380C(dword_1388D8, v12, v13);
+      memcpy_aligned(dword_1388D8, v12, v13);
   }
-  return sub_1383E0();
+  return adv_state_control();
 }
 

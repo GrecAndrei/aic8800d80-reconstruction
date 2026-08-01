@@ -12,8 +12,8 @@
 
 extern uint32_t dword_110B60;
 
-// sub_110B44 @ 0x110b44, size 28 bytes
-uint32_t * sub_110B44(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
+// set_radio_channel @ 0x110b44, size 28 bytes
+uint32_t * set_radio_channel(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
 {
   result[2] = dword_110B60 & result[2] | a4 | (a5 << 31);
   *result = a2;

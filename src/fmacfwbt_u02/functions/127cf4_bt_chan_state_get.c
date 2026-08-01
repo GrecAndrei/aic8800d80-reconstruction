@@ -16,10 +16,10 @@ extern uint32_t dword_127D7C;
 extern uint32_t dword_127D78;
 extern uint32_t off_127D74;
 
-// bt_chan_state_get @ 0x127cf4, size 118 bytes
-// Doc: bt_chan_state_get [bt]: Reads current BT channel state index
-// bt_chan_state_get [bt]: Reads current BT channel state index
-int  bt_chan_state_get(int16_t *a1, int a2, char a3)
+// acl_send_packet @ 0x127cf4, size 118 bytes
+// Doc: acl_send_packet [bt]: Reads current BT channel state index
+// acl_send_packet [bt]: Reads current BT channel state index
+int  acl_send_packet(int16_t *a1, int a2, char a3)
 {
   uint8_t *v3; // r4
   int16_t v7; // r3
@@ -27,7 +27,7 @@ int  bt_chan_state_get(int16_t *a1, int a2, char a3)
 
   v3 = off_127D70;
   if ( **(int16_t **)off_127D6C < 0 && *((uint8_t *)off_127D70 + 108) != 255 )
-    sub_12F694(dword_127D7C, dword_127D78, 2838);
+    mmio_irq_clear(dword_127D7C, dword_127D78, 2838);
   v3[108] = 3;
   *((uint16_t *)v3 + 49) = 255;
   v3[88] = *((uint8_t *)a1 + 2);
@@ -42,6 +42,6 @@ int  bt_chan_state_get(int16_t *a1, int a2, char a3)
   v3[110] = a3;
   *((uint32_t *)v3 + 26) = a2;
   v3[100] = 1;
-  return sub_127568();
+  return set_advertising_flag();
 }
 

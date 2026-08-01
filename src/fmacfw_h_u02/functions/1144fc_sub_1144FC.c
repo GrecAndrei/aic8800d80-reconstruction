@@ -18,8 +18,8 @@ extern uint32_t off_114564;
 extern uint32_t off_114568;
 extern uint32_t off_11456C;
 
-// sub_1144FC @ 0x1144fc, size 94 bytes
-int  sub_1144FC(int a1)
+// scheduler_entry @ 0x1144fc, size 94 bytes
+int  scheduler_entry(int a1)
 {
   int *v1; // r3
   int v2; // r2

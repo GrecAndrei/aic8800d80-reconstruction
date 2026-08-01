@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B42C @ 0x13b42c, size 12 bytes
-int  sub_13B42C(int a1, int a2, unsigned int a3)
+// tx_build_short_packet @ 0x13b42c, size 12 bytes
+int  tx_build_short_packet(int a1, int a2, unsigned int a3)
 {
-  sub_13BF94(a3 >> 8);
+  rf_get_chan_info(a3 >> 8);
   return 0;
 }
 

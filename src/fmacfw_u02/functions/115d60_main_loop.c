@@ -26,10 +26,10 @@ extern uint32_t off_115F48;
 extern uint32_t off_115F58;
 extern uint32_t off_115F4C;
 
-// main_loop @ 0x115d60, size 452 bytes
+// copy_global_data @ 0x115d60, size 452 bytes
 // Doc: ipc_doorbell_init_handlers [ipc]: Initialize IPC doorbell handler table and route callbacks
 // ipc_doorbell_init_handlers [ipc]: Initialize IPC doorbell handler table and route callbacks
-void __noreturn main_loop()
+void __noreturn copy_global_data()
 {
   int *v0; // r5
   uint8_t **v1; // r10
@@ -48,12 +48,12 @@ void __noreturn main_loop()
   int v14; // r3
 
   v0 = (int *)off_115F30;
-  msg_parse(dword_115F2C, dword_115F28, dword_115F24);
+  event_dispatch(dword_115F2C, dword_115F28, dword_115F24);
   if ( *(uint32_t *)off_115F34 )
   {
-    sub_10EF14();
+    mmio_write_70001408();
     if ( *(uint16_t *)(*v0 + 8) )
-      sub_10EED8(*(uint16_t *)(*v0 + 8));
+      rf_set_frequency(*(uint16_t *)(*v0 + 8));
   }
   v1 = (uint8_t **)off_115F5C;
   if ( **(uint8_t **)off_115F5C == 2 )
@@ -62,9 +62,9 @@ void __noreturn main_loop()
     *(uint8_t *)(v2 + 6) = 2;
     *(uint8_t *)(v2 + 3) = 1;
   }
-  v3 = rf_msg_handler_n3b0(*(uint16_t *)(*v0 + 4));
+  v3 = load_global_ptr_182558(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
-    patch_apply_n34e();
+    clear_global_flag_2();
   __enable_irq();
   __dsb(0xFu);
   __isb(0xFu);
@@ -78,10 +78,10 @@ void __noreturn main_loop()
     while ( 1 )
     {
       if ( *(uint8_t *)(*v0 + 3) )
-        rf_flag_clear_n_90();
+        dummy_store_global();
       if ( !*v4 )
-        v3 = fmac_init_or_handler(v3);
-      v3 = sub_130170(v3);
+        v3 = tx_ring_peek(v3);
+      v3 = parse_large_ioctl(v3);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -95,9 +95,9 @@ void __noreturn main_loop()
       if ( v10 )
         goto ipc_doorbell_handler_n470;
     }
-    v3 = idle_processing(v3);
+    v3 = clear_rx_config(v3);
     if ( *(uint8_t *)(*v0 + 3) )
-      patch_apply_n34e();
+      clear_global_flag_2();
     if ( **v1 == 1 && *(uint8_t *)off_115F44 )
       break;
     do
@@ -115,16 +115,16 @@ LABEL_23:
           goto ipc_doorbell_handler_n4f2;
         goto LABEL_24;
       }
-      v3 = ipc_doorbell_handler_n_3cc(v3, v13);
+      v3 = check_nvic_irq_status(v3, v13);
     }
     while ( !v3 );
     if ( !*(uint8_t *)(*v0 + 3) )
       goto LABEL_23;
 LABEL_28:
-    rf_bus_reset_n_90();
+    set_global_flag_2();
     if ( v8[1] )
 ipc_doorbell_handler_n4f2:
-      v3 = ipc_doorbell_handler_33b();
+      v3 = peripheral_clock_enable();
 LABEL_24:
     v10 = *v6;
     if ( *v6 )
@@ -143,7 +143,7 @@ ipc_doorbell_handler_n470:
   v14 = **(uint8_t **)off_115F48;
   if ( v14 == 3 )
   {
-    v3 = sub_1112F4();
+    v3 = get_status_flag();
     if ( v3 )
       goto LABEL_36;
     v14 = **(uint8_t **)off_115F48;
@@ -158,7 +158,7 @@ ipc_doorbell_handler_n470:
     goto LABEL_21;
   }
 LABEL_36:
-  sdio_wait_busy_clear(v3);
+  ipc_wait_flag(v3);
   while ( 1 )
     ;
 }

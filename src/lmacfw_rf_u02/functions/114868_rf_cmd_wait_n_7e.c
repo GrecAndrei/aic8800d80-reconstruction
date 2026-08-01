@@ -13,6 +13,6 @@
 // rf_cmd_wait_n_7e @ 0x114868, size 12 bytes
 int  rf_cmd_wait_n_7e(int a1)
 {
-  return rf_msg_handler_main_45f4(0x800000, a1, 2u);
+  return bus_read_buf(0x800000, a1, 2u);
 }
 

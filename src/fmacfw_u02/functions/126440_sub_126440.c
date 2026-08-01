@@ -13,8 +13,8 @@
 extern uint32_t dword_12646C;
 extern uint32_t dword_126470;
 
-// sub_126440 @ 0x126440, size 44 bytes
-int  sub_126440(uint32_t *a1)
+// llm_adv_param_check @ 0x126440, size 44 bytes
+int  llm_adv_param_check(uint32_t *a1)
 {
   int v1; // r3
   int v2; // r2

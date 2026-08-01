@@ -14,10 +14,10 @@ extern uint32_t off_113648;
 extern uint32_t dword_113664;
 extern uint32_t off_113640;
 
-// log_flush @ 0x113514, size 294 bytes
+// bt_ctrl_main_task @ 0x113514, size 294 bytes
 // Doc: rf_stream_start_354e [rf]: Start RF data stream and check link state
 // rf_stream_start_354e [rf]: Start RF data stream and check link state
-void log_flush()
+void bt_ctrl_main_task()
 {
   uint8_t *v0; // r5
   int v1; // r0
@@ -39,14 +39,14 @@ void log_flush()
   {
     if ( !*(uint16_t *)off_113648 )
     {
-      feature_guard_sdio(512, dword_113664);
+      state_check_feature(512, dword_113664);
       return;
     }
     if ( *(uint8_t *)rf_stream_start2_n3f8 >= (unsigned int)*(uint16_t *)off_113648 )
     {
       v13 = rf_stream_start2_650;
       *(uint8_t *)off_113640 = 1;
-      feature_guard_sdio(512, v13);
+      state_check_feature(512, v13);
     }
   }
   else
@@ -57,7 +57,7 @@ void log_flush()
       && !*(uint8_t *)off_113640 )
     {
       *(uint8_t *)off_113640 = 1;
-      feature_guard_sdio(512, rf_stream_start2_650);
+      state_check_feature(512, rf_stream_start2_650);
       return;
     }
   }
@@ -73,20 +73,20 @@ void log_flush()
       v5 = *(uint32_t *)rf_stream_start2_n40c;
       v6 = *(uint32_t *)rf_stream_start2_alt_0 + v1;
       if ( *(uint8_t *)off_113640 )
-        started = rf_stream_start2_324c(v6, v5);
+        started = global_env_init_params(v6, v5);
       else
-        started = rf_stream_start_1ac(v6, v5);
+        started = global_env_init(v6, v5);
     }
     else
     {
       v3 = rf_stream_start2_alt_0;
       v4 = (unsigned int *)rf_stream_start2_n40c;
-      started = rf_stream_start_1ac(*(uint32_t *)rf_stream_start2_alt_0 + v1, *(uint32_t *)rf_stream_start2_n40c);
+      started = global_env_init(*(uint32_t *)rf_stream_start2_alt_0 + v1, *(uint32_t *)rf_stream_start2_n40c);
     }
     if ( started )
     {
       v8 = off_113640;
-      log_printf(rf_stream_start2_n410, started);
+      printf_wrapper(rf_stream_start2_n410, started);
       v9 = 5;
       while ( 1 )
       {
@@ -94,19 +94,19 @@ void log_flush()
         {
           v10 = *v4;
           v11 = (int)v2 + *v3;
-          v12 = *v8 ? rf_stream_start2_324c(v11, v10) : rf_stream_start_1ac(v11, v10);
+          v12 = *v8 ? global_env_init_params(v11, v10) : global_env_init(v11, v10);
         }
         else
         {
-          v12 = rf_stream_start_1ac((int)v2 + *v3, *v4);
+          v12 = global_env_init((int)v2 + *v3, *v4);
         }
         if ( !v12 )
           break;
         if ( !--v9 )
         {
-          log_printf(rf_stream_start2_n414, 5);
-          log_free_dispatch_2(v2);
-          irq_nesting_or(32);
+          printf_wrapper(rf_stream_start2_n414, 5);
+          memory_pool_free(v2);
+          set_system_flag_1(32);
           return;
         }
       }
@@ -114,8 +114,8 @@ void log_flush()
   }
   else
   {
-    irq_nesting_or(32);
-    log_printf(rf_stream_start2_n41c);
+    set_system_flag_1(32);
+    printf_wrapper(rf_stream_start2_n41c);
   }
 }
 

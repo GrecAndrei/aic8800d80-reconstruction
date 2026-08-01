@@ -25,8 +25,8 @@ extern uint32_t dword_125CCC;
 extern uint32_t dword_125CB0;
 extern uint32_t dword_125CB4;
 
-// sub_125AB0 @ 0x125ab0, size 496 bytes
-int  sub_125AB0(int result)
+// ke_schedule @ 0x125ab0, size 496 bytes
+int  ke_schedule(int result)
 {
   int *v1; // r4
   int v2; // r5
@@ -70,15 +70,15 @@ int  sub_125AB0(int result)
     {
 LABEL_20:
       v16 = off_125CD0;
-      msg_dispatch_unk();
+      check_hw_state();
       v17 = *(uint8_t *)(v3 + 107) + 32;
       if ( *v16 )
       {
-        v25 = (uint8_t *)sub_12C92C(74, 13, v4, 4);
+        v25 = (uint8_t *)ke_msg_alloc(74, 13, v4, 4);
         *v25 = v17;
         v25[1] = v4;
         v25[2] = v4;
-        sdio_buffer_prepare_n_4e8(v25);
+        ke_msg_send(v25);
         v5 = dword_125CA8;
         if ( *v16 )
         {
@@ -86,7 +86,7 @@ LABEL_20:
           if ( (*(uint8_t *)(v26 + 53) & 2) != 0 )
           {
             *(uint8_t *)(v26 + 54) = 9;
-            sub_11F3CC(v3, v5 + 696 * v17, v4);
+            llc_ccm_encrypt(v3, v5 + 696 * v17, v4);
             *(uint8_t *)(v26 + 54) = v4;
           }
           *v16 = 0;
@@ -104,14 +104,14 @@ LABEL_20:
         {
           while ( *(uint32_t *)(v21 + 584) )
           {
-            v23 = rf_bus_mark_n100_d2d0(v21 + 584);
-            sub_13ABA8(v23, (uint8_t)i, v24);
+            v23 = mem_word_load(v21 + 584);
+            ll_conn_state_dispatch(v23, (uint8_t)i, v24);
           }
           if ( *(uint32_t *)(v21 + 624) )
           {
-            v27 = rf_bus_mark_n100_d2d0(v5 + 8 * (87 * v17 + 78 + i));
-            sub_13ABA8(v27, (uint8_t)i, v28);
-            msg_parse(dword_125CC4, v29, v30);
+            v27 = mem_word_load(v5 + 8 * (87 * v17 + 78 + i));
+            ll_conn_state_dispatch(v27, (uint8_t)i, v28);
+            event_dispatch(dword_125CC4, v29, v30);
             while ( 1 )
               ;
           }
@@ -120,28 +120,28 @@ LABEL_20:
         *v18 = 0;
       }
       if ( *((uint8_t *)v1 + 10) )
-        sub_125A44(*v1);
+        ke_task_init(*v1);
       if ( v1[3] )
       {
         v19 = dword_125CC0;
         do
         {
-          v20 = rf_bus_mark_n100_d2d0(v19);
-          rf_parse_descriptor_n3f8((uint16_t *)(v20 + 12));
+          v20 = mem_word_load(v19);
+          hci_acl_header_parse((uint16_t *)(v20 + 12));
         }
         while ( v1[3] );
       }
       result = *(uint8_t *)(v3 + 107);
       if ( *((uint8_t *)v1 + result + 20) && !v1[1] )
-        result = sub_12503C(result, *((uint8_t *)v1 + result + 20));
+        result = hci_packet_type_router(result, *((uint8_t *)v1 + result + 20));
       if ( *(uint8_t *)(v3 + 231) == 1 )
-        result = sub_120314(v3);
+        result = alloc_kernel_message(v3);
       goto LABEL_4;
     }
   }
   else
   {
-    result = sub_12F46C(dword_125CBC, dword_125CB8, 764);
+    result = mmio_clear_register(dword_125CBC, dword_125CB8, 764);
     v4 = v1[1] - 1;
     v1[1] = v4;
     if ( !v4 )
@@ -175,10 +175,10 @@ LABEL_4:
           v13 = *(uint32_t *)(v11 + 664);
         if ( v9 - v8[4] + v13 < 0 )
         {
-          result = scan_chan_setup_n134(v3);
+          result = isr_flag_dispatch(v3);
           if ( result )
           {
-            result = sub_118DC4(v6[35], dword_125CB0, (int)v6);
+            result = rf_channel_get(v6[35], dword_125CB0, (int)v6);
             if ( !result )
               break;
           }
@@ -190,7 +190,7 @@ LABEL_4:
     }
     v15 = v6[35];
     v6 += 696;
-    result = msg_parse(dword_125CB4, v15, v14);
+    result = event_dispatch(dword_125CB4, v15, v14);
   }
   while ( v6 != (uint8_t *)v10 );
   return result;

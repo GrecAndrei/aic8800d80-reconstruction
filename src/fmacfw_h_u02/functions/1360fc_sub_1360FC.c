@@ -14,13 +14,13 @@ extern uint32_t off_136144;
 extern uint32_t dword_13614C;
 extern uint32_t dword_136148;
 
-// sub_1360FC @ 0x1360fc, size 70 bytes
-int sub_1360FC()
+// is_bt_initialized @ 0x1360fc, size 70 bytes
+int is_bt_initialized()
 {
-  if ( **(int16_t **)off_136144 < 0 && sub_12CD48(7u) != 3 && sub_12CD48(7u) )
-    sub_12F32C(dword_13614C, dword_136148, 442);
-  if ( sub_12CD48(7u) == 3 )
-    sub_1366E0(3);
+  if ( **(int16_t **)off_136144 < 0 && hci_cmd_handler(7u) != 3 && hci_cmd_handler(7u) )
+    irq_disable_mmio_write(dword_13614C, dword_136148, 442);
+  if ( hci_cmd_handler(7u) == 3 )
+    acquire_lock_check_state(3);
   return 0;
 }
 

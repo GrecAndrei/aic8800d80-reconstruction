@@ -15,8 +15,8 @@ extern uint32_t dword_1100C4;
 extern uint32_t off_1100C8;
 extern uint32_t dword_1100CC;
 
-// sub_11007C @ 0x11007c, size 72 bytes
-int sub_11007C()
+// rx_channel_event @ 0x11007c, size 72 bytes
+int rx_channel_event()
 {
   void *v0; // r8
   int result; // r0
@@ -27,7 +27,7 @@ int sub_11007C()
   unsigned int v6; // r1
 
   v0 = off_1100D0;
-  result = sub_11E71C(dword_1100C4);
+  result = list_init(dword_1100C4);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 6) )
   {
     v2 = off_1100C8;
@@ -36,8 +36,8 @@ int sub_11007C()
     v5 = 0;
     do
     {
-      sub_10FA18(v3, 0x63Cu);
-      result = sub_11E724(v4);
+      list_iterate(v3, 0x63Cu);
+      result = check_kernel_state(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;

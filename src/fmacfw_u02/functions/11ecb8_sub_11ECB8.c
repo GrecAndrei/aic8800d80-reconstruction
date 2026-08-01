@@ -17,10 +17,10 @@ extern uint32_t off_11ED4C;
 extern uint32_t off_11ED50;
 extern uint32_t off_11ED54;
 
-// sub_11ECB8 @ 0x11ecb8, size 134 bytes
+// hci_uart_dma_rx_start @ 0x11ecb8, size 134 bytes
 // Doc: sub_121ECB8 [ipc]: Initializes shared buffer pointers and calls allocator
 // sub_121ECB8 [ipc]: Initializes shared buffer pointers and calls allocator
-int sub_11ECB8()
+int hci_uart_dma_rx_start()
 {
   uint32_t *v0; // r4
   int *v1; // r5
@@ -34,7 +34,7 @@ int sub_11ECB8()
   uint32_t *v9; // r3
   uint32_t _0[10]; // [sp+0h] [bp-18h] BYREF
 
-  clear_flags(16);
+  unknown_func_12d14c(16);
   v0 = off_11ED40;
   v1 = (int *)off_11ED44;
   v2 = 0;
@@ -51,7 +51,7 @@ int sub_11ECB8()
       {
         _0[4] = 0;
         _0[5] = v2;
-        sub_11EC94((int)_0);
+        hci_vendor_cmd_send((int)_0);
         v2 = 0;
       }
     }

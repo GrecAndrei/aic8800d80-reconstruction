@@ -20,10 +20,10 @@ extern uint32_t dword_12BBE4;
 extern uint32_t off_12BBE8;
 extern uint32_t off_12BBEC;
 
-// mmio_reg_clear_bits_n3c @ 0x12bb4c, size 126 bytes
-// Doc: mmio_reg_clear_bits_n3c [mmio]: Clear MMIO register bits with loop
-// mmio_reg_clear_bits_n3c [mmio]: Clear MMIO register bits with loop
-int *mmio_reg_clear_bits_n3c()
+// rf_clear_status @ 0x12bb4c, size 126 bytes
+// Doc: rf_clear_status [mmio]: Clear MMIO register bits with loop
+// rf_clear_status [mmio]: Clear MMIO register bits with loop
+int *rf_clear_status()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r0

@@ -40,8 +40,8 @@ extern uint32_t off_12020C;
 extern uint32_t dword_120210;
 extern uint32_t dword_120218;
 
-// sub_11FEF0 @ 0x11fef0, size 1108 bytes
-int  sub_11FEF0(int a1)
+// wlc_phy_attach @ 0x11fef0, size 1108 bytes
+int  wlc_phy_attach(int a1)
 {
   int v2; // r6
   int *v3; // r8
@@ -100,7 +100,7 @@ int  sub_11FEF0(int a1)
   v2 = dword_1201F4;
   v3 = (int *)(dword_1201F4 + 1320 * a1);
   v52 = 1320 * a1;
-  list_remove_node_d510(dword_1201F8, v3);
+  check_abort_flag_3(dword_1201F8, v3);
   if ( *((int **)off_1201FC + 8) == v3 )
     *((uint32_t *)off_1201FC + 8) = 0;
   v4 = *(uint8_t *)(v2 + 1320 * a1 + 106);
@@ -120,15 +120,15 @@ int  sub_11FEF0(int a1)
     do
     {
       if ( *(uint32_t *)(v14 + 584) )
-        sub_118D80((uint8_t)v18, v51 - 40, 0);
+        rf_calib_config((uint8_t)v18, v51 - 40, 0);
       if ( *(uint32_t *)(v14 + 624) )
-        sub_118D80((uint8_t)v18, v51, 0);
+        rf_calib_config((uint8_t)v18, v51, 0);
       if ( v3[318] || v3[308] )
       {
         v19 = v17 - 40;
-        v53 = list_count_d594(v17, v15);
-        v21 = list_count_d594(v17 - 40, v20);
-        sub_12ECB0(dword_120220, v53, v21);
+        v53 = list_length(v17, v15);
+        v21 = list_length(v17 - 40, v20);
+        ke_event_schedule(dword_120220, v53, v21);
       }
       else
       {
@@ -140,8 +140,8 @@ int  sub_11FEF0(int a1)
         *(uint32_t *)off_120224 = 1;
       }
       ++*v13;
-      sub_118D80((uint8_t)v18, v17, 0);
-      sub_118D80((uint8_t)v18, v19, 0);
+      rf_calib_config((uint8_t)v18, v17, 0);
+      rf_calib_config((uint8_t)v18, v19, 0);
       if ( *v13 )
       {
         v22 = *v13 - 1;
@@ -164,8 +164,8 @@ int  sub_11FEF0(int a1)
     v5 = v55;
     if ( *(uint32_t *)(v2 + 1320 * a1 + 1312) )
     {
-      v24 = list_count_d594(v52 + 1312 + v2, v15);
-      sub_12ECB0(dword_120228, v24, v25);
+      v24 = list_length(v52 + 1312 + v2, v15);
+      ke_event_schedule(dword_120228, v24, v25);
     }
     if ( (__get_CPSR() & 1) == 0 )
     {
@@ -173,7 +173,7 @@ int  sub_11FEF0(int a1)
       *(uint32_t *)off_120224 = 1;
     }
     ++*v13;
-    v26 = sub_118D80(5, v52 + 1312 + v2, 0);
+    v26 = rf_calib_config(5, v52 + 1312 + v2, 0);
     if ( *v13 )
     {
       v27 = *v13 - 1;
@@ -188,7 +188,7 @@ int  sub_11FEF0(int a1)
     v6 = v55[18];
     if ( !v55[18] )
     {
-      sub_121B14(v26);
+      mmio_clear_bit(v26);
 LABEL_6:
       v6 = (uint8_t)v5[18];
       v7 = (uint8_t)v5[17] + v6;
@@ -216,19 +216,19 @@ LABEL_6:
       }
       goto LABEL_6;
     }
-    if ( sub_101888() )
-      mmio_bit_toggle_0189c(0);
+    if ( rf_calibration_done() )
+      rf_control_set_bit3(0);
     v5 = off_120344;
     v40 = *((uint8_t *)off_120344 + 16);
     v41 = v2 + 1320 * v40;
     v42 = *(uint32_t *)(v41 + 72);
     *(uint32_t *)(v41 + 4) &= ~0x80u;
     if ( v42 )
-      v40 = sub_1287E0();
+      v40 = get_entry_by_index();
     v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
-      sub_121A94(v40, v42);
+      mmio_set_bit(v40, v42);
       v6 = (uint8_t)v5[18];
     }
     else
@@ -242,7 +242,7 @@ LABEL_6:
         v6 = *(uint32_t *)off_120358 & 0xF;
         if ( v6 )
         {
-          sub_12F6C4(dword_120360, dword_12035C, 472);
+          mmio_field_update(dword_120360, dword_12035C, 472);
           v44 = *v43;
           v6 = (uint8_t)v5[18];
         }
@@ -280,12 +280,12 @@ LABEL_42:
       *(uint32_t *)off_120238 = v38 | *v30;
       goto LABEL_9;
     }
-    sub_12F6C4(dword_120360, dword_12035C, 472);
+    mmio_field_update(dword_120360, dword_12035C, 472);
     v7 = (uint8_t)v5[17] + (uint8_t)v5[18];
     *(uint32_t *)off_120354 = *v30 | v30[1];
     goto LABEL_7;
   }
-  sub_12F6C4(dword_120360, dword_12035C, 472);
+  mmio_field_update(dword_120360, dword_12035C, 472);
   v46 = (uint8_t)v5[18];
   v47 = (uint8_t)v5[17];
   v48 = off_120368;
@@ -305,21 +305,21 @@ LABEL_7:
   if ( !v7 )
     *(uint32_t *)off_120204 = 0;
 LABEL_9:
-  timestamp_remove_058(v52 + 24 + v2);
-  timestamp_remove_058(v52 + 48 + v2);
+  ke_event_set_lock(v52 + 24 + v2);
+  ke_event_set_lock(v52 + 48 + v2);
   v8 = v2 + 1320 * a1;
   if ( *(uint8_t *)(v8 + 1224) )
   {
-    sub_12A270(*(uint8_t *)(v8 + 1225), 1);
+    rf_channel_state_get(*(uint8_t *)(v8 + 1225), 1);
     --v5[19];
   }
-  phy_tbl_lookup_by_idx(*(uint8_t *)(v2 + 1320 * a1 + 107));
+  tx_slot_state_get(*(uint8_t *)(v2 + 1320 * a1 + 107));
   if ( *((int **)off_120208 + 4) == v3 )
     *((uint32_t *)off_120208 + 4) = 0;
   *(uint32_t *)off_12020C = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
-    sub_11FA28();
-  memset_thunk(v3, 0, 0x528u);
+    si_secure_check();
+  memset_byte(v3, 0, 0x528u);
   v9 = v2 + 1320 * a1;
   v10 = dword_120210;
   *(uint8_t *)(v9 + 106) = 5;
@@ -328,7 +328,7 @@ LABEL_9:
   *(uint32_t *)(v9 + 52) = v10;
   *(uint8_t *)(v9 + 109) = 127;
   *(uint8_t *)(v9 + 110) = 127;
-  feature_guard_sdio(256, v11);
-  return list_push_tail(off_120200);
+  state_check_feature(256, v11);
+  return check_abort_flag(off_120200);
 }
 

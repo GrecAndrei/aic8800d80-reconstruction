@@ -22,8 +22,8 @@ extern uint32_t off_13425C;
 extern uint32_t off_134254;
 extern uint32_t dword_134260;
 
-// sub_1340B4 @ 0x1340b4, size 416 bytes
-int  sub_1340B4(int a1, int a2, int16_t a3, int16_t a4)
+// llm_state_check_ready @ 0x1340b4, size 416 bytes
+int  llm_state_check_ready(int a1, int a2, int16_t a3, int16_t a4)
 {
   int v4; // r9
   uint8_t *v8; // r5
@@ -44,10 +44,10 @@ int  sub_1340B4(int a1, int a2, int16_t a3, int16_t a4)
   int v24; // [sp+4h] [bp-4h] BYREF
 
   v4 = *(uint8_t *)(a2 + 61);
-  if ( msg_get_value(6u) != 10 )
+  if ( hci_cmd_send_short(6u) != 10 )
   {
-    v8 = (uint8_t *)rf_bus_setup_n3a8(6145, a4, a3, 1u);
-    if ( msg_get_value(6u) )
+    v8 = (uint8_t *)bt_buf_alloc(6145, a4, a3, 1u);
+    if ( hci_cmd_send_short(6u) )
     {
       *v8 = 8;
       v19 = 0;
@@ -65,10 +65,10 @@ int  sub_1340B4(int a1, int a2, int16_t a3, int16_t a4)
         v11 = (int16_t **)off_134278;
         if ( **(int16_t **)off_134278 < 0 )
         {
-          if ( (uint8_t)v10[116] == 255 || (sub_12F694(dword_13426C, dword_134268, 102), **v11 < 0) )
+          if ( (uint8_t)v10[116] == 255 || (mmio_irq_clear(dword_13426C, dword_134268, 102), **v11 < 0) )
           {
             if ( *(uint32_t *)(v9 + 1320 * v4 + 72) )
-              sub_12F694(dword_134270, dword_134268, 103);
+              mmio_irq_clear(dword_134270, dword_134268, 103);
           }
         }
         v12 = off_13427C;
@@ -81,7 +81,7 @@ int  sub_1340B4(int a1, int a2, int16_t a3, int16_t a4)
         v12 = off_13427C;
         v22 = dword_134264;
         *((uint8_t *)off_13427C + 33) = 1;
-        sub_12ECB0(v22, v21);
+        ke_event_schedule(v22, v21);
 LABEL_8:
         v13 = (int *)off_134258;
         v14 = off_13425C;
@@ -91,26 +91,26 @@ LABEL_8:
         *v13 = v15 | 0x10;
         v16 = *(uint8_t *)(a2 + 59);
         v14[14] = 1;
-        if ( v16 == 3 && sub_135CCC(a2 + 64, *(uint16_t *)(a2 + 54)) > 0 )
+        if ( v16 == 3 && hci_event_parse(a2 + 64, *(uint16_t *)(a2 + 54)) > 0 )
           *(uint8_t *)(a2 + 59) = 0;
         v12[4] = a2;
-        v17 = rf_bus_setup_n3a8(6146, a4, a3, 0x354u);
+        v17 = bt_buf_alloc(6146, a4, a3, 0x354u);
         v18 = *((uint8_t *)v12 + 33);
         v12[5] = v17;
         if ( v18 )
         {
-          sub_14380C(dword_134260, v9 + 1320 * *(uint8_t *)(a2 + 61) + 64, 6);
-          sub_134FA8(v9 + 1320 * *(uint8_t *)(a2 + 61), 0, 0);
+          memcpy_aligned(dword_134260, v9 + 1320 * *(uint8_t *)(a2 + 61) + 64, 6);
+          init_rf_config(v9 + 1320 * *(uint8_t *)(a2 + 61), 0, 0);
         }
         else
         {
           v23 = 0;
           v24 = 0;
-          sub_134690(&v23, &v24);
+          ull_scan_event_start(&v23, &v24);
           if ( v23 && v24 )
-            sub_1347DC(v23, v24, 0);
+            rx_security_check(v23, v24, 0);
           else
-            sub_1346DC();
+            wlan_hw_init();
         }
         *v8 = 0;
         v19 = 1;
@@ -120,7 +120,7 @@ LABEL_8:
       *v8 = 9;
     }
 LABEL_13:
-    sub_12CBB4((int)v8);
+    hci_evt_send((int)v8);
     return v19;
   }
   return 2;

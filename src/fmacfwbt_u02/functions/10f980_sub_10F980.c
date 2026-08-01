@@ -22,8 +22,8 @@ extern uint32_t dword_10FB2C;
 extern uint32_t dword_10FB20;
 extern uint32_t dword_10FB30;
 
-// sub_10F980 @ 0x10f980, size 396 bytes
-uint32_t * sub_10F980(int a1, unsigned int a2)
+// rx_process_item @ 0x10f980, size 396 bytes
+uint32_t * rx_process_item(int a1, unsigned int a2)
 {
   unsigned int v2; // r6
   uint32_t *v3; // r5
@@ -49,13 +49,13 @@ uint32_t * sub_10F980(int a1, unsigned int a2)
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    sub_10DA7C(dword_10FB34);
+    printf_wrapper(dword_10FB34);
     return 0;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    sub_10DA7C(dword_10FB24);
+    printf_wrapper(dword_10FB24);
     return v3;
   }
   v4 = *(uint16_t **)(a1 + 12);
@@ -118,7 +118,7 @@ LABEL_12:
   }
   else
   {
-    sub_10DA7C(dword_10FB1C, *((uint32_t *)v4 + 2));
+    printf_wrapper(dword_10FB1C, *((uint32_t *)v4 + 2));
     v10 = *v9;
     v14 = *v4 - 1;
     v15 = *v9 > (unsigned int)v3;
@@ -139,7 +139,7 @@ LABEL_18:
   v16 = *(uint32_t *)off_10FB18;
   if ( *(uint32_t *)off_10FB18 > (unsigned int)v3 || *((uint32_t *)off_10FB18 + 1) + v16 < (unsigned int)v3 )
   {
-    sub_10DA7C(dword_10FB28, v3);
+    printf_wrapper(dword_10FB28, v3);
     v11 = 0;
     goto LABEL_45;
   }
@@ -158,7 +158,7 @@ LABEL_45:
           __enable_irq();
       }
     }
-    sub_10DA7C(dword_10FB2C, v11, v3);
+    printf_wrapper(dword_10FB2C, v11, v3);
     return 0;
   }
   if ( v10 > (unsigned int)v3 )
@@ -168,7 +168,7 @@ LABEL_45:
   if ( (unsigned int)v3 < v16 )
   {
 LABEL_37:
-    sub_10DA7C(dword_10FB20, v3);
+    printf_wrapper(dword_10FB20, v3);
   }
   else
   {
@@ -186,7 +186,7 @@ LABEL_20:
   }
   else
   {
-    sub_10DA7C(dword_10FB30, v3);
+    printf_wrapper(dword_10FB30, v3);
   }
   if ( *v6 )
   {

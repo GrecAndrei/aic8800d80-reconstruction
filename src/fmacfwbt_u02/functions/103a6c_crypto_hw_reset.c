@@ -16,10 +16,10 @@ extern uint32_t off_103ABC;
 extern uint32_t off_103AB0;
 extern uint32_t dword_103AC0;
 
-// crypto_hw_reset @ 0x103a6c, size 66 bytes
-// Doc: crypto_hw_reset [ke]: Reset crypto HW engine via MMIO register clears
-// crypto_hw_reset [ke]: Reset crypto HW engine via MMIO register clears
-int crypto_hw_reset()
+// mac_irq_disable @ 0x103a6c, size 66 bytes
+// Doc: mac_irq_disable [ke]: Reset crypto HW engine via MMIO register clears
+// mac_irq_disable [ke]: Reset crypto HW engine via MMIO register clears
+int mac_irq_disable()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r1
@@ -32,7 +32,7 @@ int crypto_hw_reset()
   *v0 &= ~0x20000u;
   *v1 &= ~0x1000000u;
   *v2 &= 0xFFE7FFFF;
-  delay_us(10);
-  return feature_guard_sdio(0x2000, dword_103AC0);
+  timer_set(10);
+  return state_check_feature(0x2000, dword_103AC0);
 }
 

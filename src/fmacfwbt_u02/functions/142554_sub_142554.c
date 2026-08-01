@@ -15,8 +15,8 @@ extern uint32_t off_142660;
 extern uint32_t dword_142668;
 extern uint32_t dword_14266C;
 
-// sub_142554 @ 0x142554, size 266 bytes
-int  sub_142554(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// ll_state_field_check @ 0x142554, size 266 bytes
+int  ll_state_field_check(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v4; // r8
   int v5; // r9
@@ -54,7 +54,7 @@ int  sub_142554(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     v10 = (uint8_t)v6[116];
     v11 = dword_142668;
     v23 = v6[106];
-    memset_thunk(v24, 0, 0x48u);
+    memset_byte(v24, 0, 0x48u);
     v12 = a2[4];
     v13 = v6[107];
     BYTE2(v24[0]) = *(uint8_t *)off_142660;
@@ -74,15 +74,15 @@ int  sub_142554(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     v26 = v15 << v18;
     if ( (unsigned int)(v17 - 1) <= 1 )
     {
-      LODWORD(v22) = sub_12C068();
+      LODWORD(v22) = ke_critical_enter();
       v17 = a2[1];
       v27 = *(uint64_t *)(v4 + 1320 * v5 + 40) + (unsigned int)dword_14266C + v22;
     }
-    v19 = sub_141FDC(v4 + 1320 * v5, v11 + 696 * v10, (int)v24, v17) == 0;
+    v19 = build_scan_report(v4 + 1320 * v5, v11 + 696 * v10, (int)v24, v17) == 0;
   }
-  v20 = (int *)rf_bus_setup_n3a8(12289, a4, a3, 1u);
+  v20 = (int *)bt_buf_alloc(12289, a4, a3, 1u);
   *v20 = v19;
-  sub_12CBB4((int)v20);
+  hci_evt_send((int)v20);
   return 0;
 }
 

@@ -1,0 +1,1 @@
+{"fn": "sub_1151E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1151e8", "status": "ok", "name": "get_hw_info_1b", "params": [], "docstring": "Query 0x1fc API with arg 0x1b and return result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

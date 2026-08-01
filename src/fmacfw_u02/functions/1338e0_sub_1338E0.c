@@ -14,20 +14,20 @@ extern uint32_t off_133914;
 extern uint32_t dword_13391C;
 extern uint32_t dword_133918;
 
-// sub_1338E0 @ 0x1338e0, size 52 bytes
-int  sub_1338E0(int value)
+// patch_evt_check @ 0x1338e0, size 52 bytes
+int  patch_evt_check(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_133914 >= 0 || (value = msg_get_value(6u), value == 10) )
+  if ( **(int16_t **)off_133914 >= 0 || (value = rx_rate_field_parse(6u), value == 10) )
   {
-    sub_1347BC(value);
+    bt_is_controller_ready(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F46C(dword_13391C, dword_133918, 898);
-    sub_1347BC(v2);
+    v2 = mmio_clear_register(dword_13391C, dword_133918, 898);
+    bt_is_controller_ready(v2);
     return 0;
   }
 }

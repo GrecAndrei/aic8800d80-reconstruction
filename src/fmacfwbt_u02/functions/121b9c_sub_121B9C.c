@@ -12,8 +12,8 @@
 
 extern uint32_t dword_121BBC;
 
-// sub_121B9C @ 0x121b9c, size 32 bytes
-BOOL  sub_121B9C(int a1, int a2)
+// phy_read_band @ 0x121b9c, size 32 bytes
+BOOL  phy_read_band(int a1, int a2)
 {
   return *(uint8_t *)(696 * a1 + 12 * a2 + dword_121BBC + 453) != 33;
 }

@@ -81,8 +81,8 @@ extern uint32_t dword_10B4D8;
 extern uint32_t dword_10B4F0;
 extern uint32_t dword_10B4F4;
 
-// sub_10B2F0 @ 0x10b2f0, size 3884 bytes
-int  sub_10B2F0(
+// rf_calibration @ 0x10b2f0, size 3884 bytes
+int  rf_calibration(
         uint32_t *a1,
         int a2,
         int a3,
@@ -302,7 +302,7 @@ int  sub_10B2F0(
   int v219; // [sp+580h] [bp-14h]
   int v220; // [sp+584h] [bp-10h]
 
-  sub_12E948(dword_10B4BC, a2, a3);
+  alloc_tx_event(dword_10B4BC, a2, a3);
   v12 = dword_10B4E0;
   v13 = *(uint32_t *)off_10B4C0;
   v14 = dword_10B4F8;
@@ -310,7 +310,7 @@ int  sub_10B2F0(
   *(uint32_t *)off_10B4C0 &= ~1u;
   v193 = v13 & 1;
   v16 = (int *)v201;
-  sub_102BF8(0);
+  rf_clear_control_bit_a(0);
   v17 = dword_10B4DC;
   v18 = dword_10B4E8;
   for ( i = 0; i != 3; ++i )
@@ -356,13 +356,13 @@ LABEL_5:
     v16 += 16;
   }
   v25 = off_10B4C4;
-  sub_102C5C(0);
-  sub_12EB90(1, dword_10B4CC);
+  rf_clear_control_bit_b(0);
+  check_feature_flag(1, dword_10B4CC);
   v26 = dword_10B4D0;
   *v25 |= 0x400u;
   *v25 &= ~0x400u;
-  sub_12E948(v26, v27, v28);
-  sub_12EB90(1, dword_10B4D4);
+  alloc_tx_event(v26, v27, v28);
+  check_feature_flag(1, dword_10B4D4);
   v183 = a5;
   v195 = v25;
   while ( 2 )
@@ -371,7 +371,7 @@ LABEL_5:
     if ( v30 != 1 )
       goto LABEL_10;
     v60 = *v183;
-    sub_12EB90(1, dword_10B7D0);
+    check_feature_flag(1, dword_10B7D0);
     if ( v60 <= 0x1388 )
     {
       v61 = dword_10B804;
@@ -385,14 +385,14 @@ LABEL_5:
       v174 = v199;
       goto LABEL_29;
     }
-    v162 = sub_102A5C(v60);
+    v162 = check_magic_value(v60);
     v163 = (int)off_10C1B4;
     v170 = (uint8_t)(v162 + 1);
     v61 = dword_10C1B8 + 384 * v162;
     if ( (*((uint8_t *)off_10C1B4 + 1) & 1) == 0 || (v163 = *(char *)off_10C1B4, v163 >= 0) )
     {
       v164 = dword_10C1CC;
-      sub_12E948(dword_10C1BC, dword_10C1B8, v163);
+      alloc_tx_event(dword_10C1BC, dword_10C1B8, v163);
       v165 = 0;
       v63 = v170;
       while ( 1 )
@@ -404,14 +404,14 @@ LABEL_5:
         {
           v212 = 3;
           LOWORD(v217) = 2048;
-          sub_1064E0(v166, (int)v202, (int16_t *)&v217, 0, 1, 1, 1);
+          phy_read_table(v166, (int)v202, (int16_t *)&v217, 0, 1, 1, 1);
         }
         else
         {
           v167 = v170;
           v212 = 3;
           LOWORD(v217) = 2048;
-          sub_1064E0(v166, (int)v202, (int16_t *)&v217, 0, 1, v165, 1);
+          phy_read_table(v166, (int)v202, (int16_t *)&v217, 0, 1, v165, 1);
           if ( v165 == 2 )
           {
             v189 = 1;
@@ -451,8 +451,8 @@ LABEL_29:
     v199[5] = v69;
     v71 = v62;
     v72 = v62 - 4;
-    sub_109FF8(a1, v71, v70, v170, (int)v199, a6, a7, v167, a9, a10, a11);
-    sub_100644(0);
+    rf_tx_calibrate(a1, v71, v70, v170, (int)v199, a6, a7, v167, a9, a10, a11);
+    mmio_read32(0);
     v75 = *(uint32_t *)(v72 + 4);
     v74 = (unsigned int *)(v72 + 4);
     v73 = v75;
@@ -484,7 +484,7 @@ LABEL_29:
       {
         if ( v76 == 1 )
         {
-          sub_12EB90(1, dword_10C1C0);
+          check_feature_flag(1, dword_10C1C0);
           *(uint32_t *)off_10C1C4 |= 0x8000u;
           goto LABEL_35;
         }
@@ -494,10 +494,10 @@ LABEL_29:
       v79 = dword_10B7D4;
       v80 = HIWORD(v73) & 1;
       *(uint8_t *)(a3 + v168 + v76) = v80;
-      sub_12EB90(1, v79);
-      sub_1059A4(*v74, (int)&v217, v30);
-      sub_12EB90(1, dword_10B7D8);
-      sub_12EB90(1, dword_10B7DC);
+      check_feature_flag(1, v79);
+      dma_rx_init(*v74, (int)&v217, v30);
+      check_feature_flag(1, dword_10B7D8);
+      check_feature_flag(1, dword_10B7DC);
       if ( v80 && v78 < v77 )
       {
         v152 = v61 + 4 * (v78 + 0x3FFFFFFF);
@@ -530,7 +530,7 @@ LABEL_155:
               {
                 *v154 = v153 | 0xC08000;
                 v177 = v158;
-                sub_12EB90(1, v156);
+                check_feature_flag(1, v156);
                 v156 = dword_10C1C8;
                 v158 = v177;
               }
@@ -570,14 +570,14 @@ LABEL_35:
         if ( v83 )
           break;
 LABEL_36:
-        sub_12EB90(1, dword_10B7E0);
+        check_feature_flag(1, dword_10B7E0);
         if ( v76 == 2 )
           goto LABEL_37;
       }
     }
 LABEL_37:
     v188 = dword_10B7E4;
-    sub_12E948(dword_10B7E8, v81, v82);
+    alloc_tx_event(dword_10B7E8, v81, v82);
     v84 = flt_10B7F4;
     v182 = (int *)(dword_10B7EC + 4 * v63);
     v85 = 0;
@@ -587,7 +587,7 @@ LABEL_37:
     v187 = (unsigned int *)(v61 + 64);
     while ( 2 )
     {
-      sub_12EB90(1, dword_10B7F8);
+      check_feature_flag(1, dword_10B7F8);
       sub_100200(v200, 0, 0x40u);
       v216 = 1.0;
       v210 = v84;
@@ -731,25 +731,25 @@ LABEL_37:
         {
           if ( *v184 )
           {
-            sub_12EB90(1, dword_10BA74);
+            check_feature_flag(1, dword_10BA74);
           }
           else
           {
             v105 = dword_10BA6C;
             *v182 = (uint8_t)v102;
             *v184 = 1;
-            sub_12EB90(1, v105);
+            check_feature_flag(1, v105);
           }
           v106 = *v182;
-          v107 = sub_142894(*v182);
-          v108 = sub_142BBC(v107, HIDWORD(v107), 0, dword_10BA70);
-          v109 = sub_142F2C(v108);
-          v97 = sub_12D5A0(v109) * 20.0;
+          v107 = signed_int_to_double(*v182);
+          v108 = double_compare_core(v107, HIDWORD(v107), 0, dword_10BA70);
+          v109 = double_to_int(v108);
+          v97 = log_float_converted(v109) * 20.0;
           v178 = v169;
-          v110 = sub_12D3E0((float)-v97 / 20.0);
-          v111 = sub_1428B8((float)v106 * v110);
-          v112 = sub_1424DC(v111);
-          v96 = sub_142E9C(v112, HIDWORD(v112));
+          v110 = load_version_string((float)-v97 / 20.0);
+          v111 = float_to_double((float)v106 * v110);
+          v112 = double_exp_check(v111);
+          v96 = double_to_float(v112, HIDWORD(v112));
           v95 = v96 | v185 | 0xFFC000;
           v98 = 1;
         }
@@ -775,11 +775,11 @@ LABEL_37:
       v61 = v190;
       v188 = v95;
       v11 = v96;
-      sub_12EB90(1, dword_10BA7C);
+      check_feature_flag(1, dword_10BA7C);
       if ( v178 == 255 )
       {
-        sub_12E948(dword_10C1A8, v113, v114);
-        sub_12E948(dword_10C1AC, 255, v161);
+        alloc_tx_event(dword_10C1A8, v113, v114);
+        alloc_tx_event(dword_10C1AC, 255, v161);
         v11 = 100;
         v145 = v175;
         if ( v175 != 255 )
@@ -788,14 +788,14 @@ LABEL_37:
       }
       if ( v175 != 255 && v176 != 255 )
         goto LABEL_80;
-      sub_12E948(dword_10BE38, v113, v114);
+      alloc_tx_event(dword_10BE38, v113, v114);
       v145 = v175;
       if ( v175 == 255 )
 LABEL_167:
-        sub_12E948(dword_10C1B0, v145, v144);
+        alloc_tx_event(dword_10C1B0, v145, v144);
 LABEL_130:
       if ( v176 == 255 )
-        sub_12E948(dword_10BE3C, 255, v144);
+        alloc_tx_event(dword_10BE3C, 255, v144);
 LABEL_80:
       if ( v178 > 15 )
         v178 -= 32;
@@ -803,7 +803,7 @@ LABEL_80:
         v175 -= 32;
       if ( v176 > 15 )
         v176 -= 32;
-      sub_12EB90(1, dword_10BA80);
+      check_feature_flag(1, dword_10BA80);
       v115 = v209;
       if ( v209 <= SHIDWORD(v205) )
       {
@@ -812,13 +812,13 @@ LABEL_80:
         do
         {
           *v117++ = (float)(v208 - v115) * v216;
-          sub_12EB90(1, v116);
+          check_feature_flag(1, v116);
           ++v115;
         }
         while ( SHIDWORD(v205) >= v115 );
       }
       v167 = v63;
-      sub_1064E0(v95, (int)v202, (int16_t *)&v197, 0, v189, v171, 0);
+      phy_read_table(v95, (int)v202, (int16_t *)&v197, 0, v189, v171, 0);
       v118 = v207;
       v119 = (int16_t)v202[v208];
       v120 = (int16_t)v202[(uint32_t)v207 + 16];
@@ -831,16 +831,16 @@ LABEL_80:
         {
           v150 = *(int16_t *)(HIDWORD(v118) + 2);
           HIDWORD(v118) += 2;
-          sub_105070(v150, v119, (int)v202);
+          min_or_max(v150, v119, (int)v202);
           v151 = HIDWORD(v205);
           *(float *)v149++ = v203;
           LODWORD(v118) = v118 + 1;
         }
         while ( v151 >= (int)v118 );
         v122 = (float)(v175 - v178) - *(float *)&v200[v207];
-        sub_12EB90(1, dword_10C198);
-        sub_105118(v122, v11, (int)v202);
-        sub_12EB90(1, dword_10C19C);
+        check_feature_flag(1, dword_10C198);
+        div_by_20(v122, v11, (int)v202);
+        check_feature_flag(1, dword_10C19C);
         v118 = v207;
       }
       else
@@ -854,14 +854,14 @@ LABEL_80:
         do
         {
           v147 = *v146++;
-          sub_12EB90(1, dword_10C190);
-          sub_105070(v147, v120, (int)v202);
+          check_feature_flag(1, dword_10C190);
+          min_or_max(v147, v120, (int)v202);
           v148 = HIDWORD(v207);
           *(float *)v118 = v203;
           LODWORD(v118) = v118 + 4;
           v123 = (float)(v176 - v175) - *(float *)&v200[v148];
           ++HIDWORD(v118);
-          sub_12EB90(1, dword_10C194);
+          check_feature_flag(1, dword_10C194);
         }
         while ( (int)v207 > SHIDWORD(v118) );
         HIDWORD(v118) = HIDWORD(v207);
@@ -880,8 +880,8 @@ LABEL_80:
         {
           v126 = (int16_t)*(uint16_t *)HIDWORD(v118);
           HIDWORD(v118) += 2;
-          sub_12EB90(1, v124);
-          sub_105070(v126, v121, (int)v202);
+          check_feature_flag(1, v124);
+          min_or_max(v126, v121, (int)v202);
           v127 = HIDWORD(v207);
           *(float *)v125++ = v203;
           LODWORD(v118) = v118 + 1;
@@ -914,9 +914,9 @@ LABEL_80:
             {
               v85 = v130 - v178;
               v139 = (float)((float)((float)((float)(v130 - v178) - v137) + v97) + v131) + *((float *)&v211 + v136);
-              sub_12EB90(1, dword_10BE1C);
-              sub_12EB90(1, dword_10BE20);
-              sub_105118(v139, v11, (int)v202);
+              check_feature_flag(1, dword_10BE1C);
+              check_feature_flag(1, dword_10BE20);
+              div_by_20(v139, v11, (int)v202);
             }
             else
             {
@@ -925,33 +925,33 @@ LABEL_80:
                 v85 = v130 - v176;
                 v132 = (float)((float)((float)((float)((float)((float)(v130 - v176) - v137) + v123) + v122) + v97) + v131)
                      + *((float *)&v211 + v136);
-                sub_12EB90(1, dword_10BE14);
-                sub_12EB90(1, dword_10BE18);
+                check_feature_flag(1, dword_10BE14);
+                check_feature_flag(1, dword_10BE18);
               }
               else
               {
                 v85 = v130 - v175;
                 v132 = (float)((float)((float)((float)((float)(v130 - v175) - v137) + v122) + v97) + v131)
                      + *((float *)&v211 + v136);
-                sub_12EB90(1, dword_10BE08);
-                sub_12EB90(1, dword_10BE0C);
+                check_feature_flag(1, dword_10BE08);
+                check_feature_flag(1, dword_10BE0C);
               }
-              sub_105118(v132, v11, (int)v202);
+              div_by_20(v132, v11, (int)v202);
             }
-            sub_12EB90(1, v128);
+            check_feature_flag(1, v128);
             if ( v173 == v130 )
             {
-              sub_12EB90(1, dword_10BE2C);
-              sub_105070(v204, *(uint8_t *)off_10BE30, (int)v202);
+              check_feature_flag(1, dword_10BE2C);
+              min_or_max(v204, *(uint8_t *)off_10BE30, (int)v202);
               v129 = v203;
             }
           }
           else
           {
-            sub_12EB90(1, dword_10BE10);
-            sub_105118(v129, *(uint8_t *)(v61 + 4 * v135), (int)v202);
+            check_feature_flag(1, dword_10BE10);
+            div_by_20(v129, *(uint8_t *)(v61 + 4 * v135), (int)v202);
           }
-          sub_12EB90(1, v128);
+          check_feature_flag(1, v128);
           *(uint8_t *)v138 = v204;
           if ( v170 || v171 || v136 != 15 )
           {
@@ -962,22 +962,22 @@ LABEL_108:
           }
           break;
         }
-        sub_12EB90(1, dword_10BE24);
+        check_feature_flag(1, dword_10BE24);
         v167 = 0;
-        sub_1064E0(*v138, (int)v202, (int16_t *)&v197, 1, v189, 0, 0);
-        sub_105070(v202[15], v119, (int)v202);
+        phy_read_table(*v138, (int)v202, (int16_t *)&v197, 1, v189, 0, 0);
+        min_or_max(v202[15], v119, (int)v202);
         v140 = v203;
-        sub_12EB90(1, dword_10BE20);
-        v191 = sub_1428B8((float)v85 - v140);
-        if ( !sub_142E88(v191, HIDWORD(v191), dword_10BDF8, dword_10BDFC)
-          && !sub_142E4C(v191, HIDWORD(v191), dword_10BE00, dword_10BE04) )
+        check_feature_flag(1, dword_10BE20);
+        v191 = float_to_double((float)v85 - v140);
+        if ( !double_greater_than(v191, HIDWORD(v191), dword_10BDF8, dword_10BDFC)
+          && !double_less_than(v191, HIDWORD(v191), dword_10BE00, dword_10BE04) )
         {
-          sub_12EB90(1, dword_10C1A0);
+          check_feature_flag(1, dword_10C1A0);
           goto LABEL_108;
         }
-        sub_105118((float)v85 - v140, v204, (int)v202);
+        div_by_20((float)v85 - v140, v204, (int)v202);
         --v130;
-        sub_12EB90(1, v128);
+        check_feature_flag(1, v128);
         *(uint8_t *)v138 = v204;
         if ( v130 != -17 )
           continue;
@@ -994,7 +994,7 @@ LABEL_120:
         continue;
       break;
     }
-    sub_12E948(dword_10BE28, v133, v141);
+    alloc_tx_event(dword_10BE28, v133, v141);
 LABEL_10:
     v183 += 4;
     if ( v183 != a5 + 28 )
@@ -1010,8 +1010,8 @@ LABEL_10:
   *(uint32_t *)off_10B4C4 |= 0x400u;
   v37 = *v31 & 0xFFFFFBFF;
   *v31 = v37;
-  sub_12E948(v32, v29, v37);
-  sub_102BF8(0);
+  alloc_tx_event(v32, v29, v37);
+  rf_clear_control_bit_a(0);
   v38 = dword_10B4E8;
   v39 = (int *)v201;
   v40 = 0;
@@ -1059,10 +1059,10 @@ LABEL_15:
       continue;
     break;
   }
-  sub_102C5C(0);
+  rf_clear_control_bit_b(0);
   v46 = dword_10B4F0;
   *(uint32_t *)off_10B4C0 = *(uint32_t *)off_10B4C0 & 0xFFFFFFFE | v193;
-  sub_12EB90(1, v46);
-  return sub_12E948(dword_10B4F4, v47, v48);
+  check_feature_flag(1, v46);
+  return alloc_tx_event(dword_10B4F4, v47, v48);
 }
 

@@ -21,8 +21,8 @@ extern uint32_t dword_123428;
 extern uint32_t dword_12342C;
 extern uint32_t dword_123434;
 
-// sub_1231B0 @ 0x1231b0, size 612 bytes
-int  sub_1231B0(int a1, int a2, int a3, int a4)
+// bt_patch_apply @ 0x1231b0, size 612 bytes
+int  bt_patch_apply(int a1, int a2, int a3, int a4)
 {
   int v4; // r0
   int v6; // r1
@@ -58,7 +58,7 @@ int  sub_1231B0(int a1, int a2, int a3, int a4)
   v4 = dword_123418;
   v6 = dword_12341C;
   *(uint8_t *)off_123414 = 1;
-  sub_12E948(v4, v6, 708);
+  alloc_tx_event(v4, v6, 708);
   v33 = 704;
   v32 = 703;
   v31 = 702;
@@ -71,9 +71,9 @@ int  sub_1231B0(int a1, int a2, int a3, int a4)
   v28 = 640;
   v25 = 504;
   v26 = 520;
-  sub_12E948(dword_123420, 0, 4);
+  alloc_tx_event(dword_123420, 0, 4);
   v21 = 112;
-  sub_12E948(dword_123424, 32, 44);
+  alloc_tx_event(dword_123424, 32, 44);
   v8 = a2 + 520;
   if ( *(uint8_t *)(a2 + 702) )
   {
@@ -88,7 +88,7 @@ int  sub_1231B0(int a1, int a2, int a3, int a4)
         v13 = *(uint16_t *)(v11 + 2);
         v11 += 2;
         v12 = v13;
-        sub_12E948(v10, v13, v8);
+        alloc_tx_event(v10, v13, v8);
         if ( v13 <= 0x89 )
           break;
         if ( v12 == 5120 )
@@ -106,7 +106,7 @@ int  sub_1231B0(int a1, int a2, int a3, int a4)
           goto LABEL_12;
         }
 LABEL_16:
-        sub_12E948(dword_123430, v12, v14);
+        alloc_tx_event(dword_123430, v12, v14);
         if ( *(uint8_t *)(a2 + 702) <= ++v9 )
           goto LABEL_9;
       }
@@ -165,10 +165,10 @@ LABEL_16:
       {
         v21 = *(uint16_t *)(a2 + 664);
         v22 = *(uint16_t *)(a2 + 666);
-        sub_12E948(dword_123428, *(uint32_t *)(a2 + 704), *(uint8_t *)(a2 + 668));
+        alloc_tx_event(dword_123428, *(uint32_t *)(a2 + 704), *(uint8_t *)(a2 + 668));
         if ( *(uint32_t *)(a2 + 704) )
         {
-          sub_11F680((int *)(a2 + 662), *(uint8_t *)(a2 + 660), *(uint8_t *)(a2 + 668), v36);
+          transmit_radio_packet((int *)(a2 + 662), *(uint8_t *)(a2 + 660), *(uint8_t *)(a2 + 668), v36);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }
@@ -186,18 +186,18 @@ LABEL_16:
         v18 = 0;
 LABEL_12:
         v34 = v16;
-        v19 = sub_12CDEC(v12, v17);
+        v19 = hci_event_handler(v12, v17);
         v20 = (void ( *)(unsigned int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int))v19;
         if ( v19 )
         {
-          sub_12E948(dword_12342C, v19, v12);
+          alloc_tx_event(dword_12342C, v19, v12);
           v20(v12, v18, v17, a4, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }
         else
         {
-          sub_12E948(dword_123434, v12, v34);
+          alloc_tx_event(dword_123434, v12, v34);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }

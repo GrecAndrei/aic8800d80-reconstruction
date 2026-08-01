@@ -12,8 +12,8 @@
 
 extern uint32_t off_130C4C;
 
-// sub_130C0C @ 0x130c0c, size 64 bytes
-int  sub_130C0C(int a1, int a2, int16_t a3, char a4, int16_t a5)
+// build_addba_response @ 0x130c0c, size 64 bytes
+int  build_addba_response(int a1, int a2, int16_t a3, char a4, int16_t a5)
 {
   uint8_t *v5; // r4
 

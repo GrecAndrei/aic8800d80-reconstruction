@@ -12,12 +12,12 @@
 
 extern uint32_t off_1210F4;
 
-// mmio_init_reset @ 0x1210e4, size 14 bytes
-// Doc: mmio_init_reset [mmio]: Initialize MMIO control register 0x40320038
-// mmio_init_reset [mmio]: Initialize MMIO control register 0x40320038
-int mmio_init_reset()
+// set_clock_divisor @ 0x1210e4, size 14 bytes
+// Doc: set_clock_divisor [mmio]: Initialize MMIO control register 0x40320038
+// set_clock_divisor [mmio]: Initialize MMIO control register 0x40320038
+int set_clock_divisor()
 {
   *(uint32_t *)off_1210F4 = 48;
-  return sub_12CD34(0);
+  return rx_phy_status_parse(0);
 }
 

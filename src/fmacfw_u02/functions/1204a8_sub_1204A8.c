@@ -16,8 +16,8 @@ extern uint32_t off_12053C;
 extern uint32_t off_120540;
 extern uint32_t off_120544;
 
-// sub_1204A8 @ 0x1204a8, size 138 bytes
-int sub_1204A8()
+// read_hw_register @ 0x1204a8, size 138 bytes
+int read_hw_register()
 {
   int result; // r0
   uint32_t *v1; // r1

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_scan", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12112e4", "status": "ok", "name": "rf_bus_scan", "params": [], "docstring": "Scans RF bus by iterating index from 1 with calls to 0x111274", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_scan", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12112e4", "status": "ok", "name": "timer_init", "params": [], "docstring": "Scans RF bus by iterating index from 1 with calls to 0x111274", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

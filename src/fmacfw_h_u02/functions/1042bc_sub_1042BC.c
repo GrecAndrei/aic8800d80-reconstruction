@@ -14,8 +14,8 @@ extern uint32_t dword_100000;
 extern uint32_t dword_1043C0;
 extern uint32_t dword_1043C4;
 
-// sub_1042BC @ 0x1042bc, size 258 bytes
-int sub_1042BC()
+// ke_acquire_lock @ 0x1042bc, size 258 bytes
+int ke_acquire_lock()
 {
   BOOL v0; // r1
   int v1; // r2
@@ -65,8 +65,8 @@ int sub_1042BC()
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    sub_12EB90(1, dword_1043C0);
-  sub_12EB90(1, dword_1043C4);
+    check_feature_flag(1, dword_1043C0);
+  check_feature_flag(1, dword_1043C4);
   do
   {
     v12 = *v2;

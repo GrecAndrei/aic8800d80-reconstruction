@@ -19,8 +19,8 @@ extern uint32_t off_1238D0;
 extern uint32_t off_1238D8;
 extern uint32_t off_1238D4;
 
-// sub_12373C @ 0x12373c, size 386 bytes
-int sub_12373C()
+// wait_for_hw_event @ 0x12373c, size 386 bytes
+int wait_for_hw_event()
 {
   char *v0; // r5
   uint8_t *v1; // r8
@@ -53,21 +53,21 @@ int sub_12373C()
   v2 = (int *)dword_1238C4;
   while ( 1 )
   {
-    v4 = sub_11798C();
-    result = sub_11E628(0x4000);
+    v4 = timer_event_check();
+    result = enter_critical_section(0x4000);
     if ( !v4 )
       break;
-    sub_1179C8(v4);
+    rf_cal_offset_apply(v4);
     v6 = *(uint8_t *)(v4 + 65);
     *v0 = v6;
     v0[1] = v6;
     v7 = *(uint32_t *)(v4 + 28);
-    v8 = chip_rev_id_get();
+    v8 = chip_info_nibble0_get();
     v9 = *v0;
     if ( v8 == 1 )
       v9 = (int)((v9 + v0[1] + ((unsigned int)(v9 + v0[1]) >> 31)) << 23) >> 24;
     *v1 = v9;
-    if ( is_flag_set_n645c() || !*(uint8_t *)off_1238C8 )
+    if ( rf_flag_is_set() || !*(uint8_t *)off_1238C8 )
     {
       v10 = v2[1];
       v17 = *v2;
@@ -75,8 +75,8 @@ int sub_12373C()
       v11 = *(uint32_t *)(dword_1238CC + 4);
       v19 = *(uint32_t *)dword_1238CC;
       v20 = v11;
-      sub_1282E8(&v21, &v17, 6);
-      sub_1282E8(v24, &v19, 6);
+      memcpy_large(&v21, &v17, 6);
+      memcpy_large(v24, &v19, 6);
       v12 = *(uint16_t **)(v7 + 8);
       v13 = (uint16_t)v12[2];
       if ( (*v12 & 0x80) != 0 )
@@ -96,13 +96,13 @@ int sub_12373C()
             {
               case 2:
                 if ( LOBYTE(v12[v14]) == 1 && v15[1] == *(uint8_t *)off_1238D8 )
-                  sub_123394((int)v15);
+                  increment_debug_counter((int)v15);
                 break;
               case 4:
-                rf_chan_band_parse(v15);
+                handle_cmd_type2(v15);
                 break;
               case 1:
-                sub_1234E4();
+                read_irq_status();
                 break;
             }
           }
@@ -118,16 +118,16 @@ int sub_12373C()
         if ( *(uint8_t *)off_1238D0 )
         {
           if ( *(uint8_t *)off_1238D0 == 3 && LOBYTE(v12[v14]) == 129 )
-            rf_event_check_n3cc(v15);
+            check_chip_version(v15);
         }
         else if ( LOBYTE(v12[v14]) == 128 )
         {
-          parse_subframe_header(v15);
+          validate_signature(v15);
         }
       }
     }
 LABEL_4:
-    rf_table_lookup_handler(v4);
+    ll_event_timer_handler(v4);
   }
   *(uint32_t *)off_1238D4 |= 0x10000u;
   return result;

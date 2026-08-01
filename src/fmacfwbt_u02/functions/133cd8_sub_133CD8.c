@@ -18,10 +18,10 @@ extern uint32_t off_133DEC;
 extern uint32_t dword_133DF0;
 extern uint32_t dword_133DF4;
 
-// sub_133CD8 @ 0x133cd8, size 266 bytes
+// util_reset @ 0x133cd8, size 266 bytes
 // Doc: sub_1233CD8 [unknown]: Unknown helper in fmacfwbt image (reconstructed flow)
 // sub_1233CD8 [unknown]: Unknown helper in fmacfwbt image (reconstructed flow)
-int sub_133CD8()
+int util_reset()
 {
   int v0; // r2
   unsigned int v1; // r3
@@ -32,31 +32,31 @@ int sub_133CD8()
   int v7; // [sp+0h] [bp-Ch] BYREF
   int v8; // [sp+4h] [bp-8h] BYREF
 
-  if ( **(int16_t **)off_133DE4 < 0 && msg_get_value(6u) != 4 && msg_get_value(6u) != 10 )
-    sub_12F694(dword_133DFC, dword_133DF8, 697);
-  if ( msg_get_value(6u) == 10 )
+  if ( **(int16_t **)off_133DE4 < 0 && hci_cmd_send_short(6u) != 4 && hci_cmd_send_short(6u) != 10 )
+    mmio_irq_clear(dword_133DFC, dword_133DF8, 697);
+  if ( hci_cmd_send_short(6u) == 10 )
   {
     v4 = off_133DE8;
     v5 = *((uint8_t *)off_133DE8 + 4);
     *(uint32_t *)(*((uint32_t *)off_133DE8 + 2) + 472) = 0;
     if ( v5 )
     {
-      message_dispatch_n84(6148, 13, 6);
+      hci_evt_alloc_send(6148, 13, 6);
       v4[4] = 0;
     }
-    sub_12CBB4(*(uint32_t *)v4 + 12);
+    hci_evt_send(*(uint32_t *)v4 + 12);
     v6 = (uint8_t)v4[33];
     *(uint32_t *)v4 = 0;
     if ( v6 )
     {
       v7 = 0;
       v8 = 0;
-      sub_134690(&v7, &v8);
-      sub_1347DC(v7, v8, 0);
+      ull_scan_event_start(&v7, &v8);
+      rx_security_check(v7, v8, 0);
     }
     else
     {
-      rf_bus_mark_n_3b7(6u, 0);
+      hci_cmd_send(6u, 0);
     }
     return 0;
   }
@@ -68,21 +68,21 @@ int sub_133CD8()
     {
       if ( (*(uint32_t *)(v0 + 48) & 0x40) != 0 )
       {
-        fmacfwbt_init_handler();
+        rf_lookup_alt_by_index();
         v2 = off_133DEC;
         if ( *((uint8_t *)off_133DEC + 13) )
         {
 LABEL_6:
           if ( (v2[15] & 1) != 0 )
           {
-            rf_level_apply_80c(6155, 6, dword_133DF0);
-            mmio_reg_init_n0d08c();
+            patch_aware_dispatch(6155, 6, dword_133DF0);
+            clock_disable();
           }
         }
         return 0;
       }
 LABEL_5:
-      sub_135384(1, 0);
+      rf_lookup_by_index(1, 0);
       v2 = off_133DEC;
       if ( *((uint8_t *)off_133DEC + 13) )
         goto LABEL_6;
@@ -92,12 +92,12 @@ LABEL_5:
       goto LABEL_5;
     if ( v1 == 3 )
     {
-      sub_135A6C(dword_133DF4);
+      rf_check_status(dword_133DF4);
       if ( *((uint8_t *)off_133DEC + 13) )
         *((uint8_t *)off_133DEC + 15) |= 2u;
       return 0;
     }
-    sub_135020(1);
+    event_dispatch(1);
     return 0;
   }
 }

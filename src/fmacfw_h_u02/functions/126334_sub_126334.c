@@ -14,8 +14,8 @@ extern uint32_t dword_12643C;
 extern uint32_t dword_126438;
 extern uint32_t dword_126440;
 
-// sub_126334 @ 0x126334, size 258 bytes
-BOOL  sub_126334(int a1, int a2, int a3)
+// llc_pdu_check @ 0x126334, size 258 bytes
+BOOL  llc_pdu_check(int a1, int a2, int a3)
 {
   int v6; // r5
   int v7; // r3
@@ -53,7 +53,7 @@ BOOL  sub_126334(int a1, int a2, int a3)
   }
   if ( !a3 || *(uint8_t *)(a3 + 10) == 255 )
   {
-    v14 = sub_101944() + 14000;
+    v14 = get_timeout_1000() + 14000;
   }
   else
   {
@@ -78,8 +78,8 @@ BOOL  sub_126334(int a1, int a2, int a3)
       v8 = v9 >> 1;
     }
     v10 = *(uint32_t *)(a3 + 4);
-    v11 = v10 + 10000 + sub_101944();
-    v12 = sub_12A058(a1, *(uint8_t *)(a3 + 11));
+    v11 = v10 + 10000 + get_timeout_1000();
+    v12 = rf_check_cal_state(a1, *(uint8_t *)(a3 + 11));
     v13 = v12 - a2;
     if ( v12 - a2 + v8 < 0 )
     {
@@ -95,6 +95,6 @@ BOOL  sub_126334(int a1, int a2, int a3)
     else
       v14 = v11 + 4000 - a2;
   }
-  return sub_12A4B4(v6, 1, 0, 1, 0, v14, a2) != 255;
+  return lll_conn_state_match(v6, 1, 0, 1, 0, v14, a2) != 255;
 }
 

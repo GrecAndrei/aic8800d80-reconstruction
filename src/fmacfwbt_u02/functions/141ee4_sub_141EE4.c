@@ -13,8 +13,8 @@
 extern uint32_t dword_141F68;
 extern uint32_t off_141F6C;
 
-// sub_141EE4 @ 0x141ee4, size 130 bytes
-uint8_t * sub_141EE4(int a1)
+// build_tx_packet @ 0x141ee4, size 130 bytes
+uint8_t * build_tx_packet(int a1)
 {
   int v2; // r5
   int16_t v3; // r3
@@ -27,7 +27,7 @@ uint8_t * sub_141EE4(int a1)
   unsigned uint64_t v10; // r0
 
   v2 = *(uint8_t *)(a1 + 47);
-  timestamp_remove_058(a1 + 52);
+  ke_event_set_lock(a1 + 52);
   v3 = *(uint16_t *)a1;
   v4 = dword_141F68;
   result = off_141F6C;
@@ -42,13 +42,13 @@ uint8_t * sub_141EE4(int a1)
     for ( i = 1; ; i = (uint8_t)(i + 1) )
     {
       v9 = v7 - *(uint64_t *)(v6 + 40);
-      LODWORD(v10) = sub_12C068();
+      LODWORD(v10) = ke_critical_enter();
       if ( v9 >= v10 )
         break;
       v7 = *(uint64_t *)(a1 + 24) + *(unsigned int *)(a1 + 16);
       *(uint64_t *)(a1 + 24) = v7;
     }
-    return (uint8_t *)sub_141DE8(a1, i);
+    return (uint8_t *)get_connection_env(a1, i);
   }
   return result;
 }

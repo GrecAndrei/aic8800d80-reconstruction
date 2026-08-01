@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12ADD4 @ 0x12add4, size 30 bytes
-uint8_t * sub_12ADD4(uint8_t *result)
+// bt_hci_fill_cmd @ 0x12add4, size 30 bytes
+uint8_t * bt_hci_fill_cmd(uint8_t *result)
 {
   *result = -35;
   result[2] = 80;

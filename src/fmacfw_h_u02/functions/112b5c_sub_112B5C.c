@@ -12,8 +12,8 @@
 
 extern uint32_t off_112B64;
 
-// sub_112B5C @ 0x112b5c, size 6 bytes
-int sub_112B5C()
+// phy_get_status @ 0x112b5c, size 6 bytes
+int phy_get_status()
 {
   return *(uint8_t *)off_112B64;
 }

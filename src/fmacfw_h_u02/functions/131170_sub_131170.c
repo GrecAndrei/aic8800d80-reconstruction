@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131170 @ 0x131170, size 38 bytes
-uint8_t * sub_131170(uint8_t *a1, int a2, uint8_t *a3)
+// decode_adv_type @ 0x131170, size 38 bytes
+uint8_t * decode_adv_type(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   unsigned int v5; // r3
 
-  result = sub_12DE40(a1, a2);
+  result = emit_percent_12de40(a1, a2);
   if ( result )
   {
     v5 = result[3];

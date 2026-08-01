@@ -14,10 +14,10 @@ extern uint32_t dword_1112F0;
 extern uint32_t dword_1112E8;
 extern uint32_t dword_1112EC;
 
-// log_enqueue @ 0x111270, size 118 bytes
-// Doc: log_enqueue [util]: Enqueue a log entry with arg=4, saves r0/r1/r2 and calls allocator
-// log_enqueue [util]: Enqueue a log entry with arg=4, saves r0/r1/r2 and calls allocator
-int  log_enqueue(char a1, int a2, int a3)
+// mutex_lock @ 0x111270, size 118 bytes
+// Doc: mutex_lock [util]: Enqueue a log entry with arg=4, saves r0/r1/r2 and calls allocator
+// mutex_lock [util]: Enqueue a log entry with arg=4, saves r0/r1/r2 and calls allocator
+int  mutex_lock(char a1, int a2, int a3)
 {
   uint32_t *v6; // r0
   uint32_t *v7; // r4
@@ -25,29 +25,29 @@ int  log_enqueue(char a1, int a2, int a3)
   int v9; // r2
   int v10; // r3
 
-  v6 = log_alloc(4);
+  v6 = is_hci_initialized(4);
   if ( !v6 )
-    return sub_10DC24(dword_1112F0);
+    return log_printf(dword_1112F0);
   v7 = v6;
-  v8 = (uint32_t *)sub_1102BC();
+  v8 = (uint32_t *)is_scan_enabled();
   if ( v8 )
   {
     *(uint8_t *)v7 = a3;
     *((uint8_t *)v7 + 1) = BYTE1(a3) & 0xF;
     *((uint8_t *)v7 + 2) = a1;
     *((uint8_t *)v7 + 3) = 0;
-    sub_143770(v7 + 1, a2, a3);
+    memcpy(v7 + 1, a2, a3);
     v9 = v8[2];
     v10 = dword_1112E8;
     v8[1] = 0;
     *v8 = v7;
     v8[2] = (uint16_t)(a3 + 4) | v10 & v9 | 0x80000000;
-    return sub_11115C((int)v8);
+    return unknown_3((int)v8);
   }
   else
   {
-    sub_10DC24(dword_1112EC);
-    return log_free_dispatch_2(v7);
+    log_printf(dword_1112EC);
+    return is_controller_mode(v7);
   }
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_120FF58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ff58", "status": "ok", "name": "sub_120FF58", "params": [], "docstring": "Read RF control/status halfwords from shared state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120FF58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ff58", "status": "ok", "name": "rf_channel_config", "params": [], "docstring": "Read RF control/status halfwords from shared state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

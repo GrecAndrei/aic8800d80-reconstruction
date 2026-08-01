@@ -17,8 +17,8 @@ extern uint32_t off_119988;
 extern uint32_t off_119984;
 extern uint32_t off_11997C;
 
-// sub_1198AC @ 0x1198ac, size 198 bytes
-int  sub_1198AC(int a1, int a2, int a3, int a4)
+// parse_ll_pdu_header @ 0x1198ac, size 198 bytes
+int  parse_ll_pdu_header(int a1, int a2, int a3, int a4)
 {
   int v4; // r0
   unsigned int v5; // r4
@@ -53,7 +53,7 @@ int  sub_1198AC(int a1, int a2, int a3, int a4)
     {
       *(uint32_t *)off_119980 = v7;
       v13 = a3;
-      sub_1183A0();
+      poll_hw_status();
       a3 = v13;
       v8 = a4;
     }
@@ -70,7 +70,7 @@ int  sub_1198AC(int a1, int a2, int a3, int a4)
         *(uint32_t *)off_119988 = v9;
         v14 = a3;
         v17 = v8;
-        sub_1183A0();
+        poll_hw_status();
         a3 = v14;
         v8 = v17;
       }
@@ -82,13 +82,13 @@ int  sub_1198AC(int a1, int a2, int a3, int a4)
           *(uint32_t *)off_11997C = v9;
         v12 = a3;
         v15 = v8;
-        sub_1183A0();
+        poll_hw_status();
         a3 = v12;
         v8 = v15;
       }
     }
   }
-  sub_11DED8(27, v8, a3);
+  ke_evt_handler(27, v8, a3);
   return 0;
 }
 

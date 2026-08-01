@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13A59C;
 
-// sub_13A588 @ 0x13a588, size 20 bytes
-uint32_t **sub_13A588()
+// alloc_and_init_object @ 0x13a588, size 20 bytes
+uint32_t **alloc_and_init_object()
 {
-  sub_12D374(0x100000);
-  return sub_12F770((uint32_t **)dword_13A59C);
+  set_system_flag_2(0x100000);
+  return process_pending_queue((uint32_t **)dword_13A59C);
 }
 

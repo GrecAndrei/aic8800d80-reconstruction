@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n114", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121485c", "status": "ok", "name": "rf_fault_dump_n114", "params": [], "docstring": "Jump to fault handler via vector at 0x1FC", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n114", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121485c", "status": "ok", "name": "call_hook_2", "params": [], "docstring": "Jump to fault handler via vector at 0x1FC", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

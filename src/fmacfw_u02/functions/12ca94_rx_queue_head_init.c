@@ -12,10 +12,10 @@
 
 extern uint32_t off_12CADC;
 
-// rx_queue_head_init @ 0x12ca94, size 64 bytes
+// mmio_base_read @ 0x12ca94, size 64 bytes
 // Doc: message_dispatch_n140 [ipc]: Message dispatch handler variant 140
 // message_dispatch_n140 [ipc]: Message dispatch handler variant 140
-uint32_t *rx_queue_head_init()
+uint32_t *mmio_base_read()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2

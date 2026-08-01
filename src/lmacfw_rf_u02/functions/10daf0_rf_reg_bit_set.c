@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DB00;
 
-// rf_reg_bit_set @ 0x10daf0, size 16 bytes
-// Doc: rf_reg_bit_set [mmio]: Sets a bit in RF MMIO register at 0x4010b000
-// rf_reg_bit_set [mmio]: Sets a bit in RF MMIO register at 0x4010b000
-int  rf_reg_bit_set(char a1)
+// gpio_cfg_set @ 0x10daf0, size 16 bytes
+// Doc: gpio_cfg_set [mmio]: Sets a bit in RF MMIO register at 0x4010b000
+// gpio_cfg_set [mmio]: Sets a bit in RF MMIO register at 0x4010b000
+int  gpio_cfg_set(char a1)
 {
   int result; // r0
 

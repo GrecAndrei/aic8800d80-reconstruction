@@ -12,8 +12,8 @@
 
 extern uint32_t off_11C3B4;
 
-// sub_11C3A4 @ 0x11c3a4, size 16 bytes
-uint8_t * sub_11C3A4(uint8_t *result)
+// set_global_config_bytes @ 0x11c3a4, size 16 bytes
+uint8_t * set_global_config_bytes(uint8_t *result)
 {
   uint8_t *v1; // r3
 

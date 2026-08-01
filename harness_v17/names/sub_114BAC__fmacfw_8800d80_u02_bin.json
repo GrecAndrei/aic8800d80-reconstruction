@@ -1,0 +1,1 @@
+{"fn": "sub_114BAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114bac", "status": "ok", "name": "call_hook_27", "params": [], "docstring": "Invokes hook function with argument 0x1b.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

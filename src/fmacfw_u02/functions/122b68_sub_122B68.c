@@ -14,8 +14,8 @@ extern uint32_t off_122BB8;
 extern uint32_t off_122BB4;
 extern uint32_t off_122BBC;
 
-// sub_122B68 @ 0x122b68, size 76 bytes
-int  sub_122B68(int a1, int *a2, int a3, int a4)
+// parse_hci_packet @ 0x122b68, size 76 bytes
+int  parse_hci_packet(int a1, int *a2, int a3, int a4)
 {
   char *v7; // r7
   uint32_t *v8; // r3
@@ -45,7 +45,7 @@ int  sub_122B68(int a1, int *a2, int a3, int a4)
       v8[5] = v12;
     }
   }
-  sub_12CA10(122, a4, a3);
+  ke_msg_send_no_param(122, a4, a3);
   return 0;
 }
 

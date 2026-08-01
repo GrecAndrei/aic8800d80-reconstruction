@@ -12,8 +12,8 @@
 
 extern uint32_t off_12E8E8;
 
-// sub_12E8D0 @ 0x12e8d0, size 24 bytes
-void sub_12E8D0()
+// mmio_read_bit13 @ 0x12e8d0, size 24 bytes
+void mmio_read_bit13()
 {
   while ( (*(uint32_t *)off_12E8E8 & 0x40000) == 0 )
     ;

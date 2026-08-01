@@ -14,20 +14,20 @@ extern uint32_t off_1339FC;
 extern uint32_t dword_133A04;
 extern uint32_t dword_133A00;
 
-// sub_1339C8 @ 0x1339c8, size 52 bytes
-int  sub_1339C8(int value)
+// check_state_and_call @ 0x1339c8, size 52 bytes
+int  check_state_and_call(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_1339FC >= 0 || (value = msg_get_value(6u), value == 4) )
+  if ( **(int16_t **)off_1339FC >= 0 || (value = rx_rate_field_parse(6u), value == 4) )
   {
-    sub_1347BC(value);
+    bt_is_controller_ready(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F46C(dword_133A04, dword_133A00, 670);
-    sub_1347BC(v2);
+    v2 = mmio_clear_register(dword_133A04, dword_133A00, 670);
+    bt_is_controller_ready(v2);
     return 0;
   }
 }

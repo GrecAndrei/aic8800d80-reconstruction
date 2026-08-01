@@ -30,10 +30,10 @@ extern uint32_t off_1225AC;
 extern uint32_t off_1225BC;
 extern uint32_t off_1225B8;
 
-// sub_1222F4 @ 0x1222f4, size 660 bytes
+// rf_tx_power_calc @ 0x1222f4, size 660 bytes
 // Doc: sub_12222F4 [unknown]: Main dispatcher loading signed byte from shared table
 // sub_12222F4 [unknown]: Main dispatcher loading signed byte from shared table
-uint32_t * sub_1222F4(uint32_t *result, int a2)
+uint32_t * rf_tx_power_calc(uint32_t *result, int a2)
 {
   float *v2; // r4
   int v3; // r7
@@ -80,7 +80,7 @@ uint32_t * sub_1222F4(uint32_t *result, int a2)
   v5 = *((uint8_t *)off_122588 + 2);
   v6 = *((char *)off_122588 + 1);
   v7 = *((float *)off_122588 + 1);
-  result = (uint32_t *)msg_get_value(4);
+  result = (uint32_t *)rx_rate_field_parse(4);
   if ( result )
     return result;
   v8 = (float)((float)(v7 * flt_12258C) + (float)a2) * flt_122590;
@@ -152,7 +152,7 @@ LABEL_8:
       v38 = (uint8_t *)off_1225A8;
       *(uint8_t *)off_1225A8 = 1;
     }
-    feature_guard_check(64, dword_1225D0);
+    check_status_bits(64, dword_1225D0);
     v25 = *v38;
     *v16 = 0;
     *v11 = 0;
@@ -201,12 +201,12 @@ LABEL_8:
   if ( *(uint8_t *)off_1225B0 > v28 )
   {
     if ( *(uint8_t *)off_1225B4 != 1 )
-      result = (uint32_t *)sub_12221C(v4);
+      result = (uint32_t *)mmio_masked_write(v4);
     goto LABEL_22;
   }
   if ( *(uint8_t *)off_1225CC > v28 >> 1 && *(uint8_t *)off_1225B4 )
 LABEL_28:
-    result = (uint32_t *)mmio_region_setup_n148(v4);
+    result = (uint32_t *)mmio_update(v4);
 LABEL_22:
   if ( !v5 || *((uint8_t *)off_1225BC + 18) )
     *(uint32_t *)off_1225B8 &= ~0x200u;

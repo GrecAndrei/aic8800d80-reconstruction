@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1164C8;
 
-// sub_116490 @ 0x116490, size 56 bytes
-int  sub_116490(int a1)
+// bt_clear_entry @ 0x116490, size 56 bytes
+int  bt_clear_entry(int a1)
 {
   int v1; // r1
   int v2; // r3

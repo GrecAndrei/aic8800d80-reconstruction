@@ -1,1 +1,1 @@
-{"fn": "sub_123A528", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123a528", "status": "ok", "name": "sub_123A528", "params": [], "docstring": "Index into a table entry using byte fields 0x1c/0x1d with stride 0x2b8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123A528", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123a528", "status": "ok", "name": "rf_get_chan_cfg", "params": [], "docstring": "Index into a table entry using byte fields 0x1c/0x1d with stride 0x2b8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

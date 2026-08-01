@@ -21,8 +21,8 @@ extern uint32_t dword_10FF28;
 extern uint32_t dword_10FF24;
 extern uint32_t dword_10FF30;
 
-// sub_10FCE0 @ 0x10fce0, size 554 bytes
-int  sub_10FCE0(int a1, uint32_t *a2)
+// util_is_nonnull @ 0x10fce0, size 554 bytes
+int  util_is_nonnull(int a1, uint32_t *a2)
 {
   unsigned int *v4; // r7
   unsigned int v5; // r6
@@ -60,7 +60,7 @@ int  sub_10FCE0(int a1, uint32_t *a2)
   }
   else
   {
-    sub_10DC24(dword_10FF20, a2);
+    log_printf(dword_10FF20, a2);
     v5 = 0;
   }
   if ( *(uint8_t *)(a1 + 8) <= v5 )
@@ -81,7 +81,7 @@ int  sub_10FCE0(int a1, uint32_t *a2)
     v15 = *(uint32_t *)off_10FF18;
     if ( (unsigned int)a2 < *(uint32_t *)off_10FF18 || (unsigned int)a2 > *((uint32_t *)off_10FF18 + 1) + v15 )
     {
-      sub_10DC24(dword_10FF1C, a2);
+      log_printf(dword_10FF1C, a2);
     }
     else
     {
@@ -148,7 +148,7 @@ LABEL_40:
       }
       else
       {
-        sub_10DC24(dword_10FF2C, a2);
+        log_printf(dword_10FF2C, a2);
       }
       if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
         || (unsigned int)a2 >= *(uint32_t *)off_10FF18
@@ -158,7 +158,7 @@ LABEL_40:
       }
       else
       {
-        sub_10DC24(dword_10FF28, a2);
+        log_printf(dword_10FF28, a2);
       }
       v21 = *(uint16_t *)(v6 + v20);
       v22 = *v7;
@@ -187,7 +187,7 @@ LABEL_36:
   if ( (unsigned int)a2 < *v14 )
   {
 LABEL_38:
-    sub_10DC24(dword_10FF24, a2);
+    log_printf(dword_10FF24, a2);
     goto LABEL_39;
   }
 LABEL_37:
@@ -209,7 +209,7 @@ LABEL_39:
   }
   else
   {
-    sub_10DC24(dword_10FF30, a2);
+    log_printf(dword_10FF30, a2);
   }
   if ( *v7 )
   {

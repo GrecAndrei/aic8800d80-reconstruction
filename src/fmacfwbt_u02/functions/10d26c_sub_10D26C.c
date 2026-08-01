@@ -19,10 +19,10 @@ extern uint32_t dword_40021000;
 extern uint32_t dword_10D3FC;
 extern uint32_t dword_10D400;
 
-// sub_10D26C @ 0x10d26c, size 378 bytes
+// ke_event_process @ 0x10d26c, size 378 bytes
 // Doc: sub_120D26C [unknown]: General handler loading signed state from globals, processes 3-arg call
 // sub_120D26C [unknown]: General handler loading signed state from globals, processes 3-arg call
-int  sub_10D26C(int a1, int a2, int a3)
+int  ke_event_process(int a1, int a2, int a3)
 {
   int *v6; // r1
   int result; // r0
@@ -34,7 +34,7 @@ int  sub_10D26C(int a1, int a2, int a3)
   int v13; // r3
 
   if ( **(int16_t **)off_10D3E8 < 0 && a3 > 13 )
-    sub_12F694(dword_10D3F8, dword_10D3F4, 69);
+    mmio_irq_clear(dword_10D3F8, dword_10D3F4, 69);
   *(uint32_t *)(a2 + 32) = 0;
   if ( (__get_CPSR() & 1) == 0 )
   {

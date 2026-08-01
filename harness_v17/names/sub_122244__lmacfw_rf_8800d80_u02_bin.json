@@ -1,0 +1,1 @@
+{"fn": "sub_122244", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122244", "status": "ok", "name": "rf_set_frequency", "params": [], "docstring": "Convert float result to unsigned and store to parameter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

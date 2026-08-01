@@ -12,15 +12,15 @@
 
 extern uint32_t dword_12DF2C;
 
-// sdio_buffer_prepare_df08 @ 0x12df08, size 36 bytes
+// read_rom_info @ 0x12df08, size 36 bytes
 // Doc: rf_bus_reset2_n_3b2_df0a [rf]: Reset RF bus and reinitialize channel registers
 // rf_bus_reset2_n_3b2_df0a [rf]: Reset RF bus and reinitialize channel registers
-uint8_t * sdio_buffer_prepare_df08(uint8_t *a1, int a2)
+uint8_t * read_rom_info(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   uint16_t v3[3]; // [sp+Eh] [bp-6h] BYREF
 
-  result = sub_12D9B0(a1, a2, (uint8_t *)dword_12DF2C, 5, v3);
+  result = memcpy_opt(a1, a2, (uint8_t *)dword_12DF2C, 5, v3);
   if ( result )
   {
     if ( v3[0] != 26 )

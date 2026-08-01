@@ -1,1 +1,1 @@
-{"fn": "sub_1221544", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221544", "status": "ok", "name": "mmio_write_reg403", "params": [], "docstring": "calls helper with reg 0x403, value 8; MMIO write wrapper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221544", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221544", "status": "ok", "name": "rf_write_0x403", "params": [], "docstring": "calls helper with reg 0x403, value 8; MMIO write wrapper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_timer_stop", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ecf8", "status": "ok", "name": "rf_timer_stop", "params": [], "docstring": "Stop RF hardware timer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_timer_stop", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ecf8", "status": "ok", "name": "controller_init", "params": [], "docstring": "Stop RF hardware timer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

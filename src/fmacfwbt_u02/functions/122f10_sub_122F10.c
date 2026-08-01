@@ -14,8 +14,8 @@ extern uint32_t off_122F54;
 extern uint32_t off_122F50;
 extern uint32_t dword_122F58;
 
-// sub_122F10 @ 0x122f10, size 64 bytes
-int  sub_122F10(int a1, uint8_t *a2, int a3, int a4)
+// is_valid_conn_handle @ 0x122f10, size 64 bytes
+int  is_valid_conn_handle(int a1, uint8_t *a2, int a3, int a4)
 {
   int v7; // r1
   uint8_t *v8; // r2
@@ -23,7 +23,7 @@ int  sub_122F10(int a1, uint8_t *a2, int a3, int a4)
   int v10; // r3
 
   if ( a2[1] != 255 )
-    sub_13BD84();
+    rf_scan_start();
   v7 = *a2;
   v8 = off_122F54;
   if ( *a2 )
@@ -31,8 +31,8 @@ int  sub_122F10(int a1, uint8_t *a2, int a3, int a4)
   v9 = a2[2] != 0;
   *(uint8_t *)off_122F50 = v9;
   *v8 = v7;
-  sub_12ECB0(dword_122F58, v7, v9);
-  message_dispatch_n84(100, a4, a3, v10);
+  ke_event_schedule(dword_122F58, v7, v9);
+  hci_evt_alloc_send(100, a4, a3, v10);
   return 0;
 }
 

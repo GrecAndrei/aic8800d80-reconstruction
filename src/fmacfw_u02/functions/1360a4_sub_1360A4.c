@@ -18,8 +18,8 @@ extern uint32_t off_136148;
 extern uint32_t off_13614C;
 extern uint32_t off_136150;
 
-// sub_1360A4 @ 0x1360a4, size 148 bytes
-int  sub_1360A4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// ipc_register_handler @ 0x1360a4, size 148 bytes
+int  ipc_register_handler(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int16_t v6; // r2
   int v7; // r0
@@ -32,16 +32,16 @@ int  sub_1360A4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   int *v15; // r3
   int v16; // r3
 
-  msg_parse(dword_13613C, dword_136138);
+  event_dispatch(dword_13613C, dword_136138);
   v6 = a3;
   v7 = dword_136140 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && !*(uint8_t *)(v7 + 108) )
   {
-    value = msg_get_value(7u);
+    value = rx_rate_field_parse(7u);
     v6 = a3;
     if ( !value )
     {
-      sub_1285BC(*a2);
+      sta_get_by_index(*a2);
       *(uint8_t *)off_136144 = 0;
       v6 = a3;
       if ( (__get_CPSR() & 1) == 0 )
@@ -69,7 +69,7 @@ int  sub_1360A4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
       }
     }
   }
-  sub_12CA10(7175, a4, v6);
+  ke_msg_send_no_param(7175, a4, v6);
   return 0;
 }
 

@@ -14,8 +14,8 @@ extern uint32_t dword_12B250;
 extern uint32_t off_12B254;
 extern uint32_t dword_12B24C;
 
-// sub_12B170 @ 0x12b170, size 218 bytes
-int  sub_12B170(int a1, int a2, int a3)
+// get_bt_device_state @ 0x12b170, size 218 bytes
+int  get_bt_device_state(int a1, int a2, int a3)
 {
   int v3; // r9
   int v4; // r3
@@ -37,7 +37,7 @@ int  sub_12B170(int a1, int a2, int a3)
   v6 = *(uint8_t *)(v4 + 116);
   if ( *(uint8_t *)(v4 + 1224) )
   {
-    result = sub_118B04(1, 26);
+    result = lock_acquire(1, 26);
     v12 = result;
     if ( result )
     {
@@ -71,7 +71,7 @@ LABEL_5:
       *(uint8_t *)(v12 + 29) = *(uint8_t *)(v14 + 35);
       *(uint32_t *)(v12 + 88) = a2;
       *(uint32_t *)(v12 + 92) = a3;
-      return sub_118B34(v12, 5);
+      return sec_check(v12, 5);
     }
   }
   else
@@ -80,7 +80,7 @@ LABEL_5:
     v10 = *(uint8_t *)(v9 + 4);
     if ( *(uint8_t *)(v9 + 4) )
       v10 = 1;
-    result = sub_118B04(v10, 26);
+    result = lock_acquire(v10, 26);
     v12 = result;
     if ( result )
       goto LABEL_5;

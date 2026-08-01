@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_104710 @ 0x104710, size 466 bytes
-int  sub_104710(int a1, int a2, uint32_t *a3)
+// rx_packet_alloc @ 0x104710, size 466 bytes
+int  rx_packet_alloc(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v6; // r10
@@ -74,8 +74,8 @@ int  sub_104710(int a1, int a2, uint32_t *a3)
   {
     v12 = v10;
     v10 += v8;
-    v13 = sub_1044D0(v10, a2, a3);
-    v14 = v13 - sub_1044D0(v12, a2, a3);
+    v13 = tx_desc_parse(v10, a2, a3);
+    v14 = v13 - tx_desc_parse(v12, a2, a3);
     if ( (float)v14 < v9 )
     {
       v9 = (float)v14;
@@ -110,8 +110,8 @@ int  sub_104710(int a1, int a2, uint32_t *a3)
       v19 = 5;
       do
       {
-        v20 = sub_1044D0(v18, a2, a3);
-        v21 = sub_1044D0(v33 - v34 + v18, a2, a3);
+        v20 = tx_desc_parse(v18, a2, a3);
+        v21 = tx_desc_parse(v33 - v34 + v18, a2, a3);
         --v19;
         v18 += v8;
         *((float *)v17 - 1) = *((float *)v17 - 1) + (float)(v20 - v21);

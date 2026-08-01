@@ -1,1 +1,1 @@
-{"fn": "sub_1219B2C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1219b2c", "status": "ok", "name": "rf_param_load_byte", "params": [], "docstring": "Load a single parameter byte and dispatch to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1219B2C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1219b2c", "status": "ok", "name": "hci_build_event_0x3a", "params": [], "docstring": "Load a single parameter byte and dispatch to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

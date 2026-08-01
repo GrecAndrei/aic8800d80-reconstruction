@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1204C4 @ 0x1204c4, size 136 bytes
-int  sub_1204C4(int result, int a2)
+// dma_tx_reset @ 0x1204c4, size 136 bytes
+int  dma_tx_reset(int result, int a2)
 {
   int v2; // r4
   int v3; // r3

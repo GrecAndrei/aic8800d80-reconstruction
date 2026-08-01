@@ -66,8 +66,8 @@ extern uint32_t off_106C4C;
 extern uint32_t off_106C50;
 extern uint32_t off_106C64;
 
-// sub_106450 @ 0x106450, size 2988 bytes
-int  sub_106450(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8)
+// rf_calibrate @ 0x106450, size 2988 bytes
+int  rf_calibrate(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8)
 {
   uint32_t *v8; // r9
   unsigned int *v9; // r8
@@ -362,8 +362,8 @@ int  sub_106450(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
   *v33 |= 0x800000u;
   *v33 |= 0x400000u;
   *v32 &= ~0x100u;
-  crypto_hw_clk_toggle();
-  crypto_hw_reset_seq();
+  rf_lo_cal_clear();
+  mac_irq_handler();
   v34 = off_106908;
   *(uint32_t *)off_106904 |= 0x10000000u;
   *v34 |= 0x18000000u;
@@ -418,11 +418,11 @@ int  sub_106450(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v64 = (*(uint32_t *)off_106EE8 >> 8) & 0xF;
       v65 = (v160 << 8) + dword_106EF8;
       v163 = v65;
-      feature_guard_sdio(1, dword_106EFC);
+      state_check_feature(1, dword_106EFC);
       *(uint32_t *)(a2 + 140) = *(uint32_t *)(a2 + 152);
-      log_free_pool_dispatch2_n4e6(a2, 0);
+      rf_load_calib_data(a2, 0);
       v66 = 0;
-      feature_guard_sdio(1, dword_106F00);
+      state_check_feature(1, dword_106F00);
       v152 = v62;
       v67 = v64;
       v68 = v65 + 16 * v64;
@@ -436,7 +436,7 @@ int  sub_106450(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v73 = 2 * v67;
       do
       {
-        crypto_hw_enable(1);
+        set_radio_ctrl_bits(1);
         if ( a7 == v152 )
         {
           *v69 = *v69 & v153 | ((v159 & v66) << v86);
@@ -448,11 +448,11 @@ int  sub_106450(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
           *v69 |= (v151 & v66) << v86;
           *v70 |= (v66 >> v149) & v155;
         }
-        crypto_hw_disable(1);
-        crypto_adc_capture(*a3, a2, v72, 0);
-        feature_guard_sdio(1, dword_106F04);
-        feature_guard_sdio(1, dword_106F0C);
-        feature_guard_sdio(1, dword_106F14);
+        set_radio_ctrl_bits2(1);
+        mac_tx_disable(*a3, a2, v72, 0);
+        state_check_feature(1, dword_106F04);
+        state_check_feature(1, dword_106F0C);
+        state_check_feature(1, dword_106F14);
         if ( *(int16_t *)(a2 + v73) > v71 )
         {
           v71 = *(int16_t *)(a2 + v73);
@@ -472,8 +472,8 @@ int  sub_106450(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
           v77 = 3;
         v158 = v77;
       }
-      feature_guard_sdio(1, dword_106F1C);
-      crypto_hw_enable(1);
+      state_check_feature(1, dword_106F1C);
+      set_radio_ctrl_bits(1);
       v78 = v86;
       v87 = (v158 >> v149) & v155;
       v79 = (v151 & v158) << v78;
@@ -509,9 +509,9 @@ int  sub_106450(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       }
       while ( v82 != v81 );
 LABEL_58:
-      crypto_hw_disable(1);
-      feature_guard_sdio(1, dword_107000);
-      feature_guard_sdio(1, dword_107008);
+      set_radio_ctrl_bits2(1);
+      state_check_feature(1, dword_107000);
+      state_check_feature(1, dword_107008);
     }
     goto LABEL_28;
   }
@@ -523,9 +523,9 @@ LABEL_58:
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
     v75 = *v74;
-    log_free_pool_dispatch2_n4e6(a2, 0);
-    feature_guard_sdio(1, dword_106F18);
-    crypto_adc_capture(*a3, a2, (v75 >> 8) & 0xF, 0);
+    rf_load_calib_data(a2, 0);
+    state_check_feature(1, dword_106F18);
+    mac_tx_disable(*a3, a2, (v75 >> 8) & 0xF, 0);
     goto LABEL_28;
   }
   *(uint64_t *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
@@ -553,17 +553,17 @@ LABEL_19:
     *(uint32_t *)(a2 + 164) = v38;
     *v36 = v36[3];
     ++v36;
-    sub_10624C(a1, v37, a5, a2, a6);
+    llc_state_check(a1, v37, a5, a2, a6);
     *v32 &= ~0x200u;
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
-    log_free_pool_dispatch2_n4e6(a2, v20);
+    rf_load_calib_data(a2, v20);
     v39 = v35[1];
     ++v35;
-    crypto_adc_capture(v39, a2, v37, v20);
+    mac_tx_disable(v39, a2, v37, v20);
     v40 = v20;
     v41 = *(uint16_t *)(a2 + 2 * (v37 + 16 * v20++));
-    sub_1063C0(a2, v41, v40);
+    log_message(a2, v41, v40);
   }
   while ( v20 != 3 );
   v42 = *(uint32_t *)(a2 + 132);
@@ -575,16 +575,16 @@ LABEL_19:
     {
       while ( 1 )
       {
-        sub_10624C(a1, v42, a5, a2, a6);
+        llc_state_check(a1, v42, a5, a2, a6);
         v45 = *(uint32_t *)(a2 + 124);
         *v43 &= ~0x200u;
         *v43 |= 0x200u;
         *v43 &= ~0x200u;
         if ( v45 < v42 )
           break;
-        log_free_pool_dispatch2_n4e6(a2, 2);
-        feature_guard_sdio(1, v44);
-        crypto_adc_capture(a3[2], a2, v42, 2);
+        rf_load_calib_data(a2, 2);
+        state_check_feature(1, v44);
+        mac_tx_disable(a3[2], a2, v42, 2);
         if ( *(uint32_t *)(a2 + 124) <= v42 )
           break;
 LABEL_26:
@@ -595,15 +595,15 @@ LABEL_26:
       }
       if ( *(uint32_t *)(a2 + 120) >= v42 )
       {
-        log_free_pool_dispatch2_n4e6(a2, 1);
-        feature_guard_sdio(1, v44);
-        crypto_adc_capture(a3[1], a2, v42, 1);
+        rf_load_calib_data(a2, 1);
+        state_check_feature(1, v44);
+        mac_tx_disable(a3[1], a2, v42, 1);
         goto LABEL_26;
       }
 LABEL_23:
-      log_free_pool_dispatch2_n4e6(a2, 0);
-      feature_guard_sdio(1, v44);
-      crypto_adc_capture(*a3, a2, v42++, 0);
+      rf_load_calib_data(a2, 0);
+      state_check_feature(1, v44);
+      mac_tx_disable(*a3, a2, v42++, 0);
     }
     while ( *(uint32_t *)(a2 + 112) >= v42 );
   }
@@ -615,7 +615,7 @@ LABEL_28:
   v50 = off_106C54;
   *(uint32_t *)off_106C30 = *(uint32_t *)off_106C30 & 0xFFBFFFFF | (v148 << 22);
   *v46 = *v46 & 0xFFDFFFFF | (v147 << 21);
-  mmio_config_clear_bits_n_0f0();
+  mac_irq_pending_clear();
   v51 = off_106C38;
   v52 = (unsigned int *)off_106C3C;
   v53 = (unsigned int *)off_106C60;

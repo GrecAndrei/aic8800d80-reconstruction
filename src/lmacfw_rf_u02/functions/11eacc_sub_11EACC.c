@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11EB44;
 
-// sub_11EACC @ 0x11eacc, size 120 bytes
-float  sub_11EACC(float a1)
+// hash_const_init @ 0x11eacc, size 120 bytes
+float  hash_const_init(float a1)
 {
   int v1; // r1
   int v2; // r2

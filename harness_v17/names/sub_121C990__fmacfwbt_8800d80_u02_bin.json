@@ -1,1 +1,1 @@
-{"fn": "sub_121C990", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c990", "status": "ok", "name": "sub_121C990", "params": [], "docstring": "Indexed table lookup using sub-id * 0x528 stride, cap compare 0x3ff", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C990", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c990", "status": "ok", "name": "get_cal_value", "params": [], "docstring": "Indexed table lookup using sub-id * 0x528 stride, cap compare 0x3ff", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

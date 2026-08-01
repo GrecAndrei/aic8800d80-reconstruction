@@ -12,8 +12,8 @@
 
 extern uint32_t off_132240;
 
-// sub_1321FC @ 0x1321fc, size 66 bytes
-char * sub_1321FC(int a1, int a2)
+// ke_event_get @ 0x1321fc, size 66 bytes
+char * ke_event_get(int a1, int a2)
 {
   char *result; // r0
   char *v3; // r3

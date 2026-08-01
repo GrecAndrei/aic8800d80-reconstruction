@@ -15,10 +15,10 @@ extern uint32_t off_117AB0;
 extern uint32_t off_117AAC;
 extern uint32_t off_117AB4;
 
-// sub_117A24 @ 0x117a24, size 130 bytes
+// func_117a24 @ 0x117a24, size 130 bytes
 // Doc: sub_1217A24 [util]: Utility/state helper (prologue, shifts and transforms 3 args, 0x10 bytes)
 // sub_1217A24 [util]: Utility/state helper (prologue, shifts and transforms 3 args, 0x10 bytes)
-void sub_117A24()
+void func_117a24()
 {
   int *v0; // r9
   uint32_t *v1; // r7
@@ -47,7 +47,7 @@ void sub_117A24()
       && ((v1[52] & 1) == 0 || *((uint8_t *)v1 + 190) != (uint8_t)i)
       && *((uint32_t *)v4 + 84) )
     {
-      rf_set_bit_flag((uint8_t)i);
+      mmio_set_bit((uint8_t)i);
     }
     v3 -= 7;
     v4 -= 84;

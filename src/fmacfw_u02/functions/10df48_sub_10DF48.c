@@ -21,8 +21,8 @@ extern uint32_t dword_10DFD4;
 extern uint32_t dword_10DFD8;
 extern uint32_t dword_10DFDC;
 
-// sub_10DF48 @ 0x10df48, size 128 bytes
-int sub_10DF48()
+// rf_core_reset @ 0x10df48, size 128 bytes
+int rf_core_reset()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
@@ -46,10 +46,10 @@ int sub_10DF48()
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v4 = sub_1429B4(v1[4]);
-  v5 = sub_142AA8(v4, HIDWORD(v4), dword_10DFC8, dword_10DFCC);
-  v6 = sub_142CFC(v5, HIDWORD(v5), dword_10DFD0, dword_10DFD4);
-  v7 = sub_142738(v6, HIDWORD(v6), dword_10DFD8, dword_10DFDC);
-  return sub_14306C(v7);
+  v4 = uint_to_double(v1[4]);
+  v5 = double_add(v4, HIDWORD(v4), dword_10DFC8, dword_10DFCC);
+  v6 = double_subtract(v5, HIDWORD(v5), dword_10DFD0, dword_10DFD4);
+  v7 = double_compare_wrapper(v6, HIDWORD(v6), dword_10DFD8, dword_10DFDC);
+  return double_to_uint(v7);
 }
 

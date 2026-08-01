@@ -14,8 +14,8 @@ extern uint32_t off_11B88C;
 extern uint32_t off_11B890;
 extern uint32_t dword_11B894;
 
-// sub_11B70C @ 0x11b70c, size 382 bytes
-int  sub_11B70C(int a1)
+// tx_channel_setup @ 0x11b70c, size 382 bytes
+int  tx_channel_setup(int a1)
 {
   uint32_t *v1; // r5
   int v2; // r6
@@ -41,8 +41,8 @@ int  sub_11B70C(int a1)
   v1 = off_11B88C;
   v2 = *((uint8_t *)off_11B88C + 190);
   v22 = 0;
-  sub_116DF4(v2);
-  sub_11A7C0(*((uint8_t *)v1 + 190));
+  mmio_modify_bit(v2);
+  get_conn_env(*((uint8_t *)v1 + 190));
   if ( !a1 )
     goto LABEL_24;
   v4 = *(uint32_t *)(a1 + 36);
@@ -63,7 +63,7 @@ int  sub_11B70C(int a1)
       v7 = *(uint32_t *)(v6 + 88);
       *(uint32_t *)(v6 + 88) = *(uint16_t *)(v6 + 8) & 0x400;
     }
-    LODWORD(v9) = sub_11A800(a1, (int)&v22);
+    LODWORD(v9) = rx_packet_parse(a1, (int)&v22);
     v8 = v22;
     HIDWORD(v9) = *(uint8_t *)(*(uint32_t *)v5 + 1);
     if ( v22 )

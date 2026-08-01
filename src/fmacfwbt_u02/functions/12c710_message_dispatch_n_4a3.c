@@ -13,10 +13,10 @@
 extern uint32_t off_12C754;
 extern uint32_t dword_12C75C;
 
-// message_dispatch_n_4a3 @ 0x12c710, size 64 bytes
+// scan_done_check @ 0x12c710, size 64 bytes
 // Doc: message_dispatch_n_47e [ipc]: Extract message ID bits and dispatch to handler
 // message_dispatch_n_47e [ipc]: Extract message ID bits and dispatch to handler
-int  message_dispatch_n_4a3(int result, int a2)
+int  scan_done_check(int result, int a2)
 {
   int v2; // r4
   int v3; // r0
@@ -24,7 +24,7 @@ int  message_dispatch_n_4a3(int result, int a2)
   if ( *((uint8_t *)message_dispatch_n_464 + 197) )
   {
     v2 = *(uint32_t *)(*(uint32_t *)(a2 + 76) + 48);
-    v3 = scan_chan_parse_n1bd4(
+    v3 = llm_rx_pdu_handler(
            (*(uint32_t *)(v2 + 20) >> 11) & 7,
            *(uint32_t *)(v2 + 20) & 0x7F,
            (uint8_t *)(*(uint32_t *)(result + 72) + 4));
@@ -33,7 +33,7 @@ int  message_dispatch_n_4a3(int result, int a2)
   }
   else if ( **(int16_t **)off_12C754 < 0 )
   {
-    return sub_12F694(dword_12C75C, message_dispatch_n_45c, 92);
+    return mmio_irq_clear(dword_12C75C, message_dispatch_n_45c, 92);
   }
   return result;
 }

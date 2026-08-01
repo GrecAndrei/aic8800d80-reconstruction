@@ -28,10 +28,10 @@ extern uint32_t dword_10E790;
 extern uint32_t dword_10E788;
 extern uint32_t dword_10E78C;
 
-// rf_init_blockc @ 0x10e4d8, size 628 bytes
-// Doc: rf_init_blockc [rf]: Initialize RF hardware block C with register setup
-// rf_init_blockc [rf]: Initialize RF hardware block C with register setup
-int rf_init_blockc()
+// periph_cmd_write @ 0x10e4d8, size 628 bytes
+// Doc: periph_cmd_write [rf]: Initialize RF hardware block C with register setup
+// periph_cmd_write [rf]: Initialize RF hardware block C with register setup
+int periph_cmd_write()
 {
   int v0; // r3
   int v1; // r0
@@ -82,27 +82,27 @@ int rf_init_blockc()
   v2 = off_10E774;
   *((uint32_t *)off_10E768 + 14) = 296;
   v2[3] = v0 | v2[3] & 0xE0000000;
-  rf_reg_write_cb(v1, 1024, 15360);
+  call_slot_0x1b8(v1, 1024, 15360);
   v2[2] = dword_10E778 & v2[2] | 0x1200000F;
   v2[1] = 1;
   while ( v2[7] != 1 )
     ;
   v2[7] = 1;
-  v3 = sub_12752C(v2[4]);
-  v4 = sub_127620(v3, HIDWORD(v3), dword_10E750, dword_10E754);
-  v5 = sub_1272B0(v4, HIDWORD(v4), dword_10E758, dword_10E75C);
-  v6 = sub_127B54(v5, HIDWORD(v5));
-  msg_parse(dword_10E77C, v6);
-  cb_efa4 = rf_reg_read_cb_efa4(dword_10E780);
+  v3 = double_to_float(v2[4]);
+  v4 = aeabi_dadd(v3, HIDWORD(v3), dword_10E750, dword_10E754);
+  v5 = double_subtract(v4, HIDWORD(v4), dword_10E758, dword_10E75C);
+  v6 = double_to_float(v5, HIDWORD(v5));
+  dispatch_event_handler(dword_10E77C, v6);
+  cb_efa4 = call_indirect_table(dword_10E780);
   v8 = v6 - 1400;
   v9 = abs32(v6 - 1400);
   v10 = cb_efa4 & 0x3F;
   v42 = v10;
   if ( v9 > 49 )
   {
-    v11 = sub_12754C(v9);
-    v12 = sub_127620(v11, HIDWORD(v11), dword_10E760, dword_10E764);
-    v13 = sub_127B54(v12, HIDWORD(v12));
+    v11 = aeabi_i2d(v9);
+    v12 = aeabi_dadd(v11, HIDWORD(v11), dword_10E760, dword_10E764);
+    v13 = double_to_float(v12, HIDWORD(v12));
     v14 = v13;
     if ( v8 <= 0 )
     {
@@ -123,17 +123,17 @@ int rf_init_blockc()
     }
     if ( v15 > 11 )
     {
-      rf_reg_write_cb(dword_10E780, v15, 63);
+      call_slot_0x1b8(dword_10E780, v15, 63);
       v16 = off_10E774;
       *((uint32_t *)off_10E774 + 1) = 1;
       while ( v16[7] != 1 )
         ;
       v16[7] = 1;
-      v17 = sub_12752C(v16[4]);
-      v18 = sub_127620(v17, HIDWORD(v17), dword_10E750, dword_10E754);
-      v19 = sub_1272B0(v18, HIDWORD(v18), dword_10E758, dword_10E75C);
-      v6 = sub_127B54(v19, HIDWORD(v19));
-      msg_parse(dword_10E784, v14);
+      v17 = double_to_float(v16[4]);
+      v18 = aeabi_dadd(v17, HIDWORD(v17), dword_10E750, dword_10E754);
+      v19 = double_subtract(v18, HIDWORD(v18), dword_10E758, dword_10E75C);
+      v6 = double_to_float(v19, HIDWORD(v19));
+      dispatch_event_handler(dword_10E784, v14);
       if ( v6 <= 1400 )
         v20 = 1;
       else
@@ -176,16 +176,16 @@ LABEL_19:
       v26 = v42 + v43 * v27;
       goto LABEL_28;
     }
-    rf_reg_write_cb(v22, v26, 63);
+    call_slot_0x1b8(v22, v26, 63);
     v23[1] = 1;
     while ( v23[7] != 1 )
       ;
     v23[7] = 1;
-    v29 = sub_12752C(v23[4]);
-    v30 = sub_127620(v29, HIDWORD(v29), dword_10E750, dword_10E754);
-    v31 = sub_1272B0(v30, HIDWORD(v30), dword_10E758, dword_10E75C);
-    v41 = sub_127B54(v31, HIDWORD(v31));
-    msg_parse(v24, v28);
+    v29 = double_to_float(v23[4]);
+    v30 = aeabi_dadd(v29, HIDWORD(v29), dword_10E750, dword_10E754);
+    v31 = double_subtract(v30, HIDWORD(v30), dword_10E758, dword_10E75C);
+    v41 = double_to_float(v31, HIDWORD(v31));
+    dispatch_event_handler(v24, v28);
     v32 = v6 - 1400;
     v33 = v41 - 1400;
     if ( v32 * (v41 - 1400) <= 0 )
@@ -204,18 +204,18 @@ LABEL_19:
     v26 = v42 + v28;
   }
 LABEL_28:
-  msg_parse(dword_10E788, v28);
-  rf_reg_write_cb(dword_10E780, v26, 63);
+  dispatch_event_handler(dword_10E788, v28);
+  call_slot_0x1b8(dword_10E780, v26, 63);
   v35 = off_10E774;
   *((uint32_t *)off_10E774 + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_12752C(v35[4]);
-  v37 = sub_127620(v36, HIDWORD(v36), dword_10E750, dword_10E754);
-  v38 = sub_1272B0(v37, HIDWORD(v37), dword_10E758, dword_10E75C);
-  v39 = sub_127B54(v38, HIDWORD(v38));
-  msg_parse(dword_10E78C, v39);
-  return rf_reg_write_cb(dword_10E770, 0, 15360);
+  v36 = double_to_float(v35[4]);
+  v37 = aeabi_dadd(v36, HIDWORD(v36), dword_10E750, dword_10E754);
+  v38 = double_subtract(v37, HIDWORD(v37), dword_10E758, dword_10E75C);
+  v39 = double_to_float(v38, HIDWORD(v38));
+  dispatch_event_handler(dword_10E78C, v39);
+  return call_slot_0x1b8(dword_10E770, 0, 15360);
 }
 

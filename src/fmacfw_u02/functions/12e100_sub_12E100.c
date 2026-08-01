@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12E100 @ 0x12e100, size 26 bytes
-int  sub_12E100(int a1)
+// rf_cal_code_idx @ 0x12e100, size 26 bytes
+int  rf_cal_code_idx(int a1)
 {
   if ( a1 >= 0 )
     return 220;

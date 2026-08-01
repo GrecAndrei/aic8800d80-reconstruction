@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_init_enable_n3bc @ 0x10f5bc, size 12 bytes
-// Doc: rf_init_enable_n3bc [rf]: Enable/init RF block and return status (split helper)
-// rf_init_enable_n3bc [rf]: Enable/init RF block and return status (split helper)
-int  rf_init_enable_n3bc(int a1, int a2)
+// mem_free_ret @ 0x10f5bc, size 12 bytes
+// Doc: mem_free_ret [rf]: Enable/init RF block and return status (split helper)
+// mem_free_ret [rf]: Enable/init RF block and return status (split helper)
+int  mem_free_ret(int a1, int a2)
 {
-  sub_10FEF8(a2);
+  mem_free(a2);
   return 1;
 }
 

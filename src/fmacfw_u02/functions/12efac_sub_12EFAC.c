@@ -13,12 +13,12 @@
 extern uint32_t dword_12EFD8;
 extern uint32_t off_12EFDC;
 
-// sub_12EFAC @ 0x12efac, size 42 bytes
-int  sub_12EFAC(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// cb_send_0x16ae2c @ 0x12efac, size 42 bytes
+int  cb_send_0x16ae2c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
-  sub_12EA88(dword_12EFD8, *a2);
+  event_dispatch(dword_12EFD8, *a2);
   *(uint32_t *)off_12EFDC = *a2;
-  sub_12CA10(1029, a4, a3);
+  ke_msg_send_no_param(1029, a4, a3);
   return 0;
 }
 

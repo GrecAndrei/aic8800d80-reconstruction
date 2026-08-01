@@ -20,10 +20,10 @@ extern uint32_t dword_12BE0C;
 extern uint32_t off_12BE10;
 extern uint32_t off_12BE14;
 
-// mmio_reg_clear_bits_n_5c0 @ 0x12bd74, size 126 bytes
-// Doc: mmio_reg_clear_bits_n_5c0 [mmio]: Clear bits in MMIO register 0x4032004c
-// mmio_reg_clear_bits_n_5c0 [mmio]: Clear bits in MMIO register 0x4032004c
-int *mmio_reg_clear_bits_n_5c0()
+// mac_config_clear @ 0x12bd74, size 126 bytes
+// Doc: mac_config_clear [mmio]: Clear bits in MMIO register 0x4032004c
+// mac_config_clear [mmio]: Clear bits in MMIO register 0x4032004c
+int *mac_config_clear()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r0

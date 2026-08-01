@@ -15,8 +15,8 @@ extern uint32_t dword_1255F0;
 extern uint32_t off_1255E8;
 extern uint32_t off_1255EC;
 
-// sub_1254A8 @ 0x1254a8, size 316 bytes
-int  sub_1254A8(int a1)
+// tx_path_setup @ 0x1254a8, size 316 bytes
+int  tx_path_setup(int a1)
 {
   int v1; // r8
   uint8_t *v2; // r5
@@ -41,11 +41,11 @@ int  sub_1254A8(int a1)
   v2 = (uint8_t *)(dword_1255E4 + 8 * *(uint8_t *)(a1 + 107));
   v4 = v2[4];
   v5 = a1 + 116;
-  v6 = sub_124FB4(a1);
+  v6 = rf_chan_table_update(a1);
   *(uint32_t *)(v1 + 36) = *(uint16_t *)(v6 + 216) + *(uint16_t *)(v6 + 218) + 4;
   if ( *(uint8_t *)(v6 + 1224) )
   {
-    v15 = sub_12AA40(*(uint8_t *)(v6 + 1225));
+    v15 = is_channel_entry_valid(*(uint8_t *)(v6 + 1225));
     if ( v15 )
     {
       v16 = dword_1255F0 + 20 * *(uint8_t *)(a1 + 107);
@@ -106,16 +106,16 @@ int  sub_1254A8(int a1)
     }
     if ( !v14
       || (v18 = *(uint8_t *)(a1 + 107),
-          v19 = (uint8_t *)sub_12C7EC(78, 13, 0, 2),
+          v19 = (uint8_t *)tx_send_pdu(78, 13, 0, 2),
           *v19 = v18,
           v19[1] = v14,
-          sub_12C84C(v19),
+          rx_process_packet(v19),
           !*(uint8_t *)(a1 + 231)) )
     {
       *(uint8_t *)(a1 + 231) = 1;
     }
   }
-  sub_12C3A8(a1, v5);
+  get_status_flag_c5(a1, v5);
   return v10;
 }
 

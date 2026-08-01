@@ -18,10 +18,10 @@ extern uint32_t dword_138A6C;
 extern uint32_t dword_138A64;
 extern uint32_t dword_138A68;
 
-// sub_1389D0 @ 0x1389d0, size 136 bytes
+// tx_power_lookup @ 0x1389d0, size 136 bytes
 // Doc: sub_12389D0 [util]: Table-driven dispatch using index lookup with ldrsh from globals
 // sub_12389D0 [util]: Table-driven dispatch using index lookup with ldrsh from globals
-uint32_t * sub_1389D0(int a1, int16_t a2, int a3)
+uint32_t * tx_power_lookup(int a1, int16_t a2, int a3)
 {
   uint8_t *v3; // r5
   int v4; // r4
@@ -40,7 +40,7 @@ uint32_t * sub_1389D0(int a1, int16_t a2, int a3)
     v7 = 4 * v4;
     if ( *(uint16_t *)(dword_138A60 + 80 * v4 + 76) )
     {
-      fmac_phy_op_handler(dword_138A70, dword_138A6C, 175);
+      bad_func_0x12f408(dword_138A70, dword_138A6C, 175);
       return 0;
     }
   }
@@ -55,7 +55,7 @@ uint32_t * sub_1389D0(int a1, int16_t a2, int a3)
   v9 = v5 + 16 * (v4 + v7);
   *(uint32_t *)(v9 + 68) = a3;
   *(uint16_t *)(v9 + 76) = a2;
-  list_push_tail(dword_138A64, v6);
+  cmd_handler_a(dword_138A64, v6);
   v3[68] = v3[68]
          + 1
          - -64

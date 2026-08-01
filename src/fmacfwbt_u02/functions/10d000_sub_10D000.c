@@ -14,8 +14,8 @@ extern uint32_t off_10D048;
 extern uint32_t off_10D04C;
 extern uint32_t off_10D050;
 
-// sub_10D000 @ 0x10d000, size 70 bytes
-int sub_10D000()
+// gpio_pad_config @ 0x10d000, size 70 bytes
+int gpio_pad_config()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r4

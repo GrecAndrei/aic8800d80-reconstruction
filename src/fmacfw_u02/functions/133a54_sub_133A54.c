@@ -14,10 +14,10 @@ extern uint32_t off_133AB0;
 extern uint32_t dword_133AB8;
 extern uint32_t dword_133AB4;
 
-// sub_133A54 @ 0x133a54, size 90 bytes
+// main_loop_init @ 0x133a54, size 90 bytes
 // Doc: sub_1233A54 [unknown]: Unidentified firmware routine in fmacfw
 // sub_1233A54 [unknown]: Unidentified firmware routine in fmacfw
-int sub_133A54()
+int main_loop_init()
 {
   int v0; // r2
   int v2; // [sp+0h] [bp-Ch] BYREF
@@ -26,17 +26,17 @@ int sub_133A54()
   v0 = **(int16_t **)off_133AB0;
   v2 = 0;
   v3 = 0;
-  if ( v0 < 0 && msg_get_value(6u) != 1 )
-    sub_12F46C(dword_133AB8, dword_133AB4, 303);
-  sub_134474(&v2, &v3);
+  if ( v0 < 0 && rx_rate_field_parse(6u) != 1 )
+    mmio_clear_register(dword_133AB8, dword_133AB4, 303);
+  get_controller_state(&v2, &v3);
   if ( v2 && v3 )
   {
-    sub_1345C0();
+    rx_packet_handler();
     return 0;
   }
   else
   {
-    sub_134E04(1);
+    bt_setup_conn_profile(1);
     return 0;
   }
 }

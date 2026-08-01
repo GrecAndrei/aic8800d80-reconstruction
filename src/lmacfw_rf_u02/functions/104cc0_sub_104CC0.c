@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_104CC0 @ 0x104cc0, size 154 bytes
-int  sub_104CC0(int a1, float a2, int *a3, int a4, int a5)
+// list_remove @ 0x104cc0, size 154 bytes
+int  list_remove(int a1, float a2, int *a3, int a4, int a5)
 {
   int result; // r0
   int v7; // r3

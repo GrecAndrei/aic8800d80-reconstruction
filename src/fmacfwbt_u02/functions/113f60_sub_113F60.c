@@ -12,10 +12,10 @@
 
 extern uint32_t off_113F6C;
 
-// sub_113F60 @ 0x113f60, size 12 bytes
-void sub_113F60()
+// bt_task_tail_dispatch @ 0x113f60, size 12 bytes
+void bt_task_tail_dispatch()
 {
   if ( !*(uint8_t *)off_113F6C )
-    log_flush();
+    bt_ctrl_main_task();
 }
 

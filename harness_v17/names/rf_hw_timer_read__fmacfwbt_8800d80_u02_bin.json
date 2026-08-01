@@ -1,1 +1,1 @@
-{"fn": "rf_hw_timer_read", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120dea0", "status": "ok", "name": "rf_hw_timer_read", "params": [], "docstring": "Read RF hardware timer from 0x4010d000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_hw_timer_read", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120dea0", "status": "ok", "name": "wait_radio_ready", "params": [], "docstring": "Read RF hardware timer from 0x4010d000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sub_12174B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12174b4", "status": "ok", "name": "sub_12174B4", "params": [], "docstring": "Multi-case state handler dispatching on r0 (0..5)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12174B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12174b4", "status": "ok", "name": "conn_schedule", "params": [], "docstring": "Multi-case state handler dispatching on r0 (0..5)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

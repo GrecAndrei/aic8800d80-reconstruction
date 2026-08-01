@@ -15,10 +15,10 @@ extern uint32_t off_10CDC8;
 extern uint32_t off_10CDCC;
 extern uint32_t off_10CDD0;
 
-// check_mac_status @ 0x10cd94, size 48 bytes
-// Doc: check_mac_status [mac]: Checks MAC status register 0x40035104 bit shift
-// check_mac_status [mac]: Checks MAC status register 0x40035104 bit shift
-int check_mac_status()
+// interrupt_wait @ 0x10cd94, size 48 bytes
+// Doc: interrupt_wait [mac]: Checks MAC status register 0x40035104 bit shift
+// interrupt_wait [mac]: Checks MAC status register 0x40035104 bit shift
+int interrupt_wait()
 {
   uint32_t *v0; // r4
   int *v1; // r7
@@ -35,11 +35,11 @@ int check_mac_status()
     {
       v3 = *v1;
       *v2 = 2;
-      sub_10CCB0((uint16_t *)(v3 + 4));
+      scan_report_alloc((uint16_t *)(v3 + 4));
     }
     while ( (*v0 & 2) != 0 );
   }
-  result = clear_flags(0x8000000);
+  result = unknown_func_12d14c(0x8000000);
   *(uint32_t *)off_10CDD0 = 2;
   return result;
 }

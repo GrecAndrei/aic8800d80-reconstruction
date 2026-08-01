@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11EC64 @ 0x11ec64, size 76 bytes
-int * sub_11EC64(int a1)
+// check_ll_event_queue @ 0x11ec64, size 76 bytes
+int * check_ll_event_queue(int a1)
 {
   int v2; // r5
   int v3; // r0
@@ -21,8 +21,8 @@ int * sub_11EC64(int a1)
   v2 = a1 + 572;
   while ( *(uint32_t *)(a1 + 572) )
   {
-    v3 = sub_12D190(v2);
-    sub_118BBC(v3, 1);
+    v3 = list_pop(v2);
+    check_packet_flag(v3, 1);
   }
   result = sub_100200((int *)a1, 0, 0x2B8u);
   v5 = a1;

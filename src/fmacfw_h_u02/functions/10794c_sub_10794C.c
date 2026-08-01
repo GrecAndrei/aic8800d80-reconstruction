@@ -18,8 +18,8 @@ extern uint32_t off_107B04;
 extern uint32_t dword_107AFC;
 extern uint32_t dword_107B00;
 
-// sub_10794C @ 0x10794c, size 414 bytes
-int  sub_10794C(int a1)
+// pmu_pll_config @ 0x10794c, size 414 bytes
+int  pmu_pll_config(int a1)
 {
   uint32_t *v1; // r4
   uint32_t *v2; // r6
@@ -43,26 +43,26 @@ int  sub_10794C(int a1)
   v3 = (int *)off_107AF4;
   v4 = dword_107AF8;
   v5 = off_107B04;
-  sub_107620(a1);
+  load_phy_table(a1);
   v7 = dword_107AFC;
   *v1 |= 0x1000000u;
   *v1 |= 0x2000000u;
-  sub_12EB90(1, v7);
-  sub_1073D8();
+  check_feature_flag(1, v7);
+  pll_set_clock();
   *v2 &= ~1u;
-  sub_100644(20);
+  mmio_read32(20);
   *v2 |= 4u;
   *v2 |= 8u;
-  sub_100644(20);
+  mmio_read32(20);
   *v1 |= 0x800000u;
   *v3 = *v3 & v4 | 0xC000000;
-  sub_100644(20);
+  mmio_read32(20);
   *v1 |= 0x4000000u;
   v8 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   v14 = v8;
   *v3 = *v3 & v4 | 0x4000000;
-  sub_100644(20);
+  mmio_read32(20);
   *v1 |= 0x4000000u;
   v15 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
@@ -76,19 +76,19 @@ int  sub_10794C(int a1)
     v11 = 0x2000000;
   else
     v11 = 167772160;
-  sub_100644(20);
+  mmio_read32(20);
   *v1 |= 0x4000000u;
   v16 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   *v3 = *v3 & v4 | v11;
-  sub_100644(20);
+  mmio_read32(20);
   v12 = dword_107B00;
   *v1 |= 0x4000000u;
   v17 = *v5 & 0x7FFF;
   *v1 &= ~0x4000000u;
   *v1 &= ~0x800000u;
-  sub_12EB90(1, v12);
-  result = sub_10788C(&v14, a1);
+  check_feature_flag(1, v12);
+  result = timer_get_interval(&v14, a1);
   *v2 &= ~4u;
   *v2 &= ~8u;
   *v3 &= v4;

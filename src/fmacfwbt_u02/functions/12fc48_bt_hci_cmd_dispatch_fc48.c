@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// bt_hci_cmd_dispatch_fc48 @ 0x12fc48, size 50 bytes
-// Doc: bt_hci_cmd_dispatch_fc48 [bt]: BT HCI command dispatch entry (returns 2 == pending)
-// bt_hci_cmd_dispatch_fc48 [bt]: BT HCI command dispatch entry (returns 2 == pending)
-int  bt_hci_cmd_dispatch_fc48(int a1)
+// has_dot_extension @ 0x12fc48, size 50 bytes
+// Doc: has_dot_extension [bt]: BT HCI command dispatch entry (returns 2 == pending)
+// has_dot_extension [bt]: BT HCI command dispatch entry (returns 2 == pending)
+int  has_dot_extension(int a1)
 {
   int v2; // r0
   int v3; // r0
   int v5; // r3
 
-  v2 = sub_143F00(a1);
+  v2 = memmove(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;

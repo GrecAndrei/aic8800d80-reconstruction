@@ -34,8 +34,8 @@ extern uint32_t off_113C0C;
 extern uint32_t off_113C10;
 extern uint32_t dword_113C14;
 
-// sub_113ABC @ 0x113abc, size 264 bytes
-int  sub_113ABC(int a1)
+// save_task_ptr @ 0x113abc, size 264 bytes
+int  save_task_ptr(int a1)
 {
   void *v1; // r5
   uint32_t *v2; // r1
@@ -76,7 +76,7 @@ int  sub_113ABC(int a1)
   v4[5] = 0;
   v4[3] = 0;
   v5[6] = 0;
-  sub_100200(v3, 0, 0x140u);
+  memset(v3, 0, 0x140u);
   v6 = *(int **)(*(uint32_t *)v1 + 20);
   v7 = off_113BDC;
   v8 = off_113BE0;
@@ -89,9 +89,9 @@ int  sub_113ABC(int a1)
   v9 = off_113BE4;
   v8[4] = v6 + 12;
   *v9 = v6 + 14;
-  sub_100200(v6, 0, 0xCB8u);
+  memset(v6, 0, 0xCB8u);
   if ( **(int16_t **)off_113BE8 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
-    sub_12F46C(dword_113C1C, dword_113C18, 758);
+    mmio_clear_register(dword_113C1C, dword_113C18, 758);
   v10 = off_113BEC;
   v11 = *((uint16_t *)off_113BEC + 164);
   v12 = *((uint16_t *)off_113BEC + 154);
@@ -121,13 +121,13 @@ int  sub_113ABC(int a1)
     v22 = off_113C10;
     v23 = dword_113C14;
     *(uint8_t *)off_113C10 = v21;
-    sub_12EA88(v23, v21, v22);
+    event_dispatch(v23, v21, v22);
   }
   else
   {
     v25 = dword_113C14;
     *(uint8_t *)off_113C10 = 10;
-    sub_12EA88(v25, 10, v15);
+    event_dispatch(v25, 10, v15);
   }
   return 1;
 }

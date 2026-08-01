@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1160C4;
 
-// sub_1160A0 @ 0x1160a0, size 34 bytes
+// set_table_callback_data @ 0x1160a0, size 34 bytes
 // Doc: sub_12160A0 [unknown]: Lookup 3*index entry in table at 0x187f98 and load field
 // sub_12160A0 [unknown]: Lookup 3*index entry in table at 0x187f98 and load field
-int  sub_1160A0(int a1, int a2)
+int  set_table_callback_data(int a1, int a2)
 {
   int v2; // r3
   int result; // r0

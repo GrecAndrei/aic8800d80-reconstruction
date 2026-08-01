@@ -23,10 +23,10 @@ extern uint32_t dword_10E288;
 extern uint32_t dword_10E28C;
 extern uint32_t dword_10E29C;
 
-// mmio_set_reg_4010d000 @ 0x10e1e8, size 130 bytes
-// Doc: mmio_set_reg_4010d000 [mmio]: Set bit in hardware register at 0x4010d000
-// mmio_set_reg_4010d000 [mmio]: Set bit in hardware register at 0x4010d000
-int mmio_set_reg_4010d000()
+// rf_core_power_on @ 0x10e1e8, size 130 bytes
+// Doc: rf_core_power_on [mmio]: Set bit in hardware register at 0x4010d000
+// rf_core_power_on [mmio]: Set bit in hardware register at 0x4010d000
+int rf_core_power_on()
 {
   uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -46,17 +46,17 @@ int mmio_set_reg_4010d000()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = sub_1429B4(v0[4]);
-  v2 = sub_142AA8(v1, HIDWORD(v1), dword_10E270, dword_10E274);
-  v3 = sub_142CFC(v2, HIDWORD(v2), dword_10E278, dword_10E27C);
-  v4 = sub_142738(v3, HIDWORD(v3), dword_10E270, dword_10E274);
-  v5 = sub_14306C(v4);
-  v6 = sub_1429F8(LODWORD(v5));
-  v7 = sub_142CFC(v6, HIDWORD(v6), dword_10E280, dword_10E284);
-  v8 = sub_142AA8(v7, HIDWORD(v7), 0, dword_10E294);
-  v9 = sub_142AA8(v8, HIDWORD(v8), 0, dword_10E298);
-  v10 = sub_142AA8(v9, HIDWORD(v9), dword_10E288, dword_10E28C);
-  v11 = sub_142CFC(v10, HIDWORD(v10), 0, dword_10E29C);
-  return (int)sub_14306C(v11);
+  v1 = uint_to_double(v0[4]);
+  v2 = double_add(v1, HIDWORD(v1), dword_10E270, dword_10E274);
+  v3 = double_subtract(v2, HIDWORD(v2), dword_10E278, dword_10E27C);
+  v4 = double_compare_wrapper(v3, HIDWORD(v3), dword_10E270, dword_10E274);
+  v5 = double_to_uint(v4);
+  v6 = float_to_double(LODWORD(v5));
+  v7 = double_subtract(v6, HIDWORD(v6), dword_10E280, dword_10E284);
+  v8 = double_add(v7, HIDWORD(v7), 0, dword_10E294);
+  v9 = double_add(v8, HIDWORD(v8), 0, dword_10E298);
+  v10 = double_add(v9, HIDWORD(v9), dword_10E288, dword_10E28C);
+  v11 = double_subtract(v10, HIDWORD(v10), 0, dword_10E29C);
+  return (int)double_to_uint(v11);
 }
 

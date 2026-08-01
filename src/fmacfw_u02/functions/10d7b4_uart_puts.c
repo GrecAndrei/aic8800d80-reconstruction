@@ -13,10 +13,10 @@
 extern uint32_t off_10D7D8;
 extern uint32_t off_10D7DC;
 
-// uart_puts @ 0x10d7b4, size 34 bytes
-// Doc: uart_puts [util]: Write a NUL-terminated string to UART byte by byte
-// uart_puts [util]: Write a NUL-terminated string to UART byte by byte
-uint8_t * uart_puts(uint8_t *result)
+// read_memory_byte @ 0x10d7b4, size 34 bytes
+// Doc: read_memory_byte [util]: Write a NUL-terminated string to UART byte by byte
+// read_memory_byte [util]: Write a NUL-terminated string to UART byte by byte
+uint8_t * read_memory_byte(uint8_t *result)
 {
   int v1; // r1
   uint32_t *v2; // r2

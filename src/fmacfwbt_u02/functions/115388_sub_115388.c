@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_115388 @ 0x115388, size 10 bytes
+// ioctl_cmd_4 @ 0x115388, size 10 bytes
 // Doc: patch_apply_n_15c [patch]: Apply BT firmware patch nop-stub n_15c
 // patch_apply_n_15c [patch]: Apply BT firmware patch nop-stub n_15c
-int  sub_115388(int a1)
+int  ioctl_cmd_4(int a1)
 {
-  return patch_apply_526c(4, a1, 0x14u);
+  return ioctl_dispatch(4, a1, 0x14u);
 }
 

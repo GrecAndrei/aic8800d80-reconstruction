@@ -20,10 +20,10 @@ extern uint32_t dword_12ECC8;
 extern uint32_t dword_12ECB4;
 extern uint32_t dword_12ECCC;
 
-// rf_mem_read_eb18 @ 0x12eb18, size 404 bytes
-// Doc: rf_mem_read_eb18 [rf]: Read RF memory block; copies N words with offset/length params
-// rf_mem_read_eb18 [rf]: Read RF memory block; copies N words with offset/length params
-unsigned int  rf_mem_read_eb18(unsigned int result, int a2, int a3, int a4)
+// send_msg @ 0x12eb18, size 404 bytes
+// Doc: send_msg [rf]: Read RF memory block; copies N words with offset/length params
+// send_msg [rf]: Read RF memory block; copies N words with offset/length params
+unsigned int  send_msg(unsigned int result, int a2, int a3, int a4)
 {
   int v4; // r4
   int v5; // r9
@@ -57,25 +57,25 @@ unsigned int  rf_mem_read_eb18(unsigned int result, int a2, int a3, int a4)
   v6 = -a3 & result;
   while ( 1 )
   {
-    msg_parse(dword_12ECAC, v6);
+    event_dispatch(dword_12ECAC, v6);
     v7 = v24;
     if ( v24 >= 0x10 )
       v7 = 16;
     if ( ((v6 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       if ( !v24 )
-        return (unsigned int)uart_puts((uint8_t *)dword_12ECB8);
+        return (unsigned int)read_memory_byte((uint8_t *)dword_12ECB8);
       v21 = dword_12ECB0;
       v22 = 0;
       while ( 1 )
       {
-        cb = rf_reg_read_cb();
+        cb = call_ptr_1b0();
         if ( v4 == 4 )
           break;
         if ( v4 == 2 )
         {
           v22 += 4;
-          msg_parse(dword_12ECBC, (uint16_t)cb, HIWORD(cb), BYTE2(cb));
+          event_dispatch(dword_12ECBC, (uint16_t)cb, HIWORD(cb), BYTE2(cb));
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -86,7 +86,7 @@ LABEL_40:
         }
         else
         {
-          msg_parse(v5);
+          event_dispatch(v5);
 LABEL_36:
           v22 += 4;
           v6 += 4;
@@ -94,7 +94,7 @@ LABEL_36:
             goto LABEL_40;
         }
       }
-      msg_parse(v21, cb, BYTE1(cb), BYTE2(cb));
+      event_dispatch(v21, cb, BYTE1(cb), BYTE2(cb));
       goto LABEL_36;
     }
     if ( v24 )
@@ -105,7 +105,7 @@ LABEL_36:
       goto LABEL_20;
     }
 LABEL_31:
-    result = (unsigned int)uart_puts((uint8_t *)dword_12ECB8);
+    result = (unsigned int)read_memory_byte((uint8_t *)dword_12ECB8);
     v24 -= v7;
     if ( !v24 )
       return result;
@@ -122,7 +122,7 @@ LABEL_31:
       if ( v4 != 4 )
         break;
       v11 += 4;
-      msg_parse(dword_12ECB0, *(uint32_t *)v10);
+      event_dispatch(dword_12ECB0, *(uint32_t *)v10);
       v10 += 2;
       if ( v7 <= v11 )
         goto LABEL_18;
@@ -134,7 +134,7 @@ LABEL_31:
     if ( v4 == 2 )
       v13 = v9;
     v11 += v4;
-    msg_parse(v13, v12);
+    event_dispatch(v13, v12);
     v10 = (uint16_t *)((char *)v10 + v4);
   }
   while ( v7 > v11 );
@@ -143,7 +143,7 @@ LABEL_18:
     goto LABEL_30;
   if ( v24 > 0xF )
   {
-    uart_puts((uint8_t *)dword_12ECB4);
+    read_memory_byte((uint8_t *)dword_12ECB4);
     goto LABEL_26;
   }
 LABEL_20:
@@ -156,17 +156,17 @@ LABEL_20:
   {
     while ( (v14 & v16++) != 0 )
     {
-      uart_puts(v15);
+      read_memory_byte(v15);
       if ( v17 == v16 )
         goto LABEL_25;
     }
-    uart_putc(32);
-    uart_puts(v15);
+    gpio_write(32);
+    read_memory_byte(v15);
   }
   while ( v17 != v16 );
 LABEL_25:
   v4 = v26;
-  uart_puts((uint8_t *)dword_12ECB4);
+  read_memory_byte((uint8_t *)dword_12ECB4);
   if ( v24 )
   {
 LABEL_26:
@@ -177,13 +177,13 @@ LABEL_26:
       if ( (unsigned int)(v20 - 31) > 0x5F )
         v20 = 46;
       ++v19;
-      uart_putc(v20);
+      gpio_write(v20);
     }
     while ( v7 > v19 );
 LABEL_30:
     v6 = (unsigned int)v10;
     goto LABEL_31;
   }
-  return (unsigned int)uart_puts((uint8_t *)dword_12ECB8);
+  return (unsigned int)read_memory_byte((uint8_t *)dword_12ECB8);
 }
 

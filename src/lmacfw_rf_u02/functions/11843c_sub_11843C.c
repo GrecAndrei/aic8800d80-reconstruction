@@ -18,8 +18,8 @@ extern uint32_t dword_1184AC;
 extern uint32_t dword_1184A8;
 extern uint32_t off_1184A0;
 
-// sub_11843C @ 0x11843c, size 86 bytes
-int sub_11843C()
+// init_link_manager @ 0x11843c, size 86 bytes
+int init_link_manager()
 {
   uint16_t *v0; // r4
   int v1; // r3
@@ -36,13 +36,13 @@ int sub_11843C()
   *((uint32_t *)v0 + 1) = 0;
   if ( v3 < 0 && *(uint32_t *)off_1184A4 << 28 )
   {
-    sub_1219F4(dword_1184AC, dword_1184A8, 472);
+    flash_cmd_exec(dword_1184AC, dword_1184A8, 472);
     *(uint32_t *)off_1184A0 = *(uint32_t *)v0 | *((uint32_t *)v0 + 1);
   }
   else
   {
     *(uint32_t *)off_1184A0 = v1;
   }
-  return sub_1183A0();
+  return poll_hw_status();
 }
 

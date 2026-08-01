@@ -16,8 +16,8 @@ extern uint32_t dword_1166EC;
 extern uint32_t off_1166F0;
 extern uint32_t dword_1166F4;
 
-// sub_116614 @ 0x116614, size 210 bytes
-int sub_116614()
+// hw_init_magic @ 0x116614, size 210 bytes
+int hw_init_magic()
 {
   int *v0; // r4
   int v1; // r8
@@ -44,7 +44,7 @@ int sub_116614()
   {
     *v0 = v1;
     v0[1] = sub_101954() << 14;
-    v5 = sub_1029D8();
+    v5 = get_hw_flash_size();
     v0[3] = 0;
     v0[4] = v2;
     v0[5] = 0;
@@ -71,7 +71,7 @@ int sub_116614()
   {
     *v7 = v8;
     v7[1] = sub_101954() << 14;
-    result = sub_1029D8();
+    result = get_hw_flash_size();
     v7[3] = 0;
     v7[4] = v9;
     v7[5] = 0;

@@ -24,10 +24,10 @@ extern uint32_t dword_1130B8;
 extern uint32_t dword_1130BC;
 extern uint32_t dword_1130C4;
 
-// sub_112F6C @ 0x112f6c, size 298 bytes
+// main_event_handler @ 0x112f6c, size 298 bytes
 // Doc: sub_1212F6C [unknown]: Unknown behavioral stub
 // sub_1212F6C [unknown]: Unknown behavioral stub
-void  sub_112F6C(int a1, int a2, int a3, int a4)
+void  main_event_handler(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r5
   uint16_t *v5; // r2
@@ -60,7 +60,7 @@ void  sub_112F6C(int a1, int a2, int a3, int a4)
       v19 = (uint16_t *)off_1130A8;
       v20 = dword_1130AC;
       *(uint8_t *)off_11309C = 1;
-      sub_11F74C(512, v20, *v19, v19);
+      check_interrupt_flag(512, v20, *v19, v19);
     }
   }
   else
@@ -74,7 +74,7 @@ void  sub_112F6C(int a1, int a2, int a3, int a4)
       v6 = dword_1130AC;
       a3 = *v5;
 LABEL_6:
-      sub_11F74C(512, v6, a3, a4);
+      check_interrupt_flag(512, v6, a3, a4);
       return;
     }
   }
@@ -89,20 +89,20 @@ LABEL_6:
       v11 = *(uint32_t *)off_1130B4;
       v12 = *(uint32_t *)off_1130C8 + v7;
       if ( *(uint8_t *)off_11309C )
-        started = rf_stream_start2_cc0(v12, v11);
+        started = send_control_packet(v12, v11);
       else
-        started = rf_stream_start_2c20(v12, v11);
+        started = send_data_packet(v12, v11);
     }
     else
     {
       v9 = off_1130C8;
       v10 = (unsigned int *)off_1130B4;
-      started = rf_stream_start_2c20(*(uint32_t *)off_1130C8 + v7, *(uint32_t *)off_1130B4);
+      started = send_data_packet(*(uint32_t *)off_1130C8 + v7, *(uint32_t *)off_1130B4);
     }
     if ( started )
     {
       v14 = off_11309C;
-      sub_10DA6C(dword_1130B8, started);
+      log_printf(dword_1130B8, started);
       v15 = 5;
       while ( 1 )
       {
@@ -110,19 +110,19 @@ LABEL_6:
         {
           v16 = *v10;
           v17 = (int)v8 + *v9;
-          v18 = *v14 ? rf_stream_start2_cc0(v17, v16) : rf_stream_start_2c20(v17, v16);
+          v18 = *v14 ? send_control_packet(v17, v16) : send_data_packet(v17, v16);
         }
         else
         {
-          v18 = rf_stream_start_2c20((int)v8 + *v9, *v10);
+          v18 = send_data_packet((int)v8 + *v9, *v10);
         }
         if ( !v18 )
           break;
         if ( !--v15 )
         {
-          sub_10DA6C(dword_1130BC, 5);
-          sub_10FEF8(v8);
-          irq_nesting_or(256);
+          log_printf(dword_1130BC, 5);
+          mem_free(v8);
+          set_busy_flag_alt(256);
           return;
         }
       }
@@ -130,8 +130,8 @@ LABEL_6:
   }
   else
   {
-    irq_nesting_or(256);
-    sub_10DA6C(dword_1130C4);
+    set_busy_flag_alt(256);
+    log_printf(dword_1130C4);
   }
 }
 

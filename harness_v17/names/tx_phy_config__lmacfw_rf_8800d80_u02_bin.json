@@ -1,1 +1,1 @@
-{"fn": "tx_phy_config", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120bf28", "status": "ok", "name": "tx_phy_config", "params": [], "docstring": "Configure TX PHY parameters from descriptor fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "tx_phy_config", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120bf28", "status": "ok", "name": "parse_packet_control", "params": [], "docstring": "Configure TX PHY parameters from descriptor fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

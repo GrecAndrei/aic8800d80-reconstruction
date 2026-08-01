@@ -17,8 +17,8 @@ extern uint32_t off_12FB64;
 extern uint32_t dword_12FB6C;
 extern uint32_t dword_12FB70;
 
-// sub_12FA2C @ 0x12fa2c, size 304 bytes
-int  sub_12FA2C(unsigned int a1, uint8_t *a2, int a3)
+// queue_operation @ 0x12fa2c, size 304 bytes
+int  queue_operation(unsigned int a1, uint8_t *a2, int a3)
 {
   int *v3; // r6
   char v4; // r4
@@ -49,7 +49,7 @@ int  sub_12FA2C(unsigned int a1, uint8_t *a2, int a3)
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = sub_143F00(a3);
+    v11 = memmove(a3);
     v12 = (int *)off_12FB60;
     v13 = off_12FB68;
     *v3 = (int)a2;
@@ -81,7 +81,7 @@ LABEL_3:
       case 0xDu:
         v21 = (uint8_t *)dword_12FB6C;
         *(uint8_t *)*v3 = 0;
-        sub_10D60C(v21);
+        uart_puts(v21);
         return *v3 - (uint32_t)a2;
       case 0x15u:
         v22 = off_12FB68;
@@ -96,7 +96,7 @@ LABEL_3:
           v16 = (unsigned int)a2;
           while ( 1 )
           {
-            v17 = (uint8_t *)sub_12F878(v16, v15, v8);
+            v17 = (uint8_t *)rx_packet_process(v16, v15, v8);
             v18 = *v14;
             *v3 = (int)v17;
             v15 = (int)v17;
@@ -116,7 +116,7 @@ LABEL_3:
           goto LABEL_7;
         if ( a1 != 9 )
           goto LABEL_28;
-        sub_10D60C((uint8_t *)(dword_12FB70 + (v8 & 7)));
+        uart_puts((uint8_t *)(dword_12FB70 + (v8 & 7)));
         *(uint32_t *)off_12FB64 = (*(uint32_t *)off_12FB64 & 0xFFFFFFF8) + 8;
         break;
     }
@@ -127,7 +127,7 @@ LABEL_3:
 LABEL_19:
     v20 = *v3;
     if ( *(uint32_t *)off_12FB68 )
-      v20 = sub_12F878((unsigned int)a2, v20, v8);
+      v20 = rx_packet_process((unsigned int)a2, v20, v8);
     *v3 = v20;
     return -1;
   }

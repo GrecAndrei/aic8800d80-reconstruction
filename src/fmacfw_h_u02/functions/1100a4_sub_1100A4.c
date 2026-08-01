@@ -14,8 +14,8 @@ extern uint32_t off_1100D8;
 extern uint32_t dword_1100DC;
 extern uint32_t dword_1100E0;
 
-// sub_1100A4 @ 0x1100a4, size 52 bytes
-int sub_1100A4()
+// get_current_channel @ 0x1100a4, size 52 bytes
+int get_current_channel()
 {
   void *v0; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int sub_1100A4()
   int v4; // r4
 
   v0 = off_1100D8;
-  result = sub_12D100(dword_1100DC);
+  result = clear_stats_buf(dword_1100DC);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_1100E0;
@@ -32,8 +32,8 @@ int sub_1100A4()
     v4 = 0;
     do
     {
-      sub_10F9E8(v2, 0xCu);
-      result = sub_12D108(v3);
+      tx_irq_handler(v2, 0xCu);
+      result = wlan_ioctl_handler_1(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );

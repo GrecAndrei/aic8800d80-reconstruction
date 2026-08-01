@@ -14,8 +14,8 @@ extern uint32_t off_107578;
 extern uint32_t off_10757C;
 extern uint32_t off_107580;
 
-// sub_107518 @ 0x107518, size 96 bytes
-uint32_t *sub_107518()
+// rf_synth_set_freq @ 0x107518, size 96 bytes
+uint32_t *rf_synth_set_freq()
 {
   unsigned int *v0; // r2
   uint32_t *v1; // r3

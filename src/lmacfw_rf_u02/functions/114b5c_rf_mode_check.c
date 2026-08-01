@@ -20,10 +20,10 @@ extern uint32_t off_114C48;
 extern uint32_t off_114C4C;
 extern uint32_t off_114C54;
 
-// rf_mode_check @ 0x114b5c, size 230 bytes
-// Doc: rf_mode_check [rf]: Check current RF mode/state byte
-// rf_mode_check [rf]: Check current RF mode/state byte
-int rf_mode_check()
+// wait_hw_ready @ 0x114b5c, size 230 bytes
+// Doc: wait_hw_ready [rf]: Check current RF mode/state byte
+// wait_hw_ready [rf]: Check current RF mode/state byte
+int wait_hw_ready()
 {
   int v0; // r4
   uint32_t *v1; // r3
@@ -36,21 +36,21 @@ int rf_mode_check()
 
   if ( **(uint8_t **)off_114C44 == 2 )
   {
-    if ( rf_bus_reset_n2b4() )
+    if ( util_read_status() )
       v0 = *((uint32_t *)off_114C64 + 87);
     else
       v0 = 16;
-    sub_1122F0();
+    rf_init();
     *((uint32_t *)off_114C50 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    msg_parse(dword_114C58, v6);
+    dispatch_event_handler(dword_114C58, v6);
     v8 = off_114C5C;
     *((uint32_t *)off_114C5C + 513) |= 2u;
     v8[4] |= 1u;
     while ( (v8[4] & 1) != 0 )
       ;
-    msg_parse(dword_114C60, v7);
+    dispatch_event_handler(dword_114C60, v7);
   }
   else
   {
@@ -82,9 +82,9 @@ int rf_mode_check()
   v4[34] = 1;
   __dsb(0xFu);
   __isb(0xFu);
-  nvic_irq_enable();
+  trace_sync();
   if ( *(uint8_t *)(*(uint32_t *)off_114C54 + 3) )
-    sub_1138F4();
+    check_rx_active();
   __disable_irq();
   return v0;
 }

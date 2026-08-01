@@ -14,11 +14,11 @@ extern uint32_t dword_10EDCC;
 extern uint32_t dword_10EDC8;
 extern uint32_t dword_10EDD0;
 
-// sub_10ED98 @ 0x10ed98, size 46 bytes
-int  sub_10ED98(int a1)
+// rf_set_channel @ 0x10ed98, size 46 bytes
+int  rf_set_channel(int a1)
 {
-  sub_10ECEC(dword_10EDCC, 196608, dword_10EDC8, 1);
-  sub_10EC98(dword_10EDD0, a1 << 15, 1);
-  return sub_10ECEC(1879048192, 1, 1, 1);
+  mmio_rmw32(dword_10EDCC, 196608, dword_10EDC8, 1);
+  mmio_read32_variant(dword_10EDD0, a1 << 15, 1);
+  return mmio_rmw32(1879048192, 1, 1, 1);
 }
 

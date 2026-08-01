@@ -1,1 +1,1 @@
-{"fn": "sub_1241E6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1241e6c", "status": "ok", "name": "mmio_reg_read_sum_n1e6c", "params": [], "docstring": "Reads 64-bit register from MMIO base 0x40501000 and adds base offset", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1241E6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1241e6c", "status": "ok", "name": "mmio_read_register", "params": [], "docstring": "Reads 64-bit register from MMIO base 0x40501000 and adds base offset", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

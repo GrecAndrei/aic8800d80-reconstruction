@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211804", "status": "ok", "name": "rf_bus_setup_1804", "params": [], "docstring": "Initialize RF control bus and validate bus index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_bus_setup", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211804", "status": "ok", "name": "util_process_cmd", "params": [], "docstring": "Initialize RF control bus and validate bus index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

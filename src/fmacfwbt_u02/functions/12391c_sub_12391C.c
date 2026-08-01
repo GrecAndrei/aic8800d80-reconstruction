@@ -13,8 +13,8 @@
 extern uint32_t dword_1239AC;
 extern uint32_t dword_1239B0;
 
-// sub_12391C @ 0x12391c, size 142 bytes
-int  sub_12391C(int a1, uint8_t *a2, int a3, int a4)
+// load_three_bytes @ 0x12391c, size 142 bytes
+int  load_three_bytes(int a1, uint8_t *a2, int a3, int a4)
 {
   int v5; // r6
   int v6; // r0
@@ -32,11 +32,11 @@ int  sub_12391C(int a1, uint8_t *a2, int a3, int a4)
   v7 = a2[2];
   if ( v5 )
   {
-    v14 = sub_121BC0(v6, v7);
+    v14 = phy_read_channel(v6, v7);
     v10 = a3;
     if ( v14 )
     {
-      sub_13A4FC(dword_1239AC + 696 * a2[1], a2[2], a3);
+      get_instance_handle_cond(dword_1239AC + 696 * a2[1], a2[2], a3);
       v11 = 2;
       v10 = a3;
       goto LABEL_4;
@@ -44,7 +44,7 @@ int  sub_12391C(int a1, uint8_t *a2, int a3, int a4)
   }
   else
   {
-    v9 = sub_121B9C(v6, v7);
+    v9 = phy_read_band(v6, v7);
     v10 = a3;
     if ( v9 )
     {
@@ -58,11 +58,11 @@ int  sub_12391C(int a1, uint8_t *a2, int a3, int a4)
   }
   v11 = 3;
 LABEL_4:
-  v12 = (uint8_t *)sub_12CB54(43, a4, v10, 3);
+  v12 = (uint8_t *)bt_buf_alloc(43, a4, v10, 3);
   *v12 = a2[1];
   v12[1] = a2[2];
   v12[2] = v11;
-  sub_12CBB4(v12);
+  hci_evt_send(v12);
   return 0;
 }
 

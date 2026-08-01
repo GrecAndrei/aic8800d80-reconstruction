@@ -16,8 +16,8 @@ extern uint32_t dword_12FAE4;
 extern uint32_t dword_12FAE8;
 extern uint32_t dword_12FAEC;
 
-// sub_12FA08 @ 0x12fa08, size 220 bytes
-int  sub_12FA08(int a1, int a2)
+// parse_mac_string @ 0x12fa08, size 220 bytes
+int  parse_mac_string(int a1, int a2)
 {
   int v4; // r10
   unsigned int v5; // r4
@@ -29,14 +29,14 @@ int  sub_12FA08(int a1, int a2)
   unsigned int v11; // r4
   int v13; // r0
 
-  v4 = sub_12F8EC(*(uint32_t *)a2);
+  v4 = is_two_char_string(*(uint32_t *)a2);
   if ( v4 >= 0 )
   {
-    v5 = sub_12F818(*(uint8_t **)(a2 + 4), 0, 0x10u);
-    v6 = sub_12F818(*(uint8_t **)(a2 + 8), 0, 0x10u);
+    v5 = parse_uint_base(*(uint8_t **)(a2 + 4), 0, 0x10u);
+    v6 = parse_uint_base(*(uint8_t **)(a2 + 8), 0, 0x10u);
     if ( a1 > 3 )
     {
-      v13 = sub_12F818(*(uint8_t **)(a2 + 12), 0, 0);
+      v13 = parse_uint_base(*(uint8_t **)(a2 + 12), 0, 0);
       if ( !v13 )
         return 0;
       v7 = v13 - 1;
@@ -53,9 +53,9 @@ int  sub_12FA08(int a1, int a2)
       while ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
       {
         v11 = v5 & 0xFFFFFFFC;
-        sub_10DAE4(dword_12FAE8, v11, v6);
+        debug_printf(dword_12FAE8, v11, v6);
         --v7;
-        sub_10EC34();
+        call_patch_hook_1();
         v5 = v11 + v4;
         if ( v7 == -1 )
           return 0;
@@ -63,15 +63,15 @@ int  sub_12FA08(int a1, int a2)
       switch ( v4 )
       {
         case 4:
-          sub_10DAE4(v10, v5, v6);
+          debug_printf(v10, v5, v6);
           *(uint32_t *)v5 = v6;
           break;
         case 2:
-          sub_10DAE4(v9, v5);
+          debug_printf(v9, v5);
           *(uint16_t *)v5 = v6;
           break;
         case 1:
-          sub_10DAE4(v8, v5, (uint8_t)v6);
+          debug_printf(v8, v5, (uint8_t)v6);
           *(uint8_t *)v5 = v6;
           break;
       }
@@ -81,7 +81,7 @@ int  sub_12FA08(int a1, int a2)
     while ( v7 != -1 );
     return 0;
   }
-  sub_10DAE4(dword_12FAEC, v4);
+  debug_printf(dword_12FAEC, v4);
   return -1;
 }
 

@@ -12,8 +12,8 @@
 
 extern uint32_t off_1324D0;
 
-// sub_132460 @ 0x132460, size 112 bytes
-char * sub_132460(char *result, int a2)
+// rf_channel_to_freq @ 0x132460, size 112 bytes
+char * rf_channel_to_freq(char *result, int a2)
 {
   int v2; // r1
   char *v3; // r3

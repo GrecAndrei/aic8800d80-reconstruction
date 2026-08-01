@@ -1,1 +1,1 @@
-{"fn": "sub_122F588", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f588", "status": "ok", "name": "sub_122F588", "params": [], "docstring": "Check firmware state byte against value 3 and branch", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122F588", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f588", "status": "ok", "name": "check_chip_mode", "params": [], "docstring": "Check firmware state byte against value 3 and branch", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

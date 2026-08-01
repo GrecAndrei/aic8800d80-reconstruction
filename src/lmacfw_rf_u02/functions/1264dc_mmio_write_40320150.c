@@ -16,10 +16,10 @@ extern uint32_t off_12652C;
 extern uint32_t off_126530;
 extern uint32_t off_126534;
 
-// mmio_write_40320150 @ 0x1264dc, size 70 bytes
-// Doc: mmio_write_40320150 [mmio]: Writes value to MMIO register 0x40320150
-// mmio_write_40320150 [mmio]: Writes value to MMIO register 0x40320150
-int  mmio_write_40320150(int a1)
+// mmio_write_register @ 0x1264dc, size 70 bytes
+// Doc: mmio_write_register [mmio]: Writes value to MMIO register 0x40320150
+// mmio_write_register [mmio]: Writes value to MMIO register 0x40320150
+int  mmio_write_register(int a1)
 {
   uint32_t *v1; // r3
   int *v2; // r4

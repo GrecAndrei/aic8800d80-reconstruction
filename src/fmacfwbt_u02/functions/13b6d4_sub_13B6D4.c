@@ -13,16 +13,16 @@
 extern uint32_t dword_13B70C;
 extern uint32_t dword_13B708;
 
-// sub_13B6D4 @ 0x13b6d4, size 50 bytes
+// rf_is_ready @ 0x13b6d4, size 50 bytes
 // Doc: sub_123B6D4 [bt]: Helper in BT firmware, dispatches based on return value
 // sub_123B6D4 [bt]: Helper in BT firmware, dispatches based on return value
-int  sub_13B6D4(int a1, int a2, unsigned int a3)
+int  rf_is_ready(int a1, int a2, unsigned int a3)
 {
-  if ( msg_get_value(a3) == 2 )
+  if ( hci_cmd_send_short(a3) == 2 )
   {
-    rx_entry_lookup(a3 >> 8);
-    list_push_tail(dword_13B70C, (uint32_t *)(dword_13B708 + 32 * (a3 >> 8)));
-    rf_bus_mark_n_3b7(a3, 0);
+    rf_get_chan_cfg(a3 >> 8);
+    check_abort_flag(dword_13B70C, (uint32_t *)(dword_13B708 + 32 * (a3 >> 8)));
+    hci_cmd_send(a3, 0);
   }
   return 0;
 }

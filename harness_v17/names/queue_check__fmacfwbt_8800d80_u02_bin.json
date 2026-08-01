@@ -1,1 +1,1 @@
-{"fn": "queue_check", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1229140", "status": "ok", "name": "queue_check", "params": [], "docstring": "Check queue flag state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "queue_check", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1229140", "status": "ok", "name": "mm_state_run", "params": [], "docstring": "Check queue flag state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

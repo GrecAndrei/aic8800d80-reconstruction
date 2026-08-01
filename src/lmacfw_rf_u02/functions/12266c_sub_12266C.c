@@ -12,8 +12,8 @@
 
 extern uint32_t off_122684;
 
-// sub_12266C @ 0x12266c, size 22 bytes
-int  sub_12266C(int a1)
+// get_elapsed_ticks @ 0x12266c, size 22 bytes
+int  get_elapsed_ticks(int a1)
 {
   int result; // r0
 

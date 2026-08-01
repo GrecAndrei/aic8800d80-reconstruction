@@ -12,8 +12,8 @@
 
 extern uint32_t off_13A4D4;
 
-// sub_13A4B0 @ 0x13a4b0, size 36 bytes
-uint16_t * sub_13A4B0(uint16_t *result)
+// mac_store_config @ 0x13a4b0, size 36 bytes
+uint16_t * mac_store_config(uint16_t *result)
 {
   uint16_t *v1; // r3
 

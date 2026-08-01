@@ -21,8 +21,8 @@ extern uint32_t dword_117288;
 extern uint32_t off_117268;
 extern uint32_t dword_11726C;
 
-// sub_11708C @ 0x11708c, size 474 bytes
-int  sub_11708C(int a1, int a2, char a3)
+// ke_timer_calc @ 0x11708c, size 474 bytes
+int  ke_timer_calc(int a1, int a2, char a3)
 {
   int v4; // r0
   int v5; // r8
@@ -72,7 +72,7 @@ int  sub_11708C(int a1, int a2, char a3)
       else
       {
         v29 = v12;
-        sub_12F694(dword_117280, dword_11727C, 475);
+        mmio_irq_clear(dword_117280, dword_11727C, 475);
         v17 = *(uint32_t *)(a1 + 72);
         v12 = v29;
       }
@@ -102,21 +102,21 @@ int  sub_11708C(int a1, int a2, char a3)
     }
   }
   *(uint8_t *)(v5 + 36) = a3;
-  sub_116508(a1, a2);
+  build_tx_packet(a1, a2);
   if ( *(uint16_t *)(a1 + 24) == 36488 )
-    sub_12ECB0(dword_117278, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
+    ke_event_schedule(dword_117278, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
   v8 = *(uint32_t *)(a1 + 8);
   v9 = *(uint32_t *)(a1 + 72);
   if ( v8 >= 0 || (v20 = *(uint16_t *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
   {
-    if ( msg_get_value(6) == 6 )
+    if ( hci_cmd_send_short(6) == 6 )
       goto LABEL_24;
 LABEL_7:
     v10 = *(uint32_t **)(a1 + 72);
     goto LABEL_8;
   }
   *(uint32_t *)(v9 + 60) = *(uint32_t *)(v9 + 60) & 0xFFFF00FF | 0xE00;
-  if ( msg_get_value(6) != 6 )
+  if ( hci_cmd_send_short(6) != 6 )
     goto LABEL_7;
 LABEL_24:
   v21 = (int16_t **)off_117270;
@@ -135,7 +135,7 @@ LABEL_28:
   v10 = *(uint32_t **)(a1 + 72);
   if ( !v10 )
   {
-    sub_12F694(dword_11728C, dword_117284, 518);
+    mmio_irq_clear(dword_11728C, dword_117284, 518);
     v23 = *(uint16_t **)(v22 + 28);
     if ( v23 )
       goto LABEL_28;
@@ -150,7 +150,7 @@ LABEL_41:
     v24 = *(uint32_t *)(v22 + 24);
     if ( v24 )
       goto LABEL_27;
-    sub_12F694(dword_117288, dword_117284, 525);
+    mmio_irq_clear(dword_117288, dword_117284, 525);
 LABEL_26:
     v24 = *(uint32_t *)(v22 + 24);
 LABEL_27:
@@ -166,7 +166,7 @@ LABEL_8:
   v10[4] = dword_11726C;
   v10[2] = a1;
   v10[3] = a1;
-  sub_116EF4(a1, a1, (int)v10, a2);
+  mac_set_flag(a1, a1, (int)v10, a2);
   return 0;
 }
 

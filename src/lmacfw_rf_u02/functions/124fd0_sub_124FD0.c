@@ -13,21 +13,21 @@
 extern uint32_t dword_125000;
 extern uint32_t dword_124FFC;
 
-// sub_124FD0 @ 0x124fd0, size 42 bytes
-int  sub_124FD0(int a1, int a2)
+// set_super_timeout @ 0x124fd0, size 42 bytes
+int  set_super_timeout(int a1, int a2)
 {
   uint8_t v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse(dword_125000);
+    dispatch_event_handler(dword_125000);
     return 1;
   }
   else
   {
-    v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    mmio_field_set_l2h2(v2);
-    msg_parse(dword_124FFC);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    rf_set_bit18(v2);
+    dispatch_event_handler(dword_124FFC);
     return 0;
   }
 }

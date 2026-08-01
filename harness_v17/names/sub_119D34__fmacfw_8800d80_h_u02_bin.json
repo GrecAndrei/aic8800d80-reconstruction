@@ -1,0 +1,1 @@
+{"fn": "sub_119D34", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x119d34", "status": "ok", "name": "init_mac_global_0x1882c8", "params": [], "docstring": "Initialize global MAC state at 0x1882c8 from ROM tables", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

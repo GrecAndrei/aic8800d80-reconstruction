@@ -1,1 +1,1 @@
-{"fn": "sub_121A72C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a72c", "status": "ok", "name": "rf_reg_probe_id", "params": [], "docstring": "Probes RF register 0x40320200 and reads header", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121A72C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a72c", "status": "ok", "name": "mmio_clear_bits", "params": [], "docstring": "Probes RF register 0x40320200 and reads header", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

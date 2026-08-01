@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13AB70 @ 0x13ab70, size 54 bytes
-int  sub_13AB70(int a1, uint16_t *a2)
+// ll_conn_event_type_check @ 0x13ab70, size 54 bytes
+int  ll_conn_event_type_check(int a1, uint16_t *a2)
 {
   unsigned int v2; // r2
   uint16_t *v4; // r1
@@ -25,7 +25,7 @@ int  sub_13AB70(int a1, uint16_t *a2)
     a2[1] = 3;
     a2[2] = 0;
   }
-  v4 = sub_13A980(a1, a2, 1);
-  return sub_13A704(a1, (int)v4);
+  v4 = ll_conn_context_get(a1, a2, 1);
+  return rf_apply_chan_cfg(a1, (int)v4);
 }
 

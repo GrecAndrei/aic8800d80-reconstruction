@@ -13,8 +13,8 @@
 extern uint32_t dword_129E00;
 extern uint32_t dword_129DFC;
 
-// sub_129C48 @ 0x129c48, size 434 bytes
-int  sub_129C48(int result, int a2, unsigned int a3)
+// sec_table_entry_count @ 0x129c48, size 434 bytes
+int  sec_table_entry_count(int result, int a2, unsigned int a3)
 {
   int v3; // r8
   int v4; // r9
@@ -55,7 +55,7 @@ int  sub_129C48(int result, int a2, unsigned int a3)
     {
       if ( v24[16] )
       {
-        sub_124CF4(v6);
+        mem_set_util(v6);
         v24[16] = 0;
       }
       v26 = v3 + 140 * v5;
@@ -63,11 +63,11 @@ int  sub_129C48(int result, int a2, unsigned int a3)
       *(uint8_t *)(v26 + 121) = 0;
       if ( v27 )
       {
-        sub_124CF4(v4 + 48 + v3);
+        mem_set_util(v4 + 48 + v3);
         *(uint8_t *)(v26 + 64) = 0;
       }
       *(uint8_t *)(v3 + 140 * v5 + 121) = 0;
-      sub_1296C4((uint8_t *)v6);
+      rsn_parse_ie((uint8_t *)v6);
     }
     goto LABEL_19;
   }
@@ -83,7 +83,7 @@ int  sub_129C48(int result, int a2, unsigned int a3)
     {
       if ( v11[16] )
       {
-        sub_124CF4(v6);
+        mem_set_util(v6);
         v11[16] = 0;
       }
       v13 = v3 + 140 * v5;
@@ -91,11 +91,11 @@ int  sub_129C48(int result, int a2, unsigned int a3)
       *(uint8_t *)(v13 + 121) = 0;
       if ( v14 )
       {
-        sub_124CF4(v4 + 48 + v3);
+        mem_set_util(v4 + 48 + v3);
         *(uint8_t *)(v13 + 64) = 0;
       }
       *(uint8_t *)(v3 + 140 * v5 + 121) = 0;
-      sub_1296C4((uint8_t *)v6);
+      rsn_parse_ie((uint8_t *)v6);
     }
     v15 = *(uint16_t *)(a2 + 1) - 2;
     v16 = dword_129DFC * (uint64_t)v15;
@@ -117,11 +117,11 @@ int  sub_129C48(int result, int a2, unsigned int a3)
           if ( v20 <= 1 || v21 )
           {
             *(uint32_t *)(v6 + 24) = *(uint32_t *)(v18 + 1);
-            v22 = v21 - 4000 - sub_101944();
+            v22 = v21 - 4000 - get_timeout_1000();
             v23 = *(uint8_t *)(v6 + 20);
             *(uint32_t *)(v6 + 28) = v22;
             *(uint8_t *)(v6 + 19) = v23;
-            if ( sub_129C28(v6, *(uint8_t *)(v28 + 113), *(uint32_t *)(v18 + 9), a3) )
+            if ( sec_table_lookup(v6, *(uint8_t *)(v28 + 113), *(uint32_t *)(v18 + 9), a3) )
               ++*(uint8_t *)(v28 + 121);
           }
         }

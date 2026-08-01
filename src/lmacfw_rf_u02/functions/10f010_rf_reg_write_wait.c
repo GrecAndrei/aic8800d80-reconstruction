@@ -14,10 +14,10 @@ extern uint32_t off_10F058;
 extern uint32_t off_10F05C;
 extern uint32_t off_10F060;
 
-// rf_reg_write_wait @ 0x10f010, size 70 bytes
-// Doc: rf_reg_write_wait [rf]: Write RF register and wait for completion
-// rf_reg_write_wait [rf]: Write RF register and wait for completion
-int  rf_reg_write_wait(int a1, int a2, int a3)
+// critical_enter2 @ 0x10f010, size 70 bytes
+// Doc: critical_enter2 [rf]: Write RF register and wait for completion
+// critical_enter2 [rf]: Write RF register and wait for completion
+int  critical_enter2(int a1, int a2, int a3)
 {
   int *v3; // r5
   uint32_t *v4; // r4
@@ -37,12 +37,12 @@ int  rf_reg_write_wait(int a1, int a2, int a3)
     v4 = off_10F060;
     while ( !*(uint32_t *)off_10F060 )
       ;
-    result = sub_10EFAC();
+    result = call_slot_0x1b4();
     *v4 = 1;
   }
   else
   {
-    result = sub_10EFAC();
+    result = call_slot_0x1b4();
   }
   if ( *v3 )
   {

@@ -24,8 +24,8 @@ extern uint32_t off_138718;
 extern uint32_t dword_138724;
 extern uint32_t dword_138720;
 
-// sub_1383E0 @ 0x1383e0, size 902 bytes
-uint32_t *sub_1383E0()
+// adv_state_control @ 0x1383e0, size 902 bytes
+uint32_t *adv_state_control()
 {
   uint8_t *v0; // r5
   unsigned int v1; // r1
@@ -97,7 +97,7 @@ uint32_t *sub_1383E0()
   v1 = *((uint8_t *)off_1386FC + 3851);
   v2 = *(uint32_t *)off_1386FC;
   if ( v1 > 1 )
-    return bt_init_check_1827f4(0);
+    return radio_event_dispatcher(0);
   v3 = 0;
   while ( !*(uint8_t *)(v2 + 367) )
   {
@@ -106,7 +106,7 @@ LABEL_59:
     if ( v1 == 1 )
     {
       *((uint8_t *)off_1386FC + 3851) = 2;
-      return bt_init_check_1827f4(0);
+      return radio_event_dispatcher(0);
     }
     v1 = 1;
   }
@@ -123,7 +123,7 @@ LABEL_59:
   }
   if ( v3 )
     *((uint8_t *)off_1386FC + 3851) = v1;
-  v7 = rf_bus_setup_n3a8(2048, 2, 4, 0x178u);
+  v7 = bt_buf_alloc(2048, 2, 4, 0x178u);
   *(uint8_t *)(v7 + 366) = *(uint8_t *)(v2 + 366);
   v8 = v7;
   v9 = *(uint64_t *)(v2 + 352);
@@ -275,7 +275,7 @@ LABEL_59:
     v48 = *((uint8_t *)off_138728 + 374);
     if ( (v48 & 1) == 0 )
       goto LABEL_48;
-    ipc_msg_write_hdr(&v65);
+    build_tx_packet(&v65);
 LABEL_74:
     v48 = v43[374];
 LABEL_48:
@@ -328,7 +328,7 @@ LABEL_69:
     }
 LABEL_72:
     v64 = v24;
-    ipc_msg_write_hdr(&v65);
+    build_tx_packet(&v65);
     v24 = v64;
     goto LABEL_69;
   }
@@ -355,23 +355,23 @@ LABEL_40:
 LABEL_44:
   if ( (v48 & 2) == 0 )
     goto LABEL_49;
-  sub_1309B4((int)&v65);
+  rf_write_pattern_bf0c((int)&v65);
   if ( (v43[374] & 4) != 0 )
 LABEL_46:
-    sub_1308DC((int)&v65);
+    rf_write_pattern_ff23((int)&v65);
 LABEL_50:
   v50 = (uint16_t *)off_138714;
-  sub_14380C(v65, (char *)off_138714 + 3, *(uint16_t *)off_138714);
+  memcpy_aligned(v65, (char *)off_138714 + 3, *(uint16_t *)off_138714);
   v51 = **(int16_t **)off_138718;
   v65 += *v50;
   v52 = v65 - (uint32_t)v25;
   if ( v51 < 0 && v52 > 0x12C )
   {
-    sub_12F694(dword_138724, dword_138720, 182);
+    mmio_irq_clear(dword_138724, dword_138720, 182);
     LOWORD(v52) = v65 - (uint16_t)v25;
   }
   *(uint16_t *)(v8 + 364) = v52;
   *(uint32_t *)(v8 + 360) = 0;
-  return (uint32_t *)sub_12CBB4(v8);
+  return (uint32_t *)hci_evt_send(v8);
 }
 

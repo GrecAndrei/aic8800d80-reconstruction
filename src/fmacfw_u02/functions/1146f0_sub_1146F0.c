@@ -16,8 +16,8 @@ extern uint32_t off_11473C;
 extern uint32_t off_114744;
 extern uint32_t off_114740;
 
-// sub_1146F0 @ 0x1146f0, size 68 bytes
-int sub_1146F0()
+// check_bt_ptr_state @ 0x1146f0, size 68 bytes
+int check_bt_ptr_state()
 {
   int v0; // r2
   int v1; // r1

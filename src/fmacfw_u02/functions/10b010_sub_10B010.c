@@ -31,10 +31,10 @@ extern uint32_t dword_10B350;
 extern uint32_t dword_10B368;
 extern uint32_t dword_10B36C;
 
-// sub_10B010 @ 0x10b010, size 1046 bytes
+// periph_base_setup @ 0x10b010, size 1046 bytes
 // Doc: crypto_mac_dispatch [mac]: Dispatch crypto/MAC operation request
 // crypto_mac_dispatch [mac]: Dispatch crypto/MAC operation request
-int  sub_10B010(unsigned int *a1, uint8_t *a2, int a3)
+int  periph_base_setup(unsigned int *a1, uint8_t *a2, int a3)
 {
   int v3; // r9
   int v4; // r10
@@ -124,7 +124,7 @@ int  sub_10B010(unsigned int *a1, uint8_t *a2, int a3)
   v4 = dword_10B35C;
   v5 = dword_10B380;
   v6 = a3;
-  msg_parse(dword_10B338, a2, a3);
+  event_dispatch(dword_10B338, a2, a3);
   v7 = *(uint32_t *)off_10B33C;
   v8 = *(uint32_t *)off_10B33C & 0xFFFFFFFE;
   v82 = 0;
@@ -132,7 +132,7 @@ int  sub_10B010(unsigned int *a1, uint8_t *a2, int a3)
   v84 = 0;
   *(uint32_t *)off_10B33C = v8;
   v78 = v7 & 1;
-  crypto_hw_enable_2ca8(0);
+  set_wakeup_trigger(0);
   v9 = dword_10B358;
   v10 = dword_10B360;
   v11 = 0;
@@ -182,13 +182,13 @@ LABEL_5:
   }
   while ( v11 != 3 );
   v18 = off_10B340;
-  sub_102D0C(0);
-  feature_guard_check(1, dword_10B344);
+  set_wakeup_polarity(0);
+  check_status_bits(1, dword_10B344);
   v19 = dword_10B348;
   *v18 |= 0x400u;
   *v18 &= ~0x400u;
-  msg_parse(v19, v20, v21);
-  feature_guard_check(1, dword_10B34C);
+  event_dispatch(v19, v20, v21);
+  check_status_bits(1, dword_10B34C);
   v24 = v18;
   v73 = v6 + 56;
   do
@@ -199,7 +199,7 @@ LABEL_5:
     *v24 &= ~0x400u;
     if ( v25 == 1 )
     {
-      feature_guard_check(1, dword_10B370);
+      check_status_bits(1, dword_10B370);
       if ( v26 > 0x1388 )
       {
         LOBYTE(v84) = 0;
@@ -207,8 +207,8 @@ LABEL_5:
         HIWORD(v82) = v26;
         LOWORD(v83) = v26;
         HIWORD(v83) = v26;
-        sub_102A20((uint16_t *)&v82, 0);
-        v72 = sub_102B0C(v26);
+        rf_enable((uint16_t *)&v82, 0);
+        v72 = is_magic_value(v26);
         v77 = dword_10B428 + 384 * v72;
         v75 = &a1[316 * (uint8_t)(v72 + 1)];
         v76 = &a2[(uint8_t)(v72 + 1)];
@@ -218,21 +218,21 @@ LABEL_5:
         LOWORD(v83) = v26;
         LOBYTE(v82) = 0;
         LOBYTE(v84) = 0;
-        sub_102A20((uint16_t *)&v82, 0);
+        rf_enable((uint16_t *)&v82, 0);
         v77 = dword_10B374;
         v76 = a2;
         v75 = a1;
         v25 = 0;
       }
-      crypto_mac_core_8280((int)(v75 + 292), v75, 255, 0, 0, dword_10B378, 0);
-      delay_us_0644(10000);
+      periph_init_multi((int)(v75 + 292), v75, 255, 0, 0, dword_10B378, 0);
+      timer_delay(10000);
       v81 = v6;
       *v76 = 1;
       v74 = v25;
       for ( i = 0; i != 3; ++i )
       {
         if ( !v75[i] )
-          feature_guard_check(1, dword_10B42C);
+          check_status_bits(1, dword_10B42C);
         if ( v74 == 1 )
         {
           if ( i )
@@ -271,8 +271,8 @@ LABEL_5:
         }
         v58 = dword_10B37C;
         *v76 &= (v75[v54] & 0x20000) != 0;
-        feature_guard_check(1, v58);
-        sub_1059E8(v75[v54], v85);
+        check_status_bits(1, v58);
+        mac_event_init(v75[v54], v85);
         if ( v57 < v56 )
         {
           v59 = v86;
@@ -343,8 +343,8 @@ LABEL_45:
   v28 = dword_10B358;
   v29 = dword_10B35C;
   v30 = dword_10B380;
-  msg_parse(dword_10B350, v22, v23);
-  crypto_hw_enable_2ca8(0);
+  event_dispatch(dword_10B350, v22, v23);
+  set_wakeup_trigger(0);
   v31 = dword_10B360;
   v32 = (int *)v88;
   v33 = 0;
@@ -392,10 +392,10 @@ LABEL_15:
       continue;
     break;
   }
-  sub_102D0C(0);
+  set_wakeup_polarity(0);
   v39 = dword_10B368;
   *(uint32_t *)off_10B33C = *(uint32_t *)off_10B33C & 0xFFFFFFFE | v78;
-  feature_guard_check(1, v39);
-  return msg_parse(dword_10B36C, v40, v41);
+  check_status_bits(1, v39);
+  return event_dispatch(dword_10B36C, v40, v41);
 }
 

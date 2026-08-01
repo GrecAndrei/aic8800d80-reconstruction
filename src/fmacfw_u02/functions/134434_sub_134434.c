@@ -13,10 +13,10 @@
 extern uint32_t off_13446C;
 extern uint32_t off_134470;
 
-// sub_134434 @ 0x134434, size 54 bytes
+// reset_controller_state @ 0x134434, size 54 bytes
 // Doc: sub_1234434 [util]: Reset/clear a control structure's status fields and byte flags
 // sub_1234434 [util]: Reset/clear a control structure's status fields and byte flags
-uint32_t *sub_134434()
+uint32_t *reset_controller_state()
 {
   uint32_t *v0; // r4
   uint16_t *v1; // r3
@@ -30,10 +30,10 @@ uint32_t *sub_134434()
   *((uint8_t *)v1 + 3) = 0;
   if ( v2 )
   {
-    sub_12CA38(v2 - 12);
-    sub_12CA38(v0[5] - 12);
+    branch_to_12cbc8(v2 - 12);
+    branch_to_12cbc8(v0[5] - 12);
   }
-  memset_thunk((int *)off_13446C, 0, 0x2Cu);
-  return sub_12CD34(6u, 0);
+  memset((int *)off_13446C, 0, 0x2Cu);
+  return rx_phy_status_parse(6u, 0);
 }
 

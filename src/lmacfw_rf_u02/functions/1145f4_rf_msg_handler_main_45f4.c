@@ -14,10 +14,10 @@ extern uint32_t off_1146D8;
 extern uint32_t off_1146DC;
 extern uint32_t dword_1146E0;
 
-// rf_msg_handler_main_45f4 @ 0x1145f4, size 228 bytes
-// Doc: rf_msg_handler_main_45f4 [rf]: Top-level RF message handler dispatching on message id with stack-local context
-// rf_msg_handler_main_45f4 [rf]: Top-level RF message handler dispatching on message id with stack-local context
-int  rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3)
+// bus_read_buf @ 0x1145f4, size 228 bytes
+// Doc: bus_read_buf [rf]: Top-level RF message handler dispatching on message id with stack-local context
+// bus_read_buf [rf]: Top-level RF message handler dispatching on message id with stack-local context
+int  bus_read_buf(int a1, int a2, unsigned int a3)
 {
   unsigned int v6; // r4
   int v8; // [sp+0h] [bp-144h] BYREF
@@ -30,7 +30,7 @@ int  rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3)
   uint8_t v15[14]; // [sp+136h] [bp-Eh] BYREF
 
   if ( !*(uint32_t *)off_1146D8 )
-    lmac_state_get_n_e0();
+    ke_event_busy_check();
   MEMORY[0x1D8](*(uint32_t *)off_1146DC + 4096, 320, &v8);
   if ( v8 != dword_1146E0 )
     return -1;
@@ -39,7 +39,7 @@ int  rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3)
   v6 = (uint8_t)v9 & (uint8_t)a1 & 2;
   if ( ((uint8_t)v9 & (uint8_t)a1 & 2) != 0 )
   {
-    sub_1282E8(a2, v10, 6);
+    memcpy_large(a2, v10, 6);
     v6 = 6;
     if ( (a1 & 0x100000) == 0 )
     {
@@ -53,7 +53,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  sub_1282E8(a2 + v6, v11, 2);
+  memcpy_large(a2 + v6, v11, 2);
   v6 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -63,7 +63,7 @@ LABEL_8:
     goto LABEL_17;
   }
 LABEL_19:
-  sub_1282E8(a2 + v6, v12, 8);
+  memcpy_large(a2 + v6, v12, 8);
   v6 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
@@ -73,7 +73,7 @@ LABEL_9:
     goto LABEL_15;
   }
 LABEL_17:
-  sub_1282E8(a2 + v6, v13, 4);
+  memcpy_large(a2 + v6, v13, 4);
   v6 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
@@ -83,12 +83,12 @@ LABEL_10:
     goto LABEL_14;
   }
 LABEL_15:
-  sub_1282E8(a2 + v6, v14, 2);
+  memcpy_large(a2 + v6, v14, 2);
   v6 += 2;
   if ( (a1 & 0x1000000) != 0 )
   {
 LABEL_14:
-    sub_1282E8(a2 + v6, v15, 10);
+    memcpy_large(a2 + v6, v15, 10);
     v6 += 10;
   }
 LABEL_11:

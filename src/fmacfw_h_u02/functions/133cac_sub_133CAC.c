@@ -15,8 +15,8 @@ extern uint32_t off_133D4C;
 extern uint32_t off_133D50;
 extern uint32_t dword_133D54;
 
-// sub_133CAC @ 0x133cac, size 154 bytes
-int  sub_133CAC(int a1, uint16_t *a2)
+// bt_parse_packet @ 0x133cac, size 154 bytes
+int  bt_parse_packet(int a1, uint16_t *a2)
 {
   int v3; // r6
   int *v4; // r4
@@ -35,7 +35,7 @@ int  sub_133CAC(int a1, uint16_t *a2)
   }
   v4 = (int *)off_133D4C;
   ++*(uint32_t *)off_133D4C;
-  if ( sub_12CD48(6u) || *((uint8_t *)off_133D50 + 14) && sub_12C774(6155, 6) )
+  if ( hci_cmd_handler(6u) || *((uint8_t *)off_133D50 + 14) && rf_get_state(6155, 6) )
   {
     if ( *v4 )
     {
@@ -67,12 +67,12 @@ int  sub_133CAC(int a1, uint16_t *a2)
     v6 = *(uint8_t *)(v5 + 106);
     if ( !*(uint8_t *)(v5 + 106) && *(uint8_t *)(v5 + 108) )
     {
-      sub_134C4C(v5, *a2, 1);
+      ke_timer_set(v5, *a2, 1);
       return v6;
     }
     else
     {
-      sub_12C8D0(6148, 13, 6);
+      mac_write_header_word(6148, 13, 6);
       return 0;
     }
   }

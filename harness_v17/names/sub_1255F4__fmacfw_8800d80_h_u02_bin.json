@@ -1,0 +1,1 @@
+{"fn": "sub_1255F4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1255f4", "status": "ok", "name": "init_bt_global_0x190310", "params": [], "docstring": "Clear and initialize BT global buffer at 0x190310", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

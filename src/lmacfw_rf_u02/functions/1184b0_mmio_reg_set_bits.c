@@ -30,10 +30,10 @@ extern uint32_t off_118618;
 extern uint32_t off_118604;
 extern uint32_t off_11861C;
 
-// mmio_reg_set_bits @ 0x1184b0, size 294 bytes
-// Doc: mmio_reg_set_bits [mmio]: Set bits in MMIO control register group
-// mmio_reg_set_bits [mmio]: Set bits in MMIO control register group
-uint32_t *mmio_reg_set_bits()
+// rf_clock_enable @ 0x1184b0, size 294 bytes
+// Doc: rf_clock_enable [mmio]: Set bits in MMIO control register group
+// rf_clock_enable [mmio]: Set bits in MMIO control register group
+uint32_t *rf_clock_enable()
 {
   int *v0; // r4
   int v1; // r0

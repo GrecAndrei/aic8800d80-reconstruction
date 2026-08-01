@@ -12,8 +12,8 @@
 
 extern uint32_t dword_135960;
 
-// sub_135930 @ 0x135930, size 46 bytes
-void  sub_135930(
+// hci_send_vendor_command @ 0x135930, size 46 bytes
+void  hci_send_vendor_command(
         int a1,
         int a2,
         int a3,
@@ -32,15 +32,15 @@ void  sub_135930(
   int v15; // r2
   int v16; // r3
 
-  event_queue_push(6154, 6);
+  ke_int_lock(6154, 6);
   if ( a1 )
   {
-    feature_guard_check(256, dword_135960, a1);
-    sub_134E04(a1, v14, v15, v16, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+    check_status_bits(256, dword_135960, a1);
+    bt_setup_conn_profile(a1, v14, v15, v16, a5, a6, a7, a8, a9, a10, a11, a12, a13);
   }
   else
   {
-    queue_pending_check();
+    init_rf_tables();
   }
 }
 

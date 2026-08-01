@@ -15,8 +15,8 @@ extern uint32_t dword_141D14;
 extern uint32_t dword_141D10;
 extern uint32_t off_141D18;
 
-// sub_141C0C @ 0x141c0c, size 256 bytes
-int  sub_141C0C(int a1, int a2, int a3, int a4, char a5)
+// hci_le_connection_update @ 0x141c0c, size 256 bytes
+int  hci_le_connection_update(int a1, int a2, int a3, int a4, char a5)
 {
   int v6; // r1
   int v10; // r3
@@ -47,11 +47,11 @@ int  sub_141C0C(int a1, int a2, int a3, int a4, char a5)
   {
     goto LABEL_16;
   }
-  sub_12F694(dword_141D14, dword_141D10, 520);
+  mmio_irq_clear(dword_141D14, dword_141D10, 520);
 LABEL_16:
   v11 = 1;
 LABEL_4:
-  result = sub_119084(v11, 512);
+  result = event_notify(v11, 512);
   *(uint32_t *)a1 = result;
   if ( result )
   {

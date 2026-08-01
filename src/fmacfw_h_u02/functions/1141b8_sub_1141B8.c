@@ -13,8 +13,8 @@
 extern uint32_t off_1141D0;
 extern uint32_t off_1141D4;
 
-// sub_1141B8 @ 0x1141b8, size 24 bytes
-int  sub_1141B8(int a1)
+// state_init @ 0x1141b8, size 24 bytes
+int  state_init(int a1)
 {
   uint32_t *v1; // r2
   uint16_t *v2; // r1

@@ -12,8 +12,8 @@
 
 extern uint32_t off_136FFC;
 
-// sub_136FA0 @ 0x136fa0, size 90 bytes
-int  sub_136FA0(int a1, uint8_t *a2, int a3, int16_t a4)
+// rf_cmd_txpwr_query @ 0x136fa0, size 90 bytes
+int  rf_cmd_txpwr_query(int a1, uint8_t *a2, int a3, int16_t a4)
 {
   uint16_t *v4; // r4
   uint8_t *v6; // r0
@@ -36,7 +36,7 @@ int  sub_136FA0(int a1, uint8_t *a2, int a3, int16_t a4)
   int v24; // r2
 
   v4 = off_136FFC;
-  v6 = (uint8_t *)rf_bus_setup_n3a8(4102, a4, 4, 0x3Cu);
+  v6 = (uint8_t *)bt_buf_alloc(4102, a4, 4, 0x3Cu);
   v7 = v6;
   if ( v4[2] && (v8 = *a2, (uint16_t)v4[2] > v8) )
   {
@@ -73,13 +73,13 @@ int  sub_136FA0(int a1, uint8_t *a2, int a3, int16_t a4)
     v7[12] = *v10;
     v7[13] = v23;
     v7[14] = v24;
-    sub_12CBB4((int)v7);
+    hci_evt_send((int)v7);
     return 0;
   }
   else
   {
     *v6 = 0;
-    sub_12CBB4((int)v6);
+    hci_evt_send((int)v6);
     return 0;
   }
 }

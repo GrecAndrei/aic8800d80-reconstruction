@@ -13,14 +13,14 @@
 extern uint32_t off_129174;
 extern uint32_t off_129178;
 
-// sub_129140 @ 0x129140, size 50 bytes
-int sub_129140()
+// mm_state_run @ 0x129140, size 50 bytes
+int mm_state_run()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r3
 
   v0 = off_129174;
-  if ( !*(uint8_t *)off_129174 && !sub_12A690() )
+  if ( !*(uint8_t *)off_129174 && !bt_scan_get_state() )
     return 0;
   if ( v0[1] )
     return 0;

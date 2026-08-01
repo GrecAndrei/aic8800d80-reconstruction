@@ -12,8 +12,8 @@
 
 extern uint32_t off_101A84;
 
-// sub_101A78 @ 0x101a78, size 10 bytes
-int sub_101A78()
+// sys_status_bit30_get @ 0x101a78, size 10 bytes
+int sys_status_bit30_get()
 {
   return (*(uint32_t *)off_101A84 >> 30) & 1;
 }

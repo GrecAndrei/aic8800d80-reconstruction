@@ -13,10 +13,10 @@
 extern uint32_t off_1371D4;
 extern uint32_t off_1371D8;
 
-// sub_1371A4 @ 0x1371a4, size 48 bytes
+// wait_ll_ready @ 0x1371a4, size 48 bytes
 // Doc: sub_12371A4 [util]: Helper reading shared flag/state at offset 0xf0b
 // sub_12371A4 [util]: Helper reading shared flag/state at offset 0xf0b
-int sub_1371A4()
+int wait_ll_ready()
 {
   uint8_t *v0; // r2
   char v1; // r3
@@ -32,7 +32,7 @@ int sub_1371A4()
     *(uint32_t *)off_1371D8 = *(uint32_t *)off_1371D8 & 0xFFFFFE3F | (v2 << 6);
   }
   v0[3851] = v1 + 1;
-  sub_1382DC();
+  ll_state_machine();
   return 0;
 }
 

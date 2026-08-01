@@ -1,1 +1,1 @@
-{"fn": "sub_122686C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122686c", "status": "ok", "name": "sub_122686C", "params": [], "docstring": "Reads flag byte from global base, RF state poll", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122686C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122686c", "status": "ok", "name": "tx_descriptor_config", "params": [], "docstring": "Reads flag byte from global base, RF state poll", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

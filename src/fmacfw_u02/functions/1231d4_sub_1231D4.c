@@ -18,8 +18,8 @@ extern uint32_t dword_1232E8;
 extern uint32_t dword_1232EC;
 extern uint32_t dword_1232DC;
 
-// sub_1231D4 @ 0x1231d4, size 254 bytes
-int  sub_1231D4(int a1, int *a2, int a3, int a4)
+// send_cmd_88 @ 0x1231d4, size 254 bytes
+int  send_cmd_88(int a1, int *a2, int a3, int a4)
 {
   int v5; // r6
   int v6; // r0
@@ -45,7 +45,7 @@ int  sub_1231D4(int a1, int *a2, int a3, int a4)
   int v26; // r1
 
   v5 = *a2;
-  v6 = sub_12C92C(136, a4, a3, 8);
+  v6 = ke_msg_alloc(136, a4, a3, 8);
   v8 = v6;
   *(uint32_t *)v6 = v5;
   switch ( v5 )
@@ -55,7 +55,7 @@ int  sub_1231D4(int a1, int *a2, int a3, int a4)
       *((uint8_t *)off_1232D4 + 373) = v9;
       v10 = dword_1232D8;
       *(uint8_t *)(v8 + 4) = v9;
-      msg_parse(v10, v9, v7);
+      event_dispatch(v10, v9, v7);
       goto LABEL_3;
     case 1:
       v15 = off_1232D4;
@@ -68,27 +68,27 @@ int  sub_1231D4(int a1, int *a2, int a3, int a4)
       {
         if ( v16 )
         {
-          inited = fmac_init_state_load(v6);
-          fmac_subhandler_n_05b4(inited);
+          inited = rf_get_channel_calibration(v6);
+          rf_enable(inited);
         }
         else
         {
-          fmac_post_init_n_42e();
+          rf_disable();
         }
         v17 = *((uint8_t *)v15 + 363);
       }
       *(uint8_t *)(v8 + 4) = v17;
-      msg_parse(dword_1232E0, v17, v18);
-      sdio_buffer_prepare_n_4e8(v8);
+      event_dispatch(dword_1232E0, v17, v18);
+      ke_msg_send(v8);
       result = 0;
       break;
     case 2:
       v20 = (uint8_t *)off_1232D4;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_1232D4 + 363);
-      v21 = sub_130374();
+      v21 = rf_get_bandwidth();
       *(uint8_t *)(v8 + 5) = v21;
-      msg_parse(dword_1232E4, v20[363], v21);
-      sdio_buffer_prepare_n_4e8(v8);
+      event_dispatch(dword_1232E4, v20[363], v21);
+      ke_msg_send(v8);
       result = 0;
       break;
     case 3:
@@ -96,17 +96,17 @@ int  sub_1231D4(int a1, int *a2, int a3, int a4)
       v23 = off_1232D4;
       v24 = dword_1232E8;
       *((uint32_t *)off_1232D4 + 98) = v22;
-      msg_parse(v24, v22, v7);
+      event_dispatch(v24, v22, v7);
       *(uint32_t *)(v8 + 4) = v23[98];
-      sdio_buffer_prepare_n_4e8(v8);
+      ke_msg_send(v8);
       result = 0;
       break;
     case 4:
       v25 = dword_1232EC;
       v26 = *((uint32_t *)off_1232D4 + 98);
       *(uint32_t *)(v8 + 4) = v26;
-      msg_parse(v25, v26, v7);
-      sdio_buffer_prepare_n_4e8(v8);
+      event_dispatch(v25, v26, v7);
+      ke_msg_send(v8);
       result = 0;
       break;
     case 5:
@@ -115,13 +115,13 @@ int  sub_1231D4(int a1, int *a2, int a3, int a4)
       v14 = (a2[2] ^ v12) & a2[1] ^ v12;
       *((uint32_t *)off_1232D4 + 98) = v14;
       *(uint32_t *)(v8 + 4) = v14;
-      msg_parse(v13, v14, v12);
-      sdio_buffer_prepare_n_4e8(v8);
+      event_dispatch(v13, v14, v12);
+      ke_msg_send(v8);
       result = 0;
       break;
     default:
 LABEL_3:
-      sdio_buffer_prepare_n_4e8(v8);
+      ke_msg_send(v8);
       result = 0;
       break;
   }

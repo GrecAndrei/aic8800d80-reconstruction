@@ -1,1 +1,1 @@
-{"fn": "sub_1221AE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1221ae4", "status": "ok", "name": "sub_1221AE4", "params": [], "docstring": "Init/lookup routine reading global pointer and signed halfword state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221AE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1221ae4", "status": "ok", "name": "shared_s16_worker", "params": [], "docstring": "Init/lookup routine reading global pointer and signed halfword state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

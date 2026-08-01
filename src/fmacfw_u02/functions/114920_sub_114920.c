@@ -12,8 +12,8 @@
 
 extern uint32_t dword_114998;
 
-// sub_114920 @ 0x114920, size 120 bytes
-int  sub_114920(int a1, int a2)
+// copy_global_1672ec @ 0x114920, size 120 bytes
+int  copy_global_1672ec(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2

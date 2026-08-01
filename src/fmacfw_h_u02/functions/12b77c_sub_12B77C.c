@@ -38,8 +38,8 @@ extern uint32_t off_12B9CC;
 extern uint32_t off_12B9DC;
 extern uint32_t off_12B9D0;
 
-// sub_12B77C @ 0x12b77c, size 502 bytes
-int sub_12B77C()
+// rf_hw_init @ 0x12b77c, size 502 bytes
+int rf_hw_init()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r0
@@ -73,8 +73,8 @@ int sub_12B77C()
   *(uint32_t *)off_12B974 = 1;
   while ( (uint8_t)*v0 )
     ;
-  v1 = sub_1006CC();
-  sub_12B460(v1);
+  v1 = global_state_get_byte();
+  rf_irq_service(v1);
   v2 = off_12B97C;
   *(uint32_t *)off_12B978 = dword_12B980;
   v3 = off_12B984;
@@ -82,7 +82,7 @@ int sub_12B77C()
   v4 = (int16_t **)off_12B988;
   *v3 &= ~0x800u;
   if ( **v4 < 0 && *(uint32_t *)off_12B98C < 0x2F000000u )
-    sub_12F32C(dword_12B9D8, dword_12B9D4, 284);
+    irq_disable_mmio_write(dword_12B9D8, dword_12B9D4, 284);
   v5 = (char *)off_12B98C;
   v6 = (int *)off_12B990;
   v7 = off_12B984;
@@ -107,7 +107,7 @@ int sub_12B77C()
   v15 = (unsigned int *)off_12B9B0;
   *(uint32_t *)off_12B9AC = 12288;
   *v13 = 0;
-  sub_102A9C(&v26, &v25);
+  get_calibration_offsets(&v26, &v25);
   v16 = off_12B9B8;
   *(uint32_t *)off_12B9B4 = (v26 << 8) | (v25 << 16) | v26;
   v17 = off_12B9BC;
@@ -115,7 +115,7 @@ int sub_12B77C()
   *v14 |= 0x2000u;
   *v16 |= 0x80000u;
   *v16 &= ~0x80u;
-  result = sub_101A2C();
+  result = get_rf_field_mid();
   v19 = off_12B9C0;
   *v15 = ((result + 1) << 26) & 0x1C000000 | *v15 & 0xE3FFFFFF;
   v20 = (uint8_t **)off_12B9C4;
@@ -129,10 +129,10 @@ int sub_12B77C()
   *(uint32_t *)off_12B984 |= 0x2000000u;
   if ( (*v22 & 0x20000) != 0 )
   {
-    result = sub_10199C();
+    result = rf_status_bit28();
     if ( result )
     {
-      v23 = sub_101A18();
+      v23 = get_rf_field_hi();
       v24 = (unsigned int *)off_12B9DC;
       result = v23 << 8;
       *(uint32_t *)off_12B9DC = result & 0x700 | *(uint32_t *)off_12B9DC & 0xFFFFF8FF;
@@ -141,7 +141,7 @@ int sub_12B77C()
       *v24 |= 1u;
       if ( (*v22 & 0x8000) != 0 )
       {
-        result = sub_101950();
+        result = rf_status_bit21();
         if ( result )
         {
           *v21 |= 0x80000u;
@@ -150,7 +150,7 @@ int sub_12B77C()
       }
       if ( (*(uint32_t *)off_12B9CC & 0x20000) != 0 )
       {
-        result = sub_1019AC();
+        result = rf_status_bit30();
         if ( result )
           *(uint32_t *)off_12B9DC |= 2u;
       }

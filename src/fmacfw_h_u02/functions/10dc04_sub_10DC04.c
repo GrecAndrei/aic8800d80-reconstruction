@@ -17,8 +17,8 @@ extern uint32_t dword_10DCBC;
 extern uint32_t dword_10DCC4;
 extern uint32_t off_10DCC0;
 
-// sub_10DC04 @ 0x10dc04, size 174 bytes
-int  sub_10DC04(int result, int a2, int a3)
+// make_bit_mask @ 0x10dc04, size 174 bytes
+int  make_bit_mask(int result, int a2, int a3)
 {
   int v3; // r4
   uint32_t *v4; // r6

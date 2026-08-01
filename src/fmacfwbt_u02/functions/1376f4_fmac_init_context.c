@@ -12,10 +12,10 @@
 
 extern uint32_t dword_137740;
 
-// fmac_init_context @ 0x1376f4, size 76 bytes
-// Doc: fmac_init_context [mac]: Initialize FMAC context structure at base+0xf00
-// fmac_init_context [mac]: Initialize FMAC context structure at base+0xf00
-int  fmac_init_context(uint16_t *a1, int a2)
+// find_table_entry @ 0x1376f4, size 76 bytes
+// Doc: find_table_entry [mac]: Initialize FMAC context structure at base+0xf00
+// find_table_entry [mac]: Initialize FMAC context structure at base+0xf00
+int  find_table_entry(uint16_t *a1, int a2)
 {
   int v2; // r3
   int v3; // r4

@@ -12,8 +12,8 @@
 
 extern uint32_t off_11769C;
 
-// sub_11768C @ 0x11768c, size 14 bytes
-void sub_11768C()
+// irq_counter_inc @ 0x11768c, size 14 bytes
+void irq_counter_inc()
 {
   ++*((uint32_t *)off_11769C + 126);
 }

@@ -16,8 +16,8 @@ extern uint32_t off_111D08;
 extern uint32_t dword_111D0C;
 extern uint32_t off_111D04;
 
-// sub_111C1C @ 0x111c1c, size 224 bytes
-int  sub_111C1C(int a1, int a2, int a3)
+// unknown_16 @ 0x111c1c, size 224 bytes
+int  unknown_16(int a1, int a2, int a3)
 {
   int v3; // r6
   uint32_t *v4; // r4
@@ -31,7 +31,7 @@ int  sub_111C1C(int a1, int a2, int a3)
     v4 = (uint32_t *)(dword_111CFC + v3);
     v5 = *(uint32_t *)(v3 + dword_111CFC);
     if ( (v5 & 0x80008000) == 0 )
-      return (int)sub_1119A4(a1);
+      return (int)table_lookup_entry_2(a1);
     v6 = (uint32_t *)(dword_111CFC + v3 + 8);
     if ( (dword_111D00 & v5) == 0x20000 )
       goto LABEL_4;
@@ -63,7 +63,7 @@ LABEL_7:
 LABEL_11:
         if ( !a1 )
           return a1;
-        return (int)sub_1119A4(a1);
+        return (int)table_lookup_entry_2(a1);
       }
       *v6 = 64;
       *v4 |= a2 | 0x8008000;

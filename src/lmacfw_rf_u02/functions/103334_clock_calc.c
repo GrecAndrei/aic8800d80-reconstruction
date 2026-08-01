@@ -19,10 +19,10 @@ extern uint32_t off_1033B8;
 extern uint32_t off_1033BC;
 extern uint32_t off_1033B4;
 
-// clock_calc @ 0x103334, size 112 bytes
-// Doc: clock_calc [util]: Compute clock/timing values using float constants from ROM
-// clock_calc [util]: Compute clock/timing values using float constants from ROM
-uint32_t *clock_calc()
+// save_rf_context @ 0x103334, size 112 bytes
+// Doc: save_rf_context [util]: Compute clock/timing values using float constants from ROM
+// save_rf_context [util]: Compute clock/timing values using float constants from ROM
+uint32_t *save_rf_context()
 {
   int v0; // r1
   int v1; // r2

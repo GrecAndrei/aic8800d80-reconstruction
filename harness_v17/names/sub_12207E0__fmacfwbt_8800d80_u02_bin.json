@@ -1,1 +1,1 @@
-{"fn": "sub_12207E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12207e0", "status": "ok", "name": "chip_version_read_12207E0", "params": [], "docstring": "Read chip version/revision field (bits 12-27) from MMIO 0x40320200", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12207E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12207e0", "status": "ok", "name": "wait_rf_calibration", "params": [], "docstring": "Read chip version/revision field (bits 12-27) from MMIO 0x40320200", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

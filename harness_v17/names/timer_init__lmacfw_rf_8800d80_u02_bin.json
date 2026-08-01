@@ -1,1 +1,1 @@
-{"fn": "timer_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d474", "status": "ok", "name": "timer_init", "params": [], "docstring": "Initialize hardware timer subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "timer_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d474", "status": "ok", "name": "rf_phy_init", "params": [], "docstring": "Initialize hardware timer subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -19,10 +19,10 @@ extern uint32_t off_1423C0;
 extern uint32_t dword_1423C8;
 extern uint32_t dword_1423C4;
 
-// bt_hci_cmd_dispatch_n_dc @ 0x14216c, size 582 bytes
-// Doc: bt_hci_cmd_dispatch_n_dc [bt]: Dispatch Bluetooth HCI command from IPC message
-// bt_hci_cmd_dispatch_n_dc [bt]: Dispatch Bluetooth HCI command from IPC message
-unsigned int  bt_hci_cmd_dispatch_n_dc(unsigned int result)
+// parse_ll_control @ 0x14216c, size 582 bytes
+// Doc: parse_ll_control [bt]: Dispatch Bluetooth HCI command from IPC message
+// parse_ll_control [bt]: Dispatch Bluetooth HCI command from IPC message
+unsigned int  parse_ll_control(unsigned int result)
 {
   int v1; // r1
   int v2; // r2
@@ -82,7 +82,7 @@ unsigned int  bt_hci_cmd_dispatch_n_dc(unsigned int result)
         v18 = *(uint16_t *)(v4 + 18);
         if ( **(int16_t **)off_1423B8 < 0 && v2 == 255 )
         {
-          result = sub_12F694(dword_1423D0, dword_1423CC, 637);
+          result = mmio_irq_clear(dword_1423D0, dword_1423CC, 637);
           v5 = *(uint8_t *)(v4 + 8);
         }
         if ( (v15 & 0xC) == 0 )
@@ -113,27 +113,27 @@ unsigned int  bt_hci_cmd_dispatch_n_dc(unsigned int result)
                 *(uint8_t *)(v30 + 46) = v29;
                 *(uint8_t *)(v30 + 2) = v32;
                 *(uint8_t *)(v30 + 41) = 0;
-                memset_thunk((int *)(v30 + 32), 0, 9u);
+                memset_byte((int *)(v30 + 32), 0, 9u);
                 v33 = *v31;
                 *(uint16_t *)v30 = 1;
                 *v31 = v33 + 1;
-                bt_he_riu_field_write(v17, v20, v15, (int16_t *)v30);
-                ipc_msg_send_header(4, v30);
-                LODWORD(v34) = sub_12C068();
+                pack_ll_header(v17, v20, v15, (int16_t *)v30);
+                send_hci_event_msg(4, v30);
+                LODWORD(v34) = ke_critical_enter();
                 v35 = *(uint64_t *)(v30 + 24) - v34 - *(uint64_t *)(v3 + 1320 * v5 + 40);
-                v36 = sub_1434B0(v35, HIDWORD(v35), *(uint32_t *)(v30 + 16), 0);
-                return sub_141DE8(v30, v36);
+                v36 = double_is_nan(v35, HIDWORD(v35), *(uint32_t *)(v30 + 16), 0);
+                return get_connection_env(v30, v36);
               }
               else
               {
-                return sub_14207C(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
+                return lookup_phy_entry(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
               }
             }
           }
           else if ( v19 == 7 )
           {
-            bt_he_riu_field_write((uint16_t *)(v4 + 18), v20, v15, v37);
-            return ipc_msg_send_header((v18 >> 1) & 7, (int)v37);
+            pack_ll_header((uint16_t *)(v4 + 18), v20, v15, v37);
+            return send_hci_event_msg((v18 >> 1) & 7, (int)v37);
           }
         }
       }
@@ -155,7 +155,7 @@ unsigned int  bt_hci_cmd_dispatch_n_dc(unsigned int result)
                 && *(uint8_t *)(v8 + 46) == *(uint8_t *)(v4 + 7)
                 && *(uint8_t *)(v8 + 47) == *(uint8_t *)(v4 + 8) )
               {
-                result = sub_141F70(v8);
+                result = set_conn_flag(v8);
                 v24 = *(uint16_t *)v8;
                 v25 = *v21;
                 *(uint8_t *)(v8 + 2) = v22;
@@ -183,7 +183,7 @@ unsigned int  bt_hci_cmd_dispatch_n_dc(unsigned int result)
             v10 = 9 * v7;
             v11 = dword_1423BC + 8 * v10;
             v12 = 8 * v10;
-            sub_141F70(v11);
+            set_conn_flag(v11);
             v13 = off_1423C0;
             v14 = *(uint8_t *)off_1423C0 - 1;
             *(uint16_t *)(v8 + v12) &= ~1u;
@@ -196,7 +196,7 @@ unsigned int  bt_hci_cmd_dispatch_n_dc(unsigned int result)
     }
     else if ( **(int16_t **)off_1423B8 < 0 )
     {
-      return sub_12F694(dword_1423C8, dword_1423C4, 828);
+      return mmio_irq_clear(dword_1423C8, dword_1423C4, 828);
     }
   }
   return result;

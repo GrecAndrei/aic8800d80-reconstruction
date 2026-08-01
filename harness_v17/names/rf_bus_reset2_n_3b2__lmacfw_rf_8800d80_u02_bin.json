@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_3b2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f52", "status": "ok", "name": "log_free_dispatch_n2d4", "params": [], "docstring": "Dispatch log free callback from table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_3b2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f52", "status": "ok", "name": "rf_bus_reset2_0f52", "params": [], "docstring": "Dispatch log free callback from table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

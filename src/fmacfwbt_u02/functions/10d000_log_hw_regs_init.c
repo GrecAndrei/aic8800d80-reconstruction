@@ -14,10 +14,10 @@ extern uint32_t off_10D048;
 extern uint32_t off_10D04C;
 extern uint32_t off_10D050;
 
-// log_hw_regs_init @ 0x10d000, size 70 bytes
-// Doc: log_hw_regs_init [util]: Initialize hardware logging registers
-// log_hw_regs_init [util]: Initialize hardware logging registers
-int log_hw_regs_init()
+// gpio_pad_config @ 0x10d000, size 70 bytes
+// Doc: gpio_pad_config [util]: Initialize hardware logging registers
+// gpio_pad_config [util]: Initialize hardware logging registers
+int gpio_pad_config()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r4

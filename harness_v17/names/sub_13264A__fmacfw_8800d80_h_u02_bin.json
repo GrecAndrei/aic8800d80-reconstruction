@@ -1,0 +1,1 @@
+{"fn": "sub_13264A", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13264a", "status": "ok", "name": "hci_cmd_dispatch", "params": [], "docstring": "Dispatches HCI command, returning 7/8 based on opcode.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

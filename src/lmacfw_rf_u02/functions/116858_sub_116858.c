@@ -41,8 +41,8 @@ extern uint32_t dword_116B3C;
 extern uint32_t dword_116B40;
 extern uint32_t dword_116B44;
 
-// sub_116858 @ 0x116858, size 974 bytes
-int  sub_116858(int a1)
+// wlan_rx_process @ 0x116858, size 974 bytes
+int  wlan_rx_process(int a1)
 {
   int16_t **v1; // r7
   int v2; // r5
@@ -101,7 +101,7 @@ int  sub_116858(int a1)
     v3 = **(int16_t **)off_116B48;
     if ( v3 < 0 && !v2 )
     {
-      sub_121960(dword_116B7C, dword_116B78, 423, *(uint32_t *)off_116B48);
+      ke_int_lock(dword_116B7C, dword_116B78, 423, *(uint32_t *)off_116B48);
       return v2;
     }
     v5 = *(int16_t **)(v2 + 8);
@@ -124,7 +124,7 @@ int  sub_116858(int a1)
         v2 = (v7 >> 15) & 0x1F0;
         if ( !v2 )
         {
-          sub_121960(dword_116B84, dword_116B78, 475, v7);
+          ke_int_lock(dword_116B84, dword_116B78, 475, v7);
           return v2;
         }
       }
@@ -173,8 +173,8 @@ LABEL_17:
           {
             v41 = v16 + v13;
             v51 = 0;
-            v2 = sub_119218(a1 + 20, v41, v11, &v51) == 0;
-            rf_chan_init_or_reset_n_324(v41);
+            v2 = timer_start_capture(a1 + 20, v41, v11, &v51) == 0;
+            setup_packet_buffer(v41);
             return v2;
           }
           if ( v17 == 80 )
@@ -202,7 +202,7 @@ LABEL_17:
                   break;
                 v24 = v23[4] - v22;
                 if ( v24 > 0x7530 )
-                  sub_11F74C(2, dword_116C3C, 30000, v24);
+                  check_interrupt_flag(2, dword_116C3C, 30000, v24);
               }
               v25 = *(uint32_t *)off_116B6C;
               v26 = *((uint32_t *)off_116B68 + 4);
@@ -216,7 +216,7 @@ LABEL_17:
                   v30 = v29[4] - v26;
                   v31 = *v28 & *v27;
                   if ( v30 > 0x7530 )
-                    sub_11F74C(2, dword_116B74, v25, v30);
+                    check_interrupt_flag(2, dword_116B74, v25, v30);
                 }
                 while ( (v31 & 4) == 0 );
               }
@@ -240,7 +240,7 @@ LABEL_17:
               {
                 if ( *(uint32_t *)off_116C38 << 28 )
                 {
-                  sub_1219F4(dword_116C44, dword_116C40, 472);
+                  flash_cmd_exec(dword_116C44, dword_116C40, 472);
                   v49 = v47[1];
                 }
               }
@@ -264,14 +264,14 @@ LABEL_17:
               *(uint32_t *)off_116C34 = v44 | *v42;
               return v2;
             }
-            sub_1219F4(dword_116C44, dword_116C40, 472);
+            flash_cmd_exec(dword_116C44, dword_116C40, 472);
             *(uint32_t *)off_116C34 = v42[1] | *v42;
           }
           return 0;
         }
         goto LABEL_42;
       }
-      v40 = sub_128288(v5 + 8, v16 + 88 + dword_116B5C, 6);
+      v40 = memcpy(v5 + 8, v16 + 88 + dword_116B5C, 6);
       v13 = dword_116B5C;
       if ( v40 )
       {
@@ -286,24 +286,24 @@ LABEL_44:
           if ( v15 == 2 && *(uint8_t *)(v11 + 33) <= 3u )
           {
             v33 = *(char *)(a1 + 65);
-            chip_rev_id_get();
+            chip_info_nibble0_get();
             v34 = *(char *)(v11 + 145);
             if ( !*(uint8_t *)(v11 + 145) )
             {
               *(uint8_t *)(v11 + 145) = v33;
               return v34;
             }
-            v35 = sub_12754C(v34);
-            v36 = sub_127620(v35, HIDWORD(v35), dword_116B38, dword_116B3C);
-            v37 = sub_12754C(v33);
-            v38 = sub_127620(v37, HIDWORD(v37), dword_116B40, dword_116B44);
-            v39 = sub_1272B4(v36, HIDWORD(v36), v38, HIDWORD(v38));
-            *(uint8_t *)(v11 + 145) = sub_127B54(v39, HIDWORD(v39));
+            v35 = aeabi_i2d(v34);
+            v36 = aeabi_dadd(v35, HIDWORD(v35), dword_116B38, dword_116B3C);
+            v37 = aeabi_i2d(v33);
+            v38 = aeabi_dadd(v37, HIDWORD(v37), dword_116B40, dword_116B44);
+            v39 = double_add(v36, HIDWORD(v36), v38, HIDWORD(v38));
+            *(uint8_t *)(v11 + 145) = double_to_float(v39, HIDWORD(v39));
           }
           return 0;
         }
 LABEL_42:
-        sub_11C834(*(uint8_t *)(v13 + 224 * v12 + 95), v9, 1);
+        tx_slot_ref(*(uint8_t *)(v13 + 224 * v12 + 95), v9, 1);
         v13 = dword_116B5C;
         goto LABEL_43;
       }

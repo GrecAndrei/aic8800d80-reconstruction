@@ -15,8 +15,8 @@ extern uint32_t off_11145C;
 extern uint32_t off_111464;
 extern uint32_t off_111468;
 
-// sub_111404 @ 0x111404, size 88 bytes
-int  sub_111404(int result, int a2)
+// rf_set_param @ 0x111404, size 88 bytes
+int  rf_set_param(int result, int a2)
 {
   int *v2; // r4
   int v3; // r5
@@ -38,7 +38,7 @@ int  sub_111404(int result, int a2)
   *(uint16_t *)v4 = a2;
   if ( result && a2 )
   {
-    result = sub_1282E8(v3, result, a2);
+    result = memcpy_large(v3, result, a2);
     v4 = *v2;
   }
   v6 = off_111468;

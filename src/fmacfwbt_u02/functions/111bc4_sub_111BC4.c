@@ -10,19 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111BC4 @ 0x111bc4, size 36 bytes
+// rf_reg_write_b @ 0x111bc4, size 36 bytes
 // Doc: rf_state_check_n_44c [rf]: Check RF state, conditional return based on flags
 // rf_state_check_n_44c [rf]: Check RF state, conditional return based on flags
-int * sub_111BC4(int *result, unsigned int a2)
+int * rf_reg_write_b(int *result, unsigned int a2)
 {
   if ( result )
   {
     if ( a2 <= 5 )
-      return (int *)rf_bus_write2_1a78(a2, 0x200000, 0);
+      return (int *)rx_desc_hw_config(a2, 0x200000, 0);
   }
   else if ( a2 <= 5 )
   {
-    return sub_1119C0(a2, 0x200000, 0);
+    return tx_desc_hw_config(a2, 0x200000, 0);
   }
   return result;
 }

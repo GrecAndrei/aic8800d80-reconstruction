@@ -1,1 +1,1 @@
-{"fn": "sub_122F1A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f1a0", "status": "ok", "name": "phy_tx_agg_configure", "params": [], "docstring": "Configure TX aggregation via sub_12ECB0", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122F1A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f1a0", "status": "ok", "name": "ke_event_send_a", "params": [], "docstring": "Configure TX aggregation via sub_12ECB0", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t off_133670;
 extern uint32_t dword_133678;
 extern uint32_t dword_133674;
 
-// sub_13362C @ 0x13362c, size 68 bytes
-uint32_t * sub_13362C(int a1)
+// ble_state_check_13362c @ 0x13362c, size 68 bytes
+uint32_t * ble_state_check_13362c(int a1)
 {
   int v1; // r5
   unsigned int v2; // r2
@@ -26,10 +26,10 @@ uint32_t * sub_13362C(int a1)
   v2 = *(uint8_t *)(a1 + 12);
   if ( **(int16_t **)off_133670 < 0 && v2 > 3 )
   {
-    sub_12F32C(dword_133678, dword_133674, 321);
+    irq_disable_mmio_write(dword_133678, dword_133674, 321);
     LOBYTE(v2) = *(uint8_t *)(a1 + 12);
   }
-  v4 = sub_133470((uint32_t *)a1, (int *)(a1 + 4), (90 << (8 * v2)) | v1);
-  return sub_133470(v4, v5, 0);
+  v4 = crypto_mix_round((uint32_t *)a1, (int *)(a1 + 4), (90 << (8 * v2)) | v1);
+  return crypto_mix_round(v4, v5, 0);
 }
 

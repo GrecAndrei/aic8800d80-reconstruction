@@ -17,8 +17,8 @@ extern uint32_t dword_12C8C0;
 extern uint32_t dword_12C8C8;
 extern uint32_t off_12C8CC;
 
-// sub_12C84C @ 0x12c84c, size 106 bytes
-int  sub_12C84C(int a1)
+// rx_process_packet @ 0x12c84c, size 106 bytes
+int  rx_process_packet(int a1)
 {
   int16_t v1; // r3
   uint16_t *v4; // r0
@@ -28,19 +28,19 @@ int  sub_12C84C(int a1)
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      sub_12D108(dword_12C8BC);
-      return sub_12CFC4(0x4000000);
+      wlan_ioctl_handler_1(dword_12C8BC);
+      return irq_disable_global_2(0x4000000);
     }
   }
   else
   {
-    sub_12F32C(dword_12C8C4, dword_12C8C0, 183);
+    irq_disable_mmio_write(dword_12C8C4, dword_12C8C0, 183);
   }
-  sub_12E948(dword_12C8C8, *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
+  alloc_tx_event(dword_12C8C8, *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
   v4 = (uint16_t *)(a1 - 12);
   if ( *(uint8_t *)off_12C8CC )
-    return sub_12CA88(v4);
+    return tx_pkt_process(v4);
   else
-    return sub_12F3EC(v4);
+    return state_check_0x182ba0(v4);
 }
 

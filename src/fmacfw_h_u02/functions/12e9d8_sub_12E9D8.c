@@ -20,8 +20,8 @@ extern uint32_t dword_12EB88;
 extern uint32_t dword_12EB74;
 extern uint32_t dword_12EB8C;
 
-// sub_12E9D8 @ 0x12e9d8, size 404 bytes
-unsigned int  sub_12E9D8(unsigned int result, int a2, int a3, int a4)
+// process_packet_params @ 0x12e9d8, size 404 bytes
+unsigned int  process_packet_params(unsigned int result, int a2, int a3, int a4)
 {
   int v4; // r4
   int v5; // r9
@@ -55,25 +55,25 @@ unsigned int  sub_12E9D8(unsigned int result, int a2, int a3, int a4)
   v6 = -a3 & result;
   while ( 1 )
   {
-    sub_12E948(dword_12EB6C, v6);
+    alloc_tx_event(dword_12EB6C, v6);
     v7 = v24;
     if ( v24 >= 0x10 )
       v7 = 16;
     if ( ((v6 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       if ( !v24 )
-        return (unsigned int)sub_10D674((uint8_t *)dword_12EB78);
+        return (unsigned int)radio_tx_write_string((uint8_t *)dword_12EB78);
       v21 = dword_12EB70;
       v22 = 0;
       while ( 1 )
       {
-        v23 = sub_10EC2C();
+        v23 = call_patch_hook_0();
         if ( v4 == 4 )
           break;
         if ( v4 == 2 )
         {
           v22 += 4;
-          sub_12E948(dword_12EB7C, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
+          alloc_tx_event(dword_12EB7C, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -84,7 +84,7 @@ LABEL_40:
         }
         else
         {
-          sub_12E948(v5);
+          alloc_tx_event(v5);
 LABEL_36:
           v22 += 4;
           v6 += 4;
@@ -92,7 +92,7 @@ LABEL_36:
             goto LABEL_40;
         }
       }
-      sub_12E948(v21, v23, BYTE1(v23), BYTE2(v23));
+      alloc_tx_event(v21, v23, BYTE1(v23), BYTE2(v23));
       goto LABEL_36;
     }
     if ( v24 )
@@ -103,7 +103,7 @@ LABEL_36:
       goto LABEL_20;
     }
 LABEL_31:
-    result = (unsigned int)sub_10D674((uint8_t *)dword_12EB78);
+    result = (unsigned int)radio_tx_write_string((uint8_t *)dword_12EB78);
     v24 -= v7;
     if ( !v24 )
       return result;
@@ -120,7 +120,7 @@ LABEL_31:
       if ( v4 != 4 )
         break;
       v11 += 4;
-      sub_12E948(dword_12EB70, *(uint32_t *)v10);
+      alloc_tx_event(dword_12EB70, *(uint32_t *)v10);
       v10 += 2;
       if ( v7 <= v11 )
         goto LABEL_18;
@@ -132,7 +132,7 @@ LABEL_31:
     if ( v4 == 2 )
       v13 = v9;
     v11 += v4;
-    sub_12E948(v13, v12);
+    alloc_tx_event(v13, v12);
     v10 = (uint16_t *)((char *)v10 + v4);
   }
   while ( v7 > v11 );
@@ -141,7 +141,7 @@ LABEL_18:
     goto LABEL_30;
   if ( v24 > 0xF )
   {
-    sub_10D674((uint8_t *)dword_12EB74);
+    radio_tx_write_string((uint8_t *)dword_12EB74);
     goto LABEL_26;
   }
 LABEL_20:
@@ -154,17 +154,17 @@ LABEL_20:
   {
     while ( (v14 & v16++) != 0 )
     {
-      sub_10D674(v15);
+      radio_tx_write_string(v15);
       if ( v17 == v16 )
         goto LABEL_25;
     }
-    sub_10D65C(32);
-    sub_10D674(v15);
+    radio_tx_write_byte(32);
+    radio_tx_write_string(v15);
   }
   while ( v17 != v16 );
 LABEL_25:
   v4 = v26;
-  sub_10D674((uint8_t *)dword_12EB74);
+  radio_tx_write_string((uint8_t *)dword_12EB74);
   if ( v24 )
   {
 LABEL_26:
@@ -175,13 +175,13 @@ LABEL_26:
       if ( (unsigned int)(v20 - 31) > 0x5F )
         v20 = 46;
       ++v19;
-      sub_10D65C(v20);
+      radio_tx_write_byte(v20);
     }
     while ( v7 > v19 );
 LABEL_30:
     v6 = (unsigned int)v10;
     goto LABEL_31;
   }
-  return (unsigned int)sub_10D674((uint8_t *)dword_12EB78);
+  return (unsigned int)radio_tx_write_string((uint8_t *)dword_12EB78);
 }
 

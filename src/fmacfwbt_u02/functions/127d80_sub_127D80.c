@@ -17,8 +17,8 @@ extern uint32_t dword_127F48;
 extern uint32_t dword_127F50;
 extern uint32_t off_127F4C;
 
-// sub_127D80 @ 0x127d80, size 446 bytes
-int  sub_127D80(uint8_t *a1, int a2)
+// rx_packet_handler @ 0x127d80, size 446 bytes
+int  rx_packet_handler(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
@@ -36,7 +36,7 @@ int  sub_127D80(uint8_t *a1, int a2)
   int v18; // r0
 
   v2 = off_127F40;
-  feature_guard_sdio(8, dword_127F44);
+  state_check_feature(8, dword_127F44);
   v5 = *a1;
   if ( *a1 )
   {
@@ -50,10 +50,10 @@ int  sub_127D80(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          timestamp_remove_058((int)off_127F54 + 64);
+          ke_event_set_lock((int)off_127F54 + 64);
           v12 = v7[8];
           v7[18] = 0;
-          sub_12788C(v12);
+          scan_process(v12);
         }
       }
       else if ( v6 > 1 )
@@ -64,17 +64,17 @@ int  sub_127D80(uint8_t *a1, int a2)
         {
           if ( v13 == v2 + 112 && (uint8_t *)v7[20] == v13 )
           {
-            timestamp_remove_058((int)(v7 + 16));
+            ke_event_set_lock((int)(v7 + 16));
             v7[18] = 0;
           }
           v7[11] = 0;
         }
-        phy_init_or_register_n_e(dword_127F48);
+        send_hci_cmd(dword_127F48);
       }
       else if ( v6 == 1 )
       {
         *((uint8_t *)off_127F54 + 88) &= 0xFAu;
-        phy_init_or_register_n_e((int)(v2 + 112));
+        send_hci_cmd((int)(v2 + 112));
       }
       v8 = *((uint8_t *)v7 + 88);
       v2[136] = -1;
@@ -83,12 +83,12 @@ int  sub_127D80(uint8_t *a1, int a2)
       v18 = dword_127F50;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
-      timestamp_remove_058(v18);
+      ke_event_set_lock(v18);
       return v5;
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || msg_get_value(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_send_short(4) == 1 )
   {
     v10 = off_127F54;
     v11 = *((uint8_t *)off_127F54 + 88);
@@ -127,13 +127,13 @@ LABEL_25:
       if ( a2 )
       {
         v10[88] = v11 | 1;
-        sub_127568();
+        set_advertising_flag();
       }
       else
       {
         v17 = dword_127F48;
         v10[88] = v11 | 4;
-        rf_init_or_attach_n488(v17);
+        rf_tx_packet(v17);
       }
       *(uint32_t *)off_127F4C |= 4u;
       return v5;

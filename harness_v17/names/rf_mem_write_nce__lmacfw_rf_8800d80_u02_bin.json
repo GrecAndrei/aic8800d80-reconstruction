@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_nce", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12220fa", "status": "ok", "name": "rf_mem_write_nce", "params": [], "docstring": "Writes to RF control coprocessor registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_nce", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12220fa", "status": "ok", "name": "rf_cmd_dispatch_n1b7", "params": [], "docstring": "Writes to RF control coprocessor registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

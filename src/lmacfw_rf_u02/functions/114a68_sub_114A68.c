@@ -26,8 +26,8 @@ extern uint32_t dword_114B50;
 extern uint32_t off_114B54;
 extern uint32_t off_114B58;
 
-// sub_114A68 @ 0x114a68, size 180 bytes
-void __noreturn sub_114A68()
+// get_free_heap_size @ 0x114a68, size 180 bytes
+void __noreturn get_free_heap_size()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r3
@@ -87,7 +87,7 @@ void __noreturn sub_114A68()
   if ( (v11 & 0x10) == 0 )
     *(uint32_t *)off_114B54 &= ~0x4000u;
   *(uint8_t *)off_114B58 = BYTE2(*(uint32_t *)off_114B40);
-  clock_calc();
-  lmac_rf_init_globals();
+  save_rf_context();
+  init_buffer_list();
 }
 

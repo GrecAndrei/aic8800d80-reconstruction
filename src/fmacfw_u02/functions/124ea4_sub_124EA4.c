@@ -18,8 +18,8 @@ extern uint32_t off_124F6C;
 extern uint32_t dword_124F74;
 extern uint32_t dword_124F70;
 
-// sub_124EA4 @ 0x124ea4, size 186 bytes
-int sub_124EA4()
+// rf_pll_init @ 0x124ea4, size 186 bytes
+int rf_pll_init()
 {
   uint32_t *v0; // r7
   int *v1; // r6
@@ -44,7 +44,7 @@ int sub_124EA4()
   v4 = off_124F60;
   while ( 1 )
   {
-    clear_flags(0x20000000);
+    unknown_func_12d14c(0x20000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -74,7 +74,7 @@ int sub_124EA4()
         goto LABEL_17;
       }
     }
-    rf_bus_mark_n100_d2d0(v4);
+    mem_word_load(v4);
     if ( *v1 )
     {
       v9 = *v1 - 1;
@@ -93,7 +93,7 @@ int sub_124EA4()
     }
     else
     {
-      sub_12F46C(dword_124F74, dword_124F70, 246);
+      mmio_clear_register(dword_124F74, dword_124F70, 246);
       ((void ( *)(uint32_t))v6[1])(v6[2]);
     }
   }

@@ -13,8 +13,8 @@
 extern uint32_t off_102A30;
 extern uint32_t off_102A34;
 
-// sub_1029F8 @ 0x1029f8, size 56 bytes
-unsigned int  sub_1029F8(uint8_t a1)
+// write_mmio_byte @ 0x1029f8, size 56 bytes
+unsigned int  write_mmio_byte(uint8_t a1)
 {
   unsigned int *v1; // r1
   unsigned int *v2; // r2

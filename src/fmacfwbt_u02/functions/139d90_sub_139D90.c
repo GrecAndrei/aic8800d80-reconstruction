@@ -21,8 +21,8 @@ extern uint32_t dword_139E28;
 extern uint32_t dword_139E2C;
 extern uint32_t off_139E24;
 
-// sub_139D90 @ 0x139d90, size 118 bytes
-int sub_139D90()
+// init_driver_locks @ 0x139d90, size 118 bytes
+int init_driver_locks()
 {
   uint32_t *v0; // r6
   int v1; // r4
@@ -33,22 +33,22 @@ int sub_139D90()
   int v6; // r1
 
   v0 = (uint32_t *)(dword_139E08 + 16);
-  sub_12D468((uint32_t *)dword_139E08);
+  zero_struct((uint32_t *)dword_139E08);
   v1 = dword_139E0C;
-  sub_12D468(v0);
+  zero_struct(v0);
   v2 = v1 + 4672;
   do
   {
     v3 = (uint32_t *)v1;
     v1 += 292;
-    sub_12D470((int)v0, v3);
+    check_abort_flag((int)v0, v3);
   }
   while ( v1 != v2 );
-  sub_12D468((uint32_t *)dword_139E10);
-  sub_12D468((uint32_t *)dword_139E14);
-  sub_12D470(dword_139E10, (uint32_t *)dword_139E18);
-  sub_12D470(dword_139E10, (uint32_t *)dword_139E1C);
-  sub_12D470(dword_139E10, (uint32_t *)dword_139E20);
+  zero_struct((uint32_t *)dword_139E10);
+  zero_struct((uint32_t *)dword_139E14);
+  check_abort_flag(dword_139E10, (uint32_t *)dword_139E18);
+  check_abort_flag(dword_139E10, (uint32_t *)dword_139E1C);
+  check_abort_flag(dword_139E10, (uint32_t *)dword_139E20);
   v4 = dword_139E28;
   result = dword_139E2C;
   *((uint16_t *)off_139E24 + 51) = -1;

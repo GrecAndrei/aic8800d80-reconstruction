@@ -1,1 +1,1 @@
-{"fn": "crypto_hw_reset", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203a6c", "status": "ok", "name": "crypto_hw_reset", "params": [], "docstring": "Reset crypto HW engine via MMIO register clears", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_hw_reset", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203a6c", "status": "ok", "name": "mac_irq_disable", "params": [], "docstring": "Reset crypto HW engine via MMIO register clears", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

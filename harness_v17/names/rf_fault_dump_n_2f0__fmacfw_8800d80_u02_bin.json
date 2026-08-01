@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_2f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214458", "status": "ok", "name": "rf_fault_dump_set_flag_n_2f0", "params": [], "docstring": "Set fault dump flag and trigger dump sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_2f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214458", "status": "ok", "name": "rf_fault_dump_n_2ef", "params": [], "docstring": "Set fault dump flag and trigger dump sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

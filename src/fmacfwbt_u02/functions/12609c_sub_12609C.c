@@ -28,10 +28,10 @@ extern uint32_t dword_1263BC;
 extern uint32_t dword_126650;
 extern uint32_t off_1263C0;
 
-// sub_12609C @ 0x12609c, size 1438 bytes
+// scan_state_process @ 0x12609c, size 1438 bytes
 // Doc: sub_122609C [bt]: BT firmware initialization or configuration routine
 // sub_122609C [bt]: BT firmware initialization or configuration routine
-uint32_t * sub_12609C(uint32_t *result)
+uint32_t * scan_state_process(uint32_t *result)
 {
   int16_t **v1; // r9
   int v2; // r3
@@ -126,9 +126,9 @@ uint32_t * sub_12609C(uint32_t *result)
   {
     v53 = *(uint8_t *)(result[18] + 27);
     if ( v53 != 255 && *((uint8_t *)result + 107) != v53 )
-      sub_12F694(dword_126640, dword_12663C, 691);
+      mmio_irq_clear(dword_126640, dword_12663C, 691);
   }
-  sub_126034(v71);
+  lookup_conn_table(v71);
   v2 = *(uint32_t *)(v71 + 72);
   *(uint8_t *)(v2 + 27) = *(uint8_t *)(v71 + 107);
   v3 = *(uint8_t *)(v71 + 106);
@@ -178,7 +178,7 @@ LABEL_15:
     if ( LOBYTE(result[7 * v7 + 6]) == 255 )
     {
       if ( **v1 < 0 )
-        sub_12F694(dword_126660, dword_12663C, 698);
+        mmio_irq_clear(dword_126660, dword_12663C, 698);
       __und(0xFFu);
     }
     goto LABEL_16;
@@ -217,9 +217,9 @@ LABEL_16:
       if ( 2 * v74 <= v10 )
         v10 /= v10 / v74;
       v72 = (v10 >> 1) / v68;
-      if ( sub_10186C() + 14000 <= v72 )
+      if ( return_1000() + 14000 <= v72 )
         break;
-      v72 = sub_10186C() + 14000;
+      v72 = return_1000() + 14000;
       if ( v11 )
         goto LABEL_31;
 LABEL_59:
@@ -227,7 +227,7 @@ LABEL_59:
       {
         if ( v11 == 2 )
         {
-          result = (uint32_t *)sub_12F694(dword_12665C, dword_12663C, 755);
+          result = (uint32_t *)mmio_irq_clear(dword_12665C, dword_12663C, 755);
           v65 = **v1;
           var4[0] = v10;
           var4[1] = v72;
@@ -250,7 +250,7 @@ LABEL_59:
         v51 = *(uint8_t *)(v9 + 107);
         if ( v51 <= 0x1F )
           goto LABEL_62;
-        result = (uint32_t *)sub_12F694(dword_126654, dword_12663C, 761);
+        result = (uint32_t *)mmio_irq_clear(dword_126654, dword_12663C, 761);
       }
       else
       {
@@ -286,10 +286,10 @@ LABEL_31:
         v78 = *((uint32_t *)v15 + 2);
         v79 = HIDWORD(v17);
         v77 = (char *)(v76 + 2500);
-        v18 = sub_125F18((unsigned int *)&v76, (unsigned int *)&v78, (unsigned int *)&v76, v10);
+        v18 = check_sequence_diff((unsigned int *)&v76, (unsigned int *)&v78, (unsigned int *)&v76, v10);
         if ( **v1 < 0 && v68 <= 1 )
-          sub_12F694(dword_12664C, dword_12663C, 735);
-        v19 = v68 * v72 / (v68 - 1) - 4000 - sub_10186C();
+          mmio_irq_clear(dword_12664C, dword_12663C, 735);
+        v19 = v68 * v72 / (v68 - 1) - 4000 - return_1000();
         if ( v19 < *((uint32_t *)v15 + 1) )
           v19 = *((uint32_t *)v15 + 1);
         if ( v19 > v18 )
@@ -301,7 +301,7 @@ LABEL_31:
         goto LABEL_59;
     }
     v66 = v19;
-    v20 = sub_10186C();
+    v20 = return_1000();
     v21 = &var4[5 * v16];
     v22 = *(uint8_t *)(v9 + 107);
     v9 = *(uint32_t *)v9;
@@ -337,7 +337,7 @@ LABEL_39:
         v31 = v74;
       v78 = v28[4] + 32 * *(uint32_t *)off_126658;
       v79 = v55 + 10000;
-      v56 = sub_125F18(v29, (unsigned int *)&v78, 0, v31);
+      v56 = check_sequence_diff(v29, (unsigned int *)&v78, 0, v31);
       v57 = v29[1];
       if ( (int)(*v29 - v78) >= 0 )
         v58 = v31 - v56;
@@ -345,11 +345,11 @@ LABEL_39:
         v58 = v78 - v57;
       v59 = *(v29 - 1) + *v29 - 2000 - v57;
       v75 = v58;
-      if ( sub_10186C() + 4000 > v59 )
-        v59 = sub_10186C() + 4000;
+      if ( return_1000() + 4000 > v59 )
+        v59 = return_1000() + 4000;
       v60 = *((uint64_t *)v29 - 1);
       v61 = v59 - v75;
-      v62 = v60 - 14000 - HIDWORD(v60) - sub_10186C() + v61;
+      v62 = v60 - 14000 - HIDWORD(v60) - return_1000() + v61;
       if ( !v69 )
       {
         v70 = v62;
@@ -385,10 +385,10 @@ LABEL_96:
       goto LABEL_96;
     }
 LABEL_42:
-    v32 = sub_10186C();
+    v32 = return_1000();
     v33 = *(uint64_t *)(v29 - 1);
     v34 = HIDWORD(v33) - 6000 - v32;
-    v35 = sub_10186C();
+    v35 = return_1000();
     v36 = *(v29 - 2);
     v37 = v33 + 4000 + v35;
     if ( (int)(v34 - v28[4]) < 0 )
@@ -407,7 +407,7 @@ LABEL_42:
       for ( i = v34 - v36; (int)(i - v28[4]) >= 0; i -= v36 )
         v34 = i;
     }
-    result = (uint32_t *)sub_12A818(v71, 1, 0, 255, v36, v37, v34);
+    result = (uint32_t *)bt_conn_state_machine(v71, 1, 0, 255, v36, v37, v34);
     v39 = dword_1263BC;
     *v29 = v34;
     v29[1] = v34 + v37;
@@ -419,9 +419,9 @@ LABEL_42:
         v42 = *(v29 - 2);
         v78 = *(uint32_t *)(v39 + 36);
         v79 = v78 + 10000;
-        result = (uint32_t *)sub_125F18(v29, (unsigned int *)&v78, 0, v42);
+        result = (uint32_t *)check_sequence_diff(v29, (unsigned int *)&v78, 0, v42);
         if ( **v1 < 0 && *(uint8_t *)(v39 + 86) != 255 )
-          result = (uint32_t *)sub_12F694(dword_126650, dword_12663C, 876);
+          result = (uint32_t *)mmio_irq_clear(dword_126650, dword_12663C, 876);
         v43 = v78;
         v44 = v29[1];
         *(uint8_t *)(v39 + 86) = *(uint8_t *)(v71 + 107);
@@ -451,7 +451,7 @@ LABEL_42:
     {
       v46 = v45 + v74;
     }
-    result = (uint32_t *)sub_121BE4(v46);
+    result = (uint32_t *)mac_check_hw_state(v46);
     v47 = off_1263C0;
     v48 = *(uint8_t *)(v71 + 85);
     *(uint32_t *)(v71 + 88) = result;

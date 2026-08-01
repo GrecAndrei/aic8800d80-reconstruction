@@ -24,10 +24,10 @@ extern uint32_t off_110508;
 extern uint32_t dword_110510;
 extern uint32_t dword_11050C;
 
-// rf_bus_init_n3fa @ 0x1103f4, size 260 bytes
-// Doc: rf_bus_init_n3fa [rf]: Initialize the RF bus interface
-// rf_bus_init_n3fa [rf]: Initialize the RF bus interface
-int  rf_bus_init_n3fa(int result)
+// rx_irq_handler @ 0x1103f4, size 260 bytes
+// Doc: rx_irq_handler [rf]: Initialize the RF bus interface
+// rx_irq_handler [rf]: Initialize the RF bus interface
+int  rx_irq_handler(int result)
 {
   uint32_t *v1; // r4
   unsigned int v2; // r3
@@ -56,23 +56,23 @@ LABEL_2:
   v7 = (int *)off_110500;
   while ( v2 <= 1 )
   {
-    v8 = lmac_rf_handler_1102d0();
+    v8 = irq_disable_set_flag();
     if ( !v8 )
     {
-      result = sub_10DA6C(dword_11051C, *(uint32_t *)off_110518);
+      result = log_printf(dword_11051C, *(uint32_t *)off_110518);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or(256);
+      return set_busy_flag_alt(256);
     }
-    v9 = (int *)sub_1101AC();
+    v9 = (int *)irq_disable();
     v10 = v9;
     if ( !v9 )
     {
-      sub_10DA6C(dword_110520);
-      result = sub_110320();
+      log_printf(dword_110520);
+      result = irq_disable_set_flag_preserve();
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return irq_nesting_or(256);
+      return set_busy_flag_alt(256);
     }
     *v9 = v8;
     v9[1] = 0;
@@ -96,7 +96,7 @@ LABEL_2:
       }
       else
       {
-        sub_10DA6C(dword_110514);
+        log_printf(dword_110514);
         v11 = *v7;
       }
     }
@@ -104,7 +104,7 @@ LABEL_2:
     {
       if ( **(int16_t **)off_110508 < 0 && *v4 )
       {
-        rf_cmd_send_n264(dword_110510, dword_11050C, 261);
+        flash_ctrl_init(dword_110510, dword_11050C, 261);
         v11 = *v7;
       }
       *v4 = v10;

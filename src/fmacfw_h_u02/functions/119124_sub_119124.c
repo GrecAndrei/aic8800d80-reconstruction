@@ -19,8 +19,8 @@ extern uint32_t off_119240;
 extern uint32_t dword_119244;
 extern uint32_t dword_119254;
 
-// sub_119124 @ 0x119124, size 278 bytes
-int  sub_119124(int a1, int a2, int a3)
+// btm_chk_state @ 0x119124, size 278 bytes
+int  btm_chk_state(int a1, int a2, int a3)
 {
   int v3; // r3
   int v4; // r3
@@ -39,7 +39,7 @@ int  sub_119124(int a1, int a2, int a3)
   v3 = *(uint8_t *)(a1 + 106);
   if ( v3 != 2 )
   {
-    sub_12E948(dword_119250, v3, a3);
+    alloc_tx_event(dword_119250, v3, a3);
     return 1;
   }
   v4 = *(uint32_t *)(a1 + 72);
@@ -56,22 +56,22 @@ int  sub_119124(int a1, int a2, int a3)
   {
     goto LABEL_9;
   }
-  sub_12F32C(dword_11924C, dword_119248, 520);
+  irq_disable_mmio_write(dword_11924C, dword_119248, 520);
 LABEL_9:
   v8 = 1;
 LABEL_5:
   v9 = dword_119258;
-  v10 = sub_118B04(v8, *(uint16_t *)(dword_119258 + 2 * *(uint8_t *)(a1 + 107)));
+  v10 = lock_acquire(v8, *(uint16_t *)(dword_119258 + 2 * *(uint8_t *)(a1 + 107)));
   v12 = v10;
   if ( v10 )
   {
-    sub_12C3A8(a1, v10);
+    get_status_flag_c5(a1, v10);
     v13 = *(uint32_t *)(v12 + 72);
     *(uint8_t *)(v13 + 108) = 80;
     *(uint8_t *)(v13 + 109) = 0;
     *(uint8_t *)(v13 + 110) = 0;
     *(uint8_t *)(v13 + 111) = 0;
-    sub_143630(v13 + 112, a2, 6);
+    memcpy(v13 + 112, a2, 6);
     v14 = off_119240;
     v15 = *((uint16_t *)off_119240 + 254);
     v16 = *(uint16_t *)(a1 + 104);
@@ -83,7 +83,7 @@ LABEL_5:
     *(uint16_t *)(v13 + 128) = v16;
     v14[254] = v15;
     *(uint16_t *)(v13 + 130) = 16 * v15;
-    sub_143630(
+    memcpy(
       v13 + 132,
       dword_119244 + (*(uint8_t *)(a1 + 107) << 9),
       *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)) - 24);
@@ -91,12 +91,12 @@ LABEL_5:
     *(uint32_t *)(v12 + 92) = 0;
     *(uint8_t *)(v12 + 28) = *(uint8_t *)(a1 + 107);
     *(uint8_t *)(v12 + 29) = -1;
-    sub_118B34(v12, 5);
+    sec_check(v12, 5);
     return 0;
   }
   else
   {
-    sub_12E948(dword_119254, *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)), v11);
+    alloc_tx_event(dword_119254, *(uint16_t *)(v9 + 2 * *(uint8_t *)(a1 + 107)), v11);
     return 1;
   }
 }

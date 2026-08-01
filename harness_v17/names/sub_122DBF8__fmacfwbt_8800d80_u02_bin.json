@@ -1,1 +1,1 @@
-{"fn": "sub_122DBF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122dbf8", "status": "ok", "name": "sub_122DBF8", "params": [], "docstring": "Setup call frame, prepare 5 args, call helper", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122DBF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122dbf8", "status": "ok", "name": "debug_log", "params": [], "docstring": "Setup call frame, prepare 5 args, call helper", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

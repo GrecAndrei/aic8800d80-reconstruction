@@ -1,0 +1,1 @@
+{"fn": "sub_112F84", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x112f84", "status": "ok", "name": "get_global_flag", "params": [], "docstring": "Return global flag stored at 0x166d34", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

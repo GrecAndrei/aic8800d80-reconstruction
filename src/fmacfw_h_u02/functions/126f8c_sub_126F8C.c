@@ -16,8 +16,8 @@ extern uint32_t off_127024;
 extern uint32_t off_127028;
 extern uint32_t dword_12702C;
 
-// sub_126F8C @ 0x126f8c, size 144 bytes
-int  sub_126F8C(int result)
+// llc_conn_command @ 0x126f8c, size 144 bytes
+int  llc_conn_command(int result)
 {
   uint32_t *v1; // r5
   int v2; // r4
@@ -45,9 +45,9 @@ int  sub_126F8C(int result)
     {
       if ( v3 && *(uint8_t *)(v3 + 24) != 3 )
       {
-        v4 = (uint8_t *)sub_12C7EC(69, 13, 0, 1);
+        v4 = (uint8_t *)tx_send_pdu(69, 13, 0, 1);
         *v4 = *(uint8_t *)(v3 + 24);
-        sub_12C84C(v4);
+        rx_process_packet(v4);
       }
       if ( *((int *)off_127020 + 1) > 0 )
       {
@@ -58,8 +58,8 @@ int  sub_126F8C(int result)
         }
         v5 = (int *)off_127028;
         ++*(uint32_t *)off_127028;
-        sub_116DF4(4);
-        sub_11735C(4);
+        mmio_modify_bit(4);
+        phy_get_cfg_ptr(4);
         if ( *v5 )
         {
           v6 = *v5 - 1;
@@ -74,9 +74,9 @@ int  sub_126F8C(int result)
       }
       v1[11] = v2;
       *(uint8_t *)(v2 + 16) = 2;
-      v8 = (uint32_t *)sub_12C7EC(140, 0, 255, 4);
+      v8 = (uint32_t *)tx_send_pdu(140, 0, 255, 4);
       *v8 = dword_12702C;
-      return sub_12C84C(v8);
+      return rx_process_packet(v8);
     }
   }
   return result;

@@ -25,8 +25,8 @@ extern uint32_t dword_10F3A0;
 extern uint32_t dword_10F39C;
 extern uint32_t dword_10F394;
 
-// sub_10F2B0 @ 0x10f2b0, size 192 bytes
-int sub_10F2B0()
+// process_state @ 0x10f2b0, size 192 bytes
+int process_state()
 {
   uint8_t **v0; // r4
   int v1; // r3
@@ -74,17 +74,17 @@ int sub_10F2B0()
       v6[9] = v7;
       break;
   }
-  sub_10F1D4();
-  v4 = sub_10F208();
+  send_msg();
+  v4 = init_fw_table();
   v5 = **v0;
   if ( v5 == 1 )
   {
     v17 = (int ( **)(int))off_10F374;
     *(uint32_t *)off_10F390 = dword_10F3A4;
-    v18 = sub_11003C(v4, HIDWORD(v4));
-    v19 = sub_11007C(v18);
-    v20 = sub_1100D4(v19);
-    sub_10FFE4(v20);
+    v18 = tx_irq_handler(v4, HIDWORD(v4));
+    v19 = adv_irq_handler(v18);
+    v20 = scan_irq_handler(v19);
+    rx_irq_handler(v20);
     v21 = v17[2](dword_10F398);
     LODWORD(v4) = v17[3](v21);
     v5 = **v0;
@@ -95,18 +95,18 @@ int sub_10F2B0()
     *(uint32_t *)off_10F390 = dword_10F39C;
     v13 = (int ( **)(int))off_10F374;
     *(uint16_t *)(v12 + 8244) = 0;
-    v14 = sub_113824();
-    sub_113670(v14);
+    v14 = bt_evt_sched_low();
+    bt_evt_sched_high(v14);
     v15 = v13[6](dword_10F398);
     v16 = v13[7](v15);
-    LODWORD(v4) = sub_113FC4(v16);
+    LODWORD(v4) = log_and_handle(v16);
     v5 = **v0;
   }
   if ( v5 == 3 )
   {
     v10 = (int ( **)(int))off_10F374;
     *(uint32_t *)off_10F390 = dword_10F394;
-    sub_114090();
+    init_hw_timers();
     v11 = v10[8](dword_10F398);
     LODWORD(v4) = v10[9](v11);
   }

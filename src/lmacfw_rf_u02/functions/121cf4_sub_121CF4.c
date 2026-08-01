@@ -17,10 +17,10 @@ extern uint32_t off_121E2C;
 extern uint32_t dword_121E34;
 extern uint32_t dword_121E38;
 
-// sub_121CF4 @ 0x121cf4, size 304 bytes
+// co_list_insert @ 0x121cf4, size 304 bytes
 // Doc: rf_mem_write_n_231 [rf]: Writes a block of N dwords from a RAM buffer to RF memory through the RF MMIO interface (reg 0 = addr/cmd, reg 8 = data).
 // rf_mem_write_n_231 [rf]: Writes a block of N dwords from a RAM buffer to RF memory through the RF MMIO interface (reg 0 = addr/cmd, reg 8 = data).
-int  sub_121CF4(unsigned int a1, uint8_t *a2, int a3)
+int  co_list_insert(unsigned int a1, uint8_t *a2, int a3)
 {
   int *v3; // r6
   char v4; // r4
@@ -51,7 +51,7 @@ int  sub_121CF4(unsigned int a1, uint8_t *a2, int a3)
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = sub_1288C0(a3);
+    v11 = memset_ff(a3);
     v12 = (int *)off_121E28;
     v13 = off_121E30;
     *v3 = (int)a2;
@@ -83,7 +83,7 @@ LABEL_3:
       case 0xDu:
         v21 = (uint8_t *)dword_121E34;
         *(uint8_t *)*v3 = 0;
-        sub_10D654(v21);
+        uart_tx_string(v21);
         return *v3 - (uint32_t)a2;
       case 0x15u:
         v22 = off_121E30;
@@ -98,7 +98,7 @@ LABEL_3:
           v16 = (unsigned int)a2;
           while ( 1 )
           {
-            v17 = (uint8_t *)sub_121B40(v16, v15, v8);
+            v17 = (uint8_t *)tlv_find(v16, v15, v8);
             v18 = *v14;
             *v3 = (int)v17;
             v15 = (int)v17;
@@ -118,7 +118,7 @@ LABEL_3:
           goto LABEL_7;
         if ( a1 != 9 )
           goto LABEL_28;
-        sub_10D654((uint8_t *)(dword_121E38 + (v8 & 7)));
+        uart_tx_string((uint8_t *)(dword_121E38 + (v8 & 7)));
         *(uint32_t *)off_121E2C = (*(uint32_t *)off_121E2C & 0xFFFFFFF8) + 8;
         break;
     }
@@ -129,7 +129,7 @@ LABEL_3:
 LABEL_19:
     v20 = *v3;
     if ( *(uint32_t *)off_121E30 )
-      v20 = sub_121B40((unsigned int)a2, v20, v8);
+      v20 = tlv_find((unsigned int)a2, v20, v8);
     *v3 = v20;
     return -1;
   }
@@ -140,7 +140,7 @@ LABEL_19:
     {
 LABEL_28:
       *v7 = v8 + 1;
-      sub_10D63C(a1);
+      uart_tx_byte(a1);
 LABEL_27:
       v23 = (uint8_t *)*v3;
       *v23 = v4;
@@ -150,7 +150,7 @@ LABEL_27:
       return -1;
     }
 LABEL_7:
-    sub_10D63C(7);
+    uart_tx_byte(7);
     return -1;
   }
 }

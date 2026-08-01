@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_4c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129a8", "status": "ok", "name": "rf_cmd_send_n_4c4", "params": [], "docstring": "Send RF command with MMIO register bit manipulation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_4c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129a8", "status": "ok", "name": "rf_bus_reset_n165", "params": [], "docstring": "Send RF command with MMIO register bit manipulation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -18,8 +18,8 @@ extern uint32_t dword_104C20;
 extern uint32_t dword_104CC4;
 extern uint32_t dword_104CBC;
 
-// sub_1048E8 @ 0x1048e8, size 978 bytes
-int  sub_1048E8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
+// rf_calibration @ 0x1048e8, size 978 bytes
+int  rf_calibration(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
 {
   int *v7; // r6
   int v11; // r0
@@ -75,8 +75,8 @@ int  sub_1048E8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
   uint8_t v62[132]; // [sp+D0h] [bp-84h] BYREF
 
   v7 = (int *)dword_104C14;
-  sub_12EB90(1, dword_104C10);
-  sub_143630(v61, dword_104C18, 128);
+  check_feature_flag(1, dword_104C10);
+  memcpy(v61, dword_104C18, 128);
   v11 = *v7;
   v12 = v7[1];
   v13 = v7[2];
@@ -93,13 +93,13 @@ int  sub_1048E8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
   v60[5] = v15;
   v60[6] = v16;
   v60[7] = v17;
-  sub_143630(v62, v7 + 4, 128);
-  v18 = sub_104710(0, 0, a3);
+  memcpy(v62, v7 + 4, 128);
+  v18 = rx_packet_alloc(0, 0, a3);
   v55 = a1 + 128;
   v56 = a1 + 384;
   if ( a2 == 1 )
   {
-    v52 = sub_104710(0, 1, a4);
+    v52 = rx_packet_alloc(0, 1, a4);
     if ( v18 < v52 )
       v18 += 1280;
     v19 = v52;
@@ -121,7 +121,7 @@ int  sub_1048E8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
       v20 = 10;
     v57 = v20;
   }
-  sub_12EB90(1, dword_104C20);
+  check_feature_flag(1, dword_104C20);
   v21 = (uint32_t *)(a1 + 128);
   do
   {
@@ -152,7 +152,7 @@ int  sub_1048E8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
         v32 = v53 + v54;
         do
         {
-          v33 = sub_1044D0(v32++, 0, a3);
+          v33 = tx_desc_parse(v32++, 0, a3);
           v31 = v31 + (float)v33;
         }
         while ( v32 != v53 + v54 + 12 );
@@ -168,8 +168,8 @@ LABEL_13:
         v34 = flt_104C24;
         for ( i = 1; ; ++i )
         {
-          v36 = COERCE_FLOAT(sub_104500(v53 + v54 - 1 + i, 0, a3));
-          v37 = v36 - COERCE_FLOAT(sub_104500(v53 + v58 + v54 - 1 + i, 1, a4));
+          v36 = COERCE_FLOAT(rx_packet_process(v53 + v54 - 1 + i, 0, a3));
+          v37 = v36 - COERCE_FLOAT(rx_packet_process(v53 + v58 + v54 - 1 + i, 1, a4));
           if ( v37 < v23 )
             v37 = v37 + v24;
           if ( v37 > v25 )
@@ -243,7 +243,7 @@ LABEL_14:
   v43 = (float *)a1;
   for ( j = 1; ; ++j )
   {
-    v46 = sub_12D5CC((float)(v43[32] / v42) / 12.0);
+    v46 = read_config_block((float)(v43[32] / v42) / 12.0);
     v47 = &v61[j];
     *((uint32_t *)v43 + 32) = v46;
     if ( (unsigned int)(j - 1) > 1 )
@@ -260,12 +260,12 @@ LABEL_43:
   if ( j != 32 )
     goto LABEL_43;
   v49 = dword_104CC4;
-  sub_12EB90(1, dword_104CBC);
+  check_feature_flag(1, dword_104CBC);
   v50 = a1;
   do
   {
     v50 += 4;
-    result = sub_12EB90(1, v49);
+    result = check_feature_flag(1, v49);
   }
   while ( v55 != v50 );
   return result;

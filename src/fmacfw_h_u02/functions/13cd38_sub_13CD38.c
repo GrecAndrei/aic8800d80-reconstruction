@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13CD38 @ 0x13cd38, size 374 bytes
-unsigned int  sub_13CD38(int a1, unsigned int a2)
+// bt_parse_ll_header @ 0x13cd38, size 374 bytes
+unsigned int  bt_parse_ll_header(int a1, unsigned int a2)
 {
   unsigned int v2; // r2
   int v3; // nf

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_123538 @ 0x123538, size 12 bytes
-int  sub_123538(int a1, int a2)
+// ke_msg_send @ 0x123538, size 12 bytes
+int  ke_msg_send(int a1, int a2)
 {
-  sub_125764(a2);
+  co_list_push(a2);
   return 1;
 }
 

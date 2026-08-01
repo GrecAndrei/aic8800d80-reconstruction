@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E4E0 @ 0x13e4e0, size 242 bytes
-int  sub_13E4E0(int a1)
+// tx_flag_check_process @ 0x13e4e0, size 242 bytes
+int  tx_flag_check_process(int a1)
 {
   char v1; // r6
   int v2; // r5
@@ -85,7 +85,7 @@ LABEL_7:
     LOWORD(v7) = v6;
     goto LABEL_7;
   }
-  sub_13E270((uint16_t *)(a1 + 12 * *(uint8_t *)(a1 + 136) + 4));
+  rx_desc_validate((uint16_t *)(a1 + 12 * *(uint8_t *)(a1 + 136) + 4));
   if ( !*(uint16_t *)(v3 + 184) )
     return v2;
   v12 = v3 + 12 + 12 * (uint16_t)(*(uint16_t *)(v3 + 184) - 1);

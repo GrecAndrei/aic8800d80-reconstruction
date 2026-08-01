@@ -23,8 +23,8 @@ extern uint32_t dword_116ABC;
 extern uint32_t dword_116AB4;
 extern uint32_t dword_116AB8;
 
-// sub_116764 @ 0x116764, size 846 bytes
-int  sub_116764(int a1, int a2)
+// process_rx_status @ 0x116764, size 846 bytes
+int  process_rx_status(int a1, int a2)
 {
   int v2; // r3
   uint32_t *v3; // r5
@@ -109,17 +109,17 @@ LABEL_19:
               v23 = *(uint32_t *)(a1 + 44);
               if ( v23 != dword_116A5C && v23 != dword_116A60 )
               {
-                sub_11AC78(v3 + 16, v3 + 20);
-                sub_11AC78(v3 + 17, v3 + 21);
-                sub_11AC78(v3 + 18, v3 + 22);
-                sub_11AC78(v3 + 19, v3 + 23);
+                mmio_status_read(v3 + 16, v3 + 20);
+                mmio_status_read(v3 + 17, v3 + 21);
+                mmio_status_read(v3 + 18, v3 + 22);
+                mmio_status_read(v3 + 19, v3 + 23);
               }
             }
           }
           v24 = v3[12];
           *(uint32_t *)(v4 + 44) = v3[25];
           v3[12] = v24 | 2;
-          return sub_11C9C8(a1, a2);
+          return set_cal_value(a1, a2);
         }
         v18 = *(uint32_t *)(v4 + 24);
 LABEL_14:
@@ -134,7 +134,7 @@ LABEL_14:
       }
       else
       {
-        sub_12F694(dword_116A74, dword_116A64, 518);
+        mmio_irq_clear(dword_116A74, dword_116A64, 518);
         v17 = *(uint32_t *)(v4 + 28);
         if ( v17 )
         {
@@ -151,12 +151,12 @@ LABEL_35:
         v15 = *(uint16_t *)(a1 + 30);
         goto LABEL_14;
       }
-      sub_12F694(dword_116A68, dword_116A64, 525);
+      mmio_irq_clear(dword_116A68, dword_116A64, 525);
 LABEL_66:
       v18 = *(uint32_t *)(v4 + 24);
       goto LABEL_35;
     }
-    sub_13AFD8();
+    rf_get_pll_setting();
     v30 = v3[24];
     *(uint32_t *)(v4 + 64) = v30;
     if ( !*(uint8_t *)(dword_116A6C + 1320 * *(uint8_t *)(a1 + 28) + 106)
@@ -210,7 +210,7 @@ LABEL_45:
     }
     else
     {
-      sub_12F694(dword_116ABC, dword_116AB4, 518);
+      mmio_irq_clear(dword_116ABC, dword_116AB4, 518);
       v17 = *(uint32_t *)(v32 + 28);
       if ( v17 )
       {
@@ -227,7 +227,7 @@ LABEL_57:
       v30 = *(uint32_t *)(v4 + 64);
       goto LABEL_45;
     }
-    sub_12F694(dword_116AB8, dword_116AB4, 525);
+    mmio_irq_clear(dword_116AB8, dword_116AB4, 525);
 LABEL_74:
     v34 = *(uint32_t *)(v32 + 24);
     goto LABEL_57;
@@ -262,7 +262,7 @@ LABEL_8:
     }
     else
     {
-      result = sub_12F694(dword_116A74, dword_116A64, 518);
+      result = mmio_irq_clear(dword_116A74, dword_116A64, 518);
       v12 = *(uint16_t **)(v11 + 28);
       if ( v12 )
         goto LABEL_8;
@@ -272,7 +272,7 @@ LABEL_8:
     v13 = *(uint32_t *)(v11 + 24);
     if ( v13 )
       goto LABEL_7;
-    result = sub_12F694(dword_116A68, dword_116A64, 525);
+    result = mmio_irq_clear(dword_116A68, dword_116A64, 525);
 LABEL_6:
     v13 = *(uint32_t *)(v11 + 24);
 LABEL_7:
@@ -294,14 +294,14 @@ LABEL_7:
       v3[20] = v3[20] & 0xFFF8FFFF | v37 & 0xFFFBFFFF;
   }
   if ( *((uint8_t *)off_116A58 + 361) != 2 )
-    sub_11AC78(v25 + 4, v3 + 20);
+    mmio_status_read(v25 + 4, v3 + 20);
   v27 = v3[12];
   v28 = v3[24];
   v3[16] = *(uint32_t *)(v25 + 4);
   *(uint32_t *)(v25 + 48) = v3[25];
   *(uint32_t *)(v25 + 68) = v28 | 0x600;
   v3[12] = v27 | 2;
-  sub_14380C(v25 + 272, v3 + 11, 52);
+  memcpy_aligned(v25 + 272, v3 + 11, 52);
   v29 = *(uint16_t *)(a1 + 30);
   result = v29 << 31;
   if ( (v29 & 1) != 0 )

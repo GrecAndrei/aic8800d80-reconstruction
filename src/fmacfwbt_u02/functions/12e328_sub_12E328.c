@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12E328 @ 0x12e328, size 26 bytes
-int  sub_12E328(int a1)
+// rssi_to_power_index @ 0x12e328, size 26 bytes
+int  rssi_to_power_index(int a1)
 {
   if ( a1 >= 0 )
     return 220;

@@ -15,8 +15,8 @@ extern uint32_t dword_100B08;
 extern uint32_t dword_100B0C;
 extern uint32_t off_100B10;
 
-// sub_100AA8 @ 0x100aa8, size 90 bytes
-int sub_100AA8()
+// pll_enable @ 0x100aa8, size 90 bytes
+int pll_enable()
 {
   uint32_t *v0; // r2
   int *v1; // r3

@@ -12,8 +12,8 @@
 
 extern uint32_t off_101AD4;
 
-// sub_101AC4 @ 0x101ac4, size 14 bytes
-int sub_101AC4()
+// rf_get_field8 @ 0x101ac4, size 14 bytes
+int rf_get_field8()
 {
   return (uint8_t)((BYTE1(*(uint32_t *)off_101AD4) & 0xF) - 1);
 }

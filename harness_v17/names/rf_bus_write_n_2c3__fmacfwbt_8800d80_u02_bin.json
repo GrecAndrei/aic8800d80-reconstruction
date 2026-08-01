@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_2c3", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116fc", "status": "ok", "name": "rf_bus_write_n_2c3", "params": [], "docstring": "Write RF bus register with 0xc0 mask across 8-byte stride", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_2c3", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116fc", "status": "ok", "name": "rf_bus_mark_n1c", "params": [], "docstring": "Write RF bus register with 0xc0 mask across 8-byte stride", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

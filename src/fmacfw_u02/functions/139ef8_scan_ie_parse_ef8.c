@@ -12,10 +12,10 @@
 
 extern uint32_t dword_139F58;
 
-// scan_ie_parse_ef8 @ 0x139ef8, size 96 bytes
-// Doc: scan_ie_parse_ef8 [scan]: Parses scan info-element with signed byte and 0x78-masked option flags
-// scan_ie_parse_ef8 [scan]: Parses scan info-element with signed byte and 0x78-masked option flags
-int  scan_ie_parse_ef8(char *a1, char a2, int a3)
+// scan_parse_response @ 0x139ef8, size 96 bytes
+// Doc: scan_parse_response [scan]: Parses scan info-element with signed byte and 0x78-masked option flags
+// scan_parse_response [scan]: Parses scan info-element with signed byte and 0x78-masked option flags
+int  scan_parse_response(char *a1, char a2, int a3)
 {
   char v3; // r3
   int result; // r0
@@ -34,9 +34,9 @@ int  scan_ie_parse_ef8(char *a1, char a2, int a3)
   {
     v3 += 4;
   }
-  result = sub_143770(&v6, &a1[(uint8_t)(v3 + 6)], 2);
+  result = memcpy(&v6, &a1[(uint8_t)(v3 + 6)], 2);
   if ( v6 == 36488 )
-    return msg_parse(dword_139F58, 36488, a3);
+    return event_dispatch(dword_139F58, 36488, a3);
   return result;
 }
 

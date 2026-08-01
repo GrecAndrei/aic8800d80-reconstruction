@@ -12,12 +12,12 @@
 
 extern uint32_t off_10F448;
 
-// sub_10F434 @ 0x10f434, size 18 bytes
-unsigned int sub_10F434()
+// set_tx_power_cal @ 0x10f434, size 18 bytes
+unsigned int set_tx_power_cal()
 {
   unsigned int result; // r0
 
-  result = sub_1029DC(0xC2u);
+  result = gpio_config(0xC2u);
   *((uint8_t *)off_10F448 + 7) = -62;
   return result;
 }

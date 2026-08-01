@@ -12,10 +12,10 @@
 
 extern uint32_t off_101A98;
 
-// chip_revision_get @ 0x101a88, size 14 bytes
-// Doc: chip_revision_get [util]: Reads chip revision field (bits 8-11) from ID register and returns (val-1)
-// chip_revision_get [util]: Reads chip revision field (bits 8-11) from ID register and returns (val-1)
-int chip_revision_get()
+// chip_info_nibble2_get @ 0x101a88, size 14 bytes
+// Doc: chip_info_nibble2_get [util]: Reads chip revision field (bits 8-11) from ID register and returns (val-1)
+// chip_info_nibble2_get [util]: Reads chip revision field (bits 8-11) from ID register and returns (val-1)
+int chip_info_nibble2_get()
 {
   return (uint8_t)((BYTE1(*(uint32_t *)off_101A98) & 0xF) - 1);
 }

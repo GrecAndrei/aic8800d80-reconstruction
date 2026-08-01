@@ -12,8 +12,8 @@
 
 extern uint32_t dword_142138;
 
-// sub_1420F8 @ 0x1420f8, size 64 bytes
-int  sub_1420F8(int a1, int a2, int a3)
+// poll_active_list @ 0x1420f8, size 64 bytes
+int  poll_active_list(int a1, int a2, int a3)
 {
   int v3; // r4
   int v4; // r3

@@ -16,8 +16,8 @@ extern uint32_t dword_104F0C;
 extern uint32_t dword_104F10;
 extern uint32_t dword_104F14;
 
-// sub_104C38 @ 0x104c38, size 710 bytes
-int  sub_104C38(int *a1, int a2, int a3, int a4, uint64_t *a5)
+// bt_encrypt_wrap @ 0x104c38, size 710 bytes
+int  bt_encrypt_wrap(int *a1, int a2, int a3, int a4, uint64_t *a5)
 {
   int v6; // r0
   int v8; // r2
@@ -77,83 +77,83 @@ int  sub_104C38(int *a1, int a2, int a3, int a4, uint64_t *a5)
   uint64_t v62; // [sp+8h] [bp-14h]
   uint64_t v63; // [sp+10h] [bp-Ch]
 
-  v6 = sub_143078(a3, a4);
-  v9 = sub_12ECB0(dword_104F00, v6, v8);
-  inited = mmio_init_block_120DDA0(v9);
+  v6 = __aeabi_d2lz(a3, a4);
+  v9 = ke_event_schedule(dword_104F00, v6, v8);
+  inited = gpio_init(v9);
   v11 = a1;
-  sub_12ECB0(dword_104F08, (int)(float)(inited * flt_104F04), v12);
+  ke_event_schedule(dword_104F08, (int)(float)(inited * flt_104F04), v12);
   v13 = a5[2];
-  v14 = sub_142B44(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_104F0C);
-  sub_143078(v14, HIDWORD(v14));
+  v14 = __aeabi_dmul(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_104F0C);
+  __aeabi_d2lz(v14, HIDWORD(v14));
   v15 = a5[1];
-  v16 = sub_142B44(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_104F0C);
-  v17 = sub_143078(v16, HIDWORD(v16));
+  v16 = __aeabi_dmul(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_104F0C);
+  v17 = __aeabi_d2lz(v16, HIDWORD(v16));
   v18 = *a5;
   v19 = v17;
-  v20 = sub_142B44(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_104F0C);
-  v21 = sub_143078(v20, HIDWORD(v20));
+  v20 = __aeabi_dmul(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_104F0C);
+  v21 = __aeabi_d2lz(v20, HIDWORD(v20));
   v22 = a5[5];
   v63 = a5[4];
   v62 = a5[3];
-  sub_12ECB0(dword_104F10, v21, v19);
-  v23 = sub_142B44(v22, HIDWORD(v22), 0, dword_104F0C);
-  sub_143078(v23, HIDWORD(v23));
-  v24 = sub_142B44(v63, HIDWORD(v63), 0, dword_104F0C);
-  v25 = sub_143078(v24, HIDWORD(v24));
-  v26 = sub_142B44(v62, HIDWORD(v62), 0, dword_104F0C);
-  v27 = sub_143078(v26, HIDWORD(v26));
-  sub_12ECB0(dword_104F14, v27, v25);
+  ke_event_schedule(dword_104F10, v21, v19);
+  v23 = __aeabi_dmul(v22, HIDWORD(v22), 0, dword_104F0C);
+  __aeabi_d2lz(v23, HIDWORD(v23));
+  v24 = __aeabi_dmul(v63, HIDWORD(v63), 0, dword_104F0C);
+  v25 = __aeabi_d2lz(v24, HIDWORD(v24));
+  v26 = __aeabi_dmul(v62, HIDWORD(v62), 0, dword_104F0C);
+  v27 = __aeabi_d2lz(v26, HIDWORD(v26));
+  ke_event_schedule(dword_104F14, v27, v25);
   v28 = v11 + 32;
   do
   {
     v59 = *v11++;
-    v60 = sub_142A94(v59);
-    if ( sub_143050(v18, HIDWORD(v18), v60, HIDWORD(v60)) )
+    v60 = __aeabi_f2d(v59);
+    if ( __aeabi_dcmpge(v18, HIDWORD(v18), v60, HIDWORD(v60)) )
     {
       v55 = v62;
     }
-    else if ( sub_143014(v15, HIDWORD(v15), v60, HIDWORD(v60)) )
+    else if ( __aeabi_dcmpeq(v15, HIDWORD(v15), v60, HIDWORD(v60)) )
     {
       v55 = v63;
     }
-    else if ( sub_14303C(v13, HIDWORD(v13), v60, HIDWORD(v60)) )
+    else if ( __aeabi_dcmple(v13, HIDWORD(v13), v60, HIDWORD(v60)) )
     {
       v55 = v22;
     }
     else
     {
-      v29 = sub_1427D4(v60, HIDWORD(v60), v15, HIDWORD(v15));
-      v30 = sub_1427D4(v60, HIDWORD(v60), v13, HIDWORD(v13));
-      v31 = sub_1427D4(v60, HIDWORD(v60), v18, HIDWORD(v18));
+      v29 = __aeabi_dsub(v60, HIDWORD(v60), v15, HIDWORD(v15));
+      v30 = __aeabi_dsub(v60, HIDWORD(v60), v13, HIDWORD(v13));
+      v31 = __aeabi_dsub(v60, HIDWORD(v60), v18, HIDWORD(v18));
       v32 = v30;
       v33 = v31;
-      v34 = sub_142B44(v62, HIDWORD(v62), v29, HIDWORD(v29));
+      v34 = __aeabi_dmul(v62, HIDWORD(v62), v29, HIDWORD(v29));
       v35 = v33;
-      v36 = sub_142B44(v34, HIDWORD(v34), v32, HIDWORD(v32));
-      v37 = sub_1427D4(v18, HIDWORD(v18), v15, HIDWORD(v15));
-      v38 = sub_142D98(v36, HIDWORD(v36), v37, HIDWORD(v37));
-      v39 = sub_1427D4(v18, HIDWORD(v18), v13, HIDWORD(v13));
-      v40 = sub_142D98(v38, HIDWORD(v38), v39, HIDWORD(v39));
-      v41 = sub_142B44(v63, HIDWORD(v63), v35, HIDWORD(v35));
+      v36 = __aeabi_dmul(v34, HIDWORD(v34), v32, HIDWORD(v32));
+      v37 = __aeabi_dsub(v18, HIDWORD(v18), v15, HIDWORD(v15));
+      v38 = __aeabi_ddiv(v36, HIDWORD(v36), v37, HIDWORD(v37));
+      v39 = __aeabi_dsub(v18, HIDWORD(v18), v13, HIDWORD(v13));
+      v40 = __aeabi_ddiv(v38, HIDWORD(v38), v39, HIDWORD(v39));
+      v41 = __aeabi_dmul(v63, HIDWORD(v63), v35, HIDWORD(v35));
       v42 = v40;
-      v43 = sub_142B44(v41, HIDWORD(v41), v32, HIDWORD(v32));
-      v44 = sub_1427D4(v15, HIDWORD(v15), v18, HIDWORD(v18));
-      v45 = sub_142D98(v43, HIDWORD(v43), v44, HIDWORD(v44));
-      v46 = sub_1427D4(v15, HIDWORD(v15), v13, HIDWORD(v13));
-      v47 = sub_142D98(v45, HIDWORD(v45), v46, HIDWORD(v46));
-      v48 = sub_1427D8(v42, HIDWORD(v42), v47, HIDWORD(v47));
-      v49 = sub_142B44(v22, HIDWORD(v22), v35, HIDWORD(v35));
-      v50 = sub_142B44(v49, HIDWORD(v49), v29, HIDWORD(v29));
-      v51 = sub_1427D4(v13, HIDWORD(v13), v18, HIDWORD(v18));
-      v52 = sub_142D98(v50, HIDWORD(v50), v51, HIDWORD(v51));
-      v53 = sub_1427D4(v13, HIDWORD(v13), v15, HIDWORD(v15));
-      v54 = sub_142D98(v52, HIDWORD(v52), v53, HIDWORD(v53));
-      v55 = sub_1427D8(v48, HIDWORD(v48), v54, HIDWORD(v54));
+      v43 = __aeabi_dmul(v41, HIDWORD(v41), v32, HIDWORD(v32));
+      v44 = __aeabi_dsub(v15, HIDWORD(v15), v18, HIDWORD(v18));
+      v45 = __aeabi_ddiv(v43, HIDWORD(v43), v44, HIDWORD(v44));
+      v46 = __aeabi_dsub(v15, HIDWORD(v15), v13, HIDWORD(v13));
+      v47 = __aeabi_ddiv(v45, HIDWORD(v45), v46, HIDWORD(v46));
+      v48 = __aeabi_dadd(v42, HIDWORD(v42), v47, HIDWORD(v47));
+      v49 = __aeabi_dmul(v22, HIDWORD(v22), v35, HIDWORD(v35));
+      v50 = __aeabi_dmul(v49, HIDWORD(v49), v29, HIDWORD(v29));
+      v51 = __aeabi_dsub(v13, HIDWORD(v13), v18, HIDWORD(v18));
+      v52 = __aeabi_ddiv(v50, HIDWORD(v50), v51, HIDWORD(v51));
+      v53 = __aeabi_dsub(v13, HIDWORD(v13), v15, HIDWORD(v15));
+      v54 = __aeabi_ddiv(v52, HIDWORD(v52), v53, HIDWORD(v53));
+      v55 = __aeabi_dadd(v48, HIDWORD(v48), v54, HIDWORD(v54));
     }
     v61 = v55;
-    v56 = sub_142A94(v11[63]);
-    v57 = sub_142B44(v56, HIDWORD(v56), v61, HIDWORD(v61));
-    result = sub_143108(v57);
+    v56 = __aeabi_f2d(v11[63]);
+    v57 = __aeabi_dmul(v56, HIDWORD(v56), v61, HIDWORD(v61));
+    result = double_to_float(v57);
     v11[31] = result;
   }
   while ( v11 != v28 );

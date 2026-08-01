@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_48d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129de", "status": "ok", "name": "rf_cmd_send_n_48d", "params": [], "docstring": "Send RF command and check completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_48d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129de", "status": "ok", "name": "rf_bus_reset_n19a", "params": [], "docstring": "Send RF command and check completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

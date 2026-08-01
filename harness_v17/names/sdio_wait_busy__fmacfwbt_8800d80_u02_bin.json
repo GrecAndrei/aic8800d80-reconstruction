@@ -1,1 +1,1 @@
-{"fn": "sdio_wait_busy", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ec38", "status": "ok", "name": "sdio_wait_busy", "params": [], "docstring": "Polls SDIO host controller busy flag until clear", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_wait_busy", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ec38", "status": "ok", "name": "hw_poll_flag", "params": [], "docstring": "Polls SDIO host controller busy flag until clear", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

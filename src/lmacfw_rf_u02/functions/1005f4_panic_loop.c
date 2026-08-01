@@ -12,10 +12,10 @@
 
 extern uint32_t off_100644;
 
-// panic_loop @ 0x1005f4, size 78 bytes
-// Doc: panic_loop [util]: CPU panic infinite loop / fatal halt
-// panic_loop [util]: CPU panic infinite loop / fatal halt
-void __noreturn panic_loop()
+// periph_write_read @ 0x1005f4, size 78 bytes
+// Doc: periph_write_read [util]: CPU panic infinite loop / fatal halt
+// periph_write_read [util]: CPU panic infinite loop / fatal halt
+void __noreturn periph_write_read()
 {
   int v1; // [sp+0h] [bp-Ch]
 

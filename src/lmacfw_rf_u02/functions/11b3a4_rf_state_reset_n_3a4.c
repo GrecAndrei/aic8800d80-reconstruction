@@ -21,10 +21,10 @@ extern uint32_t dword_11B4E0;
 extern uint32_t dword_11B4DC;
 extern uint32_t off_11B4D4;
 
-// rf_state_reset_n_3a4 @ 0x11b3a4, size 282 bytes
-// Doc: rf_state_reset_n_3a4 [rf]: RF state reset clearing context fields
-// rf_state_reset_n_3a4 [rf]: RF state reset clearing context fields
-int  rf_state_reset_n_3a4(int result, int a2, int a3)
+// rx_queue_init @ 0x11b3a4, size 282 bytes
+// Doc: rx_queue_init [rf]: RF state reset clearing context fields
+// rx_queue_init [rf]: RF state reset clearing context fields
+int  rx_queue_init(int result, int a2, int a3)
 {
   uint8_t *v3; // r6
   int v4; // r4
@@ -54,7 +54,7 @@ int  rf_state_reset_n_3a4(int result, int a2, int a3)
   }
   else
   {
-    result = rf_link_state_check(result, 0, a3);
+    result = rf_state_process(result, 0, a3);
     v6 = *(uint8_t *)(v4 + 24);
     if ( v6 != 3 )
     {
@@ -66,7 +66,7 @@ LABEL_3:
         v3[88] = v8 & 0xFB;
         if ( *(uint16_t *)(v4 + 14) )
         {
-          result = ipc_msg_send_n_d58(v4);
+          result = send_hci_event(v4);
           v8 = (uint8_t)v3[88];
         }
         else
@@ -78,11 +78,11 @@ LABEL_3:
     }
   }
   v3[88] &= ~8u;
-  v9 = (uint16_t *)sub_11CD3C();
-  v10 = (uint16_t *)rf_setup_dispatch(79, 4, 0, 12);
+  v9 = (uint16_t *)rf_get_tx_entry();
+  v10 = (uint16_t *)ke_msg_send(79, 4, 0, 12);
   *v10 = *v9;
   v11 = v10;
-  v12 = sub_11CD50(v9);
+  v12 = rf_get_tx_power(v9);
   v13 = dword_11B4C4;
   v14 = (unsigned int *)off_11B4E4;
   v15 = off_11B4C8;
@@ -100,18 +100,18 @@ LABEL_3:
   }
   *((uint8_t *)v11 + 2) = *v15;
 LABEL_13:
-  sub_11DE50(v11);
+  rx_irq_handler(v11);
   v17 = off_11B4D0;
   v18 = **(int16_t **)off_11B4CC;
   v19 = *((uint32_t *)off_11B4D0 + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_11B4D0 + 1) = v19;
   if ( v18 < 0 && *(uint32_t *)off_11B4D8 << 28 )
   {
-    sub_1219F4(dword_11B4E0, dword_11B4DC, 472);
+    flash_cmd_exec(dword_11B4E0, dword_11B4DC, 472);
     v19 = v17[1];
   }
   *(uint32_t *)off_11B4D4 = v19 | *v17;
-  result = sub_11DED8(142, 2, 255);
+  result = ke_evt_handler(142, 2, 255);
   v8 = (uint8_t)v3[88];
 LABEL_4:
   *(uint8_t *)(v4 + 24) = -1;
@@ -120,11 +120,11 @@ LABEL_4:
   {
     if ( a2 )
       return result;
-    return sub_118E58();
+    return rf_packet_available();
   }
-  result = phy_flag_check_or_set();
+  result = rf_flag_set();
   if ( !a2 )
-    return sub_118E58();
+    return rf_packet_available();
   return result;
 }
 

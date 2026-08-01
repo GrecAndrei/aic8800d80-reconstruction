@@ -18,8 +18,8 @@ extern uint32_t dword_107814;
 extern uint32_t dword_107818;
 extern uint32_t off_10781C;
 
-// sub_107734 @ 0x107734, size 212 bytes
-int  sub_107734(int a1, uint32_t *a2, int a3)
+// rf_configure_whitening @ 0x107734, size 212 bytes
+int  rf_configure_whitening(int a1, uint32_t *a2, int a3)
 {
   uint32_t *v3; // r5
   uint32_t *v4; // r4
@@ -38,9 +38,9 @@ int  sub_107734(int a1, uint32_t *a2, int a3)
   v6 = dword_107820;
   v7 = dword_107814;
   v8 = *(uint64_t *)(a1 + 8);
-  sub_107370();
+  rf_set_frequency();
   *v3 &= ~1u;
-  delay_us(20);
+  timer_set(20);
   v9 = dword_107818;
   *v3 |= 4u;
   *v3 |= 8u;
@@ -48,14 +48,14 @@ int  sub_107734(int a1, uint32_t *a2, int a3)
   *v4 |= 0x200000u;
   *v5 = v9 & (HIDWORD(v8) << 16) | *v5 & v6;
   *v5 = *v5 & v7 | v8 & 0xFFF;
-  delay_us(40);
+  timer_set(40);
   v10 = (int *)off_10781C;
   *v4 |= 0x4000000u;
   v11 = *v10;
   *v4 &= ~0x4000000u;
   *v4 &= ~0x100000u;
   *v4 &= ~0x200000u;
-  result = rf_level_apply_n_1f8(v11 & 0x7FFF, a2, a3);
+  result = ke_event_schedule(v11 & 0x7FFF, a2, a3);
   *v3 &= ~4u;
   *v3 &= ~8u;
   *v5 &= v6;

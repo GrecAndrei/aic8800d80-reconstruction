@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11189C @ 0x11189c, size 30 bytes
-int *sub_11189C()
+// call_get_node @ 0x11189c, size 30 bytes
+int *call_get_node()
 {
   int i; // r4
   int v1; // r0
@@ -22,8 +22,8 @@ int *sub_11189C()
   {
     v1 = (uint8_t)i;
     v3 = (uint8_t)i;
-    sub_11182C(v1);
-    result = sub_111864(v3);
+    get_node_offset8(v1);
+    result = get_node_offset_b(v3);
   }
   return result;
 }

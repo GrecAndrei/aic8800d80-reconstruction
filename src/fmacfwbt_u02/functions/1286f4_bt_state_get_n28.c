@@ -12,10 +12,10 @@
 
 extern uint32_t off_128740;
 
-// bt_state_get_n28 @ 0x1286f4, size 74 bytes
-// Doc: bt_state_get_n28 [bt]: Read BT state field at offset 0x28 from global control block
-// bt_state_get_n28 [bt]: Read BT state field at offset 0x28 from global control block
-BOOL  bt_state_get_n28(int a1)
+// bt_link_check @ 0x1286f4, size 74 bytes
+// Doc: bt_link_check [bt]: Read BT state field at offset 0x28 from global control block
+// bt_link_check [bt]: Read BT state field at offset 0x28 from global control block
+BOOL  bt_link_check(int a1)
 {
   int v1; // r3
   unsigned int v2; // r1
@@ -27,7 +27,7 @@ BOOL  bt_state_get_n28(int a1)
   if ( v2 <= 2 )
     return *(uint32_t *)(a1 + 72) == v1;
   if ( *(uint32_t *)(a1 + 72) && !*(uint8_t *)(a1 + 1224) && v2 == 4 )
-    return sub_1286B4(a1);
+    return bt_link_active(a1);
   return *(uint8_t *)(v1 + 26) == *(uint8_t *)(a1 + 107);
 }
 

@@ -16,8 +16,8 @@ extern uint32_t off_121350;
 extern uint32_t off_121358;
 extern uint32_t dword_12134C;
 
-// sub_1212D0 @ 0x1212d0, size 118 bytes
-int  sub_1212D0(int a1, int a2, int16_t a3, int16_t a4)
+// ke_send_msg_410 @ 0x1212d0, size 118 bytes
+int  ke_send_msg_410(int a1, int a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int v6; // r1
@@ -28,7 +28,7 @@ int  sub_1212D0(int a1, int a2, int16_t a3, int16_t a4)
   uint32_t *v12; // r3
   uint32_t *v13; // r3
 
-  v5 = rf_setup_dispatch(1040, a4, a3, 4u);
+  v5 = ke_msg_send(1040, a4, a3, 4u);
   v6 = *(uint16_t *)(a2 + 4);
   v7 = (uint32_t *)v5;
   if ( *((uint8_t *)off_121348 + 177) )
@@ -58,8 +58,8 @@ LABEL_3:
 LABEL_5:
   v8 = dword_12134C;
   *v7 = 0;
-  msg_parse(v8);
-  sub_11DE50((int)v7);
+  dispatch_event_handler(v8);
+  rx_irq_handler((int)v7);
   return 0;
 }
 

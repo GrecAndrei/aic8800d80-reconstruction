@@ -13,8 +13,8 @@
 extern uint32_t dword_136A20;
 extern uint32_t dword_136A24;
 
-// sub_1369C8 @ 0x1369c8, size 88 bytes
-int  sub_1369C8(int a1)
+// get_connection_state @ 0x1369c8, size 88 bytes
+int  get_connection_state(int a1)
 {
   unsigned int v1; // r3
   int v2; // r2

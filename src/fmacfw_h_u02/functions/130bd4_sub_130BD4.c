@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130BD4 @ 0x130bd4, size 54 bytes
-int  sub_130BD4(int a1, int a2)
+// build_addba_request @ 0x130bd4, size 54 bytes
+int  build_addba_request(int a1, int a2)
 {
   int16_t v2; // r3
   int16_t v3; // r4

@@ -12,8 +12,8 @@
 
 extern uint32_t off_112CA4;
 
-// sub_112C9C @ 0x112c9c, size 6 bytes
-int sub_112C9C()
+// mmio_read_flag_b @ 0x112c9c, size 6 bytes
+int mmio_read_flag_b()
 {
   return *(uint8_t *)off_112CA4;
 }

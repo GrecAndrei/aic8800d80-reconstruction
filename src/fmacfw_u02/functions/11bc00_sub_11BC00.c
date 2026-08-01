@@ -15,8 +15,8 @@ extern uint32_t dword_11BD80;
 extern uint32_t dword_11BD7C;
 extern uint32_t dword_11BD84;
 
-// sub_11BC00 @ 0x11bc00, size 374 bytes
-uint8_t * sub_11BC00(uint8_t *result)
+// process_radio_state @ 0x11bc00, size 374 bytes
+uint8_t * process_radio_state(uint8_t *result)
 {
   unsigned int v1; // r4
   int v2; // r5
@@ -55,7 +55,7 @@ uint8_t * sub_11BC00(uint8_t *result)
       {
         if ( (*(uint32_t *)(v2 + 4) & 0x20) != 0 )
         {
-          memset_thunk(v25, v1, 0x10u);
+          memset(v25, v1, 0x10u);
           v3 = (uint8_t *)dword_11BD80;
           v23 = v1;
           v4 = 36 * *(uint8_t *)(v2 + 35) + 8244 + dword_11BD7C;

@@ -13,8 +13,8 @@
 extern uint32_t dword_120188;
 extern uint32_t dword_120180;
 
-// sub_120038 @ 0x120038, size 326 bytes
-uint64_t  sub_120038(uint8_t *a1, char a2)
+// update_object_index @ 0x120038, size 326 bytes
+uint64_t  update_object_index(uint8_t *a1, char a2)
 {
   int v3; // r6
   int v4; // r8
@@ -39,12 +39,12 @@ uint64_t  sub_120038(uint8_t *a1, char a2)
   v6[576] = a1[40];
   v8 = (int *)(v7 + 480 + v5);
   v6[577] = v3;
-  v9 = sub_100200(v8, 0, 0x48u);
+  v9 = memset(v8, 0, 0x48u);
   switch ( v6[576] )
   {
     case 0:
     case 3:
-      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = sub_14397C(v9) & 0xFFFFFFLL;
+      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = scale_timer_value(v9) & 0xFFFFFFLL;
       break;
     case 1:
       v15 = 1320 * v4 + 120 * v3 + v5;
@@ -58,7 +58,7 @@ uint64_t  sub_120038(uint8_t *a1, char a2)
       *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = *(uint64_t *)&dword_120180;
       break;
     case 5:
-      sub_143770(v7 + 560 + v5, a1 + 8, 16);
+      memcpy(v7 + 560 + v5, a1 + 8, 16);
       goto LABEL_3;
     default:
 LABEL_3:

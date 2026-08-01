@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_368", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215180", "status": "ok", "name": "patch_apply_n_368", "params": [], "docstring": "Dispatch patch handler via indirection, inspect status byte", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_368", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215180", "status": "ok", "name": "rom_call_extract_byte", "params": [], "docstring": "Dispatch patch handler via indirection, inspect status byte", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

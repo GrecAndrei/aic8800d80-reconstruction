@@ -12,14 +12,14 @@
 
 extern uint32_t off_134E00;
 
-// sub_134DF0 @ 0x134df0, size 14 bytes
+// bt_patch_set_delay @ 0x134df0, size 14 bytes
 // Doc: sub_1234df0 [unknown]: Generic FMAC stub function with constant setup
 // sub_1234df0 [unknown]: Generic FMAC stub function with constant setup
-int sub_134DF0()
+int bt_patch_set_delay()
 {
   if ( *((uint8_t *)off_134E00 + 4) )
-    return sub_134A90();
+    return bt_get_conn_state();
   else
-    return sub_134914();
+    return bt_init_hci_buffer();
 }
 

@@ -34,8 +34,8 @@ extern uint32_t off_1134C4;
 extern uint32_t dword_1134CC;
 extern uint32_t off_1134C8;
 
-// sub_113374 @ 0x113374, size 264 bytes
-int  sub_113374(int a1)
+// update_hw_config @ 0x113374, size 264 bytes
+int  update_hw_config(int a1)
 {
   void *v1; // r5
   uint32_t *v2; // r1
@@ -89,7 +89,7 @@ int  sub_113374(int a1)
   *v9 = v6 + 14;
   sub_100200(v6, 0, 0xCB8u);
   if ( **(int16_t **)off_1134A0 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
-    rf_cmd_send_n264(dword_1134D4, dword_1134D0, 758);
+    flash_ctrl_init(dword_1134D4, dword_1134D0, 758);
   v10 = off_1134A4;
   v11 = *((uint16_t *)off_1134A4 + 164);
   v12 = *((uint16_t *)off_1134A4 + 154);
@@ -118,12 +118,12 @@ int  sub_113374(int a1)
   if ( v21 )
   {
     *(uint8_t *)off_1134C8 = v21;
-    msg_parse(v22, v21);
+    dispatch_event_handler(v22, v21);
   }
   else
   {
     *(uint8_t *)off_1134C8 = 10;
-    msg_parse(v22, 10);
+    dispatch_event_handler(v22, 10);
   }
   return 1;
 }

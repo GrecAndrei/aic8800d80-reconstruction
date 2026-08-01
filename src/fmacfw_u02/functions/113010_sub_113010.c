@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_113010 @ 0x113010, size 100 bytes
+// rx_counter_inc @ 0x113010, size 100 bytes
 // Doc: rf_stream_start_n_325 [rf]: Start RF data stream at MMIO base
 // rf_stream_start_n_325 [rf]: Start RF data stream at MMIO base
-int  sub_113010(int a1, uint16_t *a2)
+int  rx_counter_inc(int a1, uint16_t *a2)
 {
   int v4; // r2
   int v5; // r3
   int v6; // r2
 
-  rf_cmd_wait_2f70();
+  after_helper_call();
   if ( *(uint8_t *)rf_cmd_process_n_4e4 != 4 )
     return 1;
   v4 = a1 - 1;

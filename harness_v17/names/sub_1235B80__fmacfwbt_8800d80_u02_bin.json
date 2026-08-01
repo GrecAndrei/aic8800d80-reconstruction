@@ -1,1 +1,1 @@
-{"fn": "sub_1235B80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235b80", "status": "ok", "name": "check_bit_status", "params": [], "docstring": "Read register and return bit status via clz", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235B80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235b80", "status": "ok", "name": "is_pll_freq_6", "params": [], "docstring": "Read register and return bit status via clz", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

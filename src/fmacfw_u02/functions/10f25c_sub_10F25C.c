@@ -16,8 +16,8 @@ extern uint32_t dword_10F298;
 extern uint32_t dword_10F29C;
 extern uint32_t off_10F2A0;
 
-// sub_10F25C @ 0x10f25c, size 52 bytes
-int sub_10F25C()
+// bt_get_state @ 0x10f25c, size 52 bytes
+int bt_get_state()
 {
   uint8_t *v0; // r3
   int result; // r0

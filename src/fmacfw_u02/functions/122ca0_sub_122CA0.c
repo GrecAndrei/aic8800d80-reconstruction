@@ -12,11 +12,11 @@
 
 extern uint32_t dword_122CC0;
 
-// sub_122CA0 @ 0x122ca0, size 32 bytes
-int  sub_122CA0(int a1, int a2, int a3, int a4)
+// get_patch_table_entry @ 0x122ca0, size 32 bytes
+int  get_patch_table_entry(int a1, int a2, int a3, int a4)
 {
   *(uint16_t *)(dword_122CC0 + 1320 * *(uint8_t *)(a2 + 2) + 1222) = *(uint16_t *)a2;
-  sub_12CA10(112, a4, a3);
+  ke_msg_send_no_param(112, a4, a3);
   return 0;
 }
 

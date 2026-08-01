@@ -1,1 +1,1 @@
-{"fn": "sub_120A764", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120a764", "status": "ok", "name": "sub_120A764", "params": [], "docstring": "Handle command/buffer with up to 9 entries and stack frame setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120A764", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120a764", "status": "ok", "name": "dispatch_cmd", "params": [], "docstring": "Handle command/buffer with up to 9 entries and stack frame setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

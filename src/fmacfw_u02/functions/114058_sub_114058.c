@@ -13,15 +13,15 @@
 extern uint32_t off_114090;
 extern uint32_t off_114094;
 
-// sub_114058 @ 0x114058, size 56 bytes
-int sub_114058()
+// call_checked @ 0x114058, size 56 bytes
+int call_checked()
 {
   int *v0; // r4
   int result; // r0
   int v2; // r3
   int v3; // r2
 
-  sub_11D9A4();
+  mac_wait_scan();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -29,7 +29,7 @@ int sub_114058()
   }
   v0 = (int *)off_114094;
   ++*(uint32_t *)off_114094;
-  result = sub_12D14C(128);
+  result = unknown_func_12d14c(128);
   if ( *v0 )
   {
     v2 = *v0 - 1;

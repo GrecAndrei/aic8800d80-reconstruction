@@ -1,1 +1,1 @@
-{"fn": "sub_123B698", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123b698", "status": "ok", "name": "sub_123B698", "params": [], "docstring": "Complex handler with multiple parameters from stack", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123B698", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123b698", "status": "ok", "name": "adv_set_params", "params": [], "docstring": "Complex handler with multiple parameters from stack", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

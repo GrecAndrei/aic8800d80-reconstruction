@@ -14,10 +14,10 @@ extern uint32_t off_110074;
 extern uint32_t off_110070;
 extern uint32_t dword_110078;
 
-// sub_10FFF0 @ 0x10fff0, size 122 bytes
+// rf_tx_power_get @ 0x10fff0, size 122 bytes
 // Doc: log_free_pool_dispatch2_n460 [util]: Dispatch log entry into free pool with metadata fields
 // log_free_pool_dispatch2_n460 [util]: Dispatch log entry into free pool with metadata fields
-int sub_10FFF0()
+int rf_tx_power_get()
 {
   void *v0; // r4
   int v1; // r3
@@ -48,7 +48,7 @@ int sub_10FFF0()
   v8[4] = 1596;
   v8[0] = 124;
   v8[3] = 0;
-  sub_10F814(v2, (int)v7, 0x20u);
-  return rf_init_setup_n3ac((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
+  ke_msg_send(v2, (int)v7, 0x20u);
+  return mem_region_init((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
 }
 

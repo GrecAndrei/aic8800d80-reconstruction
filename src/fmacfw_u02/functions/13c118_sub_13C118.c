@@ -20,8 +20,8 @@ extern uint32_t dword_13C288;
 extern uint32_t dword_13C290;
 extern uint32_t off_13C280;
 
-// sub_13C118 @ 0x13c118, size 344 bytes
-unsigned int  sub_13C118(unsigned int result)
+// read_tx_power_cal @ 0x13c118, size 344 bytes
+unsigned int  read_tx_power_cal(unsigned int result)
 {
   int v1; // r1
   int v2; // r2
@@ -67,7 +67,7 @@ unsigned int  sub_13C118(unsigned int result)
           {
             result = dword_13C288;
             if ( !*(uint32_t *)(dword_13C288 + 8 * (165 * *(uint8_t *)(v6 + 28) + v9 + 159)) )
-              return fw_event_dispatch_nfb4(v3, v1, *(uint16_t *)(v6 + 32));
+              return check_fw_state_byte(v3, v1, *(uint16_t *)(v6 + 32));
           }
         }
       }
@@ -76,7 +76,7 @@ unsigned int  sub_13C118(unsigned int result)
         v10 = dword_13C290;
         v11 = dword_13C290 + 32 * v8;
         *(uint32_t *)(v11 + 8) = v2;
-        result = msg_get_value((v8 << 8) | 8);
+        result = rx_rate_field_parse((v8 << 8) | 8);
         v12 = 32 * v8;
         if ( result == 1 )
         {

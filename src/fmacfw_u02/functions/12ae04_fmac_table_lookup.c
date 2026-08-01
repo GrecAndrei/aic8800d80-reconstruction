@@ -13,10 +13,10 @@
 extern uint32_t dword_12AE38;
 extern uint32_t dword_12AE3C;
 
-// fmac_table_lookup @ 0x12ae04, size 52 bytes
-// Doc: fmac_table_lookup [ke]: Indexed table lookup by id (entry size 32 bytes)
-// fmac_table_lookup [ke]: Indexed table lookup by id (entry size 32 bytes)
-int * fmac_table_lookup(int a1)
+// tx_queue_entry_get @ 0x12ae04, size 52 bytes
+// Doc: tx_queue_entry_get [ke]: Indexed table lookup by id (entry size 32 bytes)
+// tx_queue_entry_get [ke]: Indexed table lookup by id (entry size 32 bytes)
+int * tx_queue_entry_get(int a1)
 {
   int v1; // r4
   int v2; // r6
@@ -31,8 +31,8 @@ int * fmac_table_lookup(int a1)
   v3 = a1;
   v4 = 32 * a1;
   if ( *(uint8_t *)(v2 + 30) )
-    timestamp_remove(dword_12AE38 + 32 * a1);
-  result = memset_thunk((int *)v2, 0, 0x20u);
+    fault_handler(dword_12AE38 + 32 * a1);
+  result = memset((int *)v2, 0, 0x20u);
   v6 = v1 + v4;
   v7 = dword_12AE3C;
   *(uint32_t *)(v6 + 8) = v2;

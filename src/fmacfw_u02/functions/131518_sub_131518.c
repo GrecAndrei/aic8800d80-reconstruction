@@ -12,11 +12,11 @@
 
 extern uint32_t dword_131538;
 
-// sub_131518 @ 0x131518, size 30 bytes
-int  sub_131518(int a1, int a2, int16_t a3, int16_t a4)
+// patch_call_func @ 0x131518, size 30 bytes
+int  patch_call_func(int a1, int a2, int16_t a3, int16_t a4)
 {
-  sub_143770(dword_131538, a2, 254);
-  sub_12CA10(5123, a4, a3);
+  memcpy(dword_131538, a2, 254);
+  ke_msg_send_no_param(5123, a4, a3);
   return 0;
 }
 

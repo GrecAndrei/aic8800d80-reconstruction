@@ -16,10 +16,10 @@ extern uint32_t dword_1166EC;
 extern uint32_t off_1166F0;
 extern uint32_t dword_1166F4;
 
-// lmac_rf_helper_121BF38 @ 0x116614, size 210 bytes
-// Doc: lmac_rf_helper_121BF38 [rf]: LMAC RF helper/calibration routine
-// lmac_rf_helper_121BF38 [rf]: LMAC RF helper/calibration routine
-int lmac_rf_helper_121BF38()
+// hw_init_magic @ 0x116614, size 210 bytes
+// Doc: hw_init_magic [rf]: LMAC RF helper/calibration routine
+// hw_init_magic [rf]: LMAC RF helper/calibration routine
+int hw_init_magic()
 {
   int *v0; // r4
   int v1; // r8
@@ -46,7 +46,7 @@ int lmac_rf_helper_121BF38()
   {
     *v0 = v1;
     v0[1] = sub_101954() << 14;
-    v5 = sdio_buffer_prepare_n_32a();
+    v5 = get_hw_flash_size();
     v0[3] = 0;
     v0[4] = v2;
     v0[5] = 0;
@@ -73,7 +73,7 @@ int lmac_rf_helper_121BF38()
   {
     *v7 = v8;
     v7[1] = sub_101954() << 14;
-    result = sdio_buffer_prepare_n_32a();
+    result = get_hw_flash_size();
     v7[3] = 0;
     v7[4] = v9;
     v7[5] = 0;

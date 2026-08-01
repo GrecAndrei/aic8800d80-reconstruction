@@ -13,8 +13,8 @@
 extern uint32_t off_11B678;
 extern uint32_t off_11B67C;
 
-// sub_11B634 @ 0x11b634, size 68 bytes
-BOOL  sub_11B634(BOOL result)
+// zero_global_if_flag_clear @ 0x11b634, size 68 bytes
+BOOL  zero_global_if_flag_clear(BOOL result)
 {
   int v1; // r3
   uint32_t *v2; // r2
@@ -24,8 +24,8 @@ BOOL  sub_11B634(BOOL result)
   if ( *(uint8_t *)(result + 37) )
   {
     v3 = result;
-    timestamp_update_4f60(off_11B678, *((uint32_t *)off_11B67C + 4) + 5000);
-    return sta_lookup_by_index(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
+    ke_event_lock(off_11B678, *((uint32_t *)off_11B67C + 4) + 5000);
+    return phy_channel_configure(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
   }
   else
   {

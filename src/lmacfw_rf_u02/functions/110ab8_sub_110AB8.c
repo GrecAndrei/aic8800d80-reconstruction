@@ -18,8 +18,8 @@ extern uint32_t off_110B38;
 extern uint32_t off_110B40;
 extern uint32_t off_110B3C;
 
-// sub_110AB8 @ 0x110ab8, size 112 bytes
-int  sub_110AB8(int a1, int a2, int a3)
+// irq_disable_set_flag_3 @ 0x110ab8, size 112 bytes
+int  irq_disable_set_flag_3(int a1, int a2, int a3)
 {
   uint32_t *v3; // r5
   uint32_t *v4; // r4

@@ -1,1 +1,1 @@
-{"fn": "sub_121ED58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121ed58", "status": "ok", "name": "sub_121ED58", "params": [], "docstring": "MMIO helper reading from 0x403410b0/0x403410b4 peripheral registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121ED58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121ed58", "status": "ok", "name": "timer_get_counter", "params": [], "docstring": "MMIO helper reading from 0x403410b0/0x403410b4 peripheral registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

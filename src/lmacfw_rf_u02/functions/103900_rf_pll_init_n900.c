@@ -20,10 +20,10 @@ extern uint32_t off_103974;
 extern uint32_t off_103968;
 extern uint32_t dword_103978;
 
-// rf_pll_init_n900 @ 0x103900, size 86 bytes
-// Doc: rf_pll_init_n900 [rf]: Initialize RF PLL/clock registers at 0x40342004/0x40342228
-// rf_pll_init_n900 [rf]: Initialize RF PLL/clock registers at 0x40342004/0x40342228
-int rf_pll_init_n900()
+// enable_bb_clock @ 0x103900, size 86 bytes
+// Doc: enable_bb_clock [rf]: Initialize RF PLL/clock registers at 0x40342004/0x40342228
+// enable_bb_clock [rf]: Initialize RF PLL/clock registers at 0x40342004/0x40342228
+int enable_bb_clock()
 {
   int *v0; // r4
   int v1; // r0
@@ -36,11 +36,11 @@ int rf_pll_init_n900()
   v0 = (int *)off_10395C;
   *(uint32_t *)off_103958 = 777;
   while ( *v0 < 0 )
-    delay_us(1);
-  msg_parse(dword_103960, *(uint32_t *)off_10395C);
+    write_timer_reg(1);
+  dispatch_event_handler(dword_103960, *(uint32_t *)off_10395C);
   v1 = dword_103964;
   *(uint32_t *)off_103958 = 0;
-  msg_parse(v1, v2);
+  dispatch_event_handler(v1, v2);
   v3 = (int *)off_10396C;
   v4 = dword_103970;
   v5 = off_103974;
@@ -48,6 +48,6 @@ int rf_pll_init_n900()
   *v3 = v4;
   v6 = dword_103978;
   *v5 &= 0xFF00FFFF;
-  return msg_parse(v6, 0x4000);
+  return dispatch_event_handler(v6, 0x4000);
 }
 

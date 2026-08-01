@@ -13,8 +13,8 @@
 extern uint32_t off_111248;
 extern uint32_t dword_11124C;
 
-// sub_1111CC @ 0x1111cc, size 124 bytes
-int  sub_1111CC(int a1)
+// timer_get_raw @ 0x1111cc, size 124 bytes
+int  timer_get_raw(int a1)
 {
   int *v1; // r3
   int v2; // r2
@@ -38,6 +38,6 @@ int  sub_1111CC(int a1)
   }
   *v1 = v4;
   *v1 = v2 | 0xC00000;
-  return sub_10DAE4(dword_11124C, *(uint32_t *)off_111248 & 0x3FFFFF);
+  return debug_printf(dword_11124C, *(uint32_t *)off_111248 & 0x3FFFFF);
 }
 

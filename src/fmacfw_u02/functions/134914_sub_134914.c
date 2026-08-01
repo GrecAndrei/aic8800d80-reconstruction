@@ -18,8 +18,8 @@ extern uint32_t off_134A64;
 extern uint32_t off_134A60;
 extern uint32_t off_134A68;
 
-// sub_134914 @ 0x134914, size 314 bytes
-int sub_134914()
+// bt_init_hci_buffer @ 0x134914, size 314 bytes
+int bt_init_hci_buffer()
 {
   uint16_t *v0; // r6
   int v1; // r4
@@ -36,19 +36,19 @@ int sub_134914()
 
   v0 = off_134A50;
   v1 = *((uint32_t *)off_134A50 + 2);
-  feature_guard_check(256, dword_134A54);
-  v2 = sub_12C92C(6149, 13, 6, 6u);
+  check_status_bits(256, dword_134A54);
+  v2 = ke_msg_alloc(6149, 13, 6, 6u);
   if ( *((uint8_t *)v0 + 4) )
     v3 = 0;
   else
     v3 = v0[6];
   *(uint8_t *)(v1 + 149) = 0;
-  timestamp_remove(v1 + 152);
+  fault_handler(v1 + 152);
   v6 = *((int **)off_134A58 + 2);
   if ( !v6 )
   {
 LABEL_14:
-    mmio_init_or_reset(0, (int)v4, (int)v5);
+    callback_post(0, (int)v4, (int)v5);
     goto LABEL_15;
   }
   v4 = 0;
@@ -101,15 +101,15 @@ LABEL_8:
     *v9 |= 0x80000000;
     v11 = (HIWORD(*v10) << 16) | 0x5DC;
     *v10 = v11;
-    mmio_init_or_reset(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, v11, v7);
+    callback_post(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, v11, v7);
   }
   else
   {
-    mmio_init_or_reset(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, (int)v4, v7);
+    callback_post(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, (int)v4, v7);
   }
 LABEL_15:
-  sub_12077C((int *)v1, 0, 0);
-  result = sub_134800(v1);
+  is_valid_id((int *)v1, 0, 0);
+  result = bt_send_host_message(v1);
   *(uint16_t *)v2 = v3;
   *(uint8_t *)(v2 + 2) = *(uint8_t *)(v1 + 107);
   *(uint8_t *)(v2 + 4) = *((uint8_t *)v0 + 33);

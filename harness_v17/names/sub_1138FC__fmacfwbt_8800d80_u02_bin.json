@@ -1,0 +1,1 @@
+{"fn": "sub_1138FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1138fc", "status": "ok", "name": "init_memory_regions", "params": [], "docstring": "Initialize memory regions at 0x17342c and 0x167068", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

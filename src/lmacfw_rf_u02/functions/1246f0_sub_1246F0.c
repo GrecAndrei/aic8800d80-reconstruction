@@ -18,8 +18,8 @@ extern uint32_t off_124794;
 extern uint32_t off_12479C;
 extern uint32_t off_124798;
 
-// sub_1246F0 @ 0x1246f0, size 152 bytes
-int  sub_1246F0(int a1, int a2)
+// rx_process_pending @ 0x1246f0, size 152 bytes
+int  rx_process_pending(int a1, int a2)
 {
   uint8_t *v3; // r6
   int *v4; // r5
@@ -30,7 +30,7 @@ int  sub_1246F0(int a1, int a2)
 
   if ( (*(uint32_t *)off_124788 & 2) != 0 && (*(uint8_t *)a2 == 1 || *(uint16_t *)(a2 + 4) > 0x1387u) )
   {
-    sub_11F504(dword_1247A0);
+    dispatch_event_handler(dword_1247A0);
     return -1;
   }
   else
@@ -45,8 +45,8 @@ int  sub_1246F0(int a1, int a2)
       }
       v4 = (int *)off_124794;
       ++*(uint32_t *)off_124794;
-      sub_11D348();
-      sub_115E98();
+      rf_cmd_wait();
+      rf_acquire();
       if ( *v4 )
       {
         v5 = *v4 - 1;
@@ -62,7 +62,7 @@ int  sub_1246F0(int a1, int a2)
     v7 = off_12479C;
     ++*(uint8_t *)off_124798;
     *v7 |= 0x500000u;
-    sub_102908((uint8_t *)a2, 0);
+    tx_set_power((uint8_t *)a2, 0);
     *v7 &= 0xFF87FFFF;
     v8 = (uint8_t)*v3;
     if ( *v3 )
@@ -71,8 +71,8 @@ int  sub_1246F0(int a1, int a2)
     }
     else
     {
-      sub_1188F4();
-      sub_12466C();
+      write_bb_control();
+      util_alloc_buffer();
       return v8;
     }
   }

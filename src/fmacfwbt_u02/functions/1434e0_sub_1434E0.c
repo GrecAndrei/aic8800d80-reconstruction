@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1434E0 @ 0x1434e0, size 702 bytes
-int  sub_1434E0(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
+// double_divide @ 0x1434e0, size 702 bytes
+int  double_divide(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
 {
   unsigned int v5; // r4
   unsigned int v6; // lr

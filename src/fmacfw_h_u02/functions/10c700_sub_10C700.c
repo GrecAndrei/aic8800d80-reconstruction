@@ -15,8 +15,8 @@ extern uint32_t off_10C7AC;
 extern uint32_t off_10C7B0;
 extern uint32_t dword_10C7B4;
 
-// sub_10C700 @ 0x10c700, size 166 bytes
-int *sub_10C700()
+// gpio_af_config @ 0x10c700, size 166 bytes
+int *gpio_af_config()
 {
   unsigned int *v0; // r3
   unsigned int *v1; // r2

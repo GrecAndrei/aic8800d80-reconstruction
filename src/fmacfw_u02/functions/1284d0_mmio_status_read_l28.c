@@ -12,10 +12,10 @@
 
 extern uint32_t off_12851C;
 
-// mmio_status_read_l28 @ 0x1284d0, size 74 bytes
-// Doc: mmio_status_read_l28 [mmio]: Read status field at offset 0x28 from sysctl base
-// mmio_status_read_l28 [mmio]: Read status field at offset 0x28 from sysctl base
-BOOL  mmio_status_read_l28(int a1)
+// wlc_get_ops_alt @ 0x1284d0, size 74 bytes
+// Doc: wlc_get_ops_alt [mmio]: Read status field at offset 0x28 from sysctl base
+// wlc_get_ops_alt [mmio]: Read status field at offset 0x28 from sysctl base
+BOOL  wlc_get_ops_alt(int a1)
 {
   int v1; // r3
   unsigned int v2; // r1
@@ -27,7 +27,7 @@ BOOL  mmio_status_read_l28(int a1)
   if ( v2 <= 2 )
     return *(uint32_t *)(a1 + 72) == v1;
   if ( *(uint32_t *)(a1 + 72) && !*(uint8_t *)(a1 + 1224) && v2 == 4 )
-    return sub_128490(a1);
+    return wlc_get_ops(a1);
   return *(uint8_t *)(v1 + 26) == *(uint8_t *)(a1 + 107);
 }
 

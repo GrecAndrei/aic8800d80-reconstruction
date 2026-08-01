@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_33c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151ac", "status": "ok", "name": "patch_bit_get", "params": [], "docstring": "Calls helper and extracts single bit (bit 18) from returned flag word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_33c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151ac", "status": "ok", "name": "get_hw_info_bit18", "params": [], "docstring": "Calls helper and extracts single bit (bit 18) from returned flag word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

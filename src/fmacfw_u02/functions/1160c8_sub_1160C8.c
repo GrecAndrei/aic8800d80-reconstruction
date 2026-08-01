@@ -12,8 +12,8 @@
 
 extern uint32_t dword_116170;
 
-// sub_1160C8 @ 0x1160c8, size 166 bytes
-int  sub_1160C8(int result, int a2)
+// parse_control_packet @ 0x1160c8, size 166 bytes
+int  parse_control_packet(int result, int a2)
 {
   int v2; // r3
   int v3; // r8

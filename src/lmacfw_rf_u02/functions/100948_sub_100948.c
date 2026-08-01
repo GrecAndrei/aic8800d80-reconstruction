@@ -16,8 +16,8 @@ extern uint32_t dword_100A08;
 extern uint32_t off_100A0C;
 extern uint32_t off_100A10;
 
-// sub_100948 @ 0x100948, size 184 bytes
-int  sub_100948(int a1, int a2)
+// rf_reg_init @ 0x100948, size 184 bytes
+int  rf_reg_init(int a1, int a2)
 {
   unsigned int *v2; // r3
   int v3; // r7
@@ -74,9 +74,9 @@ int  sub_100948(int a1, int a2)
   v15 = 1;
   for ( i = 0; i != 12; ++i )
   {
-    sub_103AE0((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
+    enable_rf_dll((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
     v17 = *(uint32_t *)(a2 + 4 + 8 * i);
-    result = sub_103AE0(v15, v17);
+    result = enable_rf_dll(v15, v17);
     v15 = (uint8_t)(v15 + 2);
   }
   *(uint32_t *)off_100A10 &= ~2u;

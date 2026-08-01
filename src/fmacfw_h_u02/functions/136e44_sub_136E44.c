@@ -13,10 +13,10 @@
 extern uint32_t dword_136E60;
 extern uint32_t off_136E5C;
 
-// sub_136E44 @ 0x136e44, size 22 bytes
-int  sub_136E44(int a1, int a2, int a3, int a4)
+// rf_calibration_meas @ 0x136e44, size 22 bytes
+int  rf_calibration_meas(int a1, int a2, int a3, int a4)
 {
-  sub_12EB90(8, dword_136E60, a4, *((uint16_t *)off_136E5C + 1924));
+  check_feature_flag(8, dword_136E60, a4, *((uint16_t *)off_136E5C + 1924));
   return 2;
 }
 

@@ -17,10 +17,10 @@ extern uint32_t off_126CF8;
 extern uint32_t dword_126D00;
 extern uint32_t off_126CFC;
 
-// fmac_msg_handler_dispatch @ 0x126c70, size 124 bytes
-// Doc: fmac_msg_handler_dispatch [ipc]: Dispatches a host message via registered handler table
-// fmac_msg_handler_dispatch [ipc]: Dispatches a host message via registered handler table
-void fmac_msg_handler_dispatch()
+// rf_mmio_write @ 0x126c70, size 124 bytes
+// Doc: rf_mmio_write [ipc]: Dispatches a host message via registered handler table
+// rf_mmio_write [ipc]: Dispatches a host message via registered handler table
+void rf_mmio_write()
 {
   int *v0; // r4
   int v1; // r5
@@ -30,7 +30,7 @@ void fmac_msg_handler_dispatch()
 
   v0 = *((int **)off_126CEC + 2);
   v1 = *((uint32_t *)off_126CF0 + 10);
-  mmio_set_bit7_40320324();
+  mmio_set_radio_bit();
   *(uint32_t *)off_126CF4 &= ~4u;
   if ( v0 )
   {
@@ -52,7 +52,7 @@ void fmac_msg_handler_dispatch()
         if ( !v0 )
           return;
       }
-      sub_11908C(*((uint8_t *)v0 + 116), 0, 0);
+      phy_channel_is_5g(*((uint8_t *)v0 + 116), 0, 0);
       v0 = (int *)*v0;
     }
     while ( v0 );

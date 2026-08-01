@@ -17,8 +17,8 @@ extern uint32_t off_12D0C0;
 extern uint32_t dword_12D0C8;
 extern uint32_t dword_12D0CC;
 
-// sub_12D050 @ 0x12d050, size 104 bytes
-void sub_12D050()
+// process_event_queue @ 0x12d050, size 104 bytes
+void process_event_queue()
 {
   unsigned int *v0; // r6
   unsigned int v1; // r4
@@ -50,7 +50,7 @@ void sub_12D050()
           if ( v8 )
             goto LABEL_5;
         }
-        sub_12F32C(v6, v5, 230);
+        irq_disable_mmio_write(v6, v5, 230);
       }
       v8 = *(void ( **)(uint32_t))(v3 + 8 * v7);
 LABEL_5:
@@ -58,7 +58,7 @@ LABEL_5:
       v1 = *v0;
       if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
       {
-        sub_114578();
+        memory_barrier();
         if ( !v1 )
           return;
       }

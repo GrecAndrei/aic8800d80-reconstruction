@@ -13,8 +13,8 @@
 extern uint32_t off_103528;
 extern uint32_t off_10352C;
 
-// sub_1033C4 @ 0x1033c4, size 356 bytes
-void __noreturn sub_1033C4()
+// rf_init_regs @ 0x1033c4, size 356 bytes
+void __noreturn rf_init_regs()
 {
   unsigned int *v0; // r6
   unsigned int *v1; // r5

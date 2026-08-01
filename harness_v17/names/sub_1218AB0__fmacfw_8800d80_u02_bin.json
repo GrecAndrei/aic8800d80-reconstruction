@@ -1,1 +1,1 @@
-{"fn": "sub_1218AB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218ab0", "status": "ok", "name": "crypto_init_n_cf", "params": [], "docstring": "Init routine referencing cafebabe/badcab1e magic", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1218AB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218ab0", "status": "ok", "name": "fw_magic_check", "params": [], "docstring": "Init routine referencing cafebabe/badcab1e magic", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_121F18;
 
-// sub_121EF4 @ 0x121ef4, size 36 bytes
-int  sub_121EF4(int result, int a2)
+// rf_set_channel @ 0x121ef4, size 36 bytes
+int  rf_set_channel(int result, int a2)
 {
   int v2; // r4
 
@@ -24,8 +24,8 @@ int  sub_121EF4(int result, int a2)
   }
   else
   {
-    sub_12EB90(1024, dword_121F18);
-    return sub_121ED4(v2);
+    check_feature_flag(1024, dword_121F18);
+    return rf_read_reg(v2);
   }
   return result;
 }

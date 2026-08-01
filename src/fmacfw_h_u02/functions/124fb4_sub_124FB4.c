@@ -19,8 +19,8 @@ extern uint32_t dword_12516C;
 extern uint32_t dword_125170;
 extern uint32_t dword_125174;
 
-// sub_124FB4 @ 0x124fb4, size 432 bytes
-int  sub_124FB4(int result)
+// rf_chan_table_update @ 0x124fb4, size 432 bytes
+int  rf_chan_table_update(int result)
 {
   int v1; // r9
   int v2; // r2

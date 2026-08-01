@@ -20,10 +20,10 @@ extern uint32_t off_1269FC;
 extern uint32_t off_1269F8;
 extern uint32_t dword_126A00;
 
-// rf_chan_table_lookup_n938 @ 0x126938, size 166 bytes
-// Doc: rf_chan_table_lookup_n938 [rf]: RF channel/table lookup: calls helper, loads base from 0x182c24, saves sb/r8/r7
-// rf_chan_table_lookup_n938 [rf]: RF channel/table lookup: calls helper, loads base from 0x182c24, saves sb/r8/r7
-int  rf_chan_table_lookup_n938(int a1, int a2, int a3)
+// send_event_to_host @ 0x126938, size 166 bytes
+// Doc: send_event_to_host [rf]: RF channel/table lookup: calls helper, loads base from 0x182c24, saves sb/r8/r7
+// send_event_to_host [rf]: RF channel/table lookup: calls helper, loads base from 0x182c24, saves sb/r8/r7
+int  send_event_to_host(int a1, int a2, int a3)
 {
   int v6; // r0
   uint32_t *v7; // r4
@@ -41,17 +41,17 @@ int  rf_chan_table_lookup_n938(int a1, int a2, int a3)
   int v19; // r3
   int v20; // r2
 
-  v6 = sub_12D4F8(dword_1269E0);
+  v6 = list_pop_front(dword_1269E0);
   v7 = (uint32_t *)v6;
   if ( **(int16_t **)off_1269E4 < 0 && !v6 )
-    sub_12F694(dword_1269F0, dword_1269EC, 227);
+    mmio_irq_clear(dword_1269F0, dword_1269EC, 227);
   v8 = off_1269E8;
   v9 = (char *)off_1269E8 + 32;
   v10 = *((uint32_t *)off_1269E8 + 8);
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = list_push_tail(v9);
+  result = check_abort_flag(v9);
   if ( !v10 )
   {
     v8[18] = v7;
@@ -68,7 +68,7 @@ int  rf_chan_table_lookup_n938(int a1, int a2, int a3)
     *(uint32_t *)off_1269FC = v16;
     if ( v15 - 64 >= 0 )
     {
-      result = timestamp_update_4f60(dword_126A00, v13);
+      result = ke_event_lock(dword_126A00, v13);
       if ( *v12 )
       {
         v19 = *v12 - 1;

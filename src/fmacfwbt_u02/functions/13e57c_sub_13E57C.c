@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E57C @ 0x13e57c, size 242 bytes
+// check_tx_pending @ 0x13e57c, size 242 bytes
 // Doc: sub_123E57C [util]: Checks a flag bit in the firmware state structure at offset 0xa6
 // sub_123E57C [util]: Checks a flag bit in the firmware state structure at offset 0xa6
-int  sub_13E57C(int a1)
+int  check_tx_pending(int a1)
 {
   char v1; // r6
   int v2; // r5
@@ -87,7 +87,7 @@ LABEL_7:
     LOWORD(v7) = v6;
     goto LABEL_7;
   }
-  sub_13E30C((uint16_t *)(a1 + 12 * *(uint8_t *)(a1 + 136) + 4));
+  rx_init_packet_buf((uint16_t *)(a1 + 12 * *(uint8_t *)(a1 + 136) + 4));
   if ( !*(uint16_t *)(v3 + 184) )
     return v2;
   v12 = v3 + 12 + 12 * (uint16_t)(*(uint16_t *)(v3 + 184) - 1);

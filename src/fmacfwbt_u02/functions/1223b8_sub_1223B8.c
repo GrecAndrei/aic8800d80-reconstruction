@@ -20,8 +20,8 @@ extern uint32_t off_122448;
 extern uint32_t off_122440;
 extern uint32_t dword_12244C;
 
-// sub_1223B8 @ 0x1223b8, size 116 bytes
-int  sub_1223B8(int a1)
+// dma_tx_setup @ 0x1223b8, size 116 bytes
+int  dma_tx_setup(int a1)
 {
   int *v1; // r3
   int v2; // r6
@@ -67,7 +67,7 @@ LABEL_5:
   }
   while ( v1 != (int *)v3 );
   v9 = off_12243C;
-  sub_1029F8(*((uint8_t *)off_12243C + 409));
+  write_mmio_byte(*((uint8_t *)off_12243C + 409));
   v10 = off_122444;
   v11 = off_122448;
   *((uint8_t *)off_122440 + 7) = v9[409];
@@ -76,7 +76,7 @@ LABEL_5:
   v15[0] = 0;
   *v11 = 0;
   v15[5] = 0;
-  sub_118104((int)v15);
-  return sub_12ECB0(dword_12244C, v12, v13);
+  delay_loop((int)v15);
+  return ke_event_schedule(dword_12244C, v12, v13);
 }
 

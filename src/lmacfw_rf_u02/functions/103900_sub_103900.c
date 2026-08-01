@@ -20,8 +20,8 @@ extern uint32_t off_103974;
 extern uint32_t off_103968;
 extern uint32_t dword_103978;
 
-// sub_103900 @ 0x103900, size 86 bytes
-int sub_103900()
+// enable_bb_clock @ 0x103900, size 86 bytes
+int enable_bb_clock()
 {
   int *v0; // r4
   int v1; // r0
@@ -34,11 +34,11 @@ int sub_103900()
   v0 = (int *)off_10395C;
   *(uint32_t *)off_103958 = 777;
   while ( *v0 < 0 )
-    sub_100560(1);
-  sub_11F504(dword_103960, *(uint32_t *)off_10395C);
+    write_timer_reg(1);
+  dispatch_event_handler(dword_103960, *(uint32_t *)off_10395C);
   v1 = dword_103964;
   *(uint32_t *)off_103958 = 0;
-  sub_11F504(v1, v2);
+  dispatch_event_handler(v1, v2);
   v3 = (int *)off_10396C;
   v4 = dword_103970;
   v5 = off_103974;
@@ -46,6 +46,6 @@ int sub_103900()
   *v3 = v4;
   v6 = dword_103978;
   *v5 &= 0xFF00FFFF;
-  return sub_11F504(v6, 0x4000);
+  return dispatch_event_handler(v6, 0x4000);
 }
 

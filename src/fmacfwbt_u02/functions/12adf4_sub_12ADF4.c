@@ -14,8 +14,8 @@ extern uint32_t dword_12AEB0;
 extern uint32_t off_12AEB4;
 extern uint32_t off_12AEB8;
 
-// sub_12ADF4 @ 0x12adf4, size 188 bytes
-int  sub_12ADF4(int a1, int a2)
+// bt_conn_read_info @ 0x12adf4, size 188 bytes
+int  bt_conn_read_info(int a1, int a2)
 {
   int v2; // r6
   int v3; // r3

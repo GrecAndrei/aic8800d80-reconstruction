@@ -17,10 +17,10 @@ extern uint32_t dword_13F16C;
 extern uint32_t dword_13F178;
 extern uint32_t dword_13F174;
 
-// mac_table_lookup @ 0x13f0bc, size 168 bytes
-// Doc: mac_table_lookup [mac]: Indexed lookup into 0x2b8-stride table keyed by r0
-// mac_table_lookup [mac]: Indexed lookup into 0x2b8-stride table keyed by r0
-int  mac_table_lookup(int a1)
+// ble_ll_conn_sm_get @ 0x13f0bc, size 168 bytes
+// Doc: ble_ll_conn_sm_get [mac]: Indexed lookup into 0x2b8-stride table keyed by r0
+// ble_ll_conn_sm_get [mac]: Indexed lookup into 0x2b8-stride table keyed by r0
+int  ble_ll_conn_sm_get(int a1)
 {
   int16_t **v1; // r7
   int v2; // r6
@@ -36,27 +36,27 @@ int  mac_table_lookup(int a1)
   v4 = *(uint32_t *)(dword_13F168 + 696 * a1 + 340);
   if ( **(int16_t **)off_13F164 < 0 && !v4 )
   {
-    sub_12F46C(dword_13F170, dword_13F16C, 3297);
+    mmio_clear_register(dword_13F170, dword_13F16C, 3297);
     v3 = *v1;
   }
-  v6 = sub_13D34C(v4);
+  v6 = bt_state_handler(v4);
   *(uint16_t *)(v4 + 184) = v6;
   if ( *v3 < 0 )
   {
     if ( !v6 )
     {
-      sub_12F46C(dword_13F178, dword_13F16C, 3301);
+      mmio_clear_register(dword_13F178, dword_13F16C, 3301);
       if ( **v1 >= 0 )
         goto LABEL_3;
       v6 = *(uint16_t *)(v4 + 184);
     }
     if ( v6 > 0xA )
-      sub_12F46C(dword_13F174, dword_13F16C, 3302);
+      mmio_clear_register(dword_13F174, dword_13F16C, 3302);
   }
 LABEL_3:
-  sub_13E328(v4);
-  v7 = sub_13CFF0(v4, v9);
-  sub_13D47C(v7);
+  process_list_entries(v4);
+  v7 = scan_process_list(v4, v9);
+  bt_clr_flag(v7);
   *(uint8_t *)(v2 + 696 * a1 + 350) |= 1u;
   return 696;
 }

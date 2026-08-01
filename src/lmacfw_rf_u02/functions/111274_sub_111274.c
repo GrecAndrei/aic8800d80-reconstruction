@@ -13,8 +13,8 @@
 extern uint32_t dword_1112A4;
 extern uint32_t dword_1112A8;
 
-// sub_111274 @ 0x111274, size 48 bytes
-int * sub_111274(int a1)
+// timer_entry_clear @ 0x111274, size 48 bytes
+int * timer_entry_clear(int a1)
 {
   int v2; // r0
   int v3; // r5

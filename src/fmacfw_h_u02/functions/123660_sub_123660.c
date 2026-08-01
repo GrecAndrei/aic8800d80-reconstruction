@@ -15,8 +15,8 @@ extern uint32_t off_1236A8;
 extern uint32_t dword_1236B0;
 extern uint32_t dword_1236AC;
 
-// sub_123660 @ 0x123660, size 68 bytes
-int  sub_123660(int a1, uint8_t *a2, int a3, int a4)
+// rf_get_status @ 0x123660, size 68 bytes
+int  rf_get_status(int a1, uint8_t *a2, int a3, int a4)
 {
   int v7; // r0
 
@@ -25,12 +25,12 @@ int  sub_123660(int a1, uint8_t *a2, int a3, int a4)
     v7 = *a2;
     if ( HIBYTE(*(uint32_t *)off_1236A8) + 8 >= v7 )
       goto LABEL_3;
-    sub_12F32C(dword_1236B0, dword_1236AC, 1801);
+    irq_disable_mmio_write(dword_1236B0, dword_1236AC, 1801);
   }
   v7 = *a2;
 LABEL_3:
-  sub_121534(v7);
-  sub_12C8D0(39, a4, a3);
+  rf_get_version(v7);
+  mac_write_header_word(39, a4, a3);
   return 0;
 }
 

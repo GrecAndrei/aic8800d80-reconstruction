@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A48C;
 
-// sub_12A424 @ 0x12a424, size 102 bytes
-char * sub_12A424(int a1)
+// lll_conn_phy_ld_get @ 0x12a424, size 102 bytes
+char * lll_conn_phy_ld_get(int a1)
 {
   int v1; // r7
   int v2; // r4
@@ -29,15 +29,15 @@ char * sub_12A424(int a1)
   v3[115] = 0;
   if ( v4 )
   {
-    sub_124CF4(140 * v2 + 96 + v1);
+    mem_set_util(140 * v2 + 96 + v1);
     v3[114] = 0;
   }
-  sub_1296C4(v3);
+  rsn_parse_ie(v3);
   v5 = v1 + 140 * v2;
   if ( *(uint8_t *)(v5 + 121) )
     v6 = 3;
   else
     v6 = 2;
-  return sub_125B98(*(uint8_t *)(v5 + 113), v6);
+  return util_get_state(*(uint8_t *)(v5 + 113), v6);
 }
 

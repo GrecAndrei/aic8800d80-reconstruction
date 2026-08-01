@@ -12,8 +12,8 @@
 
 extern uint32_t dword_121840;
 
-// sub_121820 @ 0x121820, size 32 bytes
-BOOL  sub_121820(int a1, int a2)
+// ll_get_tx_power_alt @ 0x121820, size 32 bytes
+BOOL  ll_get_tx_power_alt(int a1, int a2)
 {
   return *(uint8_t *)(696 * a1 + 12 * a2 + dword_121840 + 452) != 33;
 }

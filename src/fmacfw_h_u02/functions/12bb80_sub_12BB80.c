@@ -15,8 +15,8 @@ extern uint32_t off_12BBF4;
 extern uint32_t off_12BBF8;
 extern uint32_t off_12BBFC;
 
-// sub_12BB80 @ 0x12bb80, size 110 bytes
-int  sub_12BB80(int a1)
+// abs_i32 @ 0x12bb80, size 110 bytes
+int  abs_i32(int a1)
 {
   unsigned int v1; // r2
   uint32_t *v2; // r5

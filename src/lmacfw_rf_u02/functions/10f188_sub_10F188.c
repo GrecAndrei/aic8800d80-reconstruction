@@ -12,13 +12,13 @@
 
 extern uint32_t dword_10F1DC;
 
-// sub_10F188 @ 0x10f188, size 82 bytes
-int  sub_10F188(int a1)
+// get_bandgap_trim @ 0x10f188, size 82 bytes
+int  get_bandgap_trim(int a1)
 {
   unsigned int v2; // r0
   unsigned int v3; // r1
 
-  v2 = sub_10EFBC(dword_10F1DC, 1);
+  v2 = critical_enter(dword_10F1DC, 1);
   v3 = (v2 >> 20) & 0xF;
   if ( a1 )
   {
@@ -39,6 +39,6 @@ int  sub_10F188(int a1)
   {
     v3 = ((v3 + 2) << 20) & 0xF00000;
   }
-  return sub_10F064(dword_10F1DC, v3, 15728640, 1);
+  return critical_enter3(dword_10F1DC, v3, 15728640, 1);
 }
 

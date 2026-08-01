@@ -20,8 +20,8 @@ extern uint32_t off_122214;
 extern uint32_t off_12220C;
 extern uint32_t dword_122218;
 
-// sub_122184 @ 0x122184, size 116 bytes
-int  sub_122184(int a1)
+// mmio_update @ 0x122184, size 116 bytes
+int  mmio_update(int a1)
 {
   int *v1; // r3
   int v2; // r6
@@ -67,7 +67,7 @@ LABEL_5:
   }
   while ( v1 != (int *)v3 );
   v9 = off_122208;
-  sub_102B80(*((uint8_t *)off_122208 + 409));
+  write_phy_config(*((uint8_t *)off_122208 + 409));
   v10 = off_122210;
   v11 = off_122214;
   *((uint8_t *)off_12220C + 7) = v9[409];
@@ -76,7 +76,7 @@ LABEL_5:
   v15[0] = 0;
   *v11 = 0;
   v15[5] = 0;
-  sub_117CC4((int)v15);
-  return sub_12EA88(dword_122218, v12, v13);
+  timer_queue_init((int)v15);
+  return event_dispatch(dword_122218, v12, v13);
 }
 

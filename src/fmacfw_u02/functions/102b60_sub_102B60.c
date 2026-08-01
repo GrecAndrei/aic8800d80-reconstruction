@@ -12,8 +12,8 @@
 
 extern uint32_t off_102B7C;
 
-// sub_102B60 @ 0x102b60, size 26 bytes
-int sub_102B60()
+// get_hw_clock_multiplier @ 0x102b60, size 26 bytes
+int get_hw_clock_multiplier()
 {
   return (uint8_t)((1 << ((uint8_t)*(uint32_t *)off_102B7C >> 4)) - 1);
 }

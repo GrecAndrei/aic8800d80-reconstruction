@@ -20,8 +20,8 @@ extern uint32_t off_12685C;
 extern uint32_t off_126860;
 extern uint32_t off_126864;
 
-// sub_126764 @ 0x126764, size 226 bytes
-uint32_t * sub_126764(int a1)
+// rf_config_load @ 0x126764, size 226 bytes
+uint32_t * rf_config_load(int a1)
 {
   int v2; // r1
   int v3; // r2
@@ -81,17 +81,17 @@ uint32_t * sub_126764(int a1)
   v34 = v10;
   if ( !a1 )
   {
-    result = (uint32_t *)msg_parse(dword_126868);
+    result = (uint32_t *)dispatch_event_handler(dword_126868);
     v18 = off_126858;
     *(uint32_t *)off_126854 |= 0x80000000;
     *v18 |= 0x80000000;
     return result;
   }
   if ( a1 > 3 )
-    return (uint32_t *)msg_parse(dword_12684C, a1);
-  get_cached_1828f8(&v22, 0);
+    return (uint32_t *)dispatch_event_handler(dword_12684C, a1);
+  mac_time_get(&v22, 0);
   v12 = BYTE1(v22);
-  result = (uint32_t *)msg_parse(dword_126850, a1, WORD2(v22), WORD1(v22), BYTE1(v22));
+  result = (uint32_t *)dispatch_event_handler(dword_126850, a1, WORD2(v22), WORD1(v22), BYTE1(v22));
   if ( !v12 )
   {
     v19 = off_126858;

@@ -13,8 +13,8 @@
 extern uint32_t off_138E14;
 extern uint32_t off_138E18;
 
-// sub_138DB8 @ 0x138db8, size 92 bytes
-uint32_t * sub_138DB8(int a1, int16_t a2)
+// rf_cal_freq_from_channel @ 0x138db8, size 92 bytes
+uint32_t * rf_cal_freq_from_channel(int a1, int16_t a2)
 {
   uint32_t *v2; // r6
   int16_t v4; // r5
@@ -46,7 +46,7 @@ LABEL_4:
   else
     v6 = v5 & 0xFFFFFFBF;
   *(uint32_t *)(a1 + 96) = v6;
-  sub_11EA44(a1);
-  return sub_138AD4(a1, v4, v2[16]);
+  rx_packet_setup(a1);
+  return tx_power_cal_read(a1, v4, v2[16]);
 }
 

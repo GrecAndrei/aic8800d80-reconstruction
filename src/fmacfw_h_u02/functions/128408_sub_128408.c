@@ -13,8 +13,8 @@
 extern uint32_t dword_128474;
 extern uint32_t off_128478;
 
-// sub_128408 @ 0x128408, size 106 bytes
-int  sub_128408(int result)
+// type_get @ 0x128408, size 106 bytes
+int  type_get(int result)
 {
   int v1; // r3
   int v2; // r2
@@ -52,14 +52,14 @@ LABEL_6:
     v5 = off_128478;
     *(uint8_t *)(result + 12) = v4;
     if ( v5[10] == result )
-      return sub_12C344(v4);
+      return call_stack_helper(v4);
   }
   else
   {
     v6 = off_128478;
     *(uint8_t *)(result + 12) = 15;
     if ( v6[10] == result )
-      return sub_12C344(15);
+      return call_stack_helper(15);
   }
   return result;
 }

@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_free_wrapper @ 0x10f1c8, size 12 bytes
-// Doc: log_free_wrapper [util]: Wrapper that frees log buffer and returns success
-// log_free_wrapper [util]: Wrapper that frees log buffer and returns success
-int  log_free_wrapper(int a1, int a2)
+// wait_event @ 0x10f1c8, size 12 bytes
+// Doc: wait_event [util]: Wrapper that frees log buffer and returns success
+// wait_event [util]: Wrapper that frees log buffer and returns success
+int  wait_event(int a1, int a2)
 {
-  log_free_dispatch_2(a2);
+  memory_pool_free(a2);
   return 1;
 }
 

@@ -19,10 +19,10 @@ extern uint32_t dword_11B0C0;
 extern uint32_t off_11B0B0;
 extern uint32_t off_11B0B4;
 
-// fm_rx_frame_handler @ 0x11ae30, size 638 bytes
-// Doc: fm_rx_frame_handler [rx]: Handle received frame in FMAC
-// fm_rx_frame_handler [rx]: Handle received frame in FMAC
-int  fm_rx_frame_handler(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+// process_tx_request @ 0x11ae30, size 638 bytes
+// Doc: process_tx_request [rx]: Handle received frame in FMAC
+// process_tx_request [rx]: Handle received frame in FMAC
+int  process_tx_request(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r7
   uint32_t *v6; // r10
@@ -101,10 +101,10 @@ LABEL_32:
 LABEL_20:
             if ( !*(uint32_t *)(a1 + 68) )
             {
-              v22 = rf_bus_mark_n100_d2d0(dword_11B0B8);
+              v22 = mem_word_load(dword_11B0B8);
               v23 = v22;
               if ( **(int16_t **)off_11B0BC < 0 && !v22 )
-                sub_12F46C(dword_11B0CC, dword_11B0C8, 3646);
+                mmio_clear_register(dword_11B0CC, dword_11B0C8, 3646);
               *(uint8_t *)(v23 + 14) = 1;
               *(uint32_t *)(v23 + 40) = v6[9];
               *(uint16_t *)(v23 + 8) = 0;
@@ -114,7 +114,7 @@ LABEL_20:
               *(uint8_t *)(v24 + 1) = 1;
               v25 = dword_11B0C0;
               *(uint32_t *)(a1 + 68) = v23;
-              sub_12D290(84 * a5 + 28 + v25, v23);
+              cmd_handler_b(84 * a5 + 28 + v25, v23);
             }
             return (int)v8;
           }
@@ -125,7 +125,7 @@ LABEL_20:
         }
       }
     }
-    sub_11C4F8(v6 + 3, a5, v16);
+    get_pair_by_id(v6 + 3, a5, v16);
     return 0;
   }
   if ( (v5 & 0x380000) != 0x280000 )
@@ -137,8 +137,8 @@ LABEL_20:
     return 0;
   }
   if ( *(uint32_t *)(v12 + 40) > a3 )
-    return sub_11A45C(a1, a2, a3, a4, a5);
-  sub_119448((int16_t *)a1);
+    return tx_start(a1, a2, a3, a4, a5);
+  get_hw_pointer((int16_t *)a1);
   v13 = *(uint32_t *)(a1 + 36);
   v14 = **(uint32_t **)(v12 + 324);
   *a2 = v14;
@@ -162,10 +162,10 @@ LABEL_8:
         {
           if ( (v20 & 0x200000) != 0 )
           {
-            if ( !sub_1199C8(a1, a2, a3, a4, a5) )
+            if ( !tx_process(a1, a2, a3, a4, a5) )
               goto LABEL_40;
           }
-          else if ( !sub_119874(a1, a2, a3, a4, a5) )
+          else if ( !hw_status_flag(a1, a2, a3, a4, a5) )
           {
             goto LABEL_40;
           }
@@ -174,7 +174,7 @@ LABEL_8:
         {
           if ( (v20 & 0x200000) == 0 )
             goto LABEL_20;
-          if ( !sub_11A6C0(a1, a2, a3, a4, a5) )
+          if ( !rx_process(a1, a2, a3, a4, a5) )
           {
 LABEL_40:
             if ( (*(uint32_t *)(a1 + 36) & 0x200000) == 0 )

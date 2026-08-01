@@ -12,8 +12,8 @@
 
 extern uint32_t dword_129FE8;
 
-// sub_129F50 @ 0x129f50, size 152 bytes
-uint8_t * sub_129F50(uint8_t *result, int a2)
+// bt_scan_start @ 0x129f50, size 152 bytes
+uint8_t * bt_scan_start(uint8_t *result, int a2)
 {
   int v2; // r5
   int v3; // r7
@@ -31,13 +31,13 @@ uint8_t * sub_129F50(uint8_t *result, int a2)
     v5 = 140 * v2;
     if ( v4[16] )
     {
-      sub_124CF4(dword_129FE8 + 140 * v2);
+      mem_set_util(dword_129FE8 + 140 * v2);
       v4[16] = 0;
     }
     v6 = v3 + 140 * v2;
     if ( *(uint8_t *)(v6 + 64) )
     {
-      sub_124CF4(v5 + 48 + v3);
+      mem_set_util(v5 + 48 + v3);
       *(uint8_t *)(v6 + 64) = 0;
     }
     v7 = (uint8_t *)(v3 + 140 * v2);
@@ -47,10 +47,10 @@ uint8_t * sub_129F50(uint8_t *result, int a2)
     v7[132] = 0;
     if ( v8 )
     {
-      sub_124CF4(v5 + 96 + v3);
+      mem_set_util(v5 + 96 + v3);
       v7[114] = 0;
     }
-    return sub_1296C4(v4);
+    return rsn_parse_ie(v4);
   }
   return result;
 }

@@ -1,1 +1,1 @@
-{"fn": "sub_1234690", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234690", "status": "ok", "name": "sub_1234690", "params": [], "docstring": "initializes state and clears outptr/inptr slots", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1234690", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234690", "status": "ok", "name": "ull_scan_event_start", "params": [], "docstring": "initializes state and clears outptr/inptr slots", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

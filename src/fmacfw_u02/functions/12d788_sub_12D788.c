@@ -14,10 +14,10 @@ extern uint32_t off_12D820;
 extern uint32_t dword_12D828;
 extern uint32_t dword_12D824;
 
-// sub_12D788 @ 0x12d788, size 150 bytes
+// mem_range_setup @ 0x12d788, size 150 bytes
 // Doc: sub_122D788 [util]: Memory copy/fill utility over a length range
 // sub_122D788 [util]: Memory copy/fill utility over a length range
-uint8_t * sub_12D788(uint8_t *a1, int a2, uint8_t *a3, int a4, uint16_t *a5)
+uint8_t * mem_range_setup(uint8_t *a1, int a2, uint8_t *a3, int a4, uint16_t *a5)
 {
   unsigned int v5; // r9
   unsigned int v6; // r7
@@ -36,7 +36,7 @@ uint8_t * sub_12D788(uint8_t *a1, int a2, uint8_t *a3, int a4, uint16_t *a5)
   {
 LABEL_15:
     if ( **(int16_t **)off_12D820 < 0 && (uint8_t *)v6 != a1 )
-      sub_12F46C(dword_12D828, dword_12D824, 180);
+      mmio_clear_register(dword_12D828, dword_12D824, 180);
   }
   else
   {

@@ -16,10 +16,10 @@ extern uint32_t off_127388;
 extern uint32_t off_12738C;
 extern uint32_t dword_127390;
 
-// sub_1272F0 @ 0x1272f0, size 144 bytes
+// set_tx_buffer @ 0x1272f0, size 144 bytes
 // Doc: sub_12272F0 [util]: Helper using global table at 0x190c30 with offset 0x2c
 // sub_12272F0 [util]: Helper using global table at 0x190c30 with offset 0x2c
-int  sub_1272F0(int result)
+int  set_tx_buffer(int result)
 {
   uint32_t *v1; // r5
   int v2; // r4
@@ -47,9 +47,9 @@ int  sub_1272F0(int result)
     {
       if ( v3 && *(uint8_t *)(v3 + 24) != 3 )
       {
-        v4 = (uint8_t *)rf_bus_setup_n3a8(69, 13, 0, 1);
+        v4 = (uint8_t *)bt_buf_alloc(69, 13, 0, 1);
         *v4 = *(uint8_t *)(v3 + 24);
-        sub_12CBB4(v4);
+        hci_evt_send(v4);
       }
       if ( *((int *)off_127384 + 1) > 0 )
       {
@@ -60,8 +60,8 @@ int  sub_1272F0(int result)
         }
         v5 = (int *)off_12738C;
         ++*(uint32_t *)off_12738C;
-        patch_sub_1217374(4);
-        sub_1178DC(4);
+        mmio_set_bit(4);
+        conn_get(4);
         if ( *v5 )
         {
           v6 = *v5 - 1;
@@ -76,9 +76,9 @@ int  sub_1272F0(int result)
       }
       v1[11] = v2;
       *(uint8_t *)(v2 + 16) = 2;
-      v8 = (uint32_t *)rf_bus_setup_n3a8(140, 0, 255, 4);
+      v8 = (uint32_t *)bt_buf_alloc(140, 0, 255, 4);
       *v8 = dword_127390;
-      return sub_12CBB4(v8);
+      return hci_evt_send(v8);
     }
   }
   return result;

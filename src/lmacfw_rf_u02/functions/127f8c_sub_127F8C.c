@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127F8C @ 0x127f8c, size 48 bytes
-int  sub_127F8C(uint64_t a1, int a2, int a3)
+// util_is_zero @ 0x127f8c, size 48 bytes
+int  util_is_zero(uint64_t a1, int a2, int a3)
 {
   if ( a3 || a2 )
   {
-    LODWORD(a1) = sub_127FBC(a1);
+    LODWORD(a1) = util_memcpy(a1);
   }
   else if ( a1 )
   {

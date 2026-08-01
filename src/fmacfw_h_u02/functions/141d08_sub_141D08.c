@@ -13,8 +13,8 @@
 extern uint32_t dword_141D8C;
 extern uint32_t off_141D90;
 
-// sub_141D08 @ 0x141d08, size 130 bytes
-uint8_t * sub_141D08(int a1)
+// handle_ll_event @ 0x141d08, size 130 bytes
+uint8_t * handle_ll_event(int a1)
 {
   int v2; // r5
   int16_t v3; // r3
@@ -27,7 +27,7 @@ uint8_t * sub_141D08(int a1)
   unsigned uint64_t v10; // r0
 
   v2 = *(uint8_t *)(a1 + 47);
-  sub_124CF4(a1 + 52);
+  mem_set_util(a1 + 52);
   v3 = *(uint16_t *)a1;
   v4 = dword_141D8C;
   result = off_141D90;
@@ -42,13 +42,13 @@ uint8_t * sub_141D08(int a1)
     for ( i = 1; ; i = (uint8_t)(i + 1) )
     {
       v9 = v7 - *(uint64_t *)(v6 + 40);
-      LODWORD(v10) = sub_12BD00();
+      LODWORD(v10) = rf_delay();
       if ( v9 >= v10 )
         break;
       v7 = *(uint64_t *)(a1 + 24) + *(unsigned int *)(a1 + 16);
       *(uint64_t *)(a1 + 24) = v7;
     }
-    return (uint8_t *)sub_141C0C(a1, i);
+    return (uint8_t *)get_ll_conn_ctx(a1, i);
   }
   return result;
 }

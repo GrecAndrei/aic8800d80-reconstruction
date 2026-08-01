@@ -58,8 +58,8 @@ extern uint32_t dword_120F38;
 extern uint32_t dword_120F30;
 extern uint32_t dword_120F20;
 
-// sub_120BD0 @ 0x120bd0, size 1192 bytes
-int sub_120BD0()
+// wait_for_hw_flag @ 0x120bd0, size 1192 bytes
+int wait_for_hw_flag()
 {
   uint8_t *v0; // r10
   int v1; // r8
@@ -113,7 +113,7 @@ int sub_120BD0()
 
   v0 = off_120F54;
   v1 = *((uint32_t *)off_120F54 + 8);
-  result = clear_flags(0x40000);
+  result = unknown_func_12d14c(0x40000);
   if ( v1 )
   {
     v3 = off_120EDC;
@@ -132,7 +132,7 @@ LABEL_3:
         v9 = *(uint32_t *)off_120EE8;
         *(uint32_t *)off_120EEC = 0x80000000;
         if ( *(uint32_t *)(v9 + 4) + *(uint32_t *)(v1 + 120) - v4[4] < 0
-          && !sub_118DC4(*(uint8_t *)(v1 + 116), 0, 0) )
+          && !rf_channel_get(*(uint8_t *)(v1 + 116), 0, 0) )
         {
           *(uint32_t *)(v1 + 120) = v4[4];
         }
@@ -141,7 +141,7 @@ LABEL_3:
       }
       if ( (v5 & 4) != 0 )
       {
-        feature_guard_check(2, dword_120F14);
+        check_status_bits(2, dword_120F14);
         v24 = (int16_t **)off_120EF8;
         v25 = *((uint32_t *)v3 + 1);
         *v6 &= ~4u;
@@ -150,12 +150,12 @@ LABEL_3:
         *((uint32_t *)v3 + 1) = v27;
         if ( v26 < 0 && *(uint32_t *)off_120F24 << 28 )
         {
-          sub_12F49C(dword_120F2C, dword_120F28, 472);
+          call_shared_handler(dword_120F2C, dword_120F28, 472);
           v27 = *((uint32_t *)v3 + 1);
         }
         v28 = off_120F18;
         *(uint32_t *)off_120F1C = v27 | *(uint32_t *)v3;
-        sub_12B2B0(*(uint8_t *)(v1 + 107), v28, v1);
+        link_get_connection_info(*(uint8_t *)(v1 + 107), v28, v1);
         v29 = *((uint8_t *)v3 + 30);
         *v7 &= 0xFC0FFFFF;
         v5 = v29 & 0xFB;
@@ -167,7 +167,7 @@ LABEL_3:
         *(uint32_t *)(v1 + 4) &= ~2u;
         if ( v0[29] == 5 )
         {
-          timestamp_remove(dword_120F34);
+          fault_handler(dword_120F34);
           LOBYTE(v5) = *((uint8_t *)v3 + 30);
           v0[29] = 0;
         }
@@ -182,7 +182,7 @@ LABEL_20:
       {
         v15 = *(uint32_t *)off_120F00;
         v16 = (*(uint32_t *)off_120F00 >> 5) & 3;
-        feature_guard_check(2, dword_120F04);
+        check_status_bits(2, dword_120F04);
         v17 = *(uint32_t *)(v1 + 120);
         v18 = *(uint32_t *)(*(uint32_t *)off_120EE8 + 4);
         *(uint8_t *)(v1 + 128) = 0;
@@ -191,7 +191,7 @@ LABEL_20:
         {
           v32 = dword_120F50;
           *((uint8_t *)v3 + 30) |= 8u;
-          feature_guard_check(2, v32);
+          check_status_bits(2, v32);
         }
         if ( v16 )
         {
@@ -201,16 +201,16 @@ LABEL_20:
           *(uint32_t *)off_120F00 &= ~8u;
           if ( (*v31 & 0x10) != 0 )
           {
-            feature_guard_check(2, dword_120F48);
+            check_status_bits(2, dword_120F48);
             *(uint8_t *)off_120F08 = BYTE2(*(uint32_t *)off_120F4C);
-            sub_12917C(v16 >> 1, v19 & 1, v1);
+            wlc_rx_reclaim(v16 >> 1, v19 & 1, v1);
             *v31 &= ~0x10u;
           }
           else
           {
             v33 = dword_12107C;
             *(uint32_t *)off_121078 = 1;
-            feature_guard_check(2, v33);
+            check_status_bits(2, v33);
             v34 = off_121084;
             *(uint8_t *)off_121080 = *((uint8_t *)off_121080 + 1) > 1u;
             *v34 = 1;
@@ -223,7 +223,7 @@ LABEL_20:
         v20 = (uint8_t **)off_120F10;
         *(uint32_t *)off_120F0C &= ~0x200u;
         *(uint32_t *)(v1 + 4) &= ~1u;
-        result = timestamp_remove(v1 + 48);
+        result = fault_handler(v1 + 48);
         v21 = *v20;
         if ( **v20 == 2 )
         {
@@ -244,7 +244,7 @@ LABEL_20:
             if ( (unsigned int)(v4[4] - v38) > 0x7530 )
             {
               v47 = v39;
-              feature_guard_check(2, dword_1210A4);
+              check_status_bits(2, dword_1210A4);
               v39 = v47;
             }
           }
@@ -264,7 +264,7 @@ LABEL_20:
                 v45 = *v43 & *v40;
                 if ( (unsigned int)(v4[4] - v44) > 0x7530 )
                 {
-                  result = feature_guard_check(2, dword_1210AC);
+                  result = check_status_bits(2, dword_1210AC);
                   v43 = off_121098;
                 }
               }
@@ -292,7 +292,7 @@ LABEL_20:
         v23 = *v21;
         if ( v23 == 1 )
         {
-          result = timestamp_update(
+          result = unknown_worker(
                      v1 + 24,
                      v4[4] + 32 * *(uint32_t *)off_12108C - *((uint16_t *)off_121090 + 93));
           v23 = **v20;
@@ -300,7 +300,7 @@ LABEL_20:
         if ( v23 == 2 )
         {
           *(uint32_t *)off_121088 = 48;
-          result = sub_117AB8();
+          result = fatal_error_handler();
         }
         v5 = *((uint8_t *)v3 + 30) & 0xDF;
         *((uint8_t *)v3 + 30) = v5;
@@ -326,17 +326,17 @@ LABEL_20:
           }
           else
           {
-            result = sub_12F46C(dword_120F40, dword_120F3C, 864);
+            result = mmio_clear_register(dword_120F40, dword_120F3C, 864);
             if ( (*v7 & 0x70000) == 0 )
             {
 LABEL_43:
               v46[0] = *(uint32_t *)off_120EF0 >> 31;
               v46[1] = (*(uint32_t *)off_120EF0 >> 30) & 1;
-              feature_guard_check(2, dword_120F44);
+              check_status_bits(2, dword_120F44);
               result = v46[0];
               if ( *(uint64_t *)v46 )
               {
-                result = sub_12917C(v46[0], v46[1], v14);
+                result = wlc_rx_reclaim(v46[0], v46[1], v14);
                 v30 = off_120EF0;
                 *(uint32_t *)off_120EF0 &= ~0x80000000;
                 *v30 &= ~0x40000000u;
@@ -346,17 +346,17 @@ LABEL_43:
         }
         else
         {
-          result = msg_parse(dword_120F38, v12, *(uint8_t *)(v13 + 37));
+          result = event_dispatch(dword_120F38, v12, *(uint8_t *)(v13 + 37));
         }
       }
       else
       {
-        result = msg_parse(dword_120F30, v11, v10);
+        result = event_dispatch(dword_120F30, v11, v10);
       }
     }
     else
     {
-      result = msg_parse(dword_120F20, v5, v10);
+      result = event_dispatch(dword_120F20, v5, v10);
     }
     v5 = *((uint8_t *)v3 + 30) & 0xFE;
     *((uint8_t *)v3 + 30) = v5;

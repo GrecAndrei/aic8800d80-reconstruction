@@ -1,1 +1,1 @@
-{"fn": "sub_12204A8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12204a8", "status": "ok", "name": "fmac_main_loop", "params": [], "docstring": "FMAC main processing loop", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12204A8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12204a8", "status": "ok", "name": "read_hw_register", "params": [], "docstring": "FMAC main processing loop", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

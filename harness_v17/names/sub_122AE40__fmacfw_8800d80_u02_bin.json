@@ -1,1 +1,1 @@
-{"fn": "sub_122AE40", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ae40", "status": "ok", "name": "rf_channel_seq_init_ae40", "params": [], "docstring": "Sequential init calls with args 0..3 to sub", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122AE40", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ae40", "status": "ok", "name": "tx_queue_flush", "params": [], "docstring": "Sequential init calls with args 0..3 to sub", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

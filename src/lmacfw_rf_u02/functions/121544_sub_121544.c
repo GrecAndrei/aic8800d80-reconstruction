@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1215A4;
 
-// sub_121544 @ 0x121544, size 96 bytes
-int  sub_121544(int a1, int *a2, int16_t a3, int16_t a4)
+// rf_write_0x403 @ 0x121544, size 96 bytes
+int  rf_write_0x403(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   uint32_t *v6; // r2
@@ -22,13 +22,13 @@ int  sub_121544(int a1, int *a2, int16_t a3, int16_t a4)
   int v9; // r0
   int v10; // r2
 
-  v5 = sub_11DDF0(1027, a4, a3, 8u);
+  v5 = ke_msg_send(1027, a4, a3, 8u);
   v6 = (uint32_t *)*a2;
   v7 = (int *)v5;
   if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
   {
-    sub_10F010((int)v6, a2[1], 1);
-    v9 = sub_10EFBC(*a2, 1);
+    critical_enter2((int)v6, a2[1], 1);
+    v9 = critical_enter(*a2, 1);
     v8 = *a2;
   }
   else
@@ -40,8 +40,8 @@ int  sub_121544(int a1, int *a2, int16_t a3, int16_t a4)
   v7[1] = v9;
   v10 = a2[1];
   *v7 = v8;
-  sub_11F504(dword_1215A4, v10);
-  sub_11DE50((int)v7);
+  dispatch_event_handler(dword_1215A4, v10);
+  rx_irq_handler((int)v7);
   return 0;
 }
 

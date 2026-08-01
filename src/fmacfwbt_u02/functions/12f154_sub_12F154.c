@@ -12,20 +12,20 @@
 
 extern uint32_t dword_12F19C;
 
-// sub_12F154 @ 0x12f154, size 72 bytes
-int  sub_12F154(int a1, int *a2, int16_t a3, int16_t a4)
+// msg_alloc_401 @ 0x12f154, size 72 bytes
+int  msg_alloc_401(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   uint32_t *v6; // r1
   uint32_t *v7; // r4
   int v9; // r0
 
-  v5 = sub_12CB54(1025, a4, a3, 8u);
+  v5 = bt_buf_alloc(1025, a4, a3, 8u);
   v6 = (uint32_t *)*a2;
   v7 = (uint32_t *)v5;
   if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
   {
-    v9 = sub_10EBDC(*a2, 1);
+    v9 = atomic_reg_read(*a2, 1);
     v6 = (uint32_t *)*a2;
     v7[1] = v9;
   }
@@ -34,8 +34,8 @@ int  sub_12F154(int a1, int *a2, int16_t a3, int16_t a4)
     *(uint32_t *)(v5 + 4) = *v6;
   }
   *v7 = v6;
-  sub_12ECB0(dword_12F19C);
-  sub_12CBB4((int)v7);
+  ke_event_schedule(dword_12F19C);
+  hci_evt_send((int)v7);
   return 0;
 }
 

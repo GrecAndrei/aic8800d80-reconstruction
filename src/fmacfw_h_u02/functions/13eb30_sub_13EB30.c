@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13EF78;
 
-// sub_13EB30 @ 0x13eb30, size 1094 bytes
-int  sub_13EB30(int a1)
+// rf_check_flag @ 0x13eb30, size 1094 bytes
+int  rf_check_flag(int a1)
 {
   char v1; // r3
   int result; // r0
@@ -104,7 +104,7 @@ int  sub_13EB30(int a1)
       case 1:
         if ( v24 <= 3 && (v36 = *(uint8_t *)(a1 + 166), (v36 & 8) != 0) )
         {
-          v42 = sub_14383C(v36 << 28);
+          v42 = hash32(v36 << 28);
           v43 = (uint8_t)((v42 & 0x7F) % v45 + v24);
           if ( ((*(uint16_t *)(a1 + 174) >> v43) & 1) != 0 )
           {
@@ -136,29 +136,29 @@ int  sub_13EB30(int a1)
         }
         goto LABEL_68;
       case 2:
-        v35 = sub_13CD38(a1, v26);
+        v35 = bt_parse_ll_header(a1, v26);
         if ( v35 != v26 )
         {
           v49 = v35;
-          if ( sub_13D11C(a1, v35) )
+          if ( bt_validate_ll_control(a1, v35) )
             v51 = v49;
         }
         goto LABEL_68;
       case 3:
-        v34 = sub_13D40C(a1, v26);
+        v34 = mac_parse_fcf(a1, v26);
         if ( v34 != v26 )
         {
           v48 = v34;
-          if ( sub_13D11C(a1, v34) )
+          if ( bt_validate_ll_control(a1, v34) )
             v52 = v48;
         }
         goto LABEL_68;
       case 4:
-        v33 = sub_13CD38(a1, v25);
+        v33 = bt_parse_ll_header(a1, v25);
         if ( v25 != v33 )
         {
           v47 = v33;
-          if ( sub_13D11C(a1, v33) )
+          if ( bt_validate_ll_control(a1, v33) )
             v53 = v47;
         }
 LABEL_68:
@@ -166,18 +166,18 @@ LABEL_68:
           goto LABEL_69;
         goto LABEL_71;
       case 5:
-        v27 = sub_13D40C(a1, v25);
+        v27 = mac_parse_fcf(a1, v25);
         if ( v25 != v27 )
         {
           v46 = v27;
-          if ( sub_13D11C(a1, v27) )
+          if ( bt_validate_ll_control(a1, v27) )
             v54 = v46;
         }
         if ( v23 > 3 || *((uint16_t *)&v50 + v4) != 0xFFFF )
           goto LABEL_53;
         goto LABEL_84;
       default:
-        LOWORD(v50) = sub_13D554(a1);
+        LOWORD(v50) = tx_prepare(a1);
         if ( v23 <= 3 )
         {
 LABEL_69:
@@ -260,11 +260,11 @@ LABEL_31:
         *(uint8_t *)(a1 + 166) = v1 & 0xBF;
 LABEL_6:
         v6 = 12 * v5;
-        v7 = sub_13E9E0(v6 + 4 + a1);
+        v7 = mac_extract_fcf(v6 + 4 + a1);
         v8 = *(uint8_t *)(a1 + 169);
         v44 = v7;
         *(uint16_t *)(a1 + 152) = 10 * *(uint16_t *)(a1 + 150);
-        v9 = sub_14383C(v7);
+        v9 = hash32(v7);
         v10 = *(uint16_t *)(a1 + 184);
         v11 = (uint16_t)(v9 % *(uint16_t *)(a1 + 184));
         if ( *(uint16_t *)(a1 + 184) )
@@ -320,7 +320,7 @@ LABEL_15:
               goto LABEL_19;
             v20 = v16 & 7;
 LABEL_18:
-            if ( sub_116D30(v18) <= v20 )
+            if ( size_to_class(v18) <= v20 )
               goto LABEL_19;
 LABEL_25:
             v10 = *(uint16_t *)(a1 + 184);
@@ -332,7 +332,7 @@ LABEL_25:
             goto LABEL_18;
           }
 LABEL_19:
-          v21 = sub_13E9E0(12 * v14 + 4 + a1);
+          v21 = mac_extract_fcf(12 * v14 + 4 + a1);
           if ( *(uint8_t *)(a1 + 12 * v14 + 13) )
             v22 = 32;
           else

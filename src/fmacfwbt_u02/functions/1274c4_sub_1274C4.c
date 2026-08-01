@@ -18,8 +18,8 @@ extern uint32_t dword_127554;
 extern uint32_t dword_127564;
 extern uint32_t dword_127558;
 
-// sub_1274C4 @ 0x1274c4, size 134 bytes
-int sub_1274C4()
+// read_rssi @ 0x1274c4, size 134 bytes
+int read_rssi()
 {
   uint8_t *v0; // r4
   int v1; // r3
@@ -32,21 +32,21 @@ int sub_1274C4()
   {
     if ( **(int16_t **)off_127550 < 0 && (v1 & 4) != 0 )
     {
-      sub_12F694(dword_127560, dword_12755C, 1720);
+      mmio_irq_clear(dword_127560, dword_12755C, 1720);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xFA | 4;
-    return sub_127394(dword_127554);
+    return rf_tx_packet(dword_127554);
   }
   else if ( (v1 & 6) == 2 )
   {
     if ( **(int16_t **)off_127550 < 0 && (v1 & 8) != 0 )
     {
-      sub_12F694(dword_127564, dword_12755C, 1731);
+      mmio_irq_clear(dword_127564, dword_12755C, 1731);
       LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xF5 | 8;
-    return sub_127394(dword_127558);
+    return rf_tx_packet(dword_127558);
   }
   return result;
 }

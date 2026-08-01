@@ -14,8 +14,8 @@ extern uint32_t off_113940;
 extern uint32_t off_113944;
 extern uint32_t dword_113948;
 
-// sub_113908 @ 0x113908, size 54 bytes
-int sub_113908()
+// util_call_arg @ 0x113908, size 54 bytes
+int util_call_arg()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_113908()
   v0 = (int *)off_113944;
   v1 = dword_113948;
   ++*(uint32_t *)off_113944;
-  result = sub_12D108(v1);
+  result = wlan_ioctl_handler_1(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

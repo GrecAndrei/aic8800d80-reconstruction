@@ -12,8 +12,8 @@
 
 extern uint32_t dword_138130;
 
-// sub_1380D8 @ 0x1380d8, size 86 bytes
-int  sub_1380D8(uint16_t *a1)
+// rf_check_status @ 0x1380d8, size 86 bytes
+int  rf_check_status(uint16_t *a1)
 {
   int v1; // r3
   int v2; // r1

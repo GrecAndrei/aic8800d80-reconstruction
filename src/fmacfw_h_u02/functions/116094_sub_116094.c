@@ -16,8 +16,8 @@ extern uint32_t dword_11616C;
 extern uint32_t off_116170;
 extern uint32_t dword_116174;
 
-// sub_116094 @ 0x116094, size 210 bytes
-int sub_116094()
+// patch_enable @ 0x116094, size 210 bytes
+int patch_enable()
 {
   int *v0; // r4
   int v1; // r8
@@ -43,8 +43,8 @@ int sub_116094()
   do
   {
     *v0 = v1;
-    v0[1] = sub_101A2C() << 14;
-    v5 = sub_102AB0();
+    v0[1] = get_rf_field_mid() << 14;
+    v5 = get_clock_prescaler();
     v0[3] = 0;
     v0[4] = v2;
     v0[5] = 0;
@@ -70,8 +70,8 @@ int sub_116094()
   do
   {
     *v7 = v8;
-    v7[1] = sub_101A2C() << 14;
-    result = sub_102AB0();
+    v7[1] = get_rf_field_mid() << 14;
+    result = get_clock_prescaler();
     v7[3] = 0;
     v7[4] = v9;
     v7[5] = 0;

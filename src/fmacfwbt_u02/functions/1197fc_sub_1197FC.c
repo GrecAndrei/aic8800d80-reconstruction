@@ -14,10 +14,10 @@ extern uint32_t off_119884;
 extern uint32_t dword_11987C;
 extern uint32_t dword_119880;
 
-// sub_1197FC @ 0x1197fc, size 126 bytes
+// ble_connection_get @ 0x1197fc, size 126 bytes
 // Doc: sub_12197FC [util]: Indexed lookup into per-instance table (0x2b8 stride) reading byte field +0x22
 // sub_12197FC [util]: Indexed lookup into per-instance table (0x2b8 stride) reading byte field +0x22
-int  sub_1197FC(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5)
+int  ble_connection_get(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5)
 {
   int *v5; // r7
   int v6; // r6

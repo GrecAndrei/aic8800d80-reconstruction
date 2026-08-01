@@ -21,8 +21,8 @@ extern uint32_t off_10C918;
 extern uint32_t dword_10C924;
 extern uint32_t off_10C920;
 
-// sub_10C824 @ 0x10c824, size 236 bytes
-int  sub_10C824(char a1)
+// pmu_poll_delay @ 0x10c824, size 236 bytes
+int  pmu_poll_delay(char a1)
 {
   int v1; // r5
   uint8_t *v2; // r11
@@ -41,7 +41,7 @@ int  sub_10C824(char a1)
   int v15; // r0
   int result; // r0
 
-  sub_12D374(2048);
+  set_system_flag_2(2048);
   v1 = *(uint32_t *)off_10C910;
   if ( *(uint32_t *)(*(uint32_t *)off_10C910 + 572) )
   {
@@ -69,7 +69,7 @@ int  sub_10C824(char a1)
       ++*(uint32_t *)off_10C934;
       while ( !*v5 )
         ;
-      v10 = sub_12D4F8(v1 + 572);
+      v10 = list_pop_front(v1 + 572);
       v11 = *v9;
       *v5 = 1;
       v12 = v10;
@@ -86,14 +86,14 @@ int  sub_10C824(char a1)
       }
       v15 = dword_10C91C;
       *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10C918;
-      list_push_tail(v15);
+      check_abort_flag(v15);
       if ( !*(uint32_t *)(v1 + 572) )
         goto LABEL_13;
     }
-    log_printf(dword_10C924, v6, v7);
+    printf_wrapper(dword_10C924, v6, v7);
   }
 LABEL_13:
-  result = irq_nesting_or(256);
+  result = set_system_flag_1(256);
   *(uint32_t *)off_10C920 = (1 << (a1 + 8)) & 0x1F00;
   return result;
 }

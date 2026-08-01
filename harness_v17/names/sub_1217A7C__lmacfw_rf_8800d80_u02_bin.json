@@ -1,1 +1,1 @@
-{"fn": "sub_1217A7C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217a7c", "status": "ok", "name": "sub_1217A7C", "params": [], "docstring": "Unknown firmware helper at 0x1217a7c", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1217A7C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217a7c", "status": "ok", "name": "stack_canary_setup", "params": [], "docstring": "Unknown firmware helper at 0x1217a7c", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

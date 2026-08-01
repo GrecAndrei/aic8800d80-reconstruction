@@ -22,7 +22,7 @@ int  parse_subframe_header(int a1, uint8_t *a2)
   unsigned int v5; // r0
   int v6; // r0
 
-  v3 = (uint8_t *)sub_12C7EC(83, 13, 0, 1);
+  v3 = (uint8_t *)tx_send_pdu(83, 13, 0, 1);
   *v3 = 1;
   v4 = v3;
   v5 = *a2;
@@ -33,7 +33,7 @@ int  parse_subframe_header(int a1, uint8_t *a2)
     goto LABEL_6;
   if ( a2[2] )
   {
-    if ( sub_12A4B4(
+    if ( lll_conn_state_match(
            v6,
            0,
            a2[3],
@@ -47,11 +47,11 @@ int  parse_subframe_header(int a1, uint8_t *a2)
          + *((uint32_t *)a2 + 3)) != 255 )
       *v4 = 0;
 LABEL_6:
-    sub_12C84C(v4);
+    rx_process_packet(v4);
     return 0;
   }
-  *v4 = sub_12A5C0();
-  sub_12C84C(v4);
+  *v4 = lll_conn_ready_check();
+  rx_process_packet(v4);
   return 0;
 }
 

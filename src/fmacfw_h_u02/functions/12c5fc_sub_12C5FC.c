@@ -20,8 +20,8 @@ extern uint32_t dword_12C6B0;
 extern uint32_t dword_12C6A4;
 extern uint32_t off_12C6A0;
 
-// sub_12C5FC @ 0x12c5fc, size 152 bytes
-int  sub_12C5FC(int result, int a2)
+// invalid_handler_12c5fc @ 0x12c5fc, size 152 bytes
+int  invalid_handler_12c5fc(int result, int a2)
 {
   int *v2; // r5
   uint32_t *v3; // r6
@@ -46,23 +46,23 @@ int  sub_12C5FC(int result, int a2)
   {
     if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
-      sub_12D190(v3 + 5);
+      list_pop(v3 + 5);
       v8 = v3[5];
       v9 = (int)(v3 + 8);
       if ( v8 )
       {
-        sub_124BFC(v9, *(uint32_t *)(v8 + 8));
+        mem_copy_util(v9, *(uint32_t *)(v8 + 8));
         if ( **(int16_t **)off_12C6A8 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_12C6AC + 4) < 0 )
-          sub_12F32C(dword_12C6B4, dword_12C6B0, 232);
+          irq_disable_mmio_write(dword_12C6B4, dword_12C6B0, 232);
       }
       else
       {
-        sub_124CF4(v9);
+        mem_set_util(v9);
       }
     }
     else
     {
-      result = sub_12C8FC(dword_12C6A4, off_12C6A0, a2 | (result << 16));
+      result = rx_read_buffer(dword_12C6A4, off_12C6A0, a2 | (result << 16));
       v4 = result;
       if ( !result )
       {
@@ -70,7 +70,7 @@ int  sub_12C5FC(int result, int a2)
         goto LABEL_8;
       }
     }
-    result = sub_12CA88(v4);
+    result = tx_pkt_process(v4);
     v5 = *v2;
   }
 LABEL_8:

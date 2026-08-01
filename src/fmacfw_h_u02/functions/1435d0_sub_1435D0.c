@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1435D0 @ 0x1435d0, size 94 bytes
-int  sub_1435D0(unsigned int a1, unsigned int a2, unsigned int a3)
+// memcmp @ 0x1435d0, size 94 bytes
+int  memcmp(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   int *v3; // r4
   int *v4; // r3

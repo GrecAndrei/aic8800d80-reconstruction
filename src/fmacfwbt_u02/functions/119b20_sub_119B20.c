@@ -16,8 +16,8 @@ extern uint32_t off_119CA8;
 extern uint32_t off_119CA4;
 extern uint32_t off_119CAC;
 
-// sub_119B20 @ 0x119b20, size 384 bytes
-int  sub_119B20(int a1, int a2, int a3)
+// bt_conn_param_compare @ 0x119b20, size 384 bytes
+int  bt_conn_param_compare(int a1, int a2, int a3)
 {
   unsigned int v3; // r7
   int result; // r0
@@ -102,11 +102,11 @@ LABEL_16:
           v17 = *(uint32_t *)(v13 + 48);
           *(uint32_t *)(v15 + 36) |= 0x380000u;
           *(uint32_t *)(v8 + 324) = v15;
-          sub_11C990(v17);
+          get_cal_value(v17);
           v18 = *(uint8_t *)(*(uint32_t *)off_119CAC + 1);
           if ( *(uint8_t *)(*(uint32_t *)off_119CAC + 1) )
           {
-            sub_1197FC(
+            ble_connection_get(
               v8,
               *(uint16_t *)(v15 + 34),
               *(uint8_t *)(v8 + 12),
@@ -141,7 +141,7 @@ LABEL_16:
           if ( (v23 & 2) != 0 )
             *(uint32_t *)(*(uint32_t *)(v8 + 52) + 20) = *(uint32_t *)(v8 + 4);
           *(uint16_t *)(v8 + 8) = v23 | 0xF;
-          sub_12D470(v12 + 84 * a3 + 28);
+          check_abort_flag(v12 + 84 * a3 + 28);
           v24 = v12 + 84 * a3;
           v25 = *(uint8_t *)(v24 + 80);
           *(uint32_t *)(v24 + 44) = 0;

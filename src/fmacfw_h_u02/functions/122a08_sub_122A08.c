@@ -12,8 +12,8 @@
 
 extern uint32_t dword_122A24;
 
-// sub_122A08 @ 0x122a08, size 28 bytes
-int  sub_122A08(int a1, uint32_t *a2, int a3, int a4)
+// store_rx_info @ 0x122a08, size 28 bytes
+int  store_rx_info(int a1, uint32_t *a2, int a3, int a4)
 {
   int v4; // r0
   uint32_t *v5; // r5
@@ -28,7 +28,7 @@ int  sub_122A08(int a1, uint32_t *a2, int a3, int a4)
   *(uint32_t *)dword_122A24 = v4;
   *(uint32_t *)(v6 + 4) = v7;
   *(uint16_t *)(v6 + 8) = (uint16_t)v5;
-  sub_12C8D0(138, a4, a3);
+  mac_write_header_word(138, a4, a3);
   return 0;
 }
 

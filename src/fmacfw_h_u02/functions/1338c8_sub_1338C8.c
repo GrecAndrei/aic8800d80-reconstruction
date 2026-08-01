@@ -12,17 +12,17 @@
 
 extern uint32_t off_133910;
 
-// sub_1338C8 @ 0x1338c8, size 72 bytes
-int sub_1338C8()
+// ipc_call_6_ret5 @ 0x1338c8, size 72 bytes
+int ipc_call_6_ret5()
 {
-  if ( sub_12CD48(6u) != 5 && sub_12CD48(6u) != 6 && sub_12CD48(6u) != 7 && sub_12CD48(6u) != 8 )
+  if ( hci_cmd_handler(6u) != 5 && hci_cmd_handler(6u) != 6 && hci_cmd_handler(6u) != 7 && hci_cmd_handler(6u) != 8 )
     return 0;
   if ( *((uint8_t *)off_133910 + 34) )
   {
     *((uint8_t *)off_133910 + 34) = 0;
     return 0;
   }
-  sub_134CC4(1);
+  assert_trace(1);
   return 0;
 }
 

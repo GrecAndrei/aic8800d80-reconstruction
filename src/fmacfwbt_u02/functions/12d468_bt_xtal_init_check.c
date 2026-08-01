@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// bt_xtal_init_check @ 0x12d468, size 8 bytes
-// Doc: bt_xtal_init_check [bt]: Initialize structure to zero then check XTAL status flag
-// bt_xtal_init_check [bt]: Initialize structure to zero then check XTAL status flag
-uint32_t * bt_xtal_init_check(uint32_t *result)
+// zero_struct @ 0x12d468, size 8 bytes
+// Doc: zero_struct [bt]: Initialize structure to zero then check XTAL status flag
+// zero_struct [bt]: Initialize structure to zero then check XTAL status flag
+uint32_t * zero_struct(uint32_t *result)
 {
   *result = 0;
   result[1] = 0;

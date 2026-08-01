@@ -1,1 +1,1 @@
-{"fn": "sub_12153F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12153f4", "status": "ok", "name": "sub_12153F4", "params": [], "docstring": "Switch dispatch on input code (<=5) with 4 saved regs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12153F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12153f4", "status": "ok", "name": "adv_pdu_type_handler", "params": [], "docstring": "Switch dispatch on input code (<=5) with 4 saved regs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

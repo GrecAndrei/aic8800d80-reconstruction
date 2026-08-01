@@ -14,8 +14,8 @@ extern uint32_t dword_12AC8C;
 extern uint32_t off_12AC90;
 extern uint32_t off_12AC94;
 
-// sub_12ABD0 @ 0x12abd0, size 188 bytes
-int  sub_12ABD0(int a1, int a2)
+// rf_calib_params_get @ 0x12abd0, size 188 bytes
+int  rf_calib_params_get(int a1, int a2)
 {
   int v2; // r6
   int v3; // r3

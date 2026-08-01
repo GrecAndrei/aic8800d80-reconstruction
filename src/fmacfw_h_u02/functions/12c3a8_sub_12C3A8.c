@@ -15,8 +15,8 @@ extern uint32_t off_12C3EC;
 extern uint32_t dword_12C3F4;
 extern uint32_t dword_12C3F0;
 
-// sub_12C3A8 @ 0x12c3a8, size 64 bytes
-int  sub_12C3A8(int result, int a2)
+// get_status_flag_c5 @ 0x12c3a8, size 64 bytes
+int  get_status_flag_c5(int result, int a2)
 {
   int v2; // r4
   int v3; // r0
@@ -24,7 +24,7 @@ int  sub_12C3A8(int result, int a2)
   if ( *((uint8_t *)off_12C3E8 + 197) )
   {
     v2 = *(uint32_t *)(*(uint32_t *)(a2 + 76) + 48);
-    v3 = sub_101CAC(
+    v3 = bt_packet_parser(
            (*(uint32_t *)(v2 + 20) >> 11) & 7,
            *(uint32_t *)(v2 + 20) & 0x7F,
            (uint8_t *)(*(uint32_t *)(result + 72) + 4));
@@ -33,7 +33,7 @@ int  sub_12C3A8(int result, int a2)
   }
   else if ( **(int16_t **)off_12C3EC < 0 )
   {
-    return sub_12F32C(dword_12C3F4, dword_12C3F0, 92);
+    return irq_disable_mmio_write(dword_12C3F4, dword_12C3F0, 92);
   }
   return result;
 }

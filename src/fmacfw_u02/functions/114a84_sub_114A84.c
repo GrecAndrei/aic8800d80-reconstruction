@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114A84 @ 0x114a84, size 70 bytes
-int  sub_114A84(char a1, uint8_t *a2)
+// rf_cmd_b_write @ 0x114a84, size 70 bytes
+int  rf_cmd_b_write(char a1, uint8_t *a2)
 {
   unsigned int v3; // r0
   unsigned int v4; // r3

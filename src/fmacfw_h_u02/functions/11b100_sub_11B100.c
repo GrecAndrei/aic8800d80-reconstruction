@@ -17,8 +17,8 @@ extern uint32_t dword_11B220;
 extern uint32_t dword_11B21C;
 extern uint32_t off_11B214;
 
-// sub_11B100 @ 0x11b100, size 272 bytes
-int  sub_11B100(int *a1)
+// check_radio_state @ 0x11b100, size 272 bytes
+int  check_radio_state(int *a1)
 {
   uint16_t *v1; // r6
   int v2; // r3
@@ -73,7 +73,7 @@ LABEL_13:
             if ( *(int *)(*(uint32_t *)(*v9 + 76) + 72) >= 0 )
               goto LABEL_3;
           }
-          sub_11B068((int)v9, (uint8_t)v5);
+          get_ll_conn((int)v9, (uint8_t)v5);
           v9 = *(int **)(v10 + 12);
           if ( !v9 )
             goto LABEL_4;
@@ -85,14 +85,14 @@ LABEL_13:
         v9 = (int *)v11;
       }
 LABEL_3:
-      v6 = sub_11ACF0(v13, a1, *((uint32_t *)v1 + 44), v1[93], *((uint8_t *)v1 + 190));
+      v6 = mac_tx_init(v13, a1, *((uint32_t *)v1 + 44), v1[93], *((uint8_t *)v1 + 190));
       if ( v6 )
       {
         if ( v9 )
-          sub_11B068((int)v9, (uint8_t)v5);
+          get_ll_conn((int)v9, (uint8_t)v5);
         v16 = *(uint32_t *)(v13 + 68);
         if ( **(int16_t **)off_11B218 < 0 && !v16 )
-          sub_12F32C(dword_11B220, dword_11B21C, 1383);
+          irq_disable_mmio_write(dword_11B220, dword_11B21C, 1383);
         v17 = *(uint16_t *)(v16 + 8);
         *((uint32_t *)v1 + 51) = v16;
         *(uint16_t *)(v16 + 8) = v17 | 0x200;

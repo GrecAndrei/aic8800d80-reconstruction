@@ -20,10 +20,10 @@ extern uint32_t dword_11A6AC;
 extern uint32_t dword_11A6B0;
 extern uint32_t off_11A6A4;
 
-// sub_11A45C @ 0x11a45c, size 576 bytes
+// tx_start @ 0x11a45c, size 576 bytes
 // Doc: sub_121A45C [mac]: Initialize/handle MAC/phy control block (fmacfw)
 // sub_121A45C [mac]: Initialize/handle MAC/phy control block (fmacfw)
-int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+int  tx_start(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r6
   int *v6; // r8
@@ -109,7 +109,7 @@ LABEL_23:
           if ( v17 > a3 )
           {
             *(uint32_t *)(v5 + 40) = v40;
-            sub_11C4F8(v38, a5, a3);
+            get_pair_by_id(v38, a5, a3);
             return 0;
           }
           v26 = *(uint32_t *)v7;
@@ -130,7 +130,7 @@ LABEL_16:
           }
 LABEL_26:
           v34 = v26;
-          crypto_ke_ctx_init_n_38(v7, 1);
+          tx_queue_init(v7, 1);
           v27 = *(uint32_t *)(v7 + 76);
           v32 = *(int16_t **)off_11A6A0;
           *(uint32_t *)(v7 + 68) = v5;
@@ -151,7 +151,7 @@ LABEL_27:
           if ( *(uint32_t *)(dword_11A6B4 + 84 * a5 + 28) != v5 )
           {
             v35 = v26;
-            sub_12F46C(dword_11A6B8, dword_11A6AC, 1119);
+            mmio_clear_register(dword_11A6B8, dword_11A6AC, 1119);
             v27 = *(uint32_t *)(v7 + 76);
             v26 = v35;
           }
@@ -187,7 +187,7 @@ LABEL_15:
     ++v14;
     if ( *v11 < 0 && !v24 )
     {
-      sub_12F46C(dword_11A6B0, dword_11A6AC, 1113);
+      mmio_clear_register(dword_11A6B0, dword_11A6AC, 1113);
       __und(0xFFu);
     }
     if ( *(uint8_t *)(v36 + 62) > (*(uint32_t *)off_11A6A4 & 0x3Fu) )
@@ -201,7 +201,7 @@ LABEL_15:
     v7 = *(uint32_t *)v7;
   }
   if ( *v11 < 0 && *(uint32_t *)(dword_11A6B4 + 84 * a5 + 28) != v5 )
-    sub_12F46C(dword_11A6B8, dword_11A6AC, 1119);
+    mmio_clear_register(dword_11A6B8, dword_11A6AC, 1119);
   v33 = *(uint32_t *)(v7 + 76);
   *a2 = *(uint32_t *)v7;
   *(uint32_t *)(v33 + 20) = 0;

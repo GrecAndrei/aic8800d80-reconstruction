@@ -14,8 +14,8 @@ extern uint32_t dword_100000;
 extern uint32_t dword_1044D8;
 extern uint32_t dword_1044DC;
 
-// sub_1043D4 @ 0x1043d4, size 258 bytes
-int sub_1043D4()
+// select_fuse_bank @ 0x1043d4, size 258 bytes
+int select_fuse_bank()
 {
   BOOL v0; // r1
   int v1; // r2
@@ -65,8 +65,8 @@ int sub_1043D4()
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    sub_12ECD0(1, dword_1044D8);
-  sub_12ECD0(1, dword_1044DC);
+    check_status_bits(1, dword_1044D8);
+  check_status_bits(1, dword_1044DC);
   do
   {
     v12 = *v2;

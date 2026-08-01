@@ -17,8 +17,8 @@ extern uint32_t dword_13EB1C;
 extern uint32_t dword_13EB28;
 extern uint32_t dword_13EB18;
 
-// sub_13E9E0 @ 0x13e9e0, size 312 bytes
-unsigned int  sub_13E9E0(int a1)
+// mac_extract_fcf @ 0x13e9e0, size 312 bytes
+unsigned int  mac_extract_fcf(int a1)
 {
   unsigned int v1; // r3
   int v2; // r1

@@ -12,10 +12,10 @@
 
 extern uint32_t off_101A34;
 
-// mmio_bit_modify @ 0x101a20, size 20 bytes
-// Doc: mmio_bit_modify [mmio]: Read-modify-write MMIO register at 0x403410a0 clearing/setting bit 3 based on arg
-// mmio_bit_modify [mmio]: Read-modify-write MMIO register at 0x403410a0 clearing/setting bit 3 based on arg
-unsigned int  mmio_bit_modify(int a1)
+// rf_set_pa_bit @ 0x101a20, size 20 bytes
+// Doc: rf_set_pa_bit [mmio]: Read-modify-write MMIO register at 0x403410a0 clearing/setting bit 3 based on arg
+// rf_set_pa_bit [mmio]: Read-modify-write MMIO register at 0x403410a0 clearing/setting bit 3 based on arg
+unsigned int  rf_set_pa_bit(int a1)
 {
   unsigned int result; // r0
 

@@ -14,22 +14,22 @@ extern uint32_t off_133954;
 extern uint32_t dword_13395C;
 extern uint32_t dword_133958;
 
-// sub_133920 @ 0x133920, size 52 bytes
+// patch_scan_check @ 0x133920, size 52 bytes
 // Doc: sub_1233920 [util]: Check global signed status word and branch
 // sub_1233920 [util]: Check global signed status word and branch
-int  sub_133920(int value)
+int  patch_scan_check(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_133954 >= 0 || (value = msg_get_value(6u), value == 10) )
+  if ( **(int16_t **)off_133954 >= 0 || (value = rx_rate_field_parse(6u), value == 10) )
   {
-    sub_1347BC(value);
+    bt_is_controller_ready(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F46C(dword_13395C, dword_133958, 871);
-    sub_1347BC(v2);
+    v2 = mmio_clear_register(dword_13395C, dword_133958, 871);
+    bt_is_controller_ready(v2);
     return 0;
   }
 }

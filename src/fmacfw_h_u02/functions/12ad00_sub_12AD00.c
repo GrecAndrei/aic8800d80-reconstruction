@@ -12,17 +12,17 @@
 
 extern uint32_t dword_12AD30;
 
-// sub_12AD00 @ 0x12ad00, size 48 bytes
-int *sub_12AD00()
+// init_all_chan_entries @ 0x12ad00, size 48 bytes
+int *init_all_chan_entries()
 {
   int *result; // r0
   uint8_t *v1; // r3
   int v2; // r1
 
-  sub_12ACC4(0);
-  sub_12ACC4(1);
-  sub_12ACC4(2);
-  result = sub_12ACC4(3);
+  init_chan_entry(0);
+  init_chan_entry(1);
+  init_chan_entry(2);
+  result = init_chan_entry(3);
   v1 = (uint8_t *)dword_12AD30;
   v2 = dword_12AD30 + 96;
   do

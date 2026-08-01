@@ -16,8 +16,8 @@ extern uint32_t dword_13CE6C;
 extern uint32_t dword_13CE74;
 extern uint32_t dword_13CE68;
 
-// sub_13CBEC @ 0x13cbec, size 630 bytes
-uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
+// rf_get_tx_pwr @ 0x13cbec, size 630 bytes
+uint64_t  rf_get_tx_pwr(int a1, uint16_t *a2, int a3, int a4, int a5)
 {
   char *v9; // r6
   int v10; // r5
@@ -68,12 +68,12 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
   if ( a3 <= 23 )
   {
     if ( **(int16_t **)off_13CE64 < 0 )
-      sub_12F49C(dword_13CE70, dword_13CE6C, 430);
+      call_shared_handler(dword_13CE70, dword_13CE6C, 430);
     return 0;
   }
   v50 = *a2 & 0xC7FF;
   v9 = (char *)a2 + a4;
-  sub_143770(v51, a2 + 2, 18);
+  memcpy(v51, a2 + 2, 18);
   v10 = a3 - a4;
   v38 = 20;
   v39 = v10;
@@ -121,8 +121,8 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
     v19 = v20;
     v18 += 16;
   }
-  memset_thunk((int *)&v44, 0, 0x10u);
-  memset_thunk((int *)&v47, 0, 0x10u);
+  memset((int *)&v44, 0, 0x10u);
+  memset((int *)&v47, 0, 0x10u);
   if ( v12 > 16 )
   {
     v22 = &v38;
@@ -170,12 +170,12 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
       v45 ^= v42;
       v24 -= 16;
       v46 ^= v43;
-      sub_13C7D4(v52, &v44);
+      bt_get_dev_info(v52, &v44);
     }
     while ( v24 > 16 );
     v12 = v12 - 16 - ((v12 - 17) & 0xFFFFFFF0);
-    sub_13C7D4(v52, &v47);
-    sub_13CB7C((unsigned int *)&v47);
+    bt_get_dev_info(v52, &v47);
+    rx_parse_pkt_header((unsigned int *)&v47);
 LABEL_18:
     v29 = 0;
     do
@@ -204,8 +204,8 @@ LABEL_22:
     v31 = (uint64_t *)((char *)&v41 + v30 + 1);
     goto LABEL_25;
   }
-  sub_13C7D4(v52, &v47);
-  sub_13CB7C((unsigned int *)&v47);
+  bt_get_dev_info(v52, &v47);
+  rx_parse_pkt_header((unsigned int *)&v47);
   v31 = &v41;
   if ( v12 > 0 )
   {
@@ -226,7 +226,7 @@ LABEL_25:
         *v32++ = 0;
       while ( v32 != v33 );
     }
-    sub_13CB7C((unsigned int *)&v47);
+    rx_parse_pkt_header((unsigned int *)&v47);
   }
   v47 ^= v41;
   v44 ^= v47;
@@ -236,7 +236,7 @@ LABEL_25:
   v45 = v35;
   v49 ^= v43;
   v46 = v34;
-  sub_13C7D4(v52, &v44);
+  bt_get_dev_info(v52, &v44);
   return v44;
 }
 

@@ -30,10 +30,10 @@ extern uint32_t off_10AC0C;
 extern uint32_t off_10AC10;
 extern uint32_t dword_10AC14;
 
-// sub_10A5B0 @ 0x10a5b0, size 1610 bytes
+// read_radio_status @ 0x10a5b0, size 1610 bytes
 // Doc: sub_120A5B0 [rf]: RF register setup routine touching 0x40344xxx MMIO block with FP context
 // sub_120A5B0 [rf]: RF register setup routine touching 0x40344xxx MMIO block with FP context
-int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6)
+int  read_radio_status(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6)
 {
   unsigned int v8; // s17
   int v9; // r3
@@ -85,7 +85,7 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
   int16_t v59[6]; // [sp+68h] [bp-77Ch] BYREF
   int16_t v60[952]; // [sp+74h] [bp-770h] BYREF
 
-  sub_11F74C(0x2000, dword_10A8C0, (*(uint32_t *)off_10A8E4 >> 3) & 7, *(uint32_t *)off_10A8B0);
+  check_interrupt_flag(0x2000, dword_10A8C0, (*(uint32_t *)off_10A8E4 >> 3) & 7, *(uint32_t *)off_10A8B0);
   v8 = ((a1 >> 1) & 1) + 3;
   if ( (a1 & 0xC) != 0 )
   {
@@ -147,7 +147,7 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
           *v16 = dword_10A8E0 & (((int16_t)v51 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
           *v16 |= 0x20000u;
           *v16 |= 0x40000u;
-          delay_us(1);
+          write_timer_reg(1);
           if ( v45 )
           {
             if ( v47 )
@@ -156,31 +156,31 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
             }
             else
             {
-              sub_109100(v18, v20, &v54, (char *)&v60[6] + 3 * v20, (int *)&v60[8 * v20 + 54]);
+              mac_frame_parse_fcf(v18, v20, &v54, (char *)&v60[6] + 3 * v20, (int *)&v60[8 * v20 + 54]);
               v21 = (int16_t)v20;
-              sub_109100(v18, v20, &v55, (char *)&v60[30] + 3 * v20, (int *)&v60[8 * v20 + 182]);
+              mac_frame_parse_fcf(v18, v20, &v55, (char *)&v60[30] + 3 * v20, (int *)&v60[8 * v20 + 182]);
             }
             v22 = *((uint8_t *)&v60[6] + 3 * v20 + v48);
             v23 = *((uint8_t *)&v60[30] + 3 * v20 + v48);
             *v19 = *v19 & 0xFE01FFFF | (v22 << 17);
             *v19 = *v19 & 0xFFFF00FF | (v22 << 8);
-            sub_108CB8(&v57, (unsigned int *)&v58);
+            rf_wait_for_command(&v57, (unsigned int *)&v58);
             if ( v22 != v23 )
             {
               *v19 = *v19 & 0xFE01FFFF | (v23 << 17);
               *v19 = *v19 & 0xFFFF00FF | (v23 << 8);
-              sub_108CB8(&v56, (unsigned int *)&v58);
+              rf_wait_for_command(&v56, (unsigned int *)&v58);
             }
           }
           else
           {
             *v19 = *v19 & 0xFE01FFFF | 0x1000000;
             *v19 = *v19 & 0xFFFF00FF | 0x8000;
-            sub_108CB8(&v57, (unsigned int *)&v58);
+            rf_wait_for_command(&v57, (unsigned int *)&v58);
             v21 = (int16_t)v20;
           }
-          sub_109120((uint8_t)v47, v57, &v60[20 * v21 + 310]);
-          sub_109120((uint8_t)v47, v58, &v60[20 * v20 + 630]);
+          atomic_write_if_zero((uint8_t)v47, v57, &v60[20 * v21 + 310]);
+          atomic_write_if_zero((uint8_t)v47, v58, &v60[20 * v20 + 630]);
           v20 = (uint8_t)(v20 + 1);
         }
         while ( a5 >= v20 );
@@ -209,8 +209,8 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8
         else
           v26 = 50;
         v46 = v26;
-        *(uint32_t *)&v60[2 * v27 + 54] = sub_109184(v50, v26, (int *)&v60[20 * v25 + 310]);
-        *(uint32_t *)&v60[2 * v27 + 182] = sub_109184(v50, v46, (int *)&v60[20 * v25 + 630]);
+        *(uint32_t *)&v60[2 * v27 + 54] = swar_bit_count(v50, v26, (int *)&v60[20 * v25 + 310]);
+        *(uint32_t *)&v60[2 * v27 + 182] = swar_bit_count(v50, v46, (int *)&v60[20 * v25 + 630]);
         v25 = (uint8_t)(v25 + 1);
       }
       while ( a5 >= v25 );
@@ -222,16 +222,16 @@ LABEL_28:
   while ( v8 > (uint8_t)v45 );
   if ( a4 > a5 )
   {
-    sub_109480((a1 >> 5) & 1, v59);
-    sub_109480((a1 >> 5) & 1, v60);
+    memzero_words((a1 >> 5) & 1, v59);
+    memzero_words((a1 >> 5) & 1, v60);
   }
   else
   {
     v28 = a4;
     do
     {
-      v29 = mac_aggr_setup(v8, v28, (uint8_t *)&v60[6] + 3 * v28, (int *)&v60[8 * v28 + 54]);
-      v30 = mac_aggr_setup(v8, v28, (uint8_t *)&v60[30] + 3 * v28, (int *)&v60[8 * v28 + 182]);
+      v29 = validate_packet_length(v8, v28, (uint8_t *)&v60[6] + 3 * v28, (int *)&v60[8 * v28 + 54]);
+      v30 = validate_packet_length(v8, v28, (uint8_t *)&v60[30] + 3 * v28, (int *)&v60[8 * v28 + 182]);
       v31 = v28 - 10;
       if ( v28 > 9 )
         v59[v31] = v29;
@@ -245,8 +245,8 @@ LABEL_28:
       v28 = v32;
     }
     while ( a5 >= (unsigned int)v32 );
-    sub_109480((a1 >> 5) & 1, v59);
-    sub_109480((a1 >> 5) & 1, v60);
+    memzero_words((a1 >> 5) & 1, v59);
+    memzero_words((a1 >> 5) & 1, v60);
     for ( i = a4; ; i = (uint8_t)(i + 1) )
     {
       if ( i > 9 )
@@ -258,8 +258,8 @@ LABEL_28:
     do
     {
       v35 = *(uint16_t *)(a2 + 2 * v34);
-      sub_11F74C(0x2000, dword_10ABFC, v34, (uint8_t)v35);
-      sub_11F74C(0x2000, dword_10AC00, v34, v35 >> 8);
+      check_interrupt_flag(0x2000, dword_10ABFC, v34, (uint8_t)v35);
+      check_interrupt_flag(0x2000, dword_10AC00, v34, v35 >> 8);
       v24 = a5 == v34;
       v34 = (uint8_t)(v34 + 1);
     }
@@ -295,6 +295,6 @@ LABEL_28:
   *v40 &= ~0x20000u;
   v42 = *v40 | 0x40000;
   *v40 = v42;
-  return sub_11F74C(0x2000, v41, v42, v40);
+  return check_interrupt_flag(0x2000, v41, v42, v40);
 }
 

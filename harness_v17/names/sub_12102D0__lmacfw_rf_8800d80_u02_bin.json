@@ -1,1 +1,1 @@
-{"fn": "sub_12102D0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12102d0", "status": "ok", "name": "lmac_rf_handler_1102d0", "params": [], "docstring": "LMAC RF handler stub at 0x1102d0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12102D0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12102d0", "status": "ok", "name": "irq_disable_set_flag", "params": [], "docstring": "LMAC RF handler stub at 0x1102d0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sub_121C26C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121c26c", "status": "ok", "name": "rf_msg_handler_n0ec", "params": [], "docstring": "RF context handler reading env state from indexed global", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C26C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121c26c", "status": "ok", "name": "rf_get_status", "params": [], "docstring": "RF context handler reading env state from indexed global", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

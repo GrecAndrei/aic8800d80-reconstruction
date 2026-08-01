@@ -13,12 +13,12 @@
 extern uint32_t dword_12153C;
 extern uint32_t off_121540;
 
-// sub_121510 @ 0x121510, size 42 bytes
-int  sub_121510(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// bt_post_event_14ea3c @ 0x121510, size 42 bytes
+int  bt_post_event_14ea3c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
-  msg_parse(dword_12153C, *a2);
+  dispatch_event_handler(dword_12153C, *a2);
   *(uint32_t *)off_121540 = *a2;
-  sub_11DED8(1029, a4, a3);
+  ke_evt_handler(1029, a4, a3);
   return 0;
 }
 

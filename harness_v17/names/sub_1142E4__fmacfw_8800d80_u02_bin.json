@@ -1,0 +1,1 @@
+{"fn": "sub_1142E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1142e4", "status": "ok", "name": "set_tx_power", "params": [], "docstring": "Sets radio transmit power value.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

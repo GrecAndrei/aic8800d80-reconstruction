@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1426AC;
 
-// math_round @ 0x14261c, size 142 bytes
-// Doc: math_round [util]: Round double-precision float to nearest integer
-// math_round [util]: Round double-precision float to nearest integer
-uint64_t  math_round(uint64_t a1)
+// double_add @ 0x14261c, size 142 bytes
+// Doc: double_add [util]: Round double-precision float to nearest integer
+// double_add [util]: Round double-precision float to nearest integer
+uint64_t  double_add(uint64_t a1)
 {
   int v1; // r7
   int v2; // r4
@@ -49,7 +49,7 @@ uint64_t  math_round(uint64_t a1)
     }
     else if ( v1 == 2047 )
     {
-      return sub_14273C(a1, HIDWORD(a1), a1, HIDWORD(a1));
+      return double_compare(a1, HIDWORD(a1), a1, HIDWORD(a1));
     }
   }
   else

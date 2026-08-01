@@ -25,8 +25,8 @@ extern uint32_t dword_1105D4;
 extern uint32_t dword_1105D8;
 extern uint32_t off_1105D0;
 
-// sub_110494 @ 0x110494, size 286 bytes
-int  sub_110494(int a1, int a2)
+// rf_isr @ 0x110494, size 286 bytes
+int  rf_isr(int a1, int a2)
 {
   uint32_t *v2; // r4
   int *v3; // r7
@@ -49,7 +49,7 @@ int  sub_110494(int a1, int a2)
   v2 = off_1105B8;
   v3 = (int *)off_1105BC;
   v21 = *(uint16_t *)(*(uint32_t *)off_1105B4 + 48);
-  sub_11035C(a2);
+  usb_irq_handler(a2);
   v6 = *(uint16_t *)(a2 + 0xC);
 LABEL_2:
   v7 = off_1105E4;
@@ -61,19 +61,19 @@ LABEL_2:
     v9 = (*(int ( **)(uint32_t))(*(uint32_t *)(a1 + 4 + 4) + 16))(*(uint32_t *)(a1 + 4));
     if ( !v9 )
     {
-      sub_10DA7C(dword_1105E0, *v7);
+      printf_wrapper(dword_1105E0, *v7);
 LABEL_23:
       if ( *(uint16_t *)(a2 + 0xC) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_1105B4 + 50) )
         return 1;
 LABEL_24:
-      sub_12D32C(32);
+      set_system_flag_1(32);
       return 1;
     }
-    v10 = (uint32_t *)sub_110114();
+    v10 = (uint32_t *)critical_enter_0();
     v11 = v10;
     if ( !v10 )
     {
-      sub_10DA7C(dword_1105DC);
+      printf_wrapper(dword_1105DC);
       (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
       goto LABEL_23;
     }
@@ -103,7 +103,7 @@ LABEL_24:
     {
       if ( **(int16_t **)off_1105C8 < 0 && *(uint32_t *)off_1105CC )
       {
-        sub_12F694(dword_1105D4, dword_1105D8, 400);
+        mmio_irq_clear(dword_1105D4, dword_1105D8, 400);
         v13 = (int *)off_1105C4;
         v14 = *(uint32_t *)off_1105C4;
       }

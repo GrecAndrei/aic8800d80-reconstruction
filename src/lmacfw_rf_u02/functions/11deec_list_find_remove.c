@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// list_find_remove @ 0x11deec, size 86 bytes
-// Doc: list_find_remove [util]: Find node in singly-linked list and unlink it.
-// list_find_remove [util]: Find node in singly-linked list and unlink it.
-uint32_t * list_find_remove(int a1, int ( *a2)(uint32_t *, int), int a3)
+// co_list_process @ 0x11deec, size 86 bytes
+// Doc: co_list_process [util]: Find node in singly-linked list and unlink it.
+// co_list_process [util]: Find node in singly-linked list and unlink it.
+uint32_t * co_list_process(int a1, int ( *a2)(uint32_t *, int), int a3)
 {
   uint32_t *v3; // r4
   uint32_t *v7; // r8

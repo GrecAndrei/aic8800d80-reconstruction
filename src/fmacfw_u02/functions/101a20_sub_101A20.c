@@ -12,8 +12,8 @@
 
 extern uint32_t off_101A34;
 
-// sub_101A20 @ 0x101a20, size 20 bytes
-unsigned int  sub_101A20(int a1)
+// rf_set_pa_bit @ 0x101a20, size 20 bytes
+unsigned int  rf_set_pa_bit(int a1)
 {
   unsigned int result; // r0
 

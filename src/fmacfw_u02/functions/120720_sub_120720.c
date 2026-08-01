@@ -12,8 +12,8 @@
 
 extern uint32_t off_120778;
 
-// sub_120720 @ 0x120720, size 88 bytes
-uint32_t *sub_120720()
+// get_bt_state @ 0x120720, size 88 bytes
+uint32_t *get_bt_state()
 {
   uint8_t *v0; // r4
   int *v1; // r0
@@ -28,24 +28,24 @@ uint32_t *sub_120720()
 
   v0 = off_120778;
   if ( !*((uint8_t *)off_120778 + 2) )
-    sub_12B8BC();
-  sub_120548();
-  sub_11F724();
-  v1 = sub_11EDF0();
-  v2 = sub_12AE40(v1);
-  v3 = sub_128EF8(v2);
-  sub_129F44(v3);
-  v4 = sub_116E7C();
+    bb_enable();
+  clear_transmit_context();
+  ble_sched_init();
+  v1 = ble_event_set();
+  v2 = tx_queue_flush(v1);
+  v3 = wlc_mfp_key_clear(v2);
+  llc_reset(v3);
+  v4 = chip_init_sequence();
   if ( v0[2] )
     v5 = nullsub_4(v4);
   else
-    v5 = sub_11D7FC();
-  v6 = sub_124D30(v5);
-  v7 = sub_12B170(v6);
-  v8 = sub_127A1C(v7);
-  v9 = sub_12C33C(v8);
-  sub_125734(v9);
-  sub_10F25C();
-  return sub_1205BC();
+    v5 = rf_poll();
+  v6 = get_soc_handle(v5);
+  v7 = rf_env_reset(v6);
+  v8 = stat_clear(v7);
+  v9 = lock_core_pair(v8);
+  init_timer(v9);
+  bt_get_state();
+  return poll_rf_interrupts();
 }
 

@@ -13,8 +13,8 @@
 extern uint32_t dword_109618;
 extern uint32_t dword_10961C;
 
-// sub_10943C @ 0x10943c, size 476 bytes
-int  sub_10943C(unsigned int a1, int a2, int *a3)
+// aligned_word_masks @ 0x10943c, size 476 bytes
+int  aligned_word_masks(unsigned int a1, int a2, int *a3)
 {
   int v3; // r12
   int v4; // r4

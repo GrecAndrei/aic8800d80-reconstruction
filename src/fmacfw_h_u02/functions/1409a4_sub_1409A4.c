@@ -15,8 +15,8 @@ extern uint32_t dword_140A2C;
 extern uint32_t off_140A34;
 extern uint32_t dword_140A30;
 
-// sub_1409A4 @ 0x1409a4, size 130 bytes
-int  sub_1409A4(int result, int a2)
+// bt_ll_state_check @ 0x1409a4, size 130 bytes
+int  bt_ll_state_check(int result, int a2)
 {
   int v2; // r6
   unsigned int v3; // r4
@@ -32,7 +32,7 @@ int  sub_1409A4(int result, int a2)
     v4 = result;
     v5 = *(uint32_t *)(dword_140A2C + 1320 * v3 + 72);
     v7 = v5 ? *(uint8_t *)(v5 + 4) : *((uint8_t *)off_140A34 + 36);
-    result = sub_118B04(v7 != 0, 512);
+    result = lock_acquire(v7 != 0, 512);
     v8 = result;
     if ( result )
     {
@@ -45,8 +45,8 @@ int  sub_1409A4(int result, int a2)
         *(uint32_t *)(result + 88) = dword_140A30;
         *(uint32_t *)(result + 92) = result;
       }
-      sub_140400(result, 1, a2, v4);
-      return sub_118B34(v8, 3);
+      acl_tx_setup(result, 1, a2, v4);
+      return sec_check(v8, 3);
     }
   }
   return result;

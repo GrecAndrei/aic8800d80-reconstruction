@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// timer_set_relative @ 0x111fbc, size 32 bytes
-// Doc: timer_set_relative [util]: Program a timer with a relative deadline
-// timer_set_relative [util]: Program a timer with a relative deadline
-int  timer_set_relative(int a1)
+// wlan_wait_ready_alt @ 0x111fbc, size 32 bytes
+// Doc: wlan_wait_ready_alt [util]: Program a timer with a relative deadline
+// wlan_wait_ready_alt [util]: Program a timer with a relative deadline
+int  wlan_wait_ready_alt(int a1)
 {
   int result; // r0
   int v2; // r3

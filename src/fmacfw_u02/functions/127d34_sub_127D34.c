@@ -14,8 +14,8 @@ extern uint32_t dword_127DF4;
 extern uint32_t off_127DF8;
 extern uint32_t dword_127DFC;
 
-// sub_127D34 @ 0x127d34, size 190 bytes
-int  sub_127D34(uint8_t *a1, uint8_t *a2)
+// scan_find_empty_slot @ 0x127d34, size 190 bytes
+int  scan_find_empty_slot(uint8_t *a1, uint8_t *a2)
 {
   int v2; // r6
   int v5; // r3
@@ -60,7 +60,7 @@ int  sub_127D34(uint8_t *a1, uint8_t *a2)
           v16 = v14[10];
           *(uint16_t *)(v13 + 8) = v15;
           if ( v16 == v13 && *((uint8_t *)v14 + 90) == 1 )
-            sub_102A20((uint16_t *)(v2 + 28 * i + 4), 0);
+            rf_enable((uint16_t *)(v2 + 28 * i + 4), 0);
 LABEL_16:
           *a2 = i;
           return 0;
@@ -71,7 +71,7 @@ LABEL_16:
     }
     v5 += 28;
   }
-  v7 = rf_bus_mark_n100_d2d0(off_127DF8);
+  v7 = mem_word_load(off_127DF8);
   if ( !v7 )
     return 1;
   v8 = dword_127DFC * ((v7 - v2) >> 2);

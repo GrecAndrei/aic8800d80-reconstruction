@@ -26,8 +26,8 @@ extern uint32_t off_111EE0;
 extern uint32_t off_111ED8;
 extern uint32_t dword_111EE4;
 
-// sub_111DB8 @ 0x111db8, size 262 bytes
-int  sub_111DB8(uint32_t *a1, int a2)
+// cmd_dispatch @ 0x111db8, size 262 bytes
+int  cmd_dispatch(uint32_t *a1, int a2)
 {
   uint8_t *v4; // r6
   uint32_t *v5; // r7
@@ -44,7 +44,7 @@ int  sub_111DB8(uint32_t *a1, int a2)
   int v17; // r1
   uint32_t *v18; // r3
 
-  sub_12EA88(dword_111EC0, 0, a2);
+  event_dispatch(dword_111EC0, 0, a2);
   if ( !a1 )
     return 1;
   if ( !*a1 || !a1[1] || !a1[2] || !a1[5] )
@@ -55,12 +55,12 @@ int  sub_111DB8(uint32_t *a1, int a2)
   v5 = off_111EC8;
   v6 = off_111ECC;
   *(uint8_t *)off_111EC4 = 1;
-  sub_143770(v6, a1, 80);
+  memcpy(v6, a1, 80);
   v8 = v5[97];
   if ( v8 )
   {
-    sub_12EA88(dword_111EF8, v8, v7);
-    sub_100644(v5[97]);
+    event_dispatch(dword_111EF8, v8, v7);
+    timer_delay(v5[97]);
   }
   v9 = off_111ED0;
   if ( (*((uint32_t *)off_111ED0 + 512) & 0x7F0) != 0 )
@@ -70,7 +70,7 @@ int  sub_111DB8(uint32_t *a1, int a2)
     *((uint32_t *)v15 + 2) = 0;
     *v15 = 0;
     *v4 = 4;
-    v16 = sub_111884();
+    v16 = mmio_sync();
     v17 = *(uint32_t *)off_111EEC;
     v18 = *(uint32_t **)off_111EF0;
     *v18 = dword_111EF4;
@@ -91,9 +91,9 @@ int  sub_111DB8(uint32_t *a1, int a2)
       *((uint32_t *)off_111ED0 + 2) &= ~1u;
       v9[513] |= 2u;
     }
-    sub_1119FC();
+    mmio_set_bit();
   }
-  sub_12EA88(dword_111ED4, v10, v11);
+  event_dispatch(dword_111ED4, v10, v11);
   v12 = dword_111EDC;
   v13 = off_111EE0;
   *(uint32_t *)(*((uint32_t *)off_111ED8 + 2) + 320) = dword_111EDC;
@@ -103,7 +103,7 @@ int  sub_111DB8(uint32_t *a1, int a2)
     while ( *v4 != 4 )
       ;
   }
-  sub_12EA88(dword_111EE4, v12, 1);
+  event_dispatch(dword_111EE4, v12, 1);
   return 0;
 }
 

@@ -16,10 +16,10 @@ extern uint32_t dword_112564;
 extern uint32_t dword_112554;
 extern uint32_t dword_112558;
 
-// sub_1122F0 @ 0x1122f0, size 582 bytes
+// rf_init @ 0x1122f0, size 582 bytes
 // Doc: rf_bus_setup_n3a0 [mac]: Set up RF bus register pairs from input bytes
 // rf_bus_setup_n3a0 [mac]: Set up RF bus register pairs from input bytes
-int sub_1122F0()
+int rf_init()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r4
@@ -56,7 +56,7 @@ int sub_1122F0()
   *v0 = 0;
   v1[896] &= ~1u;
   v1[513] &= ~1u;
-  rf_bus_scan();
+  timer_init();
   if ( (v1[6] & 0x80) != 0 )
     v1[6] &= ~0x80u;
   v2 = rf_cmd_send_n_3d8;
@@ -196,7 +196,7 @@ LABEL_24:
   *(uint8_t *)v18 = 0;
   sub_100200(v19, 0, 0x50u);
   sub_100200((int *)dword_112558, 0, 0x50u);
-  result = rf_bus_mark_118c();
+  result = timer_set_alarm();
   v21 = *((int ( **)(uint32_t))rf_register_field_reset_26c + 8);
   if ( v21 )
     return v21(0);

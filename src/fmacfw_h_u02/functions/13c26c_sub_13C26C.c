@@ -14,8 +14,8 @@ extern uint32_t dword_13C2B4;
 extern uint32_t dword_13C2B8;
 extern uint32_t dword_13C2BC;
 
-// sub_13C26C @ 0x13c26c, size 72 bytes
-int  sub_13C26C(int a1)
+// rx_clear_packet @ 0x13c26c, size 72 bytes
+int  rx_clear_packet(int a1)
 {
   int v1; // r5
   int result; // r0

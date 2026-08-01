@@ -58,8 +58,8 @@ extern uint32_t dword_121270;
 extern uint32_t dword_121268;
 extern uint32_t dword_121258;
 
-// sub_120F08 @ 0x120f08, size 1192 bytes
-int sub_120F08()
+// rx_ring_init @ 0x120f08, size 1192 bytes
+int rx_ring_init()
 {
   uint8_t *v0; // r10
   int v1; // r8
@@ -113,7 +113,7 @@ int sub_120F08()
 
   v0 = off_12128C;
   v1 = *((uint32_t *)off_12128C + 8);
-  result = sub_12D374(0x40000);
+  result = set_system_flag_2(0x40000);
   if ( v1 )
   {
     v3 = off_121214;
@@ -132,7 +132,7 @@ LABEL_3:
         v9 = *(uint32_t *)off_121220;
         *(uint32_t *)off_121224 = 0x80000000;
         if ( *(uint32_t *)(v9 + 4) + *(uint32_t *)(v1 + 120) - v4[4] < 0
-          && !fmacfwbt_phy_chan_init(*(uint8_t *)(v1 + 116), 0, 0) )
+          && !ble_conn_get(*(uint8_t *)(v1 + 116), 0, 0) )
         {
           *(uint32_t *)(v1 + 120) = v4[4];
         }
@@ -141,7 +141,7 @@ LABEL_3:
       }
       if ( (v5 & 4) != 0 )
       {
-        feature_guard_sdio(2, dword_12124C);
+        state_check_feature(2, dword_12124C);
         v24 = (int16_t **)off_121230;
         v25 = *((uint32_t *)v3 + 1);
         *v6 &= ~4u;
@@ -150,12 +150,12 @@ LABEL_3:
         *((uint32_t *)v3 + 1) = v27;
         if ( v26 < 0 && *(uint32_t *)off_12125C << 28 )
         {
-          sub_12F6C4(dword_121264, dword_121260, 472);
+          mmio_field_update(dword_121264, dword_121260, 472);
           v27 = *((uint32_t *)v3 + 1);
         }
         v28 = dword_121250;
         *(uint32_t *)off_121254 = v27 | *(uint32_t *)v3;
-        rf_table_lookup_n528(*(uint8_t *)(v1 + 107), v28, v1);
+        bt_get_conn_entry(*(uint8_t *)(v1 + 107), v28, v1);
         v29 = *((uint8_t *)v3 + 30);
         *v7 &= 0xFC0FFFFF;
         v5 = v29 & 0xFB;
@@ -167,7 +167,7 @@ LABEL_3:
         *(uint32_t *)(v1 + 4) &= ~2u;
         if ( v0[29] == 5 )
         {
-          timestamp_remove_058(dword_12126C);
+          ke_event_set_lock(dword_12126C);
           LOBYTE(v5) = *((uint8_t *)v3 + 30);
           v0[29] = 0;
         }
@@ -182,7 +182,7 @@ LABEL_20:
       {
         v15 = *(uint32_t *)off_121238;
         v16 = (*(uint32_t *)off_121238 >> 5) & 3;
-        feature_guard_sdio(2, dword_12123C);
+        state_check_feature(2, dword_12123C);
         v17 = *(uint32_t *)(v1 + 120);
         v18 = *(uint32_t *)(*(uint32_t *)off_121220 + 4);
         *(uint8_t *)(v1 + 128) = 0;
@@ -191,7 +191,7 @@ LABEL_20:
         {
           v32 = dword_121288;
           *((uint8_t *)v3 + 30) |= 8u;
-          feature_guard_sdio(2, v32);
+          state_check_feature(2, v32);
         }
         if ( v16 )
         {
@@ -201,16 +201,16 @@ LABEL_20:
           *(uint32_t *)off_121238 &= ~8u;
           if ( (*v31 & 0x10) != 0 )
           {
-            feature_guard_sdio(2, dword_121280);
+            state_check_feature(2, dword_121280);
             *(uint8_t *)off_121240 = BYTE2(*(uint32_t *)off_121284);
-            sub_1293A0(v16 >> 1, v19 & 1, v1);
+            rf_rx_packet_get(v16 >> 1, v19 & 1, v1);
             *v31 &= ~0x10u;
           }
           else
           {
             v33 = dword_1213B4;
             *(uint32_t *)off_1213B0 = 1;
-            feature_guard_sdio(2, v33);
+            state_check_feature(2, v33);
             v34 = off_1213BC;
             *(uint8_t *)off_1213B8 = *((uint8_t *)off_1213B8 + 1) > 1u;
             *v34 = 1;
@@ -223,7 +223,7 @@ LABEL_20:
         v20 = (uint8_t **)off_121248;
         *(uint32_t *)off_121244 &= ~0x200u;
         *(uint32_t *)(v1 + 4) &= ~1u;
-        result = timestamp_remove_058(v1 + 48);
+        result = ke_event_set_lock(v1 + 48);
         v21 = *v20;
         if ( **v20 == 2 )
         {
@@ -244,7 +244,7 @@ LABEL_20:
             if ( (unsigned int)(v4[4] - v38) > 0x7530 )
             {
               v47 = v39;
-              feature_guard_sdio(2, dword_1213DC);
+              state_check_feature(2, dword_1213DC);
               v39 = v47;
             }
           }
@@ -264,7 +264,7 @@ LABEL_20:
                 v45 = *v43 & *v40;
                 if ( (unsigned int)(v4[4] - v44) > 0x7530 )
                 {
-                  result = feature_guard_sdio(2, dword_1213E4);
+                  result = state_check_feature(2, dword_1213E4);
                   v43 = off_1213D0;
                 }
               }
@@ -292,7 +292,7 @@ LABEL_20:
         v23 = *v21;
         if ( v23 == 1 )
         {
-          result = timestamp_update_4f60(
+          result = ke_event_lock(
                      v1 + 24,
                      v4[4] + 32 * *(uint32_t *)off_1213C4 - *((uint16_t *)off_1213C8 + 93));
           v23 = **v20;
@@ -300,7 +300,7 @@ LABEL_20:
         if ( v23 == 2 )
         {
           *(uint32_t *)off_1213C0 = 48;
-          result = sub_117EF8();
+          result = sleep_critical_exit();
         }
         v5 = *((uint8_t *)v3 + 30) & 0xDF;
         *((uint8_t *)v3 + 30) = v5;
@@ -326,17 +326,17 @@ LABEL_20:
           }
           else
           {
-            result = sub_12F694(dword_121278, dword_121274, 864);
+            result = mmio_irq_clear(dword_121278, dword_121274, 864);
             if ( (*v7 & 0x70000) == 0 )
             {
 LABEL_43:
               v46[0] = *(uint32_t *)off_121228 >> 31;
               v46[1] = (*(uint32_t *)off_121228 >> 30) & 1;
-              feature_guard_sdio(2, dword_12127C);
+              state_check_feature(2, dword_12127C);
               result = v46[0];
               if ( *(uint64_t *)v46 )
               {
-                result = sub_1293A0(v46[0], v46[1], v14);
+                result = rf_rx_packet_get(v46[0], v46[1], v14);
                 v30 = off_121228;
                 *(uint32_t *)off_121228 &= ~0x80000000;
                 *v30 &= ~0x40000000u;
@@ -346,17 +346,17 @@ LABEL_43:
         }
         else
         {
-          result = sub_12ECB0(dword_121270, v12, *(uint8_t *)(v13 + 37));
+          result = ke_event_schedule(dword_121270, v12, *(uint8_t *)(v13 + 37));
         }
       }
       else
       {
-        result = sub_12ECB0(dword_121268, v11, v10);
+        result = ke_event_schedule(dword_121268, v11, v10);
       }
     }
     else
     {
-      result = sub_12ECB0(dword_121258, v5, v10);
+      result = ke_event_schedule(dword_121258, v5, v10);
     }
     v5 = *((uint8_t *)v3 + 30) & 0xFE;
     *((uint8_t *)v3 + 30) = v5;

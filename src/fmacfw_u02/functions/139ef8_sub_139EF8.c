@@ -12,8 +12,8 @@
 
 extern uint32_t dword_139F58;
 
-// sub_139EF8 @ 0x139ef8, size 96 bytes
-int  sub_139EF8(char *a1, char a2, int a3)
+// scan_parse_response @ 0x139ef8, size 96 bytes
+int  scan_parse_response(char *a1, char a2, int a3)
 {
   char v3; // r3
   int result; // r0
@@ -32,9 +32,9 @@ int  sub_139EF8(char *a1, char a2, int a3)
   {
     v3 += 4;
   }
-  result = sub_143770(&v6, &a1[(uint8_t)(v3 + 6)], 2);
+  result = memcpy(&v6, &a1[(uint8_t)(v3 + 6)], 2);
   if ( v6 == 36488 )
-    return sub_12EA88(dword_139F58, 36488, a3);
+    return event_dispatch(dword_139F58, 36488, a3);
   return result;
 }
 

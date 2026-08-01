@@ -14,16 +14,16 @@ extern uint32_t off_12D284;
 extern uint32_t dword_12D28C;
 extern uint32_t dword_12D288;
 
-// list_push_tail @ 0x12d248, size 60 bytes
-// Doc: list_push_tail [util]: Append node to tail of intrusive linked list if list non-empty
-// list_push_tail [util]: Append node to tail of intrusive linked list if list non-empty
-int  list_push_tail(int result, uint32_t *a2)
+// cmd_handler_a @ 0x12d248, size 60 bytes
+// Doc: cmd_handler_a [util]: Append node to tail of intrusive linked list if list non-empty
+// cmd_handler_a [util]: Append node to tail of intrusive linked list if list non-empty
+int  cmd_handler_a(int result, uint32_t *a2)
 {
   int v2; // r5
 
   v2 = result;
   if ( **(int16_t **)off_12D284 < 0 && !a2 )
-    result = sub_12F46C(dword_12D28C, dword_12D288, 72);
+    result = mmio_clear_register(dword_12D28C, dword_12D288, 72);
   if ( *(uint32_t *)v2 )
     **(uint32_t **)(v2 + 4) = a2;
   else

@@ -15,8 +15,8 @@ extern uint32_t off_12AB78;
 extern uint32_t off_12AB7C;
 extern uint32_t dword_12AB70;
 
-// sub_12AAD4 @ 0x12aad4, size 156 bytes
-int  sub_12AAD4(int result, int a2)
+// rf_power_table_update @ 0x12aad4, size 156 bytes
+int  rf_power_table_update(int result, int a2)
 {
   int *v2; // r7
   uint32_t *v3; // r9
@@ -55,7 +55,7 @@ int  sub_12AAD4(int result, int a2)
       if ( v11 - 62 >= 0 )
       {
         *(uint32_t *)(v8 + 88) = 0;
-        result = timestamp_update(v9, result);
+        result = unknown_worker(v9, result);
         v12 = *v2;
         v10 = 1;
         if ( !*v2 )
@@ -78,7 +78,7 @@ LABEL_8:
     v6 = 1;
   }
   if ( v10 )
-    return sub_129598(v5);
+    return wlc_tx_process(v5);
   return result;
 }
 

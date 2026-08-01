@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12CC60 @ 0x12cc60, size 4 bytes
+// jump_to_tx_entry @ 0x12cc60, size 4 bytes
 // attributes: thunk
-int  sub_12CC60(int a1)
+int  jump_to_tx_entry(int a1)
 {
-  return sub_12CDF0(a1);
+  return hci_tx_packet(a1);
 }
 

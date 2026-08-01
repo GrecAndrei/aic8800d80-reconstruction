@@ -19,8 +19,8 @@ extern uint32_t off_113360;
 extern uint32_t dword_113370;
 extern uint32_t off_113364;
 
-// sub_1132B0 @ 0x1132b0, size 164 bytes
-int  sub_1132B0(int a1, unsigned int a2)
+// check_and_init_flag @ 0x1132b0, size 164 bytes
+int  check_and_init_flag(int a1, unsigned int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
@@ -37,7 +37,7 @@ int  sub_1132B0(int a1, unsigned int a2)
   v3 = off_113358;
   if ( *(uint8_t *)off_113358 )
   {
-    sub_10DAE4(dword_11336C, dword_113368, *(uint8_t *)off_113358);
+    debug_printf(dword_11336C, dword_113368, *(uint8_t *)off_113358);
     return -3;
   }
   else
@@ -54,11 +54,11 @@ int  sub_1132B0(int a1, unsigned int a2)
     {
       *((uint32_t *)off_113360 + 713) |= 1u;
     }
-    v6 = sub_111FDC(1, a1, a2);
+    v6 = phy_save_rssi(1, a1, a2);
     v7 = v6;
     if ( v6 )
     {
-      sub_10DAE4(dword_113370, dword_113368, v6);
+      debug_printf(dword_113370, dword_113368, v6);
       return -1;
     }
     else
@@ -66,7 +66,7 @@ int  sub_1132B0(int a1, unsigned int a2)
       *(uint8_t *)off_113364 = 1;
       if ( *v2 )
       {
-        sub_111C74(0, 1u);
+        wlan_ctrl_check(0, 1u);
         *v3 = 0;
         return -14;
       }

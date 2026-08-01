@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1277FC @ 0x1277fc, size 120 bytes
-int  sub_1277FC(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8)
+// aeabi_dadd_internal @ 0x1277fc, size 120 bytes
+int  aeabi_dadd_internal(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8)
 {
   int v8; // cf
   int v9; // r4

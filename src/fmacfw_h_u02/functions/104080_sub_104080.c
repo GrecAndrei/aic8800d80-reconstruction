@@ -21,8 +21,8 @@ extern uint32_t off_104174;
 extern uint32_t off_104178;
 extern uint32_t dword_10417C;
 
-// sub_104080 @ 0x104080, size 214 bytes
-uint32_t *sub_104080()
+// bt_radio_init @ 0x104080, size 214 bytes
+uint32_t *bt_radio_init()
 {
   unsigned int *v0; // r4
   unsigned int *v1; // r0
@@ -48,7 +48,7 @@ uint32_t *sub_104080()
   v0 -= 136;
   *v4 |= 0x2000000u;
   *v0 &= ~0x20000u;
-  sub_100644(2);
+  mmio_read32(2);
   v6 = off_104170;
   result = off_104174;
   v8 = off_104178;

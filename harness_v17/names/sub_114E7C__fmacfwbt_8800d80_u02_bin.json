@@ -1,0 +1,1 @@
+{"fn": "sub_114E7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114e7c", "status": "ok", "name": "call_vector_1fc", "params": [], "docstring": "Jump to firmware function pointer stored at 0x1fc", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

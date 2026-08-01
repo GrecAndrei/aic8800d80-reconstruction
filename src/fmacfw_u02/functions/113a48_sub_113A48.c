@@ -14,8 +14,8 @@ extern uint32_t off_113A80;
 extern uint32_t off_113A84;
 extern uint32_t dword_113A88;
 
-// sub_113A48 @ 0x113a48, size 54 bytes
-int sub_113A48()
+// assert_error @ 0x113a48, size 54 bytes
+int assert_error()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_113A48()
   v0 = (int *)off_113A84;
   v1 = dword_113A88;
   ++*(uint32_t *)off_113A84;
-  result = sub_12D248(v1);
+  result = cmd_handler_a(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

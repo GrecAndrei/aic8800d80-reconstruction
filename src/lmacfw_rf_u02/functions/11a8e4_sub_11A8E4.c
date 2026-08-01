@@ -17,8 +17,8 @@ extern uint32_t off_11A9B0;
 extern uint32_t off_11A9B4;
 extern uint32_t dword_11A9B8;
 
-// sub_11A8E4 @ 0x11a8e4, size 192 bytes
-int  sub_11A8E4(uint8_t *a1)
+// mmio_select_port @ 0x11a8e4, size 192 bytes
+int  mmio_select_port(uint8_t *a1)
 {
   int v1; // r1
   int v3; // r3
@@ -65,7 +65,7 @@ int  sub_11A8E4(uint8_t *a1)
     v7 = (unsigned int)off_11A9B4;
     *(uint32_t *)off_11A9B4 = *(uint32_t *)off_11A9B4 & 0xFF00FFFF | (a1[5] << 16);
   }
-  sub_11F504(dword_11A9B8, v7);
-  return sub_11F594(a1, 6, 1, 0);
+  dispatch_event_handler(dword_11A9B8, v7);
+  return handle_ipc_request(a1, 6, 1, 0);
 }
 

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11E71C @ 0x11e71c, size 8 bytes
-uint32_t * sub_11E71C(uint32_t *result)
+// list_init @ 0x11e71c, size 8 bytes
+uint32_t * list_init(uint32_t *result)
 {
   *result = 0;
   result[1] = 0;

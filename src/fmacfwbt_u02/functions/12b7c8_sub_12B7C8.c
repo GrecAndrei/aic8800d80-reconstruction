@@ -30,10 +30,10 @@ extern uint32_t dword_12BA14;
 extern uint32_t off_12BA18;
 extern uint32_t off_12BA1C;
 
-// sub_12B7C8 @ 0x12b7c8, size 530 bytes
+// rf_wait_event @ 0x12b7c8, size 530 bytes
 // Doc: sub_122B7C8 [unknown]: unknown behavioral stub in fmac firmware bluetooth variant
 // sub_122B7C8 [unknown]: unknown behavioral stub in fmac firmware bluetooth variant
-unsigned int  sub_12B7C8(unsigned int result)
+unsigned int  rf_wait_event(unsigned int result)
 {
   uint32_t *v1; // r6
   unsigned int v2; // r5
@@ -75,22 +75,22 @@ unsigned int  sub_12B7C8(unsigned int result)
     *v1 = v4 & ((result * ((*v1 >> 18) & 0x3FF) / v2) << 18) | *v1 & v5;
     if ( result == 240 )
     {
-      v21 = sub_1426B8(dword_12B9E8, dword_12B9EC);
-      v22 = sub_1430C8(v21);
+      v21 = softfloat_float_op(dword_12B9E8, dword_12B9EC);
+      v22 = __aeabi_d2ulz(v21);
       v23 = dword_12BA20;
       *v1 = v4 & (v22 << 18) | *v1 & v5;
       v24 = (unsigned int *)off_12BA04;
-      v25 = sub_1426B8(0, v23);
-      *v24 = dword_12BA08 & (sub_1430C8(v25) << 20) | *v24 & 0xC00FFFFF;
+      v25 = softfloat_float_op(0, v23);
+      *v24 = dword_12BA08 & (__aeabi_d2ulz(v25) << 20) | *v24 & 0xC00FFFFF;
     }
     else
     {
-      v7 = sub_142A70(result);
-      v8 = sub_142B44(v7, HIDWORD(v7), dword_12B9E0, dword_12B9E4);
-      v9 = sub_143108(v8);
-      v10 = sub_142A94(LODWORD(v9));
-      v11 = sub_1426B8(v10, HIDWORD(v10));
-      *v1 = v4 & (sub_1430C8(v11) << 18) | *v1 & v5;
+      v7 = __aeabi_i2d(result);
+      v8 = __aeabi_dmul(v7, HIDWORD(v7), dword_12B9E0, dword_12B9E4);
+      v9 = double_to_float(v8);
+      v10 = __aeabi_f2d(LODWORD(v9));
+      v11 = softfloat_float_op(v10, HIDWORD(v10));
+      *v1 = v4 & (__aeabi_d2ulz(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_12BA04;
     *(uint32_t *)off_12B9FC = dword_12BA00 & ((v6 * (uint16_t)(*(uint32_t *)off_12B9FC >> 8) / v2) << 8)

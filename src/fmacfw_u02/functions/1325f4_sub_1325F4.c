@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1325F4 @ 0x1325f4, size 26 bytes
-int  sub_1325F4(uint8_t *a1)
+// util_get_byte3 @ 0x1325f4, size 26 bytes
+int  util_get_byte3(uint8_t *a1)
 {
   if ( a1[3] )
     return 3;

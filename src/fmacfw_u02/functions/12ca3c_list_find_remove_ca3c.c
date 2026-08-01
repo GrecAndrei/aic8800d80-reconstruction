@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// list_find_remove_ca3c @ 0x12ca3c, size 86 bytes
+// pkt_word_get @ 0x12ca3c, size 86 bytes
 // Doc: message_dispatch_nf8 [ipc]: Dispatch incoming message and return to caller
 // message_dispatch_nf8 [ipc]: Dispatch incoming message and return to caller
-uint32_t * list_find_remove_ca3c(int a1, int ( *a2)(uint32_t *, int), int a3)
+uint32_t * pkt_word_get(int a1, int ( *a2)(uint32_t *, int), int a3)
 {
   uint32_t *v3; // r4
   uint32_t *v7; // r8

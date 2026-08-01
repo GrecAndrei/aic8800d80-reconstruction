@@ -1,1 +1,1 @@
-{"fn": "sub_1207224", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1207224", "status": "ok", "name": "subsystem_init_n7224", "params": [], "docstring": "Initialize peripheral subsystem by clearing reset bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1207224", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1207224", "status": "ok", "name": "rf_disable", "params": [], "docstring": "Initialize peripheral subsystem by clearing reset bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

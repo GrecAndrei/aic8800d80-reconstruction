@@ -16,8 +16,8 @@ extern uint32_t dword_138B68;
 extern uint32_t dword_138B70;
 extern uint32_t dword_138B6C;
 
-// sub_138AB4 @ 0x138ab4, size 170 bytes
-int  sub_138AB4(uint16_t *a1)
+// rf_is_calibrated @ 0x138ab4, size 170 bytes
+int  rf_is_calibrated(uint16_t *a1)
 {
   int v2; // r7
   int v3; // r5
@@ -36,7 +36,7 @@ int  sub_138AB4(uint16_t *a1)
         if ( *(uint8_t *)(i + 106) == 2 )
         {
           v6 = 1320 * v3;
-          if ( !sub_1435D0(a1 + 2, i + 100, 6) )
+          if ( !memcmp(a1 + 2, i + 100, 6) )
             break;
         }
       }
@@ -46,19 +46,19 @@ int  sub_138AB4(uint16_t *a1)
     v7 = *(uint32_t **)(v2 + v6 + 240);
     if ( v7 )
     {
-      while ( sub_1435D0(a1 + 5, (char *)v7 + 38, 6) )
+      while ( memcmp(a1 + 5, (char *)v7 + 38, 6) )
       {
         v7 = (uint32_t *)*v7;
         if ( !v7 )
           goto LABEL_14;
       }
-      sub_12E948(dword_138B68, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
+      alloc_tx_event(dword_138B68, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
     }
     else
     {
 LABEL_14:
-      sub_12E948(dword_138B70, dword_138B6C, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
-      sub_136C2C(v2 + v6, (int)(a1 + 5));
+      alloc_tx_event(dword_138B70, dword_138B6C, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
+      rf_config_lookup(v2 + v6, (int)(a1 + 5));
     }
   }
   return 0;

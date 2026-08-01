@@ -12,19 +12,19 @@
 
 extern uint32_t off_11D820;
 
-// sub_11D7FC @ 0x11d7fc, size 34 bytes
-int sub_11D7FC()
+// rf_poll @ 0x11d7fc, size 34 bytes
+int rf_poll()
 {
   uint8_t *v0; // r4
   int v1; // r0
   char v2; // r0
 
   v0 = off_11D820;
-  sub_11DFF0();
-  v1 = sub_12D240(v0);
-  v2 = sub_12F530(v1) - 1;
+  radio_read_fifo();
+  v1 = zero_8_bytes(v0);
+  v2 = get_phy_type(v1) - 1;
   v0[11] = v2;
   v0[10] = v2;
-  return sub_139CF4();
+  return bt_init_mod();
 }
 

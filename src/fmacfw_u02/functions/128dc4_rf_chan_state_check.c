@@ -19,10 +19,10 @@ extern uint32_t off_128E94;
 extern uint32_t dword_128E9C;
 extern uint32_t off_128E90;
 
-// rf_chan_state_check @ 0x128dc4, size 186 bytes
-// Doc: rf_chan_state_check [rf]: Check RF channel/state flags against expected value
-// rf_chan_state_check [rf]: Check RF channel/state flags against expected value
-void  rf_chan_state_check(int a1)
+// wlc_phy_band_check @ 0x128dc4, size 186 bytes
+// Doc: wlc_phy_band_check [rf]: Check RF channel/state flags against expected value
+// wlc_phy_band_check [rf]: Check RF channel/state flags against expected value
+void  wlc_phy_band_check(int a1)
 {
   uint8_t *v1; // r5
   uint64_t v3; // r2
@@ -40,7 +40,7 @@ void  rf_chan_state_check(int a1)
     if ( v3 )
       v4 = 0;
     else
-      v4 = sub_1112F4() != 0;
+      v4 = get_status_flag() != 0;
   }
   else
   {
@@ -62,7 +62,7 @@ LABEL_18:
     v7 = *(uint16_t *)(v6 + 54);
     v8 = dword_128E9C;
     v1[29] = 1;
-    timestamp_update(v8, v7 + v5[4]);
+    unknown_worker(v8, v7 + v5[4]);
     return;
   }
   if ( !**(uint8_t **)off_128E8C || !*(uint8_t *)(a1 + 108) )
@@ -75,7 +75,7 @@ LABEL_18:
     v1[29] = 0;
   }
   if ( v1[28] )
-    fmac_sub_1228D64();
+    wlc_chip_state();
   else
     v1[29] = 0;
 }

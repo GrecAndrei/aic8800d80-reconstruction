@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1007B0;
 
-// sub_1006C0 @ 0x1006c0, size 238 bytes
+// periph_process @ 0x1006c0, size 238 bytes
 // Doc: sub_12006C0 [unknown]: Complex helper: parses input/output buffer pointers with stack frame
 // sub_12006C0 [unknown]: Complex helper: parses input/output buffer pointers with stack frame
-int  sub_1006C0(int result, int a2, int a3, unsigned int a4)
+int  periph_process(int result, int a2, int a3, unsigned int a4)
 {
   int v4; // r8
   unsigned int v5; // r12

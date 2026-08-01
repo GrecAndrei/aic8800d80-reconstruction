@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D658 @ 0x12d658, size 48 bytes
-uint32_t * sub_12D658(uint32_t *result, uint32_t *a2)
+// list_merge @ 0x12d658, size 48 bytes
+uint32_t * list_merge(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v3; // r1
   uint32_t *v4; // r2

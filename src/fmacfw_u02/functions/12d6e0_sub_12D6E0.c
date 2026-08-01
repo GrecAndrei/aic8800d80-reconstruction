@@ -13,16 +13,16 @@
 extern uint32_t dword_12D700;
 extern uint32_t dword_12D704;
 
-// sub_12D6E0 @ 0x12d6e0, size 26 bytes
-float  sub_12D6E0(unsigned int a1)
+// free_msg @ 0x12d6e0, size 26 bytes
+float  free_msg(unsigned int a1)
 {
   float v1; // r0
   uint64_t v2; // r0
   int v3; // r0
 
-  v1 = sub_12D5A4(a1);
-  v2 = sub_1429F8(LODWORD(v1));
-  v3 = sub_142AA8(v2, HIDWORD(v2), dword_12D700, dword_12D704);
-  return sub_14306C(v3);
+  v1 = extract_msg_type(a1);
+  v2 = float_to_double(LODWORD(v1));
+  v3 = double_add(v2, HIDWORD(v2), dword_12D700, dword_12D704);
+  return double_to_uint(v3);
 }
 

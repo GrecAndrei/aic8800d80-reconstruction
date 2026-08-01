@@ -1,0 +1,1 @@
+{"fn": "sub_1149DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1149dc", "status": "ok", "name": "rf_reg_0x11_bits_3_5", "params": [], "docstring": "Read bits 3-5 of RF register 0x11", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

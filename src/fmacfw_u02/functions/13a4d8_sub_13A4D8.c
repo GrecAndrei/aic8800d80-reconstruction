@@ -12,8 +12,8 @@
 
 extern uint32_t off_13A4E8;
 
-// sub_13A4D8 @ 0x13a4d8, size 14 bytes
-int sub_13A4D8()
+// clear_flag @ 0x13a4d8, size 14 bytes
+int clear_flag()
 {
   int result; // r0
 

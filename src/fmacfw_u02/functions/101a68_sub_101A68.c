@@ -12,8 +12,8 @@
 
 extern uint32_t off_101A84;
 
-// sub_101A68 @ 0x101a68, size 28 bytes
-uint32_t * sub_101A68(uint32_t *result, uint32_t *a2)
+// rf_set_address @ 0x101a68, size 28 bytes
+uint32_t * rf_set_address(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

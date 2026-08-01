@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n39a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211efe", "status": "ok", "name": "rf_bus_write_n39a", "params": [], "docstring": "Write to RF bus with size validation (1-5 bytes)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n39a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211efe", "status": "ok", "name": "rf_bus_setup_n3", "params": [], "docstring": "Write to RF bus with size validation (1-5 bytes)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

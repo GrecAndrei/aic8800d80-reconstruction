@@ -34,8 +34,8 @@ extern uint32_t off_113ACC;
 extern uint32_t off_113AD0;
 extern uint32_t dword_113AD4;
 
-// sub_11397C @ 0x11397c, size 264 bytes
-int  sub_11397C(int a1)
+// rf_save_regs @ 0x11397c, size 264 bytes
+int  rf_save_regs(int a1)
 {
   void *v1; // r5
   uint32_t *v2; // r1
@@ -91,7 +91,7 @@ int  sub_11397C(int a1)
   *v9 = v6 + 14;
   sub_100200(v6, 0, 0xCB8u);
   if ( **(int16_t **)off_113AA8 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
-    sub_12F32C(dword_113ADC, dword_113AD8, 758);
+    irq_disable_mmio_write(dword_113ADC, dword_113AD8, 758);
   v10 = off_113AAC;
   v11 = *((uint16_t *)off_113AAC + 164);
   v12 = *((uint16_t *)off_113AAC + 154);
@@ -121,13 +121,13 @@ int  sub_11397C(int a1)
     v22 = off_113AD0;
     v23 = dword_113AD4;
     *(uint8_t *)off_113AD0 = v21;
-    sub_12E948(v23, v21, v22);
+    alloc_tx_event(v23, v21, v22);
   }
   else
   {
     v25 = dword_113AD4;
     *(uint8_t *)off_113AD0 = 10;
-    sub_12E948(v25, 10, v15);
+    alloc_tx_event(v25, 10, v15);
   }
   return 1;
 }

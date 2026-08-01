@@ -17,8 +17,8 @@ extern uint32_t off_11A7BC;
 extern uint32_t off_11A7C0;
 extern uint32_t dword_11A7C4;
 
-// sub_11A72C @ 0x11a72c, size 132 bytes
-int  sub_11A72C(uint16_t *a1)
+// mmio_clear_bits @ 0x11a72c, size 132 bytes
+int  mmio_clear_bits(uint16_t *a1)
 {
   int v1; // r3
   int *v2; // r2
@@ -47,8 +47,8 @@ int  sub_11A72C(uint16_t *a1)
   v6[1] = v6[1] & v1 | (v7 << 12);
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
-  sub_1183A0();
-  sub_11F504(dword_11A7C4, *a1);
+  poll_hw_status();
+  dispatch_event_handler(dword_11A7C4, *a1);
   return 0;
 }
 

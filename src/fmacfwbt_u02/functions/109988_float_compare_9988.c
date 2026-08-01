@@ -15,10 +15,10 @@ extern uint32_t dword_109BF4;
 extern uint32_t dword_109BFC;
 extern uint32_t dword_109C00;
 
-// float_compare_9988 @ 0x109988, size 610 bytes
-// Doc: float_compare_9988 [util]: Float32 pair compare and range helper
-// float_compare_9988 [util]: Float32 pair compare and range helper
-int  float_compare_9988(unsigned int a1, float *a2, float *a3, int a4)
+// f32_compare @ 0x109988, size 610 bytes
+// Doc: f32_compare [util]: Float32 pair compare and range helper
+// f32_compare [util]: Float32 pair compare and range helper
+int  f32_compare(unsigned int a1, float *a2, float *a3, int a4)
 {
   float v4; // s13
   float v5; // s14
@@ -75,20 +75,20 @@ int  float_compare_9988(unsigned int a1, float *a2, float *a3, int a4)
   v16 = (float)(v14 * 3.0) - (float)(v15 * v15);
   if ( v16 > 0.0 )
   {
-    v17 = sub_142A94((float)(v14 * 3.0) - (float)(v15 * v15));
-    if ( !sub_143028(v17, HIDWORD(v17), dword_109BF0, dword_109BF4) )
+    v17 = __aeabi_f2d((float)(v14 * 3.0) - (float)(v15 * v15));
+    if ( !__aeabi_dcmplt(v17, HIDWORD(v17), dword_109BF0, dword_109BF4) )
       goto LABEL_11;
     v16 = flt_109BF8;
     goto LABEL_10;
   }
-  v38 = sub_142A94(-v16);
-  if ( sub_143028(v38, HIDWORD(v38), dword_109BF0, dword_109BF4) )
+  v38 = __aeabi_f2d(-v16);
+  if ( __aeabi_dcmplt(v38, HIDWORD(v38), dword_109BF0, dword_109BF4) )
   {
     v16 = flt_109C08;
 LABEL_10:
     v20 = dword_109BFC;
     *(uint8_t *)a4 |= 4u;
-    log_printf(v20, v18, v19);
+    printf_wrapper(v20, v18, v19);
     v11 = *a2;
     v12 = a2[1];
     v13 = a2[2];
@@ -106,11 +106,11 @@ LABEL_11:
               + (float)((float)((float)(v23 * v12) + (float)(v14 * (float)(1.0 / v16))) * v21))
       + (float)((float)((float)(v23 * v13) + (float)(v14 * (float)(1.0 / v16))) * v22);
   if ( a1 > 0xD && v24 < 20.0
-    || (v31 = sub_142A94(LODWORD(v24)), (result = sub_143028(v31, HIDWORD(v31), dword_109BF0, dword_109BF4)) != 0) )
+    || (v31 = __aeabi_f2d(LODWORD(v24)), (result = __aeabi_dcmplt(v31, HIDWORD(v31), dword_109BF0, dword_109BF4)) != 0) )
   {
     v26 = dword_109C00;
     *(uint8_t *)a4 |= 8u;
-    result = log_printf(v26, v18, v19);
+    result = printf_wrapper(v26, v18, v19);
     v24 = 1.0;
     v28 = 2.0;
   }

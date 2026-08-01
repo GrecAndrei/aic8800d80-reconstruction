@@ -21,10 +21,10 @@ extern uint32_t off_12938C;
 extern uint32_t off_129388;
 extern uint32_t off_12939C;
 
-// fmac_bt_chan_ctx_load @ 0x1291b0, size 454 bytes
-// Doc: fmac_bt_chan_ctx_load [bt]: Load BT channel context from LMAC shared structure
-// fmac_bt_chan_ctx_load [bt]: Load BT channel context from LMAC shared structure
-unsigned int  fmac_bt_chan_ctx_load(unsigned int result, int a2, int a3)
+// ipc_msg_receive @ 0x1291b0, size 454 bytes
+// Doc: ipc_msg_receive [bt]: Load BT channel context from LMAC shared structure
+// ipc_msg_receive [bt]: Load BT channel context from LMAC shared structure
+unsigned int  ipc_msg_receive(unsigned int result, int a2, int a3)
 {
   int v3; // r3
   uint32_t *v4; // r7
@@ -80,7 +80,7 @@ unsigned int  fmac_bt_chan_ctx_load(unsigned int result, int a2, int a3)
             v19 = dword_129398;
             v4[5] = a3;
             *((uint8_t *)v4 + 29) = 5;
-            timestamp_update_4f60(v19, v18 + v17);
+            ke_event_lock(v19, v18 + v17);
           }
         }
         else
@@ -98,7 +98,7 @@ unsigned int  fmac_bt_chan_ctx_load(unsigned int result, int a2, int a3)
           *(uint32_t *)off_129380 &= ~0x200u;
         if ( !*(uint8_t *)off_129384 )
         {
-          bt_msg_post_n2cc();
+          mm_beacon_irq();
           if ( !*((uint8_t *)v4 + 28) || (*(uint32_t *)off_12938C & 4) != 0 )
           {
             *(uint8_t *)off_129388 = 0;
@@ -106,8 +106,8 @@ unsigned int  fmac_bt_chan_ctx_load(unsigned int result, int a2, int a3)
           else
           {
             v20 = off_129388;
-            if ( *(uint8_t *)off_129388 && (sub_122B1C() != 1 || !*((uint32_t *)off_12939C + 126)) )
-              fmacfwbt_phy_chan_init(*(uint8_t *)(a3 + 116), 0, 0);
+            if ( *(uint8_t *)off_129388 && (find_pending_command() != 1 || !*((uint32_t *)off_12939C + 126)) )
+              ble_conn_get(*(uint8_t *)(a3 + 116), 0, 0);
             *v20 = 1;
           }
           v21 = off_129394;
@@ -117,7 +117,7 @@ unsigned int  fmac_bt_chan_ctx_load(unsigned int result, int a2, int a3)
           v24 = v21[4];
           v4[5] = a3;
           *((uint8_t *)v4 + 29) = 6;
-          return timestamp_update_4f60(v23, v22 + v24);
+          return ke_event_lock(v23, v22 + v24);
         }
       }
       else
@@ -137,9 +137,9 @@ unsigned int  fmac_bt_chan_ctx_load(unsigned int result, int a2, int a3)
     v15 = off_129388;
     if ( *(uint8_t *)off_129388 )
     {
-      result = sub_122B1C();
+      result = find_pending_command();
       if ( result != 1 || !*((uint32_t *)off_12939C + 126) )
-        result = fmacfwbt_phy_chan_init(*(uint8_t *)(a3 + 116), 0, 0);
+        result = ble_conn_get(*(uint8_t *)(a3 + 116), 0, 0);
     }
     *v15 = 1;
   }

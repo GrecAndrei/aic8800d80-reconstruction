@@ -27,10 +27,10 @@ extern uint32_t off_116384;
 extern uint32_t off_116388;
 extern uint32_t off_116398;
 
-// sub_116188 @ 0x116188, size 472 bytes
+// ke_init_structures @ 0x116188, size 472 bytes
 // Doc: sub_1216188 [patch]: Initialization routine loading multiple config pointers and calling setup
 // sub_1216188 [patch]: Initialization routine loading multiple config pointers and calling setup
-void __noreturn sub_116188()
+void __noreturn ke_init_structures()
 {
   int *v0; // r5
   uint8_t **v1; // r8
@@ -49,12 +49,12 @@ void __noreturn sub_116188()
   int v14; // r3
 
   v0 = (int *)off_11636C;
-  sub_12ECB0(dword_116368, dword_116364, dword_116360);
+  ke_event_schedule(dword_116368, dword_116364, dword_116360);
   if ( *(uint32_t *)off_116370 )
   {
-    sub_10ED6C();
+    write_reg_70001408();
     if ( *(uint16_t *)(*v0 + 8) )
-      sub_10ED30(*(uint16_t *)(*v0 + 8));
+      periph_field_set(*(uint16_t *)(*v0 + 8));
   }
   v1 = (uint8_t **)off_11639C;
   if ( **(uint8_t **)off_11639C == 2 )
@@ -63,9 +63,9 @@ void __noreturn sub_116188()
     *(uint8_t *)(v2 + 6) = 2;
     *(uint8_t *)(v2 + 3) = 1;
   }
-  v3 = sub_114498(*(uint16_t *)(*v0 + 4));
+  v3 = init_chip_state(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
-    mmio_clear_bit1_n_524();
+    clear_hw_flag_bit();
   __enable_irq();
   __dsb(0xFu);
   __isb(0xFu);
@@ -79,10 +79,10 @@ void __noreturn sub_116188()
     while ( 1 )
     {
       if ( *(uint8_t *)(*v0 + 3) )
-        sub_114514();
+        hw_sync_write();
       if ( !*v4 )
-        v3 = bt_msg_handler_122D3B8(v3);
-      v3 = sub_13038C(v3);
+        v3 = process_event_queue(v3);
+      v3 = ke_event_send(v3);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -101,11 +101,11 @@ void __noreturn sub_116188()
       *(uint8_t *)off_11638C = 0;
       if ( *(uint8_t *)(*v0 + 3) )
 LABEL_39:
-        mmio_clear_bit1_n_524();
+        clear_hw_flag_bit();
     }
     else
     {
-      sub_116034();
+      rx_check_buffers();
       if ( *(uint8_t *)(*v0 + 3) )
         goto LABEL_39;
     }
@@ -114,7 +114,7 @@ LABEL_39:
       v14 = **(uint8_t **)off_116388;
       if ( v14 == 3 )
       {
-        v3 = state_flag_check();
+        v3 = ll_util_get_state();
         if ( !v3 )
         {
           v14 = **(uint8_t **)off_116388;
@@ -134,7 +134,7 @@ LABEL_32:
           goto LABEL_21;
         }
       }
-      sdio_wait_busy(v3);
+      hw_poll_flag(v3);
       while ( 1 )
         ;
     }
@@ -153,16 +153,16 @@ LABEL_23:
           goto LABEL_29;
         goto LABEL_24;
       }
-      v3 = sub_115B00(v3, v9);
+      v3 = check_nvic_irq(v3, v9);
     }
     while ( !v3 );
     if ( !*(uint8_t *)(*v0 + 3) )
       goto LABEL_23;
 LABEL_28:
-    mmio_set_flag_bit1();
+    set_hw_flag_bit();
     if ( v8[1] )
 LABEL_29:
-      v3 = sub_115B90();
+      v3 = rf_clock_enable();
 LABEL_24:
     v11 = *v6;
     if ( *v6 )

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12AF28;
 
-// sub_12AF08 @ 0x12af08, size 30 bytes
+// tx_arbiter_calc @ 0x12af08, size 30 bytes
 // Doc: sub_122AF08 [unknown]: Unknown FMAC helper (no clear pattern)
 // sub_122AF08 [unknown]: Unknown FMAC helper (no clear pattern)
-int  sub_12AF08(int a1, int a2, int a3)
+int  tx_arbiter_calc(int a1, int a2, int a3)
 {
   int v3; // r3
   unsigned int v4; // r2

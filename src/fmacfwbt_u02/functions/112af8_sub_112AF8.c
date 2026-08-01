@@ -12,8 +12,8 @@
 
 extern uint32_t off_112B00;
 
-// sub_112AF8 @ 0x112af8, size 6 bytes
-int sub_112AF8()
+// get_global_state @ 0x112af8, size 6 bytes
+int get_global_state()
 {
   return *(uint8_t *)off_112B00;
 }

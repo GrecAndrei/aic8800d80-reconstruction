@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n32c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b30", "status": "ok", "name": "rf_level_apply_n_358", "params": [], "docstring": "Apply RF TX power level by extracting gain/band fields from index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n32c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b30", "status": "ok", "name": "util_check_flags", "params": [], "docstring": "Apply RF TX power level by extracting gain/band fields from index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

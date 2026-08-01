@@ -17,10 +17,10 @@ extern uint32_t off_11A7BC;
 extern uint32_t off_11A7C0;
 extern uint32_t dword_11A7C4;
 
-// rf_reg_probe_id @ 0x11a72c, size 132 bytes
-// Doc: rf_reg_probe_id [rf]: Probes RF register 0x40320200 and reads header
-// rf_reg_probe_id [rf]: Probes RF register 0x40320200 and reads header
-int  rf_reg_probe_id(uint16_t *a1)
+// mmio_clear_bits @ 0x11a72c, size 132 bytes
+// Doc: mmio_clear_bits [rf]: Probes RF register 0x40320200 and reads header
+// mmio_clear_bits [rf]: Probes RF register 0x40320200 and reads header
+int  mmio_clear_bits(uint16_t *a1)
 {
   int v1; // r3
   int *v2; // r2
@@ -49,8 +49,8 @@ int  rf_reg_probe_id(uint16_t *a1)
   v6[1] = v6[1] & v1 | (v7 << 12);
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
-  sub_1183A0();
-  msg_parse(dword_11A7C4, *a1);
+  poll_hw_status();
+  dispatch_event_handler(dword_11A7C4, *a1);
   return 0;
 }
 

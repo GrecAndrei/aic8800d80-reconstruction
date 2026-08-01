@@ -1,0 +1,1 @@
+{"fn": "sub_121F1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f1c", "status": "ok", "name": "check_clock_state", "params": [], "docstring": "Check clock status and return flag if state equals 4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

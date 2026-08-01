@@ -15,8 +15,8 @@ extern uint32_t off_13F444;
 extern uint32_t dword_13F450;
 extern uint32_t dword_13F44C;
 
-// sub_13F2E0 @ 0x13f2e0, size 354 bytes
-int  sub_13F2E0(int a1, int a2)
+// fetch_connection_params @ 0x13f2e0, size 354 bytes
+int  fetch_connection_params(int a1, int a2)
 {
   int result; // r0
   unsigned int v4; // r11
@@ -39,7 +39,7 @@ int  sub_13F2E0(int a1, int a2)
   result = dword_13F448;
   v4 = *(uint32_t *)(dword_13F448 + 696 * a1 + 340);
   if ( **(int16_t **)off_13F444 < 0 && !v4 )
-    result = sub_12F694(dword_13F450, dword_13F44C, 3356);
+    result = mmio_irq_clear(dword_13F450, dword_13F44C, 3356);
   if ( *(uint8_t *)(v4 + 182) == a2 )
     return result;
   *(uint8_t *)(v4 + 182) = a2;
@@ -52,7 +52,7 @@ int  sub_13F2E0(int a1, int a2)
     *(uint8_t *)(v4 + 166) = v6 | 0x80;
     return result;
   }
-  v8 = sub_13D3E8(v4);
+  v8 = scan_adv_state_switch(v4);
   *(uint16_t *)(v4 + 184) = v8;
   if ( !v8 )
     goto LABEL_18;
@@ -105,7 +105,7 @@ LABEL_10:
         if ( v16 == v8 )
           goto LABEL_21;
       }
-      v12 = sub_13D730(v4);
+      v12 = scan_update_adv_params(v4);
       v8 = *(uint16_t *)(v4 + 184);
     }
     while ( *(uint16_t *)(v4 + 184) );
@@ -117,8 +117,8 @@ LABEL_10:
   *(uint8_t *)(v18 + 13) = v8;
   v20[v7] = v8;
 LABEL_18:
-  sub_13E26C(v4, (int)v20);
-  result = sub_13D08C(v4, v20);
+  tx_process_ll_queue(v4, (int)v20);
+  result = tx_handle_acked_list(v4, v20);
   *(uint8_t *)(dword_13F448 + 696 * a1 + 350) |= 1u;
   return result;
 }

@@ -1,1 +1,1 @@
-{"fn": "crypto_state_dump", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12075b8", "status": "ok", "name": "crypto_state_dump", "params": [], "docstring": "Dump crypto engine state to memory buffer for debug", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_state_dump", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12075b8", "status": "ok", "name": "rf_load_tx_config", "params": [], "docstring": "Dump crypto engine state to memory buffer for debug", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

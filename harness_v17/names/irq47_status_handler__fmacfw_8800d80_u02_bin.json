@@ -1,1 +1,1 @@
-{"fn": "irq47_status_handler", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201954", "status": "ok", "name": "irq47_status_handler", "params": [], "docstring": "Reads/clears IRQ47 status register bits", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "irq47_status_handler", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201954", "status": "ok", "name": "rf_copy_register", "params": [], "docstring": "Reads/clears IRQ47 status register bits", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -13,8 +13,8 @@
 extern uint32_t off_10DB90;
 extern uint32_t dword_40504080;
 
-// sub_10DB64 @ 0x10db64, size 42 bytes
-int  sub_10DB64(int result)
+// rf_irq_clear @ 0x10db64, size 42 bytes
+int  rf_irq_clear(int result)
 {
   uint32_t *v1; // r1
 

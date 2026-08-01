@@ -1,1 +1,1 @@
-{"fn": "sub_120D414", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d414", "status": "ok", "name": "sub_120D414", "params": [], "docstring": "Reads global state flag and dispatches by value", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120D414", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d414", "status": "ok", "name": "read_global_halfword", "params": [], "docstring": "Reads global state flag and dispatches by value", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

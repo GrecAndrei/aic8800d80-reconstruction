@@ -15,8 +15,8 @@ extern uint32_t off_11AC74;
 extern uint32_t off_11AC78;
 extern uint32_t off_11AC7C;
 
-// sub_11AC10 @ 0x11ac10, size 96 bytes
-int  sub_11AC10(int a1)
+// ke_exit_critical @ 0x11ac10, size 96 bytes
+int  ke_exit_critical(int a1)
 {
   int *v1; // r4
   void *v2; // r5
@@ -38,7 +38,7 @@ int  sub_11AC10(int a1)
   ++*(uint32_t *)off_11AC74;
   if ( v3 )
   {
-    result = sub_11E7AC(v2);
+    result = list_pop_front(v2);
     v7 = off_11AC7C;
     if ( *(uint32_t *)v2 )
     {
@@ -55,7 +55,7 @@ int  sub_11AC10(int a1)
   }
   else
   {
-    result = sub_11E7C4(v2, a1);
+    result = check_kernel_state_alt2(v2, a1);
   }
   if ( *v1 )
   {

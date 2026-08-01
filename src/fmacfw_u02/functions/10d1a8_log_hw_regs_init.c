@@ -14,10 +14,10 @@ extern uint32_t off_10D1F0;
 extern uint32_t off_10D1F4;
 extern uint32_t off_10D1F8;
 
-// log_hw_regs_init @ 0x10d1a8, size 70 bytes
-// Doc: log_hw_regs_init [util]: Initialize logging HW register capture
-// log_hw_regs_init [util]: Initialize logging HW register capture
-int log_hw_regs_init()
+// dma_reset_regs @ 0x10d1a8, size 70 bytes
+// Doc: dma_reset_regs [util]: Initialize logging HW register capture
+// dma_reset_regs [util]: Initialize logging HW register capture
+int dma_reset_regs()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r4

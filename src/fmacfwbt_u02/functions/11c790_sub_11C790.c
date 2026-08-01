@@ -12,8 +12,8 @@
 
 extern uint32_t off_11C79C;
 
-// sub_11C790 @ 0x11c790, size 12 bytes
-void sub_11C790()
+// enable_irq @ 0x11c790, size 12 bytes
+void enable_irq()
 {
   *(uint32_t *)off_11C79C |= 0x80u;
 }

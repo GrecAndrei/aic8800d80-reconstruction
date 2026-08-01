@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12F7A0;
 
-// sub_12F770 @ 0x12f770, size 48 bytes
-uint32_t ** sub_12F770(uint32_t **result)
+// process_pending_queue @ 0x12f770, size 48 bytes
+uint32_t ** process_pending_queue(uint32_t **result)
 {
   uint32_t *v1; // r4
   int v2; // r6
@@ -29,11 +29,11 @@ uint32_t ** sub_12F770(uint32_t **result)
     {
       while ( 1 )
       {
-        sub_12D4F8((int)v3);
+        list_pop_front((int)v3);
         result = (uint32_t **)v2;
         if ( !v1[3] )
           break;
-        result = (uint32_t **)list_push_tail(v2, v1);
+        result = (uint32_t **)check_abort_flag(v2, v1);
         v1 = (uint32_t *)*v3;
         if ( !*v3 )
           return result;

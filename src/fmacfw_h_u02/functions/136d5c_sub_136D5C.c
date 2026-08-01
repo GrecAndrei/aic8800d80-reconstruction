@@ -12,8 +12,8 @@
 
 extern uint32_t off_136DB8;
 
-// sub_136D5C @ 0x136d5c, size 90 bytes
-int  sub_136D5C(int a1, uint8_t *a2, int a3, int16_t a4)
+// rf_trace_tx_power @ 0x136d5c, size 90 bytes
+int  rf_trace_tx_power(int a1, uint8_t *a2, int a3, int16_t a4)
 {
   uint16_t *v4; // r4
   uint8_t *v6; // r0
@@ -36,7 +36,7 @@ int  sub_136D5C(int a1, uint8_t *a2, int a3, int16_t a4)
   int v24; // r2
 
   v4 = off_136DB8;
-  v6 = (uint8_t *)sub_12C7EC(4102, a4, 4, 0x3Cu);
+  v6 = (uint8_t *)tx_send_pdu(4102, a4, 4, 0x3Cu);
   v7 = v6;
   if ( v4[2] && (v8 = *a2, (uint16_t)v4[2] > v8) )
   {
@@ -73,13 +73,13 @@ int  sub_136D5C(int a1, uint8_t *a2, int a3, int16_t a4)
     v7[12] = *v10;
     v7[13] = v23;
     v7[14] = v24;
-    sub_12C84C((int)v7);
+    rx_process_packet((int)v7);
     return 0;
   }
   else
   {
     *v6 = 0;
-    sub_12C84C((int)v6);
+    rx_process_packet((int)v6);
     return 0;
   }
 }

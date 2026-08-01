@@ -23,8 +23,8 @@ extern uint32_t dword_101BD0;
 extern uint32_t off_101BBC;
 extern uint32_t off_101BC0;
 
-// sub_10197C @ 0x10197c, size 550 bytes
-int  sub_10197C(int a1, uint8_t *a2, uint8_t *a3)
+// llm_task_handler @ 0x10197c, size 550 bytes
+int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
 {
   int result; // r0
   unsigned int v5; // r10
@@ -71,7 +71,7 @@ int  sub_10197C(int a1, uint8_t *a2, uint8_t *a3)
       }
       if ( (*((uint32_t *)off_101BA8 + 98) & 2) != 0 )
       {
-        result = sub_132418(0, *((uint16_t *)off_101BA4 + 20));
+        result = llm_adv_state_get(0, *((uint16_t *)off_101BA4 + 20));
         v11 = v10;
         if ( result )
         {
@@ -81,11 +81,11 @@ int  sub_10197C(int a1, uint8_t *a2, uint8_t *a3)
         {
           if ( **(int16_t **)off_101BC4 < 0 )
           {
-            sub_12F6C4(dword_101BCC, dword_101BC8, 6857);
+            mmio_field_update(dword_101BCC, dword_101BC8, 6857);
             v11 = v10;
           }
           v22 = v11;
-          result = sub_12ECB0(dword_101BD0, 0, v5);
+          result = ke_event_schedule(dword_101BD0, 0, v5);
           v11 = v22;
           v20 = 15;
         }
@@ -111,14 +111,14 @@ int  sub_10197C(int a1, uint8_t *a2, uint8_t *a3)
     if ( **(int16_t **)off_101BC4 >= 0 )
       return result;
     v19 = 6875;
-    return sub_12F694(dword_101BCC, dword_101BC8, v19);
+    return mmio_irq_clear(dword_101BCC, dword_101BC8, v19);
   }
   if ( !*((uint8_t *)off_101BA8 + 197) )
   {
     if ( **(int16_t **)off_101BC4 >= 0 )
       return result;
     v19 = 6921;
-    return sub_12F694(dword_101BCC, dword_101BC8, v19);
+    return mmio_irq_clear(dword_101BCC, dword_101BC8, v19);
   }
   if ( v5 <= 0x1666 )
   {
@@ -150,7 +150,7 @@ int  sub_10197C(int a1, uint8_t *a2, uint8_t *a3)
     v15 = (char)(*(uint8_t *)(*(uint32_t *)off_101BC0 + v14) + v15);
   if ( (*((uint32_t *)off_101BA8 + 98) & 2) != 0 )
   {
-    result = sub_132418(1, *((uint16_t *)off_101BA4 + 20));
+    result = llm_adv_state_get(1, *((uint16_t *)off_101BA4 + 20));
     if ( result )
     {
       v21 = *(char *)(result + 4);
@@ -158,8 +158,8 @@ int  sub_10197C(int a1, uint8_t *a2, uint8_t *a3)
     else
     {
       if ( **(int16_t **)off_101BC4 < 0 )
-        sub_12F6C4(dword_101BCC, dword_101BC8, 6907);
-      result = sub_12ECB0(dword_101BD0, 1, v5);
+        mmio_field_update(dword_101BCC, dword_101BC8, 6907);
+      result = ke_event_schedule(dword_101BD0, 1, v5);
       v21 = 15;
     }
     if ( v15 >= v21 )

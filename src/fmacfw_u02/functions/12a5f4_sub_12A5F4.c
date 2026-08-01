@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A6FC;
 
-// sub_12A5F4 @ 0x12a5f4, size 264 bytes
-int  sub_12A5F4(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7)
+// llc_evt_dispatch @ 0x12a5f4, size 264 bytes
+int  llc_evt_dispatch(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7)
 {
   int v7; // r6
   int v8; // r7
@@ -68,13 +68,13 @@ int  sub_12A5F4(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a
     ++*(uint8_t *)(v15 + 122);
   if ( a5 )
     *(uint32_t *)(140 * v8 + 48 * v14 + v7 + 40) = 0x80000000 / a5 - 1;
-  sub_124D3C(v13, a7);
+  unknown_worker(v13, a7);
   v21 = 140 * v8;
   *(uint8_t *)(v7 + v21 + 48 * v14 + 16) = 1;
-  sub_125CD8(*(uint8_t *)(v21 + v7 + 113), 3);
-  sub_129544((int)v11, v10);
-  sub_129598((int)v11);
-  sub_129804(v11);
+  ke_queue_front(*(uint8_t *)(v21 + v7 + 113), 3);
+  wlc_bus_cmd((int)v11, v10);
+  wlc_tx_process((int)v11);
+  wlc_rx_process(v11);
   return v10;
 }
 

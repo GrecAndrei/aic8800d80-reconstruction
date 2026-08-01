@@ -15,8 +15,8 @@ extern uint32_t dword_1358BC;
 extern uint32_t dword_1358B8;
 extern uint32_t dword_1358B4;
 
-// sub_135838 @ 0x135838, size 120 bytes
-int  sub_135838(char a1, int a2, unsigned int a3)
+// ke_msg_alloc @ 0x135838, size 120 bytes
+int  ke_msg_alloc(char a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int v6; // r0
@@ -27,7 +27,7 @@ int  sub_135838(char a1, int a2, unsigned int a3)
   unsigned int v11; // r4
 
   v3 = a3;
-  v6 = sub_12C7EC(6152, 13, 6, (uint16_t)(a3 + 4));
+  v6 = tx_send_pdu(6152, 13, 6, (uint16_t)(a3 + 4));
   v7 = (int16_t **)off_1358B0;
   *(uint8_t *)v6 = a1;
   v8 = *v7;
@@ -35,8 +35,8 @@ int  sub_135838(char a1, int a2, unsigned int a3)
   v9 = v6;
   if ( *v8 < 0 )
   {
-    if ( v3 >= sub_12F514() - 4 )
-      sub_12F32C(dword_1358BC, dword_1358B8, 1444);
+    if ( v3 >= get_buffer_size() - 4 )
+      irq_disable_mmio_write(dword_1358BC, dword_1358B8, 1444);
     v3 = *(uint16_t *)(v9 + 2);
   }
   if ( v3 )
@@ -50,8 +50,8 @@ int  sub_135838(char a1, int a2, unsigned int a3)
     }
     while ( v10 != v11 );
   }
-  sub_12CBF4(6u, 7);
-  sub_12C4A4(6154, 6, dword_1358B4);
-  return sub_12C84C(v9);
+  hci_cmd_preprocess(6u, 7);
+  ke_event_handler(6154, 6, dword_1358B4);
+  return rx_process_packet(v9);
 }
 

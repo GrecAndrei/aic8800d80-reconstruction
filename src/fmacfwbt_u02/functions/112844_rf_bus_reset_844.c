@@ -16,10 +16,10 @@ extern uint32_t dword_112A9C;
 extern uint32_t off_112AA0;
 extern uint32_t off_112AB4;
 
-// rf_bus_reset_844 @ 0x112844, size 582 bytes
+// rf_init_bb @ 0x112844, size 582 bytes
 // Doc: rf_cmd_send_n_458 [rf]: Send RF command (dispatch via table at 0x40200000)
 // rf_cmd_send_n_458 [rf]: Send RF command (dispatch via table at 0x40200000)
-int rf_bus_reset_844()
+int rf_init_bb()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r4
@@ -56,7 +56,7 @@ int rf_bus_reset_844()
   *v0 = 0;
   v1[896] &= ~1u;
   v1[513] &= ~1u;
-  rf_bus_scan();
+  ll_hdr_init();
   if ( (v1[6] & 0x80) != 0 )
     v1[6] &= ~0x80u;
   v2 = off_112A94;
@@ -194,9 +194,9 @@ rf_bus_reset_nfc:
   v18[1] = 0;
   v18[2] = 0;
   *(uint8_t *)v18 = 0;
-  memset_thunk(v19, 0, 0x50u);
-  memset_thunk((int *)rf_msg_handler_n_4b4, 0, 0x50u);
-  result = rf_bus_reset2_n_177();
+  memset_byte(v19, 0, 0x50u);
+  memset_byte((int *)rf_msg_handler_n_4b4, 0, 0x50u);
+  result = tx_pkt_config();
   v21 = *((int ( **)(uint32_t))rf_bus_reset_ab0 + 8);
   if ( v21 )
     return v21(0);

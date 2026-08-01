@@ -1,1 +1,1 @@
-{"fn": "sub_121CB84", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121cb84", "status": "ok", "name": "rf_pwr_tbl_init_n0c8", "params": [], "docstring": "init RF power table from offset 0x168/0x16c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121CB84", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121cb84", "status": "ok", "name": "aes_encrypt", "params": [], "docstring": "init RF power table from offset 0x168/0x16c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

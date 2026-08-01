@@ -26,8 +26,8 @@ extern uint32_t off_117770;
 extern uint32_t off_117774;
 extern uint32_t dword_117778;
 
-// sub_117560 @ 0x117560, size 488 bytes
-int  sub_117560(int a1, int a2)
+// ke_msg_dispatch @ 0x117560, size 488 bytes
+int  ke_msg_dispatch(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r10
@@ -65,7 +65,7 @@ int  sub_117560(int a1, int a2)
   v6 = dword_117780;
   v7 = *(uint32_t *)(a1 + 76);
   v8 = dword_117780 + 1320 * v5;
-  if ( sub_116DBC(v8)
+  if ( phy_lock(v8)
     && ((v10 = *(uint8_t *)(a1 + 28), *(uint8_t *)(v6 + 1320 * v10 + 106))
      || *(uint8_t *)(a1 + 29) > 0x23u
      || *(uint16_t *)(a1 + 4)
@@ -75,8 +75,8 @@ int  sub_117560(int a1, int a2)
      || (v12 = *((uint32_t *)off_117750 + 10)) == 0
      || *(uint8_t *)(v12 + 24) <= 2u
      || (v13 = *(uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, sub_12E948(dword_117754, v12 == v13, (uint8_t)v11), v12 == v31))
-    && sub_1369C8(a1) )
+     || (v31 = v13, alloc_tx_event(dword_117754, v12 == v13, (uint8_t)v11), v12 == v31))
+    && get_connection_state(a1) )
   {
     *(uint32_t *)(v7 + 68) |= 0x100u;
     if ( (__get_CPSR() & 1) == 0 )
@@ -90,7 +90,7 @@ int  sub_117560(int a1, int a2)
     ++*(uint32_t *)off_11775C;
     v4[80] = v16;
     if ( v15 )
-      sub_119D88(a2);
+      btm_get_conn_entry(a2);
     if ( !*((uint32_t *)v4 + 5) )
     {
       v30 = *(uint32_t **)(a1 + 72);
@@ -98,7 +98,7 @@ int  sub_117560(int a1, int a2)
       v30[2] = a1;
       v30[3] = a1;
     }
-    v17 = sub_12D108(v4 + 12);
+    v17 = wlan_ioctl_handler_1(v4 + 12);
     v18 = *((uint32_t *)off_117760 + 8);
     ++*((uint32_t *)off_117748 + 126);
     if ( v18 )
@@ -110,7 +110,7 @@ int  sub_117560(int a1, int a2)
         *(uint32_t *)(v6 + 1320 * v5 + 120) = *((uint32_t *)off_11776C + 4);
     }
     if ( **(uint8_t **)off_117770 == 2 && (*(uint32_t *)off_117774 & dword_117778) == 0 )
-      sub_114434(v17, v18, *(uint32_t *)off_117774);
+      process_event(v17, v18, *(uint32_t *)off_117774);
     if ( *v14 )
     {
       v20 = *v14 - 1;
@@ -150,7 +150,7 @@ int  sub_117560(int a1, int a2)
     }
     v27 = *(uint32_t *)(a1 + 72);
     ++*v14;
-    sub_116974(a1, a1, v27, a2);
+    mac_update_flags(a1, a1, v27, a2);
     if ( *v14 )
     {
       v28 = *v14 - 1;
@@ -166,12 +166,12 @@ int  sub_117560(int a1, int a2)
   }
   else if ( *(uint8_t *)(a1 + 29) == 255 )
   {
-    sub_118BBC(a1, 0);
+    check_packet_flag(a1, 0);
     return 0;
   }
   else
   {
-    sub_116540((uint8_t *)a1, a2);
+    conn_table_get((uint8_t *)a1, a2);
     return 1;
   }
 }

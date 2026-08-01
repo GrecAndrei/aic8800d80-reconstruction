@@ -1,1 +1,1 @@
-{"fn": "sub_1237000", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1237000", "status": "ok", "name": "sub_1237000", "params": [], "docstring": "IPC/control message handler entry", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1237000", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1237000", "status": "ok", "name": "rf_cmd_txpwr_set", "params": [], "docstring": "IPC/control message handler entry", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -13,8 +13,8 @@
 extern uint32_t off_128DD4;
 extern uint32_t off_128DD8;
 
-// sub_128DB8 @ 0x128db8, size 28 bytes
-int sub_128DB8()
+// mfp_key_clear @ 0x128db8, size 28 bytes
+int mfp_key_clear()
 {
   uint32_t *v0; // r4
   int *v1; // r0
@@ -22,7 +22,7 @@ int sub_128DB8()
 
   v0 = off_128DD4;
   v1 = sub_100200((int *)off_128DD4, 0, 0x28u);
-  result = sub_141F60(v1);
+  result = init_runtime_state(v1);
   v0[4] = off_128DD8;
   *((uint8_t *)v0 + 28) = 1;
   return result;

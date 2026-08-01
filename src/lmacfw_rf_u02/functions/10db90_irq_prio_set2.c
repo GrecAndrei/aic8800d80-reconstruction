@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DBA0;
 
-// irq_prio_set2 @ 0x10db90, size 16 bytes
-// Doc: irq_prio_set2 [util]: Set IRQ priority bit in NVIC at 0x40505000+8
-// irq_prio_set2 [util]: Set IRQ priority bit in NVIC at 0x40505000+8
-int  irq_prio_set2(char a1)
+// gpio_set_pin @ 0x10db90, size 16 bytes
+// Doc: gpio_set_pin [util]: Set IRQ priority bit in NVIC at 0x40505000+8
+// gpio_set_pin [util]: Set IRQ priority bit in NVIC at 0x40505000+8
+int  gpio_set_pin(char a1)
 {
   int result; // r0
 

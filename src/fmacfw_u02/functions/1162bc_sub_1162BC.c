@@ -15,10 +15,10 @@ extern uint32_t off_116318;
 extern uint32_t dword_116320;
 extern uint32_t dword_11631C;
 
-// sub_1162BC @ 0x1162bc, size 88 bytes
+// dispatch_config_command @ 0x1162bc, size 88 bytes
 // Doc: sub_12162BC [util]: Dispatch/route based on value comparison against 5
 // sub_12162BC [util]: Dispatch/route based on value comparison against 5
-int  sub_1162BC(int result)
+int  dispatch_config_command(int result)
 {
   switch ( result )
   {
@@ -42,7 +42,7 @@ int  sub_1162BC(int result)
       break;
     default:
       if ( **(int16_t **)off_116318 < 0 )
-        result = sub_12F46C(dword_116320, dword_11631C, 944);
+        result = mmio_clear_register(dword_116320, dword_11631C, 944);
       break;
   }
   return result;

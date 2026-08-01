@@ -21,8 +21,8 @@ extern uint32_t off_11CB28;
 extern uint32_t off_11CB24;
 extern uint32_t dword_11CB14;
 
-// sub_11C954 @ 0x11c954, size 444 bytes
-int  sub_11C954(int result)
+// is_fw_ready @ 0x11c954, size 444 bytes
+int  is_fw_ready(int result)
 {
   uint8_t *v1; // r6
   int v2; // r3
@@ -80,14 +80,14 @@ LABEL_12:
       v19 = *(uint16_t *)(v16 + 8);
       if ( (v19 & 0x20) == 0 )
       {
-        sub_11EABC(result);
+        check_hw_fw_status(result);
         v20 = 9;
         while ( 1 )
         {
           v19 = *(uint16_t *)(v16 + 8);
           if ( (v19 & 0x20) != 0 )
             break;
-          sub_11EABC(v19 << 26);
+          check_hw_fw_status(v19 << 26);
           if ( !--v20 )
           {
             v19 = *(uint16_t *)(v16 + 8);
@@ -95,7 +95,7 @@ LABEL_12:
             {
               v3 = v19 << 26;
               if ( (v19 & 0x20) == 0 )
-                return sub_12F2C8(dword_11CB20, dword_11CB1C, 2274, v19);
+                return unknown_12f2c8(dword_11CB20, dword_11CB1C, 2274, v19);
             }
             break;
           }
@@ -109,7 +109,7 @@ LABEL_12:
         }
         else
         {
-          sub_11B350((uint8_t)v1[190], v3, (uint8_t)v1[199], v19);
+          get_rf_capability((uint8_t)v1[190], v3, (uint8_t)v1[199], v19);
           LOWORD(v19) = *(uint16_t *)(v16 + 8);
         }
         goto LABEL_35;
@@ -117,7 +117,7 @@ LABEL_12:
     }
     else
     {
-      sub_12D190(v5 + 84 * v4 + 28);
+      list_pop(v5 + 84 * v4 + 28);
       LOWORD(v19) = *(uint16_t *)(v16 + 8);
     }
     if ( v1[199] )
@@ -130,7 +130,7 @@ LABEL_12:
 LABEL_35:
     v26 = *(uint32_t *)(dword_11CB30 + 4 * v4);
     *(uint16_t *)(v16 + 8) = v19 | 0x10;
-    sub_12CFC4(v26);
+    irq_disable_global_2(v26);
     v27 = v5 + 84 * v4;
     *(uint8_t *)(v27 + 26) = 0;
     *(uint32_t *)(v27 + 36) = 0;
@@ -140,7 +140,7 @@ LABEL_25:
     {
       v22 = *(uint32_t *)(v21 + 36);
       if ( v22 )
-        sub_116574(v22, v4, *(uint8_t *)(v21 + 46), v21);
+        rf_switch_case(v22, v4, *(uint8_t *)(v21 + 46), v21);
       *(uint32_t *)&v1[28 * v4 + 36] = 0;
     }
     v23 = off_11CB28;
@@ -149,7 +149,7 @@ LABEL_25:
     v24 = *((uint32_t *)v1 + 52) & 0xFFFFFFFE;
     --*(uint8_t *)(v5 + 84 * v4 + 80);
     *((uint32_t *)v1 + 52) = v24;
-    return sub_11A6A8(v4);
+    return invalid_handler(v4);
   }
   v8 = (int16_t **)off_11CB18;
   v9 = dword_11CB1C;
@@ -157,7 +157,7 @@ LABEL_25:
   {
     v15 = *(uint32_t *)(v6 + 12);
     if ( **v8 < 0 && !v15 )
-      sub_12F32C(dword_11CB14, v9, 2199);
+      irq_disable_mmio_write(dword_11CB14, v9, 2199);
     v10 = *(uint32_t *)(v15 + 76);
     v11 = *(uint32_t *)(v10 + 72);
     v12 = v11 | 0x400000;
@@ -169,10 +169,10 @@ LABEL_25:
     *(uint32_t *)(v10 + 72) = v12;
     if ( (v14 & 0x200000) == 0 )
     {
-      sub_11C498(v15, v13);
+      rx_mpdu_process(v15, v13);
       goto LABEL_25;
     }
-    result = sub_11BA74(v15, v13);
+    result = get_conn_by_channel(v15, v13);
     v7 = *(uint8_t *)(v6 + 26);
     if ( *(uint8_t *)(v6 + 26) )
       goto LABEL_12;

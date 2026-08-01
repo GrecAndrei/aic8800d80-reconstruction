@@ -14,8 +14,8 @@ extern uint32_t dword_1219EC;
 extern uint32_t off_1219E8;
 extern uint32_t off_1219F0;
 
-// sub_1219C4 @ 0x1219c4, size 36 bytes
-int  sub_1219C4(int a1, int a2, int a3)
+// flash_ctrl_init @ 0x1219c4, size 36 bytes
+int  flash_ctrl_init(int a1, int a2, int a3)
 {
   int v4; // r0
   int result; // r0
@@ -23,7 +23,7 @@ int  sub_1219C4(int a1, int a2, int a3)
   __disable_irq();
   v4 = dword_1219EC;
   *(uint32_t *)off_1219E8 = 0;
-  result = sub_11F504(v4, a1, a2, a3 & 0xFFFFF);
+  result = dispatch_event_handler(v4, a1, a2, a3 & 0xFFFFF);
   while ( *(uint32_t *)off_1219F0 )
     ;
   return result;

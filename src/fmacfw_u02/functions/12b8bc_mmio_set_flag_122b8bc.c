@@ -38,10 +38,10 @@ extern uint32_t off_12BB0C;
 extern uint32_t off_12BB1C;
 extern uint32_t off_12BB10;
 
-// mmio_set_flag_122b8bc @ 0x12b8bc, size 502 bytes
-// Doc: mmio_set_flag_122b8bc [mmio]: Set flag/control bit at MMIO 0x40328050
-// mmio_set_flag_122b8bc [mmio]: Set flag/control bit at MMIO 0x40328050
-int mmio_set_flag_122b8bc()
+// bb_enable @ 0x12b8bc, size 502 bytes
+// Doc: bb_enable [mmio]: Set flag/control bit at MMIO 0x40328050
+// bb_enable [mmio]: Set flag/control bit at MMIO 0x40328050
+int bb_enable()
 {
   uint32_t *v0; // r2
   unsigned int variant_cached; // r0
@@ -75,8 +75,8 @@ int mmio_set_flag_122b8bc()
   *(uint32_t *)off_12BAB4 = 1;
   while ( (uint8_t)*v0 )
     ;
-  variant_cached = get_variant_cached();
-  sub_12B5A0(variant_cached);
+  variant_cached = get_status_byte();
+  rf_get_irq_status(variant_cached);
   v2 = off_12BABC;
   *(uint32_t *)off_12BAB8 = dword_12BAC0;
   v3 = off_12BAC4;
@@ -84,7 +84,7 @@ int mmio_set_flag_122b8bc()
   v4 = (int16_t **)off_12BAC8;
   *v3 &= ~0x800u;
   if ( **v4 < 0 && *(uint32_t *)off_12BACC < 0x2F000000u )
-    sub_12F46C(dword_12BB18, dword_12BB14, 284);
+    mmio_clear_register(dword_12BB18, dword_12BB14, 284);
   v5 = (char *)off_12BACC;
   v6 = (int *)off_12BAD0;
   v7 = off_12BAC4;
@@ -109,7 +109,7 @@ int mmio_set_flag_122b8bc()
   v15 = (unsigned int *)off_12BAF0;
   *(uint32_t *)off_12BAEC = 12288;
   *v13 = 0;
-  sub_102B4C(&v26, &v25);
+  get_calibration_offsets(&v26, &v25);
   v16 = off_12BAF8;
   *(uint32_t *)off_12BAF4 = (v26 << 8) | (v25 << 16) | v26;
   v17 = off_12BAFC;
@@ -117,7 +117,7 @@ int mmio_set_flag_122b8bc()
   *v14 |= 0x2000u;
   *v16 |= 0x80000u;
   *v16 &= ~0x80u;
-  result = sub_101AD8();
+  result = rf_get_field4();
   v19 = off_12BB00;
   *v15 = ((result + 1) << 26) & 0x1C000000 | *v15 & 0xE3FFFFFF;
   v20 = (uint8_t **)off_12BB04;
@@ -131,10 +131,10 @@ int mmio_set_flag_122b8bc()
   *(uint32_t *)off_12BAC4 |= 0x2000000u;
   if ( (*v22 & 0x20000) != 0 )
   {
-    result = sub_101A48();
+    result = rf_get_status_bit28();
     if ( result )
     {
-      v23 = hw_chip_rev_get();
+      v23 = rf_get_field8();
       v24 = (unsigned int *)off_12BB1C;
       result = v23 << 8;
       *(uint32_t *)off_12BB1C = result & 0x700 | *(uint32_t *)off_12BB1C & 0xFFFFF8FF;
@@ -143,7 +143,7 @@ int mmio_set_flag_122b8bc()
       *v24 |= 1u;
       if ( (*v22 & 0x8000) != 0 )
       {
-        result = sub_1019FC();
+        result = rf_get_status_bit21();
         if ( result )
         {
           *v21 |= 0x80000u;
@@ -152,7 +152,7 @@ int mmio_set_flag_122b8bc()
       }
       if ( (*(uint32_t *)off_12BB0C & 0x20000) != 0 )
       {
-        result = sub_101A58();
+        result = rf_get_status_bit30();
         if ( result )
           *(uint32_t *)off_12BB1C |= 2u;
       }

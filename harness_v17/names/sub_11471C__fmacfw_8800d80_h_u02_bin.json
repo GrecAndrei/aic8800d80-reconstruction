@@ -1,0 +1,1 @@
+{"fn": "sub_11471C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11471c", "status": "ok", "name": "call_patch_1fc_arg2", "params": [], "docstring": "Jump to patch function at 0x1fc with argument 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

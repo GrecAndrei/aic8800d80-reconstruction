@@ -12,10 +12,10 @@
 
 extern uint32_t off_101898;
 
-// sub_101888 @ 0x101888, size 14 bytes
+// rf_calibration_done @ 0x101888, size 14 bytes
 // Doc: sub_1201888 [util]: Returns 1 if value equals 1, else 0
 // sub_1201888 [util]: Returns 1 if value equals 1, else 0
-BOOL sub_101888()
+BOOL rf_calibration_done()
 {
   return *(uint32_t *)off_101898 > 1u;
 }

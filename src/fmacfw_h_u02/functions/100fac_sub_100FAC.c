@@ -31,8 +31,8 @@ extern uint32_t off_101254;
 extern uint32_t off_101258;
 extern uint32_t off_10125C;
 
-// sub_100FAC @ 0x100fac, size 612 bytes
-int  sub_100FAC(unsigned int a1, int a2)
+// arm_core_enable @ 0x100fac, size 612 bytes
+int  arm_core_enable(unsigned int a1, int a2)
 {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
@@ -90,9 +90,9 @@ int  sub_100FAC(unsigned int a1, int a2)
   *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
   *v8 &= ~1u;
   *(v6 - 1903) |= 8u;
-  sub_102E08(1, 0, 16, *v9);
-  sub_102E08(1, 16, 16, *(uint32_t *)off_10122C);
-  sub_1009A0(0, a1);
+  uart_send_data(1, 0, 16, *v9);
+  uart_send_data(1, 16, 16, *(uint32_t *)off_10122C);
+  sdio_irq_enable(0, a1);
   if ( a1 > 0x98A )
   {
     v11 = 6;
@@ -153,7 +153,7 @@ int  sub_100FAC(unsigned int a1, int a2)
     ;
   result = *(uint32_t *)off_10125C & 1;
   if ( !result )
-    result = sub_100E24(0);
+    result = rf_config_read_a(0);
   *(uint32_t *)off_101258 = 1;
   return result;
 }

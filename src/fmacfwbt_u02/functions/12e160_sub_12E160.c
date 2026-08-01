@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12E160 @ 0x12e160, size 40 bytes
+// parse_dollar_u16 @ 0x12e160, size 40 bytes
 // Doc: sdio_buffer_prepare_n_1c8 [util]: Prepares SDIO buffer descriptor, returns status byte
 // sdio_buffer_prepare_n_1c8 [util]: Prepares SDIO buffer descriptor, returns status byte
-uint8_t * sub_12E160(uint8_t *a1, int a2, uint8_t *a3)
+uint8_t * parse_dollar_u16(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   uint16_t v5; // [sp+6h] [bp-2h] BYREF
 
-  result = sub_12DA54(a1, a2, 36, &v5);
+  result = memcpy_loop(a1, a2, 36, &v5);
   if ( result )
   {
     if ( (unsigned int)v5 - 9 > 9 )

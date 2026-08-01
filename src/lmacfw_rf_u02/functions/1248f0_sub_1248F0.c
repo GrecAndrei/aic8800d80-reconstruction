@@ -13,12 +13,12 @@
 extern uint32_t off_12490C;
 extern uint32_t dword_124910;
 
-// sub_1248F0 @ 0x1248f0, size 26 bytes
-int sub_1248F0()
+// mmio_clear_flag @ 0x1248f0, size 26 bytes
+int mmio_clear_flag()
 {
   *(uint8_t *)off_12490C = 0;
-  sub_11DC54(144, 0);
-  sub_11F504(dword_124910);
+  ke_int_lock(144, 0);
+  dispatch_event_handler(dword_124910);
   return 0;
 }
 

@@ -13,8 +13,8 @@
 extern uint32_t off_10FE54;
 extern uint32_t off_10FE58;
 
-// sub_10FE24 @ 0x10fe24, size 46 bytes
-BOOL  sub_10FE24(unsigned int a1)
+// mem_is_in_heap @ 0x10fe24, size 46 bytes
+BOOL  mem_is_in_heap(unsigned int a1)
 {
   if ( *(uint32_t *)off_10FE54 <= a1 && a1 <= *(uint32_t *)off_10FE54 + *((uint32_t *)off_10FE54 + 1) )
     return 1;

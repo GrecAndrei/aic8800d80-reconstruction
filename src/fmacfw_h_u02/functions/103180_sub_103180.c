@@ -13,19 +13,19 @@
 extern uint32_t off_1031D0;
 extern uint32_t off_1031D4;
 
-// sub_103180 @ 0x103180, size 78 bytes
-unsigned int  sub_103180(unsigned int result)
+// read_radio_status_flag @ 0x103180, size 78 bytes
+unsigned int  read_radio_status_flag(unsigned int result)
 {
   if ( result )
   {
     if ( *((uint8_t *)off_1031D0 + 362) )
-      result = sub_102AD0(0xB5u);
+      result = rf_reg_write_byte(0xB5u);
     *(uint32_t *)off_1031D4 |= 2u;
   }
   else
   {
     if ( *((uint8_t *)off_1031D0 + 362) )
-      result = sub_102AD0(0xC2u);
+      result = rf_reg_write_byte(0xC2u);
     *(uint32_t *)off_1031D4 &= ~2u;
   }
   return result;

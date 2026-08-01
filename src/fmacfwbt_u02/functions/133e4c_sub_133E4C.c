@@ -18,8 +18,8 @@ extern uint32_t dword_134004;
 extern uint32_t off_133FF4;
 extern uint32_t off_133FF8;
 
-// sub_133E4C @ 0x133e4c, size 414 bytes
-int sub_133E4C()
+// patch_critical_enter @ 0x133e4c, size 414 bytes
+int patch_critical_enter()
 {
   uint8_t *v0; // r6
   int v1; // r7
@@ -44,22 +44,22 @@ int sub_133E4C()
 
   v0 = off_133FF0;
   v1 = *((uint32_t *)off_133FF0 + 4);
-  if ( **(int16_t **)off_133FEC < 0 && msg_get_value(6u) != 2 )
-    sub_12F694(dword_134000, dword_133FFC, 344);
+  if ( **(int16_t **)off_133FEC < 0 && hci_cmd_send_short(6u) != 2 )
+    mmio_irq_clear(dword_134000, dword_133FFC, 344);
   v2 = *(uint8_t *)(v1 + 61);
   v3 = dword_134004;
   v4 = 1320 * v2;
   v5 = dword_134004 + 1320 * v2;
   if ( *(int *)(v5 + 472) < 0 )
   {
-    if ( sub_1349B8(v20) )
+    if ( phy_channel_index_lookup(v20) )
     {
-      sub_135020(1);
+      event_dispatch(1);
     }
     else
     {
-      v11 = rf_bus_setup_n3a8(10, 0, 6, 0x20u);
-      sub_128AAC(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
+      v11 = bt_buf_alloc(10, 0, 6, 0x20u);
+      update_entries_from_config(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
       *(uint32_t *)v11 = 0;
       *(uint8_t *)(v11 + 25) = *(uint8_t *)(v1 + 61);
       v12 = *(uint32_t *)(v5 + 368);
@@ -76,7 +76,7 @@ int sub_133E4C()
         v15 = v14 & 4;
         if ( (v14 & 4) != 0 )
         {
-          v18 = sdio_buffer_prepare_n_17c(v4 + 368 + v3);
+          v18 = extract_chan_bits(v4 + 368 + v3);
           v14 = *(uint32_t *)(v5 + 472);
           v16 = (uint32_t *)(v4 + 280 + v3);
           v15 = v18;
@@ -88,11 +88,11 @@ int sub_133E4C()
         v17 = v14 & 8;
         if ( (v14 & 8) != 0 )
           v17 = v4 + 292 + v3;
-        sub_132874(v4 + 248 + v3, v16, v17, (uint16_t *)(v11 + 16), (int *)(v11 + 8), (int *)(v11 + 4), (char *)(v11 + 24));
+        llm_parse_adv_pdu(v4 + 248 + v3, v16, v17, (uint16_t *)(v11 + 16), (int *)(v11 + 8), (int *)(v11 + 4), (char *)(v11 + 24));
       }
       *(uint32_t *)(v11 + 12) = v15;
-      sub_12CBB4(v11);
-      rf_bus_mark_n_3b7(6u, 3);
+      hci_evt_send(v11);
+      hci_cmd_send(6u, 3);
     }
     v9 = *(uint32_t *)(v1 + 48);
     v10 = v3 + 1320 * v2;
@@ -107,24 +107,24 @@ int sub_133E4C()
   v6 = (uint8_t)v0[32];
   if ( v0[32] )
   {
-    sub_135020(1);
+    event_dispatch(1);
     return 0;
   }
   v19 = (uint8_t)v0[32];
   v20[0] = v6;
-  sub_134690(&v19, v20);
+  ull_scan_event_start(&v19, v20);
   if ( *(uint8_t *)off_133FF4 != 1 && *((uint8_t *)off_133FF8 + 3) != 1 )
   {
     *((uint8_t *)off_133FF8 + 32) = 2;
 LABEL_7:
-    sub_1347DC(v19, v20[0], 1);
+    rx_security_check(v19, v20[0], 1);
     return 0;
   }
   v8 = (uint8_t)(*((uint8_t *)off_133FF8 + 32) + 1);
   *((uint8_t *)off_133FF8 + 32) = v8;
   if ( v8 > 1 )
     goto LABEL_7;
-  sub_1347DC(v19, v20[0], 0);
+  rx_security_check(v19, v20[0], 0);
   return 0;
 }
 

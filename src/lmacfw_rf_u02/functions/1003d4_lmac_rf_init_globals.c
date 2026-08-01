@@ -25,10 +25,10 @@ extern uint32_t dword_1004C0;
 extern uint32_t dword_1004C4;
 extern uint32_t off_1004C8;
 
-// lmac_rf_init_globals @ 0x1003d4, size 190 bytes
-// Doc: lmac_rf_init_globals [util]: Initializes lmac RF global pointer table at boot
-// lmac_rf_init_globals [util]: Initializes lmac RF global pointer table at boot
-void __noreturn lmac_rf_init_globals()
+// init_buffer_list @ 0x1003d4, size 190 bytes
+// Doc: init_buffer_list [util]: Initializes lmac RF global pointer table at boot
+// init_buffer_list [util]: Initializes lmac RF global pointer table at boot
+void __noreturn init_buffer_list()
 {
   uint8_t *v0; // r4
   uint32_t *v1; // r2
@@ -65,7 +65,7 @@ void __noreturn lmac_rf_init_globals()
   *v4 = v0 + 152;
   *v6 = v0 + 178;
   *v5 = v0 + 176;
-  inited = rf_init_setup_n_2a0();
+  inited = process_state_update();
   if ( *(uint8_t *)*v2 == 1 )
   {
     v8 = off_1004B8;
@@ -73,25 +73,25 @@ void __noreturn lmac_rf_init_globals()
     v8[20] |= 1u;
     v8[20] &= ~2u;
   }
-  v9 = sub_123068(inited);
-  v10 = sub_10F4B8(v9);
-  rf_init_submodule_dispatch(v10);
+  v9 = enter_critical_section(inited);
+  v10 = mem_get_stats(v9);
+  sys_init(v10);
   v11 = (uint16_t *)*v6;
   v12 = (uint8_t *)off_1004BC;
   v13 = dword_1004C0;
   *v11 |= 0x2000u;
-  v14 = msg_parse(v13, *v12);
-  v15 = rf_init_calibration_n174(v14);
+  v14 = dispatch_event_handler(v13, *v12);
+  v15 = radio_timer_snapshot(v14);
   if ( v0[363] )
   {
-    v19 = rf_level_apply_n274(v15);
-    sub_127108(v19);
+    v19 = rf_read_trim(v15);
+    rf_enable(v19);
   }
-  v16 = msg_parse(dword_1004C4, (uint8_t)v0[76]);
-  v17 = sub_10FFF0(v16);
-  v18 = log_system_init_f6a4(v17);
+  v16 = dispatch_event_handler(dword_1004C4, (uint8_t)v0[76]);
+  v17 = rf_tx_power_get(v16);
+  v18 = bt_state_dispatch(v17);
   if ( *(uint8_t *)*v2 == 3 )
     *(uint32_t *)off_1004C8 = 1;
-  sub_115018(v18);
+  bt_driver_init(v18);
 }
 

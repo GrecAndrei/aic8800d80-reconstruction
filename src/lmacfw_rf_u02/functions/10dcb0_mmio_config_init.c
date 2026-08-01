@@ -13,15 +13,15 @@
 extern uint32_t dword_10DCE0;
 extern uint32_t off_10DCE4;
 
-// mmio_config_init @ 0x10dcb0, size 48 bytes
-// Doc: mmio_config_init [mmio]: Initialize MMIO region with 0x3c00/0x2000 and OR-mask 0xf
-// mmio_config_init [mmio]: Initialize MMIO region with 0x3c00/0x2000 and OR-mask 0xf
-int mmio_config_init()
+// gpio_init_pin_13 @ 0x10dcb0, size 48 bytes
+// Doc: gpio_init_pin_13 [mmio]: Initialize MMIO region with 0x3c00/0x2000 and OR-mask 0xf
+// gpio_init_pin_13 [mmio]: Initialize MMIO region with 0x3c00/0x2000 and OR-mask 0xf
+int gpio_init_pin_13()
 {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = rf_reg_write_cb(dword_10DCE0, 0x2000, 15360);
+  result = call_slot_0x1b8(dword_10DCE0, 0x2000, 15360);
   v1 = off_10DCE4;
   *((uint32_t *)off_10DCE4 + 2) |= 0xFu;
   v1[2] |= 0x10000000u;

@@ -16,8 +16,8 @@ extern uint32_t off_13A508;
 extern uint32_t dword_13A50C;
 extern uint32_t dword_13A510;
 
-// sub_13A3E8 @ 0x13a3e8, size 280 bytes
-int  sub_13A3E8(int a1, uint32_t *a2)
+// phy_init @ 0x13a3e8, size 280 bytes
+int  phy_init(int a1, uint32_t *a2)
 {
   int v3; // r7
   int v4; // r0
@@ -90,7 +90,7 @@ int  sub_13A3E8(int a1, uint32_t *a2)
         break;
       default:
         if ( **(int16_t **)off_13A508 < 0 )
-          sub_12F32C(dword_13A50C, dword_13A510, 181);
+          irq_disable_mmio_write(dword_13A50C, dword_13A510, 181);
         v10 = 0;
         v11 = 3;
         v12 = 1;
@@ -99,7 +99,7 @@ int  sub_13A3E8(int a1, uint32_t *a2)
     if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     {
       *(uint64_t *)(v8 + 72) += v12;
-      sub_143630(a1 + 56, v8 + 72, 2 * v11);
+      memcpy(a1 + 56, v8 + 72, 2 * v11);
     }
     return v10;
   }

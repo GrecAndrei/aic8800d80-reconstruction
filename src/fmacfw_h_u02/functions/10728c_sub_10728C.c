@@ -19,8 +19,8 @@ extern uint32_t off_1073CC;
 extern uint32_t off_1073D0;
 extern uint32_t off_1073D4;
 
-// sub_10728C @ 0x10728c, size 298 bytes
-uint32_t *sub_10728C()
+// mmio_clear_bits @ 0x10728c, size 298 bytes
+uint32_t *mmio_clear_bits()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n45e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ba6", "status": "ok", "name": "rf_fault_dump_n45e", "params": [], "docstring": "RF fault dump handler fragment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n45e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ba6", "status": "ok", "name": "patch_apply_n_305", "params": [], "docstring": "RF fault dump handler fragment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

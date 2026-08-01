@@ -13,8 +13,8 @@
 extern uint32_t off_11522C;
 extern uint32_t off_115230;
 
-// sub_1151F4 @ 0x1151f4, size 54 bytes
-int sub_1151F4()
+// enter_critical_set_flag @ 0x1151f4, size 54 bytes
+int enter_critical_set_flag()
 {
   int *v0; // r4
   int result; // r0

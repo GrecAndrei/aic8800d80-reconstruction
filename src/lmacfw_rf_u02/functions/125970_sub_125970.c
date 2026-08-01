@@ -20,8 +20,8 @@ extern uint32_t dword_125A9C;
 extern uint32_t dword_125AB4;
 extern uint32_t dword_125AB8;
 
-// sub_125970 @ 0x125970, size 294 bytes
-int  sub_125970(int a1, int a2)
+// process_bt_service_search_event @ 0x125970, size 294 bytes
+int  process_bt_service_search_event(int a1, int a2)
 {
   int v4; // r0
   int v5; // r0
@@ -38,18 +38,18 @@ int  sub_125970(int a1, int a2)
   int v17; // r3
   int v18; // r4
 
-  v4 = parse_int(*(uint8_t **)(a2 + 4), 0, 0);
+  v4 = parse_number(*(uint8_t **)(a2 + 4), 0, 0);
   switch ( v4 )
   {
     case 0:
-      msg_parse(dword_125AAC, *(char *)off_125A98, *((char *)off_125A98 + 1), *((char *)off_125A98 + 2));
+      dispatch_event_handler(dword_125AAC, *(char *)off_125A98, *((char *)off_125A98 + 1), *((char *)off_125A98 + 2));
       return 0;
     case 1:
       v9 = off_125AA0;
       ++*(uint8_t *)off_125AA0;
       if ( a1 <= 2 )
         goto LABEL_28;
-      v10 = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
+      v10 = parse_number(*(uint8_t **)(a2 + 8), 0, 0);
       v11 = (uint16_t *)off_125AA4;
       v12 = *((uint8_t *)off_125AA4 + 36);
       if ( v10 < -7 )
@@ -60,17 +60,17 @@ int  sub_125970(int a1, int a2)
       *(uint8_t *)off_125A98 = v10;
       if ( !v12 )
       {
-        mmio_set_bit_120090C(0, v11[20]);
+        rf_ctrl_set(0, v11[20]);
         ++*v9;
       }
-      msg_parse(dword_125AA8, v13);
+      dispatch_event_handler(dword_125AA8, v13);
       return 0;
     case 2:
       v14 = off_125AA0;
       ++*(uint8_t *)off_125AA0;
       if ( a1 <= 2 )
         goto LABEL_28;
-      v15 = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
+      v15 = parse_number(*(uint8_t **)(a2 + 8), 0, 0);
       v16 = (uint16_t *)off_125AA4;
       v17 = *((uint8_t *)off_125AA4 + 36);
       if ( v15 < -7 )
@@ -81,15 +81,15 @@ int  sub_125970(int a1, int a2)
       *((uint8_t *)off_125A98 + 1) = v15;
       if ( v17 == 1 )
       {
-        mmio_set_bit_120090C(1, v16[20]);
+        rf_ctrl_set(1, v16[20]);
         ++*v14;
       }
-      msg_parse(dword_125AB0, v18);
+      dispatch_event_handler(dword_125AB0, v18);
       return 0;
     case 3:
       if ( a1 > 2 )
       {
-        v5 = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
+        v5 = parse_number(*(uint8_t **)(a2 + 8), 0, 0);
         if ( v5 < -7 )
           v5 = -7;
         v6 = v5;
@@ -97,14 +97,14 @@ int  sub_125970(int a1, int a2)
           v6 = 7;
         v7 = dword_125A9C;
         *((uint8_t *)off_125A98 + 2) = v6;
-        msg_parse(v7);
+        dispatch_event_handler(v7);
         return 0;
       }
 LABEL_28:
-      msg_parse(dword_125AB4);
+      dispatch_event_handler(dword_125AB4);
       return -1;
     default:
-      msg_parse(dword_125AB8);
+      dispatch_event_handler(dword_125AB8);
       return -1;
   }
 }

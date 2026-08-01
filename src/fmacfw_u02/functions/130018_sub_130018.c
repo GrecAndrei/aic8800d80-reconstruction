@@ -25,8 +25,8 @@ extern uint32_t off_130154;
 extern uint32_t off_130158;
 extern uint32_t dword_13013C;
 
-// sub_130018 @ 0x130018, size 288 bytes
-int  sub_130018(unsigned int a1)
+// find_by_index @ 0x130018, size 288 bytes
+int  find_by_index(unsigned int a1)
 {
   int v1; // r0
   int v2; // r4
@@ -51,24 +51,24 @@ int  sub_130018(unsigned int a1)
   int v22; // t1
   unsigned int v23; // [sp+8h] [bp-8h]
 
-  v1 = sub_12F810(a1, (uint8_t *)dword_130138, 0);
+  v1 = fetch_global_ptr(a1, (uint8_t *)dword_130138, 0);
   v2 = v1;
   if ( v1 >= 0 )
   {
     if ( v1 )
     {
-      if ( sub_143E40(dword_130140) != v1 || sub_143AA8(dword_130140, dword_130138) )
+      if ( memmove(dword_130140) != v1 || strcmp(dword_130140, dword_130138) )
       {
-        v4 = rf_bus_mark_n100_d2d0(dword_130144);
+        v4 = mem_word_load(dword_130144);
         v5 = v4;
         if ( v4 )
         {
-          memcpy_aligned_n7c(v4 + 1, dword_130138);
-          list_push_tail(dword_130148, v5);
+          memcpy(v4 + 1, dword_130138);
+          cmd_handler_a(dword_130148, v5);
         }
         else
         {
-          uart_puts((uint8_t *)dword_13015C);
+          read_memory_byte((uint8_t *)dword_13015C);
         }
       }
       else
@@ -79,21 +79,21 @@ int  sub_130018(unsigned int a1)
         v9 = __get_CPSR();
         v10 = __get_CPSR();
         v23 = __get_CPSR();
-        sub_10DC24(dword_13014C, CPSR, v7, v8, v9, v10, v23);
+        log_printf(dword_13014C, CPSR, v7, v8, v9, v10, v23);
         if ( v9 )
         {
           v13 = dword_13016C;
           v14 = dword_130164;
           v15 = v9 & 0xFFFFFFF0;
-          uart_puts((uint8_t *)dword_130160);
+          read_memory_byte((uint8_t *)dword_130160);
           v16 = v15 + 256;
           do
           {
             if ( !(v15 << 28) )
-              sub_10DC24(v13, v15);
+              log_printf(v13, v15);
             v17 = *(uint32_t *)v15;
             v15 += 4;
-            sub_10DC24(v14, v17);
+            log_printf(v14, v17);
           }
           while ( v16 != v15 );
         }
@@ -102,19 +102,19 @@ int  sub_130018(unsigned int a1)
           v18 = dword_13016C;
           v19 = dword_130164;
           v20 = v8 & 0xFFFFFFF0;
-          uart_puts((uint8_t *)dword_130168);
+          read_memory_byte((uint8_t *)dword_130168);
           v21 = v20 + 256;
           do
           {
             if ( !(v20 << 28) )
-              sub_10DC24(v18, v20);
+              log_printf(v18, v20);
             v22 = *(uint32_t *)v20;
             v20 += 4;
-            sub_10DC24(v19, v22);
+            log_printf(v19, v22);
           }
           while ( v21 != v20 );
         }
-        uart_puts((uint8_t *)dword_130150);
+        read_memory_byte((uint8_t *)dword_130150);
         v11 = off_130154;
         v12 = *(uint8_t *)off_130154;
         if ( *(uint8_t *)off_130154 )
@@ -133,9 +133,9 @@ int  sub_130018(unsigned int a1)
     }
     else
     {
-      uart_puts((uint8_t *)dword_13013C);
+      read_memory_byte((uint8_t *)dword_13013C);
     }
-    sub_12F810(0x30u, (uint8_t *)dword_130138, dword_13013C);
+    fetch_global_ptr(0x30u, (uint8_t *)dword_130138, dword_13013C);
   }
   return v2;
 }

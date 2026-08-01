@@ -12,19 +12,19 @@
 
 extern uint32_t dword_1320CC;
 
-// sub_13208C @ 0x13208c, size 62 bytes
-int  sub_13208C(int a1, uint8_t *a2)
+// bt_get_conn_by_idx @ 0x13208c, size 62 bytes
+int  bt_get_conn_by_idx(int a1, uint8_t *a2)
 {
   int v2; // r6
   int v4; // r0
 
   v2 = dword_1320CC;
-  timestamp_remove(696 * *a2 + 672 + dword_1320CC);
+  fault_handler(696 * *a2 + 672 + dword_1320CC);
   v4 = *a2;
   if ( *(uint8_t *)(v2 + 696 * v4 + 37) )
-    sub_132324(v4);
+    ke_buf_alloc(v4);
   else
-    sub_12CA10(5130, 13, 5);
+    ke_msg_send_no_param(5130, 13, 5);
   return 0;
 }
 

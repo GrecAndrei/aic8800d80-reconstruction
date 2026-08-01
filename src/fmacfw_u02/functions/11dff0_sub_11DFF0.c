@@ -22,8 +22,8 @@ extern uint32_t off_11E06C;
 extern uint32_t off_11E070;
 extern uint32_t dword_11E074;
 
-// sub_11DFF0 @ 0x11dff0, size 100 bytes
-int sub_11DFF0()
+// radio_read_fifo @ 0x11dff0, size 100 bytes
+int radio_read_fifo()
 {
   int *v0; // r2
   int v1; // r0

@@ -13,8 +13,8 @@
 extern uint32_t dword_129F40;
 extern uint32_t dword_129F3C;
 
-// sub_129D88 @ 0x129d88, size 434 bytes
-int  sub_129D88(int result, int a2, unsigned int a3)
+// llc_evt_schedule @ 0x129d88, size 434 bytes
+int  llc_evt_schedule(int result, int a2, unsigned int a3)
 {
   int v3; // r8
   int v4; // r9
@@ -55,7 +55,7 @@ int  sub_129D88(int result, int a2, unsigned int a3)
     {
       if ( v24[16] )
       {
-        timestamp_remove(v6);
+        fault_handler(v6);
         v24[16] = 0;
       }
       v26 = v3 + 140 * v5;
@@ -63,11 +63,11 @@ int  sub_129D88(int result, int a2, unsigned int a3)
       *(uint8_t *)(v26 + 121) = 0;
       if ( v27 )
       {
-        timestamp_remove(v4 + 48 + v3);
+        fault_handler(v4 + 48 + v3);
         *(uint8_t *)(v26 + 64) = 0;
       }
       *(uint8_t *)(v3 + 140 * v5 + 121) = 0;
-      sub_129804((uint8_t *)v6);
+      wlc_rx_process((uint8_t *)v6);
     }
     goto LABEL_19;
   }
@@ -83,7 +83,7 @@ int  sub_129D88(int result, int a2, unsigned int a3)
     {
       if ( v11[16] )
       {
-        timestamp_remove(v6);
+        fault_handler(v6);
         v11[16] = 0;
       }
       v13 = v3 + 140 * v5;
@@ -91,11 +91,11 @@ int  sub_129D88(int result, int a2, unsigned int a3)
       *(uint8_t *)(v13 + 121) = 0;
       if ( v14 )
       {
-        timestamp_remove(v4 + 48 + v3);
+        fault_handler(v4 + 48 + v3);
         *(uint8_t *)(v13 + 64) = 0;
       }
       *(uint8_t *)(v3 + 140 * v5 + 121) = 0;
-      sub_129804((uint8_t *)v6);
+      wlc_rx_process((uint8_t *)v6);
     }
     v15 = *(uint16_t *)(a2 + 1) - 2;
     v16 = dword_129F3C * (uint64_t)v15;
@@ -117,11 +117,11 @@ int  sub_129D88(int result, int a2, unsigned int a3)
           if ( v20 <= 1 || v21 )
           {
             *(uint32_t *)(v6 + 24) = *(uint32_t *)(v18 + 1);
-            v22 = v21 - 4000 - sub_1019F0();
+            v22 = v21 - 4000 - get_constant_1000();
             v23 = *(uint8_t *)(v6 + 20);
             *(uint32_t *)(v6 + 28) = v22;
             *(uint8_t *)(v6 + 19) = v23;
-            if ( scan_chan_get_next_n68(v6, *(uint8_t *)(v28 + 113), *(uint32_t *)(v18 + 9), a3) )
+            if ( llc_get_context(v6, *(uint8_t *)(v28 + 113), *(uint32_t *)(v18 + 9), a3) )
               ++*(uint8_t *)(v28 + 121);
           }
         }

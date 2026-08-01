@@ -15,8 +15,8 @@ extern uint32_t off_128150;
 extern uint32_t off_128158;
 extern uint32_t off_12815C;
 
-// sub_1280C8 @ 0x1280c8, size 136 bytes
-int  sub_1280C8(uint8_t *a1)
+// tx_packet_start @ 0x1280c8, size 136 bytes
+int  tx_packet_start(uint8_t *a1)
 {
   int v1; // r4
   int result; // r0
@@ -48,8 +48,8 @@ int  sub_1280C8(uint8_t *a1)
     }
     v8 = (int *)off_12815C;
     ++*(uint32_t *)off_12815C;
-    mmio_set_clear_bits();
-    sub_11DEB0(0);
+    rf_clock_reset();
+    rf_hw_init(0);
     if ( *v8 )
     {
       v9 = *v8 - 1;
@@ -61,8 +61,8 @@ int  sub_1280C8(uint8_t *a1)
           __enable_irq();
       }
     }
-    sub_102898((uint16_t *)v3, 0);
-    return bt_hci_cmd_build_n6ac(*(char *)(v4 + 28 * v1 + 12));
+    gpio_init((uint16_t *)v3, 0);
+    return util_format_string(*(char *)(v4 + 28 * v1 + 12));
   }
   return result;
 }

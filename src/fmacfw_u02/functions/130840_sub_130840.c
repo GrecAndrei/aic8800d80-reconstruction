@@ -18,8 +18,8 @@ extern uint32_t dword_130D10;
 extern uint32_t off_130CB0;
 extern uint32_t dword_130CAC;
 
-// sub_130840 @ 0x130840, size 1230 bytes
-int  sub_130840(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6, int a7)
+// rx_status_handler @ 0x130840, size 1230 bytes
+int  rx_status_handler(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6, int a7)
 {
   int v8; // r5
   int16_t v9; // r7
@@ -114,7 +114,7 @@ int  sub_130840(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6
   if ( !v9 )
     v9 = 5;
   v89 = (uint8_t *)a1;
-  v12 = sub_132860(a4);
+  v12 = rf_get_channel_cal(a4);
   v13 = v89;
   v14 = v12 | (*(uint32_t *)(a2 + 224) >> 1) & 0x10;
   *((uint16_t *)v89 + 1) = v9;
@@ -202,7 +202,7 @@ int  sub_130840(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6
   *v61 = 33;
   v62 = v89++;
   *v62 = 2;
-  sub_102B4C(v91, &v90);
+  get_calibration_offsets(v91, &v90);
   if ( SLOBYTE(v91[0]) > *(char *)(a2 + 172) )
     LOBYTE(v91[0]) = *(uint8_t *)(a2 + 172);
   v63 = v89++;
@@ -323,7 +323,7 @@ LABEL_64:
   v83 += v78 + 6;
   *v86 = v77;
 LABEL_17:
-  v34 = sub_1307D4((int)&v89);
+  v34 = chip_id_to_string((int)&v89);
   v35 = (int)v89;
   if ( v10 )
   {
@@ -365,7 +365,7 @@ LABEL_17:
   }
   if ( (v38 & 2) != 0 && (*((uint8_t *)off_130CA8 + 374) & 1) != 0 )
   {
-    inited = fmac_msg_init_header((int *)&v89);
+    inited = format_mac_address((int *)&v89);
     v41 = *(uint32_t *)(a2 + 224);
     v40 = (uint16_t)(inited + v40);
   }
@@ -377,17 +377,17 @@ LABEL_17:
     {
       v58 = *((uint8_t *)off_130CA8 + 373);
       if ( (*(uint8_t *)off_130CB4 & 8) != 0
-        || (msg_parse(dword_130D10, v49 << 30), *((uint8_t *)v48 + 373) <= 1u) )
+        || (event_dispatch(dword_130D10, v49 << 30), *((uint8_t *)v48 + 373) <= 1u) )
       {
-        v59 = v40 + fmac_dbg_marker_set((int)&v89);
-        v60 = sub_1325CC(v48[28]);
+        v59 = v40 + format_hw_version((int)&v89);
+        v60 = util_extract_bits(v48[28]);
         if ( v58 == 4 )
           LOBYTE(v58) = 3;
       }
       else
       {
-        v59 = v40 + fmac_dbg_marker_set((int)&v89);
-        v60 = sub_1325CC(v48[28]);
+        v59 = v40 + format_hw_version((int)&v89);
+        v60 = util_extract_bits(v48[28]);
         LOBYTE(v58) = 1;
       }
       *v89 = -57;
@@ -399,13 +399,13 @@ LABEL_17:
     }
   }
   if ( (v41 & 8) != 0 && (*((uint8_t *)off_130CA8 + 374) & 4) != 0 )
-    v40 = (uint16_t)((uint16_t)mac_frame_hdr_init((int)&v89) + v40);
-  v50 = sub_12DCA0(v15, v10);
-  rx_status_init_n54(v15, v10, v84, v91);
+    v40 = (uint16_t)((uint16_t)format_bt_address((int)&v89) + v40);
+  v50 = check_one_12dca0(v15, v10);
+  init_sched_context(v15, v10, v84, v91);
   if ( *(uint16_t *)(a2 + 228)
     && (!v50 && (v51 = v95 << 26, (v95 & 0x20) != 0) || (*(uint32_t *)(*((uint32_t *)off_130CB0 + 4) + 48) & 0x40) != 0) )
   {
-    feature_guard_check(256, dword_130CAC, v51);
+    check_status_bits(256, dword_130CAC, v51);
     *v89 = 54;
     v89[1] = 3;
     v52 = (int)v89;

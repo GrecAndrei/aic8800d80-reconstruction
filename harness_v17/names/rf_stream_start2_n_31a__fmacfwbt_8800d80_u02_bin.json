@@ -1,1 +1,1 @@
-{"fn": "rf_stream_start2_n_31a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212f32", "status": "ok", "name": "rf_stream_start2_n_31a", "params": [], "docstring": "Starts secondary RF stream channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_stream_start2_n_31a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212f32", "status": "ok", "name": "rf_cmd_send_nc7", "params": [], "docstring": "Starts secondary RF stream channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

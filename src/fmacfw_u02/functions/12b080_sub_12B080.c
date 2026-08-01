@@ -16,34 +16,34 @@ extern uint32_t dword_12B110;
 extern uint32_t dword_12B10C;
 extern uint32_t off_12B108;
 
-// sub_12B080 @ 0x12b080, size 124 bytes
-int  sub_12B080(int a1, int a2, int a3, int a4)
+// ke_msg_send @ 0x12b080, size 124 bytes
+int  ke_msg_send(int a1, int a2, int a3, int a4)
 {
   int16_t v4; // r6
   uint8_t *v6; // r4
   uint8_t *v7; // r2
 
   v4 = a4;
-  v6 = (uint8_t *)sub_12C92C(2049, a4, a3, 1);
-  sub_12CE88(2);
-  sub_12ECD0(4, dword_12B100);
-  if ( sub_12CE88(2) )
+  v6 = (uint8_t *)ke_msg_alloc(2049, a4, a3, 1);
+  rx_rate_field_parse(2);
+  check_status_bits(4, dword_12B100);
+  if ( rx_rate_field_parse(2) )
   {
     *v6 = 8;
-    sub_12C98C(v6);
+    ke_msg_send(v6);
     return 0;
   }
   else
   {
     if ( **(int16_t **)off_12B104 < 0 && !*(uint8_t *)(a2 + 367) )
-      sub_12F46C(dword_12B110, dword_12B10C, 73);
+      mmio_clear_register(dword_12B110, dword_12B10C, 73);
     v7 = off_12B108;
     *v6 = 0;
     *(uint32_t *)v7 = a2;
     v7[10] = 0;
     *((uint16_t *)v7 + 4) = v4;
-    sub_12B278(a2);
-    sub_12C98C(v6);
+    controller_get_event(a2);
+    ke_msg_send(v6);
     return 1;
   }
 }

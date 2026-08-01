@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D468 @ 0x12d468, size 8 bytes
-uint32_t * sub_12D468(uint32_t *result)
+// zero_struct @ 0x12d468, size 8 bytes
+uint32_t * zero_struct(uint32_t *result)
 {
   *result = 0;
   result[1] = 0;

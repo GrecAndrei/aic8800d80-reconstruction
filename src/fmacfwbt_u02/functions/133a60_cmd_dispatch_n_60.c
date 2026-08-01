@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// cmd_dispatch_n_60 @ 0x133a60, size 54 bytes
-// Doc: cmd_dispatch_n_60 [util]: Dispatch command 6 to handler
-// cmd_dispatch_n_60 [util]: Dispatch command 6 to handler
-int  cmd_dispatch_n_60(int a1, int a2, int16_t a3, int16_t a4)
+// ipc_send_command @ 0x133a60, size 54 bytes
+// Doc: ipc_send_command [util]: Dispatch command 6 to handler
+// ipc_send_command [util]: Dispatch command 6 to handler
+int  ipc_send_command(int a1, int a2, int16_t a3, int16_t a4)
 {
   int value; // r0
   int16_t v6; // r1
@@ -21,18 +21,18 @@ int  cmd_dispatch_n_60(int a1, int a2, int16_t a3, int16_t a4)
   int16_t v10; // [sp+0h] [bp-8h]
   int16_t v12; // [sp+4h] [bp-4h]
 
-  value = msg_get_value(6u);
+  value = hci_cmd_send_short(6u);
   v6 = a4;
   v7 = a3;
   if ( value == 6 )
   {
     v10 = a3;
     v12 = v6;
-    sub_135B4C(*(uint16_t *)(a2 + 2));
+    hci_vendor_cmd_dispatch(*(uint16_t *)(a2 + 2));
     v7 = v10;
     v6 = v12;
   }
-  message_dispatch_n84(6156, v6, v7);
+  hci_evt_alloc_send(6156, v6, v7);
   return 0;
 }
 

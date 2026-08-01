@@ -1,1 +1,1 @@
-{"fn": "sub_12040F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12040f0", "status": "ok", "name": "mmio_config_clear_bits_n_0f0", "params": [], "docstring": "Clear bits in MMIO control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12040F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12040f0", "status": "ok", "name": "mac_irq_pending_clear", "params": [], "docstring": "Clear bits in MMIO control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

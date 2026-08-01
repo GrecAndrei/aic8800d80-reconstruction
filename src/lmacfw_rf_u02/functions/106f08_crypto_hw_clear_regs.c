@@ -14,10 +14,10 @@ extern uint32_t off_106F68;
 extern uint32_t off_106F6C;
 extern uint32_t off_106F70;
 
-// crypto_hw_clear_regs @ 0x106f08, size 96 bytes
-// Doc: crypto_hw_clear_regs [util]: Clear crypto engine HW control/status registers
-// crypto_hw_clear_regs [util]: Clear crypto engine HW control/status registers
-uint32_t *crypto_hw_clear_regs()
+// clk_set_divider @ 0x106f08, size 96 bytes
+// Doc: clk_set_divider [util]: Clear crypto engine HW control/status registers
+// clk_set_divider [util]: Clear crypto engine HW control/status registers
+uint32_t *clk_set_divider()
 {
   unsigned int *v0; // r2
   uint32_t *v1; // r3

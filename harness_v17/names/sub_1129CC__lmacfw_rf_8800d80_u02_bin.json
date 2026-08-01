@@ -1,0 +1,1 @@
+{"fn": "sub_1129CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1129cc", "status": "ok", "name": "get_global_14b6ac", "params": [], "docstring": "Return pointer stored at 0x14b6ac", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

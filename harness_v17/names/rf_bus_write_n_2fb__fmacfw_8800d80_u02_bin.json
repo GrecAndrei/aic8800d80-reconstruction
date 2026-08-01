@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_2fb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211868", "status": "ok", "name": "rf_bus_write_multi", "params": [], "docstring": "Write multiple words over RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_2fb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211868", "status": "ok", "name": "rf_bus_mark", "params": [], "docstring": "Write multiple words over RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

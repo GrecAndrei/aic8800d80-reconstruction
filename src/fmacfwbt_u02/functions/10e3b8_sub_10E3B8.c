@@ -28,8 +28,8 @@ extern uint32_t dword_10E688;
 extern uint32_t dword_10E68C;
 extern uint32_t off_10E690;
 
-// sub_10E3B8 @ 0x10e3b8, size 664 bytes
-int sub_10E3B8()
+// system_init_mmio @ 0x10e3b8, size 664 bytes
+int system_init_mmio()
 {
   uint32_t *v0; // r1
   int v1; // r3
@@ -86,14 +86,14 @@ int sub_10E3B8()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v3 = sub_142A50(v0[4]);
-  v4 = sub_142B44(v3, HIDWORD(v3), dword_10E650, dword_10E654);
-  v5 = sub_142D98(v4, HIDWORD(v4), dword_10E658, dword_10E65C);
-  v6 = sub_1427D4(v5, HIDWORD(v5), dword_10E650, dword_10E654);
-  v7 = sub_143078(v6, HIDWORD(v6));
-  v8 = sub_10EBC4(dword_10E678) & 0x1F;
+  v3 = __aeabi_ui2d(v0[4]);
+  v4 = __aeabi_dmul(v3, HIDWORD(v3), dword_10E650, dword_10E654);
+  v5 = __aeabi_ddiv(v4, HIDWORD(v4), dword_10E658, dword_10E65C);
+  v6 = __aeabi_dsub(v5, HIDWORD(v5), dword_10E650, dword_10E654);
+  v7 = __aeabi_d2lz(v6, HIDWORD(v6));
+  v8 = jump_table_1b0(dword_10E678) & 0x1F;
   v9 = v7 - 840;
-  sub_10DA7C(dword_10E67C, v7, v8);
+  printf_wrapper(dword_10E67C, v7, v8);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -111,9 +111,9 @@ int sub_10E3B8()
   }
   else
   {
-    v11 = sub_142A70(v10);
-    v12 = sub_142B44(v11, HIDWORD(v11), dword_10E660, dword_10E664);
-    v13 = sub_143078(v12, HIDWORD(v12));
+    v11 = __aeabi_i2d(v10);
+    v12 = __aeabi_dmul(v11, HIDWORD(v11), dword_10E660, dword_10E664);
+    v13 = __aeabi_d2lz(v12, HIDWORD(v12));
     v14 = v13;
     if ( v9 <= 0 )
     {
@@ -137,18 +137,18 @@ int sub_10E3B8()
       v9 = -9;
       goto LABEL_33;
     }
-    sub_10EBD4(dword_10E678, v15, 31);
+    call_vector_1b8(dword_10E678, v15, 31);
     v16 = off_10E66C;
     *((uint32_t *)off_10E66C + 1) = 1;
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
-    v17 = sub_142A50(v16[4]);
-    v18 = sub_142B44(v17, HIDWORD(v17), dword_10E650, dword_10E654);
-    v19 = sub_142D98(v18, HIDWORD(v18), dword_10E658, dword_10E65C);
-    v20 = sub_1427D4(v19, HIDWORD(v19), dword_10E650, dword_10E654);
-    v7 = sub_143078(v20, HIDWORD(v20));
-    sub_12ECB0(dword_10E680, v14, v15);
+    v17 = __aeabi_ui2d(v16[4]);
+    v18 = __aeabi_dmul(v17, HIDWORD(v17), dword_10E650, dword_10E654);
+    v19 = __aeabi_ddiv(v18, HIDWORD(v18), dword_10E658, dword_10E65C);
+    v20 = __aeabi_dsub(v19, HIDWORD(v19), dword_10E650, dword_10E654);
+    v7 = __aeabi_d2lz(v20, HIDWORD(v20));
+    ke_event_schedule(dword_10E680, v14, v15);
     if ( v7 <= 840 )
       v21 = 1;
     else
@@ -170,17 +170,17 @@ int sub_10E3B8()
       v8 = v43 + v42 * v27;
       goto LABEL_33;
     }
-    sub_10EBD4(v23, v25, 31);
+    call_vector_1b8(v23, v25, 31);
     v24[1] = 1;
     while ( v24[7] != 1 )
       ;
     v24[7] = 1;
-    v28 = sub_142A50(v24[4]);
-    v29 = sub_142B44(v28, HIDWORD(v28), dword_10E650, dword_10E654);
-    v30 = sub_142D98(v29, HIDWORD(v29), dword_10E658, dword_10E65C);
-    v31 = sub_1427D4(v30, HIDWORD(v30), dword_10E650, dword_10E654);
-    v32 = sub_143078(v31, HIDWORD(v31));
-    sub_12ECB0(dword_10E684, v9, v25);
+    v28 = __aeabi_ui2d(v24[4]);
+    v29 = __aeabi_dmul(v28, HIDWORD(v28), dword_10E650, dword_10E654);
+    v30 = __aeabi_ddiv(v29, HIDWORD(v29), dword_10E658, dword_10E65C);
+    v31 = __aeabi_dsub(v30, HIDWORD(v30), dword_10E650, dword_10E654);
+    v32 = __aeabi_d2lz(v31, HIDWORD(v31));
+    ke_event_schedule(dword_10E684, v9, v25);
     v33 = v7 - 840;
     v34 = v32 - 840;
     if ( v33 * (v32 - 840) <= 0 )
@@ -202,22 +202,22 @@ int sub_10E3B8()
     v8 = v25;
   }
 LABEL_33:
-  sub_10DA7C(dword_10E688, v9);
-  sub_10EBD4(dword_10E678, v8, 31);
+  printf_wrapper(dword_10E688, v9);
+  call_vector_1b8(dword_10E678, v8, 31);
   v35 = off_10E66C;
   *((uint32_t *)off_10E66C + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_142A50(v35[4]);
-  v37 = sub_142B44(v36, HIDWORD(v36), dword_10E650, dword_10E654);
-  v38 = sub_142D98(v37, HIDWORD(v37), dword_10E658, dword_10E65C);
-  v39 = sub_1427D4(v38, HIDWORD(v38), dword_10E650, dword_10E654);
-  v40 = sub_143078(v39, HIDWORD(v39));
-  sub_10DA7C(dword_10E68C, v40);
+  v36 = __aeabi_ui2d(v35[4]);
+  v37 = __aeabi_dmul(v36, HIDWORD(v36), dword_10E650, dword_10E654);
+  v38 = __aeabi_ddiv(v37, HIDWORD(v37), dword_10E658, dword_10E65C);
+  v39 = __aeabi_dsub(v38, HIDWORD(v38), dword_10E650, dword_10E654);
+  v40 = __aeabi_d2lz(v39, HIDWORD(v39));
+  printf_wrapper(dword_10E68C, v40);
   result = *((uint32_t *)off_10E690 + 94);
   if ( result != 0x80000000 )
-    return sub_111168();
+    return rf_set_tx_power();
   return result;
 }
 

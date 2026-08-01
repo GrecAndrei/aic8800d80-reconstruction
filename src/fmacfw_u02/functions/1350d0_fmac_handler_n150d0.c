@@ -13,10 +13,10 @@
 extern uint32_t off_135160;
 extern uint32_t dword_135164;
 
-// fmac_handler_n150d0 @ 0x1350d0, size 142 bytes
-// Doc: fmac_handler_n150d0 [mac]: FMAC handler processing PHY channel/status fields
-// fmac_handler_n150d0 [mac]: FMAC handler processing PHY channel/status fields
-void  fmac_handler_n150d0(
+// bt_get_conn_params @ 0x1350d0, size 142 bytes
+// Doc: bt_get_conn_params [mac]: FMAC handler processing PHY channel/status fields
+// bt_get_conn_params [mac]: FMAC handler processing PHY channel/status fields
+void  bt_get_conn_params(
         int a1,
         int a2,
         int a3,
@@ -39,7 +39,7 @@ void  fmac_handler_n150d0(
 
   v13 = *(uint32_t *)(a1 + 72);
   v14 = off_135160;
-  feature_guard_check(
+  check_status_bits(
     256,
     dword_135164,
     *((uint8_t *)off_135160 + 34),
@@ -47,21 +47,21 @@ void  fmac_handler_n150d0(
     (uint8_t)*(uint16_t *)(v13 + 108));
   if ( !v14[34] )
   {
-    sub_134E04(1, v17, v18, (uint8_t)v14[34], a5, a6, a7, a8, a9, a10, a11, a12, a13);
+    bt_setup_conn_profile(1, v17, v18, (uint8_t)v14[34], a5, a6, a7, a8, a9, a10, a11, a12, a13);
     return;
   }
   v19 = *(uint16_t *)(v13 + 108);
-  if ( msg_get_value(6u) != 5 && msg_get_value(6u) != 8 )
+  if ( rx_rate_field_parse(6u) != 5 && rx_rate_field_parse(6u) != 8 )
   {
 LABEL_5:
     v14[34] = 0;
     return;
   }
-  if ( msg_get_value(6u) == 5 && (v19 & 0xFC) == 0xB0 || msg_get_value(6u) == 8 && (v19 & 0xDC) == 0 )
+  if ( rx_rate_field_parse(6u) == 5 && (v19 & 0xFC) == 0xB0 || rx_rate_field_parse(6u) == 8 && (v19 & 0xDC) == 0 )
   {
     if ( (a2 & 0x800000) == 0 )
     {
-      rf_param_get_status(a1, 5);
+      tx_path_status(a1, 5);
       *(uint8_t *)(a1 + 98) = 1;
       return;
     }

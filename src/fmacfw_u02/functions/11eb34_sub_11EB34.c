@@ -16,10 +16,10 @@ extern uint32_t dword_11EBC0;
 extern uint32_t dword_11EBBC;
 extern uint32_t dword_11EBB4;
 
-// sub_11EB34 @ 0x11eb34, size 124 bytes
+// ke_task_state_get @ 0x11eb34, size 124 bytes
 // Doc: sub_121EB34 [unknown]: Unidentified utility helper at 0x121EB34
 // sub_121EB34 [unknown]: Unidentified utility helper at 0x121EB34
-int  sub_11EB34(int result)
+int  ke_task_state_get(int result)
 {
   int v1; // r4
   int16_t v2; // r2
@@ -27,7 +27,7 @@ int  sub_11EB34(int result)
 
   v1 = result;
   if ( **(int16_t **)off_11EBB0 < 0 && *(uint32_t *)(result + 20) != dword_11EBB8 )
-    result = sub_12F46C(dword_11EBC0, dword_11EBBC, 1811);
+    result = mmio_clear_register(dword_11EBC0, dword_11EBBC, 1811);
   v2 = *(uint16_t *)(v1 + 48);
   if ( v2 )
   {

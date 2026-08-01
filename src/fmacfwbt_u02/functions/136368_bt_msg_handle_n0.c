@@ -15,10 +15,10 @@ extern uint32_t dword_1363FC;
 extern uint32_t dword_136400;
 extern uint32_t off_136404;
 
-// bt_msg_handle_n0 @ 0x136368, size 142 bytes
-// Doc: bt_msg_handle_n0 [bt]: Handle BT message with struct fields
-// bt_msg_handle_n0 [bt]: Handle BT message with struct fields
-int  bt_msg_handle_n0(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// tx_build_packet @ 0x136368, size 142 bytes
+// Doc: tx_build_packet [bt]: Handle BT message with struct fields
+// tx_build_packet [bt]: Handle BT message with struct fields
+int  tx_build_packet(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r2
   int v8; // r3
@@ -31,17 +31,17 @@ int  bt_msg_handle_n0(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   v7 = a2[9];
   v8 = *a2;
   v14[0] = 0;
-  sub_12ECB0(dword_1363F8, dword_1363FC, v7, v8);
+  ke_event_schedule(dword_1363F8, dword_1363FC, v7, v8);
   v9 = dword_136400 + 1320 * a2[10];
   if ( *(uint8_t *)(v9 + 106) == 2 )
   {
-    if ( *(uint8_t *)(v9 + 108) || msg_get_value(7u) )
+    if ( *(uint8_t *)(v9 + 108) || hci_cmd_send_short(7u) )
     {
       v10 = 8;
     }
     else
     {
-      v13 = sub_127F58(a2, v14);
+      v13 = find_free_conn(a2, v14);
       v10 = v13;
       if ( v13 )
       {
@@ -49,7 +49,7 @@ int  bt_msg_handle_n0(int a1, uint8_t *a2, int16_t a3, int16_t a4)
       }
       else
       {
-        sub_128AAC(a2[10], v14[0]);
+        update_entries_from_config(a2[10], v14[0]);
         *((uint32_t *)off_136404 + 1) |= 0x10u;
       }
     }
@@ -58,10 +58,10 @@ int  bt_msg_handle_n0(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   {
     v10 = 4;
   }
-  v11 = (char *)rf_bus_setup_n3a8(7173, a4, a3, 2u);
+  v11 = (char *)bt_buf_alloc(7173, a4, a3, 2u);
   *v11 = v10;
   v11[1] = v14[0];
-  sub_12CBB4((int)v11);
+  hci_evt_send((int)v11);
   return 0;
 }
 

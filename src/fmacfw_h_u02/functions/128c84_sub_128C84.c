@@ -19,8 +19,8 @@ extern uint32_t off_128D54;
 extern uint32_t dword_128D5C;
 extern uint32_t off_128D50;
 
-// sub_128C84 @ 0x128c84, size 186 bytes
-void  sub_128C84(int a1)
+// mfp_check_rsn_cap @ 0x128c84, size 186 bytes
+void  mfp_check_rsn_cap(int a1)
 {
   uint8_t *v1; // r5
   uint64_t v3; // r2
@@ -38,7 +38,7 @@ void  sub_128C84(int a1)
     if ( v3 )
       v4 = 0;
     else
-      v4 = sub_1111B4() != 0;
+      v4 = get_init_flag() != 0;
   }
   else
   {
@@ -60,7 +60,7 @@ LABEL_18:
     v7 = *(uint16_t *)(v6 + 54);
     v8 = dword_128D5C;
     v1[29] = 1;
-    sub_124BFC(v8, v7 + v5[4]);
+    mem_copy_util(v8, v7 + v5[4]);
     return;
   }
   if ( !**(uint8_t **)off_128D4C || !*(uint8_t *)(a1 + 108) )
@@ -73,7 +73,7 @@ LABEL_18:
     v1[29] = 0;
   }
   if ( v1[28] )
-    sub_128C24();
+    mfp_get_state();
   else
     v1[29] = 0;
 }

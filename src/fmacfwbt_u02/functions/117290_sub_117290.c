@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_117290 @ 0x117290, size 30 bytes
-int  sub_117290(int result)
+// tx_check_ready @ 0x117290, size 30 bytes
+int  tx_check_ready(int result)
 {
   int v1; // r4
 
@@ -23,7 +23,7 @@ int  sub_117290(int result)
     {
       if ( (*(uint32_t *)(v1 + 36) & 0x200000) == 0 )
       {
-        result = log_free_dispatch_2((uint32_t *)result);
+        result = memory_pool_free((uint32_t *)result);
         *(uint32_t *)(v1 + 72) = 0;
       }
     }

@@ -15,8 +15,8 @@ extern uint32_t off_1103D4;
 extern uint32_t dword_1103D8;
 extern uint32_t off_1103DC;
 
-// sub_110390 @ 0x110390, size 62 bytes
-int sub_110390()
+// is_connected_flag @ 0x110390, size 62 bytes
+int is_connected_flag()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_110390()
   v0 = (int *)off_1103D4;
   v1 = dword_1103D8;
   ++*(uint32_t *)off_1103D4;
-  result = sub_12D248(v1);
+  result = cmd_handler_a(v1);
   v3 = *v0;
   ++*(uint32_t *)off_1103DC;
   if ( v3 )

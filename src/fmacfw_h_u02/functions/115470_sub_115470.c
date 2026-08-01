@@ -17,8 +17,8 @@ extern uint32_t dword_1154F4;
 extern uint32_t off_1154FC;
 extern uint32_t off_1154F8;
 
-// sub_115470 @ 0x115470, size 118 bytes
-int  sub_115470(int a1, int a2)
+// fault_status_read @ 0x115470, size 118 bytes
+int  fault_status_read(int a1, int a2)
 {
   uint32_t *v2; // r4
   int v3; // r3
@@ -41,17 +41,17 @@ int  sub_115470(int a1, int a2)
     v6 = dword_1154F4 & v5;
     if ( (v5 & 0x40000000) != 0 )
     {
-      v9 = sub_11446C(0);
+      v9 = default_handler(0);
       v10 = off_1154FC;
       *(uint32_t *)off_1154FC = 0x40000000;
       v2[97] = 16;
       if ( v6 < 0 )
-        sub_11441C(v9, 0x40000000, (int)v10);
+        get_config_b(v9, 0x40000000, (int)v10);
       goto LABEL_6;
     }
     if ( v6 < 0 )
     {
-      sub_11441C(0, a2, v4);
+      get_config_b(0, a2, v4);
       if ( !*((uint8_t *)off_1154F8 + 3) )
       {
 LABEL_6:

@@ -14,10 +14,10 @@ extern uint32_t off_12BC24;
 extern uint32_t off_12BC28;
 extern uint32_t off_12BC20;
 
-// mmio_block_write_3reg @ 0x12bbf0, size 48 bytes
-// Doc: mmio_block_write_3reg [mmio]: Writes 3 MMIO registers at 0x403200bc/c0/c4 from a struct
-// mmio_block_write_3reg [mmio]: Writes 3 MMIO registers at 0x403200bc/c0/c4 from a struct
-int  mmio_block_write_3reg(int *a1)
+// fifo_write @ 0x12bbf0, size 48 bytes
+// Doc: fifo_write [mmio]: Writes 3 MMIO registers at 0x403200bc/c0/c4 from a struct
+// fifo_write [mmio]: Writes 3 MMIO registers at 0x403200bc/c0/c4 from a struct
+int  fifo_write(int *a1)
 {
   uint32_t *v1; // r2
   int *v2; // r3

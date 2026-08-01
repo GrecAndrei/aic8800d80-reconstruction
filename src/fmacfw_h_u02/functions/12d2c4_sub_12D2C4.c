@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D2C4 @ 0x12d2c4, size 42 bytes
-uint32_t * sub_12D2C4(uint32_t *result, uint32_t *a2, uint32_t *a3)
+// list_find_prev @ 0x12d2c4, size 42 bytes
+uint32_t * list_find_prev(uint32_t *result, uint32_t *a2, uint32_t *a3)
 {
   uint32_t **v3; // r3
 
   if ( !a2 )
-    return (uint32_t *)sub_12D108((int)result, a3);
+    return (uint32_t *)wlan_ioctl_handler_1((int)result, a3);
   v3 = (uint32_t **)*result;
   if ( (uint32_t *)*result == a2 )
-    return (uint32_t *)sub_12D150((int)result, a3);
+    return (uint32_t *)wlan_ioctl_handler_2((int)result, a3);
   if ( v3 )
   {
     while ( 1 )

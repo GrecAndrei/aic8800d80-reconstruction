@@ -16,8 +16,8 @@ extern uint32_t dword_11580C;
 extern uint32_t dword_115810;
 extern uint32_t off_115814;
 
-// sub_115754 @ 0x115754, size 184 bytes
-int * sub_115754(int a1, int a2, int a3, int a4)
+// rx_pkt_status_update @ 0x115754, size 184 bytes
+int * rx_pkt_status_update(int a1, int a2, int a3, int a4)
 {
   int v5; // r1
   int16_t **v9; // r8
@@ -32,7 +32,7 @@ int * sub_115754(int a1, int a2, int a3, int a4)
   v5 = *(uint16_t *)(a2 + 4);
   *(uint16_t *)(a1 + 38) |= 4u;
   if ( !v5 )
-    return rf_init_handler(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4);
+    return pdu_type_init(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4);
   v9 = (int16_t **)off_11581C;
   v10 = *(uint32_t *)(a2 + 32);
   if ( **(int16_t **)off_11581C < 0 )
@@ -45,7 +45,7 @@ int * sub_115754(int a1, int a2, int a3, int a4)
     }
     else
     {
-      rf_cmd_send_n264(dword_115818, dword_11580C, 518);
+      flash_ctrl_init(dword_115818, dword_11580C, 518);
       v11 = *(uint32_t *)(v10 + 24);
       if ( v11 )
         goto LABEL_7;
@@ -55,7 +55,7 @@ int * sub_115754(int a1, int a2, int a3, int a4)
     v12 = *(uint32_t *)(v10 + 20);
     if ( v12 )
       goto LABEL_6;
-    rf_cmd_send_n264(dword_115810, dword_11580C, 525);
+    flash_ctrl_init(dword_115810, dword_11580C, 525);
 LABEL_5:
     v12 = *(uint32_t *)(v10 + 20);
 LABEL_6:
@@ -82,7 +82,7 @@ LABEL_7:
     }
     *v15 = v14 | (16 * v16);
   }
-  sub_11538C(a2);
-  return rf_init_handler(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4);
+  llm_adv_pdu_build(a2);
+  return pdu_type_init(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4);
 }
 

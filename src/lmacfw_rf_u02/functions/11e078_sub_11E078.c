@@ -18,8 +18,8 @@ extern uint32_t off_11E160;
 extern uint32_t off_11E164;
 extern uint32_t dword_11E170;
 
-// sub_11E078 @ 0x11e078, size 226 bytes
-uint32_t * sub_11E078(char *a1)
+// check_buffer_size @ 0x11e078, size 226 bytes
+uint32_t * check_buffer_size(char *a1)
 {
   int16_t **v1; // r9
   char *v2; // r4
@@ -42,7 +42,7 @@ uint32_t * sub_11E078(char *a1)
   v3 = *((uint32_t *)a1 - 1);
   v5 = a1 - 4;
   if ( **(int16_t **)off_11E174 < 0 && a1 <= v2 )
-    rf_cmd_send_n264(dword_11E16C, dword_11E168, 220);
+    flash_ctrl_init(dword_11E16C, dword_11E168, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -63,7 +63,7 @@ uint32_t * sub_11E078(char *a1)
     if ( v2 > v5 )
     {
       if ( **v1 < 0 )
-        rf_cmd_send_n264(dword_11E170, dword_11E168, 247);
+        flash_ctrl_init(dword_11E170, dword_11E168, 247);
       MEMORY[0] = v5;
       __und(0xFFu);
     }

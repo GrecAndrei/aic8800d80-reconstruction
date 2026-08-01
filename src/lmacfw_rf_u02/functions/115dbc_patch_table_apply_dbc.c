@@ -19,10 +19,10 @@ extern uint32_t dword_115E80;
 extern uint32_t off_115E84;
 extern uint32_t off_115E94;
 
-// patch_table_apply_dbc @ 0x115dbc, size 186 bytes
-// Doc: patch_table_apply_dbc [patch]: Applies a sequence of register patches from table
-// patch_table_apply_dbc [patch]: Applies a sequence of register patches from table
-int patch_table_apply_dbc()
+// critical_section_exit @ 0x115dbc, size 186 bytes
+// Doc: critical_section_exit [patch]: Applies a sequence of register patches from table
+// critical_section_exit [patch]: Applies a sequence of register patches from table
+int critical_section_exit()
 {
   int *v0; // r10
   uint8_t *v1; // r5
@@ -58,7 +58,7 @@ int patch_table_apply_dbc()
   {
     if ( *((uint32_t *)v1 + 28) )
     {
-      rf_subcmd_dispatch((uint8_t)i);
+      radio_pdu_type_cfg((uint8_t)i);
       *(uint32_t *)(v4 + 4 * i) = *v2 + *(uint32_t *)(v3 + 4 * i);
       *v5 = 1 << i;
       if ( (__get_CPSR() & 1) == 0 )
@@ -96,6 +96,6 @@ int patch_table_apply_dbc()
         __enable_irq();
     }
   }
-  return irq_nesting_or(4096);
+  return set_busy_flag_alt(4096);
 }
 

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11B630;
 
-// sub_11B5E8 @ 0x11b5e8, size 72 bytes
-int  sub_11B5E8(int a1, int a2)
+// off_84_table @ 0x11b5e8, size 72 bytes
+int  off_84_table(int a1, int a2)
 {
   int v4; // r5
   int v5; // r8
@@ -21,12 +21,12 @@ int  sub_11B5E8(int a1, int a2)
 
   v4 = dword_11B630 + 84 * a2;
   v5 = *(uint32_t *)(a1 + 76);
-  sub_12D4F8(84 * (int16_t)a2 + 12 + dword_11B630);
+  list_pop_front(84 * (int16_t)a2 + 12 + dword_11B630);
   v6 = *(uint16_t *)(a1 + 4);
   --*(uint8_t *)(v4 + 80);
   if ( v6 )
-    return sub_118358(a1, *(uint32_t *)(v5 + 72), a2);
+    return list_append(a1, *(uint32_t *)(v5 + 72), a2);
   else
-    return sub_119120();
+    return btlp_enter_sleep();
 }
 

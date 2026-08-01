@@ -13,8 +13,8 @@
 extern uint32_t off_11C91C;
 extern uint32_t dword_11C920;
 
-// sub_11C8D0 @ 0x11c8d0, size 74 bytes
-int  sub_11C8D0(int a1)
+// tx_buffer_cleanup @ 0x11c8d0, size 74 bytes
+int  tx_buffer_cleanup(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r7

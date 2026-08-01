@@ -12,8 +12,8 @@
 
 extern uint32_t off_12B3E4;
 
-// sub_12B3D4 @ 0x12b3d4, size 16 bytes
-int sub_12B3D4()
+// rf_get_buffer @ 0x12b3d4, size 16 bytes
+int rf_get_buffer()
 {
   return *(uint32_t *)off_12B3E4 + 6 * *((uint8_t *)off_12B3E4 + 10);
 }

@@ -16,10 +16,10 @@ extern uint32_t off_1063B4;
 extern uint32_t off_1063B0;
 extern uint32_t dword_1063B8;
 
-// log_free_pool_dispatch2_n4e6 @ 0x106314, size 146 bytes
-// Doc: log_free_pool_dispatch2_n4e6 [util]: Returns via pop and dispatches log/free-pool branch on slot byte
-// log_free_pool_dispatch2_n4e6 [util]: Returns via pop and dispatches log/free-pool branch on slot byte
-int  log_free_pool_dispatch2_n4e6(int a1, int a2)
+// rf_load_calib_data @ 0x106314, size 146 bytes
+// Doc: rf_load_calib_data [util]: Returns via pop and dispatches log/free-pool branch on slot byte
+// rf_load_calib_data [util]: Returns via pop and dispatches log/free-pool branch on slot byte
+int  rf_load_calib_data(int a1, int a2)
 {
   int v4; // r1
   int v5; // r2
@@ -127,7 +127,7 @@ int  log_free_pool_dispatch2_n4e6(int a1, int a2)
   v57 = v24;
   v25 = *(uint32_t *)(a1 + 4 * a2 + 140);
   v58 = v13[4];
-  feature_guard_sdio(1, dword_1063AC);
+  state_check_feature(1, dword_1063AC);
   if ( v25 > 25 )
     v26 = 12;
   else
@@ -139,6 +139,6 @@ int  log_free_pool_dispatch2_n4e6(int a1, int a2)
   *(uint32_t *)off_1063B0 = (8 * v28) & 0x38 | *(uint32_t *)off_1063B0 & 0xFFFFFFC7;
   v31 = dword_1063B8;
   *v29 = (4 * v30) & 0x1C | *v29 & 0xFFFFFFE3;
-  return feature_guard_sdio(1, v31);
+  return state_check_feature(1, v31);
 }
 

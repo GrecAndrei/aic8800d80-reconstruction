@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_133844 @ 0x133844, size 54 bytes
-int  sub_133844(int a1, int a2, int16_t a3, int16_t a4)
+// hci_cmd_send @ 0x133844, size 54 bytes
+int  hci_cmd_send(int a1, int a2, int16_t a3, int16_t a4)
 {
   int value; // r0
   int16_t v6; // r1
@@ -19,18 +19,18 @@ int  sub_133844(int a1, int a2, int16_t a3, int16_t a4)
   int16_t v10; // [sp+0h] [bp-8h]
   int16_t v12; // [sp+4h] [bp-4h]
 
-  value = msg_get_value(6u);
+  value = rx_rate_field_parse(6u);
   v6 = a4;
   v7 = a3;
   if ( value == 6 )
   {
     v10 = a3;
     v12 = v6;
-    sub_135930(*(uint16_t *)(a2 + 2));
+    hci_send_vendor_command(*(uint16_t *)(a2 + 2));
     v7 = v10;
     v6 = v12;
   }
-  sub_12CA10(6156, v6, v7);
+  ke_msg_send_no_param(6156, v6, v7);
   return 0;
 }
 

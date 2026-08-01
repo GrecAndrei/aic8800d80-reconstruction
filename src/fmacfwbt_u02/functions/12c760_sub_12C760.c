@@ -15,8 +15,8 @@ extern uint32_t off_12C7A0;
 extern uint32_t dword_12C7A8;
 extern uint32_t dword_12C7A4;
 
-// sub_12C760 @ 0x12c760, size 60 bytes
-void  sub_12C760(int a1, int a2, uint8_t *a3)
+// scan_done_check_alt @ 0x12c760, size 60 bytes
+void  scan_done_check_alt(int a1, int a2, uint8_t *a3)
 {
   int v3; // r4
   int v4; // r0
@@ -24,12 +24,12 @@ void  sub_12C760(int a1, int a2, uint8_t *a3)
   if ( *((uint8_t *)off_12C79C + 197) )
   {
     v3 = *(uint32_t *)(*(uint32_t *)(a2 + 76) + 48);
-    v4 = sub_101BD4((*(uint32_t *)(v3 + 20) >> 11) & 7, *(uint32_t *)(v3 + 20) & 0x7F, a3);
+    v4 = llm_rx_pdu_handler((*(uint32_t *)(v3 + 20) >> 11) & 7, *(uint32_t *)(v3 + 20) & 0x7F, a3);
     *(uint32_t *)(v3 + 36) = v4 | (v4 << 8);
   }
   else if ( **(int16_t **)off_12C7A0 < 0 )
   {
-    sub_12F694(dword_12C7A8, dword_12C7A4, 109);
+    mmio_irq_clear(dword_12C7A8, dword_12C7A4, 109);
   }
 }
 

@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127AD0 @ 0x127ad0, size 14 bytes
-int  sub_127AD0(int a1, int a2, int a3, int a4)
+// double_reverse_compare @ 0x127ad0, size 14 bytes
+int  double_reverse_compare(int a1, int a2, int a3, int a4)
 {
-  return sub_127AE0(a3, a4, a1, a2);
+  return double_compare_flags(a3, a4, a1, a2);
 }
 

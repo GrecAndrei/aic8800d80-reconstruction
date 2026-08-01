@@ -12,10 +12,10 @@
 
 extern uint32_t dword_114F24;
 
-// patch_apply_4eac @ 0x114eac, size 112 bytes
+// patch_check_magic @ 0x114eac, size 112 bytes
 // Doc: patch_apply_n6a [patch]: Applies firmware patch bits to target memory byte
 // patch_apply_n6a [patch]: Applies firmware patch bits to target memory byte
-void patch_apply_4eac()
+void patch_check_magic()
 {
   uint32_t *v0; // r3
   int v1; // r2

@@ -1,1 +1,1 @@
-{"fn": "sub_1235384", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235384", "status": "ok", "name": "sub_1235384", "params": [], "docstring": "Iterate indexed entries (0x528 stride) into lookup tables", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235384", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235384", "status": "ok", "name": "rf_lookup_by_index", "params": [], "docstring": "Iterate indexed entries (0x528 stride) into lookup tables", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

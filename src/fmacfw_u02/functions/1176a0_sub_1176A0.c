@@ -26,10 +26,10 @@ extern uint32_t off_1178B0;
 extern uint32_t off_1178B4;
 extern uint32_t dword_1178B8;
 
-// sub_1176A0 @ 0x1176a0, size 488 bytes
+// phy_radio_init @ 0x1176a0, size 488 bytes
 // Doc: sub_12176A0 [unknown]: Dispatch handler on r1 opcode (cases up to 5)
 // sub_12176A0 [unknown]: Dispatch handler on r1 opcode (cases up to 5)
-int  sub_1176A0(int a1, int a2)
+int  phy_radio_init(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r10
@@ -67,7 +67,7 @@ int  sub_1176A0(int a1, int a2)
   v6 = dword_1178C0;
   v7 = *(uint32_t *)(a1 + 76);
   v8 = dword_1178C0 + 1320 * v5;
-  if ( scan_chan_setup_n134(v8)
+  if ( isr_flag_dispatch(v8)
     && ((v10 = *(uint8_t *)(a1 + 28), *(uint8_t *)(v6 + 1320 * v10 + 106))
      || *(uint8_t *)(a1 + 29) > 0x23u
      || *(uint16_t *)(a1 + 4)
@@ -77,8 +77,8 @@ int  sub_1176A0(int a1, int a2)
      || (v12 = *((uint32_t *)off_117890 + 10)) == 0
      || *(uint8_t *)(v12 + 24) <= 2u
      || (v13 = *(uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, msg_parse(dword_117894, v12 == v13, (uint8_t)v11), v12 == v31))
-    && phy_chan_table_lookup(a1) )
+     || (v31 = v13, event_dispatch(dword_117894, v12 == v13, (uint8_t)v11), v12 == v31))
+    && bt_is_link_active(a1) )
   {
     *(uint32_t *)(v7 + 68) |= 0x100u;
     if ( (__get_CPSR() & 1) == 0 )
@@ -92,7 +92,7 @@ int  sub_1176A0(int a1, int a2)
     ++*(uint32_t *)off_11789C;
     v4[80] = v16;
     if ( v15 )
-      sub_119EC8(a2);
+      rate_get_config(a2);
     if ( !*((uint32_t *)v4 + 5) )
     {
       v30 = *(uint32_t **)(a1 + 72);
@@ -100,7 +100,7 @@ int  sub_1176A0(int a1, int a2)
       v30[2] = a1;
       v30[3] = a1;
     }
-    v17 = list_push_tail(v4 + 12);
+    v17 = cmd_handler_a(v4 + 12);
     v18 = *((uint32_t *)off_1178A0 + 8);
     ++*((uint32_t *)off_117888 + 126);
     if ( v18 )
@@ -112,7 +112,7 @@ int  sub_1176A0(int a1, int a2)
         *(uint32_t *)(v6 + 1320 * v5 + 120) = *((uint32_t *)off_1178AC + 4);
     }
     if ( **(uint8_t **)off_1178B0 == 2 && (*(uint32_t *)off_1178B4 & dword_1178B8) == 0 )
-      rf_fault_dump_n_1d4(v17, v18, *(uint32_t *)off_1178B4);
+      process_global_167204(v17, v18, *(uint32_t *)off_1178B4);
     if ( *v14 )
     {
       v20 = *v14 - 1;
@@ -152,7 +152,7 @@ int  sub_1176A0(int a1, int a2)
     }
     v27 = *(uint32_t *)(a1 + 72);
     ++*v14;
-    sub_116AB4(a1, a1, v27, a2);
+    mac_flags_set(a1, a1, v27, a2);
     if ( *v14 )
     {
       v28 = *v14 - 1;
@@ -168,12 +168,12 @@ int  sub_1176A0(int a1, int a2)
   }
   else if ( *(uint8_t *)(a1 + 29) == 255 )
   {
-    sub_118CFC(a1, 0);
+    scan_control(a1, 0);
     return 0;
   }
   else
   {
-    sub_116680((uint8_t *)a1, a2);
+    phy_ctx_get_by_index((uint8_t *)a1, a2);
     return 1;
   }
 }

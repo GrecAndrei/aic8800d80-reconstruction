@@ -14,8 +14,8 @@ extern uint32_t off_103E7C;
 extern uint32_t off_103E78;
 extern uint32_t dword_103E80;
 
-// sub_103E00 @ 0x103e00, size 118 bytes
-int * sub_103E00(int a1)
+// mac_tx_enable @ 0x103e00, size 118 bytes
+int * mac_tx_enable(int a1)
 {
   unsigned int *v1; // r3
   int v2; // r5

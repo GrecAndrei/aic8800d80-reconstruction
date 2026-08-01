@@ -1,1 +1,1 @@
-{"fn": "irq_mask_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120de94", "status": "ok", "name": "irq_mask_init", "params": [], "docstring": "Initialize IRQ masks via enable/disable", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "irq_mask_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120de94", "status": "ok", "name": "gpio_init_sequence", "params": [], "docstring": "Initialize IRQ masks via enable/disable", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

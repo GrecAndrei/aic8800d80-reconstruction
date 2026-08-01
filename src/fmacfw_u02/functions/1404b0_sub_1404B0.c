@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1404B0 @ 0x1404b0, size 94 bytes
-int  sub_1404B0(int a1, int a2, int a3)
+// ble_ll_hci_vendor_cmd @ 0x1404b0, size 94 bytes
+int  ble_ll_hci_vendor_cmd(int a1, int a2, int a3)
 {
   int v3; // r3
   int v4; // r4

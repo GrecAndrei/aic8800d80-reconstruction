@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_119B2C @ 0x119b2c, size 32 bytes
-int  sub_119B2C(int a1, uint8_t *a2, int a3, int a4)
+// hci_build_event_0x3a @ 0x119b2c, size 32 bytes
+int  hci_build_event_0x3a(int a1, uint8_t *a2, int a3, int a4)
 {
-  sub_11C540(*a2);
-  sub_11DED8(58, a4, a3);
+  bt_conn_rx_schedule(*a2);
+  ke_evt_handler(58, a4, a3);
   return 0;
 }
 

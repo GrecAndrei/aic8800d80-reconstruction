@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_40b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115b4", "status": "ok", "name": "rf_bus_write_n_40b", "params": [], "docstring": "Write to RF bus MMIO registers at 0x40240120/0x40240100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_40b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115b4", "status": "ok", "name": "rf_bus_reset2_n_2a4", "params": [], "docstring": "Write to RF bus MMIO registers at 0x40240120/0x40240100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

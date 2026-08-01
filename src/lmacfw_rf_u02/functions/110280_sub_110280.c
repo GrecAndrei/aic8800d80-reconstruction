@@ -15,10 +15,10 @@ extern uint32_t off_1102C4;
 extern uint32_t dword_1102C8;
 extern uint32_t off_1102CC;
 
-// sub_110280 @ 0x110280, size 62 bytes
+// irq_disable_set @ 0x110280, size 62 bytes
 // Doc: sub_1210280 [rf]: LMAC RF helper performing shift-based bit manipulation
 // sub_1210280 [rf]: LMAC RF helper performing shift-based bit manipulation
-int sub_110280()
+int irq_disable_set()
 {
   int *v0; // r4
   int v1; // r0
@@ -35,7 +35,7 @@ int sub_110280()
   v0 = (int *)off_1102C4;
   v1 = dword_1102C8;
   ++*(uint32_t *)off_1102C4;
-  result = list_push_tail(v1);
+  result = check_kernel_state(v1);
   v3 = *v0;
   ++*(uint32_t *)off_1102CC;
   if ( v3 )

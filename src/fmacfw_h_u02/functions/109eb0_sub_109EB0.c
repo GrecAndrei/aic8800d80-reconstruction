@@ -19,8 +19,8 @@ extern uint32_t dword_109FEC;
 extern uint32_t off_109FF0;
 extern uint32_t dword_109FF4;
 
-// sub_109EB0 @ 0x109eb0, size 300 bytes
-int * sub_109EB0(
+// mmio_set_bit10 @ 0x109eb0, size 300 bytes
+int * mmio_set_bit10(
         int a1,
         int *a2,
         int a3,
@@ -60,18 +60,18 @@ int * sub_109EB0(
   *(uint32_t *)off_109FDC |= 0x400u;
   v15 = dword_109FE0;
   *v11 &= ~0x400u;
-  sub_12EB90(1, v15);
+  check_feature_flag(1, v15);
   if ( a5 )
   {
-    sub_1048E8((int)a2, 1, dword_100000, dword_100000, 0, 1);
-    return (int *)sub_109C74(24, (int)a2, 1, (int)v36);
+    rf_calibration((int)a2, 1, dword_100000, dword_100000, 0, 1);
+    return (int *)rf_load_cal_config(24, (int)a2, 1, (int)v36);
   }
   else
   {
     if ( a8 == 1 )
     {
-      sub_1048E8((int)a2, 1, dword_100000, dword_100000, 0, 0);
-      sub_109C74(24, (int)a2, 0, (int)v36);
+      rf_calibration((int)a2, 1, dword_100000, dword_100000, 0, 0);
+      rf_load_cal_config(24, (int)a2, 0, (int)v36);
       v30 = (uint32_t *)dword_109FE4;
       v31 = (uint32_t *)dword_109FE8;
       v32 = (uint32_t *)dword_109FEC;
@@ -106,10 +106,10 @@ int * sub_109EB0(
         v21[63] = v23;
       }
       while ( v17 != (int *)v20 );
-      sub_104CC8(a2, v25, a9, a10, a11);
+      float_interp(a2, v25, a9, a10, a11);
     }
-    sub_105270(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
-    result = sub_103E90(a3);
+    rf_calibrate_start(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
+    result = scan_enable(a3);
     v28 = off_109FF0;
     v29 = dword_109FF4;
     *(uint32_t *)off_109FF0 &= ~0x200u;

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1111E8;
 
-// mmio_field_extract_n1168 @ 0x111168, size 124 bytes
+// rf_set_tx_power @ 0x111168, size 124 bytes
 // Doc: rf_bus_mark_1e2 [rf]: Mark RF bus operation state
 // rf_bus_mark_1e2 [rf]: Mark RF bus operation state
-int  mmio_field_extract_n1168(int a1)
+int  rf_set_tx_power(int a1)
 {
   int *v1; // r3
   int v2; // r2
@@ -39,6 +39,6 @@ int  mmio_field_extract_n1168(int a1)
   }
   *v1 = v4;
   *v1 = v2 | 0xC00000;
-  return log_printf(dword_1111E8, *(uint32_t *)rf_bus_mark_1e4 & 0x3FFFFF);
+  return printf_wrapper(dword_1111E8, *(uint32_t *)rf_bus_mark_1e4 & 0x3FFFFF);
 }
 

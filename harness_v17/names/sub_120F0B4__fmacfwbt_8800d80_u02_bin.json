@@ -1,1 +1,1 @@
-{"fn": "sub_120F0B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f0b4", "status": "ok", "name": "util_sub_f0b4", "params": [], "docstring": "Generic utility function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120F0B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f0b4", "status": "ok", "name": "check_hw_flag", "params": [], "docstring": "Generic utility function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

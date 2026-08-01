@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E9A0 @ 0x13e9a0, size 42 bytes
-unsigned int  sub_13E9A0(unsigned int result)
+// rf_check_irq @ 0x13e9a0, size 42 bytes
+unsigned int  rf_check_irq(unsigned int result)
 {
   unsigned int v1; // r2
 
   v1 = *(uint32_t *)(*(uint32_t *)(result + 76) + 4);
   if ( (v1 & 0x810000) != 0 )
-    return sub_13E494(result, BYTE1(v1) + 1, (HIWORD(v1) & 1) + BYTE1(v1), 0, 0);
+    return mac_handle_command(result, BYTE1(v1) + 1, (HIWORD(v1) & 1) + BYTE1(v1), 0, 0);
   return result;
 }
 

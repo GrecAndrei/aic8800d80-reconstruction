@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_wait_n_3e4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b8c", "status": "ok", "name": "rf_cmd_wait_n_3e4", "params": [], "docstring": "Wait for RF command completion (3e4 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_wait_n_3e4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b8c", "status": "ok", "name": "rf_bus_reset_n1a5_2b8c", "params": [], "docstring": "Wait for RF command completion (3e4 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

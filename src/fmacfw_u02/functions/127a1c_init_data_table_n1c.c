@@ -17,10 +17,10 @@ extern uint32_t dword_127AB4;
 extern uint32_t off_127ACC;
 extern uint32_t off_127AC8;
 
-// init_data_table_n1c @ 0x127a1c, size 140 bytes
-// Doc: init_data_table_n1c [util]: Initialize internal data table
-// init_data_table_n1c [util]: Initialize internal data table
-int init_data_table_n1c()
+// stat_clear @ 0x127a1c, size 140 bytes
+// Doc: stat_clear [util]: Initialize internal data table
+// stat_clear [util]: Initialize internal data table
+int stat_clear()
 {
   int *v0; // r7
   void *v1; // r6
@@ -32,17 +32,17 @@ int init_data_table_n1c()
 
   v0 = (int *)off_127AAC;
   v1 = off_127AA8;
-  memset_thunk((int *)off_127AA8, 0, 0x60u);
+  memset((int *)off_127AA8, 0, 0x60u);
   v2 = 0;
   for ( i = v0; ; i += 7 )
   {
-    memset_thunk(i, 0, 0x1Cu);
+    memset(i, 0, 0x1Cu);
     *((uint16_t *)i + 7) = 255;
     *((uint8_t *)i + 24) = -1;
     *((uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      list_push_tail(v1);
+      cmd_handler_a(v1);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -54,12 +54,12 @@ LABEL_4:
   }
   if ( v2 != 4 )
     goto LABEL_4;
-  sub_12D240(dword_127AB0);
-  sub_12D240(dword_127AB4);
-  list_push_tail(dword_127AB0);
-  list_push_tail(dword_127AB0);
-  list_push_tail(dword_127AB0);
-  result = list_push_tail(dword_127AB0);
+  zero_8_bytes(dword_127AB0);
+  zero_8_bytes(dword_127AB4);
+  cmd_handler_a(dword_127AB0);
+  cmd_handler_a(dword_127AB0);
+  cmd_handler_a(dword_127AB0);
+  result = cmd_handler_a(dword_127AB0);
   v5 = off_127AA8;
   v6 = off_127ACC;
   *((uint32_t *)off_127AA8 + 13) = off_127AC8;

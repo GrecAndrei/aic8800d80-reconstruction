@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_19c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145ac", "status": "ok", "name": "rf_bus_reset_n_32e", "params": [], "docstring": "Reset the RF bus interface and reinitialize state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_19c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145ac", "status": "ok", "name": "sub_1145ac", "params": [], "docstring": "Reset the RF bus interface and reinitialize state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

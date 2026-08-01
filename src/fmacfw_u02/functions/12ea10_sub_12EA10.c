@@ -12,8 +12,8 @@
 
 extern uint32_t off_12EA28;
 
-// sub_12EA10 @ 0x12ea10, size 24 bytes
-void sub_12EA10()
+// ipc_wait_flag @ 0x12ea10, size 24 bytes
+void ipc_wait_flag()
 {
   while ( (*(uint32_t *)off_12EA28 & 0x40000) == 0 )
     ;

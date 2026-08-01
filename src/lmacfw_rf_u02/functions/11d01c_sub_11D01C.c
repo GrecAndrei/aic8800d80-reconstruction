@@ -20,8 +20,8 @@ extern uint32_t off_11D0A4;
 extern uint32_t off_11D0A8;
 extern uint32_t off_11D09C;
 
-// sub_11D01C @ 0x11d01c, size 118 bytes
-uint32_t *sub_11D01C()
+// rf_cal_trim_check @ 0x11d01c, size 118 bytes
+uint32_t *rf_cal_trim_check()
 {
   uint32_t *v0; // r2
   int v1; // r4
@@ -34,7 +34,7 @@ uint32_t *sub_11D01C()
   int v8; // r3
 
   if ( **(int16_t **)off_11D094 < 0 && !(*(uint32_t *)off_11D0AC << 28) )
-    return (uint32_t *)sub_121960(dword_11D0B4, dword_11D0B0, 213, *(uint32_t *)off_11D0AC);
+    return (uint32_t *)ke_int_lock(dword_11D0B4, dword_11D0B0, 213, *(uint32_t *)off_11D0AC);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();

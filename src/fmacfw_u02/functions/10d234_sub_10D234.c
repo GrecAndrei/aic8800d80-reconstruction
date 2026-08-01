@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D240;
 
-// sub_10D234 @ 0x10d234, size 10 bytes
-void sub_10D234()
+// mmio_set_control_bit_26 @ 0x10d234, size 10 bytes
+void mmio_set_control_bit_26()
 {
   *(uint32_t *)off_10D240 = 0x4000000;
 }

@@ -12,17 +12,17 @@
 
 extern uint32_t dword_138AA4;
 
-// sub_138A74 @ 0x138a74, size 46 bytes
+// tx_power_set @ 0x138a74, size 46 bytes
 // Doc: sub_1238A74 [util]: Helper that calls sub-function with arg 4 and returns result
 // sub_1238A74 [util]: Helper that calls sub-function with arg 4 and returns result
-uint32_t ** sub_138A74(uint32_t *a1)
+uint32_t ** tx_power_set(uint32_t *a1)
 {
   int v1; // r5
 
   v1 = dword_138AA4;
-  sub_1389D0(0, 4, a1[5]);
-  sub_12D2E8(v1, a1);
-  list_push_tail(v1 - 8, a1);
-  return sub_12F554((uint32_t **)(v1 - 32));
+  tx_power_lookup(0, 4, a1[5]);
+  cmd_handler_c(v1, a1);
+  cmd_handler_a(v1 - 8, a1);
+  return load_and_process_r0((uint32_t **)(v1 - 32));
 }
 

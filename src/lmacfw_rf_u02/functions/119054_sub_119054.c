@@ -17,8 +17,8 @@ extern uint32_t off_119164;
 extern uint32_t off_119168;
 extern uint32_t off_11916C;
 
-// sub_119054 @ 0x119054, size 260 bytes
-int  sub_119054(int a1)
+// rf_channel_calibrate @ 0x119054, size 260 bytes
+int  rf_channel_calibrate(int a1)
 {
   int v1; // r7
   int v2; // r9
@@ -51,20 +51,20 @@ int  sub_119054(int a1)
   {
     v7 = (uint8_t)v6++;
     if ( *(uint32_t *)(v4 + 56) )
-      rf_bus_write_60fc(v7, v5 - 32);
+      wlan_hw_init(v7, v5 - 32);
     v8 = *(uint32_t *)(v4 + 88);
     v9 = v5;
     v4 += 8;
     v5 += 8;
     if ( v8 )
-      rf_bus_write_60fc(v7, v9);
+      wlan_hw_init(v7, v9);
   }
   while ( v6 != 4 );
   v10 = dword_11915C + 224 * v2;
   if ( *(uint8_t *)(v10 + 94) )
   {
     if ( *(uint8_t *)(v10 + 94) == 2 )
-      return sub_117CB4(a1);
+      return rf_calibration_table_get(a1);
   }
   else
   {
@@ -103,6 +103,6 @@ int  sub_119054(int a1)
     while ( (*v22 & 0x40000000) != 0 )
       ;
   }
-  return sub_117CB4(a1);
+  return rf_calibration_table_get(a1);
 }
 

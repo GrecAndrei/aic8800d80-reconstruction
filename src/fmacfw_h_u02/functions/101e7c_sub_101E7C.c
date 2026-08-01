@@ -13,8 +13,8 @@
 extern uint32_t off_101EBC;
 extern uint32_t off_101EB8;
 
-// sub_101E7C @ 0x101e7c, size 58 bytes
-int  sub_101E7C(int result)
+// set_clock_divider @ 0x101e7c, size 58 bytes
+int  set_clock_divider(int result)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3

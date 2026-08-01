@@ -1,1 +1,1 @@
-{"fn": "sub_12196E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12196e0", "status": "ok", "name": "rx_desc_compare_n6e0", "params": [], "docstring": "Compare two RX descriptor fields at offset 0x1d", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12196E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12196e0", "status": "ok", "name": "phy_channel_same", "params": [], "docstring": "Compare two RX descriptor fields at offset 0x1d", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

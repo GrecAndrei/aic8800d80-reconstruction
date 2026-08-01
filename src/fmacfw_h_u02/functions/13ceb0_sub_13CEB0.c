@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13CEB0 @ 0x13ceb0, size 620 bytes
-int  sub_13CEB0(int result, uint32_t *a2)
+// bt_get_conn_interval @ 0x13ceb0, size 620 bytes
+int  bt_get_conn_interval(int result, uint32_t *a2)
 {
   unsigned int v2; // r6
   int v3; // r7

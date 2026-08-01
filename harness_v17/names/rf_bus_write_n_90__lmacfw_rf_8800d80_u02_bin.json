@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_90", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113dc", "status": "ok", "name": "rf_bus_write_n_90", "params": [], "docstring": "Write value to RF bus register with OR mask and flag set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_90", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113dc", "status": "ok", "name": "rf_bus_setup_n_427", "params": [], "docstring": "Write value to RF bus register with OR mask and flag set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

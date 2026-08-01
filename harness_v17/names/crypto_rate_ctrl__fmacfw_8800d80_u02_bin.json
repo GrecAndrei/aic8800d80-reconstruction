@@ -1,1 +1,1 @@
-{"fn": "crypto_rate_ctrl", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12063f4", "status": "ok", "name": "crypto_rate_ctrl", "params": [], "docstring": "Configures crypto/encryption rate control parameters", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_rate_ctrl", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12063f4", "status": "ok", "name": "timer_elapsed_compare", "params": [], "docstring": "Configures crypto/encryption rate control parameters", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

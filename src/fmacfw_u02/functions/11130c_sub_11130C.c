@@ -13,8 +13,8 @@
 extern uint32_t off_111388;
 extern uint32_t dword_11138C;
 
-// sub_11130C @ 0x11130c, size 124 bytes
-int  sub_11130C(int a1)
+// read_random_from_mmio @ 0x11130c, size 124 bytes
+int  read_random_from_mmio(int a1)
 {
   int *v1; // r3
   int v2; // r2
@@ -38,6 +38,6 @@ int  sub_11130C(int a1)
   }
   *v1 = v4;
   *v1 = v2 | 0xC00000;
-  return sub_10DC24(dword_11138C, *(uint32_t *)off_111388 & 0x3FFFFF);
+  return log_printf(dword_11138C, *(uint32_t *)off_111388 & 0x3FFFFF);
 }
 

@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114210 @ 0x114210, size 8 bytes
-int  sub_114210(int a1)
+// mmio_reg_write_1b @ 0x114210, size 8 bytes
+int  mmio_reg_write_1b(int a1)
 {
-  return host_reg_wait_set(0x1Bu, a1);
+  return mmio_write32(0x1Bu, a1);
 }
 

@@ -1,0 +1,1 @@
+{"fn": "sub_1325B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1325b4", "status": "ok", "name": "cmd_char_validate", "params": [], "docstring": "Validates command character code in [0..0x48].", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

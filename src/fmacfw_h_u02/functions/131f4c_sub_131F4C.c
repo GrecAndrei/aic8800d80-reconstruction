@@ -12,19 +12,19 @@
 
 extern uint32_t dword_131F8C;
 
-// sub_131F4C @ 0x131f4c, size 62 bytes
-int  sub_131F4C(int a1, uint8_t *a2)
+// get_conn_by_index @ 0x131f4c, size 62 bytes
+int  get_conn_by_index(int a1, uint8_t *a2)
 {
   int v2; // r6
   int v4; // r0
 
   v2 = dword_131F8C;
-  sub_124CF4(696 * *a2 + 672 + dword_131F8C);
+  mem_set_util(696 * *a2 + 672 + dword_131F8C);
   v4 = *a2;
   if ( *(uint8_t *)(v2 + 696 * v4 + 37) )
-    sub_1321E4(v4);
+    ke_malloc_wrapper(v4);
   else
-    sub_12C8D0(5130, 13, 5);
+    mac_write_header_word(5130, 13, 5);
   return 0;
 }
 

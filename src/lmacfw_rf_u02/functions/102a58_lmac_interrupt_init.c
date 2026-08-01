@@ -20,10 +20,10 @@ extern uint32_t dword_102AD0;
 extern uint32_t dword_102AD4;
 extern uint32_t off_102AD8;
 
-// lmac_interrupt_init @ 0x102a58, size 96 bytes
-// Doc: lmac_interrupt_init [mac]: Install LMAC interrupt/exception handlers into the vector table and enable their NVIC lines.
-// lmac_interrupt_init [mac]: Install LMAC interrupt/exception handlers into the vector table and enable their NVIC lines.
-int lmac_interrupt_init()
+// nvic_enable_irq @ 0x102a58, size 96 bytes
+// Doc: nvic_enable_irq [mac]: Install LMAC interrupt/exception handlers into the vector table and enable their NVIC lines.
+// nvic_enable_irq [mac]: Install LMAC interrupt/exception handlers into the vector table and enable their NVIC lines.
+int nvic_enable_irq()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r3

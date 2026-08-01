@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_119BD8 @ 0x119bd8, size 32 bytes
-int  sub_119BD8(int a1, uint8_t *a2, int a3, int a4)
+// hci_build_event_0x0d @ 0x119bd8, size 32 bytes
+int  hci_build_event_0x0d(int a1, uint8_t *a2, int a3, int a4)
 {
-  sub_119054(*a2);
-  sub_11DED8(13, a4, a3);
+  rf_channel_calibrate(*a2);
+  ke_evt_handler(13, a4, a3);
   return 0;
 }
 

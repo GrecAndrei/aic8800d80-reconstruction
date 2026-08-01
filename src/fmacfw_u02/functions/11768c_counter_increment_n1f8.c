@@ -12,10 +12,10 @@
 
 extern uint32_t off_11769C;
 
-// counter_increment_n1f8 @ 0x11768c, size 14 bytes
-// Doc: counter_increment_n1f8 [util]: Increment 32-bit counter at offset 0x1f8
-// counter_increment_n1f8 [util]: Increment 32-bit counter at offset 0x1f8
-void counter_increment_n1f8()
+// irq_counter_inc @ 0x11768c, size 14 bytes
+// Doc: irq_counter_inc [util]: Increment 32-bit counter at offset 0x1f8
+// irq_counter_inc [util]: Increment 32-bit counter at offset 0x1f8
+void irq_counter_inc()
 {
   ++*((uint32_t *)off_11769C + 126);
 }

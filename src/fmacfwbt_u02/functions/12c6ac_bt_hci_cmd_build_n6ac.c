@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// bt_hci_cmd_build_n6ac @ 0x12c6ac, size 64 bytes
+// util_format_string @ 0x12c6ac, size 64 bytes
 // Doc: message_dispatch_n_4d7 [ipc]: Handle a dispatched message, combining status fields and tail-calling the next handler.
 // message_dispatch_n_4d7 [ipc]: Handle a dispatched message, combining status fields and tail-calling the next handler.
-int  bt_hci_cmd_build_n6ac(char a1)
+int  util_format_string(char a1)
 {
   int result; // r0
   unsigned int *v2; // r2
@@ -22,7 +22,7 @@ int  bt_hci_cmd_build_n6ac(char a1)
   uint8_t v5[5]; // [sp+Fh] [bp-5h] BYREF
 
   v3[0] = a1;
-  result = sub_10197C((int)v3, &v4, v5);
+  result = llm_task_handler((int)v3, &v4, v5);
   v2 = (unsigned int *)message_dispatch_lookup_n_4c7;
   *(uint32_t *)message_dispatch_lookup_n_4c7 = *(uint32_t *)message_dispatch_lookup_n_4c7 & 0xFFFF00FF | (v4 << 8);
   *v2 = *v2 & 0xFFFFFF00 | v5[0];

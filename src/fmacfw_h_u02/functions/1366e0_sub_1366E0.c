@@ -15,16 +15,16 @@ extern uint32_t off_136718;
 extern uint32_t dword_136720;
 extern uint32_t dword_13671C;
 
-// sub_1366E0 @ 0x1366e0, size 50 bytes
-int sub_1366E0()
+// acquire_lock_check_state @ 0x1366e0, size 50 bytes
+int acquire_lock_check_state()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r4
 
-  v0 = sub_12D190(dword_136714);
+  v0 = list_pop(dword_136714);
   v1 = v0;
   if ( **(int16_t **)off_136718 < 0 && !v0 )
-    sub_12F32C(dword_136720, dword_13671C, 210);
-  return sub_12C84C((int)(v1 + 3));
+    irq_disable_mmio_write(dword_136720, dword_13671C, 210);
+  return rx_process_packet((int)(v1 + 3));
 }
 

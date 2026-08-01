@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111838 @ 0x111838, size 30 bytes
-int *sub_111838()
+// ll_hdr_init @ 0x111838, size 30 bytes
+int *ll_hdr_init()
 {
   int i; // r4
   int v1; // r0
@@ -22,8 +22,8 @@ int *sub_111838()
   {
     v1 = (uint8_t)i;
     v3 = (uint8_t)i;
-    sub_1117C8(v1);
-    result = sub_111800(v3);
+    tx_hdr_clear(v1);
+    result = rx_hdr_clear(v3);
   }
   return result;
 }

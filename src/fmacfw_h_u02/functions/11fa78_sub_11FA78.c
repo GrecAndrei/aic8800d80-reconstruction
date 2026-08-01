@@ -40,8 +40,8 @@ extern uint32_t off_11FD94;
 extern uint32_t dword_11FD98;
 extern uint32_t dword_11FDA0;
 
-// sub_11FA78 @ 0x11fa78, size 1108 bytes
-int  sub_11FA78(int a1)
+// get_bss_by_index @ 0x11fa78, size 1108 bytes
+int  get_bss_by_index(int a1)
 {
   int v2; // r6
   int *v3; // r8
@@ -100,7 +100,7 @@ int  sub_11FA78(int a1)
   v2 = dword_11FD7C;
   v3 = (int *)(dword_11FD7C + 1320 * a1);
   v52 = 1320 * a1;
-  sub_12D1A8(dword_11FD80, v3);
+  wlan_ioctl_handler_3(dword_11FD80, v3);
   if ( *((int **)off_11FD84 + 8) == v3 )
     *((uint32_t *)off_11FD84 + 8) = 0;
   v4 = *(uint8_t *)(v2 + 1320 * a1 + 106);
@@ -120,15 +120,15 @@ int  sub_11FA78(int a1)
     do
     {
       if ( *(uint32_t *)(v14 + 584) )
-        sub_118800((uint8_t)v18, v51 - 40, 0);
+        phy_dispatch((uint8_t)v18, v51 - 40, 0);
       if ( *(uint32_t *)(v14 + 624) )
-        sub_118800((uint8_t)v18, v51, 0);
+        phy_dispatch((uint8_t)v18, v51, 0);
       if ( v3[318] || v3[308] )
       {
         v19 = v17 - 40;
-        v53 = sub_12D22C(v17, v15);
-        v21 = sub_12D22C(v17 - 40, v20);
-        sub_12E948(dword_11FDA8, v53, v21);
+        v53 = list_length(v17, v15);
+        v21 = list_length(v17 - 40, v20);
+        alloc_tx_event(dword_11FDA8, v53, v21);
       }
       else
       {
@@ -140,8 +140,8 @@ int  sub_11FA78(int a1)
         *(uint32_t *)off_11FDAC = 1;
       }
       ++*v13;
-      sub_118800((uint8_t)v18, v17, 0);
-      sub_118800((uint8_t)v18, v19, 0);
+      phy_dispatch((uint8_t)v18, v17, 0);
+      phy_dispatch((uint8_t)v18, v19, 0);
       if ( *v13 )
       {
         v22 = *v13 - 1;
@@ -164,8 +164,8 @@ int  sub_11FA78(int a1)
     v5 = v55;
     if ( *(uint32_t *)(v2 + 1320 * a1 + 1312) )
     {
-      v24 = sub_12D22C(v52 + 1312 + v2, v15);
-      sub_12E948(dword_11FDB0, v24, v25);
+      v24 = list_length(v52 + 1312 + v2, v15);
+      alloc_tx_event(dword_11FDB0, v24, v25);
     }
     if ( (__get_CPSR() & 1) == 0 )
     {
@@ -173,7 +173,7 @@ int  sub_11FA78(int a1)
       *(uint32_t *)off_11FDAC = 1;
     }
     ++*v13;
-    v26 = sub_118800(5, v52 + 1312 + v2, 0);
+    v26 = phy_dispatch(5, v52 + 1312 + v2, 0);
     if ( *v13 )
     {
       v27 = *v13 - 1;
@@ -188,7 +188,7 @@ int  sub_11FA78(int a1)
     v6 = v55[18];
     if ( !v55[18] )
     {
-      sub_121774(v26);
+      rf_irq_disable(v26);
 LABEL_6:
       v6 = (uint8_t)v5[18];
       v7 = (uint8_t)v5[17] + v6;
@@ -216,19 +216,19 @@ LABEL_6:
       }
       goto LABEL_6;
     }
-    if ( sub_101960() )
-      sub_101974(0);
+    if ( check_rf_ready() )
+      set_rf_control_bit(0);
     v5 = off_11FECC;
     v40 = *((uint8_t *)off_11FECC + 16);
     v41 = v2 + 1320 * v40;
     v42 = *(uint32_t *)(v41 + 72);
     *(uint32_t *)(v41 + 4) &= ~0x80u;
     if ( v42 )
-      v40 = sub_12847C();
+      v40 = bsscfg_get();
     v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
-      sub_1216F4(v40, v42);
+      rf_irq_enable(v40, v42);
       v6 = (uint8_t)v5[18];
     }
     else
@@ -242,7 +242,7 @@ LABEL_6:
         v6 = *(uint32_t *)off_11FEE0 & 0xF;
         if ( v6 )
         {
-          sub_12F35C(dword_11FEE8, dword_11FEE4, 472);
+          mmio_write_field(dword_11FEE8, dword_11FEE4, 472);
           v44 = *v43;
           v6 = (uint8_t)v5[18];
         }
@@ -280,12 +280,12 @@ LABEL_42:
       *(uint32_t *)off_11FDC0 = v38 | *v30;
       goto LABEL_9;
     }
-    sub_12F35C(dword_11FEE8, dword_11FEE4, 472);
+    mmio_write_field(dword_11FEE8, dword_11FEE4, 472);
     v7 = (uint8_t)v5[17] + (uint8_t)v5[18];
     *(uint32_t *)off_11FEDC = *v30 | v30[1];
     goto LABEL_7;
   }
-  sub_12F35C(dword_11FEE8, dword_11FEE4, 472);
+  mmio_write_field(dword_11FEE8, dword_11FEE4, 472);
   v46 = (uint8_t)v5[18];
   v47 = (uint8_t)v5[17];
   v48 = off_11FEF0;
@@ -305,20 +305,20 @@ LABEL_7:
   if ( !v7 )
     *(uint32_t *)off_11FD8C = 0;
 LABEL_9:
-  sub_124CF4(v52 + 24 + v2);
-  sub_124CF4(v52 + 48 + v2);
+  mem_set_util(v52 + 24 + v2);
+  mem_set_util(v52 + 48 + v2);
   v8 = v2 + 1320 * a1;
   if ( *(uint8_t *)(v8 + 1224) )
   {
-    sub_129F0C(*(uint8_t *)(v8 + 1225), 1);
+    bt_get_conn_role(*(uint8_t *)(v8 + 1225), 1);
     --v5[19];
   }
-  sub_12ACC4(*(uint8_t *)(v2 + 1320 * a1 + 107));
+  init_chan_entry(*(uint8_t *)(v2 + 1320 * a1 + 107));
   if ( *((int **)off_11FD90 + 4) == v3 )
     *((uint32_t *)off_11FD90 + 4) = 0;
   *(uint32_t *)off_11FD94 = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
-    sub_11F5B0();
+    get_current_channel();
   sub_100200(v3, 0, 0x528u);
   v9 = v2 + 1320 * a1;
   v10 = dword_11FD98;
@@ -328,7 +328,7 @@ LABEL_9:
   *(uint32_t *)(v9 + 52) = v10;
   *(uint8_t *)(v9 + 109) = 127;
   *(uint8_t *)(v9 + 110) = 127;
-  sub_12EB90(256, v11);
-  return sub_12D108(off_11FD88);
+  check_feature_flag(256, v11);
+  return wlan_ioctl_handler_1(off_11FD88);
 }
 

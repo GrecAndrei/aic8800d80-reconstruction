@@ -19,8 +19,8 @@ extern uint32_t dword_119E64;
 extern uint32_t dword_119E68;
 extern uint32_t dword_119E6C;
 
-// sub_119D4C @ 0x119d4c, size 264 bytes
-int *sub_119D4C()
+// queue_counters_equal @ 0x119d4c, size 264 bytes
+int *queue_counters_equal()
 {
   uint32_t *v0; // r3
   uint64_t v1; // kr00_8
@@ -54,12 +54,12 @@ int *sub_119D4C()
   v4 = (int *)dword_119E60;
   v5 = dword_119E70;
   v6 = dword_119E5C;
-  memset_thunk((int *)dword_119E5C, 0, 0x30u);
+  memset((int *)dword_119E5C, 0, 0x30u);
   v7 = v3 + 6;
   do
   {
     v8 = *v3++;
-    result = memset_thunk(v8, 0, 360 * *v4);
+    result = memset(v8, 0, 360 * *v4);
     v10 = *v4++;
     if ( v10 > 0 )
     {
@@ -94,13 +94,13 @@ int *sub_119D4C()
         v13[85] = v6;
         v13[4] = v5;
         v13[21] = v5;
-        v13[44] = sub_101AD8() << 14;
-        v14 = rf_chan_mask_get();
+        v13[44] = rf_get_field4() << 14;
+        v14 = get_hw_clock_multiplier();
         v15 = dword_119E6C;
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = (int *)list_push_tail(v6);
+        result = (int *)cmd_handler_a(v6);
         ++v12;
         v11 += 90;
       }

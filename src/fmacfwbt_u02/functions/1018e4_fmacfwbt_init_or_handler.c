@@ -12,10 +12,10 @@
 
 extern uint32_t off_101900;
 
-// fmacfwbt_init_or_handler @ 0x1018e4, size 28 bytes
-// Doc: fmacfwbt_init_or_handler [unknown]: FMAC BT firmware init/handler stub
-// fmacfwbt_init_or_handler [unknown]: FMAC BT firmware init/handler stub
-uint32_t * fmacfwbt_init_or_handler(uint32_t *result, uint32_t *a2)
+// rf_config_write @ 0x1018e4, size 28 bytes
+// Doc: rf_config_write [unknown]: FMAC BT firmware init/handler stub
+// rf_config_write [unknown]: FMAC BT firmware init/handler stub
+uint32_t * rf_config_write(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

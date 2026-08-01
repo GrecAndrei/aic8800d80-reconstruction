@@ -17,8 +17,8 @@ extern uint32_t off_11E6DC;
 extern uint32_t dword_11E6E4;
 extern uint32_t dword_11E6E8;
 
-// sub_11E66C @ 0x11e66c, size 104 bytes
-void sub_11E66C()
+// process_event_queue @ 0x11e66c, size 104 bytes
+void process_event_queue()
 {
   unsigned int *v0; // r6
   unsigned int v1; // r4
@@ -50,7 +50,7 @@ void sub_11E66C()
           if ( v8 )
             goto LABEL_5;
         }
-        sub_1219C4(v6, v5, 230);
+        flash_ctrl_init(v6, v5, 230);
       }
       v8 = *(void ( **)(uint32_t))(v3 + 8 * v7);
 LABEL_5:
@@ -58,7 +58,7 @@ LABEL_5:
       v1 = *v0;
       if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
       {
-        sub_1138D0();
+        memory_barrier_write();
         if ( !v1 )
           return;
       }

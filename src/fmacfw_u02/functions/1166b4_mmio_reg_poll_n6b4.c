@@ -35,10 +35,10 @@ extern uint32_t off_11695C;
 extern uint32_t off_116960;
 extern uint32_t off_116964;
 
-// mmio_reg_poll_n6b4 @ 0x1166b4, size 652 bytes
-// Doc: mmio_reg_poll_n6b4 [mmio]: Polls MMIO register for completion condition
-// mmio_reg_poll_n6b4 [mmio]: Polls MMIO register for completion condition
-int  mmio_reg_poll_n6b4(int a1, int a2, int a3, int a4)
+// radio_band_validate @ 0x1166b4, size 652 bytes
+// Doc: radio_band_validate [mmio]: Polls MMIO register for completion condition
+// radio_band_validate [mmio]: Polls MMIO register for completion condition
+int  radio_band_validate(int a1, int a2, int a3, int a4)
 {
   uint32_t *v5; // r3
   int *v6; // r0
@@ -72,7 +72,7 @@ LABEL_12:
         *v16 = 512;
         goto LABEL_4;
       }
-      result = fmac_phy_op_handler(dword_116994, dword_116980, 1919, a4);
+      result = bad_func_0x12f408(dword_116994, dword_116980, 1919, a4);
       break;
     case 1:
       if ( ((*(uint32_t *)off_116940 >> 8) & 3) != 2 )
@@ -87,7 +87,7 @@ LABEL_14:
         *v17 = 1024;
         goto LABEL_4;
       }
-      result = fmac_phy_op_handler(dword_116990, dword_116980, 1907, a4);
+      result = bad_func_0x12f408(dword_116990, dword_116980, 1907, a4);
       break;
     case 2:
       if ( ((*(uint32_t *)off_116940 >> 12) & 3) != 2 )
@@ -102,7 +102,7 @@ LABEL_16:
         *v18 = 2048;
         goto LABEL_4;
       }
-      result = fmac_phy_op_handler(dword_11698C, dword_116980, 1895, a4);
+      result = bad_func_0x12f408(dword_11698C, dword_116980, 1895, a4);
       break;
     case 3:
       if ( (HIWORD(*(uint32_t *)off_116940) & 3) != 2 )
@@ -117,7 +117,7 @@ LABEL_18:
         *v19 = 4096;
         goto LABEL_4;
       }
-      result = fmac_phy_op_handler(dword_116988, dword_116980, 1883, a4);
+      result = bad_func_0x12f408(dword_116988, dword_116980, 1883, a4);
       break;
     case 4:
       if ( **(int16_t **)off_116978 >= 0 || (*(uint32_t *)off_116940 & 3) != 2 )
@@ -127,7 +127,7 @@ LABEL_18:
         *v20 = 256;
         goto LABEL_4;
       }
-      result = fmac_phy_op_handler(dword_116984, dword_116980, 1871, a4);
+      result = bad_func_0x12f408(dword_116984, dword_116980, 1871, a4);
       break;
     case 5:
       if ( (HIBYTE(*(uint32_t *)off_116940) & 3) != 2 )
@@ -142,11 +142,11 @@ LABEL_3:
         *v5 = 0x4000;
         goto LABEL_4;
       }
-      result = fmac_phy_op_handler(dword_116998, dword_116980, 1931, a4);
+      result = bad_func_0x12f408(dword_116998, dword_116980, 1931, a4);
       break;
     default:
       if ( **(int16_t **)off_116978 < 0 )
-        sub_12F46C(dword_11699C, dword_116980, 1937);
+        mmio_clear_register(dword_11699C, dword_116980, 1937);
 LABEL_4:
       v6 = (int *)off_116958;
       v7 = (int *)(4 * (dword_116954 + a2));

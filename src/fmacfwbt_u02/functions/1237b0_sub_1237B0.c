@@ -12,14 +12,14 @@
 
 extern uint32_t dword_123800;
 
-// sub_1237B0 @ 0x1237b0, size 80 bytes
-int  sub_1237B0(int a1, uint8_t *a2)
+// rf_reg_write_54 @ 0x1237b0, size 80 bytes
+int  rf_reg_write_54(int a1, uint8_t *a2)
 {
   uint8_t *v3; // r0
   uint8_t *v4; // r4
   unsigned int v5; // r0
 
-  v3 = (uint8_t *)rf_bus_setup_n3a8(84, 13, 0, 1);
+  v3 = (uint8_t *)bt_buf_alloc(84, 13, 0, 1);
   *v3 = 1;
   v4 = v3;
   v5 = *a2;
@@ -28,13 +28,13 @@ int  sub_1237B0(int a1, uint8_t *a2)
   *v4 = 0;
   if ( a2[1] )
   {
-    sub_12A74C();
+    bt_conn_set_flag();
 LABEL_5:
-    sub_12CBB4(v4);
+    hci_evt_send(v4);
     return 0;
   }
-  rf_table_lookup_n788();
-  sub_12CBB4(v4);
+  bt_conn_get_flag();
+  hci_evt_send(v4);
   return 0;
 }
 

@@ -13,13 +13,13 @@
 extern uint32_t off_102A54;
 extern uint32_t off_102A58;
 
-// sub_102A24 @ 0x102a24, size 48 bytes
-int sub_102A24()
+// rf_read_cal_values @ 0x102a24, size 48 bytes
+int rf_read_cal_values()
 {
   int result; // r0
   int *i; // r4
 
-  result = sub_1009A0(*((uint8_t *)off_102A54 + 36), *((uint16_t *)off_102A54 + 20));
+  result = sdio_irq_enable(*((uint8_t *)off_102A54 + 36), *((uint16_t *)off_102A54 + 20));
   for ( i = *((int **)off_102A58 + 2); i; i = (int *)*i )
   {
     while ( !*((uint8_t *)i + 108) )
@@ -28,7 +28,7 @@ int sub_102A24()
       if ( !i )
         return result;
     }
-    result = sub_12C444(i);
+    result = compute_byte_delta(i);
   }
   return result;
 }

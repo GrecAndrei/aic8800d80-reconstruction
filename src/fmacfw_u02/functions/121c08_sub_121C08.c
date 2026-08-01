@@ -19,16 +19,16 @@ extern uint32_t off_121CA8;
 extern uint32_t off_121CAC;
 extern uint32_t off_121CB0;
 
-// sub_121C08 @ 0x121c08, size 148 bytes
-int sub_121C08()
+// shared_s16_check @ 0x121c08, size 148 bytes
+int shared_s16_check()
 {
   int *v1; // r4
   int v2; // r3
   int v3; // r2
 
-  if ( **(int16_t **)off_121C9C < 0 && (msg_get_value(0) == 3 || !msg_get_value(0)) )
-    sub_12F46C(dword_121CB8, dword_121CB4, 1862);
-  if ( msg_get_value(0) == 2 )
+  if ( **(int16_t **)off_121C9C < 0 && (rx_rate_field_parse(0) == 3 || !rx_rate_field_parse(0)) )
+    mmio_clear_register(dword_121CB8, dword_121CB4, 1862);
+  if ( rx_rate_field_parse(0) == 2 )
   {
     *(uint32_t *)off_121CA0 = 48;
     if ( (__get_CPSR() & 1) == 0 )
@@ -38,7 +38,7 @@ int sub_121C08()
     }
     v1 = (int *)off_121CA8;
     ++*(uint32_t *)off_121CA8;
-    clear_flags(0x2000000);
+    unknown_func_12d14c(0x2000000);
     if ( (*(uint32_t *)off_121CAC & 4) != 0 )
       *(uint32_t *)off_121CB0 = 4;
     if ( *v1 )
@@ -53,6 +53,6 @@ int sub_121C08()
       }
     }
   }
-  return sub_12CD34(0);
+  return rx_phy_status_parse(0);
 }
 

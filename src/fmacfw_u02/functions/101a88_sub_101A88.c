@@ -15,8 +15,8 @@ extern uint32_t off_101ABC;
 extern uint32_t off_101AC0;
 extern uint32_t off_101AB4;
 
-// sub_101A88 @ 0x101a88, size 44 bytes
-int  sub_101A88(int16_t a1)
+// rf_set_channel @ 0x101a88, size 44 bytes
+int  rf_set_channel(int16_t a1)
 {
   int v1; // r4
   uint32_t *v2; // r1

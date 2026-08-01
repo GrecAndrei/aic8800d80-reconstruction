@@ -16,8 +16,8 @@ extern uint32_t dword_1193DC;
 extern uint32_t dword_1193D8;
 extern uint32_t dword_1193D4;
 
-// sub_119330 @ 0x119330, size 154 bytes
-int  sub_119330(int a1, int *a2, int a3, int a4)
+// rx_process_packet @ 0x119330, size 154 bytes
+int  rx_process_packet(int a1, int *a2, int a3, int a4)
 {
   int v4; // r6
   int v6; // r7
@@ -33,7 +33,7 @@ int  sub_119330(int a1, int *a2, int a3, int a4)
   {
     v9 = 8 * v6;
     if ( *(uint8_t *)(dword_1193D0 + 224 * v6 + 94) )
-      rf_cmd_send_n264(dword_1193DC, dword_1193D8, 2660);
+      flash_ctrl_init(dword_1193DC, dword_1193D8, 2660);
   }
   else
   {
@@ -47,12 +47,12 @@ int  sub_119330(int a1, int *a2, int a3, int a4)
   *(uint8_t *)(v10 + 140) = v11;
   if ( v12 == 1 )
   {
-    timestamp_remove(v4 + 224 * v6 + 124);
+    ke_exit_critical(v4 + 224 * v6 + 124);
     v13 = *(uint32_t *)(v10 + 144);
     *(uint8_t *)(v10 + 121) = 0;
   }
-  sub_11F74C(256, dword_1193D4, *(uint8_t *)(v4 + 32 * (v9 - v6) + 140), v13);
-  sub_11DED8(98, a4, a3);
+  check_interrupt_flag(256, dword_1193D4, *(uint8_t *)(v4 + 32 * (v9 - v6) + 140), v13);
+  ke_evt_handler(98, a4, a3);
   return 0;
 }
 

@@ -1,0 +1,1 @@
+{"fn": "sub_11831C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11831c", "status": "ok", "name": "llm_env_init", "params": [], "docstring": "Zero and init LLM env list at 0x188b54", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

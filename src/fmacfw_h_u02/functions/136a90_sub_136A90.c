@@ -15,8 +15,8 @@ extern uint32_t dword_136BD0;
 extern uint32_t dword_136BCC;
 extern uint32_t dword_136BC4;
 
-// sub_136A90 @ 0x136a90, size 306 bytes
-int ** sub_136A90(int a1, int a2, uint32_t *a3)
+// handle_acl_packet @ 0x136a90, size 306 bytes
+int ** handle_acl_packet(int a1, int a2, uint32_t *a3)
 {
   int v3; // r7
   int v5; // r2
@@ -52,7 +52,7 @@ int ** sub_136A90(int a1, int a2, uint32_t *a3)
   {
 LABEL_24:
     if ( **(int16_t **)off_136BC8 < 0 )
-      sub_12F35C(dword_136BD0, dword_136BCC, 441);
+      mmio_write_field(dword_136BD0, dword_136BCC, 441);
 LABEL_26:
     *a3 = 1;
     return 0;
@@ -68,7 +68,7 @@ LABEL_26:
       goto LABEL_24;
     v8 = (int **)*v8;
   }
-  sub_12D320(a2 + 572, v12, v8);
+  is_global_flag_set(a2 + 572, v12, v8);
   v13 = *(uint8_t *)(a2 + 54);
   if ( (v13 & 8) != 0 )
     v14 = 4;
@@ -99,11 +99,11 @@ LABEL_20:
     *((uint16_t *)v8[18] + 54) |= 0x2000u;
     return v8;
   }
-  v19 = sub_12C7EC(65, 0, 5, 4u);
+  v19 = tx_send_pdu(65, 0, 5, 4u);
   *(uint16_t *)v19 = *(uint16_t *)(a2 + 32);
   *(uint8_t *)(v19 + 3) = *(uint8_t *)(a2 + 34);
   *(uint8_t *)(v19 + 2) = 0;
-  sub_12C84C(v19);
+  rx_process_packet(v19);
   return v8;
 }
 

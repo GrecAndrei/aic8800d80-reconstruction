@@ -1,1 +1,1 @@
-{"fn": "sub_12278F0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12278f0", "status": "ok", "name": "sub_12278F0", "params": [], "docstring": "State/field update helper, reads struct at offset 0x55 and calls downstream", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12278F0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12278f0", "status": "ok", "name": "wlc_calc_txrate", "params": [], "docstring": "State/field update helper, reads struct at offset 0x55 and calls downstream", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

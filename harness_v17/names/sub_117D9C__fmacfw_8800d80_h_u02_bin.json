@@ -1,0 +1,1 @@
+{"fn": "sub_117D9C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117d9c", "status": "ok", "name": "init_mac_global_0x188290", "params": [], "docstring": "Clear and initialize global MAC state at 0x188290", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

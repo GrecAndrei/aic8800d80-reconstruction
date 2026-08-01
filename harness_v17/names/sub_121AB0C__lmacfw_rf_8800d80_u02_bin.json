@@ -1,1 +1,1 @@
-{"fn": "sub_121AB0C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ab0c", "status": "ok", "name": "sub_121AB0C", "params": [], "docstring": "Unknown LMAC RF helper (no clear pattern)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121AB0C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ab0c", "status": "ok", "name": "log_18630c", "params": [], "docstring": "Unknown LMAC RF helper (no clear pattern)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

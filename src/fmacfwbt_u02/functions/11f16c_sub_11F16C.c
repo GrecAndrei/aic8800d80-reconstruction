@@ -19,10 +19,10 @@ extern uint32_t dword_11F278;
 extern uint32_t dword_11F27C;
 extern uint32_t dword_11F280;
 
-// sub_11F16C @ 0x11f16c, size 248 bytes
+// wlc_attach @ 0x11f16c, size 248 bytes
 // Doc: sub_121F16C [rf]: Initialize RF subsystem state with global pointers
 // sub_121F16C [rf]: Initialize RF subsystem state with global pointers
-int *sub_11F16C()
+int *wlc_attach()
 {
   int v0; // r5
   int v1; // r7
@@ -41,19 +41,19 @@ int *sub_11F16C()
 
   v0 = dword_11F268;
   v1 = dword_11F264;
-  bt_xtal_init_check(dword_11F264);
+  zero_struct(dword_11F264);
   v2 = v0 + 22272;
   do
   {
-    rf_phy_field_clear_n_23c(v0 - 624);
-    list_push_tail(v1);
+    wlc_bsscfg_llc_flush(v0 - 624);
+    check_abort_flag(v1);
     v3 = v0 - 40;
     do
     {
-      bt_xtal_init_check(v3);
+      zero_struct(v3);
       v4 = v3 + 40;
       v3 += 8;
-      bt_xtal_init_check(v4);
+      zero_struct(v4);
     }
     while ( v3 != v0 );
     v0 = v3 + 696;
@@ -64,10 +64,10 @@ int *sub_11F16C()
     v6 = v2 - 40;
     do
     {
-      bt_xtal_init_check(v6);
+      zero_struct(v6);
       v7 = v6 + 40;
       v6 += 8;
-      bt_xtal_init_check(v7);
+      zero_struct(v7);
     }
     while ( v6 != v2 );
     v2 = v6 + 696;
@@ -75,23 +75,23 @@ int *sub_11F16C()
   v8 = off_11F26C;
   v9 = dword_11F270;
   v10 = dword_11F274;
-  rf_phy_field_clear_n_23c((int)off_11F26C);
+  wlc_bsscfg_llc_flush((int)off_11F26C);
   v8[8] = 0x20000000;
   v8[84] = v9;
   v8[47] = v10;
   *((uint8_t *)v8 + 52) = 0;
-  rf_phy_field_clear_n_23c((int)(v8 + 174));
+  wlc_bsscfg_llc_flush((int)(v8 + 174));
   v8[258] = v9 + 64;
   v11 = dword_11F278;
   v8[221] = v10 + 1320;
   v8[182] = v11;
   *((uint8_t *)v8 + 748) = 0;
-  rf_phy_field_clear_n_23c((int)(v8 + 348));
+  wlc_bsscfg_llc_flush((int)(v8 + 348));
   v8[432] = v9 + 128;
   v8[356] = dword_11F27C;
   *((uint8_t *)v8 + 1444) = 0;
   v8[395] = v10 + 2640;
-  result = rf_phy_field_clear_n_23c((int)(v8 + 522));
+  result = wlc_bsscfg_llc_flush((int)(v8 + 522));
   v13 = dword_11F280;
   *((uint8_t *)v8 + 2140) = 0;
   v8[606] = v9 + 192;

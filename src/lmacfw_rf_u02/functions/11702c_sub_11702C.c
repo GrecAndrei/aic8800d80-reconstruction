@@ -19,8 +19,8 @@ extern uint32_t off_11714C;
 extern uint32_t dword_117154;
 extern uint32_t dword_117150;
 
-// sub_11702C @ 0x11702c, size 278 bytes
-int  sub_11702C(int *a1, int a2, uint16_t *a3)
+// wlan_rf_init @ 0x11702c, size 278 bytes
+int  wlan_rf_init(int *a1, int a2, uint16_t *a3)
 {
   uint8_t *v3; // r7
   int v4; // r6
@@ -118,7 +118,7 @@ LABEL_10:
     v18 = *(uint32_t *)(v4 + 4);
     if ( **(int16_t **)off_11714C < 0 && !v18 )
     {
-      rf_cmd_send_n264(dword_117154, dword_117150, 615);
+      flash_ctrl_init(dword_117154, dword_117150, 615);
       v18 = 0;
     }
     v26 = v4;

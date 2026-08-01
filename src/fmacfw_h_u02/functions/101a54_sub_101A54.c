@@ -23,8 +23,8 @@ extern uint32_t dword_101CA8;
 extern uint32_t off_101C94;
 extern uint32_t off_101C98;
 
-// sub_101A54 @ 0x101a54, size 550 bytes
-int  sub_101A54(int a1, uint8_t *a2, uint8_t *a3)
+// bt_event_handler @ 0x101a54, size 550 bytes
+int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
 {
   int result; // r0
   unsigned int v5; // r10
@@ -71,7 +71,7 @@ int  sub_101A54(int a1, uint8_t *a2, uint8_t *a3)
       }
       if ( (*((uint32_t *)off_101C80 + 98) & 2) != 0 )
       {
-        result = sub_1320BC(0, *((uint16_t *)off_101C7C + 20));
+        result = is_adv_enabled(0, *((uint16_t *)off_101C7C + 20));
         v11 = v10;
         if ( result )
         {
@@ -81,11 +81,11 @@ int  sub_101A54(int a1, uint8_t *a2, uint8_t *a3)
         {
           if ( **(int16_t **)off_101C9C < 0 )
           {
-            sub_12F35C(dword_101CA4, dword_101CA0, 6857);
+            mmio_write_field(dword_101CA4, dword_101CA0, 6857);
             v11 = v10;
           }
           v22 = v11;
-          result = sub_12E948(dword_101CA8, 0, v5);
+          result = alloc_tx_event(dword_101CA8, 0, v5);
           v11 = v22;
           v20 = 15;
         }
@@ -111,14 +111,14 @@ int  sub_101A54(int a1, uint8_t *a2, uint8_t *a3)
     if ( **(int16_t **)off_101C9C >= 0 )
       return result;
     v19 = 6875;
-    return sub_12F32C(dword_101CA4, dword_101CA0, v19);
+    return irq_disable_mmio_write(dword_101CA4, dword_101CA0, v19);
   }
   if ( !*((uint8_t *)off_101C80 + 197) )
   {
     if ( **(int16_t **)off_101C9C >= 0 )
       return result;
     v19 = 6921;
-    return sub_12F32C(dword_101CA4, dword_101CA0, v19);
+    return irq_disable_mmio_write(dword_101CA4, dword_101CA0, v19);
   }
   if ( v5 <= 0x1666 )
   {
@@ -150,7 +150,7 @@ int  sub_101A54(int a1, uint8_t *a2, uint8_t *a3)
     v15 = (char)(*(uint8_t *)(*(uint32_t *)off_101C98 + v14) + v15);
   if ( (*((uint32_t *)off_101C80 + 98) & 2) != 0 )
   {
-    result = sub_1320BC(1, *((uint16_t *)off_101C7C + 20));
+    result = is_adv_enabled(1, *((uint16_t *)off_101C7C + 20));
     if ( result )
     {
       v21 = *(char *)(result + 4);
@@ -158,8 +158,8 @@ int  sub_101A54(int a1, uint8_t *a2, uint8_t *a3)
     else
     {
       if ( **(int16_t **)off_101C9C < 0 )
-        sub_12F35C(dword_101CA4, dword_101CA0, 6907);
-      result = sub_12E948(dword_101CA8, 1, v5);
+        mmio_write_field(dword_101CA4, dword_101CA0, 6907);
+      result = alloc_tx_event(dword_101CA8, 1, v5);
       v21 = 15;
     }
     if ( v15 >= v21 )

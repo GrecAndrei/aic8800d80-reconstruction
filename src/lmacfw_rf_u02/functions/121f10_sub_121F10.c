@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_121F10 @ 0x121f10, size 50 bytes
-int  sub_121F10(int a1)
+// str_has_extension @ 0x121f10, size 50 bytes
+int  str_has_extension(int a1)
 {
   int v2; // r0
   int v3; // r0
   int v5; // r3
 
-  v2 = sub_1288C0(a1);
+  v2 = memset_ff(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;

@@ -21,8 +21,8 @@ extern uint32_t dword_132BBC;
 extern uint32_t off_132B00;
 extern uint32_t off_132B04;
 
-// sub_1327C4 @ 0x1327c4, size 1016 bytes
-uint32_t * sub_1327C4(int a1)
+// process_rx_event @ 0x1327c4, size 1016 bytes
+uint32_t * process_rx_event(int a1)
 {
   char v1; // r3
   uint32_t *v2; // r6
@@ -225,7 +225,7 @@ LABEL_23:
     v68 = v31;
     if ( *((uint8_t *)off_132AEC + 197) && (v2[5] & 0x387F) != (v31 & 0x387F) )
     {
-      v32 = sub_101CAC(
+      v32 = bt_packet_parser(
               (v31 >> 11) & 7,
               v30 & 0x7F,
               (uint8_t *)(*(uint32_t *)(dword_132AF0 + 1320 * *(uint8_t *)(a1 + 34) + 72) + 4));
@@ -236,9 +236,9 @@ LABEL_23:
     *(uint32_t *)(v28 + 160) = v29;
     *(uint8_t *)(v28 + 165) = (v30 & 0x4000) != 0;
     *(uint32_t *)(v28 + 156) = v66 & v33 | v68;
-    if ( sub_12E91C(5u, 4u) )
-      sub_12E948(dword_132AF8, *(uint32_t *)(v28 + 156), v29);
-    sub_1401F8(v2, *(uint32_t *)(v28 + 156));
+    if ( is_id_lt_10(5u, 4u) )
+      alloc_tx_event(dword_132AF8, *(uint32_t *)(v28 + 156), v29);
+    l2c_sig_hdr_parse(v2, *(uint32_t *)(v28 + 156));
     v1 = *(uint8_t *)(a1 + 350);
   }
   if ( (v1 & 2) != 0 )
@@ -272,12 +272,12 @@ LABEL_23:
       *v39++ = v46;
       if ( v43 )
       {
-        v58 = sub_101CAC((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
+        v58 = bt_packet_parser((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
         *(v39 - 1) = v46 | v58 | (v58 << 8);
       }
       else if ( **(int16_t **)off_132AFC < 0 )
       {
-        sub_12F32C(dword_132BC0, dword_132BBC, 986);
+        irq_disable_mmio_write(dword_132BC0, dword_132BBC, 986);
       }
     }
     while ( v77 != v40 );

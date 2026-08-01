@@ -1,1 +1,1 @@
-{"fn": "sub_1232134", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1232134", "status": "ok", "name": "rf_bus_setup_n294", "params": [], "docstring": "Configure RF bus control register bits for operation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1232134", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1232134", "status": "ok", "name": "ke_state_is2", "params": [], "docstring": "Configure RF bus control register bits for operation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

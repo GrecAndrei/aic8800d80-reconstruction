@@ -1,1 +1,1 @@
-{"fn": "sub_12213FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12213fc", "status": "ok", "name": "rf_init_register_40a", "params": [], "docstring": "Initialize RF register block 0x40a and clear state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12213FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12213fc", "status": "ok", "name": "rf_clear_buf_0x40a", "params": [], "docstring": "Initialize RF register block 0x40a and clear state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -13,8 +13,8 @@
 extern uint32_t dword_111830;
 extern uint32_t dword_111834;
 
-// sub_111800 @ 0x111800, size 48 bytes
-int * sub_111800(int a1)
+// rx_hdr_clear @ 0x111800, size 48 bytes
+int * rx_hdr_clear(int a1)
 {
   int v2; // r0
   int v3; // r5
@@ -23,7 +23,7 @@ int * sub_111800(int a1)
 
   v2 = dword_111830 + 16 * (a1 - 1);
   v3 = *(uint8_t *)(v2 + 11);
-  result = sub_100200((int *)v2, 0, 0x10u);
+  result = memset_byte((int *)v2, 0, 0x10u);
   if ( v3 )
   {
     v5 = *(int ( **)(uint32_t, uint32_t, int))(dword_111834 + 4 * (a1 + 13));

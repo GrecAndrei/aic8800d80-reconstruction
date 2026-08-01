@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_104680 @ 0x104680, size 466 bytes
+// scan_set_interval @ 0x104680, size 466 bytes
 // Doc: sub_1204680 [unknown]: Unknown helper function in fmacfwbt
 // sub_1204680 [unknown]: Unknown helper function in fmacfwbt
-int  sub_104680(int a1, int a2, uint32_t *a3)
+int  scan_set_interval(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v6; // r10
@@ -67,7 +67,7 @@ int  sub_104680(int a1, int a2, uint32_t *a3)
     v8 = 32;
   else
     v8 = 16;
-  memset_thunk((int *)&v37, 0, 0x80u);
+  memset_byte((int *)&v37, 0, 0x80u);
   v9 = flt_104854;
   v29 = v6;
   v10 = 10;
@@ -76,8 +76,8 @@ int  sub_104680(int a1, int a2, uint32_t *a3)
   {
     v12 = v10;
     v10 += v8;
-    v13 = sub_104440(v10, a2, a3);
-    v14 = v13 - sub_104440(v12, a2, a3);
+    v13 = rx_parse_desc(v10, a2, a3);
+    v14 = v13 - rx_parse_desc(v12, a2, a3);
     if ( (float)v14 < v9 )
     {
       v9 = (float)v14;
@@ -112,8 +112,8 @@ int  sub_104680(int a1, int a2, uint32_t *a3)
       v19 = 5;
       do
       {
-        v20 = sub_104440(v18, a2, a3);
-        v21 = sub_104440(v33 - v34 + v18, a2, a3);
+        v20 = rx_parse_desc(v18, a2, a3);
+        v21 = rx_parse_desc(v33 - v34 + v18, a2, a3);
         --v19;
         v18 += v8;
         *((float *)v17 - 1) = *((float *)v17 - 1) + (float)(v20 - v21);

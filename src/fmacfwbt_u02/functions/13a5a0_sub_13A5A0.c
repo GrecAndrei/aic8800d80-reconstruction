@@ -13,8 +13,8 @@
 extern uint32_t dword_13A5C0;
 extern uint32_t off_13A5BC;
 
-// sub_13A5A0 @ 0x13a5a0, size 28 bytes
-BOOL sub_13A5A0()
+// rf_is_channel_idle @ 0x13a5a0, size 28 bytes
+BOOL rf_is_channel_idle()
 {
   return *(uint16_t *)(dword_13A5C0 + 80 * *((uint8_t *)off_13A5BC + 68) + 76) == 0;
 }

@@ -12,10 +12,10 @@
 
 extern uint32_t off_111B20;
 
-// rf_state_check @ 0x111adc, size 66 bytes
+// ke_timeout_tick @ 0x111adc, size 66 bytes
 // Doc: rf_bus_setup_n30e [rf]: RF bus register setup for N30E
 // rf_bus_setup_n30e [rf]: RF bus register setup for N30E
-int rf_state_check()
+int ke_timeout_tick()
 {
   uint8_t *v0; // r4
   int v1; // r0
@@ -31,8 +31,8 @@ int rf_state_check()
     {
       *(uint8_t *)rf_bus_setup_n324 = 4;
       *v0 = 7;
-      if ( !fw_flag_is_set() )
-        rf_chan_set_mask(0);
+      if ( !is_radio_powered() )
+        prepare_and_dispatch(0);
       return 1;
     }
     else

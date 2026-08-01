@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12C8D0 @ 0x12c8d0, size 16 bytes
-int  sub_12C8D0(int16_t a1, int16_t a2, int16_t a3)
+// mac_write_header_word @ 0x12c8d0, size 16 bytes
+int  mac_write_header_word(int16_t a1, int16_t a2, int16_t a3)
 {
   int v3; // r0
 
-  v3 = sub_12C7EC(a1, a2, a3, 0);
-  return sub_12C84C(v3);
+  v3 = tx_send_pdu(a1, a2, a3, 0);
+  return rx_process_packet(v3);
 }
 

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F704 @ 0x11f704, size 122 bytes
-int  sub_11F704(int a1, int a2, int a3)
+// wlc_bsscfg_down @ 0x11f704, size 122 bytes
+int  wlc_bsscfg_down(int a1, int a2, int a3)
 {
   int v3; // r10
   int v4; // r4
@@ -28,19 +28,19 @@ int  sub_11F704(int a1, int a2, int a3)
   do
   {
     v12 = 0;
-    if ( !bt_sub_121733C(a1) )
+    if ( !init_once(a1) )
       break;
-    if ( !sub_136C34(v3) )
+    if ( !phy_check_core_mode(v3) )
       break;
-    v10 = sub_136CFC(a1, a2, &v12);
+    v10 = txpwr_process_config(a1, a2, &v12);
     if ( v12 )
       break;
     if ( !v10 )
-      v10 = sub_12D4F8(v8);
+      v10 = list_pop_front(v8);
     v9 = *(uint8_t *)(v10 + 27);
     *(uint8_t *)(v10 + 97) = 0;
     ++v4;
-    cmd_dispatch_handler(v10, v9);
+    conn_rx(v10, v9);
     if ( a3 )
     {
       if ( v4 == a3 )

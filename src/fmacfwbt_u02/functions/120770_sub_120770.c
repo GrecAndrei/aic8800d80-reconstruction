@@ -12,8 +12,8 @@
 
 extern uint32_t off_1207C0;
 
-// sub_120770 @ 0x120770, size 80 bytes
-int  sub_120770(uint8_t *a1)
+// reset_event_flag @ 0x120770, size 80 bytes
+int  reset_event_flag(uint8_t *a1)
 {
   uint32_t *v1; // r3
   int *v2; // r3

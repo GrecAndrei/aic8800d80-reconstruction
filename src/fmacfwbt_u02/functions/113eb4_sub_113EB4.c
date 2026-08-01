@@ -13,15 +13,15 @@
 extern uint32_t off_113EEC;
 extern uint32_t off_113EF0;
 
-// sub_113EB4 @ 0x113eb4, size 56 bytes
-int sub_113EB4()
+// sleep_exit_critical @ 0x113eb4, size 56 bytes
+int sleep_exit_critical()
 {
   int *v0; // r4
   int result; // r0
   int v2; // r3
   int v3; // r2
 
-  sub_11DDE4();
+  rf_wait_idle();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -29,7 +29,7 @@ int sub_113EB4()
   }
   v0 = (int *)off_113EF0;
   ++*(uint32_t *)off_113EF0;
-  result = sub_12D374(128);
+  result = set_system_flag_2(128);
   if ( *v0 )
   {
     v2 = *v0 - 1;

@@ -12,8 +12,8 @@
 
 extern uint32_t off_101AC0;
 
-// sub_101AB0 @ 0x101ab0, size 14 bytes
-int sub_101AB0()
+// chip_info_nibble0_get @ 0x101ab0, size 14 bytes
+int chip_info_nibble0_get()
 {
   return (uint8_t)((*(uint8_t *)off_101AC0 & 0xF) - 1);
 }

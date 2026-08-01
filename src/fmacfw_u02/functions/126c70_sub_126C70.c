@@ -17,8 +17,8 @@ extern uint32_t off_126CF8;
 extern uint32_t dword_126D00;
 extern uint32_t off_126CFC;
 
-// sub_126C70 @ 0x126c70, size 124 bytes
-void sub_126C70()
+// rf_mmio_write @ 0x126c70, size 124 bytes
+void rf_mmio_write()
 {
   int *v0; // r4
   int v1; // r5
@@ -28,7 +28,7 @@ void sub_126C70()
 
   v0 = *((int **)off_126CEC + 2);
   v1 = *((uint32_t *)off_126CF0 + 10);
-  sub_11C350();
+  mmio_set_radio_bit();
   *(uint32_t *)off_126CF4 &= ~4u;
   if ( v0 )
   {
@@ -50,7 +50,7 @@ void sub_126C70()
         if ( !v0 )
           return;
       }
-      sub_11908C(*((uint8_t *)v0 + 116), 0, 0);
+      phy_channel_is_5g(*((uint8_t *)v0 + 116), 0, 0);
       v0 = (int *)*v0;
     }
     while ( v0 );

@@ -15,10 +15,10 @@ extern uint32_t dword_111ACC;
 extern uint32_t dword_111AD0;
 extern uint32_t dword_111AD4;
 
-// sub_111A24 @ 0x111a24, size 162 bytes
+// rf_channel_update_dup @ 0x111a24, size 162 bytes
 // Doc: rf_bus_setup_n28c [rf]: Configure RF bus control registers and setup pointers
 // rf_bus_setup_n28c [rf]: Configure RF bus control registers and setup pointers
-int  sub_111A24(int a1, int a2, unsigned int a3)
+int  rf_channel_update_dup(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -36,7 +36,7 @@ int  sub_111A24(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA6C(rf_bus_setup_1ad8);
+    log_printf(rf_bus_setup_1ad8);
     return 3;
   }
   else

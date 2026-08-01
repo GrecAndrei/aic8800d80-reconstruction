@@ -16,8 +16,8 @@ extern uint32_t dword_1191F4;
 extern uint32_t off_1191F8;
 extern uint32_t dword_1191FC;
 
-// sub_119168 @ 0x119168, size 134 bytes
-uint32_t *sub_119168()
+// system_init @ 0x119168, size 134 bytes
+uint32_t *system_init()
 {
   int *v0; // r8
   int *v1; // r7
@@ -29,7 +29,7 @@ uint32_t *sub_119168()
   int v7; // r2
   void ( *v8)(uint32_t, uint32_t); // r2
 
-  sub_12D374(0x20000);
+  set_system_flag_2(0x20000);
   v0 = (int *)off_119200;
   v1 = (int *)off_1191F0;
   v2 = dword_1191F4;
@@ -42,7 +42,7 @@ uint32_t *sub_119168()
       *v1 = 1;
     }
     ++*v0;
-    result = (uint32_t *)sub_12D4F8(v2);
+    result = (uint32_t *)list_pop_front(v2);
     v5 = result;
     if ( *v0 )
     {
@@ -65,7 +65,7 @@ uint32_t *sub_119168()
     }
     else if ( !*((uint8_t *)v5 + 96) )
     {
-      sub_12D470(dword_1191FC);
+      check_abort_flag(dword_1191FC);
     }
   }
   return result;

@@ -12,8 +12,8 @@
 
 extern uint32_t off_12B390;
 
-// sub_12B338 @ 0x12b338, size 88 bytes
-int  sub_12B338(uint16_t *a1)
+// bt_check_vendor_cmd @ 0x12b338, size 88 bytes
+int  bt_check_vendor_cmd(uint16_t *a1)
 {
   int v1; // r3
   int result; // r0

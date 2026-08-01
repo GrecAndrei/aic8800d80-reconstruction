@@ -12,8 +12,8 @@
 
 extern uint32_t off_12C3A4;
 
-// sub_12C388 @ 0x12c388, size 26 bytes
-int  sub_12C388(int a1, uint8_t *a2, uint8_t *a3)
+// get_calibration_value @ 0x12c388, size 26 bytes
+int  get_calibration_value(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v3; // r3
   int result; // r0

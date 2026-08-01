@@ -24,8 +24,8 @@ extern uint32_t dword_11959C;
 extern uint32_t off_119578;
 extern uint32_t off_11957C;
 
-// sub_119368 @ 0x119368, size 514 bytes
-unsigned int  sub_119368(int a1, int a2, int a3)
+// ecc_point_mul @ 0x119368, size 514 bytes
+unsigned int  ecc_point_mul(int a1, int a2, int a3)
 {
   int16_t **v3; // r10
   unsigned int v5; // r3
@@ -69,7 +69,7 @@ unsigned int  sub_119368(int a1, int a2, int a3)
   v8 = (v5 >> 7) & 3;
   v9 = (v5 >> 11) & 7;
   if ( **(int16_t **)off_119598 < 0 && ((v5 >> 11) & 6) == 0 )
-    sub_12F32C(dword_119584, dword_119580, 397);
+    irq_disable_mmio_write(dword_119584, dword_119580, 397);
   v10 = v9 == 4;
   if ( v9 <= 4 )
   {
@@ -86,10 +86,10 @@ unsigned int  sub_119368(int a1, int a2, int a3)
       v38 = v33;
       if ( v31 < 0 )
       {
-        if ( v32 <= 3 || (sub_12F32C(dword_119594, dword_119588, 340), **v3 < 0) )
+        if ( v32 <= 3 || (irq_disable_mmio_write(dword_119594, dword_119588, 340), **v3 < 0) )
         {
           if ( v12 > 9 )
-            sub_12F32C(dword_119590, dword_119588, 341);
+            irq_disable_mmio_write(dword_119590, dword_119588, 341);
         }
       }
       v34 = dword_11956C;
@@ -100,7 +100,7 @@ unsigned int  sub_119368(int a1, int a2, int a3)
       if ( **v3 < 0 && (v22 & 0x60) != 0 )
       {
         v35 = *(uint32_t *)(a1 + 4);
-        sub_12F32C(dword_11958C, dword_119588, 349);
+        irq_disable_mmio_write(dword_11958C, dword_119588, 349);
         LOBYTE(v22) = v35;
       }
       v34 = dword_11956C;
@@ -116,7 +116,7 @@ unsigned int  sub_119368(int a1, int a2, int a3)
     LOBYTE(v12) = 0;
     goto LABEL_14;
   }
-  v11 = sub_11C254(a1, v9, &v39, v40, &v37, &v38);
+  v11 = phy_rate_to_index(a1, v9, &v39, v40, &v37, &v38);
   v12 = (*(uint8_t *)(a1 + 344) >> 5) & 1;
   if ( v9 != 7 )
   {

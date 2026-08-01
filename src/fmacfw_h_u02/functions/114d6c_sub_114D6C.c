@@ -14,8 +14,8 @@ extern uint32_t off_114DDC;
 extern uint32_t dword_114DE0;
 extern uint32_t dword_114DE4;
 
-// sub_114D6C @ 0x114d6c, size 112 bytes
-void sub_114D6C()
+// check_patch_signature @ 0x114d6c, size 112 bytes
+void check_patch_signature()
 {
   uint32_t *v0; // r3
   int v1; // r2

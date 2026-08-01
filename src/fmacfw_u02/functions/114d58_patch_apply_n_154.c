@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_154 @ 0x114d58, size 10 bytes
+// ke_event_send_0x40 @ 0x114d58, size 10 bytes
 // Doc: patch_apply_n_150 [patch]: NOP patch slot placeholder
 // patch_apply_n_150 [patch]: NOP patch slot placeholder
-int  patch_apply_n_154(int a1)
+int  ke_event_send_0x40(int a1)
 {
-  return rf_fault_dump_n4e8(32, a1, 4u);
+  return ke_task_handler(32, a1, 4u);
 }
 

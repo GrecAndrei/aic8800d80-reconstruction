@@ -21,8 +21,8 @@ extern uint32_t off_124D60;
 extern uint32_t off_124D58;
 extern uint32_t dword_124D5C;
 
-// sub_124C58 @ 0x124c58, size 240 bytes
-int  sub_124C58(uint8_t *a1)
+// ble_store_adv_data @ 0x124c58, size 240 bytes
+int  ble_store_adv_data(uint8_t *a1)
 {
   uint8_t *v1; // r3
   int v2; // r4
@@ -96,7 +96,7 @@ int  sub_124C58(uint8_t *a1)
         {
           *(uint32_t *)off_124D60 = v15;
         }
-        chip_version_read_12207E0();
+        wait_rf_calibration();
       }
     }
   }
@@ -105,7 +105,7 @@ int  sub_124C58(uint8_t *a1)
     v17 = off_124D58;
     *(uint8_t *)off_124D58 = a1[24];
   }
-  sub_12ECB0(dword_124D5C, v7, v17);
-  return rf_mem_read_ed40(a1, 28, 1, 0);
+  ke_event_schedule(dword_124D5C, v7, v17);
+  return rx_packet_handler(a1, 28, 1, 0);
 }
 

@@ -14,8 +14,8 @@ extern uint32_t off_10CEB4;
 extern uint32_t off_10CEBC;
 extern uint32_t off_10CEB8;
 
-// sub_10CE80 @ 0x10ce80, size 52 bytes
-int sub_10CE80()
+// check_uart_flags @ 0x10ce80, size 52 bytes
+int check_uart_flags()
 {
   int v0; // r4
   uint32_t *v1; // r2
@@ -27,11 +27,11 @@ int sub_10CE80()
     v1 = off_10CEBC;
     *(uint32_t *)off_10CEB8 = 32;
     *v1 = 32;
-    result = sub_11E5E0(0x400000);
+    result = set_busy_flag_alt(0x400000);
   }
   if ( (v0 & 2) != 0 )
   {
-    result = sub_11E5E0(0x8000000);
+    result = set_busy_flag_alt(0x8000000);
     *(uint32_t *)off_10CEB8 = 2;
   }
   return result;

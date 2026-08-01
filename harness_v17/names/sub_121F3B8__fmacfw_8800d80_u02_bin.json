@@ -1,1 +1,1 @@
-{"fn": "sub_121F3B8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121f3b8", "status": "ok", "name": "ipc_msg_init_struct", "params": [], "docstring": "Initialize IPC/control struct fields to zero/one", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121F3B8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121f3b8", "status": "ok", "name": "llm_conn_reset_state", "params": [], "docstring": "Initialize IPC/control struct fields to zero/one", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

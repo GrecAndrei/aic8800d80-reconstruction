@@ -12,8 +12,8 @@
 
 extern uint32_t dword_130F24;
 
-// sub_130E58 @ 0x130e58, size 202 bytes
-uint8_t * sub_130E58(uint8_t *a1, int a2, int a3)
+// parse_scan_report @ 0x130e58, size 202 bytes
+uint8_t * parse_scan_report(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
   int v5; // r5
@@ -25,7 +25,7 @@ uint8_t * sub_130E58(uint8_t *a1, int a2, int a3)
   int v11; // zf
   uint8_t v12[5]; // [sp+7h] [bp-5h] BYREF
 
-  result = sub_12D958(a1, a2, v12);
+  result = buf_calc_4(a1, a2, v12);
   if ( result )
   {
     v5 = *(uint8_t *)(a3 + 164);

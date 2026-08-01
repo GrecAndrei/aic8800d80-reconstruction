@@ -14,10 +14,10 @@ extern uint32_t off_11469C;
 extern uint32_t off_1146A0;
 extern uint32_t off_1146A8;
 
-// rf_msg_handler_n3b0 @ 0x11463c, size 94 bytes
+// load_global_ptr_182558 @ 0x11463c, size 94 bytes
 // Doc: rf_fault_dump_n_d8 [rf]: Dumps RF fault state to memory
 // rf_fault_dump_n_d8 [rf]: Dumps RF fault state to memory
-int  rf_msg_handler_n3b0(int a1)
+int  load_global_ptr_182558(int a1)
 {
   int *v1; // r3
   int v2; // r2

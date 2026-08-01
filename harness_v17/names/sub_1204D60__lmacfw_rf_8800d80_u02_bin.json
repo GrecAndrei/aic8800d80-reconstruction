@@ -1,1 +1,1 @@
-{"fn": "sub_1204D60", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1204d60", "status": "ok", "name": "lmac_rf_behavioral_handler", "params": [], "docstring": "LMAC RF behavioral handler with large stack and FP state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1204D60", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1204d60", "status": "ok", "name": "rx_packet_handler", "params": [], "docstring": "LMAC RF behavioral handler with large stack and FP state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

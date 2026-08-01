@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132874 @ 0x132874, size 156 bytes
-int  sub_132874(int result, uint32_t *a2, int a3, uint16_t *a4, int *a5, int *a6, char *a7)
+// llm_parse_adv_pdu @ 0x132874, size 156 bytes
+int  llm_parse_adv_pdu(int result, uint32_t *a2, int a3, uint16_t *a4, int *a5, int *a6, char *a7)
 {
   unsigned int v7; // r4
   int v8; // r12

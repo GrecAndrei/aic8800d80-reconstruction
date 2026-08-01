@@ -13,8 +13,8 @@
 extern uint32_t off_1206F8;
 extern uint32_t off_1206FC;
 
-// sub_12063C @ 0x12063c, size 188 bytes
-int * sub_12063C(int *result, int a2, int a3)
+// check_non_null @ 0x12063c, size 188 bytes
+int * check_non_null(int *result, int a2, int a3)
 {
   int *v3; // r3
   unsigned int *v4; // r3

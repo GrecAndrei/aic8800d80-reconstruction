@@ -14,10 +14,10 @@ extern uint32_t off_1439AC;
 extern uint32_t dword_1439B0;
 extern uint32_t dword_1439B4;
 
-// random_mix_64 @ 0x14397c, size 46 bytes
-// Doc: random_mix_64 [util]: Mix 64-bit value using magic constants (PRNG/random)
-// random_mix_64 [util]: Mix 64-bit value using magic constants (PRNG/random)
-int random_mix_64()
+// scale_timer_value @ 0x14397c, size 46 bytes
+// Doc: scale_timer_value [util]: Mix 64-bit value using magic constants (PRNG/random)
+// scale_timer_value [util]: Mix 64-bit value using magic constants (PRNG/random)
+int scale_timer_value()
 {
   unsigned uint64_t v0; // kr00_8
 

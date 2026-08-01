@@ -13,8 +13,8 @@
 extern uint32_t off_10CF20;
 extern uint32_t off_10CF24;
 
-// sub_10CEF4 @ 0x10cef4, size 44 bytes
-int sub_10CEF4()
+// poll_hw_status @ 0x10cef4, size 44 bytes
+int poll_hw_status()
 {
   uint32_t *v0; // r4
   int result; // r0
@@ -25,7 +25,7 @@ int sub_10CEF4()
   result = *(uint32_t *)(*(uint32_t *)off_10CF24 + 532);
   if ( result )
   {
-    result = sub_11E7AC(*(uint32_t *)off_10CF24 + 532);
+    result = list_pop_front(*(uint32_t *)off_10CF24 + 532);
     *v0 = 1;
     if ( result )
       result += 4;

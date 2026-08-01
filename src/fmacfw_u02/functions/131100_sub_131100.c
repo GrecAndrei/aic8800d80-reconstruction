@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131100 @ 0x131100, size 72 bytes
+// ll_get_conn_interval @ 0x131100, size 72 bytes
 // Doc: sub_1231100 [ipc]: Forward event/message to handler at 0x12dd08
 // sub_1231100 [ipc]: Forward event/message to handler at 0x12dd08
-int  sub_131100(uint8_t *a1, int a2, int a3)
+int  ll_get_conn_interval(uint8_t *a1, int a2, int a3)
 {
   int result; // r0
   int v5; // r3
   int16_t v6; // r3
   int16_t v7; // r2
 
-  result = (int)sub_12DD08(a1, a2);
+  result = (int)check_one_12dd08(a1, a2);
   if ( result )
   {
     *(uint16_t *)a3 = *(uint8_t *)(result + 2) | (*(uint8_t *)(result + 3) << 8);

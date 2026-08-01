@@ -15,8 +15,8 @@ extern uint32_t off_134DE4;
 extern uint32_t dword_134DE0;
 extern uint32_t dword_134DE8;
 
-// sub_134CAC @ 0x134cac, size 302 bytes
-int sub_134CAC()
+// rx_desc_read_status @ 0x134cac, size 302 bytes
+int rx_desc_read_status()
 {
   int v0; // r6
   int16_t v1; // r7
@@ -52,11 +52,11 @@ int sub_134CAC()
     if ( *(uint8_t *)(v0 + 412) )
       v3 = 1;
   }
-  v4 = sub_119084(v3, 512);
+  v4 = event_notify(v3, 512);
   v5 = v4;
   if ( !v4 )
-    return sub_134B30();
-  sub_12C710(v0, v4);
+    return mac_tx_start();
+  scan_done_check(v0, v4);
   v6 = *(uint32_t *)(v5 + 72);
   v7 = off_134DE4;
   v8 = dword_134DE0 + 696 * v2;
@@ -84,27 +84,27 @@ int sub_134CAC()
   *(uint8_t *)(v5 + 29) = *(uint8_t *)(v0 + 116);
   *(uint8_t *)(v5 + 51) = 0;
   *(uint8_t *)(v5 + 53) = 0;
-  v13 = sub_13C734(v5, 192, 0);
+  v13 = bt_get_conn_ctx(v5, 192, 0);
   v14 = v6 + 108;
   if ( v13 == 1 )
   {
-    sub_13B13C(v5, v6 + 108, 24);
+    mac_rx_process_ack(v5, v6 + 108, 24);
     v19 = *(uint8_t *)(v5 + 51) + 24;
-    v16 = sub_130A54((uint16_t *)(v14 + v19), v1) + v19 + *(uint8_t *)(v5 + 53);
+    v16 = util_store_u16_return_2((uint16_t *)(v14 + v19), v1) + v19 + *(uint8_t *)(v5 + 53);
   }
   else
   {
-    v15 = sub_130A54((uint16_t *)(v6 + 132), v1);
+    v15 = util_store_u16_return_2((uint16_t *)(v6 + 132), v1);
     v16 = v15 + 24;
     if ( v13 == 2 )
-      v16 += sub_13C7AC(v5, v14, v15 + 24);
+      v16 += bt_check_conn_active(v5, v14, v15 + 24);
   }
   v17 = *(uint32_t **)(v5 + 76);
   v17[8] = v17[7] - 1 + v16;
   v17[9] = v16 + 4;
-  result = sub_1190B4(v5, 3);
+  result = ble_event_dispatch(v5, 3);
   if ( !result )
-    return sub_134B30();
+    return mac_tx_start();
   return result;
 }
 

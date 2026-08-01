@@ -13,8 +13,8 @@
 extern uint32_t off_1308D4;
 extern uint32_t dword_1308D8;
 
-// sub_13085C @ 0x13085c, size 120 bytes
-int  sub_13085C(int *a1)
+// build_tx_packet @ 0x13085c, size 120 bytes
+int  build_tx_packet(int *a1)
 {
   char *v1; // r4
   int16_t v2; // r3

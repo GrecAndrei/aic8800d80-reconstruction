@@ -18,8 +18,8 @@ extern uint32_t off_101DC4;
 extern uint32_t off_101DC8;
 extern uint32_t off_101DCC;
 
-// sub_101C70 @ 0x101c70, size 324 bytes
-int  sub_101C70(unsigned int a1, signed int a2, int a3)
+// rf_set_channel @ 0x101c70, size 324 bytes
+int  rf_set_channel(unsigned int a1, signed int a2, int a3)
 {
   unsigned int v3; // r4
   char *v4; // r2

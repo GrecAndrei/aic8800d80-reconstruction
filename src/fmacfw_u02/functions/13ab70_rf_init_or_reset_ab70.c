@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_init_or_reset_ab70 @ 0x13ab70, size 54 bytes
-// Doc: rf_init_or_reset_ab70 [rf]: RF subsystem initialization or reset sequence
-// rf_init_or_reset_ab70 [rf]: RF subsystem initialization or reset sequence
-int  rf_init_or_reset_ab70(int a1, uint16_t *a2)
+// ll_conn_event_type_check @ 0x13ab70, size 54 bytes
+// Doc: ll_conn_event_type_check [rf]: RF subsystem initialization or reset sequence
+// ll_conn_event_type_check [rf]: RF subsystem initialization or reset sequence
+int  ll_conn_event_type_check(int a1, uint16_t *a2)
 {
   unsigned int v2; // r2
   uint16_t *v4; // r1
@@ -27,7 +27,7 @@ int  rf_init_or_reset_ab70(int a1, uint16_t *a2)
     a2[1] = 3;
     a2[2] = 0;
   }
-  v4 = sub_13A980(a1, a2, 1);
-  return fmac_init_handler(a1, (int)v4);
+  v4 = ll_conn_context_get(a1, a2, 1);
+  return rf_apply_chan_cfg(a1, (int)v4);
 }
 

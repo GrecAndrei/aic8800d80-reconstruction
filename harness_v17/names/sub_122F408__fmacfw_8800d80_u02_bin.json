@@ -1,1 +1,1 @@
-{"fn": "sub_122F408", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f408", "status": "ok", "name": "fmac_phy_op_handler", "params": [], "docstring": "PHY operation dispatcher (unknown purpose)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122F408", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f408", "status": "ok", "name": "bad_func_0x12f408", "params": [], "docstring": "PHY operation dispatcher (unknown purpose)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

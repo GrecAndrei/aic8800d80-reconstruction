@@ -14,8 +14,8 @@ extern uint32_t off_110224;
 extern uint32_t off_110228;
 extern uint32_t dword_11022C;
 
-// sub_1101EC @ 0x1101ec, size 54 bytes
-int sub_1101EC()
+// irq_disable_arg @ 0x1101ec, size 54 bytes
+int irq_disable_arg()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_1101EC()
   v0 = (int *)off_110228;
   v1 = dword_11022C;
   ++*(uint32_t *)off_110228;
-  result = sub_11E724(v1);
+  result = check_kernel_state(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

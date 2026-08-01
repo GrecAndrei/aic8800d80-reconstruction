@@ -1,1 +1,1 @@
-{"fn": "sub_1204CC0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1204cc0", "status": "ok", "name": "ftoi32_trunc_sat", "params": [], "docstring": "Convert float to int32 with saturation and store result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1204CC0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1204cc0", "status": "ok", "name": "list_remove", "params": [], "docstring": "Convert float to int32 with saturation and store result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

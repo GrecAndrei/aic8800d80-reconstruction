@@ -13,8 +13,8 @@
 extern uint32_t off_13710C;
 extern uint32_t dword_137110;
 
-// sub_13709C @ 0x13709c, size 112 bytes
-BOOL  sub_13709C(uint8_t *a1)
+// rf_task_state_handler @ 0x13709c, size 112 bytes
+BOOL  rf_task_state_handler(uint8_t *a1)
 {
   int v1; // r8
   int v3; // r9
@@ -26,7 +26,7 @@ BOOL  sub_13709C(uint8_t *a1)
 
   v1 = *((uint8_t *)off_13710C + 3898);
   if ( *((uint8_t *)off_13710C + 3898) )
-    return sub_1435D0(a1 + 1, dword_137110, 7) == 0;
+    return memcmp(a1 + 1, dword_137110, 7) == 0;
   v3 = *(uint32_t *)off_13710C;
   v4 = *(uint8_t *)(*(uint32_t *)off_13710C + 368);
   if ( *(uint8_t *)(*(uint32_t *)off_13710C + 368) )
@@ -39,7 +39,7 @@ BOOL  sub_13709C(uint8_t *a1)
       v8 = *a1;
       if ( v8 == *(uint8_t *)(v5 + 252) )
       {
-        if ( !sub_1435D0(v5 + 253, v7, v8) )
+        if ( !memcmp(v5 + 253, v7, v8) )
           return 1;
         v4 = *(uint8_t *)(v3 + 368);
       }

@@ -17,8 +17,8 @@ extern uint32_t off_128338;
 extern uint32_t dword_12833C;
 extern uint32_t dword_128340;
 
-// sub_128294 @ 0x128294, size 160 bytes
-int  sub_128294(int result)
+// wifi_disable_action @ 0x128294, size 160 bytes
+int  wifi_disable_action(int result)
 {
   int v1; // r7
   int v2; // r5
@@ -32,12 +32,12 @@ int  sub_128294(int result)
   v1 = *(uint32_t *)(result + 72);
   v2 = result;
   if ( **(int16_t **)off_128334 < 0 && !v1 )
-    result = sub_12F32C(dword_128348, dword_128344, 3591);
+    result = irq_disable_mmio_write(dword_128348, dword_128344, 3591);
   v3 = off_128338;
   if ( (*((uint8_t *)off_128338 + 88) & 0x20) == 0 && *((uint8_t *)off_128338 + 90) > 1u )
   {
     v4 = *(uint8_t *)(v2 + 116);
-    v5 = sub_12C7EC(70, *((uint8_t *)off_128338 + 88) & 0x20, *((uint8_t *)off_128338 + 88) & 0x20, 20);
+    v5 = tx_send_pdu(70, *((uint8_t *)off_128338 + 88) & 0x20, *((uint8_t *)off_128338 + 88) & 0x20, 20);
     *(uint8_t *)v5 = 0;
     *(uint8_t *)(v5 + 1) = *(uint8_t *)(v2 + 107);
     *(uint8_t *)(v5 + 2) = *(uint8_t *)(v1 + 4);
@@ -51,7 +51,7 @@ int  sub_128294(int result)
     *(uint8_t *)(v5 + 16) = *(uint8_t *)(v1 + 12);
     *(uint32_t *)(v5 + 12) = (unsigned int)(((unsigned int)dword_128340
                                          * (unsigned uint64_t)(unsigned int)(*(uint32_t *)(v8 + 696 * v4 + 8) - 5000)) >> 32) >> 6;
-    result = sub_12C84C(v5);
+    result = rx_process_packet(v5);
     v3[88] |= 0x20u;
   }
   return result;

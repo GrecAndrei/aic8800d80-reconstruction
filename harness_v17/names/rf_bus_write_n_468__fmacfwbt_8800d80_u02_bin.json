@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_468", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211558", "status": "ok", "name": "rf_bus_write_n_468", "params": [], "docstring": "Write transaction over RF bus (variant 468)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_468", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211558", "status": "ok", "name": "rf_bus_write_558", "params": [], "docstring": "Write transaction over RF bus (variant 468)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

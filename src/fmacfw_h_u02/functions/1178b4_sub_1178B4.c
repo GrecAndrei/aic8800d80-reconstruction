@@ -13,8 +13,8 @@
 extern uint32_t off_1178DC;
 extern uint32_t off_1178E0;
 
-// sub_1178B4 @ 0x1178b4, size 38 bytes
-int sub_1178B4()
+// radio_irq_clear @ 0x1178b4, size 38 bytes
+int radio_irq_clear()
 {
   unsigned int v0; // r4
   int result; // r0
@@ -22,7 +22,7 @@ int sub_1178B4()
   v0 = *(uint32_t *)off_1178DC & 0xF00000;
   if ( v0 )
   {
-    result = sub_11AB34((uint8_t)(11 - __clz(v0)));
+    result = rf_command_handler((uint8_t)(11 - __clz(v0)));
     *(uint32_t *)off_1178E0 = v0;
   }
   else

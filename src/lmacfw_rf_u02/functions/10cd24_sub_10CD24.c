@@ -16,8 +16,8 @@ extern uint32_t off_10CD64;
 extern uint32_t off_10CD60;
 extern uint32_t off_10CD68;
 
-// sub_10CD24 @ 0x10cd24, size 52 bytes
-int sub_10CD24()
+// wait_for_uart_event @ 0x10cd24, size 52 bytes
+int wait_for_uart_event()
 {
   int v0; // r4
   int result; // r0
@@ -28,7 +28,7 @@ int sub_10CD24()
   v0 = *(uint32_t *)off_10CD58 & 0xF00;
   if ( v0 )
   {
-    result = sub_11E5E0(0x10000);
+    result = set_busy_flag_alt(0x10000);
     v2 = (int *)off_10CD5C;
     v3 = off_10CD64;
     *(uint32_t *)off_10CD60 = v0;

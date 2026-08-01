@@ -18,8 +18,8 @@ extern uint32_t dword_124234;
 extern uint32_t off_12422C;
 extern uint32_t off_124238;
 
-// sub_12419C @ 0x12419c, size 140 bytes
-int  sub_12419C(int a1, int a2, int a3, int a4, int a5)
+// mac_tx_frame @ 0x12419c, size 140 bytes
+int  mac_tx_frame(int a1, int a2, int a3, int a4, int a5)
 {
   uint8_t *v5; // r9
   char v8; // r8
@@ -32,7 +32,7 @@ int  sub_12419C(int a1, int a2, int a3, int a4, int a5)
 
   v5 = off_124240;
   v8 = a3;
-  msg_parse(dword_124228, a1, a2, a3, a4, a5, *((uint8_t *)off_124240 + 36));
+  dispatch_event_handler(dword_124228, a1, a2, a3, a4, a5, *((uint8_t *)off_124240 + 36));
   if ( v5[36] )
   {
     if ( a1 == 2 )
@@ -66,6 +66,6 @@ int  sub_12419C(int a1, int a2, int a3, int a4, int a5)
     v14 += 12;
   }
   while ( v15 != v14 );
-  return lmac_sub_init(1, (16 * a1) & 0xF0, 0x10u, v10);
+  return memcpy_advance(1, (16 * a1) & 0xF0, 0x10u, v10);
 }
 

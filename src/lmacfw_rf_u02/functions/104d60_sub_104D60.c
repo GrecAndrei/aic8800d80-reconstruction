@@ -25,8 +25,8 @@ extern uint32_t dword_1053B8;
 extern uint32_t dword_1053B4;
 extern uint32_t dword_105314;
 
-// sub_104D60 @ 0x104d60, size 1618 bytes
-int  sub_104D60(
+// rx_packet_handler @ 0x104d60, size 1618 bytes
+int  rx_packet_handler(
         int a1,
         int a2,
         float *a3,
@@ -196,12 +196,12 @@ int  sub_104D60(
       v16 = *(v14 - 2);
       if ( v15 < v16 )
       {
-        v17 = sub_127570(LODWORD(v15));
-        v18 = sub_127570(LODWORD(v16));
-        v19 = sub_127620(v18, HIDWORD(v18), dword_105040, dword_105044);
-        if ( sub_127B04(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
+        v17 = aeabi_d2f(LODWORD(v15));
+        v18 = aeabi_d2f(LODWORD(v16));
+        v19 = aeabi_dadd(v18, HIDWORD(v18), dword_105040, dword_105044);
+        if ( double_lt(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
         {
-          sub_11F74C(1, v12, v20, v21);
+          check_interrupt_flag(1, v12, v20, v21);
           v16 = *(v14 - 2);
         }
         *(v14 - 1) = v16;
@@ -211,7 +211,7 @@ int  sub_104D60(
   }
   if ( a1 > 0 )
   {
-    v22 = sub_12754C(a1);
+    v22 = aeabi_i2d(a1);
     v23 = flt_105038;
     v118 = v11;
     v24 = v130;
@@ -221,9 +221,9 @@ int  sub_104D60(
     v28 = v22;
     do
     {
-      v29 = sub_12754C(++v26);
-      v30 = sub_127874(v29, HIDWORD(v29), v28, HIDWORD(v28));
-      *(uint32_t *)v27++ = sub_127BE4(v30);
+      v29 = aeabi_i2d(++v26);
+      v30 = aeabi_dsub(v29, HIDWORD(v29), v28, HIDWORD(v28));
+      *(uint32_t *)v27++ = aeabi_dmul(v30);
       *v24++ = 1.0;
       *v25++ = v23;
     }
@@ -234,7 +234,7 @@ int  sub_104D60(
   v32 = 0;
   v119 = a2 - 1;
   v128 = a2 - 1;
-  sub_104CC0(a2, v31, &v126, (int)v11, 0);
+  list_remove(a2, v31, &v126, (int)v11, 0);
   v33 = &v11[v127];
   v34 = &v11[v126];
   v35 = *v33;
@@ -248,7 +248,7 @@ int  sub_104D60(
   {
     if ( a1 )
     {
-      sub_11F74C(1, dword_1053BC, v130, v39);
+      check_interrupt_flag(1, dword_1053BC, v130, v39);
       goto LABEL_44;
     }
   }
@@ -261,7 +261,7 @@ int  sub_104D60(
       if ( v32 != v112 )
       {
         v44 = v40 * *v42;
-        sub_104CC0(a2, v44, &v126, (int)v11, 1);
+        list_remove(a2, v44, &v126, (int)v11, 1);
         if ( v126 )
         {
           v45 = &v11[v126];
@@ -269,8 +269,8 @@ int  sub_104D60(
             || (v46 = v11[v127 + 32],
                 v115 = &v11[v127],
                 v47 = v45[32] - v46,
-                v48 = sub_127570(LODWORD(v47)),
-                sub_127B04(v48, HIDWORD(v48), dword_105030, dword_105034)) )
+                v48 = aeabi_d2f(LODWORD(v47)),
+                double_lt(v48, HIDWORD(v48), dword_105030, dword_105034)) )
           {
             v43 = 1.0;
           }
@@ -300,7 +300,7 @@ int  sub_104D60(
   while ( 1 )
   {
     v61 = v130[v51];
-    sub_104CC0(a2, v61, &v126, (int)v11, 0);
+    list_remove(a2, v61, &v126, (int)v11, 0);
     if ( v126 )
     {
       v116 = &v11[v127];
@@ -314,8 +314,8 @@ int  sub_104D60(
       {
         v56 = *v116;
         v57 = *v55 - *v116;
-        v58 = sub_127570(LODWORD(v57));
-        if ( !sub_127B40(v58, HIDWORD(v58), dword_105030, dword_105034) )
+        v58 = aeabi_d2f(LODWORD(v57));
+        if ( !double_gt(v58, HIDWORD(v58), dword_105030, dword_105034) )
           v57 = v50;
         v59 = (float)((float)((float)(v55[96] - v116[96]) / v57) * (float)(v61 - v56)) + v116[96];
       }
@@ -337,7 +337,7 @@ int  sub_104D60(
       break;
     ++v52;
   }
-  sub_11F74C(1, dword_1052FC, v54, v113);
+  check_interrupt_flag(1, dword_1052FC, v54, v113);
   if ( v113 > 0 )
   {
     v62 = flt_105300;
@@ -365,7 +365,7 @@ int  sub_104D60(
       *v66++ = v74;
       if ( v74 < 0 )
         *(v66 - 1) = v74 + (v74 < 0 ? 0x400 : 0);
-      sub_11F74C(1, v70, v72, v75);
+      check_interrupt_flag(1, v70, v72, v75);
     }
     while ( v113 != v67 );
   }
@@ -406,7 +406,7 @@ LABEL_48:
     v90 = v84;
     do
     {
-      sub_11F74C(1, v82, v90, v84);
+      check_interrupt_flag(1, v82, v90, v84);
       *(uint32_t *)(v85 - 40) = v111;
       *(uint32_t *)(v85 - 36) = v114;
       *(uint32_t *)(v85 - 32) = v117;
@@ -437,7 +437,7 @@ LABEL_48:
     while ( v124 != v90 );
     v76 = v89;
     v81 = v86;
-    return sub_11F74C(1, dword_105310, v81, v76);
+    return check_interrupt_flag(1, dword_105310, v81, v76);
   }
   if ( a8 == 7 )
     v78 = 5;
@@ -446,7 +446,7 @@ LABEL_48:
   if ( a5 == 2 )
   {
     v95 = dword_1053B8;
-    sub_11F74C(1, dword_1053B4, v78, 2);
+    check_interrupt_flag(1, dword_1053B4, v78, 2);
     v104 = (uint32_t *)(a4 + 48 * v78);
     v104[14] = v111;
     v104[15] = v114;
@@ -480,7 +480,7 @@ LABEL_48:
     v96 = a4 + 96;
   }
   v97 = v78 + 8 * a5;
-  sub_11F74C(1, dword_10530C, v97, a5);
+  check_interrupt_flag(1, dword_10530C, v97, a5);
   v97 *= 3;
   v98 = (uint32_t *)(a4 + 16 * v97);
   v98[14] = v111;
@@ -506,6 +506,6 @@ LABEL_48:
     v100 += 4;
   }
   while ( (int *)v101 != v102 );
-  return sub_11F74C(1, dword_105310, v81, v76);
+  return check_interrupt_flag(1, dword_105310, v81, v76);
 }
 

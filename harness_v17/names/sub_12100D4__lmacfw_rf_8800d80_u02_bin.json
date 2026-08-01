@@ -1,1 +1,1 @@
-{"fn": "sub_12100D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12100d4", "status": "ok", "name": "patch_apply_n422", "params": [], "docstring": "Applies a firmware patch table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12100D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12100d4", "status": "ok", "name": "rx_packet_event", "params": [], "docstring": "Applies a firmware patch table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

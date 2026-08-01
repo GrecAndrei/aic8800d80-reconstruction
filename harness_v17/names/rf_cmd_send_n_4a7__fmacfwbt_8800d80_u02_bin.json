@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_4a7", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129c4", "status": "ok", "name": "rf_cmd_send_n", "params": [], "docstring": "Sends an RF command to hardware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_4a7", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129c4", "status": "ok", "name": "rf_bus_reset_n180", "params": [], "docstring": "Sends an RF command to hardware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -32,8 +32,8 @@ extern uint32_t dword_12FD60;
 extern uint32_t off_12FD3C;
 extern uint32_t dword_12FD40;
 
-// sub_12FBA4 @ 0x12fba4, size 362 bytes
-int  sub_12FBA4(int a1, int a2)
+// is_compact_mac_string @ 0x12fba4, size 362 bytes
+int  is_compact_mac_string(int a1, int a2)
 {
   uint8_t *v3; // r6
   unsigned int v4; // r6
@@ -60,22 +60,22 @@ int  sub_12FBA4(int a1, int a2)
   uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
   char v27; // [sp+Ch] [bp-8h]
 
-  if ( sub_143D00(*(uint32_t *)(a2 + 4)) != 12 || sub_143D00(*(uint32_t *)(a2 + 8)) != 12 )
+  if ( memcpy_aligned(*(uint32_t *)(a2 + 4)) != 12 || memcpy_aligned(*(uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(uint8_t **)(a2 + 4);
-  sub_143630(v26, v3 + 8, 4);
+  memcpy(v26, v3 + 8, 4);
   v3[8] = 0;
   v27 = 0;
-  v4 = sub_12F818(v3, 0, 0x10u);
-  v5 = sub_12F818(v26, 0, 0x10u);
+  v4 = parse_uint_base(v3, 0, 0x10u);
+  v5 = parse_uint_base(v26, 0, 0x10u);
   v6 = *(uint8_t **)(a2 + 8);
   v7 = v5;
-  sub_143630(v26, v6 + 8, 4);
+  memcpy(v26, v6 + 8, 4);
   v6[8] = 0;
   v27 = 0;
-  v8 = sub_12F818(v6, 0, 0x10u);
-  LOWORD(v6) = sub_12F818(v26, 0, 0x10u);
-  sub_12E948(dword_12FD10);
+  v8 = parse_uint_base(v6, 0, 0x10u);
+  LOWORD(v6) = parse_uint_base(v26, 0, 0x10u);
+  alloc_tx_event(dword_12FD10);
   v9 = off_12FD18;
   v10 = off_12FD1C;
   v11 = off_12FD44;
@@ -120,7 +120,7 @@ int  sub_12FBA4(int a1, int a2)
   *(uint32_t *)&v20[-148] = v23;
   v24 = dword_12FD40;
   *v21 = v22;
-  sub_12E948(v24, v4, v7, v8, (uint16_t)v6);
+  alloc_tx_event(v24, v4, v7, v8, (uint16_t)v6);
   return 0;
 }
 

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12ADE8;
 
-// sub_12ADC8 @ 0x12adc8, size 30 bytes
-int  sub_12ADC8(int a1, int a2, int a3)
+// calc_channel_rate @ 0x12adc8, size 30 bytes
+int  calc_channel_rate(int a1, int a2, int a3)
 {
   int v3; // r3
   unsigned int v4; // r2

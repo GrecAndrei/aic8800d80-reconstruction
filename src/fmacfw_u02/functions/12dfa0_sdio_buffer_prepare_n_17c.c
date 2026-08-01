@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sdio_buffer_prepare_n_17c @ 0x12dfa0, size 14 bytes
-// Doc: sdio_buffer_prepare_n_17c [mmio]: Compute SDIO buffer pointer by combining two byte fields with bit-or and shift
-// sdio_buffer_prepare_n_17c [mmio]: Compute SDIO buffer pointer by combining two byte fields with bit-or and shift
-int  sdio_buffer_prepare_n_17c(int a1)
+// extract_9bit_field @ 0x12dfa0, size 14 bytes
+// Doc: extract_9bit_field [mmio]: Compute SDIO buffer pointer by combining two byte fields with bit-or and shift
+// extract_9bit_field [mmio]: Compute SDIO buffer pointer by combining two byte fields with bit-or and shift
+int  extract_9bit_field(int a1)
 {
   return ((2 * *(uint8_t *)(a1 + 5)) | (*(uint8_t *)(a1 + 4) >> 7)) << 22;
 }

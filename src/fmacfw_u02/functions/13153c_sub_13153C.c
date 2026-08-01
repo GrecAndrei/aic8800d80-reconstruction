@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13153C @ 0x13153c, size 12 bytes
-int  sub_13153C(int a1, uint8_t *a2)
+// io_put_byte @ 0x13153c, size 12 bytes
+int  io_put_byte(int a1, uint8_t *a2)
 {
-  sub_132324(*a2);
+  ke_buf_alloc(*a2);
   return 0;
 }
 

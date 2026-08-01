@@ -12,8 +12,8 @@
 
 extern uint32_t off_132678;
 
-// sub_1337B4 @ 0x1337b4, size 22 bytes
-int  sub_1337B4(int result, int a2, int a3, uint8_t *a4)
+// event_dispatch_by_type @ 0x1337b4, size 22 bytes
+int  event_dispatch_by_type(int result, int a2, int a3, uint8_t *a4)
 {
   unsigned int v4; // r4
   unsigned int v5; // r2

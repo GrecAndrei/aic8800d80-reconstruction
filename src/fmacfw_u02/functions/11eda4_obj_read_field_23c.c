@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// obj_read_field_23c @ 0x11eda4, size 76 bytes
-// Doc: obj_read_field_23c [util]: Read 32-bit field at offset 0x23c from object handle
-// obj_read_field_23c [util]: Read 32-bit field at offset 0x23c from object handle
-int * obj_read_field_23c(int a1)
+// llc_aes_ccm_setup @ 0x11eda4, size 76 bytes
+// Doc: llc_aes_ccm_setup [util]: Read 32-bit field at offset 0x23c from object handle
+// llc_aes_ccm_setup [util]: Read 32-bit field at offset 0x23c from object handle
+int * llc_aes_ccm_setup(int a1)
 {
   int v2; // r5
   int v3; // r0
@@ -23,10 +23,10 @@ int * obj_read_field_23c(int a1)
   v2 = a1 + 572;
   while ( *(uint32_t *)(a1 + 572) )
   {
-    v3 = rf_bus_mark_n100_d2d0(v2);
-    sub_118CFC(v3, 1);
+    v3 = mem_word_load(v2);
+    scan_control(v3, 1);
   }
-  result = memset_thunk((int *)a1, 0, 0x2B8u);
+  result = memset((int *)a1, 0, 0x2B8u);
   v5 = a1;
   do
   {

@@ -13,8 +13,8 @@
 extern uint32_t off_11C4DC;
 extern uint32_t dword_11C4E0;
 
-// sub_11C490 @ 0x11c490, size 74 bytes
-int  sub_11C490(int a1)
+// remove_tx_buffer @ 0x11c490, size 74 bytes
+int  remove_tx_buffer(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r7

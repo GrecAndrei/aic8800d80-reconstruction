@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_scan @ 0x1112e4, size 30 bytes
+// timer_init @ 0x1112e4, size 30 bytes
 // Doc: rf_bus_write2_n_226 [rf]: Write to RF bus register with mask/set pattern
 // rf_bus_write2_n_226 [rf]: Write to RF bus register with mask/set pattern
-int *rf_bus_scan()
+int *timer_init()
 {
   int i; // r4
   int v1; // r0
@@ -24,8 +24,8 @@ int *rf_bus_scan()
   {
     v1 = (uint8_t)i;
     v3 = (uint8_t)i;
-    rf_bus_mark_ne8(v1);
-    result = sub_1112AC(v3);
+    timer_entry_clear(v1);
+    result = timer_entry_reset(v3);
   }
   return result;
 }

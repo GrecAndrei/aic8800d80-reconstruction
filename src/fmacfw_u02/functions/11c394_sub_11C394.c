@@ -22,8 +22,8 @@ extern uint32_t dword_11C488;
 extern uint32_t dword_11C478;
 extern uint32_t dword_11C470;
 
-// sub_11C394 @ 0x11c394, size 208 bytes
-unsigned int  sub_11C394(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a5, int *a6)
+// get_channel_number @ 0x11c394, size 208 bytes
+unsigned int  get_channel_number(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a5, int *a6)
 {
   unsigned int v6; // r4
   int v7; // r8
@@ -56,13 +56,13 @@ unsigned int  sub_11C394(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a
     {
       if ( v11 )
       {
-        sub_12F46C(dword_11C48C, dword_11C474, 2707);
+        mmio_clear_register(dword_11C48C, dword_11C474, 2707);
         if ( **v16 >= 0 )
           goto LABEL_3;
         v8 = *a6;
       }
       if ( v8 != 1 )
-        sub_12F46C(dword_11C484, dword_11C474, 2709);
+        mmio_clear_register(dword_11C484, dword_11C474, 2709);
     }
   }
   else
@@ -74,10 +74,10 @@ unsigned int  sub_11C394(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a
     *a4 = dword_11C46C;
     if ( v14 < 0 )
     {
-      if ( (v10 & 4) == 0 || (sub_12F46C(dword_11C488, dword_11C474, 2717), **v12 < 0) )
+      if ( (v10 & 4) == 0 || (mmio_clear_register(dword_11C488, dword_11C474, 2717), **v12 < 0) )
       {
         if ( v11 > 0xB )
-          sub_12F46C(dword_11C478, dword_11C474, 2718);
+          mmio_clear_register(dword_11C478, dword_11C474, 2718);
       }
     }
   }

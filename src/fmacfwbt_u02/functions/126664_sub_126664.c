@@ -13,8 +13,8 @@
 extern uint32_t dword_126690;
 extern uint32_t dword_126694;
 
-// sub_126664 @ 0x126664, size 44 bytes
-int  sub_126664(uint32_t *a1)
+// check_bt_addr_valid @ 0x126664, size 44 bytes
+int  check_bt_addr_valid(uint32_t *a1)
 {
   int v1; // r3
   int v2; // r2

@@ -16,10 +16,10 @@ extern uint32_t off_127164;
 extern uint32_t off_127168;
 extern uint32_t dword_12716C;
 
-// sub_1270CC @ 0x1270cc, size 144 bytes
+// ctrl_register_handler @ 0x1270cc, size 144 bytes
 // Doc: sub_12270CC [unknown]: Load pointer from table and access field at offset 0x2c
 // sub_12270CC [unknown]: Load pointer from table and access field at offset 0x2c
-int  sub_1270CC(int result)
+int  ctrl_register_handler(int result)
 {
   uint32_t *v1; // r5
   int v2; // r4
@@ -47,9 +47,9 @@ int  sub_1270CC(int result)
     {
       if ( v3 && *(uint8_t *)(v3 + 24) != 3 )
       {
-        v4 = (uint8_t *)sub_12C92C(69, 13, 0, 1);
+        v4 = (uint8_t *)ke_msg_alloc(69, 13, 0, 1);
         *v4 = *(uint8_t *)(v3 + 24);
-        sdio_buffer_prepare_n_4e8(v4);
+        ke_msg_send(v4);
       }
       if ( *((int *)off_127160 + 1) > 0 )
       {
@@ -60,8 +60,8 @@ int  sub_1270CC(int result)
         }
         v5 = (int *)off_127168;
         ++*(uint32_t *)off_127168;
-        rf_set_bit_flag(4);
-        category_dispatch_5way(4);
+        mmio_set_bit(4);
+        phy_band_validate(4);
         if ( *v5 )
         {
           v6 = *v5 - 1;
@@ -76,9 +76,9 @@ int  sub_1270CC(int result)
       }
       v1[11] = v2;
       *(uint8_t *)(v2 + 16) = 2;
-      v8 = (uint32_t *)sub_12C92C(140, 0, 255, 4);
+      v8 = (uint32_t *)ke_msg_alloc(140, 0, 255, 4);
       *v8 = dword_12716C;
-      return sdio_buffer_prepare_n_4e8(v8);
+      return ke_msg_send(v8);
     }
   }
   return result;

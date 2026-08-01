@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F6F0 @ 0x11f6f0, size 18 bytes
-int  sub_11F6F0(int result)
+// wlc_phy_band_init @ 0x11f6f0, size 18 bytes
+int  wlc_phy_band_init(int result)
 {
   *(uint8_t *)(result + 52) = 1;
   *(uint8_t *)(result + 163) = 0;

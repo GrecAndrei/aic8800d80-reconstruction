@@ -18,10 +18,10 @@ extern uint32_t off_103A64;
 extern uint32_t dword_103A68;
 extern uint32_t off_103A5C;
 
-// crypto_hw_power_up_39c4 @ 0x1039c4, size 138 bytes
-// Doc: crypto_hw_power_up_39c4 [mac]: Power up crypto hardware block via MMIO register set/unset
-// crypto_hw_power_up_39c4 [mac]: Power up crypto hardware block via MMIO register set/unset
-int crypto_hw_power_up_39c4()
+// rf_pll_enable @ 0x1039c4, size 138 bytes
+// Doc: rf_pll_enable [mac]: Power up crypto hardware block via MMIO register set/unset
+// rf_pll_enable [mac]: Power up crypto hardware block via MMIO register set/unset
+int rf_pll_enable()
 {
   uint32_t *v0; // r2
   int v1; // r3
@@ -59,6 +59,6 @@ int crypto_hw_power_up_39c4()
   *v5 |= 0x1000000u;
   *v5 |= 0x8000000u;
   *v6 |= 0x524u;
-  return feature_guard_sdio(0x2000, v7);
+  return state_check_feature(0x2000, v7);
 }
 

@@ -15,8 +15,8 @@ extern uint32_t off_136E68;
 extern uint32_t dword_136E70;
 extern uint32_t dword_136E6C;
 
-// sub_136D6C @ 0x136d6c, size 246 bytes
-int  sub_136D6C(int a1, int a2)
+// rx_process_callback @ 0x136d6c, size 246 bytes
+int  rx_process_callback(int a1, int a2)
 {
   int v2; // r3
   int v5; // r3
@@ -37,18 +37,18 @@ int  sub_136D6C(int a1, int a2)
     v5 = *(uint8_t *)(v2 + 4);
     if ( **(int16_t **)off_136E64 >= 0 || v5 != 2 )
     {
-      result = sub_118C44((v5 | *(uint8_t *)(a1 + 1224)) != 0, 512);
+      result = ke_mutex_guard((v5 | *(uint8_t *)(a1 + 1224)) != 0, 512);
       v7 = result;
       if ( !result )
         return result;
 LABEL_4:
-      sub_12C4E8(a1, result);
+      rf_check_temperature(a1, result);
       v8 = *(uint32_t *)(v7 + 72);
       *(uint8_t *)(v8 + 108) = -64;
       *(uint8_t *)(v8 + 109) = 0;
       *(uint8_t *)(v8 + 110) = 0;
       *(uint8_t *)(v8 + 111) = 0;
-      sub_143770(v8 + 112, a2, 6);
+      memcpy(v8 + 112, a2, 6);
       v9 = off_136E68;
       v10 = *((uint16_t *)off_136E68 + 254);
       v11 = *(uint16_t *)(a1 + 104);
@@ -64,19 +64,19 @@ LABEL_4:
       *(uint32_t *)(v7 + 92) = a1;
       *(uint8_t *)(v7 + 28) = *(uint8_t *)(a1 + 107);
       *(uint8_t *)(v7 + 29) = -1;
-      v13 = sub_130838((uint16_t *)(v8 + 132), 7);
+      v13 = store_uint16_ret2((uint16_t *)(v8 + 132), 7);
       v14 = *(uint32_t *)(v7 + 76);
       LODWORD(v15) = *(uint32_t *)(v14 + 28) + 23 + v13;
       HIDWORD(v15) = v13 + 28;
       *(uint64_t *)(v14 + 32) = v15;
-      return rf_param_get_status(v7, 5);
+      return tx_path_status(v7, 5);
     }
     goto LABEL_6;
   }
   if ( **(int16_t **)off_136E64 < 0 )
 LABEL_6:
-    sub_12F46C(dword_136E70, dword_136E6C, 520);
-  result = sub_118C44(1, 512);
+    mmio_clear_register(dword_136E70, dword_136E6C, 520);
+  result = ke_mutex_guard(1, 512);
   v7 = result;
   if ( result )
     goto LABEL_4;

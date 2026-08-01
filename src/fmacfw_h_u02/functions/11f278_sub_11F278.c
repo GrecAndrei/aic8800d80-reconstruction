@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F278 @ 0x11f278, size 18 bytes
-int  sub_11F278(int result)
+// reset_rx_control_fields @ 0x11f278, size 18 bytes
+int  reset_rx_control_fields(int result)
 {
   *(uint8_t *)(result + 52) = 1;
   *(uint8_t *)(result + 163) = 0;

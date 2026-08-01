@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_write_1 @ 0x11146c, size 162 bytes
+// rf_channel_set_flag @ 0x11146c, size 162 bytes
 // Doc: rf_bus_setup_n_30e [rf]: Configure RF bus register with flag bits
 // rf_bus_setup_n_30e [rf]: Configure RF bus register with flag bits
-int * rf_bus_write_1(int a1, int a2, int a3)
+int * rf_channel_set_flag(int a1, int a2, int a3)
 {
   uint32_t *v3; // r6
   int *v4; // r5
@@ -55,11 +55,11 @@ int * rf_bus_write_1(int a1, int a2, int a3)
     {
 rf_bus_write2_n_66:
       *((uint32_t *)rf_cmd_queue_next_n15a + 513) |= 0x400u;
-      return rf_bus_mark_ne8(a1);
+      return timer_entry_clear(a1);
     }
     *v4 &= ~0x8000u;
     goto rf_bus_write2_n_66;
   }
-  return rf_bus_mark_ne8(a1);
+  return timer_entry_clear(a1);
 }
 

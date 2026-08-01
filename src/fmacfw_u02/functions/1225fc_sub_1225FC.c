@@ -15,8 +15,8 @@ extern uint32_t off_122788;
 extern uint32_t dword_12278C;
 extern uint32_t off_122790;
 
-// sub_1225FC @ 0x1225fc, size 392 bytes
-int  sub_1225FC(int a1, int a2, int a3, int *a4)
+// rx_process_packet @ 0x1225fc, size 392 bytes
+int  rx_process_packet(int a1, int a2, int a3, int *a4)
 {
   int v4; // r7
   int v5; // r11
@@ -44,7 +44,7 @@ int  sub_1225FC(int a1, int a2, int a3, int *a4)
   v6 = *(uint32_t *)(*(uint32_t *)(a1 + 8) + 8);
   v7 = a2;
   v25 = *(uint32_t *)(a2 + 124);
-  v9 = sub_12DB60(v6 + 36, (uint16_t)(v5 - 36));
+  v9 = check_one_12db60(v6 + 36, (uint16_t)(v5 - 36));
   if ( !v9 )
     goto LABEL_7;
   v10 = *(uint8_t *)(v9 + 2);
@@ -74,24 +74,24 @@ LABEL_7:
 LABEL_8:
   if ( *(uint8_t *)(v7 + 147) )
   {
-    tx_send_msg_n25dc(*(uint8_t *)(v7 + 107), 1);
+    hci_send_cmd_0x59(*(uint8_t *)(v7 + 107), 1);
     *(uint16_t *)(v7 + 146) = 0;
     *(uint8_t *)(v7 + 148) = 0;
   }
   v12 = off_122788;
   *(uint8_t *)(v7 + 141) = 1;
-  if ( dword_12278C - v12[4] + *(uint32_t *)(v7 + 120) < 0 && !sub_11908C(*(uint8_t *)(v7 + 116), 0, 0) )
+  if ( dword_12278C - v12[4] + *(uint32_t *)(v7 + 120) < 0 && !phy_channel_is_5g(*(uint8_t *)(v7 + 116), 0, 0) )
     *(uint32_t *)(v7 + 120) = *((uint32_t *)off_122788 + 4);
   v23 = *(char *)(v4 + 45);
-  sub_101AEC();
+  rf_get_field0();
   v13 = v23;
   if ( *((uint8_t *)off_122790 + 17) == 1 )
   {
-    sub_1222F4((uint32_t *)v7, v23);
+    rf_tx_power_calc((uint32_t *)v7, v23);
     v13 = v23;
   }
-  sub_122124((uint8_t *)v7, v13);
-  v14 = sub_12D4F4(v6 + 32, 4, 0);
+  rssi_compensation((uint8_t *)v7, v13);
+  v14 = crc32_update(v6 + 32, 4, 0);
   *a4 = 0;
   if ( (uint16_t)(v5 - 36) > 1u )
   {
@@ -109,7 +109,7 @@ LABEL_8:
       if ( *v16 == 5 )
         *v15 = (int)v16;
       else
-        v14 = sub_12D4F4(v20, (uint8_t)v16[1], v14);
+        v14 = crc32_update(v20, (uint8_t)v16[1], v14);
       v18 = (uint16_t)(v18 + -2 - v19);
       v16 = &v20[v19];
     }
@@ -119,8 +119,8 @@ LABEL_8:
     v4 = v24;
   }
   *(uint32_t *)(v7 + 124) = v14;
-  sub_120840(v6, v5, v4, v7, a3, *a4);
-  result = msg_get_value(4);
+  handle_rx_data(v6, v5, v4, v7, a3, *a4);
+  result = rx_rate_field_parse(4);
   if ( result != 1 )
     return *(uint32_t *)(v7 + 124) != v25;
   return result;

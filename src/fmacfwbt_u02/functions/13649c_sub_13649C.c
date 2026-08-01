@@ -14,21 +14,21 @@ extern uint32_t off_1364F8;
 extern uint32_t dword_136500;
 extern uint32_t dword_1364FC;
 
-// sub_13649C @ 0x13649c, size 90 bytes
-int sub_13649C()
+// tx_schedule_radio_task @ 0x13649c, size 90 bytes
+int tx_schedule_radio_task()
 {
   int v0; // r0
 
-  if ( **(int16_t **)off_1364F8 < 0 && sub_12D0B0(7u) != 1 && sub_12D0B0(7u) && sub_12D0B0(7u) != 3 )
-    sub_12F694(dword_136500, dword_1364FC, 274);
-  v0 = sub_12D0B0(7u);
+  if ( **(int16_t **)off_1364F8 < 0 && hci_cmd_send_short(7u) != 1 && hci_cmd_send_short(7u) && hci_cmd_send_short(7u) != 3 )
+    mmio_irq_clear(dword_136500, dword_1364FC, 274);
+  v0 = hci_cmd_send_short(7u);
   if ( v0 != 1 )
   {
-    v0 = sub_12D0B0(7u);
+    v0 = hci_cmd_send_short(7u);
     if ( v0 != 3 )
       return 0;
   }
-  sub_13697C(v0);
+  txpwr_get_state(v0);
   return 0;
 }
 

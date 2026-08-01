@@ -1,1 +1,1 @@
-{"fn": "crypto_hw_sequence", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207a8c", "status": "ok", "name": "crypto_hw_sequence_7a8c", "params": [], "docstring": "Program hardware crypto sequence", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "crypto_hw_sequence", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207a8c", "status": "ok", "name": "rf_rx_cfg_write", "params": [], "docstring": "Program hardware crypto sequence", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

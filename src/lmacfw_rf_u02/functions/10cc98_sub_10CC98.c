@@ -17,8 +17,8 @@ extern uint32_t off_10CD18;
 extern uint32_t off_10CD1C;
 extern uint32_t off_10CD20;
 
-// sub_10CC98 @ 0x10cc98, size 114 bytes
-int *sub_10CC98()
+// clear_buffer_180a0c @ 0x10cc98, size 114 bytes
+int *clear_buffer_180a0c()
 {
   int v0; // r4
   int v1; // zf
@@ -45,6 +45,6 @@ int *sub_10CC98()
     *(uint32_t *)off_10CD18 |= 0x10u;
   }
   (*v3)[149] = *(uint32_t *)off_10CD20;
-  return sub_10CBE0();
+  return config_uart_control();
 }
 

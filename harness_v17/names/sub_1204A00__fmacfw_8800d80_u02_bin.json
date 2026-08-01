@@ -1,1 +1,1 @@
-{"fn": "sub_1204A00", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1204a00", "status": "ok", "name": "crypto_or_phy_init", "params": [], "docstring": "Large init routine with VFP usage (crypto/phy setup)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1204A00", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1204a00", "status": "ok", "name": "rf_scan_init", "params": [], "docstring": "Large init routine with VFP usage (crypto/phy setup)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

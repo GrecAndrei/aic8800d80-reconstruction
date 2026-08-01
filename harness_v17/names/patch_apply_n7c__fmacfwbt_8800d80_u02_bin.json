@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n7c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215564", "status": "ok", "name": "patch_apply_n7c", "params": [], "docstring": "Apply firmware patch table comparing source/dest pointers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n7c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215564", "status": "ok", "name": "ring_buf_used", "params": [], "docstring": "Apply firmware patch table comparing source/dest pointers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

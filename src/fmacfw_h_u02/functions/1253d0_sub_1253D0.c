@@ -18,8 +18,8 @@ extern uint32_t dword_12549C;
 extern uint32_t off_125498;
 extern uint32_t dword_1254A0;
 
-// sub_1253D0 @ 0x1253d0, size 186 bytes
-int  sub_1253D0(int a1, int a2)
+// tx_pkt_complete @ 0x1253d0, size 186 bytes
+int  tx_pkt_complete(int a1, int a2)
 {
   uint32_t *v3; // r5
   int v4; // r1
@@ -49,7 +49,7 @@ int  sub_1253D0(int a1, int a2)
   v9 = dword_12548C;
   v10 = v4 - v5;
   *(uint16_t *)(a1 + 216) = v4 - v5;
-  sub_132E78();
+  ble_ll_conn_process();
   v12 = *(uint16_t *)(a2 + 6);
   v13 = dword_125490;
   v14 = v3[7] + v12 - 1;

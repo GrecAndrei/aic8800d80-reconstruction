@@ -12,10 +12,10 @@
 
 extern uint32_t off_11C934;
 
-// mac_addr_copy_to_global @ 0x11c924, size 16 bytes
-// Doc: mac_addr_copy_to_global [mac]: Copy 2-byte MAC address fragment to global state buffer
-// mac_addr_copy_to_global [mac]: Copy 2-byte MAC address fragment to global state buffer
-uint8_t * mac_addr_copy_to_global(uint8_t *result)
+// set_rf_channel @ 0x11c924, size 16 bytes
+// Doc: set_rf_channel [mac]: Copy 2-byte MAC address fragment to global state buffer
+// set_rf_channel [mac]: Copy 2-byte MAC address fragment to global state buffer
+uint8_t * set_rf_channel(uint8_t *result)
 {
   uint8_t *v1; // r3
 

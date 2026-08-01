@@ -12,10 +12,10 @@
 
 extern uint32_t off_131C78;
 
-// bt_handler_n_1bec @ 0x131bec, size 138 bytes
-// Doc: bt_handler_n_1bec [bt]: Bluetooth firmware handler (reconstructed)
-// bt_handler_n_1bec [bt]: Bluetooth firmware handler (reconstructed)
-int  bt_handler_n_1bec(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
+// llm_set_adv_data @ 0x131bec, size 138 bytes
+// Doc: llm_set_adv_data [bt]: Bluetooth firmware handler (reconstructed)
+// llm_set_adv_data [bt]: Bluetooth firmware handler (reconstructed)
+int  llm_set_adv_data(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
 {
   uint32_t *v5; // r5
   int v6; // r7
@@ -39,7 +39,7 @@ int  bt_handler_n_1bec(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
   if ( !v10 )
     goto LABEL_7;
   v15 = a3;
-  if ( msg_get_value(5u) == 1 )
+  if ( hci_cmd_send_short(5u) == 1 )
     return 2;
   LOWORD(a3) = v15;
   if ( (uint8_t)v6 )
@@ -47,7 +47,7 @@ int  bt_handler_n_1bec(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
     if ( *a2 )
     {
 LABEL_7:
-      message_dispatch_n84(5146, a4, a3);
+      hci_evt_alloc_send(5146, a4, a3);
       return 0;
     }
   }
@@ -55,7 +55,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  v12 = (uint8_t *)rf_bus_setup_n3a8(49, 0, v15, 1u);
+  v12 = (uint8_t *)bt_buf_alloc(49, 0, v15, 1u);
   v13 = v5[1];
   *((uint16_t *)v5 + 4) = a4;
   if ( v13 )
@@ -63,8 +63,8 @@ LABEL_7:
   else
     v14 = *((uint8_t *)v5 + 376);
   *v12 = v14;
-  sub_12CBB4((int)v12);
-  rf_bus_mark_n_3b7(v15, 1);
+  hci_evt_send((int)v12);
+  hci_cmd_send(v15, 1);
   return 0;
 }
 

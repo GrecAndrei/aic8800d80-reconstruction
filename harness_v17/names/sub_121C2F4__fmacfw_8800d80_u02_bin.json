@@ -1,1 +1,1 @@
-{"fn": "sub_121C2F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121c2f4", "status": "ok", "name": "sub_121C2F4", "params": [], "docstring": "Sets a one-shot flag byte, calls helper, then clears the flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C2F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121c2f4", "status": "ok", "name": "enable_radio_clock", "params": [], "docstring": "Sets a one-shot flag byte, calls helper, then clears the flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

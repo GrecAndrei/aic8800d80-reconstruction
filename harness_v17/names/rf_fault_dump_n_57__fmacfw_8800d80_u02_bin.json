@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_57", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146f0", "status": "ok", "name": "rf_msg_handler", "params": [], "docstring": "Dispatches incoming RF mailbox/message to appropriate handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_57", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146f0", "status": "ok", "name": "check_bt_ptr_state", "params": [], "docstring": "Dispatches incoming RF mailbox/message to appropriate handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

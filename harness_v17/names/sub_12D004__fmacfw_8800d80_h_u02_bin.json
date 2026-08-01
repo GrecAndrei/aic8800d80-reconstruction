@@ -1,0 +1,1 @@
+{"fn": "sub_12D004", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d004", "status": "ok", "name": "set_mmio_base", "params": [], "docstring": "Set MMIO base to 0x10000000 and tail-jump to config routine.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

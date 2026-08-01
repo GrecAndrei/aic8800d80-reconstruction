@@ -15,10 +15,10 @@ extern uint32_t dword_111F48;
 extern uint32_t dword_111F4C;
 extern uint32_t dword_111F50;
 
-// rf_bus_write2_n42c @ 0x111ea4, size 158 bytes
+// ke_msg_handler @ 0x111ea4, size 158 bytes
 // Doc: rf_bus_write2_n43c [rf]: Writes a value onto the RF control bus
 // rf_bus_write2_n43c [rf]: Writes a value onto the RF control bus
-int  rf_bus_write2_n42c(int a1, int a2, unsigned int a3)
+int  ke_msg_handler(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -36,7 +36,7 @@ int  rf_bus_write2_n42c(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    log_printf(rf_state_check_f54);
+    printf_wrapper(rf_state_check_f54);
     return 3;
   }
   else

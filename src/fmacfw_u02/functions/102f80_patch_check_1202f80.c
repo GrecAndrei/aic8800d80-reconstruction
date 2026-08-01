@@ -37,10 +37,10 @@ extern uint32_t off_1031E0;
 extern uint32_t off_1031DC;
 extern uint32_t off_1031E8;
 
-// patch_check_1202f80 @ 0x102f80, size 534 bytes
-// Doc: patch_check_1202f80 [patch]: Checks firmware patch state byte before applying
-// patch_check_1202f80 [patch]: Checks firmware patch state byte before applying
-int patch_check_1202f80()
+// is_radio_busy @ 0x102f80, size 534 bytes
+// Doc: is_radio_busy [patch]: Checks firmware patch state byte before applying
+// is_radio_busy [patch]: Checks firmware patch state byte before applying
+int is_radio_busy()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r2
@@ -80,7 +80,7 @@ int patch_check_1202f80()
     *(uint32_t *)off_1031A4 &= ~2u;
     if ( (*v2 & 1) == 0 )
     {
-      message_dispatch_n244(1);
+      rng_read(1);
       v20 = off_1031FC;
       *(uint32_t *)off_1031F8 = *(uint32_t *)off_1031F8 & 0xFFFFFFF0 | 4;
       *v20 |= 2u;

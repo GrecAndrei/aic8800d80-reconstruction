@@ -16,8 +16,8 @@ extern uint32_t dword_12A13C;
 extern uint32_t dword_12A138;
 extern uint32_t dword_12A140;
 
-// sub_12A058 @ 0x12a058, size 214 bytes
-int  sub_12A058(int a1, unsigned int a2)
+// rf_check_cal_state @ 0x12a058, size 214 bytes
+int  rf_check_cal_state(int a1, unsigned int a2)
 {
   int16_t **v2; // r6
   int v5; // r2
@@ -63,7 +63,7 @@ LABEL_10:
     v12 = v6 + 140 * v5 + 16 * (a2 + v8);
     return *(uint32_t *)(v12 + 12) + *(uint32_t *)(v12 + 24);
   }
-  sub_12F32C(dword_12A13C, dword_12A138, 1325);
+  irq_disable_mmio_write(dword_12A13C, dword_12A138, 1325);
   v5 = *(uint8_t *)(a1 + 1225);
   v6 = dword_12A134;
   v8 = 2 * a2;
@@ -75,7 +75,7 @@ LABEL_10:
   if ( **v2 >= 0 )
     return 0;
 LABEL_15:
-  sub_12F35C(dword_12A140, dword_12A138, 1337);
+  mmio_write_field(dword_12A140, dword_12A138, 1337);
   return 0;
 }
 

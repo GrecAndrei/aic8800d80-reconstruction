@@ -1,1 +1,1 @@
-{"fn": "sub_122646C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122646c", "status": "ok", "name": "sub_122646C", "params": [], "docstring": "Bitfield extract/shift helper (mask+shift primitive)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122646C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122646c", "status": "ok", "name": "rf_set_flag", "params": [], "docstring": "Bitfield extract/shift helper (mask+shift primitive)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11C964;
 
-// sub_11C938 @ 0x11c938, size 44 bytes
+// get_station_by_index @ 0x11c938, size 44 bytes
 // Doc: sub_121C938 [ipc]: Look up and process IPC/queue slot by indexed offset
 // sub_121C938 [ipc]: Look up and process IPC/queue slot by indexed offset
-int  sub_11C938(int result, int a2)
+int  get_station_by_index(int result, int a2)
 {
   int v2; // r2
   int v3; // r3

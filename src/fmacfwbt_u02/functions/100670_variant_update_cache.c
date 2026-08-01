@@ -12,14 +12,14 @@
 
 extern uint32_t off_100684;
 
-// variant_update_cache @ 0x100670, size 18 bytes
-// Doc: variant_update_cache [util]: Update cached variant byte from result
-// variant_update_cache [util]: Update cached variant byte from result
-int  variant_update_cache(int a1)
+// timer_poll @ 0x100670, size 18 bytes
+// Doc: timer_poll [util]: Update cached variant byte from result
+// timer_poll [util]: Update cached variant byte from result
+int  timer_poll(int a1)
 {
   int result; // r0
 
-  result = fw_init_setup(a1);
+  result = timer_read(a1);
   if ( *(uint8_t *)off_100684 != result )
     *(uint8_t *)off_100684 = result;
   return result;

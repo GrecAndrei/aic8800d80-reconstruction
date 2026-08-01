@@ -1,1 +1,1 @@
-{"fn": "sub_120D054", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d054", "status": "ok", "name": "sub_120D054", "params": [], "docstring": "Store context pointer and initialize MMIO register base", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120D054", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d054", "status": "ok", "name": "hw_reg_write", "params": [], "docstring": "Store context pointer and initialize MMIO register base", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

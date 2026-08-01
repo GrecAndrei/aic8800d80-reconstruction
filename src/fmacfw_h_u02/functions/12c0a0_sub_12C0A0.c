@@ -22,8 +22,8 @@ extern uint32_t off_12C1E0;
 extern uint32_t off_12C1EC;
 extern uint32_t dword_12C1F4;
 
-// sub_12C0A0 @ 0x12c0a0, size 290 bytes
-void  sub_12C0A0(int a1, int a2)
+// rf_process_event @ 0x12c0a0, size 290 bytes
+void  rf_process_event(int a1, int a2)
 {
   int v2; // r4
   int *v3; // r0
@@ -56,7 +56,7 @@ void  sub_12C0A0(int a1, int a2)
       *v4 = v6 | 0x500000;
       v14 = dword_12C1F8;
       *v4 = v6 | 0xF00000;
-      sub_12E948(v14, v4, v13);
+      alloc_tx_event(v14, v4, v13);
     }
     else
     {
@@ -65,7 +65,7 @@ void  sub_12C0A0(int a1, int a2)
       v9 = v5 & 0xFFFF57FF;
       *(uint32_t *)off_12C1CC = v9;
       *v7 = v6 & 0xFF5FFFFF;
-      sub_12E948(v8, v7, v9);
+      alloc_tx_event(v8, v7, v9);
     }
   }
   if ( (v2 & 4) != 0 )
@@ -79,7 +79,7 @@ void  sub_12C0A0(int a1, int a2)
     v10 = off_12C1EC;
     v11 = dword_12C1F4;
     *(uint32_t *)off_12C1EC |= 1u;
-    sub_12E948(v11, a2, v10);
+    alloc_tx_event(v11, a2, v10);
   }
 }
 

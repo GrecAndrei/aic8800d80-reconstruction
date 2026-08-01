@@ -18,8 +18,8 @@ extern uint32_t off_128EBC;
 extern uint32_t off_128EB8;
 extern uint32_t dword_128EC0;
 
-// sub_128E5C @ 0x128e5c, size 76 bytes
-int  sub_128E5C(int a1, int a2)
+// dump_stats_values @ 0x128e5c, size 76 bytes
+int  dump_stats_values(int a1, int a2)
 {
   int result; // r0
   uint8_t *v4; // r3
@@ -28,7 +28,7 @@ int  sub_128E5C(int a1, int a2)
   int v7; // r1
   int v8; // r0
 
-  result = sub_128D50(a1, a2, (int)off_128EA8);
+  result = is_log_enabled(a1, a2, (int)off_128EA8);
   if ( result )
   {
     v4 = off_128EB0;
@@ -43,7 +43,7 @@ int  sub_128E5C(int a1, int a2)
     v8 = dword_128EC0;
     *((uint32_t *)v4 + 5) = a1;
     v4[29] = 4;
-    result = timestamp_update_4f60(v8, v7 + v6);
+    result = ke_event_lock(v8, v7 + v6);
     *(uint32_t *)(a1 + 4) |= 0x200u;
   }
   return result;

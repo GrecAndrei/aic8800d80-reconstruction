@@ -13,8 +13,8 @@
 extern uint32_t off_11A7E0;
 extern uint32_t dword_11A7E4;
 
-// sub_11A6C0 @ 0x11a6c0, size 288 bytes
-int  sub_11A6C0(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+// rx_process @ 0x11a6c0, size 288 bytes
+int  rx_process(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r7
   int v6; // r6
@@ -35,7 +35,7 @@ int  sub_11A6C0(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
   v5 = *a2;
   v6 = *(uint32_t *)(*a2 + 68);
   v22 = *(uint32_t **)(a1 + 76);
-  result = rx_desc_compare_n6e0(a1, *a2, a5);
+  result = phy_channel_same(a1, *a2, a5);
   if ( result )
   {
     v12 = v22;
@@ -79,12 +79,12 @@ int  sub_11A6C0(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
       ++*(uint8_t *)(v21 + 1);
       if ( v23 > a3 )
       {
-        sub_11A45C(a1, a2, a3, a4, a5);
+        tx_start(a1, a2, a3, a4, a5);
         return 0;
       }
       else
       {
-        sub_119448((int16_t *)v5);
+        get_hw_pointer((int16_t *)v5);
         *a2 = **(uint32_t **)(v6 + 324);
         return 1;
       }

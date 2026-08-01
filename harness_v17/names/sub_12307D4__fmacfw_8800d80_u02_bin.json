@@ -1,1 +1,1 @@
-{"fn": "sub_12307D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12307d4", "status": "ok", "name": "sub_12307D4", "params": [], "docstring": "Initialize descriptor header with magic bytes F/5/p", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12307D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12307d4", "status": "ok", "name": "chip_id_to_string", "params": [], "docstring": "Initialize descriptor header with magic bytes F/5/p", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

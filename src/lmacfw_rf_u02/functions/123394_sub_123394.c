@@ -15,8 +15,8 @@ extern uint32_t off_1233BC;
 extern uint32_t off_1233C4;
 extern uint32_t off_1233C8;
 
-// sub_123394 @ 0x123394, size 38 bytes
-int  sub_123394(int a1)
+// increment_debug_counter @ 0x123394, size 38 bytes
+int  increment_debug_counter(int a1)
 {
   uint32_t *v1; // r1
   int v2; // r0
@@ -25,7 +25,7 @@ int  sub_123394(int a1)
   v1 = off_1233C0;
   v2 = *(uint32_t *)(a1 + 4);
   ++*(uint16_t *)off_1233BC;
-  result = mmio_write_40320150(v2 + *v1);
+  result = mmio_write_register(v2 + *v1);
   *(uint32_t *)off_1233C4 += *(char *)off_1233C8;
   return result;
 }

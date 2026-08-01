@@ -1,1 +1,1 @@
-{"fn": "log_system_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f6a4", "status": "ok", "name": "log_system_init_f6a4", "params": [], "docstring": "Initialize firmware logging subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "log_system_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f6a4", "status": "ok", "name": "bt_state_dispatch", "params": [], "docstring": "Initialize firmware logging subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

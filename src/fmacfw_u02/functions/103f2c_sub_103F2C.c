@@ -20,8 +20,8 @@ extern uint32_t off_103FA0;
 extern uint32_t off_103F94;
 extern uint32_t dword_103FA4;
 
-// sub_103F2C @ 0x103f2c, size 86 bytes
-int sub_103F2C()
+// mac_phy_config @ 0x103f2c, size 86 bytes
+int mac_phy_config()
 {
   int v0; // r2
   int *v1; // r4
@@ -37,11 +37,11 @@ int sub_103F2C()
   v1 = (int *)off_103F88;
   *(uint32_t *)off_103F84 = 777;
   while ( *v1 < 0 )
-    delay_us_0644(1);
-  msg_parse(dword_103F8C, *(uint32_t *)off_103F88, v0);
+    timer_delay(1);
+  event_dispatch(dword_103F8C, *(uint32_t *)off_103F88, v0);
   v2 = dword_103F90;
   *(uint32_t *)off_103F84 = 0;
-  msg_parse(v2, v3, v4);
+  event_dispatch(v2, v3, v4);
   v5 = (int *)off_103F98;
   v6 = dword_103F9C;
   v7 = off_103FA0;
@@ -49,6 +49,6 @@ int sub_103F2C()
   *v5 = v6;
   v8 = dword_103FA4;
   *v7 &= 0xFF00FFFF;
-  return msg_parse(v8, 0x4000, v7);
+  return event_dispatch(v8, 0x4000, v7);
 }
 

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11F448 @ 0x11f448, size 172 bytes
-int  sub_11F448(int a1, int a2, int a3)
+// llc_ctrl_pdu_send @ 0x11f448, size 172 bytes
+int  llc_ctrl_pdu_send(int a1, int a2, int a3)
 {
   int v3; // r5
   int v7; // r10
@@ -27,7 +27,7 @@ int  sub_11F448(int a1, int a2, int a3)
   v7 = a2 + 624;
   v8 = a2 + 584;
   v15 = 0;
-  while ( sub_116EFC(a1) )
+  while ( isr_flag_dispatch(a1) )
   {
     v9 = 0;
     while ( 1 )
@@ -35,7 +35,7 @@ int  sub_11F448(int a1, int a2, int a3)
       v10 = (uint8_t)v9;
       if ( *(uint32_t *)(v7 + 8 * v9) )
       {
-        v11 = sub_12D2D0(a2 + 8 * (v9 + 78));
+        v11 = mem_word_load(a2 + 8 * (v9 + 78));
         goto LABEL_9;
       }
       if ( *(uint32_t *)(v8 + 8 * v9) )
@@ -43,7 +43,7 @@ int  sub_11F448(int a1, int a2, int a3)
       if ( ++v9 == 4 )
         return v3;
     }
-    v11 = sub_12D2D0(a2 + 8 * (v9 + 73));
+    v11 = mem_word_load(a2 + 8 * (v9 + 73));
 LABEL_9:
     if ( !v11 )
       break;
@@ -65,9 +65,9 @@ LABEL_9:
     *(uint16_t *)(v12 + 108) |= 0x2000u;
     v15 = 1;
 LABEL_15:
-    sub_13ABA8(v11, v10, v12);
+    ll_conn_state_dispatch(v11, v10, v12);
     ++v3;
-    sub_11A7E8(v10);
+    test_flag(v10);
     if ( a3 )
     {
       if ( v3 == a3 )

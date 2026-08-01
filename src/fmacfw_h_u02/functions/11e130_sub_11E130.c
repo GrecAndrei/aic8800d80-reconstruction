@@ -13,8 +13,8 @@
 extern uint32_t off_11E180;
 extern uint32_t off_11E184;
 
-// sub_11E130 @ 0x11e130, size 80 bytes
-int  sub_11E130(int a1)
+// op_mode_get @ 0x11e130, size 80 bytes
+int  op_mode_get(int a1)
 {
   uint32_t *v1; // r4
   int result; // r0
@@ -37,7 +37,7 @@ int  sub_11E130(int a1)
   v1[6] = v5;
   if ( v3 >= result << 9 )
   {
-    result = sub_110EDC(v1[4], v4, v5);
+    result = memmove(v1[4], v4, v5);
     v1[4] = 0;
     v1[5] = 0;
     v1[6] = 0;

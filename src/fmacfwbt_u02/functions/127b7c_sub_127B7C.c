@@ -13,8 +13,8 @@
 extern uint32_t dword_127C3C;
 extern uint32_t off_127C38;
 
-// sub_127B7C @ 0x127b7c, size 186 bytes
-int  sub_127B7C(int result, int16_t a2)
+// get_conn_by_handle @ 0x127b7c, size 186 bytes
+int  get_conn_by_handle(int result, int16_t a2)
 {
   int v2; // r8
   int v3; // r7
@@ -35,7 +35,7 @@ int  sub_127B7C(int result, int16_t a2)
   if ( (*(uint8_t *)(v4 + 85) & 0x60) == 0 )
   {
     v6 = result;
-    result = sub_12A3BC(dword_127C3C + 1320 * v3, *(uint8_t *)(result + 87));
+    result = rf_read_state(dword_127C3C + 1320 * v3, *(uint8_t *)(result + 87));
     v8 = *(uint32_t *)(v6 + 92);
     v9 = abs16(v8 - (result - a2));
     *(uint16_t *)(v6 + 96) = v8 - (result - a2);

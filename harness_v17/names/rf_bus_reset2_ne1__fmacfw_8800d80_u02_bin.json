@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_ne1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211adc", "status": "ok", "name": "rf_bus_reset2_ne1", "params": [], "docstring": "RF bus reset: set bit and store control word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_ne1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211adc", "status": "ok", "name": "rf_bus_mark_n258", "params": [], "docstring": "RF bus reset: set bit and store control word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

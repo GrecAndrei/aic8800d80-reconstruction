@@ -19,8 +19,8 @@ extern uint32_t dword_10A12C;
 extern uint32_t off_10A130;
 extern uint32_t dword_10A134;
 
-// sub_109FF0 @ 0x109ff0, size 300 bytes
-int * sub_109FF0(
+// mmio_set_flag @ 0x109ff0, size 300 bytes
+int * mmio_set_flag(
         int a1,
         int *a2,
         int a3,
@@ -60,18 +60,18 @@ int * sub_109FF0(
   *(uint32_t *)off_10A11C |= 0x400u;
   v15 = dword_10A120;
   *v11 &= ~0x400u;
-  feature_guard_check(1, v15);
+  check_status_bits(1, v15);
   if ( a5 )
   {
-    crypto_or_phy_init((int)a2, 1, dword_100000, dword_100000, 0, 1);
-    return (int *)memcpy_vfp_n9db4(24, (int)a2, 1, (int)v36);
+    rf_scan_init((int)a2, 1, dword_100000, dword_100000, 0, 1);
+    return (int *)struct_load(24, (int)a2, 1, (int)v36);
   }
   else
   {
     if ( a8 == 1 )
     {
-      crypto_or_phy_init((int)a2, 1, dword_100000, dword_100000, 0, 0);
-      memcpy_vfp_n9db4(24, (int)a2, 0, (int)v36);
+      rf_scan_init((int)a2, 1, dword_100000, dword_100000, 0, 0);
+      struct_load(24, (int)a2, 0, (int)v36);
       v30 = (uint32_t *)dword_10A124;
       v31 = (uint32_t *)dword_10A128;
       v32 = (uint32_t *)dword_10A12C;
@@ -106,10 +106,10 @@ int * sub_109FF0(
         v21[63] = v23;
       }
       while ( v17 != (int *)v20 );
-      sub_104DE0(a2, v25, a9, a10, a11);
+      rf_calibrate_power(a2, v25, a9, a10, a11);
     }
-    fmac_crypto_or_xfer_proc(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
-    result = sub_103FA8(a3);
+    rx_packet_process(16, 32, (float *)a2, a3, a4, 1, a6, a1, a7);
+    result = mac_irq_enable(a3);
     v28 = off_10A130;
     v29 = dword_10A134;
     *(uint32_t *)off_10A130 &= ~0x200u;

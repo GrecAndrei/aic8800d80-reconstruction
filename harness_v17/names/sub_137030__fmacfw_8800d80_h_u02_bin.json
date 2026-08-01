@@ -1,0 +1,1 @@
+{"fn": "sub_137030", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x137030", "status": "ok", "name": "radio_reg_config", "params": [], "docstring": "Writes radio configuration registers via helper.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

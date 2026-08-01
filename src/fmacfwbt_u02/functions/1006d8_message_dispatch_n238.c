@@ -12,10 +12,10 @@
 
 extern uint32_t off_100728;
 
-// message_dispatch_n238 @ 0x1006d8, size 78 bytes
-// Doc: message_dispatch_n238 [ipc]: Dispatches incoming IPC messages to registered handlers
-// message_dispatch_n238 [ipc]: Dispatches incoming IPC messages to registered handlers
-void __noreturn message_dispatch_n238()
+// clock_start @ 0x1006d8, size 78 bytes
+// Doc: clock_start [ipc]: Dispatches incoming IPC messages to registered handlers
+// clock_start [ipc]: Dispatches incoming IPC messages to registered handlers
+void __noreturn clock_start()
 {
   int v1; // [sp+0h] [bp-Ch]
 

@@ -14,10 +14,10 @@ extern uint32_t off_1137E0;
 extern uint32_t off_1137E4;
 extern uint32_t off_1137FC;
 
-// log_flush @ 0x1136b8, size 294 bytes
+// read_state_flag @ 0x1136b8, size 294 bytes
 // Doc: rf_stream_start2_n314_3704 [rf]: RF stream start: loads callback table and invokes dispatch function
 // rf_stream_start2_n314_3704 [rf]: RF stream start: loads callback table and invokes dispatch function
-void log_flush()
+void read_state_flag()
 {
   uint8_t *v0; // r5
   int v1; // r0
@@ -39,14 +39,14 @@ void log_flush()
   {
     if ( !*(uint16_t *)rf_msg_process_body_n_45c )
     {
-      feature_guard_check(512, rf_msg_process_body_n_440);
+      check_status_bits(512, rf_msg_process_body_n_440);
       return;
     }
     if ( *(uint8_t *)rf_stream_start2_n3f8_37e8 >= (unsigned int)*(uint16_t *)rf_msg_process_body_n_45c )
     {
       v13 = rf_cmd_queue_next_n340;
       *(uint8_t *)off_1137E4 = 1;
-      feature_guard_check(512, v13);
+      check_status_bits(512, v13);
     }
   }
   else
@@ -57,7 +57,7 @@ void log_flush()
       && !*(uint8_t *)off_1137E4 )
     {
       *(uint8_t *)off_1137E4 = 1;
-      feature_guard_check(512, rf_cmd_queue_next_n340);
+      check_status_bits(512, rf_cmd_queue_next_n340);
       return;
     }
   }
@@ -73,20 +73,20 @@ void log_flush()
       v5 = *(uint32_t *)off_1137FC;
       v6 = *(uint32_t *)rf_stream_start2_n420 + v1;
       if ( *(uint8_t *)off_1137E4 )
-        v7 = rf_stream_start2_0(v6, v5);
+        v7 = ke_task_init(v6, v5);
       else
-        v7 = sub_113350(v6, v5);
+        v7 = irq_state_load_b(v6, v5);
     }
     else
     {
       v3 = rf_stream_start2_n420;
       v4 = (unsigned int *)off_1137FC;
-      v7 = sub_113350(*(uint32_t *)rf_stream_start2_n420 + v1, *(uint32_t *)off_1137FC);
+      v7 = irq_state_load_b(*(uint32_t *)rf_stream_start2_n420 + v1, *(uint32_t *)off_1137FC);
     }
     if ( v7 )
     {
       v8 = off_1137E4;
-      sub_10DC24(rf_cmd_queue_next_n34c, v7);
+      log_printf(rf_cmd_queue_next_n34c, v7);
       v9 = 5;
       while ( 1 )
       {
@@ -94,19 +94,19 @@ void log_flush()
         {
           v10 = *v4;
           v11 = (int)v2 + *v3;
-          v12 = *v8 ? rf_stream_start2_0(v11, v10) : sub_113350(v11, v10);
+          v12 = *v8 ? ke_task_init(v11, v10) : irq_state_load_b(v11, v10);
         }
         else
         {
-          v12 = sub_113350((int)v2 + *v3, *v4);
+          v12 = irq_state_load_b((int)v2 + *v3, *v4);
         }
         if ( !v12 )
           break;
         if ( !--v9 )
         {
-          sub_10DC24(rf_cmd_queue_next_n350, 5);
-          log_free_dispatch_2(v2);
-          irq_nesting_or_d104(32);
+          log_printf(rf_cmd_queue_next_n350, 5);
+          is_controller_mode(v2);
+          unknown_func_12d104(32);
           return;
         }
       }
@@ -114,8 +114,8 @@ void log_flush()
   }
   else
   {
-    irq_nesting_or_d104(32);
-    sub_10DC24(rf_cmd_process_n2b4);
+    unknown_func_12d104(32);
+    log_printf(rf_cmd_process_n2b4);
   }
 }
 

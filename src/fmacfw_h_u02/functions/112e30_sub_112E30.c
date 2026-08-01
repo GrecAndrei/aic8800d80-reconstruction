@@ -15,8 +15,8 @@ extern uint32_t off_112EB4;
 extern uint32_t off_112EB8;
 extern uint32_t off_112EBC;
 
-// sub_112E30 @ 0x112e30, size 126 bytes
-void sub_112E30()
+// phy_irq_handler @ 0x112e30, size 126 bytes
+void phy_irq_handler()
 {
   int *v0; // r4
   int v1; // r2

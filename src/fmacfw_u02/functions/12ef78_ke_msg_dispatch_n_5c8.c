@@ -13,14 +13,14 @@
 extern uint32_t dword_12EFA4;
 extern uint32_t off_12EFA8;
 
-// ke_msg_dispatch_n_5c8 @ 0x12ef78, size 42 bytes
-// Doc: ke_msg_dispatch_n_5c8 [ipc]: Dispatch KE message via IPC lookup table
-// ke_msg_dispatch_n_5c8 [ipc]: Dispatch KE message via IPC lookup table
-int  ke_msg_dispatch_n_5c8(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+// cb_send_0x16ae04 @ 0x12ef78, size 42 bytes
+// Doc: cb_send_0x16ae04 [ipc]: Dispatch KE message via IPC lookup table
+// cb_send_0x16ae04 [ipc]: Dispatch KE message via IPC lookup table
+int  cb_send_0x16ae04(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
-  msg_parse(dword_12EFA4, *a2);
+  event_dispatch(dword_12EFA4, *a2);
   *((uint32_t *)off_12EFA8 + 1) = *a2;
-  sub_12CA10(1031, a4, a3);
+  ke_msg_send_no_param(1031, a4, a3);
   return 0;
 }
 

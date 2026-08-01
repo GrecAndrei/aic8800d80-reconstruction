@@ -13,28 +13,28 @@
 extern uint32_t dword_114EC4;
 extern uint32_t off_114EC8;
 
-// rf_state_check_n_e90 @ 0x114e90, size 50 bytes
-// Doc: rf_state_check_n_e90 [util]: Check RF state byte against expected value 2
-// rf_state_check_n_e90 [util]: Check RF state byte against expected value 2
-void __noreturn rf_state_check_n_e90()
+// bt_check_state @ 0x114e90, size 50 bytes
+// Doc: bt_check_state [util]: Check RF state byte against expected value 2
+// bt_check_state [util]: Check RF state byte against expected value 2
+void __noreturn bt_check_state()
 {
   int v0; // r0
   int v1; // r0
   int v2; // r0
 
-  sub_10DA6C(dword_114EC4);
+  log_printf(dword_114EC4);
   if ( *(uint8_t *)(*(uint32_t *)off_114EC8 + 6) == 2 )
   {
-    v2 = rf_mode_check();
-    rf_state_check_n2ae(v2);
+    v2 = wait_hw_ready();
+    ke_event_set(v2);
   }
   while ( 1 )
   {
-    while ( !mmio_reg_bit0_read() )
+    while ( !uart_rx_ready() )
       ;
-    v0 = sub_10D680();
-    v1 = rf_init_or_reset(v0);
-    sub_123240(v1);
+    v0 = uart_rx_byte();
+    v1 = process_queue_message(v0);
+    exit_critical_section(v1);
   }
 }
 

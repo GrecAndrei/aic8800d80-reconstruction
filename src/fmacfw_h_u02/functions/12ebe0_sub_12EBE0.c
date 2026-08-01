@@ -16,8 +16,8 @@ extern uint32_t off_12EC60;
 extern uint32_t off_12EC68;
 extern uint32_t dword_12EC5C;
 
-// sub_12EBE0 @ 0x12ebe0, size 118 bytes
-int  sub_12EBE0(int a1, int a2, int16_t a3, int16_t a4)
+// pdu_alloc_410 @ 0x12ebe0, size 118 bytes
+int  pdu_alloc_410(int a1, int a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int v6; // r1
@@ -28,7 +28,7 @@ int  sub_12EBE0(int a1, int a2, int16_t a3, int16_t a4)
   uint32_t *v12; // r3
   uint32_t *v13; // r3
 
-  v5 = sub_12C7EC(1040, a4, a3, 4u);
+  v5 = tx_send_pdu(1040, a4, a3, 4u);
   v6 = *(uint16_t *)(a2 + 4);
   v7 = (uint32_t *)v5;
   if ( *((uint8_t *)off_12EC58 + 177) )
@@ -58,8 +58,8 @@ LABEL_3:
 LABEL_5:
   v8 = dword_12EC5C;
   *v7 = 0;
-  sub_12E948(v8);
-  sub_12C84C((int)v7);
+  alloc_tx_event(v8);
+  rx_process_packet((int)v7);
   return 0;
 }
 

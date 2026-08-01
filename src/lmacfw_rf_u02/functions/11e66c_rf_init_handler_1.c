@@ -14,10 +14,10 @@ extern uint32_t off_11E6E0;
 extern uint32_t dword_11E6E4;
 extern uint32_t dword_11E6E8;
 
-// rf_init_handler_1 @ 0x11e66c, size 104 bytes
-// Doc: rf_init_handler [rf]: LMAC RF initialization/handler dispatching with global context load
-// rf_init_handler [rf]: LMAC RF initialization/handler dispatching with global context load
-void rf_init_handler_1()
+// process_event_queue @ 0x11e66c, size 104 bytes
+// Doc: pdu_type_init [rf]: LMAC RF initialization/handler dispatching with global context load
+// pdu_type_init [rf]: LMAC RF initialization/handler dispatching with global context load
+void process_event_queue()
 {
   unsigned int *v0; // r6
   unsigned int v1; // r4
@@ -49,7 +49,7 @@ void rf_init_handler_1()
           if ( v8 )
             goto LABEL_5;
         }
-        rf_cmd_send_n264(v6, v5, 230);
+        flash_ctrl_init(v6, v5, 230);
       }
       v8 = *(void ( **)(uint32_t))(v3 + 8 * v7);
 LABEL_5:
@@ -57,7 +57,7 @@ LABEL_5:
       v1 = *v0;
       if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
       {
-        sub_1138D0();
+        memory_barrier_write();
         if ( !v1 )
           return;
       }

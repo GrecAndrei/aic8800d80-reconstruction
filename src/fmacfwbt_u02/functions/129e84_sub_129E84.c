@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_129E84 @ 0x129e84, size 56 bytes
-uint8_t * sub_129E84(uint8_t *result)
+// handle_state_change @ 0x129e84, size 56 bytes
+uint8_t * handle_state_change(uint8_t *result)
 {
   int v1; // r3
   uint8_t *v2; // r4
@@ -22,14 +22,14 @@ uint8_t * sub_129E84(uint8_t *result)
   if ( v1 == 1 )
   {
     result[114] = 0;
-    return sub_129A28(result);
+    return state_machine_step(result);
   }
   else if ( v1 == 2 )
   {
     v3 = *((uint32_t *)result + 29);
     result[114] = 1;
-    timestamp_update_4f60((int)(result + 96), v3);
-    return sub_129A28(v2);
+    ke_event_lock((int)(result + 96), v3);
+    return state_machine_step(v2);
   }
   return result;
 }

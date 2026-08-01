@@ -16,8 +16,8 @@ extern uint32_t dword_105AB4;
 extern uint32_t dword_105AB8;
 extern uint32_t dword_105AB0;
 
-// sub_1059E8 @ 0x1059e8, size 190 bytes
-int  sub_1059E8(unsigned int a1, uint32_t *a2)
+// mac_event_init @ 0x1059e8, size 190 bytes
+int  mac_event_init(unsigned int a1, uint32_t *a2)
 {
   int v4; // r1
   int result; // r0
@@ -34,7 +34,7 @@ int  sub_1059E8(unsigned int a1, uint32_t *a2)
   a2[15] = 15;
   v4 = dword_105AA8;
   a2[16] = 8;
-  result = feature_guard_check(1, v4);
+  result = check_status_bits(1, v4);
   if ( a1 )
   {
     v6 = dword_105AAC;
@@ -50,11 +50,11 @@ LABEL_3:
           return result;
       }
       a2[a2[14] + 10] = v9 - 12;
-      feature_guard_check(1, v6);
+      check_status_bits(1, v6);
       v10 = a2[a2[14] + 10];
       if ( v10 <= 7 )
       {
-        result = feature_guard_check(((1 << v9) & a1) >> v9, v7);
+        result = check_status_bits(((1 << v9) & a1) >> v9, v7);
         if ( !a2[14] )
           a2[16] = a2[10];
         goto LABEL_3;
@@ -62,12 +62,12 @@ LABEL_3:
       v11 = ((1 << v9) & a1) >> v9;
       if ( v10 > 15 )
       {
-        result = feature_guard_check(v11, v7);
+        result = check_status_bits(v11, v7);
         if ( !a2[14] )
           a2[15] = a2[10];
         goto LABEL_3;
       }
-      result = feature_guard_check(v11, v8);
+      result = check_status_bits(v11, v8);
       v12 = a2[14];
       ++v9;
       v13 = a2[v12 + 10];
@@ -77,6 +77,6 @@ LABEL_3:
         return result;
     }
   }
-  return feature_guard_check(1, dword_105AB0);
+  return check_status_bits(1, dword_105AB0);
 }
 

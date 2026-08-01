@@ -14,8 +14,8 @@ extern uint32_t off_13060C;
 extern uint32_t dword_130614;
 extern uint32_t off_130610;
 
-// sub_1305B4 @ 0x1305b4, size 88 bytes
-int sub_1305B4()
+// rf_enable @ 0x1305b4, size 88 bytes
+int rf_enable()
 {
   uint8_t *v0; // r4
   int result; // r0
@@ -25,22 +25,22 @@ int sub_1305B4()
 
   v0 = off_13060C;
   *((uint8_t *)off_13060C + 1) = 1;
-  result = sub_12C8B4(1070, 1);
+  result = ke_task_find(1070, 1);
   if ( !result )
   {
-    sub_10DFF0();
-    v0[6] = sub_10EF24();
-    sub_1304B0();
+    rf_core_reset_alt();
+    v0[6] = rf_get_rssi();
+    rf_temperature_compensation();
     v2 = (uint8_t)v0[5];
     if ( (uint8_t)v0[6] != v2 )
     {
-      sub_10EF38(v2);
+      rf_get_state(v2);
       v3 = (uint8_t)v0[5];
       v4 = dword_130614;
       v0[6] = v3;
-      sub_12EA88(v4, v3);
+      event_dispatch(v4, v3);
     }
-    return sub_12C5E4(1070, 1, 1000 * *((uint32_t *)off_130610 + 91));
+    return ke_task_create(1070, 1, 1000 * *((uint32_t *)off_130610 + 91));
   }
   return result;
 }

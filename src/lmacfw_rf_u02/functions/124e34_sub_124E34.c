@@ -12,20 +12,20 @@
 
 extern uint32_t dword_124E5C;
 
-// sub_124E34 @ 0x124e34, size 38 bytes
-int  sub_124E34(int a1, int a2)
+// set_adv_channel_map @ 0x124e34, size 38 bytes
+int  set_adv_channel_map(int a1, int a2)
 {
   uint8_t v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse(dword_124E5C);
+    dispatch_event_handler(dword_124E5C);
     return -1;
   }
   else
   {
-    v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    sub_102E48(v2);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    gpio_set_high(v2);
     return 0;
   }
 }

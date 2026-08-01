@@ -14,20 +14,20 @@ extern uint32_t off_1404A4;
 extern uint32_t dword_1404AC;
 extern uint32_t dword_1404A8;
 
-// fmac_misc_handler_470 @ 0x140470, size 50 bytes
-// Doc: fmac_misc_handler_470 [mac]: Miscellaneous FMAC handler
-// fmac_misc_handler_470 [mac]: Miscellaneous FMAC handler
-int fmac_misc_handler_470()
+// ble_ll_scan_enable @ 0x140470, size 50 bytes
+// Doc: ble_ll_scan_enable [mac]: Miscellaneous FMAC handler
+// ble_ll_scan_enable [mac]: Miscellaneous FMAC handler
+int ble_ll_scan_enable()
 {
-  if ( msg_get_value(0xBu) == 4 )
+  if ( rx_rate_field_parse(0xBu) == 4 )
   {
-    rx_agc_init_n_4e0();
+    ll_event_schedule();
     return 0;
   }
   else
   {
     if ( **(int16_t **)off_1404A4 < 0 )
-      sub_12F49C(dword_1404AC, dword_1404A8, 129);
+      call_shared_handler(dword_1404AC, dword_1404A8, 129);
     return 0;
   }
 }

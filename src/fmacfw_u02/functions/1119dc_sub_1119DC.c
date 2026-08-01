@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1119DC @ 0x1119dc, size 30 bytes
-int *sub_1119DC()
+// table_lookup_wrapper @ 0x1119dc, size 30 bytes
+int *table_lookup_wrapper()
 {
   int i; // r4
   int v1; // r0
@@ -22,8 +22,8 @@ int *sub_1119DC()
   {
     v1 = (uint8_t)i;
     v3 = (uint8_t)i;
-    sub_11196C(v1);
-    result = sub_1119A4(v3);
+    table_lookup_entry(v1);
+    result = table_lookup_entry_2(v3);
   }
   return result;
 }

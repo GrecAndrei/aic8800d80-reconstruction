@@ -14,14 +14,14 @@ extern uint32_t dword_12B3BC;
 extern uint32_t off_12B3C0;
 extern uint32_t dword_12B3C4;
 
-// sub_12B394 @ 0x12b394, size 40 bytes
-int sub_12B394()
+// bt_reset_controller @ 0x12b394, size 40 bytes
+int bt_reset_controller()
 {
   int result; // r0
   uint32_t *v1; // r3
 
-  memset_thunk((int *)dword_12B3BC, 0, 0xCu);
-  result = rf_bus_mark_n_3b7(2);
+  memset_byte((int *)dword_12B3BC, 0, 0xCu);
+  result = hci_cmd_send(2);
   v1 = off_12B3C0;
   *(uint32_t *)off_12B3C0 = dword_12B3C4;
   v1[2] = v1 + 5;

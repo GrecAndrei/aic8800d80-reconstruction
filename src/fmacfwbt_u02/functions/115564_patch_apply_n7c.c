@@ -26,10 +26,10 @@ extern uint32_t dword_115650;
 extern uint32_t off_115654;
 extern uint32_t off_115658;
 
-// patch_apply_n7c @ 0x115564, size 184 bytes
+// ring_buf_used @ 0x115564, size 184 bytes
 // Doc: patch_apply_nc8 [patch]: Applies NC8 patch sequence by looping 0x56 iterations to write patch values to indexed offsets
 // patch_apply_nc8 [patch]: Applies NC8 patch sequence by looping 0x56 iterations to write patch values to indexed offsets
-void __noreturn patch_apply_n7c()
+void __noreturn ring_buf_used()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r3
@@ -89,8 +89,8 @@ void __noreturn patch_apply_n7c()
   if ( (v11 & 0x10) == 0 )
     *(uint32_t *)off_115654 &= ~0x4000u;
   *(uint8_t *)off_115658 = BYTE2(*(uint32_t *)off_115640);
-  sub_1030B0();
-  sub_1154E8();
-  firmware_init_0478();
+  read_hw_status();
+  check_patch_magic();
+  ke_task_init();
 }
 

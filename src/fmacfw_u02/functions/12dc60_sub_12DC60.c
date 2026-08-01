@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DC60 @ 0x12dc60, size 64 bytes
+// check_one_12dc60 @ 0x12dc60, size 64 bytes
 // Doc: sdio_buffer_prepare_n_4a8 [mmio]: Prepares SDIO buffer comparing two lengths
 // sdio_buffer_prepare_n_4a8 [mmio]: Prepares SDIO buffer comparing two lengths
-uint8_t * sub_12DC60(uint8_t *result, int a2)
+uint8_t * check_one_12dc60(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   uint8_t *v3; // r2

@@ -15,8 +15,8 @@ extern uint32_t off_110474;
 extern uint32_t dword_110478;
 extern uint32_t off_11047C;
 
-// sub_110430 @ 0x110430, size 62 bytes
-int sub_110430()
+// is_sniff_mode @ 0x110430, size 62 bytes
+int is_sniff_mode()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_110430()
   v0 = (int *)off_110474;
   v1 = dword_110478;
   ++*(uint32_t *)off_110474;
-  result = sub_12D248(v1);
+  result = cmd_handler_a(v1);
   v3 = *v0;
   ++*(uint32_t *)off_11047C;
   if ( v3 )

@@ -1,0 +1,1 @@
+{"fn": "sub_113960", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113960", "status": "ok", "name": "init_bt_stack", "params": [], "docstring": "Initialize BT stack data structures", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

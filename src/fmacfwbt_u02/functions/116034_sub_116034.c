@@ -24,10 +24,10 @@ extern uint32_t off_116160;
 extern uint32_t off_116164;
 extern uint32_t dword_116180;
 
-// sub_116034 @ 0x116034, size 288 bytes
+// rx_check_buffers @ 0x116034, size 288 bytes
 // Doc: sub_1216034 [util]: Loads pointer from 0x182c60 and reads its first byte
 // sub_1216034 [util]: Loads pointer from 0x182c60 and reads its first byte
-void sub_116034()
+void rx_check_buffers()
 {
   uint8_t **v0; // r4
   int v1; // r3
@@ -59,7 +59,7 @@ LABEL_10:
     v4 = (uint8_t **)off_116158;
     if ( **(uint8_t **)off_116158 == 3 )
       goto LABEL_4;
-    feature_guard_sdio(2, dword_116170);
+    state_check_feature(2, dword_116170);
     *v2 = 1;
     v1 = **v4;
     if ( v1 != 1 )
@@ -72,37 +72,37 @@ LABEL_3:
 LABEL_12:
     if ( **v0 == 3 )
     {
-      v8 = sdio_status_check();
+      v8 = status_poll();
       v10 = off_116178;
       *(uint8_t *)off_116178 = v8;
       if ( v8 )
-        sub_12ECB0(dword_116184, v9, v10);
+        ke_event_schedule(dword_116184, v9, v10);
       else
-        sub_12ECB0(dword_11617C, v9, v10);
-      if ( state_flag_check() )
-        rf_msg_process_body_n1cc();
-      ((void (*)(void))sdio_wait_busy)();
+        ke_event_schedule(dword_11617C, v9, v10);
+      if ( ll_util_get_state() )
+        mmio_read_low_nibble();
+      ((void (*)(void))hw_poll_flag)();
       return;
     }
-    if ( !state_flag_check() || *(uint8_t *)off_116174 )
+    if ( !ll_util_get_state() || *(uint8_t *)off_116174 )
       return;
 LABEL_4:
-    if ( queue_check()
+    if ( mm_state_run()
       && !*((uint32_t *)off_11615C + 126)
       && (*(uint32_t *)off_116160 >> 25) & 1 | *((uint8_t *)off_116164 + 36)
       && !*((uint8_t *)off_116164 + 29)
-      && tx_timeout_check() )
+      && mac_isr_handler() )
     {
-      v5 = sdio_status_check();
+      v5 = status_poll();
       v7 = off_116178;
       *(uint8_t *)off_116178 = v5;
       if ( !v5 )
       {
-        v11 = sub_12ECB0(dword_116180, v6, v7);
-        sdio_wait_busy(v11);
+        v11 = ke_event_schedule(dword_116180, v6, v7);
+        hw_poll_flag(v11);
       }
       if ( (uint8_t)**v0 <= 1u )
-        rf_msg_process_body_n1cc();
+        mmio_read_low_nibble();
     }
     return;
   }
@@ -119,7 +119,7 @@ LABEL_17:
     goto LABEL_17;
 LABEL_20:
   if ( **(uint8_t **)off_116158 != 3 )
-    feature_guard_sdio(2, dword_116170);
+    state_check_feature(2, dword_116170);
   *v2 = 0;
 }
 

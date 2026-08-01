@@ -15,8 +15,8 @@ extern uint32_t off_11F0C4;
 extern uint32_t dword_11F0C8;
 extern uint32_t dword_11F0CC;
 
-// sub_11F03C @ 0x11f03c, size 132 bytes
-void sub_11F03C()
+// mac_irq_handler @ 0x11f03c, size 132 bytes
+void mac_irq_handler()
 {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
@@ -56,10 +56,10 @@ void sub_11F03C()
       v5 = v4 & 0x7FFFFFFF;
       v6 = *(uint32_t *)((v4 & 0x7FFFFFFF) + 0x14);
       if ( v6 != v3 )
-        sub_12ECB0(dword_11F0CC, v4 & 0x7FFFFFFF, v6);
-      chan_get_curr_id(v5);
+        ke_event_schedule(dword_11F0CC, v4 & 0x7FFFFFFF, v6);
+      rx_timeout_check(v5);
       *(uint8_t *)(v5 + 156) = 1;
-      sub_11E540(v5);
+      tx_timeout_check(v5);
       v2 = v0[5];
     }
     while ( v2 != *v1 );

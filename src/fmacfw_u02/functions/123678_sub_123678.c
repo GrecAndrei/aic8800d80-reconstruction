@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_123678 @ 0x123678, size 12 bytes
-int  sub_123678(int a1, int a2)
+// queue_remove_item @ 0x123678, size 12 bytes
+int  queue_remove_item(int a1, int a2)
 {
-  sub_1258A4(a2);
+  co_list_remove(a2);
   return 1;
 }
 

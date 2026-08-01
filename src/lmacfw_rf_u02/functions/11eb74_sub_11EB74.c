@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11EB74 @ 0x11eb74, size 64 bytes
+// memchr @ 0x11eb74, size 64 bytes
 // Doc: rf_cmd_send_n208 [rf]: Send RF command, compare sequence/count
 // rf_cmd_send_n208 [rf]: Send RF command, compare sequence/count
-uint8_t * sub_11EB74(uint8_t *result, int a2)
+uint8_t * memchr(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   uint8_t *v3; // r2

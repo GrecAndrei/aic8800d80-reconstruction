@@ -13,8 +13,8 @@
 extern uint32_t off_11FA54;
 extern uint32_t off_11FA58;
 
-// sub_11FA28 @ 0x11fa28, size 44 bytes
-void sub_11FA28()
+// si_secure_check @ 0x11fa28, size 44 bytes
+void si_secure_check()
 {
   uint8_t *v0; // r3
   unsigned int v1; // r2

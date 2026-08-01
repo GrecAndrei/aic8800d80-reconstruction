@@ -14,8 +14,8 @@ extern uint32_t dword_11987C;
 extern uint32_t off_119884;
 extern uint32_t off_119880;
 
-// sub_119734 @ 0x119734, size 326 bytes
-int  sub_119734(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+// btm_is_link_active @ 0x119734, size 326 bytes
+int  btm_is_link_active(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int *v5; // r4
   int v6; // r5

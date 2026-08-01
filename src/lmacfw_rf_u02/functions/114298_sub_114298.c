@@ -13,10 +13,10 @@
 extern uint32_t off_1142D0;
 extern uint32_t off_1142D4;
 
-// sub_114298 @ 0x114298, size 54 bytes
+// ke_event_schedule_prio @ 0x114298, size 54 bytes
 // Doc: sub_1214298 [unknown]: Unknown helper, small prologue with bit shift
 // sub_1214298 [unknown]: Unknown helper, small prologue with bit shift
-int sub_114298()
+int ke_event_schedule_prio()
 {
   int *v0; // r4
   int result; // r0

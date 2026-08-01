@@ -1,1 +1,1 @@
-{"fn": "sub_122C6AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c6ac", "status": "ok", "name": "bt_hci_cmd_build_n6ac", "params": [], "docstring": "Builds an HCI/cmd payload on stack and calls helper to send it.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122C6AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c6ac", "status": "ok", "name": "util_format_string", "params": [], "docstring": "Builds an HCI/cmd payload on stack and calls helper to send it.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

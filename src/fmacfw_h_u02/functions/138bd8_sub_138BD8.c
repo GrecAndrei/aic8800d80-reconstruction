@@ -13,8 +13,8 @@
 extern uint32_t off_138C60;
 extern uint32_t off_138C5C;
 
-// sub_138BD8 @ 0x138bd8, size 132 bytes
-uint32_t * sub_138BD8(int a1, int16_t a2)
+// bt_handle_rx_request @ 0x138bd8, size 132 bytes
+uint32_t * bt_handle_rx_request(int a1, int16_t a2)
 {
   void *v2; // r6
   int16_t v4; // r5
@@ -68,7 +68,7 @@ LABEL_6:
 LABEL_7:
   *(uint32_t *)(a1 + 96) = v9;
   *((uint8_t *)v2 + 50) = 0;
-  sub_11E4C4(a1);
-  return sub_138890(a1, v4, *((uint32_t *)v2 + 16));
+  tx_packet_complete(a1);
+  return rf_lookup_tx_power(a1, v4, *((uint32_t *)v2 + 16));
 }
 

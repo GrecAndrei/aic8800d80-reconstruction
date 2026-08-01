@@ -14,8 +14,8 @@ extern uint32_t off_133970;
 extern uint32_t dword_133978;
 extern uint32_t dword_133974;
 
-// sub_133914 @ 0x133914, size 90 bytes
-int sub_133914()
+// ble_state_check_133914 @ 0x133914, size 90 bytes
+int ble_state_check_133914()
 {
   int v0; // r2
   int v2; // [sp+0h] [bp-Ch] BYREF
@@ -24,17 +24,17 @@ int sub_133914()
   v0 = **(int16_t **)off_133970;
   v2 = 0;
   v3 = 0;
-  if ( v0 < 0 && sub_12CD48(6u) != 1 )
-    sub_12F32C(dword_133978, dword_133974, 303);
-  sub_134334(&v2, &v3);
+  if ( v0 < 0 && hci_cmd_handler(6u) != 1 )
+    irq_disable_mmio_write(dword_133978, dword_133974, 303);
+  ble_get_addr_flag(&v2, &v3);
   if ( v2 && v3 )
   {
-    sub_134480();
+    ble_parse_event();
     return 0;
   }
   else
   {
-    sub_134CC4(1);
+    assert_trace(1);
     return 0;
   }
 }

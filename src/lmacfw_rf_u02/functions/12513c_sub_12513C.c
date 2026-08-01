@@ -17,8 +17,8 @@ extern uint32_t dword_12528C;
 extern uint32_t dword_125298;
 extern uint32_t dword_125294;
 
-// sub_12513C @ 0x12513c, size 328 bytes
-int  sub_12513C(int a1, uint8_t **a2)
+// set_bdaddr @ 0x12513c, size 328 bytes
+int  set_bdaddr(int a1, uint8_t **a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r5
@@ -36,21 +36,21 @@ int  sub_12513C(int a1, uint8_t **a2)
 
   if ( a1 <= 2 )
   {
-    msg_parse(dword_125290);
+    dispatch_event_handler(dword_125290);
     return 1;
   }
   else
   {
-    v4 = (uint16_t)parse_int(a2[1], 0, 0xAu);
+    v4 = (uint16_t)parse_number(a2[1], 0, 0xAu);
     if ( a1 == 3 )
     {
       v5 = v4;
-      v6 = parse_int(a2[2], 0, 0x10u);
+      v6 = parse_number(a2[2], 0, 0x10u);
     }
     else
     {
-      v5 = (uint16_t)parse_int(a2[2], 0, 0xAu);
-      v6 = parse_int(a2[3], 0, 0x10u);
+      v5 = (uint16_t)parse_number(a2[2], 0, 0xAu);
+      v6 = parse_number(a2[3], 0, 0x10u);
     }
     v7 = *(uint32_t *)off_125288 & 0x7F;
     if ( *((uint8_t *)off_125284 + 36) == 1 )
@@ -91,7 +91,7 @@ int  sub_12513C(int a1, uint8_t **a2)
     v11 = (uint8_t)(v5 >> 5);
     if ( v10 == v11 )
     {
-      sub_12419C(v8, v10, v5 & 0x1F, (1 << (v4 - v5 + 1)) - 1, v6 & ((1 << (v4 - v5 + 1)) - 1));
+      mac_tx_frame(v8, v10, v5 & 0x1F, (1 << (v4 - v5 + 1)) - 1, v6 & ((1 << (v4 - v5 + 1)) - 1));
       goto LABEL_13;
     }
     v12 = v5 & 0x1F;
@@ -99,22 +99,22 @@ int  sub_12513C(int a1, uint8_t **a2)
     {
       v13 = 32 - v12;
       v14 = v4 & 0x1F;
-      sub_12419C(v8, v11, v12, (1 << (32 - v12)) - 1, v6 & ((1 << (32 - v12)) - 1));
+      mac_tx_frame(v8, v11, v12, (1 << (32 - v12)) - 1, v6 & ((1 << (32 - v12)) - 1));
       v15 = (1 << (v14 + 1)) - 1;
       v16 = (v6 >> v13) & v15;
       if ( v14 != 31 )
       {
-        sub_12419C(v8, v10, 0, v15, v16);
+        mac_tx_frame(v8, v10, 0, v15, v16);
 LABEL_13:
-        msg_parse(dword_12528C);
+        dispatch_event_handler(dword_12528C);
         return 0;
       }
-      msg_parse(dword_125298);
+      dispatch_event_handler(dword_125298);
       return 1;
     }
     else
     {
-      msg_parse(dword_125294);
+      dispatch_event_handler(dword_125294);
       return 1;
     }
   }

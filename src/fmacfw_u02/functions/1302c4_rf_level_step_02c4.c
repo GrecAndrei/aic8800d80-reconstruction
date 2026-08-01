@@ -13,10 +13,10 @@
 extern uint32_t off_1302F0;
 extern uint32_t dword_1302F4;
 
-// rf_level_step_02c4 @ 0x1302c4, size 44 bytes
-// Doc: rf_level_step_02c4 [rf]: Compares two RF level bytes from a control struct
-// rf_level_step_02c4 [rf]: Compares two RF level bytes from a control struct
-unsigned int rf_level_step_02c4()
+// compare_global_bytes @ 0x1302c4, size 44 bytes
+// Doc: compare_global_bytes [rf]: Compares two RF level bytes from a control struct
+// compare_global_bytes [rf]: Compares two RF level bytes from a control struct
+unsigned int compare_global_bytes()
 {
   uint8_t *v0; // r4
   unsigned int result; // r0
@@ -33,8 +33,8 @@ unsigned int rf_level_step_02c4()
     else
       v3 = result + 1;
     *((uint8_t *)off_1302F0 + 6) = v3;
-    rf_reg_write_masked(v3);
-    return msg_parse(dword_1302F4, v0[5], v0[6]);
+    rf_get_state(v3);
+    return event_dispatch(dword_1302F4, v0[5], v0[6]);
   }
   return result;
 }

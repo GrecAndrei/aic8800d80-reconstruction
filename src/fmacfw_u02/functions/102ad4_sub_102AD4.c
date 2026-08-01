@@ -13,13 +13,13 @@
 extern uint32_t off_102B04;
 extern uint32_t off_102B08;
 
-// sub_102AD4 @ 0x102ad4, size 48 bytes
-int sub_102AD4()
+// handle_event @ 0x102ad4, size 48 bytes
+int handle_event()
 {
   int result; // r0
   int *i; // r4
 
-  result = sub_1009A0(*((uint8_t *)off_102B04 + 36), *((uint16_t *)off_102B04 + 20));
+  result = bt_enable(*((uint8_t *)off_102B04 + 36), *((uint16_t *)off_102B04 + 20));
   for ( i = *((int **)off_102B08 + 2); i; i = (int *)*i )
   {
     while ( !*((uint8_t *)i + 108) )
@@ -28,7 +28,7 @@ int sub_102AD4()
       if ( !i )
         return result;
     }
-    result = message_dispatch_408(i);
+    result = rf_temperature_comp(i);
   }
   return result;
 }

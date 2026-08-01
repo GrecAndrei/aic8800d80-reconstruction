@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// buf_alloc_0x68_init @ 0x1193f0, size 14 bytes
-// Doc: buf_alloc_0x68_init [util]: Allocate 0x68-byte buffer and return 0 (init helper)
-// buf_alloc_0x68_init [util]: Allocate 0x68-byte buffer and return 0 (init helper)
-int  buf_alloc_0x68_init(int a1, int a2, int a3, int a4)
+// send_event_0x68 @ 0x1193f0, size 14 bytes
+// Doc: send_event_0x68 [util]: Allocate 0x68-byte buffer and return 0 (init helper)
+// send_event_0x68 [util]: Allocate 0x68-byte buffer and return 0 (init helper)
+int  send_event_0x68(int a1, int a2, int a3, int a4)
 {
-  sub_11DED8(104, a4, a3);
+  ke_evt_handler(104, a4, a3);
   return 0;
 }
 

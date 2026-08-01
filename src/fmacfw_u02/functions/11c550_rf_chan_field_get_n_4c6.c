@@ -13,16 +13,16 @@
 extern uint32_t dword_11C580;
 extern uint32_t off_11C584;
 
-// rf_chan_field_get_n_4c6 @ 0x11c550, size 46 bytes
-// Doc: rf_chan_field_get_n_4c6 [rf]: Reads channel field at offset 0x4c6 from RF table entry
-// rf_chan_field_get_n_4c6 [rf]: Reads channel field at offset 0x4c6 from RF table entry
-unsigned int * rf_chan_field_get_n_4c6(unsigned int *result)
+// check_channel_busy @ 0x11c550, size 46 bytes
+// Doc: check_channel_busy [rf]: Reads channel field at offset 0x4c6 from RF table entry
+// check_channel_busy [rf]: Reads channel field at offset 0x4c6 from RF table entry
+unsigned int * check_channel_busy(unsigned int *result)
 {
   int v1; // r2
 
   v1 = *(uint16_t *)(dword_11C580 + 1320 * *((uint8_t *)result + 28) + 1222);
   if ( v1 != 1023 && *((uint8_t *)off_11C584 + 361) != 2 )
-    return queue_process((unsigned int *)(result[17] + 4), *(uint32_t *)(result[17] + 40), v1);
+    return check_packet_type((unsigned int *)(result[17] + 4), *(uint32_t *)(result[17] + 40), v1);
   return result;
 }
 

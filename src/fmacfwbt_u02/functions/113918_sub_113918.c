@@ -34,8 +34,8 @@ extern uint32_t off_113A68;
 extern uint32_t off_113A6C;
 extern uint32_t dword_113A70;
 
-// sub_113918 @ 0x113918, size 264 bytes
-int  sub_113918(int a1)
+// rf_stat_read @ 0x113918, size 264 bytes
+int  rf_stat_read(int a1)
 {
   void *v1; // r5
   uint32_t *v2; // r1
@@ -76,7 +76,7 @@ int  sub_113918(int a1)
   v4[5] = 0;
   v4[3] = 0;
   v5[6] = 0;
-  memset_thunk(v3, 0, 0x140u);
+  memset_byte(v3, 0, 0x140u);
   v6 = *(int **)(*(uint32_t *)v1 + 20);
   v7 = off_113A38;
   v8 = off_113A3C;
@@ -89,9 +89,9 @@ int  sub_113918(int a1)
   v9 = off_113A40;
   v8[4] = v6 + 12;
   *v9 = v6 + 14;
-  memset_thunk(v6, 0, 0xCB8u);
+  memset_byte(v6, 0, 0xCB8u);
   if ( **(int16_t **)off_113A44 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
-    sub_12F694(dword_113A78, dword_113A74, 758);
+    mmio_irq_clear(dword_113A78, dword_113A74, 758);
   v10 = off_113A48;
   v11 = *((uint16_t *)off_113A48 + 164);
   v12 = *((uint16_t *)off_113A48 + 154);
@@ -121,13 +121,13 @@ int  sub_113918(int a1)
     v22 = off_113A6C;
     v23 = dword_113A70;
     *(uint8_t *)off_113A6C = v21;
-    sub_12ECB0(v23, v21, v22);
+    ke_event_schedule(v23, v21, v22);
   }
   else
   {
     v25 = dword_113A70;
     *(uint8_t *)off_113A6C = 10;
-    sub_12ECB0(v25, 10, v15);
+    ke_event_schedule(v25, 10, v15);
   }
   return 1;
 }

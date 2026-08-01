@@ -14,8 +14,8 @@ extern uint32_t off_14236C;
 extern uint32_t dword_142370;
 extern uint32_t dword_142374;
 
-// sub_1422A4 @ 0x1422a4, size 198 bytes
-int  sub_1422A4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// scan_state_dispatch @ 0x1422a4, size 198 bytes
+int  scan_state_dispatch(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v6; // r7
   int v8; // r11
@@ -39,13 +39,13 @@ int  sub_1422A4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   {
     v9 = dword_142370;
     v17 = a2[2];
-    v10 = sub_141F1C(*(uint8_t *)(dword_142370 + 1320 * v8 + 116), v8, v17);
+    v10 = scan_slot_init(*(uint8_t *)(dword_142370 + 1320 * v8 + 116), v8, v17);
     if ( v10 )
     {
-      sub_141EF8(v10);
+      clear_ll_flag(v10);
       v11 = v17;
 LABEL_6:
-      LOBYTE(v6) = sub_141EA0(a2[3], *(uint8_t *)(v9 + 1320 * v8 + 116), v11) == 0;
+      LOBYTE(v6) = get_acl_ctx(a2[3], *(uint8_t *)(v9 + 1320 * v8 + 116), v11) == 0;
       goto LABEL_8;
     }
 LABEL_7:
@@ -63,7 +63,7 @@ LABEL_7:
     {
       v18 = v16;
       v6 = 1;
-      sub_141EF8(v14);
+      clear_ll_flag(v14);
       v16 = v18;
     }
     v14 += 72;
@@ -76,9 +76,9 @@ LABEL_7:
     goto LABEL_6;
   }
 LABEL_8:
-  v12 = (uint8_t *)sub_12C7EC(12292, a4, a3, 1u);
+  v12 = (uint8_t *)tx_send_pdu(12292, a4, a3, 1u);
   *v12 = v6;
-  sub_12C84C((int)v12);
+  rx_process_packet((int)v12);
   return 0;
 }
 

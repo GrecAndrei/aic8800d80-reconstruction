@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D36C @ 0x12d36c, size 20 bytes
-int  sub_12D36C(uint32_t **a1)
+// read_u32 @ 0x12d36c, size 20 bytes
+int  read_u32(uint32_t **a1)
 {
   uint32_t *v1; // r3
   int result; // r0

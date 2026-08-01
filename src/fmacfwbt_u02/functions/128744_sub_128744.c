@@ -12,12 +12,12 @@
 
 extern uint32_t off_128768;
 
-// sub_128744 @ 0x128744, size 34 bytes
-BOOL  sub_128744(int a1)
+// bt_link_type @ 0x128744, size 34 bytes
+BOOL  bt_link_type(int a1)
 {
   BOOL result; // r0
 
-  result = bt_state_get_n28(a1);
+  result = bt_link_check(a1);
   if ( result )
     return !*((uint32_t *)off_128768 + 11) || *(uint8_t *)(*((uint32_t *)off_128768 + 10) + 16) == 6;
   return result;

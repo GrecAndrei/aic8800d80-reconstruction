@@ -16,8 +16,8 @@ extern uint32_t off_111B64;
 extern uint32_t dword_111B68;
 extern uint32_t off_111B60;
 
-// sub_111A78 @ 0x111a78, size 224 bytes
-int  sub_111A78(int a1, int a2, int a3)
+// rx_desc_hw_config @ 0x111a78, size 224 bytes
+int  rx_desc_hw_config(int a1, int a2, int a3)
 {
   int v3; // r6
   uint32_t *v4; // r4
@@ -31,7 +31,7 @@ int  sub_111A78(int a1, int a2, int a3)
     v4 = (uint32_t *)(dword_111B58 + v3);
     v5 = *(uint32_t *)(v3 + dword_111B58);
     if ( (v5 & 0x80008000) == 0 )
-      return (int)sub_111800(a1);
+      return (int)rx_hdr_clear(a1);
     v6 = (uint32_t *)(dword_111B58 + v3 + 8);
     if ( (dword_111B5C & v5) == 0x20000 )
       goto LABEL_4;
@@ -63,7 +63,7 @@ LABEL_7:
 LABEL_11:
         if ( !a1 )
           return a1;
-        return (int)sub_111800(a1);
+        return (int)rx_hdr_clear(a1);
       }
       *v6 = 64;
       *v4 |= a2 | 0x8008000;

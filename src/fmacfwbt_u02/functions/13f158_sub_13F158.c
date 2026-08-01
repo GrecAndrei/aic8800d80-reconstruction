@@ -17,8 +17,8 @@ extern uint32_t dword_13F208;
 extern uint32_t dword_13F214;
 extern uint32_t dword_13F210;
 
-// sub_13F158 @ 0x13f158, size 168 bytes
-int  sub_13F158(int a1)
+// is_connection_active @ 0x13f158, size 168 bytes
+int  is_connection_active(int a1)
 {
   int16_t **v1; // r7
   int v2; // r6
@@ -34,27 +34,27 @@ int  sub_13F158(int a1)
   v4 = *(uint32_t *)(dword_13F204 + 696 * a1 + 340);
   if ( **(int16_t **)off_13F200 < 0 && !v4 )
   {
-    sub_12F694(dword_13F20C, dword_13F208, 3297);
+    mmio_irq_clear(dword_13F20C, dword_13F208, 3297);
     v3 = *v1;
   }
-  v6 = sub_13D3E8(v4);
+  v6 = scan_adv_state_switch(v4);
   *(uint16_t *)(v4 + 184) = v6;
   if ( *v3 < 0 )
   {
     if ( !v6 )
     {
-      sub_12F694(dword_13F214, dword_13F208, 3301);
+      mmio_irq_clear(dword_13F214, dword_13F208, 3301);
       if ( **v1 >= 0 )
         goto LABEL_3;
       v6 = *(uint16_t *)(v4 + 184);
     }
     if ( v6 > 0xA )
-      sub_12F694(dword_13F210, dword_13F208, 3302);
+      mmio_irq_clear(dword_13F210, dword_13F208, 3302);
   }
 LABEL_3:
-  sub_13E3C4(v4);
-  v7 = sub_13D08C(v4, v9);
-  sub_13D518(v7);
+  process_packet_queue(v4);
+  v7 = tx_handle_acked_list(v4, v9);
+  scan_set_adv_flag(v7);
   *(uint8_t *)(v2 + 696 * a1 + 350) |= 1u;
   return 696;
 }

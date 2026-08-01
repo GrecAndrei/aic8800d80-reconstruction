@@ -17,8 +17,8 @@ extern uint32_t off_103D54;
 extern uint32_t off_103D58;
 extern uint32_t off_103D5C;
 
-// sub_103C6C @ 0x103c6c, size 220 bytes
-unsigned int *sub_103C6C()
+// disable_rx_path @ 0x103c6c, size 220 bytes
+unsigned int *disable_rx_path()
 {
   unsigned int *v0; // r1
   uint32_t *v1; // r0

@@ -12,15 +12,15 @@
 
 extern uint32_t off_130858;
 
-// sub_130834 @ 0x130834, size 36 bytes
-int sub_130834()
+// rf_afe_disable @ 0x130834, size 36 bytes
+int rf_afe_disable()
 {
   int result; // r0
 
   *((uint8_t *)off_130858 + 1) = 0;
-  result = sub_12CADC(1070, 1);
+  result = find_hci_conn_by_handle(1070, 1);
   if ( result )
-    return sub_12C964(1070, 1);
+    return irq_lock(1070, 1);
   return result;
 }
 

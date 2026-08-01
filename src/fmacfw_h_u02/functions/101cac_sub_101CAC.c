@@ -22,8 +22,8 @@ extern uint32_t dword_101E78;
 extern uint32_t dword_101E74;
 extern uint32_t dword_101E70;
 
-// sub_101CAC @ 0x101cac, size 420 bytes
-int  sub_101CAC(unsigned int a1, signed int a2, uint8_t *a3)
+// bt_packet_parser @ 0x101cac, size 420 bytes
+int  bt_packet_parser(unsigned int a1, signed int a2, uint8_t *a3)
 {
   int v3; // r6
   unsigned int v4; // r7
@@ -157,7 +157,7 @@ LABEL_12:
 LABEL_18:
   if ( (*((uint32_t *)off_101E50 + 98) & 2) != 0 )
   {
-    v22 = sub_1320BC(v3, v4);
+    v22 = is_adv_enabled(v3, v4);
     if ( v22 )
     {
       v23 = *(char *)(v22 + 4);
@@ -165,8 +165,8 @@ LABEL_18:
     else
     {
       if ( **(int16_t **)off_101E6C < 0 )
-        sub_12F35C(dword_101E78, dword_101E74, 7022);
-      sub_12E948(dword_101E70, v3, v4);
+        mmio_write_field(dword_101E78, dword_101E74, 7022);
+      alloc_tx_event(dword_101E70, v3, v4);
       v23 = 15;
     }
     if ( v8 >= v23 )

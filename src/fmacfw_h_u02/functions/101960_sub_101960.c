@@ -12,8 +12,8 @@
 
 extern uint32_t off_101970;
 
-// sub_101960 @ 0x101960, size 14 bytes
-BOOL sub_101960()
+// check_rf_ready @ 0x101960, size 14 bytes
+BOOL check_rf_ready()
 {
   return *(uint32_t *)off_101970 > 1u;
 }

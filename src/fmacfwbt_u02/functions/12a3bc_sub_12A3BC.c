@@ -16,10 +16,10 @@ extern uint32_t dword_12A4A0;
 extern uint32_t dword_12A49C;
 extern uint32_t dword_12A4A4;
 
-// sub_12A3BC @ 0x12a3bc, size 214 bytes
+// rf_read_state @ 0x12a3bc, size 214 bytes
 // Doc: sub_122A3BC [util]: Check shared flag word and branch on signed halfword
 // sub_122A3BC [util]: Check shared flag word and branch on signed halfword
-int  sub_12A3BC(int a1, unsigned int a2)
+int  rf_read_state(int a1, unsigned int a2)
 {
   int16_t **v2; // r6
   int v5; // r2
@@ -65,7 +65,7 @@ LABEL_10:
     v12 = v6 + 140 * v5 + 16 * (a2 + v8);
     return *(uint32_t *)(v12 + 12) + *(uint32_t *)(v12 + 24);
   }
-  sub_12F694(dword_12A4A0, dword_12A49C, 1325);
+  mmio_irq_clear(dword_12A4A0, dword_12A49C, 1325);
   v5 = *(uint8_t *)(a1 + 1225);
   v6 = dword_12A498;
   v8 = 2 * a2;
@@ -77,7 +77,7 @@ LABEL_10:
   if ( **v2 >= 0 )
     return 0;
 LABEL_15:
-  sub_12F6C4(dword_12A4A4, dword_12A49C, 1337);
+  mmio_field_update(dword_12A4A4, dword_12A49C, 1337);
   return 0;
 }
 

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sdio_buffer_prepare_n_16c @ 0x12dfb0, size 30 bytes
+// mac_hash_calc @ 0x12dfb0, size 30 bytes
 // Doc: sdio_buf_align_or_mask [mac]: Align SDIO buffer address and check magic constant 0xfac12
 // sdio_buf_align_or_mask [mac]: Align SDIO buffer address and check magic constant 0xfac12
-int  sdio_buffer_prepare_n_16c(int a1, int16_t a2)
+int  mac_hash_calc(int a1, int16_t a2)
 {
   return rf_bus_reset_n_32
        & ((((32 * (*(uint8_t *)(a1 + 5) ^ (*(uint8_t *)(a1 + 5) >> 4))) & 0x1E0) + (a2 & 0x1FF)) << 22)

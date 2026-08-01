@@ -66,8 +66,8 @@ extern uint32_t off_106CDC;
 extern uint32_t off_106CE0;
 extern uint32_t off_106CF4;
 
-// sub_1064E0 @ 0x1064e0, size 2964 bytes
-int  sub_1064E0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7)
+// phy_read_table @ 0x1064e0, size 2964 bytes
+int  phy_read_table(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7)
 {
   uint32_t *v7; // r9
   unsigned int *v8; // r8
@@ -360,8 +360,8 @@ int  sub_1064E0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
   *v32 |= 0x800000u;
   *v32 |= 0x400000u;
   *v31 &= ~0x100u;
-  sub_103B54();
-  sub_104080();
+  rf_clear_ana_bits();
+  bt_radio_init();
   v33 = off_106998;
   *(uint32_t *)off_106994 |= 0x10000000u;
   *v33 |= 0x18000000u;
@@ -417,11 +417,11 @@ int  sub_1064E0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v64 = (*(uint32_t *)(dword_106FF8 - 18832) >> 8) & 0xF;
       v65 = (v60 << 8) + dword_106FF8;
       v160 = v65;
-      sub_12EB90(1, dword_106FFC);
+      check_feature_flag(1, dword_106FFC);
       *(uint32_t *)(a2 + 140) = *(uint32_t *)(a2 + 152);
-      sub_1063A4(a2, 0);
+      load_const_table(a2, 0);
       v66 = 0;
-      sub_12EB90(1, dword_107000);
+      check_feature_flag(1, dword_107000);
       v150 = v62;
       v67 = v64;
       v68 = v65 + 16 * v64;
@@ -435,7 +435,7 @@ int  sub_1064E0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v73 = 2 * v67;
       do
       {
-        sub_102BF8(1);
+        rf_clear_control_bit_a(1);
         if ( v150 == a7 )
         {
           *v69 = *v69 & v151 | ((v157 & v66) << v84);
@@ -447,11 +447,11 @@ int  sub_1064E0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
           *v69 |= (v147 & v66) << v84;
           *v70 |= (v66 >> v149) & v153;
         }
-        sub_102C5C(1);
-        sub_104FA8(*a3, a2, v72, 0);
-        sub_12EB90(1, dword_107004);
-        sub_12EB90(1, dword_10700C);
-        sub_12EB90(1, dword_107014);
+        rf_clear_control_bit_b(1);
+        rf_path_disable(*a3, a2, v72, 0);
+        check_feature_flag(1, dword_107004);
+        check_feature_flag(1, dword_10700C);
+        check_feature_flag(1, dword_107014);
         if ( *(int16_t *)(a2 + v73) > v71 )
         {
           v71 = *(int16_t *)(a2 + v73);
@@ -460,8 +460,8 @@ int  sub_1064E0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
         ++v66;
       }
       while ( v152 != v66 );
-      sub_12EB90(1, dword_10701C);
-      sub_102BF8(1);
+      check_feature_flag(1, dword_10701C);
+      rf_clear_control_bit_a(1);
       v76 = v84;
       v85 = (v156 >> v149) & v153;
       v77 = (v147 & v156) << v76;
@@ -497,9 +497,9 @@ int  sub_1064E0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       }
       while ( v79 != v80 );
 LABEL_50:
-      sub_102C5C(1);
-      sub_12EB90(1, dword_107020);
-      sub_12EB90(1, dword_107024);
+      rf_clear_control_bit_b(1);
+      check_feature_flag(1, dword_107020);
+      check_feature_flag(1, dword_107024);
     }
     goto LABEL_28;
   }
@@ -511,9 +511,9 @@ LABEL_50:
     *v31 |= 0x200u;
     *v31 &= ~0x200u;
     v75 = *v74;
-    sub_1063A4(a2, 0);
-    sub_12EB90(1, dword_107018);
-    sub_104FA8(*a3, a2, (v75 >> 8) & 0xF, 0);
+    load_const_table(a2, 0);
+    check_feature_flag(1, dword_107018);
+    rf_path_disable(*a3, a2, (v75 >> 8) & 0xF, 0);
     goto LABEL_28;
   }
   *(uint64_t *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
@@ -541,17 +541,17 @@ LABEL_19:
     *(uint32_t *)(a2 + 164) = v37;
     *v35 = v35[3];
     ++v35;
-    sub_1062DC(a1, v36, a5, a2, a6);
+    hw_rev_check(a1, v36, a5, a2, a6);
     *v31 &= ~0x200u;
     *v31 |= 0x200u;
     *v31 &= ~0x200u;
-    sub_1063A4(a2, v19);
+    load_const_table(a2, v19);
     v38 = v34[1];
     ++v34;
-    sub_104FA8(v38, a2, v36, v19);
+    rf_path_disable(v38, a2, v36, v19);
     v39 = v19;
     v40 = *(uint16_t *)(a2 + 2 * (v36 + 16 * v19++));
-    sub_106450(a2, v40, v39);
+    init_callbacks(a2, v40, v39);
   }
   while ( v19 != 3 );
   v41 = *(uint32_t *)(a2 + 132);
@@ -563,16 +563,16 @@ LABEL_19:
     {
       while ( 1 )
       {
-        sub_1062DC(a1, v41, a5, a2, a6);
+        hw_rev_check(a1, v41, a5, a2, a6);
         v44 = *(uint32_t *)(a2 + 124);
         *v42 &= ~0x200u;
         *v42 |= 0x200u;
         *v42 &= ~0x200u;
         if ( v44 < v41 )
           break;
-        sub_1063A4(a2, 2);
-        sub_12EB90(1, v43);
-        sub_104FA8(a3[2], a2, v41, 2);
+        load_const_table(a2, 2);
+        check_feature_flag(1, v43);
+        rf_path_disable(a3[2], a2, v41, 2);
         if ( *(uint32_t *)(a2 + 124) <= v41 )
           break;
 LABEL_26:
@@ -583,15 +583,15 @@ LABEL_26:
       }
       if ( *(uint32_t *)(a2 + 120) >= v41 )
       {
-        sub_1063A4(a2, 1);
-        sub_12EB90(1, v43);
-        sub_104FA8(a3[1], a2, v41, 1);
+        load_const_table(a2, 1);
+        check_feature_flag(1, v43);
+        rf_path_disable(a3[1], a2, v41, 1);
         goto LABEL_26;
       }
 LABEL_23:
-      sub_1063A4(a2, 0);
-      sub_12EB90(1, v43);
-      sub_104FA8(*a3, a2, v41++, 0);
+      load_const_table(a2, 0);
+      check_feature_flag(1, v43);
+      rf_path_disable(*a3, a2, v41++, 0);
     }
     while ( *(uint32_t *)(a2 + 112) >= v41 );
   }
@@ -603,7 +603,7 @@ LABEL_28:
   v49 = off_106CE4;
   *(uint32_t *)off_106CC0 = *(uint32_t *)off_106CC0 & 0xFFBFFFFF | (v146 << 22);
   *v45 = *v45 & 0xFFDFFFFF | (v145 << 21);
-  sub_104180();
+  rf_disable();
   v50 = off_106CC8;
   v51 = (unsigned int *)off_106CCC;
   v52 = (unsigned int *)off_106CF0;

@@ -1,1 +1,1 @@
-{"fn": "sub_1201260", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201260", "status": "ok", "name": "mmio_ahb_gate_release_n_60", "params": [], "docstring": "Release AHB clock gate and clear bit in MMIO control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1201260", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201260", "status": "ok", "name": "bb_disable", "params": [], "docstring": "Release AHB clock gate and clear bit in MMIO control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

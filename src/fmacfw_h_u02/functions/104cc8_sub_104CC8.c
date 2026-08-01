@@ -16,8 +16,8 @@ extern uint32_t dword_104F9C;
 extern uint32_t dword_104FA0;
 extern uint32_t dword_104FA4;
 
-// sub_104CC8 @ 0x104cc8, size 710 bytes
-int  sub_104CC8(int *a1, int a2, int a3, int a4, uint64_t *a5)
+// float_interp @ 0x104cc8, size 710 bytes
+int  float_interp(int *a1, int a2, int a3, int a4, uint64_t *a5)
 {
   int v6; // r0
   int v8; // r2
@@ -77,83 +77,83 @@ int  sub_104CC8(int *a1, int a2, int a3, int a4, uint64_t *a5)
   uint64_t v62; // [sp+8h] [bp-14h]
   uint64_t v63; // [sp+10h] [bp-Ch]
 
-  v6 = sub_142E9C(a3, a4);
-  v9 = sub_12E948(dword_104F90, v6, v8);
-  v10 = sub_10DE08(v9);
+  v6 = double_to_float(a3, a4);
+  v9 = alloc_tx_event(dword_104F90, v6, v8);
+  v10 = hw_block_disable(v9);
   v11 = a1;
-  sub_12E948(dword_104F98, (int)(float)(v10 * flt_104F94), v12);
+  alloc_tx_event(dword_104F98, (int)(float)(v10 * flt_104F94), v12);
   v13 = a5[2];
-  v14 = sub_142968(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_104F9C);
-  sub_142E9C(v14, HIDWORD(v14));
+  v14 = double_compare_common(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_104F9C);
+  double_to_float(v14, HIDWORD(v14));
   v15 = a5[1];
-  v16 = sub_142968(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_104F9C);
-  v17 = sub_142E9C(v16, HIDWORD(v16));
+  v16 = double_compare_common(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_104F9C);
+  v17 = double_to_float(v16, HIDWORD(v16));
   v18 = *a5;
   v19 = v17;
-  v20 = sub_142968(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_104F9C);
-  v21 = sub_142E9C(v20, HIDWORD(v20));
+  v20 = double_compare_common(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_104F9C);
+  v21 = double_to_float(v20, HIDWORD(v20));
   v22 = a5[5];
   v63 = a5[4];
   v62 = a5[3];
-  sub_12E948(dword_104FA0, v21, v19);
-  v23 = sub_142968(v22, HIDWORD(v22), 0, dword_104F9C);
-  sub_142E9C(v23, HIDWORD(v23));
-  v24 = sub_142968(v63, HIDWORD(v63), 0, dword_104F9C);
-  v25 = sub_142E9C(v24, HIDWORD(v24));
-  v26 = sub_142968(v62, HIDWORD(v62), 0, dword_104F9C);
-  v27 = sub_142E9C(v26, HIDWORD(v26));
-  sub_12E948(dword_104FA4, v27, v25);
+  alloc_tx_event(dword_104FA0, v21, v19);
+  v23 = double_compare_common(v22, HIDWORD(v22), 0, dword_104F9C);
+  double_to_float(v23, HIDWORD(v23));
+  v24 = double_compare_common(v63, HIDWORD(v63), 0, dword_104F9C);
+  v25 = double_to_float(v24, HIDWORD(v24));
+  v26 = double_compare_common(v62, HIDWORD(v62), 0, dword_104F9C);
+  v27 = double_to_float(v26, HIDWORD(v26));
+  alloc_tx_event(dword_104FA4, v27, v25);
   v28 = v11 + 32;
   do
   {
     v59 = *v11++;
-    v60 = sub_1428B8(v59);
-    if ( sub_142E74(v18, HIDWORD(v18), v60, HIDWORD(v60)) )
+    v60 = float_to_double(v59);
+    if ( double_greater_equal(v18, HIDWORD(v18), v60, HIDWORD(v60)) )
     {
       v55 = v62;
     }
-    else if ( sub_142E38(v15, HIDWORD(v15), v60, HIDWORD(v60)) )
+    else if ( double_equals(v15, HIDWORD(v15), v60, HIDWORD(v60)) )
     {
       v55 = v63;
     }
-    else if ( sub_142E60(v13, HIDWORD(v13), v60, HIDWORD(v60)) )
+    else if ( double_less_equal(v13, HIDWORD(v13), v60, HIDWORD(v60)) )
     {
       v55 = v22;
     }
     else
     {
-      v29 = sub_1425F8(v60, HIDWORD(v60), v15, HIDWORD(v15));
-      v30 = sub_1425F8(v60, HIDWORD(v60), v13, HIDWORD(v13));
-      v31 = sub_1425F8(v60, HIDWORD(v60), v18, HIDWORD(v18));
+      v29 = double_compare_neg(v60, HIDWORD(v60), v15, HIDWORD(v15));
+      v30 = double_compare_neg(v60, HIDWORD(v60), v13, HIDWORD(v13));
+      v31 = double_compare_neg(v60, HIDWORD(v60), v18, HIDWORD(v18));
       v32 = v30;
       v33 = v31;
-      v34 = sub_142968(v62, HIDWORD(v62), v29, HIDWORD(v29));
+      v34 = double_compare_common(v62, HIDWORD(v62), v29, HIDWORD(v29));
       v35 = v33;
-      v36 = sub_142968(v34, HIDWORD(v34), v32, HIDWORD(v32));
-      v37 = sub_1425F8(v18, HIDWORD(v18), v15, HIDWORD(v15));
-      v38 = sub_142BBC(v36, HIDWORD(v36), v37, HIDWORD(v37));
-      v39 = sub_1425F8(v18, HIDWORD(v18), v13, HIDWORD(v13));
-      v40 = sub_142BBC(v38, HIDWORD(v38), v39, HIDWORD(v39));
-      v41 = sub_142968(v63, HIDWORD(v63), v35, HIDWORD(v35));
+      v36 = double_compare_common(v34, HIDWORD(v34), v32, HIDWORD(v32));
+      v37 = double_compare_neg(v18, HIDWORD(v18), v15, HIDWORD(v15));
+      v38 = double_compare_core(v36, HIDWORD(v36), v37, HIDWORD(v37));
+      v39 = double_compare_neg(v18, HIDWORD(v18), v13, HIDWORD(v13));
+      v40 = double_compare_core(v38, HIDWORD(v38), v39, HIDWORD(v39));
+      v41 = double_compare_common(v63, HIDWORD(v63), v35, HIDWORD(v35));
       v42 = v40;
-      v43 = sub_142968(v41, HIDWORD(v41), v32, HIDWORD(v32));
-      v44 = sub_1425F8(v15, HIDWORD(v15), v18, HIDWORD(v18));
-      v45 = sub_142BBC(v43, HIDWORD(v43), v44, HIDWORD(v44));
-      v46 = sub_1425F8(v15, HIDWORD(v15), v13, HIDWORD(v13));
-      v47 = sub_142BBC(v45, HIDWORD(v45), v46, HIDWORD(v46));
-      v48 = sub_1425FC(v42, HIDWORD(v42), v47, HIDWORD(v47));
-      v49 = sub_142968(v22, HIDWORD(v22), v35, HIDWORD(v35));
-      v50 = sub_142968(v49, HIDWORD(v49), v29, HIDWORD(v29));
-      v51 = sub_1425F8(v13, HIDWORD(v13), v18, HIDWORD(v18));
-      v52 = sub_142BBC(v50, HIDWORD(v50), v51, HIDWORD(v51));
-      v53 = sub_1425F8(v13, HIDWORD(v13), v15, HIDWORD(v15));
-      v54 = sub_142BBC(v52, HIDWORD(v52), v53, HIDWORD(v53));
-      v55 = sub_1425FC(v48, HIDWORD(v48), v54, HIDWORD(v54));
+      v43 = double_compare_common(v41, HIDWORD(v41), v32, HIDWORD(v32));
+      v44 = double_compare_neg(v15, HIDWORD(v15), v18, HIDWORD(v18));
+      v45 = double_compare_core(v43, HIDWORD(v43), v44, HIDWORD(v44));
+      v46 = double_compare_neg(v15, HIDWORD(v15), v13, HIDWORD(v13));
+      v47 = double_compare_core(v45, HIDWORD(v45), v46, HIDWORD(v46));
+      v48 = double_compare_eq(v42, HIDWORD(v42), v47, HIDWORD(v47));
+      v49 = double_compare_common(v22, HIDWORD(v22), v35, HIDWORD(v35));
+      v50 = double_compare_common(v49, HIDWORD(v49), v29, HIDWORD(v29));
+      v51 = double_compare_neg(v13, HIDWORD(v13), v18, HIDWORD(v18));
+      v52 = double_compare_core(v50, HIDWORD(v50), v51, HIDWORD(v51));
+      v53 = double_compare_neg(v13, HIDWORD(v13), v15, HIDWORD(v15));
+      v54 = double_compare_core(v52, HIDWORD(v52), v53, HIDWORD(v53));
+      v55 = double_compare_eq(v48, HIDWORD(v48), v54, HIDWORD(v54));
     }
     v61 = v55;
-    v56 = sub_1428B8(v11[63]);
-    v57 = sub_142968(v56, HIDWORD(v56), v61, HIDWORD(v61));
-    result = sub_142F2C(v57);
+    v56 = float_to_double(v11[63]);
+    v57 = double_compare_common(v56, HIDWORD(v56), v61, HIDWORD(v61));
+    result = double_to_int(v57);
     v11[31] = result;
   }
   while ( v11 != v28 );

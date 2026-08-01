@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_queue_next_n461", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213914", "status": "ok", "name": "log_free_dispatch_n398_3914", "params": [], "docstring": "Dispatch log free event with counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_cmd_queue_next_n461", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213914", "status": "ok", "name": "rf_cmd_process_n3bc", "params": [], "docstring": "Dispatch log free event with counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

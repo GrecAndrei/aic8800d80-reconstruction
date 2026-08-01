@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D404 @ 0x12d404, size 42 bytes
-uint32_t * sub_12D404(uint32_t *result, uint32_t *a2, uint32_t *a3)
+// list_find_node @ 0x12d404, size 42 bytes
+uint32_t * list_find_node(uint32_t *result, uint32_t *a2, uint32_t *a3)
 {
   uint32_t **v3; // r3
 
   if ( !a2 )
-    return (uint32_t *)list_push_tail((int)result, a3);
+    return (uint32_t *)cmd_handler_a((int)result, a3);
   v3 = (uint32_t **)*result;
   if ( (uint32_t *)*result == a2 )
-    return (uint32_t *)sub_12D290((int)result, a3);
+    return (uint32_t *)cmd_handler_b((int)result, a3);
   if ( v3 )
   {
     while ( 1 )

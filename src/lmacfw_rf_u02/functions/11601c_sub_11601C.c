@@ -20,8 +20,8 @@ extern uint32_t off_1160E4;
 extern uint32_t off_1160F4;
 extern uint32_t off_1160F8;
 
-// sub_11601C @ 0x11601c, size 186 bytes
-int  sub_11601C(int a1)
+// rx_scan_timing_update @ 0x11601c, size 186 bytes
+int  rx_scan_timing_update(int a1)
 {
   int v1; // r5
   int v2; // r6
@@ -38,8 +38,8 @@ int  sub_11601C(int a1)
   v2 = *(uint32_t *)(dword_1160DC + 4 * a1);
   v4 = dword_1160E0 + 8 * a1;
   if ( **(int16_t **)off_1160D8 < 0 && (v2 & *(uint32_t *)off_1160E8) == 0 )
-    rf_cmd_send_n264(dword_1160F0, dword_1160EC, 612);
-  result = sub_11E628(v2);
+    flash_ctrl_init(dword_1160F0, dword_1160EC, 612);
+  result = enter_critical_section(v2);
   v6 = *(uint32_t *)(v1 + 8 * a1);
   if ( v6 )
   {
@@ -51,7 +51,7 @@ int  sub_11601C(int a1)
       if ( v7[144] == 1 )
       {
         v7[144] = 0;
-        irq_nesting_or(4096);
+        set_busy_flag_alt(4096);
       }
       if ( (__get_CPSR() & 1) == 0 )
       {
@@ -59,7 +59,7 @@ int  sub_11601C(int a1)
         *v9 = 1;
       }
       ++*v8;
-      sub_11E7AC(v4);
+      list_pop_front(v4);
       v10 = *v8 - 1;
       if ( *v8 )
       {
@@ -71,7 +71,7 @@ int  sub_11601C(int a1)
             __enable_irq();
         }
       }
-      result = rf_cmd_dispatch_n_454((uint8_t)a1, v6, v10);
+      result = ke_int_lock_mode((uint8_t)a1, v6, v10);
       v6 = *(uint32_t *)(v1 + 8 * a1);
     }
     while ( v6 );

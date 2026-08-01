@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// message_dispatch_c7ac @ 0x12c7ac, size 44 bytes
+// scan_rssi_compare @ 0x12c7ac, size 44 bytes
 // Doc: message_dispatch_n_3fc [ipc]: Message dispatch comparator clamping against 0x7f boundary
 // message_dispatch_n_3fc [ipc]: Message dispatch comparator clamping against 0x7f boundary
-int  message_dispatch_c7ac(int result)
+int  scan_rssi_compare(int result)
 {
   int *i; // r3
   int v2; // r2
@@ -36,7 +36,7 @@ int  message_dispatch_c7ac(int result)
     *((uint8_t *)i + 350) |= 0x10u;
   result = *(uint32_t *)(result + 72);
   if ( result )
-    return sub_12876C(result);
+    return remove_entry_by_owner(result);
   return result;
 }
 

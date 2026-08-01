@@ -12,10 +12,10 @@
 
 extern uint32_t off_10066C;
 
-// delay_us @ 0x100644, size 40 bytes
-// Doc: delay_us [util]: Busy-wait delay in microseconds using timer
-// delay_us [util]: Busy-wait delay in microseconds using timer
-int  delay_us(int a1)
+// timer_set @ 0x100644, size 40 bytes
+// Doc: timer_set [util]: Busy-wait delay in microseconds using timer
+// timer_set [util]: Busy-wait delay in microseconds using timer
+int  timer_set(int a1)
 {
   int result; // r0
   int v3; // [sp+4h] [bp-8h]

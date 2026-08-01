@@ -26,10 +26,10 @@ extern uint32_t off_117CF0;
 extern uint32_t off_117CF4;
 extern uint32_t dword_117CF8;
 
-// cmd_dispatch_handler @ 0x117ae0, size 488 bytes
-// Doc: cmd_dispatch_handler [util]: Dispatch handler switching on command opcode (r1)
-// cmd_dispatch_handler [util]: Dispatch handler switching on command opcode (r1)
-int  cmd_dispatch_handler(int a1, int a2)
+// conn_rx @ 0x117ae0, size 488 bytes
+// Doc: conn_rx [util]: Dispatch handler switching on command opcode (r1)
+// conn_rx [util]: Dispatch handler switching on command opcode (r1)
+int  conn_rx(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r10
@@ -67,7 +67,7 @@ int  cmd_dispatch_handler(int a1, int a2)
   v6 = dword_117D00;
   v7 = *(uint32_t *)(a1 + 76);
   v8 = dword_117D00 + 1320 * v5;
-  if ( bt_sub_121733C(v8)
+  if ( init_once(v8)
     && ((v10 = *(uint8_t *)(a1 + 28), *(uint8_t *)(v6 + 1320 * v10 + 106))
      || *(uint8_t *)(a1 + 29) > 0x23u
      || *(uint16_t *)(a1 + 4)
@@ -77,8 +77,8 @@ int  cmd_dispatch_handler(int a1, int a2)
      || (v12 = *((uint32_t *)off_117CD0 + 10)) == 0
      || *(uint8_t *)(v12 + 24) <= 2u
      || (v13 = *(uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, sub_12ECB0(dword_117CD4, v12 == v13, (uint8_t)v11), v12 == v31))
-    && sub_136C34(a1) )
+     || (v31 = v13, ke_event_schedule(dword_117CD4, v12 == v13, (uint8_t)v11), v12 == v31))
+    && phy_check_core_mode(a1) )
   {
     *(uint32_t *)(v7 + 68) |= 0x100u;
     if ( (__get_CPSR() & 1) == 0 )
@@ -92,7 +92,7 @@ int  cmd_dispatch_handler(int a1, int a2)
     ++*(uint32_t *)off_117CDC;
     v4[80] = v16;
     if ( v15 )
-      sub_11A308(a2);
+      llc_tx_llcp_handler(a2);
     if ( !*((uint32_t *)v4 + 5) )
     {
       v30 = *(uint32_t **)(a1 + 72);
@@ -100,7 +100,7 @@ int  cmd_dispatch_handler(int a1, int a2)
       v30[2] = a1;
       v30[3] = a1;
     }
-    v17 = list_push_tail(v4 + 12);
+    v17 = check_abort_flag(v4 + 12);
     v18 = *((uint32_t *)off_117CE0 + 8);
     ++*((uint32_t *)off_117CC8 + 126);
     if ( v18 )
@@ -112,7 +112,7 @@ int  cmd_dispatch_handler(int a1, int a2)
         *(uint32_t *)(v6 + 1320 * v5 + 120) = *((uint32_t *)off_117CEC + 4);
     }
     if ( **(uint8_t **)off_117CF0 == 2 && (*(uint32_t *)off_117CF4 & dword_117CF8) == 0 )
-      sub_1143D0(v17, v18, *(uint32_t *)off_117CF4);
+      log_and_check_hw(v17, v18, *(uint32_t *)off_117CF4);
     if ( *v14 )
     {
       v20 = *v14 - 1;
@@ -152,7 +152,7 @@ int  cmd_dispatch_handler(int a1, int a2)
     }
     v27 = *(uint32_t *)(a1 + 72);
     ++*v14;
-    sub_116EF4(a1, a1, v27, a2);
+    mac_set_flag(a1, a1, v27, a2);
     if ( *v14 )
     {
       v28 = *v14 - 1;
@@ -168,12 +168,12 @@ int  cmd_dispatch_handler(int a1, int a2)
   }
   else if ( *(uint8_t *)(a1 + 29) == 255 )
   {
-    sub_11913C(a1, 0);
+    ble_conn_event_handler(a1, 0);
     return 0;
   }
   else
   {
-    rf_bus_write2_n258((uint8_t *)a1, a2);
+    get_sta_entry((uint8_t *)a1, a2);
     return 1;
   }
 }

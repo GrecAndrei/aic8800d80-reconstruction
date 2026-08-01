@@ -13,8 +13,8 @@
 extern uint32_t off_10CC7C;
 extern uint32_t off_10CC80;
 
-// sub_10CC50 @ 0x10cc50, size 44 bytes
-int sub_10CC50()
+// controller_config_read @ 0x10cc50, size 44 bytes
+int controller_config_read()
 {
   uint32_t *v0; // r4
   int result; // r0
@@ -25,7 +25,7 @@ int sub_10CC50()
   result = *(uint32_t *)(*(uint32_t *)off_10CC80 + 596);
   if ( result )
   {
-    result = rf_bus_mark_n100_d2d0(*(uint32_t *)off_10CC80 + 596);
+    result = mem_word_load(*(uint32_t *)off_10CC80 + 596);
     *v0 = 1;
     if ( result )
       result += 4;

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_135C98;
 
-// sub_135C1C @ 0x135c1c, size 124 bytes
-uint32_t * sub_135C1C(uint16_t *a1)
+// hci_vendor_read_rf_cache @ 0x135c1c, size 124 bytes
+uint32_t * hci_vendor_read_rf_cache(uint16_t *a1)
 {
   uint16_t *v1; // r6
   int v3; // r5
@@ -22,28 +22,28 @@ uint32_t * sub_135C1C(uint16_t *a1)
   int v6; // r3
 
   v1 = a1 + 6;
-  sub_12C964(6154, 6);
+  irq_lock(6154, 6);
   v3 = v1[2];
-  result = (uint32_t *)sub_12EEF8(256, dword_135C98, v3);
+  result = (uint32_t *)state_check_feature(256, dword_135C98, v3);
   if ( v3 )
-    return (uint32_t *)sub_135020(v3);
+    return (uint32_t *)event_dispatch(v3);
   v5 = a1[6];
   if ( !a1[6] )
-    return sub_135580();
+    return rf_lookup_alt_by_index();
   if ( v5 != 1 )
   {
     if ( v5 == 2 )
-      return (uint32_t *)sub_135B94(*((uint8_t *)a1 + 8), (int)(a1 + 9), (uint16_t)(*a1 - 6));
+      return (uint32_t *)send_hci_vendor_cmd(*((uint8_t *)a1 + 8), (int)(a1 + 9), (uint16_t)(*a1 - 6));
     return result;
   }
   v6 = v1[1];
   if ( v6 == 4 )
   {
-    sub_103140(3000);
-    return sub_135580();
+    wait_for_hw_data(3000);
+    return rf_lookup_alt_by_index();
   }
   if ( v6 == 2 && *a1 > 0x22u )
-    return sub_135384(3, (char *)a1 + 20);
+    return rf_lookup_by_index(3, (char *)a1 + 20);
   return result;
 }
 

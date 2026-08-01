@@ -1,1 +1,1 @@
-{"fn": "sub_122A924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a924", "status": "ok", "name": "bt_link_state_get_n2c4", "params": [], "docstring": "Looks up Bluetooth link state entry indexed by connection slot", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a924", "status": "ok", "name": "bt_conn_get_state", "params": [], "docstring": "Looks up Bluetooth link state entry indexed by connection slot", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

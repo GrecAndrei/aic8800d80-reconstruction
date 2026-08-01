@@ -12,12 +12,12 @@
 
 extern uint32_t off_10DCDC;
 
-// sub_10DCC8 @ 0x10dcc8, size 18 bytes
-int sub_10DCC8()
+// ptr_add_12 @ 0x10dcc8, size 18 bytes
+int ptr_add_12()
 {
   if ( *((uint8_t *)off_10DCDC + 369) )
-    return sub_10DBC0(2);
+    return mmio_set_bit(2);
   else
-    return sub_10DBD4(2);
+    return mmio_clear_bit(2);
 }
 

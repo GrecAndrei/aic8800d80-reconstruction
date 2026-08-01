@@ -24,8 +24,8 @@ extern uint32_t dword_1196DC;
 extern uint32_t off_1196B8;
 extern uint32_t off_1196BC;
 
-// sub_1194A8 @ 0x1194a8, size 514 bytes
-unsigned int  sub_1194A8(int a1, int a2, int a3)
+// rf_get_rssi @ 0x1194a8, size 514 bytes
+unsigned int  rf_get_rssi(int a1, int a2, int a3)
 {
   int16_t **v3; // r10
   unsigned int v5; // r3
@@ -69,7 +69,7 @@ unsigned int  sub_1194A8(int a1, int a2, int a3)
   v8 = (v5 >> 7) & 3;
   v9 = (v5 >> 11) & 7;
   if ( **(int16_t **)off_1196D8 < 0 && ((v5 >> 11) & 6) == 0 )
-    sub_12F46C(dword_1196C4, dword_1196C0, 397);
+    mmio_clear_register(dword_1196C4, dword_1196C0, 397);
   v10 = v9 == 4;
   if ( v9 <= 4 )
   {
@@ -86,10 +86,10 @@ unsigned int  sub_1194A8(int a1, int a2, int a3)
       v38 = v33;
       if ( v31 < 0 )
       {
-        if ( v32 <= 3 || (sub_12F46C(dword_1196D4, dword_1196C8, 340), **v3 < 0) )
+        if ( v32 <= 3 || (mmio_clear_register(dword_1196D4, dword_1196C8, 340), **v3 < 0) )
         {
           if ( v12 > 9 )
-            sub_12F46C(dword_1196D0, dword_1196C8, 341);
+            mmio_clear_register(dword_1196D0, dword_1196C8, 341);
         }
       }
       v34 = dword_1196AC;
@@ -100,7 +100,7 @@ unsigned int  sub_1194A8(int a1, int a2, int a3)
       if ( **v3 < 0 && (v22 & 0x60) != 0 )
       {
         v35 = *(uint32_t *)(a1 + 4);
-        sub_12F46C(dword_1196CC, dword_1196C8, 349);
+        mmio_clear_register(dword_1196CC, dword_1196C8, 349);
         LOBYTE(v22) = v35;
       }
       v34 = dword_1196AC;
@@ -116,7 +116,7 @@ unsigned int  sub_1194A8(int a1, int a2, int a3)
     LOBYTE(v12) = 0;
     goto LABEL_14;
   }
-  v11 = sub_11C394(a1, v9, &v39, v40, &v37, &v38);
+  v11 = get_channel_number(a1, v9, &v39, v40, &v37, &v38);
   v12 = (*(uint8_t *)(a1 + 344) >> 5) & 1;
   if ( v9 != 7 )
   {

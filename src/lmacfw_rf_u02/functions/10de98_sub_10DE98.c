@@ -15,8 +15,8 @@ extern uint32_t off_10DEE4;
 extern uint32_t dword_10DEE8;
 extern uint32_t dword_10DEEC;
 
-// sub_10DE98 @ 0x10de98, size 72 bytes
-int sub_10DE98()
+// sdio_core_reset_alt @ 0x10de98, size 72 bytes
+int sdio_core_reset_alt()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r0

@@ -13,8 +13,8 @@
 extern uint32_t off_11E0FC;
 extern uint32_t off_11E0F8;
 
-// sub_11E0B4 @ 0x11e0b4, size 66 bytes
-int  sub_11E0B4(int result)
+// radio_get_status @ 0x11e0b4, size 66 bytes
+int  radio_get_status(int result)
 {
   unsigned int v1; // r3
   unsigned int v2; // r2

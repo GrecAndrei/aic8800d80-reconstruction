@@ -1,1 +1,1 @@
-{"fn": "sub_1205ABC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1205abc", "status": "ok", "name": "fw_init_vif_struct", "params": [], "docstring": "Initialize VIF control struct at offset 0x274", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1205ABC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1205abc", "status": "ok", "name": "mac_conn_event_init", "params": [], "docstring": "Initialize VIF control struct at offset 0x274", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

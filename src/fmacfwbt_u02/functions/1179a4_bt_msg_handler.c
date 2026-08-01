@@ -21,10 +21,10 @@ extern uint32_t off_117AC4;
 extern uint32_t off_117AB8;
 extern uint32_t off_117ABC;
 
-// bt_msg_handler @ 0x1179a4, size 254 bytes
-// Doc: bt_msg_handler [bt]: Bluetooth message handler
-// bt_msg_handler [bt]: Bluetooth message handler
-int  bt_msg_handler(int a1, int a2)
+// conn_tx @ 0x1179a4, size 254 bytes
+// Doc: conn_tx [bt]: Bluetooth message handler
+// conn_tx [bt]: Bluetooth message handler
+int  conn_tx(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r0
@@ -75,13 +75,13 @@ int  bt_msg_handler(int a1, int a2)
   }
   v10 = (int *)off_117ABC;
   ++*(uint32_t *)off_117ABC;
-  sub_11A4D0(a1, a2);
-  list_push_tail(v4 + 12);
-  sub_12B098(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
+  llc_rx_llcp_handler(a1, a2);
+  check_abort_flag(v4 + 12);
+  tx_slot_counter_inc(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117AA4 + 126);
-  fw_state_flag_check(a1);
-  result = sub_11708C(a1, a2, 0);
+  rf_isr(a1);
+  result = ke_timer_calc(a1, a2, 0);
   v12 = *v10;
   *(uint16_t *)(a1 + 82) |= 1u;
   if ( v12 )

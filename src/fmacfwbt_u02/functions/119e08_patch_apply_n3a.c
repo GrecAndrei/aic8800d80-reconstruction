@@ -19,10 +19,10 @@ extern uint32_t off_11A114;
 extern uint32_t dword_11A120;
 extern uint32_t dword_11A11C;
 
-// patch_apply_n3a @ 0x119e08, size 868 bytes
-// Doc: patch_apply_n3a [patch]: Iterate patch entries from table 0x174010 with stride 4 and test bit field
-// patch_apply_n3a [patch]: Iterate patch entries from table 0x174010 with stride 4 and test bit field
-int  patch_apply_n3a(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+// tx_packet_build @ 0x119e08, size 868 bytes
+// Doc: tx_packet_build [patch]: Iterate patch entries from table 0x174010 with stride 4 and test bit field
+// tx_packet_build [patch]: Iterate patch entries from table 0x174010 with stride 4 and test bit field
+int  tx_packet_build(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r5
   int v7; // r4
@@ -74,11 +74,11 @@ int  patch_apply_n3a(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t 
   v8 = dword_11A108 + 84 * a5 + 28;
   v9 = *(uint32_t *)(*a2 + 68);
   v10 = *(uint32_t *)(*a2 + 76);
-  sub_12D4F8(v8);
-  if ( !bt_state_field_cmp(a1, v7, a5)
+  list_pop_front(v8);
+  if ( !bt_conn_param_compare(a1, v7, a5)
     || (v12 = off_11A124, *(uint8_t *)(*(uint32_t *)off_11A124 + 62) > (*(uint32_t *)off_11A10C & 0x3Fu)) )
   {
-    bt_state_check_or_init(v8, v5);
+    check_abort_flag_2(v8, v5);
     return 0;
   }
   v13 = *(uint32_t *)(v51 + 36);
@@ -134,8 +134,8 @@ LABEL_7:
       if ( !*(uint8_t *)(v39 + 1) )
         *(uint32_t *)(v5 + 20) = *(uint32_t *)(v9 + 20);
       *(uint8_t *)(v24 + 1) = v50 + v17;
-      sub_12D4F8(v8);
-      list_push_tail(*(uint32_t *)(v9 + 340));
+      list_pop_front(v8);
+      check_abort_flag(*(uint32_t *)(v9 + 340));
       v40 = *(uint32_t *)(v7 + 76);
       *a2 = *(uint32_t *)v7;
       *(uint32_t *)(v40 + 20) = 0;
@@ -145,7 +145,7 @@ LABEL_7:
     v23 = *(uint32_t *)v7;
     if ( **(int16_t **)off_11A114 < 0 && !v23 )
     {
-      sub_12F694(dword_11A120, dword_11A11C, 1713);
+      mmio_irq_clear(dword_11A120, dword_11A11C, 1713);
       v23 = 0;
     }
     v16 = *(uint32_t *)(v23 + 36);
@@ -185,7 +185,7 @@ LABEL_17:
     *(uint32_t *)(v9 + 268) = v7;
     *(uint16_t *)(v9 + 8) = v27 | 0x400;
     if ( (v30 & 0x380000) == 0x380000 )
-      sub_12D4F8(v8);
+      list_pop_front(v8);
     v31 = *(uint32_t *)off_11A118;
     *a2 = v7;
     v32 = *(uint8_t *)(v31 + 1);
@@ -208,7 +208,7 @@ LABEL_17:
       *(uint32_t *)(v5 + 20) = v36;
     }
 LABEL_34:
-    bt_state_check_or_init(v8, v5);
+    check_abort_flag_2(v8, v5);
     return v32;
   }
   v42 = *(uint32_t *)(v51 + 36);
@@ -220,7 +220,7 @@ LABEL_34:
   *(uint32_t *)(v43 + 68) = v42 | 0x380100;
   *(uint32_t *)(v7 + 36) = v44;
   *(uint32_t *)(v24 + 68) = v45;
-  bt_state_check_or_init(v8, v5);
+  check_abort_flag_2(v8, v5);
   v32 = 0;
   *a2 = v7;
   return v32;

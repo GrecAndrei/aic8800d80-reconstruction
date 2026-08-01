@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B0A0 @ 0x13b0a0, size 62 bytes
-uint16_t * sub_13B0A0(int a1, uint16_t *a2, int a3)
+// ll_conn_window_calc @ 0x13b0a0, size 62 bytes
+uint16_t * ll_conn_window_calc(int a1, uint16_t *a2, int a3)
 {
   uint16_t *v6; // r1
   int v8; // r0
@@ -24,13 +24,13 @@ uint16_t * sub_13B0A0(int a1, uint16_t *a2, int a3)
   }
   else
   {
-    v8 = sub_13A528(a1, &v10);
+    v8 = rf_get_chan_cfg(a1, &v10);
     v9 = v10;
     *(uint8_t *)(a1 + 51) = v8;
     v6 = (uint16_t *)((char *)a2 + a3 + v8);
     *(uint8_t *)(a1 + 53) = v9;
   }
   *a2 |= 0x4000u;
-  return sub_13A980(a1, v6, 0);
+  return ll_conn_context_get(a1, v6, 0);
 }
 

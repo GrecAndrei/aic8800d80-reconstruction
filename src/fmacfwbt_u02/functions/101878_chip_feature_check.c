@@ -12,10 +12,10 @@
 
 extern uint32_t off_101884;
 
-// chip_feature_check @ 0x101878, size 10 bytes
-// Doc: chip_feature_check [util]: Reads chip revision register and extracts a feature flag bit
-// chip_feature_check [util]: Reads chip revision register and extracts a feature flag bit
-int chip_feature_check()
+// sys_status_get_bit21 @ 0x101878, size 10 bytes
+// Doc: sys_status_get_bit21 [util]: Reads chip revision register and extracts a feature flag bit
+// sys_status_get_bit21 [util]: Reads chip revision register and extracts a feature flag bit
+int sys_status_get_bit21()
 {
   return (*(uint32_t *)off_101884 >> 21) & 1;
 }

@@ -21,8 +21,8 @@ extern uint32_t dword_13B558;
 extern uint32_t dword_13B554;
 extern uint32_t dword_13B560;
 
-// sub_13B39C @ 0x13b39c, size 414 bytes
-int  sub_13B39C(int a1, char *a2, unsigned int a3)
+// adv_pdu_scan_req_handler @ 0x13b39c, size 414 bytes
+int  adv_pdu_scan_req_handler(int a1, char *a2, unsigned int a3)
 {
   char *v6; // r8
   char v7; // r10
@@ -35,7 +35,7 @@ int  sub_13B39C(int a1, char *a2, unsigned int a3)
   int v14; // r2
   uint32_t *v15; // r6
 
-  if ( msg_get_value(a3) == 3 )
+  if ( rx_rate_field_parse(a3) == 3 )
   {
     v6 = (char *)off_13B540 + 32 * (a3 >> 8);
     if ( v6[17] )
@@ -44,29 +44,29 @@ int  sub_13B39C(int a1, char *a2, unsigned int a3)
       {
         if ( a2[2] )
         {
-          sub_13BA24(a3 >> 8);
-          list_push_tail(dword_13B55C, v6);
-          sub_12CD34(a3, 0);
+          rf_get_chan_state(a3 >> 8);
+          cmd_handler_a(dword_13B55C, v6);
+          rx_phy_status_parse(a3, 0);
         }
         else
         {
           v7 = v6[20];
-          sub_13C3AC((char *)off_13B540 + 32 * (a3 >> 8));
+          reset_tx_descriptor((char *)off_13B540 + 32 * (a3 >> 8));
           *((uint32_t *)v6 + 2) = *((uint32_t *)off_13B544 + 4);
           v8 = *a2;
           v9 = a2[1];
-          v10 = (uint8_t *)sub_12C92C(5131, 13, 5, 3u);
+          v10 = (uint8_t *)ke_msg_alloc(5131, 13, 5, 3u);
           v10[2] = v7 - 4;
           *v10 = v8;
           v10[1] = v9;
-          sdio_buffer_prepare_n_4e8((int)v10);
-          sub_13BA0C(a3 >> 8);
-          sub_12CD34(a3, 1);
+          ke_msg_send((int)v10);
+          rf_set_freq(a3 >> 8);
+          rx_phy_status_parse(a3, 1);
         }
       }
       else if ( **(int16_t **)off_13B53C < 0 )
       {
-        sub_12F49C(dword_13B54C, dword_13B548, 218);
+        call_shared_handler(dword_13B54C, dword_13B548, 218);
       }
     }
     else
@@ -80,7 +80,7 @@ int  sub_13B39C(int a1, char *a2, unsigned int a3)
       v12 = (char *)off_13B540 + 32 * (a3 >> 8);
       if ( a2[2] )
       {
-        sub_13B698(
+        adv_set_params(
           (uint8_t)v12[16],
           v12,
           1,
@@ -91,12 +91,12 @@ int  sub_13B39C(int a1, char *a2, unsigned int a3)
                            | (*((uint16_t *)v12 + 10) << 6)),
           37,
           0);
-        list_push_tail(dword_13B560, v12);
-        sub_12CD34(a3, 0);
+        cmd_handler_a(dword_13B560, v12);
+        rx_phy_status_parse(a3, 0);
       }
       else
       {
-        sub_13B698(
+        adv_set_params(
           (uint8_t)v12[16],
           v12,
           1,
@@ -112,15 +112,15 @@ int  sub_13B39C(int a1, char *a2, unsigned int a3)
         v15 = off_13B544;
         *(uint8_t *)(696 * v13 + 12 * v14 + dword_13B554 + 452) = BYTE1(a3);
         *((uint32_t *)v12 + 2) = v15[4];
-        sub_13BA0C(a3 >> 8);
-        sub_12CD34(a3, 1);
+        rf_set_freq(a3 >> 8);
+        rx_phy_status_parse(a3, 1);
       }
     }
     return 0;
   }
   if ( **(int16_t **)off_13B53C >= 0 )
     return 0;
-  sub_12F49C(dword_13B54C, dword_13B548, 109);
+  call_shared_handler(dword_13B54C, dword_13B548, 109);
   return 0;
 }
 

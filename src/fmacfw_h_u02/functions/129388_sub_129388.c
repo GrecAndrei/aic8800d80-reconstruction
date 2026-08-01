@@ -19,8 +19,8 @@ extern uint32_t off_1293FC;
 extern uint32_t off_129400;
 extern uint32_t off_1293F4;
 
-// sub_129388 @ 0x129388, size 86 bytes
-int sub_129388()
+// chip_register_set_bit @ 0x129388, size 86 bytes
+int chip_register_set_bit()
 {
   int v0; // r1
   uint32_t *v1; // r0
@@ -30,7 +30,7 @@ int sub_129388()
 
   v0 = dword_1293E8;
   *(uint32_t *)off_1293E0 |= 0x2000000u;
-  sub_12EB90(2, v0);
+  check_feature_flag(2, v0);
   if ( !*((uint8_t *)off_1293EC + 18) )
     *(uint32_t *)off_1293F0 &= ~1u;
   v1 = off_1293F8;

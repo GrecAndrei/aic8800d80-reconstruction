@@ -20,8 +20,8 @@ extern uint32_t dword_11B268;
 extern uint32_t dword_11B26C;
 extern uint32_t off_11B258;
 
-// sub_11B0B4 @ 0x11b0b4, size 406 bytes
-int  sub_11B0B4(int result)
+// get_84_entry @ 0x11b0b4, size 406 bytes
+int  get_84_entry(int result)
 {
   uint32_t *v1; // r5
   int16_t **v2; // r6
@@ -54,7 +54,7 @@ int  sub_11B0B4(int result)
   v2 = (int16_t **)off_11B250;
   v3 = (uint32_t *)v1[3];
   if ( **(int16_t **)off_11B250 < 0 && !v3 )
-    result = sub_12F694(dword_11B260, dword_11B25C, 3166);
+    result = mmio_irq_clear(dword_11B260, dword_11B25C, 3166);
   while ( 1 )
   {
     v4 = v3[9];
@@ -86,7 +86,7 @@ LABEL_10:
   }
   else
   {
-    sub_12F694(dword_11B268, dword_11B25C, 3182);
+    mmio_irq_clear(dword_11B268, dword_11B25C, 3182);
     v6 = v3[17];
     v5 = **v2;
     v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11B254 + 82));
@@ -97,7 +97,7 @@ LABEL_10:
   v9 = v7[9];
   if ( (v9 & 0x380000) == 0x380000 )
   {
-    sub_12F694(dword_11B26C, dword_11B25C, 3192);
+    mmio_irq_clear(dword_11B26C, dword_11B25C, 3192);
     v9 = v7[9];
   }
   v5 = **v2;
@@ -127,9 +127,9 @@ LABEL_11:
       goto LABEL_13;
   }
   if ( !v14 )
-    sub_12F694(dword_11B260, dword_11B25C, 3217);
+    mmio_irq_clear(dword_11B260, dword_11B25C, 3217);
 LABEL_13:
-  result = rf_cmd_process_n_4c5(v14, (int)&v18);
+  result = context_proc_at_offset44(v14, (int)&v18);
   if ( !result )
     return result;
   v16 = *v10;

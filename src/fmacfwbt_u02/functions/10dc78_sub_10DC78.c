@@ -12,12 +12,12 @@
 
 extern uint32_t off_10DC8C;
 
-// sub_10DC78 @ 0x10dc78, size 18 bytes
-int sub_10DC78()
+// check_radio_flag @ 0x10dc78, size 18 bytes
+int check_radio_flag()
 {
   if ( *((uint8_t *)off_10DC8C + 369) )
-    return irq_enable(1);
+    return gpio_set_bit_reg0(1);
   else
-    return sub_10DB6C(1);
+    return gpio_clear_bit_reg0(1);
 }
 

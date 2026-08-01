@@ -13,10 +13,10 @@
 extern uint32_t off_1104B8;
 extern uint32_t dword_1104BC;
 
-// sub_110480 @ 0x110480, size 52 bytes
+// is_hold_mode @ 0x110480, size 52 bytes
 // Doc: log_free_dispatch_n48e [util]: Increment log free counter and invoke free callback
 // log_free_dispatch_n48e [util]: Increment log free counter and invoke free callback
-int sub_110480()
+int is_hold_mode()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int sub_110480()
   v0 = (int *)off_1104B8;
   v1 = dword_1104BC;
   ++*(uint32_t *)off_1104B8;
-  result = rf_bus_mark_n100_d2d0(v1);
+  result = mem_word_load(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

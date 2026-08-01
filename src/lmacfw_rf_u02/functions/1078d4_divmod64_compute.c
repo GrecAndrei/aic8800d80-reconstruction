@@ -13,10 +13,10 @@
 extern uint32_t dword_107940;
 extern uint32_t dword_10793C;
 
-// divmod64_compute @ 0x1078d4, size 104 bytes
-// Doc: divmod64_compute [util]: 64-bit division/modulo via magic-number multiply
-// divmod64_compute [util]: 64-bit division/modulo via magic-number multiply
-int * divmod64_compute(int *a1)
+// timer_ticks_to_micros @ 0x1078d4, size 104 bytes
+// Doc: timer_ticks_to_micros [util]: 64-bit division/modulo via magic-number multiply
+// timer_ticks_to_micros [util]: 64-bit division/modulo via magic-number multiply
+int * timer_ticks_to_micros(int *a1)
 {
   int v1; // r2
   int v2; // r7

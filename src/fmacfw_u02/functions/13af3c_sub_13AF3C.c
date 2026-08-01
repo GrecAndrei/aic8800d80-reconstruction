@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13AF7C;
 
-// sub_13AF3C @ 0x13af3c, size 64 bytes
-int * sub_13AF3C(int *result)
+// ll_conn_rx_packet_get @ 0x13af3c, size 64 bytes
+int * ll_conn_rx_packet_get(int *result)
 {
   int v1; // r5
 
@@ -21,7 +21,7 @@ int * sub_13AF3C(int *result)
   if ( v1 )
   {
     if ( *(uint8_t *)(v1 + 96) == 1 )
-      return sub_116174(
+      return check_global_flag(
                (int)result,
                v1 + 80,
                result[18] - *((uint8_t *)result + 52) + 172,

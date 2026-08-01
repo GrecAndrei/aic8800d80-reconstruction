@@ -14,10 +14,10 @@ extern uint32_t off_115114;
 extern uint32_t off_115120;
 extern uint32_t off_115118;
 
-// rf_bus_reset_n4a7 @ 0x115020, size 230 bytes
+// patch_get_state @ 0x115020, size 230 bytes
 // Doc: patch_apply_n1a2 [patch]: Apply patch writing MMIO reg at +0x104 and toggling bits
 // patch_apply_n1a2 [patch]: Apply patch writing MMIO reg at +0x104 and toggling bits
-int rf_bus_reset_n4a7()
+int patch_get_state()
 {
   int v0; // r4
   uint32_t *v1; // r3
@@ -30,21 +30,21 @@ int rf_bus_reset_n4a7()
 
   if ( **(uint8_t **)rf_cmd_send_n238_5108 == 2 )
   {
-    if ( rf_cmd_send_n_374() )
+    if ( mmio_read_flag_b() )
       v0 = *((uint32_t *)patch_apply_n27c + 87);
     else
       v0 = 16;
-    sub_1129E8();
+    mmio_read_flag();
     *((uint32_t *)off_115114 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    msg_parse(patch_apply_n270, v6, 1);
+    event_dispatch(patch_apply_n270, v6, 1);
     v8 = off_115120;
     *((uint32_t *)off_115120 + 513) |= 2u;
     v8[4] |= 1u;
     while ( (v8[4] & 1) != 0 )
       ;
-    msg_parse(patch_apply_n278, v7, v8);
+    event_dispatch(patch_apply_n278, v7, v8);
   }
   else
   {
@@ -76,9 +76,9 @@ int rf_bus_reset_n4a7()
   v4[34] = 1;
   __dsb(0xFu);
   __isb(0xFu);
-  sub_10D784();
+  nvic_set_priority();
   if ( *(uint8_t *)(*(uint32_t *)off_115118 + 3) )
-    rf_msg_handler();
+    check_bt_ptr_state();
   __disable_irq();
   return v0;
 }

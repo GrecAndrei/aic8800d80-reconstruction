@@ -14,8 +14,8 @@ extern uint32_t off_100680;
 extern uint32_t off_100684;
 extern uint32_t off_10067C;
 
-// sub_10064C @ 0x10064c, size 46 bytes
-uint32_t *sub_10064C()
+// periph_config @ 0x10064c, size 46 bytes
+uint32_t *periph_config()
 {
   uint32_t *result; // r0
   int *v1; // r2

@@ -12,8 +12,8 @@
 
 extern uint32_t off_130FA8;
 
-// sub_130F68 @ 0x130f68, size 64 bytes
-int  sub_130F68(int a1, int a2, int16_t a3, char a4, int16_t a5)
+// rf_build_cal_block_v3_extra @ 0x130f68, size 64 bytes
+int  rf_build_cal_block_v3_extra(int a1, int a2, int16_t a3, char a4, int16_t a5)
 {
   uint8_t *v5; // r4
 

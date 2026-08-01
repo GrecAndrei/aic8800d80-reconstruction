@@ -13,10 +13,10 @@
 extern uint32_t dword_1239AC;
 extern uint32_t dword_1239B0;
 
-// sdio_buffer_prepare_n_2fa @ 0x12391c, size 142 bytes
-// Doc: sdio_buffer_prepare_n_2fa [util]: Prepare SDIO buffer for transfer
-// sdio_buffer_prepare_n_2fa [util]: Prepare SDIO buffer for transfer
-int  sdio_buffer_prepare_n_2fa(int a1, uint8_t *a2, int a3, int a4)
+// load_three_bytes @ 0x12391c, size 142 bytes
+// Doc: load_three_bytes [util]: Prepare SDIO buffer for transfer
+// load_three_bytes [util]: Prepare SDIO buffer for transfer
+int  load_three_bytes(int a1, uint8_t *a2, int a3, int a4)
 {
   int v5; // r6
   int v6; // r0
@@ -34,11 +34,11 @@ int  sdio_buffer_prepare_n_2fa(int a1, uint8_t *a2, int a3, int a4)
   v7 = a2[2];
   if ( v5 )
   {
-    n1c0 = rf_channel_status_get_n1c0(v6, v7);
+    n1c0 = phy_read_channel(v6, v7);
     v10 = a3;
     if ( n1c0 )
     {
-      rf_param_lookup_n_1fc(dword_1239AC + 696 * a2[1], a2[2], a3);
+      get_instance_handle_cond(dword_1239AC + 696 * a2[1], a2[2], a3);
       v11 = 2;
       v10 = a3;
       goto LABEL_4;
@@ -46,7 +46,7 @@ int  sdio_buffer_prepare_n_2fa(int a1, uint8_t *a2, int a3, int a4)
   }
   else
   {
-    v9 = bt_indexed_tbl_lookup_n_21b(v6, v7);
+    v9 = phy_read_band(v6, v7);
     v10 = a3;
     if ( v9 )
     {
@@ -60,11 +60,11 @@ int  sdio_buffer_prepare_n_2fa(int a1, uint8_t *a2, int a3, int a4)
   }
   v11 = 3;
 LABEL_4:
-  v12 = (uint8_t *)rf_bus_setup_n3a8(43, a4, v10, 3);
+  v12 = (uint8_t *)bt_buf_alloc(43, a4, v10, 3);
   *v12 = a2[1];
   v12[1] = a2[2];
   v12[2] = v11;
-  sub_12CBB4(v12);
+  hci_evt_send(v12);
   return 0;
 }
 

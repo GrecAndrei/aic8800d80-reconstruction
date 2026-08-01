@@ -17,10 +17,10 @@ extern uint32_t dword_13ECF8;
 extern uint32_t dword_13ED04;
 extern uint32_t dword_13ECF4;
 
-// rx_desc_parse_n_ebbc @ 0x13ebbc, size 312 bytes
-// Doc: rx_desc_parse_n_ebbc [rx]: Parse RX descriptor halfword, extract length/offset bit-fields
-// rx_desc_parse_n_ebbc [rx]: Parse RX descriptor halfword, extract length/offset bit-fields
-unsigned int  rx_desc_parse_n_ebbc(int a1)
+// parse_ll_header @ 0x13ebbc, size 312 bytes
+// Doc: parse_ll_header [rx]: Parse RX descriptor halfword, extract length/offset bit-fields
+// parse_ll_header [rx]: Parse RX descriptor halfword, extract length/offset bit-fields
+unsigned int  parse_ll_header(int a1)
 {
   unsigned int v1; // r3
   int v2; // r1

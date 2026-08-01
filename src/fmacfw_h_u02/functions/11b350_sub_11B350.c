@@ -18,8 +18,8 @@ extern uint32_t dword_11B434;
 extern uint32_t dword_11B42C;
 extern uint32_t dword_11B428;
 
-// sub_11B350 @ 0x11b350, size 204 bytes
-int  sub_11B350(int result, int a2, int a3, int a4)
+// get_rf_capability @ 0x11b350, size 204 bytes
+int  get_rf_capability(int result, int a2, int a3, int a4)
 {
   uint32_t *v4; // r5
   char *v5; // r3
@@ -64,18 +64,18 @@ LABEL_6:
           v10 = (int16_t **)off_11B424;
           if ( **(int16_t **)off_11B424 >= 0 )
             goto LABEL_9;
-          sub_12F32C(dword_11B430, dword_11B434, 520);
+          irq_disable_mmio_write(dword_11B430, dword_11B434, 520);
           break;
       }
       if ( **v10 < 0 )
       {
-        return sub_12F2C8(dword_11B430, dword_11B42C, 684, a4);
+        return unknown_12f2c8(dword_11B430, dword_11B42C, 684, a4);
       }
       else
       {
 LABEL_9:
         v4[v8 - v7 + 6] = dword_11B428;
-        return sub_11B278(v7);
+        return invalid_instruction_trap(v7);
       }
     }
   }

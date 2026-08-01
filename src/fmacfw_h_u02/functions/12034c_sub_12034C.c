@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12034C @ 0x12034c, size 26 bytes
-int  sub_12034C(int a1)
+// alloc_shared_packet @ 0x12034c, size 26 bytes
+int  alloc_shared_packet(int a1)
 {
   uint32_t *v2; // r0
 
-  v2 = (uint32_t *)sub_12C7EC(143, 0, 255, 4);
+  v2 = (uint32_t *)tx_send_pdu(143, 0, 255, 4);
   *v2 = a1;
-  return sub_12C84C(v2);
+  return rx_process_packet(v2);
 }
 

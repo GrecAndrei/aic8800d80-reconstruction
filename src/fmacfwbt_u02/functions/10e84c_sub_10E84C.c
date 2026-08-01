@@ -16,8 +16,8 @@ extern uint32_t dword_10E960;
 extern uint32_t dword_10E96C;
 extern uint32_t dword_10E964;
 
-// sub_10E84C @ 0x10e84c, size 272 bytes
-int  sub_10E84C(int a1)
+// gpio_set_alternate @ 0x10e84c, size 272 bytes
+int  gpio_set_alternate(int a1)
 {
   int16_t *v1; // r9
   int v2; // r7
@@ -40,8 +40,8 @@ int  sub_10E84C(int a1)
   v1 = (int16_t *)off_10E968;
   *(uint32_t *)off_10E95C = (a1 << 26) & 0x1C000000 | *(uint32_t *)off_10E95C & 0xE3FFFFFF;
   v2 = a1;
-  v3 = sub_10E040();
-  sub_12ECB0(dword_10E960, v2, v3);
+  v3 = radio_enable();
+  ke_event_schedule(dword_10E960, v2, v3);
   v4 = *v1;
   if ( v4 > v3 )
   {
@@ -82,8 +82,8 @@ int  sub_10E84C(int a1)
       v2 = 7;
     }
     *v5 = *v5 & 0xE3FFFFFF | v9;
-    v10 = sub_10E040();
-    sub_12ECB0(v6, v2, v10);
+    v10 = radio_enable();
+    ke_event_schedule(v6, v2, v10);
     v11 = *v1;
     v12 = v10 - v11;
     v13 = v3 - v11;
@@ -106,7 +106,7 @@ int  sub_10E84C(int a1)
     v16 = v3;
     *v5 = ((v2 - v17) << 26) & 0x1C000000 | *v5 & 0xE3FFFFFF;
   }
-  sub_12ECB0(dword_10E964, v8, v16);
+  ke_event_schedule(dword_10E964, v8, v16);
   return v8;
 }
 

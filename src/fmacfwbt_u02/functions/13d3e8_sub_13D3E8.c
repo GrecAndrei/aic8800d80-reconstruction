@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D3E8 @ 0x13d3e8, size 302 bytes
-unsigned int  sub_13D3E8(unsigned int result)
+// scan_adv_state_switch @ 0x13d3e8, size 302 bytes
+unsigned int  scan_adv_state_switch(unsigned int result)
 {
   unsigned int v1; // r4
   int v2; // r1

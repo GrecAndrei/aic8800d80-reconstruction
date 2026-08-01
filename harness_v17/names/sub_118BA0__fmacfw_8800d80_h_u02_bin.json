@@ -1,0 +1,1 @@
+{"fn": "sub_118BA0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118ba0", "status": "ok", "name": "set_string_0x1882c0", "params": [], "docstring": "Copy argument string to global buffer at 0x1882c0 and tail-call helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

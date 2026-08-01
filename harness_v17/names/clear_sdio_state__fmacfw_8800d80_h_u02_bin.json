@@ -1,1 +1,1 @@
-{"fn": "clear_sdio_state", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d2c4", "status": "ok", "name": "clear_sdio_state", "params": [], "docstring": "Clear SDIO state with 0xac threshold check, wide register save", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "clear_sdio_state", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d2c4", "status": "ok", "name": "clear_queue_buffer", "params": [], "docstring": "Clear SDIO state with 0xac threshold check, wide register save", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

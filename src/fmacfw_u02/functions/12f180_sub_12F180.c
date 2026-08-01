@@ -56,10 +56,10 @@ extern uint32_t off_12F3E0;
 extern uint32_t dword_12F3EC;
 extern uint32_t off_12F3E8;
 
-// sub_12F180 @ 0x12f180, size 468 bytes
+// weird_sp_sequence @ 0x12f180, size 468 bytes
 // Doc: fmac_init_subsystems [mac]: Initializes FMAC subsystem registers and pointers
 // fmac_init_subsystems [mac]: Initializes FMAC subsystem registers and pointers
-int sub_12F180()
+int weird_sp_sequence()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r10
@@ -85,26 +85,26 @@ int sub_12F180()
   v4 = off_12F3FC;
   v5 = off_12F400;
   v6 = off_12F368;
-  msg_parse(dword_12F358, *(uint32_t *)off_12F354 & 0xF);
-  msg_parse(dword_12F370, *v0, *(uint32_t *)off_12F36C);
-  msg_parse(dword_12F374, *v1);
-  msg_parse(dword_12F378, *v2);
-  msg_parse(dword_12F37C, *v3);
-  msg_parse(dword_12F380, *v4);
-  msg_parse(dword_12F384, *v5);
-  msg_parse(dword_12F388, *v6);
-  msg_parse(
+  event_dispatch(dword_12F358, *(uint32_t *)off_12F354 & 0xF);
+  event_dispatch(dword_12F370, *v0, *(uint32_t *)off_12F36C);
+  event_dispatch(dword_12F374, *v1);
+  event_dispatch(dword_12F378, *v2);
+  event_dispatch(dword_12F37C, *v3);
+  event_dispatch(dword_12F380, *v4);
+  event_dispatch(dword_12F384, *v5);
+  event_dispatch(dword_12F388, *v6);
+  event_dispatch(
     dword_12F39C,
     *(uint32_t *)off_12F38C,
     *(uint32_t *)off_12F390,
     *(uint32_t *)off_12F394,
     *(uint32_t *)off_12F398,
     *(uint32_t *)off_12F404);
-  msg_parse(dword_12F3A0, *(uint32_t *)(*v2 + 60));
-  msg_parse(dword_12F3A4, *(uint32_t *)(*v3 + 60));
-  msg_parse(dword_12F3A8, *(uint32_t *)(*v4 + 60));
-  msg_parse(dword_12F3AC, *(uint32_t *)(*v5 + 60));
-  msg_parse(dword_12F3B0, *(uint32_t *)(*v6 + 60));
+  event_dispatch(dword_12F3A0, *(uint32_t *)(*v2 + 60));
+  event_dispatch(dword_12F3A4, *(uint32_t *)(*v3 + 60));
+  event_dispatch(dword_12F3A8, *(uint32_t *)(*v4 + 60));
+  event_dispatch(dword_12F3AC, *(uint32_t *)(*v5 + 60));
+  event_dispatch(dword_12F3B0, *(uint32_t *)(*v6 + 60));
   v7 = *v0 << 6;
   if ( (*v0 & 0x2000000) != 0 )
   {
@@ -147,13 +147,13 @@ int sub_12F180()
   }
   if ( v0 )
   {
-    rf_mem_read_eb18((unsigned int)v0, 68, 1, 0);
-    rf_mem_read_eb18(v0[9], 52, 1, 0);
-    msg_parse(dword_12F3B4, v0[6]);
+    send_msg((unsigned int)v0, 68, 1, 0);
+    send_msg(v0[9], 52, 1, 0);
+    event_dispatch(dword_12F3B4, v0[6]);
     v8 = v0[4];
     if ( v8 )
     {
-      rf_mem_read_eb18(v8, v0[5] + 1 - v8, 1, 0);
+      send_msg(v8, v0[5] + 1 - v8, 1, 0);
       v9 = v0[3];
       if ( !v9 )
         goto LABEL_6;
@@ -164,7 +164,7 @@ int sub_12F180()
       if ( !v9 )
         goto LABEL_6;
     }
-    rf_mem_read_eb18(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
+    send_msg(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
   }
 LABEL_6:
   v10 = off_12F3B8;
@@ -173,15 +173,15 @@ LABEL_6:
   LOBYTE(v13) = 8;
   do
   {
-    msg_parse(v11, *v10, v7);
-    msg_parse(dword_12F3C4, *v12);
+    event_dispatch(v11, *v10, v7);
+    event_dispatch(dword_12F3C4, *v12);
     v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
-  msg_parse(dword_12F3CC, *(uint32_t *)off_12F3C8);
-  msg_parse(dword_12F3D4, *(uint32_t *)off_12F3D0);
-  msg_parse(dword_12F3DC, *(uint32_t *)off_12F3D8);
-  msg_parse(dword_12F3E4, *(uint32_t *)off_12F3E0);
-  return msg_parse(dword_12F3EC, *(uint32_t *)off_12F3E8);
+  event_dispatch(dword_12F3CC, *(uint32_t *)off_12F3C8);
+  event_dispatch(dword_12F3D4, *(uint32_t *)off_12F3D0);
+  event_dispatch(dword_12F3DC, *(uint32_t *)off_12F3D8);
+  event_dispatch(dword_12F3E4, *(uint32_t *)off_12F3E0);
+  return event_dispatch(dword_12F3EC, *(uint32_t *)off_12F3E8);
 }
 

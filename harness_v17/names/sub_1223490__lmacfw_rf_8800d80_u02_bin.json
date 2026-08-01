@@ -1,1 +1,1 @@
-{"fn": "sub_1223490", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223490", "status": "ok", "name": "parse_subframe_header", "params": [], "docstring": "Parses subframe header bytes, checks tag 0xc0", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223490", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223490", "status": "ok", "name": "validate_signature", "params": [], "docstring": "Parses subframe header bytes, checks tag 0xc0", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

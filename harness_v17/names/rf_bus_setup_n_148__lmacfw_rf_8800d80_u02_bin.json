@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n_148", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12116bc", "status": "ok", "name": "rf_bus_setup_n_148", "params": [], "docstring": "Initialize RF bus with constant 0x14b418 and zero arg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n_148", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12116bc", "status": "ok", "name": "rf_enable_tx_patch_dup", "params": [], "docstring": "Initialize RF bus with constant 0x14b418 and zero arg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

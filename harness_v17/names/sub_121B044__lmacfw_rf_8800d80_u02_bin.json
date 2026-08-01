@@ -1,1 +1,1 @@
-{"fn": "sub_121B044", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b044", "status": "ok", "name": "rf_init_or_query", "params": [], "docstring": "RF subsystem init/query: calls helper and stores result on stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121B044", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b044", "status": "ok", "name": "rx_buffer_alloc", "params": [], "docstring": "RF subsystem init/query: calls helper and stores result on stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

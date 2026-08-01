@@ -14,8 +14,8 @@ extern uint32_t off_12D344;
 extern uint32_t dword_12D34C;
 extern uint32_t dword_12D348;
 
-// sub_12D2E8 @ 0x12d2e8, size 90 bytes
-int  sub_12D2E8(int result, uint32_t *a2)
+// cmd_handler_c @ 0x12d2e8, size 90 bytes
+int  cmd_handler_c(int result, uint32_t *a2)
 {
   int v2; // r5
   uint32_t *v4; // r3
@@ -24,7 +24,7 @@ int  sub_12D2E8(int result, uint32_t *a2)
 
   v2 = result;
   if ( **(int16_t **)off_12D344 < 0 && !result )
-    result = sub_12F46C(dword_12D34C, dword_12D348, 132);
+    result = mmio_clear_register(dword_12D34C, dword_12D348, 132);
   v4 = *(uint32_t **)v2;
   if ( *(uint32_t *)v2 )
   {

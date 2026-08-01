@@ -14,10 +14,10 @@ extern uint32_t off_13894C;
 extern uint32_t dword_138950;
 extern uint32_t dword_138954;
 
-// sub_1387E8 @ 0x1387e8, size 354 bytes
+// tx_packet_ack @ 0x1387e8, size 354 bytes
 // Doc: sub_12387E8 [ipc]: Dispatch handler with field extraction and table lookup
 // sub_12387E8 [ipc]: Dispatch handler with field extraction and table lookup
-int  sub_1387E8(int a1, int16_t a2)
+int  tx_packet_ack(int a1, int16_t a2)
 {
   uint8_t *v2; // r2
   int v3; // r4

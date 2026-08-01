@@ -15,8 +15,8 @@ extern uint32_t off_136D28;
 extern uint32_t dword_136D30;
 extern uint32_t dword_136D2C;
 
-// sub_136C2C @ 0x136c2c, size 246 bytes
-int  sub_136C2C(int a1, int a2)
+// rf_config_lookup @ 0x136c2c, size 246 bytes
+int  rf_config_lookup(int a1, int a2)
 {
   int v2; // r3
   int v5; // r3
@@ -37,18 +37,18 @@ int  sub_136C2C(int a1, int a2)
     v5 = *(uint8_t *)(v2 + 4);
     if ( **(int16_t **)off_136D24 >= 0 || v5 != 2 )
     {
-      result = sub_118B04((v5 | *(uint8_t *)(a1 + 1224)) != 0, 512);
+      result = lock_acquire((v5 | *(uint8_t *)(a1 + 1224)) != 0, 512);
       v7 = result;
       if ( !result )
         return result;
 LABEL_4:
-      sub_12C3A8(a1, result);
+      get_status_flag_c5(a1, result);
       v8 = *(uint32_t *)(v7 + 72);
       *(uint8_t *)(v8 + 108) = -64;
       *(uint8_t *)(v8 + 109) = 0;
       *(uint8_t *)(v8 + 110) = 0;
       *(uint8_t *)(v8 + 111) = 0;
-      sub_143630(v8 + 112, a2, 6);
+      memcpy(v8 + 112, a2, 6);
       v9 = off_136D28;
       v10 = *((uint16_t *)off_136D28 + 254);
       v11 = *(uint16_t *)(a1 + 104);
@@ -64,19 +64,19 @@ LABEL_4:
       *(uint32_t *)(v7 + 92) = a1;
       *(uint8_t *)(v7 + 28) = *(uint8_t *)(a1 + 107);
       *(uint8_t *)(v7 + 29) = -1;
-      v13 = sub_1306F8((uint16_t *)(v8 + 132), 7);
+      v13 = store_half_return_two((uint16_t *)(v8 + 132), 7);
       v14 = *(uint32_t *)(v7 + 76);
       LODWORD(v15) = *(uint32_t *)(v14 + 28) + 23 + v13;
       HIDWORD(v15) = v13 + 28;
       *(uint64_t *)(v14 + 32) = v15;
-      return sub_118B34(v7, 5);
+      return sec_check(v7, 5);
     }
     goto LABEL_6;
   }
   if ( **(int16_t **)off_136D24 < 0 )
 LABEL_6:
-    sub_12F32C(dword_136D30, dword_136D2C, 520);
-  result = sub_118B04(1, 512);
+    irq_disable_mmio_write(dword_136D30, dword_136D2C, 520);
+  result = lock_acquire(1, 512);
   v7 = result;
   if ( result )
     goto LABEL_4;

@@ -12,8 +12,8 @@
 
 extern uint32_t off_12074C;
 
-// sub_12072C @ 0x12072c, size 30 bytes
-int sub_12072C()
+// check_event_state @ 0x12072c, size 30 bytes
+int check_event_state()
 {
   int result; // r0
 

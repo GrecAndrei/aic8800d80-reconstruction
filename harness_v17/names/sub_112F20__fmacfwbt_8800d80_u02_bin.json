@@ -1,0 +1,1 @@
+{"fn": "sub_112F20", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x112f20", "status": "ok", "name": "get_config_ptr", "params": [], "docstring": "Return pointer to global config block at 0x166f2c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

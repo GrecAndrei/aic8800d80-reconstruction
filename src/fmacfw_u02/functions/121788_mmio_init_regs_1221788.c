@@ -24,10 +24,10 @@ extern uint32_t dword_121830;
 extern uint32_t dword_12182C;
 extern uint32_t off_121824;
 
-// mmio_init_regs_1221788 @ 0x121788, size 118 bytes
-// Doc: mmio_init_regs_1221788 [mmio]: Initialize MMIO register block pointers for hardware control
-// mmio_init_regs_1221788 [mmio]: Initialize MMIO register block pointers for hardware control
-unsigned int  mmio_init_regs_1221788(int *a1)
+// read_mac_int_status @ 0x121788, size 118 bytes
+// Doc: read_mac_int_status [mmio]: Initialize MMIO register block pointers for hardware control
+// read_mac_int_status [mmio]: Initialize MMIO register block pointers for hardware control
+unsigned int  read_mac_int_status(int *a1)
 {
   uint32_t *v1; // r3
   uint32_t *v2; // r7
@@ -65,10 +65,10 @@ unsigned int  mmio_init_regs_1221788(int *a1)
   *v10 = v11;
   if ( *v12 < 0 && *(uint32_t *)off_121828 << 28 )
   {
-    sub_12F49C(dword_121830, dword_12182C, 472);
+    call_shared_handler(dword_121830, dword_12182C, 472);
     v11 = *v10;
   }
   *(uint32_t *)off_121824 = v11 | v10[1];
-  return mmio_reg_bit_modify(0);
+  return radio_set_peripheral_field(0);
 }
 

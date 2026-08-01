@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127620 @ 0x127620, size 412 bytes
-int  sub_127620(uint64_t a1, unsigned int a2, unsigned int a3)
+// aeabi_dadd @ 0x127620, size 412 bytes
+int  aeabi_dadd(uint64_t a1, unsigned int a2, unsigned int a3)
 {
   int v3; // r5
   unsigned int v4; // r12
@@ -62,7 +62,7 @@ int  sub_127620(uint64_t a1, unsigned int a2, unsigned int a3)
       v5 = v3 == 0x7FF;
   }
   if ( v5 )
-    a1 = sub_1277FC();
+    a1 = aeabi_dadd_internal();
   v7 = v6 + v3;
   v8 = HIDWORD(a1) ^ a3;
   v9 = HIDWORD(a1) & ~(v4 << 21);

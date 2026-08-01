@@ -15,8 +15,8 @@ extern uint32_t off_1219B8;
 extern uint32_t dword_1219BC;
 extern uint32_t off_1219C0;
 
-// sub_121960 @ 0x121960, size 82 bytes
-int  sub_121960(int a1, int a2, int a3)
+// ke_int_lock @ 0x121960, size 82 bytes
+int  ke_int_lock(int a1, int a2, int a3)
 {
   int *v4; // r4
   int v5; // r0
@@ -32,11 +32,11 @@ int  sub_121960(int a1, int a2, int a3)
   v4 = (int *)off_1219B8;
   v5 = dword_1219BC;
   ++*(uint32_t *)off_1219B8;
-  result = msg_parse(v5, a1, a2, a3 & 0xFFFFF);
+  result = dispatch_event_handler(v5, a1, a2, a3 & 0xFFFFF);
   if ( *(int *)off_1219C0 >= 0 )
   {
-    sub_11D31C();
-    result = irq_nesting_or(0x80000000);
+    rf_cmd_cancel();
+    result = set_busy_flag_alt(0x80000000);
   }
   if ( *v4 )
   {

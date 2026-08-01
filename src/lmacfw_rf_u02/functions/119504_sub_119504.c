@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_119504 @ 0x119504, size 14 bytes
-int  sub_119504(int a1, int a2, int a3, int a4)
+// send_event_0x72 @ 0x119504, size 14 bytes
+int  send_event_0x72(int a1, int a2, int a3, int a4)
 {
-  sub_11DED8(114, a4, a3);
+  ke_evt_handler(114, a4, a3);
   return 0;
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t off_10D240;
 
-// mac_tx_completion_n234 @ 0x10d234, size 10 bytes
-// Doc: mac_tx_completion_n234 [tx]: Handle TX frame completion event
-// mac_tx_completion_n234 [tx]: Handle TX frame completion event
-void mac_tx_completion_n234()
+// mmio_set_control_bit_26 @ 0x10d234, size 10 bytes
+// Doc: mmio_set_control_bit_26 [tx]: Handle TX frame completion event
+// mmio_set_control_bit_26 [tx]: Handle TX frame completion event
+void mmio_set_control_bit_26()
 {
   *(uint32_t *)off_10D240 = 0x4000000;
 }

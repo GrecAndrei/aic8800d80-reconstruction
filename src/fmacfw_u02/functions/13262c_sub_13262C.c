@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13262C @ 0x13262c, size 42 bytes
-int  sub_13262C(int a1)
+// bit_test_loop @ 0x13262c, size 42 bytes
+int  bit_test_loop(int a1)
 {
   int v1; // r3
   int v2; // r2

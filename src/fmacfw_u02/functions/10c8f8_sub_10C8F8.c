@@ -17,8 +17,8 @@ extern uint32_t off_10C978;
 extern uint32_t off_10C97C;
 extern uint32_t off_10C980;
 
-// sub_10C8F8 @ 0x10c8f8, size 114 bytes
-int *sub_10C8F8()
+// zero_buffer_range @ 0x10c8f8, size 114 bytes
+int *zero_buffer_range()
 {
   int v0; // r4
   int v1; // zf
@@ -26,8 +26,8 @@ int *sub_10C8F8()
   int **v3; // r4
 
   v0 = *((uint32_t *)off_10C96C + 23);
-  sub_100200((int *)dword_10C970, 0, 0x28u);
-  sub_100200((int *)dword_10C974, 0, 0x1E6Cu);
+  memset((int *)dword_10C970, 0, 0x28u);
+  memset((int *)dword_10C974, 0, 0x1E6Cu);
   if ( (*(uint32_t *)off_10C978 & 8) != 0 )
   {
     while ( (*(uint32_t *)off_10C978 & 0x10) == 0 )
@@ -41,10 +41,10 @@ int *sub_10C8F8()
     v3 = (int **)off_10C97C;
     *(uint32_t *)off_10C978 |= 8u;
     if ( v1 )
-      sub_100200(*v3, v2, 0x288u);
+      memset(*v3, v2, 0x288u);
     *(uint32_t *)off_10C978 |= 0x10u;
   }
   (*v3)[161] = *(uint32_t *)off_10C980;
-  return sub_10C840();
+  return gpio_af_select();
 }
 

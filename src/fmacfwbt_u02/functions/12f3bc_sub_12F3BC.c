@@ -56,8 +56,8 @@ extern uint32_t off_12F608;
 extern uint32_t dword_12F614;
 extern uint32_t off_12F610;
 
-// sub_12F3BC @ 0x12f3bc, size 448 bytes
-int sub_12F3BC()
+// radio_init @ 0x12f3bc, size 448 bytes
+int radio_init()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r10
@@ -83,26 +83,26 @@ int sub_12F3BC()
   v4 = off_12F624;
   v5 = off_12F628;
   v6 = off_12F590;
-  sub_12ECB0(dword_12F580, *(uint32_t *)off_12F57C & 0xF);
-  sub_12ECB0(dword_12F598, *v0, *(uint32_t *)off_12F594);
-  sub_12ECB0(dword_12F59C, *v1);
-  sub_12ECB0(dword_12F5A0, *v2);
-  sub_12ECB0(dword_12F5A4, *v3);
-  sub_12ECB0(dword_12F5A8, *v4);
-  sub_12ECB0(dword_12F5AC, *v5);
-  sub_12ECB0(dword_12F5B0, *v6);
-  sub_12ECB0(
+  ke_event_schedule(dword_12F580, *(uint32_t *)off_12F57C & 0xF);
+  ke_event_schedule(dword_12F598, *v0, *(uint32_t *)off_12F594);
+  ke_event_schedule(dword_12F59C, *v1);
+  ke_event_schedule(dword_12F5A0, *v2);
+  ke_event_schedule(dword_12F5A4, *v3);
+  ke_event_schedule(dword_12F5A8, *v4);
+  ke_event_schedule(dword_12F5AC, *v5);
+  ke_event_schedule(dword_12F5B0, *v6);
+  ke_event_schedule(
     dword_12F5C4,
     *(uint32_t *)off_12F5B4,
     *(uint32_t *)off_12F5B8,
     *(uint32_t *)off_12F5BC,
     *(uint32_t *)off_12F5C0,
     *(uint32_t *)off_12F62C);
-  sub_12ECB0(dword_12F5C8, *(uint32_t *)(*v2 + 60));
-  sub_12ECB0(dword_12F5CC, *(uint32_t *)(*v3 + 60));
-  sub_12ECB0(dword_12F5D0, *(uint32_t *)(*v4 + 60));
-  sub_12ECB0(dword_12F5D4, *(uint32_t *)(*v5 + 60));
-  sub_12ECB0(dword_12F5D8, *(uint32_t *)(*v6 + 60));
+  ke_event_schedule(dword_12F5C8, *(uint32_t *)(*v2 + 60));
+  ke_event_schedule(dword_12F5CC, *(uint32_t *)(*v3 + 60));
+  ke_event_schedule(dword_12F5D0, *(uint32_t *)(*v4 + 60));
+  ke_event_schedule(dword_12F5D4, *(uint32_t *)(*v5 + 60));
+  ke_event_schedule(dword_12F5D8, *(uint32_t *)(*v6 + 60));
   v7 = *v0 << 6;
   if ( (*v0 & 0x2000000) != 0 )
   {
@@ -145,13 +145,13 @@ int sub_12F3BC()
   }
   if ( v0 )
   {
-    rf_mem_read_ed40((unsigned int)v0, 68, 1, 0);
-    rf_mem_read_ed40(v0[9], 52, 1, 0);
-    sub_12ECB0(dword_12F5DC, v0[6]);
+    rx_packet_handler((unsigned int)v0, 68, 1, 0);
+    rx_packet_handler(v0[9], 52, 1, 0);
+    ke_event_schedule(dword_12F5DC, v0[6]);
     v8 = v0[4];
     if ( v8 )
     {
-      rf_mem_read_ed40(v8, v0[5] + 1 - v8, 1, 0);
+      rx_packet_handler(v8, v0[5] + 1 - v8, 1, 0);
       v9 = v0[3];
       if ( !v9 )
         goto LABEL_6;
@@ -162,7 +162,7 @@ int sub_12F3BC()
       if ( !v9 )
         goto LABEL_6;
     }
-    rf_mem_read_ed40(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
+    rx_packet_handler(*(uint32_t *)(v9 + 8), *(uint32_t *)(v9 + 12) + 1 - *(uint32_t *)(v9 + 8), 1, 0);
   }
 LABEL_6:
   v10 = off_12F5E0;
@@ -171,15 +171,15 @@ LABEL_6:
   LOBYTE(v13) = 8;
   do
   {
-    sub_12ECB0(v11, *v10, v7);
-    sub_12ECB0(dword_12F5EC, *v12);
+    ke_event_schedule(v11, *v10, v7);
+    ke_event_schedule(dword_12F5EC, *v12);
     v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
-  sub_12ECB0(dword_12F5F4, *(uint32_t *)off_12F5F0);
-  sub_12ECB0(dword_12F5FC, *(uint32_t *)off_12F5F8);
-  sub_12ECB0(dword_12F604, *(uint32_t *)off_12F600);
-  sub_12ECB0(dword_12F60C, *(uint32_t *)off_12F608);
-  return sub_12ECB0(dword_12F614, *(uint32_t *)off_12F610);
+  ke_event_schedule(dword_12F5F4, *(uint32_t *)off_12F5F0);
+  ke_event_schedule(dword_12F5FC, *(uint32_t *)off_12F5F8);
+  ke_event_schedule(dword_12F604, *(uint32_t *)off_12F600);
+  ke_event_schedule(dword_12F60C, *(uint32_t *)off_12F608);
+  return ke_event_schedule(dword_12F614, *(uint32_t *)off_12F610);
 }
 

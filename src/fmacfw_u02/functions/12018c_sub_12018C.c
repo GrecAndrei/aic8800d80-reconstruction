@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12018C @ 0x12018c, size 136 bytes
-int  sub_12018C(int result, int a2)
+// adjust_table_pointers @ 0x12018c, size 136 bytes
+int  adjust_table_pointers(int result, int a2)
 {
   int v2; // r3
   int v3; // r4

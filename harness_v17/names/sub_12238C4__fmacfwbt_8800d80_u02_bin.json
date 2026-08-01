@@ -1,1 +1,1 @@
-{"fn": "sub_12238C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12238c4", "status": "ok", "name": "sub_12238C4", "params": [], "docstring": "Bridge helper forwarding args to 0x127d80", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12238C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12238c4", "status": "ok", "name": "call_127d80_remapped", "params": [], "docstring": "Bridge helper forwarding args to 0x127d80", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

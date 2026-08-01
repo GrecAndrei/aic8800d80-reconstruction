@@ -18,8 +18,8 @@ extern uint32_t dword_11B574;
 extern uint32_t dword_11B56C;
 extern uint32_t dword_11B568;
 
-// sub_11B490 @ 0x11b490, size 204 bytes
-int  sub_11B490(int result, int a2, int a3, int a4)
+// get_phy_status @ 0x11b490, size 204 bytes
+int  get_phy_status(int result, int a2, int a3, int a4)
 {
   uint32_t *v4; // r5
   char *v5; // r3
@@ -64,18 +64,18 @@ LABEL_6:
           v10 = (int16_t **)off_11B564;
           if ( **(int16_t **)off_11B564 >= 0 )
             goto LABEL_9;
-          sub_12F46C(dword_11B570, dword_11B574, 520);
+          mmio_clear_register(dword_11B570, dword_11B574, 520);
           break;
       }
       if ( **v10 < 0 )
       {
-        return sub_12F408(dword_11B570, dword_11B56C, 684, a4);
+        return bad_func_0x12f408(dword_11B570, dword_11B56C, 684, a4);
       }
       else
       {
 LABEL_9:
         v4[v8 - v7 + 6] = dword_11B568;
-        return sub_11B3B8(v7);
+        return invalid_handler(v7);
       }
     }
   }

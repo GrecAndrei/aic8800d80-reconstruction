@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1166B0;
 
-// sub_116680 @ 0x116680, size 48 bytes
-int  sub_116680(uint8_t *a1, char a2)
+// phy_ctx_get_by_index @ 0x116680, size 48 bytes
+int  phy_ctx_get_by_index(uint8_t *a1, char a2)
 {
   int v2; // r6
   int v4; // r5
@@ -22,7 +22,7 @@ int  sub_116680(uint8_t *a1, char a2)
   v4 = 696 * (uint8_t)a1[29];
   a1[27] = a2;
   a1[97] = 1;
-  list_push_tail(v4 + 572 + v2);
-  return sub_136B68(a1, v2 + v4);
+  cmd_handler_a(v4 + 572 + v2);
+  return tx_handle_pending_flag(a1, v2 + v4);
 }
 

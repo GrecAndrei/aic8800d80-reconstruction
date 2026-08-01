@@ -1,1 +1,1 @@
-{"fn": "sub_1237124", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1237124", "status": "ok", "name": "fw_event_post_n124", "params": [], "docstring": "Posts firmware event with opcode 0x100b to host message queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1237124", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1237124", "status": "ok", "name": "rf_send_channel_alt", "params": [], "docstring": "Posts firmware event with opcode 0x100b to host message queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

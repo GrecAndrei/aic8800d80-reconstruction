@@ -19,8 +19,8 @@ extern uint32_t dword_11BD90;
 extern uint32_t dword_11BD94;
 extern uint32_t off_11BD98;
 
-// sub_11BC48 @ 0x11bc48, size 312 bytes
-int sub_11BC48()
+// wifi_core_init @ 0x11bc48, size 312 bytes
+int wifi_core_init()
 {
   int *v0; // r4
   int v1; // r3
@@ -91,7 +91,7 @@ int sub_11BC48()
   v0[290] = v7;
   v6[43] = 467;
   *((uint16_t *)v0 + 604) = 164;
-  v9 = sub_10198C();
+  v9 = rf_status_bit26();
   v10 = *(uint32_t *)off_11BD98 & 0xFFFFFFF;
   if ( v9 )
     v11 = v10 | 0xB0000000;

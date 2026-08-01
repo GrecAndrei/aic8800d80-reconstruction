@@ -30,8 +30,8 @@ extern uint32_t dword_118090;
 extern uint32_t dword_118094;
 extern uint32_t off_118098;
 
-// sub_117E5C @ 0x117e5c, size 520 bytes
-int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
+// process_pending_events @ 0x117e5c, size 520 bytes
+int  process_pending_events(int a1, int a2, int a3, uint8_t *a4)
 {
   uint8_t *v4; // r5
   int v8; // r7
@@ -58,9 +58,9 @@ int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
   if ( !*(uint32_t *)off_118064 )
     return 1;
   if ( !*((uint32_t *)off_118064 + 2) )
-    rf_state_check_nec();
+    rf_read_status();
   v8 = dword_11806C;
-  v9 = sub_11E7AC(off_118064);
+  v9 = list_pop_front(off_118064);
   *(uint8_t *)(v9 + 94) = a2;
   v10 = v9;
   *(uint32_t *)(v9 + 88) = *(uint32_t *)a1;
@@ -81,7 +81,7 @@ int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
     v23 = v4[18];
     if ( !v23 )
     {
-      sub_118DEC();
+      rf_enable();
       v23 = v4[18];
     }
     v14 = (uint8_t)(v23 + 1);
@@ -136,7 +136,7 @@ LABEL_8:
     *((uint32_t *)off_118080 + 1) = v18;
     if ( v17 < 0 && *(uint32_t *)off_1180A0 << 28 )
     {
-      sub_1219F4(dword_1180A8, dword_1180A4, 472);
+      flash_cmd_exec(dword_1180A8, dword_1180A4, 472);
       v18 = v16[1];
       v15 = v4[17] + v4[18];
     }
@@ -145,24 +145,24 @@ LABEL_8:
   if ( v15 == 1 )
     *(uint32_t *)off_11809C |= 1u;
   *a4 = *(uint8_t *)(v10 + 95);
-  list_push_tail(dword_118088);
-  sub_11E71C(v10 + 148);
-  sub_11E71C(v10 + 180);
-  sub_11E71C(v10 + 156);
-  sub_11E71C(v10 + 188);
-  sub_11E71C(v10 + 164);
-  sub_11E71C(v10 + 196);
-  sub_11E71C(v10 + 172);
-  sub_11E71C(v10 + 204);
-  sub_11E71C(v10 + 212);
+  check_kernel_state(dword_118088);
+  list_init(v10 + 148);
+  list_init(v10 + 180);
+  list_init(v10 + 156);
+  list_init(v10 + 188);
+  list_init(v10 + 164);
+  list_init(v10 + 196);
+  list_init(v10 + 172);
+  list_init(v10 + 204);
+  list_init(v10 + 212);
   v19 = v4[17] + v4[18];
   *(uint32_t *)off_11808C = 0;
   if ( v19 <= 1 )
   {
-    rf_status_check_n_1c0();
+    btcoex_check_state();
     v19 = v4[17] + v4[18];
   }
-  sub_11F74C(256, dword_118090, dword_118094, v19);
+  check_interrupt_flag(256, dword_118090, dword_118094, v19);
   v20 = (uint32_t *)(v4[18] + v4[17]);
   v21 = v20 == (uint32_t *)1;
   if ( v20 == (uint32_t *)1 )

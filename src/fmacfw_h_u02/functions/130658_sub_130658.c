@@ -12,8 +12,8 @@
 
 extern uint32_t off_130690;
 
-// sub_130658 @ 0x130658, size 56 bytes
-int  sub_130658(int a1)
+// write_bf_header @ 0x130658, size 56 bytes
+int  write_bf_header(int a1)
 {
   uint32_t *v2; // r1
   uint16_t *v3; // r2

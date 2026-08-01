@@ -14,8 +14,8 @@ extern uint32_t off_107D98;
 extern uint32_t off_107D9C;
 extern uint32_t off_107DA0;
 
-// sub_107D30 @ 0x107d30, size 104 bytes
-int sub_107D30()
+// mmio_clear_bit0 @ 0x107d30, size 104 bytes
+int mmio_clear_bit0()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
@@ -24,13 +24,13 @@ int sub_107D30()
   int v4; // r3
 
   v0 = off_107D98;
-  sub_1073D8();
+  pll_set_clock();
   *v0 &= ~1u;
-  sub_100644(1);
+  mmio_read32(1);
   v1 = off_107D9C;
   *(uint32_t *)off_107D9C = *(uint32_t *)off_107D9C & 0xCFFFFFFF | 0x10000000;
   *v1 |= 0x40000000u;
-  result = sub_100644(1);
+  result = mmio_read32(1);
   v3 = off_107DA0;
   *v0 |= 1u;
   *v0 |= 1u;

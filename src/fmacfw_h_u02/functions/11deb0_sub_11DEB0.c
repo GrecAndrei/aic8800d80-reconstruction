@@ -22,8 +22,8 @@ extern uint32_t off_11DF2C;
 extern uint32_t off_11DF30;
 extern uint32_t dword_11DF34;
 
-// sub_11DEB0 @ 0x11deb0, size 100 bytes
-int sub_11DEB0()
+// dma_ring_setup @ 0x11deb0, size 100 bytes
+int dma_ring_setup()
 {
   int *v0; // r2
   int v1; // r0

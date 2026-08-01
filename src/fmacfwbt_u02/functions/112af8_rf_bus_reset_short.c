@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_reset_short @ 0x112af8, size 6 bytes
+// get_global_state @ 0x112af8, size 6 bytes
 // Doc: rf_msg_handler_n_466 [rf]: Handle incoming RF control message and dispatch
 // rf_msg_handler_n_466 [rf]: Handle incoming RF control message and dispatch
-int rf_bus_reset_short()
+int get_global_state()
 {
   return *(uint8_t *)rf_bus_reset_n2bc;
 }

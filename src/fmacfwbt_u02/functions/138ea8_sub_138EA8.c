@@ -16,8 +16,8 @@ extern uint32_t dword_1390D8;
 extern uint32_t dword_1390D4;
 extern uint32_t dword_1390DC;
 
-// sub_138EA8 @ 0x138ea8, size 554 bytes
-int  sub_138EA8(unsigned int a1, int a2, int a3, int a4)
+// rf_cal_process @ 0x138ea8, size 554 bytes
+int  rf_cal_process(unsigned int a1, int a2, int a3, int a4)
 {
   uint32_t *v4; // r8
   unsigned int v5; // r4
@@ -63,7 +63,7 @@ int  sub_138EA8(unsigned int a1, int a2, int a3, int a4)
   v5 = a1;
   if ( a3 )
   {
-    sub_133800(
+    assemble_bt_descriptor(
       a2,
       (uint32_t *)(*((uint32_t *)off_1390E0 + 8) + 88),
       (int)off_1390E0 + 36,
@@ -84,7 +84,7 @@ int  sub_138EA8(unsigned int a1, int a2, int a3, int a4)
     {
       v44 = v10;
       v32 = (uint8_t *)(v8 + v9[2]);
-      sub_13384C((uint32_t *)a2, v10, v5);
+      unaligned_memcpy((uint32_t *)a2, v10, v5);
       v33 = (char *)&v45;
       v34 = (char *)&v45 + (uint8_t)(8 - v5);
       do
@@ -108,7 +108,7 @@ int  sub_138EA8(unsigned int a1, int a2, int a3, int a4)
       }
       goto LABEL_36;
     }
-    sub_13384C((uint32_t *)a2, v10, 8u);
+    unaligned_memcpy((uint32_t *)a2, v10, 8u);
     v11 = *((uint8_t *)v4 + 8);
     v12 = *((uint8_t *)v4 + 8);
   }
@@ -121,7 +121,7 @@ int  sub_138EA8(unsigned int a1, int a2, int a3, int a4)
   {
     v15 = (uint16_t)(v12 + v14);
 LABEL_11:
-    sub_13384C((uint32_t *)a2, v17, v14);
+    unaligned_memcpy((uint32_t *)a2, v17, v14);
   }
   else
   {
@@ -129,14 +129,14 @@ LABEL_11:
     while ( 1 )
     {
       v14 = (uint16_t)(v14 + v12 - v15);
-      sub_13384C((uint32_t *)a2, v17, (uint16_t)(v15 - v12));
+      unaligned_memcpy((uint32_t *)a2, v17, (uint16_t)(v15 - v12));
       v12 = 0;
       if ( !(uint16_t)v14 )
         break;
       v9 = (uint32_t *)v9[1];
       if ( **v18 < 0 && !v9 )
       {
-        sub_12F630(dword_1390D8, dword_1390D4, 963);
+        ke_int_lock(dword_1390D8, dword_1390D4, 963);
         return 0;
       }
       v17 = v9[2];
@@ -173,7 +173,7 @@ LABEL_19:
     v15 = 0;
     if ( **v19 < 0 && !v9 )
     {
-      sub_12F630(dword_1390D8, dword_1390D4, 1005);
+      ke_int_lock(dword_1390D8, dword_1390D4, 1005);
       return 0;
     }
   }
@@ -198,10 +198,10 @@ LABEL_16:
     return 1;
   }
 LABEL_36:
-  sub_133988(a2);
+  bt_process_rx_data(a2);
   if ( v45 == *(uint64_t *)a2 )
     return 1;
-  v39 = sub_12CB54(5126, 13, 5, 0x18u);
+  v39 = bt_buf_alloc(5126, 13, 5, 0x18u);
   v40 = v4[6];
   v41 = dword_1390DC + 696 * *((uint8_t *)v4 + 9);
   v42 = *((uint64_t *)v4 + 2);
@@ -212,7 +212,7 @@ LABEL_36:
   *(uint8_t *)(v39 + 18) = *((uint8_t *)v4 + 10);
   *(uint8_t *)(v39 + 16) = (v40 & 0x400) != 0;
   *(uint8_t *)(v39 + 17) = *(uint8_t *)(v4[8] + 97);
-  sub_12CBB4(v39);
+  hci_evt_send(v39);
   return 0;
 }
 

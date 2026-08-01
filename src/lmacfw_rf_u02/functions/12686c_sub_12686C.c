@@ -16,10 +16,10 @@ extern uint32_t dword_1268E8;
 extern uint32_t dword_1268E0;
 extern uint32_t dword_1268E4;
 
-// sub_12686C @ 0x12686c, size 108 bytes
+// tx_descriptor_config @ 0x12686c, size 108 bytes
 // Doc: sub_122686C [rf]: Reads flag byte from global base, RF state poll
 // sub_122686C [rf]: Reads flag byte from global base, RF state poll
-int  sub_12686C(int result)
+int  tx_descriptor_config(int result)
 {
   uint16_t *v1; // r7
   int *v2; // r1
@@ -53,7 +53,7 @@ int  sub_12686C(int result)
           break;
 LABEL_7:
         if ( (int *)v6 == v2 )
-          return mmio_set_bit_120090C(0, v1[20]);
+          return rf_ctrl_set(0, v1[20]);
       }
       v11 = v10 & 0xF;
       if ( result )
@@ -75,7 +75,7 @@ LABEL_7:
       }
       *v2 = v8 & v3 | v4;
       if ( (int *)v6 == v2 )
-        return mmio_set_bit_120090C(0, v1[20]);
+        return rf_ctrl_set(0, v1[20]);
     }
   }
   return result;

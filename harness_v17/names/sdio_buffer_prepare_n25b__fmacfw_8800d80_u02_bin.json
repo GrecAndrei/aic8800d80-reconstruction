@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n25b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e376", "status": "ok", "name": "rf_bus_write_n8c", "params": [], "docstring": "Write masked value to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n25b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e376", "status": "ok", "name": "sdio_buffer_prepare_n25a", "params": [], "docstring": "Write masked value to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

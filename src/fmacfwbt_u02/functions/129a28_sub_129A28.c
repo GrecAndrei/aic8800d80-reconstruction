@@ -20,10 +20,10 @@ extern uint32_t off_129E7C;
 extern uint32_t dword_129E80;
 extern uint32_t off_129D70;
 
-// sub_129A28 @ 0x129a28, size 1100 bytes
+// state_machine_step @ 0x129a28, size 1100 bytes
 // Doc: sub_1229A28 [unknown]: Dispatches handler based on state byte at offset 0x10 of argument
 // sub_1229A28 [unknown]: Dispatches handler based on state byte at offset 0x10 of argument
-uint8_t * sub_129A28(uint8_t *result)
+uint8_t * state_machine_step(uint8_t *result)
 {
   uint8_t *v1; // r4
   int v2; // r9
@@ -121,10 +121,10 @@ LABEL_26:
       }
       v5 = result[113];
       v4 = dword_129D80;
-      v11 = (uint8_t *)rf_bus_setup_n3a8(77, 13, result[134], 2);
+      v11 = (uint8_t *)bt_buf_alloc(77, 13, result[134], 2);
       *v11 = v1[113];
       v11[1] = v9 != 1;
-      sub_12CBB4(v11);
+      hci_evt_send(v11);
       v1[133] = v10;
       result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), v9 != 1);
       if ( v9 == 1 )
@@ -132,7 +132,7 @@ LABEL_26:
 LABEL_43:
         if ( v1[112] )
         {
-          result = (uint8_t *)irq_nesting_or(512);
+          result = (uint8_t *)set_system_flag_1(512);
           v28 = v1[112];
         }
         else
@@ -145,7 +145,7 @@ LABEL_43:
             {
               *(uint32_t *)(v15 + 4) |= 0x20u;
               if ( !v2 )
-                return (uint8_t *)sub_12054C(v4 + 1320 * v1[113]);
+                return (uint8_t *)wlc_bsscfg_detach(v4 + 1320 * v1[113]);
               return result;
             }
             goto LABEL_59;
@@ -168,11 +168,11 @@ LABEL_43:
                 *(uint32_t *)off_129D7C = 1;
               }
               ++*v20;
-              sub_12D658(v22 - 40, v19 - 40);
+              list_merge(v22 - 40, v19 - 40);
               v23 = *(uint32_t *)(v18 + 588);
               *(uint32_t *)(v15 + 1232) = *(uint32_t *)(v18 + 584);
               *(uint32_t *)(v15 + 1236) = v23;
-              bt_xtal_init_check(v22 - 40);
+              zero_struct(v22 - 40);
               v20 = off_129D78;
               v24 = *(uint32_t *)off_129D78 - 1;
               if ( *(uint32_t *)off_129D78 )
@@ -193,15 +193,15 @@ LABEL_43:
             v15 += 8;
             if ( v26 )
             {
-              sub_12D658(v27, v22);
-              bt_xtal_init_check(v22);
+              list_merge(v27, v22);
+              zero_struct(v22);
               v20 = off_129D78;
             }
             v22 += 8;
           }
           while ( v22 != v21 );
           v1 = v34;
-          result = (uint8_t *)irq_nesting_or(512);
+          result = (uint8_t *)set_system_flag_1(512);
           v28 = v34[112];
         }
         v29 = v4 + 1320 * v5;
@@ -217,7 +217,7 @@ LABEL_43:
         }
 LABEL_59:
         if ( !v2 )
-          return (uint8_t *)sub_12054C(v4 + 1320 * v1[113]);
+          return (uint8_t *)wlc_bsscfg_detach(v4 + 1320 * v1[113]);
         return result;
       }
 LABEL_30:
@@ -235,8 +235,8 @@ LABEL_30:
           }
           v31 = (int *)off_129E7C;
           ++*(uint32_t *)off_129E7C;
-          patch_sub_1217374(4);
-          result = (uint8_t *)sub_1178DC(4);
+          mmio_set_bit(4);
+          result = (uint8_t *)conn_get(4);
           if ( *v31 )
           {
             v32 = *v31 - 1;
@@ -307,10 +307,10 @@ LABEL_13:
       v5 = result[113];
       v4 = dword_129D80;
 LABEL_15:
-      v6 = (uint8_t *)rf_bus_setup_n3a8(77, 13, 0, 2);
+      v6 = (uint8_t *)bt_buf_alloc(77, 13, 0, 2);
       *v6 = v1[113];
       v6[1] = 1;
-      sub_12CBB4(v6);
+      hci_evt_send(v6);
       v1[133] = 0;
       result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), 1);
       goto LABEL_30;
@@ -333,9 +333,9 @@ LABEL_41:
     v5 = result[113];
     v4 = dword_129D80;
 LABEL_42:
-    v14 = (uint16_t *)rf_bus_setup_n3a8(77, 13, 0, 2);
+    v14 = (uint16_t *)bt_buf_alloc(77, 13, 0, 2);
     *v14 = v1[113];
-    sub_12CBB4(v14);
+    hci_evt_send(v14);
     v1[133] = 1;
     result = (uint8_t *)nullsub_5(*(uint32_t *)(v4 + 1320 * v5 + 72), 0);
     goto LABEL_43;
@@ -345,7 +345,7 @@ LABEL_6:
   {
 LABEL_7:
     v4 = dword_129D80;
-    return (uint8_t *)sub_12054C(v4 + 1320 * v1[113]);
+    return (uint8_t *)wlc_bsscfg_detach(v4 + 1320 * v1[113]);
   }
   return result;
 }

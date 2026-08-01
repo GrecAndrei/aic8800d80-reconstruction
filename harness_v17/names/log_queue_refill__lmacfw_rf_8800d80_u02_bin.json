@@ -1,1 +1,1 @@
-{"fn": "log_queue_refill", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12103f4", "status": "ok", "name": "rf_bus_init_n3fa", "params": [], "docstring": "Initialize the RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_queue_refill", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12103f4", "status": "ok", "name": "rx_irq_handler", "params": [], "docstring": "Initialize the RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

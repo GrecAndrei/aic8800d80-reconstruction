@@ -12,8 +12,8 @@
 
 extern uint32_t off_104228;
 
-// sub_1041E4 @ 0x1041e4, size 66 bytes
-int  sub_1041E4(int a1, int a2, uint32_t *a3)
+// util_get_hw_index @ 0x1041e4, size 66 bytes
+int  util_get_hw_index(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v4; // r4

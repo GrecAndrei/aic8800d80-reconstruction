@@ -15,8 +15,8 @@ extern uint32_t off_124E98;
 extern uint32_t off_124E9C;
 extern uint32_t off_124EA0;
 
-// sub_124E34 @ 0x124e34, size 96 bytes
-int  sub_124E34(int a1)
+// fault_handler @ 0x124e34, size 96 bytes
+int  fault_handler(int a1)
 {
   int *v1; // r4
   void *v2; // r5
@@ -38,7 +38,7 @@ int  sub_124E34(int a1)
   ++*(uint32_t *)off_124E98;
   if ( v3 )
   {
-    result = sub_12D2D0(v2);
+    result = mem_word_load(v2);
     v7 = off_124EA0;
     if ( *(uint32_t *)v2 )
     {
@@ -55,7 +55,7 @@ int  sub_124E34(int a1)
   }
   else
   {
-    result = sub_12D2E8(v2, a1);
+    result = cmd_handler_c(v2, a1);
   }
   if ( *v1 )
   {

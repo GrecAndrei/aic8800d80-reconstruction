@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// list_count_d594 @ 0x12d594, size 20 bytes
-// Doc: list_count_d594 [util]: Count elements in a linked list
-// list_count_d594 [util]: Count elements in a linked list
-int  list_count_d594(uint32_t **a1)
+// list_length @ 0x12d594, size 20 bytes
+// Doc: list_length [util]: Count elements in a linked list
+// list_length [util]: Count elements in a linked list
+int  list_length(uint32_t **a1)
 {
   uint32_t *v1; // r3
   int result; // r0

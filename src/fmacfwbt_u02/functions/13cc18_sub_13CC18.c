@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13CC84;
 
-// sub_13CC18 @ 0x13cc18, size 108 bytes
+// rx_parse_packet_header @ 0x13cc18, size 108 bytes
 // Doc: rf_chan_cfg_set [rf]: Set RF channel config bits from args
 // rf_chan_cfg_set [rf]: Set RF channel config bits from args
-unsigned int * sub_13CC18(unsigned int *result)
+unsigned int * rx_parse_packet_header(unsigned int *result)
 {
   uint64_t v1; // r2
   int v2; // r1

@@ -10,20 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_113BB0 @ 0x113bb0, size 54 bytes
-int  sub_113BB0(int a1)
+// mmio_get_field @ 0x113bb0, size 54 bytes
+int  mmio_get_field(int a1)
 {
   int16_t v2; // r0
   char v3; // r1
   int v4; // r5
 
-  v2 = sub_113A44(6u);
+  v2 = mmio_read32(6u);
   v3 = v2;
   if ( !(uint8_t)v2 )
   {
     v4 = 1;
 LABEL_3:
-    sub_113AD0(6u, a1 << v3);
+    mmio_write32(6u, a1 << v3);
     return v4;
   }
   v4 = HIBYTE(v2);

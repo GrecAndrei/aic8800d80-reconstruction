@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13259C @ 0x13259c, size 22 bytes
-int  sub_13259C(char a1)
+// util_is_state1 @ 0x13259c, size 22 bytes
+int  util_is_state1(char a1)
 {
   int v1; // r0
 

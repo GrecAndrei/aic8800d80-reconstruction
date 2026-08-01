@@ -29,8 +29,8 @@ extern uint32_t dword_11D770;
 extern uint32_t dword_11D774;
 extern uint32_t dword_11D740;
 
-// sub_11D5E4 @ 0x11d5e4, size 330 bytes
-int sub_11D5E4()
+// rf_cmd_set @ 0x11d5e4, size 330 bytes
+int rf_cmd_set()
 {
   int v0; // r4
   int result; // r0
@@ -43,9 +43,9 @@ int sub_11D5E4()
   result = v0 << 29;
   *(uint32_t *)((char *)off_11D730 + 0xFFFFFFFC) = v0;
   if ( (v0 & 4) != 0 )
-    result = rf_check_status_b4();
+    result = rf_read_rssi();
   if ( (v0 & 8) != 0 )
-    result = sub_11D470();
+    result = rf_irq_handler();
   v2 = **(int16_t **)off_11D738;
   if ( v2 < 0 )
   {
@@ -152,7 +152,7 @@ int sub_11D5E4()
         }
       }
     }
-    return sub_121960(v4, v3, v5, v2);
+    return ke_int_lock(v4, v3, v5, v2);
   }
   return result;
 }

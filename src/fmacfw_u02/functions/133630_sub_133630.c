@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_133630 @ 0x133630, size 314 bytes
-uint32_t * sub_133630(uint32_t *result, int a2, unsigned int a3)
+// unaligned_read @ 0x133630, size 314 bytes
+uint32_t * unaligned_read(uint32_t *result, int a2, unsigned int a3)
 {
   unsigned int *v3; // r6
   char v4; // r1
@@ -79,7 +79,7 @@ uint32_t * sub_133630(uint32_t *result, int a2, unsigned int a3)
     else
       v16 = v10 >> v31;
     v15 -= 4;
-    result = sub_1335B0(result, result + 1, v32);
+    result = crypto_mix_round(result, result + 1, v32);
   }
   else
   {
@@ -100,7 +100,7 @@ uint32_t * sub_133630(uint32_t *result, int a2, unsigned int a3)
         v16 = 0;
       else
         v16 = v21 >> v17;
-      result = sub_1335B0(result, v18, v22);
+      result = crypto_mix_round(result, v18, v22);
     }
     while ( v20 != v19 );
     v11 = &v9[v33];
@@ -129,7 +129,7 @@ uint32_t * sub_133630(uint32_t *result, int a2, unsigned int a3)
     v29 = v16;
     LOBYTE(v15) = v26 - 4;
     v16 = v28;
-    result = sub_1335B0(result, result + 1, v29);
+    result = crypto_mix_round(result, result + 1, v29);
 LABEL_20:
     result[2] = v16;
     *((uint8_t *)result + 12) = v15;

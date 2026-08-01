@@ -14,8 +14,8 @@ extern uint32_t off_117E50;
 extern uint32_t dword_117E54;
 extern uint32_t dword_117E58;
 
-// sub_117DF4 @ 0x117df4, size 90 bytes
-int sub_117DF4()
+// btcoex_reset_context @ 0x117df4, size 90 bytes
+int btcoex_reset_context()
 {
   uint8_t *v0; // r8
   int v1; // r4
@@ -25,10 +25,10 @@ int sub_117DF4()
 
   v0 = off_117E50;
   sub_100200((int *)off_117E50, 0, 0x14u);
-  sub_11E71C(v0);
+  list_init(v0);
   v1 = dword_117E54;
   v2 = dword_117E58;
-  sub_11E71C(v0 + 8);
+  list_init(v0 + 8);
   v3 = v1 + 896;
   do
   {
@@ -38,7 +38,7 @@ int sub_117DF4()
     *(uint32_t *)(v1 + 52) = v2;
     *(uint32_t *)(v1 + 56) = v1;
     v1 += 224;
-    result = list_push_tail(v0);
+    result = check_kernel_state(v0);
   }
   while ( v1 != v3 );
   v0[16] = -1;

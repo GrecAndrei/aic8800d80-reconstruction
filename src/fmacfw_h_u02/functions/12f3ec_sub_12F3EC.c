@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12F3EC @ 0x12f3ec, size 4 bytes
+// state_check_0x182ba0 @ 0x12f3ec, size 4 bytes
 // attributes: thunk
-int  sub_12F3EC(uint16_t *a1)
+int  state_check_0x182ba0(uint16_t *a1)
 {
-  return sub_10CC94(a1);
+  return rx_packet_dispatch(a1);
 }
 

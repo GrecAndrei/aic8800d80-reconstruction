@@ -16,12 +16,12 @@ extern uint32_t dword_134424;
 extern uint32_t dword_13442C;
 extern uint32_t dword_134430;
 
-// sub_1343EC @ 0x1343ec, size 52 bytes
-uint32_t *sub_1343EC()
+// check_flag_and_proceed @ 0x1343ec, size 52 bytes
+uint32_t *check_flag_and_proceed()
 {
   if ( **(int16_t **)off_134420 >= 0 || !*((uint32_t *)off_134428 + 6) )
-    return sub_12D240((uint32_t *)dword_134424);
-  sub_12F46C(dword_13442C, dword_134430, 132);
-  return sub_12D240((uint32_t *)dword_134424);
+    return zero_8_bytes((uint32_t *)dword_134424);
+  mmio_clear_register(dword_13442C, dword_134430, 132);
+  return zero_8_bytes((uint32_t *)dword_134424);
 }
 

@@ -13,14 +13,14 @@
 extern uint32_t off_11836C;
 extern uint32_t off_118370;
 
-// sub_118354 @ 0x118354, size 24 bytes
-void sub_118354()
+// clear_bb_irq @ 0x118354, size 24 bytes
+void clear_bb_irq()
 {
   int v0; // r3
 
   v0 = *((uint8_t *)off_11836C + 18) + *((uint8_t *)off_11836C + 17);
   *(uint32_t *)off_118370 = 0;
   if ( v0 <= 1 )
-    rf_status_check_n_1c0();
+    btcoex_check_state();
 }
 

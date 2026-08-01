@@ -1,1 +1,1 @@
-{"fn": "sub_122BD74", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122bd74", "status": "ok", "name": "mmio_reg_clear_bits_n_5c0", "params": [], "docstring": "Clear bits in MMIO register 0x4032004c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122BD74", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122bd74", "status": "ok", "name": "mac_config_clear", "params": [], "docstring": "Clear bits in MMIO register 0x4032004c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

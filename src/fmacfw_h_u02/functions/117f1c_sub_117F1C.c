@@ -22,8 +22,8 @@ extern uint32_t off_117FE8;
 extern uint32_t dword_117FF4;
 extern uint32_t off_117FF0;
 
-// sub_117F1C @ 0x117f1c, size 178 bytes
-uint32_t *sub_117F1C()
+// invoke_handler @ 0x117f1c, size 178 bytes
+uint32_t *invoke_handler()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r4
@@ -46,7 +46,7 @@ uint32_t *sub_117F1C()
   if ( result )
   {
     v1 = result;
-    v2 = (uint32_t *)sub_11017C();
+    v2 = (uint32_t *)mmio_read_0();
     v3 = v2;
     if ( v2 )
     {
@@ -78,7 +78,7 @@ uint32_t *sub_117F1C()
         }
         else
         {
-          sub_12E948(dword_117FF8, v8, v7);
+          alloc_tx_event(dword_117FF8, v8, v7);
           v8 = *v6;
         }
       }
@@ -86,7 +86,7 @@ uint32_t *sub_117F1C()
       {
         if ( *(uint32_t *)off_117FE8 )
         {
-          sub_12E948(dword_117FF4, v8, v7);
+          alloc_tx_event(dword_117FF4, v8, v7);
           v8 = *v6;
         }
         v9 = off_117FEC;
@@ -114,7 +114,7 @@ uint32_t *sub_117F1C()
     }
     else
     {
-      return (uint32_t *)sub_10FEC8(v1);
+      return (uint32_t *)wait_for_state(v1);
     }
   }
   return result;

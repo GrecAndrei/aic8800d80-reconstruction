@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_103268 @ 0x103268, size 14 bytes
-int  sub_103268(int result)
+// crypto_read_status @ 0x103268, size 14 bytes
+int  crypto_read_status(int result)
 {
   while ( result )
     ;

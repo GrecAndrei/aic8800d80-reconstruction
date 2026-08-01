@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_125CF4 @ 0x125cf4, size 162 bytes
+// memory_word_compare @ 0x125cf4, size 162 bytes
 // Doc: sub_1225CF4 [util]: Compute signed difference of two 32-bit values
 // sub_1225CF4 [util]: Compute signed difference of two 32-bit values
-unsigned int  sub_125CF4(unsigned int *a1, unsigned int *a2, unsigned int *a3, unsigned int a4)
+unsigned int  memory_word_compare(unsigned int *a1, unsigned int *a2, unsigned int *a3, unsigned int a4)
 {
   unsigned int v4; // r5
   unsigned int *v5; // lr

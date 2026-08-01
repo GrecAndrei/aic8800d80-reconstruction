@@ -1,0 +1,1 @@
+{"fn": "sub_1270B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1270b4", "status": "ok", "name": "check_hw_state", "params": [], "docstring": "Check hardware state and conditionally run handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

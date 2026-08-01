@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130FD4 @ 0x130fd4, size 140 bytes
-uint8_t * sub_130FD4(uint8_t *a1, int a2, uint8_t *a3)
+// rf_lookup_cal_entry @ 0x130fd4, size 140 bytes
+uint8_t * rf_lookup_cal_entry(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   int v7; // r4
@@ -24,7 +24,7 @@ uint8_t * sub_130FD4(uint8_t *a1, int a2, uint8_t *a3)
   unsigned int v14; // r3
   uint8_t v15; // [sp+7h] [bp-1h] BYREF
 
-  result = sub_12DAC4(a1, a2, &v15);
+  result = strnlen(a1, a2, &v15);
   if ( result )
   {
     v7 = v15;
@@ -44,7 +44,7 @@ uint8_t * sub_130FD4(uint8_t *a1, int a2, uint8_t *a3)
       }
       while ( v9 != v8 );
     }
-    result = sub_12DB04(a1, a2, &v15);
+    result = find_char_0(a1, a2, &v15);
     if ( result )
     {
       v11 = result + 2;

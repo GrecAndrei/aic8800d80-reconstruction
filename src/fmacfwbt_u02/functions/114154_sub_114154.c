@@ -13,8 +13,8 @@
 extern uint32_t off_11416C;
 extern uint32_t off_114170;
 
-// sub_114154 @ 0x114154, size 24 bytes
-int  sub_114154(int a1)
+// init_hw_state @ 0x114154, size 24 bytes
+int  init_hw_state(int a1)
 {
   uint32_t *v1; // r2
   uint16_t *v2; // r1

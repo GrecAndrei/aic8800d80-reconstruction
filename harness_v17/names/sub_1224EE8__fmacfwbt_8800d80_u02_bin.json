@@ -1,1 +1,1 @@
-{"fn": "sub_1224EE8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224ee8", "status": "ok", "name": "bt_msg_dispatch", "params": [], "docstring": "Dispatch Bluetooth message based on type field compared against 3", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1224EE8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224ee8", "status": "ok", "name": "dispatch_by_type", "params": [], "docstring": "Dispatch Bluetooth message based on type field compared against 3", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

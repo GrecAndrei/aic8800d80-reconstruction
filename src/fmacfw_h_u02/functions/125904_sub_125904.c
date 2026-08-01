@@ -15,8 +15,8 @@ extern uint32_t dword_125954;
 extern uint32_t dword_125948;
 extern uint32_t dword_12594C;
 
-// sub_125904 @ 0x125904, size 66 bytes
-int  sub_125904(int a1)
+// bt_task_init @ 0x125904, size 66 bytes
+int  bt_task_init(int a1)
 {
   int v2; // r0
   uint8_t *v3; // r2
@@ -33,7 +33,7 @@ int  sub_125904(int a1)
   v7 = *(uint8_t *)(v5 + 107);
   *((uint8_t *)off_125950 + 9) = 1;
   v3[10] = 0;
-  sub_143630(v6 + 108, v4 + (v7 << 9), *(uint16_t *)(a1 + 4));
-  return sub_1258A0(v5);
+  memcpy(v6 + 108, v4 + (v7 << 9), *(uint16_t *)(a1 + 4));
+  return ipc_trace_send(v5);
 }
 

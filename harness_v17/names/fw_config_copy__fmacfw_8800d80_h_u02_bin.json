@@ -1,1 +1,1 @@
-{"fn": "fw_config_copy", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12efb0", "status": "ok", "name": "fw_config_copy", "params": [], "docstring": "Copy firmware config block via 0x42c message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "fw_config_copy", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12efb0", "status": "ok", "name": "send_event_42c", "params": [], "docstring": "Copy firmware config block via 0x42c message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

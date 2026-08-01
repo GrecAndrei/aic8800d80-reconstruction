@@ -12,8 +12,8 @@
 
 extern uint32_t off_11F4C8;
 
-// sub_11F4C0 @ 0x11f4c0, size 6 bytes
-int sub_11F4C0()
+// get_event_flags @ 0x11f4c0, size 6 bytes
+int get_event_flags()
 {
   return *(uint32_t *)off_11F4C8;
 }

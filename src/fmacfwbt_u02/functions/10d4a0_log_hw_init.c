@@ -27,10 +27,10 @@ extern uint32_t off_10D5B0;
 extern uint32_t off_10D5B4;
 extern uint32_t off_10D5C4;
 
-// log_hw_init @ 0x10d4a0, size 236 bytes
-// Doc: log_hw_init [util]: Initialize logging hardware
-// log_hw_init [util]: Initialize logging hardware
-void log_hw_init()
+// event_loop @ 0x10d4a0, size 236 bytes
+// Doc: event_loop [util]: Initialize logging hardware
+// event_loop [util]: Initialize logging hardware
+void event_loop()
 {
   int v0; // r3
   uint32_t *v1; // r5

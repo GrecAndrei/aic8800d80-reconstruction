@@ -12,12 +12,12 @@
 
 extern uint32_t off_100684;
 
-// sub_100670 @ 0x100670, size 18 bytes
-int  sub_100670(int a1)
+// timer_poll @ 0x100670, size 18 bytes
+int  timer_poll(int a1)
 {
   int result; // r0
 
-  result = sub_1005B0(a1);
+  result = timer_read(a1);
   if ( *(uint8_t *)off_100684 != result )
     *(uint8_t *)off_100684 = result;
   return result;

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// phy_reg_init_n_2c4 @ 0x113310, size 148 bytes
+// rf_calib_init @ 0x113310, size 148 bytes
 // Doc: rf_msg_handler_3a2 [rf]: RF mailbox message handler
 // rf_msg_handler_3a2 [rf]: RF mailbox message handler
-int  phy_reg_init_n_2c4(int a1, int a2)
+int  rf_calib_init(int a1, int a2)
 {
   uint8_t *v2; // r6
   int **v3; // r4
@@ -33,7 +33,7 @@ int  phy_reg_init_n_2c4(int a1, int a2)
   if ( *(uint8_t *)rf_stream_start2_n158 )
     return -99;
   v3 = (int **)rf_stream_start2_n15c;
-  v4 = list_count_d594(rf_stream_start2_n15c, a2);
+  v4 = list_length(rf_stream_start2_n15c, a2);
   v5 = rf_msg_handler_n450;
   *(uint8_t *)rf_msg_handler_n450 = v4;
   if ( v4 )
@@ -74,7 +74,7 @@ log_free_dispatch_n215:
       v14 = *(uint8_t *)(v13 + 3);
       *v2 = 1;
       *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return sub_112E6C(1, v12);
+      return critical_section_run(1, v12);
     }
   }
   return -98;

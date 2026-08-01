@@ -12,8 +12,8 @@
 
 extern uint32_t off_1019D8;
 
-// sub_1019BC @ 0x1019bc, size 28 bytes
-uint32_t * sub_1019BC(uint32_t *result, uint32_t *a2)
+// write_rf_cal_data @ 0x1019bc, size 28 bytes
+uint32_t * write_rf_cal_data(uint32_t *result, uint32_t *a2)
 {
   uint32_t *v2; // r3
 

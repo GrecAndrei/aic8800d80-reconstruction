@@ -16,10 +16,10 @@ extern uint32_t dword_100A9C;
 extern uint32_t off_100AA0;
 extern uint32_t off_100AA4;
 
-// crypto_key_load @ 0x1009dc, size 184 bytes
-// Doc: crypto_key_load [ke]: Loads crypto key material into secure register bank 0x40342xxx
-// crypto_key_load [ke]: Loads crypto key material into secure register bank 0x40342xxx
-int  crypto_key_load(int a1, int a2)
+// radio_irq_setup @ 0x1009dc, size 184 bytes
+// Doc: radio_irq_setup [ke]: Loads crypto key material into secure register bank 0x40342xxx
+// radio_irq_setup [ke]: Loads crypto key material into secure register bank 0x40342xxx
+int  radio_irq_setup(int a1, int a2)
 {
   unsigned int *v2; // r3
   int v3; // r7
@@ -76,9 +76,9 @@ int  crypto_key_load(int a1, int a2)
   v15 = 1;
   for ( i = 0; i != 12; ++i )
   {
-    crypto_hw_write32((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
+    mmio_irq_enable((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
     v17 = *(uint32_t *)(a2 + 4 + 8 * i);
-    result = crypto_hw_write32(v15, v17);
+    result = mmio_irq_enable(v15, v17);
     v15 = (uint8_t)(v15 + 2);
   }
   *(uint32_t *)off_100AA4 &= ~2u;

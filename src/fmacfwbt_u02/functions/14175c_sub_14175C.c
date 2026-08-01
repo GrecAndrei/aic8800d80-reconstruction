@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1417C8;
 
-// sub_14175C @ 0x14175c, size 106 bytes
-uint32_t * sub_14175C(int a1, int a2)
+// start_advertising @ 0x14175c, size 106 bytes
+uint32_t * start_advertising(int a1, int a2)
 {
   int v2; // r4
   int v4; // r6
@@ -23,23 +23,23 @@ uint32_t * sub_14175C(int a1, int a2)
   {
     v2 = dword_1417C8;
     v4 = *(uint32_t *)(dword_1417C8 + 6480);
-    if ( sub_1405AC() )
+    if ( is_controller_ready() )
     {
-      if ( msg_get_value(0xBu) == 3 )
-        return (uint32_t *)sub_141688();
+      if ( hci_cmd_send_short(0xBu) == 3 )
+        return (uint32_t *)check_tx_power_valid();
       else
-        return sub_141520();
+        return increment_event_counter();
     }
     else
     {
       *(uint8_t *)(a1 + 98) = 1;
-      sub_1405DC(a1, 0, 0, v2 + 136 * v4 + 6336);
-      return (uint32_t *)sub_1190B4(a1, 3);
+      hci_le_set_scan_params(a1, 0, 0, v2 + 136 * v4 + 6336);
+      return (uint32_t *)ble_event_dispatch(a1, 3);
     }
   }
   else
   {
-    result = rf_bus_mark_n_3b7(0xBu, 0);
+    result = hci_cmd_send(0xBu, 0);
     *(uint32_t *)(dword_1417C8 + 6480) = -1;
   }
   return result;

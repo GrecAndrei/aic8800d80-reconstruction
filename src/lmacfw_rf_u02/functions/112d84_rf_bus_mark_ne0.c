@@ -14,10 +14,10 @@ extern uint32_t off_112E1C;
 extern uint32_t off_112E24;
 extern uint32_t dword_112E20;
 
-// rf_bus_mark_ne0 @ 0x112d84, size 148 bytes
+// process_event @ 0x112d84, size 148 bytes
 // Doc: rf_cmd_send_n4ce [tx]: Sends an RF command with masked flag field
 // rf_cmd_send_n4ce [tx]: Sends an RF command with masked flag field
-int  rf_bus_mark_ne0(int a1, int a2)
+int  process_event(int a1, int a2)
 {
   uint8_t *v2; // r6
   int **v3; // r4
@@ -37,7 +37,7 @@ int  rf_bus_mark_ne0(int a1, int a2)
   if ( *(uint8_t *)rf_cmd_send_n500 )
     return -99;
   v3 = (int **)off_112E1C;
-  v4 = sub_11E82C(off_112E1C, a2);
+  v4 = list_count(off_112E1C, a2);
   v5 = off_112E24;
   *(uint8_t *)off_112E24 = v4;
   if ( v4 )
@@ -78,7 +78,7 @@ rf_cmd_send_n4c6:
       v14 = *(uint8_t *)(v13 + 3);
       *v2 = 1;
       *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return rf_cmd_send_2918(1, v12);
+      return wait_radio_state(1, v12);
     }
   }
   return -98;

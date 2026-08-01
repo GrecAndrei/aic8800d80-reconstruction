@@ -16,12 +16,12 @@ extern uint32_t dword_136860;
 extern uint32_t dword_136868;
 extern uint32_t dword_13686C;
 
-// sub_136828 @ 0x136828, size 52 bytes
-uint32_t *sub_136828()
+// txpwr_get_context @ 0x136828, size 52 bytes
+uint32_t *txpwr_get_context()
 {
   if ( **(int16_t **)off_13685C >= 0 || !*((uint32_t *)off_136864 + 1) )
-    return bt_xtal_init_check((uint32_t *)dword_136860);
-  sub_12F694(dword_136868, dword_13686C, 46);
-  return bt_xtal_init_check((uint32_t *)dword_136860);
+    return zero_struct((uint32_t *)dword_136860);
+  mmio_irq_clear(dword_136868, dword_13686C, 46);
+  return zero_struct((uint32_t *)dword_136860);
 }
 

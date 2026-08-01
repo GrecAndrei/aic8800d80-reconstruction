@@ -20,8 +20,8 @@ extern uint32_t off_117010;
 extern uint32_t off_117018;
 extern uint32_t off_11701C;
 
-// sub_116EC4 @ 0x116ec4, size 312 bytes
-int  sub_116EC4(int a1, int a2, int a3, int a4)
+// mmio_regs_init @ 0x116ec4, size 312 bytes
+int  mmio_regs_init(int a1, int a2, int a3, int a4)
 {
   uint32_t *v4; // r7
   uint8_t *v5; // r9
@@ -43,9 +43,9 @@ int  sub_116EC4(int a1, int a2, int a3, int a4)
   v7 = a1;
   for ( i = 0; ; ++i )
   {
-    v11 = sub_11798C(a1, a2, a3, a4);
+    v11 = timer_event_check(a1, a2, a3, a4);
     *v4 = 0x10000;
-    result = sub_11E628(0x400000);
+    result = enter_critical_section(0x400000);
     if ( !v11 )
       break;
     if ( !v7 )
@@ -55,49 +55,49 @@ int  sub_116EC4(int a1, int a2, int a3, int a4)
       {
         v9 = *(uint32_t *)off_117000;
         if ( *(uint32_t *)off_117000 > 0x400000u || i > 31 )
-          return irq_nesting_or(0x400000);
+          return set_busy_flag_alt(0x400000);
       }
       else if ( i > 3 )
       {
-        return irq_nesting_or(0x400000);
+        return set_busy_flag_alt(0x400000);
       }
     }
-    result = sub_121A68(result, v12, v13, v9);
+    result = patch_check_enabled(result, v12, v13, v9);
     if ( !result )
       return result;
     if ( *(uint32_t *)(v11 + 20) != v6 )
-      msg_parse(dword_117008, v11);
-    sub_1179C8(v11);
-    a1 = sub_116858(v11);
+      dispatch_event_handler(dword_117008, v11);
+    rf_cal_offset_apply(v11);
+    a1 = wlan_rx_process(v11);
     if ( a1 )
     {
       if ( a1 == 1 )
-        a1 = rf_table_lookup_handler(v11);
+        a1 = ll_event_timer_handler(v11);
     }
     else
     {
-      a1 = sub_117590(v11);
+      a1 = tx_acl_queue_process(v11);
     }
     a4 = **(uint8_t **)off_11700C;
     switch ( a4 )
     {
       case 2:
 LABEL_22:
-        a1 = sub_116E24();
+        a1 = task_queue_handler_c();
         continue;
       case 4:
         if ( !*(uint32_t *)off_117010 || *(uint32_t *)(*(uint32_t *)off_117010 + 12) != v11 || (*(uint8_t *)(v11 + 16) & 1) == 0 )
           goto LABEL_22;
         v16 = *(uint32_t *)off_117010;
-        sub_11E7AC(off_117010);
+        list_pop_front(off_117010);
         v14 = *(void ( **)(uint32_t))(v16 + 4);
         *(uint8_t *)(v16 + 16) = 0;
         if ( v14 )
           v14(*(uint32_t *)(v16 + 8));
-        a1 = sub_1174EC(v11);
+        a1 = timer_is_past(v11);
         break;
       case 3:
-        a1 = sub_116D98();
+        a1 = task_queue_handler_b();
         break;
     }
   }
@@ -106,7 +106,7 @@ LABEL_22:
     v15 = off_117018;
     if ( *((uint8_t *)off_117018 + 33) )
     {
-      result = sub_110AB8(*((uint32_t *)off_117018 + 4), *((uint32_t *)off_117018 + 5), *((uint32_t *)off_117018 + 6));
+      result = irq_disable_set_flag_3(*((uint32_t *)off_117018 + 4), *((uint32_t *)off_117018 + 5), *((uint32_t *)off_117018 + 6));
       v15[5] = 0;
       v15[7] = 0;
       v15[4] = 0;

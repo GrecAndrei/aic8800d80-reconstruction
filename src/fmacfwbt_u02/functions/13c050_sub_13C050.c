@@ -15,8 +15,8 @@ extern uint32_t dword_13C130;
 extern uint32_t dword_13C134;
 extern uint32_t off_13C138;
 
-// sub_13C050 @ 0x13c050, size 222 bytes
-int  sub_13C050(int a1, int a2, int16_t a3)
+// rf_apply_cfg @ 0x13c050, size 222 bytes
+int  rf_apply_cfg(int a1, int a2, int16_t a3)
 {
   int v6; // r0
   char v7; // r11
@@ -32,7 +32,7 @@ int  sub_13C050(int a1, int a2, int16_t a3)
   int v17; // r2
   uint16_t v18; // r6
 
-  v6 = sub_13C014();
+  v6 = phy_is_ready();
   v7 = v6;
   if ( (uint8_t)v6 == 33 )
     return 3;
@@ -41,7 +41,7 @@ int  sub_13C050(int a1, int a2, int16_t a3)
   v10 = v6;
   *(uint8_t *)(v9 + 22) = a2;
   *(uint8_t *)(v9 + 16) = a1;
-  v11 = sub_143A18(v6);
+  v11 = random(v6);
   v13 = dword_13C134;
   *(uint8_t *)(v9 + 23) = v11;
   v14 = (*(uint32_t *)(v13 + 696 * a1 + 4) & 0x20) == 0;
@@ -60,12 +60,12 @@ int  sub_13C050(int a1, int a2, int16_t a3)
   *(uint32_t *)(v9 + 8) = v17;
   *(uint16_t *)(v9 + 12) = a3;
   *(uint8_t *)(v16 + 453) = v7;
-  rf_bus_write_n_25c(a1, v9, 2, 0, 0, 39, 0);
+  dbg_printf(a1, v9, 2, 0, 0, 39, 0);
   v18 = (v10 << 8) | 8;
-  rf_bus_write_n_25c(a1, v9, 0, 0, 0, 0, 0);
+  dbg_printf(a1, v9, 0, 0, 0, 0, 0);
   *(uint32_t *)(v16 + 444) = v8[4];
-  rf_level_apply_80c(0x2000, v18, 0x7D000u);
-  rf_bus_mark_n_3b7(v18, 2);
+  patch_aware_dispatch(0x2000, v18, 0x7D000u);
+  hci_cmd_send(v18, 2);
   return 0;
 }
 

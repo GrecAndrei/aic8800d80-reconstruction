@@ -13,8 +13,8 @@
 extern uint32_t dword_12FC40;
 extern uint32_t dword_12FC44;
 
-// sub_12FC20 @ 0x12fc20, size 32 bytes
-int sub_12FC20()
+// event_handlers_dispatch @ 0x12fc20, size 32 bytes
+int event_handlers_dispatch()
 {
   uint32_t *v0; // r4
   int v1; // r6
@@ -26,7 +26,7 @@ int sub_12FC20()
   do
   {
     if ( v0[1] )
-      log_printf(v1, *v0);
+      printf_wrapper(v1, *v0);
     v0 += 4;
   }
   while ( v0 != (uint32_t *)v2 );

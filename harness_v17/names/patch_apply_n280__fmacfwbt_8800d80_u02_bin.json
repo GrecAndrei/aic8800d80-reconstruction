@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n280", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215768", "status": "ok", "name": "patch_apply_n280", "params": [], "docstring": "Apply firmware patch table entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n280", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215768", "status": "ok", "name": "init_queue_table", "params": [], "docstring": "Apply firmware patch table entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_chan_init_or_reset_n_324 @ 0x118324, size 26 bytes
-// Doc: rf_chan_init_or_reset_n_324 [rf]: Initializes/resets an RF channel context structure
-// rf_chan_init_or_reset_n_324 [rf]: Initializes/resets an RF channel context structure
-int  rf_chan_init_or_reset_n_324(int a1)
+// setup_packet_buffer @ 0x118324, size 26 bytes
+// Doc: setup_packet_buffer [rf]: Initializes/resets an RF channel context structure
+// setup_packet_buffer [rf]: Initializes/resets an RF channel context structure
+int  setup_packet_buffer(int a1)
 {
   int result; // r0
 
-  result = timestamp_remove(a1 + 48);
+  result = ke_exit_critical(a1 + 48);
   if ( *(uint32_t *)(a1 + 72) )
-    return rf_bus_reset2_c158(a1);
+    return bt_link_rx_check(a1);
   return result;
 }
 

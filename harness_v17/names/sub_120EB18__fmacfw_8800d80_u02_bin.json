@@ -1,1 +1,1 @@
-{"fn": "sub_120EB18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120eb18", "status": "ok", "name": "mmio_init_peripherals", "params": [], "docstring": "Initialize peripheral MMIO register base pointers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120EB18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120eb18", "status": "ok", "name": "rf_hardware_init", "params": [], "docstring": "Initialize peripheral MMIO register base pointers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -12,8 +12,8 @@
 
 extern uint32_t off_1307D0;
 
-// sub_130798 @ 0x130798, size 56 bytes
-int  sub_130798(int a1)
+// format_hw_version @ 0x130798, size 56 bytes
+int  format_hw_version(int a1)
 {
   uint32_t *v2; // r1
   uint16_t *v3; // r2

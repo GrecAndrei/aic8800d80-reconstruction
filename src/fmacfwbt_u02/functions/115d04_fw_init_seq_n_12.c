@@ -12,10 +12,10 @@
 
 extern uint32_t off_115D24;
 
-// fw_init_seq_n_12 @ 0x115d04, size 32 bytes
-// Doc: fw_init_seq_n_12 [util]: FW init sequence: clear state and call subroutines
-// fw_init_seq_n_12 [util]: FW init sequence: clear state and call subroutines
-int fw_init_seq_n_12()
+// shutdown_sequence @ 0x115d04, size 32 bytes
+// Doc: shutdown_sequence [util]: FW init sequence: clear state and call subroutines
+// shutdown_sequence [util]: FW init sequence: clear state and call subroutines
+int shutdown_sequence()
 {
   int inited; // r0
   int v1; // r0
@@ -23,10 +23,10 @@ int fw_init_seq_n_12()
   int v3; // r0
 
   *((uint8_t *)off_115D24 + 1) = 0;
-  inited = fw_buffer_init_n478();
-  v1 = sub_1323E4(inited);
-  v2 = sub_120A58(v1);
-  v3 = sub_12D438(v2);
-  return mem_clear_init(v3);
+  inited = timer_clear();
+  v1 = llm_env_reset(inited);
+  v2 = run_deferred_init(v1);
+  v3 = state_init(v2);
+  return reset_hci_scratch(v3);
 }
 

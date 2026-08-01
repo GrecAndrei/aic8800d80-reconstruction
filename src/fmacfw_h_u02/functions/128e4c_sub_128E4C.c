@@ -21,8 +21,8 @@ extern uint32_t off_129028;
 extern uint32_t off_129024;
 extern uint32_t off_129038;
 
-// sub_128E4C @ 0x128e4c, size 454 bytes
-unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
+// mfp_key_parse @ 0x128e4c, size 454 bytes
+unsigned int  mfp_key_parse(unsigned int result, int a2, int a3)
 {
   int v3; // r3
   uint32_t *v4; // r7
@@ -78,7 +78,7 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
             v19 = dword_129034;
             v4[5] = a3;
             *((uint8_t *)v4 + 29) = 5;
-            sub_124BFC(v19, v18 + v17);
+            mem_copy_util(v19, v18 + v17);
           }
         }
         else
@@ -96,7 +96,7 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
           *(uint32_t *)off_12901C &= ~0x200u;
         if ( !*(uint8_t *)off_129020 )
         {
-          sub_128D60();
+          mfp_get_config();
           if ( !*((uint8_t *)v4 + 28) || (*(uint32_t *)off_129028 & 4) != 0 )
           {
             *(uint8_t *)off_129024 = 0;
@@ -104,8 +104,8 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
           else
           {
             v20 = off_129024;
-            if ( *(uint8_t *)off_129024 && (sub_1227A8() != 1 || !*((uint32_t *)off_129038 + 126)) )
-              sub_118C84(*(uint8_t *)(a3 + 116), 0, 0);
+            if ( *(uint8_t *)off_129024 && (get_rx_pdu() != 1 || !*((uint32_t *)off_129038 + 126)) )
+              phy_get_channel(*(uint8_t *)(a3 + 116), 0, 0);
             *v20 = 1;
           }
           v21 = off_129030;
@@ -115,7 +115,7 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
           v24 = v21[4];
           v4[5] = a3;
           *((uint8_t *)v4 + 29) = 6;
-          return sub_124BFC(v23, v22 + v24);
+          return mem_copy_util(v23, v22 + v24);
         }
       }
       else
@@ -135,9 +135,9 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
     v15 = off_129024;
     if ( *(uint8_t *)off_129024 )
     {
-      result = sub_1227A8();
+      result = get_rx_pdu();
       if ( result != 1 || !*((uint32_t *)off_129038 + 126) )
-        result = sub_118C84(*(uint8_t *)(a3 + 116), 0, 0);
+        result = phy_get_channel(*(uint8_t *)(a3 + 116), 0, 0);
     }
     *v15 = 1;
   }

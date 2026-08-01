@@ -1,1 +1,1 @@
-{"fn": "sub_121E430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e430", "status": "ok", "name": "init_global_table_121E430", "params": [], "docstring": "Loads shared globals and prepares a context struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121E430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e430", "status": "ok", "name": "rf_fifo_status", "params": [], "docstring": "Loads shared globals and prepares a context struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

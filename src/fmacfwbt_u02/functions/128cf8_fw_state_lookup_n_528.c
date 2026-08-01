@@ -13,10 +13,10 @@
 extern uint32_t off_128D48;
 extern uint32_t dword_128D4C;
 
-// fw_state_lookup_n_528 @ 0x128cf8, size 80 bytes
-// Doc: fw_state_lookup_n_528 [util]: Look up state slot in 0x528-stride table indexed by byte
-// fw_state_lookup_n_528 [util]: Look up state slot in 0x528-stride table indexed by byte
-int  fw_state_lookup_n_528(int a1)
+// get_current_entry_owner @ 0x128cf8, size 80 bytes
+// Doc: get_current_entry_owner [util]: Look up state slot in 0x528-stride table indexed by byte
+// get_current_entry_owner [util]: Look up state slot in 0x528-stride table indexed by byte
+int  get_current_entry_owner(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r4
@@ -26,15 +26,15 @@ int  fw_state_lookup_n_528(int a1)
   v2 = dword_128D4C + 1320 * *((uint8_t *)off_128D48 + 16);
   if ( *(uint32_t *)(v2 + 72) )
   {
-    sub_1287E0(*((uint8_t *)off_128D48 + 16));
+    get_entry_by_index(*((uint8_t *)off_128D48 + 16));
   }
   else
   {
-    v4 = (uint8_t *)rf_bus_setup_n3a8(5143, 5, 5, 2);
+    v4 = (uint8_t *)bt_buf_alloc(5143, 5, 5, 2);
     *v4 = 1;
     v4[1] = *(uint8_t *)(v2 + 107);
-    sub_12CBB4(v4);
+    hci_evt_send(v4);
   }
-  return sub_128AAC(v1[16], a1);
+  return update_entries_from_config(v1[16], a1);
 }
 

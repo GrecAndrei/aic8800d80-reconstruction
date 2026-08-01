@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11ACEC;
 
-// sub_11AC78 @ 0x11ac78, size 116 bytes
-unsigned int * sub_11AC78(unsigned int *result, unsigned int *a2)
+// mmio_status_read @ 0x11ac78, size 116 bytes
+unsigned int * mmio_status_read(unsigned int *result, unsigned int *a2)
 {
   unsigned int v2; // r4
   unsigned int v3; // r5

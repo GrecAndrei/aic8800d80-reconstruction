@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_fault_dump_n14c @ 0x114894, size 48 bytes
-// Doc: rf_fault_dump_n14c [rf]: Dumps RF register state on radio fault detection
-// rf_fault_dump_n14c [rf]: Dumps RF register state on radio fault detection
-int  rf_fault_dump_n14c(uint8_t *a1)
+// rf_cmd6_read_hi @ 0x114894, size 48 bytes
+// Doc: rf_cmd6_read_hi [rf]: Dumps RF register state on radio fault detection
+// rf_cmd6_read_hi [rf]: Dumps RF register state on radio fault detection
+int  rf_cmd6_read_hi(uint8_t *a1)
 {
   unsigned int v2; // r0
   char v4; // r3

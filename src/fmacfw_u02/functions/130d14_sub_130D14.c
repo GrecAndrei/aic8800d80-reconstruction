@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130D14 @ 0x130d14, size 54 bytes
-int  sub_130D14(int a1, int a2)
+// build_tx_power_cfg @ 0x130d14, size 54 bytes
+int  build_tx_power_cfg(int a1, int a2)
 {
   int16_t v2; // r3
   int16_t v3; // r4

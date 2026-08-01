@@ -13,8 +13,8 @@
 extern uint32_t off_10DB74;
 extern uint32_t dword_40504080;
 
-// sub_10DB48 @ 0x10db48, size 42 bytes
-int  sub_10DB48(int result)
+// pinmux_config @ 0x10db48, size 42 bytes
+int  pinmux_config(int result)
 {
   uint32_t *v1; // r1
 

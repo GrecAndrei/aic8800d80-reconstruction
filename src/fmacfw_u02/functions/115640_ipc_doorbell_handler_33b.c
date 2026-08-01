@@ -18,10 +18,10 @@ extern uint32_t off_115788;
 extern uint32_t dword_11579C;
 extern uint32_t off_1157A0;
 
-// ipc_doorbell_handler_33b @ 0x115640, size 296 bytes
+// peripheral_clock_enable @ 0x115640, size 296 bytes
 // Doc: ipc_doorbell_handler_6aa [ipc]: IPC doorbell interrupt handler (variant 2d2)
 // ipc_doorbell_handler_6aa [ipc]: IPC doorbell interrupt handler (variant 2d2)
-int ipc_doorbell_handler_33b()
+int peripheral_clock_enable()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r4
@@ -41,7 +41,7 @@ int ipc_doorbell_handler_33b()
   *((uint32_t *)off_115768 + 14) |= 0x10u;
   *v0 &= ~0x2000000u;
   v1 = ipc_doorbell_handler_n_208;
-  feature_guard_check(2, ipc_doorbell_handler_n_20c);
+  check_status_bits(2, ipc_doorbell_handler_n_20c);
   v2 = ipc_doorbell_handler_n_204;
   *(uint32_t *)ipc_doorbell_handler_n_204 |= 0x80000000;
   v1[1] = 0;
@@ -49,7 +49,7 @@ int ipc_doorbell_handler_33b()
     ;
   v3 = ipc_doorbell_dispatch;
   if ( *((uint8_t *)ipc_doorbell_dispatch + 189) && **(int16_t **)off_115780 < 0 && *v1 != (*(uint32_t *)off_115794 & 0xF) )
-    sub_12F46C(ipc_doorbell_handler_n_1cc, dword_1157AC, 968);
+    mmio_clear_register(ipc_doorbell_handler_n_1cc, dword_1157AC, 968);
   v4 = ipc_doorbell_handler_n_204;
   v5 = (uint8_t **)ipc_doorbell_handler_n_1f8;
   *(uint32_t *)ipc_doorbell_handler_n_204 &= ~0x40000000u;
@@ -67,7 +67,7 @@ int ipc_doorbell_handler_33b()
     *(uint32_t *)ipc_doorbell_handler_n_210 |= 0x2000000u;
   else
     *((uint32_t *)off_115768 + 14) &= ~0x10u;
-  result = feature_guard_check(2, ipc_doorbell_handler_n_1f0);
+  result = check_status_bits(2, ipc_doorbell_handler_n_1f0);
   v8 = *(uint8_t **)ipc_doorbell_handler_n_1ec;
   v9 = **(uint8_t **)ipc_doorbell_handler_n_1ec;
   if ( v9 == 2 )

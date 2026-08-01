@@ -21,8 +21,8 @@ extern uint32_t off_12938C;
 extern uint32_t off_129388;
 extern uint32_t off_12939C;
 
-// sub_1291B0 @ 0x1291b0, size 454 bytes
-unsigned int  sub_1291B0(unsigned int result, int a2, int a3)
+// ipc_msg_receive @ 0x1291b0, size 454 bytes
+unsigned int  ipc_msg_receive(unsigned int result, int a2, int a3)
 {
   int v3; // r3
   uint32_t *v4; // r7
@@ -78,7 +78,7 @@ unsigned int  sub_1291B0(unsigned int result, int a2, int a3)
             v19 = dword_129398;
             v4[5] = a3;
             *((uint8_t *)v4 + 29) = 5;
-            sub_124F60(v19, v18 + v17);
+            ke_event_lock(v19, v18 + v17);
           }
         }
         else
@@ -96,7 +96,7 @@ unsigned int  sub_1291B0(unsigned int result, int a2, int a3)
           *(uint32_t *)off_129380 &= ~0x200u;
         if ( !*(uint8_t *)off_129384 )
         {
-          sub_1290C4();
+          mm_beacon_irq();
           if ( !*((uint8_t *)v4 + 28) || (*(uint32_t *)off_12938C & 4) != 0 )
           {
             *(uint8_t *)off_129388 = 0;
@@ -104,8 +104,8 @@ unsigned int  sub_1291B0(unsigned int result, int a2, int a3)
           else
           {
             v20 = off_129388;
-            if ( *(uint8_t *)off_129388 && (sub_122B1C() != 1 || !*((uint32_t *)off_12939C + 126)) )
-              sub_119204(*(uint8_t *)(a3 + 116), 0, 0);
+            if ( *(uint8_t *)off_129388 && (find_pending_command() != 1 || !*((uint32_t *)off_12939C + 126)) )
+              ble_conn_get(*(uint8_t *)(a3 + 116), 0, 0);
             *v20 = 1;
           }
           v21 = off_129394;
@@ -115,7 +115,7 @@ unsigned int  sub_1291B0(unsigned int result, int a2, int a3)
           v24 = v21[4];
           v4[5] = a3;
           *((uint8_t *)v4 + 29) = 6;
-          return sub_124F60(v23, v22 + v24);
+          return ke_event_lock(v23, v22 + v24);
         }
       }
       else
@@ -135,9 +135,9 @@ unsigned int  sub_1291B0(unsigned int result, int a2, int a3)
     v15 = off_129388;
     if ( *(uint8_t *)off_129388 )
     {
-      result = sub_122B1C();
+      result = find_pending_command();
       if ( result != 1 || !*((uint32_t *)off_12939C + 126) )
-        result = sub_119204(*(uint8_t *)(a3 + 116), 0, 0);
+        result = ble_conn_get(*(uint8_t *)(a3 + 116), 0, 0);
     }
     *v15 = 1;
   }

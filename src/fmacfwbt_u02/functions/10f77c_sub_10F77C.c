@@ -17,8 +17,8 @@ extern uint32_t dword_10F96C;
 extern uint32_t dword_10F970;
 extern uint32_t dword_10F974;
 
-// sub_10F77C @ 0x10f77c, size 492 bytes
-unsigned int  sub_10F77C(int *a1, int a2, unsigned int a3)
+// ke_msg_handler @ 0x10f77c, size 492 bytes
+unsigned int  ke_msg_handler(int *a1, int a2, unsigned int a3)
 {
   unsigned int result; // r0
   int v6; // r2
@@ -98,7 +98,7 @@ unsigned int  sub_10F77C(int *a1, int a2, unsigned int a3)
       }
       else
       {
-        log_printf(dword_10F968, v15);
+        printf_wrapper(dword_10F968, v15);
         v17 = *v8;
         if ( *v8 > (unsigned int)v15 )
           goto LABEL_22;
@@ -115,7 +115,7 @@ LABEL_12:
           goto LABEL_25;
         goto LABEL_13;
       }
-      log_printf(dword_10F96C, v15);
+      printf_wrapper(dword_10F96C, v15);
       v18 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_25;
@@ -132,7 +132,7 @@ LABEL_14:
           goto LABEL_28;
         goto LABEL_15;
       }
-      log_printf(dword_10F970, v15);
+      printf_wrapper(dword_10F970, v15);
       v19 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_28;
@@ -146,7 +146,7 @@ LABEL_16:
         *v15 = v20;
         goto LABEL_17;
       }
-      log_printf(dword_10F974, v15);
+      printf_wrapper(dword_10F974, v15);
 LABEL_17:
       ++v12;
       ++*(uint16_t *)v14;

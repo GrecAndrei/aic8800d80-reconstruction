@@ -22,8 +22,8 @@ extern uint32_t dword_125750;
 extern uint32_t dword_125754;
 extern uint32_t off_125758;
 
-// sub_125638 @ 0x125638, size 254 bytes
-int * sub_125638(int a1)
+// rf_chan_load @ 0x125638, size 254 bytes
+int * rf_chan_load(int a1)
 {
   int v1; // r7
   int v2; // r9
@@ -47,7 +47,7 @@ int * sub_125638(int a1)
 
   v1 = dword_125740;
   v2 = dword_12575C;
-  sub_11892C(
+  zero_struct(
     a1 + 116,
     dword_125738 + 620 * *(uint8_t *)(a1 + 107),
     (uint32_t *)(dword_12573C + 80 * *(uint8_t *)(a1 + 107)),

@@ -16,8 +16,8 @@ extern uint32_t off_124EDC;
 extern uint32_t off_124EE0;
 extern uint32_t dword_124EE4;
 
-// sub_124E48 @ 0x124e48, size 140 bytes
-int  sub_124E48(uint8_t *a1, void *a2)
+// set_cfg_flag @ 0x124e48, size 140 bytes
+int  set_cfg_flag(uint8_t *a1, void *a2)
 {
   int v2; // r3
   unsigned int v3; // r2
@@ -59,7 +59,7 @@ int  sub_124E48(uint8_t *a1, void *a2)
     v3 = *(uint32_t *)off_124EE0 & 0xFFF00FFF;
     *(uint32_t *)off_124EE0 = v3 | (a1[4] << 12);
   }
-  sub_12ECB0(dword_124EE4, a2, v3);
-  return sub_12ED40(a1, 5, 1, 0);
+  ke_event_schedule(dword_124EE4, a2, v3);
+  return rx_packet_handler(a1, 5, 1, 0);
 }
 

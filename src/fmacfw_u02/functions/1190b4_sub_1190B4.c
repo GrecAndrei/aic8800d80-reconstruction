@@ -20,10 +20,10 @@ extern uint32_t off_119260;
 extern uint32_t dword_119248;
 extern uint32_t dword_11924C;
 
-// sub_1190B4 @ 0x1190b4, size 394 bytes
+// phy_channel_get_attr @ 0x1190b4, size 394 bytes
 // Doc: sub_12190B4 [unknown]: Unknown behavioral stub
 // sub_12190B4 [unknown]: Unknown behavioral stub
-BOOL  sub_1190B4(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8)
+BOOL  phy_channel_get_attr(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8)
 {
   int v8; // r10
   int v9; // r8
@@ -68,20 +68,20 @@ BOOL  sub_1190B4(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7,
   {
 LABEL_16:
     v32 = v15;
-    sub_12F46C(dword_119250, dword_119254, 520);
+    mmio_clear_register(dword_119250, dword_119254, 520);
     v15 = v32;
     v17 = 1;
     goto LABEL_7;
   }
   v17 = 1;
 LABEL_7:
-  v18 = sub_118C44(v17, v15);
+  v18 = ke_mutex_guard(v17, v15);
   if ( !v18 )
     return 1;
   v19 = v9 + 1320 * v11;
   v20 = *(uint32_t *)(v18 + 72);
   v31 = (uint32_t *)v18;
-  sub_12C4E8(v19, v18);
+  rf_check_temperature(v19, v18);
   v21 = (uint8_t *)off_119244;
   v22 = v31[18];
   v23 = *(uint16_t *)(v19 + 104);
@@ -118,6 +118,6 @@ LABEL_7:
     *(uint8_t *)(v22 + 137) = *(uint8_t *)(dword_11924C + a6) << 6;
   v31[22] = a7;
   v31[23] = a8;
-  return rf_param_get_status((int)v31, a6) == 0;
+  return tx_path_status((int)v31, a6) == 0;
 }
 

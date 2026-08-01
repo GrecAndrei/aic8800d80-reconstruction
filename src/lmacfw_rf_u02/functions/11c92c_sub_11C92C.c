@@ -16,8 +16,8 @@ extern uint32_t off_11C998;
 extern uint32_t dword_11C9A0;
 extern uint32_t dword_11C99C;
 
-// sub_11C92C @ 0x11c92c, size 98 bytes
-int sub_11C92C()
+// ke_timer_update @ 0x11c92c, size 98 bytes
+int ke_timer_update()
 {
   int v0; // r5
   int v1; // r4
@@ -25,16 +25,16 @@ int sub_11C92C()
 
   v0 = *(uint32_t *)off_11C990;
   v1 = *((uint8_t *)off_11C990 + 10);
-  if ( sub_11E34C(2) != 2 )
+  if ( flash_write_byte(2) != 2 )
   {
-    v2 = sub_11E34C(2);
-    msg_parse(dword_11C994, v2);
+    v2 = flash_write_byte(2);
+    dispatch_event_handler(dword_11C994, v2);
   }
-  if ( **(int16_t **)off_11C998 < 0 && sub_11E34C(2) != 2 )
-    rf_cmd_send_n264(dword_11C9A0, dword_11C99C, 163);
+  if ( **(int16_t **)off_11C998 < 0 && flash_write_byte(2) != 2 )
+    flash_ctrl_init(dword_11C9A0, dword_11C99C, 163);
   if ( (*(uint8_t *)(v0 + 6 * v1 + 3) & 1) == 0 )
-    sub_11CBC8();
-  sub_11E1E4(2);
+    ll_rx_handler();
+  flash_erase_sector(2);
   return 0;
 }
 

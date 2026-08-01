@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12054C @ 0x12054c, size 28 bytes
-int  sub_12054C(int result)
+// wlc_bsscfg_detach @ 0x12054c, size 28 bytes
+int  wlc_bsscfg_detach(int result)
 {
   uint32_t *v1; // r4
   int v2; // r5
@@ -22,7 +22,7 @@ int  sub_12054C(int result)
     v2 = result;
     do
     {
-      result = sub_11F704(v2, (int)v1, 0);
+      result = wlc_bsscfg_down(v2, (int)v1, 0);
       v1 = (uint32_t *)*v1;
     }
     while ( v1 );

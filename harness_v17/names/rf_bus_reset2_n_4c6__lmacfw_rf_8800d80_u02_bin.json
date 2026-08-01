@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e3e", "status": "ok", "name": "rf_bus_reset2_n_4c6", "params": [], "docstring": "Secondary RF bus reset with MMIO reg config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e3e", "status": "ok", "name": "rf_bus_reset2_n_4c5", "params": [], "docstring": "Secondary RF bus reset with MMIO reg config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

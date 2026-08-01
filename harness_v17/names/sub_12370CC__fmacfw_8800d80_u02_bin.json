@@ -1,1 +1,1 @@
-{"fn": "sub_12370CC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12370cc", "status": "ok", "name": "mmio_write_status_n_3a4", "params": [], "docstring": "Write status/control value to MMIO offsets 0xf08/0xf0a", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12370CC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12370cc", "status": "ok", "name": "phy_select_channel", "params": [], "docstring": "Write status/control value to MMIO offsets 0xf08/0xf0a", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

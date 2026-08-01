@@ -25,10 +25,10 @@ extern uint32_t off_118FBC;
 extern uint32_t off_118FC0;
 extern uint32_t off_118FC4;
 
-// rf_link_state_check @ 0x118ec8, size 214 bytes
-// Doc: rf_link_state_check [rf]: Checks current RF link state value against zero
-// rf_link_state_check [rf]: Checks current RF link state value against zero
-int  rf_link_state_check(int a1, int a2, int a3)
+// rf_state_process @ 0x118ec8, size 214 bytes
+// Doc: rf_state_process [rf]: Checks current RF link state value against zero
+// rf_state_process [rf]: Checks current RF link state value against zero
+int  rf_state_process(int a1, int a2, int a3)
 {
   int v3; // r3
   int *v4; // r8
@@ -48,9 +48,9 @@ int  rf_link_state_check(int a1, int a2, int a3)
   int v18; // r2
 
   v3 = **(int16_t **)off_118FA0;
-  if ( v3 < 0 && sub_11E34C(0) == 4 )
-    rf_cmd_send_n264(dword_118FD0, dword_118FCC, 1799);
-  sub_11F74C(4, dword_118FA4, a3, v3);
+  if ( v3 < 0 && flash_write_byte(0) == 4 )
+    flash_ctrl_init(dword_118FD0, dword_118FCC, 1799);
+  check_interrupt_flag(4, dword_118FA4, a3, v3);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -66,10 +66,10 @@ int  rf_link_state_check(int a1, int a2, int a3)
   v9 = v7 & 0xF;
   while ( *v5 << 28 )
   {
-    sub_115D4C();
+    mmio_status_write();
     v11 = v6[4] - v8;
     if ( v11 > 0x7530 )
-      sub_11F74C(4, dword_118FC8, v10, v11);
+      check_interrupt_flag(4, dword_118FC8, v10, v11);
   }
   v12 = *(uint32_t *)off_118FB4;
   v13 = *(uint32_t *)off_118FB8;
@@ -84,8 +84,8 @@ int  rf_link_state_check(int a1, int a2, int a3)
   v14 = *((uint8_t *)off_118FBC + 90);
   *(uint32_t *)off_118FC0 = 4;
   if ( v14 )
-    sub_115D64();
-  result = sub_11E1E4(0);
+    critical_section_enter();
+  result = flash_erase_sector(0);
   v16 = *v4;
   *((uint16_t *)off_118FC4 + 8) = 0;
   if ( v16 )

@@ -23,8 +23,8 @@ extern uint32_t dword_10E148;
 extern uint32_t dword_10E14C;
 extern uint32_t dword_10E15C;
 
-// sub_10E0A8 @ 0x10e0a8, size 130 bytes
-int sub_10E0A8()
+// hw_ctrl_set @ 0x10e0a8, size 130 bytes
+int hw_ctrl_set()
 {
   uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -44,17 +44,17 @@ int sub_10E0A8()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = sub_142874(v0[4]);
-  v2 = sub_142968(v1, HIDWORD(v1), dword_10E130, dword_10E134);
-  v3 = sub_142BBC(v2, HIDWORD(v2), dword_10E138, dword_10E13C);
-  v4 = sub_1425F8(v3, HIDWORD(v3), dword_10E130, dword_10E134);
-  v5 = sub_142F2C(v4);
-  v6 = sub_1428B8(LODWORD(v5));
-  v7 = sub_142BBC(v6, HIDWORD(v6), dword_10E140, dword_10E144);
-  v8 = sub_142968(v7, HIDWORD(v7), 0, dword_10E154);
-  v9 = sub_142968(v8, HIDWORD(v8), 0, dword_10E158);
-  v10 = sub_142968(v9, HIDWORD(v9), dword_10E148, dword_10E14C);
-  v11 = sub_142BBC(v10, HIDWORD(v10), 0, dword_10E15C);
-  return (int)sub_142F2C(v11);
+  v1 = unsigned_int_to_double(v0[4]);
+  v2 = double_compare_common(v1, HIDWORD(v1), dword_10E130, dword_10E134);
+  v3 = double_compare_core(v2, HIDWORD(v2), dword_10E138, dword_10E13C);
+  v4 = double_compare_neg(v3, HIDWORD(v3), dword_10E130, dword_10E134);
+  v5 = double_to_int(v4);
+  v6 = float_to_double(LODWORD(v5));
+  v7 = double_compare_core(v6, HIDWORD(v6), dword_10E140, dword_10E144);
+  v8 = double_compare_common(v7, HIDWORD(v7), 0, dword_10E154);
+  v9 = double_compare_common(v8, HIDWORD(v8), 0, dword_10E158);
+  v10 = double_compare_common(v9, HIDWORD(v9), dword_10E148, dword_10E14C);
+  v11 = double_compare_core(v10, HIDWORD(v10), 0, dword_10E15C);
+  return (int)double_to_int(v11);
 }
 

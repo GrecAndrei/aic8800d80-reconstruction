@@ -1,1 +1,1 @@
-{"fn": "sub_122C484", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c484", "status": "ok", "name": "mac_rx_reorder", "params": [], "docstring": "MAC RX reorder buffer handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122C484", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c484", "status": "ok", "name": "util_format", "params": [], "docstring": "MAC RX reorder buffer handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

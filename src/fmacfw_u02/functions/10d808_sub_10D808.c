@@ -45,8 +45,8 @@ extern uint32_t off_10DB18;
 extern uint32_t dword_10DB1C;
 extern uint32_t dword_10DC18;
 
-// sub_10D808 @ 0x10d808, size 1016 bytes
-int  sub_10D808(int a1, int a2)
+// prepare_debug_buffer @ 0x10d808, size 1016 bytes
+int  prepare_debug_buffer(int a1, int a2)
 {
   int v2; // r4
   unsigned int CPSR; // r6
@@ -130,7 +130,7 @@ int  sub_10D808(int a1, int a2)
   uint8_t v82[260]; // [sp+10h] [bp-104h] BYREF
 
   CPSR = __get_CPSR();
-  v4 = sub_12E11C(v82, 256, 0, a1, a2);
+  v4 = rf_cal_init(v82, 256, 0, a1, a2);
   v6 = v4;
   if ( v4 <= 0 )
     return v6;
@@ -142,7 +142,7 @@ int  sub_10D808(int a1, int a2)
   }
   else
   {
-    sub_10D648();
+    is_initialized();
     if ( CPSR )
       goto LABEL_5;
   }
@@ -189,7 +189,7 @@ LABEL_5:
     {
       if ( v7 >= 124 )
         LOWORD(v7) = 124;
-      sub_111270(19, v82, (uint16_t)v7);
+      mutex_lock(19, v82, (uint16_t)v7);
     }
     goto LABEL_13;
   }
@@ -214,13 +214,13 @@ LABEL_19:
     while ( v22 );
     goto LABEL_13;
   }
-  if ( (unsigned int)sub_12D36C(dword_10DAF8, v5) <= 4 )
+  if ( (unsigned int)read_u32(dword_10DAF8, v5) <= 4 )
   {
     if ( **(uint8_t **)off_10DAEC == 2 )
     {
       if ( **v17 != 3 )
       {
-        if ( (unsigned int)sub_12D36C(dword_10DAF8, v23) > 4 )
+        if ( (unsigned int)read_u32(dword_10DAF8, v23) > 4 )
         {
           v60 = dword_10DB24;
           v61 = off_10DAE0;
@@ -266,7 +266,7 @@ LABEL_13:
   while ( 1 )
   {
     v26 = v24++;
-    if ( !sub_143710(v26, v25, 20) )
+    if ( !memcmp(v26, v25, 20) )
       break;
     if ( &v82[v7] == v24 )
     {
@@ -301,7 +301,7 @@ LABEL_37:
   if ( *v27 )
   {
     v28 = off_10DB30;
-    if ( !sub_143710(v82, dword_10DAFC, 5) )
+    if ( !memcmp(v82, dword_10DAFC, 5) )
     {
       v29 = dword_10DB00;
       v30 = off_10DAE0;
@@ -323,7 +323,7 @@ LABEL_37:
     if ( v35 + v7 <= 1720 )
     {
       v81 = (int *)off_10DC0C;
-      sub_143770(*(uint32_t *)off_10DC0C + v35, v82, v7);
+      memcpy(*(uint32_t *)off_10DC0C + v35, v82, v7);
       v75 = (uint8_t)*v28;
       v41 = v81;
       v76 = v7 + *v34;
@@ -356,18 +356,18 @@ LABEL_37:
     *v34 = 4;
     *v41 = 0;
     v6 = v35;
-    sub_12D2D0(v42);
+    mem_word_load(v42);
     goto LABEL_48;
   }
-  v2 = sub_12D2D0(dword_10DC14);
+  v2 = mem_word_load(dword_10DC14);
   if ( v7 <= 122 )
-    v43 = sub_113A08();
+    v43 = error_trap();
   else
     v43 = (*(int ( **)(uint32_t))(*(uint32_t *)(*(uint32_t *)off_10DC08 + 8) + 16))(*(uint32_t *)(*(uint32_t *)off_10DC08
                                                                                                   + 4));
   if ( v43 )
   {
-    sub_143770(v43 + 4, v82, v7);
+    memcpy(v43 + 4, v82, v7);
     LOWORD(v35) = v7;
 LABEL_48:
     *(uint16_t *)v43 = v6 + 1;
@@ -408,8 +408,8 @@ LABEL_48:
     v50 = (int *)off_10DB18;
     v51 = dword_10DB1C;
     ++*(uint32_t *)off_10DB18;
-    v52 = sub_12D248(v51);
-    sub_1134B4(v52);
+    v52 = cmd_handler_a(v51);
+    check_init_flag(v52);
     if ( *v50 )
     {
       v53 = *v50 - 1;

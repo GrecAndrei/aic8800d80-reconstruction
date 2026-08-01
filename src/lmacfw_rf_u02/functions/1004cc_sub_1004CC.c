@@ -15,10 +15,10 @@ extern uint32_t off_100554;
 extern uint32_t dword_10055C;
 extern uint32_t dword_100558;
 
-// sub_1004CC @ 0x1004cc, size 132 bytes
+// read_control_reg @ 0x1004cc, size 132 bytes
 // Doc: sub_12004CC [mmio]: Initializes LMAC RF context from MMIO 0x40330000 via helper calls
 // sub_12004CC [mmio]: Initializes LMAC RF context from MMIO 0x40330000 via helper calls
-int  sub_1004CC(int a1)
+int  read_control_reg(int a1)
 {
   unsigned int v2; // r6
   unsigned int v3; // r5
@@ -29,8 +29,8 @@ int  sub_1004CC(int a1)
 
   v2 = *(uint32_t *)off_100550;
   v3 = *(uint32_t *)off_100550;
-  v4 = sub_101A28();
-  v5 = sub_101A2C();
+  v4 = is_initialized();
+  v5 = sys_status_bit21_get();
   v6 = (v2 >> 8) & 0xF;
   v7 = (v3 >> 27) & 1;
   if ( a1 == 1 )
@@ -69,7 +69,7 @@ int  sub_1004CC(int a1)
   else if ( a1 )
   {
     if ( **(int16_t **)off_100554 < 0 )
-      rf_cmd_send_n264(dword_10055C, dword_100558, 434);
+      flash_ctrl_init(dword_10055C, dword_100558, 434);
     return 0;
   }
   else if ( v5 )

@@ -16,14 +16,14 @@ extern uint32_t off_102B40;
 extern uint32_t dword_102B48;
 extern uint32_t dword_102B44;
 
-// sub_102B10 @ 0x102b10, size 38 bytes
-int  sub_102B10(int a1, int a2, int a3)
+// copy_cal_data @ 0x102b10, size 38 bytes
+int  copy_cal_data(int a1, int a2, int a3)
 {
   int result; // r0
 
-  result = sub_12E948(dword_102B3C, dword_102B38, a3);
+  result = alloc_tx_event(dword_102B3C, dword_102B38, a3);
   if ( **(int16_t **)off_102B40 < 0 )
-    return sub_12F32C(dword_102B48, dword_102B44, 61);
+    return irq_disable_mmio_write(dword_102B48, dword_102B44, 61);
   return result;
 }
 

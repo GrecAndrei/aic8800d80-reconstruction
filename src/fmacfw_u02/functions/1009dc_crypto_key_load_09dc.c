@@ -16,10 +16,10 @@ extern uint32_t dword_100A9C;
 extern uint32_t off_100AA0;
 extern uint32_t off_100AA4;
 
-// crypto_key_load_09dc @ 0x1009dc, size 184 bytes
-// Doc: crypto_key_load_09dc [ke]: Load crypto key into key engine MMIO at 0x40342200 region
-// crypto_key_load_09dc [ke]: Load crypto key into key engine MMIO at 0x40342200 region
-int  crypto_key_load_09dc(int a1, int a2)
+// bt_control_set @ 0x1009dc, size 184 bytes
+// Doc: bt_control_set [ke]: Load crypto key into key engine MMIO at 0x40342200 region
+// bt_control_set [ke]: Load crypto key into key engine MMIO at 0x40342200 region
+int  bt_control_set(int a1, int a2)
 {
   unsigned int *v2; // r3
   int v3; // r7
@@ -76,9 +76,9 @@ int  crypto_key_load_09dc(int a1, int a2)
   v15 = 1;
   for ( i = 0; i != 12; ++i )
   {
-    sub_10410C((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
+    mac_reset_control((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
     v17 = *(uint32_t *)(a2 + 4 + 8 * i);
-    result = sub_10410C(v15, v17);
+    result = mac_reset_control(v15, v17);
     v15 = (uint8_t)(v15 + 2);
   }
   *(uint32_t *)off_100AA4 &= ~2u;

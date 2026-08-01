@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_169", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127ae", "status": "ok", "name": "rf_cmd_send_n_169", "params": [], "docstring": "Sends RF command after checking status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_169", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127ae", "status": "ok", "name": "rf_bus_reset_7ae", "params": [], "docstring": "Sends RF command after checking status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

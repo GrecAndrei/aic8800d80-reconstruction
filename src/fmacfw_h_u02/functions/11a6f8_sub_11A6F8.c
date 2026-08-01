@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11A76C;
 
-// sub_11A6F8 @ 0x11a6f8, size 116 bytes
-unsigned int * sub_11A6F8(unsigned int *result, unsigned int *a2)
+// check_status_flags @ 0x11a6f8, size 116 bytes
+unsigned int * check_status_flags(unsigned int *result, unsigned int *a2)
 {
   unsigned int v2; // r4
   unsigned int v3; // r5

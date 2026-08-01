@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12ABC8 @ 0x12abc8, size 22 bytes
-int  sub_12ABC8(int result)
+// get_acl_flag @ 0x12abc8, size 22 bytes
+int  get_acl_flag(int result)
 {
   if ( *(uint8_t *)(result + 1224) )
   {

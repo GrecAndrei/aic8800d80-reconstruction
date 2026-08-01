@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13AF7C;
 
-// idx_struct_lookup @ 0x13af3c, size 64 bytes
-// Doc: idx_struct_lookup [util]: Looks up per-index struct entry (stride 0x2b8) and dereferences member
-// idx_struct_lookup [util]: Looks up per-index struct entry (stride 0x2b8) and dereferences member
-int * idx_struct_lookup(int *result)
+// ll_conn_rx_packet_get @ 0x13af3c, size 64 bytes
+// Doc: ll_conn_rx_packet_get [util]: Looks up per-index struct entry (stride 0x2b8) and dereferences member
+// ll_conn_rx_packet_get [util]: Looks up per-index struct entry (stride 0x2b8) and dereferences member
+int * ll_conn_rx_packet_get(int *result)
 {
   int v1; // r5
 
@@ -23,7 +23,7 @@ int * idx_struct_lookup(int *result)
   if ( v1 )
   {
     if ( *(uint8_t *)(v1 + 96) == 1 )
-      return sub_116174(
+      return check_global_flag(
                (int)result,
                v1 + 80,
                result[18] - *((uint8_t *)result + 52) + 172,

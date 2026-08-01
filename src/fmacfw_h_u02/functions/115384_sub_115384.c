@@ -13,13 +13,13 @@
 extern uint32_t dword_115394;
 extern uint32_t off_115390;
 
-// sub_115384 @ 0x115384, size 12 bytes
-int  sub_115384(int a1, int a2)
+// int_flag_clear @ 0x115384, size 12 bytes
+int  int_flag_clear(int a1, int a2)
 {
   int v2; // r0
 
   v2 = dword_115394;
   *(uint8_t *)off_115390 = 0;
-  return sub_12E948(v2, a2, 0);
+  return alloc_tx_event(v2, a2, 0);
 }
 

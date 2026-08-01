@@ -13,8 +13,8 @@
 extern uint32_t off_138BD0;
 extern uint32_t off_138BD4;
 
-// sub_138B74 @ 0x138b74, size 92 bytes
-uint32_t * sub_138B74(int a1, int16_t a2)
+// rf_get_channel_freq @ 0x138b74, size 92 bytes
+uint32_t * rf_get_channel_freq(int a1, int16_t a2)
 {
   uint32_t *v2; // r6
   int16_t v4; // r5
@@ -46,7 +46,7 @@ LABEL_4:
   else
     v6 = v5 & 0xFFFFFFBF;
   *(uint32_t *)(a1 + 96) = v6;
-  sub_11E4C4(a1);
-  return sub_138890(a1, v4, v2[16]);
+  tx_packet_complete(a1);
+  return rf_lookup_tx_power(a1, v4, v2[16]);
 }
 

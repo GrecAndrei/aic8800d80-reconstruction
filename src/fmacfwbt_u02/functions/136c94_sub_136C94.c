@@ -12,10 +12,10 @@
 
 extern uint32_t dword_136CF8;
 
-// sub_136C94 @ 0x136c94, size 100 bytes
+// txpwr_limit_apply @ 0x136c94, size 100 bytes
 // Doc: bt_fmac_handler_n136 [bt]: BT FMAC handler checking flag bitmask against per-channel mask
 // bt_fmac_handler_n136 [bt]: BT FMAC handler checking flag bitmask against per-channel mask
-int  sub_136C94(int result, int a2)
+int  txpwr_limit_apply(int result, int a2)
 {
   int v3; // r3
   int v4; // r0
@@ -36,11 +36,11 @@ int  sub_136C94(int result, int a2)
     {
       *(uint8_t *)(a2 + 53) |= 2u;
 LABEL_5:
-      v4 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+      v4 = bt_buf_alloc(65, 0, 5, 4u);
       *(uint16_t *)v4 = *(uint16_t *)(a2 + 32);
       *(uint8_t *)(v4 + 3) = *(uint8_t *)(a2 + 34);
       *(uint8_t *)(v4 + 2) = 1;
-      return sub_12CBB4(v4);
+      return hci_evt_send(v4);
     }
   }
   return result;

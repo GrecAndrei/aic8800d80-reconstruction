@@ -16,10 +16,10 @@ extern uint32_t dword_13CF08;
 extern uint32_t dword_13CF10;
 extern uint32_t dword_13CF04;
 
-// sub_13CC88 @ 0x13cc88, size 630 bytes
+// ke_process_event @ 0x13cc88, size 630 bytes
 // Doc: sub_123CC88 [unknown]: Unknown BT/fmac helper
 // sub_123CC88 [unknown]: Unknown BT/fmac helper
-uint64_t  sub_13CC88(int a1, uint16_t *a2, int a3, int a4, int a5)
+uint64_t  ke_process_event(int a1, uint16_t *a2, int a3, int a4, int a5)
 {
   char *v9; // r6
   int v10; // r5
@@ -70,12 +70,12 @@ uint64_t  sub_13CC88(int a1, uint16_t *a2, int a3, int a4, int a5)
   if ( a3 <= 23 )
   {
     if ( **(int16_t **)off_13CF00 < 0 )
-      sub_12F6C4(dword_13CF0C, dword_13CF08, 430);
+      mmio_field_update(dword_13CF0C, dword_13CF08, 430);
     return 0;
   }
   v50 = *a2 & 0xC7FF;
   v9 = (char *)a2 + a4;
-  sub_14380C(v51, a2 + 2, 18);
+  memcpy_aligned(v51, a2 + 2, 18);
   v10 = a3 - a4;
   v38 = 20;
   v39 = v10;
@@ -123,8 +123,8 @@ uint64_t  sub_13CC88(int a1, uint16_t *a2, int a3, int a4, int a5)
     v19 = v20;
     v18 += 16;
   }
-  memset_thunk((int *)&v44, 0, 0x10u);
-  memset_thunk((int *)&v47, 0, 0x10u);
+  memset_byte((int *)&v44, 0, 0x10u);
+  memset_byte((int *)&v47, 0, 0x10u);
   if ( v12 > 16 )
   {
     v22 = &v38;
@@ -172,12 +172,12 @@ uint64_t  sub_13CC88(int a1, uint16_t *a2, int a3, int a4, int a5)
       v45 ^= v42;
       v24 -= 16;
       v46 ^= v43;
-      sub_13C870(v52, &v44);
+      mac_compute_transform(v52, &v44);
     }
     while ( v24 > 16 );
     v12 = v12 - 16 - ((v12 - 17) & 0xFFFFFFF0);
-    sub_13C870(v52, &v47);
-    sub_13CC18((unsigned int *)&v47);
+    mac_compute_transform(v52, &v47);
+    rx_parse_packet_header((unsigned int *)&v47);
 LABEL_18:
     v29 = 0;
     do
@@ -206,8 +206,8 @@ LABEL_22:
     v31 = (uint64_t *)((char *)&v41 + v30 + 1);
     goto LABEL_25;
   }
-  sub_13C870(v52, &v47);
-  sub_13CC18((unsigned int *)&v47);
+  mac_compute_transform(v52, &v47);
+  rx_parse_packet_header((unsigned int *)&v47);
   v31 = &v41;
   if ( v12 > 0 )
   {
@@ -228,7 +228,7 @@ LABEL_25:
         *v32++ = 0;
       while ( v32 != v33 );
     }
-    sub_13CC18((unsigned int *)&v47);
+    rx_parse_packet_header((unsigned int *)&v47);
   }
   v47 ^= v41;
   v44 ^= v47;
@@ -238,7 +238,7 @@ LABEL_25:
   v45 = v35;
   v49 ^= v43;
   v46 = v34;
-  sub_13C870(v52, &v44);
+  mac_compute_transform(v52, &v44);
   return v44;
 }
 

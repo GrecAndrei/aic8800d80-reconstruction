@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131474 @ 0x131474, size 88 bytes
-int  sub_131474(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// rf_get_cal_status2 @ 0x131474, size 88 bytes
+int  rf_get_cal_status2(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   int result; // r0
   char v7; // r2
@@ -20,7 +20,7 @@ int  sub_131474(uint8_t *a1, int a2, int a3, uint8_t *a4)
   int v10; // r5
   int v11; // r3
 
-  result = (int)sdio_buffer_prepare_e188(a1, a2);
+  result = (int)parse_amp_u16(a1, a2);
   *a4 = 0;
   if ( result )
   {

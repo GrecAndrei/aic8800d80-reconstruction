@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D240 @ 0x12d240, size 8 bytes
+// zero_8_bytes @ 0x12d240, size 8 bytes
 // Doc: sub_122D240 [util]: Zero-initialize a structure and check a status flag
 // sub_122D240 [util]: Zero-initialize a structure and check a status flag
-uint32_t * sub_12D240(uint32_t *result)
+uint32_t * zero_8_bytes(uint32_t *result)
 {
   *result = 0;
   result[1] = 0;

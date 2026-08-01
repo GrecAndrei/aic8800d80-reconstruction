@@ -18,8 +18,8 @@ extern uint32_t off_122B0C;
 extern uint32_t off_122B14;
 extern uint32_t off_122B10;
 
-// sub_122A64 @ 0x122a64, size 152 bytes
-int  sub_122A64(int a1, uint8_t *a2, int a3, int a4)
+// parse_byte_param @ 0x122a64, size 152 bytes
+int  parse_byte_param(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r4
   uint8_t *v7; // r4
@@ -63,7 +63,7 @@ int  sub_122A64(int a1, uint8_t *a2, int a3, int a4)
     *v11 &= 0xFFFFFu;
     *v11 |= *((uint32_t *)a2 + 3) << 20;
   }
-  sub_12CA10(102, a4, a3);
+  ke_msg_send_no_param(102, a4, a3);
   return 0;
 }
 

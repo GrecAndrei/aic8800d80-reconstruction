@@ -13,8 +13,8 @@
 extern uint32_t off_102A14;
 extern uint32_t off_102A18;
 
-// sub_1029DC @ 0x1029dc, size 56 bytes
-unsigned int  sub_1029DC(uint8_t a1)
+// gpio_config @ 0x1029dc, size 56 bytes
+unsigned int  gpio_config(uint8_t a1)
 {
   unsigned int *v1; // r1
   unsigned int *v2; // r2

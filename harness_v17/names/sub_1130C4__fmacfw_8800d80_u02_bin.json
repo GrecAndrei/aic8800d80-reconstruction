@@ -1,0 +1,1 @@
+{"fn": "sub_1130C4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1130c4", "status": "ok", "name": "get_global_166e84", "params": [], "docstring": "Returns pointer stored at fixed address.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t dword_13CB34;
 extern uint32_t dword_13CB3C;
 extern uint32_t dword_13CB38;
 
-// sub_13C870 @ 0x13c870, size 936 bytes
-int  sub_13C870(uint32_t *a1, uint32_t *a2)
+// mac_compute_transform @ 0x13c870, size 936 bytes
+int  mac_compute_transform(uint32_t *a1, uint32_t *a2)
 {
   int v2; // r3
   int v3; // r4

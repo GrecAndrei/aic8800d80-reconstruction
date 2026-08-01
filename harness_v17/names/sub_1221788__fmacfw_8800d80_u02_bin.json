@@ -1,1 +1,1 @@
-{"fn": "sub_1221788", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1221788", "status": "ok", "name": "mmio_init_regs_1221788", "params": [], "docstring": "Initialize MMIO register block pointers for hardware control", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1221788", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1221788", "status": "ok", "name": "read_mac_int_status", "params": [], "docstring": "Initialize MMIO register block pointers for hardware control", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

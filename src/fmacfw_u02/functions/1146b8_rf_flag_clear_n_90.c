@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_flag_clear_n_90 @ 0x1146b8, size 10 bytes
-// Doc: rf_flag_clear_n_90 [rf]: Clear a global RF status flag by zeroing word
-// rf_flag_clear_n_90 [rf]: Clear a global RF status flag by zeroing word
-void rf_flag_clear_n_90()
+// dummy_store_global @ 0x1146b8, size 10 bytes
+// Doc: dummy_store_global [rf]: Clear a global RF status flag by zeroing word
+// dummy_store_global [rf]: Clear a global RF status flag by zeroing word
+void dummy_store_global()
 {
   **(uint32_t **)rf_fault_dump_n_84 = **(uint32_t **)rf_fault_dump_n_84;
 }

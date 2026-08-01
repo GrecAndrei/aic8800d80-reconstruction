@@ -20,8 +20,8 @@ extern uint32_t off_103F44;
 extern uint32_t dword_103F60;
 extern uint32_t off_103F40;
 
-// sub_103E84 @ 0x103e84, size 186 bytes
-int  sub_103E84(int a1, int a2, int a3)
+// mac_tx_wait_ack @ 0x103e84, size 186 bytes
+int  mac_tx_wait_ack(int a1, int a2, int a3)
 {
   int v3; // r1
   int v4; // r2

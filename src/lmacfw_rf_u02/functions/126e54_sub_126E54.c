@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_126E54 @ 0x126e54, size 38 bytes
+// mac_packet_dispatch @ 0x126e54, size 38 bytes
 // Doc: rf_level_apply_helper [rf]: RF level apply helper routine
 // rf_level_apply_helper [rf]: RF level apply helper routine
-int sub_126E54()
+int mac_packet_dispatch()
 {
   if ( *((uint8_t *)rf_level_apply_na4 + 1) )
     return *((char *)rf_level_apply_na4 + 3);
-  sub_10DE98();
-  return (int)COERCE_FLOAT(sub_10DEF0());
+  sdio_core_reset_alt();
+  return (int)COERCE_FLOAT(wait_sdio_core_ready());
 }
 

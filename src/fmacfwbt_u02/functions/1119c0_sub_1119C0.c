@@ -13,10 +13,10 @@
 extern uint32_t dword_111A70;
 extern uint32_t dword_111A74;
 
-// sub_1119C0 @ 0x1119c0, size 162 bytes
+// tx_desc_hw_config @ 0x1119c0, size 162 bytes
 // Doc: rf_bus_write_n98 [rf]: Writes data word to RF bus
 // rf_bus_write_n98 [rf]: Writes data word to RF bus
-int * sub_1119C0(int a1, int a2, int a3)
+int * tx_desc_hw_config(int a1, int a2, int a3)
 {
   uint32_t *v3; // r6
   int *v4; // r5
@@ -58,11 +58,11 @@ int * sub_1119C0(int a1, int a2, int a3)
     {
 rf_msg_handler_n_26d:
       *((uint32_t *)rf_bus_write2_n_c + 513) |= 0x400u;
-      return sub_1117C8(a1);
+      return tx_hdr_clear(a1);
     }
     *v4 &= ~0x8000u;
     goto rf_msg_handler_n_26d;
   }
-  return sub_1117C8(a1);
+  return tx_hdr_clear(a1);
 }
 

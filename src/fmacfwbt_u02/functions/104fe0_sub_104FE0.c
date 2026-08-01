@@ -12,8 +12,8 @@
 
 extern uint32_t dword_105080;
 
-// sub_104FE0 @ 0x104fe0, size 154 bytes
-int  sub_104FE0(int a1, int a2, int a3)
+// util_compare_time @ 0x104fe0, size 154 bytes
+int  util_compare_time(int a1, int a2, int a3)
 {
   float v6; // s14
   uint64_t v8; // r8
@@ -29,21 +29,21 @@ int  sub_104FE0(int a1, int a2, int a3)
 
   if ( a1 > a2 )
   {
-    v14 = sub_142A70(a1);
-    v15 = sub_142A70(a2);
-    v16 = sub_142D98(v14, HIDWORD(v14), v15, HIDWORD(v15));
-    v17 = sub_143108(v16);
-    v12 = COERCE_FLOAT(rf_state_check_n3ea_d908(v17));
+    v14 = __aeabi_i2d(a1);
+    v15 = __aeabi_i2d(a2);
+    v16 = __aeabi_ddiv(v14, HIDWORD(v14), v15, HIDWORD(v15));
+    v17 = double_to_float(v16);
+    v12 = COERCE_FLOAT(system_init_sequence(v17));
     v13 = 20.0;
     goto LABEL_6;
   }
   if ( a1 < a2 )
   {
-    v8 = sub_142A70(a2);
-    v9 = sub_142A70(a1);
-    v10 = sub_142D98(v8, HIDWORD(v8), v9, HIDWORD(v9));
-    v11 = sub_143108(v10);
-    v12 = COERCE_FLOAT(rf_state_check_n3ea_d908(v11));
+    v8 = __aeabi_i2d(a2);
+    v9 = __aeabi_i2d(a1);
+    v10 = __aeabi_ddiv(v8, HIDWORD(v8), v9, HIDWORD(v9));
+    v11 = double_to_float(v10);
+    v12 = COERCE_FLOAT(system_init_sequence(v11));
     v13 = -20.0;
 LABEL_6:
     v6 = v12 * v13;
@@ -52,6 +52,6 @@ LABEL_6:
   v6 = flt_10507C;
 LABEL_4:
   *(float *)(a3 + 96) = v6;
-  return feature_guard_sdio(1, dword_105080);
+  return state_check_feature(1, dword_105080);
 }
 

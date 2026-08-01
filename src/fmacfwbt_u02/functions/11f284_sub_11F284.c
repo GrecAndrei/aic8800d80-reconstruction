@@ -21,10 +21,10 @@ extern uint32_t dword_11F49C;
 extern uint32_t off_11F4A0;
 extern uint32_t off_11F4A4;
 
-// sub_11F284 @ 0x11f284, size 504 bytes
+// wlc_detach @ 0x11f284, size 504 bytes
 // Doc: sub_121F284 [mmio]: Lookup helper using flag byte and table call, returns int
 // sub_121F284 [mmio]: Lookup helper using flag byte and table call, returns int
-int  sub_11F284(int *a1, uint8_t *a2)
+int  wlc_detach(int *a1, uint8_t *a2)
 {
   int v3; // r8
   int v5; // r0
@@ -65,16 +65,16 @@ int  sub_11F284(int *a1, uint8_t *a2)
   int v41; // r1
 
   v3 = *((uint8_t *)a1 + 25);
-  v5 = sub_12D4F8(dword_11F47C);
+  v5 = list_pop_front(dword_11F47C);
   if ( !v5 )
     return 1;
   v6 = v5;
   if ( *((uint8_t *)a1 + 29) )
   {
-    v35 = sub_12D4F8(dword_11F47C);
+    v35 = list_pop_front(dword_11F47C);
     if ( !v35 )
     {
-      list_push_tail(dword_11F47C);
+      check_abort_flag(dword_11F47C);
       return 1;
     }
     *(uint32_t *)(v6 + 44) = v35;
@@ -118,7 +118,7 @@ int  sub_11F284(int *a1, uint8_t *a2)
   *(uint8_t *)(v6 + 34) = *((uint8_t *)a1 + 25);
   *a2 = v14;
   *(uint8_t *)(v6 + 35) = v14;
-  feature_guard_sdio(256, v13);
+  state_check_feature(256, v13);
   v15 = dword_11F490;
   v16 = dword_11F490 + 1320 * v3;
   v17 = *(uint8_t *)(v16 + 1224);
@@ -159,7 +159,7 @@ int  sub_11F284(int *a1, uint8_t *a2)
   while ( v6 + 108 != v19 );
   if ( (v22 & 0x10) != 0 )
     *(uint32_t *)(v6 + 4) |= 8u;
-  list_push_tail(v15 + v20 + 240);
+  check_abort_flag(v15 + v20 + 240);
   *(uint32_t *)(v6 + 580) = dword_11F49C;
   if ( (__get_CPSR() & 1) == 0 )
   {

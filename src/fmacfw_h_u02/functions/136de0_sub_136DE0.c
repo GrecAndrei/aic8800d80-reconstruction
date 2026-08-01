@@ -13,16 +13,16 @@
 extern uint32_t off_136E08;
 extern uint32_t dword_136E0C;
 
-// sub_136DE0 @ 0x136de0, size 40 bytes
-int sub_136DE0()
+// rf_trace_channel @ 0x136de0, size 40 bytes
+int rf_trace_channel()
 {
   uint16_t *v0; // r4
   int v1; // r0
 
   v0 = (uint16_t *)off_136E08;
-  v1 = sub_12C7EC(4107, *((uint16_t *)off_136E08 + 1924), 4, 1u);
-  sub_12C84C(v1);
-  sub_12EB90(8, dword_136E0C, v0[1924]);
+  v1 = tx_send_pdu(4107, *((uint16_t *)off_136E08 + 1924), 4, 1u);
+  rx_process_packet(v1);
+  check_feature_flag(8, dword_136E0C, v0[1924]);
   return 0;
 }
 

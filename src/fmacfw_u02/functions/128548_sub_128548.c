@@ -13,10 +13,10 @@
 extern uint32_t dword_1285B4;
 extern uint32_t off_1285B8;
 
-// sub_128548 @ 0x128548, size 106 bytes
+// get_control_byte @ 0x128548, size 106 bytes
 // Doc: sub_1228548 [unknown]: Unknown fmac utility
 // sub_1228548 [unknown]: Unknown fmac utility
-int  sub_128548(int result)
+int  get_control_byte(int result)
 {
   int v1; // r3
   int v2; // r2
@@ -54,14 +54,14 @@ LABEL_6:
     v5 = off_1285B8;
     *(uint8_t *)(result + 12) = v4;
     if ( v5[10] == result )
-      return mac_rx_reorder(v4);
+      return util_format(v4);
   }
   else
   {
     v6 = off_1285B8;
     *(uint8_t *)(result + 12) = 15;
     if ( v6[10] == result )
-      return mac_rx_reorder(15);
+      return util_format(15);
   }
   return result;
 }

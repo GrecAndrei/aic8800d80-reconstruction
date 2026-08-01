@@ -12,10 +12,10 @@
 
 extern uint32_t off_10066C;
 
-// delay_us_0644 @ 0x100644, size 40 bytes
-// Doc: delay_us_0644 [util]: Microsecond busy-wait delay using MMIO timer at 0x40501000
-// delay_us_0644 [util]: Microsecond busy-wait delay using MMIO timer at 0x40501000
-int  delay_us_0644(int a1)
+// timer_delay @ 0x100644, size 40 bytes
+// Doc: timer_delay [util]: Microsecond busy-wait delay using MMIO timer at 0x40501000
+// timer_delay [util]: Microsecond busy-wait delay using MMIO timer at 0x40501000
+int  timer_delay(int a1)
 {
   int result; // r0
   int v3; // [sp+4h] [bp-8h]

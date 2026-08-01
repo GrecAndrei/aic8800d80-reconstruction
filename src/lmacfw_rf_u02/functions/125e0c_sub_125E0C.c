@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_125E0C @ 0x125e0c, size 10 bytes
-int  sub_125E0C(uint8_t **a1, uint8_t *a2)
+// bt_msg_send_if_allocated @ 0x125e0c, size 10 bytes
+int  bt_msg_send_if_allocated(uint8_t **a1, uint8_t *a2)
 {
   if ( a2 )
-    return rf_state_load(a1, a2);
+    return util_list_find(a1, a2);
   else
     return 0;
 }

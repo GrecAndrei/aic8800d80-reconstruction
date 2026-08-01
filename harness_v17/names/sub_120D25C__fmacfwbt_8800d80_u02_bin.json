@@ -1,1 +1,1 @@
-{"fn": "sub_120D25C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d25c", "status": "ok", "name": "bt_hci_cmd_dispatch", "params": [], "docstring": "Bluetooth HCI command dispatcher (cmp 0x70='p')", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120D25C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d25c", "status": "ok", "name": "clear_182b70_struct", "params": [], "docstring": "Bluetooth HCI command dispatcher (cmp 0x70='p')", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

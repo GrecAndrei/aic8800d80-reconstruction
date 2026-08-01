@@ -26,8 +26,8 @@ extern uint32_t off_12D084;
 extern uint32_t off_12D088;
 extern uint32_t dword_12D08C;
 
-// sub_12CF5C @ 0x12cf5c, size 278 bytes
-uint32_t * sub_12CF5C(unsigned int a1, int a2)
+// hci_cmd_send @ 0x12cf5c, size 278 bytes
+uint32_t * hci_cmd_send(unsigned int a1, int a2)
 {
   int16_t **v2; // r7
   unsigned int v5; // r9
@@ -50,7 +50,7 @@ uint32_t * sub_12CF5C(unsigned int a1, int a2)
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
-    sub_12F694(dword_12D09C, dword_12D090, 173);
+    mmio_irq_clear(dword_12D09C, dword_12D090, 173);
     if ( **v2 >= 0 )
     {
 LABEL_2:
@@ -58,13 +58,13 @@ LABEL_2:
       goto LABEL_3;
     }
     if ( v6 != 14 )
-      sub_12F694(dword_12D0A4, dword_12D0A0, 183);
+      mmio_irq_clear(dword_12D0A4, dword_12D0A0, 183);
   }
   else if ( (uint8_t)a1 != 13 )
   {
     goto LABEL_16;
   }
-  sub_12F694(dword_12D0A8, dword_12D090, 174);
+  mmio_irq_clear(dword_12D0A8, dword_12D090, 174);
   if ( **v2 >= 0 )
     goto LABEL_2;
 LABEL_16:
@@ -76,13 +76,13 @@ LABEL_16:
       goto LABEL_3;
     goto LABEL_18;
   }
-  sub_12F694(dword_12D098, dword_12D090, 175);
+  mmio_irq_clear(dword_12D098, dword_12D090, 175);
   v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
   if ( **v2 < 0 && !v7 )
 LABEL_18:
-    sub_12F694(dword_12D094, dword_12D090, 180);
+    mmio_irq_clear(dword_12D094, dword_12D090, 180);
 LABEL_3:
-  result = (uint32_t *)sub_12ECB0(dword_12D07C, a1, a2);
+  result = (uint32_t *)ke_event_schedule(dword_12D07C, a1, a2);
   if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(uint32_t *, int))dword_12D0AC;
@@ -91,7 +91,7 @@ LABEL_3:
     *v7 = a2;
     while ( 1 )
     {
-      result = sub_12CC64(v10, v9, a1);
+      result = tx_list_foreach(v10, v9, a1);
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -102,7 +102,7 @@ LABEL_3:
       v12 = (int *)off_12D088;
       v13 = dword_12D08C;
       ++*(uint32_t *)off_12D088;
-      sub_12D470(v13);
+      check_abort_flag(v13);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -114,7 +114,7 @@ LABEL_3:
             __enable_irq();
         }
       }
-      sub_12D32C(0x4000000);
+      set_system_flag_1(0x4000000);
     }
   }
   return result;

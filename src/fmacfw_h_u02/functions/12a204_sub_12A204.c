@@ -14,8 +14,8 @@ extern uint32_t off_12A2A8;
 extern uint32_t dword_12A2AC;
 extern uint32_t dword_12A2B0;
 
-// sub_12A204 @ 0x12a204, size 164 bytes
-unsigned int  sub_12A204(uint8_t *a1, int a2, int a3)
+// bt_scan_stop @ 0x12a204, size 164 bytes
+unsigned int  bt_scan_stop(uint8_t *a1, int a2, int a3)
 {
   unsigned int v3; // r4
   unsigned int v5; // r0
@@ -35,7 +35,7 @@ unsigned int  sub_12A204(uint8_t *a1, int a2, int a3)
     v5 = (uint8_t)a1[1225];
     if ( **(int16_t **)off_12A2A8 < 0 && v5 > 1 )
     {
-      sub_12F32C(dword_12A2AC, dword_12A2B0, 1420);
+      irq_disable_mmio_write(dword_12A2AC, dword_12A2B0, 1420);
       v5 = (uint8_t)a1[1225];
     }
     v8 = *(uint32_t *)(a2 + 8);
@@ -75,7 +75,7 @@ LABEL_6:
 LABEL_19:
       v3 = 0;
     }
-    sub_129C48(v5, v3, *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(a3 + 8) + 8) + 24));
+    sec_table_entry_count(v5, v3, *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(a3 + 8) + 8) + 24));
     return v3;
   }
   return 0;

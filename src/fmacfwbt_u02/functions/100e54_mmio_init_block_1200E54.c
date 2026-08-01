@@ -31,10 +31,10 @@ extern uint32_t off_101100;
 extern uint32_t off_101104;
 extern uint32_t off_101108;
 
-// mmio_init_block_1200E54 @ 0x100e54, size 616 bytes
-// Doc: mmio_init_block_1200E54 [mmio]: Initialize MMIO block at 0x40344000 with bit OR 0x400 patch
-// mmio_init_block_1200E54 [mmio]: Initialize MMIO block at 0x40344000 with bit OR 0x400 patch
-int  mmio_init_block_1200E54(unsigned int a1, int a2)
+// rf_analog_enable @ 0x100e54, size 616 bytes
+// Doc: rf_analog_enable [mmio]: Initialize MMIO block at 0x40344000 with bit OR 0x400 patch
+// rf_analog_enable [mmio]: Initialize MMIO block at 0x40344000 with bit OR 0x400 patch
+int  rf_analog_enable(unsigned int a1, int a2)
 {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
@@ -92,9 +92,9 @@ int  mmio_init_block_1200E54(unsigned int a1, int a2)
   *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
   *v8 &= ~1u;
   *(v6 - 1903) |= 8u;
-  sub_102D10(1, 0, 16, *v9);
-  sub_102D10(1, 16, 16, *(uint32_t *)off_1010D8);
-  sub_1009A0(0, a1);
+  memcpy(1, 0, 16, *v9);
+  memcpy(1, 16, 16, *(uint32_t *)off_1010D8);
+  radio_init(0, a1);
   if ( a1 > 0x98A )
   {
     v11 = 6;
@@ -155,7 +155,7 @@ int  mmio_init_block_1200E54(unsigned int a1, int a2)
     ;
   result = *(uint32_t *)off_101108 & 1;
   if ( !result )
-    result = sub_100CD0(0);
+    result = adc_read_ch0(0);
   *(uint32_t *)off_101104 = 1;
   return result;
 }

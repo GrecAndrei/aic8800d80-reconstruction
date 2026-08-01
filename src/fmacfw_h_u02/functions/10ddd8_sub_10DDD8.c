@@ -13,8 +13,8 @@
 extern uint32_t dword_10DE00;
 extern uint32_t dword_10DE04;
 
-// sub_10DDD8 @ 0x10ddd8, size 40 bytes
-int  sub_10DDD8(int a1)
+// rf_table_update @ 0x10ddd8, size 40 bytes
+int  rf_table_update(int a1)
 {
   int v1; // r2
   int v2; // r0
@@ -29,6 +29,6 @@ int  sub_10DDD8(int a1)
     v1 += 12;
   }
   while ( v1 != v3 );
-  return sub_102E08(1, 16, 0x10u, dword_10DE04);
+  return uart_send_data(1, 16, 0x10u, dword_10DE04);
 }
 

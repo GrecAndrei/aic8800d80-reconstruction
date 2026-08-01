@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143E1C @ 0x143e1c, size 186 bytes
+// memcpy @ 0x143e1c, size 186 bytes
 // Doc: sub_1243E1C [util]: Check word alignment of pointer pair
 // sub_1243E1C [util]: Check word alignment of pointer pair
-unsigned int  sub_143E1C(unsigned int result, unsigned int a2)
+unsigned int  memcpy(unsigned int result, unsigned int a2)
 {
   uint8_t *v2; // r12
   int *v3; // r1

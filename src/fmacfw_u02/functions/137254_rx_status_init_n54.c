@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rx_status_init_n54 @ 0x137254, size 628 bytes
-// Doc: rx_status_init_n54 [rx]: Initializes RX status block fields to zero
-// rx_status_init_n54 [rx]: Initializes RX status block fields to zero
-uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
+// init_sched_context @ 0x137254, size 628 bytes
+// Doc: init_sched_context [rx]: Initializes RX status block fields to zero
+// init_sched_context [rx]: Initializes RX status block fields to zero
+uint8_t * init_sched_context(uint8_t *result, int a2, char a3, int a4)
 {
   uint8_t *v5; // r6
   uint8_t *v7; // r0
@@ -56,12 +56,12 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
     return result;
   }
   v5 = result;
-  v7 = sub_12D994(result, a2, &v37);
+  v7 = buf_calc_5(result, a2, &v37);
   v8 = v7;
   if ( v7 )
   {
     v9 = v37;
-    result = (uint8_t *)sub_12E080(bswap32(*((uint32_t *)v7 + 1)));
+    result = (uint8_t *)rf_trim_low(bswap32(*((uint32_t *)v7 + 1)));
     if ( result )
     {
       result = (uint8_t *)((1 << (char)result) | *(uint16_t *)(a4 + 52));
@@ -71,7 +71,7 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
     v11 = v9 - 8;
     for ( i = (unsigned int *)(v8 + 10); v10 && v11 > 3; --v10 )
     {
-      result = (uint8_t *)sub_12E080(bswap32(*i));
+      result = (uint8_t *)rf_trim_low(bswap32(*i));
       v11 -= 4;
       ++i;
       if ( result )
@@ -90,7 +90,7 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
       {
         while ( 1 )
         {
-          result = (uint8_t *)sub_12DFD4(bswap32(*v13));
+          result = (uint8_t *)rf_trim_high(bswap32(*v13));
           v16 -= 4;
           ++v13;
           if ( result )
@@ -126,7 +126,7 @@ LABEL_69:
             *(uint16_t *)(a4 + 52) |= 0x20u;
             return result;
           }
-          result = (uint8_t *)sub_12E080(bswap32(*v18));
+          result = (uint8_t *)rf_trim_low(bswap32(*v18));
           if ( result )
 LABEL_28:
             *(uint16_t *)(a4 + 52) |= 1 << (char)result;
@@ -136,14 +136,14 @@ LABEL_28:
   }
   else
   {
-    inited = msg_alloc_and_init_n1e6(v5, a2, &v37);
+    inited = log_with_format(v5, a2, &v37);
     v21 = inited;
     if ( inited )
     {
       v22 = v37;
       v23 = bswap32(*((uint32_t *)inited + 2));
       *(uint32_t *)(a4 + 48) = 2;
-      result = (uint8_t *)sub_12E080(v23);
+      result = (uint8_t *)rf_trim_low(v23);
       if ( result )
       {
         result = (uint8_t *)((1 << (char)result) | *(uint16_t *)(a4 + 52));
@@ -153,7 +153,7 @@ LABEL_28:
       v25 = v22 - 12;
       for ( j = (unsigned int *)(v21 + 14); v24 && v25 > 3; --v24 )
       {
-        result = (uint8_t *)sub_12E080(bswap32(*j));
+        result = (uint8_t *)rf_trim_low(bswap32(*j));
         v25 -= 4;
         ++j;
         if ( result )
@@ -173,7 +173,7 @@ LABEL_28:
             v29 = (unsigned int)j + ((v25 - 6) & 0xFFFFFFFC) + 6;
             do
             {
-              result = (uint8_t *)sub_12DFD4(bswap32(*v27++));
+              result = (uint8_t *)rf_trim_high(bswap32(*v27++));
               if ( result )
               {
                 result = (uint8_t *)((1 << (char)result) | *(uint32_t *)(a4 + 48));
@@ -188,7 +188,7 @@ LABEL_28:
     }
     else
     {
-      result = sub_12D9FC(v5, a2, &v37);
+      result = check_one_12d9fc(v5, a2, &v37);
       if ( !result )
       {
         *(uint32_t *)(a4 + 48) = 2;
@@ -202,7 +202,7 @@ LABEL_28:
       {
         do
         {
-          result = (uint8_t *)sub_12DFD4(bswap32(*v32));
+          result = (uint8_t *)rf_trim_high(bswap32(*v32));
           v31 -= 4;
           ++v32;
           if ( result )
@@ -226,7 +226,7 @@ LABEL_28:
             return result;
           while ( 1 )
           {
-            result = (uint8_t *)sub_12E080(bswap32(*v33));
+            result = (uint8_t *)rf_trim_low(bswap32(*v33));
             v36 -= 4;
             ++v33;
             if ( result )
@@ -242,7 +242,7 @@ LABEL_28:
         }
         if ( v36 > 3 )
         {
-          result = (uint8_t *)sub_12E080(bswap32(*v33));
+          result = (uint8_t *)rf_trim_low(bswap32(*v33));
           if ( result )
             goto LABEL_28;
         }

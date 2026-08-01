@@ -17,29 +17,29 @@ extern uint32_t off_10DD5C;
 extern uint32_t dword_10DD60;
 extern uint32_t off_10DD58;
 
-// sub_10DCEC @ 0x10dcec, size 94 bytes
-int sub_10DCEC()
+// init_oscillators @ 0x10dcec, size 94 bytes
+int init_oscillators()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r3
   int result; // r0
 
-  irq_prio_set(1);
-  irq_prio_set2(1);
-  irq_prio_set(2);
-  irq_prio_set2(2);
+  irq_set_priority(1);
+  gpio_set_bit_reg8(1);
+  irq_set_priority(2);
+  gpio_set_bit_reg8(2);
   if ( *((uint8_t *)off_10DD4C + 369) )
   {
-    irq_enable(1);
-    irq_enable(2);
+    gpio_set_bit_reg0(1);
+    gpio_set_bit_reg0(2);
   }
   else
   {
-    sub_10DB6C(1);
-    sub_10DB6C(2);
+    gpio_clear_bit_reg0(1);
+    gpio_clear_bit_reg0(2);
   }
-  mmio_reg_bit_clear(3);
-  irq_config(3, 2, dword_10DD50);
+  gpio_clear_bit_reg8(3);
+  gpio_pin_config(3, 2, dword_10DD50);
   v0 = off_10DD54;
   v1 = off_10DD5C;
   result = dword_10DD60;

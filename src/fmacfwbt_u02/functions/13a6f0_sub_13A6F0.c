@@ -13,10 +13,10 @@
 extern uint32_t dword_13A798;
 extern uint32_t dword_13A79C;
 
-// sub_13A6F0 @ 0x13a6f0, size 168 bytes
+// rf_reset_tx_state @ 0x13a6f0, size 168 bytes
 // Doc: sub_123A6F0 [util]: Initialize/reset a control struct fields at offset 0x24
 // sub_123A6F0 [util]: Initialize/reset a control struct fields at offset 0x24
-int  sub_13A6F0(int a1)
+int  rf_reset_tx_state(int a1)
 {
   int16_t v1; // r2
   int result; // r0
@@ -57,7 +57,7 @@ int  sub_13A6F0(int a1)
     if ( !*(uint8_t *)(v9 + 106) && (*(uint32_t *)(dword_13A798 + 696 * result + 4) & 0x20) != 0 )
       v7 += 4;
     *(uint8_t *)(a1 + 50) = v7;
-    result = sub_13A5C4(a1, &v13);
+    result = rf_get_cal_entry(a1, &v13);
     v10 = *(uint16_t *)(a1 + 24);
     *(uint16_t *)(a1 + 48) = *(uint16_t *)(a1 + 4);
     v11 = v7 + result;

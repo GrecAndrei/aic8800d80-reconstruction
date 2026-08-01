@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_cmd_dispatch_n_4e8 @ 0x121a5c, size 4 bytes
-// Doc: rf_cmd_dispatch_n_4e8 [rf]: Dispatches RF command based on current state (checks state==3)
-// rf_cmd_dispatch_n_4e8 [rf]: Dispatches RF command based on current state (checks state==3)
+// patch_trampoline @ 0x121a5c, size 4 bytes
+// Doc: patch_trampoline [rf]: Dispatches RF command based on current state (checks state==3)
+// patch_trampoline [rf]: Dispatches RF command based on current state (checks state==3)
 // attributes: thunk
-int  rf_cmd_dispatch_n_4e8(uint16_t *a1)
+int  patch_trampoline(uint16_t *a1)
 {
-  return sub_10D06C(a1);
+  return mac_ll_scheduler(a1);
 }
 

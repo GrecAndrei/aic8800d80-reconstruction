@@ -1,1 +1,1 @@
-{"fn": "sub_1228FE8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1228fe8", "status": "ok", "name": "bt_init_check_228fe8", "params": [], "docstring": "Bluetooth init/state check loading config pointers", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1228FE8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1228fe8", "status": "ok", "name": "efuse_check", "params": [], "docstring": "Bluetooth init/state check loading config pointers", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

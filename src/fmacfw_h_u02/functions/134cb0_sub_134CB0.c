@@ -12,12 +12,12 @@
 
 extern uint32_t off_134CC0;
 
-// sub_134CB0 @ 0x134cb0, size 14 bytes
-int sub_134CB0()
+// ctrl_isr_dispatch @ 0x134cb0, size 14 bytes
+int ctrl_isr_dispatch()
 {
   if ( *((uint8_t *)off_134CC0 + 4) )
-    return sub_134950();
+    return ble_rx_process();
   else
-    return sub_1347D4();
+    return ble_load_defaults();
 }
 

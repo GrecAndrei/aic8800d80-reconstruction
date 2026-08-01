@@ -1,0 +1,1 @@
+{"fn": "sub_114754", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114754", "status": "ok", "name": "init_osal_objects", "params": [], "docstring": "Initialize two OSAL objects at 0x18254c and 0x187ffc", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

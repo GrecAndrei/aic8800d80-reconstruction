@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12F52C @ 0x12f52c, size 4 bytes
+// read_mode_0x182ba0 @ 0x12f52c, size 4 bytes
 // attributes: thunk
-int  sub_12F52C(uint16_t *a1)
+int  read_mode_0x182ba0(uint16_t *a1)
 {
-  return sub_10CDD4(a1);
+  return rx_state_process(a1);
 }
 

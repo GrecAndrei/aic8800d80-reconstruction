@@ -13,8 +13,8 @@
 extern uint32_t dword_13A5BC;
 extern uint32_t dword_13A5C0;
 
-// sub_13A514 @ 0x13a514, size 168 bytes
-int  sub_13A514(int a1)
+// phy_reset @ 0x13a514, size 168 bytes
+int  phy_reset(int a1)
 {
   int16_t v1; // r2
   int result; // r0
@@ -55,7 +55,7 @@ int  sub_13A514(int a1)
     if ( !*(uint8_t *)(v9 + 106) && (*(uint32_t *)(dword_13A5BC + 696 * result + 4) & 0x20) != 0 )
       v7 += 4;
     *(uint8_t *)(a1 + 50) = v7;
-    result = sub_13A3E8(a1, &v13);
+    result = phy_init(a1, &v13);
     v10 = *(uint16_t *)(a1 + 24);
     *(uint16_t *)(a1 + 48) = *(uint16_t *)(a1 + 4);
     v11 = v7 + result;

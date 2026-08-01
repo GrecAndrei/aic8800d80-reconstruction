@@ -1,1 +1,1 @@
-{"fn": "sub_1224BBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224bbc", "status": "ok", "name": "bt_msg_post", "params": [], "docstring": "Build and post a message via IPC mailbox", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1224BBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224bbc", "status": "ok", "name": "radio_reg_init", "params": [], "docstring": "Build and post a message via IPC mailbox", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

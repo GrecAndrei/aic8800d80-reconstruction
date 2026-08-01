@@ -18,10 +18,10 @@ extern uint32_t off_114500;
 extern uint32_t off_114504;
 extern uint32_t off_114508;
 
-// sub_114498 @ 0x114498, size 94 bytes
-// Doc: sub_1214498 [util]: Internal helper invoked from rf_fault_dump path
-// sub_1214498 [util]: Internal helper invoked from rf_fault_dump path
-int  sub_114498(int a1)
+// init_chip_state @ 0x114498, size 94 bytes
+// Doc: sub_1214498 [util]: Internal helper invoked from phy_calibrate path
+// sub_1214498 [util]: Internal helper invoked from phy_calibrate path
+int  init_chip_state(int a1)
 {
   int *v1; // r3
   int v2; // r2

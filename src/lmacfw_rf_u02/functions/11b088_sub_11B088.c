@@ -14,8 +14,8 @@ extern uint32_t dword_11B1A0;
 extern uint32_t off_11B198;
 extern uint32_t off_11B19C;
 
-// sub_11B088 @ 0x11b088, size 272 bytes
-int  sub_11B088(int a1, int a2, unsigned int a3)
+// rf_calibrate @ 0x11b088, size 272 bytes
+int  rf_calibrate(int a1, int a2, unsigned int a3)
 {
   int v3; // r8
   int v4; // r9
@@ -41,19 +41,19 @@ int  sub_11B088(int a1, int a2, unsigned int a3)
   v5 = *(uint32_t *)(a1 + 72);
   v6 = *(uint8_t *)(v4 + 8);
   v7 = *(uint32_t *)(v4 + 4) - 4000;
-  v10 = v7 - a2 - sub_101A20();
+  v10 = v7 - a2 - os_get_tick_hz();
   if ( *(uint32_t *)(v3 + 224 * v6 + 72) == v5 )
   {
-    result = sub_101A20();
+    result = os_get_tick_hz();
     v12 = v10 - 4000 - result;
     if ( v12 <= 4999 )
       return result;
     v13 = *(uint32_t *)(v4 + 4);
-    v14 = v13 - 4000 - sub_101A20();
+    v14 = v13 - 4000 - os_get_tick_hz();
     v15 = (v12 + a3) >> 1;
     if ( a3 > v15 || (v16 = v15 + a2 - a3, a2 == v16) )
     {
-      rf_init_or_query();
+      rx_buffer_alloc();
       v16 = a2;
     }
     v17 = *(uint8_t *)(v5 + 24);
@@ -70,8 +70,8 @@ int  sub_11B088(int a1, int a2, unsigned int a3)
       {
         v18 = (char *)off_11B19C + 28 * v17 + 28;
 LABEL_18:
-        rf_xosc_setup(v16, (int)v18, 0);
-        return rf_xosc_setup(v14, v5, v4);
+        ke_task_handler(v16, (int)v18, 0);
+        return ke_task_handler(v14, v5, v4);
       }
       v19 = v17 == 1;
       v20 = v17 + 2;
@@ -85,12 +85,12 @@ LABEL_18:
       v18 = v21;
     goto LABEL_18;
   }
-  sub_101A20();
+  os_get_tick_hz();
   if ( a3 > (v10 + a3) >> 1 || (v11 = ((v10 + a3) >> 1) + a2 - a3, a2 == v11) )
   {
-    rf_init_or_query();
+    rx_buffer_alloc();
     v11 = a2;
   }
-  return rf_xosc_setup(v11, *(uint32_t *)(v3 + 224 * v6 + 72), v4);
+  return ke_task_handler(v11, *(uint32_t *)(v3 + 224 * v6 + 72), v4);
 }
 

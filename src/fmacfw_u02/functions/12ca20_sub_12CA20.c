@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12CA20 @ 0x12ca20, size 22 bytes
-int  sub_12CA20(int a1, int16_t a2, int16_t a3, int16_t a4)
+// store_three_halfwords_tail @ 0x12ca20, size 22 bytes
+int  store_three_halfwords_tail(int a1, int16_t a2, int16_t a3, int16_t a4)
 {
   *(uint16_t *)(a1 - 8) = a2;
   *(uint16_t *)(a1 - 6) = a3;
   *(uint16_t *)(a1 - 4) = a4;
-  return sub_12C98C(a1);
+  return ke_msg_send(a1);
 }
 

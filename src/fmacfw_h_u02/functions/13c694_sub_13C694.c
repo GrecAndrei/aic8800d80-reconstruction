@@ -14,8 +14,8 @@ extern uint32_t dword_13C958;
 extern uint32_t dword_13C960;
 extern uint32_t dword_13C95C;
 
-// sub_13C694 @ 0x13c694, size 936 bytes
-int  sub_13C694(uint32_t *a1, uint32_t *a2)
+// bt_crypto_permute @ 0x13c694, size 936 bytes
+int  bt_crypto_permute(uint32_t *a1, uint32_t *a2)
 {
   int v2; // r3
   int v3; // r4

@@ -12,13 +12,13 @@
 
 extern uint32_t off_125CF0;
 
-// sub_125CD8 @ 0x125cd8, size 22 bytes
-char * sub_125CD8(int a1, char a2)
+// ke_queue_front @ 0x125cd8, size 22 bytes
+char * ke_queue_front(int a1, char a2)
 {
   char *result; // r0
 
   if ( !*((uint32_t *)off_125CF0 + 1) )
-    return (char *)sub_12503C(a1, a2);
+    return (char *)hci_packet_type_router(a1, a2);
   result = (char *)off_125CF0 + a1;
   result[20] = a2;
   return result;

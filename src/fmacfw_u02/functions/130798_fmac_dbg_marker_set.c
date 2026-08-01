@@ -12,10 +12,10 @@
 
 extern uint32_t off_1307D0;
 
-// fmac_dbg_marker_set @ 0x130798, size 56 bytes
-// Doc: fmac_dbg_marker_set [util]: Write debug marker bytes (0xbf, 0xc) to control word
-// fmac_dbg_marker_set [util]: Write debug marker bytes (0xbf, 0xc) to control word
-int  fmac_dbg_marker_set(int a1)
+// format_hw_version @ 0x130798, size 56 bytes
+// Doc: format_hw_version [util]: Write debug marker bytes (0xbf, 0xc) to control word
+// format_hw_version [util]: Write debug marker bytes (0xbf, 0xc) to control word
+int  format_hw_version(int a1)
 {
   uint32_t *v2; // r1
   uint16_t *v3; // r2

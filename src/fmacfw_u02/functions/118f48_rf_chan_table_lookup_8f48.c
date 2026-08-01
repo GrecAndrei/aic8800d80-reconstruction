@@ -16,10 +16,10 @@ extern uint32_t off_11907C;
 extern uint32_t dword_119084;
 extern uint32_t dword_119080;
 
-// rf_chan_table_lookup_8f48 @ 0x118f48, size 304 bytes
-// Doc: rf_chan_table_lookup_8f48 [rf]: Look up RF channel entry by index from channel table
-// rf_chan_table_lookup_8f48 [rf]: Look up RF channel entry by index from channel table
-int  rf_chan_table_lookup_8f48(int a1, int16_t a2, int a3, int a4)
+// rf_channel_set @ 0x118f48, size 304 bytes
+// Doc: rf_channel_set [rf]: Look up RF channel entry by index from channel table
+// rf_channel_set [rf]: Look up RF channel entry by index from channel table
+int  rf_channel_set(int a1, int16_t a2, int a3, int a4)
 {
   int v4; // r11
   int v5; // r4
@@ -46,24 +46,24 @@ int  rf_chan_table_lookup_8f48(int a1, int16_t a2, int a3, int a4)
     if ( **(int16_t **)off_11907C >= 0 )
     {
 LABEL_10:
-      v13 = sub_118C44(1, 26);
+      v13 = ke_mutex_guard(1, 26);
       if ( !v13 )
         return 1;
       goto LABEL_4;
     }
 LABEL_9:
-    sub_12F46C(dword_119084, dword_119080, 520);
+    mmio_clear_register(dword_119084, dword_119080, 520);
     goto LABEL_10;
   }
   v12 = *(uint8_t *)(v9 + 4);
   if ( **(int16_t **)off_11907C < 0 && v12 == 2 )
     goto LABEL_9;
-  v13 = sub_118C44((*(uint8_t *)(dword_119078 + 1320 * v7 + 1224) | v12) != 0, 26);
+  v13 = ke_mutex_guard((*(uint8_t *)(dword_119078 + 1320 * v7 + 1224) | v12) != 0, 26);
   if ( !v13 )
     return 1;
 LABEL_4:
   v14 = v5 + 1320 * v7;
-  sub_12C4E8(v14, v13);
+  rf_check_temperature(v14, v13);
   v15 = v4 + 696 * a1;
   v16 = *(uint32_t *)(v13 + 72);
   v17 = *(uint32_t *)(v15 + 38);
@@ -99,7 +99,7 @@ LABEL_4:
   *(uint32_t *)(v13 + 92) = a4;
   *(uint8_t *)(v13 + 28) = v22;
   *(uint8_t *)(v13 + 29) = a1;
-  rf_param_get_status(v13, 5);
+  tx_path_status(v13, 5);
   return 0;
 }
 

@@ -13,8 +13,8 @@
 extern uint32_t dword_13C708;
 extern uint32_t dword_13C70C;
 
-// sub_13C698 @ 0x13c698, size 110 bytes
-int  sub_13C698(int a1, int a2, int a3)
+// get_channel_tx_power @ 0x13c698, size 110 bytes
+int  get_channel_tx_power(int a1, int a2, int a3)
 {
   int v3; // r5
   int v4; // r6

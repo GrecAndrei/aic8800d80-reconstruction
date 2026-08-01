@@ -1,0 +1,1 @@
+{"fn": "sub_10D43C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10d43c", "status": "ok", "name": "clear_mac_info", "params": [], "docstring": "Clear 56-byte MAC info block", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -15,8 +15,8 @@ extern uint32_t off_12ADF8;
 extern uint32_t dword_12AE00;
 extern uint32_t off_12ADFC;
 
-// sub_12AD20 @ 0x12ad20, size 212 bytes
-int  sub_12AD20(int a1)
+// em_dma_setup @ 0x12ad20, size 212 bytes
+int  em_dma_setup(int a1)
 {
   int v1; // r7
   int v3; // r5
@@ -35,7 +35,7 @@ int  sub_12AD20(int a1)
 
   v1 = dword_12ADF4;
   v3 = *((uint32_t *)off_12ADF8 + 4);
-  sub_11BC00((uint8_t *)(dword_12ADF4 + 1320 * *(uint8_t *)(a1 + 28)));
+  process_radio_state((uint8_t *)(dword_12ADF4 + 1320 * *(uint8_t *)(a1 + 28)));
   if ( *(uint8_t *)(a1 + 31) )
   {
     v4 = *(uint32_t *)(a1 + 16) > 2u;
@@ -43,7 +43,7 @@ int  sub_12AD20(int a1)
     if ( *(uint32_t *)(a1 + 20) > 2u )
       v4 |= 2u;
     if ( (*(uint8_t *)(a1 + 29) ^ v4) << 30 )
-      rf_bus_write_n130(*(uint8_t *)(a1 + 28), v4);
+      llc_idx_from_handle(*(uint8_t *)(a1 + 28), v4);
     v6 = *(uint8_t *)(a1 + 28);
     *(uint8_t *)(a1 + 29) = v4;
     v7 = *(int ***)(v1 + 1320 * v5 + 240);
@@ -80,6 +80,6 @@ int  sub_12AD20(int a1)
   *(uint8_t *)(a1 + 31) = *((uint32_t *)off_12ADFC + 10) == *(uint32_t *)(v1 + 1320 * v6 + 72);
   *(uint32_t *)(a1 + 16) = 0;
   *(uint32_t *)(a1 + 20) = 0;
-  return timestamp_update(a1, v3 + 102400);
+  return unknown_worker(a1, v3 + 102400);
 }
 

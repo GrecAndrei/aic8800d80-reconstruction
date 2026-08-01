@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_1c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116bc", "status": "ok", "name": "rf_bus_mark_n_1c8", "params": [], "docstring": "Marks RF bus entries with index and field values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_1c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116bc", "status": "ok", "name": "rf_chan_mark_set", "params": [], "docstring": "Marks RF bus entries with index and field values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

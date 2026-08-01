@@ -16,8 +16,8 @@ extern uint32_t dword_11EA80;
 extern uint32_t dword_11EA7C;
 extern uint32_t dword_11EA74;
 
-// sub_11E9F4 @ 0x11e9f4, size 124 bytes
-int  sub_11E9F4(int result)
+// read_chip_revision @ 0x11e9f4, size 124 bytes
+int  read_chip_revision(int result)
 {
   int v1; // r4
   int16_t v2; // r2
@@ -25,7 +25,7 @@ int  sub_11E9F4(int result)
 
   v1 = result;
   if ( **(int16_t **)off_11EA70 < 0 && *(uint32_t *)(result + 20) != dword_11EA78 )
-    result = sub_12F32C(dword_11EA80, dword_11EA7C, 1811);
+    result = irq_disable_mmio_write(dword_11EA80, dword_11EA7C, 1811);
   v2 = *(uint16_t *)(v1 + 48);
   if ( v2 )
   {

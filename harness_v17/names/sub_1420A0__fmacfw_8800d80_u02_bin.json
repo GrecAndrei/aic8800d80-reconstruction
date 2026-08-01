@@ -1,0 +1,1 @@
+{"fn": "sub_1420A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1420a0", "status": "ok", "name": "init_1990b0_buffers", "params": [], "docstring": "Clear small struct and initialize related buffers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

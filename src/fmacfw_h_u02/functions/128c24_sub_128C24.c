@@ -15,8 +15,8 @@ extern uint32_t off_128C7C;
 extern uint32_t off_128C78;
 extern uint32_t off_128C80;
 
-// sub_128C24 @ 0x128c24, size 78 bytes
-void sub_128C24()
+// mfp_get_state @ 0x128c24, size 78 bytes
+void mfp_get_state()
 {
   uint8_t *v0; // r5
   int v1; // r4
@@ -41,7 +41,7 @@ void sub_128C24()
             if ( *(uint8_t *)(v1 + 108) )
             {
               v3 = *(uint8_t *)(v1 + 116);
-              if ( v3 != 255 && !sub_118C84(v3, (int)v2, v1) )
+              if ( v3 != 255 && !phy_get_channel(v3, (int)v2, v1) )
                 ++v0[8];
             }
           }

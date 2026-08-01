@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12ABAC;
 
-// sub_12AB80 @ 0x12ab80, size 44 bytes
-int  sub_12AB80(int a1)
+// rf_calib_valid @ 0x12ab80, size 44 bytes
+int  rf_calib_valid(int a1)
 {
   uint8_t *v1; // r3
   int result; // r0

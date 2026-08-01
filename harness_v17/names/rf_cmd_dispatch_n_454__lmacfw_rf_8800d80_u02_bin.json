@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_dispatch_n_454", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221af0", "status": "ok", "name": "rf_cmd_dispatch_n_454", "params": [], "docstring": "Dispatch RF command to handler (454 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_dispatch_n_454", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221af0", "status": "ok", "name": "ke_int_lock_mode", "params": [], "docstring": "Dispatch RF command to handler (454 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sub_1218FD8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1218fd8", "status": "ok", "name": "rf_dispatch_handler_n8", "params": [], "docstring": "RF handler dispatching to internal worker", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1218FD8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1218fd8", "status": "ok", "name": "memory_allocate", "params": [], "docstring": "RF handler dispatching to internal worker", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

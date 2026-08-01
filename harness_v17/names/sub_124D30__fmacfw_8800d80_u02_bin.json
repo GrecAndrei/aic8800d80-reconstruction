@@ -1,0 +1,1 @@
+{"fn": "sub_124D30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x124d30", "status": "ok", "name": "get_soc_handle", "params": [], "docstring": "Load shared SOC handle and call core accessor", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

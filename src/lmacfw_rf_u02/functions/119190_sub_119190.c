@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1191B4;
 
-// sub_119190 @ 0x119190, size 36 bytes
-int  sub_119190(int result, int a2, int a3)
+// rf_agc_control @ 0x119190, size 36 bytes
+int  rf_agc_control(int result, int a2, int a3)
 {
   int v3; // r4
 
@@ -24,8 +24,8 @@ int  sub_119190(int result, int a2, int a3)
   }
   else
   {
-    sub_11F74C(1024, dword_1191B4, a3, a2 << 8);
-    return sub_119170(v3);
+    check_interrupt_flag(1024, dword_1191B4, a3, a2 << 8);
+    return kernel_send_evt(v3);
   }
   return result;
 }

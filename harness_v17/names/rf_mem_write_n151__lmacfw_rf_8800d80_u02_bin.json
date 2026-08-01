@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n151", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122217c", "status": "ok", "name": "rf_mem_write_n151", "params": [], "docstring": "Writes 32-bit value to RF memory register (n151 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n151", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122217c", "status": "ok", "name": "rf_cmd_dispatch_n238", "params": [], "docstring": "Writes 32-bit value to RF memory register (n151 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

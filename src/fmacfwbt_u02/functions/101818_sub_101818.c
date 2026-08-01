@@ -14,15 +14,15 @@ extern uint32_t dword_101844;
 extern uint32_t dword_101848;
 extern uint32_t off_101840;
 
-// sub_101818 @ 0x101818, size 40 bytes
-uint64_t * sub_101818(uint64_t *result, int a2)
+// timer_count_read @ 0x101818, size 40 bytes
+uint64_t * timer_count_read(uint64_t *result, int a2)
 {
   uint64_t *v2; // r4
 
   v2 = result;
   if ( a2 )
   {
-    result = (uint64_t *)sub_12ECB0(dword_101844, dword_101848, a2);
+    result = (uint64_t *)ke_event_schedule(dword_101844, dword_101848, a2);
     *v2 = *(uint64_t *)((char *)off_101840 + 36);
   }
   else

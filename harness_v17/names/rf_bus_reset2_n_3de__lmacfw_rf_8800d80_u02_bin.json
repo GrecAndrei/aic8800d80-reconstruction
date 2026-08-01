@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_3de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f26", "status": "ok", "name": "rf_bus_reset2_n_3de", "params": [], "docstring": "Reset RF bus using magic and div constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_3de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f26", "status": "ok", "name": "rf_bus_reset2_setup", "params": [], "docstring": "Reset RF bus using magic and div constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

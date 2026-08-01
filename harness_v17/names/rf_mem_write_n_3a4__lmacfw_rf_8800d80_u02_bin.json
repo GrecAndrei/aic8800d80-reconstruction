@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n_3a4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221c88", "status": "ok", "name": "rf_mem_write_n_3a4", "params": [], "docstring": "Write value to RF register/memory mapped field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n_3a4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221c88", "status": "ok", "name": "rf_cmd_dispatch_n_2bb", "params": [], "docstring": "Write value to RF register/memory mapped field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

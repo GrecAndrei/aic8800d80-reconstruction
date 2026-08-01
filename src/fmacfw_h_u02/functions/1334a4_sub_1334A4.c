@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1334A4 @ 0x1334a4, size 74 bytes
-uint32_t * sub_1334A4(int a1, uint32_t *a2, int a3, uint16_t *a4, uint8_t a5)
+// bt_packet_parse @ 0x1334a4, size 74 bytes
+uint32_t * bt_packet_parse(int a1, uint32_t *a2, int a3, uint16_t *a4, uint8_t a5)
 {
   int v5; // r7
   int v6; // r5
@@ -39,9 +39,9 @@ uint32_t * sub_1334A4(int a1, uint32_t *a2, int a3, uint16_t *a4, uint8_t a5)
     v10 = 0;
   else
     v10 = a5 & 7;
-  v11 = sub_133470((uint32_t *)a1, (int *)(a1 + 4), v8);
-  v13 = sub_133470(v11, v12, v9);
-  v15 = sub_133470(v13, v14, v6);
-  return sub_133470(v15, v16, v10);
+  v11 = crypto_mix_round((uint32_t *)a1, (int *)(a1 + 4), v8);
+  v13 = crypto_mix_round(v11, v12, v9);
+  v15 = crypto_mix_round(v13, v14, v6);
+  return crypto_mix_round(v15, v16, v10);
 }
 

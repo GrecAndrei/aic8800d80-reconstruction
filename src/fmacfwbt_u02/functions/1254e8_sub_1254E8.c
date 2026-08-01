@@ -16,10 +16,10 @@ extern uint32_t dword_125720;
 extern uint32_t dword_12572C;
 extern uint32_t dword_125730;
 
-// sub_1254E8 @ 0x1254e8, size 566 bytes
+// rx_header_parse @ 0x1254e8, size 566 bytes
 // Doc: sub_12254E8 [util]: Helper processing function on 3-byte struct input
 // sub_12254E8 [util]: Helper processing function on 3-byte struct input
-int  sub_1254E8(uint16_t *a1)
+int  rx_header_parse(uint16_t *a1)
 {
   unsigned int v1; // r2
   int v2; // r3
@@ -190,7 +190,7 @@ LABEL_28:
     else
       *(uint8_t *)(v2 + 230) = 0;
   }
-  message_dispatch_n84(66, *(a1 - 2), 0, v2);
-  return j_buffer_pool_get(a1 - 6);
+  hci_evt_alloc_send(66, *(a1 - 2), 0, v2);
+  return jump_to_tx_entry(a1 - 6);
 }
 

@@ -15,8 +15,8 @@ extern uint32_t off_110294;
 extern uint32_t dword_110298;
 extern uint32_t off_11029C;
 
-// sub_110250 @ 0x110250, size 62 bytes
-int sub_110250()
+// mmio_write_1 @ 0x110250, size 62 bytes
+int mmio_write_1()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_110250()
   v0 = (int *)off_110294;
   v1 = dword_110298;
   ++*(uint32_t *)off_110294;
-  result = sub_12D108(v1);
+  result = wlan_ioctl_handler_1(v1);
   v3 = *v0;
   ++*(uint32_t *)off_11029C;
   if ( v3 )

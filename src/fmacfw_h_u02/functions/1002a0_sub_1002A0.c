@@ -35,8 +35,8 @@ extern uint32_t off_100458;
 extern uint32_t dword_10045C;
 extern uint32_t dword_100460;
 
-// sub_1002A0 @ 0x1002a0, size 376 bytes
-int sub_1002A0()
+// mac_event_handler @ 0x1002a0, size 376 bytes
+int mac_event_handler()
 {
   uint8_t **v0; // r5
   int v1; // r7
@@ -120,9 +120,9 @@ int sub_1002A0()
   v18 = dword_10042C;
   v12[4] = v16;
   v6[2] = v9;
-  sub_10DAE4(v18, v7, v10);
+  debug_printf(v18, v7, v10);
   if ( **v17 < 0 && v10 >= v7 )
-    sub_12F32C(dword_10046C, dword_100464, 120);
+    irq_disable_mmio_write(dword_10046C, dword_100464, 120);
   v19 = dword_100430;
   v20 = (int **)off_100438;
   v21 = dword_100430 + 80 * (*((uint16_t *)*v0 + 4) + 1);
@@ -157,9 +157,9 @@ int sub_1002A0()
     v32 += v35;
   }
   v36 = dword_100450;
-  result = sub_10DAE4(dword_100454, dword_100430, dword_100450);
+  result = debug_printf(dword_100454, dword_100430, dword_100450);
   if ( **v17 < 0 && v32 >= v36 )
-    result = sub_12F32C(dword_100468, dword_100464, 156);
+    result = irq_disable_mmio_write(dword_100468, dword_100464, 156);
   v38 = *v0;
   *(uint32_t *)off_100458 = *((uint32_t *)*v0 + 3);
   v39 = *v38;
@@ -176,7 +176,7 @@ int sub_1002A0()
   if ( v40 )
   {
     if ( dword_10045C > v40 )
-      return sub_10DAE4(dword_100460, dword_10045C, v40);
+      return debug_printf(dword_100460, dword_10045C, v40);
   }
   return result;
 }

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13A500;
 
-// sub_13A4EC @ 0x13a4ec, size 20 bytes
-uint32_t **sub_13A4EC()
+// ke_task_schedule @ 0x13a4ec, size 20 bytes
+uint32_t **ke_task_schedule()
 {
-  clear_flags(0x100000);
-  return sub_12F554((uint32_t **)dword_13A500);
+  unknown_func_12d14c(0x100000);
+  return load_and_process_r0((uint32_t **)dword_13A500);
 }
 

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_pool_init_queue @ 0x1101e4, size 52 bytes
+// get_link_rate @ 0x1101e4, size 52 bytes
 // Doc: log_free_dispatch_n1f4 [util]: Free log entry and dispatch next pending log
 // log_free_dispatch_n1f4 [util]: Free log entry and dispatch next pending log
-int log_pool_init_queue()
+int get_link_rate()
 {
   void *v0; // r5
   int result; // r0
@@ -22,7 +22,7 @@ int log_pool_init_queue()
   int v4; // r4
 
   v0 = log_free_dispatch_n210_0218;
-  result = sub_12D240(log_free_dispatch_n215);
+  result = zero_8_bytes(log_free_dispatch_n215);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = log_free_dispatch_n218_0;
@@ -30,8 +30,8 @@ int log_pool_init_queue()
     v4 = 0;
     do
     {
-      sub_10FB28(v2, 0xCu);
-      result = list_push_tail(v3);
+      rx_packet_handler(v2, 0xCu);
+      result = cmd_handler_a(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );

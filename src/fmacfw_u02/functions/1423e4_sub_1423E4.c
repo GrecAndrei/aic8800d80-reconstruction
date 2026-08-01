@@ -14,8 +14,8 @@ extern uint32_t off_1424AC;
 extern uint32_t dword_1424B0;
 extern uint32_t dword_1424B4;
 
-// sub_1423E4 @ 0x1423e4, size 198 bytes
-int  sub_1423E4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// llcp_rx_process @ 0x1423e4, size 198 bytes
+int  llcp_rx_process(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v6; // r7
   int v8; // r11
@@ -39,13 +39,13 @@ int  sub_1423E4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   {
     v9 = dword_1424B0;
     v17 = a2[2];
-    v10 = sub_14205C(*(uint8_t *)(dword_1424B0 + 1320 * v8 + 116), v8, v17);
+    v10 = scan_slot_find_free(*(uint8_t *)(dword_1424B0 + 1320 * v8 + 116), v8, v17);
     if ( v10 )
     {
-      sub_142038(v10);
+      conn_context_clear(v10);
       v11 = v17;
 LABEL_6:
-      LOBYTE(v6) = sub_141FE0(a2[3], *(uint8_t *)(v9 + 1320 * v8 + 116), v11) == 0;
+      LOBYTE(v6) = conn_context_reset(a2[3], *(uint8_t *)(v9 + 1320 * v8 + 116), v11) == 0;
       goto LABEL_8;
     }
 LABEL_7:
@@ -63,7 +63,7 @@ LABEL_7:
     {
       v18 = v16;
       v6 = 1;
-      sub_142038(v14);
+      conn_context_clear(v14);
       v16 = v18;
     }
     v14 += 72;
@@ -76,9 +76,9 @@ LABEL_7:
     goto LABEL_6;
   }
 LABEL_8:
-  v12 = (uint8_t *)sub_12C92C(12292, a4, a3, 1u);
+  v12 = (uint8_t *)ke_msg_alloc(12292, a4, a3, 1u);
   *v12 = v6;
-  sdio_buffer_prepare_n_4e8((int)v12);
+  ke_msg_send((int)v12);
   return 0;
 }
 

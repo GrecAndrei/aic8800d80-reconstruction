@@ -14,18 +14,18 @@ extern uint32_t off_1336F8;
 extern uint32_t dword_133700;
 extern uint32_t dword_1336FC;
 
-// sub_1336BC @ 0x1336bc, size 58 bytes
-int  sub_1336BC(int a1, int a2)
+// ble_state_check_1336bc @ 0x1336bc, size 58 bytes
+int  ble_state_check_1336bc(int a1, int a2)
 {
-  if ( **(int16_t **)off_1336F8 >= 0 || sub_12CD48(6u) == 7 )
+  if ( **(int16_t **)off_1336F8 >= 0 || hci_cmd_handler(6u) == 7 )
   {
-    sub_135940(a2);
+    ke_msg_dispatch(a2);
     return 1;
   }
   else
   {
-    sub_12F32C(dword_133700, dword_1336FC, 1012);
-    sub_135940(a2);
+    irq_disable_mmio_write(dword_133700, dword_1336FC, 1012);
+    ke_msg_dispatch(a2);
     return 1;
   }
 }

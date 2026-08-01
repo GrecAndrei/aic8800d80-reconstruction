@@ -12,8 +12,8 @@
 
 extern uint32_t off_11DC10;
 
-// sub_11DBF0 @ 0x11dbf0, size 30 bytes
-int sub_11DBF0()
+// seq_count_inc @ 0x11dbf0, size 30 bytes
+int seq_count_inc()
 {
   uint8_t *v0; // r4
   unsigned int v1; // r2

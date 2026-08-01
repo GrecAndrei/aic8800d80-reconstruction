@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215434", "status": "ok", "name": "patch_apply_n_b4", "params": [], "docstring": "Apply firmware patch blob of size 4 to target memory region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215434", "status": "ok", "name": "patch_apply_n_b3_5434", "params": [], "docstring": "Apply firmware patch blob of size 4 to target memory region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

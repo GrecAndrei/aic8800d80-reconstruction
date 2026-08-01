@@ -16,10 +16,10 @@ extern uint32_t off_12B120;
 extern uint32_t dword_12B128;
 extern uint32_t dword_12B124;
 
-// sub_12B098 @ 0x12b098, size 128 bytes
+// tx_slot_counter_inc @ 0x12b098, size 128 bytes
 // Doc: sub_122B098 [util]: Branch on r1 == 0x1f, small utility stub
 // sub_122B098 [util]: Branch on r1 == 0x1f, small utility stub
-int  sub_12B098(int a1, unsigned int a2, int a3)
+int  tx_slot_counter_inc(int a1, unsigned int a2, int a3)
 {
   int result; // r0
   int v4; // r1
@@ -56,7 +56,7 @@ int  sub_12B098(int a1, unsigned int a2, int a3)
       v8 = **(int16_t **)off_12B120;
       ++*(uint32_t *)(dword_12B118 + 32 * a1 + 20);
       if ( v8 < 0 )
-        sub_12F694(dword_12B128, dword_12B124, 365);
+        mmio_irq_clear(dword_12B128, dword_12B124, 365);
       __und(0xFFu);
     }
     result = dword_12B118 + 32 * a1;

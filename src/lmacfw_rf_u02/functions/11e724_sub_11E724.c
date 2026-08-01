@@ -14,14 +14,14 @@ extern uint32_t off_11E760;
 extern uint32_t dword_11E768;
 extern uint32_t dword_11E764;
 
-// sub_11E724 @ 0x11e724, size 60 bytes
-int  sub_11E724(int result, uint32_t *a2)
+// check_kernel_state @ 0x11e724, size 60 bytes
+int  check_kernel_state(int result, uint32_t *a2)
 {
   int v2; // r5
 
   v2 = result;
   if ( **(int16_t **)off_11E760 < 0 && !a2 )
-    result = sub_1219C4(dword_11E768, dword_11E764, 72);
+    result = flash_ctrl_init(dword_11E768, dword_11E764, 72);
   if ( *(uint32_t *)v2 )
     **(uint32_t **)(v2 + 4) = a2;
   else

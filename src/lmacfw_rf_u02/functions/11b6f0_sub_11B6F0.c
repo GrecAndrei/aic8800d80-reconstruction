@@ -14,8 +14,8 @@ extern uint32_t off_11B738;
 extern uint32_t off_11B73C;
 extern uint32_t off_11B734;
 
-// sub_11B6F0 @ 0x11b6f0, size 68 bytes
-int sub_11B6F0()
+// rf_reg_update @ 0x11b6f0, size 68 bytes
+int rf_reg_update()
 {
   int *v0; // r4
   int v1; // r5
@@ -31,7 +31,7 @@ int sub_11B6F0()
       if ( !v0 )
         return result;
     }
-    result = rf_channel_set_n6838(
+    result = rate_index_lookup_fast(
                *((uint8_t *)v0 + 102),
                *((uint8_t *)v0 + 94),
                *((uint8_t *)v0 + 94));

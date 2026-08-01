@@ -24,8 +24,8 @@ extern uint32_t dword_1073C0;
 extern uint32_t off_1073C4;
 extern uint32_t off_1073C8;
 
-// sub_1071C4 @ 0x1071c4, size 468 bytes
-int *sub_1071C4()
+// rf_radio_enable @ 0x1071c4, size 468 bytes
+int *rf_radio_enable()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r6
@@ -45,7 +45,7 @@ int *sub_1071C4()
   v1 = off_1073A0;
   v2 = (unsigned int *)off_1073A4;
   *v0 &= ~0x20000u;
-  delay_us_0644(2);
+  timer_delay(2);
   v3 = off_1073A8;
   v4 = dword_1073AC;
   *v0 |= 0x10000u;
@@ -62,7 +62,7 @@ int *sub_1071C4()
   *v3 |= 0x10000000u;
   *v3 = *v3 & 0xFC000FFF | 0x666000;
   *v3 = *v3 & 0xFFFFF000 | 0xC0;
-  delay_us_0644(10);
+  timer_delay(10);
   v6 = (unsigned int *)off_1073B4;
   v7 = off_1073B8;
   result = (int *)off_1073BC;

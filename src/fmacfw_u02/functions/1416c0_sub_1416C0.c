@@ -12,8 +12,8 @@
 
 extern uint32_t dword_14172C;
 
-// sub_1416C0 @ 0x1416c0, size 106 bytes
-uint32_t * sub_1416C0(int a1, int a2)
+// ll_event_remove @ 0x1416c0, size 106 bytes
+uint32_t * ll_event_remove(int a1, int a2)
 {
   int v2; // r4
   int v4; // r6
@@ -23,23 +23,23 @@ uint32_t * sub_1416C0(int a1, int a2)
   {
     v2 = dword_14172C;
     v4 = *(uint32_t *)(dword_14172C + 6480);
-    if ( mmio_read_status() )
+    if ( ble_ll_adv_chk_active() )
     {
-      if ( msg_get_value(0xBu) == 3 )
-        return (uint32_t *)sub_1415EC();
+      if ( rx_rate_field_parse(0xBu) == 3 )
+        return (uint32_t *)ll_event_process();
       else
-        return sub_141484();
+        return ll_event_counter_inc();
     }
     else
     {
       *(uint8_t *)(a1 + 98) = 1;
-      sub_140540(a1, 0, 0, v2 + 136 * v4 + 6336);
-      return (uint32_t *)rf_param_get_status(a1, 3);
+      ble_ll_adv_event_start(a1, 0, 0, v2 + 136 * v4 + 6336);
+      return (uint32_t *)tx_path_status(a1, 3);
     }
   }
   else
   {
-    result = sub_12CD34(0xBu, 0);
+    result = rx_phy_status_parse(0xBu, 0);
     *(uint32_t *)(dword_14172C + 6480) = -1;
   }
   return result;

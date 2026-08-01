@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13763C;
 
-// rf_stream_start2_n_14 @ 0x1375f0, size 76 bytes
-// Doc: rf_stream_start2_n_14 [rf]: Starts secondary RF stream with mask and length setup
-// rf_stream_start2_n_14 [rf]: Starts secondary RF stream with mask and length setup
-int  rf_stream_start2_n_14(uint16_t *a1, int a2)
+// find_conn_by_handle @ 0x1375f0, size 76 bytes
+// Doc: find_conn_by_handle [rf]: Starts secondary RF stream with mask and length setup
+// find_conn_by_handle [rf]: Starts secondary RF stream with mask and length setup
+int  find_conn_by_handle(uint16_t *a1, int a2)
 {
   int v2; // r3
   int v3; // r4

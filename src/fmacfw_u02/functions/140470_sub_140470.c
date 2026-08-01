@@ -14,18 +14,18 @@ extern uint32_t off_1404A4;
 extern uint32_t dword_1404AC;
 extern uint32_t dword_1404A8;
 
-// sub_140470 @ 0x140470, size 50 bytes
-int sub_140470()
+// ble_ll_scan_enable @ 0x140470, size 50 bytes
+int ble_ll_scan_enable()
 {
-  if ( sub_12CE88(0xBu) == 4 )
+  if ( rx_rate_field_parse(0xBu) == 4 )
   {
-    sub_1414E0();
+    ll_event_schedule();
     return 0;
   }
   else
   {
     if ( **(int16_t **)off_1404A4 < 0 )
-      sub_12F49C(dword_1404AC, dword_1404A8, 129);
+      call_shared_handler(dword_1404AC, dword_1404A8, 129);
     return 0;
   }
 }

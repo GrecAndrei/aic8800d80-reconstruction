@@ -14,10 +14,10 @@ extern uint32_t off_12BD68;
 extern uint32_t off_12BD6C;
 extern uint32_t off_12BD70;
 
-// sub_12BD48 @ 0x12bd48, size 32 bytes
+// mmio_clear_high_bits @ 0x12bd48, size 32 bytes
 // Doc: sub_122BD48 [mmio]: Clear high bit in MMIO registers at 0x403280xx
 // sub_122BD48 [mmio]: Clear high bit in MMIO registers at 0x403280xx
-void *sub_12BD48()
+void *mmio_clear_high_bits()
 {
   void *result; // r0
   uint32_t *v1; // r1

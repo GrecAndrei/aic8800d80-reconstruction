@@ -33,8 +33,8 @@ extern uint32_t dword_120A8C;
 extern uint32_t dword_120A5C;
 extern uint32_t dword_120A58;
 
-// sub_120700 @ 0x120700, size 898 bytes
-int  sub_120700(int a1, int a2, int a3, int a4, int a5, int a6)
+// rx_packet_proc @ 0x120700, size 898 bytes
+int  rx_packet_proc(int a1, int a2, int a3, int a4, int a5, int a6)
 {
   unsigned int v8; // r9
   int v9; // r3
@@ -84,7 +84,7 @@ int  sub_120700(int a1, int a2, int a3, int a4, int a5, int a6)
   v12 = v9 << 10;
   if ( !*(uint8_t *)(a4 + 106) && (v13 = *(uint16_t *)(a4 + 112), *(uint16_t *)(a4 + 112)) )
   {
-    sub_12ADC8(*(uint8_t *)(a4 + 107), v9, (uint8_t)v13);
+    calc_channel_rate(*(uint8_t *)(a4 + 107), v9, (uint8_t)v13);
     v47 = v12 * v13;
   }
   else if ( a6 )
@@ -93,7 +93,7 @@ int  sub_120700(int a1, int a2, int a3, int a4, int a5, int a6)
     if ( !*(uint8_t *)(a6 + 2) )
     {
       v13 = *(uint8_t *)(a6 + 3);
-      sub_12ADC8(*(uint8_t *)(a4 + 107), v9, v13);
+      calc_channel_rate(*(uint8_t *)(a4 + 107), v9, v13);
     }
     v47 = v12 * v13;
   }
@@ -128,7 +128,7 @@ int  sub_120700(int a1, int a2, int a3, int a4, int a5, int a6)
     }
     else
     {
-      sub_12F2C8(dword_120A3C, dword_120A38, 430, off_120A1C);
+      unknown_12f2c8(dword_120A3C, dword_120A38, 430, off_120A1C);
       v19 = 500;
       v18 = (int16_t **)off_120A1C;
     }
@@ -150,7 +150,7 @@ int  sub_120700(int a1, int a2, int a3, int a4, int a5, int a6)
         v24 = v19 - v23;
         goto LABEL_15;
       }
-      sub_12F2C8(dword_120A3C, dword_120A38, 430, 2 * *v22);
+      unknown_12f2c8(dword_120A3C, dword_120A38, 430, 2 * *v22);
     }
     v24 = v19 - 500;
     v23 = 500;
@@ -164,7 +164,7 @@ LABEL_15:
     *(uint32_t *)(a4 + 132) = v26;
     *(uint32_t *)(a4 + 136) = v44 + 400;
   }
-  v27 = sub_1432D4(v10, v11, v12, v12 >> 31);
+  v27 = double_cmp(v10, v11, v12, v12 >> 31);
   v43 = v10 - v23;
   v28 = v27 * (v12 >> 31) + v12 * HIDWORD(v27);
   v29 = (unsigned int)v27 * (unsigned uint64_t)(unsigned int)v12;
@@ -178,7 +178,7 @@ LABEL_15:
     v31 = v30 - v44 - 400;
   v32 = off_120A28;
   v33 = *((uint32_t *)off_120A28 + 4) - *(uint32_t *)off_120A2C + v31;
-  if ( v33 - v32[4] - 4300 - sub_101944() < 0 )
+  if ( v33 - v32[4] - 4300 - get_timeout_1000() < 0 )
     v33 += v12;
   if ( (*(uint32_t *)(a4 + 4) & 1) != 0 )
   {
@@ -186,16 +186,16 @@ LABEL_15:
     if ( (v35 & 2) != 0 && v33 - *((uint32_t *)off_120A28 + 4) - 10000 < 0 )
     {
       v33 += v12;
-      sub_12E948(dword_120A60, v35 << 30, v34);
+      alloc_tx_event(dword_120A60, v35 << 30, v34);
     }
   }
-  result = v33 - *((uint32_t *)off_120A28 + 4) - 4300 - sub_101944();
+  result = v33 - *((uint32_t *)off_120A28 + 4) - 4300 - get_timeout_1000();
   if ( result >= 0 && *(uint32_t *)(a4 + 36) != v33 )
   {
     v37 = off_120A30;
     if ( *((uint32_t *)off_120A30 + 8) != a4 || (v38 = off_120A24, *(uint32_t *)(a4 + 36) = v33, (*v38 & 0x2000000) != 0) )
     {
-      sub_124BFC(a4 + 24, v33);
+      mem_copy_util(a4 + 24, v33);
     }
     else
     {
@@ -214,12 +214,12 @@ LABEL_15:
           *v42 |= 1u;
         }
         if ( *v39 >= (unsigned int)v39[1] )
-          sub_12E948(dword_120A8C, *v39, v39[1]);
+          alloc_tx_event(dword_120A8C, *v39, v39[1]);
         if ( **(int16_t **)off_120A1C < 0 && *v39 >= (unsigned int)v39[1] )
-          sub_12F32C(dword_120A5C, dword_120A58, 523);
+          irq_disable_mmio_write(dword_120A5C, dword_120A58, 523);
       }
     }
-    return sub_127FDC(a4);
+    return radio_disabled_check(a4);
   }
   return result;
 }

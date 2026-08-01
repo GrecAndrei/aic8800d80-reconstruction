@@ -16,10 +16,10 @@ extern uint32_t off_1370C0;
 extern uint32_t dword_1370C8;
 extern uint32_t dword_1370C4;
 
-// sub_136FEC @ 0x136fec, size 202 bytes
+// phy_set_channel @ 0x136fec, size 202 bytes
 // Doc: sub_1236FEC [tx]: Computes indexed buffer/entry address using multiply-accumulate and stores descriptor field
 // sub_1236FEC [tx]: Computes indexed buffer/entry address using multiply-accumulate and stores descriptor field
-int  sub_136FEC(int a1, int a2, int a3, int16_t a4)
+int  phy_set_channel(int a1, int a2, int a3, int16_t a4)
 {
   int v4; // r2
   uint16_t *v5; // r4
@@ -52,7 +52,7 @@ int  sub_136FEC(int a1, int a2, int a3, int16_t a4)
   v5[1928] = v9;
   *(uint32_t *)v5 = a2;
   *((uint8_t *)v5 + 3899) = 0;
-  v10 = rf_stream_start2_n_14(a2 + 352, 0);
+  v10 = find_conn_by_handle(a2 + 352, 0);
   if ( v10 && (v11 = *(uint8_t *)(v10 + 57), v12 = v10, *(uint8_t *)(v10 + 57)) )
   {
     v18 = *(uint8_t *)(v10 + 58);
@@ -80,14 +80,14 @@ int  sub_136FEC(int a1, int a2, int a3, int16_t a4)
     if ( *v16 >= 0 )
     {
 LABEL_4:
-      sub_138668(v13);
+      ll_task_run(v13);
       return 1;
     }
   }
   if ( (*(uint8_t *)(a2 + 352) & 1) == 0 )
     goto LABEL_4;
-  v23 = sub_12F46C(dword_1370C8, dword_1370C4, 178);
-  sub_138668(v23);
+  v23 = mmio_clear_register(dword_1370C8, dword_1370C4, 178);
+  ll_task_run(v23);
   return 1;
 }
 

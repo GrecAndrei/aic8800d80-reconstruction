@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13BAA8 @ 0x13baa8, size 22 bytes
-int  sub_13BAA8(int16_t a1)
+// sdio_wr_reg @ 0x13baa8, size 22 bytes
+int  sdio_wr_reg(int16_t a1)
 {
-  return sub_12C80C(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
+  return patch_aware_dispatch(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
 }
 

@@ -16,10 +16,10 @@ extern uint32_t dword_10EB08;
 extern uint32_t dword_10EB14;
 extern uint32_t dword_10EB0C;
 
-// rf_reg_field_modify_n12a @ 0x10e9f4, size 272 bytes
-// Doc: rf_reg_field_modify_n12a [rf]: Modify RF register field via mask and value
-// rf_reg_field_modify_n12a [rf]: Modify RF register field via mask and value
-int  rf_reg_field_modify_n12a(int a1)
+// rf_control_field_set @ 0x10e9f4, size 272 bytes
+// Doc: rf_control_field_set [rf]: Modify RF register field via mask and value
+// rf_control_field_set [rf]: Modify RF register field via mask and value
+int  rf_control_field_set(int a1)
 {
   int16_t *v1; // r9
   int v2; // r7
@@ -42,8 +42,8 @@ int  rf_reg_field_modify_n12a(int a1)
   v1 = (int16_t *)off_10EB10;
   *(uint32_t *)off_10EB04 = (a1 << 26) & 0x1C000000 | *(uint32_t *)off_10EB04 & 0xE3FFFFFF;
   v2 = a1;
-  v3 = mmio_set_reg_4010d000();
-  msg_parse(dword_10EB08, v2, v3);
+  v3 = rf_core_power_on();
+  event_dispatch(dword_10EB08, v2, v3);
   v4 = *v1;
   if ( v4 > v3 )
   {
@@ -84,8 +84,8 @@ int  rf_reg_field_modify_n12a(int a1)
       v2 = 7;
     }
     *v5 = *v5 & 0xE3FFFFFF | v9;
-    v10 = mmio_set_reg_4010d000();
-    msg_parse(v6, v2, v10);
+    v10 = rf_core_power_on();
+    event_dispatch(v6, v2, v10);
     v11 = *v1;
     v12 = v10 - v11;
     v13 = v3 - v11;
@@ -108,7 +108,7 @@ int  rf_reg_field_modify_n12a(int a1)
     v16 = v3;
     *v5 = ((v2 - v17) << 26) & 0x1C000000 | *v5 & 0xE3FFFFFF;
   }
-  msg_parse(dword_10EB0C, v8, v16);
+  event_dispatch(dword_10EB0C, v8, v16);
   return v8;
 }
 

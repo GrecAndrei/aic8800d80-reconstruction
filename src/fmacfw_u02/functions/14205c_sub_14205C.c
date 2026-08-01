@@ -12,8 +12,8 @@
 
 extern uint32_t dword_14209C;
 
-// sub_14205C @ 0x14205c, size 64 bytes
-int  sub_14205C(int a1, int a2, int a3)
+// scan_slot_find_free @ 0x14205c, size 64 bytes
+int  scan_slot_find_free(int a1, int a2, int a3)
 {
   int v3; // r4
   int v4; // r3

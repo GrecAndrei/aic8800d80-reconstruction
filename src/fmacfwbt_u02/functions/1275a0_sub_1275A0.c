@@ -30,8 +30,8 @@ extern uint32_t dword_127860;
 extern uint32_t off_127884;
 extern uint32_t off_127864;
 
-// sub_1275A0 @ 0x1275a0, size 670 bytes
-int  sub_1275A0(int a1, int a2)
+// rf_reset @ 0x1275a0, size 670 bytes
+int  rf_reset(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint32_t *v5; // r2
@@ -102,7 +102,7 @@ int  sub_1275A0(int a1, int a2)
   *(uint32_t *)off_127850 = (4 * (uint8_t)v2[92]) & 4 | *(uint32_t *)off_127850 & 0xFFFFFFFB;
   if ( a2 )
     goto LABEL_6;
-  result = fw_init_or_check_1221d44();
+  result = mac_cmd_send();
   if ( !*((uint8_t *)off_127854 + 408) )
     goto LABEL_6;
   v12 = *(uint8_t *)(a1 + 24);
@@ -116,7 +116,7 @@ LABEL_7:
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
-        result = phy_init_or_register_n_e(a1);
+        result = send_hci_cmd(a1);
         v14 = (uint8_t)v2[88];
       }
       else
@@ -151,7 +151,7 @@ LABEL_50:
     v43 = **(int16_t **)off_127868;
     *((uint32_t *)off_12786C + 1) |= 0x100040u;
     if ( v43 < 0 && *(uint32_t *)off_127874 << 28 )
-      sub_12F6C4(dword_12787C, dword_127878, 472);
+      mmio_field_update(dword_12787C, dword_127878, 472);
     v39 = off_127870;
     v40 = 1;
     *(uint32_t *)off_127870 = *v42 | v42[1];
@@ -186,25 +186,25 @@ LABEL_38:
   v38 = **(int16_t **)off_127868;
   *((uint32_t *)off_12786C + 1) &= 0xFFEFFFBF;
   if ( v38 < 0 && *(uint32_t *)off_127874 << 28 )
-    sub_12F6C4(dword_12787C, dword_127878, 472);
+    mmio_field_update(dword_12787C, dword_127878, 472);
   v39 = off_127870;
   *(uint32_t *)off_127870 = *v37 | v37[1];
   v40 = 0;
 LABEL_48:
   v41 = dword_127880;
   v31[8] = v15;
-  result = sub_12ECB0(v41, v40, v39);
+  result = ke_event_schedule(v41, v40, v39);
 LABEL_6:
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
     goto LABEL_7;
 LABEL_23:
   v2[88] &= ~8u;
-  v19 = (uint16_t *)phy_chan_idx_calc();
-  v20 = (uint16_t *)rf_bus_setup_n3a8(79, 13, 0, 12);
+  v19 = (uint16_t *)bt_get_active_conn();
+  v20 = (uint16_t *)bt_buf_alloc(79, 13, 0, 12);
   *v20 = *v19;
   v21 = v20;
-  v22 = sub_12B74C(v19);
+  v22 = get_bt_status(v19);
   v23 = dword_127860;
   v24 = (unsigned int *)off_127884;
   v25 = off_127864;
@@ -222,19 +222,19 @@ LABEL_23:
   }
   *((uint8_t *)v21 + 2) = *v25;
 LABEL_26:
-  sub_12CBB4(v21);
+  hci_evt_send(v21);
   v27 = off_12786C;
   v28 = **(int16_t **)off_127868;
   v29 = *((uint32_t *)off_12786C + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_12786C + 1) = v29;
   if ( v28 < 0 && *(uint32_t *)off_127874 << 28 )
   {
-    sub_12F6C4(dword_12787C, dword_127878, 472);
+    mmio_field_update(dword_12787C, dword_127878, 472);
     v29 = v27[1];
   }
   v30 = v29 | *v27;
   *(uint32_t *)off_127870 = v30;
-  result = message_dispatch_n84(142, 2, 255, v30);
+  result = hci_evt_alloc_send(142, 2, 255, v30);
   v14 = (uint8_t)v2[88];
 LABEL_8:
   *(uint8_t *)(a1 + 24) = -1;
@@ -243,11 +243,11 @@ LABEL_8:
   {
     if ( a2 )
       return result;
-    return sub_121CD4();
+    return mac_wait_fw_ready();
   }
-  result = sub_127568();
+  result = set_advertising_flag();
   if ( !a2 )
-    return sub_121CD4();
+    return mac_wait_fw_ready();
   return result;
 }
 

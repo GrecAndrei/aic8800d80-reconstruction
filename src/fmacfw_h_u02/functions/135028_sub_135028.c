@@ -22,8 +22,8 @@ extern uint32_t dword_135218;
 extern uint32_t dword_135210;
 extern uint32_t off_13520C;
 
-// sub_135028 @ 0x135028, size 462 bytes
-void  sub_135028(
+// ll_evt_schedule @ 0x135028, size 462 bytes
+void  ll_evt_schedule(
         int a1,
         char *a2,
         int a3,
@@ -77,25 +77,25 @@ void  sub_135028(
   v16 = *(uint8_t *)(v15 + 61);
   v17 = (uint8_t *)(dword_1351FC + 1320 * v16);
   v20 = v17[116];
-  sub_12EB90(256, dword_135204, dword_135200);
+  check_feature_flag(256, dword_135204, dword_135200);
   if ( !v17[1224] )
   {
     v21 = v17[412];
     if ( v17[412] )
       v21 = 1;
-    v25 = sub_118B04(v21, 512);
+    v25 = lock_acquire(v21, 512);
     if ( v25 )
       goto LABEL_5;
 LABEL_10:
-    sub_134CC4(1, v22, v23, v24, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+    assert_trace(1, v22, v23, v24, a5, a6, a7, a8, a9, a10, a11, a12, a13);
     return;
   }
-  v25 = sub_118B04(1, 512);
+  v25 = lock_acquire(1, 512);
   if ( !v25 )
     goto LABEL_10;
 LABEL_5:
   v26 = v14 + 1320 * v16;
-  sub_12C3A8(v26, v25);
+  get_status_flag_c5(v26, v25);
   v27 = *(uint32_t *)(v25 + 72);
   v28 = off_135220;
   v29 = dword_135208 + 696 * v20;
@@ -126,7 +126,7 @@ LABEL_5:
   v35 = v27 + 108;
   if ( v34 == 1 && a1 == 3 )
   {
-    sub_13AF60(v25, v27 + 108, 24);
+    get_config_flag(v25, v27 + 108, 24);
     LOWORD(v34) = *(uint8_t *)(v15 + 59);
     v36 = *(uint8_t *)(v25 + 51) + 24;
   }
@@ -134,14 +134,14 @@ LABEL_5:
   {
     v36 = 24;
   }
-  v37 = v36 + sub_1306C4(v35 + v36, v34, a1, 0, a2);
+  v37 = v36 + store_four_halfwords(v35 + v36, v34, a1, 0, a2);
   if ( *(uint8_t *)(v15 + 59) == 2 )
   {
     v41 = *(uint16_t *)(v15 + 54);
     if ( 512 - v37 < v41 )
     {
       if ( **(int16_t **)off_135214 < 0 )
-        sub_12F35C(dword_13521C, dword_135218, 1015);
+        mmio_write_field(dword_13521C, dword_135218, 1015);
     }
     else
     {
@@ -169,9 +169,9 @@ LABEL_5:
   v38[9] = v40 + 4;
   *(uint32_t *)(v25 + 88) = v39;
   *(uint32_t *)(v25 + 92) = v25;
-  sub_118B34(v25, 5);
+  sec_check(v25, 5);
   v13[34] = 1;
-  sub_12C4A4(6154, 6, v46);
-  sub_12CBF4(6u, 5);
+  ke_event_handler(6154, 6, v46);
+  hci_cmd_preprocess(6u, 5);
 }
 

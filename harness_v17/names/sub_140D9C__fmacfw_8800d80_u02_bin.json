@@ -1,0 +1,1 @@
+{"fn": "sub_140D9C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x140d9c", "status": "ok", "name": "clear_197750_buffer", "params": [], "docstring": "Enable peripheral and clear 0x1960-byte buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

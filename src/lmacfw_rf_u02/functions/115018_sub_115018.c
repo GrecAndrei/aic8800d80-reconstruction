@@ -17,8 +17,8 @@ extern uint32_t off_11509C;
 extern uint32_t off_1150A0;
 extern uint32_t off_1150A4;
 
-// sub_115018 @ 0x115018, size 116 bytes
-void __noreturn sub_115018()
+// bt_driver_init @ 0x115018, size 116 bytes
+void __noreturn bt_driver_init()
 {
   int *v0; // r4
   int v1; // r3
@@ -26,12 +26,12 @@ void __noreturn sub_115018()
   uint8_t *v3; // r5
 
   v0 = (int *)off_115098;
-  msg_parse(dword_115094, dword_115090);
+  dispatch_event_handler(dword_115094, dword_115090);
   if ( *(uint32_t *)off_11509C )
   {
-    rf_byte_extract_save();
+    mmio_set_reg_0x70001408();
     if ( *(uint16_t *)(*v0 + 8) )
-      sub_10F110(*(uint16_t *)(*v0 + 8));
+      pmu_write_clock_ctrl(*(uint16_t *)(*v0 + 8));
   }
   if ( **(uint8_t **)off_1150A0 == 2 )
   {
@@ -39,9 +39,9 @@ void __noreturn sub_115018()
     *(uint8_t *)(v1 + 6) = 2;
     *(uint8_t *)(v1 + 3) = 1;
   }
-  inited = sub_113854(*(uint16_t *)(*v0 + 4));
+  inited = bt_module_init(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
-    rf_clear_flag_bit1();
+    clear_irq_flag();
   __enable_irq();
   __dsb(0xFu);
   __isb(0xFu);
@@ -49,10 +49,10 @@ void __noreturn sub_115018()
   while ( 1 )
   {
     if ( *(uint8_t *)(*v0 + 3) )
-      sub_1138D0();
+      memory_barrier_write();
     if ( !*v3 )
-      inited = rf_init_handler_1(inited);
-    inited = sub_123240(inited);
+      inited = process_event_queue(inited);
+    inited = exit_critical_section(inited);
   }
 }
 

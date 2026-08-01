@@ -21,8 +21,8 @@ extern uint32_t dword_11AAF8;
 extern uint32_t dword_11AAFC;
 extern uint32_t dword_11AB08;
 
-// sub_11A800 @ 0x11a800, size 814 bytes
-int  sub_11A800(int a1, int a2)
+// rx_packet_parse @ 0x11a800, size 814 bytes
+int  rx_packet_parse(int a1, int a2)
 {
   int v2; // r10
   int v3; // r4
@@ -89,13 +89,13 @@ int  sub_11A800(int a1, int a2)
   if ( v6 == 3670016 )
   {
     ++*(uint8_t *)(dword_11AB04 + 84 * v52 + 80);
-    v29 = sub_11A1A8(a1, 0);
+    v29 = init_flow_entry(a1, 0);
     v30 = *(uint16_t *)(v2 + 8) << 21;
     v5 = v29;
     *(uint32_t *)a2 = v29;
     if ( v30 < 0 )
     {
-      sub_12D108(*(uint32_t *)(v2 + 340));
+      wlan_ioctl_handler_1(*(uint32_t *)(v2 + 340));
       return *(uint32_t *)a2;
     }
     return v5;
@@ -122,19 +122,19 @@ LABEL_5:
   }
   else
   {
-    v11 = sub_12D190(dword_11AAF4 + 8 * v52);
+    v11 = list_pop(dword_11AAF4 + 8 * v52);
     v12 = v11;
     if ( !v11 )
     {
       v43 = dword_11AB30;
       goto LABEL_41;
     }
-    sub_143630(v11, v2, 360);
+    memcpy(v11, v2, 360);
     v13 = *(uint8_t *)(v3 + *(uint8_t *)(v12 + 13));
   }
   v14 = *(uint32_t *)(v7 + 76);
   v15 = (int16_t **)off_11AB0C;
-  sub_119368(v12, v13, (int)v55);
+  ecc_point_mul(v12, v13, (int)v55);
   v16 = *(uint32_t *)(v14 + 36);
   v17 = *(uint32_t *)(v7 + 36);
   v18 = *(uint16_t *)(v7 + 80);
@@ -161,7 +161,7 @@ LABEL_5:
       break;
     if ( **v15 < 0 )
     {
-      sub_12F32C(dword_11AB00, dword_11AAF8, 721);
+      irq_disable_mmio_write(dword_11AB00, dword_11AAF8, 721);
       v25 = *(uint32_t *)(v19 + 36);
     }
 LABEL_20:
@@ -185,7 +185,7 @@ LABEL_20:
       ++*(uint8_t *)(v34 + 80);
       if ( !v53 )
       {
-        sub_12D288(v34 + 28, v2, v12);
+        list_remove(v34 + 28, v2, v12);
         v8 = *(uint8_t *)(*v32 + 1);
       }
       v35 = v54[18];
@@ -215,7 +215,7 @@ LABEL_20:
     }
     v28 = *(uint32_t *)v19;
     if ( **v15 < 0 && !v28 )
-      sub_12F32C(dword_11AAFC, dword_11AAF8, 744);
+      irq_disable_mmio_write(dword_11AAFC, dword_11AAF8, 744);
     v22 = v19;
     v20 = v26;
     v19 = v28;
@@ -232,13 +232,13 @@ LABEL_20:
   if ( v53 )
   {
     v43 = dword_11AB30;
-    sub_12D1A8(84 * (int16_t)v52 + 28 + dword_11AB30, v12);
+    wlan_ioctl_handler_3(84 * (int16_t)v52 + 28 + dword_11AB30, v12);
   }
   else
   {
     v43 = dword_11AB04;
   }
-  sub_12D108(*(uint32_t *)(v12 + 340));
+  wlan_ioctl_handler_1(*(uint32_t *)(v12 + 340));
 LABEL_41:
   v44 = 0;
   v45 = v43 + 84 * v52;
@@ -249,7 +249,7 @@ LABEL_41:
     v48 = *(uint32_t *)(v7 + 36);
     ++*(uint8_t *)(v45 + 80);
     v49 = v48 & 0x380000;
-    v50 = sub_11A1A8(v7, 0);
+    v50 = init_flow_entry(v7, 0);
     if ( !v50 )
     {
 LABEL_45:
@@ -270,7 +270,7 @@ LABEL_45:
 LABEL_46:
       v7 = *(uint32_t *)v7;
       if ( **v46 < 0 && !v7 )
-        sub_12F32C(dword_11AAFC, dword_11AB08, 3509);
+        irq_disable_mmio_write(dword_11AAFC, dword_11AB08, 3509);
       continue;
     }
     break;

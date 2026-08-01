@@ -12,8 +12,8 @@
 
 extern uint32_t off_12C8D4;
 
-// sub_12C8B4 @ 0x12c8b4, size 32 bytes
-int  sub_12C8B4(int a1, int a2)
+// ke_task_find @ 0x12c8b4, size 32 bytes
+int  ke_task_find(int a1, int a2)
 {
   int **v2; // r3
 

@@ -24,10 +24,10 @@ extern uint32_t dword_112AA8;
 extern uint32_t dword_112AAC;
 extern uint32_t off_112AB0;
 
-// sub_112844 @ 0x112844, size 582 bytes
+// rf_init_bb @ 0x112844, size 582 bytes
 // Doc: rf_bus_reset_ht80 [rf]: Resets and configures the RF bus for 80MHz channel bandwidth operation by setting control bits.
 // rf_bus_reset_ht80 [rf]: Resets and configures the RF bus for 80MHz channel bandwidth operation by setting control bits.
-int sub_112844()
+int rf_init_bb()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r4
@@ -64,7 +64,7 @@ int sub_112844()
   *v0 = 0;
   v1[896] &= ~1u;
   v1[513] &= ~1u;
-  sub_111838();
+  ll_hdr_init();
   if ( (v1[6] & 0x80) != 0 )
     v1[6] &= ~0x80u;
   v2 = off_112A94;
@@ -202,9 +202,9 @@ LABEL_24:
   v18[1] = 0;
   v18[2] = 0;
   *(uint8_t *)v18 = 0;
-  sub_100200(v19, 0, 0x50u);
-  sub_100200((int *)dword_112AAC, 0, 0x50u);
-  result = sub_1116E0();
+  memset_byte(v19, 0, 0x50u);
+  memset_byte((int *)dword_112AAC, 0, 0x50u);
+  result = tx_pkt_config();
   v21 = *((int ( **)(uint32_t))off_112AB0 + 8);
   if ( v21 )
     return v21(0);

@@ -14,8 +14,8 @@ extern uint32_t dword_1063A0;
 extern uint32_t dword_10639C;
 extern uint32_t off_106398;
 
-// sub_1062DC @ 0x1062dc, size 188 bytes
-int  sub_1062DC(int a1, int a2, int a3, int a4, int a5)
+// hw_rev_check @ 0x1062dc, size 188 bytes
+int  hw_rev_check(int a1, int a2, int a3, int a4, int a5)
 {
   int v9; // r4
   unsigned int v10; // r4
@@ -24,7 +24,7 @@ int  sub_1062DC(int a1, int a2, int a3, int a4, int a5)
 
   if ( *(uint32_t *)(a4 + 132) <= a2 )
   {
-    sub_105118(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
+    div_by_20(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
     v9 = *(uint8_t *)(a4 + 104);
   }
   else
@@ -69,7 +69,7 @@ LABEL_6:
   {
 LABEL_14:
     v10 |= 0xC08000u;
-    sub_12EB90(1, dword_1063A0);
+    check_feature_flag(1, dword_1063A0);
     goto LABEL_9;
   }
   v11 = a3 << 24;
@@ -78,6 +78,6 @@ LABEL_8:
 LABEL_9:
   v12 = dword_10639C;
   *(uint32_t *)off_106398 = v10;
-  return sub_12EB90(1, v12);
+  return check_feature_flag(1, v12);
 }
 

@@ -27,10 +27,10 @@ extern uint32_t off_10D5F8;
 extern uint32_t off_10D5FC;
 extern uint32_t off_10D60C;
 
-// log_hw_init_d4e8 @ 0x10d4e8, size 236 bytes
-// Doc: log_hw_init_d4e8 [util]: Initialize hardware logging subsystem
-// log_hw_init_d4e8 [util]: Initialize hardware logging subsystem
-void log_hw_init_d4e8()
+// mac_tx_work @ 0x10d4e8, size 236 bytes
+// Doc: mac_tx_work [util]: Initialize hardware logging subsystem
+// mac_tx_work [util]: Initialize hardware logging subsystem
+void mac_tx_work()
 {
   int v0; // r3
   uint32_t *v1; // r5

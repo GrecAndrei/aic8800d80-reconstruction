@@ -15,16 +15,16 @@ extern uint32_t off_134A10;
 extern uint32_t dword_134A18;
 extern uint32_t dword_134A14;
 
-// sub_1349D8 @ 0x1349d8, size 52 bytes
-int sub_1349D8()
+// check_hw_ready_status @ 0x1349d8, size 52 bytes
+int check_hw_ready_status()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r4
 
-  v0 = sub_12D4F8(dword_134A0C);
+  v0 = list_pop_front(dword_134A0C);
   v1 = v0;
   if ( **(int16_t **)off_134A10 < 0 && !v0 )
-    sub_12F694(dword_134A18, dword_134A14, 766);
-  return sub_12CBB4((int)(v1 + 3));
+    mmio_irq_clear(dword_134A18, dword_134A14, 766);
+  return hci_evt_send((int)(v1 + 3));
 }
 

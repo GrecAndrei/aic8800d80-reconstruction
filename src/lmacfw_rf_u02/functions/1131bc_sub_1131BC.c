@@ -21,8 +21,8 @@ extern uint32_t off_113274;
 extern uint32_t dword_113278;
 extern uint32_t off_11327C;
 
-// sub_1131BC @ 0x1131bc, size 156 bytes
-void sub_1131BC()
+// critical_section_enter_arg @ 0x1131bc, size 156 bytes
+void critical_section_enter_arg()
 {
   int *v0; // r4
   int v1; // r0
@@ -46,7 +46,7 @@ void sub_1131BC()
   v0 = (int *)off_11325C;
   v1 = dword_113260;
   ++*(uint32_t *)off_11325C;
-  sub_11E724(v1);
+  check_kernel_state(v1);
   v2 = off_113268;
   v3 = *(uint8_t *)off_113268;
   v4 = *(uint16_t *)off_113264 + 1;
@@ -59,11 +59,11 @@ void sub_1131BC()
       *((uint32_t *)off_113274 + 512) &= ~0x2000u;
     else
       *((uint32_t *)off_113274 + 713) &= ~1u;
-    sub_111A04(1);
-    sub_11DC54(1069, 1);
-    v10 = sub_11F74C(512, dword_113278, v8, v9);
+    rf_read_status(1);
+    ke_int_lock(1069, 1);
+    v10 = check_interrupt_flag(512, dword_113278, v8, v9);
     if ( !*(uint8_t *)off_11327C )
-      sub_112F6C(v10, v11, v12, *(uint8_t *)off_11327C);
+      main_event_handler(v10, v11, v12, *(uint8_t *)off_11327C);
   }
   if ( *v0 )
   {

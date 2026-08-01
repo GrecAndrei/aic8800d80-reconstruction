@@ -28,8 +28,8 @@ extern uint32_t dword_10E418;
 extern uint32_t dword_10E410;
 extern uint32_t dword_10E414;
 
-// sub_10E160 @ 0x10e160, size 628 bytes
-int sub_10E160()
+// rf_hw_init @ 0x10e160, size 628 bytes
+int rf_hw_init()
 {
   int v0; // r3
   int v1; // r0
@@ -81,27 +81,27 @@ int sub_10E160()
   v2 = off_10E3FC;
   *((uint32_t *)off_10E3F0 + 14) = 296;
   v2[3] = v0 | v2[3] & 0xE0000000;
-  sub_10EC3C(v1, 1024, 15360);
+  call_patch_hook_2(v1, 1024, 15360);
   v2[2] = dword_10E400 & v2[2] | 0x1200000F;
   v2[1] = 1;
   while ( v2[7] != 1 )
     ;
   v2[7] = 1;
-  v3 = sub_142874(v2[4]);
-  v4 = sub_142968(v3, HIDWORD(v3), dword_10E3D8, dword_10E3DC);
-  v5 = sub_1425F8(v4, HIDWORD(v4), dword_10E3E0, dword_10E3E4);
-  v6 = sub_142E9C(v5, HIDWORD(v5));
-  sub_12E948(dword_10E404, v6, v7);
-  v8 = sub_10EC2C(dword_10E408);
+  v3 = unsigned_int_to_double(v2[4]);
+  v4 = double_compare_common(v3, HIDWORD(v3), dword_10E3D8, dword_10E3DC);
+  v5 = double_compare_neg(v4, HIDWORD(v4), dword_10E3E0, dword_10E3E4);
+  v6 = double_to_float(v5, HIDWORD(v5));
+  alloc_tx_event(dword_10E404, v6, v7);
+  v8 = call_patch_hook_0(dword_10E408);
   v10 = v6 - 1400;
   v11 = abs32(v6 - 1400);
   v12 = v8 & 0x3F;
   v43 = v12;
   if ( v11 > 49 )
   {
-    v13 = sub_142894(v11);
-    v14 = sub_142968(v13, HIDWORD(v13), dword_10E3E8, dword_10E3EC);
-    v15 = sub_142E9C(v14, HIDWORD(v14));
+    v13 = signed_int_to_double(v11);
+    v14 = double_compare_common(v13, HIDWORD(v13), dword_10E3E8, dword_10E3EC);
+    v15 = double_to_float(v14, HIDWORD(v14));
     v16 = v15;
     if ( v10 <= 0 )
     {
@@ -122,17 +122,17 @@ int sub_10E160()
     }
     if ( v17 > 11 )
     {
-      sub_10EC3C(dword_10E408, v17, 63);
+      call_patch_hook_2(dword_10E408, v17, 63);
       v18 = off_10E3FC;
       *((uint32_t *)off_10E3FC + 1) = 1;
       while ( v18[7] != 1 )
         ;
       v18[7] = 1;
-      v19 = sub_142874(v18[4]);
-      v20 = sub_142968(v19, HIDWORD(v19), dword_10E3D8, dword_10E3DC);
-      v21 = sub_1425F8(v20, HIDWORD(v20), dword_10E3E0, dword_10E3E4);
-      v6 = sub_142E9C(v21, HIDWORD(v21));
-      sub_12E948(dword_10E40C, v16, v17);
+      v19 = unsigned_int_to_double(v18[4]);
+      v20 = double_compare_common(v19, HIDWORD(v19), dword_10E3D8, dword_10E3DC);
+      v21 = double_compare_neg(v20, HIDWORD(v20), dword_10E3E0, dword_10E3E4);
+      v6 = double_to_float(v21, HIDWORD(v21));
+      alloc_tx_event(dword_10E40C, v16, v17);
       if ( v6 <= 1400 )
         v22 = 1;
       else
@@ -175,16 +175,16 @@ LABEL_19:
       v28 = v43 + v44 * v9;
       goto LABEL_28;
     }
-    sub_10EC3C(v24, v28, 63);
+    call_patch_hook_2(v24, v28, 63);
     v25[1] = 1;
     while ( v25[7] != 1 )
       ;
     v25[7] = 1;
-    v30 = sub_142874(v25[4]);
-    v31 = sub_142968(v30, HIDWORD(v30), dword_10E3D8, dword_10E3DC);
-    v32 = sub_1425F8(v31, HIDWORD(v31), dword_10E3E0, dword_10E3E4);
-    v42 = sub_142E9C(v32, HIDWORD(v32));
-    sub_12E948(v26, v29, v28);
+    v30 = unsigned_int_to_double(v25[4]);
+    v31 = double_compare_common(v30, HIDWORD(v30), dword_10E3D8, dword_10E3DC);
+    v32 = double_compare_neg(v31, HIDWORD(v31), dword_10E3E0, dword_10E3E4);
+    v42 = double_to_float(v32, HIDWORD(v32));
+    alloc_tx_event(v26, v29, v28);
     v33 = v6 - 1400;
     v9 = v42 - 1400;
     if ( v33 * (v42 - 1400) <= 0 )
@@ -203,18 +203,18 @@ LABEL_19:
     v28 = v43 + v29;
   }
 LABEL_28:
-  sub_12E948(dword_10E410, v29, v9);
-  sub_10EC3C(dword_10E408, v28, 63);
+  alloc_tx_event(dword_10E410, v29, v9);
+  call_patch_hook_2(dword_10E408, v28, 63);
   v35 = off_10E3FC;
   *((uint32_t *)off_10E3FC + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_142874(v35[4]);
-  v37 = sub_142968(v36, HIDWORD(v36), dword_10E3D8, dword_10E3DC);
-  v38 = sub_1425F8(v37, HIDWORD(v37), dword_10E3E0, dword_10E3E4);
-  v39 = sub_142E9C(v38, HIDWORD(v38));
-  sub_12E948(dword_10E414, v39, v40);
-  return sub_10EC3C(dword_10E3F8, 0, 15360);
+  v36 = unsigned_int_to_double(v35[4]);
+  v37 = double_compare_common(v36, HIDWORD(v36), dword_10E3D8, dword_10E3DC);
+  v38 = double_compare_neg(v37, HIDWORD(v37), dword_10E3E0, dword_10E3E4);
+  v39 = double_to_float(v38, HIDWORD(v38));
+  alloc_tx_event(dword_10E414, v39, v40);
+  return call_patch_hook_2(dword_10E3F8, 0, 15360);
 }
 

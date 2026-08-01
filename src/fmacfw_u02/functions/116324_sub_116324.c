@@ -23,8 +23,8 @@ extern uint32_t dword_11667C;
 extern uint32_t dword_116674;
 extern uint32_t dword_116678;
 
-// sub_116324 @ 0x116324, size 846 bytes
-int  sub_116324(int a1, int a2)
+// process_tx_packet @ 0x116324, size 846 bytes
+int  process_tx_packet(int a1, int a2)
 {
   int v2; // r3
   uint32_t *v3; // r5
@@ -109,17 +109,17 @@ LABEL_19:
               v23 = *(uint32_t *)(a1 + 44);
               if ( v23 != dword_11661C && v23 != dword_116620 )
               {
-                rf_flag_mask_test(v3 + 16, v3 + 20);
-                rf_flag_mask_test(v3 + 17, v3 + 21);
-                rf_flag_mask_test(v3 + 18, v3 + 22);
-                rf_flag_mask_test(v3 + 19, v3 + 23);
+                check_event_flags(v3 + 16, v3 + 20);
+                check_event_flags(v3 + 17, v3 + 21);
+                check_event_flags(v3 + 18, v3 + 22);
+                check_event_flags(v3 + 19, v3 + 23);
               }
             }
           }
           v24 = v3[12];
           *(uint32_t *)(v4 + 44) = v3[25];
           v3[12] = v24 | 2;
-          return sub_11C588(a1, a2);
+          return wait_channel_clear(a1, a2);
         }
         v18 = *(uint32_t *)(v4 + 24);
 LABEL_14:
@@ -134,7 +134,7 @@ LABEL_14:
       }
       else
       {
-        sub_12F46C(dword_116634, dword_116624, 518);
+        mmio_clear_register(dword_116634, dword_116624, 518);
         v17 = *(uint32_t *)(v4 + 28);
         if ( v17 )
         {
@@ -151,12 +151,12 @@ LABEL_35:
         v15 = *(uint16_t *)(a1 + 30);
         goto LABEL_14;
       }
-      sub_12F46C(dword_116628, dword_116624, 525);
+      mmio_clear_register(dword_116628, dword_116624, 525);
 LABEL_66:
       v18 = *(uint32_t *)(v4 + 24);
       goto LABEL_35;
     }
-    idx_struct_lookup();
+    ll_conn_rx_packet_get();
     v30 = v3[24];
     *(uint32_t *)(v4 + 64) = v30;
     if ( !*(uint8_t *)(dword_11662C + 1320 * *(uint8_t *)(a1 + 28) + 106)
@@ -210,7 +210,7 @@ LABEL_45:
     }
     else
     {
-      sub_12F46C(dword_11667C, dword_116674, 518);
+      mmio_clear_register(dword_11667C, dword_116674, 518);
       v17 = *(uint32_t *)(v32 + 28);
       if ( v17 )
       {
@@ -227,7 +227,7 @@ LABEL_57:
       v30 = *(uint32_t *)(v4 + 64);
       goto LABEL_45;
     }
-    sub_12F46C(dword_116678, dword_116674, 525);
+    mmio_clear_register(dword_116678, dword_116674, 525);
 LABEL_74:
     v34 = *(uint32_t *)(v32 + 24);
     goto LABEL_57;
@@ -262,7 +262,7 @@ LABEL_8:
     }
     else
     {
-      result = sub_12F46C(dword_116634, dword_116624, 518);
+      result = mmio_clear_register(dword_116634, dword_116624, 518);
       v12 = *(uint16_t **)(v11 + 28);
       if ( v12 )
         goto LABEL_8;
@@ -272,7 +272,7 @@ LABEL_8:
     v13 = *(uint32_t *)(v11 + 24);
     if ( v13 )
       goto LABEL_7;
-    result = sub_12F46C(dword_116628, dword_116624, 525);
+    result = mmio_clear_register(dword_116628, dword_116624, 525);
 LABEL_6:
     v13 = *(uint32_t *)(v11 + 24);
 LABEL_7:
@@ -294,14 +294,14 @@ LABEL_7:
       v3[20] = v3[20] & 0xFFF8FFFF | v37 & 0xFFFBFFFF;
   }
   if ( *((uint8_t *)off_116618 + 361) != 2 )
-    rf_flag_mask_test(v25 + 4, v3 + 20);
+    check_event_flags(v25 + 4, v3 + 20);
   v27 = v3[12];
   v28 = v3[24];
   v3[16] = *(uint32_t *)(v25 + 4);
   *(uint32_t *)(v25 + 48) = v3[25];
   *(uint32_t *)(v25 + 68) = v28 | 0x600;
   v3[12] = v27 | 2;
-  sub_143770(v25 + 272, v3 + 11, 52);
+  memcpy(v25 + 272, v3 + 11, 52);
   v29 = *(uint16_t *)(a1 + 30);
   result = v29 << 31;
   if ( (v29 & 1) != 0 )

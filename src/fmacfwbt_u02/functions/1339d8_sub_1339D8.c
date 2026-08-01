@@ -14,20 +14,20 @@ extern uint32_t off_133A0C;
 extern uint32_t dword_133A14;
 extern uint32_t dword_133A10;
 
-// sub_1339D8 @ 0x1339d8, size 52 bytes
-int  sub_1339D8(int value)
+// bt_poll_controller @ 0x1339d8, size 52 bytes
+int  bt_poll_controller(int value)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_133A0C >= 0 || (value = msg_get_value(6u), value == 10) )
+  if ( **(int16_t **)off_133A0C >= 0 || (value = hci_cmd_send_short(6u), value == 10) )
   {
-    sub_13500C(value);
+    check_fw_ready(value);
     return 0;
   }
   else
   {
-    v2 = sub_12F694(dword_133A14, dword_133A10, 1038);
-    sub_13500C(v2);
+    v2 = mmio_irq_clear(dword_133A14, dword_133A10, 1038);
+    check_fw_ready(v2);
     return 0;
   }
 }

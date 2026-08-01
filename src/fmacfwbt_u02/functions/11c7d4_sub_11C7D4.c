@@ -22,10 +22,10 @@ extern uint32_t dword_11C8C8;
 extern uint32_t dword_11C8B8;
 extern uint32_t dword_11C8B0;
 
-// sub_11C7D4 @ 0x11c7d4, size 208 bytes
+// get_rate_index @ 0x11c7d4, size 208 bytes
 // Doc: sub_121C7D4 [bt]: Process BT control message with field extraction
 // sub_121C7D4 [bt]: Process BT control message with field extraction
-unsigned int  sub_11C7D4(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a5, int *a6)
+unsigned int  get_rate_index(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a5, int *a6)
 {
   unsigned int v6; // r4
   int v7; // r8
@@ -58,13 +58,13 @@ unsigned int  sub_11C7D4(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a
     {
       if ( v11 )
       {
-        sub_12F694(dword_11C8CC, dword_11C8B4, 2707);
+        mmio_irq_clear(dword_11C8CC, dword_11C8B4, 2707);
         if ( **v16 >= 0 )
           goto LABEL_3;
         v8 = *a6;
       }
       if ( v8 != 1 )
-        sub_12F694(dword_11C8C4, dword_11C8B4, 2709);
+        mmio_irq_clear(dword_11C8C4, dword_11C8B4, 2709);
     }
   }
   else
@@ -76,10 +76,10 @@ unsigned int  sub_11C7D4(int a1, int a2, uint32_t *a3, uint32_t *a4, uint32_t *a
     *a4 = dword_11C8AC;
     if ( v14 < 0 )
     {
-      if ( (v10 & 4) == 0 || (sub_12F694(dword_11C8C8, dword_11C8B4, 2717), **v12 < 0) )
+      if ( (v10 & 4) == 0 || (mmio_irq_clear(dword_11C8C8, dword_11C8B4, 2717), **v12 < 0) )
       {
         if ( v11 > 0xB )
-          sub_12F694(dword_11C8B8, dword_11C8B4, 2718);
+          mmio_irq_clear(dword_11C8B8, dword_11C8B4, 2718);
       }
     }
   }

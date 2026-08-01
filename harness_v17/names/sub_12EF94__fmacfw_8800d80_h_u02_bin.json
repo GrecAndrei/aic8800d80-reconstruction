@@ -1,0 +1,1 @@
+{"fn": "sub_12EF94", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ef94", "status": "ok", "name": "send_event_42d", "params": [], "docstring": "Posts event 0x42d with updated global.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

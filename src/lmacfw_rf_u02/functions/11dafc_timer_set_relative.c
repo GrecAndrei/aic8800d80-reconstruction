@@ -25,10 +25,10 @@ extern uint32_t dword_11DC2C;
 extern uint32_t off_11DC28;
 extern uint32_t dword_11DC30;
 
-// timer_set_relative @ 0x11dafc, size 288 bytes
-// Doc: timer_set_relative [util]: Schedule a relative timer with callback and argument
-// timer_set_relative [util]: Schedule a relative timer with callback and argument
-int  timer_set_relative(int a1, int a2, unsigned int a3)
+// ke_event_loop @ 0x11dafc, size 288 bytes
+// Doc: ke_event_loop [util]: Schedule a relative timer with callback and argument
+// ke_event_loop [util]: Schedule a relative timer with callback and argument
+int  ke_event_loop(int a1, int a2, unsigned int a3)
 {
   int16_t **v3; // r11
   int *v7; // r8
@@ -49,11 +49,11 @@ int  timer_set_relative(int a1, int a2, unsigned int a3)
     if ( a3 )
     {
       if ( a3 > dword_11DC34 )
-        rf_cmd_send_n264(dword_11DC3C, dword_11DC38, 148);
+        flash_ctrl_init(dword_11DC3C, dword_11DC38, 148);
     }
     else
     {
-      rf_cmd_send_n264(dword_11DC40, dword_11DC38, 147);
+      flash_ctrl_init(dword_11DC40, dword_11DC38, 147);
     }
   }
   if ( (__get_CPSR() & 1) == 0 )
@@ -67,13 +67,13 @@ int  timer_set_relative(int a1, int a2, unsigned int a3)
   ++*(uint32_t *)off_11DC4C;
   if ( v9 )
     v9 = *(uint16_t *)(v9 + 4) == a1 && *(uint16_t *)(v9 + 6) == a2;
-  v10 = list_find_remove(dword_11DC24, dword_11DC20, a2 | (a1 << 16));
+  v10 = co_list_process(dword_11DC24, dword_11DC20, a2 | (a1 << 16));
   if ( !v10 )
   {
-    v17 = sub_11DF94(12);
+    v17 = align_size_plus4(12);
     v10 = v17;
     if ( **v3 < 0 && !v17 )
-      rf_cmd_send_n264(dword_11DC44, dword_11DC38, 165);
+      flash_ctrl_init(dword_11DC44, dword_11DC38, 165);
     *(uint16_t *)(v10 + 4) = a1;
     *(uint16_t *)(v10 + 6) = a2;
   }
@@ -81,14 +81,14 @@ int  timer_set_relative(int a1, int a2, unsigned int a3)
   v12 = dword_11DC24;
   v13 = a3 + *((uint32_t *)off_11DC28 + 4);
   *(uint32_t *)(v10 + 8) = v13;
-  result = list_insert_sorted(v12, v10, v11);
+  result = list_foreach(v12, v10, v11);
   if ( v9 )
   {
     v10 = v8[5];
     if ( !v10 )
       goto LABEL_10;
 LABEL_15:
-    result = sub_11AB18(dword_11DC30, *(uint32_t *)(v10 + 8));
+    result = ke_enter_critical(dword_11DC30, *(uint32_t *)(v10 + 8));
     goto LABEL_10;
   }
   if ( v8[5] == v10 )
@@ -98,11 +98,11 @@ LABEL_10:
   {
     __enable_irq();
     if ( (int)(v13 - *((uint32_t *)off_11DC28 + 4)) < 0 )
-      return irq_nesting_or(0x10000000);
+      return set_busy_flag_alt(0x10000000);
   }
   else if ( (int)(v13 - *((uint32_t *)off_11DC28 + 4)) < 0 )
   {
-    return irq_nesting_or(0x10000000);
+    return set_busy_flag_alt(0x10000000);
   }
   return result;
 }

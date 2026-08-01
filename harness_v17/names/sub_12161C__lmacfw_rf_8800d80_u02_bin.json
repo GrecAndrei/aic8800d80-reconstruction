@@ -1,0 +1,1 @@
+{"fn": "sub_12161C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12161c", "status": "ok", "name": "send_event_42d", "params": [], "docstring": "Send event 0x42d with parameter 1", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

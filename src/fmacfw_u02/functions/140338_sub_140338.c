@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_140338 @ 0x140338, size 92 bytes
-int  sub_140338(int result, unsigned int a2, int a3, int a4, uint8_t a5, int a6, int a7, char a8)
+// ble_ll_adv_rx_scan_req @ 0x140338, size 92 bytes
+int  ble_ll_adv_rx_scan_req(int result, unsigned int a2, int a3, int a4, uint8_t a5, int a6, int a7, char a8)
 {
   unsigned int v8; // r2
   unsigned int v9; // r1

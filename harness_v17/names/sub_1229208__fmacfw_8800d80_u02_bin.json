@@ -1,1 +1,1 @@
-{"fn": "sub_1229208", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1229208", "status": "ok", "name": "rf_state_check_n_208", "params": [], "docstring": "Check RF state flag from global at 0x190454", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1229208", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1229208", "status": "ok", "name": "wlc_bus_state", "params": [], "docstring": "Check RF state flag from global at 0x190454", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

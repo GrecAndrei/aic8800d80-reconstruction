@@ -28,8 +28,8 @@ extern uint32_t dword_121530;
 extern uint32_t dword_12152C;
 extern uint32_t off_12151C;
 
-// sub_1212D8 @ 0x1212d8, size 534 bytes
-int  sub_1212D8(uint8_t *a1)
+// ll_parse_pdu @ 0x1212d8, size 534 bytes
+int  ll_parse_pdu(uint8_t *a1)
 {
   unsigned int v1; // r7
   int v2; // r5
@@ -61,7 +61,7 @@ int  sub_1212D8(uint8_t *a1)
     {
       v23 = HIBYTE(*(uint32_t *)off_121528) - 3 + *a1 + 2 * v2;
       v4 = (uint8_t)v23;
-      sub_11FEF8(a1, v23);
+      get_bss_by_channel(a1, v23);
       return v4;
     }
     v15 = *a1;
@@ -70,16 +70,16 @@ int  sub_1212D8(uint8_t *a1)
     *(uint32_t *)off_1214FC = -1;
     *v16 = -1;
     v4 = (uint8_t)(v15 + 4 * v2);
-    sub_12EB90(256, v17);
-    sub_11FEF8(a1, v4);
+    check_feature_flag(256, v17);
+    get_bss_by_channel(a1, v4);
   }
   else
   {
     if ( **(int16_t **)off_1214F0 < 0 && v1 > 0x23 )
-      sub_12F32C(dword_121508, dword_121504, 1424);
+      irq_disable_mmio_write(dword_121508, dword_121504, 1424);
     v4 = (uint8_t)(v1 + 16);
-    sub_12EB90(256, dword_1214F4);
-    sub_11F158((int)a1, v1 + 16);
+    check_feature_flag(256, dword_1214F4);
+    set_connection_flag((int)a1, v1 + 16);
     v5 = off_121500;
     v6 = (uint16_t *)(dword_1214F8 + 696 * v1);
     *(uint32_t *)off_1214FC = v6[19] | (v6[20] << 16);
@@ -165,7 +165,7 @@ LABEL_20:
       break;
     default:
       if ( **(int16_t **)off_1214F0 < 0 )
-        sub_12F32C(dword_121530, dword_12152C, 159);
+        irq_disable_mmio_write(dword_121530, dword_12152C, 159);
       v10 = 0;
       v11 = 4096;
 LABEL_22:

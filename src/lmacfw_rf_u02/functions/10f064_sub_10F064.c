@@ -14,10 +14,10 @@ extern uint32_t off_10F0AC;
 extern uint32_t off_10F0B0;
 extern uint32_t off_10F0B4;
 
-// sub_10F064 @ 0x10f064, size 70 bytes
+// critical_enter3 @ 0x10f064, size 70 bytes
 // Doc: rf_reg_write_core [rf]: Core routine for writing an RF register
 // rf_reg_write_core [rf]: Core routine for writing an RF register
-int  sub_10F064(int a1, int a2, int a3, int a4)
+int  critical_enter3(int a1, int a2, int a3, int a4)
 {
   int *v4; // r5
   uint32_t *v5; // r4
@@ -37,12 +37,12 @@ int  sub_10F064(int a1, int a2, int a3, int a4)
     v5 = off_10F0B4;
     while ( !*(uint32_t *)off_10F0B4 )
       ;
-    result = rf_reg_write_cb();
+    result = call_slot_0x1b8();
     *v5 = 1;
   }
   else
   {
-    result = rf_reg_write_cb();
+    result = call_slot_0x1b8();
   }
   if ( *v4 )
   {

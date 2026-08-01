@@ -15,8 +15,8 @@ extern uint32_t off_126D98;
 extern uint32_t dword_126D9C;
 extern uint32_t dword_126DA0;
 
-// sub_126D60 @ 0x126d60, size 52 bytes
-int  sub_126D60(int a1)
+// mmio_bit_set @ 0x126d60, size 52 bytes
+int  mmio_bit_set(int a1)
 {
   void *v1; // r1
   unsigned int *v2; // r2
@@ -40,6 +40,6 @@ int  sub_126D60(int a1)
     v5 = *v2 & 0xFF87FFFF;
   }
   *v2 = v5;
-  return sub_11F504(v4, v1, v2, v5);
+  return dispatch_event_handler(v4, v1, v2, v5);
 }
 

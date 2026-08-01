@@ -14,8 +14,8 @@ extern uint32_t off_119114;
 extern uint32_t dword_11911C;
 extern uint32_t dword_119118;
 
-// sub_1190B4 @ 0x1190b4, size 94 bytes
-int  sub_1190B4(int a1, int a2)
+// ble_event_dispatch @ 0x1190b4, size 94 bytes
+int  ble_event_dispatch(int a1, int a2)
 {
   uint64_t v2; // kr00_8
   int v3; // r2
@@ -27,7 +27,7 @@ int  sub_1190B4(int a1, int a2)
   v3 = *(uint32_t *)(HIDWORD(v2) + 28);
   if ( **(int16_t **)off_119114 < 0 && (v3 & 1) != 0 )
   {
-    sub_12F694(dword_11911C, dword_119118, 389);
+    mmio_irq_clear(dword_11911C, dword_119118, 389);
     v3 = *(uint32_t *)(HIDWORD(v2) + 28);
   }
   v6 = *(uint32_t *)(HIDWORD(v2) + 44);
@@ -41,6 +41,6 @@ int  sub_1190B4(int a1, int a2)
   *(uint32_t *)(HIDWORD(v2) + 64) = v7;
   *(uint32_t *)(v2 + 96) = v7;
   *(uint32_t *)(v2 + 100) = v6;
-  return cmd_dispatch_handler(a1, a2);
+  return conn_rx(a1, a2);
 }
 

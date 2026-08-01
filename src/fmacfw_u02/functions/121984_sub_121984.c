@@ -18,8 +18,8 @@ extern uint32_t off_121A68;
 extern uint32_t off_121A6C;
 extern uint32_t dword_121A70;
 
-// sub_121984 @ 0x121984, size 212 bytes
-int  sub_121984(int a1)
+// chip_state_handler @ 0x121984, size 212 bytes
+int  chip_state_handler(int a1)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3
@@ -80,7 +80,7 @@ int  sub_121984(int a1)
       {
         v19 = dword_121A70;
         v1[10] = v4;
-        timestamp_update(v19, v10 + 100);
+        unknown_worker(v19, v10 + 100);
         goto LABEL_12;
       }
     }
@@ -91,7 +91,7 @@ int  sub_121984(int a1)
         v17 = v10 + v2 - v11;
         v18 = dword_121A70;
         v1[10] = v4;
-        timestamp_update(v18, v17);
+        unknown_worker(v18, v17);
         goto LABEL_12;
       }
       if ( v3 + 100 > v2 - v9 )
@@ -99,7 +99,7 @@ int  sub_121984(int a1)
         v12 = v10 - v11;
         v13 = dword_121A70;
         v1[10] = v4;
-        timestamp_update(v13, v12);
+        unknown_worker(v13, v12);
 LABEL_12:
         if ( *v5 )
         {
@@ -115,7 +115,7 @@ LABEL_12:
         return v4;
       }
     }
-    ipc_msg_send_n048c(v4);
+    alloc_bt_message(v4);
     goto LABEL_12;
   }
   return 0;

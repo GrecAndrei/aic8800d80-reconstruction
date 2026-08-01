@@ -12,15 +12,15 @@
 
 extern uint32_t dword_10F1DC;
 
-// fw_state_check_n960 @ 0x10f188, size 82 bytes
-// Doc: fw_state_check_n960 [util]: Load firmware state word from 0x182b60 and test sign
-// fw_state_check_n960 [util]: Load firmware state word from 0x182b60 and test sign
-int  fw_state_check_n960(int a1)
+// get_bandgap_trim @ 0x10f188, size 82 bytes
+// Doc: get_bandgap_trim [util]: Load firmware state word from 0x182b60 and test sign
+// get_bandgap_trim [util]: Load firmware state word from 0x182b60 and test sign
+int  get_bandgap_trim(int a1)
 {
   unsigned int v2; // r0
   unsigned int v3; // r1
 
-  v2 = sub_10EFBC(dword_10F1DC, 1);
+  v2 = critical_enter(dword_10F1DC, 1);
   v3 = (v2 >> 20) & 0xF;
   if ( a1 )
   {
@@ -41,6 +41,6 @@ int  fw_state_check_n960(int a1)
   {
     v3 = ((v3 + 2) << 20) & 0xF00000;
   }
-  return sub_10F064(dword_10F1DC, v3, 15728640, 1);
+  return critical_enter3(dword_10F1DC, v3, 15728640, 1);
 }
 

@@ -18,10 +18,10 @@ extern uint32_t off_117524;
 extern uint32_t off_117528;
 extern uint32_t off_11752C;
 
-// category_dispatch_5way @ 0x11749c, size 124 bytes
-// Doc: category_dispatch_5way [util]: Dispatch routine selecting one of 5 categories on input code
-// category_dispatch_5way [util]: Dispatch routine selecting one of 5 categories on input code
-int  category_dispatch_5way(int a1)
+// phy_band_validate @ 0x11749c, size 124 bytes
+// Doc: phy_band_validate [util]: Dispatch routine selecting one of 5 categories on input code
+// phy_band_validate [util]: Dispatch routine selecting one of 5 categories on input code
+int  phy_band_validate(int a1)
 {
   uint32_t *v2; // r5
   int v3; // r3
@@ -37,11 +37,11 @@ int  category_dispatch_5way(int a1)
     v2 = (uint32_t *)dword_117530;
   else
     v2 = (uint32_t *)(dword_117518 + 84 * a1);
-  sub_118940(a1, dword_11751C + 8 * a1, 0);
-  sub_118940(a1, v2 + 3, 0);
+  rf_tx_setup(a1, dword_11751C + 8 * a1, 0);
+  rf_tx_setup(a1, v2 + 3, 0);
   *v2 = 0;
   v2[5] = 0;
-  sub_116050(a1);
+  init_event_slot(a1);
   v3 = *(uint32_t *)off_117520;
   v4 = 1 << a1;
   if ( (__get_CPSR() & 1) == 0 )

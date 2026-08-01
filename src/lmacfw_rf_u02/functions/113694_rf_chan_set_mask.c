@@ -12,12 +12,12 @@
 
 extern uint32_t dword_1136A4;
 
-// rf_chan_set_mask @ 0x113694, size 16 bytes
-// Doc: rf_chan_set_mask [rf]: Sets a 0x100 channel/mask register for RF configuration
-// rf_chan_set_mask [rf]: Sets a 0x100 channel/mask register for RF configuration
-int  rf_chan_set_mask(int a1, int a2)
+// prepare_and_dispatch @ 0x113694, size 16 bytes
+// Doc: prepare_and_dispatch [rf]: Sets a 0x100 channel/mask register for RF configuration
+// prepare_and_dispatch [rf]: Sets a 0x100 channel/mask register for RF configuration
+int  prepare_and_dispatch(int a1, int a2)
 {
-  msg_parse(dword_1136A4, a2);
-  return rf_stream_start_once();
+  dispatch_event_handler(dword_1136A4, a2);
+  return dispatch_event_handler();
 }
 

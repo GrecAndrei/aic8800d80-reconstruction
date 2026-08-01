@@ -12,11 +12,11 @@
 
 extern uint32_t off_120578;
 
-// mmio_reg_write_helper @ 0x120568, size 16 bytes
-// Doc: mmio_reg_write_helper [mmio]: Writes to MMIO register window at 0x40501000 with computed offset and value
-// mmio_reg_write_helper [mmio]: Writes to MMIO register window at 0x40501000 with computed offset and value
-int  mmio_reg_write_helper(int a1)
+// wlc_bmac_write_shm @ 0x120568, size 16 bytes
+// Doc: wlc_bmac_write_shm [mmio]: Writes to MMIO register window at 0x40501000 with computed offset and value
+// wlc_bmac_write_shm [mmio]: Writes to MMIO register window at 0x40501000 with computed offset and value
+int  wlc_bmac_write_shm(int a1)
 {
-  return timestamp_update_4f60(a1 + 48, *((uint32_t *)off_120578 + 4) + 10000);
+  return ke_event_lock(a1 + 48, *((uint32_t *)off_120578 + 4) + 10000);
 }
 

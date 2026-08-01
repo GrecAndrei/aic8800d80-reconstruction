@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_127", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113fc", "status": "ok", "name": "rf_bus_write2_n_127", "params": [], "docstring": "Write to RF bus register variant 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_127", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113fc", "status": "ok", "name": "rf_bus_setup_n_408", "params": [], "docstring": "Write to RF bus register variant 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

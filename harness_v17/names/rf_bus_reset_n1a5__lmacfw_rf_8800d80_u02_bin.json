@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n1a5", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212494", "status": "ok", "name": "rf_bus_reset_n1a5", "params": [], "docstring": "Check RF bus status register offset 0x20 against zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n1a5", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212494", "status": "ok", "name": "rf_bus_reset_n1a4", "params": [], "docstring": "Check RF bus status register offset 0x20 against zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

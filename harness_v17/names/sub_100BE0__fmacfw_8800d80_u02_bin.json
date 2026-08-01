@@ -1,0 +1,1 @@
+{"fn": "sub_100BE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x100be0", "status": "ok", "name": "variadic_call_1006d8", "params": [], "docstring": "Sets up arguments and forwards to sub_1006d8.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

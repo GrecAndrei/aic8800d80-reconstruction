@@ -18,8 +18,8 @@ extern uint32_t off_1146A4;
 extern uint32_t off_1146A8;
 extern uint32_t off_1146AC;
 
-// sub_11463C @ 0x11463c, size 94 bytes
-int  sub_11463C(int a1)
+// load_global_ptr_182558 @ 0x11463c, size 94 bytes
+int  load_global_ptr_182558(int a1)
 {
   int *v1; // r3
   int v2; // r2

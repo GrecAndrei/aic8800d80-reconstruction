@@ -16,10 +16,10 @@ extern uint32_t off_107144;
 extern uint32_t dword_107148;
 extern uint32_t dword_10714C;
 
-// log_free_pool_dispatch2_n324 @ 0x107068, size 212 bytes
-// Doc: log_free_pool_dispatch2_n324 [util]: Initializes log entry and dispatches to free-pool handler
-// log_free_pool_dispatch2_n324 [util]: Initializes log entry and dispatches to free-pool handler
-int  log_free_pool_dispatch2_n324(int a1, int a2)
+// gpio_output @ 0x107068, size 212 bytes
+// Doc: gpio_output [util]: Initializes log entry and dispatches to free-pool handler
+// gpio_output [util]: Initializes log entry and dispatches to free-pool handler
+int  gpio_output(int a1, int a2)
 {
   uint32_t *v2; // r5
   unsigned int *v3; // r4
@@ -41,9 +41,9 @@ int  log_free_pool_dispatch2_n324(int a1, int a2)
   *v3 |= 0x800000u;
   *v3 |= 0x200000u;
   *v3 |= 0x100000u;
-  crypto_hw_clear_regs();
+  clk_set_divider();
   *v2 &= ~1u;
-  delay_us(100);
+  write_timer_reg(100);
   v5 = off_107144;
   v6 = dword_107148;
   *v3 |= 0x4000000u;
@@ -51,9 +51,9 @@ int  log_free_pool_dispatch2_n324(int a1, int a2)
   v8 = *v3 & 0xFBFFFFFF;
   *v3 = v8;
   *(uint32_t *)(a1 + 44) = v7;
-  sub_11F74C(1, v6, v7, v8);
-  delay_us(5);
-  result = sub_11F74C(1, dword_10714C, v9, v10);
+  check_interrupt_flag(1, v6, v7, v8);
+  write_timer_reg(5);
+  result = check_interrupt_flag(1, dword_10714C, v9, v10);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v2 &= ~4u;

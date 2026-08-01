@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_428 @ 0x114a84, size 70 bytes
+// rf_cmd_b_write @ 0x114a84, size 70 bytes
 // Doc: patch_apply_n_3e4 [patch]: Pop frame then dispatch next patch via function pointer table
 // patch_apply_n_3e4 [patch]: Pop frame then dispatch next patch via function pointer table
-int  patch_apply_n_428(char a1, uint8_t *a2)
+int  rf_cmd_b_write(char a1, uint8_t *a2)
 {
   unsigned int v3; // r0
   unsigned int v4; // r3

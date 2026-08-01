@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sdio_buffer_prepare_n_17c @ 0x12e1c8, size 14 bytes
-// Doc: sdio_buffer_prepare_n_17c [mac]: SDIO buffer prep extracting flags from word at offset 4-5
-// sdio_buffer_prepare_n_17c [mac]: SDIO buffer prep extracting flags from word at offset 4-5
-int  sdio_buffer_prepare_n_17c(int a1)
+// extract_chan_bits @ 0x12e1c8, size 14 bytes
+// Doc: extract_chan_bits [mac]: SDIO buffer prep extracting flags from word at offset 4-5
+// extract_chan_bits [mac]: SDIO buffer prep extracting flags from word at offset 4-5
+int  extract_chan_bits(int a1)
 {
   return ((2 * *(uint8_t *)(a1 + 5)) | (*(uint8_t *)(a1 + 4) >> 7)) << 22;
 }

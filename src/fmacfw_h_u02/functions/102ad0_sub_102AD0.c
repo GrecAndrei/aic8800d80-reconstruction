@@ -13,8 +13,8 @@
 extern uint32_t off_102B08;
 extern uint32_t off_102B0C;
 
-// sub_102AD0 @ 0x102ad0, size 56 bytes
-unsigned int  sub_102AD0(uint8_t a1)
+// rf_reg_write_byte @ 0x102ad0, size 56 bytes
+unsigned int  rf_reg_write_byte(uint8_t a1)
 {
   unsigned int *v1; // r1
   unsigned int *v2; // r2

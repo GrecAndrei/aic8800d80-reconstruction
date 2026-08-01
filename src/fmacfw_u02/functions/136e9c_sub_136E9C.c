@@ -12,10 +12,10 @@
 
 extern uint32_t off_136EF8;
 
-// sub_136E9C @ 0x136e9c, size 90 bytes
+// rf_write_cmd_1006 @ 0x136e9c, size 90 bytes
 // Doc: sub_1236E9E [util]: Helper dispatching sub-task with 0x1006 tag to message queue
 // sub_1236E9E [util]: Helper dispatching sub-task with 0x1006 tag to message queue
-int  sub_136E9C(int a1, uint8_t *a2, int a3, int16_t a4)
+int  rf_write_cmd_1006(int a1, uint8_t *a2, int a3, int16_t a4)
 {
   uint16_t *v4; // r4
   uint8_t *v6; // r0
@@ -38,7 +38,7 @@ int  sub_136E9C(int a1, uint8_t *a2, int a3, int16_t a4)
   int v24; // r2
 
   v4 = off_136EF8;
-  v6 = (uint8_t *)sub_12C92C(4102, a4, 4, 0x3Cu);
+  v6 = (uint8_t *)ke_msg_alloc(4102, a4, 4, 0x3Cu);
   v7 = v6;
   if ( v4[2] && (v8 = *a2, (uint16_t)v4[2] > v8) )
   {
@@ -75,13 +75,13 @@ int  sub_136E9C(int a1, uint8_t *a2, int a3, int16_t a4)
     v7[12] = *v10;
     v7[13] = v23;
     v7[14] = v24;
-    sdio_buffer_prepare_n_4e8((int)v7);
+    ke_msg_send((int)v7);
     return 0;
   }
   else
   {
     *v6 = 0;
-    sdio_buffer_prepare_n_4e8((int)v6);
+    ke_msg_send((int)v6);
     return 0;
   }
 }

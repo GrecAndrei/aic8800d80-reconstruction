@@ -13,8 +13,8 @@
 extern uint32_t off_115FB4;
 extern uint32_t off_115FB8;
 
-// sub_115F78 @ 0x115f78, size 58 bytes
-int  sub_115F78(int a1)
+// rf_wait_timeout @ 0x115f78, size 58 bytes
+int  rf_wait_timeout(int a1)
 {
   uint32_t *v1; // r6
   uint32_t *v2; // r7

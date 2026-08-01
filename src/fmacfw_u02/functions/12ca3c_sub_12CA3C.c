@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12CA3C @ 0x12ca3c, size 86 bytes
+// pkt_word_get @ 0x12ca3c, size 86 bytes
 // Doc: ke_msg_dispatch_nd8 [ke]: Dispatches a pending kernel message/event for node/task 8, clearing status and snapshotting debug trace.
 // ke_msg_dispatch_nd8 [ke]: Dispatches a pending kernel message/event for node/task 8, clearing status and snapshotting debug trace.
-uint32_t * sub_12CA3C(int a1, int ( *a2)(uint32_t *, int), int a3)
+uint32_t * pkt_word_get(int a1, int ( *a2)(uint32_t *, int), int a3)
 {
   uint32_t *v3; // r4
   uint32_t *v7; // r8

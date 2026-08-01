@@ -14,10 +14,10 @@ extern uint32_t off_132814;
 extern uint32_t dword_132818;
 extern uint32_t dword_13281C;
 
-// task_entry_n794 @ 0x132794, size 128 bytes
-// Doc: task_entry_n794 [util]: critical task entry; saves context and checks first byte of arg
-// task_entry_n794 [util]: critical task entry; saves context and checks first byte of arg
-int  task_entry_n794(uint8_t *a1, int a2)
+// bt_process_msg @ 0x132794, size 128 bytes
+// Doc: bt_process_msg [util]: critical task entry; saves context and checks first byte of arg
+// bt_process_msg [util]: critical task entry; saves context and checks first byte of arg
+int  bt_process_msg(uint8_t *a1, int a2)
 {
   int v2; // r11
   int16_t **v3; // r8
@@ -39,7 +39,7 @@ int  task_entry_n794(uint8_t *a1, int a2)
     {
       if ( a2 && (v8[1] & 0x80u) == 0 )
         goto LABEL_6;
-      sub_1326F4();
+      is_valid_rate_code();
       if ( **v3 < 0 )
         break;
       if ( v10 <= 11 )
@@ -50,7 +50,7 @@ LABEL_6:
     }
     if ( v10 > 11 )
     {
-      sub_12F49C(v5, v4, 598);
+      call_shared_handler(v5, v4, 598);
       v2 = *a1;
       goto LABEL_6;
     }

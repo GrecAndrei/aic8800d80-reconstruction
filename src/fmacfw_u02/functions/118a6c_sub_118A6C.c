@@ -13,13 +13,13 @@
 extern uint32_t dword_118AA8;
 extern uint32_t dword_118AAC;
 
-// sub_118A6C @ 0x118a6c, size 58 bytes
-int  sub_118A6C(int a1, int a2, uint32_t *a3, int *a4)
+// ll_event_init @ 0x118a6c, size 58 bytes
+int  ll_event_init(int a1, int a2, uint32_t *a3, int *a4)
 {
   int v8; // r1
   int v9; // r2
 
-  memset_thunk((int *)a1, 0, 0x64u);
+  memset((int *)a1, 0, 0x64u);
   *(uint8_t *)(a1 + 96) = 1;
   v8 = dword_118AA8;
   v9 = dword_118AAC;

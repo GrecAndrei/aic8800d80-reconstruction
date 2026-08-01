@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114E6C @ 0x114e6c, size 10 bytes
+// ke_event_send_0x400000 @ 0x114e6c, size 10 bytes
 // Doc: patch_apply_n398 [patch]: Apply firmware patch 398 to BT/LMAC region (SCB base 0xe000ed00)
 // patch_apply_n398 [patch]: Apply firmware patch 398 to BT/LMAC region (SCB base 0xe000ed00)
-int  sub_114E6C(int a1)
+int  ke_event_send_0x400000(int a1)
 {
-  return patch_apply_n_130(2, a1, 6u);
+  return ke_task_handler_large(2, a1, 6u);
 }
 

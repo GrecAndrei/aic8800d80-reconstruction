@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1136B4;
 
-// sub_1136A4 @ 0x1136a4, size 14 bytes
-int  sub_1136A4(unsigned int a1)
+// lookup_channel_table @ 0x1136a4, size 14 bytes
+int  lookup_channel_table(unsigned int a1)
 {
   if ( a1 > 7 )
     return 0;

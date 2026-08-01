@@ -15,8 +15,8 @@ extern uint32_t dword_130360;
 extern uint32_t off_130364;
 extern uint32_t dword_130368;
 
-// sub_1302F0 @ 0x1302f0, size 110 bytes
-int  sub_1302F0(int a1)
+// check_frame_len @ 0x1302f0, size 110 bytes
+int  check_frame_len(int a1)
 {
   signed int v1; // r0
   int v2; // r3
@@ -37,10 +37,10 @@ int  sub_1302F0(int a1)
   if ( v2 < 1 )
     LOBYTE(v2) = 1;
   *((uint8_t *)off_130364 + 5) = v2;
-  sub_1301B8(v1);
-  result = sub_12E91C(9u, 4u);
+  rf_temp_compensation(v1);
+  result = is_id_lt_10(9u, 4u);
   if ( result )
-    return sub_130260();
+    return rf_tx_power_lookup();
   return result;
 }
 

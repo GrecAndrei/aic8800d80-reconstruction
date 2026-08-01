@@ -16,8 +16,8 @@ extern uint32_t dword_111C18;
 extern uint32_t dword_111C0C;
 extern uint32_t off_111C10;
 
-// sub_111B64 @ 0x111b64, size 162 bytes
-int * sub_111B64(int a1, int a2, int a3)
+// unknown_15 @ 0x111b64, size 162 bytes
+int * unknown_15(int a1, int a2, int a3)
 {
   uint32_t *v3; // r6
   int *v4; // r5
@@ -59,11 +59,11 @@ int * sub_111B64(int a1, int a2, int a3)
     {
 LABEL_10:
       *((uint32_t *)off_111C10 + 513) |= 0x400u;
-      return sub_11196C(a1);
+      return table_lookup_entry(a1);
     }
     *v4 &= ~0x8000u;
     goto LABEL_10;
   }
-  return sub_11196C(a1);
+  return table_lookup_entry(a1);
 }
 

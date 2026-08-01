@@ -17,8 +17,8 @@ extern uint32_t off_102AC0;
 extern uint32_t off_102ABC;
 extern uint32_t dword_102AD0;
 
-// sub_102A20 @ 0x102a20, size 152 bytes
-int  sub_102A20(uint16_t *a1, int a2)
+// rf_enable @ 0x102a20, size 152 bytes
+int  rf_enable(uint16_t *a1, int a2)
 {
   uint8_t *v3; // r0
   int v4; // r1
@@ -55,9 +55,9 @@ int  sub_102A20(uint16_t *a1, int a2)
       || *((uint16_t *)v3 + 21) != a1[3] )
     {
 LABEL_5:
-      sub_101F70(*(uint8_t *)a1, v5, v6, *((uint8_t *)a1 + 1));
+      tx_packet_handler(*(uint8_t *)a1, v5, v6, *((uint8_t *)a1 + 1));
     }
-    if ( msg_get_value(7) == 1 || msg_get_value(6) == 3 )
+    if ( rx_rate_field_parse(7) == 1 || rx_rate_field_parse(6) == 3 )
     {
 LABEL_4:
       v5 = a1[1];
@@ -67,6 +67,6 @@ LABEL_4:
     v9 = dword_102ACC;
     v8 = dword_102AD0;
   }
-  return msg_parse(v8, v9, v7);
+  return event_dispatch(v8, v9, v7);
 }
 

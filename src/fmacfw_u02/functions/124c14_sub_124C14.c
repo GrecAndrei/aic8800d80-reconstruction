@@ -16,8 +16,8 @@ extern uint32_t off_124CA8;
 extern uint32_t off_124CAC;
 extern uint32_t dword_124CB0;
 
-// sub_124C14 @ 0x124c14, size 140 bytes
-int  sub_124C14(uint8_t *a1, void *a2)
+// util_get_flag @ 0x124c14, size 140 bytes
+int  util_get_flag(uint8_t *a1, void *a2)
 {
   int v2; // r3
   unsigned int v3; // r2
@@ -59,7 +59,7 @@ int  sub_124C14(uint8_t *a1, void *a2)
     v3 = *(uint32_t *)off_124CAC & 0xFFF00FFF;
     *(uint32_t *)off_124CAC = v3 | (a1[4] << 12);
   }
-  msg_parse(dword_124CB0, a2, v3);
-  return rf_mem_read_eb18(a1, 5, 1, 0);
+  event_dispatch(dword_124CB0, a2, v3);
+  return send_msg(a1, 5, 1, 0);
 }
 

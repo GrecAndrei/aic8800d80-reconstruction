@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1117FC;
 
-// sub_1117C8 @ 0x1117c8, size 48 bytes
+// tx_hdr_clear @ 0x1117c8, size 48 bytes
 // Doc: rf_bus_mark_nfa_17da [rf]: Mark RF bus state via helper call
 // rf_bus_mark_nfa_17da [rf]: Mark RF bus state via helper call
-int * sub_1117C8(int a1)
+int * tx_hdr_clear(int a1)
 {
   int v2; // r0
   int v3; // r5
@@ -24,7 +24,7 @@ int * sub_1117C8(int a1)
 
   v2 = rf_bus_write_n_1c8 + 16 * (a1 - 1);
   v3 = *(uint8_t *)(v2 + 8);
-  result = memset_thunk((int *)v2, 0, 0x10u);
+  result = memset_byte((int *)v2, 0, 0x10u);
   if ( v3 )
   {
     result = (int *)dword_1117FC;

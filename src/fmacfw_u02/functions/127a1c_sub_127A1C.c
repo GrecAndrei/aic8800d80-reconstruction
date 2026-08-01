@@ -17,8 +17,8 @@ extern uint32_t dword_127AB4;
 extern uint32_t off_127ACC;
 extern uint32_t off_127AC8;
 
-// sub_127A1C @ 0x127a1c, size 140 bytes
-int sub_127A1C()
+// stat_clear @ 0x127a1c, size 140 bytes
+int stat_clear()
 {
   int *v0; // r7
   void *v1; // r6
@@ -30,17 +30,17 @@ int sub_127A1C()
 
   v0 = (int *)off_127AAC;
   v1 = off_127AA8;
-  sub_100200((int *)off_127AA8, 0, 0x60u);
+  memset((int *)off_127AA8, 0, 0x60u);
   v2 = 0;
   for ( i = v0; ; i += 7 )
   {
-    sub_100200(i, 0, 0x1Cu);
+    memset(i, 0, 0x1Cu);
     *((uint16_t *)i + 7) = 255;
     *((uint8_t *)i + 24) = -1;
     *((uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      sub_12D248(v1);
+      cmd_handler_a(v1);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -52,12 +52,12 @@ LABEL_4:
   }
   if ( v2 != 4 )
     goto LABEL_4;
-  sub_12D240(dword_127AB0);
-  sub_12D240(dword_127AB4);
-  sub_12D248(dword_127AB0);
-  sub_12D248(dword_127AB0);
-  sub_12D248(dword_127AB0);
-  result = sub_12D248(dword_127AB0);
+  zero_8_bytes(dword_127AB0);
+  zero_8_bytes(dword_127AB4);
+  cmd_handler_a(dword_127AB0);
+  cmd_handler_a(dword_127AB0);
+  cmd_handler_a(dword_127AB0);
+  result = cmd_handler_a(dword_127AB0);
   v5 = off_127AA8;
   v6 = off_127ACC;
   *((uint32_t *)off_127AA8 + 13) = off_127AC8;

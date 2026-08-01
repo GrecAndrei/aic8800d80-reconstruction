@@ -1,1 +1,1 @@
-{"fn": "sub_122C0B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c0b4", "status": "ok", "name": "sub_122C0B4", "params": [], "docstring": "Copy MMIO register value from 0x40328084 to 0x40328088", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122C0B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c0b4", "status": "ok", "name": "power_state_read", "params": [], "docstring": "Copy MMIO register value from 0x40328084 to 0x40328088", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

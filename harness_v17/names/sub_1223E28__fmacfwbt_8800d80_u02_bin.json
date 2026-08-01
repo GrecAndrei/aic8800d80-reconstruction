@@ -1,1 +1,1 @@
-{"fn": "sub_1223E28", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223e28", "status": "ok", "name": "sub_1223E28", "params": [], "docstring": "Unknown helper at 0x1223E28", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223E28", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223e28", "status": "ok", "name": "call_common_handler", "params": [], "docstring": "Unknown helper at 0x1223E28", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

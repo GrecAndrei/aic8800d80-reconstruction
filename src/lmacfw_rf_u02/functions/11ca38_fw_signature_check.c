@@ -12,10 +12,10 @@
 
 extern uint32_t off_11CA90;
 
-// fw_signature_check @ 0x11ca38, size 88 bytes
-// Doc: fw_signature_check [util]: Check firmware header magic against expected value 0x96c
-// fw_signature_check [util]: Check firmware header magic against expected value 0x96c
-int  fw_signature_check(uint16_t *a1)
+// rf_channel_compare @ 0x11ca38, size 88 bytes
+// Doc: rf_channel_compare [util]: Check firmware header magic against expected value 0x96c
+// rf_channel_compare [util]: Check firmware header magic against expected value 0x96c
+int  rf_channel_compare(uint16_t *a1)
 {
   int v1; // r3
   int result; // r0

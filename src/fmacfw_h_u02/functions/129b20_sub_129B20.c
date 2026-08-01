@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_129B20 @ 0x129b20, size 56 bytes
-uint8_t * sub_129B20(uint8_t *result)
+// key_install_check @ 0x129b20, size 56 bytes
+uint8_t * key_install_check(uint8_t *result)
 {
   int v1; // r3
   uint8_t *v2; // r4
@@ -22,14 +22,14 @@ uint8_t * sub_129B20(uint8_t *result)
   if ( v1 == 1 )
   {
     result[114] = 0;
-    return sub_1296C4(result);
+    return rsn_parse_ie(result);
   }
   else if ( v1 == 2 )
   {
     v3 = *((uint32_t *)result + 29);
     result[114] = 1;
-    sub_124BFC((int)(result + 96), v3);
-    return sub_1296C4(v2);
+    mem_copy_util((int)(result + 96), v3);
+    return rsn_parse_ie(v2);
   }
   return result;
 }

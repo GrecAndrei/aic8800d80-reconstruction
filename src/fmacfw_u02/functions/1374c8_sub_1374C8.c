@@ -24,8 +24,8 @@ extern uint32_t off_1375C8;
 extern uint32_t off_1375C4;
 extern uint32_t off_1375BC;
 
-// sub_1374C8 @ 0x1374c8, size 212 bytes
-uint32_t * sub_1374C8(int a1)
+// hci_cmd_process @ 0x1374c8, size 212 bytes
+uint32_t * hci_cmd_process(int a1)
 {
   uint16_t *v2; // r4
   uint8_t **v3; // r7
@@ -38,15 +38,15 @@ uint32_t * sub_1374C8(int a1)
   uint32_t *v11; // r3
 
   if ( *(uint8_t *)off_13759C )
-    sub_102B80(*((uint8_t *)off_1375CC + 9));
+    write_phy_config(*((uint8_t *)off_1375CC + 9));
   v2 = off_1375A0;
   v3 = (uint8_t **)off_1375A4;
   if ( *((uint8_t *)off_1375A0 + 3850) == 1 )
     v4 = 4099;
   else
     v4 = 4097;
-  v5 = (uint8_t *)sub_12C92C(v4, *((uint16_t *)off_1375A0 + 1924), 4, 3u);
-  feature_guard_check(
+  v5 = (uint8_t *)ke_msg_alloc(v4, *((uint16_t *)off_1375A0 + 1924), 4, 3u);
+  check_status_bits(
     8,
     dword_1375AC,
     dword_1375A8,
@@ -69,10 +69,10 @@ uint32_t * sub_1374C8(int a1)
     *v11 |= 0x400000u;
     *v11 |= 0x200000u;
   }
-  sub_12CA38(v9 - 12);
+  branch_to_12cbc8(v9 - 12);
   *(uint32_t *)v2 = 0;
-  sdio_buffer_prepare_n_4e8((int)v5);
+  ke_msg_send((int)v5);
   *((uint32_t *)off_1375BC + 1) &= ~0x20u;
-  return sub_12CD34(4u, 0);
+  return rx_phy_status_parse(4u, 0);
 }
 

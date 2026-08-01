@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A784;
 
-// sub_12A74C @ 0x12a74c, size 54 bytes
-uint8_t * sub_12A74C(int a1, uint8_t a2)
+// bt_conn_set_flag @ 0x12a74c, size 54 bytes
+uint8_t * bt_conn_set_flag(int a1, uint8_t a2)
 {
   int v2; // r5
   int v3; // r4
@@ -26,7 +26,7 @@ uint8_t * sub_12A74C(int a1, uint8_t a2)
   v5 = v4[113];
   v4[115] = a2;
   v4[114] = 1;
-  sub_125EFC(v5, 3);
-  return sub_129A28((uint8_t *)(v2 + 140 * v3));
+  set_flag_byte(v5, 3);
+  return state_machine_step((uint8_t *)(v2 + 140 * v3));
 }
 

@@ -14,10 +14,10 @@ extern uint32_t dword_1199BC;
 extern uint32_t off_1199C4;
 extern uint32_t off_1199C0;
 
-// sub_119874 @ 0x119874, size 326 bytes
+// hw_status_flag @ 0x119874, size 326 bytes
 // Doc: sub_1219874 [unknown]: Unknown behavioral function in fmacfw
 // sub_1219874 [unknown]: Unknown behavioral function in fmacfw
-int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+int  hw_status_flag(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int *v5; // r4
   int v6; // r5

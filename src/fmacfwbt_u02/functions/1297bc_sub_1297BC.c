@@ -14,10 +14,10 @@ extern uint32_t off_129A1C;
 extern uint32_t dword_129A24;
 extern uint32_t dword_129A20;
 
-// sub_1297BC @ 0x1297bc, size 606 bytes
+// mem_fill @ 0x1297bc, size 606 bytes
 // Doc: sub_12297BC [unknown]: Initialize/setup a 0x60+ byte structure with default flags
 // sub_12297BC [unknown]: Initialize/setup a 0x60+ byte structure with default flags
-int  sub_1297BC(int result)
+int  mem_fill(int result)
 {
   int v1; // r12
   int v2; // r6
@@ -246,7 +246,7 @@ LABEL_19:
           goto LABEL_28;
         }
         if ( **(int16_t **)off_129A1C < 0 )
-          result = sub_12F6C4(dword_129A24, dword_129A20, 347);
+          result = mmio_field_update(dword_129A24, dword_129A20, 347);
         v1 = v24;
         v10 = v23 + *(uint32_t *)(v15 + 28);
       }

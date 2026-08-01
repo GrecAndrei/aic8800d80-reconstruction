@@ -12,8 +12,8 @@
 
 extern uint32_t off_12012C;
 
-// sub_120104 @ 0x120104, size 40 bytes
-int  sub_120104(int result)
+// get_sys_state @ 0x120104, size 40 bytes
+int  get_sys_state(int result)
 {
   int v1; // r4
 
@@ -22,8 +22,8 @@ int  sub_120104(int result)
     v1 = result;
     if ( !*(uint32_t *)(result + 4) )
     {
-      sub_124CF4(result + 48);
-      return sub_11F3B4(v1);
+      mem_set_util(result + 48);
+      return is_tx_engine_busy(v1);
     }
   }
   return result;

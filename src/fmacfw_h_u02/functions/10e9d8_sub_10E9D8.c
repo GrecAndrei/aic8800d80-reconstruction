@@ -21,8 +21,8 @@ extern uint32_t off_10EAFC;
 extern uint32_t off_10EAF4;
 extern uint32_t dword_10EAF8;
 
-// sub_10E9D8 @ 0x10e9d8, size 260 bytes
-int  sub_10E9D8(unsigned int *a1)
+// rf_gpio_init @ 0x10e9d8, size 260 bytes
+int  rf_gpio_init(unsigned int *a1)
 {
   uint32_t *v1; // r2
   int v2; // r7
@@ -56,7 +56,7 @@ int  sub_10E9D8(unsigned int *a1)
   *v4 &= ~1u;
   v16[0] = v6;
   v16[1] = 5610;
-  sub_102970((uint16_t *)v16, 0);
+  check_boot_flag((uint16_t *)v16, 0);
   v8 = (int *)off_10EAF4;
   v9 = dword_10EAF8;
   *v5 |= 0x80000000;
@@ -69,7 +69,7 @@ int  sub_10E9D8(unsigned int *a1)
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = sub_10E6FC(4u, 8u, a1);
+  result = gpio_mode_set(4u, 8u, a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;

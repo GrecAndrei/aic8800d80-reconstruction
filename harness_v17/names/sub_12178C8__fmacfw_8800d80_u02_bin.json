@@ -1,1 +1,1 @@
-{"fn": "sub_12178C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12178c8", "status": "ok", "name": "mmio_reg_modify_bits", "params": [], "docstring": "Read-modify-write MMIO register using mask 0xf0001f", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12178C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12178c8", "status": "ok", "name": "core_rev_read", "params": [], "docstring": "Read-modify-write MMIO register using mask 0xf0001f", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

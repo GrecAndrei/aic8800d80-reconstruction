@@ -15,10 +15,10 @@ extern uint32_t dword_13BF28;
 extern uint32_t dword_13BF2C;
 extern uint32_t dword_13BF30;
 
-// sub_13BEB0 @ 0x13beb0, size 120 bytes
+// rf_calibrate @ 0x13beb0, size 120 bytes
 // Doc: sub_123BEB0 [util]: Large utility function iterating over descriptor tables from base pointers
 // sub_123BEB0 [util]: Large utility function iterating over descriptor tables from base pointers
-int  sub_13BEB0(int result)
+int  rf_calibrate(int result)
 {
   int v1; // r9
   int v2; // r6
@@ -43,16 +43,16 @@ int  sub_13BEB0(int result)
     {
       if ( i > 15 )
       {
-        list_remove_node_d510(v6, (uint32_t *)v3);
-        list_push_tail(dword_13BF30, (uint32_t *)v3);
+        check_abort_flag_3(v6, (uint32_t *)v3);
+        check_abort_flag(dword_13BF30, (uint32_t *)v3);
       }
       else
       {
-        list_remove_node_d510(v1, (uint32_t *)v3);
-        list_push_tail(v5, (uint32_t *)v3);
+        check_abort_flag_3(v1, (uint32_t *)v3);
+        check_abort_flag(v5, (uint32_t *)v3);
       }
-      rf_bus_mark_n_3b7((uint16_t)((uint16_t)i << 8) | 8, 4);
-      result = sub_13BE40(v4, (uint16_t)i);
+      hci_cmd_send((uint16_t)((uint16_t)i << 8) | 8, 4);
+      result = sdio_cmd53_rd(v4, (uint16_t)i);
     }
     v3 += 32;
   }

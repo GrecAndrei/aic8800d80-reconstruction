@@ -1,1 +1,1 @@
-{"fn": "rf_stream_start2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133f0", "status": "ok", "name": "rf_stream_start2", "params": [], "docstring": "Start RF stream operation, init sub-context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_stream_start2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133f0", "status": "ok", "name": "ke_task_init", "params": [], "docstring": "Start RF stream operation, init sub-context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

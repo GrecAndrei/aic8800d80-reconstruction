@@ -13,10 +13,10 @@
 extern uint32_t off_1174E8;
 extern uint32_t off_1174E4;
 
-// sub_1174B8 @ 0x1174b8, size 44 bytes
+// gpio_set_bit10 @ 0x1174b8, size 44 bytes
 // Doc: sub_12174B8 [mmio]: Modify MMIO register bits via masked read-modify-write
 // sub_12174B8 [mmio]: Modify MMIO register bits via masked read-modify-write
-unsigned int  sub_1174B8(int a1)
+unsigned int  gpio_set_bit10(int a1)
 {
   unsigned int *v1; // r1
   unsigned int result; // r0

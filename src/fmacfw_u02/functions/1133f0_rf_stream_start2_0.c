@@ -15,10 +15,10 @@ extern uint32_t off_1134A0;
 extern uint32_t dword_1134B0;
 extern uint32_t off_1134A4;
 
-// rf_stream_start2_0 @ 0x1133f0, size 164 bytes
+// ke_task_init @ 0x1133f0, size 164 bytes
 // Doc: rf_cmd_process_n_f2 [rf]: Process RF command loading shared data pointers
 // rf_cmd_process_n_f2 [rf]: Process RF command loading shared data pointers
-int  rf_stream_start2_0(int a1, unsigned int a2)
+int  ke_task_init(int a1, unsigned int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
@@ -35,7 +35,7 @@ int  rf_stream_start2_0(int a1, unsigned int a2)
   v3 = rf_stream_start_498;
   if ( *(uint8_t *)rf_stream_start_498 )
   {
-    sub_10DC24(rf_stream_start2_nbc, dword_1134A8, *(uint8_t *)rf_stream_start_498);
+    log_printf(rf_stream_start2_nbc, dword_1134A8, *(uint8_t *)rf_stream_start_498);
     return -3;
   }
   else
@@ -52,11 +52,11 @@ int  rf_stream_start2_0(int a1, unsigned int a2)
     {
       *((uint32_t *)off_1134A0 + 713) |= 1u;
     }
-    v6 = rf_state_check_11c(1, a1, a2);
+    v6 = global_copy_u16(1, a1, a2);
     v7 = v6;
     if ( v6 )
     {
-      sub_10DC24(dword_1134B0, dword_1134A8, v6);
+      log_printf(dword_1134B0, dword_1134A8, v6);
       return -1;
     }
     else
@@ -64,7 +64,7 @@ int  rf_stream_start2_0(int a1, unsigned int a2)
       *(uint8_t *)off_1134A4 = 1;
       if ( *v2 )
       {
-        rf_bus_write_wrapper(0, 1u);
+        shared_call_check(0, 1u);
         *v3 = 0;
         return -14;
       }

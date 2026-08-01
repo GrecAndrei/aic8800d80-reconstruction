@@ -13,8 +13,8 @@
 extern uint32_t off_1231DC;
 extern uint32_t dword_1231E0;
 
-// sub_123164 @ 0x123164, size 120 bytes
-int  sub_123164(int a1, int a2, int a3, int a4)
+// send_hci_reset_cmd @ 0x123164, size 120 bytes
+int  send_hci_reset_cmd(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r4
   uint16_t v5; // r3
@@ -26,17 +26,17 @@ int  sub_123164(int a1, int a2, int a3, int a4)
 
   v9 = 0;
   v10 = 0;
-  v4 = (uint8_t *)sub_12CB54(116, a4, a3, 6);
+  v4 = (uint8_t *)bt_buf_alloc(116, a4, a3, 6);
   if ( (*(uint32_t *)off_1231DC & 0x2000000) != 0 )
   {
-    sub_114F00(&v9, &v10);
+    syscall8_op(&v9, &v10);
     v6 = v9;
     v5 = v10;
   }
   else
   {
     memset(v11, 0, 6);
-    sub_1154A8((int)v11);
+    ioctl2_cmd_2((int)v11);
     v5 = __rev16(LOWORD(v11[0]));
     v6 = bswap32(*(unsigned int *)((char *)v11 + 2));
     v9 = v6;
@@ -49,8 +49,8 @@ int  sub_123164(int a1, int a2, int a3, int a4)
   v4[2] = HIBYTE(v6);
   v7 = dword_1231E0;
   v4[4] = BYTE1(v6);
-  sub_12ECB0(v7, HIBYTE(v5), (uint8_t)v6);
-  sub_12CBB4(v4);
+  ke_event_schedule(v7, (uint32_t *)(uintptr_t)(HIBYTE(v5)), (uint8_t)v6);
+  hci_evt_send(v4);
   return 0;
 }
 

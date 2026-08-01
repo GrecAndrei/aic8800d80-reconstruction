@@ -18,8 +18,8 @@ extern uint32_t off_11BA64;
 extern uint32_t off_11BA6C;
 extern uint32_t dword_11BA70;
 
-// sub_11B898 @ 0x11b898, size 446 bytes
-void sub_11B898()
+// check_mode_flag @ 0x11b898, size 446 bytes
+void check_mode_flag()
 {
   uint32_t *v0; // r4
   int v1; // r3
@@ -72,7 +72,7 @@ void sub_11B898()
     {
       if ( *((uint8_t *)off_11BA58 + 191) == 4 )
       {
-        sub_11B438((int)off_11BA58 + 168);
+        save_rx_packet((int)off_11BA58 + 168);
       }
       else
       {
@@ -112,13 +112,13 @@ void sub_11B898()
         }
         if ( (v1 & 1) == 0 )
         {
-          v21 = (uint32_t *)sub_11B100(&v35);
+          v21 = (uint32_t *)check_radio_state(&v35);
           if ( v21 )
           {
-            sub_11B688(v21);
+            radio_irq_check(v21);
             v22 = v35;
             *(uint32_t *)off_11BA6C &= ~0x200u;
-            sub_11B70C(v22);
+            tx_channel_setup(v22);
             return;
           }
           v1 = v0[52];

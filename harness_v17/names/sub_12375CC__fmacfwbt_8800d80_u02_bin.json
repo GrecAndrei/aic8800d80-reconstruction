@@ -1,1 +1,1 @@
-{"fn": "sub_12375CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12375cc", "status": "ok", "name": "bt_init_check_1827f4", "params": [], "docstring": "Check BT init flag at 0x1827f4 and dispatch", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12375CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12375cc", "status": "ok", "name": "radio_event_dispatcher", "params": [], "docstring": "Check BT init flag at 0x1827f4 and dispatch", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

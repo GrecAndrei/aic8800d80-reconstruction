@@ -24,10 +24,10 @@ extern uint32_t off_11C768;
 extern uint32_t dword_11C76C;
 extern uint32_t dword_11C778;
 
-// lmac_table_lookup_n540 @ 0x11c540, size 522 bytes
-// Doc: lmac_table_lookup_n540 [mac]: LMAC table lookup with index scaling
-// lmac_table_lookup_n540 [mac]: LMAC table lookup with index scaling
-int  lmac_table_lookup_n540(int a1)
+// bt_conn_rx_schedule @ 0x11c540, size 522 bytes
+// Doc: bt_conn_rx_schedule [mac]: LMAC table lookup with index scaling
+// bt_conn_rx_schedule [mac]: LMAC table lookup with index scaling
+int  bt_conn_rx_schedule(int a1)
 {
   int16_t **v1; // r8
   int v2; // r6
@@ -60,11 +60,11 @@ int  lmac_table_lookup_n540(int a1)
   v3 = *(uint8_t **)(dword_11C74C + 224 * a1 + 72);
   v5 = 8 * a1;
   if ( **(int16_t **)off_11C77C < 0 && !v3 )
-    rf_cmd_send_n264(dword_11C760, dword_11C75C, 3149);
+    flash_ctrl_init(dword_11C760, dword_11C75C, 3149);
   v6 = v2 + 32 * (v5 - a1);
   v7 = (char *)off_11C750;
-  sub_11F74C(256, dword_11C754, v3[25], *((uint8_t *)off_11C750 + 91));
-  list_remove_node(v7 + 16, v2 + 224 * a1 + 76);
+  check_interrupt_flag(256, dword_11C754, v3[25], *((uint8_t *)off_11C750 + 91));
+  check_kernel_state_alt2(v7 + 16, v2 + 224 * a1 + 76);
   v9 = *(uint8_t *)(v6 + 85);
   *(uint8_t *)(v6 + 85) = v9 & 0xFE;
   if ( (v9 & 2) != 0 )
@@ -73,8 +73,8 @@ int  lmac_table_lookup_n540(int a1)
     v7[91] = v10;
     if ( !v10 && (v7[88] & 0x40) != 0 )
     {
-      msg_parse(dword_11C758, v8);
-      rf_mailbox_post_n44(*((uint32_t *)v7 + 20));
+      dispatch_event_handler(dword_11C758, v8);
+      rf_register_access(*((uint32_t *)v7 + 20));
     }
   }
   v11 = v2 + 32 * (v5 - a1);
@@ -85,19 +85,19 @@ int  lmac_table_lookup_n540(int a1)
   v3[25] = v13;
   if ( v12 && !v13 )
   {
-    list_remove_node(dword_11C764, v3);
+    check_kernel_state_alt2(dword_11C764, v3);
     v3[16] = 0;
     v16 = *v1;
     v17 = (uint8_t)(v7[90] - 1);
     v7[90] = v17;
     if ( *v16 < 0 && v17 > 1 )
     {
-      rf_cmd_send_n264(dword_11C770, dword_11C75C, 3210);
+      flash_ctrl_init(dword_11C770, dword_11C75C, 3210);
       v17 = (uint8_t)v7[90];
     }
     if ( v17 )
     {
-      sub_11E71C(dword_11C774);
+      list_init(dword_11C774);
       v23 = dword_11C74C;
       v15 = dword_11C74C + 896;
       do
@@ -107,12 +107,12 @@ int  lmac_table_lookup_n540(int a1)
       }
       while ( v15 != v23 );
       if ( !*((uint32_t *)v7 + 20) )
-        rf_init_or_query();
+        rx_buffer_alloc();
     }
     if ( *((uint8_t **)v7 + 10) != v3 )
     {
       if ( *((uint8_t **)v7 + 11) != v3 )
-        return rf_get_status_byte_n_a24((int)v3);
+        return bt_conn_find_by_ptr((int)v3);
       v18 = v3[24];
       v19 = v18 + 1;
       if ( v18 == 2 )
@@ -141,8 +141,8 @@ int  lmac_table_lookup_n540(int a1)
 LABEL_22:
         v22 = dword_11C76C;
         *((uint32_t *)v7 + 11) = v21;
-        msg_parse(v22, v21);
-        return rf_get_status_byte_n_a24((int)v3);
+        dispatch_event_handler(v22, v21);
+        return bt_conn_find_by_ptr((int)v3);
       }
 LABEL_41:
       v21 = (char *)off_11C768 + 4 * (v20 - v19);
@@ -151,11 +151,11 @@ LABEL_41:
     v24 = (uint8_t)v7[90];
     *((uint32_t *)v7 + 10) = 0;
     if ( !v24 )
-      return rf_get_status_byte_n_a24((int)v3);
+      return bt_conn_find_by_ptr((int)v3);
     v25 = *((char **)v7 + 11);
     if ( v25 )
-      return rf_get_status_byte_n_a24((int)v3);
-    msg_parse(dword_11C778, v15);
+      return bt_conn_find_by_ptr((int)v3);
+    dispatch_event_handler(dword_11C778, v15);
     v26 = v3[24];
     v27 = v26 + 1;
     if ( v26 == 2 )
@@ -181,8 +181,8 @@ LABEL_36:
     if ( *((uint32_t *)v7 + 11) )
       *((uint32_t *)v7 + 11) = v25;
     else
-      sub_11ADD0((int)v25);
+      list_search((int)v25);
   }
-  return rf_get_status_byte_n_a24((int)v3);
+  return bt_conn_find_by_ptr((int)v3);
 }
 

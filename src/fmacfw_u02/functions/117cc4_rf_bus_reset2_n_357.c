@@ -13,10 +13,10 @@
 extern uint32_t off_117D08;
 extern uint32_t off_117D0C;
 
-// rf_bus_reset2_n_357 @ 0x117cc4, size 66 bytes
-// Doc: rf_bus_reset2_n_357 [rf]: Resets RF bus and computes modulo-based index
-// rf_bus_reset2_n_357 [rf]: Resets RF bus and computes modulo-based index
-int  rf_bus_reset2_n_357(int a1)
+// timer_queue_init @ 0x117cc4, size 66 bytes
+// Doc: timer_queue_init [rf]: Resets RF bus and computes modulo-based index
+// timer_queue_init [rf]: Resets RF bus and computes modulo-based index
+int  timer_queue_init(int a1)
 {
   uint64_t *v1; // r6
   uint64_t *v2; // r7

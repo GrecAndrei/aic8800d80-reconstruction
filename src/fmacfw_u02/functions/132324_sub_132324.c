@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132324 @ 0x132324, size 48 bytes
-int  sub_132324(int a1)
+// ke_buf_alloc @ 0x132324, size 48 bytes
+int  ke_buf_alloc(int a1)
 {
   uint8_t *v2; // r4
 
-  v2 = (uint8_t *)sub_12C92C(12, 0, 5, 1u);
-  sub_13BE14(a1);
+  v2 = (uint8_t *)ke_msg_alloc(12, 0, 5, 1u);
+  rf_scan_chan(a1);
   *v2 = a1;
-  sdio_buffer_prepare_n_4e8((int)v2);
-  return sub_12CA10(5130, 13, 5);
+  ke_msg_send((int)v2);
+  return ke_msg_send_no_param(5130, 13, 5);
 }
 

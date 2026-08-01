@@ -15,8 +15,8 @@ extern uint32_t off_1290C0;
 extern uint32_t off_1290BC;
 extern uint32_t dword_1290C4;
 
-// sub_12903C @ 0x12903c, size 124 bytes
-int  sub_12903C(int result, int a2, int a3)
+// mfp_key_disable @ 0x12903c, size 124 bytes
+int  mfp_key_disable(int result, int a2, int a3)
 {
   uint32_t *v3; // r6
   int v5; // r2
@@ -49,7 +49,7 @@ int  sub_12903C(int result, int a2, int a3)
         v15 = *(uint16_t *)(v13 + 56);
         v3[5] = a3;
         *((uint8_t *)v3 + 29) = 5;
-        result = sub_124BFC((int)(v3 + 3), v15 + v14);
+        result = mem_copy_util((int)(v3 + 3), v15 + v14);
         v7 = *(uint32_t *)(a3 + 4);
         if ( !a2 )
           goto LABEL_6;
@@ -65,13 +65,13 @@ LABEL_6:
     }
 LABEL_8:
     *(uint32_t *)(a3 + 4) = v7 | 4;
-    sub_114434(result, v9, v5);
-    sub_128D60();
+    process_event(result, v9, v5);
+    mfp_get_config();
     v10 = *((uint32_t *)off_1290C0 + 4);
     v11 = *(uint16_t *)(*(uint32_t *)off_1290BC + 58);
     v3[5] = a3;
     *((uint8_t *)v3 + 29) = 6;
-    return sub_124BFC(dword_1290C4, v11 + v10);
+    return mem_copy_util(dword_1290C4, v11 + v10);
   }
   return result;
 }

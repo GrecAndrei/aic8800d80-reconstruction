@@ -1,1 +1,1 @@
-{"fn": "sub_1225A44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1225a44", "status": "ok", "name": "sub_1225A44", "params": [], "docstring": "Initializes context from FW globals and config fields", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1225A44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1225a44", "status": "ok", "name": "ke_task_init", "params": [], "docstring": "Initializes context from FW globals and config fields", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

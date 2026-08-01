@@ -12,8 +12,8 @@
 
 extern uint32_t off_12E8F4;
 
-// sub_12E8EC @ 0x12e8ec, size 6 bytes
-int  sub_12E8EC(int result)
+// set_global_field0 @ 0x12e8ec, size 6 bytes
+int  set_global_field0(int result)
 {
   *(uint32_t *)off_12E8F4 = result;
   return result;

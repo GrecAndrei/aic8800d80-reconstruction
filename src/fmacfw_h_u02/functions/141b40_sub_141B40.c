@@ -16,8 +16,8 @@ extern uint32_t dword_141C04;
 extern uint32_t dword_141C00;
 extern uint32_t off_141BFC;
 
-// sub_141B40 @ 0x141b40, size 184 bytes
-int  sub_141B40(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
+// parse_adv_report @ 0x141b40, size 184 bytes
+int  parse_adv_report(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
 {
   unsigned int v4; // r5
   int16_t v5; // r6
@@ -57,7 +57,7 @@ int  sub_141B40(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
   v14 = (uint16_t)v14;
   if ( result < 0 && a2 <= 0xD )
   {
-    result = sub_12F32C(dword_141C08, dword_141C04, 213);
+    result = irq_disable_mmio_write(dword_141C08, dword_141C04, 213);
     v14 = (uint16_t)a4[4];
     LOBYTE(v7) = *((uint8_t *)a4 + 5);
     v8 = *a4;

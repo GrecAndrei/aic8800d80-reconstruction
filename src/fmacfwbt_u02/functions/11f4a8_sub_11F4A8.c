@@ -18,10 +18,10 @@ extern uint32_t off_11F5BC;
 extern uint32_t dword_11F5C0;
 extern uint32_t off_11F5C4;
 
-// sub_11F4A8 @ 0x11f4a8, size 260 bytes
+// wlc_phy_cal_init @ 0x11f4a8, size 260 bytes
 // Doc: sub_121F4A8 [mac]: Processes indexed per-station context entry with size-scaled offsets
 // sub_121F4A8 [mac]: Processes indexed per-station context entry with size-scaled offsets
-unsigned int  sub_11F4A8(int a1)
+unsigned int  wlc_phy_cal_init(int a1)
 {
   int v1; // r7
   int v2; // r8
@@ -44,8 +44,8 @@ unsigned int  sub_11F4A8(int a1)
   v4 = 1320 * *(uint8_t *)(v3 + 34);
   if ( *(uint8_t *)(dword_11F5C8 + v4 + 1224) )
     --*(uint8_t *)(dword_11F5C8 + v4 + 1226);
-  feature_guard_sdio(256, dword_11F5B4);
-  list_remove_node_d510(v4 + 240 + v2, v3);
+  state_check_feature(256, dword_11F5B4);
+  check_abort_flag_3(v4 + 240 + v2, v3);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -64,8 +64,8 @@ unsigned int  sub_11F4A8(int a1)
     if ( !v10 )
     {
 LABEL_7:
-      rf_phy_field_clear_n_23c(v9);
-      list_push_tail(dword_11F5C0);
+      wlc_bsscfg_llc_flush(v9);
+      check_abort_flag(dword_11F5C0);
       goto LABEL_8;
     }
     v13 = (int *)off_11F5B8;
@@ -93,15 +93,15 @@ LABEL_7:
   if ( v9 )
     goto LABEL_7;
 LABEL_8:
-  rf_phy_field_clear_n_23c(v3);
-  v11 = list_push_tail(dword_11F5C0);
-  result = sub_122B1C(v11);
+  wlc_bsscfg_llc_flush(v3);
+  v11 = check_abort_flag(dword_11F5C0);
+  result = find_pending_command(v11);
   if ( !result )
   {
     if ( *((uint8_t *)off_11F5C4 + 408) )
-      return mmio_reg_init_patch(v2 + v4);
+      return dma_tx_setup(v2 + v4);
     else
-      return rf_power_set(0xC2u);
+      return write_mmio_byte(0xC2u);
   }
   return result;
 }

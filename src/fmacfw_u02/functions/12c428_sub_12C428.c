@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12C440;
 
-// sub_12C428 @ 0x12c428, size 22 bytes
-int sub_12C428()
+// uart_disable @ 0x12c428, size 22 bytes
+int uart_disable()
 {
   *(uint32_t *)(dword_12C440 + 4680) &= ~1u;
-  return irq_nesting_or_d104(1024);
+  return unknown_func_12d104(1024);
 }
 

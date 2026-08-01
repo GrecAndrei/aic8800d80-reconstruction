@@ -28,8 +28,8 @@ extern uint32_t dword_121670;
 extern uint32_t dword_12166C;
 extern uint32_t off_12165C;
 
-// sub_121418 @ 0x121418, size 534 bytes
-int  sub_121418(uint8_t *a1)
+// rx_packet_parse_header @ 0x121418, size 534 bytes
+int  rx_packet_parse_header(uint8_t *a1)
 {
   unsigned int v1; // r7
   int v2; // r5
@@ -61,7 +61,7 @@ int  sub_121418(uint8_t *a1)
     {
       v23 = HIBYTE(*(uint32_t *)off_121668) - 3 + *a1 + 2 * v2;
       v4 = (uint8_t)v23;
-      fmac_init_struct(a1, v23);
+      update_object_index(a1, v23);
       return v4;
     }
     v15 = *a1;
@@ -70,16 +70,16 @@ int  sub_121418(uint8_t *a1)
     *(uint32_t *)off_12163C = -1;
     *v16 = -1;
     v4 = (uint8_t)(v15 + 4 * v2);
-    feature_guard_check(256, v17);
-    fmac_init_struct(a1, v4);
+    check_status_bits(256, v17);
+    update_object_index(a1, v4);
   }
   else
   {
     if ( **(int16_t **)off_121630 < 0 && v1 > 0x23 )
-      sub_12F46C(dword_121648, dword_121644, 1424);
+      mmio_clear_register(dword_121648, dword_121644, 1424);
     v4 = (uint8_t)(v1 + 16);
-    feature_guard_check(256, dword_121634);
-    sub_11F298((int)a1, v1 + 16);
+    check_status_bits(256, dword_121634);
+    llm_conn_set_flag((int)a1, v1 + 16);
     v5 = off_121640;
     v6 = (uint16_t *)(dword_121638 + 696 * v1);
     *(uint32_t *)off_12163C = v6[19] | (v6[20] << 16);
@@ -165,7 +165,7 @@ LABEL_20:
       break;
     default:
       if ( **(int16_t **)off_121630 < 0 )
-        sub_12F46C(dword_121670, dword_12166C, 159);
+        mmio_clear_register(dword_121670, dword_12166C, 159);
       v10 = 0;
       v11 = 4096;
 LABEL_22:

@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// message_dispatch_n84 @ 0x12cc38, size 16 bytes
+// hci_evt_alloc_send @ 0x12cc38, size 16 bytes
 // Doc: message_dispatch_n86_cc3a [ipc]: Dispatch IPC message storing two halfword params at negative offset
 // message_dispatch_n86_cc3a [ipc]: Dispatch IPC message storing two halfword params at negative offset
-int  message_dispatch_n84(int16_t a1, int16_t a2, int16_t a3)
+int  hci_evt_alloc_send(int16_t a1, int16_t a2, int16_t a3)
 {
   int v3; // r0
 
-  v3 = rf_bus_setup_n3a8(a1, a2, a3, 0);
-  return sub_12CBB4(v3);
+  v3 = bt_buf_alloc(a1, a2, a3, 0);
+  return hci_evt_send(v3);
 }
 

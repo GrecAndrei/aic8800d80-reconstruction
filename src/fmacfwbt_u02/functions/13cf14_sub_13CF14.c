@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13CF14 @ 0x13cf14, size 374 bytes
-unsigned int  sub_13CF14(int a1, unsigned int a2)
+// rx_decode_pdu_type @ 0x13cf14, size 374 bytes
+unsigned int  rx_decode_pdu_type(int a1, unsigned int a2)
 {
   unsigned int v2; // r2
   int v3; // nf

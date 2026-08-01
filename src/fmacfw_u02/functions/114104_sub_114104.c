@@ -12,10 +12,10 @@
 
 extern uint32_t off_114110;
 
-// sub_114104 @ 0x114104, size 12 bytes
-void sub_114104()
+// timer_delay @ 0x114104, size 12 bytes
+void timer_delay()
 {
   if ( !*(uint8_t *)off_114110 )
-    sub_1136B8();
+    read_state_flag();
 }
 

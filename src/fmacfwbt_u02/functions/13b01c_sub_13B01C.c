@@ -15,8 +15,8 @@ extern uint32_t dword_13B138;
 extern uint32_t dword_13B134;
 extern uint32_t dword_13B130;
 
-// sub_13B01C @ 0x13b01c, size 270 bytes
-int  sub_13B01C(int a1, int a2)
+// mac_tx_start @ 0x13b01c, size 270 bytes
+int  mac_tx_start(int a1, int a2)
 {
   int v2; // r5
   int v3; // r3
@@ -49,7 +49,7 @@ LABEL_5:
           goto LABEL_6;
         goto LABEL_27;
       }
-      phy_flag_clear_72();
+      rf_clear_flag();
       if ( (*(uint16_t *)(a1 + 30) & 0x200) != 0 )
         goto LABEL_5;
 LABEL_9:
@@ -65,11 +65,11 @@ LABEL_27:
       v9 = *(uint8_t *)(a1 + 29);
       if ( v9 != 255 )
         goto LABEL_7;
-      sub_12F694(dword_13B138, dword_13B134, 1325);
+      mmio_irq_clear(dword_13B138, dword_13B134, 1325);
 LABEL_6:
       v9 = *(uint8_t *)(a1 + 29);
 LABEL_7:
-      sub_119388(v9, 23, 0, 0);
+      ble_acl_handle(v9, 23, 0, 0);
       *(uint8_t *)(dword_13B130 + 696 * *(uint8_t *)(a1 + 29) + 54) = 0;
     }
 LABEL_8:
@@ -98,7 +98,7 @@ LABEL_20:
   v13 = v8;
   if ( v8 )
     v13 = 1;
-  v10 = sub_13C330(a1, v13, a2);
+  v10 = bt_get_ctx_by_phy(a1, v13, a2);
   v14 = *(uint32_t *)(a1 + 36);
   if ( (v14 & 0x200000) == 0 )
   {

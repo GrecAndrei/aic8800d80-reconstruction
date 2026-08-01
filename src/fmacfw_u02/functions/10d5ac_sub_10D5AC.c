@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D5D0;
 
-// sub_10D5AC @ 0x10d5ac, size 36 bytes
-int sub_10D5AC()
+// rf_tx_config @ 0x10d5ac, size 36 bytes
+int rf_tx_config()
 {
   int v0; // r3
   int result; // r0
@@ -24,7 +24,7 @@ int sub_10D5AC()
   if ( (v0 & 0x400) != 0 )
   {
     *((uint32_t *)off_10D5D0 + 2) = 0x40000;
-    return irq_nesting_or_d104(0x20000000);
+    return unknown_func_12d104(0x20000000);
   }
   return result;
 }

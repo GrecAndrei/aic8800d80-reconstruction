@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DB00;
 
-// sub_10DAF0 @ 0x10daf0, size 16 bytes
-int  sub_10DAF0(char a1)
+// gpio_cfg_set @ 0x10daf0, size 16 bytes
+int  gpio_cfg_set(char a1)
 {
   int result; // r0
 

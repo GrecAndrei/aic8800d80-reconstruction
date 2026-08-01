@@ -13,8 +13,8 @@
 extern uint32_t off_1423DC;
 extern uint32_t dword_1423E0;
 
-// sub_142338 @ 0x142338, size 162 bytes
-int  sub_142338(int result, int16_t a2, uint16_t *a3)
+// llcp_is_control @ 0x142338, size 162 bytes
+int  llcp_is_control(int result, int16_t a2, uint16_t *a3)
 {
   uint8_t *v3; // r6
   int16_t v4; // r2
@@ -80,7 +80,7 @@ LABEL_13:
           if ( v3[1] )
           {
             if ( v13 == 9 )
-              result = (int)fmac_init_handler_1e48(result);
+              result = (int)timeout_handler(result);
           }
         }
       }

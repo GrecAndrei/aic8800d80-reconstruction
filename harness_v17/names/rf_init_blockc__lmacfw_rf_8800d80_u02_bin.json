@@ -1,1 +1,1 @@
-{"fn": "rf_init_blockc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e4d8", "status": "ok", "name": "rf_init_blockc", "params": [], "docstring": "Initialize RF hardware block C with register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_init_blockc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e4d8", "status": "ok", "name": "periph_cmd_write", "params": [], "docstring": "Initialize RF hardware block C with register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

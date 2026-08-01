@@ -1,1 +1,1 @@
-{"fn": "sub_1240D9C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240d9c", "status": "ok", "name": "fw_init_post_handler", "params": [], "docstring": "Posts init command 0xB to subsystem via mailbox call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1240D9C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240d9c", "status": "ok", "name": "clear_197750_buffer", "params": [], "docstring": "Posts init command 0xB to subsystem via mailbox call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

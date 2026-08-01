@@ -18,8 +18,8 @@ extern uint32_t off_11D7A4;
 extern uint32_t off_11D79C;
 extern uint32_t off_11D798;
 
-// sub_11D6F0 @ 0x11d6f0, size 158 bytes
-int sub_11D6F0()
+// dma_ring_alloc_0 @ 0x11d6f0, size 158 bytes
+int dma_ring_alloc_0()
 {
   uint16_t *v0; // r5
   int v1; // r4
@@ -34,7 +34,7 @@ int sub_11D6F0()
 
   v0 = off_11D790;
   v1 = *(uint32_t *)off_11D790;
-  result = sub_12D00C(0x200000);
+  result = irq_disable_global_3(0x200000);
   if ( v1 )
   {
     v3 = (int *)off_11D7A8;
@@ -43,7 +43,7 @@ int sub_11D6F0()
     {
       if ( (*(uint8_t *)(v1 + 16) & 1) == 0 )
         ++v0[4];
-      sub_12D190(v0);
+      list_pop(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -56,7 +56,7 @@ int sub_11D6F0()
         v5(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_11DF74();
+        result = phy_rate_get();
       if ( *v3 )
       {
         v6 = *v3 - 1;

@@ -13,10 +13,10 @@
 extern uint32_t off_13050C;
 extern uint32_t dword_130510;
 
-// rf_level_step_04e0 @ 0x1304e0, size 44 bytes
-// Doc: rf_level_step_04e0 [rf]: Step RF TX power level by configured delta
-// rf_level_step_04e0 [rf]: Step RF TX power level by configured delta
-unsigned int rf_level_step_04e0()
+// ll_seq_update @ 0x1304e0, size 44 bytes
+// Doc: ll_seq_update [rf]: Step RF TX power level by configured delta
+// ll_seq_update [rf]: Step RF TX power level by configured delta
+unsigned int ll_seq_update()
 {
   uint8_t *v0; // r4
   unsigned int result; // r0
@@ -33,8 +33,8 @@ unsigned int rf_level_step_04e0()
     else
       v3 = result + 1;
     *((uint8_t *)off_13050C + 6) = v3;
-    sub_10ED90(v3);
-    return sub_12ECB0(dword_130510, v0[5], v0[6]);
+    set_periph_status(v3);
+    return ke_event_schedule(dword_130510, v0[5], v0[6]);
   }
   return result;
 }

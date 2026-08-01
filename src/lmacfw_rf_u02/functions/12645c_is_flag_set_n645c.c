@@ -12,10 +12,10 @@
 
 extern uint32_t off_126468;
 
-// is_flag_set_n645c @ 0x12645c, size 12 bytes
-// Doc: is_flag_set_n645c [util]: Check flag byte at 0x180834 returns 0 or 1
-// is_flag_set_n645c [util]: Check flag byte at 0x180834 returns 0 or 1
-int is_flag_set_n645c()
+// rf_flag_is_set @ 0x12645c, size 12 bytes
+// Doc: rf_flag_is_set [util]: Check flag byte at 0x180834 returns 0 or 1
+// rf_flag_is_set [util]: Check flag byte at 0x180834 returns 0 or 1
+int rf_flag_is_set()
 {
   int result; // r0
 

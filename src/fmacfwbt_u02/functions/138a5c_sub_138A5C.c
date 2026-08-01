@@ -14,8 +14,8 @@ extern uint32_t off_138AC0;
 extern uint32_t dword_138AC4;
 extern uint32_t dword_138AC8;
 
-// sub_138A5C @ 0x138a5c, size 100 bytes
-int  sub_138A5C(int result)
+// opcode_handler_dispatch @ 0x138a5c, size 100 bytes
+int  opcode_handler_dispatch(int result)
 {
   int v1; // r1
   int16_t **v2; // r5
@@ -38,7 +38,7 @@ int  sub_138A5C(int result)
     {
       if ( **v2 < 0 && !v1 )
       {
-        sub_12F694(v4, v3, 1537);
+        mmio_irq_clear(v4, v3, 1537);
         LOBYTE(v1) = *(uint8_t *)(v5 + 11);
       }
       v6 = *(uint8_t *)(v5 + 10);

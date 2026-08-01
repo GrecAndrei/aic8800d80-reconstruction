@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_119B4C @ 0x119b4c, size 14 bytes
-int  sub_119B4C(int a1, int a2, int a3, int a4)
+// call_packet_helper @ 0x119b4c, size 14 bytes
+int  call_packet_helper(int a1, int a2, int a3, int a4)
 {
-  rf_chan_lookup(a2, a4);
+  rf_tx_packet_check(a2, a4);
   return 0;
 }
 

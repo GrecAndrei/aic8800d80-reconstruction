@@ -18,8 +18,8 @@ extern uint32_t dword_10098C;
 extern uint32_t off_100984;
 extern uint32_t dword_100990;
 
-// sub_100898 @ 0x100898, size 234 bytes
-int  sub_100898(int a1, unsigned int a2, uint32_t *a3)
+// heap_alloc @ 0x100898, size 234 bytes
+int  heap_alloc(int a1, unsigned int a2, uint32_t *a3)
 {
   char *v3; // r5
   int v4; // r7

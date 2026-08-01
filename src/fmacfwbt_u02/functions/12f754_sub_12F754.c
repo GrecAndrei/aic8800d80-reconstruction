@@ -15,8 +15,8 @@ extern uint32_t off_10CA30;
 extern uint32_t off_10CA34;
 extern uint32_t off_10CA38;
 
-// sub_12F754 @ 0x12f754, size 18 bytes
-int sub_12F754()
+// state_ready_check @ 0x12f754, size 18 bytes
+int state_ready_check()
 {
   int result; // r0
 

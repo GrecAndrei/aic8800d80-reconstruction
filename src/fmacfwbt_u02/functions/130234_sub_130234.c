@@ -25,8 +25,8 @@ extern uint32_t off_130370;
 extern uint32_t off_130374;
 extern uint32_t dword_130358;
 
-// sub_130234 @ 0x130234, size 288 bytes
-int  sub_130234(unsigned int a1)
+// ke_malloc @ 0x130234, size 288 bytes
+int  ke_malloc(unsigned int a1)
 {
   int v1; // r0
   int v2; // r4
@@ -51,24 +51,24 @@ int  sub_130234(unsigned int a1)
   int v22; // t1
   unsigned int v23; // [sp+8h] [bp-8h]
 
-  v1 = sub_12FA2C(a1, (uint8_t *)dword_130354, 0);
+  v1 = queue_operation(a1, (uint8_t *)dword_130354, 0);
   v2 = v1;
   if ( v1 >= 0 )
   {
     if ( v1 )
     {
-      if ( sub_143F00(dword_13035C) != v1 || sub_143B48(dword_13035C, dword_130354) )
+      if ( memmove(dword_13035C) != v1 || strcmp(dword_13035C, dword_130354) )
       {
-        v4 = sub_12D4F8(dword_130360);
+        v4 = list_pop_front(dword_130360);
         v5 = v4;
         if ( v4 )
         {
-          sub_143E1C(v4 + 1, dword_130354);
-          list_push_tail(dword_130364, v5);
+          memcpy(v4 + 1, dword_130354);
+          check_abort_flag(dword_130364, v5);
         }
         else
         {
-          sub_10D60C((uint8_t *)dword_130378);
+          uart_puts((uint8_t *)dword_130378);
         }
       }
       else
@@ -79,21 +79,21 @@ int  sub_130234(unsigned int a1)
         v9 = __get_CPSR();
         v10 = __get_CPSR();
         v23 = __get_CPSR();
-        log_printf(dword_130368, CPSR, v7, v8, v9, v10, v23);
+        printf_wrapper(dword_130368, CPSR, v7, v8, v9, v10, v23);
         if ( v9 )
         {
           v13 = dword_130388;
           v14 = dword_130380;
           v15 = v9 & 0xFFFFFFF0;
-          sub_10D60C((uint8_t *)dword_13037C);
+          uart_puts((uint8_t *)dword_13037C);
           v16 = v15 + 256;
           do
           {
             if ( !(v15 << 28) )
-              log_printf(v13, v15);
+              printf_wrapper(v13, v15);
             v17 = *(uint32_t *)v15;
             v15 += 4;
-            log_printf(v14, v17);
+            printf_wrapper(v14, v17);
           }
           while ( v16 != v15 );
         }
@@ -102,19 +102,19 @@ int  sub_130234(unsigned int a1)
           v18 = dword_130388;
           v19 = dword_130380;
           v20 = v8 & 0xFFFFFFF0;
-          sub_10D60C((uint8_t *)dword_130384);
+          uart_puts((uint8_t *)dword_130384);
           v21 = v20 + 256;
           do
           {
             if ( !(v20 << 28) )
-              log_printf(v18, v20);
+              printf_wrapper(v18, v20);
             v22 = *(uint32_t *)v20;
             v20 += 4;
-            log_printf(v19, v22);
+            printf_wrapper(v19, v22);
           }
           while ( v21 != v20 );
         }
-        sub_10D60C((uint8_t *)dword_13036C);
+        uart_puts((uint8_t *)dword_13036C);
         v11 = off_130370;
         v12 = *(uint8_t *)off_130370;
         if ( *(uint8_t *)off_130370 )
@@ -133,9 +133,9 @@ int  sub_130234(unsigned int a1)
     }
     else
     {
-      sub_10D60C((uint8_t *)dword_130358);
+      uart_puts((uint8_t *)dword_130358);
     }
-    sub_12FA2C(0x30u, (uint8_t *)dword_130354, dword_130358);
+    queue_operation(0x30u, (uint8_t *)dword_130354, dword_130358);
   }
   return v2;
 }

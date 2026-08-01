@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_115078 @ 0x115078, size 70 bytes
+// syscall10_flash_erase @ 0x115078, size 70 bytes
 // Doc: patch_apply_n_46c [patch]: Apply patch: store byte, call indirect via r3 with arg 0xa, then bit-shift result
 // patch_apply_n_46c [patch]: Apply patch: store byte, call indirect via r3 with arg 0xa, then bit-shift result
-int  sub_115078(char a1, uint8_t *a2)
+int  syscall10_flash_erase(char a1, uint8_t *a2)
 {
   unsigned int v3; // r0
   unsigned int v4; // r3

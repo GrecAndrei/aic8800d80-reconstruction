@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154a8", "status": "ok", "name": "patch_apply_n_40", "params": [], "docstring": "Patch apply trampoline writing 4 bytes to 0x400000 region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154a8", "status": "ok", "name": "ioctl2_cmd_2", "params": [], "docstring": "Patch apply trampoline writing 4 bytes to 0x400000 region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

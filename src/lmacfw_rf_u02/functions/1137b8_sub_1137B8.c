@@ -15,8 +15,8 @@ extern uint32_t off_113804;
 extern uint32_t off_113808;
 extern uint32_t off_11380C;
 
-// sub_1137B8 @ 0x1137b8, size 72 bytes
-int sub_1137B8()
+// enter_critical_section @ 0x1137b8, size 72 bytes
+int enter_critical_section()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -34,7 +34,7 @@ int sub_1137B8()
   ++*(uint32_t *)off_113804;
   while ( !*v1 )
     ;
-  result = sub_11E724(*(uint32_t *)off_11380C + 580);
+  result = check_kernel_state(*(uint32_t *)off_11380C + 580);
   *v1 = 1;
   if ( *v0 )
   {

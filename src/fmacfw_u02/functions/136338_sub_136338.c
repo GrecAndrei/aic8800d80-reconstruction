@@ -14,20 +14,20 @@ extern uint32_t off_136370;
 extern uint32_t dword_136378;
 extern uint32_t dword_136374;
 
-// sub_136338 @ 0x136338, size 56 bytes
+// bt_vendor_cmd_guard @ 0x136338, size 56 bytes
 // Doc: sub_1236338 [util]: Check firmware ready flag from shared state
 // sub_1236338 [util]: Check firmware ready flag from shared state
-int sub_136338()
+int bt_vendor_cmd_guard()
 {
-  if ( **(int16_t **)off_136370 >= 0 || msg_get_value(7u) == 2 )
+  if ( **(int16_t **)off_136370 >= 0 || rx_rate_field_parse(7u) == 2 )
   {
-    ipc_msg_post_init(0);
+    bt_vendor_send(0);
     return 0;
   }
   else
   {
-    sub_12F46C(dword_136378, dword_136374, 388);
-    ipc_msg_post_init(0);
+    mmio_clear_register(dword_136378, dword_136374, 388);
+    bt_vendor_send(0);
     return 0;
   }
 }

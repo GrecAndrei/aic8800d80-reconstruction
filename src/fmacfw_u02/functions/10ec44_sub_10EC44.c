@@ -21,8 +21,8 @@ extern uint32_t dword_10ED58;
 extern uint32_t off_10ED5C;
 extern uint32_t dword_10ED60;
 
-// sub_10EC44 @ 0x10ec44, size 256 bytes
-int sub_10EC44()
+// rf_hardware_setup @ 0x10ec44, size 256 bytes
+int rf_hardware_setup()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r2
@@ -58,7 +58,7 @@ int sub_10EC44()
   *v5 &= ~1u;
   v15[0] = v7;
   v15[1] = 2442;
-  sub_102A20((uint16_t *)v15, 0);
+  rf_enable((uint16_t *)v15, 0);
   v8 = (int *)off_10ED5C;
   v9 = dword_10ED60;
   v0 += 593954;
@@ -72,7 +72,7 @@ int sub_10EC44()
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
   *v0 |= 0x400000u;
-  result = rf_reg_field_modify_n12a(4);
+  result = rf_control_field_set(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
   *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;

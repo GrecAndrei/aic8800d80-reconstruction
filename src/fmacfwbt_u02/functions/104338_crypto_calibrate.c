@@ -24,10 +24,10 @@ extern uint32_t dword_104434;
 extern uint32_t dword_104438;
 extern uint32_t off_10443C;
 
-// crypto_calibrate @ 0x104338, size 212 bytes
+// rf_power_on_reset @ 0x104338, size 212 bytes
 // Doc: sub_120433A [bt]: Unknown helper in fmacfwbt bluetooth firmware
 // sub_120433A [bt]: Unknown helper in fmacfwbt bluetooth firmware
-int crypto_calibrate()
+int rf_power_on_reset()
 {
   int *v0; // r1
   uint32_t *v1; // r3
@@ -54,19 +54,19 @@ int crypto_calibrate()
   *v1 = ~(~(*v1 >> 12) << 12);
   v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
   *v1 |= 0x10000000u;
-  delay_us(10);
+  timer_set(10);
   *v4 = dword_104428;
-  delay_us(125);
+  timer_set(125);
   *v4 = dword_10442C;
   while ( *v5 < 0 )
-    delay_us(1);
-  feature_guard_sdio(1, dword_104430);
+    timer_set(1);
+  state_check_feature(1, dword_104430);
   v6 = dword_104434;
   *(uint32_t *)off_104420 = 0;
-  feature_guard_sdio(1, v6);
+  state_check_feature(1, v6);
   *(uint32_t *)off_104410 = v3;
-  crypto_iq_calculate();
-  result = feature_guard_sdio(1, dword_104438);
+  util_get_buf_addr();
+  result = state_check_feature(1, dword_104438);
   v8 = off_104414;
   v9 = off_10443C;
   *(uint32_t *)off_104414 &= 0xF3FFFFFF;

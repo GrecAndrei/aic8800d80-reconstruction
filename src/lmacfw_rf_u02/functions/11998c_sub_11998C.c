@@ -13,17 +13,17 @@
 extern uint32_t dword_1199C4;
 extern uint32_t dword_1199C8;
 
-// sub_11998C @ 0x11998c, size 56 bytes
-int  sub_11998C(int a1, int a2, int a3, int a4)
+// ke_cmd_write_mmio @ 0x11998c, size 56 bytes
+int  ke_cmd_write_mmio(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r4
   int v5; // r0
 
-  v4 = (uint8_t *)rf_setup_dispatch(133, a4, a3, 1);
-  v5 = sub_10EFBC(dword_1199C4, 1);
+  v4 = (uint8_t *)ke_msg_send(133, a4, a3, 1);
+  v5 = critical_enter(dword_1199C4, 1);
   *v4 = (BYTE2(v5) ^ 1) & 1;
-  msg_parse(dword_1199C8, v5);
-  sub_11DE50(v4);
+  dispatch_event_handler(dword_1199C8, v5);
+  rx_irq_handler(v4);
   return 0;
 }
 

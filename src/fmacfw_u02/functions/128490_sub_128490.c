@@ -12,8 +12,8 @@
 
 extern uint32_t off_1284CC;
 
-// sub_128490 @ 0x128490, size 58 bytes
-BOOL  sub_128490(int a1)
+// wlc_get_ops @ 0x128490, size 58 bytes
+BOOL  wlc_get_ops(int a1)
 {
   int v1; // r3
   int v2; // r2

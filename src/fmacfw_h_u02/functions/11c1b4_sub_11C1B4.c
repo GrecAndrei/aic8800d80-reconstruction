@@ -12,15 +12,15 @@
 
 extern uint32_t off_11C1CC;
 
-// sub_11C1B4 @ 0x11c1b4, size 24 bytes
-void  sub_11C1B4(int a1)
+// run_with_busy_flag @ 0x11c1b4, size 24 bytes
+void  run_with_busy_flag(int a1)
 {
   uint8_t *v1; // r4
 
   v1 = off_11C1CC;
   *(uint8_t *)off_11C1CC = 1;
-  sub_11EABC(a1);
+  check_hw_fw_status(a1);
   *v1 = 0;
-  sub_11B898();
+  check_mode_flag();
 }
 

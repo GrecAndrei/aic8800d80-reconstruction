@@ -28,8 +28,8 @@ extern uint32_t dword_126198;
 extern uint32_t dword_12642C;
 extern uint32_t off_12619C;
 
-// sub_125E78 @ 0x125e78, size 1438 bytes
-uint32_t * sub_125E78(uint32_t *result)
+// lld_evt_schedule @ 0x125e78, size 1438 bytes
+uint32_t * lld_evt_schedule(uint32_t *result)
 {
   int16_t **v1; // r9
   int v2; // r3
@@ -124,9 +124,9 @@ uint32_t * sub_125E78(uint32_t *result)
   {
     v53 = *(uint8_t *)(result[18] + 27);
     if ( v53 != 255 && *((uint8_t *)result + 107) != v53 )
-      sub_12F46C(dword_12641C, dword_126418, 691);
+      mmio_clear_register(dword_12641C, dword_126418, 691);
   }
-  sub_125E10(v71);
+  lld_evt_update(v71);
   v2 = *(uint32_t *)(v71 + 72);
   *(uint8_t *)(v2 + 27) = *(uint8_t *)(v71 + 107);
   v3 = *(uint8_t *)(v71 + 106);
@@ -176,7 +176,7 @@ LABEL_15:
     if ( LOBYTE(result[7 * v7 + 6]) == 255 )
     {
       if ( **v1 < 0 )
-        sub_12F46C(dword_12643C, dword_126418, 698);
+        mmio_clear_register(dword_12643C, dword_126418, 698);
       __und(0xFFu);
     }
     goto LABEL_16;
@@ -215,9 +215,9 @@ LABEL_16:
       if ( 2 * v74 <= v10 )
         v10 /= v10 / v74;
       v72 = (v10 >> 1) / v68;
-      if ( sub_1019F0() + 14000 <= v72 )
+      if ( get_constant_1000() + 14000 <= v72 )
         break;
-      v72 = sub_1019F0() + 14000;
+      v72 = get_constant_1000() + 14000;
       if ( v11 )
         goto LABEL_31;
 LABEL_59:
@@ -225,7 +225,7 @@ LABEL_59:
       {
         if ( v11 == 2 )
         {
-          result = (uint32_t *)sub_12F46C(dword_126438, dword_126418, 755);
+          result = (uint32_t *)mmio_clear_register(dword_126438, dword_126418, 755);
           v65 = **v1;
           var4[0] = v10;
           var4[1] = v72;
@@ -248,7 +248,7 @@ LABEL_59:
         v51 = *(uint8_t *)(v9 + 107);
         if ( v51 <= 0x1F )
           goto LABEL_62;
-        result = (uint32_t *)sub_12F46C(dword_126430, dword_126418, 761);
+        result = (uint32_t *)mmio_clear_register(dword_126430, dword_126418, 761);
       }
       else
       {
@@ -284,10 +284,10 @@ LABEL_31:
         v78 = *((uint32_t *)v15 + 2);
         v79 = HIDWORD(v17);
         v77 = (char *)(v76 + 2500);
-        v18 = sub_125CF4((unsigned int *)&v76, (unsigned int *)&v78, (unsigned int *)&v76, v10);
+        v18 = memory_word_compare((unsigned int *)&v76, (unsigned int *)&v78, (unsigned int *)&v76, v10);
         if ( **v1 < 0 && v68 <= 1 )
-          sub_12F46C(dword_126428, dword_126418, 735);
-        v19 = v68 * v72 / (v68 - 1) - 4000 - sub_1019F0();
+          mmio_clear_register(dword_126428, dword_126418, 735);
+        v19 = v68 * v72 / (v68 - 1) - 4000 - get_constant_1000();
         if ( v19 < *((uint32_t *)v15 + 1) )
           v19 = *((uint32_t *)v15 + 1);
         if ( v19 > v18 )
@@ -299,7 +299,7 @@ LABEL_31:
         goto LABEL_59;
     }
     v66 = v19;
-    v20 = sub_1019F0();
+    v20 = get_constant_1000();
     v21 = &var4[5 * v16];
     v22 = *(uint8_t *)(v9 + 107);
     v9 = *(uint32_t *)v9;
@@ -335,7 +335,7 @@ LABEL_39:
         v31 = v74;
       v78 = v28[4] + 32 * *(uint32_t *)off_126434;
       v79 = v55 + 10000;
-      v56 = sub_125CF4(v29, (unsigned int *)&v78, 0, v31);
+      v56 = memory_word_compare(v29, (unsigned int *)&v78, 0, v31);
       v57 = v29[1];
       if ( (int)(*v29 - v78) >= 0 )
         v58 = v31 - v56;
@@ -343,11 +343,11 @@ LABEL_39:
         v58 = v78 - v57;
       v59 = *(v29 - 1) + *v29 - 2000 - v57;
       v75 = v58;
-      if ( sub_1019F0() + 4000 > v59 )
-        v59 = sub_1019F0() + 4000;
+      if ( get_constant_1000() + 4000 > v59 )
+        v59 = get_constant_1000() + 4000;
       v60 = *((uint64_t *)v29 - 1);
       v61 = v59 - v75;
-      v62 = v60 - 14000 - HIDWORD(v60) - sub_1019F0() + v61;
+      v62 = v60 - 14000 - HIDWORD(v60) - get_constant_1000() + v61;
       if ( !v69 )
       {
         v70 = v62;
@@ -383,10 +383,10 @@ LABEL_96:
       goto LABEL_96;
     }
 LABEL_42:
-    v32 = sub_1019F0();
+    v32 = get_constant_1000();
     v33 = *(uint64_t *)(v29 - 1);
     v34 = HIDWORD(v33) - 6000 - v32;
-    v35 = sub_1019F0();
+    v35 = get_constant_1000();
     v36 = *(v29 - 2);
     v37 = v33 + 4000 + v35;
     if ( (int)(v34 - v28[4]) < 0 )
@@ -405,7 +405,7 @@ LABEL_42:
       for ( i = v34 - v36; (int)(i - v28[4]) >= 0; i -= v36 )
         v34 = i;
     }
-    result = (uint32_t *)scan_state_handler_main(v71, 1, 0, 255, v36, v37, v34);
+    result = (uint32_t *)llc_evt_dispatch(v71, 1, 0, 255, v36, v37, v34);
     v39 = dword_126198;
     *v29 = v34;
     v29[1] = v34 + v37;
@@ -417,9 +417,9 @@ LABEL_42:
         v42 = *(v29 - 2);
         v78 = *(uint32_t *)(v39 + 36);
         v79 = v78 + 10000;
-        result = (uint32_t *)sub_125CF4(v29, (unsigned int *)&v78, 0, v42);
+        result = (uint32_t *)memory_word_compare(v29, (unsigned int *)&v78, 0, v42);
         if ( **v1 < 0 && *(uint8_t *)(v39 + 86) != 255 )
-          result = (uint32_t *)sub_12F46C(dword_12642C, dword_126418, 876);
+          result = (uint32_t *)mmio_clear_register(dword_12642C, dword_126418, 876);
         v43 = v78;
         v44 = v29[1];
         *(uint8_t *)(v39 + 86) = *(uint8_t *)(v71 + 107);
@@ -449,7 +449,7 @@ LABEL_42:
     {
       v46 = v45 + v74;
     }
-    result = (uint32_t *)sub_121984(v46);
+    result = (uint32_t *)chip_state_handler(v46);
     v47 = off_12619C;
     v48 = *(uint8_t *)(v71 + 85);
     *(uint32_t *)(v71 + 88) = result;

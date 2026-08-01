@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DCE8;
 
-// sub_10DCD4 @ 0x10dcd4, size 18 bytes
-int  sub_10DCD4(char a1)
+// rf_disable_irq @ 0x10dcd4, size 18 bytes
+int  rf_disable_irq(char a1)
 {
   int result; // r0
 

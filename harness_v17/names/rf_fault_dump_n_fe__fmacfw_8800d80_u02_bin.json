@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121464a", "status": "ok", "name": "rf_msg_process_body_n488", "params": [], "docstring": "Returns 0x40 status from RF message handler body", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121464a", "status": "ok", "name": "rf_bus_reset_n4eb", "params": [], "docstring": "Returns 0x40 status from RF message handler body", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

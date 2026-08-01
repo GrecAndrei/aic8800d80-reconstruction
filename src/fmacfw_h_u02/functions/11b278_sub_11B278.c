@@ -16,8 +16,8 @@ extern uint32_t off_11B344;
 extern uint32_t dword_11B34C;
 extern uint32_t off_11B348;
 
-// sub_11B278 @ 0x11b278, size 194 bytes
-int  sub_11B278(int a1)
+// invalid_instruction_trap @ 0x11b278, size 194 bytes
+int  invalid_instruction_trap(int a1)
 {
   unsigned int CPSR; // r3
   int result; // r0
@@ -51,7 +51,7 @@ int  sub_11B278(int a1)
     if ( v9 << 28 )
     {
       *(uint32_t *)(dword_11B34C + 4 * a1) = v9;
-      sub_11B228((uint8_t)a1);
+      get_sched_item((uint8_t)a1);
     }
     else if ( !v6[46] )
     {
@@ -71,12 +71,12 @@ LABEL_17:
   if ( !v12 )
   {
     *(uint32_t *)(dword_11B34C + 4 * a1) = *(uint32_t *)(*((uint32_t *)v4 + 4) + 4 * (a1 + 2));
-    result = sub_11B228((uint8_t)a1);
+    result = get_sched_item((uint8_t)a1);
     v8 = *v5;
     goto LABEL_17;
   }
 LABEL_8:
-  result = sub_124BFC(&v4[28 * a1 + 20], *((uint32_t *)off_11B348 + 4) + 0x2000);
+  result = mem_copy_util(&v4[28 * a1 + 20], *((uint32_t *)off_11B348 + 4) + 0x2000);
   v8 = *v5;
 LABEL_9:
   if ( v8 )

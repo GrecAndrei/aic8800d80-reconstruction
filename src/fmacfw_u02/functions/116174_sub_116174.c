@@ -12,8 +12,8 @@
 
 extern uint32_t off_1161D0;
 
-// sub_116174 @ 0x116174, size 92 bytes
-int * sub_116174(int a1, int a2, int a3, int a4)
+// check_global_flag @ 0x116174, size 92 bytes
+int * check_global_flag(int a1, int a2, int a3, int a4)
 {
   int *result; // r0
   char *v7; // r4
@@ -23,11 +23,11 @@ int * sub_116174(int a1, int a2, int a3, int a4)
   char v11; // [sp+10h] [bp-Ch] BYREF
 
   if ( (**(uint8_t **)off_1161D0 & 1) != 0 )
-    return memset_thunk((int *)(a3 + a4), 0, 8u);
+    return memset((int *)(a3 + a4), 0, 8u);
   v7 = v10;
-  sub_1335E4(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
-  fmac_data_unpack_n_630(v10, a3, a4);
-  sub_13376C(v10);
+  crypto_load_args(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
+  unaligned_read(v10, a3, a4);
+  patch_handle_data(v10);
   v8 = a4 + a3;
   do
   {

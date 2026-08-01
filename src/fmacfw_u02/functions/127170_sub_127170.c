@@ -20,8 +20,8 @@ extern uint32_t off_12728C;
 extern uint32_t dword_127294;
 extern uint32_t dword_127290;
 
-// sub_127170 @ 0x127170, size 266 bytes
-int  sub_127170(int result)
+// dma_setup_transfer @ 0x127170, size 266 bytes
+int  dma_setup_transfer(int result)
 {
   uint8_t *v1; // r5
   uint64_t v2; // r6
@@ -43,7 +43,7 @@ int  sub_127170(int result)
   {
     if ( *((uint32_t *)off_127284 + 10) != result )
     {
-      result = sub_1019F0();
+      result = get_constant_1000();
       HIDWORD(v2) += 4000 + result;
     }
     v3 = (uint8_t)v1[91];
@@ -56,8 +56,8 @@ int  sub_127170(int result)
     else
     {
       v1[88] = v4 & 0xBF;
-      bt_event_handler();
-      result = sub_126714(SHIDWORD(v2), 0, 0);
+      ke_task_poll();
+      result = llm_ctrl_msg_handler(SHIDWORD(v2), 0, 0);
       v5 = *((uint32_t *)v1 + 4);
       if ( v5 )
       {
@@ -67,7 +67,7 @@ int  sub_127170(int result)
         while ( 1 )
         {
           v10 = *(uint32_t *)(v5 + 4);
-          result = v10 - sub_1019F0();
+          result = v10 - get_constant_1000();
           if ( result + v8 >= 0 )
             break;
           v11 = *(uint32_t *)(v5 + 4);
@@ -77,14 +77,14 @@ int  sub_127170(int result)
           {
             if ( *(uint8_t *)(v12 + 106) == 2 )
               v9 = *(uint16_t *)(v12 + 222) << 10;
-            result = sub_126584(v12, v11 + v9, 0);
+            result = llm_scan_sm_execute(v12, v11 + v9, 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
               break;
           }
           else
           {
-            result = sub_126584(v12, v11 + *(uint32_t *)(v7 + 696 * *(uint8_t *)(v12 + 116) + 8), 0);
+            result = llm_scan_sm_execute(v12, v11 + *(uint32_t *)(v7 + 696 * *(uint8_t *)(v12 + 116) + 8), 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
               break;
@@ -94,11 +94,11 @@ int  sub_127170(int result)
       if ( *((uint32_t *)v1 + 11) )
       {
         if ( **(int16_t **)off_12728C < 0 && (v1[88] & 0xC) == 0 )
-          return sub_12F46C(dword_127294, dword_127290, 1698);
+          return mmio_clear_register(dword_127294, dword_127290, 1698);
       }
       else
       {
-        return sub_1270CC(v2);
+        return ctrl_register_handler(v2);
       }
     }
   }

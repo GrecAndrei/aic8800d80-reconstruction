@@ -12,8 +12,8 @@
 
 extern uint32_t off_102B3C;
 
-// sub_102ADC @ 0x102adc, size 96 bytes
-int * sub_102ADC(int a1)
+// gpio_set_pin @ 0x102adc, size 96 bytes
+int * gpio_set_pin(int a1)
 {
   int v1; // r4
   int v2; // r1

@@ -18,10 +18,10 @@ extern uint32_t dword_1255DC;
 extern uint32_t off_1255D8;
 extern uint32_t dword_1255E0;
 
-// sub_125510 @ 0x125510, size 186 bytes
+// hci_acl_tx_setup @ 0x125510, size 186 bytes
 // Doc: sub_1225510 [unknown]: Initialization helper parsing struct with sub-entries
 // sub_1225510 [unknown]: Initialization helper parsing struct with sub-entries
-int  sub_125510(int a1, int a2)
+int  hci_acl_tx_setup(int a1, int a2)
 {
   uint32_t *v3; // r5
   int v4; // r1
@@ -51,7 +51,7 @@ int  sub_125510(int a1, int a2)
   v9 = dword_1255CC;
   v10 = v4 - v5;
   *(uint16_t *)(a1 + 216) = v4 - v5;
-  sub_132FB8();
+  rx_process_packet();
   v12 = *(uint16_t *)(a2 + 6);
   v13 = dword_1255D0;
   v14 = v3[7] + v12 - 1;

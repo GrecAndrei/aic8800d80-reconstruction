@@ -17,8 +17,8 @@ extern uint32_t dword_129C20;
 extern uint32_t off_129C1C;
 extern uint32_t off_129C18;
 
-// sub_129B58 @ 0x129b58, size 182 bytes
-unsigned int  sub_129B58(int a1, int a2, unsigned int a3, unsigned int a4)
+// sec_table_get @ 0x129b58, size 182 bytes
+unsigned int  sec_table_get(int a1, int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   int v6; // r7
@@ -49,7 +49,7 @@ unsigned int  sub_129B58(int a1, int a2, unsigned int a3, unsigned int a4)
   v10 = (int16_t **)off_129C14;
   *(uint32_t *)(a1 + 44) = v4;
   if ( **v10 < 0 && *(uint8_t *)(v6 + 106) )
-    sub_12F32C(dword_129C24, dword_129C20, 98);
+    irq_disable_mmio_write(dword_129C24, dword_129C20, 98);
   v11 = off_129C1C;
   v12 = *(uint8_t *)(a1 + 19);
   result = *((uint32_t *)off_129C1C + 4) - *(uint32_t *)off_129C18 - *(uint32_t *)(v6 + 132) + v4;

@@ -18,10 +18,10 @@ extern uint32_t dword_10E09C;
 extern uint32_t dword_10E0A0;
 extern uint32_t dword_10E0A4;
 
-// rf_hw_timer_read @ 0x10e048, size 72 bytes
-// Doc: rf_hw_timer_read [rf]: Reads RF hardware timer register and compares state
-// rf_hw_timer_read [rf]: Reads RF hardware timer register and compares state
-int rf_hw_timer_read()
+// rf_core_is_ready @ 0x10e048, size 72 bytes
+// Doc: rf_core_is_ready [rf]: Reads RF hardware timer register and compares state
+// rf_core_is_ready [rf]: Reads RF hardware timer register and compares state
+int rf_core_is_ready()
 {
   uint32_t *v0; // r3
   uint64_t v1; // r0
@@ -33,10 +33,10 @@ int rf_hw_timer_read()
     ;
   v0 = off_10E0A8;
   *((uint32_t *)off_10E0A8 + 7) = 1;
-  v1 = sub_1429B4(v0[4]);
-  v2 = sub_142AA8(v1, HIDWORD(v1), dword_10E090, dword_10E094);
-  v3 = sub_142CFC(v2, HIDWORD(v2), dword_10E098, dword_10E09C);
-  v4 = sub_142738(v3, HIDWORD(v3), dword_10E0A0, dword_10E0A4);
-  return sub_14306C(v4);
+  v1 = uint_to_double(v0[4]);
+  v2 = double_add(v1, HIDWORD(v1), dword_10E090, dword_10E094);
+  v3 = double_subtract(v2, HIDWORD(v2), dword_10E098, dword_10E09C);
+  v4 = double_compare_wrapper(v3, HIDWORD(v3), dword_10E0A0, dword_10E0A4);
+  return double_to_uint(v4);
 }
 

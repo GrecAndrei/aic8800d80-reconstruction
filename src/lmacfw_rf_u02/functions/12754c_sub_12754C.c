@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12754C @ 0x12754c, size 34 bytes
-int  sub_12754C(int result)
+// aeabi_i2d @ 0x12754c, size 34 bytes
+int  aeabi_i2d(int result)
 {
   if ( result )
     JUMPOUT(0x1273EC);

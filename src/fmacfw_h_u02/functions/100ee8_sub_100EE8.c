@@ -16,8 +16,8 @@ extern uint32_t off_100FA4;
 extern uint32_t off_100F98;
 extern uint32_t off_100FA8;
 
-// sub_100EE8 @ 0x100ee8, size 176 bytes
-uint32_t *sub_100EE8()
+// rf_config_read_b @ 0x100ee8, size 176 bytes
+uint32_t *rf_config_read_b()
 {
   unsigned int *v0; // r3
   uint32_t *v1; // r1

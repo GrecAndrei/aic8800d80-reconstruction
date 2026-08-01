@@ -16,8 +16,8 @@ extern uint32_t off_106444;
 extern uint32_t off_106440;
 extern uint32_t dword_106448;
 
-// sub_1063A4 @ 0x1063a4, size 146 bytes
-int  sub_1063A4(int a1, int a2)
+// load_const_table @ 0x1063a4, size 146 bytes
+int  load_const_table(int a1, int a2)
 {
   int v4; // r1
   int v5; // r2
@@ -125,7 +125,7 @@ int  sub_1063A4(int a1, int a2)
   v57 = v24;
   v25 = *(uint32_t *)(a1 + 4 * a2 + 140);
   v58 = v13[4];
-  sub_12EB90(1, dword_10643C);
+  check_feature_flag(1, dword_10643C);
   if ( v25 > 25 )
     v26 = 12;
   else
@@ -137,6 +137,6 @@ int  sub_1063A4(int a1, int a2)
   *(uint32_t *)off_106440 = (8 * v28) & 0x38 | *(uint32_t *)off_106440 & 0xFFFFFFC7;
   v31 = dword_106448;
   *v29 = (4 * v30) & 0x1C | *v29 & 0xFFFFFFE3;
-  return sub_12EB90(1, v31);
+  return check_feature_flag(1, v31);
 }
 

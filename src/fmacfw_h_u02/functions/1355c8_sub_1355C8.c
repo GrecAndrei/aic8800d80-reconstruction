@@ -14,8 +14,8 @@ extern uint32_t dword_135704;
 extern uint32_t dword_135708;
 extern uint32_t off_13570C;
 
-// sub_1355C8 @ 0x1355c8, size 316 bytes
-int  sub_1355C8(int result)
+// ll_conn_get_by_index @ 0x1355c8, size 316 bytes
+int  ll_conn_get_by_index(int result)
 {
   int v1; // r4
   int v2; // r2
@@ -62,7 +62,7 @@ int  sub_1355C8(int result)
           if ( *(uint8_t *)(v6 + 52) == 2 && !*(uint8_t *)(result + 13) )
           {
             v7 = *(uint16_t *)(result + 14);
-            result = sub_118B04(*(uint8_t *)(result + 6) != 0, 512);
+            result = lock_acquire(*(uint8_t *)(result + 6) != 0, 512);
             v8 = result;
             if ( result )
             {
@@ -70,7 +70,7 @@ int  sub_1355C8(int result)
               LOBYTE(v22) = *(uint8_t *)(v4 + 6);
               LOWORD(v23) = v9;
               HIWORD(v22) = v9;
-              sub_12C3F8(v1, result, (uint8_t *)&v22);
+              get_alt_status_flag_c5(v1, result, (uint8_t *)&v22);
               v10 = off_13570C;
               v11 = *(uint32_t *)(v8 + 72);
               v12 = *((uint16_t *)off_13570C + 254);
@@ -97,8 +97,8 @@ int  sub_1355C8(int result)
               v17 = v11 + 108;
               *(uint8_t *)(v8 + 51) = 0;
               *(uint8_t *)(v8 + 53) = 0;
-              sub_13C558(v8, 208, 8);
-              sub_13AF60(v8, v17, 24);
+              bt_conn_is_active(v8, 208, 8);
+              get_config_flag(v8, v17, 24);
               v18 = *(uint8_t *)(v8 + 51) + 24;
               v19 = v18 + v17;
               *(uint8_t *)(v18 + v17) = 8;
@@ -109,7 +109,7 @@ int  sub_1355C8(int result)
               LODWORD(v21) = *(uint32_t *)(v20 + 28) - 1 + HIDWORD(v21);
               HIDWORD(v21) += 4;
               *(uint64_t *)(v20 + 32) = v21;
-              return sub_118B34(v8, 5);
+              return sec_check(v8, 5);
             }
           }
         }

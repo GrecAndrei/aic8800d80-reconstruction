@@ -1,1 +1,1 @@
-{"fn": "list_count", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d36c", "status": "ok", "name": "list_count", "params": [], "docstring": "Return node count loaded from list head pointer (linked-list length helper)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "list_count", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d36c", "status": "ok", "name": "read_u32", "params": [], "docstring": "Return node count loaded from list head pointer (linked-list length helper)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -17,8 +17,8 @@ extern uint32_t off_12273C;
 extern uint32_t off_122734;
 extern uint32_t off_122740;
 
-// sub_122654 @ 0x122654, size 214 bytes
-char * sub_122654(char *result)
+// ll_get_state @ 0x122654, size 214 bytes
+char * ll_get_state(char *result)
 {
   int v1; // r4
   int v2; // r6
@@ -38,20 +38,20 @@ char * sub_122654(char *result)
       v9 = (uint8_t)(result[146] - 1);
       result[146] = v9;
       if ( v9 <= 1 )
-        return (char *)sub_1201D4((int)result);
+        return (char *)alloc_ctrl_block((int)result);
       if ( v9 == 2 )
-        sub_12249C(result[107], 0);
+        send_hci_event(result[107], 0);
     }
     v2 = *(uint32_t *)(v1 + 36);
     v3 = *(uint32_t *)(dword_12272C + 696 * *(uint8_t *)(v1 + 116) + 8) + v2;
     if ( v1 != *((uint32_t *)off_122730 + 8)
       || (v8 = off_122738, *(uint32_t *)(v1 + 36) = v3, !v8[189]) && **(uint8_t **)off_12273C != 2 )
     {
-      sub_124BFC(v1 + 24, v3);
+      mem_copy_util(v1 + 24, v3);
     }
-    sub_1200F0(v1);
-    sub_12A144(v1, *(uint32_t *)(v1 + 136) + v2);
-    result = (char *)sub_127DFC(v1, v2, v3);
+    mmio_reg_addr(v1);
+    bt_scan_poll(v1, *(uint32_t *)(v1 + 136) + v2);
+    result = (char *)cfm_dword_get(v1, v2, v3);
     if ( !result )
     {
       v4 = (uint8_t)(*(uint8_t *)(v1 + 128) + 1);
@@ -62,11 +62,11 @@ char * sub_122654(char *result)
       v7 = *v6;
       if ( v4 > v7 )
       {
-        return (char *)sub_118F4C(*(uint8_t *)(v1 + 116), (int)off_122740, v1);
+        return (char *)phy_is_channel_valid(*(uint8_t *)(v1 + 116), (int)off_122740, v1);
       }
       else if ( v4 == v7 )
       {
-        return (char *)sub_128294(v1);
+        return (char *)wifi_disable_action(v1);
       }
     }
   }

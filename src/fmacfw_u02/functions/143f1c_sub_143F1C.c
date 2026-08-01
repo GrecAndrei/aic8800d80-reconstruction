@@ -12,8 +12,8 @@
 
 extern uint32_t dword_143F6C;
 
-// sub_143F1C @ 0x143f1c, size 80 bytes
-int  sub_143F1C(uint8_t *a1, uint8_t *a2, int a3)
+// memset @ 0x143f1c, size 80 bytes
+int  memset(uint8_t *a1, uint8_t *a2, int a3)
 {
   uint8_t *v3; // r5
   uint8_t *v4; // r7

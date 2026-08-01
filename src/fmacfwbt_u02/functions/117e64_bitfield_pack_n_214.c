@@ -15,10 +15,10 @@ extern uint32_t off_117EF0;
 extern uint32_t off_117EEC;
 extern uint32_t off_117EF4;
 
-// bitfield_pack_n_214 @ 0x117e64, size 130 bytes
-// Doc: bitfield_pack_n_214 [util]: Pack/shift bits into a 32-bit field with sign extension
-// bitfield_pack_n_214 [util]: Pack/shift bits into a 32-bit field with sign extension
-void bitfield_pack_n_214()
+// sleep_critical_enter @ 0x117e64, size 130 bytes
+// Doc: sleep_critical_enter [util]: Pack/shift bits into a 32-bit field with sign extension
+// sleep_critical_enter [util]: Pack/shift bits into a 32-bit field with sign extension
+void sleep_critical_enter()
 {
   int *v0; // r9
   uint32_t *v1; // r7
@@ -47,7 +47,7 @@ void bitfield_pack_n_214()
       && ((v1[52] & 1) == 0 || *((uint8_t *)v1 + 190) != (uint8_t)i)
       && *((uint32_t *)v4 + 84) )
     {
-      patch_sub_1217374((uint8_t)i);
+      mmio_set_bit((uint8_t)i);
     }
     v3 -= 7;
     v4 -= 84;

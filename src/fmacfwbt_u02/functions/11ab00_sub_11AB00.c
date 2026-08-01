@@ -13,8 +13,8 @@
 extern uint32_t off_11AC20;
 extern uint32_t dword_11AC24;
 
-// sub_11AB00 @ 0x11ab00, size 288 bytes
-int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+// llc_tx_start @ 0x11ab00, size 288 bytes
+int  llc_tx_start(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r7
   int v6; // r6
@@ -35,7 +35,7 @@ int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
   v5 = *a2;
   v6 = *(uint32_t *)(*a2 + 68);
   v22 = *(uint32_t **)(a1 + 76);
-  result = bt_state_field_cmp(a1, *a2, a5);
+  result = bt_conn_param_compare(a1, *a2, a5);
   if ( result )
   {
     v12 = v22;
@@ -79,12 +79,12 @@ int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
       ++*(uint8_t *)(v21 + 1);
       if ( v23 > a3 )
       {
-        sub_11A89C(a1, a2, a3, a4, a5);
+        llc_rx_start(a1, a2, a3, a4, a5);
         return 0;
       }
       else
       {
-        sub_119888((int16_t *)v5);
+        tx_event_handle((int16_t *)v5);
         *a2 = **(uint32_t **)(v6 + 324);
         return 1;
       }

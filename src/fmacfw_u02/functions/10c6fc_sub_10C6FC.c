@@ -28,8 +28,8 @@ extern uint32_t off_10C820;
 extern uint32_t off_10C824;
 extern uint32_t dword_10C828;
 
-// sub_10C6FC @ 0x10c6fc, size 238 bytes
-int sub_10C6FC()
+// peripheral_config_write @ 0x10c6fc, size 238 bytes
+int peripheral_config_write()
 {
   int *v0; // r2
   int *v1; // r0

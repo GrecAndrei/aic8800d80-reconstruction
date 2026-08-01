@@ -20,8 +20,8 @@ extern uint32_t off_11F148;
 extern uint32_t off_11F14C;
 extern uint32_t off_11F150;
 
-// sub_11EFEC @ 0x11efec, size 322 bytes
-unsigned int  sub_11EFEC(unsigned int a1)
+// get_connection_tx_power @ 0x11efec, size 322 bytes
+unsigned int  get_connection_tx_power(unsigned int a1)
 {
   int v1; // r7
   int v2; // r8
@@ -50,8 +50,8 @@ unsigned int  sub_11EFEC(unsigned int a1)
   v6 = dword_11F154 + 1320 * v4;
   if ( *(uint8_t *)(v6 + 1224) )
     --*(uint8_t *)(v6 + 1226);
-  sub_12EB90(256, dword_11F138);
-  sub_12D1A8(v5 + 240 + v2, v3);
+  check_feature_flag(256, dword_11F138);
+  wlan_ioctl_handler_3(v5 + 240 + v2, v3);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -70,8 +70,8 @@ unsigned int  sub_11EFEC(unsigned int a1)
     if ( !v12 )
     {
 LABEL_7:
-      sub_11EC64(v11);
-      sub_12D108(dword_11F144);
+      check_ll_event_queue(v11);
+      wlan_ioctl_handler_1(dword_11F144);
       goto LABEL_8;
     }
     v16 = (int *)off_11F13C;
@@ -99,15 +99,15 @@ LABEL_7:
   if ( v11 )
     goto LABEL_7;
 LABEL_8:
-  sub_11EC64(v3);
-  v13 = sub_12D108(dword_11F144);
-  result = sub_1227A8(v13);
+  check_ll_event_queue(v3);
+  v13 = wlan_ioctl_handler_1(dword_11F144);
+  result = get_rx_pdu(v13);
   if ( !result )
   {
     if ( *((uint8_t *)off_11F148 + 408) )
-      result = sub_122044(v2 + v5);
+      result = rf_setup_channel(v2 + v5);
     else
-      result = sub_102AD0(0xC2u);
+      result = rf_reg_write_byte(0xC2u);
   }
   if ( a1 <= 0x1F )
   {
@@ -118,7 +118,7 @@ LABEL_8:
         || (v19 = (uint8_t)(*(uint8_t *)off_11F14C - 1), *(uint8_t *)off_11F14C = v19, !v19) )
       {
         if ( *((uint8_t *)off_11F150 + 18) + *((uint8_t *)off_11F150 + 17) == 1 )
-          return sub_136D34(result);
+          return rf_rate_code_check(result);
       }
     }
   }

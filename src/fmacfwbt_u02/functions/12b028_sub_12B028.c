@@ -13,8 +13,8 @@
 extern uint32_t dword_12B05C;
 extern uint32_t dword_12B060;
 
-// sub_12B028 @ 0x12b028, size 52 bytes
-int * sub_12B028(int a1)
+// tx_slot_state_get @ 0x12b028, size 52 bytes
+int * tx_slot_state_get(int a1)
 {
   int v1; // r4
   int v2; // r6
@@ -29,8 +29,8 @@ int * sub_12B028(int a1)
   v3 = a1;
   v4 = 32 * a1;
   if ( *(uint8_t *)(v2 + 30) )
-    sub_125058(dword_12B05C + 32 * a1);
-  result = sub_100200((int *)v2, 0, 0x20u);
+    ke_event_set_lock(dword_12B05C + 32 * a1);
+  result = memset_byte((int *)v2, 0, 0x20u);
   v6 = v1 + v4;
   v7 = dword_12B060;
   *(uint32_t *)(v6 + 8) = v2;

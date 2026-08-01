@@ -15,8 +15,8 @@ extern uint32_t dword_13A4AC;
 extern uint32_t dword_13A4A8;
 extern uint32_t dword_13A4A4;
 
-// sub_13A460 @ 0x13a460, size 64 bytes
-int  sub_13A460(int a1, int a2)
+// tx_slot_get @ 0x13a460, size 64 bytes
+int  tx_slot_get(int a1, int a2)
 {
   int v2; // r4
   uint32_t *v3; // r5
@@ -25,9 +25,9 @@ int  sub_13A460(int a1, int a2)
   v2 = a1 + 4 * a2;
   v3 = *(uint32_t **)(v2 + 408);
   if ( **(int16_t **)off_13A4A0 < 0 && !v3 )
-    sub_12F46C(dword_13A4AC, dword_13A4A8, 3320);
-  timestamp_remove((int)(v3 + 68));
-  result = list_push_tail(dword_13A4A4, v3);
+    mmio_clear_register(dword_13A4AC, dword_13A4A8, 3320);
+  fault_handler((int)(v3 + 68));
+  result = cmd_handler_a(dword_13A4A4, v3);
   *(uint32_t *)(v2 + 408) = 0;
   return result;
 }

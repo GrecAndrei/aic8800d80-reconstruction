@@ -15,8 +15,8 @@ extern uint32_t off_12F864;
 extern uint32_t dword_12F868;
 extern uint32_t off_12F86C;
 
-// sub_12F810 @ 0x12f810, size 78 bytes
-int  sub_12F810(unsigned int a1)
+// irq_lock_save @ 0x12f810, size 78 bytes
+int  irq_lock_save(unsigned int a1)
 {
   int *v2; // r5
   int result; // r0
@@ -30,7 +30,7 @@ int  sub_12F810(unsigned int a1)
   }
   v2 = (int *)off_12F864;
   ++*(uint32_t *)off_12F864;
-  result = sub_116484();
+  result = send_to_global_queue();
   if ( a1 <= 4 )
     --*(uint8_t *)(dword_12F868 + a1);
   if ( *v2 )

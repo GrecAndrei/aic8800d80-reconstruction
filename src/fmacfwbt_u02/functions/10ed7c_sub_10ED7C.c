@@ -12,9 +12,9 @@
 
 extern uint32_t dword_10ED8C;
 
-// sub_10ED7C @ 0x10ed7c, size 16 bytes
-int sub_10ED7C()
+// get_periph_status @ 0x10ed7c, size 16 bytes
+int get_periph_status()
 {
-  return (uint16_t)sub_10EBDC(dword_10ED8C, 1) >> 11;
+  return (uint16_t)atomic_reg_read(dword_10ED8C, 1) >> 11;
 }
 

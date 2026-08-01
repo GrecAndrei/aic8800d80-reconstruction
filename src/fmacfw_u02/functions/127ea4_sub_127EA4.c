@@ -15,8 +15,8 @@ extern uint32_t off_127F2C;
 extern uint32_t off_127F34;
 extern uint32_t off_127F38;
 
-// sub_127EA4 @ 0x127ea4, size 136 bytes
-int  sub_127EA4(uint8_t *a1)
+// rx_parse_header @ 0x127ea4, size 136 bytes
+int  rx_parse_header(uint8_t *a1)
 {
   int v1; // r4
   int result; // r0
@@ -48,8 +48,8 @@ int  sub_127EA4(uint8_t *a1)
     }
     v8 = (int *)off_127F38;
     ++*(uint32_t *)off_127F38;
-    mmio_toggle_bits_n1c4();
-    sub_11DA70(0);
+    rf_ctrl_enable();
+    radio_init(0);
     if ( *v8 )
     {
       v9 = *v8 - 1;
@@ -61,8 +61,8 @@ int  sub_127EA4(uint8_t *a1)
           __enable_irq();
       }
     }
-    sub_102A20((uint16_t *)v3, 0);
-    return mac_rx_reorder(*(char *)(v4 + 28 * v1 + 12));
+    rf_enable((uint16_t *)v3, 0);
+    return util_format(*(char *)(v4 + 28 * v1 + 12));
   }
   return result;
 }

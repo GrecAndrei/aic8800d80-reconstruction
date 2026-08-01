@@ -12,8 +12,8 @@
 
 extern uint32_t dword_113E6C;
 
-// sub_113DF8 @ 0x113df8, size 116 bytes
-int  sub_113DF8(int a1, int a2)
+// tx_desc_init @ 0x113df8, size 116 bytes
+int  tx_desc_init(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2
@@ -32,7 +32,7 @@ int  sub_113DF8(int a1, int a2)
   v14[0] = *(uint32_t *)dword_113E6C;
   v14[1] = v3;
   v14[2] = v4;
-  v5 = sub_113A44(v14[a1]);
+  v5 = mmio_read32(v14[a1]);
   v6 = 0;
   v7 = 0;
   do

@@ -14,10 +14,10 @@ extern uint32_t off_11E614;
 extern uint32_t off_11E618;
 extern uint32_t off_11E61C;
 
-// irq_nesting_or @ 0x11e5e0, size 52 bytes
-// Doc: irq_nesting_or [util]: Set/clear IRQ nesting bit via OR mask
-// irq_nesting_or [util]: Set/clear IRQ nesting bit via OR mask
-int  irq_nesting_or(int a1)
+// set_busy_flag_alt @ 0x11e5e0, size 52 bytes
+// Doc: set_busy_flag_alt [util]: Set/clear IRQ nesting bit via OR mask
+// set_busy_flag_alt [util]: Set/clear IRQ nesting bit via OR mask
+int  set_busy_flag_alt(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

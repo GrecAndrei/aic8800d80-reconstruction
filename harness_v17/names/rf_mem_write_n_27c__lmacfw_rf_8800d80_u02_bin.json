@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n_27c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221db0", "status": "ok", "name": "rf_mem_write_n_27c", "params": [], "docstring": "Writes zero byte to RF control structure then calls helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n_27c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221db0", "status": "ok", "name": "rf_cmd_dispatch_n_193", "params": [], "docstring": "Writes zero byte to RF control structure then calls helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

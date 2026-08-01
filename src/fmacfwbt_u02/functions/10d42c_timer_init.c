@@ -15,10 +15,10 @@ extern uint32_t off_10D478;
 extern uint32_t off_10D474;
 extern uint32_t dword_10D47C;
 
-// timer_init @ 0x10d42c, size 68 bytes
-// Doc: timer_init [util]: Initialize firmware timer subsystem
-// timer_init [util]: Initialize firmware timer subsystem
-int timer_init()
+// watchdog_init @ 0x10d42c, size 68 bytes
+// Doc: watchdog_init [util]: Initialize firmware timer subsystem
+// watchdog_init [util]: Initialize firmware timer subsystem
+int watchdog_init()
 {
   unsigned int *v0; // r2
   unsigned int v1; // r3

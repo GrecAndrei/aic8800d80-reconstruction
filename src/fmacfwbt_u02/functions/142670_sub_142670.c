@@ -14,13 +14,13 @@ extern uint32_t off_1426AC;
 extern uint32_t dword_1426B4;
 extern uint32_t dword_1426B0;
 
-// sub_142670 @ 0x142670, size 58 bytes
-int  sub_142670(int a1, unsigned int a2)
+// softfloat_double_op @ 0x142670, size 58 bytes
+int  softfloat_double_op(int a1, unsigned int a2)
 {
   if ( **(int16_t **)off_1426AC < 0 && *(uint8_t *)(a2 + 8) == 255 )
-    sub_12F694(dword_1426B4, dword_1426B0, 50);
+    mmio_irq_clear(dword_1426B4, dword_1426B0, 50);
   if ( (*(uint16_t *)(a2 + 2) & 0xFC) == 0xD0 )
-    bt_hci_cmd_dispatch_n_dc(a2);
+    parse_ll_control(a2);
   return 0;
 }
 

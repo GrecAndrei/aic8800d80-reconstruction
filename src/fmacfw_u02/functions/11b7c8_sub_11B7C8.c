@@ -19,8 +19,8 @@ extern uint32_t off_11B840;
 extern uint32_t off_11B844;
 extern uint32_t off_11B848;
 
-// sub_11B7C8 @ 0x11b7c8, size 100 bytes
-uint32_t * sub_11B7C8(uint32_t *result)
+// mmio_wait_update @ 0x11b7c8, size 100 bytes
+uint32_t * mmio_wait_update(uint32_t *result)
 {
   uint32_t *v1; // r2
   int v2; // r5

@@ -1,1 +1,1 @@
-{"fn": "sub_122B5BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b5bc", "status": "ok", "name": "sub_122B5BC", "params": [], "docstring": "Read RF status bytes and dispatch to message handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122B5BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b5bc", "status": "ok", "name": "bt_update_conn_state", "params": [], "docstring": "Read RF status bytes and dispatch to message handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

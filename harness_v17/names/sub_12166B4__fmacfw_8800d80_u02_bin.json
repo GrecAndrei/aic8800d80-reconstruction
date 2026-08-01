@@ -1,1 +1,1 @@
-{"fn": "sub_12166B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12166b4", "status": "ok", "name": "mmio_reg_poll_n6b4", "params": [], "docstring": "Polls MMIO register for completion condition", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12166B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12166b4", "status": "ok", "name": "radio_band_validate", "params": [], "docstring": "Polls MMIO register for completion condition", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

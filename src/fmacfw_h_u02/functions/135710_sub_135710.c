@@ -17,8 +17,8 @@ extern uint32_t dword_1357EC;
 extern uint32_t dword_1357E8;
 extern uint32_t dword_1357E4;
 
-// sub_135710 @ 0x135710, size 200 bytes
-int  sub_135710(unsigned int a1)
+// rf_chan_state_get @ 0x135710, size 200 bytes
+int  rf_chan_state_get(unsigned int a1)
 {
   int v1; // r8
   int v2; // r7
@@ -39,8 +39,8 @@ int  sub_135710(unsigned int a1)
   v2 = dword_1357E0;
   v3 = *(uint8_t *)(v1 + 61);
   if ( **(int16_t **)off_1357D8 < 0 && *(int *)(dword_1357E0 + 1320 * v3 + 472) >= 0 )
-    sub_12F32C(dword_1357EC, dword_1357E8, 1398);
-  v5 = (uint8_t *)sub_12C7EC(6150, 13, 6, 0x2Cu);
+    irq_disable_mmio_write(dword_1357EC, dword_1357E8, 1398);
+  v5 = (uint8_t *)tx_send_pdu(6150, 13, 6, 0x2Cu);
   *v5 = *(uint8_t *)(v1 + 61);
   v6 = v5 + 1;
   v7 = v2 + 1320 * v3;
@@ -66,8 +66,8 @@ int  sub_135710(unsigned int a1)
   *(uint16_t *)(v9 + 38) = *(uint16_t *)(v14 + 372);
   *(uint32_t *)(v9 + 34) = v15;
   *(uint32_t *)(v9 + 40) = bswap32(a1);
-  sub_12CBF4(6u, 6);
-  sub_12C4A4(6154, 6, dword_1357E4);
-  return sub_12C84C(v9);
+  hci_cmd_preprocess(6u, 6);
+  ke_event_handler(6154, 6, dword_1357E4);
+  return rx_process_packet(v9);
 }
 

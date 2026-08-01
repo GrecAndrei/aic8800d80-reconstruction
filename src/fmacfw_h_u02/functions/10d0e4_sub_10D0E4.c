@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D0F0;
 
-// sub_10D0E4 @ 0x10d0e4, size 10 bytes
-void sub_10D0E4()
+// enable_clock_1 @ 0x10d0e4, size 10 bytes
+void enable_clock_1()
 {
   *(uint32_t *)off_10D0F0 = 0x2000000;
 }

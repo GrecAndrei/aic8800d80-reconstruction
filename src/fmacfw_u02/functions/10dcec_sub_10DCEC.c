@@ -12,8 +12,8 @@
 
 extern uint32_t off_10DCFC;
 
-// sub_10DCEC @ 0x10dcec, size 16 bytes
-int  sub_10DCEC(char a1)
+// rf_enable_irq @ 0x10dcec, size 16 bytes
+int  rf_enable_irq(char a1)
 {
   int result; // r0
 

@@ -15,16 +15,16 @@ extern uint32_t off_1346B4;
 extern uint32_t dword_1346BC;
 extern uint32_t dword_1346B8;
 
-// sub_13467C @ 0x13467c, size 52 bytes
-int sub_13467C()
+// ble_reset_controller @ 0x13467c, size 52 bytes
+int ble_reset_controller()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r4
 
-  v0 = sub_12D190(dword_1346B0);
+  v0 = list_pop(dword_1346B0);
   v1 = v0;
   if ( **(int16_t **)off_1346B4 < 0 && !v0 )
-    sub_12F32C(dword_1346BC, dword_1346B8, 766);
-  return sub_12C84C((int)(v1 + 3));
+    irq_disable_mmio_write(dword_1346BC, dword_1346B8, 766);
+  return rx_process_packet((int)(v1 + 3));
 }
 

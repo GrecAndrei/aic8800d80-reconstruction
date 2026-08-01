@@ -13,11 +13,11 @@
 extern uint32_t dword_135A60;
 extern uint32_t dword_135A64;
 
-// sub_135924 @ 0x135924, size 84 bytes
+// rf_get_power_by_index @ 0x135924, size 84 bytes
 // Doc: sub_1235924 [unknown]: Unidentified helper routine in fmacfwbt image
 // sub_1235924 [unknown]: Unidentified helper routine in fmacfwbt image
 // positive sp value has been detected, the output may be wrong!
-int  sub_135924(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
+int  rf_get_power_by_index(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11)
 {
   uint8_t *v11; // r4
   int v12; // r2
@@ -43,7 +43,7 @@ int  sub_135924(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, 
     || (v15 = (uint8_t)v11[116], v15 != v13)
     || (v16 = dword_135A64 + 696 * v15, *(uint8_t *)(v16 + 52) != 2)
     || *(uint8_t *)(a1 + 13)
-    || (v17 = sub_119084(*(uint8_t *)(a1 + 6) != 0, 512), (v18 = v17) == 0) )
+    || (v17 = event_notify(*(uint8_t *)(a1 + 6) != 0, 512), (v18 = v17) == 0) )
   {
     
   }
@@ -51,10 +51,10 @@ int  sub_135924(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, 
   LOBYTE(v22) = *(uint8_t *)(a1 + 6);
   LOWORD(v23) = v19;
   HIWORD(v22) = v19;
-  ipc_msg_dispatch_454((int)v11, v17, (uint8_t *)&v22);
+  scan_done_check_alt((int)v11, v17, (uint8_t *)&v22);
   v20 = *(uint32_t *)(v18 + 72);
   *(uint32_t *)(v20 + 112) = *(uint32_t *)(v16 + 38);
   *(uint8_t *)(v20 + 108) = -48;
-  return sub_1359CC();
+  return rf_copy_cal_params();
 }
 

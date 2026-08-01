@@ -12,10 +12,10 @@
 
 extern uint32_t off_115558;
 
-// sub_1154E8 @ 0x1154e8, size 112 bytes
+// check_patch_magic @ 0x1154e8, size 112 bytes
 // Doc: patch_apply_ne_54f6 [patch]: Apply patch with aligned check (ands r1, r2, 3)
 // patch_apply_ne_54f6 [patch]: Apply patch with aligned check (ands r1, r2, 3)
-void sub_1154E8()
+void check_patch_magic()
 {
   uint32_t *v0; // r3
   int v1; // r2

@@ -12,8 +12,8 @@
 
 extern uint32_t off_1202D4;
 
-// sub_1202B4 @ 0x1202b4, size 30 bytes
-int sub_1202B4()
+// check_hw_counters @ 0x1202b4, size 30 bytes
+int check_hw_counters()
 {
   int result; // r0
 

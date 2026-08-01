@@ -16,8 +16,8 @@ extern uint32_t off_118430;
 extern uint32_t off_118434;
 extern uint32_t off_118438;
 
-// sub_1183A0 @ 0x1183a0, size 134 bytes
-int sub_1183A0()
+// poll_hw_status @ 0x1183a0, size 134 bytes
+int poll_hw_status()
 {
   int result; // r0
   uint32_t *v1; // r1

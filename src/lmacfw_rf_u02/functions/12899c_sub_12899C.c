@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1289EC;
 
-// sub_12899C @ 0x12899c, size 80 bytes
-int  sub_12899C(uint8_t *a1, uint8_t *a2, int a3)
+// crc32 @ 0x12899c, size 80 bytes
+int  crc32(uint8_t *a1, uint8_t *a2, int a3)
 {
   uint8_t *v3; // r5
   uint8_t *v4; // r7

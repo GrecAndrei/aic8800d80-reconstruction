@@ -16,8 +16,8 @@ extern uint32_t off_113940;
 extern uint32_t off_113948;
 extern uint32_t off_113944;
 
-// sub_1138F4 @ 0x1138f4, size 68 bytes
-int sub_1138F4()
+// check_rx_active @ 0x1138f4, size 68 bytes
+int check_rx_active()
 {
   int v0; // r2
   int v1; // r1

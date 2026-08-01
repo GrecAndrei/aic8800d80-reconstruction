@@ -1,1 +1,1 @@
-{"fn": "rf_stream_start2_n_30c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212f40", "status": "ok", "name": "message_dispatch_n_4df", "params": [], "docstring": "Dispatch host message handler variant", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_stream_start2_n_30c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212f40", "status": "ok", "name": "rf_msg_handler_n_1f", "params": [], "docstring": "Dispatch host message handler variant", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

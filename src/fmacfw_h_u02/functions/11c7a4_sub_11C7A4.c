@@ -25,8 +25,8 @@ extern uint32_t off_11C940;
 extern uint32_t off_11C944;
 extern uint32_t off_11C948;
 
-// sub_11C7A4 @ 0x11c7a4, size 376 bytes
-void sub_11C7A4()
+// dma_clear_interrupt @ 0x11c7a4, size 376 bytes
+void dma_clear_interrupt()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r7
@@ -69,8 +69,8 @@ void sub_11C7A4()
 LABEL_5:
       v6 = v4 + 84 * v3;
       *(uint16_t *)(*(uint32_t *)(v6 + 36) + 8) |= 0x10u;
-      sub_12D190(v6 + 28);
-      sub_12CFC4(*(uint32_t *)(dword_11C92C + 4 * v3));
+      list_pop(v6 + 28);
+      irq_disable_global_2(*(uint32_t *)(dword_11C92C + 4 * v3));
       *(uint8_t *)(v6 + 26) = 0;
       *(uint32_t *)(v6 + 36) = 0;
     }
@@ -88,26 +88,26 @@ LABEL_5:
       while ( 1 )
       {
         if ( **v12 < 0 && !v11 )
-          sub_12F32C(dword_11C93C, dword_11C938, 2094);
+          irq_disable_mmio_write(dword_11C93C, dword_11C938, 2094);
         v14 = v11[19];
         v15 = v11[9];
         v16 = *(uint32_t *)(v14 + 72) | 0x80400000;
         *(uint32_t *)(v14 + 72) = v16;
         if ( (v15 & 0x200000) == 0 )
           break;
-        sub_11BA74((int)v11, v16);
+        get_conn_by_channel((int)v11, v16);
         v11 = *(uint32_t **)(v13 + 12);
         if ( *(uint8_t *)(v13 + 26) )
           goto LABEL_5;
       }
-      sub_11C498((int)v11, v16);
+      rx_mpdu_process((int)v11, v16);
     }
     v7 = (int)&v1[7 * v3];
     if ( !*(uint8_t *)(v7 + 46) )
     {
       v8 = *(uint32_t *)(v7 + 36);
       if ( v8 )
-        sub_116574(v8, v3, *(uint8_t *)(v7 + 46), v7);
+        rf_switch_case(v8, v3, *(uint8_t *)(v7 + 46), v7);
       v1[7 * v3 + 9] = 0;
     }
     v9 = off_11C934;
@@ -116,7 +116,7 @@ LABEL_5:
     v10 = v1[52] & 0xFFFFFFFE;
     --*(uint8_t *)(v4 + 84 * v3 + 80);
     v1[52] = v10;
-    sub_11A6A8(v3);
+    invalid_handler(v3);
   }
   else if ( (v2 & 2) != 0 )
   {

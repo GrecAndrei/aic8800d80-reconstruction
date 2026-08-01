@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13BE3C;
 
-// ipc_msg_build_header @ 0x13bdfc, size 64 bytes
-// Doc: ipc_msg_build_header [ipc]: Build IPC message header with shifted fields
-// ipc_msg_build_header [ipc]: Build IPC message header with shifted fields
-int  ipc_msg_build_header(char a1, int a2)
+// sdio_cmd52_wr @ 0x13bdfc, size 64 bytes
+// Doc: sdio_cmd52_wr [ipc]: Build IPC message header with shifted fields
+// sdio_cmd52_wr [ipc]: Build IPC message header with shifted fields
+int  sdio_cmd52_wr(char a1, int a2)
 {
   int v2; // r4
   int v4; // r0
@@ -23,7 +23,7 @@ int  ipc_msg_build_header(char a1, int a2)
   int v6; // r2
 
   v2 = a2;
-  v4 = rf_bus_setup_n3a8(40, 0, ((uint16_t)a2 << 8) | 8, 8u);
+  v4 = bt_buf_alloc(40, 0, ((uint16_t)a2 << 8) | 8, 8u);
   v5 = dword_13BE3C + 32 * v2;
   v6 = *(uint8_t *)(v5 + 17);
   *(uint8_t *)(v4 + 1) = a1;
@@ -32,6 +32,6 @@ int  ipc_msg_build_header(char a1, int a2)
   LOWORD(v2) = *(uint16_t *)(v5 + 20);
   *(uint16_t *)(v4 + 6) = *(uint16_t *)(v5 + 12);
   *(uint16_t *)(v4 + 4) = v2;
-  return sub_12CBB4(v4);
+  return hci_evt_send(v4);
 }
 

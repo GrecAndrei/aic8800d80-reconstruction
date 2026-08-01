@@ -19,8 +19,8 @@ extern uint32_t dword_11EDBC;
 extern uint32_t dword_11EDC0;
 extern uint32_t dword_11EDC4;
 
-// sub_11ECB0 @ 0x11ecb0, size 248 bytes
-int *sub_11ECB0()
+// controller_init_pools @ 0x11ecb0, size 248 bytes
+int *controller_init_pools()
 {
   int v0; // r5
   int v1; // r7
@@ -39,19 +39,19 @@ int *sub_11ECB0()
 
   v0 = dword_11EDAC;
   v1 = dword_11EDA8;
-  sub_12D100(dword_11EDA8);
+  clear_stats_buf(dword_11EDA8);
   v2 = v0 + 22272;
   do
   {
-    sub_11EC64(v0 - 624);
-    sub_12D108(v1);
+    check_ll_event_queue(v0 - 624);
+    wlan_ioctl_handler_1(v1);
     v3 = v0 - 40;
     do
     {
-      sub_12D100(v3);
+      clear_stats_buf(v3);
       v4 = v3 + 40;
       v3 += 8;
-      sub_12D100(v4);
+      clear_stats_buf(v4);
     }
     while ( v3 != v0 );
     v0 = v3 + 696;
@@ -62,10 +62,10 @@ int *sub_11ECB0()
     v6 = v2 - 40;
     do
     {
-      sub_12D100(v6);
+      clear_stats_buf(v6);
       v7 = v6 + 40;
       v6 += 8;
-      sub_12D100(v7);
+      clear_stats_buf(v7);
     }
     while ( v6 != v2 );
     v2 = v6 + 696;
@@ -73,23 +73,23 @@ int *sub_11ECB0()
   v8 = off_11EDB0;
   v9 = dword_11EDB4;
   v10 = dword_11EDB8;
-  sub_11EC64((int)off_11EDB0);
+  check_ll_event_queue((int)off_11EDB0);
   v8[8] = 0x20000000;
   v8[84] = v9;
   v8[47] = v10;
   *((uint8_t *)v8 + 52) = 0;
-  sub_11EC64((int)(v8 + 174));
+  check_ll_event_queue((int)(v8 + 174));
   v8[258] = v9 + 64;
   v11 = dword_11EDBC;
   v8[221] = v10 + 1320;
   v8[182] = v11;
   *((uint8_t *)v8 + 748) = 0;
-  sub_11EC64((int)(v8 + 348));
+  check_ll_event_queue((int)(v8 + 348));
   v8[432] = v9 + 128;
   v8[356] = dword_11EDC0;
   *((uint8_t *)v8 + 1444) = 0;
   v8[395] = v10 + 2640;
-  result = sub_11EC64((int)(v8 + 522));
+  result = check_ll_event_queue((int)(v8 + 522));
   v13 = dword_11EDC4;
   *((uint8_t *)v8 + 2140) = 0;
   v8[606] = v9 + 192;

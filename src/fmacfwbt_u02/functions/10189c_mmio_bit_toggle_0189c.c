@@ -12,10 +12,10 @@
 
 extern uint32_t off_1018B0;
 
-// mmio_bit_toggle_0189c @ 0x10189c, size 20 bytes
-// Doc: mmio_bit_toggle_0189c [mmio]: Toggle a single bit in MMIO control register
-// mmio_bit_toggle_0189c [mmio]: Toggle a single bit in MMIO control register
-unsigned int  mmio_bit_toggle_0189c(int a1)
+// rf_control_set_bit3 @ 0x10189c, size 20 bytes
+// Doc: rf_control_set_bit3 [mmio]: Toggle a single bit in MMIO control register
+// rf_control_set_bit3 [mmio]: Toggle a single bit in MMIO control register
+unsigned int  rf_control_set_bit3(int a1)
 {
   unsigned int result; // r0
 

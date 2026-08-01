@@ -1,1 +1,1 @@
-{"fn": "sub_1214AF0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214af0", "status": "ok", "name": "mmio_read_field_n_af0", "params": [], "docstring": "Reads MMIO register and extracts shifted field value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214AF0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214af0", "status": "ok", "name": "read_hw_status", "params": [], "docstring": "Reads MMIO register and extracts shifted field value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

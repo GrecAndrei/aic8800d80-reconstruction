@@ -13,8 +13,8 @@
 extern uint32_t dword_10DF40;
 extern uint32_t dword_10DF44;
 
-// sub_10DF18 @ 0x10df18, size 40 bytes
-int  sub_10DF18(int a1)
+// rf_ctrl_config_set @ 0x10df18, size 40 bytes
+int  rf_ctrl_config_set(int a1)
 {
   int v1; // r2
   int v2; // r0
@@ -29,6 +29,6 @@ int  sub_10DF18(int a1)
     v1 += 12;
   }
   while ( v1 != v3 );
-  return sub_102EB8(1, 16, 0x10u, dword_10DF44);
+  return peripheral_read_32(1, 16, 0x10u, dword_10DF44);
 }
 

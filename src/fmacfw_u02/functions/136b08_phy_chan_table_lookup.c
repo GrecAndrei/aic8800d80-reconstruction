@@ -13,10 +13,10 @@
 extern uint32_t dword_136B60;
 extern uint32_t dword_136B64;
 
-// phy_chan_table_lookup @ 0x136b08, size 88 bytes
-// Doc: phy_chan_table_lookup [mac]: Look up PHY channel entry in indexed table (stride 0x528)
-// phy_chan_table_lookup [mac]: Look up PHY channel entry in indexed table (stride 0x528)
-int  phy_chan_table_lookup(int a1)
+// bt_is_link_active @ 0x136b08, size 88 bytes
+// Doc: bt_is_link_active [mac]: Look up PHY channel entry in indexed table (stride 0x528)
+// bt_is_link_active [mac]: Look up PHY channel entry in indexed table (stride 0x528)
+int  bt_is_link_active(int a1)
 {
   unsigned int v1; // r3
   int v2; // r2

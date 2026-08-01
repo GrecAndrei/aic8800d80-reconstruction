@@ -16,8 +16,8 @@ extern uint32_t off_129188;
 extern uint32_t dword_129190;
 extern uint32_t off_129184;
 
-// sub_1290C8 @ 0x1290c8, size 184 bytes
-void  sub_1290C8(uint16_t *a1, int16_t a2, int a3)
+// mfp_get_active @ 0x1290c8, size 184 bytes
+void  mfp_get_active(uint16_t *a1, int16_t a2, int a3)
 {
   uint8_t *v3; // r5
   uint16_t v4; // r6
@@ -35,7 +35,7 @@ void  sub_1290C8(uint16_t *a1, int16_t a2, int a3)
     {
       if ( *((uint8_t *)off_129180 + 29) == 5 )
       {
-        sub_124CF4((int)off_129180 + 12);
+        mem_set_util((int)off_129180 + 12);
         v3[29] = 0;
       }
       if ( (v4 & 0x2000) == 0 || *(uint8_t *)(a3 + 114) )
@@ -51,13 +51,13 @@ void  sub_1290C8(uint16_t *a1, int16_t a2, int a3)
           v10 = *(uint16_t *)(*(uint32_t *)off_129188 + 56);
           *((uint32_t *)v3 + 5) = a3;
           v3[29] = 5;
-          sub_124BFC(dword_129190, v10 + v9);
+          mem_copy_util(dword_129190, v10 + v9);
         }
       }
     }
     else if ( *(uint8_t *)off_129184 )
     {
-      sub_1421F8(a3, *a1, a1);
+      adv_type_validate(a3, *a1, a1);
     }
     else if ( (a2 & 0x200) == 0 )
     {
@@ -65,13 +65,13 @@ void  sub_1290C8(uint16_t *a1, int16_t a2, int a3)
       v7 = *(uint16_t *)(*(uint32_t *)off_129188 + 54);
       *((uint32_t *)off_129180 + 5) = a3;
       v3[29] = 2;
-      sub_124BFC((int)(v3 + 12), v7 + v6);
+      mem_copy_util((int)(v3 + 12), v7 + v6);
       v8 = *(uint32_t *)(a3 + 4);
       if ( (v4 & 0x2000) != 0 )
       {
         if ( (v8 & 4) == 0 )
           *(uint32_t *)(a3 + 4) = v8 | 4;
-        sub_128D60();
+        mfp_get_config();
       }
       else
       {

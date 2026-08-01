@@ -1,1 +1,1 @@
-{"fn": "sub_120FF6C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ff6c", "status": "ok", "name": "fmac_msg_post", "params": [], "docstring": "post message to fmac worker queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120FF6C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ff6c", "status": "ok", "name": "hci_send_command", "params": [], "docstring": "post message to fmac worker queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

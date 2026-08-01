@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_fault_dump_n_450 @ 0x1142f8, size 24 bytes
-// Doc: rf_fault_dump_n_450 [rf]: RF fault dump handler clearing fault structure fields
-// rf_fault_dump_n_450 [rf]: RF fault dump handler clearing fault structure fields
-int  rf_fault_dump_n_450(int a1)
+// init_bt_global @ 0x1142f8, size 24 bytes
+// Doc: init_bt_global [rf]: RF fault dump handler clearing fault structure fields
+// init_bt_global [rf]: RF fault dump handler clearing fault structure fields
+int  init_bt_global(int a1)
 {
   uint32_t *v1; // r2
   uint16_t *v2; // r1

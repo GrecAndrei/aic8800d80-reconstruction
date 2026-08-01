@@ -1,1 +1,1 @@
-{"fn": "sub_121C7D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c7d4", "status": "ok", "name": "sub_121C7D4", "params": [], "docstring": "Process BT control message with field extraction", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121C7D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c7d4", "status": "ok", "name": "get_rate_index", "params": [], "docstring": "Process BT control message with field extraction", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

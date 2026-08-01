@@ -13,8 +13,8 @@
 extern uint32_t off_11E53C;
 extern uint32_t off_11E538;
 
-// sub_11E4F4 @ 0x11e4f4, size 66 bytes
-int  sub_11E4F4(int result)
+// rf_tx_timestamp_check @ 0x11e4f4, size 66 bytes
+int  rf_tx_timestamp_check(int result)
 {
   unsigned int v1; // r3
   unsigned int v2; // r2

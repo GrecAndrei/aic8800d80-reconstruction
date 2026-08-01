@@ -17,8 +17,8 @@ extern uint32_t dword_13A9B0;
 extern uint32_t dword_13A9AC;
 extern uint32_t dword_13A9A4;
 
-// sub_13A840 @ 0x13a840, size 346 bytes
-uint16_t * sub_13A840(int a1, uint16_t *a2, int a3)
+// phy_write @ 0x13a840, size 346 bytes
+uint16_t * phy_write(int a1, uint16_t *a2, int a3)
 {
   int v4; // r5
   int v5; // r3
@@ -87,7 +87,7 @@ LABEL_9:
               break;
             default:
               if ( **(int16_t **)off_13A9A8 < 0 )
-                sub_12F32C(dword_13A9B0, dword_13A9AC, 743);
+                irq_disable_mmio_write(dword_13A9B0, dword_13A9AC, 743);
               break;
           }
           if ( a3 )

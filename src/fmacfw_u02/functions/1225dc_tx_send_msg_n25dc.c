@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// tx_send_msg_n25dc @ 0x1225dc, size 30 bytes
-// Doc: tx_send_msg_n25dc [tx]: Send TX/datapath message (id 0x59, param 0xd) via IPC
-// tx_send_msg_n25dc [tx]: Send TX/datapath message (id 0x59, param 0xd) via IPC
-int  tx_send_msg_n25dc(char a1, char a2)
+// hci_send_cmd_0x59 @ 0x1225dc, size 30 bytes
+// Doc: hci_send_cmd_0x59 [tx]: Send TX/datapath message (id 0x59, param 0xd) via IPC
+// hci_send_cmd_0x59 [tx]: Send TX/datapath message (id 0x59, param 0xd) via IPC
+int  hci_send_cmd_0x59(char a1, char a2)
 {
   uint8_t *v4; // r0
 
-  v4 = (uint8_t *)sub_12C92C(89, 13, 0, 2);
+  v4 = (uint8_t *)ke_msg_alloc(89, 13, 0, 2);
   *v4 = a1;
   v4[1] = a2;
-  return sdio_buffer_prepare_n_4e8(v4);
+  return ke_msg_send(v4);
 }
 

@@ -14,8 +14,8 @@ extern uint32_t off_11E1D8;
 extern uint32_t dword_11E1E0;
 extern uint32_t dword_11E1DC;
 
-// sub_11E184 @ 0x11e184, size 82 bytes
-int  sub_11E184(int a1, int *a2, int a3)
+// process_list_entries @ 0x11e184, size 82 bytes
+int  process_list_entries(int a1, int *a2, int a3)
 {
   int v3; // r3
   int v5; // r2
@@ -41,7 +41,7 @@ int  sub_11E184(int a1, int *a2, int a3)
   result = *(uint32_t *)(v8 + 4);
   if ( **(int16_t **)off_11E1D8 < 0 && !result )
   {
-    rf_cmd_send_n264(dword_11E1E0, dword_11E1DC, 239);
+    flash_ctrl_init(dword_11E1E0, dword_11E1DC, 239);
     return *(uint32_t *)(v7 + *a2 + 4);
   }
   return result;

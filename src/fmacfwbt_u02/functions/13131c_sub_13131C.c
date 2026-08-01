@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13131C @ 0x13131c, size 72 bytes
-int  sub_13131C(uint8_t *a1, int a2, int a3)
+// rf_get_cal_u16 @ 0x13131c, size 72 bytes
+int  rf_get_cal_u16(uint8_t *a1, int a2, int a3)
 {
   int result; // r0
   int v5; // r3
   int16_t v6; // r3
   int16_t v7; // r2
 
-  result = (int)sub_12DF30(a1, a2);
+  result = (int)parse_data_2(a1, a2);
   if ( result )
   {
     *(uint16_t *)a3 = *(uint8_t *)(result + 2) | (*(uint8_t *)(result + 3) << 8);

@@ -18,8 +18,8 @@ extern uint32_t dword_13892C;
 extern uint32_t dword_138924;
 extern uint32_t dword_138928;
 
-// sub_138890 @ 0x138890, size 136 bytes
-uint32_t * sub_138890(int a1, int16_t a2, int a3)
+// rf_lookup_tx_power @ 0x138890, size 136 bytes
+uint32_t * rf_lookup_tx_power(int a1, int16_t a2, int a3)
 {
   uint8_t *v3; // r5
   int v4; // r4
@@ -38,7 +38,7 @@ uint32_t * sub_138890(int a1, int16_t a2, int a3)
     v7 = 4 * v4;
     if ( *(uint16_t *)(dword_138920 + 80 * v4 + 76) )
     {
-      sub_12F2C8(dword_138930, dword_13892C, 175);
+      unknown_12f2c8(dword_138930, dword_13892C, 175);
       return 0;
     }
   }
@@ -53,7 +53,7 @@ uint32_t * sub_138890(int a1, int16_t a2, int a3)
   v9 = v5 + 16 * (v4 + v7);
   *(uint32_t *)(v9 + 68) = a3;
   *(uint16_t *)(v9 + 76) = a2;
-  sub_12D108(dword_138924, v6);
+  wlan_ioctl_handler_1(dword_138924, v6);
   v3[68] = v3[68]
          + 1
          - -64

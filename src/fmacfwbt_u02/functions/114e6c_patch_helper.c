@@ -12,10 +12,10 @@
 
 extern uint32_t off_114E78;
 
-// patch_helper @ 0x114e6c, size 12 bytes
-// Doc: patch_helper [patch]: Patch application helper
-// patch_helper [patch]: Patch application helper
-int  patch_helper(int result)
+// periph_write @ 0x114e6c, size 12 bytes
+// Doc: periph_write [patch]: Patch application helper
+// periph_write [patch]: Patch application helper
+int  periph_write(int result)
 {
   if ( !result )
     *(uint32_t *)off_114E78 = 0x20000;

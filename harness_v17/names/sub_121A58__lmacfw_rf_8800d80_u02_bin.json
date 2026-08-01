@@ -1,0 +1,1 @@
+{"fn": "sub_121A58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a58", "status": "ok", "name": "jump_10d02c", "params": [], "docstring": "Unconditional branch to 0x10d02c", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -13,8 +13,8 @@
 extern uint32_t off_1301AC;
 extern uint32_t dword_1301B0;
 
-// sub_13013C @ 0x13013c, size 110 bytes
-int  sub_13013C(int a1, int a2)
+// buf_array_clear_single @ 0x13013c, size 110 bytes
+int  buf_array_clear_single(int a1, int a2)
 {
   unsigned int v4; // r0
   int v5; // r7
@@ -24,12 +24,12 @@ int  sub_13013C(int a1, int a2)
 
   if ( a1 == 1 )
   {
-    rf_level_dump_05bc();
+    log_mac_state();
     return 0;
   }
   else
   {
-    v4 = sub_12FB74(*(uint8_t **)(a2 + 4), 0, 0);
+    v4 = parse_integer(*(uint8_t **)(a2 + 4), 0, 0);
     v5 = v4;
     if ( v4 )
       v5 = 1;
@@ -37,7 +37,7 @@ int  sub_13013C(int a1, int a2)
     if ( a1 > 2 )
     {
       v7 = off_1301AC;
-      v4 = sub_12FB74(*(uint8_t **)(a2 + 8), 0, 0);
+      v4 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0);
       if ( v4 > 0x7D0 )
         v7[91] = v4;
     }
@@ -50,15 +50,15 @@ int  sub_13013C(int a1, int a2)
       *((uint8_t *)v7 + 363) = v5;
       if ( v6 )
       {
-        v8 = sub_130714(v4);
-        sub_1307D0(v8);
+        v8 = mmio_init_check(v4);
+        rf_afe_enable(v8);
       }
       else
       {
-        bt_fmac_init_n_42e();
+        rf_afe_disable();
       }
     }
-    sub_12ECB0(dword_1301B0, v5, v7[91]);
+    ke_event_schedule(dword_1301B0, v5, v7[91]);
     return 0;
   }
 }

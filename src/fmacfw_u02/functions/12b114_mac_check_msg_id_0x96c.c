@@ -12,10 +12,10 @@
 
 extern uint32_t off_12B16C;
 
-// mac_check_msg_id_0x96c @ 0x12b114, size 88 bytes
-// Doc: mac_check_msg_id_0x96c [mac]: Check incoming message id against 0x96c and dispatch via context
-// mac_check_msg_id_0x96c [mac]: Check incoming message id against 0x96c and dispatch via context
-int  mac_check_msg_id_0x96c(uint16_t *a1)
+// ke_msg_handler_lookup @ 0x12b114, size 88 bytes
+// Doc: ke_msg_handler_lookup [mac]: Check incoming message id against 0x96c and dispatch via context
+// ke_msg_handler_lookup [mac]: Check incoming message id against 0x96c and dispatch via context
+int  ke_msg_handler_lookup(uint16_t *a1)
 {
   int v1; // r3
   int result; // r0

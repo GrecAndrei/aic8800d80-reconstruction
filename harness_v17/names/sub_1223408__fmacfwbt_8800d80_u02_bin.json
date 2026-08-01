@@ -1,1 +1,1 @@
-{"fn": "sub_1223408", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223408", "status": "ok", "name": "sub_1223408", "params": [], "docstring": "Allocates 0x88-byte context, fills it from arguments and calls sub-function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223408", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223408", "status": "ok", "name": "rf_reg_write_88", "params": [], "docstring": "Allocates 0x88-byte context, fills it from arguments and calls sub-function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

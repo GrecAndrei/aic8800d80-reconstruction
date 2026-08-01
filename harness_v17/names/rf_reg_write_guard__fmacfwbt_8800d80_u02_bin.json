@@ -1,1 +1,1 @@
-{"fn": "rf_reg_write_guard", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ec84", "status": "ok", "name": "rf_reg_write_guard", "params": [], "docstring": "Guard wrapper validating/serializing RF register writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_reg_write_guard", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ec84", "status": "ok", "name": "atomic_reg_write", "params": [], "docstring": "Guard wrapper validating/serializing RF register writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

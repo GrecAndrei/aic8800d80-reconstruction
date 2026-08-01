@@ -1,1 +1,1 @@
-{"fn": "timer_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d42c", "status": "ok", "name": "timer_init", "params": [], "docstring": "Initialize firmware timer subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "timer_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d42c", "status": "ok", "name": "watchdog_init", "params": [], "docstring": "Initialize firmware timer subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

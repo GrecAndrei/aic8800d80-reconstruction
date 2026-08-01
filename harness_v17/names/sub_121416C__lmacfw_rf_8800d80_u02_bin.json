@@ -1,1 +1,1 @@
-{"fn": "sub_121416C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121416c", "status": "ok", "name": "rf_bus_handler_16c", "params": [], "docstring": "RF bus transaction handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "sub_121416C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121416c", "status": "ok", "name": "rf_regf_high_check", "params": [], "docstring": "RF bus transaction handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

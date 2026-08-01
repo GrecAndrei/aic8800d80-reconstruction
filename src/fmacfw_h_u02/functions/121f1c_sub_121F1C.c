@@ -19,8 +19,8 @@ extern uint32_t off_121FC8;
 extern uint32_t off_121FCC;
 extern uint32_t dword_121FD4;
 
-// sub_121F1C @ 0x121f1c, size 168 bytes
-int  sub_121F1C(int a1, int a2)
+// rf_set_rx_mode @ 0x121f1c, size 168 bytes
+int  rf_set_rx_mode(int a1, int a2)
 {
   int v3; // r3
   int v4; // r2
@@ -41,7 +41,7 @@ int  sub_121F1C(int a1, int a2)
     *((uint16_t *)off_121FD0 + 14) = 1793;
     v9[36] = 0;
     *((uint32_t *)v9 + 5) = a1;
-    result = sub_124BFC(v10, v8 + 10000);
+    result = mem_copy_util(v10, v8 + 10000);
     *(uint8_t *)(a1 + 115) = 0;
   }
   else
@@ -52,12 +52,12 @@ int  sub_121F1C(int a1, int a2)
     if ( *(uint8_t *)(v4 + 1) == v3 )
     {
       *(uint8_t *)(a1 + 115) = 0;
-      sub_12EB90(1024, dword_121FE0);
-      return sub_121ED4(a1);
+      check_feature_flag(1024, dword_121FE0);
+      return rf_read_reg(a1);
     }
     else if ( *(uint8_t *)(a1 + 108) )
     {
-      return sub_12B170(*(uint8_t *)(a1 + 107), off_121FDC, a1);
+      return get_bt_device_state(*(uint8_t *)(a1 + 107), off_121FDC, a1);
     }
     else
     {
@@ -67,7 +67,7 @@ int  sub_121F1C(int a1, int a2)
       if ( *((uint8_t *)off_121FD0 + 8) )
         --*((uint8_t *)off_121FD0 + 8);
       v5[14] = 1;
-      result = sub_124CF4(dword_121FD4);
+      result = mem_set_util(dword_121FD4);
       *(uint32_t *)(a1 + 4) &= ~0x200u;
     }
   }

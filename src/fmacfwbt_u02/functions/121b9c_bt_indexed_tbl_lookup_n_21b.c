@@ -12,10 +12,10 @@
 
 extern uint32_t dword_121BBC;
 
-// bt_indexed_tbl_lookup_n_21b @ 0x121b9c, size 32 bytes
-// Doc: bt_indexed_tbl_lookup_n_21b [bt]: Indexed lookup into 0x2b8-stride table; returns entry value minus 0x21
-// bt_indexed_tbl_lookup_n_21b [bt]: Indexed lookup into 0x2b8-stride table; returns entry value minus 0x21
-BOOL  bt_indexed_tbl_lookup_n_21b(int a1, int a2)
+// phy_read_band @ 0x121b9c, size 32 bytes
+// Doc: phy_read_band [bt]: Indexed lookup into 0x2b8-stride table; returns entry value minus 0x21
+// phy_read_band [bt]: Indexed lookup into 0x2b8-stride table; returns entry value minus 0x21
+BOOL  phy_read_band(int a1, int a2)
 {
   return *(uint8_t *)(696 * a1 + 12 * a2 + dword_121BBC + 453) != 33;
 }

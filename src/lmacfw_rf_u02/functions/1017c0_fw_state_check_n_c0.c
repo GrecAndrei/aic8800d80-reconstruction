@@ -15,16 +15,16 @@ extern uint32_t off_1019A8;
 extern uint32_t dword_1019B0;
 extern uint32_t dword_1019AC;
 
-// fw_state_check_n_c0 @ 0x1017c0, size 404 bytes
-// Doc: fw_state_check_n_c0 [util]: Checks firmware state flag (halfword) from global pointer
-// fw_state_check_n_c0 [util]: Checks firmware state flag (halfword) from global pointer
-void __noreturn fw_state_check_n_c0()
+// tx_path_check @ 0x1017c0, size 404 bytes
+// Doc: tx_path_check [util]: Checks firmware state flag (halfword) from global pointer
+// tx_path_check [util]: Checks firmware state flag (halfword) from global pointer
+void __noreturn tx_path_check()
 {
   if ( **(int16_t **)off_101954 < 0
     && (uint8_t)BYTE2(*(uint32_t *)off_1019A8) + 10 * (HIBYTE(*(uint32_t *)off_1019A8) + 2) != 32 )
   {
-    rf_cmd_send_n264(dword_1019B0, dword_1019AC, 6119);
+    flash_ctrl_init(dword_1019B0, dword_1019AC, 6119);
   }
-  panic_loop();
+  periph_write_read();
 }
 

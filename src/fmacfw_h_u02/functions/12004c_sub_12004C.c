@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12004C @ 0x12004c, size 136 bytes
-int  sub_12004C(int result, int a2)
+// get_sta_by_idx @ 0x12004c, size 136 bytes
+int  get_sta_by_idx(int result, int a2)
 {
   int v2; // r4
   int v3; // r3

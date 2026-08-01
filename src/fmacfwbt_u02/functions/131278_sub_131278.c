@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131278 @ 0x131278, size 162 bytes
-uint8_t * sub_131278(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// rf_get_cal_status @ 0x131278, size 162 bytes
+uint8_t * rf_get_cal_status(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   uint8_t *result; // r0
   uint8_t v7; // r2
@@ -19,7 +19,7 @@ uint8_t * sub_131278(uint8_t *a1, int a2, int a3, uint8_t *a4)
   unsigned int v9; // r5
   uint64_t v10; // r2
 
-  result = sub_12DF08(a1, a2);
+  result = read_rom_info(a1, a2);
   *a4 = 0;
   if ( result )
   {

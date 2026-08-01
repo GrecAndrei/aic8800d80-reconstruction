@@ -38,10 +38,10 @@ extern uint32_t off_12BD34;
 extern uint32_t off_12BD44;
 extern uint32_t off_12BD38;
 
-// sub_12BAE4 @ 0x12bae4, size 502 bytes
+// mmio_poll_status @ 0x12bae4, size 502 bytes
 // Doc: sub_122BAE4 [bt]: Initialize BT mailbox control register to 1
 // sub_122BAE4 [bt]: Initialize BT mailbox control register to 1
-int sub_12BAE4()
+int mmio_poll_status()
 {
   uint32_t *v0; // r2
   unsigned int variant_cached; // r0
@@ -75,8 +75,8 @@ int sub_12BAE4()
   *(uint32_t *)off_12BCDC = 1;
   while ( (uint8_t)*v0 )
     ;
-  variant_cached = get_variant_cached();
-  sub_12B7C8(variant_cached);
+  variant_cached = get_timer_flag();
+  rf_wait_event(variant_cached);
   v2 = off_12BCE4;
   *(uint32_t *)off_12BCE0 = dword_12BCE8;
   v3 = off_12BCEC;
@@ -84,7 +84,7 @@ int sub_12BAE4()
   v4 = (int16_t **)off_12BCF0;
   *v3 &= ~0x800u;
   if ( **v4 < 0 && *(uint32_t *)off_12BCF4 < 0x2F000000u )
-    sub_12F694(dword_12BD40, dword_12BD3C, 284);
+    mmio_irq_clear(dword_12BD40, dword_12BD3C, 284);
   v5 = (char *)off_12BCF4;
   v6 = (int *)off_12BCF8;
   v7 = off_12BCEC;
@@ -109,7 +109,7 @@ int sub_12BAE4()
   v15 = (unsigned int *)off_12BD18;
   *(uint32_t *)off_12BD14 = 12288;
   *v13 = 0;
-  bt_fw_init_or_handler(&v26, &v25);
+  read_calibration_offsets(&v26, &v25);
   v16 = off_12BD20;
   *(uint32_t *)off_12BD1C = (v26 << 8) | (v25 << 16) | v26;
   v17 = off_12BD24;
@@ -131,10 +131,10 @@ int sub_12BAE4()
   *(uint32_t *)off_12BCEC |= 0x2000000u;
   if ( (*v22 & 0x20000) != 0 )
   {
-    result = sdio_buffer_prepare_n_2e2();
+    result = sys_status_get_bit28();
     if ( result )
     {
-      v23 = chip_rev_get();
+      v23 = sys_mode_get();
       v24 = (unsigned int *)off_12BD44;
       result = v23 << 8;
       *(uint32_t *)off_12BD44 = result & 0x700 | *(uint32_t *)off_12BD44 & 0xFFFFF8FF;
@@ -143,7 +143,7 @@ int sub_12BAE4()
       *v24 |= 1u;
       if ( (*v22 & 0x8000) != 0 )
       {
-        result = chip_feature_check();
+        result = sys_status_get_bit21();
         if ( result )
         {
           *v21 |= 0x80000u;
@@ -152,7 +152,7 @@ int sub_12BAE4()
       }
       if ( (*(uint32_t *)off_12BD34 & 0x20000) != 0 )
       {
-        result = sysctl_chip_id_get();
+        result = sys_status_get_bit30();
         if ( result )
           *(uint32_t *)off_12BD44 |= 2u;
       }

@@ -17,8 +17,8 @@ extern uint32_t off_10C838;
 extern uint32_t off_10C83C;
 extern uint32_t off_10C840;
 
-// sub_10C7B8 @ 0x10c7b8, size 114 bytes
-int *sub_10C7B8()
+// phy_context_init @ 0x10c7b8, size 114 bytes
+int *phy_context_init()
 {
   int v0; // r4
   int v1; // zf
@@ -45,6 +45,6 @@ int *sub_10C7B8()
     *(uint32_t *)off_10C838 |= 0x10u;
   }
   (*v3)[161] = *(uint32_t *)off_10C840;
-  return sub_10C700();
+  return gpio_af_config();
 }
 

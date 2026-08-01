@@ -12,10 +12,10 @@
 
 extern uint32_t off_1018D0;
 
-// sdio_buffer_prepare_n_2e2 @ 0x1018c4, size 10 bytes
-// Doc: sdio_buffer_prepare_n_2e2 [mac]: SDIO buffer prepare trampoline returning arg2
-// sdio_buffer_prepare_n_2e2 [mac]: SDIO buffer prepare trampoline returning arg2
-int sdio_buffer_prepare_n_2e2()
+// sys_status_get_bit28 @ 0x1018c4, size 10 bytes
+// Doc: sys_status_get_bit28 [mac]: SDIO buffer prepare trampoline returning arg2
+// sys_status_get_bit28 [mac]: SDIO buffer prepare trampoline returning arg2
+int sys_status_get_bit28()
 {
   return (*(uint32_t *)off_1018D0 >> 28) & 1;
 }

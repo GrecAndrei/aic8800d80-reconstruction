@@ -19,10 +19,10 @@ extern uint32_t dword_124148;
 extern uint32_t dword_124138;
 extern uint32_t dword_12414C;
 
-// rf_pll_config_patch_n_8c @ 0x1240ac, size 130 bytes
-// Doc: rf_pll_config_patch_n_8c [rf]: Configures RF PLL/clock registers by clearing mask bits 0x30000 and 0x600
-// rf_pll_config_patch_n_8c [rf]: Configures RF PLL/clock registers by clearing mask bits 0x30000 and 0x600
-int  rf_pll_config_patch_n_8c(int a1)
+// rf_disable @ 0x1240ac, size 130 bytes
+// Doc: rf_disable [rf]: Configures RF PLL/clock registers by clearing mask bits 0x30000 and 0x600
+// rf_disable [rf]: Configures RF PLL/clock registers by clearing mask bits 0x30000 and 0x600
+int  rf_disable(int a1)
 {
   unsigned int *v1; // r1
   unsigned int *v2; // r4
@@ -43,36 +43,36 @@ int  rf_pll_config_patch_n_8c(int a1)
   switch ( a1 )
   {
     case 0:
-      msg_parse(dword_12413C);
+      dispatch_event_handler(dword_12413C);
       result = 0;
       break;
     case 1:
       v7 = dword_124140;
       *v1 = v3 | 0x10000;
-      msg_parse(v7);
+      dispatch_event_handler(v7);
       result = 0;
       break;
     case 2:
       v8 = dword_124144;
       *v1 = v3 | 0x10000;
       *v2 = v4 | 0x200;
-      msg_parse(v8);
+      dispatch_event_handler(v8);
       result = 0;
       break;
     case 3:
       v9 = dword_124148;
       *v1 = v3 | 0x20000;
-      msg_parse(v9);
+      dispatch_event_handler(v9);
       result = 0;
       break;
     case 4:
       v5 = dword_124138;
       *v1 = v3 | 0x20000;
       *v2 = v4 | 0x400;
-      msg_parse(v5);
+      dispatch_event_handler(v5);
       goto LABEL_3;
     default:
-      msg_parse(dword_12414C);
+      dispatch_event_handler(dword_12414C);
 LABEL_3:
       result = 0;
       break;

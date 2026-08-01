@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1415EC;
 
-// sub_141580 @ 0x141580, size 106 bytes
-uint32_t * sub_141580(int a1, int a2)
+// ke_timer_clear @ 0x141580, size 106 bytes
+uint32_t * ke_timer_clear(int a1, int a2)
 {
   int v2; // r4
   int v4; // r6
@@ -23,23 +23,23 @@ uint32_t * sub_141580(int a1, int a2)
   {
     v2 = dword_1415EC;
     v4 = *(uint32_t *)(dword_1415EC + 6480);
-    if ( sub_1403D0() )
+    if ( bt_global_state_read() )
     {
-      if ( sub_12CD48(0xBu) == 3 )
-        return (uint32_t *)sub_1414AC();
+      if ( hci_cmd_handler(0xBu) == 3 )
+        return (uint32_t *)ke_timer_check();
       else
-        return sub_141344();
+        return ke_timer_tick_inc();
     }
     else
     {
       *(uint8_t *)(a1 + 98) = 1;
-      sub_140400(a1, 0, 0, v2 + 136 * v4 + 6336);
-      return (uint32_t *)sub_118B34(a1, 3);
+      acl_tx_setup(a1, 0, 0, v2 + 136 * v4 + 6336);
+      return (uint32_t *)sec_check(a1, 3);
     }
   }
   else
   {
-    result = sub_12CBF4(0xBu, 0);
+    result = hci_cmd_preprocess(0xBu, 0);
     *(uint32_t *)(dword_1415EC + 6480) = -1;
   }
   return result;

@@ -1,1 +1,1 @@
-{"fn": "sub_123BF78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123bf78", "status": "ok", "name": "sub_123BF78", "params": [], "docstring": "Helper loading state struct pointer", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BF78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123bf78", "status": "ok", "name": "read_global_state_byte", "params": [], "docstring": "Helper loading state struct pointer", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

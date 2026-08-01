@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_113C48 @ 0x113c48, size 78 bytes
-int  sub_113C48(int *a1, unsigned int *a2)
+// mmio_read_pair @ 0x113c48, size 78 bytes
+int  mmio_read_pair(int *a1, unsigned int *a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r0
@@ -21,8 +21,8 @@ int  sub_113C48(int *a1, unsigned int *a2)
   int result; // r0
   uint16_t v10; // r0
 
-  v4 = sub_113A44(8u);
-  v5 = sub_113A44(9u);
+  v4 = mmio_read32(8u);
+  v5 = mmio_read32(9u);
   v6 = HIWORD(v4) << 16;
   if ( v6 | v5 )
   {
@@ -32,8 +32,8 @@ int  sub_113C48(int *a1, unsigned int *a2)
   }
   else
   {
-    v8 = sub_113A44(7u);
-    v10 = sub_113A44(8u);
+    v8 = mmio_read32(7u);
+    v10 = mmio_read32(8u);
     v7 = v10;
     if ( v8 )
     {

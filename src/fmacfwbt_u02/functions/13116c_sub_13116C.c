@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13116C @ 0x13116c, size 266 bytes
-int  sub_13116C(uint8_t *a1, int a2, uint8_t *a3, int a4)
+// rf_parse_cal_entry @ 0x13116c, size 266 bytes
+int  rf_parse_cal_entry(uint8_t *a1, int a2, uint8_t *a3, int a4)
 {
   unsigned int v8; // r7
   unsigned int v9; // r0
@@ -25,18 +25,18 @@ int  sub_13116C(uint8_t *a1, int a2, uint8_t *a3, int a4)
   int v18; // r2
   int v19; // [sp+7h] [bp-1h] BYREF
 
-  v8 = (unsigned int)sub_12DC60(a1, a2);
-  v9 = (unsigned int)sub_12DCA0(a1, a2);
+  v8 = (unsigned int)find_char_6(a1, a2);
+  v9 = (unsigned int)find_char_7(a1, a2);
   if ( !(v8 | v9) )
     return 0;
   v10 = (uint8_t *)v9;
-  v11 = sub_12DCE0(a1, a2, &v19);
+  v11 = find_char_8(a1, a2, &v19);
   if ( v11 )
   {
     if ( !v19 )
       return 0;
   }
-  v12 = sub_12DD24(a1, a2, &v19);
+  v12 = find_char_9(a1, a2, &v19);
   if ( v12 )
   {
     if ( !v19 )
@@ -97,14 +97,14 @@ LABEL_17:
       if ( !v12 )
         goto LABEL_21;
 LABEL_25:
-      sub_1337B4(v12[2], v12[3], v12[4], a4);
+      event_dispatch_by_type(v12[2], v12[3], v12[4], a4);
       goto LABEL_21;
     }
   }
   if ( v12 )
     goto LABEL_25;
 LABEL_21:
-  bt_hci_hdr_parse(a4);
+  llm_get_adv_type(a4);
   return v13;
 }
 

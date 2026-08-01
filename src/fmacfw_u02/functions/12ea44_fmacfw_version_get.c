@@ -12,10 +12,10 @@
 
 extern uint32_t off_12EA4C;
 
-// fmacfw_version_get @ 0x12ea44, size 6 bytes
-// Doc: fmacfw_version_get [util]: Return pointer to firmware version string
-// fmacfw_version_get [util]: Return pointer to firmware version string
-int fmacfw_version_get()
+// ipc_get_data0 @ 0x12ea44, size 6 bytes
+// Doc: ipc_get_data0 [util]: Return pointer to firmware version string
+// ipc_get_data0 [util]: Return pointer to firmware version string
+int ipc_get_data0()
 {
   return *(uint32_t *)off_12EA4C;
 }

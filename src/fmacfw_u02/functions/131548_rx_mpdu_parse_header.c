@@ -12,10 +12,10 @@
 
 extern uint32_t dword_131600;
 
-// rx_mpdu_parse_header @ 0x131548, size 182 bytes
-// Doc: rx_mpdu_parse_header [rx]: Parse incoming MPDU header fields
-// rx_mpdu_parse_header [rx]: Parse incoming MPDU header fields
-int  rx_mpdu_parse_header(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// scan_report_parse @ 0x131548, size 182 bytes
+// Doc: scan_report_parse [rx]: Parse incoming MPDU header fields
+// scan_report_parse [rx]: Parse incoming MPDU header fields
+int  scan_report_parse(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v5; // r5
   int v6; // r8
@@ -50,15 +50,15 @@ int  rx_mpdu_parse_header(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   if ( v11 == 15 )
   {
 LABEL_9:
-    v14 = sub_12C92C(65, 0, 5, 4u);
+    v14 = ke_msg_alloc(65, 0, 5, 4u);
     v15 = v6 + 696 * v5;
     v16 = *(uint8_t *)(v15 + 34);
     *(uint16_t *)v14 = *(uint16_t *)(v15 + 32);
     *(uint8_t *)(v14 + 3) = v16;
     *(uint8_t *)(v14 + 2) = a2[1];
-    sdio_buffer_prepare_n_4e8(v14);
+    ke_msg_send(v14);
   }
-  sub_12CA10(5133, a4, a3);
+  ke_msg_send_no_param(5133, a4, a3);
   return 0;
 }
 

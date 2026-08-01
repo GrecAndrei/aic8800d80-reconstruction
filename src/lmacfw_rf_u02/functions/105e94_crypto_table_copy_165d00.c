@@ -16,10 +16,10 @@ extern uint32_t off_105F34;
 extern uint32_t off_105F30;
 extern uint32_t dword_105F38;
 
-// crypto_table_copy_165d00 @ 0x105e94, size 146 bytes
-// Doc: crypto_table_copy_165d00 [ke]: Copy crypto table from ROM to RAM
-// crypto_table_copy_165d00 [ke]: Copy crypto table from ROM to RAM
-int  crypto_table_copy_165d00(int a1, int a2)
+// load_device_desc @ 0x105e94, size 146 bytes
+// Doc: load_device_desc [ke]: Copy crypto table from ROM to RAM
+// load_device_desc [ke]: Copy crypto table from ROM to RAM
+int  load_device_desc(int a1, int a2)
 {
   int v4; // r1
   int v5; // r2
@@ -128,7 +128,7 @@ int  crypto_table_copy_165d00(int a1, int a2)
   v58 = v24;
   v25 = *(uint32_t *)(a1 + 4 * a2 + 140);
   v59 = v13[4];
-  sub_11F74C(1, dword_105F2C, v25, v59);
+  check_interrupt_flag(1, dword_105F2C, v25, v59);
   if ( v25 > 25 )
     v26 = 12;
   else
@@ -141,6 +141,6 @@ int  crypto_table_copy_165d00(int a1, int a2)
   v31 = dword_105F38;
   v32 = (4 * v30) & 0x1C | *v29 & 0xFFFFFFE3;
   *v29 = v32;
-  return sub_11F74C(1, v31, v26, v32);
+  return check_interrupt_flag(1, v31, v26, v32);
 }
 

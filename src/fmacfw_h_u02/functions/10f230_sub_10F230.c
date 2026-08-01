@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_10F230 @ 0x10f230, size 12 bytes
-int  sub_10F230(int a1, int a2)
+// bt_send_data @ 0x10f230, size 12 bytes
+int  bt_send_data(int a1, int a2)
 {
-  sub_10FEC8(a2);
+  wait_for_state(a2);
   return 1;
 }
 

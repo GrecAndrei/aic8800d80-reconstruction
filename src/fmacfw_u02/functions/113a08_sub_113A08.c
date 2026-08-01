@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_113A08 @ 0x113a08, size 52 bytes
+// error_trap @ 0x113a08, size 52 bytes
 // Doc: rf_cmd_process_n4ca [rf]: Process RF command handler (n4ca variant)
 // rf_cmd_process_n4ca [rf]: Process RF command handler (n4ca variant)
-int sub_113A08()
+int error_trap()
 {
   int *v0; // r4
   int v1; // r0
@@ -29,7 +29,7 @@ int sub_113A08()
   v0 = (int *)rf_cmd_process_3a40;
   v1 = rf_cmd_process_n4ec;
   ++*(uint32_t *)rf_cmd_process_3a40;
-  result = rf_bus_mark_n100_d2d0(v1);
+  result = mem_word_load(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_a8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215440", "status": "ok", "name": "patch_data_copy", "params": [], "docstring": "Copies 8 bytes of patch data from stack buffer to destination", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_a8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215440", "status": "ok", "name": "patch_apply_n_a7", "params": [], "docstring": "Copies 8 bytes of patch data from stack buffer to destination", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

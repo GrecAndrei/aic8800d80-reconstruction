@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_500", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c6b4", "status": "ok", "name": "message_dispatch_n_500", "params": [], "docstring": "Dispatch IPC message via shared doorbell structure", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_500", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c6b4", "status": "ok", "name": "mac_msg_post_4ff", "params": [], "docstring": "Dispatch IPC message via shared doorbell structure", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

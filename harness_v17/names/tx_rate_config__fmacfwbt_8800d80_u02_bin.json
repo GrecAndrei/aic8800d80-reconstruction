@@ -1,1 +1,1 @@
-{"fn": "tx_rate_config", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202bd4", "status": "ok", "name": "tx_rate_config", "params": [], "docstring": "Configure TX PHY rate parameters", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "tx_rate_config", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202bd4", "status": "ok", "name": "radio_event_loop", "params": [], "docstring": "Configure TX PHY rate parameters", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

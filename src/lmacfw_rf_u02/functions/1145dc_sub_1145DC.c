@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1145DC @ 0x1145dc, size 10 bytes
+// mmio_read_128 @ 0x1145dc, size 10 bytes
 // Doc: sub_12145DC [mmio]: Small register move helper, likely MMIO/macro stub
 // sub_12145DC [mmio]: Small register move helper, likely MMIO/macro stub
-int  sub_1145DC(int a1)
+int  mmio_read_128(int a1)
 {
-  return rf_init_or_config_n_318(128, a1, 4u);
+  return ke_task_handler(128, a1, 4u);
 }
 

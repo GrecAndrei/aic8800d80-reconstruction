@@ -23,10 +23,10 @@ extern uint32_t off_1296DC;
 extern uint32_t off_1296E4;
 extern uint32_t off_1296E0;
 
-// sub_1295B8 @ 0x1295b8, size 254 bytes
+// ke_evt_wait @ 0x1295b8, size 254 bytes
 // Doc: rf_mbox_mailbox_send [mmio]: Send command via RF mailbox MMIO registers
 // rf_mbox_mailbox_send [mmio]: Send command via RF mailbox MMIO registers
-int sub_1295B8()
+int ke_evt_wait()
 {
   unsigned int *v0; // r12
   int *v1; // r1
@@ -57,7 +57,7 @@ int sub_1295B8()
   *v0 = *v0 & 0xFFFFFF00 | 0x10;
   *v5 = *v5 & 0xFFFFFF03 | 0x10;
   *v1 = *v1 & 0x3FFFFF | (((v4 >> 5) + 32) << 22);
-  result = feature_guard_sdio(2, dword_1296D4);
+  result = state_check_feature(2, dword_1296D4);
   v8 = *v6;
   v9 = **v6;
   if ( v9 == 1 )

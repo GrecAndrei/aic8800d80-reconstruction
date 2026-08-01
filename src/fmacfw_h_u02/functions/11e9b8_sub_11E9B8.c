@@ -13,8 +13,8 @@
 extern uint32_t off_11E9EC;
 extern uint32_t off_11E9F0;
 
-// sub_11E9B8 @ 0x11e9b8, size 52 bytes
-unsigned int sub_11E9B8()
+// check_fw_rom_signature @ 0x11e9b8, size 52 bytes
+unsigned int check_fw_rom_signature()
 {
   int v0; // r3
   unsigned int result; // r0

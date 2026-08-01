@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DAD4;
 
-// bitmask_pow2_set @ 0x10da88, size 74 bytes
-// Doc: bitmask_pow2_set [util]: Computes power-of-two bitmask for given bit index
-// bitmask_pow2_set [util]: Computes power-of-two bitmask for given bit index
-int  bitmask_pow2_set(int result)
+// rf_channel_valid @ 0x10da88, size 74 bytes
+// Doc: rf_channel_valid [util]: Computes power-of-two bitmask for given bit index
+// rf_channel_valid [util]: Computes power-of-two bitmask for given bit index
+int  rf_channel_valid(int result)
 {
   int v1; // r2
 

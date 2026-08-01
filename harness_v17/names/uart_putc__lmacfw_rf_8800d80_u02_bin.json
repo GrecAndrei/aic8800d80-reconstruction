@@ -1,1 +1,1 @@
-{"fn": "uart_putc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d63c", "status": "ok", "name": "uart_putc", "params": [], "docstring": "Writes a single character to UART data register at 0x40032000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "uart_putc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d63c", "status": "ok", "name": "uart_tx_byte", "params": [], "docstring": "Writes a single character to UART data register at 0x40032000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

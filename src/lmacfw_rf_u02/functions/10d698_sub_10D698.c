@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D6A4;
 
-// sub_10D698 @ 0x10d698, size 10 bytes
-int sub_10D698()
+// uart_rx_ready @ 0x10d698, size 10 bytes
+int uart_rx_ready()
 {
   return *(uint32_t *)off_10D6A4 & 1;
 }

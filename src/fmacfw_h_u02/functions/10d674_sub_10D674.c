@@ -13,8 +13,8 @@
 extern uint32_t off_10D698;
 extern uint32_t off_10D69C;
 
-// sub_10D674 @ 0x10d674, size 34 bytes
-uint8_t * sub_10D674(uint8_t *result)
+// radio_tx_write_string @ 0x10d674, size 34 bytes
+uint8_t * radio_tx_write_string(uint8_t *result)
 {
   int v1; // r1
   uint32_t *v2; // r2

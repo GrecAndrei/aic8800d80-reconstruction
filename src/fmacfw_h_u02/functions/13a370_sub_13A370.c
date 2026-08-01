@@ -12,8 +12,8 @@
 
 extern uint32_t off_13A394;
 
-// sub_13A370 @ 0x13a370, size 36 bytes
-uint16_t * sub_13A370(uint16_t *result)
+// set_mac_addr @ 0x13a370, size 36 bytes
+uint16_t * set_mac_addr(uint16_t *result)
 {
   uint16_t *v1; // r3
 

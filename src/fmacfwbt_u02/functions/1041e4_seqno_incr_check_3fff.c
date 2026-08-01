@@ -12,10 +12,10 @@
 
 extern uint32_t off_104228;
 
-// seqno_incr_check_3fff @ 0x1041e4, size 66 bytes
-// Doc: seqno_incr_check_3fff [mac]: Increment and bound-check 14-bit sequence number against 0x3fff.
-// seqno_incr_check_3fff [mac]: Increment and bound-check 14-bit sequence number against 0x3fff.
-int  seqno_incr_check_3fff(int a1, int a2, uint32_t *a3)
+// util_get_hw_index @ 0x1041e4, size 66 bytes
+// Doc: util_get_hw_index [mac]: Increment and bound-check 14-bit sequence number against 0x3fff.
+// util_get_hw_index [mac]: Increment and bound-check 14-bit sequence number against 0x3fff.
+int  util_get_hw_index(int a1, int a2, uint32_t *a3)
 {
   int v3; // r3
   int v4; // r4

@@ -25,8 +25,8 @@ extern uint32_t dword_10F408;
 extern uint32_t dword_10F404;
 extern uint32_t dword_10F3FC;
 
-// sub_10F318 @ 0x10f318, size 192 bytes
-int sub_10F318()
+// rf_get_state @ 0x10f318, size 192 bytes
+int rf_get_state()
 {
   uint8_t **v0; // r4
   int v1; // r3
@@ -74,17 +74,17 @@ int sub_10F318()
       v6[9] = v7;
       break;
   }
-  sub_10F23C();
-  v4 = sub_10F270();
+  tx_store_packet();
+  v4 = rf_config_bb();
   v5 = **v0;
   if ( v5 == 1 )
   {
     v17 = (int ( **)(int))off_10F3DC;
     *(uint32_t *)off_10F3F8 = dword_10F40C;
-    v18 = sub_1100A4(v4, HIDWORD(v4));
-    v19 = sub_1100E4(v18);
-    v20 = sub_11013C(v19);
-    sub_11004C(v20);
+    v18 = get_current_channel(v4, HIDWORD(v4));
+    v19 = get_core_temp(v18);
+    v20 = get_tx_power(v19);
+    get_noise_floor(v20);
     v21 = v17[2](dword_10F400);
     LODWORD(v4) = v17[3](v21);
     v5 = **v0;
@@ -95,18 +95,18 @@ int sub_10F318()
     *(uint32_t *)off_10F3F8 = dword_10F404;
     v13 = (int ( **)(int))off_10F3DC;
     *(uint16_t *)(v12 + 8244) = 0;
-    v14 = sub_113888();
-    sub_1136D4(v14);
+    v14 = rf_read_channel();
+    rf_read_status(v14);
     v15 = v13[6](dword_10F400);
     v16 = v13[7](v15);
-    LODWORD(v4) = sub_114028(v16);
+    LODWORD(v4) = set_config_field(v16);
     v5 = **v0;
   }
   if ( v5 == 3 )
   {
     v10 = (int ( **)(int))off_10F3DC;
     *(uint32_t *)off_10F3F8 = dword_10F3FC;
-    sub_1140F4();
+    rf_power_down();
     v11 = v10[8](dword_10F400);
     LODWORD(v4) = v10[9](v11);
   }

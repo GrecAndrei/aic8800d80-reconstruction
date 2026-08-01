@@ -12,8 +12,8 @@
 
 extern uint32_t dword_138198;
 
-// sub_138134 @ 0x138134, size 98 bytes
-uint8_t * sub_138134(uint8_t *a1)
+// get_object_state @ 0x138134, size 98 bytes
+uint8_t * get_object_state(uint8_t *a1)
 {
   uint8_t *v1; // r4
   uint8_t *v3; // r8
@@ -31,7 +31,7 @@ uint8_t * sub_138134(uint8_t *a1)
   v6 = a1 + 1;
   while ( v1[8] )
   {
-    if ( (char)v1[64] <= v5 || (v7 = *a1, v7 != (uint8_t)v1[16]) || sub_1435D0(v1 + 17, v6, v7) )
+    if ( (char)v1[64] <= v5 || (v7 = *a1, v7 != (uint8_t)v1[16]) || memcmp(v1 + 17, v6, v7) )
     {
       v1 += 60;
       if ( v1 == (uint8_t *)v4 )

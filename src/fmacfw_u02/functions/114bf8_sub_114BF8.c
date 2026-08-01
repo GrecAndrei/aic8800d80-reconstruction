@@ -14,14 +14,14 @@ extern uint32_t off_114C24;
 extern uint32_t off_114C28;
 extern uint32_t off_114C2C;
 
-// sub_114BF8 @ 0x114bf8, size 42 bytes
-void sub_114BF8()
+// get_ke_env @ 0x114bf8, size 42 bytes
+void get_ke_env()
 {
   int *v0; // r4
 
   v0 = (int *)off_114C24;
   if ( !*(uint32_t *)off_114C24 )
-    *v0 = sub_114BB8();
+    *v0 = invalid_handler();
   if ( !*(uint32_t *)off_114C28 )
     *(uint32_t *)off_114C28 = *v0 + 67092480;
   *(uint32_t *)off_114C2C = 1;

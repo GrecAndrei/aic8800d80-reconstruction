@@ -14,8 +14,8 @@ extern uint32_t off_121B34;
 extern uint32_t off_121B38;
 extern uint32_t dword_121B3C;
 
-// sub_121AF0 @ 0x121af0, size 66 bytes
-int  sub_121AF0(unsigned int a1)
+// ke_int_lock_mode @ 0x121af0, size 66 bytes
+int  ke_int_lock_mode(unsigned int a1)
 {
   int *v2; // r5
   int result; // r0
@@ -29,7 +29,7 @@ int  sub_121AF0(unsigned int a1)
   }
   v2 = (int *)off_121B38;
   ++*(uint32_t *)off_121B38;
-  result = sub_1152CC();
+  result = log_u32_value();
   if ( a1 <= 3 )
     --*(uint8_t *)(dword_121B3C + a1);
   if ( *v2 )

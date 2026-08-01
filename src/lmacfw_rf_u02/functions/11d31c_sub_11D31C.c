@@ -14,8 +14,8 @@ extern uint32_t off_11D33C;
 extern uint32_t off_11D340;
 extern uint32_t off_11D344;
 
-// sub_11D31C @ 0x11d31c, size 32 bytes
-void *sub_11D31C()
+// rf_cmd_cancel @ 0x11d31c, size 32 bytes
+void *rf_cmd_cancel()
 {
   void *result; // r0
   uint32_t *v1; // r1

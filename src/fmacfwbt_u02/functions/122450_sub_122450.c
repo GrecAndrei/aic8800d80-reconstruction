@@ -23,8 +23,8 @@ extern uint32_t off_1224E8;
 extern uint32_t off_1224EC;
 extern uint32_t dword_1224F0;
 
-// sub_122450 @ 0x122450, size 114 bytes
-int  sub_122450(int a1)
+// dma_rx_setup @ 0x122450, size 114 bytes
+int  dma_rx_setup(int a1)
 {
   int v1; // r4
   int *v2; // r2
@@ -69,7 +69,7 @@ int  sub_122450(int a1)
   while ( v2 != (int *)v4 );
   v10 = off_1224D4;
   v11 = off_1224D8;
-  sub_1029F8(*((uint8_t *)off_1224D4 + 410));
+  write_mmio_byte(*((uint8_t *)off_1224D4 + 410));
   v12 = off_1224E0;
   v13 = off_1224E4;
   *((uint8_t *)off_1224DC + 9) = v10[410];
@@ -87,6 +87,6 @@ int  sub_122450(int a1)
   v16[3] = 15000;
   v16[4] = 15000;
   v16[5] = 15000;
-  return sub_12ECB0(v17, v15, v16);
+  return ke_event_schedule(v17, v15, v16);
 }
 

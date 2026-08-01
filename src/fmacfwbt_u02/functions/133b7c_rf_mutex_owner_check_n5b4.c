@@ -14,23 +14,23 @@ extern uint32_t off_133BD8;
 extern uint32_t dword_133BE0;
 extern uint32_t dword_133BDC;
 
-// rf_mutex_owner_check_n5b4 @ 0x133b7c, size 90 bytes
-// Doc: rf_mutex_owner_check_n5b4 [rf]: Check current mutex/bus owner field before access
-// rf_mutex_owner_check_n5b4 [rf]: Check current mutex/bus owner field before access
-int rf_mutex_owner_check_n5b4()
+// scan_trigger @ 0x133b7c, size 90 bytes
+// Doc: scan_trigger [rf]: Check current mutex/bus owner field before access
+// scan_trigger [rf]: Check current mutex/bus owner field before access
+int scan_trigger()
 {
   int value; // r0
 
-  if ( **(int16_t **)off_133BD8 < 0 && msg_get_value(6u) != 4 && msg_get_value(6u) && msg_get_value(6u) != 10 )
-    sub_12F694(dword_133BE0, dword_133BDC, 636);
-  value = msg_get_value(6u);
+  if ( **(int16_t **)off_133BD8 < 0 && hci_cmd_send_short(6u) != 4 && hci_cmd_send_short(6u) && hci_cmd_send_short(6u) != 10 )
+    mmio_irq_clear(dword_133BE0, dword_133BDC, 636);
+  value = hci_cmd_send_short(6u);
   if ( value != 4 )
   {
-    value = msg_get_value(6u);
+    value = hci_cmd_send_short(6u);
     if ( value != 10 )
       return 0;
   }
-  sub_1349D8(value);
+  check_hw_ready_status(value);
   return 0;
 }
 

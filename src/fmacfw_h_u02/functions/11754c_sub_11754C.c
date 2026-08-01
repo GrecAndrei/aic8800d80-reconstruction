@@ -12,8 +12,8 @@
 
 extern uint32_t off_11755C;
 
-// sub_11754C @ 0x11754c, size 14 bytes
-void sub_11754C()
+// phy_stats_count @ 0x11754c, size 14 bytes
+void phy_stats_count()
 {
   ++*((uint32_t *)off_11755C + 126);
 }

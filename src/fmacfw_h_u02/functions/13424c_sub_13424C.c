@@ -15,8 +15,8 @@ extern uint32_t off_1342A0;
 extern uint32_t off_1342A4;
 extern uint32_t dword_1342A8;
 
-// sub_13424C @ 0x13424c, size 80 bytes
-int sub_13424C()
+// unknown_func_13424c @ 0x13424c, size 80 bytes
+int unknown_func_13424c()
 {
   int *v0; // r4
   uint8_t *v1; // r2
@@ -37,12 +37,12 @@ int sub_13424C()
   *(uint32_t *)off_1342A0 = v3;
   if ( v2 )
   {
-    sub_134228();
+    hci_send_test_command();
     v3 = *v0;
   }
   else if ( v1[14] == 1 )
   {
-    sub_1345A8();
+    ble_scan_config();
     v3 = *v0;
   }
   if ( v3 )
@@ -56,7 +56,7 @@ int sub_13424C()
         __enable_irq();
     }
   }
-  sub_12E948(dword_1342A8);
+  alloc_tx_event(dword_1342A8);
   return 0;
 }
 

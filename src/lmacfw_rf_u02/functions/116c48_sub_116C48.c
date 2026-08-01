@@ -12,8 +12,8 @@
 
 extern uint32_t off_116C68;
 
-// sub_116C48 @ 0x116c48, size 30 bytes
-int sub_116C48()
+// counter_increment @ 0x116c48, size 30 bytes
+int counter_increment()
 {
   uint8_t *v0; // r4
   unsigned int v1; // r2

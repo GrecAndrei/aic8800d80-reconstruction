@@ -15,15 +15,15 @@ extern uint32_t dword_128C18;
 extern uint32_t off_128C1C;
 extern uint32_t off_128C20;
 
-// sub_128BB0 @ 0x128bb0, size 96 bytes
-uint16_t * sub_128BB0(int a1, int a2)
+// sec_log_dbg @ 0x128bb0, size 96 bytes
+uint16_t * sec_log_dbg(int a1, int a2)
 {
   uint16_t *result; // r0
   int *i; // r3
   int v6; // r3
 
-  sub_12EB90(2, dword_128C14);
-  result = (uint16_t *)sub_1289EC(a1, a2, dword_128C18);
+  check_feature_flag(2, dword_128C14);
+  result = (uint16_t *)log_printf(a1, a2, dword_128C18);
   if ( result )
   {
     result = (uint16_t *)off_128C1C;
@@ -39,7 +39,7 @@ uint16_t * sub_128BB0(int a1, int a2)
         }
       }
       *(uint8_t *)result = 0;
-      return (uint16_t *)sub_12C8D0(50, result[1], 0);
+      return (uint16_t *)mac_write_header_word(50, result[1], 0);
     }
   }
   return result;

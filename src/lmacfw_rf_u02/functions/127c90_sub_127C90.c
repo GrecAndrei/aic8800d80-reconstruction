@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127C90 @ 0x127c90, size 352 bytes
-int  sub_127C90(int result, int a2, int a3, int a4)
+// aeabi_ddiv @ 0x127c90, size 352 bytes
+int  aeabi_ddiv(int result, int a2, int a3, int a4)
 {
   int v4; // zf
   int v5; // r2

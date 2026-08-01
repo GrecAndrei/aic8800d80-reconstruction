@@ -19,8 +19,8 @@ extern uint32_t off_12953C;
 extern uint32_t off_129540;
 extern uint32_t off_129534;
 
-// sub_1294C8 @ 0x1294c8, size 86 bytes
-int sub_1294C8()
+// wlc_mmio_clock_enable @ 0x1294c8, size 86 bytes
+int wlc_mmio_clock_enable()
 {
   int v0; // r1
   uint32_t *v1; // r0
@@ -30,7 +30,7 @@ int sub_1294C8()
 
   v0 = dword_129528;
   *(uint32_t *)off_129520 |= 0x2000000u;
-  feature_guard_check(2, v0);
+  check_status_bits(2, v0);
   if ( !*((uint8_t *)off_12952C + 18) )
     *(uint32_t *)off_129530 &= ~1u;
   v1 = off_129538;

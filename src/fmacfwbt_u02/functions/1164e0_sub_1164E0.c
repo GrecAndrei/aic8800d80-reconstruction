@@ -12,8 +12,8 @@
 
 extern uint32_t dword_116504;
 
-// sub_1164E0 @ 0x1164e0, size 34 bytes
-int  sub_1164E0(int a1, int a2)
+// set_callback_arg @ 0x1164e0, size 34 bytes
+int  set_callback_arg(int a1, int a2)
 {
   int v2; // r3
   int result; // r0

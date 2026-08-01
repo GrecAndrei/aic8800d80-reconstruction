@@ -1,1 +1,1 @@
-{"fn": "sub_1219120", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219120", "status": "ok", "name": "sub_1219120", "params": [], "docstring": "Small helper loading a pointer and returning constant", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1219120", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219120", "status": "ok", "name": "btlp_enter_sleep", "params": [], "docstring": "Small helper loading a pointer and returning constant", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

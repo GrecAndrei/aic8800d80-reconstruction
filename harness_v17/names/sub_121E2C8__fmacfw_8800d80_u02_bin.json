@@ -1,1 +1,1 @@
-{"fn": "sub_121E2C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121e2c8", "status": "ok", "name": "sdio_buffer_prepare_n_2f4", "params": [], "docstring": "Compares two buffer pointers for SDIO prepare operation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121E2C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121e2c8", "status": "ok", "name": "mac_mcps_request", "params": [], "docstring": "Compares two buffer pointers for SDIO prepare operation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

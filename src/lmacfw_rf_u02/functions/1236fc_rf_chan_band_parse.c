@@ -14,10 +14,10 @@ extern uint32_t off_123730;
 extern uint32_t off_123734;
 extern uint32_t off_123738;
 
-// rf_chan_band_parse @ 0x1236fc, size 52 bytes
-// Doc: rf_chan_band_parse [rf]: Parse channel/band byte fields from descriptor
-// rf_chan_band_parse [rf]: Parse channel/band byte fields from descriptor
-uint8_t * rf_chan_band_parse(uint8_t *result)
+// handle_cmd_type2 @ 0x1236fc, size 52 bytes
+// Doc: handle_cmd_type2 [rf]: Parse channel/band byte fields from descriptor
+// handle_cmd_type2 [rf]: Parse channel/band byte fields from descriptor
+uint8_t * handle_cmd_type2(uint8_t *result)
 {
   uint8_t *v1; // r3
   char v2; // r1
@@ -34,7 +34,7 @@ uint8_t * rf_chan_band_parse(uint8_t *result)
       v1[3] = v2;
       v1[4] = v3;
     }
-    return (uint8_t *)mmio_write_40320150(*(uint32_t *)off_123738 + 20000);
+    return (uint8_t *)mmio_write_register(*(uint32_t *)off_123738 + 20000);
   }
   return result;
 }

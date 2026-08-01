@@ -17,8 +17,8 @@ extern uint32_t off_124F10;
 extern uint32_t off_124F14;
 extern uint32_t dword_124F18;
 
-// sub_124E60 @ 0x124e60, size 166 bytes
-int  sub_124E60(int a1, int a2)
+// set_scan_params @ 0x124e60, size 166 bytes
+int  set_scan_params(int a1, int a2)
 {
   int *v3; // r5
   int v4; // r3
@@ -39,16 +39,16 @@ int  sub_124E60(int a1, int a2)
 
   if ( a1 <= 2 )
   {
-    sub_11F504(dword_124F1C);
+    dispatch_event_handler(dword_124F1C);
     return -1;
   }
   else
   {
     v3 = (int *)off_124F08;
-    v4 = sub_121E3C(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v4 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
     v5 = *(uint8_t **)(a2 + 8);
     v6 = v4;
-    v7 = sub_121E3C(v5, 0, 0xAu);
+    v7 = parse_number(v5, 0, 0xAu);
     v8 = *(uint32_t *)off_124F0C;
     v9 = *v3;
     v10 = *(uint32_t *)off_124F10;
@@ -65,12 +65,12 @@ int  sub_124E60(int a1, int a2)
     {
       if ( v7 )
       {
-        sub_102ADC(0);
+        gpio_set_pin(0);
         v13 = &v18;
       }
       else
       {
-        sub_102ADC(1);
+        gpio_set_pin(1);
         v13 = v19;
       }
       v14 = &v16;
@@ -79,17 +79,17 @@ int  sub_124E60(int a1, int a2)
     {
       if ( v7 )
       {
-        sub_102B40(0);
+        gpio_clear_pin(0);
         v13 = &v18;
       }
       else
       {
-        sub_102B40(1);
+        gpio_clear_pin(1);
         v13 = v19;
       }
       v14 = &v17;
     }
-    sub_11F504(dword_124F18, v13, v14, v12, v16, v17, v18, v19[0]);
+    dispatch_event_handler(dword_124F18, v13, v14, v12, v16, v17, v18, v19[0]);
     return 0;
   }
 }

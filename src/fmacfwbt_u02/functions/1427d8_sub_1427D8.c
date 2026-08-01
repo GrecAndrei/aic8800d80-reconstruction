@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1427D8 @ 0x1427d8, size 630 bytes
-int  sub_1427D8(uint64_t a1, uint64_t a2)
+// __aeabi_dadd @ 0x1427d8, size 630 bytes
+int  __aeabi_dadd(uint64_t a1, uint64_t a2)
 {
   int v2; // r4
   int v3; // r5

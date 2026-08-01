@@ -17,8 +17,8 @@ extern uint32_t off_12D200;
 extern uint32_t dword_12D208;
 extern uint32_t dword_12D20C;
 
-// sub_12D190 @ 0x12d190, size 104 bytes
-void sub_12D190()
+// tx_ring_peek @ 0x12d190, size 104 bytes
+void tx_ring_peek()
 {
   unsigned int *v0; // r6
   unsigned int v1; // r4
@@ -50,7 +50,7 @@ void sub_12D190()
           if ( v8 )
             goto LABEL_5;
         }
-        sub_12F46C(v6, v5, 230);
+        mmio_clear_register(v6, v5, 230);
       }
       v8 = *(void ( **)(uint32_t))(v3 + 8 * v7);
 LABEL_5:
@@ -58,7 +58,7 @@ LABEL_5:
       v1 = *v0;
       if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
       {
-        sub_1146B8();
+        dummy_store_global();
         if ( !v1 )
           return;
       }

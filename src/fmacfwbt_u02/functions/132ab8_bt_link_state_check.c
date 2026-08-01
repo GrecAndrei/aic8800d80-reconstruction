@@ -14,10 +14,10 @@ extern uint32_t off_132B14;
 extern uint32_t dword_132B18;
 extern uint32_t dword_132B1C;
 
-// bt_link_state_check @ 0x132ab8, size 92 bytes
-// Doc: bt_link_state_check [bt]: Check Bluetooth link state and 0xC0 flag
-// bt_link_state_check [bt]: Check Bluetooth link state and 0xC0 flag
-int  bt_link_state_check(int a1)
+// bt_get_local_addr_type @ 0x132ab8, size 92 bytes
+// Doc: bt_get_local_addr_type [bt]: Check Bluetooth link state and 0xC0 flag
+// bt_get_local_addr_type [bt]: Check Bluetooth link state and 0xC0 flag
+int  bt_get_local_addr_type(int a1)
 {
   int v2; // r0
   int v3; // r3
@@ -37,7 +37,7 @@ LABEL_2:
   }
   if ( !v2 )
   {
-    sub_12F694(dword_132B18, dword_132B1C, 707);
+    mmio_irq_clear(dword_132B18, dword_132B1C, 707);
     v2 = *(uint8_t *)(a1 + 192);
     goto LABEL_2;
   }
@@ -54,8 +54,8 @@ LABEL_3:
   }
   while ( v3 != v4 );
 LABEL_7:
-  v7 = sub_132910(v2);
-  result = phy_flag_get_123f454(a1, v7);
+  v7 = util_validate_name_char(v2);
+  result = set_flow_control_mode(a1, v7);
   *(uint8_t *)(a1 + 350) = 0;
   return result;
 }

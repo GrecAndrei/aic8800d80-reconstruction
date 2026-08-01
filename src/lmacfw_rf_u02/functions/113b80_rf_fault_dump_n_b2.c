@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_fault_dump_n_b2 @ 0x113b80, size 8 bytes
-// Doc: rf_fault_dump_n_b2 [rf]: Dump RF fault state, iterating up to 0x5c entries
-// rf_fault_dump_n_b2 [rf]: Dump RF fault state, iterating up to 0x5c entries
-int  rf_fault_dump_n_b2(int a1)
+// mmio_write_reg2 @ 0x113b80, size 8 bytes
+// Doc: mmio_write_reg2 [rf]: Dump RF fault state, iterating up to 0x5c entries
+// mmio_write_reg2 [rf]: Dump RF fault state, iterating up to 0x5c entries
+int  mmio_write_reg2(int a1)
 {
-  return host_reg_wait_set(2u, a1);
+  return mmio_write32(2u, a1);
 }
 

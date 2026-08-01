@@ -17,8 +17,8 @@ extern uint32_t dword_10E208;
 extern uint32_t dword_10E20C;
 extern uint32_t dword_10E210;
 
-// sub_10E170 @ 0x10e170, size 138 bytes
-float sub_10E170()
+// sdio_core_config_3 @ 0x10e170, size 138 bytes
+float sdio_core_config_3()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
@@ -37,13 +37,13 @@ float sub_10E170()
   v0[2] = v0[2] & 0xF000FFFF | 0x2000000;
   v0[3] = v2 & v0[3] | 0xA06A000;
   v0[3] = v4 | v3 & v0[3];
-  sub_10DCE8();
+  gpio_init_pin_12();
   v0[1] = 1;
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
   v5 = v0[4];
-  sub_10EFB4(dword_10E210, 0, 15360);
+  call_slot_0x1b8(dword_10E210, 0, 15360);
   return (float)((float)((float)v5 / flt_10E214) - 1.0) * flt_10E218;
 }
 

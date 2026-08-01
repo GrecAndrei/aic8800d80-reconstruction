@@ -15,8 +15,8 @@ extern uint32_t dword_107470;
 extern uint32_t dword_107478;
 extern uint32_t dword_107474;
 
-// sub_1073BC @ 0x1073bc, size 174 bytes
-int  sub_1073BC(unsigned int *a1, int a2)
+// timer_delta_compare @ 0x1073bc, size 174 bytes
+int  timer_delta_compare(unsigned int *a1, int a2)
 {
   unsigned int v2; // r3
   unsigned int v3; // r5
@@ -36,19 +36,19 @@ int  sub_1073BC(unsigned int *a1, int a2)
   if ( v3 < v2 )
     v3 = v2;
   v5 = *(uint32_t *)(a2 + 8);
-  sub_11F74C(1, dword_10746C, v3, v2);
-  v6 = (int)(float)(COERCE_FLOAT(((int ( *)(uint32_t))sub_11EAA0)(vcvts_n_f32_u32(v3, 0xFu))) * 10.0);
-  sub_11F74C(1, dword_107470, v6, v7);
+  check_interrupt_flag(1, dword_10746C, v3, v2);
+  v6 = (int)(float)(COERCE_FLOAT(((int ( *)(uint32_t))float_to_double)(vcvts_n_f32_u32(v3, 0xFu))) * 10.0);
+  check_interrupt_flag(1, dword_107470, v6, v7);
   v8 = v6 + 1;
   if ( v6 >= -1 )
   {
-    sub_11F74C(1, dword_107478, -2, v8);
+    check_interrupt_flag(1, dword_107478, -2, v8);
   }
   else if ( v6 < -30 )
   {
-    sub_11F74C(1, dword_107474, -30, v8);
+    check_interrupt_flag(1, dword_107474, -30, v8);
   }
-  *(uint32_t *)(a2 + 8) = (int)((float ( *)(uint32_t))sub_11EAC8)((float)(~v6 + v5));
-  return sub_107150(a2);
+  *(uint32_t *)(a2 + 8) = (int)((float ( *)(uint32_t))branch_to_127228)((float)(~v6 + v5));
+  return load_patch_bundle(a2);
 }
 

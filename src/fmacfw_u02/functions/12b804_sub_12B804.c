@@ -22,10 +22,10 @@ extern uint32_t off_12B894;
 extern uint32_t off_12B884;
 extern uint32_t off_12B89C;
 
-// sub_12B804 @ 0x12b804, size 120 bytes
+// read_cal_trim @ 0x12b804, size 120 bytes
 // Doc: sub_122B804 [util]: Check global flag value and branch on sign
 // sub_122B804 [util]: Check global flag value and branch on sign
-int sub_12B804()
+int read_cal_trim()
 {
   uint32_t *v0; // r1
   int v1; // r6
@@ -41,7 +41,7 @@ int sub_12B804()
   int v11; // r3
 
   if ( **(int16_t **)off_12B87C < 0 && !(*(uint32_t *)off_12B898 << 28) )
-    return fmac_phy_op_handler(dword_12B8A4, dword_12B8A0, 213, *(uint32_t *)off_12B898);
+    return bad_func_0x12f408(dword_12B8A4, dword_12B8A0, 213, *(uint32_t *)off_12B898);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();

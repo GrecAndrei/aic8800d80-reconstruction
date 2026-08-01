@@ -12,10 +12,10 @@
 
 extern uint32_t dword_121C68;
 
-// sub_121BE0 @ 0x121be0, size 134 bytes
+// str_skip_spaces @ 0x121be0, size 134 bytes
 // Doc: rf_mem_write_n_432 [rf]: Write to RF register/memory (length-bounded)
 // rf_mem_write_n_432 [rf]: Write to RF register/memory (length-bounded)
-int  sub_121BE0(uint8_t *a1, int a2)
+int  str_skip_spaces(uint8_t *a1, int a2)
 {
   int v2; // r4
   uint8_t *v4; // r0
@@ -71,7 +71,7 @@ rf_bus_mark_n_unknown:
     v2 = v9;
     if ( v9 == 16 )
     {
-      uart_puts((uint8_t *)dword_121C68);
+      uart_tx_string((uint8_t *)dword_121C68);
       return 16;
     }
   }

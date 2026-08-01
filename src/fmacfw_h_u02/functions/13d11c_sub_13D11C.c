@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D11C @ 0x13d11c, size 240 bytes
-int  sub_13D11C(int a1, unsigned int a2)
+// bt_validate_ll_control @ 0x13d11c, size 240 bytes
+int  bt_validate_ll_control(int a1, unsigned int a2)
 {
   int result; // r0
   int v3; // r2

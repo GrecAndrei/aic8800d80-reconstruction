@@ -31,8 +31,8 @@ extern uint32_t off_101100;
 extern uint32_t off_101104;
 extern uint32_t off_101108;
 
-// sub_100E54 @ 0x100e54, size 616 bytes
-int  sub_100E54(unsigned int a1, int a2)
+// rf_analog_enable @ 0x100e54, size 616 bytes
+int  rf_analog_enable(unsigned int a1, int a2)
 {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
@@ -90,9 +90,9 @@ int  sub_100E54(unsigned int a1, int a2)
   *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
   *v8 &= ~1u;
   *(v6 - 1903) |= 8u;
-  sub_102D10(1, 0, 16, *v9);
-  sub_102D10(1, 16, 16, *(uint32_t *)off_1010D8);
-  sub_1009A0(0, a1);
+  memcpy(1, 0, 16, *v9);
+  memcpy(1, 16, 16, *(uint32_t *)off_1010D8);
+  radio_init(0, a1);
   if ( a1 > 0x98A )
   {
     v11 = 6;
@@ -153,7 +153,7 @@ int  sub_100E54(unsigned int a1, int a2)
     ;
   result = *(uint32_t *)off_101108 & 1;
   if ( !result )
-    result = sub_100CD0(0);
+    result = adc_read_ch0(0);
   *(uint32_t *)off_101104 = 1;
   return result;
 }

@@ -1,1 +1,1 @@
-{"fn": "sub_122B080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b080", "status": "ok", "name": "ipc_doorbell_handler_n_43a", "params": [], "docstring": "Handles doorbell interrupt from host/AP", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122B080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b080", "status": "ok", "name": "ke_msg_send", "params": [], "docstring": "Handles doorbell interrupt from host/AP", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

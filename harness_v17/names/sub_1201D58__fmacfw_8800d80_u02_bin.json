@@ -1,1 +1,1 @@
-{"fn": "sub_1201D58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201d58", "status": "ok", "name": "sub_1201D58", "params": [], "docstring": "Helper function reading byte/halfword from struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1201D58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201d58", "status": "ok", "name": "rx_packet_handler", "params": [], "docstring": "Helper function reading byte/halfword from struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

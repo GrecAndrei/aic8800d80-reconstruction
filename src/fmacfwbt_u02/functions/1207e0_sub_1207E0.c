@@ -16,8 +16,8 @@ extern uint32_t off_120874;
 extern uint32_t off_120878;
 extern uint32_t off_12087C;
 
-// sub_1207E0 @ 0x1207e0, size 138 bytes
-int sub_1207E0()
+// wait_rf_calibration @ 0x1207e0, size 138 bytes
+int wait_rf_calibration()
 {
   int result; // r0
   uint32_t *v1; // r1

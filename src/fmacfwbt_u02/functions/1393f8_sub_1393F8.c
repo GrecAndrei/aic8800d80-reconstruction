@@ -13,8 +13,8 @@
 extern uint32_t dword_13943C;
 extern uint32_t dword_139440;
 
-// sub_1393F8 @ 0x1393f8, size 66 bytes
-uint32_t ** sub_1393F8(int a1, int a2)
+// tx_power_index_lookup @ 0x1393f8, size 66 bytes
+uint32_t ** tx_power_index_lookup(int a1, int a2)
 {
   uint32_t **result; // r0
   unsigned int v3; // r2
@@ -33,8 +33,8 @@ uint32_t ** sub_1393F8(int a1, int a2)
       v6 = (v3 >> 4) - v4;
       if ( (v5 & 0x800) == 0 )
       {
-        sub_1393AC((int)result, v6 & 0xFFF);
-        return sub_12F770((uint32_t **)dword_139440);
+        list_find_nonnull((int)result, v6 & 0xFFF);
+        return process_pending_queue((uint32_t **)dword_139440);
       }
     }
   }

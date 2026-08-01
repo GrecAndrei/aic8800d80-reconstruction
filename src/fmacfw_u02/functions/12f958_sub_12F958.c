@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12F958 @ 0x12f958, size 172 bytes
-int  sub_12F958(uint8_t *a1, uint32_t *a2, unsigned int a3)
+// parse_hex_or_dec @ 0x12f958, size 172 bytes
+int  parse_hex_or_dec(uint8_t *a1, uint32_t *a2, unsigned int a3)
 {
   int v3; // r5
   int v4; // r7

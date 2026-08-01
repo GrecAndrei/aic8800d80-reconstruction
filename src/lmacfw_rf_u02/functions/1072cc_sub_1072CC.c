@@ -18,8 +18,8 @@ extern uint32_t dword_1073AC;
 extern uint32_t dword_1073B0;
 extern uint32_t off_1073B4;
 
-// sub_1072CC @ 0x1072cc, size 212 bytes
-int  sub_1072CC(int a1, uint32_t *a2, int a3)
+// rf_core_irq_clear @ 0x1072cc, size 212 bytes
+int  rf_core_irq_clear(int a1, uint32_t *a2, int a3)
 {
   uint32_t *v3; // r5
   unsigned int *v4; // r4
@@ -39,9 +39,9 @@ int  sub_1072CC(int a1, uint32_t *a2, int a3)
   v6 = dword_1073B8;
   v7 = dword_1073AC;
   v8 = *(uint64_t *)(a1 + 8);
-  crypto_hw_clear_regs();
+  clk_set_divider();
   *v3 &= ~1u;
-  delay_us(20);
+  write_timer_reg(20);
   v9 = dword_1073B0;
   *v3 |= 4u;
   *v3 |= 8u;
@@ -49,7 +49,7 @@ int  sub_1072CC(int a1, uint32_t *a2, int a3)
   *v4 |= 0x200000u;
   *v5 = v9 & (HIDWORD(v8) << 16) | *v5 & v6;
   *v5 = *v5 & v7 | v8 & 0xFFF;
-  delay_us(40);
+  write_timer_reg(40);
   v10 = (int *)off_1073B4;
   *v4 |= 0x4000000u;
   v11 = *v10;
@@ -57,7 +57,7 @@ int  sub_1072CC(int a1, uint32_t *a2, int a3)
   *v4 &= ~0x100000u;
   v12 = *v4 & 0xFFDFFFFF;
   *v4 = v12;
-  result = sub_107214(v11 & 0x7FFF, a2, a3, v12);
+  result = rf_core_cmd_post(v11 & 0x7FFF, a2, a3, v12);
   *v3 &= ~4u;
   *v3 &= ~8u;
   *v5 &= v6;

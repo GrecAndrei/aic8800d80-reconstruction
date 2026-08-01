@@ -1,1 +1,1 @@
-{"fn": "sub_12165B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12165b4", "status": "ok", "name": "bt_flag_check_init", "params": [], "docstring": "Checks global BT flag state and dispatches init flow", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12165B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12165b4", "status": "ok", "name": "check_radio_flag", "params": [], "docstring": "Checks global BT flag state and dispatches init flow", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

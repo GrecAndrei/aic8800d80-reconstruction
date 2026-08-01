@@ -1,1 +1,1 @@
-{"fn": "hw_event_flag", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211f58", "status": "ok", "name": "hw_event_flag_1f58", "params": [], "docstring": "Check hardware event flag status from MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "hw_event_flag", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211f58", "status": "ok", "name": "phy_reg_modify", "params": [], "docstring": "Check hardware event flag status from MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

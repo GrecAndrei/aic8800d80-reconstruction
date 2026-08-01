@@ -14,10 +14,10 @@ extern uint32_t dword_124B00;
 extern uint32_t off_124AF8;
 extern uint32_t dword_124AFC;
 
-// sub_124A88 @ 0x124a88, size 110 bytes
+// set_adv_interval @ 0x124a88, size 110 bytes
 // Doc: sub_1224A88 [unknown]: Unknown helper, dispatches on 2-way state
 // sub_1224A88 [unknown]: Unknown helper, dispatches on 2-way state
-int  sub_124A88(int a1, uint8_t **a2)
+int  set_adv_interval(int a1, uint8_t **a2)
 {
   int *v3; // r6
   unsigned int v4; // r5
@@ -31,30 +31,30 @@ int  sub_124A88(int a1, uint8_t **a2)
 
   if ( a1 <= 2 )
   {
-    msg_parse(dword_124B00);
+    dispatch_event_handler(dword_124B00);
     return -1;
   }
   else
   {
     v3 = (int *)off_124AF8;
-    v4 = parse_int(a2[1], 0, 0xAu);
-    v5 = parse_int(a2[2], 0, 0xAu);
+    v4 = parse_number(a2[1], 0, 0xAu);
+    v5 = parse_number(a2[2], 0, 0xAu);
     v6 = a2[3];
     v7 = v5;
-    v8 = parse_int(v6, 0, 0xAu);
+    v8 = parse_number(v6, 0, 0xAu);
     v9 = v8;
     if ( *v3 )
     {
       v11 = v8;
-      rf_level_apply_n_4ec(0);
+      init_with_stack(0);
       v9 = v11;
     }
-    sub_123FF0(v4, v7, v9);
-    msg_parse(dword_124AFC);
+    configure_hw_regs(v4, v7, v9);
+    dispatch_event_handler(dword_124AFC);
     result = *v3;
     if ( *v3 )
     {
-      rf_level_apply_n_4ec(result);
+      init_with_stack(result);
       return 0;
     }
   }

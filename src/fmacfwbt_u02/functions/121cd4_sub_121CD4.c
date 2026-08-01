@@ -17,14 +17,14 @@ extern uint32_t off_121D30;
 extern uint32_t off_121D34;
 extern uint32_t off_121D38;
 
-// sub_121CD4 @ 0x121cd4, size 86 bytes
-int sub_121CD4()
+// mac_wait_fw_ready @ 0x121cd4, size 86 bytes
+int mac_wait_fw_ready()
 {
-  if ( **(int16_t **)off_121D2C < 0 && msg_get_value(0) != 3 )
-    sub_12F694(dword_121D40, dword_121D3C, 1785);
+  if ( **(int16_t **)off_121D2C < 0 && hci_cmd_send_short(0) != 3 )
+    mmio_irq_clear(dword_121D40, dword_121D3C, 1785);
   if ( *((uint8_t *)off_121D30 + 31) && *((uint8_t *)off_121D34 + 18) + *((uint8_t *)off_121D34 + 17) <= 1 )
-    return rf_bus_mark_n_3b7(0);
+    return hci_cmd_send(0);
   *(uint32_t *)off_121D38 = 48;
-  return rf_bus_mark_n_3b7(0);
+  return hci_cmd_send(0);
 }
 

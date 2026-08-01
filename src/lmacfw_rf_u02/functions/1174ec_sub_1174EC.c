@@ -13,8 +13,8 @@
 extern uint32_t off_117534;
 extern uint32_t off_117530;
 
-// sub_1174EC @ 0x1174ec, size 66 bytes
-int  sub_1174EC(int result)
+// timer_is_past @ 0x1174ec, size 66 bytes
+int  timer_is_past(int result)
 {
   unsigned int v1; // r3
   unsigned int v2; // r2

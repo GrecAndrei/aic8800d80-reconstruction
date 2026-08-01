@@ -14,8 +14,8 @@ extern uint32_t dword_1112F0;
 extern uint32_t dword_1112E8;
 extern uint32_t dword_1112EC;
 
-// sub_111270 @ 0x111270, size 118 bytes
-int  sub_111270(char a1, int a2, int a3)
+// mutex_lock @ 0x111270, size 118 bytes
+int  mutex_lock(char a1, int a2, int a3)
 {
   uint32_t *v6; // r0
   uint32_t *v7; // r4
@@ -23,29 +23,29 @@ int  sub_111270(char a1, int a2, int a3)
   int v9; // r2
   int v10; // r3
 
-  v6 = sub_10FFBC(4);
+  v6 = is_hci_initialized(4);
   if ( !v6 )
-    return sub_10DC24(dword_1112F0);
+    return log_printf(dword_1112F0);
   v7 = v6;
-  v8 = (uint32_t *)sub_1102BC();
+  v8 = (uint32_t *)is_scan_enabled();
   if ( v8 )
   {
     *(uint8_t *)v7 = a3;
     *((uint8_t *)v7 + 1) = BYTE1(a3) & 0xF;
     *((uint8_t *)v7 + 2) = a1;
     *((uint8_t *)v7 + 3) = 0;
-    sub_143770(v7 + 1, a2, a3);
+    memcpy(v7 + 1, a2, a3);
     v9 = v8[2];
     v10 = dword_1112E8;
     v8[1] = 0;
     *v8 = v7;
     v8[2] = (uint16_t)(a3 + 4) | v10 & v9 | 0x80000000;
-    return sub_11115C((int)v8);
+    return unknown_3((int)v8);
   }
   else
   {
-    sub_10DC24(dword_1112EC);
-    return sub_110008(v7);
+    log_printf(dword_1112EC);
+    return is_controller_mode(v7);
   }
 }
 

@@ -15,10 +15,10 @@ extern uint32_t off_128DBC;
 extern uint32_t off_128DB8;
 extern uint32_t dword_128DC0;
 
-// fmac_sub_1228D64 @ 0x128d64, size 78 bytes
-// Doc: fmac_sub_1228D64 [unknown]: Reads byte from global state at 0x190454
-// fmac_sub_1228D64 [unknown]: Reads byte from global state at 0x190454
-void fmac_sub_1228D64()
+// wlc_chip_state @ 0x128d64, size 78 bytes
+// Doc: wlc_chip_state [unknown]: Reads byte from global state at 0x190454
+// wlc_chip_state [unknown]: Reads byte from global state at 0x190454
+void wlc_chip_state()
 {
   uint8_t *v0; // r5
   int v1; // r4
@@ -43,7 +43,7 @@ void fmac_sub_1228D64()
             if ( *(uint8_t *)(v1 + 108) )
             {
               v3 = *(uint8_t *)(v1 + 116);
-              if ( v3 != 255 && !sub_118DC4(v3, v2, v1) )
+              if ( v3 != 255 && !rf_channel_get(v3, v2, v1) )
                 ++v0[8];
             }
           }

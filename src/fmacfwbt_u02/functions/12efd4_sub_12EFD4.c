@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12EFD4 @ 0x12efd4, size 30 bytes
-int  sub_12EFD4(int a1, int a2, int16_t a3, int16_t a4)
+// msg_alloc_40a_zero @ 0x12efd4, size 30 bytes
+int  msg_alloc_40a_zero(int a1, int a2, int16_t a3, int16_t a4)
 {
   uint32_t *v4; // r0
 
-  v4 = (uint32_t *)rf_bus_setup_n3a8(1034, a4, a3, 0xCu);
+  v4 = (uint32_t *)bt_buf_alloc(1034, a4, a3, 0xCu);
   *v4 = 0;
   v4[1] = 0;
   v4[2] = 0;
-  sub_12CBB4((int)v4);
+  hci_evt_send((int)v4);
   return 0;
 }
 

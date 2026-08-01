@@ -1,1 +1,1 @@
-{"fn": "rf_level_apply_n_1d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c04", "status": "ok", "name": "rf_tx_power_apply_table", "params": [], "docstring": "Apply RF TX power level from indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_level_apply_n_1d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c04", "status": "ok", "name": "rf_level_apply_n_1d3", "params": [], "docstring": "Apply RF TX power level from indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

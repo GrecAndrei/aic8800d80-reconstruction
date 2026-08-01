@@ -22,8 +22,8 @@ extern uint32_t dword_123A0C;
 extern uint32_t off_123A14;
 extern uint32_t off_123A10;
 
-// sub_1238E0 @ 0x1238e0, size 276 bytes
-unsigned int sub_1238E0()
+// wait_for_tx_ready @ 0x1238e0, size 276 bytes
+unsigned int wait_for_tx_ready()
 {
   int *v0; // r10
   int *v1; // r8
@@ -45,23 +45,23 @@ unsigned int sub_1238E0()
   int v17; // [sp+14h] [bp-10h]
   int v18; // [sp+18h] [bp-Ch]
 
-  event_queue_push(144, 0);
+  ke_int_lock(144, 0);
   v0 = (int *)off_123A18;
   v1 = (int *)off_123A1C;
   v2 = off_1239F8;
-  timer_set_relative(144, 0, dword_1239F4);
+  ke_event_loop(144, 0, dword_1239F4);
   v3 = *(uint32_t *)off_1239FC;
   v17 = *(uint32_t *)off_123A00;
   v4 = *(uint32_t *)off_1239FC - *v0;
   v5 = *(uint32_t *)off_123A00 - *v1;
   v6 = *v2;
-  v7 = sub_128280(v4);
-  if ( sub_128280(v5) > 50000 )
+  v7 = i32_abs(v4);
+  if ( i32_abs(v5) > 50000 )
     v8 = 2;
   else
     v8 = v7 > 50000;
   v18 = v8;
-  v9 = sub_128280(-v6);
+  v9 = i32_abs(-v6);
   v10 = v18;
   v11 = v4 + v5;
   if ( v9 > 50000 )
@@ -71,7 +71,7 @@ unsigned int sub_1238E0()
     v13 = 4;
 LABEL_8:
     v14 = off_123A08;
-    result = msg_parse(dword_123A04, v13, *v0, v3, *v1, v17, *v2, 0);
+    result = dispatch_event_handler(dword_123A04, v13, *v0, v3, *v1, v17, *v2, 0);
     goto LABEL_9;
   }
   v13 = v10;
@@ -81,7 +81,7 @@ LABEL_8:
   v14 = off_123A08;
   if ( !*(uint8_t *)off_123A08 )
     goto LABEL_12;
-  result = msg_parse(dword_123A0C, v4, v12);
+  result = dispatch_event_handler(dword_123A0C, v4, v12);
   v16 = (unsigned int *)off_123A14;
   *(uint32_t *)off_123A10 = v4;
   *v16 = v12;

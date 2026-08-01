@@ -23,8 +23,8 @@ extern uint32_t off_1222B4;
 extern uint32_t off_1222B8;
 extern uint32_t dword_1222BC;
 
-// sub_12221C @ 0x12221c, size 114 bytes
-int  sub_12221C(int a1)
+// mmio_masked_write @ 0x12221c, size 114 bytes
+int  mmio_masked_write(int a1)
 {
   int v1; // r4
   int *v2; // r2
@@ -69,7 +69,7 @@ int  sub_12221C(int a1)
   while ( v2 != (int *)v4 );
   v10 = off_1222A0;
   v11 = off_1222A4;
-  sub_102B80(*((uint8_t *)off_1222A0 + 410));
+  write_phy_config(*((uint8_t *)off_1222A0 + 410));
   v12 = off_1222AC;
   v13 = off_1222B0;
   *((uint8_t *)off_1222A8 + 9) = v10[410];
@@ -87,6 +87,6 @@ int  sub_12221C(int a1)
   v16[3] = 15000;
   v16[4] = 15000;
   v16[5] = 15000;
-  return msg_parse(v17, v15, v16);
+  return event_dispatch(v17, v15, v16);
 }
 

@@ -12,8 +12,8 @@
 
 extern uint32_t dword_132A9C;
 
-// sub_132A7C @ 0x132a7c, size 32 bytes
-int  sub_132A7C(int a1)
+// rf_chan_valid_check @ 0x132a7c, size 32 bytes
+int  rf_chan_valid_check(int a1)
 {
   if ( *(uint8_t *)(dword_132A9C + 1320 * a1 + 412) == 1 )
     return 5409;

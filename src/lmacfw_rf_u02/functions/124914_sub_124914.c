@@ -15,8 +15,8 @@ extern uint32_t dword_12493C;
 extern uint32_t off_124934;
 extern uint32_t dword_124940;
 
-// sub_124914 @ 0x124914, size 32 bytes
-int sub_124914()
+// mmio_enable_clock @ 0x124914, size 32 bytes
+int mmio_enable_clock()
 {
   int *v0; // r1
   int v1; // r0
@@ -25,8 +25,8 @@ int sub_124914()
   v1 = dword_12493C;
   *(uint32_t *)off_124934 |= 0x10u;
   *v0 = v1;
-  sub_1188F4();
-  sub_11F504(dword_124940);
+  write_bb_control();
+  dispatch_event_handler(dword_124940);
   return 0;
 }
 

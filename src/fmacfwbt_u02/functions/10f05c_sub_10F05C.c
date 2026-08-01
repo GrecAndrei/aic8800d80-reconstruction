@@ -13,8 +13,8 @@
 extern uint32_t off_10F0A8;
 extern uint32_t off_10F0AC;
 
-// sub_10F05C @ 0x10f05c, size 74 bytes
-void __noreturn sub_10F05C()
+// copy_stats @ 0x10f05c, size 74 bytes
+void __noreturn copy_stats()
 {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -37,6 +37,6 @@ void __noreturn sub_10F05C()
   *((uint32_t *)v2 + 2) = v4;
   *(uint64_t *)(v2 + 12) = v3;
   *((uint32_t *)v2 + 5) = v5;
-  sub_1032D0();
+  hw_enable();
 }
 

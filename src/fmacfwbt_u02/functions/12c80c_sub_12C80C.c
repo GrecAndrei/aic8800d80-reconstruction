@@ -25,8 +25,8 @@ extern uint32_t dword_12C93C;
 extern uint32_t off_12C938;
 extern uint32_t dword_12C940;
 
-// sub_12C80C @ 0x12c80c, size 288 bytes
-int  sub_12C80C(int a1, int a2, unsigned int a3)
+// patch_aware_dispatch @ 0x12c80c, size 288 bytes
+int  patch_aware_dispatch(int a1, int a2, unsigned int a3)
 {
   int16_t **v3; // r11
   int *v7; // r8
@@ -47,11 +47,11 @@ int  sub_12C80C(int a1, int a2, unsigned int a3)
     if ( a3 )
     {
       if ( a3 > dword_12C944 )
-        sub_12F694(dword_12C94C, dword_12C948, 148);
+        mmio_irq_clear(dword_12C94C, dword_12C948, 148);
     }
     else
     {
-      sub_12F694(dword_12C950, dword_12C948, 147);
+      mmio_irq_clear(dword_12C950, dword_12C948, 147);
     }
   }
   if ( (__get_CPSR() & 1) == 0 )
@@ -65,13 +65,13 @@ int  sub_12C80C(int a1, int a2, unsigned int a3)
   ++*(uint32_t *)off_12C95C;
   if ( v9 )
     v9 = *(uint16_t *)(v9 + 4) == a1 && *(uint16_t *)(v9 + 6) == a2;
-  v10 = sub_12CC64(dword_12C934, dword_12C930, a2 | (a1 << 16));
+  v10 = tx_list_foreach(dword_12C934, dword_12C930, a2 | (a1 << 16));
   if ( !v10 )
   {
-    v17 = sub_12CD0C(12);
+    v17 = mem_alloc_align(12);
     v10 = v17;
     if ( **v3 < 0 && !v17 )
-      sub_12F694(dword_12C954, dword_12C948, 165);
+      mmio_irq_clear(dword_12C954, dword_12C948, 165);
     *(uint16_t *)(v10 + 4) = a1;
     *(uint16_t *)(v10 + 6) = a2;
   }
@@ -79,14 +79,14 @@ int  sub_12C80C(int a1, int a2, unsigned int a3)
   v12 = dword_12C934;
   v13 = a3 + *((uint32_t *)off_12C938 + 4);
   *(uint32_t *)(v10 + 8) = v13;
-  result = sub_12D5A8(v12, v10, v11);
+  result = list_find(v12, v10, v11);
   if ( v9 )
   {
     v10 = v8[5];
     if ( !v10 )
       goto LABEL_10;
 LABEL_15:
-    result = sub_124F60(dword_12C940, *(uint32_t *)(v10 + 8));
+    result = ke_event_lock(dword_12C940, *(uint32_t *)(v10 + 8));
     goto LABEL_10;
   }
   if ( v8[5] == v10 )
@@ -96,11 +96,11 @@ LABEL_10:
   {
     __enable_irq();
     if ( (int)(v13 - *((uint32_t *)off_12C938 + 4)) < 0 )
-      return sub_12D32C(0x10000000);
+      return set_system_flag_1(0x10000000);
   }
   else if ( (int)(v13 - *((uint32_t *)off_12C938 + 4)) < 0 )
   {
-    return sub_12D32C(0x10000000);
+    return set_system_flag_1(0x10000000);
   }
   return result;
 }

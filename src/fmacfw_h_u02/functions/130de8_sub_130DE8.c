@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130DE8 @ 0x130de8, size 40 bytes
-uint8_t * sub_130DE8(uint8_t *a1, int a2, int a3)
+// delba_ack @ 0x130de8, size 40 bytes
+uint8_t * delba_ack(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
 
-  result = sub_12DB60(a1, a2);
+  result = test_arg2_one_12db60(a1, a2);
   if ( result )
   {
     *(uint16_t *)(a3 + 228) = result[2] | (result[3] << 8);

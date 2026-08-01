@@ -12,10 +12,10 @@
 
 extern uint32_t dword_126DD4;
 
-// rf_level_step @ 0x126da4, size 44 bytes
+// rx_index_update @ 0x126da4, size 44 bytes
 // Doc: rf_level_apply_n_a [rf]: applies RF level/threshold configuration
 // rf_level_apply_n_a [rf]: applies RF level/threshold configuration
-unsigned int rf_level_step()
+unsigned int rx_index_update()
 {
   uint8_t *v0; // r4
   unsigned int result; // r0
@@ -32,8 +32,8 @@ unsigned int rf_level_step()
     else
       v3 = result + 1;
     *((uint8_t *)rf_level_apply_n_8 + 6) = v3;
-    sub_10F170(v3);
-    return msg_parse(dword_126DD4, v0[5], v0[6]);
+    set_xtal_ftune(v3);
+    return dispatch_event_handler(dword_126DD4, v0[5], v0[6]);
   }
   return result;
 }

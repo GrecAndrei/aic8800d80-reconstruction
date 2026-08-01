@@ -13,8 +13,8 @@
 extern uint32_t off_117D08;
 extern uint32_t off_117D0C;
 
-// sub_117CC4 @ 0x117cc4, size 66 bytes
-int  sub_117CC4(int a1)
+// timer_queue_init @ 0x117cc4, size 66 bytes
+int  timer_queue_init(int a1)
 {
   uint64_t *v1; // r6
   uint64_t *v2; // r7

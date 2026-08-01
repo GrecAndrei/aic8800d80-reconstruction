@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1207C4 @ 0x1207c4, size 26 bytes
-int  sub_1207C4(int a1)
+// register_irq_handler @ 0x1207c4, size 26 bytes
+int  register_irq_handler(int a1)
 {
   uint32_t *v2; // r0
 
-  v2 = (uint32_t *)rf_bus_setup_n3a8(143, 0, 255, 4);
+  v2 = (uint32_t *)bt_buf_alloc(143, 0, 255, 4);
   *v2 = a1;
-  return sub_12CBB4(v2);
+  return hci_evt_send(v2);
 }
 

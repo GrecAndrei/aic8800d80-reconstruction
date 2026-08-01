@@ -1,1 +1,1 @@
-{"fn": "sub_122EF78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ef78", "status": "ok", "name": "ke_msg_dispatch_n_5c8", "params": [], "docstring": "Dispatch KE message via IPC lookup table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122EF78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ef78", "status": "ok", "name": "cb_send_0x16ae04", "params": [], "docstring": "Dispatch KE message via IPC lookup table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

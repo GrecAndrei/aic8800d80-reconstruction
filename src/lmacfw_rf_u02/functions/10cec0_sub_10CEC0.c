@@ -15,8 +15,8 @@ extern uint32_t off_10CEE4;
 extern uint32_t off_10CEEC;
 extern uint32_t off_10CEF0;
 
-// sub_10CEC0 @ 0x10cec0, size 34 bytes
-int sub_10CEC0()
+// lookup_mac_descriptor @ 0x10cec0, size 34 bytes
+int lookup_mac_descriptor()
 {
   int v0; // r3
   int result; // r0

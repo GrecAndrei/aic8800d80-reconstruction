@@ -13,8 +13,8 @@
 extern uint32_t off_10D64C;
 extern uint32_t off_10D650;
 
-// sub_10D63C @ 0x10d63c, size 14 bytes
-int  sub_10D63C(int result)
+// uart_tx_byte @ 0x10d63c, size 14 bytes
+int  uart_tx_byte(int result)
 {
   while ( (*(uint32_t *)off_10D64C & 0x80000) != 0 )
     ;

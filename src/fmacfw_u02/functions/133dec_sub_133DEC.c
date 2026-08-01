@@ -15,8 +15,8 @@ extern uint32_t off_133E8C;
 extern uint32_t off_133E90;
 extern uint32_t dword_133E94;
 
-// sub_133DEC @ 0x133dec, size 154 bytes
-int  sub_133DEC(int a1, uint16_t *a2)
+// disable_interrupts_and_update @ 0x133dec, size 154 bytes
+int  disable_interrupts_and_update(int a1, uint16_t *a2)
 {
   int v3; // r6
   int *v4; // r4
@@ -35,7 +35,7 @@ int  sub_133DEC(int a1, uint16_t *a2)
   }
   v4 = (int *)off_133E8C;
   ++*(uint32_t *)off_133E8C;
-  if ( msg_get_value(6u) || *((uint8_t *)off_133E90 + 14) && message_dispatch_c8b4(6155, 6) )
+  if ( rx_rate_field_parse(6u) || *((uint8_t *)off_133E90 + 14) && ke_task_find(6155, 6) )
   {
     if ( *v4 )
     {
@@ -67,12 +67,12 @@ int  sub_133DEC(int a1, uint16_t *a2)
     v6 = *(uint8_t *)(v5 + 106);
     if ( !*(uint8_t *)(v5 + 106) && *(uint8_t *)(v5 + 108) )
     {
-      fmac_msg_alloc_and_send(v5, *a2, 1);
+      bt_schedule_ack_timeout(v5, *a2, 1);
       return v6;
     }
     else
     {
-      sub_12CA10(6148, 13, 6);
+      ke_msg_send_no_param(6148, 13, 6);
       return 0;
     }
   }

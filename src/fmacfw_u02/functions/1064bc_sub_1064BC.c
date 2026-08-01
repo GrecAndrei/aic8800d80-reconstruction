@@ -16,8 +16,8 @@ extern uint32_t off_10655C;
 extern uint32_t off_106558;
 extern uint32_t dword_106560;
 
-// sub_1064BC @ 0x1064bc, size 146 bytes
-int  sub_1064BC(int a1, int a2)
+// memcpy_from_rodata @ 0x1064bc, size 146 bytes
+int  memcpy_from_rodata(int a1, int a2)
 {
   int v4; // r1
   int v5; // r2
@@ -125,7 +125,7 @@ int  sub_1064BC(int a1, int a2)
   v57 = v24;
   v25 = *(uint32_t *)(a1 + 4 * a2 + 140);
   v58 = v13[4];
-  feature_guard_check(1, dword_106554);
+  check_status_bits(1, dword_106554);
   if ( v25 > 25 )
     v26 = 12;
   else
@@ -137,6 +137,6 @@ int  sub_1064BC(int a1, int a2)
   *(uint32_t *)off_106558 = (8 * v28) & 0x38 | *(uint32_t *)off_106558 & 0xFFFFFFC7;
   v31 = dword_106560;
   *v29 = (4 * v30) & 0x1C | *v29 & 0xFFFFFFE3;
-  return feature_guard_check(1, v31);
+  return check_status_bits(1, v31);
 }
 

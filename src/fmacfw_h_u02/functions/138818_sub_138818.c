@@ -14,8 +14,8 @@ extern uint32_t off_13887C;
 extern uint32_t dword_138880;
 extern uint32_t dword_138884;
 
-// sub_138818 @ 0x138818, size 100 bytes
-int  sub_138818(int result)
+// get_table_entry @ 0x138818, size 100 bytes
+int  get_table_entry(int result)
 {
   int v1; // r1
   int16_t **v2; // r5
@@ -38,7 +38,7 @@ int  sub_138818(int result)
     {
       if ( **v2 < 0 && !v1 )
       {
-        sub_12F32C(v4, v3, 1537);
+        irq_disable_mmio_write(v4, v3, 1537);
         LOBYTE(v1) = *(uint8_t *)(v5 + 11);
       }
       v6 = *(uint8_t *)(v5 + 10);

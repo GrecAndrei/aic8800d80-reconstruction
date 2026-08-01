@@ -26,8 +26,8 @@ extern uint32_t off_121E4C;
 extern uint32_t off_121E50;
 extern uint32_t off_121E54;
 
-// sub_121D44 @ 0x121d44, size 230 bytes
-int sub_121D44()
+// mac_cmd_send @ 0x121d44, size 230 bytes
+int mac_cmd_send()
 {
   int *v0; // r8
   int *v1; // r4
@@ -44,9 +44,9 @@ int sub_121D44()
   int v12; // r3
   int v13; // r2
 
-  if ( **(int16_t **)off_121E2C < 0 && sub_12D0B0(0) == 4 )
-    sub_12F694(dword_121E60, dword_121E5C, 1799);
-  sub_12EEF8(4, dword_121E30);
+  if ( **(int16_t **)off_121E2C < 0 && hci_cmd_send_short(0) == 4 )
+    mmio_irq_clear(dword_121E60, dword_121E5C, 1799);
+  state_check_feature(4, dword_121E30);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -62,9 +62,9 @@ int sub_121D44()
   v5 = v3 & 0xF;
   while ( *v1 << 28 )
   {
-    sub_117E34();
+    rf_irq_clear();
     if ( (unsigned int)(v2[4] - v4) > 0x7530 )
-      sub_12EEF8(4, dword_121E58);
+      state_check_feature(4, dword_121E58);
   }
   v6 = off_121E44;
   v7 = off_121E48;
@@ -78,8 +78,8 @@ int sub_121D44()
   v9 = *((uint8_t *)off_121E4C + 90);
   *(uint32_t *)off_121E50 = 4;
   if ( v9 )
-    sub_117E64();
-  result = sub_12CF5C(0);
+    sleep_critical_enter();
+  result = hci_cmd_send(0);
   v11 = *v0;
   *((uint16_t *)off_121E54 + 9) = 0;
   if ( v11 )

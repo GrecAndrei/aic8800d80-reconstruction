@@ -1,1 +1,1 @@
-{"fn": "rf_level_apply_n17f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226f56", "status": "ok", "name": "rf_level_apply_n17f", "params": [], "docstring": "Apply RF TX power level and reconfigure related path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_level_apply_n17f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226f56", "status": "ok", "name": "rf_level_apply_n17e", "params": [], "docstring": "Apply RF TX power level and reconfigure related path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

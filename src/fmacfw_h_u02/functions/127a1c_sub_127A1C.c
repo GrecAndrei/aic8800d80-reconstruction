@@ -17,8 +17,8 @@ extern uint32_t dword_127BE4;
 extern uint32_t dword_127BEC;
 extern uint32_t off_127BE8;
 
-// sub_127A1C @ 0x127a1c, size 446 bytes
-int  sub_127A1C(uint8_t *a1, int a2)
+// cfm_event_handler @ 0x127a1c, size 446 bytes
+int  cfm_event_handler(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
@@ -36,7 +36,7 @@ int  sub_127A1C(uint8_t *a1, int a2)
   int v18; // r0
 
   v2 = off_127BDC;
-  sub_12EB90(8, dword_127BE0);
+  check_feature_flag(8, dword_127BE0);
   v5 = *a1;
   if ( *a1 )
   {
@@ -50,10 +50,10 @@ int  sub_127A1C(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          sub_124CF4((int)off_127BF0 + 64);
+          mem_set_util((int)off_127BF0 + 64);
           v12 = v7[8];
           v7[18] = 0;
-          sub_127528(v12);
+          llc_version_read(v12);
         }
       }
       else if ( v6 > 1 )
@@ -64,17 +64,17 @@ int  sub_127A1C(uint8_t *a1, int a2)
         {
           if ( v13 == v2 + 112 && (uint8_t *)v7[20] == v13 )
           {
-            sub_124CF4((int)(v7 + 16));
+            mem_set_util((int)(v7 + 16));
             v7[18] = 0;
           }
           v7[11] = 0;
         }
-        sub_125C58(dword_127BE4);
+        ipc_post_msg(dword_127BE4);
       }
       else if ( v6 == 1 )
       {
         *((uint8_t *)off_127BF0 + 88) &= 0xFAu;
-        sub_125C58((int)(v2 + 112));
+        ipc_post_msg((int)(v2 + 112));
       }
       v8 = *((uint8_t *)v7 + 88);
       v2[136] = -1;
@@ -83,12 +83,12 @@ int  sub_127A1C(uint8_t *a1, int a2)
       v18 = dword_127BEC;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
-      sub_124CF4(v18);
+      mem_set_util(v18);
       return v5;
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || sub_12CD48(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_handler(4) == 1 )
   {
     v10 = off_127BF0;
     v11 = *((uint8_t *)off_127BF0 + 88);
@@ -127,13 +127,13 @@ LABEL_25:
       if ( a2 )
       {
         v10[88] = v11 | 1;
-        sub_127204();
+        llc_flag_test_bit4();
       }
       else
       {
         v17 = dword_127BE4;
         v10[88] = v11 | 4;
-        sub_127030(v17);
+        llc_hw_reg_sync(v17);
       }
       *(uint32_t *)off_127BE8 |= 4u;
       return v5;

@@ -20,8 +20,8 @@ extern uint32_t dword_13C148;
 extern uint32_t dword_13C150;
 extern uint32_t off_13C140;
 
-// sub_13BFD8 @ 0x13bfd8, size 344 bytes
-unsigned int  sub_13BFD8(unsigned int result)
+// radio_irq_handler @ 0x13bfd8, size 344 bytes
+unsigned int  radio_irq_handler(unsigned int result)
 {
   int v1; // r1
   int v2; // r2
@@ -67,7 +67,7 @@ unsigned int  sub_13BFD8(unsigned int result)
           {
             result = dword_13C148;
             if ( !*(uint32_t *)(dword_13C148 + 8 * (165 * *(uint8_t *)(v6 + 28) + v9 + 159)) )
-              return sub_13BE74(v3, v1, *(uint16_t *)(v6 + 32));
+              return ke_event_handler(v3, v1, *(uint16_t *)(v6 + 32));
           }
         }
       }
@@ -76,7 +76,7 @@ unsigned int  sub_13BFD8(unsigned int result)
         v10 = dword_13C150;
         v11 = dword_13C150 + 32 * v8;
         *(uint32_t *)(v11 + 8) = v2;
-        result = sub_12CD48((v8 << 8) | 8);
+        result = hci_cmd_handler((v8 << 8) | 8);
         v12 = 32 * v8;
         if ( result == 1 )
         {

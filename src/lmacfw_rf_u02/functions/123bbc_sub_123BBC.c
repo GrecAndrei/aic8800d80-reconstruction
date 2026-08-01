@@ -33,8 +33,8 @@ extern uint32_t dword_123ED0;
 extern uint32_t off_123ED4;
 extern uint32_t off_123EE0;
 
-// sub_123BBC @ 0x123bbc, size 750 bytes
-int sub_123BBC()
+// wait_for_state @ 0x123bbc, size 750 bytes
+int wait_for_state()
 {
   int *v0; // r4
   int v1; // r11
@@ -78,12 +78,12 @@ int sub_123BBC()
   v0 = (int *)off_123EAC;
   if ( *(uint32_t *)off_123EAC <= 0x17u )
     *(uint32_t *)off_123EAC = 1000;
-  sub_1019EC(&v38, 0);
+  mac_time_get(&v38, 0);
   v1 = (uint8_t)v38;
   v2 = (uint8_t)v38;
   if ( (uint8_t)v38 )
     v2 = 1;
-  v3 = sub_116580(v2, *v0);
+  v3 = call_global_185c7c(v2, *v0);
   v4 = (uint32_t *)v3;
   if ( v3 )
   {
@@ -103,11 +103,11 @@ LABEL_8:
       v5[12] = *(uint32_t *)off_123EBC;
       v5[20] = v10 | v9;
       v5[13] = v12;
-      sub_123A20((int)(v11 + 26));
+      build_hci_command((int)(v11 + 26));
       v13 = (uint8_t *)off_123EC4;
       v4[11] = 0;
       v4[12] = 0;
-      sub_1165B0((int)v4, *v13);
+      wlan_tx_submit((int)v4, *v13);
       return 0;
     }
     v15 = v8 & 0x7F;
@@ -176,13 +176,13 @@ LABEL_8:
 LABEL_45:
       if ( *(char *)off_123EE4 > 0 )
       {
-        sub_11F504(dword_123EF0, v1, v17);
+        dispatch_event_handler(dword_123EF0, v1, v17);
         v29 = v27 & 1;
         if ( v29 )
           v35 = v28 - 1 + ((unsigned int)(v28 - 1) >> 31);
         else
           v35 = v28 + ((unsigned int)v28 >> 31);
-        sub_11F504(dword_123EF4, v21, v37, v23, v28, (v35 >> 1) + v21);
+        dispatch_event_handler(dword_123EF4, v21, v37, v23, v28, (v35 >> 1) + v21);
         --*(uint8_t *)off_123EE4;
         v30 = 1;
       }
@@ -211,7 +211,7 @@ LABEL_45:
             v33 = (v28 - 1) / 2;
           else
             v33 = v28 / 2;
-          sub_11F504(dword_123EEC, v32, v33 + v32);
+          dispatch_event_handler(dword_123EEC, v32, v33 + v32);
         }
       }
       if ( v29 )

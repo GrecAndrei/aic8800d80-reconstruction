@@ -12,8 +12,8 @@
 
 extern uint32_t off_12C4E4;
 
-// sub_12C4C8 @ 0x12c4c8, size 26 bytes
-int  sub_12C4C8(int a1, uint8_t *a2, uint8_t *a3)
+// rf_get_rssi @ 0x12c4c8, size 26 bytes
+int  rf_get_rssi(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v3; // r3
   int result; // r0

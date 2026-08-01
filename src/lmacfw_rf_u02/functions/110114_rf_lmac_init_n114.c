@@ -29,7 +29,7 @@ int rf_lmac_init_n114()
   unsigned int v6; // r1
 
   v0 = off_110168;
-  result = sub_11E71C(dword_11015C);
+  result = list_init(dword_11015C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = off_110160;
@@ -38,8 +38,8 @@ int rf_lmac_init_n114()
     v5 = 0;
     do
     {
-      log_pool_alloc2_a18(v3, 0x6B8u);
-      result = list_push_tail(v4);
+      list_iterate(v3, 0x6B8u);
+      result = check_kernel_state(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;

@@ -13,10 +13,10 @@
 extern uint32_t dword_12E0F8;
 extern uint32_t dword_12E0FC;
 
-// sub_12E080 @ 0x12e080, size 120 bytes
+// rf_trim_low @ 0x12e080, size 120 bytes
 // Doc: sdio_buffer_prepare_n_8a [mac]: SDIO buffer preparation routine
 // sdio_buffer_prepare_n_8a [mac]: SDIO buffer preparation routine
-int  sub_12E080(unsigned int a1)
+int  rf_trim_low(unsigned int a1)
 {
   int result; // r0
 

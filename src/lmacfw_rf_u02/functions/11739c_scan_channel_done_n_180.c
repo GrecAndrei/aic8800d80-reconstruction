@@ -15,10 +15,10 @@ extern uint32_t off_117400;
 extern uint32_t dword_117408;
 extern uint32_t dword_117404;
 
-// scan_channel_done_n_180 @ 0x11739c, size 98 bytes
-// Doc: scan_channel_done_n_180 [scan]: Handles scan-channel-complete notification from MAC
-// scan_channel_done_n_180 [scan]: Handles scan-channel-complete notification from MAC
-int  scan_channel_done_n_180(int a1, int a2)
+// ll_timer_offset_get @ 0x11739c, size 98 bytes
+// Doc: ll_timer_offset_get [scan]: Handles scan-channel-complete notification from MAC
+// ll_timer_offset_get [scan]: Handles scan-channel-complete notification from MAC
+int  ll_timer_offset_get(int a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -56,7 +56,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(int16_t **)off_117400 < 0 && !a2 )
-      return sub_121960(dword_117408, dword_117404, 1119, v2);
+      return ke_int_lock(dword_117408, dword_117404, 1119, v2);
     v2 = *(uint16_t *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;

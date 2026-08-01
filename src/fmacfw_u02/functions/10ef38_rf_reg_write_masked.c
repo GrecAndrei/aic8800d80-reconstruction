@@ -12,11 +12,11 @@
 
 extern uint32_t dword_10EF4C;
 
-// rf_reg_write_masked @ 0x10ef38, size 18 bytes
-// Doc: rf_reg_write_masked [rf]: Masked RF register write utility (stub/leaf)
-// rf_reg_write_masked [rf]: Masked RF register write utility (stub/leaf)
-int  rf_reg_write_masked(int a1)
+// rf_get_state @ 0x10ef38, size 18 bytes
+// Doc: rf_get_state [rf]: Masked RF register write utility (stub/leaf)
+// rf_get_state [rf]: Masked RF register write utility (stub/leaf)
+int  rf_get_state(int a1)
 {
-  return sub_10EE2C(dword_10EF4C, (a1 << 11) & 0xF800, 63488, 1);
+  return mmio_rmw32(dword_10EF4C, (a1 << 11) & 0xF800, 63488, 1);
 }
 

@@ -19,8 +19,8 @@ extern uint32_t dword_12FECC;
 extern uint32_t dword_12FED0;
 extern uint32_t dword_12FED4;
 
-// sub_12FE58 @ 0x12fe58, size 94 bytes
-int sub_12FE58()
+// debug_assert @ 0x12fe58, size 94 bytes
+int debug_assert()
 {
   int *v0; // r4
   uint32_t *v1; // r0
@@ -28,7 +28,7 @@ int sub_12FE58()
   int v3; // r3
   int v4; // r2
 
-  sub_10D634();
+  system_ready_check();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -37,12 +37,12 @@ int sub_12FE58()
   v0 = (int *)off_12FEBC;
   v1 = (uint32_t *)dword_12FEC0;
   ++*(uint32_t *)off_12FEBC;
-  sub_12D100(v1);
-  sub_12D100((uint32_t *)dword_12FEC4);
-  sub_12D108(dword_12FEC0, (uint32_t *)dword_12FEC8);
-  sub_12D108(dword_12FEC0, (uint32_t *)dword_12FECC);
-  sub_12D108(dword_12FEC0, (uint32_t *)dword_12FED0);
-  result = sub_12D108(dword_12FEC0, (uint32_t *)dword_12FED4);
+  clear_stats_buf(v1);
+  clear_stats_buf((uint32_t *)dword_12FEC4);
+  wlan_ioctl_handler_1(dword_12FEC0, (uint32_t *)dword_12FEC8);
+  wlan_ioctl_handler_1(dword_12FEC0, (uint32_t *)dword_12FECC);
+  wlan_ioctl_handler_1(dword_12FEC0, (uint32_t *)dword_12FED0);
+  result = wlan_ioctl_handler_1(dword_12FEC0, (uint32_t *)dword_12FED4);
   if ( *v0 )
   {
     v3 = *v0 - 1;

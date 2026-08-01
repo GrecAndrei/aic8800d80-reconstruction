@@ -14,10 +14,10 @@ extern uint32_t off_110224;
 extern uint32_t off_110228;
 extern uint32_t dword_11022C;
 
-// rf_lmac_init_n1ec @ 0x1101ec, size 54 bytes
-// Doc: rf_lmac_init_n1ec [rf]: Initialize LMAC RF state with config
-// rf_lmac_init_n1ec [rf]: Initialize LMAC RF state with config
-int rf_lmac_init_n1ec()
+// irq_disable_arg @ 0x1101ec, size 54 bytes
+// Doc: irq_disable_arg [rf]: Initialize LMAC RF state with config
+// irq_disable_arg [rf]: Initialize LMAC RF state with config
+int irq_disable_arg()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int rf_lmac_init_n1ec()
   v0 = (int *)off_110228;
   v1 = dword_11022C;
   ++*(uint32_t *)off_110228;
-  result = list_push_tail(v1);
+  result = check_kernel_state(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

@@ -16,8 +16,8 @@ extern uint32_t dword_12B12C;
 extern uint32_t off_12B134;
 extern uint32_t dword_12B130;
 
-// sub_12B064 @ 0x12b064, size 192 bytes
-int sub_12B064()
+// process_entry_list @ 0x12b064, size 192 bytes
+int process_entry_list()
 {
   uint32_t *v0; // r6
   int v1; // r7
@@ -46,7 +46,7 @@ int sub_12B064()
   }
   else
   {
-    v5 = sub_12AFD4((uint16_t *)(*(uint32_t *)off_12B124 + 6 * *((uint8_t *)off_12B124 + 10)));
+    v5 = get_event_payload((uint16_t *)(*(uint32_t *)off_12B124 + 6 * *((uint8_t *)off_12B124 + 10)));
     if ( !v5 )
     {
       v5 = 30000;
@@ -56,7 +56,7 @@ int sub_12B064()
   if ( (v4 & 1) == 0 && *((uint8_t *)off_12B134 + 3850) == 1 )
     v5 += 170000;
 LABEL_4:
-  sub_127990((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
+  wifi_disable_get((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
   v6 = v0[1];
   if ( v6 )
   {
@@ -76,13 +76,13 @@ LABEL_4:
         if ( v8 == 2484 )
         {
           *(uint8_t *)(v6 + 2) = 14;
-          return sub_12CBF4(2);
+          return hci_cmd_preprocess(2);
         }
         LOBYTE(v7) = (unsigned int)(((unsigned int)dword_12B130 * (unsigned uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2;
       }
       *(uint8_t *)(v6 + 2) = v7;
     }
   }
-  return sub_12CBF4(2);
+  return hci_cmd_preprocess(2);
 }
 

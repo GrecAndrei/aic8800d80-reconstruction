@@ -19,8 +19,8 @@ extern uint32_t dword_109D34;
 extern uint32_t off_109D38;
 extern uint32_t dword_109D3C;
 
-// sub_109BF8 @ 0x109bf8, size 300 bytes
-int * sub_109BF8(
+// mmio_set_flag @ 0x109bf8, size 300 bytes
+int * mmio_set_flag(
         int a1,
         int *a2,
         int a3,
@@ -62,18 +62,18 @@ int * sub_109BF8(
   v15 = dword_109D28;
   *v11 &= ~0x400u;
   v16 = a4;
-  sub_11F74C(1, v15, a1, a4);
+  check_interrupt_flag(1, v15, a1, a4);
   if ( a5 )
   {
-    rf_calib_setup_n3d8((int)a2, 1, dword_100000, dword_100000, 0, 1);
-    return (int *)sub_1099BC(24, (int)a2, 1, (int)v36);
+    wlan_init_globals((int)a2, 1, dword_100000, dword_100000, 0, 1);
+    return (int *)invoke_handler_14a99c(24, (int)a2, 1, (int)v36);
   }
   else
   {
     if ( a8 == 1 )
     {
-      rf_calib_setup_n3d8((int)a2, 1, dword_100000, dword_100000, 0, 0);
-      sub_1099BC(24, (int)a2, 0, (int)v36);
+      wlan_init_globals((int)a2, 1, dword_100000, dword_100000, 0, 0);
+      invoke_handler_14a99c(24, (int)a2, 0, (int)v36);
       v30 = (uint32_t *)dword_109D2C;
       v31 = (uint32_t *)dword_109D30;
       v32 = (uint32_t *)dword_109D34;
@@ -108,10 +108,10 @@ int * sub_109BF8(
         v21[63] = v23;
       }
       while ( v17 != (int *)v20 );
-      rf_phy_process_handler(a2, v25, a9, a10, a11);
+      heap_calloc(a2, v25, a9, a10, a11);
     }
-    lmac_rf_behavioral_handler(16, 32, (float *)a2, a3, v16, 1, a6, a1, a7);
-    result = sub_10397C(a3);
+    rx_packet_handler(16, 32, (float *)a2, a3, v16, 1, a6, a1, a7);
+    result = bb_reset(a3);
     v28 = off_109D38;
     v29 = dword_109D3C;
     *(uint32_t *)off_109D38 &= ~0x200u;

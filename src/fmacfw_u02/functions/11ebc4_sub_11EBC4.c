@@ -14,8 +14,8 @@ extern uint32_t off_11EBF4;
 extern uint32_t off_11EBF0;
 extern uint32_t off_11EBF8;
 
-// sub_11EBC4 @ 0x11ebc4, size 44 bytes
-int sub_11EBC4()
+// rf_ctrl_enable @ 0x11ebc4, size 44 bytes
+int rf_ctrl_enable()
 {
   uint32_t *v0; // r2
   int result; // r0
@@ -23,9 +23,9 @@ int sub_11EBC4()
   v0 = off_11EBF4;
   *(uint32_t *)off_11EBF0 = 0x10000;
   *v0 &= ~0x10000u;
-  result = sub_12D104(0x80000);
+  result = unknown_func_12d104(0x80000);
   if ( *(uint8_t *)off_11EBF8 )
-    return sub_1222C0(result);
+    return poll_register_bit(result);
   return result;
 }
 

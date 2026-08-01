@@ -13,18 +13,18 @@
 extern uint32_t off_128F14;
 extern uint32_t off_128F18;
 
-// key_mfp_table_init @ 0x128ef8, size 28 bytes
-// Doc: key_mfp_table_init [ke]: Initialize MFP key table with assertion on hw_key_idx
-// key_mfp_table_init [ke]: Initialize MFP key table with assertion on hw_key_idx
-int key_mfp_table_init()
+// wlc_mfp_key_clear @ 0x128ef8, size 28 bytes
+// Doc: wlc_mfp_key_clear [ke]: Initialize MFP key table with assertion on hw_key_idx
+// wlc_mfp_key_clear [ke]: Initialize MFP key table with assertion on hw_key_idx
+int wlc_mfp_key_clear()
 {
   uint32_t *v0; // r4
   int *v1; // r0
   int result; // r0
 
   v0 = off_128F14;
-  v1 = memset_thunk((int *)off_128F14, 0, 0x28u);
-  result = sub_1420A0(v1);
+  v1 = memset((int *)off_128F14, 0, 0x28u);
+  result = init_1990b0_buffers(v1);
   v0[4] = off_128F18;
   *((uint8_t *)v0 + 28) = 1;
   return result;

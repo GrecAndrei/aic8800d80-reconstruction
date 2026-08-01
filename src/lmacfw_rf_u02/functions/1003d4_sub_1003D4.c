@@ -25,8 +25,8 @@ extern uint32_t dword_1004C0;
 extern uint32_t dword_1004C4;
 extern uint32_t off_1004C8;
 
-// sub_1003D4 @ 0x1003d4, size 190 bytes
-void __noreturn sub_1003D4()
+// init_buffer_list @ 0x1003d4, size 190 bytes
+void __noreturn init_buffer_list()
 {
   uint8_t *v0; // r4
   uint32_t *v1; // r2
@@ -63,7 +63,7 @@ void __noreturn sub_1003D4()
   *v4 = v0 + 152;
   *v6 = v0 + 178;
   *v5 = v0 + 176;
-  v7 = sub_1002A0();
+  v7 = process_state_update();
   if ( *(uint8_t *)*v2 == 1 )
   {
     v8 = off_1004B8;
@@ -71,25 +71,25 @@ void __noreturn sub_1003D4()
     v8[20] |= 1u;
     v8[20] &= ~2u;
   }
-  v9 = sub_123068(v7);
-  v10 = sub_10F4B8(v9);
-  sub_115000(v10);
+  v9 = enter_critical_section(v7);
+  v10 = mem_get_stats(v9);
+  sys_init(v10);
   v11 = (uint16_t *)*v6;
   v12 = (uint8_t *)off_1004BC;
   v13 = dword_1004C0;
   *v11 |= 0x2000u;
-  v14 = sub_11F504(v13, *v12);
-  v15 = sub_126174(v14);
+  v14 = dispatch_event_handler(v13, *v12);
+  v15 = radio_timer_snapshot(v14);
   if ( v0[363] )
   {
-    v19 = sub_12704C(v15);
-    sub_127108(v19);
+    v19 = rf_read_trim(v15);
+    rf_enable(v19);
   }
-  v16 = sub_11F504(dword_1004C4, (uint8_t)v0[76]);
-  v17 = sub_10FFF0(v16);
-  v18 = sub_10F6A4(v17);
+  v16 = dispatch_event_handler(dword_1004C4, (uint8_t)v0[76]);
+  v17 = rf_tx_power_get(v16);
+  v18 = bt_state_dispatch(v17);
   if ( *(uint8_t *)*v2 == 3 )
     *(uint32_t *)off_1004C8 = 1;
-  sub_115018(v18);
+  bt_driver_init(v18);
 }
 

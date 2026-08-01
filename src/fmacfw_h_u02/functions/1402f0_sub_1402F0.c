@@ -14,18 +14,18 @@ extern uint32_t off_140324;
 extern uint32_t dword_14032C;
 extern uint32_t dword_140328;
 
-// sub_1402F0 @ 0x1402f0, size 50 bytes
-int sub_1402F0()
+// bt_feature_check_1 @ 0x1402f0, size 50 bytes
+int bt_feature_check_1()
 {
-  if ( sub_12CD48(0xBu) == 1 )
+  if ( hci_cmd_handler(0xBu) == 1 )
   {
-    sub_1414AC();
+    ke_timer_check();
     return 0;
   }
   else
   {
     if ( **(int16_t **)off_140324 < 0 )
-      sub_12F35C(dword_14032C, dword_140328, 157);
+      mmio_write_field(dword_14032C, dword_140328, 157);
     return 0;
   }
 }

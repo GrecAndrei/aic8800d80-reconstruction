@@ -18,8 +18,8 @@ extern uint32_t dword_127034;
 extern uint32_t off_127038;
 extern uint32_t dword_12703C;
 
-// sub_126F28 @ 0x126f28, size 250 bytes
-int  sub_126F28(int a1)
+// timer_tick_handler @ 0x126f28, size 250 bytes
+int  timer_tick_handler(int a1)
 {
   uint32_t *v1; // r6
   int *v2; // r4
@@ -74,7 +74,7 @@ int  sub_126F28(int a1)
       }
       v12 = *(uint8_t *)(v4 + 16);
       *(uint8_t *)(v4 + 16) = 6;
-      if ( !sub_1194CC(v11, v8, 0) )
+      if ( !phy_channel_validate(v11, v8, 0) )
       {
         ++v7;
         *v9 = 1;
@@ -92,7 +92,7 @@ LABEL_16:
   v15 = v7 - v13;
   if ( !v14 )
   {
-    rf_misc_init_n_xxx();
+    write_pmu_control();
     if ( v7 )
     {
       v15 = 0;
@@ -104,7 +104,7 @@ LABEL_16:
   if ( !v15 )
     return v15;
   *(uint8_t *)(v14 + 16) = 3;
-  rf_misc_init_n_xxx();
+  write_pmu_control();
   return v15;
 }
 

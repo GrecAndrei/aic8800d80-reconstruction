@@ -1,1 +1,1 @@
-{"fn": "sub_12191B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12191b8", "status": "ok", "name": "rf_chan_param_set_n_1b8", "params": [], "docstring": "Store channel/band parameters into RF context byte fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12191B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12191b8", "status": "ok", "name": "rf_temp_compensate", "params": [], "docstring": "Store channel/band parameters into RF context byte fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_28c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122de90", "status": "ok", "name": "sdio_buffer_prepare_n_28c", "params": [], "docstring": "Set up SDIO scatter-gather buffer parameters", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_28c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122de90", "status": "ok", "name": "copy_config_data", "params": [], "docstring": "Set up SDIO scatter-gather buffer parameters", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

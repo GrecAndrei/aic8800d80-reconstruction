@@ -1,0 +1,1 @@
+{"fn": "sub_1151AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1151ac", "status": "ok", "name": "get_hw_info_bit18", "params": [], "docstring": "Query 0x1fc API with arg 0xf and return bit 18", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

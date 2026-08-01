@@ -14,10 +14,10 @@ extern uint32_t dword_10DC3C;
 extern uint32_t off_10DC34;
 extern uint32_t dword_10DC38;
 
-// rf_agc_check_nbf4 @ 0x10dbf4, size 64 bytes
-// Doc: rf_agc_check_nbf4 [rf]: Checks AGC byte masked with 0xc0 equals 0xc0 at 0x180560
-// rf_agc_check_nbf4 [rf]: Checks AGC byte masked with 0xc0 equals 0xc0 at 0x180560
-int  rf_agc_check_nbf4(int a1)
+// check_hw_status @ 0x10dbf4, size 64 bytes
+// Doc: check_hw_status [rf]: Checks AGC byte masked with 0xc0 equals 0xc0 at 0x180560
+// check_hw_status [rf]: Checks AGC byte masked with 0xc0 equals 0xc0 at 0x180560
+int  check_hw_status(int a1)
 {
   int v1; // r3
   int v2; // r0
@@ -34,6 +34,6 @@ int  rf_agc_check_nbf4(int a1)
     v3 += 12;
   }
   while ( v1 + 208 != v3 );
-  return lmac_sub_init(1, 16, 0x10u, v1);
+  return memcpy_advance(1, 16, 0x10u, v1);
 }
 

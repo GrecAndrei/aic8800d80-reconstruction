@@ -12,15 +12,15 @@
 
 extern uint32_t off_127190;
 
-// sub_12716C @ 0x12716c, size 36 bytes
-int sub_12716C()
+// rf_disable @ 0x12716c, size 36 bytes
+int rf_disable()
 {
   int result; // r0
 
   *((uint8_t *)off_127190 + 1) = 0;
-  result = sub_11DDCC(1070, 1);
+  result = ke_task_retrieve(1070, 1);
   if ( result )
-    return sub_11DC54(1070, 1);
+    return ke_int_lock(1070, 1);
   return result;
 }
 

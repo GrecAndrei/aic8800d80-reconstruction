@@ -15,8 +15,8 @@ extern uint32_t off_11BEB0;
 extern uint32_t off_11BEB8;
 extern uint32_t off_11BEBC;
 
-// sub_11BE28 @ 0x11be28, size 136 bytes
-int  sub_11BE28(uint8_t *a1)
+// rx_desc_parse @ 0x11be28, size 136 bytes
+int  rx_desc_parse(uint8_t *a1)
 {
   int v1; // r4
   int result; // r0
@@ -51,8 +51,8 @@ int  sub_11BE28(uint8_t *a1)
     }
     v8 = (int *)off_11BEBC;
     ++*(uint32_t *)off_11BEBC;
-    sub_117A58();
-    sub_116EC4(0, v9, v10, v11);
+    mmio_bit16_toggle();
+    mmio_regs_init(0, v9, v10, v11);
     if ( *v8 )
     {
       v12 = *v8 - 1;
@@ -64,8 +64,8 @@ int  sub_11BE28(uint8_t *a1)
           __enable_irq();
       }
     }
-    sub_102908(v3, 0);
-    return sub_11D9F8(*(char *)(v4 + 28 * v1 + 12));
+    tx_set_power(v3, 0);
+    return util_byte_to_hex(*(char *)(v4 + 28 * v1 + 12));
   }
   return result;
 }

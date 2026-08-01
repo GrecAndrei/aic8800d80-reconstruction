@@ -1,1 +1,1 @@
-{"fn": "sub_1210320", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210320", "status": "ok", "name": "sub_1210320", "params": [], "docstring": "Unidentified behavioral routine in lmacfw_rf firmware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1210320", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210320", "status": "ok", "name": "irq_disable_set_flag_preserve", "params": [], "docstring": "Unidentified behavioral routine in lmacfw_rf firmware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

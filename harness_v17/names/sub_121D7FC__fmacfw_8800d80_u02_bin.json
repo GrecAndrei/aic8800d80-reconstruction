@@ -1,1 +1,1 @@
-{"fn": "sub_121D7FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121d7fc", "status": "ok", "name": "fm_module_init", "params": [], "docstring": "Initialize FMAC module subsystems", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121D7FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121d7fc", "status": "ok", "name": "rf_poll", "params": [], "docstring": "Initialize FMAC module subsystems", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

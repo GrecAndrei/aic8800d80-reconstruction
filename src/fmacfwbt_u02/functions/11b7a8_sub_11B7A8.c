@@ -12,8 +12,8 @@
 
 extern uint32_t off_11B7F4;
 
-// sub_11B7A8 @ 0x11b7a8, size 74 bytes
-int  sub_11B7A8(int result)
+// check_entry_flag @ 0x11b7a8, size 74 bytes
+int  check_entry_flag(int result)
 {
   uint32_t *v1; // r6
   char *v2; // r3
@@ -35,7 +35,7 @@ int  sub_11B7A8(int result)
       v6 = (int)&v1[7 * result];
       result = *(uint32_t *)(v6 + 36);
       if ( result )
-        result = bt_chan_dispatch_n_6f0(result, v4, v3, v6);
+        result = get_cal_item(result, v4, v3, v6);
       v1[v5 - v4 + 9] = 0;
     }
   }

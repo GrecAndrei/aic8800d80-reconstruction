@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_109350 @ 0x109350, size 32 bytes
-int  sub_109350(int result, int a2, uint8_t *a3, char *a4, int *a5)
+// mac_cmd_dispatch @ 0x109350, size 32 bytes
+int  mac_cmd_dispatch(int result, int a2, uint8_t *a3, char *a4, int *a5)
 {
   unsigned int v5; // r3
   uint64_t v6; // kr00_8

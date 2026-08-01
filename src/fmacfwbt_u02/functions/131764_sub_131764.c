@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13181C;
 
-// sub_131764 @ 0x131764, size 182 bytes
+// rx_data_pdu_parse @ 0x131764, size 182 bytes
 // Doc: sub_1231764 [bt]: BT frame parser pulling header bytes from buffer
 // sub_1231764 [bt]: BT frame parser pulling header bytes from buffer
-int  sub_131764(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+int  rx_data_pdu_parse(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v5; // r5
   int v6; // r8
@@ -50,15 +50,15 @@ int  sub_131764(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   if ( v11 == 15 )
   {
 LABEL_9:
-    v14 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+    v14 = bt_buf_alloc(65, 0, 5, 4u);
     v15 = v6 + 696 * v5;
     v16 = *(uint8_t *)(v15 + 34);
     *(uint16_t *)v14 = *(uint16_t *)(v15 + 32);
     *(uint8_t *)(v14 + 3) = v16;
     *(uint8_t *)(v14 + 2) = a2[1];
-    sub_12CBB4(v14);
+    hci_evt_send(v14);
   }
-  message_dispatch_n84(5133, a4, a3);
+  hci_evt_alloc_send(5133, a4, a3);
   return 0;
 }
 

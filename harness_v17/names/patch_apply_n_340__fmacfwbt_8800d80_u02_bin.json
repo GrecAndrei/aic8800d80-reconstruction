@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_340", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151a8", "status": "ok", "name": "patch_apply_n340", "params": [], "docstring": "Apply firmware patch variant at offset 0x340", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_340", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151a8", "status": "ok", "name": "patch_apply_n_33f", "params": [], "docstring": "Apply firmware patch variant at offset 0x340", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -12,12 +12,12 @@
 
 extern uint32_t off_1005A0;
 
-// sub_10058C @ 0x10058c, size 18 bytes
-int  sub_10058C(int a1)
+// store_byte_value @ 0x10058c, size 18 bytes
+int  store_byte_value(int a1)
 {
   int result; // r0
 
-  result = sub_1004CC(a1);
+  result = read_control_reg(a1);
   if ( *(uint8_t *)off_1005A0 != result )
     *(uint8_t *)off_1005A0 = result;
   return result;

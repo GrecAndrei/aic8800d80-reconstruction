@@ -15,10 +15,10 @@ extern uint32_t dword_125954;
 extern uint32_t off_12594C;
 extern uint32_t off_125950;
 
-// rf_chan_lookup_n_580c @ 0x12580c, size 316 bytes
-// Doc: rf_chan_lookup_n_580c [rf]: RF channel/table lookup indexed by byte field
-// rf_chan_lookup_n_580c [rf]: RF channel/table lookup indexed by byte field
-int  rf_chan_lookup_n_580c(int a1)
+// tx_complete_handle @ 0x12580c, size 316 bytes
+// Doc: tx_complete_handle [rf]: RF channel/table lookup indexed by byte field
+// tx_complete_handle [rf]: RF channel/table lookup indexed by byte field
+int  tx_complete_handle(int a1)
 {
   int v1; // r8
   uint8_t *v2; // r5
@@ -43,11 +43,11 @@ int  rf_chan_lookup_n_580c(int a1)
   v2 = (uint8_t *)(dword_125948 + 8 * *(uint8_t *)(a1 + 107));
   v4 = v2[4];
   v5 = a1 + 116;
-  v6 = bt_hci_cmd_dispatch_2b8(a1);
+  v6 = bt_link_get(a1);
   *(uint32_t *)(v1 + 36) = *(uint16_t *)(v6 + 216) + *(uint16_t *)(v6 + 218) + 4;
   if ( *(uint8_t *)(v6 + 1224) )
   {
-    v15 = sub_12ADA4(*(uint8_t *)(v6 + 1225));
+    v15 = bt_conn_is_connected(*(uint8_t *)(v6 + 1225));
     if ( v15 )
     {
       v16 = dword_125954 + 20 * *(uint8_t *)(a1 + 107);
@@ -108,16 +108,16 @@ int  rf_chan_lookup_n_580c(int a1)
     }
     if ( !v14
       || (v18 = *(uint8_t *)(a1 + 107),
-          v19 = (uint8_t *)rf_bus_setup_n3a8(78, 13, 0, 2),
+          v19 = (uint8_t *)bt_buf_alloc(78, 13, 0, 2),
           *v19 = v18,
           v19[1] = v14,
-          sub_12CBB4(v19),
+          hci_evt_send(v19),
           !*(uint8_t *)(a1 + 231)) )
     {
       *(uint8_t *)(a1 + 231) = 1;
     }
   }
-  message_dispatch_n_4a3(a1, v5);
+  scan_done_check(a1, v5);
   return v10;
 }
 

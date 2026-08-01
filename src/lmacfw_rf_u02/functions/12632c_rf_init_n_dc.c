@@ -25,10 +25,10 @@ extern uint32_t off_126444;
 extern uint32_t off_126448;
 extern uint32_t off_12644C;
 
-// rf_init_n_dc @ 0x12632c, size 248 bytes
-// Doc: rf_init_n_dc [rf]: Initialize RF subsystem globals and call sub-init routine
-// rf_init_n_dc [rf]: Initialize RF subsystem globals and call sub-init routine
-int rf_init_n_dc()
+// ll_state_reset @ 0x12632c, size 248 bytes
+// Doc: ll_state_reset [rf]: Initialize RF subsystem globals and call sub-init routine
+// ll_state_reset [rf]: Initialize RF subsystem globals and call sub-init routine
+int ll_state_reset()
 {
   int v0; // r0
   int v1; // r4
@@ -51,7 +51,7 @@ int rf_init_n_dc()
 
   v0 = dword_126428;
   *(uint8_t *)off_126424 = 0;
-  msg_parse(v0);
+  dispatch_event_handler(v0);
   v1 = *(uint8_t *)off_12642C;
   if ( v1 == 1 )
   {
@@ -64,7 +64,7 @@ int rf_init_n_dc()
   if ( *(uint8_t *)off_12642C )
   {
 LABEL_15:
-    msg_parse(
+    dispatch_event_handler(
       dword_126454,
       *(uint8_t *)off_126434,
       *(uint16_t *)off_126430,
@@ -82,7 +82,7 @@ LABEL_15:
     v5 = *(uint8_t *)off_12642C;
     do
     {
-      msg_parse(
+      dispatch_event_handler(
         v4,
         v5 + 1,
         v3[4 * v5],

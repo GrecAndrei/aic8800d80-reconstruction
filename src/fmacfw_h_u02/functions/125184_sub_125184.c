@@ -16,8 +16,8 @@ extern uint32_t dword_1253BC;
 extern uint32_t dword_1253C8;
 extern uint32_t dword_1253CC;
 
-// sub_125184 @ 0x125184, size 566 bytes
-int  sub_125184(uint16_t *a1)
+// rx_pkt_parse @ 0x125184, size 566 bytes
+int  rx_pkt_parse(uint16_t *a1)
 {
   unsigned int v1; // r2
   int v2; // r3
@@ -189,7 +189,7 @@ LABEL_28:
   {
     *(uint8_t *)(dword_1253BC + 1320 * v2 + 230) = 0;
   }
-  sub_12C8D0(66, *(a1 - 2), 0);
-  return sub_12C8F8(a1 - 6);
+  mac_write_header_word(66, *(a1 - 2), 0);
+  return tx_process_jump(a1 - 6);
 }
 

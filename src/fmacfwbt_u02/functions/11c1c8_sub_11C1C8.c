@@ -19,8 +19,8 @@ extern uint32_t dword_11C310;
 extern uint32_t dword_11C314;
 extern uint32_t off_11C318;
 
-// sub_11C1C8 @ 0x11c1c8, size 312 bytes
-int sub_11C1C8()
+// mac_reset_controller @ 0x11c1c8, size 312 bytes
+int mac_reset_controller()
 {
   int *v0; // r4
   int v1; // r3
@@ -36,8 +36,8 @@ int sub_11C1C8()
   unsigned int v11; // r3
 
   v0 = (int *)off_11C300;
-  memset_thunk((int *)off_11C304, 0, 0xD4u);
-  memset_thunk(v0, 0, 0x4C8u);
+  memset_byte((int *)off_11C304, 0, 0xD4u);
+  memset_byte(v0, 0, 0x4C8u);
   v1 = dword_11C308;
   v0[272] = dword_11C30C;
   *((uint16_t *)v0 + 34) = 456;
@@ -91,7 +91,7 @@ int sub_11C1C8()
   v0[290] = v7;
   v6[43] = 467;
   *((uint16_t *)v0 + 604) = 164;
-  v9 = sub_1018B4();
+  v9 = sys_status_get_bit26();
   v10 = *(uint32_t *)off_11C318 & 0xFFFFFFF;
   if ( v9 )
     v11 = v10 | 0xB0000000;

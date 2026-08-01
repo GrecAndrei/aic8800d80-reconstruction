@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_1d8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214570", "status": "ok", "name": "rf_fault_dump_n_1d8", "params": [], "docstring": "RF fault state dump; logs status byte to shared buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_1d8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214570", "status": "ok", "name": "rf_fault_dump_n_1d7", "params": [], "docstring": "RF fault state dump; logs status byte to shared buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

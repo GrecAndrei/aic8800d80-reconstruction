@@ -26,10 +26,10 @@ extern uint32_t dword_14090C;
 extern uint32_t dword_140908;
 extern uint32_t dword_140910;
 
-// sub_1405DC @ 0x1405dc, size 1418 bytes
+// hci_le_set_scan_params @ 0x1405dc, size 1418 bytes
 // Doc: sub_12405DC [unknown]: Complex handler taking object ptr, two args, accesses offset 0x48/0x6c
 // sub_12405DC [unknown]: Complex handler taking object ptr, two args, accesses offset 0x48/0x6c
-uint32_t * sub_1405DC(int a1, int a2, int a3, int a4)
+uint32_t * hci_le_set_scan_params(int a1, int a2, int a3, int a4)
 {
   int v4; // r11
   int v5; // r0
@@ -136,9 +136,9 @@ uint32_t * sub_1405DC(int a1, int a2, int a3, int a4)
   v10 = *((uint16_t *)off_1408F0 + 254) + 1;
   *((uint16_t *)off_1408F0 + 254) = v10;
   *(uint16_t *)(v5 + 130) = 16 * v10;
-  if ( sub_13C734(v4, v9, 5) == 1 )
+  if ( bt_get_conn_ctx(v4, v9, 5) == 1 )
   {
-    sub_13B13C(v4, v8, 24);
+    mac_rx_process_ack(v4, v8, 24);
     v24 = *(uint8_t *)(v4 + 51);
     v11 = v24 + 24;
     v64 = v24 + 27;
@@ -202,7 +202,7 @@ uint32_t * sub_1405DC(int a1, int a2, int a3, int a4)
                 v59 = *(uint8_t *)(v56 + v34);
                 v60 = v58[2];
                 for ( i = (uint8_t)(v58[1] + 2);
-                      !sub_14054C(v59, v60, a4) || i > 0xD9;
+                      !find_conn_by_handle(v59, v60, a4) || i > 0xD9;
                       i = (uint8_t)(v58[1] + 2) )
                 {
                   v57 -= i;
@@ -221,7 +221,7 @@ uint32_t * sub_1405DC(int a1, int a2, int a3, int a4)
               {
 LABEL_90:
                 if ( **(int16_t **)off_140B6C < 0 )
-                  sub_12F6C4(dword_140B7C, dword_140B78, 1043);
+                  mmio_field_update(dword_140B7C, dword_140B78, 1043);
               }
             }
             else if ( v35 <= 0xDu )
@@ -260,7 +260,7 @@ LABEL_90:
         *(uint16_t *)(v13 + 15) = *(uint16_t *)(a4 + 48);
         *(uint64_t *)(v13 + 7) = v26;
         *(uint8_t *)(v13 + 17) = *(uint8_t *)(v25 + 18);
-        *(uint8_t *)(v13 + 18) = sub_12E328(*(char *)(v25 + 20));
+        *(uint8_t *)(v13 + 18) = rssi_to_power_index(*(char *)(v25 + 20));
         *(uint8_t *)(v13 + 19) = -1;
         v27 = (char *)(v25 + 6);
         do
@@ -290,7 +290,7 @@ LABEL_90:
         if ( *(uint16_t *)(v25 + 24) <= 0xBu )
         {
           if ( **(int16_t **)off_140B6C < 0 && (uint16_t)(v30 - 6) <= 0xBu )
-            sub_12F694(dword_140B74, dword_140B70, 1149);
+            mmio_irq_clear(dword_140B74, dword_140B70, 1149);
           v38 = (char *)(v25 + 64);
           do
           {
@@ -320,7 +320,7 @@ LABEL_90:
         {
           v46 = *v43;
           v47 = (uint8_t)(v43[1] + 2);
-          if ( sub_14054C((uint8_t)*v43, (uint8_t)v43[2], a4) && v47 <= 0xD9 )
+          if ( find_conn_by_handle((uint8_t)*v43, (uint8_t)v43[2], a4) && v47 <= 0xD9 )
           {
             if ( (uint8_t)v47 > v67 )
             {
@@ -347,7 +347,7 @@ LABEL_30:
                 {
                   *v65 = -92;
                   v65[1] = 1;
-                  v65[2] = sub_1405AC();
+                  v65[2] = is_controller_ready();
                   v65 += 3;
                 }
                 v23 = (unsigned int)&v65[-v13];
@@ -356,7 +356,7 @@ LABEL_30:
                 if ( **(int16_t **)off_140900 < 0 && v63 < v23 )
                 {
                   v13 = (int)v65;
-                  sub_12F694(dword_14090C, dword_140908, 1287);
+                  mmio_irq_clear(dword_14090C, dword_140908, 1287);
                   v63 = v21;
                   goto LABEL_14;
                 }
@@ -370,7 +370,7 @@ LABEL_73:
 LABEL_29:
               v31 = off_140904;
               *(uint16_t *)(v25 + 4) = 3;
-              list_remove_node_d510((int)v31, (uint32_t *)v25);
+              check_abort_flag_3((int)v31, (uint32_t *)v25);
               goto LABEL_30;
             }
             if ( v47 )
@@ -402,10 +402,10 @@ LABEL_29:
 LABEL_14:
       v62 += v23;
     }
-    while ( !sub_1405AC() && v21 > 4 );
+    while ( !is_controller_ready() && v21 > 4 );
     v4 = v66;
     if ( **(int16_t **)off_140900 < 0 && !v62 )
-      sub_12F6C4(dword_140910, dword_140908, 1298);
+      mmio_field_update(dword_140910, dword_140908, 1298);
     v14 = v62 + v64;
   }
   result = *(uint32_t **)(v4 + 76);

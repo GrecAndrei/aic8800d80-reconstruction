@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E1E8 @ 0x13e1e8, size 440 bytes
-int  sub_13E1E8(int a1)
+// rx_process @ 0x13e1e8, size 440 bytes
+int  rx_process(int a1)
 {
   int v1; // r4
   int v3; // r8
@@ -58,7 +58,7 @@ int  sub_13E1E8(int a1)
     v5 = -1;
     v3 = -1;
   }
-  result = sub_13E180((uint8_t *)a1);
+  result = mac_is_state_5b((uint8_t *)a1);
   v8 = *(uint8_t *)(a1 + 169);
   *(uint16_t *)(a1 + 10) = result;
   switch ( v8 )
@@ -87,7 +87,7 @@ int  sub_13E1E8(int a1)
       do
       {
         v9 = v19 | v20 | v21 | 0x2000;
-        result = sub_13D11C(a1, v9);
+        result = bt_validate_ll_control(a1, v9);
         --v20;
       }
       while ( !result && (uint8_t)v20 != 6 );
@@ -99,7 +99,7 @@ int  sub_13E1E8(int a1)
       do
       {
         v9 = v16 | v15 | 0x2800;
-        result = sub_13D11C(a1, v16 | v15 | 0x2800);
+        result = bt_validate_ll_control(a1, v16 | v15 | 0x2800);
         v15 = (uint16_t)(v15 - 1);
       }
       while ( !result && (uint8_t)v15 != 6 );
@@ -123,7 +123,7 @@ LABEL_26:
     {
       while ( 1 )
       {
-        result = sub_13D554(a1);
+        result = tx_prepare(a1);
         v1 = *(uint16_t *)(a1 + 184);
         if ( *(uint16_t *)(a1 + 184) )
           break;

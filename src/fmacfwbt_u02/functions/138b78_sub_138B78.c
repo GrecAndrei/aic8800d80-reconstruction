@@ -12,15 +12,15 @@
 
 extern uint32_t dword_138BA8;
 
-// sub_138B78 @ 0x138b78, size 46 bytes
-uint32_t ** sub_138B78(uint32_t *a1)
+// tx_power_cal_apply @ 0x138b78, size 46 bytes
+uint32_t ** tx_power_cal_apply(uint32_t *a1)
 {
   int v1; // r5
 
   v1 = dword_138BA8;
-  sub_138AD4(0, 4, a1[5]);
-  list_remove_node_d510(v1, a1);
-  list_push_tail(v1 - 8, a1);
-  return sub_12F770((uint32_t **)(v1 - 32));
+  tx_power_cal_read(0, 4, a1[5]);
+  check_abort_flag_3(v1, a1);
+  check_abort_flag(v1 - 8, a1);
+  return process_pending_queue((uint32_t **)(v1 - 32));
 }
 

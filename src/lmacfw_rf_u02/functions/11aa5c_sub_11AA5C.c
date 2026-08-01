@@ -14,8 +14,8 @@ extern uint32_t off_11AA80;
 extern uint32_t off_11AA88;
 extern uint32_t off_11AA84;
 
-// sub_11AA5C @ 0x11aa5c, size 34 bytes
-uint8_t * sub_11AA5C(uint8_t *result)
+// patch_load_cal @ 0x11aa5c, size 34 bytes
+uint8_t * patch_load_cal(uint8_t *result)
 {
   unsigned int v1; // r2
   uint8_t *v2; // r3
@@ -28,7 +28,7 @@ uint8_t * sub_11AA5C(uint8_t *result)
     v3 = off_11AA88;
     *(uint8_t *)off_11AA84 = v1;
     *v3 = v1;
-    return (uint8_t *)sub_102E84(v2[36], v2[37], v1);
+    return (uint8_t *)clock_set_source(v2[36], v2[37], v1);
   }
   return result;
 }

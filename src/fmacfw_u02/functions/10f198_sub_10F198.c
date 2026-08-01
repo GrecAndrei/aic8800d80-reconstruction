@@ -15,8 +15,8 @@ extern uint32_t off_10F1F4;
 extern uint32_t dword_10F1FC;
 extern uint32_t off_10F200;
 
-// sub_10F198 @ 0x10f198, size 90 bytes
-int sub_10F198()
+// rf_update_rx_status @ 0x10f198, size 90 bytes
+int rf_update_rx_status()
 {
   uint8_t *v0; // r6
   int v1; // r5
@@ -29,12 +29,12 @@ int sub_10F198()
   v2 = *((char *)off_10F1F8 + 7) - v1;
   if ( v2 < -62 )
     LOBYTE(v2) = -62;
-  sub_102B80(v2);
+  write_phy_config(v2);
   v3 = dword_10F1FC;
   v0[7] = v2;
-  result = sub_12EA88(v3, (char)v2, v1);
+  result = event_dispatch(v3, (char)v2, v1);
   if ( (char)v2 >= -61 )
-    return sub_124D3C(v0 + 12, *((uint32_t *)off_10F200 + 4) + 30000 * *((uint16_t *)v0 + 4));
+    return unknown_worker(v0 + 12, *((uint32_t *)off_10F200 + 4) + 30000 * *((uint16_t *)v0 + 4));
   v0[11] = 0;
   return result;
 }

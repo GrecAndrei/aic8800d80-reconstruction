@@ -12,8 +12,8 @@
 
 extern uint32_t off_141F18;
 
-// sub_141ED4 @ 0x141ed4, size 68 bytes
-int  sub_141ED4(int a1)
+// llcp_set_ack_flag @ 0x141ed4, size 68 bytes
+int  llcp_set_ack_flag(int a1)
 {
   int16_t v1; // r3
   uint8_t *v3; // r1
@@ -27,10 +27,10 @@ int  sub_141ED4(int a1)
     if ( v3[1] )
     {
       if ( (v1 & 9) == 9 )
-        sub_141E48(a1);
+        timeout_handler(a1);
     }
   }
-  result = sub_124E34(a1 + 52);
+  result = fault_handler(a1 + 52);
   if ( !*(uint8_t *)(a1 + 4) )
   {
     result = *(uint8_t *)(a1 + 47);

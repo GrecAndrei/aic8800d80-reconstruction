@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_428", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a84", "status": "ok", "name": "patch_apply_n_428", "params": [], "docstring": "Applies firmware patch table entry at slot index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_428", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a84", "status": "ok", "name": "rf_cmd_b_write", "params": [], "docstring": "Applies firmware patch table entry at slot index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

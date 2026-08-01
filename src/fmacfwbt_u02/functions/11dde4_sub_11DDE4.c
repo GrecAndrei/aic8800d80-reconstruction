@@ -17,8 +17,8 @@ extern uint32_t off_11DEAC;
 extern uint32_t off_11DEA0;
 extern uint32_t dword_11DEA4;
 
-// sub_11DDE4 @ 0x11dde4, size 180 bytes
-int sub_11DDE4()
+// rf_wait_idle @ 0x11dde4, size 180 bytes
+int rf_wait_idle()
 {
   int *v0; // r6
   int v1; // r4
@@ -34,7 +34,7 @@ int sub_11DDE4()
 
   v0 = (int *)off_11DE98;
   v1 = *(uint32_t *)off_11DE98;
-  result = sub_12D374(0x200000);
+  result = set_system_flag_2(0x200000);
   if ( v1 )
   {
     v3 = off_11DE9C;
@@ -46,7 +46,7 @@ int sub_11DDE4()
       {
         if ( (*(uint8_t *)(v1 + 16) & 1) == 0 && !*v3 )
           break;
-        sub_12D4F8(v0);
+        list_pop_front(v0);
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();
@@ -62,7 +62,7 @@ int sub_11DDE4()
           v7(*(uint32_t *)(v1 + 8));
         result = *(uint32_t *)(v1 + 12);
         if ( result )
-          result = sub_11E4F4();
+          result = rf_tx_timestamp_check();
         if ( *v5 )
         {
           v8 = *v5 - 1;
@@ -80,8 +80,8 @@ int sub_11DDE4()
       v10 = off_11DEA0;
       if ( *((uint8_t *)off_11DEA0 + 69) )
       {
-        sub_12D32C(0x80000);
-        result = sub_12EEF8(1024, dword_11DEA4);
+        set_system_flag_1(0x80000);
+        result = state_check_feature(1024, dword_11DEA4);
         v10[69] = 0;
       }
     }

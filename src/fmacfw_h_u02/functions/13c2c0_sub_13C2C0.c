@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13C2C0 @ 0x13c2c0, size 34 bytes
-int  sub_13C2C0(int a1)
+// bt_conn_get_role @ 0x13c2c0, size 34 bytes
+int  bt_conn_get_role(int a1)
 {
   int v1; // r3
   int v2; // r1

@@ -1,1 +1,1 @@
-{"fn": "sub_122D9D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d9d0", "status": "ok", "name": "msg_alloc_and_init_n1e6", "params": [], "docstring": "Allocate and initialize 5-word message structure", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122D9D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d9d0", "status": "ok", "name": "log_with_format", "params": [], "docstring": "Allocate and initialize 5-word message structure", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

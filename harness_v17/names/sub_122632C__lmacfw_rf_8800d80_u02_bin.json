@@ -1,1 +1,1 @@
-{"fn": "sub_122632C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122632c", "status": "ok", "name": "rf_init_n_dc", "params": [], "docstring": "Initialize RF subsystem globals and call sub-init routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122632C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122632c", "status": "ok", "name": "ll_state_reset", "params": [], "docstring": "Initialize RF subsystem globals and call sub-init routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

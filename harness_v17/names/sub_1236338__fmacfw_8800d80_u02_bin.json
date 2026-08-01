@@ -1,1 +1,1 @@
-{"fn": "sub_1236338", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236338", "status": "ok", "name": "sub_1236338", "params": [], "docstring": "Check firmware ready flag from shared state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1236338", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236338", "status": "ok", "name": "bt_vendor_cmd_guard", "params": [], "docstring": "Check firmware ready flag from shared state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

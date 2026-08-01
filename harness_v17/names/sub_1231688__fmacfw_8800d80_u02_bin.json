@@ -1,1 +1,1 @@
-{"fn": "sub_1231688", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1231688", "status": "ok", "name": "rf_bus_mark_n_27a", "params": [], "docstring": "Marks RF bus entry with byte/halfword writes and calls update routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1231688", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1231688", "status": "ok", "name": "ke_wait_event", "params": [], "docstring": "Marks RF bus entry with byte/halfword writes and calls update routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1337CC @ 0x1337cc, size 52 bytes
-uint32_t * sub_1337CC(uint32_t *result, int *a2, int a3)
+// hash_mix_words @ 0x1337cc, size 52 bytes
+uint32_t * hash_mix_words(uint32_t *result, int *a2, int a3)
 {
   int v3; // r2
   int v4; // r4

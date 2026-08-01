@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1237C0 @ 0x1237c0, size 32 bytes
-int  sub_1237C0(int a1, uint8_t *a2, int a3, int a4)
+// mem_copy_log @ 0x1237c0, size 32 bytes
+int  mem_copy_log(int a1, uint8_t *a2, int a3, int a4)
 {
-  sub_11C3A4(a2);
-  sub_12C8D0(110, a4, a3);
+  set_global_config_bytes(a2);
+  mac_write_header_word(110, a4, a3);
   return 0;
 }
 

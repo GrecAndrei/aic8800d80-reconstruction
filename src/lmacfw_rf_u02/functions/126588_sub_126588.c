@@ -25,8 +25,8 @@ extern uint32_t off_126754;
 extern uint32_t dword_12675C;
 extern uint32_t off_126760;
 
-// sub_126588 @ 0x126588, size 418 bytes
-int sub_126588()
+// rf_state_machine @ 0x126588, size 418 bytes
+int rf_state_machine()
 {
   int v0; // r3
   uint8_t *v1; // r5
@@ -84,30 +84,30 @@ int sub_126588()
       v28 = *(uint16_t *)off_12673C;
       if ( *(uint16_t *)off_12673C )
       {
-        v29 = sub_12754C(*(uint32_t *)off_126758);
+        v29 = aeabi_i2d(*(uint32_t *)off_126758);
         v30 = v29;
         LODWORD(v29) = v28;
         v31 = __PAIR64__(HIDWORD(v29), v30);
-        v32 = sub_12754C(v29);
-        v33 = sub_127874(v31, HIDWORD(v31), v32, HIDWORD(v32));
-        v34 = sub_127BE4(v33);
-        v35 = sub_127570(LODWORD(v34));
+        v32 = aeabi_i2d(v29);
+        v33 = aeabi_dsub(v31, HIDWORD(v31), v32, HIDWORD(v32));
+        v34 = aeabi_dmul(v33);
+        v35 = aeabi_d2f(LODWORD(v34));
       }
       else
       {
         v35 = 0;
       }
-      v36 = math_round(v35, HIDWORD(v35));
-      v37 = sub_127B54(v36, HIDWORD(v36));
+      v36 = parse_data_field(v35, HIDWORD(v35));
+      v37 = double_to_float(v36, HIDWORD(v36));
       v38 = dword_126748;
       v27[5] = v37;
       *v1 = 3;
-      msg_parse(v38);
-      return irq_nesting_or(0x2000);
+      dispatch_event_handler(v38);
+      return set_busy_flag_alt(0x2000);
     }
     else
     {
-      return rf_init_n_dc();
+      return ll_state_reset();
     }
   }
   else if ( *v1 )
@@ -120,10 +120,10 @@ int sub_126588()
     v7 = (uint8_t)v5[2];
     if ( v5[2] )
     {
-      v40 = sub_12754C(*(uint32_t *)off_126758);
-      v41 = sub_12754C(v7);
-      v42 = sub_127874(v40, HIDWORD(v40), v41, HIDWORD(v41));
-      v9 = sub_127BE4(v42);
+      v40 = aeabi_i2d(*(uint32_t *)off_126758);
+      v41 = aeabi_i2d(v7);
+      v42 = aeabi_dsub(v40, HIDWORD(v40), v41, HIDWORD(v41));
+      v9 = aeabi_dmul(v42);
       v8 = *(float *)off_126740 / (float)v7;
       *(float *)off_126740 = v8;
     }
@@ -132,18 +132,18 @@ int sub_126588()
       v8 = *(float *)off_126740;
       v9 = 0.0;
     }
-    v10 = sub_127570(LODWORD(v8));
-    v11 = math_round(v10, HIDWORD(v10));
+    v10 = aeabi_d2f(LODWORD(v8));
+    v11 = parse_data_field(v10, HIDWORD(v10));
     v12 = v11;
     *(float *)&v11 = v9;
     v13 = __PAIR64__(HIDWORD(v11), v12);
-    v14 = sub_127570(v11);
-    v15 = math_round(v14, HIDWORD(v14));
+    v14 = aeabi_d2f(v11);
+    v15 = parse_data_field(v14, HIDWORD(v14));
     v16 = v13;
     v17 = v15;
     v18 = &v3[v6];
-    v18[4] = sub_127B54(v16, HIDWORD(v16));
-    v19 = sub_127B54(v17, HIDWORD(v17));
+    v18[4] = double_to_float(v16, HIDWORD(v16));
+    v19 = double_to_float(v17, HIDWORD(v17));
     v20 = (uint8_t)*v2;
     v21 = *(uint8_t *)off_126744;
     v18[3] = v19;
@@ -151,12 +151,12 @@ int sub_126588()
     if ( v20 == v21 )
     {
       *v1 = 4;
-      msg_parse(v22);
+      dispatch_event_handler(v22);
     }
     else
     {
       *v1 = 2;
-      msg_parse(v22);
+      dispatch_event_handler(v22);
       v23 = (int *)off_12674C;
       v24 = (int *)off_126750;
       v25 = off_126754;
@@ -165,19 +165,19 @@ int sub_126588()
       *v24 = *v23;
       *v25 = v26 + 1000000;
     }
-    return irq_nesting_or(0x2000);
+    return set_busy_flag_alt(0x2000);
   }
   else
   {
-    msg_parse(dword_12675C);
+    dispatch_event_handler(dword_12675C);
     v43 = dword_126748;
     *v1 = 1;
-    msg_parse(v43);
+    dispatch_event_handler(v43);
     v44 = off_126760;
     *(uint32_t *)off_126760 |= 0x100u;
     *v44 |= 0x200u;
     *v44 |= 0x400u;
-    return irq_nesting_or(0x2000);
+    return set_busy_flag_alt(0x2000);
   }
 }
 

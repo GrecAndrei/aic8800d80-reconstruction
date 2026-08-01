@@ -15,8 +15,8 @@ extern uint32_t off_12BF5C;
 extern uint32_t off_12BF60;
 extern uint32_t off_12BF64;
 
-// sub_12BEE8 @ 0x12bee8, size 110 bytes
-int  sub_12BEE8(int a1)
+// ke_enter_critical @ 0x12bee8, size 110 bytes
+int  ke_enter_critical(int a1)
 {
   unsigned int v1; // r2
   uint32_t *v2; // r5

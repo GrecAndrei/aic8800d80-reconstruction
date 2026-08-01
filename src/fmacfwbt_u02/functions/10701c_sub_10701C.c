@@ -24,8 +24,8 @@ extern uint32_t dword_107218;
 extern uint32_t off_10721C;
 extern uint32_t off_107220;
 
-// sub_10701C @ 0x10701c, size 468 bytes
-int *sub_10701C()
+// rf_enable @ 0x10701c, size 468 bytes
+int *rf_enable()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r6
@@ -45,7 +45,7 @@ int *sub_10701C()
   v1 = off_1071F8;
   v2 = (unsigned int *)off_1071FC;
   *v0 &= ~0x20000u;
-  sub_100644(2);
+  timer_set(2);
   v3 = off_107200;
   v4 = dword_107204;
   *v0 |= 0x10000u;
@@ -62,7 +62,7 @@ int *sub_10701C()
   *v3 |= 0x10000000u;
   *v3 = *v3 & 0xFC000FFF | 0x666000;
   *v3 = *v3 & 0xFFFFF000 | 0xC0;
-  sub_100644(10);
+  timer_set(10);
   v6 = (unsigned int *)off_10720C;
   v7 = off_107210;
   result = (int *)off_107214;

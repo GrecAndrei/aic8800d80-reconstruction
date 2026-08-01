@@ -1,1 +1,1 @@
-{"fn": "sub_122D688", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d688", "status": "ok", "name": "bt_msg_handler_sub", "params": [], "docstring": "Bluetooth message handler stub", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122D688", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d688", "status": "ok", "name": "check_abort_flag_4", "params": [], "docstring": "Bluetooth message handler stub", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

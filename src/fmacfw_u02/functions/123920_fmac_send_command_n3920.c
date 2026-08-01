@@ -12,14 +12,14 @@
 
 extern uint32_t dword_123948;
 
-// fmac_send_command_n3920 @ 0x123920, size 40 bytes
-// Doc: fmac_send_command_n3920 [mac]: Prepare and send FMAC command, returns status
-// fmac_send_command_n3920 [mac]: Prepare and send FMAC command, returns status
-int  fmac_send_command_n3920(int a1, int a2, int a3, int a4)
+// lld_evt_timer_set @ 0x123920, size 40 bytes
+// Doc: lld_evt_timer_set [mac]: Prepare and send FMAC command, returns status
+// lld_evt_timer_set [mac]: Prepare and send FMAC command, returns status
+int  lld_evt_timer_set(int a1, int a2, int a3, int a4)
 {
-  mem_block_free_n_490(a2);
-  feature_guard_check(256, dword_123948);
-  sub_12CA10(108, a4, a3);
+  remove_tx_buffer(a2);
+  check_status_bits(256, dword_123948);
+  ke_msg_send_no_param(108, a4, a3);
   return 0;
 }
 

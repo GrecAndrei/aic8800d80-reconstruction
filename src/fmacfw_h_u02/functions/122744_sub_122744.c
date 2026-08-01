@@ -17,18 +17,18 @@ extern uint32_t dword_1227A0;
 extern uint32_t off_122798;
 extern uint32_t off_12279C;
 
-// sub_122744 @ 0x122744, size 76 bytes
-char *sub_122744()
+// check_adv_enabled @ 0x122744, size 76 bytes
+char *check_adv_enabled()
 {
   int v0; // r4
 
   v0 = *(uint32_t *)off_122794 & 0x1800000;
   if ( **(int16_t **)off_122790 < 0 && v0 == 25165824 )
-    sub_12F32C(dword_1227A4, dword_1227A0, 1308);
-  sub_12D00C(v0);
+    irq_disable_mmio_write(dword_1227A4, dword_1227A0, 1308);
+  irq_disable_global_3(v0);
   if ( *((uint8_t *)off_122798 + 18) )
-    return (char *)sub_120FB8();
+    return (char *)ke_timer_handler();
   else
-    return sub_122654(*((char **)off_12279C + 8));
+    return ll_get_state(*((char **)off_12279C + 8));
 }
 

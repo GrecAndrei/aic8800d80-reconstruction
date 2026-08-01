@@ -14,15 +14,15 @@ extern uint32_t dword_1019C8;
 extern uint32_t dword_1019CC;
 extern uint32_t off_1019C4;
 
-// sub_10199C @ 0x10199c, size 40 bytes
-uint64_t * sub_10199C(uint64_t *result, int a2)
+// rf_call_handler @ 0x10199c, size 40 bytes
+uint64_t * rf_call_handler(uint64_t *result, int a2)
 {
   uint64_t *v2; // r4
 
   v2 = result;
   if ( a2 )
   {
-    result = (uint64_t *)sub_12EA88(dword_1019C8, dword_1019CC, a2);
+    result = (uint64_t *)event_dispatch(dword_1019C8, dword_1019CC, a2);
     *v2 = *(uint64_t *)((char *)off_1019C4 + 36);
   }
   else

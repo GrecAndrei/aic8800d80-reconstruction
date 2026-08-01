@@ -19,8 +19,8 @@ extern uint32_t off_1212C4;
 extern uint32_t off_1212C8;
 extern uint32_t off_1212CC;
 
-// sub_121200 @ 0x121200, size 184 bytes
-int  sub_121200(int a1, int a2)
+// ll_tx_setup @ 0x121200, size 184 bytes
+int  ll_tx_setup(int a1, int a2)
 {
   int v2; // r6
   uint32_t *v3; // r3

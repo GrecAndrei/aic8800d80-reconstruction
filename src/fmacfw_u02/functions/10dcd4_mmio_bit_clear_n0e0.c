@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DCE8;
 
-// mmio_bit_clear_n0e0 @ 0x10dcd4, size 18 bytes
-// Doc: mmio_bit_clear_n0e0 [mmio]: Clear a single bit in MMIO register at 0x40505000+8 indexed by r0
-// mmio_bit_clear_n0e0 [mmio]: Clear a single bit in MMIO register at 0x40505000+8 indexed by r0
-int  mmio_bit_clear_n0e0(char a1)
+// rf_disable_irq @ 0x10dcd4, size 18 bytes
+// Doc: rf_disable_irq [mmio]: Clear a single bit in MMIO register at 0x40505000+8 indexed by r0
+// rf_disable_irq [mmio]: Clear a single bit in MMIO register at 0x40505000+8 indexed by r0
+int  rf_disable_irq(char a1)
 {
   int result; // r0
 

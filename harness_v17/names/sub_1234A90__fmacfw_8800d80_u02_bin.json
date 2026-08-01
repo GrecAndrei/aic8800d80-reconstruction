@@ -1,1 +1,1 @@
-{"fn": "sub_1234A90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1234a90", "status": "ok", "name": "sub_1234A90", "params": [], "docstring": "Unidentified helper function at 0x134a90", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1234A90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1234a90", "status": "ok", "name": "bt_get_conn_state", "params": [], "docstring": "Unidentified helper function at 0x134a90", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

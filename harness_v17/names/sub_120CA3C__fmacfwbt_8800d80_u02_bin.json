@@ -1,1 +1,1 @@
-{"fn": "sub_120CA3C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ca3c", "status": "ok", "name": "sub_120CA3C", "params": [], "docstring": "Loads fw state struct and reads field at offset 0x224", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120CA3C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ca3c", "status": "ok", "name": "pmu_isr_224", "params": [], "docstring": "Loads fw state struct and reads field at offset 0x224", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

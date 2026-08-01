@@ -18,10 +18,10 @@ extern uint32_t dword_102CF8;
 extern uint32_t off_102CFC;
 extern uint32_t qword_102D04;
 
-// tx_rate_config @ 0x102bd4, size 282 bytes
-// Doc: tx_rate_config [tx]: Configure TX PHY rate parameters
-// tx_rate_config [tx]: Configure TX PHY rate parameters
-int  tx_rate_config(int a1, uint16_t *a2)
+// radio_event_loop @ 0x102bd4, size 282 bytes
+// Doc: radio_event_loop [tx]: Configure TX PHY rate parameters
+// radio_event_loop [tx]: Configure TX PHY rate parameters
+int  radio_event_loop(int a1, uint16_t *a2)
 {
   unsigned int v4; // r11
   int v5; // r9
@@ -50,7 +50,7 @@ int  tx_rate_config(int a1, uint16_t *a2)
   while ( !*(uint32_t *)off_102CF0 )
     ;
   v4 = 0;
-  crypto_hw_enable(0);
+  set_radio_ctrl_bits(0);
   v5 = dword_102D0C;
   v6 = dword_102D00;
   v23 = 0;
@@ -69,14 +69,14 @@ LABEL_4:
   do
   {
     v11 = *v8;
-    feature_guard_sdio(0x2000, v5);
+    state_check_feature(0x2000, v5);
     v12 = v10[1];
     ++v10;
     v13 = dword_102CF8;
     *v8 = v11 & v6 | (v12 << 11);
     v8 += 8;
     ++v9;
-    feature_guard_sdio(0x2000, v13);
+    state_check_feature(0x2000, v13);
   }
   while ( v9 != 16 );
   if ( v4 <= 1 )
@@ -85,7 +85,7 @@ LABEL_4:
   if ( (uint16_t)v4 != 5 )
     goto LABEL_4;
 LABEL_10:
-  result = crypto_hw_disable(0);
+  result = set_radio_ctrl_bits2(0);
   *(uint32_t *)off_102CF0 = 1;
   if ( v23 )
   {

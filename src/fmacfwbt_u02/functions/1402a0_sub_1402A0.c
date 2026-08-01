@@ -17,10 +17,10 @@ extern uint32_t dword_1403C8;
 extern uint32_t off_1403D0;
 extern uint32_t dword_1403C4;
 
-// sub_1402A0 @ 0x1402a0, size 284 bytes
+// send_data_packet @ 0x1402a0, size 284 bytes
 // Doc: sub_12402A0 [bt]: Unidentified helper in BT firmware image
 // sub_12402A0 [bt]: Unidentified helper in BT firmware image
-int  sub_1402A0(int result)
+int  send_data_packet(int result)
 {
   unsigned int v1; // r6
   int v2; // r4
@@ -49,7 +49,7 @@ int  sub_1402A0(int result)
     v3 = dword_1403C0;
     v4 = *(uint32_t *)(dword_1403C0 + 696 * v1 + 340);
     if ( **(int16_t **)off_1403BC < 0 && !v4 )
-      sub_12F694(dword_1403CC, dword_1403C8, 2758);
+      mmio_irq_clear(dword_1403CC, dword_1403C8, 2758);
     v5 = *(uint8_t *)(v4 + 166);
     if ( (*(uint32_t *)(v2 + 36) & 0x200000) != 0 && (*(uint8_t *)(v4 + 166) & 4) != 0 )
       v6 = v5 | 2;
@@ -59,7 +59,7 @@ int  sub_1402A0(int result)
     *(uint8_t *)(v4 + 166) = v6;
     if ( v7[4] - *(uint32_t *)v4 > (unsigned int)dword_1403C4 )
     {
-      v14 = sub_13F66C(v4, 0);
+      v14 = build_ll_data_packet(v4, 0);
       v15 = (*(uint8_t *)(v4 + 167) + 1) & 3;
       *(uint8_t *)(v4 + 167) = v15;
       *(uint8_t *)(v4 + 154) = 0;
@@ -68,7 +68,7 @@ int  sub_1402A0(int result)
       *(uint8_t *)(v2 + 54) = 4 * v15;
       if ( v14 )
       {
-        if ( !sub_13D518(v4) )
+        if ( !scan_set_adv_flag(v4) )
           *(uint32_t *)(v2 + 36) &= ~0x200000u;
         *(uint8_t *)(v3 + 696 * v1 + 350) |= 0x11u;
       }
@@ -77,7 +77,7 @@ int  sub_1402A0(int result)
     {
       *(uint8_t *)(v2 + 54) = *(uint8_t *)(v4 + 168) | (4 * *(uint8_t *)(v4 + 167));
     }
-    result = sub_13ED0C(v4);
+    result = handle_ll_control_packet(v4);
     if ( result )
     {
       v8 = *(uint32_t *)(v2 + 36);

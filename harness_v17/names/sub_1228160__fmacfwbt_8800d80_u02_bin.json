@@ -1,1 +1,1 @@
-{"fn": "sub_1228160", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1228160", "status": "ok", "name": "sub_1228160", "params": [], "docstring": "Complex handler loading base pointer and saving many regs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1228160", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1228160", "status": "ok", "name": "hci_command_handler", "params": [], "docstring": "Complex handler loading base pointer and saving many regs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

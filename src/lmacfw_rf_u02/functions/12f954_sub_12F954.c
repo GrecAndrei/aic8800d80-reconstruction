@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12F954 @ 0x12f954, size 12 bytes
-int sub_12F954()
+// bt_reg_write @ 0x12f954, size 12 bytes
+int bt_reg_write()
 {
   int v0; // r5
   int v1; // r6

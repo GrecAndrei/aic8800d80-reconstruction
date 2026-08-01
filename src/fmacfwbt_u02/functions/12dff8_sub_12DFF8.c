@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DFF8 @ 0x12dff8, size 64 bytes
+// parse_data_5 @ 0x12dff8, size 64 bytes
 // Doc: sdio_buffer_prepare_n_334 [tx]: Prepares SDIO buffer by comparing descriptor indices
 // sdio_buffer_prepare_n_334 [tx]: Prepares SDIO buffer by comparing descriptor indices
-uint8_t * sub_12DFF8(uint8_t *result, int a2)
+uint8_t * parse_data_5(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   uint8_t *v3; // r2

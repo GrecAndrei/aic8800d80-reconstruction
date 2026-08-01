@@ -18,8 +18,8 @@ extern uint32_t off_1229CC;
 extern uint32_t off_1229D4;
 extern uint32_t off_1229D0;
 
-// sub_122924 @ 0x122924, size 152 bytes
-int  sub_122924(int a1, uint8_t *a2, int a3, int a4)
+// scan_control_update @ 0x122924, size 152 bytes
+int  scan_control_update(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r4
   uint8_t *v7; // r4
@@ -63,7 +63,7 @@ int  sub_122924(int a1, uint8_t *a2, int a3, int a4)
     *v11 &= 0xFFFFFu;
     *v11 |= *((uint32_t *)a2 + 3) << 20;
   }
-  sub_12C8D0(102, a4, a3);
+  mac_write_header_word(102, a4, a3);
   return 0;
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t off_10F3AC;
 
-// log_pool_default_config @ 0x10f37c, size 48 bytes
-// Doc: log_pool_default_config [util]: Initialize log pool with default P/Q type configuration
-// log_pool_default_config [util]: Initialize log pool with default P/Q type configuration
-int log_pool_default_config()
+// tx_send_packet @ 0x10f37c, size 48 bytes
+// Doc: tx_send_packet [util]: Initialize log pool with default P/Q type configuration
+// tx_send_packet [util]: Initialize log pool with default P/Q type configuration
+int tx_send_packet()
 {
   uint8_t *v0; // r4
   char *v1; // r0
@@ -24,9 +24,9 @@ int log_pool_default_config()
   v1 = (char *)off_10F3AC + 1624;
   *((uint16_t *)off_10F3AC + 810) = 80;
   v0[1622] = 81;
-  sub_12D240(v1);
+  zero_8_bytes(v1);
   *((uint16_t *)v0 + 1216) = 39;
   v0[2434] = 40;
-  return sub_12D240(v0 + 2436);
+  return zero_8_bytes(v0 + 2436);
 }
 

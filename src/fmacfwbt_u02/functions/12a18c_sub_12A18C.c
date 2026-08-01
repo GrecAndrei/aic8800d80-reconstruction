@@ -16,8 +16,8 @@ extern uint32_t off_12A26C;
 extern uint32_t dword_12A260;
 extern uint32_t dword_12A264;
 
-// sub_12A18C @ 0x12a18c, size 206 bytes
-int  sub_12A18C(int a1, int a2)
+// poll_ready @ 0x12a18c, size 206 bytes
+int  poll_ready(int a1, int a2)
 {
   char *v2; // r4
   int v5; // r5
@@ -51,7 +51,7 @@ int  sub_12A18C(int a1, int a2)
     v11 = 188;
     v12 = (int *)((char *)off_12A25C + 140);
   }
-  memset_thunk(v12, 0, 0x8Cu);
+  memset_byte(v12, 0, 0x8Cu);
   v7 = &v2[140 * v10];
   v7[113] = a1;
   v7[112] = a2;

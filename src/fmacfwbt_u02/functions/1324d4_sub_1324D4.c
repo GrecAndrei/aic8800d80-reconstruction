@@ -15,8 +15,8 @@ extern uint32_t off_132534;
 extern uint32_t dword_13253C;
 extern uint32_t dword_132538;
 
-// sub_1324D4 @ 0x1324d4, size 92 bytes
-int  sub_1324D4(uint8_t *a1)
+// llm_get_adv_type @ 0x1324d4, size 92 bytes
+int  llm_get_adv_type(uint8_t *a1)
 {
   int v1; // r3
   int result; // r0
@@ -52,7 +52,7 @@ int  sub_1324D4(uint8_t *a1)
   {
 LABEL_9:
     if ( **(int16_t **)off_132534 < 0 )
-      result = sub_12F6C4(dword_13253C, dword_132538, 141);
+      result = mmio_field_update(dword_13253C, dword_132538, 141);
     *((uint16_t *)a1 + 4) = 15;
   }
   return result;

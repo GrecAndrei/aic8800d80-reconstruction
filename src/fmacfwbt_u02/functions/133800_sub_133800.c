@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_133800 @ 0x133800, size 74 bytes
-uint32_t * sub_133800(int a1, uint32_t *a2, int a3, uint16_t *a4, uint8_t a5)
+// assemble_bt_descriptor @ 0x133800, size 74 bytes
+uint32_t * assemble_bt_descriptor(int a1, uint32_t *a2, int a3, uint16_t *a4, uint8_t a5)
 {
   int v5; // r7
   int v6; // r5
@@ -39,9 +39,9 @@ uint32_t * sub_133800(int a1, uint32_t *a2, int a3, uint16_t *a4, uint8_t a5)
     v10 = 0;
   else
     v10 = a5 & 7;
-  v11 = sub_1337CC((uint32_t *)a1, (int *)(a1 + 4), v8);
-  v13 = sub_1337CC(v11, v12, v9);
-  v15 = sub_1337CC(v13, v14, v6);
-  return sub_1337CC(v15, v16, v10);
+  v11 = hash_mix_words((uint32_t *)a1, (int *)(a1 + 4), v8);
+  v13 = hash_mix_words(v11, v12, v9);
+  v15 = hash_mix_words(v13, v14, v6);
+  return hash_mix_words(v15, v16, v10);
 }
 

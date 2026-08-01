@@ -13,10 +13,10 @@
 extern uint32_t off_11AE1C;
 extern uint32_t dword_11AE20;
 
-// sub_11ADD0 @ 0x11add0, size 76 bytes
+// list_search @ 0x11add0, size 76 bytes
 // Doc: sub_121ADD0 [util]: Lookup/validate state entry against stored pointer
 // sub_121ADD0 [util]: Lookup/validate state entry against stored pointer
-int  sub_11ADD0(int result)
+int  list_search(int result)
 {
   uint32_t *v1; // r6
   int v2; // r5
@@ -37,16 +37,16 @@ int  sub_11ADD0(int result)
     {
       if ( *(uint8_t *)(v2 + 24) != 3 )
       {
-        v4 = (uint8_t *)rf_setup_dispatch(69, 4, 0, 1);
+        v4 = (uint8_t *)ke_msg_send(69, 4, 0, 1);
         *v4 = *(uint8_t *)(v2 + 24);
-        sub_11DE50(v4);
+        rx_irq_handler(v4);
       }
     }
     v1[11] = v3;
     *(uint8_t *)(v3 + 16) = 2;
-    v5 = (uint32_t *)rf_setup_dispatch(140, 0, 255, 4);
+    v5 = (uint32_t *)ke_msg_send(140, 0, 255, 4);
     *v5 = dword_11AE20;
-    return sub_11DE50(v5);
+    return rx_irq_handler(v5);
   }
   return result;
 }

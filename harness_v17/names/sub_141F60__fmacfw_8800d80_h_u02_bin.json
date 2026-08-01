@@ -1,0 +1,1 @@
+{"fn": "sub_141F60", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141f60", "status": "ok", "name": "init_runtime_state", "params": [], "docstring": "Initializes global runtime structures in RAM.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

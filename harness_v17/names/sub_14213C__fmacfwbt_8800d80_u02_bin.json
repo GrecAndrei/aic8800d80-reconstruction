@@ -1,0 +1,1 @@
+{"fn": "sub_14213C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14213c", "status": "ok", "name": "mac_init_ring", "params": [], "docstring": "Initialize MAC descriptor rings", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -20,8 +20,8 @@ extern uint32_t dword_124CEC;
 extern uint32_t off_124CDC;
 extern uint32_t dword_124CE0;
 
-// sub_124BFC @ 0x124bfc, size 212 bytes
-int  sub_124BFC(int a1, int a2)
+// mem_copy_util @ 0x124bfc, size 212 bytes
+int  mem_copy_util(int a1, int a2)
 {
   int *v4; // r7
   uint32_t *v5; // r2
@@ -45,17 +45,17 @@ int  sub_124BFC(int a1, int a2)
   ++*(uint32_t *)off_124CD4;
   if ( a2 - v5[4] < 0 )
   {
-    sub_12E948(dword_124CE4, *(uint32_t *)(a1 + 4), a2);
+    alloc_tx_event(dword_124CE4, *(uint32_t *)(a1 + 4), a2);
     if ( **(int16_t **)off_124CE8 < 0 )
-      sub_12F32C(dword_124CF0, dword_124CEC, 131);
+      irq_disable_mmio_write(dword_124CF0, dword_124CEC, 131);
   }
   v6 = (int *)off_124CDC;
   if ( a1 == *(uint32_t *)off_124CDC )
   {
-    sub_12D190(off_124CDC);
+    list_pop(off_124CDC);
     v12 = dword_124CE0;
     *(uint32_t *)(a1 + 12) = a2;
-    result = sub_12D240(v6, a1, v12);
+    result = list_foreach(v6, a1, v12);
     v9 = *v6;
     if ( !*v6 )
     {
@@ -64,10 +64,10 @@ int  sub_124BFC(int a1, int a2)
     }
     goto LABEL_14;
   }
-  sub_12D1A8(off_124CDC, a1);
+  wlan_ioctl_handler_3(off_124CDC, a1);
   v7 = dword_124CE0;
   *(uint32_t *)(a1 + 12) = a2;
-  result = sub_12D240(v6, a1, v7);
+  result = list_foreach(v6, a1, v7);
   v9 = *v6;
   if ( a1 == *v6 )
   {
@@ -84,11 +84,11 @@ LABEL_6:
   {
     __enable_irq();
     if ( a2 - *((uint32_t *)off_124CD8 + 4) < 0 )
-      return sub_12CFC4(0x20000000);
+      return irq_disable_global_2(0x20000000);
   }
   else if ( a2 - *((uint32_t *)off_124CD8 + 4) < 0 )
   {
-    return sub_12CFC4(0x20000000);
+    return irq_disable_global_2(0x20000000);
   }
   return result;
 }

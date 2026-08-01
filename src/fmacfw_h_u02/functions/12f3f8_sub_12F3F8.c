@@ -15,8 +15,8 @@ extern uint32_t off_10CA98;
 extern uint32_t off_10CA9C;
 extern uint32_t off_10CAA0;
 
-// sub_12F3F8 @ 0x12f3f8, size 18 bytes
-int sub_12F3F8()
+// phy_mode_check @ 0x12f3f8, size 18 bytes
+int phy_mode_check()
 {
   int result; // r0
 

@@ -14,8 +14,8 @@ extern uint32_t off_10418C;
 extern uint32_t off_104190;
 extern uint32_t off_104194;
 
-// sub_10410C @ 0x10410c, size 126 bytes
-unsigned int  sub_10410C(int a1, int a2)
+// mac_reset_control @ 0x10410c, size 126 bytes
+unsigned int  mac_reset_control(int a1, int a2)
 {
   unsigned int *v2; // r2
   unsigned int *v3; // r3

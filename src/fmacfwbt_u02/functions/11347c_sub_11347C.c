@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11347C @ 0x11347c, size 106 bytes
+// mode_to_config_get @ 0x11347c, size 106 bytes
 // Doc: rf_stream_start2_n26e [rf]: RF stream start variant; tail-calls helper at 0x114e84
 // rf_stream_start2_n26e [rf]: RF stream start variant; tail-calls helper at 0x114e84
-uint32_t * sub_11347C(int a1)
+uint32_t * mode_to_config_get(int a1)
 {
   uint32_t *result; // r0
   uint32_t *v2; // r4
@@ -24,10 +24,10 @@ uint32_t * sub_11347C(int a1)
   {
     case 1:
       v2 = rf_bus_write2_n1be;
-      v3 = sub_14380C(rf_bus_write2_n1be, rf_stream_start2_n2a8, 18);
-      if ( *((uint8_t *)rf_fault_dump_n_3ec + 370) && bt_ps_control(v3) )
+      v3 = memcpy_aligned(rf_bus_write2_n1be, rf_stream_start2_n2a8, 18);
+      if ( *((uint8_t *)rf_fault_dump_n_3ec + 370) && get_hw_info_bit9(v3) )
       {
-        v4 = sub_114E98();
+        v4 = get_hw_info_2();
         v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
         return v2;
       }

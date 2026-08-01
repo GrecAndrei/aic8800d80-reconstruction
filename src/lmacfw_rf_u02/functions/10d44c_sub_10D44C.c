@@ -12,8 +12,8 @@
 
 extern uint32_t off_10D470;
 
-// sub_10D44C @ 0x10d44c, size 36 bytes
-int sub_10D44C()
+// rf_phy_irq @ 0x10d44c, size 36 bytes
+int rf_phy_irq()
 {
   int v0; // r3
   int result; // r0
@@ -24,7 +24,7 @@ int sub_10D44C()
   if ( (v0 & 0x400) != 0 )
   {
     *((uint32_t *)off_10D470 + 2) = 0x40000;
-    return irq_nesting_or(0x20000000);
+    return set_busy_flag_alt(0x20000000);
   }
   return result;
 }

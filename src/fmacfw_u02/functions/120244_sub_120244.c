@@ -12,10 +12,10 @@
 
 extern uint32_t off_12026C;
 
-// sub_120244 @ 0x120244, size 40 bytes
+// get_radio_state @ 0x120244, size 40 bytes
 // Doc: obj_release_n252 [util]: Release/destroy wrapper object and free memory
 // obj_release_n252 [util]: Release/destroy wrapper object and free memory
-int  sub_120244(int result)
+int  get_radio_state(int result)
 {
   int v1; // r4
 
@@ -24,8 +24,8 @@ int  sub_120244(int result)
     v1 = result;
     if ( !*(uint32_t *)(result + 4) )
     {
-      timestamp_remove(result + 48);
-      return rf_cmd_dispatch_n_125(v1);
+      fault_handler(result + 48);
+      return llm_conn_active_check(v1);
     }
   }
   return result;

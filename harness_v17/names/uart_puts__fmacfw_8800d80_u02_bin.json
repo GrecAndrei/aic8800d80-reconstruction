@@ -1,1 +1,1 @@
-{"fn": "uart_puts", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d7b4", "status": "ok", "name": "uart_puts", "params": [], "docstring": "Write a NUL-terminated string to UART byte by byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "uart_puts", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d7b4", "status": "ok", "name": "read_memory_byte", "params": [], "docstring": "Write a NUL-terminated string to UART byte by byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

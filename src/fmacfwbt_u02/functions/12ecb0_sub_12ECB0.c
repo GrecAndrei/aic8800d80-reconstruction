@@ -15,8 +15,8 @@ extern uint32_t off_12ED34;
 extern uint32_t dword_12ED38;
 extern uint32_t dword_12ED3C;
 
-// sub_12ECB0 @ 0x12ecb0, size 128 bytes
-int sub_12ECB0(int result, ...)
+// ke_event_schedule @ 0x12ecb0, size 128 bytes
+int ke_event_schedule(int result, ...)
 {
   uint32_t *v1; // r6
   uint8_t *v2; // r4
@@ -49,7 +49,7 @@ int sub_12ECB0(int result, ...)
       if ( v6 > 0x89 )
       {
         if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
-          result = sub_12F694(v5, v4, 812);
+          result = mmio_irq_clear(v5, v4, 812);
         if ( v1[1] <= v6 - 154 )
           return result;
       }
@@ -60,7 +60,7 @@ int sub_12ECB0(int result, ...)
       result = (int)v2;
     }
     while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return sdio_transfer(result, (int)varg_r1);
+    return debug_printf(result, (int)varg_r1);
   }
   return result;
 }

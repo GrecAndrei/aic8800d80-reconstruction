@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_1c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121151c", "status": "ok", "name": "rf_bus_mark_n_1c4", "params": [], "docstring": "Mark RF bus register fields (bit-extract/write to offset 0x980/0x984)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_1c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121151c", "status": "ok", "name": "rf_bus_mark_n_1c3", "params": [], "docstring": "Mark RF bus register fields (bit-extract/write to offset 0x980/0x984)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

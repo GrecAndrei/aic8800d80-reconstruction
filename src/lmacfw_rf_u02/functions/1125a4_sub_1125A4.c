@@ -12,8 +12,8 @@
 
 extern uint32_t off_1125AC;
 
-// sub_1125A4 @ 0x1125a4, size 6 bytes
-int sub_1125A4()
+// util_read_status @ 0x1125a4, size 6 bytes
+int util_read_status()
 {
   return *(uint8_t *)off_1125AC;
 }

@@ -14,10 +14,10 @@ extern uint32_t off_12D890;
 extern uint32_t dword_12D898;
 extern uint32_t dword_12D894;
 
-// sub_12D82C @ 0x12d82c, size 100 bytes
+// mem_range_check @ 0x12d82c, size 100 bytes
 // Doc: sub_122D82C [util]: Memory copy/merge routine iterating over two-pointer range
 // sub_122D82C [util]: Memory copy/merge routine iterating over two-pointer range
-uint8_t * sub_12D82C(uint8_t *a1, int a2, int a3, uint16_t *a4)
+uint8_t * mem_range_check(uint8_t *a1, int a2, int a3, uint16_t *a4)
 {
   unsigned int v4; // r7
   unsigned int v5; // r12
@@ -57,7 +57,7 @@ uint8_t * sub_12D82C(uint8_t *a1, int a2, int a3, uint16_t *a4)
   {
 LABEL_13:
     if ( **(int16_t **)off_12D890 < 0 && (uint8_t *)v5 != a1 )
-      sub_12F49C(dword_12D898, dword_12D894, 127);
+      call_shared_handler(dword_12D898, dword_12D894, 127);
   }
   return 0;
 }

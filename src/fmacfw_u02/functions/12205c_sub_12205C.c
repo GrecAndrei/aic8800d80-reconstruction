@@ -19,10 +19,10 @@ extern uint32_t off_122108;
 extern uint32_t off_12210C;
 extern uint32_t dword_122114;
 
-// sub_12205C @ 0x12205c, size 168 bytes
+// test_23bit_flag @ 0x12205c, size 168 bytes
 // Doc: sub_1222060 [util]: Unknown utility helper at 0x1222060
 // sub_1222060 [util]: Unknown utility helper at 0x1222060
-int  sub_12205C(int a1, int a2)
+int  test_23bit_flag(int a1, int a2)
 {
   int v3; // r3
   int v4; // r2
@@ -43,7 +43,7 @@ int  sub_12205C(int a1, int a2)
     *((uint16_t *)off_122110 + 14) = 1793;
     v9[36] = 0;
     *((uint32_t *)v9 + 5) = a1;
-    result = timestamp_update(v10, v8 + 10000);
+    result = unknown_worker(v10, v8 + 10000);
     *(uint8_t *)(a1 + 115) = 0;
   }
   else
@@ -54,12 +54,12 @@ int  sub_12205C(int a1, int a2)
     if ( *(uint8_t *)(v4 + 1) == v3 )
     {
       *(uint8_t *)(a1 + 115) = 0;
-      feature_guard_check(1024, dword_122120);
-      return send_msg_to_host_c43(a1);
+      check_status_bits(1024, dword_122120);
+      return send_fw_cmd(a1);
     }
     else if ( *(uint8_t *)(a1 + 108) )
     {
-      return sub_12B2B0(*(uint8_t *)(a1 + 107), off_12211C, a1);
+      return link_get_connection_info(*(uint8_t *)(a1 + 107), off_12211C, a1);
     }
     else
     {
@@ -69,7 +69,7 @@ int  sub_12205C(int a1, int a2)
       if ( *((uint8_t *)off_122110 + 8) )
         --*((uint8_t *)off_122110 + 8);
       v5[14] = 1;
-      result = timestamp_remove(dword_122114);
+      result = fault_handler(dword_122114);
       *(uint32_t *)(a1 + 4) &= ~0x200u;
     }
   }

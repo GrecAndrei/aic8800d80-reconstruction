@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_wait_n_442", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b2e", "status": "ok", "name": "rf_cmd_wait_issue", "params": [], "docstring": "Issue a wait/delay command onto the RF command bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_wait_n_442", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b2e", "status": "ok", "name": "rf_bus_reset_n147", "params": [], "docstring": "Issue a wait/delay command onto the RF command bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

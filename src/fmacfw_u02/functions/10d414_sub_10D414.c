@@ -19,10 +19,10 @@ extern uint32_t dword_40021000;
 extern uint32_t dword_10D5A4;
 extern uint32_t dword_10D5A8;
 
-// sub_10D414 @ 0x10d414, size 378 bytes
+// read_global_halfword @ 0x10d414, size 378 bytes
 // Doc: sub_120D414 [ipc]: Reads global state flag and dispatches by value
 // sub_120D414 [ipc]: Reads global state flag and dispatches by value
-int  sub_10D414(int a1, int a2, int a3)
+int  read_global_halfword(int a1, int a2, int a3)
 {
   int *v6; // r1
   int result; // r0
@@ -34,7 +34,7 @@ int  sub_10D414(int a1, int a2, int a3)
   int v13; // r3
 
   if ( **(int16_t **)off_10D590 < 0 && a3 > 13 )
-    sub_12F46C(dword_10D5A0, dword_10D59C, 69);
+    mmio_clear_register(dword_10D5A0, dword_10D59C, 69);
   *(uint32_t *)(a2 + 32) = 0;
   if ( (__get_CPSR() & 1) == 0 )
   {

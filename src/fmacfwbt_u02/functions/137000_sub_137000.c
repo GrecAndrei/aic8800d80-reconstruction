@@ -12,16 +12,16 @@
 
 extern uint32_t dword_137020;
 
-// sub_137000 @ 0x137000, size 32 bytes
+// rf_cmd_txpwr_set @ 0x137000, size 32 bytes
 // Doc: sub_1237000 [ipc]: IPC/control message handler entry
 // sub_1237000 [ipc]: IPC/control message handler entry
-int  sub_137000(int a1, int a2, int a3, int16_t a4)
+int  rf_cmd_txpwr_set(int a1, int a2, int a3, int16_t a4)
 {
   int v4; // r0
 
-  v4 = rf_bus_setup_n3a8(4107, a4, 4, 1u);
-  sub_12CBB4(v4);
-  feature_guard_sdio(8, dword_137020);
+  v4 = bt_buf_alloc(4107, a4, 4, 1u);
+  hci_evt_send(v4);
+  state_check_feature(8, dword_137020);
   return 0;
 }
 

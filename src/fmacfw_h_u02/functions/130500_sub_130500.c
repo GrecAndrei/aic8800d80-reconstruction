@@ -13,8 +13,8 @@
 extern uint32_t off_130578;
 extern uint32_t dword_13057C;
 
-// sub_130500 @ 0x130500, size 120 bytes
-int  sub_130500(int *a1)
+// write_dash_header @ 0x130500, size 120 bytes
+int  write_dash_header(int *a1)
 {
   char *v1; // r4
   int16_t v2; // r3

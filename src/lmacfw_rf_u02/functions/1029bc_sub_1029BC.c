@@ -12,8 +12,8 @@
 
 extern uint32_t off_1029D8;
 
-// sub_1029BC @ 0x1029bc, size 26 bytes
-int sub_1029BC()
+// clock_get_divider @ 0x1029bc, size 26 bytes
+int clock_get_divider()
 {
   return (uint8_t)((1 << ((uint8_t)*(uint32_t *)off_1029D8 >> 4)) - 1);
 }

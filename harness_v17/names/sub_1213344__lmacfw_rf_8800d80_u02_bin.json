@@ -1,1 +1,1 @@
-{"fn": "sub_1213344", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213344", "status": "ok", "name": "fw_flag_is_set", "params": [], "docstring": "Return 1 if firmware flag byte is 0 or 1, else 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1213344", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213344", "status": "ok", "name": "is_radio_powered", "params": [], "docstring": "Return 1 if firmware flag byte is 0 or 1, else 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -13,8 +13,8 @@
 extern uint32_t dword_11C490;
 extern uint32_t off_11C494;
 
-// sub_11C448 @ 0x11c448, size 70 bytes
-unsigned int * sub_11C448(unsigned int *result)
+// sta_rate_status_check @ 0x11c448, size 70 bytes
+unsigned int * sta_rate_status_check(unsigned int *result)
 {
   int v1; // r2
   int v2; // r5
@@ -32,7 +32,7 @@ unsigned int * sub_11C448(unsigned int *result)
     while ( 1 )
     {
       v5 = v3++;
-      result = sub_11AF90(v5, *(uint32_t *)(HIDWORD(v4) + 36), v1);
+      result = rx_packet_type(v5, *(uint32_t *)(HIDWORD(v4) + 36), v1);
       if ( v3 == (unsigned int *)v4 )
         break;
       v1 = *(uint16_t *)(v2 + 1222);

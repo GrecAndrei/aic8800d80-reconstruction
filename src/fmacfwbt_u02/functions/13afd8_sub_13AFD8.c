@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13B018;
 
-// sub_13AFD8 @ 0x13afd8, size 64 bytes
-int * sub_13AFD8(int *result)
+// rf_get_pll_setting @ 0x13afd8, size 64 bytes
+int * rf_get_pll_setting(int *result)
 {
   int v1; // r5
 
@@ -21,7 +21,7 @@ int * sub_13AFD8(int *result)
   if ( v1 )
   {
     if ( *(uint8_t *)(v1 + 96) == 1 )
-      return bt_flag_check_init(
+      return check_radio_flag(
                (int)result,
                v1 + 80,
                result[18] - *((uint8_t *)result + 52) + 172,

@@ -1,1 +1,1 @@
-{"fn": "sub_1225C68", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1225c68", "status": "ok", "name": "sub_1225C68", "params": [], "docstring": "Initializes a data structure from global tables", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1225C68", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1225c68", "status": "ok", "name": "timer_process", "params": [], "docstring": "Initializes a data structure from global tables", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

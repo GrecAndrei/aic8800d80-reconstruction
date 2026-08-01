@@ -13,8 +13,8 @@
 extern uint32_t dword_13B930;
 extern uint32_t dword_13B934;
 
-// sub_13B8E4 @ 0x13b8e4, size 76 bytes
-uint8_t * sub_13B8E4(int a1)
+// get_table_entry_info @ 0x13b8e4, size 76 bytes
+uint8_t * get_table_entry_info(int a1)
 {
   uint8_t *result; // r0
   int v2; // r1

@@ -1,1 +1,1 @@
-{"fn": "sub_12197A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12197a4", "status": "ok", "name": "sub_12197A4", "params": [], "docstring": "Initialize LMAC subsystem, allocate and populate context buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12197A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12197a4", "status": "ok", "name": "ke_alloc_msg_0x81", "params": [], "docstring": "Initialize LMAC subsystem, allocate and populate context buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1173F4 @ 0x1173f4, size 48 bytes
-int  sub_1173F4(int a1)
+// phy_sleep_prepare @ 0x1173f4, size 48 bytes
+int  phy_sleep_prepare(int a1)
 {
   int v1; // r4
   int v2; // r5
@@ -25,8 +25,8 @@ int  sub_1173F4(int a1)
   {
     v3 = (uint8_t)v2;
     v5 = (uint8_t)v2++;
-    sub_118800(v3, v1, 0);
-    result = sub_118800(v5, v1 - 40, 0);
+    phy_dispatch(v3, v1, 0);
+    result = phy_dispatch(v5, v1 - 40, 0);
     v1 += 8;
   }
   while ( v2 != 5 );

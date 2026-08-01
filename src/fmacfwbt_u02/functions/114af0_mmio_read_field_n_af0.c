@@ -29,10 +29,10 @@ extern uint32_t off_114C84;
 extern uint32_t off_114C88;
 extern uint32_t off_114C94;
 
-// mmio_read_field_n_af0 @ 0x114af0, size 350 bytes
-// Doc: mmio_read_field_n_af0 [mmio]: Reads MMIO register and extracts shifted field value
-// mmio_read_field_n_af0 [mmio]: Reads MMIO register and extracts shifted field value
-void mmio_read_field_n_af0()
+// read_hw_status @ 0x114af0, size 350 bytes
+// Doc: read_hw_status [mmio]: Reads MMIO register and extracts shifted field value
+// read_hw_status [mmio]: Reads MMIO register and extracts shifted field value
+void read_hw_status()
 {
   int v0; // r3
   uint32_t *v1; // r7
@@ -66,7 +66,7 @@ void mmio_read_field_n_af0()
           goto LABEL_35;
       }
       if ( **(int16_t **)off_114C78 < 0 )
-        sub_12F694(dword_114C80, dword_114C7C, 209);
+        mmio_irq_clear(dword_114C80, dword_114C7C, 209);
     }
     else
     {
@@ -90,7 +90,7 @@ LABEL_8:
         if ( *((uint8_t *)v2 + 4) )
         {
           if ( **(int16_t **)off_114C78 < 0 )
-            sub_12F694(dword_114C80, dword_114C90, 316);
+            mmio_irq_clear(dword_114C80, dword_114C90, 316);
         }
         else
         {
@@ -155,7 +155,7 @@ LABEL_16:
     if ( (v0 & 0x4000000) != 0 )
     {
       *(uint32_t *)off_114C54 = 0x4000000;
-      sub_12F2F0(v0 << 12, v0 << 9);
+      task_poll_loop(v0 << 12, v0 << 9);
     }
     if ( (v0 & 0x8000000) != 0 )
     {
@@ -164,11 +164,11 @@ LABEL_16:
       *(uint32_t *)off_114C54 = 0x8000000;
       if ( v13 )
       {
-        fw_send_event_n_584();
+        ll_state_error_check();
       }
       else if ( v12[14] == 1 )
       {
-        message_dispatch_n270();
+        rx_descriptor_reset();
       }
     }
   }

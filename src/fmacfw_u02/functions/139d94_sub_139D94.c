@@ -16,8 +16,8 @@ extern uint32_t off_139EF0;
 extern uint32_t dword_139EEC;
 extern uint32_t dword_139EF4;
 
-// sub_139D94 @ 0x139d94, size 336 bytes
-int  sub_139D94(char *a1, char a2, int a3)
+// scan_parse_report @ 0x139d94, size 336 bytes
+int  scan_parse_report(char *a1, char a2, int a3)
 {
   char v4; // r3
   int v6; // r4
@@ -46,7 +46,7 @@ int  sub_139D94(char *a1, char a2, int a3)
   }
   v6 = (uint8_t)(v4 + 6);
   v7 = &a1[v6];
-  sub_143770(&v16, &a1[v6], 2);
+  memcpy(&v16, &a1[v6], 2);
   v8 = a1[4] & 1;
   if ( (a1[4] & 1) != 0 )
   {
@@ -62,7 +62,7 @@ int  sub_139D94(char *a1, char a2, int a3)
       v10 = (uint8_t)v7[11];
       if ( v10 == 2 )
       {
-        msg_parse(dword_139EE8, (uint8_t)v7[10], 2, 8);
+        event_dispatch(dword_139EE8, (uint8_t)v7[10], 2, 8);
         return v8;
       }
       if ( v10 == 17 )
@@ -73,7 +73,7 @@ int  sub_139D94(char *a1, char a2, int a3)
           && (uint8_t)*(v12 - 2) == 255
           && (uint8_t)*(v12 - 1) == 250 )
         {
-          msg_parse(dword_139EE4, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
+          event_dispatch(dword_139EE4, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
           return v8;
         }
       }

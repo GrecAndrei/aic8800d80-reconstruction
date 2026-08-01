@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A34C;
 
-// sub_12A2B4 @ 0x12a2b4, size 152 bytes
-uint8_t * sub_12A2B4(uint8_t *result, int a2)
+// rx_frame_process @ 0x12a2b4, size 152 bytes
+uint8_t * rx_frame_process(uint8_t *result, int a2)
 {
   int v2; // r5
   int v3; // r7
@@ -31,13 +31,13 @@ uint8_t * sub_12A2B4(uint8_t *result, int a2)
     v5 = 140 * v2;
     if ( v4[16] )
     {
-      timestamp_remove_058(dword_12A34C + 140 * v2);
+      ke_event_set_lock(dword_12A34C + 140 * v2);
       v4[16] = 0;
     }
     v6 = v3 + 140 * v2;
     if ( *(uint8_t *)(v6 + 64) )
     {
-      timestamp_remove_058(v5 + 48 + v3);
+      ke_event_set_lock(v5 + 48 + v3);
       *(uint8_t *)(v6 + 64) = 0;
     }
     v7 = (uint8_t *)(v3 + 140 * v2);
@@ -47,10 +47,10 @@ uint8_t * sub_12A2B4(uint8_t *result, int a2)
     v7[132] = 0;
     if ( v8 )
     {
-      timestamp_remove_058(v5 + 96 + v3);
+      ke_event_set_lock(v5 + 96 + v3);
       v7[114] = 0;
     }
-    return sub_129A28(v4);
+    return state_machine_step(v4);
   }
   return result;
 }

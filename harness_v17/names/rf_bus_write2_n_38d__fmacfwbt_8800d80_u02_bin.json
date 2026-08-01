@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_38d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116ea", "status": "ok", "name": "rf_bus_write2_n_38d", "params": [], "docstring": "Write 2 words to RF bus register window (32-bit MMIO write)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_38d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116ea", "status": "ok", "name": "rf_bus_reset2_n_16e", "params": [], "docstring": "Write 2 words to RF bus register window (32-bit MMIO write)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -24,8 +24,8 @@ extern uint32_t dword_106DB0;
 extern uint32_t off_106DB4;
 extern uint32_t off_106DB8;
 
-// sub_106BB4 @ 0x106bb4, size 468 bytes
-int *sub_106BB4()
+// clk_enable @ 0x106bb4, size 468 bytes
+int *clk_enable()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r6
@@ -45,7 +45,7 @@ int *sub_106BB4()
   v1 = off_106D90;
   v2 = (unsigned int *)off_106D94;
   *v0 &= ~0x20000u;
-  sub_100560(2);
+  write_timer_reg(2);
   v3 = off_106D98;
   v4 = dword_106D9C;
   *v0 |= 0x10000u;
@@ -62,7 +62,7 @@ int *sub_106BB4()
   *v3 |= 0x10000000u;
   *v3 = *v3 & 0xFC000FFF | 0x666000;
   *v3 = *v3 & 0xFFFFF000 | 0xC0;
-  sub_100560(10);
+  write_timer_reg(10);
   v6 = (unsigned int *)off_106DA4;
   v7 = off_106DA8;
   result = (int *)off_106DAC;

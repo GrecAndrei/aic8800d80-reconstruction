@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1150C0 @ 0x1150c0, size 70 bytes
+// syscall11_flash_write @ 0x1150c0, size 70 bytes
 // Doc: patch_apply_n_3fe [patch]: Applies a 3FE patch bit, sign-extending a scaled value into a byte
 // patch_apply_n_3fe [patch]: Applies a 3FE patch bit, sign-extending a scaled value into a byte
-int  sub_1150C0(char a1, uint8_t *a2)
+int  syscall11_flash_write(char a1, uint8_t *a2)
 {
   unsigned int v3; // r0
   unsigned int v4; // r3

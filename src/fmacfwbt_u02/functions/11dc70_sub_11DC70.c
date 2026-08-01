@@ -18,8 +18,8 @@ extern uint32_t off_11DD24;
 extern uint32_t off_11DD1C;
 extern uint32_t off_11DD18;
 
-// sub_11DC70 @ 0x11dc70, size 158 bytes
-int sub_11DC70()
+// tx_lock @ 0x11dc70, size 158 bytes
+int tx_lock()
 {
   uint16_t *v0; // r5
   int v1; // r4
@@ -34,7 +34,7 @@ int sub_11DC70()
 
   v0 = off_11DD10;
   v1 = *(uint32_t *)off_11DD10;
-  result = sub_12D374(0x200000);
+  result = set_system_flag_2(0x200000);
   if ( v1 )
   {
     v3 = (int *)off_11DD28;
@@ -43,7 +43,7 @@ int sub_11DC70()
     {
       if ( (*(uint8_t *)(v1 + 16) & 1) == 0 )
         ++v0[4];
-      sub_12D4F8(v0);
+      list_pop_front(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -56,7 +56,7 @@ int sub_11DC70()
         v5(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = rx_desc_status_get();
+        result = rf_tx_timestamp_check();
       if ( *v3 )
       {
         v6 = *v3 - 1;

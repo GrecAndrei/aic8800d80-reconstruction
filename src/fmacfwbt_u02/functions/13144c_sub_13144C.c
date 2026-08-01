@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13144C @ 0x13144c, size 40 bytes
-uint8_t * sub_13144C(uint8_t *a1, int a2, int a3)
+// rf_set_cal_u32_dc @ 0x13144c, size 40 bytes
+uint8_t * rf_set_cal_u32_dc(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
   char v5; // [sp+7h] [bp-1h] BYREF
 
-  result = sub_12E160(a1, a2, &v5);
+  result = parse_dollar_u16(a1, a2, &v5);
   if ( result )
     *(uint32_t *)(a3 + 220) = *(uint32_t *)(result + 3);
   else

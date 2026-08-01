@@ -16,10 +16,10 @@ extern uint32_t dword_126708;
 extern uint32_t dword_12670C;
 extern uint32_t dword_126704;
 
-// sub_126584 @ 0x126584, size 378 bytes
+// llm_scan_sm_execute @ 0x126584, size 378 bytes
 // Doc: sub_1226584 [mac]: Setup FMAC context from globals and arg descriptors
 // sub_1226584 [mac]: Setup FMAC context from globals and arg descriptors
-int  sub_126584(int a1, int a2, int a3)
+int  llm_scan_sm_execute(int a1, int a2, int a3)
 {
   uint32_t *v3; // r10
   int v4; // r5
@@ -54,10 +54,10 @@ int  sub_126584(int a1, int a2, int a3)
       break;
     v15 = (uint32_t *)v3[9];
     v16 = v15[1];
-    v17 = v16 + 4000 + sub_1019F0();
+    v17 = v16 + 4000 + get_constant_1000();
     if ( v8 != v15[2] )
     {
-      v17 += 4000 + sub_1019F0();
+      v17 += 4000 + get_constant_1000();
       if ( v15[3] )
         v17 += 10000;
     }
@@ -68,7 +68,7 @@ LABEL_18:
     v11 = 0;
 LABEL_20:
     if ( *(uint8_t *)(a1 + 1224) && *(uint8_t *)(dword_126708 + 140 * *(uint8_t *)(a1 + 1225) + 112) == 1 )
-      sub_126474(a1, a2, v11);
+      llm_scan_task_handler(a1, a2, v11);
     v19 = *(uint8_t *)(a1 + 106);
     if ( *(uint8_t *)(a1 + 106) )
     {
@@ -90,7 +90,7 @@ LABEL_20:
 LABEL_30:
       if ( (*(uint8_t *)(a1 + 85) & 1) != 0 )
       {
-        sub_12D2E8(dword_126704, v7);
+        cmd_handler_c(dword_126704, v7);
         *(uint8_t *)(a1 + 85) &= ~1u;
       }
     }
@@ -99,12 +99,12 @@ LABEL_30:
   if ( v9 && v8 != v9 )
   {
     v22 = v3[21];
-    v18 = (unsigned int)(a2 - v22 - 4000 - sub_1019F0()) >> 31;
+    v18 = (unsigned int)(a2 - v22 - 4000 - get_constant_1000()) >> 31;
     goto LABEL_18;
   }
 LABEL_5:
   *(uint32_t *)(a1 + 80) = a2;
-  v10 = sub_1019F0();
+  v10 = get_constant_1000();
   v11 = v3[4];
   v12 = a2 + 13999 + v10;
   if ( v11 )
@@ -119,7 +119,7 @@ LABEL_5:
                                                                                     * *(uint8_t *)(v11 + 8)
                                                                                     + 72) )
       {
-        if ( ipc_msg_size_compare(v7, v11) )
+        if ( timestamp_diff(v7, v11) )
           goto LABEL_20;
         v13 = *(uint32_t *)(v11 + 4);
       }
@@ -135,7 +135,7 @@ LABEL_5:
 LABEL_33:
     v11 = 0;
   }
-  result = sub_12D404(dword_126704, v11, v7);
+  result = list_find_node(dword_126704, v11, v7);
   *(uint8_t *)(a1 + 85) |= 1u;
   return result;
 }

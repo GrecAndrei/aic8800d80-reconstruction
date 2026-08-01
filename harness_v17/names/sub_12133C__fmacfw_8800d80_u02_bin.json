@@ -1,0 +1,1 @@
+{"fn": "sub_12133C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133c", "status": "ok", "name": "jump_to_12ad08", "params": [], "docstring": "Branch to common helper 0x12ad08.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

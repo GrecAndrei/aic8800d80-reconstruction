@@ -1,1 +1,1 @@
-{"fn": "sub_1214498", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214498", "status": "ok", "name": "sub_1214498", "params": [], "docstring": "Internal helper invoked from rf_fault_dump path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214498", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214498", "status": "ok", "name": "init_chip_state", "params": [], "docstring": "Internal helper invoked from rf_fault_dump path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

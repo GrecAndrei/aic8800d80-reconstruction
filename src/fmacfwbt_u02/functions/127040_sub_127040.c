@@ -29,8 +29,8 @@ extern uint32_t off_127240;
 extern uint32_t off_127234;
 extern uint32_t dword_127238;
 
-// sub_127040 @ 0x127040, size 484 bytes
-int sub_127040()
+// clear_tx_buffer @ 0x127040, size 484 bytes
+int clear_tx_buffer()
 {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
@@ -59,8 +59,8 @@ int sub_127040()
   v0 = off_127224;
   v1 = off_127228;
   v2 = *((uint32_t *)off_127224 + 11);
-  sub_102898((uint16_t *)(v2 + 4), 0);
-  sub_12C6AC(*(char *)(v2 + 12));
+  gpio_init((uint16_t *)(v2 + 4), 0);
+  util_format_string(*(char *)(v2 + 12));
   *(uint32_t *)off_12722C = v1[*(uint8_t *)(v2 + 4) + 5];
   if ( *(uint8_t *)(v2 + 24) == 3 )
   {
@@ -77,7 +77,7 @@ int sub_127040()
     v6 = 0;
     goto LABEL_7;
   }
-  v3 = (uint8_t *)sub_12CB54(68, 13, 0, 4);
+  v3 = (uint8_t *)bt_buf_alloc(68, 13, 0, 4);
   v4 = *(uint8_t *)(v2 + 24);
   *v3 = v4;
   if ( v4 == 4 )
@@ -94,7 +94,7 @@ int sub_127040()
   v3[1] = v5;
   v3[3] = 0;
   v3[2] = *(uint8_t *)(v2 + 26);
-  sub_12CBB4(v3);
+  hci_evt_send(v3);
   v7 = v0[10];
   if ( v7 )
   {
@@ -131,7 +131,7 @@ LABEL_8:
     goto LABEL_10;
   }
 LABEL_27:
-  sub_117EF8();
+  sleep_critical_exit();
   v16 = *(uint8_t *)(v2 + 24);
   if ( v16 > 2 )
   {
@@ -144,12 +144,12 @@ LABEL_29:
       v1[1] = v18;
       if ( v17 < 0 && *(uint32_t *)off_127260 << 28 )
       {
-        sub_12F6C4(dword_127268, dword_127264, 472);
+        mmio_field_update(dword_127268, dword_127264, 472);
         v18 = v1[1];
       }
       v19 = v18 | *v1;
       *(uint32_t *)off_12724C = v19;
-      sub_12CC38(141, 2, 255, v19);
+      hci_evt_alloc_send(141, 2, 255, v19);
       if ( *((uint8_t *)off_127250 + 3851) == 1 && !*((uint8_t *)off_127254 + 10) )
       {
         v20 = *(uint32_t **)off_127258;
@@ -182,10 +182,10 @@ LABEL_22:
     *((uint8_t *)v0 + 92) = (*(uint32_t *)off_12723C & 4) != 0;
     *v11 = v13 & 0xFFFFFFFB;
     v12[1] = v14;
-    return sub_12141C();
+    return write_pmu_control();
   }
 LABEL_10:
-  sub_126E94();
+  patch_mmio_write();
   v9 = *((uint32_t *)off_127234 + 2);
   if ( v9 )
   {
@@ -196,14 +196,14 @@ LABEL_10:
       {
         v9 = *(uint32_t *)v9;
         if ( !v9 )
-          return sub_12141C();
+          return write_pmu_control();
       }
       *(uint8_t *)(v10 + 32 * *(uint8_t *)(v9 + 107) + 31) = 1;
-      sub_12054C(v9);
+      wlc_bsscfg_detach(v9);
       v9 = *(uint32_t *)v9;
     }
     while ( v9 );
   }
-  return sub_12141C();
+  return write_pmu_control();
 }
 

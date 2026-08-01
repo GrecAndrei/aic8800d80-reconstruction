@@ -1,1 +1,1 @@
-{"fn": "sub_120D698", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d698", "status": "ok", "name": "mmio_reg_bit0_read", "params": [], "docstring": "Reads bit 0 of MMIO register at 0x40032014", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120D698", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d698", "status": "ok", "name": "uart_rx_ready", "params": [], "docstring": "Reads bit 0 of MMIO register at 0x40032014", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

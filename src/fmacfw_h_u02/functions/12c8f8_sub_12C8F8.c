@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12C8F8 @ 0x12c8f8, size 4 bytes
+// tx_process_jump @ 0x12c8f8, size 4 bytes
 // attributes: thunk
-int  sub_12C8F8(int a1)
+int  tx_process_jump(int a1)
 {
-  return sub_12CA88(a1);
+  return tx_pkt_process(a1);
 }
 

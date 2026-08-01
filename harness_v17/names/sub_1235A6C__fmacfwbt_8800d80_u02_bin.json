@@ -1,1 +1,1 @@
-{"fn": "sub_1235A6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235a6c", "status": "ok", "name": "sub_1235A6C", "params": [], "docstring": "Bluetooth task entry: dispatch handler using table lookup", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235A6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235a6c", "status": "ok", "name": "rf_check_status", "params": [], "docstring": "Bluetooth task entry: dispatch handler using table lookup", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

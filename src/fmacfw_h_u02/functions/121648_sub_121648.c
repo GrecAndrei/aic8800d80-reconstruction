@@ -24,8 +24,8 @@ extern uint32_t dword_1216F0;
 extern uint32_t dword_1216EC;
 extern uint32_t off_1216E4;
 
-// sub_121648 @ 0x121648, size 118 bytes
-unsigned int  sub_121648(int *a1)
+// rf_init @ 0x121648, size 118 bytes
+unsigned int  rf_init(int *a1)
 {
   uint32_t *v1; // r3
   uint32_t *v2; // r7
@@ -63,10 +63,10 @@ unsigned int  sub_121648(int *a1)
   *v10 = v11;
   if ( *v12 < 0 && *(uint32_t *)off_1216E8 << 28 )
   {
-    sub_12F35C(dword_1216F0, dword_1216EC, 472);
+    mmio_write_field(dword_1216F0, dword_1216EC, 472);
     v11 = *v10;
   }
   *(uint32_t *)off_1216E4 = v11 | v10[1];
-  return sub_11DF40(0);
+  return mmio_reg_update(0);
 }
 

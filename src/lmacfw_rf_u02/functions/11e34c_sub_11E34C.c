@@ -19,8 +19,8 @@ extern uint32_t dword_11E3F0;
 extern uint32_t dword_11E3F8;
 extern uint32_t dword_11E3E8;
 
-// sub_11E34C @ 0x11e34c, size 142 bytes
-int  sub_11E34C(unsigned int a1)
+// flash_write_byte @ 0x11e34c, size 142 bytes
+int  flash_write_byte(unsigned int a1)
 {
   int16_t **v1; // r6
   unsigned int v2; // r7
@@ -38,7 +38,7 @@ int  sub_11E34C(unsigned int a1)
   v7 = a1;
   if ( (uint8_t)a1 <= 4u )
     goto LABEL_5;
-  rf_cmd_send_n264(dword_11E3EC, dword_11E3E4, 210);
+  flash_ctrl_init(dword_11E3EC, dword_11E3E4, 210);
   if ( **v1 >= 0 )
   {
 LABEL_2:
@@ -54,11 +54,11 @@ LABEL_5:
   }
   else
   {
-    rf_cmd_send_n264(dword_11E3F4, dword_11E3F0, 183);
+    flash_ctrl_init(dword_11E3F4, dword_11E3F0, 183);
     if ( (v7 & 0xFC) == 0 )
       goto LABEL_12;
   }
-  rf_cmd_send_n264(dword_11E3F8, dword_11E3E4, 211);
+  flash_ctrl_init(dword_11E3F8, dword_11E3E4, 211);
 LABEL_12:
   if ( **v1 >= 0 )
     goto LABEL_2;
@@ -68,7 +68,7 @@ LABEL_6:
   v5 = 16 * v3;
   if ( *(uint16_t *)(v8 + 14) > v2 )
     return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
-  rf_cmd_send_n264(dword_11E3E8, dword_11E3E4, 212);
+  flash_ctrl_init(dword_11E3E8, dword_11E3E4, 212);
   return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
 }
 

@@ -13,10 +13,10 @@
 extern uint32_t off_11D7F4;
 extern uint32_t off_11D7F8;
 
-// fw_state_check @ 0x11d7d4, size 30 bytes
-// Doc: fw_state_check [util]: Reads firmware state flag byte for status check
-// fw_state_check [util]: Reads firmware state flag byte for status check
-int fw_state_check()
+// rf_counter_get @ 0x11d7d4, size 30 bytes
+// Doc: rf_counter_get [util]: Reads firmware state flag byte for status check
+// rf_counter_get [util]: Reads firmware state flag byte for status check
+int rf_counter_get()
 {
   uint8_t *v0; // r4
   unsigned int *v1; // r2

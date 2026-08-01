@@ -1,1 +1,1 @@
-{"fn": "log_hw_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d4a0", "status": "ok", "name": "log_hw_init", "params": [], "docstring": "Initialize logging hardware", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_hw_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d4a0", "status": "ok", "name": "event_loop", "params": [], "docstring": "Initialize logging hardware", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

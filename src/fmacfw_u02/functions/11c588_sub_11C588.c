@@ -13,10 +13,10 @@
 extern uint32_t dword_11C5D0;
 extern uint32_t off_11C5D4;
 
-// sub_11C588 @ 0x11c588, size 70 bytes
+// wait_channel_clear @ 0x11c588, size 70 bytes
 // Doc: sub_121C588 [unknown]: Unknown fmac helper function
 // sub_121C588 [unknown]: Unknown fmac helper function
-unsigned int * sub_11C588(unsigned int *result)
+unsigned int * wait_channel_clear(unsigned int *result)
 {
   int v1; // r2
   int v2; // r5
@@ -34,7 +34,7 @@ unsigned int * sub_11C588(unsigned int *result)
     while ( 1 )
     {
       v5 = v3++;
-      result = queue_process(v5, *(uint32_t *)(HIDWORD(v4) + 36), v1);
+      result = check_packet_type(v5, *(uint32_t *)(HIDWORD(v4) + 36), v1);
       if ( v3 == (unsigned int *)v4 )
         break;
       v1 = *(uint16_t *)(v2 + 1222);

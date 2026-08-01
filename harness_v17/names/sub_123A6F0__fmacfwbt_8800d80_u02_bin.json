@@ -1,1 +1,1 @@
-{"fn": "sub_123A6F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a6f0", "status": "ok", "name": "sub_123A6F0", "params": [], "docstring": "Initialize/reset a control struct fields at offset 0x24", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123A6F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a6f0", "status": "ok", "name": "rf_reset_tx_state", "params": [], "docstring": "Initialize/reset a control struct fields at offset 0x24", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_free_wrapper_f370 @ 0x10f370, size 12 bytes
-// Doc: log_free_wrapper_f370 [util]: Releases a log buffer (size 0x50) and signals completion
-// log_free_wrapper_f370 [util]: Releases a log buffer (size 0x50) and signals completion
-int  log_free_wrapper_f370(int a1, int a2)
+// ipc_send_message @ 0x10f370, size 12 bytes
+// Doc: ipc_send_message [util]: Releases a log buffer (size 0x50) and signals completion
+// ipc_send_message [util]: Releases a log buffer (size 0x50) and signals completion
+int  ipc_send_message(int a1, int a2)
 {
-  log_free_dispatch_2(a2);
+  is_controller_mode(a2);
   return 1;
 }
 

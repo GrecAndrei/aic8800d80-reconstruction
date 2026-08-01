@@ -1,1 +1,1 @@
-{"fn": "sub_1238958", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1238958", "status": "ok", "name": "idx_table_lookup_n3958", "params": [], "docstring": "Index into table field with byte index from struct header", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1238958", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1238958", "status": "ok", "name": "ke_msg_dispatch", "params": [], "docstring": "Index into table field with byte index from struct header", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

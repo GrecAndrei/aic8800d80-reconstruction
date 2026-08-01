@@ -28,8 +28,8 @@ extern uint32_t off_10C6E0;
 extern uint32_t off_10C6E4;
 extern uint32_t dword_10C6E8;
 
-// sub_10C5BC @ 0x10c5bc, size 238 bytes
-int sub_10C5BC()
+// peripheral_clock_config @ 0x10c5bc, size 238 bytes
+int peripheral_clock_config()
 {
   int *v0; // r2
   int *v1; // r0

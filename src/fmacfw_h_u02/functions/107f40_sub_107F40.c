@@ -14,8 +14,8 @@ extern uint32_t dword_1080A4;
 extern uint32_t dword_10809C;
 extern uint32_t dword_1080A0;
 
-// sub_107F40 @ 0x107f40, size 348 bytes
-int  sub_107F40(int a1, int *a2, uint32_t *a3)
+// mac_hw_queue_check @ 0x107f40, size 348 bytes
+int  mac_hw_queue_check(int a1, int *a2, uint32_t *a3)
 {
   int v4; // r3
   uint64_t v5; // kr08_8
@@ -44,8 +44,8 @@ int  sub_107F40(int a1, int *a2, uint32_t *a3)
   v6 = *(uint32_t *)(a1 + 12);
   if ( *(uint32_t *)a1 < v4 && v6 <= 49 )
   {
-    sub_12EB90(1, dword_1080A4);
-    sub_10779C((int)a2, a3, a1);
+    check_feature_flag(1, dword_1080A4);
+    pmu_configure((int)a2, a3, a1);
     v6 = *(uint32_t *)(a1 + 12);
   }
   if ( *(uint32_t *)(a1 + 16) - v6 >= a3[6] )
@@ -99,6 +99,6 @@ LABEL_8:
   }
 LABEL_9:
   *((uint64_t *)a2 + 1) = v14;
-  return sub_12EB90(1, dword_1080A0);
+  return check_feature_flag(1, dword_1080A0);
 }
 

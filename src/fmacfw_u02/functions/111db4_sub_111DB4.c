@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111DB4 @ 0x111db4, size 4 bytes
+// shared_call_check @ 0x111db4, size 4 bytes
 // attributes: thunk
-int * sub_111DB4(int *result, unsigned int a2)
+int * shared_call_check(int *result, unsigned int a2)
 {
-  return sub_111D44(result, a2);
+  return flash_erase_main(result, a2);
 }
 

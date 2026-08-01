@@ -72,10 +72,10 @@ extern uint32_t off_1067CC;
 extern uint32_t off_1067D0;
 extern uint32_t off_1067E4;
 
-// sub_105FD0 @ 0x105fd0, size 3010 bytes
+// prcm_start @ 0x105fd0, size 3010 bytes
 // Doc: sub_1205FD0 [rf]: Initializes RF calibration/lookup tables from constant pool
 // sub_1205FD0 [rf]: Initializes RF calibration/lookup tables from constant pool
-int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8)
+int  prcm_start(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8)
 {
   uint32_t *v8; // r9
   unsigned int *v9; // r8
@@ -372,8 +372,8 @@ int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
   *v33 |= 0x800000u;
   *v33 |= 0x400000u;
   *v32 &= ~0x100u;
-  sub_103640();
-  crypto_hw_reset_seq();
+  disable_bb_timer_irq();
+  bb_hw_init();
   v34 = off_106488;
   *(uint32_t *)off_106484 |= 0x10000000u;
   *v34 |= 0x18000000u;
@@ -428,11 +428,11 @@ int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v65 = (*(uint32_t *)off_106A60 >> 8) & 0xF;
       v66 = (v162 << 8) + dword_106A70;
       v165 = v66;
-      sub_11F74C(1, dword_106A74, *(uint32_t *)off_106A60, v162);
+      check_interrupt_flag(1, dword_106A74, *(uint32_t *)off_106A60, v162);
       *(uint32_t *)(a2 + 140) = *(uint32_t *)(a2 + 152);
-      crypto_table_copy_165d00(a2, 0);
+      load_device_desc(a2, 0);
       v67 = 0;
-      sub_11F74C(1, dword_106A78, *(uint32_t *)off_106A60, v65);
+      check_interrupt_flag(1, dword_106A78, *(uint32_t *)off_106A60, v65);
       v154 = v63;
       v68 = v65;
       v69 = v66 + 16 * v65;
@@ -446,7 +446,7 @@ int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v74 = 2 * v68;
       do
       {
-        sub_102ADC(1);
+        gpio_set_pin(1);
         if ( a7 == v154 )
         {
           *v70 = *v70 & v155 | ((v161 & v67) << v88);
@@ -458,11 +458,11 @@ int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
           *v70 |= (v153 & v67) << v88;
           *v71 |= (v67 >> v151) & v157;
         }
-        sub_102B40(1);
-        rf_adc_capture_n_a98((uint16_t)*a3, a2, v73, 0);
-        sub_11F74C(1, dword_106A7C, *a3, v67);
-        sub_11F74C(1, dword_106A84, (*(uint32_t *)off_106A80 >> 21) & 3, off_106A80);
-        sub_11F74C(1, dword_106A8C, (*(uint32_t *)off_106A88 >> 15) & 0xF, off_106A88);
+        gpio_clear_pin(1);
+        prcm_set_mask((uint16_t)*a3, a2, v73, 0);
+        check_interrupt_flag(1, dword_106A7C, *a3, v67);
+        check_interrupt_flag(1, dword_106A84, (*(uint32_t *)off_106A80 >> 21) & 3, off_106A80);
+        check_interrupt_flag(1, dword_106A8C, (*(uint32_t *)off_106A88 >> 15) & 0xF, off_106A88);
         if ( *(int16_t *)(a2 + v74) > v72 )
         {
           v72 = *(int16_t *)(a2 + v74);
@@ -491,8 +491,8 @@ int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
           }
         }
       }
-      sub_11F74C(1, dword_106A98, v160, v78);
-      sub_102ADC(1);
+      check_interrupt_flag(1, dword_106A98, v160, v78);
+      gpio_set_pin(1);
       v79 = v88;
       v89 = (v160 >> v151) & v157;
       v80 = (v153 & v160) << v79;
@@ -528,9 +528,9 @@ int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       }
       while ( v83 != v82 );
 LABEL_53:
-      sub_102B40(1);
-      sub_11F74C(1, dword_106B98, (*(uint32_t *)off_106B94 >> 21) & 3, off_106B94);
-      sub_11F74C(1, dword_106BA0, (*(uint32_t *)off_106B9C >> 15) & 0xF, off_106B9C);
+      gpio_clear_pin(1);
+      check_interrupt_flag(1, dword_106B98, (*(uint32_t *)off_106B94 >> 21) & 3, off_106B94);
+      check_interrupt_flag(1, dword_106BA0, (*(uint32_t *)off_106B9C >> 15) & 0xF, off_106B9C);
     }
     goto LABEL_28;
   }
@@ -542,10 +542,10 @@ LABEL_53:
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
     v76 = *v75;
-    crypto_table_copy_165d00(a2, 0);
+    load_device_desc(a2, 0);
     v77 = (v76 >> 8) & 0xF;
-    sub_11F74C(1, dword_106A90, *v75, v77);
-    rf_adc_capture_n_a98((uint16_t)*a3, a2, v77, 0);
+    check_interrupt_flag(1, dword_106A90, *v75, v77);
+    prcm_set_mask((uint16_t)*a3, a2, v77, 0);
     goto LABEL_28;
   }
   *(uint64_t *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
@@ -573,17 +573,17 @@ LABEL_19:
     *(uint32_t *)(a2 + 164) = v38;
     *v36 = v36[3];
     ++v36;
-    sub_105DCC(a1, v37, a5, a2, a6);
+    validate_handle(a1, v37, a5, a2, a6);
     *v32 &= ~0x200u;
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
-    crypto_table_copy_165d00(a2, v20);
+    load_device_desc(a2, v20);
     v39 = v35[1];
     ++v35;
-    rf_adc_capture_n_a98(v39, a2, v37, v20);
+    prcm_set_mask(v39, a2, v37, v20);
     v40 = v20;
     v41 = *(uint16_t *)(a2 + 2 * (v37 + 16 * v20++));
-    sub_105F40((uint32_t *)a2, v41, v40);
+    malloc_wrapper((uint32_t *)a2, v41, v40);
   }
   while ( v20 != 3 );
   v42 = *(uint32_t *)(a2 + 132);
@@ -596,16 +596,16 @@ LABEL_19:
     {
       while ( 1 )
       {
-        sub_105DCC(a1, v42, a5, a2, a6);
+        validate_handle(a1, v42, a5, a2, a6);
         v46 = *(uint32_t *)(a2 + 124);
         *v43 &= ~0x200u;
         *v43 |= 0x200u;
         *v43 &= ~0x200u;
         if ( v46 < v42 )
           break;
-        crypto_table_copy_165d00(a2, 2);
-        sub_11F74C(1, v45, *v44, v42);
-        rf_adc_capture_n_a98((uint16_t)a3[2], a2, v42, 2);
+        load_device_desc(a2, 2);
+        check_interrupt_flag(1, v45, *v44, v42);
+        prcm_set_mask((uint16_t)a3[2], a2, v42, 2);
         if ( *(uint32_t *)(a2 + 124) <= v42 )
           break;
 LABEL_26:
@@ -616,15 +616,15 @@ LABEL_26:
       }
       if ( *(uint32_t *)(a2 + 120) >= v42 )
       {
-        crypto_table_copy_165d00(a2, 1);
-        sub_11F74C(1, v45, *v44, v42);
-        rf_adc_capture_n_a98((uint16_t)a3[1], a2, v42, 1);
+        load_device_desc(a2, 1);
+        check_interrupt_flag(1, v45, *v44, v42);
+        prcm_set_mask((uint16_t)a3[1], a2, v42, 1);
         goto LABEL_26;
       }
 LABEL_23:
-      crypto_table_copy_165d00(a2, 0);
-      sub_11F74C(1, v45, *v44, v42);
-      rf_adc_capture_n_a98((uint16_t)*a3, a2, v42++, 0);
+      load_device_desc(a2, 0);
+      check_interrupt_flag(1, v45, *v44, v42);
+      prcm_set_mask((uint16_t)*a3, a2, v42++, 0);
     }
     while ( *(uint32_t *)(a2 + 112) >= v42 );
   }
@@ -636,7 +636,7 @@ LABEL_28:
   v51 = off_1067D4;
   *(uint32_t *)off_1067B0 = *(uint32_t *)off_1067B0 & 0xFFBFFFFF | (v150 << 22);
   *v47 = *v47 & 0xFFDFFFFF | (v149 << 21);
-  sub_103C6C();
+  disable_rx_path();
   v52 = off_1067B8;
   v53 = (unsigned int *)off_1067BC;
   v54 = (unsigned int *)off_1067E0;

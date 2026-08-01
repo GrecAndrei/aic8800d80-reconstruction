@@ -24,8 +24,8 @@ extern uint32_t off_1104D8;
 extern uint32_t dword_1104E0;
 extern uint32_t dword_1104DC;
 
-// sub_1103C4 @ 0x1103c4, size 258 bytes
-int  sub_1103C4(int result)
+// mac_tx_setup @ 0x1103c4, size 258 bytes
+int  mac_tx_setup(int result)
 {
   uint32_t *v1; // r4
   unsigned int v2; // r3
@@ -54,23 +54,23 @@ LABEL_2:
   v7 = (int *)off_1104D0;
   while ( v2 <= 1 )
   {
-    v8 = sub_1102A0();
+    v8 = mmio_read_1();
     if ( !v8 )
     {
-      result = sub_10DAE4(dword_1104EC, *(uint32_t *)off_1104E8);
+      result = debug_printf(dword_1104EC, *(uint32_t *)off_1104E8);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return sub_12CFC4(32);
+      return irq_disable_global_2(32);
     }
-    v9 = (int *)sub_11017C();
+    v9 = (int *)mmio_read_0();
     v10 = v9;
     if ( !v9 )
     {
-      sub_10DAE4(dword_1104F0);
-      result = sub_1102F0();
+      debug_printf(dword_1104F0);
+      result = mmio_write_2();
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
-      return sub_12CFC4(32);
+      return irq_disable_global_2(32);
     }
     *v9 = v8;
     v9[1] = 0;
@@ -94,7 +94,7 @@ LABEL_2:
       }
       else
       {
-        sub_10DAE4(dword_1104E4);
+        debug_printf(dword_1104E4);
         v11 = *v7;
       }
     }
@@ -102,7 +102,7 @@ LABEL_2:
     {
       if ( **(int16_t **)off_1104D8 < 0 && *v4 )
       {
-        sub_12F32C(dword_1104E0, dword_1104DC, 261);
+        irq_disable_mmio_write(dword_1104E0, dword_1104DC, 261);
         v11 = *v7;
       }
       *v4 = v10;

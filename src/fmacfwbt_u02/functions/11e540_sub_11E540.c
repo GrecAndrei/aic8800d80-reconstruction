@@ -16,10 +16,10 @@ extern uint32_t dword_11E60C;
 extern uint32_t dword_11E608;
 extern uint32_t off_11E600;
 
-// sub_11E540 @ 0x11e540, size 188 bytes
+// tx_timeout_check @ 0x11e540, size 188 bytes
 // Doc: sub_121E540 [bt]: BT mailbox handler reading header field then dispatching
 // sub_121E540 [bt]: BT mailbox handler reading header field then dispatching
-int  sub_11E540(int a1)
+int  tx_timeout_check(int a1)
 {
   int v1; // r4
   int v2; // r3
@@ -45,7 +45,7 @@ int  sub_11E540(int a1)
       v11 = dword_11E604;
       v12 = dword_11E60C;
       v13 = 393;
-      return sub_12F630(v12, v11, v13, v2);
+      return ke_int_lock(v12, v11, v13, v2);
     }
     v3 = *(uint32_t *)(a1 + 84);
     v4 = **(uint16_t **)(v1 + 8) & 0xFC;
@@ -55,14 +55,14 @@ int  sub_11E540(int a1)
       if ( (v3 & 0x2000) != 0 )
       {
         v14 = a1;
-        sub_11C4BC(a1);
+        rxreorder_process(a1);
         a1 = v14;
       }
     }
     else if ( v4 == 148 && (~v3 & 0x2002) == 0 )
     {
       v15 = a1;
-      bt_check_flag_n_3c0(a1, v3 & 0xFEFFFFFF, v3, 0);
+      ke_event_loop(a1, v3 & 0xFEFFFFFF, v3, 0);
       a1 = v15;
     }
     v5 = (*(uint32_t *)(v1 + 12) & 0xFFFFFFFC) + 4;
@@ -77,7 +77,7 @@ int  sub_11E540(int a1)
         v11 = dword_11E604;
         v12 = dword_11E608;
         v13 = 436;
-        return sub_12F630(v12, v11, v13, v2);
+        return ke_int_lock(v12, v11, v13, v2);
       }
     }
     v5 = a1 + 160;
@@ -92,6 +92,6 @@ int  sub_11E540(int a1)
   if ( !v8 )
     v9 += 0x80000000;
   v6[5] = v5 | v9;
-  return rx_desc_status_get(a1);
+  return rf_tx_timestamp_check(a1);
 }
 

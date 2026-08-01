@@ -12,8 +12,8 @@
 
 extern uint32_t dword_136BCC;
 
-// sub_136B68 @ 0x136b68, size 100 bytes
-int  sub_136B68(int result, int a2)
+// tx_handle_pending_flag @ 0x136b68, size 100 bytes
+int  tx_handle_pending_flag(int result, int a2)
 {
   int v3; // r3
   int v4; // r0
@@ -34,11 +34,11 @@ int  sub_136B68(int result, int a2)
     {
       *(uint8_t *)(a2 + 53) |= 2u;
 LABEL_5:
-      v4 = sub_12C92C(65, 0, 5, 4u);
+      v4 = ke_msg_alloc(65, 0, 5, 4u);
       *(uint16_t *)v4 = *(uint16_t *)(a2 + 32);
       *(uint8_t *)(v4 + 3) = *(uint8_t *)(a2 + 34);
       *(uint8_t *)(v4 + 2) = 1;
-      return sdio_buffer_prepare_n_4e8(v4);
+      return ke_msg_send(v4);
     }
   }
   return result;

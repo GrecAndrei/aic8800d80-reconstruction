@@ -14,8 +14,8 @@ extern uint32_t off_10079C;
 extern uint32_t off_1007A0;
 extern uint32_t off_100798;
 
-// sub_10076C @ 0x10076c, size 42 bytes
-uint32_t *sub_10076C()
+// gpio_pin_clear @ 0x10076c, size 42 bytes
+uint32_t *gpio_pin_clear()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

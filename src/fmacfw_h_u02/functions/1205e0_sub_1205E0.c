@@ -12,8 +12,8 @@
 
 extern uint32_t off_120638;
 
-// sub_1205E0 @ 0x1205e0, size 88 bytes
-uint32_t *sub_1205E0()
+// get_rf_state @ 0x1205e0, size 88 bytes
+uint32_t *get_rf_state()
 {
   uint8_t *v0; // r4
   int *v1; // r0
@@ -28,24 +28,24 @@ uint32_t *sub_1205E0()
 
   v0 = off_120638;
   if ( !*((uint8_t *)off_120638 + 2) )
-    sub_12B77C();
-  sub_120408();
-  sub_11F5E4();
-  v1 = sub_11ECB0();
-  v2 = sub_12AD00(v1);
-  v3 = sub_128DB8(v2);
-  sub_129E04(v3);
-  v4 = sub_116D3C();
+    rf_hw_init();
+  init_fw_config();
+  reset_controller_block();
+  v1 = controller_init_pools();
+  v2 = init_all_chan_entries(v1);
+  v3 = mfp_key_clear(v2);
+  rf_patch_init(v3);
+  v4 = system_init_seq();
   if ( v0[2] )
     v5 = nullsub_4(v4);
   else
-    v5 = sub_11D6BC();
-  v6 = sub_124BF0(v5);
-  v7 = sub_12B030(v6);
-  v8 = sub_1278DC(v7);
-  v9 = sub_12C1FC(v8);
-  sub_1255F4(v9);
-  sub_10F11C();
-  return sub_12047C();
+    v5 = dma_poll_status();
+  v6 = deinit_global_0x18fb00(v5);
+  v7 = reset_global_config(v6);
+  v8 = llc_env_init(v7);
+  v9 = deinit_bt_global_0x190688(v8);
+  init_bt_global_0x190310(v9);
+  ke_get_state();
+  return rf_phy_init();
 }
 

@@ -14,8 +14,8 @@ extern uint32_t dword_13BD54;
 extern uint32_t dword_13BD58;
 extern uint32_t dword_13BD5C;
 
-// sub_13BCE8 @ 0x13bce8, size 108 bytes
-int  sub_13BCE8(int result)
+// rf_pll_calibrate @ 0x13bce8, size 108 bytes
+int  rf_pll_calibrate(int result)
 {
   int v1; // r4
   int v2; // r5
@@ -39,9 +39,9 @@ int  sub_13BCE8(int result)
     {
       if ( *(uint8_t *)(v2 + 16) == v4 )
       {
-        sub_12CD34((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
+        rx_phy_status_parse((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(uint8_t *)(v2 + 25) = 0;
-        result = sub_13B698(v4, v2, 2, 0, 0, 39, v3);
+        result = adv_set_params(v4, v2, 2, 0, 0, 39, v3);
       }
     }
     v2 += 32;

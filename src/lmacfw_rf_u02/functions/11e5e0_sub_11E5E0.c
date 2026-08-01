@@ -14,8 +14,8 @@ extern uint32_t off_11E614;
 extern uint32_t off_11E618;
 extern uint32_t off_11E61C;
 
-// sub_11E5E0 @ 0x11e5e0, size 52 bytes
-int  sub_11E5E0(int a1)
+// set_busy_flag_alt @ 0x11e5e0, size 52 bytes
+int  set_busy_flag_alt(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

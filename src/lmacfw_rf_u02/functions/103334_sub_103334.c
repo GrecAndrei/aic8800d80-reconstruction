@@ -19,8 +19,8 @@ extern uint32_t off_1033B8;
 extern uint32_t off_1033BC;
 extern uint32_t off_1033B4;
 
-// sub_103334 @ 0x103334, size 112 bytes
-uint32_t *sub_103334()
+// save_rf_context @ 0x103334, size 112 bytes
+uint32_t *save_rf_context()
 {
   int v0; // r1
   int v1; // r2

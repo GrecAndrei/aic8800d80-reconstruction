@@ -20,10 +20,10 @@ extern uint32_t dword_11AE28;
 extern uint32_t dword_11AE2C;
 extern uint32_t off_11AE18;
 
-// sub_11AC74 @ 0x11ac74, size 406 bytes
+// dispatch_command @ 0x11ac74, size 406 bytes
 // Doc: sub_121AC74 [unknown]: Multi-register dispatcher with branch on input code (cmp r0, 5)
 // sub_121AC74 [unknown]: Multi-register dispatcher with branch on input code (cmp r0, 5)
-int  sub_11AC74(int result)
+int  dispatch_command(int result)
 {
   uint32_t *v1; // r5
   int16_t **v2; // r6
@@ -56,7 +56,7 @@ int  sub_11AC74(int result)
   v2 = (int16_t **)off_11AE10;
   v3 = (uint32_t *)v1[3];
   if ( **(int16_t **)off_11AE10 < 0 && !v3 )
-    result = sub_12F46C(dword_11AE20, dword_11AE1C, 3166);
+    result = mmio_clear_register(dword_11AE20, dword_11AE1C, 3166);
   while ( 1 )
   {
     v4 = v3[9];
@@ -88,7 +88,7 @@ LABEL_10:
   }
   else
   {
-    sub_12F46C(dword_11AE28, dword_11AE1C, 3182);
+    mmio_clear_register(dword_11AE28, dword_11AE1C, 3182);
     v6 = v3[17];
     v5 = **v2;
     v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11AE14 + 82));
@@ -99,7 +99,7 @@ LABEL_10:
   v9 = v7[9];
   if ( (v9 & 0x380000) == 0x380000 )
   {
-    sub_12F46C(dword_11AE2C, dword_11AE1C, 3192);
+    mmio_clear_register(dword_11AE2C, dword_11AE1C, 3192);
     v9 = v7[9];
   }
   v5 = **v2;
@@ -129,9 +129,9 @@ LABEL_11:
       goto LABEL_13;
   }
   if ( !v14 )
-    sub_12F46C(dword_11AE20, dword_11AE1C, 3217);
+    mmio_clear_register(dword_11AE20, dword_11AE1C, 3217);
 LABEL_13:
-  result = sub_11A940(v14, (int)&v18);
+  result = parse_rx_frame(v14, (int)&v18);
   if ( !result )
     return result;
   v16 = *v10;

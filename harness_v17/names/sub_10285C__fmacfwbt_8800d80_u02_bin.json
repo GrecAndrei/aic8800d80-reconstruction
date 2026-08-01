@@ -1,0 +1,1 @@
+{"fn": "sub_10285C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10285c", "status": "ok", "name": "flash_init", "params": [], "docstring": "Initialize flash-related state and call flash_cr_unlock", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

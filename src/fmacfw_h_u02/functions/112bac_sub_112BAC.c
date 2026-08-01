@@ -23,8 +23,8 @@ extern uint32_t dword_112E10;
 extern uint32_t dword_112E0C;
 extern uint32_t dword_112E2C;
 
-// sub_112BAC @ 0x112bac, size 594 bytes
-int sub_112BAC()
+// rf_helper @ 0x112bac, size 594 bytes
+int rf_helper()
 {
   uint32_t *v0; // r3
   int v1; // r2
@@ -70,7 +70,7 @@ int sub_112BAC()
   LODWORD(v3) = v2 << 19;
   if ( (v2 & 0x1000) != 0 )
   {
-    LODWORD(v3) = sub_1128A8();
+    LODWORD(v3) = phy_is_calibrated();
     v4 = v2 & 0x2000;
     if ( (v2 & 0x2000) == 0 )
       return v3;
@@ -127,11 +127,11 @@ LABEL_3:
           if ( (v21 & 0x18) != 0 )
           {
             v8[516] &= ~0x10u;
-            sub_111ADC(0, 0x200000, 0);
+            unknown_handler2(0, 0x200000, 0);
           }
           else if ( (v21 & 1) != 0 )
           {
-            sub_1120E8(v3);
+            wlan_reset(v3);
           }
           goto LABEL_14;
         }
@@ -147,7 +147,7 @@ LABEL_3:
             v35 = *(uint32_t *)(v9 - 16);
             v31 = (v5 & 1) == 0;
             if ( (v5 & 1) == 0 )
-              sub_111C04((int *)1, (uint8_t)v10);
+              set_hw_cfg_a((int *)1, (uint8_t)v10);
             LODWORD(v3) = sub_100200((int *)(v9 - 16), 0, 0x10u);
             v13 = *(int ( **)(int, int, BOOL))(dword_112E08 + 4 * v10 + 52);
             if ( v13 )
@@ -156,7 +156,7 @@ LABEL_3:
         }
         else
         {
-          LODWORD(v3) = sub_10DAE4(dword_112E10);
+          LODWORD(v3) = debug_printf(dword_112E10);
         }
       }
       if ( (uint8_t)v10 == 5 )
@@ -185,12 +185,12 @@ LABEL_14:
           if ( (v20 & 0x10) != 0 )
           {
             v14[517] &= ~0x10u;
-            LODWORD(v3) = sub_111A24(0, 0x200000, 0);
+            LODWORD(v3) = unknown_handler(0, 0x200000, 0);
           }
           else if ( (v20 & 0x29) != 0 )
           {
             LODWORD(v3) = 0;
-            LODWORD(v3) = sub_1120E8(v3);
+            LODWORD(v3) = wlan_reset(v3);
           }
           goto LABEL_19;
         }
@@ -219,7 +219,7 @@ LABEL_19:
   }
   if ( v7 )
   {
-    LODWORD(v3) = sub_112B24(v3, SHIDWORD(v3), v5);
+    LODWORD(v3) = wlan_get_state(v3, SHIDWORD(v3), v5);
     if ( v4 >= 0 )
       return v3;
   }
@@ -227,7 +227,7 @@ LABEL_19:
   {
     return v3;
   }
-  LODWORD(v3) = sub_112B68(v3, SHIDWORD(v3), v5);
+  LODWORD(v3) = mac_get_int_status(v3, SHIDWORD(v3), v5);
   return v3;
 }
 

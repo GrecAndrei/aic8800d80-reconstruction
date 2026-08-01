@@ -14,8 +14,8 @@ extern uint32_t dword_1317D4;
 extern uint32_t off_1317D8;
 extern uint32_t off_1317DC;
 
-// sub_1316E4 @ 0x1316e4, size 238 bytes
-int  sub_1316E4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// log_bt_event @ 0x1316e4, size 238 bytes
+int  log_bt_event(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int v6; // r2
@@ -36,7 +36,7 @@ int  sub_1316E4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   int v21; // r3
   int v22; // r2
 
-  v5 = sub_12C7EC(5135, a4, a3, 0xC8u);
+  v5 = tx_send_pdu(5135, a4, a3, 0xC8u);
   v6 = *a2;
   v7 = v5;
   v8 = *(uint32_t *)(dword_1317D4 + 696 * v6 + 340);
@@ -52,14 +52,14 @@ int  sub_1316E4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     *(uint16_t *)(v7 + 6) = v11;
     *(uint8_t *)(v7 + 12) = *(uint8_t *)(v8 + 168);
     *(uint8_t *)(v7 + 13) = *(uint16_t *)(v8 + 152);
-    sub_143630(v7 + 14, v8 + 136, 8);
-    sub_143630(v7 + 22, v8 + 4, 120);
+    memcpy(v7 + 14, v8 + 136, 8);
+    memcpy(v7 + 22, v8 + 4, 120);
     if ( *(uint16_t *)(v8 + 184) )
     {
       v12 = 0;
       do
       {
-        v13 = sub_13F370(v8, (uint8_t)v12, 0);
+        v13 = util_find_magic(v8, (uint8_t)v12, 0);
         v14 = *(uint16_t *)(v8 + 184);
         *(uint32_t *)(v7 + 4 * v12++ + 156) = v13;
       }
@@ -78,7 +78,7 @@ int  sub_1316E4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     *(uint32_t *)(v7 + 146) = v15;
     *(uint32_t *)(v7 + 150) = v16;
     *v17 = v18 + 1;
-    v19 = sub_13F370(v8, 10, 0);
+    v19 = util_find_magic(v8, 10, 0);
     v20 = *v17;
     *(uint32_t *)(v7 + 196) = v19;
     if ( v20 )
@@ -92,13 +92,13 @@ int  sub_1316E4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
           __enable_irq();
       }
     }
-    sub_12C84C(v7);
+    rx_process_packet(v7);
     return 0;
   }
   else
   {
     *(uint16_t *)(v5 + 2) = 0;
-    sub_12C84C(v5);
+    rx_process_packet(v5);
     return 0;
   }
 }

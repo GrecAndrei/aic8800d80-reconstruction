@@ -21,8 +21,8 @@ extern uint32_t off_1295AC;
 extern uint32_t off_1295B4;
 extern uint32_t off_1295B0;
 
-// sub_1294F8 @ 0x1294f8, size 150 bytes
-void  sub_1294F8(int a1)
+// rf_isr @ 0x1294f8, size 150 bytes
+void  rf_isr(int a1)
 {
   uint8_t *v1; // r2
   int v2; // r3
@@ -46,7 +46,7 @@ void  sub_1294F8(int a1)
           v5 = *(uint16_t *)(*(uint32_t *)off_12959C + 54);
           *((uint32_t *)off_129590 + 5) = v3;
           v1[29] = 3;
-          sub_124F60((int)(v1 + 12), v4 + v5);
+          ke_event_lock((int)(v1 + 12), v4 + v5);
           if ( (*(uint32_t *)off_1295A4 & 4) != 0 )
           {
             if ( *((uint8_t *)off_1295A8 + 190) )
@@ -59,7 +59,7 @@ void  sub_1294F8(int a1)
                 *v6 &= ~0x80u;
               }
             }
-            sub_1290C4();
+            mm_beacon_irq();
           }
         }
       }

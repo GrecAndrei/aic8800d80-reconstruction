@@ -12,11 +12,11 @@
 
 extern uint32_t dword_122EF4;
 
-// sub_122ED4 @ 0x122ed4, size 32 bytes
-int  sub_122ED4(int a1, int a2, int a3, int a4)
+// send_le_conn_update @ 0x122ed4, size 32 bytes
+int  send_le_conn_update(int a1, int a2, int a3, int a4)
 {
   *(uint16_t *)(dword_122EF4 + 1320 * *(uint8_t *)(a2 + 2) + 1222) = *(uint16_t *)a2;
-  message_dispatch_n84(112, a4, a3, a4);
+  hci_evt_alloc_send(112, a4, a3, a4);
   return 0;
 }
 

@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_154_5394 @ 0x115394, size 10 bytes
+// ioctl_cmd_0x20 @ 0x115394, size 10 bytes
 // Doc: patch_apply_n_150 [patch]: Apply behavioral patch slot 150 (NOP filler)
 // patch_apply_n_150 [patch]: Apply behavioral patch slot 150 (NOP filler)
-int  patch_apply_n_154_5394(int a1)
+int  ioctl_cmd_0x20(int a1)
 {
-  return patch_apply_526c(32, a1, 4u);
+  return ioctl_dispatch(32, a1, 4u);
 }
 

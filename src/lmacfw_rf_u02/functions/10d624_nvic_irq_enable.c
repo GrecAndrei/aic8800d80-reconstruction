@@ -12,10 +12,10 @@
 
 extern uint32_t off_10D638;
 
-// nvic_irq_enable @ 0x10d624, size 20 bytes
-// Doc: nvic_irq_enable [util]: Enable NVIC interrupt 15 via ISER/ICER at 0xE000E100
-// nvic_irq_enable [util]: Enable NVIC interrupt 15 via ISER/ICER at 0xE000E100
-void nvic_irq_enable()
+// trace_sync @ 0x10d624, size 20 bytes
+// Doc: trace_sync [util]: Enable NVIC interrupt 15 via ISER/ICER at 0xE000E100
+// trace_sync [util]: Enable NVIC interrupt 15 via ISER/ICER at 0xE000E100
+void trace_sync()
 {
   *((uint32_t *)off_10D638 + 32) = 0x8000;
   __dsb(0xFu);

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11E840 @ 0x11e840, size 70 bytes
-int  sub_11E840(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *))
+// list_foreach @ 0x11e840, size 70 bytes
+int  list_foreach(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *))
 {
   uint32_t *v3; // r4
   uint32_t *v4; // r7

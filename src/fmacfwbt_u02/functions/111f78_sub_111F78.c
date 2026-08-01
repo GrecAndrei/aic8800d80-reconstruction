@@ -16,8 +16,8 @@ extern uint32_t dword_112020;
 extern uint32_t dword_112024;
 extern uint32_t dword_112028;
 
-// sub_111F78 @ 0x111f78, size 162 bytes
-int  sub_111F78(int a1, int a2, unsigned int a3)
+// ke_msg_handler_b @ 0x111f78, size 162 bytes
+int  ke_msg_handler_b(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -35,7 +35,7 @@ int  sub_111F78(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA7C(dword_11202C);
+    printf_wrapper(dword_11202C);
     return 3;
   }
   else

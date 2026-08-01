@@ -12,10 +12,10 @@
 
 extern uint32_t dword_122058;
 
-// sub_122034 @ 0x122034, size 36 bytes
+// pack_high_byte @ 0x122034, size 36 bytes
 // Doc: fw_state_get_1222036 [util]: FW state getter, reads from 0x16899c control block
 // fw_state_get_1222036 [util]: FW state getter, reads from 0x16899c control block
-int  sub_122034(int result, int a2)
+int  pack_high_byte(int result, int a2)
 {
   int v2; // r4
 
@@ -26,8 +26,8 @@ int  sub_122034(int result, int a2)
   }
   else
   {
-    feature_guard_check(1024, dword_122058);
-    return send_msg_to_host_c43(v2);
+    check_status_bits(1024, dword_122058);
+    return send_fw_cmd(v2);
   }
   return result;
 }

@@ -1,1 +1,1 @@
-{"fn": "sub_121EA44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121ea44", "status": "ok", "name": "rf_bus_setup_n39a_ea44", "params": [], "docstring": "Configure RF bus register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "sub_121EA44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121ea44", "status": "ok", "name": "rx_packet_setup", "params": [], "docstring": "Configure RF bus register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

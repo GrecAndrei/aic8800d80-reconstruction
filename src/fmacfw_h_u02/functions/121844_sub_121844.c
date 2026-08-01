@@ -18,8 +18,8 @@ extern uint32_t off_121928;
 extern uint32_t off_12192C;
 extern uint32_t dword_121930;
 
-// sub_121844 @ 0x121844, size 212 bytes
-int  sub_121844(int a1)
+// rf_is_ready @ 0x121844, size 212 bytes
+int  rf_is_ready(int a1)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3
@@ -80,7 +80,7 @@ int  sub_121844(int a1)
       {
         v19 = dword_121930;
         v1[10] = v4;
-        sub_124BFC(v19, v10 + 100);
+        mem_copy_util(v19, v10 + 100);
         goto LABEL_12;
       }
     }
@@ -91,7 +91,7 @@ int  sub_121844(int a1)
         v17 = v10 + v2 - v11;
         v18 = dword_121930;
         v1[10] = v4;
-        sub_124BFC(v18, v17);
+        mem_copy_util(v18, v17);
         goto LABEL_12;
       }
       if ( v3 + 100 > v2 - v9 )
@@ -99,7 +99,7 @@ int  sub_121844(int a1)
         v12 = v10 - v11;
         v13 = dword_121930;
         v1[10] = v4;
-        sub_124BFC(v13, v12);
+        mem_copy_util(v13, v12);
 LABEL_12:
         if ( *v5 )
         {
@@ -115,7 +115,7 @@ LABEL_12:
         return v4;
       }
     }
-    sub_12034C(v4);
+    alloc_shared_packet(v4);
     goto LABEL_12;
   }
   return 0;

@@ -1,1 +1,1 @@
-{"fn": "sub_12164E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12164e0", "status": "ok", "name": "bt_table_lookup_n_64e", "params": [], "docstring": "Lookup entry in BT table by indexed offset", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12164E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12164e0", "status": "ok", "name": "set_callback_arg", "params": [], "docstring": "Lookup entry in BT table by indexed offset", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

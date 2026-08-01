@@ -13,8 +13,8 @@
 extern uint32_t off_1270AC;
 extern uint32_t off_1270B0;
 
-// sub_127080 @ 0x127080, size 44 bytes
-int sub_127080()
+// ctrl_timer_tick @ 0x127080, size 44 bytes
+int ctrl_timer_tick()
 {
   char v0; // r3
   int result; // r0
@@ -26,8 +26,8 @@ int sub_127080()
     if ( !v0 && *(uint8_t *)off_1270B0 == 1 )
     {
       *(uint8_t *)off_1270B0 = 0;
-      sub_121AE4();
-      return sub_127048();
+      shared_s16_worker();
+      return ctrl_check_flags();
     }
   }
   return result;

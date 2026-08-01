@@ -13,10 +13,10 @@
 extern uint32_t off_114290;
 extern uint32_t off_114294;
 
-// rf_event_handler_n258 @ 0x114258, size 54 bytes
-// Doc: rf_event_handler_n258 [rf]: RF event/IRQ dispatch handler, lmacfw rf context
-// rf_event_handler_n258 [rf]: RF event/IRQ dispatch handler, lmacfw rf context
-int rf_event_handler_n258()
+// ke_event_schedule_alt @ 0x114258, size 54 bytes
+// Doc: ke_event_schedule_alt [rf]: RF event/IRQ dispatch handler, lmacfw rf context
+// ke_event_schedule_alt [rf]: RF event/IRQ dispatch handler, lmacfw rf context
+int ke_event_schedule_alt()
 {
   int *v0; // r4
   int result; // r0

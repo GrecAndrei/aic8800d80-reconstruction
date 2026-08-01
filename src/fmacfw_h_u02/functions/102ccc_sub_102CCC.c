@@ -18,8 +18,8 @@ extern uint32_t dword_102DF0;
 extern uint32_t off_102DF4;
 extern uint32_t qword_102DFC;
 
-// sub_102CCC @ 0x102ccc, size 282 bytes
-int  sub_102CCC(int a1, uint16_t *a2)
+// uart_driver_send @ 0x102ccc, size 282 bytes
+int  uart_driver_send(int a1, uint16_t *a2)
 {
   unsigned int v4; // r11
   int v5; // r9
@@ -48,7 +48,7 @@ int  sub_102CCC(int a1, uint16_t *a2)
   while ( !*(uint32_t *)off_102DE8 )
     ;
   v4 = 0;
-  sub_102BF8(0);
+  rf_clear_control_bit_a(0);
   v5 = dword_102E04;
   v6 = dword_102DF8;
   v23 = 0;
@@ -67,14 +67,14 @@ LABEL_4:
   do
   {
     v11 = *v8;
-    sub_12EB90(0x2000, v5);
+    check_feature_flag(0x2000, v5);
     v12 = v10[1];
     ++v10;
     v13 = dword_102DF0;
     *v8 = v11 & v6 | (v12 << 11);
     v8 += 8;
     ++v9;
-    sub_12EB90(0x2000, v13);
+    check_feature_flag(0x2000, v13);
   }
   while ( v9 != 16 );
   if ( v4 <= 1 )
@@ -83,7 +83,7 @@ LABEL_4:
   if ( (uint16_t)v4 != 5 )
     goto LABEL_4;
 LABEL_10:
-  result = sub_102C5C(0);
+  result = rf_clear_control_bit_b(0);
   *(uint32_t *)off_102DE8 = 1;
   if ( v23 )
   {

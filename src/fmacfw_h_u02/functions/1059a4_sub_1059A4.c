@@ -16,8 +16,8 @@ extern uint32_t dword_105A74;
 extern uint32_t dword_105A7C;
 extern uint32_t dword_105A78;
 
-// sub_1059A4 @ 0x1059a4, size 206 bytes
-int  sub_1059A4(unsigned int a1, int a2, int a3)
+// dma_rx_init @ 0x1059a4, size 206 bytes
+int  dma_rx_init(unsigned int a1, int a2, int a3)
 {
   int v5; // r5
   int v6; // r8
@@ -45,7 +45,7 @@ int  sub_1059A4(unsigned int a1, int a2, int a3)
     v9 = 15;
   else
     v9 = 13;
-  result = sub_12EB90(1, dword_105A74);
+  result = check_feature_flag(1, dword_105A74);
   do
   {
     if ( a1 )
@@ -53,12 +53,12 @@ int  sub_1059A4(unsigned int a1, int a2, int a3)
       if ( ((1 << v5) & a1) >> v5 == 1 )
       {
         *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148)) = v5;
-        sub_12EB90(1, v6);
+        check_feature_flag(1, v6);
         v13 = ((1 << v5) & a1) >> v5;
         v14 = *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148));
         if ( v14 < v8 )
         {
-          result = sub_12EB90(v13, v7);
+          result = check_feature_flag(v13, v7);
           v12 = *(uint32_t *)(a2 + 624);
           if ( !v12 )
           {
@@ -68,7 +68,7 @@ int  sub_1059A4(unsigned int a1, int a2, int a3)
         }
         else if ( v14 > v9 )
         {
-          result = sub_12EB90(v13, v7);
+          result = check_feature_flag(v13, v7);
           v12 = *(uint32_t *)(a2 + 624);
           if ( !v12 )
           {
@@ -78,7 +78,7 @@ int  sub_1059A4(unsigned int a1, int a2, int a3)
         }
         else
         {
-          result = sub_12EB90(v13, dword_105A7C);
+          result = check_feature_flag(v13, dword_105A7C);
           v15 = *(uint32_t *)(a2 + 624);
           v16 = v15 + 148;
           v12 = v15 + 1;
@@ -90,7 +90,7 @@ int  sub_1059A4(unsigned int a1, int a2, int a3)
     }
     else
     {
-      result = sub_12E948(dword_105A78, v11, v12);
+      result = alloc_tx_event(dword_105A78, v11, v12);
     }
     ++v5;
   }

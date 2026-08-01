@@ -12,8 +12,8 @@
 
 extern uint32_t dword_11AD7C;
 
-// sub_11AD40 @ 0x11ad40, size 58 bytes
-int  sub_11AD40(int result)
+// llc_conn_timer_tick @ 0x11ad40, size 58 bytes
+int  llc_conn_timer_tick(int result)
 {
   int v1; // r5
   int v2; // r1
@@ -28,7 +28,7 @@ int  sub_11AD40(int result)
     v4 = result;
     *(uint8_t *)(v2 + 14) = v3;
     if ( !v3 )
-      list_push_tail(*(uint32_t *)(v2 + 340));
+      check_abort_flag(*(uint32_t *)(v2 + 340));
     *(uint32_t *)(v1 + 84 * v4 + 40) = 0;
     return 84;
   }

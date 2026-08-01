@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// mmio_read_backoff_window @ 0x1032e8, size 14 bytes
-// Doc: mmio_read_backoff_window [mmio]: Read backoff/window register from MMIO 0x40501000
-// mmio_read_backoff_window [mmio]: Read backoff/window register from MMIO 0x40501000
-int  mmio_read_backoff_window(int result)
+// get_controller_state @ 0x1032e8, size 14 bytes
+// Doc: get_controller_state [mmio]: Read backoff/window register from MMIO 0x40501000
+// get_controller_state [mmio]: Read backoff/window register from MMIO 0x40501000
+int  get_controller_state(int result)
 {
   while ( result )
     ;

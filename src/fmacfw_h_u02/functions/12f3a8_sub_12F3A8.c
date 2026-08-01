@@ -12,8 +12,8 @@
 
 extern uint32_t off_12F3C4;
 
-// sub_12F3A8 @ 0x12f3a8, size 26 bytes
-int *sub_12F3A8()
+// lock_init_0x18274c @ 0x12f3a8, size 26 bytes
+int *lock_init_0x18274c()
 {
   uint64_t *v0; // r4
   int *result; // r0

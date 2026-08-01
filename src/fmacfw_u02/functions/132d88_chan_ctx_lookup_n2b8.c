@@ -19,10 +19,10 @@ extern uint32_t dword_132FAC;
 extern uint32_t dword_132FB0;
 extern uint32_t dword_132FA0;
 
-// chan_ctx_lookup_n2b8 @ 0x132d88, size 526 bytes
-// Doc: chan_ctx_lookup_n2b8 [mac]: Look up per-channel context entry (stride 0x2b8)
-// chan_ctx_lookup_n2b8 [mac]: Look up per-channel context entry (stride 0x2b8)
-int  chan_ctx_lookup_n2b8(int a1, unsigned int a2)
+// bt_get_conn_entry @ 0x132d88, size 526 bytes
+// Doc: bt_get_conn_entry [mac]: Look up per-channel context entry (stride 0x2b8)
+// bt_get_conn_entry [mac]: Look up per-channel context entry (stride 0x2b8)
+int  bt_get_conn_entry(int a1, unsigned int a2)
 {
   int v2; // r7
   int v4; // r0
@@ -59,7 +59,7 @@ int  chan_ctx_lookup_n2b8(int a1, unsigned int a2)
   {
     v7 = (uint16_t *)off_132FB4;
     if ( **(int16_t **)off_132F9C < 0 && (*((uint8_t *)off_132FB4 + 374) & 4) == 0 )
-      sub_12F46C(dword_132FA8, dword_132FA4, 1328);
+      mmio_clear_register(dword_132FA8, dword_132FA4, 1328);
     v8 = 14;
     v9 = 7;
     do
@@ -92,7 +92,7 @@ int  chan_ctx_lookup_n2b8(int a1, unsigned int a2)
     if ( (*(uint32_t *)(v4 + 4) & 4) != 0 )
     {
       if ( v22 < 0 && (*((uint8_t *)off_132FB4 + 374) & 2) == 0 )
-        sub_12F46C(dword_132FAC, dword_132FA4, 1341);
+        mmio_clear_register(dword_132FAC, dword_132FA4, 1341);
       v23 = 14;
       v24 = 7;
       do
@@ -120,7 +120,7 @@ int  chan_ctx_lookup_n2b8(int a1, unsigned int a2)
     }
     else if ( v22 < 0 && (*((uint8_t *)off_132FB4 + 374) & 1) == 0 )
     {
-      sub_12F46C(dword_132FB0, dword_132FA4, 1352);
+      mmio_clear_register(dword_132FB0, dword_132FA4, 1352);
     }
   }
   v16 = (uint8_t *)(v2 + 696 * a1);
@@ -136,7 +136,7 @@ int  chan_ctx_lookup_n2b8(int a1, unsigned int a2)
   if ( v19 >= v17 )
     LOBYTE(v19) = v17;
   v16[309] = v19;
-  result = scan_chan_lookup_n2b8(v18);
+  result = ble_ll_conn_sm_get_by_handle(v18);
   v16[350] |= 8u;
   return result;
 }

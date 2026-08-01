@@ -15,8 +15,8 @@ extern uint32_t off_1343E0;
 extern uint32_t off_1343E4;
 extern uint32_t dword_1343E8;
 
-// sub_13438C @ 0x13438c, size 80 bytes
-int sub_13438C()
+// set_flag_disable_irq @ 0x13438c, size 80 bytes
+int set_flag_disable_irq()
 {
   int *v0; // r4
   uint8_t *v1; // r2
@@ -37,12 +37,12 @@ int sub_13438C()
   *(uint32_t *)off_1343E0 = v3;
   if ( v2 )
   {
-    sub_134368();
+    send_app_message();
     v3 = *v0;
   }
   else if ( v1[14] == 1 )
   {
-    sub_1346E8();
+    tx_packet_handler();
     v3 = *v0;
   }
   if ( v3 )
@@ -56,7 +56,7 @@ int sub_13438C()
         __enable_irq();
     }
   }
-  msg_parse(dword_1343E8);
+  event_dispatch(dword_1343E8);
   return 0;
 }
 

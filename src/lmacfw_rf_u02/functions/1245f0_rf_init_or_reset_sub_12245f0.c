@@ -14,10 +14,10 @@ extern uint32_t off_12462C;
 extern uint32_t off_124630;
 extern uint32_t off_124634;
 
-// rf_init_or_reset_sub_12245f0 @ 0x1245f0, size 60 bytes
-// Doc: rf_init_or_reset_sub_12245f0 [rf]: Trigger RF subsystem reset/initialization (param 0x80) via internal handler
-// rf_init_or_reset_sub_12245f0 [rf]: Trigger RF subsystem reset/initialization (param 0x80) via internal handler
-int rf_init_or_reset_sub_12245f0()
+// ke_start_event_80 @ 0x1245f0, size 60 bytes
+// Doc: ke_start_event_80 [rf]: Trigger RF subsystem reset/initialization (param 0x80) via internal handler
+// ke_start_event_80 [rf]: Trigger RF subsystem reset/initialization (param 0x80) via internal handler
+int ke_start_event_80()
 {
   uint16_t *v0; // r4
   int result; // r0
@@ -27,15 +27,15 @@ int rf_init_or_reset_sub_12245f0()
   if ( *(uint8_t *)off_12462C )
   {
     v0 = off_124630;
-    result = rf_table_lookup(0x80u);
+    result = ke_handle_message(0x80u);
     v2 = (uint16_t)(*v0 + 1);
     *v0 = v2;
     if ( v2 == 10 )
     {
-      sub_12646C(1);
+      rf_set_flag(1);
       v3 = *(uint32_t *)off_124634 + 39936;
       *v0 = 0;
-      return mmio_write_40320150(v3 + 64);
+      return mmio_write_register(v3 + 64);
     }
   }
   return result;

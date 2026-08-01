@@ -1,1 +1,1 @@
-{"fn": "log_queue_refill", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210504", "status": "ok", "name": "log_queue_refill", "params": [], "docstring": "Refill firmware log/trace queue descriptors from shared table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_queue_refill", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210504", "status": "ok", "name": "rf_pll_program", "params": [], "docstring": "Refill firmware log/trace queue descriptors from shared table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

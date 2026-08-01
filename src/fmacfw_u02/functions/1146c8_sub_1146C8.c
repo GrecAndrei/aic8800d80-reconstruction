@@ -12,8 +12,8 @@
 
 extern uint32_t off_1146D8;
 
-// sub_1146C8 @ 0x1146c8, size 14 bytes
-void sub_1146C8()
+// clear_global_flag_2 @ 0x1146c8, size 14 bytes
+void clear_global_flag_2()
 {
   *(uint32_t *)(*(uint32_t *)off_1146D8 + 8) &= ~2u;
 }

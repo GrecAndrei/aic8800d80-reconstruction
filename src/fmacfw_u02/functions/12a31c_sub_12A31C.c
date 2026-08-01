@@ -12,13 +12,13 @@
 
 extern uint32_t dword_12A340;
 
-// sub_12A31C @ 0x12a31c, size 34 bytes
-uint8_t * sub_12A31C(int a1)
+// llc_clear_evt_state @ 0x12a31c, size 34 bytes
+uint8_t * llc_clear_evt_state(int a1)
 {
   uint8_t *v1; // r0
 
   v1 = (uint8_t *)(dword_12A340 + 140 * *(uint8_t *)(a1 + 1225));
   v1[134] = 0;
-  return sub_129804(v1);
+  return wlc_rx_process(v1);
 }
 

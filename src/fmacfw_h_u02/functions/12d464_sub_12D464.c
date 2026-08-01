@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D464 @ 0x12d464, size 242 bytes
-float  sub_12D464(unsigned int a1)
+// f32_to_f16 @ 0x12d464, size 242 bytes
+float  f32_to_f16(unsigned int a1)
 {
   unsigned int v1; // r3
   int v2; // s15

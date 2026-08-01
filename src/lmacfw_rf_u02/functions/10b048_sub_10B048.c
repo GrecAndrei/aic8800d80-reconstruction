@@ -81,8 +81,8 @@ extern uint32_t off_10B244;
 extern uint32_t dword_10B248;
 extern uint32_t dword_10B24C;
 
-// sub_10B048 @ 0x10b048, size 3748 bytes
-int  sub_10B048(
+// apply_dsp_transform @ 0x10b048, size 3748 bytes
+int  apply_dsp_transform(
         int *a1,
         int a2,
         int a3,
@@ -311,7 +311,7 @@ int  sub_10B048(
   int v228; // [sp+580h] [bp-14h]
   int v229; // [sp+584h] [bp-10h]
 
-  msg_parse(dword_10B214, a2);
+  dispatch_event_handler(dword_10B214, a2);
   v12 = dword_10B234;
   v13 = *(uint32_t *)off_10B218;
   v14 = dword_10B23C;
@@ -319,7 +319,7 @@ int  sub_10B048(
   *(uint32_t *)off_10B218 &= ~1u;
   v202 = v13 & 1;
   v16 = (int *)v210;
-  sub_102ADC(0);
+  gpio_set_pin(0);
   v17 = dword_10B238;
   v18 = dword_10B240;
   for ( i = 0; i != 3; ++i )
@@ -366,13 +366,13 @@ LABEL_5:
   }
   v25 = off_10B21C;
   v26 = flt_10B220;
-  sub_102B40(0);
-  sub_11F74C(1, dword_10B224, v27, v28);
+  gpio_clear_pin(0);
+  check_interrupt_flag(1, dword_10B224, v27, v28);
   v29 = dword_10B228;
   *v25 |= 0x400u;
   *v25 &= ~0x400u;
-  msg_parse(v29, v30);
-  sub_11F74C(1, dword_10B22C, v31, v32);
+  dispatch_event_handler(v29, v30);
+  check_interrupt_flag(1, dword_10B22C, v31, v32);
   v192 = a5;
   v204 = v25;
   do
@@ -381,7 +381,7 @@ LABEL_5:
     if ( v34 != 1 )
       goto LABEL_10;
     v64 = *v192;
-    sub_11F74C(1, dword_10B52C, v64, v192);
+    check_interrupt_flag(1, dword_10B52C, v64, v192);
     if ( v64 <= 0x1388 )
     {
       v65 = dword_10B560;
@@ -395,13 +395,13 @@ LABEL_5:
       v183 = v208;
       goto LABEL_29;
     }
-    v172 = sub_102968(v64);
+    v172 = rf_check_freq(v64);
     v173 = dword_10BF24;
     v174 = 0;
     v179 = (uint8_t)(v172 + 1);
     v67 = v179;
     v65 = dword_10BF10 + 384 * v172;
-    msg_parse(dword_10BF14, v172 + 1);
+    dispatch_event_handler(dword_10BF14, v172 + 1);
     while ( 1 )
     {
       v226 = 0;
@@ -411,13 +411,13 @@ LABEL_5:
         break;
       v221 = 3;
       LOWORD(v226) = 2048;
-      sub_105FD0(v175, (int)v211, (int16_t *)&v226, 0, 1, 1, 1, v179);
+      prcm_start(v175, (int)v211, (int16_t *)&v226, 0, 1, 1, 1, v179);
 LABEL_177:
       ++v174;
     }
     v221 = 3;
     LOWORD(v226) = 2048;
-    sub_105FD0(v175, (int)v211, (int16_t *)&v226, 0, 1, v174, 1, v179);
+    prcm_start(v175, (int)v211, (int16_t *)&v226, 0, 1, v174, 1, v179);
     if ( v174 != 2 )
       goto LABEL_177;
     v198 = 1;
@@ -444,8 +444,8 @@ LABEL_29:
     v208[5] = v73;
     v75 = v66;
     v76 = v66 - 4;
-    rf_sub_1209D40(a1, v75, v74, v179, (int)v208, a6, a7, v176, a9, a10, a11);
-    delay_us(0);
+    process_signal_buffer(a1, v75, v74, v179, (int)v208, a6, a7, v176, a9, a10, a11);
+    write_timer_reg(0);
     v81 = *(uint32_t *)(v76 + 4);
     v80 = (unsigned int *)(v76 + 4);
     v79 = v81;
@@ -476,7 +476,7 @@ LABEL_30:
       {
         if ( v82 == 1 )
         {
-          sub_11F74C(1, dword_10BF18, v77, v78);
+          check_interrupt_flag(1, dword_10BF18, v77, v78);
           v77 = (int)off_10BF1C;
           v78 = *(uint32_t *)off_10BF1C | 0x8000;
           *(uint32_t *)off_10BF1C = v78;
@@ -488,10 +488,10 @@ LABEL_30:
       v85 = dword_10B530;
       v86 = HIWORD(v79) & 1;
       *(uint8_t *)(a3 + v177 + v82) = v86;
-      sub_11F74C(1, v85, v82, v86);
-      sub_105494(*v80, (int)&v226, v34, v87);
-      sub_11F74C(1, dword_10B534, v228, v88);
-      sub_11F74C(1, dword_10B538, v229, v89);
+      check_interrupt_flag(1, v85, v82, v86);
+      phy_set_txpower(*v80, (int)&v226, v34, v87);
+      check_interrupt_flag(1, dword_10B534, v228, v88);
+      check_interrupt_flag(1, dword_10B538, v229, v89);
       if ( v86 && v84 < v83 )
       {
         v164 = v65 + 4 * (v84 + 0x3FFFFFFF);
@@ -524,7 +524,7 @@ LABEL_155:
               {
                 *v166 = v165 | 0xC08000;
                 v186 = v78;
-                sub_11F74C(1, v168, v77, v78);
+                check_interrupt_flag(1, v168, v77, v78);
                 v168 = dword_10BF20;
                 v78 = v186;
               }
@@ -559,7 +559,7 @@ LABEL_152:
     {
       while ( 1 )
       {
-        sub_11F74C(1, dword_10B53C, v82, v78);
+        check_interrupt_flag(1, dword_10B53C, v82, v78);
         if ( v82 == 2 )
           break;
 LABEL_35:
@@ -572,7 +572,7 @@ LABEL_35:
       }
     }
     v197 = dword_10B540;
-    msg_parse(dword_10B544, v90);
+    dispatch_event_handler(dword_10B544, v90);
     v92 = flt_10B550;
     v191 = (int *)(dword_10B548 + 4 * v67);
     v93 = 0;
@@ -583,7 +583,7 @@ LABEL_35:
     v196 = (unsigned int *)(v65 + 64);
     while ( 2 )
     {
-      sub_11F74C(1, dword_10B554, v180, v94);
+      check_interrupt_flag(1, dword_10B554, v180, v94);
       sub_100200(v209, 0, 0x40u);
       v225 = 1.0;
       v219 = v92;
@@ -728,25 +728,25 @@ LABEL_35:
         {
           if ( *v193 )
           {
-            sub_11F74C(1, dword_10B7D0, v180, v67);
+            check_interrupt_flag(1, dword_10B7D0, v180, v67);
           }
           else
           {
             v115 = dword_10B7C8;
             *v191 = (uint8_t)v112;
             *v193 = 1;
-            sub_11F74C(1, v115, v67, v180);
+            check_interrupt_flag(1, v115, v67, v180);
           }
           v116 = *v191;
-          v117 = sub_12754C(*v191);
-          v118 = sub_127874(v117, HIDWORD(v117), 0, dword_10B7CC);
-          v119 = sub_127BE4(v118);
-          v106 = sub_11EAA0(v119) * 20.0;
+          v117 = aeabi_i2d(*v191);
+          v118 = aeabi_dsub(v117, HIDWORD(v117), 0, dword_10B7CC);
+          v119 = aeabi_dmul(v118);
+          v106 = float_to_double(v119) * 20.0;
           v187 = v178;
-          v120 = sub_11E8E0((float)-v106 / 20.0);
-          v121 = sub_127570((float)v116 * v120);
-          v122 = math_round(v121, HIDWORD(v121));
-          v105 = sub_127B54(v122, HIDWORD(v122));
+          v120 = crc32_block((float)-v106 / 20.0);
+          v121 = aeabi_d2f((float)v116 * v120);
+          v122 = parse_data_field(v121, HIDWORD(v121));
+          v105 = double_to_float(v122, HIDWORD(v122));
           v104 = v105 | v194 | 0xFFC000;
           v107 = 1;
         }
@@ -772,28 +772,28 @@ LABEL_35:
       v65 = v199;
       v197 = v104;
       v11 = v105;
-      sub_11F74C(1, dword_10B7D8, HIDWORD(v214), v214);
+      check_interrupt_flag(1, dword_10B7D8, HIDWORD(v214), v214);
       if ( v187 == 255 )
       {
-        msg_parse(dword_10BF04, v123);
-        msg_parse(dword_10BF08, 255);
+        dispatch_event_handler(dword_10BF04, v123);
+        dispatch_event_handler(dword_10BF08, 255);
         v11 = 100;
         v156 = v184;
         if ( v184 != 255 )
           goto LABEL_130;
 LABEL_167:
-        msg_parse(dword_10BF0C, v156);
+        dispatch_event_handler(dword_10BF0C, v156);
         goto LABEL_130;
       }
       if ( v184 != 255 && v185 != 255 )
         goto LABEL_80;
-      msg_parse(dword_10BB90, v123);
+      dispatch_event_handler(dword_10BB90, v123);
       v156 = v184;
       if ( v184 == 255 )
         goto LABEL_167;
 LABEL_130:
       if ( v185 == 255 )
-        msg_parse(dword_10BB94, 255);
+        dispatch_event_handler(dword_10BB94, 255);
 LABEL_80:
       if ( v187 > 15 )
         v187 -= 32;
@@ -801,7 +801,7 @@ LABEL_80:
         v184 -= 32;
       if ( v185 > 15 )
         v185 -= 32;
-      sub_11F74C(1, dword_10B7DC, v187, v217);
+      check_interrupt_flag(1, dword_10B7DC, v187, v217);
       v124 = v218;
       if ( SHIDWORD(v214) >= v218 )
       {
@@ -811,11 +811,11 @@ LABEL_80:
         {
           v127 = (float)(v217 - v124) * v225;
           *v126++ = v127;
-          sub_11F74C(1, v125, v124++, (int)(float)(v127 * v26));
+          check_interrupt_flag(1, v125, v124++, (int)(float)(v127 * v26));
         }
         while ( SHIDWORD(v214) >= v124 );
       }
-      sub_105FD0(v104, (int)v211, (int16_t *)&v206, 0, v198, v180, 0, v67);
+      prcm_start(v104, (int)v211, (int16_t *)&v206, 0, v198, v180, 0, v67);
       v128 = v216;
       v129 = (int16_t)v211[v217];
       v130 = (int16_t)v211[(uint32_t)v216 + 16];
@@ -828,16 +828,16 @@ LABEL_80:
         {
           v162 = *(int16_t *)(HIDWORD(v128) + 2);
           HIDWORD(v128) += 2;
-          sub_104B60(v162, v129, (int)v211);
+          min_u32(v162, v129, (int)v211);
           v163 = HIDWORD(v214);
           *v161++ = v212;
           LODWORD(v128) = v128 + 1;
         }
         while ( v163 >= (int)v128 );
         v132 = (float)(v184 - v187) - *(float *)&v209[v216];
-        sub_11F74C(1, dword_10BEF4, (int)(float)(v132 * v26), v184 - v187);
-        crypto_gain_clamp(v132, v11, (int)v211);
-        sub_11F74C(1, dword_10BEF8, v187, v11);
+        check_interrupt_flag(1, dword_10BEF4, (int)(float)(v132 * v26), v184 - v187);
+        scale_f32(v132, v11, (int)v211);
+        check_interrupt_flag(1, dword_10BEF8, v187, v11);
         v128 = v216;
       }
       else
@@ -851,15 +851,15 @@ LABEL_80:
         do
         {
           v158 = *v157++;
-          sub_11F74C(1, dword_10BEEC, HIDWORD(v128), v158);
-          sub_104B60(v158, v130, (int)v211);
+          check_interrupt_flag(1, dword_10BEEC, HIDWORD(v128), v158);
+          min_u32(v158, v130, (int)v211);
           v159 = HIDWORD(v216);
           *(float *)v128 = v212;
           LODWORD(v128) = v128 + 4;
           v160 = (float *)&v209[v159];
           v133 = (float)(v185 - v184) - *v160;
           ++HIDWORD(v128);
-          sub_11F74C(1, dword_10BEF0, (int)(float)(v133 * v26), v160);
+          check_interrupt_flag(1, dword_10BEF0, (int)(float)(v133 * v26), v160);
         }
         while ( (int)v216 > SHIDWORD(v128) );
         HIDWORD(v128) = HIDWORD(v216);
@@ -878,8 +878,8 @@ LABEL_80:
         {
           v136 = (int16_t)*(uint16_t *)HIDWORD(v128);
           HIDWORD(v128) += 2;
-          sub_11F74C(1, v134, v128, v136);
-          sub_104B60(v136, v131, (int)v211);
+          check_interrupt_flag(1, v134, v128, v136);
+          min_u32(v136, v131, (int)v211);
           v137 = HIDWORD(v216);
           *v135++ = v212;
           LODWORD(v128) = v128 + 1;
@@ -912,9 +912,9 @@ LABEL_80:
             {
               v93 = v140 - v187;
               v151 = (float)((float)((float)((float)(v140 - v187) - v149) + v106) + v141) + *((float *)&v220 + v148);
-              sub_11F74C(1, dword_10BB74, v140, v187);
-              sub_11F74C(1, dword_10BB78, -100 * v187 + 100 * v140, (int)(float)(v149 * v26));
-              crypto_gain_clamp(v151, v11, (int)v211);
+              check_interrupt_flag(1, dword_10BB74, v140, v187);
+              check_interrupt_flag(1, dword_10BB78, -100 * v187 + 100 * v140, (int)(float)(v149 * v26));
+              scale_f32(v151, v11, (int)v211);
             }
             else
             {
@@ -924,46 +924,46 @@ LABEL_80:
                 v142 = (float)((float)((float)((float)((float)((float)(v140 - v185) - v149) + v133) + v132) + v106)
                              + v141)
                      + *((float *)&v220 + v148);
-                sub_11F74C(1, dword_10BB6C, v140, v185);
-                sub_11F74C(1, dword_10BB70, -100 * v185 + 100 * v140, (int)(float)(v149 * v26));
+                check_interrupt_flag(1, dword_10BB6C, v140, v185);
+                check_interrupt_flag(1, dword_10BB70, -100 * v185 + 100 * v140, (int)(float)(v149 * v26));
               }
               else
               {
                 v93 = v140 - v184;
                 v142 = (float)((float)((float)((float)((float)(v140 - v184) - v149) + v132) + v106) + v141)
                      + *((float *)&v220 + v148);
-                sub_11F74C(1, dword_10BB60, v140, v184);
-                sub_11F74C(1, dword_10BB64, -100 * v184 + 100 * v140, (int)(float)(v149 * v26));
+                check_interrupt_flag(1, dword_10BB60, v140, v184);
+                check_interrupt_flag(1, dword_10BB64, -100 * v184 + 100 * v140, (int)(float)(v149 * v26));
               }
-              crypto_gain_clamp(v142, v11, (int)v211);
+              scale_f32(v142, v11, (int)v211);
             }
-            sub_11F74C(1, v138, v147, v148);
+            check_interrupt_flag(1, v138, v147, v148);
             if ( v140 == v182 )
             {
-              sub_11F74C(1, dword_10BB84, v143, v182);
-              sub_104B60(v213, *(uint8_t *)off_10BB88, (int)v211);
+              check_interrupt_flag(1, dword_10BB84, v143, v182);
+              min_u32(v213, *(uint8_t *)off_10BB88, (int)v211);
               v139 = v212;
             }
           }
           else
           {
-            sub_11F74C(1, dword_10BB68, v140, v195);
-            crypto_gain_clamp(v139, *(uint8_t *)(v65 + 4 * v147), (int)v211);
+            check_interrupt_flag(1, dword_10BB68, v140, v195);
+            scale_f32(v139, *(uint8_t *)(v65 + 4 * v147), (int)v211);
           }
-          sub_11F74C(1, v138, v147, v148);
+          check_interrupt_flag(1, v138, v147, v148);
           *(uint8_t *)v150 = v213;
           if ( v179 || v180 || v148 != 15 )
             goto LABEL_108;
-          sub_11F74C(1, dword_10BB7C, v145, 0);
-          sub_105FD0(*v150, (int)v211, (int16_t *)&v206, 1, v198, 0, 0, 0);
-          sub_104B60(v211[15], v129, (int)v211);
+          check_interrupt_flag(1, dword_10BB7C, v145, 0);
+          prcm_start(*v150, (int)v211, (int16_t *)&v206, 1, v198, 0, 0, 0);
+          min_u32(v211[15], v129, (int)v211);
           v152 = v212;
-          sub_11F74C(1, dword_10BB78, 100 * v93, (int)(float)(v212 * v26));
-          v200 = sub_127570((float)v93 - v152);
-          if ( !sub_127B40(v200, HIDWORD(v200), dword_10BB50, dword_10BB54)
-            && !sub_127B04(v200, HIDWORD(v200), dword_10BB58, dword_10BB5C) )
+          check_interrupt_flag(1, dword_10BB78, 100 * v93, (int)(float)(v212 * v26));
+          v200 = aeabi_d2f((float)v93 - v152);
+          if ( !double_gt(v200, HIDWORD(v200), dword_10BB50, dword_10BB54)
+            && !double_lt(v200, HIDWORD(v200), dword_10BB58, dword_10BB5C) )
           {
-            sub_11F74C(1, dword_10BEFC, (int)(float)((float)((float)v93 - v152) * v26), v153);
+            check_interrupt_flag(1, dword_10BEFC, (int)(float)((float)((float)v93 - v152) * v26), v153);
 LABEL_108:
             if ( --v140 == -17 )
               goto LABEL_120;
@@ -971,9 +971,9 @@ LABEL_108:
           }
           break;
         }
-        crypto_gain_clamp((float)v93 - v152, v213, (int)v211);
+        scale_f32((float)v93 - v152, v213, (int)v211);
         --v140;
-        sub_11F74C(1, v138, v147, 15);
+        check_interrupt_flag(1, v138, v147, 15);
         *(uint8_t *)v150 = v213;
         if ( v140 != -17 )
           continue;
@@ -990,7 +990,7 @@ LABEL_120:
         continue;
       break;
     }
-    msg_parse(dword_10BB80, v144);
+    dispatch_event_handler(dword_10BB80, v144);
 LABEL_10:
     v192 += 4;
   }
@@ -1003,8 +1003,8 @@ LABEL_10:
   v40 = dword_10B250;
   *(uint32_t *)off_10B21C |= 0x400u;
   *v35 &= ~0x400u;
-  msg_parse(v36, v33);
-  sub_102ADC(0);
+  dispatch_event_handler(v36, v33);
+  gpio_set_pin(0);
   v41 = dword_10B240;
   v42 = (int *)v210;
   for ( k = 0; k != 3; ++k )
@@ -1047,12 +1047,12 @@ LABEL_15:
     while ( v46 != v45 );
     v42 += 16;
   }
-  sub_102B40(0);
+  gpio_clear_pin(0);
   v49 = off_10B244;
   v50 = dword_10B248;
   v51 = *(uint32_t *)off_10B218 & 0xFFFFFFFE | v202;
   *(uint32_t *)off_10B218 = v51;
-  sub_11F74C(1, v50, (*v49 >> 21) & 7, v51);
-  return msg_parse(dword_10B24C, v52);
+  check_interrupt_flag(1, v50, (*v49 >> 21) & 7, v51);
+  return dispatch_event_handler(dword_10B24C, v52);
 }
 

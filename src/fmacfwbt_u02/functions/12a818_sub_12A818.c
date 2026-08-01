@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12A920;
 
-// sub_12A818 @ 0x12a818, size 264 bytes
+// bt_conn_state_machine @ 0x12a818, size 264 bytes
 // Doc: sub_122A818 [mac]: Indexed table lookup on 0x190d48 struct by id at offset 0x4c9
 // sub_122A818 [mac]: Indexed table lookup on 0x190d48 struct by id at offset 0x4c9
-int  sub_12A818(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7)
+int  bt_conn_state_machine(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7)
 {
   int v7; // r6
   int v8; // r7
@@ -70,13 +70,13 @@ int  sub_12A818(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a
     ++*(uint8_t *)(v15 + 122);
   if ( a5 )
     *(uint32_t *)(140 * v8 + 48 * v14 + v7 + 40) = 0x80000000 / a5 - 1;
-  timestamp_update_4f60(v13, a7);
+  ke_event_lock(v13, a7);
   v21 = 140 * v8;
   *(uint8_t *)(v7 + v21 + 48 * v14 + 16) = 1;
-  sub_125EFC(*(uint8_t *)(v21 + v7 + 113), 3);
-  sub_129768((int)v11, v10);
-  sub_1297BC((int)v11);
-  sub_129A28(v11);
+  set_flag_byte(*(uint8_t *)(v21 + v7 + 113), 3);
+  write_cmd((int)v11, v10);
+  mem_fill((int)v11);
+  state_machine_step(v11);
   return v10;
 }
 

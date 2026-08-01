@@ -15,8 +15,8 @@ extern uint32_t dword_13C3A0;
 extern uint32_t off_13C3A4;
 extern uint32_t dword_13C3A8;
 
-// sub_13C294 @ 0x13c294, size 264 bytes
-int  sub_13C294(int a1, int a2, int a3)
+// get_tx_power_cal_entry @ 0x13c294, size 264 bytes
+int  get_tx_power_cal_entry(int a1, int a2, int a3)
 {
   int v4; // r3
   int v5; // r3
@@ -38,7 +38,7 @@ int  sub_13C294(int a1, int a2, int a3)
   if ( (*(uint16_t *)(a1 + 30) & 2) == 0 )
     return 1;
   v8 = *(uint8_t *)(v5 + 453);
-  if ( v8 == 33 || msg_get_value((v8 << 8) | 8) != 1 )
+  if ( v8 == 33 || rx_rate_field_parse((v8 << 8) | 8) != 1 )
     return 1;
   v11 = dword_13C3A0 + 32 * v8;
   v12 = *(uint32_t *)(a1 + 36) << 10;
@@ -52,7 +52,7 @@ int  sub_13C294(int a1, int a2, int a3)
       {
         v14 = *(uint16_t *)(a1 + 64);
         if ( ((v14 - (*((uint32_t *)off_13C3A4 + 4) >> 10)) & 0x8000) == 0 )
-          msg_parse(dword_13C3A8, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C3A4 + 4) >> 10)) >> 15) & 1);
+          event_dispatch(dword_13C3A8, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C3A4 + 4) >> 10)) >> 15) & 1);
       }
     }
     else if ( !a2 && ((*(uint16_t *)(a1 + 64) - (*((uint32_t *)off_13C3A4 + 4) >> 10)) & 0x8000) == 0 )

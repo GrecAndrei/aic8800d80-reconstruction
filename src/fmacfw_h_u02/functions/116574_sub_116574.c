@@ -35,8 +35,8 @@ extern uint32_t off_11681C;
 extern uint32_t off_116820;
 extern uint32_t off_116824;
 
-// sub_116574 @ 0x116574, size 652 bytes
-int  sub_116574(int a1, int a2, int a3, int a4)
+// rf_switch_case @ 0x116574, size 652 bytes
+int  rf_switch_case(int a1, int a2, int a3, int a4)
 {
   uint32_t *v5; // r3
   int *v6; // r0
@@ -70,7 +70,7 @@ LABEL_12:
         *v16 = 512;
         goto LABEL_4;
       }
-      result = sub_12F2C8(dword_116854, dword_116840, 1919, a4);
+      result = unknown_12f2c8(dword_116854, dword_116840, 1919, a4);
       break;
     case 1:
       if ( ((*(uint32_t *)off_116800 >> 8) & 3) != 2 )
@@ -85,7 +85,7 @@ LABEL_14:
         *v17 = 1024;
         goto LABEL_4;
       }
-      result = sub_12F2C8(dword_116850, dword_116840, 1907, a4);
+      result = unknown_12f2c8(dword_116850, dword_116840, 1907, a4);
       break;
     case 2:
       if ( ((*(uint32_t *)off_116800 >> 12) & 3) != 2 )
@@ -100,7 +100,7 @@ LABEL_16:
         *v18 = 2048;
         goto LABEL_4;
       }
-      result = sub_12F2C8(dword_11684C, dword_116840, 1895, a4);
+      result = unknown_12f2c8(dword_11684C, dword_116840, 1895, a4);
       break;
     case 3:
       if ( (HIWORD(*(uint32_t *)off_116800) & 3) != 2 )
@@ -115,7 +115,7 @@ LABEL_18:
         *v19 = 4096;
         goto LABEL_4;
       }
-      result = sub_12F2C8(dword_116848, dword_116840, 1883, a4);
+      result = unknown_12f2c8(dword_116848, dword_116840, 1883, a4);
       break;
     case 4:
       if ( **(int16_t **)off_116838 >= 0 || (*(uint32_t *)off_116800 & 3) != 2 )
@@ -125,7 +125,7 @@ LABEL_18:
         *v20 = 256;
         goto LABEL_4;
       }
-      result = sub_12F2C8(dword_116844, dword_116840, 1871, a4);
+      result = unknown_12f2c8(dword_116844, dword_116840, 1871, a4);
       break;
     case 5:
       if ( (HIBYTE(*(uint32_t *)off_116800) & 3) != 2 )
@@ -140,11 +140,11 @@ LABEL_3:
         *v5 = 0x4000;
         goto LABEL_4;
       }
-      result = sub_12F2C8(dword_116858, dword_116840, 1931, a4);
+      result = unknown_12f2c8(dword_116858, dword_116840, 1931, a4);
       break;
     default:
       if ( **(int16_t **)off_116838 < 0 )
-        sub_12F32C(dword_11685C, dword_116840, 1937);
+        irq_disable_mmio_write(dword_11685C, dword_116840, 1937);
 LABEL_4:
       v6 = (int *)off_116818;
       v7 = (int *)(4 * (dword_116814 + a2));

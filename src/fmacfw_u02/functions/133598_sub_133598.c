@@ -12,8 +12,8 @@
 
 extern uint32_t off_13245C;
 
-// sub_133598 @ 0x133598, size 22 bytes
-int  sub_133598(int result, int a2, int a3, uint8_t *a4)
+// null_sub @ 0x133598, size 22 bytes
+int  null_sub(int result, int a2, int a3, uint8_t *a4)
 {
   unsigned int v4; // r4
   unsigned int v5; // r2

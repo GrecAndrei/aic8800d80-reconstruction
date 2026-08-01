@@ -14,8 +14,8 @@ extern uint32_t off_10ED34;
 extern uint32_t off_10ED38;
 extern uint32_t off_10ED3C;
 
-// sub_10ECEC @ 0x10ecec, size 70 bytes
-int  sub_10ECEC(int a1, int a2, int a3, int a4)
+// mmio_rmw32 @ 0x10ecec, size 70 bytes
+int  mmio_rmw32(int a1, int a2, int a3, int a4)
 {
   int *v4; // r5
   uint32_t *v5; // r4
@@ -35,12 +35,12 @@ int  sub_10ECEC(int a1, int a2, int a3, int a4)
     v5 = off_10ED3C;
     while ( !*(uint32_t *)off_10ED3C )
       ;
-    result = sub_10EC3C();
+    result = call_patch_hook_2();
     *v5 = 1;
   }
   else
   {
-    result = sub_10EC3C();
+    result = call_patch_hook_2();
   }
   if ( *v4 )
   {

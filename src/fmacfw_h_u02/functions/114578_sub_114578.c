@@ -12,8 +12,8 @@
 
 extern uint32_t off_114584;
 
-// sub_114578 @ 0x114578, size 10 bytes
-void sub_114578()
+// memory_barrier @ 0x114578, size 10 bytes
+void memory_barrier()
 {
   **(uint32_t **)off_114584 = **(uint32_t **)off_114584;
 }

@@ -24,8 +24,8 @@ extern uint32_t off_1110B0;
 extern uint32_t off_1110B8;
 extern uint32_t off_1110B4;
 
-// sub_110FB8 @ 0x110fb8, size 222 bytes
-int  sub_110FB8(int a1)
+// ke_mutex_lock @ 0x110fb8, size 222 bytes
+int  ke_mutex_lock(int a1)
 {
   int *v2; // r5
   uint8_t *v3; // r3
@@ -59,25 +59,25 @@ int  sub_110FB8(int a1)
       v14 = *((uint8_t *)off_1110C0 + 374);
       if ( v14 != 1 )
         goto LABEL_4;
-      if ( sub_1251A0(dword_1110C4) )
+      if ( ke_event_pending(dword_1110C4) )
         goto LABEL_18;
       if ( v12[369] )
-        sub_10DB6C(v14);
+        gpio_clear_bit_reg0(v14);
       else
-        sub_10DB58(v14);
+        gpio_set_bit_reg0(v14);
     }
     else
     {
       if ( *((uint8_t *)off_1110C0 + 369) )
-        sub_10DB6C(1);
+        gpio_clear_bit_reg0(1);
       else
-        sub_10DB58(1);
+        gpio_set_bit_reg0(1);
       v13 = (uint8_t)v12[374];
       *v11 = 1;
       if ( v13 != 1 )
         goto LABEL_18;
     }
-    sub_124F60(dword_1110C4, *((uint32_t *)off_1110C8 + 4) + 10000);
+    ke_event_lock(dword_1110C4, *((uint32_t *)off_1110C8 + 4) + 10000);
 LABEL_18:
     v4 = *v2;
   }

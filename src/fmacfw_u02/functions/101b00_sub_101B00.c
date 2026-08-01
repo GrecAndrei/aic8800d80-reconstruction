@@ -23,10 +23,10 @@ extern uint32_t dword_101D54;
 extern uint32_t off_101D40;
 extern uint32_t off_101D44;
 
-// sub_101B00 @ 0x101b00, size 550 bytes
+// rf_poll_handler @ 0x101b00, size 550 bytes
 // Doc: sub_1201B00 [mac]: FMAC init/setup routine reading state from globals
 // sub_1201B00 [mac]: FMAC init/setup routine reading state from globals
-int  sub_101B00(int a1, uint8_t *a2, uint8_t *a3)
+int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
 {
   int result; // r0
   unsigned int v5; // r10
@@ -73,7 +73,7 @@ int  sub_101B00(int a1, uint8_t *a2, uint8_t *a3)
       }
       if ( (*((uint32_t *)off_101D2C + 98) & 2) != 0 )
       {
-        result = sub_1321FC(0, *((uint16_t *)off_101D28 + 20));
+        result = ke_event_get(0, *((uint16_t *)off_101D28 + 20));
         v11 = v10;
         if ( result )
         {
@@ -83,11 +83,11 @@ int  sub_101B00(int a1, uint8_t *a2, uint8_t *a3)
         {
           if ( **(int16_t **)off_101D48 < 0 )
           {
-            sub_12F49C(dword_101D50, dword_101D4C, 6857);
+            call_shared_handler(dword_101D50, dword_101D4C, 6857);
             v11 = v10;
           }
           v22 = v11;
-          result = msg_parse(dword_101D54, 0, v5);
+          result = event_dispatch(dword_101D54, 0, v5);
           v11 = v22;
           v20 = 15;
         }
@@ -113,14 +113,14 @@ int  sub_101B00(int a1, uint8_t *a2, uint8_t *a3)
     if ( **(int16_t **)off_101D48 >= 0 )
       return result;
     v19 = 6875;
-    return sub_12F46C(dword_101D50, dword_101D4C, v19);
+    return mmio_clear_register(dword_101D50, dword_101D4C, v19);
   }
   if ( !*((uint8_t *)off_101D2C + 197) )
   {
     if ( **(int16_t **)off_101D48 >= 0 )
       return result;
     v19 = 6921;
-    return sub_12F46C(dword_101D50, dword_101D4C, v19);
+    return mmio_clear_register(dword_101D50, dword_101D4C, v19);
   }
   if ( v5 <= 0x1666 )
   {
@@ -152,7 +152,7 @@ int  sub_101B00(int a1, uint8_t *a2, uint8_t *a3)
     v15 = (char)(*(uint8_t *)(*(uint32_t *)off_101D44 + v14) + v15);
   if ( (*((uint32_t *)off_101D2C + 98) & 2) != 0 )
   {
-    result = sub_1321FC(1, *((uint16_t *)off_101D28 + 20));
+    result = ke_event_get(1, *((uint16_t *)off_101D28 + 20));
     if ( result )
     {
       v21 = *(char *)(result + 4);
@@ -160,8 +160,8 @@ int  sub_101B00(int a1, uint8_t *a2, uint8_t *a3)
     else
     {
       if ( **(int16_t **)off_101D48 < 0 )
-        sub_12F49C(dword_101D50, dword_101D4C, 6907);
-      result = msg_parse(dword_101D54, 1, v5);
+        call_shared_handler(dword_101D50, dword_101D4C, 6907);
+      result = event_dispatch(dword_101D54, 1, v5);
       v21 = 15;
     }
     if ( v15 >= v21 )

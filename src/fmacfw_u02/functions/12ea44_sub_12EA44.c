@@ -12,8 +12,8 @@
 
 extern uint32_t off_12EA4C;
 
-// sub_12EA44 @ 0x12ea44, size 6 bytes
-int sub_12EA44()
+// ipc_get_data0 @ 0x12ea44, size 6 bytes
+int ipc_get_data0()
 {
   return *(uint32_t *)off_12EA4C;
 }

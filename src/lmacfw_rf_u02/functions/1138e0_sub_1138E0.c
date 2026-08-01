@@ -12,8 +12,8 @@
 
 extern uint32_t off_1138F0;
 
-// sub_1138E0 @ 0x1138e0, size 14 bytes
-void sub_1138E0()
+// clear_irq_flag @ 0x1138e0, size 14 bytes
+void clear_irq_flag()
 {
   *(uint32_t *)(*(uint32_t *)off_1138F0 + 8) &= ~2u;
 }

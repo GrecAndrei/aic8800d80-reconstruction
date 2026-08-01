@@ -18,8 +18,8 @@ extern uint32_t off_136008;
 extern uint32_t off_13600C;
 extern uint32_t off_136010;
 
-// sub_135F64 @ 0x135f64, size 148 bytes
-int  sub_135F64(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// patch_code_load @ 0x135f64, size 148 bytes
+int  patch_code_load(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int16_t v6; // r2
   int v7; // r0
@@ -32,16 +32,16 @@ int  sub_135F64(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   int *v15; // r3
   int v16; // r3
 
-  sub_12E948(dword_135FFC, dword_135FF8);
+  alloc_tx_event(dword_135FFC, dword_135FF8);
   v6 = a3;
   v7 = dword_136000 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && !*(uint8_t *)(v7 + 108) )
   {
-    v9 = sub_12CD48(7u);
+    v9 = hci_cmd_handler(7u);
     v6 = a3;
     if ( !v9 )
     {
-      sub_12847C(*a2);
+      bsscfg_get(*a2);
       *(uint8_t *)off_136004 = 0;
       v6 = a3;
       if ( (__get_CPSR() & 1) == 0 )
@@ -69,7 +69,7 @@ int  sub_135F64(int a1, uint8_t *a2, int16_t a3, int16_t a4)
       }
     }
   }
-  sub_12C8D0(7175, a4, v6);
+  mac_write_header_word(7175, a4, v6);
   return 0;
 }
 

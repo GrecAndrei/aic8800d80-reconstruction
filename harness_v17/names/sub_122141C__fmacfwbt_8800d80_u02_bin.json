@@ -1,1 +1,1 @@
-{"fn": "sub_122141C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122141c", "status": "ok", "name": "rf_misc_init_n_xxx", "params": [], "docstring": "Initialize RF misc control register at 0x40320038 with value 0x30", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122141C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122141c", "status": "ok", "name": "write_pmu_control", "params": [], "docstring": "Initialize RF misc control register at 0x40320038 with value 0x30", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

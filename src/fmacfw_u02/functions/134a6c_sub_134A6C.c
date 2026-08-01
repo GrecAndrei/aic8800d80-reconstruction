@@ -12,11 +12,11 @@
 
 extern uint32_t dword_134A8C;
 
-// sub_134A6C @ 0x134a6c, size 30 bytes
-int  sub_134A6C(int a1, int a2)
+// bt_free_hci_buffer @ 0x134a6c, size 30 bytes
+int  bt_free_hci_buffer(int a1, int a2)
 {
   if ( (a2 & 0x810000) == 0x10000 )
-    msg_parse(dword_134A8C);
-  return sub_134914();
+    event_dispatch(dword_134A8C);
+  return bt_init_hci_buffer();
 }
 

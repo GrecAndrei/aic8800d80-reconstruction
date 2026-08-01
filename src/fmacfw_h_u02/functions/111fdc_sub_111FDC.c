@@ -16,8 +16,8 @@ extern uint32_t dword_112084;
 extern uint32_t dword_112088;
 extern uint32_t dword_11208C;
 
-// sub_111FDC @ 0x111fdc, size 162 bytes
-int  sub_111FDC(int a1, int a2, unsigned int a3)
+// phy_save_rssi @ 0x111fdc, size 162 bytes
+int  phy_save_rssi(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -35,7 +35,7 @@ int  sub_111FDC(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DAE4(dword_112090);
+    debug_printf(dword_112090);
     return 3;
   }
   else

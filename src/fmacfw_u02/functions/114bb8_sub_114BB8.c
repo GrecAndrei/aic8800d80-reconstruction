@@ -12,10 +12,10 @@
 
 extern uint32_t off_114BF4;
 
-// sub_114BB8 @ 0x114bb8, size 54 bytes
+// invalid_handler @ 0x114bb8, size 54 bytes
 // Doc: patch_apply_n_2ce [patch]: Apply next ROM patch from patch table iterator
 // patch_apply_n_2ce [patch]: Apply next ROM patch from patch table iterator
-int sub_114BB8()
+int invalid_handler()
 {
   int *v0; // r4
   int result; // r0

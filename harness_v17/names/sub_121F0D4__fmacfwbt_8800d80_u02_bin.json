@@ -1,1 +1,1 @@
-{"fn": "sub_121F0D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f0d4", "status": "ok", "name": "mmio_reg_read_pair", "params": [], "docstring": "Read paired MMIO registers at 0x403410b0/0x403410b4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_121F0D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f0d4", "status": "ok", "name": "timer_timestamp_get", "params": [], "docstring": "Read paired MMIO registers at 0x403410b0/0x403410b4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

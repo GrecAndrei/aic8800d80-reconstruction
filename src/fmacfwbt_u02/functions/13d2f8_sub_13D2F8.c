@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D2F8 @ 0x13d2f8, size 240 bytes
-int  sub_13D2F8(int a1, unsigned int a2)
+// rx_switch_pdu_handler @ 0x13d2f8, size 240 bytes
+int  rx_switch_pdu_handler(int a1, unsigned int a2)
 {
   int result; // r0
   int v3; // r2

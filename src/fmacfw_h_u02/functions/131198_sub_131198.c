@@ -33,8 +33,8 @@ extern uint32_t off_1313D0;
 extern uint32_t off_1313D4;
 extern uint32_t off_1313CC;
 
-// sub_131198 @ 0x131198, size 486 bytes
-int  sub_131198(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// hci_send_cmd @ 0x131198, size 486 bytes
+int  hci_send_cmd(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r1
   uint8_t *v8; // r3
@@ -65,7 +65,7 @@ int  sub_131198(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   unsigned int *v34; // r1
   uint32_t *v35; // r2
 
-  sub_12EB90(2, dword_131380, *a2, a2[1]);
+  check_feature_flag(2, dword_131380, *a2, a2[1]);
   v7 = *a2;
   v8 = off_131388;
   **(uint8_t **)off_131384 = v7;
@@ -112,7 +112,7 @@ int  sub_131198(int a1, uint8_t *a2, int16_t a3, int16_t a4)
             v26 = dword_1313B4;
             *((uint32_t *)off_13139C + 5) = v23;
             v22[29] = 4;
-            sub_124BFC(v26, v25 + v24);
+            mem_copy_util(v26, v25 + v24);
             v23[1] |= 0x200u;
           }
         }
@@ -140,9 +140,9 @@ LABEL_21:
       v17 = *(uint16_t *)(*(uint32_t *)off_1313A4 + 54);
       v13[5] = v14;
       *((uint8_t *)v13 + 29) = 4;
-      sub_124BFC((int)(v13 + 3), v17 + v16);
+      mem_copy_util((int)(v13 + 3), v17 + v16);
       *(uint32_t *)(v14 + 4) |= 0x200u;
-      sub_124CF4(v14 + 24);
+      mem_set_util(v14 + 24);
     }
   }
   else if ( !v7 && **(uint8_t **)off_13138C == 3 )
@@ -166,8 +166,8 @@ LABEL_21:
         *v33 &= ~0x80u;
       }
       *(uint32_t *)off_1313C4 = 48;
-      sub_117978();
-      sub_128D60();
+      critical_section_enter_alt();
+      mfp_get_config();
     }
     if ( !*((uint8_t *)off_1313C8 + 36) )
     {
@@ -178,7 +178,7 @@ LABEL_21:
       *v35 |= 1u;
     }
   }
-  sub_12C8D0(5142, a4, a3);
+  mac_write_header_word(5142, a4, a3);
   return 0;
 }
 

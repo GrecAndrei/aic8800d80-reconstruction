@@ -12,10 +12,10 @@
 
 extern uint32_t off_1210F4;
 
-// sub_1210E4 @ 0x1210e4, size 14 bytes
-int sub_1210E4()
+// set_clock_divisor @ 0x1210e4, size 14 bytes
+int set_clock_divisor()
 {
   *(uint32_t *)off_1210F4 = 48;
-  return sub_12CD34(0);
+  return rx_phy_status_parse(0);
 }
 

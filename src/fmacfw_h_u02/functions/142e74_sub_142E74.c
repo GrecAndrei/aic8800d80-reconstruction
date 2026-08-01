@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142E74 @ 0x142e74, size 18 bytes
-BOOL  sub_142E74(int a1, int a2, int a3, int a4)
+// double_greater_equal @ 0x142e74, size 18 bytes
+BOOL  double_greater_equal(int a1, int a2, int a3, int a4)
 {
   char v4; // cf
   char v5; // zf
 
-  sub_142E18(a1, a2, a3, a4);
+  swap_double_operands(a1, a2, a3, a4);
   return !(!v5 & v4);
 }
 

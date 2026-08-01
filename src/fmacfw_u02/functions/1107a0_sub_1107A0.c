@@ -13,8 +13,8 @@
 extern uint32_t off_1107D4;
 extern uint32_t off_1107D8;
 
-// sub_1107A0 @ 0x1107a0, size 52 bytes
-int  sub_1107A0(int a1)
+// event_queue_init @ 0x1107a0, size 52 bytes
+int  event_queue_init(int a1)
 {
   uint32_t *v1; // r2
   uint32_t *v2; // r1
@@ -37,7 +37,7 @@ int  sub_1107A0(int a1)
   *((uint16_t *)v2 + 14) = 0;
   v2[6] = 0;
   *((uint8_t *)v2 + 30) = 0;
-  sub_11063C((int)v1, (int)v2);
+  rf_bb_config((int)v1, (int)v2);
   return 1;
 }
 

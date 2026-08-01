@@ -12,10 +12,10 @@
 
 extern uint32_t off_101950;
 
-// chip_rev_get @ 0x101940, size 14 bytes
-// Doc: chip_rev_get [util]: Get chip revision from register field
-// chip_rev_get [util]: Get chip revision from register field
-int chip_rev_get()
+// sys_mode_get @ 0x101940, size 14 bytes
+// Doc: sys_mode_get [util]: Get chip revision from register field
+// sys_mode_get [util]: Get chip revision from register field
+int sys_mode_get()
 {
   return (uint8_t)((BYTE1(*(uint32_t *)off_101950) & 0xF) - 1);
 }

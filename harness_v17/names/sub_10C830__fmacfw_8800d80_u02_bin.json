@@ -1,0 +1,1 @@
+{"fn": "sub_10C830", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c830", "status": "ok", "name": "uart_putc", "params": [], "docstring": "Transmits one byte via UART.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

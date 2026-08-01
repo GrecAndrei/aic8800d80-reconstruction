@@ -1,1 +1,1 @@
-{"fn": "sub_1219264", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1219264", "status": "ok", "name": "sdio_buf_align_lshift", "params": [], "docstring": "Computes SDIO buffer field offsets via left-shifts for alignment", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1219264", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1219264", "status": "ok", "name": "bt_link_state_check", "params": [], "docstring": "Computes SDIO buffer field offsets via left-shifts for alignment", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

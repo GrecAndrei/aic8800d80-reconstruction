@@ -16,10 +16,10 @@ extern uint32_t off_12AEFC;
 extern uint32_t dword_12AF04;
 extern uint32_t dword_12AF00;
 
-// sub_12AE74 @ 0x12ae74, size 128 bytes
+// tx_len_check @ 0x12ae74, size 128 bytes
 // Doc: sub_122AE74 [unknown]: Unknown helper, compares value against 0x1f
 // sub_122AE74 [unknown]: Unknown helper, compares value against 0x1f
-int  sub_12AE74(int a1, unsigned int a2, int a3)
+int  tx_len_check(int a1, unsigned int a2, int a3)
 {
   int result; // r0
   int v4; // r1
@@ -56,7 +56,7 @@ int  sub_12AE74(int a1, unsigned int a2, int a3)
       v8 = **(int16_t **)off_12AEFC;
       ++*(uint32_t *)(dword_12AEF4 + 32 * a1 + 20);
       if ( v8 < 0 )
-        sub_12F46C(dword_12AF04, dword_12AF00, 365);
+        mmio_clear_register(dword_12AF04, dword_12AF00, 365);
       __und(0xFFu);
     }
     result = dword_12AEF4 + 32 * a1;

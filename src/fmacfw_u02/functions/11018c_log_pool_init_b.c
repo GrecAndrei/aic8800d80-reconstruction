@@ -12,10 +12,10 @@
 
 extern uint32_t dword_1101DC;
 
-// log_pool_init_b @ 0x11018c, size 72 bytes
+// get_link_channel @ 0x11018c, size 72 bytes
 // Doc: log_free_dispatch_n19c [util]: Allocate log dispatch context and free log resources
 // log_free_dispatch_n19c [util]: Allocate log dispatch context and free log resources
-int log_pool_init_b()
+int get_link_channel()
 {
   void *v0; // r8
   int result; // r0
@@ -26,7 +26,7 @@ int log_pool_init_b()
   unsigned int v6; // r1
 
   v0 = log_free_pool_dispatch2_n500_01e0;
-  result = sub_12D240(log_free_pool_dispatch2_n4f4);
+  result = zero_8_bytes(log_free_pool_dispatch2_n4f4);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 6) )
   {
     v2 = log_free_dispatch_n1d0;
@@ -35,8 +35,8 @@ int log_pool_init_b()
     v5 = 0;
     do
     {
-      sub_10FB28(v3, 0x63Cu);
-      result = list_push_tail(v4);
+      rx_packet_handler(v3, 0x63Cu);
+      result = cmd_handler_a(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;

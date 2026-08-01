@@ -21,8 +21,8 @@ extern uint32_t dword_10EC18;
 extern uint32_t off_10EC1C;
 extern uint32_t dword_10EC20;
 
-// sub_10EB04 @ 0x10eb04, size 256 bytes
-int sub_10EB04()
+// rf_gpio_init_alt @ 0x10eb04, size 256 bytes
+int rf_gpio_init_alt()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r2
@@ -58,7 +58,7 @@ int sub_10EB04()
   *v5 &= ~1u;
   v15[0] = v7;
   v15[1] = 2442;
-  sub_102970((uint16_t *)v15, 0);
+  check_boot_flag((uint16_t *)v15, 0);
   v8 = (int *)off_10EC1C;
   v9 = dword_10EC20;
   v0 += 593954;
@@ -72,7 +72,7 @@ int sub_10EB04()
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
   *v0 |= 0x400000u;
-  result = sub_10E8B4(4);
+  result = gpio_pad_ctrl_set(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
   *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;

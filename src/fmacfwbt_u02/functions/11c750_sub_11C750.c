@@ -14,16 +14,16 @@ extern uint32_t off_11C784;
 extern uint32_t off_11C78C;
 extern uint32_t off_11C788;
 
-// sub_11C750 @ 0x11c750, size 52 bytes
-int sub_11C750()
+// check_hw_status @ 0x11c750, size 52 bytes
+int check_hw_status()
 {
   int result; // r0
   int v1; // r4
   int *v2; // r2
   int v3; // r3
 
-  result = sub_12072C();
-  if ( (*(uint32_t *)off_11C784 & 0x8000) != 0 && (v1 = result, (result = chip_feature_check()) != 0) && v1 )
+  result = check_event_state();
+  if ( (*(uint32_t *)off_11C784 & 0x8000) != 0 && (v1 = result, (result = sys_status_get_bit21()) != 0) && v1 )
   {
     v2 = (int *)off_11C78C;
     v3 = *(uint32_t *)off_11C78C;

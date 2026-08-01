@@ -16,8 +16,8 @@ extern uint32_t dword_10D2C0;
 extern uint32_t dword_10D2BC;
 extern uint32_t off_10D2B4;
 
-// sub_10D26C @ 0x10d26c, size 66 bytes
-int  sub_10D26C(int result)
+// set_radio_mode @ 0x10d26c, size 66 bytes
+int  set_radio_mode(int result)
 {
   if ( result == 1 )
   {
@@ -29,7 +29,7 @@ int  sub_10D26C(int result)
   }
   else if ( **(int16_t **)off_10D2B8 < 0 )
   {
-    result = sub_12F32C(dword_10D2C0, dword_10D2BC, 2118);
+    result = irq_disable_mmio_write(dword_10D2C0, dword_10D2BC, 2118);
   }
   *((uint32_t *)off_10D2B4 + 1) |= 0x400000u;
   return result;

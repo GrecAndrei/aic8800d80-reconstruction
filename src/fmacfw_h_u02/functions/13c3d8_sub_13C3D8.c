@@ -13,8 +13,8 @@
 extern uint32_t dword_13C550;
 extern uint32_t dword_13C554;
 
-// sub_13C3D8 @ 0x13c3d8, size 374 bytes
-unsigned int  sub_13C3D8(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// bt_conn_get_phy @ 0x13c3d8, size 374 bytes
+unsigned int  bt_conn_get_phy(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   int v4; // r6
   int v5; // r11
@@ -74,7 +74,7 @@ LABEL_9:
     {
       if ( v4 + 19 >= v10 )
         goto LABEL_9;
-      v15 = sub_12DA60((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
+      v15 = test_arg2_one_12da60((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
       if ( !v15 )
         goto LABEL_9;
       v16 = *((uint16_t *)v15 + 1);
@@ -96,7 +96,7 @@ LABEL_9:
       do
         *v20++ = 0;
       while ( v20 != v19 );
-      v24 = sub_13CAAC(1320 * v12 + 480 + 120 * v16 + dword_13C550, a2, v13 - 18, v4, 0);
+      v24 = rx_process_packet(1320 * v12 + 480 + 120 * v16 + dword_13C550, a2, v13 - 18, v4, 0);
       v26 = v23 == v25;
       if ( v23 == v25 )
         v26 = v22 == v24;

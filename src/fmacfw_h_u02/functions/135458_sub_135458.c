@@ -16,8 +16,8 @@ extern uint32_t off_135518;
 extern uint32_t dword_135524;
 extern uint32_t dword_135520;
 
-// sub_135458 @ 0x135458, size 186 bytes
-void  sub_135458(
+// hci_send_vendor_cmd @ 0x135458, size 186 bytes
+void  hci_send_vendor_cmd(
         char *a1,
         int a2,
         int a3,
@@ -46,18 +46,18 @@ void  sub_135458(
   int v25; // r1
 
   v14 = *((uint32_t *)off_135514 + 5);
-  sub_12C5FC(6154, 6);
+  invalid_handler_12c5fc(6154, 6);
   v15 = *(uint16_t *)a1;
   v16 = *((uint16_t *)a1 + 7);
   if ( v15 <= 5 )
   {
     v25 = dword_13551C;
     *(uint16_t *)(v14 + 16) = 0;
-    sub_12EB90(256, v25, v16);
+    check_feature_flag(256, v25, v16);
     if ( !v16 )
     {
 LABEL_9:
-      sub_135424(*((uint16_t *)a1 + 8) & 0x3FFF);
+      mmio_write_sequence(*((uint16_t *)a1 + 8) & 0x3FFF);
       return;
     }
   }
@@ -70,7 +70,7 @@ LABEL_9:
     {
       if ( **(int16_t **)off_135518 < 0 )
       {
-        sub_12F35C(dword_135524, dword_135520, 1236);
+        mmio_write_field(dword_135524, dword_135520, 1236);
         v17 = *(uint16_t *)(v14 + 14);
       }
       v18 = (uint16_t)(800 - v17);
@@ -87,10 +87,10 @@ LABEL_9:
       while ( v19 != &a1[v18 + 18] );
     }
     *(uint16_t *)(v14 + 16) = v18;
-    sub_12EB90(256, dword_13551C, v16);
+    check_feature_flag(256, dword_13551C, v16);
     if ( !v16 )
       goto LABEL_9;
   }
-  sub_134CC4(v16, v23, v24, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+  assert_trace(v16, v23, v24, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
 }
 

@@ -17,8 +17,8 @@ extern uint32_t dword_134360;
 extern uint32_t dword_134364;
 extern uint32_t off_134354;
 
-// sub_134114 @ 0x134114, size 570 bytes
-int  sub_134114(int a1, uint8_t *a2)
+// complex_state_handler @ 0x134114, size 570 bytes
+int  complex_state_handler(int a1, uint8_t *a2)
 {
   int v3; // r5
   int v4; // r8
@@ -74,12 +74,12 @@ int  sub_134114(int a1, uint8_t *a2)
   uint32_t v55[3]; // [sp+10h] [bp-1Ch] BYREF
   uint32_t v56[4]; // [sp+1Ch] [bp-10h] BYREF
 
-  if ( **(int16_t **)off_134350 < 0 && msg_get_value(6u) != 3 )
-    sub_12F46C(dword_13435C, dword_134358, 481);
+  if ( **(int16_t **)off_134350 < 0 && rx_rate_field_parse(6u) != 3 )
+    mmio_clear_register(dword_13435C, dword_134358, 481);
   v3 = *a2;
   if ( *a2 )
   {
-    sub_134E04(1);
+    bt_setup_conn_profile(1);
     return 0;
   }
   else
@@ -166,9 +166,9 @@ int  sub_134114(int a1, uint8_t *a2)
         v37[62] = v36;
         v37[1] |= 4u;
       }
-      v9 = sub_132460(v6, v5 + 1320 * v7 + 248);
+      v9 = rf_check_status(v6, v5 + 1320 * v7 + 248);
     }
-    sub_134BD0(v9);
+    bt_get_profile_ctx(v9);
     if ( *(uint8_t *)off_134354 )
     {
       v38 = *(uint8_t *)(v4 + 696 * v51 + 192);
@@ -222,7 +222,7 @@ LABEL_20:
       }
       *(uint8_t *)(v4 + 696 * v51 + 192) = v3;
     }
-    stub_push_r4(v6);
+    stub_ret(v6);
     return 0;
   }
 }

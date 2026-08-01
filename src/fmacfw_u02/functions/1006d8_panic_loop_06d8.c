@@ -12,10 +12,10 @@
 
 extern uint32_t off_100728;
 
-// panic_loop_06d8 @ 0x1006d8, size 78 bytes
-// Doc: panic_loop_06d8 [util]: Fatal error handler that triggers watchdog/reset loop
-// panic_loop_06d8 [util]: Fatal error handler that triggers watchdog/reset loop
-void __noreturn panic_loop_06d8()
+// send_command @ 0x1006d8, size 78 bytes
+// Doc: send_command [util]: Fatal error handler that triggers watchdog/reset loop
+// send_command [util]: Fatal error handler that triggers watchdog/reset loop
+void __noreturn send_command()
 {
   int v1; // [sp+0h] [bp-Ch]
 

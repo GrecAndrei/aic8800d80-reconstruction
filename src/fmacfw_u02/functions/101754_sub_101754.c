@@ -15,16 +15,16 @@ extern uint32_t off_101928;
 extern uint32_t dword_101930;
 extern uint32_t dword_10192C;
 
-// sub_101754 @ 0x101754, size 390 bytes
+// event_queue_check @ 0x101754, size 390 bytes
 // Doc: sub_1201754 [util]: Check signed half-word from shared state and branch on result
 // sub_1201754 [util]: Check signed half-word from shared state and branch on result
-void __noreturn sub_101754()
+void __noreturn event_queue_check()
 {
   if ( **(int16_t **)off_1018DC < 0
     && (uint8_t)BYTE2(*(uint32_t *)off_101928) + 10 * (HIBYTE(*(uint32_t *)off_101928) + 2) != 32 )
   {
-    sub_12F46C(dword_101930, dword_10192C, 6119);
+    mmio_clear_register(dword_101930, dword_10192C, 6119);
   }
-  panic_loop_06d8();
+  send_command();
 }
 

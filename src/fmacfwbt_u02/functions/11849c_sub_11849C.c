@@ -22,8 +22,8 @@ extern uint32_t off_118568;
 extern uint32_t dword_118574;
 extern uint32_t off_118570;
 
-// sub_11849C @ 0x11849c, size 178 bytes
-uint32_t *sub_11849C()
+// ke_msg_dispatch @ 0x11849c, size 178 bytes
+uint32_t *ke_msg_dispatch()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r4
@@ -46,7 +46,7 @@ uint32_t *sub_11849C()
   if ( result )
   {
     v1 = result;
-    v2 = (uint32_t *)log_free_dispatch_n2b4();
+    v2 = (uint32_t *)critical_enter_0();
     v3 = v2;
     if ( v2 )
     {
@@ -78,7 +78,7 @@ uint32_t *sub_11849C()
         }
         else
         {
-          sub_12ECB0(dword_118578, v8, v7);
+          ke_event_schedule(dword_118578, v8, v7);
           v8 = *v6;
         }
       }
@@ -86,7 +86,7 @@ uint32_t *sub_11849C()
       {
         if ( *(uint32_t *)off_118568 )
         {
-          sub_12ECB0(dword_118574, v8, v7);
+          ke_event_schedule(dword_118574, v8, v7);
           v8 = *v6;
         }
         v9 = off_11856C;
@@ -114,7 +114,7 @@ uint32_t *sub_11849C()
     }
     else
     {
-      return (uint32_t *)log_free_dispatch_2(v1);
+      return (uint32_t *)memory_pool_free(v1);
     }
   }
   return result;

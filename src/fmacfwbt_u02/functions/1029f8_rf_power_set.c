@@ -13,10 +13,10 @@
 extern uint32_t off_102A30;
 extern uint32_t off_102A34;
 
-// rf_power_set @ 0x1029f8, size 56 bytes
-// Doc: rf_power_set [rf]: Set RF power level via register field
-// rf_power_set [rf]: Set RF power level via register field
-unsigned int  rf_power_set(uint8_t a1)
+// write_mmio_byte @ 0x1029f8, size 56 bytes
+// Doc: write_mmio_byte [rf]: Set RF power level via register field
+// write_mmio_byte [rf]: Set RF power level via register field
+unsigned int  write_mmio_byte(uint8_t a1)
 {
   unsigned int *v1; // r1
   unsigned int *v2; // r2

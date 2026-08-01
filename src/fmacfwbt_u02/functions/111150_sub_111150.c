@@ -13,8 +13,8 @@
 extern uint32_t off_111160;
 extern uint32_t off_111164;
 
-// sub_111150 @ 0x111150, size 16 bytes
-int sub_111150()
+// ll_util_get_state @ 0x111150, size 16 bytes
+int ll_util_get_state()
 {
   if ( *(uint8_t *)off_111160 )
     return 1;

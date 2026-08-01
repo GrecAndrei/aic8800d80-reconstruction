@@ -12,8 +12,8 @@
 
 extern uint32_t off_12CAFC;
 
-// sub_12CADC @ 0x12cadc, size 32 bytes
-int  sub_12CADC(int a1, int a2)
+// find_hci_conn_by_handle @ 0x12cadc, size 32 bytes
+int  find_hci_conn_by_handle(int a1, int a2)
 {
   int **v2; // r3
 

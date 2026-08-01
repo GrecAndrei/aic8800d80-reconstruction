@@ -1,1 +1,1 @@
-{"fn": "buffer_pool_get", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cdf0", "status": "ok", "name": "buffer_pool_get", "params": [], "docstring": "Acquire a buffer from the shared pool", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "buffer_pool_get", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cdf0", "status": "ok", "name": "hci_tx_packet", "params": [], "docstring": "Acquire a buffer from the shared pool", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -26,10 +26,10 @@ extern uint32_t off_121BEC;
 extern uint32_t off_121BF0;
 extern uint32_t off_121BF4;
 
-// sub_121AE4 @ 0x121ae4, size 230 bytes
+// shared_s16_worker @ 0x121ae4, size 230 bytes
 // Doc: sub_1221AE4 [util]: Init/lookup routine reading global pointer and signed halfword state
 // sub_1221AE4 [util]: Init/lookup routine reading global pointer and signed halfword state
-int sub_121AE4()
+int shared_s16_worker()
 {
   int *v0; // r8
   int *v1; // r4
@@ -46,9 +46,9 @@ int sub_121AE4()
   int v12; // r3
   int v13; // r2
 
-  if ( **(int16_t **)off_121BCC < 0 && msg_get_value(0) == 4 )
-    sub_12F46C(dword_121C00, dword_121BFC, 1799);
-  feature_guard_check(4, dword_121BD0);
+  if ( **(int16_t **)off_121BCC < 0 && rx_rate_field_parse(0) == 4 )
+    mmio_clear_register(dword_121C00, dword_121BFC, 1799);
+  check_status_bits(4, dword_121BD0);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -64,9 +64,9 @@ int sub_121AE4()
   v5 = v3 & 0xF;
   while ( *v1 << 28 )
   {
-    sub_1179F4();
+    chip_status_read();
     if ( (unsigned int)(v2[4] - v4) > 0x7530 )
-      feature_guard_check(4, dword_121BF8);
+      check_status_bits(4, dword_121BF8);
   }
   v6 = off_121BE4;
   v7 = off_121BE8;
@@ -80,8 +80,8 @@ int sub_121AE4()
   v9 = *((uint8_t *)off_121BEC + 90);
   *(uint32_t *)off_121BF0 = 4;
   if ( v9 )
-    sub_117A24();
-  result = sub_12CD34(0);
+    func_117a24();
+  result = rx_phy_status_parse(0);
   v11 = *v0;
   *((uint16_t *)off_121BF4 + 9) = 0;
   if ( v11 )

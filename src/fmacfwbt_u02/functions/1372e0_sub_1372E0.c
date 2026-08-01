@@ -13,8 +13,8 @@
 extern uint32_t off_137350;
 extern uint32_t dword_137354;
 
-// sub_1372E0 @ 0x1372e0, size 112 bytes
-BOOL  sub_1372E0(uint8_t *a1)
+// event_loop_tick @ 0x1372e0, size 112 bytes
+BOOL  event_loop_tick(uint8_t *a1)
 {
   int v1; // r8
   int v3; // r9
@@ -26,7 +26,7 @@ BOOL  sub_1372E0(uint8_t *a1)
 
   v1 = *((uint8_t *)off_137350 + 3898);
   if ( *((uint8_t *)off_137350 + 3898) )
-    return sub_1437AC(a1 + 1, dword_137354, 7) == 0;
+    return memcpy(a1 + 1, dword_137354, 7) == 0;
   v3 = *(uint32_t *)off_137350;
   v4 = *(uint8_t *)(*(uint32_t *)off_137350 + 368);
   if ( *(uint8_t *)(*(uint32_t *)off_137350 + 368) )
@@ -39,7 +39,7 @@ BOOL  sub_1372E0(uint8_t *a1)
       v8 = *a1;
       if ( v8 == *(uint8_t *)(v5 + 252) )
       {
-        if ( !sub_1437AC(v5 + 253, v7, v8) )
+        if ( !memcpy(v5 + 253, v7, v8) )
           return 1;
         v4 = *(uint8_t *)(v3 + 368);
       }

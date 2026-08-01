@@ -14,8 +14,8 @@ extern uint32_t off_1137A8;
 extern uint32_t off_1137AC;
 extern uint32_t dword_1137B0;
 
-// sub_113760 @ 0x113760, size 72 bytes
-int sub_113760()
+// controller_state_machine @ 0x113760, size 72 bytes
+int controller_state_machine()
 {
   uint32_t *v0; // r5
   void *v1; // r7
@@ -25,16 +25,16 @@ int sub_113760()
 
   v0 = off_1137A8;
   v1 = off_1137AC;
-  sub_11E71C(*(uint32_t *)off_1137A8 + 580);
-  result = sub_11E71C(*v0 + 588);
+  list_init(*(uint32_t *)off_1137A8 + 580);
+  result = list_init(*v0 + 588);
   if ( *(uint16_t *)(*(uint32_t *)v1 + 8) )
   {
     v3 = dword_1137B0;
     v4 = 0;
     do
     {
-      log_pool_alloc2_a18(v3, 0x6B8u);
-      result = list_push_tail(*v0 + 580);
+      list_iterate(v3, 0x6B8u);
+      result = check_kernel_state(*v0 + 580);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );

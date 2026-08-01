@@ -13,21 +13,21 @@
 extern uint32_t dword_125104;
 extern uint32_t dword_125100;
 
-// sub_1250D4 @ 0x1250d4, size 42 bytes
-int  sub_1250D4(int a1, int a2)
+// set_tx_offset @ 0x1250d4, size 42 bytes
+int  set_tx_offset(int a1, int a2)
 {
   uint8_t v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse(dword_125104);
+    dispatch_event_handler(dword_125104);
     return 1;
   }
   else
   {
-    v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    sub_123FDC(v2);
-    msg_parse(dword_125100);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    set_reg_158a08_bits20_25(v2);
+    dispatch_event_handler(dword_125100);
     return 0;
   }
 }

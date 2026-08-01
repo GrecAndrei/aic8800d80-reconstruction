@@ -17,10 +17,10 @@ extern uint32_t off_117D60;
 extern uint32_t off_117D64;
 extern uint32_t dword_117D68;
 
-// sub_117CB4 @ 0x117cb4, size 160 bytes
+// rf_calibration_table_get @ 0x117cb4, size 160 bytes
 // Doc: sub_1217CB4 [util]: Index/compute entry into table via stride*8 multiply
 // sub_1217CB4 [util]: Index/compute entry into table via stride*8 multiply
-int  sub_117CB4(int a1)
+int  rf_calibration_table_get(int a1)
 {
   int v1; // r6
   int v3; // r5
@@ -36,7 +36,7 @@ int  sub_117CB4(int a1)
 
   v1 = dword_117D54;
   v3 = 19 * a1;
-  sub_11F74C(256, dword_117D5C, dword_117D58, a1);
+  check_interrupt_flag(256, dword_117D5C, dword_117D58, a1);
   v4 = v1 + 8 * v3;
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -56,8 +56,8 @@ int  sub_117CB4(int a1)
     if ( !v9 )
     {
 LABEL_5:
-      sub_117AC8(v8);
-      list_push_tail(dword_117D68);
+      mutex_acquire_if_ready(v8);
+      check_kernel_state(dword_117D68);
       goto LABEL_6;
     }
     v11 = (int *)off_117D60;
@@ -85,7 +85,7 @@ LABEL_5:
   if ( v8 )
     goto LABEL_5;
 LABEL_6:
-  sub_117AC8(v4);
-  return list_push_tail(dword_117D68);
+  mutex_acquire_if_ready(v4);
+  return check_kernel_state(dword_117D68);
 }
 

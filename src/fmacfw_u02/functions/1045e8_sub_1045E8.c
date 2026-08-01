@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1045E8 @ 0x1045e8, size 48 bytes
-int  sub_1045E8(int a1, int a2, uint32_t *a3)
+// lookup_rate_entry @ 0x1045e8, size 48 bytes
+int  lookup_rate_entry(int a1, int a2, uint32_t *a3)
 {
   int v3; // r2
   unsigned int v4; // r0
   int v5; // r3
 
-  v3 = a3[rf_bus_reset_0(a1, a2, a3)];
+  v3 = a3[get_next_sequence(a1, a2, a3)];
   v4 = (unsigned int)v3 >> 20;
   v5 = (uint16_t)v3 >> 4;
   if ( v3 < 0 )

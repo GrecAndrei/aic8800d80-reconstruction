@@ -12,12 +12,12 @@
 
 extern uint32_t off_10DCF4;
 
-// sub_10DCE0 @ 0x10dce0, size 18 bytes
-int sub_10DCE0()
+// ptr_add_12_alt @ 0x10dce0, size 18 bytes
+int ptr_add_12_alt()
 {
   if ( *((uint8_t *)off_10DCF4 + 369) )
-    return sub_10DBC0(1);
+    return mmio_set_bit(1);
   else
-    return sub_10DBD4(1);
+    return mmio_clear_bit(1);
 }
 

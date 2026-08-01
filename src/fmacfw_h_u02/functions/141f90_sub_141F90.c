@@ -19,8 +19,8 @@ extern uint32_t off_1421E4;
 extern uint32_t dword_1421EC;
 extern uint32_t dword_1421E8;
 
-// sub_141F90 @ 0x141f90, size 582 bytes
-unsigned int  sub_141F90(unsigned int result)
+// bt_data_process @ 0x141f90, size 582 bytes
+unsigned int  bt_data_process(unsigned int result)
 {
   int v1; // r1
   int v2; // r2
@@ -80,7 +80,7 @@ unsigned int  sub_141F90(unsigned int result)
         v18 = *(uint16_t *)(v4 + 18);
         if ( **(int16_t **)off_1421DC < 0 && v2 == 255 )
         {
-          result = sub_12F32C(dword_1421F4, dword_1421F0, 637);
+          result = irq_disable_mmio_write(dword_1421F4, dword_1421F0, 637);
           v5 = *(uint8_t *)(v4 + 8);
         }
         if ( (v15 & 0xC) == 0 )
@@ -115,23 +115,23 @@ unsigned int  sub_141F90(unsigned int result)
                 v33 = *v31;
                 *(uint16_t *)v30 = 1;
                 *v31 = v33 + 1;
-                sub_141B40(v17, v20, v15, (int16_t *)v30);
-                sub_141C5C(4, v30);
-                LODWORD(v34) = sub_12BD00();
+                parse_adv_report(v17, v20, v15, (int16_t *)v30);
+                send_rf_cmd(4, v30);
+                LODWORD(v34) = rf_delay();
                 v35 = *(uint64_t *)(v30 + 24) - v34 - *(uint64_t *)(v3 + 1320 * v5 + 40);
-                v36 = sub_1432D4(v35, HIDWORD(v35), *(uint32_t *)(v30 + 16), 0);
-                return sub_141C0C(v30, v36);
+                v36 = double_cmp(v35, HIDWORD(v35), *(uint32_t *)(v30 + 16), 0);
+                return get_ll_conn_ctx(v30, v36);
               }
               else
               {
-                return sub_141EA0(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
+                return get_acl_ctx(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
               }
             }
           }
           else if ( v19 == 7 )
           {
-            sub_141B40((uint16_t *)(v4 + 18), v20, v15, v37);
-            return sub_141C5C((v18 >> 1) & 7, (int)v37);
+            parse_adv_report((uint16_t *)(v4 + 18), v20, v15, v37);
+            return send_rf_cmd((v18 >> 1) & 7, (int)v37);
           }
         }
       }
@@ -153,7 +153,7 @@ unsigned int  sub_141F90(unsigned int result)
                 && *(uint8_t *)(v8 + 46) == *(uint8_t *)(v4 + 7)
                 && *(uint8_t *)(v8 + 47) == *(uint8_t *)(v4 + 8) )
               {
-                result = sub_141D94(v8);
+                result = update_ll_flags(v8);
                 v24 = *(uint16_t *)v8;
                 v25 = *v21;
                 *(uint8_t *)(v8 + 2) = v22;
@@ -181,7 +181,7 @@ unsigned int  sub_141F90(unsigned int result)
             v10 = 9 * v7;
             v11 = dword_1421E0 + 8 * v10;
             v12 = 8 * v10;
-            sub_141D94(v11);
+            update_ll_flags(v11);
             v13 = off_1421E4;
             v14 = *(uint8_t *)off_1421E4 - 1;
             *(uint16_t *)(v8 + v12) &= ~1u;
@@ -194,7 +194,7 @@ unsigned int  sub_141F90(unsigned int result)
     }
     else if ( **(int16_t **)off_1421DC < 0 )
     {
-      return sub_12F32C(dword_1421EC, dword_1421E8, 828);
+      return irq_disable_mmio_write(dword_1421EC, dword_1421E8, 828);
     }
   }
   return result;

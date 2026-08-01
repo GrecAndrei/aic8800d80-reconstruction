@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D694 @ 0x13d694, size 1020 bytes
-int  sub_13D694(int a1)
+// rf_cal_channel_get @ 0x13d694, size 1020 bytes
+int  rf_cal_channel_get(int a1)
 {
   int v2; // r0
   int v3; // r1
@@ -51,7 +51,7 @@ int  sub_13D694(int a1)
   unsigned int v37; // r7
   unsigned int v38; // r4
 
-  v2 = random_mix_64(a1);
+  v2 = scale_timer_value(a1);
   v3 = *(uint8_t *)(a1 + 169);
   v4 = *(uint8_t *)(a1 + 179);
   v5 = v2;

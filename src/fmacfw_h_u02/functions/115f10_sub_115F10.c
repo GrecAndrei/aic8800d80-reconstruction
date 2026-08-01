@@ -12,8 +12,8 @@
 
 extern uint32_t dword_115F48;
 
-// sub_115F10 @ 0x115f10, size 56 bytes
-int  sub_115F10(int a1)
+// ll_event_clear @ 0x115f10, size 56 bytes
+int  ll_event_clear(int a1)
 {
   int v1; // r1
   int v2; // r3

@@ -1,1 +1,1 @@
-{"fn": "sub_1218EC8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1218ec8", "status": "ok", "name": "rf_link_state_check", "params": [], "docstring": "Checks current RF link state value against zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1218EC8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1218ec8", "status": "ok", "name": "rf_state_process", "params": [], "docstring": "Checks current RF link state value against zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

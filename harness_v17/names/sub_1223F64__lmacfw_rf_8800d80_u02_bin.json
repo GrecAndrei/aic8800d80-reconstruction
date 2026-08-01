@@ -1,1 +1,1 @@
-{"fn": "sub_1223F64", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223f64", "status": "ok", "name": "sub_1223F64", "params": [], "docstring": "Set bit 6 in MMIO register (read-modify-write)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1223F64", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1223f64", "status": "ok", "name": "set_reg_1807fc_bit6", "params": [], "docstring": "Set bit 6 in MMIO register (read-modify-write)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

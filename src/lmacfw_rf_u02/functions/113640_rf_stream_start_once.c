@@ -16,10 +16,10 @@ extern uint32_t off_113684;
 extern uint32_t off_113688;
 extern uint32_t dword_113690;
 
-// rf_stream_start_once @ 0x113640, size 64 bytes
-// Doc: rf_stream_start_once [rf]: Initialize and start an RF data stream via callback
-// rf_stream_start_once [rf]: Initialize and start an RF data stream via callback
-int rf_stream_start_once()
+// dispatch_event_handler @ 0x113640, size 64 bytes
+// Doc: dispatch_event_handler [rf]: Initialize and start an RF data stream via callback
+// dispatch_event_handler [rf]: Initialize and start an RF data stream via callback
+int dispatch_event_handler()
 {
   int v0; // r0
   uint32_t *v1; // r4
@@ -27,13 +27,13 @@ int rf_stream_start_once()
 
   v0 = (*(int ( **)(uint32_t))(*((uint32_t *)off_113680 + 2) + 16))(*((uint32_t *)off_113680 + 1));
   if ( !v0 )
-    return sub_10DA6C(dword_11368C);
+    return log_printf(dword_11368C);
   v1 = (uint32_t *)v0;
-  result = rf_stream_start_2c20(*(uint32_t *)off_113684 + v0, *(uint32_t *)off_113688);
+  result = send_data_packet(*(uint32_t *)off_113684 + v0, *(uint32_t *)off_113688);
   if ( result < 0 )
   {
-    sub_10FEF8(v1);
-    return sub_10DA6C(dword_113690);
+    mem_free(v1);
+    return log_printf(dword_113690);
   }
   return result;
 }

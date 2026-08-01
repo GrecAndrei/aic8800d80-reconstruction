@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1227F0 @ 0x1227f0, size 40 bytes
-int  sub_1227F0(int a1, int a2, int a3, int a4)
+// send_hci_command_status @ 0x1227f0, size 40 bytes
+int  send_hci_command_status(int a1, int a2, int a3, int a4)
 {
   uint8_t *v5; // r4
 
-  v5 = (uint8_t *)sub_12C7EC(11, a4, a3, 3);
-  *v5 = sub_121B98(a2, v5 + 1, v5 + 2);
-  sub_12C84C(v5);
+  v5 = (uint8_t *)tx_send_pdu(11, a4, a3, 3);
+  *v5 = ke_send_msg(a2, v5 + 1, v5 + 2);
+  rx_process_packet(v5);
   return 0;
 }
 

@@ -19,8 +19,8 @@ extern uint32_t dword_117CA8;
 extern uint32_t off_117CAC;
 extern uint32_t off_117CB0;
 
-// sub_117B4C @ 0x117b4c, size 328 bytes
-int  sub_117B4C(int *a1, uint8_t *a2)
+// btcoex_update_bt_info @ 0x117b4c, size 328 bytes
+int  btcoex_update_bt_info(int *a1, uint8_t *a2)
 {
   int v3; // r6
   int v5; // r0
@@ -49,16 +49,16 @@ int  sub_117B4C(int *a1, uint8_t *a2)
   int v29; // r12
 
   v3 = *((uint8_t *)a1 + 25);
-  v5 = sub_11E7AC(dword_117C94);
+  v5 = list_pop_front(dword_117C94);
   if ( !v5 )
     return 1;
   v6 = v5;
   if ( *((uint8_t *)a1 + 29) )
   {
-    v24 = sub_11E7AC(dword_117C94);
+    v24 = list_pop_front(dword_117C94);
     if ( !v24 )
     {
-      sub_11E724(dword_117C94);
+      check_kernel_state(dword_117C94);
       return 1;
     }
     *(uint32_t *)(v6 + 44) = v24;
@@ -104,7 +104,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
   *a2 = v14;
   v15 = dword_117CA4;
   *(uint8_t *)(v6 + 33) = v14;
-  sub_11F74C(256, v15, v13, v14);
+  check_interrupt_flag(256, v15, v13, v14);
   v16 = dword_117CA8 + 224 * v3;
   if ( *(uint8_t *)(v16 + 94) )
     v17 = 102400;

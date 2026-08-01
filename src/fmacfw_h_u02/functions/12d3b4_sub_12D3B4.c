@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12D3DC;
 
-// sub_12D3B4 @ 0x12d3b4, size 40 bytes
-unsigned int  sub_12D3B4(uint8_t *a1, int a2, unsigned int a3)
+// crc32_update @ 0x12d3b4, size 40 bytes
+unsigned int  crc32_update(uint8_t *a1, int a2, unsigned int a3)
 {
   uint8_t *v3; // r1
   int v4; // t1

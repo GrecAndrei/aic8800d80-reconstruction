@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_109480 @ 0x109480, size 690 bytes
+// memzero_words @ 0x109480, size 690 bytes
 // Doc: sub_1209480 [util]: Null/zero check utility function
 // sub_1209480 [util]: Null/zero check utility function
-int  sub_109480(int a1, int16_t *a2)
+int  memzero_words(int a1, int16_t *a2)
 {
   unsigned int v2; // r2
   int16_t *v3; // r8

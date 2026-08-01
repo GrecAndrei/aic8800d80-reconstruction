@@ -27,8 +27,8 @@ extern uint32_t dword_1132A0;
 extern uint32_t dword_113294;
 extern uint32_t off_113290;
 
-// sub_113104 @ 0x113104, size 360 bytes
-int  sub_113104(uint8_t *a1, unsigned int a2, int a3)
+// read_periph_status @ 0x113104, size 360 bytes
+int  read_periph_status(uint8_t *a1, unsigned int a2, int a3)
 {
   uint16_t *v3; // r7
   uint8_t *v4; // r6
@@ -57,44 +57,44 @@ int  sub_113104(uint8_t *a1, unsigned int a2, int a3)
   v7 = a1;
   if ( *v4 != 2 )
   {
-    sub_10DC24(dword_113284, *v3, *v4);
-    sub_1141C8(dword_113288, v7, a2, *v4);
+    log_printf(dword_113284, *v3, *v4);
+    is_current_task(dword_113288, v7, a2, *v4);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    sub_10DC24(dword_11328C, *v3, a2);
+    log_printf(dword_11328C, *v3, a2);
   }
   else
   {
     v9 = a1[2];
     v10 = *a1 | (a1[1] << 8) & 0xF00;
     if ( *(uint8_t *)off_113278 )
-      a1 = (uint8_t *)sub_12ECD0(512, dword_113298);
+      a1 = (uint8_t *)check_status_bits(512, dword_113298);
     if ( v9 == 1 )
     {
       if ( a2 == v10 || v10 + 1 == a2 )
       {
-        ((void (*)(void))sub_114104)();
-        sub_113C48(v7 + 4);
-        sub_12D104(512);
+        ((void (*)(void))timer_delay)();
+        check_packet_length(v7 + 4);
+        unknown_func_12d104(512);
         return 1;
       }
-      sub_10DC24(dword_11329C, *v3, v10, a2);
+      log_printf(dword_11329C, *v3, v10, a2);
     }
     else if ( v9 == 17 )
     {
       v11 = off_1132A8;
       if ( *((uint8_t *)off_1132A8 + 2433) >= (unsigned int)*((uint8_t *)off_1132A8 + 2434) )
       {
-        sub_10DC24(dword_1132A4);
+        log_printf(dword_1132A4);
       }
       else
       {
         if ( v10 + 4 == a2 || a2 == v10 + 5 )
         {
-          sub_114104(a1);
+          timer_delay(a1);
           v12 = v11[2433];
           v13 = dword_113280;
           v14 = (uint8_t)v11[2432]
@@ -107,20 +107,20 @@ int  sub_113104(uint8_t *a1, unsigned int a2, int a3)
           *((uint32_t *)v15 + 409) = v7 + 4;
           *((uint32_t *)v15 + 412) = v10;
           v11[2433] = v12 + 1;
-          sub_12D248(v13);
-          sub_12D104(0x400000);
+          cmd_handler_a(v13);
+          unknown_func_12d104(0x400000);
           return 1;
         }
-        sub_10DC24(dword_1132A0, *v3, v10, a2);
+        log_printf(dword_1132A0, *v3, v10, a2);
       }
     }
     else
     {
-      sub_10DC24(dword_113294, *v3, v9, v10, a2);
+      log_printf(dword_113294, *v3, v9, v10, a2);
     }
   }
-  v17 = sub_110008(&v7[-*(uint32_t *)off_113290]);
-  sub_114104(v17);
+  v17 = is_controller_mode(&v7[-*(uint32_t *)off_113290]);
+  timer_delay(v17);
   return 1;
 }
 

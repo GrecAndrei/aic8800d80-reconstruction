@@ -17,8 +17,8 @@ extern uint32_t off_124C4C;
 extern uint32_t off_124C50;
 extern uint32_t dword_124C54;
 
-// sub_124BBC @ 0x124bbc, size 132 bytes
-int  sub_124BBC(uint16_t *a1)
+// radio_reg_init @ 0x124bbc, size 132 bytes
+int  radio_reg_init(uint16_t *a1)
 {
   int v1; // r3
   int *v2; // r2
@@ -47,8 +47,8 @@ int  sub_124BBC(uint16_t *a1)
   v6[1] = v6[1] & v1 | (v7 << 12);
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
-  sub_1207E0();
-  sub_12ECB0(dword_124C54, *a1, a1[1]);
+  wait_rf_calibration();
+  ke_event_schedule(dword_124C54, *a1, a1[1]);
   return 0;
 }
 

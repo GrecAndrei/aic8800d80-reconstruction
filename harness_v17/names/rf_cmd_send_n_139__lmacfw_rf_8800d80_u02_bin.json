@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_139", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127de", "status": "ok", "name": "rf_cmd_send_n_139", "params": [], "docstring": "Send RF command, zero-fills 16-byte buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_139", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127de", "status": "ok", "name": "rf_bus_reset_n4ee", "params": [], "docstring": "Send RF command, zero-fills 16-byte buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

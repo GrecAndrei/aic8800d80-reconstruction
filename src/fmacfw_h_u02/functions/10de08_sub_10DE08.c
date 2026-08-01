@@ -21,8 +21,8 @@ extern uint32_t dword_10DE94;
 extern uint32_t dword_10DE98;
 extern uint32_t dword_10DE9C;
 
-// sub_10DE08 @ 0x10de08, size 128 bytes
-int sub_10DE08()
+// hw_block_disable @ 0x10de08, size 128 bytes
+int hw_block_disable()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
@@ -46,10 +46,10 @@ int sub_10DE08()
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v4 = sub_142874(v1[4]);
-  v5 = sub_142968(v4, HIDWORD(v4), dword_10DE88, dword_10DE8C);
-  v6 = sub_142BBC(v5, HIDWORD(v5), dword_10DE90, dword_10DE94);
-  v7 = sub_1425F8(v6, HIDWORD(v6), dword_10DE98, dword_10DE9C);
-  return sub_142F2C(v7);
+  v4 = unsigned_int_to_double(v1[4]);
+  v5 = double_compare_common(v4, HIDWORD(v4), dword_10DE88, dword_10DE8C);
+  v6 = double_compare_core(v5, HIDWORD(v5), dword_10DE90, dword_10DE94);
+  v7 = double_compare_neg(v6, HIDWORD(v6), dword_10DE98, dword_10DE9C);
+  return double_to_int(v7);
 }
 

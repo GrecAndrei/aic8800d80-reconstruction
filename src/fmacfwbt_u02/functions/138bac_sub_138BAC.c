@@ -13,8 +13,8 @@
 extern uint32_t dword_138C48;
 extern uint32_t dword_138C44;
 
-// sub_138BAC @ 0x138bac, size 152 bytes
-int  sub_138BAC(uint8_t *a1, uint32_t *a2, char *a3, int a4)
+// rate_to_phy_mode @ 0x138bac, size 152 bytes
+int  rate_to_phy_mode(uint8_t *a1, uint32_t *a2, char *a3, int a4)
 {
   char v5; // r2
   int v6; // r4
@@ -44,14 +44,14 @@ int  sub_138BAC(uint8_t *a1, uint32_t *a2, char *a3, int a4)
         | ((uint8_t)v7[59] << 24)
         | (uint8_t)v7[56]
         | ((uint8_t)v7[57] << 8);
-    sub_12EEF8(128, dword_138C48, v13, *a2);
+    state_check_feature(128, dword_138C48, v13, *a2);
     if ( v13 == *a2 )
-      sub_135D18(*a1, (int)&a3[v6 + 40], a3);
+      rf_map_to_cal(*a1, (int)&a3[v6 + 40], a3);
     return 1;
   }
   else if ( v12 == 2 )
   {
-    sub_12EEF8(128, dword_138C44);
+    state_check_feature(128, dword_138C44);
   }
   return v10;
 }

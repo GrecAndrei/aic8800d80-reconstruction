@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143A54 @ 0x143a54, size 206 bytes
-uint8_t * sub_143A54(uint8_t *result, uint8_t a2)
+// memset @ 0x143a54, size 206 bytes
+uint8_t * memset(uint8_t *result, uint8_t a2)
 {
   uint8_t *v2; // r3
   int v3; // r6

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_state_load @ 0x1247a4, size 50 bytes
-// Doc: rf_state_load [rf]: Load state pointer from context struct
-// rf_state_load [rf]: Load state pointer from context struct
-int  rf_state_load(uint8_t **a1, uint8_t *a2)
+// util_list_find @ 0x1247a4, size 50 bytes
+// Doc: util_list_find [rf]: Load state pointer from context struct
+// util_list_find [rf]: Load state pointer from context struct
+int  util_list_find(uint8_t **a1, uint8_t *a2)
 {
   uint8_t *v2; // r3
   uint8_t *v3; // t1

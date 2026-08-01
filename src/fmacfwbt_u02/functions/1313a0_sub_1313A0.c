@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1313A0 @ 0x1313a0, size 170 bytes
-int  sub_1313A0(uint8_t *a1, int a2, int a3)
+// rf_validate_cal_entry @ 0x1313a0, size 170 bytes
+int  rf_validate_cal_entry(uint8_t *a1, int a2, int a3)
 {
   uint8_t *v4; // r0
   unsigned int v5; // r6
@@ -28,7 +28,7 @@ int  sub_1313A0(uint8_t *a1, int a2, int a3)
   int16_t v16; // r3
   uint8_t v18[5]; // [sp+7h] [bp-5h] BYREF
 
-  v4 = sub_12E0B8(a1, a2, v18);
+  v4 = parse_hash_u16(a1, a2, v18);
   if ( !v4 )
     return 0;
   v5 = (unsigned int)&v4[v18[0] + 3];

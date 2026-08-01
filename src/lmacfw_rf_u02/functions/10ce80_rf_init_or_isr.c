@@ -14,10 +14,10 @@ extern uint32_t off_10CEB4;
 extern uint32_t off_10CEBC;
 extern uint32_t off_10CEB8;
 
-// rf_init_or_isr @ 0x10ce80, size 52 bytes
-// Doc: rf_init_or_isr [rf]: RF register initialization or interrupt service routine
-// rf_init_or_isr [rf]: RF register initialization or interrupt service routine
-int rf_init_or_isr()
+// check_uart_flags @ 0x10ce80, size 52 bytes
+// Doc: check_uart_flags [rf]: RF register initialization or interrupt service routine
+// check_uart_flags [rf]: RF register initialization or interrupt service routine
+int check_uart_flags()
 {
   int v0; // r4
   uint32_t *v1; // r2
@@ -29,11 +29,11 @@ int rf_init_or_isr()
     v1 = off_10CEBC;
     *(uint32_t *)off_10CEB8 = 32;
     *v1 = 32;
-    result = irq_nesting_or(0x400000);
+    result = set_busy_flag_alt(0x400000);
   }
   if ( (v0 & 2) != 0 )
   {
-    result = irq_nesting_or(0x8000000);
+    result = set_busy_flag_alt(0x8000000);
     *(uint32_t *)off_10CEB8 = 2;
   }
   return result;

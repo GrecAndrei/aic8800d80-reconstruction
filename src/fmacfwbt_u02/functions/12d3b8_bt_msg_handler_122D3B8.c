@@ -17,10 +17,10 @@ extern uint32_t off_12D428;
 extern uint32_t dword_12D430;
 extern uint32_t dword_12D434;
 
-// bt_msg_handler_122D3B8 @ 0x12d3b8, size 104 bytes
-// Doc: bt_msg_handler_122D3B8 [bt]: BT message handler, accesses 0x192b6c state table
-// bt_msg_handler_122D3B8 [bt]: BT message handler, accesses 0x192b6c state table
-void bt_msg_handler_122D3B8()
+// process_event_queue @ 0x12d3b8, size 104 bytes
+// Doc: process_event_queue [bt]: BT message handler, accesses 0x192b6c state table
+// process_event_queue [bt]: BT message handler, accesses 0x192b6c state table
+void process_event_queue()
 {
   unsigned int *v0; // r6
   unsigned int v1; // r4
@@ -52,7 +52,7 @@ void bt_msg_handler_122D3B8()
           if ( v8 )
             goto LABEL_5;
         }
-        sub_12F694(v6, v5, 230);
+        mmio_irq_clear(v6, v5, 230);
       }
       v8 = *(void ( **)(uint32_t))(v3 + 8 * v7);
 LABEL_5:
@@ -60,7 +60,7 @@ LABEL_5:
       v1 = *v0;
       if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
       {
-        sub_114514();
+        hw_sync_write();
         if ( !v1 )
           return;
       }

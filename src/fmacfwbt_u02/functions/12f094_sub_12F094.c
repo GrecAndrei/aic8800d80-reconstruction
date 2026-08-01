@@ -14,8 +14,8 @@ extern uint32_t off_12F148;
 extern uint32_t dword_12F150;
 extern uint32_t dword_12F14C;
 
-// sub_12F094 @ 0x12f094, size 178 bytes
-int  sub_12F094(int a1, int *a2, int16_t a3, int16_t a4)
+// msg_alloc_412 @ 0x12f094, size 178 bytes
+int  msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4)
 {
   uint64_t *v5; // r0
   int v6; // r5
@@ -23,7 +23,7 @@ int  sub_12F094(int a1, int *a2, int16_t a3, int16_t a4)
   uint64_t v8; // r2
   int v9; // r0
 
-  v5 = (uint64_t *)rf_bus_setup_n3a8(1042, a4, a3, 8u);
+  v5 = (uint64_t *)bt_buf_alloc(1042, a4, a3, 8u);
   v6 = (int)v5;
   if ( (unsigned int)**(uint8_t **)off_12F148 - 1 <= 1 )
   {
@@ -48,8 +48,8 @@ int  sub_12F094(int a1, int *a2, int16_t a3, int16_t a4)
     v7 = (uint32_t *)*a2;
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      rf_reg_write_guard((int)v7, a2[2], a2[1], 1);
-      v9 = sub_10EBDC(*a2, 1);
+      atomic_reg_write((int)v7, a2[2], a2[1], 1);
+      v9 = atomic_reg_read(*a2, 1);
       LODWORD(v8) = *a2;
     }
     else
@@ -62,8 +62,8 @@ int  sub_12F094(int a1, int *a2, int16_t a3, int16_t a4)
     HIDWORD(v8) = a2[2];
     *(uint32_t *)v6 = v8;
   }
-  sub_12ECB0(dword_12F14C, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
-  sub_12CBB4(v6);
+  ke_event_schedule(dword_12F14C, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
+  hci_evt_send(v6);
   return 0;
 }
 

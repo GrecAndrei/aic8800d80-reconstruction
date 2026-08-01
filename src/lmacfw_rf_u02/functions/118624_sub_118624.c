@@ -12,8 +12,8 @@
 
 extern uint32_t off_118670;
 
-// sub_118624 @ 0x118624, size 76 bytes
-uint32_t *sub_118624()
+// start_firmware @ 0x118624, size 76 bytes
+uint32_t *start_firmware()
 {
   uint8_t *v0; // r4
   int v1; // r0
@@ -24,21 +24,21 @@ uint32_t *sub_118624()
 
   v0 = off_118670;
   if ( !*((uint8_t *)off_118670 + 2) )
-    sub_11D0B8();
-  sub_11843C();
-  sub_117DF4();
-  v1 = sub_117AF8();
-  sub_11C814(v1);
-  sub_115820();
+    rf_cmd_strobe();
+  init_link_manager();
+  btcoex_reset_context();
+  v1 = init_table_185d40();
+  init_three_entries(v1);
+  ble_ll_init();
   if ( v0[2] )
-    v2 = sub_116CA4();
+    v2 = timestamp_add();
   else
-    v2 = sub_116C94();
-  v3 = sub_11AB0C(v2);
-  v4 = sub_11CA94(v3);
-  v5 = sub_11BA64(v4);
-  sub_11D8D4(v5);
-  sub_10F50C();
-  return sub_1184B0();
+    v2 = call_sub_117410_then_11683c();
+  v3 = log_18630c(v2);
+  v4 = ke_timer_flush(v3);
+  v5 = env_reset(v4);
+  log_two_strings(v5);
+  rf_init();
+  return rf_clock_enable();
 }
 

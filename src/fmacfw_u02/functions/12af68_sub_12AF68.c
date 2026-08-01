@@ -16,10 +16,10 @@ extern uint32_t dword_12B004;
 extern uint32_t dword_12B000;
 extern uint32_t off_12AFFC;
 
-// sub_12AF68 @ 0x12af68, size 138 bytes
+// ke_state_check @ 0x12af68, size 138 bytes
 // Doc: sub_122AF68 [util]: Calls helper(2), checks return against 3 (likely init/status poll)
 // sub_122AF68 [util]: Calls helper(2), checks return against 3 (likely init/status poll)
-int sub_12AF68()
+int ke_state_check()
 {
   int value; // r0
   int v1; // r2
@@ -29,13 +29,13 @@ int sub_12AF68()
   unsigned int v5; // r3
   int v6; // r1
 
-  if ( msg_get_value(2) != 3 )
+  if ( rx_rate_field_parse(2) != 3 )
   {
-    value = msg_get_value(2);
-    msg_parse(dword_12AFF4, value, v1);
+    value = rx_rate_field_parse(2);
+    event_dispatch(dword_12AFF4, value, v1);
   }
-  if ( **(int16_t **)off_12AFF8 < 0 && msg_get_value(2) != 3 )
-    sub_12F46C(dword_12B004, dword_12B000, 201);
+  if ( **(int16_t **)off_12AFF8 < 0 && rx_rate_field_parse(2) != 3 )
+    mmio_clear_register(dword_12B004, dword_12B000, 201);
   v2 = off_12AFFC;
   v3 = *(uint32_t *)off_12AFFC;
   v4 = *(uint8_t *)(*(uint32_t *)off_12AFFC + 367);
@@ -43,23 +43,23 @@ int sub_12AF68()
   *((uint8_t *)off_12AFFC + 10) = v5;
   if ( v4 <= v5 || v2[11] )
   {
-    sub_12CA38(v3 - 12);
+    branch_to_12cbc8(v3 - 12);
     v6 = *((uint16_t *)v2 + 4);
     if ( v2[11] )
     {
-      ipc_msg_alloc_n0(0, v6);
+      reg_read_indirect(0, v6);
       v2[11] = 0;
     }
     else
     {
-      sub_12CA10(2050, v6, 2);
+      ke_msg_send_no_param(2050, v6, 2);
     }
-    sub_12CD34(2);
+    rx_phy_status_parse(2);
     return 0;
   }
   else
   {
-    sub_12B1A4();
+    ke_timer_setup();
     return 0;
   }
 }

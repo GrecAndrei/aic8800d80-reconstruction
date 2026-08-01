@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_49c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113e8", "status": "ok", "name": "rf_bus_mark_13e8", "params": [], "docstring": "Mark RF bus activity via halfword write and shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_bus_mark_n_49c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113e8", "status": "ok", "name": "rf_bus_mark_n_49b_13e8", "params": [], "docstring": "Mark RF bus activity via halfword write and shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

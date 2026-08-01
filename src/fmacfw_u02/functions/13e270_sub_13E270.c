@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E270 @ 0x13e270, size 78 bytes
-uint16_t * sub_13E270(uint16_t *result)
+// rx_desc_validate @ 0x13e270, size 78 bytes
+uint16_t * rx_desc_validate(uint16_t *result)
 {
   unsigned int v1; // r3
   int v2; // r1

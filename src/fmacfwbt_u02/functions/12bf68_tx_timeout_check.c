@@ -21,10 +21,10 @@ extern uint32_t dword_12C05C;
 extern uint32_t off_12C054;
 extern uint32_t dword_12C064;
 
-// tx_timeout_check @ 0x12bf68, size 214 bytes
-// Doc: tx_timeout_check [tx]: Check TX path for timeout conditions via MMIO register
-// tx_timeout_check [tx]: Check TX path for timeout conditions via MMIO register
-int tx_timeout_check()
+// mac_isr_handler @ 0x12bf68, size 214 bytes
+// Doc: mac_isr_handler [tx]: Check TX path for timeout conditions via MMIO register
+// mac_isr_handler [tx]: Check TX path for timeout conditions via MMIO register
+int mac_isr_handler()
 {
   int v0; // r4
   int v1; // r5
@@ -52,7 +52,7 @@ int tx_timeout_check()
   {
     if ( **(int16_t **)off_12C058 < 0 && v3 - *((uint32_t *)off_12C044 + 4) + 5000 < 0 )
     {
-      sub_12F694(dword_12C060, dword_12C05C, 575);
+      mmio_irq_clear(dword_12C060, dword_12C05C, 575);
       return 0;
     }
     return 0;
@@ -63,7 +63,7 @@ int tx_timeout_check()
       return 1;
     if ( **(int16_t **)off_12C058 < 0 && v3 - *((uint32_t *)off_12C044 + 4) - v4 < 0 )
     {
-      sub_12F694(dword_12C064, dword_12C05C, 580);
+      mmio_irq_clear(dword_12C064, dword_12C05C, 580);
       v3 = *(uint32_t *)(v1 + 12);
       v4 = v2[93];
     }

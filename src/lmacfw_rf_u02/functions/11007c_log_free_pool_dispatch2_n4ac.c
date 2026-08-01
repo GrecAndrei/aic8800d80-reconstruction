@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// log_free_pool_dispatch2_n4ac @ 0x11007c, size 72 bytes
+// rx_channel_event @ 0x11007c, size 72 bytes
 // Doc: log_free_pool_dispatch2_n4d0 [util]: Dispatch free pool entry and log release
 // log_free_pool_dispatch2_n4d0 [util]: Dispatch free pool entry and log release
-int log_free_pool_dispatch2_n4ac()
+int rx_channel_event()
 {
   void *v0; // r8
   int result; // r0
@@ -24,7 +24,7 @@ int log_free_pool_dispatch2_n4ac()
   unsigned int v6; // r1
 
   v0 = log_free_pool_dispatch2_n500;
-  result = sub_11E71C(log_free_pool_dispatch2_00c4);
+  result = list_init(log_free_pool_dispatch2_00c4);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 6) )
   {
     v2 = log_free_pool_dispatch2_n4f8;
@@ -33,8 +33,8 @@ int log_free_pool_dispatch2_n4ac()
     v5 = 0;
     do
     {
-      log_pool_alloc2_a18(v3, 0x63Cu);
-      result = list_push_tail(v4);
+      list_iterate(v3, 0x63Cu);
+      result = check_kernel_state(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;

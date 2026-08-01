@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A69C;
 
-// sub_12A5C0 @ 0x12a5c0, size 218 bytes
-int  sub_12A5C0(int a1, unsigned int a2, int a3)
+// lll_conn_ready_check @ 0x12a5c0, size 218 bytes
+int  lll_conn_ready_check(int a1, unsigned int a2, int a3)
 {
   int v3; // r6
   int v4; // r5
@@ -37,11 +37,11 @@ int  sub_12A5C0(int a1, unsigned int a2, int a3)
     {
       if ( !a3 || *(uint8_t *)(v7 + 32) )
       {
-        sub_124CF4(48 * a2 + 140 * v3 + dword_12A69C);
+        mem_set_util(48 * a2 + 140 * v3 + dword_12A69C);
         v8 = 140 * v3 + 48 * a2 + v4;
         *(uint8_t *)(v8 + 16) = 0;
-        sub_129458(v4 + 140 * v3);
-        sub_1296C4((uint8_t *)(v4 + 140 * v3));
+        rsn_derive_key(v4 + 140 * v3);
+        rsn_parse_ie((uint8_t *)(v4 + 140 * v3));
         v9 = v4 + 140 * v3;
         v10 = *(uint8_t *)(v8 + 32);
         v11 = (uint8_t)(*(uint8_t *)(v9 + 121) - 1);
@@ -50,10 +50,10 @@ int  sub_12A5C0(int a1, unsigned int a2, int a3)
           --*(uint8_t *)(v9 + 122);
         v12 = v4 + 140 * v3;
         if ( *(uint8_t *)(v12 + 115) || v11 )
-          sub_125B98(*(uint8_t *)(v4 + 140 * v3 + 113), 3);
+          util_get_state(*(uint8_t *)(v4 + 140 * v3 + 113), 3);
         else
-          sub_125B98(*(uint8_t *)(v12 + 113), 2);
-        sub_129404(v4 + 140 * v3, a2);
+          util_get_state(*(uint8_t *)(v12 + 113), 2);
+        bus_cmd52_write(v4 + 140 * v3, a2);
         return 0;
       }
     }

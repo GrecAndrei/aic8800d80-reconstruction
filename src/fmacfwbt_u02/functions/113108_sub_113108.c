@@ -20,8 +20,8 @@ extern uint32_t off_113194;
 extern uint32_t dword_1131A0;
 extern uint32_t dword_1131A4;
 
-// sub_113108 @ 0x113108, size 126 bytes
-int  sub_113108(int a1)
+// sys_cmu_clock_get @ 0x113108, size 126 bytes
+int  sys_cmu_clock_get(int a1)
 {
   uint16_t *v2; // r4
   int v3; // r1
@@ -36,16 +36,16 @@ int  sub_113108(int a1)
 
   if ( (*(uint32_t *)off_113188 & 0x2000000) != 0 )
   {
-    sub_100200((int *)off_11318C, 0xFFu, 4u);
+    memset_byte((int *)off_11318C, 0xFFu, 4u);
   }
   else
   {
     v2 = (uint16_t *)off_11318C;
-    sub_100200((int *)off_11318C, 0xFFu, 4u);
-    if ( sub_1154B4(v2) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) )
-      sub_12ECB0(dword_113190, v3, v4);
+    memset_byte((int *)off_11318C, 0xFFu, 4u);
+    if ( ioctl2_cmd_0x400000(v2) || (v4 = v2[1], v4 == 0xFFFF) || (v3 = *v2, v3 == 0xFFFF) )
+      ke_event_schedule(dword_113190, v3, v4);
     else
-      sub_12ECB0(dword_1131A8, v3, v4);
+      ke_event_schedule(dword_1131A8, v3, v4);
   }
   v5 = off_113198;
   v6 = off_11319C;
@@ -59,8 +59,8 @@ int  sub_113108(int a1)
     v9 = *(uint8_t *)(a1 + 8);
     if ( *(uint8_t *)(a1 + 8) )
       v9 = 1;
-    v10 = sub_111C14(v7, v9);
-    sub_12ECB0(v8, v10, v11);
+    v10 = ipc_send_request(v7, v9);
+    ke_event_schedule(v8, v10, v11);
   }
   while ( v10 );
   return 0;

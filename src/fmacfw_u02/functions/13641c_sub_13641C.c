@@ -13,28 +13,28 @@
 extern uint32_t dword_136470;
 extern uint32_t dword_136474;
 
-// sub_13641C @ 0x13641c, size 84 bytes
-int  sub_13641C(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+// bt_read_version @ 0x13641c, size 84 bytes
+int  bt_read_version(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r4
 
-  feature_guard_check(256, dword_136470);
+  check_status_bits(256, dword_136470);
   v7 = dword_136474 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && *(uint8_t *)(v7 + 108) )
   {
-    if ( msg_get_value(7u) )
+    if ( rx_rate_field_parse(7u) )
     {
       return 2;
     }
     else
     {
-      sub_1369CC(v7);
+      rf_send_command_0x1419(v7);
       return 0;
     }
   }
   else
   {
-    sub_12CA10(7171, a4, a3);
+    ke_msg_send_no_param(7171, a4, a3);
     return 0;
   }
 }

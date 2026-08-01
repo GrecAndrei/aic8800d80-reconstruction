@@ -13,13 +13,13 @@
 extern uint32_t dword_134244;
 extern uint32_t off_134248;
 
-// sub_134228 @ 0x134228, size 26 bytes
-int sub_134228()
+// hci_send_test_command @ 0x134228, size 26 bytes
+int hci_send_test_command()
 {
   int result; // r0
 
-  sub_12E948(dword_134244);
-  result = sub_12C5FC(6155, 6);
+  alloc_tx_event(dword_134244);
+  result = invalid_handler_12c5fc(6155, 6);
   *((uint8_t *)off_134248 + 15) = 0;
   return result;
 }

@@ -15,8 +15,8 @@ extern uint32_t dword_13BE10;
 extern uint32_t dword_13BE0C;
 extern uint32_t dword_13BE08;
 
-// sub_13BDA4 @ 0x13bda4, size 96 bytes
-int  sub_13BDA4(int a1, int a2)
+// rf_phy_write @ 0x13bda4, size 96 bytes
+int  rf_phy_write(int a1, int a2)
 {
   unsigned int v2; // r5
   int *v5; // r4
@@ -24,14 +24,14 @@ int  sub_13BDA4(int a1, int a2)
   int v7; // r3
 
   v2 = (uint16_t)((uint16_t)a2 << 8) | 8;
-  v5 = (int *)sub_12C92C(42, 0, ((uint16_t)a2 << 8) | 8, 3u);
-  if ( **(int16_t **)off_13BE04 < 0 && sub_12CE88(v2) != 4 )
-    sub_12F46C(dword_13BE10, dword_13BE0C, 891);
+  v5 = (int *)ke_msg_alloc(42, 0, ((uint16_t)a2 << 8) | 8, 3u);
+  if ( **(int16_t **)off_13BE04 < 0 && rx_rate_field_parse(v2) != 4 )
+    mmio_clear_register(dword_13BE10, dword_13BE0C, 891);
   v6 = dword_13BE08 + 32 * a2;
   v7 = *(uint8_t *)(v6 + 17);
   v5[1] = a1;
   *v5 = v7 != 1;
   v5[2] = *(uint8_t *)(v6 + 22);
-  return sub_12C98C((int)v5);
+  return ke_msg_send((int)v5);
 }
 

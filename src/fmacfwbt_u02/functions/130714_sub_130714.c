@@ -14,10 +14,10 @@ extern uint32_t off_1307C4;
 extern uint32_t off_1307C8;
 extern uint32_t dword_1307CC;
 
-// sub_130714 @ 0x130714, size 174 bytes
+// mmio_init_check @ 0x130714, size 174 bytes
 // Doc: sub_1230714 [util]: Loads signed byte from global and dispatches handler
 // sub_1230714 [util]: Loads signed byte from global and dispatches handler
-void sub_130714()
+void mmio_init_check()
 {
   uint8_t *v0; // r4
   int v1; // r2
@@ -41,15 +41,15 @@ void sub_130714()
   v9 = v1;
   if ( (v2 & 0x2000000) != 0 )
   {
-    sub_114EA4(&v8);
-    patch_apply_n_3e0(&v9);
+    syscall6_get_status(&v8);
+    syscall16_get_version(&v9);
     goto LABEL_4;
   }
   v10 = 0;
   v11 = 0;
-  if ( !sub_115370((int)&v10) )
+  if ( !ioctl_cmd_1((int)&v10) )
     v8 = v10;
-  if ( patch_apply_n_148((int)&v11) )
+  if ( ioctl_cmd_0x40((int)&v11) )
   {
 LABEL_4:
     v3 = v8;
@@ -73,7 +73,7 @@ LABEL_19:
   LOBYTE(v3) = 15;
 LABEL_7:
   v0[4] = v3;
-  bitfield_7000101c = mmio_read_bitfield_7000101c();
+  bitfield_7000101c = get_periph_status();
   v5 = v9;
   v0[6] = bitfield_7000101c;
   if ( v5 )
@@ -96,7 +96,7 @@ LABEL_7:
     }
     v7 = dword_1307CC;
     v0[2] = v6;
-    sub_12ECB0(v7, v5);
+    ke_event_schedule(v7, v5);
   }
   v0[3] = 0x80;
   *v0 = 1;

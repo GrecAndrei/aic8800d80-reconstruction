@@ -23,8 +23,8 @@ extern uint32_t off_129378;
 extern uint32_t off_129380;
 extern uint32_t off_12937C;
 
-// sub_129254 @ 0x129254, size 254 bytes
-int sub_129254()
+// chip_register_read @ 0x129254, size 254 bytes
+int chip_register_read()
 {
   unsigned int *v0; // r12
   int *v1; // r1
@@ -55,7 +55,7 @@ int sub_129254()
   *v0 = *v0 & 0xFFFFFF00 | 0x10;
   *v5 = *v5 & 0xFFFFFF03 | 0x10;
   *v1 = *v1 & 0x3FFFFF | (((v4 >> 5) + 32) << 22);
-  result = sub_12EB90(2, dword_129370);
+  result = check_feature_flag(2, dword_129370);
   v8 = *v6;
   v9 = **v6;
   if ( v9 == 1 )

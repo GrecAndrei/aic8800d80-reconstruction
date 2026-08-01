@@ -12,8 +12,8 @@
 
 extern uint32_t off_116610;
 
-// sub_1165B4 @ 0x1165b4, size 92 bytes
-int * sub_1165B4(int a1, int a2, int a3, int a4)
+// check_radio_flag @ 0x1165b4, size 92 bytes
+int * check_radio_flag(int a1, int a2, int a3, int a4)
 {
   int *result; // r0
   char *v7; // r4
@@ -23,11 +23,11 @@ int * sub_1165B4(int a1, int a2, int a3, int a4)
   char v11; // [sp+10h] [bp-Ch] BYREF
 
   if ( (**(uint8_t **)off_116610 & 1) != 0 )
-    return sub_100200((int *)(a3 + a4), 0, 8u);
+    return memset_byte((int *)(a3 + a4), 0, 8u);
   v7 = v10;
-  sub_133800(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
-  sub_13384C(v10, a3, a4);
-  sub_133988(v10);
+  assemble_bt_descriptor(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
+  unaligned_memcpy(v10, a3, a4);
+  bt_process_rx_data(v10);
   v8 = a4 + a3;
   do
   {

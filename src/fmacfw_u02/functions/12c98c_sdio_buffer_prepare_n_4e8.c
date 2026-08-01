@@ -15,10 +15,10 @@ extern uint32_t dword_12C9FC;
 extern uint32_t dword_12CA04;
 extern uint32_t off_12CA0C;
 
-// sdio_buffer_prepare_n_4e8 @ 0x12c98c, size 106 bytes
+// ke_msg_send @ 0x12c98c, size 106 bytes
 // Doc: message_dispatch_n52 [ipc]: Dispatches short message after subtracting 0xc offset
 // message_dispatch_n52 [ipc]: Dispatches short message after subtracting 0xc offset
-int  sdio_buffer_prepare_n_4e8(int a1)
+int  ke_msg_send(int a1)
 {
   int16_t v1; // r3
   uint16_t *v4; // r0
@@ -28,19 +28,19 @@ int  sdio_buffer_prepare_n_4e8(int a1)
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      list_push_tail(dword_12C9FC);
-      return irq_nesting_or_d104(0x4000000);
+      cmd_handler_a(dword_12C9FC);
+      return unknown_func_12d104(0x4000000);
     }
   }
   else
   {
-    sub_12F46C(dword_12CA04, message_dispatch_n74, 183);
+    mmio_clear_register(dword_12CA04, message_dispatch_n74, 183);
   }
-  msg_parse(message_dispatch_a08, *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
+  event_dispatch(message_dispatch_a08, *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
   v4 = (uint16_t *)(a1 - 12);
   if ( *(uint8_t *)off_12CA0C )
-    return sub_12CBC8(v4);
+    return tx_pkt_enqueue(v4);
   else
-    return j_state_check(v4);
+    return read_mode_0x182ba0(v4);
 }
 

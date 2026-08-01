@@ -14,8 +14,8 @@ extern uint32_t off_132080;
 extern uint32_t dword_132084;
 extern uint32_t dword_132088;
 
-// sub_131F38 @ 0x131f38, size 328 bytes
-int  sub_131F38(int a1, int a2, int16_t a3, int16_t a4)
+// bt_clear_flag @ 0x131f38, size 328 bytes
+int  bt_clear_flag(int a1, int a2, int16_t a3, int16_t a4)
 {
   uint8_t *v4; // r4
   int v8; // r1
@@ -79,7 +79,7 @@ int  sub_131F38(int a1, int a2, int16_t a3, int16_t a4)
     v14[1] = v15;
     v14[2] = v16;
   }
-  if ( rf_fault_dump_ext_b84() )
+  if ( get_hook_bit_19() )
   {
     *(uint8_t *)(a2 + 105) = 0;
     *(uint8_t *)(a2 + 106) = 0;
@@ -122,10 +122,10 @@ int  sub_131F38(int a1, int a2, int16_t a3, int16_t a4)
       v4[374] |= 8u;
   }
   v4[373] = *(uint8_t *)(a2 + 102);
-  sub_12CA10(5121, a4, a3);
+  ke_msg_send_no_param(5121, a4, a3);
   if ( (v4[374] & 1) != 0 )
   {
-    v34 = hw_chip_rev_get();
+    v34 = rf_get_field8();
     v35 = (uint8_t)v4[374] << 29;
     v4[372] = (v34 + 1) >> 1;
     if ( v35 < 0 )
@@ -157,10 +157,10 @@ int  sub_131F38(int a1, int a2, int16_t a3, int16_t a4)
   if ( v17 )
   {
     *((uint16_t *)v4 + 4) = 255;
-    v33 = (uint8_t *)sub_12C92C(49, 0, 5, 1u);
+    v33 = (uint8_t *)ke_msg_alloc(49, 0, 5, 1u);
     *v33 = v4[376];
-    sdio_buffer_prepare_n_4e8((int)v33);
-    sub_12CD34(5u, 1);
+    ke_msg_send((int)v33);
+    rx_phy_status_parse(5u, 1);
   }
   return 0;
 }

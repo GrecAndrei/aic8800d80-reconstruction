@@ -14,8 +14,8 @@ extern uint32_t off_10F44C;
 extern uint32_t dword_10F450;
 extern uint32_t dword_10F454;
 
-// sub_10F3B0 @ 0x10f3b0, size 156 bytes
-uint64_t sub_10F3B0()
+// rf_timer_init @ 0x10f3b0, size 156 bytes
+uint64_t rf_timer_init()
 {
   uint16_t *v0; // r5
   int *v1; // r4
@@ -34,20 +34,20 @@ uint64_t sub_10F3B0()
   *((uint8_t *)v0 + 6176) = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  sub_12D240(v0 + 1540);
-  sub_12D240(v1 - 3);
-  sub_12D240(v1 + 512);
-  sub_12D240(v1 + 514);
+  zero_8_bytes(v0 + 1540);
+  zero_8_bytes(v1 - 3);
+  zero_8_bytes(v1 + 512);
+  zero_8_bytes(v1 + 514);
   v0[4122] = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  sub_100200(v1, 0, 0x800u);
+  memset(v1, 0, 0x800u);
   v2 = v1 + 512;
   v3 = v1 + 512;
   do
   {
     v1 += 4;
-    sub_12D248(v3);
+    cmd_handler_a(v3);
   }
   while ( v1 != v2 );
   v4 = dword_10F454;

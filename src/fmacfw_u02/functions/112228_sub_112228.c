@@ -21,10 +21,10 @@ extern uint32_t off_112890;
 extern uint32_t off_1129D4;
 extern uint32_t dword_11288C;
 
-// sub_112228 @ 0x112228, size 1958 bytes
+// rf_init @ 0x112228, size 1958 bytes
 // Doc: rf_state_check_n178 [rf]: Check RF subsystem state (variant n178)
 // rf_state_check_n178 [rf]: Check RF subsystem state (variant n178)
-int  sub_112228(uint64_t a1)
+int  rf_init(uint64_t a1)
 {
   int v1; // r4
   uint8_t *v2; // r5
@@ -97,7 +97,7 @@ int  sub_112228(uint64_t a1)
     if ( v14 == 2 )
     {
       v3 = rf_bus_reset_n_4b0;
-      sub_10DC24(rf_state_check_n378);
+      log_printf(rf_state_check_n378);
       goto LABEL_7;
     }
     if ( (a1 & 0x100000000LL) == 0 )
@@ -126,7 +126,7 @@ int  sub_112228(uint64_t a1)
       *((uint16_t *)rf_bus_reset_n_4b4 + 5) = v51;
       if ( HIDWORD(a1) < v51 )
       {
-        LODWORD(a1) = sub_10DC24(rf_bus_reset_n_10_29d8);
+        LODWORD(a1) = log_printf(rf_bus_reset_n_10_29d8);
         WORD2(a1) = *((uint16_t *)v2 + 4);
         v51 = *((uint16_t *)v2 + 5);
       }
@@ -144,10 +144,10 @@ int  sub_112228(uint64_t a1)
           v53[516] |= 0x10u;
           return a1;
         }
-        LODWORD(a1) = rf_bus_mark_n279(0, 0);
+        LODWORD(a1) = bt_cmd_handler(0, 0);
         goto rf_state_check_n154;
       }
-      LODWORD(a1) = rf_bus_mark_n279(*((uint32_t *)v2 + 1) + v51, v52);
+      LODWORD(a1) = bt_cmd_handler(*((uint32_t *)v2 + 1) + v51, v52);
 rf_state_check_n154:
       if ( (v1 & 0x20) == 0 )
         return a1;
@@ -164,7 +164,7 @@ rf_bus_setup_n430:
         v28[704] |= 0x84000000;
         *v2 = 7;
         v28[517] |= 0x10u;
-        LODWORD(a1) = rf_bus_init_n_4a8();
+        LODWORD(a1) = mmio_sync_2();
       }
       return a1;
     }
@@ -237,7 +237,7 @@ LABEL_7:
       v6 = v4[6] | (v4[7] << 8);
       *((uint16_t *)v2 + 9) = v6;
       if ( !v6 && (v2[12] & 0x80u) != 0 )
-        sub_10DC24(rf_bus_reset_n_154_2894);
+        log_printf(rf_bus_reset_n_154_2894);
       v7 = rf_state_check_n368;
       v8 = rf_state_check_2540;
       v9 = *((int ( **)(void *))rf_state_check_2540 + 3);
@@ -255,17 +255,17 @@ rf_state_check_n29e:
             goto rf_state_check_n2cc_24a0;
           case 4:
 LABEL_87:
-            rf_bus_mark_n279(*((uint32_t *)v2 + 1), *((uint16_t *)v2 + 4));
+            bt_cmd_handler(*((uint32_t *)v2 + 1), *((uint16_t *)v2 + 4));
             goto rf_state_check_n2cc_24a0;
           case 7:
 message_dispatch_n_272:
-            rf_bus_init_n_4a8();
+            mmio_sync_2();
             goto rf_state_check_n2cc_24a0;
         }
 rf_state_check_484:
         *v2 = 0;
-        rf_bus_write_1b64(0, 0x200000, 0);
-        rf_bus_write2_1c1c(0, 0x200000, 0);
+        unknown_15(0, 0x200000, 0);
+        unknown_16(0, 0x200000, 0);
 rf_state_check_n2cc_24a0:
         v24 = *(uint32_t **)v3;
         LODWORD(a1) = *(uint32_t *)off_112544;
@@ -286,7 +286,7 @@ LABEL_51:
 rf_state_check_n342:
         if ( v12 == 4 && *v10 != 4 )
 LABEL_56:
-          rf_bus_scan_19dc();
+          table_lookup_wrapper();
         goto rf_state_check_484;
       }
       v13 = v2[13];
@@ -306,7 +306,7 @@ LABEL_56:
               {
                 v13 = (v58 >> 7) & 1;
 LABEL_97:
-                if ( sub_111D10(v13, v40) )
+                if ( mmio_bank_read(v13, v40) )
                 {
                   v30 = off_112874;
                   *(uint16_t *)off_112874 = 1;
@@ -345,7 +345,7 @@ LABEL_128:
                 if ( *v10 == 4 )
                   goto rf_state_check_n29e;
 rf_state_check_46e:
-                rf_bus_scan_19dc();
+                table_lookup_wrapper();
                 goto rf_state_check_n29e;
               }
               v40 = v2[13];
@@ -360,7 +360,7 @@ rf_state_check_46e:
             goto rf_state_check_n342;
           if ( (v2[12] & 0x1F) != 2 || *((uint16_t *)v2 + 7) )
             goto LABEL_79;
-          sub_111D8C((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
+          flash_write_data((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
           *v2 = 7;
           if ( v12 == 4 )
             goto rf_state_check_n290;
@@ -382,7 +382,7 @@ rf_bus_reset_n_484_2564:
               }
               goto rf_state_check_484;
             }
-            sub_111D68((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
+            flash_erase_area((int *)((*((uint16_t *)v2 + 8) >> 7) & 1), *((uint16_t *)v2 + 8) & 0xF);
             *v2 = 7;
             if ( v12 != 4 )
               goto message_dispatch_n_272;
@@ -402,7 +402,7 @@ LABEL_89:
               }
               else
               {
-                rf_bus_scan_19dc();
+                table_lookup_wrapper();
                 if ( v39 )
                   goto rf_state_check_n29e;
               }
@@ -531,7 +531,7 @@ LABEL_156:
             case 0xEu:
               JUMPOUT(0x132510);
             default:
-              sub_10DC24(dword_112554);
+              log_printf(dword_112554);
               goto rf_state_check_n342;
           }
         case 8u:
@@ -540,7 +540,7 @@ LABEL_156:
           *v2 = 4;
           goto LABEL_86;
         case 9u:
-          v39 = rf_state_check_21d4();
+          v39 = arg_store();
           goto LABEL_89;
         case 0xAu:
           if ( *(uint8_t *)unknown_n1 != 4 )
@@ -573,7 +573,7 @@ LABEL_72:
       v2 = (uint8_t *)rf_bus_reset_n_4b4;
       if ( *(uint8_t *)rf_bus_reset_n_4b4 )
       {
-        sub_111D44((int *)1, 0);
+        flash_erase_main((int *)1, 0);
         v3 = off_112890;
         goto LABEL_7;
       }
@@ -595,7 +595,7 @@ LABEL_72:
           v44 = 64 - *(uint16_t *)v19;
           if ( v44 >= (uint16_t)(*((uint16_t *)rf_bus_reset_n_4b4 + 4) - v42) )
             LOWORD(v44) = *((uint16_t *)rf_bus_reset_n_4b4 + 4) - v42;
-          sub_143770(v42 + *((uint32_t *)rf_bus_reset_n_4b4 + 1), *(uint32_t *)rf_bus_reset_n_160, (uint16_t)v44);
+          memcpy(v42 + *((uint32_t *)rf_bus_reset_n_4b4 + 1), *(uint32_t *)rf_bus_reset_n_160, (uint16_t)v44);
           v45 = *((uint16_t *)v2 + 4);
           v46 = (uint16_t)(v44 + *((uint16_t *)v2 + 5));
           *((uint16_t *)v2 + 5) = v46;
@@ -620,7 +620,7 @@ LABEL_72:
             v57[704] |= 0x84000000;
             *v2 = 7;
             v57[517] |= 0x10u;
-            LODWORD(a1) = rf_bus_init_n_4a8();
+            LODWORD(a1) = mmio_sync_2();
             goto rf_bus_setup_n430;
           }
           v47 = *(uint32_t **)v3;
@@ -656,7 +656,7 @@ LABEL_72:
       goto rf_state_check_n154;
     }
     if ( *(uint8_t *)rf_bus_reset_n_4b4 )
-      LODWORD(a1) = sub_111D44((int *)1, 0);
+      LODWORD(a1) = flash_erase_main((int *)1, 0);
     *v2 = 1;
   }
   return a1;

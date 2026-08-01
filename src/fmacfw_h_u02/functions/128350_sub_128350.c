@@ -12,8 +12,8 @@
 
 extern uint32_t off_12838C;
 
-// sub_128350 @ 0x128350, size 58 bytes
-BOOL  sub_128350(int a1)
+// cfm_ops_get @ 0x128350, size 58 bytes
+BOOL  cfm_ops_get(int a1)
 {
   int v1; // r3
   int v2; // r2

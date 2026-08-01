@@ -1,0 +1,1 @@
+{"fn": "sub_114840", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114840", "status": "ok", "name": "call_hook_1", "params": [], "docstring": "Invokes hook function with argument 1.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

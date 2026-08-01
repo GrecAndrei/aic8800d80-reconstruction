@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13B910 @ 0x13b910, size 68 bytes
-int  sub_13B910(int a1)
+// adv_pdu_rx_handler @ 0x13b910, size 68 bytes
+int  adv_pdu_rx_handler(int a1)
 {
   int v1; // r3
   int v2; // r6

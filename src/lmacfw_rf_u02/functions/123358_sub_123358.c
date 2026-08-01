@@ -13,8 +13,8 @@
 extern uint32_t off_12338C;
 extern uint32_t off_123390;
 
-// sub_123358 @ 0x123358, size 50 bytes
-void sub_123358()
+// wait_hw_interrupt_flag @ 0x123358, size 50 bytes
+void wait_hw_interrupt_flag()
 {
   uint32_t *v0; // r4
   unsigned int v1; // r0
@@ -24,11 +24,11 @@ void sub_123358()
   {
     if ( (*v0 & 0xF) == 4 )
     {
-      v1 = sub_10D680();
-      if ( rf_init_or_reset(v1) > 0 )
+      v1 = uart_rx_byte();
+      if ( process_queue_message(v1) > 0 )
       {
         if ( *(uint8_t *)off_123390 )
-          sub_123240();
+          exit_critical_section();
         return;
       }
     }

@@ -15,8 +15,8 @@ extern uint32_t dword_135C18;
 extern uint32_t dword_135C14;
 extern uint32_t dword_135C10;
 
-// sub_135B94 @ 0x135b94, size 120 bytes
-int  sub_135B94(char a1, int a2, unsigned int a3)
+// send_hci_vendor_cmd @ 0x135b94, size 120 bytes
+int  send_hci_vendor_cmd(char a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int v6; // r0
@@ -27,7 +27,7 @@ int  sub_135B94(char a1, int a2, unsigned int a3)
   unsigned int v11; // r4
 
   v3 = a3;
-  v6 = rf_bus_setup_n3a8(6152, 13, 6, (uint16_t)(a3 + 4));
+  v6 = bt_buf_alloc(6152, 13, 6, (uint16_t)(a3 + 4));
   v7 = (int16_t **)off_135C0C;
   *(uint8_t *)v6 = a1;
   v8 = *v7;
@@ -35,8 +35,8 @@ int  sub_135B94(char a1, int a2, unsigned int a3)
   v9 = v6;
   if ( *v8 < 0 )
   {
-    if ( v3 >= sub_12F870() - 4 )
-      sub_12F694(dword_135C18, dword_135C14, 1444);
+    if ( v3 >= get_shared_buf_size() - 4 )
+      mmio_irq_clear(dword_135C18, dword_135C14, 1444);
     v3 = *(uint16_t *)(v9 + 2);
   }
   if ( v3 )
@@ -50,8 +50,8 @@ int  sub_135B94(char a1, int a2, unsigned int a3)
     }
     while ( v10 != v11 );
   }
-  rf_bus_mark_n_3b7(6u, 7);
-  rf_level_apply_80c(6154, 6, dword_135C10);
-  return sub_12CBB4(v9);
+  hci_cmd_send(6u, 7);
+  patch_aware_dispatch(6154, 6, dword_135C10);
+  return hci_evt_send(v9);
 }
 

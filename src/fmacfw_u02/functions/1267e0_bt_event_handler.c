@@ -14,28 +14,28 @@ extern uint32_t dword_126818;
 extern uint32_t off_12681C;
 extern uint32_t dword_126820;
 
-// bt_event_handler @ 0x1267e0, size 56 bytes
-// Doc: bt_event_handler [bt]: BT firmware event/task handler
-// bt_event_handler [bt]: BT firmware event/task handler
-int bt_event_handler()
+// ke_task_poll @ 0x1267e0, size 56 bytes
+// Doc: ke_task_poll [bt]: BT firmware event/task handler
+// ke_task_poll [bt]: BT firmware event/task handler
+int ke_task_poll()
 {
   int result; // r0
   uint32_t *v1; // r4
   char *v2; // r5
   char *v3; // r4
 
-  result = rf_bus_mark_n100_d2d0(dword_126818);
+  result = mem_word_load(dword_126818);
   if ( result )
   {
     v1 = off_12681C;
-    timestamp_remove(dword_126820);
+    fault_handler(dword_126820);
     v1[18] = 0;
     v2 = (char *)(v1 + 6);
     v3 = (char *)(v1 + 8);
     do
     {
-      list_push_tail(v2);
-      result = rf_bus_mark_n100_d2d0(v3);
+      cmd_handler_a(v2);
+      result = mem_word_load(v3);
     }
     while ( result );
   }

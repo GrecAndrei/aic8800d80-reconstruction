@@ -1,1 +1,1 @@
-{"fn": "log_list_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ff98", "status": "ok", "name": "log_list_init", "params": [], "docstring": "Initialize logging list structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_list_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ff98", "status": "ok", "name": "call_handler", "params": [], "docstring": "Initialize logging list structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

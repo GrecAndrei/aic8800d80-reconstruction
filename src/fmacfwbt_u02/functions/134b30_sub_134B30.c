@@ -18,8 +18,8 @@ extern uint32_t off_134C80;
 extern uint32_t off_134C7C;
 extern uint32_t off_134C84;
 
-// sub_134B30 @ 0x134b30, size 314 bytes
-int sub_134B30()
+// mac_tx_start @ 0x134b30, size 314 bytes
+int mac_tx_start()
 {
   uint16_t *v0; // r6
   int v1; // r4
@@ -36,19 +36,19 @@ int sub_134B30()
 
   v0 = off_134C6C;
   v1 = *((uint32_t *)off_134C6C + 2);
-  feature_guard_sdio(256, dword_134C70);
-  v2 = rf_bus_setup_n3a8(6149, 13, 6, 6u);
+  state_check_feature(256, dword_134C70);
+  v2 = bt_buf_alloc(6149, 13, 6, 6u);
   if ( *((uint8_t *)v0 + 4) )
     v3 = 0;
   else
     v3 = v0[6];
   *(uint8_t *)(v1 + 149) = 0;
-  timestamp_remove_058(v1 + 152);
+  ke_event_set_lock(v1 + 152);
   v6 = *((int **)off_134C74 + 2);
   if ( !v6 )
   {
 LABEL_14:
-    sub_10D054(0, (int)v4, (int)v5);
+    hw_reg_write(0, (int)v4, (int)v5);
     goto LABEL_15;
   }
   v4 = 0;
@@ -101,15 +101,15 @@ LABEL_8:
     *v9 |= 0x80000000;
     v11 = (HIWORD(*v10) << 16) | 0x5DC;
     *v10 = v11;
-    sub_10D054(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, v11, v7);
+    hw_reg_write(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, v11, v7);
   }
   else
   {
-    sub_10D054(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, (int)v4, v7);
+    hw_reg_write(v7 | (*((uint8_t *)v6 + 413) << 16) | 0x80000000, (int)v4, v7);
   }
 LABEL_15:
-  sub_120AB4((int *)v1, 0, 0);
-  result = bt_fw_init_handler(v1);
+  bt_coex_control((int *)v1, 0, 0);
+  result = write_hw_mmio_word(v1);
   *(uint16_t *)v2 = v3;
   *(uint8_t *)(v2 + 2) = *(uint8_t *)(v1 + 107);
   *(uint8_t *)(v2 + 4) = *((uint8_t *)v0 + 33);

@@ -14,8 +14,8 @@ extern uint32_t off_103F0C;
 extern uint32_t off_103F08;
 extern uint32_t dword_103F10;
 
-// sub_103E90 @ 0x103e90, size 118 bytes
-int * sub_103E90(int a1)
+// scan_enable @ 0x103e90, size 118 bytes
+int * scan_enable(int a1)
 {
   unsigned int *v1; // r3
   int v2; // r5

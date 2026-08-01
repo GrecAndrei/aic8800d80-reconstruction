@@ -25,8 +25,8 @@ extern uint32_t dword_128960;
 extern uint32_t dword_128964;
 extern uint32_t off_12896C;
 
-// sub_128748 @ 0x128748, size 530 bytes
-int  sub_128748(int a1, int a2)
+// bsscfg_index @ 0x128748, size 530 bytes
+int  bsscfg_index(int a1, int a2)
 {
   int16_t **v2; // r10
   int v3; // r8
@@ -55,7 +55,7 @@ int  sub_128748(int a1, int a2)
   v4 = dword_12895C;
   v7 = dword_128968 + 28 * a2;
   if ( **(int16_t **)off_12898C >= 0
-    || *(uint32_t *)(dword_12895C + 1320 * a1 + 72) && (sub_12F32C(dword_128974, dword_128970, 3061), **v2 >= 0) )
+    || *(uint32_t *)(dword_12895C + 1320 * a1 + 72) && (irq_disable_mmio_write(dword_128974, dword_128970, 3061), **v2 >= 0) )
   {
     v8 = 8 * a2;
   }
@@ -63,7 +63,7 @@ int  sub_128748(int a1, int a2)
   {
     v8 = 8 * a2;
     if ( *(uint8_t *)(v3 + 28 * a2 + 24) == 255 )
-      sub_12F32C(dword_128978, dword_128970, 3062);
+      irq_disable_mmio_write(dword_128978, dword_128970, 3062);
   }
   v9 = v3 + 4 * (v8 - a2);
   v10 = off_128990;
@@ -81,12 +81,12 @@ int  sub_128748(int a1, int a2)
     v10[90] = v21;
     if ( *v20 < 0 && v21 > 2 )
     {
-      sub_12F32C(dword_128980, dword_128970, 3082);
+      irq_disable_mmio_write(dword_128980, dword_128970, 3082);
       v21 = (uint8_t)v10[90];
     }
     if ( v21 == 2 )
     {
-      sub_12D100(dword_128988);
+      clear_stats_buf(dword_128988);
       v23 = dword_12895C;
       v24 = dword_12895C + 5280;
       do
@@ -96,13 +96,13 @@ int  sub_128748(int a1, int a2)
       }
       while ( v24 != v23 );
     }
-    sub_12D108(dword_12897C);
+    wlan_ioctl_handler_1(dword_12897C);
     if ( (v10[88] & 0xC) != 0 )
     {
       v22 = *((uint32_t *)v10 + 8);
       if ( **v2 < 0 && !v22 )
       {
-        sub_12F32C(dword_128984, dword_128970, 3097);
+        irq_disable_mmio_write(dword_128984, dword_128970, 3097);
         v22 = 0;
       }
       *(uint32_t *)(v22 + 8) = v7;
@@ -113,10 +113,10 @@ int  sub_128748(int a1, int a2)
     }
     else
     {
-      sub_126F8C(v7);
+      llc_conn_command(v7);
     }
   }
-  sub_12EB90(256, dword_128960);
+  check_feature_flag(256, dword_128960);
   v13 = (uint8_t *)(v4 + 1320 * a1);
   v14 = (uint8_t)v13[1224];
   v13[86] = -1;
@@ -143,10 +143,10 @@ int  sub_128748(int a1, int a2)
       *(uint8_t *)(v4 + 1320 * a1 + 85) |= 0x10u;
   }
 LABEL_10:
-  result = sub_128408(v7);
+  result = type_get(v7);
   v18 = *((uint8_t *)off_12896C + 16);
   if ( v18 != a1 && v18 != 255 )
-    return sub_128994(a2);
+    return bsscfg_current(a2);
   return result;
 }
 

@@ -17,8 +17,8 @@ extern uint32_t dword_115B84;
 extern uint32_t off_115B8C;
 extern uint32_t off_115B88;
 
-// sub_115B00 @ 0x115b00, size 118 bytes
-int  sub_115B00(int a1, int a2)
+// check_nvic_irq @ 0x115b00, size 118 bytes
+int  check_nvic_irq(int a1, int a2)
 {
   uint32_t *v2; // r4
   int v3; // r3
@@ -41,17 +41,17 @@ int  sub_115B00(int a1, int a2)
     v6 = dword_115B84 & v5;
     if ( (v5 & 0x40000000) != 0 )
     {
-      v9 = sub_114408(0);
+      v9 = check_radio_flag(0);
       v10 = off_115B8C;
       *(uint32_t *)off_115B8C = 0x40000000;
       v2[97] = 16;
       if ( v6 < 0 )
-        sub_1143B8(v9, 0x40000000, (int)v10);
+        log_debug_b(v9, 0x40000000, (int)v10);
       goto LABEL_6;
     }
     if ( v6 < 0 )
     {
-      sub_1143B8(0, a2, v4);
+      log_debug_b(0, a2, v4);
       if ( !*((uint8_t *)off_115B88 + 3) )
       {
 LABEL_6:

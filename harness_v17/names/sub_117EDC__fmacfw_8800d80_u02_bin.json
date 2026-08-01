@@ -1,0 +1,1 @@
+{"fn": "sub_117EDC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117edc", "status": "ok", "name": "init_buf_188290", "params": [], "docstring": "Initializes 40-byte buffer and calls cleanup.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

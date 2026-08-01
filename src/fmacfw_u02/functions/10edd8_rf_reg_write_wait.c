@@ -14,10 +14,10 @@ extern uint32_t off_10EE20;
 extern uint32_t off_10EE24;
 extern uint32_t off_10EE28;
 
-// rf_reg_write_wait @ 0x10edd8, size 70 bytes
-// Doc: rf_reg_write_wait [rf]: Write RF register and poll/wait for completion
-// rf_reg_write_wait [rf]: Write RF register and poll/wait for completion
-int  rf_reg_write_wait(int a1, int a2, int a3)
+// mmio_write32 @ 0x10edd8, size 70 bytes
+// Doc: mmio_write32 [rf]: Write RF register and poll/wait for completion
+// mmio_write32 [rf]: Write RF register and poll/wait for completion
+int  mmio_write32(int a1, int a2, int a3)
 {
   int *v3; // r5
   uint32_t *v4; // r4
@@ -37,12 +37,12 @@ int  rf_reg_write_wait(int a1, int a2, int a3)
     v4 = off_10EE28;
     while ( !*(uint32_t *)off_10EE28 )
       ;
-    result = rf_reg_ack_cb();
+    result = call_ptr_1b4();
     *v4 = 1;
   }
   else
   {
-    result = rf_reg_ack_cb();
+    result = call_ptr_1b4();
   }
   if ( *v3 )
   {

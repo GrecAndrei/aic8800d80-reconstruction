@@ -12,8 +12,8 @@
 
 extern uint32_t dword_115310;
 
-// sub_1152D8 @ 0x1152d8, size 56 bytes
-uint64_t  sub_1152D8(int a1)
+// get_channel_params @ 0x1152d8, size 56 bytes
+uint64_t  get_channel_params(int a1)
 {
   int v1; // r1
   int v2; // r3

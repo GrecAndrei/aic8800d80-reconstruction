@@ -29,8 +29,8 @@ extern uint32_t dword_11C2F0;
 extern uint32_t dword_11C2D4;
 extern uint32_t off_11C2E8;
 
-// sub_11C07C @ 0x11c07c, size 560 bytes
-int  sub_11C07C(int result)
+// update_phy_status @ 0x11c07c, size 560 bytes
+int  update_phy_status(int result)
 {
   uint32_t *v1; // r2
   int16_t *v2; // r1
@@ -83,7 +83,7 @@ int  sub_11C07C(int result)
       v29 = dword_11C2D8;
       v30 = dword_11C2E0;
       v31 = 2509;
-      return sub_12F408(v30, v29, v31, v3);
+      return bad_func_0x12f408(v30, v29, v31, v3);
     }
   }
   if ( (v3 & 0x2000000) == 0 )
@@ -95,7 +95,7 @@ int  sub_11C07C(int result)
     v29 = dword_11C2D8;
     v30 = dword_11C2DC;
     v31 = 2522;
-    return sub_12F408(v30, v29, v31, v3);
+    return bad_func_0x12f408(v30, v29, v31, v3);
   }
   v7 = dword_11C2B4;
   v8 = (uint8_t)(v3 - 16);

@@ -17,8 +17,8 @@ extern uint32_t dword_129D60;
 extern uint32_t off_129D5C;
 extern uint32_t off_129D58;
 
-// sub_129C98 @ 0x129c98, size 182 bytes
-unsigned int  sub_129C98(int a1, int a2, unsigned int a3, unsigned int a4)
+// llc_get_context_ptr @ 0x129c98, size 182 bytes
+unsigned int  llc_get_context_ptr(int a1, int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   int v6; // r7
@@ -49,7 +49,7 @@ unsigned int  sub_129C98(int a1, int a2, unsigned int a3, unsigned int a4)
   v10 = (int16_t **)off_129D54;
   *(uint32_t *)(a1 + 44) = v4;
   if ( **v10 < 0 && *(uint8_t *)(v6 + 106) )
-    sub_12F46C(dword_129D64, dword_129D60, 98);
+    mmio_clear_register(dword_129D64, dword_129D60, 98);
   v11 = off_129D5C;
   v12 = *(uint8_t *)(a1 + 19);
   result = *((uint32_t *)off_129D5C + 4) - *(uint32_t *)off_129D58 - *(uint32_t *)(v6 + 132) + v4;

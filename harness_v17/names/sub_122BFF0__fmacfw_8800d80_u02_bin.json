@@ -1,1 +1,1 @@
-{"fn": "sub_122BFF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122bff0", "status": "ok", "name": "mmio_status_check_mask_40001", "params": [], "docstring": "Read MMIO and mask status bits against 0x40001", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122BFF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122bff0", "status": "ok", "name": "irq_combined_status", "params": [], "docstring": "Read MMIO and mask status bits against 0x40001", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

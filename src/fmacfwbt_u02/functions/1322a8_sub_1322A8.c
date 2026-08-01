@@ -12,19 +12,19 @@
 
 extern uint32_t dword_1322E8;
 
-// sub_1322A8 @ 0x1322a8, size 62 bytes
-int  sub_1322A8(int a1, uint8_t *a2)
+// llc_conn_env_get @ 0x1322a8, size 62 bytes
+int  llc_conn_env_get(int a1, uint8_t *a2)
 {
   int v2; // r6
   int v4; // r0
 
   v2 = dword_1322E8;
-  timestamp_remove_058(696 * *a2 + 672 + dword_1322E8);
+  ke_event_set_lock(696 * *a2 + 672 + dword_1322E8);
   v4 = *a2;
   if ( *(uint8_t *)(v2 + 696 * v4 + 37) )
-    ipc_msg_alloc_init(v4);
+    sdio_cfg_write(v4);
   else
-    message_dispatch_n84(5130, 13, 5);
+    hci_evt_alloc_send(5130, 13, 5);
   return 0;
 }
 

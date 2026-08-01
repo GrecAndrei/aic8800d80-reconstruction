@@ -20,10 +20,10 @@ extern uint32_t off_117BB8;
 extern uint32_t dword_117BA4;
 extern uint32_t off_117BA8;
 
-// sub_117AB8 @ 0x117ab8, size 222 bytes
+// fatal_error_handler @ 0x117ab8, size 222 bytes
 // Doc: sub_1217AB8 [util]: Stack-heavy helper with prologue saving many registers
 // sub_1217AB8 [util]: Stack-heavy helper with prologue saving many registers
-int sub_117AB8()
+int fatal_error_handler()
 {
   int *v0; // r7
   uint8_t *v1; // r5
@@ -63,7 +63,7 @@ int sub_117AB8()
     {
       if ( *((uint32_t *)v1 + 84) )
       {
-        sub_1162BC((uint8_t)i);
+        dispatch_config_command((uint8_t)i);
         *(uint32_t *)(dword_117BA4 + 4 * i) = *v3 + *(uint32_t *)(v4 + 4 * i);
         *(uint32_t *)off_117BA8 = 1 << i;
         v8 = (uint8_t)i;
@@ -89,7 +89,7 @@ int sub_117AB8()
           }
         }
       }
-      sub_11A7E8(v8);
+      test_flag(v8);
     }
     v6 -= 7;
     v1 -= 84;
@@ -105,6 +105,6 @@ int sub_117AB8()
         __enable_irq();
     }
   }
-  return irq_nesting_or_d104(512);
+  return unknown_func_12d104(512);
 }
 

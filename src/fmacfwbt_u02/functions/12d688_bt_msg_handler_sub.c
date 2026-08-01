@@ -16,10 +16,10 @@ extern uint32_t dword_12D70C;
 extern uint32_t dword_12D710;
 extern uint32_t dword_12D714;
 
-// bt_msg_handler_sub @ 0x12d688, size 126 bytes
-// Doc: bt_msg_handler_sub [bt]: Bluetooth message handler stub
-// bt_msg_handler_sub [bt]: Bluetooth message handler stub
-int  bt_msg_handler_sub(int result, uint32_t *a2, uint32_t *a3)
+// check_abort_flag_4 @ 0x12d688, size 126 bytes
+// Doc: check_abort_flag_4 [bt]: Bluetooth message handler stub
+// check_abort_flag_4 [bt]: Bluetooth message handler stub
+int  check_abort_flag_4(int result, uint32_t *a2, uint32_t *a3)
 {
   int16_t **v3; // r7
   uint32_t *v4; // r6
@@ -28,13 +28,13 @@ int  bt_msg_handler_sub(int result, uint32_t *a2, uint32_t *a3)
   v4 = (uint32_t *)result;
   if ( **(int16_t **)off_12D708 < 0 )
   {
-    if ( result || (result = sub_12F694(dword_12D718, dword_12D70C, 384), **v3 < 0) )
+    if ( result || (result = mmio_irq_clear(dword_12D718, dword_12D70C, 384), **v3 < 0) )
     {
       if ( a2 )
       {
         if ( (uint32_t *)*a2 != a3 )
         {
-          result = sub_12F694(dword_12D710, dword_12D70C, 385);
+          result = mmio_irq_clear(dword_12D710, dword_12D70C, 385);
           if ( **v3 >= 0 )
             goto LABEL_3;
         }
@@ -45,7 +45,7 @@ int  bt_msg_handler_sub(int result, uint32_t *a2, uint32_t *a3)
       {
         goto LABEL_14;
       }
-      result = sub_12F694(dword_12D714, dword_12D70C, 386);
+      result = mmio_irq_clear(dword_12D714, dword_12D70C, 386);
     }
   }
   if ( a2 )

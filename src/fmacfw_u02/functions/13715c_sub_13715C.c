@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13715C @ 0x13715c, size 18 bytes
+// check_and_run_process @ 0x13715c, size 18 bytes
 // Doc: sub_1237164 [util]: Trampoline wrapper around sub-helper
 // sub_1237164 [util]: Trampoline wrapper around sub-helper
-int  sub_13715C(int a1, uint8_t *a2)
+int  check_and_run_process(int a1, uint8_t *a2)
 {
   if ( *a2 )
-    sub_1374C8((uint8_t)*a2);
+    hci_cmd_process((uint8_t)*a2);
   return 0;
 }
 

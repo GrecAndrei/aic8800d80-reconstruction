@@ -14,8 +14,8 @@ extern uint32_t dword_1064B8;
 extern uint32_t dword_1064B4;
 extern uint32_t off_1064B0;
 
-// sub_1063F4 @ 0x1063f4, size 188 bytes
-int  sub_1063F4(int a1, int a2, int a3, int a4, int a5)
+// timer_elapsed_compare @ 0x1063f4, size 188 bytes
+int  timer_elapsed_compare(int a1, int a2, int a3, int a4, int a5)
 {
   int v9; // r4
   unsigned int v10; // r4
@@ -24,7 +24,7 @@ int  sub_1063F4(int a1, int a2, int a3, int a4, int a5)
 
   if ( *(uint32_t *)(a4 + 132) <= a2 )
   {
-    sub_105230(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
+    adc_to_temp_scale(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
     v9 = *(uint8_t *)(a4 + 104);
   }
   else
@@ -69,7 +69,7 @@ LABEL_6:
   {
 LABEL_14:
     v10 |= 0xC08000u;
-    sub_12ECD0(1, dword_1064B8);
+    check_status_bits(1, dword_1064B8);
     goto LABEL_9;
   }
   v11 = a3 << 24;
@@ -78,6 +78,6 @@ LABEL_8:
 LABEL_9:
   v12 = dword_1064B4;
   *(uint32_t *)off_1064B0 = v10;
-  return sub_12ECD0(1, v12);
+  return check_status_bits(1, v12);
 }
 

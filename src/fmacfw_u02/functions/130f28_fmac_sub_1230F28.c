@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// fmac_sub_1230F28 @ 0x130f28, size 40 bytes
-// Doc: fmac_sub_1230F28 [unknown]: Thin wrapper calling sub_0x12dca0 with r4=arg2
-// fmac_sub_1230F28 [unknown]: Thin wrapper calling sub_0x12dca0 with r4=arg2
-uint8_t * fmac_sub_1230F28(uint8_t *a1, int a2, int a3)
+// extract_le_u16 @ 0x130f28, size 40 bytes
+// Doc: extract_le_u16 [unknown]: Thin wrapper calling sub_0x12dca0 with r4=arg2
+// extract_le_u16 [unknown]: Thin wrapper calling sub_0x12dca0 with r4=arg2
+uint8_t * extract_le_u16(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
 
-  result = sub_12DCA0(a1, a2);
+  result = check_one_12dca0(a1, a2);
   if ( result )
   {
     *(uint16_t *)(a3 + 228) = result[2] | (result[3] << 8);

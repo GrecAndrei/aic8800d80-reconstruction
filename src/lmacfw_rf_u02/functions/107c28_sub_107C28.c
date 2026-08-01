@@ -15,8 +15,8 @@ extern uint32_t off_107C60;
 extern uint32_t dword_107C68;
 extern uint32_t off_107C6C;
 
-// sub_107C28 @ 0x107c28, size 56 bytes
-int sub_107C28()
+// rf_get_rx_rssi @ 0x107c28, size 56 bytes
+int rf_get_rx_rssi()
 {
   unsigned int *v0; // r5
   int v1; // r6
@@ -27,7 +27,7 @@ int sub_107C28()
   v0 = (unsigned int *)off_107C64;
   v1 = *(uint32_t *)off_107C64;
   v2 = (uint16_t)*(uint32_t *)off_107C60 >> 4;
-  result = sub_11F74C(1, dword_107C68, v2, off_107C60);
+  result = check_interrupt_flag(1, dword_107C68, v2, off_107C60);
   v4 = off_107C6C;
   *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;
   *v4 |= 0x400000u;

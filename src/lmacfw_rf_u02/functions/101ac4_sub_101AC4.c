@@ -22,8 +22,8 @@ extern uint32_t dword_101C60;
 extern uint32_t off_101C4C;
 extern uint32_t off_101C68;
 
-// sub_101AC4 @ 0x101ac4, size 384 bytes
-int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
+// rf_get_status @ 0x101ac4, size 384 bytes
+int  rf_get_status(int a1, uint8_t *a2, uint8_t *a3)
 {
   int result; // r0
   unsigned int v4; // r3
@@ -82,7 +82,7 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
     }
     else if ( **(int16_t **)off_101C5C < 0 )
     {
-      return sub_1219C4(dword_101C64, dword_101C60, 6921);
+      return flash_ctrl_init(dword_101C64, dword_101C60, 6921);
     }
   }
   else if ( *((uint8_t *)off_101C48 + 197) )
@@ -120,7 +120,7 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
   }
   else if ( **(int16_t **)off_101C5C < 0 )
   {
-    return sub_1219C4(dword_101C64, dword_101C60, 6875);
+    return flash_ctrl_init(dword_101C64, dword_101C60, 6875);
   }
   return result;
 }

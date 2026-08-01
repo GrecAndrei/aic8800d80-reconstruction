@@ -12,10 +12,10 @@
 
 extern uint32_t off_114534;
 
-// mmio_clear_bit1_n_524 @ 0x114524, size 14 bytes
-// Doc: mmio_clear_bit1_n_524 [mmio]: Clears bit 1 in MMIO register at offset 8
-// mmio_clear_bit1_n_524 [mmio]: Clears bit 1 in MMIO register at offset 8
-void mmio_clear_bit1_n_524()
+// clear_hw_flag_bit @ 0x114524, size 14 bytes
+// Doc: clear_hw_flag_bit [mmio]: Clears bit 1 in MMIO register at offset 8
+// clear_hw_flag_bit [mmio]: Clears bit 1 in MMIO register at offset 8
+void clear_hw_flag_bit()
 {
   *(uint32_t *)(*(uint32_t *)off_114534 + 8) &= ~2u;
 }

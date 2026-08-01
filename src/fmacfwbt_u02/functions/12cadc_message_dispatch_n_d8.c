@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// message_dispatch_n_d8 @ 0x12cadc, size 32 bytes
-// Doc: message_dispatch_n_d8 [ipc]: Dispatches incoming message based on header field to handlers
-// message_dispatch_n_d8 [ipc]: Dispatches incoming message based on header field to handlers
-int  message_dispatch_n_d8(int a1, int a2)
+// find_hci_conn_by_handle @ 0x12cadc, size 32 bytes
+// Doc: find_hci_conn_by_handle [ipc]: Dispatches incoming message based on header field to handlers
+// find_hci_conn_by_handle [ipc]: Dispatches incoming message based on header field to handlers
+int  find_hci_conn_by_handle(int a1, int a2)
 {
   int **v2; // r3
 

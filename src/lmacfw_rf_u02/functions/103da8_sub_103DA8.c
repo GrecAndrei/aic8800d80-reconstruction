@@ -14,8 +14,8 @@ extern uint32_t dword_100000;
 extern uint32_t dword_103EAC;
 extern uint32_t dword_103EB0;
 
-// sub_103DA8 @ 0x103da8, size 258 bytes
-int sub_103DA8()
+// wait_rf_ready @ 0x103da8, size 258 bytes
+int wait_rf_ready()
 {
   BOOL v0; // r1
   int v1; // r2
@@ -67,8 +67,8 @@ int sub_103DA8()
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    sub_11F74C(1, dword_103EAC, v1, v10);
-  sub_11F74C(1, dword_103EB0, v9, v8);
+    check_interrupt_flag(1, dword_103EAC, v1, v10);
+  check_interrupt_flag(1, dword_103EB0, v9, v8);
   do
   {
     v13 = *v2;

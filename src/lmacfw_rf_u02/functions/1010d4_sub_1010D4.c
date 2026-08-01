@@ -109,8 +109,8 @@ extern uint32_t off_1016CC;
 extern uint32_t off_1016D0;
 extern uint32_t off_1016D4;
 
-// sub_1010D4 @ 0x1010d4, size 1740 bytes
-unsigned int  sub_1010D4(unsigned int a1)
+// mac_ctrl_clear @ 0x1010d4, size 1740 bytes
+unsigned int  mac_ctrl_clear(unsigned int a1)
 {
   uint32_t *v1; // r1
   uint32_t *v2; // r2
@@ -416,10 +416,10 @@ LABEL_7:
     v20 += 3;
   }
   while ( v27 != v23 + 48 );
-  sub_102D4C(1, 0, 16, v23);
-  sub_102D4C(1, 16, 16, *v19);
-  sub_102D4C(1, 32, 16, *v86);
-  sub_10090C(1, a1);
+  memcpy_advance(1, 0, 16, v23);
+  memcpy_advance(1, 16, 16, *v19);
+  memcpy_advance(1, 32, 16, *v86);
+  rf_ctrl_set(1, a1);
   v30 = off_1013C4;
   v31 = (unsigned int *)off_1013C8;
   *(uint32_t *)off_1013C4 |= 8u;
@@ -587,8 +587,8 @@ LABEL_31:
   v60 = off_1016CC;
   if ( *(uint8_t *)off_1016CC != v59 )
   {
-    v61 = sub_102DE0();
-    sub_102E04(v61);
+    v61 = get_reset_reason();
+    dma_init(v61);
   }
   v62 = off_1016D0;
   *v60 = v59;
@@ -598,9 +598,9 @@ LABEL_31:
   if ( !result )
   {
     if ( a1 - 5270 > 0x32 && a1 - 5550 > 0x64 )
-      result = sub_100C3C(0);
+      result = rf_cal_read_0(0);
     else
-      result = sub_100D18();
+      result = rf_cal_read_1();
   }
   *(uint32_t *)off_1016D0 = 1;
   return result;

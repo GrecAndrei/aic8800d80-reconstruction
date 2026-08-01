@@ -33,8 +33,8 @@ extern uint32_t off_110AB0;
 extern uint32_t off_110AAC;
 extern uint32_t dword_110AB4;
 
-// sub_1108C0 @ 0x1108c0, size 414 bytes
-int sub_1108C0()
+// rf_cmd_start @ 0x1108c0, size 414 bytes
+int rf_cmd_start()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r1
@@ -67,11 +67,11 @@ int sub_1108C0()
     *(uint32_t *)off_110A94 = *(uint32_t *)off_110A94 & 0x8000FFFF | 0x4E200000;
     *v19 = *v19 & 0xFFFF8000 | 0x4E20;
     *v20 = *v20 & 0xFFFFF000 | 0x960;
-    result = sub_10F7FC();
+    result = ipc_send_0x40d();
   }
   else
   {
-    msg_parse(dword_110A68, 16);
+    dispatch_event_handler(dword_110A68, 16);
     do
     {
       while ( (*(uint32_t *)off_110A6C & 0x20000000) != 0 )
@@ -117,7 +117,7 @@ int sub_1108C0()
     v13 = dword_110AA0;
     *v7 = 15;
     *(v10 - 75) = v12;
-    msg_parse(v13, v12);
+    dispatch_event_handler(v13, v12);
     v14 = (int *)off_110A6C;
     v15 = dword_110A70;
     while ( 1 )
@@ -143,7 +143,7 @@ int sub_1108C0()
     *(uint32_t *)off_110A6C = dword_110AA4;
     while ( (*v16 & 0x20000000) != 0 )
       ;
-    result = msg_parse(dword_110AA8, v16);
+    result = dispatch_event_handler(dword_110AA8, v16);
     *(uint32_t *)off_110A78 = *(uint32_t *)off_110A78 & 0xFFFFF000 | 0x960;
   }
   v18 = off_110AB0;

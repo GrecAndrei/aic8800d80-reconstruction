@@ -12,10 +12,10 @@
 
 extern uint32_t off_116610;
 
-// bt_flag_check_init @ 0x1165b4, size 92 bytes
-// Doc: bt_flag_check_init [bt]: Checks global BT flag state and dispatches init flow
-// bt_flag_check_init [bt]: Checks global BT flag state and dispatches init flow
-int * bt_flag_check_init(int a1, int a2, int a3, int a4)
+// check_radio_flag @ 0x1165b4, size 92 bytes
+// Doc: check_radio_flag [bt]: Checks global BT flag state and dispatches init flow
+// check_radio_flag [bt]: Checks global BT flag state and dispatches init flow
+int * check_radio_flag(int a1, int a2, int a3, int a4)
 {
   int *result; // r0
   char *v7; // r4
@@ -25,11 +25,11 @@ int * bt_flag_check_init(int a1, int a2, int a3, int a4)
   char v11; // [sp+10h] [bp-Ch] BYREF
 
   if ( (**(uint8_t **)off_116610 & 1) != 0 )
-    return memset_thunk((int *)(a3 + a4), 0, 8u);
+    return memset_byte((int *)(a3 + a4), 0, 8u);
   v7 = v10;
-  rf_msg_dispatch_3800(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
-  sub_13384C(v10, a3, a4);
-  sub_133988(v10);
+  assemble_bt_descriptor(v10, a2, a1 + 12, a1 + 18, *(uint8_t *)(a1 + 27));
+  unaligned_memcpy(v10, a3, a4);
+  bt_process_rx_data(v10);
   v8 = a4 + a3;
   do
   {

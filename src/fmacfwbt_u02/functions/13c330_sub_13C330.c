@@ -15,8 +15,8 @@ extern uint32_t dword_13C43C;
 extern uint32_t off_13C440;
 extern uint32_t dword_13C444;
 
-// sub_13C330 @ 0x13c330, size 264 bytes
-int  sub_13C330(int a1, int a2, int a3)
+// bt_get_ctx_by_phy @ 0x13c330, size 264 bytes
+int  bt_get_ctx_by_phy(int a1, int a2, int a3)
 {
   int v4; // r3
   int v5; // r3
@@ -38,7 +38,7 @@ int  sub_13C330(int a1, int a2, int a3)
   if ( (*(uint16_t *)(a1 + 30) & 2) == 0 )
     return 1;
   v8 = *(uint8_t *)(v5 + 453);
-  if ( v8 == 33 || msg_get_value((v8 << 8) | 8) != 1 )
+  if ( v8 == 33 || hci_cmd_send_short((v8 << 8) | 8) != 1 )
     return 1;
   v11 = dword_13C43C + 32 * v8;
   v12 = *(uint32_t *)(a1 + 36) << 10;
@@ -52,7 +52,7 @@ int  sub_13C330(int a1, int a2, int a3)
       {
         v14 = *(uint16_t *)(a1 + 64);
         if ( ((v14 - (*((uint32_t *)off_13C440 + 4) >> 10)) & 0x8000) == 0 )
-          sub_12ECB0(dword_13C444, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C440 + 4) >> 10)) >> 15) & 1);
+          ke_event_schedule(dword_13C444, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C440 + 4) >> 10)) >> 15) & 1);
       }
     }
     else if ( !a2 && ((*(uint16_t *)(a1 + 64) - (*((uint32_t *)off_13C440 + 4) >> 10)) & 0x8000) == 0 )

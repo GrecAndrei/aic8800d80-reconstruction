@@ -1,1 +1,1 @@
-{"fn": "sub_122D468", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d468", "status": "ok", "name": "bt_xtal_init_check", "params": [], "docstring": "Initialize structure to zero then check XTAL status flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122D468", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d468", "status": "ok", "name": "zero_struct", "params": [], "docstring": "Initialize structure to zero then check XTAL status flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -13,14 +13,14 @@
 extern uint32_t off_117A78;
 extern uint32_t off_117A74;
 
-// sub_117A58 @ 0x117a58, size 26 bytes
-int sub_117A58()
+// mmio_bit16_toggle @ 0x117a58, size 26 bytes
+int mmio_bit16_toggle()
 {
   uint32_t *v0; // r2
 
   v0 = off_117A78;
   *(uint32_t *)off_117A74 = 0x10000;
   *v0 &= ~0x10000u;
-  return irq_nesting_or(0x4000);
+  return set_busy_flag_alt(0x4000);
 }
 

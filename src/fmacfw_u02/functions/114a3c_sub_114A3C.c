@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114A3C @ 0x114a3c, size 70 bytes
+// rf_cmd_a_write @ 0x114a3c, size 70 bytes
 // Doc: rf_fault_dump_n328 [rf]: Alternate RF fault state dump routine
 // rf_fault_dump_n328 [rf]: Alternate RF fault state dump routine
-int  sub_114A3C(char a1, uint8_t *a2)
+int  rf_cmd_a_write(char a1, uint8_t *a2)
 {
   unsigned int v3; // r0
   unsigned int v4; // r3

@@ -13,21 +13,21 @@
 extern uint32_t dword_12509C;
 extern uint32_t dword_125098;
 
-// sub_12506C @ 0x12506c, size 42 bytes
-int  sub_12506C(int a1, int a2)
+// set_rf_byte @ 0x12506c, size 42 bytes
+int  set_rf_byte(int a1, int a2)
 {
   uint8_t v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse(dword_12509C);
+    dispatch_event_handler(dword_12509C);
     return 1;
   }
   else
   {
-    v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    sub_123FC8(v2);
-    msg_parse(dword_125098);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    set_reg_158a08_bit16(v2);
+    dispatch_event_handler(dword_125098);
     return 0;
   }
 }

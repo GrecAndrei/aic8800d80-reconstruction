@@ -12,8 +12,8 @@
 
 extern uint32_t off_12ECAC;
 
-// sub_12EC84 @ 0x12ec84, size 40 bytes
-BOOL  sub_12EC84(unsigned int a1, unsigned int a2)
+// state_test_flag @ 0x12ec84, size 40 bytes
+BOOL  state_test_flag(unsigned int a1, unsigned int a2)
 {
   BOOL result; // r0
 

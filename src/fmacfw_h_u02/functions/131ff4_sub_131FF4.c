@@ -12,15 +12,15 @@
 
 extern uint32_t off_132084;
 
-// sub_131FF4 @ 0x131ff4, size 144 bytes
-int  sub_131FF4(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
+// send_req_5 @ 0x131ff4, size 144 bytes
+int  send_req_5(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
 {
   uint16_t *v7; // r7
   int *v9; // r0
   char v10; // r1
   int v11; // r3
 
-  if ( sub_12CD48(5u) == 1 )
+  if ( hci_cmd_handler(5u) == 1 )
     return 2;
   v7 = off_132084;
   if ( *(uint32_t *)off_132084 )
@@ -28,16 +28,16 @@ int  sub_131FF4(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
     if ( *a2 )
     {
       *(uint32_t *)off_132084 |= 1 << a2[1];
-      sub_12C8D0(5144, a4, a3);
+      mac_write_header_word(5144, a4, a3);
       return 0;
     }
   }
   else if ( !*a2 )
   {
-    sub_12C8D0(5144, a4, a3);
+    mac_write_header_word(5144, a4, a3);
     return 0;
   }
-  v9 = (int *)sub_12C7EC(34, 0, a3, 1u);
+  v9 = (int *)tx_send_pdu(34, 0, a3, 1u);
   v10 = a2[1];
   if ( *a2 )
     v11 = (1 << v10) | *(uint32_t *)v7;
@@ -46,8 +46,8 @@ int  sub_131FF4(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
   *(uint32_t *)v7 = v11;
   v7[4] = a4;
   *v9 = v11 == 0;
-  sub_12C84C((int)v9);
-  sub_12CBF4(a3, 1);
+  rx_process_packet((int)v9);
+  hci_cmd_preprocess(a3, 1);
   return 0;
 }
 

@@ -19,8 +19,8 @@ extern uint32_t dword_130228;
 extern uint32_t dword_13022C;
 extern uint32_t dword_130230;
 
-// sub_1301B4 @ 0x1301b4, size 94 bytes
-int sub_1301B4()
+// ke_irq_lock @ 0x1301b4, size 94 bytes
+int ke_irq_lock()
 {
   int *v0; // r4
   uint32_t *v1; // r0
@@ -28,7 +28,7 @@ int sub_1301B4()
   int v3; // r3
   int v4; // r2
 
-  log_hw_init_if();
+  event_loop_check();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -37,12 +37,12 @@ int sub_1301B4()
   v0 = (int *)off_130218;
   v1 = (uint32_t *)dword_13021C;
   ++*(uint32_t *)off_130218;
-  bt_xtal_init_check(v1);
-  bt_xtal_init_check((uint32_t *)dword_130220);
-  list_push_tail(dword_13021C, (uint32_t *)dword_130224);
-  list_push_tail(dword_13021C, (uint32_t *)dword_130228);
-  list_push_tail(dword_13021C, (uint32_t *)dword_13022C);
-  result = list_push_tail(dword_13021C, (uint32_t *)dword_130230);
+  zero_struct(v1);
+  zero_struct((uint32_t *)dword_130220);
+  check_abort_flag(dword_13021C, (uint32_t *)dword_130224);
+  check_abort_flag(dword_13021C, (uint32_t *)dword_130228);
+  check_abort_flag(dword_13021C, (uint32_t *)dword_13022C);
+  result = check_abort_flag(dword_13021C, (uint32_t *)dword_130230);
   if ( *v0 )
   {
     v3 = *v0 - 1;

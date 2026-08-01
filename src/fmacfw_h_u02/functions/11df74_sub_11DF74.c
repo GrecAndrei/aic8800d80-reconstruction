@@ -13,8 +13,8 @@
 extern uint32_t off_11DFBC;
 extern uint32_t off_11DFB8;
 
-// sub_11DF74 @ 0x11df74, size 66 bytes
-int  sub_11DF74(int result)
+// phy_rate_get @ 0x11df74, size 66 bytes
+int  phy_rate_get(int result)
 {
   unsigned int v1; // r3
   unsigned int v2; // r2

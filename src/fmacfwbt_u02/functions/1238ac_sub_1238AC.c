@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1238AC @ 0x1238ac, size 12 bytes
-int  sub_1238AC(int a1, int a2)
+// call_125ac8 @ 0x1238ac, size 12 bytes
+int  call_125ac8(int a1, int a2)
 {
-  sub_125AC8(a2);
+  list_remove(a2);
   return 1;
 }
 

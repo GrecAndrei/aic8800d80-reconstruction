@@ -13,8 +13,8 @@
 extern uint32_t dword_13BA70;
 extern uint32_t dword_13BA74;
 
-// sub_13BA24 @ 0x13ba24, size 76 bytes
-uint8_t * sub_13BA24(int a1)
+// rf_get_chan_state @ 0x13ba24, size 76 bytes
+uint8_t * rf_get_chan_state(int a1)
 {
   uint8_t *result; // r0
   int v2; // r1

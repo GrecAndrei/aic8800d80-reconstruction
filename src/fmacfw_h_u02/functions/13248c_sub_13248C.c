@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13248C @ 0x13248c, size 40 bytes
-int  sub_13248C(int a1)
+// phy_get_rate_code @ 0x13248c, size 40 bytes
+int  phy_get_rate_code(int a1)
 {
   int v1; // r2
   int result; // r0

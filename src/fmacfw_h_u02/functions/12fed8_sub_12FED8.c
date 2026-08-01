@@ -25,8 +25,8 @@ extern uint32_t off_130014;
 extern uint32_t off_130018;
 extern uint32_t dword_12FFFC;
 
-// sub_12FED8 @ 0x12fed8, size 288 bytes
-int  sub_12FED8(unsigned int a1)
+// lock_with_timeout @ 0x12fed8, size 288 bytes
+int  lock_with_timeout(unsigned int a1)
 {
   int v1; // r0
   int v2; // r4
@@ -51,24 +51,24 @@ int  sub_12FED8(unsigned int a1)
   int v22; // t1
   unsigned int v23; // [sp+8h] [bp-8h]
 
-  v1 = sub_12F6D0(a1, (uint8_t *)dword_12FFF8, 0);
+  v1 = lock_global_mutex(a1, (uint8_t *)dword_12FFF8, 0);
   v2 = v1;
   if ( v1 >= 0 )
   {
     if ( v1 )
     {
-      if ( sub_143D00(dword_130000) != v1 || sub_143968(dword_130000, dword_12FFF8) )
+      if ( memcpy_aligned(dword_130000) != v1 || strcmp(dword_130000, dword_12FFF8) )
       {
-        v4 = sub_12D190(dword_130004);
+        v4 = list_pop(dword_130004);
         v5 = v4;
         if ( v4 )
         {
-          sub_143C3C(v4 + 1, dword_12FFF8);
-          sub_12D108(dword_130008, v5);
+          memcpy(v4 + 1, dword_12FFF8);
+          wlan_ioctl_handler_1(dword_130008, v5);
         }
         else
         {
-          sub_10D674((uint8_t *)dword_13001C);
+          radio_tx_write_string((uint8_t *)dword_13001C);
         }
       }
       else
@@ -79,21 +79,21 @@ int  sub_12FED8(unsigned int a1)
         v9 = __get_CPSR();
         v10 = __get_CPSR();
         v23 = __get_CPSR();
-        sub_10DAE4(dword_13000C, CPSR, v7, v8, v9, v10, v23);
+        debug_printf(dword_13000C, CPSR, v7, v8, v9, v10, v23);
         if ( v9 )
         {
           v13 = dword_13002C;
           v14 = dword_130024;
           v15 = v9 & 0xFFFFFFF0;
-          sub_10D674((uint8_t *)dword_130020);
+          radio_tx_write_string((uint8_t *)dword_130020);
           v16 = v15 + 256;
           do
           {
             if ( !(v15 << 28) )
-              sub_10DAE4(v13, v15);
+              debug_printf(v13, v15);
             v17 = *(uint32_t *)v15;
             v15 += 4;
-            sub_10DAE4(v14, v17);
+            debug_printf(v14, v17);
           }
           while ( v16 != v15 );
         }
@@ -102,19 +102,19 @@ int  sub_12FED8(unsigned int a1)
           v18 = dword_13002C;
           v19 = dword_130024;
           v20 = v8 & 0xFFFFFFF0;
-          sub_10D674((uint8_t *)dword_130028);
+          radio_tx_write_string((uint8_t *)dword_130028);
           v21 = v20 + 256;
           do
           {
             if ( !(v20 << 28) )
-              sub_10DAE4(v18, v20);
+              debug_printf(v18, v20);
             v22 = *(uint32_t *)v20;
             v20 += 4;
-            sub_10DAE4(v19, v22);
+            debug_printf(v19, v22);
           }
           while ( v21 != v20 );
         }
-        sub_10D674((uint8_t *)dword_130010);
+        radio_tx_write_string((uint8_t *)dword_130010);
         v11 = off_130014;
         v12 = *(uint8_t *)off_130014;
         if ( *(uint8_t *)off_130014 )
@@ -133,9 +133,9 @@ int  sub_12FED8(unsigned int a1)
     }
     else
     {
-      sub_10D674((uint8_t *)dword_12FFFC);
+      radio_tx_write_string((uint8_t *)dword_12FFFC);
     }
-    sub_12F6D0(0x30u, (uint8_t *)dword_12FFF8, dword_12FFFC);
+    lock_global_mutex(0x30u, (uint8_t *)dword_12FFF8, dword_12FFFC);
   }
   return v2;
 }

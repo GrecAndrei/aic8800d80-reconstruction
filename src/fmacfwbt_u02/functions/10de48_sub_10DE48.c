@@ -15,8 +15,8 @@ extern uint32_t off_10DE94;
 extern uint32_t dword_10DE98;
 extern uint32_t dword_10DE9C;
 
-// sub_10DE48 @ 0x10de48, size 72 bytes
-int sub_10DE48()
+// gpio_reset @ 0x10de48, size 72 bytes
+int gpio_reset()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r0

@@ -1,0 +1,1 @@
+{"fn": "sub_12DD0C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12dd0c", "status": "ok", "name": "return_zero", "params": [], "docstring": "Immediately returns zero.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

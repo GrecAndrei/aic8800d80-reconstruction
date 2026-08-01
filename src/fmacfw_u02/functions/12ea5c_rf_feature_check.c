@@ -12,10 +12,10 @@
 
 extern uint32_t off_12EA84;
 
-// rf_feature_check @ 0x12ea5c, size 40 bytes
-// Doc: rf_feature_check [rf]: Check supported RF feature index / capability
-// rf_feature_check [rf]: Check supported RF feature index / capability
-BOOL  rf_feature_check(unsigned int a1, unsigned int a2)
+// get_flag_bit @ 0x12ea5c, size 40 bytes
+// Doc: get_flag_bit [rf]: Check supported RF feature index / capability
+// get_flag_bit [rf]: Check supported RF feature index / capability
+BOOL  get_flag_bit(unsigned int a1, unsigned int a2)
 {
   BOOL result; // r0
 

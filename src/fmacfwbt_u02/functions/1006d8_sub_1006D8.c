@@ -12,8 +12,8 @@
 
 extern uint32_t off_100728;
 
-// sub_1006D8 @ 0x1006d8, size 78 bytes
-void __noreturn sub_1006D8()
+// clock_start @ 0x1006d8, size 78 bytes
+void __noreturn clock_start()
 {
   int v1; // [sp+0h] [bp-Ch]
 

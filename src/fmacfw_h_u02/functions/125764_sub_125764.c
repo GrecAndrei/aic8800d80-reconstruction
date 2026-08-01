@@ -12,12 +12,12 @@
 
 extern uint32_t off_12577C;
 
-// sub_125764 @ 0x125764, size 22 bytes
-int  sub_125764(uint16_t *a1)
+// co_list_push @ 0x125764, size 22 bytes
+int  co_list_push(uint16_t *a1)
 {
   if ( *((uint32_t *)off_12577C + 1) )
-    return sub_12D108((char *)off_12577C + 12);
+    return wlan_ioctl_handler_1((char *)off_12577C + 12);
   else
-    return sub_125184(a1);
+    return rx_pkt_parse(a1);
 }
 

@@ -13,10 +13,10 @@
 extern uint32_t off_11B238;
 extern uint32_t off_11B23C;
 
-// sub_11B1F4 @ 0x11b1f4, size 68 bytes
+// read_mmio_register @ 0x11b1f4, size 68 bytes
 // Doc: mmio_setup_n_202 [mmio]: Set up MMIO buffer with offset and store pointer table
 // mmio_setup_n_202 [mmio]: Set up MMIO buffer with offset and store pointer table
-BOOL  sub_11B1F4(BOOL result)
+BOOL  read_mmio_register(BOOL result)
 {
   int v1; // r3
   uint32_t *v2; // r2
@@ -26,8 +26,8 @@ BOOL  sub_11B1F4(BOOL result)
   if ( *(uint8_t *)(result + 37) )
   {
     v3 = result;
-    timestamp_update(off_11B238, *((uint32_t *)off_11B23C + 4) + 5000);
-    return sub_1190B4(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
+    unknown_worker(off_11B238, *((uint32_t *)off_11B23C + 4) + 5000);
+    return phy_channel_get_attr(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
   }
   else
   {

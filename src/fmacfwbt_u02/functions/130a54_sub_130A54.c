@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130A54 @ 0x130a54, size 6 bytes
-int  sub_130A54(uint16_t *a1, int16_t a2)
+// util_store_u16_return_2 @ 0x130a54, size 6 bytes
+int  util_store_u16_return_2(uint16_t *a1, int16_t a2)
 {
   *a1 = a2;
   return 2;

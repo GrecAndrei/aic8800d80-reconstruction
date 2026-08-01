@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_476", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ff6", "status": "ok", "name": "rf_bus_write_n_476", "params": [], "docstring": "Build masked register write for RF bus field n_476", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_476", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ff6", "status": "ok", "name": "rf_bus_reset2_n_30d", "params": [], "docstring": "Build masked register write for RF bus field n_476", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -12,14 +12,14 @@
 
 extern uint32_t off_11830C;
 
-// sub_1182F4 @ 0x1182f4, size 22 bytes
-int sub_1182F4()
+// find_link_in_list @ 0x1182f4, size 22 bytes
+int find_link_in_list()
 {
   uint32_t *i; // r4
   int result; // r0
 
   for ( i = *((uint32_t **)off_11830C + 2); i; i = (uint32_t *)*i )
-    result = sub_1182C8((int)i);
+    result = check_link_id((int)i);
   return result;
 }
 

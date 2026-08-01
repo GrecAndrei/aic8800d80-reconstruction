@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154b4", "status": "ok", "name": "patch_apply_n_34", "params": [], "docstring": "Apply firmware patch table entry 34 via indirect load", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154b4", "status": "ok", "name": "ioctl2_cmd_0x400000", "params": [], "docstring": "Apply firmware patch table entry 34 via indirect load", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

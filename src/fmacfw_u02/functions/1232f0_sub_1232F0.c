@@ -21,8 +21,8 @@ extern uint32_t dword_123568;
 extern uint32_t dword_12356C;
 extern uint32_t dword_123574;
 
-// sub_1232F0 @ 0x1232f0, size 612 bytes
-int  sub_1232F0(int a1, int a2, int a3, int a4)
+// rf_calibration_init @ 0x1232f0, size 612 bytes
+int  rf_calibration_init(int a1, int a2, int a3, int a4)
 {
   int v4; // r0
   int v6; // r1
@@ -58,7 +58,7 @@ int  sub_1232F0(int a1, int a2, int a3, int a4)
   v4 = dword_123558;
   v6 = dword_12355C;
   *(uint8_t *)off_123554 = 1;
-  msg_parse(v4, v6, 708);
+  event_dispatch(v4, v6, 708);
   v33 = 704;
   v32 = 703;
   v31 = 702;
@@ -71,9 +71,9 @@ int  sub_1232F0(int a1, int a2, int a3, int a4)
   v28 = 640;
   v25 = 504;
   v26 = 520;
-  msg_parse(dword_123560, 0, 4);
+  event_dispatch(dword_123560, 0, 4);
   v21 = 112;
-  msg_parse(dword_123564, 32, 44);
+  event_dispatch(dword_123564, 32, 44);
   v8 = a2 + 520;
   if ( *(uint8_t *)(a2 + 702) )
   {
@@ -88,7 +88,7 @@ int  sub_1232F0(int a1, int a2, int a3, int a4)
         v13 = *(uint16_t *)(v11 + 2);
         v11 += 2;
         v12 = v13;
-        msg_parse(v10, v13, v8);
+        event_dispatch(v10, v13, v8);
         if ( v13 <= 0x89 )
           break;
         if ( v12 == 5120 )
@@ -106,7 +106,7 @@ int  sub_1232F0(int a1, int a2, int a3, int a4)
           goto LABEL_12;
         }
 LABEL_16:
-        msg_parse(dword_123570, v12, v14);
+        event_dispatch(dword_123570, v12, v14);
         if ( *(uint8_t *)(a2 + 702) <= ++v9 )
           goto LABEL_9;
       }
@@ -165,10 +165,10 @@ LABEL_16:
       {
         v21 = *(uint16_t *)(a2 + 664);
         v22 = *(uint16_t *)(a2 + 666);
-        msg_parse(dword_123568, *(uint32_t *)(a2 + 704), *(uint8_t *)(a2 + 668));
+        event_dispatch(dword_123568, *(uint32_t *)(a2 + 704), *(uint8_t *)(a2 + 668));
         if ( *(uint32_t *)(a2 + 704) )
         {
-          sub_11F7C0((int *)(a2 + 662), *(uint8_t *)(a2 + 660), *(uint8_t *)(a2 + 668), v36);
+          task_event_handler((int *)(a2 + 662), *(uint8_t *)(a2 + 660), *(uint8_t *)(a2 + 668), v36);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }
@@ -186,18 +186,18 @@ LABEL_16:
         v18 = 0;
 LABEL_12:
         v34 = v16;
-        v19 = sub_12CF2C(v12, v17);
+        v19 = rx_format_field_parse(v12, v17);
         v20 = (void ( *)(unsigned int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int))v19;
         if ( v19 )
         {
-          msg_parse(dword_12356C, v19, v12);
+          event_dispatch(dword_12356C, v19, v12);
           v20(v12, v18, v17, a4, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }
         else
         {
-          msg_parse(dword_123574, v12, v34);
+          event_dispatch(dword_123574, v12, v34);
           if ( *(uint8_t *)(a2 + 702) <= ++v9 )
             break;
         }

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_121C6C @ 0x121c6c, size 136 bytes
+// parse_dot_separated @ 0x121c6c, size 136 bytes
 // Doc: rf_mem_write_n_384 [rf]: Invoke RF memory write helper and compare result
 // rf_mem_write_n_384 [rf]: Invoke RF memory write helper and compare result
-uint32_t * sub_121C6C(int a1, uint32_t *a2, int a3)
+uint32_t * parse_dot_separated(int a1, uint32_t *a2, int a3)
 {
   int v5; // r0
   int v6; // r11
@@ -23,11 +23,11 @@ uint32_t * sub_121C6C(int a1, uint32_t *a2, int a3)
   int v10; // r6
   uint32_t *v11; // r10
 
-  v5 = sub_12841C(a1, 46);
+  v5 = memset(a1, 46);
   if ( v5 )
     v6 = v5 - a1;
   else
-    v6 = sub_1288C0(a1);
+    v6 = memset_ff(a1);
   if ( a3 )
   {
     v7 = 0;
@@ -40,13 +40,13 @@ uint32_t * sub_121C6C(int a1, uint32_t *a2, int a3)
         v10 = *v8;
         ++v9;
         v11 = v8;
-        if ( !sub_12899C(a1, *v8, v6) )
+        if ( !crc32(a1, *v8, v6) )
           break;
         v8 += 4;
         if ( a3 == v9 )
           goto rf_cmd_dispatch_1ccc;
       }
-      if ( sub_1288C0(v10) == v6 )
+      if ( memset_ff(v10) == v6 )
         return v11;
       a2 = v8;
       ++v7;

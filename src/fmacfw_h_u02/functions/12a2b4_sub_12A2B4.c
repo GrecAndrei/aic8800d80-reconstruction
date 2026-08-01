@@ -14,8 +14,8 @@ extern uint32_t off_12A320;
 extern uint32_t dword_12A328;
 extern uint32_t dword_12A324;
 
-// sub_12A2B4 @ 0x12a2b4, size 106 bytes
-int  sub_12A2B4(int result, uint8_t *a2, int a3, int a4)
+// bt_parse_adv_report @ 0x12a2b4, size 106 bytes
+int  bt_parse_adv_report(int result, uint8_t *a2, int a3, int a4)
 {
   int v4; // r4
   int v5; // r6
@@ -34,11 +34,11 @@ int  sub_12A2B4(int result, uint8_t *a2, int a3, int a4)
         if ( *(uint8_t *)(result + 106) )
         {
           v7 = a4;
-          sub_12F32C(dword_12A328, dword_12A324, 64);
+          irq_disable_mmio_write(dword_12A328, dword_12A324, 64);
           a4 = v7;
         }
       }
-      return sub_129C48(v5, v4, *(uint32_t *)(v6 + 132) + a4);
+      return sec_table_entry_count(v5, v4, *(uint32_t *)(v6 + 132) + a4);
     }
   }
   return result;

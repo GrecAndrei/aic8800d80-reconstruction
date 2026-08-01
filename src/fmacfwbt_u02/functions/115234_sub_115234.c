@@ -14,14 +14,14 @@ extern uint32_t off_115260;
 extern uint32_t off_115264;
 extern uint32_t off_115268;
 
-// sub_115234 @ 0x115234, size 42 bytes
-void sub_115234()
+// check_status_flags @ 0x115234, size 42 bytes
+void check_status_flags()
 {
   int *v0; // r4
 
   v0 = (int *)off_115260;
   if ( !*(uint32_t *)off_115260 )
-    *v0 = sub_1151F4();
+    *v0 = enter_critical_set_flag();
   if ( !*(uint32_t *)off_115264 )
     *(uint32_t *)off_115264 = *v0 + 67092480;
   *(uint32_t *)off_115268 = 1;

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_10F1C8 @ 0x10f1c8, size 12 bytes
-int  sub_10F1C8(int a1, int a2)
+// wait_event @ 0x10f1c8, size 12 bytes
+int  wait_event(int a1, int a2)
 {
-  sub_10FE60(a2);
+  memory_pool_free(a2);
   return 1;
 }
 

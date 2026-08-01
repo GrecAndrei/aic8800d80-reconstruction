@@ -35,10 +35,10 @@ extern uint32_t dword_11FA20;
 extern uint32_t dword_11FA18;
 extern uint32_t off_11FA14;
 
-// sub_11F82C @ 0x11f82c, size 412 bytes
+// wlc_ucode_download @ 0x11f82c, size 412 bytes
 // Doc: sub_121F82C [tx]: TX descriptor/buffer setup routine
 // sub_121F82C [tx]: TX descriptor/buffer setup routine
-int  sub_11F82C(int result)
+int  wlc_ucode_download(int result)
 {
   int v1; // r4
   int *v2; // r2
@@ -66,14 +66,14 @@ int  sub_11F82C(int result)
 
   v1 = result;
   if ( *(uint8_t *)(result + 1224) )
-    result = bt_rx_handler();
+    result = bt_conn_flush();
   if ( *(uint32_t *)(v1 + 72) )
-    result = sub_1284C0(v1);
+    result = hci_le_event_proc(v1);
   if ( (*(uint32_t *)(v1 + 4) & 1) != 0 )
   {
     if ( (*(uint32_t *)off_11F9C8 & 0x2000000) != 0 || (result = *(uint32_t *)off_11F9C8 << 6, *((uint8_t *)off_11F9CC + 36)) )
     {
-      result = feature_guard_sdio(2, dword_11F9D0);
+      result = state_check_feature(2, dword_11F9D0);
       v2 = (int *)off_11F9D4;
       v3 = *((uint8_t *)off_11F9D4 + 1);
       *(uint32_t *)(v1 + 4) &= ~1u;
@@ -82,7 +82,7 @@ int  sub_11F82C(int result)
       {
         if ( **(uint8_t **)off_11F9DC == 2 )
         {
-          result = sub_117EF8();
+          result = sleep_critical_exit();
           v4 = off_11F9E0;
           *(uint32_t *)off_11F9E0 &= ~1u;
           *v4 &= ~0x80u;
@@ -93,7 +93,7 @@ int  sub_11F82C(int result)
             v7 = dword_11F9E8;
             *(uint32_t *)off_11F9C8 &= ~4u;
             if ( (*v6 & v7) == 0 )
-              sub_1143D0((int)v6, v7, (int)v5);
+              log_and_check_hw((int)v6, v7, (int)v5);
             if ( *(uint32_t *)off_11F9EC << 28 )
             {
               if ( (__get_CPSR() & 1) == 0 )
@@ -110,7 +110,7 @@ int  sub_11F82C(int result)
               while ( *v9 << 28 )
               {
                 if ( (unsigned int)(v10[4] - v11) > 0x7530 )
-                  feature_guard_sdio(2, dword_11FA1C);
+                  state_check_feature(2, dword_11FA1C);
               }
               v12 = off_11F9F8;
               v13 = *((uint32_t *)off_11F9F8 + 4);
@@ -122,7 +122,7 @@ int  sub_11F82C(int result)
                 {
                   v16 = *v14 & *v15;
                   if ( (unsigned int)(v12[4] - v13) > 0x7530 )
-                    feature_guard_sdio(2, dword_11FA04);
+                    state_check_feature(2, dword_11FA04);
                 }
                 while ( (v16 & 4) == 0 );
               }
@@ -147,7 +147,7 @@ int  sub_11F82C(int result)
             {
               if ( *(uint32_t *)off_11F9EC << 28 )
               {
-                sub_12F6C4(dword_11FA24, dword_11FA20, 472);
+                mmio_field_update(dword_11FA24, dword_11FA20, 472);
                 v21 = v19[1];
               }
             }
@@ -155,7 +155,7 @@ int  sub_11F82C(int result)
             v23 = dword_11FA18;
             *(uint32_t *)off_11FA14 = v21 | *v19;
             *v22 = 48;
-            return rf_table_lookup_n528(*(uint8_t *)(v1 + 107), v23, v1);
+            return bt_get_conn_entry(*(uint8_t *)(v1 + 107), v23, v1);
           }
         }
       }

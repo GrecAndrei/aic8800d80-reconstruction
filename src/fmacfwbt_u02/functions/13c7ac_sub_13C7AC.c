@@ -12,10 +12,10 @@
 
 extern uint32_t dword_13C86C;
 
-// sub_13C7AC @ 0x13c7ac, size 192 bytes
+// bt_check_conn_active @ 0x13c7ac, size 192 bytes
 // Doc: sub_123C7AC [unknown]: unknown BT/FW handler
 // sub_123C7AC [unknown]: unknown BT/FW handler
-int  sub_13C7AC(int a1, int a2, int a3, int a4)
+int  bt_check_conn_active(int a1, int a2, int a3, int a4)
 {
   int result; // r0
   int v5; // lr
@@ -63,7 +63,7 @@ int  sub_13C7AC(int a1, int a2, int a3, int a4)
     do
       *v13++ = 0;
     while ( (uint8_t *)(v5 + 18) != v13 );
-    v14 = sub_13CC88(result, a2, a3, 24, a4);
+    v14 = ke_process_event(result, a2, a3, 24, a4);
     for ( i = 0; i != 64; i += 8 )
     {
       v17 = (v14 >> i) | (v15 << (32 - i));

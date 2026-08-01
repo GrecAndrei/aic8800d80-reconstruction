@@ -21,10 +21,10 @@ extern uint32_t off_11D0A8;
 extern uint32_t off_11D0A4;
 extern uint32_t dword_11D094;
 
-// bt_msg_handler_n_ed4 @ 0x11ced4, size 444 bytes
-// Doc: bt_msg_handler_n_ed4 [bt]: Bluetooth message handler with extended register save
-// bt_msg_handler_n_ed4 [bt]: Bluetooth message handler with extended register save
-int  bt_msg_handler_n_ed4(int result)
+// rf_init @ 0x11ced4, size 444 bytes
+// Doc: rf_init [bt]: Bluetooth message handler with extended register save
+// rf_init [bt]: Bluetooth message handler with extended register save
+int  rf_init(int result)
 {
   uint8_t *v1; // r6
   int v2; // r3
@@ -82,14 +82,14 @@ LABEL_12:
       v19 = *(uint16_t *)(v16 + 8);
       if ( (v19 & 0x20) == 0 )
       {
-        sub_11F03C(result);
+        mac_irq_handler(result);
         v20 = 9;
         while ( 1 )
         {
           v19 = *(uint16_t *)(v16 + 8);
           if ( (v19 & 0x20) != 0 )
             break;
-          sub_11F03C(v19 << 26);
+          mac_irq_handler(v19 << 26);
           if ( !--v20 )
           {
             v19 = *(uint16_t *)(v16 + 8);
@@ -97,7 +97,7 @@ LABEL_12:
             {
               v3 = v19 << 26;
               if ( (v19 & 0x20) == 0 )
-                return sub_12F630(dword_11D0A0, dword_11D09C, 2274, v19);
+                return ke_int_lock(dword_11D0A0, dword_11D09C, 2274, v19);
             }
             break;
           }
@@ -111,7 +111,7 @@ LABEL_12:
         }
         else
         {
-          message_dispatch_n34c((uint8_t)v1[190], v3, (uint8_t)v1[199], v19);
+          ke_task_set_event((uint8_t)v1[190], v3, (uint8_t)v1[199], v19);
           LOWORD(v19) = *(uint16_t *)(v16 + 8);
         }
         goto LABEL_35;
@@ -119,7 +119,7 @@ LABEL_12:
     }
     else
     {
-      sub_12D4F8(v5 + 84 * v4 + 28);
+      list_pop_front(v5 + 84 * v4 + 28);
       LOWORD(v19) = *(uint16_t *)(v16 + 8);
     }
     if ( v1[199] )
@@ -132,7 +132,7 @@ LABEL_12:
 LABEL_35:
     v26 = *(uint32_t *)(dword_11D0B0 + 4 * v4);
     *(uint16_t *)(v16 + 8) = v19 | 0x10;
-    irq_nesting_or(v26);
+    set_system_flag_1(v26);
     v27 = v5 + 84 * v4;
     *(uint8_t *)(v27 + 26) = 0;
     *(uint32_t *)(v27 + 36) = 0;
@@ -142,7 +142,7 @@ LABEL_25:
     {
       v22 = *(uint32_t *)(v21 + 36);
       if ( v22 )
-        bt_chan_dispatch_n_6f0(v22, v4, *(uint8_t *)(v21 + 46), v21);
+        get_cal_item(v22, v4, *(uint8_t *)(v21 + 46), v21);
       *(uint32_t *)&v1[28 * v4 + 36] = 0;
     }
     v23 = off_11D0A8;
@@ -151,7 +151,7 @@ LABEL_25:
     v24 = *((uint32_t *)v1 + 52) & 0xFFFFFFFE;
     --*(uint8_t *)(v5 + 84 * v4 + 80);
     *((uint32_t *)v1 + 52) = v24;
-    return sub_11AC28(v4);
+    return ke_int_disable(v4);
   }
   v8 = (int16_t **)off_11D098;
   v9 = dword_11D09C;
@@ -159,7 +159,7 @@ LABEL_25:
   {
     v15 = *(uint32_t *)(v6 + 12);
     if ( **v8 < 0 && !v15 )
-      sub_12F694(dword_11D094, v9, 2199);
+      mmio_irq_clear(dword_11D094, v9, 2199);
     v10 = *(uint32_t *)(v15 + 76);
     v11 = *(uint32_t *)(v10 + 72);
     v12 = v11 | 0x400000;
@@ -171,10 +171,10 @@ LABEL_25:
     *(uint32_t *)(v10 + 72) = v12;
     if ( (v14 & 0x200000) == 0 )
     {
-      sub_11CA18(v15, v13);
+      tx_start(v15, v13);
       goto LABEL_25;
     }
-    result = bt_xx_table_lookup_n_be(v15, v13);
+    result = mac_get_link_context(v15, v13);
     v7 = *(uint8_t *)(v6 + 26);
     if ( *(uint8_t *)(v6 + 26) )
       goto LABEL_12;

@@ -14,8 +14,8 @@ extern uint32_t off_118CD4;
 extern uint32_t dword_118CDC;
 extern uint32_t dword_118CD8;
 
-// sub_118C74 @ 0x118c74, size 94 bytes
-int  sub_118C74(int a1, int a2)
+// tx_path_status @ 0x118c74, size 94 bytes
+int  tx_path_status(int a1, int a2)
 {
   uint64_t v2; // kr00_8
   int v3; // r2
@@ -27,7 +27,7 @@ int  sub_118C74(int a1, int a2)
   v3 = *(uint32_t *)(HIDWORD(v2) + 28);
   if ( **(int16_t **)off_118CD4 < 0 && (v3 & 1) != 0 )
   {
-    sub_12F46C(dword_118CDC, dword_118CD8, 389);
+    mmio_clear_register(dword_118CDC, dword_118CD8, 389);
     v3 = *(uint32_t *)(HIDWORD(v2) + 28);
   }
   v6 = *(uint32_t *)(HIDWORD(v2) + 44);
@@ -41,6 +41,6 @@ int  sub_118C74(int a1, int a2)
   *(uint32_t *)(HIDWORD(v2) + 64) = v7;
   *(uint32_t *)(v2 + 96) = v7;
   *(uint32_t *)(v2 + 100) = v6;
-  return sub_1176A0(a1, a2);
+  return phy_radio_init(a1, a2);
 }
 

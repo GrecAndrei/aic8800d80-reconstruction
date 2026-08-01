@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_131148 @ 0x131148, size 60 bytes
-uint8_t * sub_131148(uint8_t *a1, int a2, int a3)
+// ll_get_conn_evt_cnt @ 0x131148, size 60 bytes
+uint8_t * ll_get_conn_evt_cnt(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
   int16_t v5; // r1
@@ -22,7 +22,7 @@ uint8_t * sub_131148(uint8_t *a1, int a2, int a3)
   int16_t v10; // r3
   int16_t v11; // r0
 
-  result = sub_12DE50(a1, a2);
+  result = check_one_12de50(a1, a2);
   if ( result )
   {
     v5 = result[10];

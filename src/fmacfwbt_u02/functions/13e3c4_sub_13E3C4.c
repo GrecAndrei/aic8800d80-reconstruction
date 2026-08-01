@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13E3C4 @ 0x13e3c4, size 440 bytes
-int  sub_13E3C4(int a1)
+// process_packet_queue @ 0x13e3c4, size 440 bytes
+int  process_packet_queue(int a1)
 {
   int v1; // r4
   int v3; // r8
@@ -58,7 +58,7 @@ int  sub_13E3C4(int a1)
     v5 = -1;
     v3 = -1;
   }
-  result = sub_13E35C((uint8_t *)a1);
+  result = dispatch_by_type((uint8_t *)a1);
   v8 = *(uint8_t *)(a1 + 169);
   *(uint16_t *)(a1 + 10) = result;
   switch ( v8 )
@@ -87,7 +87,7 @@ int  sub_13E3C4(int a1)
       do
       {
         v9 = v19 | v20 | v21 | 0x2000;
-        result = sub_13D2F8(a1, v9);
+        result = rx_switch_pdu_handler(a1, v9);
         --v20;
       }
       while ( !result && (uint8_t)v20 != 6 );
@@ -99,7 +99,7 @@ int  sub_13E3C4(int a1)
       do
       {
         v9 = v16 | v15 | 0x2800;
-        result = sub_13D2F8(a1, v16 | v15 | 0x2800);
+        result = rx_switch_pdu_handler(a1, v16 | v15 | 0x2800);
         v15 = (uint16_t)(v15 - 1);
       }
       while ( !result && (uint8_t)v15 != 6 );
@@ -123,7 +123,7 @@ LABEL_26:
     {
       while ( 1 )
       {
-        result = sub_13D730(a1);
+        result = scan_update_adv_params(a1);
         v1 = *(uint16_t *)(a1 + 184);
         if ( *(uint16_t *)(a1 + 184) )
           break;

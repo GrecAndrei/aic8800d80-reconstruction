@@ -1,1 +1,1 @@
-{"fn": "sub_123C0A4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123c0a4", "status": "ok", "name": "sub_123C0A4", "params": [], "docstring": "Boundary check: compare value against 0xff sentinel", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123C0A4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123c0a4", "status": "ok", "name": "lookup_interface_info", "params": [], "docstring": "Boundary check: compare value against 0xff sentinel", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

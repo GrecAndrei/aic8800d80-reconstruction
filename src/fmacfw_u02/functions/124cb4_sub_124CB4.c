@@ -13,8 +13,8 @@
 extern uint32_t dword_124D20;
 extern uint32_t off_124D1C;
 
-// sub_124CB4 @ 0x124cb4, size 102 bytes
-int  sub_124CB4(int a1, uint16_t *a2, int a3, int a4)
+// hci_event_dispatch @ 0x124cb4, size 102 bytes
+int  hci_event_dispatch(int a1, uint16_t *a2, int a3, int a4)
 {
   int v6; // r1
   int v7; // r0
@@ -28,22 +28,22 @@ int  sub_124CB4(int a1, uint16_t *a2, int a3, int a4)
   {
     case 0:
       v8 = a3;
-      sub_124988(a2 + 2);
+      ble_mmio_config(a2 + 2);
       a3 = v8;
       break;
     case 1:
       v10 = a3;
-      sub_124A24((uint8_t *)a2 + 4);
+      llc_update_channel_map((uint8_t *)a2 + 4);
       a3 = v10;
       break;
     case 2:
       v11 = a3;
-      sub_124B3C((uint8_t *)a2 + 4);
+      rf_rssi_read((uint8_t *)a2 + 4);
       a3 = v11;
       break;
     case 3:
       v12 = a3;
-      sub_124C14((uint8_t *)a2 + 4, a2);
+      util_get_flag((uint8_t *)a2 + 4, a2);
       a3 = v12;
       break;
     case 6:
@@ -51,13 +51,13 @@ int  sub_124CB4(int a1, uint16_t *a2, int a3, int a4)
       v7 = dword_124D20;
       v9 = a3;
       *(uint8_t *)off_124D1C = v6;
-      msg_parse(v7, v6, a3);
+      event_dispatch(v7, v6, a3);
       a3 = v9;
       break;
     default:
       break;
   }
-  sub_12CA10(127, a4, a3);
+  ke_msg_send_no_param(127, a4, a3);
   return 0;
 }
 

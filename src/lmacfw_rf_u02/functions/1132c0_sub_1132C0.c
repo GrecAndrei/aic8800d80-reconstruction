@@ -14,10 +14,10 @@ extern uint32_t off_1132F4;
 extern uint32_t off_1132F8;
 extern uint32_t dword_1132FC;
 
-// sub_1132C0 @ 0x1132c0, size 52 bytes
+// disable_interrupts @ 0x1132c0, size 52 bytes
 // Doc: sub_12132C0 [unknown]: Thin wrapper routine (push r4,lr; small arithmetic tail)
 // sub_12132C0 [unknown]: Thin wrapper routine (push r4,lr; small arithmetic tail)
-int sub_1132C0()
+int disable_interrupts()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_1132C0()
   v0 = (int *)off_1132F8;
   v1 = dword_1132FC;
   ++*(uint32_t *)off_1132F8;
-  result = sub_11E7AC(v1);
+  result = list_pop_front(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// list_insert_sorted @ 0x11e840, size 70 bytes
+// list_foreach @ 0x11e840, size 70 bytes
 // Doc: sdio_buffer_prepare_n_336 [mmio]: SDIO buffer preparation stub
 // sdio_buffer_prepare_n_336 [mmio]: SDIO buffer preparation stub
-int  list_insert_sorted(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *))
+int  list_foreach(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *))
 {
   uint32_t *v3; // r4
   uint32_t *v4; // r7

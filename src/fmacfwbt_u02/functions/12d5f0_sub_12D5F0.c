@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D5F0 @ 0x12d5f0, size 60 bytes
-uint32_t * sub_12D5F0(uint32_t *result, uint32_t **a2, uint32_t *a3)
+// list_remove @ 0x12d5f0, size 60 bytes
+uint32_t * list_remove(uint32_t *result, uint32_t **a2, uint32_t *a3)
 {
   uint32_t *v3; // r3
   uint32_t *v4; // r4
@@ -19,7 +19,7 @@ uint32_t * sub_12D5F0(uint32_t *result, uint32_t **a2, uint32_t *a3)
 
   v3 = (uint32_t *)*result;
   if ( !a2 )
-    return (uint32_t *)bt_state_check_or_init((int)result, a3);
+    return (uint32_t *)check_abort_flag_2((int)result, a3);
   if ( v3 )
   {
     v4 = result;

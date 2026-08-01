@@ -15,8 +15,8 @@ extern uint32_t off_128FE0;
 extern uint32_t off_128FDC;
 extern uint32_t dword_128FE4;
 
-// sub_128F88 @ 0x128f88, size 78 bytes
-void sub_128F88()
+// handle_mmio_event @ 0x128f88, size 78 bytes
+void handle_mmio_event()
 {
   uint8_t *v0; // r5
   int v1; // r4
@@ -41,7 +41,7 @@ void sub_128F88()
             if ( *(uint8_t *)(v1 + 108) )
             {
               v3 = *(uint8_t *)(v1 + 116);
-              if ( v3 != 255 && !fmacfwbt_phy_chan_init(v3, v2, v1) )
+              if ( v3 != 255 && !ble_conn_get(v3, v2, v1) )
                 ++v0[8];
             }
           }

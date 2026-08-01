@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13F480 @ 0x13f480, size 204 bytes
-BOOL  sub_13F480(uint8_t *a1, unsigned int a2)
+// validate_channel_map @ 0x13f480, size 204 bytes
+BOOL  validate_channel_map(uint8_t *a1, unsigned int a2)
 {
   unsigned int v2; // r3
   unsigned int v3; // r2
@@ -42,7 +42,7 @@ BOOL  sub_13F480(uint8_t *a1, unsigned int a2)
 LABEL_10:
           v5 = (a2 >> 10) & 1;
           if ( (a2 & 0x400) != 0 || a1[182] != 1 )
-            return sub_13D2F8((int)a1, a2) != 0;
+            return rx_switch_pdu_handler((int)a1, a2) != 0;
           return v5;
         }
 LABEL_27:
@@ -93,9 +93,9 @@ LABEL_18:
     v8 = (a2 >> 3) & 3;
 LABEL_21:
     if ( a1[180] >= v8 )
-      return sub_13D2F8((int)a1, a2) != 0;
+      return rx_switch_pdu_handler((int)a1, a2) != 0;
     return 0;
   }
-  return sub_13D2F8((int)a1, a2) != 0;
+  return rx_switch_pdu_handler((int)a1, a2) != 0;
 }
 

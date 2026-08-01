@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_cmd_wait_n_7e @ 0x114868, size 44 bytes
+// rf_cmd6_read @ 0x114868, size 44 bytes
 // Doc: rf_fault_dump_n132 [rf]: RF fault dump handler (variant n132)
 // rf_fault_dump_n132 [rf]: RF fault dump handler (variant n132)
-int  rf_cmd_wait_n_7e(uint8_t *a1)
+int  rf_cmd6_read(uint8_t *a1)
 {
   int16_t v2; // r0
 

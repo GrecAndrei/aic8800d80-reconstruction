@@ -20,10 +20,10 @@ extern uint32_t dword_102AF4;
 extern uint32_t off_102AF8;
 extern uint32_t off_102AFC;
 
-// scb_vtor_setup @ 0x102a74, size 104 bytes
-// Doc: scb_vtor_setup [mmio]: Set VTOR and enable NVIC interrupts in system control block
-// scb_vtor_setup [mmio]: Set VTOR and enable NVIC interrupts in system control block
-int scb_vtor_setup()
+// enable_nvic_irq @ 0x102a74, size 104 bytes
+// Doc: enable_nvic_irq [mmio]: Set VTOR and enable NVIC interrupts in system control block
+// enable_nvic_irq [mmio]: Set VTOR and enable NVIC interrupts in system control block
+int enable_nvic_irq()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r3

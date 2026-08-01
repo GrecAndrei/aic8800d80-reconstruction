@@ -14,10 +14,10 @@ extern uint32_t off_11369C;
 extern uint32_t off_1136A0;
 extern uint32_t dword_11368C;
 
-// sub_113620 @ 0x113620, size 106 bytes
+// is_single_channel @ 0x113620, size 106 bytes
 // Doc: rf_cmd_queue_next_n1b0 [rf]: Processes next pending RF command in queue
 // rf_cmd_queue_next_n1b0 [rf]: Processes next pending RF command in queue
-uint32_t * sub_113620(int a1)
+uint32_t * is_single_channel(int a1)
 {
   uint32_t *result; // r0
   uint32_t *v2; // r4
@@ -28,10 +28,10 @@ uint32_t * sub_113620(int a1)
   {
     case 1:
       v2 = rf_stream_start2_n2a4;
-      v3 = sub_143770(rf_stream_start2_n2a4, rf_stream_start2_n2a8_3698, 18);
-      if ( *((uint8_t *)off_11369C + 370) && rf_fault_dump_n100(v3) )
+      v3 = memcpy(rf_stream_start2_n2a4, rf_stream_start2_n2a8_3698, 18);
+      if ( *((uint8_t *)off_11369C + 370) && get_hook_bit_9(v3) )
       {
-        v4 = rf_fault_dump_n114();
+        v4 = call_hook_2();
         v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
         return v2;
       }

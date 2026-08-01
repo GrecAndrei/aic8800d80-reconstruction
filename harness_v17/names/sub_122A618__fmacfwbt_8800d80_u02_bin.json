@@ -1,1 +1,1 @@
-{"fn": "sub_122A618", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a618", "status": "ok", "name": "bt_chan_check", "params": [], "docstring": "Check BT channel/status byte (offset 0x18) against 0x7F", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122A618", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a618", "status": "ok", "name": "bt_packet_parse", "params": [], "docstring": "Check BT channel/status byte (offset 0x18) against 0x7F", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

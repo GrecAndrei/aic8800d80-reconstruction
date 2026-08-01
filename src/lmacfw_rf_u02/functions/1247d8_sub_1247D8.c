@@ -20,10 +20,10 @@ extern uint32_t off_124894;
 extern uint32_t off_124890;
 extern uint32_t dword_124898;
 
-// sub_1247D8 @ 0x1247d8, size 168 bytes
+// util_buf_clear @ 0x1247d8, size 168 bytes
 // Doc: sub_12247D8 [unknown]: Branch on state value, push r3-r5/lr prologue
 // sub_12247D8 [unknown]: Branch on state value, push r3-r5/lr prologue
-int  sub_1247D8(int a1, int a2)
+int  util_buf_clear(int a1, int a2)
 {
   int *v2; // r5
   int v3; // r0
@@ -37,7 +37,7 @@ int  sub_1247D8(int a1, int a2)
   if ( a1 > 1 )
   {
     v2 = (int *)off_124880;
-    v3 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v3 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
     v4 = off_124884;
     *v2 = v3;
     if ( *v4 == 1 )
@@ -45,7 +45,7 @@ int  sub_1247D8(int a1, int a2)
       v10 = off_12489C;
       *v4 = 0;
       *v10 = 0;
-      event_queue_push(144, 0);
+      ke_int_lock(144, 0);
       *(uint32_t *)off_1248A0 = 0;
     }
     if ( (__get_CPSR() & 1) == 0 )
@@ -55,9 +55,9 @@ int  sub_1247D8(int a1, int a2)
     }
     v5 = (int *)off_12488C;
     ++*(uint32_t *)off_12488C;
-    message_dispatch_n2fe();
-    rf_fault_dump_n_26c();
-    mmio_init_clock_gate_n121();
+    rf_cmd_wait();
+    rf_acquire();
+    write_bb_control();
     if ( *v5 )
     {
       v6 = *v5 - 1;
@@ -72,15 +72,15 @@ int  sub_1247D8(int a1, int a2)
     if ( *v2 )
     {
       *(uint32_t *)off_124894 = 2;
-      sub_12466C();
-      sub_12466C();
+      util_alloc_buffer();
+      util_alloc_buffer();
       v9 = *(uint32_t *)off_124890;
       if ( !*(uint32_t *)off_124890 )
         return 0;
       if ( *v2 )
       {
 LABEL_15:
-        rf_level_apply_n_4ec(v9);
+        init_with_stack(v9);
         return 0;
       }
     }
@@ -91,7 +91,7 @@ LABEL_15:
     v9 = 0;
     goto LABEL_15;
   }
-  msg_parse(dword_124898);
+  dispatch_event_handler(dword_124898);
   return 1;
 }
 

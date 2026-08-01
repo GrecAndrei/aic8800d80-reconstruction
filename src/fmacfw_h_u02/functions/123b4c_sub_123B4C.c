@@ -81,9 +81,9 @@ extern uint32_t dword_123E40;
 extern uint32_t dword_123E30;
 extern uint32_t dword_123E2C;
 
-// sub_123B4C @ 0x123b4c, size 3268 bytes
+// rf_calibrate @ 0x123b4c, size 3268 bytes
 // write access to const memory has been detected, the output may be wrong!
-int  sub_123B4C(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
+int  rf_calibrate(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
 {
   int v8; // r0
   int v9; // r1
@@ -214,7 +214,7 @@ int  sub_123B4C(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
   int v135; // [sp+14h] [bp-10h]
   uint8_t v136[8]; // [sp+1Ch] [bp-8h] BYREF
 
-  v8 = sub_12CD48(a3);
+  v8 = hci_cmd_handler(a3);
   if ( !v8 )
   {
     v11 = (int16_t **)off_123E50;
@@ -268,17 +268,17 @@ int  sub_123B4C(unsigned int a1, uint8_t *a2, uint32_t *a3, int a4)
 LABEL_16:
         v15 = off_123E24;
         *((uint8_t *)off_123E24 + 48) = 0;
-        v16 = sub_12BB80(*(uint32_t *)a2);
+        v16 = abs_i32(*(uint32_t *)a2);
         if ( v16 )
         {
-          sub_121844(*(uint32_t *)a2);
+          rf_is_ready(*(uint32_t *)a2);
           v16 = 0;
         }
         else if ( v15[49] )
         {
           v15[49] = 0;
-          if ( sub_126300(v136) )
-            sub_12AA90(
+          if ( patch_check_ready(v136) )
+            get_channel_entry_info(
               *(uint8_t *)(*(uint32_t *)v136 + 1225),
               dword_123E28 + 38 * *(uint8_t *)(*(uint32_t *)v136 + 107));
         }
@@ -288,7 +288,7 @@ LABEL_16:
     }
     if ( *(uint32_t *)off_123E20 << 28 )
     {
-      sub_12F32C(dword_1244E8, dword_1244E4, 2493);
+      irq_disable_mmio_write(dword_1244E8, dword_1244E4, 2493);
       if ( a1 > 0x3B )
       {
         if ( a1 == 143 )
@@ -312,9 +312,9 @@ LABEL_16:
             v114 = v65 - 1374;
             v115 = *(uint32_t *)(v111 + 4);
             *(uint8_t *)(v112 + 29) = v115;
-            *(&loc_124340 + 3) = v114;
+            *(uint32_t *)(uintptr_t)(0x124340 + 3 * 4) = v114;
             *(uint8_t *)(v113 + 17) = v112;
-            loc_12436A = v114;
+            *(uint32_t *)(uintptr_t)(0x12436A) = v114;
             *(uint32_t *)(v112 + 20) = v115;
             v116 = *(uint32_t *)(v112 + 100);
             v117 = *(uint32_t *)(v113 + 68);
@@ -324,7 +324,7 @@ LABEL_16:
             *(uint32_t *)(v113 + 84) = v114;
             v119 = *(int16_t *)(v116 + v118);
             *(uint32_t *)(v116 + 100) = v64;
-            loc_1243AA = v114;
+            *(uint32_t *)(uintptr_t)(0x1243AA) = v114;
             v120 = *(int16_t *)(2 * v118);
             *(uint32_t *)(v118 + 68) = *(uint32_t *)(v119 + 20);
             v121 = *(uint32_t *)(v120 + 4);
@@ -335,13 +335,13 @@ LABEL_16:
             *(uint32_t *)(v120 + 84) = v120;
             v123 = *(uint32_t *)(v120 + 4);
             *(uint8_t *)(v118 + 29) = v123;
-            *(&loc_124340 + 3) = v114;
+            *(uint32_t *)(uintptr_t)(0x124340 + 3 * 4) = v114;
             *(uint8_t *)(2 * v118 + 0x11) = v118;
-            loc_12436A = v114;
+            *(uint32_t *)(uintptr_t)(0x12436A) = v114;
             *(uint32_t *)(v118 + 20) = v123;
             v124 = *(uint32_t *)(v118 + 100);
             v125 = *(uint32_t *)(2 * v118 + 0x44);
-            *(uint32_t *)(v124 + 84) = &loc_124336;
+            *(uint32_t *)(v124 + 84) = (uint32_t *)(uintptr_t)(0x124336);
             *(uint32_t *)(v125 + 84) = v124;
             *(uint32_t *)(2 * v125 + 0x54) = v114;
             v126 = *(uint32_t *)(*(int16_t *)(v124 + v125) + 4);
@@ -372,20 +372,20 @@ LABEL_24:
       {
         case 6u:
 LABEL_76:
-          v63 = (uint8_t *)sub_12C7EC(7, a4, a3, 2);
+          v63 = (uint8_t *)tx_send_pdu(7, a4, a3, 2);
           v15 = off_124194;
-          *v63 = sub_11F680((int *)(a2 + 2), *a2, a2[8], v63 + 1);
-          sub_12C84C(v63);
+          *v63 = transmit_radio_packet((int *)(a2 + 2), *a2, a2[8], v63 + 1);
+          rx_process_packet(v63);
           v16 = 0;
           goto LABEL_10;
         case 8u:
 LABEL_70:
           v62 = *a2;
           if ( v62 <= 3 )
-            v62 = sub_11FA78(v62);
+            v62 = get_bss_by_index(v62);
           if ( !*((uint32_t *)off_1241D0 + 2) )
-            sub_12BAEC(v62, v9);
-          sub_12C8D0(9, a4, a3);
+            rf_set_power_off(v62, v9);
+          mac_write_header_word(9, a4, a3);
           v15 = off_124194;
           v16 = 0;
           goto LABEL_10;
@@ -396,20 +396,20 @@ LABEL_68:
           *(uint32_t *)off_124194 = *(uint32_t *)a2;
           if ( v12 < 0 && *(uint32_t *)off_1244F4 << 28 )
           {
-            sub_12F35C(dword_1244E8, dword_1244F8, 472);
+            mmio_write_field(dword_1244E8, dword_1244F8, 472);
             v61 = *(uint32_t *)v15;
           }
           *(uint32_t *)off_1241CC = v61 | *((uint32_t *)v15 + 1);
-          sub_12C8D0(15, a4, a3);
+          mac_write_header_word(15, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x10u:
 LABEL_67:
-          v59 = sub_12C7EC(17, a4, a3, 2);
+          v59 = tx_send_pdu(17, a4, a3, 2);
           v15 = off_124194;
           v60 = v59;
-          sub_102970((uint16_t *)a2, a2[10]);
-          sub_12C84C(v60);
+          check_boot_flag((uint16_t *)a2, a2[10]);
+          rx_process_packet(v60);
           v16 = 0;
           goto LABEL_10;
         case 0x12u:
@@ -418,7 +418,7 @@ LABEL_66:
           v15 = off_124194;
           *(uint32_t *)off_1241C8 = *(uint32_t *)off_1241C8 & 0xFFFFFF00 | *a2;
           *v58 |= 0x80000000;
-          sub_12C8D0(19, a4, a3);
+          mac_write_header_word(19, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x14u:
@@ -426,10 +426,10 @@ LABEL_63:
           v56 = *(uint16_t *)a2;
           v57 = dword_1241C4 + 1320 * a2[2];
           if ( *(uint8_t *)(v57 + 106) )
-            sub_120130(v57, v56);
+            set_bss_cap(v57, v56);
           else
             *(uint32_t *)(dword_124180 + 696 * *(uint8_t *)(v57 + 116) + 8) = v56 << 10;
-          sub_12C8D0(21, a4, a3);
+          mac_write_header_word(21, a4, a3);
           v15 = off_124194;
           v16 = 0;
           goto LABEL_10;
@@ -452,25 +452,25 @@ LABEL_53:
             *((uint32_t *)v50 + 1) = v54;
           if ( v52 && *(uint8_t *)(v52 + 4) == v51 )
             *(uint32_t *)off_1241C0 = *(uint32_t *)&v15[4 * v55 + 4];
-          sub_12C8D0(23, a4, a3);
+          mac_write_header_word(23, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x18u:
 LABEL_52:
           v15 = off_124194;
-          sub_143630(dword_1241B0 + 1320 * a2[6], a2, 6);
+          memcpy(dword_1241B0 + 1320 * a2[6], a2, 6);
           v48 = off_1241B8;
           v49 = *((uint16_t *)a2 + 2);
           *(uint32_t *)off_1241B4 = *(uint32_t *)a2;
           *v48 = v49;
-          sub_12C8D0(25, a4, a3);
+          mac_write_header_word(25, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x1Cu:
 LABEL_75:
           v15 = off_124194;
           *(uint32_t *)off_1241D4 = (*a2 << 14) & 0x1C000 | *(uint32_t *)off_1241D4 & 0xFFFE3FFF;
-          sub_12C8D0(29, a4, a3);
+          mac_write_header_word(29, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x1Eu:
@@ -480,7 +480,7 @@ LABEL_33:
           v31 = (uint8_t *)(dword_1241C4 + 1320 * v29);
           v136[0] = 0;
           v132 = 1320 * v29;
-          v32 = sub_1202F8(v136);
+          v32 = reset_drv_flag(v136);
           v33 = v31[106];
           v34 = a2[2];
           v31[108] = v34;
@@ -492,18 +492,18 @@ LABEL_33:
             {
               v35 = dword_124180 + 696 * v31[116];
               v36 = v132 + 24 + v30;
-              sub_124BFC(v36, *((uint32_t *)off_124184 + 4) + *(uint32_t *)(v35 + 8));
+              mem_copy_util(v36, *((uint32_t *)off_124184 + 4) + *(uint32_t *)(v35 + 8));
               *(uint16_t *)(v35 + 32) = *(uint16_t *)a2;
-              sub_1202D8();
-              sub_12EB90(256, dword_124188);
+              mac_clear_irq();
+              check_feature_flag(256, dword_124188);
               v37 = off_124190;
               *(uint32_t *)off_12418C = (uint16_t)*(uint32_t *)off_12418C | (*(uint16_t *)a2 << 16);
-              if ( (*v37 & 0x8000) != 0 && sub_101950() && (*(uint32_t *)(v35 + 4) & 0x20) != 0 )
+              if ( (*v37 & 0x8000) != 0 && rf_status_bit21() && (*(uint32_t *)(v35 + 4) & 0x20) != 0 )
               {
-                sub_1019DC(*(uint16_t *)a2);
-                sub_11C1D0();
-                sub_12EB90(256, dword_124828);
-                sub_11C210();
+                set_rf_frequency(*(uint16_t *)a2);
+                read_int_status();
+                check_feature_flag(256, dword_124828);
+                mmio_set_register_bit();
               }
               v15 = off_124194;
               v135 = dword_124180 + 696 * v134;
@@ -523,7 +523,7 @@ LABEL_33:
               *(uint32_t *)(v38 + 4) = v39;
               *(uint32_t *)(v38 + 120) = v40[4];
               v133 = v38;
-              v41 = sub_128294(v31);
+              v41 = wifi_disable_action(v31);
               v42 = *(uint8_t *)(v133 + 1224);
               if ( *(uint8_t *)(v133 + 1224) )
               {
@@ -534,12 +534,12 @@ LABEL_33:
                   goto LABEL_39;
                 *((uint32_t *)off_1244EC + 8) = 0;
                 v81[36] = 0;
-                sub_129388(v41);
+                chip_register_set_bit(v41);
 LABEL_119:
                 v82 = **v11;
                 *((uint32_t *)v15 + 1) |= 0x10u;
                 if ( v82 < 0 && *(uint32_t *)off_124838 << 28 )
-                  sub_12F35C(dword_124840, dword_12483C, 472);
+                  mmio_write_field(dword_124840, dword_12483C, 472);
                 *(uint32_t *)off_124520 = *(uint32_t *)v15 | *((uint32_t *)v15 + 1);
                 v34 = a2[2];
                 goto LABEL_40;
@@ -553,9 +553,9 @@ LABEL_119:
                   goto LABEL_39;
                 *((uint32_t *)off_124814 + 8) = v42;
                 v130 = v42;
-                v95 = sub_124CF4(v36);
+                v95 = mem_set_util(v36);
                 v94[36] = v130;
-                sub_129388(v95);
+                chip_register_set_bit(v95);
                 v34 = a2[2];
               }
               else
@@ -577,24 +577,24 @@ LABEL_39:
                 v109 = *(uint32_t *)off_124834;
                 *((uint32_t *)off_124198 + 8) = v31;
                 *v107 = (uint16_t)(v108 >> 10) | (HIWORD(v109) << 16);
-                v110 = sub_124CF4(v36);
+                v110 = mem_set_util(v36);
                 *((uint8_t *)off_124814 + 36) = 0;
-                sub_129254(v110);
+                chip_register_read(v110);
                 v34 = a2[2];
               }
             }
             else
             {
-              v68 = sub_124CF4(v132 + 24 + v30);
+              v68 = mem_set_util(v132 + 24 + v30);
               nullsub_8(v68);
-              v69 = sub_12EB90(256, dword_124510);
+              v69 = check_feature_flag(256, dword_124510);
               if ( (*(uint32_t *)off_124514 & 0x8000) != 0 )
               {
-                v69 = sub_101950();
+                v69 = rf_status_bit21();
                 if ( v69 )
                 {
                   if ( (*(uint32_t *)(dword_124818 + 696 * v134 + 4) & 0x20) != 0 && v31[106] != 4 )
-                    v69 = sub_12ACC4(v31[107]);
+                    v69 = init_chan_entry(v31[107]);
                 }
               }
               v70 = v30 + 1320 * v29;
@@ -622,16 +622,16 @@ LABEL_39:
                       *((uint32_t *)off_124814 + 8) = v83;
                       *v86 = (uint16_t)(*(uint32_t *)(v85 + 696 * v84 + 8) >> 10) | (HIWORD(*v86) << 16);
                       v129 = v83;
-                      v87 = sub_124CF4(v83 + 24);
+                      v87 = mem_set_util(v83 + 24);
                       *((uint8_t *)off_124814 + 36) = 0;
                       v15 = off_12481C;
-                      sub_129254(v87);
+                      chip_register_read(v87);
                       v88 = **v11;
                       v89 = v129;
                       *((uint32_t *)v15 + 1) &= ~0x10u;
                       if ( v88 < 0 && *(uint32_t *)off_124838 << 28 )
                       {
-                        sub_12F35C(dword_124840, dword_12483C, 472);
+                        mmio_write_field(dword_124840, dword_12483C, 472);
                         v89 = v129;
                       }
                       v90 = off_124844;
@@ -668,10 +668,10 @@ LABEL_169:
                   v104 = *(uint32_t *)(dword_124818 + 696 * v101[116] + 8);
                   *((uint32_t *)off_124814 + 8) = v101;
                   *v102 = (uint16_t)(v104 >> 10) | (HIWORD(v103) << 16);
-                  v105 = sub_124CF4(v101 + 24);
+                  v105 = mem_set_util(v101 + 24);
                   v100[36] = v131;
                   v15 = off_12481C;
-                  sub_129254(v105);
+                  chip_register_read(v105);
                   v34 = a2[2];
                   goto LABEL_40;
                 }
@@ -684,7 +684,7 @@ LABEL_169:
                   *((uint32_t *)off_124814 + 8) = 0;
                   v106[36] = 0;
                   v15 = off_12481C;
-                  sub_129388(v69);
+                  chip_register_set_bit(v69);
                   v34 = a2[2];
                   goto LABEL_40;
                 }
@@ -694,7 +694,7 @@ LABEL_101:
               v15 = off_1244F0;
             }
 LABEL_40:
-            sub_129F50(v31, v34);
+            bt_scan_start(v31, v34);
             if ( a2[2] )
             {
               v43 = *(uint32_t **)off_12419C;
@@ -725,9 +725,9 @@ LABEL_40:
                 *(uint32_t *)off_1241AC = v47;
               else
                 *(uint32_t *)off_124518 = *(uint32_t *)(v30 + 1320 * v29 + 20);
-              sub_120368();
+              get_mac_ver();
             }
-            sub_12C8D0(31, a4, a3);
+            mac_write_header_word(31, a4, a3);
             v16 = 0;
             goto LABEL_10;
           }
@@ -761,14 +761,14 @@ LABEL_85:
                 v72[36] = 0;
                 v128 = v66;
                 v15 = off_1244F0;
-                v73 = sub_124CF4(v66 + 24);
-                sub_129254(v73);
+                v73 = mem_set_util(v66 + 24);
+                chip_register_read(v73);
                 v74 = **v11;
                 v75 = v128;
                 *((uint32_t *)v15 + 1) &= ~0x10u;
                 if ( v74 < 0 && *(uint32_t *)off_124838 << 28 )
                 {
-                  sub_12F35C(dword_124840, dword_12483C, 472);
+                  mmio_write_field(dword_124840, dword_12483C, 472);
                   v75 = v128;
                 }
                 v76 = off_124530;
@@ -797,11 +797,11 @@ LABEL_84:
             *((uint32_t *)off_1244EC + 8) = 0;
             v67[36] = 0;
             v15 = off_12481C;
-            ((void (*)(void))sub_129388)();
+            ((void (*)(void))chip_register_set_bit)();
             v96 = **v11;
             *((uint32_t *)v15 + 1) |= 0x10u;
             if ( v96 < 0 && *(uint32_t *)off_124838 << 28 )
-              sub_12F35C(dword_124840, dword_12483C, 472);
+              mmio_write_field(dword_124840, dword_12483C, 472);
             v97 = off_124820;
             v98 = off_12482C;
             *(uint32_t *)off_124820 = *(uint32_t *)v15 | *((uint32_t *)v15 + 1);
@@ -816,7 +816,7 @@ LABEL_84:
 LABEL_32:
           v15 = off_123E24;
           *(uint32_t *)off_123E48 = *a2 | (((uint8_t)*(uint32_t *)off_123E44 * *a2) << 8);
-          sub_12C8D0(33, a4, a3);
+          mac_write_header_word(33, a4, a3);
           v16 = 0;
           goto LABEL_10;
         case 0x28u:
@@ -824,7 +824,7 @@ LABEL_27:
           v17 = *a2;
           if ( *a2 )
           {
-            if ( sub_13A2B4(dword_1244FC + 696 * a2[1], a2[2], *((uint16_t *)a2 + 3)) )
+            if ( dma_tx_ring(dword_1244FC + 696 * a2[1], a2[2], *((uint16_t *)a2 + 3)) )
             {
               *(uint32_t *)off_124500 |= 0x80u;
               v17 = 0;
@@ -850,7 +850,7 @@ LABEL_27:
             {
               v21 = v19 >> 1;
             }
-            sub_12E948(dword_123E3C, v18, v19);
+            alloc_tx_event(dword_123E3C, v18, v19);
             v22 = *((uint16_t *)a2 + 2);
             v23 = 696 * a2[1];
             v24 = *(uint8_t *)(v23 + 12 * a2[2] + dword_123E4C + 453);
@@ -861,24 +861,24 @@ LABEL_27:
             *(uint16_t *)(v26 + 356) = v22;
             *(uint16_t *)(v27 + 12) = v25;
           }
-          v28 = (uint8_t *)sub_12C7EC(41, a4, a3, 3);
+          v28 = (uint8_t *)tx_send_pdu(41, a4, a3, 3);
           *v28 = a2[1];
           v28[1] = a2[2];
           v28[2] = v17;
-          sub_12C84C(v28);
+          rx_process_packet(v28);
           v15 = off_123E24;
           v16 = 0;
           goto LABEL_10;
         case 0x30u:
 LABEL_26:
-          sub_12F378(a2);
+          unknown_12f378(a2);
           v15 = off_123E24;
           v16 = 0;
           goto LABEL_10;
         case 0x3Bu:
 LABEL_25:
-          sub_127D64(a2);
-          sub_12C8D0(60, a4, a3);
+          cfm_mac_info(a2);
+          mac_write_header_word(60, a4, a3);
           v15 = off_123E24;
           v16 = 0;
           goto LABEL_10;
@@ -887,21 +887,21 @@ LABEL_25:
       }
     }
     v15 = off_123E24;
-    sub_12F32C(dword_123E30, dword_123E2C, 2552);
+    irq_disable_mmio_write(dword_123E30, dword_123E2C, 2552);
     v16 = 2;
 LABEL_10:
     *(uint32_t *)off_123E20 = (uint8_t)(16 * v15[19]);
-    sub_12CBF4(a3);
+    hci_cmd_preprocess(a3);
     return v16;
   }
   if ( (uint16_t)(v8 - 2) > 2u )
   {
     v13 = off_123E24;
     *((uint8_t *)off_123E24 + 19) = *(uint8_t *)off_123E20 & 0xF;
-    v14 = sub_12CD48(a3);
+    v14 = hci_cmd_handler(a3);
     v13[18] = v14;
-    sub_12B6C4(v14);
-    sub_12CBF4(a3);
+    rf_status_check(v14);
+    hci_cmd_preprocess(a3);
   }
   return 2;
 }

@@ -17,10 +17,10 @@ extern uint32_t dword_135B48;
 extern uint32_t dword_135B44;
 extern uint32_t dword_135B40;
 
-// sub_135A6C @ 0x135a6c, size 200 bytes
+// rf_check_status @ 0x135a6c, size 200 bytes
 // Doc: sub_1235A6C [bt]: Bluetooth task entry: dispatch handler using table lookup
 // sub_1235A6C [bt]: Bluetooth task entry: dispatch handler using table lookup
-int  sub_135A6C(unsigned int a1)
+int  rf_check_status(unsigned int a1)
 {
   int v1; // r8
   int v2; // r7
@@ -41,8 +41,8 @@ int  sub_135A6C(unsigned int a1)
   v2 = dword_135B3C;
   v3 = *(uint8_t *)(v1 + 61);
   if ( **(int16_t **)off_135B34 < 0 && *(int *)(dword_135B3C + 1320 * v3 + 472) >= 0 )
-    sub_12F694(dword_135B48, dword_135B44, 1398);
-  v5 = (uint8_t *)rf_bus_setup_n3a8(6150, 13, 6, 0x2Cu);
+    mmio_irq_clear(dword_135B48, dword_135B44, 1398);
+  v5 = (uint8_t *)bt_buf_alloc(6150, 13, 6, 0x2Cu);
   *v5 = *(uint8_t *)(v1 + 61);
   v6 = v5 + 1;
   v7 = v2 + 1320 * v3;
@@ -68,8 +68,8 @@ int  sub_135A6C(unsigned int a1)
   *(uint16_t *)(v9 + 38) = *(uint16_t *)(v14 + 372);
   *(uint32_t *)(v9 + 34) = v15;
   *(uint32_t *)(v9 + 40) = bswap32(a1);
-  rf_bus_mark_n_3b7(6u, 6);
-  rf_level_apply_80c(6154, 6, dword_135B40);
-  return sub_12CBB4(v9);
+  hci_cmd_send(6u, 6);
+  patch_aware_dispatch(6154, 6, dword_135B40);
+  return hci_evt_send(v9);
 }
 

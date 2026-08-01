@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1140B4;
 
-// sub_114044 @ 0x114044, size 110 bytes
-int  sub_114044(int a1, int a2, int a3)
+// rx_packet_prepare @ 0x114044, size 110 bytes
+int  rx_packet_prepare(int a1, int a2, int a3)
 {
   int v5; // r1
   int v6; // r2
@@ -38,7 +38,7 @@ int  sub_114044(int a1, int a2, int a3)
     LOBYTE(a2) = a2 - 4;
   }
   v8 = 8 * a2;
-  v9 = (unsigned int)sub_113A44(v7) >> v8;
+  v9 = (unsigned int)mmio_read32(v7) >> v8;
   v10 = (uint8_t)v9;
   v11 = v9 & 0xF;
   if ( v11 )
@@ -56,7 +56,7 @@ int  sub_114044(int a1, int a2, int a3)
     v14 = 2 * a3;
   else
     v14 = (-2 * a3) | 1;
-  host_reg_wait_set(v7, v14 << v11 << v8);
+  mmio_write32(v7, v14 << v11 << v8);
   return v12;
 }
 

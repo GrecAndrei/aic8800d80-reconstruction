@@ -24,10 +24,10 @@ extern uint32_t dword_10E400;
 extern uint32_t dword_10E404;
 extern uint32_t dword_10E418;
 
-// rf_init_wake_n_e8 @ 0x10e2e8, size 252 bytes
-// Doc: rf_init_wake_n_e8 [rf]: RF subsystem init/wakeup, enables clock and writes control reg
-// rf_init_wake_n_e8 [rf]: RF subsystem init/wakeup, enables clock and writes control reg
-int rf_init_wake_n_e8()
+// sdio_core_enable @ 0x10e2e8, size 252 bytes
+// Doc: sdio_core_enable [rf]: RF subsystem init/wakeup, enables clock and writes control reg
+// sdio_core_enable [rf]: RF subsystem init/wakeup, enables clock and writes control reg
+int sdio_core_enable()
 {
   uint32_t *v0; // r5
   uint64_t v1; // r0
@@ -54,39 +54,39 @@ int rf_init_wake_n_e8()
   int v22; // r0
 
   v0 = off_10E408;
-  rf_agc_check_nbf4(1);
+  check_hw_status(1);
   v0[1] = 1;
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), dword_10E3E8, dword_10E3EC);
-  v3 = sub_127874(v2, HIDWORD(v2), dword_10E3F0, dword_10E3F4);
-  v4 = sub_1272B0(v3, HIDWORD(v3), dword_10E3E8, dword_10E3EC);
-  v5 = ((int ( *)(int))sub_127BE4)(v4);
-  rf_agc_check_nbf4(2);
+  v1 = double_to_float(v0[4]);
+  v2 = aeabi_dadd(v1, HIDWORD(v1), dword_10E3E8, dword_10E3EC);
+  v3 = aeabi_dsub(v2, HIDWORD(v2), dword_10E3F0, dword_10E3F4);
+  v4 = double_subtract(v3, HIDWORD(v3), dword_10E3E8, dword_10E3EC);
+  v5 = ((int ( *)(int))aeabi_dmul)(v4);
+  check_hw_status(2);
   v6 = off_10E408;
   v0[1] = 1;
   while ( v6[7] != 1 )
     ;
   v6[7] = 1;
   v7 = v6[4];
-  rf_agc_check_nbf4(3);
-  v8 = sub_12752C(v7);
-  v9 = sub_127620(v8, HIDWORD(v8), dword_10E3E8, dword_10E3EC);
-  v10 = sub_127874(v9, HIDWORD(v9), dword_10E3F0, dword_10E3F4);
-  v11 = sub_1272B0(v10, HIDWORD(v10), dword_10E3E8, dword_10E3EC);
-  v12 = ((int ( *)(int))sub_127BE4)(v11);
-  v13 = sub_127570(v12);
-  v14 = sub_127874(v13, HIDWORD(v13), dword_10E3F8, dword_10E3FC);
-  v15 = sub_127620(v14, HIDWORD(v14), 0, dword_10E40C);
-  v16 = sub_127570(v5);
-  v17 = sub_127874(v16, HIDWORD(v16), dword_10E3F8, dword_10E3FC);
-  v18 = sub_127620(v17, HIDWORD(v17), 0, dword_10E410);
-  v19 = sub_1272B4(v15, HIDWORD(v15), v18, HIDWORD(v18));
-  v20 = sub_127620(v19, HIDWORD(v19), 0, dword_10E414);
-  v21 = sub_127620(v20, HIDWORD(v20), dword_10E400, dword_10E404);
-  v22 = sub_127874(v21, HIDWORD(v21), 0, dword_10E418);
-  return (int)sub_127BE4(v22);
+  check_hw_status(3);
+  v8 = double_to_float(v7);
+  v9 = aeabi_dadd(v8, HIDWORD(v8), dword_10E3E8, dword_10E3EC);
+  v10 = aeabi_dsub(v9, HIDWORD(v9), dword_10E3F0, dword_10E3F4);
+  v11 = double_subtract(v10, HIDWORD(v10), dword_10E3E8, dword_10E3EC);
+  v12 = ((int ( *)(int))aeabi_dmul)(v11);
+  v13 = aeabi_d2f(v12);
+  v14 = aeabi_dsub(v13, HIDWORD(v13), dword_10E3F8, dword_10E3FC);
+  v15 = aeabi_dadd(v14, HIDWORD(v14), 0, dword_10E40C);
+  v16 = aeabi_d2f(v5);
+  v17 = aeabi_dsub(v16, HIDWORD(v16), dword_10E3F8, dword_10E3FC);
+  v18 = aeabi_dadd(v17, HIDWORD(v17), 0, dword_10E410);
+  v19 = double_add(v15, HIDWORD(v15), v18, HIDWORD(v18));
+  v20 = aeabi_dadd(v19, HIDWORD(v19), 0, dword_10E414);
+  v21 = aeabi_dadd(v20, HIDWORD(v20), dword_10E400, dword_10E404);
+  v22 = aeabi_dsub(v21, HIDWORD(v21), 0, dword_10E418);
+  return (int)aeabi_dmul(v22);
 }
 

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13384C @ 0x13384c, size 314 bytes
+// unaligned_memcpy @ 0x13384c, size 314 bytes
 // Doc: sub_123384C [util]: Unaligned 32-bit word copy from source buffer with byte shuffling
 // sub_123384C [util]: Unaligned 32-bit word copy from source buffer with byte shuffling
-uint32_t * sub_13384C(uint32_t *result, int a2, unsigned int a3)
+uint32_t * unaligned_memcpy(uint32_t *result, int a2, unsigned int a3)
 {
   unsigned int *v3; // r6
   char v4; // r1
@@ -81,7 +81,7 @@ uint32_t * sub_13384C(uint32_t *result, int a2, unsigned int a3)
     else
       v16 = v10 >> v31;
     v15 -= 4;
-    result = xtea_block_decrypt(result, result + 1, v32);
+    result = hash_mix_words(result, result + 1, v32);
   }
   else
   {
@@ -102,7 +102,7 @@ uint32_t * sub_13384C(uint32_t *result, int a2, unsigned int a3)
         v16 = 0;
       else
         v16 = v21 >> v17;
-      result = xtea_block_decrypt(result, v18, v22);
+      result = hash_mix_words(result, v18, v22);
     }
     while ( v20 != v19 );
     v11 = &v9[v33];
@@ -131,7 +131,7 @@ uint32_t * sub_13384C(uint32_t *result, int a2, unsigned int a3)
     v29 = v16;
     LOBYTE(v15) = v26 - 4;
     v16 = v28;
-    result = xtea_block_decrypt(result, result + 1, v29);
+    result = hash_mix_words(result, result + 1, v29);
 LABEL_20:
     result[2] = v16;
     *((uint8_t *)result + 12) = v15;

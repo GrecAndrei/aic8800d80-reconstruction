@@ -19,8 +19,8 @@ extern uint32_t dword_12D210;
 extern uint32_t dword_12D218;
 extern uint32_t dword_12D208;
 
-// sub_12D154 @ 0x12d154, size 168 bytes
-int  sub_12D154(int a1, unsigned int a2)
+// hci_cmd_send_vendor @ 0x12d154, size 168 bytes
+int  hci_cmd_send_vendor(int a1, unsigned int a2)
 {
   int16_t **v2; // r4
   int v4; // r7
@@ -41,7 +41,7 @@ int  sub_12D154(int a1, unsigned int a2)
     goto LABEL_2;
   if ( (uint8_t)a2 > 0xDu )
   {
-    sub_12F694(dword_12D20C, dword_12D204, 267);
+    mmio_irq_clear(dword_12D20C, dword_12D204, 267);
     if ( **v2 >= 0 )
     {
 LABEL_2:
@@ -50,13 +50,13 @@ LABEL_2:
       goto LABEL_3;
     }
     if ( v4 != 14 )
-      sub_12F694(dword_12D214, dword_12D210, 183);
+      mmio_irq_clear(dword_12D214, dword_12D210, 183);
   }
   else if ( (uint8_t)a2 != 13 )
   {
     goto LABEL_10;
   }
-  sub_12F694(dword_12D218, dword_12D204, 268);
+  mmio_irq_clear(dword_12D218, dword_12D204, 268);
   if ( **v2 >= 0 )
     goto LABEL_2;
 LABEL_10:
@@ -64,17 +64,17 @@ LABEL_10:
   v13 = dword_12D200 + 16 * v4;
   v7 = 16 * v4;
   if ( *(uint16_t *)(v13 + 14) <= v5 )
-    sub_12F694(dword_12D208, dword_12D204, 269);
+    mmio_irq_clear(dword_12D208, dword_12D204, 269);
 LABEL_3:
   v8 = *(uint32_t *)(v6 + v7);
   v9 = v6 + v7;
   if ( !v8
     || (v10 = v8 + 8 * *(uint16_t *)(*(uint32_t *)(v9 + 8) + 2 * v5),
-        (result = sub_12CEFC(a1, (int *)v10, *(uint16_t *)(v10 + 4))) == 0) )
+        (result = list_process_count(a1, (int *)v10, *(uint16_t *)(v10 + 4))) == 0) )
   {
     v12 = *(uint32_t *)(v9 + 4);
     if ( v12 )
-      return sub_12CEFC(a1, (int *)v12, *(uint16_t *)(v12 + 4));
+      return list_process_count(a1, (int *)v12, *(uint16_t *)(v12 + 4));
     else
       return 0;
   }

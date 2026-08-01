@@ -1,1 +1,1 @@
-{"fn": "sub_1235C1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235c1c", "status": "ok", "name": "bt_state_query_n_c3c", "params": [], "docstring": "Query BT state and process result", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1235C1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235c1c", "status": "ok", "name": "hci_vendor_read_rf_cache", "params": [], "docstring": "Query BT state and process result", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

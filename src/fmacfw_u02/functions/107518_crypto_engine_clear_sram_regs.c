@@ -14,10 +14,10 @@ extern uint32_t off_107578;
 extern uint32_t off_10757C;
 extern uint32_t off_107580;
 
-// crypto_engine_clear_sram_regs @ 0x107518, size 96 bytes
-// Doc: crypto_engine_clear_sram_regs [ke]: Clear hardware crypto SRAM control registers
-// crypto_engine_clear_sram_regs [ke]: Clear hardware crypto SRAM control registers
-uint32_t *crypto_engine_clear_sram_regs()
+// rf_synth_set_freq @ 0x107518, size 96 bytes
+// Doc: rf_synth_set_freq [ke]: Clear hardware crypto SRAM control registers
+// rf_synth_set_freq [ke]: Clear hardware crypto SRAM control registers
+uint32_t *rf_synth_set_freq()
 {
   unsigned int *v0; // r2
   uint32_t *v1; // r3

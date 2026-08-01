@@ -18,8 +18,8 @@ extern uint32_t off_113614;
 extern uint32_t dword_113618;
 extern uint32_t dword_11361C;
 
-// sub_113558 @ 0x113558, size 172 bytes
-int  sub_113558(int a1, int a2, int a3)
+// set_mode_flag @ 0x113558, size 172 bytes
+int  set_mode_flag(int a1, int a2, int a3)
 {
   uint8_t *v3; // r5
   char v4; // r3
@@ -52,38 +52,38 @@ int  sub_113558(int a1, int a2, int a3)
       {
         while ( 1 )
         {
-          v10 = *(uint32_t *)(*(uint32_t *)(sub_12D2D0(v7) + 4) + 4);
+          v10 = *(uint32_t *)(*(uint32_t *)(mem_word_load(v7) + 4) + 4);
           --*v5;
-          sub_12D248(v9);
+          cmd_handler_a(v9);
           v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
           ++*(uint16_t *)off_113614;
-          a1 = sub_12D104(128);
+          a1 = unknown_func_12d104(128);
           if ( !*v5 )
             goto LABEL_12;
         }
         if ( v11 == 1 )
         {
-          a1 = sub_110008((uint32_t *)v10);
+          a1 = is_controller_mode((uint32_t *)v10);
         }
         else
         {
-          sub_10DC24(v8);
-          a1 = sub_12EB18(v10, 32, 1, 0);
+          log_printf(v8);
+          a1 = send_msg(v10, 32, 1, 0);
         }
       }
       while ( *v5 );
     }
 LABEL_12:
-    sub_1134B4(a1, a2);
+    check_init_flag(a1, a2);
     return 1;
   }
   else
   {
     v13 = a1;
-    sub_10DC24(dword_113618, *v3);
-    sub_1141C8(dword_11361C, v13, a2, *v3);
+    log_printf(dword_113618, *v3);
+    is_current_task(dword_11361C, v13, a2, *v3);
     return 1;
   }
 }

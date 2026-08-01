@@ -16,10 +16,10 @@ extern uint32_t off_12B700;
 extern uint32_t off_12B704;
 extern uint32_t dword_12B6FC;
 
-// sub_12B5BC @ 0x12b5bc, size 312 bytes
+// bt_update_conn_state @ 0x12b5bc, size 312 bytes
 // Doc: sub_122B5BC [rf]: Read RF status bytes and dispatch to message handler
 // sub_122B5BC [rf]: Read RF status bytes and dispatch to message handler
-void sub_12B5BC()
+void bt_update_conn_state()
 {
   int v0; // r5
   char *v1; // r6
@@ -64,7 +64,7 @@ void sub_12B5BC()
         if ( *(uint8_t *)(v0 + 369) )
           v3 = 1;
       }
-      v4 = sub_119084(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
+      v4 = event_notify(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
       v5 = v1;
       v6 = v4;
       if ( !v4 )
@@ -113,7 +113,7 @@ void sub_12B5BC()
       *(uint32_t *)(v6 + 92) = 0;
       *(uint8_t *)(v6 + 28) = *(uint8_t *)(v0 + 366);
       *(uint8_t *)(v6 + 29) = -1;
-      sub_1190B4(v6, 5);
+      ble_event_dispatch(v6, 5);
       ++v2;
       v1 += 33;
     }

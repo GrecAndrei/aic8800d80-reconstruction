@@ -14,8 +14,8 @@ extern uint32_t dword_102E98;
 extern uint32_t dword_102E90;
 extern uint32_t off_102E94;
 
-// sub_102E08 @ 0x102e08, size 136 bytes
-int  sub_102E08(int a1, int a2, unsigned int a3, int a4)
+// uart_send_data @ 0x102e08, size 136 bytes
+int  uart_send_data(int a1, int a2, unsigned int a3, int a4)
 {
   int v6; // r6
   int v7; // r4
@@ -44,7 +44,7 @@ int  sub_102E08(int a1, int a2, unsigned int a3, int a4)
   }
   while ( !*(uint32_t *)off_102E94 )
     ;
-  sub_102BF8(a1);
+  rf_clear_control_bit_a(a1);
   if ( a3 )
   {
     v9 = 0;
@@ -69,7 +69,7 @@ int  sub_102E08(int a1, int a2, unsigned int a3, int a4)
     }
     while ( a3 > (uint8_t)v12 );
   }
-  result = sub_102C5C(a1);
+  result = rf_clear_control_bit_b(a1);
   *(uint32_t *)off_102E94 = 1;
   return result;
 }

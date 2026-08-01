@@ -24,8 +24,8 @@ extern uint32_t off_137488;
 extern uint32_t off_137484;
 extern uint32_t off_13747C;
 
-// sub_137388 @ 0x137388, size 212 bytes
-uint32_t * sub_137388(int a1)
+// util_hex_convert @ 0x137388, size 212 bytes
+uint32_t * util_hex_convert(int a1)
 {
   uint16_t *v2; // r4
   uint8_t **v3; // r7
@@ -38,15 +38,15 @@ uint32_t * sub_137388(int a1)
   uint32_t *v11; // r3
 
   if ( *(uint8_t *)off_13745C )
-    sub_102AD0(*((uint8_t *)off_13748C + 9));
+    rf_reg_write_byte(*((uint8_t *)off_13748C + 9));
   v2 = off_137460;
   v3 = (uint8_t **)off_137464;
   if ( *((uint8_t *)off_137460 + 3850) == 1 )
     v4 = 4099;
   else
     v4 = 4097;
-  v5 = (uint8_t *)sub_12C7EC(v4, *((uint16_t *)off_137460 + 1924), 4, 3u);
-  sub_12EB90(
+  v5 = (uint8_t *)tx_send_pdu(v4, *((uint16_t *)off_137460 + 1924), 4, 3u);
+  check_feature_flag(
     8,
     dword_13746C,
     dword_137468,
@@ -69,10 +69,10 @@ uint32_t * sub_137388(int a1)
     *v11 |= 0x400000u;
     *v11 |= 0x200000u;
   }
-  sub_12C8F8(v9 - 12);
+  tx_process_jump(v9 - 12);
   *(uint32_t *)v2 = 0;
-  sub_12C84C((int)v5);
+  rx_process_packet((int)v5);
   *((uint32_t *)off_13747C + 1) &= ~0x20u;
-  return sub_12CBF4(4u, 0);
+  return hci_cmd_preprocess(4u, 0);
 }
 

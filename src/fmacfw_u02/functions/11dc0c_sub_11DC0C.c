@@ -19,8 +19,8 @@ extern uint32_t off_11DD2C;
 extern uint32_t dword_11DD34;
 extern uint32_t dword_11DD30;
 
-// sub_11DC0C @ 0x11dc0c, size 278 bytes
-int  sub_11DC0C(int *a1, int a2, uint16_t *a3)
+// mac_rx_handler @ 0x11dc0c, size 278 bytes
+int  mac_rx_handler(int *a1, int a2, uint16_t *a3)
 {
   uint8_t *v3; // r7
   int v4; // r6
@@ -118,7 +118,7 @@ LABEL_10:
     v18 = *(uint32_t *)(v4 + 4);
     if ( **(int16_t **)off_11DD2C < 0 && !v18 )
     {
-      sub_12F46C(dword_11DD34, dword_11DD30, 615);
+      mmio_clear_register(dword_11DD34, dword_11DD30, 615);
       v18 = 0;
     }
     v26 = v4;

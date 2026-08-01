@@ -14,10 +14,10 @@ extern uint32_t dword_12D078;
 extern uint32_t dword_12D07C;
 extern uint32_t off_12D088;
 
-// rf_bus_mark_n_3b7 @ 0x12cf5c, size 278 bytes
+// hci_cmd_send @ 0x12cf5c, size 278 bytes
 // Doc: message_dispatch_n47e_d032 [ipc]: Dispatch IPC/control message
 // message_dispatch_n47e_d032 [ipc]: Dispatch IPC/control message
-uint32_t * rf_bus_mark_n_3b7(unsigned int a1, int a2)
+uint32_t * hci_cmd_send(unsigned int a1, int a2)
 {
   int16_t **v2; // r7
   unsigned int v5; // r9
@@ -40,7 +40,7 @@ uint32_t * rf_bus_mark_n_3b7(unsigned int a1, int a2)
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
-    sub_12F694(message_dispatch_n4e9, message_dispatch_n4dd, 173);
+    mmio_irq_clear(message_dispatch_n4e9, message_dispatch_n4dd, 173);
     if ( **v2 >= 0 )
     {
 LABEL_2:
@@ -48,13 +48,13 @@ LABEL_2:
       goto LABEL_3;
     }
     if ( v6 != 14 )
-      sub_12F694(message_dispatch_n4f1, message_dispatch_n4ec, 183);
+      mmio_irq_clear(message_dispatch_n4f1, message_dispatch_n4ec, 183);
   }
   else if ( (uint8_t)a1 != 13 )
   {
     goto message_dispatch_n440_cff4;
   }
-  sub_12F694(message_dispatch_n4f4, message_dispatch_n4dd, 174);
+  mmio_irq_clear(message_dispatch_n4f4, message_dispatch_n4dd, 174);
   if ( **v2 >= 0 )
     goto LABEL_2;
 message_dispatch_n440_cff4:
@@ -66,13 +66,13 @@ message_dispatch_n440_cff4:
       goto LABEL_3;
     goto LABEL_18;
   }
-  sub_12F694(message_dispatch_n4e4, message_dispatch_n4dd, 175);
+  mmio_irq_clear(message_dispatch_n4e4, message_dispatch_n4dd, 175);
   v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
   if ( **v2 < 0 && !v7 )
 LABEL_18:
-    sub_12F694(message_dispatch_n4e1, message_dispatch_n4dd, 180);
+    mmio_irq_clear(message_dispatch_n4e1, message_dispatch_n4dd, 180);
 LABEL_3:
-  result = (uint32_t *)sub_12ECB0(dword_12D07C, a1, a2);
+  result = (uint32_t *)ke_event_schedule(dword_12D07C, a1, a2);
   if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(uint32_t *, int))msg_dispatch_n4f8;
@@ -81,7 +81,7 @@ LABEL_3:
     *v7 = a2;
     while ( 1 )
     {
-      result = sub_12CC64(v10, v9, a1);
+      result = tx_list_foreach(v10, v9, a1);
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -92,7 +92,7 @@ LABEL_3:
       v12 = (int *)off_12D088;
       v13 = message_dispatch_n4d9;
       ++*(uint32_t *)off_12D088;
-      list_push_tail(v13);
+      check_abort_flag(v13);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -104,7 +104,7 @@ LABEL_3:
             __enable_irq();
         }
       }
-      irq_nesting_or(0x4000000);
+      set_system_flag_1(0x4000000);
     }
   }
   return result;

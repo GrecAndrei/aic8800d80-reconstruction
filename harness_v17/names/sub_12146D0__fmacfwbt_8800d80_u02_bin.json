@@ -1,1 +1,1 @@
-{"fn": "sub_12146D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12146d0", "status": "ok", "name": "sub_12146D0", "params": [], "docstring": "Helper routine in fmacfwbt with shift/branch logic", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12146D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12146d0", "status": "ok", "name": "lock_acquire", "params": [], "docstring": "Helper routine in fmacfwbt with shift/branch logic", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -15,8 +15,8 @@ extern uint32_t off_1128FC;
 extern uint32_t off_112900;
 extern uint32_t off_112904;
 
-// sub_112878 @ 0x112878, size 126 bytes
-void sub_112878()
+// critical_section_enter @ 0x112878, size 126 bytes
+void critical_section_enter()
 {
   int *v0; // r4
   int v1; // r2

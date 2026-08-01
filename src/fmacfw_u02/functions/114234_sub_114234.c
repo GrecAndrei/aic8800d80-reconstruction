@@ -14,10 +14,10 @@ extern uint32_t off_11427C;
 extern uint32_t off_114280;
 extern uint32_t dword_114284;
 
-// sub_114234 @ 0x114234, size 72 bytes
+// process_task_queue @ 0x114234, size 72 bytes
 // Doc: rf_fault_dump_n_500 [rf]: Dump RF fault information
 // rf_fault_dump_n_500 [rf]: Dump RF fault information
-int sub_114234()
+int process_task_queue()
 {
   uint32_t *v0; // r5
   void *v1; // r7
@@ -27,16 +27,16 @@ int sub_114234()
 
   v0 = off_11427C;
   v1 = off_114280;
-  sub_12D240(*(uint32_t *)off_11427C + 628);
-  result = sub_12D240(*v0 + 636);
+  zero_8_bytes(*(uint32_t *)off_11427C + 628);
+  result = zero_8_bytes(*v0 + 636);
   if ( *(uint16_t *)(*(uint32_t *)v1 + 8) )
   {
     v3 = dword_114284;
     v4 = 0;
     do
     {
-      sub_10FB28(v3, 0x6B8u);
-      result = list_push_tail(*v0 + 628);
+      rx_packet_handler(v3, 0x6B8u);
+      result = cmd_handler_a(*v0 + 628);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );

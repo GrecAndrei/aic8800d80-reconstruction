@@ -16,8 +16,8 @@ extern uint32_t dword_125034;
 extern uint32_t off_125038;
 extern uint32_t dword_12502C;
 
-// sub_124FA0 @ 0x124fa0, size 134 bytes
-int  sub_124FA0(uint8_t *a1, int a2, int a3)
+// rf_tx_flag_check @ 0x124fa0, size 134 bytes
+int  rf_tx_flag_check(uint8_t *a1, int a2, int a3)
 {
   char v4; // r2
   int v5; // r1
@@ -30,7 +30,7 @@ int  sub_124FA0(uint8_t *a1, int a2, int a3)
 
   if ( (a2 & 0x800000) != 0 )
   {
-    result = msg_parse(dword_125030, dword_125028, a3);
+    result = event_dispatch(dword_125030, dword_125028, a3);
     v9 = (uint8_t)a1[35];
     a1[668] = 0;
     if ( v9 <= 0x23 )
@@ -46,16 +46,16 @@ int  sub_124FA0(uint8_t *a1, int a2, int a3)
     v6 = dword_12502C;
     v7 = (uint8_t)(v4 + 1);
     a1[668] = v7;
-    result = msg_parse(v6, v5, v7);
+    result = event_dispatch(v6, v5, v7);
     if ( (uint8_t)a1[668] > 9u )
     {
-      v10 = (uint8_t *)sub_12C92C(125, 13, 0, 8);
+      v10 = (uint8_t *)ke_msg_alloc(125, 13, 0, 8);
       *v10 = a1[35];
       v10[1] = a1[34];
       v11 = v10;
       a1[668] = 0;
-      sub_143770(v10 + 2, a1 + 38, 6);
-      return sdio_buffer_prepare_n_4e8(v11);
+      memcpy(v10 + 2, a1 + 38, 6);
+      return ke_msg_send(v11);
     }
   }
   return result;

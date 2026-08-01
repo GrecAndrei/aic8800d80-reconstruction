@@ -14,8 +14,8 @@ extern uint32_t off_130468;
 extern uint32_t off_13046C;
 extern uint32_t dword_130470;
 
-// sub_1303B8 @ 0x1303b8, size 174 bytes
-void sub_1303B8()
+// read_global_signed_flag @ 0x1303b8, size 174 bytes
+void read_global_signed_flag()
 {
   uint8_t *v0; // r4
   int v1; // r2
@@ -39,15 +39,15 @@ void sub_1303B8()
   v9 = v1;
   if ( (v2 & 0x2000000) != 0 )
   {
-    sub_114728(&v8);
-    sub_11498C(&v9);
+    rf_cmd_6_read(&v8);
+    rf_cmd_10(&v9);
     goto LABEL_4;
   }
   v10 = 0;
   v11 = 0;
-  if ( !sub_114BF4((int)&v10) )
+  if ( !send_smc_cmd_2((int)&v10) )
     v8 = v10;
-  if ( sub_114C24((int)&v11) )
+  if ( send_smc_cmd_0x80((int)&v11) )
   {
 LABEL_4:
     v3 = v8;
@@ -71,7 +71,7 @@ LABEL_19:
   LOBYTE(v3) = 15;
 LABEL_7:
   v0[4] = v3;
-  v4 = sub_10EDE4();
+  v4 = rf_get_status();
   v5 = v9;
   v0[6] = v4;
   if ( v5 )
@@ -94,7 +94,7 @@ LABEL_7:
     }
     v7 = dword_130470;
     v0[2] = v6;
-    sub_12E948(v7, v5);
+    alloc_tx_event(v7, v5);
   }
   v0[3] = 0x80;
   *v0 = 1;

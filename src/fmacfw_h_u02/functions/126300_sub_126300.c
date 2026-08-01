@@ -13,8 +13,8 @@
 extern uint32_t dword_12632C;
 extern uint32_t dword_126330;
 
-// sub_126300 @ 0x126300, size 44 bytes
-int  sub_126300(uint32_t *a1)
+// patch_check_ready @ 0x126300, size 44 bytes
+int  patch_check_ready(uint32_t *a1)
 {
   int v1; // r3
   int v2; // r2

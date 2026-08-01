@@ -16,10 +16,10 @@ extern uint32_t off_11DDE0;
 extern uint32_t off_11DDD4;
 extern uint32_t dword_11DDD8;
 
-// fw_subsystem_init @ 0x11dd2c, size 162 bytes
-// Doc: fw_subsystem_init [mmio]: Initialize FW subsystem allocating 2MB region
-// fw_subsystem_init [mmio]: Initialize FW subsystem allocating 2MB region
-int fw_subsystem_init()
+// tx_unlock @ 0x11dd2c, size 162 bytes
+// Doc: tx_unlock [mmio]: Initialize FW subsystem allocating 2MB region
+// tx_unlock [mmio]: Initialize FW subsystem allocating 2MB region
+int tx_unlock()
 {
   int *v0; // r5
   int v1; // r4
@@ -34,7 +34,7 @@ int fw_subsystem_init()
 
   v0 = (int *)off_11DDD0;
   v1 = *(uint32_t *)off_11DDD0;
-  result = sub_12D374(0x200000);
+  result = set_system_flag_2(0x200000);
   if ( v1 )
   {
     v3 = (int *)off_11DDDC;
@@ -48,7 +48,7 @@ int fw_subsystem_init()
           break;
         v5 = 1;
       }
-      sub_12D4F8(v0);
+      list_pop_front(v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -61,7 +61,7 @@ int fw_subsystem_init()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = rx_desc_status_get();
+        result = rf_tx_timestamp_check();
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -80,8 +80,8 @@ int fw_subsystem_init()
   v9 = off_11DDD4;
   if ( *((uint8_t *)off_11DDD4 + 69) )
   {
-    irq_nesting_or(0x80000);
-    result = feature_guard_sdio(1024, dword_11DDD8);
+    set_system_flag_1(0x80000);
+    result = state_check_feature(1024, dword_11DDD8);
     v9[69] = 0;
   }
   return result;

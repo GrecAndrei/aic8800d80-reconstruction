@@ -1,1 +1,1 @@
-{"fn": "sub_1240BEC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240bec", "status": "ok", "name": "sub_1240BEC", "params": [], "docstring": "Worker function with r4-r11/lr saved, takes r0,r1 args", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1240BEC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240bec", "status": "ok", "name": "ble_ll_adv_reset", "params": [], "docstring": "Worker function with r4-r11/lr saved, takes r0,r1 args", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

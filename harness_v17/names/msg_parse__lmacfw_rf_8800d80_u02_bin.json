@@ -1,1 +1,1 @@
-{"fn": "msg_parse", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f504", "status": "ok", "name": "msg_parse", "params": [], "docstring": "Parses incoming message, sets up stack frame with saved registers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "msg_parse", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f504", "status": "ok", "name": "dispatch_event_handler", "params": [], "docstring": "Parses incoming message, sets up stack frame with saved registers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

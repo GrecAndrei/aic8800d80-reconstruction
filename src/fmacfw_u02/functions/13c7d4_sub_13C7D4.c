@@ -14,8 +14,8 @@ extern uint32_t dword_13CA98;
 extern uint32_t dword_13CAA0;
 extern uint32_t dword_13CA9C;
 
-// sub_13C7D4 @ 0x13c7d4, size 936 bytes
-int  sub_13C7D4(uint32_t *a1, uint32_t *a2)
+// bt_get_dev_info @ 0x13c7d4, size 936 bytes
+int  bt_get_dev_info(uint32_t *a1, uint32_t *a2)
 {
   int v2; // r3
   int v3; // r4

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D730 @ 0x13d730, size 1020 bytes
-int  sub_13D730(int a1)
+// scan_update_adv_params @ 0x13d730, size 1020 bytes
+int  scan_update_adv_params(int a1)
 {
   int v2; // r0
   int v3; // r1
@@ -51,7 +51,7 @@ int  sub_13D730(int a1)
   unsigned int v37; // r7
   unsigned int v38; // r4
 
-  v2 = sub_143A18(a1);
+  v2 = random(a1);
   v3 = *(uint8_t *)(a1 + 169);
   v4 = *(uint8_t *)(a1 + 179);
   v5 = v2;

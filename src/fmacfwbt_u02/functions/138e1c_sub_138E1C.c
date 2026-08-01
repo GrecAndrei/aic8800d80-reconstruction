@@ -13,8 +13,8 @@
 extern uint32_t off_138EA4;
 extern uint32_t off_138EA0;
 
-// sub_138E1C @ 0x138e1c, size 132 bytes
-uint32_t * sub_138E1C(int a1, int16_t a2)
+// rf_cal_validate_channel @ 0x138e1c, size 132 bytes
+uint32_t * rf_cal_validate_channel(int a1, int16_t a2)
 {
   void *v2; // r6
   int16_t v4; // r5
@@ -68,7 +68,7 @@ LABEL_6:
 LABEL_7:
   *(uint32_t *)(a1 + 96) = v9;
   *((uint8_t *)v2 + 50) = 0;
-  rf_bus_setup_n39a_ea44(a1);
-  return sub_138AD4(a1, v4, *((uint32_t *)v2 + 16));
+  rx_packet_setup(a1);
+  return tx_power_cal_read(a1, v4, *((uint32_t *)v2 + 16));
 }
 

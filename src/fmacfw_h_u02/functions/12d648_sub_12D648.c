@@ -14,8 +14,8 @@ extern uint32_t off_12D6E0;
 extern uint32_t dword_12D6E8;
 extern uint32_t dword_12D6E4;
 
-// sub_12D648 @ 0x12d648, size 150 bytes
-uint8_t * sub_12D648(uint8_t *a1, int a2, uint8_t *a3, int a4, uint16_t *a5)
+// safe_snprintf @ 0x12d648, size 150 bytes
+uint8_t * safe_snprintf(uint8_t *a1, int a2, uint8_t *a3, int a4, uint16_t *a5)
 {
   unsigned int v5; // r9
   unsigned int v6; // r7
@@ -34,7 +34,7 @@ uint8_t * sub_12D648(uint8_t *a1, int a2, uint8_t *a3, int a4, uint16_t *a5)
   {
 LABEL_15:
     if ( **(int16_t **)off_12D6E0 < 0 && (uint8_t *)v6 != a1 )
-      sub_12F32C(dword_12D6E8, dword_12D6E4, 180);
+      irq_disable_mmio_write(dword_12D6E8, dword_12D6E4, 180);
   }
   else
   {

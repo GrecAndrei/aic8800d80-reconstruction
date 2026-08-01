@@ -19,8 +19,8 @@ extern uint32_t dword_1252AC;
 extern uint32_t dword_1252B0;
 extern uint32_t dword_1252B4;
 
-// sub_1250F4 @ 0x1250f4, size 432 bytes
-int  sub_1250F4(int result)
+// link_env_get @ 0x1250f4, size 432 bytes
+int  link_env_get(int result)
 {
   int v1; // r9
   int v2; // r2

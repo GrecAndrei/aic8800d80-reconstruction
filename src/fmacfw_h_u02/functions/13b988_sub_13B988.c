@@ -15,8 +15,8 @@ extern uint32_t off_13BADC;
 extern uint32_t off_13BAE0;
 extern uint32_t dword_13BAE4;
 
-// sub_13B988 @ 0x13b988, size 334 bytes
-int  sub_13B988(int a1, uint16_t *a2, int a3)
+// dispatch_command @ 0x13b988, size 334 bytes
+int  dispatch_command(int a1, uint16_t *a2, int a3)
 {
   int v4; // r4
   unsigned int v6; // r3
@@ -50,7 +50,7 @@ int  sub_13B988(int a1, uint16_t *a2, int a3)
       {
         v9 = (uint8_t)a1;
         v10 = *((uint8_t *)a2 + 2);
-        if ( sub_121820((uint8_t)a1, (v7 >> 2) & 0xF) )
+        if ( ll_get_tx_power_alt((uint8_t)a1, (v7 >> 2) & 0xF) )
           return *(uint8_t *)(696 * v9 + 12 * v8 + dword_13BAD8 + 452);
         if ( *((uint32_t *)off_13BADC + 4) - 500000 - *(uint32_t *)(696 * v9 + 12 * v8 + dword_13BAD8 + 448) >= 0 )
         {
@@ -58,21 +58,21 @@ int  sub_13B988(int a1, uint16_t *a2, int a3)
             goto LABEL_22;
           if ( *(uint32_t *)off_13BAE0 )
           {
-            v4 = *((uint8_t *)sub_12D190((int)off_13BAE0) + 26);
+            v4 = *((uint8_t *)list_pop((int)off_13BAE0) + 26);
             if ( v4 != 33 )
               return v4;
           }
-          v11 = sub_13B938((int **)dword_13BAE4);
+          v11 = load_global_pointer((int **)dword_13BAE4);
           if ( v11 == 33 )
           {
 LABEL_22:
-            sub_13B558(v9, 0, 1, v10, v7, 37, 0);
+            init_state_table(v9, 0, 1, v10, v7, 37, 0);
             return 33;
           }
           else
           {
             v4 = v11;
-            sub_12C8D0(8193, ((uint16_t)v11 << 8) | 8, 255);
+            mac_write_header_word(8193, ((uint16_t)v11 << 8) | 8, 255);
           }
           return v4;
         }

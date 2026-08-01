@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114EA4 @ 0x114ea4, size 44 bytes
+// syscall6_get_status @ 0x114ea4, size 44 bytes
 // Doc: sub_1214EA4 [util]: Helper calling indirect function with arg 6 and inspecting high byte
 // sub_1214EA4 [util]: Helper calling indirect function with arg 6 and inspecting high byte
-int  sub_114EA4(uint8_t *a1)
+int  syscall6_get_status(uint8_t *a1)
 {
   int16_t v2; // r0
 

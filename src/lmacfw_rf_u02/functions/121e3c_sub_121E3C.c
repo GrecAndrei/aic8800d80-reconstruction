@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_121E3C @ 0x121e3c, size 172 bytes
+// parse_number @ 0x121e3c, size 172 bytes
 // Doc: rf_cmd_dispatch_n_6 [rf]: RF command dispatch handler slot 6 (stub, returns 0)
 // rf_cmd_dispatch_n_6 [rf]: RF command dispatch handler slot 6 (stub, returns 0)
-int  sub_121E3C(uint8_t *a1, uint32_t *a2, unsigned int a3)
+int  parse_number(uint8_t *a1, uint32_t *a2, unsigned int a3)
 {
   int v3; // r5
   int v4; // r7

@@ -1,1 +1,1 @@
-{"fn": "sub_12236E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12236e8", "status": "ok", "name": "rf_stream_start2_ne6", "params": [], "docstring": "Starts an RF TX/RX stream (variant 0xe6)", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12236E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12236e8", "status": "ok", "name": "co_read_3_bytes", "params": [], "docstring": "Starts an RF TX/RX stream (variant 0xe6)", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

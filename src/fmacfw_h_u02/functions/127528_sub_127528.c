@@ -31,8 +31,8 @@ extern uint32_t dword_12774C;
 extern uint32_t off_127754;
 extern uint32_t dword_12776C;
 
-// sub_127528 @ 0x127528, size 526 bytes
-int  sub_127528(int a1)
+// llc_version_read @ 0x127528, size 526 bytes
+int  llc_version_read(int a1)
 {
   int16_t **v1; // r7
   uint8_t *v2; // r6
@@ -74,7 +74,7 @@ int  sub_127528(int a1)
 
   v1 = (int16_t **)off_127738;
   v2 = off_12773C;
-  v4 = sub_12D190(dword_127740);
+  v4 = list_pop(dword_127740);
   v5 = v4;
   if ( **v1 >= 0 )
   {
@@ -95,7 +95,7 @@ LABEL_3:
   }
   else
   {
-    sub_12F32C(dword_127774, dword_127770, 1958);
+    irq_disable_mmio_write(dword_127774, dword_127770, 1958);
     v6 = (uint8_t)*v2;
     if ( *v2 )
       goto LABEL_3;
@@ -110,7 +110,7 @@ LABEL_25:
   v8 = *((uint32_t *)off_127744 + 10);
   if ( v8 )
     goto LABEL_6;
-  sub_12F32C(dword_127778, dword_127770, 1960);
+  irq_disable_mmio_write(dword_127778, dword_127770, 1960);
   v6 = (uint8_t)*v2;
 LABEL_4:
   if ( v6 != 1 )
@@ -119,7 +119,7 @@ LABEL_5:
     v8 = v7[10];
     goto LABEL_6;
   }
-  sub_12E948(dword_12775C, *((uint8_t *)v7 + 88), v7[11]);
+  alloc_tx_event(dword_12775C, *((uint8_t *)v7 + 88), v7[11]);
   v24 = *((uint8_t *)v7 + 88);
   if ( (v24 & 8) != 0 )
   {
@@ -156,8 +156,8 @@ LABEL_32:
   *(uint8_t *)(v25 + 16) = 4;
   if ( v28 == 3 )
   {
-    sub_12E948(dword_127784, v22, v23);
-    sub_12CBF4(2);
+    alloc_tx_event(dword_127784, v22, v23);
+    hci_cmd_preprocess(2);
     v28 = *(uint8_t *)(v25 + 24);
   }
   if ( v28 <= 2 )
@@ -234,12 +234,12 @@ LABEL_6:
     v12 = *(char **)(v5 + 8);
   }
   if ( v12 )
-    sub_126F8C((int)v12);
+    llc_conn_command((int)v12);
 LABEL_14:
-  sub_12D108(dword_12774C);
+  wlan_ioctl_handler_1(dword_12774C);
   v13 = v7[10];
   if ( *(uint8_t *)(v13 + 24) > 2u )
-    sub_12723C(v13, 0);
+    llc_state_reset(v13, 0);
   result = v7[8];
   v7[18] = result;
   if ( result )
@@ -257,7 +257,7 @@ LABEL_14:
     *(uint32_t *)off_127758 = v19;
     if ( v18 - 64 >= 0 )
     {
-      result = sub_124BFC(dword_12776C, v16);
+      result = mem_copy_util(dword_12776C, v16);
       if ( *v15 )
       {
         v37 = *v15 - 1;

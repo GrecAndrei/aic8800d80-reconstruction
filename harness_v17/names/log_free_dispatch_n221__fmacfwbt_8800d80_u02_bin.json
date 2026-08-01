@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n221", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210080", "status": "ok", "name": "log_free_dispatch_n221", "params": [], "docstring": "Dispatch log buffer free in BT firmware using queue state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n221", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210080", "status": "ok", "name": "log_free_dispatch_0080", "params": [], "docstring": "Dispatch log buffer free in BT firmware using queue state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

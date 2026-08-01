@@ -13,10 +13,10 @@
 extern uint32_t off_10DB28;
 extern uint32_t dword_40504080;
 
-// irq_prio_set @ 0x10dafc, size 42 bytes
-// Doc: irq_prio_set [util]: Set NVIC interrupt priority with bounds check
-// irq_prio_set [util]: Set NVIC interrupt priority with bounds check
-int  irq_prio_set(int result)
+// irq_set_priority @ 0x10dafc, size 42 bytes
+// Doc: irq_set_priority [util]: Set NVIC interrupt priority with bounds check
+// irq_set_priority [util]: Set NVIC interrupt priority with bounds check
+int  irq_set_priority(int result)
 {
   uint32_t *v1; // r1
 

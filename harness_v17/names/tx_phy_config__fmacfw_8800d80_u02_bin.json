@@ -1,1 +1,1 @@
-{"fn": "tx_phy_config", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120c360", "status": "ok", "name": "tx_phy_config", "params": [], "docstring": "Configures TX PHY parameters (rate, mode, bandwidth) for a frame.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "tx_phy_config", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120c360", "status": "ok", "name": "rx_header_decode", "params": [], "docstring": "Configures TX PHY parameters (rate, mode, bandwidth) for a frame.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

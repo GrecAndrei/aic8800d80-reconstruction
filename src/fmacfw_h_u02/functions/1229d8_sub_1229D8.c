@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1229D8 @ 0x1229d8, size 14 bytes
-int  sub_1229D8(int a1, int a2, int a3, int a4)
+// send_hci_vendor_event @ 0x1229d8, size 14 bytes
+int  send_hci_vendor_event(int a1, int a2, int a3, int a4)
 {
-  sub_12C8D0(104, a4, a3);
+  mac_write_header_word(104, a4, a3);
   return 0;
 }
 

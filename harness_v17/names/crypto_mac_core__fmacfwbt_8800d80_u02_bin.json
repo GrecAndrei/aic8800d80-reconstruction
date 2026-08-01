@@ -1,1 +1,1 @@
-{"fn": "crypto_mac_core", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12080d8", "status": "ok", "name": "crypto_mac_core", "params": [], "docstring": "Crypto MAC core routine loading vectors from 0x40344xxx region", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_mac_core", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12080d8", "status": "ok", "name": "bt_rf_calibrate", "params": [], "docstring": "Crypto MAC core routine loading vectors from 0x40344xxx region", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

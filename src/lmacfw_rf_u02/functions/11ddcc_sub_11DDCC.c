@@ -12,10 +12,10 @@
 
 extern uint32_t off_11DDEC;
 
-// sub_11DDCC @ 0x11ddcc, size 32 bytes
+// ke_task_retrieve @ 0x11ddcc, size 32 bytes
 // Doc: sub_121DDCC [unknown]: Load shared state pointer and read offset 0x14
 // sub_121DDCC [unknown]: Load shared state pointer and read offset 0x14
-int  sub_11DDCC(int a1, int a2)
+int  ke_task_retrieve(int a1, int a2)
 {
   int **v2; // r3
 

@@ -15,8 +15,8 @@ extern uint32_t off_111B54;
 extern uint32_t off_111B5C;
 extern uint32_t off_111B60;
 
-// sub_111AFC @ 0x111afc, size 88 bytes
-int  sub_111AFC(int result, int a2)
+// bt_cmd_handler @ 0x111afc, size 88 bytes
+int  bt_cmd_handler(int result, int a2)
 {
   int *v2; // r4
   int v3; // r5
@@ -38,7 +38,7 @@ int  sub_111AFC(int result, int a2)
   *(uint16_t *)v4 = a2;
   if ( result && a2 )
   {
-    result = sub_143770(v3, result, a2);
+    result = memcpy(v3, result, a2);
     v4 = *v2;
   }
   v6 = off_111B60;

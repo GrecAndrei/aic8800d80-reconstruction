@@ -12,8 +12,8 @@
 
 extern uint32_t dword_136A8C;
 
-// sub_136A28 @ 0x136a28, size 100 bytes
-int  sub_136A28(int result, int a2)
+// lookup_conn_params @ 0x136a28, size 100 bytes
+int  lookup_conn_params(int result, int a2)
 {
   int v3; // r3
   int v4; // r0
@@ -34,11 +34,11 @@ int  sub_136A28(int result, int a2)
     {
       *(uint8_t *)(a2 + 53) |= 2u;
 LABEL_5:
-      v4 = sub_12C7EC(65, 0, 5, 4u);
+      v4 = tx_send_pdu(65, 0, 5, 4u);
       *(uint16_t *)v4 = *(uint16_t *)(a2 + 32);
       *(uint8_t *)(v4 + 3) = *(uint8_t *)(a2 + 34);
       *(uint8_t *)(v4 + 2) = 1;
-      return sub_12C84C(v4);
+      return rx_process_packet(v4);
     }
   }
   return result;

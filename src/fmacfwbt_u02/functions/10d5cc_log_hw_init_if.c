@@ -12,12 +12,12 @@
 
 extern uint32_t off_10D5D8;
 
-// log_hw_init_if @ 0x10d5cc, size 12 bytes
-// Doc: log_hw_init_if [util]: Initialize logging hardware (NVIC IRQ enable)
-// log_hw_init_if [util]: Initialize logging hardware (NVIC IRQ enable)
-void log_hw_init_if()
+// event_loop_check @ 0x10d5cc, size 12 bytes
+// Doc: event_loop_check [util]: Initialize logging hardware (NVIC IRQ enable)
+// event_loop_check [util]: Initialize logging hardware (NVIC IRQ enable)
+void event_loop_check()
 {
   if ( !*(uint32_t *)off_10D5D8 )
-    log_hw_init();
+    event_loop();
 }
 

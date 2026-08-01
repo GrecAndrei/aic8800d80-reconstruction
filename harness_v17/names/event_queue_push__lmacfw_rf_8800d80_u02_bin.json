@@ -1,1 +1,1 @@
-{"fn": "event_queue_push", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121dc54", "status": "ok", "name": "event_queue_push", "params": [], "docstring": "Pushes an event onto the firmware event queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "event_queue_push", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121dc54", "status": "ok", "name": "ke_int_lock", "params": [], "docstring": "Pushes an event onto the firmware event queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

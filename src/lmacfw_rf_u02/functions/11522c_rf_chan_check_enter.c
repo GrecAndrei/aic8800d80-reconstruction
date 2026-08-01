@@ -18,10 +18,10 @@ extern uint32_t dword_1152C0;
 extern uint32_t dword_1152C4;
 extern uint32_t off_1152C8;
 
-// rf_chan_check_enter @ 0x11522c, size 132 bytes
-// Doc: rf_chan_check_enter [rf]: Checks RF channel/state flag and enters RF path
-// rf_chan_check_enter [rf]: Checks RF channel/state flag and enters RF path
-int rf_chan_check_enter()
+// read_sensor_value @ 0x11522c, size 132 bytes
+// Doc: read_sensor_value [rf]: Checks RF channel/state flag and enters RF path
+// read_sensor_value [rf]: Checks RF channel/state flag and enters RF path
+int read_sensor_value()
 {
   int **v0; // r5
   uint32_t *v1; // r6
@@ -32,14 +32,14 @@ int rf_chan_check_enter()
   int result; // r0
 
   v0 = (int **)off_1152B4;
-  sub_11E71C(dword_1152B0);
+  list_init(dword_1152B0);
   if ( **(int16_t **)off_1152B8 < 0 )
   {
     v2 = *v0;
     v1 = off_1152BC;
     if ( !*v0 || !*(uint32_t *)off_1152BC )
     {
-      rf_cmd_send_n264(dword_1152C0, dword_1152C4, 90);
+      flash_ctrl_init(dword_1152C0, dword_1152C4, 90);
       v2 = *v0;
     }
   }
@@ -55,7 +55,7 @@ int rf_chan_check_enter()
   do
   {
     (*v0)[11 * v5 + 8] = *v1 + 76 * v5;
-    result = list_push_tail(v4);
+    result = check_kernel_state(v4);
     ++v5;
   }
   while ( *(uint16_t *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );

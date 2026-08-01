@@ -1,1 +1,1 @@
-{"fn": "sub_1213AD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213ad0", "status": "ok", "name": "host_reg_wait_set", "params": [], "docstring": "Polls host register 0x40035244 until bit becomes non-zero", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1213AD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213ad0", "status": "ok", "name": "mmio_write32", "params": [], "docstring": "Polls host register 0x40035244 until bit becomes non-zero", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

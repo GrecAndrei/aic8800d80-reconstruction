@@ -1,0 +1,1 @@
+{"fn": "sub_114914", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114914", "status": "ok", "name": "setup_patch_data", "params": [], "docstring": "Configure two flash pointers (0x1347bd,0x13482d) with flag 1", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

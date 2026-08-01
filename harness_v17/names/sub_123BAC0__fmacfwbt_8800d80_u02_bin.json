@@ -1,1 +1,1 @@
-{"fn": "sub_123BAC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bac0", "status": "ok", "name": "rx_entry_lookup", "params": [], "docstring": "Indexed lookup into 32-byte RX entry table returning descriptor fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BAC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bac0", "status": "ok", "name": "rf_get_chan_cfg", "params": [], "docstring": "Indexed lookup into 32-byte RX entry table returning descriptor fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

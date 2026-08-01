@@ -29,10 +29,10 @@ extern uint32_t off_11B6C8;
 extern uint32_t off_11B6C4;
 extern uint32_t dword_11B6D8;
 
-// rf_chan_init_n4e8 @ 0x11b4e8, size 448 bytes
-// Doc: rf_chan_init_n4e8 [rf]: Initialize RF channel context from data tables, call helper, read signed halfword
-// rf_chan_init_n4e8 [rf]: Initialize RF channel context from data tables, call helper, read signed halfword
-int  rf_chan_init_n4e8(int a1)
+// tx_processing @ 0x11b4e8, size 448 bytes
+// Doc: tx_processing [rf]: Initialize RF channel context from data tables, call helper, read signed halfword
+// tx_processing [rf]: Initialize RF channel context from data tables, call helper, read signed halfword
+int  tx_processing(int a1)
 {
   int16_t **v1; // r7
   uint8_t *v2; // r6
@@ -66,7 +66,7 @@ int  rf_chan_init_n4e8(int a1)
 
   v1 = (int16_t **)off_11B6A8;
   v2 = off_11B6AC;
-  v4 = sub_11E7AC(dword_11B6B0);
+  v4 = list_pop_front(dword_11B6B0);
   v5 = v4;
   if ( **v1 >= 0 )
   {
@@ -90,7 +90,7 @@ LABEL_26:
   }
   else
   {
-    rf_cmd_send_n264(dword_11B6E0, dword_11B6DC, 1958);
+    flash_ctrl_init(dword_11B6E0, dword_11B6DC, 1958);
     v6 = (uint8_t)*v2;
     if ( *v2 )
       goto LABEL_3;
@@ -101,7 +101,7 @@ LABEL_26:
   v8 = *((uint32_t *)off_11B6B4 + 10);
   if ( !v8 )
   {
-    rf_cmd_send_n264(dword_11B6E4, dword_11B6DC, 1960);
+    flash_ctrl_init(dword_11B6E4, dword_11B6DC, 1960);
     v6 = (uint8_t)*v2;
 LABEL_4:
     if ( v6 != 1 )
@@ -110,7 +110,7 @@ LABEL_5:
       v8 = v7[10];
       goto LABEL_6;
     }
-    msg_parse(dword_11B6CC, *((uint8_t *)v7 + 88));
+    dispatch_event_handler(dword_11B6CC, *((uint8_t *)v7 + 88));
     v23 = *((uint8_t *)v7 + 88);
     v24 = v23 << 28;
     if ( (v23 & 8) != 0 )
@@ -137,8 +137,8 @@ LABEL_33:
         *(uint8_t *)(v25 + 16) = 4;
         if ( v28 == 3 )
         {
-          msg_parse(dword_11B6D4, v24);
-          sub_11E1E4(2);
+          dispatch_event_handler(dword_11B6D4, v24);
+          flash_erase_sector(2);
         }
         goto LABEL_5;
       }
@@ -201,13 +201,13 @@ LABEL_6:
     if ( v7[11] )
       v7[11] = v12;
     else
-      sub_11ADD0((int)v12);
+      list_search((int)v12);
   }
 LABEL_15:
-  list_push_tail(dword_11B6BC);
+  check_kernel_state(dword_11B6BC);
   v14 = v7[10];
   if ( *(uint8_t *)(v14 + 24) > 2u )
-    rf_state_reset_n_3a4(v14, 0, v13);
+    rx_queue_init(v14, 0, v13);
   result = v7[8];
   v7[18] = result;
   if ( result )
@@ -225,7 +225,7 @@ LABEL_15:
     *(uint32_t *)off_11B6C8 = v20;
     if ( v19 - 64 >= 0 )
     {
-      result = sub_11AB18(dword_11B6D8, v17);
+      result = ke_enter_critical(dword_11B6D8, v17);
       if ( *v16 )
       {
         v29 = *v16 - 1;

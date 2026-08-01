@@ -1,1 +1,1 @@
-{"fn": "irq_prio_set2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120db44", "status": "ok", "name": "irq_prio_set2", "params": [], "docstring": "Set NVIC IRQ enable bit in 0x40505000 ISER/ISPR register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "irq_prio_set2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120db44", "status": "ok", "name": "gpio_set_bit_reg8", "params": [], "docstring": "Set NVIC IRQ enable bit in 0x40505000 ISER/ISPR register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

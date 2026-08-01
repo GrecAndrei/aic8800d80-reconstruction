@@ -15,8 +15,8 @@ extern uint32_t off_111960;
 extern uint32_t off_111964;
 extern uint32_t off_111968;
 
-// sub_111910 @ 0x111910, size 74 bytes
-int sub_111910()
+// mmio_sync_2 @ 0x111910, size 74 bytes
+int mmio_sync_2()
 {
   uint32_t *v0; // r1
   int v1; // r0

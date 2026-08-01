@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143D00 @ 0x143d00, size 220 bytes
-unsigned int  sub_143D00(unsigned int a1)
+// memcpy_aligned @ 0x143d00, size 220 bytes
+unsigned int  memcpy_aligned(unsigned int a1)
 {
   uint64_t *v1; // r1
   int v3; // r4

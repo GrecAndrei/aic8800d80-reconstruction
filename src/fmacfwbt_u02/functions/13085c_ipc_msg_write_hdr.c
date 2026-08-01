@@ -13,10 +13,10 @@
 extern uint32_t off_1308D4;
 extern uint32_t dword_1308D8;
 
-// ipc_msg_write_hdr @ 0x13085c, size 120 bytes
-// Doc: ipc_msg_write_hdr [ipc]: Write IPC message header fields
-// ipc_msg_write_hdr [ipc]: Write IPC message header fields
-int  ipc_msg_write_hdr(int *a1)
+// build_tx_packet @ 0x13085c, size 120 bytes
+// Doc: build_tx_packet [ipc]: Write IPC message header fields
+// build_tx_packet [ipc]: Write IPC message header fields
+int  build_tx_packet(int *a1)
 {
   char *v1; // r4
   int16_t v2; // r3

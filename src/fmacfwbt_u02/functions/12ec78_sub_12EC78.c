@@ -12,8 +12,8 @@
 
 extern uint32_t off_12EC80;
 
-// sub_12EC78 @ 0x12ec78, size 6 bytes
-int sub_12EC78()
+// state_get_value @ 0x12ec78, size 6 bytes
+int state_get_value()
 {
   return *((uint32_t *)off_12EC80 + 1);
 }

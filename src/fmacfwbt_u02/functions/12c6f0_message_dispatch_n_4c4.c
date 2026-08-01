@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// message_dispatch_n_4c4 @ 0x12c6f0, size 26 bytes
-// Doc: message_dispatch_n_4c4 [ipc]: Dispatch IPC message handling 0x7f opcode sentinel
-// message_dispatch_n_4c4 [ipc]: Dispatch IPC message handling 0x7f opcode sentinel
-int  message_dispatch_n_4c4(int a1, uint8_t *a2, uint8_t *a3)
+// util_chk_field @ 0x12c6f0, size 26 bytes
+// Doc: util_chk_field [ipc]: Dispatch IPC message handling 0x7f opcode sentinel
+// util_chk_field [ipc]: Dispatch IPC message handling 0x7f opcode sentinel
+int  util_chk_field(int a1, uint8_t *a2, uint8_t *a3)
 {
   int v3; // r3
   int result; // r0

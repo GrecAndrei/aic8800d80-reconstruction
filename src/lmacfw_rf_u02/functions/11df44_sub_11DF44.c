@@ -15,8 +15,8 @@ extern uint32_t off_11DF88;
 extern uint32_t off_11DF8C;
 extern uint32_t dword_11DF90;
 
-// sub_11DF44 @ 0x11df44, size 64 bytes
-uint32_t *sub_11DF44()
+// critical_enter @ 0x11df44, size 64 bytes
+uint32_t *critical_enter()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2

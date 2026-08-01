@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_115180 @ 0x115180, size 44 bytes
-int  sub_115180(uint8_t *a1)
+// rom_call_extract_byte @ 0x115180, size 44 bytes
+int  rom_call_extract_byte(uint8_t *a1)
 {
   int16_t v2; // r0
 

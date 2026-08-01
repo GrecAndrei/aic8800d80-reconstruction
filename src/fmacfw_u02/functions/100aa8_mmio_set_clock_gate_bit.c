@@ -15,10 +15,10 @@ extern uint32_t dword_100B08;
 extern uint32_t dword_100B0C;
 extern uint32_t off_100B10;
 
-// mmio_set_clock_gate_bit @ 0x100aa8, size 90 bytes
-// Doc: mmio_set_clock_gate_bit [mmio]: Set bit in MMIO clock gate register 0x4033b390
-// mmio_set_clock_gate_bit [mmio]: Set bit in MMIO clock gate register 0x4033b390
-int mmio_set_clock_gate_bit()
+// clock_enable @ 0x100aa8, size 90 bytes
+// Doc: clock_enable [mmio]: Set bit in MMIO clock gate register 0x4033b390
+// clock_enable [mmio]: Set bit in MMIO clock gate register 0x4033b390
+int clock_enable()
 {
   uint32_t *v0; // r2
   int *v1; // r3

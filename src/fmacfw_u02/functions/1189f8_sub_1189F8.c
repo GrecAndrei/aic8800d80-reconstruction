@@ -14,8 +14,8 @@ extern uint32_t off_118A60;
 extern uint32_t dword_118A64;
 extern uint32_t dword_118A68;
 
-// sub_1189F8 @ 0x1189f8, size 102 bytes
-int  sub_1189F8(int a1, int a2)
+// rf_pll_lock @ 0x1189f8, size 102 bytes
+int  rf_pll_lock(int a1, int a2)
 {
   int16_t **v2; // r5
   int v3; // r7
@@ -30,7 +30,7 @@ int  sub_1189F8(int a1, int a2)
   v3 = dword_118A64;
   v4 = dword_118A68;
 LABEL_2:
-  v6 = sub_12D2D0(a2);
+  v6 = mem_word_load(a2);
   v7 = 2080374784;
   v8 = v6;
   if ( v6 )
@@ -45,23 +45,23 @@ LABEL_2:
 LABEL_5:
       if ( !*(uint16_t *)(v8 + 4) )
       {
-        sub_118CE0(v8);
+        free_buf_1882c0(v8);
         goto LABEL_2;
       }
       if ( **v2 >= 0 )
         goto LABEL_2;
-      sub_12F46C(v4, v3, 1147);
-      v10 = sub_12D2D0(a2);
+      mmio_clear_register(v4, v3, 1147);
+      v10 = mem_word_load(a2);
       v7 = 2080374784;
       v8 = v10;
       if ( !v10 )
-        return sub_118D28();
+        return tx_pool_init();
     }
     v7 = 0x40000000;
 LABEL_4:
     *(uint32_t *)(v9 + 4) = v7;
     goto LABEL_5;
   }
-  return sub_118D28();
+  return tx_pool_init();
 }
 

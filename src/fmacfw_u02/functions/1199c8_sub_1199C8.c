@@ -19,8 +19,8 @@ extern uint32_t off_119CD4;
 extern uint32_t dword_119CE0;
 extern uint32_t dword_119CDC;
 
-// sub_1199C8 @ 0x1199c8, size 868 bytes
-int  sub_1199C8(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
+// tx_process @ 0x1199c8, size 868 bytes
+int  tx_process(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r5
   int v7; // r4
@@ -72,11 +72,11 @@ int  sub_1199C8(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
   v8 = dword_119CC8 + 84 * a5 + 28;
   v9 = *(uint32_t *)(*a2 + 68);
   v10 = *(uint32_t *)(*a2 + 76);
-  rf_bus_mark_n100_d2d0(v8);
-  if ( !rx_desc_compare_n6e0(a1, v7, a5)
+  mem_word_load(v8);
+  if ( !phy_channel_same(a1, v7, a5)
     || (v12 = off_119CE4, *(uint8_t *)(*(uint32_t *)off_119CE4 + 62) > (*(uint32_t *)off_119CCC & 0x3Fu)) )
   {
-    sub_12D290(v8, v5);
+    cmd_handler_b(v8, v5);
     return 0;
   }
   v13 = *(uint32_t *)(v51 + 36);
@@ -132,8 +132,8 @@ LABEL_7:
       if ( !*(uint8_t *)(v39 + 1) )
         *(uint32_t *)(v5 + 20) = *(uint32_t *)(v9 + 20);
       *(uint8_t *)(v24 + 1) = v50 + v17;
-      rf_bus_mark_n100_d2d0(v8);
-      list_push_tail(*(uint32_t *)(v9 + 340));
+      mem_word_load(v8);
+      cmd_handler_a(*(uint32_t *)(v9 + 340));
       v40 = *(uint32_t *)(v7 + 76);
       *a2 = *(uint32_t *)v7;
       *(uint32_t *)(v40 + 20) = 0;
@@ -143,7 +143,7 @@ LABEL_7:
     v23 = *(uint32_t *)v7;
     if ( **(int16_t **)off_119CD4 < 0 && !v23 )
     {
-      sub_12F46C(dword_119CE0, dword_119CDC, 1713);
+      mmio_clear_register(dword_119CE0, dword_119CDC, 1713);
       v23 = 0;
     }
     v16 = *(uint32_t *)(v23 + 36);
@@ -183,7 +183,7 @@ LABEL_17:
     *(uint32_t *)(v9 + 268) = v7;
     *(uint16_t *)(v9 + 8) = v27 | 0x400;
     if ( (v30 & 0x380000) == 0x380000 )
-      rf_bus_mark_n100_d2d0(v8);
+      mem_word_load(v8);
     v31 = *(uint32_t *)off_119CD8;
     *a2 = v7;
     v32 = *(uint8_t *)(v31 + 1);
@@ -206,7 +206,7 @@ LABEL_17:
       *(uint32_t *)(v5 + 20) = v36;
     }
 LABEL_34:
-    sub_12D290(v8, v5);
+    cmd_handler_b(v8, v5);
     return v32;
   }
   v42 = *(uint32_t *)(v51 + 36);
@@ -218,7 +218,7 @@ LABEL_34:
   *(uint32_t *)(v43 + 68) = v42 | 0x380100;
   *(uint32_t *)(v7 + 36) = v44;
   *(uint32_t *)(v24 + 68) = v45;
-  sub_12D290(v8, v5);
+  cmd_handler_b(v8, v5);
   v32 = 0;
   *a2 = v7;
   return v32;

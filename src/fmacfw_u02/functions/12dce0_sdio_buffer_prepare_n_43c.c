@@ -12,15 +12,15 @@
 
 extern uint32_t dword_12DD04;
 
-// sdio_buffer_prepare_n_43c @ 0x12dce0, size 36 bytes
+// log_format_message @ 0x12dce0, size 36 bytes
 // Doc: sdio_buffer_prepare_n_430_dcec [util]: SDIO buffer prepare entry with channel arg 5
 // sdio_buffer_prepare_n_430_dcec [util]: SDIO buffer prepare entry with channel arg 5
-uint8_t * sdio_buffer_prepare_n_43c(uint8_t *a1, int a2)
+uint8_t * log_format_message(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   uint16_t v3[3]; // [sp+Eh] [bp-6h] BYREF
 
-  result = sub_12D788(a1, a2, (uint8_t *)dword_12DD04, 5, v3);
+  result = mem_range_setup(a1, a2, (uint8_t *)dword_12DD04, 5, v3);
   if ( result )
   {
     if ( v3[0] != 26 )

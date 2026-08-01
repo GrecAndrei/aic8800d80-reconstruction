@@ -16,8 +16,8 @@ extern uint32_t off_1145FC;
 extern uint32_t off_114604;
 extern uint32_t off_114600;
 
-// sub_1145B0 @ 0x1145b0, size 68 bytes
-int sub_1145B0()
+// check_initialized @ 0x1145b0, size 68 bytes
+int check_initialized()
 {
   int v0; // r2
   int v1; // r1

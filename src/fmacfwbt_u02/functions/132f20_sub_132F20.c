@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132F20 @ 0x132f20, size 18 bytes
-uint32_t * sub_132F20(int a1)
+// llm_adv_pdu_build_cmd @ 0x132f20, size 18 bytes
+uint32_t * llm_adv_pdu_build_cmd(int a1)
 {
-  bt_tx_queue_process();
-  return sub_132B20(a1);
+  update_connection_stats();
+  return llm_adv_pdu_build(a1);
 }
 

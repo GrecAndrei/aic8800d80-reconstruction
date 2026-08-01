@@ -1,1 +1,1 @@
-{"fn": "sub_12017C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12017c0", "status": "ok", "name": "fw_state_check_n_c0", "params": [], "docstring": "Checks firmware state flag (halfword) from global pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12017C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12017c0", "status": "ok", "name": "tx_path_check", "params": [], "docstring": "Checks firmware state flag (halfword) from global pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

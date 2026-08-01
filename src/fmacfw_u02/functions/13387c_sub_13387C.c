@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13387C @ 0x13387c, size 98 bytes
+// hci_evt_parse_opcode @ 0x13387c, size 98 bytes
 // Doc: sub_12023fc [unknown]: Unknown function in fmacfwbt firmware
 // sub_12023fc [unknown]: Unknown function in fmacfwbt firmware
-int  sub_13387C(int a1, int a2)
+int  hci_evt_parse_opcode(int a1, int a2)
 {
   int v2; // r3
 
@@ -21,20 +21,20 @@ int  sub_13387C(int a1, int a2)
   switch ( v2 )
   {
     case 176:
-      if ( msg_get_value(6u) == 5 )
-        sub_135A00(a2);
+      if ( rx_rate_field_parse(6u) == 5 )
+        bt_send_acl_event(a2);
       break;
     case 16:
     case 48:
-      if ( msg_get_value(6u) == 8 )
-        msg_send_cmd_180a(a2);
+      if ( rx_rate_field_parse(6u) == 8 )
+        bt_send_profile_cmd(a2);
       break;
     case 192:
     case 160:
       return timer_set_relative_5668(a2);
     default:
       if ( v2 == 208 && *(uint8_t *)(a2 + 12) == 8 )
-        sub_135708(a2);
+        bt_get_conn_by_index(a2);
       break;
   }
   return 0;

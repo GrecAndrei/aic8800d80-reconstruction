@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_280", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f0c", "status": "ok", "name": "rf_bus_mark_n_280", "params": [], "docstring": "Mark RF bus access with MMIO write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_280", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f0c", "status": "ok", "name": "rf_bus_mark_index", "params": [], "docstring": "Mark RF bus access with MMIO write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

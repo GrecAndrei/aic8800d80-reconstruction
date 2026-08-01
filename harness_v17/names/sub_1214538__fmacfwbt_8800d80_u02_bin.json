@@ -1,1 +1,1 @@
-{"fn": "sub_1214538", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214538", "status": "ok", "name": "mmio_set_flag_bit1", "params": [], "docstring": "Sets bit 1 in MMIO register at indirect pointer offset +8", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1214538", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214538", "status": "ok", "name": "set_hw_flag_bit", "params": [], "docstring": "Sets bit 1 in MMIO register at indirect pointer offset +8", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// memset_thunk @ 0x100200, size 160 bytes
-// Doc: memset_thunk [util]: Lightweight memset wrapper preserving r4-r7
-// memset_thunk [util]: Lightweight memset wrapper preserving r4-r7
-int * memset_thunk(int *result, uint8_t a2, unsigned int a3)
+// memset @ 0x100200, size 160 bytes
+// Doc: memset [util]: Lightweight memset wrapper preserving r4-r7
+// memset [util]: Lightweight memset wrapper preserving r4-r7
+int * memset(int *result, uint8_t a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int *v4; // r3

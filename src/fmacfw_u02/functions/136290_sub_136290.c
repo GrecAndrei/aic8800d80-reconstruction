@@ -14,21 +14,21 @@ extern uint32_t off_1362EC;
 extern uint32_t dword_1362F4;
 extern uint32_t dword_1362F0;
 
-// sub_136290 @ 0x136290, size 90 bytes
-int sub_136290()
+// bt_cmd_guard @ 0x136290, size 90 bytes
+int bt_cmd_guard()
 {
   int v0; // r0
 
-  if ( **(int16_t **)off_1362EC < 0 && sub_12CE88(7u) != 1 && sub_12CE88(7u) && sub_12CE88(7u) != 3 )
-    sub_12F46C(dword_1362F4, dword_1362F0, 274);
-  v0 = sub_12CE88(7u);
+  if ( **(int16_t **)off_1362EC < 0 && rx_rate_field_parse(7u) != 1 && rx_rate_field_parse(7u) && rx_rate_field_parse(7u) != 3 )
+    mmio_clear_register(dword_1362F4, dword_1362F0, 274);
+  v0 = rx_rate_field_parse(7u);
   if ( v0 != 1 )
   {
-    v0 = sub_12CE88(7u);
+    v0 = rx_rate_field_parse(7u);
     if ( v0 != 3 )
       return 0;
   }
-  sub_136820(v0);
+  bt_ready_check(v0);
   return 0;
 }
 

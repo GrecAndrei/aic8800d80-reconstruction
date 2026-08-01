@@ -16,8 +16,8 @@ extern uint32_t dword_117278;
 extern uint32_t dword_117274;
 extern uint32_t dword_11727C;
 
-// sub_117164 @ 0x117164, size 266 bytes
-uint32_t * sub_117164(uint32_t *a1, int a2, uint16_t *a3)
+// tx_send_packet @ 0x117164, size 266 bytes
+uint32_t * tx_send_packet(uint32_t *a1, int a2, uint16_t *a3)
 {
   int *v3; // r7
   int v4; // r10
@@ -57,7 +57,7 @@ uint32_t * sub_117164(uint32_t *a1, int a2, uint16_t *a3)
     if ( a2 + v4 >= v20 )
       break;
     v23 = a2;
-    v11 = sub_1101AC();
+    v11 = irq_disable();
     v10 = 0;
     v12 = v23;
     v9 = 1;
@@ -75,11 +75,11 @@ LABEL_5:
     if ( v15 < 0 && !v16 )
     {
       v24 = v12;
-      rf_cmd_send_n264(dword_117278, dword_117274, 683);
+      flash_ctrl_init(dword_117278, dword_117274, 683);
       v16 = v5[2];
       LOWORD(v12) = v24;
     }
-    sub_110B44(v13, v16, 0, v12, v9);
+    set_radio_channel(v13, v16, 0, v12, v9);
     if ( v7 )
       v7[1] = v13;
     v3[2] = (int)v13;
@@ -88,7 +88,7 @@ LABEL_5:
     v17 = (uint32_t *)v5[1];
     if ( **v6 < 0 && !v17 )
     {
-      rf_cmd_send_n264(dword_11727C, dword_117274, 704);
+      flash_ctrl_init(dword_11727C, dword_117274, 704);
       v17 = 0;
     }
     v25 = v5;
@@ -100,7 +100,7 @@ LABEL_5:
   v22 = (uint16_t)(v20 - v4);
   if ( !v10 )
     v9 = 1;
-  v11 = sub_1101AC();
+  v11 = irq_disable();
   v4 = 0;
   v12 = v22;
   v13 = (uint32_t *)v11;

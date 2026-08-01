@@ -1,1 +1,1 @@
-{"fn": "phy_rf_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12032d0", "status": "ok", "name": "phy_rf_init_2d0", "params": [], "docstring": "Initialize PHY/RF hardware registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "phy_rf_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12032d0", "status": "ok", "name": "hw_enable", "params": [], "docstring": "Initialize PHY/RF hardware registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

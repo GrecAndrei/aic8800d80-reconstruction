@@ -12,10 +12,10 @@
 
 extern uint32_t off_1139FC;
 
-// sub_1139C8 @ 0x1139c8, size 52 bytes
+// ke_state_get_fast @ 0x1139c8, size 52 bytes
 // Doc: rf_cmd_process_n480 [rf]: Allocate and queue RF command for processing
 // rf_cmd_process_n480 [rf]: Allocate and queue RF command for processing
-int sub_1139C8()
+int ke_state_get_fast()
 {
   void *v0; // r5
   int result; // r0
@@ -24,7 +24,7 @@ int sub_1139C8()
   int v4; // r4
 
   v0 = off_1139FC;
-  result = sub_12D240(rf_cmd_process_n4a8);
+  result = zero_8_bytes(rf_cmd_process_n4a8);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 4) )
   {
     v2 = rf_cmd_process_n4ac;
@@ -32,8 +32,8 @@ int sub_1139C8()
     v4 = 0;
     do
     {
-      sub_10FB28(v2, 0x7Cu);
-      result = list_push_tail(v3);
+      rx_packet_handler(v2, 0x7Cu);
+      result = cmd_handler_a(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );

@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_127F64 @ 0x127f64, size 18 bytes
-BOOL  sub_127F64(int a1, int a2)
+// util_cmp_gt @ 0x127f64, size 18 bytes
+BOOL  util_cmp_gt(int a1, int a2)
 {
   char v2; // cf
   char v3; // zf
 
-  sub_127F10(a1, a2);
+  util_cmp_rev(a1, a2);
   return !(!v3 & v2);
 }
 

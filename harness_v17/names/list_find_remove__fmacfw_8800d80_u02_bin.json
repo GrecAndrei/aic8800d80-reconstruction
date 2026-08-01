@@ -1,1 +1,1 @@
-{"fn": "list_find_remove", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ca3c", "status": "ok", "name": "list_find_remove_ca3c", "params": [], "docstring": "Find and remove node from linked list", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "list_find_remove", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ca3c", "status": "ok", "name": "pkt_word_get", "params": [], "docstring": "Find and remove node from linked list", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

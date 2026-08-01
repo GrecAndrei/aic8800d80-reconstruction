@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12DE48 @ 0x12de48, size 64 bytes
+// memmove_3 @ 0x12de48, size 64 bytes
 // Doc: sdio_buffer_prepare_n_4ee_de56 [mmio]: Prepare SDIO buffer for DMA transfer
 // sdio_buffer_prepare_n_4ee_de56 [mmio]: Prepare SDIO buffer for DMA transfer
-uint8_t * sub_12DE48(uint8_t *result, int a2)
+uint8_t * memmove_3(uint8_t *result, int a2)
 {
   unsigned int v2; // r1
   uint8_t *v3; // r2

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_111B5C;
 
-// rf_bus_write2_1a78 @ 0x111a78, size 224 bytes
+// rx_desc_hw_config @ 0x111a78, size 224 bytes
 // Doc: rf_bus_reset2_aaa [rf]: RF bus secondary reset
 // rf_bus_reset2_aaa [rf]: RF bus secondary reset
-int  rf_bus_write2_1a78(int a1, int a2, int a3)
+int  rx_desc_hw_config(int a1, int a2, int a3)
 {
   int v3; // r6
   uint32_t *v4; // r4
@@ -29,7 +29,7 @@ int  rf_bus_write2_1a78(int a1, int a2, int a3)
     v4 = (uint32_t *)(rf_bus_write_n198 + v3);
     v5 = *(uint32_t *)(v3 + rf_bus_write_n198);
     if ( (v5 & 0x80008000) == 0 )
-      return (int)rf_bus_write_n_1c0(a1);
+      return (int)rx_hdr_clear(a1);
     v6 = (uint32_t *)(rf_bus_write_n198 + v3 + 8);
     if ( (dword_111B5C & v5) == 0x20000 )
       goto LABEL_4;
@@ -61,7 +61,7 @@ rf_bus_setup_n_2a0:
 LABEL_11:
         if ( !a1 )
           return a1;
-        return (int)rf_bus_write_n_1c0(a1);
+        return (int)rx_hdr_clear(a1);
       }
       *v6 = 64;
       *v4 |= a2 | 0x8008000;

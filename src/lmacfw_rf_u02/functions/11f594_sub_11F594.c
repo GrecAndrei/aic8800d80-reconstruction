@@ -20,10 +20,10 @@ extern uint32_t dword_11F744;
 extern uint32_t dword_11F730;
 extern uint32_t dword_11F748;
 
-// sub_11F594 @ 0x11f594, size 404 bytes
+// handle_ipc_request @ 0x11f594, size 404 bytes
 // Doc: rf_mem_read_n118 [rf]: Reads a 32-bit value from RF memory-mapped register at index 118 (MMIO 0x1b0).
 // rf_mem_read_n118 [rf]: Reads a 32-bit value from RF memory-mapped register at index 118 (MMIO 0x1b0).
-unsigned int  sub_11F594(unsigned int result, int a2, int a3, int a4)
+unsigned int  handle_ipc_request(unsigned int result, int a2, int a3, int a4)
 {
   int v4; // r4
   int v5; // r9
@@ -57,25 +57,25 @@ unsigned int  sub_11F594(unsigned int result, int a2, int a3, int a4)
   v6 = -a3 & result;
   while ( 1 )
   {
-    sub_11F504(dword_11F728, v6);
+    dispatch_event_handler(dword_11F728, v6);
     v7 = v24;
     if ( v24 >= 0x10 )
       v7 = 16;
     if ( ((v6 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       if ( !v24 )
-        return (unsigned int)sub_10D654((uint8_t *)dword_11F734);
+        return (unsigned int)uart_tx_string((uint8_t *)dword_11F734);
       v21 = dword_11F72C;
       v22 = 0;
       while ( 1 )
       {
-        v23 = sub_10EFA4();
+        v23 = call_indirect_table();
         if ( v4 == 4 )
           break;
         if ( v4 == 2 )
         {
           v22 += 4;
-          sub_11F504(dword_11F738, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
+          dispatch_event_handler(dword_11F738, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -86,7 +86,7 @@ LABEL_40:
         }
         else
         {
-          sub_11F504(v5);
+          dispatch_event_handler(v5);
 LABEL_36:
           v22 += 4;
           v6 += 4;
@@ -94,7 +94,7 @@ LABEL_36:
             goto LABEL_40;
         }
       }
-      sub_11F504(v21, v23, BYTE1(v23), BYTE2(v23));
+      dispatch_event_handler(v21, v23, BYTE1(v23), BYTE2(v23));
       goto LABEL_36;
     }
     if ( v24 )
@@ -105,7 +105,7 @@ LABEL_36:
       goto LABEL_20;
     }
 LABEL_31:
-    result = (unsigned int)sub_10D654((uint8_t *)dword_11F734);
+    result = (unsigned int)uart_tx_string((uint8_t *)dword_11F734);
     v24 -= v7;
     if ( !v24 )
       return result;
@@ -122,7 +122,7 @@ LABEL_31:
       if ( v4 != 4 )
         break;
       v11 += 4;
-      sub_11F504(dword_11F72C, *(uint32_t *)v10);
+      dispatch_event_handler(dword_11F72C, *(uint32_t *)v10);
       v10 += 2;
       if ( v7 <= v11 )
         goto LABEL_18;
@@ -134,7 +134,7 @@ LABEL_31:
     if ( v4 == 2 )
       v13 = v9;
     v11 += v4;
-    sub_11F504(v13, v12);
+    dispatch_event_handler(v13, v12);
     v10 = (uint16_t *)((char *)v10 + v4);
   }
   while ( v7 > v11 );
@@ -143,7 +143,7 @@ LABEL_18:
     goto LABEL_30;
   if ( v24 > 0xF )
   {
-    sub_10D654((uint8_t *)dword_11F730);
+    uart_tx_string((uint8_t *)dword_11F730);
     goto LABEL_26;
   }
 LABEL_20:
@@ -156,17 +156,17 @@ LABEL_20:
   {
     while ( (v14 & v16++) != 0 )
     {
-      sub_10D654(v15);
+      uart_tx_string(v15);
       if ( v17 == v16 )
         goto LABEL_25;
     }
-    sub_10D63C(32);
-    sub_10D654(v15);
+    uart_tx_byte(32);
+    uart_tx_string(v15);
   }
   while ( v17 != v16 );
 LABEL_25:
   v4 = v26;
-  sub_10D654((uint8_t *)dword_11F730);
+  uart_tx_string((uint8_t *)dword_11F730);
   if ( v24 )
   {
 LABEL_26:
@@ -177,13 +177,13 @@ LABEL_26:
       if ( (unsigned int)(v20 - 31) > 0x5F )
         v20 = 46;
       ++v19;
-      sub_10D63C(v20);
+      uart_tx_byte(v20);
     }
     while ( v7 > v19 );
 LABEL_30:
     v6 = (unsigned int)v10;
     goto LABEL_31;
   }
-  return (unsigned int)sub_10D654((uint8_t *)dword_11F734);
+  return (unsigned int)uart_tx_string((uint8_t *)dword_11F734);
 }
 

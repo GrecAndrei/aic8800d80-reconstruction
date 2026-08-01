@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_110318 @ 0x110318, size 54 bytes
+// critical_enter_7 @ 0x110318, size 54 bytes
 // Doc: log_free_dispatch_n4ec [util]: Dispatch free-list logging routine (variant 4ec)
 // log_free_dispatch_n4ec [util]: Dispatch free-list logging routine (variant 4ec)
-int sub_110318()
+int critical_enter_7()
 {
   int *v0; // r4
   int v1; // r0
@@ -29,7 +29,7 @@ int sub_110318()
   v0 = (int *)log_free_dispatch_n4f4;
   v1 = log_free_dispatch_0358;
   ++*(uint32_t *)log_free_dispatch_n4f4;
-  result = list_push_tail(v1);
+  result = check_abort_flag(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

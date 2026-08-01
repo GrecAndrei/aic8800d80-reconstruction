@@ -16,8 +16,8 @@ extern uint32_t dword_12FC24;
 extern uint32_t dword_12FC28;
 extern uint32_t dword_12FC2C;
 
-// sub_12FB48 @ 0x12fb48, size 220 bytes
-int  sub_12FB48(int a1, int a2)
+// parse_config_entry @ 0x12fb48, size 220 bytes
+int  parse_config_entry(int a1, int a2)
 {
   int v4; // r10
   unsigned int v5; // r4
@@ -29,14 +29,14 @@ int  sub_12FB48(int a1, int a2)
   unsigned int v11; // r4
   int v13; // r0
 
-  v4 = parse_width_suffix(*(uint32_t *)a2);
+  v4 = is_strlen_two(*(uint32_t *)a2);
   if ( v4 >= 0 )
   {
-    v5 = sub_12F958(*(uint8_t **)(a2 + 4), 0, 0x10u);
-    v6 = sub_12F958(*(uint8_t **)(a2 + 8), 0, 0x10u);
+    v5 = parse_hex_or_dec(*(uint8_t **)(a2 + 4), 0, 0x10u);
+    v6 = parse_hex_or_dec(*(uint8_t **)(a2 + 8), 0, 0x10u);
     if ( a1 > 3 )
     {
-      v13 = sub_12F958(*(uint8_t **)(a2 + 12), 0, 0);
+      v13 = parse_hex_or_dec(*(uint8_t **)(a2 + 12), 0, 0);
       if ( !v13 )
         return 0;
       v7 = v13 - 1;
@@ -53,9 +53,9 @@ int  sub_12FB48(int a1, int a2)
       while ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
       {
         v11 = v5 & 0xFFFFFFFC;
-        sub_10DC24(dword_12FC28, v11, v6);
+        log_printf(dword_12FC28, v11, v6);
         --v7;
-        rf_reg_ack_cb();
+        call_ptr_1b4();
         v5 = v11 + v4;
         if ( v7 == -1 )
           return 0;
@@ -63,15 +63,15 @@ int  sub_12FB48(int a1, int a2)
       switch ( v4 )
       {
         case 4:
-          sub_10DC24(v10, v5, v6);
+          log_printf(v10, v5, v6);
           *(uint32_t *)v5 = v6;
           break;
         case 2:
-          sub_10DC24(v9, v5);
+          log_printf(v9, v5);
           *(uint16_t *)v5 = v6;
           break;
         case 1:
-          sub_10DC24(v8, v5, (uint8_t)v6);
+          log_printf(v8, v5, (uint8_t)v6);
           *(uint8_t *)v5 = v6;
           break;
       }
@@ -81,7 +81,7 @@ int  sub_12FB48(int a1, int a2)
     while ( v7 != -1 );
     return 0;
   }
-  sub_10DC24(dword_12FC2C, v4);
+  log_printf(dword_12FC2C, v4);
   return -1;
 }
 

@@ -21,10 +21,10 @@ extern uint32_t off_102C9C;
 extern uint32_t off_102CA0;
 extern uint32_t off_102CA4;
 
-// irq_vector_init @ 0x102bfc, size 132 bytes
-// Doc: irq_vector_init [util]: Initialize NVIC interrupt vector table and enable interrupts
-// irq_vector_init [util]: Initialize NVIC interrupt vector table and enable interrupts
-int irq_vector_init()
+// install_isr @ 0x102bfc, size 132 bytes
+// Doc: install_isr [util]: Initialize NVIC interrupt vector table and enable interrupts
+// install_isr [util]: Initialize NVIC interrupt vector table and enable interrupts
+int install_isr()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r3

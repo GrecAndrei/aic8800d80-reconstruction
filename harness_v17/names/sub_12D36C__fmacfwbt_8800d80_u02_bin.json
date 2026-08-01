@@ -1,0 +1,1 @@
+{"fn": "sub_12D36C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d36c", "status": "ok", "name": "pmu_sleep_10000000", "params": [], "docstring": "Enter sleep with wakeup mask 0x10000000", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

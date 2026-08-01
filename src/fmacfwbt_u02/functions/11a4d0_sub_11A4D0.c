@@ -13,8 +13,8 @@
 extern uint32_t dword_11A708;
 extern uint32_t dword_11A70C;
 
-// sub_11A4D0 @ 0x11a4d0, size 566 bytes
-int  sub_11A4D0(int a1, int a2)
+// llc_rx_llcp_handler @ 0x11a4d0, size 566 bytes
+int  llc_rx_llcp_handler(int a1, int a2)
 {
   int v2; // r7
   int v3; // r8
@@ -103,7 +103,7 @@ int  sub_11A4D0(int a1, int a2)
         if ( *(uint8_t *)(v4 + 78) > v14 && *(uint8_t *)(v4 + 77) != 1 && v17 <= *(uint32_t *)(v2 + 4 * v15 + 60) )
           break;
       }
-      sub_11A308(a2);
+      llc_tx_llcp_handler(a2);
       v5 = *(uint32_t *)(v4 + 44);
       if ( !v5 )
         goto LABEL_17;
@@ -126,14 +126,14 @@ LABEL_15:
     *(uint32_t *)(v19 + 52) = a1;
     *(uint8_t *)(v19 + 77) = v23;
     if ( v20 <= v23 )
-      sub_11A308(a2);
+      llc_tx_llcp_handler(a2);
   }
   else
   {
 LABEL_17:
     if ( (*(uint32_t *)(a1 + 36) & 0x200000) != 0 && ((*(uint32_t *)(a1 + 40) >> 11) & 6) != 0 )
     {
-      v25 = sub_12D4F8(dword_11A70C + 8 * a2);
+      v25 = list_pop_front(dword_11A70C + 8 * a2);
       v26 = v2 + 84 * a2;
       v27 = (uint32_t *)v25;
       *(uint32_t *)(v26 + 44) = v25;
@@ -147,7 +147,7 @@ LABEL_17:
         *(uint64_t *)(v25 + 4) = v28;
         *(uint32_t *)(v25 + 264) = 0;
         *(uint8_t *)(v25 + 344) = *(uint8_t *)(a1 + 54);
-        sub_1198E8(v25, a2, v2 + 84 * a2 + 44);
+        rx_descriptor_process(v25, a2, v2 + 84 * a2 + 44);
         v29 = *(uint16_t *)(v26 + 72);
         v30 = (uint16_t)(((*(uint32_t *)(v3 + 36) + 3) & 0xFFFC) + 4);
         v27[10] = v30;

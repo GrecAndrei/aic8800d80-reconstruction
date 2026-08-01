@@ -13,8 +13,8 @@
 extern uint32_t off_11D6B4;
 extern uint32_t off_11D6B8;
 
-// sub_11D694 @ 0x11d694, size 30 bytes
-int sub_11D694()
+// seq_num_read @ 0x11d694, size 30 bytes
+int seq_num_read()
 {
   uint8_t *v0; // r4
   unsigned int *v1; // r2

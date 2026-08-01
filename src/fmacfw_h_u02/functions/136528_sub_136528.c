@@ -16,12 +16,12 @@ extern uint32_t dword_136560;
 extern uint32_t dword_136568;
 extern uint32_t dword_13656C;
 
-// sub_136528 @ 0x136528, size 52 bytes
-uint32_t *sub_136528()
+// is_hci_ready @ 0x136528, size 52 bytes
+uint32_t *is_hci_ready()
 {
   if ( **(int16_t **)off_13655C >= 0 || !*((uint32_t *)off_136564 + 1) )
-    return sub_12D100((uint32_t *)dword_136560);
-  sub_12F32C(dword_136568, dword_13656C, 46);
-  return sub_12D100((uint32_t *)dword_136560);
+    return clear_stats_buf((uint32_t *)dword_136560);
+  irq_disable_mmio_write(dword_136568, dword_13656C, 46);
+  return clear_stats_buf((uint32_t *)dword_136560);
 }
 

@@ -17,8 +17,8 @@ extern uint32_t dword_14167C;
 extern uint32_t dword_141680;
 extern uint32_t dword_141678;
 
-// sub_14157C @ 0x14157c, size 244 bytes
-void sub_14157C()
+// get_adv_tx_power @ 0x14157c, size 244 bytes
+void get_adv_tx_power()
 {
   int16_t **v0; // r6
   int v1; // r3
@@ -44,7 +44,7 @@ void sub_14157C()
       goto LABEL_4;
     }
 LABEL_12:
-    sub_140C88(v2, 1);
+    timer_start(v2, 1);
     return;
   }
   v7 = dword_141670 + v1;
@@ -56,13 +56,13 @@ LABEL_12:
     if ( v9 != 2 )
     {
 LABEL_18:
-      sub_12F694(dword_141684, dword_14167C, 1726);
+      mmio_irq_clear(dword_141684, dword_14167C, 1726);
       return;
     }
   }
   else
   {
-    sub_12F694(dword_141680, dword_14167C, 1714);
+    mmio_irq_clear(dword_141680, dword_14167C, 1714);
     v8 = *(uint8_t *)(v7 + 6339);
     if ( v8 <= 1 )
       goto LABEL_12;
@@ -75,12 +75,12 @@ LABEL_18:
   }
 LABEL_4:
   v4 = dword_141670;
-  rf_bus_mark_n_3b7(0xBu, 2);
+  hci_cmd_send(0xBu, 2);
   v5 = v4 + 6336;
-  bt_xtal_init_check((uint32_t *)dword_141678);
+  zero_struct((uint32_t *)dword_141678);
   do
   {
-    while ( *(uint16_t *)(v4 + 4) != 1 || !sub_140C14((uint16_t *)(v4 + 6), v4 + 28, v2) )
+    while ( *(uint16_t *)(v4 + 4) != 1 || !process_adv_report((uint16_t *)(v4 + 6), v4 + 28, v2) )
     {
       v4 += 528;
       if ( v4 == v5 )
@@ -91,10 +91,10 @@ LABEL_4:
     *(uint8_t *)(v4 + 22) = 0;
     *(uint16_t *)(v4 + 4) = 2;
     v4 += 528;
-    list_push_tail(v5 + 136, v6);
+    check_abort_flag(v5 + 136, v6);
   }
   while ( v4 != v5 );
 LABEL_9:
-  bt_chan_state_check_n_4b80(v2, 0);
+  check_scan_enable(v2, 0);
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_121B3C;
 
-// rf_cmd_dispatch_n_454 @ 0x121af0, size 66 bytes
+// ke_int_lock_mode @ 0x121af0, size 66 bytes
 // Doc: rf_cmd_dispatch_n_438 [rf]: Dispatch RF command with sub-id compare against 3
 // rf_cmd_dispatch_n_438 [rf]: Dispatch RF command with sub-id compare against 3
-int  rf_cmd_dispatch_n_454(unsigned int a1)
+int  ke_int_lock_mode(unsigned int a1)
 {
   int *v2; // r5
   int result; // r0
@@ -29,7 +29,7 @@ int  rf_cmd_dispatch_n_454(unsigned int a1)
   }
   v2 = (int *)rf_cmd_dispatch_n_40c;
   ++*(uint32_t *)rf_cmd_dispatch_n_40c;
-  result = rf_lmac_log_str_n2cc();
+  result = log_u32_value();
   if ( a1 <= 3 )
     --*(uint8_t *)(dword_121B3C + a1);
   if ( *v2 )

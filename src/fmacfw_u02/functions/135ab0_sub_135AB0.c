@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_135AB0 @ 0x135ab0, size 76 bytes
-uint8_t * sub_135AB0(uint8_t *a1, int a2)
+// hci_recv_packet @ 0x135ab0, size 76 bytes
+uint8_t * hci_recv_packet(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   int v3; // r2
@@ -22,7 +22,7 @@ uint8_t * sub_135AB0(uint8_t *a1, int a2)
   uint8_t *v8; // r0
   char v9[5]; // [sp+7h] [bp-5h] BYREF
 
-  result = sub_12D994(a1, a2, v9);
+  result = buf_calc_5(a1, a2, v9);
   if ( result )
   {
     if ( (uint8_t)v9[0] <= 0x1Du )

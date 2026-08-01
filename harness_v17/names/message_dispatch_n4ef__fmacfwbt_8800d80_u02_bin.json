@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n4ef", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d0a2", "status": "ok", "name": "message_dispatch_n4ef", "params": [], "docstring": "Dispatch incoming host message to registered handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n4ef", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d0a2", "status": "ok", "name": "msg_dispatch_n4ee", "params": [], "docstring": "Dispatch incoming host message to registered handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_110684", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x110684", "status": "ok", "name": "invoke_sub_1108c0", "params": [], "docstring": "Invoke 0x1108c0 and return success", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

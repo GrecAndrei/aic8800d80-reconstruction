@@ -14,8 +14,8 @@ extern uint32_t off_110148;
 extern uint32_t off_11014C;
 extern uint32_t dword_110150;
 
-// sub_110114 @ 0x110114, size 52 bytes
-int sub_110114()
+// critical_enter_0 @ 0x110114, size 52 bytes
+int critical_enter_0()
 {
   int *v0; // r4
   int v1; // r0
@@ -31,7 +31,7 @@ int sub_110114()
   v0 = (int *)off_11014C;
   v1 = dword_110150;
   ++*(uint32_t *)off_11014C;
-  result = sub_12D4F8(v1);
+  result = list_pop_front(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

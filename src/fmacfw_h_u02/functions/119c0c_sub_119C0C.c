@@ -19,8 +19,8 @@ extern uint32_t dword_119D24;
 extern uint32_t dword_119D28;
 extern uint32_t dword_119D2C;
 
-// sub_119C0C @ 0x119c0c, size 264 bytes
-int *sub_119C0C()
+// compare_global_counters @ 0x119c0c, size 264 bytes
+int *compare_global_counters()
 {
   uint32_t *v0; // r3
   uint64_t v1; // kr00_8
@@ -94,13 +94,13 @@ int *sub_119C0C()
         v13[85] = v6;
         v13[4] = v5;
         v13[21] = v5;
-        v13[44] = sub_101A2C() << 14;
-        v14 = sub_102AB0();
+        v13[44] = get_rf_field_mid() << 14;
+        v14 = get_clock_prescaler();
         v15 = dword_119D2C;
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = (int *)sub_12D108(v6);
+        result = (int *)wlan_ioctl_handler_1(v6);
         ++v12;
         v11 += 90;
       }

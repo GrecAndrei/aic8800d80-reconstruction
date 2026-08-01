@@ -13,8 +13,8 @@
 extern uint32_t dword_118968;
 extern uint32_t dword_11896C;
 
-// sub_11892C @ 0x11892c, size 58 bytes
-int  sub_11892C(int a1, int a2, uint32_t *a3, int *a4)
+// zero_struct @ 0x11892c, size 58 bytes
+int  zero_struct(int a1, int a2, uint32_t *a3, int *a4)
 {
   int v8; // r1
   int v9; // r2

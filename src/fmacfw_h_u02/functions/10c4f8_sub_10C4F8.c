@@ -17,8 +17,8 @@ extern uint32_t dword_10C5B8;
 extern uint32_t dword_10C5B0;
 extern uint32_t off_10C5AC;
 
-// sub_10C4F8 @ 0x10c4f8, size 172 bytes
-int sub_10C4F8()
+// rf_clock_enable @ 0x10c4f8, size 172 bytes
+int rf_clock_enable()
 {
   int *v0; // r2
   unsigned int *v1; // r1

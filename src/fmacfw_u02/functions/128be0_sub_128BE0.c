@@ -16,14 +16,14 @@ extern uint32_t off_128C28;
 extern uint32_t off_128C30;
 extern uint32_t dword_128C34;
 
-// sub_128BE0 @ 0x128be0, size 66 bytes
-int  sub_128BE0(int a1, int a2)
+// wlc_print_hex @ 0x128be0, size 66 bytes
+int  wlc_print_hex(int a1, int a2)
 {
   int result; // r0
   uint8_t *v4; // r5
   int v5; // r3
 
-  result = sub_128B2C(a1, a2, dword_128C24);
+  result = wlc_check_rate_flag(a1, a2, dword_128C24);
   if ( result )
   {
     v4 = off_128C2C;
@@ -33,7 +33,7 @@ int  sub_128BE0(int a1, int a2)
       *(uint32_t *)off_128C30 |= 0x80000000;
     if ( v4[8] )
       --v4[8];
-    result = timestamp_remove(dword_128C34);
+    result = fault_handler(dword_128C34);
     v4[29] = 0;
     *(uint32_t *)(a1 + 4) &= 0xFFFFFDF9;
   }

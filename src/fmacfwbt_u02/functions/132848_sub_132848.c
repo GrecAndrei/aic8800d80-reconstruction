@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132848 @ 0x132848, size 42 bytes
-int  sub_132848(int a1)
+// util_find_first_set @ 0x132848, size 42 bytes
+int  util_find_first_set(int a1)
 {
   int v1; // r3
   int v2; // r2

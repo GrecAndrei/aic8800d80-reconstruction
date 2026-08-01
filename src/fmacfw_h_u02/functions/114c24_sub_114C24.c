@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114C24 @ 0x114c24, size 10 bytes
-int  sub_114C24(int a1)
+// send_smc_cmd_0x80 @ 0x114c24, size 10 bytes
+int  send_smc_cmd_0x80(int a1)
 {
-  return sub_114AF0(64, a1, 4u);
+  return patch_apply(64, a1, 4u);
 }
 

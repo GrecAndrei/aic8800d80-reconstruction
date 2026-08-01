@@ -21,8 +21,8 @@ extern uint32_t dword_132CFC;
 extern uint32_t off_132C40;
 extern uint32_t off_132C44;
 
-// sub_132904 @ 0x132904, size 1016 bytes
-uint32_t * sub_132904(int a1)
+// tx_send_controller_pkt @ 0x132904, size 1016 bytes
+uint32_t * tx_send_controller_pkt(int a1)
 {
   char v1; // r3
   uint32_t *v2; // r6
@@ -225,7 +225,7 @@ LABEL_23:
     v68 = v31;
     if ( *((uint8_t *)off_132C2C + 197) && (v2[5] & 0x387F) != (v31 & 0x387F) )
     {
-      v32 = sub_101D58(
+      v32 = rx_packet_handler(
               (v31 >> 11) & 7,
               v30 & 0x7F,
               (uint8_t *)(*(uint32_t *)(dword_132C30 + 1320 * *(uint8_t *)(a1 + 34) + 72) + 4));
@@ -236,9 +236,9 @@ LABEL_23:
     *(uint32_t *)(v28 + 160) = v29;
     *(uint8_t *)(v28 + 165) = (v30 & 0x4000) != 0;
     *(uint32_t *)(v28 + 156) = v66 & v33 | v68;
-    if ( sub_12EA5C(5u, 4u) )
-      sub_12EA88(dword_132C38, *(uint32_t *)(v28 + 156), v29);
-    sub_140338(v2, *(uint32_t *)(v28 + 156));
+    if ( get_flag_bit(5u, 4u) )
+      event_dispatch(dword_132C38, *(uint32_t *)(v28 + 156), v29);
+    ble_ll_adv_rx_scan_req(v2, *(uint32_t *)(v28 + 156));
     v1 = *(uint8_t *)(a1 + 350);
   }
   if ( (v1 & 2) != 0 )
@@ -272,12 +272,12 @@ LABEL_23:
       *v39++ = v46;
       if ( v43 )
       {
-        v58 = sub_101D58((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
+        v58 = rx_packet_handler((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
         *(v39 - 1) = v46 | v58 | (v58 << 8);
       }
       else if ( **(int16_t **)off_132C3C < 0 )
       {
-        sub_12F46C(dword_132D00, dword_132CFC, 986);
+        mmio_clear_register(dword_132D00, dword_132CFC, 986);
       }
     }
     while ( v77 != v40 );

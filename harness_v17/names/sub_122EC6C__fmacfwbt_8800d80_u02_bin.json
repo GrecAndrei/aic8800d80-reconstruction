@@ -1,1 +1,1 @@
-{"fn": "sub_122EC6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ec6c", "status": "ok", "name": "rf_cmd_process_n4e", "params": [], "docstring": "RF command processing: store header, call sub, shift nibble from r8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122EC6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ec6c", "status": "ok", "name": "state_get_flags", "params": [], "docstring": "RF command processing: store header, call sub, shift nibble from r8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

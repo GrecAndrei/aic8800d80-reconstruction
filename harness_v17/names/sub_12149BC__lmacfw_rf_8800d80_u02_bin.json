@@ -1,1 +1,1 @@
-{"fn": "sub_12149BC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12149bc", "status": "ok", "name": "rf_init_or_reset_helper", "params": [], "docstring": "RF subsystem initialization or reset helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12149BC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12149bc", "status": "ok", "name": "osal_int_enter", "params": [], "docstring": "RF subsystem initialization or reset helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

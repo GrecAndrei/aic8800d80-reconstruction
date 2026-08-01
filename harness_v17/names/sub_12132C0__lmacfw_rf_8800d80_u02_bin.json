@@ -1,1 +1,1 @@
-{"fn": "sub_12132C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12132c0", "status": "ok", "name": "sub_12132C0", "params": [], "docstring": "Thin wrapper routine (push r4,lr; small arithmetic tail)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12132C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12132c0", "status": "ok", "name": "disable_interrupts", "params": [], "docstring": "Thin wrapper routine (push r4,lr; small arithmetic tail)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

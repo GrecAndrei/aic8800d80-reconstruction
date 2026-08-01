@@ -1,1 +1,1 @@
-{"fn": "sub_120CB08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120cb08", "status": "ok", "name": "sub_120CB08", "params": [], "docstring": "Process indexed entry from control table and dispatch", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120CB08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120cb08", "status": "ok", "name": "pkt_buf_alloc", "params": [], "docstring": "Process indexed entry from control table and dispatch", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

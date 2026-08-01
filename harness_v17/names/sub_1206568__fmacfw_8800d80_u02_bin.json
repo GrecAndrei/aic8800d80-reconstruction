@@ -1,1 +1,1 @@
-{"fn": "sub_1206568", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1206568", "status": "ok", "name": "sub_1206568", "params": [], "docstring": "Helper: invoke MMIO/set call with relocated constants", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1206568", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1206568", "status": "ok", "name": "runtime_helper_div", "params": [], "docstring": "Helper: invoke MMIO/set call with relocated constants", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

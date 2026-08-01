@@ -14,8 +14,8 @@ extern uint32_t off_10ECCC;
 extern uint32_t off_10ECD0;
 extern uint32_t off_10ECD4;
 
-// sub_10EC84 @ 0x10ec84, size 70 bytes
-int  sub_10EC84(int a1, int a2, int a3, int a4)
+// atomic_reg_write @ 0x10ec84, size 70 bytes
+int  atomic_reg_write(int a1, int a2, int a3, int a4)
 {
   int *v4; // r5
   uint32_t *v5; // r4
@@ -35,12 +35,12 @@ int  sub_10EC84(int a1, int a2, int a3, int a4)
     v5 = off_10ECD4;
     while ( !*(uint32_t *)off_10ECD4 )
       ;
-    result = sub_10EBD4();
+    result = call_vector_1b8();
     *v5 = 1;
   }
   else
   {
-    result = sub_10EBD4();
+    result = call_vector_1b8();
   }
   if ( *v4 )
   {

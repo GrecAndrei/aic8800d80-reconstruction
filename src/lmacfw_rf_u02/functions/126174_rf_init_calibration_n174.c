@@ -18,10 +18,10 @@ extern uint32_t off_126248;
 extern uint32_t off_12624C;
 extern uint32_t off_126250;
 
-// rf_init_calibration_n174 @ 0x126174, size 200 bytes
-// Doc: rf_init_calibration_n174 [rf]: Performs RF initialization and calibration sequence
-// rf_init_calibration_n174 [rf]: Performs RF initialization and calibration sequence
-int rf_init_calibration_n174()
+// radio_timer_snapshot @ 0x126174, size 200 bytes
+// Doc: radio_timer_snapshot [rf]: Performs RF initialization and calibration sequence
+// radio_timer_snapshot [rf]: Performs RF initialization and calibration sequence
+int radio_timer_snapshot()
 {
   uint64_t *v0; // r5
   uint32_t *v1; // r7
@@ -50,17 +50,17 @@ int rf_init_calibration_n174()
   v14 = v2;
   v9 = 0;
   v10 = 1;
-  sub_1282E8(&v11, &v13, 6);
-  sub_1282E8(v19, &v11, 6);
+  memcpy_large(&v11, &v13, 6);
+  memcpy_large(v19, &v11, 6);
   v19[7] = 0;
-  sub_123F04(0, 0, 0, 0);
-  sub_117E5C((int)&v11, 0, 0, &v10);
-  sub_11930C(0, (int)v18, 0, 0);
+  format_message(0, 0, 0, 0);
+  process_pending_events((int)&v11, 0, 0, &v10);
+  kernel_send_msg(0, (int)v18, 0, 0);
   v3 = v0[1];
   v17 = *((uint32_t *)v0 + 3);
   v16 = v3;
-  sub_1282E8(v15, &v16, 6);
-  sub_117E5C((int)v15, 0, 0, &v9);
+  memcpy_large(v15, &v16, 6);
+  process_pending_events((int)v15, 0, 0, &v9);
   v4 = off_126254;
   *(uint32_t *)off_126244 = v11;
   v5 = off_126248;
@@ -71,9 +71,9 @@ int rf_init_calibration_n174()
   *v6 = -1;
   *v1 = 0xFFFF;
   *v7 = -1;
-  sub_123FF0(2u, 0, 0);
-  sub_12407C(0);
-  sub_123F64(1);
-  return mmio_field_set_l2h2(0);
+  configure_hw_regs(2u, 0, 0);
+  set_reg_180800_bits7_8(0);
+  set_reg_1807fc_bit6(1);
+  return rf_set_bit18(0);
 }
 

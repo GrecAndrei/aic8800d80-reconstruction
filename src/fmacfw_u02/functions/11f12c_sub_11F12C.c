@@ -20,8 +20,8 @@ extern uint32_t off_11F288;
 extern uint32_t off_11F28C;
 extern uint32_t off_11F290;
 
-// sub_11F12C @ 0x11f12c, size 322 bytes
-unsigned int  sub_11F12C(unsigned int a1)
+// llm_conn_calc_ptr @ 0x11f12c, size 322 bytes
+unsigned int  llm_conn_calc_ptr(unsigned int a1)
 {
   int v1; // r7
   int v2; // r8
@@ -50,8 +50,8 @@ unsigned int  sub_11F12C(unsigned int a1)
   v6 = dword_11F294 + 1320 * v4;
   if ( *(uint8_t *)(v6 + 1224) )
     --*(uint8_t *)(v6 + 1226);
-  feature_guard_check(256, dword_11F278);
-  sub_12D2E8(v5 + 240 + v2, v3);
+  check_status_bits(256, dword_11F278);
+  cmd_handler_c(v5 + 240 + v2, v3);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -70,8 +70,8 @@ unsigned int  sub_11F12C(unsigned int a1)
     if ( !v12 )
     {
 LABEL_7:
-      obj_read_field_23c(v11);
-      list_push_tail(dword_11F284);
+      llc_aes_ccm_setup(v11);
+      cmd_handler_a(dword_11F284);
       goto LABEL_8;
     }
     v16 = (int *)off_11F27C;
@@ -99,15 +99,15 @@ LABEL_7:
   if ( v11 )
     goto LABEL_7;
 LABEL_8:
-  obj_read_field_23c(v3);
-  v13 = list_push_tail(dword_11F284);
-  result = sub_1228E8(v13);
+  llc_aes_ccm_setup(v3);
+  v13 = cmd_handler_a(dword_11F284);
+  result = get_phy_channel(v13);
   if ( !result )
   {
     if ( *((uint8_t *)off_11F288 + 408) )
-      result = mmio_region_setup_n148(v2 + v5);
+      result = mmio_update(v2 + v5);
     else
-      result = sub_102B80(0xC2u);
+      result = write_phy_config(0xC2u);
   }
   if ( a1 <= 0x1F )
   {
@@ -118,7 +118,7 @@ LABEL_8:
         || (v19 = (uint8_t)(*(uint8_t *)off_11F28C - 1), *(uint8_t *)off_11F28C = v19, !v19) )
       {
         if ( *((uint8_t *)off_11F290 + 18) + *((uint8_t *)off_11F290 + 17) == 1 )
-          return sub_136E74(result);
+          return set_bt_irq_flag(result);
       }
     }
   }

@@ -1,0 +1,1 @@
+{"fn": "sub_135364", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135364", "status": "ok", "name": "init_rf_tables", "params": [], "docstring": "Initialize PHY context from global tables", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

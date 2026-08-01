@@ -14,8 +14,8 @@ extern uint32_t dword_141E2C;
 extern uint32_t off_141E30;
 extern uint32_t dword_141E34;
 
-// sub_141DE8 @ 0x141de8, size 66 bytes
-int  sub_141DE8(int a1, int a2)
+// get_connection_env @ 0x141de8, size 66 bytes
+int  get_connection_env(int a1, int a2)
 {
   int v3; // r5
   int v4; // r0
@@ -25,9 +25,9 @@ int  sub_141DE8(int a1, int a2)
      - 400
      - *(uint32_t *)(a1 + 48) * a2
      - *(uint32_t *)(dword_141E2C + 1320 * *(uint8_t *)(a1 + 47) + 40);
-  v4 = sub_12C068();
+  v4 = ke_critical_enter();
   v5 = *((uint32_t *)off_141E30 + 4);
   *(uint32_t *)(a1 + 56) = dword_141E34;
-  return timestamp_update_4f60(a1 + 52, v5 + v3 - v4);
+  return ke_event_lock(a1 + 52, v5 + v3 - v4);
 }
 

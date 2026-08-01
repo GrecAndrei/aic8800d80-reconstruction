@@ -15,8 +15,8 @@ extern uint32_t off_11EB44;
 extern uint32_t dword_11EB48;
 extern uint32_t dword_11EB4C;
 
-// sub_11EABC @ 0x11eabc, size 132 bytes
-void sub_11EABC()
+// check_hw_fw_status @ 0x11eabc, size 132 bytes
+void check_hw_fw_status()
 {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
@@ -56,10 +56,10 @@ void sub_11EABC()
       v5 = v4 & 0x7FFFFFFF;
       v6 = *(uint32_t *)((v4 & 0x7FFFFFFF) + 0x14);
       if ( v6 != v3 )
-        sub_12E948(dword_11EB4C, v4 & 0x7FFFFFFF, v6);
-      sub_11E9F4(v5);
+        alloc_tx_event(dword_11EB4C, v4 & 0x7FFFFFFF, v6);
+      read_chip_revision(v5);
       *(uint8_t *)(v5 + 156) = 1;
-      sub_11DFC0(v5);
+      capability_get(v5);
       v2 = v0[5];
     }
     while ( v2 != *v1 );

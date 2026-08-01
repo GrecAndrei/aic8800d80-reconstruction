@@ -16,8 +16,8 @@ extern uint32_t off_103638;
 extern uint32_t off_10362C;
 extern uint32_t dword_10363C;
 
-// sub_1035E8 @ 0x1035e8, size 66 bytes
-int  sub_1035E8(int a1, int a2, int a3, int a4, int a5)
+// configure_bb_clock @ 0x1035e8, size 66 bytes
+int  configure_bb_clock(int a1, int a2, int a3, int a4, int a5)
 {
   uint32_t *v5; // r0
   uint32_t *v6; // r1
@@ -32,7 +32,7 @@ int  sub_1035E8(int a1, int a2, int a3, int a4, int a5)
   *v5 &= ~0x20000u;
   *v6 &= ~0x1000000u;
   *v7 &= 0xFFE7FFFF;
-  delay_us(10);
-  return sub_11F74C(0x2000, dword_10363C, v8, v9, a5);
+  write_timer_reg(10);
+  return check_interrupt_flag(0x2000, dword_10363C, v8, v9, a5);
 }
 

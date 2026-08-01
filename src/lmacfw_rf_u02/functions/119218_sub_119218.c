@@ -13,10 +13,10 @@
 extern uint32_t off_119300;
 extern uint32_t dword_119304;
 
-// sub_119218 @ 0x119218, size 232 bytes
+// timer_start_capture @ 0x119218, size 232 bytes
 // Doc: sub_1219218 [mmio]: Read RF status words from MMIO 0x40501000 region
 // sub_1219218 [mmio]: Read RF status words from MMIO 0x40501000 region
-BOOL  sub_119218(int a1, int a2, int a3, int *a4)
+BOOL  timer_start_capture(int a1, int a2, int a3, int *a4)
 {
   int v5; // r10
   uint32_t *v6; // r4
@@ -45,12 +45,12 @@ BOOL  sub_119218(int a1, int a2, int a3, int *a4)
   v10 = *(uint32_t *)(a2 + 108);
   *(uint8_t *)(a2 + 116) = 0;
   v21 = v11;
-  if ( v8 - v6[4] + v10 < 0 && !rf_channel_set_n6838(*(uint8_t *)(a2 + 102), 0, 0) )
+  if ( v8 - v6[4] + v10 < 0 && !rate_index_lookup_fast(*(uint8_t *)(a2 + 102), 0, 0) )
     *(uint32_t *)(a2 + 108) = v6[4];
   v23 = *(char *)(v9 + 45);
-  chip_rev_id_get();
-  rf_chan_param_set_n_1b8((uint8_t *)a2, v23);
-  v13 = sub_11E8B4(v7 + 32, 4, 0);
+  chip_info_nibble0_get();
+  rf_temp_compensate((uint8_t *)a2, v23);
+  v13 = crc32_update_msb(v7 + 32, 4, 0);
   *a4 = 0;
   if ( (uint16_t)(v5 - 36) > 1u )
   {
@@ -68,7 +68,7 @@ BOOL  sub_119218(int a1, int a2, int a3, int *a4)
       if ( *v15 == 5 )
         *v14 = (int)v15;
       else
-        v13 = sub_11E8B4(v19, (uint8_t)v15[1], v13);
+        v13 = crc32_update_msb(v19, (uint8_t)v15[1], v13);
       v17 = (uint16_t)(v17 + -2 - v18);
       v15 = &v19[v18];
     }
@@ -78,7 +78,7 @@ BOOL  sub_119218(int a1, int a2, int a3, int *a4)
     v9 = v24;
   }
   *(uint32_t *)(a2 + 112) = v13;
-  rf_event_dispatch_n1a4(v7, v5, v9, (uint32_t *)a2, a3, *a4);
+  send_acl_packet(v7, v5, v9, (uint32_t *)a2, a3, *a4);
   return *(uint32_t *)(a2 + 112) != v21;
 }
 

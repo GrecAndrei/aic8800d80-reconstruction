@@ -12,8 +12,8 @@
 
 extern uint32_t dword_116570;
 
-// sub_116540 @ 0x116540, size 48 bytes
-int  sub_116540(uint8_t *a1, char a2)
+// conn_table_get @ 0x116540, size 48 bytes
+int  conn_table_get(uint8_t *a1, char a2)
 {
   int v2; // r6
   int v4; // r5
@@ -22,7 +22,7 @@ int  sub_116540(uint8_t *a1, char a2)
   v4 = 696 * (uint8_t)a1[29];
   a1[27] = a2;
   a1[97] = 1;
-  sub_12D108(v4 + 572 + v2);
-  return sub_136A28(a1, v2 + v4);
+  wlan_ioctl_handler_1(v4 + 572 + v2);
+  return lookup_conn_params(a1, v2 + v4);
 }
 

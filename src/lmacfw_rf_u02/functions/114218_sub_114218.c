@@ -13,10 +13,10 @@
 extern uint32_t off_114250;
 extern uint32_t off_114254;
 
-// sub_114218 @ 0x114218, size 54 bytes
+// ke_event_schedule @ 0x114218, size 54 bytes
 // Doc: sub_1214218 [unknown]: Stub helper, shifted mask op after register save
 // sub_1214218 [unknown]: Stub helper, shifted mask op after register save
-int sub_114218()
+int ke_event_schedule()
 {
   int *v0; // r4
   int result; // r0

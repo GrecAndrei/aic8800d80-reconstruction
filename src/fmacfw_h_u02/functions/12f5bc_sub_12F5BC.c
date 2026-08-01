@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12F644;
 
-// sub_12F5BC @ 0x12f5bc, size 134 bytes
-int  sub_12F5BC(uint8_t *a1, int a2)
+// skip_leading_spaces @ 0x12f5bc, size 134 bytes
+int  skip_leading_spaces(uint8_t *a1, int a2)
 {
   int v2; // r4
   uint8_t *v4; // r0
@@ -69,7 +69,7 @@ LABEL_11:
     v2 = v9;
     if ( v9 == 16 )
     {
-      sub_10D674((uint8_t *)dword_12F644);
+      radio_tx_write_string((uint8_t *)dword_12F644);
       return 16;
     }
   }

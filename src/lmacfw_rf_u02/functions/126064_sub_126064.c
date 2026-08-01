@@ -13,8 +13,8 @@
 extern uint32_t off_1260FC;
 extern uint32_t dword_126100;
 
-// sub_126064 @ 0x126064, size 152 bytes
-int  sub_126064(int a1, uint8_t **a2)
+// pkt_buf_clear @ 0x126064, size 152 bytes
+int  pkt_buf_clear(int a1, uint8_t **a2)
 {
   uint16_t v3; // r6
   uint16_t v4; // r7
@@ -29,13 +29,13 @@ int  sub_126064(int a1, uint8_t **a2)
   uint16_t v14; // [sp+12h] [bp-6h]
   uint8_t v15; // [sp+14h] [bp-4h]
 
-  v3 = parse_int(a2[1], 0, 0x10u);
-  v4 = parse_int(a2[2], 0, 0x10u);
-  v5 = parse_int(a2[3], 0, 0x10u);
-  v6 = parse_int(a2[4], 0, 0x10u);
+  v3 = parse_number(a2[1], 0, 0x10u);
+  v4 = parse_number(a2[2], 0, 0x10u);
+  v5 = parse_number(a2[3], 0, 0x10u);
+  v6 = parse_number(a2[4], 0, 0x10u);
   v7 = a2[5];
   v8 = v6;
-  v9 = parse_int(v7, 0, 0x10u);
+  v9 = parse_number(v7, 0, 0x10u);
   sub_100200(&v12, 0, 0xAu);
   v15 = v9;
   v10 = *(uint32_t *)off_1260FC;
@@ -45,8 +45,8 @@ int  sub_126064(int a1, uint8_t **a2)
   v14 = v8;
   if ( (v10 & 0x2000000) == 0 )
   {
-    sub_11488C((int)&v12);
-    msg_parse(dword_126100, v3, v4, v5, v8, v9);
+    send_cmd_short((int)&v12);
+    dispatch_event_handler(dword_126100, v3, v4, v5, v8, v9);
   }
   return 0;
 }

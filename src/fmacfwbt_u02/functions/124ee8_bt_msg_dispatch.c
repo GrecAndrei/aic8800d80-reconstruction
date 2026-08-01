@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// bt_msg_dispatch @ 0x124ee8, size 96 bytes
-// Doc: bt_msg_dispatch [bt]: Dispatch Bluetooth message based on type field compared against 3
-// bt_msg_dispatch [bt]: Dispatch Bluetooth message based on type field compared against 3
-int  bt_msg_dispatch(int a1, uint16_t *a2, int a3, void *a4)
+// dispatch_by_type @ 0x124ee8, size 96 bytes
+// Doc: dispatch_by_type [bt]: Dispatch Bluetooth message based on type field compared against 3
+// dispatch_by_type [bt]: Dispatch Bluetooth message based on type field compared against 3
+int  dispatch_by_type(int a1, uint16_t *a2, int a3, void *a4)
 {
   int v4; // r4
   void *v6; // r1
@@ -28,32 +28,32 @@ int  bt_msg_dispatch(int a1, uint16_t *a2, int a3, void *a4)
   {
     case 0:
       v8 = a3;
-      bt_msg_post(a2 + 2);
+      radio_reg_init(a2 + 2);
       a3 = v8;
       v6 = a4;
       break;
     case 1:
       v10 = a3;
-      sub_124C58((uint8_t *)a2 + 4);
+      ble_store_adv_data((uint8_t *)a2 + 4);
       a3 = v10;
       v6 = a4;
       break;
     case 2:
       v11 = a3;
-      sub_124D70((uint8_t *)a2 + 4);
+      radio_read_config((uint8_t *)a2 + 4);
       a3 = v11;
       v6 = a4;
       break;
     case 3:
       v9 = a3;
-      extract_top_nibble_flag((uint8_t *)a2 + 4, a4);
+      set_cfg_flag((uint8_t *)a2 + 4, a4);
       a3 = v9;
       v6 = a4;
       break;
     default:
       break;
   }
-  message_dispatch_n84(127, v6, a3, a4);
+  hci_evt_alloc_send(127, v6, a3, a4);
   return 0;
 }
 

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_111644;
 
-// sub_111618 @ 0x111618, size 42 bytes
+// rf_select_base @ 0x111618, size 42 bytes
 // Doc: rf_fault_dump_n254 [rf]: Dump RF fault context by copying 12 bytes from fault record to stack
 // rf_fault_dump_n254 [rf]: Dump RF fault context by copying 12 bytes from fault record to stack
-int  sub_111618(int a1, int a2)
+int  rf_select_base(int a1, int a2)
 {
   uint32_t *v2; // r0
   int v4; // r0

@@ -16,8 +16,8 @@ extern uint32_t dword_10E2D0;
 extern uint32_t dword_10E2D4;
 extern uint32_t dword_10E2D8;
 
-// sub_10E21C @ 0x10e21c, size 170 bytes
-float sub_10E21C()
+// sdio_core_init @ 0x10e21c, size 170 bytes
+float sdio_core_init()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r1

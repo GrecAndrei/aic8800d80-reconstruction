@@ -15,8 +15,8 @@ extern uint32_t off_11E420;
 extern uint32_t dword_11E428;
 extern uint32_t dword_11E424;
 
-// sub_11E3BC @ 0x11e3bc, size 98 bytes
-int  sub_11E3BC(int a1, int a2)
+// tx_timestamp_get @ 0x11e3bc, size 98 bytes
+int  tx_timestamp_get(int a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -54,7 +54,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(int16_t **)off_11E420 < 0 && !a2 )
-      return sub_12F630(dword_11E428, dword_11E424, 1119, v2);
+      return ke_int_lock(dword_11E428, dword_11E424, 1119, v2);
     v2 = *(uint16_t *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;

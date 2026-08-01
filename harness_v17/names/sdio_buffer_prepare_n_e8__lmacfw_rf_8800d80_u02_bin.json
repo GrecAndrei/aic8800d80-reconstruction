@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_e8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eacc", "status": "ok", "name": "sdio_buffer_prepare_n_e8", "params": [], "docstring": "Prepares SDIO DMA buffer descriptor from template", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_e8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eacc", "status": "ok", "name": "hash_const_init", "params": [], "docstring": "Prepares SDIO DMA buffer descriptor from template", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

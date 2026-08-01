@@ -18,10 +18,10 @@ extern uint32_t dword_119AE0;
 extern uint32_t dword_119AE4;
 extern uint32_t dword_119AD4;
 
-// sub_1199CC @ 0x1199cc, size 254 bytes
+// ke_alloc_msg_0x88 @ 0x1199cc, size 254 bytes
 // Doc: sub_12199CC [rf]: Allocates 0x88-byte context and initializes RF object
 // sub_12199CC [rf]: Allocates 0x88-byte context and initializes RF object
-int  sub_1199CC(int a1, int *a2, int a3, int a4)
+int  ke_alloc_msg_0x88(int a1, int *a2, int a3, int a4)
 {
   int v5; // r6
   int v6; // r0
@@ -43,7 +43,7 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
   int v22; // r1
 
   v5 = *a2;
-  v6 = rf_setup_dispatch(136, a4, a3, 8);
+  v6 = ke_msg_send(136, a4, a3, 8);
   v7 = v6;
   *(uint32_t *)v6 = v5;
   switch ( v5 )
@@ -53,7 +53,7 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
       *((uint8_t *)off_119ACC + 373) = v8;
       v9 = dword_119AD0;
       *(uint8_t *)(v7 + 4) = v8;
-      msg_parse(v9, v8);
+      dispatch_event_handler(v9, v8);
       goto LABEL_3;
     case 1:
       v13 = off_119ACC;
@@ -65,26 +65,26 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
       {
         if ( v14 )
         {
-          v16 = rf_level_apply_n274(v6);
-          sub_127108(v16);
+          v16 = rf_read_trim(v6);
+          rf_enable(v16);
         }
         else
         {
-          rf_bus_write_n3d6_716c();
+          rf_disable();
         }
         v15 = *((uint8_t *)v13 + 363);
       }
       *(uint8_t *)(v7 + 4) = v15;
-      msg_parse(dword_119AD8, v15);
-      sub_11DE50(v7);
+      dispatch_event_handler(dword_119AD8, v15);
+      rx_irq_handler(v7);
       result = 0;
       break;
     case 2:
       v17 = (uint8_t *)off_119ACC;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_119ACC + 363);
-      *(uint8_t *)(v6 + 5) = sub_126E54();
-      msg_parse(dword_119ADC, v17[363]);
-      sub_11DE50(v7);
+      *(uint8_t *)(v6 + 5) = mac_packet_dispatch();
+      dispatch_event_handler(dword_119ADC, v17[363]);
+      rx_irq_handler(v7);
       result = 0;
       break;
     case 3:
@@ -92,17 +92,17 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
       v19 = off_119ACC;
       v20 = dword_119AE0;
       *((uint32_t *)off_119ACC + 98) = v18;
-      msg_parse(v20, v18);
+      dispatch_event_handler(v20, v18);
       *(uint32_t *)(v7 + 4) = v19[98];
-      sub_11DE50(v7);
+      rx_irq_handler(v7);
       result = 0;
       break;
     case 4:
       v21 = dword_119AE4;
       v22 = *((uint32_t *)off_119ACC + 98);
       *(uint32_t *)(v7 + 4) = v22;
-      msg_parse(v21, v22);
-      sub_11DE50(v7);
+      dispatch_event_handler(v21, v22);
+      rx_irq_handler(v7);
       result = 0;
       break;
     case 5:
@@ -110,13 +110,13 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
       v12 = (a2[2] ^ *((uint32_t *)off_119ACC + 98)) & a2[1] ^ *((uint32_t *)off_119ACC + 98);
       *((uint32_t *)off_119ACC + 98) = v12;
       *(uint32_t *)(v7 + 4) = v12;
-      msg_parse(v11, v12);
-      sub_11DE50(v7);
+      dispatch_event_handler(v11, v12);
+      rx_irq_handler(v7);
       result = 0;
       break;
     default:
 LABEL_3:
-      sub_11DE50(v7);
+      rx_irq_handler(v7);
       result = 0;
       break;
   }

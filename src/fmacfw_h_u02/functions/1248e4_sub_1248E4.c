@@ -21,8 +21,8 @@ extern uint32_t off_1249EC;
 extern uint32_t off_1249E4;
 extern uint32_t dword_1249E8;
 
-// sub_1248E4 @ 0x1248e4, size 240 bytes
-int  sub_1248E4(uint8_t *a1)
+// scan_param_update @ 0x1248e4, size 240 bytes
+int  scan_param_update(uint8_t *a1)
 {
   uint8_t *v1; // r3
   int v2; // r4
@@ -96,7 +96,7 @@ int  sub_1248E4(uint8_t *a1)
         {
           *(uint32_t *)off_1249EC = v15;
         }
-        sub_120368();
+        get_mac_ver();
       }
     }
   }
@@ -105,7 +105,7 @@ int  sub_1248E4(uint8_t *a1)
     v17 = off_1249E4;
     *(uint8_t *)off_1249E4 = a1[24];
   }
-  sub_12E948(dword_1249E8, v7, v17);
-  return sub_12E9D8(a1, 28, 1, 0);
+  alloc_tx_event(dword_1249E8, v7, v17);
+  return process_packet_params(a1, 28, 1, 0);
 }
 

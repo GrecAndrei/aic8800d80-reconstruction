@@ -12,10 +12,10 @@
 
 extern uint32_t off_115628;
 
-// ipc_doorbell_handler_n_3cc @ 0x1155b0, size 118 bytes
+// check_nvic_irq_status @ 0x1155b0, size 118 bytes
 // Doc: ipc_doorbell_handler_n_3be [ipc]: IPC doorbell interrupt handler reading masked status register
 // ipc_doorbell_handler_n_3be [ipc]: IPC doorbell interrupt handler reading masked status register
-int  ipc_doorbell_handler_n_3cc(int a1, int a2)
+int  check_nvic_irq_status(int a1, int a2)
 {
   uint32_t *v2; // r4
   int v3; // r3
@@ -38,17 +38,17 @@ int  ipc_doorbell_handler_n_3cc(int a1, int a2)
     v6 = ipc_doorbell_handler_n_347 & v5;
     if ( (v5 & 0x40000000) != 0 )
     {
-      v9 = rf_bus_reset_n_32e(0);
+      v9 = sub_1145ac(0);
       v10 = rf_state_check_n268;
       *(uint32_t *)rf_state_check_n268 = 0x40000000;
       v2[97] = 16;
       if ( v6 < 0 )
-        rf_fault_dump_n_1ec(v9, 0x40000000, (int)v10);
+        get_global_1671e0(v9, 0x40000000, (int)v10);
       goto ipc_doorbell_handler_n_3a0;
     }
     if ( v6 < 0 )
     {
-      rf_fault_dump_n_1ec(0, a2, v4);
+      get_global_1671e0(0, a2, v4);
       if ( !*((uint8_t *)ipc_doorbell_handler_638 + 3) )
       {
 ipc_doorbell_handler_n_3a0:

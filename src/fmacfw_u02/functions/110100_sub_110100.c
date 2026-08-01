@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_110100 @ 0x110100, size 122 bytes
+// calculate_rf_power @ 0x110100, size 122 bytes
 // Doc: message_dispatch_n72 [ipc]: Dispatches incoming IPC messages by type id (switch on msg id 0xd)
 // message_dispatch_n72 [ipc]: Dispatches incoming IPC messages by type id (switch on msg id 0xd)
-int sub_110100()
+int calculate_rf_power()
 {
   void *v0; // r4
   int v1; // r3
@@ -44,7 +44,7 @@ int sub_110100()
   v8[4] = 1596;
   v8[0] = 124;
   v8[3] = 0;
-  sub_10F924(v2, (int)v7, 0x20u);
-  return fmac_msg_post((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
+  hci_handle_command(v2, (int)v7, 0x20u);
+  return hci_send_command((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
 }
 

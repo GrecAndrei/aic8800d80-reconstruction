@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_123668 @ 0x123668, size 14 bytes
-int  sub_123668(int a1, uint8_t *a2, int a3, int a4)
+// debug_byte_cb @ 0x123668, size 14 bytes
+int  debug_byte_cb(int a1, uint8_t *a2, int a3, int a4)
 {
-  sub_128F58(*a2, a4);
+  wlc_band_set(*a2, a4);
   return 0;
 }
 

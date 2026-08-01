@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_102984 @ 0x102984, size 62 bytes
-int  sub_102984(unsigned int a1)
+// validate_value_range @ 0x102984, size 62 bytes
+int  validate_value_range(unsigned int a1)
 {
   if ( a1 > 0x1666 )
     return 5;

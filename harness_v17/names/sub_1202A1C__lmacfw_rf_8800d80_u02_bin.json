@@ -1,1 +1,1 @@
-{"fn": "sub_1202A1C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1202a1c", "status": "ok", "name": "rf_handler_unkn", "params": [], "docstring": "Unidentified RF helper routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1202A1C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1202a1c", "status": "ok", "name": "check_button", "params": [], "docstring": "Unidentified RF helper routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

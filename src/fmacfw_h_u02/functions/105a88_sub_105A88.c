@@ -51,8 +51,8 @@ extern uint32_t off_1060F4;
 extern uint32_t off_1060F8;
 extern uint32_t off_1062D0;
 
-// sub_105A88 @ 0x105a88, size 2120 bytes
-unsigned int * sub_105A88(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6)
+// phy_read_regs @ 0x105a88, size 2120 bytes
+unsigned int * phy_read_regs(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6)
 {
   uint32_t *v6; // lr
   unsigned int *v7; // r4
@@ -255,7 +255,7 @@ LABEL_3:
   *(uint32_t *)off_105D68 = *(uint32_t *)off_105D68 & 0xFFFE00FF | 0x100;
   *v19 |= 0x20000u;
   *v19 |= 0x40000u;
-  sub_12EB90(1, v20);
+  check_feature_flag(1, v20);
   v34 = off_105D74;
   v24 = off_105D7C;
   v25 = *(uint32_t *)off_105D78;
@@ -349,9 +349,9 @@ LABEL_3:
   v40 -= 465770;
   *(uint32_t *)&v39[-28] |= 0x400000u;
   *v40 &= ~0x100u;
-  sub_103B54();
-  sub_12EB90(1, dword_1060C0);
-  sub_1009DC(dword_1060C4 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_1060C4);
+  rf_clear_ana_bits();
+  check_feature_flag(1, dword_1060C0);
+  sdio_irq_mask_enable(dword_1060C4 + 1264 * a5 + 16, 1264 * a5 + 1168 + dword_1060C4);
   *v40 &= ~0x200u;
   *v40 |= 0x200u;
   *v40 &= ~0x200u;
@@ -394,26 +394,26 @@ LABEL_3:
   v48 = (unsigned int *)off_1060C8;
   v49 = (unsigned int *)off_1060D0;
   v50 = (unsigned int *)off_1060B0;
-  sub_12EB90(1, dword_1060CC);
-  sub_103F14(a2, v47, a6);
+  check_feature_flag(1, dword_1060CC);
+  mul3(a2, v47, a6);
   v51 = (unsigned int *)off_1060D8;
-  sub_12EB90(1, dword_1060D4);
+  check_feature_flag(1, dword_1060D4);
   *v48 = v45 | v46 | (a4 << 8) | 0x3F4080;
-  sub_104080();
+  bt_radio_init();
   v52 = (unsigned int *)off_1060E0;
   v53 = (unsigned int *)off_1060B4;
   v54 = (unsigned int *)off_1060BC;
-  sub_12EB90(1, dword_1060DC);
+  check_feature_flag(1, dword_1060DC);
   v55 = off_1060E4;
   *v49 &= ~0x200u;
   *v49 |= 0x200u;
   *v49 &= ~0x200u;
   *v55 |= 0x10000000u;
-  sub_100644(6500);
-  sub_1043C8();
+  mmio_read32(6500);
+  mac_config_and_start();
   *v51 = *v51 & 0xFFBFFFFF | (v113 << 22);
   *v51 = *v51 & 0xFFDFFFFF | (v112 << 21);
-  sub_104180();
+  rf_disable();
   v56 = (unsigned int *)off_1060E8;
   v57 = (unsigned int *)off_1060F0;
   v58 = (unsigned int *)off_1060EC;

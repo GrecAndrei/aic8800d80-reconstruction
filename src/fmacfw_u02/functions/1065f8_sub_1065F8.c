@@ -66,8 +66,8 @@ extern uint32_t off_106DF4;
 extern uint32_t off_106DF8;
 extern uint32_t off_106E0C;
 
-// sub_1065F8 @ 0x1065f8, size 2988 bytes
-int  sub_1065F8(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8)
+// rf_phy_regs_read_cal @ 0x1065f8, size 2988 bytes
+int  rf_phy_regs_read_cal(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8)
 {
   uint32_t *v8; // r9
   unsigned int *v9; // r8
@@ -362,8 +362,8 @@ int  sub_1065F8(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
   *v33 |= 0x800000u;
   *v33 |= 0x400000u;
   *v32 &= ~0x100u;
-  crypto_hw_clk_toggle_3c6c();
-  crypto_hw_reset_seq_4198();
+  clear_chip_ctrl_clk();
+  mac_hw_init();
   v34 = off_106AB0;
   *(uint32_t *)off_106AAC |= 0x10000000u;
   *v34 |= 0x18000000u;
@@ -418,11 +418,11 @@ int  sub_1065F8(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v64 = (*(uint32_t *)off_107090 >> 8) & 0xF;
       v65 = (v160 << 8) + dword_1070A0;
       v163 = v65;
-      feature_guard_check(1, dword_1070A4);
+      check_status_bits(1, dword_1070A4);
       *(uint32_t *)(a2 + 140) = *(uint32_t *)(a2 + 152);
-      sub_1064BC(a2, 0);
+      memcpy_from_rodata(a2, 0);
       v66 = 0;
-      feature_guard_check(1, dword_1070A8);
+      check_status_bits(1, dword_1070A8);
       v152 = v62;
       v67 = v64;
       v68 = v65 + 16 * v64;
@@ -436,7 +436,7 @@ int  sub_1065F8(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       v73 = 2 * v67;
       do
       {
-        crypto_hw_enable_2ca8(1);
+        set_wakeup_trigger(1);
         if ( a7 == v152 )
         {
           *v69 = *v69 & v153 | ((v159 & v66) << v86);
@@ -448,11 +448,11 @@ int  sub_1065F8(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
           *v69 |= (v151 & v66) << v86;
           *v70 |= (v66 >> v149) & v155;
         }
-        sub_102D0C(1);
-        sub_1050C0(*a3, a2, v72, 0);
-        feature_guard_check(1, dword_1070AC);
-        feature_guard_check(1, dword_1070B4);
-        feature_guard_check(1, dword_1070BC);
+        set_wakeup_polarity(1);
+        mac_reset_disable(*a3, a2, v72, 0);
+        check_status_bits(1, dword_1070AC);
+        check_status_bits(1, dword_1070B4);
+        check_status_bits(1, dword_1070BC);
         if ( *(int16_t *)(a2 + v73) > v71 )
         {
           v71 = *(int16_t *)(a2 + v73);
@@ -472,8 +472,8 @@ int  sub_1065F8(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
           v77 = 3;
         v158 = v77;
       }
-      feature_guard_check(1, dword_1070C4);
-      crypto_hw_enable_2ca8(1);
+      check_status_bits(1, dword_1070C4);
+      set_wakeup_trigger(1);
       v78 = v86;
       v87 = (v158 >> v149) & v155;
       v79 = (v151 & v158) << v78;
@@ -509,9 +509,9 @@ int  sub_1065F8(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, in
       }
       while ( v82 != v81 );
 LABEL_58:
-      sub_102D0C(1);
-      feature_guard_check(1, dword_1071A8);
-      feature_guard_check(1, dword_1071B0);
+      set_wakeup_polarity(1);
+      check_status_bits(1, dword_1071A8);
+      check_status_bits(1, dword_1071B0);
     }
     goto LABEL_28;
   }
@@ -523,9 +523,9 @@ LABEL_58:
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
     v75 = *v74;
-    sub_1064BC(a2, 0);
-    feature_guard_check(1, dword_1070C0);
-    sub_1050C0(*a3, a2, (v75 >> 8) & 0xF, 0);
+    memcpy_from_rodata(a2, 0);
+    check_status_bits(1, dword_1070C0);
+    mac_reset_disable(*a3, a2, (v75 >> 8) & 0xF, 0);
     goto LABEL_28;
   }
   *(uint64_t *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
@@ -553,17 +553,17 @@ LABEL_19:
     *(uint32_t *)(a2 + 164) = v38;
     *v36 = v36[3];
     ++v36;
-    crypto_rate_ctrl(a1, v37, a5, a2, a6);
+    timer_elapsed_compare(a1, v37, a5, a2, a6);
     *v32 &= ~0x200u;
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
-    sub_1064BC(a2, v20);
+    memcpy_from_rodata(a2, v20);
     v39 = v35[1];
     ++v35;
-    sub_1050C0(v39, a2, v37, v20);
+    mac_reset_disable(v39, a2, v37, v20);
     v40 = v20;
     v41 = *(uint16_t *)(a2 + 2 * (v37 + 16 * v20++));
-    sub_106568(a2, v41, v40);
+    runtime_helper_div(a2, v41, v40);
   }
   while ( v20 != 3 );
   v42 = *(uint32_t *)(a2 + 132);
@@ -575,16 +575,16 @@ LABEL_19:
     {
       while ( 1 )
       {
-        crypto_rate_ctrl(a1, v42, a5, a2, a6);
+        timer_elapsed_compare(a1, v42, a5, a2, a6);
         v45 = *(uint32_t *)(a2 + 124);
         *v43 &= ~0x200u;
         *v43 |= 0x200u;
         *v43 &= ~0x200u;
         if ( v45 < v42 )
           break;
-        sub_1064BC(a2, 2);
-        feature_guard_check(1, v44);
-        sub_1050C0(a3[2], a2, v42, 2);
+        memcpy_from_rodata(a2, 2);
+        check_status_bits(1, v44);
+        mac_reset_disable(a3[2], a2, v42, 2);
         if ( *(uint32_t *)(a2 + 124) <= v42 )
           break;
 LABEL_26:
@@ -595,15 +595,15 @@ LABEL_26:
       }
       if ( *(uint32_t *)(a2 + 120) >= v42 )
       {
-        sub_1064BC(a2, 1);
-        feature_guard_check(1, v44);
-        sub_1050C0(a3[1], a2, v42, 1);
+        memcpy_from_rodata(a2, 1);
+        check_status_bits(1, v44);
+        mac_reset_disable(a3[1], a2, v42, 1);
         goto LABEL_26;
       }
 LABEL_23:
-      sub_1064BC(a2, 0);
-      feature_guard_check(1, v44);
-      sub_1050C0(*a3, a2, v42++, 0);
+      memcpy_from_rodata(a2, 0);
+      check_status_bits(1, v44);
+      mac_reset_disable(*a3, a2, v42++, 0);
     }
     while ( *(uint32_t *)(a2 + 112) >= v42 );
   }
@@ -615,7 +615,7 @@ LABEL_28:
   v50 = off_106DFC;
   *(uint32_t *)off_106DD8 = *(uint32_t *)off_106DD8 & 0xFFBFFFFF | (v148 << 22);
   *v46 = *v46 & 0xFFDFFFFF | (v147 << 21);
-  sub_104298();
+  mac_irq_disable();
   v51 = off_106DE0;
   v52 = (unsigned int *)off_106DE4;
   v53 = (unsigned int *)off_106E08;

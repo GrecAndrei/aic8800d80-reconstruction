@@ -16,10 +16,10 @@ extern uint32_t off_100FA0;
 extern uint32_t off_100F94;
 extern uint32_t off_100FA4;
 
-// mmio_regs_poll_1200ee8 @ 0x100ee8, size 172 bytes
-// Doc: mmio_regs_poll_1200ee8 [mmio]: Poll MMIO registers and dispatch on byte flag
-// mmio_regs_poll_1200ee8 [mmio]: Poll MMIO registers and dispatch on byte flag
-uint32_t *mmio_regs_poll_1200ee8()
+// rng_read_alt @ 0x100ee8, size 172 bytes
+// Doc: rng_read_alt [mmio]: Poll MMIO registers and dispatch on byte flag
+// rng_read_alt [mmio]: Poll MMIO registers and dispatch on byte flag
+uint32_t *rng_read_alt()
 {
   unsigned int *v0; // r3
   uint32_t *v1; // r1

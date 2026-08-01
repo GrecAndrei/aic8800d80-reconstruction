@@ -14,10 +14,10 @@ extern uint32_t off_107D30;
 extern uint32_t off_107D34;
 extern uint32_t off_107D38;
 
-// irq_or_flag_clear @ 0x107cc8, size 104 bytes
-// Doc: irq_or_flag_clear [util]: Clears bit 0 in a flag register and invokes a callback.
-// irq_or_flag_clear [util]: Clears bit 0 in a flag register and invokes a callback.
-int irq_or_flag_clear()
+// rf_irq_clear_b @ 0x107cc8, size 104 bytes
+// Doc: rf_irq_clear_b [util]: Clears bit 0 in a flag register and invokes a callback.
+// rf_irq_clear_b [util]: Clears bit 0 in a flag register and invokes a callback.
+int rf_irq_clear_b()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
@@ -26,13 +26,13 @@ int irq_or_flag_clear()
   int v4; // r3
 
   v0 = off_107D30;
-  sub_107370();
+  rf_set_frequency();
   *v0 &= ~1u;
-  delay_us(1);
+  timer_set(1);
   v1 = off_107D34;
   *(uint32_t *)off_107D34 = *(uint32_t *)off_107D34 & 0xCFFFFFFF | 0x10000000;
   *v1 |= 0x40000000u;
-  result = delay_us(1);
+  result = timer_set(1);
   v3 = off_107D38;
   *v0 |= 1u;
   *v0 |= 1u;

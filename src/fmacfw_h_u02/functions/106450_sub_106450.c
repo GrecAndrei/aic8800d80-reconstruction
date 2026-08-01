@@ -15,8 +15,8 @@ extern uint32_t dword_1064DC;
 extern uint32_t dword_1064D0;
 extern uint32_t dword_1064D4;
 
-// sub_106450 @ 0x106450, size 124 bytes
-int  sub_106450(int a1, int a2, int a3)
+// init_callbacks @ 0x106450, size 124 bytes
+int  init_callbacks(int a1, int a2, int a3)
 {
   uint64_t v5; // r0
   int v6; // r0
@@ -27,27 +27,27 @@ int  sub_106450(int a1, int a2, int a3)
   uint64_t v11; // kr00_8
   int v12; // r5
 
-  v5 = sub_142894(a2);
-  v6 = sub_142BBC(v5, HIDWORD(v5), dword_1064D8, dword_1064DC);
+  v5 = signed_int_to_double(a2);
+  v6 = double_compare_core(v5, HIDWORD(v5), dword_1064D8, dword_1064DC);
   v7 = a1 + 4 * a3;
-  v8 = sub_142F2C(v6);
+  v8 = double_to_int(v6);
   v9 = *(uint32_t *)(v7 + 140);
-  v10 = COERCE_FLOAT(sub_12D5A0(v8));
+  v10 = COERCE_FLOAT(log_float_converted(v8));
   v11 = *(uint64_t *)(a1 + 164);
   v12 = (int)(float)(v10 * 20.0);
   if ( SHIDWORD(v11) < v12 )
   {
-    sub_12EB90(1, dword_1064D0);
+    check_feature_flag(1, dword_1064D0);
     if ( *(uint32_t *)(a1 + 172) <= v12 )
       goto LABEL_3;
 LABEL_5:
-    sub_12EB90(1, dword_1064D4);
+    check_feature_flag(1, dword_1064D4);
     goto LABEL_3;
   }
   if ( *(uint32_t *)(a1 + 172) > v12 )
     goto LABEL_5;
 LABEL_3:
   *(uint32_t *)(v7 + 140) = v9 + v11 - v12;
-  return sub_1063A4(a1, a3);
+  return load_const_table(a1, a3);
 }
 

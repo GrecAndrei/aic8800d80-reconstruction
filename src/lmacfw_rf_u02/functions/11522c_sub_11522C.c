@@ -18,8 +18,8 @@ extern uint32_t dword_1152C0;
 extern uint32_t dword_1152C4;
 extern uint32_t off_1152C8;
 
-// sub_11522C @ 0x11522c, size 132 bytes
-int sub_11522C()
+// read_sensor_value @ 0x11522c, size 132 bytes
+int read_sensor_value()
 {
   int **v0; // r5
   uint32_t *v1; // r6
@@ -30,14 +30,14 @@ int sub_11522C()
   int result; // r0
 
   v0 = (int **)off_1152B4;
-  sub_11E71C(dword_1152B0);
+  list_init(dword_1152B0);
   if ( **(int16_t **)off_1152B8 < 0 )
   {
     v2 = *v0;
     v1 = off_1152BC;
     if ( !*v0 || !*(uint32_t *)off_1152BC )
     {
-      sub_1219C4(dword_1152C0, dword_1152C4, 90);
+      flash_ctrl_init(dword_1152C0, dword_1152C4, 90);
       v2 = *v0;
     }
   }
@@ -53,7 +53,7 @@ int sub_11522C()
   do
   {
     (*v0)[11 * v5 + 8] = *v1 + 76 * v5;
-    result = sub_11E724(v4);
+    result = check_kernel_state(v4);
     ++v5;
   }
   while ( *(uint16_t *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );

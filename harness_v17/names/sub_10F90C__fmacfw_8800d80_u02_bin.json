@@ -1,0 +1,1 @@
+{"fn": "sub_10F90C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10f90c", "status": "ok", "name": "sys_command_40d", "params": [], "docstring": "Issues system command 0x40d via sub_12c92c then tail-calls sub_12c98c.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -15,10 +15,10 @@ extern uint32_t dword_128118;
 extern uint32_t dword_12810C;
 extern uint32_t dword_128110;
 
-// fmac_handler_dispatch @ 0x127f3c, size 464 bytes
-// Doc: fmac_handler_dispatch [mac]: FMAC handler dispatch with extended register save and global pointer load
-// fmac_handler_dispatch [mac]: FMAC handler dispatch with extended register save and global pointer load
-BOOL  fmac_handler_dispatch(int a1, int a2, int a3)
+// rx_dispatch_frame @ 0x127f3c, size 464 bytes
+// Doc: rx_dispatch_frame [mac]: FMAC handler dispatch with extended register save and global pointer load
+// rx_dispatch_frame [mac]: FMAC handler dispatch with extended register save and global pointer load
+BOOL  rx_dispatch_frame(int a1, int a2, int a3)
 {
   uint8_t *v3; // r11
   int *v4; // r4
@@ -61,8 +61,8 @@ LABEL_10:
       v12 = *((uint8_t *)v4 + 8);
       if ( v12 == *(uint8_t *)(a1 + 107) )
       {
-        msg_parse(v11, v12, v9);
-        sub_12D2E8(v3 + 16, v4);
+        event_dispatch(v11, v12, v9);
+        cmd_handler_c(v3 + 16, v4);
         *((uint8_t *)v4 + 9) &= ~1u;
       }
       v4 = (int *)*v4;
@@ -84,7 +84,7 @@ LABEL_10:
 LABEL_13:
   if ( *(uint8_t *)(a1 + 86) != 255 )
   {
-    sub_127958(a1, a2);
+    sta_get_flags(a1, a2);
     if ( v13 )
       goto LABEL_31;
     goto LABEL_25;
@@ -121,7 +121,7 @@ LABEL_19:
   v17 = *(uint8_t *)(a1 + 85);
   if ( (v17 & 0x10) != 0 )
   {
-    sub_125E78((uint32_t *)a1);
+    lld_evt_schedule((uint32_t *)a1);
     *(uint8_t *)(a1 + 85) &= ~0x10u;
     if ( v13 )
       goto LABEL_31;
@@ -129,7 +129,7 @@ LABEL_25:
     if ( !*(uint8_t *)(a1 + 1224) || *(uint8_t *)(dword_12810C + 140 * *(uint8_t *)(a1 + 1225) + 112) != 1 )
     {
 LABEL_26:
-      sub_12D2E8(dword_128110, a1 + 76);
+      cmd_handler_c(dword_128110, a1 + 76);
       v19 = *(uint8_t *)(a1 + 85) & 0xFE;
 LABEL_27:
       *(uint8_t *)(a1 + 85) = v19 | 2;
@@ -137,7 +137,7 @@ LABEL_27:
       return v10 != v21;
     }
 LABEL_36:
-    sub_126584(a1, a3, 0);
+    llm_scan_sm_execute(a1, a3, 0);
     v19 = *(uint8_t *)(a1 + 85) | 8;
     goto LABEL_27;
   }
@@ -147,7 +147,7 @@ LABEL_36:
       goto LABEL_18;
     goto LABEL_36;
   }
-  sub_1278C8(a1);
+  ke_process_event(a1);
   if ( !v13 )
     goto LABEL_25;
 LABEL_31:

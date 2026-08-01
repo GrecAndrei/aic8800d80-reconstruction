@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_35e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121169e", "status": "ok", "name": "rf_bus_reset2_n_35e", "params": [], "docstring": "Reset RF control bus (variant 2, division-based timing)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_35e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121169e", "status": "ok", "name": "rf_bus_reset2_n_35d", "params": [], "docstring": "Reset RF control bus (variant 2, division-based timing)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

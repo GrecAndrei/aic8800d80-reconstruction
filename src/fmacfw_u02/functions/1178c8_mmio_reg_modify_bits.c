@@ -15,10 +15,10 @@ extern uint32_t off_117914;
 extern uint32_t off_117920;
 extern uint32_t off_11791C;
 
-// mmio_reg_modify_bits @ 0x1178c8, size 76 bytes
-// Doc: mmio_reg_modify_bits [mmio]: Read-modify-write MMIO register using mask 0xf0001f
-// mmio_reg_modify_bits [mmio]: Read-modify-write MMIO register using mask 0xf0001f
-unsigned int mmio_reg_modify_bits()
+// core_rev_read @ 0x1178c8, size 76 bytes
+// Doc: core_rev_read [mmio]: Read-modify-write MMIO register using mask 0xf0001f
+// core_rev_read [mmio]: Read-modify-write MMIO register using mask 0xf0001f
+unsigned int core_rev_read()
 {
   int v0; // r4
   unsigned int result; // r0
@@ -31,11 +31,11 @@ unsigned int mmio_reg_modify_bits()
       v0 |= 0x1000u;
       *((uint32_t *)off_117920 + 52) |= 4u;
     }
-    sub_11C2F4();
+    enable_radio_clock();
   }
   result = v0 & 0xF00000;
   if ( (v0 & 0xF00000) != 0 )
-    result = sub_11AC74((uint8_t)(11 - __clz(result)));
+    result = dispatch_command((uint8_t)(11 - __clz(result)));
   *(uint32_t *)off_11791C = v0;
   return result;
 }

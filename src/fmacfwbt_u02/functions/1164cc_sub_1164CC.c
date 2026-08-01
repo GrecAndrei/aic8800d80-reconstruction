@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1164CC @ 0x1164cc, size 18 bytes
-uint32_t * sub_1164CC(int a1)
+// release_buffer @ 0x1164cc, size 18 bytes
+uint32_t * release_buffer(int a1)
 {
   uint32_t *result; // r0
 
   result = *(uint32_t **)(a1 + 72);
   if ( result )
   {
-    result = (uint32_t *)log_free_dispatch_2(result);
+    result = (uint32_t *)memory_pool_free(result);
     *(uint32_t *)(a1 + 72) = 0;
   }
   return result;

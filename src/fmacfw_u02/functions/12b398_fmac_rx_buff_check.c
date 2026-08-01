@@ -16,10 +16,10 @@ extern uint32_t off_12B4DC;
 extern uint32_t off_12B4E0;
 extern uint32_t dword_12B4D8;
 
-// fmac_rx_buff_check @ 0x12b398, size 312 bytes
-// Doc: fmac_rx_buff_check [rx]: Check RX buffer descriptors/indices in fmac
-// fmac_rx_buff_check [rx]: Check RX buffer descriptors/indices in fmac
-void fmac_rx_buff_check()
+// controller_read_features @ 0x12b398, size 312 bytes
+// Doc: controller_read_features [rx]: Check RX buffer descriptors/indices in fmac
+// controller_read_features [rx]: Check RX buffer descriptors/indices in fmac
+void controller_read_features()
 {
   int v0; // r5
   char *v1; // r6
@@ -64,7 +64,7 @@ void fmac_rx_buff_check()
         if ( *(uint8_t *)(v0 + 369) )
           v3 = 1;
       }
-      v4 = sub_118C44(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
+      v4 = ke_mutex_guard(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
       v5 = v1;
       v6 = v4;
       if ( !v4 )
@@ -113,7 +113,7 @@ void fmac_rx_buff_check()
       *(uint32_t *)(v6 + 92) = 0;
       *(uint8_t *)(v6 + 28) = *(uint8_t *)(v0 + 366);
       *(uint8_t *)(v6 + 29) = -1;
-      rf_param_get_status(v6, 5);
+      tx_path_status(v6, 5);
       ++v2;
       v1 += 33;
     }

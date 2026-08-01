@@ -14,8 +14,8 @@ extern uint32_t off_12462C;
 extern uint32_t off_124630;
 extern uint32_t off_124634;
 
-// sub_1245F0 @ 0x1245f0, size 60 bytes
-int sub_1245F0()
+// ke_start_event_80 @ 0x1245f0, size 60 bytes
+int ke_start_event_80()
 {
   uint16_t *v0; // r4
   int result; // r0
@@ -25,15 +25,15 @@ int sub_1245F0()
   if ( *(uint8_t *)off_12462C )
   {
     v0 = off_124630;
-    result = sub_1242F0(0x80u);
+    result = ke_handle_message(0x80u);
     v2 = (uint16_t)(*v0 + 1);
     *v0 = v2;
     if ( v2 == 10 )
     {
-      sub_12646C(1);
+      rf_set_flag(1);
       v3 = *(uint32_t *)off_124634 + 39936;
       *v0 = 0;
-      return sub_1264DC(v3 + 64);
+      return mmio_write_register(v3 + 64);
     }
   }
   return result;

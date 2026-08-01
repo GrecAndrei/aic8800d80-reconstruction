@@ -24,8 +24,8 @@ extern uint32_t dword_107280;
 extern uint32_t off_107284;
 extern uint32_t off_107288;
 
-// sub_107084 @ 0x107084, size 468 bytes
-int *sub_107084()
+// mmio_set_bits @ 0x107084, size 468 bytes
+int *mmio_set_bits()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r6
@@ -45,7 +45,7 @@ int *sub_107084()
   v1 = off_107260;
   v2 = (unsigned int *)off_107264;
   *v0 &= ~0x20000u;
-  sub_100644(2);
+  mmio_read32(2);
   v3 = off_107268;
   v4 = dword_10726C;
   *v0 |= 0x10000u;
@@ -62,7 +62,7 @@ int *sub_107084()
   *v3 |= 0x10000000u;
   *v3 = *v3 & 0xFC000FFF | 0x666000;
   *v3 = *v3 & 0xFFFFF000 | 0xC0;
-  sub_100644(10);
+  mmio_read32(10);
   v6 = (unsigned int *)off_107274;
   v7 = off_107278;
   result = (int *)off_10727C;

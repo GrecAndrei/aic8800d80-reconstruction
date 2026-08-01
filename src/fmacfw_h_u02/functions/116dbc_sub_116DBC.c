@@ -12,15 +12,15 @@
 
 extern uint32_t off_116DF0;
 
-// sub_116DBC @ 0x116dbc, size 52 bytes
-BOOL  sub_116DBC(int a1)
+// phy_lock @ 0x116dbc, size 52 bytes
+BOOL  phy_lock(int a1)
 {
   if ( *((uint8_t *)off_116DF0 + 510) )
     return 0;
-  if ( !sub_1283E0() )
+  if ( !cfm_call_ops() )
     return 0;
   if ( *(uint8_t *)(a1 + 1224) )
-    return sub_129FEC(*(uint8_t *)(a1 + 1225)) != 0;
+    return bt_get_conn_channel(*(uint8_t *)(a1 + 1225)) != 0;
   return 1;
 }
 

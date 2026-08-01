@@ -15,10 +15,10 @@ extern uint32_t off_12F460;
 extern uint32_t dword_12F464;
 extern uint32_t off_12F468;
 
-// fmac_phy_op_handler @ 0x12f408, size 82 bytes
-// Doc: fmac_phy_op_handler [mac]: PHY operation dispatcher (unknown purpose)
-// fmac_phy_op_handler [mac]: PHY operation dispatcher (unknown purpose)
-int  fmac_phy_op_handler(int a1, int a2, int a3)
+// bad_func_0x12f408 @ 0x12f408, size 82 bytes
+// Doc: bad_func_0x12f408 [mac]: PHY operation dispatcher (unknown purpose)
+// bad_func_0x12f408 [mac]: PHY operation dispatcher (unknown purpose)
+int  bad_func_0x12f408(int a1, int a2, int a3)
 {
   int *v4; // r4
   int v5; // r0
@@ -34,11 +34,11 @@ int  fmac_phy_op_handler(int a1, int a2, int a3)
   v4 = (int *)off_12F460;
   v5 = dword_12F464;
   ++*(uint32_t *)off_12F460;
-  result = msg_parse(v5, a1, a2, a3 & 0xFFFFF);
+  result = event_dispatch(v5, a1, a2, a3 & 0xFFFFF);
   if ( *(int *)off_12F468 >= 0 )
   {
-    sub_12BB20();
-    result = irq_nesting_or_d104(0x80000000);
+    mmio_clear_irqs();
+    result = unknown_func_12d104(0x80000000);
   }
   if ( *v4 )
   {

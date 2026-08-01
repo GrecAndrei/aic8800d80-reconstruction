@@ -1,0 +1,1 @@
+{"fn": "sub_11A2B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11a2b4", "status": "ok", "name": "llc_tx_process", "params": [], "docstring": "Initialize LLC env and walk TX descriptor tables", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

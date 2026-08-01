@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1239B4 @ 0x1239b4, size 32 bytes
-int  sub_1239B4(int a1, uint8_t *a2, int a3, int a4)
+// output_byte_cr @ 0x1239b4, size 32 bytes
+int  output_byte_cr(int a1, uint8_t *a2, int a3, int a4)
 {
   int v4; // r3
 
-  sub_121FB8(*a2);
-  sub_12CC38(13, a4, a3, v4);
+  phy_txpower_calc(*a2);
+  hci_evt_alloc_send(13, a4, a3, v4);
   return 0;
 }
 

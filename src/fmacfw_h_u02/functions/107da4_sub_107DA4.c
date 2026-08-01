@@ -13,8 +13,8 @@
 extern uint32_t dword_107E10;
 extern uint32_t dword_107E0C;
 
-// sub_107DA4 @ 0x107da4, size 104 bytes
-int * sub_107DA4(int *a1)
+// div3_signed_helper @ 0x107da4, size 104 bytes
+int * div3_signed_helper(int *a1)
 {
   int v1; // r2
   int v2; // r7

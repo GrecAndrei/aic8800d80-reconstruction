@@ -1,1 +1,1 @@
-{"fn": "sub_12210B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12210b4", "status": "ok", "name": "ipc_doorbell_handler_n_3d6", "params": [], "docstring": "IPC doorbell interrupt handler variant 3d6", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12210B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12210b4", "status": "ok", "name": "radio_is_ready", "params": [], "docstring": "IPC doorbell interrupt handler variant 3d6", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

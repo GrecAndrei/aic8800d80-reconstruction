@@ -21,8 +21,8 @@ extern uint32_t off_129388;
 extern uint32_t off_129390;
 extern uint32_t off_12938C;
 
-// sub_1292D4 @ 0x1292d4, size 150 bytes
-void  sub_1292D4(int a1)
+// wlc_is_ready @ 0x1292d4, size 150 bytes
+void  wlc_is_ready(int a1)
 {
   uint8_t *v1; // r2
   int v2; // r3
@@ -46,7 +46,7 @@ void  sub_1292D4(int a1)
           v5 = *(uint16_t *)(*(uint32_t *)off_129378 + 54);
           *((uint32_t *)off_12936C + 5) = v3;
           v1[29] = 3;
-          timestamp_update((int)(v1 + 12), v4 + v5);
+          unknown_worker((int)(v1 + 12), v4 + v5);
           if ( (*(uint32_t *)off_129380 & 4) != 0 )
           {
             if ( *((uint8_t *)off_129384 + 190) )
@@ -59,7 +59,7 @@ void  sub_1292D4(int a1)
                 *v6 &= ~0x80u;
               }
             }
-            sub_128EA0();
+            wlc_core_state();
           }
         }
       }

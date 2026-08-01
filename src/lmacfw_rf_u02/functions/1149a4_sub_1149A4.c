@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1149A4 @ 0x1149a4, size 10 bytes
-int  sub_1149A4(int a1)
+// hci_tx_packet @ 0x1149a4, size 10 bytes
+int  hci_tx_packet(int a1)
 {
-  return rf_chan_configure(1, a1, 0x40u);
+  return hci_tx_data(1, a1, 0x40u);
 }
 

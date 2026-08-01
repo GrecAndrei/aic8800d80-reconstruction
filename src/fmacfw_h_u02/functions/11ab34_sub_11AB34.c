@@ -20,8 +20,8 @@ extern uint32_t dword_11ACE8;
 extern uint32_t dword_11ACEC;
 extern uint32_t off_11ACD8;
 
-// sub_11AB34 @ 0x11ab34, size 406 bytes
-int  sub_11AB34(int result)
+// rf_command_handler @ 0x11ab34, size 406 bytes
+int  rf_command_handler(int result)
 {
   uint32_t *v1; // r5
   int16_t **v2; // r6
@@ -54,7 +54,7 @@ int  sub_11AB34(int result)
   v2 = (int16_t **)off_11ACD0;
   v3 = (uint32_t *)v1[3];
   if ( **(int16_t **)off_11ACD0 < 0 && !v3 )
-    result = sub_12F32C(dword_11ACE0, dword_11ACDC, 3166);
+    result = irq_disable_mmio_write(dword_11ACE0, dword_11ACDC, 3166);
   while ( 1 )
   {
     v4 = v3[9];
@@ -86,7 +86,7 @@ LABEL_10:
   }
   else
   {
-    sub_12F32C(dword_11ACE8, dword_11ACDC, 3182);
+    irq_disable_mmio_write(dword_11ACE8, dword_11ACDC, 3182);
     v6 = v3[17];
     v5 = **v2;
     v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11ACD4 + 82));
@@ -97,7 +97,7 @@ LABEL_10:
   v9 = v7[9];
   if ( (v9 & 0x380000) == 0x380000 )
   {
-    sub_12F32C(dword_11ACEC, dword_11ACDC, 3192);
+    irq_disable_mmio_write(dword_11ACEC, dword_11ACDC, 3192);
     v9 = v7[9];
   }
   v5 = **v2;
@@ -127,9 +127,9 @@ LABEL_11:
       goto LABEL_13;
   }
   if ( !v14 )
-    sub_12F32C(dword_11ACE0, dword_11ACDC, 3217);
+    irq_disable_mmio_write(dword_11ACE0, dword_11ACDC, 3217);
 LABEL_13:
-  result = sub_11A800(v14, (int)&v18);
+  result = rx_packet_parse(v14, (int)&v18);
   if ( !result )
     return result;
   v16 = *v10;

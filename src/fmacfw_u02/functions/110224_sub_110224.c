@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_110224 @ 0x110224, size 72 bytes
+// get_modulation_type @ 0x110224, size 72 bytes
 // Doc: log_free_dispatch_n23e [util]: Dispatch free log entries to consumers
 // log_free_dispatch_n23e [util]: Dispatch free log entries to consumers
-int sub_110224()
+int get_modulation_type()
 {
   void *v0; // r8
   int result; // r0
@@ -24,7 +24,7 @@ int sub_110224()
   unsigned int v6; // r1
 
   v0 = log_free_dispatch_n270_0278;
-  result = sub_12D240(log_free_dispatch_n264);
+  result = zero_8_bytes(log_free_dispatch_n264);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = log_free_dispatch_n268_0270;
@@ -33,8 +33,8 @@ int sub_110224()
     v5 = 0;
     do
     {
-      sub_10FB28(v3, 0x6B8u);
-      result = list_push_tail(v4);
+      rx_packet_handler(v3, 0x6B8u);
+      result = cmd_handler_a(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;

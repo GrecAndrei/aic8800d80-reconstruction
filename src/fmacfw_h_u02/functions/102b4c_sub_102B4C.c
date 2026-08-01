@@ -21,8 +21,8 @@ extern uint32_t off_102BEC;
 extern uint32_t off_102BF0;
 extern uint32_t off_102BF4;
 
-// sub_102B4C @ 0x102b4c, size 132 bytes
-int sub_102B4C()
+// patch_interrupt_vector @ 0x102b4c, size 132 bytes
+int patch_interrupt_vector()
 {
   uint32_t *v0; // r2
   uint8_t *v1; // r3

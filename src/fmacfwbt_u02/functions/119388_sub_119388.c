@@ -16,10 +16,10 @@ extern uint32_t off_1194BC;
 extern uint32_t dword_1194C4;
 extern uint32_t dword_1194C0;
 
-// sub_119388 @ 0x119388, size 304 bytes
+// ble_acl_handle @ 0x119388, size 304 bytes
 // Doc: sub_1219388 [unknown]: Unknown micro-flow helper at 0x1219388
 // sub_1219388 [unknown]: Unknown micro-flow helper at 0x1219388
-int  sub_119388(int a1, int16_t a2, int a3, int a4)
+int  ble_acl_handle(int a1, int16_t a2, int a3, int a4)
 {
   int v4; // r11
   int v5; // r4
@@ -46,24 +46,24 @@ int  sub_119388(int a1, int16_t a2, int a3, int a4)
     if ( **(int16_t **)off_1194BC >= 0 )
     {
 LABEL_10:
-      v13 = sub_119084(1, 26);
+      v13 = event_notify(1, 26);
       if ( !v13 )
         return 1;
       goto LABEL_4;
     }
 LABEL_9:
-    sub_12F694(dword_1194C4, dword_1194C0, 520);
+    mmio_irq_clear(dword_1194C4, dword_1194C0, 520);
     goto LABEL_10;
   }
   v12 = *(uint8_t *)(v9 + 4);
   if ( **(int16_t **)off_1194BC < 0 && v12 == 2 )
     goto LABEL_9;
-  v13 = sub_119084((*(uint8_t *)(dword_1194B8 + 1320 * v7 + 1224) | v12) != 0, 26);
+  v13 = event_notify((*(uint8_t *)(dword_1194B8 + 1320 * v7 + 1224) | v12) != 0, 26);
   if ( !v13 )
     return 1;
 LABEL_4:
   v14 = v5 + 1320 * v7;
-  message_dispatch_n_4a3(v14, v13);
+  scan_done_check(v14, v13);
   v15 = v4 + 696 * a1;
   v16 = *(uint32_t *)(v13 + 72);
   v17 = *(uint32_t *)(v15 + 38);
@@ -99,7 +99,7 @@ LABEL_4:
   *(uint32_t *)(v13 + 92) = a4;
   *(uint8_t *)(v13 + 28) = v22;
   *(uint8_t *)(v13 + 29) = a1;
-  sub_1190B4(v13, 5);
+  ble_event_dispatch(v13, 5);
   return 0;
 }
 

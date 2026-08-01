@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_5e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128ba", "status": "ok", "name": "rf_cmd_send_n5e", "params": [], "docstring": "Send RF command via register interface, clearing flags at offset 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_5e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128ba", "status": "ok", "name": "rf_cmd_send_short", "params": [], "docstring": "Send RF command via register interface, clearing flags at offset 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

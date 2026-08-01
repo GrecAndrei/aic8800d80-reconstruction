@@ -15,8 +15,8 @@ extern uint32_t off_11935C;
 extern uint32_t dword_119364;
 extern uint32_t dword_119360;
 
-// sub_119308 @ 0x119308, size 80 bytes
-int16_t * sub_119308(int16_t *result)
+// btm_read_indirect @ 0x119308, size 80 bytes
+int16_t * btm_read_indirect(int16_t *result)
 {
   int v1; // r2
   int v2; // r1
@@ -38,7 +38,7 @@ int16_t * sub_119308(int16_t *result)
       v3 = (uint32_t *)*v3;
       if ( *result < 0 && !v3 )
       {
-        sub_12F32C(dword_119364, dword_119360, 909);
+        irq_disable_mmio_write(dword_119364, dword_119360, 909);
         __und(0xFFu);
       }
       v1 = v3[19];

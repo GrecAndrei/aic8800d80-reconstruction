@@ -15,10 +15,10 @@ extern uint32_t off_134BC8;
 extern uint32_t dword_134BC4;
 extern uint32_t dword_134BCC;
 
-// sub_134A90 @ 0x134a90, size 302 bytes
+// bt_get_conn_state @ 0x134a90, size 302 bytes
 // Doc: sub_1234A90 [unknown]: Unidentified helper function at 0x134a90
 // sub_1234A90 [unknown]: Unidentified helper function at 0x134a90
-int sub_134A90()
+int bt_get_conn_state()
 {
   int v0; // r6
   int16_t v1; // r7
@@ -54,11 +54,11 @@ int sub_134A90()
     if ( *(uint8_t *)(v0 + 412) )
       v3 = 1;
   }
-  v4 = sub_118C44(v3, 512);
+  v4 = ke_mutex_guard(v3, 512);
   v5 = v4;
   if ( !v4 )
-    return sub_134914();
-  sub_12C4E8(v0, v4);
+    return bt_init_hci_buffer();
+  rf_check_temperature(v0, v4);
   v6 = *(uint32_t *)(v5 + 72);
   v7 = off_134BC8;
   v8 = dword_134BC4 + 696 * v2;
@@ -86,27 +86,27 @@ int sub_134A90()
   *(uint8_t *)(v5 + 29) = *(uint8_t *)(v0 + 116);
   *(uint8_t *)(v5 + 51) = 0;
   *(uint8_t *)(v5 + 53) = 0;
-  v13 = rf_msg_process_body_n37(v5, 192, 0);
+  v13 = get_channel_tx_power(v5, 192, 0);
   v14 = v6 + 108;
   if ( v13 == 1 )
   {
-    fmac_main_loop_0a0(v5, v6 + 108, 24);
+    ll_conn_window_calc(v5, v6 + 108, 24);
     v19 = *(uint8_t *)(v5 + 51) + 24;
-    v16 = sub_130838((uint16_t *)(v14 + v19), v1) + v19 + *(uint8_t *)(v5 + 53);
+    v16 = store_uint16_ret2((uint16_t *)(v14 + v19), v1) + v19 + *(uint8_t *)(v5 + 53);
   }
   else
   {
-    v15 = sub_130838((uint16_t *)(v6 + 132), v1);
+    v15 = store_uint16_ret2((uint16_t *)(v6 + 132), v1);
     v16 = v15 + 24;
     if ( v13 == 2 )
-      v16 += sub_13C710(v5, v14, v15 + 24);
+      v16 += is_conn_active(v5, v14, v15 + 24);
   }
   v17 = *(uint32_t **)(v5 + 76);
   v17[8] = v17[7] - 1 + v16;
   v17[9] = v16 + 4;
-  result = rf_param_get_status(v5, 3);
+  result = tx_path_status(v5, 3);
   if ( !result )
-    return sub_134914();
+    return bt_init_hci_buffer();
   return result;
 }
 

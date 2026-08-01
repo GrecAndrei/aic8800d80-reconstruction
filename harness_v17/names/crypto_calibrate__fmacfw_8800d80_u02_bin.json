@@ -1,1 +1,1 @@
-{"fn": "crypto_calibrate", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12044e0", "status": "ok", "name": "crypto_calibrate", "params": [], "docstring": "Calibrate crypto engine via MMIO writes to 0x403420xx block", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_calibrate", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12044e0", "status": "ok", "name": "start_arm_boot", "params": [], "docstring": "Calibrate crypto engine via MMIO writes to 0x403420xx block", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

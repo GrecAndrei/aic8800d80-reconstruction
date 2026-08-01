@@ -23,8 +23,8 @@ extern uint32_t dword_113A2C;
 extern uint32_t dword_113A30;
 extern uint32_t dword_113A34;
 
-// sub_11394C @ 0x11394c, size 190 bytes
-void __noreturn sub_11394C()
+// get_device_state @ 0x11394c, size 190 bytes
+void __noreturn get_device_state()
 {
   void *v0; // r5
   int v1; // r4
@@ -41,7 +41,7 @@ void __noreturn sub_11394C()
 
   v0 = off_113A0C;
   v1 = *(uint32_t *)(*(uint32_t *)off_113A0C + 16);
-  msg_parse(dword_113A18, v1);
+  dispatch_event_handler(dword_113A18, v1);
   if ( (v1 & 1) != 0 )
     *(uint32_t *)(*(uint32_t *)v0 + 12) = 1;
   CPSR = __get_CPSR();
@@ -49,10 +49,10 @@ void __noreturn sub_11394C()
   v3 = __get_CPSR();
   v4 = __get_CPSR();
   __get_CPSR();
-  msg_parse(dword_113A1C, CPSR);
+  dispatch_event_handler(dword_113A1C, CPSR);
   if ( v3 )
   {
-    msg_parse(dword_113A38, v5);
+    dispatch_event_handler(dword_113A38, v5);
     if ( !v4 )
       goto LABEL_5;
   }
@@ -62,18 +62,18 @@ void __noreturn sub_11394C()
   }
   v9 = v4 & 0xFFFFFFF0;
   v10 = (dword_113A3C - v9) >> 2;
-  msg_parse(dword_113A40, v5);
+  dispatch_event_handler(dword_113A40, v5);
   v11 = v10;
   if ( v10 >= 0x100 )
     v11 = 256;
-  rf_mem_read_f594(v9, v11, 4, 0);
+  handle_ipc_request(v9, v11, 4, 0);
 LABEL_5:
-  msg_parse(dword_113A20, v5);
-  rf_mem_read_f594(dword_113A24, 8, 4, 0);
-  msg_parse(dword_113A28, v6);
-  rf_mem_read_f594(dword_113A2C, 8, 4, 0);
-  msg_parse(dword_113A30, v7);
-  f594 = rf_mem_read_f594(dword_113A34, 16, 4, 0);
-  rf_state_check_n_e90(f594);
+  dispatch_event_handler(dword_113A20, v5);
+  handle_ipc_request(dword_113A24, 8, 4, 0);
+  dispatch_event_handler(dword_113A28, v6);
+  handle_ipc_request(dword_113A2C, 8, 4, 0);
+  dispatch_event_handler(dword_113A30, v7);
+  f594 = handle_ipc_request(dword_113A34, 16, 4, 0);
+  bt_check_state(f594);
 }
 

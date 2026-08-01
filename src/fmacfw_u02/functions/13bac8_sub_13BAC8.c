@@ -15,8 +15,8 @@ extern uint32_t off_13BC1C;
 extern uint32_t off_13BC20;
 extern uint32_t dword_13BC24;
 
-// sub_13BAC8 @ 0x13bac8, size 334 bytes
-int  sub_13BAC8(int a1, uint16_t *a2, int a3)
+// ll_cmd_handler @ 0x13bac8, size 334 bytes
+int  ll_cmd_handler(int a1, uint16_t *a2, int a3)
 {
   int v4; // r4
   unsigned int v6; // r3
@@ -50,7 +50,7 @@ int  sub_13BAC8(int a1, uint16_t *a2, int a3)
       {
         v9 = (uint8_t)a1;
         v10 = *((uint8_t *)a2 + 2);
-        if ( sub_121960((uint8_t)a1, (v7 >> 2) & 0xF) )
+        if ( phy_read_offset_b((uint8_t)a1, (v7 >> 2) & 0xF) )
           return *(uint8_t *)(696 * v9 + 12 * v8 + dword_13BC18 + 452);
         if ( *((uint32_t *)off_13BC1C + 4) - 500000 - *(uint32_t *)(696 * v9 + 12 * v8 + dword_13BC18 + 448) >= 0 )
         {
@@ -58,21 +58,21 @@ int  sub_13BAC8(int a1, uint16_t *a2, int a3)
             goto LABEL_22;
           if ( *(uint32_t *)off_13BC20 )
           {
-            v4 = *((uint8_t *)rf_bus_mark_n100_d2d0((int)off_13BC20) + 26);
+            v4 = *((uint8_t *)mem_word_load((int)off_13BC20) + 26);
             if ( v4 != 33 )
               return v4;
           }
-          v11 = sub_13BA78((int **)dword_13BC24);
+          v11 = tx_done_queue((int **)dword_13BC24);
           if ( v11 == 33 )
           {
 LABEL_22:
-            sub_13B698(v9, 0, 1, v10, v7, 37, 0);
+            adv_set_params(v9, 0, 1, v10, v7, 37, 0);
             return 33;
           }
           else
           {
             v4 = v11;
-            sub_12CA10(8193, ((uint16_t)v11 << 8) | 8, 255);
+            ke_msg_send_no_param(8193, ((uint16_t)v11 << 8) | 8, 255);
           }
           return v4;
         }

@@ -15,8 +15,8 @@ extern uint32_t dword_117B80;
 extern uint32_t dword_117B74;
 extern uint32_t dword_117B78;
 
-// sub_117A7C @ 0x117a7c, size 246 bytes
-uint64_t sub_117A7C()
+// alloc_shared_ctx @ 0x117a7c, size 246 bytes
+uint64_t alloc_shared_ctx()
 {
   uint8_t *v0; // r8
   int v1; // r10
@@ -40,7 +40,7 @@ uint64_t sub_117A7C()
 
   v0 = off_117B7C;
   v1 = dword_117B80;
-  sub_12D00C(126976);
+  irq_disable_global_3(126976);
   v2 = v0 + 12;
   v3 = v18;
   v0[510] = 1;
@@ -50,25 +50,25 @@ uint64_t sub_117A7C()
   do
   {
     v7 = (uint8_t)v6;
-    sub_12D100(v5);
-    sub_118800((uint8_t)v6++, v1, v5);
-    sub_118800(v7, v4, v5);
+    clear_stats_buf(v5);
+    phy_dispatch((uint8_t)v6++, v1, v5);
+    phy_dispatch(v7, v4, v5);
     v1 += 8;
     v5 += 8;
     v4 += 84;
   }
   while ( v6 != 5 );
   v8 = dword_117B74;
-  v9 = sub_1188B8(5);
-  v10 = sub_119D34(v9);
-  v11 = sub_117D9C(v10);
-  sub_11BDA0(v11);
+  v9 = mmio_write(5);
+  v10 = init_mac_global_0x1882c8(v9);
+  v11 = init_mac_global_0x188290(v10);
+  rx_queue_process(v11);
   v12 = *((uint16_t *)v0 + 254);
   sub_100200((int *)(v8 - 432), 0, 0x204u);
   *((uint16_t *)v0 + 254) = v12;
   do
   {
-    sub_12D100(v2);
+    clear_stats_buf(v2);
     *((uint32_t *)v2 - 3) = 0;
     v2[14] = 0;
     v2[68] = 0;
@@ -76,17 +76,17 @@ uint64_t sub_117A7C()
     *((uint32_t *)v2 + 7) = 0;
     v13 = v2 + 16;
     v2 += 84;
-    sub_12D100(v13);
+    clear_stats_buf(v13);
   }
   while ( v2 != (char *)v8 );
   for ( i = 0; i != 5; ++i )
   {
-    if ( sub_12D190(v3) )
+    if ( list_pop(v3) )
     {
       do
-        sub_13ADE4();
-      while ( sub_12D190(v3) );
-      sub_11A6A8((uint8_t)i);
+        phy_enable();
+      while ( list_pop(v3) );
+      invalid_handler((uint8_t)i);
     }
     v3 += 8;
   }

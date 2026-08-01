@@ -14,10 +14,10 @@ extern uint32_t off_12D184;
 extern uint32_t off_12D188;
 extern uint32_t off_12D18C;
 
-// clear_flags @ 0x12d14c, size 54 bytes
-// Doc: clear_flags [util]: Clears flag bits in a status register pair
-// clear_flags [util]: Clears flag bits in a status register pair
-int  clear_flags(int a1)
+// unknown_func_12d14c @ 0x12d14c, size 54 bytes
+// Doc: unknown_func_12d14c [util]: Clears flag bits in a status register pair
+// unknown_func_12d14c [util]: Clears flag bits in a status register pair
+int  unknown_func_12d14c(int a1)
 {
   uint32_t *v1; // r2
   int *v2; // r5

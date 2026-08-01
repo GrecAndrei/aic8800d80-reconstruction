@@ -14,20 +14,20 @@ extern uint32_t off_1360F0;
 extern uint32_t dword_1360F8;
 extern uint32_t dword_1360F4;
 
-// sub_1360BC @ 0x1360bc, size 52 bytes
-int  sub_1360BC(int a1)
+// is_bt_enabled @ 0x1360bc, size 52 bytes
+int  is_bt_enabled(int a1)
 {
   int v2; // r0
 
-  if ( **(int16_t **)off_1360F0 >= 0 || (a1 = sub_12CD48(7u), a1 == 3) )
+  if ( **(int16_t **)off_1360F0 >= 0 || (a1 = hci_cmd_handler(7u), a1 == 3) )
   {
-    sub_1366E0(a1);
+    acquire_lock_check_state(a1);
     return 0;
   }
   else
   {
-    v2 = sub_12F32C(dword_1360F8, dword_1360F4, 415);
-    sub_1366E0(v2);
+    v2 = irq_disable_mmio_write(dword_1360F8, dword_1360F4, 415);
+    acquire_lock_check_state(v2);
     return 0;
   }
 }

@@ -1,1 +1,1 @@
-{"fn": "rf_level_apply_n_110", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226cc8", "status": "ok", "name": "rf_level_apply_n_110", "params": [], "docstring": "Apply RF level (TX power) by setting bits 0x100 in register 0x14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_level_apply_n_110", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226cc8", "status": "ok", "name": "rf_level_apply_n_10f", "params": [], "docstring": "Apply RF level (TX power) by setting bits 0x100 in register 0x14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

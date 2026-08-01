@@ -12,10 +12,10 @@
 
 extern uint32_t dword_11EB44;
 
-// sdio_buffer_prepare_n_e8 @ 0x11eacc, size 120 bytes
+// hash_const_init @ 0x11eacc, size 120 bytes
 // Doc: sdio_buffer_prepare_n_be [mmio]: Bulk-copy SDIO buffer via stm/ldm pairs
 // sdio_buffer_prepare_n_be [mmio]: Bulk-copy SDIO buffer via stm/ldm pairs
-float  sdio_buffer_prepare_n_e8(float a1)
+float  hash_const_init(float a1)
 {
   int v1; // r1
   int v2; // r2

@@ -12,8 +12,8 @@
 
 extern uint32_t off_11839C;
 
-// sub_118374 @ 0x118374, size 38 bytes
-int  sub_118374(uint8_t *a1)
+// reset_link_status @ 0x118374, size 38 bytes
+int  reset_link_status(uint8_t *a1)
 {
   uint32_t *v1; // r3
   int *v2; // r3

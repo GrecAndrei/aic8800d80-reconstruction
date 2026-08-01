@@ -14,10 +14,10 @@ extern uint32_t off_10F44C;
 extern uint32_t dword_10F450;
 extern uint32_t dword_10F454;
 
-// log_global_init @ 0x10f3b0, size 156 bytes
-// Doc: log_global_init [util]: Initialize global logging subsystem and buffers
-// log_global_init [util]: Initialize global logging subsystem and buffers
-uint64_t log_global_init()
+// rf_timer_init @ 0x10f3b0, size 156 bytes
+// Doc: rf_timer_init [util]: Initialize global logging subsystem and buffers
+// rf_timer_init [util]: Initialize global logging subsystem and buffers
+uint64_t rf_timer_init()
 {
   uint16_t *v0; // r5
   int *v1; // r4
@@ -36,20 +36,20 @@ uint64_t log_global_init()
   *((uint8_t *)v0 + 6176) = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  sub_12D240(v0 + 1540);
-  sub_12D240(v1 - 3);
-  sub_12D240(v1 + 512);
-  sub_12D240(v1 + 514);
+  zero_8_bytes(v0 + 1540);
+  zero_8_bytes(v1 - 3);
+  zero_8_bytes(v1 + 512);
+  zero_8_bytes(v1 + 514);
   v0[4122] = 0;
   *((uint8_t *)v0 + 3074) = 0;
   *((uint32_t *)v0 + 769) = 0;
-  memset_thunk(v1, 0, 0x800u);
+  memset(v1, 0, 0x800u);
   v2 = v1 + 512;
   v3 = v1 + 512;
   do
   {
     v1 += 4;
-    list_push_tail(v3);
+    cmd_handler_a(v3);
   }
   while ( v1 != v2 );
   v4 = dword_10F454;

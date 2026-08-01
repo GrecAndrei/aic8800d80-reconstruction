@@ -12,8 +12,8 @@
 
 extern uint32_t off_1309EC;
 
-// sub_1309B4 @ 0x1309b4, size 56 bytes
-int  sub_1309B4(int a1)
+// rf_write_pattern_bf0c @ 0x1309b4, size 56 bytes
+int  rf_write_pattern_bf0c(int a1)
 {
   uint32_t *v2; // r1
   uint16_t *v3; // r2

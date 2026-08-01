@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n428", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b70", "status": "ok", "name": "rf_fault_dump_n428", "params": [], "docstring": "Call 0x1fc indirection and extract bit 18 as fault flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n428", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b70", "status": "ok", "name": "get_hook_bit_18", "params": [], "docstring": "Call 0x1fc indirection and extract bit 18 as fault flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

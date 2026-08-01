@@ -29,10 +29,10 @@ extern uint32_t off_120A4C;
 extern uint32_t off_120A38;
 extern uint32_t off_120A50;
 
-// sub_1208F4 @ 0x1208f4, size 284 bytes
+// hal_phy_init @ 0x1208f4, size 284 bytes
 // Doc: sub_12208F4 [rf]: Init RF register window at 0x403200f0 with helpers
 // sub_12208F4 [rf]: Init RF register window at 0x403200f0 with helpers
-uint32_t *sub_1208F4()
+uint32_t *hal_phy_init()
 {
   int *v0; // r4
   int *v1; // r5

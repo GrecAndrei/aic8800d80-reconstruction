@@ -1,1 +1,1 @@
-{"fn": "sub_12107A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12107a0", "status": "ok", "name": "fw_struct_init_helper", "params": [], "docstring": "Initialize firmware control structure with zeros and arguments", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12107A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12107a0", "status": "ok", "name": "event_queue_init", "params": [], "docstring": "Initialize firmware control structure with zeros and arguments", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

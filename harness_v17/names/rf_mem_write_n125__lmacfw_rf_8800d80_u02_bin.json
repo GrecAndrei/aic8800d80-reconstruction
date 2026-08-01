@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n125", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222150", "status": "ok", "name": "rf_mem_write_n125", "params": [], "docstring": "Writes to RF control memory regions with mask operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n125", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222150", "status": "ok", "name": "rf_cmd_dispatch_n20c", "params": [], "docstring": "Writes to RF control memory regions with mask operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

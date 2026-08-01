@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A5BC;
 
-// sub_12A4B4 @ 0x12a4b4, size 264 bytes
-int  sub_12A4B4(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7)
+// lll_conn_state_match @ 0x12a4b4, size 264 bytes
+int  lll_conn_state_match(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7)
 {
   int v7; // r6
   int v8; // r7
@@ -68,13 +68,13 @@ int  sub_12A4B4(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a
     ++*(uint8_t *)(v15 + 122);
   if ( a5 )
     *(uint32_t *)(140 * v8 + 48 * v14 + v7 + 40) = 0x80000000 / a5 - 1;
-  sub_124BFC(v13, a7);
+  mem_copy_util(v13, a7);
   v21 = 140 * v8;
   *(uint8_t *)(v7 + v21 + 48 * v14 + 16) = 1;
-  sub_125B98(*(uint8_t *)(v21 + v7 + 113), 3);
-  sub_129404((int)v11, v10);
-  sub_129458((int)v11);
-  sub_1296C4(v11);
+  util_get_state(*(uint8_t *)(v21 + v7 + 113), 3);
+  bus_cmd52_write((int)v11, v10);
+  rsn_derive_key((int)v11);
+  rsn_parse_ie(v11);
   return v10;
 }
 

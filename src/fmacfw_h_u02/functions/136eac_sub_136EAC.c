@@ -16,8 +16,8 @@ extern uint32_t off_136F80;
 extern uint32_t dword_136F88;
 extern uint32_t dword_136F84;
 
-// sub_136EAC @ 0x136eac, size 202 bytes
-int  sub_136EAC(int a1, int a2, int a3, int16_t a4)
+// rf_set_channel_cfg @ 0x136eac, size 202 bytes
+int  rf_set_channel_cfg(int a1, int a2, int a3, int16_t a4)
 {
   int v4; // r2
   uint16_t *v5; // r4
@@ -50,7 +50,7 @@ int  sub_136EAC(int a1, int a2, int a3, int16_t a4)
   v5[1928] = v9;
   *(uint32_t *)v5 = a2;
   *((uint8_t *)v5 + 3899) = 0;
-  v10 = sub_1374B0(a2 + 352, 0);
+  v10 = rf_hw_init(a2 + 352, 0);
   if ( v10 && (v11 = *(uint8_t *)(v10 + 57), v12 = v10, *(uint8_t *)(v10 + 57)) )
   {
     v18 = *(uint8_t *)(v10 + 58);
@@ -78,14 +78,14 @@ int  sub_136EAC(int a1, int a2, int a3, int16_t a4)
     if ( *v16 >= 0 )
     {
 LABEL_4:
-      sub_138528(v13);
+      is_initialized(v13);
       return 1;
     }
   }
   if ( (*(uint8_t *)(a2 + 352) & 1) == 0 )
     goto LABEL_4;
-  v23 = sub_12F32C(dword_136F88, dword_136F84, 178);
-  sub_138528(v23);
+  v23 = irq_disable_mmio_write(dword_136F88, dword_136F84, 178);
+  is_initialized(v23);
   return 1;
 }
 

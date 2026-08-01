@@ -1,0 +1,1 @@
+{"fn": "sub_114848", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114848", "status": "ok", "name": "get_hook_bit_9", "params": [], "docstring": "Gets bit 9 from hook result.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

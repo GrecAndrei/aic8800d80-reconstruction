@@ -16,10 +16,10 @@ extern uint32_t off_100EE0;
 extern uint32_t off_100ED4;
 extern uint32_t off_100EE4;
 
-// message_dispatch_n244 @ 0x100e24, size 174 bytes
-// Doc: message_dispatch_n244 [ipc]: Dispatches message based on signed type field from shared state
-// message_dispatch_n244 [ipc]: Dispatches message based on signed type field from shared state
-int  message_dispatch_n244(int result)
+// rng_read @ 0x100e24, size 174 bytes
+// Doc: rng_read [ipc]: Dispatches message based on signed type field from shared state
+// rng_read [ipc]: Dispatches message based on signed type field from shared state
+int  rng_read(int result)
 {
   unsigned int *v1; // r3
   uint32_t *v2; // r1

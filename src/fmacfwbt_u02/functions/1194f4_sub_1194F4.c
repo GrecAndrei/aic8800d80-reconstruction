@@ -20,8 +20,8 @@ extern uint32_t off_1196A0;
 extern uint32_t dword_119688;
 extern uint32_t dword_11968C;
 
-// sub_1194F4 @ 0x1194f4, size 394 bytes
-BOOL  sub_1194F4(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8)
+// phy_channel_configure @ 0x1194f4, size 394 bytes
+BOOL  phy_channel_configure(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8)
 {
   int v8; // r10
   int v9; // r8
@@ -66,20 +66,20 @@ BOOL  sub_1194F4(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7,
   {
 LABEL_16:
     v32 = v15;
-    sub_12F694(dword_119690, dword_119694, 520);
+    mmio_irq_clear(dword_119690, dword_119694, 520);
     v15 = v32;
     v17 = 1;
     goto LABEL_7;
   }
   v17 = 1;
 LABEL_7:
-  v18 = sub_119084(v17, v15);
+  v18 = event_notify(v17, v15);
   if ( !v18 )
     return 1;
   v19 = v9 + 1320 * v11;
   v20 = *(uint32_t *)(v18 + 72);
   v31 = (uint32_t *)v18;
-  sub_12C710(v19, v18);
+  scan_done_check(v19, v18);
   v21 = (uint8_t *)off_119684;
   v22 = v31[18];
   v23 = *(uint16_t *)(v19 + 104);
@@ -116,6 +116,6 @@ LABEL_7:
     *(uint8_t *)(v22 + 137) = *(uint8_t *)(dword_11968C + a6) << 6;
   v31[22] = a7;
   v31[23] = a8;
-  return sub_1190B4((int)v31, a6) == 0;
+  return ble_event_dispatch((int)v31, a6) == 0;
 }
 

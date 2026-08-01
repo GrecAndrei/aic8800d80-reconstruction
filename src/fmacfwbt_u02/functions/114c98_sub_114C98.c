@@ -29,10 +29,10 @@ extern uint32_t off_114D9C;
 extern uint32_t off_114D90;
 extern uint32_t off_114DA0;
 
-// sub_114C98 @ 0x114c98, size 218 bytes
+// command_enqueue @ 0x114c98, size 218 bytes
 // Doc: sub_1214C98 [util]: stack-saving helper with argument byte fetch and null check
 // sub_1214C98 [util]: stack-saving helper with argument byte fetch and null check
-int  sub_114C98(int a1, int a2, int a3, int a4, char a5)
+int  command_enqueue(int a1, int a2, int a3, int a4, char a5)
 {
   uint8_t *v5; // r8
   uint32_t *v8; // r7
@@ -66,7 +66,7 @@ int  sub_114C98(int a1, int a2, int a3, int a4, char a5)
     v8 = off_114D74;
     *(uint32_t *)off_114DA8 = off_114D74;
     *v22 = 196608;
-    sub_12ECB0(dword_114DAC, 38, 196608);
+    ke_event_schedule(dword_114DAC, 38, 196608);
     v23 = off_114DA4;
     *(uint32_t *)(*((uint32_t *)off_114DB0 + 2) + 216) = dword_114DB4;
     v23[806] = -4;
@@ -74,7 +74,7 @@ int  sub_114C98(int a1, int a2, int a3, int a4, char a5)
   }
   v9 = dword_114D7C;
   *(uint32_t *)off_114D78 = 196608;
-  sub_12ECB0(v9, 38, 196608);
+  ke_event_schedule(v9, 38, 196608);
   v10 = off_114D84;
   *(uint32_t *)off_114D80 = a3;
   v11 = off_114D88;

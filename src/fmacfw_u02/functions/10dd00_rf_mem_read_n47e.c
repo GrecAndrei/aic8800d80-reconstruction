@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DD10;
 
-// rf_mem_read_n47e @ 0x10dd00, size 16 bytes
-// Doc: rf_mem_read_n47e [rf]: Read RF register with bank/page decode from top nibble
-// rf_mem_read_n47e [rf]: Read RF register with bank/page decode from top nibble
-int  rf_mem_read_n47e(char a1)
+// gpio_set_bit @ 0x10dd00, size 16 bytes
+// Doc: gpio_set_bit [rf]: Read RF register with bank/page decode from top nibble
+// gpio_set_bit [rf]: Read RF register with bank/page decode from top nibble
+int  gpio_set_bit(char a1)
 {
   int result; // r0
 

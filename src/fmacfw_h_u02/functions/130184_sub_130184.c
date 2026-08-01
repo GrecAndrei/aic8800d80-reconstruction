@@ -13,8 +13,8 @@
 extern uint32_t off_1301B0;
 extern uint32_t dword_1301B4;
 
-// sub_130184 @ 0x130184, size 44 bytes
-unsigned int sub_130184()
+// compare_calibration_levels @ 0x130184, size 44 bytes
+unsigned int compare_calibration_levels()
 {
   uint8_t *v0; // r4
   unsigned int result; // r0
@@ -31,8 +31,8 @@ unsigned int sub_130184()
     else
       v3 = result + 1;
     *((uint8_t *)off_1301B0 + 6) = v3;
-    sub_10EDF8(v3);
-    return sub_12E948(dword_1301B4, v0[5], v0[6]);
+    padding_data(v3);
+    return alloc_tx_event(dword_1301B4, v0[5], v0[6]);
   }
   return result;
 }

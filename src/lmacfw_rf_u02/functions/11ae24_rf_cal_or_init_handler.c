@@ -15,10 +15,10 @@ extern uint32_t dword_11AF74;
 extern uint32_t dword_11AF6C;
 extern uint32_t dword_11AF68;
 
-// rf_cal_or_init_handler @ 0x11ae24, size 322 bytes
-// Doc: rf_cal_or_init_handler [rf]: RF calibration/init handler dispatching per-band ops
-// rf_cal_or_init_handler [rf]: RF calibration/init handler dispatching per-band ops
-int  rf_cal_or_init_handler(int a1, int a2, int a3)
+// rf_event_dispatch @ 0x11ae24, size 322 bytes
+// Doc: rf_event_dispatch [rf]: RF calibration/init handler dispatching per-band ops
+// rf_event_dispatch [rf]: RF calibration/init handler dispatching per-band ops
+int  rf_event_dispatch(int a1, int a2, int a3)
 {
   int v3; // r8
   uint32_t *v4; // r9
@@ -54,7 +54,7 @@ int  rf_cal_or_init_handler(int a1, int a2, int a3)
     if ( v9 == v10 )
       goto LABEL_5;
     v19 = v4[21];
-    if ( a2 - v19 - 4000 - sub_101A20() >= 0 )
+    if ( a2 - v19 - 4000 - os_get_tick_hz() >= 0 )
       goto LABEL_5;
 LABEL_18:
     if ( *(uint8_t *)(a1 + 94) )
@@ -68,17 +68,17 @@ LABEL_18:
 LABEL_21:
       if ( (*(uint8_t *)(a1 + 85) & 1) != 0 )
       {
-        list_remove_node(dword_11AF68, v8);
+        check_kernel_state_alt2(dword_11AF68, v8);
         *(uint8_t *)(a1 + 85) &= ~1u;
       }
     }
   }
   v20 = (uint32_t *)v4[9];
   v16 = v20[1];
-  v17 = v16 + 4000 + sub_101A20();
+  v17 = v16 + 4000 + os_get_tick_hz();
   if ( v9 != v20[2] )
   {
-    v17 += 4000 + sub_101A20();
+    v17 += 4000 + os_get_tick_hz();
     if ( v20[3] )
       v17 += 10000;
   }
@@ -86,7 +86,7 @@ LABEL_21:
     goto LABEL_18;
 LABEL_5:
   *(uint32_t *)(a1 + 80) = a2;
-  v11 = sub_101A20();
+  v11 = os_get_tick_hz();
   v12 = v4[4];
   v13 = a2 + 13999 + v11;
   if ( v12 )
@@ -100,7 +100,7 @@ LABEL_5:
                                                                                    + 224 * *(uint8_t *)(v12 + 8)
                                                                                    + 72) )
       {
-        if ( sub_11AD88(v8, v12) )
+        if ( time_delta(v8, v12) )
           goto LABEL_18;
         v14 = *(uint32_t *)(v12 + 4);
       }
@@ -116,7 +116,7 @@ LABEL_5:
 LABEL_24:
     v12 = 0;
   }
-  result = sub_11E888(dword_11AF68, v12, v8);
+  result = list_find(dword_11AF68, v12, v8);
   *(uint8_t *)(a1 + 85) |= 1u;
   return result;
 }

@@ -12,10 +12,10 @@
 
 extern uint32_t off_10D5D8;
 
-// sub_10D5CC @ 0x10d5cc, size 12 bytes
-void sub_10D5CC()
+// event_loop_check @ 0x10d5cc, size 12 bytes
+void event_loop_check()
 {
   if ( !*(uint32_t *)off_10D5D8 )
-    sub_10D4A0();
+    event_loop();
 }
 

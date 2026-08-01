@@ -10,19 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// fw_info_get_or_init @ 0x129f8c, size 32 bytes
-// Doc: fw_info_get_or_init [util]: Fetch/initialize firmware info block via helper call
-// fw_info_get_or_init [util]: Fetch/initialize firmware info block via helper call
-int  fw_info_get_or_init(int a1, int a2, unsigned int a3, unsigned int a4)
+// get_table_entry @ 0x129f8c, size 32 bytes
+// Doc: get_table_entry [util]: Fetch/initialize firmware info block via helper call
+// get_table_entry [util]: Fetch/initialize firmware info block via helper call
+int  get_table_entry(int a1, int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v5; // r0
   uint8_t v6; // r4
 
-  v5 = sub_129EBC(a1, a2, a3, a4);
+  v5 = lookup_table_entry(a1, a2, a3, a4);
   v6 = v5;
   if ( !v5 )
     return 0;
-  timestamp_update_4f60(a1, v5);
+  ke_event_lock(a1, v5);
   *(uint8_t *)(a1 + 16) = 1;
   return v6;
 }

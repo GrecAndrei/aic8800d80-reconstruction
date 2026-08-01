@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_121954 @ 0x121954, size 8 bytes
-BOOL  sub_121954(int a1)
+// is_phy_byte_valid @ 0x121954, size 8 bytes
+BOOL  is_phy_byte_valid(int a1)
 {
   return a1 != 33;
 }

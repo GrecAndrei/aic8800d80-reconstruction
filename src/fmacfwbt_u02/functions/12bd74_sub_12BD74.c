@@ -20,8 +20,8 @@ extern uint32_t dword_12BE0C;
 extern uint32_t off_12BE10;
 extern uint32_t off_12BE14;
 
-// sub_12BD74 @ 0x12bd74, size 126 bytes
-int *sub_12BD74()
+// mac_config_clear @ 0x12bd74, size 126 bytes
+int *mac_config_clear()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r0

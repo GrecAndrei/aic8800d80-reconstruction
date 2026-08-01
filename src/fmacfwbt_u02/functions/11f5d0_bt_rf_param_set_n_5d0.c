@@ -15,10 +15,10 @@ extern uint32_t dword_11F6E8;
 extern uint32_t dword_11F6D8;
 extern uint32_t dword_11F6E0;
 
-// bt_rf_param_set_n_5d0 @ 0x11f5d0, size 258 bytes
-// Doc: bt_rf_param_set_n_5d0 [bt]: Indexes per-link BT RF parameter table (0x2b8 stride) and stores a field.
-// bt_rf_param_set_n_5d0 [bt]: Indexes per-link BT RF parameter table (0x2b8 stride) and stores a field.
-int  bt_rf_param_set_n_5d0(int a1, uint8_t a2)
+// wlc_phy_radio_set @ 0x11f5d0, size 258 bytes
+// Doc: wlc_phy_radio_set [bt]: Indexes per-link BT RF parameter table (0x2b8 stride) and stores a field.
+// wlc_phy_radio_set [bt]: Indexes per-link BT RF parameter table (0x2b8 stride) and stores a field.
+int  wlc_phy_radio_set(int a1, uint8_t a2)
 {
   int v2; // r4
   int v3; // r8
@@ -45,12 +45,12 @@ int  bt_rf_param_set_n_5d0(int a1, uint8_t a2)
   v4[161] = *(uint8_t *)a1;
   v5 = (int *)(696 * v2 + 64 + v3);
   v7 = v4[34];
-  v8 = memset_thunk(v5, 0, 0x48u);
+  v8 = memset_byte(v5, 0, 0x48u);
   switch ( v4[160] )
   {
     case 0u:
     case 3u:
-      v9 = sub_143A18(v8);
+      v9 = random(v8);
       v10 = (int *)(v3 + 696 * v2 + 136);
       *v10 = v9 & 0xFFFFFF;
       v10[1] = 0;

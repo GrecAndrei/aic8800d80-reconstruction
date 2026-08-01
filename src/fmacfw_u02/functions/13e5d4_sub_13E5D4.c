@@ -18,8 +18,8 @@ extern uint32_t dword_13EA48;
 extern uint32_t dword_13EA44;
 extern uint32_t dword_13EA4C;
 
-// sub_13E5D4 @ 0x13e5d4, size 1282 bytes
-unsigned int  sub_13E5D4(int a1, unsigned int a2, unsigned int a3, int a4, int a5)
+// ipc_dispatch_cmd @ 0x13e5d4, size 1282 bytes
+unsigned int  ipc_dispatch_cmd(int a1, unsigned int a2, unsigned int a3, int a4, int a5)
 {
   unsigned int result; // r0
   int v8; // r1
@@ -120,13 +120,13 @@ unsigned int  sub_13E5D4(int a1, unsigned int a2, unsigned int a3, int a4, int a
     }
     else
     {
-      sub_12F46C(dword_13EADC, dword_13EAD8, 2470);
+      mmio_clear_register(dword_13EADC, dword_13EAD8, 2470);
       if ( !a4 )
         goto LABEL_26;
       if ( **v15 >= 0 || a5 )
         goto LABEL_9;
     }
-    sub_12F46C(dword_13EA48, dword_13EA44, 2473);
+    mmio_clear_register(dword_13EA48, dword_13EA44, 2473);
     goto LABEL_9;
   }
   if ( !a4 )
@@ -228,7 +228,7 @@ LABEL_55:
           v60[1] = v62;
           *v60 = v63;
           if ( *v61 < 0 && v63 < v62 )
-            return sub_12F46C(dword_13EA4C, dword_13EA44, 2589);
+            return mmio_clear_register(dword_13EA4C, dword_13EA44, 2589);
           return result;
         }
       }
@@ -329,7 +329,7 @@ LABEL_35:
           if ( **v15 < 0 && *(uint16_t *)(v16 + result) < (unsigned int)*(uint16_t *)(v43 + 2) )
           {
             v70 = v30;
-            result = sub_12F46C(v34, v33, 2657);
+            result = mmio_clear_register(v34, v33, 2657);
             v30 = v70;
           }
           goto LABEL_37;
@@ -414,7 +414,7 @@ LABEL_46:
         if ( **v15 < 0 && *(uint16_t *)(v16 + result) < (unsigned int)*(uint16_t *)(v58 + 2) )
         {
           v71 = v45;
-          result = sub_12F46C(v49, v48, 2704);
+          result = mmio_clear_register(v49, v48, 2704);
           v45 = v71;
         }
 LABEL_48:

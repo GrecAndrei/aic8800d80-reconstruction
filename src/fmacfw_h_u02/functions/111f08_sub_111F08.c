@@ -16,8 +16,8 @@ extern uint32_t dword_111FAC;
 extern uint32_t dword_111FB0;
 extern uint32_t dword_111FB4;
 
-// sub_111F08 @ 0x111f08, size 158 bytes
-int  sub_111F08(int a1, int a2, unsigned int a3)
+// mac_read_queue_reg @ 0x111f08, size 158 bytes
+int  mac_read_queue_reg(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -35,7 +35,7 @@ int  sub_111F08(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DAE4(dword_111FB8);
+    debug_printf(dword_111FB8);
     return 3;
   }
   else

@@ -12,10 +12,10 @@
 
 extern uint32_t dword_110478;
 
-// log_free_pool_b @ 0x110430, size 62 bytes
+// is_sniff_mode @ 0x110430, size 62 bytes
 // Doc: log_free_dispatch_n464 [util]: Free a log buffer entry and dispatch log processing
 // log_free_dispatch_n464 [util]: Free a log buffer entry and dispatch log processing
-int log_free_pool_b()
+int is_sniff_mode()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int log_free_pool_b()
   v0 = (int *)log_free_dispatch_n46c;
   v1 = dword_110478;
   ++*(uint32_t *)log_free_dispatch_n46c;
-  result = list_push_tail(v1);
+  result = cmd_handler_a(v1);
   v3 = *v0;
   ++*(uint32_t *)log_free_dispatch_n474_047c;
   if ( v3 )

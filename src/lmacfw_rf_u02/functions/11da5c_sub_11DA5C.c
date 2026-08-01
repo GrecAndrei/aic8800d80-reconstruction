@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11DA5C @ 0x11da5c, size 26 bytes
-int  sub_11DA5C(int result, int a2)
+// rf_set_temperature @ 0x11da5c, size 26 bytes
+int  rf_set_temperature(int result, int a2)
 {
   int v2; // r3
 
@@ -23,7 +23,7 @@ int  sub_11DA5C(int result, int a2)
     {
       result = *(uint32_t *)(result + 72);
       if ( result )
-        return rf_get_status_byte_n_a24(result);
+        return bt_conn_find_by_ptr(result);
     }
   }
   return result;

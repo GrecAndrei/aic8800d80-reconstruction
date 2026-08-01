@@ -16,8 +16,8 @@ extern uint32_t dword_124EF4;
 extern uint32_t off_124EF8;
 extern uint32_t dword_124EEC;
 
-// sub_124E60 @ 0x124e60, size 134 bytes
-int  sub_124E60(uint8_t *a1, int a2, int a3)
+// mac_isr_check @ 0x124e60, size 134 bytes
+int  mac_isr_check(uint8_t *a1, int a2, int a3)
 {
   char v4; // r2
   int v5; // r1
@@ -30,7 +30,7 @@ int  sub_124E60(uint8_t *a1, int a2, int a3)
 
   if ( (a2 & 0x800000) != 0 )
   {
-    result = sub_12E948(dword_124EF0, dword_124EE8, a3);
+    result = alloc_tx_event(dword_124EF0, dword_124EE8, a3);
     v9 = (uint8_t)a1[35];
     a1[668] = 0;
     if ( v9 <= 0x23 )
@@ -46,16 +46,16 @@ int  sub_124E60(uint8_t *a1, int a2, int a3)
     v6 = dword_124EEC;
     v7 = (uint8_t)(v4 + 1);
     a1[668] = v7;
-    result = sub_12E948(v6, v5, v7);
+    result = alloc_tx_event(v6, v5, v7);
     if ( (uint8_t)a1[668] > 9u )
     {
-      v10 = (uint8_t *)sub_12C7EC(125, 13, 0, 8);
+      v10 = (uint8_t *)tx_send_pdu(125, 13, 0, 8);
       *v10 = a1[35];
       v10[1] = a1[34];
       v11 = v10;
       a1[668] = 0;
-      sub_143630(v10 + 2, a1 + 38, 6);
-      return sub_12C84C(v11);
+      memcpy(v10 + 2, a1 + 38, 6);
+      return rx_process_packet(v11);
     }
   }
   return result;

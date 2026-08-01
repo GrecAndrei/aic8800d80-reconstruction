@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13F3B8 @ 0x13f3b8, size 44 bytes
-int  sub_13F3B8(int result, unsigned int a2)
+// ble_ll_conn_set_phy @ 0x13f3b8, size 44 bytes
+int  ble_ll_conn_set_phy(int result, unsigned int a2)
 {
   int v2; // r2
   uint32_t *v3; // r4

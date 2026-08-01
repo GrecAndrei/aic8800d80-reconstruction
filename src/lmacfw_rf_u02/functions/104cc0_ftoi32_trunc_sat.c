@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// ftoi32_trunc_sat @ 0x104cc0, size 154 bytes
-// Doc: ftoi32_trunc_sat [util]: Convert float to int32 with saturation and store result
-// ftoi32_trunc_sat [util]: Convert float to int32 with saturation and store result
-int  ftoi32_trunc_sat(int a1, float a2, int *a3, int a4, int a5)
+// list_remove @ 0x104cc0, size 154 bytes
+// Doc: list_remove [util]: Convert float to int32 with saturation and store result
+// list_remove [util]: Convert float to int32 with saturation and store result
+int  list_remove(int a1, float a2, int *a3, int a4, int a5)
 {
   int result; // r0
   int v7; // r3

@@ -17,31 +17,31 @@ extern uint32_t off_10DF04;
 extern uint32_t dword_10DF08;
 extern uint32_t off_10DF00;
 
-// irq_mask_init @ 0x10de94, size 94 bytes
-// Doc: irq_mask_init [util]: Initialize IRQ masks via enable/disable
-// irq_mask_init [util]: Initialize IRQ masks via enable/disable
-int irq_mask_init()
+// gpio_init_sequence @ 0x10de94, size 94 bytes
+// Doc: gpio_init_sequence [util]: Initialize IRQ masks via enable/disable
+// gpio_init_sequence [util]: Initialize IRQ masks via enable/disable
+int gpio_init_sequence()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r3
   int result; // r0
 
-  irq_prio_set_dca4(1);
-  sub_10DCEC(1);
-  irq_prio_set_dca4(2);
-  sub_10DCEC(2);
+  switch_on_arg(1);
+  rf_enable_irq(1);
+  switch_on_arg(2);
+  rf_enable_irq(2);
   if ( *((uint8_t *)off_10DEF4 + 369) )
   {
-    rf_mem_read_n47e(1);
-    rf_mem_read_n47e(2);
+    gpio_set_bit(1);
+    gpio_set_bit(2);
   }
   else
   {
-    sub_10DD14(1);
-    sub_10DD14(2);
+    gpio_clear_bit(1);
+    gpio_clear_bit(2);
   }
-  mmio_bit_clear_n0e0(3);
-  sub_10DD44(3, 2, dword_10DEF8);
+  rf_disable_irq(3);
+  gpio_configure_pin(3, 2, dword_10DEF8);
   v0 = off_10DEFC;
   v1 = off_10DF04;
   result = dword_10DF08;

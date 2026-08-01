@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_118150 @ 0x118150, size 30 bytes
-BOOL  sub_118150(int a1, int a2)
+// timer_ticks_diff @ 0x118150, size 30 bytes
+BOOL  timer_ticks_diff(int a1, int a2)
 {
   unsigned int v2; // r3
   unsigned int v3; // r0

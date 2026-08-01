@@ -14,8 +14,8 @@ extern uint32_t off_106F68;
 extern uint32_t off_106F6C;
 extern uint32_t off_106F70;
 
-// sub_106F08 @ 0x106f08, size 96 bytes
-uint32_t *sub_106F08()
+// clk_set_divider @ 0x106f08, size 96 bytes
+uint32_t *clk_set_divider()
 {
   unsigned int *v0; // r2
   uint32_t *v1; // r3

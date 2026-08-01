@@ -13,8 +13,8 @@
 extern uint32_t off_101F68;
 extern uint32_t off_101F64;
 
-// sub_101F28 @ 0x101f28, size 58 bytes
-int  sub_101F28(int result)
+// rf_set_tx_power @ 0x101f28, size 58 bytes
+int  rf_set_tx_power(int result)
 {
   uint32_t *v1; // r2
   unsigned int v2; // r3

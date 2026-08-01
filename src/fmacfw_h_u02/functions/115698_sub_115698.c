@@ -16,8 +16,8 @@ extern uint32_t dword_115804;
 extern uint32_t off_1157FC;
 extern uint32_t off_115808;
 
-// sub_115698 @ 0x115698, size 346 bytes
-void  sub_115698(int a1, int a2)
+// rx_packet_pending @ 0x115698, size 346 bytes
+void  rx_packet_pending(int a1, int a2)
 {
   int v2; // r3
   int v3; // r1
@@ -34,9 +34,9 @@ void  sub_115698(int a1, int a2)
   }
   v3 = dword_115804;
   ++*(uint32_t *)off_1157FC;
-  sub_12EB90(1024, v3);
-  v4 = sub_12D00C(0x80000000);
-  sub_12BA0C(v4);
+  check_feature_flag(1024, v3);
+  v4 = irq_disable_global_3(0x80000000);
+  rf_radio_calibrate(v4);
   v5 = off_115808;
   *(uint32_t *)off_115808 &= 0xFFFFFFu;
   *v5 |= 0x10u;

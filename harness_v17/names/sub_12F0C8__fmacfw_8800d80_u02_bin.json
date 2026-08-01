@@ -1,0 +1,1 @@
+{"fn": "sub_12F0C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f0c8", "status": "ok", "name": "log_flush", "params": [], "docstring": "Flush or trigger logging callbacks", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

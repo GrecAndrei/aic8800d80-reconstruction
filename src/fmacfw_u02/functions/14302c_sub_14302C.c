@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_14302C @ 0x14302c, size 64 bytes
-unsigned int  sub_14302C(unsigned int a1, int a2)
+// double_to_int @ 0x14302c, size 64 bytes
+unsigned int  double_to_int(unsigned int a1, int a2)
 {
   int v2; // r2
   int v3; // cf

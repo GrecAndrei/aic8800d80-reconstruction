@@ -16,10 +16,10 @@ extern uint32_t dword_12FD54;
 extern uint32_t dword_12FD58;
 extern uint32_t dword_12FD5C;
 
-// rf_bus_reset2_n236_fc7c @ 0x12fc7c, size 212 bytes
-// Doc: rf_bus_reset2_n236_fc7c [rf]: RF bus reset variant: check 0x20000 bit mask and continue reset sequence
-// rf_bus_reset2_n236_fc7c [rf]: RF bus reset variant: check 0x20000 bit mask and continue reset sequence
-int  rf_bus_reset2_n236_fc7c(int a1, int a2)
+// buf_clear16 @ 0x12fc7c, size 212 bytes
+// Doc: buf_clear16 [rf]: RF bus reset variant: check 0x20000 bit mask and continue reset sequence
+// buf_clear16 [rf]: RF bus reset variant: check 0x20000 bit mask and continue reset sequence
+int  buf_clear16(int a1, int a2)
 {
   unsigned int v4; // r5
   int v5; // r0
@@ -27,18 +27,18 @@ int  rf_bus_reset2_n236_fc7c(int a1, int a2)
   int v8; // r0
   int v9; // [sp+4h] [bp-4h]
 
-  v4 = sub_12FB74(*(uint8_t **)(a2 + 4), 0, 0x10u);
+  v4 = parse_integer(*(uint8_t **)(a2 + 4), 0, 0x10u);
   if ( a1 <= 2 )
   {
-    v5 = bt_hci_cmd_dispatch_fc48(*(uint32_t *)a2);
+    v5 = has_dot_extension(*(uint32_t *)a2);
     if ( v5 >= 0 )
       goto LABEL_3;
 LABEL_18:
-    log_printf(dword_12FD60, v5);
+    printf_wrapper(dword_12FD60, v5);
     return -1;
   }
-  v9 = sub_12FB74(*(uint8_t **)(a2 + 8), 0, 0);
-  v5 = bt_hci_cmd_dispatch_fc48(*(uint32_t *)a2);
+  v9 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0);
+  v5 = has_dot_extension(*(uint32_t *)a2);
   if ( v5 < 0 )
     goto LABEL_18;
   if ( v9 == 1 )
@@ -46,29 +46,29 @@ LABEL_18:
 LABEL_3:
     if ( ((v4 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      v8 = sub_10EBC4();
-      log_printf(dword_12FD50, v4 & 0xFFFFFFFC, v8);
+      v8 = jump_table_1b0();
+      printf_wrapper(dword_12FD50, v4 & 0xFFFFFFFC, v8);
       return 0;
     }
     else if ( v5 == 4 )
     {
-      log_printf(dword_12FD54, v4, *(uint32_t *)v4);
+      printf_wrapper(dword_12FD54, v4, *(uint32_t *)v4);
       return 0;
     }
     else if ( v5 == 2 )
     {
-      log_printf(dword_12FD58, v4, *(uint16_t *)v4);
+      printf_wrapper(dword_12FD58, v4, *(uint16_t *)v4);
       return 0;
     }
     else
     {
       if ( v5 == 1 )
-        log_printf(dword_12FD5C, v4, *(uint8_t *)v4);
+        printf_wrapper(dword_12FD5C, v4, *(uint8_t *)v4);
       return 0;
     }
   }
   v7 = **(uint8_t **)a2 == 82 && v4 < 0x40000000;
-  rf_mem_read_ed40(v4, v9, (uint8_t)v5, v7);
+  rx_packet_handler(v4, v9, (uint8_t)v5, v7);
   return 0;
 }
 

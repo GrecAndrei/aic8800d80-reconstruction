@@ -17,8 +17,8 @@ extern uint32_t dword_13BCE4;
 extern uint32_t dword_13BCD8;
 extern uint32_t dword_13BCDC;
 
-// sub_13BC28 @ 0x13bc28, size 168 bytes
-uint32_t * sub_13BC28(unsigned int a1)
+// rf_set_channel @ 0x13bc28, size 168 bytes
+uint32_t * rf_set_channel(unsigned int a1)
 {
   int v1; // r5
   int v3; // r1
@@ -30,8 +30,8 @@ uint32_t * sub_13BC28(unsigned int a1)
   uint32_t *v10; // [sp+4h] [bp-8h]
 
   v1 = (a1 << 8) | 8;
-  sub_12C73C(0x2000, v1);
-  sub_12C73C(8194, v1);
+  ke_int_lock(0x2000, v1);
+  ke_int_lock(8194, v1);
   v3 = dword_13BCD0;
   v4 = (uint8_t *)(dword_13BCD0 + 32 * a1);
   v5 = v4[17];
@@ -46,9 +46,9 @@ uint32_t * sub_13BC28(unsigned int a1)
     if ( a1 <= 0xF )
       goto LABEL_5;
 LABEL_7:
-    sub_12D2E8(dword_13BCE0, v8);
-    sub_12D248(dword_13BCE4, v10);
-    return sub_12CD34(v1, 0);
+    cmd_handler_c(dword_13BCE0, v8);
+    cmd_handler_a(dword_13BCE4, v10);
+    return rx_phy_status_parse(v1, 0);
   }
   v8 = (uint32_t *)(dword_13BCD0 + 32 * a1);
   *(uint8_t *)(696 * v6 + 12 * v7 + dword_13BCD4 + 452) = 33;
@@ -56,8 +56,8 @@ LABEL_7:
   if ( a1 > 0xF )
     goto LABEL_7;
 LABEL_5:
-  sub_12D2E8(dword_13BCD8, v8);
-  sub_12D248(dword_13BCDC, v10);
-  return sub_12CD34(v1, 0);
+  cmd_handler_c(dword_13BCD8, v8);
+  cmd_handler_a(dword_13BCDC, v10);
+  return rx_phy_status_parse(v1, 0);
 }
 

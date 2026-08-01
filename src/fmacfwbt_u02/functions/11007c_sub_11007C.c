@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11007C @ 0x11007c, size 72 bytes
+// adv_irq_handler @ 0x11007c, size 72 bytes
 // Doc: log_free_dispatch_n234 [util]: Dispatch and free log buffer entries
 // log_free_dispatch_n234 [util]: Dispatch and free log buffer entries
-int sub_11007C()
+int adv_irq_handler()
 {
   void *v0; // r8
   int result; // r0
@@ -24,7 +24,7 @@ int sub_11007C()
   unsigned int v6; // r1
 
   v0 = log_free_dispatch_n270;
-  result = bt_xtal_init_check(log_free_dispatch_n264);
+  result = zero_struct(log_free_dispatch_n264);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = log_free_dispatch_n268;
@@ -33,8 +33,8 @@ int sub_11007C()
     v5 = 0;
     do
     {
-      log_pool_alloc2(v3, 0x6B8u);
-      result = list_push_tail(v4);
+      rx_process_item(v3, 0x6B8u);
+      result = check_abort_flag(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;

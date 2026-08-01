@@ -1,1 +1,1 @@
-{"fn": "sub_1219204", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219204", "status": "ok", "name": "fmacfwbt_phy_chan_init", "params": [], "docstring": "Initialize per-channel PHY state entry", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1219204", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219204", "status": "ok", "name": "ble_conn_get", "params": [], "docstring": "Initialize per-channel PHY state entry", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

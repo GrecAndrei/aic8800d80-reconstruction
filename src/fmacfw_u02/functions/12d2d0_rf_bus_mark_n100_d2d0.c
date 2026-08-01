@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_bus_mark_n100_d2d0 @ 0x12d2d0, size 22 bytes
-// Doc: rf_bus_mark_n100_d2d0 [rf]: Marks a tagged slot on the RF shared bus structure
-// rf_bus_mark_n100_d2d0 [rf]: Marks a tagged slot on the RF shared bus structure
-uint32_t * rf_bus_mark_n100_d2d0(int a1)
+// mem_word_load @ 0x12d2d0, size 22 bytes
+// Doc: mem_word_load [rf]: Marks a tagged slot on the RF shared bus structure
+// mem_word_load [rf]: Marks a tagged slot on the RF shared bus structure
+uint32_t * mem_word_load(int a1)
 {
   uint32_t *v1; // r3
   uint32_t *v2; // r2

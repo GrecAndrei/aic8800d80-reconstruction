@@ -14,8 +14,8 @@ extern uint32_t dword_118B00;
 extern uint32_t dword_118AFC;
 extern uint32_t off_118AF8;
 
-// sub_118A78 @ 0x118a78, size 126 bytes
-int  sub_118A78(int a1, int a2, int a3)
+// update_mic @ 0x118a78, size 126 bytes
+int  update_mic(int a1, int a2, int a3)
 {
   uint64_t v3; // kr00_8
   int v5; // r1
@@ -42,7 +42,7 @@ int  sub_118A78(int a1, int a2, int a3)
     v5 = dword_118AFC;
     v6 = v3 + 44;
   }
-  result = sub_143630(v6, v5, 52);
+  result = memcpy(v6, v5, 52);
   v8 = *(uint32_t *)off_118AF8;
   if ( *(uint32_t *)(v3 + 64) & 0x7C | (*(uint32_t *)(v3 + 64) >> 11) & 6 )
     v9 = (uint16_t)((uint16_t)*(uint32_t *)off_118AF8 << 8) | (uint8_t)v8;

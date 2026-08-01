@@ -30,8 +30,8 @@ extern uint32_t off_11E4B4;
 extern uint32_t off_11E4B8;
 extern uint32_t dword_11E4BC;
 
-// sub_11E188 @ 0x11e188, size 810 bytes
-int  sub_11E188(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
+// tx_packet_start @ 0x11e188, size 810 bytes
+int  tx_packet_start(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
 {
   int v6; // r8
   uint8_t **v7; // r7
@@ -106,7 +106,7 @@ int  sub_11E188(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
     v25 = dword_11E434;
     if ( v24 )
       v21[4122] = 0;
-    v26 = sub_12D190(v25);
+    v26 = list_pop(v25);
     v27 = *(uint32_t *)off_11E438;
     v28 = (uint16_t)v21[4122];
     v6 = v26;
@@ -136,7 +136,7 @@ int  sub_11E188(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
     v11 = **v7;
     if ( v11 == 2 )
     {
-      sub_11DACC(v58, a2, &v57);
+      rx_packet_handler(v58, a2, &v57);
       v14 = **v7;
       if ( v14 != 2 )
         goto LABEL_5;
@@ -157,8 +157,8 @@ LABEL_25:
       v37 = (int *)off_11E450;
       v38 = dword_11E440;
       ++*(uint32_t *)off_11E450;
-      v39 = sub_12D108(v38);
-      sub_113374(v39, v40);
+      v39 = wlan_ioctl_handler_1(v38);
+      rf_is_idle(v39, v40);
       if ( *v37 )
       {
         v41 = *v37 - 1;
@@ -179,7 +179,7 @@ LABEL_5:
         v18 = (int *)off_11E424;
         if ( *((uint8_t *)off_11E424 + 32) )
         {
-          v43 = (uint32_t *)sub_11017C();
+          v43 = (uint32_t *)mmio_read_0();
           v46 = (int)v43;
           if ( v43 )
           {
@@ -189,13 +189,13 @@ LABEL_5:
               v48 = v18[1] + 1;
               v43[2] = (v48 << 24) & 0x7F000000 | v43[2] & 0x80FFFFFF;
               v18[1] = v48;
-              sub_110FFC(v43, a1 + 48, v47, 0x3Au, 0);
+              tx_desc_set_control(v43, a1 + 48, v47, 0x3Au, 0);
               v49 = *((uint8_t *)off_11E448 + 192);
               v18[3] += 58;
               if ( v49 )
-                sub_11E130(v46);
+                op_mode_get(v46);
               else
-                sub_110EDC(v46, v18[1], v18[2]);
+                memmove(v46, v18[1], v18[2]);
               *(uint8_t *)off_11E44C |= 1u;
               v18[1] = 0;
               v18[3] = 0;
@@ -209,11 +209,11 @@ LABEL_5:
           {
             v56 = dword_11E4C0;
             *(uint8_t *)(a1 + 16) |= 1u;
-            sub_12E948(v56, v44, v45);
+            alloc_tx_event(v56, v44, v45);
             *((uint8_t *)v18 + 32) = 0;
           }
         }
-        sub_12EB90(1024, dword_11E428);
+        check_feature_flag(1024, dword_11E428);
         v19 = *v18;
         *(uint8_t *)(a1 + 16) |= 1u;
         if ( v19 && v18[1] )
@@ -222,7 +222,7 @@ LABEL_5:
           do
           {
             v19 = *(uint32_t *)(v19 + 4);
-            sub_1101BC();
+            mmio_write_0();
             ++v20;
           }
           while ( v20 < (unsigned int)v18[1] );
@@ -233,28 +233,28 @@ LABEL_5:
         v18[2] = 0;
       }
 LABEL_6:
-      sub_11DE3C(a1, v58[0]);
+      ble_get_rssi(a1, v58[0]);
       v15 = off_11E420;
       *(uint32_t *)(a1 + 4) = a5;
       v16 = v15[14];
       *(uint32_t *)(a1 + 8) = a6;
       if ( v16 )
-        return sub_12D108(v15 + 14);
+        return wlan_ioctl_handler_1(v15 + 14);
       else
-        return sub_12D108(dword_11E444);
+        return wlan_ioctl_handler_1(dword_11E444);
     }
 LABEL_2:
     if ( v11 == 1 )
-      sub_11DC04(v58, a2, &v57);
+      rx_packet_process(v58, a2, &v57);
     else
-      sub_11DD24(v58, a2, a3, &v57, 0);
+      rx_packet_parse(v58, a2, a3, &v57, 0);
     v14 = **v7;
     if ( v14 != 2 )
       goto LABEL_5;
     goto LABEL_25;
   }
   *(uint8_t *)(a1 + 16) |= 1u;
-  v50 = sub_11DE3C(a1, v8);
+  v50 = ble_get_rssi(a1, v8);
   CPSR = __get_CPSR();
   if ( (CPSR & 1) == 0 )
   {
@@ -263,7 +263,7 @@ LABEL_2:
   }
   v52 = (int *)off_11E4B8;
   ++*(uint32_t *)off_11E4B8;
-  v53 = sub_113374(v50, CPSR << 31);
+  v53 = rf_is_idle(v50, CPSR << 31);
   if ( *v52 )
   {
     v55 = *v52 - 1;
@@ -275,6 +275,6 @@ LABEL_2:
         __enable_irq();
     }
   }
-  return sub_10DAE4(dword_11E4BC, v53, v54);
+  return debug_printf(dword_11E4BC, v53, v54);
 }
 

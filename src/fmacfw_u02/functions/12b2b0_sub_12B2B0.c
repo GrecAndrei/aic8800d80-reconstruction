@@ -14,8 +14,8 @@ extern uint32_t dword_12B390;
 extern uint32_t off_12B394;
 extern uint32_t dword_12B38C;
 
-// sub_12B2B0 @ 0x12b2b0, size 218 bytes
-int  sub_12B2B0(int a1, int a2, int a3)
+// link_get_connection_info @ 0x12b2b0, size 218 bytes
+int  link_get_connection_info(int a1, int a2, int a3)
 {
   int v3; // r9
   int v4; // r3
@@ -37,7 +37,7 @@ int  sub_12B2B0(int a1, int a2, int a3)
   v6 = *(uint8_t *)(v4 + 116);
   if ( *(uint8_t *)(v4 + 1224) )
   {
-    result = sub_118C44(1, 26);
+    result = ke_mutex_guard(1, 26);
     v12 = result;
     if ( result )
     {
@@ -71,7 +71,7 @@ LABEL_5:
       *(uint8_t *)(v12 + 29) = *(uint8_t *)(v14 + 35);
       *(uint32_t *)(v12 + 88) = a2;
       *(uint32_t *)(v12 + 92) = a3;
-      return rf_param_get_status(v12, 5);
+      return tx_path_status(v12, 5);
     }
   }
   else
@@ -80,7 +80,7 @@ LABEL_5:
     v10 = *(uint8_t *)(v9 + 4);
     if ( *(uint8_t *)(v9 + 4) )
       v10 = 1;
-    result = sub_118C44(v10, 26);
+    result = ke_mutex_guard(v10, 26);
     v12 = result;
     if ( result )
       goto LABEL_5;

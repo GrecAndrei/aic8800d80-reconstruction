@@ -15,10 +15,10 @@ extern uint32_t off_10DE94;
 extern uint32_t dword_10DE98;
 extern uint32_t dword_10DE9C;
 
-// rf_hw_timer_init @ 0x10de48, size 72 bytes
-// Doc: rf_hw_timer_init [rf]: Initialize RF hardware timer
-// rf_hw_timer_init [rf]: Initialize RF hardware timer
-int rf_hw_timer_init()
+// gpio_reset @ 0x10de48, size 72 bytes
+// Doc: gpio_reset [rf]: Initialize RF hardware timer
+// gpio_reset [rf]: Initialize RF hardware timer
+int gpio_reset()
 {
   uint32_t *v0; // r3
   uint32_t *v1; // r0

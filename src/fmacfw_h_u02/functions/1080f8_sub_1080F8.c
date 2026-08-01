@@ -15,8 +15,8 @@ extern uint32_t off_108130;
 extern uint32_t dword_108138;
 extern uint32_t off_10813C;
 
-// sub_1080F8 @ 0x1080f8, size 56 bytes
-int sub_1080F8()
+// tx_desc_page_read @ 0x1080f8, size 56 bytes
+int tx_desc_page_read()
 {
   unsigned int *v0; // r5
   int v1; // r6
@@ -27,7 +27,7 @@ int sub_1080F8()
   v0 = (unsigned int *)off_108134;
   v1 = *(uint32_t *)off_108134;
   v2 = (uint16_t)*(uint32_t *)off_108130 >> 4;
-  result = sub_12EB90(1, dword_108138);
+  result = check_feature_flag(1, dword_108138);
   v4 = off_10813C;
   *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;
   *v4 |= 0x400000u;

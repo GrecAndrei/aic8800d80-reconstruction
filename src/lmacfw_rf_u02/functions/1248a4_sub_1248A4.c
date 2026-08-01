@@ -17,8 +17,8 @@ extern uint32_t dword_1248E0;
 extern uint32_t off_1248E4;
 extern uint32_t dword_1248E8;
 
-// sub_1248A4 @ 0x1248a4, size 50 bytes
-int sub_1248A4()
+// mmio_set_flag @ 0x1248a4, size 50 bytes
+int mmio_set_flag()
 {
   uint8_t *v0; // r4
   int *v1; // r3
@@ -29,12 +29,12 @@ int sub_1248A4()
   v0 = off_1248DC;
   if ( *(uint8_t *)off_1248DC )
   {
-    msg_parse(dword_1248EC);
+    dispatch_event_handler(dword_1248EC);
     return 0;
   }
   else
   {
-    timer_set_relative(144, *(uint8_t *)off_1248DC, dword_1248E0);
+    ke_event_loop(144, *(uint8_t *)off_1248DC, dword_1248E0);
     v1 = (int *)off_1248E4;
     v2 = dword_1248E8;
     *v0 = 1;

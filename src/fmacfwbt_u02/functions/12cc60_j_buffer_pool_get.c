@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// j_buffer_pool_get @ 0x12cc60, size 4 bytes
+// jump_to_tx_entry @ 0x12cc60, size 4 bytes
 // attributes: thunk
-int  j_buffer_pool_get(int a1)
+int  jump_to_tx_entry(int a1)
 {
-  return buffer_pool_get(a1);
+  return hci_tx_packet(a1);
 }
 

@@ -13,8 +13,8 @@
 extern uint32_t off_10D7D8;
 extern uint32_t off_10D7DC;
 
-// sub_10D7B4 @ 0x10d7b4, size 34 bytes
-uint8_t * sub_10D7B4(uint8_t *result)
+// read_memory_byte @ 0x10d7b4, size 34 bytes
+uint8_t * read_memory_byte(uint8_t *result)
 {
   int v1; // r1
   uint32_t *v2; // r2

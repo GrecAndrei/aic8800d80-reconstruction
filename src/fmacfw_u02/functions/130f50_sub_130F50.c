@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130F50 @ 0x130f50, size 266 bytes
+// rx_packet_handler @ 0x130f50, size 266 bytes
 // Doc: sub_1230F50 [unknown]: Generic dispatcher: saves args, calls init helper, then invokes callback with r1
 // sub_1230F50 [unknown]: Generic dispatcher: saves args, calls init helper, then invokes callback with r1
-int  sub_130F50(uint8_t *a1, int a2, uint8_t *a3, int a4)
+int  rx_packet_handler(uint8_t *a1, int a2, uint8_t *a3, int a4)
 {
   unsigned int v8; // r7
   unsigned int v9; // r0
@@ -27,18 +27,18 @@ int  sub_130F50(uint8_t *a1, int a2, uint8_t *a3, int a4)
   int v18; // r2
   int v19; // [sp+7h] [bp-1h] BYREF
 
-  v8 = (unsigned int)sub_12DA38(a1, a2);
-  v9 = (unsigned int)sub_12DA78(a1, a2);
+  v8 = (unsigned int)check_one_12da38(a1, a2);
+  v9 = (unsigned int)check_one_12da78(a1, a2);
   if ( !(v8 | v9) )
     return 0;
   v10 = (uint8_t *)v9;
-  v11 = sub_12DAB8(a1, a2, &v19);
+  v11 = check_one_12dab8(a1, a2, &v19);
   if ( v11 )
   {
     if ( !v19 )
       return 0;
   }
-  v12 = sub_12DAFC(a1, a2, &v19);
+  v12 = check_one_12dafc(a1, a2, &v19);
   if ( v12 )
   {
     if ( !v19 )
@@ -99,14 +99,14 @@ LABEL_17:
       if ( !v12 )
         goto LABEL_21;
 LABEL_25:
-      sub_133598(v12[2], v12[3], v12[4], a4);
+      null_sub(v12[2], v12[3], v12[4], a4);
       goto LABEL_21;
     }
   }
   if ( v12 )
     goto LABEL_25;
 LABEL_21:
-  unknown_sub_322b8(a4);
+  rx_parse_header(a4);
   return v13;
 }
 

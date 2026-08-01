@@ -12,8 +12,8 @@
 
 extern uint32_t off_10CF38;
 
-// sub_10CF2C @ 0x10cf2c, size 10 bytes
-void sub_10CF2C()
+// enable_uart @ 0x10cf2c, size 10 bytes
+void enable_uart()
 {
   *(uint32_t *)off_10CF38 = 256;
 }

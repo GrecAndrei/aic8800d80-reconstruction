@@ -1,1 +1,1 @@
-{"fn": "sub_12210E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12210e4", "status": "ok", "name": "mmio_init_reset", "params": [], "docstring": "Initialize MMIO control register 0x40320038", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_12210E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12210e4", "status": "ok", "name": "set_clock_divisor", "params": [], "docstring": "Initialize MMIO control register 0x40320038", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

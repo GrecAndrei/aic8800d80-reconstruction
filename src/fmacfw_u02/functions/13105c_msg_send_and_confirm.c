@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// msg_send_and_confirm @ 0x13105c, size 162 bytes
-// Doc: msg_send_and_confirm [ipc]: Sends message and clears pending flag; checks response
-// msg_send_and_confirm [ipc]: Sends message and clears pending flag; checks response
-uint8_t * msg_send_and_confirm(uint8_t *a1, int a2, int a3, uint8_t *a4)
+// ll_get_conn_state @ 0x13105c, size 162 bytes
+// Doc: ll_get_conn_state [ipc]: Sends message and clears pending flag; checks response
+// ll_get_conn_state [ipc]: Sends message and clears pending flag; checks response
+uint8_t * ll_get_conn_state(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   uint8_t *result; // r0
   uint8_t v7; // r2
@@ -21,7 +21,7 @@ uint8_t * msg_send_and_confirm(uint8_t *a1, int a2, int a3, uint8_t *a4)
   unsigned int v9; // r5
   uint64_t v10; // r2
 
-  result = sdio_buffer_prepare_n_43c(a1, a2);
+  result = log_format_message(a1, a2);
   *a4 = 0;
   if ( result )
   {

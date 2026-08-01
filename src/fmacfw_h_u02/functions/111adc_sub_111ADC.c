@@ -16,8 +16,8 @@ extern uint32_t off_111BC8;
 extern uint32_t dword_111BCC;
 extern uint32_t off_111BC4;
 
-// sub_111ADC @ 0x111adc, size 224 bytes
-int  sub_111ADC(int a1, int a2, int a3)
+// unknown_handler2 @ 0x111adc, size 224 bytes
+int  unknown_handler2(int a1, int a2, int a3)
 {
   int v3; // r6
   uint32_t *v4; // r4
@@ -31,7 +31,7 @@ int  sub_111ADC(int a1, int a2, int a3)
     v4 = (uint32_t *)(dword_111BBC + v3);
     v5 = *(uint32_t *)(v3 + dword_111BBC);
     if ( (v5 & 0x80008000) == 0 )
-      return (int)sub_111864(a1);
+      return (int)get_node_offset_b(a1);
     v6 = (uint32_t *)(dword_111BBC + v3 + 8);
     if ( (dword_111BC0 & v5) == 0x20000 )
       goto LABEL_4;
@@ -63,7 +63,7 @@ LABEL_7:
 LABEL_11:
         if ( !a1 )
           return a1;
-        return (int)sub_111864(a1);
+        return (int)get_node_offset_b(a1);
       }
       *v6 = 64;
       *v4 |= a2 | 0x8008000;

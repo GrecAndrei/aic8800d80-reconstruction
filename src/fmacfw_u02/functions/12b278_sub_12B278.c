@@ -13,10 +13,10 @@
 extern uint32_t off_12B2A8;
 extern uint32_t off_12B2AC;
 
-// sub_12B278 @ 0x12b278, size 46 bytes
+// controller_get_event @ 0x12b278, size 46 bytes
 // Doc: sub_122B278 [mmio]: Read interface state offset 0x16c and invoke sub-handler
 // sub_122B278 [mmio]: Read interface state offset 0x16c and invoke sub-handler
-int  sub_12B278(int a1)
+int  controller_get_event(int a1)
 {
   uint32_t *v1; // r6
   char *v2; // r4
@@ -24,8 +24,8 @@ int  sub_12B278(int a1)
 
   v1 = off_12B2A8;
   v2 = (char *)off_12B2AC;
-  v1[1] = sub_12DB60(off_12B2AC, *(uint16_t *)(*(uint32_t *)off_12B2A8 + 364));
-  result = sub_12B1A4();
+  v1[1] = check_one_12db60(off_12B2AC, *(uint16_t *)(*(uint32_t *)off_12B2A8 + 364));
+  result = ke_timer_setup();
   *(uint32_t *)&v2[-8] = *(uint32_t *)&v2[-12] - 1 + *(uint16_t *)(a1 + 364);
   *((uint32_t *)v2 - 1) = 0;
   return result;

@@ -1,1 +1,1 @@
-{"fn": "sub_120C938", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120c938", "status": "ok", "name": "fmac_msg_alloc_wrapper", "params": [], "docstring": "Thin wrapper allocating/processing an fmac message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120C938", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120c938", "status": "ok", "name": "pmu_status_interrupt", "params": [], "docstring": "Thin wrapper allocating/processing an fmac message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

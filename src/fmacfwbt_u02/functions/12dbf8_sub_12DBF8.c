@@ -12,15 +12,15 @@
 
 extern uint32_t dword_12DC20;
 
-// sub_12DBF8 @ 0x12dbf8, size 40 bytes
+// debug_log @ 0x12dbf8, size 40 bytes
 // Doc: sub_122DBF8 [unknown]: Setup call frame, prepare 5 args, call helper
 // sub_122DBF8 [unknown]: Setup call frame, prepare 5 args, call helper
-uint8_t * sub_12DBF8(uint8_t *a1, int a2, uint8_t *a3)
+uint8_t * debug_log(uint8_t *a1, int a2, uint8_t *a3)
 {
   uint8_t *result; // r0
   uint16_t v5; // [sp+Eh] [bp-2h] BYREF
 
-  result = sub_12D9B0(a1, a2, (uint8_t *)dword_12DC20, 5, &v5);
+  result = memcpy_opt(a1, a2, (uint8_t *)dword_12DC20, 5, &v5);
   if ( result )
   {
     if ( v5 <= 0x17u )

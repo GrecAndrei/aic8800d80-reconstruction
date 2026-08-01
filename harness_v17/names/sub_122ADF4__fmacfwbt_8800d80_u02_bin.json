@@ -1,1 +1,1 @@
-{"fn": "sub_122ADF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122adf4", "status": "ok", "name": "bt_link_lookup_entry", "params": [], "docstring": "Look up a BT link entry by index from the link table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_122ADF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122adf4", "status": "ok", "name": "bt_conn_read_info", "params": [], "docstring": "Look up a BT link entry by index from the link table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

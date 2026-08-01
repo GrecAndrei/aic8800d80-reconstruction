@@ -33,10 +33,10 @@ extern uint32_t off_10AF7C;
 extern uint32_t dword_10AF80;
 extern uint32_t dword_10AF84;
 
-// rf_rx_dc_calib @ 0x10ac18, size 1062 bytes
-// Doc: rf_rx_dc_calib [rf]: RF RX DC/IQ calibration with FP ops, accesses 0x40346xxx RF regs
-// rf_rx_dc_calib [rf]: RF RX DC/IQ calibration with FP ops, accesses 0x40346xxx RF regs
-int  rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3)
+// configure_dma_regs @ 0x10ac18, size 1062 bytes
+// Doc: configure_dma_regs [rf]: RF RX DC/IQ calibration with FP ops, accesses 0x40346xxx RF regs
+// configure_dma_regs [rf]: RF RX DC/IQ calibration with FP ops, accesses 0x40346xxx RF regs
+int  configure_dma_regs(unsigned int *a1, uint8_t *a2, int a3)
 {
   int v3; // r9
   int v4; // r10
@@ -131,7 +131,7 @@ int  rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3)
   v3 = dword_10AF6C;
   v4 = dword_10AF74;
   v5 = dword_10AF98;
-  msg_parse(dword_10AF4C, a2);
+  dispatch_event_handler(dword_10AF4C, a2);
   v7 = *(uint32_t *)off_10AF50;
   v8 = *(uint32_t *)off_10AF50 & 0xFFFFFFFE;
   v89 = 0;
@@ -139,7 +139,7 @@ int  rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3)
   v91 = 0;
   *(uint32_t *)off_10AF50 = v8;
   v85 = v7 & 1;
-  sub_102ADC(0);
+  gpio_set_pin(0);
   v9 = dword_10AF70;
   v10 = dword_10AF78;
   v11 = 0;
@@ -189,13 +189,13 @@ LABEL_5:
   }
   while ( v11 != 3 );
   v18 = (unsigned int *)off_10AF54;
-  sub_102B40(0);
-  sub_11F74C(1, dword_10AF58, v19, v20);
+  gpio_clear_pin(0);
+  check_interrupt_flag(1, dword_10AF58, v19, v20);
   v21 = dword_10AF5C;
   *v18 |= 0x400u;
   *v18 &= ~0x400u;
-  msg_parse(v21, v22);
-  sub_11F74C(1, dword_10AF60, v23, v24);
+  dispatch_event_handler(v21, v22);
+  check_interrupt_flag(1, dword_10AF60, v23, v24);
   if ( (*(uint32_t *)off_10AF64 & 2) != 0 )
     v26 = 8;
   else
@@ -211,7 +211,7 @@ LABEL_5:
     *v27 = v30;
     if ( v28 == 1 )
     {
-      sub_11F74C(1, dword_10AF88, v29, v30);
+      check_interrupt_flag(1, dword_10AF88, v29, v30);
       if ( v29 > 0x1388 )
       {
         LOBYTE(v91) = 0;
@@ -219,8 +219,8 @@ LABEL_5:
         HIWORD(v89) = v29;
         LOWORD(v90) = v29;
         HIWORD(v90) = v29;
-        sub_102908((uint8_t *)&v89, 0);
-        v79 = sub_102968(v29);
+        tx_set_power((uint8_t *)&v89, 0);
+        v79 = rf_check_freq(v29);
         v84 = dword_10B040 + 384 * v79;
         v82 = &a1[316 * (uint8_t)(v79 + 1)];
         v58 = (uint8_t)(v79 + 1);
@@ -231,22 +231,22 @@ LABEL_5:
         LOWORD(v90) = v29;
         LOBYTE(v89) = 0;
         LOBYTE(v91) = 0;
-        sub_102908((uint8_t *)&v89, 0);
+        tx_set_power((uint8_t *)&v89, 0);
         v84 = dword_10AF8C;
         v83 = a2;
         v58 = 0;
         v82 = a1;
         v28 = 0;
       }
-      sub_107C70((int)(v82 + 292), v82, 255, 0, 0, dword_10AF90, 0);
-      delay_us(10000);
+      rf_transmit_packet((int)(v82 + 292), v82, 255, 0, 0, dword_10AF90, 0);
+      write_timer_reg(10000);
       v88 = a3;
       *v83 = 1;
       v81 = v28;
       for ( i = 0; i != 3; ++i )
       {
         if ( !v82[i] )
-          sub_11F74C(1, dword_10B044, i, 0);
+          check_interrupt_flag(1, dword_10B044, i, 0);
         if ( v81 == 1 )
         {
           if ( i )
@@ -285,8 +285,8 @@ LABEL_5:
         }
         v64 = dword_10AF94;
         *v83 &= (v82[v60] & 0x20000) != 0;
-        sub_11F74C(1, v64, v58, i);
-        crypto_key_schedule(v82[v60], v92);
+        check_interrupt_flag(1, v64, v58, i);
+        mac_get_params(v82[v60], v92);
         if ( v63 < v62 )
         {
           v65 = v93;
@@ -356,8 +356,8 @@ LABEL_48:
   v32 = dword_10AF70;
   v33 = dword_10AF74;
   v34 = dword_10AF98;
-  msg_parse(dword_10AF68, v25);
-  sub_102ADC(0);
+  dispatch_event_handler(dword_10AF68, v25);
+  gpio_set_pin(0);
   v35 = dword_10AF78;
   v36 = (int *)v95;
   v37 = 0;
@@ -405,12 +405,12 @@ LABEL_18:
       continue;
     break;
   }
-  sub_102B40(0);
+  gpio_clear_pin(0);
   v43 = off_10AF7C;
   v44 = dword_10AF80;
   v45 = *(uint32_t *)off_10AF50 & 0xFFFFFFFE | v85;
   *(uint32_t *)off_10AF50 = v45;
-  sub_11F74C(1, v44, (*v43 >> 21) & 7, v45);
-  return msg_parse(dword_10AF84, v46);
+  check_interrupt_flag(1, v44, (*v43 >> 21) & 7, v45);
+  return dispatch_event_handler(dword_10AF84, v46);
 }
 

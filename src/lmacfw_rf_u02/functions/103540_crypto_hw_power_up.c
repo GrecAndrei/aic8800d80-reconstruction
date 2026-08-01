@@ -18,10 +18,10 @@ extern uint32_t off_1035E0;
 extern uint32_t dword_1035E4;
 extern uint32_t off_1035D8;
 
-// crypto_hw_power_up @ 0x103540, size 138 bytes
-// Doc: crypto_hw_power_up [ke]: Power up crypto hardware by setting control bits
-// crypto_hw_power_up [ke]: Power up crypto hardware by setting control bits
-int  crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5)
+// poll_rf_status @ 0x103540, size 138 bytes
+// Doc: poll_rf_status [ke]: Power up crypto hardware by setting control bits
+// poll_rf_status [ke]: Power up crypto hardware by setting control bits
+int  poll_rf_status(int a1, int a2, int a3, int a4, int a5)
 {
   uint32_t *v5; // r2
   int v6; // r3
@@ -63,6 +63,6 @@ int  crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5)
   *v10 = v13;
   v14 = *v11 | 0x524;
   *v11 = v14;
-  return sub_11F74C(0x2000, v12, v13, v14, a5);
+  return check_interrupt_flag(0x2000, v12, v13, v14, a5);
 }
 

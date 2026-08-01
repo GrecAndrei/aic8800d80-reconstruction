@@ -16,8 +16,8 @@ extern uint32_t dword_1119F4;
 extern uint32_t dword_1119F8;
 extern uint32_t dword_1119FC;
 
-// sub_111950 @ 0x111950, size 158 bytes
-int  sub_111950(int a1, int a2, unsigned int a3)
+// rf_channel_update @ 0x111950, size 158 bytes
+int  rf_channel_update(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -35,7 +35,7 @@ int  sub_111950(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA6C(dword_111A00);
+    log_printf(dword_111A00);
     return 3;
   }
   else

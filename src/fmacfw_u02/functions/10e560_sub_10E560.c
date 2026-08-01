@@ -28,8 +28,8 @@ extern uint32_t dword_10E830;
 extern uint32_t dword_10E834;
 extern uint32_t off_10E838;
 
-// sub_10E560 @ 0x10e560, size 664 bytes
-int sub_10E560()
+// rf_event_handler_alt @ 0x10e560, size 664 bytes
+int rf_event_handler_alt()
 {
   uint32_t *v0; // r1
   int v1; // r3
@@ -86,14 +86,14 @@ int sub_10E560()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v3 = sub_1429B4(v0[4]);
-  v4 = sub_142AA8(v3, HIDWORD(v3), dword_10E7F8, dword_10E7FC);
-  v5 = sub_142CFC(v4, HIDWORD(v4), dword_10E800, dword_10E804);
-  v6 = sub_142738(v5, HIDWORD(v5), dword_10E7F8, dword_10E7FC);
-  v7 = sub_142FDC(v6, HIDWORD(v6));
-  v8 = sub_10ED6C(dword_10E820) & 0x1F;
+  v3 = uint_to_double(v0[4]);
+  v4 = double_add(v3, HIDWORD(v3), dword_10E7F8, dword_10E7FC);
+  v5 = double_subtract(v4, HIDWORD(v4), dword_10E800, dword_10E804);
+  v6 = double_compare_wrapper(v5, HIDWORD(v5), dword_10E7F8, dword_10E7FC);
+  v7 = double_to_float(v6, HIDWORD(v6));
+  v8 = call_ptr_1b0(dword_10E820) & 0x1F;
   v9 = v7 - 840;
-  sub_10DC24(dword_10E824, v7, v8);
+  log_printf(dword_10E824, v7, v8);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -111,9 +111,9 @@ int sub_10E560()
   }
   else
   {
-    v11 = sub_1429D4(v10);
-    v12 = sub_142AA8(v11, HIDWORD(v11), dword_10E808, dword_10E80C);
-    v13 = sub_142FDC(v12, HIDWORD(v12));
+    v11 = int_to_double(v10);
+    v12 = double_add(v11, HIDWORD(v11), dword_10E808, dword_10E80C);
+    v13 = double_to_float(v12, HIDWORD(v12));
     v14 = v13;
     if ( v9 <= 0 )
     {
@@ -137,18 +137,18 @@ int sub_10E560()
       v9 = -9;
       goto LABEL_33;
     }
-    sub_10ED7C(dword_10E820, v15, 31);
+    call_ptr_1b8(dword_10E820, v15, 31);
     v16 = off_10E814;
     *((uint32_t *)off_10E814 + 1) = 1;
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
-    v17 = sub_1429B4(v16[4]);
-    v18 = sub_142AA8(v17, HIDWORD(v17), dword_10E7F8, dword_10E7FC);
-    v19 = sub_142CFC(v18, HIDWORD(v18), dword_10E800, dword_10E804);
-    v20 = sub_142738(v19, HIDWORD(v19), dword_10E7F8, dword_10E7FC);
-    v7 = sub_142FDC(v20, HIDWORD(v20));
-    sub_12EA88(dword_10E828, v14, v15);
+    v17 = uint_to_double(v16[4]);
+    v18 = double_add(v17, HIDWORD(v17), dword_10E7F8, dword_10E7FC);
+    v19 = double_subtract(v18, HIDWORD(v18), dword_10E800, dword_10E804);
+    v20 = double_compare_wrapper(v19, HIDWORD(v19), dword_10E7F8, dword_10E7FC);
+    v7 = double_to_float(v20, HIDWORD(v20));
+    event_dispatch(dword_10E828, v14, v15);
     if ( v7 <= 840 )
       v21 = 1;
     else
@@ -170,17 +170,17 @@ int sub_10E560()
       v8 = v43 + v42 * v27;
       goto LABEL_33;
     }
-    sub_10ED7C(v23, v25, 31);
+    call_ptr_1b8(v23, v25, 31);
     v24[1] = 1;
     while ( v24[7] != 1 )
       ;
     v24[7] = 1;
-    v28 = sub_1429B4(v24[4]);
-    v29 = sub_142AA8(v28, HIDWORD(v28), dword_10E7F8, dword_10E7FC);
-    v30 = sub_142CFC(v29, HIDWORD(v29), dword_10E800, dword_10E804);
-    v31 = sub_142738(v30, HIDWORD(v30), dword_10E7F8, dword_10E7FC);
-    v32 = sub_142FDC(v31, HIDWORD(v31));
-    sub_12EA88(dword_10E82C, v9, v25);
+    v28 = uint_to_double(v24[4]);
+    v29 = double_add(v28, HIDWORD(v28), dword_10E7F8, dword_10E7FC);
+    v30 = double_subtract(v29, HIDWORD(v29), dword_10E800, dword_10E804);
+    v31 = double_compare_wrapper(v30, HIDWORD(v30), dword_10E7F8, dword_10E7FC);
+    v32 = double_to_float(v31, HIDWORD(v31));
+    event_dispatch(dword_10E82C, v9, v25);
     v33 = v7 - 840;
     v34 = v32 - 840;
     if ( v33 * (v32 - 840) <= 0 )
@@ -202,22 +202,22 @@ int sub_10E560()
     v8 = v25;
   }
 LABEL_33:
-  sub_10DC24(dword_10E830, v9);
-  sub_10ED7C(dword_10E820, v8, 31);
+  log_printf(dword_10E830, v9);
+  call_ptr_1b8(dword_10E820, v8, 31);
   v35 = off_10E814;
   *((uint32_t *)off_10E814 + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
-  v36 = sub_1429B4(v35[4]);
-  v37 = sub_142AA8(v36, HIDWORD(v36), dword_10E7F8, dword_10E7FC);
-  v38 = sub_142CFC(v37, HIDWORD(v37), dword_10E800, dword_10E804);
-  v39 = sub_142738(v38, HIDWORD(v38), dword_10E7F8, dword_10E7FC);
-  v40 = sub_142FDC(v39, HIDWORD(v39));
-  sub_10DC24(dword_10E834, v40);
+  v36 = uint_to_double(v35[4]);
+  v37 = double_add(v36, HIDWORD(v36), dword_10E7F8, dword_10E7FC);
+  v38 = double_subtract(v37, HIDWORD(v37), dword_10E800, dword_10E804);
+  v39 = double_compare_wrapper(v38, HIDWORD(v38), dword_10E7F8, dword_10E7FC);
+  v40 = double_to_float(v39, HIDWORD(v39));
+  log_printf(dword_10E834, v40);
   result = *((uint32_t *)off_10E838 + 94);
   if ( result != 0x80000000 )
-    return sub_11130C();
+    return read_random_from_mmio();
   return result;
 }
 

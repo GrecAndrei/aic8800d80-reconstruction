@@ -18,8 +18,8 @@ extern uint32_t off_100B84;
 extern uint32_t off_100B88;
 extern uint32_t off_100B8C;
 
-// sub_100B14 @ 0x100b14, size 94 bytes
-uint32_t *sub_100B14()
+// bt_init @ 0x100b14, size 94 bytes
+uint32_t *bt_init()
 {
   uint64_t v0; // r0
   unsigned int *v1; // r5
@@ -32,12 +32,12 @@ uint32_t *sub_100B14()
   uint32_t *result; // r0
   uint8_t *v9; // r5
 
-  v0 = sub_1429D4();
+  v0 = int_to_double();
   v1 = (unsigned int *)off_100B78;
   v2 = (unsigned int *)off_100B7C;
-  v3 = sub_142CFC(v0, HIDWORD(v0), 0, dword_100B74);
-  v4 = math_round(v3);
-  v5 = sub_14302C(v4);
+  v3 = double_subtract(v0, HIDWORD(v0), 0, dword_100B74);
+  v4 = double_add(v3);
+  v5 = double_to_int(v4);
   v6 = off_100B80;
   v7 = off_100B84;
   *v1 = (uint16_t)(v5 << 8) | *v1 & 0xFFFF00FF;

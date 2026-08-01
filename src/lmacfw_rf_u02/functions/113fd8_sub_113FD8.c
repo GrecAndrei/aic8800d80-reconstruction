@@ -12,8 +12,8 @@
 
 extern uint32_t dword_114040;
 
-// sub_113FD8 @ 0x113fd8, size 102 bytes
-int  sub_113FD8(int a1, int a2, uint8_t *a3)
+// rx_desc_build @ 0x113fd8, size 102 bytes
+int  rx_desc_build(int a1, int a2, uint8_t *a3)
 {
   int v5; // r1
   int v6; // r2
@@ -35,7 +35,7 @@ int  sub_113FD8(int a1, int a2, uint8_t *a3)
     ++v7;
     LOBYTE(a2) = a2 - 4;
   }
-  v8 = (unsigned int)sub_113A44(v7) >> (8 * a2);
+  v8 = (unsigned int)mmio_read32(v7) >> (8 * a2);
   v9 = (uint8_t)v8 >> 4;
   if ( (v8 & 0xF0) != 0 )
   {

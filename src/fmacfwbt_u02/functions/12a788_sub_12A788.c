@@ -12,8 +12,8 @@
 
 extern uint32_t dword_12A7F0;
 
-// sub_12A788 @ 0x12a788, size 102 bytes
-char * sub_12A788(int a1)
+// bt_conn_get_flag @ 0x12a788, size 102 bytes
+char * bt_conn_get_flag(int a1)
 {
   int v1; // r7
   int v2; // r4
@@ -29,15 +29,15 @@ char * sub_12A788(int a1)
   v3[115] = 0;
   if ( v4 )
   {
-    sub_125058(140 * v2 + 96 + v1);
+    ke_event_set_lock(140 * v2 + 96 + v1);
     v3[114] = 0;
   }
-  sub_129A28(v3);
+  state_machine_step(v3);
   v5 = v1 + 140 * v2;
   if ( *(uint8_t *)(v5 + 121) )
     v6 = 3;
   else
     v6 = 2;
-  return sub_125EFC(*(uint8_t *)(v5 + 113), v6);
+  return set_flag_byte(*(uint8_t *)(v5 + 113), v6);
 }
 

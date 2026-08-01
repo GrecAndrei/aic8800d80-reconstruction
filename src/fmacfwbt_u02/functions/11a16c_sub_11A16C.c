@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11A16C @ 0x11a16c, size 30 bytes
-unsigned int  sub_11A16C(int a1, unsigned int a2)
+// buf_align_size @ 0x11a16c, size 30 bytes
+unsigned int  buf_align_size(int a1, unsigned int a2)
 {
   unsigned int v2; // r3
 

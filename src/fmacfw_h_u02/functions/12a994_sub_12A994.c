@@ -15,8 +15,8 @@ extern uint32_t off_12AA38;
 extern uint32_t off_12AA3C;
 extern uint32_t dword_12AA30;
 
-// sub_12A994 @ 0x12a994, size 156 bytes
-int  sub_12A994(int result, int a2)
+// lll_conn_rf_process @ 0x12a994, size 156 bytes
+int  lll_conn_rf_process(int result, int a2)
 {
   int *v2; // r7
   uint32_t *v3; // r9
@@ -55,7 +55,7 @@ int  sub_12A994(int result, int a2)
       if ( v11 - 62 >= 0 )
       {
         *(uint32_t *)(v8 + 88) = 0;
-        result = sub_124BFC(v9, result);
+        result = mem_copy_util(v9, result);
         v12 = *v2;
         v10 = 1;
         if ( !*v2 )
@@ -78,7 +78,7 @@ LABEL_8:
     v6 = 1;
   }
   if ( v10 )
-    return sub_129458(v5);
+    return rsn_derive_key(v5);
   return result;
 }
 

@@ -13,14 +13,14 @@
 extern uint32_t off_112F34;
 extern uint32_t dword_112F38;
 
-// sub_112ED0 @ 0x112ed0, size 100 bytes
-int  sub_112ED0(int a1, uint16_t *a2)
+// rx_increment_count @ 0x112ed0, size 100 bytes
+int  rx_increment_count(int a1, uint16_t *a2)
 {
   int v4; // r2
   int v5; // r3
   int v6; // r2
 
-  sub_112E30();
+  phy_irq_handler();
   if ( *(uint8_t *)off_112F34 != 4 )
     return 1;
   v4 = a1 - 1;

@@ -19,8 +19,8 @@ extern uint32_t dword_11A2A4;
 extern uint32_t dword_11A2A8;
 extern uint32_t dword_11A2AC;
 
-// sub_11A18C @ 0x11a18c, size 264 bytes
-int *sub_11A18C()
+// timer_ticks_compare @ 0x11a18c, size 264 bytes
+int *timer_ticks_compare()
 {
   uint32_t *v0; // r3
   uint64_t v1; // kr00_8
@@ -54,12 +54,12 @@ int *sub_11A18C()
   v4 = (int *)dword_11A2A0;
   v5 = dword_11A2B0;
   v6 = dword_11A29C;
-  memset_thunk((int *)dword_11A29C, 0, 0x30u);
+  memset_byte((int *)dword_11A29C, 0, 0x30u);
   v7 = v3 + 6;
   do
   {
     v8 = *v3++;
-    result = memset_thunk(v8, 0, 360 * *v4);
+    result = memset_byte(v8, 0, 360 * *v4);
     v10 = *v4++;
     if ( v10 > 0 )
     {
@@ -95,12 +95,12 @@ int *sub_11A18C()
         v13[4] = v5;
         v13[21] = v5;
         v13[44] = sub_101954() << 14;
-        v14 = sdio_buffer_prepare_n_32a();
+        v14 = get_hw_flash_size();
         v15 = dword_11A2AC;
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = (int *)list_push_tail(v6);
+        result = (int *)check_abort_flag(v6);
         ++v12;
         v11 += 90;
       }

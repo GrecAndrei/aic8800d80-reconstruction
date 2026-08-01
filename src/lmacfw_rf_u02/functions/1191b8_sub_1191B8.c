@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1191B8 @ 0x1191b8, size 94 bytes
-int  sub_1191B8(uint8_t *a1, int a2)
+// rf_temp_compensate @ 0x1191b8, size 94 bytes
+int  rf_temp_compensate(uint8_t *a1, int a2)
 {
   int v2; // r3
   int result; // r0
@@ -40,11 +40,11 @@ int  sub_1191B8(uint8_t *a1, int a2)
         goto LABEL_7;
       LOBYTE(v6) = 1;
     }
-    v8 = (uint8_t *)sub_11DDF0(87, 4, 0, 3);
+    v8 = (uint8_t *)ke_msg_send(87, 4, 0, 3);
     *v8 = a1[95];
     v8[1] = v6;
     v8[2] = v7;
-    result = sub_11DE50(v8);
+    result = rx_irq_handler(v8);
 LABEL_7:
     a1[120] = v6;
   }

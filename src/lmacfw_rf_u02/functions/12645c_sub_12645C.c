@@ -12,8 +12,8 @@
 
 extern uint32_t off_126468;
 
-// sub_12645C @ 0x12645c, size 12 bytes
-int sub_12645C()
+// rf_flag_is_set @ 0x12645c, size 12 bytes
+int rf_flag_is_set()
 {
   int result; // r0
 

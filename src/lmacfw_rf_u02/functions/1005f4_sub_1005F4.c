@@ -12,8 +12,8 @@
 
 extern uint32_t off_100644;
 
-// sub_1005F4 @ 0x1005f4, size 78 bytes
-void __noreturn sub_1005F4()
+// periph_write_read @ 0x1005f4, size 78 bytes
+void __noreturn periph_write_read()
 {
   int v1; // [sp+0h] [bp-Ch]
 

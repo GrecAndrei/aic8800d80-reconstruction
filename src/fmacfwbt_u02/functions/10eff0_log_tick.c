@@ -15,10 +15,10 @@ extern uint32_t off_10F04C;
 extern uint32_t dword_10F054;
 extern uint32_t off_10F058;
 
-// log_tick @ 0x10eff0, size 90 bytes
-// Doc: log_tick [util]: Periodic log/tick handler updating counters and status
-// log_tick [util]: Periodic log/tick handler updating counters and status
-int log_tick()
+// phy_get_status @ 0x10eff0, size 90 bytes
+// Doc: phy_get_status [util]: Periodic log/tick handler updating counters and status
+// phy_get_status [util]: Periodic log/tick handler updating counters and status
+int phy_get_status()
 {
   uint8_t *v0; // r6
   int v1; // r5
@@ -31,12 +31,12 @@ int log_tick()
   v2 = *((char *)off_10F050 + 7) - v1;
   if ( v2 < -62 )
     LOBYTE(v2) = -62;
-  rf_power_set(v2);
+  write_mmio_byte(v2);
   v3 = dword_10F054;
   v0[7] = v2;
-  result = sub_12ECB0(v3, (char)v2, v1);
+  result = ke_event_schedule(v3, (char)v2, v1);
   if ( (char)v2 >= -61 )
-    return timestamp_update_4f60(v0 + 12, *((uint32_t *)off_10F058 + 4) + 30000 * *((uint16_t *)v0 + 4));
+    return ke_event_lock(v0 + 12, *((uint32_t *)off_10F058 + 4) + 30000 * *((uint16_t *)v0 + 4));
   v0[11] = 0;
   return result;
 }

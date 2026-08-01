@@ -18,8 +18,8 @@ extern uint32_t off_115B54;
 extern uint32_t off_115B58;
 extern uint32_t off_115B5C;
 
-// sub_115AD0 @ 0x115ad0, size 116 bytes
-int  sub_115AD0(int a1)
+// llm_pdu_tx_cfg @ 0x115ad0, size 116 bytes
+int  llm_pdu_tx_cfg(int a1)
 {
   uint32_t *v1; // r5
   int v3; // r3
@@ -37,11 +37,11 @@ int  sub_115AD0(int a1)
     v1 = (uint32_t *)dword_115B48;
   if ( a1 != 5 )
     v1 += 7 * a1;
-  sub_1160FC(a1, dword_115B44 + 8 * a1, 0);
-  sub_1160FC(a1, v1 + 3, 0);
+  wlan_hw_init(a1, dword_115B44 + 8 * a1, 0);
+  wlan_hw_init(a1, v1 + 3, 0);
   *v1 = 0;
   v1[5] = 0;
-  sub_1152D8(a1);
+  get_channel_params(a1);
   v3 = *(uint32_t *)off_115B50;
   v4 = 1 << a1;
   if ( (__get_CPSR() & 1) == 0 )

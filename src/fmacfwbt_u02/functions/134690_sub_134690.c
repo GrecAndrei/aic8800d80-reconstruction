@@ -12,10 +12,10 @@
 
 extern uint32_t off_1346D8;
 
-// sub_134690 @ 0x134690, size 72 bytes
+// ull_scan_event_start @ 0x134690, size 72 bytes
 // Doc: sub_1234690 [mac]: initializes state and clears outptr/inptr slots
 // sub_1234690 [mac]: initializes state and clears outptr/inptr slots
-int  sub_134690(uint32_t *a1, uint32_t *a2)
+int  ull_scan_event_start(uint32_t *a1, uint32_t *a2)
 {
   int v2; // r6
   int result; // r0
@@ -25,7 +25,7 @@ int  sub_134690(uint32_t *a1, uint32_t *a2)
   *a2 = 0;
   if ( (*(uint8_t *)(v2 + 34) & 1) != 0 )
   {
-    result = sub_138378(v2);
+    result = parse_pdu_data(v2);
     if ( result )
     {
       *a1 = result + 2;
@@ -37,7 +37,7 @@ LABEL_4:
   else
   {
     *a1 = v2 + 34;
-    result = sub_13831C();
+    result = lookup_handle_entry();
     if ( result )
       goto LABEL_4;
   }

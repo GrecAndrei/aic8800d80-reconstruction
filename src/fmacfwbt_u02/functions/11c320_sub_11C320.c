@@ -18,10 +18,10 @@ extern uint32_t dword_11C3E0;
 extern uint32_t dword_11C3E8;
 extern uint32_t off_11C3E4;
 
-// sub_11C320 @ 0x11c320, size 174 bytes
+// mac_process_queue @ 0x11c320, size 174 bytes
 // Doc: sub_121C320 [util]: Initialization/utility routine loading global state at 0x188bbc
 // sub_121C320 [util]: Initialization/utility routine loading global state at 0x188bbc
-int sub_11C320()
+int mac_process_queue()
 {
   uint32_t *v0; // r4
   int v1; // r6
@@ -43,7 +43,7 @@ int sub_11C320()
   if ( v1 )
   {
     v2 = *((uint32_t *)off_11C3D0 + 2);
-    timestamp_remove_058(off_11C3D0);
+    ke_event_set_lock(off_11C3D0);
     v3 = v0[4];
     if ( v3 )
       goto LABEL_3;
@@ -55,17 +55,17 @@ int sub_11C320()
     if ( v3 )
     {
 LABEL_3:
-      sub_14380C(v12, dword_11C3D4, 144);
+      memcpy_aligned(v12, dword_11C3D4, 144);
       v4 = *((uint8_t *)v0 + 160);
       if ( v12[1] )
-        timestamp_remove_058(dword_11C3D4);
+        ke_event_set_lock(dword_11C3D4);
       if ( v12[8] )
-        timestamp_remove_058(dword_11C3D8);
+        ke_event_set_lock(dword_11C3D8);
       if ( v12[15] )
-        timestamp_remove_058(dword_11C3DC);
+        ke_event_set_lock(dword_11C3DC);
       if ( v12[22] )
-        timestamp_remove_058(dword_11C3E0);
-      sub_11C1C8();
+        ke_event_set_lock(dword_11C3E0);
+      mac_reset_controller();
       v0[4] = v3;
       *((uint8_t *)v0 + 160) = v4;
       v0 = off_11C3D0;
@@ -86,7 +86,7 @@ LABEL_3:
       return result;
     }
   }
-  result = sub_11C1C8();
+  result = mac_reset_controller();
   v0[4] = v3;
   if ( v1 )
   {
@@ -96,7 +96,7 @@ LABEL_14:
     v11 = off_11C3D0;
     v0[2] = v2;
     v0[1] = v9;
-    return timestamp_update_4f60(v11, v10 + 5000);
+    return ke_event_lock(v11, v10 + 5000);
   }
   return result;
 }

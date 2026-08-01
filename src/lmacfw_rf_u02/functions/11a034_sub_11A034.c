@@ -48,8 +48,8 @@ extern uint32_t off_11A668;
 extern uint32_t off_11A664;
 extern uint32_t off_11A67C;
 
-// sub_11A034 @ 0x11a034, size 1760 bytes
-int  sub_11A034(int a1, uint8_t *a2, int a3, int a4)
+// process_cmd_extended @ 0x11a034, size 1760 bytes
+int  process_cmd_extended(int a1, uint8_t *a2, int a3, int a4)
 {
   int v8; // r0
   int16_t **v10; // r8
@@ -95,16 +95,16 @@ int  sub_11A034(int a1, uint8_t *a2, int a3, int a4)
   int v50; // [sp+10h] [bp-14h]
   uint8_t v51[5]; // [sp+1Fh] [bp-5h] BYREF
 
-  v8 = sub_11E34C(a3);
+  v8 = flash_write_byte(a3);
   if ( v8 )
   {
     if ( (uint16_t)(v8 - 2) > 2u )
     {
       v14 = off_11A2E4;
       *((uint8_t *)off_11A2E4 + 17) = *(uint8_t *)off_11A2E8 & 0xF;
-      v14[16] = sub_11E34C(a3);
-      sub_11D01C();
-      sub_11E1E4(a3);
+      v14[16] = flash_write_byte(a3);
+      rf_cal_trim_check();
+      flash_erase_sector(a3);
     }
     return 2;
   }
@@ -116,7 +116,7 @@ int  sub_11A034(int a1, uint8_t *a2, int a3, int a4)
     {
       if ( *(uint32_t *)off_11A2E8 << 28 )
       {
-        rf_cmd_send_n264(dword_11A688, dword_11A680, 2493);
+        flash_ctrl_init(dword_11A688, dword_11A680, 2493);
         switch ( a1 )
         {
           case 6:
@@ -180,7 +180,7 @@ int  sub_11A034(int a1, uint8_t *a2, int a3, int a4)
             {
 LABEL_58:
               v12 = (char **)off_11A660;
-              rf_cmd_send_n264(dword_11A684, dword_11A680, 2552);
+              flash_ctrl_init(dword_11A684, dword_11A680, 2552);
               v13 = 2;
             }
             else
@@ -197,20 +197,20 @@ LABEL_58:
         {
           case 6:
 LABEL_12:
-            v15 = (uint8_t *)rf_setup_dispatch(7, a4, a3, 2);
+            v15 = (uint8_t *)ke_msg_send(7, a4, a3, 2);
             v13 = 0;
             *v15 = 0;
-            sub_11DE50(v15);
+            rx_irq_handler(v15);
             v12 = (char **)off_11A2E4;
             break;
           case 8:
 LABEL_13:
             v16 = *a2;
             if ( v16 <= 3 )
-              v16 = sub_1180B8(v16);
+              v16 = link_context_by_index(v16);
             if ( !*((uint32_t *)off_11A2EC + 2) )
-              sub_11D3DC(v16);
-            sub_11DED8(9, a4, a3);
+              rf_shutdown(v16);
+            ke_evt_handler(9, a4, a3);
             v12 = (char **)off_11A2E4;
             v13 = 0;
             break;
@@ -221,20 +221,20 @@ LABEL_18:
             *(uint32_t *)off_11A2E4 = *(uint32_t *)a2;
             if ( v11 < 0 && *(uint32_t *)off_11A68C << 28 )
             {
-              sub_1219F4(dword_11A688, dword_11A690, 472);
+              flash_cmd_exec(dword_11A688, dword_11A690, 472);
               v17 = *v12;
             }
             *(uint32_t *)off_11A2F0 = (unsigned int)v17 | (unsigned int)v12[1];
-            sub_11DED8(15, a4, a3);
+            ke_evt_handler(15, a4, a3);
             v13 = 0;
             break;
           case 16:
 LABEL_20:
-            v18 = rf_setup_dispatch(17, a4, a3, 2);
+            v18 = ke_msg_send(17, a4, a3, 2);
             v12 = (char **)off_11A2E4;
             v19 = v18;
-            sub_102908(a2, a2[10]);
-            sub_11DE50(v19);
+            tx_set_power(a2, a2[10]);
+            rx_irq_handler(v19);
             v13 = 0;
             break;
           case 18:
@@ -243,7 +243,7 @@ LABEL_21:
             v12 = (char **)off_11A2E4;
             *(uint32_t *)off_11A2F4 = *(uint32_t *)off_11A2F4 & 0xFFFFFF00 | *a2;
             *v20 |= 0x80000000;
-            sub_11DED8(19, a4, a3);
+            ke_evt_handler(19, a4, a3);
             v13 = 0;
             break;
           case 20:
@@ -253,7 +253,7 @@ LABEL_22:
             v23 = dword_11A2F8 + 224 * v21;
             if ( *(uint8_t *)(v23 + 94) )
             {
-              sub_118340(dword_11A2F8 + 224 * v21, v22);
+              write_register_low16(dword_11A2F8 + 224 * v21, v22);
             }
             else
             {
@@ -263,7 +263,7 @@ LABEL_22:
               else
                 *(uint32_t *)(dword_11A2FC + 152 * v24 + 8) = v22 << 10;
             }
-            sub_11DED8(21, a4, a3);
+            ke_evt_handler(21, a4, a3);
             v12 = (char **)off_11A2E4;
             v13 = 0;
             break;
@@ -286,25 +286,25 @@ LABEL_26:
               *((uint32_t *)v25 + 1) = v29;
             if ( v27 && *(uint8_t *)(v27 + 4) == v26 )
               *(uint32_t *)off_11A304 = v12[v30 + 1];
-            sub_11DED8(23, a4, a3);
+            ke_evt_handler(23, a4, a3);
             v13 = 0;
             break;
           case 24:
 LABEL_52:
             v12 = (char **)off_11A660;
-            sub_1282E8(dword_11A66C + 224 * a2[6] + 64, a2, 6);
+            memcpy_large(dword_11A66C + 224 * a2[6] + 64, a2, 6);
             v43 = off_11A674;
             v44 = *((uint16_t *)a2 + 2);
             *(uint32_t *)off_11A670 = *(uint32_t *)a2;
             *v43 = v44;
-            sub_11DED8(25, a4, a3);
+            ke_evt_handler(25, a4, a3);
             v13 = 0;
             break;
           case 28:
 LABEL_53:
             v12 = (char **)off_11A660;
             *(uint32_t *)off_11A678 = (*a2 << 14) & 0x1C000 | *(uint32_t *)off_11A678 & 0xFFFE3FFF;
-            sub_11DED8(29, a4, a3);
+            ke_evt_handler(29, a4, a3);
             v13 = 0;
             break;
           case 30:
@@ -313,7 +313,7 @@ LABEL_36:
             v32 = dword_11A66C;
             v33 = dword_11A66C + 224 * v31;
             v51[0] = 0;
-            v34 = sub_118374(v51);
+            v34 = reset_link_status(v51);
             v35 = *(uint8_t *)(v33 + 94);
             v36 = a2[2];
             *(uint8_t *)(v33 + 96) = v36;
@@ -323,25 +323,25 @@ LABEL_36:
               if ( v36 )
               {
                 v49 = dword_11A63C + 152 * *(uint8_t *)(v33 + 102);
-                sub_11AB18(v48 + 24 + v32, *((uint32_t *)off_11A640 + 4) + *(uint32_t *)(v49 + 8));
+                ke_enter_critical(v48 + 24 + v32, *((uint32_t *)off_11A640 + 4) + *(uint32_t *)(v49 + 8));
                 *(uint16_t *)(v49 + 30) = *(uint16_t *)a2;
-                sub_118354();
-                sub_11F74C(256, dword_11A644, *(uint8_t *)(v49 + 33), *(uint16_t *)(v49 + 30));
+                clear_bb_irq();
+                check_interrupt_flag(256, dword_11A644, *(uint8_t *)(v49 + 33), *(uint16_t *)(v49 + 30));
                 *(uint32_t *)off_11A648 = (uint16_t)*(uint32_t *)off_11A648 | (*(uint16_t *)a2 << 16);
                 v37 = off_11A640;
                 *(uint8_t *)(v33 + 116) = 0;
                 *(uint32_t *)(v33 + 112) = 0;
                 *(uint32_t *)(v33 + 108) = v37[4];
-                rf_msg_handler_n0ec(v32 + v48);
+                rf_get_status(v32 + v48);
                 v36 = a2[2];
               }
               else
               {
                 v50 = v34;
-                timestamp_remove(v48 + 24 + v32);
-                sub_11F74C(256, dword_11A714, v50, v50);
+                ke_exit_critical(v48 + 24 + v32);
+                check_interrupt_flag(256, dword_11A714, v50, v50);
                 if ( (*(uint32_t *)off_11A718 & 0x8000) != 0 )
-                  sub_101A2C();
+                  sys_status_bit21_get();
                 v47 = v32 + 224 * v31;
                 *(uint8_t *)(v47 + 140) = 0;
                 *(uint32_t *)(v47 + 144) = 0;
@@ -378,9 +378,9 @@ LABEL_36:
                 *(uint32_t *)off_11A65C = v42;
               else
                 *(uint32_t *)off_11A65C = *(uint32_t *)(v32 + 224 * v31 + 20);
-              sub_1183A0();
+              poll_hw_status();
             }
-            sub_11DED8(31, a4, a3);
+            ke_evt_handler(31, a4, a3);
             v12 = (char **)off_11A660;
             v13 = 0;
             break;
@@ -388,7 +388,7 @@ LABEL_36:
 LABEL_51:
             v12 = (char **)off_11A660;
             *(uint32_t *)off_11A668 = *a2 | (((uint8_t)*(uint32_t *)off_11A664 * *a2) << 8);
-            sub_11DED8(33, a4, a3);
+            ke_evt_handler(33, a4, a3);
             v13 = 0;
             break;
           case 40:
@@ -402,24 +402,24 @@ LABEL_54:
             {
               v45 = 5;
             }
-            v46 = (uint8_t *)rf_setup_dispatch(41, a4, a3, 3);
+            v46 = (uint8_t *)ke_msg_send(41, a4, a3, 3);
             *v46 = a2[1];
             v46[1] = a2[2];
             v46[2] = v45;
-            sub_11DE50(v46);
+            rx_irq_handler(v46);
             v12 = (char **)off_11A660;
             v13 = 0;
             break;
           case 48:
 LABEL_57:
-            sub_121A10(a2);
+            ke_int_unlock(a2);
             v12 = (char **)off_11A660;
             v13 = 0;
             break;
           case 59:
 LABEL_11:
-            sub_11BE28(a2);
-            sub_11DED8(60, a4, a3);
+            rx_desc_parse(a2);
+            ke_evt_handler(60, a4, a3);
             v12 = (char **)off_11A2E4;
             v13 = 0;
             break;
@@ -467,7 +467,7 @@ LABEL_11:
       }
     }
     *(uint32_t *)off_11A2E8 = (uint8_t)(16 * *((uint8_t *)v12 + 17));
-    sub_11E1E4(a3);
+    flash_erase_sector(a3);
     return v13;
   }
 }

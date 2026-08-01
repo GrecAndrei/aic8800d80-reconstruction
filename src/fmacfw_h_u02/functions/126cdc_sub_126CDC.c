@@ -29,8 +29,8 @@ extern uint32_t off_126EDC;
 extern uint32_t off_126ED0;
 extern uint32_t dword_126ED4;
 
-// sub_126CDC @ 0x126cdc, size 484 bytes
-int sub_126CDC()
+// llc_sem_lock @ 0x126cdc, size 484 bytes
+int llc_sem_lock()
 {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
@@ -58,8 +58,8 @@ int sub_126CDC()
   v0 = off_126EC0;
   v1 = off_126EC4;
   v2 = *((uint32_t *)off_126EC0 + 11);
-  sub_102970((uint16_t *)(v2 + 4), 0);
-  sub_12C344(*(char *)(v2 + 12));
+  check_boot_flag((uint16_t *)(v2 + 4), 0);
+  call_stack_helper(*(char *)(v2 + 12));
   *(uint32_t *)off_126EC8 = v1[*(uint8_t *)(v2 + 4) + 5];
   if ( *(uint8_t *)(v2 + 24) == 3 )
   {
@@ -76,7 +76,7 @@ int sub_126CDC()
     v6 = 0;
     goto LABEL_7;
   }
-  v3 = (uint8_t *)sub_12C7EC(68, 13, 0, 4);
+  v3 = (uint8_t *)tx_send_pdu(68, 13, 0, 4);
   v4 = *(uint8_t *)(v2 + 24);
   *v3 = v4;
   if ( v4 == 4 )
@@ -93,7 +93,7 @@ int sub_126CDC()
   v3[1] = v5;
   v3[3] = 0;
   v3[2] = *(uint8_t *)(v2 + 26);
-  sub_12C84C(v3);
+  rx_process_packet(v3);
   v7 = v0[10];
   if ( v7 )
   {
@@ -130,7 +130,7 @@ LABEL_8:
     goto LABEL_10;
   }
 LABEL_27:
-  sub_117978();
+  critical_section_enter_alt();
   v16 = *(uint8_t *)(v2 + 24);
   if ( v16 > 2 )
   {
@@ -143,11 +143,11 @@ LABEL_29:
       v1[1] = v18;
       if ( v17 < 0 && *(uint32_t *)off_126EFC << 28 )
       {
-        sub_12F35C(dword_126F04, dword_126F00, 472);
+        mmio_write_field(dword_126F04, dword_126F00, 472);
         v18 = v1[1];
       }
       *(uint32_t *)off_126EE8 = v18 | *v1;
-      sub_12C8D0(141, 2, 255);
+      mac_write_header_word(141, 2, 255);
       if ( *((uint8_t *)off_126EEC + 3851) == 1 && !*((uint8_t *)off_126EF0 + 10) )
       {
         v19 = *(uint32_t **)off_126EF4;
@@ -180,10 +180,10 @@ LABEL_22:
     *((uint8_t *)v0 + 92) = (*(uint32_t *)off_126ED8 & 4) != 0;
     *v11 = v13 & 0xFFFFFFFB;
     v12[1] = v14;
-    return sub_120FA4();
+    return rf_write_reg();
   }
 LABEL_10:
-  sub_126B30();
+  llc_irq_status_get();
   v9 = *((uint32_t *)off_126ED0 + 2);
   if ( v9 )
   {
@@ -194,14 +194,14 @@ LABEL_10:
       {
         v9 = *(uint32_t *)v9;
         if ( !v9 )
-          return sub_120FA4();
+          return rf_write_reg();
       }
       *(uint8_t *)(v10 + 32 * *(uint8_t *)(v9 + 107) + 31) = 1;
-      sub_1200D4(v9);
+      get_hw_tsf(v9);
       v9 = *(uint32_t *)v9;
     }
     while ( v9 );
   }
-  return sub_120FA4();
+  return rf_write_reg();
 }
 

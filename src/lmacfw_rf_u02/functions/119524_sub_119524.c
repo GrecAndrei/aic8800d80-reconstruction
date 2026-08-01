@@ -12,11 +12,11 @@
 
 extern uint32_t dword_119548;
 
-// sub_119524 @ 0x119524, size 34 bytes
-int  sub_119524(int a1, int a2, int a3, int a4)
+// alloc_hci_rx_buffer @ 0x119524, size 34 bytes
+int  alloc_hci_rx_buffer(int a1, int a2, int a3, int a4)
 {
-  sub_11F74C(256, dword_119548, a3, a4);
-  sub_11DED8(108, a4, a3);
+  check_interrupt_flag(256, dword_119548, a3, a4);
+  ke_evt_handler(108, a4, a3);
   return 0;
 }
 

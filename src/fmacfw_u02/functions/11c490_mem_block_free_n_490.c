@@ -13,10 +13,10 @@
 extern uint32_t off_11C4DC;
 extern uint32_t dword_11C4E0;
 
-// mem_block_free_n_490 @ 0x11c490, size 74 bytes
-// Doc: mem_block_free_n_490 [util]: Frees memory block list (sub 4) and dispatches pending entries
-// mem_block_free_n_490 [util]: Frees memory block list (sub 4) and dispatches pending entries
-int  mem_block_free_n_490(int a1)
+// remove_tx_buffer @ 0x11c490, size 74 bytes
+// Doc: remove_tx_buffer [util]: Frees memory block list (sub 4) and dispatches pending entries
+// remove_tx_buffer [util]: Frees memory block list (sub 4) and dispatches pending entries
+int  remove_tx_buffer(int a1)
 {
   uint8_t *v1; // r6
   int v2; // r7

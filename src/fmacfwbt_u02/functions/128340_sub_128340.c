@@ -18,8 +18,8 @@ extern uint32_t off_1284B0;
 extern uint32_t off_1284B8;
 extern uint32_t off_1284B4;
 
-// sub_128340 @ 0x128340, size 354 bytes
-int  sub_128340(int result)
+// hci_event_proc @ 0x128340, size 354 bytes
+int  hci_event_proc(int result)
 {
   uint32_t *v1; // r5
   int v2; // r2
@@ -62,7 +62,7 @@ int  sub_128340(int result)
         if ( dword_1284A8 + 84 == v4 )
           goto LABEL_7;
       }
-      sub_12609C((uint32_t *)(dword_1284BC + 1320 * v5));
+      scan_state_process((uint32_t *)(dword_1284BC + 1320 * v5));
       LOBYTE(v2) = *(uint8_t *)(v3 + 85);
 LABEL_7:
       v2 &= 0xEFu;
@@ -75,26 +75,26 @@ LABEL_7:
       if ( (v2 & 4) != 0 )
         *(uint8_t *)(v3 + 85) = v2 & 0xFB;
       if ( !v6 || *(uint32_t *)(v6 + 12) != v3 + 76 )
-        return bt_rf_calibrate_or_setup(v3, *(uint32_t *)(v3 + 36), 0);
+        return scan_adv_report(v3, *(uint32_t *)(v3 + 36), 0);
       v9 = *(uint32_t *)(v3 + 80);
       v10 = *(uint32_t *)(v3 + 36);
       if ( v9 - v10 < 0 )
       {
-        if ( v10 - 4000 - v9 - sub_10186C() < 0 )
+        if ( v10 - 4000 - v9 - return_1000() < 0 )
         {
 LABEL_23:
           v11 = *(uint32_t *)(v3 + 36);
           *(uint32_t *)(v3 + 80) = v11;
-          result = sub_10186C();
+          result = return_1000();
           if ( v11 - *(uint32_t *)(v6 + 4) - result - 4000 < 0 )
           {
             v12 = *(uint32_t *)(v3 + 80);
-            result = sub_10186C();
+            result = return_1000();
             v13 = v1[18];
             *(uint32_t *)(v6 + 4) = v12 - 4000 - result;
             if ( v13 == v6 )
             {
-              timestamp_remove_058(dword_1284AC);
+              ke_event_set_lock(dword_1284AC);
               v1[18] = v6;
               if ( (__get_CPSR() & 1) == 0 )
               {
@@ -109,7 +109,7 @@ LABEL_23:
               *(uint32_t *)off_1284B8 = v18;
               if ( v17 - 64 >= 0 )
               {
-                result = timestamp_update_4f60(dword_1284AC, v15);
+                result = ke_event_lock(dword_1284AC, v15);
                 if ( *v14 )
                 {
                   v7 = *v14 - 1;
@@ -144,11 +144,11 @@ LABEL_23:
         v10 = *(uint32_t *)(v3 + 36);
         v9 = *(uint32_t *)(v3 + 80);
       }
-      if ( v10 - v9 >= 0 || v9 - 4000 - v10 - sub_10186C() >= 0 )
+      if ( v10 - v9 >= 0 || v9 - 4000 - v10 - return_1000() >= 0 )
       {
-        fmacfwbt_init_load();
-        bt_rf_calibrate_or_setup(v3, *(uint32_t *)(v3 + 36), 0);
-        return mac_state_process_n_1c8(v3, *((uint32_t *)off_1284B4 + 4), 0);
+        hci_acl_buf_alloc();
+        scan_adv_report(v3, *(uint32_t *)(v3 + 36), 0);
+        return hci_send_acl(v3, *((uint32_t *)off_1284B4 + 4), 0);
       }
       goto LABEL_23;
     }

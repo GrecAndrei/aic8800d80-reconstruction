@@ -13,11 +13,11 @@
 extern uint32_t dword_102940;
 extern uint32_t dword_102944;
 
-// sub_102908 @ 0x102908, size 52 bytes
-int  sub_102908(uint8_t *a1, int a2)
+// tx_set_power @ 0x102908, size 52 bytes
+int  tx_set_power(uint8_t *a1, int a2)
 {
   if ( !a2 )
-    sub_101E18(*a1, *((uint16_t *)a1 + 1), *((uint16_t *)a1 + 2), a1[1]);
-  return msg_parse(dword_102940, dword_102944);
+    rf_calibrate(*a1, *((uint16_t *)a1 + 1), *((uint16_t *)a1 + 2), a1[1]);
+  return dispatch_event_handler(dword_102940, dword_102944);
 }
 

@@ -30,8 +30,8 @@ extern uint32_t dword_13996C;
 extern uint32_t off_139968;
 extern uint32_t off_13971C;
 
-// sub_139444 @ 0x139444, size 1284 bytes
-int  sub_139444(char a1, int a2, int a3, int a4, uint8_t *a5, unsigned int a6, uint16_t *a7, uint8_t *a8)
+// bt_parse_rx_packet @ 0x139444, size 1284 bytes
+int  bt_parse_rx_packet(char a1, int a2, int a3, int a4, uint8_t *a5, unsigned int a6, uint16_t *a7, uint8_t *a8)
 {
   int v9; // r12
   unsigned int v11; // r5
@@ -82,7 +82,7 @@ int  sub_139444(char a1, int a2, int a3, int a4, uint8_t *a5, unsigned int a6, u
     v16 = a1 & 0xFC;
     if ( v16 == 176 )
     {
-      sub_135824();
+      is_phy_ver_6();
       return 1;
     }
     if ( v16 > 0xB0 )
@@ -97,7 +97,7 @@ LABEL_12:
       {
         case 0:
           v41 = *(uint8_t *)(v15 + 1);
-          sub_12E948(dword_139948, v41);
+          alloc_tx_event(dword_139948, v41);
           v39 = (uint8_t *)(v15 + 1);
           if ( v41 == 4 )
           {
@@ -105,19 +105,19 @@ LABEL_12:
             if ( v42 != 255 )
             {
               v43 = dword_139950;
-              v44 = (uint8_t)sub_130E10(
+              v44 = (uint8_t)handle_ampdu_action(
                                        (uint8_t *)(v15 + 2),
                                        a2 - a3 - 2,
                                        v53,
                                        1320 * v42 + 1212 + dword_139950);
-              sub_12E948(dword_13994C, v44, v53[0]);
+              alloc_tx_event(dword_13994C, v44, v53[0]);
               if ( v44 )
               {
                 v45 = (uint8_t *)(1320 * v42 + v43);
                 if ( !v45[106] )
                 {
                   if ( !v45[146] && v45[148] && v53[0] == 1 )
-                    sub_12249C(v45[107], v45[146]);
+                    send_hci_event(v45[107], v45[146]);
                   v46 = v43 + 1320 * v42;
                   *(uint8_t *)(v46 + 146) = v44;
                   *(uint8_t *)(v46 + 148) = 1;
@@ -127,7 +127,7 @@ LABEL_12:
           }
           goto LABEL_65;
         case 3:
-          v38 = sub_13B988(a4, v15, *(uint8_t *)(v15 + 1));
+          v38 = dispatch_command(a4, v15, *(uint8_t *)(v15 + 1));
           v9 = v38;
           if ( v38 != 33 )
           {
@@ -193,12 +193,12 @@ LABEL_50:
               v13 = *(uint8_t *)(v15 + 2) & 1;
               if ( (*(uint8_t *)(v15 + 2) & 1) != 0 )
               {
-                sub_132C48(a4, 0xFFu);
+                ble_ll_conn_get(a4, 0xFFu);
                 v13 = 0;
               }
               else
               {
-                sub_132C48(a4, 0xFFu);
+                ble_ll_conn_get(a4, 0xFFu);
               }
               v9 = 255;
               goto LABEL_47;
@@ -209,7 +209,7 @@ LABEL_50:
             v49 = *(uint8_t *)(v15 + 2);
             if ( v49 <= 1 )
             {
-              sub_132C48(a4, v49);
+              ble_ll_conn_get(a4, v49);
               v9 = 255;
               goto LABEL_47;
             }
@@ -232,7 +232,7 @@ LABEL_65:
           v40 = *v39;
           if ( v40 == 1 )
           {
-            sub_1019BC((uint32_t *)(v15 + 2), (uint32_t *)(v15 + 10));
+            write_rf_cal_data((uint32_t *)(v15 + 2), (uint32_t *)(v15 + 10));
           }
           else
           {
@@ -245,7 +245,7 @@ LABEL_46:
             }
             if ( (*(uint32_t *)(dword_139730 + 696 * a4 + 4) & 0x24) != 0 && *(char *)(v15 + 2) >= 0 )
             {
-              sub_132C48(a4, *(uint8_t *)(v15 + 2) & 3);
+              ble_ll_conn_get(a4, *(uint8_t *)(v15 + 2) & 3);
               v13 = 0;
               v9 = 255;
 LABEL_47:
@@ -255,7 +255,7 @@ LABEL_48:
               v32 = (uint16_t)v9 << 8;
 LABEL_49:
               if ( **(int16_t **)off_13972C < 0 && v9 == 255 )
-                sub_12F32C(dword_139958, dword_139954, 2326);
+                irq_disable_mmio_write(dword_139958, dword_139954, 2326);
               goto LABEL_50;
             }
           }
@@ -291,29 +291,29 @@ LABEL_33:
         {
           v25 = *(uint8_t *)(v21 + 107);
           v26 = *(uint16_t *)(v22 + 2 * v25);
-          v27 = sub_12D7D8((uint8_t *)(a6 + 24), (uint16_t)(a2 - 24), &v52);
+          v27 = check_buf_range_12d7d8((uint8_t *)(a6 + 24), (uint16_t)(a2 - 24), &v52);
           v28 = (uint8_t *)(v23 + (v25 << 9) + 36);
           v29 = v27;
-          v31 = sub_12D7D8(v28, (uint16_t)(v26 - 36), v53);
+          v31 = check_buf_range_12d7d8(v28, (uint16_t)(v26 - 36), v53);
           if ( v53[0] )
           {
             if ( v52 )
             {
               v47 = v29 + 2;
-              v48 = sub_1435D0(v47, dword_13995C, 7);
+              v48 = memcmp(v47, dword_13995C, 7);
               v30 = v52;
               if ( v48 && v52 == v53[0] )
               {
-                if ( !sub_1435D0(v47, v31 + 2, v52) )
+                if ( !memcmp(v47, v31 + 2, v52) )
                 {
-                  sub_12E948(dword_139964);
+                  alloc_tx_event(dword_139964);
                   v50 = dword_13996C;
                   *(uint8_t *)off_139968 = 1;
-                  sub_124BFC(v50, v24[4] + 200000);
+                  mem_copy_util(v50, v24[4] + 200000);
                 }
                 v30 = v52;
               }
-              if ( v30 && (!sub_1435D0(v47, dword_13995C, 7) || v52 != v53[0] || sub_1435D0(v47, v31 + 2, v52)) )
+              if ( v30 && (!memcmp(v47, dword_13995C, 7) || v52 != v53[0] || memcmp(v47, v31 + 2, v52)) )
                 goto LABEL_38;
             }
           }
@@ -321,7 +321,7 @@ LABEL_33:
           {
             return 1;
           }
-          sub_119124(v21, a6 + 10, v30);
+          btm_chk_state(v21, a6 + 10, v30);
           v13 = 0;
         }
 LABEL_38:
@@ -368,7 +368,7 @@ LABEL_38:
             return 1;
           goto LABEL_12;
         }
-        if ( v11 != 160 && (v11 != 176 || sub_135824()) )
+        if ( v11 != 160 && (v11 != 176 || is_phy_ver_6()) )
           return 1;
       }
 LABEL_19:
@@ -381,7 +381,7 @@ LABEL_19:
     }
     v17 = dword_139718 + 1320 * v9;
   }
-  if ( sub_12CD48(4u) == 1 )
+  if ( hci_cmd_handler(4u) == 1 )
   {
     v18 = (int *)off_13971C;
     *a8 = 1;
@@ -391,7 +391,7 @@ LABEL_19:
   }
   if ( a4 != 255 && *(uint8_t *)(v17 + 108) )
   {
-    sub_132E78(v17, a2, a6);
+    ble_ll_conn_process(v17, a2, a6);
     return 1;
   }
   return 1;

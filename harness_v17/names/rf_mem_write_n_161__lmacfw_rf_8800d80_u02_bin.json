@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n_161", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221eca", "status": "ok", "name": "rf_mem_write_1eca", "params": [], "docstring": "Validate and write RF memory/register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
+{"fn": "rf_mem_write_n_161", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221eca", "status": "ok", "name": "rf_cmd_dispatch_n_7a", "params": [], "docstring": "Validate and write RF memory/register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

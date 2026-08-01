@@ -12,8 +12,8 @@
 
 extern uint32_t dword_116088;
 
-// sub_116050 @ 0x116050, size 56 bytes
-int  sub_116050(int a1)
+// init_event_slot @ 0x116050, size 56 bytes
+int  init_event_slot(int a1)
 {
   int v1; // r1
   int v2; // r3

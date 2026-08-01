@@ -1,0 +1,1 @@
+{"fn": "sub_127F50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127f50", "status": "ok", "name": "is_lower_or_equal_unsigned", "params": [], "docstring": "Return 1 if unsigned lower-or-equal flag set", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

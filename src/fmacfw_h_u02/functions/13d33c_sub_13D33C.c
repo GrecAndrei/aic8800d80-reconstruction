@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_13D33C @ 0x13d33c, size 206 bytes
-int  sub_13D33C(int a1)
+// mac_clear_flag_and_check @ 0x13d33c, size 206 bytes
+int  mac_clear_flag_and_check(int a1)
 {
   char v1; // r5
   unsigned int v2; // r3

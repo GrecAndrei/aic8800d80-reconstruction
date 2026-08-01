@@ -13,10 +13,10 @@
 extern uint32_t dword_10DF40;
 extern uint32_t dword_10DF44;
 
-// mmio_field_update @ 0x10df18, size 40 bytes
-// Doc: mmio_field_update [mmio]: Updates a 2-bit field in a memory-mapped register using OR/BIC
-// mmio_field_update [mmio]: Updates a 2-bit field in a memory-mapped register using OR/BIC
-int  mmio_field_update(int a1)
+// rf_ctrl_config_set @ 0x10df18, size 40 bytes
+// Doc: rf_ctrl_config_set [mmio]: Updates a 2-bit field in a memory-mapped register using OR/BIC
+// rf_ctrl_config_set [mmio]: Updates a 2-bit field in a memory-mapped register using OR/BIC
+int  rf_ctrl_config_set(int a1)
 {
   int v1; // r2
   int v2; // r0
@@ -31,6 +31,6 @@ int  mmio_field_update(int a1)
     v1 += 12;
   }
   while ( v1 != v3 );
-  return sub_102EB8(1, 16, 0x10u, dword_10DF44);
+  return peripheral_read_32(1, 16, 0x10u, dword_10DF44);
 }
 

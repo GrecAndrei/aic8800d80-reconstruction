@@ -16,8 +16,8 @@ extern uint32_t off_100BD8;
 extern uint32_t off_100BDC;
 extern uint32_t off_100BCC;
 
-// sub_100B90 @ 0x100b90, size 60 bytes
-uint32_t *sub_100B90()
+// rf_config @ 0x100b90, size 60 bytes
+uint32_t *rf_config()
 {
   uint32_t *v0; // r3
   uint32_t *result; // r0

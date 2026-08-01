@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_102968 @ 0x102968, size 62 bytes
-int  sub_102968(unsigned int a1)
+// rf_check_freq @ 0x102968, size 62 bytes
+int  rf_check_freq(unsigned int a1)
 {
   if ( a1 > 0x1666 )
     return 5;

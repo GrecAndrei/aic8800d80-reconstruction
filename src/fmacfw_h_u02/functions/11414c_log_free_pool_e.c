@@ -15,10 +15,10 @@ extern uint32_t off_114198;
 extern uint32_t off_11419C;
 extern uint32_t off_1141A0;
 
-// log_free_pool_e @ 0x11414c, size 72 bytes
-// Doc: log_free_pool_e [util]: Return buffer to log free pool variant E
-// log_free_pool_e [util]: Return buffer to log free pool variant E
-int log_free_pool_e()
+// assert_fail @ 0x11414c, size 72 bytes
+// Doc: assert_fail [util]: Return buffer to log free pool variant E
+// assert_fail [util]: Return buffer to log free pool variant E
+int assert_fail()
 {
   int *v0; // r5
   uint32_t *v1; // r4
@@ -36,7 +36,7 @@ int log_free_pool_e()
   ++*(uint32_t *)off_114198;
   while ( !*v1 )
     ;
-  result = sub_12D108(*(uint32_t *)off_1141A0 + 628);
+  result = wlan_ioctl_handler_1(*(uint32_t *)off_1141A0 + 628);
   *v1 = 1;
   if ( *v0 )
   {

@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1140B8 @ 0x1140b8, size 54 bytes
-int  sub_1140B8(int *a1)
+// rf_reg10_status @ 0x1140b8, size 54 bytes
+int  rf_reg10_status(int *a1)
 {
   uint8_t v2; // r0
   int v3; // r2
   int result; // r0
   int v5; // r3
 
-  v2 = sub_113A44(0x10u);
+  v2 = mmio_read32(0x10u);
   v3 = v2 >> 4;
   if ( (v2 & 0xF0) != 0 )
   {

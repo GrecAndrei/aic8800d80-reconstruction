@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// send_msg_to_host_c43 @ 0x122014, size 30 bytes
-// Doc: send_msg_to_host_c43 [ipc]: Send message id 0x43 to host with arg 6 and flag=1
-// send_msg_to_host_c43 [ipc]: Send message id 0x43 to host with arg 6 and flag=1
-int  send_msg_to_host_c43(int a1)
+// send_fw_cmd @ 0x122014, size 30 bytes
+// Doc: send_fw_cmd [ipc]: Send message id 0x43 to host with arg 6 and flag=1
+// send_fw_cmd [ipc]: Send message id 0x43 to host with arg 6 and flag=1
+int  send_fw_cmd(int a1)
 {
   uint8_t *v2; // r0
 
-  v2 = (uint8_t *)sub_12C92C(67, 6, 0, 1);
+  v2 = (uint8_t *)ke_msg_alloc(67, 6, 0, 1);
   *v2 = *(uint8_t *)(a1 + 107);
-  return sdio_buffer_prepare_n_4e8(v2);
+  return ke_msg_send(v2);
 }
 

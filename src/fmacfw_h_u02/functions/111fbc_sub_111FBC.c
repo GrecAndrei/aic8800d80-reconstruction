@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_111FBC @ 0x111fbc, size 32 bytes
-int  sub_111FBC(int a1)
+// wlan_wait_ready_alt @ 0x111fbc, size 32 bytes
+int  wlan_wait_ready_alt(int a1)
 {
   int result; // r0
   int v2; // r3

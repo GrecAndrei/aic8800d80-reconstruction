@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12D3C8 @ 0x12d3c8, size 60 bytes
+// read_word @ 0x12d3c8, size 60 bytes
 // Doc: sub_122D3C8 [unknown]: Trivial stub fetching word from pointer argument
 // sub_122D3C8 [unknown]: Trivial stub fetching word from pointer argument
-uint32_t * sub_12D3C8(uint32_t *result, uint32_t **a2, uint32_t *a3)
+uint32_t * read_word(uint32_t *result, uint32_t **a2, uint32_t *a3)
 {
   uint32_t *v3; // r3
   uint32_t *v4; // r4
@@ -21,7 +21,7 @@ uint32_t * sub_12D3C8(uint32_t *result, uint32_t **a2, uint32_t *a3)
 
   v3 = (uint32_t *)*result;
   if ( !a2 )
-    return (uint32_t *)sub_12D290((int)result, a3);
+    return (uint32_t *)cmd_handler_b((int)result, a3);
   if ( v3 )
   {
     v4 = result;

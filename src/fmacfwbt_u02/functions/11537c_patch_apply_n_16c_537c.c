@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// patch_apply_n_16c_537c @ 0x11537c, size 10 bytes
+// ioctl_cmd_2 @ 0x11537c, size 10 bytes
 // Doc: sub_1213FD8 [util]: Allocate 0x20-byte buffer and initialize
 // sub_1213FD8 [util]: Allocate 0x20-byte buffer and initialize
-int  patch_apply_n_16c_537c(int a1)
+int  ioctl_cmd_2(int a1)
 {
-  return patch_apply_526c(2, a1, 0xCu);
+  return ioctl_dispatch(2, a1, 0xCu);
 }
 

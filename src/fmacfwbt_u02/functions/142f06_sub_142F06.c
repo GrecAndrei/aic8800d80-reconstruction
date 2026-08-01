@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_142F06 @ 0x142f06, size 98 bytes
-int  sub_142F06(int result, int a2, int a3, unsigned int a4)
+// __aeabi_ddiv_nan @ 0x142f06, size 98 bytes
+int  __aeabi_ddiv_nan(int result, int a2, int a3, unsigned int a4)
 {
   int v4; // cf
   int v5; // r4

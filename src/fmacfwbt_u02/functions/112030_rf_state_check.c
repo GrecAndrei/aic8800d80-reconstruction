@@ -13,10 +13,10 @@
 extern uint32_t off_112078;
 extern uint32_t off_112080;
 
-// rf_state_check @ 0x112030, size 66 bytes
+// hw_status_update @ 0x112030, size 66 bytes
 // Doc: rf_bus_setup_n30c [rf]: Setup RF bus with branch-out to sub-init
 // rf_bus_setup_n30c [rf]: Setup RF bus with branch-out to sub-init
-int rf_state_check()
+int hw_status_update()
 {
   uint8_t *v0; // r4
   int v1; // r0
@@ -32,8 +32,8 @@ int rf_state_check()
     {
       *(uint8_t *)patch_apply_n24 = 4;
       *v0 = 7;
-      if ( !rf_bus_setup_38e8() )
-        sub_113FC4(0);
+      if ( !is_rf_calib_running() )
+        log_and_handle(0);
       return 1;
     }
     else

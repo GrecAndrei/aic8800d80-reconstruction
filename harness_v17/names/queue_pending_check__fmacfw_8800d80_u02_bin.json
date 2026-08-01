@@ -1,1 +1,1 @@
-{"fn": "queue_pending_check", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a46c", "status": "ok", "name": "rf_bus_setup_nd0", "params": [], "docstring": "Set up RF bus register window (0x81c) and validate size", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "queue_pending_check", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a46c", "status": "ok", "name": "controller_status_byte", "params": [], "docstring": "Set up RF bus register window (0x81c) and validate size", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

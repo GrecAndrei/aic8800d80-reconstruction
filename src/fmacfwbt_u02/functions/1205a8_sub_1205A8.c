@@ -16,8 +16,8 @@ extern uint32_t off_120640;
 extern uint32_t dword_120644;
 extern uint32_t off_120648;
 
-// sub_1205A8 @ 0x1205a8, size 144 bytes
-int  sub_1205A8(int result, unsigned int a2)
+// wlc_intr_off @ 0x1205a8, size 144 bytes
+int  wlc_intr_off(int result, unsigned int a2)
 {
   uint32_t *v2; // r5
   uint8_t *v3; // r3

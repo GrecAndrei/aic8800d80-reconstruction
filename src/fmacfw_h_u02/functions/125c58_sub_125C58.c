@@ -12,17 +12,17 @@
 
 extern uint32_t off_125C84;
 
-// sub_125C58 @ 0x125c58, size 42 bytes
-int  sub_125C58(int a1)
+// ipc_post_msg @ 0x125c58, size 42 bytes
+int  ipc_post_msg(int a1)
 {
   uint8_t *v2; // r0
   uint32_t *v3; // r2
 
-  v2 = (uint8_t *)sub_12C7EC(72, *(uint16_t *)(a1 + 14), 0, 2);
+  v2 = (uint8_t *)tx_send_pdu(72, *(uint16_t *)(a1 + 14), 0, 2);
   v2[1] = *(uint8_t *)(a1 + 24);
   v3 = off_125C84;
   *v2 = *(uint8_t *)(a1 + 26);
   *v3 &= ~4u;
-  return sub_12C84C(v2);
+  return rx_process_packet(v2);
 }
 

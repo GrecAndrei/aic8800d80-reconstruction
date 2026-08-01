@@ -26,8 +26,8 @@ extern uint32_t off_12CD1C;
 extern uint32_t off_12CD20;
 extern uint32_t dword_12CD24;
 
-// sub_12CBF4 @ 0x12cbf4, size 278 bytes
-uint32_t * sub_12CBF4(unsigned int a1, int a2)
+// hci_cmd_preprocess @ 0x12cbf4, size 278 bytes
+uint32_t * hci_cmd_preprocess(unsigned int a1, int a2)
 {
   int16_t **v2; // r7
   unsigned int v5; // r9
@@ -50,7 +50,7 @@ uint32_t * sub_12CBF4(unsigned int a1, int a2)
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
-    sub_12F32C(dword_12CD34, dword_12CD28, 173);
+    irq_disable_mmio_write(dword_12CD34, dword_12CD28, 173);
     if ( **v2 >= 0 )
     {
 LABEL_2:
@@ -58,13 +58,13 @@ LABEL_2:
       goto LABEL_3;
     }
     if ( v6 != 14 )
-      sub_12F32C(dword_12CD3C, dword_12CD38, 183);
+      irq_disable_mmio_write(dword_12CD3C, dword_12CD38, 183);
   }
   else if ( (uint8_t)a1 != 13 )
   {
     goto LABEL_16;
   }
-  sub_12F32C(dword_12CD40, dword_12CD28, 174);
+  irq_disable_mmio_write(dword_12CD40, dword_12CD28, 174);
   if ( **v2 >= 0 )
     goto LABEL_2;
 LABEL_16:
@@ -76,13 +76,13 @@ LABEL_16:
       goto LABEL_3;
     goto LABEL_18;
   }
-  sub_12F32C(dword_12CD30, dword_12CD28, 175);
+  irq_disable_mmio_write(dword_12CD30, dword_12CD28, 175);
   v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
   if ( **v2 < 0 && !v7 )
 LABEL_18:
-    sub_12F32C(dword_12CD2C, dword_12CD28, 180);
+    irq_disable_mmio_write(dword_12CD2C, dword_12CD28, 180);
 LABEL_3:
-  result = (uint32_t *)sub_12E948(dword_12CD14, a1, a2);
+  result = (uint32_t *)alloc_tx_event(dword_12CD14, a1, a2);
   if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(uint32_t *, int))dword_12CD44;
@@ -91,7 +91,7 @@ LABEL_3:
     *v7 = a2;
     while ( 1 )
     {
-      result = sub_12C8FC(v10, v9, a1);
+      result = rx_read_buffer(v10, v9, a1);
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -102,7 +102,7 @@ LABEL_3:
       v12 = (int *)off_12CD20;
       v13 = dword_12CD24;
       ++*(uint32_t *)off_12CD20;
-      sub_12D108(v13);
+      wlan_ioctl_handler_1(v13);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -114,7 +114,7 @@ LABEL_3:
             __enable_irq();
         }
       }
-      sub_12CFC4(0x4000000);
+      irq_disable_global_2(0x4000000);
     }
   }
   return result;

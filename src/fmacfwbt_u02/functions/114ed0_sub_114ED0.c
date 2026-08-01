@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_114ED0 @ 0x114ed0, size 48 bytes
-int  sub_114ED0(uint8_t *a1)
+// syscall6_check_done @ 0x114ed0, size 48 bytes
+int  syscall6_check_done(uint8_t *a1)
 {
   unsigned int v2; // r0
   char v4; // r3

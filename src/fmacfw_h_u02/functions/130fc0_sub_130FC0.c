@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_130FC0 @ 0x130fc0, size 72 bytes
-int  sub_130FC0(uint8_t *a1, int a2, int a3)
+// table_read_le16 @ 0x130fc0, size 72 bytes
+int  table_read_le16(uint8_t *a1, int a2, int a3)
 {
   int result; // r0
   int v5; // r3
   int16_t v6; // r3
   int16_t v7; // r2
 
-  result = (int)sub_12DBC8(a1, a2);
+  result = (int)test_arg2_one_12dbc8(a1, a2);
   if ( result )
   {
     *(uint16_t *)a3 = *(uint8_t *)(result + 2) | (*(uint8_t *)(result + 3) << 8);

@@ -18,8 +18,8 @@ extern uint32_t dword_1242E8;
 extern uint32_t dword_1242D8;
 extern uint32_t off_1242E4;
 
-// sub_124244 @ 0x124244, size 144 bytes
-unsigned int  sub_124244(unsigned int result, unsigned int a2, int a3)
+// mac_validate_rate @ 0x124244, size 144 bytes
+unsigned int  mac_validate_rate(unsigned int result, unsigned int a2, int a3)
 {
   int v3; // r2
   int v4; // r3

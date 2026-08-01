@@ -13,8 +13,8 @@
 extern uint32_t dword_11C80C;
 extern uint32_t dword_11C810;
 
-// sub_11C7DC @ 0x11c7dc, size 48 bytes
-int * sub_11C7DC(int a1)
+// tx_slot_get_busy @ 0x11c7dc, size 48 bytes
+int * tx_slot_get_busy(int a1)
 {
   int v1; // r4
   int v2; // r6
@@ -29,7 +29,7 @@ int * sub_11C7DC(int a1)
   v3 = a1;
   v4 = 32 * a1;
   if ( *(uint8_t *)(v2 + 30) )
-    timestamp_remove(dword_11C80C + 32 * a1);
+    ke_exit_critical(dword_11C80C + 32 * a1);
   v5 = v1 + v4;
   result = sub_100200((int *)v2, 0, 0x20u);
   v7 = dword_11C810;

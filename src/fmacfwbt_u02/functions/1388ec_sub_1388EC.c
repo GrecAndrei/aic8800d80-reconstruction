@@ -14,8 +14,8 @@ extern uint32_t off_138A50;
 extern uint32_t dword_138A54;
 extern uint32_t dword_138A58;
 
-// sub_1388EC @ 0x1388ec, size 354 bytes
-int  sub_1388EC(int a1, int16_t a2)
+// phy_flags_decode @ 0x1388ec, size 354 bytes
+int  phy_flags_decode(int a1, int16_t a2)
 {
   uint8_t *v2; // r2
   int v3; // r4

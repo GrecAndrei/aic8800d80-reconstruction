@@ -21,8 +21,8 @@ extern uint32_t off_103C60;
 extern uint32_t off_103C64;
 extern uint32_t dword_103C68;
 
-// sub_103B6C @ 0x103b6c, size 214 bytes
-uint32_t *sub_103B6C()
+// bb_hw_init @ 0x103b6c, size 214 bytes
+uint32_t *bb_hw_init()
 {
   unsigned int *v0; // r4
   unsigned int *v1; // r0
@@ -48,7 +48,7 @@ uint32_t *sub_103B6C()
   v0 -= 136;
   *v4 |= 0x2000000u;
   *v0 &= ~0x20000u;
-  sub_100560(2);
+  write_timer_reg(2);
   v6 = off_103C5C;
   result = off_103C60;
   v8 = off_103C64;

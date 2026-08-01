@@ -1,1 +1,1 @@
-{"fn": "sub_1233920", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1233920", "status": "ok", "name": "sub_1233920", "params": [], "docstring": "Check global signed status word and branch", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1233920", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1233920", "status": "ok", "name": "patch_scan_check", "params": [], "docstring": "Check global signed status word and branch", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

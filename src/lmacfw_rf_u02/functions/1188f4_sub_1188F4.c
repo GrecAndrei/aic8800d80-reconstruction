@@ -12,10 +12,10 @@
 
 extern uint32_t off_118904;
 
-// sub_1188F4 @ 0x1188f4, size 14 bytes
-int sub_1188F4()
+// write_bb_control @ 0x1188f4, size 14 bytes
+int write_bb_control()
 {
   *(uint32_t *)off_118904 = 48;
-  return sub_11E1E4(0);
+  return flash_erase_sector(0);
 }
 

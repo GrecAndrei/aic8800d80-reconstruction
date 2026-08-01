@@ -18,8 +18,8 @@ extern uint32_t off_11AD48;
 extern uint32_t dword_11AD50;
 extern uint32_t dword_11AD4C;
 
-// sub_11AC80 @ 0x11ac80, size 186 bytes
-int sub_11AC80()
+// ke_schedule @ 0x11ac80, size 186 bytes
+int ke_schedule()
 {
   uint32_t *v0; // r7
   int *v1; // r6
@@ -44,7 +44,7 @@ int sub_11AC80()
   v4 = off_11AD3C;
   while ( 1 )
   {
-    sub_11E628(0x20000000);
+    enter_critical_section(0x20000000);
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -74,7 +74,7 @@ int sub_11AC80()
         goto LABEL_17;
       }
     }
-    sub_11E7AC(v4);
+    list_pop_front(v4);
     if ( *v1 )
     {
       v9 = *v1 - 1;
@@ -93,7 +93,7 @@ int sub_11AC80()
     }
     else
     {
-      rf_cmd_send_n264(dword_11AD50, dword_11AD4C, 246);
+      flash_ctrl_init(dword_11AD50, dword_11AD4C, 246);
       ((void ( *)(uint32_t))v6[1])(v6[2]);
     }
   }

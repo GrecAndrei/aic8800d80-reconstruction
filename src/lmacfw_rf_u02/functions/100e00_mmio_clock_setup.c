@@ -33,10 +33,10 @@ extern uint32_t off_1010C8;
 extern uint32_t off_1010CC;
 extern uint32_t off_1010D0;
 
-// mmio_clock_setup @ 0x100e00, size 634 bytes
-// Doc: mmio_clock_setup [mmio]: Configures MMIO clock/power registers at 0x403440xx
-// mmio_clock_setup [mmio]: Configures MMIO clock/power registers at 0x403440xx
-int  mmio_clock_setup(unsigned int a1, int a2)
+// mac_ctrl_set @ 0x100e00, size 634 bytes
+// Doc: mac_ctrl_set [mmio]: Configures MMIO clock/power registers at 0x403440xx
+// mac_ctrl_set [mmio]: Configures MMIO clock/power registers at 0x403440xx
+int  mac_ctrl_set(unsigned int a1, int a2)
 {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
@@ -97,9 +97,9 @@ int  mmio_clock_setup(unsigned int a1, int a2)
   *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
   *v8 &= ~1u;
   *(v6 - 1903) |= 8u;
-  lmac_sub_init(1, 0, 16, *v9);
-  lmac_sub_init(1, 16, 16, *(uint32_t *)off_101098);
-  mmio_set_bit_120090C(0, a1);
+  memcpy_advance(1, 0, 16, *v9);
+  memcpy_advance(1, 16, 16, *(uint32_t *)off_101098);
+  rf_ctrl_set(0, a1);
   if ( a1 > 0x98A )
   {
     v11 = 6;
@@ -170,7 +170,7 @@ int  mmio_clock_setup(unsigned int a1, int a2)
     ;
   result = *(uint32_t *)off_1010D0 & 1;
   if ( !result )
-    result = sub_100C3C(0);
+    result = rf_cal_read_0(0);
   *(uint32_t *)off_1010CC = 1;
   return result;
 }

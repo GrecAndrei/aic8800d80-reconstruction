@@ -12,8 +12,8 @@
 
 extern uint32_t dword_110FB4;
 
-// sub_110F98 @ 0x110f98, size 28 bytes
-uint32_t * sub_110F98(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
+// rf_set_tx_channel @ 0x110f98, size 28 bytes
+uint32_t * rf_set_tx_channel(uint32_t *result, int a2, int a3, uint16_t a4, int a5)
 {
   result[2] = dword_110FB4 & result[2] | a4 | (a5 << 31);
   *result = a2;

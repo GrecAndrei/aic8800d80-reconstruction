@@ -19,8 +19,8 @@ extern uint32_t off_142324;
 extern uint32_t dword_14232C;
 extern uint32_t dword_142328;
 
-// sub_1420D0 @ 0x1420d0, size 582 bytes
-unsigned int  sub_1420D0(unsigned int result)
+// adv_report_process @ 0x1420d0, size 582 bytes
+unsigned int  adv_report_process(unsigned int result)
 {
   int v1; // r1
   int v2; // r2
@@ -80,7 +80,7 @@ unsigned int  sub_1420D0(unsigned int result)
         v18 = *(uint16_t *)(v4 + 18);
         if ( **(int16_t **)off_14231C < 0 && v2 == 255 )
         {
-          result = sub_12F46C(dword_142334, dword_142330, 637);
+          result = mmio_clear_register(dword_142334, dword_142330, 637);
           v5 = *(uint8_t *)(v4 + 8);
         }
         if ( (v15 & 0xC) == 0 )
@@ -111,27 +111,27 @@ unsigned int  sub_1420D0(unsigned int result)
                 *(uint8_t *)(v30 + 46) = v29;
                 *(uint8_t *)(v30 + 2) = v32;
                 *(uint8_t *)(v30 + 41) = 0;
-                memset_thunk((int *)(v30 + 32), 0, 9u);
+                memset((int *)(v30 + 32), 0, 9u);
                 v33 = *v31;
                 *(uint16_t *)v30 = 1;
                 *v31 = v33 + 1;
-                sub_141C80(v17, v20, v15, (int16_t *)v30);
-                ke_msg_alloc_n2e4(4, v30);
-                LODWORD(v34) = sub_12BE40();
+                llcp_header_parse(v17, v20, v15, (int16_t *)v30);
+                hci_event_send(4, v30);
+                LODWORD(v34) = util_unknown();
                 v35 = *(uint64_t *)(v30 + 24) - v34 - *(uint64_t *)(v3 + 1320 * v5 + 40);
-                v36 = sub_143414(v35, HIDWORD(v35), *(uint32_t *)(v30 + 16), 0);
-                return rx_desc_lookup_or_build(v30, v36);
+                v36 = validate_args(v35, HIDWORD(v35), *(uint32_t *)(v30 + 16), 0);
+                return ll_rx_window_calc(v30, v36);
               }
               else
               {
-                return sub_141FE0(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
+                return conn_context_reset(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
               }
             }
           }
           else if ( v19 == 7 )
           {
-            sub_141C80((uint16_t *)(v4 + 18), v20, v15, v37);
-            return ke_msg_alloc_n2e4((v18 >> 1) & 7, (int)v37);
+            llcp_header_parse((uint16_t *)(v4 + 18), v20, v15, v37);
+            return hci_event_send((v18 >> 1) & 7, (int)v37);
           }
         }
       }
@@ -153,7 +153,7 @@ unsigned int  sub_1420D0(unsigned int result)
                 && *(uint8_t *)(v8 + 46) == *(uint8_t *)(v4 + 7)
                 && *(uint8_t *)(v8 + 47) == *(uint8_t *)(v4 + 8) )
               {
-                result = msg_parse_top_nibble(v8);
+                result = llcp_set_ack_flag(v8);
                 v24 = *(uint16_t *)v8;
                 v25 = *v21;
                 *(uint8_t *)(v8 + 2) = v22;
@@ -181,7 +181,7 @@ unsigned int  sub_1420D0(unsigned int result)
             v10 = 9 * v7;
             v11 = dword_142320 + 8 * v10;
             v12 = 8 * v10;
-            msg_parse_top_nibble(v11);
+            llcp_set_ack_flag(v11);
             v13 = off_142324;
             v14 = *(uint8_t *)off_142324 - 1;
             *(uint16_t *)(v8 + v12) &= ~1u;
@@ -194,7 +194,7 @@ unsigned int  sub_1420D0(unsigned int result)
     }
     else if ( **(int16_t **)off_14231C < 0 )
     {
-      return sub_12F46C(dword_14232C, dword_142328, 828);
+      return mmio_clear_register(dword_14232C, dword_142328, 828);
     }
   }
   return result;

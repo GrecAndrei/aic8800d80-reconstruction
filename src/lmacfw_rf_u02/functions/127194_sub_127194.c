@@ -12,8 +12,8 @@
 
 extern uint32_t dword_127224;
 
-// sub_127194 @ 0x127194, size 142 bytes
-uint64_t  sub_127194(uint64_t a1)
+// parse_data_field @ 0x127194, size 142 bytes
+uint64_t  parse_data_field(uint64_t a1)
 {
   int v1; // r7
   int v2; // r4
@@ -47,7 +47,7 @@ uint64_t  sub_127194(uint64_t a1)
     }
     else if ( v1 == 2047 )
     {
-      return sub_1272B4(a1, HIDWORD(a1), a1, HIDWORD(a1));
+      return double_add(a1, HIDWORD(a1), a1, HIDWORD(a1));
     }
   }
   else

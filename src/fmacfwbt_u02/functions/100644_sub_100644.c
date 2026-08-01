@@ -12,8 +12,8 @@
 
 extern uint32_t off_10066C;
 
-// sub_100644 @ 0x100644, size 40 bytes
-int  sub_100644(int a1)
+// timer_set @ 0x100644, size 40 bytes
+int  timer_set(int a1)
 {
   int result; // r0
   int v3; // [sp+4h] [bp-8h]

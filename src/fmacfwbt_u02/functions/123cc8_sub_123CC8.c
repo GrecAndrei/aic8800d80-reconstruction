@@ -14,8 +14,8 @@ extern uint32_t off_123D98;
 extern uint32_t dword_123D94;
 extern uint32_t dword_123D90;
 
-// sub_123CC8 @ 0x123cc8, size 182 bytes
-void  __noreturn sub_123CC8(int a1, int a2, int a3)
+// read_global_state @ 0x123cc8, size 182 bytes
+void  __noreturn read_global_state(int a1, int a2, int a3)
 {
   int v3; // r0
   int v4; // [sp+10h] [bp-18h]
@@ -34,9 +34,9 @@ void  __noreturn sub_123CC8(int a1, int a2, int a3)
   v9 = 0;
   if ( v3 < 0 )
   {
-    if ( msg_get_value(a3) )
-      sub_12F694(dword_123D94, dword_123D90, 337);
+    if ( hci_cmd_send_short(a3) )
+      mmio_irq_clear(dword_123D94, dword_123D90, 337);
   }
-  fmac_module_init();
+  flash_init();
 }
 

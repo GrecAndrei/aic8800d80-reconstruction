@@ -22,10 +22,10 @@ extern uint32_t off_122008;
 extern uint32_t dword_12200C;
 extern uint32_t dword_122010;
 
-// rf_chan_table_init_1d84 @ 0x121d84, size 610 bytes
-// Doc: rf_chan_table_init_1d84 [rf]: Initialize RF channel table entry (indexed by mla/smlabb, 0x2b8 stride).
-// rf_chan_table_init_1d84 [rf]: Initialize RF channel table entry (indexed by mla/smlabb, 0x2b8 stride).
-unsigned int  rf_chan_table_init_1d84(unsigned int a1)
+// rf_channel_calc @ 0x121d84, size 610 bytes
+// Doc: rf_channel_calc [rf]: Initialize RF channel table entry (indexed by mla/smlabb, 0x2b8 stride).
+// rf_channel_calc [rf]: Initialize RF channel table entry (indexed by mla/smlabb, 0x2b8 stride).
+unsigned int  rf_channel_calc(unsigned int a1)
 {
   int v1; // r5
   int v2; // r7
@@ -85,13 +85,13 @@ unsigned int  rf_chan_table_init_1d84(unsigned int a1)
   {
     v7 = (uint8_t)v6++;
     if ( *(uint32_t *)(v2 + 584) )
-      sub_118940(v7, v5 - 40, 0);
+      rf_tx_setup(v7, v5 - 40, 0);
     v8 = *(uint32_t *)(v2 + 624);
     v9 = v5;
     v2 += 8;
     v5 += 8;
     if ( v8 )
-      sub_118940(v7, v9, 0);
+      rf_tx_setup(v7, v9, 0);
   }
   while ( v6 != 5 );
   v10 = dword_121FEC;
@@ -134,7 +134,7 @@ LABEL_9:
       while ( (*v24 & 0x40000000) != 0 )
         ;
     }
-    return sub_11F12C(v4);
+    return llm_conn_calc_ptr(v4);
   }
   if ( *(uint8_t *)(v1 + 696 * v4 + 36) == 1 )
   {
@@ -151,10 +151,10 @@ LABEL_9:
         v29[36] = 0;
         if ( v30 <= 0x1F )
         {
-          v32 = (uint8_t *)sub_12C92C(73, 13, 0, 2);
+          v32 = (uint8_t *)ke_msg_alloc(73, 13, 0, 2);
           *v32 = v27;
           v32[1] = 0;
-          sdio_buffer_prepare_n_4e8(v32);
+          ke_msg_send(v32);
           if ( !v29[36] && v29[35] <= 0x1Fu )
           {
             v33 = (int *)off_122004;
@@ -181,12 +181,12 @@ LABEL_9:
                 v43 = dword_12200C;
                 v44 = *v33 + 1;
                 *v33 = v44;
-                msg_parse(v43, v44, v42);
-                buf_ptr_deref_n_430(v37 - 40, v38 - 40);
+                event_dispatch(v43, v44, v42);
+                list_next(v37 - 40, v38 - 40);
                 v45 = v36[147];
                 v39[308] = v36[146];
                 v39[309] = v45;
-                sub_12D240(v37 - 40);
+                zero_8_bytes(v37 - 40);
                 v33 = (int *)off_122004;
                 v46 = *(uint32_t *)off_122004 - 1;
                 if ( *(uint32_t *)off_122004 )
@@ -205,9 +205,9 @@ LABEL_9:
               v36 += 2;
               if ( v47 )
               {
-                msg_parse(dword_122010, v47, v34);
-                buf_ptr_deref_n_430(v38, v37);
-                sub_12D240(v37);
+                event_dispatch(dword_122010, v47, v34);
+                list_next(v38, v37);
+                zero_8_bytes(v37);
                 v33 = (int *)off_122004;
               }
               v37 += 8;
@@ -215,17 +215,17 @@ LABEL_9:
             }
             while ( v37 != v40 );
             v4 = v48;
-            irq_nesting_or_d104(512);
+            unknown_func_12d104(512);
           }
         }
       }
       v31 = v10 + 1320 * v3;
-      sub_136D14(v31, (uint8_t)(*(uint8_t *)(v31 + 107) + 32));
+      bt_get_link_context(v31, (uint8_t)(*(uint8_t *)(v31 + 107) + 32));
       v12 = *(uint8_t *)(v31 + 106);
     }
   }
   if ( v12 != 2 )
     goto LABEL_9;
-  return sub_11F12C(v4);
+  return llm_conn_calc_ptr(v4);
 }
 

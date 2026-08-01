@@ -12,10 +12,10 @@
 
 extern uint32_t dword_12F584;
 
-// sub_12F554 @ 0x12f554, size 48 bytes
+// load_and_process_r0 @ 0x12f554, size 48 bytes
 // Doc: sub_122F554 [unknown]: Save callee-saved regs and dereference first argument pointer
 // sub_122F554 [unknown]: Save callee-saved regs and dereference first argument pointer
-uint32_t ** sub_12F554(uint32_t **result)
+uint32_t ** load_and_process_r0(uint32_t **result)
 {
   uint32_t *v1; // r4
   int v2; // r6
@@ -31,11 +31,11 @@ uint32_t ** sub_12F554(uint32_t **result)
     {
       while ( 1 )
       {
-        rf_bus_mark_n100_d2d0((int)v3);
+        mem_word_load((int)v3);
         result = (uint32_t **)v2;
         if ( !v1[3] )
           break;
-        result = (uint32_t **)list_push_tail(v2, v1);
+        result = (uint32_t **)cmd_handler_a(v2, v1);
         v1 = (uint32_t *)*v3;
         if ( !*v3 )
           return result;

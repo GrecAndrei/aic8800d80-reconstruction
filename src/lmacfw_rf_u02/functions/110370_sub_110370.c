@@ -14,10 +14,10 @@ extern uint32_t off_1103A4;
 extern uint32_t off_1103A8;
 extern uint32_t dword_1103AC;
 
-// sub_110370 @ 0x110370, size 52 bytes
+// irq_disable_set_flag_2 @ 0x110370, size 52 bytes
 // Doc: sub_1210370 [util]: Trampoline stub with shifted register setup
 // sub_1210370 [util]: Trampoline stub with shifted register setup
-int sub_110370()
+int irq_disable_set_flag_2()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_110370()
   v0 = (int *)off_1103A8;
   v1 = dword_1103AC;
   ++*(uint32_t *)off_1103A8;
-  result = sub_11E7AC(v1);
+  result = list_pop_front(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

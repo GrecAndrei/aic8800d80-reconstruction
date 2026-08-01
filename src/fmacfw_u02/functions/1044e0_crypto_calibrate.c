@@ -24,10 +24,10 @@ extern uint32_t dword_1045DC;
 extern uint32_t dword_1045E0;
 extern uint32_t off_1045E4;
 
-// crypto_calibrate @ 0x1044e0, size 212 bytes
-// Doc: crypto_calibrate [mac]: Calibrate crypto engine via MMIO writes to 0x403420xx block
-// crypto_calibrate [mac]: Calibrate crypto engine via MMIO writes to 0x403420xx block
-int crypto_calibrate()
+// start_arm_boot @ 0x1044e0, size 212 bytes
+// Doc: start_arm_boot [mac]: Calibrate crypto engine via MMIO writes to 0x403420xx block
+// start_arm_boot [mac]: Calibrate crypto engine via MMIO writes to 0x403420xx block
+int start_arm_boot()
 {
   int *v0; // r1
   uint32_t *v1; // r3
@@ -54,19 +54,19 @@ int crypto_calibrate()
   *v1 = ~(~(*v1 >> 12) << 12);
   v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
   *v1 |= 0x10000000u;
-  delay_us_0644(10);
+  timer_delay(10);
   *v4 = dword_1045D0;
-  delay_us_0644(125);
+  timer_delay(125);
   *v4 = dword_1045D4;
   while ( *v5 < 0 )
-    delay_us_0644(1);
-  feature_guard_check(1, dword_1045D8);
+    timer_delay(1);
+  check_status_bits(1, dword_1045D8);
   v6 = dword_1045DC;
   *(uint32_t *)off_1045C8 = 0;
-  feature_guard_check(1, v6);
+  check_status_bits(1, v6);
   *(uint32_t *)off_1045B8 = v3;
-  crypto_iq_calculate();
-  result = feature_guard_check(1, dword_1045E0);
+  select_fuse_bank();
+  result = check_status_bits(1, dword_1045E0);
   v8 = off_1045BC;
   v9 = off_1045E4;
   *(uint32_t *)off_1045BC &= 0xF3FFFFFF;

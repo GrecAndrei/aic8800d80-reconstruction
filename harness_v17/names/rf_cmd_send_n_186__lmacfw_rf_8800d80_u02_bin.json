@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_186", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212792", "status": "ok", "name": "rf_cmd_send_n_186", "params": [], "docstring": "Send RF command variant 186 to MAC HW", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_186", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212792", "status": "ok", "name": "rf_bus_reset_n4a3", "params": [], "docstring": "Send RF command variant 186 to MAC HW", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

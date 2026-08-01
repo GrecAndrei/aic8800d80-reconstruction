@@ -16,8 +16,8 @@ extern uint32_t dword_141D44;
 extern uint32_t dword_141D40;
 extern uint32_t off_141D3C;
 
-// sub_141C80 @ 0x141c80, size 184 bytes
-int  sub_141C80(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
+// llcp_header_parse @ 0x141c80, size 184 bytes
+int  llcp_header_parse(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
 {
   unsigned int v4; // r5
   int16_t v5; // r6
@@ -57,7 +57,7 @@ int  sub_141C80(uint16_t *a1, unsigned int a2, unsigned int a3, int16_t *a4)
   v14 = (uint16_t)v14;
   if ( result < 0 && a2 <= 0xD )
   {
-    result = sub_12F46C(dword_141D48, dword_141D44, 213);
+    result = mmio_clear_register(dword_141D48, dword_141D44, 213);
     v14 = (uint16_t)a4[4];
     LOBYTE(v7) = *((uint8_t *)a4 + 5);
     v8 = *a4;

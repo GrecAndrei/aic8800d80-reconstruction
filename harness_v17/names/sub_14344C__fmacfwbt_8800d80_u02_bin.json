@@ -1,0 +1,1 @@
+{"fn": "sub_14344C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14344c", "status": "ok", "name": "compare_eq", "params": [], "docstring": "Return 1 if helper result equals zero", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

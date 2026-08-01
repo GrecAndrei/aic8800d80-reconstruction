@@ -12,8 +12,8 @@
 
 extern uint32_t off_125900;
 
-// sub_1258A0 @ 0x1258a0, size 94 bytes
-int  sub_1258A0(int a1)
+// ipc_trace_send @ 0x1258a0, size 94 bytes
+int  ipc_trace_send(int a1)
 {
   int *v1; // r5
   int v2; // r6
@@ -24,8 +24,8 @@ int  sub_1258A0(int a1)
 
   v1 = (int *)off_125900;
   v2 = *(uint32_t *)off_125900;
-  sub_12C8D0(64, *(uint16_t *)(*(uint32_t *)off_125900 - 4), 0);
-  sub_1253D0(a1, *v1);
+  mac_write_header_word(64, *(uint16_t *)(*(uint32_t *)off_125900 - 4), 0);
+  tx_pkt_complete(a1, *v1);
   v4 = *v1;
   *(uint8_t *)(a1 + 231) = 0;
   v5 = *(uint8_t *)(v4 + 10);
@@ -37,8 +37,8 @@ int  sub_1258A0(int a1)
   v7 = *((uint8_t *)v1 + 8);
   *((uint8_t *)v1 + 9) = 0;
   if ( v7 )
-    sub_125780();
+    patch_check_enable();
   *v1 = 0;
-  return sub_12C8F8(v6);
+  return tx_process_jump(v6);
 }
 

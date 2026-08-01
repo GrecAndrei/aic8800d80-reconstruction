@@ -1,1 +1,1 @@
-{"fn": "list_push_tail", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e724", "status": "ok", "name": "list_push_tail", "params": [], "docstring": "Append node to tail of linked list", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "list_push_tail", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e724", "status": "ok", "name": "check_kernel_state", "params": [], "docstring": "Append node to tail of linked list", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

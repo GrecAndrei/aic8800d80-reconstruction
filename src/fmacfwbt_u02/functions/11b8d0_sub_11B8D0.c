@@ -18,8 +18,8 @@ extern uint32_t dword_11B9B4;
 extern uint32_t dword_11B9AC;
 extern uint32_t dword_11B9A8;
 
-// sub_11B8D0 @ 0x11b8d0, size 204 bytes
-int  sub_11B8D0(int result, int a2, int a3, int a4)
+// ke_task_set_event @ 0x11b8d0, size 204 bytes
+int  ke_task_set_event(int result, int a2, int a3, int a4)
 {
   uint32_t *v4; // r5
   char *v5; // r3
@@ -64,18 +64,18 @@ LABEL_6:
           v10 = (int16_t **)off_11B9A4;
           if ( **(int16_t **)off_11B9A4 >= 0 )
             goto LABEL_9;
-          sub_12F694(dword_11B9B0, dword_11B9B4, 520);
+          mmio_irq_clear(dword_11B9B0, dword_11B9B4, 520);
           break;
       }
       if ( **v10 < 0 )
       {
-        return sub_12F630(dword_11B9B0, dword_11B9AC, 684, a4);
+        return ke_int_lock(dword_11B9B0, dword_11B9AC, 684, a4);
       }
       else
       {
 LABEL_9:
         v4[v8 - v7 + 6] = dword_11B9A8;
-        return sub_11B7F8(v7);
+        return critical_section_enter(v7);
       }
     }
   }

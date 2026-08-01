@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_132BC4 @ 0x132bc4, size 18 bytes
-uint32_t * sub_132BC4(int a1)
+// nop_stub @ 0x132bc4, size 18 bytes
+uint32_t * nop_stub(int a1)
 {
-  sub_13F6F4();
-  return sub_1327C4(a1);
+  l2c_ccb_run();
+  return process_rx_event(a1);
 }
 

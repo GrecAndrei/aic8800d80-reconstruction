@@ -23,8 +23,8 @@ extern uint32_t dword_117ED0;
 extern uint32_t dword_117ED4;
 extern uint32_t off_117ECC;
 
-// sub_117D30 @ 0x117d30, size 380 bytes
-void  sub_117D30(int a1, uint32_t *a2)
+// ll_state_check @ 0x117d30, size 380 bytes
+void  ll_state_check(int a1, uint32_t *a2)
 {
   int v2; // r3
   int v3; // r2
@@ -57,13 +57,13 @@ void  sub_117D30(int a1, uint32_t *a2)
     switch ( v3 )
     {
       case 2:
-        v6 = (uint8_t *)sub_113A08();
+        v6 = (uint8_t *)error_trap();
         if ( v6 )
         {
           v7 = off_117ED8;
           if ( *((uint32_t *)off_117ED8 + 2057) )
           {
-            v8 = sub_12D2D0(dword_117EB0);
+            v8 = mem_word_load(dword_117EB0);
             *v6 = 8;
             v6[1] = 0;
             v6[3] = 0;
@@ -72,7 +72,7 @@ void  sub_117D30(int a1, uint32_t *a2)
             v10 = v8;
             v26 = *(uint32_t *)(a1 + 84) & 0x3FFFFFFF;
             v25 = v9;
-            sub_143770(v6 + 4, &v25, 8);
+            memcpy(v6 + 4, &v25, 8);
             v11 = *((uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -107,9 +107,9 @@ void  sub_117D30(int a1, uint32_t *a2)
             v18 = *(uint16_t *)(a1 + 32);
             v19 = dword_117EC4;
             ++*(uint32_t *)off_117EC0;
-            sub_12EA88(v19, a1, v18);
-            v20 = sub_12D248(dword_117EC8);
-            sub_1134B4(v20, v21);
+            event_dispatch(v19, a1, v18);
+            v20 = cmd_handler_a(dword_117EC8);
+            check_init_flag(v20, v21);
             if ( *v17 )
             {
               v22 = *v17 - 1;
@@ -124,24 +124,24 @@ void  sub_117D30(int a1, uint32_t *a2)
           }
           else
           {
-            sub_10DC24(dword_117ED0);
+            log_printf(dword_117ED0);
           }
         }
         else
         {
-          sub_10DC24(dword_117ED4);
+          log_printf(dword_117ED4);
         }
         break;
       case 1:
         v24 = *a2 & 0xF;
         v26 = v2 & 0x3FFFFFFF;
         v25 = v24;
-        sub_111270(18, (int)&v25, 8);
-        sub_12EA88(dword_117EC4, a1, *(uint16_t *)(a1 + 32));
+        mutex_lock(18, (int)&v25, 8);
+        event_dispatch(dword_117EC4, a1, *(uint16_t *)(a1 + 32));
         break;
       case 3:
         **(uint32_t **)off_117ECC = *a2 & 0xF;
-        sub_10CC94();
+        gpio_set_pin8();
         break;
     }
   }

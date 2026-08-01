@@ -13,10 +13,10 @@
 extern uint32_t dword_12B05C;
 extern uint32_t dword_12B060;
 
-// phy_tbl_lookup_by_idx @ 0x12b028, size 52 bytes
-// Doc: phy_tbl_lookup_by_idx [util]: Look up entry in PHY/link table indexed by ID, reading flag byte
-// phy_tbl_lookup_by_idx [util]: Look up entry in PHY/link table indexed by ID, reading flag byte
-int * phy_tbl_lookup_by_idx(int a1)
+// tx_slot_state_get @ 0x12b028, size 52 bytes
+// Doc: tx_slot_state_get [util]: Look up entry in PHY/link table indexed by ID, reading flag byte
+// tx_slot_state_get [util]: Look up entry in PHY/link table indexed by ID, reading flag byte
+int * tx_slot_state_get(int a1)
 {
   int v1; // r4
   int v2; // r6
@@ -31,8 +31,8 @@ int * phy_tbl_lookup_by_idx(int a1)
   v3 = a1;
   v4 = 32 * a1;
   if ( *(uint8_t *)(v2 + 30) )
-    timestamp_remove_058(dword_12B05C + 32 * a1);
-  result = memset_thunk((int *)v2, 0, 0x20u);
+    ke_event_set_lock(dword_12B05C + 32 * a1);
+  result = memset_byte((int *)v2, 0, 0x20u);
   v6 = v1 + v4;
   v7 = dword_12B060;
   *(uint32_t *)(v6 + 8) = v2;

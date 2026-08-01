@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_117AC8 @ 0x117ac8, size 48 bytes
+// mutex_acquire_if_ready @ 0x117ac8, size 48 bytes
 // Doc: sub_1217AC8 [unknown]: Unknown internal function (lmacfw)
 // sub_1217AC8 [unknown]: Unknown internal function (lmacfw)
-int * sub_117AC8(int a1)
+int * mutex_acquire_if_ready(int a1)
 {
   int v2; // r5
   int v3; // r0
@@ -22,8 +22,8 @@ int * sub_117AC8(int a1)
   v2 = a1 + 48;
   while ( *(uint32_t *)(a1 + 48) )
   {
-    v3 = sub_11E7AC(v2);
-    sub_116628(v3, 1);
+    v3 = list_pop_front(v2);
+    wlan_tx_kick(v3, 1);
   }
   result = sub_100200((int *)a1, 0, 0x98u);
   *(uint8_t *)(a1 + 32) = -1;

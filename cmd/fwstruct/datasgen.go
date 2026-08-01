@@ -102,7 +102,7 @@ func runDataSgen(args []string) error {
 			line := annotateLine(r)
 			name := fmt.Sprintf("%s_%X", r.Kind, r.Addr)
 			if r.Kind == "loc" {
-				line = fmt.Sprintf("int %s();", name)
+				line = fmt.Sprintf("#define %s 0x%x  /* code label address */", name, r.Addr)
 			} else if fnPtrs[name] {
 				line = fmt.Sprintf("int (*%s)() = (int (*)())0x%x;  /* fn-ptr */", name, r.Value)
 			} else if r.Kind == "flt" {
@@ -118,6 +118,14 @@ func runDataSgen(args []string) error {
 		outPath := filepath.Join(cf.Root, "src", srcDir, "data.c")
 		if err := os.WriteFile(outPath, []byte(b.String()), 0644); err != nil {
 			return err
+		}
+		// 3b. append MEMORY_IMG backing store (byte-indexed from 0x100000).
+		var extra strings.Builder
+		extra.WriteString("\n/* memory image backing store (byte-indexed from 0x100000) */\n")
+		extra.WriteString("uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};\n")
+		if f, err := os.OpenFile(outPath, os.O_APPEND|os.O_WRONLY, 0644); err == nil {
+			f.WriteString(extra.String())
+			f.Close()
 		}
 		// 4. datasym JSON
 		outJSON := filepath.Join(cf.Out, img+"_datasym.json")

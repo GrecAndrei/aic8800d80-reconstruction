@@ -24,8 +24,8 @@ extern uint32_t dword_13B224;
 extern uint32_t dword_13B244;
 extern uint32_t off_13B248;
 
-// sub_13AFA0 @ 0x13afa0, size 636 bytes
-int  sub_13AFA0(int a1, int a2, unsigned int a3)
+// parse_packet_header @ 0x13afa0, size 636 bytes
+int  parse_packet_header(int a1, int a2, unsigned int a3)
 {
   int v3; // r3
   int v6; // r5
@@ -60,19 +60,19 @@ int  sub_13AFA0(int a1, int a2, unsigned int a3)
   if ( v3 == 1 )
   {
     v9 = *(uint16_t *)(a2 + 17);
-    if ( sub_12CD48(a3) != 2 )
+    if ( hci_cmd_handler(a3) != 2 )
       return 0;
     v10 = dword_13B228;
-    sub_12C5FC(0x2000, a3);
+    invalid_handler_12c5fc(0x2000, a3);
     v11 = v10 + 32 * v7;
     v12 = 32 * v7;
     if ( *(uint8_t *)(v11 + 23) != *(uint8_t *)(v6 + 2)
       || *(uint8_t *)(v11 + 22) != ((v9 >> 2) & 0xF)
       || *(uint16_t *)(v6 + 3) )
     {
-      sub_13B8E4(v7);
-      sub_12D108(dword_13B21C, (uint32_t *)(v10 + v12));
-      sub_12CBF4(a3, 0);
+      get_table_entry_info(v7);
+      wlan_ioctl_handler_1(dword_13B21C, (uint32_t *)(v10 + v12));
+      hci_cmd_preprocess(a3, 0);
       return 0;
     }
     if ( *(uint16_t *)(v11 + 20) > v9 >> 6 )
@@ -88,8 +88,8 @@ LABEL_38:
         v23 = *(uint8_t *)(a2 + 7);
         v24 = v7;
 LABEL_31:
-        sub_13BC20(v23, v24);
-        sub_12CBF4(a3, 3);
+        build_hci_event(v23, v24);
+        hci_cmd_preprocess(a3, 3);
         return 0;
       }
       LOBYTE(v25) = 0;
@@ -99,30 +99,30 @@ LABEL_31:
   }
   if ( v3 == 2 )
   {
-    if ( sub_12CD48(a3) != 4 )
+    if ( hci_cmd_handler(a3) != 4 )
     {
-      if ( sub_12CD48(a3) == 1 || sub_12CD48(a3) == 3 )
+      if ( hci_cmd_handler(a3) == 1 || hci_cmd_handler(a3) == 3 )
       {
-        sub_12CBF4(a3, 4);
+        hci_cmd_preprocess(a3, 4);
         v30 = (uint32_t *)(dword_13B228 + 32 * v7);
         if ( v7 > 0xF )
         {
-          sub_12D1A8(dword_13B234, (uint32_t *)(dword_13B228 + 32 * v7));
-          sub_12D108(dword_13B238, v30);
+          wlan_ioctl_handler_3(dword_13B234, (uint32_t *)(dword_13B228 + 32 * v7));
+          wlan_ioctl_handler_1(dword_13B238, v30);
         }
         else
         {
-          sub_12D1A8(dword_13B22C, (uint32_t *)(dword_13B228 + 32 * v7));
-          sub_12D108(dword_13B230, v30);
+          wlan_ioctl_handler_3(dword_13B22C, (uint32_t *)(dword_13B228 + 32 * v7));
+          wlan_ioctl_handler_1(dword_13B230, v30);
         }
-        sub_13BC64(*(uint8_t *)(a2 + 7), v7);
+        rf_set_frequency(*(uint8_t *)(a2 + 7), v7);
         return 0;
       }
       *(uint32_t *)(696 * *(uint8_t *)(dword_13B228 + 32 * v7 + 16)
                 + 12 * *(uint8_t *)(dword_13B228 + 32 * v7 + 22)
                 + dword_13B23C
                 + 448) = *((uint32_t *)off_13B240 + 4);
-      sub_13BAE8(v7);
+      send_vendor_command(v7);
     }
     return 0;
   }
@@ -137,15 +137,15 @@ LABEL_31:
     return 0;
   v16 = *(uint8_t *)(a2 + 7);
   v29 = *(uint8_t *)(a2 + 14);
-  sub_12EB90(2048, dword_13B224, (v13 >> 2) & 0xF);
-  if ( !sub_121820(v16, (v13 >> 2) & 0xF) )
+  check_feature_flag(2048, dword_13B224, (v13 >> 2) & 0xF);
+  if ( !ll_get_tx_power_alt(v16, (v13 >> 2) & 0xF) )
   {
-    if ( sub_12CD48(a3) == 4 )
+    if ( hci_cmd_handler(a3) == 4 )
       return 2;
     v18 = dword_13B228;
     v31 = (uint32_t *)(dword_13B228 + 32 * v7);
-    if ( sub_12D210((uint32_t **)dword_13B244, v31) )
-      sub_12D1A8(dword_13B244, v31);
+    if ( list_contains((uint32_t **)dword_13B244, v31) )
+      wlan_ioctl_handler_3(dword_13B244, v31);
     v19 = v18 + 32 * v7;
     *(uint8_t *)(v19 + 22) = v14;
     *(uint8_t *)(v19 + 16) = v16;
@@ -167,7 +167,7 @@ LABEL_31:
     v24 = v7;
     goto LABEL_31;
   }
-  if ( sub_12CD48(a3) == 1 )
+  if ( hci_cmd_handler(a3) == 1 )
   {
     v27 = dword_13B228 + 32 * v7;
     v28 = v13 >> 6;
@@ -179,10 +179,10 @@ LABEL_31:
     }
     else
     {
-      sub_12CBF4(a3, 4);
-      sub_12D1A8(dword_13B22C, (uint32_t *)v27);
-      sub_12D108(dword_13B230, (uint32_t *)v27);
-      sub_13BC64((uint16_t)v16, v7);
+      hci_cmd_preprocess(a3, 4);
+      wlan_ioctl_handler_3(dword_13B22C, (uint32_t *)v27);
+      wlan_ioctl_handler_1(dword_13B230, (uint32_t *)v27);
+      rf_set_frequency((uint16_t)v16, v7);
       v17 = 37;
     }
   }
@@ -190,7 +190,7 @@ LABEL_31:
   {
     v17 = 37;
   }
-  sub_13B558(v16, 0, 1, v29, v13, v17, 0);
+  init_state_table(v16, 0, 1, v29, v13, v17, 0);
   return 0;
 }
 

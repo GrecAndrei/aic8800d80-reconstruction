@@ -14,8 +14,8 @@ extern uint32_t off_12A6DC;
 extern uint32_t off_12A6E0;
 extern uint32_t dword_12A6E4;
 
-// sub_12A690 @ 0x12a690, size 74 bytes
-int sub_12A690()
+// bt_scan_get_state @ 0x12a690, size 74 bytes
+int bt_scan_get_state()
 {
   int result; // r0
   int *v1; // r3

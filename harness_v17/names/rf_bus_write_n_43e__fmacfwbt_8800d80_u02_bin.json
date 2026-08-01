@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_43e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211582", "status": "ok", "name": "rf_bus_write_n_43e", "params": [], "docstring": "Writes to RF bus register with bit mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_43e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211582", "status": "ok", "name": "rf_bus_mark_n_15d", "params": [], "docstring": "Writes to RF bus register with bit mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

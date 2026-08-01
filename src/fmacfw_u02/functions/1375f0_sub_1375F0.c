@@ -12,8 +12,8 @@
 
 extern uint32_t dword_13763C;
 
-// sub_1375F0 @ 0x1375f0, size 76 bytes
-int  sub_1375F0(uint16_t *a1, int a2)
+// find_conn_by_handle @ 0x1375f0, size 76 bytes
+int  find_conn_by_handle(uint16_t *a1, int a2)
 {
   int v2; // r3
   int v3; // r4

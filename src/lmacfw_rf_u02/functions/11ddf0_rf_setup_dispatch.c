@@ -14,18 +14,18 @@ extern uint32_t off_11DE44;
 extern uint32_t dword_11DE4C;
 extern uint32_t dword_11DE48;
 
-// rf_setup_dispatch @ 0x11ddf0, size 82 bytes
-// Doc: rf_setup_dispatch [rf]: RF init/dispatch calling helper and reading config ptr
-// rf_setup_dispatch [rf]: RF init/dispatch calling helper and reading config ptr
-int  rf_setup_dispatch(int16_t a1, int16_t a2, int16_t a3, unsigned int a4)
+// ke_msg_send @ 0x11ddf0, size 82 bytes
+// Doc: ke_msg_send [rf]: RF init/dispatch calling helper and reading config ptr
+// ke_msg_send [rf]: RF init/dispatch calling helper and reading config ptr
+int  ke_msg_send(int16_t a1, int16_t a2, int16_t a3, unsigned int a4)
 {
   int v8; // r0
   int v9; // r4
 
-  v8 = sub_11DF94(a4 + 12);
+  v8 = align_size_plus4(a4 + 12);
   v9 = v8;
   if ( **(int16_t **)off_11DE44 < 0 && !v8 )
-    rf_cmd_send_n264(dword_11DE4C, dword_11DE48, 145);
+    flash_ctrl_init(dword_11DE4C, dword_11DE48, 145);
   *(uint16_t *)(v9 + 4) = a1;
   *(uint16_t *)(v9 + 6) = a2;
   *(uint16_t *)(v9 + 8) = a3;

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1393AC @ 0x1393ac, size 76 bytes
-int  sub_1393AC(int result, unsigned int a2)
+// list_find_nonnull @ 0x1393ac, size 76 bytes
+int  list_find_nonnull(int result, unsigned int a2)
 {
   uint16_t v2; // r2
   char v3; // r7
@@ -48,6 +48,6 @@ int  sub_1393AC(int result, unsigned int a2)
   v8 = (a2 + *(uint16_t *)(result + 8)) & 0xFFF;
   *(uint8_t *)(result + 10) = v7 & 0x3F;
   *(uint16_t *)(result + 8) = v8;
-  return sub_138A5C(result);
+  return opcode_handler_dispatch(result);
 }
 

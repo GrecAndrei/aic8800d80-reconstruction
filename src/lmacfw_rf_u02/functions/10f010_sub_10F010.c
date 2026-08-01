@@ -14,8 +14,8 @@ extern uint32_t off_10F058;
 extern uint32_t off_10F05C;
 extern uint32_t off_10F060;
 
-// sub_10F010 @ 0x10f010, size 70 bytes
-int  sub_10F010(int a1, int a2, int a3)
+// critical_enter2 @ 0x10f010, size 70 bytes
+int  critical_enter2(int a1, int a2, int a3)
 {
   int *v3; // r5
   uint32_t *v4; // r4
@@ -35,12 +35,12 @@ int  sub_10F010(int a1, int a2, int a3)
     v4 = off_10F060;
     while ( !*(uint32_t *)off_10F060 )
       ;
-    result = sub_10EFAC();
+    result = call_slot_0x1b4();
     *v4 = 1;
   }
   else
   {
-    result = sub_10EFAC();
+    result = call_slot_0x1b4();
   }
   if ( *v3 )
   {

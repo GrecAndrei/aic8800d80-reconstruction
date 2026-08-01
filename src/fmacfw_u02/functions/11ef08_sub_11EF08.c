@@ -21,8 +21,8 @@ extern uint32_t dword_11F120;
 extern uint32_t off_11F124;
 extern uint32_t off_11F128;
 
-// sub_11EF08 @ 0x11ef08, size 504 bytes
-int  sub_11EF08(int *a1, uint8_t *a2)
+// ble_event_wait @ 0x11ef08, size 504 bytes
+int  ble_event_wait(int *a1, uint8_t *a2)
 {
   int v3; // r8
   int v5; // r0
@@ -63,16 +63,16 @@ int  sub_11EF08(int *a1, uint8_t *a2)
   int v41; // r1
 
   v3 = *((uint8_t *)a1 + 25);
-  v5 = rf_bus_mark_n100_d2d0(dword_11F100);
+  v5 = mem_word_load(dword_11F100);
   if ( !v5 )
     return 1;
   v6 = v5;
   if ( *((uint8_t *)a1 + 29) )
   {
-    v35 = rf_bus_mark_n100_d2d0(dword_11F100);
+    v35 = mem_word_load(dword_11F100);
     if ( !v35 )
     {
-      list_push_tail(dword_11F100);
+      cmd_handler_a(dword_11F100);
       return 1;
     }
     *(uint32_t *)(v6 + 44) = v35;
@@ -116,7 +116,7 @@ int  sub_11EF08(int *a1, uint8_t *a2)
   *(uint8_t *)(v6 + 34) = *((uint8_t *)a1 + 25);
   *a2 = v14;
   *(uint8_t *)(v6 + 35) = v14;
-  feature_guard_check(256, v13);
+  check_status_bits(256, v13);
   v15 = dword_11F114;
   v16 = dword_11F114 + 1320 * v3;
   v17 = *(uint8_t *)(v16 + 1224);
@@ -157,7 +157,7 @@ int  sub_11EF08(int *a1, uint8_t *a2)
   while ( v6 + 108 != v19 );
   if ( (v22 & 0x10) != 0 )
     *(uint32_t *)(v6 + 4) |= 8u;
-  list_push_tail(v15 + v20 + 240);
+  cmd_handler_a(v15 + v20 + 240);
   *(uint32_t *)(v6 + 580) = dword_11F120;
   if ( (__get_CPSR() & 1) == 0 )
   {

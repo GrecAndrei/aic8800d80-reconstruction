@@ -13,8 +13,8 @@
 extern uint32_t off_116CD0;
 extern uint32_t off_116CCC;
 
-// sub_116CA4 @ 0x116ca4, size 38 bytes
-int sub_116CA4()
+// timestamp_add @ 0x116ca4, size 38 bytes
+int timestamp_add()
 {
   uint32_t *v0; // r3
   uint64_t v1; // kr00_8
@@ -29,6 +29,6 @@ int sub_116CA4()
   v0[4] = HIDWORD(v2) + v2;
   *v0 = v1;
   v0[5] = v2;
-  return sub_11683C();
+  return event_count_update();
 }
 

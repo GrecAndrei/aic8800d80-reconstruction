@@ -1,1 +1,1 @@
-{"fn": "log_hw_regs_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d1a8", "status": "ok", "name": "log_hw_regs_init", "params": [], "docstring": "Initialize logging HW register capture", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_hw_regs_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d1a8", "status": "ok", "name": "dma_reset_regs", "params": [], "docstring": "Initialize logging HW register capture", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

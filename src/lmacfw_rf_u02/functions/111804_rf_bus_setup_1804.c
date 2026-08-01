@@ -13,10 +13,10 @@
 extern uint32_t dword_111948;
 extern uint32_t off_111944;
 
-// rf_bus_setup_1804 @ 0x111804, size 316 bytes
+// util_process_cmd @ 0x111804, size 316 bytes
 // Doc: rf_bus_write2_183c [rf]: Write 16-bit value to RF bus double-word register
 // rf_bus_write2_183c [rf]: Write 16-bit value to RF bus double-word register
-int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
+int * util_process_cmd(int *result, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int v4; // r6
   unsigned int v7; // r11
@@ -72,14 +72,14 @@ int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
         v10 = (uint16_t)v8 << 16;
       }
       if ( (*((uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_11164C(result, a2);
+        result = rf_enable_tx_patch(result, a2);
       v11 = (a3 << 18) & 0xC0000;
       v12 = rf_bus_write_n4d4;
       v13 = *(uint16_t *)rf_bus_write_n4d4;
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)sub_10DA6C(rf_bus_setup_n148, v13, v9, 2048);
+        result = (int *)log_printf(rf_bus_setup_n148, v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = off_111944;
@@ -92,7 +92,7 @@ int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
     {
       v16 = 32 * a2 + 1075838976;
       if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
-        result = sub_11164C(0, a2);
+        result = rf_enable_tx_patch(0, a2);
       v17 = off_111944;
       *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
       v17[519] |= 0x10000 << a2;

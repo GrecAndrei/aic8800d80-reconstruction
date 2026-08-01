@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_channel_set_n6838 @ 0x116838, size 4 bytes
-// Doc: rf_channel_set_n6838 [rf]: Set RF channel by querying current state and applying delta (sub 1)
-// rf_channel_set_n6838 [rf]: Set RF channel by querying current state and applying delta (sub 1)
+// rate_index_lookup_fast @ 0x116838, size 4 bytes
+// Doc: rate_index_lookup_fast [rf]: Set RF channel by querying current state and applying delta (sub 1)
+// rate_index_lookup_fast [rf]: Set RF channel by querying current state and applying delta (sub 1)
 // attributes: thunk
-int  rf_channel_set_n6838(int a1, int a2, int a3)
+int  rate_index_lookup_fast(int a1, int a2, int a3)
 {
-  return sub_1166CC(a1, a2, a3);
+  return rate_index_lookup(a1, a2, a3);
 }
 

@@ -15,8 +15,8 @@ extern uint32_t off_112FF4;
 extern uint32_t off_112FF8;
 extern uint32_t off_112FFC;
 
-// sub_112F70 @ 0x112f70, size 126 bytes
-void sub_112F70()
+// after_helper_call @ 0x112f70, size 126 bytes
+void after_helper_call()
 {
   int *v0; // r4
   int v1; // r2

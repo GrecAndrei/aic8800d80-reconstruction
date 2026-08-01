@@ -14,25 +14,25 @@ extern uint32_t off_10FE54;
 extern uint32_t dword_10FE58;
 extern uint32_t dword_10FE5C;
 
-// log_free_dispatch_n49e @ 0x10fe14, size 62 bytes
-// Doc: log_free_dispatch_n49e [util]: Dispatches log free events for variant 49e
-// log_free_dispatch_n49e [util]: Dispatches log free events for variant 49e
-uint32_t * log_free_dispatch_n49e(char a1)
+// check_radio_state @ 0x10fe14, size 62 bytes
+// Doc: check_radio_state [util]: Dispatches log free events for variant 49e
+// check_radio_state [util]: Dispatches log free events for variant 49e
+uint32_t * check_radio_state(char a1)
 {
   uint32_t *v2; // r4
 
   if ( **(uint8_t **)off_10FE54 == 1 )
-    v2 = (uint32_t *)log_free_dispatch_n478();
+    v2 = (uint32_t *)critical_enter_6();
   else
-    v2 = log_pool_alloc2(dword_10FE58, 0x7Cu);
+    v2 = rx_process_item(dword_10FE58, 0x7Cu);
   if ( !v2 )
     return v2;
-  if ( log_ptr_in_range((unsigned int)v2) )
+  if ( is_address_in_heap((unsigned int)v2) )
   {
     *((uint8_t *)v2 - 1) = a1;
     return v2;
   }
-  log_printf(dword_10FE5C, v2);
+  printf_wrapper(dword_10FE5C, v2);
   return v2;
 }
 

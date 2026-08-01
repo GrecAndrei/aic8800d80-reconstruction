@@ -12,8 +12,8 @@
 
 extern uint32_t dword_1193A8;
 
-// sub_11939C @ 0x11939c, size 12 bytes
-int  sub_11939C(int a1, int a2)
+// lookup_table_u16 @ 0x11939c, size 12 bytes
+int  lookup_table_u16(int a1, int a2)
 {
   return *(uint16_t *)(dword_1193A8 + 2 * (a1 | (2 * a2)));
 }

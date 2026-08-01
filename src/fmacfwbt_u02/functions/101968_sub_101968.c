@@ -12,8 +12,8 @@
 
 extern uint32_t off_101978;
 
-// sub_101968 @ 0x101968, size 14 bytes
-int sub_101968()
+// sys_mode_get_low @ 0x101968, size 14 bytes
+int sys_mode_get_low()
 {
   return (uint8_t)((*(uint8_t *)off_101978 & 0xF) - 1);
 }

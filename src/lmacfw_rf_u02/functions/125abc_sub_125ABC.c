@@ -12,11 +12,11 @@
 
 extern uint32_t dword_125AD4;
 
-// sub_125ABC @ 0x125abc, size 24 bytes
-int  sub_125ABC(int a1, int a2)
+// bt_control_block_cleanup @ 0x125abc, size 24 bytes
+int  bt_control_block_cleanup(int a1, int a2)
 {
-  parse_int(*(uint8_t **)(a2 + 4), 0, 0);
-  msg_parse(dword_125AD4);
+  parse_number(*(uint8_t **)(a2 + 4), 0, 0);
+  dispatch_event_handler(dword_125AD4);
   return -1;
 }
 

@@ -17,14 +17,14 @@ extern uint32_t off_118EB4;
 extern uint32_t off_118EB8;
 extern uint32_t off_118EBC;
 
-// sub_118E58 @ 0x118e58, size 86 bytes
-int sub_118E58()
+// rf_packet_available @ 0x118e58, size 86 bytes
+int rf_packet_available()
 {
-  if ( **(int16_t **)off_118EB0 < 0 && sub_11E34C(0) != 3 )
-    rf_cmd_send_n264(dword_118EC4, dword_118EC0, 1785);
+  if ( **(int16_t **)off_118EB0 < 0 && flash_write_byte(0) != 3 )
+    flash_ctrl_init(dword_118EC4, dword_118EC0, 1785);
   if ( *((uint8_t *)off_118EB4 + 28) && *((uint8_t *)off_118EB8 + 18) + *((uint8_t *)off_118EB8 + 17) <= 1 )
-    return sub_11E1E4(0);
+    return flash_erase_sector(0);
   *(uint32_t *)off_118EBC = 48;
-  return sub_11E1E4(0);
+  return flash_erase_sector(0);
 }
 

@@ -13,8 +13,8 @@
 extern uint32_t dword_13A3E4;
 extern uint32_t off_13A3E0;
 
-// sub_13A3C4 @ 0x13a3c4, size 28 bytes
-BOOL sub_13A3C4()
+// is_rate_valid @ 0x13a3c4, size 28 bytes
+BOOL is_rate_valid()
 {
   return *(uint16_t *)(dword_13A3E4 + 80 * *((uint8_t *)off_13A3E0 + 68) + 76) == 0;
 }

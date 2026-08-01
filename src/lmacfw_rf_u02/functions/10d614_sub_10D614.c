@@ -12,10 +12,10 @@
 
 extern uint32_t off_10D620;
 
-// sub_10D614 @ 0x10d614, size 12 bytes
-void sub_10D614()
+// mac_tx_irq @ 0x10d614, size 12 bytes
+void mac_tx_irq()
 {
   if ( !*(uint32_t *)off_10D620 )
-    log_hw_init_d4e8();
+    mac_tx_work();
 }
 

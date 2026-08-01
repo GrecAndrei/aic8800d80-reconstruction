@@ -17,8 +17,8 @@ extern uint32_t off_124E3C;
 extern uint32_t off_124E40;
 extern uint32_t dword_124E44;
 
-// sub_124D70 @ 0x124d70, size 192 bytes
-int  sub_124D70(uint8_t *a1)
+// radio_read_config @ 0x124d70, size 192 bytes
+int  radio_read_config(uint8_t *a1)
 {
   int v1; // r1
   int v3; // r3
@@ -67,7 +67,7 @@ int  sub_124D70(uint8_t *a1)
     v7 = (unsigned int)off_124E40;
     *(uint32_t *)off_124E40 = *(uint32_t *)off_124E40 & 0xFF00FFFF | (v9 << 16);
   }
-  sub_12ECB0(dword_124E44, v7, v9);
-  return rf_mem_read_ed40(a1, 6, 1, 0);
+  ke_event_schedule(dword_124E44, v7, v9);
+  return rx_packet_handler(a1, 6, 1, 0);
 }
 

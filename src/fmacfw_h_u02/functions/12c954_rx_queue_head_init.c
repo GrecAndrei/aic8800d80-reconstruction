@@ -14,10 +14,10 @@ extern uint32_t dword_12C994;
 extern uint32_t off_12C998;
 extern uint32_t off_12C99C;
 
-// rx_queue_head_init @ 0x12c954, size 64 bytes
-// Doc: rx_queue_head_init [rx]: Initialize RX queue head pointer from 0x1906a7 (word-aligned)
-// rx_queue_head_init [rx]: Initialize RX queue head pointer from 0x1906a7 (word-aligned)
-uint32_t *rx_queue_head_init()
+// patch_alignment @ 0x12c954, size 64 bytes
+// Doc: patch_alignment [rx]: Initialize RX queue head pointer from 0x1906a7 (word-aligned)
+// patch_alignment [rx]: Initialize RX queue head pointer from 0x1906a7 (word-aligned)
+uint32_t *patch_alignment()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r2
@@ -36,7 +36,7 @@ uint32_t *rx_queue_head_init()
   v1 = off_12C99C;
   v2 = *(uint32_t *)off_12C99C;
   v3 = *(uint32_t *)off_12C99C + 1;
-  v4 = (*(uint32_t *)sub_12C9A0 & 0xFFFFFFFC) - (uint32_t)result;
+  v4 = (*(uint32_t *)hci_tx_alloc & 0xFFFFFFFC) - (uint32_t)result;
   *(uint32_t *)off_12C99C = v3;
   *result = 0;
   result[1] = v4;

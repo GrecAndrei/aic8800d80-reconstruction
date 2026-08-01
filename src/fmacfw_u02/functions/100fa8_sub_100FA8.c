@@ -31,8 +31,8 @@ extern uint32_t off_101254;
 extern uint32_t off_101258;
 extern uint32_t off_10125C;
 
-// sub_100FA8 @ 0x100fa8, size 616 bytes
-int  sub_100FA8(unsigned int a1, int a2)
+// bb_enable @ 0x100fa8, size 616 bytes
+int  bb_enable(unsigned int a1, int a2)
 {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
@@ -90,9 +90,9 @@ int  sub_100FA8(unsigned int a1, int a2)
   *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
   *v8 &= ~1u;
   *(v6 - 1903) |= 8u;
-  sub_102EB8(1, 0, 16, *v9);
-  sub_102EB8(1, 16, 16, *(uint32_t *)off_10122C);
-  sub_1009A0(0, a1);
+  peripheral_read_32(1, 0, 16, *v9);
+  peripheral_read_32(1, 16, 16, *(uint32_t *)off_10122C);
+  bt_enable(0, a1);
   if ( a1 > 0x98A )
   {
     v11 = 6;
@@ -153,7 +153,7 @@ int  sub_100FA8(unsigned int a1, int a2)
     ;
   result = *(uint32_t *)off_10125C & 1;
   if ( !result )
-    result = sub_100E24(0);
+    result = rng_read(0);
   *(uint32_t *)off_101258 = 1;
   return result;
 }

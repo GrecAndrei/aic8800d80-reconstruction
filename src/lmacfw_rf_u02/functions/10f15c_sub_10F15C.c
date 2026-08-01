@@ -12,9 +12,9 @@
 
 extern uint32_t dword_10F16C;
 
-// sub_10F15C @ 0x10f15c, size 16 bytes
-int sub_10F15C()
+// get_xtal_ftune @ 0x10f15c, size 16 bytes
+int get_xtal_ftune()
 {
-  return (uint16_t)sub_10EFBC(dword_10F16C, 1) >> 11;
+  return (uint16_t)critical_enter(dword_10F16C, 1) >> 11;
 }
 

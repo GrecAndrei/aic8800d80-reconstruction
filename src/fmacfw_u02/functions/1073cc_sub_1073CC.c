@@ -19,8 +19,8 @@ extern uint32_t off_10750C;
 extern uint32_t off_107510;
 extern uint32_t off_107514;
 
-// sub_1073CC @ 0x1073cc, size 298 bytes
-uint32_t *sub_1073CC()
+// rf_radio_disable @ 0x1073cc, size 298 bytes
+uint32_t *rf_radio_disable()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2

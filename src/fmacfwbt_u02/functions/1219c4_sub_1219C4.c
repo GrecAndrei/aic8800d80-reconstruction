@@ -12,11 +12,11 @@
 
 extern uint32_t off_1219E4;
 
-// sub_1219C4 @ 0x1219c4, size 32 bytes
-int sub_1219C4()
+// dma_free_buf @ 0x1219c4, size 32 bytes
+int dma_free_buf()
 {
-  sub_12D374(0x2000000);
+  set_system_flag_2(0x2000000);
   *((uint32_t *)off_1219E4 + 1) &= ~4u;
-  return rf_bus_mark_n_3b7(0);
+  return hci_cmd_send(0);
 }
 

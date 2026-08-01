@@ -27,8 +27,8 @@ extern uint32_t off_126310;
 extern uint32_t dword_126324;
 extern uint32_t off_126320;
 
-// sub_126258 @ 0x126258, size 148 bytes
-int  sub_126258(int a1, int a2, char a3)
+// ll_state_process @ 0x126258, size 148 bytes
+int  ll_state_process(int a1, int a2, char a3)
 {
   uint8_t *v3; // r5
   uint8_t *v5; // r3
@@ -44,7 +44,7 @@ int  sub_126258(int a1, int a2, char a3)
 
   v3 = off_1262EC;
   if ( *(uint8_t *)off_1262EC )
-    msg_parse(dword_126328);
+    dispatch_event_handler(dword_126328);
   v5 = off_1262F4;
   v6 = off_1262F8;
   v7 = off_1262FC;
@@ -60,7 +60,7 @@ int  sub_126258(int a1, int a2, char a3)
   *v9 |= 0x200u;
   *v9 |= 0x400u;
   sub_100200(v10, 0, 8u);
-  msg_parse(dword_12630C);
+  dispatch_event_handler(dword_12630C);
   v11 = off_126314;
   v12 = off_126318;
   v13 = off_12631C;
@@ -68,11 +68,11 @@ int  sub_126258(int a1, int a2, char a3)
   *v11 = 0;
   *v12 = 1;
   *v13 = 1;
-  sub_10F170(16);
+  set_xtal_ftune(16);
   v14 = dword_126324;
   *(uint32_t *)off_126320 = *(uint32_t *)off_126320 & 0xFF03FFFF | 0x800000;
   *v3 = 5;
-  msg_parse(v14);
-  return irq_nesting_or(0x2000);
+  dispatch_event_handler(v14);
+  return set_busy_flag_alt(0x2000);
 }
 

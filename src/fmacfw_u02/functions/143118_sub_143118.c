@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_143118 @ 0x143118, size 352 bytes
-int  sub_143118(int result, int a2, int a3, int a4)
+// float_compare @ 0x143118, size 352 bytes
+int  float_compare(int result, int a2, int a3, int a4)
 {
   int v4; // zf
   int v5; // r2

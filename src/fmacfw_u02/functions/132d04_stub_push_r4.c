@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// stub_push_r4 @ 0x132d04, size 18 bytes
-// Doc: stub_push_r4 [util]: Minimal stub function preserving r4 register
-// stub_push_r4 [util]: Minimal stub function preserving r4 register
-uint32_t * stub_push_r4(int a1)
+// stub_ret @ 0x132d04, size 18 bytes
+// Doc: stub_ret [util]: Minimal stub function preserving r4 register
+// stub_ret [util]: Minimal stub function preserving r4 register
+uint32_t * stub_ret(int a1)
 {
-  sub_13F834();
-  return rx_agg_status_update(a1);
+  ble_ll_adv_scan_req();
+  return tx_send_controller_pkt(a1);
 }
 

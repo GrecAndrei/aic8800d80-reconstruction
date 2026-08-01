@@ -22,8 +22,8 @@ extern uint32_t off_13665C;
 extern uint32_t off_136654;
 extern uint32_t dword_136658;
 
-// sub_136478 @ 0x136478, size 450 bytes
-int  sub_136478(int a1, int a2, int16_t a3, int16_t a4)
+// bt_rx_process @ 0x136478, size 450 bytes
+int  bt_rx_process(int a1, int a2, int16_t a3, int16_t a4)
 {
   int v4; // r8
   int v8; // r6
@@ -50,20 +50,20 @@ int  sub_136478(int a1, int a2, int16_t a3, int16_t a4)
   int16_t v30; // [sp+Ch] [bp-8h]
 
   v4 = dword_136660;
-  feature_guard_check(256, dword_136640, *(uint32_t *)(a2 + 20), *((uint8_t *)off_13663C + 413));
+  check_status_bits(256, dword_136640, *(uint32_t *)(a2 + 20), *((uint8_t *)off_13663C + 413));
   v8 = *(uint8_t *)(a2 + 51);
   v9 = v4 + 1320 * v8;
   if ( *(uint8_t *)(v9 + 106) != 2 )
   {
     v10 = 4;
 LABEL_3:
-    v11 = (char *)sub_12C92C(7169, a4, a3, 4u);
+    v11 = (char *)ke_msg_alloc(7169, a4, a3, 4u);
     *v11 = v10;
     v11[1] = *(uint8_t *)(a2 + 51);
-    sdio_buffer_prepare_n_4e8((int)v11);
+    ke_msg_send((int)v11);
     return 0;
   }
-  if ( msg_get_value(7u) )
+  if ( rx_rate_field_parse(7u) )
   {
     v10 = 8;
     goto LABEL_3;
@@ -74,7 +74,7 @@ LABEL_3:
     goto LABEL_3;
   }
   if ( **(int16_t **)off_136644 < 0 && *(uint32_t *)(v9 + 72) )
-    sub_12F46C(dword_13664C, dword_136648, 105);
+    mmio_clear_register(dword_13664C, dword_136648, 105);
   v13 = *(uint8_t *)(a2 + 28);
   LOBYTE(v28) = *(uint8_t *)(a2 + 16);
   v14 = *(uint16_t *)(a2 + 14);
@@ -89,7 +89,7 @@ LABEL_3:
   *(uint32_t *)off_136664 = a2;
   LOBYTE(v30) = v17;
   HIBYTE(v30) = v15;
-  if ( sub_127D34((uint8_t *)&v28, &v27) )
+  if ( scan_find_empty_slot((uint8_t *)&v28, &v27) )
   {
     v10 = 1;
     goto LABEL_3;
@@ -101,25 +101,25 @@ LABEL_3:
   *(uint32_t *)(v20 + 416) = v18;
   *(uint8_t *)(v20 + 464) = 0;
   *(uint16_t *)(v20 + 420) = v19;
-  message_dispatch_408(v20);
+  rf_temperature_comp(v20);
   if ( BYTE1(v28) == 2 )
-    sub_12077C((int *)(v4 + 1320 * v8), 1, 0);
-  v21 = sub_128888(*(uint8_t *)(a2 + 51), v27);
+    is_valid_id((int *)(v4 + 1320 * v8), 1, 0);
+  v21 = sta_lookup_by_bss(*(uint8_t *)(a2 + 51), v27);
   if ( *((uint8_t *)off_136650 + 18) + *((uint8_t *)off_136650 + 17) == 1
     && !*(uint8_t *)(v4 + 1320 * v8 + 1224) )
   {
     *(uint8_t *)off_13665C = 0;
-    sub_136E74(v21);
+    set_bt_irq_flag(v21);
   }
   if ( !*(uint8_t *)(a2 + 16) )
   {
-    v25 = task_entry_n794((uint8_t *)(1320 * v8 + 424 + v4), 1) & 0xF;
+    v25 = bt_process_msg((uint8_t *)(1320 * v8 + 424 + v4), 1) & 0xF;
     if ( v25 )
       *(uint8_t *)(v4 + 1320 * v8 + 461) = 31 - __clz(v25);
     else
       *(uint8_t *)(v4 + 1320 * v8 + 461) = 1;
   }
-  sub_136864();
+  ke_send_event_0x18();
   if ( !*(uint32_t *)off_136654 )
   {
     v22 = v4 + 1320 * v8;
@@ -127,13 +127,13 @@ LABEL_3:
     if ( v23 <= 0x1387 )
     {
       v26 = v23 | (*(uint8_t *)(v22 + 413) << 16);
-      mmio_init_or_reset(v26 | 0x80000000, 4999, v26);
+      callback_post(v26 | 0x80000000, 4999, v26);
     }
   }
   v24 = dword_136658;
   v16[14] = v16[15];
   v16[13] = 0;
-  timestamp_remove(v24);
+  fault_handler(v24);
   return 1;
 }
 

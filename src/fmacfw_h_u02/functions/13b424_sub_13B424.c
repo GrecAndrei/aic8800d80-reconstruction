@@ -14,8 +14,8 @@ extern uint32_t dword_13B4B4;
 extern uint32_t dword_13B4B8;
 extern uint32_t off_13B4BC;
 
-// sub_13B424 @ 0x13b424, size 142 bytes
-int  sub_13B424(int a1, char *a2, unsigned int a3)
+// check_packet_type @ 0x13b424, size 142 bytes
+int  check_packet_type(int a1, char *a2, unsigned int a3)
 {
   unsigned int v5; // r5
   int v6; // r6
@@ -28,24 +28,24 @@ int  sub_13B424(int a1, char *a2, unsigned int a3)
   if ( a2[2] != 2 )
     return 0;
   v5 = a3 >> 8;
-  if ( sub_12CD48(a3 & 0xFF00 | 8) == 4 )
+  if ( hci_cmd_handler(a3 & 0xFF00 | 8) == 4 )
   {
     v6 = dword_13B4B4 + 32 * v5;
     if ( *(uint8_t *)(v6 + 17) == 1 )
     {
-      v7 = sub_13C2C0(*(uint32_t *)(v6 + 28));
+      v7 = bt_conn_get_role(*(uint32_t *)(v6 + 28));
       v8 = *a2;
       v9 = a2[1];
       v10 = 4 - *(uint8_t *)(v6 + 20) + v7;
-      v11 = (uint8_t *)sub_12C7EC(5131, 13, 5, 3u);
+      v11 = (uint8_t *)tx_send_pdu(5131, 13, 5, 3u);
       v11[2] = v10;
       *v11 = v8;
       v11[1] = v9;
-      sub_12C84C((int)v11);
+      rx_process_packet((int)v11);
     }
     *(uint32_t *)(696 * (uint8_t)*a2 + 12 * (uint8_t)a2[1] + dword_13B4B8 + 448) = *((uint32_t *)off_13B4BC
                                                                                                  + 4);
-    sub_13BAE8(v5);
+    send_vendor_command(v5);
   }
   return 0;
 }

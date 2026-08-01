@@ -18,8 +18,8 @@ extern uint32_t dword_138B70;
 extern uint32_t dword_138B68;
 extern uint32_t dword_138B6C;
 
-// sub_138AD4 @ 0x138ad4, size 136 bytes
-uint32_t * sub_138AD4(int a1, int16_t a2, int a3)
+// tx_power_cal_read @ 0x138ad4, size 136 bytes
+uint32_t * tx_power_cal_read(int a1, int16_t a2, int a3)
 {
   uint8_t *v3; // r5
   int v4; // r4
@@ -38,7 +38,7 @@ uint32_t * sub_138AD4(int a1, int16_t a2, int a3)
     v7 = 4 * v4;
     if ( *(uint16_t *)(dword_138B64 + 80 * v4 + 76) )
     {
-      sub_12F630(dword_138B74, dword_138B70, 175);
+      ke_int_lock(dword_138B74, dword_138B70, 175);
       return 0;
     }
   }
@@ -53,7 +53,7 @@ uint32_t * sub_138AD4(int a1, int16_t a2, int a3)
   v9 = v5 + 16 * (v4 + v7);
   *(uint32_t *)(v9 + 68) = a3;
   *(uint16_t *)(v9 + 76) = a2;
-  list_push_tail(dword_138B68, v6);
+  check_abort_flag(dword_138B68, v6);
   v3[68] = v3[68]
          + 1
          - -64

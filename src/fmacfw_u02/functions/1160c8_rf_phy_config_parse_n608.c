@@ -12,10 +12,10 @@
 
 extern uint32_t dword_116170;
 
-// rf_phy_config_parse_n608 @ 0x1160c8, size 166 bytes
-// Doc: rf_phy_config_parse_n608 [rf]: Parse PHY config object fields into local vars
-// rf_phy_config_parse_n608 [rf]: Parse PHY config object fields into local vars
-int  rf_phy_config_parse_n608(int result, int a2)
+// parse_control_packet @ 0x1160c8, size 166 bytes
+// Doc: parse_control_packet [rf]: Parse PHY config object fields into local vars
+// parse_control_packet [rf]: Parse PHY config object fields into local vars
+int  parse_control_packet(int result, int a2)
 {
   int v2; // r3
   int v3; // r8

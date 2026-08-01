@@ -12,10 +12,10 @@
 
 extern uint32_t off_10DBB4;
 
-// irq_enable @ 0x10dba4, size 16 bytes
-// Doc: irq_enable [util]: Enables an interrupt by setting the corresponding bit in the IRQ enable register
-// irq_enable [util]: Enables an interrupt by setting the corresponding bit in the IRQ enable register
-int  irq_enable(char a1)
+// gpio_set_pin_out @ 0x10dba4, size 16 bytes
+// Doc: gpio_set_pin_out [util]: Enables an interrupt by setting the corresponding bit in the IRQ enable register
+// gpio_set_pin_out [util]: Enables an interrupt by setting the corresponding bit in the IRQ enable register
+int  gpio_set_pin_out(char a1)
 {
   int result; // r0
 

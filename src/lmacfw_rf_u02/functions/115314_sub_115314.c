@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_115314 @ 0x115314, size 18 bytes
-uint32_t * sub_115314(int a1)
+// deferred_cb_clear @ 0x115314, size 18 bytes
+uint32_t * deferred_cb_clear(int a1)
 {
   uint32_t *result; // r0
 
   result = *(uint32_t **)(a1 + 28);
   if ( result )
   {
-    result = (uint32_t *)sub_10FEF8(result);
+    result = (uint32_t *)mem_free(result);
     *(uint32_t *)(a1 + 28) = 0;
   }
   return result;

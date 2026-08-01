@@ -17,10 +17,10 @@ extern uint32_t off_113898;
 extern uint32_t dword_1138A8;
 extern uint32_t dword_11389C;
 
-// sub_113814 @ 0x113814, size 124 bytes
+// ke_state_get @ 0x113814, size 124 bytes
 // Doc: rf_stream_start_n4c8 [rf]: Starts RF stream by enabling engine and reading control structure
 // rf_stream_start_n4c8 [rf]: Starts RF stream by enabling engine and reading control structure
-int sub_113814()
+int ke_state_get()
 {
   void *v0; // r7
   int result; // r0
@@ -34,7 +34,7 @@ int sub_113814()
   int v9; // r2
 
   v0 = off_113890;
-  result = sub_12D240(dword_113894);
+  result = zero_8_bytes(dword_113894);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = off_1138A4;
@@ -45,13 +45,13 @@ int sub_113814()
     v7 = 0;
     do
     {
-      if ( !sub_10FB28(v4, (uint16_t)(v2[153] - 4)) )
+      if ( !rx_packet_handler(v4, (uint16_t)(v2[153] - 4)) )
       {
-        msg_parse(v5, v7, v9);
+        event_dispatch(v5, v7, v9);
         if ( **v6 < 0 )
-          sub_12F46C(rf_msg_process_body_n_3a8, dword_11389C, 495);
+          mmio_clear_register(rf_msg_process_body_n_3a8, dword_11389C, 495);
       }
-      result = list_push_tail(dword_113894);
+      result = cmd_handler_a(dword_113894);
       v8 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v7;
       ++*v3;

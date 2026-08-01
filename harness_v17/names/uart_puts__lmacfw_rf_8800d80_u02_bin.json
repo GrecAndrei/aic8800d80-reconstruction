@@ -1,1 +1,1 @@
-{"fn": "uart_puts", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d654", "status": "ok", "name": "uart_puts", "params": [], "docstring": "Output null-terminated string to UART byte-by-byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "uart_puts", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d654", "status": "ok", "name": "uart_tx_string", "params": [], "docstring": "Output null-terminated string to UART byte-by-byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

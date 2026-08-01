@@ -13,8 +13,8 @@
 extern uint32_t dword_1119D4;
 extern uint32_t dword_1119D8;
 
-// sub_1119A4 @ 0x1119a4, size 48 bytes
-int * sub_1119A4(int a1)
+// table_lookup_entry_2 @ 0x1119a4, size 48 bytes
+int * table_lookup_entry_2(int a1)
 {
   int v2; // r0
   int v3; // r5
@@ -23,7 +23,7 @@ int * sub_1119A4(int a1)
 
   v2 = dword_1119D4 + 16 * (a1 - 1);
   v3 = *(uint8_t *)(v2 + 11);
-  result = sub_100200((int *)v2, 0, 0x10u);
+  result = memset((int *)v2, 0, 0x10u);
   if ( v3 )
   {
     v5 = *(int ( **)(uint32_t, uint32_t, int))(dword_1119D8 + 4 * (a1 + 13));

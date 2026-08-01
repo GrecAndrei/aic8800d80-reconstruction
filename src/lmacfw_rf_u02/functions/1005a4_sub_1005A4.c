@@ -15,8 +15,8 @@ extern uint32_t off_1005D8;
 extern uint32_t dword_1005E0;
 extern uint32_t off_1005E4;
 
-// sub_1005A4 @ 0x1005a4, size 50 bytes
-int sub_1005A4()
+// get_device_config @ 0x1005a4, size 50 bytes
+int get_device_config()
 {
   int *v0; // r4
   int v1; // r5
@@ -24,7 +24,7 @@ int sub_1005A4()
   int16_t v3; // r2
 
   v0 = (int *)off_1005DC;
-  v1 = sub_1004CC(HIBYTE(*(uint32_t *)off_1005D8) & 3);
+  v1 = read_control_reg(HIBYTE(*(uint32_t *)off_1005D8) & 3);
   sub_100200(v0, 0, 8u);
   result = dword_1005E0 + 16 * v1;
   v3 = *(uint16_t *)(result + 6);

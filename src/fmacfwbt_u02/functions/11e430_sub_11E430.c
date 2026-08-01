@@ -22,8 +22,8 @@ extern uint32_t off_11E4AC;
 extern uint32_t off_11E4B0;
 extern uint32_t dword_11E4B4;
 
-// sub_11E430 @ 0x11e430, size 100 bytes
-int sub_11E430()
+// rf_fifo_status @ 0x11e430, size 100 bytes
+int rf_fifo_status()
 {
   int *v0; // r2
   int v1; // r0

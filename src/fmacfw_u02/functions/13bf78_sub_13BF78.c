@@ -13,10 +13,10 @@
 extern uint32_t off_13BFAC;
 extern uint32_t dword_13BFB0;
 
-// sub_13BF78 @ 0x13bf78, size 52 bytes
+// read_global_state_byte @ 0x13bf78, size 52 bytes
 // Doc: sub_123BF78 [unknown]: Helper loading state struct pointer
 // sub_123BF78 [unknown]: Helper loading state struct pointer
-int sub_13BF78()
+int read_global_state_byte()
 {
   uint32_t *v0; // r4
   int result; // r0
@@ -24,18 +24,18 @@ int sub_13BF78()
 
   v0 = off_13BFAC;
   if ( !*((uint32_t *)off_13BFAC + 6)
-    || (result = *((uint8_t *)rf_bus_mark_n100_d2d0((int)off_13BFAC + 24) + 26), result == 33) )
+    || (result = *((uint8_t *)mem_word_load((int)off_13BFAC + 24) + 26), result == 33) )
   {
     if ( v0[8] )
       return 33;
-    v2 = (uint8_t)sub_13BA78((int **)dword_13BFB0);
+    v2 = (uint8_t)tx_done_queue((int **)dword_13BFB0);
     if ( (uint8_t)v2 == 33 )
     {
       return 33;
     }
     else
     {
-      sub_13BEF8(v2);
+      rf_get_chan_param(v2);
       return 33;
     }
   }

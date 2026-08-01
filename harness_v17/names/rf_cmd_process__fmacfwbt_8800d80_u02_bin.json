@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_process", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12133b4", "status": "ok", "name": "rf_cmd_process", "params": [], "docstring": "Process incoming RF command and dispatch to handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_process", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12133b4", "status": "ok", "name": "rf_calib_mode_set", "params": [], "docstring": "Process incoming RF command and dispatch to handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

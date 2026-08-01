@@ -13,8 +13,8 @@
 extern uint32_t dword_11C074;
 extern uint32_t dword_11C078;
 
-// sub_11BFAC @ 0x11bfac, size 198 bytes
-int  sub_11BFAC(int a1, int a2)
+// parse_rx_header @ 0x11bfac, size 198 bytes
+int  parse_rx_header(int a1, int a2)
 {
   int v2; // r2
   int v3; // r5
@@ -74,7 +74,7 @@ LABEL_13:
         }
         else if ( *(uint8_t *)(a2 + 13) == v12 >> 12 )
         {
-          sub_143770(a2 + 228, v8 + 1, v11 - 2);
+          memcpy(a2 + 228, v8 + 1, v11 - 2);
           *(uint32_t *)(a2 + 224) = a2 + 228;
           return 1;
         }

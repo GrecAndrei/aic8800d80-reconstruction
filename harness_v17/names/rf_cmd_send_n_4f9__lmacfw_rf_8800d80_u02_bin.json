@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_4f9", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121241e", "status": "ok", "name": "rf_cmd_send_n_4f9", "params": [], "docstring": "issue RF command 0x430 to radio register and poll status bits 0x30", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_4f9", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121241e", "status": "ok", "name": "rf_bus_reset_n12e", "params": [], "docstring": "issue RF command 0x430 to radio register and poll status bits 0x30", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

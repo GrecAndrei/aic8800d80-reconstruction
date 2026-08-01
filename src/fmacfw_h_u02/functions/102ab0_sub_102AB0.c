@@ -12,8 +12,8 @@
 
 extern uint32_t off_102ACC;
 
-// sub_102AB0 @ 0x102ab0, size 26 bytes
-int sub_102AB0()
+// get_clock_prescaler @ 0x102ab0, size 26 bytes
+int get_clock_prescaler()
 {
   return (uint8_t)((1 << ((uint8_t)*(uint32_t *)off_102ACC >> 4)) - 1);
 }

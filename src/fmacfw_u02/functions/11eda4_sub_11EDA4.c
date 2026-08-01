@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_11EDA4 @ 0x11eda4, size 76 bytes
-int * sub_11EDA4(int a1)
+// llc_aes_ccm_setup @ 0x11eda4, size 76 bytes
+int * llc_aes_ccm_setup(int a1)
 {
   int v2; // r5
   int v3; // r0
@@ -21,10 +21,10 @@ int * sub_11EDA4(int a1)
   v2 = a1 + 572;
   while ( *(uint32_t *)(a1 + 572) )
   {
-    v3 = sub_12D2D0(v2);
-    sub_118CFC(v3, 1);
+    v3 = mem_word_load(v2);
+    scan_control(v3, 1);
   }
-  result = sub_100200((int *)a1, 0, 0x2B8u);
+  result = memset((int *)a1, 0, 0x2B8u);
   v5 = a1;
   do
   {

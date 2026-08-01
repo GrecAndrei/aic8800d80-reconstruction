@@ -1,1 +1,1 @@
-{"fn": "crypto_calibrate", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1204338", "status": "ok", "name": "crypto_calibrate", "params": [], "docstring": "Calibrates crypto engine and writes MMIO setup values", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_calibrate", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1204338", "status": "ok", "name": "rf_power_on_reset", "params": [], "docstring": "Calibrates crypto engine and writes MMIO setup values", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

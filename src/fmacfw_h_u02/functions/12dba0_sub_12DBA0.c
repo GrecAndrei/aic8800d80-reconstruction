@@ -12,13 +12,13 @@
 
 extern uint32_t dword_12DBC4;
 
-// sub_12DBA0 @ 0x12dba0, size 36 bytes
-uint8_t * sub_12DBA0(uint8_t *a1, int a2)
+// format_log_message_12dba0 @ 0x12dba0, size 36 bytes
+uint8_t * format_log_message_12dba0(uint8_t *a1, int a2)
 {
   uint8_t *result; // r0
   uint16_t v3[3]; // [sp+Eh] [bp-6h] BYREF
 
-  result = sub_12D648(a1, a2, (uint8_t *)dword_12DBC4, 5, v3);
+  result = safe_snprintf(a1, a2, (uint8_t *)dword_12DBC4, 5, v3);
   if ( result )
   {
     if ( v3[0] != 26 )

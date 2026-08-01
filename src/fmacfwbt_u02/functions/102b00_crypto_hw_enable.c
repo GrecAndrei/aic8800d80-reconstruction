@@ -12,10 +12,10 @@
 
 extern uint32_t off_102B60;
 
-// crypto_hw_enable @ 0x102b00, size 96 bytes
-// Doc: crypto_hw_enable [util]: Enable hardware crypto engine
-// crypto_hw_enable [util]: Enable hardware crypto engine
-int * crypto_hw_enable(int a1)
+// set_radio_ctrl_bits @ 0x102b00, size 96 bytes
+// Doc: set_radio_ctrl_bits [util]: Enable hardware crypto engine
+// set_radio_ctrl_bits [util]: Enable hardware crypto engine
+int * set_radio_ctrl_bits(int a1)
 {
   int v1; // r4
   int v2; // r1

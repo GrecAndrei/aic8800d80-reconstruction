@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_48c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d00", "status": "ok", "name": "rf_msg_process", "params": [], "docstring": "Process RF IPC message body, extract cmd id and dispatch table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_48c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d00", "status": "ok", "name": "rf_irq_handler", "params": [], "docstring": "Process RF IPC message body, extract cmd id and dispatch table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -14,8 +14,8 @@ extern uint32_t off_1439AC;
 extern uint32_t dword_1439B0;
 extern uint32_t dword_1439B4;
 
-// sub_14397C @ 0x14397c, size 46 bytes
-int sub_14397C()
+// scale_timer_value @ 0x14397c, size 46 bytes
+int scale_timer_value()
 {
   unsigned uint64_t v0; // kr00_8
 

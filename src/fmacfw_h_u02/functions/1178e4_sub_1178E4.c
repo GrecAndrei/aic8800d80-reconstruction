@@ -15,8 +15,8 @@ extern uint32_t off_117970;
 extern uint32_t off_11796C;
 extern uint32_t off_117974;
 
-// sub_1178E4 @ 0x1178e4, size 130 bytes
-void sub_1178E4()
+// critical_section_enter @ 0x1178e4, size 130 bytes
+void critical_section_enter()
 {
   int *v0; // r9
   uint32_t *v1; // r7
@@ -45,7 +45,7 @@ void sub_1178E4()
       && ((v1[52] & 1) == 0 || *((uint8_t *)v1 + 190) != (uint8_t)i)
       && *((uint32_t *)v4 + 84) )
     {
-      sub_116DF4((uint8_t)i);
+      mmio_modify_bit((uint8_t)i);
     }
     v3 -= 7;
     v4 -= 84;

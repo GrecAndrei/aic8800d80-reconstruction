@@ -24,7 +24,7 @@ int hw_config_init()
   int16_t v3; // r2
 
   v0 = (int *)off_1006C0;
-  v1 = sub_1005B0(HIBYTE(*(uint32_t *)off_1006BC) & 3);
+  v1 = chip_identify(HIBYTE(*(uint32_t *)off_1006BC) & 3);
   sub_100200(v0, 0, 8u);
   result = dword_1006C4 + 16 * v1;
   v3 = *(uint16_t *)(result + 6);

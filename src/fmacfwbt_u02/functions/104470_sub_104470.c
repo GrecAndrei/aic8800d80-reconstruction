@@ -21,8 +21,8 @@ extern uint32_t dword_104674;
 extern uint32_t dword_104678;
 extern uint32_t dword_10467C;
 
-// sub_104470 @ 0x104470, size 486 bytes
-int  sub_104470(int a1, int a2, uint32_t *a3)
+// tx_parse_desc @ 0x104470, size 486 bytes
+int  tx_parse_desc(int a1, int a2, uint32_t *a3)
 {
   unsigned int v3; // r3
   int v4; // r5
@@ -56,7 +56,7 @@ int  sub_104470(int a1, int a2, uint32_t *a3)
   uint64_t v32; // r0
   int v33; // r0
 
-  v3 = a3[seqno_incr_check_3fff(a1, a2, a3)];
+  v3 = a3[util_get_hw_index(a1, a2, a3)];
   v4 = (uint16_t)v3 >> 4;
   if ( (v3 & 0x80000000) == 0 )
   {
@@ -73,8 +73,8 @@ int  sub_104470(int a1, int a2, uint32_t *a3)
       v7 = 1;
     }
 LABEL_4:
-    v8 = sub_1437A4(v5);
-    v9 = sub_1437A4(v4);
+    v8 = absolute_value(v5);
+    v9 = absolute_value(v4);
     if ( v8 < v9 )
       goto LABEL_5;
     goto LABEL_11;
@@ -86,54 +86,54 @@ LABEL_4:
     v7 = 1;
     goto LABEL_4;
   }
-  v8 = sub_1437A4(v5);
-  v9 = sub_1437A4(v4 - 4096);
+  v8 = absolute_value(v5);
+  v9 = absolute_value(v4 - 4096);
   v6 = -1;
   v7 = -1;
   if ( v8 < v9 )
   {
 LABEL_5:
     v10 = (float)v8 / (float)v9;
-    v11 = sub_142A94(LODWORD(v10));
-    v12 = sub_142B44(v11, HIDWORD(v11), dword_104658, dword_10465C);
-    v13 = sub_142A94((float)(v10 - 1.0) * v10);
-    v14 = sub_142B44(v11, HIDWORD(v11), dword_104660, dword_104664);
-    v15 = sub_1427D8(v14, HIDWORD(v14), dword_104668, dword_10466C);
-    v16 = sub_142B44(v13, HIDWORD(v13), v15, HIDWORD(v15));
-    v17 = sub_1427D4(v12, HIDWORD(v12), v16, HIDWORD(v16));
-    v18 = sub_143108(v17);
-    v19 = sub_142A94(v18);
-    v20 = sub_1427D4(dword_104670, dword_104674, v19, HIDWORD(v19));
-    result = sub_143108(v20);
+    v11 = __aeabi_f2d(LODWORD(v10));
+    v12 = __aeabi_dmul(v11, HIDWORD(v11), dword_104658, dword_10465C);
+    v13 = __aeabi_f2d((float)(v10 - 1.0) * v10);
+    v14 = __aeabi_dmul(v11, HIDWORD(v11), dword_104660, dword_104664);
+    v15 = __aeabi_dadd(v14, HIDWORD(v14), dword_104668, dword_10466C);
+    v16 = __aeabi_dmul(v13, HIDWORD(v13), v15, HIDWORD(v15));
+    v17 = __aeabi_dsub(v12, HIDWORD(v12), v16, HIDWORD(v16));
+    v18 = double_to_float(v17);
+    v19 = __aeabi_f2d(v18);
+    v20 = __aeabi_dsub(dword_104670, dword_104674, v19, HIDWORD(v19));
+    result = double_to_float(v20);
     if ( v7 != 1 )
       goto LABEL_16;
     goto LABEL_12;
   }
 LABEL_11:
   v24 = (float)v9 / (float)v8;
-  v25 = sub_142A94(LODWORD(v24));
-  v26 = sub_142B44(v25, HIDWORD(v25), dword_104658, dword_10465C);
-  v27 = sub_142A94((float)(v24 - 1.0) * v24);
-  v28 = sub_142B44(v25, HIDWORD(v25), dword_104660, dword_104664);
-  v29 = sub_1427D8(v28, HIDWORD(v28), dword_104668, dword_10466C);
-  v30 = sub_142B44(v27, HIDWORD(v27), v29, HIDWORD(v29));
-  v31 = sub_1427D4(v26, HIDWORD(v26), v30, HIDWORD(v30));
-  result = sub_143108(v31);
+  v25 = __aeabi_f2d(LODWORD(v24));
+  v26 = __aeabi_dmul(v25, HIDWORD(v25), dword_104658, dword_10465C);
+  v27 = __aeabi_f2d((float)(v24 - 1.0) * v24);
+  v28 = __aeabi_dmul(v25, HIDWORD(v25), dword_104660, dword_104664);
+  v29 = __aeabi_dadd(v28, HIDWORD(v28), dword_104668, dword_10466C);
+  v30 = __aeabi_dmul(v27, HIDWORD(v27), v29, HIDWORD(v29));
+  v31 = __aeabi_dsub(v26, HIDWORD(v26), v30, HIDWORD(v30));
+  result = double_to_float(v31);
   if ( v7 != 1 )
   {
 LABEL_16:
     if ( v6 == 1 )
       return result ^ 0x80000000;
-    v22 = sub_142A94(result);
-    v23 = sub_1427D4(v22, HIDWORD(v22), dword_104678, dword_10467C);
-    return sub_143108(v23);
+    v22 = __aeabi_f2d(result);
+    v23 = __aeabi_dsub(v22, HIDWORD(v22), dword_104678, dword_10467C);
+    return double_to_float(v23);
   }
 LABEL_12:
   if ( v6 != 1 )
   {
-    v32 = sub_142A94(result ^ 0x80000000);
-    v33 = sub_1427D8(v32, HIDWORD(v32), dword_104678, dword_10467C);
-    return sub_143108(v33);
+    v32 = __aeabi_f2d(result ^ 0x80000000);
+    v33 = __aeabi_dadd(v32, HIDWORD(v32), dword_104678, dword_10467C);
+    return double_to_float(v33);
   }
   return result;
 }

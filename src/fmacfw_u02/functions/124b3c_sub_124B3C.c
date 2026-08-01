@@ -17,10 +17,10 @@ extern uint32_t off_124C08;
 extern uint32_t off_124C0C;
 extern uint32_t dword_124C10;
 
-// sub_124B3C @ 0x124b3c, size 192 bytes
+// rf_rssi_read @ 0x124b3c, size 192 bytes
 // Doc: sub_1224B3C [util]: Helper reading a byte from a global and indexing input pointer
 // sub_1224B3C [util]: Helper reading a byte from a global and indexing input pointer
-int  sub_124B3C(uint8_t *a1)
+int  rf_rssi_read(uint8_t *a1)
 {
   int v1; // r1
   int v3; // r3
@@ -69,7 +69,7 @@ int  sub_124B3C(uint8_t *a1)
     v7 = (unsigned int)off_124C0C;
     *(uint32_t *)off_124C0C = *(uint32_t *)off_124C0C & 0xFF00FFFF | (v9 << 16);
   }
-  msg_parse(dword_124C10, v7, v9);
-  return rf_mem_read_eb18(a1, 6, 1, 0);
+  event_dispatch(dword_124C10, v7, v9);
+  return send_msg(a1, 6, 1, 0);
 }
 

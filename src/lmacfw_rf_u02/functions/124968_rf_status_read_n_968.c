@@ -21,10 +21,10 @@ extern uint32_t off_1249FC;
 extern uint32_t dword_124A04;
 extern uint32_t dword_124A08;
 
-// rf_status_read_n_968 @ 0x124968, size 128 bytes
-// Doc: rf_status_read_n_968 [rf]: Read RF status register 0x40320038 and process bit field
-// rf_status_read_n_968 [rf]: Read RF status register 0x40320038 and process bit field
-int rf_status_read_n_968()
+// mmio_check_status @ 0x124968, size 128 bytes
+// Doc: mmio_check_status [rf]: Read RF status register 0x40320038 and process bit field
+// mmio_check_status [rf]: Read RF status register 0x40320038 and process bit field
+int mmio_check_status()
 {
   int *v0; // r6
   uint32_t *v1; // r4
@@ -50,7 +50,7 @@ int rf_status_read_n_968()
     while ( *v1 << 28 )
     {
       if ( (unsigned int)(v2[4] - v3) > 0x7530 )
-        msg_parse(dword_124A0C, *v1 << 28, 30000);
+        dispatch_event_handler(dword_124A0C, *v1 << 28, 30000);
     }
     v4 = off_1249F8;
     while ( (*(uint32_t *)off_1249F8 & *(uint32_t *)off_1249F4 & 4) == 0 )
@@ -67,9 +67,9 @@ int rf_status_read_n_968()
           __enable_irq();
       }
     }
-    msg_parse(dword_124A04, v4);
+    dispatch_event_handler(dword_124A04, v4);
   }
-  msg_parse(dword_124A08);
+  dispatch_event_handler(dword_124A08);
   return 0;
 }
 

@@ -14,8 +14,8 @@ extern uint32_t dword_1427C4;
 extern uint32_t dword_1427C8;
 extern uint32_t dword_1427C0;
 
-// sub_14274C @ 0x14274c, size 114 bytes
-int  sub_14274C(int a1)
+// float_to_i24 @ 0x14274c, size 114 bytes
+int  float_to_i24(int a1)
 {
   int v1; // r5
   unsigned int v3; // r7
@@ -29,14 +29,14 @@ int  sub_14274C(int a1)
   if ( v1 > 22 )
   {
     if ( v3 >= 0x7F800000 )
-      return sub_1431B4(a1, a1);
+      return double_add(a1, a1);
     return a1;
   }
   v4 = a1;
   if ( v1 < 0 )
   {
-    v8 = sub_1431B4(a1, dword_1427C4);
-    if ( sub_14349C(v8, 0) )
+    v8 = double_add(a1, dword_1427C4);
+    if ( double_less_than(v8, 0) )
     {
       if ( a1 >= 0 )
         return 0;
@@ -48,8 +48,8 @@ int  sub_14274C(int a1)
   v5 = dword_1427C0 >> v1;
   if ( (a1 & (dword_1427C0 >> v1)) == 0 )
     return a1;
-  v6 = sub_1431B4(a1, dword_1427C4);
-  if ( !sub_14349C(v6, 0) )
+  v6 = double_add(a1, dword_1427C4);
+  if ( !double_less_than(v6, 0) )
     return a1;
   if ( a1 < 0 )
     v4 += 0x800000 >> v1;

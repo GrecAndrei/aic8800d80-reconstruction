@@ -17,10 +17,10 @@ extern uint32_t dword_10E208;
 extern uint32_t dword_10E20C;
 extern uint32_t dword_10E210;
 
-// rf_subsystem_init_e170 @ 0x10e170, size 138 bytes
-// Doc: rf_subsystem_init_e170 [mmio]: Initialize RF subsystem MMIO at 0x4010d000/0x40100000
-// rf_subsystem_init_e170 [mmio]: Initialize RF subsystem MMIO at 0x4010d000/0x40100000
-float rf_subsystem_init_e170()
+// sdio_core_config_3 @ 0x10e170, size 138 bytes
+// Doc: sdio_core_config_3 [mmio]: Initialize RF subsystem MMIO at 0x4010d000/0x40100000
+// sdio_core_config_3 [mmio]: Initialize RF subsystem MMIO at 0x4010d000/0x40100000
+float sdio_core_config_3()
 {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
@@ -39,13 +39,13 @@ float rf_subsystem_init_e170()
   v0[2] = v0[2] & 0xF000FFFF | 0x2000000;
   v0[3] = v2 & v0[3] | 0xA06A000;
   v0[3] = v4 | v3 & v0[3];
-  rf_pll_ldo_init();
+  gpio_init_pin_12();
   v0[1] = 1;
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
   v5 = v0[4];
-  rf_reg_write_cb(dword_10E210, 0, 15360);
+  call_slot_0x1b8(dword_10E210, 0, 15360);
   return (float)((float)((float)v5 / flt_10E214) - 1.0) * flt_10E218;
 }
 

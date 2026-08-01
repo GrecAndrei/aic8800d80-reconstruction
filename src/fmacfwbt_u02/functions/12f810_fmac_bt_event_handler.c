@@ -15,10 +15,10 @@ extern uint32_t off_12F864;
 extern uint32_t dword_12F868;
 extern uint32_t off_12F86C;
 
-// fmac_bt_event_handler @ 0x12f810, size 78 bytes
-// Doc: fmac_bt_event_handler [bt]: BT event dispatcher in FMAC firmware
-// fmac_bt_event_handler [bt]: BT event dispatcher in FMAC firmware
-int  fmac_bt_event_handler(unsigned int a1)
+// irq_lock_save @ 0x12f810, size 78 bytes
+// Doc: irq_lock_save [bt]: BT event dispatcher in FMAC firmware
+// irq_lock_save [bt]: BT event dispatcher in FMAC firmware
+int  irq_lock_save(unsigned int a1)
 {
   int *v2; // r5
   int result; // r0
@@ -32,7 +32,7 @@ int  fmac_bt_event_handler(unsigned int a1)
   }
   v2 = (int *)off_12F864;
   ++*(uint32_t *)off_12F864;
-  result = sub_116484();
+  result = send_to_global_queue();
   if ( a1 <= 4 )
     --*(uint8_t *)(dword_12F868 + a1);
   if ( *v2 )

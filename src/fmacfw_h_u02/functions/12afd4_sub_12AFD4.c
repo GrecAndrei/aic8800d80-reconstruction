@@ -12,8 +12,8 @@
 
 extern uint32_t off_12B02C;
 
-// sub_12AFD4 @ 0x12afd4, size 88 bytes
-int  sub_12AFD4(uint16_t *a1)
+// get_event_payload @ 0x12afd4, size 88 bytes
+int  get_event_payload(uint16_t *a1)
 {
   int v1; // r3
   int result; // r0

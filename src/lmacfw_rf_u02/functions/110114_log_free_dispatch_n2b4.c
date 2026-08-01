@@ -15,8 +15,8 @@ extern uint32_t dword_11015C;
 extern uint32_t off_110160;
 extern uint32_t dword_110164;
 
-// log_free_dispatch_n2b4 @ 0x110114, size 72 bytes
-int log_free_dispatch_n2b4()
+// rf_lmac_init_n114 @ 0x110114, size 72 bytes
+int rf_lmac_init_n114()
 {
   void *v0; // r8
   int result; // r0
@@ -27,7 +27,7 @@ int log_free_dispatch_n2b4()
   unsigned int v6; // r1
 
   v0 = off_110168;
-  result = sub_11E71C(dword_11015C);
+  result = list_init(dword_11015C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = off_110160;
@@ -36,8 +36,8 @@ int log_free_dispatch_n2b4()
     v5 = 0;
     do
     {
-      sub_10FA18(v3, 0x6B8u);
-      result = sub_11E724(v4);
+      list_iterate(v3, 0x6B8u);
+      result = check_kernel_state(v4);
       v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;

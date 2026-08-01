@@ -13,21 +13,21 @@
 extern uint32_t dword_124A84;
 extern uint32_t dword_124A80;
 
-// sub_124A50 @ 0x124a50, size 46 bytes
-int  sub_124A50(int a1, int a2)
+// set_tx_power @ 0x124a50, size 46 bytes
+int  set_tx_power(int a1, int a2)
 {
   int v2; // r4
 
   if ( a1 <= 1 )
   {
-    msg_parse(dword_124A84);
+    dispatch_event_handler(dword_124A84);
     return 1;
   }
   else
   {
-    v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    sub_123F4C((uint16_t)v2);
-    msg_parse(dword_124A80, v2);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    set_state_checked((uint16_t)v2);
+    dispatch_event_handler(dword_124A80, v2);
     return 0;
   }
 }

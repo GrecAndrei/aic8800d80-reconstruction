@@ -14,8 +14,8 @@ extern uint32_t off_12BC24;
 extern uint32_t off_12BC28;
 extern uint32_t off_12BC20;
 
-// sub_12BBF0 @ 0x12bbf0, size 48 bytes
-int  sub_12BBF0(int *a1)
+// fifo_write @ 0x12bbf0, size 48 bytes
+int  fifo_write(int *a1)
 {
   uint32_t *v1; // r2
   int *v2; // r3

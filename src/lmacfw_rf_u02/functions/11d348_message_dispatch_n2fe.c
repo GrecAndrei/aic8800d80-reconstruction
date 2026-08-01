@@ -19,10 +19,10 @@ extern uint32_t off_11D3D0;
 extern uint32_t off_11D3D4;
 extern uint32_t dword_11D3D8;
 
-// message_dispatch_n2fe @ 0x11d348, size 116 bytes
-// Doc: message_dispatch_n2fe [ipc]: Dispatch incoming message by sign-extended header field
-// message_dispatch_n2fe [ipc]: Dispatch incoming message by sign-extended header field
-int *message_dispatch_n2fe()
+// rf_cmd_wait @ 0x11d348, size 116 bytes
+// Doc: rf_cmd_wait [ipc]: Dispatch incoming message by sign-extended header field
+// rf_cmd_wait [ipc]: Dispatch incoming message by sign-extended header field
+int *rf_cmd_wait()
 {
   uint32_t *v0; // r1
   uint32_t *v1; // r0

@@ -13,8 +13,8 @@
 extern uint32_t off_11F118;
 extern uint32_t dword_11F11C;
 
-// sub_11F0D4 @ 0x11f0d4, size 68 bytes
-uint64_t *sub_11F0D4()
+// timer_timestamp_get @ 0x11f0d4, size 68 bytes
+uint64_t *timer_timestamp_get()
 {
   uint64_t *result; // r0
   uint64_t v1; // [sp+4h] [bp-20h] BYREF
@@ -27,9 +27,9 @@ uint64_t *sub_11F0D4()
   v3 = *(uint32_t *)dword_11F11C;
   v4 = *(uint32_t *)(dword_11F11C + 8 + 0xFFFFFFFC);
   v5 = *(uint32_t *)(dword_11F11C + 8);
-  result = sub_101818(&v1, 0);
+  result = timer_count_read(&v1, 0);
   if ( (v2 & 0xF) == 2 )
-    return (uint64_t *)sub_12F7A4(&v1);
+    return (uint64_t *)dispatch_if_ready(&v1);
   return result;
 }
 

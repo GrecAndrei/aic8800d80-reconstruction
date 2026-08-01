@@ -16,8 +16,8 @@ extern uint32_t off_103B4C;
 extern uint32_t off_103B40;
 extern uint32_t dword_103B50;
 
-// sub_103AFC @ 0x103afc, size 66 bytes
-int sub_103AFC()
+// rf_calibrate @ 0x103afc, size 66 bytes
+int rf_calibrate()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r1
@@ -30,7 +30,7 @@ int sub_103AFC()
   *v0 &= ~0x20000u;
   *v1 &= ~0x1000000u;
   *v2 &= 0xFFE7FFFF;
-  sub_100644(10);
-  return sub_12EB90(0x2000, dword_103B50);
+  mmio_read32(10);
+  return check_feature_flag(0x2000, dword_103B50);
 }
 

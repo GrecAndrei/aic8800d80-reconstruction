@@ -19,10 +19,10 @@ extern uint32_t dword_13000C;
 extern uint32_t dword_130010;
 extern uint32_t dword_130014;
 
-// log_list_init @ 0x12ff98, size 94 bytes
-// Doc: log_list_init [util]: Initialize logging list structure
-// log_list_init [util]: Initialize logging list structure
-int log_list_init()
+// call_handler @ 0x12ff98, size 94 bytes
+// Doc: call_handler [util]: Initialize logging list structure
+// call_handler [util]: Initialize logging list structure
+int call_handler()
 {
   int *v0; // r4
   uint32_t *v1; // r0
@@ -30,7 +30,7 @@ int log_list_init()
   int v3; // r3
   int v4; // r2
 
-  log_hw_init_if_d774();
+  nvic_configure();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -39,12 +39,12 @@ int log_list_init()
   v0 = (int *)off_12FFFC;
   v1 = (uint32_t *)dword_130000;
   ++*(uint32_t *)off_12FFFC;
-  sub_12D240(v1);
-  sub_12D240((uint32_t *)dword_130004);
-  list_push_tail(dword_130000, (uint32_t *)dword_130008);
-  list_push_tail(dword_130000, (uint32_t *)dword_13000C);
-  list_push_tail(dword_130000, (uint32_t *)dword_130010);
-  result = list_push_tail(dword_130000, (uint32_t *)dword_130014);
+  zero_8_bytes(v1);
+  zero_8_bytes((uint32_t *)dword_130004);
+  cmd_handler_a(dword_130000, (uint32_t *)dword_130008);
+  cmd_handler_a(dword_130000, (uint32_t *)dword_13000C);
+  cmd_handler_a(dword_130000, (uint32_t *)dword_130010);
+  result = cmd_handler_a(dword_130000, (uint32_t *)dword_130014);
   if ( *v0 )
   {
     v3 = *v0 - 1;

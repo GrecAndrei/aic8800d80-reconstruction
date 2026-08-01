@@ -14,8 +14,8 @@ extern uint32_t off_1345B4;
 extern uint32_t off_1345B8;
 extern uint32_t off_1345BC;
 
-// sub_1344C0 @ 0x1344c0, size 242 bytes
-uint32_t * sub_1344C0(int a1, int a2)
+// send_hci_packet @ 0x1344c0, size 242 bytes
+uint32_t * send_hci_packet(int a1, int a2)
 {
   int *v4; // r5
   int v5; // r0
@@ -36,7 +36,7 @@ uint32_t * sub_1344C0(int a1, int a2)
   uint32_t v21[2]; // [sp+8h] [bp-8h]
 
   v4 = *((int **)off_1345B4 + 4);
-  v5 = sub_12C92C(4096, 4, 6, 0x178u);
+  v5 = ke_msg_alloc(4096, 4, 6, 0x178u);
   *(uint8_t *)(v5 + 366) = *((uint8_t *)v4 + 61);
   v6 = v5;
   v7 = *v4;
@@ -111,7 +111,7 @@ LABEL_3:
     a2 = 1;
   }
 LABEL_4:
-  sdio_buffer_prepare_n_4e8(v6);
-  return sub_12CD34(6u, 1);
+  ke_msg_send(v6);
+  return rx_phy_status_parse(6u, 1);
 }
 

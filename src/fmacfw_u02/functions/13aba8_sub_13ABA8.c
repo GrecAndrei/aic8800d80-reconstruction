@@ -27,8 +27,8 @@ extern uint32_t dword_13AF20;
 extern uint32_t dword_13AF1C;
 extern uint32_t off_13AEDC;
 
-// sub_13ABA8 @ 0x13aba8, size 882 bytes
-int  sub_13ABA8(int a1, int a2)
+// ll_conn_state_dispatch @ 0x13aba8, size 882 bytes
+int  ll_conn_state_dispatch(int a1, int a2)
 {
   unsigned int v2; // r6
   int v5; // r3
@@ -70,21 +70,21 @@ int  sub_13ABA8(int a1, int a2)
 
   v2 = *(uint8_t *)(a1 + 28);
   if ( v2 > 3 )
-    return sub_13AAF4(a1, a2, 0x80000000);
+    return ll_conn_event_prepare(a1, a2, 0x80000000);
   v5 = *(uint8_t *)(a1 + 29);
   if ( v5 == 255 )
   {
     if ( (*(uint16_t *)(a1 + 30) & 8) == 0 )
     {
-      msg_parse(dword_13AED8);
-      return sub_13AAF4(a1, a2, 0x80000000);
+      event_dispatch(dword_13AED8);
+      return ll_conn_event_prepare(a1, a2, 0x80000000);
     }
     goto LABEL_11;
   }
   v6 = dword_13AEAC;
   v7 = dword_13AEAC + 696 * v5;
   if ( !*(uint8_t *)(v7 + 37) || *(uint8_t *)(v7 + 48) )
-    return sub_13AAF4(a1, a2, 0x80000000);
+    return ll_conn_event_prepare(a1, a2, 0x80000000);
   v9 = *(uint16_t *)(a1 + 30);
   if ( (v9 & 8) != 0 )
   {
@@ -94,8 +94,8 @@ LABEL_11:
     v41 = 0;
     if ( v12 && (*((uint8_t *)off_13AEB4 + 15) & 6) == 2 && (*(uint16_t *)(*(uint32_t *)(a1 + 72) + 172) & 0xFC) == 0xB0 )
     {
-      timer_set_relative(6155, 6, dword_13AEB8);
-      mac_tx_completion_n234();
+      ke_task_create(6155, 6, dword_13AEB8);
+      mmio_set_control_bit_26();
       v11[15] |= 4u;
     }
     v13 = *(uint16_t *)(a1 + 30);
@@ -114,11 +114,11 @@ LABEL_11:
     v15 = v13 & 0x80;
     if ( v15 )
     {
-      v33 = rf_msg_process_body_n37(a1, 192, 0);
+      v33 = get_channel_tx_power(a1, 192, 0);
       if ( v33 == 1 )
       {
-        LOBYTE(v15) = sub_13A528(a1, &v41);
-        sub_143770(*(uint32_t *)(a1 + 72) + 164, *(uint32_t *)(a1 + 72) + 172, 24);
+        LOBYTE(v15) = rf_get_chan_cfg(a1, &v41);
+        memcpy(*(uint32_t *)(a1 + 72) + 164, *(uint32_t *)(a1 + 72) + 172, 24);
         v40 = 24;
       }
       else
@@ -158,11 +158,11 @@ LABEL_11:
         {
 LABEL_22:
           if ( **v17 < 0 )
-            sub_12F46C(dword_13AED0, v18, 414);
+            mmio_clear_register(dword_13AED0, v18, 414);
           goto LABEL_24;
         }
       }
-      v31 = sub_101D58(v22, v21, (uint8_t *)(*(uint32_t *)(v14 + 72) + 4));
+      v31 = rx_packet_handler(v22, v21, (uint8_t *)(*(uint32_t *)(v14 + 72) + 4));
       *(uint32_t *)(*(uint32_t *)(a1 + 44) + 4 * v19 + 36) = v31 | (v31 << 8);
 LABEL_24:
       if ( ++v19 == 4 )
@@ -174,7 +174,7 @@ LABEL_24:
         *(uint8_t *)(a1 + 51) = v15;
         *(uint8_t *)(a1 + 66) = v15;
         *(uint8_t *)(a1 + 53) = v23;
-        return sub_117564(a1, a2);
+        return phy_chan_set(a1, a2);
       }
     }
   }
@@ -188,17 +188,17 @@ LABEL_24:
   else if ( v10 != 2 )
   {
 LABEL_9:
-    feature_guard_check(32, dword_13AEB0);
-    return sub_13AAF4(a1, a2, 0x80000000);
+    check_status_bits(32, dword_13AEB0);
+    return ll_conn_event_prepare(a1, a2, 0x80000000);
   }
   v24 = dword_13AEBC;
   v25 = (uint8_t *)(dword_13AEBC + 1320 * v2);
   if ( !v25[108] )
   {
-    msg_parse(dword_13AED4);
-    return sub_13AAF4(a1, a2, 0x80000000);
+    event_dispatch(dword_13AED4);
+    return ll_conn_event_prepare(a1, a2, 0x80000000);
   }
-  sub_13A654(a1);
+  rf_reset_chan_cfg(a1);
   v26 = v6 + 696 * *(uint8_t *)(a1 + 29);
   if ( *(uint8_t *)(v26 + 52) != 2 )
     goto LABEL_30;
@@ -215,14 +215,14 @@ LABEL_30:
     *(uint32_t *)(a1 + 44) = v28;
     if ( v29[197] )
     {
-      v36 = sub_101D58((v28[5] >> 11) & 7, v28[5] & 0x7F, (uint8_t *)(*(uint32_t *)(v27 + 72) + 4));
+      v36 = rx_packet_handler((v28[5] >> 11) & 7, v28[5] & 0x7F, (uint8_t *)(*(uint32_t *)(v27 + 72) + 4));
       v30 = *(uint16_t *)(a1 + 30);
       v28[9] = v36 | (v36 << 8);
     }
     else
     {
       if ( **(int16_t **)off_13AECC < 0 )
-        sub_12F46C(dword_13AF20, dword_13AF1C, 1195);
+        mmio_clear_register(dword_13AF20, dword_13AF1C, 1195);
       v30 = *(uint16_t *)(a1 + 30);
     }
     goto LABEL_36;
@@ -231,9 +231,9 @@ LABEL_30:
     goto LABEL_30;
 LABEL_52:
   if ( !*(uint8_t *)off_13AEDC )
-    sub_13C118(a1);
-  sub_140204(a1);
-  v34 = rx_agg_status_update(v6 + 696 * *(uint8_t *)(a1 + 29));
+    read_tx_power_cal(a1);
+  ble_ll_adv_set_data(a1);
+  v34 = tx_send_controller_pkt(v6 + 696 * *(uint8_t *)(a1 + 29));
   v30 = *(uint16_t *)(a1 + 30);
   *(uint32_t *)(a1 + 44) = v34;
   if ( (v30 & 0x2000) != 0 )
@@ -254,7 +254,7 @@ LABEL_52:
   }
 LABEL_36:
   if ( (v30 & 1) == 0 )
-    rf_init_or_reset_ab70(a1, (uint16_t *)(*(uint32_t *)(a1 + 72) + 172));
-  return sub_117564(a1, a2);
+    ll_conn_event_type_check(a1, (uint16_t *)(*(uint32_t *)(a1 + 72) + 172));
+  return phy_chan_set(a1, a2);
 }
 

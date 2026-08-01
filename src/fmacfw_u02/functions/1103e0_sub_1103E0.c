@@ -15,8 +15,8 @@ extern uint32_t off_110424;
 extern uint32_t dword_110428;
 extern uint32_t off_11042C;
 
-// sub_1103E0 @ 0x1103e0, size 62 bytes
-int sub_1103E0()
+// is_page_scan_active @ 0x1103e0, size 62 bytes
+int is_page_scan_active()
 {
   int *v0; // r4
   int v1; // r0
@@ -32,7 +32,7 @@ int sub_1103E0()
   v0 = (int *)off_110424;
   v1 = dword_110428;
   ++*(uint32_t *)off_110424;
-  result = sub_12D2D0(v1);
+  result = mem_word_load(v1);
   if ( result )
     --*(uint32_t *)off_11042C;
   if ( *v0 )

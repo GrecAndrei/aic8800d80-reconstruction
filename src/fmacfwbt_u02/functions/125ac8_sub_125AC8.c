@@ -12,12 +12,12 @@
 
 extern uint32_t off_125AE0;
 
-// sub_125AC8 @ 0x125ac8, size 22 bytes
-int  sub_125AC8(uint16_t *a1)
+// list_remove @ 0x125ac8, size 22 bytes
+int  list_remove(uint16_t *a1)
 {
   if ( *((uint32_t *)off_125AE0 + 1) )
-    return list_push_tail((char *)off_125AE0 + 12);
+    return check_abort_flag((char *)off_125AE0 + 12);
   else
-    return sub_1254E8(a1);
+    return rx_header_parse(a1);
 }
 

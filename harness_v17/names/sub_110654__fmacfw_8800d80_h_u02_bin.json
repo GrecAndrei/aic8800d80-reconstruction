@@ -1,0 +1,1 @@
+{"fn": "sub_110654", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x110654", "status": "ok", "name": "check_hardware_ready", "params": [], "docstring": "Perform hardware check and return success flag", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sub_1207C28", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1207c28", "status": "ok", "name": "rf_chan_param_get", "params": [], "docstring": "Extract channel/bandwidth param via ubfx nibble from RF config regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1207C28", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1207c28", "status": "ok", "name": "rf_get_rx_rssi", "params": [], "docstring": "Extract channel/bandwidth param via ubfx nibble from RF config regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

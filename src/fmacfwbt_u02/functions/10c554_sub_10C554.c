@@ -28,8 +28,8 @@ extern uint32_t off_10C678;
 extern uint32_t off_10C67C;
 extern uint32_t dword_10C680;
 
-// sub_10C554 @ 0x10c554, size 238 bytes
-int sub_10C554()
+// sdio_irq_enable @ 0x10c554, size 238 bytes
+int sdio_irq_enable()
 {
   int *v0; // r2
   int *v1; // r0

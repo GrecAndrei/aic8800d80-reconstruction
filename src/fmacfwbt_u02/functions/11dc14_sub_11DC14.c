@@ -13,8 +13,8 @@
 extern uint32_t off_11DC34;
 extern uint32_t off_11DC38;
 
-// sub_11DC14 @ 0x11dc14, size 30 bytes
-int sub_11DC14()
+// seq_count_restart @ 0x11dc14, size 30 bytes
+int seq_count_restart()
 {
   uint8_t *v0; // r4
   unsigned int *v1; // r2

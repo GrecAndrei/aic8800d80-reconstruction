@@ -12,8 +12,8 @@
 
 extern uint32_t off_101A1C;
 
-// sub_101A0C @ 0x101a0c, size 14 bytes
-BOOL sub_101A0C()
+// rf_check_status @ 0x101a0c, size 14 bytes
+BOOL rf_check_status()
 {
   return *(uint32_t *)off_101A1C > 1u;
 }

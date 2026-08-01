@@ -13,10 +13,10 @@
 extern uint32_t off_112224;
 extern uint32_t off_112220;
 
-// rf_state_check_21d4 @ 0x1121d4, size 66 bytes
+// arg_store @ 0x1121d4, size 66 bytes
 // Doc: rf_bus_setup_n30a [rf]: Setup RF bus and return status flag
 // rf_bus_setup_n30a [rf]: Setup RF bus and return status flag
-int rf_state_check_21d4()
+int arg_store()
 {
   uint8_t *v0; // r4
   int v1; // r0
@@ -32,8 +32,8 @@ int rf_state_check_21d4()
     {
       *(uint8_t *)off_112220 = 4;
       *v0 = 7;
-      if ( !rf_msg_process_body_n_1bc() )
-        sub_114168(0);
+      if ( !is_flag_one() )
+        store_byte_field(0);
       return 1;
     }
     else

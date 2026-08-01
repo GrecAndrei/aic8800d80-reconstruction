@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1434B0 @ 0x1434b0, size 48 bytes
-int  sub_1434B0(uint64_t a1, int a2, int a3)
+// double_is_nan @ 0x1434b0, size 48 bytes
+int  double_is_nan(uint64_t a1, int a2, int a3)
 {
   if ( a3 || a2 )
   {
-    LODWORD(a1) = sub_1434E0(a1);
+    LODWORD(a1) = double_divide(a1);
   }
   else if ( a1 )
   {

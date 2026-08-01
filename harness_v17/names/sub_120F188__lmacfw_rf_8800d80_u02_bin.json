@@ -1,1 +1,1 @@
-{"fn": "sub_120F188", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f188", "status": "ok", "name": "fw_state_check_n960", "params": [], "docstring": "Load firmware state word from 0x182b60 and test sign", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_120F188", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f188", "status": "ok", "name": "get_bandgap_trim", "params": [], "docstring": "Load firmware state word from 0x182b60 and test sign", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -42,10 +42,10 @@ extern uint32_t off_10D9A8;
 extern uint32_t off_10D9AC;
 extern uint32_t dword_10D9B0;
 
-// message_dispatch_n286 @ 0x10d6a8, size 940 bytes
-// Doc: message_dispatch_n286 [ipc]: Dispatch message by ID/index comparison
-// message_dispatch_n286 [ipc]: Dispatch message by ID/index comparison
-int  message_dispatch_n286(int a1, int a2)
+// hci_cmd_init @ 0x10d6a8, size 940 bytes
+// Doc: hci_cmd_init [ipc]: Dispatch message by ID/index comparison
+// hci_cmd_init [ipc]: Dispatch message by ID/index comparison
+int  hci_cmd_init(int a1, int a2)
 {
   int v2; // r4
   int v3; // r0
@@ -140,7 +140,7 @@ int  message_dispatch_n286(int a1, int a2)
   }
   else
   {
-    log_hw_init_d4e8();
+    mac_tx_work();
     v7 = *((uint16_t *)off_10D974 + 89) & 0x4000;
     if ( (*((uint16_t *)off_10D974 + 89) & 0x4000) == 0 )
     {
@@ -177,7 +177,7 @@ LABEL_4:
     {
       if ( v6 >= 124 )
         LOWORD(v6) = 124;
-      rf_chan_setup_init(19, v81, (uint16_t)v6);
+      ke_alloc_node(19, v81, (uint16_t)v6);
     }
   }
   else
@@ -187,13 +187,13 @@ LABEL_4:
     v17 = (uint8_t **)off_10D988;
     if ( **(uint8_t **)off_10D988 == 3 )
       goto LABEL_12;
-    if ( (unsigned int)sub_11E82C(dword_10D98C, v4) <= 4 )
+    if ( (unsigned int)list_count(dword_10D98C, v4) <= 4 )
     {
       if ( **v15 != 2 )
         return v5;
       if ( **v17 != 3 )
       {
-        if ( (unsigned int)sub_11E82C(dword_10D98C, v23) > 4 )
+        if ( (unsigned int)list_count(dword_10D98C, v23) > 4 )
         {
           v60 = dword_10D9B8;
           v61 = off_10D978;
@@ -248,7 +248,7 @@ LABEL_12:
     while ( 1 )
     {
       v26 = v24++;
-      if ( !sub_128288(v26, v25, 20) )
+      if ( !memcpy(v26, v25, 20) )
         break;
       if ( &v81[v6] == v24 )
       {
@@ -282,7 +282,7 @@ LABEL_30:
     if ( *v27 )
     {
       v28 = off_10D9CC;
-      if ( !sub_128288(v81, dword_10D994, 5) )
+      if ( !memcpy(v81, dword_10D994, 5) )
       {
         v29 = dword_10D998;
         v30 = off_10D978;
@@ -304,7 +304,7 @@ LABEL_30:
       if ( v35 + v6 <= 1720 )
       {
         v41 = (int *)off_10DA68;
-        sub_1282E8(*(uint32_t *)off_10DA68 + v35, v81, v6);
+        memcpy_large(*(uint32_t *)off_10DA68 + v35, v81, v6);
         v75 = (uint8_t)*v28;
         v76 = v6 + *v34;
         v35 = v76;
@@ -336,13 +336,13 @@ LABEL_30:
       *v34 = 4;
       *v41 = 0;
       v5 = v35;
-      sub_11E7AC(v42);
+      list_pop_front(v42);
     }
     else
     {
-      v2 = sub_11E7AC(dword_10DA54);
+      v2 = list_pop_front(dword_10DA54);
       if ( v6 <= 122 )
-        v43 = sub_1132C0();
+        v43 = disable_interrupts();
       else
         v43 = (*(int ( **)(uint32_t))(*(uint32_t *)(*(uint32_t *)off_10DA58 + 8) + 16))(*(uint32_t *)(*(uint32_t *)off_10DA58 + 4));
       if ( !v43 )
@@ -362,7 +362,7 @@ LABEL_30:
         while ( v80 );
         return v5;
       }
-      sub_1282E8(v43 + 4, v81, v6);
+      memcpy_large(v43 + 4, v81, v6);
       LOWORD(v35) = v6;
     }
     *(uint16_t *)v43 = v5 + 1;
@@ -403,8 +403,8 @@ LABEL_30:
     v50 = (int *)off_10D9AC;
     v51 = dword_10D9B0;
     ++*(uint32_t *)off_10D9AC;
-    v52 = list_push_tail(v51);
-    rf_bus_mark_ne0(v52);
+    v52 = check_kernel_state(v51);
+    process_event(v52);
     if ( *v50 )
     {
       v53 = *v50 - 1;

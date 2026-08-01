@@ -18,8 +18,8 @@ extern uint32_t off_113470;
 extern uint32_t dword_113474;
 extern uint32_t dword_113478;
 
-// sub_1133B4 @ 0x1133b4, size 172 bytes
-int  sub_1133B4(int a1, int a2, int a3)
+// rf_calib_mode_set @ 0x1133b4, size 172 bytes
+int  rf_calib_mode_set(int a1, int a2, int a3)
 {
   uint8_t *v3; // r5
   char v4; // r3
@@ -52,38 +52,38 @@ int  sub_1133B4(int a1, int a2, int a3)
       {
         while ( 1 )
         {
-          v10 = *(uint32_t *)(*(uint32_t *)(sub_12D4F8(v7) + 4) + 4);
+          v10 = *(uint32_t *)(*(uint32_t *)(list_pop_front(v7) + 4) + 4);
           --*v5;
-          sub_12D470(v9);
+          check_abort_flag(v9);
           v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
           ++*(uint16_t *)off_113470;
-          a1 = sub_12D32C(128);
+          a1 = set_system_flag_1(128);
           if ( !*v5 )
             goto LABEL_12;
         }
         if ( v11 == 1 )
         {
-          a1 = sub_10FE60((uint32_t *)v10);
+          a1 = memory_pool_free((uint32_t *)v10);
         }
         else
         {
-          sub_10DA7C(v8);
-          a1 = sub_12ED40(v10, 32, 1, 0);
+          printf_wrapper(v8);
+          a1 = rx_packet_handler(v10, 32, 1, 0);
         }
       }
       while ( *v5 );
     }
 LABEL_12:
-    sub_113310(a1, a2);
+    rf_calib_init(a1, a2);
     return 1;
   }
   else
   {
     v13 = a1;
-    sub_10DA7C(dword_113474, *v3);
-    sub_114024(dword_113478, v13, a2, *v3);
+    printf_wrapper(dword_113474, *v3);
+    band_is_supported(dword_113478, v13, a2, *v3);
     return 1;
   }
 }

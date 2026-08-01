@@ -13,10 +13,10 @@
 extern uint32_t off_102DFC;
 extern uint32_t off_102E00;
 
-// mmio_status_flag_read @ 0x102de0, size 26 bytes
-// Doc: mmio_status_flag_read [mmio]: Read status flag bit from MMIO 0x40344018
-// mmio_status_flag_read [mmio]: Read status flag bit from MMIO 0x40344018
-BOOL mmio_status_flag_read()
+// get_reset_reason @ 0x102de0, size 26 bytes
+// Doc: get_reset_reason [mmio]: Read status flag bit from MMIO 0x40344018
+// get_reset_reason [mmio]: Read status flag bit from MMIO 0x40344018
+BOOL get_reset_reason()
 {
   BOOL result; // r0
 

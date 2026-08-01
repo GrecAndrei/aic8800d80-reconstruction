@@ -13,8 +13,8 @@
 extern uint32_t off_110694;
 extern uint32_t off_110698;
 
-// sub_110660 @ 0x110660, size 52 bytes
-int  sub_110660(int a1)
+// event_queue_init @ 0x110660, size 52 bytes
+int  event_queue_init(int a1)
 {
   uint32_t *v1; // r2
   uint32_t *v2; // r1
@@ -37,7 +37,7 @@ int  sub_110660(int a1)
   *((uint16_t *)v2 + 14) = 0;
   v2[6] = 0;
   *((uint8_t *)v2 + 30) = 0;
-  sub_1104FC((int)v1, (int)v2);
+  phy_calibrate((int)v1, (int)v2);
   return 1;
 }
 

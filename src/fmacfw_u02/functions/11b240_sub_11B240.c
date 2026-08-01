@@ -17,10 +17,10 @@ extern uint32_t dword_11B360;
 extern uint32_t dword_11B35C;
 extern uint32_t off_11B354;
 
-// sub_11B240 @ 0x11b240, size 272 bytes
+// check_link_state @ 0x11b240, size 272 bytes
 // Doc: sub_121B240 [mac]: Subroutine checking state byte against value 3
 // sub_121B240 [mac]: Subroutine checking state byte against value 3
-int  sub_11B240(int *a1)
+int  check_link_state(int *a1)
 {
   uint16_t *v1; // r6
   int v2; // r3
@@ -75,7 +75,7 @@ LABEL_13:
             if ( *(int *)(*(uint32_t *)(*v9 + 76) + 72) >= 0 )
               goto LABEL_3;
           }
-          sub_11B1A8((int)v9, (uint8_t)v5);
+          get_connection_by_index((int)v9, (uint8_t)v5);
           v9 = *(int **)(v10 + 12);
           if ( !v9 )
             goto LABEL_4;
@@ -87,14 +87,14 @@ LABEL_13:
         v9 = (int *)v11;
       }
 LABEL_3:
-      v6 = fm_rx_frame_handler(v13, a1, *((uint32_t *)v1 + 44), v1[93], *((uint8_t *)v1 + 190));
+      v6 = process_tx_request(v13, a1, *((uint32_t *)v1 + 44), v1[93], *((uint8_t *)v1 + 190));
       if ( v6 )
       {
         if ( v9 )
-          sub_11B1A8((int)v9, (uint8_t)v5);
+          get_connection_by_index((int)v9, (uint8_t)v5);
         v16 = *(uint32_t *)(v13 + 68);
         if ( **(int16_t **)off_11B358 < 0 && !v16 )
-          sub_12F46C(dword_11B360, dword_11B35C, 1383);
+          mmio_clear_register(dword_11B360, dword_11B35C, 1383);
         v17 = *(uint16_t *)(v16 + 8);
         *((uint32_t *)v1 + 51) = v16;
         *(uint16_t *)(v16 + 8) = v17 | 0x200;

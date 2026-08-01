@@ -1,0 +1,1 @@
+{"fn": "sub_140C5C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x140c5c", "status": "ok", "name": "clear_tx_buf", "params": [], "docstring": "Clears TX buffer of 0x1960 bytes under lock.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -16,41 +16,41 @@ extern uint32_t dword_12FF1C;
 extern uint32_t dword_12FF10;
 extern uint32_t dword_12FF14;
 
-// sub_12FEA4 @ 0x12fea4, size 104 bytes
-int  sub_12FEA4(int a1, int a2)
+// is_mode_one @ 0x12fea4, size 104 bytes
+int  is_mode_one(int a1, int a2)
 {
   int v4; // r0
   int v5; // r0
   unsigned int v7; // r4
 
-  if ( a1 <= 1 || (v4 = sub_12F958(*(uint8_t **)(a2 + 4), 0, 0)) == 0 )
+  if ( a1 <= 1 || (v4 = parse_hex_or_dec(*(uint8_t **)(a2 + 4), 0, 0)) == 0 )
   {
-    v5 = sub_12EA50();
-    msg_parse(dword_12FF0C, v5);
+    v5 = ipc_get_data1();
+    event_dispatch(dword_12FF0C, v5);
     return 0;
   }
   if ( v4 == 1 )
   {
     if ( a1 == 2 )
     {
-      msg_parse(dword_12FF18);
+      event_dispatch(dword_12FF18);
     }
     else
     {
-      v7 = sub_12F958(*(uint8_t **)(a2 + 8), 0, 0);
+      v7 = parse_hex_or_dec(*(uint8_t **)(a2 + 8), 0, 0);
       if ( v7 > 5 )
       {
-        msg_parse(dword_12FF1C, v7);
+        event_dispatch(dword_12FF1C, v7);
       }
       else
       {
-        msg_parse(dword_12FF10, v7);
-        sub_12EA38(v7);
+        event_dispatch(dword_12FF10, v7);
+        ipc_set_data1(v7);
       }
     }
     return 0;
   }
-  msg_parse(dword_12FF14);
+  event_dispatch(dword_12FF14);
   return 0;
 }
 

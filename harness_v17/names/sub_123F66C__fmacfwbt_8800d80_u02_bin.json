@@ -1,1 +1,1 @@
-{"fn": "sub_123F66C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f66c", "status": "ok", "name": "sub_123F66C", "params": [], "docstring": "Initializes struct field at offset 0x88 with provided data", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123F66C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f66c", "status": "ok", "name": "build_ll_data_packet", "params": [], "docstring": "Initializes struct field at offset 0x88 with provided data", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1140F0 @ 0x1140f0, size 76 bytes
-int  sub_1140F0(int a1)
+// rf_reg10_low_check @ 0x1140f0, size 76 bytes
+int  rf_reg10_low_check(int a1)
 {
   uint8_t v2; // r0
   char v3; // r1
   int v4; // r4
   int v6; // r5
 
-  v2 = sub_113A44(0x10u);
+  v2 = mmio_read32(0x10u);
   v3 = v2 & 0xF;
   if ( (v2 & 0xF) != 0 )
   {
@@ -37,7 +37,7 @@ int  sub_1140F0(int a1)
     v6 = -a1;
   else
     v6 = (a1 - 1) | 8;
-  host_reg_wait_set(0x10u, v6 << v3);
+  mmio_write32(0x10u, v6 << v3);
   return v4;
 }
 

@@ -1,1 +1,1 @@
-{"fn": "sub_1238DB8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1238db8", "status": "ok", "name": "bt_channel_parse_n_db8", "params": [], "docstring": "Parses channel/band info from BT config block into output", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1238DB8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1238db8", "status": "ok", "name": "rf_cal_freq_from_channel", "params": [], "docstring": "Parses channel/band info from BT config block into output", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -17,8 +17,8 @@ extern uint32_t dword_127E94;
 extern uint32_t dword_127E98;
 extern uint32_t dword_127E90;
 
-// sub_127E00 @ 0x127e00, size 138 bytes
-int * sub_127E00(int a1)
+// wlc_validate_chip_queue @ 0x127e00, size 138 bytes
+int * wlc_validate_chip_queue(int a1)
 {
   int16_t **v1; // r8
   int v2; // r5
@@ -34,19 +34,19 @@ int * sub_127E00(int a1)
   {
     v5 = 8 * a1;
     if ( *(uint8_t *)(dword_127E8C + 28 * a1 + 24) != 255
-      || (sub_12F46C(dword_127E9C, dword_127E94, 3044), **v1 < 0) )
+      || (mmio_clear_register(dword_127E9C, dword_127E94, 3044), **v1 < 0) )
     {
       if ( *(uint8_t *)(v2 + 4 * (v5 - a1) + 25) )
-        sub_12F46C(dword_127E98, dword_127E94, 3046);
+        mmio_clear_register(dword_127E98, dword_127E94, 3046);
     }
   }
   else
   {
     v5 = 8 * a1;
   }
-  list_push_tail(dword_127E90);
+  cmd_handler_a(dword_127E90);
   v6 = v2 + 4 * (v5 - a1);
-  result = memset_thunk(v4, 0, 0x1Cu);
+  result = memset(v4, 0, 0x1Cu);
   *(uint16_t *)(v6 + 14) = 255;
   *(uint8_t *)(v6 + 24) = -1;
   *(uint8_t *)(v6 + 27) = -1;

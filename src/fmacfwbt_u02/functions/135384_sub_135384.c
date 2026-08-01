@@ -15,10 +15,10 @@ extern uint32_t dword_135558;
 extern uint32_t dword_135560;
 extern uint32_t dword_13555C;
 
-// sub_135384 @ 0x135384, size 462 bytes
+// rf_lookup_by_index @ 0x135384, size 462 bytes
 // Doc: sub_1235384 [scan]: Iterate indexed entries (0x528 stride) into lookup tables
 // sub_1235384 [scan]: Iterate indexed entries (0x528 stride) into lookup tables
-uint32_t * sub_135384(int a1, char *a2)
+uint32_t * rf_lookup_by_index(int a1, char *a2)
 {
   uint8_t *v2; // r7
   int v3; // r5
@@ -54,26 +54,26 @@ uint32_t * sub_135384(int a1, char *a2)
   v5 = *(uint8_t *)(v4 + 61);
   v6 = (uint8_t *)(dword_135558 + 1320 * v5);
   v9 = v6[116];
-  feature_guard_sdio(256, dword_135560, dword_13555C);
+  state_check_feature(256, dword_135560, dword_13555C);
   if ( !v6[1224] )
   {
     v10 = v6[412];
     if ( v6[412] )
       v10 = 1;
-    v11 = sub_119084(v10, 512);
+    v11 = event_notify(v10, 512);
     if ( v11 )
       goto LABEL_5;
-    return (uint32_t *)sub_135020(1);
+    return (uint32_t *)event_dispatch(1);
   }
-  v11 = sub_119084(1, 512);
+  v11 = event_notify(1, 512);
   if ( !v11 )
-    return (uint32_t *)sub_135020(1);
+    return (uint32_t *)event_dispatch(1);
 LABEL_5:
   v12 = v3 + 1320 * v5;
-  message_dispatch_n_4a3(v12, v11);
+  scan_done_check(v12, v11);
   v13 = *(uint32_t *)(v11 + 72);
-  v14 = loc_135564 + 696 * v9;
-  v15 = *(uint16_t *)(loc_13557C + 0x1FC);
+  v14 = (uint32_t *)(uintptr_t)(0x135564 + 696 * v9);
+  v15 = *(uint16_t *)(uintptr_t)(0x13557C + 0x1FC);
   v16 = *(uint32_t *)(v14 + 38);
   v14 += 38;
   *(uint32_t *)(v13 + 112) = v16;
@@ -89,7 +89,7 @@ LABEL_5:
   *(uint8_t *)(v13 + 110) = 0;
   *(uint8_t *)(v13 + 111) = 0;
   v18 = 16 * v15;
-  *(uint16_t *)(loc_13557C + 0x1FC) = v15;
+  *(uint16_t *)(uintptr_t)(0x13557C + 0x1FC) = v15;
   LOBYTE(v15) = *(uint8_t *)(v12 + 107);
   *(uint16_t *)(v13 + 130) = v18;
   *(uint8_t *)(v11 + 28) = v15;
@@ -100,7 +100,7 @@ LABEL_5:
   v20 = v13 + 108;
   if ( v19 == 1 && a1 == 3 )
   {
-    sub_13B13C(v11, v13 + 108, 24);
+    mac_rx_process_ack(v11, v13 + 108, 24);
     LOWORD(v19) = *(uint8_t *)(v4 + 59);
     v21 = *(uint8_t *)(v11 + 51) + 24;
   }
@@ -108,14 +108,14 @@ LABEL_5:
   {
     v21 = 24;
   }
-  v22 = v21 + sub_130A20(v20 + v21, v19, a1, 0, a2);
+  v22 = v21 + rf_set_cal_entry(v20 + v21, v19, a1, 0, a2);
   if ( *(uint8_t *)(v4 + 59) == 2 )
   {
     v26 = *(uint16_t *)(v4 + 54);
     if ( 512 - v22 < v26 )
     {
-      if ( *(int16_t *)*loc_135570 < 0 )
-        sub_12F6C4(loc_135578, loc_135574, 1015);
+      if ( *(int16_t *)(uintptr_t)(0x135570) < 0 )
+        mmio_field_update(0x135578, 0x135574, 1015);
     }
     else
     {
@@ -137,14 +137,14 @@ LABEL_5:
   }
   v23 = *(uint32_t **)(v11 + 76);
   v24 = *(uint8_t *)(v11 + 53) + v22;
-  v31 = *(uint32_t *)(*loc_135568 + 12);
+  v31 = *(uint32_t *)((uint32_t *)(uintptr_t)(0x135568) + 12);
   v23[8] = v23[7] - 1 + v24;
   v23[9] = v24 + 4;
-  *(uint32_t *)(v11 + 88) = loc_13556C;
+  *(uint32_t *)(v11 + 88) = 0x13556C;
   *(uint32_t *)(v11 + 92) = v11;
-  sub_1190B4(v11, 5);
+  ble_event_dispatch(v11, 5);
   v2[34] = 1;
-  rf_level_apply_80c(6154, 6, v31);
-  return rf_bus_mark_n_3b7(6u, 5);
+  patch_aware_dispatch(6154, 6, v31);
+  return hci_cmd_send(6u, 5);
 }
 

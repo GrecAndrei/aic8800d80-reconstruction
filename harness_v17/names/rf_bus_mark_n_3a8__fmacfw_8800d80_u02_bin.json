@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_3a8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114dc", "status": "ok", "name": "rf_bus_mark_n_3a8", "params": [], "docstring": "Mark/inspect RF bus queue state flags (variant n_3a8)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_3a8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114dc", "status": "ok", "name": "rf_cmd_send_n318", "params": [], "docstring": "Mark/inspect RF bus queue state flags (variant n_3a8)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

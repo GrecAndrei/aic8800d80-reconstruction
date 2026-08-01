@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_119BEC @ 0x119bec, size 30 bytes
-unsigned int  sub_119BEC(int a1, unsigned int a2)
+// align_alloc_size @ 0x119bec, size 30 bytes
+unsigned int  align_alloc_size(int a1, unsigned int a2)
 {
   unsigned int v2; // r3
 

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_12C444 @ 0x12c444, size 44 bytes
-int  sub_12C444(int result)
+// compute_byte_delta @ 0x12c444, size 44 bytes
+int  compute_byte_delta(int result)
 {
   int *i; // r3
   int v2; // r2
@@ -34,7 +34,7 @@ int  sub_12C444(int result)
     *((uint8_t *)i + 350) |= 0x10u;
   result = *(uint32_t *)(result + 72);
   if ( result )
-    return sub_128408(result);
+    return type_get(result);
   return result;
 }
 

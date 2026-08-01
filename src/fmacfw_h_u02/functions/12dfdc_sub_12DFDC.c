@@ -20,8 +20,8 @@ extern uint32_t dword_12E8C8;
 extern uint32_t dword_12E8CC;
 extern uint32_t dword_12E8C4;
 
-// sub_12DFDC @ 0x12dfdc, size 2264 bytes
-int  sub_12DFDC(uint8_t *a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
+// rx_process_packet @ 0x12dfdc, size 2264 bytes
+int  rx_process_packet(uint8_t *a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
 {
   unsigned int v5; // r12
   int v8; // r2
@@ -204,7 +204,7 @@ LABEL_164:
                   a2 = dword_12E350;
 LABEL_162:
                   if ( **(int16_t **)off_12E8C0 < 0 )
-                    sub_12F32C(dword_12E8BC, dword_12E8B8, 594);
+                    irq_disable_mmio_write(dword_12E8BC, dword_12E8B8, 594);
                   break;
               }
               goto LABEL_12;
@@ -255,7 +255,7 @@ LABEL_162:
                 break;
               default:
                 if ( **(int16_t **)off_12E354 < 0 )
-                  sub_12F32C(dword_12E8BC, dword_12E8B8, 283);
+                  irq_disable_mmio_write(dword_12E8BC, dword_12E8B8, 283);
                 v14 = 2;
                 break;
             }
@@ -302,7 +302,7 @@ LABEL_162:
             else
             {
               if ( **(int16_t **)off_12E354 < 0 )
-                sub_12F32C(dword_12E8BC, dword_12E8B8, 334);
+                irq_disable_mmio_write(dword_12E8BC, dword_12E8B8, 334);
               v14 = 6;
             }
             goto LABEL_12;

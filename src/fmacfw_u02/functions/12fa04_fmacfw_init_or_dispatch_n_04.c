@@ -13,10 +13,10 @@
 extern uint32_t dword_12FA24;
 extern uint32_t dword_12FA28;
 
-// fmacfw_init_or_dispatch_n_04 @ 0x12fa04, size 32 bytes
-// Doc: fmacfw_init_or_dispatch_n_04 [util]: Initialize fmacfw global structure and dispatch
-// fmacfw_init_or_dispatch_n_04 [util]: Initialize fmacfw global structure and dispatch
-int fmacfw_init_or_dispatch_n_04()
+// init_static_tables @ 0x12fa04, size 32 bytes
+// Doc: init_static_tables [util]: Initialize fmacfw global structure and dispatch
+// init_static_tables [util]: Initialize fmacfw global structure and dispatch
+int init_static_tables()
 {
   uint32_t *v0; // r4
   int v1; // r6
@@ -28,7 +28,7 @@ int fmacfw_init_or_dispatch_n_04()
   do
   {
     if ( v0[1] )
-      sub_10DC24(v1, *v0);
+      log_printf(v1, *v0);
     v0 += 4;
   }
   while ( v0 != (uint32_t *)v2 );

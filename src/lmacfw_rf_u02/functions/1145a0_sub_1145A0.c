@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_1145A0 @ 0x1145a0, size 10 bytes
+// mmio_read_8 @ 0x1145a0, size 10 bytes
 // Doc: sub_12145A0_5a0 [rf]: lmac RF behavioral stub
 // sub_12145A0_5a0 [rf]: lmac RF behavioral stub
-int  sub_1145A0(int a1)
+int  mmio_read_8(int a1)
 {
-  return rf_init_or_config_n_318(8, a1, 4u);
+  return ke_task_handler(8, a1, 4u);
 }
 

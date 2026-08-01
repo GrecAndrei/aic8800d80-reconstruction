@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// sub_103FBC @ 0x103fbc, size 48 bytes
-int  sub_103FBC(int a1, int a2, uint32_t *a3)
+// lookup_rf_table @ 0x103fbc, size 48 bytes
+int  lookup_rf_table(int a1, int a2, uint32_t *a3)
 {
   int v3; // r2
   unsigned int v4; // r0
   int v5; // r3
 
-  v3 = a3[sub_103D60(a1, a2, a3)];
+  v3 = a3[rand(a1, a2, a3)];
   v4 = (unsigned int)v3 >> 20;
   v5 = (uint16_t)v3 >> 4;
   if ( v3 < 0 )

@@ -14,10 +14,10 @@ extern uint32_t off_113898;
 extern uint32_t off_11389C;
 extern uint32_t dword_1138A0;
 
-// sub_113864 @ 0x113864, size 52 bytes
+// int_disable_set_flag @ 0x113864, size 52 bytes
 // Doc: sub_1213864 [unknown]: Pushes r4/lr; unrecognized instruction pattern with lsls r3,r3,0x1f
 // sub_1213864 [unknown]: Pushes r4/lr; unrecognized instruction pattern with lsls r3,r3,0x1f
-int sub_113864()
+int int_disable_set_flag()
 {
   int *v0; // r4
   int v1; // r0
@@ -33,7 +33,7 @@ int sub_113864()
   v0 = (int *)off_11389C;
   v1 = dword_1138A0;
   ++*(uint32_t *)off_11389C;
-  result = sub_12D4F8(v1);
+  result = list_pop_front(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;

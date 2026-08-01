@@ -16,8 +16,8 @@ extern uint32_t off_107210;
 extern uint32_t off_107208;
 extern uint32_t dword_10720C;
 
-// sub_107150 @ 0x107150, size 176 bytes
-int  sub_107150(int a1)
+// load_patch_bundle @ 0x107150, size 176 bytes
+int  load_patch_bundle(int a1)
 {
   int v2; // r1
   int v3; // r2
@@ -131,6 +131,6 @@ int  sub_107150(int a1)
   *v24 = (v25 << 12) & 0x7000 | v26 & 0xFFFF8FFF;
   *v27 |= 0x400u;
   *v27 = (v28 << 8) & 0x300 | *v27 & 0xFFFFFCFF;
-  return sub_11F74C(1, v29, v22, 3 * v22);
+  return check_interrupt_flag(1, v29, v22, 3 * v22);
 }
 

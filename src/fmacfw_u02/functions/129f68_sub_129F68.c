@@ -16,8 +16,8 @@ extern uint32_t off_12A048;
 extern uint32_t dword_12A03C;
 extern uint32_t off_12A040;
 
-// sub_129F68 @ 0x129f68, size 206 bytes
-int  sub_129F68(int a1, int a2)
+// llc_poll_active @ 0x129f68, size 206 bytes
+int  llc_poll_active(int a1, int a2)
 {
   char *v2; // r4
   int v5; // r5
@@ -51,7 +51,7 @@ int  sub_129F68(int a1, int a2)
     v11 = 188;
     v12 = (int *)((char *)off_12A038 + 140);
   }
-  memset_thunk(v12, 0, 0x8Cu);
+  memset(v12, 0, 0x8Cu);
   v7 = &v2[140 * v10];
   v7[113] = a1;
   v7[112] = a2;

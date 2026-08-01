@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_event_dispatch @ 0x131144, size 40 bytes
-// Doc: rf_event_dispatch [rf]: Wrapper dispatching to lower-level handler with 3 args
-// rf_event_dispatch [rf]: Wrapper dispatching to lower-level handler with 3 args
-uint8_t * rf_event_dispatch(uint8_t *a1, int a2, int a3)
+// rf_set_cal_u16_e4 @ 0x131144, size 40 bytes
+// Doc: rf_set_cal_u16_e4 [rf]: Wrapper dispatching to lower-level handler with 3 args
+// rf_set_cal_u16_e4 [rf]: Wrapper dispatching to lower-level handler with 3 args
+uint8_t * rf_set_cal_u16_e4(uint8_t *a1, int a2, int a3)
 {
   uint8_t *result; // r0
 
-  result = sub_12DEC8(a1, a2);
+  result = parse_data_1(a1, a2);
   if ( result )
   {
     *(uint16_t *)(a3 + 228) = result[2] | (result[3] << 8);

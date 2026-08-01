@@ -12,8 +12,8 @@
 
 extern uint32_t off_102D78;
 
-// sub_102D0C @ 0x102d0c, size 106 bytes
-int  sub_102D0C(int result)
+// set_wakeup_polarity @ 0x102d0c, size 106 bytes
+int  set_wakeup_polarity(int result)
 {
   int v1; // r4
   int v2; // zf

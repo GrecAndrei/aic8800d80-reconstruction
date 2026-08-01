@@ -18,10 +18,10 @@ extern uint32_t dword_11F740;
 extern uint32_t dword_11F744;
 extern uint32_t dword_11F730;
 
-// rf_mem_read_f594 @ 0x11f594, size 404 bytes
+// handle_ipc_request @ 0x11f594, size 404 bytes
 // Doc: rf_mem_read_n72 [rf]: Bulk RF memory read across entry table
 // rf_mem_read_n72 [rf]: Bulk RF memory read across entry table
-unsigned int  rf_mem_read_f594(unsigned int result, int a2, int a3, int a4)
+unsigned int  handle_ipc_request(unsigned int result, int a2, int a3, int a4)
 {
   int v4; // r4
   int v5; // r9
@@ -55,25 +55,25 @@ unsigned int  rf_mem_read_f594(unsigned int result, int a2, int a3, int a4)
   v6 = -a3 & result;
   while ( 1 )
   {
-    msg_parse(dword_11F728, v6);
+    dispatch_event_handler(dword_11F728, v6);
     v7 = v24;
     if ( v24 >= 0x10 )
       v7 = 16;
     if ( ((v6 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       if ( !v24 )
-        return (unsigned int)uart_puts((uint8_t *)rf_mem_read_n1a0);
+        return (unsigned int)uart_tx_string((uint8_t *)rf_mem_read_n1a0);
       v21 = dword_11F72C;
       v22 = 0;
       while ( 1 )
       {
-        cb_efa4 = rf_reg_read_cb_efa4();
+        cb_efa4 = call_indirect_table();
         if ( v4 == 4 )
           break;
         if ( v4 == 2 )
         {
           v22 += 4;
-          msg_parse(dword_11F738, (uint16_t)cb_efa4, HIWORD(cb_efa4), BYTE2(cb_efa4));
+          dispatch_event_handler(dword_11F738, (uint16_t)cb_efa4, HIWORD(cb_efa4), BYTE2(cb_efa4));
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -84,7 +84,7 @@ rf_mem_read_n166:
         }
         else
         {
-          msg_parse(v5);
+          dispatch_event_handler(v5);
 rf_mem_read_6b8:
           v22 += 4;
           v6 += 4;
@@ -92,7 +92,7 @@ rf_mem_read_6b8:
             goto rf_mem_read_n166;
         }
       }
-      msg_parse(v21, cb_efa4, BYTE1(cb_efa4), BYTE2(cb_efa4));
+      dispatch_event_handler(v21, cb_efa4, BYTE1(cb_efa4), BYTE2(cb_efa4));
       goto rf_mem_read_6b8;
     }
     if ( v24 )
@@ -103,7 +103,7 @@ rf_mem_read_6b8:
       goto rf_mem_read_n90;
     }
 rf_mem_read_nfa:
-    result = (unsigned int)uart_puts((uint8_t *)rf_mem_read_n1a0);
+    result = (unsigned int)uart_tx_string((uint8_t *)rf_mem_read_n1a0);
     v24 -= v7;
     if ( !v24 )
       return result;
@@ -120,7 +120,7 @@ rf_mem_read_nfa:
       if ( v4 != 4 )
         break;
       v11 += 4;
-      msg_parse(dword_11F72C, *(uint32_t *)v10);
+      dispatch_event_handler(dword_11F72C, *(uint32_t *)v10);
       v10 += 2;
       if ( v7 <= v11 )
         goto rf_mem_read_0;
@@ -132,7 +132,7 @@ rf_mem_read_nfa:
     if ( v4 == 2 )
       v13 = v9;
     v11 += v4;
-    msg_parse(v13, v12);
+    dispatch_event_handler(v13, v12);
     v10 = (uint16_t *)((char *)v10 + v4);
   }
   while ( v7 > v11 );
@@ -141,7 +141,7 @@ rf_mem_read_0:
     goto LABEL_30;
   if ( v24 > 0xF )
   {
-    uart_puts((uint8_t *)dword_11F730);
+    uart_tx_string((uint8_t *)dword_11F730);
     goto LABEL_26;
   }
 rf_mem_read_n90:
@@ -154,17 +154,17 @@ rf_mem_read_n90:
   {
     while ( (v14 & v16++) != 0 )
     {
-      uart_puts(v15);
+      uart_tx_string(v15);
       if ( v17 == v16 )
         goto rf_mem_read_ncc;
     }
-    uart_putc(32);
-    uart_puts(v15);
+    uart_tx_byte(32);
+    uart_tx_string(v15);
   }
   while ( v17 != v16 );
 rf_mem_read_ncc:
   v4 = v26;
-  uart_puts((uint8_t *)dword_11F730);
+  uart_tx_string((uint8_t *)dword_11F730);
   if ( v24 )
   {
 LABEL_26:
@@ -175,13 +175,13 @@ LABEL_26:
       if ( (unsigned int)(v20 - 31) > 0x5F )
         v20 = 46;
       ++v19;
-      uart_putc(v20);
+      uart_tx_byte(v20);
     }
     while ( v7 > v19 );
 LABEL_30:
     v6 = (unsigned int)v10;
     goto rf_mem_read_nfa;
   }
-  return (unsigned int)uart_puts((uint8_t *)rf_mem_read_n1a0);
+  return (unsigned int)uart_tx_string((uint8_t *)rf_mem_read_n1a0);
 }
 

@@ -22,8 +22,8 @@ extern uint32_t off_12C320;
 extern uint32_t off_12C32C;
 extern uint32_t dword_12C334;
 
-// sub_12C1E0 @ 0x12c1e0, size 290 bytes
-void  sub_12C1E0(int a1, int a2)
+// ipc_lock_acquire @ 0x12c1e0, size 290 bytes
+void  ipc_lock_acquire(int a1, int a2)
 {
   int v2; // r4
   int *v3; // r0
@@ -56,7 +56,7 @@ void  sub_12C1E0(int a1, int a2)
       *v4 = v6 | 0x500000;
       v14 = dword_12C338;
       *v4 = v6 | 0xF00000;
-      msg_parse(v14, v4, v13);
+      event_dispatch(v14, v4, v13);
     }
     else
     {
@@ -65,7 +65,7 @@ void  sub_12C1E0(int a1, int a2)
       v9 = v5 & 0xFFFF57FF;
       *(uint32_t *)off_12C30C = v9;
       *v7 = v6 & 0xFF5FFFFF;
-      msg_parse(v8, v7, v9);
+      event_dispatch(v8, v7, v9);
     }
   }
   if ( (v2 & 4) != 0 )
@@ -79,7 +79,7 @@ void  sub_12C1E0(int a1, int a2)
     v10 = off_12C32C;
     v11 = dword_12C334;
     *(uint32_t *)off_12C32C |= 1u;
-    msg_parse(v11, a2, v10);
+    event_dispatch(v11, a2, v10);
   }
 }
 
