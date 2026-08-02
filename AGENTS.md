@@ -53,19 +53,25 @@ release tarball
   repointed to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02;
   target list lives in gitignored `extraction_out/`).
 - **Emulator (milestone)**: `tools/aic8800d80_emulator.py` — full-system
-  Unicorn platform at chip base 0x100000, Cortex-M3 CPU model (needed for
-  M-profile `MSR MSP`), MMIO device model from `src/include/aic8800d80_mmio.h`,
-  boot from the resolved `start` entry, and original-binary behavioral
-  fingerprints for the 25 truth-lane targets.
-  - Boot header notes: the IVT reset vector (0x1201a9) is a stale
-    mid-function pointer; the real first-stage init is the `start` routine
-    at file offset 0x1a8 (CPUID check vs 0xC241), identical across all 4
-    images. `resolve_boot_entry()` locates it by signature. The boot-header
-    second-stage pointer (e.g. 0x134f29 in fmacfw_u02) is ALSO stale — it
-    lands mid-function inside `bt_setup_conn_profile`, so `boot` faults at
-    ~44 insns on a null-pointer write (0xfffffffa). This is a finding about
-    the binary, not an emulator bug; `run()` now reports
-    `fault_address`/`fault_access`/`fault_size` for every unmapped access.
+  Unicorn platform, Cortex-M3 CPU model (needed for M-profile `MSR MSP`),
+  MMIO device model from `src/include/aic8800d80_mmio.h`, boot from the IVT
+  reset vector, and original-binary behavioral fingerprints for the 25
+  truth-lane targets.
+  - **RUNTIME BASE IS 0x120000, NOT 0x100000** (corrected 2026-08-02). The
+    IVT reset vector is 0x1201a9 = 0x1201a8|1 = the CPUID-check `start` at
+    file 0x1a8 — *correct* at base 0x120000. The earlier "stale IVT" finding
+    was an artifact of assuming base 0x100000. Confirmed by: (a) reset vector
+    lands exactly on the CPUID start at 0x120000; (b) switch jump tables that
+    Hex-Rays cannot decompile point to targets exactly +0x20000 past the
+    functions in 0x100000-space, i.e. in-function at 0x120000; (c) all 4
+    images boot DEEP from the reset vector at 0x120000 (8000+ insns, ~2660
+    MMIO writes, no fault) vs the old base where fmacfwbt short-circuited at
+    125 insns and the other 3 faulted at ~44 insns on a null-pointer write.
+    The reconstruction / naming dataset / composed src intentionally stay in
+    a self-consistent "analysis space" = file + 0x100000; the ORIGINAL
+    binary is loaded at 0x120000 by the emulator (targets run at key+0x20000,
+    compare key unchanged). `run()` reports `fault_address`/`fault_access`/
+    `fault_size` for every unmapped access.
   - `verify` → `orig_fingerprints.jsonl`; `compare` vs
     `truth_lane_smoke.py` outcomes scores peripheral-register overlap on
     the SAME basis (depth-0 = the entry function's own body traffic,
@@ -178,15 +184,21 @@ python3 tools/truth_lane_smoke.py --final-dir extraction_out/reconstruction/mega
 ## Address conversion cheat sheet
 
 ```
-v14 BASE           = 0x1200000
-chip runtime BASE  = 0x100000
-file_offset = 0x100000 → chip addr 0x100000
+HARDWARE runtime BASE = 0x120000   (SoC loads the WFFW image here; IVT reset
+                                   vector 0x1201a9 == CPUID start @ file 0x1a8)
+v14 BASE           = 0x1200000     (old IDA-export convention)
+analysis space     = 0x100000      (reconstruction / naming dataset / composed
+                                   src: file_offset + 0x100000, self-consistent
+                                   but NOT the hardware base)
+file_offset + 0x100000 → analysis-space addr
+analysis-space addr + 0x20000 → hardware addr (0x120000 base)
 chip addr = v14 addr - 0x1100000
 ```
 
 ## IDA Pro setup for AIC8800D80
 
-The firmware loads as ARM Thumb at `0x100000`. To get IDA to recognize it:
+Analysis wraps the firmware as ARM Thumb at `0x100000` (analysis space, for
+dataset consistency — the hardware base is 0x120000). To get IDA to recognize it:
 
 1. Wrap the raw `.bin` as a minimal ARM ELF (one LOAD segment at 0x100000)
    - See `harness_v19/scripts/make_elf.py`
@@ -212,7 +224,7 @@ form; it is empirically working for the naming pipeline — do not "fix" it.
 
 ## AIC8800D80 firmware specs
 
-- 4 binaries, ~340KB each; loads at 0x100000
+- 4 binaries, ~340KB each; hardware loads at 0x120000 (analysis space 0x100000)
 - 4,723 total functions across 4 images (v19 boundaries)
 - 5,945 function instances analyzed by v25 scan; 5,623 in src/ functions/
 - 25,815 unique MMIO addresses; 1,042 distinct 64KB pages
