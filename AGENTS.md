@@ -52,6 +52,20 @@ release tarball
   `tools/truth_lane_smoke.py --src` — **25/25 PASS** (one stale v12 target
   repointed to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02;
   target list lives in gitignored `extraction_out/`).
+- **Emulator (milestone)**: `tools/aic8800d80_emulator.py` — full-system
+  Unicorn platform at chip base 0x100000, Cortex-M3 CPU model (needed for
+  M-profile `MSR MSP`), MMIO device model from `src/include/aic8800d80_mmio.h`,
+  boot from the resolved `start` entry, and original-binary behavioral
+  fingerprints for the 25 truth-lane targets.
+  - Boot header notes: the IVT reset vector (0x1201a9) is a stale
+    mid-function pointer; the real first-stage init is the `start` routine
+    at file offset 0x1a8 (CPUID check vs 0xC241), identical across all 4
+    images. `resolve_boot_entry()` locates it by signature.
+  - `verify` → `orig_fingerprints.jsonl`; `compare` vs
+    `truth_lane_smoke.py` outcomes scores peripheral-register overlap:
+    **8 matched / 7 recon-missing / 10 no-periph-traffic** (crypto_key_load
+    and rf_level_apply lose 134 and 97 register touches respectively in the
+    reconstruction — open reconstruction gaps).
 - **Compose dedupe**: units deduped by address, preferring the plain
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
   LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).

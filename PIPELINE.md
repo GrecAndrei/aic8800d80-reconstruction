@@ -237,6 +237,44 @@ cluster, vs v20's 173 which grouped by primary struct arg.
 
 ## Release: artifacts/releases/aic8800d80-rebuild-v1-v25.tar.gz (4.4 MB)
 
+## Stage 7: Full-System Emulator (per-function behavioral gate)
+
+The emulation-verify step of the unified pipeline runs the ORIGINAL
+binaries in a full-system Unicorn platform and fingerprints the truth-lane
+targets; the reconstructed side is scored against those fingerprints.
+
+```bash
+python3 tools/aic8800d80_emulator.py header fmacfw_8800d80_u02.bin   # IVT info
+python3 tools/aic8800d80_emulator.py boot  fmacfw_8800d80_u02.bin    # boot + MMIO log
+python3 tools/aic8800d80_emulator.py verify --max-insns 5000 \       # 25 orig fingerprints
+  --out /tmp/opencode/emulator_verify
+python3 tools/truth_lane_smoke.py --src \                            # reconstructed side
+  --out /tmp/opencode/tls_cmp
+python3 tools/aic8800d80_emulator.py compare \                       # register-overlap score
+  --orig /tmp/opencode/emulator_verify/orig_fingerprints.jsonl \
+  --recon /tmp/opencode/tls_cmp/smoke_outcomes.jsonl
+```
+
+Platform facts (learned while building it — do not "fix"):
+- Images load at chip base **0x100000** (file offset + 0x100000); the
+  `start` init routine is at file offset 0x1a8.
+- The IVT **reset vector 0x1201a9 is a stale mid-function pointer** (it
+  lands inside `adjust_table_pointers`). Boot uses the resolved `start`
+  entry (CPUID check vs 0xC241), identical across all 4 images.
+- Unicorn needs the **Cortex-M3 CPU model** (`ctl_set_cpu_model`) for the
+  M-profile `MSR.W MSP, R0` in `start`; the default ARM mode faults on it.
+- Truth-lane target addresses are mixed: fmacfw_h/u02 in chip space,
+  fmacfwbt/lmacfw_rf as file offsets. Normalize `< 0x100000` by `+ 0x100000`.
+- Compare scores **peripheral-register overlap** (0x40000000-0x5FFFFFFF,
+  0xE0000000-0xE00FFFFF), not the data-segment addresses that
+  `is_mmio_addr` also flags.
+
+Baseline (2026-08-02): 25/25 targets fingerprint; compare reports
+**8 matched / 7 recon-missing / 10 no-periph-traffic**. `crypto_key_load`
+and `rf_level_apply` lose 134 and 97 register touches in the reconstruction
+(open gaps; note the recon side stubs `sub_*` callees, so register traffic
+through helpers shows up as missing).
+
 ## Truth-Lane Scoring
 
 Score the top 25 critical functions with original-binary trace validation:
