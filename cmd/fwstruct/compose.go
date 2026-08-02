@@ -234,6 +234,7 @@ var forbiddenCName = map[string]bool{
 // src/include/aic8800d80_types.h (never emit forward decls for them).
 var headerIntrinsic = map[string]bool{
 	"JUMPOUT": true, "COERCE_FLOAT": true, "COERCE_UINT32": true,
+	"COERCE_UNSIGNED_INT": true,
 	"__CFADD__": true, "__OFADD__": true, "__OFSUB__": true,
 	"bswap32": true, "abs16": true, "abs32": true,
 	"vcvts_n_s32_f32": true, "vcvts_n_f32_u32": true,

@@ -97,11 +97,19 @@ release tarball
   (via the LLM dataset, indexed by BOTH `fn` and `name`, resolved with
   `.thumb_func` trampolines — C `alias()` and `.thumb_set` both lose Thumb
   mode), 346 `.bss` data blobs for the decompiler data-symbol refs
-  (`*(uint32_t*)name`), `-lgcc`/`-lc` for `__aeabi_*` + libc helpers, and
-  weak stubs for the 8 genuine gaps (6 `sub_*` + fmacfwbt `start` boot entry
-  + COERCE_UNSIGNED_INT), each recorded in `build/full_link/report.json` as
-  the actionable next-rename list. Outputs go to gitignored `build/full_link/`.
-  `report.json['total_missing']` = 8 = the exact list to LLM-name next.
+  (`*(uint32_t*)name`), `-lgcc`/`-lc` for `__aeabi_*` + libc helpers, and —
+  after the base-0x120000 decompile work — **no genuine code gaps remain**:
+  `report.json['total_missing']` = 0.
+  The 8 former stubs were closed as: 6 `sub_*` switch-analysis failures
+  decompiled at the hardware base 0x120000 (their jump tables are linked for
+  that base) and shifted −0x20000 into analysis space; fmacfwbt's boot `start`
+  composed like the other 3 images; and the Hex-Rays intrinsic
+  `COERCE_UNSIGNED_INT` defined in `aic8800d80_types.h` + compose's
+  `headerIntrinsic`. New tooling: `harness_v19/scripts/ida_decompile_hwbase.py`
+  (targeted decompile at 0x120000 with analysis-space shift) and
+  `tools/convert_decompiled_to_functions.py` (decompiled → src/functions
+  format, incl. 2D data-symbol subscript + MSVC `__asm` + JUMPOUT shifts).
+  Outputs go to gitignored `build/full_link/`.
 - **Call-site disambiguation (duplicate names)**: the LLM naming gave the
   same name to distinct functions (214 same-image dupes, ~460 redundant
   bindings). Compose keeps the definitions unique (base + `_1`) but baked-in

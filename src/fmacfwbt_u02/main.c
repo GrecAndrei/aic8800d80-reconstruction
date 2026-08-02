@@ -18,6 +18,7 @@ static union { uint64_t u; double d; } dbl_10C3E0_o = {0x40a30a0000000000ULL};
 static union { uint64_t u; double d; } dbl_10C3F0_o = {0x40a3720000000000ULL};
 #define dbl_10C3F0 (dbl_10C3F0_o.d)
 uint32_t dword_100000 = 0x001a0000;  /* ptr -> 0x1a0000 */
+uint32_t dword_1001F8 = 0x001a0000;  /* ptr -> 0x1a0000 */
 uint32_t dword_10041C = 0x00199ba4;  /* ptr -> 0x199ba4 */
 uint32_t dword_10042C = 0x00164030;  /* ptr -> 0x164030, ascii "0@\x16\x00" */
 uint32_t dword_100430 = 0x0017cd7c;  /* ptr -> 0x17cd7c */
@@ -2853,14 +2854,11 @@ uint32_t jpt_124572[] = {0xf027f853, 0x44bdbf00, 0x40b90014, 0x44770014, 0x40b90
 uint32_t jpt_12E614[] = {0xf02af851, 0x0014e53f, 0x0014e50b, 0x0014e4df, 0x0014e58d, 0x0014e535, 0x0014e571, 0x0014e555, 0x0014e461, 0x3b04f85b, 0xf04f9301, 0xe76a0a05, 0x3b04f85b, 0xf04f9302, 0xe7640a03, 0xf0439b00, 0x93000301, 0x0a06f04f, 0x4614e75d, 0xf43f2a00, 0x9003af63, 0x9b00e67d, 0x0340f043, 0xf04f9300, 0xe7500a02, 0x681b4b10, 0x3000f9b3, 0xf2c02b00, 0xf04f829e, 0xe7460a02, 0xf0439b00, 0x93000310, 0x0a02f04f, 0x9b00e73f, 0x0308f043, 0xf04f9300, 0xe7380a02, 0xf0439b00, 0x93000320, 0x0a02f04f, 0xbf00e731, 0x0016ae00, 0x00182c24, 0x079b9b00, 0x8194f100, 0x07d89b00, 0x8190f140, 0xf0002a64, 0xf85b8232, 0x3a581b04, 0x2a20b289, 0x8224f200, 0xf012e8df, 0x0222025a, 0x02220222, 0x02220222, 0x02220222, 0x02220222, 0x0222024e, 0x02220072, 0x02220222, 0x02220222, 0x02220222, 0x02220222};
 uint32_t jpt_12E9FE[] = {0xf022f853, 0xeb9dbf00, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb850014, 0xeb2d0014, 0xe7c70014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb550014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xeb2d0014, 0xe7cd0014, 0xeb2d0014, 0xeb2d0014, 0xebbb0014, 0x9e030014, 0xe54a4614, 0x48644964, 0x72a7f44f, 0xfdfdf000, 0x0a06f04f, 0x111ae53c, 0x030ff003, 0x2002f81e, 0x3003f81e, 0x2010f88d, 0x3011f88d, 0x012ef06f, 0x220f232f, 0x7813e6fc, 0xf0002b00, 0x9b018097, 0xf43f2b00, 0x9b01aecc, 0xf1c24611, 0x2b000001, 0x0c01eb00, 0xf811dd0f, 0x3b01ef01, 0x0f00f1be, 0x2b00d010, 0x9902d1f3, 0x93019800, 0x1ac94663, 0x0040f000};
 #define loc_1345A4 0x1345a4  /* code label address */
-#define loc_135564 0x135564  /* code label address */
-#define loc_135568 0x135568  /* code label address */
-#define loc_13556C 0x13556c  /* code label address */
-#define loc_135570 0x135570  /* code label address */
-#define loc_135574 0x135574  /* code label address */
-#define loc_135578 0x135578  /* code label address */
-#define loc_13557C 0x13557c  /* code label address */
 #define loc_14343C 0x14343c  /* code label address */
+uint32_t off_1001EC = 0xe000ed00;
+uint32_t off_1001F0 = 0x40506000;  /* ascii "\x00`P@" */
+uint32_t off_1001F4 = 0x40500000;  /* ascii "\x00\x00P@" */
+int (*off_1001FC)() = (int (*)())0x135565;  /* fn-ptr */
 uint32_t off_100418 = 0x00182c64;  /* ptr -> 0x182c64, ascii "d,\x18\x00" */
 uint32_t off_100420 = 0x00188858;  /* ptr -> 0x188858 */
 uint32_t off_100424 = 0x00173460;  /* ptr -> 0x173460, ascii "`4\x17\x00" */
@@ -5687,6 +5685,7 @@ uint64_t qword_102D04 = 0x00171b3800171c78ULL;
 uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};
 
 /* --- forward declarations --- */
+int start(int a1, int a2, int a3);
 int * memset_byte(int *result, uint8_t a2, unsigned int a3);
 int ke_evt_handler();
 void ke_task_init();
@@ -6857,6 +6856,7 @@ int bt_get_ctx_by_phy(int a1, int a2, int a3);
 int tx_init_data_buffer(int a1);
 int scan_parse_adv_data(int a1);
 int rf_get_channel_param(int a1, int a2);
+BOOL is_rate_valid(char a1, unsigned int a2);
 unsigned int tx_prepare_ll_packet(uint8_t *a1, int a2, int a3, uint8_t *a4);
 int bt_get_conn_ctx(int a1, int a2, int a3);
 int bt_check_conn_active(int a1, int a2, int a3, int a4);
@@ -6976,7 +6976,6 @@ int a2();
 int a3();
 int bt_chan_parse();
 int cf();
-int sub_13C520();
 int v10();
 int v11();
 int v13();
@@ -7003,6 +7002,8 @@ int zf();
 /* --- function bodies --- */
 /* forward decls (undeclared identifiers, heal-generated) */
 extern uint32_t MEMORY[];
+int R0();
+int R2();
 int STACK();
 int ipc_msg_dispatch();
 int log_free_dispatch_02d0();
@@ -7130,6 +7131,43 @@ int rf_stream_start2_n_37b();
 int rf_stream_start2_n_3f8();
 int rf_stream_start_0cc();
 int sdio_buffer_prepare_n_a8_e29c();
+// start @ 0x100100
+int start(int a1, int a2, int a3) {
+  int v4; // r4
+  uint32_t *v5; // r6
+  int v6; // r5
+  int v7; // r2
+  int v8; // r3
+
+  v6 = *(uint8_t *)(a1 + 20);
+  if ( !((a3 < 0) ^ _VF | (a3 == 0)) )
+    ((int (*)())JUMPOUT)(0x1001F2);
+  *v5 = a1;
+  v5[1] = v4;
+  v5[2] = (int)(uintptr_t)(v5);
+  *v5 = a1;
+  v5[1] = a3;
+  v5[2] = a3;
+  v5[3] = v6;
+  v5[4] = (int)(uintptr_t)(v5);
+  if ( (uint16_t)*(uint32_t *)off_1001EC == 49729
+    || (*((uint32_t *)off_1001F0 + 23) & 3) != 2
+    || (v7 = *((uint32_t *)off_1001F4 + 92), v8 = *((uint32_t *)off_1001F4 + 93), v7 >= 0)
+    || v8 >= 0 )
+  {
+    _R0 = dword_1001F8;
+    __asm volatile("msr msp, %0" : : "r"(R0) : "memory");
+    return off_1001FC();
+  }
+  else
+  {
+    _R2 = v7 & 0xFFFFFFF;
+    __asm volatile("msr msp, %0" : : "r"(R2) : "memory");
+    return ((int (*)(void))(v8 & 0xFFFFFFF))();
+  }
+}
+
+
 // memset_byte @ 0x100200
 int * memset_byte(int *result, uint8_t a2, unsigned int a3) {
   unsigned int v3; // r4
@@ -77546,6 +77584,39 @@ int rf_get_channel_param(int a1, int a2) {
 
 
 
+// is_rate_valid @ 0x13c520
+BOOL is_rate_valid(char a1, unsigned int a2) {
+  int v2; // r3
+
+  if ( (a1 & 0xC) != 0 )
+    return 0;
+  v2 = a1 & 0xF0;
+  if ( v2 == 192 )
+    return 1;
+  if ( v2 != 208 )
+    return v2 == 160;
+  if ( a2 <= 0x16 )
+  {
+    if ( a2 > 3 )
+    {
+      switch ( a2 )
+      {
+        case 4u:
+        case 7u:
+        case 0xBu:
+        case 0xFu:
+        case 0x16u:
+          return 0;
+        default:
+          return 1;
+      }
+    }
+    return 1;
+  }
+  return a2 != 127;
+}
+
+
 // tx_prepare_ll_packet @ 0x13c5b4
 unsigned int tx_prepare_ll_packet(uint8_t *a1, int a2, int a3, uint8_t *a4) {
   int v4; // r6
@@ -77573,7 +77644,7 @@ unsigned int tx_prepare_ll_packet(uint8_t *a1, int a2, int a3, uint8_t *a4) {
   v4 = a1[8];
   v5 = *(uint16_t *)a1;
   v6 = *(uint8_t *)(v4 + a2);
-  if ( !sub_13C520(v5, v6) )
+  if ( !is_rate_valid(v5, v6) )
     return 0;
   v11 = a1[9];
   if ( v11 == 255 )
@@ -77661,7 +77732,7 @@ int bt_get_conn_ctx(int a1, int a2, int a3) {
   if ( result )
   {
     v7 = a2;
-    result = sub_13C520(a2, a3);
+    result = is_rate_valid(a2, a3);
     if ( result )
     {
       v9 = 696 * v3;

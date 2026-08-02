@@ -79,6 +79,7 @@ static inline uint16_t _byteswap_ushort(uint16_t v) { return (uint16_t)((v >> 8)
 static inline uint32_t __ROR4__(uint32_t v, int n)  { return (v >> (n & 31)) | (v << ((32 - n) & 31)); }
 static inline float COERCE_FLOAT(uint32_t v) { float f; __builtin_memcpy(&f, &v, sizeof(f)); return f; }
 static inline uint32_t COERCE_UINT32(float f) { uint32_t v; __builtin_memcpy(&v, &f, sizeof(v)); return v; }
+static inline uint32_t COERCE_UNSIGNED_INT(float v) { uint32_t r; __builtin_memcpy(&r, &v, sizeof(r)); return r; }
 static inline float vcvts_n_s32_f32(int32_t v, int n) { return (float)v * (float)(1u << n); }
 static inline float vcvts_n_f32_u32(uint32_t v, int n) { return (float)v * (float)(1u << n); }
 static inline uint8_t __CFADD__(uint32_t a, uint32_t b) { return ((a + b) < a); }

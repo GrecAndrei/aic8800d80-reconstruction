@@ -2337,6 +2337,7 @@ uint32_t dword_13541C = 0x00165ed8;  /* ptr -> 0x165ed8 */
 uint32_t dword_13551C = 0x0016be70;  /* ptr -> 0x16be70 */
 uint32_t dword_135520 = 0x0016bfa0;  /* ptr -> 0x16bfa0 */
 uint32_t dword_135524 = 0x00165ed8;  /* ptr -> 0x165ed8 */
+uint32_t dword_1355BC = 0x0018e628;  /* ptr -> 0x18e628 */
 uint32_t dword_135704 = 0x0018e628;  /* ptr -> 0x18e628 */
 uint32_t dword_135708 = 0x00188428;  /* ptr -> 0x188428 */
 uint32_t dword_1357E0 = 0x0018e628;  /* ptr -> 0x18e628 */
@@ -2866,10 +2867,6 @@ static union { uint32_t u; float f; } flt_12D598_o = {0x4a030000u};
 #define flt_12D598 (flt_12D598_o.f)
 uint32_t jpt_1241FE[] = {0xf027f853, 0x4149bf00, 0x3d450014, 0x41030014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x40d90014, 0x3d450014, 0x40b70014, 0x3d450014, 0x40910014, 0x3d450014, 0x40570014, 0x3d450014, 0x40170014, 0x3d450014, 0x3fe70014, 0x3d450014, 0x3d450014, 0x3d450014, 0x41250014, 0x3d450014, 0x3e550014, 0x3d450014, 0x3dfb0014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d790014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d6d0014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d450014, 0x3d570014, 0x9b030014, 0xf0402b00, 0xb1298087, 0x4a809b03, 0x42836a10, 0x81c7f000, 0xe63d4f7f, 0x681b4b7f, 0xf43f0719};
 uint32_t jpt_12E2AC[] = {0xf02af851, 0x0014e1d7, 0x0014e1a3, 0x0014e177, 0x0014e225, 0x0014e1cd, 0x0014e209, 0x0014e1ed, 0x0014e0f9, 0x3b04f85b, 0xf04f9301, 0xe76a0a05, 0x3b04f85b, 0xf04f9302, 0xe7640a03, 0xf0439b00, 0x93000301, 0x0a06f04f, 0x4614e75d, 0xf43f2a00, 0x9003af63, 0x9b00e67d, 0x0340f043, 0xf04f9300, 0xe7500a02, 0x681b4b10, 0x3000f9b3, 0xf2c02b00, 0xf04f829e, 0xe7460a02, 0xf0439b00, 0x93000310, 0x0a02f04f, 0x9b00e73f, 0x0308f043, 0xf04f9300, 0xe7380a02, 0xf0439b00, 0x93000320, 0x0a02f04f, 0xbf00e731, 0x0016ab38, 0x00182b60, 0x079b9b00, 0x8194f100, 0x07d89b00, 0x8190f140, 0xf0002a64, 0xf85b8232, 0x3a581b04, 0x2a20b289, 0x8224f200, 0xf012e8df, 0x0222025a, 0x02220222, 0x02220222, 0x02220222, 0x02220222, 0x0222024e, 0x02220072, 0x02220222, 0x02220222, 0x02220222, 0x02220222};
-#define loc_124336 0x124336  /* code label address */
-#define loc_124340 0x124340  /* code label address */
-#define loc_12436A 0x12436a  /* code label address */
-#define loc_1243AA 0x1243aa  /* code label address */
 #define loc_12C9A4 0x12c9a4  /* code label address */
 #define loc_12F044 0x12f044  /* code label address */
 #define loc_12F048 0x12f048  /* code label address */
@@ -5585,6 +5582,9 @@ uint32_t off_135414 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
 uint32_t off_135454 = 0x00192478;  /* ptr -> 0x192478, ascii "x$\x19\x00" */
 uint32_t off_135514 = 0x00192478;  /* ptr -> 0x192478, ascii "x$\x19\x00" */
 uint32_t off_135518 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
+uint32_t off_1355B8 = 0x00192478;  /* ptr -> 0x192478, ascii "x$\x19\x00" */
+uint32_t off_1355C0 = 0x0016beac;  /* ptr -> 0x16beac */
+uint32_t off_1355C4 = 0x0016be88;  /* ptr -> 0x16be88 */
 uint32_t off_13570C = 0x0018808c;  /* ptr -> 0x18808c */
 uint32_t off_1357D8 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
 uint32_t off_1357DC = 0x00192478;  /* ptr -> 0x192478, ascii "x$\x19\x00" */
@@ -5750,6 +5750,41 @@ uint32_t off_13C264 = 0x40501000;  /* ascii "\x00\x10P@" */
 uint32_t off_13C32C = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
 uint32_t off_13C338 = 0x40501000;  /* ascii "\x00\x10P@" */
 uint32_t off_13CD24 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
+uint32_t off_13DCA4 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
+uint32_t off_13DCA8 = 0x0016d5cc;  /* ptr -> 0x16d5cc */
+uint32_t off_13DCAC = 0x0016cf60;  /* ptr -> 0x16cf60 */
+uint32_t off_13DCB0 = 0x0016d0d0;  /* ptr -> 0x16d0d0 */
+uint32_t off_13DCB4 = 0x0016d068;  /* ptr -> 0x16d068 */
+uint32_t off_13DCB8 = 0x0016d2c8;  /* ptr -> 0x16d2c8 */
+uint32_t off_13DCBC = 0x0016d330;  /* ptr -> 0x16d330 */
+uint32_t off_13DCC0 = 0x0016d210;  /* ptr -> 0x16d210 */
+uint32_t off_13DCC4 = 0x0016d15c;  /* ptr -> 0x16d15c */
+uint32_t off_13DFCC = 0x0016d5cc;  /* ptr -> 0x16d5cc */
+uint32_t off_13DFD0 = 0x0016cf1c;  /* ptr -> 0x16cf1c */
+uint32_t off_13DFD4 = 0x0016d024;  /* ptr -> 0x16d024 */
+uint32_t off_13DFD8 = 0x0016cfa0;  /* ptr -> 0x16cfa0 */
+uint32_t off_13DFDC = 0x0016d1cc;  /* ptr -> 0x16d1cc */
+uint32_t off_13DFE0 = 0x0016d144;  /* ptr -> 0x16d144 */
+uint32_t off_13DFE4 = 0x0016d130;  /* ptr -> 0x16d130 */
+uint32_t off_13DFE8 = 0x0016d11c;  /* ptr -> 0x16d11c */
+uint32_t off_13DFEC = 0x0016d104;  /* ptr -> 0x16d104 */
+uint32_t off_13DFF0 = 0x0016d0f4;  /* ptr -> 0x16d0f4 */
+uint32_t off_13DFF4 = 0x0016d184;  /* ptr -> 0x16d184 */
+uint32_t off_13DFF8 = 0x0016d324;  /* ptr -> 0x16d324 */
+uint32_t off_13DFFC = 0x0016d314;  /* ptr -> 0x16d314 */
+uint32_t off_13E000 = 0x0016d0b8;  /* ptr -> 0x16d0b8 */
+uint32_t off_13E004 = 0x0016d0a0;  /* ptr -> 0x16d0a0 */
+uint32_t off_13E008 = 0x0016d094;  /* ptr -> 0x16d094 */
+uint32_t off_13E00C = 0x0016d084;  /* ptr -> 0x16d084 */
+uint32_t off_13E010 = 0x0016d078;  /* ptr -> 0x16d078 */
+uint32_t off_13E014 = 0x0016cf00;  /* ptr -> 0x16cf00 */
+uint32_t off_13E018 = 0x0016cee0;  /* ptr -> 0x16cee0 */
+uint32_t off_13E01C = 0x0016d2c0;  /* ptr -> 0x16d2c0 */
+uint32_t off_13E07C = 0x0016d5cc;  /* ptr -> 0x16d5cc */
+uint32_t off_13E080 = 0x0016d2c0;  /* ptr -> 0x16d2c0 */
+uint32_t off_13E084 = 0x0016d254;  /* ptr -> 0x16d254 */
+uint32_t off_13E088 = 0x0016d288;  /* ptr -> 0x16d288 */
+uint32_t off_13E08C = 0x0016cfbc;  /* ptr -> 0x16cfbc */
 uint32_t off_13E914 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
 uint32_t off_13F024 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */
 uint32_t off_13F100 = 0x00182b60;  /* ptr -> 0x182b60, ascii "`+\x18\x00" */

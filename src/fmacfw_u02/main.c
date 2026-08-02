@@ -2802,10 +2802,6 @@ static union { uint32_t u; float f; } flt_12D6D8_o = {0x4a030000u};
 uint32_t jpt_12433E[] = {0xf027f853, 0x4289bf00, 0x3e850014, 0x42430014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x42190014, 0x3e850014, 0x41f70014, 0x3e850014, 0x41d10014, 0x3e850014, 0x41970014, 0x3e850014, 0x41570014, 0x3e850014, 0x41270014, 0x3e850014, 0x3e850014, 0x3e850014, 0x42650014, 0x3e850014, 0x3f950014, 0x3e850014, 0x3f3b0014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3eb90014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3ead0014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e850014, 0x3e970014, 0x9b030014, 0xf0402b00, 0xb1298087, 0x4a809b03, 0x42836a10, 0x81c7f000, 0xe63d4f7f, 0x681b4b7f, 0xf43f0719};
 uint32_t jpt_12E3EC[] = {0xf02af851, 0x0014e317, 0x0014e2e3, 0x0014e2b7, 0x0014e365, 0x0014e30d, 0x0014e349, 0x0014e32d, 0x0014e239, 0x3b04f85b, 0xf04f9301, 0xe76a0a05, 0x3b04f85b, 0xf04f9302, 0xe7640a03, 0xf0439b00, 0x93000301, 0x0a06f04f, 0x4614e75d, 0xf43f2a00, 0x9003af63, 0x9b00e67d, 0x0340f043, 0xf04f9300, 0xe7500a02, 0x681b4b10, 0x3000f9b3, 0xf2c02b00, 0xf04f829e, 0xe7460a02, 0xf0439b00, 0x93000310, 0x0a02f04f, 0x9b00e73f, 0x0308f043, 0xf04f9300, 0xe7380a02, 0xf0439b00, 0x93000320, 0x0a02f04f, 0xbf00e731, 0x0016ac88, 0x00182b60, 0x079b9b00, 0x8194f100, 0x07d89b00, 0x8190f140, 0xf0002a64, 0xf85b8232, 0x3a581b04, 0x2a20b289, 0x8224f200, 0xf012e8df, 0x0222025a, 0x02220222, 0x02220222, 0x02220222, 0x02220222, 0x0222024e, 0x02220072, 0x02220222, 0x02220222, 0x02220222, 0x02220222};
 uint32_t jpt_12E7D6[] = {0xf022f853, 0xe975bf00, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe95d0014, 0xe9050014, 0xe59f0014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe92d0014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe9050014, 0xe5a50014, 0xe9050014, 0xe9050014, 0xe9930014, 0x9e030014, 0xe54a4614, 0x48644964, 0x72a7f44f, 0xfdfdf000, 0x0a06f04f, 0x111ae53c, 0x030ff003, 0x2002f81e, 0x3003f81e, 0x2010f88d, 0x3011f88d, 0x012ef06f, 0x220f232f, 0x7813e6fc, 0xf0002b00, 0x9b018097, 0xf43f2b00, 0x9b01aecc, 0xf1c24611, 0x2b000001, 0x0c01eb00, 0xf811dd0f, 0x3b01ef01, 0x0f00f1be, 0x2b00d010, 0x9902d1f3, 0x93019800, 0x1ac94663, 0x0040f000};
-#define loc_124476 0x124476  /* code label address */
-#define loc_124480 0x124480  /* code label address */
-#define loc_1244AA 0x1244aa  /* code label address */
-#define loc_1244EA 0x1244ea  /* code label address */
 #define loc_12F184 0x12f184  /* code label address */
 #define loc_12F188 0x12f188  /* code label address */
 #define loc_12F18C 0x12f18c  /* code label address */
@@ -6803,6 +6799,7 @@ int get_tx_power_cal_entry(int a1, int a2, int a3);
 int reset_tx_descriptor(int a1);
 int find_rates_ie(int a1);
 int lookup_tx_power_limit(int a1, int a2);
+BOOL is_mgmt_action_frame(char a1, unsigned int a2);
 unsigned int lookup_rate_table_entry(uint8_t *a1, int a2, int a3, uint8_t *a4);
 int get_channel_tx_power(int a1, int a2, int a3);
 int is_conn_active(int a1, int a2, int a3, int a4);
@@ -6923,7 +6920,6 @@ int a3();
 int cf();
 int log_flush();
 int rate_parse_ht_mcs_n_490();
-int sub_13C484();
 int timer_set_relative_5668();
 int uart_putc();
 int v10();
@@ -76882,6 +76878,39 @@ int lookup_tx_power_limit(int a1, int a2) {
 
 
 
+// is_mgmt_action_frame @ 0x13c484
+BOOL is_mgmt_action_frame(char a1, unsigned int a2) {
+  int v2; // r3
+
+  if ( (a1 & 0xC) != 0 )
+    return 0;
+  v2 = a1 & 0xF0;
+  if ( v2 == 192 )
+    return 1;
+  if ( v2 != 208 )
+    return v2 == 160;
+  if ( a2 <= 0x16 )
+  {
+    if ( a2 > 3 )
+    {
+      switch ( a2 )
+      {
+        case 4u:
+        case 7u:
+        case 0xBu:
+        case 0xFu:
+        case 0x16u:
+          return 0;
+        default:
+          return 1;
+      }
+    }
+    return 1;
+  }
+  return a2 != 127;
+}
+
+
 // lookup_rate_table_entry @ 0x13c518
 unsigned int lookup_rate_table_entry(uint8_t *a1, int a2, int a3, uint8_t *a4) {
   int v4; // r6
@@ -76909,7 +76938,7 @@ unsigned int lookup_rate_table_entry(uint8_t *a1, int a2, int a3, uint8_t *a4) {
   v4 = a1[8];
   v5 = *(uint16_t *)a1;
   v6 = *(uint8_t *)(v4 + a2);
-  if ( !sub_13C484(v5, v6) )
+  if ( !is_mgmt_action_frame(v5, v6) )
     return 0;
   v11 = a1[9];
   if ( v11 == 255 )
@@ -76997,7 +77026,7 @@ int get_channel_tx_power(int a1, int a2, int a3) {
   if ( result )
   {
     v7 = a2;
-    result = sub_13C484(a2, a3);
+    result = is_mgmt_action_frame(a2, a3);
     if ( result )
     {
       v9 = 696 * v3;
