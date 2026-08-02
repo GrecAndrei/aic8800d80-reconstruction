@@ -74,6 +74,16 @@ release tarball
   missing code (6 `sub_*` gaps). **Decision: keep `--gc-sections`
   reachability as the gate** — the undefs are model artifacts, not missing
   code. Full write-up: `docs/FULL_LINK_ANALYSIS.md`.
+- **Call-site disambiguation (duplicate names)**: the LLM naming gave the
+  same name to distinct functions (214 same-image dupes, ~460 redundant
+  bindings). Compose keeps the definitions unique (base + `_1`) but baked-in
+  call sites kept the base name, so calls meant for the second unit bound to
+  the first. `cmd/fwstruct/compose.go::disambiguateCallSites` now rewrites
+  each call site to the address the ORIGINAL binary actually targets (IDA
+  call edges from `extraction_out/ida_export_live/*.call_edges.jsonl`,
+  chip-space; no-op if absent). Skips 0-arg Hex-Rays artifact calls (the
+  deduped target may be variadic). ~1000 call sites fixed across 3 images;
+  `make -C src check` + 25/25 smoke stay green.
 - **Compose dedupe**: units deduped by address, preferring the plain
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
   LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).
