@@ -45,6 +45,10 @@ firmware (boot + a per-function sweep). Classify each register's semantics.
 CRITICAL RULES:
 1. You may NOT invent or compute any address. Every address in your output MUST
    be one of the addresses given to you in the evidence. Never add new addresses.
+   The `addr` field is ALWAYS a 0x4XXXXXXX / 0xE000XXXX peripheral register from
+   the evidence list. The hex numbers in "written:" / "readback:" are VALUES that
+   the firmware wrote or read back — they are NEVER addresses, do NOT put them in
+   `addr`.
 2. Only assign a semantic name and behavior when the evidence supports it.
    Otherwise use role "unknown", confidence 0.0, behavior {"type": "none"}.
 3. Output ONLY a single JSON object. No prose, no explanation.
@@ -128,10 +132,14 @@ def _evidence_block(ev: dict) -> str:
 
 def _batch_prompt(batch: list[dict], page_hex: str) -> str:
     lines = [_evidence_block(ev) for ev in batch]
+    addrs = ", ".join(ev["addr"] for ev in batch)
     return f"""Peripheral page {page_hex} — classify these {len(batch)} registers.
 
 EVIDENCE (address is the register; do not invent others):
 {chr(10).join(lines)}
+
+ALLOWED ADDRESSES — the ONLY values allowed in any "addr" field, copied verbatim:
+{addrs}
 
 Return your classification JSON now."""
 
@@ -139,40 +147,39 @@ Return your classification JSON now."""
 _ADDR_RE = re.compile(r"0x[0-9a-fA-F]{6,}")
 
 
-def _validate(addrs_output: list[str], allowed: set[str]) -> tuple[bool, list[str]]:
-    """Every output address must be verbatim from the batch evidence."""
-    invented = [a for a in addrs_output if a not in allowed]
+def _validate(addrs_output: list[str], allowed: set[str], page_base: str) -> tuple[bool, list[str]]:
+    """Every register address in the output must be verbatim from the batch
+    evidence (page base 0xXXXX0000 is allowed as a summary anchor)."""
+    invented = [a for a in addrs_output if a not in allowed and a != page_base]
     return (not invented), invented
 
 
 def _walk_addrs(obj) -> list[str]:
-    """Collect every 0x... literal that looks like a register address."""
+    """Extract ONLY the register `addr` fields from the output.
+
+    Values/masks (fields maps, ready_mask, etc.) are never addresses, even if
+    they land in the peripheral range (e.g. an enable bit 0x40000000).
+    """
     out: list[str] = []
     if isinstance(obj, dict):
-        for k, v in obj.items():
-            if isinstance(k, str) and _ADDR_RE.match(k):
-                out.append(k.lower())
-            out.extend(_walk_addrs(v))
+        if isinstance(obj.get("registers"), list):
+            regs = obj["registers"]
+        else:
+            return out
     elif isinstance(obj, list):
-        for v in obj:
-            out.extend(_walk_addrs(v))
-    elif isinstance(obj, str):
-        out.extend(m.group(0).lower() for m in _ADDR_RE.finditer(obj))
+        regs = obj
+    else:
+        return out
+    for r in regs:
+        if not isinstance(r, dict):
+            continue
+        a = r.get("addr")
+        if isinstance(a, str) and _ADDR_RE.match(a):
+            out.append(a.lower())
     return out
 
 
-def classify_batch(batch: list[dict], page_hex: str) -> tuple[list[dict] | None, str]:
-    allowed = {ev["addr"].lower() for ev in batch}
-    prompt = _batch_prompt(batch, page_hex)
-    messages = [
-        {"role": "system", "content": SYSTEM},
-        {"role": "user", "content": prompt},
-    ]
-    msg, _tool_calls = call_api(messages, None, max_tool_rounds=0)
-    content = msg.get("content") or ""
-    if not content:
-        return None, "no_content"
-    # Parse the first balanced JSON object.
+def _parse_json_object(content: str):
     start = content.find("{")
     if start < 0:
         return None, "no_json"
@@ -189,24 +196,58 @@ def classify_batch(batch: list[dict], page_hex: str) -> tuple[list[dict] | None,
     if end < 0:
         return None, "no_json"
     try:
-        parsed = json.loads(content[start:end])
+        return json.loads(content[start:end]), "ok"
     except json.JSONDecodeError as e:
         return None, f"json_err:{e}"
-    regs = parsed.get("registers")
-    if not isinstance(regs, list) or not regs:
-        return None, "no_registers_array"
-    addrs = _walk_addrs(regs)
-    ok, invented = _validate(addrs, allowed)
-    if not ok:
-        return None, f"invented_addrs:{','.join(sorted(set(invented))[:4])}"
-    # Attach the batch page tag and drop registers with unknown addresses.
+
+
+def classify_batch(batch: list[dict], page_hex: str) -> tuple[list[dict] | None, str]:
+    allowed = {ev["addr"].lower() for ev in batch}
+    page_base = f"0x{(int(page_hex, 16) << 16):X}".lower()
+    prompt = _batch_prompt(batch, page_hex)
+    for attempt in range(2):
+        messages = [
+            {"role": "system", "content": SYSTEM},
+            {"role": "user", "content": prompt},
+        ]
+        msg, _tool_calls = call_api(messages, None, max_tool_rounds=0)
+        content = msg.get("content") or ""
+        if not content:
+            continue
+        parsed, status = _parse_json_object(content)
+        if parsed is None:
+            return None, status
+        regs = parsed.get("registers")
+        if not isinstance(regs, list) or not regs:
+            return None, "no_registers_array"
+        addrs = _walk_addrs(regs)
+        ok, invented = _validate(addrs, allowed, page_base)
+        if ok:
+            # Attach the batch page tag and drop registers with unknown addresses.
+            clean = []
+            for r in regs:
+                if r.get("addr", "").lower() not in allowed:
+                    continue
+                r["page"] = page_hex
+                clean.append(r)
+            return clean, "ok"
+        # Retry once with a stiffer warning about address invention.
+        prompt += ("\n\nREJECTED: your previous answer contained addresses not given "
+                   "to you (or addresses you computed). Use ONLY the exact addresses "
+                   "from the ALLOWED ADDRESSES list above, copied verbatim. The hex "
+                   "numbers under written:/readback: are VALUES, not addresses. "
+                   "Output pure JSON.")
+    # Salvage: keep the valid subset of the batch instead of discarding it whole.
+    # Address-safety is preserved — invented addresses are dropped, never accepted.
     clean = []
     for r in regs:
         if r.get("addr", "").lower() not in allowed:
             continue
         r["page"] = page_hex
         clean.append(r)
-    return clean, "ok"
+    if clean:
+        return clean, f"salvaged:{','.join(sorted(set(invented))[:4])}"
+    return None, f"invented_addrs:{','.join(sorted(set(invented))[:4])}"
 
 
 def main() -> int:
@@ -265,7 +306,7 @@ def main() -> int:
         pages = pages[:args.max_pages]
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    summary = {"pages": 0, "registers": 0, "ok": 0, "failed": 0, "skipped": len(done_addrs), "errors": {}}
+    summary = {"pages": 0, "registers": 0, "ok": 0, "salvaged": 0, "failed": 0, "skipped": len(done_addrs), "errors": {}}
     merged: dict[str, dict] = dict(existing) if done_addrs else {}
     append_mode = bool(done_addrs)
     with args.out.open("a" if append_mode else "w", encoding="utf-8") as f:
@@ -290,7 +331,10 @@ def main() -> int:
                 for r in result:
                     merged[r["addr"].lower()] = r
                     summary["registers"] += 1
-                summary["ok"] += 1
+                if status.startswith("salvaged"):
+                    summary["salvaged"] += 1
+                else:
+                    summary["ok"] += 1
                 roles = {r.get("role", "?") for r in result}
                 print(f"[classify] {page}: OK {len(result)} regs roles={sorted(roles)}", flush=True)
                 # Incremental merged write so a partial run survives a restart.
