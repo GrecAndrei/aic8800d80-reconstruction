@@ -66,6 +66,17 @@ python3 tools/analyze_full_link_undefs.py          # uses existing src/*.o
 python3 tools/analyze_full_link_undefs.py --rebuild # recompile first
 ```
 
+## Working full link (non-gc)
+
+The analysis above classifies the undefs; `tools/full_link.py` makes the
+full link actually WORK. It resolves the ~421 undefs (5 call-site aliases
+to composed functions via the LLM dataset, 346 data blobs for decompiler
+data-symbol refs, `-lgcc`/`-lc` for float/libc helpers, weak stubs for the
+8 genuine gaps) and produces 4/4 ELFs at chip base 0x100000 with **zero
+undefs**. The 8 stubs are the actionable next-rename list
+(`build/full_link/report.json`). The gc-sections gate stays as the quick
+internal-consistency check; the full link is the completeness check.
+
 ## Related
 
 - Naming-duplicate cleanup (same root cause as most `naming_artifact`
