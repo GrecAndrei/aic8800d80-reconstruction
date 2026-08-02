@@ -66,6 +66,14 @@ release tarball
     **8 matched / 7 recon-missing / 10 no-periph-traffic** (crypto_key_load
     and rf_level_apply lose 134 and 97 register touches respectively in the
     reconstruction — open reconstruction gaps).
+- **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
+  quantifies the ~421 undefs when linking without `--gc-sections`:
+  58% naming artifacts (name points inside a composed function — code
+  exists), 23% no-mapping (mostly data-symbol-as-function decompile
+  artifacts), 15% `__aeabi_*` float helpers (need `-lgcc`), ~2% real
+  missing code (6 `sub_*` gaps). **Decision: keep `--gc-sections`
+  reachability as the gate** — the undefs are model artifacts, not missing
+  code. Full write-up: `docs/FULL_LINK_ANALYSIS.md`.
 - **Compose dedupe**: units deduped by address, preferring the plain
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
   LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).
