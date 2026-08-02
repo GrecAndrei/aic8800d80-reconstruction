@@ -93,18 +93,27 @@ identically to before.
 
 ## 3. Effect on verification
 
-Re-running the original-side fingerprints under M4 (before the behavior model
-was ready):
+Re-running the original-side fingerprints (`emulator verify`, 25 targets):
 
-| metric               | old (M3, depth-0 broken) | new (M4, depth-0 fixed) |
-|----------------------|--------------------------|--------------------------|
-| verify returned      | 18 / 25                  | 20 / 25                  |
-| verify faulted       | 6                        | 2                        |
-| compare mean Jaccard | 0.52                     | 0.667                    |
-| compare matched      | 8                        | 8                        |
-| recon-missing        | 7                        | 4                        |
+| metric               | M3 (depth-0 broken) | M4 (no model) | M4 + behavior model |
+|----------------------|--------------------:|--------------:|--------------------:|
+| verify returned      | 18 / 25             | 20 / 25       | 22 / 25             |
+| verify capped        | —                   | 3             | 1                   |
+| verify faulted       | 6                   | 2             | 2                   |
+| compare mean Jaccard | 0.52                | 0.667         | 0.667               |
+| compare matched      | 8                   | 8             | 8                   |
+| recon-missing        | 7                   | 4             | 4                   |
 
-The remaining 2 faults are `rf_reg_write_wait` run standalone (it jumps
-through a null context pointer — a caller-state dependency, not a CPU or MMIO
-issue). The behavior model's poll rules primarily change *boot* fidelity and
-any target that polls a modeled register while running in caller context.
+The behavior model (314 registers, 16 rules at this snapshot) converts the
+two poll-blocked targets `rf_cmd_dispatch` and `rf_mem_write` (fmacfwbt) from
+capped → returned: their status registers are now modeled as poll rules, so
+the firmware's `while (!(reg & MASK))` loops exit instead of spinning to the
+instruction cap. The remaining 2 faults are `rf_reg_write_wait` run standalone
+(it jumps through a null context pointer — a caller-state dependency, not a CPU
+or MMIO issue), and the 1 remaining cap is `rf_timer_toggle_update`, which
+polls a timer/status register not yet covered by the model.
+
+The compare metrics are unchanged because the behavior model is platform-level:
+it runs on both the original and reconstructed sides, so register-overlap
+fidelity is unaffected. Its value is deeper original-side execution (boot +
+truth-lane returns) and stable poll/strobe semantics for both sides.
