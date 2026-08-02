@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 """Full-system Unicorn emulator for the AIC8800D80 WiFi/BT firmware.
 
-Loads a raw firmware image at the chip runtime base 0x100000, models the
-MMIO register map from ``src/include/aic8800d80_mmio.h``, boots from the
-IVT reset vector, and logs ordered MMIO traffic with register names. Also
-traces single functions and runs the truth-lane target set to produce
+Loads a raw firmware image at the HARDWARE runtime base 0x120000, models
+the MMIO register map from ``src/include/aic8800d80_mmio.h``, boots from
+the IVT reset vector, and logs ordered MMIO traffic with register names.
+Also traces single functions and runs the truth-lane target set to produce
 ground-truth behavioral fingerprints from the ORIGINAL binary.
 
 Image layout (AIC8800D80, per internal/ivt + harness_v19/scripts/make_elf.py):
   file offset 0x000-0x0FF : IVT + boot header (WFFW magic @ 0x20)
   file offset 0x100+      : code + data
-  chip address            : file offset + 0x100000
+  hardware address        : file offset + 0x120000
+  (the reconstruction's naming dataset / composed src use analysis space =
+  file offset + 0x100000; the two differ by 0x20000 — see
+  docs/RUNTIME_BASE_120000.md)
 
-The IVT reset vector (0x1201a9) is a stale mid-function pointer in these
-images (it lands inside ``adjust_table_pointers``); the real first-stage
-init is the ``start`` routine at file offset 0x1a8 (a CPUID check against
-0xC241, then MSP setup + jump to the second stage). ``boot`` resolves that
-entry automatically (see ``resolve_boot_entry``).
+The IVT reset vector (0x1201a9 = file 0x1a8) IS the first-stage init: a
+CPUID check against 0xC241 (``movw r2, 0xc241``), then MSP setup + jump to
+the second stage. ``boot`` starts from it (or ``resolve_boot_entry``, which
+finds the same routine by byte signature).
 
 This builds on ``tools/unicorn_smoke.py`` (single-function smoke) and
 ``tools/orig_binary_trace.py`` (per-function ground truth): the platform
@@ -73,10 +75,17 @@ TARGETS_DEFAULT = REPO / "extraction_out" / "reconstruction" / "truth_lane_state
 SCAN_GLOB = REPO / "harness_v25" / "out" / "{}_bin_funcs.jsonl"
 FIRMWARE_DIR = REPO / "inputs" / "firmware"
 
-# Chip memory map (all absolute addresses, chip runtime space).
-CHIP_BASE = 0x100000            # image load base
+# Memory map (all absolute addresses).
+# HARDWARE base: the SoC loads each WFFW image at 0x120000 (the IVT reset
+# vector 0x1201a9 == the CPUID-check `start` at file 0x1a8 is CORRECT at this
+# base). The reconstruction / naming dataset / composed src use a
+# self-consistent ANALYSIS space of file_offset + 0x100000; the two are
+# related by a constant 0x20000 (see docs/RUNTIME_BASE_120000.md).
+ANALYSIS_BASE = 0x100000        # reconstruction convention (not hardware)
+CHIP_BASE = 0x120000            # image load base (hardware runtime base)
+HW_OFFSET = CHIP_BASE - ANALYSIS_BASE  # analysis-space addr -> hardware addr
 LINK_BASE = 0x1200000           # boot-header link space (image mirror)
-CODE_END = 0x180000             # end of code/BSS window
+CODE_END = 0x180000             # end of code/BSS window (image spans 0x120000-0x180000)
 IMAGE_MAX = 0x200000            # hard cap on image size we will map
 STACK_BASE = 0x180000           # stack window below the IVT SP (0x1a0000)
 STACK_SIZE = 0x20000
@@ -106,7 +115,7 @@ def is_mmio_addr(addr: int) -> bool:
 def is_periph_addr(addr: int) -> bool:
     """True for actual peripheral registers (APB/AHB + system control).
 
-    Excludes the 0x100000-0x180000 image/BSS window and 0x0-0x1FFFFF, which
+    Excludes the 0x120000-0x1A0000 image/BSS window and 0x0-0x1FFFFF, which
     ``is_mmio_addr`` also flags but are really firmware data / boot flash.
     Behavioral fingerprints of register traffic use this narrower set.
     """
@@ -217,15 +226,19 @@ def resolve_pc_name(table: list[tuple[int, str]], pc: int, tol: int = 0x100) -> 
 # ---------------------------------------------------------------------------
 
 class Aic8800D80Platform:
-    """A full-system Unicorn model of the AIC8800D80 at chip base 0x100000.
+    """A full-system Unicorn model of the AIC8800D80 at hardware base 0x120000.
 
     Memory map (RWX where code may self-modify):
-      [0x100000, 0x180000)   image + BSS (chip space)
-      [0x180000, 0x1A0000)   stack (SP from IVT = 0x1A0000 grows down)
+      [0x120000, 0x180000)   image + BSS (hardware space)
+      [0x180000, 0x1A0000)   stack / firmware data (SP from IVT = 0x1A0000)
       [0x20000000, 0x20080000) main SRAM
       [0x21000000, 0x21010000) heap
       MMIO: pages auto-mapped on first access; written state is tracked so
       read-after-write returns the stored value.
+
+    The reconstruction's naming dataset / composed src use the ANALYSIS space
+    (file_offset + 0x100000); run addresses are +0x20000 from analysis-space
+    keys (see ``_normalize_target_addr`` / ``HW_OFFSET``).
     """
 
     def __init__(self, image_path: Path, mmio_model: dict[int, str] | None = None,
@@ -390,14 +403,13 @@ class Aic8800D80Platform:
         return {"stack_pointer": sp, "reset_vector": reset, "reset_handler": reset & ~1}
 
     def resolve_boot_entry(self) -> int:
-        """Chip address of the first-stage init (``start``).
+        """Hardware address of the first-stage init (``start``).
 
-        The IVT reset vector (0x1201a9 -> 0x1201a8) is a stale mid-function
-        pointer in these images (it lands inside ``adjust_table_pointers``).
-        The real boot entry is the ``start`` routine: a CPUID check against
-        0xC241 (``movw r2, 0xc241``) that sets MSP and jumps to the second
-        stage. Its signature is identical across all four images; we locate
-        it and fall back to the documented offset (file 0x1a8).
+        The IVT reset vector (0x1201a9) IS this routine: file 0x1a8 is a
+        CPUID check against 0xC241 (``movw r2, 0xc241``) that sets MSP and
+        jumps to the second stage, and 0x1201a8 is correct at hardware base
+        0x120000. The signature is identical across all four images; we
+        locate it by byte signature and fall back to file 0x1a8.
         """
         sig = bytes.fromhex("4cf24122")  # movw r2, 0xc241
         idx = self.image.find(sig)
@@ -617,15 +629,17 @@ def _short_image(name: str) -> str:
 
 
 def _normalize_target_addr(image: str, addr_str: str) -> int:
-    """Truth-lane targets mix chip-space and offset-space addresses.
+    """Truth-lane targets mix analysis-space and offset-space addresses.
 
-    fmacfw_h / fmacfw_u02 targets are chip addresses (>= 0x100000);
-    fmacfwbt / lmacfw_rf targets are file offsets (< 0x100000). Normalize
-    to chip space the same way truth_lane_smoke.py's want_variants does.
+    fmacfw_h / fmacfw_u02 targets are analysis-space addresses (>= 0x100000);
+    fmacfwbt / lmacfw_rf targets are file offsets (< 0x100000). Normalize to
+    the ANALYSIS space (the compare key, matching truth_lane_smoke.py's
+    reconstruction markers). The actual run address is +HW_OFFSET (hardware
+    base 0x120000) — see cmd_verify.
     """
     addr = parse_int(addr_str)
     if addr < 0x100000:
-        addr += 0x100000
+        addr += ANALYSIS_BASE
     return addr
 
 
@@ -651,16 +665,18 @@ def cmd_verify(args: argparse.Namespace) -> int:
         if not image or not addr_str:
             continue
         path = resolve_image(image)
-        chip = _normalize_target_addr(image, addr_str)
+        key = _normalize_target_addr(image, addr_str)
+        run_addr = key + HW_OFFSET  # analysis-space key -> hardware base 0x120000
         plat = Aic8800D80Platform(path, mmio_model=model)
         plat.function_table = load_function_table(_short_image(path.name))
         ivt = plat.ivt()
-        term, stats = plat.run(chip, args.max_insns, sp=ivt["stack_pointer"])
+        term, stats = plat.run(run_addr, args.max_insns, sp=ivt["stack_pointer"])
         row = {
             "image": image,
             "function": fn,
             "address": addr_str,
-            "chip_address": hex(chip),
+            "analysis_address": hex(key),
+            "chip_address": hex(run_addr),
             "termination": term,
             **stats,
             "mmio_sequence": plat.sequence(),
