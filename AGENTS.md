@@ -60,12 +60,23 @@ release tarball
   - Boot header notes: the IVT reset vector (0x1201a9) is a stale
     mid-function pointer; the real first-stage init is the `start` routine
     at file offset 0x1a8 (CPUID check vs 0xC241), identical across all 4
-    images. `resolve_boot_entry()` locates it by signature.
+    images. `resolve_boot_entry()` locates it by signature. The boot-header
+    second-stage pointer (e.g. 0x134f29 in fmacfw_u02) is ALSO stale — it
+    lands mid-function inside `bt_setup_conn_profile`, so `boot` faults at
+    ~44 insns on a null-pointer write (0xfffffffa). This is a finding about
+    the binary, not an emulator bug; `run()` now reports
+    `fault_address`/`fault_access`/`fault_size` for every unmapped access.
   - `verify` → `orig_fingerprints.jsonl`; `compare` vs
-    `truth_lane_smoke.py` outcomes scores peripheral-register overlap:
-    **8 matched / 7 recon-missing / 10 no-periph-traffic** (crypto_key_load
-    and rf_level_apply lose 134 and 97 register touches respectively in the
-    reconstruction — open reconstruction gaps).
+    `truth_lane_smoke.py` outcomes scores peripheral-register overlap on
+    the SAME basis (depth-0 = the entry function's own body traffic,
+    excluding callees — the reconstruction stubs callees, so the original's
+    callee traffic must be excluded too): **8 matched / 4 recon-missing /
+    13 no-periph-traffic**. The 4 recon-missing (crypto_key_load, clock_calc,
+    rf_bus_mark) are smoke-harness artifacts, not recon bugs: their bodies
+    ARE faithful (they write the same MMIO), but `truth_lane_smoke.py`
+    re-links bodies at image-base 0x1000 where data-symbol pointers deref
+    to 0, losing the register access. The emulator's original-side
+    fingerprint is ground truth.
 - **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
   quantifies the ~421 undefs when linking without `--gc-sections`:
   58% naming artifacts (name points inside a composed function — code
@@ -74,6 +85,17 @@ release tarball
   missing code (6 `sub_*` gaps). **Decision: keep `--gc-sections`
   reachability as the gate** — the undefs are model artifacts, not missing
   code. Full write-up: `docs/FULL_LINK_ANALYSIS.md`.
+- **Full link (WORKING, non-gc)**: `tools/full_link.py` makes the full link
+  actually succeed: 4/4 ELFs at chip base 0x100000 with **zero undefs**.
+  Resolves the ~421 undefs as: 5 call-site aliases to composed functions
+  (via the LLM dataset, indexed by BOTH `fn` and `name`, resolved with
+  `.thumb_func` trampolines — C `alias()` and `.thumb_set` both lose Thumb
+  mode), 346 `.bss` data blobs for the decompiler data-symbol refs
+  (`*(uint32_t*)name`), `-lgcc`/`-lc` for `__aeabi_*` + libc helpers, and
+  weak stubs for the 8 genuine gaps (6 `sub_*` + fmacfwbt `start` boot entry
+  + COERCE_UNSIGNED_INT), each recorded in `build/full_link/report.json` as
+  the actionable next-rename list. Outputs go to gitignored `build/full_link/`.
+  `report.json['total_missing']` = 8 = the exact list to LLM-name next.
 - **Call-site disambiguation (duplicate names)**: the LLM naming gave the
   same name to distinct functions (214 same-image dupes, ~460 redundant
   bindings). Compose keeps the definitions unique (base + `_1`) but baked-in
