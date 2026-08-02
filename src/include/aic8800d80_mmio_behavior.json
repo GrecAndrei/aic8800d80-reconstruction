@@ -1,20 +1,22 @@
 {
- "generated_at": "2026-08-02T17:39:38.542847+00:00",
+ "generated_at": "2026-08-02T17:46:03.109351+00:00",
  "source_classifications": "/tmp/mmio_full/classify_snapshot.json",
  "min_confidence": 0.4,
- "register_count": 314,
- "behavior_rules": 16,
- "static_only": 86,
+ "register_count": 388,
+ "behavior_rules": 19,
+ "static_only": 133,
+ "evidence_poll_floor": 14,
  "role_counts": {
-  "unknown": 273,
-  "data": 3,
-  "status": 23,
-  "config": 9,
-  "strobe": 6
+  "unknown": 320,
+  "data": 8,
+  "status": 29,
+  "config": 19,
+  "strobe": 9,
+  "mask": 3
  },
  "behavior_counts": {
-  "poll": 14,
-  "strobe": 2
+  "poll": 15,
+  "strobe": 4
  },
  "registers": {
   "0x40000000": {
@@ -1931,6 +1933,223 @@
    "confidence": 0.0,
    "source": "static"
   },
+  "0x40100000": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40100014": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40100016": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010001e": {
+   "name": "rf_start_ctrl",
+   "role": "config",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x40100024": {
+   "name": "rf_clock_status",
+   "role": "status",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x40100038": {
+   "name": "rf_cmd_opcode",
+   "role": "config",
+   "confidence": 0.4,
+   "source": "dynamic"
+  },
+  "0x40103000": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40104000": {
+   "name": "rf_msg_data",
+   "role": "data",
+   "confidence": 0.4,
+   "source": "dynamic"
+  },
+  "0x40104008": {
+   "name": "rf_flag_reg",
+   "role": "mask",
+   "confidence": 0.4,
+   "source": "dynamic",
+   "fields": {
+    "0x1": "bit 0 flag",
+    "0x2": "bit 1 flag"
+   }
+  },
+  "0x4010400c": {
+   "name": "rf_msg_trigger",
+   "role": "strobe",
+   "confidence": 0.4,
+   "source": "dynamic",
+   "behavior": {
+    "type": "strobe",
+    "clear_after": 1
+   }
+  },
+  "0x40104010": {
+   "name": "rf_fault_status",
+   "role": "status",
+   "confidence": 0.5,
+   "source": "dynamic"
+  },
+  "0x40104034": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40104050": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40104843": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010b000": {
+   "name": "rf_flag_status",
+   "role": "status",
+   "confidence": 0.5,
+   "source": "dynamic",
+   "fields": {
+    "0x4": "flag bit checked by rf_check_bit"
+   }
+  },
+  "0x4010b004": {
+   "name": "rf_bitmask_set",
+   "role": "mask",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x4010b008": {
+   "name": "rf_bitmask_clear",
+   "role": "mask",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x4010c000": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010d000": {
+   "name": "rf_cmd_addr",
+   "role": "config",
+   "confidence": 0.4,
+   "source": "dynamic"
+  },
+  "0x4010d004": {
+   "name": "rf_cmd_trigger",
+   "role": "strobe",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x4010d008": {
+   "name": "rf_cmd_data0",
+   "role": "data",
+   "confidence": 0.5,
+   "source": "dynamic"
+  },
+  "0x4010d00c": {
+   "name": "rf_cmd_data1",
+   "role": "data",
+   "confidence": 0.5,
+   "source": "dynamic"
+  },
+  "0x4010d010": {
+   "name": "rf_hw_timer_ctrl",
+   "role": "config",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x4010d01c": {
+   "name": "rf_busy_status",
+   "role": "status",
+   "confidence": 0.4,
+   "source": "dynamic",
+   "behavior": {
+    "type": "poll",
+    "ready_mask": "0x1",
+    "reads_to_ready": 4
+   },
+   "fields": {
+    "0x1": "ready/complete bit"
+   }
+  },
+  "0x4010e8bd": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010f888": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010f8c8": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010f8c9": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010f8d9": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010f8da": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010f8db": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4010ffff": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40200000": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
   "0x40200010": {
    "name": "rf_bus_arm_status",
    "role": "status",
@@ -1976,17 +2195,35 @@
    "confidence": 0.2,
    "source": "dynamic"
   },
+  "0x40200908": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
   "0x40200914": {
    "name": "rf_bus_mark",
    "role": "strobe",
    "confidence": 0.2,
    "source": "dynamic"
   },
+  "0x40200920": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
   "0x40200b00": {
    "name": "rf_bus_write_status",
    "role": "status",
    "confidence": 0.2,
    "source": "dynamic"
+  },
+  "0x40200b08": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
   },
   "0x40200b14": {
    "name": "rf_bus_mark2",
@@ -2006,17 +2243,256 @@
    "confidence": 0.3,
    "source": "dynamic"
   },
+  "0x40200c15": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
   "0x40200e00": {
    "name": "rf_cmd_stop",
    "role": "strobe",
    "confidence": 0.3,
    "source": "dynamic"
   },
+  "0x40204033": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40204034": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40206e6f": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
   "0x4020c100": {
    "name": "rf_bus_write_status1",
    "role": "status",
    "confidence": 0.2,
    "source": "dynamic"
+  },
+  "0x4020f881": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4020f89c": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240004": {
+   "name": "rf_status",
+   "role": "status",
+   "confidence": 0.2,
+   "source": "dynamic"
+  },
+  "0x4024000c": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240010": {
+   "name": "rf_cmd_wait_status",
+   "role": "strobe",
+   "confidence": 0.4,
+   "source": "dynamic",
+   "behavior": {
+    "type": "strobe",
+    "clear_after": 4
+   },
+   "fields": {
+    "0x20000200": "command bits; cleared when RF operation completes"
+   }
+  },
+  "0x40240014": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240016": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240018": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4024001c": {
+   "name": "rf_msg_status",
+   "role": "status",
+   "confidence": 0.2,
+   "source": "dynamic"
+  },
+  "0x40240048": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4024004c": {
+   "name": "rf_field_ctrl",
+   "role": "config",
+   "confidence": 0.5,
+   "source": "dynamic",
+   "fields": {
+    "0x400000": "RF field bit",
+    "0xc00000": "RF field bits 22-23"
+   }
+  },
+  "0x40240100": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240110": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240114": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240118": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240120": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240124": {
+   "name": "rf_cmd_addr",
+   "role": "config",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x40240134": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240140": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240144": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240148": {
+   "name": "mbox_data0",
+   "role": "data",
+   "confidence": 0.3,
+   "source": "dynamic"
+  },
+  "0x4024014c": {
+   "name": "mbox_data1",
+   "role": "data",
+   "confidence": 0.2,
+   "source": "dynamic"
+  },
+  "0x40240150": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240154": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240160": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240168": {
+   "name": "mbox_ctrl0",
+   "role": "config",
+   "confidence": 0.2,
+   "source": "dynamic"
+  },
+  "0x4024016c": {
+   "name": "mbox_ctrl1",
+   "role": "config",
+   "confidence": 0.2,
+   "source": "dynamic"
+  },
+  "0x40240170": {
+   "name": "mbox_ptr",
+   "role": "config",
+   "confidence": 0.2,
+   "source": "dynamic"
+  },
+  "0x40240174": {
+   "name": "mbox_len",
+   "role": "config",
+   "confidence": 0.2,
+   "source": "dynamic"
+  },
+  "0x40240188": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x4024018c": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240190": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240194": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
+  },
+  "0x40240198": {
+   "name": "unknown",
+   "role": "unknown",
+   "confidence": 0.0,
+   "source": "static"
   }
  }
 }

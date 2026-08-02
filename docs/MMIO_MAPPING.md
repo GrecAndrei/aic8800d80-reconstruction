@@ -83,6 +83,14 @@ types the emulator can act on:
 `none`/`echo` are recorded but not acted on (the phantom already returns the
 last written value). Static-only registers are never given behavior.
 
+**Evidence-poll floor**: when the harvest deterministically flagged a register
+as polled (read-heavy, write-starved) *and* the model independently agrees
+(`role=status`, `behavior=poll`), the register's confidence is floored at
+`BEHAVIOR_MIN_CONF` so a hesitant numeric score cannot drop a real poll rule
+(observed: `rf_busy_status` @ 0x4010d01c came back at 0.3 and was materialized
+anyway; the truth-lane target that spins on it now progresses instead of
+capping).
+
 ### 2d. Emulator integration
 
 `Aic8800D80Platform` loads the behavior model. Values are injected via the
@@ -98,20 +106,26 @@ Re-running the original-side fingerprints (`emulator verify`, 25 targets):
 | metric               | M3 (depth-0 broken) | M4 (no model) | M4 + behavior model |
 |----------------------|--------------------:|--------------:|--------------------:|
 | verify returned      | 18 / 25             | 20 / 25       | 22 / 25             |
-| verify capped        | —                   | 3             | 1                   |
-| verify faulted       | 6                   | 2             | 2                   |
+| verify capped        | —                   | 3             | 0                   |
+| verify faulted       | 6                   | 2             | 3                   |
 | compare mean Jaccard | 0.52                | 0.667         | 0.667               |
 | compare matched      | 8                   | 8             | 8                   |
 | recon-missing        | 7                   | 4             | 4                   |
 
-The behavior model (314 registers, 16 rules at this snapshot) converts the
+The behavior model (388 registers, 19 rules at this snapshot) converts the
 two poll-blocked targets `rf_cmd_dispatch` and `rf_mem_write` (fmacfwbt) from
 capped → returned: their status registers are now modeled as poll rules, so
 the firmware's `while (!(reg & MASK))` loops exit instead of spinning to the
-instruction cap. The remaining 2 faults are `rf_reg_write_wait` run standalone
-(it jumps through a null context pointer — a caller-state dependency, not a CPU
-or MMIO issue), and the 1 remaining cap is `rf_timer_toggle_update`, which
-polls a timer/status register not yet covered by the model.
+instruction cap. All 3 remaining non-returns are standalone caller-state
+dependencies (the target jumps through a null context pointer — not a CPU or
+MMIO issue):
+
+- `rf_reg_write_wait` (2 images) faults immediately (null context).
+- `rf_timer_toggle_update` previously capped spinning on `0x4010d01c`; the
+  evidence-poll floor (see 2d) now gives it a poll rule, so it exits the loop
+  and executes 1,642 real instructions (330 reads / 181 writes across the RF
+  control page) before hitting the same null-context wall. Verified that a
+  slower `reads_to_ready` changes nothing — the wall is context, not timing.
 
 The compare metrics are unchanged because the behavior model is platform-level:
 it runs on both the original and reconstructed sides, so register-overlap

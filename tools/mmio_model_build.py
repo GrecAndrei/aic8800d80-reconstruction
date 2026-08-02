@@ -94,15 +94,28 @@ def main() -> int:
     evidence = json.loads(args.evidence.read_text()) if args.evidence.is_file() else {}
     dyn_addrs = set(evidence.get("registers", {}))
 
+    # Deterministic evidence: registers the harvest flagged as polled
+    # (read-heavy, write-starved). When the model independently agrees
+    # (status + poll), a low numeric confidence should not drop a real
+    # poll rule — floor it at the materialize threshold.
+    ev_poll = {a.lower() for a, e in evidence.get("registers", {}).items() if e.get("poll")}
+
     model: dict[str, dict] = {}
     role_counts: dict[str, int] = {}
     behavior_counts: dict[str, int] = {}
     n_behavior = 0
     n_static = 0
+    n_evfloor = 0
     for addr, rec in sorted(raw.items(), key=lambda kv: int(kv[0], 16)):
         source = "dynamic" if addr.lower() in dyn_addrs else "static"
         if source == "static":
             n_static += 1
+        rec = dict(rec)
+        b = rec.get("behavior") or {}
+        if (source == "dynamic" and addr.lower() in ev_poll
+                and rec.get("role") == "status" and b.get("type") == "poll"):
+            rec["confidence"] = max(float(rec.get("confidence", 0.0)), BEHAVIOR_MIN_CONF)
+            n_evfloor += 1
         entry = normalize(rec, source)
         model[addr.lower()] = entry
         role_counts[entry["role"]] = role_counts.get(entry["role"], 0) + 1
@@ -117,6 +130,7 @@ def main() -> int:
         "register_count": len(model),
         "behavior_rules": n_behavior,
         "static_only": n_static,
+        "evidence_poll_floor": n_evfloor,
         "role_counts": role_counts,
         "behavior_counts": behavior_counts,
         "registers": model,
@@ -125,7 +139,7 @@ def main() -> int:
     args.out.write_text(json.dumps(doc, indent=1))
     print(f"[mmio_model] wrote {args.out}")
     print(f"[mmio_model] {len(model)} registers; {n_behavior} behavioral rules "
-          f"({dict(behavior_counts)}); {n_static} static-only")
+          f"({dict(behavior_counts)}); {n_static} static-only; {n_evfloor} evidence-poll floors")
     print(f"[mmio_model] roles: {dict(sorted(role_counts.items(), key=lambda kv: -kv[1]))}")
     return 0
 
