@@ -66,11 +66,13 @@ from unicorn.arm_const import (
     UC_ARM_REG_PC,
     UC_ARM_REG_SP,
     UC_CPU_ARM_CORTEX_M3,
+    UC_CPU_ARM_CORTEX_M4,
 )
 
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "src"
 MMIO_HEADER = SRC / "include" / "aic8800d80_mmio.h"
+MMIO_BEHAVIOR_PATH = SRC / "include" / "aic8800d80_mmio_behavior.json"
 TARGETS_DEFAULT = REPO / "extraction_out" / "reconstruction" / "truth_lane_state" / "truth_lane_targets.json"
 SCAN_GLOB = REPO / "harness_v25" / "out" / "{}_bin_funcs.jsonl"
 FIRMWARE_DIR = REPO / "inputs" / "firmware"
@@ -136,6 +138,22 @@ def parse_int(s: str) -> int:
 _REG_NAME_RE = re.compile(r"^#define\s+(REG_[0-9A-Fa-f]+_[0-9A-Fa-f]+)\s*\(\*\(\(volatile\s+uint32_t\s+\*\)(0x[0-9A-Fa-f]+)\)\)")
 
 
+def load_mmio_behavior(path: Path | None = None) -> dict[str, dict]:
+    """Load the behavioral MMIO model: {addr_lower_hex: {name, role, behavior}}.
+
+    Empty dict when the model is absent, so the emulator runs unchanged.
+    """
+    path = path or MMIO_BEHAVIOR_PATH
+    if not path.is_file():
+        return {}
+    try:
+        doc = json.loads(path.read_text())
+    except json.JSONDecodeError:
+        return {}
+    regs = doc.get("registers", {})
+    return {str(a).lower(): v for a, v in regs.items()}
+
+
 def load_mmio_model(header: Path | None = None) -> dict[int, str]:
     """Parse the generated MMIO header into {address: register-name}.
 
@@ -173,9 +191,11 @@ def mmio_name(model: dict[int, str], addr: int) -> str:
 def load_function_table(image: str) -> list[tuple[int, str]]:
     """Return sorted [(address, name)] from the fwstruct scan JSONL.
 
-    Scan addresses are the project's chip-space "model" addresses (e.g.
-    ``start`` at 0x100100); some are a few bytes ahead of the real code.
-    We keep them raw and resolve PCs with a tolerance at lookup time.
+    Scan addresses are the project's analysis-space "model" addresses (e.g.
+    ``start`` at 0x100100). The emulator runs every entry at hardware base
+    0x120000, so the table is shifted +HW_OFFSET so ``resolve_pc_name`` can
+    match runtime PCs (a 0x20000 offset would otherwise break function-frame
+    and depth-0 tracking).
     """
     path = Path(str(SCAN_GLOB).format(image))
     table: list[tuple[int, str]] = []
@@ -193,7 +213,7 @@ def load_function_table(image: str) -> list[tuple[int, str]]:
         name = j.get("name")
         if not isinstance(addr, int) or not name:
             continue
-        table.append((addr, name))
+        table.append((addr + HW_OFFSET, name))
     table.sort()
     return table
 
@@ -242,11 +262,14 @@ class Aic8800D80Platform:
     """
 
     def __init__(self, image_path: Path, mmio_model: dict[int, str] | None = None,
-                 cpu_model: int = UC_CPU_ARM_CORTEX_M3):
+                 cpu_model: int = UC_CPU_ARM_CORTEX_M4,
+                 behavior_model: dict[str, dict] | None = None):
         self.image_path = Path(image_path)
         self.image = self.image_path.read_bytes()
         self.image_addr = CHIP_BASE
         self.mmio_model = mmio_model if mmio_model is not None else load_mmio_model()
+        self.behavior_model = (behavior_model if behavior_model is not None
+                               else load_mmio_behavior())
         self.function_table: list[tuple[int, str]] = []
 
         if len(self.image) > IMAGE_MAX:
@@ -260,6 +283,9 @@ class Aic8800D80Platform:
         self.traffic: list[dict] = []
         self.mmio_state: dict[int, int] = {}
         self.mmio_auto_mapped: set[int] = set()
+        # Behavioral-model state.
+        self._poll_reads: dict[int, int] = {}
+        self._strobe_until: dict[int, int] = {}
         self.insn_count = 0
         self.branch_taken = 0
         self.cur_fn: str | None = None
@@ -324,6 +350,16 @@ class Aic8800D80Platform:
             # original's callee-register traffic must be excluded too.
             depth = self.call_depth
             if access == UC_MEM_READ:
+                # Behavioral injection BEFORE the load executes (UC_HOOK_MEM_READ
+                # is a pre-access hook): a poll register becomes ready after N
+                # reads, a strobe register clears after its window.
+                self._inject_read_value(addr, int(size))
+                # Capture the actual read-back value (the phantom model maps a
+                # deterministic word, so this is stable) for echo/poll evidence.
+                try:
+                    rv = int.from_bytes(uc.mem_read(addr, size), "little")
+                except UcError:
+                    rv = None
                 self.traffic.append({
                     "pc": hex(int(uc.reg_read(UC_ARM_REG_PC))),
                     "op": "read",
@@ -331,6 +367,7 @@ class Aic8800D80Platform:
                     "name": mmio_name(self.mmio_model, addr),
                     "size": int(size),
                     "depth": depth,
+                    "value": hex(rv) if rv is not None else None,
                 })
             else:
                 self.traffic.append({
@@ -343,6 +380,14 @@ class Aic8800D80Platform:
                     "depth": depth,
                 })
                 self.mmio_state[addr] = int(value)
+                # Behavioral-model state on writes: a poll register is re-armed
+                # (read counter reset), a strobe register starts its window.
+                bh = self._behavior_for(addr)
+                if bh:
+                    if bh.get("type") == "poll":
+                        self._poll_reads[addr] = 0
+                    elif bh.get("type") == "strobe":
+                        self._strobe_until[addr] = self.insn_count + int(bh.get("clear_after", 64))
 
         self.last_unmapped = []  # (pc, access, addr) of the most recent misses
 
@@ -360,12 +405,20 @@ class Aic8800D80Platform:
                     self.mmio_auto_mapped.add(base)
                 except UcError:
                     return False
-            # Provide a deterministic default word (or the last written value).
-            try:
-                word = self.mmio_state.get(addr & ~3, 0)
-                uc.mem_write(addr & ~3, struct.pack("<I", word))
-            except UcError:
-                return False
+            # Behavioral injection for the first access of a page; otherwise a
+            # deterministic default word (or the last written value).
+            bval = self._behavior_read_word(addr, int(size))
+            if bval is not None:
+                try:
+                    uc.mem_write(addr, int(bval).to_bytes(int(size), "little"))
+                except UcError:
+                    return False
+            else:
+                try:
+                    word = self.mmio_state.get(addr & ~3, 0)
+                    uc.mem_write(addr & ~3, struct.pack("<I", word))
+                except UcError:
+                    return False
             return True
 
         self.mu.hook_add(UC_HOOK_CODE, on_code)
@@ -374,6 +427,48 @@ class Aic8800D80Platform:
             UC_HOOK_MEM_READ_UNMAPPED | UC_HOOK_MEM_WRITE_UNMAPPED,
             on_unmapped,
         )
+
+    def _behavior_for(self, addr: int) -> dict | None:
+        """The behavior rule dict for a register address (None if unmodeled)."""
+        b = self.behavior_model.get(hex(addr).lower())
+        if not b:
+            return None
+        return b.get("behavior") or None
+
+    def _behavior_read_word(self, addr: int, size: int) -> int | None:
+        """Value a read of ``addr`` should observe, or None for no rule.
+
+        Updates behavioral state (poll read progression, strobe window).
+        The caller writes the returned word to memory before the load reads it.
+        """
+        bh = self._behavior_for(addr)
+        if bh is None:
+            return None
+        btype = bh.get("type")
+        if btype == "poll":
+            n = self._poll_reads.get(addr, 0) + 1
+            self._poll_reads[addr] = n
+            mask = int(bh.get("ready_mask", "0x1"), 16)
+            last = self.mmio_state.get(addr, 0)
+            if n >= int(bh.get("reads_to_ready", 1)):
+                # Ready: config bits preserved, ready bit(s) set.
+                return last | mask
+            # Not ready yet: config bits preserved, ready bit(s) forced clear.
+            return last & ~mask
+        if btype == "strobe":
+            if self.insn_count < self._strobe_until.get(addr, 0):
+                return None  # in window: keep the written value visible
+            return 0  # window elapsed: reads see zero
+        return None
+
+    def _inject_read_value(self, addr: int, size: int) -> None:
+        val = self._behavior_read_word(addr, size)
+        if val is None:
+            return
+        try:
+            self.mu.mem_write(addr, int(val).to_bytes(size, "little"))
+        except UcError:
+            pass
 
     def _note_function(self, pc: int) -> None:
         if not self.function_table:
