@@ -23,6 +23,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -157,6 +158,16 @@ func runCompose(args []string) error {
 				}
 			}
 		}
+		// Call-site disambiguation for duplicate LLM names. The naming pass can
+		// give two distinct functions the same name; the dedup above keeps their
+		// DEFINITIONS unique (base + _1) but baked-in call sites keep the base
+		// name, so calls that target the second unit would bind to the first.
+		// Use the ORIGINAL binary's call edges (chip-space caller -> callee) to
+		// rewrite each call site to the address it actually targets. No-op when
+		// the call-edge file is absent (e.g. fresh clone without extraction_out/).
+		disambiguateCallSites(units, loadCallEdges(
+			filepath.Join(cf.Root, "extraction_out", "ida_export_live", binName+".bin.call_edges.jsonl"),
+		))
 		var main strings.Builder
 		main.WriteString("/* Auto-generated composed reconstruction — unified series */\n")
 		main.WriteString("/* image: " + img + " — real bodies from src/" + srcDir + "/functions/ */\n\n")
@@ -278,6 +289,103 @@ func validCName(n string) bool {
 		}
 	}
 	return true
+}
+
+// chipFromV14 converts an IDA-export address (v14 base 0x1200000) to chip
+// space (base 0x100000). Addresses already in chip space pass through.
+func chipFromV14(addr int) int {
+	if addr >= 0x1200000 {
+		return addr - 0x1100000
+	}
+	return addr
+}
+
+// loadCallEdges reads the IDA call-edge export for one image into
+// chip-space caller -> set of callee addresses. Returns nil if the file is
+// missing (call-site disambiguation is then a no-op).
+func loadCallEdges(path string) map[int]map[int]bool {
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return nil
+	}
+	out := map[int]map[int]bool{}
+	for _, line := range strings.Split(string(b), "\n") {
+		line = strings.TrimSpace(line)
+		if line == "" {
+			continue
+		}
+		var rec struct {
+			SourceAddr string `json:"source_addr"`
+			TargetAddr string `json:"target_addr"`
+		}
+		if json.Unmarshal([]byte(line), &rec) != nil {
+			continue
+		}
+		src, err1 := strconv.ParseInt(strings.TrimPrefix(rec.SourceAddr, "0x"), 16, 64)
+		tgt, err2 := strconv.ParseInt(strings.TrimPrefix(rec.TargetAddr, "0x"), 16, 64)
+		if err1 != nil || err2 != nil {
+			continue
+		}
+		srcChip := chipFromV14(int(src))
+		tgtChip := chipFromV14(int(tgt))
+		if out[srcChip] == nil {
+			out[srcChip] = map[int]bool{}
+		}
+		out[srcChip][tgtChip] = true
+	}
+	return out
+}
+
+// disambiguateCallSites rewrites bodies whose call sites reference a name
+// that two distinct functions share. For each unit, it resolves which of the
+// shared name's addresses the caller actually targets (from the binary call
+// edges) and rewrites the base name to the correct deduped definition name.
+func disambiguateCallSites(units []fnUnit, callEdges map[int]map[int]bool) {
+	if len(callEdges) == 0 {
+		return
+	}
+	// Group definition addresses by original (marker) name.
+	origToAddr := map[string][]int{}
+	addrToNew := map[int]string{}
+	for _, u := range units {
+		origToAddr[u.Orig] = append(origToAddr[u.Orig], u.Addr)
+		addrToNew[u.Addr] = u.New
+	}
+	for i := range units {
+		u := &units[i]
+		for n, addrs := range origToAddr {
+			if len(addrs) < 2 {
+				continue // name is unambiguous
+			}
+			if !strings.Contains(u.Body, n) {
+				continue // this body does not reference the name
+			}
+			// Which of the shared name's addresses does this caller hit?
+			target := 0
+			for _, a := range addrs {
+				if callEdges[u.Addr][a] {
+					if target != 0 {
+						target = -1 // multiple targets — leave the base name
+						break
+					}
+					target = a
+				}
+			}
+			if target > 0 {
+				if nn := addrToNew[target]; nn != n {
+					// Match a call with arguments `name(args)` or the
+					// cast-form `((int (*)())name)(x)` / address context
+					// `name)`, but NOT the 0-arg artifact `name()` (the
+					// deduped target may be variadic, which a 0-arg call
+					// would not compile against).
+					re := regexp.MustCompile(`\b(` + regexp.QuoteMeta(n) + `)(?:\s*\([^)]|\))`)
+					u.Body = re.ReplaceAllStringFunc(u.Body, func(m string) string {
+						return nn + m[len(n):]
+					})
+				}
+			}
+		}
+	}
 }
 
 
