@@ -251,6 +251,8 @@ class Aic8800D80Platform:
         self.branch_taken = 0
         self.cur_fn: str | None = None
         self.fn_entries: list[str] = []
+        self.call_stack: list[str] = []
+        self.call_depth = 0
 
         self._install_hooks()
 
@@ -302,6 +304,12 @@ class Aic8800D80Platform:
             addr = int(address)
             if not is_mmio_addr(addr):
                 return
+            # call_depth: 0 = accesses made while the target function's own
+            # body is on top of the stack (before any callee was entered and
+            # after it returned). Used to compare original vs reconstruction
+            # on the SAME basis: the reconstruction stubs callees, so the
+            # original's callee-register traffic must be excluded too.
+            depth = self.call_depth
             if access == UC_MEM_READ:
                 self.traffic.append({
                     "pc": hex(int(uc.reg_read(UC_ARM_REG_PC))),
@@ -309,6 +317,7 @@ class Aic8800D80Platform:
                     "addr": hex(addr),
                     "name": mmio_name(self.mmio_model, addr),
                     "size": int(size),
+                    "depth": depth,
                 })
             else:
                 self.traffic.append({
@@ -318,11 +327,17 @@ class Aic8800D80Platform:
                     "name": mmio_name(self.mmio_model, addr),
                     "size": int(size),
                     "value": hex(int(value)),
+                    "depth": depth,
                 })
                 self.mmio_state[addr] = int(value)
 
+        self.last_unmapped = []  # (pc, access, addr) of the most recent misses
+
         def on_unmapped(uc, access, address, size, value, user_data):
             addr = int(address)
+            pc = int(uc.reg_read(UC_ARM_REG_PC))
+            # Record every unmapped access (even non-MMIO) for diagnostics.
+            self.last_unmapped.append((pc, access, addr, int(size)))
             if not is_mmio_addr(addr):
                 return False
             base = addr & ~(PAGE_SIZE - 1)
@@ -351,9 +366,22 @@ class Aic8800D80Platform:
         if not self.function_table:
             return
         name = resolve_pc_name(self.function_table, pc)
-        if name and name != self.cur_fn:
-            self.cur_fn = name
-            self.fn_entries.append(name)
+        if not name or name == self.cur_fn:
+            return
+        # Function-frame tracking: entering a callee pushes it; returning to
+        # a frame that is already on the stack pops back to it. call_depth is
+        # the number of frames above the entry function (0 = entry body).
+        if self.call_stack and name == self.call_stack[-1]:
+            self.call_stack.pop()
+        elif self.call_stack and name in self.call_stack:
+            # Returned to a grandparent frame (e.g. through a tail-call).
+            while self.call_stack and self.call_stack[-1] != name:
+                self.call_stack.pop()
+        else:
+            self.call_stack.append(name)
+        self.cur_fn = name
+        self.call_depth = max(0, len(self.call_stack) - 1)
+        self.fn_entries.append(name)
 
     # -- ivt / boot -------------------------------------------------------
     def ivt(self) -> dict:
@@ -390,10 +418,19 @@ class Aic8800D80Platform:
         self.traffic = []
         self.cur_fn = None
         self.fn_entries = []
+        self.call_stack = []
+        self.call_depth = 0
+        self.last_unmapped = []
         if sp is not None:
             self.mu.reg_write(UC_ARM_REG_SP, sp)
         self.mu.reg_write(UC_ARM_REG_LR, (lr if lr is not None else RETURN_STOP) | 1)
         self.mu.reg_write(UC_ARM_REG_PC, entry | 1)
+        # Seed the call stack with the entry function so depth 0 = entry body.
+        if self.function_table:
+            ename = resolve_pc_name(self.function_table, entry)
+            if ename:
+                self.cur_fn = ename
+                self.call_stack = [ename]
 
         cap_flag = {"n": max_insns}
         fault = {"access": None, "address": None, "size": None, "detail": ""}
@@ -411,6 +448,11 @@ class Aic8800D80Platform:
             stop["value"] = "fault"
             fault["detail"] = str(e)
             fault["pc"] = hex(self.mu.reg_read(UC_ARM_REG_PC))
+            if self.last_unmapped:
+                pc0, acc, addr, sz = self.last_unmapped[-1]
+                fault["access"] = "read" if acc == UC_MEM_READ else "write"
+                fault["address"] = hex(addr)
+                fault["size"] = sz
 
         self.mu.hook_del(cap_hook)
 
@@ -431,15 +473,27 @@ class Aic8800D80Platform:
         writes = [t for t in self.traffic if t["op"] == "write"]
         unique = sorted({int(t["addr"], 16) for t in self.traffic})
         periph = sorted({int(t["addr"], 16) for t in self.traffic if is_periph_addr(int(t["addr"], 16))})
+        # Depth-0 (target body only, excluding callee traffic): the SAME basis
+        # the reconstruction smoke uses (it stubs callees, so their register
+        # traffic is absent there too).
+        depth0 = sorted({int(t["addr"], 16) for t in self.traffic
+                         if t.get("depth", 0) == 0})
+        depth0_periph = sorted({int(t["addr"], 16) for t in self.traffic
+                                if t.get("depth", 0) == 0
+                                and is_periph_addr(int(t["addr"], 16))})
         stats = {
             "instructions": self.insn_count,
             "mmio_reads": len(reads),
             "mmio_writes": len(writes),
             "unique_mmio_addrs": [hex(a) for a in unique],
             "unique_periph_addrs": [hex(a) for a in periph],
+            "self_mmio_addrs": [hex(a) for a in depth0],
+            "self_periph_addrs": [hex(a) for a in depth0_periph],
             "termination": stop["value"],
             "fault": fault["detail"],
             "fault_pc": fault.get("pc"),
+            "fault_access": fault.get("access"),
+            "fault_address": fault.get("address"),
             "functions": self.fn_entries[:50],
         }
         return stop["value"], stats
@@ -667,7 +721,17 @@ def cmd_compare(args: argparse.Namespace) -> int:
         r = recon_by_key.get(key)
         if r is None:
             continue
-        orig_all = {int(a, 16) for a in o.get("unique_mmio_addrs", [])}
+        # Compare on the SAME basis: the reconstruction stubs callees, so its
+        # traffic is the target body only. The original's "self" traffic
+        # (call_depth 0) excludes callee register accesses the same way.
+        # The self_* keys are only present in fingerprints produced with the
+        # depth-0 tracker. Presence (not emptiness) selects the basis: an
+        # empty self list is a genuine "no body-level traffic" signal, not a
+        # missing field.
+        if "self_mmio_addrs" in o:
+            orig_all = {int(a, 16) for a in o.get("self_mmio_addrs", [])}
+        else:
+            orig_all = {int(a, 16) for a in o.get("unique_mmio_addrs", [])}
         recon_all = {int(a, 16) for a in r.get("mmio_unique_addrs", [])}
         # Narrow the comparison to actual peripheral registers; the full
         # set is polluted by firmware data-segment addresses (0x100000-0x180000).
