@@ -2,10 +2,16 @@
 """Full-system Unicorn emulator for the AIC8800D80 WiFi/BT firmware.
 
 Loads a raw firmware image at the HARDWARE runtime base 0x120000, models
-the MMIO register map from ``src/include/aic8800d80_mmio.h``, boots from
-the IVT reset vector, and logs ordered MMIO traffic with register names.
+the MMIO register map from ``src/include/aic8800d80_mmio.h`` (plus an
+optional behavioral model from ``aic8800d80_mmio_behavior.json`` that makes
+poll/status registers become ready and strobe registers self-clear), boots
+from the IVT reset vector, and logs ordered MMIO traffic with register names.
 Also traces single functions and runs the truth-lane target set to produce
 ground-truth behavioral fingerprints from the ORIGINAL binary.
+
+CPU model: Cortex-M4 (default). The firmware uses VFP instructions
+(``vpush {d8}``), which hardfault on a plain Cortex-M3; M4/M7/M33 execute
+them and all four images boot to 300k+ instructions without fault.
 
 Image layout (AIC8800D80, per internal/ivt + harness_v19/scripts/make_elf.py):
   file offset 0x000-0x0FF : IVT + boot header (WFFW magic @ 0x20)

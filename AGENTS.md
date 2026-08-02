@@ -53,10 +53,17 @@ release tarball
   repointed to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02;
   target list lives in gitignored `extraction_out/`).
 - **Emulator (milestone)**: `tools/aic8800d80_emulator.py` — full-system
-  Unicorn platform, Cortex-M3 CPU model (needed for M-profile `MSR MSP`),
-  MMIO device model from `src/include/aic8800d80_mmio.h`, boot from the IVT
+  Unicorn platform, **Cortex-M4 CPU model** (corrected 2026-08-02: the
+  firmware uses VFP instructions like `vpush {d8}`, which hardfault on a
+  plain Cortex-M3 — all 4 images faulted at ~25k insns; under M4 they boot to
+  300k+ insns with ~24k MMIO writes), MMIO device model from
+  `src/include/aic8800d80_mmio.h`, optional behavioral model from
+  `src/include/aic8800d80_mmio_behavior.json` (poll registers become ready
+  after N reads, strobe registers self-clear), boot from the IVT
   reset vector, and original-binary behavioral fingerprints for the 25
-  truth-lane targets.
+  truth-lane targets. `load_function_table` returns hardware-space addresses
+  (+0x20000) so PC→function resolution and depth-0 body tracking work at the
+  0x120000 runtime base; `on_mem` records read-back values.
   - **RUNTIME BASE IS 0x120000, NOT 0x100000** (corrected 2026-08-02). The
     IVT reset vector is 0x1201a9 = 0x1201a8|1 = the CPUID-check `start` at
     file 0x1a8 — *correct* at base 0x120000. The earlier "stale IVT" finding
