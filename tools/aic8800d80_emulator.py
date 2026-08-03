@@ -127,6 +127,12 @@ BUFFER_POOL_END = 0x08000000
 MMIO_PHANTOM_BASE = 0x40000000  # APB/AHB peripherals (IDA phantom segment)
 MMIO_PHANTOM_END = 0x60000000
 RETURN_STOP = 0xDEADC000
+# The whole page below RETURN_STOP is a return sentinel: every word holds a
+# `b .` (0xe7fe), and a return address is the sentinel with the thumb bit set
+# (0xdeadc001) which unicorn may fetch as 0xdeadc000/0xdeadc001/0xdeadc002
+# depending on alignment. ANY fetch in this page means the function returned.
+SENTINEL_BASE = RETURN_STOP & ~0xFFF
+SENTINEL_END = SENTINEL_BASE + 0x1000
 PAGE_SIZE = 0x1000
 
 # Boot-ROM callback slots: the firmware calls through these fixed low-memory
@@ -206,6 +212,7 @@ BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 SPIN_BREAK_READS = 4        # reads of (pc, addr) before flipping
 SPIN_BREAK_BRANCH = 6       # executions of one backward-branch pc before jumping
 SPIN_BREAK_WINDOW = 2000    # max insn gap between events to count as one spin
+SPIN_STACK_SCRATCH = 0x200  # bytes around SP treated as frame scratch (not state)
 SPIN_BREAK_REGLOOP = 100000 # register-only branch executions before skipping
 SPIN_BREAK_WRLOOP = 4096    # same-register MMIO write streak before skipping
 # Only value the memory-flip ever writes: 0, to a flag currently == 1 (a set
@@ -583,7 +590,10 @@ class Aic8800D80Platform:
     def _install_hooks(self) -> None:
         def on_code(uc, address, size, user_data):
             pc = int(address)
-            if pc in (RETURN_STOP, RETURN_STOP | 1):
+            # ANY fetch in the sentinel page is a return: a pop {pc} restores
+            # RETURN_STOP|1 (0xdeadc001), which unicorn may fetch as
+            # 0xdeadc001 or align to 0xdeadc000/0xdeadc002 — all in this page.
+            if SENTINEL_BASE <= pc < SENTINEL_END:
                 uc.emu_stop()
                 return
             # A return into the low region (bx lr with a null LR, or a branch
@@ -740,8 +750,14 @@ class Aic8800D80Platform:
                     and not is_periph_addr(addr)):
                 if access == UC_MEM_READ:
                     pc = int(uc.reg_read(UC_ARM_REG_PC))
-                    self._spin_last_read = self.insn_count
-                    self._spin_last_read_addr = addr
+                    # Frame-scratch reads (near SP) are stack traffic, not wait
+                    # flags — exempt them from the read timestamp so a loop
+                    # whose only reads are push/pop/`ldr [sp,#k]` isn't seen as
+                    # a wait. A wait flag is global data, far from SP.
+                    if abs(addr - int(uc.reg_read(UC_ARM_REG_SP))) \
+                            >= SPIN_STACK_SCRATCH:
+                        self._spin_last_read = self.insn_count
+                        self._spin_last_read_addr = addr
                     # The hook's ``value`` arg is undefined for reads; read the
                     # current word ourselves for the stability check.
                     try:
@@ -768,12 +784,18 @@ class Aic8800D80Platform:
                         self._spin_counts[key] = (0, self.insn_count, None)
                 else:
                     # A write to the slot means it's live program state
-                    # (mutating between reads), not a wait flag. Stack-scratch
-                    # writes are exempt: a delay loop decrements a stack local
-                    # ([sp,#4]) every iteration, and treating that as "state
-                    # mutation" would mask a slow re-check wait that polls a
-                    # global counter every ~200 insns.
-                    if not (STACK_BASE <= addr < STACK_BASE + STACK_SIZE):
+                    # (mutating between reads), not a wait flag. Frame-scratch
+                    # writes near SP are exempt: a delay loop decrements a stack
+                    # local ([sp,#4]) every iteration, and treating that as
+                    # "state mutation" would mask a slow re-check wait that
+                    # polls a global counter every ~200 insns. The exemption is
+                    # NEAR-SP, not the whole 0x180000-0x1a0000 window: that
+                    # window also holds firmware GLOBALS (0x1990b0 etc.), and a
+                    # memset/init writing them is real work — exempting it left
+                    # the write timestamp stale and let the branch-jump misfire
+                    # on the init loop's back-edge (key_mfp/sub_1420A0).
+                    if abs(addr - int(uc.reg_read(UC_ARM_REG_SP))) \
+                            >= SPIN_STACK_SCRATCH:
                         self._spin_last_write = self.insn_count
                         # A candidate-global write inside a backward-branch
                         # window means the loop is doing real work (a data
@@ -1163,6 +1185,14 @@ class Aic8800D80Platform:
                     start_ea = lr
                     continue
                 if getattr(e, "errno", None) == UC_ERR_EXCEPTION:
+                    # A return into the sentinel page fetched at an ODD address
+                    # (pop {pc} restoring RETURN_STOP|1 = 0xdeadc001) raises
+                    # UC_ERR_EXCEPTION before the code hook can stop us. That
+                    # is a clean return, not a fault.
+                    pc = int(self.mu.reg_read(UC_ARM_REG_PC))
+                    if SENTINEL_BASE <= pc < SENTINEL_END:
+                        stop["value"] = "returned"
+                        break
                     # CPU exception (e.g. ``mcr p0`` = Undefined Instruction).
                     # This firmware has no coprocessors, so such an instruction
                     # only appears as DATA/PADDING misdecoded after a garbage
@@ -1193,19 +1223,21 @@ class Aic8800D80Platform:
 
         if stop["value"] == "running":
             pc = self.mu.reg_read(UC_ARM_REG_PC)
-            if pc in (RETURN_STOP, RETURN_STOP | 1) or pc < 0x10000:
-                # Return to the sentinel, or to a null/low return address
-                # (pop {pc} from a caller-less stack slot): the function
-                # completed; classify as returned.
+            if SENTINEL_BASE <= pc < SENTINEL_END or pc < 0x10000:
+                # Return to the sentinel page (any address: a pop {pc} to
+                # RETURN_STOP|1 may fetch as 0xdeadc000-0xdeadc002 depending on
+                # alignment), or to a null/low return address (pop {pc} from a
+                # caller-less stack slot): the function completed; classify as
+                # returned.
                 stop["value"] = "returned"
             else:
                 stop["value"] = f"exited:0x{pc:x}"
 
         # A fault at the return sentinel is a natural return (bx lr reached
         # the sentinel page before the cap hook could stop us).
-        if stop["value"] == "fault" and fault["pc"] in (
-            hex(RETURN_STOP),
-            hex(RETURN_STOP | 1),
+        if stop["value"] == "fault" and (
+            SENTINEL_BASE <= int(fault["pc"], 16) < SENTINEL_END
+            if fault["pc"] else False
         ):
             stop["value"] = "returned"
             fault["detail"] = ""
