@@ -228,6 +228,7 @@ SPIN_STACK_SCRATCH = 0x200  # bytes around SP treated as frame scratch (not stat
 SPIN_BREAK_REGLOOP = 100000 # register-only branch executions before skipping
 SPIN_BREAK_WRLOOP = 4096    # same-register MMIO write streak before skipping
 SPIN_BREAK_SELFLOOP = 32    # executions of a branch-to-self (`b .`) before aborting
+SPIN_BREAK_MEMSET = 1024    # span (bytes) at which a str-postinc fill loop fast-forwards
 # Only value the memory-flip ever writes: 0, to a flag currently == 1 (a set
 # boolean being waited on to clear: `while (x != 0)`). Clearing a set flag is
 # unambiguous. NEVER write a large value: a field read as 0 may be a POINTER
@@ -668,6 +669,40 @@ class Aic8800D80Platform:
                     uc.emu_stop()
                     self._spin_branches[pc] = (0, self.insn_count, seen)
                     return
+            # Spin-breaker, mechanism 8 (memset fast-forward): a fill loop
+            # ``str rN,[rM],#4; cmp rM,rK; bne`` zeroing a large firmware-global
+            # region (is_patch_loaded, start, ring_buf_used: ~1MB spans) is real
+            # work that terminates on hardware but burns the budget standalone.
+            # Write the whole remaining span at once and jump to the loop exit
+            # (rM == rK). Only fires when the span is large and the value
+            # register is a small constant (0x00-0xff) — a descriptor walk reads
+            # memory, so it never matches.
+            if self._spin_break and self._is_backward_branch(pc):
+                mv = self._is_memset_loop(pc)
+                if mv is not None:
+                    val_reg, base_reg, end_reg = mv
+                    base = int(uc.reg_read(UC_ARM_REG_R0 + base_reg))
+                    end = int(uc.reg_read(UC_ARM_REG_R0 + end_reg))
+                    span = end - base
+                    if span >= SPIN_BREAK_MEMSET and span < 0x2000000:
+                        v = int(uc.reg_read(UC_ARM_REG_R0 + val_reg))
+                        if 0 <= v <= 0xFF:
+                            # Fill the span: repeat the byte value across it.
+                            # Chunked so a huge span doesn't build one giant
+                            # bytes object.
+                            chunk = bytes([v]) * min(span, 0x10000)
+                            done = 0
+                            while done < span:
+                                n = min(span - done, 0x10000)
+                                try:
+                                    self.mu.mem_write(base + done, chunk[:n])
+                                except UcError:
+                                    break
+                                done += n
+                            uc.reg_write(UC_ARM_REG_R0 + base_reg, end)
+                            self._skip_to = pc + 2   # past the bne
+                            uc.emu_stop()
+                            return
             # Spin-breaker, mechanism 2 (register-cached wait): a backward
             # branch executed repeatedly, with a candidate-global read recently
             # and no candidate-global write since, is a wait spin whose flag
@@ -1134,6 +1169,56 @@ class Aic8800D80Platform:
         if imm & 0x400:                   # sign-extend the 11-bit offset
             imm -= 0x800
         return (pc + 4 + (imm << 1)) & ~1 == pc & ~1
+
+    def _is_memset_loop(self, pc: int) -> tuple[int, int, int] | None:
+        """Detect a 4-byte post-increment fill loop ending at the backward ``bne`` pc.
+
+        Pattern (byte-identical across the corpus, e.g. is_patch_loaded /
+        start / ring_buf_used):
+            str  r1, [r2], #4    ; *(u32*)r2 = r1; r2 += 4
+            cmp  r2, r3          ; loop while r2 != r3
+            bne  <back>
+
+        Returns (value_reg, base_reg, end_reg) on match, else None. A pure
+        register-store fill over a bounded span (zeroing a firmware global
+        region) is real work that terminates on hardware but burns the budget
+        standalone; mechanism 8 fast-forwards it by writing the whole span at
+        once. Loops with memory READS (descriptor walks) are never matched.
+        """
+        if not (CHIP_BASE + 6 <= pc < CHIP_BASE + len(self.image) - 1):
+            return None
+        off = pc - CHIP_BASE
+        # bne at pc (2 bytes), cmp at pc-2 (2 bytes), str-postinc at pc-6
+        # (4-byte Thumb-2). Decode with capstone (imported lazily; only reached
+        # at backward branches, and only after the caller's execution guard).
+        try:
+            from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, arm_const as _ac
+        except ImportError:
+            return None
+        code = self.image[off - 6:off + 2]
+        md = Cs(CS_ARCH_ARM, CS_MODE_THUMB)
+        md.detail = True
+        ins = list(md.disasm(code, pc - 6))
+        if len(ins) != 3:
+            return None
+        s, c, b = ins
+        if not (s.mnemonic == "str" and s.op_str.endswith("], #4")):
+            return None
+        if not (c.mnemonic == "cmp" and b.mnemonic == "bne"):
+            return None
+        def regnum(op):
+            return op.reg - _ac.ARM_REG_R0
+        val_reg = regnum(s.operands[0])
+        base_reg = regnum(s.operands[1])
+        cmp_m = regnum(c.operands[0])
+        cmp_k = regnum(c.operands[1])
+        # The store base must be one of the two cmp operands (loop counter); the
+        # end register is the other.
+        if base_reg == cmp_m:
+            return (val_reg, base_reg, cmp_k)
+        if base_reg == cmp_k:
+            return (val_reg, base_reg, cmp_m)
+        return None
 
     def _null_return(self, uc) -> None:
         """Handle a null / garbage function-pointer call (stop, return 0).

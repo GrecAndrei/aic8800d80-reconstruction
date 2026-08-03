@@ -152,6 +152,23 @@ release tarball
     now a clean return. A data fix corrected `rf_bus_reset_status`
     (0x40200014) ready_mask from 0x1 to 0xC0 (firmware polls bits 6/7 via
     `lsls #0x18/#0x19`).
+    Three later mechanisms (2026-08-04) target the residual capped classes:
+    (6) **self-loop abort** — a branch to its own pc (`b .`) can never
+    terminate; real firmware reaches it only through an abort/assert hang, so
+    return via LR after a few executions (the abort traps rf_sub_12EF88,
+    error_trap, ke_timer_set, ...); (7) **memset fast-forward** — a fill loop
+    `str rN,[rM],#4; cmp rM,rK; bne` over a large span (is_patch_loaded,
+    start, ring_buf_used zero ~1MB global regions) is executed at once by
+    writing the whole span and jumping past the loop (detected via capstone
+    so a copy loop with a preceding `ldr` is never matched). The behavior
+    model also gained an **"rx" type** — a status register whose ready bit
+    reflects a byte available in a paired data register, cleared when that
+    data register is read (consume-on-read). 0x40032014 (rf_status) was a poll
+    with reads_to_ready=200, a harvest artifact that made console echo loops
+    (log_boot_message, timeout_handler, process_debug_char, ...) spuriously
+    "ready" then spin consuming 0x00 bytes; as "rx" with no host producing a
+    byte, the bit stays clear and those loops block (exited) — the correct
+    no-host emulation.
     Final full-sweep result (100k bootstate): **0 faults** across all 5,944
     functions — see docs/MMIO_MAPPING.md for the current returned/capped/exited
     split. The earlier 30k-era split was returned=5289, capped=523; the
