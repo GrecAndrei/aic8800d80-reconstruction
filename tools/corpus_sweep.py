@@ -28,6 +28,18 @@ function-pointer fields the 50k-insn boot has not yet installed. So the
 standalone fresh-platform mode is the cleaner null-context measurement, and
 boot-first is a diagnostic that the residual faults are context dependencies,
 not MMIO gaps.
+
+``--bootstate`` is the targeted middle path: boot once (``--boot-insns``),
+record every write the boot makes to the persistent global-region islands
+(the low ``0x182000-0x184000`` / ``0x186000-0x18a000`` / ``0x192000-0x193000``
+pages where the firmware keeps its runtime globals), and inject exactly those
+writes into each fresh function platform. This gives the allocator its valid
+heap head (``0x182b60`` -> a negative-magic node in the image data) and the
+boot callback table without dragging in the partially-populated SRAM structs
+that make ``--boot-first`` regress. Functions that previously died on the
+allocator's ``udf #255`` assert instead run real logic and cap at a legitimate
+OS wait, so ``--bootstate`` converts the largest fault bucket into the cap
+class. (Diagnostic of runtime-global dependencies, not an MMIO gap.)
 """
 
 from __future__ import annotations
@@ -86,8 +98,65 @@ def restore_memory(mu, snapshot: list[tuple[int, bytes]]) -> None:
             continue
 
 
+# The global-region window the firmware keeps its runtime globals in (the low
+# end of the 0x180000-0x1a0000 "stack" region). Pages written here during boot
+# are globals as long as they sit BELOW the deepest SP the boot reaches; pages
+# at/above that line are pure stack scratch. The exact island floor differs per
+# image (fmac images start at 0x182000, lmac_rf at 0x180000), so the capture is
+# adaptive: it records writes in this whole window and then drops everything at
+# or above the minimum SP observed during the boot.
+BOOTSTATE_WINDOW = (0x180000, 0x1a0000)
+
+
+def capture_bootstate(image: str, boot_insns: int) -> dict[int, tuple[int, int]]:
+    """Boot the image and record the persistent global-region writes.
+
+    Returns {address: (size, value)}: every write the boot makes to the
+    global-region window strictly BELOW the deepest SP it reached (so stack
+    scratch is excluded). This gives the allocator its heap head, the boot
+    callback slots, and the log/config globals WITHOUT the partially-populated
+    SRAM structs that full-restore boot-first drags in.
+    """
+    from unicorn import UC_HOOK_MEM_WRITE
+    import unicorn.arm_const as _ac
+
+    lo, hi = BOOTSTATE_WINDOW
+    img_path = resolve_image(f"{image}.bin")
+    model = load_mmio_model()
+    plat = Aic8800D80Platform(img_path, mmio_model=model)
+    plat.function_table = load_function_table(image)
+    ivt = plat.ivt()
+    writes: dict[int, tuple[int, int]] = {}
+    min_sp = [ivt["stack_pointer"]]
+
+    def on_write(uc, access, address, size, value, user_data):
+        if lo <= address < hi:
+            writes[address] = (size, value & 0xFFFFFFFF)
+            sp = plat.mu.reg_read(_ac.UC_ARM_REG_SP)
+            if sp < min_sp[0]:
+                min_sp[0] = sp
+        return True
+
+    h = plat.mu.hook_add(UC_HOOK_MEM_WRITE, on_write)
+    plat.run(ivt["reset_vector"], boot_insns, sp=ivt["stack_pointer"])
+    plat.mu.hook_del(h)
+    # Drop everything at/above the deepest stack touch (stack scratch).
+    cutoff = min_sp[0]
+    return {a: v for a, v in writes.items() if a < cutoff}
+
+
+def apply_bootstate(mu, bootstate: dict[int, tuple[int, int]]) -> None:
+    """Write a captured bootstate dict into a fresh platform."""
+    for addr, (size, value) in bootstate.items():
+        try:
+            mu.mem_write(addr, int(value).to_bytes(size, "little"))
+        except Exception:
+            continue
+
+
 def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
-                boot_first: bool = False, boot_insns: int = 50000) -> dict:
+                boot_first: bool = False, boot_insns: int = 50000,
+                bootstate: bool = False) -> dict:
     scan = Path(str(SCAN_GLOB).format(image))
     if not scan.is_file():
         return {"error": f"no scan {scan}"}
@@ -113,9 +182,13 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
     plat.function_table = load_function_table(image)
     ivt = plat.ivt()
     boot_snapshot = None
+    bootstate_dict = None
     if boot_first:
         bt, bstats = plat.run(ivt["reset_vector"], boot_insns, sp=ivt["stack_pointer"])
         boot_snapshot = snapshot_memory(plat.mu)
+    elif bootstate:
+        # Capture the boot's persistent global-region writes once per image.
+        bootstate_dict = capture_bootstate(image, boot_insns)
 
     for i, fn in enumerate(fns):
         if every > 1 and i % every != 0:
@@ -132,6 +205,10 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
             plat = Aic8800D80Platform(img_path, mmio_model=model)
             plat.function_table = load_function_table(image)
             ivt = plat.ivt()
+            if bootstate_dict is not None:
+                # Seed the boot-initialized globals into the fresh platform
+                # (heap head, callback slots) WITHOUT the booted SRAM structs.
+                apply_bootstate(plat.mu, bootstate_dict)
         term, stats = plat.run(chip, max_insns, sp=ivt["stack_pointer"])
         rows.append({
             "image": image,
@@ -174,6 +251,7 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
         "faulted": counts["fault"],
         "elapsed_s": round(elapsed, 1),
         "boot_first": boot_first,
+        "bootstate": bootstate,
         "fault_pages": [{"page": hex(p), "n": n} for p, n in fault_pages.most_common(15)],
         "fault_pcs": [{"page": hex(p), "n": n} for p, n in fault_pcs.most_common(15)],
     }
@@ -191,9 +269,16 @@ def main() -> int:
     ap.add_argument("--boot-first", action="store_true",
                     help="boot the image once, then run every function "
                          "against the booted state (heap/globals initialized)")
+    ap.add_argument("--bootstate", action="store_true",
+                    help="boot once, capture only the persistent global-region "
+                         "writes, and inject them into each fresh function run "
+                         "(allocator heap head + callback slots, no SRAM structs)")
     ap.add_argument("--boot-insns", type=int, default=50000,
-                    help="instructions for the --boot-first boot")
+                    help="instructions for the --boot-first/--bootstate boot")
     args = ap.parse_args()
+
+    if args.boot_first and args.bootstate:
+        ap.error("--boot-first and --bootstate are mutually exclusive")
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -201,9 +286,11 @@ def main() -> int:
     for img in args.images:
         out = out_dir / f"{img}.jsonl"
         s = sweep_image(img, args.max_insns, args.every, out,
-                        boot_first=args.boot_first, boot_insns=args.boot_insns)
+                        boot_first=args.boot_first, boot_insns=args.boot_insns,
+                        bootstate=args.bootstate)
         summaries.append(s)
-        mode = "boot-first" if args.boot_first else "standalone"
+        mode = ("boot-first" if args.boot_first
+                else "bootstate" if args.bootstate else "standalone")
         print(f"[sweep:{mode}] {s['image']:28s} scanned={s['scanned']:5d} "
               f"sampled={s['sampled']:5d} returned={s['returned']:5d} "
               f"capped={s['capped']:5d} faulted={s['faulted']:5d} "

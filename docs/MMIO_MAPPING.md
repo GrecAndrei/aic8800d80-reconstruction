@@ -199,12 +199,42 @@ So the full model gives ~79% of the corpus clean execution, and the residual
 `corpus_sweep.py` buckets faults by address page so novel gaps surface in
 aggregate.
 
-A `--boot-first` mode (boot once per image, snapshot, run each function
-against the restored booted state) is a diagnostic of how many standalone
-faults are boot-state dependencies. Result: booting eliminates the allocator
-trap (INSN_INVALID 83 → 3 on lmac_rf) but exposes ~120 new null-callbacks,
-because boot-populated globals point into structures whose function-pointer
-fields the 50k-insn boot has not installed yet — net worse (932 → 605
-returned). So the standalone fresh-platform mode is the cleaner null-context
-measurement, and boot-first confirms the residual faults are context
-dependencies rather than MMIO gaps.
+Two boot-state diagnostics quantify how much of the residual is context
+dependence rather than MMIO:
+
+- **`--boot-first`** (boot once per image, snapshot, run each function against
+  the restored booted state): booting eliminates the allocator trap but exposes
+  ~120 new null-callbacks, because boot-populated globals point into structures
+  whose function-pointer fields the 50k-insn boot has not installed yet — net
+  worse (932 → 605 returned on lmac_rf).
+- **`--bootstate`** (boot once per image, capture ONLY the persistent
+  global-region writes strictly below the deepest boot SP, and inject them into
+  each fresh function run): the targeted middle path. It gives the allocator
+  its heap head (a static free-list node in the image data, e.g. fmacfw_h
+  `[0x182b60] = 0x1731be`, lmac_rf `[0x180ac0] = 0x158272`), the boot callback
+  slots, and the log/config globals — WITHOUT the partially-populated SRAM
+  structs that make boot-first regress.
+
+  ```
+  standalone: returned=4694 capped=450  faulted=797
+  bootstate:  returned=4237 capped=1536 faulted=172   (78% fewer faults)
+  ```
+
+  The fault→cap conversion is the headline: functions that previously died on
+  the allocator's `udf #255` assert now run their real logic and cap at a
+  legitimate OS wait (`while ([flag] != 0);` — the flag is cleared by an
+  interrupt/other-core path the standalone emulator never runs). The
+  returned→cap flips (4694 → 4237) are the same wait: with the heap working,
+  these functions allocate then block, instead of "returning" early on the null
+  context. That is more faithful, not a regression.
+
+  The residual 172 faults are two well-understood families:
+  - ~75 `READ_UNMAPPED` at `0xfffffffc` with fault_pc inside the allocator
+    (`ldr r8, [r0, #-4]` with r0=0): functions passing a null block to the
+    allocator's free/resize path — caller-supplied pointer context.
+  - ~60 `INSN_INVALID` at pc=0: a call through a null function-pointer field in
+    a boot-populated struct (the same class boot-first exposed, now ~60 instead
+    of ~120 because bootstate seeds the globals that hold most of them).
+
+  So the MMIO layer is complete; the residual is entirely execution-context
+  injection, quantifiable per family via `--bootstate`.

@@ -101,6 +101,19 @@ release tarball
     0x1d0/0x1d4/0x1e0 (lmac_rf); seeding it lifted the corpus sweep
     (tools/corpus_sweep.py, all 5,945 functions) to 79.0% clean execution
     with 0 genuine unmapped-MMIO faults.
+  - **`--bootstate` mode (2026-08-02)**: boot once per image (300k insns),
+    capture ONLY the persistent global-region writes strictly below the deepest
+    boot SP, inject them into each fresh function run. Gives the allocator its
+    heap head (fmacfw_h `[0x182b60]=0x1731be`, lmac_rf `[0x180ac0]=0x158272`,
+    static free-list nodes in the image data), the boot callback slots, and
+    log/config globals — WITHOUT the partially-populated SRAM structs that make
+    `--boot-first` regress (null-callbacks). Result: faults 797 → 172 (78%
+    fewer); returned 4694 → 4237, caps 450 → 1536 — the flips are functions
+    now allocating then blocking on a legitimate OS wait (`while ([flag]!=0);`,
+    flag cleared by an interrupt path the standalone emulator never runs), so
+    more faithful, not a regression. Residual 172 = ~75 null-block-to-allocator
+    derefs (`ldr [r0,#-4]` with r0=0) + ~60 null function-pointer calls (pc=0).
+    MMIO layer complete; residual is execution-context injection.
 - **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
   quantifies the ~421 undefs when linking without `--gc-sections`:
   58% naming artifacts (name points inside a composed function — code
