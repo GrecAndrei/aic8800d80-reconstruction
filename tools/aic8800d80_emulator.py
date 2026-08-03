@@ -957,7 +957,8 @@ class Aic8800D80Platform:
 
     # -- execution --------------------------------------------------------
     def run(self, entry: int, max_insns: int, sp: int | None = None,
-            lr: int | None = None, spin_break: bool = False) -> tuple[str, dict]:
+            lr: int | None = None, spin_break: bool = False,
+            max_reexits: int = 256) -> tuple[str, dict]:
         """Run from ``entry`` (thumb bit honored) until return, cap, or fault.
 
         ``spin_break`` enables the wait-loop breaker: a backward-branch wait
@@ -966,9 +967,15 @@ class Aic8800D80Platform:
         same pc is cleared. Kept off during boot, where the real init path sets
         those flags.
 
+        ``max_reexits`` bounds how many null-call / wait-jump re-entries are
+        followed before giving up. 256 is the historical default; driver-init
+        functions whose init path chains many hardware-flag waits can exceed
+        it and land in ``exited:0x<pc>`` even though they would return given
+        more re-entries. Raise it for those (see capped_high_budget).
+
         Returns (termination, stats). Termination is one of ``returned`` /
         ``capped`` / ``fault`` / ``exited:0x<pc>`` (completed to a non-sentinel
-        pc, e.g. past the 256 re-entry budget of a driver init with many waits).
+        pc, e.g. past the re-entry budget of a driver init with many waits).
         """
         self.insn_count = 0
         self.traffic = []
@@ -1009,10 +1016,11 @@ class Aic8800D80Platform:
         # Null-function-pointer calls, udf asserts and spin-break branch-jumps
         # stop the engine via the INSN_INVALID / code hooks (``_null_return_lr``
         # / ``_skip_to``). emu_start may return normally OR raise; either way
-        # re-enter at the recorded address. 256 bounds a pathological chain
-        # while leaving room for driver-init functions with many wait-jumps.
+        # re-enter at the recorded address. ``max_reexits`` bounds a
+        # pathological chain while leaving room for driver-init functions with
+        # many wait-jumps (default 256; raise via ``max_reexits``).
         start_ea = entry | 1
-        for _ in range(256):
+        for _ in range(max_reexits):
             try:
                 self.mu.emu_start(start_ea, RETURN_STOP)
                 if self._skip_to is not None:

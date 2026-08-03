@@ -40,7 +40,8 @@ def load_sweep(sweep_jsonl: Path) -> list[dict]:
     return rows
 
 
-def run_one(image: str, hw_addr: int, budget: int, boot: dict) -> tuple[str, dict]:
+def run_one(image: str, hw_addr: int, budget: int, boot: dict,
+            max_reexits: int = 256) -> tuple[str, dict]:
     """Run one function under bootstate mode with the given budget."""
     img_path = resolve_image(f"{image}.bin")
     plat = Aic8800D80Platform(img_path, mmio_model=load_mmio_model())
@@ -59,6 +60,9 @@ def main() -> int:
                     help="high budget for re-running capped functions")
     ap.add_argument("--boot-insns", type=int, default=50000,
                     help="bootstate capture budget")
+    ap.add_argument("--max-reexits", type=int, default=256,
+                    help="re-entry budget per run; raise for wait-chained init "
+                         "functions that land in exited:0x<pc> instead of capped")
     ap.add_argument("--out-dir", type=Path, default=None,
                     help="directory to write per-image result JSONLs + summary.json")
     args = ap.parse_args()
@@ -83,7 +87,8 @@ def main() -> int:
     t0 = time.time()
     for i, r in enumerate(capped, 1):
         hw = int(r["address"], 16)
-        term, stats = run_one(r["image"], hw, args.budget, boot_cache[r["image"]])
+        term, stats = run_one(r["image"], hw, args.budget, boot_cache[r["image"]],
+                              max_reexits=args.max_reexits)
         results.append({
             "image": r["image"],
             "name": r["name"],
