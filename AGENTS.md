@@ -116,9 +116,47 @@ release tarball
     call through an uninitialized handler field returns 0), null-safe free +
     null shadow page (`free(NULL)` no-ops; `0xfffff000` absorbs null-adjacent
     accesses), `udf #255` assert skip, SRAM mapped in chunks up to 0x21000000,
-    a low shared-memory window, and a `start`-entry scan correction. Capped
-    runs (1542) are functions blocked at a legitimate OS wait — faithful, not
-    faults. MMIO layer complete; execution context fully injected.
+    a low shared-memory window, and a `start`-entry scan correction. MMIO
+    layer complete; execution context fully injected.
+  - **Spin-breaker (2026-08-03, capped → returned)**: the 1542 residual capped
+    runs are functions blocked at a legitimate OS wait (`while (*flag != 0)`
+    crypto/BT semaphore, `while (*flag == 0)` wait-event primitive, tick-
+    counter deadlines). The real interrupt / other-core path would deliver the
+    event; the standalone emulator can't, so ``run(spin_break=True)`` (on in
+    the corpus sweep, off for boot/verify) delivers it: a backward-branch wait
+    loop whose read address is stable and unwritten is jumped past via the
+    proven emu_stop + re-entry path, and a set boolean flag (==1) re-read from
+    the same pc is cleared. Value 0 fields are deliberately NOT overwritten (a
+    `while (p == 0)` pointer wait must not be handed a fake pointer — that
+    caused WRITE_UNMAPPED 0x7fffffff). Both are gated to candidate-global
+    addresses (image/BSS/stack/low-SHM/SRAM, excluding peripherals).
+    Refinements: (a) **stack-scratch write exemption** — a delay loop
+    decrementing a stack local (`[sp,#4]`) must not mask a slow re-check wait
+    that polls a global counter every ~200 insns; (b) **write-free-window
+    requirement** — any candidate-global write inside a backward-branch window
+    clears the branch counter, so the jump only fires for a genuinely
+    write-free wait spin. This fixed a branch-jump misfire on a *data-copy
+    loop* whose callee re-loaded a mailbox-register address from the same
+    literal-pool slot each iteration (looked like a stable read address) — the
+    jump landed in the next function's alignment padding (a data word decoding
+    as `mcr p0` = undefined instruction → UC_ERR_EXCEPTION). The exposed
+    follow-on fault classes are closed by: unmapped FETCH → null-return (all
+    real code is mapped, so an unmapped fetch is a garbage branch), non-MMIO
+    unmapped WRITE → lazy scratch page (store through an uninitialized
+    table base, e.g. `mla r3,r3,r5,r7; strb [r3,#0x56]`), and UC_ERR_EXCEPTION
+    → null-return via LR. Plus a data fix: `crypto_power_status`
+    (0x403440a8) reclassified echo→poll in `build/mmio/classifications.json`
+    (read-only status the firmware polls for bits 4/3 after powering + clocking
+    the crypto block), so `crypto_hw_power_up` returns in all 4 images.
+    Full-sweep result at max-insns 30000: **0 faults** across all 5,944
+    functions — returned=5289, exited=132, capped=523 (91.2% complete). The
+    residual 523 capped are genuinely long bounded RF-config functions (e.g.
+    sub_102BB0's read-modify-write loops, 3k+ MMIO writes) that need a larger
+    budget; the pre-spin-breaker baseline was returned=4402, capped=1542.
+    `tools/mmio_model_build.py` now normalizes the `counter` MMIO type (was
+    hand-edited into the model only): the two tick-counter registers
+    `rf_tick_counter` (0x40320120) and `timer_value` (0x40501010) survive
+    regeneration and make `delay_us` / elapsed-tick waits terminate.
 - **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
   quantifies the ~421 undefs when linking without `--gc-sections`:
   58% naming artifacts (name points inside a composed function — code

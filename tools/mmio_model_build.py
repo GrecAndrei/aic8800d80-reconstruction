@@ -55,6 +55,15 @@ def _norm_strobe(b: dict) -> dict | None:
     return {"type": "strobe", "clear_after": n}
 
 
+def _norm_counter(b: dict) -> dict | None:
+    try:
+        rate = int(b.get("tick_rate", 100))
+    except (TypeError, ValueError):
+        rate = 100
+    rate = max(1, min(10000, rate))
+    return {"type": "counter", "tick_rate": str(rate)}
+
+
 def normalize(rec: dict, source: str) -> dict:
     """Normalize a classification record into the model entry."""
     out = {
@@ -71,6 +80,8 @@ def normalize(rec: dict, source: str) -> dict:
             behavior = _norm_poll(b)
         elif btype == "strobe":
             behavior = _norm_strobe(b)
+        elif btype == "counter":
+            behavior = _norm_counter(b)
     if behavior is not None:
         out["behavior"] = behavior
     fields = rec.get("fields") or {}

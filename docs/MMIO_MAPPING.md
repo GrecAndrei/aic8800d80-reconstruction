@@ -166,38 +166,33 @@ truth-lane returns) and stable poll/strobe semantics for both sides.
 ### Corpus-wide coverage sweep (`tools/corpus_sweep.py`)
 
 With the 25-target gate green, the emulator is run against **every** function
-in all 4 images (5,945 total) to find gaps the curated set misses:
+in all 4 images (5,944 total) to find gaps the curated set misses. The
+current result, with the boot-state injection + spin-breaker (see AGENTS.md):
 
 ```
-TOTAL scanned=5945 returned=4694 (79.0%) capped=450 faulted=797 (13.4%)
+TOTAL scanned=5944 returned=5289 exited=132 capped=523 faulted=0
+     (91.2% returned/exited, 0 faults at max-insns 30000)
 ```
 
-- **Zero genuine unmapped-MMIO faults**: of the 922 faults, none is a real
-  peripheral-register access on an unmapped page. Every register any function
-  touches is covered by the 2,083-register model — the MMIO map is complete
-  over the whole codebase, not just the 25 targets.
-- The faults that do remain are **caller-state dependencies**, not model gaps:
-  - ~600 hit a deliberate `udf #255` trap inside the memory allocator
-    (`mem_alloc_align`) because the heap's "initialized" flag reads 0 when
-    the function runs standalone. Proven by running them *after* a boot:
-    all three sampled allocator-callers execute instead of trapping.
-  - ~70 are null indirect calls through function pointers. The fixed
-    boot-ROM slot table is richer than the 3 verify faults suggested: the
-    firmware also calls through 0x1c8/0x1d0/0x1d4/0x1d8/0x1e0/0x1fc (the
-    fmac images use 0x1fc; lmac_rf uses 0x1d0/0x1d4/0x1e0). Seeding the
-    full union took `patch_apply_*`/`patch`/`rf_sub_*` families from null
-    call to clean return. The ~70 that remain (`mmio_field_set_*`,
-    `rf_mmio_reg_enable`, IPC dispatch) call through struct-field pointers
-    initialized by caller context — not fixed slots, so they need deeper
-    boot-state injection.
-  - ~90 are null-argument derefs (e.g. `ldr [r0,#-4]` with `r0=0`).
-  - The 440 caps are deep loops / OS-style waits, expected for standalone
-    runs without a scheduler.
-
-So the full model gives ~79% of the corpus clean execution, and the residual
-~13% faults are all context-injection candidates, not MMIO semantics.
-`corpus_sweep.py` buckets faults by address page so novel gaps surface in
-aggregate.
+- **Zero faults** across the whole corpus. The earlier fault classes
+  (allocator `udf #255` traps, null indirect calls, null-argument derefs,
+  unmapped fetch/write through uninitialized pointers) are all closed:
+  boot-state injection supplies the allocator heap head / boot callback
+  slots, the null-call stub returns 0 through uninitialized handler fields,
+  unmapped reads/writes are absorbed onto lazy zero/scratch pages, unmapped
+  fetches null-return, and `UC_ERR_EXCEPTION` (data decoded as a coprocessor
+  instruction after a garbage branch) returns via LR.
+- The **spin-breaker** converts wait-blocked runs to returned: a backward-
+  branch wait loop whose read address is stable and unwritten is jumped past
+  (emu_stop + re-entry), and a set boolean flag (==1) re-read from the same
+  pc is cleared. The branch-jump requires a genuinely write-free window so a
+  data-copy loop (whose callee re-loads a mailbox address from the same
+  literal-pool slot) is never skipped into the next function's padding.
+- The residual **523 capped** are genuinely long bounded functions — RF
+  register-configuration loops (`sub_102BB0` read-modify-writes ~3k MMIO
+  registers), heavy crypto/PHY init — that need a larger instruction budget
+  than 30000, not MMIO gaps. The pre-spin-breaker baseline was returned=4402,
+  capped=1542.
 
 Two boot-state diagnostics quantify how much of the residual is context
 dependence rather than MMIO:
@@ -219,6 +214,7 @@ dependence rather than MMIO:
   standalone: returned=4694 capped=450  faulted=797
   bootstate:  returned=4237 capped=1536 faulted=172   (78% fewer faults)
   bootstate:  returned=4402 capped=1542 faulted=0     (all fixes)
+  bootstate+: returned=5289 capped=523  faulted=0     (+ spin-breaker, 30k)
   ```
 
   The fault→cap conversion is the headline: functions that previously died on
@@ -227,10 +223,12 @@ dependence rather than MMIO:
   interrupt/other-core path the standalone emulator never runs). The
   returned→cap flips are the same wait: with the heap working, these functions
   allocate then block, instead of "returning" early on the null context. That is
-  more faithful, not a regression.
+  more faithful, not a regression. The spin-breaker then converts the wait-
+  blocked caps to returned, and the 30k budget lets the long RF-config
+  functions complete — net 91.2% returned/exited, 0 faults.
 
-  The residual 172 faults reduced to ~0 with four execution-context fixes in the
-  emulator (see `tools/aic8800d80_emulator.py`):
+  The residual 172 faults reduced to exactly **0** with execution-context fixes
+  in the emulator (see `tools/aic8800d80_emulator.py`):
   - **`counter` MMIO type**: registers the firmware polls as *monotonic tick
     counters* (rf_tick_counter `0x40320120`, timer_value `0x40501010`) return
     `insn_count // tick_rate`, so `delay_us`/tick-wait loops terminate. Also

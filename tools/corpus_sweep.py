@@ -224,7 +224,8 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
                 # Seed the boot-initialized globals into the fresh platform
                 # (heap head, callback slots) WITHOUT the booted SRAM structs.
                 apply_bootstate(plat.mu, bootstate_dict)
-        term, stats = plat.run(chip, max_insns, sp=ivt["stack_pointer"])
+        term, stats = plat.run(chip, max_insns, sp=ivt["stack_pointer"],
+                               spin_break=True)
         rows.append({
             "image": image,
             "name": fn["name"],
@@ -245,6 +246,7 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
             f.write(json.dumps(r, sort_keys=True) + "\n")
 
     counts = Counter(r["termination"] for r in rows)
+    n_exited = sum(v for k, v in counts.items() if k.startswith("exited"))
     faults = [r for r in rows if "fault" in r["termination"]]
     # Bucket faults by fault-address page and fault-pc page.
     fault_pages = Counter()
@@ -263,6 +265,7 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
         "sampled": len(rows),
         "returned": counts["returned"],
         "capped": counts["capped"],
+        "exited": n_exited,
         "faulted": counts["fault"],
         "elapsed_s": round(elapsed, 1),
         "boot_first": boot_first,
@@ -308,7 +311,8 @@ def main() -> int:
                 else "bootstate" if args.bootstate else "standalone")
         print(f"[sweep:{mode}] {s['image']:28s} scanned={s['scanned']:5d} "
               f"sampled={s['sampled']:5d} returned={s['returned']:5d} "
-              f"capped={s['capped']:5d} faulted={s['faulted']:5d} "
+              f"capped={s['capped']:5d} exited={s.get('exited', 0):5d} "
+              f"faulted={s['faulted']:5d} "
               f"({s['elapsed_s']:.0f}s)", file=sys.stderr)
         for fp in s.get("fault_pages", [])[:6]:
             print(f"    fault@page {fp['page']}: {fp['n']}", file=sys.stderr)

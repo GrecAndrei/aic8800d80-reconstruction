@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-08-03T08:13:20.099506+00:00",
+ "generated_at": "2026-08-03T16:31:50.452216+00:00",
  "source_classifications": "/home/alex/Downloads/aic8800d80/build/mmio/classifications.json",
  "min_confidence": 0.4,
  "register_count": 2083,
- "behavior_rules": 42,
+ "behavior_rules": 43,
  "static_only": 379,
- "evidence_poll_floor": 31,
+ "evidence_poll_floor": 29,
  "role_counts": {
   "unknown": 1043,
   "data": 228,
@@ -17,8 +17,9 @@
   "irq": 45
  },
  "behavior_counts": {
-  "poll": 32,
-  "strobe": 10
+  "poll": 31,
+  "strobe": 10,
+  "counter": 2
  },
  "registers": {
   "0x40000000": {
@@ -2979,7 +2980,7 @@
     "tick_rate": "100"
    },
    "fields": {
-    "0x1": "PHY/RF ready bit (inferred)"
+    "0x1": "monotonic tick counter read for elapsed-time waits"
    }
   },
   "0x40320128": {
@@ -8601,8 +8602,14 @@
    "role": "status",
    "confidence": 0.4,
    "source": "dynamic",
+   "behavior": {
+    "type": "poll",
+    "ready_mask": "0x18",
+    "reads_to_ready": 8
+   },
    "fields": {
-    "0x0": "power status currently zero"
+    "0x0": "power status currently zero",
+    "0x18": "power status ready (bit4+b3) after crypto powered/clk'd"
    }
   },
   "0x403440ac": {
@@ -11334,14 +11341,14 @@
   "0x40501010": {
    "name": "timer_value",
    "role": "status",
-   "confidence": 0.4,
+   "confidence": 0.7,
    "source": "dynamic",
    "behavior": {
     "type": "counter",
     "tick_rate": "100"
    },
    "fields": {
-    "0x1": "timer tick/ready bit polled by delay_us"
+    "0x1": "monotonic tick counter read for elapsed-time waits"
    }
   },
   "0x40501014": {

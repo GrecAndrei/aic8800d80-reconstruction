@@ -56,6 +56,7 @@ from pathlib import Path
 
 from unicorn import (
     UC_ARCH_ARM,
+    UC_ERR_EXCEPTION,
     UC_HOOK_CODE,
     UC_HOOK_INSN_INVALID,
     UC_HOOK_MEM_FETCH_UNMAPPED,
@@ -64,7 +65,9 @@ from unicorn import (
     UC_HOOK_MEM_WRITE,
     UC_HOOK_MEM_WRITE_UNMAPPED,
     UC_MEM_READ,
+    UC_MEM_READ_UNMAPPED,
     UC_MEM_WRITE,
+    UC_MEM_WRITE_UNMAPPED,
     UC_MODE_THUMB,
     Uc,
     UcError,
@@ -109,6 +112,13 @@ SRAM_SIZE = 0x1000000
 SRAM_CHUNK = 0x80000
 HEAP_BASE = 0x21000000
 HEAP_SIZE = 0x10000
+# Buffer pool / PSRAM region: the firmware's message/buffer pool lives at
+# 0x04000000 (base constant in message_dispatch ``set_flag(0x4000000)``,
+# buffer_pool_manage ``sub_12CA88``), with literal references up to
+# 0x07ffffff. Not touched during boot (pool limit ``[0x1922c0]`` is 0 until
+# runtime), so pages are mapped lazily on first access by on_unmapped.
+BUFFER_POOL_BASE = 0x04000000
+BUFFER_POOL_END = 0x08000000
 MMIO_PHANTOM_BASE = 0x40000000  # APB/AHB peripherals (IDA phantom segment)
 MMIO_PHANTOM_END = 0x60000000
 RETURN_STOP = 0xDEADC000
@@ -142,6 +152,42 @@ ALLOC_FREE_ENTRIES = {
 }
 BOOT_STUB_BASE = 0x20080000    # dedicated stub page just past main SRAM
 BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
+
+# Spin-breaker: a function blocked on an OS wait loops on a completion flag
+# (`while (*flag != 0)` crypto/BT semaphore, `while (*flag == 0)` wait-event
+# primitive). The real interrupt / other-core path would deliver the event; the
+# standalone emulator can't. Two mechanisms, both opt-in per function run
+# (``spin_break=True``), never during boot where the real init sets the flags:
+#
+#  1. Memory-flip: when the SAME address is read from the SAME pc repeatedly
+#     with a STABLE value, the loop is waiting on it. Deliver the event ONLY
+#     for a set boolean flag (value == 1, a `while (x != 0)` wait) by clearing
+#     it. A value of 0 is never overwritten: the field may be a POINTER being
+#     waited on to become non-NULL (`while (p == 0)`), and writing a fake
+#     pointer there makes the code deref garbage. (The value-stability check
+#     keeps a busy/changing counter from being clobbered.)
+#  2. Branch-jump: a wait that cached the flag in a register (`ldr r3,[flag];
+#     cmp r3,#0; bne` never re-reads memory, so mechanism 1 can't fire), and
+#     `== 0` memory waits whose flag must NOT be overwritten. A backward branch
+#     executed repeatedly, with a candidate-global read recently and no
+#     candidate-global write since, is such a spin: jump past the branch
+#     (pc+2) so the wait exits. The flag field is left untouched.
+SPIN_BREAK_READS = 4        # reads of (pc, addr) before flipping
+SPIN_BREAK_BRANCH = 6       # executions of one backward-branch pc before jumping
+SPIN_BREAK_WINDOW = 2000    # max insn gap between events to count as one spin
+# Only value the memory-flip ever writes: 0, to a flag currently == 1 (a set
+# boolean being waited on to clear: `while (x != 0)`). Clearing a set flag is
+# unambiguous. NEVER write a large value: a field read as 0 may be a POINTER
+# being waited on to become non-NULL (`while (p == 0)`), and overwriting it
+# with 0x7fffffff makes the code deref garbage (WRITE_UNMAPPED 0x7fffffff).
+# Those `== 0` waits are exited by the branch-jump instead, which just skips
+# the loop without touching the field.
+# Flag candidate space: image/BSS window + stack (0x120000-0x200000), the low
+# shared-memory window (0x200000-0x400000) and main SRAM/heap (0x20000000+).
+# Excludes real peripherals (APB/AHB/system control) and the phantom/null
+# regions (0x60000000+), where a data read is never a wait flag.
+SPIN_BREAK_ADDR_LO = 0x120000
+SPIN_BREAK_ADDR_HI = 0x60000000
 
 IVT_SP_OFF = 0x00
 IVT_RESET_OFF = 0x04
@@ -343,6 +389,14 @@ class Aic8800D80Platform:
         self._null_return_lr: int | None = None
         # Set by the udf-assert hook; run() re-enters here (skipping the udf).
         self._skip_to: int | None = None
+        # Spin-breaker: enabled per run() call (not during boot). Flipped wait
+        # flags live in ``_spin_counts`` (reset at the start of every run).
+        self._spin_break = False
+        self._spin_counts: dict[tuple[int, int], tuple[int, int, int]] = {}
+        self._spin_last_read = -10**9    # insn of most recent candidate-global read
+        self._spin_last_read_addr = 0
+        self._spin_last_write = -10**9   # insn of most recent candidate-global write
+        self._spin_branches: dict[int, tuple[int, int, int]] = {}
         # Per-image allocator free entries (null-safe free).
         img_name = self.image_path.name
         if img_name.endswith(".bin"):
@@ -460,6 +514,37 @@ class Aic8800D80Platform:
                     if lr >= 0x200:
                         uc.reg_write(UC_ARM_REG_PC, lr)
                         return
+            # Spin-breaker, mechanism 2 (register-cached wait): a backward
+            # branch executed repeatedly, with a candidate-global read recently
+            # and no candidate-global write since, is a wait spin whose flag
+            # never re-enters memory (``cmp rN,#0; bne``). Jump past it.
+            if (self._spin_break and self._is_backward_branch(pc)):
+                n, last, seen = self._spin_branches.get(pc, (0, -10**9, -1))
+                # A wait-spin re-reads the SAME flag; a data-structure walk
+                # advances its read address each iteration (r5 += 8; ldr [r5]).
+                # Reset when the read address changes or the gap is too large.
+                if (self.insn_count - last > SPIN_BREAK_WINDOW
+                        or seen != self._spin_last_read_addr):
+                    n = 0
+                n += 1
+                self._spin_branches[pc] = (n, self.insn_count,
+                                           self._spin_last_read_addr)
+                if (n >= SPIN_BREAK_BRANCH
+                        and self._spin_last_read > self._spin_last_write
+                        and self.insn_count - self._spin_last_read
+                        <= SPIN_BREAK_WINDOW):
+                    # Jump past the loop via the proven emu_stop + re-entry
+                    # path (direct PC writes inside a code hook are unreliable
+                    # here). run() re-enters at (pc+2)|1, Thumb-correct.
+                    # The wait's flag field is deliberately NOT written: the
+                    # observed waits (crypto semaphore, log assert) only gate
+                    # on it and never consume its value downstream, so skipping
+                    # the loop is sufficient and can't corrupt a pointer field.
+                    self._skip_to = pc + 2
+                    uc.emu_stop()
+                    self._spin_branches[pc] = (0, self.insn_count,
+                                               self._spin_last_read_addr)
+                    return
             self.insn_count += 1
             self._note_function(pc)
 
@@ -490,16 +575,87 @@ class Aic8800D80Platform:
                     self._skip_to = pc + 2
                     uc.emu_stop()
                     return True
-            return False
+            # Any OTHER invalid instruction at a high PC is a garbage indirect
+            # branch (a ``bx``/``blx``/``pop {pc}`` landing mid-instruction,
+            # e.g. 0x1252c8 inside a 4-byte ``vmrs``) or an even-address Thumb
+            # violation — the same class as the null-call the low-PC check
+            # catches, but with a target inside real code. The firmware is
+            # valid compiled code, so this only happens through an
+            # uninitialized handler / stack slot. Return via LR (r0 = 0) so
+            # the caller's error path handles it.
+            self._null_return(uc)
+            return True
 
         def on_unmapped_fetch(uc, access, address, size, value, user_data):
-            if int(address) < LOW_CODE_CEIL:
-                self._null_return(uc)
-                return True
-            return False
+            # EVERY unmapped fetch is a garbage branch: real code (image
+            # 0x120000+, boot-ROM below 0x10000) is always mapped, so a fetch
+            # from unmapped space (e.g. 0x40000, in the 0x10000-0x120000 gap)
+            # can only come from a corrupted return address / uninitialized
+            # handler slot. Return via LR (r0 = 0) so the caller's error path
+            # handles it, same as the INSN_INVALID garbage-branch path.
+            self._null_return(uc)
+            return True
 
         def on_mem(uc, access, address, size, value, user_data):
             addr = int(address)
+            # Spin-breaker (wait-loop event delivery) runs BEFORE the MMIO
+            # branch so image/BSS-window flags (0x17348c etc., which
+            # is_mmio_addr classifies as MMIO) are caught. Only active for
+            # per-function runs (``spin_break=True``), never the boot, where
+            # the real init path sets those flags itself.
+            if (self._spin_break
+                    and SPIN_BREAK_ADDR_LO <= addr < SPIN_BREAK_ADDR_HI
+                    and not is_periph_addr(addr)):
+                if access == UC_MEM_READ:
+                    pc = int(uc.reg_read(UC_ARM_REG_PC))
+                    self._spin_last_read = self.insn_count
+                    self._spin_last_read_addr = addr
+                    # The hook's ``value`` arg is undefined for reads; read the
+                    # current word ourselves for the stability check.
+                    try:
+                        v = int.from_bytes(uc.mem_read(addr, size), "little")
+                    except UcError:
+                        v = 0
+                    key = (pc, addr)
+                    n, last, val = self._spin_counts.get(key, (0, -10**9, None))
+                    if (self.insn_count - last > SPIN_BREAK_WINDOW) or \
+                       (val is not None and val != v):
+                        n = 0
+                    n += 1
+                    self._spin_counts[key] = (n, self.insn_count, v)
+                    if n >= SPIN_BREAK_READS and v == 1:
+                        # Set boolean flag being waited on to clear
+                        # (`while (x != 0)`): deliver the event by clearing it.
+                        # v == 0 flags are left alone (may be a pointer wait;
+                        # the branch-jump exits those loops without touching
+                        # the field).
+                        try:
+                            uc.mem_write(addr, (0).to_bytes(4, "little"))
+                        except UcError:
+                            pass
+                        self._spin_counts[key] = (0, self.insn_count, None)
+                else:
+                    # A write to the slot means it's live program state
+                    # (mutating between reads), not a wait flag. Stack-scratch
+                    # writes are exempt: a delay loop decrements a stack local
+                    # ([sp,#4]) every iteration, and treating that as "state
+                    # mutation" would mask a slow re-check wait that polls a
+                    # global counter every ~200 insns.
+                    if not (STACK_BASE <= addr < STACK_BASE + STACK_SIZE):
+                        self._spin_last_write = self.insn_count
+                        # A candidate-global write inside a backward-branch
+                        # window means the loop is doing real work (a data
+                        # copy / scatter loop mutates memory every iteration),
+                        # not waiting on a flag. Such a loop's last read can
+                        # look "stable" (e.g. a callee re-loading a mailbox
+                        # register address from the same literal-pool slot),
+                        # which would otherwise let the branch-jump misfire
+                        # and skip past real code into the next function's
+                        # alignment padding. Reset the branch counter so the
+                        # jump only fires in a genuinely write-free window.
+                        self._spin_branches.clear()
+                    for k in [k for k in self._spin_counts if k[1] == addr]:
+                        del self._spin_counts[k]
             if not is_mmio_addr(addr):
                 return
             # call_depth: 0 = accesses made while the target function's own
@@ -556,6 +712,30 @@ class Aic8800D80Platform:
             # Record every unmapped access (even non-MMIO) for diagnostics.
             self.last_unmapped.append((pc, access, addr, int(size)))
             if not is_mmio_addr(addr):
+                # Non-MMIO unmapped access.
+                #  - The buffer-pool region (0x04000000-0x08000000) is real RAM
+                #    the firmware writes buffers/descriptors into; map the page
+                #    lazily on first access.
+                #  - Any other unmapped READ is a deref through an uninitialized
+                #    pointer (standalone corpus lacks runtime context); absorb
+                #    it by mapping a zero page so reads see 0.
+                #  - Unmapped WRITES outside the pool are the same class: a
+                #    store through an uninitialized table/array base (e.g.
+                #    ``mla r3, r3, r5, r7; strb [r3, #0x56]`` with a garbage
+                #    r7). Absorb by mapping a scratch page so the store lands
+                #    (read-back consistent) and the function completes instead
+                #    of faulting. The scratch page is zero-initialized and
+                #    never overlaps real RAM/MMIO.
+                if (BUFFER_POOL_BASE <= addr < BUFFER_POOL_END) or \
+                        access in (UC_MEM_READ_UNMAPPED, UC_MEM_WRITE_UNMAPPED):
+                    base = addr & ~(PAGE_SIZE - 1)
+                    if base not in self.mmio_auto_mapped:
+                        try:
+                            uc.mem_map(base, PAGE_SIZE)
+                            self.mmio_auto_mapped.add(base)
+                        except UcError:
+                            return False
+                    return True
                 return False
             base = addr & ~(PAGE_SIZE - 1)
             if base not in self.mmio_auto_mapped:
@@ -664,6 +844,22 @@ class Aic8800D80Platform:
         self.call_depth = max(0, len(self.call_stack) - 1)
         self.fn_entries.append(name)
 
+    def _is_backward_branch(self, pc: int) -> bool:
+        """True if ``pc`` holds a 2-byte Thumb branch that targets lower code.
+
+        Used by the spin-breaker's branch-jump: wait loops end in a backward
+        ``bne/beq``/``b`` whose fall-through (pc+2) exits the loop.
+        """
+        if not (CHIP_BASE <= pc < CHIP_BASE + len(self.image) - 1):
+            return False
+        off = pc - CHIP_BASE
+        hw = self.image[off] | (self.image[off + 1] << 8)
+        if (hw & 0xF000) == 0xD000:      # Bcc (2-byte): 8-bit signed offset
+            return bool(hw & 0x80)
+        if (hw & 0xF000) == 0xE000:      # B (2-byte): 11-bit signed offset
+            return bool(hw & 0x400)
+        return False
+
     def _null_return(self, uc) -> None:
         """Handle a null / garbage function-pointer call (stop, return 0).
 
@@ -673,7 +869,11 @@ class Aic8800D80Platform:
         sentinel so the run is classified as returned rather than faulting.
         """
         lr = int(uc.reg_read(UC_ARM_REG_LR))
-        if lr >= 0x10000:
+        # Only re-enter at LR when it's a plausible code address: real code +
+        # BSS live in 0x120000-0x1a0000, the low page holds the seeded boot
+        # callbacks. An LR into MMIO (0x4xxxxxxx) or elsewhere is garbage —
+        # re-entering there fetches instructions from a peripheral and faults.
+        if 0x10000 <= lr < 0x1a0000:
             self._null_return_lr = lr
         else:
             self._null_return_lr = None
@@ -704,11 +904,18 @@ class Aic8800D80Platform:
 
     # -- execution --------------------------------------------------------
     def run(self, entry: int, max_insns: int, sp: int | None = None,
-            lr: int | None = None) -> tuple[str, dict]:
+            lr: int | None = None, spin_break: bool = False) -> tuple[str, dict]:
         """Run from ``entry`` (thumb bit honored) until return, cap, or fault.
 
-        Returns (termination, stats). Termination is one of
-        ``returned`` / ``capped`` / ``fault``.
+        ``spin_break`` enables the wait-loop breaker: a backward-branch wait
+        loop (``while (*flag != 0)`` / ``== 0``) with a stable, unwritten read
+        address is jumped past, and a set boolean flag (== 1) re-read from the
+        same pc is cleared. Kept off during boot, where the real init path sets
+        those flags.
+
+        Returns (termination, stats). Termination is one of ``returned`` /
+        ``capped`` / ``fault`` / ``exited:0x<pc>`` (completed to a non-sentinel
+        pc, e.g. past the 256 re-entry budget of a driver init with many waits).
         """
         self.insn_count = 0
         self.traffic = []
@@ -717,6 +924,12 @@ class Aic8800D80Platform:
         self.call_stack = []
         self.call_depth = 0
         self.last_unmapped = []
+        self._spin_break = spin_break
+        self._spin_counts = {}
+        self._spin_last_read = -10**9
+        self._spin_last_read_addr = 0
+        self._spin_last_write = -10**9
+        self._spin_branches = {}
         if sp is not None:
             self.mu.reg_write(UC_ARM_REG_SP, sp)
         self.mu.reg_write(UC_ARM_REG_LR, (lr if lr is not None else RETURN_STOP) | 1)
@@ -740,11 +953,13 @@ class Aic8800D80Platform:
                 uc.emu_stop()
         cap_hook = self.mu.hook_add(UC_HOOK_CODE, on_code_cap)
 
-        # Null-function-pointer calls and udf asserts stop the engine via the
-        # INSN_INVALID hook (``_null_return_lr`` / ``_skip_to``). emu_start may
-        # return normally OR raise; either way re-enter at the recorded address.
+        # Null-function-pointer calls, udf asserts and spin-break branch-jumps
+        # stop the engine via the INSN_INVALID / code hooks (``_null_return_lr``
+        # / ``_skip_to``). emu_start may return normally OR raise; either way
+        # re-enter at the recorded address. 256 bounds a pathological chain
+        # while leaving room for driver-init functions with many wait-jumps.
         start_ea = entry | 1
-        for _ in range(64):
+        for _ in range(256):
             try:
                 self.mu.emu_start(start_ea, RETURN_STOP)
                 if self._skip_to is not None:
@@ -769,12 +984,29 @@ class Aic8800D80Platform:
                     self.mu.reg_write(UC_ARM_REG_R0, 0)
                     start_ea = lr
                     continue
+                if getattr(e, "errno", None) == UC_ERR_EXCEPTION:
+                    # CPU exception (e.g. ``mcr p0`` = Undefined Instruction).
+                    # This firmware has no coprocessors, so such an instruction
+                    # only appears as DATA/PADDING misdecoded after a garbage
+                    # indirect branch into a data region. Same handling as the
+                    # INSN_INVALID garbage branch: return via LR (r0 = 0) so
+                    # the caller's error path handles it; if LR is garbage too,
+                    # end at the return sentinel.
+                    lr = int(self.mu.reg_read(UC_ARM_REG_LR))
+                    self.mu.reg_write(UC_ARM_REG_R0, 0)
+                    if 0x10000 <= lr < 0x1a0000:
+                        start_ea = lr | 1
+                    else:
+                        self.mu.reg_write(UC_ARM_REG_PC, RETURN_STOP)
+                        start_ea = RETURN_STOP
+                    continue
                 stop["value"] = "fault"
                 fault["detail"] = str(e)
                 fault["pc"] = hex(self.mu.reg_read(UC_ARM_REG_PC))
                 if self.last_unmapped:
                     pc0, acc, addr, sz = self.last_unmapped[-1]
-                    fault["access"] = "read" if acc == UC_MEM_READ else "write"
+                    fault["access"] = ("read" if acc in (UC_MEM_READ, UC_MEM_READ_UNMAPPED)
+                                       else "write")
                     fault["address"] = hex(addr)
                     fault["size"] = sz
                 break
