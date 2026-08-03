@@ -1,0 +1,1 @@
+{"fn": "list_insert_sorted", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d5a8", "status": "ok", "name": "list_insert_sorted", "params": [], "docstring": "Inserts node into sorted linked list maintaining order", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

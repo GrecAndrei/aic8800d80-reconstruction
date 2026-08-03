@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_2ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12156ae", "status": "ok", "name": "ipc_doorbell_handler_n_2ce", "params": [], "docstring": "IPC doorbell interrupt handler reading firmware status flag", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

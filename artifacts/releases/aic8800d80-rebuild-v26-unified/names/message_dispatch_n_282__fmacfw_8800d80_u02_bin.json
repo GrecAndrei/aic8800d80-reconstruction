@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_282", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c70a", "status": "ok", "name": "message_dispatch_n_282", "params": [], "docstring": "Dispatches IPC message building with 0xb8/0xc4 markers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_41b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ae0", "status": "ok", "name": "rf_bus_setup_n_41b", "params": [], "docstring": "Sets bit 0 of RF bus control register offset 8", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

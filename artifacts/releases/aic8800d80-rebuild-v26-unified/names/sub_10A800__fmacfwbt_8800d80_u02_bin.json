@@ -1,0 +1,1 @@
+{"fn": "sub_10A800", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10a800", "status": "ok", "name": "chip_common_init", "params": [], "docstring": "Reads chipcommon and backplane control registers to initialize chip state", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

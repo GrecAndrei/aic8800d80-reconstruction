@@ -1,0 +1,1 @@
+{"fn": "sub_1217FFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217ffc", "status": "ok", "name": "bt_scan_channel_parse", "params": [], "docstring": "Parses scan channel mask (0x1f000) and prepares scan state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

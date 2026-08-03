@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1af", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116d4", "status": "ok", "name": "rf_bus_mark_n_1af", "params": [], "docstring": "Mark RF bus slots and trigger bus arbitration/commit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

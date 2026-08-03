@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_38b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211354", "status": "ok", "name": "rf_bus_mark_n_38b", "params": [], "docstring": "Mark/assert RF bus access and write MMIO control", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

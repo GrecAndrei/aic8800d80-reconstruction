@@ -1,0 +1,1 @@
+{"fn": "sub_10CF3C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10cf3c", "status": "ok", "name": "rf_enable", "params": [], "docstring": "Write 0x80 to RF control register 0x40035100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_f8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cabc", "status": "ok", "name": "ipc_doorbell_handler_n_22", "params": [], "docstring": "Handles IPC doorbell interrupts, acknowledges host signals", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

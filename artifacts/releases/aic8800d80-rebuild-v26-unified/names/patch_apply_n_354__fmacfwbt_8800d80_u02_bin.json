@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_354", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215194", "status": "ok", "name": "patch_apply_n_354", "params": [], "docstring": "Trivial patch apply stub loading constant 7", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

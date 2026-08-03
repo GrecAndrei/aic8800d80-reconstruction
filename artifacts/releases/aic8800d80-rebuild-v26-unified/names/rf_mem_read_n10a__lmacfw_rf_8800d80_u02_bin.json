@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n10a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f69e", "status": "ok", "name": "rf_mem_read_n10a", "params": [], "docstring": "Reads RF memory and returns via register pop epilogue", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

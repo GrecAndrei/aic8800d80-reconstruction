@@ -1,0 +1,1 @@
+{"fn": "uart_putc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d5f4", "status": "ok", "name": "uart_putc", "params": [], "docstring": "Write one character to UART data register at 0x40032000", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

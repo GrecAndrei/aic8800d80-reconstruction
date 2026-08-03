@@ -1,0 +1,1 @@
+{"fn": "sub_103180", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x103180", "status": "ok", "name": "read_radio_status_flag", "params": [], "docstring": "Reads a byte flag from a global configuration block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

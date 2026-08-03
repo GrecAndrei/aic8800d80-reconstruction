@@ -1,0 +1,1 @@
+{"fn": "sub_1217564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217564", "status": "ok", "name": "sub_1217564", "params": [], "docstring": "Dispatch routine with 5-way case switch", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

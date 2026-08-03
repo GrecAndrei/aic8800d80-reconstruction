@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n322", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212612", "status": "ok", "name": "rf_bus_reset_n322", "params": [], "docstring": "Decode RF bus flags (0x40000/0x80000/0x800) and reset path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1214820", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214820", "status": "ok", "name": "rf_reg_write_setup_n4820", "params": [], "docstring": "Set up register write call (id=6, op=2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

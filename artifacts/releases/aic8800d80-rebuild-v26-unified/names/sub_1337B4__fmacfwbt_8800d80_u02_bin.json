@@ -1,0 +1,1 @@
+{"fn": "sub_1337B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1337b4", "status": "ok", "name": "event_dispatch_by_type", "params": [], "docstring": "Dispatch event to common handler when type is in range 1..3", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

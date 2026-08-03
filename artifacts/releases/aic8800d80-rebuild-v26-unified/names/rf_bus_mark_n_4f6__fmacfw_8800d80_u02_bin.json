@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121138e", "status": "ok", "name": "rf_bus_mark_n_4f6_138e", "params": [], "docstring": "Mark/flag RF bus state from shared variable", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_11B270", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b270", "status": "ok", "name": "process_flags", "params": [], "docstring": "Process context flags and stack-local fields", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

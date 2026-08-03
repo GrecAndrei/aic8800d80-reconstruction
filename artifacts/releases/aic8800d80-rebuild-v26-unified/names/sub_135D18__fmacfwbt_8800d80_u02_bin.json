@@ -1,0 +1,1 @@
+{"fn": "sub_135D18", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135d18", "status": "ok", "name": "rf_map_to_cal", "params": [], "docstring": "Map RF index to calibration table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

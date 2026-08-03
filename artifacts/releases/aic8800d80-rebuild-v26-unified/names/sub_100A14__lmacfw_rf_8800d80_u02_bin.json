@@ -1,0 +1,1 @@
+{"fn": "sub_100A14", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x100a14", "status": "ok", "name": "rf_band_config", "params": [], "docstring": "Set bit in RF/baseband control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

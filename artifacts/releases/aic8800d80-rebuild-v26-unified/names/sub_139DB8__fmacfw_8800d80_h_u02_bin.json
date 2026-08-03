@@ -1,0 +1,1 @@
+{"fn": "sub_139DB8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x139db8", "status": "ok", "name": "rf_get_power", "params": [], "docstring": "Get RF power from calibration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

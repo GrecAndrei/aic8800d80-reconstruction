@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n414", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158fc", "status": "ok", "name": "patch_apply_n414", "params": [], "docstring": "Apply firmware patches to memory regions 0x167370/0x1677d4/0x1677e0", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

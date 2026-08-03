@@ -1,0 +1,1 @@
+{"fn": "sub_121CD68", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121cd68", "status": "ok", "name": "rf_check_status_b4", "params": [], "docstring": "Check RF status flag and branch on zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

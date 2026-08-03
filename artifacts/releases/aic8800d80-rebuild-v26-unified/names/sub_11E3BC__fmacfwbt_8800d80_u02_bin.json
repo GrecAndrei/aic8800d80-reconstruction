@@ -1,0 +1,1 @@
+{"fn": "sub_11E3BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11e3bc", "status": "ok", "name": "tx_timestamp_get", "params": [], "docstring": "Get TX timestamp from descriptor or current time.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

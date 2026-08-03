@@ -1,0 +1,1 @@
+{"fn": "sub_101A0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101a0c", "status": "ok", "name": "rf_check_status", "params": [], "docstring": "Returns whether radio status register is <= 1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

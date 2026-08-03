@@ -1,0 +1,1 @@
+{"fn": "sub_12EFCC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12efcc", "status": "ok", "name": "send_mcu_cmd_0x40e", "params": [], "docstring": "Send MCU command 0x40e with 4-byte payload", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

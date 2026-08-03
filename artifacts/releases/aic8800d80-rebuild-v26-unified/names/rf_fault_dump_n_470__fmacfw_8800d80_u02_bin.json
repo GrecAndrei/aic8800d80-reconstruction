@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_470", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12142d8", "status": "ok", "name": "rf_fault_dump_n_470", "params": [], "docstring": "Dumps RF fault state with reference to log buffer 0x167178", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

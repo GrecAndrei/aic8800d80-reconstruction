@@ -1,0 +1,1 @@
+{"fn": "sub_10ED98", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10ed98", "status": "ok", "name": "rf_set_channel", "params": [], "docstring": "Sets RF channel by writing frequency control value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

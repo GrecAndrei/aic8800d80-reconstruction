@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nfc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155e4", "status": "ok", "name": "patch_apply_nfc", "params": [], "docstring": "Applies patch byte to NFC-related memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

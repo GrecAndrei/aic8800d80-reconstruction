@@ -1,0 +1,1 @@
+{"fn": "sub_10DD2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dd2c", "status": "ok", "name": "gpio_read_bit", "params": [], "docstring": "Test a bit in the GPIO data register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

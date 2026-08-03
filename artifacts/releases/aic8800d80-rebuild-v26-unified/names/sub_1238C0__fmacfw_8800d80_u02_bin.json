@@ -1,0 +1,1 @@
+{"fn": "sub_1238C0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1238c0", "status": "ok", "name": "ke_task_env_get", "params": [], "docstring": "Gets task environment using task id and size 0x528", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

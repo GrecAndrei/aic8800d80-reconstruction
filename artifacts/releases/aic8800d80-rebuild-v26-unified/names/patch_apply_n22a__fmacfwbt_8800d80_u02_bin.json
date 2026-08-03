@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n22a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215712", "status": "ok", "name": "patch_apply_n22a_5712", "params": [], "docstring": "Apply firmware patch variant n22a (set MMIO flags)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

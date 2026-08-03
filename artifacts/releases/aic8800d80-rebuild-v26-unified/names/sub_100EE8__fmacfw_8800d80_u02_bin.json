@@ -1,0 +1,1 @@
+{"fn": "sub_100EE8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x100ee8", "status": "ok", "name": "rng_read_alt", "params": [], "docstring": "Read RNG registers alt", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10D000", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d000", "status": "ok", "name": "gpio_pad_config", "params": [], "docstring": "Configure I/O pad mux and drive settings", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

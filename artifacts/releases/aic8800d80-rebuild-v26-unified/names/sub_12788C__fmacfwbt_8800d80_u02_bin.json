@@ -1,0 +1,1 @@
+{"fn": "sub_12788C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12788c", "status": "ok", "name": "scan_process", "params": [], "docstring": "Process scan state and check hardware status", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

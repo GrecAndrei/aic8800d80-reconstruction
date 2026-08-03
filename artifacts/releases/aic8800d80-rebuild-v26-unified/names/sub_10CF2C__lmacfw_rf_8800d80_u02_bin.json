@@ -1,0 +1,1 @@
+{"fn": "sub_10CF2C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10cf2c", "status": "ok", "name": "enable_uart", "params": [], "docstring": "Write enable value to UART register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

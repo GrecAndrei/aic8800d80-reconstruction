@@ -1,0 +1,1 @@
+{"fn": "delay_us", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1200644", "status": "ok", "name": "delay_us", "params": [], "docstring": "Busy-wait delay in microseconds using timer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_4b0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118a8", "status": "ok", "name": "rf_bus_setup_n_4b0", "params": [], "docstring": "Configures RF bus control registers (prescaler and timing)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12704C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12704c", "status": "ok", "name": "rf_read_trim", "params": [], "docstring": "read trim value and apply float multiplier", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

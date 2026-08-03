@@ -1,0 +1,1 @@
+{"fn": "sub_1119FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1119fc", "status": "ok", "name": "mmio_set_bit", "params": [], "docstring": "Set bit 0 in MMIO register at offset 0x10", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

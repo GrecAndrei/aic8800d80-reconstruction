@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n214", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123e8", "status": "ok", "name": "rf_state_check_n214", "params": [], "docstring": "Checks RF state register and clears flag bit 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

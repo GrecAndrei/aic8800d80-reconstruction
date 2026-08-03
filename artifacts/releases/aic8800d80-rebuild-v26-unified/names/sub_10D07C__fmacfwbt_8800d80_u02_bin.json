@@ -1,0 +1,1 @@
+{"fn": "sub_10D07C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d07c", "status": "ok", "name": "clock_enable", "params": [], "docstring": "Enable peripheral clock", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10EA9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ea9c", "status": "ok", "name": "board_init_2", "params": [], "docstring": "Configure additional chip control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1278F0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1278f0", "status": "ok", "name": "wlc_calc_txrate", "params": [], "docstring": "Compute transmit rate from bsscfg parameters", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

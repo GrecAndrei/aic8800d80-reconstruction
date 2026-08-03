@@ -1,0 +1,1 @@
+{"fn": "sub_10D634", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d634", "status": "ok", "name": "system_ready_check", "params": [], "docstring": "Returns if init flag is set, otherwise jumps to reset path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

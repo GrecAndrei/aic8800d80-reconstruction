@@ -1,0 +1,1 @@
+{"fn": "sub_121F448", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121f448", "status": "ok", "name": "fmac_init_or_probe_n_448", "params": [], "docstring": "Initializes FMAC context buffers at fixed offsets (0x248, 0x270)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

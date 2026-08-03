@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_196", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d16", "status": "ok", "name": "patch_apply_n_196", "params": [], "docstring": "Applies firmware patch entry 196", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

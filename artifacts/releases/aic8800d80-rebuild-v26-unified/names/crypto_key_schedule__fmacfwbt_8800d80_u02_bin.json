@@ -1,0 +1,1 @@
+{"fn": "crypto_key_schedule", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1205840", "status": "ok", "name": "crypto_key_schedule_5840", "params": [], "docstring": "Initialize crypto key schedule state structure", "subsystem": "ke", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

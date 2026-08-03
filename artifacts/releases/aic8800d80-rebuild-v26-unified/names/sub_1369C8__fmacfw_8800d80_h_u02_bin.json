@@ -1,0 +1,1 @@
+{"fn": "sub_1369C8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1369c8", "status": "ok", "name": "get_connection_state", "params": [], "docstring": "Get connection state from handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

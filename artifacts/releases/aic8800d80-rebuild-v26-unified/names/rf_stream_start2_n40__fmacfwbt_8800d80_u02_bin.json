@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121328c", "status": "ok", "name": "ipc_doorbell_handler_n2e2", "params": [], "docstring": "Handle IPC doorbell interrupt, mask and dispatch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

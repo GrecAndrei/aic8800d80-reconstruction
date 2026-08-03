@@ -1,0 +1,1 @@
+{"fn": "sub_114154", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114154", "status": "ok", "name": "init_hw_state", "params": [], "docstring": "Zero hardware state structures and store pointer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

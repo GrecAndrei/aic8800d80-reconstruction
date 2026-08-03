@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_nf0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e48", "status": "ok", "name": "rf_bus_setup_nf0", "params": [], "docstring": "RF bus address validation with 0x400 bound check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

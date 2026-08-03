@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n2c0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133c4", "status": "ok", "name": "rf_msg_handler_n2c0", "params": [], "docstring": "Handles incoming RF messages of type 0x2b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

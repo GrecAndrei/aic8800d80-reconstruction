@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_378", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12143d0", "status": "ok", "name": "rf_msg_handler_n_376_43d0", "params": [], "docstring": "RF message handler dispatch 376", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

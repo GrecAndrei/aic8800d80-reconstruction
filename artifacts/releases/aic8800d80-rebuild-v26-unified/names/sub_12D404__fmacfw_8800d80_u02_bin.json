@@ -1,0 +1,1 @@
+{"fn": "sub_12D404", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d404", "status": "ok", "name": "list_find_node", "params": [], "docstring": "Searches a linked list for a node pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

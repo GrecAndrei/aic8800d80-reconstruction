@@ -1,0 +1,1 @@
+{"fn": "sub_12686C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12686c", "status": "ok", "name": "tx_descriptor_config", "params": [], "docstring": "configure TX descriptor with mask values", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

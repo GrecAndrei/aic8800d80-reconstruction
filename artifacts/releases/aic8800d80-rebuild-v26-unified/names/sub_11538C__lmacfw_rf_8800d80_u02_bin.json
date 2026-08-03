@@ -1,0 +1,1 @@
+{"fn": "sub_11538C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11538c", "status": "ok", "name": "llm_adv_pdu_build", "params": [], "docstring": "Build TX descriptor from advertising PDU data", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

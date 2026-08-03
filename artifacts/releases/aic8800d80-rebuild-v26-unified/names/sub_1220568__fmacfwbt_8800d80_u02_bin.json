@@ -1,0 +1,1 @@
+{"fn": "sub_1220568", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1220568", "status": "ok", "name": "mmio_reg_write_helper", "params": [], "docstring": "Writes to MMIO register window at 0x40501000 with computed offset and value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

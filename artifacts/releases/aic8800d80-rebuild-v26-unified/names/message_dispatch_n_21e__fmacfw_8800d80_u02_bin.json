@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_21e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c76e", "status": "ok", "name": "message_dispatch_n_21e", "params": [], "docstring": "Dispatches a specific message type via IPC", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12C580", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c580", "status": "ok", "name": "ke_task_dispatch", "params": [], "docstring": "Dispatch task based on table and message id", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

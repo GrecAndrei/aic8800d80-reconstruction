@@ -1,0 +1,1 @@
+{"fn": "sub_102E04", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x102e04", "status": "ok", "name": "dma_init", "params": [], "docstring": "Initialize DMA descriptor from structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

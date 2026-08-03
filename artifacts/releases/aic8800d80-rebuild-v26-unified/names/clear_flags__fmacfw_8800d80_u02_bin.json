@@ -1,0 +1,1 @@
+{"fn": "clear_flags", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d14c", "status": "ok", "name": "clear_flags", "params": [], "docstring": "Clears flag bits in a status register pair", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

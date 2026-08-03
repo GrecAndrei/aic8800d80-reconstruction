@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n2f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212ce0", "status": "ok", "name": "rf_state_check_n2f2", "params": [], "docstring": "Check RF state by reading cached status words", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

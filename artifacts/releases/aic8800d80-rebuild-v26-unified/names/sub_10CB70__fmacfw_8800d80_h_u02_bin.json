@@ -1,0 +1,1 @@
+{"fn": "sub_10CB70", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10cb70", "status": "ok", "name": "patch_dispatch", "params": [], "docstring": "Dispatch patch handler via global table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

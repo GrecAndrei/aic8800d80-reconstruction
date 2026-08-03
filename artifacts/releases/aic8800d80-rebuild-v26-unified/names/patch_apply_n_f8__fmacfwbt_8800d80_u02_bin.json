@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_f8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153f0", "status": "ok", "name": "patch_apply_53f0", "params": [], "docstring": "Applies a firmware patch/fixup to a target location", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12128fa", "status": "ok", "name": "message_dispatch_n5c", "params": [], "docstring": "Dispatch inter-processor message (variant n5c) in FMAC firmware", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

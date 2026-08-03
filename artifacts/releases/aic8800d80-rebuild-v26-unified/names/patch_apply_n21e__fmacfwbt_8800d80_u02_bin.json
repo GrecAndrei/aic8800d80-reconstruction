@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n21e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215706", "status": "ok", "name": "patch_apply_n21e", "params": [], "docstring": "Applies patch by writing control reg and setting bit 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

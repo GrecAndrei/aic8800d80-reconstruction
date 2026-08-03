@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211490", "status": "ok", "name": "rf_bus_mark_n_3f4_1490", "params": [], "docstring": "Marks RF bus state with register updates", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

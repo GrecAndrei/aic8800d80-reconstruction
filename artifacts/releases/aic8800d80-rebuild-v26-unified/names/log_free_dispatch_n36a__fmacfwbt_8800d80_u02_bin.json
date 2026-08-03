@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n36a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101ca", "status": "ok", "name": "log_free_dispatch_n36a", "params": [], "docstring": "Frees/derefs a log entry then loads next record header", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

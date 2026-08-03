@@ -1,0 +1,1 @@
+{"fn": "sub_11B578", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11b578", "status": "ok", "name": "process_control_event", "params": [], "docstring": "Processes control event and updates globals", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

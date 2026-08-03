@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n27a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215bf6", "status": "ok", "name": "ipc_doorbell_handler_n27a", "params": [], "docstring": "Handle IPC doorbell interrupt, check ready flag", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

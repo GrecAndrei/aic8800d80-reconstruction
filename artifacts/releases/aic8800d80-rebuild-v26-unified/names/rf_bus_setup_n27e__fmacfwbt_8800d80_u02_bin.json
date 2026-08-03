@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n27e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fd6", "status": "ok", "name": "rf_bus_setup_n27e", "params": [], "docstring": "Configure RF bus control struct stored at 0xb34 offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

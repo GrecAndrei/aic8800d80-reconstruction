@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_326", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12126c2", "status": "ok", "name": "message_dispatch_n_34c", "params": [], "docstring": "Dispatch UMAC message with queued format string logging", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_124244", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124244", "status": "ok", "name": "mac_validate_rate", "params": [], "docstring": "Validate rate or channel parameter range", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

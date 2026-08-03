@@ -1,0 +1,1 @@
+{"fn": "sub_12F6C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f6c4", "status": "ok", "name": "mmio_field_update", "params": [], "docstring": "Forward updated fields to MMIO/RF register helper.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

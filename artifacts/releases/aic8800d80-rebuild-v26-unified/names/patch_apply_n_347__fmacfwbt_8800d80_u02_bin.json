@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_347", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151a0", "status": "ok", "name": "patch_apply_n_347", "params": [], "docstring": "Apply patch sequence 347 (0x15B)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_125A44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x125a44", "status": "ok", "name": "ke_task_init", "params": [], "docstring": "Initializes kernel task with message queue", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

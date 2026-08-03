@@ -1,0 +1,1 @@
+{"fn": "sub_1343EC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1343ec", "status": "ok", "name": "check_flag_and_proceed", "params": [], "docstring": "Check flag and continue", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

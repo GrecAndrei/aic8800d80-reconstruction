@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121429a", "status": "ok", "name": "rf_fault_dump_n_4ae", "params": [], "docstring": "RF fault dump routine at offset 0x4ae with stat increment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

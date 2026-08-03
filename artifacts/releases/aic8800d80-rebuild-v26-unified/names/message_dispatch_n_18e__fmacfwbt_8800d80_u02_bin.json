@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_18e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ca26", "status": "ok", "name": "ipc_msg_dispatch_lookup", "params": [], "docstring": "Resolve message dispatch table entries and prep slot+0x20", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_123B4C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x123b4c", "status": "ok", "name": "rf_calibrate", "params": [], "docstring": "Perform RF calibration calculations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

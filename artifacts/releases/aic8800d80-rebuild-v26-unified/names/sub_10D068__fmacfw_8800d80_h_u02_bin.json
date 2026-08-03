@@ -1,0 +1,1 @@
+{"fn": "sub_10D068", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d068", "status": "ok", "name": "power_domain_enable", "params": [], "docstring": "Enable power domains via clock gate registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

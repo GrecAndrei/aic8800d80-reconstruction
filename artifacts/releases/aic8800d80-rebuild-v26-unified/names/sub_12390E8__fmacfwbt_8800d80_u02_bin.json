@@ -1,0 +1,1 @@
+{"fn": "sub_12390E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12390e8", "status": "ok", "name": "bt_rx_pkt_process_1390e8", "params": [], "docstring": "BT RX packet processing with multiple parameters and stack frame", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1133F0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1133f0", "status": "ok", "name": "ke_task_init", "params": [], "docstring": "Initialize kernel task handler if not already initialized", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

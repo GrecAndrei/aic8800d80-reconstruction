@@ -1,0 +1,1 @@
+{"fn": "sub_1236700", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236700", "status": "ok", "name": "rf_bus_setup_n350", "params": [], "docstring": "RF bus setup / configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

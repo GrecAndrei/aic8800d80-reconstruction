@@ -1,0 +1,1 @@
+{"fn": "sub_114EA4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114ea4", "status": "ok", "name": "syscall6_get_status", "params": [], "docstring": "Call service 6 and extract status bits 8-15", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_3b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215940", "status": "ok", "name": "rf_cmd_dispatch_n40c", "params": [], "docstring": "Dispatch RF command by writing descriptor and length to mailbox regs (0x40504xxx)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

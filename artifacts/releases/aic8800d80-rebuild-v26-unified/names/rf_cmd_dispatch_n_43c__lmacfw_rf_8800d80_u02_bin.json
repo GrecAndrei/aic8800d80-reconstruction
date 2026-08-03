@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_43c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221b08", "status": "ok", "name": "patch_apply_ne0", "params": [], "docstring": "Apply firmware patch table, verify chip ID via SCB CPUID register (0xe000ed00)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

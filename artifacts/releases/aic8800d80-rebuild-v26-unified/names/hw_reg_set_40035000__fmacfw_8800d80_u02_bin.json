@@ -1,0 +1,1 @@
+{"fn": "hw_reg_set_40035000", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d224", "status": "ok", "name": "hw_reg_set_40035000", "params": [], "docstring": "Write 0x02000000 to MMIO register at 0x40035000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

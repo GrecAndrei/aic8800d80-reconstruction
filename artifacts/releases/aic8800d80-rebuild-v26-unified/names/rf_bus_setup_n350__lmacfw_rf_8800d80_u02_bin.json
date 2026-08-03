@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n350", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b54", "status": "ok", "name": "rf_bus_setup_n350", "params": [], "docstring": "Initialize RF control bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

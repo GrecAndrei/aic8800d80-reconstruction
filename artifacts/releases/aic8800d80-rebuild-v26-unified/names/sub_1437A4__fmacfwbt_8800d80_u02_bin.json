@@ -1,0 +1,1 @@
+{"fn": "sub_1437A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1437a4", "status": "ok", "name": "absolute_value", "params": [], "docstring": "Return absolute value of a 32-bit integer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

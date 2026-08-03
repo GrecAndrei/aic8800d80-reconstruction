@@ -1,0 +1,1 @@
+{"fn": "firmware_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1200478", "status": "ok", "name": "firmware_init_0478", "params": [], "docstring": "Initialize firmware globals and link module table pointers", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

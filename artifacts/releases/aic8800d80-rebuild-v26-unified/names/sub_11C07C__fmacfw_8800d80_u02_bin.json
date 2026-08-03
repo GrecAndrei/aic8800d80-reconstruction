@@ -1,0 +1,1 @@
+{"fn": "sub_11C07C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c07c", "status": "ok", "name": "update_phy_status", "params": [], "docstring": "Updates PHY status based on transceiver registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

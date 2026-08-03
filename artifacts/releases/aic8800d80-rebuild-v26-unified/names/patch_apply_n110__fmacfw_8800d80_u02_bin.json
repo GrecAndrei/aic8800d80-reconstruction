@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n110", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214fbc", "status": "ok", "name": "patch_apply_n110", "params": [], "docstring": "ROM patch applier for fmacfw image", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

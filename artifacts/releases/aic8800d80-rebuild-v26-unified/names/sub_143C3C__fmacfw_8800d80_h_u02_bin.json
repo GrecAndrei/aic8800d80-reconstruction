@@ -1,0 +1,1 @@
+{"fn": "sub_143C3C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143c3c", "status": "ok", "name": "memcpy", "params": [], "docstring": "Copy memory with alignment optimization.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

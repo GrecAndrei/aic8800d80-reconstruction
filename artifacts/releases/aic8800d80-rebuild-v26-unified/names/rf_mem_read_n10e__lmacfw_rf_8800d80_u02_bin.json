@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n10e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f6a2", "status": "ok", "name": "rf_mem_read_n10e", "params": [], "docstring": "Reads RF register value from stack-passed offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

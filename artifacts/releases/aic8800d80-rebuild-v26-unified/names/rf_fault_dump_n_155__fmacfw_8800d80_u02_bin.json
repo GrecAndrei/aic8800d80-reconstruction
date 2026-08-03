@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_155", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145f2", "status": "ok", "name": "rf_fault_dump_watchdog", "params": [], "docstring": "Trigger watchdog reset on RF fault and log dump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_22c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d34", "status": "ok", "name": "rf_msg_handler_n_22c", "params": [], "docstring": "Dispatches RF message to handler via table index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n37c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210384", "status": "ok", "name": "log_free_dispatch_n37c_0384", "params": [], "docstring": "Dispatch handler for log entry free events", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

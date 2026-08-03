@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_3de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122df66", "status": "ok", "name": "sdio_buf_return_zero", "params": [], "docstring": "Returns zero from SDIO buffer prepare helper (null/early-exit stub)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

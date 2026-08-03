@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_184", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e1c0", "status": "ok", "name": "rf_bus_write2_e1c0", "params": [], "docstring": "Write to RF bus register with mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

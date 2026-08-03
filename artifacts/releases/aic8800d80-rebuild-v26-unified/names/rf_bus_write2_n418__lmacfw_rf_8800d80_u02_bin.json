@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n418", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121193c", "status": "ok", "name": "rf_bus_write2_n418", "params": [], "docstring": "Issue 2-word write to RF bus: pack address bits and stage two pointer args", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

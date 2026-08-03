@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_222", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c992", "status": "ok", "name": "message_dispatch_n_222_c992", "params": [], "docstring": "Dispatch IPC message 222 in fmacfwbt", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_13B548", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b548", "status": "ok", "name": "check_efuse_bits", "params": [], "docstring": "Tests two efuse-related flag bits together.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

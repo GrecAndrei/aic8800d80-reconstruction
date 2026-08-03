@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d84", "status": "ok", "name": "rf_bus_setup_n2c", "params": [], "docstring": "Configures RF bus registers for N2C (N-mode to C-mode) operation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

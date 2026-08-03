@@ -1,0 +1,1 @@
+{"fn": "sub_127A1C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x127a1c", "status": "ok", "name": "cfm_event_handler", "params": [], "docstring": "Handles CFM event using global state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

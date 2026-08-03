@@ -1,0 +1,1 @@
+{"fn": "sub_12D21C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d21c", "status": "ok", "name": "set_system_flag", "params": [], "docstring": "Disable IRQs and write 1 to system flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

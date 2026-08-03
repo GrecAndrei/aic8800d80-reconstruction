@@ -1,0 +1,1 @@
+{"fn": "sub_10F44C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f44c", "status": "ok", "name": "tx_power_temperature_comp", "params": [], "docstring": "Calculates TX power compensation using temperature sensor and calibration bytes", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10076C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10076c", "status": "ok", "name": "mmio_clear_bit", "params": [], "docstring": "clear control bit 0x10000 in MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

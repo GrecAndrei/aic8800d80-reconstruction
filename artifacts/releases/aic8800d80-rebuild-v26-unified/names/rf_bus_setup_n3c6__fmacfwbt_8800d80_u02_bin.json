@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3c6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121211e", "status": "ok", "name": "rf_bus_setup_n3c6", "params": [], "docstring": "Configures RF bus registers clearing bit 0x10 in 0x814/0x810", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

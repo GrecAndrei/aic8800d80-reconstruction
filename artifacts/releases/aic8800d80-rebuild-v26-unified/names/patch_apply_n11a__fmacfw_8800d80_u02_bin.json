@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n11a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214fc6", "status": "ok", "name": "patch_apply_n11a", "params": [], "docstring": "Apply firmware patch: clear low bits, mask value, write byte to patch slot", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

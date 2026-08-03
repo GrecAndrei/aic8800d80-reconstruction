@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_472", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c742", "status": "ok", "name": "msg_dispatch_store_and_tailcall", "params": [], "docstring": "Stores r0 to msg struct+0x24, tail-pops, then loads two pool pointers (0x16a29c,0x1660d0) and size 0x5c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

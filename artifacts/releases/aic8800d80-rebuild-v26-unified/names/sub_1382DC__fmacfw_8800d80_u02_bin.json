@@ -1,0 +1,1 @@
+{"fn": "sub_1382DC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1382dc", "status": "ok", "name": "ll_state_machine", "params": [], "docstring": "Run link layer state machine for current event", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

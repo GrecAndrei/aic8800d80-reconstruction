@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4d2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12149da", "status": "ok", "name": "patch_apply_n_4d2", "params": [], "docstring": "Apply patch bit pattern with sign extension", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

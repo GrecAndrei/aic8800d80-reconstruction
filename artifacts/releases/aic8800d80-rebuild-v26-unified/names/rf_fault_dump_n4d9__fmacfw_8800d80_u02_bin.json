@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n4d9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c20", "status": "ok", "name": "rf_fault_dump_4c20", "params": [], "docstring": "Dumps RF fault state with marker characters L/P/T", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

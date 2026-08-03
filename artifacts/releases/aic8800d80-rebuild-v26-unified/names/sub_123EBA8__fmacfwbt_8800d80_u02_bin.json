@@ -1,0 +1,1 @@
+{"fn": "sub_123EBA8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123eba8", "status": "ok", "name": "bt_fmac_init", "params": [], "docstring": "Bluetooth front-MAC init routine", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

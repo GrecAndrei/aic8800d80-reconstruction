@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_436", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215546", "status": "ok", "name": "ipc_doorbell_handler_n_436", "params": [], "docstring": "Handle FW IPC doorbell interrupt, compute doorbell index from host ack", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "crypto_hw_mode_select", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203afc", "status": "ok", "name": "crypto_hw_mode_select", "params": [], "docstring": "Select crypto hardware mode by writing 0x10000002 to 0x40330800", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

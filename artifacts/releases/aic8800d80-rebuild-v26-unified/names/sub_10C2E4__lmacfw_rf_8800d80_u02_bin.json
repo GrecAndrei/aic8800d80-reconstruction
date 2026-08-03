@@ -1,0 +1,1 @@
+{"fn": "sub_10C2E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10c2e4", "status": "ok", "name": "configure_dma_engine", "params": [], "docstring": "Set DMA control register and read status byte", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

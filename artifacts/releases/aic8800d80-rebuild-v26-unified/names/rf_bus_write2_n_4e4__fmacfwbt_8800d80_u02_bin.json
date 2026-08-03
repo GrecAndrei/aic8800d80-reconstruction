@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_4e4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211594", "status": "ok", "name": "rf_bus_write2_n4e4", "params": [], "docstring": "Write to RF bus register 0x40240210 and trigger callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_b9", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211626", "status": "ok", "name": "rf_bus_mark_set_b9", "params": [], "docstring": "Set RF bus arbitration mark flag for channel 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

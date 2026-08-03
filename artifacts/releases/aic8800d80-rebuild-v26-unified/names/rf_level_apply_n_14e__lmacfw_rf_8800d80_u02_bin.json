@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_14e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c8a", "status": "ok", "name": "rf_level_apply_n_14e_alt", "params": [], "docstring": "Apply RF power level configuration (alt)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

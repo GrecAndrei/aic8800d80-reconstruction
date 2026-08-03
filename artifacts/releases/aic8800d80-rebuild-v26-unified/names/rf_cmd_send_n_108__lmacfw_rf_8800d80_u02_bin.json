@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_108", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212810", "status": "ok", "name": "rf_cmd_dispatch_2810", "params": [], "docstring": "Dispatch RF command by reading mailbox at offset 0x810", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

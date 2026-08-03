@@ -1,0 +1,1 @@
+{"fn": "sub_12324D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12324d4", "status": "ok", "name": "bt_hci_hdr_parse", "params": [], "docstring": "Parses HCI-style header: reads first byte tag and 16-bit length from buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

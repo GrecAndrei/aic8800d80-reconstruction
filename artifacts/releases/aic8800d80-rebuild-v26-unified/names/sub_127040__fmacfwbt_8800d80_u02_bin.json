@@ -1,0 +1,1 @@
+{"fn": "sub_127040", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x127040", "status": "ok", "name": "clear_tx_buffer", "params": [], "docstring": "Clear packet buffer at context pointer and read status", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

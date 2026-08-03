@@ -1,0 +1,1 @@
+{"fn": "sub_1237F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1237f4", "status": "ok", "name": "ke_msg_send_event", "params": [], "docstring": "Allocates a kernel event message with small parameter", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

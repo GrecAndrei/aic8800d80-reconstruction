@@ -1,0 +1,1 @@
+{"fn": "sub_11A6F8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11a6f8", "status": "ok", "name": "check_status_flags", "params": [], "docstring": "Test status bits 0x1c000 in first word.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

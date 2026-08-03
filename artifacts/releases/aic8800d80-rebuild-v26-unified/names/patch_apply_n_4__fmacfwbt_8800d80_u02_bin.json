@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154e4", "status": "ok", "name": "patch_apply_n_4", "params": [], "docstring": "Applies firmware patch table after validating CTPH magic header", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_142038", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142038", "status": "ok", "name": "conn_context_clear", "params": [], "docstring": "Clear connection active flag", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

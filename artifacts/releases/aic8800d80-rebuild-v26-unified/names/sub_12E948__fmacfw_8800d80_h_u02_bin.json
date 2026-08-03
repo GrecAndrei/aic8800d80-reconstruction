@@ -1,0 +1,1 @@
+{"fn": "sub_12E948", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12e948", "status": "ok", "name": "alloc_tx_event", "params": [], "docstring": "Allocates and prepares a transmit event context", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

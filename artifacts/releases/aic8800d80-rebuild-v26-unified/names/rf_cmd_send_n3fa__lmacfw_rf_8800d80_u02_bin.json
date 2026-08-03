@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3fa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d12", "status": "ok", "name": "rf_cmd_send_n3fa", "params": [], "docstring": "Sends an RF command with bitwise-not mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

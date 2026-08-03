@@ -1,0 +1,1 @@
+{"fn": "sub_12EFE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12efe0", "status": "ok", "name": "msg_alloc_0x403", "params": [], "docstring": "Allocate 8-byte message 0x403 and parse fields", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

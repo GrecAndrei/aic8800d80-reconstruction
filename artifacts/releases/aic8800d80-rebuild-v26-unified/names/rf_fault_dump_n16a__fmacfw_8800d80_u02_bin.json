@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n16a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12148b2", "status": "ok", "name": "rf_bus_reset2_n_37e", "params": [], "docstring": "RF bus reset helper computing masked/shifted indices", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

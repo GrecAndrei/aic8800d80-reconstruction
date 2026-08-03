@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4cd", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f9e", "status": "ok", "name": "rf_bus_write_n_4cd", "params": [], "docstring": "Writes packed data to RF bus register using bit-shifted field construction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

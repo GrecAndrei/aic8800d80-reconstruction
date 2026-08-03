@@ -1,0 +1,1 @@
+{"fn": "sub_13D08C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13d08c", "status": "ok", "name": "tx_handle_acked_list", "params": [], "docstring": "Iterate pending TX ACK list and process entries", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

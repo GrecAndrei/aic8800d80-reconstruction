@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_436", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113ce", "status": "ok", "name": "rf_bus_setup_n_436", "params": [], "docstring": "Initialize and configure RF bus registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

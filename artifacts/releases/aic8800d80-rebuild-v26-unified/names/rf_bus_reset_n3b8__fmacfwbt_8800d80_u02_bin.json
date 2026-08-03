@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n3b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212bfc", "status": "ok", "name": "rf_bus_reset_n3b8", "params": [], "docstring": "Reset/release RF bus ownership state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

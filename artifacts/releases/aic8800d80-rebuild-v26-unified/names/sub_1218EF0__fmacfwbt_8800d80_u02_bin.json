@@ -1,0 +1,1 @@
+{"fn": "sub_1218EF0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1218ef0", "status": "ok", "name": "bt_subsystem_init_n_ef0", "params": [], "docstring": "Initialize Bluetooth subsystem tables and constants", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

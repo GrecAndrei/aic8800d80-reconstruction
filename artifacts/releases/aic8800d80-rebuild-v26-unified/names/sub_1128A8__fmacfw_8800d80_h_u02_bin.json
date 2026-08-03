@@ -1,0 +1,1 @@
+{"fn": "sub_1128A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1128a8", "status": "ok", "name": "phy_is_calibrated", "params": [], "docstring": "Check PHY calibration flag in status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_6a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121181a", "status": "ok", "name": "rf_bus_mark_n_6a", "params": [], "docstring": "Marks RF bus state by loading multi-register context block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

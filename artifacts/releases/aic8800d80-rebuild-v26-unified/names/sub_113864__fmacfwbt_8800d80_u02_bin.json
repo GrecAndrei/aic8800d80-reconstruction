@@ -1,0 +1,1 @@
+{"fn": "sub_113864", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113864", "status": "ok", "name": "int_disable_set_flag", "params": [], "docstring": "Disables interrupts and sets global status flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

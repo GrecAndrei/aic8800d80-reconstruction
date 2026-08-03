@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nfa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f68e", "status": "ok", "name": "rf_mem_read_nfa", "params": [], "docstring": "RF memory read helper (epilogue-only fragment)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

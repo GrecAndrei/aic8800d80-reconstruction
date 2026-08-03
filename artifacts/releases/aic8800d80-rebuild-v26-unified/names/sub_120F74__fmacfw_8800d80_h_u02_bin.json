@@ -1,0 +1,1 @@
+{"fn": "sub_120F74", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x120f74", "status": "ok", "name": "is_band_5g", "params": [], "docstring": "Return true if selected band is 5GHz", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

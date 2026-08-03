@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n32", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211712", "status": "ok", "name": "rf_bus_mark_n32", "params": [], "docstring": "Mark RF bus access by setting byte bits via OR 0xc0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

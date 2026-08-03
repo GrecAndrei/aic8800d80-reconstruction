@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2bc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12122ec", "status": "ok", "name": "rf_state_check_n2bc", "params": [], "docstring": "Check RF state and call rf_bus_write helpers (0x200000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

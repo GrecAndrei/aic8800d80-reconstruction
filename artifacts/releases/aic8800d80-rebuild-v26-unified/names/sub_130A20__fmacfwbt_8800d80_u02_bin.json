@@ -1,0 +1,1 @@
+{"fn": "sub_130A20", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130a20", "status": "ok", "name": "rf_set_cal_entry", "params": [], "docstring": "Stores three halfword fields in a calibration entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

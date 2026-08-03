@@ -1,0 +1,1 @@
+{"fn": "sub_114ED0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114ed0", "status": "ok", "name": "syscall6_check_done", "params": [], "docstring": "Call service 6 and test top byte for completion", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_282", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122de9a", "status": "ok", "name": "sdio_buf_prep_init", "params": [], "docstring": "Initialize SDIO buffer preparation (char '#' marker, calls helper)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

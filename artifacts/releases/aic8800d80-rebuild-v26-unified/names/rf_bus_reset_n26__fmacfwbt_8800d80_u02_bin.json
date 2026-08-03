@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n26", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121286a", "status": "ok", "name": "rf_bus_reset_n26", "params": [], "docstring": "Resets the RF bus interface (N26 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

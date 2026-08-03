@@ -1,0 +1,1 @@
+{"fn": "sub_11D0B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11d0b8", "status": "ok", "name": "get_channel_config", "params": [], "docstring": "Fetch channel configuration by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1240E38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1240e38", "status": "ok", "name": "bt_init_subsystem_1240E38", "params": [], "docstring": "Init BT subsystem: load 0x198000, call 0x12cf5c with id 0xb, init 0x1960 region", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n38a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211be2", "status": "ok", "name": "rf_bus_reset2_n38a", "params": [], "docstring": "No-op RF bus reset stub (returns immediately)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

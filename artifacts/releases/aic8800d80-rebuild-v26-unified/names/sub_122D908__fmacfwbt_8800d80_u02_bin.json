@@ -1,0 +1,1 @@
+{"fn": "sub_122D908", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d908", "status": "ok", "name": "rf_state_check_n3ea_d908", "params": [], "docstring": "Check RF state via magic values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_ff", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121108c", "status": "ok", "name": "rf_bus_mark_n_ff", "params": [], "docstring": "Clear bit 0x20 in RF register and call helper at 0x11f74c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

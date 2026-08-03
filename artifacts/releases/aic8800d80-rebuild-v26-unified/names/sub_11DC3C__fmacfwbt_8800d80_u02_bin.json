@@ -1,0 +1,1 @@
+{"fn": "sub_11DC3C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11dc3c", "status": "ok", "name": "is_tx_ready", "params": [], "docstring": "Check TX path readiness before send", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

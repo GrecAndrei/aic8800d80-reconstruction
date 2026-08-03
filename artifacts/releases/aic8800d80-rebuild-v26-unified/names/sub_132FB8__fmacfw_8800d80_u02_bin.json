@@ -1,0 +1,1 @@
+{"fn": "sub_132FB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132fb8", "status": "ok", "name": "rx_process_packet", "params": [], "docstring": "Processes received packet and updates state", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

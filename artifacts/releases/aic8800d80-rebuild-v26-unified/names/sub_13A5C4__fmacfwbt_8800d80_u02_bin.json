@@ -1,0 +1,1 @@
+{"fn": "sub_13A5C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13a5c4", "status": "ok", "name": "rf_get_cal_entry", "params": [], "docstring": "Look up channel calibration entry by band and index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

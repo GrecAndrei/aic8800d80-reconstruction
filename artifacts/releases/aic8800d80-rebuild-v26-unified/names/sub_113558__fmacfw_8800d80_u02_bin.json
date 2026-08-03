@@ -1,0 +1,1 @@
+{"fn": "sub_113558", "img": "fmacfw_8800d80_u02_bin", "addr": "0x113558", "status": "ok", "name": "set_mode_flag", "params": [], "docstring": "Sets global mode byte to 2 or 3 based on argument", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

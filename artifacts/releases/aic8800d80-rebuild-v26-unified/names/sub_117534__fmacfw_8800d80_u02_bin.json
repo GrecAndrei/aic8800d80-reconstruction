@@ -1,0 +1,1 @@
+{"fn": "sub_117534", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117534", "status": "ok", "name": "dma_rx_setup", "params": [], "docstring": "Setup DMA RX at offset", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

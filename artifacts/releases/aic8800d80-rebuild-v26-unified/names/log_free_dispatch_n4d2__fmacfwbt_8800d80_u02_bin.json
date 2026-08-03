@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n4d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210332", "status": "ok", "name": "log_free_dispatch_n4d2", "params": [], "docstring": "Increments counter, calls free helper 0x12d470, dispatches log buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121DE64", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121de64", "status": "ok", "name": "main_event_handler", "params": [], "docstring": "Main event/task dispatch handler with large register save area", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

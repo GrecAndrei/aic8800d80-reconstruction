@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n33e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211862", "status": "ok", "name": "rf_bus_write2_n33e", "params": [], "docstring": "Write to RF bus MMIO at offset 0x900 with size guard", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

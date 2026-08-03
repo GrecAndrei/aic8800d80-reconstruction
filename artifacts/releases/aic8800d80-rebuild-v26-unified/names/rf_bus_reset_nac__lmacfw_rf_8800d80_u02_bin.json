@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nac", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121239c", "status": "ok", "name": "rf_bus_reset_nac", "params": [], "docstring": "Configures RF bus registers at fixed MMIO addresses", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

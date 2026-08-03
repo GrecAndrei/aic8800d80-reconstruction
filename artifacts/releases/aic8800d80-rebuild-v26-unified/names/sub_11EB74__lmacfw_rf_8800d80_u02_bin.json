@@ -1,0 +1,1 @@
+{"fn": "sub_11EB74", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11eb74", "status": "ok", "name": "memchr", "params": [], "docstring": "Find a byte value in a memory buffer.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

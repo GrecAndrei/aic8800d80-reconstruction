@@ -1,0 +1,1 @@
+{"fn": "sub_12D4F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d4f4", "status": "ok", "name": "crc32_update", "params": [], "docstring": "Updates CRC-32 using a lookup table and input byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

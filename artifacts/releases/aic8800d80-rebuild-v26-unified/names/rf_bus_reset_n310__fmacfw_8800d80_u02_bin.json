@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n310", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212cf8", "status": "ok", "name": "rf_cmd_dispatch_n2b", "params": [], "docstring": "Dispatch RF command to handler (variant 0x2b)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

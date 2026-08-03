@@ -1,0 +1,1 @@
+{"fn": "sub_120244", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120244", "status": "ok", "name": "get_radio_state", "params": [], "docstring": "Reads a radio state byte from a global structure.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

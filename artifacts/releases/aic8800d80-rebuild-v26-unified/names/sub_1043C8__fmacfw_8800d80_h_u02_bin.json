@@ -1,0 +1,1 @@
+{"fn": "sub_1043C8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1043c8", "status": "ok", "name": "mac_config_and_start", "params": [], "docstring": "Configure MAC registers and write start command", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

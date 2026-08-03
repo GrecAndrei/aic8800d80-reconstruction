@@ -1,0 +1,1 @@
+{"fn": "sub_1255E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1255e8", "status": "ok", "name": "hci_acl_tx_done", "params": [], "docstring": "Processes ACL TX completion for link", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

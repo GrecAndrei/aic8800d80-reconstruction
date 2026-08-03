@@ -1,0 +1,1 @@
+{"fn": "sub_1006D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1006d8", "status": "ok", "name": "send_command", "params": [], "docstring": "Write command register and timer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

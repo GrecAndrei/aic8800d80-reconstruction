@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_f4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cac0", "status": "ok", "name": "message_dispatch_n_f4", "params": [], "docstring": "Message dispatch handler comparing msg id 0x6c with size 0x24", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

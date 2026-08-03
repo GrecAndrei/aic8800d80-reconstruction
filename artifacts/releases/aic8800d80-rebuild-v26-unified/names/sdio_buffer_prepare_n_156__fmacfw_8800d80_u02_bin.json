@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_156", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dfc6", "status": "ok", "name": "sdio_buf_align_or_mask", "params": [], "docstring": "Align SDIO buffer address and check magic constant 0xfac12", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

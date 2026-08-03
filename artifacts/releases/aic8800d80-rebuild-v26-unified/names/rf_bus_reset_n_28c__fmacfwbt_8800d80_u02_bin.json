@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_28c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12125b8", "status": "ok", "name": "rf_bus_reset_25b8", "params": [], "docstring": "Resets RF bus by toggling reset line via callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

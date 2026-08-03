@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n48e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121005e", "status": "ok", "name": "patch_apply_n104", "params": [], "docstring": "Writes patch constants to configuration registers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

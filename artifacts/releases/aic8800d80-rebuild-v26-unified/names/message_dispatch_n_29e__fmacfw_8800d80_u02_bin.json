@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_29e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c6ee", "status": "ok", "name": "message_dispatch_n_29e", "params": [], "docstring": "Dispatch message via shared table (0x16a1b8/0x16a184)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

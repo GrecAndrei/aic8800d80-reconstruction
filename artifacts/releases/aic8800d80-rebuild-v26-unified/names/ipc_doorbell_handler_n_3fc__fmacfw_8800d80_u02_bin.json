@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_3fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215580", "status": "ok", "name": "ipc_doorbell_handler_n_3fc", "params": [], "docstring": "Handle IPC doorbell interrupt variant 0x3fc", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

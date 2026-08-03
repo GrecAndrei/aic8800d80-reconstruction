@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n2fc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121325c", "status": "ok", "name": "rf_msg_handler_n2fc", "params": [], "docstring": "Dispatch RF message to appropriate handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

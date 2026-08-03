@@ -1,0 +1,1 @@
+{"fn": "sub_1280C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1280c8", "status": "ok", "name": "tx_packet_start", "params": [], "docstring": "Start packet transmission from descriptor and context", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

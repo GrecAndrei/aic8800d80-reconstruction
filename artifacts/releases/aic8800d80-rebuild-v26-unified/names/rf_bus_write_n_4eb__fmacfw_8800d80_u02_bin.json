@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4eb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211678", "status": "ok", "name": "rf_bus_write_n_4eb", "params": [], "docstring": "writes N entries to RF bus register space", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_42", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226d96", "status": "ok", "name": "rf_level_apply_n_42", "params": [], "docstring": "Apply RF level/txpower adjustment via masking and bit shifts", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

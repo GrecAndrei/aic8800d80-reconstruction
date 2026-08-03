@@ -1,0 +1,1 @@
+{"fn": "sub_10FEC8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10fec8", "status": "ok", "name": "wait_for_state", "params": [], "docstring": "Waits or polls for a global state via helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

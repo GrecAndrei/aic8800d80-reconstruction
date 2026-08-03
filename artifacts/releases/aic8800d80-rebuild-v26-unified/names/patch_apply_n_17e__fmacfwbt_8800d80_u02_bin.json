@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_17e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121536a", "status": "ok", "name": "patch_apply_n_17e", "params": [], "docstring": "Trivial patch stub (nop)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

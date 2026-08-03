@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_24a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121279e", "status": "ok", "name": "rf_bus_reset_n_24a", "params": [], "docstring": "Resets RF bus register and sets/clears bit flags in shared RF state byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

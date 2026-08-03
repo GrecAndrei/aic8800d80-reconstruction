@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n2d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213522", "status": "ok", "name": "message_dispatch_n485", "params": [], "docstring": "Message dispatch handler variant 485", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

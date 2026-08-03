@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_286", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12132d2", "status": "ok", "name": "rf_msg_handler_n_42e", "params": [], "docstring": "Handles incoming RF message with offset 0x24, type 0x22 dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

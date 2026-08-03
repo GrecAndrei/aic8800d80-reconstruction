@@ -1,0 +1,1 @@
+{"fn": "sub_134690", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134690", "status": "ok", "name": "ull_scan_event_start", "params": [], "docstring": "Starts scan event setup if global scan flag is set", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

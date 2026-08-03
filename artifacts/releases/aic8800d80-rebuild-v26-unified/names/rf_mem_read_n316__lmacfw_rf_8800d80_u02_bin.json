@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n316", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f8aa", "status": "ok", "name": "rf_mem_read_n316", "params": [], "docstring": "Computes RF memory read offset via repeated shift-by-5 multiply", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

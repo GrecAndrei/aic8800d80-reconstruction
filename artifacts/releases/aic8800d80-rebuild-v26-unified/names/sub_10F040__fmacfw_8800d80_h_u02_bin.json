@@ -1,0 +1,1 @@
+{"fn": "sub_10F040", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10f040", "status": "ok", "name": "rf_cal_init", "params": [], "docstring": "Initializes RF calibration data", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_128E5C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128e5c", "status": "ok", "name": "dump_stats_values", "params": [], "docstring": "Logs statistics values when debug logging is enabled", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

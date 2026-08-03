@@ -1,0 +1,1 @@
+{"fn": "sub_12E344", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12e344", "status": "ok", "name": "main_loop_dispatch", "params": [], "docstring": "Large dispatcher saving many regs and stack frame", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114A78", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114a78", "status": "ok", "name": "undefined_instruction_handler", "params": [], "docstring": "Handle invalid instruction marker", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

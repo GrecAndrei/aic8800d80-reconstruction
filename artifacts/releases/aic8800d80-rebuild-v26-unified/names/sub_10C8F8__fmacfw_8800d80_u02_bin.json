@@ -1,0 +1,1 @@
+{"fn": "sub_10C8F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c8f8", "status": "ok", "name": "zero_buffer_range", "params": [], "docstring": "Fill buffer area with zeros and call helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

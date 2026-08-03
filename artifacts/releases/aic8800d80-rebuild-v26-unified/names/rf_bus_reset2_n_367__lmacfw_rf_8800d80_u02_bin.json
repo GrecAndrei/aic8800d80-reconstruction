@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_367", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f9c", "status": "ok", "name": "rf_bus_reset2_n_367", "params": [], "docstring": "RF bus reset variant 2, bit shifts for register field construction", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

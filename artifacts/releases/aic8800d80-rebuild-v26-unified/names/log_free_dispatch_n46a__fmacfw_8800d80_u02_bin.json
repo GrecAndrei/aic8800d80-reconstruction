@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n46a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210472", "status": "ok", "name": "log_free_dispatch_handler", "params": [], "docstring": "Log buffer free dispatch handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

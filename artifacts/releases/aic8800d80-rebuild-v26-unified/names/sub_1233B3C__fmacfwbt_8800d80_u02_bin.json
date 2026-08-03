@@ -1,0 +1,1 @@
+{"fn": "sub_1233B3C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233b3c", "status": "ok", "name": "fw_feature_check_n370", "params": [], "docstring": "Check firmware feature/flag word at shared address", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

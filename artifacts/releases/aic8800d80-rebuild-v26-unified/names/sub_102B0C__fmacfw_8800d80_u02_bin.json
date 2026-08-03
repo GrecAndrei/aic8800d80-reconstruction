@@ -1,0 +1,1 @@
+{"fn": "sub_102B0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102b0c", "status": "ok", "name": "is_magic_value", "params": [], "docstring": "Checks if argument equals magic constant", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

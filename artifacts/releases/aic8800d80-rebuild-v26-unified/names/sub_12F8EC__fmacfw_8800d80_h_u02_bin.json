@@ -1,0 +1,1 @@
+{"fn": "sub_12F8EC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f8ec", "status": "ok", "name": "is_two_char_string", "params": [], "docstring": "Checks if input string has length exactly two.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

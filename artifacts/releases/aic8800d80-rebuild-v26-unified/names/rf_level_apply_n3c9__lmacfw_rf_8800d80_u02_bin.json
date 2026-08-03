@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n3c9", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12271a0", "status": "ok", "name": "rf_level_apply_n3c9", "params": [], "docstring": "Apply RF level setting with case dispatch on 0x13", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

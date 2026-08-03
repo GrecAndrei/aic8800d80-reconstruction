@@ -1,0 +1,1 @@
+{"fn": "sub_10CB08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10cb08", "status": "ok", "name": "pkt_buf_alloc", "params": [], "docstring": "Allocates a packet buffer from the free queue", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

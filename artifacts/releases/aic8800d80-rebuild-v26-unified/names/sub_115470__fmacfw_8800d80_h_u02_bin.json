@@ -1,0 +1,1 @@
+{"fn": "sub_115470", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x115470", "status": "ok", "name": "fault_status_read", "params": [], "docstring": "Read system fault status from SCB", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

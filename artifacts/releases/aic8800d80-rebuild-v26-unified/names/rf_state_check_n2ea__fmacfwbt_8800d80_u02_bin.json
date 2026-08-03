@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121231a", "status": "ok", "name": "rf_state_check_n2ea", "params": [], "docstring": "Reads RF status fields from shared state at 0x187f70/0x187f74", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_130D90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130d90", "status": "ok", "name": "build_packet_header_v2", "params": [], "docstring": "Build alternate packet header layout", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

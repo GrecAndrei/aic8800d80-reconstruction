@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4b0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121535c", "status": "ok", "name": "rf_bus_reset2_n_3bf", "params": [], "docstring": "Compute index and store byte into RF bus reset table at offset 0x980", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

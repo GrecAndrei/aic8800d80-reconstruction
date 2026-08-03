@@ -1,0 +1,1 @@
+{"fn": "sub_136D5C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136d5c", "status": "ok", "name": "rf_trace_tx_power", "params": [], "docstring": "Send PHY transmit power trace event", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

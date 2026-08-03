@@ -1,0 +1,1 @@
+{"fn": "log_flush", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12136b8", "status": "ok", "name": "log_flush", "params": [], "docstring": "Flush pending log buffer to output", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

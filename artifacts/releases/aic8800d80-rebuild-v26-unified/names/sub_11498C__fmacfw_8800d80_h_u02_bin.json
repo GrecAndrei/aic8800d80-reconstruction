@@ -1,0 +1,1 @@
+{"fn": "sub_11498C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11498c", "status": "ok", "name": "rf_cmd_10", "params": [], "docstring": "Invoke ROM RF cmd 0x10 and extract nibble", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

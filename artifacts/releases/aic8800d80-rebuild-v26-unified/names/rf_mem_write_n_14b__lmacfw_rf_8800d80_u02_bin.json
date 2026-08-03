@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_14b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221ee0", "status": "ok", "name": "rf_mem_write_14b", "params": [], "docstring": "Write 14-bit value to RF memory-mapped register block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

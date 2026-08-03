@@ -1,0 +1,1 @@
+{"fn": "sub_12188F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12188f4", "status": "ok", "name": "mmio_init_clock_gate_n121", "params": [], "docstring": "Writes 0x30 to MMIO 0x40320038 to configure clock gate/control", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

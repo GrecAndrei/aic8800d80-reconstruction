@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n31a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b1e", "status": "ok", "name": "rf_bus_mark_n_ca", "params": [], "docstring": "RF bus mark/write; loads RF reg pointer and writes 0x200 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

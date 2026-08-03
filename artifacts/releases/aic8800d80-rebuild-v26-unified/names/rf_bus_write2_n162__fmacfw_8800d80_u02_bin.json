@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n162", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d7e", "status": "ok", "name": "rf_bus_write2_n162", "params": [], "docstring": "Trivial RF bus write2 stub (return only)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

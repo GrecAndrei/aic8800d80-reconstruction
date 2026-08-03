@@ -1,0 +1,1 @@
+{"fn": "sub_127160", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x127160", "status": "ok", "name": "llc_flag_test_bit0", "params": [], "docstring": "test bit 0 of llc state flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

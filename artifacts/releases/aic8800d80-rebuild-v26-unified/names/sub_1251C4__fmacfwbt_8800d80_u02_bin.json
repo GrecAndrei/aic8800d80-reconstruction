@@ -1,0 +1,1 @@
+{"fn": "sub_1251C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1251c4", "status": "ok", "name": "bt_option_config", "params": [], "docstring": "Configure bluetooth extended option flags", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

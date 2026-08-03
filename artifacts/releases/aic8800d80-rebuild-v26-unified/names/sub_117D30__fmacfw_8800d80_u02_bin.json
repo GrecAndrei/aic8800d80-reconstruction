@@ -1,0 +1,1 @@
+{"fn": "sub_117D30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117d30", "status": "ok", "name": "ll_state_check", "params": [], "docstring": "Check link-layer state and global flag", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

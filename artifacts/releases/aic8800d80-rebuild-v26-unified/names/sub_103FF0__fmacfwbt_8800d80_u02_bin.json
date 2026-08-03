@@ -1,0 +1,1 @@
+{"fn": "sub_103FF0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x103ff0", "status": "ok", "name": "mac_irq_handler", "params": [], "docstring": "Handle MAC interrupt events", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11C7DC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c7dc", "status": "ok", "name": "tx_slot_get_busy", "params": [], "docstring": "Check if TX slot is busy", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

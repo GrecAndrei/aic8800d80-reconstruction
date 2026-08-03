@@ -1,0 +1,1 @@
+{"fn": "sub_102B80", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102b80", "status": "ok", "name": "write_phy_config", "params": [], "docstring": "Sets low byte of two peripheral registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

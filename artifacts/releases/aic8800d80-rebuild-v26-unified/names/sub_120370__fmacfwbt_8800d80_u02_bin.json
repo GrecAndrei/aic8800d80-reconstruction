@@ -1,0 +1,1 @@
+{"fn": "sub_120370", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120370", "status": "ok", "name": "wlc_phy_chanspec_set", "params": [], "docstring": "Set PHY channel spec", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

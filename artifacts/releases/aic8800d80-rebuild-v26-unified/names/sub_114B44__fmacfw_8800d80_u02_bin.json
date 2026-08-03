@@ -1,0 +1,1 @@
+{"fn": "sub_114B44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114b44", "status": "ok", "name": "rom_get_chip_metal", "params": [], "docstring": "Query ROM chip metal/step info via function pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

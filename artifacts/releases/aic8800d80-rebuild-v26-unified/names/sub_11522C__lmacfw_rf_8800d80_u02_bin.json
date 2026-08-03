@@ -1,0 +1,1 @@
+{"fn": "sub_11522C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11522c", "status": "ok", "name": "read_sensor_value", "params": [], "docstring": "Read and evaluate signed 16-bit sensor value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

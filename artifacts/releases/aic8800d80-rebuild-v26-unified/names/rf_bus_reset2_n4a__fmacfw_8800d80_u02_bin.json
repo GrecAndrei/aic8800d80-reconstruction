@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n4a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a46", "status": "ok", "name": "rf_bus_reset2_n4a", "params": [], "docstring": "RF bus reset sequence 2 writing MMIO reg 0xc with mask 0x3f00/0x2700", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_3d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211848", "status": "ok", "name": "rf_bus_write_n_158", "params": [], "docstring": "Write single word to RF bus with mask (n_158 variant)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

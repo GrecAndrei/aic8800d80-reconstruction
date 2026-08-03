@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n26e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212442", "status": "ok", "name": "rf_state_check_n26e_2442", "params": [], "docstring": "Check and record current RF bus state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

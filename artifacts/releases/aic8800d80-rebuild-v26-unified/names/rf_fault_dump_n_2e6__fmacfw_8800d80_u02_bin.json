@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2e6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214462", "status": "ok", "name": "ipc_doorbell_handler_n_37a", "params": [], "docstring": "Handles IPC doorbell interrupt", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

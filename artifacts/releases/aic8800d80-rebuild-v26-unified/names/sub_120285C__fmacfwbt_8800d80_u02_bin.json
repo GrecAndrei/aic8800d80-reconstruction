@@ -1,0 +1,1 @@
+{"fn": "sub_120285C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120285c", "status": "ok", "name": "fmac_module_init", "params": [], "docstring": "Initialize fmac module and dispatch to sub-init routine", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

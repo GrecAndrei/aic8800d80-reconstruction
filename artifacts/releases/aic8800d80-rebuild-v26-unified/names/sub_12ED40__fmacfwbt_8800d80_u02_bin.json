@@ -1,0 +1,1 @@
+{"fn": "sub_12ED40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12ed40", "status": "ok", "name": "rx_packet_handler", "params": [], "docstring": "Validates incoming packet length and prepares handling", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10D42C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d42c", "status": "ok", "name": "watchdog_init", "params": [], "docstring": "Initialize watchdog control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

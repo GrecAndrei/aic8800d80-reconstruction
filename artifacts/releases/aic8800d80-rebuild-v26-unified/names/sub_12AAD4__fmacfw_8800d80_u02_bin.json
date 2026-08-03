@@ -1,0 +1,1 @@
+{"fn": "sub_12AAD4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12aad4", "status": "ok", "name": "rf_power_table_update", "params": [], "docstring": "Update radio power and calibration tables for given link", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

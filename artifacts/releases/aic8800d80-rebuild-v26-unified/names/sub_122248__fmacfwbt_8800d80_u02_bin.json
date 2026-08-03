@@ -1,0 +1,1 @@
+{"fn": "sub_122248", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122248", "status": "ok", "name": "mmio_read_phy", "params": [], "docstring": "Issue sdio read command and return phy status", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121280c", "status": "ok", "name": "rf_bus_reg_write_280c", "params": [], "docstring": "Write halfword value to RF bus register at offset 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

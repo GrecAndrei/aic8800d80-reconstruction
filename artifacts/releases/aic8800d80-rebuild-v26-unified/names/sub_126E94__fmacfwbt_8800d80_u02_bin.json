@@ -1,0 +1,1 @@
+{"fn": "sub_126E94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x126e94", "status": "ok", "name": "patch_mmio_write", "params": [], "docstring": "Write to a patch control register through MMIO", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12F3F8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f3f8", "status": "ok", "name": "phy_mode_check", "params": [], "docstring": "Return 1 unless hardware mode byte equals 3.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

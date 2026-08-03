@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_22a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211242", "status": "ok", "name": "message_dispatch_n370", "params": [], "docstring": "IPC message dispatch handler (index 370)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

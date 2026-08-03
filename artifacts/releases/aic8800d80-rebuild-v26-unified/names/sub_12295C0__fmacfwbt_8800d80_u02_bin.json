@@ -1,0 +1,1 @@
+{"fn": "sub_12295C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12295c0", "status": "ok", "name": "rf_mbox_mailbox_send", "params": [], "docstring": "Send command via RF mailbox MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_301", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214baa", "status": "ok", "name": "patch_apply_n_301", "params": [], "docstring": "Applies firmware patch by indirect jump through 0x1fc", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

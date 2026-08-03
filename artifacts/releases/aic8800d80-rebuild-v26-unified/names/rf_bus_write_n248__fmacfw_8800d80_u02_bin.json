@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n248", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211dac", "status": "ok", "name": "rf_msg_process_body_n_1d8", "params": [], "docstring": "Process RF message body variant N1D8; decrements counter and stores state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

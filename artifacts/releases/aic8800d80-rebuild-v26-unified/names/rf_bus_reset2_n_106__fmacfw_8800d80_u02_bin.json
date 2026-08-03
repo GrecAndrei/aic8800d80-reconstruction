@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_106", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118f6", "status": "ok", "name": "rf_bus_reset2_n_106_18f6", "params": [], "docstring": "Alternate RF bus reset using byte reads at offset 0x1a", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

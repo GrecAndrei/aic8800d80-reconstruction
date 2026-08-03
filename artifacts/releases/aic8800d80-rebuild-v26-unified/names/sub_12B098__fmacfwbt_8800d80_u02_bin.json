@@ -1,0 +1,1 @@
+{"fn": "sub_12B098", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b098", "status": "ok", "name": "tx_slot_counter_inc", "params": [], "docstring": "Increment per-slot counter when index within valid range", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

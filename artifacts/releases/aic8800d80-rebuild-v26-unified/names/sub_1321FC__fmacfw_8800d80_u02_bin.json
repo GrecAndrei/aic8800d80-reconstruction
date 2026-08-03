@@ -1,0 +1,1 @@
+{"fn": "sub_1321FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1321fc", "status": "ok", "name": "ke_event_get", "params": [], "docstring": "Retrieve next event from kernel queue", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

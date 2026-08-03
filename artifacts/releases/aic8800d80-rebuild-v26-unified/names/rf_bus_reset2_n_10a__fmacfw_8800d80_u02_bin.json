@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_10a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118f2", "status": "ok", "name": "rf_bus_reset2_n_10a", "params": [], "docstring": "Resets RF bus by clearing latched register bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1e1", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114fe", "status": "ok", "name": "rf_bus_mark_n_1e1", "params": [], "docstring": "Mark RF bus timestamp using reciprocal multiply", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

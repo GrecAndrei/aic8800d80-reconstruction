@@ -1,0 +1,1 @@
+{"fn": "sub_107E70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x107e70", "status": "ok", "name": "clear_flag_and_invoke", "params": [], "docstring": "Clears bit 0 at 0x403420c8 and invokes handler 0x100644", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

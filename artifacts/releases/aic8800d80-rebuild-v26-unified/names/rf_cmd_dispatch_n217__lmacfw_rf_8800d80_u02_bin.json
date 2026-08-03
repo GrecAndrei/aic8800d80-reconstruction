@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n217", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122215a", "status": "ok", "name": "rf_cmd_dispatch_n217", "params": [], "docstring": "Toggle RF MMIO control bits and call handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

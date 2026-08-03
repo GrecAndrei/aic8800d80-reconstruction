@@ -1,0 +1,1 @@
+{"fn": "sub_12C428", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c428", "status": "ok", "name": "uart_disable", "params": [], "docstring": "Disable UART by clearing control bit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

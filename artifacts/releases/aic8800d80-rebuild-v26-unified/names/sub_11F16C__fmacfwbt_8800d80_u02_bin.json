@@ -1,0 +1,1 @@
+{"fn": "sub_11F16C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11f16c", "status": "ok", "name": "wlc_attach", "params": [], "docstring": "Attach WLC driver and initialize core", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

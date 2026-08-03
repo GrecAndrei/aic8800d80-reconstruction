@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211876", "status": "ok", "name": "rf_bus_mark_n_e_1876", "params": [], "docstring": "marks RF bus state with XOR diff", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

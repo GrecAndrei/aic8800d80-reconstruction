@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n1d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123aa", "status": "ok", "name": "rf_state_check_n1d6", "params": [], "docstring": "Checks/writes RF state registers and hardware addresses", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

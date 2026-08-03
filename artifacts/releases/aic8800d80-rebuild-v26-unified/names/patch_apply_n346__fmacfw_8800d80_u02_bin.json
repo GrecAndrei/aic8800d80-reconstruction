@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n346", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151f2", "status": "ok", "name": "patch_apply_n346", "params": [], "docstring": "Patch entry n346 extracting single-bit fields from 32-bit flag word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

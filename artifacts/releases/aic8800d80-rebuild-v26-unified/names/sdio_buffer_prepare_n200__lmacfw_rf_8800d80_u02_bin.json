@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n200", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121edb4", "status": "ok", "name": "patch_mmio_unlock_n_3aa", "params": [], "docstring": "Unlocks MMIO register block via control write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

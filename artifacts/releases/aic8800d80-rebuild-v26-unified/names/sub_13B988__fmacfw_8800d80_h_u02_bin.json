@@ -1,0 +1,1 @@
+{"fn": "sub_13B988", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b988", "status": "ok", "name": "dispatch_command", "params": [], "docstring": "Dispatches command processing based on argument.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n412", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210272", "status": "ok", "name": "log_free_dispatch_n412", "params": [], "docstring": "BT log dispatch freeing entry and re-enabling interrupts", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

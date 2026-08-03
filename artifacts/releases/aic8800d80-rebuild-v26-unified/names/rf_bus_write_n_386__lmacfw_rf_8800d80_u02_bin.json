@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_386", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12110e6", "status": "ok", "name": "rf_bus_write_n_386", "params": [], "docstring": "Writes data to RF bus via indirect pointer table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

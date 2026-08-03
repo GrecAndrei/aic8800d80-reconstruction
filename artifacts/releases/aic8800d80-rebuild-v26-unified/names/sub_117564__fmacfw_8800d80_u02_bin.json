@@ -1,0 +1,1 @@
+{"fn": "sub_117564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117564", "status": "ok", "name": "phy_chan_set", "params": [], "docstring": "Set PHY channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

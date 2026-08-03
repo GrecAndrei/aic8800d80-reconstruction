@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_25c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e0e8", "status": "ok", "name": "sdio_buffer_prepare_n_25c", "params": [], "docstring": "Prepare SDIO buffer (leaf wrapper)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

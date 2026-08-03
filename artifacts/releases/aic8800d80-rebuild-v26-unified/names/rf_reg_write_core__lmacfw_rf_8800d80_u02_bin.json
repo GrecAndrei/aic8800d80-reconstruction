@@ -1,0 +1,1 @@
+{"fn": "rf_reg_write_core", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f078", "status": "ok", "name": "rf_reg_write_core", "params": [], "docstring": "Core routine for writing an RF register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

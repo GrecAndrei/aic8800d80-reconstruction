@@ -1,0 +1,1 @@
+{"fn": "sub_121739C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121739c", "status": "ok", "name": "scan_channel_done_n_180", "params": [], "docstring": "Handles scan-channel-complete notification from MAC", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

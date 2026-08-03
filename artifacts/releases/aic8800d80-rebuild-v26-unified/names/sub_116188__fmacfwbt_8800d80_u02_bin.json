@@ -1,0 +1,1 @@
+{"fn": "sub_116188", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x116188", "status": "ok", "name": "ke_init_structures", "params": [], "docstring": "Initialize kernel data structures and call helper", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

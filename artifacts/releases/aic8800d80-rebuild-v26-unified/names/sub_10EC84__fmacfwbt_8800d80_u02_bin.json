@@ -1,0 +1,1 @@
+{"fn": "sub_10EC84", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ec84", "status": "ok", "name": "atomic_reg_write", "params": [], "docstring": "Atomically write a hardware register with mask and IRQ masked", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

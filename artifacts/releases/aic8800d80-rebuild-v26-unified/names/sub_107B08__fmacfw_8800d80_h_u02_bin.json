@@ -1,0 +1,1 @@
+{"fn": "sub_107B08", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x107b08", "status": "ok", "name": "pmu_reset_config", "params": [], "docstring": "Configure reset control via PMU registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

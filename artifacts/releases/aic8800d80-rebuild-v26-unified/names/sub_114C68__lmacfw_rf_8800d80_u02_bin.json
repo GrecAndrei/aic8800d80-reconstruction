@@ -1,0 +1,1 @@
+{"fn": "sub_114C68", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114c68", "status": "ok", "name": "init_ram_table", "params": [], "docstring": "Initialize RAM table from ROM defaults", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

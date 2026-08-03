@@ -1,0 +1,1 @@
+{"fn": "sub_1321C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1321c8", "status": "ok", "name": "ke_task_reset", "params": [], "docstring": "Reset kernel task context", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n26c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cbf8", "status": "ok", "name": "message_dispatch_n26c", "params": [], "docstring": "Dispatches host message and increments shared counter at 0x182560", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

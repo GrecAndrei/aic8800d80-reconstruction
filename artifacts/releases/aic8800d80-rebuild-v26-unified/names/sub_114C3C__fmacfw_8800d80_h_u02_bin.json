@@ -1,0 +1,1 @@
+{"fn": "sub_114C3C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114c3c", "status": "ok", "name": "patch_apply_ext", "params": [], "docstring": "Apply extended patch data from context (large form)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

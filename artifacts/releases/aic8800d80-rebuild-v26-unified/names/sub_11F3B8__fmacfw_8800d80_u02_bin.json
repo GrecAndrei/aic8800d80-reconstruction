@@ -1,0 +1,1 @@
+{"fn": "sub_11F3B8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11f3b8", "status": "ok", "name": "llm_conn_reset_state", "params": [], "docstring": "reset connection control state fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

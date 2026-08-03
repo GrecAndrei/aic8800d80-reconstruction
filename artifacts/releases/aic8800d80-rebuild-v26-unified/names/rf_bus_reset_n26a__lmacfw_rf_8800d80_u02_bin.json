@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n26a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121255a", "status": "ok", "name": "patch_apply_n_128", "params": [], "docstring": "Apply firmware patch with up to 3 argument registers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

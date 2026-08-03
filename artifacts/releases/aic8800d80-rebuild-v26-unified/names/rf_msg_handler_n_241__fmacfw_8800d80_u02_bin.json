@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_241", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212ec2", "status": "ok", "name": "rf_msg_handler_n_241", "params": [], "docstring": "RF message handler: load table entry and context, prepare args for call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

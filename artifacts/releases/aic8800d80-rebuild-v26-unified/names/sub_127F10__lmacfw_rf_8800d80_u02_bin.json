@@ -1,0 +1,1 @@
+{"fn": "sub_127F10", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127f10", "status": "ok", "name": "util_cmp_rev", "params": [], "docstring": "Comparison wrapper with swapped operands", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

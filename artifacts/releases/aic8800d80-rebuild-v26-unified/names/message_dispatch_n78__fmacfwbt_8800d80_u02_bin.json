@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc2c", "status": "ok", "name": "message_dispatch2_cc2c", "params": [], "docstring": "Dispatch message with type-based routing", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

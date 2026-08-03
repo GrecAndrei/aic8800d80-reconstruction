@@ -1,0 +1,1 @@
+{"fn": "sub_10DC04", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10dc04", "status": "ok", "name": "make_bit_mask", "params": [], "docstring": "Build a one-hot mask after checking index range", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

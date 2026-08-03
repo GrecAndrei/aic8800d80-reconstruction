@@ -1,0 +1,1 @@
+{"fn": "sub_12B1A4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b1a4", "status": "ok", "name": "ke_timer_setup", "params": [], "docstring": "Set up kernel timer or event list from environment block", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

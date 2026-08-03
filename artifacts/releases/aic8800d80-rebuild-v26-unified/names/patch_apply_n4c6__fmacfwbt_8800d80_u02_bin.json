@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4c6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159ae", "status": "ok", "name": "message_dispatch_n_46a", "params": [], "docstring": "Message dispatch stub: load size/opcode 0x5c constant", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

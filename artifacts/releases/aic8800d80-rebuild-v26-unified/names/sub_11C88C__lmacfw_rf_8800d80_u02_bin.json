@@ -1,0 +1,1 @@
+{"fn": "sub_11C88C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c88c", "status": "ok", "name": "ke_timer_check", "params": [], "docstring": "Check current kernel tick and possibly retrieve next timer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

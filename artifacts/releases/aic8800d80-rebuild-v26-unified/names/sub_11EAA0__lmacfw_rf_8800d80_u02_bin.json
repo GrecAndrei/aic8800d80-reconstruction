@@ -1,0 +1,1 @@
+{"fn": "sub_11EAA0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11eaa0", "status": "ok", "name": "float_to_double", "params": [], "docstring": "Convert 32-bit float to double using soft-float helpers.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

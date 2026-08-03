@@ -1,0 +1,1 @@
+{"fn": "sub_10F188", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f188", "status": "ok", "name": "get_bandgap_trim", "params": [], "docstring": "Reads bandgap trim/version field from analog register 0x70001044", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

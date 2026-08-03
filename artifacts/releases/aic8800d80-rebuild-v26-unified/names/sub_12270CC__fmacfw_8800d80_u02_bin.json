@@ -1,0 +1,1 @@
+{"fn": "sub_12270CC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12270cc", "status": "ok", "name": "sub_12270CC", "params": [], "docstring": "Load pointer from table and access field at offset 0x2c", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

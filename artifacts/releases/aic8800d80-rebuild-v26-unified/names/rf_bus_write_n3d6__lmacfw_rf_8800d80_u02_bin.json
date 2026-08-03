@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n3d6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211842", "status": "ok", "name": "sdio_buffer_prepare_n166", "params": [], "docstring": "Prepares SDIO buffer offsets via shift math", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

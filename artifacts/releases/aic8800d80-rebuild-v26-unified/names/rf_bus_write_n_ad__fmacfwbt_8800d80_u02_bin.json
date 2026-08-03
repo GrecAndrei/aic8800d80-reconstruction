@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_ad", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211912", "status": "ok", "name": "rf_bus_write_n_ad", "params": [], "docstring": "RF bus write to MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

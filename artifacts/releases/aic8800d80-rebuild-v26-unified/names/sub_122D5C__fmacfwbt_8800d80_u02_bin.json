@@ -1,0 +1,1 @@
+{"fn": "sub_122D5C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d5c", "status": "ok", "name": "copy_fixed_string", "params": [], "docstring": "Copy fixed firmware string into buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

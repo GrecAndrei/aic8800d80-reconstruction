@@ -1,0 +1,1 @@
+{"fn": "sub_12F878", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f878", "status": "ok", "name": "rx_packet_process", "params": [], "docstring": "Validate and process incoming RX packet.", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

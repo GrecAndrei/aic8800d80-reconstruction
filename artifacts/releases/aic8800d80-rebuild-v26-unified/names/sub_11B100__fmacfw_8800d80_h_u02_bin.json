@@ -1,0 +1,1 @@
+{"fn": "sub_11B100", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11b100", "status": "ok", "name": "check_radio_state", "params": [], "docstring": "Check radio state byte for value 3", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

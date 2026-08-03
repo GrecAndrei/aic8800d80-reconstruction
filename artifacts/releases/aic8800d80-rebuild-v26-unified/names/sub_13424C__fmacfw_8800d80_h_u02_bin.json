@@ -1,0 +1,1 @@
+{"fn": "sub_13424C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13424c", "status": "ok", "name": "unknown_func_13424c", "params": [], "docstring": "Small handler with corrupted or unknown body", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

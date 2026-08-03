@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121579a", "status": "ok", "name": "patch_apply_n2b2", "params": [], "docstring": "Apply firmware patch by loading multi-register context", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

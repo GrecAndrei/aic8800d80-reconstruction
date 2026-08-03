@@ -1,0 +1,1 @@
+{"fn": "sub_10E970", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10e970", "status": "ok", "name": "board_init", "params": [], "docstring": "Initialize platform hardware registers and clocks", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

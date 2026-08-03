@@ -1,0 +1,1 @@
+{"fn": "sub_120A90", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x120a90", "status": "ok", "name": "alloc_rx_buf_pool", "params": [], "docstring": "Allocate large RX buffer pool with size 0x40000", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

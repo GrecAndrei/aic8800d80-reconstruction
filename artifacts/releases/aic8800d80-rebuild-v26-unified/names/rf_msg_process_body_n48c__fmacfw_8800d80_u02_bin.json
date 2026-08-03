@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n48c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12140d4", "status": "ok", "name": "log_free_pool_dispatch2_n48a", "params": [], "docstring": "Release log free pool entry via indirect call with pool header", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

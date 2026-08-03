@@ -1,0 +1,1 @@
+{"fn": "sub_125DA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125da4", "status": "ok", "name": "check_mmio_status_flag", "params": [], "docstring": "Polls an MMIO register flag and returns status.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

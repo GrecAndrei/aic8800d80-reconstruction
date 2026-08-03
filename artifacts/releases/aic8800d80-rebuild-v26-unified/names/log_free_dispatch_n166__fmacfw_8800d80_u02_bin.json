@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n166", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121016e", "status": "ok", "name": "log_dispatch_free_n166", "params": [], "docstring": "Free log dispatch entry and return", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

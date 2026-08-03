@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_1aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c7e2", "status": "ok", "name": "rf_bus_mark_n_258", "params": [], "docstring": "Marks/manipulates RF shared bus region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_118AB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118ab0", "status": "ok", "name": "fw_magic_check", "params": [], "docstring": "Validate firmware table magic constants", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

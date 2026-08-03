@@ -1,0 +1,1 @@
+{"fn": "sub_114944", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114944", "status": "ok", "name": "find_object_by_key", "params": [], "docstring": "Search for an object by its key", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

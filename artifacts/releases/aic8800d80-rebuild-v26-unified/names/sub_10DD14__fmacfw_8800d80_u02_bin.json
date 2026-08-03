@@ -1,0 +1,1 @@
+{"fn": "sub_10DD14", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dd14", "status": "ok", "name": "gpio_clear_bit", "params": [], "docstring": "Clear a bit in the GPIO data register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

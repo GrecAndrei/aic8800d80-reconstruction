@@ -1,0 +1,1 @@
+{"fn": "sub_10794C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10794c", "status": "ok", "name": "pmu_pll_config", "params": [], "docstring": "Configure PLL via PMU registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

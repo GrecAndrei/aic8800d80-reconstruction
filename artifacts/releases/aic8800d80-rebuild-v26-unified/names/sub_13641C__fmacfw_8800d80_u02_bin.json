@@ -1,0 +1,1 @@
+{"fn": "sub_13641C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13641c", "status": "ok", "name": "bt_read_version", "params": [], "docstring": "Read firmware version into buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

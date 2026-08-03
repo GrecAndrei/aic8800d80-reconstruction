@@ -1,0 +1,1 @@
+{"fn": "sub_1137C4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1137c4", "status": "ok", "name": "util_call_raw", "params": [], "docstring": "Call low-level helper with r0 argument", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

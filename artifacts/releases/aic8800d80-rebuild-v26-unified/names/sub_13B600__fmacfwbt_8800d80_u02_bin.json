@@ -1,0 +1,1 @@
+{"fn": "sub_13B600", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13b600", "status": "ok", "name": "mac_build_control_frame", "params": [], "docstring": "Build control frame with type and flags", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

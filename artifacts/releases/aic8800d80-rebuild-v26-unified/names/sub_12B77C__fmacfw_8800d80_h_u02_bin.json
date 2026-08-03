@@ -1,0 +1,1 @@
+{"fn": "sub_12B77C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12b77c", "status": "ok", "name": "rf_hw_init", "params": [], "docstring": "Initializes radio front end hardware state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

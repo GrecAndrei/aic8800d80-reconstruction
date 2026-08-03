@@ -1,0 +1,1 @@
+{"fn": "sub_12DBE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12dbe0", "status": "ok", "name": "check_one_12dbe0", "params": [], "docstring": "Compare r1 with 1 using flags", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

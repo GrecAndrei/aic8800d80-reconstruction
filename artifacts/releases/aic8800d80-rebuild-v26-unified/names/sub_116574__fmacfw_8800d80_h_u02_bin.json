@@ -1,0 +1,1 @@
+{"fn": "sub_116574", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x116574", "status": "ok", "name": "rf_switch_case", "params": [], "docstring": "Dispatch RF operation by small index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

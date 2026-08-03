@@ -1,0 +1,1 @@
+{"fn": "sub_127818", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x127818", "status": "ok", "name": "llc_env_by_conhdl", "params": [], "docstring": "look up llc environment from connection handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

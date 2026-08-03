@@ -1,0 +1,1 @@
+{"fn": "sub_119874", "img": "fmacfw_8800d80_u02_bin", "addr": "0x119874", "status": "ok", "name": "hw_status_flag", "params": [], "docstring": "Test hardware status register bit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

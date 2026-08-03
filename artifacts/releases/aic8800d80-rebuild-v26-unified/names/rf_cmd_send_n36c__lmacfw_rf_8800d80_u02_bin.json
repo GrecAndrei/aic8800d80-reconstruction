@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n36c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212c84", "status": "ok", "name": "rf_cmd_send_n36c", "params": [], "docstring": "Send RF command via lmacfw mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

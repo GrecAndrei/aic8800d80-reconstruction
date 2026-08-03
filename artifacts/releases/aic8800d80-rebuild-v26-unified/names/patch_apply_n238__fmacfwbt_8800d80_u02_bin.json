@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n238", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215720", "status": "ok", "name": "patch_apply_n238_5720", "params": [], "docstring": "Apply ROM patch entry from patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

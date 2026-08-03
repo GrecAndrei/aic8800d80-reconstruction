@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121210c", "status": "ok", "name": "rf_bus_setup_n3b4", "params": [], "docstring": "RF bus setup routine checking signed byte state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11B278", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11b278", "status": "ok", "name": "invalid_instruction_trap", "params": [], "docstring": "Unexpected/invalid instruction handler", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n24e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130ba", "status": "ok", "name": "rf_cmd_send_n24e", "params": [], "docstring": "Sends RF command with opcode 0x26/0x29 sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

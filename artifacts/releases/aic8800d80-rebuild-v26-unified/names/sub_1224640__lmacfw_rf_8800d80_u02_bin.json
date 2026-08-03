@@ -1,0 +1,1 @@
+{"fn": "sub_1224640", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1224640", "status": "ok", "name": "sub_1224640", "params": [], "docstring": "Periodic counter increment utility, resets at threshold 0x64", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

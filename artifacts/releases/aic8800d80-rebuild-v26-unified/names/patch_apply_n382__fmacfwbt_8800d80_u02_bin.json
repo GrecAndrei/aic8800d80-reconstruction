@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n382", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121586a", "status": "ok", "name": "patch_apply_n382_586a", "params": [], "docstring": "Applies patch bits extracted from packed word via UBFX", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

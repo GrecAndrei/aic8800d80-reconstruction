@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_3d2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221c5a", "status": "ok", "name": "rf_mem_write_n_3d2", "params": [], "docstring": "Writes zero entry into RF memory slot and returns", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

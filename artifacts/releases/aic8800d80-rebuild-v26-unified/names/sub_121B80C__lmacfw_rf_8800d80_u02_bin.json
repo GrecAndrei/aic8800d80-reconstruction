@@ -1,0 +1,1 @@
+{"fn": "sub_121B80C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b80c", "status": "ok", "name": "rf_msg_alloc_init", "params": [], "docstring": "Allocates and initializes RF message buffer from pool", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

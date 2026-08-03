@@ -1,0 +1,1 @@
+{"fn": "sub_118F4C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118f4c", "status": "ok", "name": "phy_is_channel_valid", "params": [], "docstring": "Check channel flags via bit test on PHY entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

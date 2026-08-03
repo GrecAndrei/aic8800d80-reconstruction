@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n226", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150d2", "status": "ok", "name": "patch_apply_n226", "params": [], "docstring": "Applies firmware patch by setting control bits and calling helper", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1006CC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1006cc", "status": "ok", "name": "global_state_get_byte", "params": [], "docstring": "return byte flag from global state block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

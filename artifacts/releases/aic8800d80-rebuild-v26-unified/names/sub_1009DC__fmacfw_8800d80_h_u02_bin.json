@@ -1,0 +1,1 @@
+{"fn": "sub_1009DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1009dc", "status": "ok", "name": "sdio_irq_mask_enable", "params": [], "docstring": "set SDIO interrupt mask bits to unmask events", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

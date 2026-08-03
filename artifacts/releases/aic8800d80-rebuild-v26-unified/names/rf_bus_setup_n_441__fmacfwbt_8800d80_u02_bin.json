@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_441", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211916", "status": "ok", "name": "patch_apply_n_3c7", "params": [], "docstring": "Apply patch entry from low byte of input", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

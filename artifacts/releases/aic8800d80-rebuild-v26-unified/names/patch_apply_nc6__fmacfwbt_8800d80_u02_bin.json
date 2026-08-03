@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155ae", "status": "ok", "name": "patch_apply_nc6_55ae", "params": [], "docstring": "Apply firmware patch at offset with bitmask", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

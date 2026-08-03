@@ -1,0 +1,1 @@
+{"fn": "sub_1222B48", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1222b48", "status": "ok", "name": "rf_state_copy_n_2b48", "params": [], "docstring": "Copy 8-byte state (dword+hword) from arg struct to global at 0x173268", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

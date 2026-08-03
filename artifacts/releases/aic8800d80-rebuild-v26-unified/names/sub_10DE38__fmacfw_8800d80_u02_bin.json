@@ -1,0 +1,1 @@
+{"fn": "sub_10DE38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10de38", "status": "ok", "name": "ble_phy_decode", "params": [], "docstring": "Extract BLE PHY field and resolve PHY configuration", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

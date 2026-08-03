@@ -1,0 +1,1 @@
+{"fn": "sub_121454C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121454c", "status": "ok", "name": "rf_bus_write2_n482", "params": [], "docstring": "RF bus write variant with masked address and MMIO store", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

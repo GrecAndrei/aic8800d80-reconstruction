@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_85", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221ebe", "status": "ok", "name": "rf_cmd_dispatch_n_85", "params": [], "docstring": "Dispatches RF commands by ID subtraction against 0x30 base", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

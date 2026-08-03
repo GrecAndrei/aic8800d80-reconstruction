@@ -1,0 +1,1 @@
+{"fn": "sub_12F51C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f51c", "status": "ok", "name": "parse_rx_packet_header", "params": [], "docstring": "Parse packet header around offset -1", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

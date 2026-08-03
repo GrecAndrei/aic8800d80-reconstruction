@@ -1,0 +1,1 @@
+{"fn": "sub_103D60", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x103d60", "status": "ok", "name": "rand", "params": [], "docstring": "Returns a pseudo-random value derived from a low-14-bit timer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_41a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121146a", "status": "ok", "name": "rf_bus_mark_n_41a", "params": [], "docstring": "Marks/writes RF bus config values to 0x40240160/0x4024014c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122D28", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d28", "status": "ok", "name": "send_command_6a", "params": [], "docstring": "Send 16-byte command 0x6a to Bluetooth controller", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

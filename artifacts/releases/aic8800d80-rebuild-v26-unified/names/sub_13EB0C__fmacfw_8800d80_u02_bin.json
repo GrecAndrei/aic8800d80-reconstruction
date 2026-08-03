@@ -1,0 +1,1 @@
+{"fn": "sub_13EB0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13eb0c", "status": "ok", "name": "ipc_dispatch_one", "params": [], "docstring": "invoke IPC dispatcher with single-command argument", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

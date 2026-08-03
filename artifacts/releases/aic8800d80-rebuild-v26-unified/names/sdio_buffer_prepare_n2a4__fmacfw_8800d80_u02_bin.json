@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2a4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e3c0", "status": "ok", "name": "sdio_buffer_prepare_n2a4", "params": [], "docstring": "Prepare SDIO transfer buffer (tail pointer update)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

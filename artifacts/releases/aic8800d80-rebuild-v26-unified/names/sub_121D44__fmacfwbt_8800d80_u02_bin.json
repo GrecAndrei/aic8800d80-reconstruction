@@ -1,0 +1,1 @@
+{"fn": "sub_121D44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121d44", "status": "ok", "name": "mac_cmd_send", "params": [], "docstring": "Send MAC command after firmware ready check", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124c6", "status": "ok", "name": "rf_cmd_send_n41e", "params": [], "docstring": "Send RF command by writing into RF mailbox buffers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

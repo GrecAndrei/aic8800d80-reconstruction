@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_14d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145fa", "status": "ok", "name": "rf_fault_dump_45fa", "params": [], "docstring": "Dump RF fault state and trigger reset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211640", "status": "ok", "name": "rf_bus_reset2_n_3bc", "params": [], "docstring": "Resets RF bus via shifted register writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

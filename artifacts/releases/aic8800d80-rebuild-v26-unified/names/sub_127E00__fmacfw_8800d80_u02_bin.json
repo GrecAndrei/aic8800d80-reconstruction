@@ -1,0 +1,1 @@
+{"fn": "sub_127E00", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127e00", "status": "ok", "name": "wlc_validate_chip_queue", "params": [], "docstring": "Validate chip state and compute queue offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122C218", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c218", "status": "ok", "name": "mmio_status_check", "params": [], "docstring": "Read MMIO status registers (0x4032806c/74) and mask with 0x40001", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

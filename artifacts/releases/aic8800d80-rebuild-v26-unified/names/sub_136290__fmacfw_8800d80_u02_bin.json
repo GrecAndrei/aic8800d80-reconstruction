@@ -1,0 +1,1 @@
+{"fn": "sub_136290", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136290", "status": "ok", "name": "bt_cmd_guard", "params": [], "docstring": "Guard HCI command with readiness check", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_113374", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113374", "status": "ok", "name": "update_hw_config", "params": [], "docstring": "Copy hardware descriptor fields to global configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

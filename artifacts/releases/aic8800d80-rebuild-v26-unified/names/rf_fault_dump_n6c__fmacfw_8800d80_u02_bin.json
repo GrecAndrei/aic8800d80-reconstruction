@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147b4", "status": "ok", "name": "rf_fault_dump_n6c", "params": [], "docstring": "Dump RF fault state and trigger logging via 0x40501000 region write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

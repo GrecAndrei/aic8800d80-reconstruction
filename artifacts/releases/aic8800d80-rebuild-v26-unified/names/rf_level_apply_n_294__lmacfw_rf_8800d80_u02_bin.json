@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_294", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226b44", "status": "ok", "name": "rf_level_apply_n_294", "params": [], "docstring": "Applies RF level register values with bit clears", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12164C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12164c4", "status": "ok", "name": "rf_buf_setup_check", "params": [], "docstring": "Setup/check RF buffer with 0x1000 size limit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

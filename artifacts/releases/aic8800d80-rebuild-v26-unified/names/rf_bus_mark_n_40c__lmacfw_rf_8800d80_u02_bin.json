@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_40c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d80", "status": "ok", "name": "rf_bus_mark_n_40c", "params": [], "docstring": "Marks RF bus slot using multiply-accumulate with register 0x40240190", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

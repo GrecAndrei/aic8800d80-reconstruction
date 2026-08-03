@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_3ca", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f1ca", "status": "ok", "name": "rf_mem_read_n_3ca", "params": [], "docstring": "RF memory read from stack args, subtracts 0x11, builds sub-sp frame", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

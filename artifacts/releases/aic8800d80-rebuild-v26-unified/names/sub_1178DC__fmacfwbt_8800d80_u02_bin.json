@@ -1,0 +1,1 @@
+{"fn": "sub_1178DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1178dc", "status": "ok", "name": "conn_get", "params": [], "docstring": "Get connection context pointer by index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

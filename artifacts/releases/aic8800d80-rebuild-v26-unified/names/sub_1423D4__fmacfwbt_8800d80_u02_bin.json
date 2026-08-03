@@ -1,0 +1,1 @@
+{"fn": "sub_1423D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1423d4", "status": "ok", "name": "check_phy_flags", "params": [], "docstring": "Read PHY mode flags from descriptor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

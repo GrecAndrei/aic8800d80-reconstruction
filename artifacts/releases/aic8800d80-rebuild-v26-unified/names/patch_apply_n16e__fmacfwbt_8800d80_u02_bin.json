@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n16e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215656", "status": "ok", "name": "patch_apply_n16e", "params": [], "docstring": "Apply firmware patch entry; checks patch state and dispatches", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

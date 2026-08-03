@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2b4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12121b0", "status": "ok", "name": "sub_1233884", "params": [], "docstring": "Unknown function in fmacfw firmware", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

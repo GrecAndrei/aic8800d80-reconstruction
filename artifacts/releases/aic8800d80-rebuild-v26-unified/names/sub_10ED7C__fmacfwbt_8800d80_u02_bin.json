@@ -1,0 +1,1 @@
+{"fn": "sub_10ED7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ed7c", "status": "ok", "name": "get_periph_status", "params": [], "docstring": "Read and extract status bits from peripheral register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

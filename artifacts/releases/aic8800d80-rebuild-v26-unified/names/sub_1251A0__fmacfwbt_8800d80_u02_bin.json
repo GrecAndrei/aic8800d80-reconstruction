@@ -1,0 +1,1 @@
+{"fn": "sub_1251A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1251a0", "status": "ok", "name": "ke_event_pending", "params": [], "docstring": "Check kernel event pending value", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

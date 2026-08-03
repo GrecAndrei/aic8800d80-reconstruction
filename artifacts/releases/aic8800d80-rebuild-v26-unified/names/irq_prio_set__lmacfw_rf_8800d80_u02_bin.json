@@ -1,0 +1,1 @@
+{"fn": "irq_prio_set", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120db48", "status": "ok", "name": "irq_prio_set_db48", "params": [], "docstring": "Set interrupt priority (validate irq < 8)", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

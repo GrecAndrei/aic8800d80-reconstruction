@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_13a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12128ae", "status": "ok", "name": "rf_bus_reset_n_13a", "params": [], "docstring": "Resets an RF bus register field, checking upper bound against 0x40", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n47a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212232", "status": "ok", "name": "rf_bus_init_n47a", "params": [], "docstring": "Validates RF bus init flags against expected mask 0x21", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

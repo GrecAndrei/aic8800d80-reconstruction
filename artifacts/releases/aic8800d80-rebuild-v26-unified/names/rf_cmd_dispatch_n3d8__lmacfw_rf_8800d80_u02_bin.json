@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n3d8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122231c", "status": "ok", "name": "rf_bus_setup_n_140", "params": [], "docstring": "Initialize RF bus with given params, calling bus init helper and validating inputs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

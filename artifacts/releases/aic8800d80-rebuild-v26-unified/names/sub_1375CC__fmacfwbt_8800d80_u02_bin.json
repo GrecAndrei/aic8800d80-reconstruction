@@ -1,0 +1,1 @@
+{"fn": "sub_1375CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1375cc", "status": "ok", "name": "radio_event_dispatcher", "params": [], "docstring": "Dispatch radio events based on global flags", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

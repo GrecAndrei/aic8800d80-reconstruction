@@ -1,0 +1,1 @@
+{"fn": "sub_109188", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x109188", "status": "ok", "name": "mmio_write_reg2", "params": [], "docstring": "Write value 2 to hardcoded PHY/MAC register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

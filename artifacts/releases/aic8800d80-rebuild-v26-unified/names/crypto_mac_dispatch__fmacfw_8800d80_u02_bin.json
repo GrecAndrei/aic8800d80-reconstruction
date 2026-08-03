@@ -1,0 +1,1 @@
+{"fn": "crypto_mac_dispatch", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120b3da", "status": "ok", "name": "crypto_mac_dispatch", "params": [], "docstring": "Dispatch crypto/MAC operation request", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "delay_us", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200644", "status": "ok", "name": "delay_us_0644", "params": [], "docstring": "Microsecond busy-wait delay using MMIO timer at 0x40501000", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

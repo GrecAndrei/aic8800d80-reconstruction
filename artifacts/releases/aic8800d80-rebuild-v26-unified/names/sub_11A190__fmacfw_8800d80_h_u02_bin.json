@@ -1,0 +1,1 @@
+{"fn": "sub_11A190", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11a190", "status": "ok", "name": "decrement_refcount", "params": [], "docstring": "Decrement counter at offset 0xe and load callback pointer.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

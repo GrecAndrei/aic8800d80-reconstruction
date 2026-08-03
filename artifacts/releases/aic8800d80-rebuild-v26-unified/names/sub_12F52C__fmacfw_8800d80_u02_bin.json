@@ -1,0 +1,1 @@
+{"fn": "sub_12F52C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f52c", "status": "ok", "name": "read_mode_0x182ba0", "params": [], "docstring": "Read current mode via global pointer 0x182ba0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

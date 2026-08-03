@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n214", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156fc", "status": "ok", "name": "patch_apply_n214", "params": [], "docstring": "Apply firmware patch and trigger interrupt enable barrier", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_130834", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130834", "status": "ok", "name": "rf_afe_disable", "params": [], "docstring": "Clear rf enable flag and write rf analog enable value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

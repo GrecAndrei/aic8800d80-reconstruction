@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4d8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa6c", "status": "ok", "name": "rf_mem_read_check_fa6c", "params": [], "docstring": "Validate and perform RF register/memory read with 0x1486 limit check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_1136A4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1136a4", "status": "ok", "name": "lookup_channel_table", "params": [], "docstring": "Returns table value for channel index 0-7 else zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

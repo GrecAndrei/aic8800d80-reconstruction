@@ -1,0 +1,1 @@
+{"fn": "sub_122B22C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b22c", "status": "ok", "name": "fmacfwbt_init_n_22c", "params": [], "docstring": "Initializes FMAC+BT subsystem and verifies state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

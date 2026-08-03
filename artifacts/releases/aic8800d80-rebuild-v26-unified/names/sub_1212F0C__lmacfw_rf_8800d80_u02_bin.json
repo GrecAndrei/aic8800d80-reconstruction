@@ -1,0 +1,1 @@
+{"fn": "sub_1212F0C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212f0c", "status": "ok", "name": "rf_init_helper_n0c", "params": [], "docstring": "RF init helper, copies 18 bytes and checks config byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

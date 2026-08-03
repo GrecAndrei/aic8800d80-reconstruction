@@ -1,0 +1,1 @@
+{"fn": "sub_13E090", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13e090", "status": "ok", "name": "rx_get_length", "params": [], "docstring": "Get received packet length from context", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

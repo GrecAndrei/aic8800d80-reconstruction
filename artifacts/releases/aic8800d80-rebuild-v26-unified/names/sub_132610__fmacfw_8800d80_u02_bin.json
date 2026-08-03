@@ -1,0 +1,1 @@
+{"fn": "sub_132610", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132610", "status": "ok", "name": "util_zero_reg", "params": [], "docstring": "Zero a register", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

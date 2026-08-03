@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nd6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f66a", "status": "ok", "name": "rf_mem_read_nd6", "params": [], "docstring": "Read RF register/memory with bounds check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

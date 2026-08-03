@@ -1,0 +1,1 @@
+{"fn": "sub_12048C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12048c", "status": "ok", "name": "alloc_bt_message", "params": [], "docstring": "Allocates a Bluetooth message and stores an argument in it.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

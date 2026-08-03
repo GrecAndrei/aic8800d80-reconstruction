@@ -1,0 +1,1 @@
+{"fn": "sub_12632C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12632c", "status": "ok", "name": "ll_state_reset", "params": [], "docstring": "Resets link-layer state and reinitializes", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

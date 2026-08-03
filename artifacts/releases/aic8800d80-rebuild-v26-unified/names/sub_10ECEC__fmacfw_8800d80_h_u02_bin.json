@@ -1,0 +1,1 @@
+{"fn": "sub_10ECEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10ecec", "status": "ok", "name": "mmio_rmw32", "params": [], "docstring": "Read-modify-writes a 32-bit memory-mapped register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

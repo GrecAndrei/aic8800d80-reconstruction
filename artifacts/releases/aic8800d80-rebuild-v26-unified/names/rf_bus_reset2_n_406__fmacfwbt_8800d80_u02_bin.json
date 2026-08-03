@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_406", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211452", "status": "ok", "name": "rf_bus_reset2_n_406", "params": [], "docstring": "Resets RF bus entry and updates index counter via 0x12d470", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

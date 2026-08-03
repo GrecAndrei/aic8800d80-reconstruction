@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n47a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121015a", "status": "ok", "name": "log_pool_dispatch2", "params": [], "docstring": "Dispatch log entry from free pool with staged writes", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

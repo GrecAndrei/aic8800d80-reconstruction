@@ -1,0 +1,1 @@
+{"fn": "sub_12CA20", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12ca20", "status": "ok", "name": "hci_tx_queue_drain", "params": [], "docstring": "Loop through HCI TX list starting at 0x192b6c", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

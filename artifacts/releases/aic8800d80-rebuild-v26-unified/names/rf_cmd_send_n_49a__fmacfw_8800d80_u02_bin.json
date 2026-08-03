@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_49a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b76", "status": "ok", "name": "rf_cmd_send_n_49a", "params": [], "docstring": "Send RF command via bus and trigger handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

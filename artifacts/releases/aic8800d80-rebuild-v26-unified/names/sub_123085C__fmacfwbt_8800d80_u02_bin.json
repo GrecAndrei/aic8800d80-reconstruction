@@ -1,0 +1,1 @@
+{"fn": "sub_123085C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123085c", "status": "ok", "name": "ipc_msg_write_hdr", "params": [], "docstring": "Write IPC message header fields", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

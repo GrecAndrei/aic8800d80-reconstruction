@@ -1,0 +1,1 @@
+{"fn": "sub_13387C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13387c", "status": "ok", "name": "hci_evt_parse_opcode", "params": [], "docstring": "Parses HCI event opcode for type 0x0b", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

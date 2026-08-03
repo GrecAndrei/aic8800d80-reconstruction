@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2ba", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121448e", "status": "ok", "name": "rf_fault_classify_level", "params": [], "docstring": "Classify fault severity by comparing fault code to 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

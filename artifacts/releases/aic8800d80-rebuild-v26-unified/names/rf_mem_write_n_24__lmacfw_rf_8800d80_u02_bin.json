@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_24", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222008", "status": "ok", "name": "rf_mem_write_n_24", "params": [], "docstring": "RF memory access via CP0/CP12 coprocessor regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

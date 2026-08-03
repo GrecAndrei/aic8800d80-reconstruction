@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_18c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c800", "status": "ok", "name": "rf_mem_read_n1f8", "params": [], "docstring": "Read RF memory via SVC and compute result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

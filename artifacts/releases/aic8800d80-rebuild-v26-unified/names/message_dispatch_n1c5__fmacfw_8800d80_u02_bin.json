@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1c5", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb50", "status": "ok", "name": "msg_dispatch_offset_advance", "params": [], "docstring": "Advance message dispatch offset within buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

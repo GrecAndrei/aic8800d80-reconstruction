@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3a2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215146", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Applies a behavioral patch by calling registered patch routine", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

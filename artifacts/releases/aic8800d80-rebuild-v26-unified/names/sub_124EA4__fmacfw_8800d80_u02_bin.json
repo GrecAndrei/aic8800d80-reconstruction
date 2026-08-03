@@ -1,0 +1,1 @@
+{"fn": "sub_124EA4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x124ea4", "status": "ok", "name": "rf_pll_init", "params": [], "docstring": "Initializes RF/PLL registers from ROM tables", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

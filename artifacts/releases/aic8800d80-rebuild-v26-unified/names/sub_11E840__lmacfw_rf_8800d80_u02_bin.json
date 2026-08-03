@@ -1,0 +1,1 @@
+{"fn": "sub_11E840", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e840", "status": "ok", "name": "list_foreach", "params": [], "docstring": "Iterate over list and invoke callback for each node.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

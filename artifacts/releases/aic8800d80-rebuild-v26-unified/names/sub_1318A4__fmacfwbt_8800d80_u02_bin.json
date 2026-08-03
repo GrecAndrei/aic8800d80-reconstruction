@@ -1,0 +1,1 @@
+{"fn": "sub_1318A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1318a4", "status": "ok", "name": "ke_evt_wait5", "params": [], "docstring": "Wait for kernel event 5 to complete", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

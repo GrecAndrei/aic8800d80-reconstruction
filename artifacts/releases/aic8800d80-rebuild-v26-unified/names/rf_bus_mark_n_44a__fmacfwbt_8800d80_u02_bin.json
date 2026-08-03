@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_44a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211296", "status": "ok", "name": "rf_bus_mark_n_44a_1296", "params": [], "docstring": "Mark RF bus access by writing to 0x40240148 with encoded byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

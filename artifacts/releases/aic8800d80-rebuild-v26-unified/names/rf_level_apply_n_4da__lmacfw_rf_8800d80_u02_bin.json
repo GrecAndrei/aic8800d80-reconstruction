@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_4da", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12268fe", "status": "ok", "name": "rf_level_apply_n_4da", "params": [], "docstring": "Applies RF level based on band/mode switch (value 2/3)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

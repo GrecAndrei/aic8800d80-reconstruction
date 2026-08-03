@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_c9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121467e", "status": "ok", "name": "rf_fault_dump_n_c9", "params": [], "docstring": "Tail of RF fault dump, writes captured fault data to shared RAM region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

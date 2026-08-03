@@ -1,0 +1,1 @@
+{"fn": "sub_1073BC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1073bc", "status": "ok", "name": "timer_delta_compare", "params": [], "docstring": "Compare two 64-bit timer values and return the minimum.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

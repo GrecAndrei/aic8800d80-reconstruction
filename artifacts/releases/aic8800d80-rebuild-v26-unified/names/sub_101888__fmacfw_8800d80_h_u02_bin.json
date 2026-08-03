@@ -1,0 +1,1 @@
+{"fn": "sub_101888", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x101888", "status": "ok", "name": "mmio_wait_bit", "params": [], "docstring": "wait for MMIO status bit to change", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

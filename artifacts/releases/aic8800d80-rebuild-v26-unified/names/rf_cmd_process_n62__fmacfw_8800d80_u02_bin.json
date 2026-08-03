@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n62", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12135ba", "status": "ok", "name": "rf_cmd_process_n62", "params": [], "docstring": "Process RF command, incrementing a 16-bit counter with mask 0x80", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

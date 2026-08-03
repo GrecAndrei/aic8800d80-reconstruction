@@ -1,0 +1,1 @@
+{"fn": "sub_13AF80", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13af80", "status": "ok", "name": "ll_conn_tx_pdu_check", "params": [], "docstring": "Check TX PDU queue state for connection", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

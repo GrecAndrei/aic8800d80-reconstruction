@@ -1,0 +1,1 @@
+{"fn": "sub_10EFD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10efd8", "status": "ok", "name": "fw_set_cmd", "params": [], "docstring": "Store command byte into firmware control block", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121A5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a5c", "status": "ok", "name": "patch_trampoline", "params": [], "docstring": "Unconditional branch to patch entry point", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

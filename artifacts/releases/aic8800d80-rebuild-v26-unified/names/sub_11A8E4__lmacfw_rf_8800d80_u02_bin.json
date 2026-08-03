@@ -1,0 +1,1 @@
+{"fn": "sub_11A8E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11a8e4", "status": "ok", "name": "mmio_select_port", "params": [], "docstring": "Choose hardware port based on flag byte.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

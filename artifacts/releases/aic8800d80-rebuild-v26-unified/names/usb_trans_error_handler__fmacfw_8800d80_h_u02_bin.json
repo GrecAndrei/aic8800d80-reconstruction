@@ -1,0 +1,1 @@
+{"fn": "usb_trans_error_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1247010", "status": "ok", "name": "usb_trans_error_handler", "params": [], "docstring": "Handle USB transaction error condition", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

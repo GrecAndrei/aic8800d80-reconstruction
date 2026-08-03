@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3bf", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215128", "status": "ok", "name": "patch_apply_n_3bf", "params": [], "docstring": "Applies a signed patch offset into a counter word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

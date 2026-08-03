@@ -1,0 +1,1 @@
+{"fn": "sub_10DCF8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10dcf8", "status": "ok", "name": "rf_table_lookup", "params": [], "docstring": "Extract a rate byte and call RF table helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

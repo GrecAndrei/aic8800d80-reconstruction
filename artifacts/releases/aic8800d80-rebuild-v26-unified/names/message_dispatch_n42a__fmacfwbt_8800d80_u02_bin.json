@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n42a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cfde", "status": "ok", "name": "message_dispatch_n42a", "params": [], "docstring": "Dispatch incoming messages by opcode with pop return", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

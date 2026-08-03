@@ -1,0 +1,1 @@
+{"fn": "sub_107084", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x107084", "status": "ok", "name": "mmio_set_bits", "params": [], "docstring": "Set bits in PMU control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

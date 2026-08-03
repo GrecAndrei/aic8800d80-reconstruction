@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n39a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef4e", "status": "ok", "name": "rf_bus_reset2_ef4e", "params": [], "docstring": "RF bus reset clearing bits via mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

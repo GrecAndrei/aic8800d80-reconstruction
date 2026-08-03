@@ -1,0 +1,1 @@
+{"fn": "sub_12FF98", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ff98", "status": "ok", "name": "call_handler", "params": [], "docstring": "Invoke target function via trampoline", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

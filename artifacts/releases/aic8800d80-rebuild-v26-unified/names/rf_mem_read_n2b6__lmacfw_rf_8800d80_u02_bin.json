@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n2b6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f84a", "status": "ok", "name": "rf_mem_shift_n2b6", "params": [], "docstring": "Repeated left-shift by 5; padding/alignment micro-flow", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

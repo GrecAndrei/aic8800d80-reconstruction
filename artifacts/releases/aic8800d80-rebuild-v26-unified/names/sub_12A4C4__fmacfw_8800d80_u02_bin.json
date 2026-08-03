@@ -1,0 +1,1 @@
+{"fn": "sub_12A4C4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a4c4", "status": "ok", "name": "llc_idx_from_handle", "params": [], "docstring": "Fetch local state index for a given connection handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

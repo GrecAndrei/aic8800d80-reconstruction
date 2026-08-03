@@ -1,0 +1,1 @@
+{"fn": "sub_121ED4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x121ed4", "status": "ok", "name": "rf_read_reg", "params": [], "docstring": "Read RF register via command interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

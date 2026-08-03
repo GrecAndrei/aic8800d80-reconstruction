@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n292", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121577a", "status": "ok", "name": "patch_apply_n292", "params": [], "docstring": "Apply patch entries from a descriptor table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

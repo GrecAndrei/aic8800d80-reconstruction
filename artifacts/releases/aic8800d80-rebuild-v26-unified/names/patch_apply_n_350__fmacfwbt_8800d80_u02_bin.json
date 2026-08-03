@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_350", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215198", "status": "ok", "name": "patch_apply_n_350", "params": [], "docstring": "Apply firmware patch byte, return 1/2/0 based on write result and flags", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

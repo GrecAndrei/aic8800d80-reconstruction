@@ -1,0 +1,1 @@
+{"fn": "sub_13AC0C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13ac0c", "status": "ok", "name": "rx_validate_frame_type", "params": [], "docstring": "Check frame type field against protocol type", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

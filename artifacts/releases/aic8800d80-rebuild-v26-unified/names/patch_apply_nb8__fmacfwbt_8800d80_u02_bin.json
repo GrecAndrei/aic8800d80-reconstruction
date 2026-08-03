@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nb8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155a0", "status": "ok", "name": "nvic_enable_patch", "params": [], "docstring": "Patch SCB/NVIC registers to enable an interrupt vector", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

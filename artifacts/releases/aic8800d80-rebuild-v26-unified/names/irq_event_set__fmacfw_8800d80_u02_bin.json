@@ -1,0 +1,1 @@
+{"fn": "irq_event_set", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d3ac", "status": "ok", "name": "irq_event_set", "params": [], "docstring": "Set/raise IRQ event flag", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

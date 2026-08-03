@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4c4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa58", "status": "ok", "name": "rf_reg_block_read", "params": [], "docstring": "Read RF register block using indexed access", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

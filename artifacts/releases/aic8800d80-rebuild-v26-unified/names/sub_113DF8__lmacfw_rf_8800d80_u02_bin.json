@@ -1,0 +1,1 @@
+{"fn": "sub_113DF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113df8", "status": "ok", "name": "tx_desc_init", "params": [], "docstring": "Build TX descriptor from template at 0x14B9CC", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

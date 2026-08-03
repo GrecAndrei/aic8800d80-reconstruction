@@ -1,0 +1,1 @@
+{"fn": "sub_122B18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b18", "status": "ok", "name": "hci_send_cmd_0x68", "params": [], "docstring": "Send HCI command 0x68 via alternate path.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

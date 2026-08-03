@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214edc", "status": "ok", "name": "patch_apply_n30", "params": [], "docstring": "Apply firmware patch table at index 0x30", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

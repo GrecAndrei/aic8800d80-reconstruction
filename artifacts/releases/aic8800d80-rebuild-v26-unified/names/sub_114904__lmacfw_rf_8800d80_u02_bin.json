@@ -1,0 +1,1 @@
+{"fn": "sub_114904", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114904", "status": "ok", "name": "hci_rx_data", "params": [], "docstring": "Receive data buffer from controller with length", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

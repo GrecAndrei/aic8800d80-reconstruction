@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_fd", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121464a", "status": "ok", "name": "rf_bus_reset_n4eb", "params": [], "docstring": "Reset and reinitialize the RF host bus interface", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

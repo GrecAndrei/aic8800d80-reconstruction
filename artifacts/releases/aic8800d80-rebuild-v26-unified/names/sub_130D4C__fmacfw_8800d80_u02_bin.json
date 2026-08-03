@@ -1,0 +1,1 @@
+{"fn": "sub_130D4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130d4c", "status": "ok", "name": "build_packet_header", "params": [], "docstring": "Construct packet header with type and length fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

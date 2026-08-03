@@ -1,0 +1,1 @@
+{"fn": "sub_136828", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136828", "status": "ok", "name": "txpwr_get_context", "params": [], "docstring": "Return tx power context pointer if PHY active", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

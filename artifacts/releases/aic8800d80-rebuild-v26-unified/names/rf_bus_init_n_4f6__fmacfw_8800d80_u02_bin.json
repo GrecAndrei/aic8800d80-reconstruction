@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_4f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118c2", "status": "ok", "name": "rf_bus_init_n_4f6", "params": [], "docstring": "Initialize RF bus pins by setting bit masks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

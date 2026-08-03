@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213216", "status": "ok", "name": "rf_cmd_send_3216", "params": [], "docstring": "Sends RF command via mailbox mechanism with -1 timeout", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

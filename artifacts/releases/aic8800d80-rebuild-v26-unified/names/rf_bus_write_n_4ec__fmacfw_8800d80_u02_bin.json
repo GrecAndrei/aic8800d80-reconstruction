@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211678", "status": "ok", "name": "rf_bus_write_n_4ec_1678", "params": [], "docstring": "Write value to RF bus scratch register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

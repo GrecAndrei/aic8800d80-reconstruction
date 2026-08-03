@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_44c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121190c", "status": "ok", "name": "rf_bus_setup_n_44c_190c", "params": [], "docstring": "Program RF bus control register base 0x80003800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_6e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f526", "status": "ok", "name": "rf_mem_read_n_6e", "params": [], "docstring": "Read RF memory at offset, shift result by 0x18 and subtract 0x80", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_neb", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211942", "status": "ok", "name": "rf_bus_reset2_neb", "params": [], "docstring": "RF bus reset epilogue (restore saved reg)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

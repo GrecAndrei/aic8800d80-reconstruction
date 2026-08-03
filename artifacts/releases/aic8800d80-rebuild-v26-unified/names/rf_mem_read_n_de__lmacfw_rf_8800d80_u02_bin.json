@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4b6", "status": "ok", "name": "rf_mem_read_n_de", "params": [], "docstring": "Read RF memory word and store into indexed slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

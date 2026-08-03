@@ -1,0 +1,1 @@
+{"fn": "sub_111168", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111168", "status": "ok", "name": "rf_set_tx_power", "params": [], "docstring": "write rf transmit power control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

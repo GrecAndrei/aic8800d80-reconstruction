@@ -1,0 +1,1 @@
+{"fn": "sub_12248C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12248c", "status": "ok", "name": "process_items", "params": [], "docstring": "Process a list of data items", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

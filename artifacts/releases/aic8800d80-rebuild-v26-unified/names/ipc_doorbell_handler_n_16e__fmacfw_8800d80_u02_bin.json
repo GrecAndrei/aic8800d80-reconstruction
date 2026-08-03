@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_16e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121580e", "status": "ok", "name": "ipc_doorbell_handler_n_16e", "params": [], "docstring": "Handles IPC doorbell by clearing bits at 0x40320400/0x40501000", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

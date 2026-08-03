@@ -1,0 +1,1 @@
+{"fn": "sub_126C70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x126c70", "status": "ok", "name": "rf_mmio_write", "params": [], "docstring": "Write BLE/RF memory-mapped control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1404CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1404cc", "status": "ok", "name": "check_controller_ready", "params": [], "docstring": "Polls system state to verify controller readiness", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

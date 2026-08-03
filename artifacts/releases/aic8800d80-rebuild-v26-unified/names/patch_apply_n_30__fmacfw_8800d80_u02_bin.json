@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e7c", "status": "ok", "name": "patch_apply_n_30", "params": [], "docstring": "apply firmware patch with signed-offset lookup and conditional branch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

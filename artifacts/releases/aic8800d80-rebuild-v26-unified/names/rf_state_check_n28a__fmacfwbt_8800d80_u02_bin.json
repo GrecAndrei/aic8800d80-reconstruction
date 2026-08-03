@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n28a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12122ba", "status": "ok", "name": "rf_state_check_n28a", "params": [], "docstring": "Stores updated RF state byte into status slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

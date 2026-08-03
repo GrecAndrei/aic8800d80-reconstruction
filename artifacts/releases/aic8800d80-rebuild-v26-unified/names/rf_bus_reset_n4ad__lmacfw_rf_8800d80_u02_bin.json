@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4ad", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121279c", "status": "ok", "name": "rf_bus_reset_n4ad", "params": [], "docstring": "Reset RF control bus and clear status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

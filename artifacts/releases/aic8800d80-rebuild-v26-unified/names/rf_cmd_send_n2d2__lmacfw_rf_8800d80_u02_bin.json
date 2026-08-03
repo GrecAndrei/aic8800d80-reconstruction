@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n2d2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212bea", "status": "ok", "name": "rf_cmd_send_n2d2", "params": [], "docstring": "NOP-aligned stub for sending an RF command (likely trampoline)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

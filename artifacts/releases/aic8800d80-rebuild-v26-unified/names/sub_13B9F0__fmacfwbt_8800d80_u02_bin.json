@@ -1,0 +1,1 @@
+{"fn": "sub_13B9F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13b9f0", "status": "ok", "name": "rx_invoke_cb", "params": [], "docstring": "Call RX callback with calculated packet length", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

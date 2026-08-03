@@ -1,0 +1,1 @@
+{"fn": "sub_12C344", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c344", "status": "ok", "name": "call_stack_helper", "params": [], "docstring": "Build stack arguments and call helper 0x101a54", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

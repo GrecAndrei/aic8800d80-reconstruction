@@ -1,0 +1,1 @@
+{"fn": "crypto_table_copy_165d00", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1205e94", "status": "ok", "name": "crypto_table_copy_165d00", "params": [], "docstring": "Copy crypto table from ROM to RAM", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

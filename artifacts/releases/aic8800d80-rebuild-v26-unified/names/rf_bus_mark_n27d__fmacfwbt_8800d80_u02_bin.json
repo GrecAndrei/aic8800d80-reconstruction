@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n27d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121195c", "status": "ok", "name": "rf_bus_mark_n27d", "params": [], "docstring": "Mark RF bus with 16-bit token and conditional status compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

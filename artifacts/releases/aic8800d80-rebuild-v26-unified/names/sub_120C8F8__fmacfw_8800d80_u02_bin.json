@@ -1,0 +1,1 @@
+{"fn": "sub_120C8F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120c8f8", "status": "ok", "name": "mac_state_branch_handler", "params": [], "docstring": "Handles MAC sub-state branch based on register field == 2", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

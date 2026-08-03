@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121235a", "status": "ok", "name": "rf_bus_mark_n_333", "params": [], "docstring": "Compare RF bus byte against expected value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

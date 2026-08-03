@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n214", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150c0", "status": "ok", "name": "patch_apply_n214", "params": [], "docstring": "Patch helper: trigger software interrupt via NVIC ISPR then call follow-up", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

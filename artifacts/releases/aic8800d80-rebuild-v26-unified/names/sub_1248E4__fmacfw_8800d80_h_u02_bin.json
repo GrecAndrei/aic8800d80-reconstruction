@@ -1,0 +1,1 @@
+{"fn": "sub_1248E4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1248e4", "status": "ok", "name": "scan_param_update", "params": [], "docstring": "Update scan parameters in global state", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

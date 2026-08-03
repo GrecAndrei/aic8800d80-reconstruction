@@ -1,0 +1,1 @@
+{"fn": "sub_125CF4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x125cf4", "status": "ok", "name": "memory_word_compare", "params": [], "docstring": "Compares first word of two memory locations", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

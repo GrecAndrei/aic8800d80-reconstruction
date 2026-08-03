@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n148", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121194c", "status": "ok", "name": "rf_bus_setup_n148", "params": [], "docstring": "Configures RF bus interface for the n148 chipset variant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

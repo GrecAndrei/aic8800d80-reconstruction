@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_30a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121253a", "status": "ok", "name": "rf_chan_table_setup", "params": [], "docstring": "Initialize RF channel/table structure with 0x270/0x248 offsets", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

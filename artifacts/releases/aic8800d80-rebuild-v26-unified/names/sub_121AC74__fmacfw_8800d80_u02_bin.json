@@ -1,0 +1,1 @@
+{"fn": "sub_121AC74", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121ac74", "status": "ok", "name": "sub_121AC74", "params": [], "docstring": "Multi-register dispatcher with branch on input code (cmp r0, 5)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

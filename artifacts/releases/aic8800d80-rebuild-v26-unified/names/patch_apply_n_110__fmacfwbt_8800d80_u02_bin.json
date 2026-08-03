@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_110", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153d8", "status": "ok", "name": "patch_apply_n_110_53d8", "params": [], "docstring": "applies firmware patch, validates WIFIR magic", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

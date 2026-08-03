@@ -1,0 +1,1 @@
+{"fn": "sub_101A68", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x101a68", "status": "ok", "name": "sys_status_bit28_get", "params": [], "docstring": "Read bit 28 of system status register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

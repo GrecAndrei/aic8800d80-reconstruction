@@ -1,0 +1,1 @@
+{"fn": "sub_104440", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x104440", "status": "ok", "name": "rx_parse_desc", "params": [], "docstring": "Parse RX packet descriptor fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

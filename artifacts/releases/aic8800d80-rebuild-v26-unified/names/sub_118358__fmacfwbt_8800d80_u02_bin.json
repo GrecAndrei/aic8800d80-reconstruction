@@ -1,0 +1,1 @@
+{"fn": "sub_118358", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x118358", "status": "ok", "name": "list_append", "params": [], "docstring": "Append node to indexed list at 0x188b54", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

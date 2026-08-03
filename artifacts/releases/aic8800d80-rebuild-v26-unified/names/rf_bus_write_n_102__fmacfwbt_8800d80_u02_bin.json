@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_102", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118be", "status": "ok", "name": "rf_bus_write_n_102", "params": [], "docstring": "Write 32-bit value to RF bus register with mask clearing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

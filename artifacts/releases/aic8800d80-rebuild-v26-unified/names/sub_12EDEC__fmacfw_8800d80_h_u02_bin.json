@@ -1,0 +1,1 @@
+{"fn": "sub_12EDEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12edec", "status": "ok", "name": "send_mcu_cmd_0x401", "params": [], "docstring": "Send MCU command 0x401 with 8-byte payload", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

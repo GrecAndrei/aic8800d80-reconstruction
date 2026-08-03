@@ -1,0 +1,1 @@
+{"fn": "sub_1154C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1154c0", "status": "ok", "name": "check_signed_status", "params": [], "docstring": "Read signed status word and branch on negative value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

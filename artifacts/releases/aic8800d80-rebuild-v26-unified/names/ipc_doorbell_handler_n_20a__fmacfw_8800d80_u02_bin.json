@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_20a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215772", "status": "ok", "name": "ipc_doorbell_handler_n_20a", "params": [], "docstring": "IPC doorbell handler processing host subcmd 0x60", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

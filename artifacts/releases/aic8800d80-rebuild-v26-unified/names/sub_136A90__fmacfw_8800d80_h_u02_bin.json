@@ -1,0 +1,1 @@
+{"fn": "sub_136A90", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136a90", "status": "ok", "name": "handle_acl_packet", "params": [], "docstring": "Handle ACL data packet for connection", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

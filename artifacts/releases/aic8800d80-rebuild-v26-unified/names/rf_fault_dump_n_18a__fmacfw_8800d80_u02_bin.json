@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_18a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145be", "status": "ok", "name": "rf_fault_dump_n_18a", "params": [], "docstring": "Dump RF fault state and check threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1222830", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222830", "status": "ok", "name": "bt_cmd_handler_n830", "params": [], "docstring": "Handle BT command message in fmacfwbt with parameter parsing", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

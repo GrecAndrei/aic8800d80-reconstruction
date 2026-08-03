@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n208", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213074", "status": "ok", "name": "log_free_dispatch_n3e2", "params": [], "docstring": "Dispatch log buffer free, disable IRQs and update counters", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

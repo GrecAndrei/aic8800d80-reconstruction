@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_11b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226cbc", "status": "ok", "name": "rf_level_apply_n_11b", "params": [], "docstring": "Apply RF level settings via masked register writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

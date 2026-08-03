@@ -1,0 +1,1 @@
+{"fn": "sub_134334", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x134334", "status": "ok", "name": "ble_get_addr_flag", "params": [], "docstring": "Zeroes outputs and reads a flag from controller struct", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_2a8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f2c", "status": "ok", "name": "rf_state_check_1f2c", "params": [], "docstring": "Check RF state flags from MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

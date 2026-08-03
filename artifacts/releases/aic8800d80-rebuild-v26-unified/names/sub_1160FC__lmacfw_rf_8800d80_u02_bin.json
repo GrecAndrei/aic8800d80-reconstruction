@@ -1,0 +1,1 @@
+{"fn": "sub_1160FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1160fc", "status": "ok", "name": "wlan_hw_init", "params": [], "docstring": "initialize device context with global hardware pointers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d10", "status": "ok", "name": "rf_cmd_dispatch_2d10", "params": [], "docstring": "Dispatch RF command with masked opcode", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

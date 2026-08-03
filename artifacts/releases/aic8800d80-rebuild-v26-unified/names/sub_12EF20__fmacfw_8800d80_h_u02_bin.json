@@ -1,0 +1,1 @@
+{"fn": "sub_12EF20", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ef20", "status": "ok", "name": "bt_coex_check_state", "params": [], "docstring": "Check BT coex state at global 0x1828b8", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122fd64", "status": "ok", "name": "rf_mem_write_fd64", "params": [], "docstring": "Write data to RF register/memory block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

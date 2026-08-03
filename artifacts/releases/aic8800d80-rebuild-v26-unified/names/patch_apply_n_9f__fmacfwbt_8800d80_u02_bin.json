@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_9f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215448", "status": "ok", "name": "rf_cmd_send_n1f8", "params": [], "docstring": "Send RF command (opcode 0x200) via low-level RF mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

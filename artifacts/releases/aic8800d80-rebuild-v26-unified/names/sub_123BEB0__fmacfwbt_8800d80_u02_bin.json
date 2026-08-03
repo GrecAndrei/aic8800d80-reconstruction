@@ -1,0 +1,1 @@
+{"fn": "sub_123BEB0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123beb0", "status": "ok", "name": "sub_123BEB0", "params": [], "docstring": "Large utility function iterating over descriptor tables from base pointers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

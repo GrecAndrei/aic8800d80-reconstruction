@@ -1,0 +1,1 @@
+{"fn": "sub_119AF4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119af4", "status": "ok", "name": "process_llcp_pdu", "params": [], "docstring": "Process LL control PDU through handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

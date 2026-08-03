@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_416", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c576", "status": "ok", "name": "message_dispatch_n_416", "params": [], "docstring": "Dispatch message with opcode 0x60 routing", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

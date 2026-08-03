@@ -1,0 +1,1 @@
+{"fn": "sub_142E28", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142e28", "status": "ok", "name": "double_compare_condition", "params": [], "docstring": "Set condition flags based on double comparison result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

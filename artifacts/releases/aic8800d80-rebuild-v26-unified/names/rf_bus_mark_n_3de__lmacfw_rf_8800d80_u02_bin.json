@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210dae", "status": "ok", "name": "rf_bus_mark_n_3de", "params": [], "docstring": "Mark RF bus request with command/size fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

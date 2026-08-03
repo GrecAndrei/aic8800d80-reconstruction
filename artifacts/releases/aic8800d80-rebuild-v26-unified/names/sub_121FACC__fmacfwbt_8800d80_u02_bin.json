@@ -1,0 +1,1 @@
+{"fn": "sub_121FACC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121facc", "status": "ok", "name": "bt_fmac_phy_config", "params": [], "docstring": "Configures Bluetooth PHY parameters via FMAC", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

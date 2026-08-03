@@ -1,0 +1,1 @@
+{"fn": "sub_10D6A8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10d6a8", "status": "ok", "name": "hci_cmd_init", "params": [], "docstring": "Initialize and zero-fill HCI command buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

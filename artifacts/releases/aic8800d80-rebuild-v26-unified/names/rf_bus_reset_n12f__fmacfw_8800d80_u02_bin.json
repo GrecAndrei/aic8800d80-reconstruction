@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n12f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b16", "status": "ok", "name": "rf_bus_reset_n12f_2b16", "params": [], "docstring": "Resets RF bus by writing 0x430 to control reg and polling status bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

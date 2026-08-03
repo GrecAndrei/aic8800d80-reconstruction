@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_328", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c88c", "status": "ok", "name": "message_dispatch_n_328", "params": [], "docstring": "Decrements message counter and advances message queue pointer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

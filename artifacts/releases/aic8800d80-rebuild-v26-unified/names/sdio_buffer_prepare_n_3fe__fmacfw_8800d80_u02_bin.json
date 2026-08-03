@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_3fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dd1e", "status": "ok", "name": "sdio_buffer_prepare_n_3fe", "params": [], "docstring": "Compares buffer pointers for SDIO DMA preparation.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

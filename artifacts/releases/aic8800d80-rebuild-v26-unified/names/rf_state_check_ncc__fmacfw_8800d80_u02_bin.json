@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_ncc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12122a0", "status": "ok", "name": "rf_state_check_ncc", "params": [], "docstring": "Check RF state and update channel/bandwidth flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

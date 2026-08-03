@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_29b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ef0", "status": "ok", "name": "rf_bus_mark_n_29b", "params": [], "docstring": "RF bus mark/ping, increments 0xc00 counter with mod-192 (0xaaaaaaab magic)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

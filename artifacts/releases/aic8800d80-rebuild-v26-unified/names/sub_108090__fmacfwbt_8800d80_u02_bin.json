@@ -1,0 +1,1 @@
+{"fn": "sub_108090", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x108090", "status": "ok", "name": "trace_event_count", "params": [], "docstring": "Read and log event counter value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

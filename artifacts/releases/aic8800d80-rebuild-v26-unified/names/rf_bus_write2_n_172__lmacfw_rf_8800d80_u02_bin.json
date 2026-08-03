@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_172", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113b2", "status": "ok", "name": "rf_bus_write2_n_172", "params": [], "docstring": "Write to RF bus register at 0x80003800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n3a2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f936", "status": "ok", "name": "rf_mem_read_n3a2", "params": [], "docstring": "Indexed RF memory read using r6*32 stride addressing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

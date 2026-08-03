@@ -1,0 +1,1 @@
+{"fn": "sub_111250", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111250", "status": "ok", "name": "check_short_value", "params": [], "docstring": "Load signed short from global pointer and compare", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_28c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12139bc", "status": "ok", "name": "rf_msg_process_body_n_28c", "params": [], "docstring": "RF message processing body: dispatches subcommand 0x28 handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

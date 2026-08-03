@@ -1,0 +1,1 @@
+{"fn": "sub_12FD64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12fd64", "status": "ok", "name": "packet_header_parse", "params": [], "docstring": "Parse packet header and validate", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

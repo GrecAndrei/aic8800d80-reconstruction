@@ -1,0 +1,1 @@
+{"fn": "sub_1222036", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1222036", "status": "ok", "name": "fw_state_get_1222036", "params": [], "docstring": "FW state getter, reads from 0x16899c control block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

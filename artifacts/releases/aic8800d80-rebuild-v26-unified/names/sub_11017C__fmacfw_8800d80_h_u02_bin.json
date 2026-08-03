@@ -1,0 +1,1 @@
+{"fn": "sub_11017C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11017c", "status": "ok", "name": "mmio_read_0", "params": [], "docstring": "MMIO read wrapper for a chip register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11324C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11324c", "status": "ok", "name": "global_env_init_params", "params": [], "docstring": "Initializes environment with parameters after validating args", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

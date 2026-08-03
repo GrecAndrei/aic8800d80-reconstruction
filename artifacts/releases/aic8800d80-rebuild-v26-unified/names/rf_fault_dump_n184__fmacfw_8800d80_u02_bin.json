@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n184", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12148cc", "status": "ok", "name": "rf_fault_dump_n184", "params": [], "docstring": "Iterate RF fault dump callbacks with indexed IDs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

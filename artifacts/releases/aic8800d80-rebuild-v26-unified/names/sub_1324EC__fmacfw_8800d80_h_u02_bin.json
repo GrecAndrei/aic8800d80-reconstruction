@@ -1,0 +1,1 @@
+{"fn": "sub_1324EC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1324ec", "status": "ok", "name": "count_set_bits", "params": [], "docstring": "Count set bits in bitmask", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

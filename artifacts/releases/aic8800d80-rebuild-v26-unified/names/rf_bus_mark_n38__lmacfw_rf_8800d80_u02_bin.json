@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n38", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12111c4", "status": "ok", "name": "rf_bus_mark_n_3a7", "params": [], "docstring": "Check RF bus status flags at offset 0x176/0xc01/0xc02", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

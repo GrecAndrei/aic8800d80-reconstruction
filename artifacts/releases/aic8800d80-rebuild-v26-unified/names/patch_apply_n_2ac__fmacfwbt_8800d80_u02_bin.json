@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121523c", "status": "ok", "name": "rf_msg_process_body_ne", "params": [], "docstring": "Processes body of an RF IPC message and dispatches by index", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

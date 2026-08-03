@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n23a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a3e", "status": "ok", "name": "rf_bus_setup_n23a", "params": [], "docstring": "Sets up RF bus access parameters via indexed table lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

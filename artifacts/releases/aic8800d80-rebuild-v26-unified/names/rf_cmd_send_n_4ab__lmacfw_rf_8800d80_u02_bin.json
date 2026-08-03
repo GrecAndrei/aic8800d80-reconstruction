@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4ab", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121246c", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Prepares an RF command slot and posts it via the command queue.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

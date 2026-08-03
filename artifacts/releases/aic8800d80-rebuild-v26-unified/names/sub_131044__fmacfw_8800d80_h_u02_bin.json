@@ -1,0 +1,1 @@
+{"fn": "sub_131044", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x131044", "status": "ok", "name": "rate_info_query", "params": [], "docstring": "Query rate information and inspect result status byte.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

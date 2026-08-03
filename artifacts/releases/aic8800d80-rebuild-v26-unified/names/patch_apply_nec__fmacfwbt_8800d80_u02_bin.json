@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nec", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155d4", "status": "ok", "name": "rf_bus_mark_n_124", "params": [], "docstring": "Mark bits on RF control bus (variant 0x124)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4ac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116b8", "status": "ok", "name": "rf_bus_write_n_4ac", "params": [], "docstring": "Writes RF bus register at base+0x660 with table lookup at +0x980", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

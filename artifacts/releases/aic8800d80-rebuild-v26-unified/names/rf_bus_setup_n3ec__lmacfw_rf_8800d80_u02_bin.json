@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3ec", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211bf0", "status": "ok", "name": "rf_bus_setup_n3ec", "params": [], "docstring": "Configure RF bus mode/flags from per-radio control byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

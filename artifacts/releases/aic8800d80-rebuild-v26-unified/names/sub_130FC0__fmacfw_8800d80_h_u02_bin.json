@@ -1,0 +1,1 @@
+{"fn": "sub_130FC0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x130fc0", "status": "ok", "name": "table_read_le16", "params": [], "docstring": "Look up entry and store 16-bit value read from bytes 2-3.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

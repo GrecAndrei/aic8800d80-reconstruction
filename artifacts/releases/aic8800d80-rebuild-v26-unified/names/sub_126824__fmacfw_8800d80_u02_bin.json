@@ -1,0 +1,1 @@
+{"fn": "sub_126824", "img": "fmacfw_8800d80_u02_bin", "addr": "0x126824", "status": "ok", "name": "bt_link_cfg_set", "params": [], "docstring": "Configure Bluetooth link context attributes", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

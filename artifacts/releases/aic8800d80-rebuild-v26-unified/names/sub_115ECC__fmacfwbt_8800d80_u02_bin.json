@@ -1,0 +1,1 @@
+{"fn": "sub_115ECC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115ecc", "status": "ok", "name": "mmio_read_low_nibble", "params": [], "docstring": "Read MMIO register and store low nibble", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

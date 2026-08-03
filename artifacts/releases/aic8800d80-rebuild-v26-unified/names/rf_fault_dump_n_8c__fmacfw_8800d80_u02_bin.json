@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_8c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146bc", "status": "ok", "name": "rf_fault_dump_n_8c", "params": [], "docstring": "RF fault dump - reads/writes fault status word from shared RAM", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

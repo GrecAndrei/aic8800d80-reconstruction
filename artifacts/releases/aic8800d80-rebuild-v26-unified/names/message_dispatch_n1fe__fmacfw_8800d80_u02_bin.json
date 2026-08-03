@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb8a", "status": "ok", "name": "message_dispatch_n1fe", "params": [], "docstring": "Dispatch message to mailbox 0x16a2a0/0x16a230", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1277B0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1277b0", "status": "ok", "name": "llc_buf_advance", "params": [], "docstring": "advance buffer by stored offset and update", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

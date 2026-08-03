@@ -1,0 +1,1 @@
+{"fn": "sub_1222EF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222ef8", "status": "ok", "name": "bt_reg_write_doorbell", "params": [], "docstring": "Write BT doorbell MMIO at 0x40320034 and send IPC msg 0x72", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

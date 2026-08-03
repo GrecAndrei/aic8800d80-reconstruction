@@ -1,0 +1,1 @@
+{"fn": "sub_116CA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x116ca4", "status": "ok", "name": "timestamp_add", "params": [], "docstring": "add 64-bit values and store timestamp", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

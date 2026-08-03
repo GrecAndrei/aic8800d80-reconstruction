@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_18a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118ee", "status": "ok", "name": "rf_bus_write2_n_18a", "params": [], "docstring": "Write two RF bus words at offsets 0x814 and 0x810", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

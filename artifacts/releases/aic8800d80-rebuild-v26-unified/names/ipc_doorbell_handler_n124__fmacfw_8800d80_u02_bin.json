@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n124", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215aa0", "status": "ok", "name": "ipc_doorbell_handler_n124", "params": [], "docstring": "Handle IPC doorbell interrupt for message delivery", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

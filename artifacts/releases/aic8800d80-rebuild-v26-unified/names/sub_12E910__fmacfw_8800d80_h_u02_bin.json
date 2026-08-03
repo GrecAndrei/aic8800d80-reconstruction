@@ -1,0 +1,1 @@
+{"fn": "sub_12E910", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12e910", "status": "ok", "name": "get_global_field4", "params": [], "docstring": "Reads value from global at offset 4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

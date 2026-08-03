@@ -1,0 +1,1 @@
+{"fn": "sub_141D1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141d1c", "status": "ok", "name": "pack_ll_header", "params": [], "docstring": "Pack link layer header fields into output buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

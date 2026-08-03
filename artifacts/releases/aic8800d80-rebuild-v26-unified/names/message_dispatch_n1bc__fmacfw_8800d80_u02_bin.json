@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb48", "status": "ok", "name": "message_dispatch_n1bc", "params": [], "docstring": "Message dispatch signed halfword test/branch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

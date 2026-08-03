@@ -1,0 +1,1 @@
+{"fn": "sub_10D46C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d46c", "status": "ok", "name": "handle_rf_status", "params": [], "docstring": "Checks radio status and updates control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

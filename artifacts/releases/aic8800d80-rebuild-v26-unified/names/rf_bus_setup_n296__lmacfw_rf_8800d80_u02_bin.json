@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n296", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a9a", "status": "ok", "name": "rf_bus_setup_n296", "params": [], "docstring": "Configure RF bus register at offset 0xb00 with masked bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

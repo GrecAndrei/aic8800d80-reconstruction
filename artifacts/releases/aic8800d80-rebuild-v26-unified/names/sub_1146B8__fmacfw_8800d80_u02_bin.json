@@ -1,0 +1,1 @@
+{"fn": "sub_1146B8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1146b8", "status": "ok", "name": "dummy_store_global", "params": [], "docstring": "Read and store back value from global 0x1732f4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

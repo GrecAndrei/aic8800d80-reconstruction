@@ -1,0 +1,1 @@
+{"fn": "sub_10ED50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10ed50", "status": "ok", "name": "gpio_bank_init", "params": [], "docstring": "Loads multiple GPIO/peripheral addresses for initialization", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

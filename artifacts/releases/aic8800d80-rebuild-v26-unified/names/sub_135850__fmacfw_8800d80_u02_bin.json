@@ -1,0 +1,1 @@
+{"fn": "sub_135850", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135850", "status": "ok", "name": "bt_get_current_profile_conn", "params": [], "docstring": "get current connection and check status", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

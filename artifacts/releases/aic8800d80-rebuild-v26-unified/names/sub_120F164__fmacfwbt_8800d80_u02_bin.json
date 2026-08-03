@@ -1,0 +1,1 @@
+{"fn": "sub_120F164", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f164", "status": "ok", "name": "sub_120F164", "params": [], "docstring": "Bluetooth firmware helper, saves r4/lr and forwards r0", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

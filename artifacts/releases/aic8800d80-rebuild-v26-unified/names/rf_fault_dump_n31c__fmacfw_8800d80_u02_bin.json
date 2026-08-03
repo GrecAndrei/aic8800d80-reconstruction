@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n31c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a64", "status": "ok", "name": "rf_msg_handler_n392", "params": [], "docstring": "Handle RF message IDs 0x28/0x29", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

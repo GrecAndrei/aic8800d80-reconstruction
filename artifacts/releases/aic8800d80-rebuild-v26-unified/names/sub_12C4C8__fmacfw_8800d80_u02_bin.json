@@ -1,0 +1,1 @@
+{"fn": "sub_12C4C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c4c8", "status": "ok", "name": "rf_get_rssi", "params": [], "docstring": "Read RSSI from register or cached field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

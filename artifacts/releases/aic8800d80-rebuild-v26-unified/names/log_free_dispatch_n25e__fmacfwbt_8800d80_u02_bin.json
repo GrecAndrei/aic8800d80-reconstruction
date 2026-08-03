@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n25e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12100be", "status": "ok", "name": "log_free_dispatch_n25e", "params": [], "docstring": "Dispatch freed log entry from queue tail", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

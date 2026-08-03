@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4d0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215018", "status": "ok", "name": "patch_apply_n_4d0", "params": [], "docstring": "Applies patch nibble/sign mask with conditional byte expansion", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

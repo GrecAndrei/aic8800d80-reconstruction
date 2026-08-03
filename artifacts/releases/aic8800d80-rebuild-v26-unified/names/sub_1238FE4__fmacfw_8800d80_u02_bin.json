@@ -1,0 +1,1 @@
+{"fn": "sub_1238FE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1238fe4", "status": "ok", "name": "sub_1238FE4", "params": [], "docstring": "Generic handler with 8 saved regs; likely IPC or command dispatcher", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

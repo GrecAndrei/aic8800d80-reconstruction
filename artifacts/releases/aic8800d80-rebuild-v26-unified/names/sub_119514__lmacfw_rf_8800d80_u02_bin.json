@@ -1,0 +1,1 @@
+{"fn": "sub_119514", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119514", "status": "ok", "name": "ke_send_msg_0x6e", "params": [], "docstring": "Send kernel message 0x6e with argument", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

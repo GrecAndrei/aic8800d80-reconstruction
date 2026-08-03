@@ -1,0 +1,1 @@
+{"fn": "sub_1005A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1005a4", "status": "ok", "name": "get_device_config", "params": [], "docstring": "Read device configuration bits and apply settings", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

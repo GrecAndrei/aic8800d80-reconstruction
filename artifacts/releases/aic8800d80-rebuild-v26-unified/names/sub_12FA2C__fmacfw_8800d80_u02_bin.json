@@ -1,0 +1,1 @@
+{"fn": "sub_12FA2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12fa2c", "status": "ok", "name": "is_strlen_two", "params": [], "docstring": "Call string length helper and test for 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

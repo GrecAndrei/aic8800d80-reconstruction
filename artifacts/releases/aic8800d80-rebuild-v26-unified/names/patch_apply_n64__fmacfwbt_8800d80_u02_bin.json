@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121554c", "status": "ok", "name": "patch_apply_n64", "params": [], "docstring": "Apply behavioral patch slot 64 (byte store)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

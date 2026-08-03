@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_33e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a1a", "status": "ok", "name": "rf_bus_setup_xfer", "params": [], "docstring": "Configure RF bus transfer and check completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

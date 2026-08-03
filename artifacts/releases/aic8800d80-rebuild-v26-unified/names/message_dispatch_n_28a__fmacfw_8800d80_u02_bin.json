@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_28a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c702", "status": "ok", "name": "rf_fault_dump_nbe", "params": [], "docstring": "Dumps RF fault/state information to buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

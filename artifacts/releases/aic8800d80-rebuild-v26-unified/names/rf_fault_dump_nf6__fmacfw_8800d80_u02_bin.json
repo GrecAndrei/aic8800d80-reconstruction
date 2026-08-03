@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_nf6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121483e", "status": "ok", "name": "rf_fault_dump_nf6", "params": [], "docstring": "Trigger and dispatch RF fault dump handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

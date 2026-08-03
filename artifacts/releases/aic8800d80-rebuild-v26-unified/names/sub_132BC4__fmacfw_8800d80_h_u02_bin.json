@@ -1,0 +1,1 @@
+{"fn": "sub_132BC4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x132bc4", "status": "ok", "name": "nop_stub", "params": [], "docstring": "No-op function with no side effects.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

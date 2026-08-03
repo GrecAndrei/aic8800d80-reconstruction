@@ -1,0 +1,1 @@
+{"fn": "sub_1220AB4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1220ab4", "status": "ok", "name": "sub_121E604", "params": [], "docstring": "Processes r0 object, reads from global table, updates state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

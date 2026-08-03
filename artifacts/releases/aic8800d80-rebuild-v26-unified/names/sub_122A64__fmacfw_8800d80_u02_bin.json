@@ -1,0 +1,1 @@
+{"fn": "sub_122A64", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a64", "status": "ok", "name": "parse_byte_param", "params": [], "docstring": "Parse a byte parameter from input buffer.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

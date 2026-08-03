@@ -1,0 +1,1 @@
+{"fn": "sub_140B80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x140b80", "status": "ok", "name": "check_scan_enable", "params": [], "docstring": "Check scan and advertise enable flags", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

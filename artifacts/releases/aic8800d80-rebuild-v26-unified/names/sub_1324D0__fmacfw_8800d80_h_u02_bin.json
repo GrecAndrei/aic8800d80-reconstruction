@@ -1,0 +1,1 @@
+{"fn": "sub_1324D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1324d0", "status": "ok", "name": "clear_module_state", "params": [], "docstring": "Initializes temporary state variable to zero", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

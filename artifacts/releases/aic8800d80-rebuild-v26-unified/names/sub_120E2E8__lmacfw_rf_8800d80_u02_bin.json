@@ -1,0 +1,1 @@
+{"fn": "sub_120E2E8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e2e8", "status": "ok", "name": "rf_init_wake_n_e8", "params": [], "docstring": "RF subsystem init/wakeup, enables clock and writes control reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

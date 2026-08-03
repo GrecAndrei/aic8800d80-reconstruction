@@ -1,0 +1,1 @@
+{"fn": "fw_config_apply", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12002a0", "status": "ok", "name": "fw_config_apply", "params": [], "docstring": "Applies firmware configuration from data tables", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

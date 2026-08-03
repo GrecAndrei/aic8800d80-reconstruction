@@ -1,0 +1,1 @@
+{"fn": "sub_1220252", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1220252", "status": "ok", "name": "obj_release_n252", "params": [], "docstring": "Release/destroy wrapper object and free memory", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

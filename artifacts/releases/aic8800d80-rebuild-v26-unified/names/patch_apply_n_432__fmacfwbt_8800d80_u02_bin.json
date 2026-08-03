@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_432", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150b6", "status": "ok", "name": "patch_apply_n_432", "params": [], "docstring": "Apply firmware patch with return-on-completion path", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

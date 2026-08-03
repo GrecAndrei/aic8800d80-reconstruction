@@ -1,0 +1,1 @@
+{"fn": "sub_13AA68", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13aa68", "status": "ok", "name": "phy_txpower_calc", "params": [], "docstring": "Calculate TX power", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

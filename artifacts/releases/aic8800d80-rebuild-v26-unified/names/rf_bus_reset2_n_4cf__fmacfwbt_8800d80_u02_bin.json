@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4cf", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211388", "status": "ok", "name": "rf_bus_reset2_n_4cf", "params": [], "docstring": "RF bus reset with compare-against-zero branch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

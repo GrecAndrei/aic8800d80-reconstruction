@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n45c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211980", "status": "ok", "name": "rf_bus_write2_n45c", "params": [], "docstring": "Performs shifted 32-bit write to RF register at offset 0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

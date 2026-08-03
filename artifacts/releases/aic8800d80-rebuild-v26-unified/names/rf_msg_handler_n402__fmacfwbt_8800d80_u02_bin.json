@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n402", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213362", "status": "ok", "name": "rf_msg_handler_n402", "params": [], "docstring": "Dispatch RF control message by sub-id offset table walk", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

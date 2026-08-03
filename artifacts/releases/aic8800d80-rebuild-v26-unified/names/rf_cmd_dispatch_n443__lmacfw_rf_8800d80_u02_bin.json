@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n443", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222386", "status": "ok", "name": "rf_cmd_dispatch_n443", "params": [], "docstring": "Dispatch RF command, program MMIO payload", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

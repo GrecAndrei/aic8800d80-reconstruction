@@ -1,0 +1,1 @@
+{"fn": "sub_131644", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x131644", "status": "ok", "name": "bt_get_connection", "params": [], "docstring": "Get connection object by handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

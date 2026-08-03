@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_4a6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12142a2", "status": "ok", "name": "rf_fault_dump_n_4a6", "params": [], "docstring": "Increment RF fault counter and log to trace register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_128DDC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x128ddc", "status": "ok", "name": "mfp_key_get_status", "params": [], "docstring": "Return status of MFP key buffer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

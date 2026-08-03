@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n4ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211646", "status": "ok", "name": "rf_bus_mark_n4ba", "params": [], "docstring": "Extracts and masks RF bus field bits for status marking", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "mm_set_arpoffload_en_req_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1248ef4", "status": "ok", "name": "mm_set_arpoffload_en_req_handler", "params": [], "docstring": "Handle ARP offload enable request from host", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_ncc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12131d0", "status": "ok", "name": "rf_msg_handler_ncc", "params": [], "docstring": "Top-level RF message handler dispatching to body processor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

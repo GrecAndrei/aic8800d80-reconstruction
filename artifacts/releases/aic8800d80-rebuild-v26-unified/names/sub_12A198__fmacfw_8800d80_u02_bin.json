@@ -1,0 +1,1 @@
+{"fn": "sub_12A198", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a198", "status": "ok", "name": "bt_runtime_check2", "params": [], "docstring": "Check same runtime feature flag on alternate path", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

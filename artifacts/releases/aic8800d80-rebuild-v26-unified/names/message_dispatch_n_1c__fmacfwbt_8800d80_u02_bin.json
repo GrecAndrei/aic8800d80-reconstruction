@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_1c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb98", "status": "ok", "name": "message_dispatch_n_1c", "params": [], "docstring": "Dispatches messages comparing slot 0x24", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

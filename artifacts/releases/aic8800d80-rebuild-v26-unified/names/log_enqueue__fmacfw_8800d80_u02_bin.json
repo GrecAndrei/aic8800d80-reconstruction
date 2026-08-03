@@ -1,0 +1,1 @@
+{"fn": "log_enqueue", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211270", "status": "ok", "name": "log_enqueue", "params": [], "docstring": "Enqueue a log entry with arg=4, saves r0/r1/r2 and calls allocator", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

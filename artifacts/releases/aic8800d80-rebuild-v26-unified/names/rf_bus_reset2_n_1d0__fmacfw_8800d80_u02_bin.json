@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_1d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121182c", "status": "ok", "name": "rf_bus_reset2_n_1d0", "params": [], "docstring": "RF bus reset with bit-mask and address shift operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

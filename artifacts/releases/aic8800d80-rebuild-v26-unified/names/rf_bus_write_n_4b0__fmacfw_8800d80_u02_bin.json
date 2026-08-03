@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4b0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116b4", "status": "ok", "name": "rf_bus_write_n_4b0", "params": [], "docstring": "Writes multi-byte RF bus transaction to RF register at offset 0x980/0x984", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

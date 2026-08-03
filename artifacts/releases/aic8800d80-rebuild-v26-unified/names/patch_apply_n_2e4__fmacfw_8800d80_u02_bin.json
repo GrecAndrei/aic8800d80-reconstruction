@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2e4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214bc8", "status": "ok", "name": "patch_apply_n_2e4", "params": [], "docstring": "Apply patch table entry via indirect call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

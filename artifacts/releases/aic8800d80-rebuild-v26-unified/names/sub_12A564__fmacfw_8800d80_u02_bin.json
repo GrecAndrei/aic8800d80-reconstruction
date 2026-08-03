@@ -1,0 +1,1 @@
+{"fn": "sub_12A564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a564", "status": "ok", "name": "llc_get_conn_role", "params": [], "docstring": "Read link-layer connection role from event slot", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

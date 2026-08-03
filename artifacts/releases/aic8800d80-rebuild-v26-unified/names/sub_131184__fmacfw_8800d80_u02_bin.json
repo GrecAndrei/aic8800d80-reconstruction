@@ -1,0 +1,1 @@
+{"fn": "sub_131184", "img": "fmacfw_8800d80_u02_bin", "addr": "0x131184", "status": "ok", "name": "ll_get_channel", "params": [], "docstring": "Get channel index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

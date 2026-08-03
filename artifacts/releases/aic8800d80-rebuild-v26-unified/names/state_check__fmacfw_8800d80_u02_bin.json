@@ -1,0 +1,1 @@
+{"fn": "state_check", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120cdd4", "status": "ok", "name": "state_check", "params": [], "docstring": "Validates current state machine state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

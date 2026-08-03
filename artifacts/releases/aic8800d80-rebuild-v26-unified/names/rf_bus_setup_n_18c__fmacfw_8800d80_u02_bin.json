@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_18c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d70", "status": "ok", "name": "rf_bus_setup_n_18c", "params": [], "docstring": "Set up RF bus configuration branch (cmp r1, 5)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

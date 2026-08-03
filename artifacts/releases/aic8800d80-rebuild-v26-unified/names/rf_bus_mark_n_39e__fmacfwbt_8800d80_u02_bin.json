@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_39e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211342", "status": "ok", "name": "rf_bus_mark_n_39e_1342", "params": [], "docstring": "Mark RF bus state via MMIO status compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

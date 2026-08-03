@@ -1,0 +1,1 @@
+{"fn": "sub_135A6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135a6c", "status": "ok", "name": "rf_check_status", "params": [], "docstring": "Check global RF status before calibration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

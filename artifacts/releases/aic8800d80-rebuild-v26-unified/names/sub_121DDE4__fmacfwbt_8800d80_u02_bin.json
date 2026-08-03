@@ -1,0 +1,1 @@
+{"fn": "sub_121DDE4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121dde4", "status": "ok", "name": "init_alloc_0x200000", "params": [], "docstring": "Allocate 0x200000-byte buffer and initialize related state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

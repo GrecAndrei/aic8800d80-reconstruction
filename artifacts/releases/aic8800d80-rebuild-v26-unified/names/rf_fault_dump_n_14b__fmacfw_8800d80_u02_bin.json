@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_14b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145fc", "status": "ok", "name": "rf_fault_dump_n_14b", "params": [], "docstring": "Dump fault info then trigger MMIO reset at 0x40035100", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

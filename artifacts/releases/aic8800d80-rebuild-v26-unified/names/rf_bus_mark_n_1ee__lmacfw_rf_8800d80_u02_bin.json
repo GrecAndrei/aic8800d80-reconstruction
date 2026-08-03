@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1ee", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f9e", "status": "ok", "name": "rf_msg_handler_n_348", "params": [], "docstring": "Handle incoming RF message (variant 0x348)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

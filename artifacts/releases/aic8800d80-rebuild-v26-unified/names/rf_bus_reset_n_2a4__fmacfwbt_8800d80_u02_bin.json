@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2a4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12125a0", "status": "ok", "name": "rf_bus_reset_byte_poll", "params": [], "docstring": "Polls a byte register during RF bus reset sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

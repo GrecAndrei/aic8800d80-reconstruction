@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_22e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212de2", "status": "ok", "name": "rf_cmd_send_n_22e", "params": [], "docstring": "Sends an RF command by writing to the command mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

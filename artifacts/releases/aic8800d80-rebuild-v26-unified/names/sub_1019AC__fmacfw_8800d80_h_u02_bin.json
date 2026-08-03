@@ -1,0 +1,1 @@
+{"fn": "sub_1019AC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1019ac", "status": "ok", "name": "rf_status_bit30", "params": [], "docstring": "Read bit 30 of RF base status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

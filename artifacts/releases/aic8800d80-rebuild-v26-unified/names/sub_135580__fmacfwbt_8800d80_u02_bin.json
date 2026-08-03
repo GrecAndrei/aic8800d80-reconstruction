@@ -1,0 +1,1 @@
+{"fn": "sub_135580", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135580", "status": "ok", "name": "rf_lookup_alt_by_index", "params": [], "docstring": "Look up alternate RF calibration entry by rate index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

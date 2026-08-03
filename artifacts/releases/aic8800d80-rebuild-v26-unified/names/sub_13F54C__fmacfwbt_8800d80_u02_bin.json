@@ -1,0 +1,1 @@
+{"fn": "sub_13F54C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13f54c", "status": "ok", "name": "query_tx_power_table", "params": [], "docstring": "Reads TX power level from calibration table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_103AE0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x103ae0", "status": "ok", "name": "enable_rf_dll", "params": [], "docstring": "Enables a delay-locked loop and sets companion registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_124CF4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124cf4", "status": "ok", "name": "mem_set_util", "params": [], "docstring": "Fill memory block with value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

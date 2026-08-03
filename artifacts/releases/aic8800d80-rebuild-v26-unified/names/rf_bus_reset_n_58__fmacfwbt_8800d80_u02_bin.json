@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12127ec", "status": "ok", "name": "rf_bus_reset_n_58_27ec", "params": [], "docstring": "Extract 4-bit field from RF bus status for reset handling", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

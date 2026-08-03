@@ -1,0 +1,1 @@
+{"fn": "sub_134914", "img": "fmacfw_8800d80_u02_bin", "addr": "0x134914", "status": "ok", "name": "bt_init_hci_buffer", "params": [], "docstring": "allocate or reset 256-byte hci buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

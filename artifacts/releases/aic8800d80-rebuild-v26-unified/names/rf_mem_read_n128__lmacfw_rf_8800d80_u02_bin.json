@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n128", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f6bc", "status": "ok", "name": "rf_mem_read_n128", "params": [], "docstring": "Read 128-bit (4-word) chunks from RF memory with bounded iteration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

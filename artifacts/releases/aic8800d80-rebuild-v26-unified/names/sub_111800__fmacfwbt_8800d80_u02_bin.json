@@ -1,0 +1,1 @@
+{"fn": "sub_111800", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111800", "status": "ok", "name": "rx_hdr_clear", "params": [], "docstring": "clear rx link-layer header entry", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_18e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145ba", "status": "ok", "name": "rf_fault_dump_n_18e", "params": [], "docstring": "RF fault diagnostic computing diff between two 32-bit fields and 16-bit at 0xb8, compare 0x7d0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

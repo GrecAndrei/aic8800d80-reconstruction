@@ -1,0 +1,1 @@
+{"fn": "sub_11BBB4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11bbb4", "status": "ok", "name": "get_connection_by_slot", "params": [], "docstring": "Gets connection context using slot index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n1d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213688", "status": "ok", "name": "rf_cmd_queue_next_n1d4", "params": [], "docstring": "Advance to next queued RF command in FMAC pipeline", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

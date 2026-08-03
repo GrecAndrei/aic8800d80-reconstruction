@@ -1,0 +1,1 @@
+{"fn": "sub_142C84", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142c84", "status": "ok", "name": "double_multiply", "params": [], "docstring": "Multiply two double-precision operands", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

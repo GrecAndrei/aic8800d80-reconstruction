@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_368", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e24", "status": "ok", "name": "rf_bus_mark_set_flag", "params": [], "docstring": "Stores 0x100 to bus control register with shifted index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n262", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212552", "status": "ok", "name": "rf_bus_reset_n262", "params": [], "docstring": "Reset RF bus interface (variant 0x262)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

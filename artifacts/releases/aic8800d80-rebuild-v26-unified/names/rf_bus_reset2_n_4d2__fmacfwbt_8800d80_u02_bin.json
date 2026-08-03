@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211386", "status": "ok", "name": "sdio_buffer_prepare_n160", "params": [], "docstring": "SDIO buffer preparation with shift-based address calculation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

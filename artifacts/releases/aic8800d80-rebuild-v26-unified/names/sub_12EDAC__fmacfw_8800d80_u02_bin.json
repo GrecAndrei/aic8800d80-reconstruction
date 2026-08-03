@@ -1,0 +1,1 @@
+{"fn": "sub_12EDAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12edac", "status": "ok", "name": "msg_alloc_0x40a", "params": [], "docstring": "Allocate and zero 12-byte message 0x40a", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

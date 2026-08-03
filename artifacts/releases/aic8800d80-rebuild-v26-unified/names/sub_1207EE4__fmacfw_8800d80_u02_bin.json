@@ -1,0 +1,1 @@
+{"fn": "sub_1207EE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207ee4", "status": "ok", "name": "mmio_init_table", "params": [], "docstring": "Loads MMIO base addresses and validates/checks init structure pointer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

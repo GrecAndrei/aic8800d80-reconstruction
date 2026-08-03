@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n434", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212608", "status": "ok", "name": "rf_state_check_n434", "params": [], "docstring": "Check and update RF state (narrowband)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

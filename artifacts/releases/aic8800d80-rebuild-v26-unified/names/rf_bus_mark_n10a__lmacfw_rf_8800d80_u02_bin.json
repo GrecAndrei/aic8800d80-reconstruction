@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n10a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211296", "status": "ok", "name": "patch_apply_n_b8", "params": [], "docstring": "Applies a patch block of size 0xb8 bytes to firmware image", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

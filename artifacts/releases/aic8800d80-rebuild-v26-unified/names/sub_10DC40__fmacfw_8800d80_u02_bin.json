@@ -1,0 +1,1 @@
+{"fn": "sub_10DC40", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dc40", "status": "ok", "name": "rf_get_int_status", "params": [], "docstring": "Read RF interrupt status at 0x40505000+0x20", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

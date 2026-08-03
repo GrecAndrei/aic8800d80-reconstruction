@@ -1,0 +1,1 @@
+{"fn": "sub_14383C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x14383c", "status": "ok", "name": "hash32", "params": [], "docstring": "Compute 32-bit hash from two-word state.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

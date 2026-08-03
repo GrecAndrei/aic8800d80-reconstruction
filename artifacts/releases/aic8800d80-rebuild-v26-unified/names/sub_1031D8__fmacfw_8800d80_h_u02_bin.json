@@ -1,0 +1,1 @@
+{"fn": "sub_1031D8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1031d8", "status": "ok", "name": "aes_load_key", "params": [], "docstring": "Copies a 128-bit key and accesses crypto registers", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

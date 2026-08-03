@@ -1,0 +1,1 @@
+{"fn": "sub_12BD4C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12bd4c", "status": "ok", "name": "rf_sync_status", "params": [], "docstring": "Copies and shifts RF status register value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

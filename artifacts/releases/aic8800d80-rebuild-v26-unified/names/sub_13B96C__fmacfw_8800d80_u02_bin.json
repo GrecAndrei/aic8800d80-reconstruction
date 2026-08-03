@@ -1,0 +1,1 @@
+{"fn": "sub_13B96C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b96c", "status": "ok", "name": "ll_global_init", "params": [], "docstring": "Initialize link-layer global state objects", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

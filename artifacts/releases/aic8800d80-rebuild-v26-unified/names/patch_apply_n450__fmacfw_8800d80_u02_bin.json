@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n450", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12152fc", "status": "ok", "name": "patch_apply_n450", "params": [], "docstring": "Applies patch variant n450 writing bytes into indexed struct fields", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

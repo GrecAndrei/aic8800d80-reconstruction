@@ -1,0 +1,1 @@
+{"fn": "sub_105ABC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x105abc", "status": "ok", "name": "mac_conn_event_init", "params": [], "docstring": "Configure connection event timing fields in context.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

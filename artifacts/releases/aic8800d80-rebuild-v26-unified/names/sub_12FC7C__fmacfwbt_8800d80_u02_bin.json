@@ -1,0 +1,1 @@
+{"fn": "sub_12FC7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12fc7c", "status": "ok", "name": "buf_clear16", "params": [], "docstring": "Clear 16-byte buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

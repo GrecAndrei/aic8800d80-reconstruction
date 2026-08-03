@@ -1,0 +1,1 @@
+{"fn": "sub_12DD10", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12dd10", "status": "ok", "name": "test_arg2_one_12dd10", "params": [], "docstring": "Check if second argument equals one", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

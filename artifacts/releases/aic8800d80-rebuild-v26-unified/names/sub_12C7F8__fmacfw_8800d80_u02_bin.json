@@ -1,0 +1,1 @@
+{"fn": "sub_12C7F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c7f8", "status": "ok", "name": "ke_event_schedule", "params": [], "docstring": "Schedule and run pending events", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

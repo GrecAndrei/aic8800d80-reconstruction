@@ -1,0 +1,1 @@
+{"fn": "sub_136E98", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136e98", "status": "ok", "name": "txpwr_event_handler", "params": [], "docstring": "Handle tx power event callback if present", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

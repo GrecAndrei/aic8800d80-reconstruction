@@ -1,0 +1,1 @@
+{"fn": "sub_122CDC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cdc", "status": "ok", "name": "handle_special_packet", "params": [], "docstring": "Inspect packet type and branch to extended parser", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

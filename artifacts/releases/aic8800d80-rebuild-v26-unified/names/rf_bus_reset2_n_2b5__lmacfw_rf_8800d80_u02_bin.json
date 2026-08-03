@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_2b5", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121104e", "status": "ok", "name": "mmio_write_1500b0", "params": [], "docstring": "Builds address from MMIO regs and writes via helper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

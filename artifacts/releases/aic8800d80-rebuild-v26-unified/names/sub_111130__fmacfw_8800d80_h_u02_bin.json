@@ -1,0 +1,1 @@
+{"fn": "sub_111130", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111130", "status": "ok", "name": "kmalloc", "params": [], "docstring": "Allocate small kernel memory block", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

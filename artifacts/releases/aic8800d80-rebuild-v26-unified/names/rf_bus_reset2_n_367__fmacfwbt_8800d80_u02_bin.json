@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_367", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114f0", "status": "ok", "name": "rf_bus_reset2_n_367_14f0", "params": [], "docstring": "RF bus reset routine (variant 367) clearing bus state registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

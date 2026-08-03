@@ -1,0 +1,1 @@
+{"fn": "sub_136024", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136024", "status": "ok", "name": "ipc_send_msg", "params": [], "docstring": "Send an inter-process message with halfword parameter", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215088", "status": "ok", "name": "patch_apply_n1dc", "params": [], "docstring": "Load patch state pointer and check byte flag at offset 3", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

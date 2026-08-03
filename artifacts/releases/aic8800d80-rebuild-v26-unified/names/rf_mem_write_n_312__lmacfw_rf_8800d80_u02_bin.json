@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_312", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221d1a", "status": "ok", "name": "rf_mem_write_n_312", "params": [], "docstring": "Writes value into RF memory-mapped register slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

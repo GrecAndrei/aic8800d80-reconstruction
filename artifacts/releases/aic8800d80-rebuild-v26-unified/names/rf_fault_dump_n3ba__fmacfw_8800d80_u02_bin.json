@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n3ba", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b02", "status": "ok", "name": "message_dispatch_n480", "params": [], "docstring": "Dispatch queued message with debug trace logging", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

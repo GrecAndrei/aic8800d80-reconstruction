@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n4f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12126c8", "status": "ok", "name": "sub_121D348", "params": [], "docstring": "Initialize/mask MAC register bits (0x4032004c area) with delay loop", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

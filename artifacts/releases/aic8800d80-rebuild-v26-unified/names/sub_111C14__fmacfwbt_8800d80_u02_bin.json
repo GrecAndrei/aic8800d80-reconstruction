@@ -1,0 +1,1 @@
+{"fn": "sub_111C14", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111c14", "status": "ok", "name": "ipc_send_request", "params": [], "docstring": "Submit request object through IPC queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

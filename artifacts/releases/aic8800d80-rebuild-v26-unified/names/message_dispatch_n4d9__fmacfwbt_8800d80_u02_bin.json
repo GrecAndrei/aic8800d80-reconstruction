@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4d9", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d08c", "status": "ok", "name": "message_dispatch_n4d9", "params": [], "docstring": "Dispatch incoming IPC/host message (variant n4d9)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

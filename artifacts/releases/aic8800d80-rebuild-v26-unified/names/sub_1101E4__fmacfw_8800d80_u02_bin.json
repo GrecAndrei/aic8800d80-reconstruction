@@ -1,0 +1,1 @@
+{"fn": "sub_1101E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1101e4", "status": "ok", "name": "get_link_rate", "params": [], "docstring": "Read current link data rate", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

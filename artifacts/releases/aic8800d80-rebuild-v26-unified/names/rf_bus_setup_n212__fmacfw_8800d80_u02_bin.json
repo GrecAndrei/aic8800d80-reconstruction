@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n212", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121210e", "status": "ok", "name": "rf_bus_setup_n212", "params": [], "docstring": "Sets RF bus MMIO register bits (clears 0x84000000, sets 0x4000000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1219E08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219e08", "status": "ok", "name": "patch_apply_n3a", "params": [], "docstring": "Iterate patch entries from table 0x174010 with stride 4 and test bit field", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

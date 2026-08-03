@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_10a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f48a", "status": "ok", "name": "rf_mem_read_n_10a", "params": [], "docstring": "Reads RF register data via SVC 20 and computes address shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1148FC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1148fc", "status": "ok", "name": "rf_cmd_a", "params": [], "docstring": "Invoke ROM RF cmd 0xa with shifted argument", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

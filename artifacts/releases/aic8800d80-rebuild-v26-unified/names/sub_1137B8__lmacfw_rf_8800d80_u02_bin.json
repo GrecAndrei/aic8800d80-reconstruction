@@ -1,0 +1,1 @@
+{"fn": "sub_1137B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1137b8", "status": "ok", "name": "enter_critical_section", "params": [], "docstring": "Disable IRQs and update lock state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

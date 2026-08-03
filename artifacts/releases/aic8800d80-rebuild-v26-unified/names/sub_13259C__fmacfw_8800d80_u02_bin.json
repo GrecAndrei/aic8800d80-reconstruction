@@ -1,0 +1,1 @@
+{"fn": "sub_13259C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13259c", "status": "ok", "name": "util_is_state1", "params": [], "docstring": "Test low two bits equal 1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

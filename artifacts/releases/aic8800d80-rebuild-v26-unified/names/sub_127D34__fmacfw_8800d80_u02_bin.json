@@ -1,0 +1,1 @@
+{"fn": "sub_127D34", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127d34", "status": "ok", "name": "scan_find_empty_slot", "params": [], "docstring": "Find first inactive scan/BSS entry", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

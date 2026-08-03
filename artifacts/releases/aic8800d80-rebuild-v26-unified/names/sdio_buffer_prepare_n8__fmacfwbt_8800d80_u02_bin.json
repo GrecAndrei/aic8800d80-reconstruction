@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e34c", "status": "ok", "name": "sdio_buffer_prepare_e34c", "params": [], "docstring": "Prepares SDIO buffer descriptors from input parameters", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

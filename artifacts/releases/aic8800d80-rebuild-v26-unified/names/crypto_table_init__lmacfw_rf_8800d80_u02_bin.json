@@ -1,0 +1,1 @@
+{"fn": "crypto_table_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1203a00", "status": "ok", "name": "crypto_table_init", "params": [], "docstring": "Initialize crypto/cipher key table entries", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

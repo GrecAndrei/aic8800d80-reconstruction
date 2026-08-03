@@ -1,0 +1,1 @@
+{"fn": "sub_1016A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1016a8", "status": "ok", "name": "is_scan_active", "params": [], "docstring": "test scan-active flag from global MAC state", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

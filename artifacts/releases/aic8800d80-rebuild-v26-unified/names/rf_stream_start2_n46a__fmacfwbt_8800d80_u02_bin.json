@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n46a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12136b6", "status": "ok", "name": "message_dispatch_n_49b", "params": [], "docstring": "Dispatches incoming message via handler pointer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_4dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c4b0", "status": "ok", "name": "rf_fault_dump_n_45c", "params": [], "docstring": "Dumps RF fault state to trace buffer and sets status flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

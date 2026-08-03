@@ -1,0 +1,1 @@
+{"fn": "sub_11927C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11927c", "status": "ok", "name": "btm_acl_update", "params": [], "docstring": "Update ACL link table entry with packed command value.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

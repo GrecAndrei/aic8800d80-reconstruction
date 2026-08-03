@@ -1,0 +1,1 @@
+{"fn": "sub_13A490", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13a490", "status": "ok", "name": "get_instance_handle", "params": [], "docstring": "Return instance handle from array index or null", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

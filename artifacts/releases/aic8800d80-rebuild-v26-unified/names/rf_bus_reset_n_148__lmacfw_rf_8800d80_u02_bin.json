@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_148", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12121a8", "status": "ok", "name": "rf_bus_reset_n_148", "params": [], "docstring": "Reset RF bus with address offset 0x40", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

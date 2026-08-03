@@ -1,0 +1,1 @@
+{"fn": "sub_120CBEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120cbec", "status": "ok", "name": "rf_phy_mmio_poll_n_cb", "params": [], "docstring": "Poll MMIO register at 0x40035104 for RF/PHY status bit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

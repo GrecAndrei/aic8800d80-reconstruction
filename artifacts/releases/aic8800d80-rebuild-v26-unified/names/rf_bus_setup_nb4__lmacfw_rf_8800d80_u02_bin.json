@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_nb4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12118b8", "status": "ok", "name": "rf_bus_setup_nb4", "params": [], "docstring": "Configure RF bus registers and enable slot bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

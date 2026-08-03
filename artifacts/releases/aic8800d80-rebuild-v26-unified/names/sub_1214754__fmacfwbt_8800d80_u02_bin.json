@@ -1,0 +1,1 @@
+{"fn": "sub_1214754", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214754", "status": "ok", "name": "bt_data_init_n0c8", "params": [], "docstring": "initialize BT data structures at 0x18254c/0x187ffc", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

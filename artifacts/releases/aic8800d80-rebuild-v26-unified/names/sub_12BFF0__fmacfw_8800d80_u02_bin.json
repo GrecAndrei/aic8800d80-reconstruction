@@ -1,0 +1,1 @@
+{"fn": "sub_12BFF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12bff0", "status": "ok", "name": "irq_combined_status", "params": [], "docstring": "Combines and masks interrupt status registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

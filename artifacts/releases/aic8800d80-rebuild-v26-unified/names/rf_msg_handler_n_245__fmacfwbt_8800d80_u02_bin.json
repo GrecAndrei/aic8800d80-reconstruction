@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_245", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d1a", "status": "ok", "name": "rf_fault_dump_n252", "params": [], "docstring": "Dump RF fault state to debug buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4e6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12101c6", "status": "ok", "name": "rf_mem_write_n47e", "params": [], "docstring": "Calls rf helper and returns 0 on rf memory write path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

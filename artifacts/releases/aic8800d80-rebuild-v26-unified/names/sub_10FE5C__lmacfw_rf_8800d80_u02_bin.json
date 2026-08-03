@@ -1,0 +1,1 @@
+{"fn": "sub_10FE5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10fe5c", "status": "ok", "name": "mem_region_init", "params": [], "docstring": "Sets up memory region descriptors from global bases.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

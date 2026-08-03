@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n440", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12102a0", "status": "ok", "name": "rf_bus_write_n366", "params": [], "docstring": "Write to RF bus via coprocessor p0 c14 transfer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n394", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120ec", "status": "ok", "name": "rf_bus_setup_n394", "params": [], "docstring": "RF bus setup: packs byte pairs into 16-bit values at offsets 0xe and 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

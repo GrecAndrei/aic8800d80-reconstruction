@@ -1,0 +1,1 @@
+{"fn": "sub_121AF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121af0", "status": "ok", "name": "ke_int_lock_mode", "params": [], "docstring": "Locks interrupts and updates lock variable", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

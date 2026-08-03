@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_20a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152de", "status": "ok", "name": "patch_apply_n_20a", "params": [], "docstring": "Apply a firmware patch entry to memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

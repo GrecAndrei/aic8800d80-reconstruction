@@ -1,0 +1,1 @@
+{"fn": "sub_131A60", "img": "fmacfw_8800d80_u02_bin", "addr": "0x131a60", "status": "ok", "name": "ke_msg_alloc", "params": [], "docstring": "Allocate kernel message buffer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

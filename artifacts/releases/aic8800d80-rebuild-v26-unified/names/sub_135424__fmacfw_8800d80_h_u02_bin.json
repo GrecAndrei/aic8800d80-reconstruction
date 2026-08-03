@@ -1,0 +1,1 @@
+{"fn": "sub_135424", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x135424", "status": "ok", "name": "mmio_write_sequence", "params": [], "docstring": "Write a short MMIO sequence with argument checks.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

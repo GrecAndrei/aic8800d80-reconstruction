@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_nc4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215a40", "status": "ok", "name": "ipc_doorbell_handler_nc4", "params": [], "docstring": "Ring IPC doorbell by OR-ing bits into 0x40035084 and check ack", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

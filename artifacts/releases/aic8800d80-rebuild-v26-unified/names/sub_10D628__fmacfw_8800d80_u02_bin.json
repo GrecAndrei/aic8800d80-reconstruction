@@ -1,0 +1,1 @@
+{"fn": "sub_10D628", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d628", "status": "ok", "name": "irq_install_handler", "params": [], "docstring": "Write vector table entry and enable NVIC IRQ 21", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

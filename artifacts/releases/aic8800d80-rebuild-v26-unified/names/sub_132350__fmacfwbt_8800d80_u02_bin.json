@@ -1,0 +1,1 @@
+{"fn": "sub_132350", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132350", "status": "ok", "name": "llm_event_wait_next", "params": [], "docstring": "Wait for next LL event 5 after processing", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

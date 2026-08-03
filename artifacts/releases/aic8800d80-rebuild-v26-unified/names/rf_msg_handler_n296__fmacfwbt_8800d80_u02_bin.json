@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n296", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12131f6", "status": "ok", "name": "rf_msg_handler_n296", "params": [], "docstring": "Handles RF IPC messages from mailbox", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

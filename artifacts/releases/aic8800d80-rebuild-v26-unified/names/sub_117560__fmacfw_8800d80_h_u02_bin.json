@@ -1,0 +1,1 @@
+{"fn": "sub_117560", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117560", "status": "ok", "name": "ke_msg_dispatch", "params": [], "docstring": "Dispatch kernel message based on message id", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

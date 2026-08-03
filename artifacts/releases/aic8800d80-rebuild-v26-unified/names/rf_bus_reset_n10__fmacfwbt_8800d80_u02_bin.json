@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n10", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212854", "status": "ok", "name": "rf_bus_reset_n10_2854", "params": [], "docstring": "RF bus reset: clear enable bits in registers 0xe00 and 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

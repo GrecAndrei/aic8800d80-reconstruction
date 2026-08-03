@@ -1,0 +1,1 @@
+{"fn": "sub_1172B0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1172b0", "status": "ok", "name": "get_chunk_size", "params": [], "docstring": "Return 2 or 4 based on size threshold 0x2000", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

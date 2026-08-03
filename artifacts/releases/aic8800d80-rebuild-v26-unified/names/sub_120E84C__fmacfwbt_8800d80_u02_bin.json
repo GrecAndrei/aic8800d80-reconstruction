@@ -1,0 +1,1 @@
+{"fn": "sub_120E84C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120e84c", "status": "ok", "name": "mmio_field_set_n1d0", "params": [], "docstring": "Set MMIO register field with masked bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

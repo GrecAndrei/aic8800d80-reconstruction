@@ -1,0 +1,1 @@
+{"fn": "sub_1030B0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1030b0", "status": "ok", "name": "read_hw_status", "params": [], "docstring": "Reads hardware status words into local storage", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

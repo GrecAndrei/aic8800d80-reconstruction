@@ -1,0 +1,1 @@
+{"fn": "sub_134064", "img": "fmacfw_8800d80_u02_bin", "addr": "0x134064", "status": "ok", "name": "state_transition_check", "params": [], "docstring": "Check state transitions 9/10", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

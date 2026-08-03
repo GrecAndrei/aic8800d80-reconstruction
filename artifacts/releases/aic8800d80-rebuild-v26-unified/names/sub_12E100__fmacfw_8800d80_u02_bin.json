@@ -1,0 +1,1 @@
+{"fn": "sub_12E100", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12e100", "status": "ok", "name": "rf_cal_code_idx", "params": [], "docstring": "Converts signed calibration code to table index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

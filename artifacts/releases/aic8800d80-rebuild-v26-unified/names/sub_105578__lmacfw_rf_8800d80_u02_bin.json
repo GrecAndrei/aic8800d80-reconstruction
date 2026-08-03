@@ -1,0 +1,1 @@
+{"fn": "sub_105578", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x105578", "status": "ok", "name": "prcm_stop", "params": [], "docstring": "Save and disable peripheral clocks", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

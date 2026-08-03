@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1ec", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cda0", "status": "ok", "name": "seq_counter_increment", "params": [], "docstring": "Increments 14-bit sequence counter with wrap at 0x3fff", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

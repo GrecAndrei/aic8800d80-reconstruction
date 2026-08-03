@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n304", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212c1c", "status": "ok", "name": "rf_cmd_dispatch_n459", "params": [], "docstring": "Initializes RF command descriptor header and dispatches it", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

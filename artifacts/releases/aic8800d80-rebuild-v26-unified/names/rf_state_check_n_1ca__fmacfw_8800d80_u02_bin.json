@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_1ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121200a", "status": "ok", "name": "rf_state_check_n_1ca", "params": [], "docstring": "Load RF state threshold constant (0x190) for state comparison", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

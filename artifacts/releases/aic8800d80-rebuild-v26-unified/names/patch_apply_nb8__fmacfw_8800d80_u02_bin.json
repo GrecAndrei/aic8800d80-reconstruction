@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nb8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f64", "status": "ok", "name": "patch_apply_nb8", "params": [], "docstring": "Patch: enable NB8 fault/interrupt handlers via SCS and NVIC register writes", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

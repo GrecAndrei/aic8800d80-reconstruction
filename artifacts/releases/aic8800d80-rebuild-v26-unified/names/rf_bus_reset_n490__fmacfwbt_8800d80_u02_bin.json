@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n490", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cd4", "status": "ok", "name": "rf_bus_reset_n490_2cd4", "params": [], "docstring": "RF bus reset using bit-field extraction from a register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_101974", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x101974", "status": "ok", "name": "set_rf_control_bit", "params": [], "docstring": "Set or clear bit 3 of RF control register 0x403410a0", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

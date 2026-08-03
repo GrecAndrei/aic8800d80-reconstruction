@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_368", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a70", "status": "ok", "name": "rf_level_apply_n_368", "params": [], "docstring": "Applies RF level/tx-power settings by extracting field bits (0xb..0xd) and mask 0x7f from 0x180800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

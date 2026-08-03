@@ -1,0 +1,1 @@
+{"fn": "sub_1374C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1374c8", "status": "ok", "name": "hci_cmd_process", "params": [], "docstring": "Process queued HCI command message", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

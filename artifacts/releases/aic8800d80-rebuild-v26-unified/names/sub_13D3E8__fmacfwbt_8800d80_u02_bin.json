@@ -1,0 +1,1 @@
+{"fn": "sub_13D3E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13d3e8", "status": "ok", "name": "scan_adv_state_switch", "params": [], "docstring": "Handle advertising state transition by state value", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

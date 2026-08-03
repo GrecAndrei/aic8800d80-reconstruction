@@ -1,0 +1,1 @@
+{"fn": "sub_124C70", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124c70", "status": "ok", "name": "set_adv_data", "params": [], "docstring": "Build advertising data from command args", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

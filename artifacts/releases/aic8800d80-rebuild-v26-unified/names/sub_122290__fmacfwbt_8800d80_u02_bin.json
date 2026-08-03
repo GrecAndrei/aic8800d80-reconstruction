@@ -1,0 +1,1 @@
+{"fn": "sub_122290", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122290", "status": "ok", "name": "rf_band_select", "params": [], "docstring": "Select RF band based on flag and increment counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

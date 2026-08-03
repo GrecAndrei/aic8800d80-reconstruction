@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n3de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f972", "status": "ok", "name": "rf_mem_read_n3de", "params": [], "docstring": "RF memory read with shifted index addressing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

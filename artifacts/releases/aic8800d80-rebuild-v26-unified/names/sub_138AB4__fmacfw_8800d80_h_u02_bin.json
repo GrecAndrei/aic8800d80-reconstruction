@@ -1,0 +1,1 @@
+{"fn": "sub_138AB4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x138ab4", "status": "ok", "name": "rf_is_calibrated", "params": [], "docstring": "check radio calibration byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

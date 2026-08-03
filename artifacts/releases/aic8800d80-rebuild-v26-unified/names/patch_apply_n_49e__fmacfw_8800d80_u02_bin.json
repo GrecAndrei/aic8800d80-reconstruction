@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_49e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a0e", "status": "ok", "name": "patch_apply_n_49e", "params": [], "docstring": "Apply bitmask patch to register field", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

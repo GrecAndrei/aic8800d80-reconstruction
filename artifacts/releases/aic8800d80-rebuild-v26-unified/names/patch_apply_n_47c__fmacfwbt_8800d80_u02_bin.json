@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_47c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121506c", "status": "ok", "name": "patch_apply_n_47c_506c", "params": [], "docstring": "Applies a firmware patch at control flow boundary", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

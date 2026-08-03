@@ -1,0 +1,1 @@
+{"fn": "sub_139584", "img": "fmacfw_8800d80_u02_bin", "addr": "0x139584", "status": "ok", "name": "bt_scan_event", "params": [], "docstring": "Process Bluetooth scan event", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121AE30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121ae30", "status": "ok", "name": "fm_rx_frame_handler", "params": [], "docstring": "Handle received frame in FMAC", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

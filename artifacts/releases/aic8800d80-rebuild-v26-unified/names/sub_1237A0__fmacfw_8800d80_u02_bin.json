@@ -1,0 +1,1 @@
+{"fn": "sub_1237A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1237a0", "status": "ok", "name": "lld_evt_is_active", "params": [], "docstring": "Checks whether current link-layer event is active", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_143398", "img": "fmacfw_8800d80_u02_bin", "addr": "0x143398", "status": "ok", "name": "float_swap_compare", "params": [], "docstring": "Swap single-precision operands then compare", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n66", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121186a", "status": "ok", "name": "rf_bus_setup_n66", "params": [], "docstring": "Configure RF bus timing/setup register, validating against 0x800 threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

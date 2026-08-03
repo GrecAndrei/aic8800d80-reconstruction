@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4ce", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa62", "status": "ok", "name": "rf_bus_mark_n_2c4", "params": [], "docstring": "Mark RF bus entry writing pointer and status word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

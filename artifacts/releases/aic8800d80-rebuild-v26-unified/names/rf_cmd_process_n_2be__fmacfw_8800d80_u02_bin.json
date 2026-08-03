@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_2be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121329a", "status": "ok", "name": "rf_cmd_process_n_2be", "params": [], "docstring": "RF command processor variant 2be; handles indirect reg access via offset 0x54 indirection", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

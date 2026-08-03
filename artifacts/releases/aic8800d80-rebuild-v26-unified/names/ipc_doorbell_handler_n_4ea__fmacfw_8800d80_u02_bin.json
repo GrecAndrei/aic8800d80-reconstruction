@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_4ea", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215492", "status": "ok", "name": "ipc_doorbell_handler_n_4ea", "params": [], "docstring": "IPC doorbell handler writing message words and capturing LR", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11BFF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11bff4", "status": "ok", "name": "mac_get_link_context", "params": [], "docstring": "Return link-layer context array entry for active link index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

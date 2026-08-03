@@ -1,0 +1,1 @@
+{"fn": "sub_13282C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13282c", "status": "ok", "name": "util_find_first_zero", "params": [], "docstring": "Find first zero bit in short bitfield", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

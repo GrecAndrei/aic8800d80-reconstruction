@@ -1,0 +1,1 @@
+{"fn": "sub_11735C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11735c", "status": "ok", "name": "phy_get_cfg_ptr", "params": [], "docstring": "Get PHY configuration pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

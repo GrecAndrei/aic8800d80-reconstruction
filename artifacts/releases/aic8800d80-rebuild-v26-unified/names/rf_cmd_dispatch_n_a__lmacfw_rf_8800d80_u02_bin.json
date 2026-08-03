@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f3a", "status": "ok", "name": "rf_cmd_dispatch_n_a", "params": [], "docstring": "Dispatches an RF command reply returning status 1 or 2 via pop tail-chains", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

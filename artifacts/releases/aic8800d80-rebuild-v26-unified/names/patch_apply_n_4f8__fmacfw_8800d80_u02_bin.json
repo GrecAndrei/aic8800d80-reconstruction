@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12149b4", "status": "ok", "name": "fmacfw_bt_main_loop_n_7d8", "params": [], "docstring": "BT firmware main handler: load context, traverse nested structures, save state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

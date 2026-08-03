@@ -1,0 +1,1 @@
+{"fn": "sub_138A5C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x138a5c", "status": "ok", "name": "opcode_handler_dispatch", "params": [], "docstring": "Dispatch handler based on opcode field", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

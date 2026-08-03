@@ -1,0 +1,1 @@
+{"fn": "sub_11CC78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11cc78", "status": "ok", "name": "radio_event_loop", "params": [], "docstring": "Main radio event/task dispatcher using global event table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

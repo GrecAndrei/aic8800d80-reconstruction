@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_20e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e1e", "status": "ok", "name": "rf_mem_write_n_20e", "params": [], "docstring": "Write RF memory with shifted address field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

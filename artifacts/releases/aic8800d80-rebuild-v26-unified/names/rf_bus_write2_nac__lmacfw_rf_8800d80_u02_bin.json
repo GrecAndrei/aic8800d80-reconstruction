@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_nac", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12115d0", "status": "ok", "name": "rf_bus_write2_5d0", "params": [], "docstring": "Writes 0x40 marker to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_1153B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1153b8", "status": "ok", "name": "ioctl_dispatch2", "params": [], "docstring": "Dispatch second ioctl command set with buffer and length", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

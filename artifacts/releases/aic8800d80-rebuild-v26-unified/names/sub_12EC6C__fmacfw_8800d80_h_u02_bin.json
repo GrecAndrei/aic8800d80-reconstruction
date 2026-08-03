@@ -1,0 +1,1 @@
+{"fn": "sub_12EC6C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ec6c", "status": "ok", "name": "pdu_alloc_40a", "params": [], "docstring": "Allocates and clears a control PDU from pool 0x40A", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

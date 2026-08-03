@@ -1,0 +1,1 @@
+{"fn": "sub_102DE0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x102de0", "status": "ok", "name": "get_reset_reason", "params": [], "docstring": "Determine reset cause from power control registers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

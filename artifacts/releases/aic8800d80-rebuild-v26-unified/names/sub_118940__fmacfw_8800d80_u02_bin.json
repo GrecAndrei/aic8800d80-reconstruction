@@ -1,0 +1,1 @@
+{"fn": "sub_118940", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118940", "status": "ok", "name": "rf_tx_setup", "params": [], "docstring": "Set up RF transmit path parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

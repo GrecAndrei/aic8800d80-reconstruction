@@ -1,0 +1,1 @@
+{"fn": "sub_141C5C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141c5c", "status": "ok", "name": "send_rf_cmd", "params": [], "docstring": "Send RF command via register interface", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

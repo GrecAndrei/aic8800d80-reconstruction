@@ -1,0 +1,1 @@
+{"fn": "sub_123BF94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bf94", "status": "ok", "name": "sub_123BF94", "params": [], "docstring": "Looks up table entry by 32-byte slot index, bounded to 16 entries", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212320", "status": "ok", "name": "mmio_init_block_n2a0", "params": [], "docstring": "MMIO block initialization writing to peripheral registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

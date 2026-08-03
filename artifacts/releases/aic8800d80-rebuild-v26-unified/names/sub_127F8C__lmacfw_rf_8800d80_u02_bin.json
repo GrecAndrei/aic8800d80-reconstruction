@@ -1,0 +1,1 @@
+{"fn": "sub_127F8C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127f8c", "status": "ok", "name": "util_is_zero", "params": [], "docstring": "Checks if 128-bit value is zero", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

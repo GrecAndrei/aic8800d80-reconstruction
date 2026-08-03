@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_46a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211592", "status": "ok", "name": "patch_apply_n23a", "params": [], "docstring": "Apply firmware patch via MMIO write with bit-set", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n39e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101fe", "status": "ok", "name": "log_free_dispatch_n39e", "params": [], "docstring": "Dispatch log free using address from 0x187ef4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

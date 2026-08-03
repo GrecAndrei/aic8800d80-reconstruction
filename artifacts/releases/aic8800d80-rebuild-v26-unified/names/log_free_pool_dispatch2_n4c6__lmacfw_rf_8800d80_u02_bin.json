@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210096", "status": "ok", "name": "log_free_pool_dispatch2_n4c6", "params": [], "docstring": "Dispatches log pool free entries with a fixed message ID constant", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n9c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211df4", "status": "ok", "name": "rf_bus_setup_n9c", "params": [], "docstring": "RF bus setup: sign-extend byte and test bus ready mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

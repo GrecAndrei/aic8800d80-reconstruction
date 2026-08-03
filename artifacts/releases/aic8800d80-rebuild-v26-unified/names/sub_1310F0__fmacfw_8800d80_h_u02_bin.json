@@ -1,0 +1,1 @@
+{"fn": "sub_1310F0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1310f0", "status": "ok", "name": "get_hw_timestamp", "params": [], "docstring": "Read 32-bit timestamp at offset 3 into device struct.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

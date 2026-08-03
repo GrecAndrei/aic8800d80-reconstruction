@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_345", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121153e", "status": "ok", "name": "rf_bus_mark_n_345", "params": [], "docstring": "Mark/check RF bus register pair for status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

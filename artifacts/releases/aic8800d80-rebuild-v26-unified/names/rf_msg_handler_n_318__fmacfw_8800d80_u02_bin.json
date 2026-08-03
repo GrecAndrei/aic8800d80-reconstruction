@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_318", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212dec", "status": "ok", "name": "rf_bus_setup_n47c", "params": [], "docstring": "Initializes RF bus with base addresses and shared registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

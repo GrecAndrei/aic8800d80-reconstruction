@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_164", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121218c", "status": "ok", "name": "rf_bus_reset_n_164", "params": [], "docstring": "RF bus reset helper performing shifts/masks to derive register index and load value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

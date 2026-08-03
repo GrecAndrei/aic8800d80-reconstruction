@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_46a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124ae", "status": "ok", "name": "rf_cmd_send_n_46a", "params": [], "docstring": "Sends RF cmd 0x13e, sets bit 7 in reg 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

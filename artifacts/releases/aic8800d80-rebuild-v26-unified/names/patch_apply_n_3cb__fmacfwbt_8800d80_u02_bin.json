@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3cb", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121511c", "status": "ok", "name": "patch_apply_n_3cb", "params": [], "docstring": "Apply firmware patch table entry (shift/index op)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

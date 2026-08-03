@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n86", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121188a", "status": "ok", "name": "rf_bus_setup_n86", "params": [], "docstring": "Initialize RF bus base, store config and return", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_118FF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x118ff8", "status": "ok", "name": "tx_packet_enqueue", "params": [], "docstring": "Queue packet into TX ring", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

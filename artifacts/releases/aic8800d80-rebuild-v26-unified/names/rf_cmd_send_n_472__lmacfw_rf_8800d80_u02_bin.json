@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_472", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124a6", "status": "ok", "name": "rf_bus_setup_n3a0", "params": [], "docstring": "Set up RF bus register pairs from input bytes", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1219896", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219896", "status": "ok", "name": "rf_chan_set_check", "params": [], "docstring": "Validate and apply channel configuration bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

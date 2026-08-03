@@ -1,0 +1,1 @@
+{"fn": "sub_122728", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122728", "status": "ok", "name": "init_system", "params": [], "docstring": "Initialize system with hardware flag check", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12223B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12223b8", "status": "ok", "name": "mmio_reg_init_patch", "params": [], "docstring": "Initialize MMIO control registers with patch flags", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

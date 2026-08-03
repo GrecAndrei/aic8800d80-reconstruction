@@ -1,0 +1,1 @@
+{"fn": "sub_13BB64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13bb64", "status": "ok", "name": "rf_set_mode", "params": [], "docstring": "Set RF operating mode based on command value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

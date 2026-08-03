@@ -1,0 +1,1 @@
+{"fn": "sub_10CAFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10cafc", "status": "ok", "name": "pmu_ctrl_write_128", "params": [], "docstring": "Writes command 0x80 to the PMU control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

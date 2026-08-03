@@ -1,0 +1,1 @@
+{"fn": "sub_1144FC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1144fc", "status": "ok", "name": "scheduler_entry", "params": [], "docstring": "Load current task and enter scheduler", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

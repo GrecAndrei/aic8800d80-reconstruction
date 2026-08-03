@@ -1,0 +1,1 @@
+{"fn": "sub_111BA0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111ba0", "status": "ok", "name": "rf_reg_write", "params": [], "docstring": "Write to rf register with mask 0x8000000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12DE60", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12de60", "status": "ok", "name": "rf_get_freq_field", "params": [], "docstring": "Packs frequency field from config bytes and shifts into high bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

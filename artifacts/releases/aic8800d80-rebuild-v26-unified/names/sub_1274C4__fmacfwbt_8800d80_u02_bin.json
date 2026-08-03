@@ -1,0 +1,1 @@
+{"fn": "sub_1274C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1274c4", "status": "ok", "name": "read_rssi", "params": [], "docstring": "Read radio RSSI value from hardware status pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

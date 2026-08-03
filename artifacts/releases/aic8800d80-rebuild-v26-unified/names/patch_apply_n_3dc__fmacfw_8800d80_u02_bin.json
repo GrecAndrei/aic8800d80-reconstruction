@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ad0", "status": "ok", "name": "patch_apply_n_3dc", "params": [], "docstring": "Applies a patch by calling indirect function with 0x10 then extracting nibble field", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_nae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211cca", "status": "ok", "name": "rf_bus_write2_nae", "params": [], "docstring": "Write 0x40 to RF bus register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13BAC8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13bac8", "status": "ok", "name": "ll_cmd_handler", "params": [], "docstring": "Handle link-layer commands with sub-codes", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

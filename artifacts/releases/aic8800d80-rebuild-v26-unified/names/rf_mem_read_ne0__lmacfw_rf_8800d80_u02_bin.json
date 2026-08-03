@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_ne0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f674", "status": "ok", "name": "rf_mem_read_ne0", "params": [], "docstring": "Read RF register block with bounds check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

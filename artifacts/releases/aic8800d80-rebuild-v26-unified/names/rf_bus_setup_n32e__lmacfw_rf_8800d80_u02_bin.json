@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n32e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b32", "status": "ok", "name": "rf_bus_setup_n32e", "params": [], "docstring": "RF bus setup helper performing rotate/shift and conditional compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_nc8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213028", "status": "ok", "name": "rf_msg_handler_nc8", "params": [], "docstring": "Handle RF control message and forward response", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

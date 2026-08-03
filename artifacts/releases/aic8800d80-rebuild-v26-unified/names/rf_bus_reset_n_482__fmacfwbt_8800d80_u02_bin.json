@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_482", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12123c2", "status": "ok", "name": "rf_bus_reset_23c2", "params": [], "docstring": "Resets RF bus state machine when state == 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

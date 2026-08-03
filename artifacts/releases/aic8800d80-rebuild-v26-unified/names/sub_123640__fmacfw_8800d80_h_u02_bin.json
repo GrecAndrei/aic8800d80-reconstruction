@@ -1,0 +1,1 @@
+{"fn": "sub_123640", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x123640", "status": "ok", "name": "bt_parse_cr", "params": [], "docstring": "Parse next line and return carriage return", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

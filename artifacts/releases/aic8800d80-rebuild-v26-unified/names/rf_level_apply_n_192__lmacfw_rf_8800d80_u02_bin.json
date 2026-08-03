@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_192", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c46", "status": "ok", "name": "rf_set_channel_n_3a0", "params": [], "docstring": "Configures RF channel parameters for radio operation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

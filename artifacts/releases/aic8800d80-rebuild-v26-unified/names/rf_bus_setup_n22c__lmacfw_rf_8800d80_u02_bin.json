@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n22c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a30", "status": "ok", "name": "rf_bus_setup_n22c", "params": [], "docstring": "Set up RF bus parameters by channel/ID", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

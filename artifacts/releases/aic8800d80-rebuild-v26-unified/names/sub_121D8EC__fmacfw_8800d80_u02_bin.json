@@ -1,0 +1,1 @@
+{"fn": "sub_121D8EC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121d8ec", "status": "ok", "name": "sub_121D8EC", "params": [], "docstring": "Initialization routine loading config and calling setup", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

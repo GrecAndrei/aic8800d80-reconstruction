@@ -1,0 +1,1 @@
+{"fn": "sub_102ED0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102ed0", "status": "ok", "name": "radio_is_idle", "params": [], "docstring": "Checks radio state flag at offset 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

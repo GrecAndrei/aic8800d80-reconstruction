@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_24d", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f3e", "status": "ok", "name": "rf_bus_mark_n_24d", "params": [], "docstring": "Compute RF bus slot index via modulo-40 hash", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

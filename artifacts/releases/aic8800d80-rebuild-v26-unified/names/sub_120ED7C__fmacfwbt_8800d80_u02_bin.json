@@ -1,0 +1,1 @@
+{"fn": "sub_120ED7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ed7c", "status": "ok", "name": "mmio_read_bitfield_7000101c", "params": [], "docstring": "Reads a 5-bit field at offset 0xb from MMIO 0x7000101c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1201800", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1201800", "status": "ok", "name": "mmio_pair_read_n1800", "params": [], "docstring": "Reads paired 32-bit MMIO regs from 0x40330000/0x4033003c into r0/r1", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

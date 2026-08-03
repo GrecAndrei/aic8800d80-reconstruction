@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n41c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212318", "status": "ok", "name": "rf_bus_setup_n41c_2318", "params": [], "docstring": "Initializes the RF bus (e.g., SPI/I2C) and checks link state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

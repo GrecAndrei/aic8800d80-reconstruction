@@ -1,0 +1,1 @@
+{"fn": "sub_13F830", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13f830", "status": "ok", "name": "check_connection_busy", "params": [], "docstring": "Checks whether connection entry is busy", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

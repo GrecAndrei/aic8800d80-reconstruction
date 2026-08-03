@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3ea", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210da2", "status": "ok", "name": "rf_bus_setup_nf4", "params": [], "docstring": "Set up RF bus address window and size", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

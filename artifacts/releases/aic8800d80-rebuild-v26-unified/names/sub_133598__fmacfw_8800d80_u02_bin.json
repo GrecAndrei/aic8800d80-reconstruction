@@ -1,0 +1,1 @@
+{"fn": "sub_133598", "img": "fmacfw_8800d80_u02_bin", "addr": "0x133598", "status": "ok", "name": "null_sub", "params": [], "docstring": "No-op function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

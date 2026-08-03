@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_9e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e0e", "status": "ok", "name": "patch_apply_n_9e_4e0e", "params": [], "docstring": "Apply patch entry 9e: copy 8 bytes from stack to buffer, advance index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

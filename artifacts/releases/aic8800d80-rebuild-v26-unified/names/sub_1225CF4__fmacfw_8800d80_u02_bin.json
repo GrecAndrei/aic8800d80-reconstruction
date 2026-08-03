@@ -1,0 +1,1 @@
+{"fn": "sub_1225CF4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1225cf4", "status": "ok", "name": "sub_1225CF4", "params": [], "docstring": "Compute signed difference of two 32-bit values", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

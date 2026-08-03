@@ -1,0 +1,1 @@
+{"fn": "sub_109988", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x109988", "status": "ok", "name": "f32_compare", "params": [], "docstring": "Compare two single-precision floats", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

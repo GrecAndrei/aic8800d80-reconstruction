@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3a8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215254", "status": "ok", "name": "rf_cmd_send_d0", "params": [], "docstring": "Send RF command with size constants 0x78/0xc8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

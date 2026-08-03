@@ -1,0 +1,1 @@
+{"fn": "sub_11007C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11007c", "status": "ok", "name": "adv_irq_handler", "params": [], "docstring": "Handle advertising interrupt path", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

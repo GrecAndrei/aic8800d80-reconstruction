@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_406", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c7ae", "status": "ok", "name": "message_dispatch_n_406", "params": [], "docstring": "Message dispatch handler processing inbound messages with field extraction at offset 0x6e/0x1d0", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

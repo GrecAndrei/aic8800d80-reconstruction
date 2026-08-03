@@ -1,0 +1,1 @@
+{"fn": "sub_122C98", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c98", "status": "ok", "name": "check_command_permitted", "params": [], "docstring": "Validate whether HCI command is allowed", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

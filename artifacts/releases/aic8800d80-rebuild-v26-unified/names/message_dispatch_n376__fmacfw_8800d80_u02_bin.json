@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n376", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cd02", "status": "ok", "name": "message_dispatch_n376", "params": [], "docstring": "Secondary message dispatch path for host events", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

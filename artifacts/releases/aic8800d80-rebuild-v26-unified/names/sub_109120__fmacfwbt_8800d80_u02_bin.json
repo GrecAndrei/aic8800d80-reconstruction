@@ -1,0 +1,1 @@
+{"fn": "sub_109120", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x109120", "status": "ok", "name": "udelay_50", "params": [], "docstring": "Busy-wait for about 50 iterations", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

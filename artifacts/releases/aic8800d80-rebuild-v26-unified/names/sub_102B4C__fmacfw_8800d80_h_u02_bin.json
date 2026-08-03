@@ -1,0 +1,1 @@
+{"fn": "sub_102B4C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102b4c", "status": "ok", "name": "patch_interrupt_vector", "params": [], "docstring": "Installs a handler and enables an NVIC interrupt", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_15b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212eb4", "status": "ok", "name": "rf_cmd_send_n_15b_2eb4", "params": [], "docstring": "Send 15-bit RF command via tasklet", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

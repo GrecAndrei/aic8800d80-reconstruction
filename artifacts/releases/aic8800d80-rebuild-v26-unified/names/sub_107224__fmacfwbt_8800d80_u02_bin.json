@@ -1,0 +1,1 @@
+{"fn": "sub_107224", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x107224", "status": "ok", "name": "rf_disable", "params": [], "docstring": "Disable RF block and clear status flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

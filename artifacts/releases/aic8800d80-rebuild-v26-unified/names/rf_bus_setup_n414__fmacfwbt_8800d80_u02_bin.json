@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n414", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121216c", "status": "ok", "name": "rf_bus_setup_n414", "params": [], "docstring": "Configure RF bus register addresses and offsets", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

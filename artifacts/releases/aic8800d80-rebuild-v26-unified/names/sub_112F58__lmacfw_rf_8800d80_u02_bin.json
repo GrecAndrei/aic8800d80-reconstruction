@@ -1,0 +1,1 @@
+{"fn": "sub_112F58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x112f58", "status": "ok", "name": "lookup_table_value", "params": [], "docstring": "Return table entry for indices 0-7 else zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

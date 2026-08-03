@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n410", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cfc4", "status": "ok", "name": "message_dispatch_n410", "params": [], "docstring": "Dispatches incoming message based on type decrement", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n1a2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ed56", "status": "ok", "name": "sdio_buffer_prepare_n1a2", "params": [], "docstring": "SDIO buffer descriptor setup with bit-field operations", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n36e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ab6", "status": "ok", "name": "patch_apply_n_37", "params": [], "docstring": "Apply firmware patch entry 37 from patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

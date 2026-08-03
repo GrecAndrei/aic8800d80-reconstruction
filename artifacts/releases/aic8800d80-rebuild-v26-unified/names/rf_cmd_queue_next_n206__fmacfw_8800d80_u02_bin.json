@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n206", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12136ba", "status": "ok", "name": "rf_state_check_n3c8", "params": [], "docstring": "Update/check RF state machine registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

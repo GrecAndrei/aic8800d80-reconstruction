@@ -1,0 +1,1 @@
+{"fn": "sub_12C954", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c954", "status": "ok", "name": "patch_alignment", "params": [], "docstring": "Align constant 0x1906a7 down to 4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n30", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5c4", "status": "ok", "name": "rf_mem_read_n30", "params": [], "docstring": "Reads RF register/memory block with address range clamping", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

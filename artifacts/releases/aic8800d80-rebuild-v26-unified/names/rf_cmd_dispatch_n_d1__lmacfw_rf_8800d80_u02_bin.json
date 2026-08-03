@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_d1", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e72", "status": "ok", "name": "rf_cmd_dispatch_n_d1", "params": [], "docstring": "Dispatch an RF command by mapping opcode into a switch range (0x20-0x7A)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1f9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121168a", "status": "ok", "name": "rf_bus_mark_n_1f9", "params": [], "docstring": "Sets/marks RF bus register bitfields via shifted mask operations", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

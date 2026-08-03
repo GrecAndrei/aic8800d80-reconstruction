@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_3b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212f24", "status": "ok", "name": "rf_msg_handler_n_3b", "params": [], "docstring": "Handle incoming RF control message type 0x3B", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "txl_agg_set_uph", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1247dbc", "status": "ok", "name": "txl_agg_set_uph", "params": [], "docstring": "set aggregation UPH parameter in TX layer", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

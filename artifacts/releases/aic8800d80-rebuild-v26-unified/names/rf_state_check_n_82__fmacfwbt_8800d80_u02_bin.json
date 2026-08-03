@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_82", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fae", "status": "ok", "name": "rf_state_check_n_82", "params": [], "docstring": "Check RF state (variant n_82)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_4c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146fc", "status": "ok", "name": "rf_fault_dump_n_4c", "params": [], "docstring": "Conditional RF fault dump selecting 0x1000/0x800 region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

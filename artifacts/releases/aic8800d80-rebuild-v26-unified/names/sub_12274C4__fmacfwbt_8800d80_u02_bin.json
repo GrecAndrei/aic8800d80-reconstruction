@@ -1,0 +1,1 @@
+{"fn": "sub_12274C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12274c4", "status": "ok", "name": "bt_link_state_get_is_up", "params": [], "docstring": "Read BT link state flag and return bit 0 (link up status)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

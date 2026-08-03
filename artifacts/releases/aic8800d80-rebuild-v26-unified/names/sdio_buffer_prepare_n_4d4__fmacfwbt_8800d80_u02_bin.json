@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_4d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122de70", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Validates buffer type against 3 and returns 0 on mismatch", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

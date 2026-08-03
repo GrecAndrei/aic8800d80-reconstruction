@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_337", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e54", "status": "ok", "name": "rf_bus_mark_n_337", "params": [], "docstring": "Mark/clear RF bus flag bit in shared byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

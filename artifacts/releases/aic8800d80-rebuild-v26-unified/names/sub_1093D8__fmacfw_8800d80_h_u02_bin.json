@@ -1,0 +1,1 @@
+{"fn": "sub_1093D8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1093d8", "status": "ok", "name": "check_nonzero_word", "params": [], "docstring": "Test whether two words are non-zero", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

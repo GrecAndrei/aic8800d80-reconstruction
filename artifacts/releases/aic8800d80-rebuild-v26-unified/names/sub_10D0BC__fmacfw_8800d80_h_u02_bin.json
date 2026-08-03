@@ -1,0 +1,1 @@
+{"fn": "sub_10D0BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d0bc", "status": "ok", "name": "bt_set_address", "params": [], "docstring": "Set Bluetooth address and update hardware register", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

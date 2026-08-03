@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2ec", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211af0", "status": "ok", "name": "rf_bus_setup_n2ec", "params": [], "docstring": "Setup RF bus configuration from control block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

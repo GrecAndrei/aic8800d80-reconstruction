@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n2ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119ca", "status": "ok", "name": "rf_bus_mark_n2ea", "params": [], "docstring": "Mark/scan RF bus entry by shifted index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

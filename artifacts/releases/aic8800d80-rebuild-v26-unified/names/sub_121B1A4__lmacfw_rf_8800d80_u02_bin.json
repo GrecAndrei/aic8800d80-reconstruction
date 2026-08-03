@@ -1,0 +1,1 @@
+{"fn": "sub_121B1A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b1a4", "status": "ok", "name": "rf_mailbox_post_n44", "params": [], "docstring": "Post message into RF mailbox peripheral", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_228", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12120c8", "status": "ok", "name": "rf_cmd_wait_n308", "params": [], "docstring": "Wait for RF command completion, poll status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

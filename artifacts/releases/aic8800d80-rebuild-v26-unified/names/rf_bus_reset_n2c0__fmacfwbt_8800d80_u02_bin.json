@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n2c0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212b04", "status": "ok", "name": "rf_bus_reset_n2c0", "params": [], "docstring": "RF bus reset reading halfword at MMIO 0x1732d6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

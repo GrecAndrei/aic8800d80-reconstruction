@@ -1,0 +1,1 @@
+{"fn": "sub_141520", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141520", "status": "ok", "name": "increment_event_counter", "params": [], "docstring": "Increment event counter at global offset", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11DAC8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11dac8", "status": "ok", "name": "time_is_after", "params": [], "docstring": "Return true if elapsed time exceeds the timeout threshold", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

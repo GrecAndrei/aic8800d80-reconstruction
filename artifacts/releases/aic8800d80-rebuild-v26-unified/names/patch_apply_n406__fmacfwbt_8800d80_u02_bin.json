@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n406", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158ee", "status": "ok", "name": "patch_apply_n406_58ee", "params": [], "docstring": "Apply a firmware patch entry (variant n406)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

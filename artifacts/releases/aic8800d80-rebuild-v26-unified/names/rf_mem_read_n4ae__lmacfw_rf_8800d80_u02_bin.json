@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa42", "status": "ok", "name": "rf_mem_id_check_n4ae", "params": [], "docstring": "read RF mem id at offset 0x24 and compare with 0x1666", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

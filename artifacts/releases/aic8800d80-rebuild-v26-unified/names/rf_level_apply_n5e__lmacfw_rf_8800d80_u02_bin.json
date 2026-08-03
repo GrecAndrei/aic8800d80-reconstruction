@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n5e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e36", "status": "ok", "name": "rf_level_apply_n5e", "params": [], "docstring": "Apply RF TX/RX level setting with scaled bit-shift computation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

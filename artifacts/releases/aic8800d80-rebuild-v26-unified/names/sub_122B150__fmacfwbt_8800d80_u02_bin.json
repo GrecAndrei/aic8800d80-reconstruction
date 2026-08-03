@@ -1,0 +1,1 @@
+{"fn": "sub_122B150", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b150", "status": "ok", "name": "patch_apply_n23a", "params": [], "docstring": "Applies RF patch by ORR-ing bit and storing configuration", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

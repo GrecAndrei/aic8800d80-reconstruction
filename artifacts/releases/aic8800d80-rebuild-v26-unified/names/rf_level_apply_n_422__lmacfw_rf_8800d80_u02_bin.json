@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_422", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269b6", "status": "ok", "name": "sdio_buffer_prepare_n_430", "params": [], "docstring": "Prepare SDIO transfer buffer with descriptor pointers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

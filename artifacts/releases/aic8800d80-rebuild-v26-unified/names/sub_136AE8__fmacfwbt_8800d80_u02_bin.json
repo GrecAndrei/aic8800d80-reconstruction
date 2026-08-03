@@ -1,0 +1,1 @@
+{"fn": "sub_136AE8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136ae8", "status": "ok", "name": "rf_core_enable", "params": [], "docstring": "Send RF core enable command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

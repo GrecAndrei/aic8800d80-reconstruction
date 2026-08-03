@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n460", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121b8", "status": "ok", "name": "rf_bus_setup_n460_21b8", "params": [], "docstring": "Initializes RF bus control registers and stores config pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

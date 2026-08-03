@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_47a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118de", "status": "ok", "name": "rf_bus_reg_write", "params": [], "docstring": "Modifies and writes RF bus control register at offset 0xc and 0x800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

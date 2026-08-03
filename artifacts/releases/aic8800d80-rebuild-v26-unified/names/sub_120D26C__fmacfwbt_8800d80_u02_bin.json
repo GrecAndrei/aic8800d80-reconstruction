@@ -1,0 +1,1 @@
+{"fn": "sub_120D26C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d26c", "status": "ok", "name": "sub_120D26C", "params": [], "docstring": "General handler loading signed state from globals, processes 3-arg call", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

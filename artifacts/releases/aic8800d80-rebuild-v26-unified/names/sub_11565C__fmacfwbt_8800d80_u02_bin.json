@@ -1,0 +1,1 @@
+{"fn": "sub_11565C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11565c", "status": "ok", "name": "rf_mode_switch", "params": [], "docstring": "Read RF mode flag and adjust 0x40500000 register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

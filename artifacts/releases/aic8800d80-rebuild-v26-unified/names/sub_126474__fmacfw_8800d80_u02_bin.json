@@ -1,0 +1,1 @@
+{"fn": "sub_126474", "img": "fmacfw_8800d80_u02_bin", "addr": "0x126474", "status": "ok", "name": "llm_scan_task_handler", "params": [], "docstring": "Handle scan task list processing", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

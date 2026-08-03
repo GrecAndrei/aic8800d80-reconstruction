@@ -1,0 +1,1 @@
+{"fn": "sub_12032FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12032fc", "status": "ok", "name": "sub_12032FC", "params": [], "docstring": "Initialize SoC MMIO register block (set bits, configure peripheral)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

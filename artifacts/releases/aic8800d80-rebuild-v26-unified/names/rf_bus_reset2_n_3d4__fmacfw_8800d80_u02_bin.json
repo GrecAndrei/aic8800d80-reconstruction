@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211628", "status": "ok", "name": "rf_bus_reset2_n_3d4", "params": [], "docstring": "RF bus reset sequence 2 variant 3d4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

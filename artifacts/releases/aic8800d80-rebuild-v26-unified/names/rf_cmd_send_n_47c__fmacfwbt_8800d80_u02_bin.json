@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_47c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129f0", "status": "ok", "name": "rf_cmd_wait_n_4bc", "params": [], "docstring": "RF command completion wait 4bc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10D0F4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d0f4", "status": "ok", "name": "enable_clock_2", "params": [], "docstring": "Writes 0x04000000 to peripheral register at 0x40035000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

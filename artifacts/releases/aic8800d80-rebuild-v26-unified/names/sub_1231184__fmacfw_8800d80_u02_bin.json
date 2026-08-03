@@ -1,0 +1,1 @@
+{"fn": "sub_1231184", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1231184", "status": "ok", "name": "sub_1231184", "params": [], "docstring": "Wrapper that calls helper 0x12de90 with stack-based out param, checks r0==0", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12A32C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12a32c", "status": "ok", "name": "bt_ll_flow_control_check", "params": [], "docstring": "Check link layer flow control flags", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

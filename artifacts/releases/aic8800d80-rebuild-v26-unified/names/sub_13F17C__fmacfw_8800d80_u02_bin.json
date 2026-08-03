@@ -1,0 +1,1 @@
+{"fn": "sub_13F17C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13f17c", "status": "ok", "name": "ble_ll_conn_sm_get_by_handle", "params": [], "docstring": "Look up connection state machine by handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

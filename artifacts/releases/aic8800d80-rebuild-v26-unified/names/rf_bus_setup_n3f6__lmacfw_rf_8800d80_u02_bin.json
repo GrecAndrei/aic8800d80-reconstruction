@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3f6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211bfa", "status": "ok", "name": "rf_bus_setup_n3f6", "params": [], "docstring": "Setup RF bus with byte-extended parameter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_102EB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102eb8", "status": "ok", "name": "peripheral_read_32", "params": [], "docstring": "Reads multiple registers and stores results", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

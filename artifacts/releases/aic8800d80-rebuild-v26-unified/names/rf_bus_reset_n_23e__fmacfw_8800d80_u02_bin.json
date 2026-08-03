@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_23e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12127aa", "status": "ok", "name": "rf_bus_reset_n_23e_27aa", "params": [], "docstring": "Resets primary RF bus interface to default state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

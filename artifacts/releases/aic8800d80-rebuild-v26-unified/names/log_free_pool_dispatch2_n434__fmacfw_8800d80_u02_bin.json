@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n434", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210114", "status": "ok", "name": "rf_bus_write_n_28", "params": [], "docstring": "Write 32-bit value to RF bus at offset 0x28", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

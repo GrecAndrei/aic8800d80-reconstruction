@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n470", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211ee8", "status": "ok", "name": "rf_bus_write32_1ee8", "params": [], "docstring": "write 32-bit value to RF register via bus with mask 0x7ffff", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

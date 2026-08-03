@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n38", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212950", "status": "ok", "name": "rf_cmd_send_n38", "params": [], "docstring": "Send RF command with flag set and register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

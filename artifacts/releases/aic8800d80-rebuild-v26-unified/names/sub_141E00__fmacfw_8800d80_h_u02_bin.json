@@ -1,0 +1,1 @@
+{"fn": "sub_141E00", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141e00", "status": "ok", "name": "queue_ipc_msg", "params": [], "docstring": "Queue IPC message with parameters", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

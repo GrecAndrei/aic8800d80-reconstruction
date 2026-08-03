@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4ca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121501e", "status": "ok", "name": "patch_apply_n_4ca", "params": [], "docstring": "Applies Nth patch entry (0x4ca) for BT FMAC firmware", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n130", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212420", "status": "ok", "name": "rf_bus_reset_n130", "params": [], "docstring": "Reset RF bus by writing 0x430 to control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

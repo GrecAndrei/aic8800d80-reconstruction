@@ -1,0 +1,1 @@
+{"fn": "sub_12A994", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12a994", "status": "ok", "name": "lll_conn_rf_process", "params": [], "docstring": "Process radio core context for connection", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

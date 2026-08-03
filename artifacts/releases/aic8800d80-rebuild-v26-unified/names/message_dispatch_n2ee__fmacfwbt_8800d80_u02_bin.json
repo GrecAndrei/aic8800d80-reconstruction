@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n2ee", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cea2", "status": "ok", "name": "rf_bus_setup_ea2", "params": [], "docstring": "Configure/setup RF bus registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

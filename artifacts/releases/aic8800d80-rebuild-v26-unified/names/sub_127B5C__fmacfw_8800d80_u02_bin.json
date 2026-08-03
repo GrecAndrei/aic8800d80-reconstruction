@@ -1,0 +1,1 @@
+{"fn": "sub_127B5C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127b5c", "status": "ok", "name": "rx_prep_descriptor", "params": [], "docstring": "Prepare RX descriptor and metadata for processing", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

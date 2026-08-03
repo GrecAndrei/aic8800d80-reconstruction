@@ -1,0 +1,1 @@
+{"fn": "sub_1002A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1002a0", "status": "ok", "name": "ke_event_handler", "params": [], "docstring": "Handle kernel events from queue.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

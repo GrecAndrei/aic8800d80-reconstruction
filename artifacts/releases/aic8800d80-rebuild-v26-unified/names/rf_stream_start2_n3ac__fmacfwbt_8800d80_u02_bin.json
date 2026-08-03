@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n3ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12135f8", "status": "ok", "name": "message_dispatch_n_22a_alt", "params": [], "docstring": "Dispatch IPC message based on field comparison", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

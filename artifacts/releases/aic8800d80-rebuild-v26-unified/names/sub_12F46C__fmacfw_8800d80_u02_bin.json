@@ -1,0 +1,1 @@
+{"fn": "sub_12F46C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f46c", "status": "ok", "name": "mmio_clear_register", "params": [], "docstring": "Interrupt-disable critical MMIO clear operation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

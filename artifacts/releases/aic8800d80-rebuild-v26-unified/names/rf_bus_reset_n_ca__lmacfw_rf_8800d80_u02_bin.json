@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_ca", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212226", "status": "ok", "name": "rf_bus_reset_n_ca", "params": [], "docstring": "Resets RF bus by setting control bits in 0x800/0xb00 register regions", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

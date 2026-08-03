@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_17c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145cc", "status": "ok", "name": "rf_fault_dump_n_17c", "params": [], "docstring": "Dumps RF fault state from 0x182b64", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

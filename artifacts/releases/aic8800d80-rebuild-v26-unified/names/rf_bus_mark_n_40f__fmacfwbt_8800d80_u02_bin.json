@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_40f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112d0", "status": "ok", "name": "rf_bus_mark_n_40f", "params": [], "docstring": "Marks RF bus transaction entry in BT firmware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

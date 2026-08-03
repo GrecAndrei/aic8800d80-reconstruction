@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n35e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f8f2", "status": "ok", "name": "rf_mem_addr_shift", "params": [], "docstring": "Compute RF memory address via left shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

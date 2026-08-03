@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_naa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1c6", "status": "ok", "name": "sdio_buffer_prepare_naa", "params": [], "docstring": "Compute SDIO buffer offset/indices", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_105914", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x105914", "status": "ok", "name": "llc_connection_init", "params": [], "docstring": "Initialize a link layer connection context", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

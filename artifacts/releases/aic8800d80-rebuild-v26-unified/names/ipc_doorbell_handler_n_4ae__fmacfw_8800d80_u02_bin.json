@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12154ce", "status": "ok", "name": "ipc_doorbell_handler_n_4ae", "params": [], "docstring": "Handle IPC doorbell interrupt with sub-id 0x65 (sign-extended)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

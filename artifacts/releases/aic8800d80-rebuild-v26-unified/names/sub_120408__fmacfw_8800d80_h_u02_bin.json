@@ -1,0 +1,1 @@
+{"fn": "sub_120408", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x120408", "status": "ok", "name": "init_fw_config", "params": [], "docstring": "Initialize firmware config block and masks", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

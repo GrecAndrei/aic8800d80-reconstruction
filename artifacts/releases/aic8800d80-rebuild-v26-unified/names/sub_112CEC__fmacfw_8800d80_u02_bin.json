@@ -1,0 +1,1 @@
+{"fn": "sub_112CEC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x112cec", "status": "ok", "name": "undef_stub", "params": [], "docstring": "Unknown exception/undefined instruction stub", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122F5C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f5c", "status": "ok", "name": "send_le_scan_command", "params": [], "docstring": "Send LE scan vendor command", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

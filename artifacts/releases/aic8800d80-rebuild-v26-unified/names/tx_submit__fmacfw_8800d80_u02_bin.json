@@ -1,0 +1,1 @@
+{"fn": "tx_submit", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120cebc", "status": "ok", "name": "tx_submit", "params": [], "docstring": "Submit frame to transmit queue with rate lookup", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

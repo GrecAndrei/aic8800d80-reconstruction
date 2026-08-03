@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_43e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211446", "status": "ok", "name": "rf_bus_mark_n_43e", "params": [], "docstring": "Mark RF bus state flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

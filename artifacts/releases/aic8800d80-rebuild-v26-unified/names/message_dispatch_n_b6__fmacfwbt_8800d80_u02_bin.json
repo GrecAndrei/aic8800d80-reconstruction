@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cafe", "status": "ok", "name": "message_dispatch_n_b6", "params": [], "docstring": "Message dispatcher entry with shifted type check", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

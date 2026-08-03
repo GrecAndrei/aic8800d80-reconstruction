@@ -1,0 +1,1 @@
+{"fn": "sub_113640", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113640", "status": "ok", "name": "dispatch_event_handler", "params": [], "docstring": "Invoke registered callback with context and check result", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

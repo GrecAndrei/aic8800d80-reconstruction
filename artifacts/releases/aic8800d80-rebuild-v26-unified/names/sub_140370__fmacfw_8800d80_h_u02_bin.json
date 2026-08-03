@@ -1,0 +1,1 @@
+{"fn": "sub_140370", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x140370", "status": "ok", "name": "find_ll_item", "params": [], "docstring": "Search for a link-layer item by ID in list", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

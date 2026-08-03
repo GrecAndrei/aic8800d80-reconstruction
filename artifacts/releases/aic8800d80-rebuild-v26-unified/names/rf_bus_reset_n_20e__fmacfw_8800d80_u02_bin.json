@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_20e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12127da", "status": "ok", "name": "rf_bus_reset_n", "params": [], "docstring": "Conditional RF bus reset based on flag byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

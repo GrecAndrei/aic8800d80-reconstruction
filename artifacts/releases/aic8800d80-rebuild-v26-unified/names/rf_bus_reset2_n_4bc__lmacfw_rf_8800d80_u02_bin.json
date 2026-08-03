@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e48", "status": "ok", "name": "rf_bus_reset2_n_4bc", "params": [], "docstring": "Write 0x1000 to RF bus control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

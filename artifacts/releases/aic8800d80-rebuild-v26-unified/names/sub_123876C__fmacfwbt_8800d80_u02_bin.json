@@ -1,0 +1,1 @@
+{"fn": "sub_123876C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123876c", "status": "ok", "name": "sub_123876C", "params": [], "docstring": "Bluetooth firmware handler, checks flag and processes state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

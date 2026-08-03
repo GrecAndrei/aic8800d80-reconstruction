@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_3a4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212bbc", "status": "ok", "name": "rf_msg_dec_state", "params": [], "docstring": "Decrement sub-state index in RF message handler state machine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

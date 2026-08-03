@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ee6e", "status": "ok", "name": "message_dispatch_n28e", "params": [], "docstring": "Message dispatch tail: compute end offset and compare against boundary", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

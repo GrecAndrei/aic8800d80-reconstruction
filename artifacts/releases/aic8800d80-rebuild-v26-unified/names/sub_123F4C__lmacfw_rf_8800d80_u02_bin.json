@@ -1,0 +1,1 @@
+{"fn": "sub_123F4C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123f4c", "status": "ok", "name": "set_state_checked", "params": [], "docstring": "Stores new state if valid and returns status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n130", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215aac", "status": "ok", "name": "ipc_doorbell_handler_aac", "params": [], "docstring": "services IPC doorbell interrupts from host/mac", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

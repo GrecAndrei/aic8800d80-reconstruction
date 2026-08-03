@@ -1,0 +1,1 @@
+{"fn": "sub_101CAC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x101cac", "status": "ok", "name": "bt_packet_parser", "params": [], "docstring": "Parse BLE packet header from pointer in r2 with global context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

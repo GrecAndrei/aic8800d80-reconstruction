@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_3e8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f1ac", "status": "ok", "name": "rf_mem_read_nibble_3e8", "params": [], "docstring": "Reads nibble from RF memory (high/low 4-bit decode)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

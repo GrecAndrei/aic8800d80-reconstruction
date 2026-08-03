@@ -1,0 +1,1 @@
+{"fn": "sub_120CF48", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120cf48", "status": "ok", "name": "sub_120CF48", "params": [], "docstring": "Lookup entry in table at 0x180ac0 offset by halfword, call handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

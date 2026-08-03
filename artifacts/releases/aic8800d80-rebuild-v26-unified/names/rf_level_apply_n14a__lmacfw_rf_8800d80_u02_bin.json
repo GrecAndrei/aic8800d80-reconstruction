@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n14a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226f22", "status": "ok", "name": "rf_level_apply_table_f22", "params": [], "docstring": "Apply RF TX power level from indexed lookup table (clamp 0-8)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

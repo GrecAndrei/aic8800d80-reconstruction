@@ -1,0 +1,1 @@
+{"fn": "hal_dma_evt", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1249fc4", "status": "ok", "name": "hal_dma_evt", "params": [], "docstring": "HAL DMA event handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

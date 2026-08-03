@@ -1,0 +1,1 @@
+{"fn": "sub_12F954", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12f954", "status": "ok", "name": "bt_reg_write", "params": [], "docstring": "Writes to Bluetooth hardware registers and returns", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

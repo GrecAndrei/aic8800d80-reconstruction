@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_45e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d2e", "status": "ok", "name": "sdio_buffer_prepare_0d2e", "params": [], "docstring": "Prepares SDIO buffer descriptor and length", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

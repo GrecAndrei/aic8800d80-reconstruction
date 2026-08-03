@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121264e", "status": "ok", "name": "rf_bus_reset_n_1f6_264e", "params": [], "docstring": "Read RF status halfwords, load RF config pointer from constant pool", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

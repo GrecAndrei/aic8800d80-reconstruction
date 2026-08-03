@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n246", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121154a", "status": "ok", "name": "rf_bus_reset2_read_status", "params": [], "docstring": "Reads single 32-bit status word from RF bus control register at offset 0x70", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

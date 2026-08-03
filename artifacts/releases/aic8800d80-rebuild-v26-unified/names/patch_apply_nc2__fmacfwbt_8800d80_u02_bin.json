@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155aa", "status": "ok", "name": "sdio_buffer_prepare_n190", "params": [], "docstring": "Prepare SDIO buffer alignment and size calculation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

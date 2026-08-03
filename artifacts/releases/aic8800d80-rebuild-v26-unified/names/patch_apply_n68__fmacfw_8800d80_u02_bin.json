@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n68", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f14", "status": "ok", "name": "patch_apply_n68", "params": [], "docstring": "Applies patch byte using indexed store with mask", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

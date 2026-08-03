@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_27e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12139ca", "status": "ok", "name": "rf_msg_process_body_n_27e", "params": [], "docstring": "Processes RF message body by reading descriptor at 0x182ba0 and payload at 0x187ec4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

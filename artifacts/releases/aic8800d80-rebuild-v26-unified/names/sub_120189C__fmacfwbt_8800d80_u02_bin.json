@@ -1,0 +1,1 @@
+{"fn": "sub_120189C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120189c", "status": "ok", "name": "mmio_bit_toggle_0189c", "params": [], "docstring": "Toggle a single bit in MMIO control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

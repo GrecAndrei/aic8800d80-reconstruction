@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121168c", "status": "ok", "name": "rf_bus_mark_n_54", "params": [], "docstring": "Marks RF bus register using indexed value shifts", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

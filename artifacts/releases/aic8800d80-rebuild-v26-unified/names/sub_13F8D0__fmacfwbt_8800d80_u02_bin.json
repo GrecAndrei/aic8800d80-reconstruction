@@ -1,0 +1,1 @@
+{"fn": "sub_13F8D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13f8d0", "status": "ok", "name": "update_connection_stats", "params": [], "docstring": "Updates connection data counters and state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n372", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211896", "status": "ok", "name": "rf_bus_write2_n372", "params": [], "docstring": "Write to RF bus register with ready-poll", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

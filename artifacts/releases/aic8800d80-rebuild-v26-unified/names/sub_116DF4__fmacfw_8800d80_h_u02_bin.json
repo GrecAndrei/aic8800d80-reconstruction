@@ -1,0 +1,1 @@
+{"fn": "sub_116DF4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x116df4", "status": "ok", "name": "mmio_modify_bit", "params": [], "docstring": "Modify bit in MMIO register by arg", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

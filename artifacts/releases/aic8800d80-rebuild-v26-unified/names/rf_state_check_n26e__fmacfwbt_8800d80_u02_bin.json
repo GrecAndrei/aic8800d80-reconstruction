@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n26e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121229e", "status": "ok", "name": "rf_state_check_n26e", "params": [], "docstring": "Check RF state register for zero condition", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

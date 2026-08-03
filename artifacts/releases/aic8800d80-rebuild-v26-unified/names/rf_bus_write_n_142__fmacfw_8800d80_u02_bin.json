@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_142", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a22", "status": "ok", "name": "rf_bus_write_n_142", "params": [], "docstring": "Writes RF bus register: clears 0x3f00, sets 0x2700, sets bit0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

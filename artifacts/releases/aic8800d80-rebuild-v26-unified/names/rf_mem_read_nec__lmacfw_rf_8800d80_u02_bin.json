@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nec", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f680", "status": "ok", "name": "rf_mem_read_nec", "params": [], "docstring": "Read RF memory block via subsystem call", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

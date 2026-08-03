@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212cd4", "status": "ok", "name": "fw_patch_load_chk_n6b", "params": [], "docstring": "Loads/checks firmware patch entry (id 0x1419) for FMAC/BT", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

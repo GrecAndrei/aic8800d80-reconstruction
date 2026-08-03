@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1c9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb54", "status": "ok", "name": "message_dispatch_n1c9", "params": [], "docstring": "Message dispatch computing remaining length and appending to ring buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

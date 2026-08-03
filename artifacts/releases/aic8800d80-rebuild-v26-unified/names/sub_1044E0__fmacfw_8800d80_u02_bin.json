@@ -1,0 +1,1 @@
+{"fn": "sub_1044E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1044e0", "status": "ok", "name": "start_arm_boot", "params": [], "docstring": "Writes boot control value to start ARM core", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

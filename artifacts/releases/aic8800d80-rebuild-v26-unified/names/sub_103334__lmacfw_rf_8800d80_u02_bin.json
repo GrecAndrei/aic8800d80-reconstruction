@@ -1,0 +1,1 @@
+{"fn": "sub_103334", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x103334", "status": "ok", "name": "save_rf_context", "params": [], "docstring": "Saves a four-word RF context from RAM to a hardware register block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

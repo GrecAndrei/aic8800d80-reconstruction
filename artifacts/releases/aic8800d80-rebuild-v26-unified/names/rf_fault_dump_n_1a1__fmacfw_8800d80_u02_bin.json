@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_1a1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145a6", "status": "ok", "name": "rf_fault_dump_n_1a1", "params": [], "docstring": "Computes XOR hash then enters RF fault dump handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

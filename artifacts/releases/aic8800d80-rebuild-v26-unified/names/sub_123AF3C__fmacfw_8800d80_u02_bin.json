@@ -1,0 +1,1 @@
+{"fn": "sub_123AF3C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123af3c", "status": "ok", "name": "idx_struct_lookup", "params": [], "docstring": "Looks up per-index struct entry (stride 0x2b8) and dereferences member", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

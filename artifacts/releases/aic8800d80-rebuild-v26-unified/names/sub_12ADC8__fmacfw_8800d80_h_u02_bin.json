@@ -1,0 +1,1 @@
+{"fn": "sub_12ADC8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12adc8", "status": "ok", "name": "calc_channel_rate", "params": [], "docstring": "Compute channel rate multiplier", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

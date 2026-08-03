@@ -1,0 +1,1 @@
+{"fn": "sub_1006CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1006cc", "status": "ok", "name": "get_timer_flag", "params": [], "docstring": "Return byte flag from global status structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

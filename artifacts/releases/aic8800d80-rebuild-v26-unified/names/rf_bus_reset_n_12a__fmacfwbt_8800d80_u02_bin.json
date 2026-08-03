@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_12a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121271a", "status": "ok", "name": "rf_bus_reset_n_12a_271a", "params": [], "docstring": "Reset RF bus via low-level bus controller call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

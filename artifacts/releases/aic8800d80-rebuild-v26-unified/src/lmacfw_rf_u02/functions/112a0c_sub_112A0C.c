@@ -1,0 +1,118 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_112B40;
+extern uint32_t off_112B44;
+extern uint32_t off_112B48;
+extern uint32_t dword_112B58;
+extern uint32_t dword_112B5C;
+extern uint32_t dword_112B60;
+extern uint32_t off_112B4C;
+extern uint32_t dword_112B6C;
+extern uint32_t off_112B78;
+extern uint32_t dword_112B70;
+extern uint32_t dword_112B54;
+extern uint32_t dword_112B50;
+extern uint32_t dword_112B74;
+extern uint32_t dword_112B68;
+extern uint32_t off_112B64;
+
+// sub_112A0C @ 0x112a0c, size 308 bytes
+// Doc: rf_cmd_send_n16a [rf]: Enqueue and dispatch an N16A-type RF command to the upper MAC via IPC.
+// rf_cmd_send_n16a [rf]: Enqueue and dispatch an N16A-type RF command to the upper MAC via IPC.
+int  sub_112A0C(uint8_t *a1, unsigned int a2, int a3)
+{
+  uint16_t *v3; // r7
+  uint8_t *v4; // r6
+  uint8_t *v5; // r4
+  char v6; // r2
+  uint8_t *v7; // r4
+  int v9; // r8
+  int v10; // r3
+  int v11; // r6
+  uint8_t *v12; // r8
+  char v13; // r5
+  int v14; // r0
+  unsigned int v15; // r3
+  char *v16; // r3
+  int v18; // r0
+
+  v3 = (uint16_t *)off_112B40;
+  v4 = (uint8_t *)off_112B44;
+  v5 = off_112B48;
+  ++*(uint16_t *)off_112B40;
+  if ( a3 )
+    v6 = 3;
+  else
+    v6 = 2;
+  *v4 = v6;
+  *v5 = 0;
+  v7 = a1;
+  if ( *v4 != 2 )
+  {
+    sub_10DA6C(dword_112B58, *v3, *v4);
+    sub_1136F4(dword_112B5C, v7, a2, *v4);
+    return 1;
+  }
+  *v4 = 0;
+  if ( a2 <= 3 )
+  {
+    sub_10DA6C(dword_112B60, *v3, a2);
+  }
+  else
+  {
+    v9 = a1[2];
+    v10 = (a1[1] << 8) & 0xF00;
+    v11 = *a1 | v10;
+    if ( *(uint8_t *)off_112B4C )
+      a1 = (uint8_t *)sub_11F74C(512, dword_112B6C, a2, v10);
+    if ( v9 == 17 )
+    {
+      v12 = off_112B78;
+      if ( *((uint8_t *)off_112B78 + 2433) >= (unsigned int)*((uint8_t *)off_112B78 + 2434) )
+      {
+        sub_10DA6C(dword_112B70);
+      }
+      else
+      {
+        if ( v11 + 4 == a2 || a2 == v11 + 5 )
+        {
+          sub_113630(a1);
+          v13 = v12[2433];
+          v14 = dword_112B54;
+          v15 = (uint8_t)v12[2432]
+              + 1
+              - 40
+              * ((unsigned int)(((unsigned int)dword_112B50
+                               * (unsigned uint64_t)((unsigned int)(uint8_t)v12[2432] + 1)) >> 32) >> 5);
+          v12[2432] = v15;
+          v16 = &v12[20 * v15];
+          *((uint32_t *)v16 + 409) = v7 + 4;
+          *((uint32_t *)v16 + 412) = v11;
+          v12[2433] = v13 + 1;
+          sub_11E724(v14);
+          sub_11E5E0(0x1000000);
+          return 1;
+        }
+        sub_10DA6C(dword_112B74, *v3, v11, a2);
+      }
+    }
+    else
+    {
+      sub_10DA6C(dword_112B68, *v3, v9, v11, a2);
+    }
+  }
+  v18 = sub_10FEF8(&v7[-*(uint32_t *)off_112B64]);
+  sub_113630(v18);
+  return 1;
+}
+

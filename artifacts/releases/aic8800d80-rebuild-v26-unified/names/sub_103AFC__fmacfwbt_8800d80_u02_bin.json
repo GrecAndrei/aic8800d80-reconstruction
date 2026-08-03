@@ -1,0 +1,1 @@
+{"fn": "sub_103AFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x103afc", "status": "ok", "name": "ke_sleep_set_mode", "params": [], "docstring": "Select kernel sleep mode", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

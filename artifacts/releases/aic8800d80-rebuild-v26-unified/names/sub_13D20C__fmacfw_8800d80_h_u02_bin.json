@@ -1,0 +1,1 @@
+{"fn": "sub_13D20C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13d20c", "status": "ok", "name": "mac_is_state_5", "params": [], "docstring": "Check if MAC state byte equals 5", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

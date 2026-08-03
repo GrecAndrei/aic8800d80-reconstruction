@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_3fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12119be", "status": "ok", "name": "rf_bus_init_n_3fa", "params": [], "docstring": "Initializes RF bus by indexing into configuration table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12E160", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12e160", "status": "ok", "name": "parse_dollar_u16", "params": [], "docstring": "Extract 16-bit value after '$' delimiter", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

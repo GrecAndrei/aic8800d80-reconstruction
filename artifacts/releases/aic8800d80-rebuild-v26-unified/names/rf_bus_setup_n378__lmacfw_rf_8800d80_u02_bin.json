@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n378", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b7c", "status": "ok", "name": "rf_bus_setup_n378", "params": [], "docstring": "Configure RF bus register fields via shift and bit-field insert", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1153AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1153ac", "status": "ok", "name": "ioctl_cmd_0x80", "params": [], "docstring": "Issue ioctl command 0x80 with 4-byte buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

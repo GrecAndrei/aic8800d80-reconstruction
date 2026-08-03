@@ -1,0 +1,1 @@
+{"fn": "sub_103FF4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x103ff4", "status": "ok", "name": "rf_enable_switch", "params": [], "docstring": "Set RF switch and auxiliary control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

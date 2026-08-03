@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_8e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12134ca", "status": "ok", "name": "rf_bus_reset2_ne0", "params": [], "docstring": "Second-stage RF bus reset toggling OR'd bit and popping registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

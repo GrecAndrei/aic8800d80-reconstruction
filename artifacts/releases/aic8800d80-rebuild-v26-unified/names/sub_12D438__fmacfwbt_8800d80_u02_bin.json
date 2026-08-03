@@ -1,0 +1,1 @@
+{"fn": "sub_12D438", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d438", "status": "ok", "name": "state_init", "params": [], "docstring": "Initialize state struct after calling init routine", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n428", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cfdc", "status": "ok", "name": "message_dispatch_n428_cfdc", "params": [], "docstring": "Tail dispatch for message handler (pops regs, branches on msg id 0xd)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

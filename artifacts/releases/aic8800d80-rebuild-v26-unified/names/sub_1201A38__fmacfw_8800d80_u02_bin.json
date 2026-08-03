@@ -1,0 +1,1 @@
+{"fn": "sub_1201A38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201a38", "status": "ok", "name": "mmio_flag_get_bit1a", "params": [], "docstring": "Read flag bit 0x1a from MMIO register 0x40330000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

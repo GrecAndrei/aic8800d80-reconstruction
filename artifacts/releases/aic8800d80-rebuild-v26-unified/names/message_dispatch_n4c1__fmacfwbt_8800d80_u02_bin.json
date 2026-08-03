@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4c1", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d074", "status": "ok", "name": "message_dispatch_n4c1", "params": [], "docstring": "Dispatches incoming messages based on opcode (e.g., '$' / 'x' commands) to handler table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

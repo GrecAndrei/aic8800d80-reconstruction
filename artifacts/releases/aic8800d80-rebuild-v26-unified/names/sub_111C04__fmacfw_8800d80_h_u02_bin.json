@@ -1,0 +1,1 @@
+{"fn": "sub_111C04", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111c04", "status": "ok", "name": "set_hw_cfg_a", "params": [], "docstring": "Invoke config with mask 0x8000000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

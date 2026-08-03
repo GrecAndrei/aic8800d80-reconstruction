@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nc8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212ab0", "status": "ok", "name": "rf_bus_reset_nc8", "params": [], "docstring": "RF bus reset sequence with init constants 0x40/2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

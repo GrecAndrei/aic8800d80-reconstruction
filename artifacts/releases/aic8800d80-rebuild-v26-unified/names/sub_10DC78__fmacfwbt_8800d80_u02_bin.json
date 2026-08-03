@@ -1,0 +1,1 @@
+{"fn": "sub_10DC78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10dc78", "status": "ok", "name": "check_radio_flag", "params": [], "docstring": "Read radio status flag at global+0x171, returns 1 if set", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

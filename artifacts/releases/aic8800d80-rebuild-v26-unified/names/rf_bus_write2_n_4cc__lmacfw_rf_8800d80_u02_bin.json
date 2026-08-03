@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_4cc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211058", "status": "ok", "name": "sdio_buffer_prepare_1058", "params": [], "docstring": "Compute SDIO buffer pointer offsets", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

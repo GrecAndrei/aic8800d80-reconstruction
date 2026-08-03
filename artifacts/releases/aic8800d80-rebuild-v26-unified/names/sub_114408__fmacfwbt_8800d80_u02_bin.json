@@ -1,0 +1,1 @@
+{"fn": "sub_114408", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114408", "status": "ok", "name": "check_radio_flag", "params": [], "docstring": "Check global radio flag and update hardware registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_103268", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x103268", "status": "ok", "name": "crypto_read_status", "params": [], "docstring": "Reads a status register from the crypto block", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

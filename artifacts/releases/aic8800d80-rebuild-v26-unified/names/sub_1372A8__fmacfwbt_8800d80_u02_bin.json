@@ -1,0 +1,1 @@
+{"fn": "sub_1372A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1372a8", "status": "ok", "name": "gpio_isr_handler", "params": [], "docstring": "Handle GPIO interrupt status", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

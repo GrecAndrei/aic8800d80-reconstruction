@@ -1,0 +1,1 @@
+{"fn": "sub_123528", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x123528", "status": "ok", "name": "util_read_u8", "params": [], "docstring": "Read a byte via helper and return status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

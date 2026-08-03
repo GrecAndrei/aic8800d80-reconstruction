@@ -1,0 +1,1 @@
+{"fn": "sub_1163A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1163a8", "status": "ok", "name": "scan_process_advertisement", "params": [], "docstring": "Process scan advertisement and validate status", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

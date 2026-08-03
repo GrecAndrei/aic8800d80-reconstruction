@@ -1,0 +1,1 @@
+{"fn": "sub_1233ABC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1233abc", "status": "ok", "name": "rf_param_load_check", "params": [], "docstring": "Load RF parameter pointer and check for non-zero value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

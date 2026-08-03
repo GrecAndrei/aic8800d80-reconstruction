@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1fa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156e2", "status": "ok", "name": "patch_apply_n1fa", "params": [], "docstring": "Apply firmware patch, re-enable interrupts, return to caller with restored r4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

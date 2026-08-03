@@ -1,0 +1,1 @@
+{"fn": "sub_122AF4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122af4", "status": "ok", "name": "scan_state_validate", "params": [], "docstring": "Validate scan state before processing", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

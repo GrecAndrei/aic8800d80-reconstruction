@@ -1,0 +1,1 @@
+{"fn": "sub_135598", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135598", "status": "ok", "name": "bt_send_profile_cmd", "params": [], "docstring": "send command with event 0x180a", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

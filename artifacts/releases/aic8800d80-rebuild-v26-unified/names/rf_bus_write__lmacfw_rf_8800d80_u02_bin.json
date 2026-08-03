@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121146c", "status": "ok", "name": "rf_bus_write", "params": [], "docstring": "Write word to RF bus with save/restore of r4-r7", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

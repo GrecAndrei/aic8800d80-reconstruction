@@ -1,0 +1,1 @@
+{"fn": "sub_11BAC0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11bac0", "status": "ok", "name": "bt_start_operation", "params": [], "docstring": "Begin BT operation from control struct", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

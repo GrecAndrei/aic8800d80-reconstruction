@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_302", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211002", "status": "ok", "name": "patch_apply_n4e6", "params": [], "docstring": "Apply firmware patch table and branch to trampoline at 0x167800", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

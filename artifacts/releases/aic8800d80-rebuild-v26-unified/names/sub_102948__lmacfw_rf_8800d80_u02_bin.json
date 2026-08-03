@@ -1,0 +1,1 @@
+{"fn": "sub_102948", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x102948", "status": "ok", "name": "event_counter", "params": [], "docstring": "Increment event counter and process status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

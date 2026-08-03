@@ -1,0 +1,1 @@
+{"fn": "sub_10FFF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10fff0", "status": "ok", "name": "rf_tx_power_get", "params": [], "docstring": "Reads TX power parameters from RF and configuration structures.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

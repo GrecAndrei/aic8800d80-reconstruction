@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3e8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158d0", "status": "ok", "name": "patch_apply_n3e8", "params": [], "docstring": "Applies patch block by aligning r4 to 0x10 and copying 0x100 bytes", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

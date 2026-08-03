@@ -1,0 +1,1 @@
+{"fn": "sub_1237E0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1237e0", "status": "ok", "name": "mem_setup_log", "params": [], "docstring": "Prepare memory block and load debug pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

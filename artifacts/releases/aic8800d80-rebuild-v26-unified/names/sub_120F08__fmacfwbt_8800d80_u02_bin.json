@@ -1,0 +1,1 @@
+{"fn": "sub_120F08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f08", "status": "ok", "name": "rx_ring_init", "params": [], "docstring": "allocate rx dma ring buffer", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

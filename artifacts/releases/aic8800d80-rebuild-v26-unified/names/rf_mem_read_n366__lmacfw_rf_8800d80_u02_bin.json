@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n366", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f8fa", "status": "ok", "name": "rf_mem_read_n366", "params": [], "docstring": "Compute RF read word index by shifting index left 5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

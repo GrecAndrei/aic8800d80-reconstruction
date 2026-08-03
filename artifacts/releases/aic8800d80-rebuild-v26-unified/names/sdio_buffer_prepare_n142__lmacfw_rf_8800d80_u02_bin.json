@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n142", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ecf6", "status": "ok", "name": "sdio_buffer_align_n142", "params": [], "docstring": "Computes 512-byte and 256-byte aligned buffer offsets for SDIO DMA", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

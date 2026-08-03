@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n234", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cbc0", "status": "ok", "name": "message_dispatch_n234", "params": [], "docstring": "Message dispatch with jump table routing", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

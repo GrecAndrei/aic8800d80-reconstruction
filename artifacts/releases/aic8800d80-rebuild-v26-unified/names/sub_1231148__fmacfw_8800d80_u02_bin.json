@@ -1,0 +1,1 @@
+{"fn": "sub_1231148", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1231148", "status": "ok", "name": "rf_chan_cfg_set_n1c4", "params": [], "docstring": "Configure channel parameters, calls helper at 0x12de50", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

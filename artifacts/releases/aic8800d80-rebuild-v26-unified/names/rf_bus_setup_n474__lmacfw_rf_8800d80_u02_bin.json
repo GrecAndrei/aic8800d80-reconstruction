@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n474", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c78", "status": "ok", "name": "rf_bus_setup_n474", "params": [], "docstring": "Initializes RF bus control block at address 0x185a1c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

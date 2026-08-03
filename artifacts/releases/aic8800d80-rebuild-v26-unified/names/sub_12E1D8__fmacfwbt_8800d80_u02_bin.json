@@ -1,0 +1,1 @@
+{"fn": "sub_12E1D8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12e1d8", "status": "ok", "name": "pack_chan_bits", "params": [], "docstring": "Pack RF channel bits into control mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

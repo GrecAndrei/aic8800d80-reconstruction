@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_d2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226d06", "status": "ok", "name": "rf_level_apply_n_d2", "params": [], "docstring": "Apply RF power/tx level from register table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

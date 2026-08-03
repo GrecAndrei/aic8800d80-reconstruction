@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215230", "status": "ok", "name": "rf_mem_read_and_clr_irq", "params": [], "docstring": "Reads RF memory table, then clears pending IRQ bit (bit 1) in MMIO 0x40241000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

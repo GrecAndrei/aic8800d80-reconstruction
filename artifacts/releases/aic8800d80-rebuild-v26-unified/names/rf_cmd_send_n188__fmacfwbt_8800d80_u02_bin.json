@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n188", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ff4", "status": "ok", "name": "rf_cmd_send_n188", "params": [], "docstring": "Build and dispatch RF command in mailbox slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

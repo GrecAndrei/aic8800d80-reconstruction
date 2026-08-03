@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_33a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121182a", "status": "ok", "name": "rf_bus_write_n_33a", "params": [], "docstring": "RF bus write with N parameter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13B17C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13b17c", "status": "ok", "name": "rx_parse_phy_header", "params": [], "docstring": "Parse PHY header and determine frame length", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

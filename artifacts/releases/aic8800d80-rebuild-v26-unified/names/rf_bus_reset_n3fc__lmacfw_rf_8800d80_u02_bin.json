@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n3fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12126ec", "status": "ok", "name": "rf_cmd_dispatch_n33e", "params": [], "docstring": "RF command dispatcher converting float result to u32 via VCVT", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

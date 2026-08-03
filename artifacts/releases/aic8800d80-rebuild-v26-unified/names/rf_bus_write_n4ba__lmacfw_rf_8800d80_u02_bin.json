@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n4ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211926", "status": "ok", "name": "rf_bus_setup_n_4a2", "params": [], "docstring": "Sets up RF bus config: orr 0x2700, bic 0x1800, orr 0x800000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

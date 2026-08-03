@@ -1,0 +1,1 @@
+{"fn": "sub_118D28", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118d28", "status": "ok", "name": "tx_pool_init", "params": [], "docstring": "Allocate and initialize TX memory pool", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

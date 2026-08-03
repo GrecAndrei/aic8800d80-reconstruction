@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_naa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e3ee", "status": "ok", "name": "sdio_buffer_prepare_naa_e3ee", "params": [], "docstring": "Prepare SDIO DMA buffer descriptors", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

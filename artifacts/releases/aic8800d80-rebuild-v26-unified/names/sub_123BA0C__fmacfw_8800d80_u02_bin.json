@@ -1,0 +1,1 @@
+{"fn": "sub_123BA0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123ba0c", "status": "ok", "name": "sub_123BA0C", "params": [], "docstring": "Stub/trampoline: nop + load pointer (patch hook)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

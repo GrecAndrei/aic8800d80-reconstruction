@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n27", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213c6e", "status": "ok", "name": "rf_msg_process_body_n27", "params": [], "docstring": "Stores halfword to message body and shifts register left by 0x1c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

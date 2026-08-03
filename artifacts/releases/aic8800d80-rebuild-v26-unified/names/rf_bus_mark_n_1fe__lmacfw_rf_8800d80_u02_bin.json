@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1fe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f8e", "status": "ok", "name": "rf_bus_mark_n_1fe", "params": [], "docstring": "Mark/claim RF shared bus for transaction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_140540", "img": "fmacfw_8800d80_u02_bin", "addr": "0x140540", "status": "ok", "name": "ble_ll_adv_event_start", "params": [], "docstring": "Start advertising event processing", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

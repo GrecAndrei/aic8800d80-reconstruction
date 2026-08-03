@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_nbc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211248", "status": "ok", "name": "rf_bus_mark_nbc", "params": [], "docstring": "Marks RF bus registers at 0x900-0x914 with flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

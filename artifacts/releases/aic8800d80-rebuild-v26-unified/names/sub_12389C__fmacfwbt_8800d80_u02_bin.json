@@ -1,0 +1,1 @@
+{"fn": "sub_12389C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12389c", "status": "ok", "name": "ipc_msg_send_byte", "params": [], "docstring": "Send IPC message from byte value", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

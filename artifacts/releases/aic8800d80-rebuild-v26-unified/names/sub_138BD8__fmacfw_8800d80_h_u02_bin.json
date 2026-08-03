@@ -1,0 +1,1 @@
+{"fn": "sub_138BD8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x138bd8", "status": "ok", "name": "bt_handle_rx_request", "params": [], "docstring": "dispatch RX request when radio ready", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

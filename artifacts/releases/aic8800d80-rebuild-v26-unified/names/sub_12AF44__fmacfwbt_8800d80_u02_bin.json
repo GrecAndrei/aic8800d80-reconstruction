@@ -1,0 +1,1 @@
+{"fn": "sub_12AF44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12af44", "status": "ok", "name": "rf_tx_power_configure", "params": [], "docstring": "Configure transmit power using device index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3b7", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f4c", "status": "ok", "name": "rf_bus_reset2_n_3b7", "params": [], "docstring": "Reset RF bus, clear register state at offset 0x980", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

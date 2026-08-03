@@ -1,0 +1,1 @@
+{"fn": "sub_138FE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x138fe4", "status": "ok", "name": "ll_rx_irq", "params": [], "docstring": "Handle link layer RX interrupt", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

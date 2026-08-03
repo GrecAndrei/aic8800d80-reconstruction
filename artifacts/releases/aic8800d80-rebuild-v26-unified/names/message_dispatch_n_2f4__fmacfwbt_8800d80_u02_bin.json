@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_2f4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c8c0", "status": "ok", "name": "message_dispatch_n_2f4", "params": [], "docstring": "Dispatch IPC message variant with large reg restore", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

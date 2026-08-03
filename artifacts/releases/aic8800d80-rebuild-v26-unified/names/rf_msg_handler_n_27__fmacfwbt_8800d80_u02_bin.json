@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_27", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212f38", "status": "ok", "name": "rf_msg_handler_n_27", "params": [], "docstring": "Handle RF message with size 0x200", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

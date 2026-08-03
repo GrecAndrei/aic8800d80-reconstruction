@@ -1,0 +1,1 @@
+{"fn": "sub_11E080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11e080", "status": "ok", "name": "radio_set_peripheral_field", "params": [], "docstring": "Set or clear radio register bit from argument", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

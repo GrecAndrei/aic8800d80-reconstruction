@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n442", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121368e", "status": "ok", "name": "rf_stream_start2_n442", "params": [], "docstring": "RF stream start epilogue: restores stack and loads base pointer, r5=0 init", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

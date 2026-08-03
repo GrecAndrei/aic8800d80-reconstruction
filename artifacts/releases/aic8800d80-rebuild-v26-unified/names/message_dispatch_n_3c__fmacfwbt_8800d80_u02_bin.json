@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_3c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb78", "status": "ok", "name": "message_dispatch_n_3c_cb78", "params": [], "docstring": "Dispatch incoming message, pack fields and invoke handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

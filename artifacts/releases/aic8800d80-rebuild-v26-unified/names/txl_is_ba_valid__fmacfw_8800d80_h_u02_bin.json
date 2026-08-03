@@ -1,0 +1,1 @@
+{"fn": "txl_is_ba_valid", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1247a48", "status": "ok", "name": "txl_is_ba_valid", "params": [], "docstring": "Checks whether a received block ack matches expected sequence/bitmap", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1151F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1151f4", "status": "ok", "name": "enter_critical_set_flag", "params": [], "docstring": "Disable interrupts and set status flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

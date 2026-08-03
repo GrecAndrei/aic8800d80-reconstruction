@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start_n_12a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213226", "status": "ok", "name": "scan_chan_parse_n37c", "params": [], "docstring": "Parse channel/scan params from byte fields at offsets 0x1c/0x1d", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

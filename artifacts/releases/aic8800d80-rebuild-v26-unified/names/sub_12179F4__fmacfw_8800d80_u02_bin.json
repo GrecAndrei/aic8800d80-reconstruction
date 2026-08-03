@@ -1,0 +1,1 @@
+{"fn": "sub_12179F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12179f4", "status": "ok", "name": "sub_12179F4", "params": [], "docstring": "Checks upper-nibble mask and dispatches handler", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

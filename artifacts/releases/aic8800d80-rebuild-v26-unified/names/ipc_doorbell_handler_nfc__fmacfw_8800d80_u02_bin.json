@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_nfc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215a78", "status": "ok", "name": "ipc_doorbell_handler_nfc", "params": [], "docstring": "Handles NFC IPC doorbell interrupts by setting host doorbell bits", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

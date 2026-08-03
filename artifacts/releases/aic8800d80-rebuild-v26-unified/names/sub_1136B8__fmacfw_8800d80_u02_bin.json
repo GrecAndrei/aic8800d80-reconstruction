@@ -1,0 +1,1 @@
+{"fn": "sub_1136B8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1136b8", "status": "ok", "name": "read_state_flag", "params": [], "docstring": "Reads state flag byte from global 0x187ebc", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

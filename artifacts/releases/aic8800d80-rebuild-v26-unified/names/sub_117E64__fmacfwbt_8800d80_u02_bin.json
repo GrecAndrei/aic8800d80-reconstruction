@@ -1,0 +1,1 @@
+{"fn": "sub_117E64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x117e64", "status": "ok", "name": "sleep_critical_enter", "params": [], "docstring": "Disable interrupts and set sleep active flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

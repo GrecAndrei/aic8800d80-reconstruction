@@ -1,0 +1,1 @@
+{"fn": "sub_12B4D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b4d4", "status": "ok", "name": "bt_get_conn_entry", "params": [], "docstring": "Get connection control block by handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

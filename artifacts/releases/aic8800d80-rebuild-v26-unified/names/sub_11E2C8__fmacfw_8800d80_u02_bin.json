@@ -1,0 +1,1 @@
+{"fn": "sub_11E2C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11e2c8", "status": "ok", "name": "mac_mcps_request", "params": [], "docstring": "Dispatch MAC MCPS data request command", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

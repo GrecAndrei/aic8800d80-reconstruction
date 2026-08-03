@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n_82", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213432", "status": "ok", "name": "rf_cmd_queue_next_n_82", "params": [], "docstring": "Fetch next RF command queue entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

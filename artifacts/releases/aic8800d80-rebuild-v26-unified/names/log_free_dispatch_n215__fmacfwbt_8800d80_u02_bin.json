@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n215", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210074", "status": "ok", "name": "rf_bus_reset2_n3a9", "params": [], "docstring": "Variant RF bus reset routine using r1 as second arg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_2c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb88", "status": "ok", "name": "message_dispatch_b88", "params": [], "docstring": "Dispatch host<->FW IPC message", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

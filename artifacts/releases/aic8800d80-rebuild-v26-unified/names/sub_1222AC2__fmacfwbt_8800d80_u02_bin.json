@@ -1,0 +1,1 @@
+{"fn": "sub_1222AC2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222ac2", "status": "ok", "name": "ipc_msg_status_check", "params": [], "docstring": "Inspect IPC message field mask 0x1800000 and branch on r3", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

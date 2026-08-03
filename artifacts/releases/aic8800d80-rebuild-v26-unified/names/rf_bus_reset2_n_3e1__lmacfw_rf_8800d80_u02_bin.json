@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3e1", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f22", "status": "ok", "name": "rf_bus_reset2_n_3e1", "params": [], "docstring": "Secondary RF bus reset using indexed offset at 0x980", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

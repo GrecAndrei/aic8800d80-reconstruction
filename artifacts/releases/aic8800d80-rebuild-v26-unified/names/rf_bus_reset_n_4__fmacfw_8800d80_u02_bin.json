@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12129e4", "status": "ok", "name": "rf_bus_reset_n_4", "params": [], "docstring": "Resets RF bus by clearing control registers via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

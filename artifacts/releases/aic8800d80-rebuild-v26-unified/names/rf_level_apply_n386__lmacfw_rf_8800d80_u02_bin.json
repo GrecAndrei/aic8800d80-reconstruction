@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n386", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122715e", "status": "ok", "name": "rf_level_apply_715e", "params": [], "docstring": "Apply RF TX power level scaling", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

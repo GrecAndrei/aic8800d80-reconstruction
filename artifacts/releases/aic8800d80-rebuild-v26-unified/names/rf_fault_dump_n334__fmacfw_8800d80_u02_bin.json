@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n334", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a7c", "status": "ok", "name": "rf_fault_dump_4a7c", "params": [], "docstring": "Dump RF fault/error state to log", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

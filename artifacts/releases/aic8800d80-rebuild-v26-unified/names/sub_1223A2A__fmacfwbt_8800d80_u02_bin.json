@@ -1,0 +1,1 @@
+{"fn": "sub_1223A2A", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223a2a", "status": "ok", "name": "ipc_msg_send", "params": [], "docstring": "Send IPC message with opcode 0x25 to peer core", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

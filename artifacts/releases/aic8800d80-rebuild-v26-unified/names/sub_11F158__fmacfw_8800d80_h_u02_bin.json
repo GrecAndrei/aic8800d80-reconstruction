@@ -1,0 +1,1 @@
+{"fn": "sub_11F158", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11f158", "status": "ok", "name": "set_connection_flag", "params": [], "docstring": "Sets per-connection flag byte in link-layer state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

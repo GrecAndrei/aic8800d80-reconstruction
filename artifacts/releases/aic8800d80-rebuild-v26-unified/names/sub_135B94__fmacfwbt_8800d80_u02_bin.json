@@ -1,0 +1,1 @@
+{"fn": "sub_135B94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135b94", "status": "ok", "name": "send_hci_vendor_cmd", "params": [], "docstring": "Issue HCI vendor command with parameter length", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

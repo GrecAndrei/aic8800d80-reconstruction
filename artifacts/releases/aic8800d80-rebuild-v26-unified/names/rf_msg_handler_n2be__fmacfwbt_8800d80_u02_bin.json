@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n2be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121321e", "status": "ok", "name": "rf_msg_handler_n2be", "params": [], "docstring": "Handle RF message of type 0x2b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

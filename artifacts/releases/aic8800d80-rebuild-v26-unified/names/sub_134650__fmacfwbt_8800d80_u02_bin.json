@@ -1,0 +1,1 @@
+{"fn": "sub_134650", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134650", "status": "ok", "name": "llm_get_ctrl_flags", "params": [], "docstring": "Reads LL control flags and zeroes output words", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

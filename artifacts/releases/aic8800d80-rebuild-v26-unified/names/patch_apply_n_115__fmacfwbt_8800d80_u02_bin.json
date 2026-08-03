@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_115", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153d2", "status": "ok", "name": "panic_entry", "params": [], "docstring": "System panic/fault entry handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

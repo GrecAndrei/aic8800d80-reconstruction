@@ -1,0 +1,1 @@
+{"fn": "rf_reg_write_core", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ec98", "status": "ok", "name": "rf_reg_write_core", "params": [], "docstring": "Core helper incrementing an index after RF register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

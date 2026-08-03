@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202dfc", "status": "ok", "name": "phy_rf_init_n_4d4", "params": [], "docstring": "Initializes PHY/RF register: clears bit 1 and tests MSB", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

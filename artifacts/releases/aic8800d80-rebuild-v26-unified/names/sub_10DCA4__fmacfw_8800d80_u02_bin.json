@@ -1,0 +1,1 @@
+{"fn": "sub_10DCA4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dca4", "status": "ok", "name": "switch_on_arg", "params": [], "docstring": "Branch based on argument compared to 7", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12101da", "status": "ok", "name": "log_free_pool_dispatch2_n4fa", "params": [], "docstring": "Dispatches log pool free with size checks and handler table lookup", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

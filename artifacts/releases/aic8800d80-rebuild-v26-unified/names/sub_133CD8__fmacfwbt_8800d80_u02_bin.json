@@ -1,0 +1,1 @@
+{"fn": "sub_133CD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x133cd8", "status": "ok", "name": "util_reset", "params": [], "docstring": "Reset utility state via command 6", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

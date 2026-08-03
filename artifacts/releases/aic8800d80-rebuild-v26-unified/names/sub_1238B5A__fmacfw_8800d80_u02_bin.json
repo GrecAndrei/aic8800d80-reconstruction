@@ -1,0 +1,1 @@
+{"fn": "sub_1238B5A", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1238b5a", "status": "ok", "name": "util_get_word_or_set", "params": [], "docstring": "Simple utility wrapper saving r0 to r4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

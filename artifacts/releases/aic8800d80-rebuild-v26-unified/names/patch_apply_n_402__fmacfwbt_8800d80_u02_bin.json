@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_402", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150e6", "status": "ok", "name": "patch_apply_n_402", "params": [], "docstring": "Patch apply with 0xff/1 mask", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

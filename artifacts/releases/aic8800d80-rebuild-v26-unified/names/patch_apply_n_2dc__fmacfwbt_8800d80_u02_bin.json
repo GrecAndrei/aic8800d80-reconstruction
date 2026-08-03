@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2dc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121520c", "status": "ok", "name": "patch_apply_n_2dc", "params": [], "docstring": "Applies patch n_2dc by writing bytes and invoking function pointer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

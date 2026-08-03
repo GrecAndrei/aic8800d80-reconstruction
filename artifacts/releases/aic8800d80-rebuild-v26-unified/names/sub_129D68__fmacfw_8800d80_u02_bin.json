@@ -1,0 +1,1 @@
+{"fn": "sub_129D68", "img": "fmacfw_8800d80_u02_bin", "addr": "0x129d68", "status": "ok", "name": "llc_get_context", "params": [], "docstring": "Obtain link-layer connection context via helper", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

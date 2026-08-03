@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n28b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b0e", "status": "ok", "name": "rf_bus_mark_n28b", "params": [], "docstring": "Marks RF bus state via masked 32-bit write to control reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

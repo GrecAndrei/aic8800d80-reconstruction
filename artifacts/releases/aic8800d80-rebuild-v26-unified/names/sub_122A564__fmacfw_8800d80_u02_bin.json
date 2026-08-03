@@ -1,0 +1,1 @@
+{"fn": "sub_122A564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a564", "status": "ok", "name": "rf_table_lookup_n564", "params": [], "docstring": "Indexed lookup in RF table by entry id with offset math", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

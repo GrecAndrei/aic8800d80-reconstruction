@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_354", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212c0c", "status": "ok", "name": "rf_msg_handler_n_354", "params": [], "docstring": "Handle RF message slot 0x354 from shared buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

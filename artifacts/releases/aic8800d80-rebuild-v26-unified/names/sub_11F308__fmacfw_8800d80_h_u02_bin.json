@@ -1,0 +1,1 @@
+{"fn": "sub_11F308", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11f308", "status": "ok", "name": "build_tx_pdu_lists", "params": [], "docstring": "Walks TX queues at offsets 0x248 and 0x270 to prepare PDU", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

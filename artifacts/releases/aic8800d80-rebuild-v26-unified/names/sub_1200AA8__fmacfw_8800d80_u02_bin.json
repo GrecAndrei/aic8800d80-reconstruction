@@ -1,0 +1,1 @@
+{"fn": "sub_1200AA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200aa8", "status": "ok", "name": "mmio_set_clock_gate_bit", "params": [], "docstring": "Set bit in MMIO clock gate register 0x4033b390", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_343", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215638", "status": "ok", "name": "ipc_doorbell_handler_638", "params": [], "docstring": "Handle host->MCU doorbell interrupt and ACK to host regs (0x40500000)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_10EDE4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10ede4", "status": "ok", "name": "rf_get_status", "params": [], "docstring": "Reads RF status register and extracts a bitfield", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

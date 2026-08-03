@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_1ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c9ca", "status": "ok", "name": "msg_dispatch_check", "params": [], "docstring": "Loads a 16-bit message field and tests it against zero.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

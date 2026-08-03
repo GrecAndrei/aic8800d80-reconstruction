@@ -1,0 +1,1 @@
+{"fn": "sub_1228024", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1228024", "status": "ok", "name": "bt_msg_handler_dispatch", "params": [], "docstring": "BT message handler dispatch computing index*7 from global state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

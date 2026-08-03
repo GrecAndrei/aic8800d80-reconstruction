@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_b4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d04", "status": "ok", "name": "rf_bus_init_n_b4", "params": [], "docstring": "RF bus initialization with bit masking", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

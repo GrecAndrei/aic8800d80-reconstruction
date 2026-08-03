@@ -1,0 +1,1 @@
+{"fn": "sub_138274", "img": "fmacfw_8800d80_u02_bin", "addr": "0x138274", "status": "ok", "name": "process_scan_command", "params": [], "docstring": "Execute scan control command on scan table", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

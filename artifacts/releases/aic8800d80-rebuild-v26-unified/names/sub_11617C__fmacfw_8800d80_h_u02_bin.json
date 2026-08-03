@@ -1,0 +1,1 @@
+{"fn": "sub_11617C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11617c", "status": "ok", "name": "adv_type_valid", "params": [], "docstring": "Check advertising type range", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

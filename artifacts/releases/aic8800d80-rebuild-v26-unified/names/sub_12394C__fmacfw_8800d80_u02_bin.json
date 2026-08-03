@@ -1,0 +1,1 @@
+{"fn": "sub_12394C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12394c", "status": "ok", "name": "unknown_handler", "params": [], "docstring": "Undefined handler with invalid instruction", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114A40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114a40", "status": "ok", "name": "assert_handler", "params": [], "docstring": "Handle assertion failure with debug info", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

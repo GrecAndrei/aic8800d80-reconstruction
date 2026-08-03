@@ -1,0 +1,1 @@
+{"fn": "sub_133D58", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x133d58", "status": "ok", "name": "ke_lock_and_read", "params": [], "docstring": "Takes lock 6 and reads data at offset 0x3d", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

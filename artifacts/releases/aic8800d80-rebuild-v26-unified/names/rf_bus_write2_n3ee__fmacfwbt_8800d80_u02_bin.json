@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n3ee", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e66", "status": "ok", "name": "rf_bus_write2_n3ee_1e66", "params": [], "docstring": "Perform 2-word write over RF bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_139F94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x139f94", "status": "ok", "name": "tx_power_set_band_alt", "params": [], "docstring": "Alternate TX power band setting with default threshold", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

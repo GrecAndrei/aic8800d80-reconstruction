@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_12a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12128be", "status": "ok", "name": "rf_bus_reset_n_12a_28be", "params": [], "docstring": "RF bus reset triggering 0x111d44 helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

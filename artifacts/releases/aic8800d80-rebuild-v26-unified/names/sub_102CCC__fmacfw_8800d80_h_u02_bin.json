@@ -1,0 +1,1 @@
+{"fn": "sub_102CCC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102ccc", "status": "ok", "name": "uart_driver_send", "params": [], "docstring": "Complex driver routine operating on a UART/MMIO base", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

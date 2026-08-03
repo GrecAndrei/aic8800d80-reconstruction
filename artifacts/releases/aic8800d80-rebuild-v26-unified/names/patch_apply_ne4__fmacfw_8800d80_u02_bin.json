@@ -1,0 +1,1 @@
+{"fn": "patch_apply_ne4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f90", "status": "ok", "name": "patch_apply_ne4", "params": [], "docstring": "Apply firmware patch table entry (compare 16-bit value 0xc241)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

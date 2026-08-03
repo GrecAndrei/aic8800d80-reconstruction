@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121136a", "status": "ok", "name": "rf_bus_mark_set_bits", "params": [], "docstring": "sets RF bus register bits after clearing mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

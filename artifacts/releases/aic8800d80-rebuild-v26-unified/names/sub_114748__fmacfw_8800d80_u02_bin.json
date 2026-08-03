@@ -1,0 +1,1 @@
+{"fn": "sub_114748", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114748", "status": "ok", "name": "load_multiple_globals", "params": [], "docstring": "Load globals 0x1732f4, 0x182560, 0x187f8c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124fc", "status": "ok", "name": "rf_bus_reset_n_4ec", "params": [], "docstring": "Reset RF bus state and validate against expected mode 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

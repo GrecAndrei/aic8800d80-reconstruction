@@ -1,0 +1,1 @@
+{"fn": "sub_121BC8C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121bc8c", "status": "ok", "name": "bt_hci_cmd_send", "params": [], "docstring": "Send HCI command to BT controller", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

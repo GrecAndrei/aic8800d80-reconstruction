@@ -1,0 +1,1 @@
+{"fn": "sub_1143AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1143ac", "status": "ok", "name": "log_debug_a", "params": [], "docstring": "Log debug message from first constant pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

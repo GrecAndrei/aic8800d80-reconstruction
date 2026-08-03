@@ -1,0 +1,1 @@
+{"fn": "sub_13C140", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c140", "status": "ok", "name": "phy_set_chan", "params": [], "docstring": "Configure PHY channel using three-byte channel entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

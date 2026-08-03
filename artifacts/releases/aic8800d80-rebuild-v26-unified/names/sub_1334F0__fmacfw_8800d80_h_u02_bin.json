@@ -1,0 +1,1 @@
+{"fn": "sub_1334F0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1334f0", "status": "ok", "name": "unaligned_word_load", "params": [], "docstring": "Loads unaligned word and extracts byte offset.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

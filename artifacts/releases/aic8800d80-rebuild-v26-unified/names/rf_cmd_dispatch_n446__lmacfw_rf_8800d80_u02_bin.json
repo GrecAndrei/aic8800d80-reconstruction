@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n446", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122238a", "status": "ok", "name": "rf_cmd_dispatch_n446", "params": [], "docstring": "Dispatch RF command by writing magic values to control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

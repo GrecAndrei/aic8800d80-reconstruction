@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_356", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12125c2", "status": "ok", "name": "rf_bus_write_n328", "params": [], "docstring": "Subtracts 8 from RF bus reg 0xb08 and sets bits in RF bus reg 0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

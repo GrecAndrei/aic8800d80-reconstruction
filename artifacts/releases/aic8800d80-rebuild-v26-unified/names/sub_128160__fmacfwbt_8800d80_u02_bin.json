@@ -1,0 +1,1 @@
+{"fn": "sub_128160", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128160", "status": "ok", "name": "hci_command_handler", "params": [], "docstring": "Handle HCI command with three arguments via context", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_29a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121524e", "status": "ok", "name": "patch_apply_n_29a_524e", "params": [], "docstring": "Applies firmware patch (nop stub)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_123B80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123b80", "status": "ok", "name": "irq_disable_save", "params": [], "docstring": "Disables interrupts and saves exception state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

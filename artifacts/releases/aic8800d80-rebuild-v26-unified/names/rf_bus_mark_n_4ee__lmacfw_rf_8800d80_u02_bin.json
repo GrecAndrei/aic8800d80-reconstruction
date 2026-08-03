@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4ee", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210c9e", "status": "ok", "name": "rf_bus_mark_n_4ee", "params": [], "docstring": "Writes value to RF bus register with NOP padding for timing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

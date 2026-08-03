@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n4b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211f2a", "status": "ok", "name": "rf_msg_handler_n44e", "params": [], "docstring": "RF message handler dispatching commands based on message type", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

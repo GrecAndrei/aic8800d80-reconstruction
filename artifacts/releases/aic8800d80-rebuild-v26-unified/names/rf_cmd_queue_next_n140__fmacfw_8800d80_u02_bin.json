@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n140", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12135f4", "status": "ok", "name": "rf_bus_mark_n66", "params": [], "docstring": "Mark RF bus descriptor with offset/tag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

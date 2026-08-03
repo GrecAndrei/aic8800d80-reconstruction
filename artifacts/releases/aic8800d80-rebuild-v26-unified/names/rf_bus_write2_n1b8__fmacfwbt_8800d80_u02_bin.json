@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n1b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c30", "status": "ok", "name": "rf_state_check_n_120", "params": [], "docstring": "Updates RF state fields and sets ORR mask bits in 0xb00 RF register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

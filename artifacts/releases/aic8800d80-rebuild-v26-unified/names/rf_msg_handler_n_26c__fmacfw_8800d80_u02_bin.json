@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_26c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212e98", "status": "ok", "name": "rf_msg_handler_n_26c", "params": [], "docstring": "Handle RF control message: init hardware state and update control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

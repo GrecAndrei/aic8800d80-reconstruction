@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n458", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12140a0", "status": "ok", "name": "rf_lmac_init_n_8d40", "params": [], "docstring": "Initialize LMAC RF subsystem registers at 0x403200xx block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

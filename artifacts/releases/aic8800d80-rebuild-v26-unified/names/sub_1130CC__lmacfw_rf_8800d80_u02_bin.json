@@ -1,0 +1,1 @@
+{"fn": "sub_1130CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1130cc", "status": "ok", "name": "timer_event_handler", "params": [], "docstring": "Process timer queue based on pointer field offset 8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

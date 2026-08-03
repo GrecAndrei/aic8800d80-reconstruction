@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_nb0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12220dc", "status": "ok", "name": "rf_mem_write_nb0", "params": [], "docstring": "Write zero value to RF memory register via helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

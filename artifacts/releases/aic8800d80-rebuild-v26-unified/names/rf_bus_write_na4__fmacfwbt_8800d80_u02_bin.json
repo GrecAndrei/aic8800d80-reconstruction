@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_na4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a64", "status": "ok", "name": "rf_bus_write_na4", "params": [], "docstring": "Write 16-bit value to RF bus address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

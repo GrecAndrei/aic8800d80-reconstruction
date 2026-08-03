@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_404", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212514", "status": "ok", "name": "ipc_doorbell_handler_2514", "params": [], "docstring": "Handle IPC doorbell interrupts", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

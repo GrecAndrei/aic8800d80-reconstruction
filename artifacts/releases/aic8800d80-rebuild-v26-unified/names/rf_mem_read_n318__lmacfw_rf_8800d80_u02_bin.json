@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n318", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f8ac", "status": "ok", "name": "rf_mem_read_n318", "params": [], "docstring": "Reads 32-bit word from RF register/memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

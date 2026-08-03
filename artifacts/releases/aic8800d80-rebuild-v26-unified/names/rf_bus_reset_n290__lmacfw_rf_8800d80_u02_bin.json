@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n290", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212580", "status": "ok", "name": "ipc_doorbell_handler_n_499", "params": [], "docstring": "Read doorbell status byte for IPC handling", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

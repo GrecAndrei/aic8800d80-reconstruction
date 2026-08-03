@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_88", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211974", "status": "ok", "name": "rf_bus_reset2_974", "params": [], "docstring": "Reset RF bus state across channel-indexed register set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

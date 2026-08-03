@@ -1,0 +1,1 @@
+{"fn": "sub_1241E38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1241e38", "status": "ok", "name": "ipc_msg_send_header", "params": [], "docstring": "Builds and sends IPC message header (id=0x3002, len=0xc) to target", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

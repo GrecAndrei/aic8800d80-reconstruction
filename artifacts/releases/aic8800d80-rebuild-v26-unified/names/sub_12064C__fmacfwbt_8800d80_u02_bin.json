@@ -1,0 +1,1 @@
+{"fn": "sub_12064C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12064c", "status": "ok", "name": "alloc_buffer", "params": [], "docstring": "allocate 88-byte buffer via allocator", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

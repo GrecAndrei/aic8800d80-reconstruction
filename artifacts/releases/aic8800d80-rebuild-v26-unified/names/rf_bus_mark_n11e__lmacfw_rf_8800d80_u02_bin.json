@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n11e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12112aa", "status": "ok", "name": "rf_bus_mark_11e", "params": [], "docstring": "Marks RF bus transaction state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

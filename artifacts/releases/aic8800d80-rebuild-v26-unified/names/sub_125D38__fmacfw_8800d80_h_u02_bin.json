@@ -1,0 +1,1 @@
+{"fn": "sub_125D38", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x125d38", "status": "ok", "name": "rf_mode_setup", "params": [], "docstring": "Setup RF mode based on flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

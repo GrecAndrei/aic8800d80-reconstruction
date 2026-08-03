@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e3a4", "status": "ok", "name": "sdio_buffer_prepare_n60", "params": [], "docstring": "Computes SDIO buffer index/offset by left-shifting r3 by 1 repeatedly", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

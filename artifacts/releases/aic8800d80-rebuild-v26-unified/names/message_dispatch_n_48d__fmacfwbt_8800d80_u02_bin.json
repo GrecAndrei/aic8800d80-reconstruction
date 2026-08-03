@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_48d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c726", "status": "ok", "name": "ipc_message_dispatch_c726", "params": [], "docstring": "Dispatch IPC message extracting cmd/param fields", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_1294C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1294c8", "status": "ok", "name": "wlc_mmio_clock_enable", "params": [], "docstring": "Set clock enable bit in chip control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

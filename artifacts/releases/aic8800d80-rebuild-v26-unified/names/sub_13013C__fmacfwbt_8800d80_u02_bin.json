@@ -1,0 +1,1 @@
+{"fn": "sub_13013C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13013c", "status": "ok", "name": "buf_array_clear_single", "params": [], "docstring": "Handle buffer clear for count == 1", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n4b8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121268c", "status": "ok", "name": "rf_state_check_n4b8", "params": [], "docstring": "Checks and stores RF state fields at 0x18231a/0x182318", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

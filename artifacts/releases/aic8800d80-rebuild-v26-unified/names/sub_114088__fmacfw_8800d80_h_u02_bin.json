@@ -1,0 +1,1 @@
+{"fn": "sub_114088", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114088", "status": "ok", "name": "check_global_value", "params": [], "docstring": "Compare argument with global value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_118BBC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118bbc", "status": "ok", "name": "check_packet_flag", "params": [], "docstring": "Test byte flag at offset 0x60", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

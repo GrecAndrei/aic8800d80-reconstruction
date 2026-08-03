@@ -1,0 +1,1 @@
+{"fn": "sub_11EA44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11ea44", "status": "ok", "name": "rx_packet_setup", "params": [], "docstring": "Set up stack frame for RX packet processing.", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

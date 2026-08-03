@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n177", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212466", "status": "ok", "name": "rf_bus_reset_controller", "params": [], "docstring": "Reset RF bus controller, mask bits, clear queue and init params", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121683C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121683c", "status": "ok", "name": "rf_temp_sensor_read", "params": [], "docstring": "Read RF temperature sensor value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

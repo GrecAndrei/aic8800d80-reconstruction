@@ -1,0 +1,1 @@
+{"fn": "sub_1221340", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1221340", "status": "ok", "name": "rf_chan_table_init_n_74", "params": [], "docstring": "Initialize per-channel RF register table at 0x403200ac..bc sized 0x2b8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1c2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121151e", "status": "ok", "name": "rf_bus_mark_n_1c2", "params": [], "docstring": "Mark RF bus state byte and update related register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_131734", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x131734", "status": "ok", "name": "rf_calib_load", "params": [], "docstring": "Load RF calibration data into global buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122AE74", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ae74", "status": "ok", "name": "sub_122AE74", "params": [], "docstring": "Unknown helper, compares value against 0x1f", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

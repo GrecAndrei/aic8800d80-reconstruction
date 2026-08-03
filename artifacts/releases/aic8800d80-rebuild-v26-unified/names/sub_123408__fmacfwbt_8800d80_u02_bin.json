@@ -1,0 +1,1 @@
+{"fn": "sub_123408", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123408", "status": "ok", "name": "rf_reg_write_88", "params": [], "docstring": "Write RF register using command 0x88", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

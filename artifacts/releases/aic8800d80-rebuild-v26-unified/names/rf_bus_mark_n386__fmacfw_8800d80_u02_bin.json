@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n386", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211c0a", "status": "ok", "name": "rf_bus_mark_n386", "params": [], "docstring": "RF bus mark: compute masked/shifted address for RF bus access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

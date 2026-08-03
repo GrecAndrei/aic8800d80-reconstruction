@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_a9", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121543e", "status": "ok", "name": "patch_apply_n_a9", "params": [], "docstring": "Apply firmware patch block to target image", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

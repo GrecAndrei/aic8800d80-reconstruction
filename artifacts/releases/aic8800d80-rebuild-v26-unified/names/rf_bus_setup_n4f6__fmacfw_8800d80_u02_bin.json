@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n4f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123f2", "status": "ok", "name": "rf_bus_setup_n4f6", "params": [], "docstring": "Configure RF bus by clearing specific bits in control regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

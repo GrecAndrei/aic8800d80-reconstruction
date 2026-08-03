@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n4d7", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211662", "status": "ok", "name": "message_dispatch_n_462", "params": [], "docstring": "BT message dispatch handler checking message id 0x24", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

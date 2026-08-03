@@ -1,0 +1,1 @@
+{"fn": "sub_124F60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124f60", "status": "ok", "name": "ke_event_lock", "params": [], "docstring": "Enter critical section and access kernel event", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

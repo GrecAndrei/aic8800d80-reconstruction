@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121233a", "status": "ok", "name": "rf_bus_reset_n4a", "params": [], "docstring": "Reset RF bus controller and restore default state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1435C8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1435c8", "status": "ok", "name": "int_abs", "params": [], "docstring": "Absolute value of integer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

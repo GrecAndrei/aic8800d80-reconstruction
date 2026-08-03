@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12129da", "status": "ok", "name": "rf_bus_chip_reset", "params": [], "docstring": "issue RF bus chip reset sequence with mask 0x20", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

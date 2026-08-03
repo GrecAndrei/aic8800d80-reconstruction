@@ -1,0 +1,1 @@
+{"fn": "sub_11C4F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c4f8", "status": "ok", "name": "get_pair_by_id", "params": [], "docstring": "Fetches a table entry using an index with 28-byte stride", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

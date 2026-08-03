@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2e8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210148", "status": "ok", "name": "log_free_dispatch_0148", "params": [], "docstring": "Free log entries and dispatch log/trace entries with size header", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

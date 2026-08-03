@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n3ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223da", "status": "ok", "name": "sdio_buffer_prepare_na0", "params": [], "docstring": "Computes SDIO DMA buffer index/offset via shifts", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

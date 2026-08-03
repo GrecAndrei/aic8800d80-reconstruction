@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n31e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f3a", "status": "ok", "name": "rf_bus_write2_n31e", "params": [], "docstring": "Writes 32-bit word to RF bus (variant N31E)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

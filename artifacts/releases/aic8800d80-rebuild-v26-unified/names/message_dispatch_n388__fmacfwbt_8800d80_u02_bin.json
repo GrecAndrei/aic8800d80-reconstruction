@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n388", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf3c", "status": "ok", "name": "message_dispatch_n388", "params": [], "docstring": "Dispatch incoming message and return payload pointer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

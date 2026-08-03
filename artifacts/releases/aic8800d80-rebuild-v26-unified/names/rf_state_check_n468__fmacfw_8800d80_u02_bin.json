@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n468", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121263c", "status": "ok", "name": "rf_state_check_n468", "params": [], "docstring": "Check RF state byte (offset 0xc) masked with 0x1f", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

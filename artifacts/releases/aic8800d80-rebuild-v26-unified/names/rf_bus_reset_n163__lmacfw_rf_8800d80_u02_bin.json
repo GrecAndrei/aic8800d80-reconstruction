@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n163", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212452", "status": "ok", "name": "rf_bus_reset_n163", "params": [], "docstring": "Resets RF bus for N163 chip via MMIO register set/clear", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

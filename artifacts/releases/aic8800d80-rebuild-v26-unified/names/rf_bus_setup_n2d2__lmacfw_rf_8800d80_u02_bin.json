@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2d2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ad6", "status": "ok", "name": "rf_bus_copy_id_to_reg", "params": [], "docstring": "Loads RF bus config IDs and copies 16-bit identifier from reg+0xe to target reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

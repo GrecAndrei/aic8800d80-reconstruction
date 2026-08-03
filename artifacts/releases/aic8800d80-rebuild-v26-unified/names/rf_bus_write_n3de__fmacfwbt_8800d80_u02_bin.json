@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n3de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d9e", "status": "ok", "name": "rf_bus_write_n3de_1d9e", "params": [], "docstring": "Compose and write RF bus address word with field extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

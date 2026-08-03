@@ -1,0 +1,1 @@
+{"fn": "sub_1216838", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1216838", "status": "ok", "name": "rf_channel_set_n6838", "params": [], "docstring": "Set RF channel by querying current state and applying delta (sub 1)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11CAC8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11cac8", "status": "ok", "name": "queue_remove", "params": [], "docstring": "Remove an element from a link-layer queue by index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

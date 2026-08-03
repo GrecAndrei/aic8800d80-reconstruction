@@ -1,0 +1,1 @@
+{"fn": "sub_12D4F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d4f8", "status": "ok", "name": "list_pop_front", "params": [], "docstring": "Remove head node from linked list", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12FE54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12fe54", "status": "ok", "name": "buf_clear10", "params": [], "docstring": "Clear 10-byte buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

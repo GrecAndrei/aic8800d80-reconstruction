@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_40c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269cc", "status": "ok", "name": "rf_level_apply_n_40c", "params": [], "docstring": "Apply RF gain/level register mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

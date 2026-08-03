@@ -1,0 +1,1 @@
+{"fn": "sub_12DFA0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12dfa0", "status": "ok", "name": "extract_9bit_field", "params": [], "docstring": "Combines bytes at offsets 4 and 5 into a shifted 9-bit field", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

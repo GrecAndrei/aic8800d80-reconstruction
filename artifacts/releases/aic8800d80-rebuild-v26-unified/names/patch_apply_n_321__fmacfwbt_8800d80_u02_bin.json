@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_321", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151c6", "status": "ok", "name": "patch_apply_1c6", "params": [], "docstring": "Apply firmware patch (alt)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

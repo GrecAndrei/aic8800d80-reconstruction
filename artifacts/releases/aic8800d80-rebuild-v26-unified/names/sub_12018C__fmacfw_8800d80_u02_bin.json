@@ -1,0 +1,1 @@
+{"fn": "sub_12018C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12018c", "status": "ok", "name": "adjust_table_pointers", "params": [], "docstring": "Builds table offsets using 0x78 stride and entry index.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

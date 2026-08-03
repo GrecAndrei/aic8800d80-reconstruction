@@ -1,0 +1,1 @@
+{"fn": "sub_1389C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1389c8", "status": "ok", "name": "ke_msg_release", "params": [], "docstring": "Release kernel message and return to free list", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

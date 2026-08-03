@@ -1,0 +1,1 @@
+{"fn": "sub_110CE4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x110ce4", "status": "ok", "name": "mmio_write_reg", "params": [], "docstring": "Write constant and read MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

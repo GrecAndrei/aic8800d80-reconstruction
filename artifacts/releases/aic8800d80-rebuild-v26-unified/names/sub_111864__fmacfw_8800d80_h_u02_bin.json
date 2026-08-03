@@ -1,0 +1,1 @@
+{"fn": "sub_111864", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111864", "status": "ok", "name": "get_node_offset_b", "params": [], "docstring": "Fetch 16-byte node from array and load offset 0xb", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

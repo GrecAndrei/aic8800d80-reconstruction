@@ -1,0 +1,1 @@
+{"fn": "sub_12FA04", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12fa04", "status": "ok", "name": "init_static_tables", "params": [], "docstring": "Copy configuration between static tables", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_1c0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121183c", "status": "ok", "name": "rf_bus_reset2_n_1c0", "params": [], "docstring": "RF bus reset sequence operating on offset 0x30 register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

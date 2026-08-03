@@ -1,0 +1,1 @@
+{"fn": "sub_122EFAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122efac", "status": "ok", "name": "rf_msg_handler_n41e", "params": [], "docstring": "RF message handler initializing with status code 0x9e", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

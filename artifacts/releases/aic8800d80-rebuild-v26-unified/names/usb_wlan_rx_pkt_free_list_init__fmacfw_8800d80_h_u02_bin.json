@@ -1,0 +1,1 @@
+{"fn": "usb_wlan_rx_pkt_free_list_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1246fc0", "status": "ok", "name": "usb_wlan_rx_pkt_free_list_init", "params": [], "docstring": "Initializes the USB WLAN RX packet free descriptor list", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

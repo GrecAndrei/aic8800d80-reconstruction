@@ -1,0 +1,1 @@
+{"fn": "sub_13D518", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13d518", "status": "ok", "name": "scan_set_adv_flag", "params": [], "docstring": "Update advertising flag based on mode field", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

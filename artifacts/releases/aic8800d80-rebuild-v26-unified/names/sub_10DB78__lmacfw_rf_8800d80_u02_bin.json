@@ -1,0 +1,1 @@
+{"fn": "sub_10DB78", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10db78", "status": "ok", "name": "gpio_disable_interrupt", "params": [], "docstring": "Disables a GPIO interrupt by clearing bit in interrupt enable register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

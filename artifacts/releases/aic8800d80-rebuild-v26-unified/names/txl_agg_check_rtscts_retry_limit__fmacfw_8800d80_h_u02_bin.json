@@ -1,0 +1,1 @@
+{"fn": "txl_agg_check_rtscts_retry_limit", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1247e0c", "status": "ok", "name": "txl_agg_check_rtscts_retry_limit", "params": [], "docstring": "Checks A-MPDU TX aggregation RTS/CTS retry limits", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

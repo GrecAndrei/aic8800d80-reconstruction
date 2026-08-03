@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121540a", "status": "ok", "name": "sdio_buffer_prepare_n41d", "params": [], "docstring": "Prepares SDIO buffer descriptor for transfer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

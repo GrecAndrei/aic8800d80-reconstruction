@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_1da", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213a6e", "status": "ok", "name": "patch_apply_bits", "params": [], "docstring": "Apply patch by extracting single bit from r4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

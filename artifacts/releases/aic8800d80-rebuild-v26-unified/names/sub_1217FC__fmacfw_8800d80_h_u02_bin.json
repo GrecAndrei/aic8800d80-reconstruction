@@ -1,0 +1,1 @@
+{"fn": "sub_1217FC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1217fc", "status": "ok", "name": "ll_get_tx_power", "params": [], "docstring": "Get TX power field from connection context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

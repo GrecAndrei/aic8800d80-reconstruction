@@ -1,0 +1,1 @@
+{"fn": "sub_12F9A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f9a4", "status": "ok", "name": "find_extension", "params": [], "docstring": "Locate file extension separator in path string.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

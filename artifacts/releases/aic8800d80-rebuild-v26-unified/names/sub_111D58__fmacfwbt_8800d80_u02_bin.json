@@ -1,0 +1,1 @@
+{"fn": "sub_111D58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111d58", "status": "ok", "name": "ke_cmd_handler", "params": [], "docstring": "Dispatch command based on opcode", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

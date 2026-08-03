@@ -1,0 +1,1 @@
+{"fn": "sub_120F15C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f15c", "status": "ok", "name": "mmio_bit_extract_n", "params": [], "docstring": "Reads MMIO register 0x7000101c and extracts 5-bit field at bit 11", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_11a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226cbe", "status": "ok", "name": "rf_level_apply_n_11a", "params": [], "docstring": "Apply RF level register mask 0x14810000 + 0x100 nibble", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

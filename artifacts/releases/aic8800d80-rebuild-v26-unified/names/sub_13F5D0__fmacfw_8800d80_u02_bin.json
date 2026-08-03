@@ -1,0 +1,1 @@
+{"fn": "sub_13F5D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13f5d0", "status": "ok", "name": "ble_ll_conn_tx_pdu", "params": [], "docstring": "Prepare outgoing connection PDU", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

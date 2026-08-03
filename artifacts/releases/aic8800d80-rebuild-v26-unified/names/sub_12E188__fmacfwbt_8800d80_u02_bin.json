@@ -1,0 +1,1 @@
+{"fn": "sub_12E188", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12e188", "status": "ok", "name": "parse_amp_u16", "params": [], "docstring": "Extract value after '&' and validate against 16", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

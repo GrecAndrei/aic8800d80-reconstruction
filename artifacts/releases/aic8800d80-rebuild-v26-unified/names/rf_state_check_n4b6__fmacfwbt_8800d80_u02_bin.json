@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n4b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124e6", "status": "ok", "name": "rf_state_update_n4b6", "params": [], "docstring": "Read and update RF state register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

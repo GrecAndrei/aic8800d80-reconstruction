@@ -1,0 +1,1 @@
+{"fn": "sub_12314F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12314f4", "status": "ok", "name": "bt_msg_dispatch_1314f4", "params": [], "docstring": "BT message dispatch parsing header bytes from ring buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

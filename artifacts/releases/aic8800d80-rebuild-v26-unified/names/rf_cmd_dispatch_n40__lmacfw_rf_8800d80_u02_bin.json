@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f84", "status": "ok", "name": "rf_cmd_dispatch_n40", "params": [], "docstring": "Dispatches an RF command by resolving handler and invoking send", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

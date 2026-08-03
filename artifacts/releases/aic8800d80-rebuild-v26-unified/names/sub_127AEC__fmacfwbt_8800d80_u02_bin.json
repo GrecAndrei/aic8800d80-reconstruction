@@ -1,0 +1,1 @@
+{"fn": "sub_127AEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x127aec", "status": "ok", "name": "release_buffer", "params": [], "docstring": "Replace buffer pointer after queue operation and post-process", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

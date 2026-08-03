@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_16c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145dc", "status": "ok", "name": "rf_fault_dump_n_16c", "params": [], "docstring": "Dump RF fault state and compute register offsets for diagnostics", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

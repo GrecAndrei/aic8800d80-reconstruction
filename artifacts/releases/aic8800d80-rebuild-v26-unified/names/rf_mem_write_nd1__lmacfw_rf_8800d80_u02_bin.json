@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_nd1", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12220fc", "status": "ok", "name": "rf_mem_write_cp", "params": [], "docstring": "Write RF register via coprocessor MRC/MCR access", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

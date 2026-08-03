@@ -1,0 +1,1 @@
+{"fn": "sub_11BC48", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11bc48", "status": "ok", "name": "wifi_core_init", "params": [], "docstring": "Clear core state and initialize hardware descriptor", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

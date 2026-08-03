@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4ca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159b2", "status": "ok", "name": "patch_apply_n4ca", "params": [], "docstring": "Apply firmware patch bytes to memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10767C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10767c", "status": "ok", "name": "ke_event_schedule", "params": [], "docstring": "Schedule a kernel event with argument", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

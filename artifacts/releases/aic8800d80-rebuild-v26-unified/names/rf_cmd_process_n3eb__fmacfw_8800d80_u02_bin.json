@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n3eb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213942", "status": "ok", "name": "rf_cmd_process_n3eb", "params": [], "docstring": "Decrement and process pending RF command slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

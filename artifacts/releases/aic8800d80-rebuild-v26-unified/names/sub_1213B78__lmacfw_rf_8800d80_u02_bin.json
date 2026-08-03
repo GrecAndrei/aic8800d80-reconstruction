@@ -1,0 +1,1 @@
+{"fn": "sub_1213B78", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213b78", "status": "ok", "name": "rf_helper_sub_n_3b78", "params": [], "docstring": "Small RF helper wrapper saving r0 and returning", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

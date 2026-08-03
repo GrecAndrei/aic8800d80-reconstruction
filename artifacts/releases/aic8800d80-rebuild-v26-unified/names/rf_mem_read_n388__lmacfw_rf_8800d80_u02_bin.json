@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n388", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f91c", "status": "ok", "name": "rf_mem_read_loop_x32", "params": [], "docstring": "Repeated shift-add indexing (r3=r6<<5) for RF memory read stride loop", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

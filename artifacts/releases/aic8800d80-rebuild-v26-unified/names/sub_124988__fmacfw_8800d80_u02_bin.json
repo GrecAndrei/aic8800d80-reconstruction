@@ -1,0 +1,1 @@
+{"fn": "sub_124988", "img": "fmacfw_8800d80_u02_bin", "addr": "0x124988", "status": "ok", "name": "ble_mmio_config", "params": [], "docstring": "Reads and configures BLE register 0x40320200", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

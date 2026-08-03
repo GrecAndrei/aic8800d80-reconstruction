@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_10f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153d8", "status": "ok", "name": "rf_bus_write_n_433_53d8", "params": [], "docstring": "Write to RF bus after shift preparation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

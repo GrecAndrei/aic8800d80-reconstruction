@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n66", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a4e", "status": "ok", "name": "rf_bus_reset_n66", "params": [], "docstring": "RF bus reset register OR/str operation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

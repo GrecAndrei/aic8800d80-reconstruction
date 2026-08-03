@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n396", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12132f6", "status": "ok", "name": "rf_msg_handler_n396", "params": [], "docstring": "Handle RF message by inspecting opcode and dispatching to handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

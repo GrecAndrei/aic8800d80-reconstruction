@@ -1,0 +1,1 @@
+{"fn": "sub_11B84C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11b84c", "status": "ok", "name": "handle_connection_slot", "params": [], "docstring": "Handles connection slot using global state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

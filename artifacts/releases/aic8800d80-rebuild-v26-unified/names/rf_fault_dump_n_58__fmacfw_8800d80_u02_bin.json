@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146f0", "status": "ok", "name": "rf_fault_dump_n_58", "params": [], "docstring": "Dump RF fault state from MMIO at 0x182b5c/0x182558", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

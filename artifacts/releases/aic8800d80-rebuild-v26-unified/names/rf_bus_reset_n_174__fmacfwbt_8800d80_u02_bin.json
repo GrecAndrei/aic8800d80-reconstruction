@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_174", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12126d0", "status": "ok", "name": "rf_bus_reset_n_174", "params": [], "docstring": "RF bus reset sequence with constant register setup (0x20, 0x1a, 0x18)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

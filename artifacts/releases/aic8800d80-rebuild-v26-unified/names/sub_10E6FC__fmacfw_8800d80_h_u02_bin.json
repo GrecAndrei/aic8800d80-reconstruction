@@ -1,0 +1,1 @@
+{"fn": "sub_10E6FC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10e6fc", "status": "ok", "name": "gpio_mode_set", "params": [], "docstring": "Configure GPIO pad mode in register 0x40344030", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

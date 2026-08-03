@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121585c", "status": "ok", "name": "patch_apply_n374", "params": [], "docstring": "Extracts and applies patch bitfields", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

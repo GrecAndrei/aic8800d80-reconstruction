@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_na6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12128ea", "status": "ok", "name": "rf_bus_reset_na6", "params": [], "docstring": "Reset RF bus by toggling control bit in MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

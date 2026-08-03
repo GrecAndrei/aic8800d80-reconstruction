@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n46a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cae", "status": "ok", "name": "rf_bus_reset_n46a", "params": [], "docstring": "RF bus reset (clears fp/r8, variant 46a)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

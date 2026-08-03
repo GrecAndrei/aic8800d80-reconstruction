@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_4b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118a4", "status": "ok", "name": "rf_bus_setup_n_4b4", "params": [], "docstring": "Configure RF bus timing/control register with 0x2700/0x3F00 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

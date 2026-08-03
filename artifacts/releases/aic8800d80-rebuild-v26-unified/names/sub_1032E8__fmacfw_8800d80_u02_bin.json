@@ -1,0 +1,1 @@
+{"fn": "sub_1032E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1032e8", "status": "ok", "name": "get_controller_state", "params": [], "docstring": "Returns value from controller status register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

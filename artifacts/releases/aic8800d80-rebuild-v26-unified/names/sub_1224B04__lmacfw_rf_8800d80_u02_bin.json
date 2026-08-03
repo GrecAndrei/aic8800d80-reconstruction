@@ -1,0 +1,1 @@
+{"fn": "sub_1224B04", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1224b04", "status": "ok", "name": "rf_chan_init_or_set_n54", "params": [], "docstring": "Initialize/set RF channel/param with memset(0) helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_136BD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136bd0", "status": "ok", "name": "bt_handle_state_event", "params": [], "docstring": "Handles BT state event with active state guard", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

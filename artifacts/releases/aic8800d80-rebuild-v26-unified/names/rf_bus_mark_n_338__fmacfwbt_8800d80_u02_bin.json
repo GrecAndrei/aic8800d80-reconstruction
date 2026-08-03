@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_338", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113a8", "status": "ok", "name": "rf_bus_mark_n_338", "params": [], "docstring": "Mark RF bus page and compare two indexed bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

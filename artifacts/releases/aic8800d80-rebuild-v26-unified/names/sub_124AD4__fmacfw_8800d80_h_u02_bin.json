@@ -1,0 +1,1 @@
+{"fn": "sub_124AD4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124ad4", "status": "ok", "name": "check_flag_bit", "params": [], "docstring": "Check top bit field of configuration byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

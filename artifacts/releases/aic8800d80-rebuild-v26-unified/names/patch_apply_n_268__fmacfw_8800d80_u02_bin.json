@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_268", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c44", "status": "ok", "name": "sdio_buffer_prepare_n158", "params": [], "docstring": "Prepares SDIO host buffer descriptor", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

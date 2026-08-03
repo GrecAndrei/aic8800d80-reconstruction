@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_200", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c9b4", "status": "ok", "name": "message_dispatch_n_200", "params": [], "docstring": "Dispatches message to sub-handler via function pointer at offset 0x14", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

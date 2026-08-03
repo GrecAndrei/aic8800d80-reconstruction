@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156d2", "status": "ok", "name": "patch_apply_n1ea", "params": [], "docstring": "Apply patch: clears/sets bits 0x20000/0x40000 in MMIO reg", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

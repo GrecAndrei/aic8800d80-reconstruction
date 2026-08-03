@@ -1,0 +1,1 @@
+{"fn": "sub_11C310", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c310", "status": "ok", "name": "check_radio_interrupt", "params": [], "docstring": "Reads and tests an interrupt flag from a hardware register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

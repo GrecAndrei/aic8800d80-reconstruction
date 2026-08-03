@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146d8", "status": "ok", "name": "msg_dispatch", "params": [], "docstring": "Dispatch incoming IPC message from queue at 0x16a2a0", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13C330", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c330", "status": "ok", "name": "bt_get_ctx_by_phy", "params": [], "docstring": "Return context table entry using PHY index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

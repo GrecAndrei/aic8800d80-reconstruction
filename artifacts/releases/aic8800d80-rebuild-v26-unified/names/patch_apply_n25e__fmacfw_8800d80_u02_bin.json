@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n25e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121510a", "status": "ok", "name": "patch_apply_n25e", "params": [], "docstring": "Apply firmware patch variant 0x25e (XOR/value patcher).", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

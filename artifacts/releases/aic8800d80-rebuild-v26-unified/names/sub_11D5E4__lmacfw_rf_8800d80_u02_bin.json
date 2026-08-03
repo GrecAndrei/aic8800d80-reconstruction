@@ -1,0 +1,1 @@
+{"fn": "sub_11D5E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11d5e4", "status": "ok", "name": "rf_cmd_set", "params": [], "docstring": "Write RF command control word and trigger", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

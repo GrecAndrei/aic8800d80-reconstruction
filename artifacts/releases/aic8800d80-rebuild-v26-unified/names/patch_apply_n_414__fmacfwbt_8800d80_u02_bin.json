@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_414", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150d4", "status": "ok", "name": "patch_apply_n_414", "params": [], "docstring": "Apply patch using nibble extraction and bit testing", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

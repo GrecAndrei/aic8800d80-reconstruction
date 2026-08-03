@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n22e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227006", "status": "ok", "name": "rf_level_apply_n22e", "params": [], "docstring": "Apply RF level using magic-number division constant", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

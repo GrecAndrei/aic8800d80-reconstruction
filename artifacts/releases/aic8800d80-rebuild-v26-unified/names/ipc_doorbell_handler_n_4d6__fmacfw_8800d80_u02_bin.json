@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_4d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12154a6", "status": "ok", "name": "log_free_dispatch_n260", "params": [], "docstring": "Dispatch log entry free path with size-based branches", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n27c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12222a8", "status": "ok", "name": "rf_mem_write_n27c", "params": [], "docstring": "Write RF register/memory value (n27c variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

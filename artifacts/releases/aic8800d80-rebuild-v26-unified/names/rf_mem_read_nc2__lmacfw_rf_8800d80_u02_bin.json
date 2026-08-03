@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nc2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f656", "status": "ok", "name": "rf_mem_read_nc2", "params": [], "docstring": "Reads RF memory block with caller-supplied context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

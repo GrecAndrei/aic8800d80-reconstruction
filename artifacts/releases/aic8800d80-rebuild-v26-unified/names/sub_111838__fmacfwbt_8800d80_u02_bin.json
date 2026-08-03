@@ -1,0 +1,1 @@
+{"fn": "sub_111838", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111838", "status": "ok", "name": "ll_hdr_init", "params": [], "docstring": "initialize link-layer header pool", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

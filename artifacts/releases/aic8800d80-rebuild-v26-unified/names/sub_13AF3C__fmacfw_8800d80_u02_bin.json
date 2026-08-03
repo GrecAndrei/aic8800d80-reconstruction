@@ -1,0 +1,1 @@
+{"fn": "sub_13AF3C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13af3c", "status": "ok", "name": "ll_conn_rx_packet_get", "params": [], "docstring": "Fetch current RX packet for connection", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

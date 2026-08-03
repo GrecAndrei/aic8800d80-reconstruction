@@ -1,0 +1,1 @@
+{"fn": "sub_135E98", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x135e98", "status": "ok", "name": "tx_desc_get", "params": [], "docstring": "Reads TX descriptor from table", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

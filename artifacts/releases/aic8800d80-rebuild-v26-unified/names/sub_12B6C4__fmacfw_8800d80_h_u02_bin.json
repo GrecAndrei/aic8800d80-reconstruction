@@ -1,0 +1,1 @@
+{"fn": "sub_12B6C4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12b6c4", "status": "ok", "name": "rf_status_check", "params": [], "docstring": "Checks global RF status field for nonzero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1110CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1110cc", "status": "ok", "name": "ke_mem_alloc", "params": [], "docstring": "allocate memory block for stack message", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

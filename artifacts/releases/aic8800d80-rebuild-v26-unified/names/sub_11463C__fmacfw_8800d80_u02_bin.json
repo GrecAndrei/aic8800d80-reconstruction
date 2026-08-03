@@ -1,0 +1,1 @@
+{"fn": "sub_11463C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11463c", "status": "ok", "name": "load_global_ptr_182558", "params": [], "docstring": "Load pointer from 0x182558", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

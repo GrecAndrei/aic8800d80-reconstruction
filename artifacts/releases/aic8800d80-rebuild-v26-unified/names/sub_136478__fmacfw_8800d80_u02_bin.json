@@ -1,0 +1,1 @@
+{"fn": "sub_136478", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136478", "status": "ok", "name": "bt_rx_process", "params": [], "docstring": "Process incoming HCI event", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n1a0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121209c", "status": "ok", "name": "rf_bus_setup_n1a0", "params": [], "docstring": "Configure RF control bus with masked bits and MMIO writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

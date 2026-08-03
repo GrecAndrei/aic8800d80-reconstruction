@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_45c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12142ec", "status": "ok", "name": "rf_bus_write2_n_4e3", "params": [], "docstring": "Performs a two-step write to the RF register bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

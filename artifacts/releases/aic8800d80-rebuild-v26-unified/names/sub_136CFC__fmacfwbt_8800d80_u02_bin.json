@@ -1,0 +1,1 @@
+{"fn": "sub_136CFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136cfc", "status": "ok", "name": "txpwr_process_config", "params": [], "docstring": "Process tx power config for active PHY mode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

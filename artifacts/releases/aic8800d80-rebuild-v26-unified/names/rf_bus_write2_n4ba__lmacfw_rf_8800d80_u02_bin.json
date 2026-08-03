@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n4ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12119de", "status": "ok", "name": "rf_bus_write2_n4ba", "params": [], "docstring": "Write to RF control bus register and return status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

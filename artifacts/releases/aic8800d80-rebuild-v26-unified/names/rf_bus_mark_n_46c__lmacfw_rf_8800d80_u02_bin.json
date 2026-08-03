@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_46c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d20", "status": "ok", "name": "rf_bus_mark_n_46c", "params": [], "docstring": "Marks RF bus event by writing to control register at 0x40240018", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

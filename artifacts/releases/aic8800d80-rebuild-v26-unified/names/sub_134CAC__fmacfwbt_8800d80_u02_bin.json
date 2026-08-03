@@ -1,0 +1,1 @@
+{"fn": "sub_134CAC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134cac", "status": "ok", "name": "rx_desc_read_status", "params": [], "docstring": "Read RX descriptor status and update flags", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

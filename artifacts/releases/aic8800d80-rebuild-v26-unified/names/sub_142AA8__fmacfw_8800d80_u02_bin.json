@@ -1,0 +1,1 @@
+{"fn": "sub_142AA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142aa8", "status": "ok", "name": "double_add", "params": [], "docstring": "Add two double-precision operands", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

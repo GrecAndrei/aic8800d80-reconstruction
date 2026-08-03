@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_3b4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e800", "status": "ok", "name": "rf_cmd_dispatch_n_61", "params": [], "docstring": "Dispatches RF command from table at 0x158694 with handler at 0x14f660", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

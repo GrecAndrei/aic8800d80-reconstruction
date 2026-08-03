@@ -1,0 +1,1 @@
+{"fn": "sub_128294", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x128294", "status": "ok", "name": "wifi_disable_action", "params": [], "docstring": "Checks wifi disable flag and accesses arg field", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

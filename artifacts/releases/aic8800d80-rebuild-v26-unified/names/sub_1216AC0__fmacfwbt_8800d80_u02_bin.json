@@ -1,0 +1,1 @@
+{"fn": "sub_1216AC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1216ac0", "status": "ok", "name": "rf_bus_write2_n258", "params": [], "docstring": "Write 32-bit value to RF bus MMIO", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_123105C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123105c", "status": "ok", "name": "msg_send_and_confirm", "params": [], "docstring": "Sends message and clears pending flag; checks response", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

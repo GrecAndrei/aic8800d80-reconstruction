@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n37e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef32", "status": "ok", "name": "sdio_buffer_prepare_n37e", "params": [], "docstring": "Prepare SDIO buffer alignment by shifting buffer offset left 2 bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

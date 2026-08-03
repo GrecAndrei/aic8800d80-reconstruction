@@ -1,0 +1,1 @@
+{"fn": "sub_1045E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1045e8", "status": "ok", "name": "lookup_rate_entry", "params": [], "docstring": "Looks up rate table entry and extracts rate fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

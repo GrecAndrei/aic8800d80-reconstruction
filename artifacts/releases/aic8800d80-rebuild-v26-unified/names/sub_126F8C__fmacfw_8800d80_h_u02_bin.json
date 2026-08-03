@@ -1,0 +1,1 @@
+{"fn": "sub_126F8C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x126f8c", "status": "ok", "name": "llc_conn_command", "params": [], "docstring": "execute connection command using llc env", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_113108", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113108", "status": "ok", "name": "sys_cmu_clock_get", "params": [], "docstring": "Reads and processes clock control register value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

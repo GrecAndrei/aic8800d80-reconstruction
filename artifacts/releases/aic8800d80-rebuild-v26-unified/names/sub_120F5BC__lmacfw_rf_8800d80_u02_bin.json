@@ -1,0 +1,1 @@
+{"fn": "sub_120F5BC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f5bc", "status": "ok", "name": "rf_init_enable_n3bc", "params": [], "docstring": "Enable/init RF block and return status (split helper)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11EDA4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11eda4", "status": "ok", "name": "llc_aes_ccm_setup", "params": [], "docstring": "setup AES-CCM context in connection structure", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

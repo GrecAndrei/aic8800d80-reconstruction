@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_d8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121276c", "status": "ok", "name": "rf_bus_reset_n_d8_276c", "params": [], "docstring": "Reset RF bus by clearing/setting bits at offset 0xb08/0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

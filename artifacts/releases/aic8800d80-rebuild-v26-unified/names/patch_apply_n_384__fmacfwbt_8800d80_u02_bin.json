@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_384", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215164", "status": "ok", "name": "patch_apply_n_384", "params": [], "docstring": "Extracts patch slot index and dispatches via indirect call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2f1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214456", "status": "ok", "name": "rf_fault_dump_n_2f1", "params": [], "docstring": "Dump RF fault state with IRQs disabled", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

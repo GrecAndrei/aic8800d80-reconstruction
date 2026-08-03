@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n61", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ecc", "status": "ok", "name": "rf_cmd_send_n61", "params": [], "docstring": "RF command send wrapper, returns 5 on success / 0x78/0x1f error codes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

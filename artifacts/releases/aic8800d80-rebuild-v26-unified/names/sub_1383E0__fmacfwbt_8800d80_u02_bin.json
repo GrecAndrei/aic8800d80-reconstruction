@@ -1,0 +1,1 @@
+{"fn": "sub_1383E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1383e0", "status": "ok", "name": "adv_state_control", "params": [], "docstring": "Control advertising state based on flags", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12D748", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d748", "status": "ok", "name": "load_const_table", "params": [], "docstring": "Copy 128-byte constant table to stack and call helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

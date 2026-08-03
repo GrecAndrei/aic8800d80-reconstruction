@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155b0", "status": "ok", "name": "patch_apply_nc8", "params": [], "docstring": "Applies NC8 patch sequence by looping 0x56 iterations to write patch values to indexed offsets", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

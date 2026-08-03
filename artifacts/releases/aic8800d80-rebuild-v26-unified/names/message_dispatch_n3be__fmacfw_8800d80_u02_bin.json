@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cd4a", "status": "ok", "name": "rf_state_check_n_ac", "params": [], "docstring": "Check RF state, compare current state to 5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nc4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1e0", "status": "ok", "name": "sdio_buffer_prepare_nc4_e1e0", "params": [], "docstring": "Prepare SDIO buffer with size/padding shifts", "subsystem": "tx", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

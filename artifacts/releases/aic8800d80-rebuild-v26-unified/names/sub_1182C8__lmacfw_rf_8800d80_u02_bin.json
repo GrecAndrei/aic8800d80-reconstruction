@@ -1,0 +1,1 @@
+{"fn": "sub_1182C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1182c8", "status": "ok", "name": "check_link_id", "params": [], "docstring": "Compare link identifier in global table with argument", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

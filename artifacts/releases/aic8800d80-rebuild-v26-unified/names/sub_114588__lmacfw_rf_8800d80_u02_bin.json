@@ -1,0 +1,1 @@
+{"fn": "sub_114588", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114588", "status": "ok", "name": "mmio_read_4", "params": [], "docstring": "Read from MMIO offset 4 with 20-byte buffer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_130FAC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130fac", "status": "ok", "name": "rf_build_cal_block_v2", "params": [], "docstring": "Builds calibration data block with header values 3 and 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

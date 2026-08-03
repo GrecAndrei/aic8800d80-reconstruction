@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12102b6", "status": "ok", "name": "rf_msg_process_body_n3f2", "params": [], "docstring": "Stores processed RF body field and advances offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n39a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215246", "status": "ok", "name": "patch_apply_n39a", "params": [], "docstring": "Apply patch n39a accessing NVIC and config region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

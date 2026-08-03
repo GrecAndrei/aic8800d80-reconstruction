@@ -1,0 +1,1 @@
+{"fn": "sub_13BCE8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13bce8", "status": "ok", "name": "rf_pll_calibrate", "params": [], "docstring": "Calibrate RF PLL using stored constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

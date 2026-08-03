@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e154", "status": "ok", "name": "sdio_buffer_prepare_n38_e154", "params": [], "docstring": "Prepares SDIO buffer (table-jump variant)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

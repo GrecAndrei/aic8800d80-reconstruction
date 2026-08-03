@@ -1,0 +1,1 @@
+{"fn": "sub_1211168", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211168", "status": "ok", "name": "mmio_field_extract_n1168", "params": [], "docstring": "Extract bitfield from MMIO register at 0x4024004c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n41e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215906", "status": "ok", "name": "patch_apply_n41e", "params": [], "docstring": "Apply ROM patches from patch table at 0x1677d4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

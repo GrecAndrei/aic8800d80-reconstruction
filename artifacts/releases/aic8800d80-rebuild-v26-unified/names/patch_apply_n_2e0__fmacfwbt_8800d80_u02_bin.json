@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2e0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215208", "status": "ok", "name": "patch_apply_n_2e0", "params": [], "docstring": "Dispatch through a patch table function pointer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

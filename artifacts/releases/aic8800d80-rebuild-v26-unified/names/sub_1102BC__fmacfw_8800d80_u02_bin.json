@@ -1,0 +1,1 @@
+{"fn": "sub_1102BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1102bc", "status": "ok", "name": "is_scan_enabled", "params": [], "docstring": "Test scan enable flag", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

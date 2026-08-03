@@ -1,0 +1,1 @@
+{"fn": "sub_11F6F0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11f6f0", "status": "ok", "name": "scan_active_get", "params": [], "docstring": "read scanning active state from global variable", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

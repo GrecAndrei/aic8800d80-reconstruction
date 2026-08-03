@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_9a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12158e2", "status": "ok", "name": "ipc_doorbell_handler_n_9a", "params": [], "docstring": "Handle IPC doorbell ring with bounded counter wrap", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

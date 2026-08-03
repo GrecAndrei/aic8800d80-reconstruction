@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_49e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210cee", "status": "ok", "name": "log_free_dispatch_n246_0cee", "params": [], "docstring": "Free log entry and dispatch in FMAC BT firmware logging", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

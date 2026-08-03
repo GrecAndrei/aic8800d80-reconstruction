@@ -1,0 +1,1 @@
+{"fn": "sub_1232D18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1232d18", "status": "ok", "name": "clear_state_struct_n_a8a", "params": [], "docstring": "Clear/reset a 16-bit state structure fields", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n104", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155ec", "status": "ok", "name": "patch_apply_n104", "params": [], "docstring": "Stores patched pointer and byte tag into target symbols", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

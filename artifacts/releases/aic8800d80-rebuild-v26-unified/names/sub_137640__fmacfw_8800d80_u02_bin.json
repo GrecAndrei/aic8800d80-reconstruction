@@ -1,0 +1,1 @@
+{"fn": "sub_137640", "img": "fmacfw_8800d80_u02_bin", "addr": "0x137640", "status": "ok", "name": "le_adv_report_handler", "params": [], "docstring": "Parse LE advertising report and update scan state", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

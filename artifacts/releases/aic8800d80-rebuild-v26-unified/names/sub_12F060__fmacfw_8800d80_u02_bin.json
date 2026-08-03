@@ -1,0 +1,1 @@
+{"fn": "sub_12F060", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f060", "status": "ok", "name": "state_get_0x42e", "params": [], "docstring": "Query task 0x42e and compare state byte", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

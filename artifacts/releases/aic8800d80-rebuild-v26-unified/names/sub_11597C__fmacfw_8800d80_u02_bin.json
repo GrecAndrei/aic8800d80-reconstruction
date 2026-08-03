@@ -1,0 +1,1 @@
+{"fn": "sub_11597C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11597c", "status": "ok", "name": "gpio_read_input", "params": [], "docstring": "Reads GPIO input and stores the low nibble into a global", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

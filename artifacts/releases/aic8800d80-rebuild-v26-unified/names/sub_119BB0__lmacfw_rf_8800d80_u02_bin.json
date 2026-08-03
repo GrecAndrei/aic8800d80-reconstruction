@@ -1,0 +1,1 @@
+{"fn": "sub_119BB0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119bb0", "status": "ok", "name": "ke_alloc_msg_0x34", "params": [], "docstring": "Allocate 2-byte kernel message 0x34", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

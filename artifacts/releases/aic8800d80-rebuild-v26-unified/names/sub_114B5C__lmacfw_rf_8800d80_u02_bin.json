@@ -1,0 +1,1 @@
+{"fn": "sub_114B5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114b5c", "status": "ok", "name": "wait_hw_ready", "params": [], "docstring": "Poll memory-mapped register until valid state", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

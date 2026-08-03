@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121142c", "status": "ok", "name": "rf_bus_mark_n_2b4", "params": [], "docstring": "Increment and modulo-3 mark on RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

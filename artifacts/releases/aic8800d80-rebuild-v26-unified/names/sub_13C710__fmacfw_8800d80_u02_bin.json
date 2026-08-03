@@ -1,0 +1,1 @@
+{"fn": "sub_13C710", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c710", "status": "ok", "name": "is_conn_active", "params": [], "docstring": "Check if a connection is active by indexing connection table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

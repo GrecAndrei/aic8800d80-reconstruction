@@ -1,0 +1,1 @@
+{"fn": "sub_1019BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1019bc", "status": "ok", "name": "write_rf_cal_data", "params": [], "docstring": "Write two 64-bit values to RF calibration register block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

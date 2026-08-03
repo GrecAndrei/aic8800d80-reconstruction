@@ -1,0 +1,1 @@
+{"fn": "sub_136E64", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136e64", "status": "ok", "name": "rf_trace_rate_set2", "params": [], "docstring": "Send duplicate PHY rate setting trace event", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

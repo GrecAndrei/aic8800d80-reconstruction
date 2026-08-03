@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n366", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121584e", "status": "ok", "name": "patch_apply_n366_584e", "params": [], "docstring": "Apply behavioral patch N366 to firmware state", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

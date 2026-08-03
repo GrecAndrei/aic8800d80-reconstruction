@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n344", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151f0", "status": "ok", "name": "patch_apply_n344", "params": [], "docstring": "Apply patch extracting bits 24-25 from input word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

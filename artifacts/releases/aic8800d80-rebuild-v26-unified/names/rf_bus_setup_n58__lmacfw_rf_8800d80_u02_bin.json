@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121185c", "status": "ok", "name": "patch_apply_n_17a", "params": [], "docstring": "Applies firmware patch entry (12-byte payload copy)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

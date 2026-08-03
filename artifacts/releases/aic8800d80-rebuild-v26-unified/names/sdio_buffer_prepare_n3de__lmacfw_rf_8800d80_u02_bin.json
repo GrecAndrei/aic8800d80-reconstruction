@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n3de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef92", "status": "ok", "name": "sdio_buffer_prepare_ef92", "params": [], "docstring": "Prepare SDIO transfer buffer with address/size computation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

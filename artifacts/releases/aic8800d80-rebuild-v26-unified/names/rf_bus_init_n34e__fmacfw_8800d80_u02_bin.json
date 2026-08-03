@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n34e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212106", "status": "ok", "name": "rf_bus_init_n34e", "params": [], "docstring": "Initializes RF bus interface for N3/E4 subsystem", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

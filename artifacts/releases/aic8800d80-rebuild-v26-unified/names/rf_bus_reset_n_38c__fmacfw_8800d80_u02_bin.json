@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_38c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121265c", "status": "ok", "name": "rf_bus_reset_n_38c_265c", "params": [], "docstring": "Reset RF bus controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

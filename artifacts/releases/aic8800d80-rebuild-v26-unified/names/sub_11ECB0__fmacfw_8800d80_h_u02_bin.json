@@ -1,0 +1,1 @@
+{"fn": "sub_11ECB0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11ecb0", "status": "ok", "name": "controller_init_pools", "params": [], "docstring": "Initializes controller memory pools and data structures", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

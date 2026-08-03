@@ -1,0 +1,1 @@
+{"fn": "sub_12D658", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d658", "status": "ok", "name": "list_merge", "params": [], "docstring": "Merge two linked lists", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n178", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215660", "status": "ok", "name": "patch_apply_n178", "params": [], "docstring": "Compares patch descriptor type field against value 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

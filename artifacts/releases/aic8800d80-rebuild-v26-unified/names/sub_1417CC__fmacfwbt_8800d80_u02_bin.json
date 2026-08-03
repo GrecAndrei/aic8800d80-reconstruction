@@ -1,0 +1,1 @@
+{"fn": "sub_1417CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1417cc", "status": "ok", "name": "hci_le_create_connection", "params": [], "docstring": "Handle HCI LE create connection command parameters", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

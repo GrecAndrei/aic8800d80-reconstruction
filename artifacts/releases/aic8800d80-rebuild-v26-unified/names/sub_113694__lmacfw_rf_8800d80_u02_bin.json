@@ -1,0 +1,1 @@
+{"fn": "sub_113694", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113694", "status": "ok", "name": "prepare_and_dispatch", "params": [], "docstring": "Call setup routine then jump to event dispatcher", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

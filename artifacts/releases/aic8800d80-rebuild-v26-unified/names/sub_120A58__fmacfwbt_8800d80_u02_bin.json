@@ -1,0 +1,1 @@
+{"fn": "sub_120A58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120a58", "status": "ok", "name": "run_deferred_init", "params": [], "docstring": "run deferred initialization if flag set", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

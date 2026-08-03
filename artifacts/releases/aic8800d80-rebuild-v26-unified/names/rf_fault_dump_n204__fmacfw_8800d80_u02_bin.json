@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n204", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121494c", "status": "ok", "name": "rf_fault_decode_nibble", "params": [], "docstring": "Extracts high/low nibbles from shifted RF fault register word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

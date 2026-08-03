@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n3d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b1e", "status": "ok", "name": "rf_state_check_n4c2", "params": [], "docstring": "Checks RF state and sets status word with next-state tag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

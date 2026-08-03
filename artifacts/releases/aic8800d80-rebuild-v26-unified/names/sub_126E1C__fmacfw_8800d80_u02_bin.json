@@ -1,0 +1,1 @@
+{"fn": "sub_126E1C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x126e1c", "status": "ok", "name": "ctrl_poll_events", "params": [], "docstring": "Poll for pending events and return status", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

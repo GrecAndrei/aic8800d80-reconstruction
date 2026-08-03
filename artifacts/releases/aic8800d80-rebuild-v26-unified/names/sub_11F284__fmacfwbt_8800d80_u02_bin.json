@@ -1,0 +1,1 @@
+{"fn": "sub_11F284", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11f284", "status": "ok", "name": "wlc_detach", "params": [], "docstring": "Detach WLC driver and free resources", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13684C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13684c", "status": "ok", "name": "send_hci_command", "params": [], "docstring": "Send HCI command with parameters", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

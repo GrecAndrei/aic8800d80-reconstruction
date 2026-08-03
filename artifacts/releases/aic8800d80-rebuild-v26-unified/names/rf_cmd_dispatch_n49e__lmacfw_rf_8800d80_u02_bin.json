@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n49e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223e2", "status": "ok", "name": "rf_cmd_dispatch", "params": [], "docstring": "Dispatch RF command response with byte-reversed payload to host", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_100644", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x100644", "status": "ok", "name": "timer_set", "params": [], "docstring": "Configure timer register with offset", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

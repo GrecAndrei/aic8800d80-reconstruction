@@ -1,0 +1,1 @@
+{"fn": "sub_12FA08", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12fa08", "status": "ok", "name": "parse_mac_string", "params": [], "docstring": "Parses a MAC address string into binary fields.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

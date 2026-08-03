@@ -1,0 +1,1 @@
+{"fn": "sub_115B90", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115b90", "status": "ok", "name": "rf_clock_enable", "params": [], "docstring": "Enable RF clock by setting/clearing power control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

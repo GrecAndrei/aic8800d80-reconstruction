@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_41c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f178", "status": "ok", "name": "rf_mem_read_n_41c", "params": [], "docstring": "Read RF memory value from constant table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

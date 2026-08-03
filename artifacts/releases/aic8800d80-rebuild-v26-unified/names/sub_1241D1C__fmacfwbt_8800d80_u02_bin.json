@@ -1,0 +1,1 @@
+{"fn": "sub_1241D1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1241d1c", "status": "ok", "name": "bt_he_riu_field_write", "params": [], "docstring": "Parse HE/RU field header and write subfield bits", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

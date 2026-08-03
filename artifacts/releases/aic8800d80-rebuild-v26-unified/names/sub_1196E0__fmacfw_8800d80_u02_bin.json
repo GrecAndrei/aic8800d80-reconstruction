@@ -1,0 +1,1 @@
+{"fn": "sub_1196E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1196e0", "status": "ok", "name": "phy_channel_same", "params": [], "docstring": "Compare PHY channel fields in two structs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

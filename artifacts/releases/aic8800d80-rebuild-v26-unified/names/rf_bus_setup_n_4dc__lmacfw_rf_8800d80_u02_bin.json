@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_4dc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211328", "status": "ok", "name": "rf_bus_setup_n_4dc", "params": [], "docstring": "Configures RF bus register with mask 0x3f00/0x2700", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

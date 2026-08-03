@@ -1,0 +1,1 @@
+{"fn": "sub_141FE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x141fe0", "status": "ok", "name": "conn_context_reset", "params": [], "docstring": "Reset connection context by index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

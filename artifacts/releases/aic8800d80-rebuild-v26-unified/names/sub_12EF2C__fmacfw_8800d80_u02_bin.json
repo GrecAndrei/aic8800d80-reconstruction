@@ -1,0 +1,1 @@
+{"fn": "sub_12EF2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ef2c", "status": "ok", "name": "msg_alloc_0x401", "params": [], "docstring": "Allocate 8-byte message 0x401 and inspect bitfield", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

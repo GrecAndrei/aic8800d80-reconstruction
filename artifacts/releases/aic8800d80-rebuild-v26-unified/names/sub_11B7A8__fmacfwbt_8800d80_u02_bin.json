@@ -1,0 +1,1 @@
+{"fn": "sub_11B7A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b7a8", "status": "ok", "name": "check_entry_flag", "params": [], "docstring": "Check a flag byte in a 28-byte global table entry", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

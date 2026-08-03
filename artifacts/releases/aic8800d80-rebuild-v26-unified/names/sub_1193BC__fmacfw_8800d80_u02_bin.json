@@ -1,0 +1,1 @@
+{"fn": "sub_1193BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1193bc", "status": "ok", "name": "phy_channel_select", "params": [], "docstring": "Select PHY channel using channel table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

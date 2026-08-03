@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n12", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12129fa", "status": "ok", "name": "rf_bus_reset_n12_9fa", "params": [], "docstring": "RF bus reset clearing e00/804 control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

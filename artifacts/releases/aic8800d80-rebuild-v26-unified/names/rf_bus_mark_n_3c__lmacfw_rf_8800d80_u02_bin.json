@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211150", "status": "ok", "name": "log_free_pool_dispatch2_n480_1150", "params": [], "docstring": "Dispatch a freed log entry back to the logging pool.", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

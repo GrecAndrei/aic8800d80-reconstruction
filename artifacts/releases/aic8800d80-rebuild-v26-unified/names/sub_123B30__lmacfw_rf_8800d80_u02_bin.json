@@ -1,0 +1,1 @@
+{"fn": "sub_123B30", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123b30", "status": "ok", "name": "init_timer_slot", "params": [], "docstring": "Initializes timer table slot with magic and validates interval", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

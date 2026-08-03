@@ -1,0 +1,1 @@
+{"fn": "sub_129C48", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129c48", "status": "ok", "name": "sec_table_entry_count", "params": [], "docstring": "Compute pointer to indexed security table entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

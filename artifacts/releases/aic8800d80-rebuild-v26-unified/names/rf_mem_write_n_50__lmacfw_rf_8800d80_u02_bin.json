@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221fdc", "status": "ok", "name": "rf_mem_write_n_50", "params": [], "docstring": "Write halfword to RF memory mapped register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

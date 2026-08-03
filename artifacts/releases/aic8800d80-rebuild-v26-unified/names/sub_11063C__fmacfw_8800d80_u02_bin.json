@@ -1,0 +1,1 @@
+{"fn": "sub_11063C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11063c", "status": "ok", "name": "rf_bb_config", "params": [], "docstring": "Configure baseband RF parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12A04C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a04c", "status": "ok", "name": "llc_evt_is_valid", "params": [], "docstring": "Check if connection event slot is active", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

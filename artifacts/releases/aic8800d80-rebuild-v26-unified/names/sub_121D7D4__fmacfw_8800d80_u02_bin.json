@@ -1,0 +1,1 @@
+{"fn": "sub_121D7D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121d7d4", "status": "ok", "name": "fw_state_check", "params": [], "docstring": "Reads firmware state flag byte for status check", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

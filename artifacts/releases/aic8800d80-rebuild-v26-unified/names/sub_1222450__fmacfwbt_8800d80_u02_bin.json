@@ -1,0 +1,1 @@
+{"fn": "sub_1222450", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222450", "status": "ok", "name": "mmio_reg_read_modify", "params": [], "docstring": "Read-modify MMIO register at 0x40320204/0x40320210", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

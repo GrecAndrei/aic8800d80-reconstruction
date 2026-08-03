@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_136", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121270e", "status": "ok", "name": "rf_bus_reset_n_136_270e", "params": [], "docstring": "RF bus reset handler checking for register 0x40", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

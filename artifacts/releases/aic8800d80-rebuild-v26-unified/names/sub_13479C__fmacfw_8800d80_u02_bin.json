@@ -1,0 +1,1 @@
+{"fn": "sub_13479C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13479c", "status": "ok", "name": "bt_get_conn_by_handle", "params": [], "docstring": "Look up BLE connection context from handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

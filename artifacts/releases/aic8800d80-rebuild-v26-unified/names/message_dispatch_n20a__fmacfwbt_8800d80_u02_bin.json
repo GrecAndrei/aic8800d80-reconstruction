@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n20a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cdbe", "status": "ok", "name": "message_dispatch_n20a_cdbe", "params": [], "docstring": "Message dispatch handler loading message pointer from queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

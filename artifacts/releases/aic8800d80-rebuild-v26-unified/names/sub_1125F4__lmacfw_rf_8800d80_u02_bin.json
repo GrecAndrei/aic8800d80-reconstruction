@@ -1,0 +1,1 @@
+{"fn": "sub_1125F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1125f4", "status": "ok", "name": "mmio_read_irq_status", "params": [], "docstring": "Read interrupt status and clear bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

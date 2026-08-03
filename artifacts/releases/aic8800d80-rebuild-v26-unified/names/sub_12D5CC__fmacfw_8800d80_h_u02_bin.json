@@ -1,0 +1,1 @@
+{"fn": "sub_12D5CC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d5cc", "status": "ok", "name": "read_config_block", "params": [], "docstring": "Copies 16-byte block from config base+0x100 to stack", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

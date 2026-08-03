@@ -1,0 +1,1 @@
+{"fn": "rf_timer_abort1", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ef94", "status": "ok", "name": "rf_timer_abort1", "params": [], "docstring": "Abort/cancel RF timer and send 0x42d control message", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

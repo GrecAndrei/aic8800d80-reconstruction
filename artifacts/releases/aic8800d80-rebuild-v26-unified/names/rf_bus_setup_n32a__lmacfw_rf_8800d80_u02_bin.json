@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n32a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b2e", "status": "ok", "name": "rf_bus_setup_n32a", "params": [], "docstring": "RF bus initialization with extended register save", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

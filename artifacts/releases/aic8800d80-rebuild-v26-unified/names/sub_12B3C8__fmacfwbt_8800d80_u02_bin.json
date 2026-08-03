@@ -1,0 +1,1 @@
+{"fn": "sub_12B3C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b3c8", "status": "ok", "name": "bt_get_link_state", "params": [], "docstring": "Get link state from active connection entry", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

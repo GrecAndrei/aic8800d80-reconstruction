@@ -1,0 +1,1 @@
+{"fn": "sub_120D06C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d06c", "status": "ok", "name": "sub_120D06C", "params": [], "docstring": "Dispatches handler based on byte tag compare against 3", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

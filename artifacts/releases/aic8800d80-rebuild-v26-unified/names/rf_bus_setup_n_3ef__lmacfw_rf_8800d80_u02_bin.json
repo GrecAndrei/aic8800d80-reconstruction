@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_3ef", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211414", "status": "ok", "name": "rf_bus_setup_n_3ef", "params": [], "docstring": "RF bus setup writing 32-bit/16-bit MMIO fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

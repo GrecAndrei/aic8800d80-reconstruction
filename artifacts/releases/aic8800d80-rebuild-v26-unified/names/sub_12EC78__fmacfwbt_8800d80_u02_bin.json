@@ -1,0 +1,1 @@
+{"fn": "sub_12EC78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12ec78", "status": "ok", "name": "state_get_value", "params": [], "docstring": "Loads value from global state struct offset 4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10F77C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10f77c", "status": "ok", "name": "ke_msg_handler", "params": [], "docstring": "Handle kernel message with stack frame and nullcheck", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

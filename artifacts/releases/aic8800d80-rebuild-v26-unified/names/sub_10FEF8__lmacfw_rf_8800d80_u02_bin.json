@@ -1,0 +1,1 @@
+{"fn": "sub_10FEF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10fef8", "status": "ok", "name": "mem_free", "params": [], "docstring": "Frees a heap block using preceding header metadata.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

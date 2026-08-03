@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_484", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211e6c", "status": "ok", "name": "rf_bus_reset_1e6c", "params": [], "docstring": "Check RF bus state against value 4 (reset path)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

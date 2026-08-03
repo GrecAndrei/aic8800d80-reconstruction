@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n268", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f7fc", "status": "ok", "name": "rf_mem_read_n268", "params": [], "docstring": "RF register/memory read helper with shift-based address computation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

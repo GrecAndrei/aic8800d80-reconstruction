@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n2d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212b1a", "status": "ok", "name": "rf_bus_reset_n2d6", "params": [], "docstring": "Reset RF bus by clearing MMIO control bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

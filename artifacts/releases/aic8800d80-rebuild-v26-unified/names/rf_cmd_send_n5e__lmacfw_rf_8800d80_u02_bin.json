@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n5e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212976", "status": "ok", "name": "rf_cmd_send_n5e_976", "params": [], "docstring": "Send RF command and return (n5e variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

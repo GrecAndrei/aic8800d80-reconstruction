@@ -1,0 +1,1 @@
+{"fn": "sub_123384C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123384c", "status": "ok", "name": "sub_123384C", "params": [], "docstring": "Unaligned 32-bit word copy from source buffer with byte shuffling", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

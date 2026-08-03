@@ -1,0 +1,1 @@
+{"fn": "sub_131278", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x131278", "status": "ok", "name": "rf_get_cal_status", "params": [], "docstring": "Checks calibration data and sets status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

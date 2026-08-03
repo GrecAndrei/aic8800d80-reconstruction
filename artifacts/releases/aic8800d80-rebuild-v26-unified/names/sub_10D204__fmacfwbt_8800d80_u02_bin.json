@@ -1,0 +1,1 @@
+{"fn": "sub_10D204", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d204", "status": "ok", "name": "power_mode_set", "params": [], "docstring": "Set power mode based on argument", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

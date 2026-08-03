@@ -1,0 +1,1 @@
+{"fn": "sub_125E78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x125e78", "status": "ok", "name": "lld_evt_schedule", "params": [], "docstring": "Schedule link-layer events and evaluate state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

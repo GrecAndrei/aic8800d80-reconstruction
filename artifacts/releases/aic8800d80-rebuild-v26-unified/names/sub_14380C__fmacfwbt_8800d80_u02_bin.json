@@ -1,0 +1,1 @@
+{"fn": "sub_14380C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14380c", "status": "ok", "name": "memcpy_aligned", "params": [], "docstring": "Copy large aligned memory blocks efficiently", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

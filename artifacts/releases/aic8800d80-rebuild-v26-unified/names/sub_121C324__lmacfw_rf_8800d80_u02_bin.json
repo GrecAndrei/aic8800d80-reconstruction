@@ -1,0 +1,1 @@
+{"fn": "sub_121C324", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121c324", "status": "ok", "name": "rf_get_status_byte_n_a24", "params": [], "docstring": "Reads a single status byte at offset 0x19 from a structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

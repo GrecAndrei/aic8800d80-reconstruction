@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_380", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215168", "status": "ok", "name": "patch_apply_n_380", "params": [], "docstring": "Patch apply via indirect call to 0x1fc table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

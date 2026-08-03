@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_3fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121434c", "status": "ok", "name": "rf_fault_dump_n_3fc", "params": [], "docstring": "Dump RF fault state from shared memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

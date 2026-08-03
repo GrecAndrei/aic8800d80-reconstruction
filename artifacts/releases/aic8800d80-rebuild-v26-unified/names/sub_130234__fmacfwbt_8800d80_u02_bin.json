@@ -1,0 +1,1 @@
+{"fn": "sub_130234", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130234", "status": "ok", "name": "ke_malloc", "params": [], "docstring": "Allocate memory from kernel heap", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

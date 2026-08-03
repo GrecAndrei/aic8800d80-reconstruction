@@ -1,0 +1,1 @@
+{"fn": "sub_13E5D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13e5d4", "status": "ok", "name": "ipc_dispatch_cmd", "params": [], "docstring": "dispatch IPC command based on command byte", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

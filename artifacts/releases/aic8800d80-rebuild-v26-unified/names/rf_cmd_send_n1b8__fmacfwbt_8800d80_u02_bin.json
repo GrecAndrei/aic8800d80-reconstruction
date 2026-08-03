@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n1b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213024", "status": "ok", "name": "rf_cmd_send_n1b8", "params": [], "docstring": "Sends RF command with 1-byte/8-bit parameter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121C4E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121c4e4", "status": "ok", "name": "mac_addr_write2", "params": [], "docstring": "Write 2-byte MAC address fragment to global reg at +0xa4", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

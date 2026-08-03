@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n110", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155f8", "status": "ok", "name": "patch_apply_n110_5f8", "params": [], "docstring": "Apply N110 FW patch at RAM offset 0x182620", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

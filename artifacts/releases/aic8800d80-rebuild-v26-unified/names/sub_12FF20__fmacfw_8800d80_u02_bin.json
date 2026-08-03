@@ -1,0 +1,1 @@
+{"fn": "sub_12FF20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ff20", "status": "ok", "name": "is_mode_one_v2", "params": [], "docstring": "Compare first argument to one variant", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

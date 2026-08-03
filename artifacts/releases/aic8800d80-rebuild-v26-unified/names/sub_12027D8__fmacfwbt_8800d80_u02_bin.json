@@ -1,0 +1,1 @@
+{"fn": "sub_12027D8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12027d8", "status": "ok", "name": "rf_bus_write2_n_3aa", "params": [], "docstring": "Writes 32-bit value to RF bus register pair", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1d0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cd84", "status": "ok", "name": "message_dispatch_n1d0", "params": [], "docstring": "Dispatches host message at offset 0x1d0", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

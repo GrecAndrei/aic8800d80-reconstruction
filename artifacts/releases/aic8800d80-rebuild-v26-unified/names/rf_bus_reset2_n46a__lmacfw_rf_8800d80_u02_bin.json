@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n46a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121176e", "status": "ok", "name": "rf_level_apply_n_e", "params": [], "docstring": "Apply computed RF TX/RX power level to RF hardware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

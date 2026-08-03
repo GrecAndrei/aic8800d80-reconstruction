@@ -1,0 +1,1 @@
+{"fn": "sub_1213FC4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213fc4", "status": "ok", "name": "sub_1213FC4", "params": [], "docstring": "Store byte field and save callee-saved regs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

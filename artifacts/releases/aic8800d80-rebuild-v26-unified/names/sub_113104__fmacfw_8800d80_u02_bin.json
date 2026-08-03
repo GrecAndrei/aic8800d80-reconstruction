@@ -1,0 +1,1 @@
+{"fn": "sub_113104", "img": "fmacfw_8800d80_u02_bin", "addr": "0x113104", "status": "ok", "name": "read_periph_status", "params": [], "docstring": "Reads peripheral status and shifts", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

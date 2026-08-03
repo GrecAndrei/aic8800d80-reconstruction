@@ -1,0 +1,1 @@
+{"fn": "sub_1217B4C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217b4c", "status": "ok", "name": "tx_buffer_acquire_or_alloc", "params": [], "docstring": "Acquire or allocate LMAC TX buffer via SDIO prep", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

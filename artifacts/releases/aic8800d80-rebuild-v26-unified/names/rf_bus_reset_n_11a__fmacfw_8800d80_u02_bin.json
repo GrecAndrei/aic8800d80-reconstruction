@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_11a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12128ce", "status": "ok", "name": "rf_bus_write2_n_39d", "params": [], "docstring": "Write 16-bit value to RF bus register pair", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

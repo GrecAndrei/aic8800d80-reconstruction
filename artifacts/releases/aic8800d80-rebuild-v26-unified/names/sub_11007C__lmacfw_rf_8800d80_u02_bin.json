@@ -1,0 +1,1 @@
+{"fn": "sub_11007C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11007c", "status": "ok", "name": "rx_channel_event", "params": [], "docstring": "Copies receive data and handles channel/control event.", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

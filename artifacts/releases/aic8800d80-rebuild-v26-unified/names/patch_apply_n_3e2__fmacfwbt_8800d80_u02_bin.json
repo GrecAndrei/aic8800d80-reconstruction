@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3e2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215106", "status": "ok", "name": "patch_apply_n_3e2", "params": [], "docstring": "Applies firmware patch entry n_3e2 with register indirection", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

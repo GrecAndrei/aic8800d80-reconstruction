@@ -1,0 +1,1 @@
+{"fn": "sub_12D460", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d460", "status": "ok", "name": "rf_cal_check", "params": [], "docstring": "Reads a global RF calibration pointer and compares its signed status field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

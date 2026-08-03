@@ -1,0 +1,1 @@
+{"fn": "sub_113374", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113374", "status": "ok", "name": "rf_is_idle", "params": [], "docstring": "Check if radio state flag is zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

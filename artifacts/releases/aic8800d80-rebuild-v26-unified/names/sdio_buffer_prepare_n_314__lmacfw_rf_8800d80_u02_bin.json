@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_314", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e8a0", "status": "ok", "name": "sdio_buffer_prepare_n_314", "params": [], "docstring": "Prepares/initializes an SDIO buffer (NOP stub)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_7c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146cc", "status": "ok", "name": "rf_fault_dump_n_7c", "params": [], "docstring": "RF fault dump routine clearing fault status bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

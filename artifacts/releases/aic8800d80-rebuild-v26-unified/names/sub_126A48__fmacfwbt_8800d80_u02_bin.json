@@ -1,0 +1,1 @@
+{"fn": "sub_126A48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x126a48", "status": "ok", "name": "hci_send_acl", "params": [], "docstring": "Send an ACL packet over the transport", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

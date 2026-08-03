@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n364", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef18", "status": "ok", "name": "sdio_buffer_prepare_n364", "params": [], "docstring": "Prepare SDIO transfer buffer with alignment sizing", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

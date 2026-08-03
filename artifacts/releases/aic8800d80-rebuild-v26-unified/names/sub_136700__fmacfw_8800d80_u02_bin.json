@@ -1,0 +1,1 @@
+{"fn": "sub_136700", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136700", "status": "ok", "name": "bt_cmd_buf_clear", "params": [], "docstring": "Clear HCI command buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

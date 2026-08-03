@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n328", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227100", "status": "ok", "name": "rf_level_apply_n328", "params": [], "docstring": "Applies RF level (0x42e) setting via global 0x180844", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

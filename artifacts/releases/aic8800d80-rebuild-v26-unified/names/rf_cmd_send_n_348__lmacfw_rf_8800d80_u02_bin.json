@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_348", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12125d0", "status": "ok", "name": "rf_cmd_dispatch_25d0", "params": [], "docstring": "prepare and dispatch RF command (set hdr, save arg)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

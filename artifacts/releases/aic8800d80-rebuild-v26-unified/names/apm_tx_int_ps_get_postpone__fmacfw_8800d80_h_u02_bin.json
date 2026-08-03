@@ -1,0 +1,1 @@
+{"fn": "apm_tx_int_ps_get_postpone", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124c3e4", "status": "ok", "name": "apm_tx_int_ps_get_postpone", "params": [], "docstring": "Postpone retrieval of TX interrupt power-save state", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

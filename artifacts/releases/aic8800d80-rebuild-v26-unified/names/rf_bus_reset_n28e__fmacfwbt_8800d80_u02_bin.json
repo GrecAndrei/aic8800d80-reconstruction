@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n28e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ad2", "status": "ok", "name": "rf_bus_reset_n28e", "params": [], "docstring": "Toggles RF bus reset control bit in MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

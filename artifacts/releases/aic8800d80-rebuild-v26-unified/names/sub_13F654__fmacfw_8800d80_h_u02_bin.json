@@ -1,0 +1,1 @@
+{"fn": "sub_13F654", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13f654", "status": "ok", "name": "l2c_ccb_by_index", "params": [], "docstring": "Looks up L2CAP control block by index in the global pool", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

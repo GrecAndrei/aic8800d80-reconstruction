@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_30a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121443e", "status": "ok", "name": "rf_fault_dump_n_30a", "params": [], "docstring": "Dumps RF fault state from firmware structure via helper call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

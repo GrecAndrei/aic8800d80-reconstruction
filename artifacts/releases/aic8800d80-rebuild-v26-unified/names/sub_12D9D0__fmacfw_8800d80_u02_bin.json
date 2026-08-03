@@ -1,0 +1,1 @@
+{"fn": "sub_12D9D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d9d0", "status": "ok", "name": "log_with_format", "params": [], "docstring": "Calls the common formatting routine with format 0x16ab48 and literal argument 5", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

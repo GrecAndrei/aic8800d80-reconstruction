@@ -1,0 +1,1 @@
+{"fn": "sub_12AE04", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ae04", "status": "ok", "name": "tx_queue_entry_get", "params": [], "docstring": "Get TX queue entry by index and read its status", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

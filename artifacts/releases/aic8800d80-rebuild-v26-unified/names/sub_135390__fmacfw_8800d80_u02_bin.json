@@ -1,0 +1,1 @@
+{"fn": "sub_135390", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135390", "status": "ok", "name": "bt_is_conn_flag_set", "params": [], "docstring": "test connection active flag at offset 0x4c8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

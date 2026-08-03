@@ -1,0 +1,1 @@
+{"fn": "get_cached_1828f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120199c", "status": "ok", "name": "get_cached_1828f8", "params": [], "docstring": "Retrieve cached pointer/value from 0x1828f8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

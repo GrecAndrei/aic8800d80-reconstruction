@@ -1,0 +1,1 @@
+{"fn": "sub_114838", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114838", "status": "ok", "name": "bus_read_2", "params": [], "docstring": "Reads 2 bytes from bus using base 0x100000", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

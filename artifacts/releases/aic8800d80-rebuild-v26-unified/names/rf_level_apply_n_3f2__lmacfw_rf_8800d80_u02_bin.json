@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_3f2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269e6", "status": "ok", "name": "rf_level_apply_n_3f2", "params": [], "docstring": "Applies RF level setting by OR-ing 0x1000 into register at offset 0x140", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

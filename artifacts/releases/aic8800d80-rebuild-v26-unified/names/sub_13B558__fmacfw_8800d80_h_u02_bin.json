@@ -1,0 +1,1 @@
+{"fn": "sub_13B558", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b558", "status": "ok", "name": "init_state_table", "params": [], "docstring": "Initializes state table from loaded global data.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

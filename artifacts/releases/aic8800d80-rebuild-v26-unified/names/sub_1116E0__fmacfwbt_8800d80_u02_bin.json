@@ -1,0 +1,1 @@
+{"fn": "sub_1116E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1116e0", "status": "ok", "name": "tx_pkt_config", "params": [], "docstring": "configure tx packet pointer in radio dma", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

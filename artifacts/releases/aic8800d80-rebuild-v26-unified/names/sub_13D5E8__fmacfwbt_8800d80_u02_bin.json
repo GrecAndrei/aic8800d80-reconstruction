@@ -1,0 +1,1 @@
+{"fn": "sub_13D5E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13d5e8", "status": "ok", "name": "bt_handle_ll_control", "params": [], "docstring": "Process link-layer control PDU with common routine", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

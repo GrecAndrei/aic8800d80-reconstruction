@@ -1,0 +1,1 @@
+{"fn": "sub_11C850", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c850", "status": "ok", "name": "ke_timer_register", "params": [], "docstring": "Register a timer handler for kernel events", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

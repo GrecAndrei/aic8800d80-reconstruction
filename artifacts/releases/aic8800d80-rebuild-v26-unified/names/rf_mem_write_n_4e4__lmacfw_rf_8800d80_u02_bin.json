@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_4e4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221b48", "status": "ok", "name": "rf_mem_write_n_4e4", "params": [], "docstring": "Validate count and prepare RF memory write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

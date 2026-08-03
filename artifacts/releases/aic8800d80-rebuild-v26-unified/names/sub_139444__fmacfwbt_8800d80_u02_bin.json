@@ -1,0 +1,1 @@
+{"fn": "sub_139444", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x139444", "status": "ok", "name": "rf_cal_channel_data", "params": [], "docstring": "Get per-channel RF calibration data structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

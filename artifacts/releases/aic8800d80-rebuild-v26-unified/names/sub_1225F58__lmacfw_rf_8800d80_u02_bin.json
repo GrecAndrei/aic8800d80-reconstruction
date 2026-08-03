@@ -1,0 +1,1 @@
+{"fn": "sub_1225F58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225f58", "status": "ok", "name": "rf_lmac_dispatch_n5a8", "params": [], "docstring": "Branch on argument value 1, likely LMAC task dispatcher", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

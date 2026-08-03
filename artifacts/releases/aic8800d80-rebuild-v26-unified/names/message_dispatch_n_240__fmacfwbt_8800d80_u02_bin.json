@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_240", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c974", "status": "ok", "name": "message_dispatch_n_240_c974", "params": [], "docstring": "Increments message counter and loads dispatch table pointers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

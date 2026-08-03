@@ -1,0 +1,1 @@
+{"fn": "sub_10DEF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10def0", "status": "ok", "name": "wait_sdio_core_ready", "params": [], "docstring": "Poll core status until it is ready", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

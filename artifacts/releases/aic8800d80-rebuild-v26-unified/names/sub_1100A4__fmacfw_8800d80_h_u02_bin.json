@@ -1,0 +1,1 @@
+{"fn": "sub_1100A4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1100a4", "status": "ok", "name": "get_current_channel", "params": [], "docstring": "Returns current channel from PHY info under lock", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3ae", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf62", "status": "ok", "name": "message_dispatch_n3ae_cf62", "params": [], "docstring": "Dispatch IPC/message via table lookup on signed header", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_12F538", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f538", "status": "ok", "name": "check_rom_state", "params": [], "docstring": "Checks state byte and jumps to handler if expected", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

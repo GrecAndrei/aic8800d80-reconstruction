@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_348", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b64", "status": "ok", "name": "patch_apply_n_348", "params": [], "docstring": "Install patch variant, set r0 to 1/2 and return", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_130374", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130374", "status": "ok", "name": "rf_get_bandwidth", "params": [], "docstring": "Read RF bandwidth byte and call helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

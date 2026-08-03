@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n430", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f9c4", "status": "ok", "name": "rf_mem_read_n430", "params": [], "docstring": "Read RF memory with repeated left shifts by 5 of index r6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_115F68", "img": "fmacfw_8800d80_u02_bin", "addr": "0x115f68", "status": "ok", "name": "kernel_event_wait", "params": [], "docstring": "Waits on a kernel event and checks the resulting status", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

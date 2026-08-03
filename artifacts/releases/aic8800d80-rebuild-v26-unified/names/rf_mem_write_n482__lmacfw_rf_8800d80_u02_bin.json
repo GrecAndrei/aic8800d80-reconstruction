@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n482", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12224ae", "status": "ok", "name": "rf_mem_write_val", "params": [], "docstring": "Write value to RF memory (return 0 fast path)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

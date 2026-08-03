@@ -1,0 +1,1 @@
+{"fn": "sub_1432AC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1432ac", "status": "ok", "name": "double_cmple", "params": [], "docstring": "Returns true if double less or equal", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13B0A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b0a0", "status": "ok", "name": "ll_conn_window_calc", "params": [], "docstring": "Calculate connection event window offset", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

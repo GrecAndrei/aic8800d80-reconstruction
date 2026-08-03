@@ -1,0 +1,1 @@
+{"fn": "sub_112030", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x112030", "status": "ok", "name": "hw_status_update", "params": [], "docstring": "Read hardware status and store to global", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

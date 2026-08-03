@@ -1,0 +1,1 @@
+{"fn": "sub_103F2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x103f2c", "status": "ok", "name": "mac_phy_config", "params": [], "docstring": "Configures MAC/PHY control register and polls ready", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n9c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211228", "status": "ok", "name": "rf_bus_mark_n9c", "params": [], "docstring": "Marks/flags an RF bus access at offset 0x9c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

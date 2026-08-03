@@ -1,0 +1,1 @@
+{"fn": "sub_134C4C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x134c4c", "status": "ok", "name": "ke_timer_set", "params": [], "docstring": "Set a kernel timer for task 10 with message id 6.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

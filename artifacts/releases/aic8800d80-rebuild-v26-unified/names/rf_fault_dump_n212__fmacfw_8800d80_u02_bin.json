@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n212", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121495a", "status": "ok", "name": "rf_fault_dump_n212", "params": [], "docstring": "Extract AR/RD fault address fields from status word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

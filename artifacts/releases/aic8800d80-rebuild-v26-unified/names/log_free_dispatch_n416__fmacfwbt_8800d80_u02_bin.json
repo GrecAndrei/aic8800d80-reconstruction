@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n416", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210276", "status": "ok", "name": "log_free_dispatch_n416", "params": [], "docstring": "Dispatches or frees log entries by index in behavioral log", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_na6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211786", "status": "ok", "name": "rf_bus_mark_na6", "params": [], "docstring": "Set RF bus bitfield (mask 0x7E0, value 0x20) on reg 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

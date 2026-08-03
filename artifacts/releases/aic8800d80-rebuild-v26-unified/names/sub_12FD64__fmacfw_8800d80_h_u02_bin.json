@@ -1,0 +1,1 @@
+{"fn": "sub_12FD64", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12fd64", "status": "ok", "name": "parse_format_switch", "params": [], "docstring": "Handles variant based on first argument mode.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

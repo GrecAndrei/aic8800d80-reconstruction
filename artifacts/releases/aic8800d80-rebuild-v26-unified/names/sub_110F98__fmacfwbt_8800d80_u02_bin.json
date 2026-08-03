@@ -1,0 +1,1 @@
+{"fn": "sub_110F98", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x110f98", "status": "ok", "name": "rf_set_tx_channel", "params": [], "docstring": "update radio channel and mode bitfields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

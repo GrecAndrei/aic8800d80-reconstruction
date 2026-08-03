@@ -1,0 +1,1 @@
+{"fn": "sub_13BA24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13ba24", "status": "ok", "name": "rf_get_chan_state", "params": [], "docstring": "Read channel state from radio table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

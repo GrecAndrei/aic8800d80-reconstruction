@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n6a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f16", "status": "ok", "name": "patch_apply_n6a", "params": [], "docstring": "Applies firmware patch bits to target memory byte", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

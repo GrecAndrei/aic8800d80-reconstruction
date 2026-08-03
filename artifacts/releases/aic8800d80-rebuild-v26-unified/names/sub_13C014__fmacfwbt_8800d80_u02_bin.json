@@ -1,0 +1,1 @@
+{"fn": "sub_13C014", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c014", "status": "ok", "name": "phy_is_ready", "params": [], "docstring": "Check PHY initialization magic in RF context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

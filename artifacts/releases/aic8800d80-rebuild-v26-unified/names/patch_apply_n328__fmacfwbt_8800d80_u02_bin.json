@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n328", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215810", "status": "ok", "name": "patch_apply_n328", "params": [], "docstring": "Apply firmware patch slot n328 with table lookup", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

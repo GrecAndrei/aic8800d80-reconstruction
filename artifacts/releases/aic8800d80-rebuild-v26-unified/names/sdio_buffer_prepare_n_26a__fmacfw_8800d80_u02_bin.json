@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_26a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122deb2", "status": "ok", "name": "sdio_buffer_prepare_n_26a", "params": [], "docstring": "Prepare SDIO buffer by scanning/adjusting pointer offsets", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1355C8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1355c8", "status": "ok", "name": "ll_conn_get_by_index", "params": [], "docstring": "Return connection context from index at offset 8.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

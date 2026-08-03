@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n29c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ee50", "status": "ok", "name": "log_free_pool_dispatch2_n442", "params": [], "docstring": "Dispatch log free pool entry and copy metadata", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

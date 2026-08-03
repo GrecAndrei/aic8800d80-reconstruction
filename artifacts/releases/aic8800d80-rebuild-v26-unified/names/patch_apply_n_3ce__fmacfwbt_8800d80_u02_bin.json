@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3ce", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121511a", "status": "ok", "name": "patch_apply_n_3ce", "params": [], "docstring": "Extract nibble field from value for patch application", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

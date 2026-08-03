@@ -1,0 +1,1 @@
+{"fn": "sub_12D2E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d2e8", "status": "ok", "name": "cmd_handler_c", "params": [], "docstring": "Command handler guarded by global hardware state flag", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

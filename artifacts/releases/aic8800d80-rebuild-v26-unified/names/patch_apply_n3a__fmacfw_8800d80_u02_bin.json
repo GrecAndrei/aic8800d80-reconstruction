@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ee6", "status": "ok", "name": "rf_bus_write2_n384", "params": [], "docstring": "Compare value to 0x80 boundary in RF bus write path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

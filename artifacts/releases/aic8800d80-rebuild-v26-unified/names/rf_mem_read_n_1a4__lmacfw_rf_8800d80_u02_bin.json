@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_1a4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f3f0", "status": "ok", "name": "rf_mem_read_n_1a4", "params": [], "docstring": "Reads RF memory contents using indexed addressing on stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

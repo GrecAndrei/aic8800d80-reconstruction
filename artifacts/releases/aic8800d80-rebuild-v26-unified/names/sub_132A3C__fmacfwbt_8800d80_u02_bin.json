@@ -1,0 +1,1 @@
+{"fn": "sub_132A3C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132a3c", "status": "ok", "name": "llm_bitmap_to_mask", "params": [], "docstring": "Build bit mask from channel bitmap", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

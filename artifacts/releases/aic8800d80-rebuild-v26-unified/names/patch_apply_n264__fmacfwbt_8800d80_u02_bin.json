@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n264", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121574c", "status": "ok", "name": "patch_apply_n264", "params": [], "docstring": "Apply firmware patch variant 264 (self-store, XOR with arg)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_112084", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x112084", "status": "ok", "name": "rx_parse_packet", "params": [], "docstring": "Validate packet flags and decode", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

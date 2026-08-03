@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nf4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214fa0", "status": "ok", "name": "patch_apply_byte_extract", "params": [], "docstring": "Applies a patch by extracting and writing a byte value", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

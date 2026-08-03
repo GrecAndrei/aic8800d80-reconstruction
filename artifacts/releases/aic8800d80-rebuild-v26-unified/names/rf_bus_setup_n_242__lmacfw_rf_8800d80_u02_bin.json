@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_242", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12115c2", "status": "ok", "name": "message_dispatch_n_310", "params": [], "docstring": "Dispatch incoming IPC message based on type", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

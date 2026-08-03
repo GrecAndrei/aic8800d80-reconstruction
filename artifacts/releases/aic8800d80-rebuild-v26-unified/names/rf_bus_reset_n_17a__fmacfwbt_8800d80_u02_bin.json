@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_17a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12126ca", "status": "ok", "name": "rf_bus_reset_n_17a_26ca", "params": [], "docstring": "Performs RF bus reset with bit-mask of 0x1a/0x1e", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

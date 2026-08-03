@@ -1,0 +1,1 @@
+{"fn": "sub_125E0C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125e0c", "status": "ok", "name": "bt_msg_send_if_allocated", "params": [], "docstring": "Wraps a BT message send, skipping null messages.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

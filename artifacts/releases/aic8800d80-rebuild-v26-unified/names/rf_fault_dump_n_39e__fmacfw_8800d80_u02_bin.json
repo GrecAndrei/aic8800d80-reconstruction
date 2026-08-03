@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_39e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12143aa", "status": "ok", "name": "rf_fault_dump_n_39e", "params": [], "docstring": "RF fault dump handler checking status byte against 0x1f threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

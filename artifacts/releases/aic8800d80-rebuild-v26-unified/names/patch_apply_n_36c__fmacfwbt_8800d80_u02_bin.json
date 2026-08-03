@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_36c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121517c", "status": "ok", "name": "patch_apply_ext_517c", "params": [], "docstring": "Applies additional firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

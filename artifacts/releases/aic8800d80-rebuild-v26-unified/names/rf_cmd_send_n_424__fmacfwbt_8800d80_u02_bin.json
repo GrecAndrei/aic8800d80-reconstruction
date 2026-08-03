@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_424", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212a48", "status": "ok", "name": "rf_cmd_send_n_424", "params": [], "docstring": "Sends an RF command by writing to control register with flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12DF08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12df08", "status": "ok", "name": "read_rom_info", "params": [], "docstring": "Read configuration block via sub_12d9b0 type 5", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

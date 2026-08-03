@@ -1,0 +1,1 @@
+{"fn": "panic_loop", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12005f4", "status": "ok", "name": "panic_loop", "params": [], "docstring": "CPU panic infinite loop / fatal halt", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

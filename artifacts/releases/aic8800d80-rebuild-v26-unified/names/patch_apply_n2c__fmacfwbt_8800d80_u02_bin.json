@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215514", "status": "ok", "name": "patch_apply_n2c_5514", "params": [], "docstring": "Apply firmware patch entries from patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

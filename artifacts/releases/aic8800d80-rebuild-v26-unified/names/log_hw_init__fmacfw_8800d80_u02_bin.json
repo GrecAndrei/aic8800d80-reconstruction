@@ -1,0 +1,1 @@
+{"fn": "log_hw_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d648", "status": "ok", "name": "log_hw_init_d648", "params": [], "docstring": "Initialize logging hardware via pointer at 0x1730dc+0xac", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

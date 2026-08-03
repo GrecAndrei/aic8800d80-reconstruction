@@ -1,0 +1,1 @@
+{"fn": "sub_12CB94", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12cb94", "status": "ok", "name": "list_node_count", "params": [], "docstring": "Iterate over nodes and count matches", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

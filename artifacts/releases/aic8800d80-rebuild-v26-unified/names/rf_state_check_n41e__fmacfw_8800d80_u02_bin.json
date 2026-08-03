@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n41e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12125f2", "status": "ok", "name": "rf_state_check_n41e", "params": [], "docstring": "RF state register check with bit mask clear", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

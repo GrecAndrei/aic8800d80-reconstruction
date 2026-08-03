@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n3ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12125c2", "status": "ok", "name": "rf_state_check_n3ee", "params": [], "docstring": "Check RF state and load magic/identifier constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

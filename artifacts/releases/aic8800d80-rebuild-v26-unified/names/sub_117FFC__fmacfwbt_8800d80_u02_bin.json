@@ -1,0 +1,1 @@
+{"fn": "sub_117FFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x117ffc", "status": "ok", "name": "controller_init", "params": [], "docstring": "Initialize BLE controller RAM and allocate memory", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

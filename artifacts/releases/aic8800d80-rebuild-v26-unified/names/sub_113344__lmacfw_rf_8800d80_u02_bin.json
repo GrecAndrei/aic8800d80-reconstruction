@@ -1,0 +1,1 @@
+{"fn": "sub_113344", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113344", "status": "ok", "name": "is_radio_powered", "params": [], "docstring": "Return true if byte at offset 8 equals 1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

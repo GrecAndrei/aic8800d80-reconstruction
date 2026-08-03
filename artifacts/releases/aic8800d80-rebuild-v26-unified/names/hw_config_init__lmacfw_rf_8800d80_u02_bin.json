@@ -1,0 +1,1 @@
+{"fn": "hw_config_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12005a4", "status": "ok", "name": "hw_config_init", "params": [], "docstring": "Initialize RF hardware config (peripheral base, RF params)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

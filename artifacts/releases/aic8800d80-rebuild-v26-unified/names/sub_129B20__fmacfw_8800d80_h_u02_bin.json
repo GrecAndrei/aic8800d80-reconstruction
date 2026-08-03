@@ -1,0 +1,1 @@
+{"fn": "sub_129B20", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129b20", "status": "ok", "name": "key_install_check", "params": [], "docstring": "Check key installation mode flag in security context", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

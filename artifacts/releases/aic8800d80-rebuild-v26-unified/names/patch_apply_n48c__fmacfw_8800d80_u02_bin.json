@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n48c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215338", "status": "ok", "name": "patch_apply_n48c", "params": [], "docstring": "Applies FW patch sequence writing patch bytes across indexed register slots", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_495", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121152a", "status": "ok", "name": "rf_bus_write_n_495", "params": [], "docstring": "Write RF bus command with address/data/control fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

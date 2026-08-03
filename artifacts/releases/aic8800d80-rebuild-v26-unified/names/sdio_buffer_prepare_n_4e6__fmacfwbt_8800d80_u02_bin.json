@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_4e6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122de5e", "status": "ok", "name": "sdio_buffer_prepare_n_4e6_de5e", "params": [], "docstring": "Compare SDIO buffer pointers/lengths for transfer preparation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

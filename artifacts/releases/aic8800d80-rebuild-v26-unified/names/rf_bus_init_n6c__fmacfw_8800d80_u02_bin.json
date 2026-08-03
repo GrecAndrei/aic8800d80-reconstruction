@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e24", "status": "ok", "name": "rf_bus_init_n6c", "params": [], "docstring": "Initialize RF bus registers and set bus ready flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

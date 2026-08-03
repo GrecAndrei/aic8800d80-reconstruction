@@ -1,0 +1,1 @@
+{"fn": "sub_122EF2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ef2c", "status": "ok", "name": "sub_122EF2C", "params": [], "docstring": "Read register with mask 0x10000 shift and dispatch to handler", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

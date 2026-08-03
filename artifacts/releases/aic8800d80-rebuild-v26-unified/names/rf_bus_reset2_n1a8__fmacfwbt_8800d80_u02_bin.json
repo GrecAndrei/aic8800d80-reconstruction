@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n1a8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a00", "status": "ok", "name": "rf_bus_reset2_a00", "params": [], "docstring": "Secondary RF bus reset with flag set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_10D480", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d480", "status": "ok", "name": "irq_install", "params": [], "docstring": "Install interrupt vector and enable IRQ", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

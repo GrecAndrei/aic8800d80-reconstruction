@@ -1,0 +1,1 @@
+{"fn": "rx_queue_head_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c954", "status": "ok", "name": "rx_queue_head_init", "params": [], "docstring": "Initialize RX queue head pointer from 0x1906a7 (word-aligned)", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

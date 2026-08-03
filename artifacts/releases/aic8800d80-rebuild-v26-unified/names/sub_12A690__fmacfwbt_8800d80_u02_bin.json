@@ -1,0 +1,1 @@
+{"fn": "sub_12A690", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a690", "status": "ok", "name": "bt_scan_get_state", "params": [], "docstring": "Check scan state from global flags", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

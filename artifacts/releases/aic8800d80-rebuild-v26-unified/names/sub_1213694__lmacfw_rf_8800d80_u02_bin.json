@@ -1,0 +1,1 @@
+{"fn": "sub_1213694", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213694", "status": "ok", "name": "rf_chan_set_mask", "params": [], "docstring": "Sets a 0x100 channel/mask register for RF configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

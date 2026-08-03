@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n35a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cce6", "status": "ok", "name": "message_dispatch_n35a", "params": [], "docstring": "Dispatch incoming message by table lookup at 0x182b60", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

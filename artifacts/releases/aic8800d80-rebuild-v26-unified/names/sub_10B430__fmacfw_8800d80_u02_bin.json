@@ -1,0 +1,1 @@
+{"fn": "sub_10B430", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10b430", "status": "ok", "name": "boot_init", "params": [], "docstring": "Save startup arguments and prepare main state", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

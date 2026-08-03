@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n4dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c24", "status": "ok", "name": "rf_fault_dump_n4dc", "params": [], "docstring": "Dump RF fault state with register 0x182554 for L/P/T registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

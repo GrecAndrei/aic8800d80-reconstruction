@@ -1,0 +1,1 @@
+{"fn": "hw_config_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200688", "status": "ok", "name": "hw_config_init", "params": [], "docstring": "Initialize hardware configuration from MMIO register field", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_37e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116fa", "status": "ok", "name": "rf_bus_write2_n_37e", "params": [], "docstring": "Write RF bus word with 0xc0 flag set on 8-byte stride", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

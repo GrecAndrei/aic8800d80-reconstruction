@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_43a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215542", "status": "ok", "name": "sdio_buffer_prepare_n_11c", "params": [], "docstring": "Initializes SDIO buffer descriptor chain", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

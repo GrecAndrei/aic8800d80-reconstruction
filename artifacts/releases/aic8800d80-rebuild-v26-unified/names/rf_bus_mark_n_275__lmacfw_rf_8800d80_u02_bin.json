@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_275", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f16", "status": "ok", "name": "rf_bus_mark_n_275", "params": [], "docstring": "Marks RF bus entry and triggers post-write callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

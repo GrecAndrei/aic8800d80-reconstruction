@@ -1,0 +1,1 @@
+{"fn": "sub_1232F0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1232f0", "status": "ok", "name": "rf_calibration_init", "params": [], "docstring": "Initialize radio calibration state and data pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

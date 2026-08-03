@@ -1,0 +1,1 @@
+{"fn": "sub_12F408", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f408", "status": "ok", "name": "bad_func_0x12f408", "params": [], "docstring": "Invalid disassembly, likely data", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

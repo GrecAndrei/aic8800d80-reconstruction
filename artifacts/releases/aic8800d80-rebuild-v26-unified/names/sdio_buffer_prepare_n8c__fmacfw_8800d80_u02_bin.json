@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n8c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1a8", "status": "ok", "name": "sdio_buffer_prepare_n8c", "params": [], "docstring": "Prepare SDIO buffer descriptor (8-bit count variant)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12B080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b080", "status": "ok", "name": "ke_msg_send", "params": [], "docstring": "Send kernel message with ID 0x801", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

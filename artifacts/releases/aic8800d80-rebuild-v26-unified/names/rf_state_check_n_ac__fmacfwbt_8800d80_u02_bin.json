@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211f84", "status": "ok", "name": "rf_level_apply_n_3cc", "params": [], "docstring": "Apply RF level/gain settings to 0x54 register field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n64", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147ac", "status": "ok", "name": "nvic_fault_dump", "params": [], "docstring": "Dump NVIC and peripheral fault state on error", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

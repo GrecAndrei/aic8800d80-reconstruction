@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_1a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213c2e", "status": "ok", "name": "rf_msg_dispatch_3c2e", "params": [], "docstring": "Dispatches RF message body by computing index and reading handler table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

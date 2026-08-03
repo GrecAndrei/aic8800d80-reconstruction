@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n25a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212b72", "status": "ok", "name": "rf_cmd_send_n25a", "params": [], "docstring": "Send RF command (N variant 0x25a) with arg-size dispatch and 0x40500000 lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

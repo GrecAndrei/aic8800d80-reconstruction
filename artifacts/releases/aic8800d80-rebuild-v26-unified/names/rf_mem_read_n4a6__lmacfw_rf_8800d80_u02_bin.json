@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4a6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa3a", "status": "ok", "name": "rf_mem_read", "params": [], "docstring": "Read RF memory word and validate tag against 0x1666 signature", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

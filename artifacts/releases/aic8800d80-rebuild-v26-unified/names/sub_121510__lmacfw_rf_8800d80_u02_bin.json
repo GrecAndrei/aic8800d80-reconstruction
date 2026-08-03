@@ -1,0 +1,1 @@
+{"fn": "sub_121510", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121510", "status": "ok", "name": "bt_post_event_14ea3c", "params": [], "docstring": "Post event using handler at 0x14ea3c", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

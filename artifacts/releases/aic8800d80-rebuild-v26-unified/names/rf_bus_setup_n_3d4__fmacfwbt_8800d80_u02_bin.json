@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_3d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211984", "status": "ok", "name": "rf_bus_setup_n3d4", "params": [], "docstring": "Configure RF bus control register with mask bits (0x84000000) and store handle", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

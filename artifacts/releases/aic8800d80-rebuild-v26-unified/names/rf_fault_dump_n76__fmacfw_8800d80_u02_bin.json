@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n76", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147be", "status": "ok", "name": "rf_fault_dump_n76", "params": [], "docstring": "Dumps RF fault information to memory region 0x40501000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

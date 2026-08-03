@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_33e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121440a", "status": "ok", "name": "rf_fault_dump_n_33e", "params": [], "docstring": "RF fault dump stub: clear index and decrement state byte at offset 0x655", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

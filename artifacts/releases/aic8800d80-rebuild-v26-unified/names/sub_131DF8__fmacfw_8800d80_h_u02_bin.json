@@ -1,0 +1,1 @@
+{"fn": "sub_131DF8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x131df8", "status": "ok", "name": "process_hci_command", "params": [], "docstring": "Process host command buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

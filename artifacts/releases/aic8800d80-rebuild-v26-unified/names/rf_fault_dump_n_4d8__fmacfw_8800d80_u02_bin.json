@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_4d8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214270", "status": "ok", "name": "rf_fault_dump_n_4d8", "params": [], "docstring": "Tail of the RF fault-dump routine: adjusts offsets and restores caller regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

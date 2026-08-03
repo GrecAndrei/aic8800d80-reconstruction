@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214de2", "status": "ok", "name": "patch_apply_n_ca", "params": [], "docstring": "Apply firmware patch via helper at 0x143770 with 2 args", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

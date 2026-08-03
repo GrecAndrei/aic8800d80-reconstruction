@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n37e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b82", "status": "ok", "name": "rf_bus_setup_n37e", "params": [], "docstring": "Configure RF bus bitfields (mode/width fields packed into control byte)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

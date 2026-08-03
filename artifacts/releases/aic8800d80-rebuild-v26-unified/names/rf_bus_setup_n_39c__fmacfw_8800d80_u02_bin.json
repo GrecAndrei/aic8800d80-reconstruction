@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_39c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b60", "status": "ok", "name": "rf_mem_read_n22c", "params": [], "docstring": "Compute bit-shifted RF register read address/field masks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

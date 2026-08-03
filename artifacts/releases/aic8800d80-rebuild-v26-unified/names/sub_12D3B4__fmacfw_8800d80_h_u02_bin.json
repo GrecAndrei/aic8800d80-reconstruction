@@ -1,0 +1,1 @@
+{"fn": "sub_12D3B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d3b4", "status": "ok", "name": "crc32_update", "params": [], "docstring": "Update CRC32 using byte-wise table lookup.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

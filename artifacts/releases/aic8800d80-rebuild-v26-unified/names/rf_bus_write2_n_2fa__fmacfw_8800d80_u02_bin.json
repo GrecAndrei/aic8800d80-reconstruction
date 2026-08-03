@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_2fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211922", "status": "ok", "name": "rf_bus_write2_n_2fa", "params": [], "docstring": "RF bus write2 clearing bits 0x7e0, setting 0x20", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "apm_bss_config_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124c3bc", "status": "ok", "name": "apm_bss_config_init", "params": [], "docstring": "Initializes APM BSS configuration structure", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n23a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212136", "status": "ok", "name": "rf_bus_setup_n23a_2136", "params": [], "docstring": "Configure RF bus descriptor table entries", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

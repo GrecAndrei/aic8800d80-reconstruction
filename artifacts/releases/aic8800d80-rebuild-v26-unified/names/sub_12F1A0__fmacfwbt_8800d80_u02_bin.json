@@ -1,0 +1,1 @@
+{"fn": "sub_12F1A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f1a0", "status": "ok", "name": "ke_event_send_a", "params": [], "docstring": "Sends event using descriptor at 0x16af7c", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

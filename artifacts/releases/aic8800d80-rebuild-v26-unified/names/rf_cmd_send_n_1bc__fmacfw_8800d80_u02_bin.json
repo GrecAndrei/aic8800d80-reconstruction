@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_1bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212e54", "status": "ok", "name": "rf_cmd_send_n_1bc", "params": [], "docstring": "Initialize RF command send context clearing fp/r8/r2 to zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

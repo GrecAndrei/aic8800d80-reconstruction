@@ -1,0 +1,1 @@
+{"fn": "sub_123A980", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123a980", "status": "ok", "name": "sub_123A980", "params": [], "docstring": "Init/setup routine reading from data table at 0x188428", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

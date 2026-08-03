@@ -1,0 +1,1 @@
+{"fn": "crypto_adc_capture", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1204f18", "status": "ok", "name": "crypto_adc_capture", "params": [], "docstring": "Configure and capture crypto ADC via MMIO register writes", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

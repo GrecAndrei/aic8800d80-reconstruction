@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_156", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215826", "status": "ok", "name": "ipc_doorbell_field_process_n156", "params": [], "docstring": "IPC doorbell handler processing message fields with offset 0x64", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

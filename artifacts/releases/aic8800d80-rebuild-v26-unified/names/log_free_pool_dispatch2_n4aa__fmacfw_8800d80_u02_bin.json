@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121018a", "status": "ok", "name": "log_free_pool_dispatch2_n4aa", "params": [], "docstring": "Dispatch log free-pool entry via shared table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

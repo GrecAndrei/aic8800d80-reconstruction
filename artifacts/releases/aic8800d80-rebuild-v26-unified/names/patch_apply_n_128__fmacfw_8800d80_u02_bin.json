@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_128", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d84", "status": "ok", "name": "rf_bus_setup_n_d4", "params": [], "docstring": "Initialize RF bus by enabling flag in control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13AA1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13aa1c", "status": "ok", "name": "rf_set_channel_table", "params": [], "docstring": "Set channel table entry for given band and index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

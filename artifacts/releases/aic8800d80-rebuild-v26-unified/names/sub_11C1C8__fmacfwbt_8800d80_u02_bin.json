@@ -1,0 +1,1 @@
+{"fn": "sub_11C1C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11c1c8", "status": "ok", "name": "mac_reset_controller", "params": [], "docstring": "Zero controller and link-layer control structures", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

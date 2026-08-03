@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_274", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215274", "status": "ok", "name": "rf_bus_reset2_n_3d0", "params": [], "docstring": "RF bus reset sequence with multiply and counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

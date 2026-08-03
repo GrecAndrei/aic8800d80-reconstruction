@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n106", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211292", "status": "ok", "name": "rf_bus_mark_n106", "params": [], "docstring": "Mark RF bus state at offset 0x20", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

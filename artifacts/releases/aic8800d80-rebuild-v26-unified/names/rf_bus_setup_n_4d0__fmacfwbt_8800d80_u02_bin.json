@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_4d0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211888", "status": "ok", "name": "rf_bus_setup_n_4d0", "params": [], "docstring": "Configures RF bus registers and sets bit 0 in control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

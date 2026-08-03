@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121589a", "status": "ok", "name": "patch_apply_n3b2_589a", "params": [], "docstring": "Extracts patch bit fields and applies them", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

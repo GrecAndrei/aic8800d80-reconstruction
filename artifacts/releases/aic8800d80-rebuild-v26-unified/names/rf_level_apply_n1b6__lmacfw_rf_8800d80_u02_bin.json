@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n1b6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226f8e", "status": "ok", "name": "rf_level_apply_n1b6", "params": [], "docstring": "Applies RF level using float-to-int conversion via table lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

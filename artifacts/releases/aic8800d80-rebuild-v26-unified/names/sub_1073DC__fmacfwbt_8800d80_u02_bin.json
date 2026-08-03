@@ -1,0 +1,1 @@
+{"fn": "sub_1073DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1073dc", "status": "ok", "name": "rf_set_tx_power", "params": [], "docstring": "Set RF transmit power level", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

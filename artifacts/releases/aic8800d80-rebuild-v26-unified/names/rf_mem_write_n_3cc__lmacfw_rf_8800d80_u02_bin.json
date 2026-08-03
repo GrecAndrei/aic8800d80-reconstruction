@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_3cc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221c60", "status": "ok", "name": "rf_mem_write_n_3cc", "params": [], "docstring": "Writes RF memory with offset 0x26, tail-calls helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

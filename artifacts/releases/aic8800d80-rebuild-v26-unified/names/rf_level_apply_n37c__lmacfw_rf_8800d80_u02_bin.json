@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n37c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227154", "status": "ok", "name": "bt_hci_cmd_send_n_c1c", "params": [], "docstring": "Send HCI command 0x180a via BT path", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

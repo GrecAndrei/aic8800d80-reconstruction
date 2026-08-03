@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n394", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b98", "status": "ok", "name": "rf_bus_setup_n394", "params": [], "docstring": "Write RF bus window setup values to offsets 0xe/0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

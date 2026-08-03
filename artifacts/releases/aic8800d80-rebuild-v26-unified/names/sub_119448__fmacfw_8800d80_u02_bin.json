@@ -1,0 +1,1 @@
+{"fn": "sub_119448", "img": "fmacfw_8800d80_u02_bin", "addr": "0x119448", "status": "ok", "name": "get_hw_pointer", "params": [], "docstring": "Load hardware register pointer from struct", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

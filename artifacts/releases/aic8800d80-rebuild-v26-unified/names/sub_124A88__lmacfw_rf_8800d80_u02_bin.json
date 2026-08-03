@@ -1,0 +1,1 @@
+{"fn": "sub_124A88", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124a88", "status": "ok", "name": "set_adv_interval", "params": [], "docstring": "Parse two advertising interval values and update config", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

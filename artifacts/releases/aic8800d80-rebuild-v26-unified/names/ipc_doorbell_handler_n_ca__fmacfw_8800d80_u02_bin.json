@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12158b2", "status": "ok", "name": "ipc_doorbell_handler_n_ca", "params": [], "docstring": "Clears IPC doorbell registers and writes tag/payload to mailbox", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

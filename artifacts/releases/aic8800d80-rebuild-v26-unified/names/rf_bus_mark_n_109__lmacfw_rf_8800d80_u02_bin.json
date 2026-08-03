@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_109", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211082", "status": "ok", "name": "rf_bus_mark_n_109", "params": [], "docstring": "Mark RF bus by clearing bit in MMIO 0x40240100 and returning status 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

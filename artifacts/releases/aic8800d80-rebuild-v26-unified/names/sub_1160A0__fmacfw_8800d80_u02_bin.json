@@ -1,0 +1,1 @@
+{"fn": "sub_1160A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1160a0", "status": "ok", "name": "set_table_callback_data", "params": [], "docstring": "Write value into table entry's data object", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1200E24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200e24", "status": "ok", "name": "message_dispatch_n244", "params": [], "docstring": "Dispatches message based on signed type field from shared state", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

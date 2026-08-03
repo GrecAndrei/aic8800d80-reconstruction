@@ -1,0 +1,1 @@
+{"fn": "sub_121F10", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f10", "status": "ok", "name": "str_has_extension", "params": [], "docstring": "Checks if string contains a file extension", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

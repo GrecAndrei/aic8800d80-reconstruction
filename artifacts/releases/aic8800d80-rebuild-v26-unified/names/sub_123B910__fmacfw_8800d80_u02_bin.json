@@ -1,0 +1,1 @@
+{"fn": "sub_123B910", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123b910", "status": "ok", "name": "rf_phy_status_get_n_b910", "params": [], "docstring": "Read PHY state byte at offset 0x106 and check mode 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

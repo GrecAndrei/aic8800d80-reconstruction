@@ -1,0 +1,1 @@
+{"fn": "lpm_host_notify_bt", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1246044", "status": "ok", "name": "lpm_host_notify_bt", "params": [], "docstring": "Notify BT subsystem of low-power mode host state change", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

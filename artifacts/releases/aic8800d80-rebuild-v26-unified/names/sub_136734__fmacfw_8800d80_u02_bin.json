@@ -1,0 +1,1 @@
+{"fn": "sub_136734", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136734", "status": "ok", "name": "bt_vendor_send", "params": [], "docstring": "Send vendor-specific HCI command", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

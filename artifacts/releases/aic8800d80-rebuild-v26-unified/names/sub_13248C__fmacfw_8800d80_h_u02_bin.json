@@ -1,0 +1,1 @@
+{"fn": "sub_13248C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13248c", "status": "ok", "name": "phy_get_rate_code", "params": [], "docstring": "Extracts PHY rate code from bits 14-15", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

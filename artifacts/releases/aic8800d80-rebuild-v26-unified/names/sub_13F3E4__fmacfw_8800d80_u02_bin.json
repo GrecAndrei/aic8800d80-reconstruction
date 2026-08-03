@@ -1,0 +1,1 @@
+{"fn": "sub_13F3E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13f3e4", "status": "ok", "name": "ble_ll_conn_ctrl_rx", "params": [], "docstring": "Parse connection control PDU header", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

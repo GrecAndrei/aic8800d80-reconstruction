@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n15a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e276", "status": "ok", "name": "sdio_buf_shift_n15a", "params": [], "docstring": "Computes byte-shifted SDIO buffer offset (<<8 x8)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

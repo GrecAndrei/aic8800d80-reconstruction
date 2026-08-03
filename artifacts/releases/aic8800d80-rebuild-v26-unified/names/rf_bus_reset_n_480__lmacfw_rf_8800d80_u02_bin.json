@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_480", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211e70", "status": "ok", "name": "ipc_doorbell_handler_n_4d6", "params": [], "docstring": "IPC doorbell interrupt handler, dispatches to callback", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_24", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb90", "status": "ok", "name": "message_dispatch_cb90", "params": [], "docstring": "Dispatch IPC/control message with opcode 0x91 via shared queue pointers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

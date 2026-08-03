@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121551c", "status": "ok", "name": "patch_apply_n34_551c", "params": [], "docstring": "Apply a patch table entry to firmware image memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_120FE5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120fe5c", "status": "ok", "name": "rf_init_setup_n3ac", "params": [], "docstring": "Initialize RF subsystem registers from arguments", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

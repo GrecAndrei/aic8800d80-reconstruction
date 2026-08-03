@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_1c8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118b0", "status": "ok", "name": "rf_bus_reg_write_alt", "params": [], "docstring": "Alternative RF bus register write path with shift/mask on offsets 0x24/0x2c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

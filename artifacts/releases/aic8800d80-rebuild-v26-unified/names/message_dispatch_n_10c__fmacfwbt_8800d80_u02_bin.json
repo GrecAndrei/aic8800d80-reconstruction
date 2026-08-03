@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_10c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122caa8", "status": "ok", "name": "message_dispatch_n_10c", "params": [], "docstring": "Enable IRQ and decrement message queue counter for dispatch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1423E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1423e4", "status": "ok", "name": "llcp_rx_process", "params": [], "docstring": "Process received LL control PDU", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

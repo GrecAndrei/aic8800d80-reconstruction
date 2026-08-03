@@ -1,0 +1,1 @@
+{"fn": "sub_13AFC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13afc0", "status": "ok", "name": "mac_reset_tx_queue", "params": [], "docstring": "Reset transmit queue status and pending data", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

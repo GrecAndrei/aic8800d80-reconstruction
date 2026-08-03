@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_35a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121518e", "status": "ok", "name": "patch_apply_n_35a", "params": [], "docstring": "Patch helper: test low byte mask and UBFX-extract second byte of argument", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_33a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118e2", "status": "ok", "name": "rf_bus_reset_n_ec", "params": [], "docstring": "Resets the RF bus controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

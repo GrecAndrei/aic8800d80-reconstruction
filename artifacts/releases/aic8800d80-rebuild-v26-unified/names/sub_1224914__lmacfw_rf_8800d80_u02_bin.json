@@ -1,0 +1,1 @@
+{"fn": "sub_1224914", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1224914", "status": "ok", "name": "mmio_syscfg_init_n4", "params": [], "docstring": "Initialize SYSCFG/clock MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

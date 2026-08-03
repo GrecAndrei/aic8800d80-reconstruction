@@ -1,0 +1,1 @@
+{"fn": "sub_142F8C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142f8c", "status": "ok", "name": "double_lt", "params": [], "docstring": "Double less-than predicate", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

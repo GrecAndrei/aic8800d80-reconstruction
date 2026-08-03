@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n206", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118e6", "status": "ok", "name": "rf_bus_mark_n206", "params": [], "docstring": "Mark RF bus state and clear descriptor queues at offsets 0x810/0x814/0x81c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

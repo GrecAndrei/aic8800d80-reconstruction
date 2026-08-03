@@ -1,0 +1,1 @@
+{"fn": "sub_136DBC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136dbc", "status": "ok", "name": "rf_trace_lo_offset", "params": [], "docstring": "Send PHY local oscillator offset trace event", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

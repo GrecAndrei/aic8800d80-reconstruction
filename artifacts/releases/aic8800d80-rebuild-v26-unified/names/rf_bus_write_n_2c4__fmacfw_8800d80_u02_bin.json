@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_2c4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118a0", "status": "ok", "name": "rf_bus_write_n_2c4", "params": [], "docstring": "Write bytes to RF bus registers with 0xC0 mask set across stride-8 records", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

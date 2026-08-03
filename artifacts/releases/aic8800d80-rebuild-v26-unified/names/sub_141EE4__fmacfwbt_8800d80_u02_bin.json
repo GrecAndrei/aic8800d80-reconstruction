@@ -1,0 +1,1 @@
+{"fn": "sub_141EE4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141ee4", "status": "ok", "name": "build_tx_packet", "params": [], "docstring": "Build transmit packet payload using connection environment", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

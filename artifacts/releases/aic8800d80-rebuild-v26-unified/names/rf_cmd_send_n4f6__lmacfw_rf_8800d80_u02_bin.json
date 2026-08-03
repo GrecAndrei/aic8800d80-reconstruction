@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n4f6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212e0e", "status": "ok", "name": "message_dispatch_n_22a", "params": [], "docstring": "Dispatch IPC message based on field comparison", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

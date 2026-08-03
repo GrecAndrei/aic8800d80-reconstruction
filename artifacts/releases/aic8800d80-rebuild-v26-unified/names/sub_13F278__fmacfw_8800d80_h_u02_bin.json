@@ -1,0 +1,1 @@
+{"fn": "sub_13F278", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13f278", "status": "ok", "name": "rf_set_mode", "params": [], "docstring": "Set radio mode based on argument value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "scan_start_req_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1249928", "status": "ok", "name": "scan_start_req_handler", "params": [], "docstring": "Handle scan start request from host", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

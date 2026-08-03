@@ -1,0 +1,1 @@
+{"fn": "mm_bcn_update_p2p_noa", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1249250", "status": "ok", "name": "mm_bcn_update_p2p_noa", "params": [], "docstring": "Update beacon template with P2P Notice of Absence parameters", "subsystem": "mm", "tool_call_count": 0, "tool_calls": []}

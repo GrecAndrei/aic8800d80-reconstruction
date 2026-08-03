@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1f3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211690", "status": "ok", "name": "rf_bus_mark_n_1f3", "params": [], "docstring": "Marks RF bus transaction completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

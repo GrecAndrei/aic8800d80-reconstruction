@@ -1,0 +1,1 @@
+{"fn": "sub_1197A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1197a4", "status": "ok", "name": "ke_alloc_msg_0x81", "params": [], "docstring": "Allocate 64-byte kernel message 0x81", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

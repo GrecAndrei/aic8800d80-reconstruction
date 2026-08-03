@@ -1,0 +1,1 @@
+{"fn": "sub_112E28", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x112e28", "status": "ok", "name": "set_event_mode", "params": [], "docstring": "Set event state flag to 2 or 3 based on an argument", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

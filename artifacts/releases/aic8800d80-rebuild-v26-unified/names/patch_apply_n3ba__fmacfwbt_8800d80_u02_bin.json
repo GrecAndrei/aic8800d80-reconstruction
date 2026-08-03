@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158a2", "status": "ok", "name": "patch_apply_n3ba", "params": [], "docstring": "extract and apply bit fields from patch word to registers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

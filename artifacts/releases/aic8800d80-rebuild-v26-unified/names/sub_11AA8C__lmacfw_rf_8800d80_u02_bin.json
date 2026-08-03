@@ -1,0 +1,1 @@
+{"fn": "sub_11AA8C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11aa8c", "status": "ok", "name": "ipc_dispatch", "params": [], "docstring": "Dispatch command via jump table.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

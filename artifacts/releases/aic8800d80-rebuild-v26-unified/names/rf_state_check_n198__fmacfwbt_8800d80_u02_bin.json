@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n198", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121c8", "status": "ok", "name": "rf_set_tx_power", "params": [], "docstring": "Set RF transmit power level", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

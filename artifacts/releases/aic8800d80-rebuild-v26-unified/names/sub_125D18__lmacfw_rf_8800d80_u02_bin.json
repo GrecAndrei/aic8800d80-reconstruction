@@ -1,0 +1,1 @@
+{"fn": "sub_125D18", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125d18", "status": "ok", "name": "bt_conn_init", "params": [], "docstring": "Initializes BT connection state or dispatches as needed.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

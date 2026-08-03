@@ -1,0 +1,1 @@
+{"fn": "sub_125C88", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x125c88", "status": "ok", "name": "util_list_len", "params": [], "docstring": "Compute linked list length", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

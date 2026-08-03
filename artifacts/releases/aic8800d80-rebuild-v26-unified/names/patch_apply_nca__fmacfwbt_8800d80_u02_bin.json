@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155b2", "status": "ok", "name": "patch_apply_nca", "params": [], "docstring": "Applies firmware patch table with 0x56 (86) entries looped into MMIO registers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

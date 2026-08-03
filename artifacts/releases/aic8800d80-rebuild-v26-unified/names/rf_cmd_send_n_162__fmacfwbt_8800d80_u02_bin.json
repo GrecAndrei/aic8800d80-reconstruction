@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_162", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d0a", "status": "ok", "name": "rf_cmd_send_n_162", "params": [], "docstring": "Sends RF command via indexed table dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

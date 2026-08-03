@@ -1,0 +1,1 @@
+{"fn": "sub_1140E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1140e8", "status": "ok", "name": "set_busy_flag", "params": [], "docstring": "Set busy flag with interrupts disabled", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121B3A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b3a4", "status": "ok", "name": "rf_state_reset_n_3a4", "params": [], "docstring": "RF state reset clearing context fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

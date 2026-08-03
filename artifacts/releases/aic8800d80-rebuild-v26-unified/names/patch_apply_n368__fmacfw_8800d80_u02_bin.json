@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n368", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215214", "status": "ok", "name": "patch_apply_n368", "params": [], "docstring": "Apply firmware patch using bit-field extract from register", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

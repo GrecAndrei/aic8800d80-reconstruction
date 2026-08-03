@@ -1,0 +1,1 @@
+{"fn": "sub_129F8C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x129f8c", "status": "ok", "name": "get_table_entry", "params": [], "docstring": "Return table entry pointer or zero if missing", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

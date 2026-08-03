@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_250", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f344", "status": "ok", "name": "rf_mem_read_n_250", "params": [], "docstring": "Read RF memory block with offset/length validation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

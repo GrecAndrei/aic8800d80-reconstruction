@@ -1,0 +1,1 @@
+{"fn": "sub_104A98", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x104a98", "status": "ok", "name": "prcm_set_mask", "params": [], "docstring": "Set mask bits in power/clock register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

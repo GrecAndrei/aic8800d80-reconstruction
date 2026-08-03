@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_307", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ba4", "status": "ok", "name": "patch_apply_n_307", "params": [], "docstring": "Apply firmware patch via indirect branch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

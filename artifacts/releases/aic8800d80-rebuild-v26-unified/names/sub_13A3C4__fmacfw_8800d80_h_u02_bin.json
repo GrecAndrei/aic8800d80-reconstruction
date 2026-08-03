@@ -1,0 +1,1 @@
+{"fn": "sub_13A3C4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13a3c4", "status": "ok", "name": "is_rate_valid", "params": [], "docstring": "Check rate table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

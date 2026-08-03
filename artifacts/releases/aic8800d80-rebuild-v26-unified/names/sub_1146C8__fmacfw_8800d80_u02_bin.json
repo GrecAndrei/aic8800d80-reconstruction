@@ -1,0 +1,1 @@
+{"fn": "sub_1146C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1146c8", "status": "ok", "name": "clear_global_flag_2", "params": [], "docstring": "Clear bit 2 at offset 8 of object at 0x1732f4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_emb_hostrxbuf_get", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1246008", "status": "ok", "name": "ipc_emb_hostrxbuf_get", "params": [], "docstring": "Retrieve embedded host RX buffer descriptor via IPC", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

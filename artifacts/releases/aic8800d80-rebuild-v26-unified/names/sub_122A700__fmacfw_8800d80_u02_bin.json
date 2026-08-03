@@ -1,0 +1,1 @@
+{"fn": "sub_122A700", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a700", "status": "ok", "name": "rf_chan_index_lookup", "params": [], "docstring": "Look up channel index in RF table by slot id at offset 0x4c9", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

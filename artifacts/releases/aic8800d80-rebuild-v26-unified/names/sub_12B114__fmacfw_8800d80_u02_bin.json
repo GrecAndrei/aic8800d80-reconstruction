@@ -1,0 +1,1 @@
+{"fn": "sub_12B114", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b114", "status": "ok", "name": "ke_msg_handler_lookup", "params": [], "docstring": "Look up handler for message header by ID", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

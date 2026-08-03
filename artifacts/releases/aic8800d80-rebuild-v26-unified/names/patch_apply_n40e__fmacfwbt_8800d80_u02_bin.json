@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n40e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158f6", "status": "ok", "name": "patch_apply_58f6", "params": [], "docstring": "Load patch table pointers and apply firmware patches", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

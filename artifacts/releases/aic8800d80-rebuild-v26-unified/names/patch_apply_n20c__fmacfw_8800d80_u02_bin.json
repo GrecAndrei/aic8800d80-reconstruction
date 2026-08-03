@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n20c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150b8", "status": "ok", "name": "rf_fault_dump_n_82", "params": [], "docstring": "Clear RF fault/dump status flag bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

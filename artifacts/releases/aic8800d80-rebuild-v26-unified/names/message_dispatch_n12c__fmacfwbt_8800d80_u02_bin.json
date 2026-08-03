@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n12c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cce0", "status": "ok", "name": "msg_buf_split_store", "params": [], "docstring": "Split a buffer range and store head/len fields for dispatch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

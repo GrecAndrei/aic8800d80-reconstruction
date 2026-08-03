@@ -1,0 +1,1 @@
+{"fn": "sub_136544", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136544", "status": "ok", "name": "txpwr_apply_path", "params": [], "docstring": "Apply tx power path control if PHY active", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

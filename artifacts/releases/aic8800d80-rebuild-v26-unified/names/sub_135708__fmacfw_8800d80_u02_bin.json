@@ -1,0 +1,1 @@
+{"fn": "sub_135708", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135708", "status": "ok", "name": "bt_get_conn_by_index", "params": [], "docstring": "get connection entry from device index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

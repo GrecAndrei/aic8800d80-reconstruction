@@ -1,0 +1,1 @@
+{"fn": "sub_110E24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x110e24", "status": "ok", "name": "mmio_write_config", "params": [], "docstring": "Write config and read status from MMIO", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

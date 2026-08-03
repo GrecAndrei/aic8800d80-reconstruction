@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n2cf", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213782", "status": "ok", "name": "patch_apply_n3da", "params": [], "docstring": "Apply firmware patch variant at offset 0x3da", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

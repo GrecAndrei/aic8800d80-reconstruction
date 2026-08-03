@@ -1,0 +1,1 @@
+{"fn": "sub_102BD4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x102bd4", "status": "ok", "name": "radio_event_loop", "params": [], "docstring": "Processes radio events and handles state transitions", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

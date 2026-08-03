@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_403", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112dc", "status": "ok", "name": "rf_bus_mark_n_403", "params": [], "docstring": "Mark RF bus arbitration state with a token/grant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

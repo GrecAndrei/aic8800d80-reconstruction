@@ -1,0 +1,1 @@
+{"fn": "sub_10E694", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10e694", "status": "ok", "name": "gpio_set_pin_mode", "params": [], "docstring": "Configure GPIO pad mode register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

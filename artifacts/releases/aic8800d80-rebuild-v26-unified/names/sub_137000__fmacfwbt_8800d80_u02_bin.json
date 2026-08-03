@@ -1,0 +1,1 @@
+{"fn": "sub_137000", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x137000", "status": "ok", "name": "rf_cmd_txpwr_set", "params": [], "docstring": "Send RF command 0x100b tx power set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

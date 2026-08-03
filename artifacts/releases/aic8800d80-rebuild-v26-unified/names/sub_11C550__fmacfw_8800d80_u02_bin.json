@@ -1,0 +1,1 @@
+{"fn": "sub_11C550", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c550", "status": "ok", "name": "check_channel_busy", "params": [], "docstring": "Checks channel energy field against a threshold", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

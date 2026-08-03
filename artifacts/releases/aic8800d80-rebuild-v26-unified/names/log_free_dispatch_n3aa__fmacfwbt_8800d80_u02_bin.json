@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n3aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121020a", "status": "ok", "name": "rf_bus_reset2_n_311", "params": [], "docstring": "Loads addresses for secondary RF bus reset sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

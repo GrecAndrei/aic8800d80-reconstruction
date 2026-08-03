@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_na0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147e8", "status": "ok", "name": "rf_fault_dump_na0", "params": [], "docstring": "Dumps RF fault state, size capped to 0x100 via right-shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

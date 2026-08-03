@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_2ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ee8", "status": "ok", "name": "rf_state_check_n_2ec_1ee8", "params": [], "docstring": "Check RF state bytes at offsets 0x1a with 8-bit scaling", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

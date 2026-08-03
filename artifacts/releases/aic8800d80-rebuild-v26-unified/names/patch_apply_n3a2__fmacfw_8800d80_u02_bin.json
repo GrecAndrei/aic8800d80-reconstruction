@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3a2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121524e", "status": "ok", "name": "patch_apply_n3a2", "params": [], "docstring": "Applies firmware patch via SCB->VTOR and patched function pointer table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

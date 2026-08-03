@@ -1,0 +1,1 @@
+{"fn": "sub_13B938", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b938", "status": "ok", "name": "load_global_pointer", "params": [], "docstring": "Loads a pointer from a global structure.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211428", "status": "ok", "name": "rf_bus_mark_n_2b8", "params": [], "docstring": "Marks RF bus state with multiply-reciprocal and shifted compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

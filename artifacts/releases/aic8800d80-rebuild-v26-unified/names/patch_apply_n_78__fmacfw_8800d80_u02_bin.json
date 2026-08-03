@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e34", "status": "ok", "name": "patch_apply_n_78", "params": [], "docstring": "Applies firmware calibration patch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

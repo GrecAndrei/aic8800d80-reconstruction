@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4e2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215006", "status": "ok", "name": "patch_apply_n_4e2", "params": [], "docstring": "Apply RF register patch with init values (variant 4e2)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

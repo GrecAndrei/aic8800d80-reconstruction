@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_42e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a7e", "status": "ok", "name": "patch_apply_n_42e", "params": [], "docstring": "Patch applier: returns status code (2 or 0xb) after patch operation", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

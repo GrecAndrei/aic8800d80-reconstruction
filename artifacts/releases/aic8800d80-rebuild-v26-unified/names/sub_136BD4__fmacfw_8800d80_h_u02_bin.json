@@ -1,0 +1,1 @@
+{"fn": "sub_136BD4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136bd4", "status": "ok", "name": "rf_get_rate_table_index", "params": [], "docstring": "Get PHY rate table index from configuration byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

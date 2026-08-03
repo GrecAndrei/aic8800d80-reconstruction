@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_3f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dd26", "status": "ok", "name": "sdio_buffer_prepare_dd26", "params": [], "docstring": "Prepares an SDIO buffer region for transfer", "subsystem": "tx", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

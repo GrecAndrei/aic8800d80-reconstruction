@@ -1,0 +1,1 @@
+{"fn": "sub_117924", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117924", "status": "ok", "name": "chip_type_read", "params": [], "docstring": "Read chip type register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

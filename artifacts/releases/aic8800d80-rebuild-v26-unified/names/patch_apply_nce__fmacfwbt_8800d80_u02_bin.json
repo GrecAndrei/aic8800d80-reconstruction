@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nce", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155b6", "status": "ok", "name": "patch_apply_nce", "params": [], "docstring": "Apply NCE patch: write value to indexed slot and clear byte flag", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

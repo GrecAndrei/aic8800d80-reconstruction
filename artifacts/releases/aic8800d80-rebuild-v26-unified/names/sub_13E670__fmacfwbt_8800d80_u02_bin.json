@@ -1,0 +1,1 @@
+{"fn": "sub_13E670", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13e670", "status": "ok", "name": "alloc_send_packet", "params": [], "docstring": "Allocates and fills TX packet descriptor", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

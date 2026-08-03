@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n6e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f1a", "status": "ok", "name": "patch_apply_f1a", "params": [], "docstring": "Apply a patch record to memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

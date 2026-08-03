@@ -1,0 +1,1 @@
+{"fn": "sub_1006C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1006c0", "status": "ok", "name": "periph_process", "params": [], "docstring": "Initialize and process peripheral data in a multi-register routine", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

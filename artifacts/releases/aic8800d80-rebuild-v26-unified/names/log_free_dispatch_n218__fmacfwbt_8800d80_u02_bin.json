@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n218", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210078", "status": "ok", "name": "rf_bus_mark_n_458", "params": [], "docstring": "Mark RF bus index/word in ring at 0x4024018c/0x40240148", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_34c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121519c", "status": "ok", "name": "patch_apply_n_34c", "params": [], "docstring": "Apply patch with branch/return status writeback", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

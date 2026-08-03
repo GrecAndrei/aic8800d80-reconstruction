@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128cc", "status": "ok", "name": "rf_cmd_send_n_4c", "params": [], "docstring": "Sends an RF command with shifted argument encoding (lmac path)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

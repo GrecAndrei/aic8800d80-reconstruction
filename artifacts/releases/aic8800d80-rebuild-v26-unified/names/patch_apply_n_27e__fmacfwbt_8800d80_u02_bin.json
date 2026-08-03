@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_27e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121526a", "status": "ok", "name": "patch_apply_n_27e", "params": [], "docstring": "Applies a firmware patch/override with 3 args and large stack frame", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

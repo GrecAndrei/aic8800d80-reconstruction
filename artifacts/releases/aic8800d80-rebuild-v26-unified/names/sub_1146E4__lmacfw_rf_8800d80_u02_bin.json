@@ -1,0 +1,1 @@
+{"fn": "sub_1146E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1146e4", "status": "ok", "name": "bus_write_buf", "params": [], "docstring": "Writes a buffer to a bus if the bus handle is initialized", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

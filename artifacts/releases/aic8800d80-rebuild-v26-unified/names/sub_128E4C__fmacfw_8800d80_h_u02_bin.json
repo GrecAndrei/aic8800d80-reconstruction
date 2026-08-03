@@ -1,0 +1,1 @@
+{"fn": "sub_128E4C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x128e4c", "status": "ok", "name": "mfp_key_parse", "params": [], "docstring": "Parse MFP key entry and update security context", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

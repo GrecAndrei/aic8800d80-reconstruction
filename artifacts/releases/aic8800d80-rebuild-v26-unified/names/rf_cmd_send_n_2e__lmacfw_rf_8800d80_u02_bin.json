@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_2e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128ea", "status": "ok", "name": "rf_fault_dump_n_6c", "params": [], "docstring": "Trigger RF fault dump via control register OR", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

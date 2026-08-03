@@ -1,0 +1,1 @@
+{"fn": "sub_114F00", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114f00", "status": "ok", "name": "syscall8_op", "params": [], "docstring": "Call service 8 with two arguments for memory operation", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

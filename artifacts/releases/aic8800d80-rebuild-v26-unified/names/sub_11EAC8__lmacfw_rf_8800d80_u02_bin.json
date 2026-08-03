@@ -1,0 +1,1 @@
+{"fn": "sub_11EAC8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11eac8", "status": "ok", "name": "branch_to_127228", "params": [], "docstring": "Tail-call branch to function at 0x127228.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

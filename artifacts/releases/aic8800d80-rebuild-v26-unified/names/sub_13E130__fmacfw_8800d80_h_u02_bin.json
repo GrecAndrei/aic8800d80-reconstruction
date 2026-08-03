@@ -1,0 +1,1 @@
+{"fn": "sub_13E130", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13e130", "status": "ok", "name": "util_read_halfword", "params": [], "docstring": "Read a 16-bit value from the context structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

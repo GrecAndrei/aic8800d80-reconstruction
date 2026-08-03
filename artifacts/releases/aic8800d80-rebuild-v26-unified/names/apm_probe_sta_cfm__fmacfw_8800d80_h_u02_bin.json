@@ -1,0 +1,1 @@
+{"fn": "apm_probe_sta_cfm", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1249268", "status": "ok", "name": "apm_probe_sta_cfm", "params": [], "docstring": "Handles APM probe station confirmation message", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

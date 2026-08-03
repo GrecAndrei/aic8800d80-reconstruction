@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n4aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124da", "status": "ok", "name": "rf_state_check_n4aa", "params": [], "docstring": "Load RF state constant for status check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

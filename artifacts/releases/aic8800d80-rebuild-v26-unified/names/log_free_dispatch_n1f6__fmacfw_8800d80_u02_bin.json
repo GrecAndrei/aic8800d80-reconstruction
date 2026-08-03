@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n1f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12101fe", "status": "ok", "name": "log_free_dispatch_n1f6_01fe", "params": [], "docstring": "Dispatch freeing of log entries, iterate log slot counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

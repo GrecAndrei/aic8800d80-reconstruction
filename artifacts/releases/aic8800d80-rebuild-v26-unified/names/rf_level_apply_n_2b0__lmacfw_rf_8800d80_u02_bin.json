@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_2b0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226b28", "status": "ok", "name": "rf_level_apply_n_2b0", "params": [], "docstring": "Applies RF level changes by clearing bits 0x4000 and 0x10000 in MMIO registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

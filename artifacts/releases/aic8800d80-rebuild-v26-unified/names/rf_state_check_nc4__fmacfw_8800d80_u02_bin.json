@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_nc4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212298", "status": "ok", "name": "rf_state_check_nc4", "params": [], "docstring": "Pack byte pairs from a struct into 16-bit state words", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

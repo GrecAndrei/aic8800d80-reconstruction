@@ -1,0 +1,1 @@
+{"fn": "sub_1289EC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1289ec", "status": "ok", "name": "log_printf", "params": [], "docstring": "Conditional logging helper checking bit 0x800000", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

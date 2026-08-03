@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n2ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212b2e", "status": "ok", "name": "rf_bus_reset_n2ea", "params": [], "docstring": "Reset RF bus with 0x22 marker value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

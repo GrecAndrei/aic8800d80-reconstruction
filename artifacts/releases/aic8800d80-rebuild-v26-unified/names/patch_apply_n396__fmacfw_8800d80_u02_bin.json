@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n396", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215242", "status": "ok", "name": "rf_cmd_send_n_b4", "params": [], "docstring": "Send RF command word with byte swap and width conversion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

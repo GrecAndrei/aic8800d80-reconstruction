@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_14e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e1f6", "status": "ok", "name": "sdio_buffer_prepare_n_14e_e1f6", "params": [], "docstring": "Initialize SDIO buffer header and validate chip ID tag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

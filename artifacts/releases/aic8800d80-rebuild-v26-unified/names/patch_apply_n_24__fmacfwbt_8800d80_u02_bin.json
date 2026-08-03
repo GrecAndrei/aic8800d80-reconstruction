@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_24", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154c4", "status": "ok", "name": "patch_apply_54c4", "params": [], "docstring": "Apply firmware patch at offset 0x1660d0 with mask 0xf2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

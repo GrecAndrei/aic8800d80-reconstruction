@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n460", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212218", "status": "ok", "name": "rf_bus_init_n460", "params": [], "docstring": "Initializes RF bus with default register values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

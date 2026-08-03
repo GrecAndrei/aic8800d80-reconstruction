@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_44f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d3c", "status": "ok", "name": "rf_bus_mark_n_44f", "params": [], "docstring": "Mark RF bus operation (variant n_44f)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

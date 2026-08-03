@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214cb4", "status": "ok", "name": "rf_bus_setup_n3da", "params": [], "docstring": "Configures RF bus based on mode comparison against 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

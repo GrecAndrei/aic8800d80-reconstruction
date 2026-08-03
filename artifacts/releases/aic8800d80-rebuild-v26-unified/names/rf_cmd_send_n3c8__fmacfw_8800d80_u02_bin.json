@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133d8", "status": "ok", "name": "rf_cmd_send_n3c8", "params": [], "docstring": "Builds and dispatches RF command by masking/loading from cmd reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

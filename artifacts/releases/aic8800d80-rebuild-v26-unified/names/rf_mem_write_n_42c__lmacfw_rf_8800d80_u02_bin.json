@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_42c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221c00", "status": "ok", "name": "patch_apply_n376", "params": [], "docstring": "Extracts patch bitfields (positions 0xa-0xf) from word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

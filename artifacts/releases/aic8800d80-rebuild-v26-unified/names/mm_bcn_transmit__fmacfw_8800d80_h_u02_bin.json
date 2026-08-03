@@ -1,0 +1,1 @@
+{"fn": "mm_bcn_transmit", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1249240", "status": "ok", "name": "mm_bcn_transmit", "params": [], "docstring": "Main-MAC beacon frame transmit path", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

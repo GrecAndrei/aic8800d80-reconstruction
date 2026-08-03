@@ -1,0 +1,1 @@
+{"fn": "sub_11B438", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11b438", "status": "ok", "name": "save_rx_packet", "params": [], "docstring": "Store current RX packet info to global", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

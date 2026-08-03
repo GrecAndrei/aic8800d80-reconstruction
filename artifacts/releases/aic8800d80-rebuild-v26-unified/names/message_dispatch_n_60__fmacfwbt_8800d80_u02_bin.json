@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb54", "status": "ok", "name": "rf_bus_setup_n3a8", "params": [], "docstring": "RF bus setup packing register byte pair into 16-bit field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

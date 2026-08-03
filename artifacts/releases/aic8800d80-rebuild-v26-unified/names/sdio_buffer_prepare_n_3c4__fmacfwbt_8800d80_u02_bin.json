@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_3c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122df80", "status": "ok", "name": "rf_set_channel", "params": [], "docstring": "Configure RF channel frequency", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

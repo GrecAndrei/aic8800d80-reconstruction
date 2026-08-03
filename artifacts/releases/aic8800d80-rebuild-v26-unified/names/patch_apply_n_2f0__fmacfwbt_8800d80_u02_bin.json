@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151f8", "status": "ok", "name": "patch_apply_n_2f0", "params": [], "docstring": "Applies a halfword patch at offset 0x18 with sign-extended index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

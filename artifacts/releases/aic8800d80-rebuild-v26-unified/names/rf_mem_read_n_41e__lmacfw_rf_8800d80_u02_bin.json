@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_41e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f176", "status": "ok", "name": "patch_apply_n_4ea", "params": [], "docstring": "Applies next firmware patch entry and advances index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

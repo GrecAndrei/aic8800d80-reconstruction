@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_402", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f02", "status": "ok", "name": "rf_bus_reset_0f02", "params": [], "docstring": "Reset RF bus to state 0x402", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

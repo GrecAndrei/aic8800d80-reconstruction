@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_3ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121435c", "status": "ok", "name": "rf_cmd_dispatch_n_dc", "params": [], "docstring": "Dispatches RF commands by command ID (case 5+)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

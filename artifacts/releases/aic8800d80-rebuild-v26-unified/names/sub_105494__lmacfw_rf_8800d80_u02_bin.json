@@ -1,0 +1,1 @@
+{"fn": "sub_105494", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x105494", "status": "ok", "name": "phy_set_txpower", "params": [], "docstring": "Configure PHY transmit power settings", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

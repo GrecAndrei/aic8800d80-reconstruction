@@ -1,0 +1,1 @@
+{"fn": "irq_nesting_or", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d104", "status": "ok", "name": "irq_nesting_or_d104", "params": [], "docstring": "IRQ nesting counter increment helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

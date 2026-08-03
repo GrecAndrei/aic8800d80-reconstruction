@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_ne8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e204", "status": "ok", "name": "sdio_buffer_prepare_ne8_204", "params": [], "docstring": "Prepare SDIO buffer, bounds-check size against limit 0x31+8", "subsystem": "tx", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

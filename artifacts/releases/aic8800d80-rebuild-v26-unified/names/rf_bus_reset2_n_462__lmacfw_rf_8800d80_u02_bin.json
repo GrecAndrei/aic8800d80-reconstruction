@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_462", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ea2", "status": "ok", "name": "rf_bus_counter_tick", "params": [], "docstring": "Increments RF bus counter at offset 0x1810 using muldiv", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

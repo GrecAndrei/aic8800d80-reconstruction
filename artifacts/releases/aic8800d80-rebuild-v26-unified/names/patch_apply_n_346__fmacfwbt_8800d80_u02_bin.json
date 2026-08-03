@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_346", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151a2", "status": "ok", "name": "patch_apply_n_346", "params": [], "docstring": "Apply firmware patch variant 346 with byte store", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

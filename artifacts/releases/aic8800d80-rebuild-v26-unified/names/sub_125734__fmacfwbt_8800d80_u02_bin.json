@@ -1,0 +1,1 @@
+{"fn": "sub_125734", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125734", "status": "ok", "name": "tx_desc_prepare", "params": [], "docstring": "Prepare TX descriptor from packet params", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

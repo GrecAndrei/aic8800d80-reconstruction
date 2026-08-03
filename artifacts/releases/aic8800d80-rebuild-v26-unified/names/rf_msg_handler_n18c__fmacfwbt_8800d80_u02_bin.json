@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n18c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130ec", "status": "ok", "name": "rf_mem_scan_bytes", "params": [], "docstring": "Scan byte buffer, validate range vs 0x1f, iterate with helper call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

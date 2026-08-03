@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_f2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eac2", "status": "ok", "name": "sdio_buffer_prepare_n_f2", "params": [], "docstring": "Build SDIO buffer payload with byte/strip adjustments", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

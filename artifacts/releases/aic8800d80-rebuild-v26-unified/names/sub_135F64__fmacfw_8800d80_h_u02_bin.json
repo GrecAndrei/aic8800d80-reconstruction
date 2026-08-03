@@ -1,0 +1,1 @@
+{"fn": "sub_135F64", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x135f64", "status": "ok", "name": "patch_code_load", "params": [], "docstring": "Loads patch code from flash", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

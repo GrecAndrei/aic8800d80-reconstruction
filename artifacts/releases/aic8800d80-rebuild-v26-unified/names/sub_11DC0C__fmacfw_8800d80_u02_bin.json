@@ -1,0 +1,1 @@
+{"fn": "sub_11DC0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11dc0c", "status": "ok", "name": "mac_rx_handler", "params": [], "docstring": "Handle received MAC frame descriptor", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

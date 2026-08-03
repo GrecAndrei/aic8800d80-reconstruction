@@ -1,0 +1,1 @@
+{"fn": "sub_1316E4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1316e4", "status": "ok", "name": "log_bt_event", "params": [], "docstring": "Log a Bluetooth event", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

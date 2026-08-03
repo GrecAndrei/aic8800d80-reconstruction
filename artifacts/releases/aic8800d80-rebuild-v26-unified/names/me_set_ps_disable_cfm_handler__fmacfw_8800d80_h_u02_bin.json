@@ -1,0 +1,1 @@
+{"fn": "me_set_ps_disable_cfm_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124bbf8", "status": "ok", "name": "me_set_ps_disable_cfm_handler", "params": [], "docstring": "Handles ME power-save disable confirmation", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

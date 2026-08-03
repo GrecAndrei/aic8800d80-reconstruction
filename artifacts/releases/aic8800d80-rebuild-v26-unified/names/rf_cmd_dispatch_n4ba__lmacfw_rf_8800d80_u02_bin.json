@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n4ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223fe", "status": "ok", "name": "rf_cmd_dispatch_n4ba", "params": [], "docstring": "Dispatch RF command using literal command constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

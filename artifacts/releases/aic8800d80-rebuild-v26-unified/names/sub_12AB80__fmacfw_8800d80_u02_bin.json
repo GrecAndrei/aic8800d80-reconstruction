@@ -1,0 +1,1 @@
+{"fn": "sub_12AB80", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ab80", "status": "ok", "name": "rf_calib_valid", "params": [], "docstring": "Return whether calibration data at the given index is valid", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

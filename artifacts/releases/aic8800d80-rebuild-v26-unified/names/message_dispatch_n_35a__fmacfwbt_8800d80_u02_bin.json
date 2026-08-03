@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_35a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c85a", "status": "ok", "name": "message_dispatch_n_35a", "params": [], "docstring": "Message dispatch handler building argument word and forwarding", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

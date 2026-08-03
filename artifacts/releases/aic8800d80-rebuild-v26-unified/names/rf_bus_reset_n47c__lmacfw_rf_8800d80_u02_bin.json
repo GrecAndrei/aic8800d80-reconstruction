@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n47c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121276c", "status": "ok", "name": "rf_bus_reset_n47c", "params": [], "docstring": "Reset RF bus polling mode/state flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

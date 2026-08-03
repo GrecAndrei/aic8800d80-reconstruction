@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_42c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112b4", "status": "ok", "name": "rf_bus_mark_n_42c", "params": [], "docstring": "Mark or query RF bus entry state flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

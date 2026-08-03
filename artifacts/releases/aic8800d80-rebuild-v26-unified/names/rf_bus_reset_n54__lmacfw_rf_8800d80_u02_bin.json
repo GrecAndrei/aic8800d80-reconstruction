@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n54", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212344", "status": "ok", "name": "rf_bus_reset_n54", "params": [], "docstring": "Reset RF bus with parameter 54", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

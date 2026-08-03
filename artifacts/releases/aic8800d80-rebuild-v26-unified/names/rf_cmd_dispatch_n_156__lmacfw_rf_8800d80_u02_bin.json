@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_156", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221dee", "status": "ok", "name": "rf_bus_write_n_2bd_1dee", "params": [], "docstring": "Writes a value to the shared RF bus register at offset 0xc80", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

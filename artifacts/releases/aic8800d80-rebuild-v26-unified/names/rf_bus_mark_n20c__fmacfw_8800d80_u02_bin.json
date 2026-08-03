@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n20c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a90", "status": "ok", "name": "rf_bus_mark_n20c", "params": [], "docstring": "Marks RF bus state by writing marker values to RF control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

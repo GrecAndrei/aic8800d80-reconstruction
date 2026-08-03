@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_37e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122dfc6", "status": "ok", "name": "sdio_buffer_check_size", "params": [], "docstring": "Validate SDIO buffer size against limit", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

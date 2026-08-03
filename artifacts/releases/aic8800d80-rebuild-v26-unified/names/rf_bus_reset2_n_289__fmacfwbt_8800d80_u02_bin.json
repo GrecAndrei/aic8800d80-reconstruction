@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_289", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115ce", "status": "ok", "name": "rf_bus_reset2_n_289", "params": [], "docstring": "Secondary RF bus reset calling helper 0x12eef8 with arg 2 and shift left 0x1d", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

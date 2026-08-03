@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_na", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212922", "status": "ok", "name": "rf_cmd_send_na", "params": [], "docstring": "Sends RF command and waits for completion state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

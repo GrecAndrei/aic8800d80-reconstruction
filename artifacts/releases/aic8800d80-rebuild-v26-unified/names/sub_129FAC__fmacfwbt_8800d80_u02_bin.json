@@ -1,0 +1,1 @@
+{"fn": "sub_129FAC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x129fac", "status": "ok", "name": "get_struct_ptr", "params": [], "docstring": "Get pointer to element in array of structs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12CC48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cc48", "status": "ok", "name": "hci_evt_prepare", "params": [], "docstring": "Store three halfword header fields and jump to sender", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

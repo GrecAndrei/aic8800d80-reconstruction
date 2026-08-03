@@ -1,0 +1,1 @@
+{"fn": "sub_119400", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119400", "status": "ok", "name": "trace_record_event", "params": [], "docstring": "Record event data into trace ring buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

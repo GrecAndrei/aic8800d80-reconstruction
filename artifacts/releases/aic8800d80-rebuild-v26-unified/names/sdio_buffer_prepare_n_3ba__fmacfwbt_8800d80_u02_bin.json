@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_3ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122df8a", "status": "ok", "name": "sdio_buffer_prepare_n_3ba", "params": [], "docstring": "Prepare SDIO host transfer buffer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

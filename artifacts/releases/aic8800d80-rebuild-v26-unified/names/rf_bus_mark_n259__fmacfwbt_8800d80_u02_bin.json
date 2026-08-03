@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n259", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211938", "status": "ok", "name": "rf_bus_mark_n259", "params": [], "docstring": "Mark RF bus state by setting bit in control register at offset 8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

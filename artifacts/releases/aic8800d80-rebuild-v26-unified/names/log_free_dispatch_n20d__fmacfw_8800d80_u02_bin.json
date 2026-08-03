@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n20d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210214", "status": "ok", "name": "log_free_dispatch_n20d", "params": [], "docstring": "Dispatches a logged frame-free event with size/count checks", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

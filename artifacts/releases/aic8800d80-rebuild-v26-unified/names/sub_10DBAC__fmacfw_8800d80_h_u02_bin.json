@@ -1,0 +1,1 @@
+{"fn": "sub_10DBAC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10dbac", "status": "ok", "name": "gpio_set_pin", "params": [], "docstring": "Set GPIO pin via output set register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_45e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12117be", "status": "ok", "name": "rf_bus_write2_n_45e", "params": [], "docstring": "Secondary RF bus write using constant 0x1822c4 address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

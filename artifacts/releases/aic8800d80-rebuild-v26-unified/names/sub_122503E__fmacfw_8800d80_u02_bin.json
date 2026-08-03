@@ -1,0 +1,1 @@
+{"fn": "sub_122503E", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122503e", "status": "ok", "name": "sub_122503E", "params": [], "docstring": "Helper routine saving r4-r6 and remapping args", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

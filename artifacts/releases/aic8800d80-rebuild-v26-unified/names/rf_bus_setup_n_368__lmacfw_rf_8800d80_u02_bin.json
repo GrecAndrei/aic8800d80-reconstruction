@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_368", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121149c", "status": "ok", "name": "rf_bus_setup_n_368", "params": [], "docstring": "Setup RF bus control register with enable/flag bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

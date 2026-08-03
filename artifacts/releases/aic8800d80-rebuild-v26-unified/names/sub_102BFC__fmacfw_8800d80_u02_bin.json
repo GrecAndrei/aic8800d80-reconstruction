@@ -1,0 +1,1 @@
+{"fn": "sub_102BFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102bfc", "status": "ok", "name": "install_isr", "params": [], "docstring": "Sets vector table entry and enables NVIC interrupt", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

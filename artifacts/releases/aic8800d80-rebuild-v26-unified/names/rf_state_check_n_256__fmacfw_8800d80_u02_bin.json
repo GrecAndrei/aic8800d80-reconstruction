@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_256", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f7e", "status": "ok", "name": "rf_state_check_n_256", "params": [], "docstring": "checks/sets RF state flag and restores regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

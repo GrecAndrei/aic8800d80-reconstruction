@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n44", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121295c", "status": "ok", "name": "rf_cmd_send_n44", "params": [], "docstring": "Submit RF command and set status bits (0x84000000) in ctrl reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

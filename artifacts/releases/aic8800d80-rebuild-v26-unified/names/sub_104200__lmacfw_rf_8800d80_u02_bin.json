@@ -1,0 +1,1 @@
+{"fn": "sub_104200", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x104200", "status": "ok", "name": "tx_power_calibrate", "params": [], "docstring": "Calibrates tx power using a large local stack and mode-dependent paths", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

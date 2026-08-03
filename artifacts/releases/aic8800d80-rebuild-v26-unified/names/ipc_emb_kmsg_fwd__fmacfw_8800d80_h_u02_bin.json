@@ -1,0 +1,1 @@
+{"fn": "ipc_emb_kmsg_fwd", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1246030", "status": "ok", "name": "ipc_emb_kmsg_fwd", "params": [], "docstring": "Forward embedded kernel message between host and emb cores", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

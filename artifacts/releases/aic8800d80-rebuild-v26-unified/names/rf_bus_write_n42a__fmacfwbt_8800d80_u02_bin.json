@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n42a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dea", "status": "ok", "name": "rf_bus_write_n42a", "params": [], "docstring": "Write to RF register via 0x40020000+b00 bus with status test", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

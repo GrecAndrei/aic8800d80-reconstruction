@@ -1,0 +1,1 @@
+{"fn": "sub_12F49C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f49c", "status": "ok", "name": "call_shared_handler", "params": [], "docstring": "Tail-calls generic handler with masked argument", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

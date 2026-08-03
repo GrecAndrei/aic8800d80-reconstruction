@@ -1,0 +1,1 @@
+{"fn": "sub_126334", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x126334", "status": "ok", "name": "llc_pdu_check", "params": [], "docstring": "validate non-null context and save parameters", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

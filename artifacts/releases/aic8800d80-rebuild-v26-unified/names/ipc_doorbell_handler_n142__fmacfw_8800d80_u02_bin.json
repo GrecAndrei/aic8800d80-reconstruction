@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n142", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215abe", "status": "ok", "name": "ipc_doorbell_handler_n142", "params": [], "docstring": "Handles IPC doorbell interrupts with mask compare against 0xa0 and 0x66 control byte", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

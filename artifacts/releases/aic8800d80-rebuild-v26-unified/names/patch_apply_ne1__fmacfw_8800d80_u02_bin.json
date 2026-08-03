@@ -1,0 +1,1 @@
+{"fn": "patch_apply_ne1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f8c", "status": "ok", "name": "rf_level_apply_n_1f5", "params": [], "docstring": "Apply RF power/level settings by masking register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_nc6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213d0e", "status": "ok", "name": "ipc_msg_dispatch_handler", "params": [], "docstring": "Dispatch handler inspecting message byte fields and branch conditions", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

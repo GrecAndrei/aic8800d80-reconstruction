@@ -1,0 +1,1 @@
+{"fn": "sub_129E84", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x129e84", "status": "ok", "name": "handle_state_change", "params": [], "docstring": "Handle state transition based on offset byte", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12ADEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12adec", "status": "ok", "name": "get_state_name", "params": [], "docstring": "Get state string for current mode", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

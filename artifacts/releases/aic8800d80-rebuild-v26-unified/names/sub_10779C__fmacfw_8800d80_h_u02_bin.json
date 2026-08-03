@@ -1,0 +1,1 @@
+{"fn": "sub_10779C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10779c", "status": "ok", "name": "pmu_configure", "params": [], "docstring": "Configure PMU hardware control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

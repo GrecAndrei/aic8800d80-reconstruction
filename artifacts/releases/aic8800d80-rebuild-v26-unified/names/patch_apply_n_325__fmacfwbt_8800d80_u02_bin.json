@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_325", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151c2", "status": "ok", "name": "patch_apply_n_325", "params": [], "docstring": "Apply firmware patch from ROM table entry 0x1FC", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

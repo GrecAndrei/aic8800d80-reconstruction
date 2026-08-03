@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_490", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215058", "status": "ok", "name": "patch_apply_n_490", "params": [], "docstring": "Apply firmware patch variant 0x490 (bitwise OR/mask patcher).", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

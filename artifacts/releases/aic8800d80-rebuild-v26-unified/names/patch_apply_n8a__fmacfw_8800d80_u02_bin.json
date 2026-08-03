@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n8a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f36", "status": "ok", "name": "patch_apply_n8a", "params": [], "docstring": "Apply firmware patch aligned to 4 bytes, target 0x182000 region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n52", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e16e", "status": "ok", "name": "sdio_buffer_prepare_n52_e16e", "params": [], "docstring": "SDIO buffer preparation computing offsets via shift arithmetic", "subsystem": "tx", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

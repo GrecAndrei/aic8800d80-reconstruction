@@ -1,0 +1,1 @@
+{"fn": "me_set_active_cfm_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124bc38", "status": "ok", "name": "me_set_active_cfm_handler", "params": [], "docstring": "Handle ME set_active confirmation message", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

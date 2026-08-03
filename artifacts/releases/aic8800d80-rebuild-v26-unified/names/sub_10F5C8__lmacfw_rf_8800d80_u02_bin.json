@@ -1,0 +1,1 @@
+{"fn": "sub_10F5C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f5c8", "status": "ok", "name": "bt_msg_init", "params": [], "docstring": "Initializes BT message object with type/subtype and copies data.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

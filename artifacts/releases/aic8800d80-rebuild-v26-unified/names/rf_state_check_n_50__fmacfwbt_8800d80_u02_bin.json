@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_50", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fe0", "status": "ok", "name": "rf_state_set_active_chan", "params": [], "docstring": "Set RF state to active channel with bitmask update", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

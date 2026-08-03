@@ -1,0 +1,1 @@
+{"fn": "sub_1134D8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1134d8", "status": "ok", "name": "refresh_config_params", "params": [], "docstring": "Refresh global parameters from stored configuration", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

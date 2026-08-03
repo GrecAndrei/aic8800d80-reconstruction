@@ -1,0 +1,1 @@
+{"fn": "sub_13697C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13697c", "status": "ok", "name": "txpwr_get_state", "params": [], "docstring": "Fetch tx power state while checking PHY state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_200", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152e8", "status": "ok", "name": "patch_apply_n_200", "params": [], "docstring": "Apply patch entry 200: copy 4 bytes from stack to patched buffer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

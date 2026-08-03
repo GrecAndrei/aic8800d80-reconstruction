@@ -1,0 +1,1 @@
+{"fn": "sub_122F4E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f4e8", "status": "ok", "name": "ipc_init_buf", "params": [], "docstring": "Initialize 8-byte buffer to zero at 0x18274c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e29a", "status": "ok", "name": "sdio_buffer_prepare_n_aa_e29a", "params": [], "docstring": "Prepares SDIO buffer with stack offset 0x48 and header byte", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_1207068", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1207068", "status": "ok", "name": "log_free_pool_dispatch2_n324", "params": [], "docstring": "Initializes log entry and dispatches to free-pool handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

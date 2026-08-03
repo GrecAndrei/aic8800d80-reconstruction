@@ -1,0 +1,1 @@
+{"fn": "sub_13C118", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c118", "status": "ok", "name": "read_tx_power_cal", "params": [], "docstring": "Reads TX power calibration data from table and chip register for chain", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

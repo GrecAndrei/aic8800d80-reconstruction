@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_28e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212062", "status": "ok", "name": "rf_bus_reset_n_28e", "params": [], "docstring": "RF bus reset indirect call via r4+8 with uxtb arg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

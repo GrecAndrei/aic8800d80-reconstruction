@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n76", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e4e", "status": "ok", "name": "rf_cmd_send_n62", "params": [], "docstring": "RF command send tail returning via leaf pop with shift packing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

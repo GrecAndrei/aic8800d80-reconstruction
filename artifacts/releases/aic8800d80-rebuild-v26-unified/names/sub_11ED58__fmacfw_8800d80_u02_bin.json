@@ -1,0 +1,1 @@
+{"fn": "sub_11ED58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11ed58", "status": "ok", "name": "timer_get_counter", "params": [], "docstring": "read hardware timer counter value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

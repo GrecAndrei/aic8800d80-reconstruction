@@ -1,0 +1,1 @@
+{"fn": "sub_122A818", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a818", "status": "ok", "name": "sub_122A818", "params": [], "docstring": "Indexed table lookup on 0x190d48 struct by id at offset 0x4c9", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2a2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12144a6", "status": "ok", "name": "rf_fault_dump_n_2a2", "params": [], "docstring": "Dump RF fault information computing a frame/data delta", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

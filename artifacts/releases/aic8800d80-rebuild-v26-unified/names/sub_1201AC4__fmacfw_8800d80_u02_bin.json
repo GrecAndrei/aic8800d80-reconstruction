@@ -1,0 +1,1 @@
+{"fn": "sub_1201AC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201ac4", "status": "ok", "name": "hw_chip_rev_get", "params": [], "docstring": "Read chip revision field from HW register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

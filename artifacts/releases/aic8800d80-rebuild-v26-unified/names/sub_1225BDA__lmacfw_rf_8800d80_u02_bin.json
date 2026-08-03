@@ -1,0 +1,1 @@
+{"fn": "sub_1225BDA", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225bda", "status": "ok", "name": "ipc_msg_dispatch_nbd2", "params": [], "docstring": "Dispatch IPC message by calling handler and checking return code 2", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

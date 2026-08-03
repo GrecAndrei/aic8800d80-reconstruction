@@ -1,0 +1,1 @@
+{"fn": "sub_12AA04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12aa04", "status": "ok", "name": "bt_dev_update", "params": [], "docstring": "Update device with connection info", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

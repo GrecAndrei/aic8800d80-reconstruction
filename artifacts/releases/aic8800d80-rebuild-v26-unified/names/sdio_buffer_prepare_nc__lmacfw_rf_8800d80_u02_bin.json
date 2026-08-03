@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ebc0", "status": "ok", "name": "sdio_buffer_prepare_nc_ebc0", "params": [], "docstring": "Prepares an SDIO DMA buffer descriptor from a source byte stream", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

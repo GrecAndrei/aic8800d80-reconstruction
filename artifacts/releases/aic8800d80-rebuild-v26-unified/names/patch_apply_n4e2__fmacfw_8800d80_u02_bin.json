@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4e2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121538e", "status": "ok", "name": "rf_level_apply_n2ea", "params": [], "docstring": "Apply RF level from signed byte offset on stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4e4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211e0c", "status": "ok", "name": "rf_bus_reset_n_4e4", "params": [], "docstring": "Reset RF bus (byte read from base)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

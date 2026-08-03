@@ -1,0 +1,1 @@
+{"fn": "sub_1019DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1019dc", "status": "ok", "name": "set_rf_frequency", "params": [], "docstring": "Set 11-bit frequency field in RF frequency registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

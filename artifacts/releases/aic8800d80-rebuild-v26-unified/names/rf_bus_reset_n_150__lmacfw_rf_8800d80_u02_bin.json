@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_150", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12121a0", "status": "ok", "name": "rf_bus_reset_cond", "params": [], "docstring": "Conditional RF bus reset for opcode 0x40", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

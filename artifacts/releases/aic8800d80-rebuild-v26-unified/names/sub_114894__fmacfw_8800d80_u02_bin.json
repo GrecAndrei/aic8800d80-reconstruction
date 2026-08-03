@@ -1,0 +1,1 @@
+{"fn": "sub_114894", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114894", "status": "ok", "name": "rf_cmd6_read_hi", "params": [], "docstring": "Call rf function with command 6 and extract top byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

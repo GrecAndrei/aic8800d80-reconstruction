@@ -1,0 +1,1 @@
+{"fn": "sub_13C448", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c448", "status": "ok", "name": "tx_init_data_buffer", "params": [], "docstring": "Zero-initialize TX data buffer and read length", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

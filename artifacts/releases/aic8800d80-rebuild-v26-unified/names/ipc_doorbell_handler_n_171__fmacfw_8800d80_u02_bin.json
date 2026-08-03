@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_171", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121580a", "status": "ok", "name": "rf_bus_reset_n494", "params": [], "docstring": "Resets RF bus to default state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13C558", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13c558", "status": "ok", "name": "bt_conn_is_active", "params": [], "docstring": "Test whether connection is active", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

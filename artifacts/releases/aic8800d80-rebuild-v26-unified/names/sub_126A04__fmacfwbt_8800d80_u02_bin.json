@@ -1,0 +1,1 @@
+{"fn": "sub_126A04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x126a04", "status": "ok", "name": "hci_acl_buf_alloc", "params": [], "docstring": "Allocate an ACL packet buffer from the global pool", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1335E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1335e4", "status": "ok", "name": "crypto_load_args", "params": [], "docstring": "Loads crypto context arguments into registers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

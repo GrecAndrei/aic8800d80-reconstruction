@@ -1,0 +1,1 @@
+{"fn": "sub_10CA3C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ca3c", "status": "ok", "name": "pmu_isr_224", "params": [], "docstring": "Handles PMU interrupt status and accesses context at 0x224", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

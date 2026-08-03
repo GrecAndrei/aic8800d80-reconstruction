@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n3fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222340", "status": "ok", "name": "rf_cmd_dispatch_n3fc", "params": [], "docstring": "Dispatch RF command via IPC mailbox to hardware registers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

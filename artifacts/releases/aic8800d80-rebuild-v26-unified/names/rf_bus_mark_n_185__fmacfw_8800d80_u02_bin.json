@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_185", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116fe", "status": "ok", "name": "rf_bus_mark_n_185", "params": [], "docstring": "Load RF bus mark addresses for handler dispatch", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

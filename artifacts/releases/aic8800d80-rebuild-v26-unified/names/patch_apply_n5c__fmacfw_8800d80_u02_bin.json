@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n5c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f08", "status": "ok", "name": "patch_apply_n5c", "params": [], "docstring": "Applies a firmware patch with index/hash variant n5c", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

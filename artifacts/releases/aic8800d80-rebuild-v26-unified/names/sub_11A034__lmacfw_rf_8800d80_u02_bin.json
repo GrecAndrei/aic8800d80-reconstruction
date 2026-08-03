@@ -1,0 +1,1 @@
+{"fn": "sub_11A034", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11a034", "status": "ok", "name": "process_cmd_extended", "params": [], "docstring": "Extended callback processing with stack frame.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

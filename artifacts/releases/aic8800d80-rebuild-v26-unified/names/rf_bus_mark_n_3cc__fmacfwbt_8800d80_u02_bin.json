@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3cc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211314", "status": "ok", "name": "rf_bus_mark_n_3cc_1314", "params": [], "docstring": "Mark RF bus state (variant n_3cc)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

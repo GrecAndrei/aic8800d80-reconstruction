@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n354", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215cd0", "status": "ok", "name": "ipc_doorbell_clear_state", "params": [], "docstring": "Clears IPC doorbell state and sets message id to 2", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

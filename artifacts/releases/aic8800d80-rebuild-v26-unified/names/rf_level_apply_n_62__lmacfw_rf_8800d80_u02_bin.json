@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_62", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226d76", "status": "ok", "name": "rf_level_apply_n_62", "params": [], "docstring": "Applies RF level configuration by clearing mask bits in registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

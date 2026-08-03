@@ -1,0 +1,1 @@
+{"fn": "sub_1210F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210f8", "status": "ok", "name": "event_queue_drain", "params": [], "docstring": "Process entries from global event queue until empty.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

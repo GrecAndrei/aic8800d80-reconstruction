@@ -1,0 +1,1 @@
+{"fn": "sub_107E14", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x107e14", "status": "ok", "name": "mmio_set_bit24", "params": [], "docstring": "Set bit 24 in WLAN MAC register 0x403420d4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

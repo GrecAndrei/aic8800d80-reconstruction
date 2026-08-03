@@ -1,0 +1,1 @@
+{"fn": "sub_116D3C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x116d3c", "status": "ok", "name": "system_init_seq", "params": [], "docstring": "Run initialization call sequence", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

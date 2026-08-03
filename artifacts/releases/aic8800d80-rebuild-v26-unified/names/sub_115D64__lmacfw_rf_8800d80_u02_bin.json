@@ -1,0 +1,1 @@
+{"fn": "sub_115D64", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x115d64", "status": "ok", "name": "critical_section_enter", "params": [], "docstring": "Disable interrupts and set lock flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

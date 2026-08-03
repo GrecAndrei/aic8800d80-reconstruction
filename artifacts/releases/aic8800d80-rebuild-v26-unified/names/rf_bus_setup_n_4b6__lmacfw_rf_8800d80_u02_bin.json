@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_4b6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121134e", "status": "ok", "name": "rf_bus_setup_n_4b6", "params": [], "docstring": "Configure RF bus control register with ORR/BIC mask set", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

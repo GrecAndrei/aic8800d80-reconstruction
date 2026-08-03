@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_434", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112ac", "status": "ok", "name": "rf_bus_mark_n_434_12ac", "params": [], "docstring": "Compute RF bus descriptor index via strided addressing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

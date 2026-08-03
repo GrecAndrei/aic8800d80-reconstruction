@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_28a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c22", "status": "ok", "name": "patch_apply_n_28a", "params": [], "docstring": "Apply firmware patch (LPT register init stubs)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

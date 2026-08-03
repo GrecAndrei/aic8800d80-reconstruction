@@ -1,0 +1,1 @@
+{"fn": "sub_122F3C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122f3c", "status": "ok", "name": "check_address_alignment", "params": [], "docstring": "Check and adjust address alignment", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

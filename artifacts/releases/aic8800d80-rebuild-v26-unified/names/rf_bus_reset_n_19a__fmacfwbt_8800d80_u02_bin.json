@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_19a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12126aa", "status": "ok", "name": "rf_bus_reset_n_19a", "params": [], "docstring": "Compute RF bus reset diff between two 16-bit fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

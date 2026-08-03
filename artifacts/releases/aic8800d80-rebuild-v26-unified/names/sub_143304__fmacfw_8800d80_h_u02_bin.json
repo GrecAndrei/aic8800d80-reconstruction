@@ -1,0 +1,1 @@
+{"fn": "sub_143304", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143304", "status": "ok", "name": "uint64_divmod", "params": [], "docstring": "Unsigned 64-bit division with remainder", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

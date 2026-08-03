@@ -1,0 +1,1 @@
+{"fn": "sub_13BE14", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13be14", "status": "ok", "name": "rf_scan_chan", "params": [], "docstring": "Scan RF channel table for processing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12917C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12917c", "status": "ok", "name": "ipc_msg_send", "params": [], "docstring": "Send IPC message with error logging", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

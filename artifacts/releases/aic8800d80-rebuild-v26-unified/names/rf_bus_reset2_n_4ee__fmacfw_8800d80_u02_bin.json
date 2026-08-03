@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121150e", "status": "ok", "name": "rf_bus_reset2_clr_bit0", "params": [], "docstring": "Clear bit0 of RF control byte then shift setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n26c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210274", "status": "ok", "name": "log_free_dispatch_n26c", "params": [], "docstring": "Frees a log buffer by size class and dispatches to log pool", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

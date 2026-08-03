@@ -1,0 +1,1 @@
+{"fn": "sub_122ED22", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ed22", "status": "ok", "name": "rf_param_set_n410", "params": [], "docstring": "Set RF parameter via register 0x410 write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

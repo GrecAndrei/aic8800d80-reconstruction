@@ -1,0 +1,1 @@
+{"fn": "sub_120B430", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120b430", "status": "ok", "name": "phy_rx_process_bulk", "params": [], "docstring": "PHY RX bulk processing with SIMD register save/restore", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

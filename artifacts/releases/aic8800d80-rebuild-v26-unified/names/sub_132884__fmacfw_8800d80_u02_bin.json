@@ -1,0 +1,1 @@
+{"fn": "sub_132884", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132884", "status": "ok", "name": "rf_get_tx_chan", "params": [], "docstring": "Decodes RF channel and status from register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

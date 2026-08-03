@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n1e1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214928", "status": "ok", "name": "rf_fault_dump_n1e1", "params": [], "docstring": "RF fault dump with stack-resident context save variant 0x1e1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

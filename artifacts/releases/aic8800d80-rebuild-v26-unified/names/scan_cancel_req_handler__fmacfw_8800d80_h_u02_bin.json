@@ -1,0 +1,1 @@
+{"fn": "scan_cancel_req_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124999c", "status": "ok", "name": "scan_cancel_req_handler", "params": [], "docstring": "Handle scan cancel request and abort in-progress scan", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

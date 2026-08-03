@@ -1,0 +1,1 @@
+{"fn": "sub_110494", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x110494", "status": "ok", "name": "rf_isr", "params": [], "docstring": "handle radio interrupt status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

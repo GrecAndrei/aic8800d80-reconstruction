@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_12e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115b2", "status": "ok", "name": "rf_bus_mark_n_12e", "params": [], "docstring": "Read/write RF bus marker registers for sync", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

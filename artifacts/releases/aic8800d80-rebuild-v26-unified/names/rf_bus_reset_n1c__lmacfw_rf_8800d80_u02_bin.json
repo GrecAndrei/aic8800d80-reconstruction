@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n1c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121230c", "status": "ok", "name": "rf_bus_reset_n1c", "params": [], "docstring": "Reset RF bus by clearing bit0 of ctrl reg 0x804, then reinitialize via 0x1112e4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

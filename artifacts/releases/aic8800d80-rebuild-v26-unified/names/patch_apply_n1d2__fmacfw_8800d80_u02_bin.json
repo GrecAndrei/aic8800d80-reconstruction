@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1d2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121507e", "status": "ok", "name": "patch_apply_n1d2", "params": [], "docstring": "Apply patch with memory barrier and status byte check", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

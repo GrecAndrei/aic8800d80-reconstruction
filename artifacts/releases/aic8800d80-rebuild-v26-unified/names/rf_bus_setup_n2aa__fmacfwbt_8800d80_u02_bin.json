@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212002", "status": "ok", "name": "rf_bus_setup_n2aa_2002", "params": [], "docstring": "RF bus setup, returns 2/5/dispatch by id", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

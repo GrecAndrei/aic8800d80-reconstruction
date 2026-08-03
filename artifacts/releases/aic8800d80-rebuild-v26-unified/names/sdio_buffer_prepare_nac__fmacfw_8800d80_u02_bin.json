@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1c8", "status": "ok", "name": "sdio_buf_prepare_ac", "params": [], "docstring": "Prepares SDIO buffer for host DMA transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

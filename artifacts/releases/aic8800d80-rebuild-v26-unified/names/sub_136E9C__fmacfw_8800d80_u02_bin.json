@@ -1,0 +1,1 @@
+{"fn": "sub_136E9C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136e9c", "status": "ok", "name": "rf_write_cmd_1006", "params": [], "docstring": "Send RF command 0x1006 with 4-byte data", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

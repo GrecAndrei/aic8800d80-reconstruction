@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb6c", "status": "ok", "name": "message_dispatch_n_48_cb6c", "params": [], "docstring": "Dispatch IPC message based on type field", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

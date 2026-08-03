@@ -1,0 +1,1 @@
+{"fn": "sub_1216F08", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1216f08", "status": "ok", "name": "lmac_handler_xyz", "params": [], "docstring": "Wrapper that invokes lmac sub-routine at 0x128520", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n120", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121201c", "status": "ok", "name": "rf_bus_setup_n120", "params": [], "docstring": "RF bus setup initializing table at 0x166c1c with 0x800 entries", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

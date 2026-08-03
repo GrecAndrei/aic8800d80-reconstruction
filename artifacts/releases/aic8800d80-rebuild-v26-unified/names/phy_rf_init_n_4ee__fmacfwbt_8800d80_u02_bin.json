@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4ee", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202de2", "status": "ok", "name": "phy_rf_init_n_4ee", "params": [], "docstring": "Initialize PHY/RF with PN signature write to control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

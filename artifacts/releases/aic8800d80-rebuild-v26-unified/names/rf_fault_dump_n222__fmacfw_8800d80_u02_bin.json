@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n222", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121496a", "status": "ok", "name": "rf_fault_dump_n222", "params": [], "docstring": "Parse and dump RF fault bits into 8-bit field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

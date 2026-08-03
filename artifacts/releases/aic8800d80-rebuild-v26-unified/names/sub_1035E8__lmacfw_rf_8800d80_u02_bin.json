@@ -1,0 +1,1 @@
+{"fn": "sub_1035E8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1035e8", "status": "ok", "name": "configure_bb_clock", "params": [], "docstring": "Clears multiple bits in baseband clock and control registers", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

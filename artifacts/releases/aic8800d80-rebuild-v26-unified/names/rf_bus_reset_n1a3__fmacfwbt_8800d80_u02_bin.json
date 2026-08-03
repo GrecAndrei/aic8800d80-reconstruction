@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n1a3", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129e6", "status": "ok", "name": "rf_bus_reset_n1a3", "params": [], "docstring": "Checks RF bus status register before issuing reset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

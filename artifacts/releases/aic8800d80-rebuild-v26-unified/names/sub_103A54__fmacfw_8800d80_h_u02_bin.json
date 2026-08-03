@@ -1,0 +1,1 @@
+{"fn": "sub_103A54", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x103a54", "status": "ok", "name": "rf_set_control_bit", "params": [], "docstring": "Sets a bit in an RF control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

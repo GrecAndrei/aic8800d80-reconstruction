@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n1f4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212b0c", "status": "ok", "name": "rf_cmd_send_n1f4", "params": [], "docstring": "Sends RF command with mask 0x200 in lmacfw_rf context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

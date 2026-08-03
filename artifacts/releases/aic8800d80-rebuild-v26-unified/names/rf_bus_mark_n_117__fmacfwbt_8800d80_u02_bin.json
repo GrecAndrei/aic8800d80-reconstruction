@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_117", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115c8", "status": "ok", "name": "rf_bus_mark_n_117", "params": [], "docstring": "RF bus mark clearing bit 0x20 on a control register and calling helper at 0x12eef8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

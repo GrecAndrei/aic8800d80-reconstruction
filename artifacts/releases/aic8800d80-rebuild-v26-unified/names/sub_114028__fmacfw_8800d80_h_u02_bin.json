@@ -1,0 +1,1 @@
+{"fn": "sub_114028", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114028", "status": "ok", "name": "set_config_field", "params": [], "docstring": "Store argument into config field at offset 0x74", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

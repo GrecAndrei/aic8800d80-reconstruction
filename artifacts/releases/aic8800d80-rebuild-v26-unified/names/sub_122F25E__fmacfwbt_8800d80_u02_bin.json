@@ -1,0 +1,1 @@
+{"fn": "sub_122F25E", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f25e", "status": "ok", "name": "rf_level_apply_n352_25e", "params": [], "docstring": "Applies calibrated RF TX power level table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n124", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cab0", "status": "ok", "name": "message_dispatch_n124", "params": [], "docstring": "Message dispatch: ring buffer index increment and slot zeroing", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

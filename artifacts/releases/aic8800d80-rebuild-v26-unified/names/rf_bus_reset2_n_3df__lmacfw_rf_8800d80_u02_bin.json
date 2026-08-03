@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3df", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f24", "status": "ok", "name": "rf_bus_reset2", "params": [], "docstring": "Read RF bus status register and apply reset mask 0x402401a4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

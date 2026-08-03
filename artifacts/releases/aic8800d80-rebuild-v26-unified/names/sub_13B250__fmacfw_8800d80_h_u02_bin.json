@@ -1,0 +1,1 @@
+{"fn": "sub_13B250", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b250", "status": "ok", "name": "rf_wait_ready", "params": [], "docstring": "Calls internal rf helper and returns success.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

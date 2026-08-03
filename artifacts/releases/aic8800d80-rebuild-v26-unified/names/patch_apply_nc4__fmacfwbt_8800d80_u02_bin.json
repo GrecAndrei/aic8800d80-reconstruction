@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155ac", "status": "ok", "name": "rf_bus_reset_n_23a", "params": [], "docstring": "Resets RF bus and reads controller state registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

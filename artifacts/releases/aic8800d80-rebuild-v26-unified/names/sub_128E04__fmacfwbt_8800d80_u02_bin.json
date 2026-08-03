@@ -1,0 +1,1 @@
+{"fn": "sub_128E04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128e04", "status": "ok", "name": "dump_hex_value", "params": [], "docstring": "Logs a hex value when debug logging is enabled", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_125E10", "img": "fmacfw_8800d80_u02_bin", "addr": "0x125e10", "status": "ok", "name": "lld_evt_update", "params": [], "docstring": "Update link layer connection event parameters", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

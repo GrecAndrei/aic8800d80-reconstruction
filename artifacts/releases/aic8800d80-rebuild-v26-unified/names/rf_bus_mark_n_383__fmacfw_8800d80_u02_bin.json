@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_383", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211500", "status": "ok", "name": "rf_bus_mark_check", "params": [], "docstring": "Check and mark RF bus status from 0x180ac0/0x4024001c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

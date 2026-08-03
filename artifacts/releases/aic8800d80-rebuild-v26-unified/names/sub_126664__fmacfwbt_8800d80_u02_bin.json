@@ -1,0 +1,1 @@
+{"fn": "sub_126664", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x126664", "status": "ok", "name": "check_bt_addr_valid", "params": [], "docstring": "Validate Bluetooth address fields", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_15b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211584", "status": "ok", "name": "rf_bus_mark_n_15b", "params": [], "docstring": "Set/clear a flag bit in RF bus control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

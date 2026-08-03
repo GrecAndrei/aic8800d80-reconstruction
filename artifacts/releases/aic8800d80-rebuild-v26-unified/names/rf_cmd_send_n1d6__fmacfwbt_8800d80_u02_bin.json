@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n1d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213042", "status": "ok", "name": "rf_cmd_send_n1d6", "params": [], "docstring": "Send RF command and notify BT/FMAC host via doorbell", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

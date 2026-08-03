@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n2f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213f38", "status": "ok", "name": "rf_msg_process_body_n2f0", "params": [], "docstring": "Process RF message body variant n2f0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

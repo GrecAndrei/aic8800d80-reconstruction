@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_341", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151a6", "status": "ok", "name": "sdio_buffer_prepare_n_45a", "params": [], "docstring": "Prepares an SDIO buffer using r2 as length argument", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

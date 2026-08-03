@@ -1,0 +1,1 @@
+{"fn": "sub_12FBA4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12fba4", "status": "ok", "name": "is_compact_mac_string", "params": [], "docstring": "Checks if string length is 12 for compact MAC format.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_314", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211570", "status": "ok", "name": "rf_bus_clear_bit2", "params": [], "docstring": "Clears bit 2 in an RF bus register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

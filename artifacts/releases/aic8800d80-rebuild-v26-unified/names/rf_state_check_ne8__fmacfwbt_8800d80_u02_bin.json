@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_ne8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212118", "status": "ok", "name": "rf_state_check_ne8", "params": [], "docstring": "RF state check clearing bit 0x10 in 0x814/0x810", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_136C94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136c94", "status": "ok", "name": "txpwr_limit_apply", "params": [], "docstring": "Apply tx power hardware limit if mode flag set", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

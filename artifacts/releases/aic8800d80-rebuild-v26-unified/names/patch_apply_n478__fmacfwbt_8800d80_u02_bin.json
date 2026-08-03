@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n478", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215960", "status": "ok", "name": "patch_apply_n478", "params": [], "docstring": "Writes patch byte values to firmware configuration slots", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10CB54", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10cb54", "status": "ok", "name": "rf_cmd_wakeup", "params": [], "docstring": "Write RF command wakeup value 0x100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

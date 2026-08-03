@@ -1,0 +1,1 @@
+{"fn": "sub_118BE8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118be8", "status": "ok", "name": "alloc_dma_buf", "params": [], "docstring": "Allocate DMA-capable buffer and init pointers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

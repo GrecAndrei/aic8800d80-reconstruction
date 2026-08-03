@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n13a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e256", "status": "ok", "name": "sdio_buffer_prepare_n13a_e256", "params": [], "docstring": "Prepare SDIO buffer offsets via shifts for descriptor layout", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

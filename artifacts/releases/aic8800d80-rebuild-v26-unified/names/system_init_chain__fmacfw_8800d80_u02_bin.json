@@ -1,0 +1,1 @@
+{"fn": "system_init_chain", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12157b4", "status": "ok", "name": "system_init_chain", "params": [], "docstring": "System initialization chain calling subs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

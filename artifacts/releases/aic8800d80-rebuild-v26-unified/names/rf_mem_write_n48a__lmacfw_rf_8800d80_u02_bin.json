@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n48a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12224b6", "status": "ok", "name": "rf_mem_write_n48a", "params": [], "docstring": "Validate RF memory write mode against value 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

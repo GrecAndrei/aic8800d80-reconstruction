@@ -1,0 +1,1 @@
+{"fn": "state_check", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120cc2c", "status": "ok", "name": "rf_state_check_n36a", "params": [], "docstring": "Inspect RF status register and derived byte fields for state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

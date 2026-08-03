@@ -1,0 +1,1 @@
+{"fn": "sub_12C710", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c710", "status": "ok", "name": "scan_done_check", "params": [], "docstring": "Check scan abort flag and signed scan result", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

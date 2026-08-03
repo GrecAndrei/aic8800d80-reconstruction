@@ -1,0 +1,1 @@
+{"fn": "sub_10DCC8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10dcc8", "status": "ok", "name": "ptr_add_12", "params": [], "docstring": "Advance pointer in r1 by 12 bytes", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

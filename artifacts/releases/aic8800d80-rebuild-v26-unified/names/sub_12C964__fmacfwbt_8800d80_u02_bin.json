@@ -1,0 +1,1 @@
+{"fn": "sub_12C964", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c964", "status": "ok", "name": "irq_lock", "params": [], "docstring": "Disable interrupts and set lock flag at 0x188850", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

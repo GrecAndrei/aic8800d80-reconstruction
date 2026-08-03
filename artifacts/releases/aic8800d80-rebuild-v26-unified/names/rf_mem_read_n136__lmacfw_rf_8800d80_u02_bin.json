@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n136", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f6ca", "status": "ok", "name": "rf_mem_unpack_word", "params": [], "docstring": "Decompose 32-bit word into four byte lanes for RF memory access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

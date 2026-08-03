@@ -1,0 +1,1 @@
+{"fn": "sub_122B60", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122b60", "status": "ok", "name": "ipc_send_command", "params": [], "docstring": "Send IPC command using connection-indexed radio table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

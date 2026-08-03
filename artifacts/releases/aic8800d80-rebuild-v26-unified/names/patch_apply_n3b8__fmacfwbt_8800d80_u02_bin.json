@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158a0", "status": "ok", "name": "patch_apply_n3b8", "params": [], "docstring": "Apply patch bitfields to configuration word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

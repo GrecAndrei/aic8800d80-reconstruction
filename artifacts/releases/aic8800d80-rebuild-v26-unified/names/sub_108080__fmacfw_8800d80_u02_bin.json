@@ -1,0 +1,1 @@
+{"fn": "sub_108080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x108080", "status": "ok", "name": "list_get_at", "params": [], "docstring": "Fetches an element from a list with bounds checking", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

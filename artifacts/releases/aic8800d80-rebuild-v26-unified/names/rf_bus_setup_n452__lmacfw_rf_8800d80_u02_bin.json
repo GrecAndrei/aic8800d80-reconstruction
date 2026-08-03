@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n452", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c56", "status": "ok", "name": "rf_bus_mark_set_1c56", "params": [], "docstring": "Writes 0x20 to RF bus control register after enable call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

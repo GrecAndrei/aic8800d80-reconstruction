@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n188", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e2a4", "status": "ok", "name": "sdio_buffer_prepare_n188_2a4", "params": [], "docstring": "SDIO buffer prepare computing address/size shifts for DMA descriptors", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

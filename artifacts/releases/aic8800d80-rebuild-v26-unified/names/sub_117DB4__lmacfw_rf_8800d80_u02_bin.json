@@ -1,0 +1,1 @@
+{"fn": "sub_117DB4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117db4", "status": "ok", "name": "capability_dispatch", "params": [], "docstring": "Invoke handler if capability word at +0x48 is non-zero", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

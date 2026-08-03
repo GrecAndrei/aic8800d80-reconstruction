@@ -1,0 +1,1 @@
+{"fn": "sub_115768", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115768", "status": "ok", "name": "init_queue_table", "params": [], "docstring": "Initialize queue table from global descriptor array", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

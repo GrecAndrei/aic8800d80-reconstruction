@@ -1,0 +1,1 @@
+{"fn": "sub_128FE8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128fe8", "status": "ok", "name": "efuse_check", "params": [], "docstring": "Check eFuse low-level status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

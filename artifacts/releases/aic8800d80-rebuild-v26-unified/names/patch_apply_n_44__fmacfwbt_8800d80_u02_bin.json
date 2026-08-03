@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154a4", "status": "ok", "name": "patch_apply_n_44_4a4", "params": [], "docstring": "Apply firmware patch entry (trivial trampoline)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121447e", "status": "ok", "name": "rf_fault_dump_n_2ca", "params": [], "docstring": "Decrement fault counter and log fault info", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

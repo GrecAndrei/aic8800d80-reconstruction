@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n94", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212384", "status": "ok", "name": "rf_bus_reset_set_0x400_n94", "params": [], "docstring": "RF bus reset setting bit 0x400 in MMIO 0x40200000 region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

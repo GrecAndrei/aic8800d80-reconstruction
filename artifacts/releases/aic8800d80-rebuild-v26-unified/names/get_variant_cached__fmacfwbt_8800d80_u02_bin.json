@@ -1,0 +1,1 @@
+{"fn": "get_variant_cached", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12006cc", "status": "ok", "name": "get_variant_cached", "params": [], "docstring": "Returns cached chip variant byte from global table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

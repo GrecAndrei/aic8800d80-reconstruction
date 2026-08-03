@@ -1,0 +1,1 @@
+{"fn": "sub_101A54", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x101a54", "status": "ok", "name": "bt_event_handler", "params": [], "docstring": "Process BLE event using global state at 0x1828d4/0x17310c", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

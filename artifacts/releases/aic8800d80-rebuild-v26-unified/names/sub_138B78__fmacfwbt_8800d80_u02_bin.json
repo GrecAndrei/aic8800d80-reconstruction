@@ -1,0 +1,1 @@
+{"fn": "sub_138B78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x138b78", "status": "ok", "name": "tx_power_cal_apply", "params": [], "docstring": "Wrapper applying TX power calibration parameters", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_408", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215574", "status": "ok", "name": "ipc_doorbell_field_read", "params": [], "docstring": "Reads IPC doorbell field 0x64 from shared register 0x40320064", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

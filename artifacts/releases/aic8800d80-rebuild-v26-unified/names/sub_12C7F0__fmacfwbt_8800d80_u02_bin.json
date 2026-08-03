@@ -1,0 +1,1 @@
+{"fn": "sub_12C7F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c7f0", "status": "ok", "name": "match_and_sub", "params": [], "docstring": "Check high word of r1 against field at r0+4 then subtract low word from field at r0+6", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_380", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a58", "status": "ok", "name": "rf_apply_level_table", "params": [], "docstring": "Apply RF level using lookup table base/stride constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13BAA8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13baa8", "status": "ok", "name": "sdio_wr_reg", "params": [], "docstring": "Write SDIO register via backplane command", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

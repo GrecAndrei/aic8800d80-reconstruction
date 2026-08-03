@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n48c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12133ec", "status": "ok", "name": "rf_msg_handler_n48c", "params": [], "docstring": "Handle RF message with size 0x20 and byte fetch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

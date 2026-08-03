@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_22c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12120c4", "status": "ok", "name": "rf_bus_reset_n_22c", "params": [], "docstring": "Reset the RF bus interface and clear control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

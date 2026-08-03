@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_14c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c8c", "status": "ok", "name": "rf_level_apply_n_14c", "params": [], "docstring": "Apply RF level register configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

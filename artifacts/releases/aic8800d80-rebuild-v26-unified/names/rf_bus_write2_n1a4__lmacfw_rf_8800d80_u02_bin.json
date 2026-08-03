@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n1a4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12116c8", "status": "ok", "name": "rf_bus_write2_16c8", "params": [], "docstring": "Writes value to RF bus with parameter setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_17b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213acc", "status": "ok", "name": "rf_msg_process_body_n_17b", "params": [], "docstring": "Initialize RF message body with 0x40 offset header", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

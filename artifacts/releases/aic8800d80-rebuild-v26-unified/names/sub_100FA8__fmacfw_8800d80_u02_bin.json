@@ -1,0 +1,1 @@
+{"fn": "sub_100FA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x100fa8", "status": "ok", "name": "bb_enable", "params": [], "docstring": "Enable baseband core", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

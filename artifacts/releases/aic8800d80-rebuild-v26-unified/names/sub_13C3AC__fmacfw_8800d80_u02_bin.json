@@ -1,0 +1,1 @@
+{"fn": "sub_13C3AC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c3ac", "status": "ok", "name": "reset_tx_descriptor", "params": [], "docstring": "Zeroes a 256-byte TX descriptor buffer and loads descriptor type field", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

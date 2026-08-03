@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_278", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f5c", "status": "ok", "name": "rf_state_check_threshold", "params": [], "docstring": "Compare RF state value against 0x800 threshold and store", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

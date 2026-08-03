@@ -1,0 +1,1 @@
+{"fn": "sub_123A28", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a28", "status": "ok", "name": "process_percent_char", "params": [], "docstring": "Processes '%' via helper and accesses global state.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

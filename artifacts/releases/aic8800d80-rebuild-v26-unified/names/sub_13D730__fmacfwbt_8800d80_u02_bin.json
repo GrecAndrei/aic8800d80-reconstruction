@@ -1,0 +1,1 @@
+{"fn": "sub_13D730", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13d730", "status": "ok", "name": "scan_update_adv_params", "params": [], "docstring": "Update advertising parameters after LL routine", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

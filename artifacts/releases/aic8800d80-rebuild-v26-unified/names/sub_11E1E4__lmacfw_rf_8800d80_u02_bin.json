@@ -1,0 +1,1 @@
+{"fn": "sub_11E1E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e1e4", "status": "ok", "name": "flash_erase_sector", "params": [], "docstring": "Erase flash sector using high byte of address", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

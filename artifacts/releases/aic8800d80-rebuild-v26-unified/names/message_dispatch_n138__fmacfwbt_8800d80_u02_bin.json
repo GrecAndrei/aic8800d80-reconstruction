@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n138", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ccec", "status": "ok", "name": "message_dispatch_n138", "params": [], "docstring": "Dispatch an inbound message via the global handler table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

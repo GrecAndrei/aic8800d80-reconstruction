@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2e0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212310", "status": "ok", "name": "rf_state_check_n2e0", "params": [], "docstring": "Checks RF state and updates register with OR mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

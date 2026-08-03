@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113b0", "status": "ok", "name": "rf_bus_mark_n_4d4", "params": [], "docstring": "Marks RF bus by writing 1 to MMIO 0x40240018 after calling prep helper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

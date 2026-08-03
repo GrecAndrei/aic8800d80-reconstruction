@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nd8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155c0", "status": "ok", "name": "patch_apply_nd8", "params": [], "docstring": "Read CPU ID and apply matching firmware patches", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

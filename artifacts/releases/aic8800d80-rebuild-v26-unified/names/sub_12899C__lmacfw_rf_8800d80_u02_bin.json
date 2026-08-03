@@ -1,0 +1,1 @@
+{"fn": "sub_12899C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12899c", "status": "ok", "name": "crc32", "params": [], "docstring": "Computes checksum over buffer using constant 0x150CF1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

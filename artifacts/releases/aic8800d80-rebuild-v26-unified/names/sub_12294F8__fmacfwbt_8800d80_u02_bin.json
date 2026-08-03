@@ -1,0 +1,1 @@
+{"fn": "sub_12294F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12294f8", "status": "ok", "name": "fw_state_flag_check", "params": [], "docstring": "Check firmware global state flag at 0x190d1c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

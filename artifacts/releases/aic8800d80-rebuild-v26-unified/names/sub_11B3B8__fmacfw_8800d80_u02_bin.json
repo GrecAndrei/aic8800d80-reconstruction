@@ -1,0 +1,1 @@
+{"fn": "sub_11B3B8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11b3b8", "status": "ok", "name": "invalid_handler", "params": [], "docstring": "Handler containing invalid instruction", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

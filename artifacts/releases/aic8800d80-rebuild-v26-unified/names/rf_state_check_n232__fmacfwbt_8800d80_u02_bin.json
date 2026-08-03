@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n232", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212262", "status": "ok", "name": "rf_state_check_n232", "params": [], "docstring": "Check RF state: load state word at offset 0x804, mask bit range 4-6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

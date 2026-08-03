@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1e4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215304", "status": "ok", "name": "patch_apply_n_1e4_5304", "params": [], "docstring": "Applies a firmware patch entry by offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

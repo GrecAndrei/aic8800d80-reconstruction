@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n3dc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121023c", "status": "ok", "name": "log_free_dispatch_n3dc", "params": [], "docstring": "Log buffer free dispatch with status field write", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

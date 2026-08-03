@@ -1,0 +1,1 @@
+{"fn": "sub_11E3FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e3fc", "status": "ok", "name": "flash_read_byte", "params": [], "docstring": "Read byte from flash using low/high byte address", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

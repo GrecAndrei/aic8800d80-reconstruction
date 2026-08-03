@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_30c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151dc", "status": "ok", "name": "patch_apply_n_30c", "params": [], "docstring": "Indirect call via patch table, extract bit and return", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n25e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f7f2", "status": "ok", "name": "rf_mem_read_n25e", "params": [], "docstring": "RF memory read helper using shift/mask to extract value from packed register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

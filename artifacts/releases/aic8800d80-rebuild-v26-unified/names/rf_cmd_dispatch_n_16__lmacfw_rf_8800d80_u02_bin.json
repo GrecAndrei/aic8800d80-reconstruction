@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_16", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f2e", "status": "ok", "name": "rf_cmd_dispatch_n_16", "params": [], "docstring": "Dispatch RF command (cmp 0x62 'b' branch)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

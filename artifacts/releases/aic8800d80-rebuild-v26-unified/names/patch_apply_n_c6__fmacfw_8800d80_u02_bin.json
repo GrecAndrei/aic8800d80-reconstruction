@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_c6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214de6", "status": "ok", "name": "patch_apply_4de6", "params": [], "docstring": "Apply a patch entry iteratively with 2-arg call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

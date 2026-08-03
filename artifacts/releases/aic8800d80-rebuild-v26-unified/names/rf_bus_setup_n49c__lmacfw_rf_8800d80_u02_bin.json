@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n49c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ca0", "status": "ok", "name": "rf_bus_setup_n49c", "params": [], "docstring": "Configure RF bus for N49C chip variant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

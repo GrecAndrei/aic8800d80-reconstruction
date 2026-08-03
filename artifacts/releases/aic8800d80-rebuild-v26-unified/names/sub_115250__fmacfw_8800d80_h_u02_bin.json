@@ -1,0 +1,1 @@
+{"fn": "sub_115250", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x115250", "status": "ok", "name": "process_debug_char", "params": [], "docstring": "Print debug string and test if argument equals ASCII '0'", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

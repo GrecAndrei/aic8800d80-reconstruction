@@ -1,0 +1,1 @@
+{"fn": "sub_12135C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12135c", "status": "ok", "name": "patch_ram_download", "params": [], "docstring": "Handles patch RAM download message with large payload", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

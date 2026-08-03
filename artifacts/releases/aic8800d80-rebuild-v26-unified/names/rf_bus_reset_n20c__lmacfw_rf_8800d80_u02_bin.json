@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n20c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124fc", "status": "ok", "name": "rf_bus_reset_n20c", "params": [], "docstring": "Reset RF bus by setting reset bit in control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

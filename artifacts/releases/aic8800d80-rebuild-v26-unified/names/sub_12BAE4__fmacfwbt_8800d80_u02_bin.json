@@ -1,0 +1,1 @@
+{"fn": "sub_12BAE4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12bae4", "status": "ok", "name": "mmio_poll_status", "params": [], "docstring": "Poll MMIO status register after writing reset bit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122F508", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f508", "status": "ok", "name": "sub_122F508", "params": [], "docstring": "Init/clear 16-byte table and link next node (sentinel setup)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

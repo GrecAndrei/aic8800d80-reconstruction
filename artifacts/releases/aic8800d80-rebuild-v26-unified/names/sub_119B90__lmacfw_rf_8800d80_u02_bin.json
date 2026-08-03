@@ -1,0 +1,1 @@
+{"fn": "sub_119B90", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119b90", "status": "ok", "name": "hci_build_event_0x36", "params": [], "docstring": "Build HCI event 0x36 from parsed input", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

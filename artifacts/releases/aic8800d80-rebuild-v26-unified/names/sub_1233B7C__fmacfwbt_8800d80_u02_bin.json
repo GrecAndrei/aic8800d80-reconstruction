@@ -1,0 +1,1 @@
+{"fn": "sub_1233B7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233b7c", "status": "ok", "name": "rf_mutex_owner_check_n5b4", "params": [], "docstring": "Check current mutex/bus owner field before access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

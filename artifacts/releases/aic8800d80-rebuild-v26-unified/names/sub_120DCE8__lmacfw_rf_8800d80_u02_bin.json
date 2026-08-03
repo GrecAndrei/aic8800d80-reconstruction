@@ -1,0 +1,1 @@
+{"fn": "sub_120DCE8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120dce8", "status": "ok", "name": "rf_pll_ldo_init", "params": [], "docstring": "Initialize PLL/LDO with 0x3c00/0x1000 timing and trim 0xf", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

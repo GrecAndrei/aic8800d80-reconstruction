@@ -1,0 +1,1 @@
+{"fn": "sub_1199C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1199c8", "status": "ok", "name": "tx_process", "params": [], "docstring": "Process TX path using packet descriptor", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

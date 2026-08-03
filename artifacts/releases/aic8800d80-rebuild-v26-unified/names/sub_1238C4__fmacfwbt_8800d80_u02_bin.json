@@ -1,0 +1,1 @@
+{"fn": "sub_1238C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1238c4", "status": "ok", "name": "call_127d80_remapped", "params": [], "docstring": "Calls 0x127d80 with remapped arguments and branches on r3.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

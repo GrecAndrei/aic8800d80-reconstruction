@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n29e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212472", "status": "ok", "name": "rf_state_check_n29e", "params": [], "docstring": "Check current RF state byte against expected value 3", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11E71C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e71c", "status": "ok", "name": "list_init", "params": [], "docstring": "Initialize a list head to empty.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

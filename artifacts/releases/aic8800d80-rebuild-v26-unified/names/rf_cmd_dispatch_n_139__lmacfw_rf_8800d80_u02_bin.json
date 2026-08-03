@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_139", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e0a", "status": "ok", "name": "rf_cmd_dispatch_n_139", "params": [], "docstring": "Dispatch next RF command from queue and advance index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

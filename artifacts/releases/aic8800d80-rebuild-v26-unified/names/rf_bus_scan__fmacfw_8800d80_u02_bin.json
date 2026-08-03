@@ -1,0 +1,1 @@
+{"fn": "rf_bus_scan", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12119dc", "status": "ok", "name": "rf_bus_scan_19dc", "params": [], "docstring": "Scans RF bus indices invoking sub_121196c per slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

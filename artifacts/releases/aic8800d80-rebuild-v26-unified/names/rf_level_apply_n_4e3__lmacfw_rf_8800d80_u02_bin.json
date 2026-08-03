@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_4e3", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12268f4", "status": "ok", "name": "log_free_dispatch_n440_68f4", "params": [], "docstring": "Dispatch freed log entries and update counters", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_1231E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1231e4", "status": "ok", "name": "send_cmd_0x7c", "params": [], "docstring": "Send HCI vendor command 0x7c", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

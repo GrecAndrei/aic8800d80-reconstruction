@@ -1,0 +1,1 @@
+{"fn": "sub_114A68", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114a68", "status": "ok", "name": "get_free_heap_size", "params": [], "docstring": "Return free heap size in bytes", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

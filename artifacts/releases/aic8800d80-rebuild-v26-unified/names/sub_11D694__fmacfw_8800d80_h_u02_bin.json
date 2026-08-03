@@ -1,0 +1,1 @@
+{"fn": "sub_11D694", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11d694", "status": "ok", "name": "seq_num_read", "params": [], "docstring": "Read current sequence counter byte from global state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

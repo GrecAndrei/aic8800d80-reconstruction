@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n216", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226fee", "status": "ok", "name": "rf_level_apply_n_2de", "params": [], "docstring": "Sets RF level register bits and offsets base address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

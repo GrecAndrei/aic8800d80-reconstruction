@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_28a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118da", "status": "ok", "name": "rf_bus_write_n_28a", "params": [], "docstring": "RF bus write - shifts data out and asserts chip control flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

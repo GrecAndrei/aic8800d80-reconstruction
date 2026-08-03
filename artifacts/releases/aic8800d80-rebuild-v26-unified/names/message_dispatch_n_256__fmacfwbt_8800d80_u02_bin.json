@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_256", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c95e", "status": "ok", "name": "message_dispatch_n_1aa", "params": [], "docstring": "Handles incoming IPC message for 0x60-class event", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

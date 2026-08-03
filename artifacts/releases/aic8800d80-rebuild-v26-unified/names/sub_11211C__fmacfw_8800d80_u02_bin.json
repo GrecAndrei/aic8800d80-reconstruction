@@ -1,0 +1,1 @@
+{"fn": "sub_11211C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11211c", "status": "ok", "name": "global_copy_u16", "params": [], "docstring": "Copies short value between global structures", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n184", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121566c", "status": "ok", "name": "patch_apply_n184_566c", "params": [], "docstring": "apply firmware patch by reading value from patch slot at offset 0x128", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

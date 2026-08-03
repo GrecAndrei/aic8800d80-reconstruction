@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n414", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213374", "status": "ok", "name": "rf_msg_handler_n414", "params": [], "docstring": "Sets RF handler ready flag and configures control byte", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

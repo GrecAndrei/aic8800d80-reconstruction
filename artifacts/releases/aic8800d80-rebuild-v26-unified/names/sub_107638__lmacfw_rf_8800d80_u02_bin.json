@@ -1,0 +1,1 @@
+{"fn": "sub_107638", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x107638", "status": "ok", "name": "rf_core_irq_dispatch", "params": [], "docstring": "Dispatch RF core interrupt event to registered callbacks.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

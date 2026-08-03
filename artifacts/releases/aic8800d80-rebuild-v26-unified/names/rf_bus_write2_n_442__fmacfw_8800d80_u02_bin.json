@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_442", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12117da", "status": "ok", "name": "patch_apply_n466", "params": [], "docstring": "Apply patch bytes to target offsets", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

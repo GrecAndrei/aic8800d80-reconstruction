@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n35c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cce8", "status": "ok", "name": "ipc_doorbell_handler_n_144", "params": [], "docstring": "Handles IPC doorbell interrupt, acks host-to-chip doorbell bits", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

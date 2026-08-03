@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nbe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1da", "status": "ok", "name": "sdio_buffer_prepare_nbe", "params": [], "docstring": "Compute SDIO buffer offsets via shift-and-add chain", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

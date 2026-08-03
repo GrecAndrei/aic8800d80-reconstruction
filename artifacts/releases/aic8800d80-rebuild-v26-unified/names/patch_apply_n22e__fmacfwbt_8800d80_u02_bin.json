@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n22e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215716", "status": "ok", "name": "patch_apply_n22e", "params": [], "docstring": "Apply MMIO register patch by OR-ing control bits", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

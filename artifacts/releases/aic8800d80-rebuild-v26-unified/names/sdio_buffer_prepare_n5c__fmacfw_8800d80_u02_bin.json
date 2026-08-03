@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n5c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e178", "status": "ok", "name": "sdio_buffer_prepare_n5c_e178", "params": [], "docstring": "Prepare SDIO buffer with computed shifts/offsets", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

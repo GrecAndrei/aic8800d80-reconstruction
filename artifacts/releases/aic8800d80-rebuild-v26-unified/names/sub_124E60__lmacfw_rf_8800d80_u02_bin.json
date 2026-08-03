@@ -1,0 +1,1 @@
+{"fn": "sub_124E60", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124e60", "status": "ok", "name": "set_scan_params", "params": [], "docstring": "Parse scan interval/window parameters", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1177E4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1177e4", "status": "ok", "name": "radio_event_handler", "params": [], "docstring": "Process pending radio interrupt events", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

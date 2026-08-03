@@ -1,0 +1,1 @@
+{"fn": "sub_1154A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1154a8", "status": "ok", "name": "ioctl2_cmd_2", "params": [], "docstring": "Issue second ioctl command 2 with 6-byte buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

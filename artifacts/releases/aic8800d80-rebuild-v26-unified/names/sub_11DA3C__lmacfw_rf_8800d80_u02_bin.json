@@ -1,0 +1,1 @@
+{"fn": "sub_11DA3C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11da3c", "status": "ok", "name": "rf_get_temperature", "params": [], "docstring": "Get temperature calibration value if set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

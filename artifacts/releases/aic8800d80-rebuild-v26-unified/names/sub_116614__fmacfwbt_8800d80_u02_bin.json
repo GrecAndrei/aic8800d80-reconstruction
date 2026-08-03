@@ -1,0 +1,1 @@
+{"fn": "sub_116614", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x116614", "status": "ok", "name": "hw_init_magic", "params": [], "docstring": "Writes a magic value to hardware and initializes block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

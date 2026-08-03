@@ -1,0 +1,1 @@
+{"fn": "sub_141DD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x141dd0", "status": "ok", "name": "timer_start", "params": [], "docstring": "Start hardware timer based on packet timing", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

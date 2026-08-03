@@ -1,0 +1,1 @@
+{"fn": "sub_139AB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x139ab0", "status": "ok", "name": "tx_send_packet", "params": [], "docstring": "Build and send TX packet", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

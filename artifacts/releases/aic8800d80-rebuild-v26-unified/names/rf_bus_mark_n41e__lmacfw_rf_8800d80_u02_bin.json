@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n41e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12115aa", "status": "ok", "name": "rf_bus_mark_n41e", "params": [], "docstring": "Mark or set flag bits in RF bus register via shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

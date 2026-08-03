@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_16b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211890", "status": "ok", "name": "rf_bus_reset2_n_16b", "params": [], "docstring": "Reset RF bus register (16-bit mark) via shared reg window", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

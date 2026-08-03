@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n242", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121572a", "status": "ok", "name": "patch_apply_entry_572a", "params": [], "docstring": "Applies firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

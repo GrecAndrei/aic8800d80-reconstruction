@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n1b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129f8", "status": "ok", "name": "rf_bus_reset_hw", "params": [], "docstring": "Reset RF bus hardware registers to 0x40200000/0x21011d", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

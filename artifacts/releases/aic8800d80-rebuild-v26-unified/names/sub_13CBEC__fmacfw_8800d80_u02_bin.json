@@ -1,0 +1,1 @@
+{"fn": "sub_13CBEC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13cbec", "status": "ok", "name": "rf_get_tx_pwr", "params": [], "docstring": "Get TX power offset from RF calibration table for given channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

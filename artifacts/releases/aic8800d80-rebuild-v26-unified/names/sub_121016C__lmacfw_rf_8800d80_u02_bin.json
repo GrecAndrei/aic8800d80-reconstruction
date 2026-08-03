@@ -1,0 +1,1 @@
+{"fn": "sub_121016C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121016c", "status": "ok", "name": "sub_121016C", "params": [], "docstring": "Initialize engine context and read state register", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

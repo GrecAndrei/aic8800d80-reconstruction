@@ -1,0 +1,1 @@
+{"fn": "sub_130018", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130018", "status": "ok", "name": "find_by_index", "params": [], "docstring": "Look up entry using global table helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

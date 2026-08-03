@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_54", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eb60", "status": "ok", "name": "sdio_buffer_prepare_n_54", "params": [], "docstring": "Returns prepared SDIO buffer pointer (leaf, r0=r2)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

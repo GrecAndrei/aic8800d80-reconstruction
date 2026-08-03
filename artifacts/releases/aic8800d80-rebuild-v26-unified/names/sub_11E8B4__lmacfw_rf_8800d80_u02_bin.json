@@ -1,0 +1,1 @@
+{"fn": "sub_11E8B4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e8b4", "status": "ok", "name": "crc32_update_msb", "params": [], "docstring": "Update CRC32 from buffer using MSB-first table lookup.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114E6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114e6c", "status": "ok", "name": "periph_write", "params": [], "docstring": "Write 0x20000 to mmio register at 0x40035000 when arg is zero", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

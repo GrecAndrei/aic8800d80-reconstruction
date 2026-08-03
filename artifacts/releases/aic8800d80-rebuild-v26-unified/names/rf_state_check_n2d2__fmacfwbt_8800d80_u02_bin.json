@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212302", "status": "ok", "name": "rf_state_mmio_poke_n2d2", "params": [], "docstring": "RF state check poking MMIO at 0x40200000/0xa000040 with 0x84000000 mask", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n482", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212656", "status": "ok", "name": "rf_state_check_n482", "params": [], "docstring": "Check RF state by reading halfword fields at offsets 0xe/0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

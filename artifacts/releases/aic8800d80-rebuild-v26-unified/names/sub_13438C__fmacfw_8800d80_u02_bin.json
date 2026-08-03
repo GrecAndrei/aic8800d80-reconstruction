@@ -1,0 +1,1 @@
+{"fn": "sub_13438C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13438c", "status": "ok", "name": "set_flag_disable_irq", "params": [], "docstring": "Set flag with interrupts disabled", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

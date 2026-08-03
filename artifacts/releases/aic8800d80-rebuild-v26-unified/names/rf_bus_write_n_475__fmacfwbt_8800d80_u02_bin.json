@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_475", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121154a", "status": "ok", "name": "rf_bus_write_n_475", "params": [], "docstring": "Write to RF bus with fixed reg pair, len 0x27", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

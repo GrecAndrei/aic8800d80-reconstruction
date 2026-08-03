@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f04", "status": "ok", "name": "sdio_buffer_prepare_n_368", "params": [], "docstring": "SDIO buffer prepare range check (cmp 6)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

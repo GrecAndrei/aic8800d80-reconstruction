@@ -1,0 +1,1 @@
+{"fn": "sub_11DF94", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11df94", "status": "ok", "name": "align_size_plus4", "params": [], "docstring": "Align size to 4 bytes and add 4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

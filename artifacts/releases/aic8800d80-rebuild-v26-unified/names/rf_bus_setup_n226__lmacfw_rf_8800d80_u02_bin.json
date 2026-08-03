@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n226", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a2a", "status": "ok", "name": "rf_bus_setup_n226", "params": [], "docstring": "Configure RF bus for mode 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

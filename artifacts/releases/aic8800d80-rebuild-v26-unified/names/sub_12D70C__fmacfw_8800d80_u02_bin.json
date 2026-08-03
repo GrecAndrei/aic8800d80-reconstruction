@@ -1,0 +1,1 @@
+{"fn": "sub_12D70C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d70c", "status": "ok", "name": "apply_patch_block", "params": [], "docstring": "Copies patch header bytes from the global BT data area to a local stack buffer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

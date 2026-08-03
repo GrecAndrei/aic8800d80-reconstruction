@@ -1,0 +1,1 @@
+{"fn": "sub_10D054", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d054", "status": "ok", "name": "hw_reg_write", "params": [], "docstring": "Write value to hardware register via helper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

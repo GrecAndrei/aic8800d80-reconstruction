@@ -1,0 +1,1 @@
+{"fn": "sub_1213824", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213824", "status": "ok", "name": "fw_sub_1213824_load_struct_call", "params": [], "docstring": "Loads two struct pointers, calls helper 0x12d468, then reads 16-bit field at [r3+4] from primary struct", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

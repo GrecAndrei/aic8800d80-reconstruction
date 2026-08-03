@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213a06", "status": "ok", "name": "rf_cmd_process_n4ae", "params": [], "docstring": "RF command processor branch using shifted flag test", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12115da", "status": "ok", "name": "rf_bus_mark_n_2aa", "params": [], "docstring": "Mark RF bus entry with computed index and store value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

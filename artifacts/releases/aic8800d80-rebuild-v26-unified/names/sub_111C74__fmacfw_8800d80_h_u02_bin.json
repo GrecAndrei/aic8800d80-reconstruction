@@ -1,0 +1,1 @@
+{"fn": "sub_111C74", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111c74", "status": "ok", "name": "wlan_ctrl_check", "params": [], "docstring": "Send WLAN control command and verify input handle", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

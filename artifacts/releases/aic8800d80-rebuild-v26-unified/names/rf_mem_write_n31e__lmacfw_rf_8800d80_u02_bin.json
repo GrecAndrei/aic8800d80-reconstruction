@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n31e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122234a", "status": "ok", "name": "rf_mem_write_n31e", "params": [], "docstring": "Writes to RF memory registers via 0x40504xxx block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

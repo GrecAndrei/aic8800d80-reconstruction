@@ -1,0 +1,1 @@
+{"fn": "sub_1032D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1032d0", "status": "ok", "name": "hw_enable", "params": [], "docstring": "Enables hardware module and checks status flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12D520", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d520", "status": "ok", "name": "load_bt_config", "params": [], "docstring": "Copies 128 bytes of Bluetooth configuration data onto the stack frame", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

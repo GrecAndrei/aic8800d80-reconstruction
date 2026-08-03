@@ -1,0 +1,1 @@
+{"fn": "sub_132460", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132460", "status": "ok", "name": "rf_channel_to_freq", "params": [], "docstring": "Map channel index to RF frequency", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_reg_write_core", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ee40", "status": "ok", "name": "rf_reg_write_increment", "params": [], "docstring": "RF register write core incrementing sequence counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

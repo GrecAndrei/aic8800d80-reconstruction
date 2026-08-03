@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n2c0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119a0", "status": "ok", "name": "rf_bus_mark_n2c0", "params": [], "docstring": "Marks/flags RF bus state for tracking or synchronization", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

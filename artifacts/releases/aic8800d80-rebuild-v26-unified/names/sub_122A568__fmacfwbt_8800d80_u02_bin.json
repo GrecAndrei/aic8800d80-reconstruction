@@ -1,0 +1,1 @@
+{"fn": "sub_122A568", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a568", "status": "ok", "name": "bt_state_check_4c8", "params": [], "docstring": "Check state field at offset 0x4c8 and branch on zero", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

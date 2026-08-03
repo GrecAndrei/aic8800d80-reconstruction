@@ -1,0 +1,1 @@
+{"fn": "me_sta_bw_nss_max_upd", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124b914", "status": "ok", "name": "me_sta_bw_nss_max_upd", "params": [], "docstring": "Update MAC engine station max bandwidth/NSS parameters", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

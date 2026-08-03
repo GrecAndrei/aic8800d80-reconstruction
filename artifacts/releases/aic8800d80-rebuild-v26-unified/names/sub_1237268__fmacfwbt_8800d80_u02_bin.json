@@ -1,0 +1,1 @@
+{"fn": "sub_1237268", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1237268", "status": "ok", "name": "init_subcall_0x137268", "params": [], "docstring": "Trampoline that calls init helper and returns 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

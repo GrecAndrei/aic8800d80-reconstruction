@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n_86", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121342e", "status": "ok", "name": "sdio_buffer_prepare_n25b", "params": [], "docstring": "Prepare SDIO buffer descriptor for transfer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

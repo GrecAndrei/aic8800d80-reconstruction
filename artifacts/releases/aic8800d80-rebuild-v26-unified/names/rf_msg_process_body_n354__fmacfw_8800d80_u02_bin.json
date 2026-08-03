@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n354", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213f9c", "status": "ok", "name": "rf_bus_mark_n10a", "params": [], "docstring": "Marks/flags an RF bus state transition and tail-calls handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

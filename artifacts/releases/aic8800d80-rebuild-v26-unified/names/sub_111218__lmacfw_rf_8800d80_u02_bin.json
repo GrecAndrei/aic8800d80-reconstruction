@@ -1,0 +1,1 @@
+{"fn": "sub_111218", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x111218", "status": "ok", "name": "timer_read_count", "params": [], "docstring": "Read timer count and schedule", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_124B3C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x124b3c", "status": "ok", "name": "rf_rssi_read", "params": [], "docstring": "Reads RSSI-like value from BLE register 0x403200e4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

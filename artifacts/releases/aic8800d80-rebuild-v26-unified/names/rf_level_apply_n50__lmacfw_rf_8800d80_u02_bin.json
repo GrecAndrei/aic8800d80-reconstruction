@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e28", "status": "ok", "name": "rf_level_apply_n50", "params": [], "docstring": "Compute and store 5 RF level/tx-power bytes (offsets 0x9-0xd) from deltas", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

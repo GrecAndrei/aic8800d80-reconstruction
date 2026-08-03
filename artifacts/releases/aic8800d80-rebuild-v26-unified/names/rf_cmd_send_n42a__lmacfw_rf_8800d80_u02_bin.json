@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n42a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d42", "status": "ok", "name": "rf_cmd_send_2d42", "params": [], "docstring": "Send an RF command (entry stub)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

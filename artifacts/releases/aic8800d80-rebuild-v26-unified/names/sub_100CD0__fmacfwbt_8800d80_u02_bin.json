@@ -1,0 +1,1 @@
+{"fn": "sub_100CD0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x100cd0", "status": "ok", "name": "adc_read_ch0", "params": [], "docstring": "Sample ADC channel 0 and peripheral status", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

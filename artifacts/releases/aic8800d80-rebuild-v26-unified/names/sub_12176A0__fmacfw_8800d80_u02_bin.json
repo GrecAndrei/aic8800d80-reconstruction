@@ -1,0 +1,1 @@
+{"fn": "sub_12176A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12176a0", "status": "ok", "name": "sub_12176A0", "params": [], "docstring": "Dispatch handler on r1 opcode (cases up to 5)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

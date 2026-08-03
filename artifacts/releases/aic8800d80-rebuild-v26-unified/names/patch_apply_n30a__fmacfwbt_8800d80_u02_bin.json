@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n30a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157f2", "status": "ok", "name": "patch_apply_n30a", "params": [], "docstring": "Apply firmware patch branch n30a", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

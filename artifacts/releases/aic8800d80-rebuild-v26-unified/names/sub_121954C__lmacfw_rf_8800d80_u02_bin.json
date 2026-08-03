@@ -1,0 +1,1 @@
+{"fn": "sub_121954C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121954c", "status": "ok", "name": "sub_121954C", "params": [], "docstring": "Issue sub-call with opcode 0x6a via dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

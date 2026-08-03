@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_462", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121127e", "status": "ok", "name": "rf_bus_mark_n_462", "params": [], "docstring": "Marks RF bus slot index via shift-multiply addressing into 0x4024018c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

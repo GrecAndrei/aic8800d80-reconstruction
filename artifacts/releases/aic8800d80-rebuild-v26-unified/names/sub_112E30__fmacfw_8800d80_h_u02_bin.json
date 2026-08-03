@@ -1,0 +1,1 @@
+{"fn": "sub_112E30", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x112e30", "status": "ok", "name": "phy_irq_handler", "params": [], "docstring": "Handle PHY interrupt and check ready state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

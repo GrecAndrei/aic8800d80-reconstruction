@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2d8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210eb4", "status": "ok", "name": "rf_bus_mark_2d8", "params": [], "docstring": "Mark RF bus register offset 0x2D8 with scaled value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_108040", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x108040", "status": "ok", "name": "trace_system_count", "params": [], "docstring": "Read and log system counter value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

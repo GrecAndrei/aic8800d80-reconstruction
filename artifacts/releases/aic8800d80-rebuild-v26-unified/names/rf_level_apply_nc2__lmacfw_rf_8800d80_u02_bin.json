@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_nc2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e9a", "status": "ok", "name": "rf_level_apply_nc2", "params": [], "docstring": "Apply RF level configuration from parameter block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

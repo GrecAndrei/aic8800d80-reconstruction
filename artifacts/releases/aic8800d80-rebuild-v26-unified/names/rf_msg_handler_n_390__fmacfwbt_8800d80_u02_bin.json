@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_390", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212bd0", "status": "ok", "name": "rf_msg_handler_n_390", "params": [], "docstring": "Handle RF message indexed by shifted slot id", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

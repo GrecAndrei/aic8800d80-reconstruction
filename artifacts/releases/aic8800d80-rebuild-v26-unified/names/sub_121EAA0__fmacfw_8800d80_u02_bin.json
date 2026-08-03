@@ -1,0 +1,1 @@
+{"fn": "sub_121EAA0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121eaa0", "status": "ok", "name": "fmac_obj_init_n_1eaa0", "params": [], "docstring": "Initialize FMAC object via sub-call and reg load", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

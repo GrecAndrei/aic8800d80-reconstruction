@@ -1,0 +1,1 @@
+{"fn": "sub_125ABC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125abc", "status": "ok", "name": "bt_control_block_cleanup", "params": [], "docstring": "Clears a BT control block field and invokes a cleanup callback.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

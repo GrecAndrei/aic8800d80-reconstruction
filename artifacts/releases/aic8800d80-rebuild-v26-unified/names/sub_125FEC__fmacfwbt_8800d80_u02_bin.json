@@ -1,0 +1,1 @@
+{"fn": "sub_125FEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125fec", "status": "ok", "name": "get_time_delta", "params": [], "docstring": "Compute difference between two timestamps", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

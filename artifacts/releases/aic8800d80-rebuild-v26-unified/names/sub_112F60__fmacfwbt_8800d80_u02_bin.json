@@ -1,0 +1,1 @@
+{"fn": "sub_112F60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x112f60", "status": "ok", "name": "seq_num_inc", "params": [], "docstring": "Increment and update sequence counter", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

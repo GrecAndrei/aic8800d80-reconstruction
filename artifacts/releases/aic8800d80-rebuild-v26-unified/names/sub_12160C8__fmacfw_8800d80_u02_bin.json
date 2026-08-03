@@ -1,0 +1,1 @@
+{"fn": "sub_12160C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12160c8", "status": "ok", "name": "rf_phy_config_parse_n608", "params": [], "docstring": "Parse PHY config object fields into local vars", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

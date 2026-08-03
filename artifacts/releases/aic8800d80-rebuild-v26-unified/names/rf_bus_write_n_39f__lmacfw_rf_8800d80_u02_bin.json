@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_39f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12110cc", "status": "ok", "name": "rf_bus_write_n39f", "params": [], "docstring": "Write payload to RF bus using base register table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n33c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12131a8", "status": "ok", "name": "rf_cmd_send_n33c", "params": [], "docstring": "Send RF command (N33C variant) to radio", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

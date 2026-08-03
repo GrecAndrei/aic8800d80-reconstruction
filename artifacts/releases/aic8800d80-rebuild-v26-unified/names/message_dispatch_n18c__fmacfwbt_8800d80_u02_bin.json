@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n18c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cd40", "status": "ok", "name": "message_dispatch_n18c", "params": [], "docstring": "Dispatch firmware messages to appropriate handlers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

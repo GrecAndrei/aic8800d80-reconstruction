@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n270", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12122a0", "status": "ok", "name": "rf_state_check_n270", "params": [], "docstring": "Check RF subsystem state via halfword read and zero compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

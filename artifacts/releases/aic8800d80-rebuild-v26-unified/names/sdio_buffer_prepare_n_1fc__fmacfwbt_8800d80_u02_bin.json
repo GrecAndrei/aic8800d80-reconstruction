@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_1fc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e148", "status": "ok", "name": "sdio_buffer_prepare_n_1fc_e148", "params": [], "docstring": "Validates SDIO buffer state and returns early", "subsystem": "bt", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

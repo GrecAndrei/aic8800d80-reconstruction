@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n28a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215772", "status": "ok", "name": "patch_apply_n28a", "params": [], "docstring": "Patch apply loop iterating 13 entries, calling installer helper", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

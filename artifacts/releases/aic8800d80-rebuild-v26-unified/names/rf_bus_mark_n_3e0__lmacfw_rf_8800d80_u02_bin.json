@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3e0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210dac", "status": "ok", "name": "log_free_pool_e", "params": [], "docstring": "Release log entry back to free pool", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

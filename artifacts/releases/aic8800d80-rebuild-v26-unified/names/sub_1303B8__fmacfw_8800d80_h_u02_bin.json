@@ -1,0 +1,1 @@
+{"fn": "sub_1303B8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1303b8", "status": "ok", "name": "read_global_signed_flag", "params": [], "docstring": "Read signed byte from global state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

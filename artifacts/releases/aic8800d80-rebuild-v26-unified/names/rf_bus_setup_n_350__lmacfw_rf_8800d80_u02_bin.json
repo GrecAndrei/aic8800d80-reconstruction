@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_350", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12114b4", "status": "ok", "name": "rf_bus_setup_n_350", "params": [], "docstring": "Clears bits in RF bus register using mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

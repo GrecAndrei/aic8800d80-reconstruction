@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_32a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e01a", "status": "ok", "name": "rf_bus_reset_n_228", "params": [], "docstring": "Reset RF bus: clear bit4 in MAC control regs at 0xa000040/0x185a20", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

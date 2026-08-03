@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n42e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b0e", "status": "ok", "name": "patch_apply_n2ca", "params": [], "docstring": "Applies firmware patch from table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

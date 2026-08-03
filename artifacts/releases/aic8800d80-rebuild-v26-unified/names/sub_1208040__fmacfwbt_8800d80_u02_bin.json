@@ -1,0 +1,1 @@
+{"fn": "sub_1208040", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1208040", "status": "ok", "name": "bt_rf_mmio_init", "params": [], "docstring": "Initializes RF MMIO register block from BT firmware context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11B0B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b0b4", "status": "ok", "name": "get_84_entry", "params": [], "docstring": "Get pointer to an 84-byte entry from the global table by index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

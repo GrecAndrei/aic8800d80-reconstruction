@@ -1,0 +1,1 @@
+{"fn": "sub_13BF64", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13bf64", "status": "ok", "name": "rf_validate_freq", "params": [], "docstring": "Check radio frequency byte validity", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

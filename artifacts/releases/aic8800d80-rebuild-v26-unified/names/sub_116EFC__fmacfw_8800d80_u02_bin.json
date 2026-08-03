@@ -1,0 +1,1 @@
+{"fn": "sub_116EFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116efc", "status": "ok", "name": "isr_flag_dispatch", "params": [], "docstring": "Check ISR flag and call handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

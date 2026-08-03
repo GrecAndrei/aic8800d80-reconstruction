@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n37e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cd0a", "status": "ok", "name": "message_dispatch_n37e", "params": [], "docstring": "Message dispatcher loading two IPC tables and sending", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

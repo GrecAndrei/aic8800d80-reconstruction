@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4a5", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121151a", "status": "ok", "name": "rf_bus_write_4a5", "params": [], "docstring": "RF bus write with indirect MMIO encoding (4a5 variant)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

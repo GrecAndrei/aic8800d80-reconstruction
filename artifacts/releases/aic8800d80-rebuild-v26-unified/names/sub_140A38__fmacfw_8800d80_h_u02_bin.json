@@ -1,0 +1,1 @@
+{"fn": "sub_140A38", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x140a38", "status": "ok", "name": "util_memcmp", "params": [], "docstring": "Compares memory blocks with a zero-length fast path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

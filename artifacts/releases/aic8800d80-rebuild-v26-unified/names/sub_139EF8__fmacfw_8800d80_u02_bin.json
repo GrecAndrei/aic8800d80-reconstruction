@@ -1,0 +1,1 @@
+{"fn": "sub_139EF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x139ef8", "status": "ok", "name": "scan_parse_response", "params": [], "docstring": "Parse scan response data", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

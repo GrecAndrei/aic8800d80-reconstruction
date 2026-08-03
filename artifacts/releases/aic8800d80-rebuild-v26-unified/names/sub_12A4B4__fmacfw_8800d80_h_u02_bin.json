@@ -1,0 +1,1 @@
+{"fn": "sub_12A4B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12a4b4", "status": "ok", "name": "lll_conn_state_match", "params": [], "docstring": "Compare connection state with expected value", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

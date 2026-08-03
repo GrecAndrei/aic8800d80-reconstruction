@@ -1,0 +1,1 @@
+{"fn": "sub_1063A4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1063a4", "status": "ok", "name": "load_const_table", "params": [], "docstring": "Copy constant table from ROM onto stack", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

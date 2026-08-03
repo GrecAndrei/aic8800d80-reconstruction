@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_406", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121147e", "status": "ok", "name": "rf_bus_mark_n_406", "params": [], "docstring": "Mark RF bus request slot and write 0x400 to control reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

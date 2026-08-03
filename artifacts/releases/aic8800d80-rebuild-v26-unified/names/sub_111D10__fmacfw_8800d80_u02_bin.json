@@ -1,0 +1,1 @@
+{"fn": "sub_111D10", "img": "fmacfw_8800d80_u02_bin", "addr": "0x111d10", "status": "ok", "name": "mmio_bank_read", "params": [], "docstring": "Read register value from selected peripheral bank", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

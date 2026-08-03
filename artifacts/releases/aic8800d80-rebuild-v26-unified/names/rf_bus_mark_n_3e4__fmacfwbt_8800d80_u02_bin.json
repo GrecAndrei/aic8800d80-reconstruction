@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3e4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112fc", "status": "ok", "name": "rf_bus_mark_n_3e4", "params": [], "docstring": "Compare RF bus mark bytes at offsets 0x981/0x982", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

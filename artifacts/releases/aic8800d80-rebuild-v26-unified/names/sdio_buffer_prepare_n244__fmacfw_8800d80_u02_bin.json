@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n244", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e360", "status": "ok", "name": "sdio_buffer_classify_size", "params": [], "docstring": "Classify SDIO buffer size/alignment for DMA preparation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

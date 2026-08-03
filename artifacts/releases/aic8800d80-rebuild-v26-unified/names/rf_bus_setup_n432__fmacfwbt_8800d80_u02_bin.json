@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n432", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121218a", "status": "ok", "name": "rf_bus_setup_n432_218a", "params": [], "docstring": "Configure RF bus parameters (n432 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

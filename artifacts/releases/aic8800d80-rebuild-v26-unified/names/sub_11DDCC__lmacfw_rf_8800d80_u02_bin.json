@@ -1,0 +1,1 @@
+{"fn": "sub_11DDCC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11ddcc", "status": "ok", "name": "ke_task_retrieve", "params": [], "docstring": "Look up task by ID in task list", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

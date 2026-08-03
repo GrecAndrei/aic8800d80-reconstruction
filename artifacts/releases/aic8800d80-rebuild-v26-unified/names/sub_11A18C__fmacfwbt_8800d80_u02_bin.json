@@ -1,0 +1,1 @@
+{"fn": "sub_11A18C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11a18c", "status": "ok", "name": "timer_ticks_compare", "params": [], "docstring": "Compare kernel tick values to check expiry", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

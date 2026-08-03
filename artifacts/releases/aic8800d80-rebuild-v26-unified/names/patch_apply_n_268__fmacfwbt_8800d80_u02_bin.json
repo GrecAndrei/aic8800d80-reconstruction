@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_268", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215280", "status": "ok", "name": "patch_apply_n_268_5280", "params": [], "docstring": "Applies firmware patch via indirect call (CALI magic)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

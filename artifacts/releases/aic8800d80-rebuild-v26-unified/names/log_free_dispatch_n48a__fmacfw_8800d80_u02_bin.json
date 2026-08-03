@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n48a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210492", "status": "ok", "name": "rf_read_signed_pair_n1aa", "params": [], "docstring": "Reads two signed bytes (offsets 0x126/0x127) from RF status struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

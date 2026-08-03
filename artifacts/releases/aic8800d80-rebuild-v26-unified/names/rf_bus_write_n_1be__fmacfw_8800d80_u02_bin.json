@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_1be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12119a6", "status": "ok", "name": "rf_bus_write_n_1be", "params": [], "docstring": "Write 16-byte block to RF indexed register slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

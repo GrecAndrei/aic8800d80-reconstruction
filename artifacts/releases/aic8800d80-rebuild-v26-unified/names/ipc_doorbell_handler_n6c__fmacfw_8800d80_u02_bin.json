@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12159e8", "status": "ok", "name": "ipc_doorbell_clear_bits", "params": [], "docstring": "Clears bits 0 and 0x110 in IPC doorbell status register", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_111DBC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111dbc", "status": "ok", "name": "wlan_wait_ready", "params": [], "docstring": "Poll WLAN state until it equals ready", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

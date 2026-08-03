@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n1c6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e2e2", "status": "ok", "name": "rf_bus_write2_n_26c", "params": [], "docstring": "Writes 16-bit value to RF bus register via SPI helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

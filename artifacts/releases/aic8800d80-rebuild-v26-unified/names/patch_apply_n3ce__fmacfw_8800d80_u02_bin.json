@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121527a", "status": "ok", "name": "patch_apply_n3ce", "params": [], "docstring": "Apply patch loading value from r5+0x34 offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

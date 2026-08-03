@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_2d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121172c", "status": "ok", "name": "rf_bus_reset2_n_2d0", "params": [], "docstring": "RF bus reset, loads 0x40240210 control word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cad6", "status": "ok", "name": "message_dispatch_cad6_2", "params": [], "docstring": "Dispatch message by id from lookup table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

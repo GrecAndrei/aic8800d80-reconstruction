@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n4e6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211952", "status": "ok", "name": "rf_bus_write_n4e6", "params": [], "docstring": "Write to RF bus if mode >= 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

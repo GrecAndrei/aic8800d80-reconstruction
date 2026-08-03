@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_9a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211aca", "status": "ok", "name": "rf_bus_write_n_9a", "params": [], "docstring": "Perform MMIO write to RF bus register with barrier", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

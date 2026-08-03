@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n326", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f8ba", "status": "ok", "name": "rf_mem_read_n326", "params": [], "docstring": "Reads consecutive RF register entries into cache line", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12D380", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d380", "status": "ok", "name": "list_process", "params": [], "docstring": "Walks a list head in r0 while carrying an auxiliary node/pointer in r1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

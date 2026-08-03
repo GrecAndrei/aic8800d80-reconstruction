@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_2e6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221d46", "status": "ok", "name": "rf_mem_write_word", "params": [], "docstring": "RF memory write via indirect helper to address 0x180684", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

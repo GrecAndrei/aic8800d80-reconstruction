@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3d2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f1e", "status": "ok", "name": "patch_apply_n4b2", "params": [], "docstring": "Applies firmware patch at offset 0x4b2 (inferred neighbor)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

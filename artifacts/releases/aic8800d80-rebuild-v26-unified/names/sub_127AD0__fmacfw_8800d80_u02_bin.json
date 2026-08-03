@@ -1,0 +1,1 @@
+{"fn": "sub_127AD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127ad0", "status": "ok", "name": "wlc_check_chip_ready", "params": [], "docstring": "Verify chip is present before proceeding", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

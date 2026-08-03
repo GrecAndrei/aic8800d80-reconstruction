@@ -1,0 +1,1 @@
+{"fn": "sub_1201A88", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1201a88", "status": "ok", "name": "chip_revision_get", "params": [], "docstring": "Reads chip revision field (bits 8-11) from ID register and returns (val-1)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

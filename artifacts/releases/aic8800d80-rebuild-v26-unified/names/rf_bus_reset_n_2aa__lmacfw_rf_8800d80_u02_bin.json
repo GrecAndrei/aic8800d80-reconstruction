@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2aa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212046", "status": "ok", "name": "rf_bus_reset_call", "params": [], "docstring": "Reset RF bus by calling callback and checking result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_143FDC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x143fdc", "status": "ok", "name": "memset", "params": [], "docstring": "Fill a memory block with a value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

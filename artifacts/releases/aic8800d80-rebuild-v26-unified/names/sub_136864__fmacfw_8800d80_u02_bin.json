@@ -1,0 +1,1 @@
+{"fn": "sub_136864", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136864", "status": "ok", "name": "ke_send_event_0x18", "params": [], "docstring": "Sends kernel event 0x18 message", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

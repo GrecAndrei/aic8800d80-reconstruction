@@ -1,0 +1,1 @@
+{"fn": "sub_141F1C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141f1c", "status": "ok", "name": "scan_slot_init", "params": [], "docstring": "Initializes eight scan slots of 0x48 bytes each", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

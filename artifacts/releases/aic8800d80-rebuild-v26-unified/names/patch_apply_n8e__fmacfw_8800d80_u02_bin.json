@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n8e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f3a", "status": "ok", "name": "patch_apply_8e", "params": [], "docstring": "Apply patch entries from ROM-resident table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

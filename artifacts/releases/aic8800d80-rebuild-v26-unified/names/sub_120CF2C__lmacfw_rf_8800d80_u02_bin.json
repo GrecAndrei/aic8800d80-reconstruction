@@ -1,0 +1,1 @@
+{"fn": "sub_120CF2C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120cf2c", "status": "ok", "name": "mmio_write0x40035100_set0x100", "params": [], "docstring": "Write 0x100 to MMIO register 0x40035100 then return", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

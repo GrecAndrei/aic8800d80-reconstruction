@@ -1,0 +1,1 @@
+{"fn": "sub_10F4B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f4b8", "status": "ok", "name": "mem_get_stats", "params": [], "docstring": "Reads heap state fields into global statistics structure.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

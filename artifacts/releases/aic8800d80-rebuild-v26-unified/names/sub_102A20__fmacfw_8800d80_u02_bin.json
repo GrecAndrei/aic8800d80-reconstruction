@@ -1,0 +1,1 @@
+{"fn": "sub_102A20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102a20", "status": "ok", "name": "rf_enable", "params": [], "docstring": "Enable RF transceiver if not already initialized", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

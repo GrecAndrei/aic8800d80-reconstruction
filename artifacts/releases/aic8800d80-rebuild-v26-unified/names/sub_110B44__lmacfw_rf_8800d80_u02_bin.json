@@ -1,0 +1,1 @@
+{"fn": "sub_110B44", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x110b44", "status": "ok", "name": "set_radio_channel", "params": [], "docstring": "Update radio channel bitfield", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

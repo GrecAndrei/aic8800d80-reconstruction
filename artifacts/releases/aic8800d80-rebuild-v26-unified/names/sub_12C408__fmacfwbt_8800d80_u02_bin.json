@@ -1,0 +1,1 @@
+{"fn": "sub_12C408", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c408", "status": "ok", "name": "mac_irq_clear", "params": [], "docstring": "Mask and clear pending MAC interrupt bits", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

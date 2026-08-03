@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n136", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213d7e", "status": "ok", "name": "rf_msg_process_body_n136", "params": [], "docstring": "RF message body handler variant 136; stores subfield at offset 0x20 and compares against 0x60", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

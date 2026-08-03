@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n30", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211aa8", "status": "ok", "name": "rf_bus_write2_n30", "params": [], "docstring": "RF bus write2: ORR value with 0x8000000|0x8000 and store", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

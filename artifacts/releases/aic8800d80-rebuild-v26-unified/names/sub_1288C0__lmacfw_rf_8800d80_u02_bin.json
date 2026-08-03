@@ -1,0 +1,1 @@
+{"fn": "sub_1288C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1288c0", "status": "ok", "name": "memset_ff", "params": [], "docstring": "Fills memory block with 0xFF pattern", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

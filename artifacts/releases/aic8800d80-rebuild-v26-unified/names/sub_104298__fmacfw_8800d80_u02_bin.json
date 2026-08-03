@@ -1,0 +1,1 @@
+{"fn": "sub_104298", "img": "fmacfw_8800d80_u02_bin", "addr": "0x104298", "status": "ok", "name": "mac_irq_disable", "params": [], "docstring": "Clears MAC interrupt status bit", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

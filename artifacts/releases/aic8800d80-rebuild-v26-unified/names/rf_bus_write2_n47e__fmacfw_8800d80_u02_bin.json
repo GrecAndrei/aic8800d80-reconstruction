@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n47e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121209a", "status": "ok", "name": "rf_bus_write2_n47e", "params": [], "docstring": "Write masked/ORed value to RF bus address with length clamp", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

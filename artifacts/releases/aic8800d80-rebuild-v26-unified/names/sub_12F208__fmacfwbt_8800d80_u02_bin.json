@@ -1,0 +1,1 @@
+{"fn": "sub_12F208", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f208", "status": "ok", "name": "msg_alloc_403", "params": [], "docstring": "Allocates message buffer for id 0x403 and prepares", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

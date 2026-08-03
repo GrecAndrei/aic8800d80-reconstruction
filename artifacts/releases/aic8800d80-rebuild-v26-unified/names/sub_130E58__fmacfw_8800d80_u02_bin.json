@@ -1,0 +1,1 @@
+{"fn": "sub_130E58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130e58", "status": "ok", "name": "parse_scan_report", "params": [], "docstring": "Parses scan report and checks auxiliary byte", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_ne6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121292a", "status": "ok", "name": "rf_bus_reset_ne6_292a", "params": [], "docstring": "Reset RF bus (variant ne6) via register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

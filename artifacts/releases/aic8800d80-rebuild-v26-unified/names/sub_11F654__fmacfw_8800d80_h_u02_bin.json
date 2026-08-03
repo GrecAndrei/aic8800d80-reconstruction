@@ -1,0 +1,1 @@
+{"fn": "sub_11F654", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11f654", "status": "ok", "name": "is_sleep_state_active", "params": [], "docstring": "Reads sleep/state flag from global controller block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

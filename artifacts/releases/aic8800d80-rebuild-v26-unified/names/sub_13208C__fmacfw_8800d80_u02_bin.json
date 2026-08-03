@@ -1,0 +1,1 @@
+{"fn": "sub_13208C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13208c", "status": "ok", "name": "bt_get_conn_by_idx", "params": [], "docstring": "Get connection entry by index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

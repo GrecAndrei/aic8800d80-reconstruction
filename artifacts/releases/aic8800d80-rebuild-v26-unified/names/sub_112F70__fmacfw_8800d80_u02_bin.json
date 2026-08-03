@@ -1,0 +1,1 @@
+{"fn": "sub_112F70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x112f70", "status": "ok", "name": "after_helper_call", "params": [], "docstring": "Calls helper and checks state", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

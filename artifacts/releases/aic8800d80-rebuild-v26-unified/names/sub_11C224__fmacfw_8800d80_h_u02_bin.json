@@ -1,0 +1,1 @@
+{"fn": "sub_11C224", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11c224", "status": "ok", "name": "get_frame_info", "params": [], "docstring": "Read a word from offset 0x44 of the frame object", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

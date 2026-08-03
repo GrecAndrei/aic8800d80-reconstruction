@@ -1,0 +1,1 @@
+{"fn": "sub_10C984", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c984", "status": "ok", "name": "status_flag_poll", "params": [], "docstring": "Poll status register and call delay routine", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

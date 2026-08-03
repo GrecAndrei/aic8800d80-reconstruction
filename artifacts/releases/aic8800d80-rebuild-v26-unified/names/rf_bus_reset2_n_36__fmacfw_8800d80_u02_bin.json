@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_36", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12119c6", "status": "ok", "name": "rf_level_apply_n1ac", "params": [], "docstring": "Apply RF level/txpower settings with reg restore", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

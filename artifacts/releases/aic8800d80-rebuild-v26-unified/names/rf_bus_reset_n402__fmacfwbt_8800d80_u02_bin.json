@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n402", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212c46", "status": "ok", "name": "rf_bus_reset_n402", "params": [], "docstring": "Resets RF bus registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

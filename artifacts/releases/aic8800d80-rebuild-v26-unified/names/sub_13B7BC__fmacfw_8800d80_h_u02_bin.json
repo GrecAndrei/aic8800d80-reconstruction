@@ -1,0 +1,1 @@
+{"fn": "sub_13B7BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b7bc", "status": "ok", "name": "timer_expired", "params": [], "docstring": "Checks hardware timer against a deadline bit.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122645C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122645c", "status": "ok", "name": "is_flag_set_n645c", "params": [], "docstring": "Check flag byte at 0x180834 returns 0 or 1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

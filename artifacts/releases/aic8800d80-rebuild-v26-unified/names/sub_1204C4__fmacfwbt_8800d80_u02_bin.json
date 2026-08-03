@@ -1,0 +1,1 @@
+{"fn": "sub_1204C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1204c4", "status": "ok", "name": "dma_tx_reset", "params": [], "docstring": "Reset DMA transmit ring descriptors", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

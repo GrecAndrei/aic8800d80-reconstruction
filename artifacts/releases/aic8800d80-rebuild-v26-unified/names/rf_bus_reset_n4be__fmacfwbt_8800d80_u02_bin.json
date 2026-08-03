@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d02", "status": "ok", "name": "rf_bus_reset_n4be", "params": [], "docstring": "RF bus reset flag byte check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

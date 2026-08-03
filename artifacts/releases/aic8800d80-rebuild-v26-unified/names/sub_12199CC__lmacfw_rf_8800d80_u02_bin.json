@@ -1,0 +1,1 @@
+{"fn": "sub_12199CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12199cc", "status": "ok", "name": "sub_12199CC", "params": [], "docstring": "Allocates 0x88-byte context and initializes RF object", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

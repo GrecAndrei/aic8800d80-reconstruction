@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nfa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214fa6", "status": "ok", "name": "patch_apply_nfa", "params": [], "docstring": "Apply firmware patch entry NFA", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

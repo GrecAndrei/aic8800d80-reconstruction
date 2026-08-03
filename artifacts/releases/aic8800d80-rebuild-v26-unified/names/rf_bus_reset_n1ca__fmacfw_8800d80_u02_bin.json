@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n1ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212bb2", "status": "ok", "name": "rf_bus_reset_n1ca", "params": [], "docstring": "RF bus reset setting OR-0x80 flag at offset 0x804 and polling MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

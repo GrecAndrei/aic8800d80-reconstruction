@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n402", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12100e2", "status": "ok", "name": "log_free_pool_dispatch2_0e2", "params": [], "docstring": "Frees log buffer pool entry and dispatches related handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

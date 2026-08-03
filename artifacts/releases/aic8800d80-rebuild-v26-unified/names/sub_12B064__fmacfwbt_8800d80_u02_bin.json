@@ -1,0 +1,1 @@
+{"fn": "sub_12B064", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b064", "status": "ok", "name": "tx_slot_state_init", "params": [], "docstring": "Initialize first four TX slot entries by calling sub_12B028", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

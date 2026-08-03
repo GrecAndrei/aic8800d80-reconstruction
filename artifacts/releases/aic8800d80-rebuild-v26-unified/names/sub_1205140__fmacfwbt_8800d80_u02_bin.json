@@ -1,0 +1,1 @@
+{"fn": "sub_1205140", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1205140", "status": "ok", "name": "sub_1205140", "params": [], "docstring": "Trivial trampoline saving arg and copying value with VFP move", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

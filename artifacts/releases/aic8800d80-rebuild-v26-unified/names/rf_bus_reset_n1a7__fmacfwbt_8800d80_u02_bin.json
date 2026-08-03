@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n1a7", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129ea", "status": "ok", "name": "rf_bus_reset_n1a7", "params": [], "docstring": "Reset RF bus by comparing state and clearing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

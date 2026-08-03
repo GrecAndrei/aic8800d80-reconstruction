@@ -1,0 +1,1 @@
+{"fn": "sub_123F3E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123f3e4", "status": "ok", "name": "key_index_lookup", "params": [], "docstring": "Looks up key index by extracting bits 11..13 and comparing to key slot", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

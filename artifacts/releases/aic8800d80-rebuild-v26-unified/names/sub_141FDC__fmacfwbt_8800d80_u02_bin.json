@@ -1,0 +1,1 @@
+{"fn": "sub_141FDC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141fdc", "status": "ok", "name": "build_scan_report", "params": [], "docstring": "Assemble scan report from packet data", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4e4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202dec", "status": "ok", "name": "phy_rf_init_n_4e4", "params": [], "docstring": "Initialize PHY/RF hardware registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

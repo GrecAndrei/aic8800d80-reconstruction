@@ -1,0 +1,1 @@
+{"fn": "sub_11EBFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11ebfc", "status": "ok", "name": "rf_irq_status_check", "params": [], "docstring": "compare RF interrupt status with stored status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1285F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1285f8", "status": "ok", "name": "bt_power_state", "params": [], "docstring": "Read the Bluetooth power/status flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

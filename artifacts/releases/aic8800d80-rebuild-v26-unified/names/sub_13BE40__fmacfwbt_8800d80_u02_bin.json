@@ -1,0 +1,1 @@
+{"fn": "sub_13BE40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13be40", "status": "ok", "name": "sdio_cmd53_rd", "params": [], "docstring": "Issue SDIO CMD53 read operation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_376", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b36", "status": "ok", "name": "patch_apply_n_376", "params": [], "docstring": "Patch helper: indirect call then UBFX-extract 3 bits at position 6 from result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

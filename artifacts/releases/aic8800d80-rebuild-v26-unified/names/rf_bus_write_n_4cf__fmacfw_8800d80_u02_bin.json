@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4cf", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211694", "status": "ok", "name": "ipc_doorbell_handler_n376", "params": [], "docstring": "Handle IPC doorbell interrupt for command dispatch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

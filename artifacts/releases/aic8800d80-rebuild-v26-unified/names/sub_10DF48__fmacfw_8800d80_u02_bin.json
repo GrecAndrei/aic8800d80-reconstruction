@@ -1,0 +1,1 @@
+{"fn": "sub_10DF48", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10df48", "status": "ok", "name": "rf_core_reset", "params": [], "docstring": "Reset RF core and set interrupt masks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

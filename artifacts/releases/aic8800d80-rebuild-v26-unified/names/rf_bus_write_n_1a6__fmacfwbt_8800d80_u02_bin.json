@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_1a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121181a", "status": "ok", "name": "ipc_msg_write", "params": [], "docstring": "Write IPC message word to shared bus", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

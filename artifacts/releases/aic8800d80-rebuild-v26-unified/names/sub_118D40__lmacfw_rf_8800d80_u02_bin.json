@@ -1,0 +1,1 @@
+{"fn": "sub_118D40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x118d40", "status": "ok", "name": "rf_read_status", "params": [], "docstring": "Read and combine radio status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

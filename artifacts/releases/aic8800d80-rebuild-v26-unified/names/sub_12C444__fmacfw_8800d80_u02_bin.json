@@ -1,0 +1,1 @@
+{"fn": "sub_12C444", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c444", "status": "ok", "name": "uart_reset", "params": [], "docstring": "Clear UART flag and wait", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

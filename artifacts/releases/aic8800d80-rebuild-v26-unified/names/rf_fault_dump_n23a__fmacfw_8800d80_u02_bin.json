@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n23a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214982", "status": "ok", "name": "rf_fault_dump_n23a", "params": [], "docstring": "Dumps RF fault state and returns with saved registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

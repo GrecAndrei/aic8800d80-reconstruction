@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n296", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ada", "status": "ok", "name": "rf_bus_reset_n296", "params": [], "docstring": "Resets RF bus and toggles a control flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

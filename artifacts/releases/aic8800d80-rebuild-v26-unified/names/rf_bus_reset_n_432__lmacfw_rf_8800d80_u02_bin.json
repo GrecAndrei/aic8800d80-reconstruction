@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_432", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ebe", "status": "ok", "name": "rf_bus_reset_n_432", "params": [], "docstring": "RF bus reset dispatch via jump table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11C9A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c9a4", "status": "ok", "name": "radio_send_command", "params": [], "docstring": "Send a radio command using the provided opcode", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

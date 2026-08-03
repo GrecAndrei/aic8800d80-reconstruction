@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n166", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b62", "status": "ok", "name": "rf_bus_reset2_n166", "params": [], "docstring": "Secondary RF bus reset with mask and push context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

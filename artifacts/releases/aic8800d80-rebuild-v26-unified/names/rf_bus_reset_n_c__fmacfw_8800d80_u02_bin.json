@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12129dc", "status": "ok", "name": "rf_bus_reset_n_c", "params": [], "docstring": "Reset RF bus, restore default state registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

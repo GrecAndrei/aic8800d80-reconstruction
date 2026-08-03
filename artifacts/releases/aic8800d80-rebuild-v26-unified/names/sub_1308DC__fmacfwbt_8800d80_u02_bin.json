@@ -1,0 +1,1 @@
+{"fn": "sub_1308DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1308dc", "status": "ok", "name": "rf_write_pattern_ff23", "params": [], "docstring": "Writes RF calibration pattern 0xff 0x23 to buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1c2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156aa", "status": "ok", "name": "patch_apply_n1c2", "params": [], "docstring": "Apply patch with DSB/ISB barriers and kick", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

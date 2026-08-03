@@ -1,0 +1,1 @@
+{"fn": "sub_10E3B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10e3b8", "status": "ok", "name": "system_init_mmio", "params": [], "docstring": "Initialize memory-mapped system registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

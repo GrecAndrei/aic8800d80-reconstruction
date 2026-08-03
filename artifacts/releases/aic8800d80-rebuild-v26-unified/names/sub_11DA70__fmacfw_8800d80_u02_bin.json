@@ -1,0 +1,1 @@
+{"fn": "sub_11DA70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11da70", "status": "ok", "name": "radio_init", "params": [], "docstring": "Initialize radio hardware and validate magic", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

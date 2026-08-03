@@ -1,0 +1,1 @@
+{"fn": "sub_131364", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x131364", "status": "ok", "name": "rf_get_cal_bytes", "params": [], "docstring": "Reads multiple calibration data bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

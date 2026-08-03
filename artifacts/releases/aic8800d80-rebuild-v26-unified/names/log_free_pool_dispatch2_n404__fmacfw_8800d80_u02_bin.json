@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n404", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12100e4", "status": "ok", "name": "log_free_pool_dispatch2_n404", "params": [], "docstring": "Dispatch buffer from free pool to log subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

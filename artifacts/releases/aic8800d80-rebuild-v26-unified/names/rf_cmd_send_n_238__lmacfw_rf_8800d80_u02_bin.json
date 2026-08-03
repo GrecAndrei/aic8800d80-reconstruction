@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_238", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12126e0", "status": "ok", "name": "rf_cmd_send_n_238", "params": [], "docstring": "Send RF command validating opcode range", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

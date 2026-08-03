@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n480", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210050", "status": "ok", "name": "rf_bus_reset_n128", "params": [], "docstring": "Reset the RF control bus to a known initial state.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

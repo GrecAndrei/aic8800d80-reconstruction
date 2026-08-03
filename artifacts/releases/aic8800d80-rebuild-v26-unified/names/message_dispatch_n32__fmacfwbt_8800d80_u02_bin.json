@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n32", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cbe6", "status": "ok", "name": "message_dispatch_n32_cbe6", "params": [], "docstring": "Dispatch message and log to trace buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

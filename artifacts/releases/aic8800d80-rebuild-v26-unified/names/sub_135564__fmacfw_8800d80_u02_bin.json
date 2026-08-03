@@ -1,0 +1,1 @@
+{"fn": "sub_135564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135564", "status": "ok", "name": "bt_send_vendor_cmd", "params": [], "docstring": "send low-level vendor command", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

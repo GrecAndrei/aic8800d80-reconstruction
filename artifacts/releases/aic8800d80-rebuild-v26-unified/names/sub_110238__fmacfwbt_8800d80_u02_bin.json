@@ -1,0 +1,1 @@
+{"fn": "sub_110238", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x110238", "status": "ok", "name": "critical_enter_4", "params": [], "docstring": "Enter critical section 4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_130030", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x130030", "status": "ok", "name": "rf_calibration_proc", "params": [], "docstring": "Performs RF calibration processing with local stack.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

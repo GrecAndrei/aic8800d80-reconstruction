@@ -1,0 +1,1 @@
+{"fn": "sub_103AFC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x103afc", "status": "ok", "name": "rf_calibrate", "params": [], "docstring": "Configures multiple RF registers for calibration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

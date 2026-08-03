@@ -1,0 +1,1 @@
+{"fn": "sub_13275C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13275c", "status": "ok", "name": "get_phy_status_byte", "params": [], "docstring": "Checks global flag and reads PHY status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

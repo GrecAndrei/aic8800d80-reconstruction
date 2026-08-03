@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_36d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121168e", "status": "ok", "name": "rf_bus_reset2_n_36d", "params": [], "docstring": "RF bus reset2: clear/reset RF control bits and read status byte 0x980", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

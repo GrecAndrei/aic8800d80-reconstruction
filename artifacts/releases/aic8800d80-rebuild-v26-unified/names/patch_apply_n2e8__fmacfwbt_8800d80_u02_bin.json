@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2e8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157d0", "status": "ok", "name": "state_check_57d0", "params": [], "docstring": "Check firmware state against expected value (3) and branch", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

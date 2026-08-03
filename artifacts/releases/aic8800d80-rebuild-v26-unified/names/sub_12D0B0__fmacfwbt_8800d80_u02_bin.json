@@ -1,0 +1,1 @@
+{"fn": "sub_12D0B0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d0b0", "status": "ok", "name": "hci_cmd_send_short", "params": [], "docstring": "Send short HCI command, split r0 into two bytes", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

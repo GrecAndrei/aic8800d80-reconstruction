@@ -1,0 +1,1 @@
+{"fn": "sub_12EC8C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ec8c", "status": "ok", "name": "pdu_alloc_424", "params": [], "docstring": "Allocates a protocol data unit from pool 0x424", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1405AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1405ac", "status": "ok", "name": "is_controller_ready", "params": [], "docstring": "Check if controller is initialized and in expected state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

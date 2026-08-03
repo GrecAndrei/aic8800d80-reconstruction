@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n40c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121243c", "status": "ok", "name": "rf_state_check_n40c", "params": [], "docstring": "RF state check using magic byte 0x6d ('m')", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

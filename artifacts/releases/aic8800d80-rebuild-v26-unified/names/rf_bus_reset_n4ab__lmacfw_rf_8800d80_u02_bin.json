@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4ab", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121279a", "status": "ok", "name": "rf_bus_reset_n4ab", "params": [], "docstring": "Reset RF bus and write 32-bit value to MMIO 0xb14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

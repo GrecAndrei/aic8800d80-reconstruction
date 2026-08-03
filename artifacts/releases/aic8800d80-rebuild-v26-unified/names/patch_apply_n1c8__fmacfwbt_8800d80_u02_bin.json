@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1c8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156b0", "status": "ok", "name": "patch_apply_n1c8_56b0", "params": [], "docstring": "Applies firmware patch (variant 1c8)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

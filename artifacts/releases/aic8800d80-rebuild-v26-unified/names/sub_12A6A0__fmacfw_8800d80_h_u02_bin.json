@@ -1,0 +1,1 @@
+{"fn": "sub_12A6A0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12a6a0", "status": "ok", "name": "lll_conn_event_prepare", "params": [], "docstring": "Prepare radio event for connection", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

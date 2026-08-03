@@ -1,0 +1,1 @@
+{"fn": "sub_125038", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125038", "status": "ok", "name": "set_rf_channel_map", "params": [], "docstring": "Parse RF channel map byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

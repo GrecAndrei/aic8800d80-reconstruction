@@ -1,0 +1,1 @@
+{"fn": "sub_12C218", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c218", "status": "ok", "name": "rf_table_lookup", "params": [], "docstring": "Looks up radio parameter byte from table by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

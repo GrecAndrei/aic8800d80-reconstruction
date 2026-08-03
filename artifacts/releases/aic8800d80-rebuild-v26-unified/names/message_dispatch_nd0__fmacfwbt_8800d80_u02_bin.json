@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_nd0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc84", "status": "ok", "name": "msg_dispatch_router_cc84", "params": [], "docstring": "Route message to registered handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

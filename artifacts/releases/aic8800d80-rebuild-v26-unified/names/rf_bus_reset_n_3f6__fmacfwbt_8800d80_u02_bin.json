@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121244e", "status": "ok", "name": "patch_apply_n_268", "params": [], "docstring": "Applies firmware patch table entry 0x268", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

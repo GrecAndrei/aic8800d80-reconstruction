@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_na4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211784", "status": "ok", "name": "rf_bus_mark_na4", "params": [], "docstring": "Mark RF bus register with channel/state bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

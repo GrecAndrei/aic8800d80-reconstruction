@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_3d", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f06", "status": "ok", "name": "rf_cmd_dispatch_n_3d", "params": [], "docstring": "Dispatches RF commands and stores halfword at offset 0x34; branches on result 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_2f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c698", "status": "ok", "name": "msg_dispatch_exit", "params": [], "docstring": "Restore context and return with status 0x10000000 from dispatch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

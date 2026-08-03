@@ -1,0 +1,1 @@
+{"fn": "list_insert_sorted", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e840", "status": "ok", "name": "list_insert_sorted", "params": [], "docstring": "Insert node into a sorted linked list", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

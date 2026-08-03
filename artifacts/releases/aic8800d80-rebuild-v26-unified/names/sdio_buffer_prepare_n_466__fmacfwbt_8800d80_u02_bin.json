@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_466", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122dede", "status": "ok", "name": "sdio_buffer_prepare_n_466_dede", "params": [], "docstring": "Prepare SDIO TX/RX buffer descriptor", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n48a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12139e2", "status": "ok", "name": "rf_bus_write2_n30c_39e2", "params": [], "docstring": "Performs second-style RF bus write with status check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

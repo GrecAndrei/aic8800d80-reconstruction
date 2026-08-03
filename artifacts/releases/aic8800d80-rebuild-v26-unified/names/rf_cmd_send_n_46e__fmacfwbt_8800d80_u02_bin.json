@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_46e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129fe", "status": "ok", "name": "rf_cmd_send_n_46e", "params": [], "docstring": "Sends RF command (opcode 0x13e) by writing to RF mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

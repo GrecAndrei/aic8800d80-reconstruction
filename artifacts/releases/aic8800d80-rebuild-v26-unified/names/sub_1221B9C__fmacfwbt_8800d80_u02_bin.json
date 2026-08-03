@@ -1,0 +1,1 @@
+{"fn": "sub_1221B9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221b9c", "status": "ok", "name": "bt_indexed_tbl_lookup_n_21b", "params": [], "docstring": "Indexed lookup into 0x2b8-stride table; returns entry value minus 0x21", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

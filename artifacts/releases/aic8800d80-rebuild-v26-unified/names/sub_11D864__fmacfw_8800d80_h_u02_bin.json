@@ -1,0 +1,1 @@
+{"fn": "sub_11D864", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11d864", "status": "ok", "name": "dma_ring_alloc_2", "params": [], "docstring": "Lazy allocate 0x200000-byte DMA ring buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

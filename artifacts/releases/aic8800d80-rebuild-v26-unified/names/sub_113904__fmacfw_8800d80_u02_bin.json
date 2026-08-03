@@ -1,0 +1,1 @@
+{"fn": "sub_113904", "img": "fmacfw_8800d80_u02_bin", "addr": "0x113904", "status": "ok", "name": "assert_fault", "params": [], "docstring": "Hit undefined instruction trap", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

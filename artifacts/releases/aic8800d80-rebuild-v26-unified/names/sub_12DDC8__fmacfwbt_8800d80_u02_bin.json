@@ -1,0 +1,1 @@
+{"fn": "sub_12DDC8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12ddc8", "status": "ok", "name": "memmove_1", "params": [], "docstring": "Copy memory block with overlap check", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

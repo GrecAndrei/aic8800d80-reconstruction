@@ -1,0 +1,1 @@
+{"fn": "rf_reg_write_masked", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120ef38", "status": "ok", "name": "rf_reg_write_masked", "params": [], "docstring": "Masked RF register write utility (stub/leaf)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

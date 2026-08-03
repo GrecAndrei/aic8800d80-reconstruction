@@ -1,0 +1,1 @@
+{"fn": "sub_13BD84", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13bd84", "status": "ok", "name": "rf_scan_start", "params": [], "docstring": "Start RF scan with computed interval and channel table", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

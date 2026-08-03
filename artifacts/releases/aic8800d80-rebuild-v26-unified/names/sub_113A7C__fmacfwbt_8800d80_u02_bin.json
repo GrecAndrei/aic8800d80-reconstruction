@@ -1,0 +1,1 @@
+{"fn": "sub_113A7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113a7c", "status": "ok", "name": "rf_stat_apply", "params": [], "docstring": "Applies collected RF status values to global state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

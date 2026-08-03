@@ -1,0 +1,1 @@
+{"fn": "sub_116838", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x116838", "status": "ok", "name": "rate_index_lookup_fast", "params": [], "docstring": "tail-call rate index lookup routine", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

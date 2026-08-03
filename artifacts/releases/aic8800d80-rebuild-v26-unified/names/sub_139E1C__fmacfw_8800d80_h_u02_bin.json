@@ -1,0 +1,1 @@
+{"fn": "sub_139E1C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x139e1c", "status": "ok", "name": "dpc_handler", "params": [], "docstring": "Handle deferred interrupts", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

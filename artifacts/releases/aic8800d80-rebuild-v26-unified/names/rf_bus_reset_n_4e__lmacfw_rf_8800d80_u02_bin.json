@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12122a2", "status": "ok", "name": "rf_bus_setup_n4f8", "params": [], "docstring": "RF bus setup clearing bits 0x10 in control regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

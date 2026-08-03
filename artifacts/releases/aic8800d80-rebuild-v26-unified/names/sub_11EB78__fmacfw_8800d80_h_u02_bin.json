@@ -1,0 +1,1 @@
+{"fn": "sub_11EB78", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11eb78", "status": "ok", "name": "aes_ccm_init", "params": [], "docstring": "Initializes AES/CCM crypto hardware registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

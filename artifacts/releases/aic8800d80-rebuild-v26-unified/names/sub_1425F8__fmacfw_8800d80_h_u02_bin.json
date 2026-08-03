@@ -1,0 +1,1 @@
+{"fn": "sub_1425F8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1425f8", "status": "ok", "name": "double_compare_neg", "params": [], "docstring": "Compares two doubles after flipping the sign of the second operand", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

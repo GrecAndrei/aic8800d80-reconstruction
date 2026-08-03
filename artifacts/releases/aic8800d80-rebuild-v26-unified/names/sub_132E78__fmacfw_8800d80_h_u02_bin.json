@@ -1,0 +1,1 @@
+{"fn": "sub_132E78", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x132e78", "status": "ok", "name": "ble_ll_conn_process", "params": [], "docstring": "Processes connection event state and parameter fields.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

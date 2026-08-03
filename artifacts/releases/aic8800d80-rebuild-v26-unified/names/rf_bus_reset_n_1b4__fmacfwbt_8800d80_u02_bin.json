@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212690", "status": "ok", "name": "rf_bus_reset_n_1b4_2690", "params": [], "docstring": "Resets RF bus controller and clears B014/B008/B00C status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

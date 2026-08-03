@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202e12", "status": "ok", "name": "phy_rf_init_n_4be", "params": [], "docstring": "Initialize PHY RF block with calibration data and register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

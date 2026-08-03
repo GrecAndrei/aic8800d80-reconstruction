@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_358", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211720", "status": "ok", "name": "rf_bus_write2_masked", "params": [], "docstring": "Write 2 bytes to RF bus with 0xc0 mask OR", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

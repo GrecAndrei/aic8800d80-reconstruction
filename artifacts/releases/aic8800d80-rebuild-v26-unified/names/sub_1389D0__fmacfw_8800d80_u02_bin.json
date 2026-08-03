@@ -1,0 +1,1 @@
+{"fn": "sub_1389D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1389d0", "status": "ok", "name": "tx_power_lookup", "params": [], "docstring": "Calculate TX power calibration value from current state", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_15c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145ec", "status": "ok", "name": "rf_mem_read_n49c", "params": [], "docstring": "Reads RF memory with offset/index decode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

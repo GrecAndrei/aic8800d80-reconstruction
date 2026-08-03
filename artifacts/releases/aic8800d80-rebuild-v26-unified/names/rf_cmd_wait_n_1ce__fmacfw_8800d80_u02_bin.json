@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n_1ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212da2", "status": "ok", "name": "rf_cmd_wait_n_1ce", "params": [], "docstring": "Wait loop while r8 != 0 (RF command poll)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

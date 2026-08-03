@@ -1,0 +1,1 @@
+{"fn": "sub_10C1B4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10c1b4", "status": "ok", "name": "call_tx_function", "params": [], "docstring": "Prepare arguments and call transmit routine", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

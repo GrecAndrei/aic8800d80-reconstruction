@@ -1,0 +1,1 @@
+{"fn": "sub_121B9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121b9c", "status": "ok", "name": "phy_read_band", "params": [], "docstring": "Read band byte from phy info and subtract 0x21", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

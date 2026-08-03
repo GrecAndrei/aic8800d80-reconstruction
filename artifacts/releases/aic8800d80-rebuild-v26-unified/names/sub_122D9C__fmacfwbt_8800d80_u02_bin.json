@@ -1,0 +1,1 @@
+{"fn": "sub_122D9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d9c", "status": "ok", "name": "handle_hci_command", "params": [], "docstring": "Handle incoming HCI command with state checks", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

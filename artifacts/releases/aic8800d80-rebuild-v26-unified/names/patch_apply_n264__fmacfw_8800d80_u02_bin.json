@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n264", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215110", "status": "ok", "name": "patch_apply_n264", "params": [], "docstring": "Applies a firmware patch via XOR self-modifying write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_119B4C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119b4c", "status": "ok", "name": "call_packet_helper", "params": [], "docstring": "Invoke packet helper and return success", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

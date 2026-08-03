@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_376", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c616", "status": "ok", "name": "message_dispatch_n_376", "params": [], "docstring": "Increment counter and dispatch message", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

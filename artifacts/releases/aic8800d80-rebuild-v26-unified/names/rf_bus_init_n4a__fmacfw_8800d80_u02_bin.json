@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n4a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e02", "status": "ok", "name": "rf_bus_init_n4a", "params": [], "docstring": "RF bus init checking MMIO 0x800 mask 0x7f0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

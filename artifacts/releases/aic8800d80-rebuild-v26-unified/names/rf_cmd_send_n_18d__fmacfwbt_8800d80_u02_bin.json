@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_18d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cde", "status": "ok", "name": "rf_cmd_send_n_18d", "params": [], "docstring": "Send RF command and configure hardware registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

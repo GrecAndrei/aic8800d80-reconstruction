@@ -1,0 +1,1 @@
+{"fn": "sub_12EFAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12efac", "status": "ok", "name": "cb_send_0x16ae2c", "params": [], "docstring": "Invoke callback with data from 0x16ae2c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

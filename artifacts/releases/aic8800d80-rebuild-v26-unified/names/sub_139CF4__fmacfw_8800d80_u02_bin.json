@@ -1,0 +1,1 @@
+{"fn": "sub_139CF4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x139cf4", "status": "ok", "name": "bt_init_mod", "params": [], "docstring": "Initialize Bluetooth module", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

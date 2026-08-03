@@ -1,0 +1,1 @@
+{"fn": "sub_12A74C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a74c", "status": "ok", "name": "bt_conn_set_flag", "params": [], "docstring": "Set connection flag at offset 0x71", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

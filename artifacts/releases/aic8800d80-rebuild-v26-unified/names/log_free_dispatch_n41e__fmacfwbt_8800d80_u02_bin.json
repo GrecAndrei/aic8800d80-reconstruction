@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n41e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121027e", "status": "ok", "name": "log_free_dispatch_n41e", "params": [], "docstring": "Dispatch and free a pending log entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

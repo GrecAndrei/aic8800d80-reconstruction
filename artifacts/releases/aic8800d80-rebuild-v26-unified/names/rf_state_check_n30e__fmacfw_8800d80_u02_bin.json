@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n30e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124e2", "status": "ok", "name": "rf_state_check_n30e", "params": [], "docstring": "Check RF state and update register flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

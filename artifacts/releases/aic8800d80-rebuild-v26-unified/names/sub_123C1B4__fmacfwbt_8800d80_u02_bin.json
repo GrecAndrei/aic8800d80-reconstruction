@@ -1,0 +1,1 @@
+{"fn": "sub_123C1B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123c1b4", "status": "ok", "name": "rf_mmio_init_n_1b4", "params": [], "docstring": "Initialize RF MMIO register block at 0x40501000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

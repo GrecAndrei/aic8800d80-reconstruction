@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_nca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213d12", "status": "ok", "name": "rf_msg_process_body_nca", "params": [], "docstring": "Processes body of an RF message", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

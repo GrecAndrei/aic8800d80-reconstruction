@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3a2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121133e", "status": "ok", "name": "rf_bus_mark_33e", "params": [], "docstring": "Mark RF bus for subsequent operation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

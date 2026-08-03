@@ -1,0 +1,1 @@
+{"fn": "sub_118E58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x118e58", "status": "ok", "name": "rf_packet_available", "params": [], "docstring": "Check whether radio packet is available", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

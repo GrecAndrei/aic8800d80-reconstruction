@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_4fa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e6ba", "status": "ok", "name": "sdio_buffer_prepare_n_4fa", "params": [], "docstring": "Prepares an SDIO data buffer for host DMA transfer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

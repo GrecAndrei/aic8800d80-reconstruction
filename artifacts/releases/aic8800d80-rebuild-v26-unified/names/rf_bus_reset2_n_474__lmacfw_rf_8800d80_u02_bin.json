@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_474", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e90", "status": "ok", "name": "rf_bus_reset2_n_474", "params": [], "docstring": "Reset RF bus state (variant 0x474)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

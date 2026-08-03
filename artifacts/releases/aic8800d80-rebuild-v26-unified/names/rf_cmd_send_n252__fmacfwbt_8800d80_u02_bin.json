@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n252", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130be", "status": "ok", "name": "rf_cmd_send_dual", "params": [], "docstring": "Send two RF commands (0x26, 0x29) sequentially", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

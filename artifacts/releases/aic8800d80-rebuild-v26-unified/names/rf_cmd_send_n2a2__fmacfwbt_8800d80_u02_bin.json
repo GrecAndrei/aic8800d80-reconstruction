@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n2a2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121310e", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send RF command with shifted encoding", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

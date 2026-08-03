@@ -1,0 +1,1 @@
+{"fn": "sub_1136D4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1136d4", "status": "ok", "name": "rf_read_status", "params": [], "docstring": "Read radio status word at offset eight", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

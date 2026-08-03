@@ -1,0 +1,1 @@
+{"fn": "sub_127108", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127108", "status": "ok", "name": "rf_enable", "params": [], "docstring": "enable RF and send enable command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

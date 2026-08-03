@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_434", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150b4", "status": "ok", "name": "patch_apply_n_434", "params": [], "docstring": "Applies a single byte patch to a code stream and returns status", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

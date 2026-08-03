@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n1e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5b2", "status": "ok", "name": "rf_mem_read_n1e", "params": [], "docstring": "Reads RF memory-mapped register via indirect call and field shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_ff", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e44", "status": "ok", "name": "rf_cmd_dispatch_n_ff", "params": [], "docstring": "Dispatch RF command with size compare and case 0x2d", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

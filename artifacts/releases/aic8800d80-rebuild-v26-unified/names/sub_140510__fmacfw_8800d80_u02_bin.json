@@ -1,0 +1,1 @@
+{"fn": "sub_140510", "img": "fmacfw_8800d80_u02_bin", "addr": "0x140510", "status": "ok", "name": "ble_ll_adv_chk_active", "params": [], "docstring": "Check periodic advertising active state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

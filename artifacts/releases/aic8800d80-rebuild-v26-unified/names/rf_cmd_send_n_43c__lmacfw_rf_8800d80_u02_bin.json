@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_43c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124dc", "status": "ok", "name": "patch_apply_n_388", "params": [], "docstring": "Apply a firmware patch entry via indirect call table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

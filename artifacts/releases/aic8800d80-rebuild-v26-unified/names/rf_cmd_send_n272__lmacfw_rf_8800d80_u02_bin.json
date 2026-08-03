@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n272", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212b8a", "status": "ok", "name": "rf_cmd_send_n272", "params": [], "docstring": "Send an RF command with masking value 0xFF and chain to a follow-up radio call.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

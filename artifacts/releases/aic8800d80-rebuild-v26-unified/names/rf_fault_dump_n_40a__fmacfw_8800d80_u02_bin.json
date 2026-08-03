@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_40a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121433e", "status": "ok", "name": "rf_fault_dump_n_40a", "params": [], "docstring": "dumps RF fault state on error condition", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4fa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202dd6", "status": "ok", "name": "phy_rf_init_n_4fa", "params": [], "docstring": "Initialize PHY/RF subsystem configuration block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

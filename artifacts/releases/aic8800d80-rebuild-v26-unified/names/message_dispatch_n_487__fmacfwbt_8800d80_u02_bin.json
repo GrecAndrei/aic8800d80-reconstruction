@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_487", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c72c", "status": "ok", "name": "rf_fault_dump_n3d6", "params": [], "docstring": "Triggers RF fault handler and extracts a 3-bit field from result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

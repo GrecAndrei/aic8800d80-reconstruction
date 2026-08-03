@@ -1,0 +1,1 @@
+{"fn": "sub_12F958", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f958", "status": "ok", "name": "parse_hex_or_dec", "params": [], "docstring": "Parse numeric string starting with '0'", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

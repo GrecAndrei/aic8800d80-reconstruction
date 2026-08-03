@@ -1,0 +1,1 @@
+{"fn": "sub_11E0B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11e0b4", "status": "ok", "name": "radio_get_status", "params": [], "docstring": "Read radio status bytes at offsets 0x98 and 0x9c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

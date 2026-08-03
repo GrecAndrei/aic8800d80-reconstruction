@@ -1,0 +1,1 @@
+{"fn": "sub_11954C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11954c", "status": "ok", "name": "ke_alloc_msg_0x6a", "params": [], "docstring": "Allocate 16-byte kernel message 0x6a", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

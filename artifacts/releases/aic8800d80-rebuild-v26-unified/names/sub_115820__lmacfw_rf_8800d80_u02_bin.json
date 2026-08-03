@@ -1,0 +1,1 @@
+{"fn": "sub_115820", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x115820", "status": "ok", "name": "ble_ll_init", "params": [], "docstring": "Initialize BLE link layer and RF subsystem", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

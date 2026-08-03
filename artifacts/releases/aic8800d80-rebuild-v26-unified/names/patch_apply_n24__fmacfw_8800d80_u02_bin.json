@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ed0", "status": "ok", "name": "rf_bus_setup_n52", "params": [], "docstring": "RF bus register setup with shift/or mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

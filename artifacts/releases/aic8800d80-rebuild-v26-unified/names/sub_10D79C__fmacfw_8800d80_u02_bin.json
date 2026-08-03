@@ -1,0 +1,1 @@
+{"fn": "sub_10D79C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d79c", "status": "ok", "name": "gpio_write", "params": [], "docstring": "Write value to GPIO data register 0x40032000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

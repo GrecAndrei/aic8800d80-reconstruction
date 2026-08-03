@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n3b8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212170", "status": "ok", "name": "rf_bus_init_n3b8", "params": [], "docstring": "Initializes RF bus with masked control values and store halfword", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

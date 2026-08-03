@@ -1,0 +1,1 @@
+{"fn": "sub_10F0B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10f0b4", "status": "ok", "name": "check_hw_flag", "params": [], "docstring": "Check configuration flag and update control block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

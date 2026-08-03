@@ -1,0 +1,1 @@
+{"fn": "sub_134434", "img": "fmacfw_8800d80_u02_bin", "addr": "0x134434", "status": "ok", "name": "reset_controller_state", "params": [], "docstring": "Reset controller state fields", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

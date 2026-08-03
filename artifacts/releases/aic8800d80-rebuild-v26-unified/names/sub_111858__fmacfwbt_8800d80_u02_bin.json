@@ -1,0 +1,1 @@
+{"fn": "sub_111858", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111858", "status": "ok", "name": "rf_radio_enable", "params": [], "docstring": "enable radio subsystem and wait until done", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10FF34", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ff34", "status": "ok", "name": "check_controller_mode", "params": [], "docstring": "Check if controller mode equals given value", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

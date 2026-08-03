@@ -1,0 +1,1 @@
+{"fn": "mm_cfg_rssi_req_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1248f18", "status": "ok", "name": "mm_cfg_rssi_req_handler", "params": [], "docstring": "MAC management handler for RSSI configuration request, stores parameters into config struct", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

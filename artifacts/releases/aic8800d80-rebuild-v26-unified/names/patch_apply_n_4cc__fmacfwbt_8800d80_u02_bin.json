@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4cc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121501c", "status": "ok", "name": "patch_apply_n_4cc", "params": [], "docstring": "Apply patch data with byte sign extension (variant 4cc)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n224", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123f8", "status": "ok", "name": "unknown_n_4", "params": [], "docstring": "Unknown function (index 4 not provided in input)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

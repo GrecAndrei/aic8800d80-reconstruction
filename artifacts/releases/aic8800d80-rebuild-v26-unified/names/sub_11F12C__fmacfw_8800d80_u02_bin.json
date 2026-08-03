@@ -1,0 +1,1 @@
+{"fn": "sub_11F12C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11f12c", "status": "ok", "name": "llm_conn_calc_ptr", "params": [], "docstring": "calculate connection descriptor pointer from index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

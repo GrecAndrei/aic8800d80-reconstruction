@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_382", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215166", "status": "ok", "name": "rf_mem_write_n19e", "params": [], "docstring": "Writes halfword to RF memory, logs via 0x14ef44", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

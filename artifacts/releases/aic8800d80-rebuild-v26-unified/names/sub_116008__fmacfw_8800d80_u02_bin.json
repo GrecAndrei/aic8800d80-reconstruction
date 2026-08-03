@@ -1,0 +1,1 @@
+{"fn": "sub_116008", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116008", "status": "ok", "name": "kernel_event_get", "params": [], "docstring": "Gets a kernel event and checks the resulting status", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

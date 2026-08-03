@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_276", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dba", "status": "ok", "name": "rf_state_check_n_276", "params": [], "docstring": "RF state poll; compare accumulated state against 0x800 threshold", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

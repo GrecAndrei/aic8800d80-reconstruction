@@ -1,0 +1,1 @@
+{"fn": "sub_116C6C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x116c6c", "status": "ok", "name": "hw_timer_load", "params": [], "docstring": "load hardware timer value into state counter", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

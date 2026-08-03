@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_4a8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221a9c", "status": "ok", "name": "rf_cmd_dispatch_n_4a8", "params": [], "docstring": "Dispatch RF command with 0xc0DE magic tag and init copy", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

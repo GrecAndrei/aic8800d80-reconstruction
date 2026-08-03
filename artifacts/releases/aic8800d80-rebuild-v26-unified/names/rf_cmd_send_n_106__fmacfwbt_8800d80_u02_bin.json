@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_106", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d66", "status": "ok", "name": "rf_msg_process_body_n18", "params": [], "docstring": "Process RF message body field at offset 0x25", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

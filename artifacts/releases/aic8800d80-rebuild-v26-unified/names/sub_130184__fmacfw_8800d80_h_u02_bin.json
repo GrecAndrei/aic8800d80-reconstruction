@@ -1,0 +1,1 @@
+{"fn": "sub_130184", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x130184", "status": "ok", "name": "compare_calibration_levels", "params": [], "docstring": "Compares calibration counters in global data.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

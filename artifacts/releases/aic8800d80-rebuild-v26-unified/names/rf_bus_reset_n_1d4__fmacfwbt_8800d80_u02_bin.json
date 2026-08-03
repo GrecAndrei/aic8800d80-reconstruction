@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212670", "status": "ok", "name": "rf_bus_reset_n_1d4", "params": [], "docstring": "RF bus reset sequence with bound compare and register clear", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

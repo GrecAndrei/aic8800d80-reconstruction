@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_44a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121190e", "status": "ok", "name": "rf_bus_setup_n_44a", "params": [], "docstring": "RF bus setup (configures MMIO register at 0x80003800, reads RF info pointer)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

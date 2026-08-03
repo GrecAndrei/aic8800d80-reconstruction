@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n2e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e06", "status": "ok", "name": "rf_level_apply_n2e", "params": [], "docstring": "Apply RF level/attenuation table entries N->E", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

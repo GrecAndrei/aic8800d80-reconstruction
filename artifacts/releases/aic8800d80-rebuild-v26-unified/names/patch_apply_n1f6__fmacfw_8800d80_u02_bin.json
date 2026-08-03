@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150a2", "status": "ok", "name": "patch_apply_n1f6", "params": [], "docstring": "Apply firmware patch with interrupts disabled", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

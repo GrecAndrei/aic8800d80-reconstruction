@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_2a2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226b36", "status": "ok", "name": "rf_level_apply_n_2a2", "params": [], "docstring": "Clear RF register bits (0x10000, 0x1, 0x60) for level tuning", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

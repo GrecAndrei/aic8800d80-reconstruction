@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n8e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e46", "status": "ok", "name": "rf_bus_init_n8e", "params": [], "docstring": "Initialize RF bus interface, clear interrupt flags and enable control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

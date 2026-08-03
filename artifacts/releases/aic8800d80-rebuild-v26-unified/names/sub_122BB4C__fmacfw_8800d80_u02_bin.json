@@ -1,0 +1,1 @@
+{"fn": "sub_122BB4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122bb4c", "status": "ok", "name": "mmio_reg_clear_bits_n3c", "params": [], "docstring": "Clear MMIO register bits with loop", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

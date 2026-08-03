@@ -1,0 +1,1 @@
+{"fn": "sub_12DB80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12db80", "status": "ok", "name": "find_char_2", "params": [], "docstring": "Scan memory range for a character", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

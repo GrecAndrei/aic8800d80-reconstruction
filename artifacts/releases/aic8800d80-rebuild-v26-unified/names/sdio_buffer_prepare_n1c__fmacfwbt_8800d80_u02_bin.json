@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n1c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e360", "status": "ok", "name": "sdio_buffer_prepare_n1c_e360", "params": [], "docstring": "Prepare SDIO transfer buffer (size/len check)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

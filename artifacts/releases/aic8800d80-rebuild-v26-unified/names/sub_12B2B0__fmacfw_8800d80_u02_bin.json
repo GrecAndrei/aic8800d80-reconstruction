@@ -1,0 +1,1 @@
+{"fn": "sub_12B2B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b2b0", "status": "ok", "name": "link_get_connection_info", "params": [], "docstring": "Looks up connection info in connection table indexed by handle", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

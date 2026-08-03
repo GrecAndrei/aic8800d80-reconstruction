@@ -1,0 +1,1 @@
+{"fn": "sub_110E78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x110e78", "status": "ok", "name": "ke_int_lock", "params": [], "docstring": "enter critical section by disabling interrupts", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

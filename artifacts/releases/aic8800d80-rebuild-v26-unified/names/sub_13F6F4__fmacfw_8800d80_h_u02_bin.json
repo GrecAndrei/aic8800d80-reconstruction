@@ -1,0 +1,1 @@
+{"fn": "sub_13F6F4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13f6f4", "status": "ok", "name": "l2c_ccb_run", "params": [], "docstring": "Processes L2CAP control block state and flags", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

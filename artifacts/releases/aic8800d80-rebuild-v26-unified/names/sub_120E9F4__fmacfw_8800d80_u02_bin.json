@@ -1,0 +1,1 @@
+{"fn": "sub_120E9F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120e9f4", "status": "ok", "name": "rf_reg_field_modify_n12a", "params": [], "docstring": "Modify RF register field via mask and value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

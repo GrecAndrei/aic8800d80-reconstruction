@@ -1,0 +1,1 @@
+{"fn": "sub_115314", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x115314", "status": "ok", "name": "deferred_cb_clear", "params": [], "docstring": "Clear deferred callback pointer if set", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

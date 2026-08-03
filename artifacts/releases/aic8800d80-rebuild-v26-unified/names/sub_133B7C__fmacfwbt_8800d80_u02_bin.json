@@ -1,0 +1,1 @@
+{"fn": "sub_133B7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x133b7c", "status": "ok", "name": "scan_trigger", "params": [], "docstring": "Trigger scan via command 6", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

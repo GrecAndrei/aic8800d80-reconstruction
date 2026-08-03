@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_39b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114bc", "status": "ok", "name": "rf_bus_reset2_n_39b", "params": [], "docstring": "RF bus reset sequence comparing bus addresses 0xa8/0x68", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

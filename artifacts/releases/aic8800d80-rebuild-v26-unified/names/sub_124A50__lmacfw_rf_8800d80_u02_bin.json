@@ -1,0 +1,1 @@
+{"fn": "sub_124A50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124a50", "status": "ok", "name": "set_tx_power", "params": [], "docstring": "Parse and store TX power level", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

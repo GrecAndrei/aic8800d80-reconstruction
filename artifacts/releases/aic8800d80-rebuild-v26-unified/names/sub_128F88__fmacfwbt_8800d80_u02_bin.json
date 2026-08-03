@@ -1,0 +1,1 @@
+{"fn": "sub_128F88", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128f88", "status": "ok", "name": "handle_mmio_event", "params": [], "docstring": "Handles an event by checking state flags and performing an MMIO access", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

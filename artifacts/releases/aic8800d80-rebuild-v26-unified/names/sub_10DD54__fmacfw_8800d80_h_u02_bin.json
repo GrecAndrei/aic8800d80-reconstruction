@@ -1,0 +1,1 @@
+{"fn": "sub_10DD54", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10dd54", "status": "ok", "name": "rf_chain_enable", "params": [], "docstring": "Enable RF path controls for chains 1 and 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

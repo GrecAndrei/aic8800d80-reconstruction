@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n2dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215c58", "status": "ok", "name": "ipc_doorbell_ack_n2dc", "params": [], "docstring": "IPC doorbell handler: clears a doorbell byte in shared state", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

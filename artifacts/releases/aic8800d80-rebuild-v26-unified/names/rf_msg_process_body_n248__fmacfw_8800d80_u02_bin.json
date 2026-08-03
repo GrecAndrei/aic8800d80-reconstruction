@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n248", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213e90", "status": "ok", "name": "rf_bus_setup_n3a", "params": [], "docstring": "Validate RF bus status bitmask during setup phase", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

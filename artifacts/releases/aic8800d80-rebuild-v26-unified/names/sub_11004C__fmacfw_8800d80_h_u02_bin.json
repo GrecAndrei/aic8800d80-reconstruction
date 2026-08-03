@@ -1,0 +1,1 @@
+{"fn": "sub_11004C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11004c", "status": "ok", "name": "get_noise_floor", "params": [], "docstring": "Returns noise floor from PHY info under lock", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

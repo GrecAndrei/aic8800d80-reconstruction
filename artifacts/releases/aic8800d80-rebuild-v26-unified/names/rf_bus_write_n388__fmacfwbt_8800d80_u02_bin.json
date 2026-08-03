@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n388", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d48", "status": "ok", "name": "rf_bus_write_n388", "params": [], "docstring": "Writes RF bus register by computing scaled index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

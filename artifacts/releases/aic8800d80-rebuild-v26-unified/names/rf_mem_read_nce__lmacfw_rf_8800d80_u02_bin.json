@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nce", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f662", "status": "ok", "name": "rf_mem_read32", "params": [], "docstring": "Read 32-bit value from RF memory mapped region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

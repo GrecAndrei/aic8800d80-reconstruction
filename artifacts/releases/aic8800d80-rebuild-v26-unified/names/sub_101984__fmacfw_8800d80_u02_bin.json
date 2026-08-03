@@ -1,0 +1,1 @@
+{"fn": "sub_101984", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101984", "status": "ok", "name": "rf_read_timestamps", "params": [], "docstring": "Reads two radio timestamp registers into outputs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

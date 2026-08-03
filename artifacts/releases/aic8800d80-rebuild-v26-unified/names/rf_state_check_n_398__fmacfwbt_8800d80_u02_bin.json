@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_398", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c98", "status": "ok", "name": "rf_state_check_n_398", "params": [], "docstring": "Check and return current RF state (0/2/3) and bit-clear status flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

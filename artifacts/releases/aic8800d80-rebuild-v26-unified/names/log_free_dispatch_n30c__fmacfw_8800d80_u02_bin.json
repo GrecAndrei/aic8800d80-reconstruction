@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n30c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210314", "status": "ok", "name": "log_free_dispatch_n30c", "params": [], "docstring": "Logging free dispatch handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "state_flag_check", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211150", "status": "ok", "name": "state_flag_check", "params": [], "docstring": "Check internal state flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

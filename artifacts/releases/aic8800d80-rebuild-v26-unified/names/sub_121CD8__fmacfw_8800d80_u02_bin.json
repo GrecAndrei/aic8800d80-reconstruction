@@ -1,0 +1,1 @@
+{"fn": "sub_121CD8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121cd8", "status": "ok", "name": "call_fw_handler", "params": [], "docstring": "Forward arguments to firmware handler and return result.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

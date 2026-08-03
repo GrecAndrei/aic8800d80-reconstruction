@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_500", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210c8c", "status": "ok", "name": "rf_bus_mark_n_500", "params": [], "docstring": "Set RF bus mark flag by ORRing 0x800000 into MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

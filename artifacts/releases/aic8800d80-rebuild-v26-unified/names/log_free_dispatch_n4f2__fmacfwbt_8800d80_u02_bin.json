@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n4f2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210352", "status": "ok", "name": "log_buf_free_dispatch", "params": [], "docstring": "Log buffer free path dispatching to free routine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

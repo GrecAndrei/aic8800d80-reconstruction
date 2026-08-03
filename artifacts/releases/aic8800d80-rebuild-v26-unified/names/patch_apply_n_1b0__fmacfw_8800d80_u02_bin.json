@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1b0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214cfc", "status": "ok", "name": "patch_apply_n_1b0", "params": [], "docstring": "Patch apply routine pushing 4-byte patch data from stack", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

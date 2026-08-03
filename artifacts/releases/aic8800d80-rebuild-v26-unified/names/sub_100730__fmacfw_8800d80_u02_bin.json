@@ -1,0 +1,1 @@
+{"fn": "sub_100730", "img": "fmacfw_8800d80_u02_bin", "addr": "0x100730", "status": "ok", "name": "enable_interrupt", "params": [], "docstring": "Enable a hardware interrupt", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

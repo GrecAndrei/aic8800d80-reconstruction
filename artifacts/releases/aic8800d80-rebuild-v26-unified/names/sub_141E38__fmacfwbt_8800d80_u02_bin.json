@@ -1,0 +1,1 @@
+{"fn": "sub_141E38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141e38", "status": "ok", "name": "send_hci_event_msg", "params": [], "docstring": "Send HCI event message to destination task", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

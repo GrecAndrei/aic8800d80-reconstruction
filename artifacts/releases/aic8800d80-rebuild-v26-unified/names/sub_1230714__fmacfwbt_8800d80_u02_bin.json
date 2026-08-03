@@ -1,0 +1,1 @@
+{"fn": "sub_1230714", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1230714", "status": "ok", "name": "sub_1230714", "params": [], "docstring": "Loads signed byte from global and dispatches handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

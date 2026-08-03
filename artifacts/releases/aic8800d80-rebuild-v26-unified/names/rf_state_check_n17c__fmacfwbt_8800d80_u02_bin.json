@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n17c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121ac", "status": "ok", "name": "rf_state_check_n17c", "params": [], "docstring": "Checks RF state pointers from constant pool entries 0x187f74/0x187f70", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

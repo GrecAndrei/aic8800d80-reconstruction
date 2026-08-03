@@ -1,0 +1,1 @@
+{"fn": "sub_120230", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120230", "status": "ok", "name": "configure_mmio", "params": [], "docstring": "Reads a peripheral register and computes updated addresses.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

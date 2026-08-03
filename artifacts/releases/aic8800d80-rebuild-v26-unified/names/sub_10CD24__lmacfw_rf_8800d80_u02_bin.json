@@ -1,0 +1,1 @@
+{"fn": "sub_10CD24", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10cd24", "status": "ok", "name": "wait_for_uart_event", "params": [], "docstring": "Poll UART status and wait for specified flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

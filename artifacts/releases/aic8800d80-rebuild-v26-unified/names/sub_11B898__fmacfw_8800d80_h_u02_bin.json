@@ -1,0 +1,1 @@
+{"fn": "sub_11B898", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11b898", "status": "ok", "name": "check_mode_flag", "params": [], "docstring": "Check mode flag bit in environment", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

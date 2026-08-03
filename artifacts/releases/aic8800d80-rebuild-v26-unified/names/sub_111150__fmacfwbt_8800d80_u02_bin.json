@@ -1,0 +1,1 @@
+{"fn": "sub_111150", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111150", "status": "ok", "name": "ll_util_get_state", "params": [], "docstring": "read controller mode flags and return state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

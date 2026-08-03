@@ -1,0 +1,1 @@
+{"fn": "sub_113810", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113810", "status": "ok", "name": "send_hci_event", "params": [], "docstring": "Send HCI event data via transport", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

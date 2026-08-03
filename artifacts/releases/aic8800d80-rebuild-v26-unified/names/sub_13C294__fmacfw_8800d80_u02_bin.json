@@ -1,0 +1,1 @@
+{"fn": "sub_13C294", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c294", "status": "ok", "name": "get_tx_power_cal_entry", "params": [], "docstring": "Fetches calibration entry from array using chain index from context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

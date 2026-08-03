@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2a4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212744", "status": "ok", "name": "rf_bus_reset_n_2a4_2744", "params": [], "docstring": "Read RF bus status byte, reset/poll path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

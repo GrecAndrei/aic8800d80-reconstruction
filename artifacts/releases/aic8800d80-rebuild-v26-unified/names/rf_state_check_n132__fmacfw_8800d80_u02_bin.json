@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n132", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212306", "status": "ok", "name": "sdio_buffer_prepare_n90", "params": [], "docstring": "Compute SDIO buffer offsets via shifts for DMA/IO prepare", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_274", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12144d4", "status": "ok", "name": "rf_bus_reset2_n_33e", "params": [], "docstring": "Reset RF bus channel registers and write index/control fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_ne0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f8c", "status": "ok", "name": "rf_mem_write_n240", "params": [], "docstring": "Write RF memory value converting float to uint32 via helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

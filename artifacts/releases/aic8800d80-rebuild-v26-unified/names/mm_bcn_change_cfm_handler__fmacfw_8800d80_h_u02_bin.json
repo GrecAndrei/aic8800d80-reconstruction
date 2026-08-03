@@ -1,0 +1,1 @@
+{"fn": "mm_bcn_change_cfm_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124c280", "status": "ok", "name": "mm_bcn_change_cfm_handler", "params": [], "docstring": "Handle beacon change confirmation from MM", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122B64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b64", "status": "ok", "name": "send_cmd_0x0b", "params": [], "docstring": "Send HCI vendor command 0x0b", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

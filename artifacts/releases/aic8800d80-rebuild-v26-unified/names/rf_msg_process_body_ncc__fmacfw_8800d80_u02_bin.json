@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_ncc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213d14", "status": "ok", "name": "rf_msg_process_body_ncc", "params": [], "docstring": "Computes and stores RF message body offset/pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

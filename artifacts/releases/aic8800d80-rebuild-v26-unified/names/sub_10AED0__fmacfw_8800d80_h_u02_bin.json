@@ -1,0 +1,1 @@
+{"fn": "sub_10AED0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10aed0", "status": "ok", "name": "rf_iqk_init", "params": [], "docstring": "Initialize RF IQ calibration tables and PHY registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

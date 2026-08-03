@@ -1,0 +1,1 @@
+{"fn": "sub_11E960", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11e960", "status": "ok", "name": "tx_packet_kick", "params": [], "docstring": "Trigger TX packet processing and read status", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

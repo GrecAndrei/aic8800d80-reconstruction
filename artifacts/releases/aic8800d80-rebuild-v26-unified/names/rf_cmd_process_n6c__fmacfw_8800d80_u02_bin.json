@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12135c4", "status": "ok", "name": "phy_rf_init_n_4d6", "params": [], "docstring": "Initializes PHY/RF hardware clearing control bits and checking status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

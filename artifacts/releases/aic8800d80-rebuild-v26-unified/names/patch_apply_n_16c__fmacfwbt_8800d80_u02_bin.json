@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_16c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121537c", "status": "ok", "name": "patch_apply_n_16c_537c", "params": [], "docstring": "Apply ROM patch (id 0x14) via patch slot 4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_12A3BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a3bc", "status": "ok", "name": "rf_read_state", "params": [], "docstring": "Check radio state from global and branch on sign", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

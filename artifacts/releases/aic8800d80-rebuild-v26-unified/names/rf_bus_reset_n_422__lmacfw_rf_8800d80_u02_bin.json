@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_422", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ece", "status": "ok", "name": "rf_bus_reset_n_422", "params": [], "docstring": "RF bus reset using command 0x51 ('Q') and index adjust", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

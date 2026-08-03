@@ -1,0 +1,1 @@
+{"fn": "sub_11F5E4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11f5e4", "status": "ok", "name": "reset_controller_block", "params": [], "docstring": "Clears global controller block at 0x18e610", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

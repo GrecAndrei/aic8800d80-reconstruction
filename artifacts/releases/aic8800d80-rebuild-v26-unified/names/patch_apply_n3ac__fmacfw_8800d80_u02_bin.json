@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3ac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215258", "status": "ok", "name": "patch_apply_n3ac", "params": [], "docstring": "Extracts bit fields from patch descriptor to select patch region and apply bits.", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

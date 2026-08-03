@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n9e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147e6", "status": "ok", "name": "rf_fault_dump_n9e", "params": [], "docstring": "Dump RF fault state with bounded size cap of 0x100 entries", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

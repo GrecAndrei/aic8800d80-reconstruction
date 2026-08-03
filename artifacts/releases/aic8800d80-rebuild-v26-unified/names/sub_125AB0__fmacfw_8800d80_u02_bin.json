@@ -1,0 +1,1 @@
+{"fn": "sub_125AB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x125ab0", "status": "ok", "name": "ke_schedule", "params": [], "docstring": "Kernel scheduler loop checking event conditions", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

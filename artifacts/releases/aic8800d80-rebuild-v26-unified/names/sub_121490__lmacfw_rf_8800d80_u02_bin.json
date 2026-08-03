@@ -1,0 +1,1 @@
+{"fn": "sub_121490", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121490", "status": "ok", "name": "rf_write_0x401", "params": [], "docstring": "Write 8 bytes to RF register 0x401", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

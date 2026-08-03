@@ -1,0 +1,1 @@
+{"fn": "sub_111C78", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111c78", "status": "ok", "name": "wlan_set_band", "params": [], "docstring": "Configure radio band based on selector value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

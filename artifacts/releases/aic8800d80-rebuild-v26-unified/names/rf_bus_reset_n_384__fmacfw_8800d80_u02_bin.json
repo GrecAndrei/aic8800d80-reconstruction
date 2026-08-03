@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_384", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212664", "status": "ok", "name": "sdio_buffer_prepare_n_1ee", "params": [], "docstring": "SDIO buffer preparation tail/trampoline", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

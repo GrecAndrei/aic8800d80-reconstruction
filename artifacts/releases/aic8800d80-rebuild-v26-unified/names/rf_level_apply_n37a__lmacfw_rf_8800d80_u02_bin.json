@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n37a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227152", "status": "ok", "name": "rf_level_apply_n37a", "params": [], "docstring": "Apply scaled RF level value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

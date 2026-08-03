@@ -1,0 +1,1 @@
+{"fn": "sub_122942C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122942c", "status": "ok", "name": "rf_cmd_send_n_d2_942c", "params": [], "docstring": "Sends an RF command (variant n_d2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

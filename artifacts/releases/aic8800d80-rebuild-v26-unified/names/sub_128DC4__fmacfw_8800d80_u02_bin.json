@@ -1,0 +1,1 @@
+{"fn": "sub_128DC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x128dc4", "status": "ok", "name": "wlc_phy_band_check", "params": [], "docstring": "Check PHY band capability byte against mode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n4dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212294", "status": "ok", "name": "rf_bus_init_n4dc", "params": [], "docstring": "Initialize RF bus 16-bit register window", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

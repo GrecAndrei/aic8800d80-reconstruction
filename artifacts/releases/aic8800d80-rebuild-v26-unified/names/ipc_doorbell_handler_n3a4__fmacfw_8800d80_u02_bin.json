@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n3a4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215d20", "status": "ok", "name": "rf_level_apply_n3aa", "params": [], "docstring": "Apply RF level adjustment based on parameter bitfield", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_92", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e6a", "status": "ok", "name": "rf_bus_setup_n_92", "params": [], "docstring": "Initialize RF bus with 4-bit width and configure address registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

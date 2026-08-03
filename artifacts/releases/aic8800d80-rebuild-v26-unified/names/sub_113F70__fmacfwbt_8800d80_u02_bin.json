@@ -1,0 +1,1 @@
+{"fn": "sub_113F70", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113f70", "status": "ok", "name": "dispatch_function_ptr", "params": [], "docstring": "Calls function pointer stored in global object", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

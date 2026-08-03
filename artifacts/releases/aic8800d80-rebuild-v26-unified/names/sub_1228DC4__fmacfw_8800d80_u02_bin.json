@@ -1,0 +1,1 @@
+{"fn": "sub_1228DC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228dc4", "status": "ok", "name": "rf_chan_state_check", "params": [], "docstring": "Check RF channel/state flags against expected value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

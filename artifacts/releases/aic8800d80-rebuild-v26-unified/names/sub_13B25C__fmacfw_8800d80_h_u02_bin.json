@@ -1,0 +1,1 @@
+{"fn": "sub_13B25C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b25c", "status": "ok", "name": "wait_condition_status", "params": [], "docstring": "Waits on a condition and checks result against 3.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

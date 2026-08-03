@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121202a", "status": "ok", "name": "patch_apply_n4c6", "params": [], "docstring": "Minimal patch tail: nop then store byte to offset 0x1f of base", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

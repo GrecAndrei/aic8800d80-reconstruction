@@ -1,0 +1,1 @@
+{"fn": "sub_13D33C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13d33c", "status": "ok", "name": "mac_clear_flag_and_check", "params": [], "docstring": "Clear a flag in MAC control byte and check related state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

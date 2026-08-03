@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_196", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c42", "status": "ok", "name": "rf_level_apply_n_196", "params": [], "docstring": "Apply RF level/tx-power value and branch on mode flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

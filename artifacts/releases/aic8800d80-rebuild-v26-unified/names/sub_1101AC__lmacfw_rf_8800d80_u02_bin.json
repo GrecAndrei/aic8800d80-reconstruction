@@ -1,0 +1,1 @@
+{"fn": "sub_1101AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1101ac", "status": "ok", "name": "irq_disable", "params": [], "docstring": "Disables interrupts and sets IRQ disabled flag.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

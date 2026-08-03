@@ -1,0 +1,1 @@
+{"fn": "sub_10058C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10058c", "status": "ok", "name": "store_byte_value", "params": [], "docstring": "Call a function and update a cached byte if changed", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

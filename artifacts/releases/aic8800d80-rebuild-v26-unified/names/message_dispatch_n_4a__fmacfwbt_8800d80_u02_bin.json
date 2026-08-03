@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_4a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb6a", "status": "ok", "name": "message_dispatch_n_4a", "params": [], "docstring": "Resolves message handler index via indirect load and dispatches", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

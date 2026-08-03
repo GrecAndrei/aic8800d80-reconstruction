@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n34c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef00", "status": "ok", "name": "sdio_buffer_prepare_n34c", "params": [], "docstring": "SDIO buffer preparation setting flags and sl=2", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

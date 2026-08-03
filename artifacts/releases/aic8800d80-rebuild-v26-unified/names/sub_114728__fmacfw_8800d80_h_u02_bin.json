@@ -1,0 +1,1 @@
+{"fn": "sub_114728", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114728", "status": "ok", "name": "rf_cmd_6_read", "params": [], "docstring": "Invoke ROM RF cmd 6 and extract status bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_118354", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x118354", "status": "ok", "name": "clear_bb_irq", "params": [], "docstring": "Clear baseband interrupt flag based on counter check", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

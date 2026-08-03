@@ -1,0 +1,1 @@
+{"fn": "sub_121340", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121340", "status": "ok", "name": "mac_core_setup", "params": [], "docstring": "Initialize MAC core registers and per-core state.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

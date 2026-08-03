@@ -1,0 +1,1 @@
+{"fn": "sub_11F594", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11f594", "status": "ok", "name": "handle_ipc_request", "params": [], "docstring": "Handles an IPC/control request with argument checks", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

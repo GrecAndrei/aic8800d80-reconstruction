@@ -1,0 +1,1 @@
+{"fn": "sub_117788", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117788", "status": "ok", "name": "radio_isr", "params": [], "docstring": "Interrupt service routine for radio status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

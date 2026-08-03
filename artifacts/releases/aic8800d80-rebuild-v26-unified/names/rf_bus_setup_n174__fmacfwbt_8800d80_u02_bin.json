@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n174", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211ecc", "status": "ok", "name": "rf_bus_setup_n174_1ecc", "params": [], "docstring": "Configure RF bus register at offset 0x40020000 + slot*32, read and shift val from 0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

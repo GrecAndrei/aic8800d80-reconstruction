@@ -1,0 +1,1 @@
+{"fn": "txl_agg_he_tb_prep", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1247e48", "status": "ok", "name": "txl_agg_he_tb_prep", "params": [], "docstring": "Prepares HE TB aggregation descriptor for TX list", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

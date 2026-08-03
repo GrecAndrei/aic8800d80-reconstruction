@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n476", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12224a2", "status": "ok", "name": "rf_mem_write_n476", "params": [], "docstring": "Write to RF memory region at 0x14f01c after register lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

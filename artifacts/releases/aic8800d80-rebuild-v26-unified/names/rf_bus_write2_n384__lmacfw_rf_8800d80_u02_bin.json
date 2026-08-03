@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n384", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12118a8", "status": "ok", "name": "rf_bus_mark_n_422_18a8", "params": [], "docstring": "Mark RF bus access using register 0x40240160 with conditional data load", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

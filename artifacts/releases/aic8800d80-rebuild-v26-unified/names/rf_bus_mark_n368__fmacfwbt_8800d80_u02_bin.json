@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n368", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a48", "status": "ok", "name": "rf_bus_mark_n368", "params": [], "docstring": "Set/assert RF bus mark bit (0x40000000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

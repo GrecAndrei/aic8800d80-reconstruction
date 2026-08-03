@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4e9", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d09c", "status": "ok", "name": "message_dispatch_n4e9", "params": [], "docstring": "Kernel message dispatch: route messages through handler tables", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

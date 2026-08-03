@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_486", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dc96", "status": "ok", "name": "sdio_buffer_prepare_n_486_dc96", "params": [], "docstring": "SDIO buffer prepare: zero/return or advance index by 1", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

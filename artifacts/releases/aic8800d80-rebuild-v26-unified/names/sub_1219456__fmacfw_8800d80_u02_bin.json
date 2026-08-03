@@ -1,0 +1,1 @@
+{"fn": "sub_1219456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1219456", "status": "ok", "name": "fmac_status_check_or_set", "params": [], "docstring": "Checks a status bitmask (0x380000) and stores a parameter", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

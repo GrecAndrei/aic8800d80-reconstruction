@@ -1,0 +1,1 @@
+{"fn": "sub_10FF6C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ff6c", "status": "ok", "name": "hci_send_command", "params": [], "docstring": "Send HCI command via transport", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

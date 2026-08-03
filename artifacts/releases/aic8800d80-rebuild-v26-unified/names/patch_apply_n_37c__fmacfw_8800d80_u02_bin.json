@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_37c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b30", "status": "ok", "name": "patch_apply_n_37c", "params": [], "docstring": "Apply firmware patch and extract field bits 6-8", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

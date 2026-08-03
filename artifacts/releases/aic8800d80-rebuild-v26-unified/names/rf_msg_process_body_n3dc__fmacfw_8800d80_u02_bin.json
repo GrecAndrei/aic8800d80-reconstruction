@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n3dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214024", "status": "ok", "name": "rf_msg_process_body_n3dc", "params": [], "docstring": "Process RF message body with counter decrement loop", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

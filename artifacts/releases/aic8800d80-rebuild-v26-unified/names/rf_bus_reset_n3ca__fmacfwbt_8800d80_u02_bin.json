@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n3ca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212c0e", "status": "ok", "name": "rf_bus_reset_n3ca", "params": [], "docstring": "Reset RF bus state via MMIO register clear", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

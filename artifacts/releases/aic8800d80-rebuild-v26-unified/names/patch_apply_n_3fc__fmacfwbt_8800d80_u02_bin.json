@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3fc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150ec", "status": "ok", "name": "patch_apply_byte", "params": [], "docstring": "Apply signed byte patch to data", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

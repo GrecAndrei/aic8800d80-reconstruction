@@ -1,0 +1,1 @@
+{"fn": "sub_12C798", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c798", "status": "ok", "name": "unknown_handler_12c798", "params": [], "docstring": "Function with invalid instruction; unknown behavior", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11E430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11e430", "status": "ok", "name": "rf_fifo_status", "params": [], "docstring": "Capture RF FIFO status and pending data.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

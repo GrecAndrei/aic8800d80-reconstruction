@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n298", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12122c8", "status": "ok", "name": "rf_state_check_n298", "params": [], "docstring": "Verify RF state equals 3 and proceed", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

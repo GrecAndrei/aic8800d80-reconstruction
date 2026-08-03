@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_99", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121544e", "status": "ok", "name": "rf_cmd_build_44e", "params": [], "docstring": "Build RF command packet", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

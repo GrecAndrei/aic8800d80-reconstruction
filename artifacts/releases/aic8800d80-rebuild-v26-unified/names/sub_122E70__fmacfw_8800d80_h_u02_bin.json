@@ -1,0 +1,1 @@
+{"fn": "sub_122E70", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122e70", "status": "ok", "name": "ke_send_msg_7c", "params": [], "docstring": "Allocate and send KE message id 0x7c", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_47e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129ee", "status": "ok", "name": "rf_cmd_send_n_47e", "params": [], "docstring": "Send RF command (variant _n_47e)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

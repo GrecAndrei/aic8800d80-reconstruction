@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210c90", "status": "ok", "name": "rf_bus_mark_n_4fc", "params": [], "docstring": "Sequentially write r0 and r1 to RF bus register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

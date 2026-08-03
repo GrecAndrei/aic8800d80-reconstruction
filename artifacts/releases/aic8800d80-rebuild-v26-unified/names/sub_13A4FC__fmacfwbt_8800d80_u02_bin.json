@@ -1,0 +1,1 @@
+{"fn": "sub_13A4FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13a4fc", "status": "ok", "name": "get_instance_handle_cond", "params": [], "docstring": "Return instance handle with conditional chip check", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n38e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120e6", "status": "ok", "name": "rf_bus_setup_n38e", "params": [], "docstring": "Configure RF bus registers from byte/word buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

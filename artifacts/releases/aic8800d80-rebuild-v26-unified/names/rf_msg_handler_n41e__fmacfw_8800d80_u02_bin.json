@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n41e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213522", "status": "ok", "name": "bt_hci_cmd_send_n780", "params": [], "docstring": "Sends BT HCI command (opcode 0x1e, param len 6)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

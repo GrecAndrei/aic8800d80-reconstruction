@@ -1,0 +1,1 @@
+{"fn": "hw_config_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1200688", "status": "ok", "name": "hw_config_init_0688", "params": [], "docstring": "Initialize hardware configuration", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_8c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221eb8", "status": "ok", "name": "rf_cmd_dispatch_n_8c", "params": [], "docstring": "Dispatch RF command and parse first sub-id byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

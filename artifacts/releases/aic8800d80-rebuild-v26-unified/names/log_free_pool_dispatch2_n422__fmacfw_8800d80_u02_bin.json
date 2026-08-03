@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n422", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210102", "status": "ok", "name": "log_free_pool_dispatch2_n422", "params": [], "docstring": "Dispatch from log free pool using indexed table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

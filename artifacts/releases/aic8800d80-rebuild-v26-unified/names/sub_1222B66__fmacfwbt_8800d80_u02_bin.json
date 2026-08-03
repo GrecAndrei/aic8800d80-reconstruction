@@ -1,0 +1,1 @@
+{"fn": "sub_1222B66", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222b66", "status": "ok", "name": "bt_hci_cmd_alloc_2b66", "params": [], "docstring": "Allocate and prepare HCI command buffer (opcode 0xb)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

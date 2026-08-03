@@ -1,0 +1,1 @@
+{"fn": "sub_11C588", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c588", "status": "ok", "name": "wait_channel_clear", "params": [], "docstring": "Waits until channel energy falls below threshold", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

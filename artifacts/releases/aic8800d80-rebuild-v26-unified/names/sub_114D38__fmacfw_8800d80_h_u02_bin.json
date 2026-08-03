@@ -1,0 +1,1 @@
+{"fn": "sub_114D38", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114d38", "status": "ok", "name": "get_rssi", "params": [], "docstring": "Read signed RSSI value from PHY context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n455", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b9c", "status": "ok", "name": "rf_fault_dump_b9c", "params": [], "docstring": "Dump RF fault status and readback field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

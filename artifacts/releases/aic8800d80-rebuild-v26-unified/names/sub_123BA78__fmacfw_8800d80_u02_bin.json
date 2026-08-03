@@ -1,0 +1,1 @@
+{"fn": "sub_123BA78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123ba78", "status": "ok", "name": "sub_123BA78", "params": [], "docstring": "Utility helper using linked-list style structure traversal", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

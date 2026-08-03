@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n424", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121042c", "status": "ok", "name": "log_free_dispatch_42c", "params": [], "docstring": "Dispatch freed log buffer entries", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

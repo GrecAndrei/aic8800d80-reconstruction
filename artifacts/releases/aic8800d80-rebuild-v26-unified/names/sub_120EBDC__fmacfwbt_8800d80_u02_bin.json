@@ -1,0 +1,1 @@
+{"fn": "sub_120EBDC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ebdc", "status": "ok", "name": "sub_120EBDC", "params": [], "docstring": "helper routine, sets up state in fmacfwbt", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11BD88", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11bd88", "status": "ok", "name": "init_radio_data", "params": [], "docstring": "Initializes global radio data structures and clears buffers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_125EFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125efc", "status": "ok", "name": "set_flag_byte", "params": [], "docstring": "Store a flag byte in a global table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

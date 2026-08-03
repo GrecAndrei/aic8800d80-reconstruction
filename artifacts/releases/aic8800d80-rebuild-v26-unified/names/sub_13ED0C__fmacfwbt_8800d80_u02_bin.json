@@ -1,0 +1,1 @@
+{"fn": "sub_13ED0C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13ed0c", "status": "ok", "name": "handle_ll_control_packet", "params": [], "docstring": "Handles link-layer control packet path", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

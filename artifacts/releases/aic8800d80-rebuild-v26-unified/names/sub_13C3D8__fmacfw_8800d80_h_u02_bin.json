@@ -1,0 +1,1 @@
+{"fn": "sub_13C3D8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13c3d8", "status": "ok", "name": "bt_conn_get_phy", "params": [], "docstring": "Look up PHY mode for connection", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

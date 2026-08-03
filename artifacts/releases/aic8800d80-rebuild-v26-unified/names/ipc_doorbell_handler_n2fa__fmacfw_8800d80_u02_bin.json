@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n2fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215c76", "status": "ok", "name": "ipc_doorbell_handler_n2fa", "params": [], "docstring": "IPC doorbell handler tail; loads mailbox and raises opcode 2", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

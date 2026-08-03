@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_21c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122df00", "status": "ok", "name": "sdio_buffer_prepare_n_21c", "params": [], "docstring": "Prepare SDIO host buffer for transfer", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12C538", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c538", "status": "ok", "name": "rf_check_battery", "params": [], "docstring": "Check battery/voltage threshold before transmit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

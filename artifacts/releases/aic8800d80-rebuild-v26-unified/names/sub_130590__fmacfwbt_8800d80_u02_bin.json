@@ -1,0 +1,1 @@
+{"fn": "sub_130590", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130590", "status": "ok", "name": "ke_event_handler", "params": [], "docstring": "Handle kernel event by flag check", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

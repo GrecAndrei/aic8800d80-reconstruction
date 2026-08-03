@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n39e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121524a", "status": "ok", "name": "rf_msg_process_body_n458", "params": [], "docstring": "Process RF message body loaded from table at 0x1843bc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

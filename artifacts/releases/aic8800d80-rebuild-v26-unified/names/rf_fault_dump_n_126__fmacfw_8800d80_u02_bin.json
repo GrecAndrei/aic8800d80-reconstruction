@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_126", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214622", "status": "ok", "name": "rf_fault_dump_n_126", "params": [], "docstring": "RF fault dump dispatch (cmps 0x64/0x54)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

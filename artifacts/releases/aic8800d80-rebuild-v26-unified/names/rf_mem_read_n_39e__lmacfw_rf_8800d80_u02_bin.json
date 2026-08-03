@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_39e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f1f6", "status": "ok", "name": "rf_mem_read_n_39e", "params": [], "docstring": "RF register/memory read compare path, lmacfw_rf", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

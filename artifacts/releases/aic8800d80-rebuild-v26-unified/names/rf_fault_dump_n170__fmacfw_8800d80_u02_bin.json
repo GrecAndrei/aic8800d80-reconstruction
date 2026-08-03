@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n170", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12148b8", "status": "ok", "name": "rf_fault_dump_ext_8b8", "params": [], "docstring": "Extended RF fault dump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

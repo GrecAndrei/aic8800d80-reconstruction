@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_185", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221ea6", "status": "ok", "name": "rf_mem_write_n_185", "params": [], "docstring": "Write to RF memory region with bounds check (limit 0x78)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

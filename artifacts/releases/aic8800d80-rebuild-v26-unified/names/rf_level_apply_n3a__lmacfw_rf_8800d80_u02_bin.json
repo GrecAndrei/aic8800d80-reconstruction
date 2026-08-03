@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n3a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e12", "status": "ok", "name": "rf_level_apply_n3a", "params": [], "docstring": "Apply RF gain/power level adjustments", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1c0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118a0", "status": "ok", "name": "rf_bus_mark_n1c0", "params": [], "docstring": "Mark RF bus MMIO registers with control bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

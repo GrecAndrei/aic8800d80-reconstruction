@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_405", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210efe", "status": "ok", "name": "rf_bus_reset2_n_405", "params": [], "docstring": "Reset RF bus register 2 (write MMIO 0x402401a0)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

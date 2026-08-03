@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n4f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123ee", "status": "ok", "name": "rf_bus_setup_n4f2", "params": [], "docstring": "Initialize RF bus registers and state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

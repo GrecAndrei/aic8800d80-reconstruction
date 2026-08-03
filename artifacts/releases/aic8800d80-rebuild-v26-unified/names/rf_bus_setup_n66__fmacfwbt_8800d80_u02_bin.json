@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n66", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dbe", "status": "ok", "name": "rf_bus_setup_n66_1dbe", "params": [], "docstring": "RF bus setup with shift and threshold compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

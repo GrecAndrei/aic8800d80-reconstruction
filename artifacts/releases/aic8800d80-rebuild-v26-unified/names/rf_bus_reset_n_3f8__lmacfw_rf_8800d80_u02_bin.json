@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ef8", "status": "ok", "name": "rf_bus_reset_n_3f8", "params": [], "docstring": "Reset RF bus config registers and read status fields", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

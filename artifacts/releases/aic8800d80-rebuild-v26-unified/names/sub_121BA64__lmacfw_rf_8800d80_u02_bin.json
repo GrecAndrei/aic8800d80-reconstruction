@@ -1,0 +1,1 @@
+{"fn": "sub_121BA64", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ba64", "status": "ok", "name": "lmac_rf_init_5cbuf", "params": [], "docstring": "Initialize RF 0x5c-byte context block to zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

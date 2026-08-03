@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_nf0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a08", "status": "ok", "name": "rf_cmd_send_a08", "params": [], "docstring": "Send a command over the RF bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_4a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215932", "status": "ok", "name": "ipc_doorbell_handler_n_4a", "params": [], "docstring": "Handles IPC doorbell interrupt by writing byte to mailbox register", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

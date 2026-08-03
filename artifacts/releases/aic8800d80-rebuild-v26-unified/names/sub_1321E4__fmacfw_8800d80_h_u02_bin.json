@@ -1,0 +1,1 @@
+{"fn": "sub_1321E4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1321e4", "status": "ok", "name": "ke_malloc_wrapper", "params": [], "docstring": "Allocates a small memory block via kernel allocator", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

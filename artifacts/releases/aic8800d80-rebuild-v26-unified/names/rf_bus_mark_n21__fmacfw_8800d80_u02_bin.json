@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n21", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118a4", "status": "ok", "name": "rf_bus_mark_byte", "params": [], "docstring": "RF bus: mark a byte and set address with 0xc80 offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

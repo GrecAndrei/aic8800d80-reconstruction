@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nbc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f68", "status": "ok", "name": "patch_apply_bc", "params": [], "docstring": "Enable NVIC and apply patch hook variant bc", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12182C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12182c8", "status": "ok", "name": "rf_init_or_setup_n32c", "params": [], "docstring": "RF initialization/setup routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

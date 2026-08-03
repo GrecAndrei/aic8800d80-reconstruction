@@ -1,0 +1,1 @@
+{"fn": "sub_123BF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bf8", "status": "ok", "name": "peripheral_config", "params": [], "docstring": "Configures peripheral register at 0x40320004", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

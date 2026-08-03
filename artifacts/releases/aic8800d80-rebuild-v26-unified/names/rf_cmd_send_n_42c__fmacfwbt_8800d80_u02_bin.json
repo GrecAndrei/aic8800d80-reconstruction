@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_42c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212a40", "status": "ok", "name": "rf_cmd_send_n_42c", "params": [], "docstring": "Send RF command setting MMIO bits and loading constants", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12C66C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c66c", "status": "ok", "name": "mmio_tail_write_alt", "params": [], "docstring": "Clear bit at alternate MMIO offset and tail-call common writer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

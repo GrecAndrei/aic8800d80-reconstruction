@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n49c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ce0", "status": "ok", "name": "rf_bus_reset_n49c", "params": [], "docstring": "Reset RF bus and reconfigure SDIO/host registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

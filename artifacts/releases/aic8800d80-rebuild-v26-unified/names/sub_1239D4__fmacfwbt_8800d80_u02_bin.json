@@ -1,0 +1,1 @@
+{"fn": "sub_1239D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239d4", "status": "ok", "name": "check_wlc_state", "params": [], "docstring": "Checks a global WLC state flag and saves arguments.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

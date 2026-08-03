@@ -1,0 +1,1 @@
+{"fn": "sub_12D62C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d62c", "status": "ok", "name": "list_find_prev", "params": [], "docstring": "Find predecessor of node in linked list", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

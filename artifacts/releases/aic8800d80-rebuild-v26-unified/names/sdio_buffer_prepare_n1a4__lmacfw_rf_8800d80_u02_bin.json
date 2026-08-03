@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n1a4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ed58", "status": "ok", "name": "sdio_buffer_prepare_n1a4", "params": [], "docstring": "Computes shifted buffer/word offsets for SDIO data preparation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

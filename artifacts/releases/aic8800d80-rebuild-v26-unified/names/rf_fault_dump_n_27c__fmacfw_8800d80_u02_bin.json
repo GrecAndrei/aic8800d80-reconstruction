@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_27c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12144cc", "status": "ok", "name": "rf_mem_write_n_1c0", "params": [], "docstring": "RF memory write helper at offset 0x1c0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

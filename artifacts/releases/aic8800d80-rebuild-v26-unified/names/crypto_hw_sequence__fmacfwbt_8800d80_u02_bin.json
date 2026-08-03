@@ -1,0 +1,1 @@
+{"fn": "crypto_hw_sequence", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12078e4", "status": "ok", "name": "crypto_hw_sequence", "params": [], "docstring": "Runs hardware crypto sequence via MMIO register block", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

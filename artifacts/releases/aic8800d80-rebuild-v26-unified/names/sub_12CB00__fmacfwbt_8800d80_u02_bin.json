@@ -1,0 +1,1 @@
+{"fn": "sub_12CB00", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cb00", "status": "ok", "name": "irq_lock_small", "params": [], "docstring": "Disable interrupts and acquire lock flag (small variant)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

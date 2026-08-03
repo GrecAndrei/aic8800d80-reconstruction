@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n45a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210462", "status": "ok", "name": "log_free_dispatch_n45a_0462", "params": [], "docstring": "Frees a log entry and dispatches it to the next consumer", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

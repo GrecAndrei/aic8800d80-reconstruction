@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n290", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a94", "status": "ok", "name": "rf_bus_setup_n290", "params": [], "docstring": "Configures RF bus MMIO register (0xb00) clearing/setting control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

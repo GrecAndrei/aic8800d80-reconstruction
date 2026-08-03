@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_14c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dfd0", "status": "ok", "name": "rf_bus_reset_n_32", "params": [], "docstring": "Reset RF bus, clear byte at 0x182320", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n7a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc2e", "status": "ok", "name": "message_dispatch_n7a", "params": [], "docstring": "Dispatch message by opcode comparison and forward to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

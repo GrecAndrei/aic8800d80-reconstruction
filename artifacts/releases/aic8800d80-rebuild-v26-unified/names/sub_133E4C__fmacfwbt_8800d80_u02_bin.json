@@ -1,0 +1,1 @@
+{"fn": "sub_133E4C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x133e4c", "status": "ok", "name": "patch_critical_enter", "params": [], "docstring": "Disables interrupts and enters patch critical section", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

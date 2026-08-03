@@ -1,0 +1,1 @@
+{"fn": "sub_122F76C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f76c", "status": "ok", "name": "bt_state_handler_122f76c", "params": [], "docstring": "BT firmware state transition handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

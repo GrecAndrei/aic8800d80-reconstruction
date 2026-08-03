@@ -1,0 +1,1 @@
+{"fn": "sub_1339C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1339c8", "status": "ok", "name": "check_state_and_call", "params": [], "docstring": "Check flag and call handler", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

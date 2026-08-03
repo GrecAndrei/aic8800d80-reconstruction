@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n13c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e258", "status": "ok", "name": "sdio_buffer_prepare_n13c_e258", "params": [], "docstring": "SDIO buffer offset computation (lsls r3, r0, 8 / r4, r2, 9)", "subsystem": "tx", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

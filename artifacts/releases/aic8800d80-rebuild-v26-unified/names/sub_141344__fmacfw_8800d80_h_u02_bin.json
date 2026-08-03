@@ -1,0 +1,1 @@
+{"fn": "sub_141344", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141344", "status": "ok", "name": "ke_timer_tick_inc", "params": [], "docstring": "Increments the kernel timer tick counter", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

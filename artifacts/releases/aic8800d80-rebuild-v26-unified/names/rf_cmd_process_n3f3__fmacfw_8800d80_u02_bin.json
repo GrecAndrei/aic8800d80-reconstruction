@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n3f3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121394a", "status": "ok", "name": "rf_cmd_process_n3f3", "params": [], "docstring": "Process RF command: load flag byte and clear byte in buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n1fe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121166a", "status": "ok", "name": "rf_bus_write_n1fe", "params": [], "docstring": "RF bus write stub returning immediately", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

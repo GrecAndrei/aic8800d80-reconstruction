@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n428", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c2c", "status": "ok", "name": "rf_mem_read_n_1fa", "params": [], "docstring": "Reads RF memory via frame pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

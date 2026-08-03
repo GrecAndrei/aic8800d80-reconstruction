@@ -1,0 +1,1 @@
+{"fn": "sub_112E6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x112e6c", "status": "ok", "name": "critical_section_run", "params": [], "docstring": "Execute critical section and check state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

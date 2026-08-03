@@ -1,0 +1,1 @@
+{"fn": "sub_13B8FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b8fc", "status": "ok", "name": "radio_timer_expired", "params": [], "docstring": "Compare input time against hardware radio timer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

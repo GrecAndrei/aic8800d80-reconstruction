@@ -1,0 +1,1 @@
+{"fn": "sub_12419C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12419c", "status": "ok", "name": "mac_tx_frame", "params": [], "docstring": "Process MAC transmit frame with arguments and context", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

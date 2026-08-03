@@ -1,0 +1,1 @@
+{"fn": "sub_110C80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x110c80", "status": "ok", "name": "rf_tx_start", "params": [], "docstring": "start radio and wait for ready event", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

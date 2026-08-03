@@ -1,0 +1,1 @@
+{"fn": "sub_124EFC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124efc", "status": "ok", "name": "bt_config_check", "params": [], "docstring": "Check config type against 2", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

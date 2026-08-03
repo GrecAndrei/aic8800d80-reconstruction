@@ -1,0 +1,1 @@
+{"fn": "sub_1218B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218b4", "status": "ok", "name": "mac_irq_disable", "params": [], "docstring": "Clear bit to disable MAC interrupt in status register.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

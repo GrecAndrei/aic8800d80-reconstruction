@@ -1,0 +1,1 @@
+{"fn": "sub_11B70C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11b70c", "status": "ok", "name": "tx_channel_setup", "params": [], "docstring": "Set TX channel from global env", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

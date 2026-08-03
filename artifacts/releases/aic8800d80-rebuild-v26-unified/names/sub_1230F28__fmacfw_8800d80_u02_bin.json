@@ -1,0 +1,1 @@
+{"fn": "sub_1230F28", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1230f28", "status": "ok", "name": "fmac_sub_1230F28", "params": [], "docstring": "Thin wrapper calling sub_0x12dca0 with r4=arg2", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

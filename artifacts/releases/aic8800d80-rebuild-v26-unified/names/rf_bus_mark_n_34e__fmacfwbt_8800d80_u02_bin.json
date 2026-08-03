@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_34e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211392", "status": "ok", "name": "rf_bus_mark_n_34e", "params": [], "docstring": "RF bus marker writing magic constants 0x1812/0x1811 to a register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

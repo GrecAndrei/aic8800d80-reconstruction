@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n72", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12128b6", "status": "ok", "name": "rf_bus_reset_n72_28b6", "params": [], "docstring": "Performs RF bus reset via shifted register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

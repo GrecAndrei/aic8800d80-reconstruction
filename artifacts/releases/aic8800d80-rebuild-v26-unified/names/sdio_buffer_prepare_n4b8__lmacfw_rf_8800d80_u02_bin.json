@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n4b8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f06c", "status": "ok", "name": "sdio_buffer_addr_shift", "params": [], "docstring": "Shift SDIO buffer address into high byte position", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

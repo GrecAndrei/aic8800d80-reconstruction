@@ -1,0 +1,1 @@
+{"fn": "sub_11CD24", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11cd24", "status": "ok", "name": "poll_hw_cmd", "params": [], "docstring": "Trigger hardware command and poll completion", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

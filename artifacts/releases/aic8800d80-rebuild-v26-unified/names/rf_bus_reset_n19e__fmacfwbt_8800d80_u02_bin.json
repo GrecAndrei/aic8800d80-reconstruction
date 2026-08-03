@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n19e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129e2", "status": "ok", "name": "rf_bus_reset_n19e", "params": [], "docstring": "Reset RF bus interface (variant 0x19e)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

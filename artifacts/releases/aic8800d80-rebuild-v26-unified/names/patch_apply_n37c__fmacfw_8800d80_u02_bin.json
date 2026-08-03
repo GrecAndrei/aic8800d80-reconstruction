@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n37c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215228", "status": "ok", "name": "patch_apply_n37c", "params": [], "docstring": "Decodes patch descriptor bitfields for patch application", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1301B8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1301b8", "status": "ok", "name": "rf_temp_compensation", "params": [], "docstring": "Applies temperature compensation using calibration tables.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

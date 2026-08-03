@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_22e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152ba", "status": "ok", "name": "patch_apply_lsl_r4_24", "params": [], "docstring": "Computes shifted patch value (r4<<24) during firmware patch application", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

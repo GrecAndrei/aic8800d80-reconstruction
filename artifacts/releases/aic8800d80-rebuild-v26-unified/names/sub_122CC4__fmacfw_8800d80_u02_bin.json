@@ -1,0 +1,1 @@
+{"fn": "sub_122CC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cc4", "status": "ok", "name": "set_mmio_and_send_cmd", "params": [], "docstring": "Write memory-mapped value and send command 0x72", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

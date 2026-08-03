@@ -1,0 +1,1 @@
+{"fn": "sub_12178DE", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12178de", "status": "ok", "name": "sub_12178DE", "params": [], "docstring": "Helper: save args/lr, set r4=r0; dispatcher stub", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

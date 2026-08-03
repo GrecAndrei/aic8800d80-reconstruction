@@ -1,0 +1,1 @@
+{"fn": "sub_122794", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122794", "status": "ok", "name": "read_config_byte", "params": [], "docstring": "Read configuration byte from control structure.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

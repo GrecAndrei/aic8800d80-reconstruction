@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_a8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e04", "status": "ok", "name": "patch_apply_n_a8", "params": [], "docstring": "Copy 8-byte firmware patch block from stack buffer into target", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

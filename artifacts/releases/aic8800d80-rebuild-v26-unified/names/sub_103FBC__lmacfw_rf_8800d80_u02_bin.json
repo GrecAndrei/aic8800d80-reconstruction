@@ -1,0 +1,1 @@
+{"fn": "sub_103FBC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x103fbc", "status": "ok", "name": "lookup_rf_table", "params": [], "docstring": "Looks up an RF table entry and extracts bit fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n446", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121408e", "status": "ok", "name": "ipc_doorbell_handler_n3c8", "params": [], "docstring": "IPC doorbell handler writing byte fields across rings", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

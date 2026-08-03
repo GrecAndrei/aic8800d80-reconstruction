@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1a8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215690", "status": "ok", "name": "rf_bus_reset2_n19a", "params": [], "docstring": "Reset RF bus interface by setting bus control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

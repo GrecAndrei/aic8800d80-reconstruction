@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_462", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122dee2", "status": "ok", "name": "message_dispatch_n_1b2", "params": [], "docstring": "Message dispatch stage building 0xa4/0xb8 field records", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

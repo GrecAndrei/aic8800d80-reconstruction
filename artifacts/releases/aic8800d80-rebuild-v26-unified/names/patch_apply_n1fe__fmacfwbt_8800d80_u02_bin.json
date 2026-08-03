@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1fe", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156e6", "status": "ok", "name": "patch_apply_n1fe_56e6", "params": [], "docstring": "Apply firmware patch table, call sub at 0x11454c then 0x112af8 under IRQ disabled", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_118F74", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118f74", "status": "ok", "name": "btm_acl_get_state", "params": [], "docstring": "Fetch ACL link state byte from global table by handle.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

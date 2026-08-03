@@ -1,0 +1,1 @@
+{"fn": "sub_122580C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122580c", "status": "ok", "name": "rf_chan_lookup_n_580c", "params": [], "docstring": "RF channel/table lookup indexed by byte field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

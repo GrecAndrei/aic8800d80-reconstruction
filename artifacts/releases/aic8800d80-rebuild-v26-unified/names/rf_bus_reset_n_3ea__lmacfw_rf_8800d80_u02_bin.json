@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3ea", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f06", "status": "ok", "name": "rf_bus_reset_n_3ea", "params": [], "docstring": "Resets RF bus state by combining masked bits and writing value to register at offset 0x800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

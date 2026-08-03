@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n4c4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c0c", "status": "ok", "name": "patch_apply_n302", "params": [], "docstring": "Apply firmware patch entry by checking flag bit from context", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

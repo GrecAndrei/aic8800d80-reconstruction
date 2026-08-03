@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n28", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ebdc", "status": "ok", "name": "sdio_buf_size_check", "params": [], "docstring": "Validates SDIO buffer size: subtracts header 0x20 and bounds-checks against 0x58", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

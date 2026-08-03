@@ -1,0 +1,1 @@
+{"fn": "sub_120E008", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e008", "status": "ok", "name": "rf_hw_init_n008", "params": [], "docstring": "Initialize RF MMIO registers and hardware state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

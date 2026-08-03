@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_122", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212722", "status": "ok", "name": "rf_bus_reset_n_122", "params": [], "docstring": "Reset RF bus by reading MMIO register at offset 0x10", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

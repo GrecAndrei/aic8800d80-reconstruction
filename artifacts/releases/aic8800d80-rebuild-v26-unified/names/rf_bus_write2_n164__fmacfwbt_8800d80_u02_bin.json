@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n164", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211bdc", "status": "ok", "name": "rf_bus_write2_n164", "params": [], "docstring": "Write 2nd RF bus register (trivial bx lr stub)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

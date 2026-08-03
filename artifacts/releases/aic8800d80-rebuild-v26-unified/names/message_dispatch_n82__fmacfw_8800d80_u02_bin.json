@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n82", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ca0e", "status": "ok", "name": "message_dispatch_trampoline_n82", "params": [], "docstring": "Tiny trampoline stub forwarding to message dispatch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

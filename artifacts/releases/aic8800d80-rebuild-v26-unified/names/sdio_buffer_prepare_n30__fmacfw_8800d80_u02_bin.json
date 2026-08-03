@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e14c", "status": "ok", "name": "rf_mem_read_addr_pack", "params": [], "docstring": "Packs RF memory read address via multi-stage bit shifts", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1165B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1165b4", "status": "ok", "name": "check_radio_flag", "params": [], "docstring": "Tests a global radio mode flag and branches", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

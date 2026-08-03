@@ -1,0 +1,1 @@
+{"fn": "sub_103B6C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x103b6c", "status": "ok", "name": "bb_hw_init", "params": [], "docstring": "Configures multiple baseband hardware registers", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

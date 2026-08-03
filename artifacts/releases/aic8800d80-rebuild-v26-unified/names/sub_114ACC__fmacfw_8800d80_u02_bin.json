@@ -1,0 +1,1 @@
+{"fn": "sub_114ACC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114acc", "status": "ok", "name": "rom_get_chip_version", "params": [], "docstring": "Query ROM chip version via function pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

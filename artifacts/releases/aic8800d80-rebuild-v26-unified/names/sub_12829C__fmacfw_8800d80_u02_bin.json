@@ -1,0 +1,1 @@
+{"fn": "sub_12829C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12829c", "status": "ok", "name": "rx_validate_entry", "params": [], "docstring": "Validate RX state against main global state", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

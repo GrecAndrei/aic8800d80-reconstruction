@@ -1,0 +1,1 @@
+{"fn": "sub_11F79C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11f79c", "status": "ok", "name": "ke_send_msg_414", "params": [], "docstring": "Allocates and sends link-layer message 0x414 with payload", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

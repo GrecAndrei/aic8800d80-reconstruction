@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_164", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d48", "status": "ok", "name": "patch_apply_n_164", "params": [], "docstring": "Applies a no-op patch by passing argument to callee", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

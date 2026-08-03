@@ -1,0 +1,1 @@
+{"fn": "wlan_epbulk_recv_compl_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1246f80", "status": "ok", "name": "wlan_epbulk_recv_compl_handler", "params": [], "docstring": "WLAN USB bulk endpoint RX completion handler", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

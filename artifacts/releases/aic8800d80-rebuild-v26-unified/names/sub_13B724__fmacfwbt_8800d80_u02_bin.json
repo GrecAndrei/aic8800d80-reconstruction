@@ -1,0 +1,1 @@
+{"fn": "sub_13B724", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13b724", "status": "ok", "name": "mac_filter_check", "params": [], "docstring": "Validate MAC filter against two descriptor fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

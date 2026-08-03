@@ -1,0 +1,1 @@
+{"fn": "sub_124213C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124213c", "status": "ok", "name": "sub_124213C", "params": [], "docstring": "Initialize firmware data structure via memset and setup callback", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

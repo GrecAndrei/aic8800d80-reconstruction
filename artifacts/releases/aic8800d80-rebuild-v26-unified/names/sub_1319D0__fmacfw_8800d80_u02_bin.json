@@ -1,0 +1,1 @@
+{"fn": "sub_1319D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1319d0", "status": "ok", "name": "bt_pkt_check", "params": [], "docstring": "Check incoming packet bytes and return ok", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

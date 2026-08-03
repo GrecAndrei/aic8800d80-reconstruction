@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_21a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121452e", "status": "ok", "name": "rf_fault_handler_452e", "params": [], "docstring": "Handle RF fault condition", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

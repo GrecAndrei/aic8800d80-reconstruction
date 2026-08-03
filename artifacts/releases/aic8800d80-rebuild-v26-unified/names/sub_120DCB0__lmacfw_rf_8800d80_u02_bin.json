@@ -1,0 +1,1 @@
+{"fn": "sub_120DCB0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120dcb0", "status": "ok", "name": "mmio_config_init", "params": [], "docstring": "Initialize MMIO region with 0x3c00/0x2000 and OR-mask 0xf", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

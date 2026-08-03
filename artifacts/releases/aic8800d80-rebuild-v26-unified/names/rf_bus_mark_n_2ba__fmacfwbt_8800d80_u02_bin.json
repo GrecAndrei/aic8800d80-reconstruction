@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211426", "status": "ok", "name": "rf_bus_mark_1426", "params": [], "docstring": "Mark/increment RF bus access counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

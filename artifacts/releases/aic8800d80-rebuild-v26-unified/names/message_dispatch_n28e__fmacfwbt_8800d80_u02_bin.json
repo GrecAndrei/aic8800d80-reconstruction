@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n28e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ce42", "status": "ok", "name": "rf_state_check_n_6", "params": [], "docstring": "Snapshot RF state word and mirror it into a companion RF structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

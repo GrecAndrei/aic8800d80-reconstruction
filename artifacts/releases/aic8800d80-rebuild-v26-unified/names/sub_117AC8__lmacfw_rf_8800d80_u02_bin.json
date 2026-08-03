@@ -1,0 +1,1 @@
+{"fn": "sub_117AC8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117ac8", "status": "ok", "name": "mutex_acquire_if_ready", "params": [], "docstring": "Acquire mutex at object+0x30 when initialized", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

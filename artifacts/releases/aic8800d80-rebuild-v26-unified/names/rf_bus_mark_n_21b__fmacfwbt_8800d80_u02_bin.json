@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_21b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114c4", "status": "ok", "name": "rf_bus_mark_n_21b", "params": [], "docstring": "RF bus slot indexing and field extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_161", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145e6", "status": "ok", "name": "rf_fault_dump_n_161", "params": [], "docstring": "Verify RF fault dump region offset sums to zero", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

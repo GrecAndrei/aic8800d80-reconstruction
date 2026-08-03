@@ -1,0 +1,1 @@
+{"fn": "sub_1239F94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239f94", "status": "ok", "name": "sub_1239F94", "params": [], "docstring": "Parses a signed byte string with bitmask extraction (mask 0x78)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n364", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101c4", "status": "ok", "name": "rf_cmd_process_n4d4", "params": [], "docstring": "Processes an RF command (variant 0x4d4)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

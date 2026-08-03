@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n410", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211934", "status": "ok", "name": "rf_bus_write2_n410", "params": [], "docstring": "Write 2 words to RF MMIO bus (shift+mask pattern)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

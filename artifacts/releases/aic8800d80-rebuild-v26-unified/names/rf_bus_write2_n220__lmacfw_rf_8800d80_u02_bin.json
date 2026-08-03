@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n220", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211744", "status": "ok", "name": "rf_bus_write2_n220", "params": [], "docstring": "RF bus write with 2-byte index and channel select (0/1/2/3)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

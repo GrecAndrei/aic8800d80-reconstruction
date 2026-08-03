@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1de", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a62", "status": "ok", "name": "rf_bus_mark_n1de", "params": [], "docstring": "Marks RF bus slot with control bits and offset 0x800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

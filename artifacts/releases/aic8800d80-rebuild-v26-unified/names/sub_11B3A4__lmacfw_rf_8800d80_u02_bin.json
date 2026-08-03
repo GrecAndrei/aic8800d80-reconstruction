@@ -1,0 +1,1 @@
+{"fn": "sub_11B3A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11b3a4", "status": "ok", "name": "rx_queue_init", "params": [], "docstring": "Initialize RX queue", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

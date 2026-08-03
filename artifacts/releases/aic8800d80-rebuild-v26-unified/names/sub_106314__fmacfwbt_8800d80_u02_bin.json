@@ -1,0 +1,1 @@
+{"fn": "sub_106314", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x106314", "status": "ok", "name": "rf_load_calib_data", "params": [], "docstring": "Load RF calibration data from template into local buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "tpc_update_frame_tx_power", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1249fd4", "status": "ok", "name": "tpc_update_frame_tx_power", "params": [], "docstring": "Update per-frame transmit power control values from TPC table", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

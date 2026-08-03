@@ -1,0 +1,1 @@
+{"fn": "sub_11908C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11908c", "status": "ok", "name": "phy_channel_is_5g", "params": [], "docstring": "Check PHY channel 5G flag at given index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_41e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c56e", "status": "ok", "name": "message_dispatch_n_41e", "params": [], "docstring": "Dispatch IPC/control message ('m' op)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

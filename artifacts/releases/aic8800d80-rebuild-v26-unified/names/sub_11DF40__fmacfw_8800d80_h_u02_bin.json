@@ -1,0 +1,1 @@
+{"fn": "sub_11DF40", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11df40", "status": "ok", "name": "mmio_reg_update", "params": [], "docstring": "Modify a memory-mapped register bit based on argument", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

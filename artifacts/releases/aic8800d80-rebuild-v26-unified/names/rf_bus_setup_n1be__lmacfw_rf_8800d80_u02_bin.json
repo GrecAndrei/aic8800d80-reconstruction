@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n1be", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12119c2", "status": "ok", "name": "rf_bus_setup_n1be", "params": [], "docstring": "Configure RF bus register 0xb00 with control bits 0x84000000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

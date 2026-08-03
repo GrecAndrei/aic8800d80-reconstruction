@@ -1,0 +1,1 @@
+{"fn": "sub_12CFC4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12cfc4", "status": "ok", "name": "irq_disable_global_2", "params": [], "docstring": "Enter critical section with state save", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

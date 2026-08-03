@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_280", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c70c", "status": "ok", "name": "message_dispatch_n_280", "params": [], "docstring": "Dispatch message with XOR obfuscation and STM register push", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

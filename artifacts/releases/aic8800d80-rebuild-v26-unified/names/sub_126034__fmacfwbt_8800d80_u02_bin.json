@@ -1,0 +1,1 @@
+{"fn": "sub_126034", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x126034", "status": "ok", "name": "lookup_conn_table", "params": [], "docstring": "Look up connection table entry by index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2cc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e3e8", "status": "ok", "name": "sdio_buffer_prepare_n2cc", "params": [], "docstring": "Prepare SDIO buffer and dispatch via jump table", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

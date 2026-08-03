@@ -1,0 +1,1 @@
+{"fn": "sub_1345A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1345a8", "status": "ok", "name": "ble_scan_config", "params": [], "docstring": "Reads scan/adv flags and prepares HCI parameters", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

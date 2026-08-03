@@ -1,0 +1,1 @@
+{"fn": "sub_13F2E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13f2e0", "status": "ok", "name": "fetch_connection_params", "params": [], "docstring": "Fetches connection parameters from table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

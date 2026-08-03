@@ -1,0 +1,1 @@
+{"fn": "sub_10327C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10327c", "status": "ok", "name": "crypto_start_operation", "params": [], "docstring": "Configures crypto registers and starts an operation", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

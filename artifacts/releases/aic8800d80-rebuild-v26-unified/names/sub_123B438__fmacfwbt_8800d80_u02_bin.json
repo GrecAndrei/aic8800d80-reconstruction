@@ -1,0 +1,1 @@
+{"fn": "sub_123B438", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123b438", "status": "ok", "name": "rx_skb_classify_dispatch", "params": [], "docstring": "Classifies received frame and dispatches by type", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

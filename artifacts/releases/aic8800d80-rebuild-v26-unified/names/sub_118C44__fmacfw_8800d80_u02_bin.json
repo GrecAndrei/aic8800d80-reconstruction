@@ -1,0 +1,1 @@
+{"fn": "sub_118C44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118c44", "status": "ok", "name": "ke_mutex_guard", "params": [], "docstring": "Acquire global mutex and run guarded operation", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

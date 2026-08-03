@@ -1,0 +1,1 @@
+{"fn": "sub_102A74", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x102a74", "status": "ok", "name": "enable_nvic_irq", "params": [], "docstring": "Configures vector table and enables NVIC interrupt", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121345e", "status": "ok", "name": "rf_cmd_process_n_fa", "params": [], "docstring": "Process RF command and signal completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

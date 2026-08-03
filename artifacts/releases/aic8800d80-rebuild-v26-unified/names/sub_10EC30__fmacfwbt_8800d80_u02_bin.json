@@ -1,0 +1,1 @@
+{"fn": "sub_10EC30", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ec30", "status": "ok", "name": "atomic_reg_read_alt", "params": [], "docstring": "Alternate atomic register read variant", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

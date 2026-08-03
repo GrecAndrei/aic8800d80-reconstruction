@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n48a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce16", "status": "ok", "name": "message_dispatch_n48a", "params": [], "docstring": "dispatch handler comparing message id against 0xe", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

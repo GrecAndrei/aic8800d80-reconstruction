@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n220", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213778", "status": "ok", "name": "rf_cmd_dispatch_n44a", "params": [], "docstring": "Dispatch RF command to handler with init pattern writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11196C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11196c", "status": "ok", "name": "table_lookup_entry", "params": [], "docstring": "Lookup entry by index in 16-byte table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

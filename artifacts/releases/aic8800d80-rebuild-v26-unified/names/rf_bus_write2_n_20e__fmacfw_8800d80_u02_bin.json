@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_20e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a0e", "status": "ok", "name": "rf_bus_reg_set_bits_n_20e", "params": [], "docstring": "Set OR-mask bits in RF bus control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212970", "status": "ok", "name": "rf_cmd_send_n58", "params": [], "docstring": "Dispatch RF command with priority/tag encoding", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

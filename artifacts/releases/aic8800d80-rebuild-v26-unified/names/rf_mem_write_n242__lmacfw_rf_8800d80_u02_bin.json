@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n242", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122226e", "status": "ok", "name": "sub_12285BC", "params": [], "docstring": "Indexes into 0x528-byte record array by element index for fmac lookup", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

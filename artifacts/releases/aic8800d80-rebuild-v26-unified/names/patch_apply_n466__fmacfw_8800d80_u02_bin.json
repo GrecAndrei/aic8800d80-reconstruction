@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n466", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215312", "status": "ok", "name": "rf_level_apply_n_4e0", "params": [], "docstring": "Applies RF TX power/level setting based on parameter comparison", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

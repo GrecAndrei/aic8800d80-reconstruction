@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_44", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221fe8", "status": "ok", "name": "rf_mem_write_n_44", "params": [], "docstring": "Writes a 16-bit value to RF memory/register via helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

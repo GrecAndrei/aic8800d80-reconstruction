@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n24c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f7e0", "status": "ok", "name": "rf_mem_read_n24c", "params": [], "docstring": "RF memory read with complex address shift and split", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

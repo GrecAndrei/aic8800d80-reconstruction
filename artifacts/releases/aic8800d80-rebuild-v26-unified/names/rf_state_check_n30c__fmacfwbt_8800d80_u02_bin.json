@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n30c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121233c", "status": "ok", "name": "rf_state_check_n30c", "params": [], "docstring": "Checks/configures RF state via bus register 0xb14/0xb08", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n_e2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212e8e", "status": "ok", "name": "rf_cmd_wait_n_e2", "params": [], "docstring": "Wait for RF command completion by polling status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

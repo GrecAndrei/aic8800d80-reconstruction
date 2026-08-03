@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n138", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211818", "status": "ok", "name": "rf_fault_dump_n425", "params": [], "docstring": "Check and dump RF fault status (bit 18) for diagnostics", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

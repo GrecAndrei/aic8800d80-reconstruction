@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4dc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202df4", "status": "ok", "name": "phy_rf_init_n_4dc", "params": [], "docstring": "Initialize PHY/RF by clearing control bits in MMIO registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

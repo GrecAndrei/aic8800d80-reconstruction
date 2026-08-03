@@ -1,0 +1,1 @@
+{"fn": "sub_1217924", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217924", "status": "ok", "name": "sub_1217924", "params": [], "docstring": "Misc register poke helper with shift mask", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

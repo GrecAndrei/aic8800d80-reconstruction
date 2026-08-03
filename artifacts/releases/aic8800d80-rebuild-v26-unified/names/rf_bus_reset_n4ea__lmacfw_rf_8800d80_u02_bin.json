@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4ea", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127da", "status": "ok", "name": "rf_bus_reset_n4ea", "params": [], "docstring": "Reset RF bus state and clear local buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

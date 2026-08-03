@@ -1,0 +1,1 @@
+{"fn": "sub_11347C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11347c", "status": "ok", "name": "mode_to_config_get", "params": [], "docstring": "Returns configuration value for selected mode", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

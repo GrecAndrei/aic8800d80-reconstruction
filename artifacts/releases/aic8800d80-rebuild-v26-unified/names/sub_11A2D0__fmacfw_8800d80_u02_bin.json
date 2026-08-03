@@ -1,0 +1,1 @@
+{"fn": "sub_11A2D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11a2d0", "status": "ok", "name": "dec_retry_count", "params": [], "docstring": "Decrement retry counter and load pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

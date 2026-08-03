@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_152", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213af6", "status": "ok", "name": "log_free_pool_dispatch_3af6", "params": [], "docstring": "Dispatch a free log-pool entry with header/timestamp fields", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n210", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121edc4", "status": "ok", "name": "sdio_buffer_prepare_dc4", "params": [], "docstring": "Prepare an SDIO data buffer (alignment/size check vs 0x68)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

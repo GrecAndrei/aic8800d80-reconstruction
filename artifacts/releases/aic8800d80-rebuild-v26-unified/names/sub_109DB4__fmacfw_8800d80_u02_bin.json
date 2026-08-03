@@ -1,0 +1,1 @@
+{"fn": "sub_109DB4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x109db4", "status": "ok", "name": "struct_load", "params": [], "docstring": "Loads a multi-word structure from memory", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

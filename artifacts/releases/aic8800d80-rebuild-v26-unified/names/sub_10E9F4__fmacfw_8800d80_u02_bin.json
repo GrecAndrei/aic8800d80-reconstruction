@@ -1,0 +1,1 @@
+{"fn": "sub_10E9F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10e9f4", "status": "ok", "name": "rf_control_field_set", "params": [], "docstring": "Set 3-bit field in RF control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

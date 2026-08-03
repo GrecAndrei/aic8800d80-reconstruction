@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_366", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212d9e", "status": "ok", "name": "rf_msg_handler_n_366", "params": [], "docstring": "RF message handler branch on r8 flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

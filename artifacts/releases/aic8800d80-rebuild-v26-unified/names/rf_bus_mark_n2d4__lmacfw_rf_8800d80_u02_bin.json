@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n2d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211460", "status": "ok", "name": "rf_bus_mark_n2d4", "params": [], "docstring": "Marks RF bus entry with computed mask (0x2d4)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

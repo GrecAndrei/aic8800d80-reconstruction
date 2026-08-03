@@ -1,0 +1,1 @@
+{"fn": "sub_121C3EC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c3ec", "status": "ok", "name": "rx_process_pcie_desc", "params": [], "docstring": "Processes PCIe RX descriptor ring entry for received frame", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

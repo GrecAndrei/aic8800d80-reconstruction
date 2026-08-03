@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_1b8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214590", "status": "ok", "name": "rf_fault_dump_n_1b8", "params": [], "docstring": "Clears/stores RF fault status registers and writes fault fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

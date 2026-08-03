@@ -1,0 +1,1 @@
+{"fn": "sub_12D464", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d464", "status": "ok", "name": "f32_to_f16", "params": [], "docstring": "Extracts float exponent and mantissa for half conversion", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

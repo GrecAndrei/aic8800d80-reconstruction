@@ -1,0 +1,1 @@
+{"fn": "sub_1146D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1146d0", "status": "ok", "name": "lock_acquire", "params": [], "docstring": "Acquire spinlock with interrupts disabled", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

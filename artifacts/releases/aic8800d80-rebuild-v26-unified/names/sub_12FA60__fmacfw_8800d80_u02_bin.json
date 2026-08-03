@@ -1,0 +1,1 @@
+{"fn": "sub_12FA60", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12fa60", "status": "ok", "name": "parse_hex16", "params": [], "docstring": "Parse 16-character hex string from struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

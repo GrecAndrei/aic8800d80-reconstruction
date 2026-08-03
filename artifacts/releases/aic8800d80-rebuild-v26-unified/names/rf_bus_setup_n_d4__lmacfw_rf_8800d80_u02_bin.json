@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211730", "status": "ok", "name": "rf_bus_reset2_n_11e", "params": [], "docstring": "Reset RF bus by OR-ing 0xC0 into control bytes and storing config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

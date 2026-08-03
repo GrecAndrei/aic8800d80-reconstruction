@@ -1,0 +1,1 @@
+{"fn": "sub_13B564", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b564", "status": "ok", "name": "ll_ctl_terminate_ind", "params": [], "docstring": "Handle LL terminate indication PDU", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

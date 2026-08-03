@@ -1,0 +1,1 @@
+{"fn": "sub_13A840", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13a840", "status": "ok", "name": "phy_write", "params": [], "docstring": "Write PHY register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

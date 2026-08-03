@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_244", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e100", "status": "ok", "name": "sdio_buffer_prepare_n_244", "params": [], "docstring": "SDIO buffer preparation routine variant 244", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

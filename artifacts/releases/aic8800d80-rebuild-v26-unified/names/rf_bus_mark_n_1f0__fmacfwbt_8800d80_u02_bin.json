@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114f0", "status": "ok", "name": "rf_bus_mark_n_1f0", "params": [], "docstring": "Mark/sync RF bus access using 0x402401a4 MMIO range", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

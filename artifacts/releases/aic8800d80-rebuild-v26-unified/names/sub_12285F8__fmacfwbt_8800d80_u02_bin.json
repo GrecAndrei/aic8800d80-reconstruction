@@ -1,0 +1,1 @@
+{"fn": "sub_12285F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12285f8", "status": "ok", "name": "bt_hci_cmd_dispatch", "params": [], "docstring": "Dispatch HCI command from BT firmware host interface", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

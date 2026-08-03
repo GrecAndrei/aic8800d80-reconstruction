@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n22c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121008c", "status": "ok", "name": "log_free_dispatch_n22c", "params": [], "docstring": "Dispatches a log free operation using a 16-bit indexed lookup", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_128744", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128744", "status": "ok", "name": "bt_link_type", "params": [], "docstring": "Get the active link type byte", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n38e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215876", "status": "ok", "name": "patch_apply_n38e", "params": [], "docstring": "Applies patch variant n38e using bitfield extraction from control word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

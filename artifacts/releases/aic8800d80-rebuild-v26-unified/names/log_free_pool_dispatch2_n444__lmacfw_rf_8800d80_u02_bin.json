@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n444", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210014", "status": "ok", "name": "log_free_pool_dispatch2_n444", "params": [], "docstring": "Frees a log/pool entry and dispatches it to handler 2 (lmacfw_rf)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

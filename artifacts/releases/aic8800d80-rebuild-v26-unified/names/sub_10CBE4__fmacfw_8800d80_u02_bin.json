@@ -1,0 +1,1 @@
+{"fn": "sub_10CBE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10cbe4", "status": "ok", "name": "controller_status_read", "params": [], "docstring": "Read controller status from context pointer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

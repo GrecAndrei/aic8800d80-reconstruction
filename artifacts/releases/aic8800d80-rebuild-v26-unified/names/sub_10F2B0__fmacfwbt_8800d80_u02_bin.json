@@ -1,0 +1,1 @@
+{"fn": "sub_10F2B0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10f2b0", "status": "ok", "name": "process_state", "params": [], "docstring": "Inspect object state and branch accordingly", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_112B68", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x112b68", "status": "ok", "name": "mac_get_int_status", "params": [], "docstring": "Read and clear MAC interrupt status register", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

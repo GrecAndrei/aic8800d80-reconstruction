@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_128", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153c0", "status": "ok", "name": "patch_apply_n_128", "params": [], "docstring": "Applies patch by writing sequence with register save/restore", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce7e", "status": "ok", "name": "msg_dispatch_n4f2", "params": [], "docstring": "Dispatch incoming message from host queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

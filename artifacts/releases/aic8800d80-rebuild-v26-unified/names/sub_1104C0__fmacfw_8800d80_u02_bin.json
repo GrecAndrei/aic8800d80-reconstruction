@@ -1,0 +1,1 @@
+{"fn": "sub_1104C0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1104c0", "status": "ok", "name": "is_park_mode", "params": [], "docstring": "Test park mode flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

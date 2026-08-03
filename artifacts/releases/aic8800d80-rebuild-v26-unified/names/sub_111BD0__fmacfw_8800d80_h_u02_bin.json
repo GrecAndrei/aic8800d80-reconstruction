@@ -1,0 +1,1 @@
+{"fn": "sub_111BD0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111bd0", "status": "ok", "name": "read_hw_sel", "params": [], "docstring": "Read selected hardware register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

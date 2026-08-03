@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_463", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211008", "status": "ok", "name": "rf_bus_write_n_463", "params": [], "docstring": "RF bus write with bit-shift masking and ldm bursts", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

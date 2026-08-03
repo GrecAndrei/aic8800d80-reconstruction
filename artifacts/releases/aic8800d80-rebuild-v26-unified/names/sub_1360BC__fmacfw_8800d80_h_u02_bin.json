@@ -1,0 +1,1 @@
+{"fn": "sub_1360BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1360bc", "status": "ok", "name": "is_bt_enabled", "params": [], "docstring": "Check if Bluetooth controller state is non-zero", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

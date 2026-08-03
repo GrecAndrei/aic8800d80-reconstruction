@@ -1,0 +1,1 @@
+{"fn": "sub_10D5DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d5dc", "status": "ok", "name": "irq_disable", "params": [], "docstring": "Disable a specific interrupt in NVIC", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

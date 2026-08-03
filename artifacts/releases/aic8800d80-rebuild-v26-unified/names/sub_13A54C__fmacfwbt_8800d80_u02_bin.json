@@ -1,0 +1,1 @@
+{"fn": "sub_13A54C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13a54c", "status": "ok", "name": "rf_save_cal_values", "params": [], "docstring": "Copy calibration values into global RF state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

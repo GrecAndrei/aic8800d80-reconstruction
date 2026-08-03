@@ -1,0 +1,1 @@
+{"fn": "sub_108280", "img": "fmacfw_8800d80_u02_bin", "addr": "0x108280", "status": "ok", "name": "periph_init_multi", "params": [], "docstring": "Initializes multiple memory-mapped peripheral registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

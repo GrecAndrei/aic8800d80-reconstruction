@@ -1,0 +1,1 @@
+{"fn": "sub_12193F0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12193f0", "status": "ok", "name": "buf_alloc_0x68_init", "params": [], "docstring": "Allocate 0x68-byte buffer and return 0 (init helper)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

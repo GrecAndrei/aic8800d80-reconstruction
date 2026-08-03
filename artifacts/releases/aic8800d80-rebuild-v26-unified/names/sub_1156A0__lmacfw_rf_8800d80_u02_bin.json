@@ -1,0 +1,1 @@
+{"fn": "sub_1156A0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1156a0", "status": "ok", "name": "pdu_type_init", "params": [], "docstring": "Initialize per-PDU-type state table", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

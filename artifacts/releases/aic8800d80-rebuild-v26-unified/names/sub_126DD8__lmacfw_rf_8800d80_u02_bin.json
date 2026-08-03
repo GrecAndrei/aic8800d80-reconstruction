@@ -1,0 +1,1 @@
+{"fn": "sub_126DD8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x126dd8", "status": "ok", "name": "tx_packet_pointer", "params": [], "docstring": "calculate TX packet pointer from descriptor", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

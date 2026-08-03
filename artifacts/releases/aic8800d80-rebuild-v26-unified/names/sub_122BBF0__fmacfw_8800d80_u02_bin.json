@@ -1,0 +1,1 @@
+{"fn": "sub_122BBF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122bbf0", "status": "ok", "name": "mmio_block_write_3reg", "params": [], "docstring": "Writes 3 MMIO registers at 0x403200bc/c0/c4 from a struct", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

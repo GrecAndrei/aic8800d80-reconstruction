@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c00", "status": "ok", "name": "rf_bus_setup_n3fc", "params": [], "docstring": "Configure RF bus interface parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

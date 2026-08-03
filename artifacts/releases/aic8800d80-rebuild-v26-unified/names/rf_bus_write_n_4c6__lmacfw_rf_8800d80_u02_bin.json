@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fa6", "status": "ok", "name": "message_dispatch_n_96", "params": [], "docstring": "Dispatches an incoming IPC message to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

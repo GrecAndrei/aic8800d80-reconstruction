@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_3be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c7f6", "status": "ok", "name": "ipc_msg_within_range_n_3be", "params": [], "docstring": "Checks if IPC message id is within range", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1236544", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236544", "status": "ok", "name": "fw_state_check_6544", "params": [], "docstring": "Read global halfword and branch on zero/nonzero", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

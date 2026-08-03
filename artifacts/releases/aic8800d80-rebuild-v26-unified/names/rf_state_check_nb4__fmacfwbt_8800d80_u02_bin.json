@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_nb4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120e4", "status": "ok", "name": "rf_state_check_nb4", "params": [], "docstring": "Check RF state and pack bytes into 16-bit status field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

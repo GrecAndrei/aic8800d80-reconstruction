@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n22a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121318a", "status": "ok", "name": "rf_msg_handler_n22a", "params": [], "docstring": "Dispatch RF message based on opcode (0x30, 0x29)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

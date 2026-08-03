@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n40e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213966", "status": "ok", "name": "rf_cmd_process_n40e", "params": [], "docstring": "Process RF command 0x42d and update status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

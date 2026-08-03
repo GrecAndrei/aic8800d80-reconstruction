@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n2d8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133dc", "status": "ok", "name": "rf_msg_handler_n2d8", "params": [], "docstring": "RF message handler processing PHY/RF events with MMIO register accesses", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

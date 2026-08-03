@@ -1,0 +1,1 @@
+{"fn": "sub_13A654", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13a654", "status": "ok", "name": "rf_reset_chan_cfg", "params": [], "docstring": "Reset RF channel configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

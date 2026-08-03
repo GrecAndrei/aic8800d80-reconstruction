@@ -1,0 +1,1 @@
+{"fn": "sub_11A580", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11a580", "status": "ok", "name": "config_stream", "params": [], "docstring": "Extract stream parameters from nested structure.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

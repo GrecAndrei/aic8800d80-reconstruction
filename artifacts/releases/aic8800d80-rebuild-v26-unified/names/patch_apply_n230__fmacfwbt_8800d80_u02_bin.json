@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n230", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215718", "status": "ok", "name": "patch_apply_n230", "params": [], "docstring": "Apply behavioral patch n230 by setting bits in patch control registers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

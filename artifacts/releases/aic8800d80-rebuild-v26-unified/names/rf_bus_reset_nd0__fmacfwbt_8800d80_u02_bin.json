@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nd0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212914", "status": "ok", "name": "rf_bus_reset_nd0_2914", "params": [], "docstring": "Resets RF bus register state, tests bitmask for validity", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

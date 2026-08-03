@@ -1,0 +1,1 @@
+{"fn": "sub_1232AB8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1232ab8", "status": "ok", "name": "bt_link_state_check", "params": [], "docstring": "Check Bluetooth link state and 0xC0 flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

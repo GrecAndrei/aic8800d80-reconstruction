@@ -1,0 +1,1 @@
+{"fn": "sub_12152CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12152cc", "status": "ok", "name": "rf_lmac_log_str_n2cc", "params": [], "docstring": "Format and emit RF LMAC log string", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

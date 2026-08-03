@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_3e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221fee", "status": "ok", "name": "bt_sub_122f25e", "params": [], "docstring": "Bluetooth firmware sub-handler (untitled)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

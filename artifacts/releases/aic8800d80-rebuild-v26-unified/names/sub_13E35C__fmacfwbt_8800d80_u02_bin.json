@@ -1,0 +1,1 @@
+{"fn": "sub_13E35C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13e35c", "status": "ok", "name": "dispatch_by_type", "params": [], "docstring": "Dispatches based on mode/type field at offset 0xa9", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

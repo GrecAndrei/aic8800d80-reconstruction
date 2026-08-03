@@ -1,0 +1,1 @@
+{"fn": "sub_12B9E0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12b9e0", "status": "ok", "name": "rf_irq_clear", "params": [], "docstring": "Clears RF interrupt flags in status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

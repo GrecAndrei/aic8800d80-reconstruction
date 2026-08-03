@@ -1,0 +1,1 @@
+{"fn": "sub_121DDCC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ddcc", "status": "ok", "name": "sub_121DDCC", "params": [], "docstring": "Load shared state pointer and read offset 0x14", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1232540", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1232540", "status": "ok", "name": "ipc_msg_alloc_init", "params": [], "docstring": "Allocate and initialize an IPC message envelope via sub_12cb54", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

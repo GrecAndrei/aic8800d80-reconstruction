@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_1dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121337c", "status": "ok", "name": "rf_cmd_process_n_1dc", "params": [], "docstring": "Process incoming RF command opcode 0x30 dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

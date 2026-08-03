@@ -1,0 +1,1 @@
+{"fn": "sub_13C698", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c698", "status": "ok", "name": "get_channel_tx_power", "params": [], "docstring": "Computes per-channel TX power from calibration table indexed by context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

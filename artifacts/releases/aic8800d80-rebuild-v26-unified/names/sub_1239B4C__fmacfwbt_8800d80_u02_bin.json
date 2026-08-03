@@ -1,0 +1,1 @@
+{"fn": "sub_1239B4C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239b4c", "status": "ok", "name": "sub_1239B4C", "params": [], "docstring": "Function with extensive register save; loads struct from arg+0x1c, processes 16-bit header", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

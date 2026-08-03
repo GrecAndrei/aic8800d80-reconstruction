@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4ee", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d32", "status": "ok", "name": "rf_bus_reset_loop", "params": [], "docstring": "Iterate RF bus entries to reset state via memory write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

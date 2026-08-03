@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_430", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269a8", "status": "ok", "name": "rf_level_apply_n_430", "params": [], "docstring": "Applies RF TX power level by OR-ing register bits with 0x80000000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

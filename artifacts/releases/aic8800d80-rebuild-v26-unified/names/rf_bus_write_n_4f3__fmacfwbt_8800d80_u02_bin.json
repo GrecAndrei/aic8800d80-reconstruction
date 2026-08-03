@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4f3", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114cc", "status": "ok", "name": "rf_bus_write_n_4f3", "params": [], "docstring": "Writes value to RF bus register with shift/mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

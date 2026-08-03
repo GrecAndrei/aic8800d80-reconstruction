@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_4be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b72", "status": "ok", "name": "rf_state_check_n_4be", "params": [], "docstring": "Check RF state bit and return boolean flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

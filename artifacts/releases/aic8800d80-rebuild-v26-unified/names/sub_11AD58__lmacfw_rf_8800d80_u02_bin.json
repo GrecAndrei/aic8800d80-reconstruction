@@ -1,0 +1,1 @@
+{"fn": "sub_11AD58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11ad58", "status": "ok", "name": "send_hci_event", "params": [], "docstring": "Build and send HCI event message.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

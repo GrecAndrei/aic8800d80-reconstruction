@@ -1,0 +1,1 @@
+{"fn": "patch_apply_ne5", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155cc", "status": "ok", "name": "patch_apply_ne5_55cc", "params": [], "docstring": "Validate patch entry tag matches 0xc241 magic", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

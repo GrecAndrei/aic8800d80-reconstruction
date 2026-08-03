@@ -1,0 +1,1 @@
+{"fn": "sub_1121D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1121d4", "status": "ok", "name": "arg_store", "params": [], "docstring": "Stores second argument and checks first", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n256", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215102", "status": "ok", "name": "patch_apply_n256", "params": [], "docstring": "Patch application stub #256 with nop and XOR store", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

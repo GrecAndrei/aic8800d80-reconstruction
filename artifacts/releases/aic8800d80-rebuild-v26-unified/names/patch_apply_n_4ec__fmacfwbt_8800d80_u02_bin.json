@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4ec", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214ffc", "status": "ok", "name": "patch_apply_n_4ec", "params": [], "docstring": "Invokes patch callback via function pointer and tracks result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

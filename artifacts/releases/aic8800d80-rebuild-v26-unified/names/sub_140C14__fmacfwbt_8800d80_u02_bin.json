@@ -1,0 +1,1 @@
+{"fn": "sub_140C14", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x140c14", "status": "ok", "name": "process_adv_report", "params": [], "docstring": "Parse advertising report data from scan result", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n37a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cd06", "status": "ok", "name": "rf_cmd_dispatch_n_ac", "params": [], "docstring": "RF command dispatch with ASCII range check on opcode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

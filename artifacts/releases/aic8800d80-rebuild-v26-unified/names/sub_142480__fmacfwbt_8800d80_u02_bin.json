@@ -1,0 +1,1 @@
+{"fn": "sub_142480", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x142480", "status": "ok", "name": "lll_scan_pdu_alloc", "params": [], "docstring": "Allocates scan PDU descriptor from indexed memory pool", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

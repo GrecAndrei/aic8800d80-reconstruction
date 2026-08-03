@@ -1,0 +1,1 @@
+{"fn": "sub_116324", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116324", "status": "ok", "name": "process_tx_packet", "params": [], "docstring": "Inspect transmit packet flags and state", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

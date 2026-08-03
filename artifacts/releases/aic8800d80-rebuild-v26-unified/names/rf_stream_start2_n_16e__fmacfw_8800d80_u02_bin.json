@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n_16e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213282", "status": "ok", "name": "patch_apply_n_12b", "params": [], "docstring": "Applies runtime patch with large stack frame and null check", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11D9DC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11d9dc", "status": "ok", "name": "timer_disable_delay_alt", "params": [], "docstring": "Disable alternate timer and delay 0x40000000 cycles", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

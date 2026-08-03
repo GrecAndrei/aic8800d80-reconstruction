@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_38", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f55c", "status": "ok", "name": "rf_mem_read_n_38", "params": [], "docstring": "Reads byte from RF memory at computed offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

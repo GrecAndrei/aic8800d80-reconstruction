@@ -1,0 +1,1 @@
+{"fn": "txl_cntrl_newhead", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12478cc", "status": "ok", "name": "txl_cntrl_newhead", "params": [], "docstring": "Installs new head of TX list and links descriptors", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

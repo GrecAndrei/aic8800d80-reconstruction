@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121579e", "status": "ok", "name": "patch_apply_n2b6_579e", "params": [], "docstring": "apply patch data fetched via 0x10da7c to 0x167570", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

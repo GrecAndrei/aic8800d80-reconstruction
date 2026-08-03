@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_5a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146ee", "status": "ok", "name": "rf_fault_dump_n_5a", "params": [], "docstring": "Dumps RF fault status from shared fault/state buffers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

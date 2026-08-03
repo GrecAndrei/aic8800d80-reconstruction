@@ -1,0 +1,1 @@
+{"fn": "sub_117DF4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117df4", "status": "ok", "name": "btcoex_reset_context", "params": [], "docstring": "Zero first 20 bytes of coex context and reinitialize it", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4a9", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211516", "status": "ok", "name": "rf_bus_write_n_4a9", "params": [], "docstring": "Write RF bus data into indexed slot with offset 0x980/0x984", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

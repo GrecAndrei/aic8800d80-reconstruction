@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n196", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212aae", "status": "ok", "name": "rf_cmd_send_n196", "params": [], "docstring": "Store command, trigger HW ack semaphore, then ack via control reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

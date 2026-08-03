@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n47a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223be", "status": "ok", "name": "rf_cmd_dispatch_n47a", "params": [], "docstring": "Dispatches RF commands, clearing state buffers to -1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

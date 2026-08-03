@@ -1,0 +1,1 @@
+{"fn": "sub_12004C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12004c", "status": "ok", "name": "get_sta_by_idx", "params": [], "docstring": "Compute STA info pointer from index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_2f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ac8", "status": "ok", "name": "rf_bus_init_n_2f0", "params": [], "docstring": "Initialize RF bus registers: clear/set bits and write 0x2E control", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

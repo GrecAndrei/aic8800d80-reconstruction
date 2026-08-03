@@ -1,0 +1,1 @@
+{"fn": "sub_108CB8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x108cb8", "status": "ok", "name": "rf_wait_for_command", "params": [], "docstring": "Poll RF command status with bounded delay before proceeding.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13105C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13105c", "status": "ok", "name": "ll_get_conn_state", "params": [], "docstring": "Get connection state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

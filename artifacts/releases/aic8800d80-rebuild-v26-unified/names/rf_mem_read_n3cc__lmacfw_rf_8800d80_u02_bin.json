@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n3cc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f960", "status": "ok", "name": "rf_mem_read_n3cc", "params": [], "docstring": "Compute RF memory read offset by left-shifting index by 5 (32-byte entries)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

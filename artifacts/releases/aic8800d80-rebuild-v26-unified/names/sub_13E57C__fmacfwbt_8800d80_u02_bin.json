@@ -1,0 +1,1 @@
+{"fn": "sub_13E57C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13e57c", "status": "ok", "name": "check_tx_pending", "params": [], "docstring": "Checks TX pending flag and buffer length", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

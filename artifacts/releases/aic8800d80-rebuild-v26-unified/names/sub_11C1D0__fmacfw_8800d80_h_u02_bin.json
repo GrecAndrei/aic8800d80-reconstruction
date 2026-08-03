@@ -1,0 +1,1 @@
+{"fn": "sub_11C1D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11c1d0", "status": "ok", "name": "read_int_status", "params": [], "docstring": "Read and shift interrupt status register from system controller", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

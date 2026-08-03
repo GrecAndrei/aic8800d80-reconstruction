@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4c8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114f8", "status": "ok", "name": "rf_bus_write_n_4c8", "params": [], "docstring": "RF bus write operation with multi-word transfer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

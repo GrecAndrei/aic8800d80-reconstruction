@@ -1,0 +1,1 @@
+{"fn": "sub_118150", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x118150", "status": "ok", "name": "timer_ticks_diff", "params": [], "docstring": "Compare timer halfword values and return difference status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

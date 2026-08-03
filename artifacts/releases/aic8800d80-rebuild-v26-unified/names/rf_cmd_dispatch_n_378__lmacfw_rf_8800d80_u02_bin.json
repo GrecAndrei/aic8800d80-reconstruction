@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_378", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221bcc", "status": "ok", "name": "rf_cmd_dispatch_n_378", "params": [], "docstring": "Dispatch RF command via coprocessor MCR writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

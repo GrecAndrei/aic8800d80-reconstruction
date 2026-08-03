@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_476", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212aea", "status": "ok", "name": "rf_msg_handler_n_476", "params": [], "docstring": "RF message handler dispatcher: load message struct fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

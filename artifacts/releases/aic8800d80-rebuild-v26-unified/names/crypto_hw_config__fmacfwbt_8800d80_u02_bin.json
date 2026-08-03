@@ -1,0 +1,1 @@
+{"fn": "crypto_hw_config", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120701c", "status": "ok", "name": "crypto_hw_config_701c", "params": [], "docstring": "Configure crypto hardware MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_1371DC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1371dc", "status": "ok", "name": "handle_sleep_exit", "params": [], "docstring": "Check sleep flags and update link layer state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

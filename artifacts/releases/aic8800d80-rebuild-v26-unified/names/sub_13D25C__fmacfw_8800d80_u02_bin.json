@@ -1,0 +1,1 @@
+{"fn": "sub_13D25C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13d25c", "status": "ok", "name": "ll_pdu_dispatch", "params": [], "docstring": "Dispatch control PDU handler via table on bits 11-13", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10438C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10438c", "status": "ok", "name": "get_next_sequence", "params": [], "docstring": "Reads and wraps 14-bit hardware sequence counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

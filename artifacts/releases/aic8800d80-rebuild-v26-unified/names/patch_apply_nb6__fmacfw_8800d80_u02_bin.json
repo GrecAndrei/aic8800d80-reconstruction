@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nb6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f62", "status": "ok", "name": "sdio_buffer_prepare_n_4e4", "params": [], "docstring": "Prepare SDIO DMA buffer descriptor with length check", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

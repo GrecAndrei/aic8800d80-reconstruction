@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_428", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c564", "status": "ok", "name": "message_dispatch_n_428", "params": [], "docstring": "Dispatches a message with type 0, stores null in state field", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

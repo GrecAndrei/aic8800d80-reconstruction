@@ -1,0 +1,1 @@
+{"fn": "sub_1323E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1323e4", "status": "ok", "name": "llm_env_reset", "params": [], "docstring": "Zero LLM environment and notify kernel", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

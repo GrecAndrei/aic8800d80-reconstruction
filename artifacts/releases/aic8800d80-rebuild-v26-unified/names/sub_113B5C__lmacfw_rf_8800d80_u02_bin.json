@@ -1,0 +1,1 @@
+{"fn": "sub_113B5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113b5c", "status": "ok", "name": "mmio_rmw_field", "params": [], "docstring": "Read-modify-write bit field in hardware register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

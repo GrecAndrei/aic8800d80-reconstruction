@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n22e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213332", "status": "ok", "name": "patch_apply_n_222", "params": [], "docstring": "Apply firmware patch via helper call and iterate by stride 4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

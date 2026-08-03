@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n3da", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12126ca", "status": "ok", "name": "rf_bus_reset_n3da", "params": [], "docstring": "Clears RF bus interrupt status flags and checks state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

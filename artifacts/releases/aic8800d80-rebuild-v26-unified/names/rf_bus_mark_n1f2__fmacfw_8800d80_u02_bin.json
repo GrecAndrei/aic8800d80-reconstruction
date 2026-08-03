@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a76", "status": "ok", "name": "rf_bus_mark_n1f2", "params": [], "docstring": "Set RF bus flag bit, clear field, signal ready", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

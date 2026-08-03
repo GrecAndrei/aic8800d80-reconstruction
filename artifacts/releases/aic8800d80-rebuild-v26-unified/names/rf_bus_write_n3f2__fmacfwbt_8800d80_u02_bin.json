@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n3f2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211db2", "status": "ok", "name": "rf_bus_write_1db2", "params": [], "docstring": "Performs 16-bit write to RF bus address space with bounds check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

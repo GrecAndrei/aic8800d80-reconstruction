@@ -1,0 +1,1 @@
+{"fn": "sub_11D8EC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11d8ec", "status": "ok", "name": "mac_wait_tx", "params": [], "docstring": "Wait up to 2 seconds for TX event", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

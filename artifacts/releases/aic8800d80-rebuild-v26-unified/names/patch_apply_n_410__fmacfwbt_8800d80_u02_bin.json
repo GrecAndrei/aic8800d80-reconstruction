@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_410", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150d8", "status": "ok", "name": "patch_apply_n_410", "params": [], "docstring": "Apply firmware patch: extract nibbles/byte from value", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

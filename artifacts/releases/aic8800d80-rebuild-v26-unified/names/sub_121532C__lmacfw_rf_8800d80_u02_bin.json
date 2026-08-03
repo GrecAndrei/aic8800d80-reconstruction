@@ -1,0 +1,1 @@
+{"fn": "sub_121532C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121532c", "status": "ok", "name": "rf_subcmd_dispatch", "params": [], "docstring": "Dispatch on subcommand (cmp r0, 5)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

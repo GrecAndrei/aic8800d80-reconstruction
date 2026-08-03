@@ -1,0 +1,1 @@
+{"fn": "sub_124968", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124968", "status": "ok", "name": "mmio_check_status", "params": [], "docstring": "Check status register and branch on condition", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_24b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f40", "status": "ok", "name": "rf_fault_dump_n_10c", "params": [], "docstring": "Loads fault context pointer and pushes registers for RF fault dump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n436", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122237a", "status": "ok", "name": "rf_cmd_dispatch_n436", "params": [], "docstring": "Dispatch RF command into IPC mailbox MMIO region", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

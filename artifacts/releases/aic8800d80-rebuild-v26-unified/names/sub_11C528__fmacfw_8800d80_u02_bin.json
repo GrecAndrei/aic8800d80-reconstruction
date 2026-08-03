@@ -1,0 +1,1 @@
+{"fn": "sub_11C528", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c528", "status": "ok", "name": "arm_timer", "params": [], "docstring": "Programs a timer register and stores a value in global context", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

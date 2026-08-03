@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_36a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b92", "status": "ok", "name": "rf_bus_setup_n_36a", "params": [], "docstring": "Configures RF bus with control bit OR-mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

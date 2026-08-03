@@ -1,0 +1,1 @@
+{"fn": "sub_120368", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x120368", "status": "ok", "name": "get_mac_ver", "params": [], "docstring": "Read MAC version field from MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

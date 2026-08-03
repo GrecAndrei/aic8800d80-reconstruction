@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n76", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212366", "status": "ok", "name": "rf_bus_reset_early", "params": [], "docstring": "Early RF bus reset during init", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

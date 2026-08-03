@@ -1,0 +1,1 @@
+{"fn": "sub_127CF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x127cf4", "status": "ok", "name": "acl_send_packet", "params": [], "docstring": "Send ACL packet after verifying hardware status", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

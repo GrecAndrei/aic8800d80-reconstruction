@@ -1,0 +1,1 @@
+{"fn": "sub_115180", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115180", "status": "ok", "name": "rom_call_extract_byte", "params": [], "docstring": "Call ROM routine with code 0xf and return byte 8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

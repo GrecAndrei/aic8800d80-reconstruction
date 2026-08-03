@@ -1,0 +1,1 @@
+{"fn": "sub_108140", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x108140", "status": "ok", "name": "rf_phy_init", "params": [], "docstring": "Initialize RF/PHY registers and calibration state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

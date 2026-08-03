@@ -1,0 +1,1 @@
+{"fn": "sub_1302C4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1302c4", "status": "ok", "name": "compare_global_bytes", "params": [], "docstring": "Compare two byte fields in global struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

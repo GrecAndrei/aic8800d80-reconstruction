@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_446", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12115b6", "status": "ok", "name": "rf_bus_reset2_n_446", "params": [], "docstring": "Resets an RF bus channel and releases related resource", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

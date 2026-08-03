@@ -1,0 +1,1 @@
+{"fn": "sub_129EBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x129ebc", "status": "ok", "name": "lookup_table_entry", "params": [], "docstring": "Find an entry in a table of large structs", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

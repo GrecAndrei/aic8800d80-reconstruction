@@ -1,0 +1,1 @@
+{"fn": "sub_12F154", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f154", "status": "ok", "name": "msg_alloc_401", "params": [], "docstring": "Allocates message buffer for id 0x401 and extracts field", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

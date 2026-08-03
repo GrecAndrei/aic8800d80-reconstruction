@@ -1,0 +1,1 @@
+{"fn": "sub_101A48", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101a48", "status": "ok", "name": "rf_get_status_bit28", "params": [], "docstring": "Returns bit 28 of radio status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

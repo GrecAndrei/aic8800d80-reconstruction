@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n32", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121294a", "status": "ok", "name": "rf_cmd_send_n32", "params": [], "docstring": "Submit an RF MCU command by posting to the command mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

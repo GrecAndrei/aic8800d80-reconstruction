@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n15a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f6ee", "status": "ok", "name": "rf_register_read", "params": [], "docstring": "Read a value from RF register via memory-mapped bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

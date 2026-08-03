@@ -1,0 +1,1 @@
+{"fn": "sub_119388", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x119388", "status": "ok", "name": "ble_acl_handle", "params": [], "docstring": "Process ACL data for connection", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

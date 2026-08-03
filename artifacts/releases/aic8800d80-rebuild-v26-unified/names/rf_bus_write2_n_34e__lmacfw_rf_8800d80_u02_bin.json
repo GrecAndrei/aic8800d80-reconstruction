@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_34e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12111d6", "status": "ok", "name": "rf_bus_write2_n_34e", "params": [], "docstring": "Writes 2 bytes to RF bus with bitmask OR (0xc0) and 0xb shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

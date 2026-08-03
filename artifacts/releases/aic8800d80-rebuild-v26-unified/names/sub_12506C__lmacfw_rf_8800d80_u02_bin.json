@@ -1,0 +1,1 @@
+{"fn": "sub_12506C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12506c", "status": "ok", "name": "set_rf_byte", "params": [], "docstring": "Parse generic RF configuration byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

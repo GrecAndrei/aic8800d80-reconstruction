@@ -1,0 +1,1 @@
+{"fn": "sub_102A9C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102a9c", "status": "ok", "name": "get_calibration_offsets", "params": [], "docstring": "Loads two signed calibration bytes into output pointers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_142378", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142378", "status": "ok", "name": "ll_conn_process", "params": [], "docstring": "Looks up connection context by index and processes the packet", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

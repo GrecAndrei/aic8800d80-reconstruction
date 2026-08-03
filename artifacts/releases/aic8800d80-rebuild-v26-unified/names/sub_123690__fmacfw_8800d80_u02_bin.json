@@ -1,0 +1,1 @@
+{"fn": "sub_123690", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123690", "status": "ok", "name": "link_layer_control", "params": [], "docstring": "Perform link layer control operation and check status", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

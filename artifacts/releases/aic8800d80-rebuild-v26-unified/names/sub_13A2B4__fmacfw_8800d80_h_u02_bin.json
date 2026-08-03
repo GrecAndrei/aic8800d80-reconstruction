@@ -1,0 +1,1 @@
+{"fn": "sub_13A2B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13a2b4", "status": "ok", "name": "dma_tx_ring", "params": [], "docstring": "Get DMA TX ring", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

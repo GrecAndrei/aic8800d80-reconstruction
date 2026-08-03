@@ -1,0 +1,1 @@
+{"fn": "sub_10CBE0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10cbe0", "status": "ok", "name": "config_uart_control", "params": [], "docstring": "Modify UART control bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

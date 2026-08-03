@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_45c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215520", "status": "ok", "name": "ipc_doorbell_msg_fetch", "params": [], "docstring": "IPC doorbell fetch message from shared queue at 0x40320064 scaled by 0x64", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

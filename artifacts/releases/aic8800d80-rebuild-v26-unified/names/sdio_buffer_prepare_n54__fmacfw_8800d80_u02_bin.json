@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n54", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e170", "status": "ok", "name": "sdio_buffer_prepare_n54", "params": [], "docstring": "Prepare SDIO buffer with aligned offsets", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

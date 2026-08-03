@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n174", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129b8", "status": "ok", "name": "rf_bus_reset_n174", "params": [], "docstring": "Reset RF bus clearing 0x7f0 mask in 0x800 register and zeroing regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

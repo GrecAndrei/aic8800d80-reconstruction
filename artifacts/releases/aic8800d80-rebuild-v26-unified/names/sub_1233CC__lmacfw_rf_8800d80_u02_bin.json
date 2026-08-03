@@ -1,0 +1,1 @@
+{"fn": "sub_1233CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1233cc", "status": "ok", "name": "check_chip_version", "params": [], "docstring": "Compare chip version from hardware registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

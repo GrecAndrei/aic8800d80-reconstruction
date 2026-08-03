@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n49c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211908", "status": "ok", "name": "rf_bus_write_n49c", "params": [], "docstring": "Write to RF control bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

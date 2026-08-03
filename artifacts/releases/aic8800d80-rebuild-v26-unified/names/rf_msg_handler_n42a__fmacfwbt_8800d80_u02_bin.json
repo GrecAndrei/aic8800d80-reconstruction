@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n42a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121338a", "status": "ok", "name": "rf_msg_handler_n42a", "params": [], "docstring": "RF/BT message handler dispatch (variant n42a)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

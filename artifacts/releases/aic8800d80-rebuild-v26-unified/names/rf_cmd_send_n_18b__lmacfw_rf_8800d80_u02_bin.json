@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_18b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121278c", "status": "ok", "name": "rf_cmd_send_18b", "params": [], "docstring": "Sends an 18-bit RF command writing MMIO 0x900/0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

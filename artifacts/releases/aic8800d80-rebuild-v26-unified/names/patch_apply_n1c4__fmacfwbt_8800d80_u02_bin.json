@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156ac", "status": "ok", "name": "patch_apply_n1c4", "params": [], "docstring": "Apply a firmware patch with memory barrier sync", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

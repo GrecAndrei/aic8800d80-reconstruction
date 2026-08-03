@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n366", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211eca", "status": "ok", "name": "rf_level_apply_n_422", "params": [], "docstring": "Set/clear high bit on RF level register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

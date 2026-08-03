@@ -1,0 +1,1 @@
+{"fn": "sub_1236734", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236734", "status": "ok", "name": "ipc_msg_post_init", "params": [], "docstring": "Initialize and post IPC message (msg 0x1c01, len 4)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

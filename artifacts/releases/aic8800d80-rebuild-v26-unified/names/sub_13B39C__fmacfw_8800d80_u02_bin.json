@@ -1,0 +1,1 @@
+{"fn": "sub_13B39C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b39c", "status": "ok", "name": "adv_pdu_scan_req_handler", "params": [], "docstring": "Handle scanned advertising scan request PDU", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

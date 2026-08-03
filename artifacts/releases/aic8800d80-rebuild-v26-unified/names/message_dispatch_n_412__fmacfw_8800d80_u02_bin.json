@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_412", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c57a", "status": "ok", "name": "msg_dispatch_n412", "params": [], "docstring": "Dispatch incoming message from IPC mailbox queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

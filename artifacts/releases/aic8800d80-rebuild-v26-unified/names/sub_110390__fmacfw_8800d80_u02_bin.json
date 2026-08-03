@@ -1,0 +1,1 @@
+{"fn": "sub_110390", "img": "fmacfw_8800d80_u02_bin", "addr": "0x110390", "status": "ok", "name": "is_connected_flag", "params": [], "docstring": "Test connection active flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n482", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121596a", "status": "ok", "name": "patch_apply_n482", "params": [], "docstring": "Apply patch slot 482 to firmware memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

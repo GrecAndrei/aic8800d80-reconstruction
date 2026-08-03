@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n4b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124e2", "status": "ok", "name": "rf_state_check_24e2", "params": [], "docstring": "Read RF state word and update status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

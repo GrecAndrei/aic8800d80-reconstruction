@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n6a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147b2", "status": "ok", "name": "rf_fault_dump_n6a", "params": [], "docstring": "Dump RF fault state: read NVIC ICSR and dump register block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

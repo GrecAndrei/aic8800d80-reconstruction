@@ -1,0 +1,1 @@
+{"fn": "sub_1213BE8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1213be8", "status": "ok", "name": "rf_cmd_query_status", "params": [], "docstring": "Query RF command status (opcode 6)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

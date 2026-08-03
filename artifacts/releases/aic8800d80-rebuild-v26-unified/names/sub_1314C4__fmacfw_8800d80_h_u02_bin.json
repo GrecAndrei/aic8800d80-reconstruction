@@ -1,0 +1,1 @@
+{"fn": "sub_1314C4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1314c4", "status": "ok", "name": "handle_adv_report", "params": [], "docstring": "Handle advertising report event", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

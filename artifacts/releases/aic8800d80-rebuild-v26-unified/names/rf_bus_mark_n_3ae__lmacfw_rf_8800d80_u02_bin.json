@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210dde", "status": "ok", "name": "rf_bus_mark_n_3ae", "params": [], "docstring": "Mark RF bus entry 0x3ae into indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122184", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122184", "status": "ok", "name": "mmio_update", "params": [], "docstring": "Read and update a memory-mapped I/O register.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

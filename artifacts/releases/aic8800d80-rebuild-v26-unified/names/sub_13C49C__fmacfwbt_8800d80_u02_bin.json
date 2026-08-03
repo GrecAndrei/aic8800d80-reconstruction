@@ -1,0 +1,1 @@
+{"fn": "sub_13C49C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c49c", "status": "ok", "name": "scan_parse_adv_data", "params": [], "docstring": "Parse advertising data fields from payload", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

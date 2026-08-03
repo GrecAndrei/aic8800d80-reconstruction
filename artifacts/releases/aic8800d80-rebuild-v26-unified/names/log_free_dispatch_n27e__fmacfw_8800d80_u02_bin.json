@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n27e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210286", "status": "ok", "name": "log_free_dispatch_n27e", "params": [], "docstring": "Frees a log buffer and dispatches to log consumer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

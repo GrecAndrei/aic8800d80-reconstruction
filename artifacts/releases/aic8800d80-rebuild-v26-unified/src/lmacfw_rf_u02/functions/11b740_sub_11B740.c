@@ -1,0 +1,104 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B7F8;
+extern uint32_t off_11B800;
+extern uint32_t off_11B7FC;
+extern uint32_t dword_11B804;
+extern uint32_t off_11B808;
+
+// sub_11B740 @ 0x11b740, size 182 bytes
+int sub_11B740()
+{
+  uint32_t *v0; // r6
+  int v1; // r5
+  int v2; // r7
+  int *v3; // r4
+  char v4; // r2
+  int v5; // r8
+  uint8_t *v6; // r10
+  int v7; // r2
+  int v8; // r0
+  char v9; // r11
+  int v10; // r4
+  int v11; // r5
+  int v12; // r4
+
+  v0 = off_11B7F8;
+  v1 = *((uint32_t *)off_11B7F8 + 10);
+  v2 = *((uint8_t *)off_11B7F8 + 89);
+  if ( !v1 )
+    return 0;
+  v3 = *((int **)off_11B800 + 2);
+  v4 = *((uint8_t *)off_11B7F8 + 89);
+  *(uint32_t *)off_11B7FC |= 4u;
+  if ( v3 )
+  {
+    v5 = dword_11B804;
+    v6 = off_11B808;
+    do
+    {
+      while ( 1 )
+      {
+        if ( v1 == v3[18] )
+        {
+          v7 = *((uint8_t *)v3 + 94);
+          if ( !*((uint8_t *)v3 + 94) )
+          {
+            if ( *((uint8_t *)v3 + 96) )
+            {
+              v8 = *((uint8_t *)v3 + 102);
+              if ( v8 != 255 )
+                break;
+            }
+          }
+        }
+        v3 = (int *)*v3;
+        if ( !v3 )
+          goto LABEL_12;
+      }
+      v9 = *(uint8_t *)(v1 + 16);
+      *(uint8_t *)(v1 + 16) = 6;
+      if ( !rf_channel_set_n6838(v8, v5, v7) )
+      {
+        ++v2;
+        *v6 = 1;
+      }
+      *(uint8_t *)(v1 + 16) = v9;
+      v3 = (int *)*v3;
+    }
+    while ( v3 );
+LABEL_12:
+    v4 = v2;
+  }
+  v10 = *((uint8_t *)v0 + 89);
+  v11 = v0[11];
+  *((uint8_t *)v0 + 89) = v4;
+  v12 = v2 - v10;
+  if ( !v11 )
+  {
+    mmio_init_clock_gate_n121();
+    if ( v2 )
+    {
+      v12 = 0;
+      --*((uint8_t *)v0 + 89);
+      return v12;
+    }
+    return 0;
+  }
+  if ( !v12 )
+    return v12;
+  *(uint8_t *)(v11 + 16) = 3;
+  mmio_init_clock_gate_n121();
+  return v12;
+}
+

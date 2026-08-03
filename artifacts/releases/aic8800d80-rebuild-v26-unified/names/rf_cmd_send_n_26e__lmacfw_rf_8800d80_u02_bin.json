@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_26e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12126aa", "status": "ok", "name": "sdio_buffer_prepare_n_462", "params": [], "docstring": "SDIO buffer prepare/boundary check (r1 vs r2)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_386", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211896", "status": "ok", "name": "rf_bus_write2_n_386", "params": [], "docstring": "Performs second-stage RF bus write to mapped register with bitmask OR", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_143AA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x143aa8", "status": "ok", "name": "strcmp", "params": [], "docstring": "Compare two null-terminated strings", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

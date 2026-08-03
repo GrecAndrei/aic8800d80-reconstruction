@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12102d6", "status": "ok", "name": "log_entry_free_and_dispatch", "params": [], "docstring": "Stores pointer, frees log entry, and dispatches via helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

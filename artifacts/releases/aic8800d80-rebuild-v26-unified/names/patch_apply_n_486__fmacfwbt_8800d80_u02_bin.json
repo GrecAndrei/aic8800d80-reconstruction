@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_486", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215062", "status": "ok", "name": "patch_apply_n_486", "params": [], "docstring": "Patch helper tail, restores r4-r7 and returns", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

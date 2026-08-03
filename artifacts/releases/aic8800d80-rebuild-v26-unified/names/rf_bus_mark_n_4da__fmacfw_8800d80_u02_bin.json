@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4da", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113aa", "status": "ok", "name": "rf_bus_mark_idle_n4da", "params": [], "docstring": "RF bus idle marking via shift of flag bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

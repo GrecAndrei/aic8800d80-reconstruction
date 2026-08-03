@@ -1,0 +1,1 @@
+{"fn": "sub_109878", "img": "fmacfw_8800d80_u02_bin", "addr": "0x109878", "status": "ok", "name": "ptr_is_null", "params": [], "docstring": "Checks if pointer is null", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

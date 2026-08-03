@@ -1,0 +1,1 @@
+{"fn": "sub_129598", "img": "fmacfw_8800d80_u02_bin", "addr": "0x129598", "status": "ok", "name": "wlc_tx_process", "params": [], "docstring": "Process transmit queue block starting at 0x60", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n1e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226df6", "status": "ok", "name": "rf_level_apply_n1e", "params": [], "docstring": "Applies calibrated RF TX power level for N1e modulation band", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n490", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12102f0", "status": "ok", "name": "log_free_dispatch_n490", "params": [], "docstring": "Free a log buffer and re-dispatch logging", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

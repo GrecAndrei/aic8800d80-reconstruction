@@ -1,0 +1,1 @@
+{"fn": "sub_1238CF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1238cf8", "status": "ok", "name": "scan_chan_eval_n8c8", "params": [], "docstring": "evaluate channel/scan state from 0x18eed8[0x10]", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

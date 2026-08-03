@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_158", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212e08", "status": "ok", "name": "patch_apply_n466_2e08", "params": [], "docstring": "Applies a firmware patch by writing byte fields to a record", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

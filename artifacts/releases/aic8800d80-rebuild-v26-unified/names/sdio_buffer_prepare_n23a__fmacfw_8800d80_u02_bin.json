@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n23a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e356", "status": "ok", "name": "sdio_buffer_prepare_n23a", "params": [], "docstring": "Prepares SDIO buffer by comparing length against 0x2a threshold", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

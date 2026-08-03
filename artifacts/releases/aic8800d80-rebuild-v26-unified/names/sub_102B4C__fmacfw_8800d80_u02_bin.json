@@ -1,0 +1,1 @@
+{"fn": "sub_102B4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102b4c", "status": "ok", "name": "get_calibration_offsets", "params": [], "docstring": "Reads two signed calibration offsets", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

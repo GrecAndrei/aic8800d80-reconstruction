@@ -1,0 +1,1 @@
+{"fn": "sub_1236B08", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236b08", "status": "ok", "name": "phy_chan_table_lookup", "params": [], "docstring": "Look up PHY channel entry in indexed table (stride 0x528)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

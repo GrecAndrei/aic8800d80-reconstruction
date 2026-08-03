@@ -1,0 +1,1 @@
+{"fn": "sub_12CC60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cc60", "status": "ok", "name": "jump_to_tx_entry", "params": [], "docstring": "Tail-branch to 0x12cdf0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n5e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121173e", "status": "ok", "name": "rf_bus_reset_n360", "params": [], "docstring": "Reset RF bus by clearing bits at offset 0x928 and checking 0x810", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

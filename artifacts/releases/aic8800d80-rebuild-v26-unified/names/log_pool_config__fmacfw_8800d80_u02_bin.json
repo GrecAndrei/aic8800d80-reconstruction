@@ -1,0 +1,1 @@
+{"fn": "log_pool_config", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120f38c", "status": "ok", "name": "log_buf_pool_init", "params": [], "docstring": "Initialize logging buffer pool with size 0x27/0x28 and offset 0x984", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

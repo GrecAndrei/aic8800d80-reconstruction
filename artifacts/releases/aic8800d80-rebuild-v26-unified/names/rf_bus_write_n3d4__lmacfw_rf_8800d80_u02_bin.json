@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n3d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211840", "status": "ok", "name": "rf_bus_write_840", "params": [], "docstring": "Writes a 32-bit value to RF bus at computed register offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

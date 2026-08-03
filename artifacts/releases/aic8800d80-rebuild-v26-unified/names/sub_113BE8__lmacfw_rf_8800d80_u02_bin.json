@@ -1,0 +1,1 @@
+{"fn": "sub_113BE8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113be8", "status": "ok", "name": "mmio_read_byte", "params": [], "docstring": "Read byte from high bits of hardware register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

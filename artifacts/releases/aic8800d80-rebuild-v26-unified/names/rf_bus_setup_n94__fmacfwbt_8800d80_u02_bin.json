@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dec", "status": "ok", "name": "rf_bus_setup_n94", "params": [], "docstring": "Setup RF bus window at 0x40000000+0x200000, check bus state mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

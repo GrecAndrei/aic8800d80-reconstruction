@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_41a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221b2a", "status": "ok", "name": "rf_cmd_dispatch_n_41a", "params": [], "docstring": "Decode and shift RF command opcode field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

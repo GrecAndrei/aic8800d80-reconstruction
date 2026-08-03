@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n70", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118c8", "status": "ok", "name": "rf_bus_reset2_n70", "params": [], "docstring": "Reset RF bus and set default bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

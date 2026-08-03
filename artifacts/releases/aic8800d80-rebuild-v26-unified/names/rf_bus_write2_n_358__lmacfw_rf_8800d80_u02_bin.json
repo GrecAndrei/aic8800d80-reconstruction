@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_358", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12111cc", "status": "ok", "name": "rf_bus_byte_set_bits", "params": [], "docstring": "Sets high bits (0xc0) on RF bus byte registers across channels", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12B49C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b49c", "status": "ok", "name": "bt_save_conn_info", "params": [], "docstring": "Save connection handle info", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

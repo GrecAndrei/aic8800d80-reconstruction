@@ -1,0 +1,1 @@
+{"fn": "sub_13EAE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13eae0", "status": "ok", "name": "int_status_check", "params": [], "docstring": "read and test core interrupt status register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

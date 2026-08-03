@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f5a", "status": "ok", "name": "rf_bus_write_nac", "params": [], "docstring": "Write value to RF register bus with field extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

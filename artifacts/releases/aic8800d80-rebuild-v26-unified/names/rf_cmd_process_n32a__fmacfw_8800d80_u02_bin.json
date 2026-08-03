@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n32a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213882", "status": "ok", "name": "rf_cmd_route_dispatch", "params": [], "docstring": "route RF command by opcode (>=0xa0 fast path)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

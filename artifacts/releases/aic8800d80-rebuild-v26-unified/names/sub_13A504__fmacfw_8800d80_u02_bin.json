@@ -1,0 +1,1 @@
+{"fn": "sub_13A504", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13a504", "status": "ok", "name": "rf_chan_enabled", "params": [], "docstring": "Check RF channel enable status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

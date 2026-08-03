@@ -1,0 +1,1 @@
+{"fn": "sub_125C58", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x125c58", "status": "ok", "name": "ipc_post_msg", "params": [], "docstring": "Post IPC message type 0x48", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

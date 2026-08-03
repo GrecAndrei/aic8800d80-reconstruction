@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_4ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122692a", "status": "ok", "name": "rf_level_apply_4ae", "params": [], "docstring": "Apply RF TX power level setting (variant 4ae)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

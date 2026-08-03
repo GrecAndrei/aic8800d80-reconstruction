@@ -1,0 +1,1 @@
+{"fn": "sub_11532C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11532c", "status": "ok", "name": "radio_pdu_type_cfg", "params": [], "docstring": "Configure radio for advertising PDU type", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

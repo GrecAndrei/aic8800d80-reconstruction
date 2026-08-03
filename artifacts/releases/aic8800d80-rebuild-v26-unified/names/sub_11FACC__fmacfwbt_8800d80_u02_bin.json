@@ -1,0 +1,1 @@
+{"fn": "sub_11FACC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11facc", "status": "ok", "name": "si_detach", "params": [], "docstring": "Detach silicon core if present", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

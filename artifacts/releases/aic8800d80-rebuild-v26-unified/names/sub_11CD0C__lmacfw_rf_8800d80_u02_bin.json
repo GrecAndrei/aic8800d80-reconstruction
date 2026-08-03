@@ -1,0 +1,1 @@
+{"fn": "sub_11CD0C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11cd0c", "status": "ok", "name": "tx_buf_alloc", "params": [], "docstring": "Allocate TX buffer and initialize", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

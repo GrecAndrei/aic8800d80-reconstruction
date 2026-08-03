@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_182", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cea", "status": "ok", "name": "rf_cmd_send_n_182", "params": [], "docstring": "Issue RF cmd writing config 0x8008000 to 0x900/0xb00/0xb14 regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_7e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b9e", "status": "ok", "name": "rf_bus_write2_n_7e", "params": [], "docstring": "RF bus write: OR-mask value and store to RF register via pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

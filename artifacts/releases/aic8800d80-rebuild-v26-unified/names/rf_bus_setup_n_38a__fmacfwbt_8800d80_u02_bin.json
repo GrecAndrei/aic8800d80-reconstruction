@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_38a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119ce", "status": "ok", "name": "rf_bus_setup_n_38a", "params": [], "docstring": "Sets up RF bus table entry for 38-byte access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12312D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12312d8", "status": "ok", "name": "sub_12312D8", "params": [], "docstring": "Parse header bytes and dispatch via table lookup", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

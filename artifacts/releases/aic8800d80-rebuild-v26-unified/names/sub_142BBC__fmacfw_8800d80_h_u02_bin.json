@@ -1,0 +1,1 @@
+{"fn": "sub_142BBC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142bbc", "status": "ok", "name": "double_compare_core", "params": [], "docstring": "Core double comparison with unordered handling", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

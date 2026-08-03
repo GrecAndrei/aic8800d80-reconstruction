@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n47e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121532a", "status": "ok", "name": "patch_apply_n47e", "params": [], "docstring": "Apply firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

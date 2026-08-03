@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_202", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211602", "status": "ok", "name": "rf_bus_setup_n_202", "params": [], "docstring": "Setup RF bus register configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12EA38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ea38", "status": "ok", "name": "ipc_set_data1", "params": [], "docstring": "Writes IPC shared data word 1", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

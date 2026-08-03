@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_145", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214602", "status": "ok", "name": "rf_fault_dump_n_145", "params": [], "docstring": "Logs RF fault and dumps RF debug register at 0x40035100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

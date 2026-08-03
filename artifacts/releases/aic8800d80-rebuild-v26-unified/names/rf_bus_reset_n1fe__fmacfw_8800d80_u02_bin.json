@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n1fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212be6", "status": "ok", "name": "rf_bus_reset_alt_be6", "params": [], "docstring": "Reset the RF control bus (alt path)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

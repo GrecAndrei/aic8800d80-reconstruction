@@ -1,0 +1,1 @@
+{"fn": "sub_121834", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121834", "status": "ok", "name": "mac_irq_enable", "params": [], "docstring": "Set bit to enable MAC interrupt in status register.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

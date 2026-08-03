@@ -1,0 +1,1 @@
+{"fn": "sub_12D5F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d5f0", "status": "ok", "name": "list_remove", "params": [], "docstring": "Remove a node from linked list", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n342", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121582a", "status": "ok", "name": "patch_apply_n342", "params": [], "docstring": "Extract patch enable bit at position 25 of instruction word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_48a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121505e", "status": "ok", "name": "patch_apply_n_48a", "params": [], "docstring": "Apply firmware patch and unwind stack frame", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

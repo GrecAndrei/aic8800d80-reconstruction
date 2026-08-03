@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_256", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226b82", "status": "ok", "name": "rf_level_apply_n_256", "params": [], "docstring": "Apply computed RF power/level value with cap check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

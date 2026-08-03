@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n46a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215316", "status": "ok", "name": "patch_apply_n46a", "params": [], "docstring": "Apply patch entries 0x46a storing byte at offset 0x16", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

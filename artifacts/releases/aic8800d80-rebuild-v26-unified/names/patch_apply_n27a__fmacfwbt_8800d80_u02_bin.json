@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n27a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215762", "status": "ok", "name": "patch_apply_n27a", "params": [], "docstring": "Apply patch entries to RF register table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

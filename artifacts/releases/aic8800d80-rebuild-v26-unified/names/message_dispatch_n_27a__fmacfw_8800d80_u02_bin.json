@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_27a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c712", "status": "ok", "name": "message_dispatch_n_27a", "params": [], "docstring": "Dispatch message: XOR state, push regs, jump via table 0x12cb1c/0x12ca04", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n35e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215846", "status": "ok", "name": "patch_apply_n35e", "params": [], "docstring": "Extracts patch bits and applies to function at 0x1676e0", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

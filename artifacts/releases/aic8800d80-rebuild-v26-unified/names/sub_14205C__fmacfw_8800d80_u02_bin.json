@@ -1,0 +1,1 @@
+{"fn": "sub_14205C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x14205c", "status": "ok", "name": "scan_slot_find_free", "params": [], "docstring": "Scan slots to find a free entry", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11B1A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11b1a4", "status": "ok", "name": "rf_register_access", "params": [], "docstring": "Access radio registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

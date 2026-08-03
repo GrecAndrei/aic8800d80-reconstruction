@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_11c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f478", "status": "ok", "name": "rf_mem_read_n_11c", "params": [], "docstring": "Read RF memory via SVC call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

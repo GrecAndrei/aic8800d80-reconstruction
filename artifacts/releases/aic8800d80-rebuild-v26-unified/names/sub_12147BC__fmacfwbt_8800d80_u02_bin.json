@@ -1,0 +1,1 @@
+{"fn": "sub_12147BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12147bc", "status": "ok", "name": "sub_12147BC", "params": [], "docstring": "BT helper invoked after a sub-routine with result branch", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

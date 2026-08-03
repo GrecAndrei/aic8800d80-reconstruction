@@ -1,0 +1,1 @@
+{"fn": "sub_11B5E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b5e8", "status": "ok", "name": "off_84_table", "params": [], "docstring": "Compute 84-byte scaled offset into the global table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

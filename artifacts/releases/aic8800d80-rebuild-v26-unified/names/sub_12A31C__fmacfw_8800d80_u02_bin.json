@@ -1,0 +1,1 @@
+{"fn": "sub_12A31C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a31c", "status": "ok", "name": "llc_clear_evt_state", "params": [], "docstring": "Clear connection event state indexed by peer index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

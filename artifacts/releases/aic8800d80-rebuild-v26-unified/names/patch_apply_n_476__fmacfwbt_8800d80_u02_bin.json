@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_476", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215072", "status": "ok", "name": "patch_apply_loop", "params": [], "docstring": "Iterate and apply FW patch entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

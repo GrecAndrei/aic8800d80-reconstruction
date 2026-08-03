@@ -1,0 +1,1 @@
+{"fn": "sub_12063C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12063c0", "status": "ok", "name": "sub_12063C0", "params": [], "docstring": "Init/setup wrapper calling address-table lookup and helper routines", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

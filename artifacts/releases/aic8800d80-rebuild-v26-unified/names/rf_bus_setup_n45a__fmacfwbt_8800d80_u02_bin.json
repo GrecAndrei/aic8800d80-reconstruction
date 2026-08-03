@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n45a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121b2", "status": "ok", "name": "rf_bus_setup_n45a", "params": [], "docstring": "Loads RF bus base pointers from global table and sets up address window", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

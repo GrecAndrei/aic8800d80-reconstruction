@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1fa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12120f6", "status": "ok", "name": "rf_bus_reset_n_1fa", "params": [], "docstring": "Read RF bus register pair (offset 8/0xa) during reset sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

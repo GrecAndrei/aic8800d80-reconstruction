@@ -1,0 +1,1 @@
+{"fn": "sub_122315C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122315c", "status": "ok", "name": "fmac_sub_2315c", "params": [], "docstring": "FMAC internal utility routine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11AB00", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11ab00", "status": "ok", "name": "cmp_before", "params": [], "docstring": "Return true if field at offset 0xc is smaller.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_417", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ae4", "status": "ok", "name": "rf_bus_setup_channel", "params": [], "docstring": "Configure RF bus channel and base address pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

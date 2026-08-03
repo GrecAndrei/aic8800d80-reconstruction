@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f18", "status": "ok", "name": "patch_apply_n6c", "params": [], "docstring": "Apply runtime firmware patch bytes at computed offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

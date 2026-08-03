@@ -1,0 +1,1 @@
+{"fn": "sub_12723C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12723c", "status": "ok", "name": "llc_state_reset", "params": [], "docstring": "clear llc state field and reset flags", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

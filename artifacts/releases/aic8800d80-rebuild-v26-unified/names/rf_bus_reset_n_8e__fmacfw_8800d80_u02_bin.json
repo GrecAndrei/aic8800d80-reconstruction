@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_8e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121295a", "status": "ok", "name": "rf_bus_reset_n_8e", "params": [], "docstring": "Mask RF bus byte field to extract channel/id bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

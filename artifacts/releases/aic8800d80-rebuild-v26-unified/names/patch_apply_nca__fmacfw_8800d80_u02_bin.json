@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f76", "status": "ok", "name": "patch_apply_nca", "params": [], "docstring": "Fill patch descriptor table (0x56 entries) with default mask 0xff", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

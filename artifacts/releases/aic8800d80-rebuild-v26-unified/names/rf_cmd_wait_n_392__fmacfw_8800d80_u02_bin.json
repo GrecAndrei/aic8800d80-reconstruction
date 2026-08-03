@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n_392", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212bde", "status": "ok", "name": "rf_cmd_wait_n_392", "params": [], "docstring": "Poll RF command-completion MMIO register 0x804, OR-ing 0x200 to acknowledge done flag.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

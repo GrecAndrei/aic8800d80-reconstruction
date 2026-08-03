@@ -1,0 +1,1 @@
+{"fn": "sub_11F4CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11f4cc", "status": "ok", "name": "get_event_handler", "params": [], "docstring": "Reads global event handler pointer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

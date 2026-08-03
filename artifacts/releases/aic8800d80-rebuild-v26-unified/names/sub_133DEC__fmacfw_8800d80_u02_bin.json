@@ -1,0 +1,1 @@
+{"fn": "sub_133DEC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x133dec", "status": "ok", "name": "disable_interrupts_and_update", "params": [], "docstring": "Disable interrupts and update state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

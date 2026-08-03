@@ -1,0 +1,1 @@
+{"fn": "sub_1218C74", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218c74", "status": "ok", "name": "rf_param_get_status", "params": [], "docstring": "Read RF status fields from structure at offset 0x48 and 0x1c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_129388", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129388", "status": "ok", "name": "chip_register_set_bit", "params": [], "docstring": "Set a bit in a chip control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

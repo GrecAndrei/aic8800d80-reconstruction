@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_45c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211428", "status": "ok", "name": "rf_bus_mark_n_45c", "params": [], "docstring": "Marks/flags an RF bus slot with computed index and counter bump", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

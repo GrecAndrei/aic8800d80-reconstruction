@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_3e4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211140", "status": "ok", "name": "rf_bus_write2_1140", "params": [], "docstring": "Write 2-byte value to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

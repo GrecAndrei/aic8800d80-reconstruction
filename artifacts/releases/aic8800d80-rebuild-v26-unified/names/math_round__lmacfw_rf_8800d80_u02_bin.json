@@ -1,0 +1,1 @@
+{"fn": "math_round", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227194", "status": "ok", "name": "math_round", "params": [], "docstring": "Round float using exponent field extraction and rounding table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

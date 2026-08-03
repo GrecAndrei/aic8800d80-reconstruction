@@ -1,0 +1,1 @@
+{"fn": "sub_103C14", "img": "fmacfw_8800d80_u02_bin", "addr": "0x103c14", "status": "ok", "name": "configure_gpio_bits", "params": [], "docstring": "Clears configuration bits in GPIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

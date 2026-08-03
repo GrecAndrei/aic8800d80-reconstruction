@@ -1,0 +1,1 @@
+{"fn": "tx_timeout_check", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122bf68", "status": "ok", "name": "tx_timeout_check", "params": [], "docstring": "Check TX path for timeout conditions via MMIO register", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

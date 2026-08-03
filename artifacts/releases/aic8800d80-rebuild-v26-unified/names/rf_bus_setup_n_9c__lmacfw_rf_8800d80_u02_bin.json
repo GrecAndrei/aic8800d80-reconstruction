@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_9c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211768", "status": "ok", "name": "rf_bus_setup_n_9c", "params": [], "docstring": "Initialize RF bus control structure to default state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

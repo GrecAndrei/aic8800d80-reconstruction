@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_34c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c640", "status": "ok", "name": "sdio_buffer_prepare_n_316", "params": [], "docstring": "Prepare SDIO host buffer descriptor (zero-init helper)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

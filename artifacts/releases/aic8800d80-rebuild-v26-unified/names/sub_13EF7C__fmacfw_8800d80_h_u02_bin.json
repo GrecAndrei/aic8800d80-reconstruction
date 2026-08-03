@@ -1,0 +1,1 @@
+{"fn": "sub_13EF7C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13ef7c", "status": "ok", "name": "phy_get_channel_config", "params": [], "docstring": "Get channel configuration from global PHY table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

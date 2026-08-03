@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n2c6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cc52", "status": "ok", "name": "message_dispatch_n2c6", "params": [], "docstring": "Dispatches a message by advancing the ring/queue pointer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

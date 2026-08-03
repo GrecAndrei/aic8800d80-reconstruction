@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_4ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f0da", "status": "ok", "name": "ipc_doorbell_handler_n276", "params": [], "docstring": "Handle IPC doorbell interrupt status check", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

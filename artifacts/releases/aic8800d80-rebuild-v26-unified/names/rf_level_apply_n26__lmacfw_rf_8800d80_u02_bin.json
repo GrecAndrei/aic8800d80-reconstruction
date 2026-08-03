@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n26", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226dfe", "status": "ok", "name": "rf_level_table_apply", "params": [], "docstring": "apply RF level/power entries from indexed table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

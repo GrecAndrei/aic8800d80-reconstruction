@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_1d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b82", "status": "ok", "name": "rf_bus_setup_n_1d6", "params": [], "docstring": "RF bus register read via MMIO address table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

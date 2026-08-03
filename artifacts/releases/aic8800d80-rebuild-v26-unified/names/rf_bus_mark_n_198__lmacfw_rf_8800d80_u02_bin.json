@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_198", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ff4", "status": "ok", "name": "patch_apply_with_membar", "params": [], "docstring": "Sets flag at [r3+0x88] under isb/dsb memory barriers then commits via 0x10d784", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

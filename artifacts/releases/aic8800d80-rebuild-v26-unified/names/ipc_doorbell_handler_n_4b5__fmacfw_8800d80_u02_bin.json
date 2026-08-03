@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_4b5", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12154c6", "status": "ok", "name": "ipc_doorbell_handler_n_4b5", "params": [], "docstring": "Acknowledge and clear IPC doorbell interrupt", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

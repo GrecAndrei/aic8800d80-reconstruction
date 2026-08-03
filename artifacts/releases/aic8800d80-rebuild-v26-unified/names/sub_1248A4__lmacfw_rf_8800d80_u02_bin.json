@@ -1,0 +1,1 @@
+{"fn": "sub_1248A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1248a4", "status": "ok", "name": "mmio_set_flag", "params": [], "docstring": "Set memory-mapped flag if not already set", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n480", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211ef8", "status": "ok", "name": "rf_bus_write2_n480", "params": [], "docstring": "Writes bounded/clamped value to RF bus register pair", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

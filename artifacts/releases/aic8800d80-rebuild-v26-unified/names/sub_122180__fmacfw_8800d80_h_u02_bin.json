@@ -1,0 +1,1 @@
+{"fn": "sub_122180", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122180", "status": "ok", "name": "poll_rf_register_done", "params": [], "docstring": "Wait for RF register operation to complete with timeout", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

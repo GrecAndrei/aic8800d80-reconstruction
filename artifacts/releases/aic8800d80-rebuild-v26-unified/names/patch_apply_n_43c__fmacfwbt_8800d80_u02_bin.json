@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_43c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150ac", "status": "ok", "name": "patch_apply_n_43c", "params": [], "docstring": "Apply signed patch delta and write result byte", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

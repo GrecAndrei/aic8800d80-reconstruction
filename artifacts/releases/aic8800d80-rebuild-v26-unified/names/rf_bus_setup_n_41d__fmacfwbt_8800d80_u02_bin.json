@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_41d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121193a", "status": "ok", "name": "fmac_hw_reg_init_csm", "params": [], "docstring": "Initialize CSM MMIO registers at 0x40328180/0x88", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11CD3C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11cd3c", "status": "ok", "name": "rf_get_tx_entry", "params": [], "docstring": "Return RF power table entry for current index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

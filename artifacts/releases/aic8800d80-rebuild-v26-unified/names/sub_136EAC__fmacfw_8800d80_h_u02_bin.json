@@ -1,0 +1,1 @@
+{"fn": "sub_136EAC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136eac", "status": "ok", "name": "rf_set_channel_cfg", "params": [], "docstring": "Configure PHY channel and load per-channel table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

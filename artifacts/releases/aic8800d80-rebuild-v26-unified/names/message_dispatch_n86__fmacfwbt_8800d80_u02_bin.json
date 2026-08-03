@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n86", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc3a", "status": "ok", "name": "message_dispatch_n86_cc3a", "params": [], "docstring": "Dispatch IPC message storing two halfword params at negative offset", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

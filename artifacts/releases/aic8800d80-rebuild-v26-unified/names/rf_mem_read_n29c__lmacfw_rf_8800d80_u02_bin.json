@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n29c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f830", "status": "ok", "name": "rf_bus_mark_n_17e", "params": [], "docstring": "Mark RF bus descriptor slot via shared bus pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

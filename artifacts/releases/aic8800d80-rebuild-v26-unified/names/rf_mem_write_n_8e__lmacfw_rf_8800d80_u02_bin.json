@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_8e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f9e", "status": "ok", "name": "rf_mem_write", "params": [], "docstring": "Write RF memory and check for 'R' signature", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

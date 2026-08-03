@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4f6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa8a", "status": "ok", "name": "rf_mem_read_n4f6", "params": [], "docstring": "Reads RF memory region via 9-byte and 0x12-byte transfers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

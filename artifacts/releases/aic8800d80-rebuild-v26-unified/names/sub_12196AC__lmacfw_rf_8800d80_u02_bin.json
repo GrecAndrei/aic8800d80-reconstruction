@@ -1,0 +1,1 @@
+{"fn": "sub_12196AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12196ac", "status": "ok", "name": "rf_init_msg_send", "params": [], "docstring": "Build and send RF init message (op 0x74) via ipc_send", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

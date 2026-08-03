@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_na6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147ee", "status": "ok", "name": "rf_fault_dump_na6", "params": [], "docstring": "Dumps RF fault data with size capped at 0x100 bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

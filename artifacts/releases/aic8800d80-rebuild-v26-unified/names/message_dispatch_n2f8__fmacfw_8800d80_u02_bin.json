@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n2f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cc84", "status": "ok", "name": "message_dispatch_n2f8", "params": [], "docstring": "Dispatch pending messages from shared mailbox queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

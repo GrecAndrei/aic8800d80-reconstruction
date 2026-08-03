@@ -1,0 +1,1 @@
+{"fn": "sub_11EA84", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11ea84", "status": "ok", "name": "disable_watchdog", "params": [], "docstring": "Toggles watchdog control bits in memory-mapped registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

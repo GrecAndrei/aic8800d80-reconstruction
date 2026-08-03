@@ -1,0 +1,1 @@
+{"fn": "sub_142D9C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142d9c", "status": "ok", "name": "double_compare_flags", "params": [], "docstring": "Return comparison status (-1/0/1) for doubles", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

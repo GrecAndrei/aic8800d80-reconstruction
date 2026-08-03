@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n2dc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211748", "status": "ok", "name": "rf_bus_write_n2dc", "params": [], "docstring": "Writes RF bus register with masked field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

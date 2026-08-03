@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n492", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa26", "status": "ok", "name": "rf_mem_read_n492", "params": [], "docstring": "Clamp RF memory read index between bounds and compute pointer via scaled base offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

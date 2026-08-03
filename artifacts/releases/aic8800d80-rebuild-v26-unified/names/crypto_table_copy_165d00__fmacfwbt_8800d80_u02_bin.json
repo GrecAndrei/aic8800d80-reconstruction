@@ -1,0 +1,1 @@
+{"fn": "crypto_table_copy_165d00", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1206314", "status": "ok", "name": "log_free_pool_dispatch2_n4e6", "params": [], "docstring": "Returns via pop and dispatches log/free-pool branch on slot byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

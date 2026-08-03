@@ -1,0 +1,1 @@
+{"fn": "sub_122B738", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b738", "status": "ok", "name": "phy_chan_idx_calc", "params": [], "docstring": "compute channel index/offset from PHY state struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

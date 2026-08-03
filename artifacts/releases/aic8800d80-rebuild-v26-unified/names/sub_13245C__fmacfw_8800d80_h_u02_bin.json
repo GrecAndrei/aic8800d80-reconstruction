@@ -1,0 +1,1 @@
+{"fn": "sub_13245C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13245c", "status": "ok", "name": "rf_is_state_1", "params": [], "docstring": "Tests first hardware state indicator", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_nf4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213d3c", "status": "ok", "name": "rf_msg_process_body_nf4", "params": [], "docstring": "Processes RF message body, computing per-channel slot base", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

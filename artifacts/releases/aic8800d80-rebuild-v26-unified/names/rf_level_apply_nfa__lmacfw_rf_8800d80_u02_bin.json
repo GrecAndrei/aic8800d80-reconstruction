@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_nfa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226ed2", "status": "ok", "name": "rf_level_apply_nfa", "params": [], "docstring": "Apply RF TX power level for NFA mode (Narrow Frequency Action/narrow band frame)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

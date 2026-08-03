@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_31c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215660", "status": "ok", "name": "ipc_doorbell_handler_n_31c", "params": [], "docstring": "Handle IPC doorbell interrupt: ack bit in 0x40328048 and clear flag", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

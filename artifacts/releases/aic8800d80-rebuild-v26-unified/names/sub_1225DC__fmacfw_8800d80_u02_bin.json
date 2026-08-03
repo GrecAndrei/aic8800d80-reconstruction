@@ -1,0 +1,1 @@
+{"fn": "sub_1225DC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1225dc", "status": "ok", "name": "hci_send_cmd_0x59", "params": [], "docstring": "Send HCI vendor command 0x59.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

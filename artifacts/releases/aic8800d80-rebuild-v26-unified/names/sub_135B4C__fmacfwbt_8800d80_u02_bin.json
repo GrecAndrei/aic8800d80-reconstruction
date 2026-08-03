@@ -1,0 +1,1 @@
+{"fn": "sub_135B4C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135b4c", "status": "ok", "name": "hci_vendor_cmd_dispatch", "params": [], "docstring": "Send HCI command and optionally branch to RF lookup", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

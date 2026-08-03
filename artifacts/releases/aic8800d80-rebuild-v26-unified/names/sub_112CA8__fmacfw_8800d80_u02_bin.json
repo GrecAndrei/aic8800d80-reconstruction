@@ -1,0 +1,1 @@
+{"fn": "sub_112CA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x112ca8", "status": "ok", "name": "rf_isr_clear", "params": [], "docstring": "Reads and clears radio interrupt status bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

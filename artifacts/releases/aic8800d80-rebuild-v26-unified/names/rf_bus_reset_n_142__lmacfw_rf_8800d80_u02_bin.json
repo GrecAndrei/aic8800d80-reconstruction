@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_142", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12121ae", "status": "ok", "name": "message_dispatch_n4ae", "params": [], "docstring": "Dispatch secondary IPC message queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

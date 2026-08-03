@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121281c", "status": "ok", "name": "rf_cmd_send_n_fc", "params": [], "docstring": "Send RF command clearing flag bit and loading payload size", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

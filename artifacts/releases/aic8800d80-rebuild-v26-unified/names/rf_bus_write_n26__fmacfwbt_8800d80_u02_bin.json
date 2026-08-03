@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n26", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119e6", "status": "ok", "name": "rf_bus_write_n26", "params": [], "docstring": "Writes to RF control bus with bitmask modification", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

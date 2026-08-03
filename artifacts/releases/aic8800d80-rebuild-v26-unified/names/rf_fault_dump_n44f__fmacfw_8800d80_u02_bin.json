@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n44f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b96", "status": "ok", "name": "rf_fault_dump_n44f", "params": [], "docstring": "Read RF fault status bit 20 (0x14) via MMIO callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

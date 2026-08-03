@@ -1,0 +1,1 @@
+{"fn": "sub_12AFD4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12afd4", "status": "ok", "name": "get_event_payload", "params": [], "docstring": "Get payload pointer for event type", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

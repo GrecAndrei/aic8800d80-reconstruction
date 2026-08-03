@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_de", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121466a", "status": "ok", "name": "rf_fault_dump_n_de", "params": [], "docstring": "Triggers fault dump by writing to NVIC interrupt control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

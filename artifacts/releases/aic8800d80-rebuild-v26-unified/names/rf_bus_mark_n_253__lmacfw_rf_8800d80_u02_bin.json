@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_253", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f38", "status": "ok", "name": "rf_bus_mark_slot", "params": [], "docstring": "Marks RF bus slot using reciprocal division to compute index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

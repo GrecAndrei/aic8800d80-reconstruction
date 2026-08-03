@@ -1,0 +1,1 @@
+{"fn": "sub_124B74", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124b74", "status": "ok", "name": "cmd_dispatch", "params": [], "docstring": "Dispatch command based on header value", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

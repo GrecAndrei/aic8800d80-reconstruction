@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n19e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215686", "status": "ok", "name": "patch_apply_n19e", "params": [], "docstring": "Apply firmware patch with shifted operand", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

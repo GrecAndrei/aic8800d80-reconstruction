@@ -1,0 +1,1 @@
+{"fn": "sub_1227040", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1227040", "status": "ok", "name": "rf_status_query_n704", "params": [], "docstring": "Queries RF status field from shared data structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

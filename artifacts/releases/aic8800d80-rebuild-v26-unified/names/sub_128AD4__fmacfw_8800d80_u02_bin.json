@@ -1,0 +1,1 @@
+{"fn": "sub_128AD4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x128ad4", "status": "ok", "name": "sta_get_current", "params": [], "docstring": "Get current station entry from global index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

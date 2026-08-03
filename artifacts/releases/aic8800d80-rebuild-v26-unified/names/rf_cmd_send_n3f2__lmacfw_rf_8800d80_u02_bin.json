@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3f2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d0a", "status": "ok", "name": "rf_cmd_send_n3f2", "params": [], "docstring": "Sends RF command by toggling control bits in 0x800/0xb30 regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1222184", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1222184", "status": "ok", "name": "mmio_region_setup_n148", "params": [], "docstring": "Initialize MMIO region around 0x40320204/0x40320210", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

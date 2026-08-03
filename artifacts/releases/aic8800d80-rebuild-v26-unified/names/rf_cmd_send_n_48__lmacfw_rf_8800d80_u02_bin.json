@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_48", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128d0", "status": "ok", "name": "rf_cmd_send_n_48", "params": [], "docstring": "Send RF command via bl helper and clear status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

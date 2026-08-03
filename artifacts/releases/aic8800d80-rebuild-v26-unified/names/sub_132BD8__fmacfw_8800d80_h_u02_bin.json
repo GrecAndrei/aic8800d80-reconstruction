@@ -1,0 +1,1 @@
+{"fn": "sub_132BD8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x132bd8", "status": "ok", "name": "ble_ll_conn_rx_update", "params": [], "docstring": "Copies RX window and clears connection control fields.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

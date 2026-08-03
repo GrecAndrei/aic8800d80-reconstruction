@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212968", "status": "ok", "name": "message_dispatch_n3e2", "params": [], "docstring": "Dispatches an incoming host message to its registered handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

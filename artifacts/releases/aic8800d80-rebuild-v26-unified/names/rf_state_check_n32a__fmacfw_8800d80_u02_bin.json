@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n32a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124fe", "status": "ok", "name": "rf_state_check_n32a", "params": [], "docstring": "Check RF state and branch on status value 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

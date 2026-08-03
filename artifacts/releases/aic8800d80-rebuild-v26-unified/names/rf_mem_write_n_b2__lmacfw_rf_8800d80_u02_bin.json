@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_b2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f7a", "status": "ok", "name": "rf_mem_write_n_b2", "params": [], "docstring": "Writes to RF memory with size dispatch on r0==1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13C400", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c400", "status": "ok", "name": "find_rates_ie", "params": [], "docstring": "Scans IE buffer for rates element type 2 after 5-byte header", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

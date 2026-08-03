@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_204", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e2c", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Checks RF FSM state against expected value 0x320", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

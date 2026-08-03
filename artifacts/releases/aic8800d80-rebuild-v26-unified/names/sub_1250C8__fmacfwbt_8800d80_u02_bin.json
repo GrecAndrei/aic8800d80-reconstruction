@@ -1,0 +1,1 @@
+{"fn": "sub_1250C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1250c8", "status": "ok", "name": "ke_timer_service", "params": [], "docstring": "Service kernel timer using global event list", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

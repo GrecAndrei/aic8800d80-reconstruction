@@ -1,0 +1,1 @@
+{"fn": "sub_125AC8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125ac8", "status": "ok", "name": "list_remove", "params": [], "docstring": "Removes an object from list if flag set", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

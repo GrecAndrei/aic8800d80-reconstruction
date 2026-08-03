@@ -1,0 +1,1 @@
+{"fn": "sub_10ECD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ecd8", "status": "ok", "name": "periph_trigger_write", "params": [], "docstring": "Write to peripheral control register after setup", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

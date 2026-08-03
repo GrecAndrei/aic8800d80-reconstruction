@@ -1,0 +1,1 @@
+{"fn": "sub_10184C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10184c", "status": "ok", "name": "sys_irq_dispatch", "params": [], "docstring": "Check system IRQ flag and call dispatcher if set", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

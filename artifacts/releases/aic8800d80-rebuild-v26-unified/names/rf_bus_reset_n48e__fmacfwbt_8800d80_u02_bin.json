@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n48e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cd2", "status": "ok", "name": "rf_bus_reset_n48e", "params": [], "docstring": "Reset RF bus arbiter after command completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

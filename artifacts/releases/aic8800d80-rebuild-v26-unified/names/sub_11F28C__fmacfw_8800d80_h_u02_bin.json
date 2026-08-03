@@ -1,0 +1,1 @@
+{"fn": "sub_11F28C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11f28c", "status": "ok", "name": "is_ll_event_pending", "params": [], "docstring": "Checks whether link-layer event queue is non-empty", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

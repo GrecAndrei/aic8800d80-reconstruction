@@ -1,0 +1,1 @@
+{"fn": "sub_1320BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1320bc", "status": "ok", "name": "is_adv_enabled", "params": [], "docstring": "Check if advertising is enabled", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

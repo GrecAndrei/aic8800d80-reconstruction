@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2aa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ee2", "status": "ok", "name": "rf_bus_mark_update", "params": [], "docstring": "Update RF bus marker counter using magic multiply", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

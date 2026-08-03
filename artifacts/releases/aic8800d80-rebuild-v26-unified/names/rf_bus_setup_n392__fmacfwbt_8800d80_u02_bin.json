@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n392", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120ea", "status": "ok", "name": "rf_bus_setup_n392", "params": [], "docstring": "Configures RF bus register fields with multi-byte pack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214ffe", "status": "ok", "name": "rf_msg_process_body_n_2fa", "params": [], "docstring": "RF message handler body tail; clears flag and re-enables IRQs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

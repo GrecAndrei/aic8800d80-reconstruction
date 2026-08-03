@@ -1,0 +1,1 @@
+{"fn": "sub_131758", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x131758", "status": "ok", "name": "pdu_type_validate", "params": [], "docstring": "Validate PDU type and return status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112ea", "status": "ok", "name": "rf_bus_mark_n_3f6", "params": [], "docstring": "Mark RF bus with 0x400 flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

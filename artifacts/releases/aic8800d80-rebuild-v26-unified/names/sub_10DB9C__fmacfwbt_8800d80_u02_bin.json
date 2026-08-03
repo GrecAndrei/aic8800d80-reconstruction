@@ -1,0 +1,1 @@
+{"fn": "sub_10DB9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10db9c", "status": "ok", "name": "gpio_pin_config", "params": [], "docstring": "Configure pin selected by index 0-7 using pin config registers at 0x40504000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

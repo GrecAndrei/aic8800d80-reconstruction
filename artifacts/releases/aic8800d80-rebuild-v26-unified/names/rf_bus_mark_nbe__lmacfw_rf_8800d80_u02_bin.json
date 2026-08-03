@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_nbe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121124a", "status": "ok", "name": "mac_phy_status_check_n_efc", "params": [], "docstring": "Check PHY/MAC status register and dispatch handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

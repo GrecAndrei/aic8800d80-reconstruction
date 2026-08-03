@@ -1,0 +1,1 @@
+{"fn": "sub_103B54", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x103b54", "status": "ok", "name": "rf_clear_ana_bits", "params": [], "docstring": "Clear two analog RF register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

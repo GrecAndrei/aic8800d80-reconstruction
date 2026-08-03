@@ -1,0 +1,1 @@
+{"fn": "sub_118C74", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118c74", "status": "ok", "name": "tx_path_status", "params": [], "docstring": "Inspect TX path status against RF state", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

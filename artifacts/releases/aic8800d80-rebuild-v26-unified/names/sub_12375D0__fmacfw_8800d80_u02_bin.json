@@ -1,0 +1,1 @@
+{"fn": "sub_12375D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12375d0", "status": "ok", "name": "ipc_msgbuf_alloc_init", "params": [], "docstring": "Allocate IPC message buffer of size 0xfc0 with id 4", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

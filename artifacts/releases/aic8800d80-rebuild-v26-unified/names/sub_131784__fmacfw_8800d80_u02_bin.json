@@ -1,0 +1,1 @@
+{"fn": "sub_131784", "img": "fmacfw_8800d80_u02_bin", "addr": "0x131784", "status": "ok", "name": "bt_command_put", "params": [], "docstring": "Submit BT command code to handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

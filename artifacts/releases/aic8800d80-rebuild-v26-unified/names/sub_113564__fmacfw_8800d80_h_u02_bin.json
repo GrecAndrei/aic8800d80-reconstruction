@@ -1,0 +1,1 @@
+{"fn": "sub_113564", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113564", "status": "ok", "name": "get_handler_by_index", "params": [], "docstring": "Return handler from jump table for index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

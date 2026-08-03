@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n24a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150f6", "status": "ok", "name": "patch_apply_n24a", "params": [], "docstring": "Apply firmware patch entry point", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

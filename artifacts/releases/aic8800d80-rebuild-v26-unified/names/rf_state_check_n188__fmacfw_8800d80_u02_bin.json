@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n188", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121235c", "status": "ok", "name": "rf_state_check_n188", "params": [], "docstring": "Check and update RF state pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

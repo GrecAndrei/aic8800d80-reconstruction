@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n3fa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f98e", "status": "ok", "name": "rf_mem_read_word", "params": [], "docstring": "Read word from RF memory indexed by shift-multiply pattern", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_82", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121226e", "status": "ok", "name": "patch_apply_naa", "params": [], "docstring": "Apply firmware patch with word-aligned copy", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

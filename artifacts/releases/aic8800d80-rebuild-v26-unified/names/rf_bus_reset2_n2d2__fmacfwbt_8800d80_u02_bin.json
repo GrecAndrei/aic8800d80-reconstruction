@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n2d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b2a", "status": "ok", "name": "rf_bus_reset2_n2d2", "params": [], "docstring": "RF bus reset helper, sets control bits (0x40, 0x8000000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

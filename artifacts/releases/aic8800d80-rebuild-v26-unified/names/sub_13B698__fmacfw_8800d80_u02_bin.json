@@ -1,0 +1,1 @@
+{"fn": "sub_13B698", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b698", "status": "ok", "name": "adv_set_params", "params": [], "docstring": "Set advertising parameters from stack arguments", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

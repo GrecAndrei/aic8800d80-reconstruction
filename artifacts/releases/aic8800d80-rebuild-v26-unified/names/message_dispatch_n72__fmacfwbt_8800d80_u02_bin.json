@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n72", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc26", "status": "ok", "name": "rf_cmd_process_n45c", "params": [], "docstring": "Processes an RF command buffer, extracting flags and forwarding via bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

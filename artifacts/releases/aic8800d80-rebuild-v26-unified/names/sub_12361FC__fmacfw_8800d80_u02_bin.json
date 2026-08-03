@@ -1,0 +1,1 @@
+{"fn": "sub_12361FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12361fc", "status": "ok", "name": "lmac_ps_state_check", "params": [], "docstring": "Check LMAC power-save state via signed halfword", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

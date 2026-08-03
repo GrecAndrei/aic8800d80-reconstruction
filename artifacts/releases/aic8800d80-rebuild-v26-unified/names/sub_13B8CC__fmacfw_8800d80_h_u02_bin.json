@@ -1,0 +1,1 @@
+{"fn": "sub_13B8CC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b8cc", "status": "ok", "name": "get_global_base", "params": [], "docstring": "Loads the base address of a global data table.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

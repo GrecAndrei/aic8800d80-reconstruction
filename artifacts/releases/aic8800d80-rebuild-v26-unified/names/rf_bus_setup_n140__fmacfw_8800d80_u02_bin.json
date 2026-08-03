@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n140", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121203c", "status": "ok", "name": "rf_bus_setup_203c", "params": [], "docstring": "Setup RF bus registers with config from 0x18231f", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

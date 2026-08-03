@@ -1,0 +1,1 @@
+{"fn": "sub_127A54", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127a54", "status": "ok", "name": "double_compare", "params": [], "docstring": "Core comparison of two doubles returning -1/0/1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

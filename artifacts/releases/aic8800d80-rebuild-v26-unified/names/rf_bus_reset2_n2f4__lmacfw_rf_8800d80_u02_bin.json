@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n2f4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12115f8", "status": "ok", "name": "rf_bus_reset2_n2f4", "params": [], "docstring": "Resets RF bus state by clearing/shifting value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

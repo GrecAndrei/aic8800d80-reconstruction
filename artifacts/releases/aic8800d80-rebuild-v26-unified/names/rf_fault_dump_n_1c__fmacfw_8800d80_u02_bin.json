@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_1c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121472c", "status": "ok", "name": "rf_fault_register_dump_n1c", "params": [], "docstring": "RF fault handler dumping registers (0x5c, 0x58 sizes)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_106", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122caae", "status": "ok", "name": "message_dispatch_n_106", "params": [], "docstring": "IPC message dispatch with counter decrement and zero check", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

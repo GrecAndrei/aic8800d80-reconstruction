@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_1a6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213aa2", "status": "ok", "name": "rf_mem_read_n4ec", "params": [], "docstring": "RF memory read with shared register context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n338", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227110", "status": "ok", "name": "rf_level_apply_n338", "params": [], "docstring": "Applies configured RF TX/RX level/attenuation values to hardware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

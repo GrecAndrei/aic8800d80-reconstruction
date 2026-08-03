@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fae", "status": "ok", "name": "rf_bus_mark_n_1de", "params": [], "docstring": "Mark RF bus transaction slot", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

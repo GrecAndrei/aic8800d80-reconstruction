@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n433", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d4a", "status": "ok", "name": "rf_cmd_send_n433", "params": [], "docstring": "Build and send RF command to subsystem", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12EDCC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12edcc", "status": "ok", "name": "msg_alloc_0x424", "params": [], "docstring": "Allocate 0x408-byte message 0x424 and copy data", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

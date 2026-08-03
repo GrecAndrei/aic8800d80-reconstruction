@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n1a2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212376", "status": "ok", "name": "rf_state_register_check_2376", "params": [], "docstring": "Checks RF state and register from shared globals", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

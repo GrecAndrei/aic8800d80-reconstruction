@@ -1,0 +1,1 @@
+{"fn": "sub_142EDC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142edc", "status": "ok", "name": "double_compare_core", "params": [], "docstring": "Core double comparison, returns -1/0/1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

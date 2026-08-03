@@ -1,0 +1,1 @@
+{"fn": "sub_12ABC8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12abc8", "status": "ok", "name": "get_acl_flag", "params": [], "docstring": "Load ACL connection flag at offset", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

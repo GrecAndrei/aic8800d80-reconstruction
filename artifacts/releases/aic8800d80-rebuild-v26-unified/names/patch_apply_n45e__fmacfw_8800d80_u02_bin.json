@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n45e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121530a", "status": "ok", "name": "patch_apply_n45e", "params": [], "docstring": "Writes patch bytes at offsets 0xe/0xf/0x15/0x16 of target struct", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

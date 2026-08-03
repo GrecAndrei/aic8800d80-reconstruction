@@ -1,0 +1,1 @@
+{"fn": "sub_122B064", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b064", "status": "ok", "name": "bt_chan_init_all", "params": [], "docstring": "Initialize BT channels 0..3 via per-channel setup helper", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

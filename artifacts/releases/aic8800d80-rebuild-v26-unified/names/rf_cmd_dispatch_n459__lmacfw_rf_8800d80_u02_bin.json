@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n459", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122239c", "status": "ok", "name": "message_dispatch_n_336", "params": [], "docstring": "Advances message pointer and dispatches to next handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

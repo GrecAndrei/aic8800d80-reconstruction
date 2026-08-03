@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_49e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113ba", "status": "ok", "name": "rf_bus_reset2_n_49e", "params": [], "docstring": "Reset RF bus controller via MMIO write 0x800 to 0x40240018", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

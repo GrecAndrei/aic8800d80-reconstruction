@@ -1,0 +1,1 @@
+{"fn": "sub_127080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127080", "status": "ok", "name": "ctrl_timer_tick", "params": [], "docstring": "Decrement retry countdown timer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

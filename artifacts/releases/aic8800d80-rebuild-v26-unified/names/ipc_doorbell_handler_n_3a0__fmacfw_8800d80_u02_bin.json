@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_3a0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12155dc", "status": "ok", "name": "ipc_doorbell_handler_n_3a0", "params": [], "docstring": "IPC doorbell interrupt handler clearing mailbox bits", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

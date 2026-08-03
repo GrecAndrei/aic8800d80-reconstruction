@@ -1,0 +1,1 @@
+{"fn": "sub_121417C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121417c", "status": "ok", "name": "rf_alloc_msg_buf", "params": [], "docstring": "Allocate 0x20-byte RF message buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

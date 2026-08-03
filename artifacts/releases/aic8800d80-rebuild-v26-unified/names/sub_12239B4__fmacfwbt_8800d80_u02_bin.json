@@ -1,0 +1,1 @@
+{"fn": "sub_12239B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12239b4", "status": "ok", "name": "bt_hci_cmd_send_n19c", "params": [], "docstring": "Send BT HCI command opcode 0x0d", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

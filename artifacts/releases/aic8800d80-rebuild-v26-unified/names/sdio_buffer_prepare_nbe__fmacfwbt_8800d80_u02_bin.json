@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nbe", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e402", "status": "ok", "name": "sdio_buffer_prepare_nbe", "params": [], "docstring": "Prepare SDIO host buffer alignment/sizes", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

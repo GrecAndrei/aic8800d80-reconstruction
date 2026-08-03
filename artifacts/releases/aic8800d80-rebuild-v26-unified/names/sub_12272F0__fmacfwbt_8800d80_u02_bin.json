@@ -1,0 +1,1 @@
+{"fn": "sub_12272F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12272f0", "status": "ok", "name": "sub_12272F0", "params": [], "docstring": "Helper using global table at 0x190c30 with offset 0x2c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_a2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212dca", "status": "ok", "name": "rf_cmd_send_n_a2", "params": [], "docstring": "Send RF command via bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

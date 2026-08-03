@@ -1,0 +1,1 @@
+{"fn": "sub_12249C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12249c", "status": "ok", "name": "send_hci_event", "params": [], "docstring": "Send HCI event with code 0x59", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n5c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221fa0", "status": "ok", "name": "rf_cmd_dispatch_n5c", "params": [], "docstring": "Dispatches RF command based on opcode byte ('R')", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

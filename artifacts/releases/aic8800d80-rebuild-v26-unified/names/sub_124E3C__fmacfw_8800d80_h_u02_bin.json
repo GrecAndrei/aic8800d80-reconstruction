@@ -1,0 +1,1 @@
+{"fn": "sub_124E3C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124e3c", "status": "ok", "name": "get_mmio_state", "params": [], "docstring": "Read global MMIO state pointer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

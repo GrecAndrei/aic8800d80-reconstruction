@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_33a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215642", "status": "ok", "name": "ipc_doorbell_handler_n_33a", "params": [], "docstring": "Handles host-to-firmware doorbell interrupt by clearing pending IPC status bit.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

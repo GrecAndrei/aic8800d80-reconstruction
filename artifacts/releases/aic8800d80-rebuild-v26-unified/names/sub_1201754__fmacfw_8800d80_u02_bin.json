@@ -1,0 +1,1 @@
+{"fn": "sub_1201754", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201754", "status": "ok", "name": "sub_1201754", "params": [], "docstring": "Check signed half-word from shared state and branch on result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

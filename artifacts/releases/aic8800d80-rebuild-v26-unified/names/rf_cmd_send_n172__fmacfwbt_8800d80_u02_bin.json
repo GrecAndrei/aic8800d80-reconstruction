@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n172", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212fde", "status": "ok", "name": "rf_cmd_send_n172", "params": [], "docstring": "Send command to RF hardware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

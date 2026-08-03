@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n198", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213004", "status": "ok", "name": "rf_cmd_send_n198_3004", "params": [], "docstring": "Stages RF command and triggers LMAC mailbox/doorbell with 0x400000 opcode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

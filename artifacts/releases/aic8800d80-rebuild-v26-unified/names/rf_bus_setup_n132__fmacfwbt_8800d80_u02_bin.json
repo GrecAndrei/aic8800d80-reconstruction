@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n132", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e8a", "status": "ok", "name": "rf_bus_setup_n132", "params": [], "docstring": "RF bus setup initializing 0x18-length config and masking fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

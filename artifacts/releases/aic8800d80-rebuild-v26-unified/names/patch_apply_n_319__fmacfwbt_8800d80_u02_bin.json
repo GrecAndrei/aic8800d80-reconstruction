@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_319", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151ce", "status": "ok", "name": "patch_apply_n_319", "params": [], "docstring": "Applies Nth patch entry (0x319) and dispatches via indirection", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

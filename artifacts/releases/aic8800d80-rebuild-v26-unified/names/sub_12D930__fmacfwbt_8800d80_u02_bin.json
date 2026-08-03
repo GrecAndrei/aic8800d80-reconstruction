@@ -1,0 +1,1 @@
+{"fn": "sub_12D930", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d930", "status": "ok", "name": "tail_call_14274c", "params": [], "docstring": "Tail-call to common utility function at 0x14274c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

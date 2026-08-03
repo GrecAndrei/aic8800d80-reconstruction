@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_350", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b5c", "status": "ok", "name": "patch_byte_write", "params": [], "docstring": "Write a single patch byte, return status code", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

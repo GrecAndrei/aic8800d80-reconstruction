@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3e6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cd72", "status": "ok", "name": "message_dispatch_n3e6", "params": [], "docstring": "Dispatches FW message using dispatch table entries", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

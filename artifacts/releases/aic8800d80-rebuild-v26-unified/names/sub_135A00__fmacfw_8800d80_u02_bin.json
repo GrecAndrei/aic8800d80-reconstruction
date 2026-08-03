@@ -1,0 +1,1 @@
+{"fn": "sub_135A00", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135a00", "status": "ok", "name": "bt_send_acl_event", "params": [], "docstring": "send ACL data event for handle", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

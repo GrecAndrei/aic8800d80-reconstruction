@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nc4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212908", "status": "ok", "name": "rf_bus_reset_nc4", "params": [], "docstring": "RF bus reset sequence with multi-register init (r6,r5,r7,r8)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122498E", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122498e", "status": "ok", "name": "sub_122498E", "params": [], "docstring": "Parses frame header and reads from descriptor tables", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

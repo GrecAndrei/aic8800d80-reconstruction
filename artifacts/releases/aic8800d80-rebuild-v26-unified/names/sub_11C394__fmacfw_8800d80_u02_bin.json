@@ -1,0 +1,1 @@
+{"fn": "sub_11C394", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c394", "status": "ok", "name": "get_channel_number", "params": [], "docstring": "Extracts and stores a channel number from a radio descriptor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

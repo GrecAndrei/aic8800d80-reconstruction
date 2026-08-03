@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_nf2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12118f6", "status": "ok", "name": "rf_level_apply_n_284", "params": [], "docstring": "Applies RF level/AGC register values from literal pool", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

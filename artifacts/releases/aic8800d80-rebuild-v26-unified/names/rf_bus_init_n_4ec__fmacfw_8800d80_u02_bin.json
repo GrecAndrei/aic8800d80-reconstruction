@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_4ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118cc", "status": "ok", "name": "rf_bus_init_n_4ec", "params": [], "docstring": "Initialize RF bus register flags (set 0xc0 mask)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

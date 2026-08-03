@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n176", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121565e", "status": "ok", "name": "patch_apply_alt_65e", "params": [], "docstring": "Secondary firmware patch applier", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

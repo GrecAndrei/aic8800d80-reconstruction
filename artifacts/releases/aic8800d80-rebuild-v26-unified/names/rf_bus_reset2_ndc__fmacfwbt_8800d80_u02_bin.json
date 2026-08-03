@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_ndc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211934", "status": "ok", "name": "rf_bus_reset2_ndc", "params": [], "docstring": "Reset RF bus via MMIO register toggle", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

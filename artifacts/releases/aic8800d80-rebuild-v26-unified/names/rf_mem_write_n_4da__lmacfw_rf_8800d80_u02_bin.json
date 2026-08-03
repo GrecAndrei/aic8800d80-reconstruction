@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_4da", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221b52", "status": "ok", "name": "rf_bus_reset_n4a7", "params": [], "docstring": "Resets RF bus by writing reset/control values to MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

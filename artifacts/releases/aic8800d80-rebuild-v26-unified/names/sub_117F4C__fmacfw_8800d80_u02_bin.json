@@ -1,0 +1,1 @@
+{"fn": "sub_117F4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117f4c", "status": "ok", "name": "init_flag_check", "params": [], "docstring": "Return whether the global init flag is set", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

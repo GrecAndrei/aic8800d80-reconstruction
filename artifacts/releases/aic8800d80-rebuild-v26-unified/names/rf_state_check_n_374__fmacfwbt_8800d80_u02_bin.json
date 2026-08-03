@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211cbc", "status": "ok", "name": "rf_state_init_374", "params": [], "docstring": "Initialize/clear RF state structure to zero and return 1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

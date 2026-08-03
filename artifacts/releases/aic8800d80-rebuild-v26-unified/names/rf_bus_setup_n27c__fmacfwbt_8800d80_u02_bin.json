@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n27c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fd4", "status": "ok", "name": "rf_bus_setup_n27c_1fd4", "params": [], "docstring": "Configures RF bus registers with bitfield setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

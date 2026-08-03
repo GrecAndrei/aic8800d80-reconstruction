@@ -1,0 +1,1 @@
+{"fn": "sub_11DD10", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11dd10", "status": "ok", "name": "mmio_poll_wait", "params": [], "docstring": "Poll memory-mapped register until condition", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

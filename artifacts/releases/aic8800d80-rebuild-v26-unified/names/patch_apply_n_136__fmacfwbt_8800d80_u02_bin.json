@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_136", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153b2", "status": "ok", "name": "patch_apply_n_136", "params": [], "docstring": "Apply firmware patch table entries from pointer array", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

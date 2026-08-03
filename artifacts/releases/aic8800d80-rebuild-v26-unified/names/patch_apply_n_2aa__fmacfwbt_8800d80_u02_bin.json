@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121523e", "status": "ok", "name": "patch_apply_n_2aa", "params": [], "docstring": "Apply firmware patch with constant flag set to 1", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

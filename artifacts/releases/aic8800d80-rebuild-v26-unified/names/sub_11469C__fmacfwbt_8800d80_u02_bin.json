@@ -1,0 +1,1 @@
+{"fn": "sub_11469C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11469c", "status": "ok", "name": "invoke_callback", "params": [], "docstring": "Invoke registered callback pointer if non-null", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

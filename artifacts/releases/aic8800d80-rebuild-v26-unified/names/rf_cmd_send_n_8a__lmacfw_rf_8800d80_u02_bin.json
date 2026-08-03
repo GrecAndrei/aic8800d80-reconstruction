@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_8a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121288e", "status": "ok", "name": "rf_bus_mark_n_1ee", "params": [], "docstring": "Mark bits on RF control bus (variant 0x1ee)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

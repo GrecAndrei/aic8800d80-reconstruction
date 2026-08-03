@@ -1,0 +1,1 @@
+{"fn": "sub_10DB04", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10db04", "status": "ok", "name": "gpio_out_set", "params": [], "docstring": "Set bit in GPIO output register at offset 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

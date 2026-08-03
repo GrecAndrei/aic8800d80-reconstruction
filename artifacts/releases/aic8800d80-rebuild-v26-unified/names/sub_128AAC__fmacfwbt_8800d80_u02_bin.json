@@ -1,0 +1,1 @@
+{"fn": "sub_128AAC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128aac", "status": "ok", "name": "update_entries_from_config", "params": [], "docstring": "Updates table entries using current configuration and secondary table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

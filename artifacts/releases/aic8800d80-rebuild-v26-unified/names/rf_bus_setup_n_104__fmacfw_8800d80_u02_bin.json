@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_104", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211df8", "status": "ok", "name": "rf_bus_setup_n31c", "params": [], "docstring": "Set up RF bus registers (timing/init constants)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

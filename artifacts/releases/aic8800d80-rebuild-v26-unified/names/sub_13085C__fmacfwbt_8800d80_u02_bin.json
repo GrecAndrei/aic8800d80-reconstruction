@@ -1,0 +1,1 @@
+{"fn": "sub_13085C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13085c", "status": "ok", "name": "build_tx_packet", "params": [], "docstring": "Construct transmit packet header with magic and length bytes", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

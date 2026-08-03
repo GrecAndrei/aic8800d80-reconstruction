@@ -1,0 +1,1 @@
+{"fn": "sub_137124", "img": "fmacfw_8800d80_u02_bin", "addr": "0x137124", "status": "ok", "name": "rf_send_channel_alt", "params": [], "docstring": "Send channel value via command 0x100b alternative", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

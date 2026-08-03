@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce8a", "status": "ok", "name": "message_dispatch_n4fe", "params": [], "docstring": "Dispatches messages by checking 16-bit header field and splitting payload into HI/LO bytes", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

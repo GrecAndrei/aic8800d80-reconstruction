@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214cbe", "status": "ok", "name": "patch_apply_n_1ee", "params": [], "docstring": "Apply patch data via 4-byte copy into target", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

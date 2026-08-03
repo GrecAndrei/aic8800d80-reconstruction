@@ -1,0 +1,1 @@
+{"fn": "log_system_init_mode2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120f4c2", "status": "ok", "name": "log_system_init_mode2", "params": [], "docstring": "Initialize firmware logging subsystem mode 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

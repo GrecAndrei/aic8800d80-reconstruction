@@ -1,0 +1,1 @@
+{"fn": "sub_123668", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123668", "status": "ok", "name": "debug_byte_cb", "params": [], "docstring": "Read byte from argument and invoke debug callback", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

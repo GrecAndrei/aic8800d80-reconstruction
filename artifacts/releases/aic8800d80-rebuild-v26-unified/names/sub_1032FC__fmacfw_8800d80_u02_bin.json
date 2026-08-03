@@ -1,0 +1,1 @@
+{"fn": "sub_1032FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1032fc", "status": "ok", "name": "enable_radio_controller", "params": [], "docstring": "Enables radio controller and reads status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

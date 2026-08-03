@@ -1,0 +1,1 @@
+{"fn": "sub_12C5C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c5c8", "status": "ok", "name": "bt_id_match", "params": [], "docstring": "Match identifier halfwords", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

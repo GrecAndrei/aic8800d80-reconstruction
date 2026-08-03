@@ -1,0 +1,1 @@
+{"fn": "sub_130838", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130838", "status": "ok", "name": "store_uint16_ret2", "params": [], "docstring": "Store a 16-bit value and return status 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

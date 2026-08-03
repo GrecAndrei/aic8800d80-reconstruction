@@ -1,0 +1,1 @@
+{"fn": "sub_10F550", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10f550", "status": "ok", "name": "os_task_init", "params": [], "docstring": "Allocate and initialize a task context", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

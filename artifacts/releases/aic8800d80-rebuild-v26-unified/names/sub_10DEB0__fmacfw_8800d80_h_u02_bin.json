@@ -1,0 +1,1 @@
+{"fn": "sub_10DEB0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10deb0", "status": "ok", "name": "hw_block_reset", "params": [], "docstring": "Reinitialize hardware block registers at 0x4010d000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

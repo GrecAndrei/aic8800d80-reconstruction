@@ -1,0 +1,1 @@
+{"fn": "sub_142554", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x142554", "status": "ok", "name": "ll_state_field_check", "params": [], "docstring": "Validates LL state and reads packet field", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

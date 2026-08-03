@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_248", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214500", "status": "ok", "name": "rf_fault_check_limit_60", "params": [], "docstring": "Validate fault code against 0x60 boundary", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

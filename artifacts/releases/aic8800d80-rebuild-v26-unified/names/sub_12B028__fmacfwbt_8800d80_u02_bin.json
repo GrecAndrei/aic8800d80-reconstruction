@@ -1,0 +1,1 @@
+{"fn": "sub_12B028", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b028", "status": "ok", "name": "tx_slot_state_get", "params": [], "docstring": "Check state byte at offset 0x1e of TX slot table entry", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

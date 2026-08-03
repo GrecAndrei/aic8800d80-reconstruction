@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n368", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212398", "status": "ok", "name": "rf_state_machine_poll", "params": [], "docstring": "Poll RF state machine, mask and shift status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

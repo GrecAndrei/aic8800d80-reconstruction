@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n262", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ce16", "status": "ok", "name": "rf_bus_reset2_n46a", "params": [], "docstring": "Reset RF bus controller and clear transaction state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

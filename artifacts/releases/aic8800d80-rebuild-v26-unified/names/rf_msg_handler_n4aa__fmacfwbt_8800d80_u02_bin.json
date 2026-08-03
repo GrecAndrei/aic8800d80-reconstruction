@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n4aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121340a", "status": "ok", "name": "rf_msg_handler_n4aa", "params": [], "docstring": "Handles RF subsystem messages from host", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

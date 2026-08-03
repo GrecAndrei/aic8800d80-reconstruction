@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158bc", "status": "ok", "name": "patch_apply_n3d4", "params": [], "docstring": "Apply BT FW patch table entry n3d4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

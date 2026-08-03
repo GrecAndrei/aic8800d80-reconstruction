@@ -1,0 +1,1 @@
+{"fn": "sub_124914", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124914", "status": "ok", "name": "mmio_enable_clock", "params": [], "docstring": "Enable peripheral clock via control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

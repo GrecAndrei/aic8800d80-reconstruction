@@ -1,0 +1,1 @@
+{"fn": "sub_11E7C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e7c4", "status": "ok", "name": "check_kernel_state_alt2", "params": [], "docstring": "Another kernel state check variant.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

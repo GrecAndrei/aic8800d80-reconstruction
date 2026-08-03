@@ -1,0 +1,1 @@
+{"fn": "sub_1219AF4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1219af4", "status": "ok", "name": "rf_chan_set_calib_af4", "params": [], "docstring": "Sets RF channel with calibration, dispatches via callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

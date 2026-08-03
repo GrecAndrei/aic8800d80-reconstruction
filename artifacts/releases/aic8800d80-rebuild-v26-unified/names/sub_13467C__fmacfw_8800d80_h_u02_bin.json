@@ -1,0 +1,1 @@
+{"fn": "sub_13467C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13467c", "status": "ok", "name": "ble_reset_controller", "params": [], "docstring": "Resets global 0x192490 and checks readiness", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

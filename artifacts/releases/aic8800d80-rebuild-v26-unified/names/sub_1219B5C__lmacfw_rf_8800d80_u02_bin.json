@@ -1,0 +1,1 @@
+{"fn": "sub_1219B5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1219b5c", "status": "ok", "name": "rf_param_parse_n_5c", "params": [], "docstring": "Parses parameter struct reading byte field at offset 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

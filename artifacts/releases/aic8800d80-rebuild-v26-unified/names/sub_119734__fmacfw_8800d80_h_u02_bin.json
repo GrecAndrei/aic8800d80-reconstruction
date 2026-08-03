@@ -1,0 +1,1 @@
+{"fn": "sub_119734", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x119734", "status": "ok", "name": "btm_is_link_active", "params": [], "docstring": "Test bit 0 of link flags at offset 0x52.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

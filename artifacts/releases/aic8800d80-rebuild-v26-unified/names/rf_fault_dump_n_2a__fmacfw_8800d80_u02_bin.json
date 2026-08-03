@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121471e", "status": "ok", "name": "nvic_irq_disable_n_2a", "params": [], "docstring": "Write to NVIC ISER/ICER (0xE000E100) to disable an interrupt", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

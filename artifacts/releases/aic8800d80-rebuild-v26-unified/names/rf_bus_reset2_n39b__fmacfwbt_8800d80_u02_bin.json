@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n39b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211bf2", "status": "ok", "name": "rf_bus_reset2_n39b", "params": [], "docstring": "Branch on RF bus reset state (cmp 5)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

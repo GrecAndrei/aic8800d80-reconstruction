@@ -1,0 +1,1 @@
+{"fn": "sub_134008", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134008", "status": "ok", "name": "llm_le_set_scan_enable", "params": [], "docstring": "Handles LE scan enable request after checking LL task state", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

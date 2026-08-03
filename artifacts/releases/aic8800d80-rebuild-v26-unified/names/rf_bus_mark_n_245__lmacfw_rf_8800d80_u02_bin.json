@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_245", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f46", "status": "ok", "name": "rf_bus_mark_compute_n_245", "params": [], "docstring": "Compute RF bus mark/index from register field via shift arithmetic", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

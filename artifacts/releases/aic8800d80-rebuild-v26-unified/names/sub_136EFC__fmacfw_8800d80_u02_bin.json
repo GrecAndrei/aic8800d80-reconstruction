@@ -1,0 +1,1 @@
+{"fn": "sub_136EFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136efc", "status": "ok", "name": "rf_enable", "params": [], "docstring": "Send RF command 0x100b with enable=1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

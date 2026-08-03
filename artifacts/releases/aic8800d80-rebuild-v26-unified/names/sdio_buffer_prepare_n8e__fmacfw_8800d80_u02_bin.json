@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n8e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1aa", "status": "ok", "name": "sdio_buffer_prepare_n8e_e1aa", "params": [], "docstring": "Prepares SDIO buffer via shift-based size calculation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

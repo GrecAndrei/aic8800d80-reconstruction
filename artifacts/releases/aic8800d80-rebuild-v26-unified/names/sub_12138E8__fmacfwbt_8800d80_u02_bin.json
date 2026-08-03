@@ -1,0 +1,1 @@
+{"fn": "sub_12138E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12138e8", "status": "ok", "name": "rf_bus_setup_38e8", "params": [], "docstring": "Initializes RF bus addresses from globals", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

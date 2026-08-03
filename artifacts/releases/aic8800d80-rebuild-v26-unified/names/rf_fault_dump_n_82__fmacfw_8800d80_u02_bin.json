@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_82", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146c6", "status": "ok", "name": "bt_hci_cmd_dispatch_n_6", "params": [], "docstring": "Dispatch BT HCI command (opcode 0x76) to handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

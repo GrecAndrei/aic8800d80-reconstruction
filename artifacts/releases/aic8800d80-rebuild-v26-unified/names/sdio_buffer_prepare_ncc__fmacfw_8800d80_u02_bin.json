@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_ncc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1e8", "status": "ok", "name": "sdio_buffer_prepare_ncc_e1e8", "params": [], "docstring": "Prepare SDIO buffer pointers with index scaling", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

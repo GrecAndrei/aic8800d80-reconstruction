@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121200a", "status": "ok", "name": "rf_bus_setup_n2b2", "params": [], "docstring": "Configures RF bus registers and emits log via format string 0x166d04", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

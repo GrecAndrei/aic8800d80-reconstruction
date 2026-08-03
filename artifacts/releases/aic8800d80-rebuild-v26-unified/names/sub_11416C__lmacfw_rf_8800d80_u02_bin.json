@@ -1,0 +1,1 @@
+{"fn": "sub_11416C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11416c", "status": "ok", "name": "rf_regf_high_check", "params": [], "docstring": "Read RF status register 0xF and check high byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

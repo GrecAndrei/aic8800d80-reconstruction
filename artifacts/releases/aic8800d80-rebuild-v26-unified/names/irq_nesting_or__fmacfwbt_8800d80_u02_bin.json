@@ -1,0 +1,1 @@
+{"fn": "irq_nesting_or", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d32c", "status": "ok", "name": "irq_nesting_or", "params": [], "docstring": "Set/OR nesting level bits in IRQ state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

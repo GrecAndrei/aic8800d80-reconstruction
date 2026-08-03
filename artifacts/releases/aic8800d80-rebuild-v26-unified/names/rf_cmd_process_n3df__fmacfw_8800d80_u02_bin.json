@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n3df", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213936", "status": "ok", "name": "rf_cmd_process_3936", "params": [], "docstring": "Process RF command by comparing state byte to expected value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

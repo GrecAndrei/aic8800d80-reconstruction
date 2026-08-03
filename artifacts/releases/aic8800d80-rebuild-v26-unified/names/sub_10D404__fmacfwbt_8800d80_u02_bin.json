@@ -1,0 +1,1 @@
+{"fn": "sub_10D404", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d404", "status": "ok", "name": "watchdog_kick", "params": [], "docstring": "Kick watchdog timer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

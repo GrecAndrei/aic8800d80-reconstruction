@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3f0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f14", "status": "ok", "name": "rf_level_apply", "params": [], "docstring": "Apply signed TX power level offset from table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

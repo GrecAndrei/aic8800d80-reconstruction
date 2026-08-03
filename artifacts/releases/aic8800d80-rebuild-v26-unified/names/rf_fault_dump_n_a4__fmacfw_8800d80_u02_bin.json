@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_a4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146a4", "status": "ok", "name": "rf_mem_read_n456", "params": [], "docstring": "Branch on RF memory read size (2-byte path)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

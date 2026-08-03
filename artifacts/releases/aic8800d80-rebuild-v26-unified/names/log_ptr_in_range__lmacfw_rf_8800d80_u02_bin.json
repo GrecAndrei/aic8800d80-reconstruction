@@ -1,0 +1,1 @@
+{"fn": "log_ptr_in_range", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120fe24", "status": "ok", "name": "log_ptr_in_range", "params": [], "docstring": "Check if a pointer falls within the log buffer range", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

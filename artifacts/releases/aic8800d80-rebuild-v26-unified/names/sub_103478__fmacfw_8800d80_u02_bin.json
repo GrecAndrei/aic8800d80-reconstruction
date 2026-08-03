@@ -1,0 +1,1 @@
+{"fn": "sub_103478", "img": "fmacfw_8800d80_u02_bin", "addr": "0x103478", "status": "ok", "name": "init_radio_hw", "params": [], "docstring": "Configures radio hardware and checks init flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n22a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cdde", "status": "ok", "name": "message_dispatch_n22a", "params": [], "docstring": "Dispatches incoming message to one of several handler tables via adr-based jump", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

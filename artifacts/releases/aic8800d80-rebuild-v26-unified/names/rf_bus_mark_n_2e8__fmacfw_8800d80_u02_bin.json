@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2e8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121159c", "status": "ok", "name": "rf_bus_mark_n_2e8", "params": [], "docstring": "Mark RF bus register with computed offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

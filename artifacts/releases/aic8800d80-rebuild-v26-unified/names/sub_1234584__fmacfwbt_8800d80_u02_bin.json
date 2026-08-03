@@ -1,0 +1,1 @@
+{"fn": "sub_1234584", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234584", "status": "ok", "name": "fw_send_event_n_584", "params": [], "docstring": "Sends a firmware event/log message with code 0x180b", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

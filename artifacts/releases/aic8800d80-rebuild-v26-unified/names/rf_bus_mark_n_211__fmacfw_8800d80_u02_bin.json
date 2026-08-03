@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_211", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211672", "status": "ok", "name": "rf_bus_mark_n_211", "params": [], "docstring": "Compute masked index into RF bus structure and read state field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

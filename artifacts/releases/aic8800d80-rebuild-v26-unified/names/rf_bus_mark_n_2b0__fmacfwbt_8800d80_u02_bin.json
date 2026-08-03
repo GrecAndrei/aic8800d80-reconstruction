@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2b0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211430", "status": "ok", "name": "rf_bus_mark_n_2b0", "params": [], "docstring": "RF bus marker increment with modulo-192 multiply", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n172", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121501e", "status": "ok", "name": "patch_apply_n172", "params": [], "docstring": "Apply firmware patch checking state byte equals 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

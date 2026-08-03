@@ -1,0 +1,1 @@
+{"fn": "sub_122F1D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f1d4", "status": "ok", "name": "fmac_handler_dispatch", "params": [], "docstring": "Dispatch into fmac handler with arg save, resolves handler via table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

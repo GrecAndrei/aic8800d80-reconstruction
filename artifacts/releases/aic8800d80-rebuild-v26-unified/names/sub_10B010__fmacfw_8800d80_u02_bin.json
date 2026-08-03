@@ -1,0 +1,1 @@
+{"fn": "sub_10B010", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10b010", "status": "ok", "name": "periph_base_setup", "params": [], "docstring": "Sets up a peripheral using several base addresses", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

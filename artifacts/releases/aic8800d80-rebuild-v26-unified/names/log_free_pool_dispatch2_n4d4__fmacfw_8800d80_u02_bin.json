@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12101b4", "status": "ok", "name": "log_free_pool_dispatch2_n4d4", "params": [], "docstring": "Iterate and free log pool entries by index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_222", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211856", "status": "ok", "name": "rf_bus_write2_n_222", "params": [], "docstring": "Write to RF bus register at 0x40200000 with bit set", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1391B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1391b4", "status": "ok", "name": "rf_lookup_rate_table", "params": [], "docstring": "look up rate table entry by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

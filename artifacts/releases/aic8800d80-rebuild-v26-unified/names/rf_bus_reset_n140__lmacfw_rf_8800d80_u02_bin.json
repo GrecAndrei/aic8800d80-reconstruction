@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n140", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212430", "status": "ok", "name": "rf_bus_reset_n140", "params": [], "docstring": "Reset RF bus, set bit 8 in control reg at offset 0x804 with mask 0x10001", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

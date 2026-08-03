@@ -1,0 +1,1 @@
+{"fn": "sub_123FB4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123fb4", "status": "ok", "name": "set_reg_1807fc_bits24_27", "params": [], "docstring": "Sets bits 24-27 in register 0x1807fc", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

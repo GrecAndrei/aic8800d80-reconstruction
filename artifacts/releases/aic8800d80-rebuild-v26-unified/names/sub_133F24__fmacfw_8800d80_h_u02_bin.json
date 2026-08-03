@@ -1,0 +1,1 @@
+{"fn": "sub_133F24", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x133f24", "status": "ok", "name": "ke_lock_wait", "params": [], "docstring": "Takes lock 6 and checks the return status", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

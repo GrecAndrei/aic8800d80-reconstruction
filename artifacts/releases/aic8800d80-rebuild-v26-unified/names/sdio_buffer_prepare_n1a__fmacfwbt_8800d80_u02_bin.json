@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n1a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e35e", "status": "ok", "name": "sdio_buffer_prepare_n1a_e35e", "params": [], "docstring": "SDIO buffer prepare with length zero check", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

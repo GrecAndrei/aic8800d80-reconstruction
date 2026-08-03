@@ -1,0 +1,1 @@
+{"fn": "sub_1005B0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1005b0", "status": "ok", "name": "timer_read", "params": [], "docstring": "Read hardware timer register value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

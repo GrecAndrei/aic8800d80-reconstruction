@@ -1,0 +1,1 @@
+{"fn": "sub_128408", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x128408", "status": "ok", "name": "type_get", "params": [], "docstring": "Reads byte at offset 0x19 of argument", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

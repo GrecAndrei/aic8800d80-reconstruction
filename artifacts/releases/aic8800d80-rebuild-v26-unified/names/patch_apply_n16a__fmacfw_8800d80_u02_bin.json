@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n16a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215016", "status": "ok", "name": "patch_apply_n16a", "params": [], "docstring": "Apply firmware patch table at index 0x16a", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

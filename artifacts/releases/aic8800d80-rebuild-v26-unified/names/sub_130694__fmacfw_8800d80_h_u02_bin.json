@@ -1,0 +1,1 @@
+{"fn": "sub_130694", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x130694", "status": "ok", "name": "write_f5p_header", "params": [], "docstring": "Write header bytes 'F', 0x05, 'p' to buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

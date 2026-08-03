@@ -1,0 +1,1 @@
+{"fn": "sub_12DE94", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12de94", "status": "ok", "name": "is_factory_mode_a", "params": [], "docstring": "Checks if argument equals factory calibration constant 0xFAC12", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

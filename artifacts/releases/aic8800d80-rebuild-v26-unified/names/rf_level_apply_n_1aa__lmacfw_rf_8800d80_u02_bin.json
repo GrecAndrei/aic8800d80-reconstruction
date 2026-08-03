@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_1aa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c2e", "status": "ok", "name": "rf_level_apply_n_1aa", "params": [], "docstring": "Applies RF TX/RX level using LUT indexed by band/channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
