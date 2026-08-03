@@ -305,8 +305,15 @@ def _load_v26_names(image: str) -> dict[int, str]:
         except (OSError, json.JSONDecodeError):
             continue
         addr = j.get("addr")
-        fn = j.get("fn")
+        # The dataset writes the LLM's proposed name in the ``name`` field but
+        # often leaves ``fn`` as the original ``sub_<addr>`` placeholder (and
+        # keeps the ``sub_<addr>`` filename). Prefer ``name``, fall back to
+        # ``fn``, and drop pure placeholders so they never clobber a better
+        # scan name.
+        fn = j.get("name") or j.get("fn")
         if isinstance(addr, str) and addr.lower().startswith("0x") and fn:
+            if _is_placeholder_name(fn):
+                continue
             try:
                 out[int(addr, 16)] = fn
             except ValueError:
@@ -347,13 +354,11 @@ def load_function_table(image: str) -> list[tuple[int, str]]:
         # real CPUID-check entry is at file 0x1a8 (== the IVT reset vector).
         if name == "start" and addr == ANALYSIS_BASE + 0x100:
             addr = ANALYSIS_BASE + 0x1A8
-        # Overlay the unified naming dataset name only when it is a genuinely
-        # meaningful label. The v26 dataset records every function but most
-        # entries fall back to ``sub_<addr>`` placeholders; those must never
-        # clobber a better name the scan already carries (e.g. firmware_init).
+        # Overlay the unified naming dataset name when the dataset has one
+        # (``_load_v26_names`` already drops pure placeholders, so a dataset
+        # record can never clobber a better scan name like firmware_init).
         if v26_name := v26.get(addr):
-            if not _is_placeholder_name(v26_name):
-                name = v26_name
+            name = v26_name
         table.append((addr + HW_OFFSET, name))
     table.sort()
     return table
