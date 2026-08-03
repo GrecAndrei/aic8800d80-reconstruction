@@ -462,7 +462,8 @@ class Aic8800D80Platform:
             bval = self._behavior_read_word(addr, int(size))
             if bval is not None:
                 try:
-                    uc.mem_write(addr, int(bval).to_bytes(int(size), "little"))
+                    lane = (1 << (8 * int(size))) - 1
+                    uc.mem_write(addr, int(bval & lane).to_bytes(int(size), "little"))
                 except UcError:
                     return False
             else:
@@ -517,8 +518,12 @@ class Aic8800D80Platform:
         val = self._behavior_read_word(addr, size)
         if val is None:
             return
+        # Mask to the access size: a byte/halfword read only observes that
+        # lane, and a full-word ready_mask (e.g. 0x1825000) would otherwise
+        # overflow to_bytes() on a narrow load.
+        lane = (1 << (8 * size)) - 1
         try:
-            self.mu.mem_write(addr, int(val).to_bytes(size, "little"))
+            self.mu.mem_write(addr, int(val & lane).to_bytes(size, "little"))
         except UcError:
             pass
 

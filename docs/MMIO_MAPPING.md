@@ -198,3 +198,13 @@ So the full model gives ~79% of the corpus clean execution, and the residual
 ~13% faults are all context-injection candidates, not MMIO semantics.
 `corpus_sweep.py` buckets faults by address page so novel gaps surface in
 aggregate.
+
+A `--boot-first` mode (boot once per image, snapshot, run each function
+against the restored booted state) is a diagnostic of how many standalone
+faults are boot-state dependencies. Result: booting eliminates the allocator
+trap (INSN_INVALID 83 → 3 on lmac_rf) but exposes ~120 new null-callbacks,
+because boot-populated globals point into structures whose function-pointer
+fields the 50k-insn boot has not installed yet — net worse (932 → 605
+returned). So the standalone fresh-platform mode is the cleaner null-context
+measurement, and boot-first confirms the residual faults are context
+dependencies rather than MMIO gaps.

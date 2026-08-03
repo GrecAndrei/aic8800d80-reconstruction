@@ -16,6 +16,18 @@ the behavior model didn't classify, an extra boot-ROM slot, etc.).
 
 Faults are bucketed by (fault_address page, fault_pc page) so novel gaps are
 visible in aggregate instead of as 5,000 individual rows.
+
+``--boot-first`` boots the image once (50k insns by default), snapshots every
+mapped region, and runs each function against a restored copy of that booted
+state with behavioral counters reset. This quantifies how many standalone
+faults are boot-state dependencies. Measured on the current model it makes
+things WORSE overall (lmac_rf: 932 -> 605 returned): booting eliminates the
+allocator's `udf #255` trap (INSN_INVALID_other 83 -> 3) but exposes ~120 new
+null-callbacks, because boot-populated globals point into structures whose
+function-pointer fields the 50k-insn boot has not yet installed. So the
+standalone fresh-platform mode is the cleaner null-context measurement, and
+boot-first is a diagnostic that the residual faults are context dependencies,
+not MMIO gaps.
 """
 
 from __future__ import annotations
@@ -42,8 +54,40 @@ from tools.aic8800d80_emulator import (  # noqa: E402
 DEFAULT_CAP = 5000
 PAGE = 0x1000
 
+# Regions the platform maps (mirrors _map_memory in the emulator).
+_MAPPED_REGIONS = [
+    (0x120000, 0x180000 - 0x120000),        # primary image + BSS window
+    (0x180000, 0x20000),                    # stack under the IVT SP
+    (0x20000000, 0x80000),                  # main SRAM
+    (0x21000000, 0x10000),                  # heap
+    (0x20080000 & ~0xFFF, 0x1000),          # boot-ROM stub page
+    (0x0, 0x1000),                          # low boot-ROM page (seeded slots)
+    (0xDEADC000, 0x1000),                   # return sentinel page
+]
 
-def sweep_image(image: str, max_insns: int, every: int, out_path: Path) -> dict:
+
+def snapshot_memory(mu) -> list[tuple[int, bytes]]:
+    """Dump every mapped region's bytes for later restore."""
+    out = []
+    for base, size in _MAPPED_REGIONS:
+        try:
+            out.append((base, mu.mem_read(base, size)))
+        except Exception:
+            continue
+    return out
+
+
+def restore_memory(mu, snapshot: list[tuple[int, bytes]]) -> None:
+    """Restore previously snapshotted region bytes."""
+    for base, data in snapshot:
+        try:
+            mu.mem_write(base, data)
+        except Exception:
+            continue
+
+
+def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
+                boot_first: bool = False, boot_insns: int = 50000) -> dict:
     scan = Path(str(SCAN_GLOB).format(image))
     if not scan.is_file():
         return {"error": f"no scan {scan}"}
@@ -56,13 +100,37 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path) -> dict:
     ivt = None
     rows = []
     start = time.time()
+
+    # In boot-first mode, boot the platform once per image, snapshot every
+    # mapped region, then run each function against a RESTORED copy of that
+    # booted state (heap initialized, globals populated) with MMIO behavior
+    # state reset. This quantifies how many standalone faults are boot-state
+    # dependencies (the allocator's udf trap, data-structure callbacks) vs
+    # genuine model gaps: boot context is the real operating condition the
+    # firmware expects. Each function gets the SAME booted memory, so runs
+    # don't leak state into each other.
+    plat = Aic8800D80Platform(img_path, mmio_model=model)
+    plat.function_table = load_function_table(image)
+    ivt = plat.ivt()
+    boot_snapshot = None
+    if boot_first:
+        bt, bstats = plat.run(ivt["reset_vector"], boot_insns, sp=ivt["stack_pointer"])
+        boot_snapshot = snapshot_memory(plat.mu)
+
     for i, fn in enumerate(fns):
         if every > 1 and i % every != 0:
             continue
         chip = fn["address"] + HW_OFFSET
-        plat = Aic8800D80Platform(img_path, mmio_model=model)
-        plat.function_table = load_function_table(image)
-        if ivt is None:
+        if boot_first:
+            restore_memory(plat.mu, boot_snapshot)
+            # Reset emulator behavioral state so each function sees the same
+            # fresh post-boot MMIO state (poll counters, written values).
+            plat.mmio_state = {}
+            plat._poll_reads = {}
+            plat._strobe_until = {}
+        else:
+            plat = Aic8800D80Platform(img_path, mmio_model=model)
+            plat.function_table = load_function_table(image)
             ivt = plat.ivt()
         term, stats = plat.run(chip, max_insns, sp=ivt["stack_pointer"])
         rows.append({
@@ -105,6 +173,7 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path) -> dict:
         "capped": counts["capped"],
         "faulted": counts["fault"],
         "elapsed_s": round(elapsed, 1),
+        "boot_first": boot_first,
         "fault_pages": [{"page": hex(p), "n": n} for p, n in fault_pages.most_common(15)],
         "fault_pcs": [{"page": hex(p), "n": n} for p, n in fault_pcs.most_common(15)],
     }
@@ -119,6 +188,11 @@ def main() -> int:
                     help="only run every Nth function (sampling)")
     ap.add_argument("--out", default="/tmp/opencode/corpus_sweep",
                     help="output directory")
+    ap.add_argument("--boot-first", action="store_true",
+                    help="boot the image once, then run every function "
+                         "against the booted state (heap/globals initialized)")
+    ap.add_argument("--boot-insns", type=int, default=50000,
+                    help="instructions for the --boot-first boot")
     args = ap.parse_args()
 
     out_dir = Path(args.out)
@@ -126,9 +200,11 @@ def main() -> int:
     summaries = []
     for img in args.images:
         out = out_dir / f"{img}.jsonl"
-        s = sweep_image(img, args.max_insns, args.every, out)
+        s = sweep_image(img, args.max_insns, args.every, out,
+                        boot_first=args.boot_first, boot_insns=args.boot_insns)
         summaries.append(s)
-        print(f"[sweep] {s['image']:28s} scanned={s['scanned']:5d} "
+        mode = "boot-first" if args.boot_first else "standalone"
+        print(f"[sweep:{mode}] {s['image']:28s} scanned={s['scanned']:5d} "
               f"sampled={s['sampled']:5d} returned={s['returned']:5d} "
               f"capped={s['capped']:5d} faulted={s['faulted']:5d} "
               f"({s['elapsed_s']:.0f}s)", file=sys.stderr)
