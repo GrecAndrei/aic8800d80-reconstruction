@@ -169,7 +169,7 @@ With the 25-target gate green, the emulator is run against **every** function
 in all 4 images (5,945 total) to find gaps the curated set misses:
 
 ```
-TOTAL scanned=5945 returned=4579 (77.0%) capped=440 faulted=922 (15.5%)
+TOTAL scanned=5945 returned=4694 (79.0%) capped=450 faulted=797 (13.4%)
 ```
 
 - **Zero genuine unmapped-MMIO faults**: of the 922 faults, none is a real
@@ -181,14 +181,20 @@ TOTAL scanned=5945 returned=4579 (77.0%) capped=440 faulted=922 (15.5%)
     (`mem_alloc_align`) because the heap's "initialized" flag reads 0 when
     the function runs standalone. Proven by running them *after* a boot:
     all three sampled allocator-callers execute instead of trapping.
-  - ~190 are null indirect calls (`patch_apply_*`, IPC dispatch) through
-    uninitialized function pointers — a few persist even post-boot and would
-    need deeper boot-state context injection.
+  - ~70 are null indirect calls through function pointers. The fixed
+    boot-ROM slot table is richer than the 3 verify faults suggested: the
+    firmware also calls through 0x1c8/0x1d0/0x1d4/0x1d8/0x1e0/0x1fc (the
+    fmac images use 0x1fc; lmac_rf uses 0x1d0/0x1d4/0x1e0). Seeding the
+    full union took `patch_apply_*`/`patch`/`rf_sub_*` families from null
+    call to clean return. The ~70 that remain (`mmio_field_set_*`,
+    `rf_mmio_reg_enable`, IPC dispatch) call through struct-field pointers
+    initialized by caller context — not fixed slots, so they need deeper
+    boot-state injection.
   - ~90 are null-argument derefs (e.g. `ldr [r0,#-4]` with `r0=0`).
   - The 440 caps are deep loops / OS-style waits, expected for standalone
     runs without a scheduler.
 
-So the full model gives ~77% of the corpus clean execution, and the residual
-~15% faults are all context-injection candidates, not MMIO semantics.
+So the full model gives ~79% of the corpus clean execution, and the residual
+~13% faults are all context-injection candidates, not MMIO semantics.
 `corpus_sweep.py` buckets faults by address page so novel gaps surface in
 aggregate.

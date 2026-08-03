@@ -107,14 +107,15 @@ RETURN_STOP = 0xDEADC000
 PAGE_SIZE = 0x1000
 
 # Boot-ROM callback slots: the firmware calls through these fixed low-memory
-# vectors (`mov r3,#slot; ldr r3,[r3]; bx r3`). The boot ROM populates them
-# before the image runs; the emulator seeds them with a no-op stub so the
-# indirect call returns cleanly instead of branching to 0. All four images
-# use 0x1b0/0x1b4/0x1b8; the fmac images add 0x1fc and lmac_rf adds 0x1d8.
-# Seeding the union is harmless for images that don't reference a slot. The
-# recon smoke side stubs these same calls to return 0 (truth_lane_smoke),
-# so a returning-0 stub keeps both sides comparable.
-BOOT_CALLBACK_SLOTS = (0x1b0, 0x1b4, 0x1b8, 0x1d8, 0x1fc)
+# vectors (`mov rN,#slot; ldr rM,[rN]; bx/blx rM`). The boot ROM populates
+# them before the image runs; the emulator seeds them with a no-op stub so
+# the indirect call returns cleanly instead of branching to 0. All four
+# images use 0x1b0/0x1b4/0x1b8/0x1c8/0x1d8; the fmac images add 0x1fc and
+# lmac_rf adds 0x1d0/0x1d4/0x1e0. Seeding the union is harmless for images
+# that don't reference a slot. The recon smoke side stubs these same calls
+# to return 0 (truth_lane_smoke), so a returning-0 stub keeps both sides
+# comparable.
+BOOT_CALLBACK_SLOTS = (0x1b0, 0x1b4, 0x1b8, 0x1c8, 0x1d0, 0x1d4, 0x1d8, 0x1e0, 0x1fc)
 BOOT_STUB_BASE = 0x20080000    # dedicated stub page just past main SRAM
 BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 

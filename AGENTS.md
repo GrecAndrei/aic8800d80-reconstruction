@@ -96,7 +96,11 @@ release tarball
     populates before the image runs. `_seed_boot_callbacks` now writes a
     Thumb `movs r0,#0; bx lr` stub at 0x20080000 and points every slot at
     it (the same return-0 the recon smoke stubs use), so the indirect calls
-    return cleanly. Verify: 25/25 returned, 0 capped, 0 faulted.
+    return cleanly. Verify: 25/25 returned, 0 capped, 0 faulted. The full
+    slot union is 0x1b0/0x1b4/0x1b8/0x1c8/0x1d8 + 0x1fc (fmac images) or
+    0x1d0/0x1d4/0x1e0 (lmac_rf); seeding it lifted the corpus sweep
+    (tools/corpus_sweep.py, all 5,945 functions) to 79.0% clean execution
+    with 0 genuine unmapped-MMIO faults.
 - **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
   quantifies the ~421 undefs when linking without `--gc-sections`:
   58% naming artifacts (name points inside a composed function — code
