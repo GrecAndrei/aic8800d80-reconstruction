@@ -256,6 +256,10 @@ def load_function_table(image: str) -> list[tuple[int, str]]:
         name = j.get("name")
         if not isinstance(addr, int) or not name:
             continue
+        # The scan registers ``start`` at file 0x100 (the IVT/header base); the
+        # real CPUID-check entry is at file 0x1a8 (== the IVT reset vector).
+        if name == "start" and addr == ANALYSIS_BASE + 0x100:
+            addr = ANALYSIS_BASE + 0x1A8
         table.append((addr + HW_OFFSET, name))
     table.sort()
     return table
@@ -441,6 +445,11 @@ class Aic8800D80Platform:
             pc = int(address)
             if pc in (RETURN_STOP, RETURN_STOP | 1):
                 uc.emu_stop()
+                return
+            # A return into the low region (bx lr with a null LR, or a branch
+            # through a low handler) is the null-call / null-return class.
+            if pc < 0x10000:
+                self._null_return(uc)
                 return
             # free(NULL) is a no-op per C semantics; the firmware's allocator
             # derefs before checking, so return immediately when the free entry
@@ -774,7 +783,13 @@ class Aic8800D80Platform:
 
         if stop["value"] == "running":
             pc = self.mu.reg_read(UC_ARM_REG_PC)
-            stop["value"] = "returned" if pc in (RETURN_STOP, RETURN_STOP | 1) else f"exited:0x{pc:x}"
+            if pc in (RETURN_STOP, RETURN_STOP | 1) or pc < 0x10000:
+                # Return to the sentinel, or to a null/low return address
+                # (pop {pc} from a caller-less stack slot): the function
+                # completed; classify as returned.
+                stop["value"] = "returned"
+            else:
+                stop["value"] = f"exited:0x{pc:x}"
 
         # A fault at the return sentinel is a natural return (bx lr reached
         # the sentinel page before the cap hook could stop us).

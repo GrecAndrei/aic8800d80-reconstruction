@@ -107,6 +107,12 @@ def restore_memory(mu, snapshot: list[tuple[int, bytes]]) -> None:
 # or above the minimum SP observed during the boot.
 BOOTSTATE_WINDOW = (0x180000, 0x1a0000)
 
+# Scan artifacts: fwstruct registered a "function" on a string/crypto pool
+# (no real code). Identified individually from corpus faults.
+DATA_ARTIFACT_ENTRIES = {
+    ("sub_12F954", 0x12F954),  # lmac_rf: log string "val - ShortGI en"
+}
+
 
 def capture_bootstate(image: str, boot_insns: int) -> dict[int, tuple[int, int]]:
     """Boot the image and record the persistent global-region writes.
@@ -162,6 +168,15 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
         return {"error": f"no scan {scan}"}
     fns = [json.loads(l) for l in scan.read_text().splitlines() if l.strip()]
     fns = [f for f in fns if isinstance(f.get("address"), int) and f.get("name")]
+    for f in fns:
+        # The scan registers ``start`` at file 0x100 (IVT base); the real
+        # CPUID-check entry is at file 0x1a8 (== the IVT reset vector).
+        if f.get("name") == "start" and f.get("address") == 0x100100:
+            f["address"] = 0x1001A8
+    # Drop known scan artifacts: function entries that land on string/crypto
+    # pools (no real code there). These are rare and identified individually.
+    fns = [f for f in fns
+           if not (f.get("name"), f.get("address")) in DATA_ARTIFACT_ENTRIES]
     fns.sort(key=lambda f: f["address"])
 
     img_path = resolve_image(f"{image}.bin")

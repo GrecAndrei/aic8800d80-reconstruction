@@ -218,23 +218,42 @@ dependence rather than MMIO:
   ```
   standalone: returned=4694 capped=450  faulted=797
   bootstate:  returned=4237 capped=1536 faulted=172   (78% fewer faults)
+  bootstate:  returned=4386 capped=1558 faulted=0     (all fixes, ~0)
   ```
 
   The fault→cap conversion is the headline: functions that previously died on
   the allocator's `udf #255` assert now run their real logic and cap at a
   legitimate OS wait (`while ([flag] != 0);` — the flag is cleared by an
   interrupt/other-core path the standalone emulator never runs). The
-  returned→cap flips (4694 → 4237) are the same wait: with the heap working,
-  these functions allocate then block, instead of "returning" early on the null
-  context. That is more faithful, not a regression.
+  returned→cap flips are the same wait: with the heap working, these functions
+  allocate then block, instead of "returning" early on the null context. That is
+  more faithful, not a regression.
 
-  The residual 172 faults are two well-understood families:
-  - ~75 `READ_UNMAPPED` at `0xfffffffc` with fault_pc inside the allocator
-    (`ldr r8, [r0, #-4]` with r0=0): functions passing a null block to the
-    allocator's free/resize path — caller-supplied pointer context.
-  - ~60 `INSN_INVALID` at pc=0: a call through a null function-pointer field in
-    a boot-populated struct (the same class boot-first exposed, now ~60 instead
-    of ~120 because bootstate seeds the globals that hold most of them).
+  The residual 172 faults reduced to ~0 with four execution-context fixes in the
+  emulator (see `tools/aic8800d80_emulator.py`):
+  - **`counter` MMIO type**: registers the firmware polls as *monotonic tick
+    counters* (rf_tick_counter `0x40320120`, timer_value `0x40501010`) return
+    `insn_count // tick_rate`, so `delay_us`/tick-wait loops terminate. Also
+    corrected `rf_cmd_wait_status` (`0x40506030`) ready_mask to bit 1 — the
+    firmware waits for `(reg & 0x22) == 2`.
+  - **Null function-pointer calls** (a call through an uninitialized handler
+    field branches into the low boot-ROM page / the unmapped 0x1000 gap):
+    INSN_INVALID and low-fetch hooks stop and re-enter at the return address
+    with r0=0 (a return-0 stub, matching the boot-callback slots).
+  - **Null-safe free + null shadow page**: `free(NULL)` is a C-standard no-op —
+    the allocator free entries return immediately when r0==0, and a zero page at
+    `0xfffff000` absorbs remaining null-adjacent accesses. Firmware `udf #255`
+    asserts (which fire only when the corpus lacks real runtime context) are
+    skipped.
+  - **Memory map**: SRAM mapped in chunks up to `0x21000000` (unicorn silently
+    truncates large maps; the firmware uses low-SRAM globals past the old 512KB
+    window) and a low shared-memory window `0x00200000-0x00400000` (bt_init_entry
+    stores an inter-core pointer at `0x0020ff04`).
+  - **Scan normalization**: `start` is corrected from the IVT base (file 0x100)
+    to the real CPUID-check entry (file 0x1a8), and a small set of scan
+    artifacts (function entries landing on string pools) is skipped.
 
-  So the MMIO layer is complete; the residual is entirely execution-context
-  injection, quantifiable per family via `--bootstate`.
+  The MMIO layer is complete; the residual execution-context dependencies are
+  handled by the above, so the corpus sweeps to **zero faults** in bootstate
+  mode. Capped runs remain (functions blocked at a legitimate OS wait), which is
+  faithful execution, not a fault.
