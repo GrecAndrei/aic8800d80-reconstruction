@@ -49,7 +49,9 @@ Current totals (all 4 images): **1,704 dynamic peripheral registers**, 36
 poll candidates, 237 echo candidates — vs ~99 registers from boot alone.
 
 A static candidate universe (32-bit MMIO-region constants found in the raw
-binaries) is also emitted for extending coverage.
+binaries) is also emitted for extending coverage. 379 of those candidates live
+in dynamically-touched pages as *non-overlapping* siblings and joined the
+classification target set.
 
 ### 2b. LLM classify — `tools/mmio_classify.py`
 
@@ -64,10 +66,25 @@ from the batch evidence; invented addresses reject the batch.
 
 Output: `build/mmio/classifications.jsonl` (+ merged `.json`), resumable.
 
+**Full run (final): 2,083 / 2,083 registers classified (100%), 0 failures.**
+Target universe = 1,704 dynamic + 379 static siblings (a further 296 static
+candidates overlap dynamic registers and are already counted there — the naive
+1,704+675 sum double-counts them). 78 batches over ~14 min, LLM workers=1.
+Role distribution: `config` 425 · `data` 228 · `status` 162 · `clock` 149 ·
+`irq` 45 · `strobe` 22 · `mask` 9 · `unknown` 1,043. The unknown-heavy share is
+the static-only siblings (no dynamic evidence to reason from), as expected.
+
 Example classifications the model produced:
 - `0x40032020` (polled 60× in boot, always returned 0) -> `poll, ready_mask 0x1`
 - `0x4003505c` (rf_reg_write_wait polls it 3,392×) -> `poll, ready_mask 0x1`
 - `0x40032000` -> `data` (write-only command/data register)
+- `0x40032014` `rf_status` -> `poll, ready_mask 0x1, reads_to_ready 266`
+- `0x40035058` `efuse_read_status` -> `poll, ready_mask 0x1`
+- `0x40032024` `rf_chan_status` -> `poll, ready_mask 0x40000`
+
+A browsable one-line-per-register **register dictionary** is maintained at
+`docs/MMIO_REGISTER_DICTIONARY.md` (auto-generated, 2,083 rows grouped by
+page, with role / behavior detail / confidence / source / read-write counts).
 
 ### 2c. Materialize — `tools/mmio_model_build.py`
 
@@ -103,16 +120,22 @@ identically to before.
 
 Re-running the original-side fingerprints (`emulator verify`, 25 targets):
 
-| metric               | M3 (depth-0 broken) | M4 (no model) | M4 + behavior model |
-|----------------------|--------------------:|--------------:|--------------------:|
-| verify returned      | 18 / 25             | 20 / 25       | 22 / 25             |
-| verify capped        | —                   | 3             | 0                   |
-| verify faulted       | 6                   | 2             | 3                   |
-| compare mean Jaccard | 0.52                | 0.667         | 0.667               |
-| compare matched      | 8                   | 8             | 8                   |
-| recon-missing        | 7                   | 4             | 4                   |
+| metric               | M3 (depth-0 broken) | M4 (no model) | M4 + behavior model (full) |
+|----------------------|--------------------:|--------------:|---------------------------:|
+| verify returned      | 18 / 25             | 20 / 25       | 22 / 25                    |
+| verify capped        | —                   | 3             | 0                          |
+| verify faulted       | 6                   | 2             | 3                          |
+| compare mean Jaccard | 0.52                | 0.667         | 0.667                      |
+| compare matched      | 8                   | 8             | 8                          |
+| recon-missing        | 7                   | 4             | 4                          |
 
-The behavior model (388 registers, 19 rules at this snapshot) converts the
+The **full** model (final column) is rebuilt from the complete classification
+run: **2,083 registers** (100% of the target universe = 1,704 dynamic + 379
+non-overlapping static siblings), **42 behavioral rules** (32 poll + 10 strobe),
+**31 evidence-poll floors**. This replaces the earlier 388-register / 19-rule
+snapshot; coverage is now the entire touched peripheral space.
+
+The behavior model converts the two poll-blocked targets
 two poll-blocked targets `rf_cmd_dispatch` and `rf_mem_write` (fmacfwbt) from
 capped → returned: their status registers are now modeled as poll rules, so
 the firmware's `while (!(reg & MASK))` loops exit instead of spinning to the
@@ -126,6 +149,11 @@ MMIO issue):
   and executes 1,642 real instructions (330 reads / 181 writes across the RF
   control page) before hitting the same null-context wall. Verified that a
   slower `reads_to_ready` changes nothing — the wall is context, not timing.
+  These 3 are the only ceiling left on verify; they need caller-state context
+  injection, not more MMIO modeling.
+
+Boot smoke with the full model: all 4 images run **300,000 instructions,
+capped, zero faults** (57k/24k MMIO reads/writes per image).
 
 The compare metrics are unchanged because the behavior model is platform-level:
 it runs on both the original and reconstructed sides, so register-overlap
