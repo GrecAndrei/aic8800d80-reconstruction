@@ -2162,15 +2162,16 @@
   "0x40200014": {
    "name": "rf_bus_reset_status",
    "role": "status",
-   "confidence": 0.4,
-   "source": "dynamic",
+   "confidence": 0.6,
+   "source": "static+dynamic",
    "behavior": {
     "type": "poll",
-    "ready_mask": "0x1",
+    "ready_mask": "0xC0",
     "reads_to_ready": 88
    },
    "fields": {
-    "0x1": "ready bit set when the RF bus reset completes (guessed)"
+    "0x40": "rf_bus_reset_status bit 6: polled via `lsls r4,r2,#0x19; bpl` (rf_bus_reset_844 0x1328f8)",
+    "0x80": "rf_bus_reset_status bit 7: polled via `lsls r1,r2,#0x18; bpl` (rf_bus_reset_844 0x13288e)"
    }
   },
   "0x40200018": {

@@ -158,11 +158,12 @@ ALLOC_FREE_ENTRIES = {
 BOOT_STUB_BASE = 0x20080000    # dedicated stub page just past main SRAM
 BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 
-# Spin-breaker: a function blocked on an OS wait loops on a completion flag
-# (`while (*flag != 0)` crypto/BT semaphore, `while (*flag == 0)` wait-event
-# primitive). The real interrupt / other-core path would deliver the event; the
-# standalone emulator can't. Two mechanisms, both opt-in per function run
-# (``spin_break=True``), never during boot where the real init sets the flags:
+# Spin-breaker / garbage-branch handling: a function blocked on an OS wait loops
+# on a completion flag (`while (*flag != 0)` crypto/BT semaphore, `while
+# (*flag == 0)` wait-event primitive). The real interrupt / other-core path would
+# deliver the event; the standalone emulator can't. Five mechanisms, all opt-in
+# per function run (``spin_break=True``), never during boot where the real init
+# sets the flags:
 #
 #  1. Memory-flip: when the SAME address is read from the SAME pc repeatedly
 #     with a STABLE value, the loop is waiting on it. Deliver the event ONLY
@@ -172,11 +173,16 @@ BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 #     pointer there makes the code deref garbage. (The value-stability check
 #     keeps a busy/changing counter from being clobbered.)
 #  2. Branch-jump: a wait that cached the flag in a register (`ldr r3,[flag];
-#     cmp r3,#0; bne` never re-reads memory, so mechanism 1 can't fire), and
-#     `== 0` memory waits whose flag must NOT be overwritten. A backward branch
-#     executed repeatedly, with a candidate-global read recently and no
-#     candidate-global write since, is such a spin: jump past the branch
-#     (pc+2) so the wait exits. The flag field is left untouched.
+#     cmp r3,#0; bne` never re-reads memory, so mechanism 1 can't fire), `== 0`
+#     memory waits whose flag must NOT be overwritten, AND peripheral poll loops
+#     (``while ((S & RDY) == 0)`` set-waits and ``while (S & BUSY)`` clear-waits
+#     on unmodeled 0x4xxxxxxx status registers — phantom reads return a fixed
+#     word so the poll spins). A backward branch executed repeatedly, with a
+#     read recently (candidate-global OR peripheral — peripheral MMIO traffic
+#     updates the read/write timestamps so an MMIO register walk like
+#     rf_bus_reset's 0x40200900/20/40 sequence is seen as advancing and never
+#     mistaken for a wait) and no write since, is such a spin: jump past the
+#     branch (pc+2) so the wait exits. The flag field is left untouched.
 #  3. Register-only grind: a backward branch executed many times with NO
 #     candidate-global memory activity since the loop's previous iteration is a
 #     pure-register/FPU delay or count loop (`subs rN,#1; bne`, or a compute
@@ -185,10 +191,23 @@ BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 #     the branch so the delay elapses. Loops that read or write memory (data
 #     walks, output loops, table fills) update the spin timestamps each iteration
 #     and are NEVER touched by this mechanism.
+#  4. Data-march: real code lives only in the image bytes at CHIP_BASE (plus the
+#     seeded boot stub); an indirect branch through an uninitialized handler /
+#     stack slot into any other MAPPED region (stack window, SRAM, heap, buffer
+#     pool) decodes data-as-code and "marches" until the budget cap. A fetch
+#     outside the image is such a branch: return via LR (r0 = 0), the same
+#     garbage-branch class as the low-page / invalid-instruction handlers.
+#  5. Output-loop breaker: a backward branch whose body wrote the SAME
+#     peripheral register >=SPIN_BREAK_WRLOOP times from the same pc is an
+#     output pump (UART/printf TX over a buffer standalone memory never
+#     terminates — the real producer/terminator is absent). Config loops write
+#     DISTINCT registers, so they never accumulate a same-register streak. Skip
+#     past the branch so the bounded real output completes.
 SPIN_BREAK_READS = 4        # reads of (pc, addr) before flipping
 SPIN_BREAK_BRANCH = 6       # executions of one backward-branch pc before jumping
 SPIN_BREAK_WINDOW = 2000    # max insn gap between events to count as one spin
 SPIN_BREAK_REGLOOP = 100000 # register-only branch executions before skipping
+SPIN_BREAK_WRLOOP = 4096    # same-register MMIO write streak before skipping
 # Only value the memory-flip ever writes: 0, to a flag currently == 1 (a set
 # boolean being waited on to clear: `while (x != 0)`). Clearing a set flag is
 # unambiguous. NEVER write a large value: a field read as 0 may be a POINTER
@@ -459,6 +478,11 @@ class Aic8800D80Platform:
         self._spin_last_read_addr = 0
         self._spin_last_write = -10**9   # insn of most recent candidate-global write
         self._spin_branches: dict[int, tuple[int, int, int]] = {}
+        # Mechanism 5/6 (MMIO set-wait + output-loop breaker) state.
+        self._mmio_wstreak_pc = -1
+        self._mmio_wstreak_addr = 0
+        self._mmio_wstreak_n = 0
+        self._mmio_wloop_ready = False
         # Per-image allocator free entries (null-safe free).
         img_name = self.image_path.name
         if img_name.endswith(".bin"):
@@ -567,6 +591,22 @@ class Aic8800D80Platform:
             if pc < 0x10000:
                 self._null_return(uc)
                 return
+            # Data-march (garbage indirect branch into mapped data). Real
+            # firmware code lives only in the image bytes at CHIP_BASE (plus the
+            # seeded boot stub at BOOT_STUB_BASE); every other mapped region —
+            # the stack window, SRAM, heap, buffer pool, low shared memory — is
+            # DATA. An uninitialized handler or stack slot that does
+            # bx/blx/pop{pc}/ldr-pc into such a region makes the emulator decode
+            # data-as-code and "march" through it until the budget cap
+            # (bt_sub_122528: 60k distinct PCs through the stack window;
+            # key_mfp_table_init: 1M distinct PCs through SRAM). The function's
+            # real work is already done; execute no further and return via LR
+            # (r0 = 0) so the caller's error path handles the NULL result — the
+            # same class as the low-page and invalid-instruction handlers.
+            if not (CHIP_BASE <= pc < CHIP_BASE + len(self.image)) \
+                    and pc != BOOT_STUB_BASE:
+                self._null_return(uc)
+                return
             # free(NULL) is a no-op per C semantics; the firmware's allocator
             # derefs before checking, so return immediately when the free entry
             # is entered with r0 == 0.
@@ -622,6 +662,20 @@ class Aic8800D80Platform:
                     uc.emu_stop()
                     self._spin_branches[pc] = (0, self.insn_count,
                                                self._spin_last_read_addr)
+                    return
+                # Mechanism 6 (output-loop breaker). A backward branch whose
+                # loop body wrote the SAME peripheral register >=SPIN_BREAK_WRLOOP
+                # times from the same pc is an output pump (UART/printf TX over a
+                # buffer standalone memory never terminates — the source's real
+                # producer/terminator is absent). Config loops write DISTINCT
+                # registers, so they never accumulate a same-register streak.
+                # Skip past the branch (fall-through == loop exit) so the
+                # bounded real output completes and the function continues.
+                if self._mmio_wloop_ready:
+                    self._skip_to = pc + 2
+                    uc.emu_stop()
+                    self._mmio_wloop_ready = False
+                    self._mmio_wstreak_n = 0
                     return
             self.insn_count += 1
             self._note_function(pc)
@@ -734,6 +788,38 @@ class Aic8800D80Platform:
                         self._spin_branches.clear()
                     for k in [k for k in self._spin_counts if k[1] == addr]:
                         del self._spin_counts[k]
+            # Peripheral MMIO traffic also updates the spin-break read/write
+            # timestamps. The branch-jump (mechanism 2) and register-grind
+            # (mechanism 3) treat a loop whose reads/writes are all
+            # candidate-global (or none) as a wait; a loop that walks or hammers
+            # MMIO registers (rf_bus_reset's 0x40200900/20/40 walk) is real work
+            # and must not look like a wait. Without this, the walk's STALE
+            # pre-loop read timestamp satisfies the branch-jump's "recent read"
+            # check and it skips past the loop exit (re-entering at pc+2),
+            # corrupting r5 into a runaway address walk to the budget cap.
+            if self._spin_break and is_periph_addr(addr):
+                if access == UC_MEM_READ:
+                    self._spin_last_read = self.insn_count
+                    self._spin_last_read_addr = addr
+                else:
+                    self._spin_last_write = self.insn_count
+            # Mechanism 6 (output-loop breaker) write-streak tracking: the SAME
+            # peripheral register written from the SAME pc repeatedly is an
+            # output pump (UART/printf TX); on_code skips the loop once the
+            # streak passes SPIN_BREAK_WRLOOP. Config loops write DISTINCT
+            # registers, so they never accumulate a streak.
+            if (self._spin_break and access == UC_MEM_WRITE
+                    and is_periph_addr(addr)):
+                mpc = int(uc.reg_read(UC_ARM_REG_PC))
+                if (self._mmio_wstreak_pc == mpc
+                        and self._mmio_wstreak_addr == addr):
+                    self._mmio_wstreak_n += 1
+                else:
+                    self._mmio_wstreak_pc = mpc
+                    self._mmio_wstreak_addr = addr
+                    self._mmio_wstreak_n = 1
+                if self._mmio_wstreak_n >= SPIN_BREAK_WRLOOP:
+                    self._mmio_wloop_ready = True
             if not is_mmio_addr(addr):
                 return
             # call_depth: 0 = accesses made while the target function's own
@@ -947,11 +1033,13 @@ class Aic8800D80Platform:
         sentinel so the run is classified as returned rather than faulting.
         """
         lr = int(uc.reg_read(UC_ARM_REG_LR))
-        # Only re-enter at LR when it's a plausible code address: real code +
-        # BSS live in 0x120000-0x1a0000, the low page holds the seeded boot
-        # callbacks. An LR into MMIO (0x4xxxxxxx) or elsewhere is garbage —
-        # re-entering there fetches instructions from a peripheral and faults.
-        if 0x10000 <= lr < 0x1a0000:
+        # Only re-enter at LR when it's a plausible code address: real code
+        # lives only in the image bytes at CHIP_BASE (0x120000 .. +len(image)),
+        # the low page holds the seeded boot callbacks. An LR into the stack
+        # window (0x180000-0x1a0000, pure data), SRAM, MMIO (0x4xxxxxxx) or
+        # elsewhere is garbage — re-entering there fetches data-as-code and
+        # marches to the cap, so end at the return sentinel instead.
+        if 0x10000 <= lr < CHIP_BASE + len(self.image):
             self._null_return_lr = lr
         else:
             self._null_return_lr = None
@@ -1015,6 +1103,10 @@ class Aic8800D80Platform:
         self._spin_last_read_addr = 0
         self._spin_last_write = -10**9
         self._spin_branches = {}
+        self._mmio_wstreak_pc = -1
+        self._mmio_wstreak_addr = 0
+        self._mmio_wstreak_n = 0
+        self._mmio_wloop_ready = False
         if sp is not None:
             self.mu.reg_write(UC_ARM_REG_SP, sp)
         self.mu.reg_write(UC_ARM_REG_LR, (lr if lr is not None else RETURN_STOP) | 1)

@@ -370,7 +370,7 @@ Conventions:
 |------|------|------|----------|------|-----|-------|--------|
 | 0x40200000 |  | unknown |  | 0.0 | dynamic | 0 | 0 |
 | 0x40200010 | rf_bus_arm_status | status |  | 0.6 | dynamic | 2116 | 8 |
-| 0x40200014 | rf_bus_reset_status | status | poll ready=0x1 n=88 | 0.4 | dynamic | 356 | 4 |
+| 0x40200014 | rf_bus_reset_status | status | poll ready=0xC0 n=88 | 0.6 | static+dynamic | 356 | 4 |
 | 0x40200018 | rf_bus_status | status |  | 0.2 | dynamic | 8 | 0 |
 | 0x40200804 | rf_bus_reset_cmd | strobe | strobe n= | 0.5 | dynamic | 8 | 8 |
 | 0x40200900 | rf_bus_write2_status | status |  | 0.2 | dynamic | 6 | 0 |
