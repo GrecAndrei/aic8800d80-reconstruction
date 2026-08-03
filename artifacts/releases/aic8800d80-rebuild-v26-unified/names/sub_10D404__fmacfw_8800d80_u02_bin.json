@@ -1,0 +1,1 @@
+{"fn": "clear_ram_struct", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d404", "status": "ok", "name": "clear_ram_struct", "params": [], "docstring": "Zero a 0x38-byte RAM structure at 0x182aac", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

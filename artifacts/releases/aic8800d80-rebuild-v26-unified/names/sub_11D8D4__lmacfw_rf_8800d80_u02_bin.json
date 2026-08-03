@@ -1,0 +1,1 @@
+{"fn": "ke_event_loop", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11d8d4", "status": "ok", "name": "ke_event_loop", "params": [], "docstring": "Call handler on global object and its offset 8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ble_task_create_1068", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f0f0", "status": "ok", "name": "ble_task_create_1068", "params": [], "docstring": "Create BLE task 0x42c with environment", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rom_patch_get_bit", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1151c0", "status": "ok", "name": "rom_patch_get_bit", "params": [], "docstring": "Call ROM patch handler with 0xf and return bit 19 of result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

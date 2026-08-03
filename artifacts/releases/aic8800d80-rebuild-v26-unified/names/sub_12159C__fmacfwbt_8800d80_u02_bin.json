@@ -1,0 +1,1 @@
+{"fn": "rf_register_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159c", "status": "ok", "name": "rf_register_init", "params": [], "docstring": "Initialize RF registers using configuration data", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

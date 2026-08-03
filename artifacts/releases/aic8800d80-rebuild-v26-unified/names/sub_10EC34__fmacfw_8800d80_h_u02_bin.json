@@ -1,0 +1,1 @@
+{"fn": "patch_jump_1b4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10ec34", "status": "ok", "name": "patch_jump_1b4", "params": [], "docstring": "Jump to patchable function pointer at 0x1b4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

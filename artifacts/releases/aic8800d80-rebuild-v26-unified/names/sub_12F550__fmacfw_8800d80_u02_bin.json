@@ -1,0 +1,1 @@
+{"fn": "patch_jump_to_10cbe4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f550", "status": "ok", "name": "patch_jump_to_10cbe4", "params": [], "docstring": "Tail-call to common handler 0x10cbe4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

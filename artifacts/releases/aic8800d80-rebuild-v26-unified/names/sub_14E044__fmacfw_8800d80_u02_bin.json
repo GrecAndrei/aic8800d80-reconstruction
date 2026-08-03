@@ -1,0 +1,1 @@
+{"fn": "util_dummy_handler2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x14e044", "status": "ok", "name": "util_dummy_handler2", "params": [], "docstring": "Dummy interrupt handler variant", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

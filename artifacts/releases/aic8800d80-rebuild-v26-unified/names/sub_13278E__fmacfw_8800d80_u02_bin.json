@@ -1,0 +1,1 @@
+{"fn": "rf_get_sw_version", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13278e", "status": "ok", "name": "rf_get_sw_version", "params": [], "docstring": "Return fixed software version 8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "bt_disable", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f808", "status": "ok", "name": "bt_disable", "params": [], "docstring": "Disable BT stack via argument 0 call", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

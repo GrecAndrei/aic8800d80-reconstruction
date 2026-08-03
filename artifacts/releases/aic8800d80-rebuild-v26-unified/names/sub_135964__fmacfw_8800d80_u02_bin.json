@@ -1,0 +1,1 @@
+{"fn": "rf_is_version_6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135964", "status": "ok", "name": "rf_is_version_6", "params": [], "docstring": "Return true if helper returns 6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

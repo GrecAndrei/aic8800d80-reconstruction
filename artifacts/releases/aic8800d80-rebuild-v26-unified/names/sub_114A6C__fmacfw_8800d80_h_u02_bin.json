@@ -1,0 +1,1 @@
+{"fn": "rf_read_1b_raw", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114a6c", "status": "ok", "name": "rf_read_1b_raw", "params": [], "docstring": "Read RF reg 0x1B raw value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

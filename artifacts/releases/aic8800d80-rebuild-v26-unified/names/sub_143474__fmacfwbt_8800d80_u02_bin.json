@@ -1,0 +1,1 @@
+{"fn": "cmp_ls", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x143474", "status": "ok", "name": "cmp_ls", "params": [], "docstring": "Unsigned lower-or-same compare wrapper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

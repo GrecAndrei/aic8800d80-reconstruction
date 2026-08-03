@@ -1,0 +1,1 @@
+{"fn": "patch_call_arg2", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11471c", "status": "ok", "name": "patch_call_arg2", "params": [], "docstring": "Jump to patchable function with argument 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

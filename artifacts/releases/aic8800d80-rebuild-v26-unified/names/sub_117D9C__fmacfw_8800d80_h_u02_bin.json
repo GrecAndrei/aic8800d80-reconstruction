@@ -1,0 +1,1 @@
+{"fn": "ke_queue_init_188290", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117d9c", "status": "ok", "name": "ke_queue_init_188290", "params": [], "docstring": "Clear and init queue object at 0x188290", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

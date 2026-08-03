@@ -1,0 +1,1 @@
+{"fn": "dma_channel_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141f60", "status": "ok", "name": "dma_channel_init", "params": [], "docstring": "Initialize DMA channel descriptors", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

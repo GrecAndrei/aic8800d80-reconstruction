@@ -1,0 +1,1 @@
+{"fn": "rf_read_f_bit_19", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114a44", "status": "ok", "name": "rf_read_f_bit_19", "params": [], "docstring": "Read RF reg 0xF bit 19", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_get_hw_version", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13278a", "status": "ok", "name": "rf_get_hw_version", "params": [], "docstring": "Return fixed hardware version 7", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

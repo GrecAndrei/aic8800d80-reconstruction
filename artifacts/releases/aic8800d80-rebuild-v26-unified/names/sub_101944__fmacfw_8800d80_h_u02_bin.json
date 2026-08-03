@@ -1,0 +1,1 @@
+{"fn": "get_timeout_1000", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x101944", "status": "ok", "name": "get_timeout_1000", "params": [], "docstring": "Return fixed timeout of 1000 ms", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

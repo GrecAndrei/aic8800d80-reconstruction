@@ -1,0 +1,1 @@
+{"fn": "bt_hci_cmd_send", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10f7cc", "status": "ok", "name": "bt_hci_cmd_send", "params": [], "docstring": "Send BT HCI command 0x40D and complete", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "is_status_hi", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127f50", "status": "ok", "name": "is_status_hi", "params": [], "docstring": "Return 1 if status function result indicates higher", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

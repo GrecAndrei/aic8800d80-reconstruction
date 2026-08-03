@@ -1,0 +1,1 @@
+{"fn": "util_memclear", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10d43c", "status": "ok", "name": "util_memclear", "params": [], "docstring": "Clear a 56-byte memory block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

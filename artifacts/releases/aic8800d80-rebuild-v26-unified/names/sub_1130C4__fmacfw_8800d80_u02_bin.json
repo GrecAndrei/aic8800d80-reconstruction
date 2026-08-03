@@ -1,0 +1,1 @@
+{"fn": "get_ble_context", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1130c4", "status": "ok", "name": "get_ble_context", "params": [], "docstring": "Return pointer to global BLE context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

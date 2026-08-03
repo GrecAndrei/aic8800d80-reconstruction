@@ -1,0 +1,1 @@
+{"fn": "get_timer_tick_1000", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1019f0", "status": "ok", "name": "get_timer_tick_1000", "params": [], "docstring": "Return constant 1000 for timer tick", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "error_trap", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f0c8", "status": "ok", "name": "error_trap", "params": [], "docstring": "Call error handlers and enter infinite loop", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

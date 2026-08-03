@@ -1,0 +1,1 @@
+{"fn": "init_subsystem", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x110684", "status": "ok", "name": "init_subsystem", "params": [], "docstring": "Run init routine and report success", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

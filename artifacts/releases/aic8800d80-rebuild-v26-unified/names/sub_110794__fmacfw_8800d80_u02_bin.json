@@ -1,0 +1,1 @@
+{"fn": "stack_init_done", "img": "fmacfw_8800d80_u02_bin", "addr": "0x110794", "status": "ok", "name": "stack_init_done", "params": [], "docstring": "Initialize stack and return success", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

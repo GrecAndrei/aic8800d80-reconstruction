@@ -1,0 +1,1 @@
+{"fn": "ke_msg_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14213c", "status": "ok", "name": "ke_msg_init", "params": [], "docstring": "Initialize kernel message queues", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

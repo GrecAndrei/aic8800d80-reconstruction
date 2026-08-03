@@ -1,0 +1,1 @@
+{"fn": "patch_call_entry", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114e98", "status": "ok", "name": "patch_call_entry", "params": [], "docstring": "Jump to patched function slot 0x1fc with arg 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_is_ready", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x101874", "status": "ok", "name": "rf_is_ready", "params": [], "docstring": "Return fixed radio-ready flag 1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

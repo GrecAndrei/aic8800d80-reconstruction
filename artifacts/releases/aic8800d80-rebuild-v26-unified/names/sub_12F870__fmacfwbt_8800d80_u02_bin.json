@@ -1,0 +1,1 @@
+{"fn": "mac_get_buf_size", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f870", "status": "ok", "name": "mac_get_buf_size", "params": [], "docstring": "Return MAC buffer size 0x400", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

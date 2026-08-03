@@ -1,0 +1,1 @@
+{"fn": "ke_get_env", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x112f20", "status": "ok", "name": "ke_get_env", "params": [], "docstring": "Return kernel environment global pointer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

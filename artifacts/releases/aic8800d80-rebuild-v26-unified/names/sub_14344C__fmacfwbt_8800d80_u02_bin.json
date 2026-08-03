@@ -1,0 +1,1 @@
+{"fn": "cmp_eq", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14344c", "status": "ok", "name": "cmp_eq", "params": [], "docstring": "Compare equality with underlying function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

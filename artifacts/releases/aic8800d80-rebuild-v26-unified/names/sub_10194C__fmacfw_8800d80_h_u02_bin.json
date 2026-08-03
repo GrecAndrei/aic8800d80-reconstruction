@@ -1,0 +1,1 @@
+{"fn": "return_one", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10194c", "status": "ok", "name": "return_one", "params": [], "docstring": "Return constant 1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

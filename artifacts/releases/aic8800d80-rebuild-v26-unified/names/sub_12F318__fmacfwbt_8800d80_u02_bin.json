@@ -1,0 +1,1 @@
+{"fn": "ke_timer_set", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f318", "status": "ok", "name": "ke_timer_set", "params": [], "docstring": "Set a kernel timer with id and delay", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

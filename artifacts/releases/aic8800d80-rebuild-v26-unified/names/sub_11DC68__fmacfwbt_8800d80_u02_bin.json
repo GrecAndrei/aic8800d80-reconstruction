@@ -1,0 +1,1 @@
+{"fn": "send_kernel_msg_0x200000", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11dc68", "status": "ok", "name": "send_kernel_msg_0x200000", "params": [], "docstring": "Send kernel message 0x200000 via common dispatcher", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "radio_set_power", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ef14", "status": "ok", "name": "radio_set_power", "params": [], "docstring": "Configure radio peripheral with power settings", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

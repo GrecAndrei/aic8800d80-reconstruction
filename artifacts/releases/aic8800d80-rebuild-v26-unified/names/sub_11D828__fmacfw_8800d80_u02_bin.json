@@ -1,0 +1,1 @@
+{"fn": "ke_evt_set", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11d828", "status": "ok", "name": "ke_evt_set", "params": [], "docstring": "Set kernel event flag 0x200000 via tail call", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

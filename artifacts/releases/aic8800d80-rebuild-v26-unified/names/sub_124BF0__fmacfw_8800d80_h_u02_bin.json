@@ -1,0 +1,1 @@
+{"fn": "ke_list_init_18fb00", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124bf0", "status": "ok", "name": "ke_list_init_18fb00", "params": [], "docstring": "Initialize kernel list at 0x18FB00", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

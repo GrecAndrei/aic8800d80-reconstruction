@@ -1,0 +1,1 @@
+{"fn": "rf_check_state_and_set_flag", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f1c", "status": "ok", "name": "rf_check_state_and_set_flag", "params": [], "docstring": "Calls get_state, if returns 4 sets r1=1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

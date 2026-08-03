@@ -1,0 +1,1 @@
+{"fn": "rf_calibration_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x135224", "status": "ok", "name": "rf_calibration_init", "params": [], "docstring": "Initialize RF calibration tables", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

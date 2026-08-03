@@ -1,0 +1,1 @@
+{"fn": "ke_task_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x119d34", "status": "ok", "name": "ke_task_init", "params": [], "docstring": "Initialize kernel task descriptors and queues", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_jump_12abc8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1211fc", "status": "ok", "name": "patch_jump_12abc8", "params": [], "docstring": "Tail-jump to patched function 0x12abc8", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

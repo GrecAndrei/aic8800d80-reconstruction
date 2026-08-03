@@ -1,0 +1,1 @@
+{"fn": "mac_set_phy", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x137274", "status": "ok", "name": "mac_set_phy", "params": [], "docstring": "Configure MAC PHY parameters", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

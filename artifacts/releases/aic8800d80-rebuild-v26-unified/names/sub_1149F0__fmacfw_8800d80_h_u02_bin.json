@@ -1,0 +1,1 @@
+{"fn": "rf_read_11_bits_6_8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1149f0", "status": "ok", "name": "rf_read_11_bits_6_8", "params": [], "docstring": "Read RF reg 0x11 and return bits 6-8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

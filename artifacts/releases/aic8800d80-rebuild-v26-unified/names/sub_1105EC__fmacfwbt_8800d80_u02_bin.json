@@ -1,0 +1,1 @@
+{"fn": "bt_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1105ec", "status": "ok", "name": "bt_init", "params": [], "docstring": "Initialize Bluetooth subsystem and return success", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

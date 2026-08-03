@@ -1,0 +1,1 @@
+{"fn": "get_error_9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132772", "status": "ok", "name": "get_error_9", "params": [], "docstring": "Return constant error code 9", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

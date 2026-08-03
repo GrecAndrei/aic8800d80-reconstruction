@@ -1,0 +1,1 @@
+{"fn": "mmio_read_ficr", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e620", "status": "ok", "name": "mmio_read_ficr", "params": [], "docstring": "Read FICR register via fixed base and jump", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "get_ready_status", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d100", "status": "ok", "name": "get_ready_status", "params": [], "docstring": "Return status code 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "memcpy_fast", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10da6c", "status": "ok", "name": "memcpy_fast", "params": [], "docstring": "Copy memory block through optimized helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

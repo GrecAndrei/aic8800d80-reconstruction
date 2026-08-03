@@ -1,0 +1,1 @@
+{"fn": "mmio_write_fixed_18630c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11ab0c", "status": "ok", "name": "mmio_write_fixed_18630c", "params": [], "docstring": "Write to fixed address 0x18630c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

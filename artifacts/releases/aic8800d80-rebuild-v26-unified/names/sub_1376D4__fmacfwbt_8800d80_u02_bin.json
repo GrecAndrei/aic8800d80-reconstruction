@@ -1,0 +1,1 @@
+{"fn": "mac_reset", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1376d4", "status": "ok", "name": "mac_reset", "params": [], "docstring": "Reset link layer manager structures", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

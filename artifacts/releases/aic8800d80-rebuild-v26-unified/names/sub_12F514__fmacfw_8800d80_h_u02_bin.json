@@ -1,0 +1,1 @@
+{"fn": "get_rx_buf_size", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f514", "status": "ok", "name": "get_rx_buf_size", "params": [], "docstring": "Return RX buffer size 0x400", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

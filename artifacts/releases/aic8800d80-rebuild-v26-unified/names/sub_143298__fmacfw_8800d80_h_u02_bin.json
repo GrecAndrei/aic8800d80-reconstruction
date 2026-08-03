@@ -1,0 +1,1 @@
+{"fn": "ke_compare_less_same", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143298", "status": "ok", "name": "ke_compare_less_same", "params": [], "docstring": "Return 1 if common compare result is lower or same", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

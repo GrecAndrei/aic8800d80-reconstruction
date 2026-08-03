@@ -1,0 +1,1 @@
+{"fn": "util_return_0_dd0c", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12dd0c", "status": "ok", "name": "util_return_0_dd0c", "params": [], "docstring": "Always return 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

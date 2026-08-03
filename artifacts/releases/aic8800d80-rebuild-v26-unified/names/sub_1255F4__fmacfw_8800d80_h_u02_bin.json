@@ -1,0 +1,1 @@
+{"fn": "ke_buf_init_190310", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1255f4", "status": "ok", "name": "ke_buf_init_190310", "params": [], "docstring": "Clear 0x18 bytes and init buffer at 0x190310", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

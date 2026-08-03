@@ -1,0 +1,1 @@
+{"fn": "mmio_context_init_14eabc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1216dc", "status": "ok", "name": "mmio_context_init_14eabc", "params": [], "docstring": "Initialize shared MMIO context at 0x14eabc and return", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

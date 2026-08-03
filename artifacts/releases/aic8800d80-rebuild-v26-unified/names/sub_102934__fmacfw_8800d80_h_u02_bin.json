@@ -1,0 +1,1 @@
+{"fn": "rf_set_channel_2412", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102934", "status": "ok", "name": "rf_set_channel_2412", "params": [], "docstring": "Configure radio for 2.4 GHz channel 1 (2412 MHz)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

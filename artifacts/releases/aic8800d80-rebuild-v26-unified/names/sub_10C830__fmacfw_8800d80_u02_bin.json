@@ -1,0 +1,1 @@
+{"fn": "wrapper_tail_call", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c830", "status": "ok", "name": "wrapper_tail_call", "params": [], "docstring": "Call helper then tail-branch to another function", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

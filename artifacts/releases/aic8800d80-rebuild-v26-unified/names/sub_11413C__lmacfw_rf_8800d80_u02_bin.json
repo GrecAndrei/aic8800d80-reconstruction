@@ -1,0 +1,1 @@
+{"fn": "rf_get_reg11_low", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11413c", "status": "ok", "name": "rf_get_reg11_low", "params": [], "docstring": "Read RF reg 0x11 bits 0-2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

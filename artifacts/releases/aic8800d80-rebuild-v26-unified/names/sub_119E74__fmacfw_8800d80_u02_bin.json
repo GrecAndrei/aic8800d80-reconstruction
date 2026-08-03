@@ -1,0 +1,1 @@
+{"fn": "ke_task_create", "img": "fmacfw_8800d80_u02_bin", "addr": "0x119e74", "status": "ok", "name": "ke_task_create", "params": [], "docstring": "Initialize a kernel task descriptor with handler tables", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

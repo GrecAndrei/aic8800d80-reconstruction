@@ -1,0 +1,1 @@
+{"fn": "patch_redirect_10cb44", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f3f4", "status": "ok", "name": "patch_redirect_10cb44", "params": [], "docstring": "Tail-branch to 0x10cb44", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ble_ctrl_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x140c5c", "status": "ok", "name": "ble_ctrl_init", "params": [], "docstring": "Initialize BLE controller context buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

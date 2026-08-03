@@ -1,0 +1,1 @@
+{"fn": "log_signed_byte", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12529c", "status": "ok", "name": "log_signed_byte", "params": [], "docstring": "Log a signed byte from a global address through formatter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

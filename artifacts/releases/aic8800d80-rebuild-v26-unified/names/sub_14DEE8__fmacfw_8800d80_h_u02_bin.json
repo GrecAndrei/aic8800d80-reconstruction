@@ -1,0 +1,1 @@
+{"fn": "empty_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x14dee8", "status": "ok", "name": "empty_handler", "params": [], "docstring": "No-op function that immediately returns", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

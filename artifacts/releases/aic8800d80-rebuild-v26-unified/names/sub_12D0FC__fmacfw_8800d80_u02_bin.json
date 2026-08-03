@@ -1,0 +1,1 @@
+{"fn": "get_idle_status", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d0fc", "status": "ok", "name": "get_idle_status", "params": [], "docstring": "Return zero status code", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

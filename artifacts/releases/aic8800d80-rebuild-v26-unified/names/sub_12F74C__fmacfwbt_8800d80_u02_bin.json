@@ -1,0 +1,1 @@
+{"fn": "rf_get_power", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f74c", "status": "ok", "name": "rf_get_power", "params": [], "docstring": "Return RF power setting (constant 2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

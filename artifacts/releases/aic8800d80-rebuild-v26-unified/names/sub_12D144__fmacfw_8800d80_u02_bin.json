@@ -1,0 +1,1 @@
+{"fn": "mmio_set_base", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d144", "status": "ok", "name": "mmio_set_base", "params": [], "docstring": "Set MMIO base to 0x10000000 and call setup", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

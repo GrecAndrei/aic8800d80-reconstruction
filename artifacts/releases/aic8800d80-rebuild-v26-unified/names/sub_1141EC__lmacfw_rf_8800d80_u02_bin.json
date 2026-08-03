@@ -1,0 +1,1 @@
+{"fn": "rf_set_regf_bit19", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1141ec", "status": "ok", "name": "rf_set_regf_bit19", "params": [], "docstring": "Set RF reg 0xf bit 19", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ke_task_state_check", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x121b7c", "status": "ok", "name": "ke_task_state_check", "params": [], "docstring": "Check task 0 state and conditionally call handler", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

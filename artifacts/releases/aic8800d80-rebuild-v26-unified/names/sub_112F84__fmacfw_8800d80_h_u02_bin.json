@@ -1,0 +1,1 @@
+{"fn": "get_global_state", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x112f84", "status": "ok", "name": "get_global_state", "params": [], "docstring": "Return pointer to global state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

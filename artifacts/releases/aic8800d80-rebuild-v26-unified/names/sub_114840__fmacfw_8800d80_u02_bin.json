@@ -1,0 +1,1 @@
+{"fn": "jump_bootloader", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114840", "status": "ok", "name": "jump_bootloader", "params": [], "docstring": "Call function pointer at address 0x1fc", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

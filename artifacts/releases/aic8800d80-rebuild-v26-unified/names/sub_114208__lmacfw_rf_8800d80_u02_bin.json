@@ -1,0 +1,1 @@
+{"fn": "rf_get_reg1b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114208", "status": "ok", "name": "rf_get_reg1b", "params": [], "docstring": "Read RF reg 0x1b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

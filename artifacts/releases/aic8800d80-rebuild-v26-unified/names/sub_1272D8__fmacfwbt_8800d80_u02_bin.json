@@ -1,0 +1,1 @@
+{"fn": "scan_state_check", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1272d8", "status": "ok", "name": "scan_state_check", "params": [], "docstring": "Check scan state before processing", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

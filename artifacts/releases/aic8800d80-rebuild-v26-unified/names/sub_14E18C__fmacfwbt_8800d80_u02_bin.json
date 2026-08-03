@@ -1,0 +1,1 @@
+{"fn": "null_handler", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14e18c", "status": "ok", "name": "null_handler", "params": [], "docstring": "Null handler placeholder", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

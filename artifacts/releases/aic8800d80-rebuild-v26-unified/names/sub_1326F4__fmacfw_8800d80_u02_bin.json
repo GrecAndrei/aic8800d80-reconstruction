@@ -1,0 +1,1 @@
+{"fn": "validate_char_bounds", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1326f4", "status": "ok", "name": "validate_char_bounds", "params": [], "docstring": "Check character is within H/F bounds", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

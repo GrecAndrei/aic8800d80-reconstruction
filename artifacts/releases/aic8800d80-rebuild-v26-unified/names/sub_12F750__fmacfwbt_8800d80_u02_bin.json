@@ -1,0 +1,1 @@
+{"fn": "patch_jump_10cadc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f750", "status": "ok", "name": "patch_jump_10cadc", "params": [], "docstring": "Patch stub redirecting to 0x10cadc", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

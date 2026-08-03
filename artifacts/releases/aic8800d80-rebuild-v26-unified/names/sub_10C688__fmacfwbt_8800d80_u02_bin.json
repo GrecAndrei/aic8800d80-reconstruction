@@ -1,0 +1,1 @@
+{"fn": "scan_process", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10c688", "status": "ok", "name": "scan_process", "params": [], "docstring": "Run next scan state machine step", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

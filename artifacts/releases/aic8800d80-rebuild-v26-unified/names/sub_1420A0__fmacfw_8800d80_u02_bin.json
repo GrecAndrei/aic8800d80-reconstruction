@@ -1,0 +1,1 @@
+{"fn": "mac_clear_config", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1420a0", "status": "ok", "name": "mac_clear_config", "params": [], "docstring": "Clear MAC config block and return base", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

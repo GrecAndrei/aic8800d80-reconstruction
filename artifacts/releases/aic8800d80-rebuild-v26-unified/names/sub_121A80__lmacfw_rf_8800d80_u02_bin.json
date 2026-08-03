@@ -1,0 +1,1 @@
+{"fn": "return_zero", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a80", "status": "ok", "name": "return_zero", "params": [], "docstring": "Immediately returns 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

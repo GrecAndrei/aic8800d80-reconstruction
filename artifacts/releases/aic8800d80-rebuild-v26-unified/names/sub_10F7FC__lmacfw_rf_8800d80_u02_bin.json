@@ -1,0 +1,1 @@
+{"fn": "ke_msg_alloc_send", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f7fc", "status": "ok", "name": "ke_msg_alloc_send", "params": [], "docstring": "Allocate and send kernel message 0x40d", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

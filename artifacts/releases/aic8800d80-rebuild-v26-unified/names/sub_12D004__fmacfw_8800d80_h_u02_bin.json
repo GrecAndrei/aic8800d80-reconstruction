@@ -1,0 +1,1 @@
+{"fn": "ke_wait_event_10000000", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d004", "status": "ok", "name": "ke_wait_event_10000000", "params": [], "docstring": "Wait for kernel event mask 0x10000000", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

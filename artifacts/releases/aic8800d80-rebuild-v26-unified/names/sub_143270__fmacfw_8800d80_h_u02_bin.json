@@ -1,0 +1,1 @@
+{"fn": "ke_compare_eq", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143270", "status": "ok", "name": "ke_compare_eq", "params": [], "docstring": "Return 1 if common compare result is equal", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ke_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1138fc", "status": "ok", "name": "ke_init", "params": [], "docstring": "Initialize kernel tasks and timer env", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

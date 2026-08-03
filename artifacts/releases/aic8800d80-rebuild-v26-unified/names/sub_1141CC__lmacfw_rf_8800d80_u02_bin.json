@@ -1,0 +1,1 @@
+{"fn": "rf_get_regf_bit18", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1141cc", "status": "ok", "name": "rf_get_regf_bit18", "params": [], "docstring": "Read RF reg 0xf bit 18", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

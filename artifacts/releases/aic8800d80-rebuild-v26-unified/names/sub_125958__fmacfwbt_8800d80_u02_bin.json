@@ -1,0 +1,1 @@
+{"fn": "co_list_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125958", "status": "ok", "name": "co_list_init", "params": [], "docstring": "Initialize list structure and return node pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

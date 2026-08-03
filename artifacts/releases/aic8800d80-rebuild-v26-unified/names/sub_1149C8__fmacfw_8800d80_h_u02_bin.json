@@ -1,0 +1,1 @@
+{"fn": "patch_get_field_0x11", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1149c8", "status": "ok", "name": "patch_get_field_0x11", "params": [], "docstring": "Call patchable function with arg 0x11 and return low 3 bits", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "get_default_value", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12de4c", "status": "ok", "name": "get_default_value", "params": [], "docstring": "Return zero default value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

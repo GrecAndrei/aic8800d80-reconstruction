@@ -1,0 +1,1 @@
+{"fn": "get_constant_8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13264e", "status": "ok", "name": "get_constant_8", "params": [], "docstring": "Return constant 8", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

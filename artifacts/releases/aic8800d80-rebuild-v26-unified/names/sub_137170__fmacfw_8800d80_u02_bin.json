@@ -1,0 +1,1 @@
+{"fn": "ipc_send_command", "img": "fmacfw_8800d80_u02_bin", "addr": "0x137170", "status": "ok", "name": "ipc_send_command", "params": [], "docstring": "Send IPC command 0x803 and wait", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

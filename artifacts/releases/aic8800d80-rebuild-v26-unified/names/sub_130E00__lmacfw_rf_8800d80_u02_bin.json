@@ -1,0 +1,1 @@
+{"fn": "nop_stub_2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x130e00", "status": "ok", "name": "nop_stub_2", "params": [], "docstring": "Duplicate do-nothing patched stub that preserves registers and returns", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
