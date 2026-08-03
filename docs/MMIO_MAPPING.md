@@ -120,16 +120,16 @@ identically to before.
 
 Re-running the original-side fingerprints (`emulator verify`, 25 targets):
 
-| metric               | M3 (depth-0 broken) | M4 (no model) | M4 + behavior model (full) |
-|----------------------|--------------------:|--------------:|---------------------------:|
-| verify returned      | 18 / 25             | 20 / 25       | 22 / 25                    |
-| verify capped        | —                   | 3             | 0                          |
-| verify faulted       | 6                   | 2             | 3                          |
-| compare mean Jaccard | 0.52                | 0.667         | 0.667                      |
-| compare matched      | 8                   | 8             | 8                          |
-| recon-missing        | 7                   | 4             | 4                          |
+| metric               | M3 (depth-0 broken) | M4 (no model) | M4 + behavior model (full) | + boot-ROM slot seeding |
+|----------------------|--------------------:|--------------:|---------------------------:|------------------------:|
+| verify returned      | 18 / 25             | 20 / 25       | 22 / 25       | **25 / 25** |
+| verify capped        | —                   | 3             | 0             | 0           |
+| verify faulted       | 6                   | 2             | 3             | 0           |
+| compare mean Jaccard | 0.52                | 0.667         | 0.667         | 0.667       |
+| compare matched      | 8                   | 8             | 8             | 8           |
+| recon-missing        | 7                   | 4             | 4             | 4           |
 
-The **full** model (final column) is rebuilt from the complete classification
+The **full** model (behavior column) is rebuilt from the complete classification
 run: **2,083 registers** (100% of the target universe = 1,704 dynamic + 379
 non-overlapping static siblings), **42 behavioral rules** (32 poll + 10 strobe),
 **31 evidence-poll floors**. This replaces the earlier 388-register / 19-rule
@@ -139,21 +139,24 @@ The behavior model converts the two poll-blocked targets
 two poll-blocked targets `rf_cmd_dispatch` and `rf_mem_write` (fmacfwbt) from
 capped → returned: their status registers are now modeled as poll rules, so
 the firmware's `while (!(reg & MASK))` loops exit instead of spinning to the
-instruction cap. All 3 remaining non-returns are standalone caller-state
-dependencies (the target jumps through a null context pointer — not a CPU or
-MMIO issue):
+instruction cap. The last 3 non-returns were standalone caller-state
+dependencies (the target jumped through a **null boot-ROM callback slot** —
+not a CPU or MMIO issue) and are now fixed by seeding those slots:
 
-- `rf_reg_write_wait` (2 images) faults immediately (null context).
-- `rf_timer_toggle_update` previously capped spinning on `0x4010d01c`; the
-  evidence-poll floor (see 2d) now gives it a poll rule, so it exits the loop
-  and executes 1,642 real instructions (330 reads / 181 writes across the RF
-  control page) before hitting the same null-context wall. Verified that a
-  slower `reads_to_ready` changes nothing — the wall is context, not timing.
-  These 3 are the only ceiling left on verify; they need caller-state context
-  injection, not more MMIO modeling.
+- `rf_reg_write_wait` (2 images) and `rf_timer_toggle_update` call through
+  fixed low-memory vectors (`0x1b0/0x1b4/0x1b8`, plus `0x1fc` on the fmac
+  images / `0x1d8` on lmac_rf) that the boot ROM populates before the image
+  runs. The emulator previously read 0 there, so `bx r3` branched to address
+  0 (invalid instruction). The platform now writes a tiny Thumb
+  `movs r0,#0; bx lr` stub at a dedicated page and points every slot at it —
+  the same "return 0" semantic the reconstruction smoke uses for these
+  calls. `rf_timer_toggle_update` executes its full 1,671-instruction RF
+  control flow (352 reads / 195 writes) before returning.
 
-Boot smoke with the full model: all 4 images run **300,000 instructions,
-capped, zero faults** (57k/24k MMIO reads/writes per image).
+Result: **25/25 truth-lane targets return, 0 capped, 0 faulted** — the
+verify ceiling is removed. Boot smoke unchanged: all 4 images run
+**300,000 instructions, capped, zero faults** (57k/24k MMIO reads/writes per
+image; the slots are pure boot-ROM state, untouched during boot).
 
 The compare metrics are unchanged because the behavior model is platform-level:
 it runs on both the original and reconstructed sides, so register-overlap

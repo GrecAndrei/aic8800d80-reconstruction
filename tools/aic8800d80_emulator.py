@@ -106,6 +106,18 @@ MMIO_PHANTOM_END = 0x60000000
 RETURN_STOP = 0xDEADC000
 PAGE_SIZE = 0x1000
 
+# Boot-ROM callback slots: the firmware calls through these fixed low-memory
+# vectors (`mov r3,#slot; ldr r3,[r3]; bx r3`). The boot ROM populates them
+# before the image runs; the emulator seeds them with a no-op stub so the
+# indirect call returns cleanly instead of branching to 0. All four images
+# use 0x1b0/0x1b4/0x1b8; the fmac images add 0x1fc and lmac_rf adds 0x1d8.
+# Seeding the union is harmless for images that don't reference a slot. The
+# recon smoke side stubs these same calls to return 0 (truth_lane_smoke),
+# so a returning-0 stub keeps both sides comparable.
+BOOT_CALLBACK_SLOTS = (0x1b0, 0x1b4, 0x1b8, 0x1d8, 0x1fc)
+BOOT_STUB_BASE = 0x20080000    # dedicated stub page just past main SRAM
+BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
+
 IVT_SP_OFF = 0x00
 IVT_RESET_OFF = 0x04
 
@@ -328,6 +340,39 @@ class Aic8800D80Platform:
             self.mu.mem_write(HEAP_BASE, b"\x00" * HEAP_SIZE)
         except UcError:
             pass
+        self._seed_boot_callbacks()
+
+    def _seed_boot_callbacks(self) -> None:
+        """Install a no-op stub and point the boot-ROM callback slots at it.
+
+        The firmware calls through fixed low-memory vectors (0x1b0/0x1b4/
+        0x1b8 + one image-specific slot) that the boot ROM populates before
+        the image runs. Without seeding, the emulator reads 0 there and the
+        indirect call ``bx r3`` branches to address 0 (invalid instruction).
+        We write a tiny Thumb ``movs r0,#0; bx lr`` stub into a dedicated
+        page and point every slot at it, so the call returns 0 exactly like
+        the reconstruction smoke's stub does.
+        """
+        stub = BOOT_STUB_BASE
+        try:
+            self._map_rwx(stub & ~(PAGE_SIZE - 1), PAGE_SIZE)
+            self.mu.mem_write(stub, BOOT_STUB_BYTES)
+        except UcError:
+            return
+        # Slots live in the low boot-ROM page (0x0-0xFFF); map it so the
+        # seeded values are readable (on_mem fires for mapped reads, leaving
+        # the value we wrote intact).
+        low = 0x0
+        try:
+            self._map_rwx(low, PAGE_SIZE)
+        except UcError:
+            return
+        for slot in BOOT_CALLBACK_SLOTS:
+            try:
+                # Thumb bit set: bx r3 enters Thumb mode at the stub.
+                self.mu.mem_write(slot, struct.pack("<I", stub | 1))
+            except UcError:
+                pass
 
     def _map_rwx(self, base: int, size: int) -> None:
         try:

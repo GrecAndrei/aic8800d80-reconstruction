@@ -90,6 +90,13 @@ release tarball
     re-links bodies at image-base 0x1000 where data-symbol pointers deref
     to 0, losing the register access. The emulator's original-side
     fingerprint is ground truth.
+  - **25/25 verify, 0 faults** (2026-08-02): the last 3 non-returns
+    (`rf_reg_write_wait` ×2, `rf_timer_toggle_update`) jumped through null
+    boot-ROM callback slots (0x1b0/0x1b4/0x1b8 + 0x1fc/0x1d8) that the ROM
+    populates before the image runs. `_seed_boot_callbacks` now writes a
+    Thumb `movs r0,#0; bx lr` stub at 0x20080000 and points every slot at
+    it (the same return-0 the recon smoke stubs use), so the indirect calls
+    return cleanly. Verify: 25/25 returned, 0 capped, 0 faulted.
 - **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
   quantifies the ~421 undefs when linking without `--gc-sections`:
   58% naming artifacts (name points inside a composed function — code
