@@ -57,6 +57,7 @@ from pathlib import Path
 from unicorn import (
     UC_ARCH_ARM,
     UC_HOOK_CODE,
+    UC_HOOK_INSN_INVALID,
     UC_HOOK_MEM_READ,
     UC_HOOK_MEM_READ_UNMAPPED,
     UC_HOOK_MEM_WRITE,
@@ -70,6 +71,7 @@ from unicorn import (
 from unicorn.arm_const import (
     UC_ARM_REG_LR,
     UC_ARM_REG_PC,
+    UC_ARM_REG_R0,
     UC_ARM_REG_SP,
     UC_CPU_ARM_CORTEX_M3,
     UC_CPU_ARM_CORTEX_M4,
@@ -116,6 +118,18 @@ PAGE_SIZE = 0x1000
 # to return 0 (truth_lane_smoke), so a returning-0 stub keeps both sides
 # comparable.
 BOOT_CALLBACK_SLOTS = (0x1b0, 0x1b4, 0x1b8, 0x1c8, 0x1d0, 0x1d4, 0x1d8, 0x1e0, 0x1fc)
+
+# Allocator free-entry addresses per image. The custom heap allocator derefs the
+# block pointer before any NULL check, so ``free(NULL)`` (which the firmware
+# legitimately calls on allocation-failure error paths) hardfaults. The C
+# standard defines free(NULL) as a no-op; the emulator honors that by returning
+# from these entries immediately when r0 == 0. (Same allocator, relocated.)
+ALLOC_FREE_ENTRIES = {
+    "fmacfw_8800d80_h_u02": (0x14CA88,),
+    "fmacfw_8800d80_u02": (0x14CBC8,),
+    "fmacfwbt_8800d80_u02": (0x14CDF0,),
+    "lmacfw_rf_8800d80_u02": (0x13E078,),
+}
 BOOT_STUB_BASE = 0x20080000    # dedicated stub page just past main SRAM
 BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 
@@ -311,6 +325,13 @@ class Aic8800D80Platform:
         self.fn_entries: list[str] = []
         self.call_stack: list[str] = []
         self.call_depth = 0
+        # Set by the null-function-pointer hook; run() re-enters at this LR.
+        self._null_return_lr: int | None = None
+        # Per-image allocator free entries (null-safe free).
+        img_name = self.image_path.name
+        if img_name.endswith(".bin"):
+            img_name = img_name[:-4]
+        self._free_entries: tuple[int, ...] = ALLOC_FREE_ENTRIES.get(img_name, ())
 
         self._install_hooks()
 
@@ -328,6 +349,16 @@ class Aic8800D80Platform:
             # Thumb `b .` (0xe7fe) busy loop at every odd word so any jump
             # into the sentinel is mapped; the code hook stops first.
             self.mu.mem_write(sentinel_base, b"\xfe\xe7" * (PAGE_SIZE // 2))
+        except UcError:
+            pass
+        # Null shadow page: firmware error paths deref a NULL block pointer
+        # (free on an allocation failure, list op on an empty head) reading /
+        # writing 0xfffffff0..0xffffffff. On real hardware those paths are
+        # unreachable (the subsystems are initialized); in the standalone corpus
+        # they are reachable, so absorb them: reads see 0, writes are dropped.
+        self._map_rwx(0xfffff000, PAGE_SIZE)
+        try:
+            self.mu.mem_write(0xfffff000, b"\x00" * PAGE_SIZE)
         except UcError:
             pass
         # Main SRAM + heap.
@@ -388,8 +419,35 @@ class Aic8800D80Platform:
             if pc in (RETURN_STOP, RETURN_STOP | 1):
                 uc.emu_stop()
                 return
+            # free(NULL) is a no-op per C semantics; the firmware's allocator
+            # derefs before checking, so return immediately when the free entry
+            # is entered with r0 == 0.
+            if self._free_entries and pc in self._free_entries:
+                if uc.reg_read(UC_ARM_REG_R0) == 0:
+                    lr = uc.reg_read(UC_ARM_REG_LR)
+                    if lr >= 0x200:
+                        uc.reg_write(UC_ARM_REG_PC, lr)
+                        return
             self.insn_count += 1
             self._note_function(pc)
+
+        # Null / garbage function-pointer call: a call through an uninitialized
+        # handler field branches into the low boot-ROM data page (address 0 ..
+        # 0x1ff), which is mapped (data) but holds no valid instruction, so the
+        # fetch decodes as INSN_INVALID (after the blx switches to ARM mode,
+        # which real Cortex-M would hardfault on). Real firmware populates these
+        # handler tables at runtime init; the standalone corpus never does. Stop
+        # and have ``run`` re-enter at the return address with r0=0, so the
+        # caller's error path handles the NULL result instead of hardfaulting.
+        def on_insn_invalid(uc, *args):
+            pc = int(uc.reg_read(UC_ARM_REG_PC))
+            if pc < 0x200:
+                lr = uc.reg_read(UC_ARM_REG_LR)
+                if lr >= 0x200:
+                    self._null_return_lr = lr
+                    uc.emu_stop()
+                    return True  # handled: run() re-enters at the return addr
+            return False
 
         def on_mem(uc, access, address, size, value, user_data):
             addr = int(address)
@@ -475,6 +533,7 @@ class Aic8800D80Platform:
             return True
 
         self.mu.hook_add(UC_HOOK_CODE, on_code)
+        self.mu.hook_add(UC_HOOK_INSN_INVALID, on_insn_invalid)
         self.mu.hook_add(UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem)
         self.mu.hook_add(
             UC_HOOK_MEM_READ_UNMAPPED | UC_HOOK_MEM_WRITE_UNMAPPED,
@@ -512,6 +571,11 @@ class Aic8800D80Platform:
             if self.insn_count < self._strobe_until.get(addr, 0):
                 return None  # in window: keep the written value visible
             return 0  # window elapsed: reads see zero
+        if btype == "counter":
+            # Monotonic hardware tick counter: advances with emulated time so
+            # firmware ``while (counter < t + N)`` delay spins terminate.
+            rate = int(bh.get("tick_rate", "500"))
+            return min(0xFFFFFFFF, self.insn_count // rate)
         return None
 
     def _inject_read_value(self, addr: int, size: int) -> None:
@@ -599,6 +663,7 @@ class Aic8800D80Platform:
         cap_flag = {"n": max_insns}
         fault = {"access": None, "address": None, "size": None, "detail": ""}
         stop = {"value": "running"}
+        self._null_return_lr = None
 
         def on_code_cap(uc, address, size, user_data):
             if self.insn_count >= max_insns:
@@ -606,17 +671,30 @@ class Aic8800D80Platform:
                 uc.emu_stop()
         cap_hook = self.mu.hook_add(UC_HOOK_CODE, on_code_cap)
 
-        try:
-            self.mu.emu_start(entry | 1, RETURN_STOP)
-        except UcError as e:
-            stop["value"] = "fault"
-            fault["detail"] = str(e)
-            fault["pc"] = hex(self.mu.reg_read(UC_ARM_REG_PC))
-            if self.last_unmapped:
-                pc0, acc, addr, sz = self.last_unmapped[-1]
-                fault["access"] = "read" if acc == UC_MEM_READ else "write"
-                fault["address"] = hex(addr)
-                fault["size"] = sz
+        # Null-function-pointer calls stop the engine via the INSN_INVALID hook
+        # and set ``_null_return_lr``; re-enter at that address with r0=0 so the
+        # caller treats the uninitialized handler as a return-0 stub.
+        start_ea = entry | 1
+        for _ in range(64):
+            try:
+                self.mu.emu_start(start_ea, RETURN_STOP)
+                break
+            except UcError as e:
+                if self._null_return_lr is not None:
+                    lr = self._null_return_lr
+                    self._null_return_lr = None
+                    self.mu.reg_write(UC_ARM_REG_R0, 0)
+                    start_ea = lr
+                    continue
+                stop["value"] = "fault"
+                fault["detail"] = str(e)
+                fault["pc"] = hex(self.mu.reg_read(UC_ARM_REG_PC))
+                if self.last_unmapped:
+                    pc0, acc, addr, sz = self.last_unmapped[-1]
+                    fault["access"] = "read" if acc == UC_MEM_READ else "write"
+                    fault["address"] = hex(addr)
+                    fault["size"] = sz
+                break
 
         self.mu.hook_del(cap_hook)
 

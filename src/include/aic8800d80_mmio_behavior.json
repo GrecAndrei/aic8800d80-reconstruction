@@ -2970,14 +2970,13 @@
    "source": "dynamic"
   },
   "0x40320120": {
-   "name": "phy_status",
+   "name": "rf_tick_counter",
    "role": "status",
    "confidence": 0.7,
    "source": "dynamic",
    "behavior": {
-    "type": "poll",
-    "ready_mask": "0x1",
-    "reads_to_ready": 192
+    "type": "counter",
+    "tick_rate": "100"
    },
    "fields": {
     "0x1": "PHY/RF ready bit (inferred)"
@@ -11338,9 +11337,8 @@
    "confidence": 0.4,
    "source": "dynamic",
    "behavior": {
-    "type": "poll",
-    "ready_mask": "0x1",
-    "reads_to_ready": 85
+    "type": "counter",
+    "tick_rate": "100"
    },
    "fields": {
     "0x1": "timer tick/ready bit polled by delay_us"
@@ -11540,7 +11538,7 @@
    "source": "dynamic",
    "behavior": {
     "type": "poll",
-    "ready_mask": "0x1",
+    "ready_mask": "0x2",
     "reads_to_ready": 200
    },
    "fields": {
