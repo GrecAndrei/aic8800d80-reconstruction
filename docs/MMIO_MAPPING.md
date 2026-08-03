@@ -218,7 +218,7 @@ dependence rather than MMIO:
   ```
   standalone: returned=4694 capped=450  faulted=797
   bootstate:  returned=4237 capped=1536 faulted=172   (78% fewer faults)
-  bootstate:  returned=4386 capped=1558 faulted=0     (all fixes, ~0)
+  bootstate:  returned=4402 capped=1542 faulted=0     (all fixes)
   ```
 
   The fault→cap conversion is the headline: functions that previously died on

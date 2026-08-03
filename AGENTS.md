@@ -107,13 +107,18 @@ release tarball
     heap head (fmacfw_h `[0x182b60]=0x1731be`, lmac_rf `[0x180ac0]=0x158272`,
     static free-list nodes in the image data), the boot callback slots, and
     log/config globals — WITHOUT the partially-populated SRAM structs that make
-    `--boot-first` regress (null-callbacks). Result: faults 797 → 172 (78%
-    fewer); returned 4694 → 4237, caps 450 → 1536 — the flips are functions
-    now allocating then blocking on a legitimate OS wait (`while ([flag]!=0);`,
-    flag cleared by an interrupt path the standalone emulator never runs), so
-    more faithful, not a regression. Residual 172 = ~75 null-block-to-allocator
-    derefs (`ldr [r0,#-4]` with r0=0) + ~60 null function-pointer calls (pc=0).
-    MMIO layer complete; residual is execution-context injection.
+    `--boot-first` regress (null-callbacks).
+  - **Zero faults (2026-08-03)**: faults 797 → 172 → **0** across all 5,944
+    functions. The residual 172 (null-block-to-allocator derefs + null
+    function-pointer calls) were closed with execution-context fixes in the
+    emulator: a `counter` MMIO type (tick-counter registers return
+    insn_count//rate so `delay_us`/tick-waits terminate), null-call stubs (a
+    call through an uninitialized handler field returns 0), null-safe free +
+    null shadow page (`free(NULL)` no-ops; `0xfffff000` absorbs null-adjacent
+    accesses), `udf #255` assert skip, SRAM mapped in chunks up to 0x21000000,
+    a low shared-memory window, and a `start`-entry scan correction. Capped
+    runs (1542) are functions blocked at a legitimate OS wait — faithful, not
+    faults. MMIO layer complete; execution context fully injected.
 - **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
   quantifies the ~421 undefs when linking without `--gc-sections`:
   58% naming artifacts (name points inside a composed function — code
