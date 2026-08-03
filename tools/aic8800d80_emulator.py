@@ -177,9 +177,18 @@ BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 #     executed repeatedly, with a candidate-global read recently and no
 #     candidate-global write since, is such a spin: jump past the branch
 #     (pc+2) so the wait exits. The flag field is left untouched.
+#  3. Register-only grind: a backward branch executed many times with NO
+#     candidate-global memory activity since the loop's previous iteration is a
+#     pure-register/FPU delay or count loop (`subs rN,#1; bne`, or a compute
+#     kernel holding its counters in registers). It terminates on real hardware
+#     after a bounded count, but standalone it runs to the budget cap. Skip past
+#     the branch so the delay elapses. Loops that read or write memory (data
+#     walks, output loops, table fills) update the spin timestamps each iteration
+#     and are NEVER touched by this mechanism.
 SPIN_BREAK_READS = 4        # reads of (pc, addr) before flipping
 SPIN_BREAK_BRANCH = 6       # executions of one backward-branch pc before jumping
 SPIN_BREAK_WINDOW = 2000    # max insn gap between events to count as one spin
+SPIN_BREAK_REGLOOP = 100000 # register-only branch executions before skipping
 # Only value the memory-flip ever writes: 0, to a flag currently == 1 (a set
 # boolean being waited on to clear: `while (x != 0)`). Clearing a set flag is
 # unambiguous. NEVER write a large value: a field read as 0 may be a POINTER
@@ -593,6 +602,22 @@ class Aic8800D80Platform:
                     # observed waits (crypto semaphore, log assert) only gate
                     # on it and never consume its value downstream, so skipping
                     # the loop is sufficient and can't corrupt a pointer field.
+                    self._skip_to = pc + 2
+                    uc.emu_stop()
+                    self._spin_branches[pc] = (0, self.insn_count,
+                                               self._spin_last_read_addr)
+                    return
+                # Mechanism 3 (register-only grind). ``last`` is this branch's
+                # previous execution; if neither a candidate-global read nor a
+                # write happened since, the loop body does no memory traffic and
+                # is a pure-register/FPU delay or count loop. After many
+                # iterations it would only elapse a bounded delay on real
+                # hardware, so skip past the branch (delay elapses). Any memory
+                # op in the body updates the spin timestamps and keeps this from
+                # firing (real data walks / output loops are never touched).
+                if (n >= SPIN_BREAK_REGLOOP
+                        and self._spin_last_read <= last
+                        and self._spin_last_write <= last):
                     self._skip_to = pc + 2
                     uc.emu_stop()
                     self._spin_branches[pc] = (0, self.insn_count,
