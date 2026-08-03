@@ -195,6 +195,10 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
     # don't leak state into each other.
     plat = Aic8800D80Platform(img_path, mmio_model=model)
     plat.function_table = load_function_table(image)
+    # Report names from the same overlaid table the emulator uses (v26
+    # naming dataset + scan good names), not the raw scan JSONL, so sweep
+    # output matches what resolve_pc_name shows during execution.
+    name_by_hw = dict(plat.function_table)
     ivt = plat.ivt()
     boot_snapshot = None
     bootstate_dict = None
@@ -228,7 +232,7 @@ def sweep_image(image: str, max_insns: int, every: int, out_path: Path,
                                spin_break=True)
         rows.append({
             "image": image,
-            "name": fn["name"],
+            "name": name_by_hw.get(chip, fn["name"]),
             "address": hex(chip),
             "termination": term,
             "instructions": stats["instructions"],
