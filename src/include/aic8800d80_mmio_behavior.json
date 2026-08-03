@@ -522,12 +522,12 @@
   "0x40032014": {
    "name": "rf_status",
    "role": "status",
-   "confidence": 0.5,
-   "source": "dynamic",
+   "confidence": 0.6,
+   "source": "static+dynamic",
    "behavior": {
-    "type": "poll",
+    "type": "rx",
     "ready_mask": "0x1",
-    "reads_to_ready": 200
+    "data_addr": "0x40032000"
    }
   },
   "0x40032018": {

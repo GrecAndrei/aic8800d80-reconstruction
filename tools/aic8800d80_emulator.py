@@ -209,12 +209,25 @@ BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
 #     terminates — the real producer/terminator is absent). Config loops write
 #     DISTINCT registers, so they never accumulate a same-register streak. Skip
 #     past the branch so the bounded real output completes.
+#  6. (Retired) MMIO set-wait write: removed — the branch-jump covers peripheral
+#     polls without writing a register the firmware may consume downstream.
+#  7. Self-loop abort: a branch to its OWN pc (``b .``) can never terminate.
+#     Real firmware reaches it only through an abort/assert hang (a watchdog
+#     would reset the core); the standalone emulator returns via LR (r0 = 0)
+#     after a few executions. Fires only under spin_break, never during boot.
+#  Additionally the behavior model has an "rx" type: a status register whose
+#  ready bit reflects a byte "available" in a paired data register (UART/console
+#  RX). Standalone nothing produces a byte (all 0x40032000 traffic is TX), so
+#  the bit stays clear and RX polls block — the correct no-host emulation,
+#  instead of the circular reads_to_ready=N that used to make a console loop
+#  spuriously "ready" and then spin consuming 0x00 bytes.
 SPIN_BREAK_READS = 4        # reads of (pc, addr) before flipping
 SPIN_BREAK_BRANCH = 6       # executions of one backward-branch pc before jumping
 SPIN_BREAK_WINDOW = 2000    # max insn gap between events to count as one spin
 SPIN_STACK_SCRATCH = 0x200  # bytes around SP treated as frame scratch (not state)
 SPIN_BREAK_REGLOOP = 100000 # register-only branch executions before skipping
 SPIN_BREAK_WRLOOP = 4096    # same-register MMIO write streak before skipping
+SPIN_BREAK_SELFLOOP = 32    # executions of a branch-to-self (`b .`) before aborting
 # Only value the memory-flip ever writes: 0, to a flag currently == 1 (a set
 # boolean being waited on to clear: `while (x != 0)`). Clearing a set flag is
 # unambiguous. NEVER write a large value: a field read as 0 may be a POINTER
@@ -451,6 +464,12 @@ class Aic8800D80Platform:
         self.mmio_model = mmio_model if mmio_model is not None else load_mmio_model()
         self.behavior_model = (behavior_model if behavior_model is not None
                                else load_mmio_behavior())
+        # RX-FIFO status registers (behavior type "rx"), keyed by status addr.
+        self._rx_statuses: dict[int, dict] = {
+            int(a, 16): b.get("behavior") or {}
+            for a, b in self.behavior_model.items()
+            if (b.get("behavior") or {}).get("type") == "rx"
+        }
         self.function_table: list[tuple[int, str]] = []
 
         if len(self.image) > IMAGE_MAX:
@@ -467,6 +486,13 @@ class Aic8800D80Platform:
         # Behavioral-model state.
         self._poll_reads: dict[int, int] = {}
         self._strobe_until: dict[int, int] = {}
+        # RX-FIFO state (behavior type "rx"): status registers whose ready bit
+        # reflects a byte "available" in a paired data register. Set when the
+        # data register is written (a producer/host byte), cleared when it is
+        # read (consume-on-read). Standalone, no producer ever writes a byte,
+        # so the ready bit stays clear and firmware RX polls block — the correct
+        # emulation of a UART/console with no host attached.
+        self._rx_available: set[int] = set()   # status addrs currently "byte ready"
         self.insn_count = 0
         self.branch_taken = 0
         self.cur_fn: str | None = None
@@ -626,6 +652,22 @@ class Aic8800D80Platform:
                     if lr >= 0x200:
                         uc.reg_write(UC_ARM_REG_PC, lr)
                         return
+            # Spin-breaker, mechanism 7 (self-loop abort): a branch to its own
+            # pc (``b .``) can never terminate. Real firmware reaches it only
+            # through an abort/assert path (a watchdog would reset the core), so
+            # the standalone emulator treats it as a clean return via LR. Fires
+            # after a few executions so a transiently-executed ``b .`` in a
+            # decode-garbage region doesn't abort real work that merely passes
+            # through it (boot paths do execute ``b .`` briefly).
+            if (self._spin_break and self._is_self_loop(pc)):
+                n, last, seen = self._spin_branches.get(pc, (0, -10**9, -1))
+                n += 1
+                self._spin_branches[pc] = (n, self.insn_count, seen)
+                if n >= SPIN_BREAK_SELFLOOP:
+                    self._skip_to = pc + 2
+                    uc.emu_stop()
+                    self._spin_branches[pc] = (0, self.insn_count, seen)
+                    return
             # Spin-breaker, mechanism 2 (register-cached wait): a backward
             # branch executed repeatedly, with a candidate-global read recently
             # and no candidate-global write since, is a wait spin whose flag
@@ -855,6 +897,11 @@ class Aic8800D80Platform:
                 # is a pre-access hook): a poll register becomes ready after N
                 # reads, a strobe register clears after its window.
                 self._inject_read_value(addr, int(size))
+                # RX consume-on-read: reading a data register paired to an "rx"
+                # status register consumes the byte (clears the available bit).
+                # Real UART semantics: a byte is read once; the flag stays set
+                # only until the data register is read.
+                self._rx_consume(addr)
                 # Capture the actual read-back value (the phantom model maps a
                 # deterministic word, so this is stable) for echo/poll evidence.
                 try:
@@ -965,6 +1012,19 @@ class Aic8800D80Platform:
             return None
         return b.get("behavior") or None
 
+    def _rx_status_for_data(self, data_addr: int) -> int | None:
+        """Status register address whose RX byte ``data_addr`` delivers, if any."""
+        for st, bh in self._rx_statuses.items():
+            if bh.get("data_addr") and int(bh["data_addr"], 16) == data_addr:
+                return st
+        return None
+
+    def _rx_consume(self, data_addr: int) -> None:
+        """Reading an RX data register consumes its byte (clears the flag)."""
+        st = self._rx_status_for_data(data_addr)
+        if st is not None:
+            self._rx_available.discard(st)
+
     def _behavior_read_word(self, addr: int, size: int) -> int | None:
         """Value a read of ``addr`` should observe, or None for no rule.
 
@@ -984,6 +1044,16 @@ class Aic8800D80Platform:
                 # Ready: config bits preserved, ready bit(s) set.
                 return last | mask
             # Not ready yet: config bits preserved, ready bit(s) forced clear.
+            return last & ~mask
+        if btype == "rx":
+            # UART/console RX status: the ready bit is set only while a byte is
+            # "available" in the paired data register. Nothing writes a byte
+            # standalone (all 0x40032000 traffic is TX), so the bit stays clear
+            # and RX polls block — the correct no-host emulation.
+            mask = int(bh.get("ready_mask", "0x1"), 16)
+            last = self.mmio_state.get(addr, 0)
+            if addr in self._rx_available:
+                return last | mask
             return last & ~mask
         if btype == "strobe":
             if self.insn_count < self._strobe_until.get(addr, 0):
@@ -1045,6 +1115,25 @@ class Aic8800D80Platform:
         if (hw & 0xF000) == 0xE000:      # B (2-byte): 11-bit signed offset
             return bool(hw & 0x400)
         return False
+
+    def _is_self_loop(self, pc: int) -> bool:
+        """True if ``pc`` holds a 2-byte Thumb ``b .`` (branch to its own pc).
+
+        ``b .`` can never terminate: real firmware uses it only as an abort /
+        assert hang (an OS watchdog would reset the core), so the standalone
+        emulator should treat it as a clean abort rather than spin to the
+        budget cap. Matches only the exact 2-byte encoding ``b <pc>``.
+        """
+        if not (CHIP_BASE <= pc < CHIP_BASE + len(self.image) - 1):
+            return False
+        off = pc - CHIP_BASE
+        hw = self.image[off] | (self.image[off + 1] << 8)
+        if (hw & 0xF000) != 0xE000:      # unconditional 2-byte B
+            return False
+        imm = hw & 0x7FF
+        if imm & 0x400:                   # sign-extend the 11-bit offset
+            imm -= 0x800
+        return (pc + 4 + (imm << 1)) & ~1 == pc & ~1
 
     def _null_return(self, uc) -> None:
         """Handle a null / garbage function-pointer call (stop, return 0).
