@@ -167,11 +167,16 @@ truth-lane returns) and stable poll/strobe semantics for both sides.
 
 With the 25-target gate green, the emulator is run against **every** function
 in all 4 images (5,944 total) to find gaps the curated set misses. The
-current result, with the boot-state injection + spin-breaker (see AGENTS.md):
+current result, with the boot-state injection + five-mechanism spin-breaker
+(memory-flip, branch-jump incl. peripheral polls, register-grind, data-march,
+output-loop breaker — see AGENTS.md):
 
 ```
-TOTAL scanned=5944 returned=5289 exited=132 capped=523 faulted=0
-     (91.2% returned/exited, 0 faults at max-insns 30000)
+TOTAL scanned=5944 returned=5481 exited=427 capped=36 faulted=0
+     (0 faults, 92.2% clean return; 100k sweep + 2M re-run of the
+      capped, cs_final + hb_final. The 36 residual capped are genuinely
+      long RF-config RMW loops, log-buffer output loops, and small
+      OS-lock waits that standalone memory never resolves.)
 ```
 
 - **Zero faults** across the whole corpus. The earlier fault classes
