@@ -58,6 +58,7 @@ from unicorn import (
     UC_ARCH_ARM,
     UC_HOOK_CODE,
     UC_HOOK_INSN_INVALID,
+    UC_HOOK_MEM_FETCH_UNMAPPED,
     UC_HOOK_MEM_READ,
     UC_HOOK_MEM_READ_UNMAPPED,
     UC_HOOK_MEM_WRITE,
@@ -100,7 +101,12 @@ IMAGE_MAX = 0x200000            # hard cap on image size we will map
 STACK_BASE = 0x180000           # stack window below the IVT SP (0x1a0000)
 STACK_SIZE = 0x20000
 SRAM_BASE = 0x20000000          # main SRAM (existing tools use this)
-SRAM_SIZE = 0x80000
+# The firmware references low-SRAM globals up to ~0x20ff04 (bt_init_entry writes
+# a config pointer there); 512KB was too small. Unicorn commits large mem_map
+# calls unreliably, so SRAM is mapped in 512KB chunks below (see _map_memory)
+# up to the 0x21000000 heap base.
+SRAM_SIZE = 0x1000000
+SRAM_CHUNK = 0x80000
 HEAP_BASE = 0x21000000
 HEAP_SIZE = 0x10000
 MMIO_PHANTOM_BASE = 0x40000000  # APB/AHB peripherals (IDA phantom segment)
@@ -118,6 +124,10 @@ PAGE_SIZE = 0x1000
 # to return 0 (truth_lane_smoke), so a returning-0 stub keeps both sides
 # comparable.
 BOOT_CALLBACK_SLOTS = (0x1b0, 0x1b4, 0x1b8, 0x1c8, 0x1d0, 0x1d4, 0x1d8, 0x1e0, 0x1fc)
+
+# Low shared-memory window: inter-core handoff globals (0x0020ff04 etc.).
+LOW_SHM_BASE = 0x00200000
+LOW_SHM_SIZE = 0x00200000
 
 # Allocator free-entry addresses per image. The custom heap allocator derefs the
 # block pointer before any NULL check, so ``free(NULL)`` (which the firmware
@@ -327,6 +337,8 @@ class Aic8800D80Platform:
         self.call_depth = 0
         # Set by the null-function-pointer hook; run() re-enters at this LR.
         self._null_return_lr: int | None = None
+        # Set by the udf-assert hook; run() re-enters here (skipping the udf).
+        self._skip_to: int | None = None
         # Per-image allocator free entries (null-safe free).
         img_name = self.image_path.name
         if img_name.endswith(".bin"):
@@ -361,13 +373,24 @@ class Aic8800D80Platform:
             self.mu.mem_write(0xfffff000, b"\x00" * PAGE_SIZE)
         except UcError:
             pass
-        # Main SRAM + heap.
-        self._map_rwx(SRAM_BASE, SRAM_SIZE)
-        self._map_rwx(HEAP_BASE, HEAP_SIZE)
+        # Low shared-memory window (2MB .. 4MB): bt_init_entry stores a config
+        # pointer at 0x0020ff04 (inter-core handoff), and other globals live in
+        # 0x00200000-0x00400000. Not in the MMIO model; model as plain RAM.
+        self._map_rwx(LOW_SHM_BASE, LOW_SHM_SIZE)
         try:
-            self.mu.mem_write(SRAM_BASE, b"\x00" * SRAM_SIZE)
+            self.mu.mem_write(LOW_SHM_BASE, b"\x00" * LOW_SHM_SIZE)
         except UcError:
             pass
+        # Main SRAM + heap (mapped in chunks: unicorn silently truncates large
+        # single mem_map calls).
+        for base in range(SRAM_BASE, SRAM_BASE + SRAM_SIZE, SRAM_CHUNK):
+            self._map_rwx(base, SRAM_CHUNK)
+        self._map_rwx(HEAP_BASE, HEAP_SIZE)
+        for base in range(SRAM_BASE, SRAM_BASE + SRAM_SIZE, SRAM_CHUNK):
+            try:
+                self.mu.mem_write(base, b"\x00" * SRAM_CHUNK)
+            except UcError:
+                pass
         try:
             self.mu.mem_write(HEAP_BASE, b"\x00" * HEAP_SIZE)
         except UcError:
@@ -432,21 +455,38 @@ class Aic8800D80Platform:
             self._note_function(pc)
 
         # Null / garbage function-pointer call: a call through an uninitialized
-        # handler field branches into the low boot-ROM data page (address 0 ..
-        # 0x1ff), which is mapped (data) but holds no valid instruction, so the
-        # fetch decodes as INSN_INVALID (after the blx switches to ARM mode,
-        # which real Cortex-M would hardfault on). Real firmware populates these
-        # handler tables at runtime init; the standalone corpus never does. Stop
-        # and have ``run`` re-enter at the return address with r0=0, so the
-        # caller's error path handles the NULL result instead of hardfaulting.
+        # handler field branches into the low boot-ROM data page. Real code
+        # starts at 0x120000+, so any fetch below 0x10000 is a bad call (the
+        # mapped low page decodes as INSN_INVALID after a blx switches to ARM
+        # mode, which real Cortex-M would hardfault on; the 0x1000 gap is an
+        # unmapped fetch). Real firmware populates these handler tables at
+        # runtime init; the standalone corpus never does. Stop and have ``run``
+        # re-enter at the return address with r0=0 so the caller's error path
+        # handles the NULL result instead of hardfaulting.
+        LOW_CODE_CEIL = 0x10000  # nothing executable below this on this firmware
+
         def on_insn_invalid(uc, *args):
             pc = int(uc.reg_read(UC_ARM_REG_PC))
-            if pc < 0x200:
-                lr = uc.reg_read(UC_ARM_REG_LR)
-                if lr >= 0x200:
-                    self._null_return_lr = lr
+            if pc < LOW_CODE_CEIL:
+                self._null_return(uc)
+                return True
+            # Firmware assert: `udf #255` (halfword 0xDEFF, stored LE as ff de).
+            # These fire only when the standalone corpus lacks the runtime
+            # context real hardware provides (uninitialized struct, invalid free
+            # pointer). Skip the 2-byte udf (re-enter at pc+2) so the function
+            # continues past the assertion instead of faulting.
+            if CHIP_BASE <= pc < CHIP_BASE + len(self.image) - 1:
+                off = pc - CHIP_BASE
+                if (self.image[off] | (self.image[off + 1] << 8)) == 0xDEFF:
+                    self._skip_to = pc + 2
                     uc.emu_stop()
-                    return True  # handled: run() re-enters at the return addr
+                    return True
+            return False
+
+        def on_unmapped_fetch(uc, access, address, size, value, user_data):
+            if int(address) < LOW_CODE_CEIL:
+                self._null_return(uc)
+                return True
             return False
 
         def on_mem(uc, access, address, size, value, user_data):
@@ -534,6 +574,9 @@ class Aic8800D80Platform:
 
         self.mu.hook_add(UC_HOOK_CODE, on_code)
         self.mu.hook_add(UC_HOOK_INSN_INVALID, on_insn_invalid)
+        self.mu.hook_add(
+            UC_HOOK_MEM_FETCH_UNMAPPED, on_unmapped_fetch,
+        )
         self.mu.hook_add(UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem)
         self.mu.hook_add(
             UC_HOOK_MEM_READ_UNMAPPED | UC_HOOK_MEM_WRITE_UNMAPPED,
@@ -612,6 +655,22 @@ class Aic8800D80Platform:
         self.call_depth = max(0, len(self.call_stack) - 1)
         self.fn_entries.append(name)
 
+    def _null_return(self, uc) -> None:
+        """Handle a null / garbage function-pointer call (stop, return 0).
+
+        Called from the INSN_INVALID and low-fetch hooks. Stops the engine and
+        records the return address so ``run`` re-enters there with r0=0; when
+        LR is garbage too (a corrupt tail-call path), end at the return
+        sentinel so the run is classified as returned rather than faulting.
+        """
+        lr = int(uc.reg_read(UC_ARM_REG_LR))
+        if lr >= 0x10000:
+            self._null_return_lr = lr
+        else:
+            self._null_return_lr = None
+            uc.reg_write(UC_ARM_REG_PC, RETURN_STOP)
+        uc.emu_stop()
+
     # -- ivt / boot -------------------------------------------------------
     def ivt(self) -> dict:
         sp = struct.unpack_from("<I", self.image, IVT_SP_OFF)[0]
@@ -664,6 +723,7 @@ class Aic8800D80Platform:
         fault = {"access": None, "address": None, "size": None, "detail": ""}
         stop = {"value": "running"}
         self._null_return_lr = None
+        self._skip_to = None
 
         def on_code_cap(uc, address, size, user_data):
             if self.insn_count >= max_insns:
@@ -671,15 +731,29 @@ class Aic8800D80Platform:
                 uc.emu_stop()
         cap_hook = self.mu.hook_add(UC_HOOK_CODE, on_code_cap)
 
-        # Null-function-pointer calls stop the engine via the INSN_INVALID hook
-        # and set ``_null_return_lr``; re-enter at that address with r0=0 so the
-        # caller treats the uninitialized handler as a return-0 stub.
+        # Null-function-pointer calls and udf asserts stop the engine via the
+        # INSN_INVALID hook (``_null_return_lr`` / ``_skip_to``). emu_start may
+        # return normally OR raise; either way re-enter at the recorded address.
         start_ea = entry | 1
         for _ in range(64):
             try:
                 self.mu.emu_start(start_ea, RETURN_STOP)
+                if self._skip_to is not None:
+                    start_ea = self._skip_to | 1
+                    self._skip_to = None
+                    continue
+                if self._null_return_lr is not None:
+                    lr = self._null_return_lr
+                    self._null_return_lr = None
+                    self.mu.reg_write(UC_ARM_REG_R0, 0)
+                    start_ea = lr | 1
+                    continue
                 break
             except UcError as e:
+                if self._skip_to is not None:
+                    start_ea = self._skip_to | 1
+                    self._skip_to = None
+                    continue
                 if self._null_return_lr is not None:
                     lr = self._null_return_lr
                     self._null_return_lr = None
