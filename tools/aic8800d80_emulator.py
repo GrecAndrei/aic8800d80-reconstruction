@@ -47,6 +47,8 @@ Commands:
 from __future__ import annotations
 
 import argparse
+import functools
+import glob
 import json
 import re
 import struct
@@ -88,6 +90,9 @@ MMIO_BEHAVIOR_PATH = SRC / "include" / "aic8800d80_mmio_behavior.json"
 TARGETS_DEFAULT = REPO / "extraction_out" / "reconstruction" / "truth_lane_state" / "truth_lane_targets.json"
 SCAN_GLOB = REPO / "harness_v25" / "out" / "{}_bin_funcs.jsonl"
 FIRMWARE_DIR = REPO / "inputs" / "firmware"
+# v26 unified naming dataset: one JSON per function, analysis-space addr -> fn.
+NAMES_GLOB = (REPO / "artifacts" / "releases" / "aic8800d80-rebuild-v26-unified"
+              / "names" / "*__{}_bin.json")
 
 # Memory map (all absolute addresses).
 # HARDWARE base: the SoC loads each WFFW image at 0x120000 (the IVT reset
@@ -277,6 +282,38 @@ def mmio_name(model: dict[int, str], addr: int) -> str:
 # Function table (PC -> name, from the fwstruct scan)
 # ---------------------------------------------------------------------------
 
+def _is_placeholder_name(name: str) -> bool:
+    """True for IDA/pipeline placeholder labels that carry no information."""
+    n = name.strip()
+    return (n.startswith("sub_") or n.startswith("loc_") or n.startswith("unk_")
+            or n.startswith("off_") or n.startswith("j_")
+            or n.startswith("log_sub_") or n == "")
+
+
+@functools.lru_cache(maxsize=None)
+def _load_v26_names(image: str) -> dict[int, str]:
+    """analysis-space addr -> fn name from the v26 unified naming dataset.
+
+    One JSON per function, keyed in the dataset by analysis-space address
+    (e.g. 0x111e60 -> rf_bus_setup_n_9c). Cached because ``load_function_table``
+    is called once per function run in the corpus sweep.
+    """
+    out: dict[int, str] = {}
+    for p in glob.glob(str(NAMES_GLOB).format(image)):
+        try:
+            j = json.loads(Path(p).read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        addr = j.get("addr")
+        fn = j.get("fn")
+        if isinstance(addr, str) and addr.lower().startswith("0x") and fn:
+            try:
+                out[int(addr, 16)] = fn
+            except ValueError:
+                continue
+    return out
+
+
 def load_function_table(image: str) -> list[tuple[int, str]]:
     """Return sorted [(address, name)] from the fwstruct scan JSONL.
 
@@ -285,8 +322,12 @@ def load_function_table(image: str) -> list[tuple[int, str]]:
     0x120000, so the table is shifted +HW_OFFSET so ``resolve_pc_name`` can
     match runtime PCs (a 0x20000 offset would otherwise break function-frame
     and depth-0 tracking).
+
+    Scan names are the raw IDA ``sub_*`` placeholders; the v26 unified naming
+    dataset overlays meaningful names (analysis-space keyed) when available.
     """
     path = Path(str(SCAN_GLOB).format(image))
+    v26 = _load_v26_names(image)
     table: list[tuple[int, str]] = []
     if not path.is_file():
         return table
@@ -306,6 +347,13 @@ def load_function_table(image: str) -> list[tuple[int, str]]:
         # real CPUID-check entry is at file 0x1a8 (== the IVT reset vector).
         if name == "start" and addr == ANALYSIS_BASE + 0x100:
             addr = ANALYSIS_BASE + 0x1A8
+        # Overlay the unified naming dataset name only when it is a genuinely
+        # meaningful label. The v26 dataset records every function but most
+        # entries fall back to ``sub_<addr>`` placeholders; those must never
+        # clobber a better name the scan already carries (e.g. firmware_init).
+        if v26_name := v26.get(addr):
+            if not _is_placeholder_name(v26_name):
+                name = v26_name
         table.append((addr + HW_OFFSET, name))
     table.sort()
     return table
