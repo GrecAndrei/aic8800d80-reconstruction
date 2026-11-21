@@ -53,6 +53,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import libmatch
+
 REPO = Path(__file__).resolve().parent.parent
 IMGS = ["fmacfw_8800d80_h_u02", "fmacfw_8800d80_u02",
         "fmacfwbt_8800d80_u02", "lmacfw_rf_8800d80_u02"]
@@ -185,6 +187,8 @@ def main() -> int:
         blob_l: list[str] = []
 
         for u in collect_undefs(img):
+            if u.startswith(libmatch.PREFIX):
+                continue                  # byte-identical library routine, linked below
             if u.startswith("__aeabi_") or u in LIBC_HELPERS:
                 skipped.append(u)
                 continue
@@ -293,6 +297,7 @@ def main() -> int:
                 f"-Wl,-Ttext={args.text_base:#x}", "-Wl,--fix-cortex-a8",
                 *entry_flag,
                 str(REPO / "src" / f"{img}.o"), str(obj),
+                *map(str, libmatch.link_objects(img, out_dir)),
                 "-lgcc", "-lc", "-o", str(elf)]
         l = subprocess.run(link, capture_output=True, text=True)
         if l.returncode:

@@ -289,6 +289,11 @@ python3 harness_v17/naming.py                # legacy full-function naming drive
 # Decompile pipeline (Hex-Rays, per image)
 harness_v19/scripts/run_v19.sh <image> both   # image names: fmacfw_8800d80_*_u02_bin etc.
 
+# Mechanical rules on the composed source (after compose + heal_composed; idempotent, --check)
+python3 tools/heal_two_d_subscript.py         # SYM[i][k] is the element, not its address
+python3 tools/libmatch.py scan && python3 tools/libmatch.py apply   # byte-identical libc/libgcc routines -> link the library routine
+python3 tools/volatile_pointees.py            # scalar pointees volatile (register access order at -O2)
+
 # Truth-lane behavioral verification
 python3 tools/truth_lane_smoke.py --final-dir extraction_out/reconstruction/mega7/final --out /tmp/opencode/truth_lane_smoke
 ```

@@ -106,6 +106,48 @@ write for write. The smoke PASS for them stands as defined (same addresses) and
 is no evidence about values or order. At `-O0` `full_link.py` adds two return-0
 stubs (`__pld`, `JUMPOUT`), so that build is a diagnostic, not a gate.
 
+### Pipeline fixes for the linked-run defects
+
+Three mechanical rules now run on the composed source (after `fwstruct compose`
+and `tools/heal_composed.py`). None adds a C body; each is idempotent and has a
+`--check` mode, and `tools/test_pipeline_rules.py` asserts the tracked sources
+are at their fixed point.
+
+| rule | what it does | defect it covers |
+|---|---|---|
+| `tools/volatile_pointees.py` | qualifies every scalar pointee in `src/<image>/main.c` as `volatile` | register polls and writes merged or reordered at `-O2` |
+| `tools/libmatch.py scan` / `apply` | finds functions whose bytes are identical to a relocation-free routine of the toolchain's `libc.a` / `libgcc.a` (29 per image, `metadata/libmatch.json`), drops the decompiled body of the 19 per image that are composed and binds the name to the library routine with an asm label; `full_link.py` links the matched archive members | `strlen` decompiled as `while ( !HIDWORD(0) )`; soft-float routines split by `JUMPOUT` |
+| `deref_two_d` in `tools/convert_decompiled_to_functions.py`, re-applied by `tools/heal_two_d_subscript.py` | a Hex-Rays `SYM[i][k]` is the element, not its address (8 sites, all in lmacfw_rf `sub_11EBB4`) | the hex-digit lookups of the lmacfw_rf formatter |
+
+All 25 targets, linked run:
+
+| build of `src/` | before | after |
+|---|---|---|
+| `-O2` | 14 PASS / 0 REVIEW / 11 FAIL | 19 PASS / 0 REVIEW / 6 FAIL |
+| `-O0` | 19 / 0 / 6 | 19 / 0 / 6 |
+
+The 7 formerly REVIEW targets are still 1 PASS / 6 FAIL, but for narrower
+reasons. Before, 5 of the 6 never returned; now all 6 return, and in the 5 formatter rows the only
+register whose writes differ is the UART data register 0x40032000:
+
+| target | image | orig / recon writes | what still differs | fixable without IDA |
+|---|---|---|---|---|
+| `rf_mem_write`, `rf_cmd_dispatch` | fmacfwbt | 23 / 11 | UART text: original `_[0x%08lX] = 0x%08lX`, reconstruction `_[x] = x` | no: the formatter `main_loop_dispatch @ 0x12e344` has switch arms Hex-Rays left as `JUMPOUT(0x14E688)` etc.; it needs a re-decompile at base 0x120000 |
+| `rf_mem_write`, `rf_cmd_dispatch` | lmacfw_rf | 21 / 19 (was 13) | UART text: `[0x%08lX] = ...` vs `[0x08lX] = ...` | no, see below |
+| `rf_level_apply` | lmacfw_rf | 128 / 126 | UART text: `freq=%d, comp_bits=%x` vs `freq=d, comp_bits=x` | no, see below |
+| `rf_timer_toggle_update` | fmacfw_h | 100 / 100 | first 66 writes identical; the last 34 (0x40342500..0x4034257c) come in a different block order with different computed values | no: the float helpers are now the library routines, so the difference is in the decompiled callers; the original runs `double_compare_ord` / `double_compare_nan` (not byte-identical to any library routine, bodies contain `JUMPOUT`), the reconstruction converts with `__fixsfsi` instead |
+
+lmacfw_rf formatter (`rf_parse_cal_cmd @ 0x11ebb4`): the state table is indexed
+in 8-byte rows (`add.w sl, r3, sl, lsl #3` at 0x11ee16; the fmacfwbt decompile
+of the same routine reads `dword_12E6B8 + 8 * v13 + 3`), but the lmacfw_rf text
+is `off_11EF28[v13][0]` and the row type that carries the stride is an IDA type
+that is not in the tree. The composed C therefore steps 4 bytes per state. The
+stride cannot be recovered from the decompiled text; it needs the Hex-Rays
+declaration of `off_11EF28` / `off_11F48C` or a re-decompile.
+
+The byte match is evidence about the matched routine only: the bytes at that
+address are the toolchain's routine. It says nothing about its callers.
+
 ### Limits
 
 One path from a default state (zeroed RAM, boot callbacks stubbed) per target.
@@ -120,7 +162,9 @@ python3 tools/aic8800d80_emulator.py verify --targets metadata/truth_lane_target
 cp /tmp/orig/orig_depth0_baseline.json metadata/truth_lane_orig_depth0.json   # only when the emulator or targets change
 python3 tools/truth_lane_smoke.py --src --out /tmp/tls
 python3 tools/truth_lane_smoke.py --src --orig-baseline /nonexistent --out /tmp/tls_old_rule   # former rule: 9/16/0
-python3 -m unittest tools/test_truth_lane.py
+python3 -m unittest discover -s tools -p 'test_*.py'
+python3 tools/libmatch.py scan --check && python3 tools/libmatch.py apply --check
+python3 tools/heal_two_d_subscript.py --check && python3 tools/volatile_pointees.py --check
 
 make -C src check                      # add OPT=-O0 for the diagnostic build
 python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run
