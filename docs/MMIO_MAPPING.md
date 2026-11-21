@@ -118,7 +118,7 @@ identically to before.
 
 ## 3. Effect on verification
 
-Re-running the original-side fingerprints (`emulator verify`, 25 targets):
+Historical results for the original-side fingerprints (`emulator verify`, 25 targets):
 
 | metric               | M3 (depth-0 broken) | M4 (no model) | M4 + behavior model (full) | + boot-ROM slot seeding |
 |----------------------|--------------------:|--------------:|---------------------------:|------------------------:|
@@ -158,10 +158,11 @@ verify ceiling is removed. Boot smoke unchanged: all 4 images run
 **300,000 instructions, capped, zero faults** (57k/24k MMIO reads/writes per
 image; the slots are pure boot-ROM state, untouched during boot).
 
-The compare metrics are unchanged because the behavior model is platform-level:
-it runs on both the original and reconstructed sides, so register-overlap
-fidelity is unaffected. Its value is deeper original-side execution (boot +
-truth-lane returns) and stable poll/strobe semantics for both sides.
+The historical compare rows above used a reconstructed-side trace that kept
+only the lowest 16 addresses, including ordinary memory. With peripheral-only
+accounting and the full address sets, the same original fingerprints match
+on all 12 targets with register traffic (mean Jaccard 1.0); 13 have no
+peripheral traffic on either side. This compares addresses, not values or order.
 
 ### Corpus-wide coverage sweep (`tools/corpus_sweep.py`)
 

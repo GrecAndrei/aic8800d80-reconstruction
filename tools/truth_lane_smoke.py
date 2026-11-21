@@ -16,8 +16,8 @@ Output:
   - Markdown summary at <out>/smoke_summary.md
   - PASS/REVIEW/FAIL per target based on:
       PASS   = returned naturally with > 0 MMIO writes
-      REVIEW = capped or faulted (didn't finish)
-      FAIL   = compile error or no body
+      REVIEW = capped, motif, or returned without a peripheral write
+      FAIL   = harness error, execution fault, missing symbol or no body
 """
 from __future__ import annotations
 
@@ -186,6 +186,14 @@ def parse_last_json(out: str) -> dict | None:
         return None
 
 
+def smoke_verdict(status: str, returncode: int, writes: int, is_real: bool) -> str:
+    if status == "capped" and returncode == 4:
+        return "REVIEW"
+    if returncode != 0 or status != "returned":
+        return "FAIL"
+    return "PASS" if writes > 0 and is_real else "REVIEW"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--final", type=Path, action="append", default=[],
@@ -228,8 +236,13 @@ def main() -> int:
 
     args.out.mkdir(parents=True, exist_ok=True)
     if args.targets is None:
-        args.targets = REPO / "extraction_out/reconstruction/truth_lane_state/truth_lane_targets.json"
+        args.targets = (REPO / "metadata/truth_lane_targets.json" if args.src else
+                        REPO / "extraction_out/reconstruction/truth_lane_state/truth_lane_targets.json")
+    if not args.targets.is_file():
+        ap.error(f"targets not found: {args.targets}; specify a manifest with --targets")
     targets = json.loads(args.targets.read_text())
+    if not isinstance(targets, list) or not targets:
+        ap.error(f"expected a non-empty target list in {args.targets}")
 
     bodies_dir = args.out / "bodies"
     bodies_dir.mkdir(exist_ok=True)
@@ -308,22 +321,6 @@ def main() -> int:
         writes = j.get("mmio_write_count", 0)
         reads = j.get("mmio_read_count", 0)
         term = j.get("termination_reason", "")
-        # Verdict: real-pseudo + returned + wrote MMIO = PASS
-        #          motif body returning = REVIEW (template, not real hardware)
-        #          capped = REVIEW (didn't finish)
-        #          fault / compile_error = FAIL
-        if status == "returned" and writes > 0 and is_real:
-            verdict = "PASS"
-        elif status == "returned" and writes > 0 and not is_real:
-            verdict = "REVIEW"
-        elif status == "returned":
-            verdict = "REVIEW"
-        elif status == "capped":
-            verdict = "REVIEW"
-        elif status == "fault":
-            verdict = "FAIL"
-        else:
-            verdict = "REVIEW"
         rows.append({
             "function": fn,
             "image": tgt.get("image"),
@@ -331,7 +328,7 @@ def main() -> int:
             "motif": tgt.get("motif"),
             "body_kind": "real_pseudo" if is_real else "motif",
             "status": status,
-            "verdict": verdict,
+            "verdict": smoke_verdict(status, proc.returncode, writes, is_real),
             "instructions": insns,
             "mmio_read_count": reads,
             "mmio_write_count": writes,

@@ -24,9 +24,13 @@ Six published release layers exist, including the newly structured **C Source Tr
 | **v18** | Inline-asm + LLM names | ✅ (byte-faithful) | ❌ (`.byte` directives) | 18,841 functions | 1.2 MB |
 | **v19** | Hex-Rays decompilation | ❌ (pseudo-C) | ✅ (real C) | 4,675 functions | 4.7 MB |
 | **v25** | Per-function metadata (JSONL) | n/a | n/a | 5,945 analyzed | Dataset |
-| **`src/`** | Structured C Source Tree | ✅ | ✅ (C99 Clean) | 5,945 functions | Tracked Source Tree |
+| **`src/`** | Structured C Source Tree | ✅ | ✅ (GNU C99) | 4,714 distinct function addresses across the four composed images | Tracked Source Tree |
 
-**Reconstruction Status: 100% Complete.** 5,945 function instances across all 4 firmware binaries are fully decompiled, refactored into C99, and mapped into a standard C source tree under `src/`. All 1,394 memory access clusters are deterministically named, and 25,815 MMIO register names are integrated.
+**What is verified:** all four composed sources cross-compile and full-link.
+The 5,945 v25 metadata records are not a count of independently verified C
+bodies. The [25-target smoke check](tools/README.md) exercises selected
+functions in emulation; neither linking nor that sample establishes complete
+behavioral equivalence or readiness to flash on hardware.
 
 ## Headline result: v19 release
 

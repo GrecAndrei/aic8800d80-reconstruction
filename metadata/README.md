@@ -31,3 +31,13 @@ accuracy. The naming cache and compose inputs are unchanged.
 
 To regenerate, run `tools/fetch_firmware.sh` and then
 `python3 tools/recover_embedded_names.py`. No IDA exports or credentials are needed.
+
+## Truth-lane targets
+
+`truth_lane_targets.json` is the fixed input for the unified source smoke check
+and original-image verification. The function labels, images and addresses come
+from the 25 rows in `artifacts/releases/aic8800d80-rebuild-v1/scorecards/v15_behavioral_25_for_25.json`,
+with the documented correction for `log_system_init_mode2` in `AGENTS.md`.
+Labels identify historical test cases, not verified vendor names. Addresses
+retain the scorecard convention: below `0x100000` they are file offsets;
+otherwise they are in analysis space. Pass `--targets` for a different list.

@@ -87,7 +87,7 @@ REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "src"
 MMIO_HEADER = SRC / "include" / "aic8800d80_mmio.h"
 MMIO_BEHAVIOR_PATH = SRC / "include" / "aic8800d80_mmio_behavior.json"
-TARGETS_DEFAULT = REPO / "extraction_out" / "reconstruction" / "truth_lane_state" / "truth_lane_targets.json"
+TARGETS_DEFAULT = REPO / "metadata" / "truth_lane_targets.json"
 SCAN_GLOB = REPO / "harness_v25" / "out" / "{}_bin_funcs.jsonl"
 FIRMWARE_DIR = REPO / "inputs" / "firmware"
 # v26 unified naming dataset: one JSON per function, analysis-space addr -> fn.

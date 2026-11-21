@@ -110,7 +110,7 @@ Commands:
 
 Common flags:
   --root <path>      workspace root (default: .)
-  --decompiled <p>   decompiled C dir (default: <root>/harness_v19/decompiled)
+  --decompiled <p>   decompiled C dir (default: local v19 export, otherwise tracked v19 release)
   --out <path>       output dir (default: <root>/harness_v25/out)
   --images <a,b,c>   comma-separated image list (default: all)
   --llm-key-dir <p>  directory of *.key files for LLM
