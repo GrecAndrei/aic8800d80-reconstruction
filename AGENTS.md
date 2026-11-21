@@ -54,7 +54,13 @@ release tarball
   either a peripheral write or, per `metadata/truth_lane_orig_depth0.json`,
   an original body that writes no peripheral (callees included) with the same
   peripheral address footprint. The 7 REVIEW rows are targets whose original
-  peripheral writes happen only in callees the smoke stubs. Per-target reasons:
+  peripheral writes happen only in callees the smoke stubs;
+  `tools/linked_recon_run.py` decides them in the fully linked reconstruction
+  (callees real, ordered writes with values compared to the original):
+  **1 PASS / 6 FAIL**, the failures being callee decompile defects (a
+  non-terminating `strlen`, a non-volatile MMIO poll, a formatter). `--all`
+  gives 14/25 at `-O2` and 19/25 at `-O0`: registers are not volatile in
+  `src/`, so `-O2` merges and reorders register writes. Per-target reasons:
   `docs/TRUTH_LANE_REVIEW_VERDICTS.md`. The former 25/25
   figure counted ordinary memory writes. The manifest in
   `metadata/truth_lane_targets.json` includes the stale v12 target correction

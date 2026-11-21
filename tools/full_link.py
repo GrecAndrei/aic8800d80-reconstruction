@@ -161,9 +161,12 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--image", choices=IMGS, default=None, help="link one image (default: all)")
     ap.add_argument("--out", default="", help="output root (default: build/full_link)")
+    ap.add_argument("--text-base", type=lambda v: int(v, 0), default=0x100000,
+                    help="link address of .text (default: 0x100000, the analysis base); "
+                         "tools/linked_recon_run.py links clear of the original image instead")
     args = ap.parse_args()
 
-    out_root = Path(args.out) if args.out else REPO / "build" / "full_link"
+    out_root = Path(args.out).resolve() if args.out else REPO / "build" / "full_link"
     dataset = load_dataset()
     images = [args.image] if args.image else IMGS
 
@@ -287,7 +290,7 @@ def main() -> int:
         elf = out_dir / f"{img}.full.elf"
         link = [CC, "-mcpu=cortex-m4", "-mthumb", "-nostdlib",
                 "-Wl,--no-gc-sections", "-Wl,--no-undefined",
-                "-Wl,-Ttext=0x100000", "-Wl,--fix-cortex-a8",
+                f"-Wl,-Ttext={args.text_base:#x}", "-Wl,--fix-cortex-a8",
                 *entry_flag,
                 str(REPO / "src" / f"{img}.o"), str(obj),
                 "-lgcc", "-lc", "-o", str(elf)]

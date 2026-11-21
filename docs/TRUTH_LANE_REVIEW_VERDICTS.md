@@ -57,16 +57,61 @@ Original columns: instructions executed, depth-0 peripheral reads/writes, whethe
 | rf_cmd_dispatch @0x12fc7c | fmacfwbt | 866 insns, 0 depth-0, callees write 0x40032000, 0x40035040 | returned, none | REVIEW | Same. |
 | rf_cmd_dispatch @0x121f44 | lmacfw_rf | 839 insns, 0 depth-0, callees write 0x40032000 | returned, none | REVIEW | Same. |
 
-No defect in the reconstructed source was found for any of the 16; nothing under `src/` changed.
+The smoke found no defect in the 16 target bodies. The linked run below finds defects in callees.
 
-## Why the 7 REVIEW rows stay open
+## The 7 REVIEW rows, decided by a linked run
 
-A single-function smoke with stubbed callees cannot see their peripheral writes,
-and nothing in the body itself can be compared against the original. Deciding
-them needs the reconstruction's callee chain executed for real: a linked,
-non-stubbed run of `src/` under the same platform model as the original (no such
-harness exists here), or a hardware trace. IDA is not required for that, and was
-not available.
+The smoke cannot see callee writes, so `tools/linked_recon_run.py` runs each
+target inside the fully linked reconstruction (`tools/full_link.py`, every
+callee is the reconstructed body, zero stubs) on the same Unicorn platform and
+MMIO model as the original, and compares the complete ordered peripheral
+traffic, values included. The reconstructed data keeps the original's absolute
+pointers into the image at 0x120000, so the code is linked at 0x800000 and the
+original image stays mapped as data; any fetch inside the original image is
+reported and makes the row REVIEW (none occurred).
+
+Result for the 7, with the `-O2` build `make -C src check` produces: **1 PASS / 6 FAIL**.
+The same 6 fail at `-O0` and `-O1`.
+
+| target | image | original | linked reconstruction | verdict | reason |
+|---|---|---|---|---|---|
+| rf_level_apply @0x130514 | fmacfwbt | 98 writes | 98 writes | PASS | Identical ordered peripheral reads and writes, values included (0x40342248, then the 0x40342400.. table). |
+| rf_level_apply @0x126dd8 | lmacfw_rf | 128 writes | 382 writes (`-O2`), 126 (`-O0`/`-O1`) | FAIL | The 98 RF register writes are identical, values included. The UART log (0x40032000) differs: the original emits `DEBUG: freq=%d, comp_bits=%x\r\n`; the reconstruction emits `D` repeated at `-O2` and the same line without the two `%` at `-O0`/`-O1`. The defect is in the reconstructed formatter path (`rf_parse_cal_cmd` @0x11ebb4, a vsnprintf), and its output depends on the optimization level. |
+| rf_mem_write @0x12fd64 | fmacfwbt | 23 writes | does not return | FAIL | Spins in `memmove_5` @0x143f00 before any write. That function is newlib's ARMv7 `strlen` (`uadd8`/`sel`); the decompiled body lost the GE-flag logic and loops on `while ( !HIDWORD(0) )`, which GCC compiles to `b .`. |
+| rf_cmd_dispatch @0x12fc7c | fmacfwbt | 23 writes | does not return | FAIL | Same `memmove_5` body. |
+| rf_mem_write @0x12202c | lmacfw_rf | 21 writes | does not return | FAIL | Same `strlen` decompile, named `memset_ff` in this image. |
+| rf_cmd_dispatch @0x121f44 | lmacfw_rf | 21 writes | does not return | FAIL | Same `memset_ff` body. |
+| rf_timer_toggle_update @0x130370 | fmacfw_h | 100 writes | does not return | FAIL | Spins in `hw_poll_status` @0x10df08. Its `while ( *((uint32_t *)off_10DF68 + 7) != 1 )` polls register 0x4010d01c through a non-volatile pointer, so `-O2` reads it once and loops forever; the original reads it three times and goes on. At `-O0` the poll passes and the run then spins in `double_compare_ord`, whose body contains a Hex-Rays `JUMPOUT`. |
+
+These are defects in reconstructed callee bodies, not in the 7 target bodies.
+None is fixed here: the bodies are Hex-Rays output, a correct replacement needs
+a re-decompile (IDA) or a pipeline rule, and hand-written C is not allowed.
+
+### All 25 targets in the linked run
+
+`--all` runs every target. It is a stricter comparison than the smoke (ordered
+writes with values, callees included) and it shows a second, wider defect:
+
+| build of `src/` | PASS | REVIEW | FAIL |
+|---|---:|---:|---:|
+| `-O2` (the `make -C src check` build) | 14 | 0 | 11 |
+| `-O0` | 19 | 0 | 6 |
+
+The 5 extra `-O2` failures are smoke PASS rows: `rf_hw_timer_init` ×2,
+`crypto_hw_enable` ×2 and `crypto_key_load`. The source accesses registers
+through plain pointers, so `-O2` merges and reorders writes to one register
+(`crypto_hw_enable`: the original writes 0x40344094 four times, 0x0, 0x0, 0x40,
+0x50; the `-O2` build writes 0x0, 0x50). At `-O0` all five match the original
+write for write. The smoke PASS for them stands as defined (same addresses) and
+is no evidence about values or order. At `-O0` `full_link.py` adds two return-0
+stubs (`__pld`, `JUMPOUT`), so that build is a diagnostic, not a gate.
+
+### Limits
+
+One path from a default state (zeroed RAM, boot callbacks stubbed) per target.
+A PASS is an identical peripheral sequence on that path, not behavioral
+equivalence. The 52 to 173 `.bss` blobs `full_link.py` substitutes for
+decompiler data symbols are link scaffolding, not original addresses.
 
 ## Reproduce
 
@@ -76,4 +121,8 @@ cp /tmp/orig/orig_depth0_baseline.json metadata/truth_lane_orig_depth0.json   # 
 python3 tools/truth_lane_smoke.py --src --out /tmp/tls
 python3 tools/truth_lane_smoke.py --src --orig-baseline /nonexistent --out /tmp/tls_old_rule   # former rule: 9/16/0
 python3 -m unittest tools/test_truth_lane.py
+
+make -C src check                      # add OPT=-O0 for the diagnostic build
+python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run
+python3 tools/linked_recon_run.py --out /tmp/linked            # the 7; --all for all 25
 ```
