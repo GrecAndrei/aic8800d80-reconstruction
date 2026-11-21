@@ -3,6 +3,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from linked_recon_run import differing_write_registers, linked_verdict
 from truth_lane_smoke import smoke_verdict
 from unicorn_smoke import can_autopage, is_mmio_addr
 
@@ -51,6 +52,30 @@ class TruthLaneTest(unittest.TestCase):
                 self.assertEqual(smoke_verdict("returned", 0, 0, True, addrs, o), expected)
         self.assertEqual(smoke_verdict("returned", 0, 2, True, reg, orig(reg)),
                          ("REVIEW", "write_absent_from_original_body"))
+
+    def test_linked_verdict_compares_the_whole_write_sequence(self):
+        def fp(writes, term="returned", reads=(), left=()):
+            seq = [["read", a] for a in reads] + [["write", a] for a, _ in writes]
+            return {"termination": term, "left_reconstruction_at": list(left),
+                    "periph_write_addrs": sorted({a for a, _ in writes}),
+                    "periph_write_sequence": [list(w) for w in writes], "periph_sequence": seq}
+
+        w = [("0x40342248", "0x4000000"), ("0x40342400", "0xffd879")]
+        other_value = [("0x40342248", "0x4000000"), ("0x40342400", "0x0")]
+        for orig, recon, expected in [
+            (fp(w), fp(w), ("PASS", "identical_peripheral_sequence")),
+            (fp(w, reads=["0x40342248"]), fp(w), ("PASS", "identical_peripheral_write_sequence")),
+            (fp(w), fp(other_value), ("FAIL", "same_write_registers_different_sequence")),
+            (fp(w), fp(w[:1]), ("FAIL", "peripheral_writes_differ")),
+            (fp(w), fp([], term="capped"), ("FAIL", "linked_run_did_not_return")),
+            (fp(w), fp(w, left=["0x120100"]), ("REVIEW", "linked_run_left_reconstruction")),
+            (fp(w, term="capped"), fp(w), ("REVIEW", "original_did_not_return")),
+            (fp(w), {"termination": "no_symbol"}, ("REVIEW", "target_not_in_linked_image")),
+        ]:
+            with self.subTest(expected=expected):
+                self.assertEqual(linked_verdict(orig, recon), expected)
+        self.assertEqual(differing_write_registers(fp(w), fp(other_value)), ["0x40342400"])
+        self.assertEqual(differing_write_registers(fp(w), fp(w)), [])
 
 
 if __name__ == "__main__":
