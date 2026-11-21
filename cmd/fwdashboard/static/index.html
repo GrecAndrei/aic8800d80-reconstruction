@@ -256,7 +256,10 @@
 
     function renderTable(rootId, cols, rows, maxRows=20) {
       const root = document.getElementById(rootId);
-      const bodyRows = (rows || []).slice(0, maxRows).map(r => `<tr>${cols.map(c => `<td>${r[c] ?? ''}</td>`).join('')}</tr>`).join('');
+      const sliced = (rows || []).slice(0, maxRows);
+      const bodyRows = sliced.length === 0
+        ? `<tr><td class="muted" colspan="${cols.length}">no data</td></tr>`
+        : sliced.map(r => `<tr>${cols.map(c => `<td>${r[c] ?? ''}</td>`).join('')}</tr>`).join('');
       root.innerHTML = `<thead><tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${bodyRows}</tbody>`;
     }
 
