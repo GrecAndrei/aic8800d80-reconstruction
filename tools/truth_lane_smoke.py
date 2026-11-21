@@ -186,12 +186,46 @@ def parse_last_json(out: str) -> dict | None:
         return None
 
 
-def smoke_verdict(status: str, returncode: int, writes: int, is_real: bool) -> str:
+ORIG_BASELINE = REPO / "metadata" / "truth_lane_orig_depth0.json"
+
+
+def load_orig_baseline(path: Path) -> dict[tuple[str, str], dict]:
+    """Depth-0 peripheral footprint of the original bodies (emulator `verify`)."""
+    if not path.is_file():
+        return {}
+    return {(r["image"], r["address"]): r for r in json.loads(path.read_text())}
+
+
+def smoke_verdict(status: str, returncode: int, writes: int, is_real: bool,
+                  periph_addrs: list[str] | None = None, orig: dict | None = None) -> tuple[str, str]:
+    """Return (verdict, basis).
+
+    A write-free return is only a PASS when the original binary's own body
+    (depth 0, callees excluded, as the smoke stubs them) also returned without
+    a peripheral write, touched the same peripheral registers, and none of its
+    callees wrote a peripheral either. That is a footprint match on one default-state path, not behavioral equivalence.
+    """
     if status == "capped" and returncode == 4:
-        return "REVIEW"
+        return "REVIEW", "instruction_cap"
     if returncode != 0 or status != "returned":
-        return "FAIL"
-    return "PASS" if writes > 0 and is_real else "REVIEW"
+        return "FAIL", "did_not_return"
+    if not is_real:
+        return "REVIEW", "not_a_real_body"
+    if writes > 0:
+        if orig is not None and not orig["self_periph_write_addrs"]:
+            return "REVIEW", "write_absent_from_original_body"
+        return "PASS", "peripheral_write"
+    if orig is None:
+        return "REVIEW", "no_peripheral_write"
+    if orig["termination"] != "returned" or orig["self_periph_write_addrs"]:
+        return "REVIEW", "original_body_writes_peripheral"
+    if sorted(periph_addrs or []) != sorted(orig["self_periph_addrs"]):
+        return "REVIEW", "peripheral_footprint_differs"
+    if orig.get("callee_periph_write"):
+        # The original's peripheral writes on this path come from callees the
+        # smoke stubs, so this check cannot observe the target's hardware effect.
+        return "REVIEW", "original_writes_peripheral_only_in_callees"
+    return "PASS", "original_writes_no_peripheral"
 
 
 def main() -> int:
@@ -207,7 +241,11 @@ def main() -> int:
     ap.add_argument("--label", default="v12_smoke")
     ap.add_argument("--src", action="store_true",
                     help="Run against unified-series src/<img>_u02/main.c bodies (match by address marker)")
+    ap.add_argument("--orig-baseline", type=Path, default=ORIG_BASELINE,
+                    help="Original depth-0 peripheral footprint from `aic8800d80_emulator.py verify` "
+                         "(orig_depth0_baseline.json); a missing file disables the write-free PASS")
     args = ap.parse_args()
+    orig_baseline = load_orig_baseline(args.orig_baseline)
 
     if args.src:
         final_by_image = {
@@ -321,6 +359,9 @@ def main() -> int:
         writes = j.get("mmio_write_count", 0)
         reads = j.get("mmio_read_count", 0)
         term = j.get("termination_reason", "")
+        periph_addrs = j.get("mmio_unique_addrs", [])  # unicorn_smoke records peripheral addresses only
+        verdict, basis = smoke_verdict(status, proc.returncode, writes, is_real, periph_addrs,
+                                       orig_baseline.get((tgt.get("image"), tgt.get("address"))))
         rows.append({
             "function": fn,
             "image": tgt.get("image"),
@@ -328,7 +369,8 @@ def main() -> int:
             "motif": tgt.get("motif"),
             "body_kind": "real_pseudo" if is_real else "motif",
             "status": status,
-            "verdict": smoke_verdict(status, proc.returncode, writes, is_real),
+            "verdict": verdict,
+            "verdict_basis": basis,
             "instructions": insns,
             "mmio_read_count": reads,
             "mmio_write_count": writes,
@@ -351,13 +393,13 @@ def main() -> int:
         f.write(f"# Truth Lane Smoke Summary ({args.label})\n\n")
         f.write(f"PASS={pass_n} REVIEW={review_n} FAIL={fail_n} total={len(rows)} "
                 f"(real_pseudo bodies: {real_n})\n\n")
-        f.write("| function | image | addr | motif | body | status | insns | reads | writes | verdict |\n")
-        f.write("|----------|-------|------|-------|------|--------|------:|------:|-------:|:-------:|\n")
+        f.write("| function | image | addr | motif | body | status | insns | reads | writes | verdict | basis |\n")
+        f.write("|----------|-------|------|-------|------|--------|------:|------:|-------:|:-------:|-------|\n")
         for r in rows:
             f.write(f"| {r['function']} | {r.get('image','')} | {r.get('address','')} | "
                     f"{r.get('motif','')} | {r.get('body_kind','')} | {r['status']} | "
                     f"{r.get('instructions','')} | {r.get('mmio_read_count','')} | "
-                    f"{r.get('mmio_write_count','')} | **{r['verdict']}** |\n")
+                    f"{r.get('mmio_write_count','')} | **{r['verdict']}** | {r.get('verdict_basis','')} |\n")
 
     print(f"[truth_lane_smoke] PASS={pass_n} REVIEW={review_n} FAIL={fail_n} total={len(rows)}")
     print(f"[truth_lane_smoke] wrote {jsonl_path}")

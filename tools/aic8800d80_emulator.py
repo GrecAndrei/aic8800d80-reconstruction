@@ -1428,6 +1428,9 @@ class Aic8800D80Platform:
         depth0_periph = sorted({int(t["addr"], 16) for t in self.traffic
                                 if t.get("depth", 0) == 0
                                 and is_periph_addr(int(t["addr"], 16))})
+        depth0_periph_writes = sorted({int(t["addr"], 16) for t in self.traffic
+                                       if t.get("depth", 0) == 0 and t["op"] == "write"
+                                       and is_periph_addr(int(t["addr"], 16))})
         stats = {
             "instructions": self.insn_count,
             "mmio_reads": len(reads),
@@ -1436,6 +1439,7 @@ class Aic8800D80Platform:
             "unique_periph_addrs": [hex(a) for a in periph],
             "self_mmio_addrs": [hex(a) for a in depth0],
             "self_periph_addrs": [hex(a) for a in depth0_periph],
+            "self_periph_write_addrs": [hex(a) for a in depth0_periph_writes],
             "termination": stop["value"],
             "fault": fault["detail"],
             "fault_pc": fault.get("pc"),
@@ -1615,11 +1619,27 @@ def cmd_verify(args: argparse.Namespace) -> int:
             "termination": term,
             **stats,
             "mmio_sequence": plat.sequence(),
+            "_traffic": plat.traffic,
         }
         rows.append(row)
         print(f"[verify] {fn:32s} {image:32s} {addr_str:10s} -> {term:10s} "
               f"insns={stats['instructions']:6d} r={stats['mmio_reads']:5d} "
               f"w={stats['mmio_writes']:5d}", file=sys.stderr)
+
+    # Timestamp-free depth-0 peripheral footprint of the ORIGINAL bodies, the
+    # reference truth_lane_smoke.py judges write-free reconstructions against
+    # (tracked copy: metadata/truth_lane_orig_depth0.json).
+    baseline = [{
+        "image": r["image"], "function": r["function"], "address": r["address"],
+        "termination": r["termination"],
+        "self_periph_addrs": r["self_periph_addrs"],
+        "self_periph_write_addrs": r["self_periph_write_addrs"],
+        "callee_periph_write": any(
+            t["op"] == "write" and t.get("depth", 0) != 0 and is_periph_addr(int(t["addr"], 16))
+            for t in r.pop("_traffic")),
+    } for r in rows]
+    (out_dir / "orig_depth0_baseline.json").write_text(
+        json.dumps(baseline, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
     with fingerprints_path.open("w", encoding="utf-8") as f:
         for r in rows:
