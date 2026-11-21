@@ -73,6 +73,50 @@ DATA_KIND_TYPE = {
 }
 
 
+# Element width of the tables reached through a 2D subscript whose element is
+# wider than a byte (Hex-Rays then wraps the subscript in LOBYTE/HIBYTE). The
+# width is not in the decompiled text; each entry cites the instructions of the
+# original binary that fix it.
+TWO_D_ELEM_WIDTH = {
+    # lmacfw_rf sub_11EBB4: HIBYTE(off_11EF28[s][0]) is `ldrb.w sl,[sl,#3]` at
+    # 0x11ee1a, LOBYTE(off_11EF28[s][1]) is `ldrb.w sl,[sl,#4]` at 0x11ee76.
+    "off_11EF28": 4,
+}
+_TWO_D_PTR = (r"\(\((?P<q>(?:volatile )?uint8_t \*)\)\(uintptr_t\)"
+              r"(?P<x>(?:\(\((?:volatile )?uint32_t \*\)\(uintptr_t\)&)?"
+              r"(?P<sym>(?:off|dword|word|byte|unk|qword|algn|flt|dbl|jpt|loc)_[0-9A-Fa-f]{4,8})\)?"
+              r"\[[^\[\]]+\]) \+ \((?P<k>[^()]+)\)\)")
+TWO_D_PTR_RE = re.compile(
+    r"(?:(?P<part>LOBYTE|HIBYTE)\(|(?P<cast>\(int\)\(uintptr_t\)\()|(?<![*\w]))"
+    + _TWO_D_PTR + r"(?(part)\))(?(cast)\))")
+
+
+def deref_two_d(text: str) -> tuple[str, int]:
+    """Load the element a 2D data-symbol subscript addresses.
+
+    `two_d` used to emit only the element's address, `((uint8_t *)(uintptr_t)
+    SYM[i] + (k))`, so `v = SYM[i][k]` assigned a pointer and
+    `HIBYTE(SYM[i][k])` took bits 8..15 of a pointer. This rewrites that
+    emission (also as it appears in a composed main.c) into the byte load:
+    a bare subscript is a byte table, LOBYTE/HIBYTE select the first/last byte
+    of element k of a table whose width is in TWO_D_ELEM_WIDTH. Idempotent.
+    """
+    n = 0
+
+    def sub(m: re.Match) -> str:
+        nonlocal n
+        k = m.group("k")
+        if m.group("part"):
+            w = TWO_D_ELEM_WIDTH.get(m.group("sym"))
+            if w is None or not re.fullmatch(r"\d+", k):
+                raise SystemExit(f"deref_two_d: no element width for {m.group(0)}")
+            k = str(w * int(k) + (w - 1 if m.group("part") == "HIBYTE" else 0))
+        n += 1
+        return f"*(({m.group('q')})(uintptr_t){m.group('x')} + ({k}))"
+
+    return TWO_D_PTR_RE.sub(sub, text), n
+
+
 def convert_to_c99(text: str) -> str:
     for rx, rep in TYPE_RE:
         text = rx.sub(rep, text)
@@ -101,6 +145,7 @@ def convert_to_c99(text: str) -> str:
         i, k = rest[1:-1].split("][", 1)
         return f"((uint8_t *)(uintptr_t){sym_s}[{i}] + ({k}))"
     text = TWO_D_SUB.sub(two_d, text)
+    text, _ = deref_two_d(text)
     return text
 
 

@@ -163,7 +163,7 @@ LABEL_44:
             v14 = 2;
             goto LABEL_7;
           case '0':
-            v13 = HIBYTE(((uint8_t *)(uintptr_t)off_11EF28[v13] + (0)));
+            v13 = *((uint8_t *)(uintptr_t)off_11EF28[v13] + (3));
             switch ( v13 )
             {
               case 0:
@@ -242,7 +242,7 @@ LABEL_7:
                   goto LABEL_161;
               }
             }
-            v13 = LOBYTE(((uint8_t *)(uintptr_t)off_11EF28[v13] + (1)));
+            v13 = *((uint8_t *)(uintptr_t)off_11EF28[v13] + (4));
             switch ( v13 )
             {
               case 0:
@@ -350,8 +350,8 @@ LABEL_9:
             v40 = *v37;
             if ( v78 )
             {
-              v42 = ((uint8_t *)(uintptr_t)off_11F4A0[0] + (v40 >> 4));
-              v43 = ((uint8_t *)(uintptr_t)off_11F4A0[0] + (v40 & 0xF));
+              v42 = *((uint8_t *)(uintptr_t)off_11F4A0[0] + (v40 >> 4));
+              v43 = *((uint8_t *)(uintptr_t)off_11F4A0[0] + (v40 & 0xF));
               v80 = v42;
               if ( v78 >= 0x15 )
                 v38 = 21;
@@ -381,8 +381,8 @@ LABEL_106:
             else
             {
               v63 = v40 >> 4;
-              v64 = ((uint8_t *)(uintptr_t)off_11F4A0[0] + (v40 & 0xF));
-              v80 = ((uint8_t *)(uintptr_t)off_11F4A0[0] + (v63));
+              v64 = *((uint8_t *)(uintptr_t)off_11F4A0[0] + (v40 & 0xF));
+              v80 = *((uint8_t *)(uintptr_t)off_11F4A0[0] + (v63));
               v81 = v64;
               v21 = -47;
               v25 = 47;
@@ -411,8 +411,8 @@ LABEL_106:
             v52 = off_11F4A0[0];
             v54 = v51 + 6;
             v53 = *v51;
-            v55 = ((uint8_t *)(uintptr_t)off_11F4A0[0] + (v53 >> 4));
-            v81 = ((uint8_t *)(uintptr_t)off_11F4A0[0] + (v53 & 0xF));
+            v55 = *((uint8_t *)(uintptr_t)off_11F4A0[0] + (v53 >> 4));
+            v81 = *((uint8_t *)(uintptr_t)off_11F4A0[0] + (v53 & 0xF));
             v80 = v55;
             v56 = v51 + 1;
             v57 = &v80;
