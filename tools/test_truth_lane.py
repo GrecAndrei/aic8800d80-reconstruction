@@ -30,4 +30,28 @@ class TruthLaneTest(unittest.TestCase):
             ("returned", 1, 1, True, "FAIL"),
         ]:
             with self.subTest(status=status, rc=rc, writes=writes, real=real):
-                self.assertEqual(smoke_verdict(status, rc, writes, real), expected)
+                self.assertEqual(smoke_verdict(status, rc, writes, real)[0], expected)
+
+    def test_write_free_return_needs_matching_original_footprint(self):
+        def orig(addrs=(), writes=(), callee=False, term="returned"):
+            return {"termination": term, "self_periph_addrs": list(addrs),
+                    "self_periph_write_addrs": list(writes), "callee_periph_write": callee}
+
+        reg = ["0x40200900"]
+        for addrs, o, expected in [
+            (reg, orig(reg), ("PASS", "original_writes_no_peripheral")),
+            ([], orig(), ("PASS", "original_writes_no_peripheral")),
+            ([], orig(reg), ("REVIEW", "peripheral_footprint_differs")),
+            (reg, orig(reg, reg), ("REVIEW", "original_body_writes_peripheral")),
+            ([], orig(callee=True), ("REVIEW", "original_writes_peripheral_only_in_callees")),
+            ([], orig(term="capped"), ("REVIEW", "original_body_writes_peripheral")),
+            ([], None, ("REVIEW", "no_peripheral_write")),
+        ]:
+            with self.subTest(addrs=addrs, orig=o):
+                self.assertEqual(smoke_verdict("returned", 0, 0, True, addrs, o), expected)
+        self.assertEqual(smoke_verdict("returned", 0, 2, True, reg, orig(reg)),
+                         ("REVIEW", "write_absent_from_original_body"))
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -49,9 +49,13 @@ release tarball
     r2 per address with the proven `-a arm -b 16 -m 0x100000` form.
 - **Verification**: `make -C src check` — all 4 images compile clean
   (real decompiled bodies + materialized data segment, no stubs);
-  `tools/truth_lane_smoke.py --src` — **9 PASS / 16 REVIEW / 0 FAIL** with
-  Clang 14 and Unicorn 2.1.4. PASS requires a return and a peripheral write;
-  15 returned without one and one hit the instruction cap. The former 25/25
+  `tools/truth_lane_smoke.py --src` — **18 PASS / 7 REVIEW / 0 FAIL** with
+  Clang 14, Unicorn 2.1.4 and ARM GCC's libgcc. PASS requires a return and
+  either a peripheral write or, per `metadata/truth_lane_orig_depth0.json`,
+  an original body that writes no peripheral (callees included) with the same
+  peripheral address footprint. The 7 REVIEW rows are targets whose original
+  peripheral writes happen only in callees the smoke stubs. Per-target reasons:
+  `docs/TRUTH_LANE_REVIEW_VERDICTS.md`. The former 25/25
   figure counted ordinary memory writes. The manifest in
   `metadata/truth_lane_targets.json` includes the stale v12 target correction
   to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02.

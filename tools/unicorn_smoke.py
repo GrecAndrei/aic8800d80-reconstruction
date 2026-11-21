@@ -70,8 +70,24 @@ def parse_int(s: str) -> int:
     return int(s, 0)
 
 
+def libgcc_archive(cpu: str) -> str | None:
+    """Soft-float runtime for the target, or None when no ARM GCC is installed."""
+    try:
+        out = subprocess.run(
+            ["arm-none-eabi-gcc", f"-mcpu={cpu}", "-mthumb", "-mfloat-abi=soft", "-print-libgcc-file-name"],
+            capture_output=True, text=True, check=True,
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return out if Path(out).is_file() else None
+
+
 def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, entry: str) -> Path:
     elf = out_dir / (src.stem + ".elf")
+    # Clang lowers float<->int conversions to __aeabi_* calls. Left unresolved
+    # they link as `bl 0`, and the run walks off into unmapped memory until the
+    # instruction cap. Resolve them from libgcc; firmware callees stay unresolved.
+    libgcc = libgcc_archive(cpu)
     cmd = [
         "clang",
         f"--target={target}",
@@ -85,6 +101,7 @@ def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, en
         f"-O{opt}",
         str(src),
         "-nostdlib",
+        *([libgcc] if libgcc else []),
         "-Wl,--unresolved-symbols=ignore-all",
         "-Wl,--image-base=0x1000",
         f"-Wl,-e,{entry}",

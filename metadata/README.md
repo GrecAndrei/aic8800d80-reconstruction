@@ -41,3 +41,8 @@ with the documented correction for `log_system_init_mode2` in `AGENTS.md`.
 Labels identify historical test cases, not verified vendor names. Addresses
 retain the scorecard convention: below `0x100000` they are file offsets;
 otherwise they are in analysis space. Pass `--targets` for a different list.
+
+`truth_lane_orig_depth0.json` is the original binaries' depth-0 peripheral
+footprint for those targets, written by `tools/aic8800d80_emulator.py verify`
+as `orig_depth0_baseline.json`. The smoke check uses it to judge returns that
+make no peripheral write; see `docs/TRUTH_LANE_REVIEW_VERDICTS.md`.
