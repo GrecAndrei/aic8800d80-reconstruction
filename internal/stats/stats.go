@@ -2,6 +2,7 @@ package stats
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -51,36 +52,37 @@ type Totals struct {
 }
 
 type Progress struct {
-	BaseFunctionEstimate  int     `json:"base_function_estimate"`
-	BaseNamedFunctions    int     `json:"base_named_functions"`
-	BaseCoveragePct       float64 `json:"base_coverage_pct"`
-	LinkedSourceFunctions int     `json:"linked_source_functions"`
-	LinkCoveragePct       float64 `json:"link_coverage_pct"`
-	ReconstructedFuncs    int     `json:"reconstructed_functions"`
-	ReconClusterCount     int     `json:"recon_cluster_count"`
-	ReconQueueCount       int     `json:"recon_queue_count"`
-	ReconFocusCount       int     `json:"recon_focus_count"`
-	ReconLiftCount        int     `json:"recon_lift_count"`
-	ReconComposeCount     int     `json:"recon_compose_count"`
-	ReconImplQueueCount   int     `json:"recon_implqueue_count"`
-	ReconImplWorkCount    int     `json:"recon_implwork_count"`
-	ReconImplSynthCount   int     `json:"recon_implsynth_count"`
-	ReconImplSynthAvgCall float64 `json:"recon_implsynth_avg_callees"`
-	ReconImplAppliedCount int     `json:"recon_implapplied_count"`
-	ReconFinalizedCount   int     `json:"recon_finalized_count"`
-	ReconStrongCount      int     `json:"recon_strong_count"`
-	ReconFallbackCount    int     `json:"recon_fallback_count"`
-	ReconTodoRemaining    int     `json:"recon_todo_remaining"`
-	ReconCompletionPct    float64 `json:"recon_completion_pct"`
-	ReconSemanticPct      float64 `json:"recon_semantic_completion_pct"`
-	ReconConformancePct   float64 `json:"recon_conformance_pct"`
-	ReconConformanceEval  int     `json:"recon_conformance_evaluable"`
-	ReconConformanceLow   int     `json:"recon_conformance_nonperfect"`
-	PatchMMIOPct          float64 `json:"patch_mmio_pct"`
-	DataFreshnessSec      int64   `json:"data_freshness_sec"`
-	DiskFreeGB            float64 `json:"disk_free_gb"`
-	DiskUsedGB            float64 `json:"disk_used_gb"`
-	DiskUsePct            float64 `json:"disk_use_pct"`
+	ReconReports          map[string]bool `json:"recon_reports"`
+	BaseFunctionEstimate  int             `json:"base_function_estimate"`
+	BaseNamedFunctions    int             `json:"base_named_functions"`
+	BaseCoveragePct       float64         `json:"base_coverage_pct"`
+	LinkedSourceFunctions int             `json:"linked_source_functions"`
+	LinkCoveragePct       float64         `json:"link_coverage_pct"`
+	ReconstructedFuncs    int             `json:"reconstructed_functions"`
+	ReconClusterCount     int             `json:"recon_cluster_count"`
+	ReconQueueCount       int             `json:"recon_queue_count"`
+	ReconFocusCount       int             `json:"recon_focus_count"`
+	ReconLiftCount        int             `json:"recon_lift_count"`
+	ReconComposeCount     int             `json:"recon_compose_count"`
+	ReconImplQueueCount   int             `json:"recon_implqueue_count"`
+	ReconImplWorkCount    int             `json:"recon_implwork_count"`
+	ReconImplSynthCount   int             `json:"recon_implsynth_count"`
+	ReconImplSynthAvgCall float64         `json:"recon_implsynth_avg_callees"`
+	ReconImplAppliedCount int             `json:"recon_implapplied_count"`
+	ReconFinalizedCount   int             `json:"recon_finalized_count"`
+	ReconStrongCount      int             `json:"recon_strong_count"`
+	ReconFallbackCount    int             `json:"recon_fallback_count"`
+	ReconTodoRemaining    int             `json:"recon_todo_remaining"`
+	ReconCompletionPct    float64         `json:"recon_completion_pct"`
+	ReconSemanticPct      float64         `json:"recon_semantic_completion_pct"`
+	ReconConformancePct   float64         `json:"recon_conformance_pct"`
+	ReconConformanceEval  int             `json:"recon_conformance_evaluable"`
+	ReconConformanceLow   int             `json:"recon_conformance_nonperfect"`
+	PatchMMIOPct          float64         `json:"patch_mmio_pct"`
+	DataFreshnessSec      *int64          `json:"data_freshness_sec"`
+	DiskFreeGB            float64         `json:"disk_free_gb"`
+	DiskUsedGB            float64         `json:"disk_used_gb"`
+	DiskUsePct            float64         `json:"disk_use_pct"`
 }
 
 type CountPair struct {
@@ -220,15 +222,23 @@ func Collect(outDir string) (Snapshot, error) {
 	}
 	snap := Snapshot{GeneratedAt: time.Now().UTC().Format(time.RFC3339), OutDir: outAbs}
 
-	images := readJSONLMaps(filepath.Join(outAbs, "images.jsonl"))
-	funcs := readJSONLMaps(filepath.Join(outAbs, "functions.jsonl"))
-	arts := readJSONLMaps(filepath.Join(outAbs, "artifacts.jsonl"))
-	links := readJSONLMaps(filepath.Join(outAbs, "function_links.jsonl"))
-	calls := readJSONLMaps(filepath.Join(outAbs, "call_edges.jsonl"))
-	msgs := readJSONLMaps(filepath.Join(outAbs, "message_schema.jsonl"))
-	sm := readJSONLMaps(filepath.Join(outAbs, "state_machines.jsonl"))
-	queue := readJSONLMaps(filepath.Join(outAbs, "mining_queue.jsonl"))
-	patches := readJSONLMaps(filepath.Join(outAbs, "patch_entries.jsonl"))
+	var newestInput time.Time
+	read := func(name string) []map[string]any {
+		path := filepath.Join(outAbs, name)
+		if st, err := os.Stat(path); err == nil && st.Mode().IsRegular() && st.ModTime().After(newestInput) {
+			newestInput = st.ModTime()
+		}
+		return readJSONLMaps(path)
+	}
+	images := read("images.jsonl")
+	funcs := read("functions.jsonl")
+	arts := read("artifacts.jsonl")
+	links := read("function_links.jsonl")
+	calls := read("call_edges.jsonl")
+	msgs := read("message_schema.jsonl")
+	sm := read("state_machines.jsonl")
+	queue := read("mining_queue.jsonl")
+	patches := read("patch_entries.jsonl")
 
 	snap.Totals = Totals{len(images), len(funcs), len(arts), len(links), len(calls), len(msgs), len(sm), len(queue), len(patches)}
 
@@ -375,38 +385,21 @@ func Collect(outDir string) (Snapshot, error) {
 	patchMMIOPct := pct(float64(mmio), float64(max(1, len(patches))))
 	freeGB, usedGB, usePct := diskUsage(outAbs)
 
-	reconFuncs, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic, reconConformance, reconConformanceEval, reconConformanceLow := reconstructionProgress(outAbs)
 	snap.Progress = Progress{
 		BaseFunctionEstimate:  baseFunctionEstimate,
 		BaseNamedFunctions:    baseNamed,
 		BaseCoveragePct:       round3(baseCoverage),
 		LinkedSourceFunctions: len(srcLinked),
 		LinkCoveragePct:       round3(linkCoverage),
-		ReconstructedFuncs:    reconFuncs,
-		ReconClusterCount:     reconClusters,
-		ReconQueueCount:       reconQueue,
-		ReconFocusCount:       reconFocus,
-		ReconLiftCount:        reconLift,
-		ReconComposeCount:     reconCompose,
-		ReconImplQueueCount:   reconImplQueue,
-		ReconImplWorkCount:    reconImplWork,
-		ReconImplSynthCount:   reconImplSynth,
-		ReconImplSynthAvgCall: round3(reconImplSynthAvg),
-		ReconImplAppliedCount: reconImplApplied,
-		ReconFinalizedCount:   reconFinalized,
-		ReconStrongCount:      reconStrong,
-		ReconFallbackCount:    reconFallback,
-		ReconTodoRemaining:    reconTodoRemaining,
-		ReconCompletionPct:    round3(reconCompletion),
-		ReconSemanticPct:      round3(reconSemantic),
-		ReconConformancePct:   round3(reconConformance),
-		ReconConformanceEval:  reconConformanceEval,
-		ReconConformanceLow:   reconConformanceLow,
 		PatchMMIOPct:          round3(patchMMIOPct),
-		DataFreshnessSec:      dataFreshnessSec(outAbs),
 		DiskFreeGB:            round3(freeGB),
 		DiskUsedGB:            round3(usedGB),
 		DiskUsePct:            round3(usePct),
+	}
+	collectReconstructionProgress(outAbs, &snap.Progress)
+	if !newestInput.IsZero() {
+		age := max(int64(0), int64(time.Since(newestInput)/time.Second))
+		snap.Progress.DataFreshnessSec = &age
 	}
 	snap.Functions = FunctionStats{round3(mean(fnConf)), fnRole["unknown"], aliasCount, toPairs(fnRole), toPairs(fnSource), toPairs(fnImage), confidenceBuckets(fnConf), toPairs(fnImage)}
 	snap.Artifacts = ArtifactStats{toPairs(artType), toPairs(artImg), len(mmioRefs), len(patchTags), vectorCount}
@@ -607,36 +600,6 @@ func pct(a, b float64) float64 {
 	return (a / b) * 100
 }
 func round3(v float64) float64 { return float64(int(v*1000+0.5)) / 1000 }
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func dataFreshnessSec(outDir string) int64 {
-	entries, err := os.ReadDir(outDir)
-	if err != nil {
-		return 0
-	}
-	latest := time.Time{}
-	for _, e := range entries {
-		if e.IsDir() {
-			continue
-		}
-		st, err := e.Info()
-		if err != nil {
-			continue
-		}
-		if st.ModTime().After(latest) {
-			latest = st.ModTime()
-		}
-	}
-	if latest.IsZero() {
-		return 0
-	}
-	return int64(time.Since(latest).Seconds())
-}
 
 func diskUsage(path string) (freeGB float64, usedGB float64, usePct float64) {
 	var st syscall.Statfs_t
@@ -653,7 +616,7 @@ func diskUsage(path string) (freeGB float64, usedGB float64, usePct float64) {
 	return free / gb, used / gb, (1.0 - (free / total)) * 100.0
 }
 
-func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClusters int, reconQueue int, reconFocus int, reconLift int, reconCompose int, reconImplQueue int, reconImplWork int, reconImplSynth int, reconImplSynthAvg float64, reconImplApplied int, reconFinalized int, reconStrong int, reconFallback int, reconTodoRemaining int, reconCompletion float64, reconSemantic float64, reconConformance float64, reconConformanceEval int, reconConformanceLow int) {
+func collectReconstructionProgress(outDir string, p *Progress) {
 	type rebuildManifest struct {
 		TotalFunctions int `json:"total_functions"`
 	}
@@ -705,270 +668,99 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 		} `json:"rows"`
 	}
 	reconDir := filepath.Join(outDir, "reconstruction")
-	var bestRebuild string
-	var bestCluster string
-	var bestQueue string
-	var bestFocus string
-	var bestLift string
-	var bestCompose string
-	var bestImplQueue string
-	var bestImplWork string
-	var bestImplSynth string
-	var bestImplApplied string
-	var bestFinalize string
-	var bestConformance string
-	var bestRebuildTime time.Time
-	var bestClusterTime time.Time
-	var bestQueueTime time.Time
-	var bestFocusTime time.Time
-	var bestLiftTime time.Time
-	var bestComposeTime time.Time
-	var bestImplQueueTime time.Time
-	var bestImplWorkTime time.Time
-	var bestImplSynthTime time.Time
-	var bestImplAppliedTime time.Time
-	var bestFinalizeTime time.Time
-	var bestConformanceTime time.Time
-	if cache, ok := loadManifestCache(reconDir); ok {
-		bestRebuild = cache.Rebuild
-		bestCluster = cache.Cluster
-		bestQueue = cache.Queue
-		bestFocus = cache.Focus
-		bestLift = cache.Lift
-		bestCompose = cache.Compose
-		bestImplQueue = cache.ImplQueue
-		bestImplWork = cache.ImplWork
-		bestImplSynth = cache.ImplSynth
-		bestImplApplied = cache.ImplApplied
-		bestFinalize = cache.Finalize
-		bestConformance = cache.Conformance
-	} else {
-		entries, err := os.ReadDir(reconDir)
-		if err != nil {
-			return 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-		}
+	p.ReconReports = make(map[string]bool)
+	entries, _ := os.ReadDir(reconDir)
+	readLatest := func(stage, relativePath string, m any) bool {
+		var latest string
+		var newest time.Time
 		for _, e := range entries {
 			if !e.IsDir() {
 				continue
 			}
-			rebuildPath := filepath.Join(reconDir, e.Name(), "rebuilt", "rebuild_manifest.json")
-			if st, err := os.Stat(rebuildPath); err == nil && st.ModTime().After(bestRebuildTime) {
-				bestRebuildTime = st.ModTime()
-				bestRebuild = rebuildPath
-			}
-			clusterPath := filepath.Join(reconDir, e.Name(), "clusters", "cluster_manifest.json")
-			if st, err := os.Stat(clusterPath); err == nil && st.ModTime().After(bestClusterTime) {
-				bestClusterTime = st.ModTime()
-				bestCluster = clusterPath
-			}
-			queuePath := filepath.Join(reconDir, e.Name(), "queue", "queue_manifest.json")
-			if st, err := os.Stat(queuePath); err == nil && st.ModTime().After(bestQueueTime) {
-				bestQueueTime = st.ModTime()
-				bestQueue = queuePath
-			}
-			focusPath := filepath.Join(reconDir, e.Name(), "focus", "focus_manifest.json")
-			if st, err := os.Stat(focusPath); err == nil && st.ModTime().After(bestFocusTime) {
-				bestFocusTime = st.ModTime()
-				bestFocus = focusPath
-			}
-			liftPath := filepath.Join(reconDir, e.Name(), "lift", "lift_manifest.json")
-			if st, err := os.Stat(liftPath); err == nil && st.ModTime().After(bestLiftTime) {
-				bestLiftTime = st.ModTime()
-				bestLift = liftPath
-			}
-			composePath := filepath.Join(reconDir, e.Name(), "composed", "compose_manifest.json")
-			if st, err := os.Stat(composePath); err == nil && st.ModTime().After(bestComposeTime) {
-				bestComposeTime = st.ModTime()
-				bestCompose = composePath
-			}
-			implQueuePath := filepath.Join(reconDir, e.Name(), "implqueue", "implqueue_manifest.json")
-			if st, err := os.Stat(implQueuePath); err == nil && st.ModTime().After(bestImplQueueTime) {
-				bestImplQueueTime = st.ModTime()
-				bestImplQueue = implQueuePath
-			}
-			implWorkPath := filepath.Join(reconDir, e.Name(), "implwork", "implwork_manifest.json")
-			if st, err := os.Stat(implWorkPath); err == nil && st.ModTime().After(bestImplWorkTime) {
-				bestImplWorkTime = st.ModTime()
-				bestImplWork = implWorkPath
-			}
-			implSynthPath := filepath.Join(reconDir, e.Name(), "synth", "implsynth_manifest.json")
-			if st, err := os.Stat(implSynthPath); err == nil && st.ModTime().After(bestImplSynthTime) {
-				bestImplSynthTime = st.ModTime()
-				bestImplSynth = implSynthPath
-			}
-			implAppliedPath := filepath.Join(reconDir, e.Name(), "applied", "applysynth_manifest.json")
-			if st, err := os.Stat(implAppliedPath); err == nil && st.ModTime().After(bestImplAppliedTime) {
-				bestImplAppliedTime = st.ModTime()
-				bestImplApplied = implAppliedPath
-			}
-			finalizePath := filepath.Join(reconDir, e.Name(), "final", "finalize_manifest.json")
-			if st, err := os.Stat(finalizePath); err == nil && st.ModTime().After(bestFinalizeTime) {
-				bestFinalizeTime = st.ModTime()
-				bestFinalize = finalizePath
-			}
-			conformancePath := filepath.Join(reconDir, e.Name(), "final", "call_conformance.json")
-			if st, err := os.Stat(conformancePath); err == nil && st.ModTime().After(bestConformanceTime) {
-				bestConformanceTime = st.ModTime()
-				bestConformance = conformancePath
+			path := filepath.Join(reconDir, e.Name(), relativePath)
+			if st, err := os.Stat(path); err == nil && st.Mode().IsRegular() && st.ModTime().After(newest) {
+				latest, newest = path, st.ModTime()
 			}
 		}
-		storeManifestCache(reconDir, manifestCache{
-			Rebuild:     bestRebuild,
-			Cluster:     bestCluster,
-			Queue:       bestQueue,
-			Focus:       bestFocus,
-			Lift:        bestLift,
-			Compose:     bestCompose,
-			ImplQueue:   bestImplQueue,
-			ImplWork:    bestImplWork,
-			ImplSynth:   bestImplSynth,
-			ImplApplied: bestImplApplied,
-			Finalize:    bestFinalize,
-			Conformance: bestConformance,
-		})
+		if latest == "" {
+			return false
+		}
+		b, err := os.ReadFile(latest)
+		b = bytes.TrimSpace(b)
+		if err != nil || len(b) == 0 || b[0] != '{' || json.Unmarshal(b, m) != nil {
+			return false
+		}
+		p.ReconReports[stage] = true
+		return true
 	}
-	if bestRebuild != "" {
-		var m rebuildManifest
-		if b, err := os.ReadFile(bestRebuild); err == nil && json.Unmarshal(b, &m) == nil {
-			reconstructedFunctions = m.TotalFunctions
+	var rebuild rebuildManifest
+	if readLatest("rebuild", "rebuilt/rebuild_manifest.json", &rebuild) {
+		p.ReconstructedFuncs = rebuild.TotalFunctions
+	}
+	var cluster clusterManifest
+	if readLatest("cluster", "clusters/cluster_manifest.json", &cluster) {
+		p.ReconClusterCount = cluster.ClusterCount
+	}
+	var queue queueManifest
+	if readLatest("queue", "queue/queue_manifest.json", &queue) {
+		p.ReconQueueCount = queue.QueueCount
+	}
+	var focus focusManifest
+	if readLatest("focus", "focus/focus_manifest.json", &focus) {
+		p.ReconFocusCount = focus.BundleCount
+	}
+	var lift liftManifest
+	if readLatest("lift", "lift/lift_manifest.json", &lift) {
+		p.ReconLiftCount = lift.UnitCount
+	}
+	var compose composeManifest
+	if readLatest("compose", "composed/compose_manifest.json", &compose) {
+		p.ReconComposeCount = compose.ComposedFunctionCount
+		if p.ReconComposeCount <= 0 {
+			p.ReconComposeCount = compose.UnitCount
 		}
 	}
-	if bestCluster != "" {
-		var m clusterManifest
-		if b, err := os.ReadFile(bestCluster); err == nil && json.Unmarshal(b, &m) == nil {
-			reconClusters = m.ClusterCount
+	var queueImpl implQueueManifest
+	if readLatest("implqueue", "implqueue/implqueue_manifest.json", &queueImpl) {
+		p.ReconImplQueueCount = queueImpl.TaskCount
+	}
+	var work implWorkManifest
+	if readLatest("implwork", "implwork/implwork_manifest.json", &work) {
+		p.ReconImplWorkCount = work.WorkfileCount
+	}
+	var synth implSynthManifest
+	if readLatest("implsynth", "synth/implsynth_manifest.json", &synth) {
+		p.ReconImplSynthCount = synth.SynthCount
+		avg := synth.AvgCalleeFloat
+		if avg <= 0 && synth.AvgCalleeEmitted != "" {
+			fmt.Sscanf(synth.AvgCalleeEmitted, "%f", &avg)
+		}
+		p.ReconImplSynthAvgCall = round3(avg)
+	}
+	var applied implAppliedManifest
+	if readLatest("implapplied", "applied/applysynth_manifest.json", &applied) {
+		p.ReconImplAppliedCount = applied.UniqueFunctionsApplied
+		if p.ReconImplAppliedCount <= 0 {
+			p.ReconImplAppliedCount = applied.FunctionsApplied
 		}
 	}
-	if bestQueue != "" {
-		var m queueManifest
-		if b, err := os.ReadFile(bestQueue); err == nil && json.Unmarshal(b, &m) == nil {
-			reconQueue = m.QueueCount
-		}
+	var final finalizeManifest
+	if readLatest("finalize", "final/finalize_manifest.json", &final) {
+		p.ReconFinalizedCount = final.ImplementedCount
+		p.ReconStrongCount = final.StrongCount
+		p.ReconFallbackCount = final.FallbackCount
+		p.ReconTodoRemaining = final.TodoCount
+		p.ReconCompletionPct = round3(final.CompletionPct)
+		p.ReconSemanticPct = round3(final.SemanticCompletionPct)
 	}
-	if bestFocus != "" {
-		var m focusManifest
-		if b, err := os.ReadFile(bestFocus); err == nil && json.Unmarshal(b, &m) == nil {
-			reconFocus = m.BundleCount
-		}
-	}
-	if bestLift != "" {
-		var m liftManifest
-		if b, err := os.ReadFile(bestLift); err == nil && json.Unmarshal(b, &m) == nil {
-			reconLift = m.UnitCount
-		}
-	}
-	if bestCompose != "" {
-		var m composeManifest
-		if b, err := os.ReadFile(bestCompose); err == nil && json.Unmarshal(b, &m) == nil {
-			if m.ComposedFunctionCount > 0 {
-				reconCompose = m.ComposedFunctionCount
-			} else {
-				reconCompose = m.UnitCount
+	var conf conformanceReport
+	if readLatest("conformance", "final/call_conformance.json", &conf) {
+		p.ReconConformancePct = round3(conf.AvgConformancePct)
+		p.ReconConformanceEval = conf.EvaluableCount
+		for _, r := range conf.Rows {
+			if r.EvidenceFound && r.ConformancePct < 100.0 {
+				p.ReconConformanceLow++
 			}
 		}
 	}
-	if bestImplQueue != "" {
-		var m implQueueManifest
-		if b, err := os.ReadFile(bestImplQueue); err == nil && json.Unmarshal(b, &m) == nil {
-			reconImplQueue = m.TaskCount
-		}
-	}
-	if bestImplWork != "" {
-		var m implWorkManifest
-		if b, err := os.ReadFile(bestImplWork); err == nil && json.Unmarshal(b, &m) == nil {
-			reconImplWork = m.WorkfileCount
-		}
-	}
-	if bestImplSynth != "" {
-		var m implSynthManifest
-		if b, err := os.ReadFile(bestImplSynth); err == nil && json.Unmarshal(b, &m) == nil {
-			reconImplSynth = m.SynthCount
-			if m.AvgCalleeFloat > 0 {
-				reconImplSynthAvg = m.AvgCalleeFloat
-			} else if m.AvgCalleeEmitted != "" {
-				var parsed float64
-				if _, err := fmt.Sscanf(m.AvgCalleeEmitted, "%f", &parsed); err == nil {
-					reconImplSynthAvg = parsed
-				}
-			}
-		}
-	}
-	if bestImplApplied != "" {
-		var m implAppliedManifest
-		if b, err := os.ReadFile(bestImplApplied); err == nil && json.Unmarshal(b, &m) == nil {
-			if m.UniqueFunctionsApplied > 0 {
-				reconImplApplied = m.UniqueFunctionsApplied
-			} else {
-				reconImplApplied = m.FunctionsApplied
-			}
-		}
-	}
-	if bestFinalize != "" {
-		var m finalizeManifest
-		if b, err := os.ReadFile(bestFinalize); err == nil && json.Unmarshal(b, &m) == nil {
-			reconFinalized = m.ImplementedCount
-			reconStrong = m.StrongCount
-			reconFallback = m.FallbackCount
-			reconTodoRemaining = m.TodoCount
-			reconCompletion = m.CompletionPct
-			reconSemantic = m.SemanticCompletionPct
-		}
-	}
-	if bestConformance != "" {
-		var m conformanceReport
-		if b, err := os.ReadFile(bestConformance); err == nil && json.Unmarshal(b, &m) == nil {
-			reconConformance = m.AvgConformancePct
-			reconConformanceEval = m.EvaluableCount
-			for _, r := range m.Rows {
-				if r.EvidenceFound && r.ConformancePct < 100.0 {
-					reconConformanceLow++
-				}
-			}
-		}
-	}
-	return reconstructedFunctions, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic, reconConformance, reconConformanceEval, reconConformanceLow
-}
-
-type manifestCache struct {
-	Rebuild     string `json:"rebuild"`
-	Cluster     string `json:"cluster"`
-	Queue       string `json:"queue"`
-	Focus       string `json:"focus"`
-	Lift        string `json:"lift"`
-	Compose     string `json:"compose"`
-	ImplQueue   string `json:"implqueue"`
-	ImplWork    string `json:"implwork"`
-	ImplSynth   string `json:"implsynth"`
-	ImplApplied string `json:"implapplied"`
-	Finalize    string `json:"finalize"`
-	Conformance string `json:"conformance"`
-}
-
-func manifestCachePath(reconDir string) string {
-	return filepath.Join(reconDir, "latest_manifests.json")
-}
-
-func loadManifestCache(reconDir string) (manifestCache, bool) {
-	path := manifestCachePath(reconDir)
-	b, err := os.ReadFile(path)
-	if err != nil {
-		return manifestCache{}, false
-	}
-	var c manifestCache
-	if err := json.Unmarshal(b, &c); err != nil {
-		return manifestCache{}, false
-	}
-	for _, p := range []string{c.Rebuild, c.Cluster, c.Queue, c.Focus, c.Lift, c.Compose, c.ImplQueue, c.ImplWork, c.ImplSynth, c.ImplApplied, c.Finalize, c.Conformance} {
-		if strings.TrimSpace(p) == "" {
-			continue
-		}
-		if _, err := os.Stat(p); err != nil {
-			return manifestCache{}, false
-		}
-	}
-	return c, true
-}
-
-func storeManifestCache(reconDir string, c manifestCache) {
-	_ = fileio.WriteJSON(manifestCachePath(reconDir), c)
 }
