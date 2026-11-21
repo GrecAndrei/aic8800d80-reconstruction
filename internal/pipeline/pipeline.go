@@ -346,7 +346,7 @@ func checkFirmwareInputs(root string, baseImage string) error {
 	if len(missing) == 0 {
 		return nil
 	}
-	return fmt.Errorf("missing raw firmware input(s) %s: looked in %s and %s; *.bin files are gitignored, so copy the AIC8800D80 firmware blobs into %s",
+	return fmt.Errorf("missing raw firmware input(s) %s: looked in %s and %s; *.bin files are gitignored, so run tools/fetch_firmware.sh or copy the AIC8800D80 firmware blobs into %s",
 		strings.Join(missing, ", "), root, filepath.Join(root, "inputs", "firmware"), filepath.Join(root, "inputs", "firmware"))
 }
 

@@ -2,6 +2,12 @@
 
 This directory contains Python helpers used alongside the Go commands.
 
+## Firmware Inputs
+
+- `fetch_firmware.sh`: downloads the gitignored raw `*.bin` blobs into
+  `inputs/firmware/` from `orangepi-xunlong/firmware` (Orange Pi 4 Pro),
+  pinned to one commit and md5-checked.
+
 ## IDA Export Helpers
 
 - `refresh_ida_exports.py`
