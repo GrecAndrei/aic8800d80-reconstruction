@@ -22,7 +22,7 @@ type commonFlags struct {
 
 func (c *commonFlags) Register(fs *flag.FlagSet) {
 	fs.StringVar(&c.Root, "root", ".", "workspace root")
-	fs.StringVar(&c.Decompiled, "decompiled", "", "decompiled C dir (default <root>/harness_v19/decompiled)")
+	fs.StringVar(&c.Decompiled, "decompiled", "", "decompiled C dir (default: local v19 export, otherwise tracked v19 release)")
 	fs.StringVar(&c.Out, "out", "", "output dir (default <root>/harness_v25/out)")
 	fs.StringVar(&c.Images, "images", "", "comma-separated image list (default: all)")
 	fs.BoolVar(&c.Verbose, "verbose", false, "verbose output")
@@ -39,6 +39,9 @@ func (c *commonFlags) Resolve() error {
 	c.Root = abs
 	if c.Decompiled == "" {
 		c.Decompiled = filepath.Join(c.Root, "harness_v19", "decompiled")
+		if _, err := os.Stat(c.Decompiled); os.IsNotExist(err) {
+			c.Decompiled = filepath.Join(c.Root, "artifacts", "releases", "aic8800d80-rebuild-v1-v19", "decompiled")
+		}
 	}
 	if c.Out == "" {
 		c.Out = filepath.Join(c.Root, "harness_v25", "out")
@@ -50,15 +53,23 @@ func (c *commonFlags) Resolve() error {
 }
 
 func (c *commonFlags) SelectedImages() ([]string, error) {
-	if c.Images == "" {
-		return decompile.CollectImages(c.Decompiled), nil
-	}
 	var out []string
-	for _, s := range strings.Split(c.Images, ",") {
-		s = strings.TrimSpace(s)
-		if s != "" {
-			out = append(out, s)
+	if c.Images == "" {
+		images, err := decompile.CollectImages(c.Decompiled)
+		if err != nil {
+			return nil, err
 		}
+		out = images
+	} else {
+		for _, s := range strings.Split(c.Images, ",") {
+			s = strings.TrimSpace(s)
+			if s != "" {
+				out = append(out, s)
+			}
+		}
+	}
+	if len(out) == 0 {
+		return nil, fmt.Errorf("no images selected from %s", c.Decompiled)
 	}
 	return out, nil
 }
@@ -95,8 +106,10 @@ func runScan(args []string) error {
 	for _, img := range images {
 		funcs, err := decompile.ParseDir(cf.Decompiled, img)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "  %s: %v\n", img, err)
-			continue
+			return err
+		}
+		if len(funcs) == 0 {
+			return fmt.Errorf("no functions parsed from %s", filepath.Join(cf.Decompiled, img))
 		}
 		// Write per-image funcs.jsonl
 		outPath := filepath.Join(cf.Out, img+"_funcs.jsonl")

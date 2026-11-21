@@ -28,6 +28,10 @@ It is a single binary with subcommands, designed to be:
 
 ## Usage
 
+The default decompiled input is the local `harness_v19/decompiled/` export
+when present, otherwise the tracked v19 release under `artifacts/releases/`.
+Use `--decompiled <dir>` to select a different input explicitly.
+
 ```sh
 # Build
 go build -o /tmp/fwstruct ./cmd/fwstruct

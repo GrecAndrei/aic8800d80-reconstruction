@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
@@ -32,14 +33,12 @@ func TestFwstructSmoke(t *testing.T) {
 	if out, err := cmd.CombinedOutput(); err != nil {
 		t.Fatalf("build failed: %v\n%s", err, out)
 	}
-	outDir := filepath.Join(repo, "harness_v25", "out_test")
-	defer exec.Command("rm", "-rf", outDir).Run()
+	outDir := t.TempDir()
 	// Run scan on one image
 	run := func(args ...string) {
 		t.Helper()
 		c := exec.Command(bin, args...)
 		c.Dir = repo
-		c.Env = append([]string{}, "PATH=/usr/bin:/bin")
 		if out, err := c.CombinedOutput(); err != nil {
 			t.Fatalf("%v failed: %v\n%s", args, err, out)
 		}
@@ -63,22 +62,29 @@ func TestFwstructSmoke(t *testing.T) {
 		}
 	}
 	// Verify funcs.jsonl has expected content
-	funcs := readFile(t, filepath.Join(outDir, "fmacfw_8800d80_h_u02_bin_funcs.jsonl"))
-	if !strings.Contains(funcs, `"name":"start"`) {
+	funcs, err := os.ReadFile(filepath.Join(outDir, "fmacfw_8800d80_h_u02_bin_funcs.jsonl"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(funcs), `"name":"start"`) {
 		t.Error("funcs.jsonl should contain start function")
 	}
 }
 
-func fileExists(p string) bool {
-	_, err := exec.Command("test", "-f", p).Output()
-	return err == nil
-}
-
-func readFile(t *testing.T, p string) string {
-	t.Helper()
-	out, err := exec.Command("cat", p).Output()
-	if err != nil {
+func TestScanRejectsMissingInputs(t *testing.T) {
+	root := t.TempDir()
+	decompiled := filepath.Join(root, "empty")
+	if err := os.Mkdir(decompiled, 0o755); err != nil {
 		t.Fatal(err)
 	}
-	return string(out)
+	for _, args := range [][]string{
+		{"--decompiled", filepath.Join(root, "missing")},
+		{"--decompiled", decompiled},
+		{"--decompiled", decompiled, "--images", "absent"},
+		{"--decompiled", root, "--images", "empty"},
+	} {
+		if err := runScan(append(args, "--out", t.TempDir())); err == nil {
+			t.Errorf("scan %v succeeded without input functions", args)
+		}
+	}
 }

@@ -48,7 +48,7 @@ void ke_evt_schedule(void) {
 	if err != nil {
 		t.Fatalf("loadSynthBodies: %v", err)
 	}
-	got := bodies["ke_evt_schedule"]
+	got := bodies.global["ke_evt_schedule"]
 	if !strings.Contains(got, "reconstructed micro-flow") {
 		t.Fatalf("expected micro-flow kept, got:\n%s", got)
 	}
@@ -68,7 +68,8 @@ func TestRealSynthReplacesPanicLoopFromComposed(t *testing.T) {
 	if err != nil {
 		t.Fatalf("loadSynthBodies: %v", err)
 	}
-	panicBody := bodies["panic_loop"]
+	selected := bodiesForFile(bodies, filepath.Base(composed))
+	panicBody := selected["panic_loop"]
 	if !strings.Contains(panicBody, "reconstructed micro-flow") {
 		t.Skip("panic_loop micro-flow body not present in local synth snapshot")
 	}
@@ -76,7 +77,7 @@ func TestRealSynthReplacesPanicLoopFromComposed(t *testing.T) {
 	if err != nil {
 		t.Fatalf("read composed: %v", err)
 	}
-	out, _, _ := applyBodies(string(src), bodies)
+	out, _, _ := applyBodies(string(src), selected)
 	if !strings.Contains(out, "void panic_loop(void) {\n  // reconstructed micro-flow: panic/abort helper") {
 		t.Fatalf("panic_loop not replaced with micro-flow in composed apply path")
 	}
@@ -134,13 +135,13 @@ void rf_bus_write2_n4d1(void) {
 	if err != nil {
 		t.Fatalf("loadSynthBodies: %v", err)
 	}
-	if got := bodies["rf_bus_write2_n3cd"]; !strings.Contains(got, "rf_bus_write2_n3cd") {
+	if got := bodies.global["rf_bus_write2_n3cd"]; !strings.Contains(got, "rf_bus_write2_n3cd") {
 		t.Fatalf("variant key missing: %s", got)
 	}
-	if got := bodies["rf_bus_write2_n4d1"]; !strings.Contains(got, "rf_bus_write2_n4d1") {
+	if got := bodies.global["rf_bus_write2_n4d1"]; !strings.Contains(got, "rf_bus_write2_n4d1") {
 		t.Fatalf("variant key missing: %s", got)
 	}
-	if got := bodies["rf_bus_write2"]; got == "" {
+	if got := bodies.global["rf_bus_write2"]; got == "" {
 		t.Fatalf("base name should be populated from variant body")
 	}
 }

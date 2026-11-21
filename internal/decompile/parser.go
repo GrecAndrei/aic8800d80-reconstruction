@@ -270,10 +270,10 @@ type ImageDir struct {
 }
 
 // CollectImages finds all image directories under <decompiled>.
-func CollectImages(decompiled string) []string {
+func CollectImages(decompiled string) ([]string, error) {
 	entries, err := os.ReadDir(decompiled)
 	if err != nil {
-		return nil
+		return nil, err
 	}
 	var out []string
 	for _, e := range entries {
@@ -282,5 +282,5 @@ func CollectImages(decompiled string) []string {
 		}
 	}
 	sort.Strings(out)
-	return out
+	return out, nil
 }
