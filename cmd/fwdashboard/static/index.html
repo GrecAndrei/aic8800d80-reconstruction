@@ -111,7 +111,7 @@
         <table id="imagesTable"></table>
       </div>
       <div class="card">
-        <h3 class="section-title">Top Linked Functions</h3>
+        <h3 class="section-title">Top 20 Linked Functions</h3>
         <table id="linkedFnsTable"></table>
       </div>
     </div>
@@ -129,7 +129,7 @@
 
     <div class="grid two" style="margin-top:12px;">
       <div class="card">
-        <h3 class="section-title">Top Call Sources</h3>
+        <h3 class="section-title">Top 20 Call Sources</h3>
         <table id="callSourcesTable"></table>
       </div>
       <div class="card">
@@ -169,26 +169,26 @@
       ['Patches', 'totals.patches'],
       ['Base Coverage %', 'progress.base_coverage_pct'],
       ['Link Coverage %', 'progress.link_coverage_pct'],
-      ['Reconstructed Funcs', 'progress.reconstructed_functions'],
-      ['Recon Clusters', 'progress.recon_cluster_count'],
-      ['Recon Queue', 'progress.recon_queue_count'],
-      ['Recon Focus', 'progress.recon_focus_count'],
-      ['Recon Lift', 'progress.recon_lift_count'],
-      ['Recon Compose', 'progress.recon_compose_count'],
-      ['Recon ImplQueue', 'progress.recon_implqueue_count'],
-      ['Recon ImplWork', 'progress.recon_implwork_count'],
-      ['Recon ImplSynth', 'progress.recon_implsynth_count'],
-      ['Recon Synth Avg Callees', 'progress.recon_implsynth_avg_callees'],
-      ['Recon ImplApplied', 'progress.recon_implapplied_count'],
-      ['Recon Finalized', 'progress.recon_finalized_count'],
-      ['Recon Strong', 'progress.recon_strong_count'],
-      ['Recon Fallback', 'progress.recon_fallback_count'],
-      ['Recon TODO Left', 'progress.recon_todo_remaining'],
-      ['Recon Completion %', 'progress.recon_completion_pct'],
-      ['Recon Semantic %', 'progress.recon_semantic_completion_pct'],
-      ['Recon Conformance %', 'progress.recon_conformance_pct'],
-      ['Recon Conformance Evaluable', 'progress.recon_conformance_evaluable'],
-      ['Recon Conformance Nonperfect', 'progress.recon_conformance_nonperfect'],
+      ['Reconstructed Funcs', 'progress.reconstructed_functions', 'rebuild'],
+      ['Recon Clusters', 'progress.recon_cluster_count', 'cluster'],
+      ['Recon Queue', 'progress.recon_queue_count', 'queue'],
+      ['Recon Focus', 'progress.recon_focus_count', 'focus'],
+      ['Recon Lift', 'progress.recon_lift_count', 'lift'],
+      ['Recon Compose', 'progress.recon_compose_count', 'compose'],
+      ['Recon ImplQueue', 'progress.recon_implqueue_count', 'implqueue'],
+      ['Recon ImplWork', 'progress.recon_implwork_count', 'implwork'],
+      ['Recon ImplSynth', 'progress.recon_implsynth_count', 'implsynth'],
+      ['Recon Synth Avg Callees', 'progress.recon_implsynth_avg_callees', 'implsynth'],
+      ['Recon ImplApplied', 'progress.recon_implapplied_count', 'implapplied'],
+      ['Recon Finalized', 'progress.recon_finalized_count', 'finalize'],
+      ['Recon Strong', 'progress.recon_strong_count', 'finalize'],
+      ['Recon Fallback', 'progress.recon_fallback_count', 'finalize'],
+      ['Recon TODO Left', 'progress.recon_todo_remaining', 'finalize'],
+      ['Recon Completion %', 'progress.recon_completion_pct', 'finalize'],
+      ['Recon Semantic %', 'progress.recon_semantic_completion_pct', 'finalize'],
+      ['Recon Conformance %', 'progress.recon_conformance_pct', 'conformance'],
+      ['Recon Conformance Evaluable', 'progress.recon_conformance_evaluable', 'conformance'],
+      ['Recon Conformance Nonperfect', 'progress.recon_conformance_nonperfect', 'conformance'],
       ['Disk Free GB', 'progress.disk_free_gb'],
       ['Disk Used GB', 'progress.disk_used_gb'],
       ['Disk Use %', 'progress.disk_use_pct'],
@@ -223,25 +223,26 @@
     function renderKpis(data) {
       const root = document.getElementById('kpis');
       root.innerHTML = '';
-      for (const [label, path] of kpiDefs) {
-        const val = get(data, path, '-');
+      for (const [label, path, report] of kpiDefs) {
+        const missing = report && !data.progress?.recon_reports?.[report];
+        const val = missing ? '-' : get(data, path, '-');
         const card = document.createElement('div');
         card.className = 'card kpi';
+        if (missing) card.title = 'No reconstruction report for this stage';
         card.innerHTML = `<div class="label">${label}</div><div class="value">${fmt(val)}</div>`;
         root.appendChild(card);
       }
     }
 
-    function renderBars(rootId, rows, maxRows=18) {
+    function renderBars(rootId, rows) {
       const root = document.getElementById(rootId);
       root.innerHTML = '';
       if (!rows || rows.length === 0) {
         root.innerHTML = '<div class="muted">no data</div>';
         return;
       }
-      const sliced = rows.slice(0, maxRows);
-      const max = Math.max(...sliced.map(r => r.count), 1);
-      for (const r of sliced) {
+      const max = rows.reduce((largest, row) => Math.max(largest, row.count), 1);
+      for (const r of rows) {
         const pct = (r.count / max) * 100;
         const row = document.createElement('div');
         row.className = 'bar-row';
@@ -307,7 +308,7 @@
         ctx.fillStyle = '#c8d9ff';
         ctx.font = '11px sans-serif';
         ctx.fillText(cfg.label, lx + 16, 14);
-        lx += 120;
+        lx += (W - 2*pad) / Object.keys(series.lines).length;
       }
     }
 
@@ -407,8 +408,9 @@
       });
       renderQualityChart(data);
 
+      const age = data?.progress?.data_freshness_sec;
       document.getElementById('footer').textContent =
-        `generated_at=${data.generated_at} | out=${data.out_dir} | freshness=${data?.progress?.data_freshness_sec ?? '-'}s | unique_mmio_refs=${data?.artifacts?.unique_mmio_refs ?? '-'}`;
+        `generated_at=${data.generated_at} | out=${data.out_dir} | freshness=${age == null ? '-' : age + 's'} | unique_mmio_refs=${data?.artifacts?.unique_mmio_refs ?? '-'}`;
     }
 
     async function loadInitial() {
