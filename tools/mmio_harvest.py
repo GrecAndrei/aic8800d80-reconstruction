@@ -40,6 +40,7 @@ sys.path.insert(0, str(REPO / "tools"))
 from aic8800d80_emulator import (  # noqa: E402
     Aic8800D80Platform,
     HW_OFFSET,
+    TARGETS_DEFAULT,
     is_periph_addr,
     load_mmio_model,
     load_function_table,
@@ -55,7 +56,6 @@ IMAGES = [
     "lmacfw_rf_8800d80_u02.bin",
 ]
 
-TARGETS_DEFAULT = REPO / "extraction_out" / "reconstruction" / "truth_lane_state" / "truth_lane_targets.json"
 PAGE_SIZE = 0x1000
 
 
@@ -221,7 +221,9 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=REPO / "build" / "mmio" / "evidence.json")
     args = ap.parse_args()
 
-    targets = json.loads(args.targets.read_text()) if args.targets.is_file() else []
+    if not args.targets.is_file():
+        ap.error(f"targets not found: {args.targets}")
+    targets = json.loads(args.targets.read_text())
 
     # Merge per-image evidence, plus static candidate universe.
     merged: dict[str, dict] = {}

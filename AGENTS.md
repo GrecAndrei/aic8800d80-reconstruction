@@ -47,11 +47,14 @@ release tarball
   - Disasm cache (linear r2 sweep) mis-decodes 2 bytes when a data pool
     precedes a function start → `naming_src.py::disasm_at_fallback` spawns
     r2 per address with the proven `-a arm -b 16 -m 0x100000` form.
-- **Verification green**: `make -C src check` — all 4 images compile clean
+- **Verification**: `make -C src check` — all 4 images compile clean
   (real decompiled bodies + materialized data segment, no stubs);
-  `tools/truth_lane_smoke.py --src` — **25/25 PASS** (one stale v12 target
-  repointed to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02;
-  target list lives in gitignored `extraction_out/`).
+  `tools/truth_lane_smoke.py --src` — **9 PASS / 16 REVIEW / 0 FAIL** with
+  Clang 14 and Unicorn 2.1.4. PASS requires a return and a peripheral write;
+  15 returned without one and one hit the instruction cap. The former 25/25
+  figure counted ordinary memory writes. The manifest in
+  `metadata/truth_lane_targets.json` includes the stale v12 target correction
+  to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02.
 - **Emulator (milestone)**: `tools/aic8800d80_emulator.py` — full-system
   Unicorn platform, **Cortex-M4 CPU model** (corrected 2026-08-02: the
   firmware uses VFP instructions like `vpush {d8}`, which hardfault on a
@@ -83,13 +86,10 @@ release tarball
     `truth_lane_smoke.py` outcomes scores peripheral-register overlap on
     the SAME basis (depth-0 = the entry function's own body traffic,
     excluding callees — the reconstruction stubs callees, so the original's
-    callee traffic must be excluded too): **8 matched / 4 recon-missing /
-    13 no-periph-traffic**. The 4 recon-missing (crypto_key_load, clock_calc,
-    rf_bus_mark) are smoke-harness artifacts, not recon bugs: their bodies
-    ARE faithful (they write the same MMIO), but `truth_lane_smoke.py`
-    re-links bodies at image-base 0x1000 where data-symbol pointers deref
-    to 0, losing the register access. The emulator's original-side
-    fingerprint is ground truth.
+    callee traffic must be excluded too): **12 matched / 13 no-peripheral-traffic**.
+    The former 4 recon-missing results came from truncating the reported
+    addresses before filtering out ordinary memory. Equal address sets do
+    not establish equal values, access order or behavior.
   - **25/25 verify, 0 faults** (2026-08-02): the last 3 non-returns
     (`rf_reg_write_wait` ×2, `rf_timer_toggle_update`) jumped through null
     boot-ROM callback slots (0x1b0/0x1b4/0x1b8 + 0x1fc/0x1d8) that the ROM
@@ -213,7 +213,7 @@ release tarball
   call edges from `extraction_out/ida_export_live/*.call_edges.jsonl`,
   chip-space; no-op if absent). Skips 0-arg Hex-Rays artifact calls (the
   deduped target may be variadic). ~1000 call sites fixed across 3 images;
-  `make -C src check` + 25/25 smoke stay green.
+  `make -C src check` still succeeds (current smoke results above).
 - **Compose dedupe**: units deduped by address, preferring the plain
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
   LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).

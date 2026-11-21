@@ -49,18 +49,14 @@ HEAP_SIZE = 0x10000
 
 
 def is_mmio_addr(addr: int) -> bool:
-    # AIC8800D80 SoC memory map (covers all observed body accesses):
-    #   0x00000000-0x000FFFFF : Flash / boot ROM
-    #   0x00100000-0x001FFFFF : Vendor peripherals (RF, baseband, crypto) - e.g. 0x187F50
-    #   0x20000000-0x3FFFFFFF : SRAM
-    #   0x40000000-0x5FFFFFFF : APB / AHB peripherals (ARM standard) - e.g. 0x40200914
-    #   0xE0000000-0xE00FFFFF : System control space (NVIC, etc.)
-    return (
-        (0x00000000 <= addr <= 0x001FFFFF)
-        or (0x20000000 <= addr <= 0x3FFFFFFF)
-        or (0x40000000 <= addr <= 0x5FFFFFFF)
-        or (0xE0000000 <= addr <= 0xE00FFFFF)
-    )
+    """Peripheral and system-control windows, as in the original-image comparison."""
+    return 0x40000000 <= addr <= 0x5FFFFFFF or 0xE0000000 <= addr <= 0xE00FFFFF
+
+
+def can_autopage(addr: int) -> bool:
+    # ROM, firmware data and SRAM can be mapped for execution, but their
+    # accesses (including stores to the smoke stack) are not MMIO evidence.
+    return is_mmio_addr(addr) or 0 <= addr <= 0x001FFFFF or 0x20000000 <= addr <= 0x3FFFFFFF
 
 
 @dataclass
@@ -289,7 +285,7 @@ def run_smoke(
             mmio_writes["count"] += 1
 
     def on_unmapped(uc, access, address, size, value, user_data):
-        if mmio_autopage and is_mmio_addr(int(address)):
+        if mmio_autopage and can_autopage(int(address)):
             map_page(uc, int(address))
             mmio_auto_mapped["count"] += 1
             # For read/fetch, provide deterministic default data.
@@ -335,7 +331,7 @@ def run_smoke(
             "mmio_auto_mapped_count": mmio_auto_mapped["count"],
             "mmio_read_count": mmio_reads["count"],
             "mmio_write_count": mmio_writes["count"],
-            "mmio_unique_addrs": [hex(a) for a in sorted(mmio_addrs)[:16]],
+            "mmio_unique_addrs": [hex(a) for a in sorted(mmio_addrs)],
             "branch_taken_count": branch_taken["count"],
             "branch_depth_max": branch_depth["max"],
             "helper_touch_count": helper_touches["count"],
@@ -351,7 +347,7 @@ def run_smoke(
         "mmio_auto_mapped_count": mmio_auto_mapped["count"],
         "mmio_read_count": mmio_reads["count"],
         "mmio_write_count": mmio_writes["count"],
-        "mmio_unique_addrs": [hex(a) for a in sorted(mmio_addrs)[:16]],
+        "mmio_unique_addrs": [hex(a) for a in sorted(mmio_addrs)],
         "branch_taken_count": branch_taken["count"],
         "branch_depth_max": branch_depth["max"],
         "helper_touch_count": helper_touches["count"],

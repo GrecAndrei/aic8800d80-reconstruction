@@ -1,0 +1,127 @@
+[
+  {
+    "function": "clock_calc",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1031d8"
+  },
+  {
+    "function": "feature_guard_sdio",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12eb90"
+  },
+  {
+    "function": "rf_hw_timer_init",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xde48"
+  },
+  {
+    "function": "rf_hw_timer_init",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xde98"
+  },
+  {
+    "function": "rf_timer_toggle_update",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x130370"
+  },
+  {
+    "function": "crypto_hw_enable",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x2adc"
+  },
+  {
+    "function": "crypto_hw_enable",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2b00"
+  },
+  {
+    "function": "crypto_key_load",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x9dc"
+  },
+  {
+    "function": "crypto_hw_disable",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x2b40"
+  },
+  {
+    "function": "crypto_hw_disable",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2b64"
+  },
+  {
+    "function": "log_system_init_mode2",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x10f458"
+  },
+  {
+    "function": "rf_reg_write_wait",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xf010"
+  },
+  {
+    "function": "rf_reg_write_wait",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xec30"
+  },
+  {
+    "function": "rf_state_check",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x12030"
+  },
+  {
+    "function": "rf_mem_write",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2fd64"
+  },
+  {
+    "function": "rf_mem_write",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x2202c"
+  },
+  {
+    "function": "rf_bus_write2",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x11524"
+  },
+  {
+    "function": "rf_bus_write2",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x11a78"
+  },
+  {
+    "function": "rf_bus_mark",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x1118c"
+  },
+  {
+    "function": "rf_bus_mark",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x116e0"
+  },
+  {
+    "function": "rf_level_apply",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x26dd8"
+  },
+  {
+    "function": "rf_level_apply",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x30514"
+  },
+  {
+    "function": "rf_cmd_dispatch",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2fc7c"
+  },
+  {
+    "function": "rf_cmd_dispatch",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x21f44"
+  },
+  {
+    "function": "rf_mem_read",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x1f594"
+  }
+]

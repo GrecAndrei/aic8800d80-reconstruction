@@ -27,11 +27,15 @@ This directory contains Python helpers used alongside the Go commands.
 
 - `embedder.py`: embedding and behavior classification support
 - `unicorn_smoke.py`: bounded per-function smoke harness
+- `python3 tools/truth_lane_smoke.py --src --out /tmp/tls`: run the 25
+  tracked targets against composed source. Requires Clang, LLD and the Python
+  packages `unicorn` and `pyelftools`. A smoke pass is not a proof of
+  equivalence to the original firmware.
 
 ## Full-System Emulator
 
 - `aic8800d80_emulator.py`: full-system Unicorn platform for the raw
-  firmware images (chip base 0x100000, Cortex-M3 CPU model for M-profile
+  firmware images (runtime base 0x120000, Cortex-M4 CPU model for M-profile
   `MSR MSP`, MMIO device model from `src/include/aic8800d80_mmio.h`).
   - `header <image>` — IVT / boot header info
   - `boot <image>` — boot from the resolved `start` entry, log ordered
