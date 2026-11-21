@@ -238,7 +238,9 @@ func Collect(outDir string) (Snapshot, error) {
 	fnSource := map[string]int{}
 	fnImage := map[string]int{}
 	aliasCount := 0
+	fnConf := make([]float64, 0, len(funcs))
 	for _, r := range funcs {
+		fnConf = append(fnConf, flt(r["confidence"]))
 		name := str(r["name"])
 		if name != "" && !strings.HasPrefix(strings.ToLower(name), "sub_") {
 			baseNamed++
@@ -284,7 +286,11 @@ func Collect(outDir string) (Snapshot, error) {
 	srcFns := map[string]struct{}{}
 	tgtFns := map[string]struct{}{}
 	highLinks := 0
+	linkedFns := map[string]int{}
+	linkConf := make([]float64, 0, len(links))
 	for _, r := range links {
+		linkConf = append(linkConf, flt(r["confidence"]))
+		linkedFns[funcKey(str(r["source_name"]), str(r["source_image"]), str(r["source_address"]))]++
 		linkMethods[keyOrUnknown(str(r["method"]))]++
 		linkTargets[keyOrUnknown(str(r["target_image"]))]++
 		srcFns[keyOrUnknown(str(r["source_image"])+"|"+str(r["source_address"]))] = struct{}{}
@@ -292,6 +298,20 @@ func Collect(outDir string) (Snapshot, error) {
 		if flt(r["confidence"]) >= 0.9 {
 			highLinks++
 		}
+	}
+
+	callSrc := map[string]int{}
+	callTgt := map[string]int{}
+	callSrcName := map[string]int{}
+	callTgtName := map[string]int{}
+	callConf := make([]float64, 0, len(calls))
+	for _, r := range calls {
+		img := str(r["image"])
+		callConf = append(callConf, flt(r["confidence"]))
+		callSrc[funcKey("", img, str(r["source_addr"]))]++
+		callTgt[funcKey("", img, str(r["target_addr"]))]++
+		callSrcName[funcKey(str(r["source_name"]), img, str(r["source_addr"]))]++
+		callTgtName[funcKey(str(r["target_name"]), img, str(r["target_addr"]))]++
 	}
 
 	msgFamily := map[string]int{}
@@ -388,10 +408,10 @@ func Collect(outDir string) (Snapshot, error) {
 		DiskUsedGB:            round3(usedGB),
 		DiskUsePct:            round3(usePct),
 	}
-	snap.Functions = FunctionStats{0, fnRole["unknown"], aliasCount, toPairs(fnRole), toPairs(fnSource), toPairs(fnImage), nil, toPairs(fnImage)}
+	snap.Functions = FunctionStats{round3(mean(fnConf)), fnRole["unknown"], aliasCount, toPairs(fnRole), toPairs(fnSource), toPairs(fnImage), confidenceBuckets(fnConf), toPairs(fnImage)}
 	snap.Artifacts = ArtifactStats{toPairs(artType), toPairs(artImg), len(mmioRefs), len(patchTags), vectorCount}
-	snap.Links = LinkStats{0, toPairs(linkMethods), toPairs(linkTargets), nil, len(srcFns), len(tgtFns), highLinks}
-	snap.Calls = CallStats{nil, nil, nil, nil, 0}
+	snap.Links = LinkStats{round3(mean(linkConf)), toPairs(linkMethods), toPairs(linkTargets), confidenceBuckets(linkConf), len(srcFns), len(tgtFns), highLinks}
+	snap.Calls = CallStats{topNPairs(callSrc, 25), topNPairs(callTgt, 25), topNPairs(callSrcName, 25), topNPairs(callTgtName, 25), round3(mean(callConf))}
 	snap.Messages = MessageStats{toPairs(msgFamily), toPairs(msgKind), toPairs(msgRole), 0, 0}
 	snap.StateMachines = StateMachineStats{toPairs(smMachine), toPairs(smState), toPairs(smFunc), 0}
 	snap.MiningQueue = MiningStats{round3(avgPrio), topNPairs(queueReasons, 25), toPairs(queueRoles), topNPairs(queueTargets, 25)}
@@ -403,7 +423,7 @@ func Collect(outDir string) (Snapshot, error) {
 	}
 	sort.Slice(imgStats, func(i, j int) bool { return imgStats[i].Image < imgStats[j].Image })
 	snap.Images = imgStats
-	snap.Top = TopLists{topNPairs(queueTargets, 25), topNPairs(msgFamily, 25), topNPairs(smMachine, 25), nil, topNPairs(queueReasons, 25), topNPairs(patchSect, 25), topNPairs(fnRole, 25), topNPairs(artType, 25)}
+	snap.Top = TopLists{topNPairs(linkedFns, 25), topNPairs(msgFamily, 25), topNPairs(smMachine, 25), topNPairs(callSrcName, 25), topNPairs(queueReasons, 25), topNPairs(patchSect, 25), topNPairs(fnRole, 25), topNPairs(artType, 25)}
 	return snap, nil
 }
 
@@ -500,6 +520,52 @@ func topNPairs(m map[string]int, n int) []CountPair {
 		return p[:n]
 	}
 	return p
+}
+
+// funcKey labels a function by name, falling back to image|address.
+func funcKey(name, image, addr string) string {
+	if name != "" {
+		return name
+	}
+	if image == "" && addr == "" {
+		return "unknown"
+	}
+	return image + "|" + addr
+}
+
+func mean(vals []float64) float64 {
+	if len(vals) == 0 {
+		return 0
+	}
+	sum := 0.0
+	for _, v := range vals {
+		sum += v
+	}
+	return sum / float64(len(vals))
+}
+
+// confidenceBuckets groups [0,1] confidences into fixed 0.2-wide buckets, in bucket order.
+func confidenceBuckets(vals []float64) []CountPair {
+	if len(vals) == 0 {
+		return nil
+	}
+	labels := []string{"0.0-0.2", "0.2-0.4", "0.4-0.6", "0.6-0.8", "0.8-1.0"}
+	counts := make([]int, len(labels))
+	for _, v := range vals {
+		i := int(v * 5)
+		if i < 0 {
+			i = 0
+		}
+		if i >= len(labels) {
+			i = len(labels) - 1
+		}
+		counts[i]++
+	}
+	rows := make([]CountPair, len(labels))
+	for i, l := range labels {
+		rows[i] = CountPair{Key: l, Count: counts[i]}
+	}
+	return rows
 }
 
 func str(v any) string {
