@@ -1,0 +1,6809 @@
+{
+ "schema_version": 1,
+ "hardware_base": "0x120000",
+ "images": {
+  "fmacfw_8800d80_u02_bin": {
+   "sha256": "55b5a20865aca7cd2edaae1733a36da45d2b0b29060bc243d8e9ec212e139f6c",
+   "identifiers": [
+    {
+     "string_offset": "0x44040",
+     "text": "postponed_arrays_allocating",
+     "word_offsets": [
+      "0x464"
+     ]
+    },
+    {
+     "string_offset": "0x4405c",
+     "text": "crm_clk_conf",
+     "word_offsets": [
+      "0x63c"
+     ]
+    },
+    {
+     "string_offset": "0x442fc",
+     "text": "mdm_init",
+     "word_offsets": [
+      "0x192c"
+     ]
+    },
+    {
+     "string_offset": "0x44308",
+     "text": "phy_get_rf_gain_idx",
+     "word_offsets": [
+      "0x1d4c"
+     ]
+    },
+    {
+     "string_offset": "0x4431c",
+     "text": "phy_get_txpwr_level",
+     "word_offsets": [
+      "0x1f20"
+     ]
+    },
+    {
+     "string_offset": "0x44330",
+     "text": "phy_hw_set_channel",
+     "word_offsets": [
+      "0x22b8"
+     ]
+    },
+    {
+     "string_offset": "0x44344",
+     "text": "phy_set_channel",
+     "word_offsets": [
+      "0x2acc"
+     ]
+    },
+    {
+     "string_offset": "0x44354",
+     "text": "phy_get_channel",
+     "word_offsets": [
+      "0x19cc"
+     ]
+    },
+    {
+     "string_offset": "0x44364",
+     "text": "phy_stop",
+     "word_offsets": [
+      "0x19e8"
+     ]
+    },
+    {
+     "string_offset": "0x443a4",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2bf4"
+     ]
+    },
+    {
+     "string_offset": "0x443b4",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2be8"
+     ]
+    },
+    {
+     "string_offset": "0x46130",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0xcd8c"
+     ]
+    },
+    {
+     "string_offset": "0x46140",
+     "text": "ipc_emb_hostmsgbuf_get",
+     "word_offsets": [
+      "0xd1a0"
+     ]
+    },
+    {
+     "string_offset": "0x46158",
+     "text": "ipc_emb_hostrxbuf_get",
+     "word_offsets": [
+      "0xcc48"
+     ]
+    },
+    {
+     "string_offset": "0x46170",
+     "text": "emb_kmsg_hdlr",
+     "word_offsets": [
+      "0xcd80"
+     ]
+    },
+    {
+     "string_offset": "0x46180",
+     "text": "ipc_emb_kmsg_fwd",
+     "word_offsets": [
+      "0xd0d8",
+      "0xd198"
+     ]
+    },
+    {
+     "string_offset": "0x46194",
+     "text": "lpm_host_notify_bt",
+     "word_offsets": [
+      "0xd3fc"
+     ]
+    },
+    {
+     "string_offset": "0x461cc",
+     "text": "dma_push",
+     "word_offsets": [
+      "0xd59c"
+     ]
+    },
+    {
+     "string_offset": "0x464ec",
+     "text": "sta_connect_past_timer_handle",
+     "word_offsets": [
+      "0xf2e4"
+     ]
+    },
+    {
+     "string_offset": "0x4650c",
+     "text": "apm_sta_connect_past_timer_handle",
+     "word_offsets": [
+      "0xf348"
+     ]
+    },
+    {
+     "string_offset": "0x465bc",
+     "text": "replenish_send",
+     "word_offsets": [
+      "0xf850"
+     ]
+    },
+    {
+     "string_offset": "0x46820",
+     "text": "pkt_mem_free",
+     "word_offsets": [
+      "0x100f4"
+     ]
+    },
+    {
+     "string_offset": "0x46980",
+     "text": "sdio_replenish_rx_msgqueue",
+     "word_offsets": [
+      "0x1061c"
+     ]
+    },
+    {
+     "string_offset": "0x4699c",
+     "text": "host_sdio_replenish_rx_queue",
+     "word_offsets": [
+      "0x10780"
+     ]
+    },
+    {
+     "string_offset": "0x469bc",
+     "text": "sdio_rx_evt",
+     "word_offsets": [
+      "0x10adc",
+      "0x10b48"
+     ]
+    },
+    {
+     "string_offset": "0x46bc0",
+     "text": "sdio_isr",
+     "word_offsets": [
+      "0x11824"
+     ]
+    },
+    {
+     "string_offset": "0x46e60",
+     "text": "usb_wlan_recv",
+     "word_offsets": [
+      "0x133e4"
+     ]
+    },
+    {
+     "string_offset": "0x46e70",
+     "text": "usb_wlan_recv_fc_on",
+     "word_offsets": [
+      "0x134a8"
+     ]
+    },
+    {
+     "string_offset": "0x470d0",
+     "text": "wlan_epbulk_recv_compl_handler",
+     "word_offsets": [
+      "0x532dc"
+     ]
+    },
+    {
+     "string_offset": "0x470f0",
+     "text": "wlan_epbulk_send_compl_handler",
+     "word_offsets": [
+      "0x532e0"
+     ]
+    },
+    {
+     "string_offset": "0x47110",
+     "text": "usb_wlan_rx_pkt_free_list_init",
+     "word_offsets": [
+      "0x1389c"
+     ]
+    },
+    {
+     "string_offset": "0x47130",
+     "text": "host_usb_wlan_init",
+     "word_offsets": [
+      "0x13c18"
+     ]
+    },
+    {
+     "string_offset": "0x47144",
+     "text": "handle_usb_rx",
+     "word_offsets": [
+      "0x13da0"
+     ]
+    },
+    {
+     "string_offset": "0x47154",
+     "text": "usb_rx_evt",
+     "word_offsets": [
+      "0x13f7c"
+     ]
+    },
+    {
+     "string_offset": "0x47160",
+     "text": "usb_trans_error_handler",
+     "word_offsets": [
+      "0x1422c"
+     ]
+    },
+    {
+     "string_offset": "0x471b0",
+     "text": "ipc_rx_evt",
+     "word_offsets": [
+      "0x14528"
+     ]
+    },
+    {
+     "string_offset": "0x477b4",
+     "text": "rwnxl_wakeup",
+     "word_offsets": [
+      "0x157ac"
+     ]
+    },
+    {
+     "string_offset": "0x477c4",
+     "text": "rwnxl_reset_evt",
+     "word_offsets": [
+      "0x15940"
+     ]
+    },
+    {
+     "string_offset": "0x47804",
+     "text": "tx_txdesc_init",
+     "word_offsets": [
+      "0x16000"
+     ]
+    },
+    {
+     "string_offset": "0x47814",
+     "text": "tx_txdesc_get",
+     "word_offsets": [
+      "0x1603c"
+     ]
+    },
+    {
+     "string_offset": "0x479c4",
+     "text": "rc_get_sta_stats",
+     "word_offsets": [
+      "0x16e3c"
+     ]
+    },
+    {
+     "string_offset": "0x479d8",
+     "text": "txl_buffer_machdr_get",
+     "word_offsets": [
+      "0x16624",
+      "0x16674",
+      "0x16c40",
+      "0x16e44"
+     ]
+    },
+    {
+     "string_offset": "0x479f0",
+     "text": "txl_cntrl_newtail",
+     "word_offsets": [
+      "0x1631c"
+     ]
+    },
+    {
+     "string_offset": "0x47a04",
+     "text": "txl_frame_exchange_done",
+     "word_offsets": [
+      "0x17470"
+     ]
+    },
+    {
+     "string_offset": "0x47a1c",
+     "text": "txl_cntrl_newhead",
+     "word_offsets": [
+      "0x16980"
+     ]
+    },
+    {
+     "string_offset": "0x47a30",
+     "text": "txl_frame_exchange_chain",
+     "word_offsets": [
+      "0x16aa4"
+     ]
+    },
+    {
+     "string_offset": "0x47a4c",
+     "text": "txl_cntrl_halt_ac",
+     "word_offsets": [
+      "0x1706c"
+     ]
+    },
+    {
+     "string_offset": "0x47a60",
+     "text": "txl_transmit_trigger",
+     "word_offsets": [
+      "0x179ec"
+     ]
+    },
+    {
+     "string_offset": "0x47b74",
+     "text": "repush_list",
+     "word_offsets": [
+      "0x189f4"
+     ]
+    },
+    {
+     "string_offset": "0x47b80",
+     "text": "txl_buffer_machdr_get",
+     "word_offsets": [
+      "0x18710",
+      "0x18914"
+     ]
+    },
+    {
+     "string_offset": "0x47b98",
+     "text": "txl_is_ba_valid",
+     "word_offsets": [
+      "0x1804c"
+     ]
+    },
+    {
+     "string_offset": "0x47ba8",
+     "text": "txl_ba_push",
+     "word_offsets": [
+      "0x18054"
+     ]
+    },
+    {
+     "string_offset": "0x47bb4",
+     "text": "txl_cfm_evt",
+     "word_offsets": [
+      "0x18704",
+      "0x18920"
+     ]
+    },
+    {
+     "string_offset": "0x47bc0",
+     "text": "txl_cfm_flush",
+     "word_offsets": [
+      "0x189f0"
+     ]
+    },
+    {
+     "string_offset": "0x47bd0",
+     "text": "txl_cfm_flush_hiq",
+     "word_offsets": [
+      "0x18a64"
+     ]
+    },
+    {
+     "string_offset": "0x47be4",
+     "text": "txl_cfm_evt",
+     "word_offsets": [
+      "0x186fc"
+     ]
+    },
+    {
+     "string_offset": "0x47c74",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x18f3c",
+      "0x19080",
+      "0x19254",
+      "0x19388"
+     ]
+    },
+    {
+     "string_offset": "0x47c88",
+     "text": "txl_frame_push",
+     "word_offsets": [
+      "0x18cd8"
+     ]
+    },
+    {
+     "string_offset": "0x47eb8",
+     "text": "txl_ht_vht_ampdu_param_get",
+     "word_offsets": [
+      "0x196c8"
+     ]
+    },
+    {
+     "string_offset": "0x47ed4",
+     "text": "txl_ampdu_constraints_get",
+     "word_offsets": [
+      "0x196c0"
+     ]
+    },
+    {
+     "string_offset": "0x47ef0",
+     "text": "txl_agg_recompute_lengths",
+     "word_offsets": [
+      "0x1ac38"
+     ]
+    },
+    {
+     "string_offset": "0x47f0c",
+     "text": "txl_agg_set_uph",
+     "word_offsets": [
+      "0x194a0"
+     ]
+    },
+    {
+     "string_offset": "0x47f1c",
+     "text": "txl_agg_split",
+     "word_offsets": [
+      "0x1a6ac"
+     ]
+    },
+    {
+     "string_offset": "0x47f2c",
+     "text": "txl_agg_he_tb_cat_ampdu",
+     "word_offsets": [
+      "0x19cdc"
+     ]
+    },
+    {
+     "string_offset": "0x47f44",
+     "text": "txl_agg_bw_drop_handle",
+     "word_offsets": [
+      "0x1ae1c"
+     ]
+    },
+    {
+     "string_offset": "0x47f5c",
+     "text": "txl_agg_check_rtscts_retry_limit",
+     "word_offsets": [
+      "0x1a8f8"
+     ]
+    },
+    {
+     "string_offset": "0x47f80",
+     "text": "txl_agg_reconfig_ampdu",
+     "word_offsets": [
+      "0x1ac48"
+     ]
+    },
+    {
+     "string_offset": "0x47f98",
+     "text": "txl_agg_he_tb_prep",
+     "word_offsets": [
+      "0x1b0c8"
+     ]
+    },
+    {
+     "string_offset": "0x48208",
+     "text": "rc_get_sta_stats",
+     "word_offsets": [
+      "0x1c8d8"
+     ]
+    },
+    {
+     "string_offset": "0x4821c",
+     "text": "txl_he_edca_queue_halted",
+     "word_offsets": [
+      "0x1b574"
+     ]
+    },
+    {
+     "string_offset": "0x48238",
+     "text": "txl_he_mu_edca_start",
+     "word_offsets": [
+      "0x1b56c"
+     ]
+    },
+    {
+     "string_offset": "0x48250",
+     "text": "txl_he_tb_ppdu_get",
+     "word_offsets": [
+      "0x1b35c"
+     ]
+    },
+    {
+     "string_offset": "0x48264",
+     "text": "txl_he_tb_transmit_cancelled",
+     "word_offsets": [
+      "0x1ca78"
+     ]
+    },
+    {
+     "string_offset": "0x48284",
+     "text": "txl_he_tb_transmit_trigger",
+     "word_offsets": [
+      "0x1cc5c"
+     ]
+    },
+    {
+     "string_offset": "0x482a0",
+     "text": "txl_he_trigger_push",
+     "word_offsets": [
+      "0x1c2d8"
+     ]
+    },
+    {
+     "string_offset": "0x482b4",
+     "text": "txl_he_ampdu_param_get",
+     "word_offsets": [
+      "0x1c474"
+     ]
+    },
+    {
+     "string_offset": "0x483c8",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1d7a8"
+     ]
+    },
+    {
+     "string_offset": "0x483dc",
+     "text": "rxl_frame_handle",
+     "word_offsets": [
+      "0x1d648"
+     ]
+    },
+    {
+     "string_offset": "0x4853c",
+     "text": "rxl_rxcntrl_frame",
+     "word_offsets": [
+      "0x1e1c4"
+     ]
+    },
+    {
+     "string_offset": "0x48550",
+     "text": "rxl_payload_transfer_usb",
+     "word_offsets": [
+      "0x1dd30"
+     ]
+    },
+    {
+     "string_offset": "0x4856c",
+     "text": "rxl_payload_transfer_sdio",
+     "word_offsets": [
+      "0x1de54"
+     ]
+    },
+    {
+     "string_offset": "0x48588",
+     "text": "rxl_payload_transfer",
+     "word_offsets": [
+      "0x1df6c"
+     ]
+    },
+    {
+     "string_offset": "0x485a0",
+     "text": "rxl_go_to_last_rbd",
+     "word_offsets": [
+      "0x1dfe4"
+     ]
+    },
+    {
+     "string_offset": "0x485b4",
+     "text": "rxl_mpdu_copy",
+     "word_offsets": [
+      "0x1e264"
+     ]
+    },
+    {
+     "string_offset": "0x485c4",
+     "text": "rxl_mpdu_transfer",
+     "word_offsets": [
+      "0x1ea8c"
+     ]
+    },
+    {
+     "string_offset": "0x485d8",
+     "text": "rxl_rxdesc_ready_for_processing",
+     "word_offsets": [
+      "0x1ebbc"
+     ]
+    },
+    {
+     "string_offset": "0x48608",
+     "text": "sta_mgmt_register",
+     "word_offsets": [
+      "0x1f10c"
+     ]
+    },
+    {
+     "string_offset": "0x4861c",
+     "text": "sta_mgmt_unregister",
+     "word_offsets": [
+      "0x1f274"
+     ]
+    },
+    {
+     "string_offset": "0x486ec",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1f6e8",
+      "0x1fb3c",
+      "0x1fbac",
+      "0x20024"
+     ]
+    },
+    {
+     "string_offset": "0x48700",
+     "text": "vif_mgmt_register",
+     "word_offsets": [
+      "0x1fb30"
+     ]
+    },
+    {
+     "string_offset": "0x48714",
+     "text": "vif_mgmt_register",
+     "word_offsets": [
+      "0x1fb28"
+     ]
+    },
+    {
+     "string_offset": "0x48728",
+     "text": "vif_mgmt_unregister",
+     "word_offsets": [
+      "0x1fedc"
+     ]
+    },
+    {
+     "string_offset": "0x48a04",
+     "text": "hal_machw_rx_bcn_duration",
+     "word_offsets": [
+      "0x20b78"
+     ]
+    },
+    {
+     "string_offset": "0x48a20",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x205b4",
+      "0x20f28",
+      "0x2182c",
+      "0x218ac",
+      "0x21934"
+     ]
+    },
+    {
+     "string_offset": "0x48a34",
+     "text": "mm_key_ram_param_get",
+     "word_offsets": [
+      "0x2166c"
+     ]
+    },
+    {
+     "string_offset": "0x48a4c",
+     "text": "mm_tbtt_compute",
+     "word_offsets": [
+      "0x20b98"
+     ]
+    },
+    {
+     "string_offset": "0x48a5c",
+     "text": "mm_sleepinfo_rx_evt",
+     "word_offsets": [
+      "0x20f3c"
+     ]
+    },
+    {
+     "string_offset": "0x48a70",
+     "text": "mm_tbtt_evt",
+     "word_offsets": [
+      "0x228e0"
+     ]
+    },
+    {
+     "string_offset": "0x48a7c",
+     "text": "mm_sec_machwkey_wr",
+     "word_offsets": [
+      "0x21644"
+     ]
+    },
+    {
+     "string_offset": "0x48a90",
+     "text": "mm_back_to_host_idle",
+     "word_offsets": [
+      "0x21adc"
+     ]
+    },
+    {
+     "string_offset": "0x48aa8",
+     "text": "mm_force_idle_req",
+     "word_offsets": [
+      "0x21bfc"
+     ]
+    },
+    {
+     "string_offset": "0x48abc",
+     "text": "mm_no_idle_start",
+     "word_offsets": [
+      "0x21cb4"
+     ]
+    },
+    {
+     "string_offset": "0x48f6c",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x23b54"
+     ]
+    },
+    {
+     "string_offset": "0x48f7c",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x24638",
+      "0x2497c"
+     ]
+    },
+    {
+     "string_offset": "0x48f90",
+     "text": "mm_start_req_handler",
+     "word_offsets": [
+      "0x23b5c"
+     ]
+    },
+    {
+     "string_offset": "0x48fa8",
+     "text": "mm_set_idle_req_handler",
+     "word_offsets": [
+      "0x23c84"
+     ]
+    },
+    {
+     "string_offset": "0x48fc0",
+     "text": "mm_force_idle_req_handler",
+     "word_offsets": [
+      "0x23be4"
+     ]
+    },
+    {
+     "string_offset": "0x48fdc",
+     "text": "mm_key_add_req_handler",
+     "word_offsets": [
+      "0x238b4"
+     ]
+    },
+    {
+     "string_offset": "0x48ff4",
+     "text": "mm_key_del_req_handler",
+     "word_offsets": [
+      "0x237ec"
+     ]
+    },
+    {
+     "string_offset": "0x4900c",
+     "text": "mm_hw_config_handler",
+     "word_offsets": [
+      "0x23f6c",
+      "0x24624"
+     ]
+    },
+    {
+     "string_offset": "0x49024",
+     "text": "mm_set_ps_options_req_handler",
+     "word_offsets": [
+      "0x22c98"
+     ]
+    },
+    {
+     "string_offset": "0x49044",
+     "text": "mm_set_arpoffload_en_req_handler",
+     "word_offsets": [
+      "0x22a58"
+     ]
+    },
+    {
+     "string_offset": "0x49068",
+     "text": "mm_cfg_rssi_req_handler",
+     "word_offsets": [
+      "0x22c2c"
+     ]
+    },
+    {
+     "string_offset": "0x49080",
+     "text": "mm_set_resume_restore_req",
+     "word_offsets": [
+      "0x2355c"
+     ]
+    },
+    {
+     "string_offset": "0x492c0",
+     "text": "mm_timer_set",
+     "word_offsets": [
+      "0x24e2c"
+     ]
+    },
+    {
+     "string_offset": "0x492d0",
+     "text": "mm_timer_schedule",
+     "word_offsets": [
+      "0x24f70"
+     ]
+    },
+    {
+     "string_offset": "0x4937c",
+     "text": "mm_bcn_transmitted",
+     "word_offsets": [
+      "0x25cb8"
+     ]
+    },
+    {
+     "string_offset": "0x49390",
+     "text": "mm_bcn_transmit",
+     "word_offsets": [
+      "0x259d4"
+     ]
+    },
+    {
+     "string_offset": "0x493a0",
+     "text": "mm_bcn_update_p2p_noa",
+     "word_offsets": [
+      "0x250ec"
+     ]
+    },
+    {
+     "string_offset": "0x493b8",
+     "text": "apm_probe_sta_cfm",
+     "word_offsets": [
+      "0x25028"
+     ]
+    },
+    {
+     "string_offset": "0x49448",
+     "text": "oth_ctxt",
+     "word_offsets": [
+      "0x2643c"
+     ]
+    },
+    {
+     "string_offset": "0x49724",
+     "text": "ch_switch",
+     "word_offsets": [
+      "0x28ac4"
+     ]
+    },
+    {
+     "string_offset": "0x49748",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x27040",
+      "0x27654"
+     ]
+    },
+    {
+     "string_offset": "0x4975c",
+     "text": "chan_switch_alloc",
+     "word_offsets": [
+      "0x267c8"
+     ]
+    },
+    {
+     "string_offset": "0x49770",
+     "text": "chan_start_p2pgo_noa",
+     "word_offsets": [
+      "0x26418"
+     ]
+    },
+    {
+     "string_offset": "0x49788",
+     "text": "chan_fix_ctxt_until",
+     "word_offsets": [
+      "0x27290"
+     ]
+    },
+    {
+     "string_offset": "0x4979c",
+     "text": "chan_conn_less_delay_evt",
+     "word_offsets": [
+      "0x27338"
+     ]
+    },
+    {
+     "string_offset": "0x497b8",
+     "text": "chan_tmr_switch_cb",
+     "word_offsets": [
+      "0x278b0"
+     ]
+    },
+    {
+     "string_offset": "0x497cc",
+     "text": "chan_scan_req",
+     "word_offsets": [
+      "0x27b54"
+     ]
+    },
+    {
+     "string_offset": "0x497dc",
+     "text": "chan_ctxt_del",
+     "word_offsets": [
+      "0x27e94"
+     ]
+    },
+    {
+     "string_offset": "0x497ec",
+     "text": "chan_ctxt_link",
+     "word_offsets": [
+      "0x28ab0"
+     ]
+    },
+    {
+     "string_offset": "0x497fc",
+     "text": "chan_ctxt_unlink",
+     "word_offsets": [
+      "0x28868"
+     ]
+    },
+    {
+     "string_offset": "0x49810",
+     "text": "chan_bcn_detect_start",
+     "word_offsets": [
+      "0x28484"
+     ]
+    },
+    {
+     "string_offset": "0x4984c",
+     "text": "ps_enable_cfm",
+     "word_offsets": [
+      "0x28ce0"
+     ]
+    },
+    {
+     "string_offset": "0x4985c",
+     "text": "ps_disable_cfm",
+     "word_offsets": [
+      "0x28d50"
+     ]
+    },
+    {
+     "string_offset": "0x4986c",
+     "text": "ps_upm_enter",
+     "word_offsets": [
+      "0x294ac"
+     ]
+    },
+    {
+     "string_offset": "0x4987c",
+     "text": "ps_upm_exit",
+     "word_offsets": [
+      "0x29524"
+     ]
+    },
+    {
+     "string_offset": "0x498dc",
+     "text": "p2p_local_tsf_2_peer_time",
+     "word_offsets": [
+      "0x2a464"
+     ]
+    },
+    {
+     "string_offset": "0x498f8",
+     "text": "p2p_local_2_peer_time",
+     "word_offsets": [
+      "0x2aacc"
+     ]
+    },
+    {
+     "string_offset": "0x49910",
+     "text": "p2p_peer_2_local_time",
+     "word_offsets": [
+      "0x29d60",
+      "0x2aac4"
+     ]
+    },
+    {
+     "string_offset": "0x49928",
+     "text": "p2p_update_noa_presence_date",
+     "word_offsets": [
+      "0x297fc"
+     ]
+    },
+    {
+     "string_offset": "0x49948",
+     "text": "p2p_noa_timer_end",
+     "word_offsets": [
+      "0x2aab4"
+     ]
+    },
+    {
+     "string_offset": "0x49978",
+     "text": "p2p_go_get_next_noa_end_date",
+     "word_offsets": [
+      "0x2a278"
+     ]
+    },
+    {
+     "string_offset": "0x49998",
+     "text": "p2p_cli_bcn_check_noa",
+     "word_offsets": [
+      "0x2a3f0"
+     ]
+    },
+    {
+     "string_offset": "0x499b0",
+     "text": "p2p_go_bcn_op_done",
+     "word_offsets": [
+      "0x2ad00"
+     ]
+    },
+    {
+     "string_offset": "0x499c4",
+     "text": "tds_env",
+     "word_offsets": [
+      "0x2af04"
+     ]
+    },
+    {
+     "string_offset": "0x499cc",
+     "text": "td_pck_ind",
+     "word_offsets": [
+      "0x2af00"
+     ]
+    },
+    {
+     "string_offset": "0x49a78",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x2b10c"
+     ]
+    },
+    {
+     "string_offset": "0x49a90",
+     "text": "mm_scan_channel_start_ind_handler",
+     "word_offsets": [
+      "0x2b078"
+     ]
+    },
+    {
+     "string_offset": "0x49ab4",
+     "text": "mm_scan_channel_end_ind_handler",
+     "word_offsets": [
+      "0x2b000"
+     ]
+    },
+    {
+     "string_offset": "0x49ad4",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x2b0fc"
+     ]
+    },
+    {
+     "string_offset": "0x49aec",
+     "text": "scan_cancel_req_handler",
+     "word_offsets": [
+      "0x2af5c"
+     ]
+    },
+    {
+     "string_offset": "0x49b2c",
+     "text": "scan_send_cancel_cfm",
+     "word_offsets": [
+      "0x2b50c"
+     ]
+    },
+    {
+     "string_offset": "0x4a064",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x2bcb8"
+     ]
+    },
+    {
+     "string_offset": "0x4a078",
+     "text": "hal_machw_idle_irq_handler",
+     "word_offsets": [
+      "0x2b598"
+     ]
+    },
+    {
+     "string_offset": "0x4a094",
+     "text": "hal_machw_idle_req",
+     "word_offsets": [
+      "0x2b8a0"
+     ]
+    },
+    {
+     "string_offset": "0x4a0a8",
+     "text": "hal_machw_init",
+     "word_offsets": [
+      "0x2bb14"
+     ]
+    },
+    {
+     "string_offset": "0x4a0b8",
+     "text": "hal_machw_sleep_check",
+     "word_offsets": [
+      "0x2be34"
+     ]
+    },
+    {
+     "string_offset": "0x4a0d0",
+     "text": "hal_machw_abs_timer_handler",
+     "word_offsets": [
+      "0x2bfc4"
+     ]
+    },
+    {
+     "string_offset": "0x4a0ec",
+     "text": "hal_machw_gen_handler",
+     "word_offsets": [
+      "0x2c198"
+     ]
+    },
+    {
+     "string_offset": "0x4a114",
+     "text": "hal_dma_evt",
+     "word_offsets": [
+      "0x2c41c"
+     ]
+    },
+    {
+     "string_offset": "0x4a124",
+     "text": "tpc_update_frame_tx_power",
+     "word_offsets": [
+      "0x2c530"
+     ]
+    },
+    {
+     "string_offset": "0x4a140",
+     "text": "tpc_update_frame_tx_power_1",
+     "word_offsets": [
+      "0x2c57c"
+     ]
+    },
+    {
+     "string_offset": "0x4a1b8",
+     "text": "ke_timer_set",
+     "word_offsets": [
+      "0x2c720"
+     ]
+    },
+    {
+     "string_offset": "0x4a1c8",
+     "text": "ke_timer_clear",
+     "word_offsets": [
+      "0x2c7f0"
+     ]
+    },
+    {
+     "string_offset": "0x4a210",
+     "text": "ke_msg_alloc",
+     "word_offsets": [
+      "0x2c984"
+     ]
+    },
+    {
+     "string_offset": "0x4a220",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x2ca00"
+     ]
+    },
+    {
+     "string_offset": "0x4a2a0",
+     "text": "ke_malloc",
+     "word_offsets": [
+      "0x2cbbc"
+     ]
+    },
+    {
+     "string_offset": "0x4a2ac",
+     "text": "ke_free",
+     "word_offsets": [
+      "0x2ccb8"
+     ]
+    },
+    {
+     "string_offset": "0x4a31c",
+     "text": "ke_stateid_ptr",
+     "word_offsets": [
+      "0x2ce6c"
+     ]
+    },
+    {
+     "string_offset": "0x4a458",
+     "text": "ke_state_set",
+     "word_offsets": [
+      "0x2ce68"
+     ]
+    },
+    {
+     "string_offset": "0x4a468",
+     "text": "ke_state_get",
+     "word_offsets": [
+      "0x2cf14"
+     ]
+    },
+    {
+     "string_offset": "0x4a478",
+     "text": "ke_handler_search",
+     "word_offsets": [
+      "0x2cd2c"
+     ]
+    },
+    {
+     "string_offset": "0x4a48c",
+     "text": "ke_task_handler_get",
+     "word_offsets": [
+      "0x2cfdc"
+     ]
+    },
+    {
+     "string_offset": "0x4a4a0",
+     "text": "ke_task_schedule",
+     "word_offsets": [
+      "0x2d0f4"
+     ]
+    },
+    {
+     "string_offset": "0x4a4b4",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x2ce78",
+      "0x2cf20",
+      "0x2cfe8"
+     ]
+    },
+    {
+     "string_offset": "0x4a4f4",
+     "text": "ke_evt_schedule",
+     "word_offsets": [
+      "0x2d208"
+     ]
+    },
+    {
+     "string_offset": "0x4a574",
+     "text": "co_list_push_back",
+     "word_offsets": [
+      "0x2d288"
+     ]
+    },
+    {
+     "string_offset": "0x4a588",
+     "text": "co_list_push_front",
+     "word_offsets": [
+      "0x2d2c8"
+     ]
+    },
+    {
+     "string_offset": "0x4a59c",
+     "text": "co_list_extract",
+     "word_offsets": [
+      "0x2d348"
+     ]
+    },
+    {
+     "string_offset": "0x4a5ac",
+     "text": "co_list_remove",
+     "word_offsets": [
+      "0x2d4e4"
+     ]
+    },
+    {
+     "string_offset": "0x4ab78",
+     "text": "mac_ext_ie_find",
+     "word_offsets": [
+      "0x2d894"
+     ]
+    },
+    {
+     "string_offset": "0x4ab88",
+     "text": "mac_vsie_find",
+     "word_offsets": [
+      "0x2d824"
+     ]
+    },
+    {
+     "string_offset": "0x4ac38",
+     "text": "dbg_vsnprintf_offset",
+     "word_offsets": [
+      "0x2e9f8"
+     ]
+    },
+    {
+     "string_offset": "0x4ac50",
+     "text": "dbg_test_print",
+     "word_offsets": [
+      "0x2eb10"
+     ]
+    },
+    {
+     "string_offset": "0x4b7dc",
+     "text": "mm_set_idle_cfm_handler",
+     "word_offsets": [
+      "0x319c8"
+     ]
+    },
+    {
+     "string_offset": "0x4b7f4",
+     "text": "mm_set_ps_mode_cfm_handler",
+     "word_offsets": [
+      "0x31970"
+     ]
+    },
+    {
+     "string_offset": "0x4b810",
+     "text": "me_rc_set_rate_req_handler",
+     "word_offsets": [
+      "0x3181c"
+     ]
+    },
+    {
+     "string_offset": "0x4b82c",
+     "text": "me_config_monitor_req_handler",
+     "word_offsets": [
+      "0x31778"
+     ]
+    },
+    {
+     "string_offset": "0x4b91c",
+     "text": "me_init_chan",
+     "word_offsets": [
+      "0x3231c"
+     ]
+    },
+    {
+     "string_offset": "0x4b9ec",
+     "text": "me_chan_ctxt_update",
+     "word_offsets": [
+      "0x33420"
+     ]
+    },
+    {
+     "string_offset": "0x4ba00",
+     "text": "me_pol_tbl_bw_upd",
+     "word_offsets": [
+      "0x33410"
+     ]
+    },
+    {
+     "string_offset": "0x4ba14",
+     "text": "me_legacy_rate_bitfield_build",
+     "word_offsets": [
+      "0x32818"
+     ]
+    },
+    {
+     "string_offset": "0x4ba34",
+     "text": "me_init_bcmc_rate",
+     "word_offsets": [
+      "0x32900"
+     ]
+    },
+    {
+     "string_offset": "0x4ba48",
+     "text": "me_update_buffer_control",
+     "word_offsets": [
+      "0x32cfc"
+     ]
+    },
+    {
+     "string_offset": "0x4ba64",
+     "text": "me_sta_bw_nss_max_upd",
+     "word_offsets": [
+      "0x32fa4"
+     ]
+    },
+    {
+     "string_offset": "0x4ba9c",
+     "text": "michael_end",
+     "word_offsets": [
+      "0x337b4"
+     ]
+    },
+    {
+     "string_offset": "0x4bce8",
+     "text": "sm_connect_req_handler",
+     "word_offsets": [
+      "0x3404c"
+     ]
+    },
+    {
+     "string_offset": "0x4bd00",
+     "text": "scanu_start_cfm_handler",
+     "word_offsets": [
+      "0x33ab4"
+     ]
+    },
+    {
+     "string_offset": "0x4bd18",
+     "text": "scanu_join_cfm_handler",
+     "word_offsets": [
+      "0x33de0"
+     ]
+    },
+    {
+     "string_offset": "0x4bd30",
+     "text": "mm_sta_add_cfm_handler",
+     "word_offsets": [
+      "0x34358"
+     ]
+    },
+    {
+     "string_offset": "0x4bd48",
+     "text": "me_set_ps_disable_cfm_handler",
+     "word_offsets": [
+      "0x339c0"
+     ]
+    },
+    {
+     "string_offset": "0x4bd68",
+     "text": "mm_bss_param_setting_handler",
+     "word_offsets": [
+      "0x33a00"
+     ]
+    },
+    {
+     "string_offset": "0x4bd88",
+     "text": "me_set_active_cfm_handler",
+     "word_offsets": [
+      "0x33bdc"
+     ]
+    },
+    {
+     "string_offset": "0x4bda4",
+     "text": "mm_sta_del_cfm_handler",
+     "word_offsets": [
+      "0x33958"
+     ]
+    },
+    {
+     "string_offset": "0x4bdbc",
+     "text": "mm_chan_ctxt_unlink_cfm_handler",
+     "word_offsets": [
+      "0x33918"
+     ]
+    },
+    {
+     "string_offset": "0x4bddc",
+     "text": "sm_ft_auth_rsp_handler",
+     "word_offsets": [
+      "0x3383c"
+     ]
+    },
+    {
+     "string_offset": "0x4bdf4",
+     "text": "me_data_path_flushed_ind_handler",
+     "word_offsets": [
+      "0x337f4"
+     ]
+    },
+    {
+     "string_offset": "0x4c0a4",
+     "text": "sm_bss_config_init",
+     "word_offsets": [
+      "0x34430"
+     ]
+    },
+    {
+     "string_offset": "0x4c0b8",
+     "text": "sm_bss_config_send",
+     "word_offsets": [
+      "0x347f8"
+     ]
+    },
+    {
+     "string_offset": "0x4c0cc",
+     "text": "sm_auth_send",
+     "word_offsets": [
+      "0x35358"
+     ]
+    },
+    {
+     "string_offset": "0x4c0dc",
+     "text": "sm_assoc_req_send",
+     "word_offsets": [
+      "0x35558"
+     ]
+    },
+    {
+     "string_offset": "0x4c0f0",
+     "text": "sm_assoc_rsp_handler",
+     "word_offsets": [
+      "0x35660"
+     ]
+    },
+    {
+     "string_offset": "0x4c108",
+     "text": "sm_external_auth_start",
+     "word_offsets": [
+      "0x35928"
+     ]
+    },
+    {
+     "string_offset": "0x4c120",
+     "text": "sm_ft_auth_over_air_start",
+     "word_offsets": [
+      "0x359f8"
+     ]
+    },
+    {
+     "string_offset": "0x4c13c",
+     "text": "arpresp_send",
+     "word_offsets": [
+      "0x35fd0"
+     ]
+    },
+    {
+     "string_offset": "0x4c14c",
+     "text": "sm_auth_send",
+     "word_offsets": [
+      "0x35340"
+     ]
+    },
+    {
+     "string_offset": "0x4c15c",
+     "text": "sm_assoc_req_send",
+     "word_offsets": [
+      "0x35538"
+     ]
+    },
+    {
+     "string_offset": "0x4c35c",
+     "text": "apm_start_req_handler",
+     "word_offsets": [
+      "0x36648"
+     ]
+    },
+    {
+     "string_offset": "0x4c374",
+     "text": "me_set_ps_disable_cfm_handler",
+     "word_offsets": [
+      "0x362f0"
+     ]
+    },
+    {
+     "string_offset": "0x4c394",
+     "text": "mm_bss_param_setting_handler",
+     "word_offsets": [
+      "0x36330"
+     ]
+    },
+    {
+     "string_offset": "0x4c3b4",
+     "text": "me_set_active_cfm_handler",
+     "word_offsets": [
+      "0x36410"
+     ]
+    },
+    {
+     "string_offset": "0x4c3d0",
+     "text": "mm_bcn_change_cfm_handler",
+     "word_offsets": [
+      "0x36374"
+     ]
+    },
+    {
+     "string_offset": "0x4c3ec",
+     "text": "mm_chan_ctxt_unlink_cfm_handler",
+     "word_offsets": [
+      "0x36234"
+     ]
+    },
+    {
+     "string_offset": "0x4c40c",
+     "text": "mm_set_vif_state_cfm_handler",
+     "word_offsets": [
+      "0x36288"
+     ]
+    },
+    {
+     "string_offset": "0x4c42c",
+     "text": "apm_start_cac_req_handler",
+     "word_offsets": [
+      "0x361ec"
+     ]
+    },
+    {
+     "string_offset": "0x4c448",
+     "text": "apm_stop_cac_req_handler",
+     "word_offsets": [
+      "0x36138"
+     ]
+    },
+    {
+     "string_offset": "0x4c4f8",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x36e6c"
+     ]
+    },
+    {
+     "string_offset": "0x4c50c",
+     "text": "apm_bss_config_init",
+     "word_offsets": [
+      "0x366ac"
+     ]
+    },
+    {
+     "string_offset": "0x4c520",
+     "text": "apm_bss_config_send",
+     "word_offsets": [
+      "0x3685c"
+     ]
+    },
+    {
+     "string_offset": "0x4c534",
+     "text": "apm_tx_int_ps_get_postpone",
+     "word_offsets": [
+      "0x36d0c"
+     ]
+    },
+    {
+     "string_offset": "0x4c618",
+     "text": "scanu_join_req_handler",
+     "word_offsets": [
+      "0x370c4"
+     ]
+    },
+    {
+     "string_offset": "0x4c7c0",
+     "text": "scanu_build_ie",
+     "word_offsets": [
+      "0x3861c"
+     ]
+    },
+    {
+     "string_offset": "0x4c7d0",
+     "text": "scanu_confirm",
+     "word_offsets": [
+      "0x375a8"
+     ]
+    },
+    {
+     "string_offset": "0x4c7e0",
+     "text": "scanu_start",
+     "word_offsets": [
+      "0x387c0"
+     ]
+    },
+    {
+     "string_offset": "0x4c9b4",
+     "text": "rxu_cntrl_desc_prepare",
+     "word_offsets": [
+      "0x38a6c"
+     ]
+    },
+    {
+     "string_offset": "0x4c9cc",
+     "text": "rxu_cntrl_mic_check",
+     "word_offsets": [
+      "0x38fd0"
+     ]
+    },
+    {
+     "string_offset": "0x4c9e0",
+     "text": "rxu_cntrl_defrag_alloc",
+     "word_offsets": [
+      "0x392a0"
+     ]
+    },
+    {
+     "string_offset": "0x4c9f8",
+     "text": "rxu_cntrl_reord_fwd",
+     "word_offsets": [
+      "0x389c0"
+     ]
+    },
+    {
+     "string_offset": "0x4ca0c",
+     "text": "rxu_cntrl_reord_check",
+     "word_offsets": [
+      "0x39578"
+     ]
+    },
+    {
+     "string_offset": "0x4ca24",
+     "text": "rxu_cntrl_reord_timeout_cb",
+     "word_offsets": [
+      "0x38bec"
+     ]
+    },
+    {
+     "string_offset": "0x4ca40",
+     "text": "rxu_mgt_route_action",
+     "word_offsets": [
+      "0x39a94"
+     ]
+    },
+    {
+     "string_offset": "0x4ca58",
+     "text": "rxu_mgt_frame_ind",
+     "word_offsets": [
+      "0x39cec"
+     ]
+    },
+    {
+     "string_offset": "0x4ca6c",
+     "text": "rxu_cntrl_reord_delete",
+     "word_offsets": [
+      "0x3a4a8"
+     ]
+    },
+    {
+     "string_offset": "0x4ca84",
+     "text": "rxu_cntrl_spurious_check",
+     "word_offsets": [
+      "0x38cac"
+     ]
+    },
+    {
+     "string_offset": "0x4cb30",
+     "text": "txu_cntrl_sechdr_len_compute",
+     "word_offsets": [
+      "0x3a650"
+     ]
+    },
+    {
+     "string_offset": "0x4cb50",
+     "text": "txu_cntrl_umacdesc_mgmt_prep",
+     "word_offsets": [
+      "0x3aee0"
+     ]
+    },
+    {
+     "string_offset": "0x4cb70",
+     "text": "txu_cntrl_sec_hdr_append",
+     "word_offsets": [
+      "0x3aaec"
+     ]
+    },
+    {
+     "string_offset": "0x4cb8c",
+     "text": "txu_cntrl_push",
+     "word_offsets": [
+      "0x3af1c"
+     ]
+    },
+    {
+     "string_offset": "0x4cb9c",
+     "text": "txu_cntrl_cfm",
+     "word_offsets": [
+      "0x3b098"
+     ]
+    },
+    {
+     "string_offset": "0x4cbc8",
+     "text": "mm_ba_add_cfm_handler",
+     "word_offsets": [
+      "0x3b548"
+     ]
+    },
+    {
+     "string_offset": "0x4cca0",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x3b8e0"
+     ]
+    },
+    {
+     "string_offset": "0x4ccb4",
+     "text": "bam_send_air_action_frame",
+     "word_offsets": [
+      "0x3b8ec"
+     ]
+    },
+    {
+     "string_offset": "0x4ccd0",
+     "text": "bam_send_mm_ba_del_req",
+     "word_offsets": [
+      "0x3be0c"
+     ]
+    },
+    {
+     "string_offset": "0x4cce8",
+     "text": "bam_rx_active",
+     "word_offsets": [
+      "0x3c47c"
+     ]
+    },
+    {
+     "string_offset": "0x4ccf8",
+     "text": "mfp_compute_bip",
+     "word_offsets": [
+      "0x3ce6c"
+     ]
+    },
+    {
+     "string_offset": "0x4d71c",
+     "text": "rc_check_rate_config",
+     "word_offsets": [
+      "0x3dde8",
+      "0x3e10c",
+      "0x3e1bc"
+     ]
+    },
+    {
+     "string_offset": "0x4d734",
+     "text": "rc_init_rates",
+     "word_offsets": [
+      "0x3f82c"
+     ]
+    },
+    {
+     "string_offset": "0x4d744",
+     "text": "rc_update_counters",
+     "word_offsets": [
+      "0x3ea44",
+      "0x3ead8"
+     ]
+    },
+    {
+     "string_offset": "0x4d758",
+     "text": "rc_check",
+     "word_offsets": [
+      "0x4032c"
+     ]
+    },
+    {
+     "string_offset": "0x4d764",
+     "text": "rc_init",
+     "word_offsets": [
+      "0x3fbd4",
+      "0x3ff5c",
+      "0x401dc"
+     ]
+    },
+    {
+     "string_offset": "0x4d76c",
+     "text": "rc_update_sample_table",
+     "word_offsets": [
+      "0x3f16c"
+     ]
+    },
+    {
+     "string_offset": "0x4d784",
+     "text": "rc_update_bw_nss_max",
+     "word_offsets": [
+      "0x3f230"
+     ]
+    },
+    {
+     "string_offset": "0x4d79c",
+     "text": "rc_update_preamble_type",
+     "word_offsets": [
+      "0x3f3b0"
+     ]
+    },
+    {
+     "string_offset": "0x4d7b4",
+     "text": "rc_init",
+     "word_offsets": [
+      "0x3fbbc"
+     ]
+    },
+    {
+     "string_offset": "0x4dc18",
+     "text": "rm_process_next_req_handler",
+     "word_offsets": [
+      "0x404a8"
+     ]
+    },
+    {
+     "string_offset": "0x4dc34",
+     "text": "scanu_start_cfm_handler",
+     "word_offsets": [
+      "0x40468"
+     ]
+    },
+    {
+     "string_offset": "0x4dd78",
+     "text": "rm_parse_beacon_request",
+     "word_offsets": [
+      "0x4147c"
+     ]
+    },
+    {
+     "string_offset": "0x4dd90",
+     "text": "rm_can_add_bcn_report_fragment",
+     "word_offsets": [
+      "0x40adc"
+     ]
+    },
+    {
+     "string_offset": "0x4ddb0",
+     "text": "rm_add_bcn_report",
+     "word_offsets": [
+      "0x40ad4"
+     ]
+    },
+    {
+     "string_offset": "0x4ddc4",
+     "text": "rm_add_measurement_report_elts",
+     "word_offsets": [
+      "0x4086c"
+     ]
+    },
+    {
+     "string_offset": "0x4dde4",
+     "text": "rm_process_beacon_scan_request",
+     "word_offsets": [
+      "0x40d94"
+     ]
+    },
+    {
+     "string_offset": "0x4de04",
+     "text": "rm_start_active_request",
+     "word_offsets": [
+      "0x415e0"
+     ]
+    },
+    {
+     "string_offset": "0x4de1c",
+     "text": "rm_continue_active_request",
+     "word_offsets": [
+      "0x416ac"
+     ]
+    },
+    {
+     "string_offset": "0x4de74",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x41c74"
+     ]
+    },
+    {
+     "string_offset": "0x4de88",
+     "text": "twt_save_ind_req_type",
+     "word_offsets": [
+      "0x41d44"
+     ]
+    },
+    {
+     "string_offset": "0x4dea0",
+     "text": "twt_handle_setup_frame",
+     "word_offsets": [
+      "0x42330"
+     ]
+    },
+    {
+     "string_offset": "0x4deb8",
+     "text": "twt_handle_action_frame",
+     "word_offsets": [
+      "0x42328"
+     ]
+    },
+    {
+     "string_offset": "0x4ded0",
+     "text": "rxu_mgt_ind_handler",
+     "word_offsets": [
+      "0x42614"
+     ]
+    }
+   ]
+  },
+  "fmacfw_8800d80_h_u02_bin": {
+   "sha256": "ae8d548df96c132c445f888b91eab5ef03c19991b8bdef4fc12ebfcbf9f953e7",
+   "identifiers": [
+    {
+     "string_offset": "0x43f00",
+     "text": "postponed_arrays_allocating",
+     "word_offsets": [
+      "0x464"
+     ]
+    },
+    {
+     "string_offset": "0x43f1c",
+     "text": "crm_clk_conf",
+     "word_offsets": [
+      "0x63c"
+     ]
+    },
+    {
+     "string_offset": "0x441bc",
+     "text": "mdm_init",
+     "word_offsets": [
+      "0x1880"
+     ]
+    },
+    {
+     "string_offset": "0x441c8",
+     "text": "phy_get_rf_gain_idx",
+     "word_offsets": [
+      "0x1ca0"
+     ]
+    },
+    {
+     "string_offset": "0x441dc",
+     "text": "phy_get_txpwr_level",
+     "word_offsets": [
+      "0x1e74"
+     ]
+    },
+    {
+     "string_offset": "0x441f0",
+     "text": "phy_hw_set_channel",
+     "word_offsets": [
+      "0x2208"
+     ]
+    },
+    {
+     "string_offset": "0x44204",
+     "text": "phy_set_channel",
+     "word_offsets": [
+      "0x2a1c"
+     ]
+    },
+    {
+     "string_offset": "0x44214",
+     "text": "phy_get_channel",
+     "word_offsets": [
+      "0x1920"
+     ]
+    },
+    {
+     "string_offset": "0x44224",
+     "text": "phy_stop",
+     "word_offsets": [
+      "0x193c"
+     ]
+    },
+    {
+     "string_offset": "0x44258",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2b44"
+     ]
+    },
+    {
+     "string_offset": "0x44268",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2b38"
+     ]
+    },
+    {
+     "string_offset": "0x45fe0",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0xcc4c"
+     ]
+    },
+    {
+     "string_offset": "0x45ff0",
+     "text": "ipc_emb_hostmsgbuf_get",
+     "word_offsets": [
+      "0xd060"
+     ]
+    },
+    {
+     "string_offset": "0x46008",
+     "text": "ipc_emb_hostrxbuf_get",
+     "word_offsets": [
+      "0xcb08"
+     ]
+    },
+    {
+     "string_offset": "0x46020",
+     "text": "emb_kmsg_hdlr",
+     "word_offsets": [
+      "0xcc40"
+     ]
+    },
+    {
+     "string_offset": "0x46030",
+     "text": "ipc_emb_kmsg_fwd",
+     "word_offsets": [
+      "0xcf98",
+      "0xd058"
+     ]
+    },
+    {
+     "string_offset": "0x46044",
+     "text": "lpm_host_notify_bt",
+     "word_offsets": [
+      "0xd2bc"
+     ]
+    },
+    {
+     "string_offset": "0x4607c",
+     "text": "dma_push",
+     "word_offsets": [
+      "0xd45c"
+     ]
+    },
+    {
+     "string_offset": "0x4639c",
+     "text": "sta_connect_past_timer_handle",
+     "word_offsets": [
+      "0xf1a4"
+     ]
+    },
+    {
+     "string_offset": "0x463bc",
+     "text": "apm_sta_connect_past_timer_handle",
+     "word_offsets": [
+      "0xf208"
+     ]
+    },
+    {
+     "string_offset": "0x4646c",
+     "text": "replenish_send",
+     "word_offsets": [
+      "0xf710"
+     ]
+    },
+    {
+     "string_offset": "0x466d0",
+     "text": "pkt_mem_free",
+     "word_offsets": [
+      "0xffb4"
+     ]
+    },
+    {
+     "string_offset": "0x46830",
+     "text": "sdio_replenish_rx_msgqueue",
+     "word_offsets": [
+      "0x104dc"
+     ]
+    },
+    {
+     "string_offset": "0x4684c",
+     "text": "host_sdio_replenish_rx_queue",
+     "word_offsets": [
+      "0x10640"
+     ]
+    },
+    {
+     "string_offset": "0x4686c",
+     "text": "sdio_rx_evt",
+     "word_offsets": [
+      "0x1099c",
+      "0x10a08"
+     ]
+    },
+    {
+     "string_offset": "0x46a70",
+     "text": "sdio_isr",
+     "word_offsets": [
+      "0x116e4"
+     ]
+    },
+    {
+     "string_offset": "0x46d10",
+     "text": "usb_wlan_recv",
+     "word_offsets": [
+      "0x132a4"
+     ]
+    },
+    {
+     "string_offset": "0x46d20",
+     "text": "usb_wlan_recv_fc_on",
+     "word_offsets": [
+      "0x13368"
+     ]
+    },
+    {
+     "string_offset": "0x46f80",
+     "text": "wlan_epbulk_recv_compl_handler",
+     "word_offsets": [
+      "0x5330c"
+     ]
+    },
+    {
+     "string_offset": "0x46fa0",
+     "text": "wlan_epbulk_send_compl_handler",
+     "word_offsets": [
+      "0x53310"
+     ]
+    },
+    {
+     "string_offset": "0x46fc0",
+     "text": "usb_wlan_rx_pkt_free_list_init",
+     "word_offsets": [
+      "0x1375c"
+     ]
+    },
+    {
+     "string_offset": "0x46fe0",
+     "text": "host_usb_wlan_init",
+     "word_offsets": [
+      "0x13ad8"
+     ]
+    },
+    {
+     "string_offset": "0x46ff4",
+     "text": "handle_usb_rx",
+     "word_offsets": [
+      "0x13c60"
+     ]
+    },
+    {
+     "string_offset": "0x47004",
+     "text": "usb_rx_evt",
+     "word_offsets": [
+      "0x13e3c"
+     ]
+    },
+    {
+     "string_offset": "0x47010",
+     "text": "usb_trans_error_handler",
+     "word_offsets": [
+      "0x140ec"
+     ]
+    },
+    {
+     "string_offset": "0x47060",
+     "text": "ipc_rx_evt",
+     "word_offsets": [
+      "0x143e8"
+     ]
+    },
+    {
+     "string_offset": "0x47664",
+     "text": "rwnxl_wakeup",
+     "word_offsets": [
+      "0x1566c"
+     ]
+    },
+    {
+     "string_offset": "0x47674",
+     "text": "rwnxl_reset_evt",
+     "word_offsets": [
+      "0x15800"
+     ]
+    },
+    {
+     "string_offset": "0x476b4",
+     "text": "tx_txdesc_init",
+     "word_offsets": [
+      "0x15ec0"
+     ]
+    },
+    {
+     "string_offset": "0x476c4",
+     "text": "tx_txdesc_get",
+     "word_offsets": [
+      "0x15efc"
+     ]
+    },
+    {
+     "string_offset": "0x47874",
+     "text": "rc_get_sta_stats",
+     "word_offsets": [
+      "0x16cfc"
+     ]
+    },
+    {
+     "string_offset": "0x47888",
+     "text": "txl_buffer_machdr_get",
+     "word_offsets": [
+      "0x164e4",
+      "0x16534",
+      "0x16b00",
+      "0x16d04"
+     ]
+    },
+    {
+     "string_offset": "0x478a0",
+     "text": "txl_cntrl_newtail",
+     "word_offsets": [
+      "0x161dc"
+     ]
+    },
+    {
+     "string_offset": "0x478b4",
+     "text": "txl_frame_exchange_done",
+     "word_offsets": [
+      "0x17330"
+     ]
+    },
+    {
+     "string_offset": "0x478cc",
+     "text": "txl_cntrl_newhead",
+     "word_offsets": [
+      "0x16840"
+     ]
+    },
+    {
+     "string_offset": "0x478e0",
+     "text": "txl_frame_exchange_chain",
+     "word_offsets": [
+      "0x16964"
+     ]
+    },
+    {
+     "string_offset": "0x478fc",
+     "text": "txl_cntrl_halt_ac",
+     "word_offsets": [
+      "0x16f2c"
+     ]
+    },
+    {
+     "string_offset": "0x47910",
+     "text": "txl_transmit_trigger",
+     "word_offsets": [
+      "0x178ac"
+     ]
+    },
+    {
+     "string_offset": "0x47a24",
+     "text": "repush_list",
+     "word_offsets": [
+      "0x188b4"
+     ]
+    },
+    {
+     "string_offset": "0x47a30",
+     "text": "txl_buffer_machdr_get",
+     "word_offsets": [
+      "0x185d0",
+      "0x187d4"
+     ]
+    },
+    {
+     "string_offset": "0x47a48",
+     "text": "txl_is_ba_valid",
+     "word_offsets": [
+      "0x17f0c"
+     ]
+    },
+    {
+     "string_offset": "0x47a58",
+     "text": "txl_ba_push",
+     "word_offsets": [
+      "0x17f14"
+     ]
+    },
+    {
+     "string_offset": "0x47a64",
+     "text": "txl_cfm_evt",
+     "word_offsets": [
+      "0x185c4",
+      "0x187e0"
+     ]
+    },
+    {
+     "string_offset": "0x47a70",
+     "text": "txl_cfm_flush",
+     "word_offsets": [
+      "0x188b0"
+     ]
+    },
+    {
+     "string_offset": "0x47a80",
+     "text": "txl_cfm_flush_hiq",
+     "word_offsets": [
+      "0x18924"
+     ]
+    },
+    {
+     "string_offset": "0x47a94",
+     "text": "txl_cfm_evt",
+     "word_offsets": [
+      "0x185bc"
+     ]
+    },
+    {
+     "string_offset": "0x47b24",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x18dfc",
+      "0x18f40",
+      "0x19114",
+      "0x19248"
+     ]
+    },
+    {
+     "string_offset": "0x47b38",
+     "text": "txl_frame_push",
+     "word_offsets": [
+      "0x18b98"
+     ]
+    },
+    {
+     "string_offset": "0x47d68",
+     "text": "txl_ht_vht_ampdu_param_get",
+     "word_offsets": [
+      "0x19588"
+     ]
+    },
+    {
+     "string_offset": "0x47d84",
+     "text": "txl_ampdu_constraints_get",
+     "word_offsets": [
+      "0x19580"
+     ]
+    },
+    {
+     "string_offset": "0x47da0",
+     "text": "txl_agg_recompute_lengths",
+     "word_offsets": [
+      "0x1aaf8"
+     ]
+    },
+    {
+     "string_offset": "0x47dbc",
+     "text": "txl_agg_set_uph",
+     "word_offsets": [
+      "0x19360"
+     ]
+    },
+    {
+     "string_offset": "0x47dcc",
+     "text": "txl_agg_split",
+     "word_offsets": [
+      "0x1a56c"
+     ]
+    },
+    {
+     "string_offset": "0x47ddc",
+     "text": "txl_agg_he_tb_cat_ampdu",
+     "word_offsets": [
+      "0x19b9c"
+     ]
+    },
+    {
+     "string_offset": "0x47df4",
+     "text": "txl_agg_bw_drop_handle",
+     "word_offsets": [
+      "0x1acdc"
+     ]
+    },
+    {
+     "string_offset": "0x47e0c",
+     "text": "txl_agg_check_rtscts_retry_limit",
+     "word_offsets": [
+      "0x1a7b8"
+     ]
+    },
+    {
+     "string_offset": "0x47e30",
+     "text": "txl_agg_reconfig_ampdu",
+     "word_offsets": [
+      "0x1ab08"
+     ]
+    },
+    {
+     "string_offset": "0x47e48",
+     "text": "txl_agg_he_tb_prep",
+     "word_offsets": [
+      "0x1af88"
+     ]
+    },
+    {
+     "string_offset": "0x480b8",
+     "text": "rc_get_sta_stats",
+     "word_offsets": [
+      "0x1c798"
+     ]
+    },
+    {
+     "string_offset": "0x480cc",
+     "text": "txl_he_edca_queue_halted",
+     "word_offsets": [
+      "0x1b434"
+     ]
+    },
+    {
+     "string_offset": "0x480e8",
+     "text": "txl_he_mu_edca_start",
+     "word_offsets": [
+      "0x1b42c"
+     ]
+    },
+    {
+     "string_offset": "0x48100",
+     "text": "txl_he_tb_ppdu_get",
+     "word_offsets": [
+      "0x1b21c"
+     ]
+    },
+    {
+     "string_offset": "0x48114",
+     "text": "txl_he_tb_transmit_cancelled",
+     "word_offsets": [
+      "0x1c938"
+     ]
+    },
+    {
+     "string_offset": "0x48134",
+     "text": "txl_he_tb_transmit_trigger",
+     "word_offsets": [
+      "0x1cb1c"
+     ]
+    },
+    {
+     "string_offset": "0x48150",
+     "text": "txl_he_trigger_push",
+     "word_offsets": [
+      "0x1c198"
+     ]
+    },
+    {
+     "string_offset": "0x48164",
+     "text": "txl_he_ampdu_param_get",
+     "word_offsets": [
+      "0x1c334"
+     ]
+    },
+    {
+     "string_offset": "0x48278",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1d668"
+     ]
+    },
+    {
+     "string_offset": "0x4828c",
+     "text": "rxl_frame_handle",
+     "word_offsets": [
+      "0x1d508"
+     ]
+    },
+    {
+     "string_offset": "0x483ec",
+     "text": "rxl_rxcntrl_frame",
+     "word_offsets": [
+      "0x1e084"
+     ]
+    },
+    {
+     "string_offset": "0x48400",
+     "text": "rxl_payload_transfer_usb",
+     "word_offsets": [
+      "0x1dbf0"
+     ]
+    },
+    {
+     "string_offset": "0x4841c",
+     "text": "rxl_payload_transfer_sdio",
+     "word_offsets": [
+      "0x1dd14"
+     ]
+    },
+    {
+     "string_offset": "0x48438",
+     "text": "rxl_payload_transfer",
+     "word_offsets": [
+      "0x1de2c"
+     ]
+    },
+    {
+     "string_offset": "0x48450",
+     "text": "rxl_go_to_last_rbd",
+     "word_offsets": [
+      "0x1dea4"
+     ]
+    },
+    {
+     "string_offset": "0x48464",
+     "text": "rxl_mpdu_copy",
+     "word_offsets": [
+      "0x1e124"
+     ]
+    },
+    {
+     "string_offset": "0x48474",
+     "text": "rxl_mpdu_transfer",
+     "word_offsets": [
+      "0x1e94c"
+     ]
+    },
+    {
+     "string_offset": "0x48488",
+     "text": "rxl_rxdesc_ready_for_processing",
+     "word_offsets": [
+      "0x1ea7c"
+     ]
+    },
+    {
+     "string_offset": "0x484b8",
+     "text": "sta_mgmt_register",
+     "word_offsets": [
+      "0x1efcc"
+     ]
+    },
+    {
+     "string_offset": "0x484cc",
+     "text": "sta_mgmt_unregister",
+     "word_offsets": [
+      "0x1f134"
+     ]
+    },
+    {
+     "string_offset": "0x4859c",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1f5a8",
+      "0x1f9fc",
+      "0x1fa6c",
+      "0x1fee4"
+     ]
+    },
+    {
+     "string_offset": "0x485b0",
+     "text": "vif_mgmt_register",
+     "word_offsets": [
+      "0x1f9f0"
+     ]
+    },
+    {
+     "string_offset": "0x485c4",
+     "text": "vif_mgmt_register",
+     "word_offsets": [
+      "0x1f9e8"
+     ]
+    },
+    {
+     "string_offset": "0x485d8",
+     "text": "vif_mgmt_unregister",
+     "word_offsets": [
+      "0x1fd9c"
+     ]
+    },
+    {
+     "string_offset": "0x488b4",
+     "text": "hal_machw_rx_bcn_duration",
+     "word_offsets": [
+      "0x20a38"
+     ]
+    },
+    {
+     "string_offset": "0x488d0",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x20474",
+      "0x20de8",
+      "0x216ec",
+      "0x2176c",
+      "0x217f4"
+     ]
+    },
+    {
+     "string_offset": "0x488e4",
+     "text": "mm_key_ram_param_get",
+     "word_offsets": [
+      "0x2152c"
+     ]
+    },
+    {
+     "string_offset": "0x488fc",
+     "text": "mm_tbtt_compute",
+     "word_offsets": [
+      "0x20a58"
+     ]
+    },
+    {
+     "string_offset": "0x4890c",
+     "text": "mm_sleepinfo_rx_evt",
+     "word_offsets": [
+      "0x20dfc"
+     ]
+    },
+    {
+     "string_offset": "0x48920",
+     "text": "mm_tbtt_evt",
+     "word_offsets": [
+      "0x227a0"
+     ]
+    },
+    {
+     "string_offset": "0x4892c",
+     "text": "mm_sec_machwkey_wr",
+     "word_offsets": [
+      "0x21504"
+     ]
+    },
+    {
+     "string_offset": "0x48940",
+     "text": "mm_back_to_host_idle",
+     "word_offsets": [
+      "0x2199c"
+     ]
+    },
+    {
+     "string_offset": "0x48958",
+     "text": "mm_force_idle_req",
+     "word_offsets": [
+      "0x21abc"
+     ]
+    },
+    {
+     "string_offset": "0x4896c",
+     "text": "mm_no_idle_start",
+     "word_offsets": [
+      "0x21b74"
+     ]
+    },
+    {
+     "string_offset": "0x48e1c",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x23a14"
+     ]
+    },
+    {
+     "string_offset": "0x48e2c",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x244f8",
+      "0x2483c"
+     ]
+    },
+    {
+     "string_offset": "0x48e40",
+     "text": "mm_start_req_handler",
+     "word_offsets": [
+      "0x23a1c"
+     ]
+    },
+    {
+     "string_offset": "0x48e58",
+     "text": "mm_set_idle_req_handler",
+     "word_offsets": [
+      "0x23b44"
+     ]
+    },
+    {
+     "string_offset": "0x48e70",
+     "text": "mm_force_idle_req_handler",
+     "word_offsets": [
+      "0x23aa4"
+     ]
+    },
+    {
+     "string_offset": "0x48e8c",
+     "text": "mm_key_add_req_handler",
+     "word_offsets": [
+      "0x23774"
+     ]
+    },
+    {
+     "string_offset": "0x48ea4",
+     "text": "mm_key_del_req_handler",
+     "word_offsets": [
+      "0x236ac"
+     ]
+    },
+    {
+     "string_offset": "0x48ebc",
+     "text": "mm_hw_config_handler",
+     "word_offsets": [
+      "0x23e2c",
+      "0x244e4"
+     ]
+    },
+    {
+     "string_offset": "0x48ed4",
+     "text": "mm_set_ps_options_req_handler",
+     "word_offsets": [
+      "0x22b58"
+     ]
+    },
+    {
+     "string_offset": "0x48ef4",
+     "text": "mm_set_arpoffload_en_req_handler",
+     "word_offsets": [
+      "0x22918"
+     ]
+    },
+    {
+     "string_offset": "0x48f18",
+     "text": "mm_cfg_rssi_req_handler",
+     "word_offsets": [
+      "0x22aec"
+     ]
+    },
+    {
+     "string_offset": "0x48f30",
+     "text": "mm_set_resume_restore_req",
+     "word_offsets": [
+      "0x2341c"
+     ]
+    },
+    {
+     "string_offset": "0x49170",
+     "text": "mm_timer_set",
+     "word_offsets": [
+      "0x24cec"
+     ]
+    },
+    {
+     "string_offset": "0x49180",
+     "text": "mm_timer_schedule",
+     "word_offsets": [
+      "0x24e30"
+     ]
+    },
+    {
+     "string_offset": "0x4922c",
+     "text": "mm_bcn_transmitted",
+     "word_offsets": [
+      "0x25b78"
+     ]
+    },
+    {
+     "string_offset": "0x49240",
+     "text": "mm_bcn_transmit",
+     "word_offsets": [
+      "0x25894"
+     ]
+    },
+    {
+     "string_offset": "0x49250",
+     "text": "mm_bcn_update_p2p_noa",
+     "word_offsets": [
+      "0x24fac"
+     ]
+    },
+    {
+     "string_offset": "0x49268",
+     "text": "apm_probe_sta_cfm",
+     "word_offsets": [
+      "0x24ee8"
+     ]
+    },
+    {
+     "string_offset": "0x492f8",
+     "text": "oth_ctxt",
+     "word_offsets": [
+      "0x262fc"
+     ]
+    },
+    {
+     "string_offset": "0x495d4",
+     "text": "ch_switch",
+     "word_offsets": [
+      "0x28984"
+     ]
+    },
+    {
+     "string_offset": "0x495f8",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x26f00",
+      "0x27514"
+     ]
+    },
+    {
+     "string_offset": "0x4960c",
+     "text": "chan_switch_alloc",
+     "word_offsets": [
+      "0x26688"
+     ]
+    },
+    {
+     "string_offset": "0x49620",
+     "text": "chan_start_p2pgo_noa",
+     "word_offsets": [
+      "0x262d8"
+     ]
+    },
+    {
+     "string_offset": "0x49638",
+     "text": "chan_fix_ctxt_until",
+     "word_offsets": [
+      "0x27150"
+     ]
+    },
+    {
+     "string_offset": "0x4964c",
+     "text": "chan_conn_less_delay_evt",
+     "word_offsets": [
+      "0x271f8"
+     ]
+    },
+    {
+     "string_offset": "0x49668",
+     "text": "chan_tmr_switch_cb",
+     "word_offsets": [
+      "0x27770"
+     ]
+    },
+    {
+     "string_offset": "0x4967c",
+     "text": "chan_scan_req",
+     "word_offsets": [
+      "0x27a14"
+     ]
+    },
+    {
+     "string_offset": "0x4968c",
+     "text": "chan_ctxt_del",
+     "word_offsets": [
+      "0x27d54"
+     ]
+    },
+    {
+     "string_offset": "0x4969c",
+     "text": "chan_ctxt_link",
+     "word_offsets": [
+      "0x28970"
+     ]
+    },
+    {
+     "string_offset": "0x496ac",
+     "text": "chan_ctxt_unlink",
+     "word_offsets": [
+      "0x28728"
+     ]
+    },
+    {
+     "string_offset": "0x496c0",
+     "text": "chan_bcn_detect_start",
+     "word_offsets": [
+      "0x28344"
+     ]
+    },
+    {
+     "string_offset": "0x496fc",
+     "text": "ps_enable_cfm",
+     "word_offsets": [
+      "0x28ba0"
+     ]
+    },
+    {
+     "string_offset": "0x4970c",
+     "text": "ps_disable_cfm",
+     "word_offsets": [
+      "0x28c10"
+     ]
+    },
+    {
+     "string_offset": "0x4971c",
+     "text": "ps_upm_enter",
+     "word_offsets": [
+      "0x2936c"
+     ]
+    },
+    {
+     "string_offset": "0x4972c",
+     "text": "ps_upm_exit",
+     "word_offsets": [
+      "0x293e4"
+     ]
+    },
+    {
+     "string_offset": "0x4978c",
+     "text": "p2p_local_tsf_2_peer_time",
+     "word_offsets": [
+      "0x2a324"
+     ]
+    },
+    {
+     "string_offset": "0x497a8",
+     "text": "p2p_local_2_peer_time",
+     "word_offsets": [
+      "0x2a98c"
+     ]
+    },
+    {
+     "string_offset": "0x497c0",
+     "text": "p2p_peer_2_local_time",
+     "word_offsets": [
+      "0x29c20",
+      "0x2a984"
+     ]
+    },
+    {
+     "string_offset": "0x497d8",
+     "text": "p2p_update_noa_presence_date",
+     "word_offsets": [
+      "0x296bc"
+     ]
+    },
+    {
+     "string_offset": "0x497f8",
+     "text": "p2p_noa_timer_end",
+     "word_offsets": [
+      "0x2a974"
+     ]
+    },
+    {
+     "string_offset": "0x49828",
+     "text": "p2p_go_get_next_noa_end_date",
+     "word_offsets": [
+      "0x2a138"
+     ]
+    },
+    {
+     "string_offset": "0x49848",
+     "text": "p2p_cli_bcn_check_noa",
+     "word_offsets": [
+      "0x2a2b0"
+     ]
+    },
+    {
+     "string_offset": "0x49860",
+     "text": "p2p_go_bcn_op_done",
+     "word_offsets": [
+      "0x2abc0"
+     ]
+    },
+    {
+     "string_offset": "0x49874",
+     "text": "tds_env",
+     "word_offsets": [
+      "0x2adc4"
+     ]
+    },
+    {
+     "string_offset": "0x4987c",
+     "text": "td_pck_ind",
+     "word_offsets": [
+      "0x2adc0"
+     ]
+    },
+    {
+     "string_offset": "0x49928",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x2afcc"
+     ]
+    },
+    {
+     "string_offset": "0x49940",
+     "text": "mm_scan_channel_start_ind_handler",
+     "word_offsets": [
+      "0x2af38"
+     ]
+    },
+    {
+     "string_offset": "0x49964",
+     "text": "mm_scan_channel_end_ind_handler",
+     "word_offsets": [
+      "0x2aec0"
+     ]
+    },
+    {
+     "string_offset": "0x49984",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x2afbc"
+     ]
+    },
+    {
+     "string_offset": "0x4999c",
+     "text": "scan_cancel_req_handler",
+     "word_offsets": [
+      "0x2ae1c"
+     ]
+    },
+    {
+     "string_offset": "0x499dc",
+     "text": "scan_send_cancel_cfm",
+     "word_offsets": [
+      "0x2b3cc"
+     ]
+    },
+    {
+     "string_offset": "0x49f14",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x2bb78"
+     ]
+    },
+    {
+     "string_offset": "0x49f28",
+     "text": "hal_machw_idle_irq_handler",
+     "word_offsets": [
+      "0x2b458"
+     ]
+    },
+    {
+     "string_offset": "0x49f44",
+     "text": "hal_machw_idle_req",
+     "word_offsets": [
+      "0x2b760"
+     ]
+    },
+    {
+     "string_offset": "0x49f58",
+     "text": "hal_machw_init",
+     "word_offsets": [
+      "0x2b9d4"
+     ]
+    },
+    {
+     "string_offset": "0x49f68",
+     "text": "hal_machw_sleep_check",
+     "word_offsets": [
+      "0x2bcf4"
+     ]
+    },
+    {
+     "string_offset": "0x49f80",
+     "text": "hal_machw_abs_timer_handler",
+     "word_offsets": [
+      "0x2be84"
+     ]
+    },
+    {
+     "string_offset": "0x49f9c",
+     "text": "hal_machw_gen_handler",
+     "word_offsets": [
+      "0x2c058"
+     ]
+    },
+    {
+     "string_offset": "0x49fc4",
+     "text": "hal_dma_evt",
+     "word_offsets": [
+      "0x2c2dc"
+     ]
+    },
+    {
+     "string_offset": "0x49fd4",
+     "text": "tpc_update_frame_tx_power",
+     "word_offsets": [
+      "0x2c3f0"
+     ]
+    },
+    {
+     "string_offset": "0x49ff0",
+     "text": "tpc_update_frame_tx_power_1",
+     "word_offsets": [
+      "0x2c43c"
+     ]
+    },
+    {
+     "string_offset": "0x4a068",
+     "text": "ke_timer_set",
+     "word_offsets": [
+      "0x2c5e0"
+     ]
+    },
+    {
+     "string_offset": "0x4a078",
+     "text": "ke_timer_clear",
+     "word_offsets": [
+      "0x2c6b0"
+     ]
+    },
+    {
+     "string_offset": "0x4a0c0",
+     "text": "ke_msg_alloc",
+     "word_offsets": [
+      "0x2c844"
+     ]
+    },
+    {
+     "string_offset": "0x4a0d0",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x2c8c0"
+     ]
+    },
+    {
+     "string_offset": "0x4a150",
+     "text": "ke_malloc",
+     "word_offsets": [
+      "0x2ca7c"
+     ]
+    },
+    {
+     "string_offset": "0x4a15c",
+     "text": "ke_free",
+     "word_offsets": [
+      "0x2cb78"
+     ]
+    },
+    {
+     "string_offset": "0x4a1cc",
+     "text": "ke_stateid_ptr",
+     "word_offsets": [
+      "0x2cd2c"
+     ]
+    },
+    {
+     "string_offset": "0x4a308",
+     "text": "ke_state_set",
+     "word_offsets": [
+      "0x2cd28"
+     ]
+    },
+    {
+     "string_offset": "0x4a318",
+     "text": "ke_state_get",
+     "word_offsets": [
+      "0x2cdd4"
+     ]
+    },
+    {
+     "string_offset": "0x4a328",
+     "text": "ke_handler_search",
+     "word_offsets": [
+      "0x2cbec"
+     ]
+    },
+    {
+     "string_offset": "0x4a33c",
+     "text": "ke_task_handler_get",
+     "word_offsets": [
+      "0x2ce9c"
+     ]
+    },
+    {
+     "string_offset": "0x4a350",
+     "text": "ke_task_schedule",
+     "word_offsets": [
+      "0x2cfb4"
+     ]
+    },
+    {
+     "string_offset": "0x4a364",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x2cd38",
+      "0x2cde0",
+      "0x2cea8"
+     ]
+    },
+    {
+     "string_offset": "0x4a3a4",
+     "text": "ke_evt_schedule",
+     "word_offsets": [
+      "0x2d0c8"
+     ]
+    },
+    {
+     "string_offset": "0x4a424",
+     "text": "co_list_push_back",
+     "word_offsets": [
+      "0x2d148"
+     ]
+    },
+    {
+     "string_offset": "0x4a438",
+     "text": "co_list_push_front",
+     "word_offsets": [
+      "0x2d188"
+     ]
+    },
+    {
+     "string_offset": "0x4a44c",
+     "text": "co_list_extract",
+     "word_offsets": [
+      "0x2d208"
+     ]
+    },
+    {
+     "string_offset": "0x4a45c",
+     "text": "co_list_remove",
+     "word_offsets": [
+      "0x2d3a4"
+     ]
+    },
+    {
+     "string_offset": "0x4aa28",
+     "text": "mac_ext_ie_find",
+     "word_offsets": [
+      "0x2d754"
+     ]
+    },
+    {
+     "string_offset": "0x4aa38",
+     "text": "mac_vsie_find",
+     "word_offsets": [
+      "0x2d6e4"
+     ]
+    },
+    {
+     "string_offset": "0x4aae8",
+     "text": "dbg_vsnprintf_offset",
+     "word_offsets": [
+      "0x2e8b8"
+     ]
+    },
+    {
+     "string_offset": "0x4ab00",
+     "text": "dbg_test_print",
+     "word_offsets": [
+      "0x2e9d0"
+     ]
+    },
+    {
+     "string_offset": "0x4b68c",
+     "text": "mm_set_idle_cfm_handler",
+     "word_offsets": [
+      "0x31888"
+     ]
+    },
+    {
+     "string_offset": "0x4b6a4",
+     "text": "mm_set_ps_mode_cfm_handler",
+     "word_offsets": [
+      "0x31830"
+     ]
+    },
+    {
+     "string_offset": "0x4b6c0",
+     "text": "me_rc_set_rate_req_handler",
+     "word_offsets": [
+      "0x316dc"
+     ]
+    },
+    {
+     "string_offset": "0x4b6dc",
+     "text": "me_config_monitor_req_handler",
+     "word_offsets": [
+      "0x31638"
+     ]
+    },
+    {
+     "string_offset": "0x4b7cc",
+     "text": "me_init_chan",
+     "word_offsets": [
+      "0x321dc"
+     ]
+    },
+    {
+     "string_offset": "0x4b89c",
+     "text": "me_chan_ctxt_update",
+     "word_offsets": [
+      "0x332e0"
+     ]
+    },
+    {
+     "string_offset": "0x4b8b0",
+     "text": "me_pol_tbl_bw_upd",
+     "word_offsets": [
+      "0x332d0"
+     ]
+    },
+    {
+     "string_offset": "0x4b8c4",
+     "text": "me_legacy_rate_bitfield_build",
+     "word_offsets": [
+      "0x326d8"
+     ]
+    },
+    {
+     "string_offset": "0x4b8e4",
+     "text": "me_init_bcmc_rate",
+     "word_offsets": [
+      "0x327c0"
+     ]
+    },
+    {
+     "string_offset": "0x4b8f8",
+     "text": "me_update_buffer_control",
+     "word_offsets": [
+      "0x32bbc"
+     ]
+    },
+    {
+     "string_offset": "0x4b914",
+     "text": "me_sta_bw_nss_max_upd",
+     "word_offsets": [
+      "0x32e64"
+     ]
+    },
+    {
+     "string_offset": "0x4b94c",
+     "text": "michael_end",
+     "word_offsets": [
+      "0x33674"
+     ]
+    },
+    {
+     "string_offset": "0x4bb98",
+     "text": "sm_connect_req_handler",
+     "word_offsets": [
+      "0x33f0c"
+     ]
+    },
+    {
+     "string_offset": "0x4bbb0",
+     "text": "scanu_start_cfm_handler",
+     "word_offsets": [
+      "0x33974"
+     ]
+    },
+    {
+     "string_offset": "0x4bbc8",
+     "text": "scanu_join_cfm_handler",
+     "word_offsets": [
+      "0x33ca0"
+     ]
+    },
+    {
+     "string_offset": "0x4bbe0",
+     "text": "mm_sta_add_cfm_handler",
+     "word_offsets": [
+      "0x34218"
+     ]
+    },
+    {
+     "string_offset": "0x4bbf8",
+     "text": "me_set_ps_disable_cfm_handler",
+     "word_offsets": [
+      "0x33880"
+     ]
+    },
+    {
+     "string_offset": "0x4bc18",
+     "text": "mm_bss_param_setting_handler",
+     "word_offsets": [
+      "0x338c0"
+     ]
+    },
+    {
+     "string_offset": "0x4bc38",
+     "text": "me_set_active_cfm_handler",
+     "word_offsets": [
+      "0x33a9c"
+     ]
+    },
+    {
+     "string_offset": "0x4bc54",
+     "text": "mm_sta_del_cfm_handler",
+     "word_offsets": [
+      "0x33818"
+     ]
+    },
+    {
+     "string_offset": "0x4bc6c",
+     "text": "mm_chan_ctxt_unlink_cfm_handler",
+     "word_offsets": [
+      "0x337d8"
+     ]
+    },
+    {
+     "string_offset": "0x4bc8c",
+     "text": "sm_ft_auth_rsp_handler",
+     "word_offsets": [
+      "0x336fc"
+     ]
+    },
+    {
+     "string_offset": "0x4bca4",
+     "text": "me_data_path_flushed_ind_handler",
+     "word_offsets": [
+      "0x336b4"
+     ]
+    },
+    {
+     "string_offset": "0x4bf54",
+     "text": "sm_bss_config_init",
+     "word_offsets": [
+      "0x342f0"
+     ]
+    },
+    {
+     "string_offset": "0x4bf68",
+     "text": "sm_bss_config_send",
+     "word_offsets": [
+      "0x346b8"
+     ]
+    },
+    {
+     "string_offset": "0x4bf7c",
+     "text": "sm_auth_send",
+     "word_offsets": [
+      "0x35218"
+     ]
+    },
+    {
+     "string_offset": "0x4bf8c",
+     "text": "sm_assoc_req_send",
+     "word_offsets": [
+      "0x35418"
+     ]
+    },
+    {
+     "string_offset": "0x4bfa0",
+     "text": "sm_assoc_rsp_handler",
+     "word_offsets": [
+      "0x35520"
+     ]
+    },
+    {
+     "string_offset": "0x4bfb8",
+     "text": "sm_external_auth_start",
+     "word_offsets": [
+      "0x357e8"
+     ]
+    },
+    {
+     "string_offset": "0x4bfd0",
+     "text": "sm_ft_auth_over_air_start",
+     "word_offsets": [
+      "0x358b8"
+     ]
+    },
+    {
+     "string_offset": "0x4bfec",
+     "text": "arpresp_send",
+     "word_offsets": [
+      "0x35e90"
+     ]
+    },
+    {
+     "string_offset": "0x4bffc",
+     "text": "sm_auth_send",
+     "word_offsets": [
+      "0x35200"
+     ]
+    },
+    {
+     "string_offset": "0x4c00c",
+     "text": "sm_assoc_req_send",
+     "word_offsets": [
+      "0x353f8"
+     ]
+    },
+    {
+     "string_offset": "0x4c20c",
+     "text": "apm_start_req_handler",
+     "word_offsets": [
+      "0x36508"
+     ]
+    },
+    {
+     "string_offset": "0x4c224",
+     "text": "me_set_ps_disable_cfm_handler",
+     "word_offsets": [
+      "0x361b0"
+     ]
+    },
+    {
+     "string_offset": "0x4c244",
+     "text": "mm_bss_param_setting_handler",
+     "word_offsets": [
+      "0x361f0"
+     ]
+    },
+    {
+     "string_offset": "0x4c264",
+     "text": "me_set_active_cfm_handler",
+     "word_offsets": [
+      "0x362d0"
+     ]
+    },
+    {
+     "string_offset": "0x4c280",
+     "text": "mm_bcn_change_cfm_handler",
+     "word_offsets": [
+      "0x36234"
+     ]
+    },
+    {
+     "string_offset": "0x4c29c",
+     "text": "mm_chan_ctxt_unlink_cfm_handler",
+     "word_offsets": [
+      "0x360f4"
+     ]
+    },
+    {
+     "string_offset": "0x4c2bc",
+     "text": "mm_set_vif_state_cfm_handler",
+     "word_offsets": [
+      "0x36148"
+     ]
+    },
+    {
+     "string_offset": "0x4c2dc",
+     "text": "apm_start_cac_req_handler",
+     "word_offsets": [
+      "0x360ac"
+     ]
+    },
+    {
+     "string_offset": "0x4c2f8",
+     "text": "apm_stop_cac_req_handler",
+     "word_offsets": [
+      "0x35ff8"
+     ]
+    },
+    {
+     "string_offset": "0x4c3a8",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x36d2c"
+     ]
+    },
+    {
+     "string_offset": "0x4c3bc",
+     "text": "apm_bss_config_init",
+     "word_offsets": [
+      "0x3656c"
+     ]
+    },
+    {
+     "string_offset": "0x4c3d0",
+     "text": "apm_bss_config_send",
+     "word_offsets": [
+      "0x3671c"
+     ]
+    },
+    {
+     "string_offset": "0x4c3e4",
+     "text": "apm_tx_int_ps_get_postpone",
+     "word_offsets": [
+      "0x36bcc"
+     ]
+    },
+    {
+     "string_offset": "0x4c4c8",
+     "text": "scanu_join_req_handler",
+     "word_offsets": [
+      "0x36f84"
+     ]
+    },
+    {
+     "string_offset": "0x4c670",
+     "text": "scanu_build_ie",
+     "word_offsets": [
+      "0x384dc"
+     ]
+    },
+    {
+     "string_offset": "0x4c680",
+     "text": "scanu_confirm",
+     "word_offsets": [
+      "0x37468"
+     ]
+    },
+    {
+     "string_offset": "0x4c690",
+     "text": "scanu_start",
+     "word_offsets": [
+      "0x38680"
+     ]
+    },
+    {
+     "string_offset": "0x4c864",
+     "text": "rxu_cntrl_desc_prepare",
+     "word_offsets": [
+      "0x3892c"
+     ]
+    },
+    {
+     "string_offset": "0x4c87c",
+     "text": "rxu_cntrl_mic_check",
+     "word_offsets": [
+      "0x38e90"
+     ]
+    },
+    {
+     "string_offset": "0x4c890",
+     "text": "rxu_cntrl_defrag_alloc",
+     "word_offsets": [
+      "0x39160"
+     ]
+    },
+    {
+     "string_offset": "0x4c8a8",
+     "text": "rxu_cntrl_reord_fwd",
+     "word_offsets": [
+      "0x38880"
+     ]
+    },
+    {
+     "string_offset": "0x4c8bc",
+     "text": "rxu_cntrl_reord_check",
+     "word_offsets": [
+      "0x39438"
+     ]
+    },
+    {
+     "string_offset": "0x4c8d4",
+     "text": "rxu_cntrl_reord_timeout_cb",
+     "word_offsets": [
+      "0x38aac"
+     ]
+    },
+    {
+     "string_offset": "0x4c8f0",
+     "text": "rxu_mgt_route_action",
+     "word_offsets": [
+      "0x39954"
+     ]
+    },
+    {
+     "string_offset": "0x4c908",
+     "text": "rxu_mgt_frame_ind",
+     "word_offsets": [
+      "0x39bac"
+     ]
+    },
+    {
+     "string_offset": "0x4c91c",
+     "text": "rxu_cntrl_reord_delete",
+     "word_offsets": [
+      "0x3a368"
+     ]
+    },
+    {
+     "string_offset": "0x4c934",
+     "text": "rxu_cntrl_spurious_check",
+     "word_offsets": [
+      "0x38b6c"
+     ]
+    },
+    {
+     "string_offset": "0x4c9e0",
+     "text": "txu_cntrl_sechdr_len_compute",
+     "word_offsets": [
+      "0x3a510"
+     ]
+    },
+    {
+     "string_offset": "0x4ca00",
+     "text": "txu_cntrl_umacdesc_mgmt_prep",
+     "word_offsets": [
+      "0x3ada0"
+     ]
+    },
+    {
+     "string_offset": "0x4ca20",
+     "text": "txu_cntrl_sec_hdr_append",
+     "word_offsets": [
+      "0x3a9ac"
+     ]
+    },
+    {
+     "string_offset": "0x4ca3c",
+     "text": "txu_cntrl_push",
+     "word_offsets": [
+      "0x3addc"
+     ]
+    },
+    {
+     "string_offset": "0x4ca4c",
+     "text": "txu_cntrl_cfm",
+     "word_offsets": [
+      "0x3af58"
+     ]
+    },
+    {
+     "string_offset": "0x4ca78",
+     "text": "mm_ba_add_cfm_handler",
+     "word_offsets": [
+      "0x3b408"
+     ]
+    },
+    {
+     "string_offset": "0x4cb50",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x3b7a0"
+     ]
+    },
+    {
+     "string_offset": "0x4cb64",
+     "text": "bam_send_air_action_frame",
+     "word_offsets": [
+      "0x3b7ac"
+     ]
+    },
+    {
+     "string_offset": "0x4cb80",
+     "text": "bam_send_mm_ba_del_req",
+     "word_offsets": [
+      "0x3bccc"
+     ]
+    },
+    {
+     "string_offset": "0x4cb98",
+     "text": "bam_rx_active",
+     "word_offsets": [
+      "0x3c33c"
+     ]
+    },
+    {
+     "string_offset": "0x4cba8",
+     "text": "mfp_compute_bip",
+     "word_offsets": [
+      "0x3cd2c"
+     ]
+    },
+    {
+     "string_offset": "0x4d5cc",
+     "text": "rc_check_rate_config",
+     "word_offsets": [
+      "0x3dca8",
+      "0x3dfcc",
+      "0x3e07c"
+     ]
+    },
+    {
+     "string_offset": "0x4d5e4",
+     "text": "rc_init_rates",
+     "word_offsets": [
+      "0x3f6ec"
+     ]
+    },
+    {
+     "string_offset": "0x4d5f4",
+     "text": "rc_update_counters",
+     "word_offsets": [
+      "0x3e904",
+      "0x3e998"
+     ]
+    },
+    {
+     "string_offset": "0x4d608",
+     "text": "rc_check",
+     "word_offsets": [
+      "0x401ec"
+     ]
+    },
+    {
+     "string_offset": "0x4d614",
+     "text": "rc_init",
+     "word_offsets": [
+      "0x3fa94",
+      "0x3fe1c",
+      "0x4009c"
+     ]
+    },
+    {
+     "string_offset": "0x4d61c",
+     "text": "rc_update_sample_table",
+     "word_offsets": [
+      "0x3f02c"
+     ]
+    },
+    {
+     "string_offset": "0x4d634",
+     "text": "rc_update_bw_nss_max",
+     "word_offsets": [
+      "0x3f0f0"
+     ]
+    },
+    {
+     "string_offset": "0x4d64c",
+     "text": "rc_update_preamble_type",
+     "word_offsets": [
+      "0x3f270"
+     ]
+    },
+    {
+     "string_offset": "0x4d664",
+     "text": "rc_init",
+     "word_offsets": [
+      "0x3fa7c"
+     ]
+    },
+    {
+     "string_offset": "0x4dac8",
+     "text": "rm_process_next_req_handler",
+     "word_offsets": [
+      "0x40368"
+     ]
+    },
+    {
+     "string_offset": "0x4dae4",
+     "text": "scanu_start_cfm_handler",
+     "word_offsets": [
+      "0x40328"
+     ]
+    },
+    {
+     "string_offset": "0x4dc28",
+     "text": "rm_parse_beacon_request",
+     "word_offsets": [
+      "0x4133c"
+     ]
+    },
+    {
+     "string_offset": "0x4dc40",
+     "text": "rm_can_add_bcn_report_fragment",
+     "word_offsets": [
+      "0x4099c"
+     ]
+    },
+    {
+     "string_offset": "0x4dc60",
+     "text": "rm_add_bcn_report",
+     "word_offsets": [
+      "0x40994"
+     ]
+    },
+    {
+     "string_offset": "0x4dc74",
+     "text": "rm_add_measurement_report_elts",
+     "word_offsets": [
+      "0x4072c"
+     ]
+    },
+    {
+     "string_offset": "0x4dc94",
+     "text": "rm_process_beacon_scan_request",
+     "word_offsets": [
+      "0x40c54"
+     ]
+    },
+    {
+     "string_offset": "0x4dcb4",
+     "text": "rm_start_active_request",
+     "word_offsets": [
+      "0x414a0"
+     ]
+    },
+    {
+     "string_offset": "0x4dccc",
+     "text": "rm_continue_active_request",
+     "word_offsets": [
+      "0x4156c"
+     ]
+    },
+    {
+     "string_offset": "0x4dd24",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x41b34"
+     ]
+    },
+    {
+     "string_offset": "0x4dd38",
+     "text": "twt_save_ind_req_type",
+     "word_offsets": [
+      "0x41c04"
+     ]
+    },
+    {
+     "string_offset": "0x4dd50",
+     "text": "twt_handle_setup_frame",
+     "word_offsets": [
+      "0x421f0"
+     ]
+    },
+    {
+     "string_offset": "0x4dd68",
+     "text": "twt_handle_action_frame",
+     "word_offsets": [
+      "0x421e8"
+     ]
+    },
+    {
+     "string_offset": "0x4dd80",
+     "text": "rxu_mgt_ind_handler",
+     "word_offsets": [
+      "0x424d4"
+     ]
+    }
+   ]
+  },
+  "fmacfwbt_8800d80_u02_bin": {
+   "sha256": "efd4bf622e6b7a92bd264c64bcb9002a2e293f8941b7fd891ca4dd6915648cb6",
+   "identifiers": [
+    {
+     "string_offset": "0x44100",
+     "text": "postponed_arrays_allocating",
+     "word_offsets": [
+      "0x464"
+     ]
+    },
+    {
+     "string_offset": "0x4411c",
+     "text": "crm_clk_conf",
+     "word_offsets": [
+      "0x63c"
+     ]
+    },
+    {
+     "string_offset": "0x443a4",
+     "text": "mdm_init",
+     "word_offsets": [
+      "0x17d8"
+     ]
+    },
+    {
+     "string_offset": "0x443b0",
+     "text": "phy_get_rf_gain_idx",
+     "word_offsets": [
+      "0x1bc8"
+     ]
+    },
+    {
+     "string_offset": "0x443c4",
+     "text": "phy_get_txpwr_level",
+     "word_offsets": [
+      "0x1d9c"
+     ]
+    },
+    {
+     "string_offset": "0x443d8",
+     "text": "phy_hw_set_channel",
+     "word_offsets": [
+      "0x2130"
+     ]
+    },
+    {
+     "string_offset": "0x443ec",
+     "text": "phy_set_channel",
+     "word_offsets": [
+      "0x2944"
+     ]
+    },
+    {
+     "string_offset": "0x443fc",
+     "text": "phy_get_channel",
+     "word_offsets": [
+      "0x1848"
+     ]
+    },
+    {
+     "string_offset": "0x4440c",
+     "text": "phy_stop",
+     "word_offsets": [
+      "0x1864"
+     ]
+    },
+    {
+     "string_offset": "0x4444c",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2a6c"
+     ]
+    },
+    {
+     "string_offset": "0x4445c",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2a60"
+     ]
+    },
+    {
+     "string_offset": "0x461d8",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0xcbe4"
+     ]
+    },
+    {
+     "string_offset": "0x461e8",
+     "text": "ipc_emb_hostmsgbuf_get",
+     "word_offsets": [
+      "0xcff8"
+     ]
+    },
+    {
+     "string_offset": "0x46200",
+     "text": "ipc_emb_hostrxbuf_get",
+     "word_offsets": [
+      "0xcaa0"
+     ]
+    },
+    {
+     "string_offset": "0x46218",
+     "text": "emb_kmsg_hdlr",
+     "word_offsets": [
+      "0xcbd8"
+     ]
+    },
+    {
+     "string_offset": "0x46228",
+     "text": "ipc_emb_kmsg_fwd",
+     "word_offsets": [
+      "0xcf30",
+      "0xcff0"
+     ]
+    },
+    {
+     "string_offset": "0x4623c",
+     "text": "lpm_host_notify_bt",
+     "word_offsets": [
+      "0xd254"
+     ]
+    },
+    {
+     "string_offset": "0x46274",
+     "text": "dma_push",
+     "word_offsets": [
+      "0xd3f4"
+     ]
+    },
+    {
+     "string_offset": "0x46594",
+     "text": "sta_connect_past_timer_handle",
+     "word_offsets": [
+      "0xf13c"
+     ]
+    },
+    {
+     "string_offset": "0x465b4",
+     "text": "apm_sta_connect_past_timer_handle",
+     "word_offsets": [
+      "0xf1a0"
+     ]
+    },
+    {
+     "string_offset": "0x46664",
+     "text": "replenish_send",
+     "word_offsets": [
+      "0xf6a8"
+     ]
+    },
+    {
+     "string_offset": "0x468c8",
+     "text": "pkt_mem_free",
+     "word_offsets": [
+      "0xff4c"
+     ]
+    },
+    {
+     "string_offset": "0x46a28",
+     "text": "sdio_replenish_rx_msgqueue",
+     "word_offsets": [
+      "0x10474"
+     ]
+    },
+    {
+     "string_offset": "0x46a44",
+     "text": "host_sdio_replenish_rx_queue",
+     "word_offsets": [
+      "0x105d8"
+     ]
+    },
+    {
+     "string_offset": "0x46a64",
+     "text": "sdio_rx_evt",
+     "word_offsets": [
+      "0x10938",
+      "0x109a4"
+     ]
+    },
+    {
+     "string_offset": "0x46c68",
+     "text": "sdio_isr",
+     "word_offsets": [
+      "0x11680"
+     ]
+    },
+    {
+     "string_offset": "0x46f08",
+     "text": "usb_wlan_recv",
+     "word_offsets": [
+      "0x13240"
+     ]
+    },
+    {
+     "string_offset": "0x46f18",
+     "text": "usb_wlan_recv_fc_on",
+     "word_offsets": [
+      "0x13304"
+     ]
+    },
+    {
+     "string_offset": "0x47178",
+     "text": "wlan_epbulk_recv_compl_handler",
+     "word_offsets": [
+      "0x53424"
+     ]
+    },
+    {
+     "string_offset": "0x47198",
+     "text": "wlan_epbulk_send_compl_handler",
+     "word_offsets": [
+      "0x53428"
+     ]
+    },
+    {
+     "string_offset": "0x471b8",
+     "text": "usb_wlan_rx_pkt_free_list_init",
+     "word_offsets": [
+      "0x136f8"
+     ]
+    },
+    {
+     "string_offset": "0x471d8",
+     "text": "host_usb_wlan_init",
+     "word_offsets": [
+      "0x13a74"
+     ]
+    },
+    {
+     "string_offset": "0x471ec",
+     "text": "handle_usb_rx",
+     "word_offsets": [
+      "0x13bfc"
+     ]
+    },
+    {
+     "string_offset": "0x471fc",
+     "text": "usb_rx_evt",
+     "word_offsets": [
+      "0x13dd8"
+     ]
+    },
+    {
+     "string_offset": "0x47208",
+     "text": "usb_trans_error_handler",
+     "word_offsets": [
+      "0x14088"
+     ]
+    },
+    {
+     "string_offset": "0x47258",
+     "text": "ipc_rx_evt",
+     "word_offsets": [
+      "0x14384"
+     ]
+    },
+    {
+     "string_offset": "0x474a8",
+     "text": "hal_intersys_rx_irq",
+     "word_offsets": [
+      "0x14c7c"
+     ]
+    },
+    {
+     "string_offset": "0x474bc",
+     "text": "hal_intersys_tx_irq",
+     "word_offsets": [
+      "0x14c90"
+     ]
+    },
+    {
+     "string_offset": "0x47944",
+     "text": "rwnxl_wakeup",
+     "word_offsets": [
+      "0x15cfc"
+     ]
+    },
+    {
+     "string_offset": "0x47954",
+     "text": "rwnxl_reset_evt",
+     "word_offsets": [
+      "0x15e90"
+     ]
+    },
+    {
+     "string_offset": "0x47994",
+     "text": "tx_txdesc_init",
+     "word_offsets": [
+      "0x16440"
+     ]
+    },
+    {
+     "string_offset": "0x479a4",
+     "text": "tx_txdesc_get",
+     "word_offsets": [
+      "0x1647c"
+     ]
+    },
+    {
+     "string_offset": "0x47b54",
+     "text": "rc_get_sta_stats",
+     "word_offsets": [
+      "0x1727c"
+     ]
+    },
+    {
+     "string_offset": "0x47b68",
+     "text": "txl_buffer_machdr_get",
+     "word_offsets": [
+      "0x16a64",
+      "0x16ab4",
+      "0x17080",
+      "0x17284"
+     ]
+    },
+    {
+     "string_offset": "0x47b80",
+     "text": "txl_cntrl_newtail",
+     "word_offsets": [
+      "0x1675c"
+     ]
+    },
+    {
+     "string_offset": "0x47b94",
+     "text": "txl_frame_exchange_done",
+     "word_offsets": [
+      "0x178b0"
+     ]
+    },
+    {
+     "string_offset": "0x47bac",
+     "text": "txl_cntrl_newhead",
+     "word_offsets": [
+      "0x16dc0"
+     ]
+    },
+    {
+     "string_offset": "0x47bc0",
+     "text": "txl_frame_exchange_chain",
+     "word_offsets": [
+      "0x16ee4"
+     ]
+    },
+    {
+     "string_offset": "0x47bdc",
+     "text": "txl_cntrl_halt_ac",
+     "word_offsets": [
+      "0x174ac"
+     ]
+    },
+    {
+     "string_offset": "0x47bf0",
+     "text": "txl_transmit_trigger",
+     "word_offsets": [
+      "0x17e2c"
+     ]
+    },
+    {
+     "string_offset": "0x47d04",
+     "text": "repush_list",
+     "word_offsets": [
+      "0x18e34"
+     ]
+    },
+    {
+     "string_offset": "0x47d10",
+     "text": "txl_buffer_machdr_get",
+     "word_offsets": [
+      "0x18b50",
+      "0x18d54"
+     ]
+    },
+    {
+     "string_offset": "0x47d28",
+     "text": "txl_is_ba_valid",
+     "word_offsets": [
+      "0x1848c"
+     ]
+    },
+    {
+     "string_offset": "0x47d38",
+     "text": "txl_ba_push",
+     "word_offsets": [
+      "0x18494"
+     ]
+    },
+    {
+     "string_offset": "0x47d44",
+     "text": "txl_cfm_evt",
+     "word_offsets": [
+      "0x18b44",
+      "0x18d60"
+     ]
+    },
+    {
+     "string_offset": "0x47d50",
+     "text": "txl_cfm_flush",
+     "word_offsets": [
+      "0x18e30"
+     ]
+    },
+    {
+     "string_offset": "0x47d60",
+     "text": "txl_cfm_flush_hiq",
+     "word_offsets": [
+      "0x18ea4"
+     ]
+    },
+    {
+     "string_offset": "0x47d74",
+     "text": "txl_cfm_evt",
+     "word_offsets": [
+      "0x18b3c"
+     ]
+    },
+    {
+     "string_offset": "0x47e04",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x1937c",
+      "0x194c0",
+      "0x19694",
+      "0x197c8"
+     ]
+    },
+    {
+     "string_offset": "0x47e18",
+     "text": "txl_frame_push",
+     "word_offsets": [
+      "0x19118"
+     ]
+    },
+    {
+     "string_offset": "0x48048",
+     "text": "txl_ht_vht_ampdu_param_get",
+     "word_offsets": [
+      "0x19b08"
+     ]
+    },
+    {
+     "string_offset": "0x48064",
+     "text": "txl_ampdu_constraints_get",
+     "word_offsets": [
+      "0x19b00"
+     ]
+    },
+    {
+     "string_offset": "0x48080",
+     "text": "txl_agg_recompute_lengths",
+     "word_offsets": [
+      "0x1b078"
+     ]
+    },
+    {
+     "string_offset": "0x4809c",
+     "text": "txl_agg_set_uph",
+     "word_offsets": [
+      "0x198e0"
+     ]
+    },
+    {
+     "string_offset": "0x480ac",
+     "text": "txl_agg_split",
+     "word_offsets": [
+      "0x1aaec"
+     ]
+    },
+    {
+     "string_offset": "0x480bc",
+     "text": "txl_agg_he_tb_cat_ampdu",
+     "word_offsets": [
+      "0x1a11c"
+     ]
+    },
+    {
+     "string_offset": "0x480d4",
+     "text": "txl_agg_bw_drop_handle",
+     "word_offsets": [
+      "0x1b25c"
+     ]
+    },
+    {
+     "string_offset": "0x480ec",
+     "text": "txl_agg_check_rtscts_retry_limit",
+     "word_offsets": [
+      "0x1ad38"
+     ]
+    },
+    {
+     "string_offset": "0x48110",
+     "text": "txl_agg_reconfig_ampdu",
+     "word_offsets": [
+      "0x1b088"
+     ]
+    },
+    {
+     "string_offset": "0x48128",
+     "text": "txl_agg_he_tb_prep",
+     "word_offsets": [
+      "0x1b508"
+     ]
+    },
+    {
+     "string_offset": "0x48398",
+     "text": "rc_get_sta_stats",
+     "word_offsets": [
+      "0x1cd18"
+     ]
+    },
+    {
+     "string_offset": "0x483ac",
+     "text": "txl_he_edca_queue_halted",
+     "word_offsets": [
+      "0x1b9b4"
+     ]
+    },
+    {
+     "string_offset": "0x483c8",
+     "text": "txl_he_mu_edca_start",
+     "word_offsets": [
+      "0x1b9ac"
+     ]
+    },
+    {
+     "string_offset": "0x483e0",
+     "text": "txl_he_tb_ppdu_get",
+     "word_offsets": [
+      "0x1b79c"
+     ]
+    },
+    {
+     "string_offset": "0x483f4",
+     "text": "txl_he_tb_transmit_cancelled",
+     "word_offsets": [
+      "0x1ceb8"
+     ]
+    },
+    {
+     "string_offset": "0x48414",
+     "text": "txl_he_tb_transmit_trigger",
+     "word_offsets": [
+      "0x1d09c"
+     ]
+    },
+    {
+     "string_offset": "0x48430",
+     "text": "txl_he_trigger_push",
+     "word_offsets": [
+      "0x1c718"
+     ]
+    },
+    {
+     "string_offset": "0x48444",
+     "text": "txl_he_ampdu_param_get",
+     "word_offsets": [
+      "0x1c8b4"
+     ]
+    },
+    {
+     "string_offset": "0x48558",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1dbe8"
+     ]
+    },
+    {
+     "string_offset": "0x4856c",
+     "text": "rxl_frame_handle",
+     "word_offsets": [
+      "0x1da88"
+     ]
+    },
+    {
+     "string_offset": "0x486cc",
+     "text": "rxl_rxcntrl_frame",
+     "word_offsets": [
+      "0x1e604"
+     ]
+    },
+    {
+     "string_offset": "0x486e0",
+     "text": "rxl_payload_transfer_usb",
+     "word_offsets": [
+      "0x1e170"
+     ]
+    },
+    {
+     "string_offset": "0x486fc",
+     "text": "rxl_payload_transfer_sdio",
+     "word_offsets": [
+      "0x1e294"
+     ]
+    },
+    {
+     "string_offset": "0x48718",
+     "text": "rxl_payload_transfer",
+     "word_offsets": [
+      "0x1e3ac"
+     ]
+    },
+    {
+     "string_offset": "0x48730",
+     "text": "rxl_go_to_last_rbd",
+     "word_offsets": [
+      "0x1e424"
+     ]
+    },
+    {
+     "string_offset": "0x48744",
+     "text": "rxl_mpdu_copy",
+     "word_offsets": [
+      "0x1e6a4"
+     ]
+    },
+    {
+     "string_offset": "0x48754",
+     "text": "rxl_mpdu_transfer",
+     "word_offsets": [
+      "0x1eecc"
+     ]
+    },
+    {
+     "string_offset": "0x48768",
+     "text": "rxl_rxdesc_ready_for_processing",
+     "word_offsets": [
+      "0x1effc"
+     ]
+    },
+    {
+     "string_offset": "0x48798",
+     "text": "sta_mgmt_register",
+     "word_offsets": [
+      "0x1f488"
+     ]
+    },
+    {
+     "string_offset": "0x487ac",
+     "text": "sta_mgmt_unregister",
+     "word_offsets": [
+      "0x1f5b0"
+     ]
+    },
+    {
+     "string_offset": "0x4887c",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1fa20",
+      "0x1fe74",
+      "0x1fee4",
+      "0x2035c"
+     ]
+    },
+    {
+     "string_offset": "0x48890",
+     "text": "vif_mgmt_register",
+     "word_offsets": [
+      "0x1fe68"
+     ]
+    },
+    {
+     "string_offset": "0x488a4",
+     "text": "vif_mgmt_register",
+     "word_offsets": [
+      "0x1fe60"
+     ]
+    },
+    {
+     "string_offset": "0x488b8",
+     "text": "vif_mgmt_unregister",
+     "word_offsets": [
+      "0x20214"
+     ]
+    },
+    {
+     "string_offset": "0x48b94",
+     "text": "hal_machw_rx_bcn_duration",
+     "word_offsets": [
+      "0x20eb0"
+     ]
+    },
+    {
+     "string_offset": "0x48bb0",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x208ec",
+      "0x21260",
+      "0x21a8c",
+      "0x21b0c",
+      "0x21b94"
+     ]
+    },
+    {
+     "string_offset": "0x48bc4",
+     "text": "mm_key_ram_param_get",
+     "word_offsets": [
+      "0x218cc"
+     ]
+    },
+    {
+     "string_offset": "0x48bdc",
+     "text": "mm_tbtt_compute",
+     "word_offsets": [
+      "0x20ed0"
+     ]
+    },
+    {
+     "string_offset": "0x48bec",
+     "text": "mm_sleepinfo_rx_evt",
+     "word_offsets": [
+      "0x21274"
+     ]
+    },
+    {
+     "string_offset": "0x48c00",
+     "text": "mm_tbtt_evt",
+     "word_offsets": [
+      "0x22b14"
+     ]
+    },
+    {
+     "string_offset": "0x48c0c",
+     "text": "mm_sec_machwkey_wr",
+     "word_offsets": [
+      "0x218a4"
+     ]
+    },
+    {
+     "string_offset": "0x48c20",
+     "text": "mm_back_to_host_idle",
+     "word_offsets": [
+      "0x21d3c"
+     ]
+    },
+    {
+     "string_offset": "0x48c38",
+     "text": "mm_force_idle_req",
+     "word_offsets": [
+      "0x21e5c"
+     ]
+    },
+    {
+     "string_offset": "0x48c4c",
+     "text": "mm_no_idle_start",
+     "word_offsets": [
+      "0x21f14"
+     ]
+    },
+    {
+     "string_offset": "0x490e4",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x23d88"
+     ]
+    },
+    {
+     "string_offset": "0x490f4",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x2486c",
+      "0x24bb0"
+     ]
+    },
+    {
+     "string_offset": "0x49108",
+     "text": "mm_start_req_handler",
+     "word_offsets": [
+      "0x23d90"
+     ]
+    },
+    {
+     "string_offset": "0x49120",
+     "text": "mm_set_idle_req_handler",
+     "word_offsets": [
+      "0x23eb8"
+     ]
+    },
+    {
+     "string_offset": "0x49138",
+     "text": "mm_force_idle_req_handler",
+     "word_offsets": [
+      "0x23e18"
+     ]
+    },
+    {
+     "string_offset": "0x49154",
+     "text": "mm_key_add_req_handler",
+     "word_offsets": [
+      "0x23ae8"
+     ]
+    },
+    {
+     "string_offset": "0x4916c",
+     "text": "mm_key_del_req_handler",
+     "word_offsets": [
+      "0x23a20"
+     ]
+    },
+    {
+     "string_offset": "0x49184",
+     "text": "mm_hw_config_handler",
+     "word_offsets": [
+      "0x241a0",
+      "0x24858"
+     ]
+    },
+    {
+     "string_offset": "0x4919c",
+     "text": "mm_set_ps_options_req_handler",
+     "word_offsets": [
+      "0x22ecc"
+     ]
+    },
+    {
+     "string_offset": "0x491bc",
+     "text": "mm_set_arpoffload_en_req_handler",
+     "word_offsets": [
+      "0x22c8c"
+     ]
+    },
+    {
+     "string_offset": "0x491e0",
+     "text": "mm_cfg_rssi_req_handler",
+     "word_offsets": [
+      "0x22e60"
+     ]
+    },
+    {
+     "string_offset": "0x491f8",
+     "text": "mm_set_resume_restore_req",
+     "word_offsets": [
+      "0x23790"
+     ]
+    },
+    {
+     "string_offset": "0x49438",
+     "text": "mm_timer_set",
+     "word_offsets": [
+      "0x25050"
+     ]
+    },
+    {
+     "string_offset": "0x49448",
+     "text": "mm_timer_schedule",
+     "word_offsets": [
+      "0x25194"
+     ]
+    },
+    {
+     "string_offset": "0x494f4",
+     "text": "mm_bcn_transmitted",
+     "word_offsets": [
+      "0x25edc"
+     ]
+    },
+    {
+     "string_offset": "0x49508",
+     "text": "mm_bcn_transmit",
+     "word_offsets": [
+      "0x25bf8"
+     ]
+    },
+    {
+     "string_offset": "0x49518",
+     "text": "mm_bcn_update_p2p_noa",
+     "word_offsets": [
+      "0x25310"
+     ]
+    },
+    {
+     "string_offset": "0x49530",
+     "text": "apm_probe_sta_cfm",
+     "word_offsets": [
+      "0x2524c"
+     ]
+    },
+    {
+     "string_offset": "0x495c0",
+     "text": "oth_ctxt",
+     "word_offsets": [
+      "0x26660"
+     ]
+    },
+    {
+     "string_offset": "0x4989c",
+     "text": "ch_switch",
+     "word_offsets": [
+      "0x28ce8"
+     ]
+    },
+    {
+     "string_offset": "0x498c0",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x27264",
+      "0x27878"
+     ]
+    },
+    {
+     "string_offset": "0x498d4",
+     "text": "chan_switch_alloc",
+     "word_offsets": [
+      "0x269ec"
+     ]
+    },
+    {
+     "string_offset": "0x498e8",
+     "text": "chan_start_p2pgo_noa",
+     "word_offsets": [
+      "0x2663c"
+     ]
+    },
+    {
+     "string_offset": "0x49900",
+     "text": "chan_fix_ctxt_until",
+     "word_offsets": [
+      "0x274b4"
+     ]
+    },
+    {
+     "string_offset": "0x49914",
+     "text": "chan_conn_less_delay_evt",
+     "word_offsets": [
+      "0x2755c"
+     ]
+    },
+    {
+     "string_offset": "0x49930",
+     "text": "chan_tmr_switch_cb",
+     "word_offsets": [
+      "0x27ad4"
+     ]
+    },
+    {
+     "string_offset": "0x49944",
+     "text": "chan_scan_req",
+     "word_offsets": [
+      "0x27d78"
+     ]
+    },
+    {
+     "string_offset": "0x49954",
+     "text": "chan_ctxt_del",
+     "word_offsets": [
+      "0x280b8"
+     ]
+    },
+    {
+     "string_offset": "0x49964",
+     "text": "chan_ctxt_link",
+     "word_offsets": [
+      "0x28cd4"
+     ]
+    },
+    {
+     "string_offset": "0x49974",
+     "text": "chan_ctxt_unlink",
+     "word_offsets": [
+      "0x28a8c"
+     ]
+    },
+    {
+     "string_offset": "0x49988",
+     "text": "chan_bcn_detect_start",
+     "word_offsets": [
+      "0x286a8"
+     ]
+    },
+    {
+     "string_offset": "0x499c4",
+     "text": "ps_enable_cfm",
+     "word_offsets": [
+      "0x28f04"
+     ]
+    },
+    {
+     "string_offset": "0x499d4",
+     "text": "ps_disable_cfm",
+     "word_offsets": [
+      "0x28f74"
+     ]
+    },
+    {
+     "string_offset": "0x499e4",
+     "text": "ps_upm_enter",
+     "word_offsets": [
+      "0x296d0"
+     ]
+    },
+    {
+     "string_offset": "0x499f4",
+     "text": "ps_upm_exit",
+     "word_offsets": [
+      "0x29748"
+     ]
+    },
+    {
+     "string_offset": "0x49a54",
+     "text": "p2p_local_tsf_2_peer_time",
+     "word_offsets": [
+      "0x2a688"
+     ]
+    },
+    {
+     "string_offset": "0x49a70",
+     "text": "p2p_local_2_peer_time",
+     "word_offsets": [
+      "0x2acf0"
+     ]
+    },
+    {
+     "string_offset": "0x49a88",
+     "text": "p2p_peer_2_local_time",
+     "word_offsets": [
+      "0x29f84",
+      "0x2ace8"
+     ]
+    },
+    {
+     "string_offset": "0x49aa0",
+     "text": "p2p_update_noa_presence_date",
+     "word_offsets": [
+      "0x29a20"
+     ]
+    },
+    {
+     "string_offset": "0x49ac0",
+     "text": "p2p_noa_timer_end",
+     "word_offsets": [
+      "0x2acd8"
+     ]
+    },
+    {
+     "string_offset": "0x49af0",
+     "text": "p2p_go_get_next_noa_end_date",
+     "word_offsets": [
+      "0x2a49c"
+     ]
+    },
+    {
+     "string_offset": "0x49b10",
+     "text": "p2p_cli_bcn_check_noa",
+     "word_offsets": [
+      "0x2a614"
+     ]
+    },
+    {
+     "string_offset": "0x49b28",
+     "text": "p2p_go_bcn_op_done",
+     "word_offsets": [
+      "0x2af24"
+     ]
+    },
+    {
+     "string_offset": "0x49b3c",
+     "text": "tds_env",
+     "word_offsets": [
+      "0x2b128"
+     ]
+    },
+    {
+     "string_offset": "0x49b44",
+     "text": "td_pck_ind",
+     "word_offsets": [
+      "0x2b124"
+     ]
+    },
+    {
+     "string_offset": "0x49bf0",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x2b330"
+     ]
+    },
+    {
+     "string_offset": "0x49c08",
+     "text": "mm_scan_channel_start_ind_handler",
+     "word_offsets": [
+      "0x2b29c"
+     ]
+    },
+    {
+     "string_offset": "0x49c2c",
+     "text": "mm_scan_channel_end_ind_handler",
+     "word_offsets": [
+      "0x2b224"
+     ]
+    },
+    {
+     "string_offset": "0x49c4c",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x2b320"
+     ]
+    },
+    {
+     "string_offset": "0x49c64",
+     "text": "scan_cancel_req_handler",
+     "word_offsets": [
+      "0x2b180"
+     ]
+    },
+    {
+     "string_offset": "0x49ca4",
+     "text": "scan_send_cancel_cfm",
+     "word_offsets": [
+      "0x2b730"
+     ]
+    },
+    {
+     "string_offset": "0x4a1dc",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x2bee0"
+     ]
+    },
+    {
+     "string_offset": "0x4a1f0",
+     "text": "hal_machw_idle_irq_handler",
+     "word_offsets": [
+      "0x2b7bc"
+     ]
+    },
+    {
+     "string_offset": "0x4a20c",
+     "text": "hal_machw_idle_req",
+     "word_offsets": [
+      "0x2bac8"
+     ]
+    },
+    {
+     "string_offset": "0x4a220",
+     "text": "hal_machw_init",
+     "word_offsets": [
+      "0x2bd3c"
+     ]
+    },
+    {
+     "string_offset": "0x4a230",
+     "text": "hal_machw_sleep_check",
+     "word_offsets": [
+      "0x2c05c"
+     ]
+    },
+    {
+     "string_offset": "0x4a248",
+     "text": "hal_machw_abs_timer_handler",
+     "word_offsets": [
+      "0x2c1ec"
+     ]
+    },
+    {
+     "string_offset": "0x4a264",
+     "text": "hal_machw_gen_handler",
+     "word_offsets": [
+      "0x2c3c0"
+     ]
+    },
+    {
+     "string_offset": "0x4a28c",
+     "text": "hal_dma_evt",
+     "word_offsets": [
+      "0x2c644"
+     ]
+    },
+    {
+     "string_offset": "0x4a29c",
+     "text": "tpc_update_frame_tx_power",
+     "word_offsets": [
+      "0x2c758"
+     ]
+    },
+    {
+     "string_offset": "0x4a2b8",
+     "text": "tpc_update_frame_tx_power_1",
+     "word_offsets": [
+      "0x2c7a4"
+     ]
+    },
+    {
+     "string_offset": "0x4a330",
+     "text": "ke_timer_set",
+     "word_offsets": [
+      "0x2c948"
+     ]
+    },
+    {
+     "string_offset": "0x4a340",
+     "text": "ke_timer_clear",
+     "word_offsets": [
+      "0x2ca18"
+     ]
+    },
+    {
+     "string_offset": "0x4a388",
+     "text": "ke_msg_alloc",
+     "word_offsets": [
+      "0x2cbac"
+     ]
+    },
+    {
+     "string_offset": "0x4a398",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x2cc28"
+     ]
+    },
+    {
+     "string_offset": "0x4a418",
+     "text": "ke_malloc",
+     "word_offsets": [
+      "0x2cde4"
+     ]
+    },
+    {
+     "string_offset": "0x4a424",
+     "text": "ke_free",
+     "word_offsets": [
+      "0x2cee0"
+     ]
+    },
+    {
+     "string_offset": "0x4a494",
+     "text": "ke_stateid_ptr",
+     "word_offsets": [
+      "0x2d094"
+     ]
+    },
+    {
+     "string_offset": "0x4a5d0",
+     "text": "ke_state_set",
+     "word_offsets": [
+      "0x2d090"
+     ]
+    },
+    {
+     "string_offset": "0x4a5e0",
+     "text": "ke_state_get",
+     "word_offsets": [
+      "0x2d13c"
+     ]
+    },
+    {
+     "string_offset": "0x4a5f0",
+     "text": "ke_handler_search",
+     "word_offsets": [
+      "0x2cf54"
+     ]
+    },
+    {
+     "string_offset": "0x4a604",
+     "text": "ke_task_handler_get",
+     "word_offsets": [
+      "0x2d204"
+     ]
+    },
+    {
+     "string_offset": "0x4a618",
+     "text": "ke_task_schedule",
+     "word_offsets": [
+      "0x2d31c"
+     ]
+    },
+    {
+     "string_offset": "0x4a62c",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x2d0a0",
+      "0x2d148",
+      "0x2d210"
+     ]
+    },
+    {
+     "string_offset": "0x4a66c",
+     "text": "ke_evt_schedule",
+     "word_offsets": [
+      "0x2d430"
+     ]
+    },
+    {
+     "string_offset": "0x4a6ec",
+     "text": "co_list_push_back",
+     "word_offsets": [
+      "0x2d4b0"
+     ]
+    },
+    {
+     "string_offset": "0x4a700",
+     "text": "co_list_push_front",
+     "word_offsets": [
+      "0x2d4f0"
+     ]
+    },
+    {
+     "string_offset": "0x4a714",
+     "text": "co_list_extract",
+     "word_offsets": [
+      "0x2d570"
+     ]
+    },
+    {
+     "string_offset": "0x4a724",
+     "text": "co_list_remove",
+     "word_offsets": [
+      "0x2d70c"
+     ]
+    },
+    {
+     "string_offset": "0x4acf0",
+     "text": "mac_ext_ie_find",
+     "word_offsets": [
+      "0x2dabc"
+     ]
+    },
+    {
+     "string_offset": "0x4ad00",
+     "text": "mac_vsie_find",
+     "word_offsets": [
+      "0x2da4c"
+     ]
+    },
+    {
+     "string_offset": "0x4adb0",
+     "text": "dbg_vsnprintf_offset",
+     "word_offsets": [
+      "0x2ec20"
+     ]
+    },
+    {
+     "string_offset": "0x4adc8",
+     "text": "dbg_test_print",
+     "word_offsets": [
+      "0x2ed38"
+     ]
+    },
+    {
+     "string_offset": "0x4b954",
+     "text": "mm_set_idle_cfm_handler",
+     "word_offsets": [
+      "0x31be4"
+     ]
+    },
+    {
+     "string_offset": "0x4b96c",
+     "text": "mm_set_ps_mode_cfm_handler",
+     "word_offsets": [
+      "0x31b8c"
+     ]
+    },
+    {
+     "string_offset": "0x4b988",
+     "text": "me_rc_set_rate_req_handler",
+     "word_offsets": [
+      "0x31a38"
+     ]
+    },
+    {
+     "string_offset": "0x4b9a4",
+     "text": "me_config_monitor_req_handler",
+     "word_offsets": [
+      "0x31994"
+     ]
+    },
+    {
+     "string_offset": "0x4ba94",
+     "text": "me_init_chan",
+     "word_offsets": [
+      "0x32538"
+     ]
+    },
+    {
+     "string_offset": "0x4bb64",
+     "text": "me_chan_ctxt_update",
+     "word_offsets": [
+      "0x3363c"
+     ]
+    },
+    {
+     "string_offset": "0x4bb78",
+     "text": "me_pol_tbl_bw_upd",
+     "word_offsets": [
+      "0x3362c"
+     ]
+    },
+    {
+     "string_offset": "0x4bb8c",
+     "text": "me_legacy_rate_bitfield_build",
+     "word_offsets": [
+      "0x32a34"
+     ]
+    },
+    {
+     "string_offset": "0x4bbac",
+     "text": "me_init_bcmc_rate",
+     "word_offsets": [
+      "0x32b1c"
+     ]
+    },
+    {
+     "string_offset": "0x4bbc0",
+     "text": "me_update_buffer_control",
+     "word_offsets": [
+      "0x32f18"
+     ]
+    },
+    {
+     "string_offset": "0x4bbdc",
+     "text": "me_sta_bw_nss_max_upd",
+     "word_offsets": [
+      "0x331c0"
+     ]
+    },
+    {
+     "string_offset": "0x4bc14",
+     "text": "michael_end",
+     "word_offsets": [
+      "0x339d0"
+     ]
+    },
+    {
+     "string_offset": "0x4be60",
+     "text": "sm_connect_req_handler",
+     "word_offsets": [
+      "0x34268"
+     ]
+    },
+    {
+     "string_offset": "0x4be78",
+     "text": "scanu_start_cfm_handler",
+     "word_offsets": [
+      "0x33cd0"
+     ]
+    },
+    {
+     "string_offset": "0x4be90",
+     "text": "scanu_join_cfm_handler",
+     "word_offsets": [
+      "0x33ffc"
+     ]
+    },
+    {
+     "string_offset": "0x4bea8",
+     "text": "mm_sta_add_cfm_handler",
+     "word_offsets": [
+      "0x34574"
+     ]
+    },
+    {
+     "string_offset": "0x4bec0",
+     "text": "me_set_ps_disable_cfm_handler",
+     "word_offsets": [
+      "0x33bdc"
+     ]
+    },
+    {
+     "string_offset": "0x4bee0",
+     "text": "mm_bss_param_setting_handler",
+     "word_offsets": [
+      "0x33c1c"
+     ]
+    },
+    {
+     "string_offset": "0x4bf00",
+     "text": "me_set_active_cfm_handler",
+     "word_offsets": [
+      "0x33df8"
+     ]
+    },
+    {
+     "string_offset": "0x4bf1c",
+     "text": "mm_sta_del_cfm_handler",
+     "word_offsets": [
+      "0x33b74"
+     ]
+    },
+    {
+     "string_offset": "0x4bf34",
+     "text": "mm_chan_ctxt_unlink_cfm_handler",
+     "word_offsets": [
+      "0x33b34"
+     ]
+    },
+    {
+     "string_offset": "0x4bf54",
+     "text": "sm_ft_auth_rsp_handler",
+     "word_offsets": [
+      "0x33a58"
+     ]
+    },
+    {
+     "string_offset": "0x4bf6c",
+     "text": "me_data_path_flushed_ind_handler",
+     "word_offsets": [
+      "0x33a10"
+     ]
+    },
+    {
+     "string_offset": "0x4c21c",
+     "text": "sm_bss_config_init",
+     "word_offsets": [
+      "0x3464c"
+     ]
+    },
+    {
+     "string_offset": "0x4c230",
+     "text": "sm_bss_config_send",
+     "word_offsets": [
+      "0x34a14"
+     ]
+    },
+    {
+     "string_offset": "0x4c244",
+     "text": "sm_auth_send",
+     "word_offsets": [
+      "0x35574"
+     ]
+    },
+    {
+     "string_offset": "0x4c254",
+     "text": "sm_assoc_req_send",
+     "word_offsets": [
+      "0x35774"
+     ]
+    },
+    {
+     "string_offset": "0x4c268",
+     "text": "sm_assoc_rsp_handler",
+     "word_offsets": [
+      "0x3587c"
+     ]
+    },
+    {
+     "string_offset": "0x4c280",
+     "text": "sm_external_auth_start",
+     "word_offsets": [
+      "0x35b44"
+     ]
+    },
+    {
+     "string_offset": "0x4c298",
+     "text": "sm_ft_auth_over_air_start",
+     "word_offsets": [
+      "0x35c14"
+     ]
+    },
+    {
+     "string_offset": "0x4c2b4",
+     "text": "arpresp_send",
+     "word_offsets": [
+      "0x361ec"
+     ]
+    },
+    {
+     "string_offset": "0x4c2c4",
+     "text": "sm_auth_send",
+     "word_offsets": [
+      "0x3555c"
+     ]
+    },
+    {
+     "string_offset": "0x4c2d4",
+     "text": "sm_assoc_req_send",
+     "word_offsets": [
+      "0x35754"
+     ]
+    },
+    {
+     "string_offset": "0x4c4d4",
+     "text": "apm_start_req_handler",
+     "word_offsets": [
+      "0x36818"
+     ]
+    },
+    {
+     "string_offset": "0x4c4ec",
+     "text": "me_set_ps_disable_cfm_handler",
+     "word_offsets": [
+      "0x364fc"
+     ]
+    },
+    {
+     "string_offset": "0x4c50c",
+     "text": "mm_bss_param_setting_handler",
+     "word_offsets": [
+      "0x3653c"
+     ]
+    },
+    {
+     "string_offset": "0x4c52c",
+     "text": "me_set_active_cfm_handler",
+     "word_offsets": [
+      "0x3661c"
+     ]
+    },
+    {
+     "string_offset": "0x4c548",
+     "text": "mm_bcn_change_cfm_handler",
+     "word_offsets": [
+      "0x36580"
+     ]
+    },
+    {
+     "string_offset": "0x4c564",
+     "text": "mm_chan_ctxt_unlink_cfm_handler",
+     "word_offsets": [
+      "0x36440"
+     ]
+    },
+    {
+     "string_offset": "0x4c584",
+     "text": "mm_set_vif_state_cfm_handler",
+     "word_offsets": [
+      "0x36494"
+     ]
+    },
+    {
+     "string_offset": "0x4c5a4",
+     "text": "apm_start_cac_req_handler",
+     "word_offsets": [
+      "0x363fc"
+     ]
+    },
+    {
+     "string_offset": "0x4c5c0",
+     "text": "apm_stop_cac_req_handler",
+     "word_offsets": [
+      "0x36350"
+     ]
+    },
+    {
+     "string_offset": "0x4c654",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x36f98"
+     ]
+    },
+    {
+     "string_offset": "0x4c668",
+     "text": "apm_bss_config_init",
+     "word_offsets": [
+      "0x3686c"
+     ]
+    },
+    {
+     "string_offset": "0x4c67c",
+     "text": "apm_bss_config_send",
+     "word_offsets": [
+      "0x369b8"
+     ]
+    },
+    {
+     "string_offset": "0x4c690",
+     "text": "apm_tx_int_ps_get_postpone",
+     "word_offsets": [
+      "0x36e38"
+     ]
+    },
+    {
+     "string_offset": "0x4c774",
+     "text": "scanu_join_req_handler",
+     "word_offsets": [
+      "0x371c8"
+     ]
+    },
+    {
+     "string_offset": "0x4c91c",
+     "text": "scanu_build_ie",
+     "word_offsets": [
+      "0x38720"
+     ]
+    },
+    {
+     "string_offset": "0x4c92c",
+     "text": "scanu_confirm",
+     "word_offsets": [
+      "0x376ac"
+     ]
+    },
+    {
+     "string_offset": "0x4c93c",
+     "text": "scanu_start",
+     "word_offsets": [
+      "0x388c4"
+     ]
+    },
+    {
+     "string_offset": "0x4cb04",
+     "text": "rxu_cntrl_desc_prepare",
+     "word_offsets": [
+      "0x38b70"
+     ]
+    },
+    {
+     "string_offset": "0x4cb1c",
+     "text": "rxu_cntrl_mic_check",
+     "word_offsets": [
+      "0x390d4"
+     ]
+    },
+    {
+     "string_offset": "0x4cb30",
+     "text": "rxu_cntrl_defrag_alloc",
+     "word_offsets": [
+      "0x393a4"
+     ]
+    },
+    {
+     "string_offset": "0x4cb48",
+     "text": "rxu_cntrl_reord_fwd",
+     "word_offsets": [
+      "0x38ac4"
+     ]
+    },
+    {
+     "string_offset": "0x4cb5c",
+     "text": "rxu_cntrl_reord_check",
+     "word_offsets": [
+      "0x3967c"
+     ]
+    },
+    {
+     "string_offset": "0x4cb74",
+     "text": "rxu_cntrl_reord_timeout_cb",
+     "word_offsets": [
+      "0x38cf0"
+     ]
+    },
+    {
+     "string_offset": "0x4cb90",
+     "text": "rxu_mgt_route_action",
+     "word_offsets": [
+      "0x39b3c"
+     ]
+    },
+    {
+     "string_offset": "0x4cba8",
+     "text": "rxu_mgt_frame_ind",
+     "word_offsets": [
+      "0x39d88"
+     ]
+    },
+    {
+     "string_offset": "0x4cbbc",
+     "text": "rxu_cntrl_reord_delete",
+     "word_offsets": [
+      "0x3a544"
+     ]
+    },
+    {
+     "string_offset": "0x4cbd4",
+     "text": "rxu_cntrl_spurious_check",
+     "word_offsets": [
+      "0x38db0"
+     ]
+    },
+    {
+     "string_offset": "0x4cc80",
+     "text": "txu_cntrl_sechdr_len_compute",
+     "word_offsets": [
+      "0x3a6ec"
+     ]
+    },
+    {
+     "string_offset": "0x4cca0",
+     "text": "txu_cntrl_umacdesc_mgmt_prep",
+     "word_offsets": [
+      "0x3af7c"
+     ]
+    },
+    {
+     "string_offset": "0x4ccc0",
+     "text": "txu_cntrl_sec_hdr_append",
+     "word_offsets": [
+      "0x3ab88"
+     ]
+    },
+    {
+     "string_offset": "0x4ccdc",
+     "text": "txu_cntrl_push",
+     "word_offsets": [
+      "0x3afb8"
+     ]
+    },
+    {
+     "string_offset": "0x4ccec",
+     "text": "txu_cntrl_cfm",
+     "word_offsets": [
+      "0x3b134"
+     ]
+    },
+    {
+     "string_offset": "0x4cd18",
+     "text": "mm_ba_add_cfm_handler",
+     "word_offsets": [
+      "0x3b5e4"
+     ]
+    },
+    {
+     "string_offset": "0x4cdf0",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x3b97c"
+     ]
+    },
+    {
+     "string_offset": "0x4ce04",
+     "text": "bam_send_air_action_frame",
+     "word_offsets": [
+      "0x3b988"
+     ]
+    },
+    {
+     "string_offset": "0x4ce20",
+     "text": "bam_send_mm_ba_del_req",
+     "word_offsets": [
+      "0x3bea8"
+     ]
+    },
+    {
+     "string_offset": "0x4ce38",
+     "text": "bam_rx_active",
+     "word_offsets": [
+      "0x3c518"
+     ]
+    },
+    {
+     "string_offset": "0x4ce48",
+     "text": "mfp_compute_bip",
+     "word_offsets": [
+      "0x3cf08"
+     ]
+    },
+    {
+     "string_offset": "0x4d86c",
+     "text": "rc_check_rate_config",
+     "word_offsets": [
+      "0x3de84",
+      "0x3e1a8",
+      "0x3e258"
+     ]
+    },
+    {
+     "string_offset": "0x4d884",
+     "text": "rc_init_rates",
+     "word_offsets": [
+      "0x3f8c8"
+     ]
+    },
+    {
+     "string_offset": "0x4d894",
+     "text": "rc_update_counters",
+     "word_offsets": [
+      "0x3eae0",
+      "0x3eb74"
+     ]
+    },
+    {
+     "string_offset": "0x4d8a8",
+     "text": "rc_check",
+     "word_offsets": [
+      "0x403c8"
+     ]
+    },
+    {
+     "string_offset": "0x4d8b4",
+     "text": "rc_init",
+     "word_offsets": [
+      "0x3fc70",
+      "0x3fff8",
+      "0x40278"
+     ]
+    },
+    {
+     "string_offset": "0x4d8bc",
+     "text": "rc_update_sample_table",
+     "word_offsets": [
+      "0x3f208"
+     ]
+    },
+    {
+     "string_offset": "0x4d8d4",
+     "text": "rc_update_bw_nss_max",
+     "word_offsets": [
+      "0x3f2cc"
+     ]
+    },
+    {
+     "string_offset": "0x4d8ec",
+     "text": "rc_update_preamble_type",
+     "word_offsets": [
+      "0x3f44c"
+     ]
+    },
+    {
+     "string_offset": "0x4d904",
+     "text": "rc_init",
+     "word_offsets": [
+      "0x3fc58"
+     ]
+    },
+    {
+     "string_offset": "0x4dd68",
+     "text": "rm_process_next_req_handler",
+     "word_offsets": [
+      "0x40544"
+     ]
+    },
+    {
+     "string_offset": "0x4dd84",
+     "text": "scanu_start_cfm_handler",
+     "word_offsets": [
+      "0x40504"
+     ]
+    },
+    {
+     "string_offset": "0x4dec8",
+     "text": "rm_parse_beacon_request",
+     "word_offsets": [
+      "0x41518"
+     ]
+    },
+    {
+     "string_offset": "0x4dee0",
+     "text": "rm_can_add_bcn_report_fragment",
+     "word_offsets": [
+      "0x40b78"
+     ]
+    },
+    {
+     "string_offset": "0x4df00",
+     "text": "rm_add_bcn_report",
+     "word_offsets": [
+      "0x40b70"
+     ]
+    },
+    {
+     "string_offset": "0x4df14",
+     "text": "rm_add_measurement_report_elts",
+     "word_offsets": [
+      "0x40908"
+     ]
+    },
+    {
+     "string_offset": "0x4df34",
+     "text": "rm_process_beacon_scan_request",
+     "word_offsets": [
+      "0x40e30"
+     ]
+    },
+    {
+     "string_offset": "0x4df54",
+     "text": "rm_start_active_request",
+     "word_offsets": [
+      "0x4167c"
+     ]
+    },
+    {
+     "string_offset": "0x4df6c",
+     "text": "rm_continue_active_request",
+     "word_offsets": [
+      "0x41748"
+     ]
+    },
+    {
+     "string_offset": "0x4dfbc",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x41d10"
+     ]
+    },
+    {
+     "string_offset": "0x4dfd0",
+     "text": "twt_save_ind_req_type",
+     "word_offsets": [
+      "0x41de0"
+     ]
+    },
+    {
+     "string_offset": "0x4dfe8",
+     "text": "twt_handle_setup_frame",
+     "word_offsets": [
+      "0x423cc"
+     ]
+    },
+    {
+     "string_offset": "0x4e000",
+     "text": "twt_handle_action_frame",
+     "word_offsets": [
+      "0x423c4"
+     ]
+    },
+    {
+     "string_offset": "0x4e018",
+     "text": "rxu_mgt_ind_handler",
+     "word_offsets": [
+      "0x426b0"
+     ]
+    }
+   ]
+  },
+  "lmacfw_rf_8800d80_u02_bin": {
+   "sha256": "4e8b1efb5d9bb299aaf950d6a25e3ca71d42e012d42fd3ec3b49759cc64b38b2",
+   "identifiers": [
+    {
+     "string_offset": "0x28ab8",
+     "text": "postponed_arrays_allocating",
+     "word_offsets": [
+      "0x3c8"
+     ]
+    },
+    {
+     "string_offset": "0x28ad4",
+     "text": "crm_clk_conf",
+     "word_offsets": [
+      "0x558"
+     ]
+    },
+    {
+     "string_offset": "0x28cf4",
+     "text": "mdm_init",
+     "word_offsets": [
+      "0x19ac"
+     ]
+    },
+    {
+     "string_offset": "0x28d00",
+     "text": "phy_get_rf_gain_idx",
+     "word_offsets": [
+      "0x1c60"
+     ]
+    },
+    {
+     "string_offset": "0x28d14",
+     "text": "phy_hw_set_channel",
+     "word_offsets": [
+      "0x2160"
+     ]
+    },
+    {
+     "string_offset": "0x28d28",
+     "text": "phy_set_channel",
+     "word_offsets": [
+      "0x2944"
+     ]
+    },
+    {
+     "string_offset": "0x28d38",
+     "text": "phy_get_channel",
+     "word_offsets": [
+      "0x1a1c"
+     ]
+    },
+    {
+     "string_offset": "0x28d94",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2a50"
+     ]
+    },
+    {
+     "string_offset": "0x28da4",
+     "text": "intc_spurious",
+     "word_offsets": [
+      "0x2a44"
+     ]
+    },
+    {
+     "string_offset": "0x2ab50",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0xd024"
+     ]
+    },
+    {
+     "string_offset": "0x2ab60",
+     "text": "ipc_emb_hostmsgbuf_get",
+     "word_offsets": [
+      "0xd434"
+     ]
+    },
+    {
+     "string_offset": "0x2ab78",
+     "text": "emb_kmsg_hdlr",
+     "word_offsets": [
+      "0xd018"
+     ]
+    },
+    {
+     "string_offset": "0x2ab88",
+     "text": "ipc_emb_kmsg_fwd",
+     "word_offsets": [
+      "0xd36c",
+      "0xd42c"
+     ]
+    },
+    {
+     "string_offset": "0x2ae6c",
+     "text": "sta_connect_past_timer_handle",
+     "word_offsets": [
+      "0xf594"
+     ]
+    },
+    {
+     "string_offset": "0x2b0e0",
+     "text": "pkt_mem_free",
+     "word_offsets": [
+      "0xffe4"
+     ]
+    },
+    {
+     "string_offset": "0x2b1c8",
+     "text": "sdio_replenish_rx_msgqueue",
+     "word_offsets": [
+      "0x1050c"
+     ]
+    },
+    {
+     "string_offset": "0x2b1e4",
+     "text": "host_sdio_replenish_rx_queue",
+     "word_offsets": [
+      "0x10670"
+     ]
+    },
+    {
+     "string_offset": "0x2b3fc",
+     "text": "sdio_isr",
+     "word_offsets": [
+      "0x1112c"
+     ]
+    },
+    {
+     "string_offset": "0x2b688",
+     "text": "usb_wlan_recv",
+     "word_offsets": [
+      "0x12cb4"
+     ]
+    },
+    {
+     "string_offset": "0x2b698",
+     "text": "usb_wlan_recv_fc_on",
+     "word_offsets": [
+      "0x12d78"
+     ]
+    },
+    {
+     "string_offset": "0x2b898",
+     "text": "wlan_epbulk_recv_compl_handler",
+     "word_offsets": [
+      "0x383c0"
+     ]
+    },
+    {
+     "string_offset": "0x2b8b8",
+     "text": "wlan_epbulk_send_compl_handler",
+     "word_offsets": [
+      "0x383c4"
+     ]
+    },
+    {
+     "string_offset": "0x2b8d8",
+     "text": "usb_wlan_rx_pkt_free_list_init",
+     "word_offsets": [
+      "0x13154"
+     ]
+    },
+    {
+     "string_offset": "0x2b8f8",
+     "text": "host_usb_wlan_init",
+     "word_offsets": [
+      "0x134d0"
+     ]
+    },
+    {
+     "string_offset": "0x2b90c",
+     "text": "usb_trans_error_handler",
+     "word_offsets": [
+      "0x13758"
+     ]
+    },
+    {
+     "string_offset": "0x2be18",
+     "text": "rwnxl_reset_evt",
+     "word_offsets": [
+      "0x15200"
+     ]
+    },
+    {
+     "string_offset": "0x2be50",
+     "text": "tx_txdesc_init",
+     "word_offsets": [
+      "0x152c4"
+     ]
+    },
+    {
+     "string_offset": "0x2bf70",
+     "text": "txl_buffer_machdr_get",
+     "word_offsets": [
+      "0x153ec",
+      "0x1580c"
+     ]
+    },
+    {
+     "string_offset": "0x2bf88",
+     "text": "txl_cntrl_newtail",
+     "word_offsets": [
+      "0x15384"
+     ]
+    },
+    {
+     "string_offset": "0x2bf9c",
+     "text": "txl_cntrl_newhead",
+     "word_offsets": [
+      "0x15684"
+     ]
+    },
+    {
+     "string_offset": "0x2bfb0",
+     "text": "txl_frame_exchange_chain",
+     "word_offsets": [
+      "0x15748"
+     ]
+    },
+    {
+     "string_offset": "0x2bfcc",
+     "text": "txl_cntrl_halt_ac",
+     "word_offsets": [
+      "0x159c0"
+     ]
+    },
+    {
+     "string_offset": "0x2bfe0",
+     "text": "txl_transmit_trigger",
+     "word_offsets": [
+      "0x15d44"
+     ]
+    },
+    {
+     "string_offset": "0x2c050",
+     "text": "txl_cfm_evt",
+     "word_offsets": [
+      "0x160ec"
+     ]
+    },
+    {
+     "string_offset": "0x2c05c",
+     "text": "txl_cfm_flush_hiq",
+     "word_offsets": [
+      "0x16394"
+     ]
+    },
+    {
+     "string_offset": "0x2c0c8",
+     "text": "vif_mgmt_get_txtype",
+     "word_offsets": [
+      "0x16828"
+     ]
+    },
+    {
+     "string_offset": "0x2c0dc",
+     "text": "txl_frame_push",
+     "word_offsets": [
+      "0x16604"
+     ]
+    },
+    {
+     "string_offset": "0x2c1bc",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x16c40"
+     ]
+    },
+    {
+     "string_offset": "0x2c1d0",
+     "text": "rxl_frame_handle",
+     "word_offsets": [
+      "0x16b78"
+     ]
+    },
+    {
+     "string_offset": "0x2c2a0",
+     "text": "rxl_payload_transfer_usb",
+     "word_offsets": [
+      "0x17150"
+     ]
+    },
+    {
+     "string_offset": "0x2c2bc",
+     "text": "rxl_payload_transfer_sdio",
+     "word_offsets": [
+      "0x17274"
+     ]
+    },
+    {
+     "string_offset": "0x2c2d8",
+     "text": "rxl_payload_transfer",
+     "word_offsets": [
+      "0x1738c"
+     ]
+    },
+    {
+     "string_offset": "0x2c2f0",
+     "text": "rxl_go_to_last_rbd",
+     "word_offsets": [
+      "0x17404"
+     ]
+    },
+    {
+     "string_offset": "0x2c304",
+     "text": "rxl_mpdu_transfer",
+     "word_offsets": [
+      "0x17938"
+     ]
+    },
+    {
+     "string_offset": "0x2c318",
+     "text": "rxl_rxdesc_ready_for_processing",
+     "word_offsets": [
+      "0x17a50"
+     ]
+    },
+    {
+     "string_offset": "0x2c348",
+     "text": "sta_mgmt_register",
+     "word_offsets": [
+      "0x17ca0"
+     ]
+    },
+    {
+     "string_offset": "0x2c35c",
+     "text": "sta_mgmt_unregister",
+     "word_offsets": [
+      "0x17d58"
+     ]
+    },
+    {
+     "string_offset": "0x2c394",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x180a4",
+      "0x182b4"
+     ]
+    },
+    {
+     "string_offset": "0x2c3a8",
+     "text": "vif_mgmt_register",
+     "word_offsets": [
+      "0x18094"
+     ]
+    },
+    {
+     "string_offset": "0x2c3bc",
+     "text": "vif_mgmt_unregister",
+     "word_offsets": [
+      "0x182a8"
+     ]
+    },
+    {
+     "string_offset": "0x2c4a0",
+     "text": "hal_machw_rx_bcn_duration",
+     "word_offsets": [
+      "0x188b8"
+     ]
+    },
+    {
+     "string_offset": "0x2c4bc",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x184a8",
+      "0x18de4"
+     ]
+    },
+    {
+     "string_offset": "0x2c4d0",
+     "text": "mm_key_ram_param_get",
+     "word_offsets": [
+      "0x18c88"
+     ]
+    },
+    {
+     "string_offset": "0x2c4e8",
+     "text": "mm_sec_machwkey_wr",
+     "word_offsets": [
+      "0x18c64"
+     ]
+    },
+    {
+     "string_offset": "0x2c4fc",
+     "text": "mm_back_to_host_idle",
+     "word_offsets": [
+      "0x18ec0"
+     ]
+    },
+    {
+     "string_offset": "0x2c514",
+     "text": "mm_force_idle_req",
+     "word_offsets": [
+      "0x18fcc"
+     ]
+    },
+    {
+     "string_offset": "0x2c808",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x19efc"
+     ]
+    },
+    {
+     "string_offset": "0x2c818",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1a690"
+     ]
+    },
+    {
+     "string_offset": "0x2c82c",
+     "text": "mm_start_req_handler",
+     "word_offsets": [
+      "0x19f04"
+     ]
+    },
+    {
+     "string_offset": "0x2c844",
+     "text": "mm_set_idle_req_handler",
+     "word_offsets": [
+      "0x1a02c"
+     ]
+    },
+    {
+     "string_offset": "0x2c85c",
+     "text": "mm_force_idle_req_handler",
+     "word_offsets": [
+      "0x19f8c"
+     ]
+    },
+    {
+     "string_offset": "0x2c878",
+     "text": "mm_key_add_req_handler",
+     "word_offsets": [
+      "0x19d0c"
+     ]
+    },
+    {
+     "string_offset": "0x2c890",
+     "text": "mm_key_del_req_handler",
+     "word_offsets": [
+      "0x19c44"
+     ]
+    },
+    {
+     "string_offset": "0x2c8a8",
+     "text": "mm_hw_config_handler",
+     "word_offsets": [
+      "0x1a680"
+     ]
+    },
+    {
+     "string_offset": "0x2c8c0",
+     "text": "mm_set_arpoffload_en_req_handler",
+     "word_offsets": [
+      "0x193d8"
+     ]
+    },
+    {
+     "string_offset": "0x2c8e4",
+     "text": "mm_cfg_rssi_req_handler",
+     "word_offsets": [
+      "0x194ec"
+     ]
+    },
+    {
+     "string_offset": "0x2cb08",
+     "text": "mm_timer_set",
+     "word_offsets": [
+      "0x1ac08"
+     ]
+    },
+    {
+     "string_offset": "0x2cb18",
+     "text": "mm_timer_schedule",
+     "word_offsets": [
+      "0x1ad4c"
+     ]
+    },
+    {
+     "string_offset": "0x2cd14",
+     "text": "ch_switch",
+     "word_offsets": [
+      "0x1c530"
+     ]
+    },
+    {
+     "string_offset": "0x2cdc4",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1b4dc",
+      "0x1b9d8"
+     ]
+    },
+    {
+     "string_offset": "0x2cdd8",
+     "text": "chan_switch_alloc",
+     "word_offsets": [
+      "0x1b02c"
+     ]
+    },
+    {
+     "string_offset": "0x2cdec",
+     "text": "chan_fix_ctxt_until",
+     "word_offsets": [
+      "0x1b2bc"
+     ]
+    },
+    {
+     "string_offset": "0x2ce00",
+     "text": "chan_conn_less_delay_evt",
+     "word_offsets": [
+      "0x1b360"
+     ]
+    },
+    {
+     "string_offset": "0x2ce1c",
+     "text": "chan_tmr_switch_cb",
+     "word_offsets": [
+      "0x1b6dc"
+     ]
+    },
+    {
+     "string_offset": "0x2ce30",
+     "text": "chan_scan_req",
+     "word_offsets": [
+      "0x1bb9c"
+     ]
+    },
+    {
+     "string_offset": "0x2ce40",
+     "text": "chan_ctxt_del",
+     "word_offsets": [
+      "0x1be18"
+     ]
+    },
+    {
+     "string_offset": "0x2ce50",
+     "text": "chan_ctxt_link",
+     "word_offsets": [
+      "0x1c51c"
+     ]
+    },
+    {
+     "string_offset": "0x2ce60",
+     "text": "chan_ctxt_unlink",
+     "word_offsets": [
+      "0x1c75c"
+     ]
+    },
+    {
+     "string_offset": "0x2ce74",
+     "text": "chan_ctxt_sched",
+     "word_offsets": [
+      "0x1bf30"
+     ]
+    },
+    {
+     "string_offset": "0x2ce84",
+     "text": "chan_bcn_detect_start",
+     "word_offsets": [
+      "0x1c31c"
+     ]
+    },
+    {
+     "string_offset": "0x2cf3c",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x1ca30"
+     ]
+    },
+    {
+     "string_offset": "0x2cf54",
+     "text": "mm_scan_channel_start_ind_handler",
+     "word_offsets": [
+      "0x1c99c"
+     ]
+    },
+    {
+     "string_offset": "0x2cf78",
+     "text": "mm_scan_channel_end_ind_handler",
+     "word_offsets": [
+      "0x1c924"
+     ]
+    },
+    {
+     "string_offset": "0x2cf98",
+     "text": "scan_start_req_handler",
+     "word_offsets": [
+      "0x1ca20"
+     ]
+    },
+    {
+     "string_offset": "0x2cfb0",
+     "text": "scan_cancel_req_handler",
+     "word_offsets": [
+      "0x1c880"
+     ]
+    },
+    {
+     "string_offset": "0x2cff0",
+     "text": "scan_send_cancel_cfm",
+     "word_offsets": [
+      "0x1cd34"
+     ]
+    },
+    {
+     "string_offset": "0x2d480",
+     "text": "mm_rx_filter_set",
+     "word_offsets": [
+      "0x1d468"
+     ]
+    },
+    {
+     "string_offset": "0x2d494",
+     "text": "hal_machw_idle_irq_handler",
+     "word_offsets": [
+      "0x1cdac"
+     ]
+    },
+    {
+     "string_offset": "0x2d4b0",
+     "text": "hal_machw_idle_req",
+     "word_offsets": [
+      "0x1d0b0"
+     ]
+    },
+    {
+     "string_offset": "0x2d4c4",
+     "text": "hal_machw_init",
+     "word_offsets": [
+      "0x1d310"
+     ]
+    },
+    {
+     "string_offset": "0x2d4d4",
+     "text": "hal_machw_abs_timer_handler",
+     "word_offsets": [
+      "0x1d5b4"
+     ]
+    },
+    {
+     "string_offset": "0x2d4f0",
+     "text": "hal_machw_gen_handler",
+     "word_offsets": [
+      "0x1d73c"
+     ]
+    },
+    {
+     "string_offset": "0x2d528",
+     "text": "hal_dma_evt",
+     "word_offsets": [
+      "0x1d9b4"
+     ]
+    },
+    {
+     "string_offset": "0x2d538",
+     "text": "tpc_update_frame_tx_power",
+     "word_offsets": [
+      "0x1dac0"
+     ]
+    },
+    {
+     "string_offset": "0x2d5b0",
+     "text": "ke_timer_set",
+     "word_offsets": [
+      "0x1dc38"
+     ]
+    },
+    {
+     "string_offset": "0x2d5c0",
+     "text": "ke_timer_clear",
+     "word_offsets": [
+      "0x1dd08"
+     ]
+    },
+    {
+     "string_offset": "0x2d608",
+     "text": "ke_msg_alloc",
+     "word_offsets": [
+      "0x1de48"
+     ]
+    },
+    {
+     "string_offset": "0x2d618",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x1ded0"
+     ]
+    },
+    {
+     "string_offset": "0x2d698",
+     "text": "ke_malloc",
+     "word_offsets": [
+      "0x1e06c"
+     ]
+    },
+    {
+     "string_offset": "0x2d6a4",
+     "text": "ke_free",
+     "word_offsets": [
+      "0x1e168"
+     ]
+    },
+    {
+     "string_offset": "0x2d714",
+     "text": "ke_stateid_ptr",
+     "word_offsets": [
+      "0x1e330"
+     ]
+    },
+    {
+     "string_offset": "0x2d7c0",
+     "text": "ke_state_set",
+     "word_offsets": [
+      "0x1e32c"
+     ]
+    },
+    {
+     "string_offset": "0x2d7d0",
+     "text": "ke_state_get",
+     "word_offsets": [
+      "0x1e3e4"
+     ]
+    },
+    {
+     "string_offset": "0x2d7e0",
+     "text": "ke_handler_search",
+     "word_offsets": [
+      "0x1e1dc"
+     ]
+    },
+    {
+     "string_offset": "0x2d7f4",
+     "text": "ke_task_handler_get",
+     "word_offsets": [
+      "0x1e4c0"
+     ]
+    },
+    {
+     "string_offset": "0x2d808",
+     "text": "ke_task_schedule",
+     "word_offsets": [
+      "0x1e5d8"
+     ]
+    },
+    {
+     "string_offset": "0x2d81c",
+     "text": "ke_task_local",
+     "word_offsets": [
+      "0x1e338",
+      "0x1e3f0",
+      "0x1e4cc"
+     ]
+    },
+    {
+     "string_offset": "0x2d85c",
+     "text": "ke_evt_schedule",
+     "word_offsets": [
+      "0x1e6e4"
+     ]
+    },
+    {
+     "string_offset": "0x2d890",
+     "text": "co_list_push_back",
+     "word_offsets": [
+      "0x1e764"
+     ]
+    },
+    {
+     "string_offset": "0x2d8a4",
+     "text": "co_list_push_front",
+     "word_offsets": [
+      "0x1e7a4"
+     ]
+    },
+    {
+     "string_offset": "0x2d8b8",
+     "text": "co_list_extract",
+     "word_offsets": [
+      "0x1e824"
+     ]
+    },
+    {
+     "string_offset": "0x2ded0",
+     "text": "dbg_vsnprintf_offset",
+     "word_offsets": [
+      "0x1f490"
+     ]
+    },
+    {
+     "string_offset": "0x2dee8",
+     "text": "dbg_test_print",
+     "word_offsets": [
+      "0x1f58c"
+     ]
+    },
+    {
+     "string_offset": "0x2fcd8",
+     "text": "set_countrycode",
+     "word_offsets": [
+      "0x389a4"
+     ]
+    },
+    {
+     "string_offset": "0x2fcfc",
+     "text": "get_countrycode",
+     "word_offsets": [
+      "0x389b4"
+     ]
+    },
+    {
+     "string_offset": "0x2fd20",
+     "text": "set_ch_countrycode",
+     "word_offsets": [
+      "0x389c4"
+     ]
+    },
+    {
+     "string_offset": "0x2fd4c",
+     "text": "get_ch_countrycode",
+     "word_offsets": [
+      "0x389d4"
+     ]
+    }
+   ]
+  }
+ }
+}
