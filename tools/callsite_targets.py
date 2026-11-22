@@ -144,6 +144,67 @@ def rebind(text: str, blob: bytes) -> tuple[str, list, list]:
     return "".join(parts), changes, skipped
 
 
+LABEL_CALL = re.compile(r"\bloc_([0-9A-F]{5,8})\b(?=\s*\)?\s*\()")
+
+
+def call_counts(blob: bytes) -> dict[int, int]:
+    """How many direct `bl` / `b` instructions of the image target each address."""
+    from capstone import CS_ARCH_ARM, CS_MODE_MCLASS, CS_MODE_THUMB, Cs
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+    md.skipdata = True
+    out: dict[int, int] = {}
+    for ins in md.disasm(blob, ANALYSIS_BASE):
+        if ins.mnemonic in ("bl", "b", "b.w") and ins.op_str.startswith("#"):
+            t = int(ins.op_str[1:], 16)
+            out[t] = out.get(t, 0) + 1
+    return out
+
+
+def pushes_at(blob: bytes, addr: int) -> bool:
+    from capstone import CS_ARCH_ARM, CS_MODE_MCLASS, CS_MODE_THUMB, Cs
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+    ins = next(md.disasm(blob[addr - ANALYSIS_BASE:addr - ANALYSIS_BASE + 4], addr), None)
+    return ins is not None and ins.mnemonic.startswith("push")
+
+
+def entry_labels(text: str, blob: bytes) -> tuple[str, list]:
+    """Return (text, [(label, function)]): calls through `loc_A` bound to the
+    composed function whose real entry A is.
+
+    IDA started a few functions on the literal words in front of them, so the
+    composed function is `F @ S` while every caller in the binary branches to
+    A = S + 4k and the source calls `loc_A`, which is only a number. When the
+    binary calls A, never calls S, A lies inside F within 32 bytes of S and
+    the instruction at A is a prologue `push`, A is F's entry and the call is
+    a call of F. A label both of whose addresses are called (a second entry
+    point) is left alone.
+    """
+    marks = list(MARKER.finditer(text))
+    name = {int(m.group(2), 16): m.group(1) for m in marks}
+    order = sorted(name)
+    counts = None
+    done = {}
+
+    def sub(m: re.Match) -> str:
+        nonlocal counts
+        a = int(m.group(1), 16)
+        i = bisect.bisect_right(order, a) - 1
+        if i < 0:
+            return m.group(0)
+        s = order[i]
+        if not (0 < a - s <= 32 and (a - s) % 4 == 0):
+            return m.group(0)
+        if counts is None:
+            counts = call_counts(blob)
+        if counts.get(a, 0) and not counts.get(s, 0) and pushes_at(blob, a):
+            done[m.group(0)] = name[s]
+            return name[s]
+        return m.group(0)
+
+    out = LABEL_CALL.sub(sub, text)
+    return out, sorted(done.items())
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--check", action="store_true")
@@ -154,7 +215,8 @@ def main() -> int:
         path = REPO / "src" / short / "main.c"
         blob = (REPO / "inputs" / "firmware" / f"{long}.bin").read_bytes()
         out, changes, skipped = rebind(path.read_text(errors="replace"), blob)
-        pending += len(changes)
+        out, labels = entry_labels(out, blob)
+        pending += len(changes) + len(labels)
         print(f"[callsite_targets] {short}: {len(changes)} call-site names in "
               f"{len({c for c, _, _ in changes})} functions "
               f"{'pending' if args.check else 'rebound'}; {len(skipped)} left "
@@ -164,7 +226,11 @@ def main() -> int:
                 print(f"    {c}: {o} -> {n}")
             for c, o, n in skipped:
                 print(f"    {c}: {o} -> {n} (left)")
-        if changes and not args.check:
+        if labels:
+            print(f"[callsite_targets] {short}: entry labels "
+                  f"{'pending' if args.check else 'bound'}: "
+                  + ", ".join(f"{l} -> {f}" for l, f in labels))
+        if (changes or labels) and not args.check:
             path.write_text(out)
     return 1 if args.check and pending else 0
 

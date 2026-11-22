@@ -5,82 +5,227 @@
 platform and MMIO model: once in the original binary, once in the fully linked
 reconstruction (`tools/full_link.py`, callees real), and compares the ordered
 peripheral writes with their values. The 25 truth-lane targets
-(`docs/TRUTH_LANE_REVIEW_VERDICTS.md`) are a subset and are unchanged at
-19 PASS / 0 REVIEW / 6 FAIL.
+(`docs/TRUTH_LANE_REVIEW_VERDICTS.md`) are a subset: 20 PASS / 0 REVIEW / 5 FAIL.
 
 A MATCH is an identical peripheral write sequence on one default-state path
 (zeroed RAM, zero arguments, boot callbacks stubbed). It is not behavioral
-equivalence. 2,851 of the 3,743 matching functions write no peripheral on that path
-at all in the original; for them the match says only that both runs returned without one.
+equivalence. 3,267 of the 4,228 matching functions write no peripheral on that
+path at all in the original; for them the match says only that both runs ended
+the same way without one. 534 of the matches end at the firmware's assert trap
+in both runs (`identical_peripheral_writes_up_to_assert_trap`).
 
 ## Counts
 
-| | before | after the two rules below |
+| | first run | after the two call-site/register rules | now |
+|---|---|---|---|
+| MATCH | 3,581 | 3,743 | 4,228 |
+| DIFFER | 433 | 271 | 230 |
+| NOT_RUN (no comparison exists) | 700 | 700 | 256 |
+
+Per image, now: fmacfw_h 1,174 / 40 / 69, fmacfw 1,172 / 41 / 69,
+fmacfwbt 1,181 / 41 / 62, lmacfw_rf 701 / 108 / 56 (MATCH / DIFFER / NOT_RUN).
+`metadata/linked_corpus_summary.json` is the tool's summary of the current run.
+
+Row by row, from the middle column to now:
+
+| was | now | rows |
 |---|---|---|
-| MATCH | 3,581 | 3,743 |
-| DIFFER | 433 | 271 |
-| NOT_RUN (no comparison exists) | 700 | 700 |
+| MATCH | MATCH | 3,738 |
+| DIFFER | MATCH | 75 |
+| NOT_RUN | MATCH (both runs end at the assert trap) | 415 |
+| DIFFER | DIFFER | 196 |
+| NOT_RUN | DIFFER | 29 |
+| MATCH | DIFFER | 5 |
+| NOT_RUN | NOT_RUN | 256 |
 
-Per image, after: fmacfw_h 1,002 / 53 / 228, fmacfw 1,087 / 59 / 136,
-fmacfwbt 1,021 / 48 / 215, lmacfw_rf 633 / 111 / 121 (MATCH / DIFFER / NOT_RUN).
-`metadata/linked_corpus_summary.json` is the tool's summary of the after run.
+DIFFER did not fall by 75 because 29 functions that could not be compared
+before now can, and differ, and 5 earlier matches were not matches (below).
 
-NOT_RUN, both before and after:
+NOT_RUN, now:
 
 | count | why |
 |---|---|
-| 631 | the original itself does not return within 200,000 instructions when entered standalone (OS waits, event loops, asserts), so there is nothing to compare against |
+| 187 | the original itself neither returns nor asserts within 200,000 instructions when entered standalone (OS waits, event loops) |
 | 69 | the function is one of those that `tools/libmatch.py` bound to the byte-identical toolchain routine; its name is an asm label of the library member, not a symbol of the linked image |
 
-## Why functions differ
+## What changed in the comparison itself
+
+Three harness changes, none of which touches `src/`:
+
+- **The assert trap ends a run.** The firmware's assert is `udf #255`, which
+  never returns on hardware. The emulator used to skip it, so the original ran
+  on into whatever followed and usually never returned. With
+  `run(assert_stops=True)` a run that reaches the trap ends as `asserted`, and
+  the two runs are compared up to it. That is 415 of the 444 rows that left
+  NOT_RUN. `__und` in `src/include/aic8800d80_types.h` emitted the wrong
+  instruction and now emits the same `udf #255`. A run that asserts while the
+  other returns is a DIFFER (`assert_trap_only_in_original`).
+- **Tick counters advance per read, not per instruction.** `rf_tick_counter`
+  and `timer_value` returned `instructions / rate`, so the original and the
+  reconstruction, which spend different instruction counts on the same logic,
+  read different times and took different branches. In the linked run both
+  now read `100 * (number of counter reads)`. 6 rows moved to MATCH, 22 left
+  NOT_RUN (their original now returns), 1 match was lost (`ke_enter_critical`,
+  below). Boot, `verify` and the corpus sweep keep the instruction-count clock.
+- **Stale IT state.** Unicorn reported valid Thumb instructions after an IT
+  block as invalid; the emulator clears the stale IT bits and retries once.
+
+## Why functions differ, 230 rows
 
 The tool groups a DIFFER row by where the two runs part (`group` in
-`corpus_outcomes.jsonl`): the function the reconstruction is stuck in, the UART
-data register, or the function executing the first differing register write.
-That is a location. The causes below come from reading the groups; where a
-group was not read function by function this says so.
+`corpus_outcomes.jsonl`). The causes below come from reading every group that
+is not console text; the functions are listed so the reading can be checked.
+Image names are short for `<name>_8800d80_u02`.
 
-| cause | before | after | fixable by a pipeline rule |
+| cause | rows | fixable by a pipeline rule |
+|---|---|---|
+| Console text: first differing write is the UART data register | 122 | no, needs IDA |
+| Formatter never finishes | 27 | no, needs IDA (same formatter) |
+| Delay loop whose exit Hex-Rays dropped | 35 | no, needs IDA |
+| Code after a loop decompiled as `while ( 1 ) ;` | 7 | no, needs IDA |
+| Original asserts, reconstruction returns | 8 | no, needs IDA |
+| Soft-float value chain | 14 | part done (`call_cast_returns`, `double_args`, `float_bits`); the rest needs IDA |
+| Soft-float routine with `JUMPOUT` | 4 | no, needs IDA |
+| List walk over a local Hex-Rays left uninitialized | 3 | no, needs IDA |
+| Callee argument the decompile does not pass | 3 | no, needs IDA |
+| Boot entry `start` | 2 | no: not a standalone-comparable function |
+| Code pointer that still holds an original-image address | 2 | not safely: see below |
+| Data read from outside the reconstructed image | 1 | no: not a source defect |
+| Single functions (`rf_reg_update`, `llm_pdu_tx_cfg`) | 2 | no, needs IDA |
+
+**Console text, 122.** The formatter defects recorded for the truth lane: the
+decompiled formatter (`main_loop_dispatch` / `rf_parse_cal_cmd` and their
+per-image counterparts) prints `%d`-style conversions wrongly because Hex-Rays
+left switch arms as `JUMPOUT` and the lmacfw_rf state-table stride is in an
+IDA type that is not in the tree. Every caller that logs inherits it. One of
+the 122 is `ke_enter_critical` (lmacfw_rf), a MATCH before the per-read clock:
+with it the original takes the path that logs (38 writes), the reconstruction
+does not.
+
+**Formatter never finishes, 27.** The same formatter, entered with a format
+string on which the decompiled state machine does not advance. The run is
+capped inside it: `prepare_debug_buffer` (12 rows: fmacfw `init_radio_hw`,
+`dispatch_cmd`, `ble_phy_decode`, `rf_event_handler_alt`, `rf_copy_stats`,
+`rx_packet_handler_1`, `is_hci_initialized`, `rf_pll_program`, `rf_bb_config`,
+`event_queue_init`, `mutex_lock`, `read_periph_status`), `rf_init_regs`
+(5, lmacfw_rf: `init_buffer_list`, `rf_init_regs`, `configure_dma_engine`,
+`mem_get_stats`, `get_free_heap_size`), `rx_process_packet_2` (4, fmacfw_h:
+`mac_event_handler`, `mac_state_init`, `is_patch_loaded`, `apply_patch_table`),
+`rf_cal_init` (3, fmacfw: `ke_event_handler`, `queue_init`,
+`patch_check_region`), `main_loop_dispatch` (3, fmacfwbt: `ke_evt_handler`,
+`ke_task_init`, `ring_buf_used`).
+
+**Delay loop, 35.** 31 stop in the microsecond delay at 0x1006d8 / 0x1005f4
+(`send_command` 7 in fmacfw, `mmio_write_cmd` 7 in fmacfw_h, `clock_start` 7
+in fmacfwbt, `periph_write_read` 10 in lmacfw_rf: the routine itself and its callers). The binary re-reads the tick counter
+and leaves the loop; the Hex-Rays body is
+`while ( 1 ) { v1 = 32; while ( v1-- ) ; }` with the exit gone, whatever the
+clock reads. The other 4 are polls of the same shape in `rx_packet_pending`,
+`check_event_flag`, `mac_status_check` and `mmio_wait_flag` (the original
+writes 16 to 21 registers, the reconstruction stops after 13).
+
+**Code after a loop lost, 7.** `crypto_start_operation` (fmacfw_h, with its
+callers `crypto_init`, `rx_copy_stats`), `enable_radio_controller` (fmacfw),
+`hw_init` (fmacfwbt, with `hw_enable`, `copy_stats`): the same routine in three
+images. The original writes 1,567 registers and returns; the decompiled body
+ends in `while ( 1 ) ;` after the fifth write. These were NOT_RUN before the
+per-read clock.
+
+**Original asserts, reconstruction returns, 8.** `util_read_u8`,
+`mfp_key_update` (fmacfw_h), `debug_byte_cb`, `wlc_band_set`, `main_loop_init`,
+`adv_state_handler` (fmacfw), `ipc_msg_send_byte`, `ipc_msg_send` (fmacfwbt).
+No peripheral write on either side; the original reaches `udf #255`, the
+decompiled body has no assert on that path. 4 of them were counted MATCH
+before the trap was an endpoint.
+
+**Soft-float value chain, 14.** The firmware is soft-float; Hex-Rays types the
+temporaries by the first register it sees, so a double is carried in an `int`
+and a float's bit pattern is converted numerically. Three rules below repair
+the shapes that are unambiguous in the text. What is left computes a different
+value from the same registers: `load_const_table` (fmacfw_h `init_callbacks`,
+`phy_read_table`), `memcpy_from_rodata` (fmacfw `runtime_helper_div`,
+`rf_phy_regs_read_cal`), `rf_load_calib_data` (fmacfwbt `log_message`,
+`rf_calibrate`), `load_device_desc` (lmacfw_rf `malloc_wrapper`, `prcm_start`):
+first write 0x4034404c = 0x38 in the original, 0 in the reconstruction;
+`gpio_mode_set` (fmacfw_h), `rf_analog_ctrl_set` (fmacfw),
+`gpio_set_pin_mode` (fmacfwbt) (1,432 writes
+against 179: the calibration loop ends early); `scan_enable`,
+`mac_irq_enable`, `mac_tx_enable` (9 writes against 305: a copy loop the
+original does not enter). The remaining shapes (a float assigned from an
+uncast `int` call, halves of a double in two separate locals) need the
+Hex-Rays types.
+
+**Soft-float routine with `JUMPOUT`, 4.** `double_compare_ord` (fmacfw_h),
+`double_divide` (fmacfw), `__aeabi_ddiv_nan` (fmacfwbt), `double_unordered`
+(lmacfw_rf): not byte-identical to a library routine, so libmatch cannot bind
+them, and their bodies contain `JUMPOUT`.
+
+**Uninitialized list walk, 3.** `ble_ll_conn_get` (fmacfw_h),
+`bt_get_conn_entry` (fmacfw), `rf_config_chan_table` (fmacfwbt): the same
+routine. The loop variable is read before any assignment in the decompiled
+body, so the walk does not end.
+
+**Callee argument not passed, 3.** `alloc_shared_ctx` (fmacfw_h),
+`mem_pool_init` (fmacfw), `controller_init` (fmacfwbt): the same routine. A
+callee (`cmd_handler_a` in fmacfw) takes its error branch because its second
+argument is 0; the original passes a pointer in a register the decompiled call
+does not carry. The reconstruction writes 4 registers starting with
+0x40000000, the original one (0x40320630).
+
+**Boot entry `start`, 2** (fmacfw_h, fmacfwbt). The original runs the reset
+path (about 4,600 writes, starting with CPACR); the decompiled body is the
+ROM-patch dispatch that precedes it and returns at once. NOT_RUN before the
+per-read clock.
+
+**Code pointer, 2.** `osal_int_enter`, `osal_int_exit` (lmacfw_rf) call
+through a data word that holds an original-image Thumb address, which is not
+code in the linked image. A rule binding such words to the linked symbol was
+tried (77 words per fmac image, 35 in lmacfw_rf): it did not change any
+corpus row and whether a word is a code pointer cannot be told from its value
+alone, so it is not in the tree.
+
+**Data from outside the image, 1.** `copy_config_struct` (fmacfwbt): 267
+writes on both sides, the fifth is 0xf1e35022 in the original and 0 in the
+reconstruction. The source of the copy is outside the reconstructed data
+segment (the original run reads the bytes that follow in the mapped image).
+
+**Single functions, 2.** `rf_reg_update` (lmacfw_rf): 22 writes in the
+original, none in the reconstruction. `llm_pdu_tx_cfg` (lmacfw_rf): two writes
+the original does not make. Both are branch conditions on values the
+decompiled body computes differently; no text pattern identifies them.
+
+## Rules added after the first two
+
+Each runs on the composed `src/<image>/main.c`, adds no body, renames nothing,
+is idempotent, has `--check`, and has a fixed-point test in
+`tools/test_pipeline_rules.py`. Order: `callsite_targets`, `periph_symbols`,
+`asm_returns`, `call_cast_returns`, `double_args`, `float_bits`,
+`stack_frames`, `dword_compares`.
+
+| rule | what it restores | sites | rows it moved to MATCH |
 |---|---|---|---|
-| A call site bound to the wrong one of several functions the naming gave the same name | 147 | 0 measured; 9 call sites left | yes, done (`tools/callsite_targets.py`) |
-| `&dword_40504080`-style symbol materialized as a RAM variable instead of the register | 15 | 0 | yes, done (`tools/periph_symbols.py`) |
-| Console text (first differing write is the UART data register 0x40032000) | 144 | 119 | no, needs IDA |
-| The reconstruction does not return | 155 | 89 | no, needs IDA |
-| A register write differs in value, order or presence | 134 | 63 | not by a rule found here |
+| `tools/asm_returns.py` | the `return` Hex-Rays printed as `__asm { POP {...,PC} }` and the v19 strip deleted, taken from the tracked pre-strip text in `harness_v25/out/` | | with the next three: 23 |
+| `tools/callsite_targets.py` (extended) | a call to an interior label `loc_...` that the binary reaches by a direct `bl` within 32 bytes of a function start, at a `push`, is a call of that function's second entry | 3 labels | |
+| `src/Makefile` `DIALECT` | `-fsigned-char -fwrapv -fno-delete-null-pointer-checks -fno-strict-aliasing`: the compiler reads decompiler output with the machine's semantics | | |
+| `src/include/aic8800d80_types.h` | `HIBYTE`/`HIWORD`/`BYTEn`/`WORDn` at the bit positions the disassembly shows, `__usat` clamps, `__OFADD__`/`__OFSUB__`, `__und` | | |
+| `tools/stack_frames.py` | stack locals at their printed `sp` offsets in one packed struct, for functions that reach one local through the address of another | 56 / 56 / 55 / 51 functions | 8 |
+| `tools/call_cast_returns.py` | a call through `((int (*)())F)` keeps F's 64-bit result when F returns r0:r1 | | 0 by itself |
+| `tools/double_args.py` | a double handed to a one-double RTABI helper keeps both words | 23 / 23 / 19 / 27 calls | 0 by itself |
+| `tools/float_bits.py` | a float local assigned from an `int`-cast helper call and read as `LODWORD(v)` is a bit copy (`COERCE_FLOAT`, `COERCE_UNSIGNED_INT`), not a numeric conversion | 14 / 14 / 14 / 20 | 3 |
+| `tools/dword_compares.py` | `*(_DWORD *)p < v` with `int v` is a signed compare (`cmp; bge` in the binary) | 11 / 11 / 11 / 8 compares | 4 |
 
-The first two rows are the functions that moved from DIFFER to MATCH when
-each rule was applied (147 + 15 = 162); in the before run they sat inside the
-three lower rows, whose before figures therefore include them: the wrong-callee
-rows were mostly "does not return" (in `pkt_buf_alloc`, `ke_msg_alloc`) and
-"register write differs".
+Sites are per image in the order fmacfw, fmacfw_h, fmacfwbt, lmacfw_rf. The
+first four rows were measured together (3,743 to 3,766 MATCH, before the
+harness changes). The three soft-float rules are one fix in three steps:
+`call_cast_returns` and `double_args` alone turned three matches
+(`gpio_pad_ctrl_set`, `rf_control_field_set`, `gpio_set_alternate`) into
+differences, because the full double then reached a `float` local that
+rounded it; `float_bits` makes all three match again, now with the value the
+original computes rather than a truncated one that happened to take the same
+branch. `tools/truth_lane_smoke.py` no longer stubs `__attribute__` /
+`__asm__` as if they were callees.
 
-**Console text, 119.** The formatter defects already recorded for the truth
-lane: the original prints `%d`-style conversions that the decompiled formatter
-(`main_loop_dispatch` / `rf_parse_cal_cmd` and their per-image counterparts)
-emits wrongly, because Hex-Rays left switch arms as `JUMPOUT` and the
-lmacfw_rf state-table stride is in an IDA type that is not in the tree. Every
-caller that logs inherits it. Needs a re-decompile at base 0x120000.
-
-**Does not return, 89.**
-- 31 stop in the microsecond delay (`send_command`, `mmio_write_cmd`,
-  `clock_start`, `periph_write_read`: the same routine in the four images).
-  The binary re-reads the tick counter and leaves the loop; the Hex-Rays body
-  is `while ( 1 ) { v1 = 32; while ( v1-- ) ; }` with the exit gone. Needs IDA.
-- 8 stop in soft-float routines that are not byte-identical to a library
-  routine and whose bodies contain `JUMPOUT` (`double_compare_ord`,
-  `double_divide`, ...). Needs IDA.
-- 7 end by leaving the image (no function at the final pc).
-- 43 stop in other functions (`prepare_debug_buffer` 10, `rf_scan_chan` 7,
-  `phy_init` 3, `rf_get_chan_cfg` 3, the rest 1 or 2 each). Not read one by one.
-
-**Register write differs, 63**, spread over 38 functions, at most 4 rows each.
-The ones read are decompile shape, not something a text rule can repair
-without the binary's semantics: `ipc_regs_init` (lmacfw_rf) builds a 64-bit
-`v12` from an uninitialized half, so it writes 0 where the original writes an
-image pointer; `osal_int_enter` calls through a code pointer that still holds
-an original-image address. The rest were not read one by one.
-
-## The two rules
+## The first two rules
 
 Both run on the composed `src/<image>/main.c`, after `fwstruct compose`, with
 the three rules of `docs/TRUTH_LANE_REVIEW_VERDICTS.md`. Neither adds a body or
@@ -115,6 +260,7 @@ address-of a `dword_/word_/byte_/unk_` symbol whose address is in
 
 ```
 python3 tools/callsite_targets.py --check && python3 tools/periph_symbols.py --check
+for r in asm_returns call_cast_returns double_args float_bits stack_frames dword_compares; do python3 tools/$r.py --check; done
 make -C src check
 python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run
 python3 tools/linked_recon_run.py --corpus --out /tmp/linked_corpus   # ~4 min on 8 cores

@@ -226,12 +226,14 @@ release tarball
   `make -C src check` still succeeds (current smoke results above).
 - **Linked comparison over all composed functions**:
   `tools/linked_recon_run.py --corpus` compares all 4,714 composed functions
-  against the original in the full link: **3,743 match / 271 differ / 700 not
-  comparable** (exercised default-state path only; was 3,581 / 433 / 700).
-  Two post-compose rules came out of it: `tools/callsite_targets.py` (rebinds
-  duplicate-named call sites from the binary's own `bl`/`b` targets, no IDA
-  export needed) and `tools/periph_symbols.py` (`&dword_4xxxxxxx` is the
-  register address, not a RAM variable). Causes and counts:
+  against the original in the full link: **4,228 match / 230 differ / 256 not
+  comparable** (exercised default-state path only; first run 3,581 / 433 /
+  700). The run ends at a return or at the assert trap (`udf #255`) and the
+  tick counters advance per read. Post-compose rules that came out of it, in
+  order: `tools/callsite_targets.py`, `periph_symbols.py`, `asm_returns.py`,
+  `call_cast_returns.py`, `double_args.py`, `float_bits.py`,
+  `stack_frames.py`, `dword_compares.py` (each has `--check`). The 25 targets
+  are 20 PASS / 5 FAIL in the linked run. Causes and counts:
   `docs/LINKED_CORPUS_COMPARISON.md`.
 - **Compose dedupe**: units deduped by address, preferring the plain
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over

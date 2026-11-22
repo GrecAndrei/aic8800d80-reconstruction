@@ -106,12 +106,19 @@ class TruthLaneTest(unittest.TestCase):
              ("NOT_RUN", "original_does_not_return_standalone")),
             (outcome(fp(w, "capped"), fp(w)), ("NOT_RUN", "original_does_not_return_standalone")),
             (outcome(fp(w), {"termination": "no_symbol"}), ("NOT_RUN", "not_in_linked_image")),
+            # the firmware's assert trap ends a run like a return does
+            (outcome(fp(w, "asserted"), fp(w, "asserted")),
+             ("MATCH", "identical_peripheral_writes_up_to_assert_trap")),
+            (outcome(fp(w, "asserted"), fp(reg, "asserted"), "rf_init"),
+             ("DIFFER", "register_write_in:rf_init")),
+            (outcome(fp(w, "asserted"), fp(w)), ("DIFFER", "assert_trap_only_in_original")),
+            (outcome(fp(w), fp(w, "asserted")), ("DIFFER", "assert_trap_only_in_reconstruction")),
         ]
         for got, expected in rows:
             with self.subTest(expected=expected):
                 self.assertEqual(got, expected)
         summary = summarize_corpus([{"image": "i", "outcome": o, "group": g} for (o, g), _ in rows])
-        self.assertEqual(summary["outcomes"], {"DIFFER": 4, "MATCH": 1, "NOT_RUN": 3})
+        self.assertEqual(summary["outcomes"], {"DIFFER": 7, "MATCH": 2, "NOT_RUN": 3})
         self.assertEqual(list(summary["groups"]["DIFFER"].items())[0], ("console_text", 2))
 
 

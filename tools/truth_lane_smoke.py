@@ -152,6 +152,8 @@ def find_function_calls(body: str, self_name: str) -> list[str]:
         "__noreturn", "__pld", "__dsb", "__isb", "__wfi", "__mcr", "__mrc",
         # Common GCC / clang builtins that look like calls
         "__builtin_expect", "__builtin_trap", "__builtin_unreachable",
+        # GNU keywords: `struct __attribute__((packed))`, `f() __asm__("label")`
+        "__attribute__", "__asm__", "__asm",
         # `macros` is sometimes a stray identifier from header copy-paste
         "macros",
     }
