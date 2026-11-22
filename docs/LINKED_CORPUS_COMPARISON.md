@@ -91,8 +91,9 @@ point.
 `tools/callsite_targets.py`. The naming dataset gave one name to several
 functions; compose keeps the definitions apart as `name`, `name_1`, ... but a
 call site keeps the bare name. Compose corrects that from the IDA call-edge
-export, which is not in the tree and has no tail branches. The rule takes the
-edges from the firmware bytes: each direct `bl` / `b` in a function's extent
+export (`extraction_out/ida_export_live/*.call_edges.jsonl`), which is not in
+the tree, so the step is a no-op here. The rule takes the edges from the
+firmware bytes: each direct `bl` / `b` in a function's extent
 whose target is the start of a composed function. A call site is rebound only
 when its name is not a target of the caller in the binary and exactly one
 function of the same `_N` family is a target the body does not otherwise name.

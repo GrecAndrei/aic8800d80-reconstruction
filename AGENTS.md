@@ -224,6 +224,15 @@ release tarball
   chip-space; no-op if absent). Skips 0-arg Hex-Rays artifact calls (the
   deduped target may be variadic). ~1000 call sites fixed across 3 images;
   `make -C src check` still succeeds (current smoke results above).
+- **Linked comparison over all composed functions**:
+  `tools/linked_recon_run.py --corpus` compares all 4,714 composed functions
+  against the original in the full link: **3,743 match / 271 differ / 700 not
+  comparable** (exercised default-state path only; was 3,581 / 433 / 700).
+  Two post-compose rules came out of it: `tools/callsite_targets.py` (rebinds
+  duplicate-named call sites from the binary's own `bl`/`b` targets, no IDA
+  export needed) and `tools/periph_symbols.py` (`&dword_4xxxxxxx` is the
+  register address, not a RAM variable). Causes and counts:
+  `docs/LINKED_CORPUS_COMPARISON.md`.
 - **Compose dedupe**: units deduped by address, preferring the plain
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
   LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).
