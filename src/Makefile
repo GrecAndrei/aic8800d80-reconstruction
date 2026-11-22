@@ -32,7 +32,7 @@ check:
 # Regenerate the four main.c from src/<image>/functions/ (compose, heal, the
 # mechanical rules) and fail if the result differs from the tracked files.
 reproduce:
-	cd .. && go build -o bin/fwstruct ./cmd/fwstruct && bin/fwstruct compose
+	cd .. && go build -trimpath -o bin/fwstruct ./cmd/fwstruct && bin/fwstruct compose
 	cd .. && git diff --exit-code --stat -- src metadata/libmatch.json
 	@echo "SUCCESS: a fresh compose reproduces the tracked src/."
 
