@@ -19,12 +19,15 @@ Prerequisites:
 Usage:
   python3 tools/linked_recon_run.py --out /tmp/linked_run
   python3 tools/linked_recon_run.py --all --out /tmp/linked_run_all
+  python3 tools/linked_recon_run.py --corpus --out /tmp/linked_corpus   # every composed function
 """
 from __future__ import annotations
 
 import argparse
 import bisect
+import functools
 import json
+import multiprocessing
 import re
 import sys
 from pathlib import Path
@@ -32,7 +35,7 @@ from pathlib import Path
 from elftools.elf.elffile import ELFFile
 
 from unicorn import UC_HOOK_CODE
-from unicorn.arm_const import UC_ARM_REG_PC
+from unicorn.arm_const import UC_ARM_REG_PC, UC_ARM_REG_R0
 
 import aic8800d80_emulator as emu
 
@@ -49,11 +52,13 @@ LINK_BASE = 0x00800000
 LINK_SPAN = 0x00400000
 
 
+@functools.lru_cache(maxsize=None)
 def marker_names(image: str) -> dict[int, str]:
     text = (REPO / "src" / SHORT[image] / "main.c").read_text(errors="replace")
     return {int(a, 16): n for n, a in MARKER.findall(text)}
 
 
+@functools.lru_cache(maxsize=None)
 def load_elf(path: Path) -> tuple[int, bytes, int, list[tuple[int, str]]]:
     """Return (base, loadable bytes, end of .bss, sorted [(addr, function)])."""
     with path.open("rb") as f:
@@ -83,6 +88,7 @@ def fingerprint(traffic: list[dict]) -> dict:
         "periph_addrs": sorted({t["addr"] for t in p}),
         "periph_write_addrs": sorted({a for a, _ in writes}),
         "periph_write_sequence": [[a, v] for a, v in writes],
+        "periph_write_pcs": [t["pc"] for t in p if t["op"] == "write"],
         "periph_sequence": [[t["op"], t["addr"]] for t in p],
     }
 
@@ -109,6 +115,7 @@ def run_original(image: str, key: int, max_insns: int, model) -> dict:
     plat.function_table = emu.load_function_table(Path(path.name).stem)
     term, stats = plat.run(key + emu.HW_OFFSET, max_insns, sp=plat.ivt()["stack_pointer"])
     return {"termination": term, "instructions": stats["instructions"],
+            "r0": hex(plat.mu.reg_read(UC_ARM_REG_R0)),
             "functions": stats["functions"], **fingerprint(plat.traffic)}
 
 
@@ -154,6 +161,7 @@ def run_linked(image: str, key: int, max_insns: int, model) -> dict:
         stopped_in = function_at(funcs, plat.mu.reg_read(UC_ARM_REG_PC))
     return {"termination": term, "stopped_in": stopped_in, "symbol": name, "linked_address": hex(by_name[name]),
             "instructions": stats["instructions"], "functions": stats["functions"],
+            "r0": hex(plat.mu.reg_read(UC_ARM_REG_R0)),
             "fault": stats["fault"], "fault_pc": stats["fault_pc"],
             "fault_address": stats["fault_address"],
             "left_reconstruction_at": left, **fingerprint(plat.traffic)}
@@ -178,15 +186,144 @@ def linked_verdict(orig: dict, recon: dict) -> tuple[str, str]:
     return "FAIL", "peripheral_writes_differ"
 
 
+def first_difference(orig: dict, recon: dict) -> dict | None:
+    """First index at which the two ordered peripheral write sequences differ."""
+    o, c = orig["periph_write_sequence"], recon.get("periph_write_sequence", [])
+    for i in range(max(len(o), len(c))):
+        x, y = (o[i] if i < len(o) else None), (c[i] if i < len(c) else None)
+        if x != y:
+            return {"index": i, "orig": x, "recon": y}
+    return None
+
+
+CONSOLE_TX = "0x40032000"
+
+
+@functools.lru_cache(maxsize=None)
+def marker_table(image: str) -> tuple[list[int], list[str]]:
+    items = sorted(marker_names(image).items())
+    return [a for a, _ in items], [n for _, n in items]
+
+
+def writer_of(image: str, funcs, orig: dict, recon: dict, index: int) -> str | None:
+    """Composed function executing the write at `index`: the reconstruction's
+    when it has one there, else the original's (hardware pc -> analysis space)."""
+    pcs = recon.get("periph_write_pcs", [])
+    if index < len(pcs):
+        return function_at(funcs, int(pcs[index], 16))
+    pcs = orig["periph_write_pcs"]
+    if index < len(pcs):
+        addrs, names = marker_table(image)
+        i = bisect.bisect_right(addrs, int(pcs[index], 16) - emu.HW_OFFSET) - 1
+        return names[i] if i >= 0 else None
+    return None
+
+
+def corpus_outcome(orig: dict, recon: dict, verdict: str, diff: dict | None,
+                   writer: str | None) -> tuple[str, str]:
+    """(outcome, group) for one function of the corpus.
+
+    MATCH / DIFFER are decided only where a comparison exists: the original
+    returns on the default-state path and the function is in the linked image.
+    The group of a DIFFER row is where the two runs part, which is a location,
+    not a diagnosis; docs/LINKED_CORPUS_COMPARISON.md maps groups to causes.
+    """
+    if recon["termination"] == "no_symbol":
+        return "NOT_RUN", "not_in_linked_image"
+    if orig["termination"] != "returned":
+        return "NOT_RUN", "original_does_not_return_standalone"
+    if verdict == "PASS":
+        return "MATCH", "identical_peripheral_writes"
+    if verdict == "REVIEW":
+        return "NOT_RUN", "linked_run_left_reconstruction"
+    if recon["termination"] != "returned":
+        return "DIFFER", f"no_return_in:{recon.get('stopped_in')}"
+    if diff and CONSOLE_TX in ((diff["orig"] or [None])[0], (diff["recon"] or [None])[0]):
+        return "DIFFER", "console_text"
+    return "DIFFER", f"register_write_in:{writer}"
+
+
+def corpus_row(job: tuple[str, int, str, int]) -> dict:
+    image, key, name, max_insns = job
+    model = emu.load_mmio_model()
+    orig = run_original(image, key, max_insns, model)
+    recon = run_linked(image, key, max_insns, model)
+    verdict, basis = linked_verdict(orig, recon)
+    diff = first_difference(orig, recon)
+    stem = Path(image).stem
+    writer = None
+    if diff and recon["termination"] != "no_symbol":
+        funcs = load_elf(FULL_LINK / stem / f"{stem}.full.elf")[3]
+        writer = writer_of(stem, funcs, orig, recon, diff["index"])
+    outcome, group = corpus_outcome(orig, recon, verdict, diff, writer)
+
+    def side(r: dict) -> dict:
+        return {"termination": r["termination"], "instructions": r.get("instructions"),
+                "r0": r.get("r0"), "periph_writes": len(r.get("periph_write_sequence", [])),
+                "stopped_in": r.get("stopped_in")}
+    return {"image": stem, "function": name, "address": hex(key), "outcome": outcome,
+            "group": group, "verdict": verdict, "verdict_basis": basis,
+            "orig": side(orig), "recon": side(recon),
+            "first_difference": diff, "first_difference_in": writer}
+
+
+def summarize_corpus(rows: list[dict]) -> dict:
+    outcomes: dict[str, int] = {}
+    groups: dict[str, dict[str, int]] = {}
+    per_image: dict[str, dict[str, int]] = {}
+    for r in rows:
+        outcomes[r["outcome"]] = outcomes.get(r["outcome"], 0) + 1
+        g = groups.setdefault(r["outcome"], {})
+        g[r["group"]] = g.get(r["group"], 0) + 1
+        pi = per_image.setdefault(r["image"], {})
+        pi[r["outcome"]] = pi.get(r["outcome"], 0) + 1
+    order = lambda d: dict(sorted(d.items(), key=lambda kv: (-kv[1], kv[0])))
+    return {"functions": len(rows), "outcomes": dict(sorted(outcomes.items())),
+            "per_image": {k: dict(sorted(v.items())) for k, v in sorted(per_image.items())},
+            "groups": {k: order(v) for k, v in sorted(groups.items())}}
+
+
+def run_corpus(args: argparse.Namespace) -> int:
+    """Compare every function composed into src/<image>/main.c, not only the truth lane."""
+    jobs = [(f"{image}.bin", key, name, args.max_insns)
+            for image in SHORT if args.image in (None, image)
+            for key, name in sorted(marker_names(image).items())]
+    with multiprocessing.Pool(args.jobs) as pool:
+        rows = []
+        for i, row in enumerate(pool.imap(corpus_row, jobs, chunksize=8), 1):
+            rows.append(row)
+            if i % 250 == 0:
+                print(f"[corpus] {i}/{len(jobs)}", file=sys.stderr)
+    args.out.mkdir(parents=True, exist_ok=True)
+    with (args.out / "corpus_outcomes.jsonl").open("w") as f:
+        for row in rows:
+            f.write(json.dumps(row, sort_keys=True) + "\n")
+    summary = summarize_corpus(rows)
+    (args.out / "corpus_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+    for outcome, n in summary["outcomes"].items():
+        print(f"{outcome:8s} {n}")
+        for group, k in list(summary["groups"][outcome].items())[:args.top]:
+            print(f"    {k:5d}  {group}")
+    print(f"total={len(rows)}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--targets", type=Path, default=emu.TARGETS_DEFAULT)
     ap.add_argument("--orig-baseline", type=Path, default=ORIG_BASELINE)
     ap.add_argument("--all", action="store_true",
                     help="run every target, not only those whose original writes peripherals only in callees")
+    ap.add_argument("--corpus", action="store_true",
+                    help="run every function composed into src/<image>/main.c")
+    ap.add_argument("--image", choices=sorted(SHORT), help="with --corpus: one image only")
+    ap.add_argument("--jobs", type=int, default=None, help="with --corpus: worker processes")
+    ap.add_argument("--top", type=int, default=12, help="with --corpus: groups printed per outcome")
     ap.add_argument("--max-insns", type=int, default=200000)
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
+    if args.corpus:
+        return run_corpus(args)
 
     baseline = {(r["image"], r["address"]): r for r in json.loads(args.orig_baseline.read_text())}
     model = emu.load_mmio_model()

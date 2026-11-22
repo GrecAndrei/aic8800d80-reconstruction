@@ -19201,7 +19201,7 @@ int scan_report_alloc(volatile uint16_t *a1) {
     a1[4] = v13;
     *v12 = 4;
   }
-  return ke_msg_send(v5 + 12);
+  return ke_msg_send_2(v5 + 12);
 }
 
 
@@ -19690,40 +19690,40 @@ int read_global_halfword(int a1, int a2, int a3) {
   v6 = (volatile int *)off_10D598;
   result = *(volatile uint32_t *)off_10D598;
   v8 = *(volatile uint32_t *)off_10D598 + 1;
-  ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3] |= 1u;
+  ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3] |= 1u;
   *v6 = v8;
-while ( (((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3] & 0x10000) == 0 ) ;
+while ( (((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3] & 0x10000) == 0 ) ;
   v9 = dword_10D5A4;
   v10 = *(volatile uint32_t *)(dword_10D5A4 + 4 * a3);
-if ( v10 && (((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 3] & 0x800) == 0 ) { if ( (((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 6] & 0x80000) != 0 ) { ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 6] &= ~0x80000u;
-      ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 12] = a1;
+if ( v10 && (((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 3] & 0x800) == 0 ) { if ( (((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 6] & 0x80000) != 0 ) { ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 6] &= ~0x80000u;
+      ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 12] = a1;
     }
     *(volatile uint32_t *)(v10 + 8) &= ~0x80000u;
     *(volatile uint32_t *)(v10 + 32) = a1;
   }
   else
   {
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 2] = dword_10D5A8;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 3] = 20;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 4] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 5] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 6] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 7] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 8] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 9] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 10] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 11] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 13] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 14] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 15] = 0;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 12] = a1;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 2] = dword_10D5A8;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 3] = 20;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 4] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 5] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 6] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 7] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 8] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 9] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 10] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 11] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 13] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 14] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 15] = 0;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 12] = a1;
     *(volatile uint32_t *)(a2 + 8) |= 0x80000u;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 2] |= 1u;
-    ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3 + 1] |= 1u;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 2] |= 1u;
+    ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 1] |= 1u;
   }
-  v11 = ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3];
+  v11 = ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3];
   *(volatile uint32_t *)(v9 + 4 * a3) = a2;
-  ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * a3] = v11 & 0xFFFFFFFE;
+  ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3] = v11 & 0xFFFFFFFE;
   if ( v8 )
   {
     v12 = (volatile int *)off_10D594;
@@ -20412,7 +20412,7 @@ int switch_on_arg(int result) {
   if ( result <= 7 )
   {
     v1 = (void *)(uintptr_t)(off_10DCD0);
-    ((volatile uint32_t *)(uintptr_t)&dword_40504080)[result] &= 0xFFFFFFF0;
+    ((volatile uint32_t *)(uintptr_t)0x40504080u)[result] &= 0xFFFFFFF0;
     result = (1 << result) | v1[1];
     v1[1] = result;
   }
@@ -20486,7 +20486,7 @@ int gpio_configure_pin(int result, int a2, int a3) {
   if ( result <= 7 )
   {
     v4 = (void *)(uintptr_t)(off_10DDF4);
-    ((volatile uint32_t *)(uintptr_t)&dword_40504080)[result] &= 0xFFFFFFF0;
+    ((volatile uint32_t *)(uintptr_t)0x40504080u)[result] &= 0xFFFFFFF0;
     v4[1] |= v3;
   }
   v5 = (void *)(uintptr_t)(off_10DDF4);
@@ -22239,7 +22239,7 @@ int sys_command_40d() {
   int v0; // r0
 
   v0 = ke_msg_alloc(1037, 1, 13, 8);
-  return ke_msg_send(v0);
+  return ke_msg_send_2(v0);
 }
 
 
@@ -29337,7 +29337,7 @@ LABEL_28:
     set_global_flag_2();
     if ( v8[1] )
 LABEL_29:
-      v3 = peripheral_clock_enable();
+      v3 = peripheral_clock_enable_1();
 LABEL_24:
     v10 = *v6;
     if ( *v6 )
@@ -32427,7 +32427,7 @@ LABEL_101:
       v21 = *v15;
       *(volatile uint32_t *)(v4 + 72) = 0;
       if ( *v21 == 1 )
-        invoke_callback();
+        invoke_callback_1();
 LABEL_31:
       result = ((int (*)())save_context_args)((uint8_t)a1, v4);
       if ( v12 )
@@ -35859,7 +35859,7 @@ LABEL_6:
       {
 LABEL_9:
         v4[v8 - v7 + 6] = dword_11B568;
-        return invalid_handler(v7);
+        return invalid_handler_1(v7);
       }
     }
   }
@@ -40329,7 +40329,7 @@ int hci_vendor_cmd_send(int a1) {
   v3 = a1;
   v4 = v2;
   memcpy((void *)(uintptr_t)(v2), (void *)(uintptr_t)(v3), 24);
-  return ke_msg_send(v4);
+  return ke_msg_send_2(v4);
 }
 
 
@@ -41322,7 +41322,7 @@ LABEL_11:
     }
     else
     {
-      ((int (*)())mac_irq_enable)(2631, 127);
+      ((int (*)())mac_irq_enable_1)(2631, 127);
       v38 = v4[18];
       v21 = *(volatile uint8_t *)(v19 + 107);
       v39 = *(volatile uint8_t *)(v19 + 1224);
@@ -41596,7 +41596,7 @@ int get_object_by_index(int a1) {
     v6 = v55[18];
     if ( !v55[18] )
     {
-      mac_irq_disable(v26);
+      mac_irq_disable_1(v26);
 LABEL_6:
       v6 = (uint8_t)v5[18];
       v7 = (uint8_t)v5[17] + v6;
@@ -41636,7 +41636,7 @@ LABEL_6:
     v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
-      ((int (*)())mac_irq_enable)(v40, v42);
+      ((int (*)())mac_irq_enable_1)(v40, v42);
       v6 = (uint8_t)v5[18];
     }
     else
@@ -42102,7 +42102,7 @@ int alloc_bt_message(int a1) {
 
   v2 = (volatile uint32_t *)ke_msg_alloc(143, 0, 255, 4);
   *v2 = a1;
-  return ke_msg_send((int)(uintptr_t)(v2));
+  return ke_msg_send_2((int)(uintptr_t)(v2));
 }
 
 
@@ -42279,7 +42279,7 @@ volatile uint32_t *get_bt_state() {
 
   v0 = (void *)(uintptr_t)(off_120778);
   if ( !*((volatile uint8_t *)off_120778 + 2) )
-    ((int (*)())bb_enable)();
+    ((int (*)())bb_enable_1)();
   clear_transmit_context();
   ble_sched_init();
   v1 = ble_event_set();
@@ -43973,7 +43973,7 @@ int send_fw_cmd(int a1) {
 
   v2 = (volatile uint8_t *)ke_msg_alloc(67, 6, 0, 1);
   *v2 = *(volatile uint8_t *)(a1 + 107);
-  return ke_msg_send((int)(uintptr_t)(v2));
+  return ke_msg_send_2((int)(uintptr_t)(v2));
 }
 
 
@@ -44435,7 +44435,7 @@ int hci_send_cmd_0x59(char a1, char a2) {
   v4 = (volatile uint8_t *)ke_msg_alloc(89, 13, 0, 2);
   *v4 = a1;
   v4[1] = a2;
-  return ke_msg_send((int)(uintptr_t)(v4));
+  return ke_msg_send_2((int)(uintptr_t)(v4));
 }
 
 
@@ -44669,7 +44669,7 @@ int hci_send_cmd_0x0b(int a1, int a2, int a3, int a4) {
 
   v5 = (volatile uint8_t *)ke_msg_alloc(11, a4, a3, 3);
   *v5 = call_fw_handler(a2, v5 + 1, v5 + 2);
-  ke_msg_send((int)(uintptr_t)(v5));
+  ke_msg_send_2((int)(uintptr_t)(v5));
   return 0;
 }
 
@@ -45818,7 +45818,7 @@ LABEL_4:
     default:
       break;
   }
-  ke_msg_send((int)(uintptr_t)(v7));
+  ke_msg_send_2((int)(uintptr_t)(v7));
   return 0;
 }
 
@@ -45835,8 +45835,8 @@ int ke_task_env_get(int a1, volatile uint8_t *a2, int a3, int a4) {
   *(volatile uint8_t *)(v4 + 110) = a2[1];
   v7 = v6;
   rf_temperature_comp(v4);
-  rf_get_rssi(v4, v7 + 1, v7);
-  ke_msg_send(v7);
+  rf_get_rssi_2(v4, v7 + 1, v7);
+  ke_msg_send_2(v7);
   return 0;
 }
 
@@ -46351,7 +46351,7 @@ LABEL_76:
           v63 = (volatile uint8_t *)ke_msg_alloc(7, a4, (int)(uintptr_t)(a3), 2);
           v15 = (void *)(uintptr_t)(off_1242D4);
           *v63 = task_event_handler((volatile int *)(a2 + 2), *a2, a2[8], v63 + 1);
-          ke_msg_send((int)(uintptr_t)(v63));
+          ke_msg_send_2((int)(uintptr_t)(v63));
           v16 = 0;
           goto LABEL_10;
         case 8u:
@@ -46385,7 +46385,7 @@ LABEL_67:
           v15 = (void *)(uintptr_t)(off_1242D4);
           v60 = v59;
           rf_enable((volatile uint16_t *)a2, a2[10]);
-          ke_msg_send(v60);
+          ke_msg_send_2(v60);
           v16 = 0;
           goto LABEL_10;
         case 0x12u:
@@ -46841,7 +46841,7 @@ LABEL_27:
           *v28 = a2[1];
           v28[1] = a2[2];
           v28[2] = v17;
-          ke_msg_send((int)(uintptr_t)(v28));
+          ke_msg_send_2((int)(uintptr_t)(v28));
           v15 = (void *)(uintptr_t)(off_123F64);
           v16 = 0;
           goto LABEL_10;
@@ -47462,7 +47462,7 @@ int rf_tx_flag_check(volatile uint8_t *a1, int a2, int a3) {
       v11 = v10;
       a1[668] = 0;
       memcpy(v10 + 2, a1 + 38, 6);
-      return ke_msg_send((int)(uintptr_t)(v11));
+      return ke_msg_send_2((int)(uintptr_t)(v11));
     }
   }
   return result;
@@ -47849,7 +47849,7 @@ int hci_acl_tx_setup(int a1, int a2) {
   v9 = dword_1255CC;
   v10 = v4 - v5;
   *(volatile uint16_t *)(a1 + 216) = v4 - v5;
-  ((int (*)())rx_process_packet)();
+  ((int (*)())rx_process_packet_1)();
   v12 = *(volatile uint16_t *)(a2 + 6);
   v13 = dword_1255D0;
   v14 = v3[7] + v12 - 1;
@@ -48261,7 +48261,7 @@ int co_list_push(int a1) {
   v2 = *((volatile uint32_t *)off_125AAC + 1);
   *(volatile uint32_t *)off_125AAC = a1;
   if ( !v2 )
-    return ((int (*)())ke_task_init)(a1);
+    return ((int (*)())ke_task_init_1)(a1);
   v1[10] = 1;
   return a1;
 }
@@ -48320,7 +48320,7 @@ LABEL_20:
         *v25 = v17;
         v25[1] = v4;
         v25[2] = v4;
-        ke_msg_send((int)(uintptr_t)(v25));
+        ke_msg_send_2((int)(uintptr_t)(v25));
         v5 = dword_125CA8;
         if ( *v16 )
         {
@@ -48362,7 +48362,7 @@ LABEL_20:
         *v18 = 0;
       }
       if ( *((volatile uint8_t *)v1 + 10) )
-        ((int (*)())ke_task_init)(*v1);
+        ((int (*)())ke_task_init_1)(*v1);
       if ( v1[3] )
       {
         v19 = dword_125CC0;
@@ -48563,7 +48563,7 @@ int hci_cmd_send_simple(int a1) {
   v3 = (void *)(uintptr_t)(off_125DC4);
   *v2 = *(volatile uint8_t *)(a1 + 26);
   *v3 &= ~4u;
-  return ke_msg_send((int)(uintptr_t)(v2));
+  return ke_msg_send_2((int)(uintptr_t)(v2));
 }
 
 
@@ -52994,7 +52994,7 @@ int wlc_bus_cmd(int a1, int a2) {
   {
     *(volatile uint8_t *)(v4 + 3) = 0;
   }
-  return ke_msg_send(v4);
+  return ke_msg_send_2(v4);
 }
 
 
@@ -55463,7 +55463,7 @@ int reg_read_indirect(char a1, int a2) {
   v3 = (volatile uint8_t *)ke_msg_alloc(2052, a2, 2, 1);
   check_status_bits(4, dword_12B510);
   *v3 = a1;
-  return ke_msg_send((int)(uintptr_t)(v3));
+  return ke_msg_send_2((int)(uintptr_t)(v3));
 }
 
 
@@ -56401,9 +56401,9 @@ LABEL_8:
   v10 = *(void ( **)(uint32_t, int))(v7 + 8);
   if ( v10 )
     v10(*(volatile uint32_t *)(v7 + 12), a1);
-  v12 = ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * v1 + 2] | 1;
+  v12 = ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * v1 + 2] | 1;
   ++*(volatile uint16_t *)(v4 + 2 * (a1 + 12));
-  ((volatile uint32_t *)(uintptr_t)&dword_40021000)[16 * v1 + 2] = v12;
+  ((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * v1 + 2] = v12;
   return 4104;
 }
 
@@ -56905,7 +56905,7 @@ int ke_msg_send_no_param(int16_t a1, int16_t a2, int16_t a3) {
   int v3; // r0
 
   v3 = ke_msg_alloc(a1, a2, a3, 0);
-  return ke_msg_send(v3);
+  return ke_msg_send_2(v3);
 }
 
 
@@ -56915,7 +56915,7 @@ int store_three_halfwords_tail(int a1, int16_t a2, int16_t a3, int16_t a4) {
   *(volatile uint16_t *)(a1 - 8) = a2;
   *(volatile uint16_t *)(a1 - 6) = a3;
   *(volatile uint16_t *)(a1 - 4) = a4;
-  return ke_msg_send(a1);
+  return ke_msg_send_2(a1);
 }
 
 
@@ -60517,7 +60517,7 @@ LABEL_5:
   v8 = dword_12ED9C;
   *v7 = 0;
   event_dispatch(v8);
-  ke_msg_send((int)v7);
+  ke_msg_send_2((int)v7);
   return 0;
 }
 
@@ -60578,7 +60578,7 @@ int msg_alloc_0x40c(int a1, volatile uint32_t *a2, int16_t a3, int16_t a4) {
     *v5 = 1;
   memcpy((void *)(uintptr_t)(v6), (void *)(a2 + 2), v8);
   event_dispatch(dword_12EE68, *a2, a2[1] + *a2, a2[2], *v5);
-  ke_msg_send((int)v5);
+  ke_msg_send_2((int)v5);
   return 0;
 }
 
@@ -60776,7 +60776,7 @@ void read_state_flag_1() {
 void log_event_1069() {
   event_dispatch(dword_12F0EC);
   ke_int_lock(1069, 1);
-  read_state_flag();
+  read_state_flag_1();
 }
 
 
@@ -60785,7 +60785,7 @@ void log_event_1069() {
 void log_event_1068() {
   event_dispatch(dword_12F108);
   ke_int_lock(1068, 1);
-  read_state_flag();
+  read_state_flag_1();
 }
 
 
@@ -61883,7 +61883,7 @@ int parse_hex12(int a1, int a2) {
   int v24; // r0
   uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
   char v27; // [sp+Ch] [bp-8h]
- if ( ((int (*)())memmove)(*(volatile uint32_t *)(a2 + 4)) != 12 || ((int (*)())memmove)(*(volatile uint32_t *)(a2 + 8)) != 12 ) return -2;
+ if ( ((int (*)())memmove_1)(*(volatile uint32_t *)(a2 + 4)) != 12 || ((int (*)())memmove_1)(*(volatile uint32_t *)(a2 + 8)) != 12 ) return -2;
   v3 = *(volatile uint8_t **)(a2 + 4);
   memcpy(v26, v3 + 8, 4);
   v3[8] = 0;
@@ -62024,7 +62024,7 @@ int is_mode_one_v2(int a1, int a2) {
       if ( v6 )
       {
         inited = ((int (*)())rf_get_channel_calibration)(v4);
-        ((int (*)())rf_enable)((void *)(uintptr_t)(inited));
+        ((int (*)())rf_enable_2)((void *)(uintptr_t)(inited));
       }
       else
       {
@@ -64070,7 +64070,7 @@ int adv_data_parse(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
       v10 = (volatile uint8_t *)ke_msg_alloc(5145, 5, 6, 2u);
       *v10 = 0;
       v10[1] = *(volatile uint8_t *)(v7 + 34);
-      ke_msg_send((int)v10);
+      ke_msg_send_2((int)v10);
     }
   }
   else
@@ -64609,7 +64609,7 @@ LABEL_8:
       }
     }
     v22 = dword_131E34;
-    v58 = rf_check_status(v20, v74 + 248 + dword_131E34);
+    v58 = rf_check_status_1(v20, v74 + 248 + dword_131E34);
     v16 = *(volatile uint32_t *)(a2 + 120);
     v14 = v58;
   }
@@ -64670,7 +64670,7 @@ LABEL_19:
           v62 = (volatile uint8_t *)ke_msg_alloc(73, 13, 0, 2u);
           *v62 = v32;
           v62[1] = 1;
-          ke_msg_send((int)v62);
+          ke_msg_send_2((int)v62);
           if ( v33[36] || v33[35] > 0x1Fu )
           {
             v31 = (v31 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(v25 + 234)) & 0xFFu);
@@ -64735,7 +64735,7 @@ LABEL_19:
     llc_get_evt_ptr((volatile uint8_t *)(v74 + v22));
   }
 LABEL_24:
-  ke_msg_send((int)v5);
+  ke_msg_send_2((int)v5);
   return 0;
 }
 
@@ -64885,7 +64885,7 @@ int bt_clear_flag(int a1, int a2, int16_t a3, int16_t a4) {
     *((volatile uint16_t *)v4 + 4) = 255;
     v33 = (volatile uint8_t *)ke_msg_alloc(49, 0, 5, 1u);
     *v33 = v4[376];
-    ke_msg_send((int)v33);
+    ke_msg_send_2((int)v33);
     rx_phy_status_parse(5u, 1);
   }
   return 0;
@@ -67325,7 +67325,7 @@ if ( bt_get_conn_by_handle((void *)(v20)) ) { ((int (*)())bt_setup_conn_profile)
         util_init_outputs(v4 + 248 + v3, v16, v17, (volatile uint16_t *)(v11 + 16), (volatile int *)(v11 + 8), (volatile int *)(v11 + 4), (volatile char *)(v11 + 24));
       }
       *(volatile uint32_t *)(v11 + 12) = v15;
-      ke_msg_send(v11);
+      ke_msg_send_2(v11);
       rx_phy_status_parse(6u, 3);
     }
     v9 = *(volatile uint32_t *)(v1 + 48);
@@ -67346,7 +67346,7 @@ if ( bt_get_conn_by_handle((void *)(v20)) ) { ((int (*)())bt_setup_conn_profile)
   }
   v19 = (uint8_t)v0[32];
   v20[0] = v6;
-  ((int (*)())get_controller_state)((int)(uintptr_t)(&v19), v20);
+  ((int (*)())get_controller_state_1)((int)(uintptr_t)(&v19), v20);
   if ( *(volatile uint8_t *)off_133DD8 != 1 && *((volatile uint8_t *)off_133DDC + 3) != 1 )
   {
     *((volatile uint8_t *)off_133DDC + 32) = 2;
@@ -67510,7 +67510,7 @@ if ( v16 == 3 && hci_recv_packet((void *)(uintptr_t)(a2 + 64), *(volatile uint16
         {
           v23 = 0;
           v24 = 0;
-          ((int (*)())get_controller_state)((int)(uintptr_t)(&v23), &v24);
+          ((int (*)())get_controller_state_1)((int)(uintptr_t)(&v23), &v24);
           if ( v23 && v24 )
             rx_packet_handler(v23, v24, 0);
           else
@@ -67524,7 +67524,7 @@ if ( v16 == 3 && hci_recv_packet((void *)(uintptr_t)(a2 + 64), *(volatile uint16
       *v8 = 9;
     }
 LABEL_13:
-    ke_msg_send((int)v8);
+    ke_msg_send_2((int)v8);
     return v19;
   }
   return 2;
@@ -67726,7 +67726,7 @@ int complex_state_handler(int a1, volatile uint8_t *a2) {
         v37[62] = v36;
         v37[1] |= 4u;
       }
-      v9 = rf_check_status(v6, v5 + 1320 * v7 + 248);
+      v9 = rf_check_status_1(v6, v5 + 1320 * v7 + 248);
     }
     bt_get_profile_ctx(v9);
     if ( *(volatile uint8_t *)off_134354 )
@@ -67827,7 +67827,7 @@ int set_flag_disable_irq() {
   }
   else if ( v1[14] == 1 )
   {
-    ((int (*)())tx_packet_handler)();
+    ((int (*)())tx_packet_handler_1)();
     v3 = *v0;
   }
   if ( v3 )
@@ -68009,7 +68009,7 @@ LABEL_3:
     a2 = 1;
   }
 LABEL_4:
-  ke_msg_send(v6);
+  ke_msg_send_2(v6);
   return rx_phy_status_parse(6u, 1);
 }
 
@@ -68153,7 +68153,7 @@ volatile uint32_t *tx_packet_handler_1() {
   if ( v2 )
     *(volatile uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
-  ke_msg_send(v4);
+  ke_msg_send_2(v4);
   return rx_phy_status_parse(6u, 2);
 }
 
@@ -68177,7 +68177,7 @@ int bt_is_controller_ready() {
   v1 = v0;
   if ( **(volatile int16_t **)off_1347F4 < 0 && !v0 )
     mmio_clear_register(dword_1347FC, dword_1347F8, 766);
-  return ke_msg_send((int)(v1 + 3));
+  return ke_msg_send_2((int)(v1 + 3));
 }
 
 
@@ -69326,7 +69326,7 @@ int bt_get_current_profile_conn(unsigned int a1) {
   *(volatile uint32_t *)(v9 + 40) = bswap32(a1);
   rx_phy_status_parse(6u, 6);
   ke_task_create(6154, 6, dword_135924);
-  return ke_msg_send(v9);
+  return ke_msg_send_2(v9);
 }
 
 
@@ -69394,7 +69394,7 @@ int bt_send_ack_message(char a1, int a2, unsigned int a3) {
   }
   rx_phy_status_parse(6u, 7);
   ke_task_create(6154, 6, dword_1359F4);
-  return ke_msg_send(v9);
+  return ke_msg_send_2(v9);
 }
 
 
@@ -70098,7 +70098,7 @@ LABEL_3:
     v11 = (volatile char *)ke_msg_alloc(7169, a4, a3, 4u);
     *v11 = v10;
     v11[1] = *(volatile uint8_t *)(a2 + 51);
-    ke_msg_send((int)v11);
+    ke_msg_send_2((int)v11);
     return 0;
   }
   if ( rx_rate_field_parse(7u) )
@@ -70315,7 +70315,7 @@ int bt_ready_check() {
   v1 = v0;
   if ( **(volatile int16_t **)off_136858 < 0 && !v0 )
     mmio_clear_register(dword_136860, dword_13685C, 210);
-  return ke_msg_send((int)(v1 + 3));
+  return ke_msg_send_2((int)(v1 + 3));
 }
 
 
@@ -70534,7 +70534,7 @@ LABEL_5:
       *(volatile uint16_t *)v4 = *(volatile uint16_t *)(a2 + 32);
       *(volatile uint8_t *)(v4 + 3) = *(volatile uint8_t *)(a2 + 34);
       *(volatile uint8_t *)(v4 + 2) = 1;
-      return ke_msg_send(v4);
+      return ke_msg_send_2(v4);
     }
   }
   return result;
@@ -70657,7 +70657,7 @@ int bt_get_link_context(int result, int a2) {
         *(volatile uint8_t *)(v4 + 3) = *(volatile uint8_t *)(v2 + 34);
         *(volatile uint8_t *)(v4 + 2) = 0;
         *(volatile uint16_t *)v4 = v5;
-        return ke_msg_send(v4);
+        return ke_msg_send_2(v4);
       }
     }
   }
@@ -70817,13 +70817,13 @@ int rf_write_cmd_1006(int a1, volatile uint8_t *a2, int a3, int16_t a4) {
     v7[12] = *v10;
     v7[13] = v23;
     v7[14] = v24;
-    ke_msg_send((int)v7);
+    ke_msg_send_2((int)v7);
     return 0;
   }
   else
   {
     *v6 = 0;
-    ke_msg_send((int)v6);
+    ke_msg_send_2((int)v6);
     return 0;
   }
 }
@@ -70864,7 +70864,7 @@ int rf_set_band(int a1, int a2, int a3, int16_t a4) {
   check_status_bits(8, dword_136F80);
   *v5 = 1;
   v5[1] = *(volatile uint8_t *)(a2 + 2);
-  ke_msg_send((int)v5);
+  ke_msg_send_2((int)v5);
   return 0;
 }
 
@@ -70892,7 +70892,7 @@ int rf_set_band_alt(int a1, volatile uint16_t *a2, int a3, int16_t a4) {
   memcpy(v6 + 3, (volatile char *)a2 + 3, v7);
   *v5 = 1;
   v5[1] = *((volatile uint8_t *)a2 + 2);
-  ke_msg_send((int)v5);
+  ke_msg_send_2((int)v5);
   return 0;
 }
 
@@ -72051,7 +72051,7 @@ LABEL_67:
     }
 LABEL_83:
     v64 = v48 + 9;
-if ( ((int (*)())memmove)(v48 + 9) ) { v63 = *(volatile uint8_t *)(v48 + 8);
+if ( ((int (*)())memmove_1)(v48 + 9) ) { v63 = *(volatile uint8_t *)(v48 + 8);
       *(volatile uint8_t *)(v48 + v63 + 9) = 0;
       v51 = *(volatile uint16_t **)(v48 + 44);
       v50 = *(volatile char *)(a1 + 9);
@@ -75847,7 +75847,7 @@ LABEL_31:
 
 // ll_ccm_decrypt @ 0x13b390
 int ll_ccm_decrypt(int a1, int a2, unsigned int a3) {
-  ((int (*)())rf_get_chan_param)(a3 >> 8);
+  ((int (*)())rf_get_chan_param_1)(a3 >> 8);
   return 0;
 }
 
@@ -75963,11 +75963,11 @@ int ll_ctl_terminate_ind(int a1, volatile char *a2, unsigned int a3) {
       v11[2] = v10;
       *v11 = v8;
       v11[1] = v9;
-      ke_msg_send((int)v11);
+      ke_msg_send_2((int)v11);
     }
     *(volatile uint32_t *)(696 * (uint8_t)*a2 + 12 * (uint8_t)a2[1] + dword_13B5F8 + 448) = *((volatile uint32_t *)off_13B5FC
                                                                                                  + 4);
-    rf_set_channel(v5);
+    rf_set_channel_3(v5);
   }
   return 0;
 }
@@ -76461,7 +76461,7 @@ int rf_ctrl_send(char a1, int a2) {
   v2 = (v2 & ~0xFFFFu) | ((uint16_t)(*(volatile uint16_t *)(v5 + 20)) & 0xFFFFu);
   *(volatile uint16_t *)(v4 + 6) = *(volatile uint16_t *)(v5 + 12);
   *(volatile uint16_t *)(v4 + 4) = v2;
-  return ke_msg_send(v4);
+  return ke_msg_send_2(v4);
 }
 
 
@@ -76482,7 +76482,7 @@ int rf_phy_write(int a1, int a2) {
   v5[1] = a1;
   *v5 = v7 != 1;
   v5[2] = *(volatile uint8_t *)(v6 + 22);
-  return ke_msg_send((int)v5);
+  return ke_msg_send_2((int)v5);
 }
 
 
@@ -81719,7 +81719,7 @@ LABEL_12:
   *(volatile uint16_t *)(v18 + 356) = *(volatile uint16_t *)(a1 + 56);
   *(volatile uint8_t *)(v18 + 366) = *(volatile uint8_t *)(v7 + 6489);
   *(volatile uint32_t *)(v18 + 372) = *(volatile uint16_t *)(a1 + 48) << 10;
-  return ke_msg_send(v18);
+  return ke_msg_send_2(v18);
 }
 
 
@@ -82572,7 +82572,7 @@ int hci_event_send(char a1, int a2) {
   *(volatile uint16_t *)(v4 + 6) = v5;
   *(volatile uint8_t *)(v4 + 1) = *(volatile uint8_t *)(a2 + 46);
   *(volatile uint8_t *)v4 = a1;
-  return ke_msg_send(v4);
+  return ke_msg_send_2(v4);
 }
 
 
@@ -83136,7 +83136,7 @@ LABEL_7:
 LABEL_8:
   v12 = (volatile uint8_t *)ke_msg_alloc(12292, a4, a3, 1u);
   *v12 = v6;
-  ke_msg_send((int)v12);
+  ke_msg_send_2((int)v12);
   return 0;
 }
 
@@ -83208,7 +83208,7 @@ int table_lookup_byte(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   }
   v20 = (volatile int *)ke_msg_alloc(12289, a4, a3, 1u);
   *v20 = v19;
-  ke_msg_send((int)v20);
+  ke_msg_send_2((int)v20);
   return 0;
 }
 
