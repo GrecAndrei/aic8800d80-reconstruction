@@ -165,6 +165,7 @@ python3 tools/truth_lane_smoke.py --src --orig-baseline /nonexistent --out /tmp/
 python3 -m unittest discover -s tools -p 'test_*.py'
 python3 tools/libmatch.py scan --check && python3 tools/libmatch.py apply --check
 python3 tools/heal_two_d_subscript.py --check && python3 tools/volatile_pointees.py --check
+python3 tools/callsite_targets.py --check && python3 tools/periph_symbols.py --check   # docs/LINKED_CORPUS_COMPARISON.md
 
 make -C src check                      # add OPT=-O0 for the diagnostic build
 python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run

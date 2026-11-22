@@ -3,7 +3,8 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from linked_recon_run import differing_write_registers, linked_verdict
+from linked_recon_run import (corpus_outcome, differing_write_registers, first_difference,
+                               linked_verdict, summarize_corpus)
 from truth_lane_smoke import smoke_verdict
 from unicorn_smoke import can_autopage, is_mmio_addr
 
@@ -76,6 +77,42 @@ class TruthLaneTest(unittest.TestCase):
                 self.assertEqual(linked_verdict(orig, recon), expected)
         self.assertEqual(differing_write_registers(fp(w), fp(other_value)), ["0x40342400"])
         self.assertEqual(differing_write_registers(fp(w), fp(w)), [])
+
+    def test_corpus_outcome_counts_only_comparable_runs(self):
+        def fp(writes, term="returned", stopped_in=None):
+            return {"termination": term, "stopped_in": stopped_in, "left_reconstruction_at": [],
+                    "periph_write_addrs": sorted({a for a, _ in writes}),
+                    "periph_write_sequence": [list(w) for w in writes],
+                    "periph_sequence": [["write", a] for a, _ in writes]}
+
+        def outcome(orig, recon, writer=None):
+            verdict = linked_verdict(orig, recon)[0]
+            return corpus_outcome(orig, recon, verdict, first_difference(orig, recon), writer)
+
+        w = [("0x40342248", "0x1"), ("0x40032000", "0x25")]
+        text = [("0x40342248", "0x1"), ("0x40032000", "0x64")]
+        reg = [("0x40342248", "0x0"), ("0x40032000", "0x25")]
+        self.assertEqual(first_difference(fp(w), fp(text)),
+                         {"index": 1, "orig": ["0x40032000", "0x25"], "recon": ["0x40032000", "0x64"]})
+        self.assertIsNone(first_difference(fp(w), fp(w)))
+        rows = [
+            (outcome(fp(w), fp(w)), ("MATCH", "identical_peripheral_writes")),
+            (outcome(fp(w), fp(text)), ("DIFFER", "console_text")),
+            (outcome(fp(w), fp(w[:1])), ("DIFFER", "console_text")),
+            (outcome(fp(w), fp(reg), "rf_init"), ("DIFFER", "register_write_in:rf_init")),
+            (outcome(fp(w), fp([], "capped", "strlen")), ("DIFFER", "no_return_in:strlen")),
+            # no comparison exists: neither counts as a match or a difference
+            (outcome(fp(w, "capped"), fp([], "capped", "x")),
+             ("NOT_RUN", "original_does_not_return_standalone")),
+            (outcome(fp(w, "capped"), fp(w)), ("NOT_RUN", "original_does_not_return_standalone")),
+            (outcome(fp(w), {"termination": "no_symbol"}), ("NOT_RUN", "not_in_linked_image")),
+        ]
+        for got, expected in rows:
+            with self.subTest(expected=expected):
+                self.assertEqual(got, expected)
+        summary = summarize_corpus([{"image": "i", "outcome": o, "group": g} for (o, g), _ in rows])
+        self.assertEqual(summary["outcomes"], {"DIFFER": 4, "MATCH": 1, "NOT_RUN": 3})
+        self.assertEqual(list(summary["groups"]["DIFFER"].items())[0], ("console_text", 2))
 
 
 if __name__ == "__main__":
