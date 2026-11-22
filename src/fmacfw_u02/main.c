@@ -21271,11 +21271,11 @@ int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *
   {
     v24 = v13;
     v20 += v23;
-    v13 = ((int (*)())__usat)(3u, v21 + v20);
+    v13 = __usat(3u, v21 + v20);
     *v11 = *v11 & 0xFFFFFFF8 | v13;
     *v12 = *v12 & 0xFFFF8FFF | (v13 << 12);
     v25 = v3;
-    v3 = ((int (*)())__usat)(4u, v22 + v20 - v13);
+    v3 = __usat(4u, v22 + v20 - v13);
     *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
     *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
     v15 = inited;
@@ -26394,7 +26394,7 @@ int read_periph_status(volatile uint8_t *a1, unsigned int a2, int a3) {
     {
       if ( a2 == v10 || v10 + 1 == a2 )
       {
-        ((void (*)(void))timer_delay)();
+        ((void (*)(void))timer_delay_1)();
         check_packet_length((int)(uintptr_t)(v7 + 4));
         unknown_func_12d104(512);
         return 1;
@@ -26412,7 +26412,7 @@ int read_periph_status(volatile uint8_t *a1, unsigned int a2, int a3) {
       {
         if ( v10 + 4 == a2 || a2 == v10 + 5 )
         {
-          timer_delay((int)(uintptr_t)(a1));
+          timer_delay_1(a1);
           v12 = v11[2433];
           v13 = dword_113280;
           v14 = (uint8_t)v11[2432]
@@ -26438,7 +26438,7 @@ int read_periph_status(volatile uint8_t *a1, unsigned int a2, int a3) {
     }
   }
   v17 = is_controller_mode((void *)(&v7[-*(volatile uint32_t *)off_113290]));
-  timer_delay(v17);
+  timer_delay_1(v17);
   return 1;
 }
 
@@ -41322,7 +41322,7 @@ LABEL_11:
     }
     else
     {
-      ((int (*)())mac_irq_enable_1)(2631, 127);
+      mac_irq_enable_1(2631, 127);
       v38 = v4[18];
       v21 = *(volatile uint8_t *)(v19 + 107);
       v39 = *(volatile uint8_t *)(v19 + 1224);
@@ -41636,7 +41636,7 @@ LABEL_6:
     v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
-      ((int (*)())mac_irq_enable_1)(v40, v42);
+      mac_irq_enable_1(v40, v42);
       v6 = (uint8_t)v5[18];
     }
     else
@@ -42279,7 +42279,7 @@ volatile uint32_t *get_bt_state() {
 
   v0 = (void *)(uintptr_t)(off_120778);
   if ( !*((volatile uint8_t *)off_120778 + 2) )
-    ((int (*)())bb_enable_1)();
+    bb_enable_1();
   clear_transmit_context();
   ble_sched_init();
   v1 = ble_event_set();
@@ -45835,7 +45835,7 @@ int ke_task_env_get(int a1, volatile uint8_t *a2, int a3, int a4) {
   *(volatile uint8_t *)(v4 + 110) = a2[1];
   v7 = v6;
   rf_temperature_comp(v4);
-  rf_get_rssi_2(v4, v7 + 1, v7);
+  rf_get_rssi_2(v4, (void *)(uintptr_t)(v7 + 1), (void *)(uintptr_t)(v7));
   ke_msg_send_2(v7);
   return 0;
 }
@@ -48261,7 +48261,7 @@ int co_list_push(int a1) {
   v2 = *((volatile uint32_t *)off_125AAC + 1);
   *(volatile uint32_t *)off_125AAC = a1;
   if ( !v2 )
-    return ((int (*)())ke_task_init_1)(a1);
+    return ke_task_init_1(a1);
   v1[10] = 1;
   return a1;
 }
@@ -48362,7 +48362,7 @@ LABEL_20:
         *v18 = 0;
       }
       if ( *((volatile uint8_t *)v1 + 10) )
-        ((int (*)())ke_task_init_1)(*v1);
+        ke_task_init_1(*v1);
       if ( v1[3] )
       {
         v19 = dword_125CC0;
@@ -61883,7 +61883,9 @@ int parse_hex12(int a1, int a2) {
   int v24; // r0
   struct __attribute__((packed)) { uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
   char v27; // [sp+Ch] [bp-8h]
-  } _frame; if ( ((int (*)())memmove_1)(*(volatile uint32_t *)(a2 + 4)) != 12 || ((int (*)())memmove_1)(*(volatile uint32_t *)(a2 + 8)) != 12 ) return -2;
+  } _frame;
+  if ( memmove_1(*(volatile uint32_t *)(a2 + 4)) != 12 || memmove_1(*(volatile uint32_t *)(a2 + 8)) != 12 )
+    return -2;
   v3 = *(volatile uint8_t **)(a2 + 4);
   memcpy(_frame.v26, v3 + 8, 4);
   v3[8] = 0;
@@ -62024,7 +62026,7 @@ int is_mode_one_v2(int a1, int a2) {
       if ( v6 )
       {
         inited = ((int (*)())rf_get_channel_calibration)(v4);
-        ((int (*)())rf_enable_2)((void *)(uintptr_t)(inited));
+        rf_enable_2(inited);
       }
       else
       {
@@ -67132,7 +67134,7 @@ int main_loop_init() {
   get_controller_state_1((void *)(&_frame.v2), (void *)(&_frame.v3));
   if ( _frame.v2 && _frame.v3 )
   {
-    ((int (*)())rx_packet_handler)();
+    ((int (*)())rx_packet_handler_3)();
     return 0;
   }
   else
@@ -67346,19 +67348,19 @@ if ( bt_get_conn_by_handle((void *)(_frame.v20)) ) { ((int (*)())bt_setup_conn_p
   }
   _frame.v19 = (uint8_t)v0[32];
   _frame.v20[0] = v6;
-  ((int (*)())get_controller_state_1)((int)(uintptr_t)(&_frame.v19), _frame.v20);
+  get_controller_state_1((void *)(&_frame.v19), _frame.v20);
   if ( *(volatile uint8_t *)off_133DD8 != 1 && *((volatile uint8_t *)off_133DDC + 3) != 1 )
   {
     *((volatile uint8_t *)off_133DDC + 32) = 2;
 LABEL_7:
-    rx_packet_handler(_frame.v19, _frame.v20[0], (void *)(uintptr_t)(1));
+    rx_packet_handler_3(_frame.v19, _frame.v20[0], 1);
     return 0;
   }
   v8 = (uint8_t)(*((volatile uint8_t *)off_133DDC + 32) + 1);
   *((volatile uint8_t *)off_133DDC + 32) = v8;
   if ( v8 > 1 )
     goto LABEL_7;
-  rx_packet_handler(_frame.v19, _frame.v20[0], 0);
+  rx_packet_handler_3(_frame.v19, _frame.v20[0], 0);
   return 0;
 }
 
@@ -67510,9 +67512,9 @@ if ( v16 == 3 && hci_recv_packet((void *)(uintptr_t)(a2 + 64), *(volatile uint16
         {
           _frame.v23 = 0;
           _frame.v24 = 0;
-          ((int (*)())get_controller_state_1)((int)(uintptr_t)(&_frame.v23), &_frame.v24);
+          get_controller_state_1((void *)(&_frame.v23), (void *)(&_frame.v24));
           if ( _frame.v23 && _frame.v24 )
-            rx_packet_handler(_frame.v23, _frame.v24, 0);
+            rx_packet_handler_3(_frame.v23, _frame.v24, 0);
           else
             ((int (*)())send_hci_packet)();
         }
@@ -67827,7 +67829,7 @@ int set_flag_disable_irq() {
   }
   else if ( v1[14] == 1 )
   {
-    ((int (*)())tx_packet_handler_1)();
+    tx_packet_handler_1();
     v3 = *v0;
   }
   if ( v3 )
@@ -72051,7 +72053,9 @@ LABEL_67:
     }
 LABEL_83:
     v64 = v48 + 9;
-if ( ((int (*)())memmove_1)(v48 + 9) ) { v63 = *(volatile uint8_t *)(v48 + 8);
+    if ( memmove_1(v48 + 9) )
+    {
+      v63 = *(volatile uint8_t *)(v48 + 8);
       *(volatile uint8_t *)(v48 + v63 + 9) = 0;
       v51 = *(volatile uint16_t **)(v48 + 44);
       v50 = *(volatile char *)(a1 + 9);
@@ -75847,7 +75851,7 @@ LABEL_31:
 
 // ll_ccm_decrypt @ 0x13b390
 int ll_ccm_decrypt(int a1, int a2, unsigned int a3) {
-  ((int (*)())rf_get_chan_param_1)(a3 >> 8);
+  rf_get_chan_param_1(a3 >> 8);
   return 0;
 }
 

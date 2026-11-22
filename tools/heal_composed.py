@@ -28,7 +28,11 @@ SRC = REPO / "src"
 MAX_ROUNDS = 10
 
 CC = "arm-none-eabi-gcc"
-CFLAGS = ["-mcpu=cortex-m4", "-mthumb", "-O2", "-Iinclude", "-w", "-std=gnu99",
+# GCC 14 made these diagnostics errors by default; name them so older GCCs
+# (10.x) report the same set. Warnings are ignored: only "error:" lines parse.
+GCC14_ERRORS = ["-Werror=int-conversion", "-Werror=incompatible-pointer-types",
+                "-Werror=implicit-function-declaration", "-Werror=implicit-int"]
+CFLAGS = ["-mcpu=cortex-m4", "-mthumb", "-O2", "-Iinclude", *GCC14_ERRORS, "-std=gnu99",
           "-ffunction-sections", "-fdata-sections",
           "-include", "include/aic8800d80_types.h", "-fsyntax-only"]
 
@@ -174,7 +178,7 @@ INT_FROM_PTR = re.compile(r"makes integer from pointer")
 PTR_FROM_INT = re.compile(r"makes pointer from integer")
 INCOMPAT_PTR = re.compile(r"from incompatible pointer type")
 VOID_VALUE = re.compile(r"void value not ignored|invalid use of void expression")
-ARG_COUNT = re.compile(r"too (few|many) arguments to function '([^']+)'; expected \d+, have \d+")
+ARG_COUNT = re.compile(r"too (few|many) arguments to function '([^']+)'")
 PASS_ARG = re.compile(
     r"passing argument (\d+) of '([^']+)' (makes (integer from pointer|pointer from integer)"
     r"|from incompatible pointer type)")
@@ -598,11 +602,19 @@ def insert_forward_decls(lines, names):
 
 
 def main():
-    images = sys.argv[1:] or ["fmacfw_u02", "fmacfw_h_u02", "fmacfwbt_u02", "lmacfw_rf_u02"]
+    check = "--check" in sys.argv[1:]
+    images = [a for a in sys.argv[1:] if a != "--check"] or [
+        "fmacfw_u02", "fmacfw_h_u02", "fmacfwbt_u02", "lmacfw_rf_u02"]
+    unhealed = 0
     for img in images:
         main_c = SRC / img / "main.c"
         if not main_c.exists():
             print(f"{img}: no main.c", flush=True)
+            continue
+        if check:
+            ok, errors = compile_one(main_c, SRC)
+            print(f"{img}: {'clean' if ok else f'{len(errors)} errors pending'}", flush=True)
+            unhealed += not ok
             continue
         for rnd in range(1, MAX_ROUNDS + 1):
             ok, errors = compile_one(main_c, SRC)
@@ -687,10 +699,13 @@ def main():
             top = Counter(re.sub(r"'\w+'", "'F'", re.sub(r"\d+", "N", m)) for _, m in errors)
             for cls, n in top.most_common(12):
                 print(f"  {n:5d}  {cls}", flush=True)
+            unhealed += 1
             break
         else:
             print(f"{img}: gave up after {MAX_ROUNDS} rounds", flush=True)
+            unhealed += 1
+    return 1 if unhealed else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

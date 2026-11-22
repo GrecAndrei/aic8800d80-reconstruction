@@ -12,6 +12,8 @@ package main
 //  3. Emit: mmio/types headers + data.c definitions (datasgen) +
 //     forward declarations with real signatures + unknown-callee decls +
 //     all bodies in address order.
+//  4. Run tools/post_compose.py (heal_composed + the mechanical rules) on
+//     the result, unless -raw.
 //
 // Deterministic, no LLM.
 
@@ -20,6 +22,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -47,6 +50,7 @@ func runCompose(args []string) error {
 	fs := flag.NewFlagSet("compose", flag.ContinueOnError)
 	var cf commonFlags
 	cf.Register(fs)
+	raw := fs.Bool("raw", false, "stop after writing main.c; do not run tools/post_compose.py (heal + mechanical rules)")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -213,6 +217,18 @@ func runCompose(args []string) error {
 			return err
 		}
 		cf.VPrintf("  %s: %d real bodies composed -> %s", img, len(units), outPath)
+	}
+	if *raw {
+		return nil
+	}
+	// The tracked main.c is the composed text after heal_composed and the
+	// mechanical rules; run them here so one command produces it.
+	cmd := exec.Command("python3", filepath.Join(cf.Root, "tools", "post_compose.py"))
+	cmd.Dir = cf.Root
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("post_compose: %w", err)
 	}
 	return nil
 }

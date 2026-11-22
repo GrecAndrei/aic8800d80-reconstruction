@@ -19773,11 +19773,11 @@ int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
   {
     v23 = v12;
     v19 += v22;
-    v12 = ((int (*)())__usat)(3u, v20 + v19);
+    v12 = __usat(3u, v20 + v19);
     *v10 = *v10 & 0xFFFFFFF8 | v12;
     *v11 = *v11 & 0xFFFF8FFF | (v12 << 12);
     v24 = v3;
-    v3 = ((int (*)())__usat)(4u, v21 + v19 - v12);
+    v3 = __usat(4u, v21 + v19 - v12);
     *v10 = *v10 & 0xFFFFFF87 | (8 * v3);
     *v11 = *v11 & 0xFFF87FFF | (v3 << 15);
     v14 = inited;
@@ -25278,7 +25278,7 @@ volatile uint8_t * ke_poll_event_b(int a1, int a2) {
   if ( (*((volatile uint16_t *)rf_cmd_send_n_338 + 89) & 0x4000) != 0 )
     result = uart_tx_string((volatile uint8_t *)dword_1125F0);
   else
-    result = (volatile uint8_t *)dispatch_event_handler_1(rf_bus_reset_n2f4, a2);
+    result = (volatile uint8_t *)dispatch_event_handler_1((int)(uintptr_t)(rf_bus_reset_n2f4), a2);
   v3 = (void *)(rf_cmd_send_n_32c);
   *(volatile uint8_t *)rf_bus_reset_n2f8_0 = 0;
   v3[896] &= ~1u;
@@ -30854,7 +30854,7 @@ LABEL_44:
             v37 = aeabi_i2d(v33);
             v38 = ((uint64_t (*)())aeabi_dadd)(v37, HIDWORD(v37), dword_116B40, dword_116B44);
             v39 = ((uint64_t (*)())double_add)(v36, HIDWORD(v36), v38, HIDWORD(v38));
-            *(volatile uint8_t *)(v11 + 145) = ((int (*)())double_to_float_1)(v39, HIDWORD(v39));
+            *(volatile uint8_t *)(v11 + 145) = double_to_float_1(v39, HIDWORD(v39));
           }
           return 0;
         }
@@ -33188,7 +33188,7 @@ int link_context_by_handle(int result) {
       }
       else if ( v3 == v5 )
       {
-        return ((int (*)())rf_get_status_1)(v2);
+        return rf_get_status_1(v2);
       }
     }
   }
@@ -33901,7 +33901,7 @@ int return_zero() {
 int kernel_send_msg(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
 
-  v5 = (volatile uint8_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(11), a4, a3, 3);
+  v5 = (volatile uint8_t *)ke_msg_send_1(11, a4, a3, 3);
   *v5 = memory_allocate(a2, v5 + 1, v5 + 2);
   return 0;
 }
@@ -34601,7 +34601,7 @@ int hci_build_event_0x36(int a1, volatile uint8_t *a2, int a3, int a4) {
 int ke_alloc_msg_0x34(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
 
-  v5 = (volatile uint8_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(52), a4, a3, 2);
+  v5 = (volatile uint8_t *)ke_msg_send_1(52, a4, a3, 2);
   *v5 = env_get(a2, v5 + 1);
   rx_irq_handler_1((int)(uintptr_t)(v5));
   return 0;
@@ -34645,7 +34645,7 @@ int ke_alloc_msg_0x25(int a1, volatile char *a2, int a3, int a4) {
   volatile uint8_t *v7; // r5
   int v8; // r3
 
-  v5 = (volatile uint8_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(37), a4, a3, 2);
+  v5 = (volatile uint8_t *)ke_msg_send_1(37, a4, a3, 2);
   v6 = (volatile int16_t **)off_119D04;
   *v5 = 1;
   v7 = v5;
@@ -34701,7 +34701,7 @@ int util_scale_index(int a1, volatile uint8_t *a2, int a3, int a4) {
 
   v4 = dword_119D54;
   v6 = 7 * *a2;
-  v7 = ((int (*)())ke_msg_send_1)((void *)(uintptr_t)(47), a4, a3, 2);
+  v7 = ke_msg_send_1(47, a4, a3, 2);
   v8 = v4 + 32 * v6;
   v9 = (char)a2[1];
   v10 = v7;
@@ -35021,7 +35021,7 @@ LABEL_58:
         {
           case 6:
 LABEL_12:
-            v15 = (volatile uint8_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(7), a4, a3, 2);
+            v15 = (volatile uint8_t *)ke_msg_send_1(7, a4, a3, 2);
             v13 = 0;
             *v15 = 0;
             rx_irq_handler_1((int)(uintptr_t)(v15));
@@ -35054,7 +35054,7 @@ LABEL_18:
             break;
           case 16:
 LABEL_20:
-            v18 = ((int (*)())ke_msg_send_1)((void *)(uintptr_t)(17), a4, a3, 2);
+            v18 = ke_msg_send_1(17, a4, a3, 2);
             v12 = (volatile char **)off_11A2E4;
             v19 = v18;
             tx_set_power(a2, a2[10]);
@@ -35156,7 +35156,7 @@ LABEL_36:
                 *(volatile uint8_t *)(v33 + 116) = 0;
                 *(volatile uint32_t *)(v33 + 112) = 0;
                 *(volatile uint32_t *)(v33 + 108) = v37[4];
-                ((int (*)())rf_get_status_1)(v32 + v48);
+                rf_get_status_1(v32 + v48);
                 v36 = a2[2];
               }
               else
@@ -35226,7 +35226,7 @@ LABEL_54:
             {
               v45 = 5;
             }
-            v46 = (volatile uint8_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(41), a4, a3, 3);
+            v46 = (volatile uint8_t *)ke_msg_send_1(41, a4, a3, 3);
             *v46 = a2[1];
             v46[1] = a2[2];
             v46[2] = v45;
@@ -35600,7 +35600,7 @@ unsigned int cmp_before(int a1, int a2) {
 
 // log_18630c @ 0x11ab0c
 int log_18630c() {
-  return list_init_1(dword_11AB14);
+  return (int)(uintptr_t)(list_init_1((void *)(uintptr_t)(dword_11AB14)));
 }
 
 
@@ -36319,7 +36319,7 @@ int rf_flag_set() {
     if ( v1 )
       return ke_enter_critical((int)v0 + 48, *((volatile uint32_t *)off_11B3A0 + 4) + 30000);
     else
-      return ((int (*)())rf_status_check_1)();
+      return rf_status_check_1();
   }
   return result;
 }
@@ -36885,7 +36885,7 @@ LABEL_31:
     return write_bb_control();
   }
 LABEL_10:
-  ((int (*)())rf_reg_update_1)();
+  rf_reg_update_1();
   v9 = *((volatile uint32_t *)off_11B9C0 + 2);
   if ( v9 )
   {
@@ -37441,7 +37441,7 @@ LABEL_14:
     {
       rx_buffer_alloc();
       rf_event_dispatch(v2, *(volatile uint32_t *)(v2 + 36), 0);
-      return ((int (*)())rf_calibrate_1)(v2, *((volatile uint32_t *)off_11C150 + 4), 0);
+      return rf_calibrate_1(v2, *((volatile uint32_t *)off_11C150 + 4), 0);
     }
   }
   v8 = *(volatile uint32_t *)(v2 + 36);
@@ -37594,7 +37594,7 @@ int bt_link_rx_check(int result) {
       if ( v4 )
       {
         if ( !*((volatile uint32_t *)v1 + 11) )
-          return ((int (*)())rf_calibrate_1)(v2, *((volatile uint32_t *)off_11C264 + 4), *((volatile uint32_t *)off_11C264 + 4) - v8);
+          return rf_calibrate_1(v2, *((volatile uint32_t *)off_11C264 + 4), *((volatile uint32_t *)off_11C264 + 4) - v8);
       }
     }
   }
@@ -40325,7 +40325,7 @@ int init_event_control() {
   volatile uint32_t *v1; // r3
   int v2; // r1
 
-  v0 = (void *)(uintptr_t)(((int (*)())critical_enter_1)());
+  v0 = critical_enter_1();
   v1 = (void *)(uintptr_t)(off_11E714);
   v2 = dword_11E718;
   *((volatile uint32_t *)off_11E714 + 7) = (int)(uintptr_t)(v0);
@@ -42110,7 +42110,7 @@ int ke_send_msg_414(int a1, int a2, int16_t a3, int16_t a4) {
   uint8_t v245; // [sp+A8h] [bp-3FCh]
   char _pad11[1]; char v246; // [sp+AAh] [bp-3FAh]
   } _frame;
-  v5 = (volatile uint32_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(1044), a4, a3, 0x48u);
+  v5 = (volatile uint32_t *)ke_msg_send_1(1044, a4, a3, 0x48u);
   v6 = v5;
   switch ( *(volatile uint32_t *)a2 )
   {
@@ -43605,7 +43605,7 @@ int ke_send_msg_410(int a1, int a2, int16_t a3, int16_t a4) {
   volatile uint32_t *v12; // r3
   volatile uint32_t *v13; // r3
 
-  v5 = ((int (*)())ke_msg_send_1)((void *)(uintptr_t)(1040), a4, a3, 4u);
+  v5 = ke_msg_send_1(1040, a4, a3, 4u);
   v6 = *(volatile uint16_t *)(a2 + 4);
   v7 = (volatile uint32_t *)v5;
   if ( *((volatile uint8_t *)off_121348 + 177) )
@@ -43649,7 +43649,7 @@ int patch_ram_download(int a1, volatile uint32_t *a2, int16_t a3, int16_t a4) {
   unsigned int v7; // r2
   int v8; // r4
 
-  v5 = (volatile uint32_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(1060), a4, a3, 0x408u);
+  v5 = (volatile uint32_t *)ke_msg_send_1(1060, a4, a3, 0x408u);
   v7 = a2[1];
   v6 = *a2;
   if ( v7 >= 0x400 )
@@ -43672,7 +43672,7 @@ int rf_write_0x40c(int a1, volatile uint32_t *a2, int16_t a3, int16_t a4) {
   int v7; // zf
   int v8; // r2
 
-  v5 = (volatile uint32_t *)((int (*)())ke_msg_send_1)((void *)(uintptr_t)(1036), a4, a3, 4u);
+  v5 = (volatile uint32_t *)ke_msg_send_1(1036, a4, a3, 4u);
   v6 = *a2;
   v7 = *a2 << 30 == 0;
   v8 = a2[1];
@@ -45060,7 +45060,7 @@ int process_items(int a1, int a2) {
       v7 = parse_number(*(volatile uint8_t **)(a2 + 8), 0, 0);
       if ( v7 > 5 )
       {
-        dispatch_event_handler_1(rf_mem_write_n4d8, v7);
+        dispatch_event_handler_1((int)(uintptr_t)(rf_mem_write_n4d8), v7);
       }
       else
       {
@@ -51113,7 +51113,7 @@ int rf_enable_2() {
   {
     sdio_core_reset_alt();
     v0[6] = get_xtal_ftune();
-    ((int (*)())rf_set_frequency_2)();
+    rf_set_frequency_2();
     v2 = (uint8_t)v0[5];
     if ( (uint8_t)v0[6] != v2 )
     {

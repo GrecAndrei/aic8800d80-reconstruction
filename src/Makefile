@@ -17,7 +17,7 @@ SRCS_LMAC_RF   = lmacfw_rf_u02/main.c
 
 ALL_TARGETS = fmacfw_8800d80_u02.o fmacfw_8800d80_h_u02.o fmacfwbt_8800d80_u02.o lmacfw_rf_8800d80_u02.o
 
-.PHONY: all clean check
+.PHONY: all clean check reproduce
 
 all: check
 
@@ -28,6 +28,13 @@ check:
 	$(CC) $(CFLAGS) -c $(SRCS_FMAC_BT) -o fmacfwbt_8800d80_u02.o
 	$(CC) $(CFLAGS) -c $(SRCS_LMAC_RF) -o lmacfw_rf_8800d80_u02.o
 	@echo "SUCCESS: All 4 firmware C source targets compiled cleanly into ARM Cortex-M object modules."
+
+# Regenerate the four main.c from src/<image>/functions/ (compose, heal, the
+# mechanical rules) and fail if the result differs from the tracked files.
+reproduce:
+	cd .. && go build -o bin/fwstruct ./cmd/fwstruct && bin/fwstruct compose
+	cd .. && git diff --exit-code --stat -- src metadata/libmatch.json
+	@echo "SUCCESS: a fresh compose reproduces the tracked src/."
 
 clean:
 	rm -f $(ALL_TARGETS) *.o

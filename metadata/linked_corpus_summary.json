@@ -1,8 +1,8 @@
 {
   "functions": 4714,
   "outcomes": {
-    "DIFFER": 230,
-    "MATCH": 4228,
+    "DIFFER": 228,
+    "MATCH": 4230,
     "NOT_RUN": 256
   },
   "per_image": {
@@ -12,8 +12,8 @@
       "NOT_RUN": 69
     },
     "fmacfw_8800d80_u02": {
-      "DIFFER": 41,
-      "MATCH": 1172,
+      "DIFFER": 39,
+      "MATCH": 1174,
       "NOT_RUN": 69
     },
     "fmacfwbt_8800d80_u02": {
@@ -32,10 +32,10 @@
       "console_text": 122,
       "no_return_in:prepare_debug_buffer": 12,
       "no_return_in:periph_write_read": 10,
-      "assert_trap_only_in_original": 8,
       "no_return_in:clock_start": 7,
       "no_return_in:mmio_write_cmd": 7,
       "no_return_in:send_command": 7,
+      "assert_trap_only_in_original": 6,
       "no_return_in:rf_init_regs": 5,
       "no_return_in:rx_process_packet_2": 4,
       "no_return_in:crypto_start_operation": 3,
@@ -76,7 +76,7 @@
     },
     "MATCH": {
       "identical_peripheral_writes": 3694,
-      "identical_peripheral_writes_up_to_assert_trap": 534
+      "identical_peripheral_writes_up_to_assert_trap": 536
     },
     "NOT_RUN": {
       "original_does_not_return_standalone": 187,
