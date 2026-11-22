@@ -27,33 +27,43 @@ typedef unsigned long long _QWORD;
 typedef int _BOOL1;
 typedef void _UNKNOWN;
 
-/* Hex-Rays Byte/Word Extract & Insert Macros */
-#define LOBYTE(x)   ((uint8_t)((uintptr_t)(x) & 0xFF))
-#define HIBYTE(x)   ((uint8_t)(((uintptr_t)(x) >> 8) & 0xFF))
-#define LOWORD(x)   ((uint16_t)((uintptr_t)(x) & 0xFFFF))
-#define HIWORD(x)   ((uint16_t)(((uintptr_t)(x) >> 16) & 0xFFFF))
-#define LODWORD(x)  ((uint32_t)(uintptr_t)(x))
-#define HIDWORD(x)  ((uint32_t)(((uint64_t)(uintptr_t)(x) >> 32)))
-/* Hex-Rays BYTE1-4 / WORD1-2 byte-select macros (1-based, LSB = BYTE1) */
-#define BYTE1(x)    ((uint8_t)((uintptr_t)(x) & 0xFF))
-#define BYTE2(x)    ((uint8_t)(((uintptr_t)(x) >> 8) & 0xFF))
-#define BYTE3(x)    ((uint8_t)(((uintptr_t)(x) >> 16) & 0xFF))
-#define BYTE4(x)    ((uint8_t)(((uintptr_t)(x) >> 24) & 0xFF))
-#define WORD1(x)    ((uint16_t)((uintptr_t)(x) & 0xFFFF))
-#define WORD2(x)    ((uint16_t)(((uintptr_t)(x) >> 16) & 0xFFFF))
-#define SHIBYTE(x)  ((int8_t)(((uintptr_t)(x) >> 8) & 0xFF))
-#define SLOBYTE(x)  ((int8_t)((uintptr_t)(x) & 0xFF))
-#define SHIWORD(x)  ((int16_t)(((uintptr_t)(x) >> 16) & 0xFFFF))
-#define SLOWORD(x)  ((int16_t)((uintptr_t)(x) & 0xFFFF))
-#define SHIDWORD(x) ((int32_t)(((uint64_t)(uintptr_t)(x) >> 32)))
+/* Hex-Rays Byte/Word Extract Macros, with the meaning IDA's defs.h gives them:
+ * BYTEn/WORDn count from 0 at the least significant end (BYTE1 is bits 8..15,
+ * WORD1 bits 16..31, BYTE4 and WORD2 start at bit 32), and HIBYTE/HIWORD/
+ * HIDWORD select the most significant unit of the operand's own type, so
+ * HIBYTE of a 32-bit value is bits 24..31. Checked against the binary:
+ * fmacfw_h is_scan_active @ 0x1016a8 computes HIBYTE(reg) as `lsrs r3, #24`
+ * and BYTE2(reg) as `ubfx r2, r2, #16, #8`. A pointer operand is widened
+ * through uintptr_t (GCC would sign-extend it otherwise). */
+#define HX_U64(x)   ((uint64_t)__builtin_choose_expr(__builtin_classify_type(x) == 5, (uintptr_t)(x), (x)))
+#define BYTEn(x, n) ((uint8_t)(HX_U64(x) >> (8 * (n))))
+#define WORDn(x, n) ((uint16_t)(HX_U64(x) >> (16 * (n))))
+#define LOBYTE(x)   BYTEn(x, 0)
+#define HIBYTE(x)   BYTEn(x, sizeof(x) - 1)
+#define LOWORD(x)   WORDn(x, 0)
+#define HIWORD(x)   WORDn(x, sizeof(x) / 2 - 1)
+#define LODWORD(x)  ((uint32_t)HX_U64(x))
+#define HIDWORD(x)  ((uint32_t)(HX_U64(x) >> 32))
+#define BYTE1(x)    BYTEn(x, 1)
+#define BYTE2(x)    BYTEn(x, 2)
+#define BYTE3(x)    BYTEn(x, 3)
+#define BYTE4(x)    BYTEn(x, 4)
+#define WORD1(x)    WORDn(x, 1)
+#define WORD2(x)    WORDn(x, 2)
+#define SHIBYTE(x)  ((int8_t)HIBYTE(x))
+#define SLOBYTE(x)  ((int8_t)LOBYTE(x))
+#define SHIWORD(x)  ((int16_t)HIWORD(x))
+#define SLOWORD(x)  ((int16_t)LOWORD(x))
+#define SHIDWORD(x) ((int32_t)HIDWORD(x))
 
 /* Hex-Rays Pair & Shift Intrinsics */
 #define __PAIR64__(high, low) (((uint64_t)(uint32_t)(high) << 32) | (uint32_t)(low))
 #define __CFSHL__(x, y)       ((uint8_t)((((uint32_t)(uintptr_t)(x)) >> (32 - (y))) & 1))
 #define __clz(x)              ((x) ? __builtin_clz(x) : 32)
 
-static inline uint8_t __OFADD__(uint32_t a, uint32_t b) { return ((a + b) < a); }
-static inline uint8_t __OFSUB__(uint32_t a, uint32_t b) { return (a < b); }
+/* Signed overflow (the V flag) of a + b and a - b. */
+static inline uint8_t __OFADD__(int32_t a, int32_t b) { int32_t r; return __builtin_add_overflow(a, b, &r); }
+static inline uint8_t __OFSUB__(int32_t a, int32_t b) { int32_t r; return __builtin_sub_overflow(a, b, &r); }
 
 /* ARM CPSR & IRQ Intrinsics Stub */
 static inline uint32_t __get_CPSR(void) { return 0; }
@@ -68,10 +78,15 @@ static inline void __pld(const void *p) { (void)p; }
 #define __mcr(...)     __asm__ volatile("" ::: "memory")
 #define __mrc(...)     0u
 #define __cdp(...)     __asm__ volatile("" ::: "memory")
-#define __und(...)     __asm__ volatile(".word 0xe7f000f0")
+/* Hex-Rays __und(n) is the Thumb `udf #n` (0xDE00 | n; the firmware's assert
+ * trap is udf #255 = 0xDEFF). The ARM-mode word used here before decoded in
+ * Thumb as `lsls r0, r6, #3; b.n .-28`, a shift and a backward branch. */
+#define __und(n)       __asm__ volatile(".inst.n 0xde00 + %c0" :: "i"(n))
 static inline uint32_t __rev16(uint32_t v) { return ((v & 0xFF00FF00u) >> 8) | ((v & 0x00FF00FFu) << 8); }
 static inline uint32_t __rev(uint32_t v)   { return __builtin_bswap32(v); }
-static inline uint32_t __usat(uint32_t v, int sat, int shift) { (void)sat; (void)shift; return v; }
+/* ARM USAT as Hex-Rays prints it, __usat(bits, value): value clamped to
+ * 0 .. 2^bits - 1 (gpio_mode_set stores the results in 3- and 4-bit fields). */
+static inline uint32_t __usat(uint32_t bits, int32_t v) { int32_t max = (int32_t)((1u << bits) - 1u); return (uint32_t)(v < 0 ? 0 : v > max ? max : v); }
 static inline uint32_t bswap32(uint32_t v) { return __builtin_bswap32(v); }
 static inline uint32_t abs16(int32_t v)    { return (uint32_t)(v < 0 ? -v : v); }
 static inline uint32_t abs32(int32_t v)    { return (uint32_t)(v < 0 ? -v : v); }

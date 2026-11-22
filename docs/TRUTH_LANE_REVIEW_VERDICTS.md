@@ -126,6 +126,11 @@ All 25 targets, linked run:
 | `-O2` | 14 PASS / 0 REVIEW / 11 FAIL | 19 PASS / 0 REVIEW / 6 FAIL |
 | `-O0` | 19 / 0 / 6 | 19 / 0 / 6 |
 
+Later rules (`docs/LINKED_CORPUS_COMPARISON.md`: stack frames, soft-float
+values, signed compares) bring the `-O2` linked run to 20 PASS / 0 REVIEW /
+5 FAIL and the 7 to 2 PASS / 5 FAIL: `rf_level_apply` in fmacfwbt now matches
+(98 / 98 writes). The text below describes the state before them.
+
 The 7 formerly REVIEW targets are still 1 PASS / 6 FAIL, but for narrower
 reasons. Before, 5 of the 6 never returned; now all 6 return, and in the 5 formatter rows the only
 register whose writes differ is the UART data register 0x40032000:
@@ -166,6 +171,7 @@ python3 -m unittest discover -s tools -p 'test_*.py'
 python3 tools/libmatch.py scan --check && python3 tools/libmatch.py apply --check
 python3 tools/heal_two_d_subscript.py --check && python3 tools/volatile_pointees.py --check
 python3 tools/callsite_targets.py --check && python3 tools/periph_symbols.py --check   # docs/LINKED_CORPUS_COMPARISON.md
+for r in asm_returns call_cast_returns double_args float_bits stack_frames dword_compares; do python3 tools/$r.py --check; done
 
 make -C src check                      # add OPT=-O0 for the diagnostic build
 python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run

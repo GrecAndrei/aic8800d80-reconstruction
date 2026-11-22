@@ -75,6 +75,7 @@ from unicorn import (
     UcError,
 )
 from unicorn.arm_const import (
+    UC_ARM_REG_CPSR,
     UC_ARM_REG_LR,
     UC_ARM_REG_PC,
     UC_ARM_REG_R0,
@@ -132,6 +133,7 @@ RETURN_STOP = 0xDEADC000
 # (0xdeadc001) which unicorn may fetch as 0xdeadc000/0xdeadc001/0xdeadc002
 # depending on alignment. ANY fetch in this page means the function returned.
 SENTINEL_BASE = RETURN_STOP & ~0xFFF
+IT_BITS = 0x0600FC00  # CPSR IT-block state: bits 26:25 and 15:10
 SENTINEL_END = SENTINEL_BASE + 0x1000
 PAGE_SIZE = 0x1000
 
@@ -495,9 +497,14 @@ class Aic8800D80Platform:
         # emulation of a UART/console with no host attached.
         self._rx_available: set[int] = set()   # status addrs currently "byte ready"
         self.insn_count = 0
+        self.counter_by_reads = 0   # ticks per counter read; 0 = by instruction count
+        self._counter_reads = 0
         self.branch_taken = 0
         self.cur_fn: str | None = None
         self.fn_entries: list[str] = []
+        self._invalid_retry_pc: int | None = None
+        self._assert_stops = False
+        self._asserted = False
         self.call_stack: list[str] = []
         self.call_depth = 0
         # Set by the null-function-pointer hook; run() re-enters at this LR.
@@ -791,9 +798,31 @@ class Aic8800D80Platform:
             if CHIP_BASE <= pc < CHIP_BASE + len(self.image) - 1:
                 off = pc - CHIP_BASE
                 if (self.image[off] | (self.image[off + 1] << 8)) == 0xDEFF:
+                    if self._assert_stops:
+                        # The trap never returns on hardware (UsageFault); what
+                        # follows it is often a literal pool. End the run here.
+                        self._asserted = True
+                        uc.emu_stop()
+                        return True
                     self._skip_to = pc + 2
                     uc.emu_stop()
                     return True
+            # Unicorn can keep stale IT-block bits in CPSR when a translation
+            # block starts right after an IT block (seen at a 1 KB page
+            # boundary: ``it pl; lslpl; cmp; beq.w``) and then rejects the next
+            # instruction as "inside an IT block". If the bytes decode as Thumb
+            # and CPSR still carries IT bits, clear them and re-enter at the
+            # same pc once; a second report at that pc falls through to the
+            # garbage-branch handling below.
+            cpsr = int(uc.reg_read(UC_ARM_REG_CPSR))
+            if (CHIP_BASE <= pc < CHIP_BASE + len(self.image) - 3
+                    and cpsr & IT_BITS and self._invalid_retry_pc != pc
+                    and self._decodes_as_thumb(pc)):
+                uc.reg_write(UC_ARM_REG_CPSR, cpsr & ~IT_BITS)
+                self._invalid_retry_pc = pc
+                self._skip_to = pc
+                uc.emu_stop()
+                return True
             # Any OTHER invalid instruction at a high PC is a garbage indirect
             # branch (a ``bx``/``blx``/``pop {pc}`` landing mid-instruction,
             # e.g. 0x1252c8 inside a 4-byte ``vmrs``) or an even-address Thumb
@@ -1097,6 +1126,13 @@ class Aic8800D80Platform:
         if btype == "counter":
             # Monotonic hardware tick counter: advances with emulated time so
             # firmware ``while (counter < t + N)`` delay spins terminate.
+            if self.counter_by_reads:
+                # Time advances per read, not per instruction: the value
+                # depends on the path taken, not on how many instructions the
+                # compiler spent getting there, so two builds of the same
+                # logic read the same time.
+                self._counter_reads += 1
+                return min(0xFFFFFFFF, self._counter_reads * self.counter_by_reads)
             rate = int(bh.get("tick_rate", "500"))
             return min(0xFFFFFFFF, self.insn_count // rate)
         return None
@@ -1220,6 +1256,16 @@ class Aic8800D80Platform:
             return (val_reg, base_reg, cmp_m)
         return None
 
+    def _decodes_as_thumb(self, pc: int) -> bool:
+        try:
+            from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_MCLASS
+        except ImportError:
+            return False
+        off = pc - CHIP_BASE
+        md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+        ins = next(md.disasm(bytes(self.image[off:off + 4]), pc), None)
+        return ins is not None and ins.mnemonic != "udf"
+
     def _null_return(self, uc) -> None:
         """Handle a null / garbage function-pointer call (stop, return 0).
 
@@ -1267,7 +1313,7 @@ class Aic8800D80Platform:
     # -- execution --------------------------------------------------------
     def run(self, entry: int, max_insns: int, sp: int | None = None,
             lr: int | None = None, spin_break: bool = False,
-            max_reexits: int = 256) -> tuple[str, dict]:
+            max_reexits: int = 256, assert_stops: bool = False) -> tuple[str, dict]:
         """Run from ``entry`` (thumb bit honored) until return, cap, or fault.
 
         ``spin_break`` enables the wait-loop breaker: a backward-branch wait
@@ -1287,6 +1333,7 @@ class Aic8800D80Platform:
         pc, e.g. past the re-entry budget of a driver init with many waits).
         """
         self.insn_count = 0
+        self._counter_reads = 0
         self.traffic = []
         self.cur_fn = None
         self.fn_entries = []
@@ -1294,6 +1341,8 @@ class Aic8800D80Platform:
         self.call_depth = 0
         self.last_unmapped = []
         self._spin_break = spin_break
+        self._assert_stops = assert_stops
+        self._asserted = False
         self._spin_counts = {}
         self._spin_last_read = -10**9
         self._spin_last_read_addr = 0
@@ -1317,6 +1366,7 @@ class Aic8800D80Platform:
         cap_flag = {"n": max_insns}
         fault = {"access": None, "address": None, "size": None, "detail": ""}
         stop = {"value": "running"}
+        self._invalid_retry_pc = None
         self._null_return_lr = None
         self._skip_to = None
 
@@ -1336,6 +1386,9 @@ class Aic8800D80Platform:
         for _ in range(max_reexits):
             try:
                 self.mu.emu_start(start_ea, RETURN_STOP)
+                if self._asserted:
+                    stop["value"] = "asserted"
+                    break
                 if self._skip_to is not None:
                     start_ea = self._skip_to | 1
                     self._skip_to = None
@@ -1348,6 +1401,9 @@ class Aic8800D80Platform:
                     continue
                 break
             except UcError as e:
+                if self._asserted:
+                    stop["value"] = "asserted"
+                    break
                 if self._skip_to is not None:
                     start_ea = self._skip_to | 1
                     self._skip_to = None

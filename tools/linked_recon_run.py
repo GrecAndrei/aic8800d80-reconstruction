@@ -49,6 +49,12 @@ MARKER = re.compile(r"^// (\S+) @ (0x[0-9a-fA-F]+)\s*$", re.MULTILINE)
 # image at 0x120000, so the linked code is placed clear of it and the original
 # image stays mapped as the data those pointers refer to.
 LINK_BASE = 0x00800000
+# A run ends by returning or by reaching the firmware's assert trap (udf #255,
+# which never returns on hardware). Both are comparable; a cap or a fault is not.
+ENDED = ("returned", "asserted")
+# The tick counters advance by this much per read in both runs (not by
+# instruction count, which differs between the two builds of the same logic).
+COUNTER_TICKS_PER_READ = 100
 LINK_SPAN = 0x00400000
 
 
@@ -112,8 +118,13 @@ def function_at(funcs: list[tuple[int, str]], pc: int) -> str | None:
 def run_original(image: str, key: int, max_insns: int, model) -> dict:
     path = emu.resolve_image(image)
     plat = emu.Aic8800D80Platform(path, mmio_model=model)
+    plat.counter_by_reads = COUNTER_TICKS_PER_READ
     plat.function_table = emu.load_function_table(Path(path.name).stem)
-    term, stats = plat.run(key + emu.HW_OFFSET, max_insns, sp=plat.ivt()["stack_pointer"])
+    # The platform's free(NULL) shortcut for the original would let it run on
+    # where the firmware asserts; the reconstruction gets no such shortcut.
+    plat._free_entries = ()
+    term, stats = plat.run(key + emu.HW_OFFSET, max_insns, sp=plat.ivt()["stack_pointer"],
+                           assert_stops=True)
     return {"termination": term, "instructions": stats["instructions"],
             "r0": hex(plat.mu.reg_read(UC_ARM_REG_R0)),
             "functions": stats["functions"], **fingerprint(plat.traffic)}
@@ -133,6 +144,7 @@ def run_linked(image: str, key: int, max_insns: int, model) -> dict:
         raise SystemExit(f"{elf}: spans {base:#x}-{mem_end:#x}, expected --text-base {LINK_BASE:#x}")
     orig_image = emu.resolve_image(image)
     plat = emu.Aic8800D80Platform(orig_image, mmio_model=model)
+    plat.counter_by_reads = COUNTER_TICKS_PER_READ
     sp = plat.ivt()["stack_pointer"]
     orig_len = len(plat.image)
     plat._map_rwx(LINK_BASE, LINK_SPAN)
@@ -153,11 +165,11 @@ def run_linked(image: str, key: int, max_insns: int, model) -> dict:
     saved = emu.CHIP_BASE
     emu.CHIP_BASE, plat.image = LINK_BASE, blob
     try:
-        term, stats = plat.run(by_name[name], max_insns, sp=sp)
+        term, stats = plat.run(by_name[name], max_insns, sp=sp, assert_stops=True)
     finally:
         emu.CHIP_BASE = saved
     stopped_in = None
-    if term != "returned":
+    if term not in ENDED:
         stopped_in = function_at(funcs, plat.mu.reg_read(UC_ARM_REG_PC))
     return {"termination": term, "stopped_in": stopped_in, "symbol": name, "linked_address": hex(by_name[name]),
             "instructions": stats["instructions"], "functions": stats["functions"],
@@ -171,12 +183,14 @@ def linked_verdict(orig: dict, recon: dict) -> tuple[str, str]:
     """Return (verdict, basis) for one target's complete peripheral traffic."""
     if recon["termination"] == "no_symbol":
         return "REVIEW", "target_not_in_linked_image"
-    if recon["termination"] != "returned":
+    if recon["termination"] not in ENDED:
         return "FAIL", "linked_run_did_not_return"
     if recon["left_reconstruction_at"]:
         return "REVIEW", "linked_run_left_reconstruction"
-    if orig["termination"] != "returned":
+    if orig["termination"] not in ENDED:
         return "REVIEW", "original_did_not_return"
+    if recon["termination"] != orig["termination"]:
+        return "FAIL", "one_run_returns_the_other_asserts"
     if recon["periph_write_sequence"] == orig["periph_write_sequence"]:
         if recon["periph_sequence"] == orig["periph_sequence"]:
             return "PASS", "identical_peripheral_sequence"
@@ -230,14 +244,19 @@ def corpus_outcome(orig: dict, recon: dict, verdict: str, diff: dict | None,
     """
     if recon["termination"] == "no_symbol":
         return "NOT_RUN", "not_in_linked_image"
-    if orig["termination"] != "returned":
+    if orig["termination"] not in ENDED:
         return "NOT_RUN", "original_does_not_return_standalone"
     if verdict == "PASS":
+        if orig["termination"] == "asserted":
+            return "MATCH", "identical_peripheral_writes_up_to_assert_trap"
         return "MATCH", "identical_peripheral_writes"
     if verdict == "REVIEW":
         return "NOT_RUN", "linked_run_left_reconstruction"
-    if recon["termination"] != "returned":
+    if recon["termination"] not in ENDED:
         return "DIFFER", f"no_return_in:{recon.get('stopped_in')}"
+    if recon["termination"] != orig["termination"]:
+        side = "reconstruction" if recon["termination"] == "asserted" else "original"
+        return "DIFFER", f"assert_trap_only_in_{side}"
     if diff and CONSOLE_TX in ((diff["orig"] or [None])[0], (diff["recon"] or [None])[0]):
         return "DIFFER", "console_text"
     return "DIFFER", f"register_write_in:{writer}"

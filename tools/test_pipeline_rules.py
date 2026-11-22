@@ -6,6 +6,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import asm_returns
+import call_cast_returns
+import double_args
+import dword_compares
+import float_bits
+import stack_frames
 import callsite_targets
 import libmatch
 import periph_symbols
@@ -129,6 +135,203 @@ class CallsiteTargets(unittest.TestCase):
                 self.skipTest("firmware images are not in the tree")
             text = (callsite_targets.REPO / "src" / short / "main.c").read_text(errors="replace")
             self.assertEqual(callsite_targets.rebind(text, fw.read_bytes())[1], [])
+            self.assertEqual(callsite_targets.entry_labels(text, fw.read_bytes())[1], [])
+
+
+class EntryLabels(unittest.TestCase):
+    # 0x100000: bl 0x10000c    0x100004: bx lr    0x100008: literal word
+    # 0x10000c: push {r4, lr}; pop {r4, pc}
+    BLOB = bytes.fromhex("00f004f8" "7047" "0000" "a4221900" "10b5" "10bd")
+    SRC = ("#define loc_10000C 0x10000c  /* code label address */\n"
+           "// caller @ 0x100000\nint caller(int a1) {\n"
+           "  return ((int ( *)(int))loc_10000C)(a1) + loc_10000C;\n}\n\n"
+           "// alloc @ 0x100008\nint alloc(int a1) {\n  return a1;\n}\n")
+
+    def test_a_label_the_binary_calls_instead_of_the_start_is_the_entry(self):
+        out, done = callsite_targets.entry_labels(self.SRC, self.BLOB)
+        self.assertEqual(done, [("loc_10000C", "alloc")])
+        self.assertIn("return ((int ( *)(int))alloc)(a1) + loc_10000C;", out)
+        self.assertIn("#define loc_10000C 0x10000c", out)
+        self.assertEqual(callsite_targets.entry_labels(out, self.BLOB), (out, []))
+
+    def test_a_second_entry_point_is_left_alone(self):
+        # 0x100004 becomes bl 0x100008: the function start is called too
+        blob = self.BLOB[:4] + bytes.fromhex("00f000f8") + self.BLOB[8:]
+        self.assertEqual(callsite_targets.entry_labels(self.SRC, blob), (self.SRC, []))
+
+    def test_a_label_that_is_not_a_prologue_or_too_far_in_is_left_alone(self):
+        blob = self.BLOB[:12] + bytes.fromhex("7047" "0000")     # bx lr at the label
+        self.assertEqual(callsite_targets.entry_labels(self.SRC, blob), (self.SRC, []))
+        src = self.SRC.replace("// alloc @ 0x100008", "// alloc @ 0x0fffe8")
+        src = src.replace("// caller @ 0x100000", "// caller @ 0x0fffe0")
+        self.assertEqual(callsite_targets.entry_labels(src, self.BLOB), (src, []))
+
+
+class AsmReturns(unittest.TestCase):
+    ANN = ("// sub_1 @ 0x1\nvoid __fastcall sub_1(int a1)\n{\n  if ( !a1 )\nLABEL_1:\n"
+           "    __asm { POP.W           {R4-R11,PC} }\n  g();\n  goto LABEL_1;\n}\n")
+    BODY = "\nvoid f(int a1) {\n  if ( !a1 )\nLABEL_1:\n    \n  g();\n  goto LABEL_1;\n}\n\n"
+
+    def test_the_stripped_epilogue_is_a_return(self):
+        out, done, left = asm_returns.restore(self.BODY, self.ANN)
+        self.assertEqual((done, left), (1, 0))
+        self.assertIn("  if ( !a1 )\nLABEL_1:\n    return;\n  g();", out)
+        self.assertTrue(out.endswith("}\n\n"))
+        self.assertEqual(asm_returns.restore(out, self.ANN), (out, 0, 0))
+
+    def test_a_function_with_the_r0_variable_returns_it(self):
+        body = self.BODY.replace("void f(int a1)", "int f(int result, int a1)").replace("    \n", "{ }\n")
+        out, done, left = asm_returns.restore(body, self.ANN)
+        self.assertEqual((done, left), (1, 0))
+        self.assertIn("LABEL_1:\n    return result;\n", out)
+
+    def test_an_unknown_return_value_is_left(self):
+        body = self.BODY.replace("void f(int a1)", "int f(int a1)")
+        self.assertEqual(asm_returns.restore(body, self.ANN), (body, 0, 1))
+
+    def test_other_asm_and_filled_lines_are_left(self):
+        ann = self.ANN.replace("POP.W           {R4-R11,PC}", "UADD8.W         R5, R2, R12")
+        self.assertEqual(asm_returns.restore(self.BODY, ann), (self.BODY, 0, 0))
+        body = self.BODY.replace("    \n", "    h();\n")
+        self.assertEqual(asm_returns.restore(body, self.ANN), (body, 0, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for short, image in asm_returns.IMAGES.items():
+            text = (asm_returns.REPO / "src" / short / "main.c").read_text(errors="replace")
+            ann = asm_returns.REPO / "harness_v25" / "out" / f"{image}_bin_annotated"
+            self.assertEqual(asm_returns.restore_image(text, ann)[1], [])
+
+
+class CallCastReturns(unittest.TestCase):
+    SRC = ("// dmul @ 0x100000\nuint64_t dmul(uint64_t a1) {\n  return a1;\n}\n\n"
+           "// f @ 0x100010\nint f(int a1) {\n  return a1;\n}\n\n"
+           "// g @ 0x100020\nint g() {\n  uint64_t v1;\n"
+           "  v1 = ((int (*)())dmul)(1, 2);\n  v1 = ((int ( *)(int))dmul)(3);\n"
+           "  return ((int (*)())f)(1, 2);\n}\n")
+
+    def test_a_cast_over_a_64_bit_callee_keeps_its_return_type(self):
+        out, n = call_cast_returns.widen(self.SRC)
+        self.assertEqual(n, 2)
+        self.assertIn("v1 = ((uint64_t (*)())dmul)(1, 2);", out)
+        self.assertIn("v1 = ((uint64_t ( *)(int))dmul)(3);", out)
+        self.assertIn("return ((int (*)())f)(1, 2);", out)
+        self.assertEqual(call_cast_returns.widen(out), (out, 0))
+
+    def test_rtabi_helpers_return_64_bits_by_name_or_through_a_libmatch_binding(self):
+        src = ('int dmul_1(uint64_t a1, int a2) __asm__("__libmatch___aeabi_dmul");\n'
+               'int cmp_1(uint64_t a1) __asm__("__libmatch___aeabi_dcmpeq");\n'
+               "// g @ 0x100020\nint g() {\n  uint64_t v1;\n"
+               "  v1 = ((int (*)())__aeabi_f2d)(1);\n  v1 = ((int (*)())dmul_1)(1, 2, 3, 4);\n"
+               "  return ((int (*)())cmp_1)(1, 2) + ((int (*)())__aeabi_dcmpeq)(1, 2);\n}\n")
+        out, n = call_cast_returns.widen(src)
+        self.assertEqual(n, 3)
+        self.assertIn('uint64_t dmul_1(uint64_t a1, int a2) __asm__', out)
+        self.assertIn('int cmp_1(uint64_t a1) __asm__', out)
+        self.assertIn("((uint64_t (*)())__aeabi_f2d)(1)", out)
+        self.assertIn("((uint64_t (*)())dmul_1)(1, 2, 3, 4)", out)
+        self.assertIn("((int (*)())cmp_1)(1, 2) + ((int (*)())__aeabi_dcmpeq)(1, 2)", out)
+        self.assertEqual(call_cast_returns.widen(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in call_cast_returns.IMAGES:
+            text = (call_cast_returns.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(call_cast_returns.widen(text)[1], 0)
+
+
+class StackFrames(unittest.TestCase):
+    SRC = ("// f @ 0x100000\nint f(int a1) {\n  int v1; // r0\n"
+           "  int v3; // [sp+0h] [bp-10h]\n  uint8_t v4[4]; // [sp+8h] [bp-8h] BYREF\n"
+           "  char v5; // [sp+Ch] [bp-4h] BYREF\n\n"
+           "  v3 = a1;\n  v1 = *((volatile uint32_t *)&v4[0] - 2);\n  return v1 + (&v5 - (char *)v4);\n}\n")
+
+    def test_stack_locals_keep_their_printed_offsets(self):
+        out, n = stack_frames.apply(self.SRC)
+        self.assertEqual(n, 1)
+        self.assertIn("struct __attribute__((packed)) { int v3; // [sp+0h]", out)
+        self.assertIn("  char _pad1[4]; uint8_t v4[4]; // [sp+8h]", out)
+        self.assertIn("  char v5; // [sp+Ch]", out)
+        self.assertIn("  } _frame;\n  _frame.v3 = a1;", out)
+        self.assertIn("&_frame.v4[0] - 2", out)
+        self.assertIn("int v1; // r0", out)
+        self.assertEqual(out.count("\n"), self.SRC.count("\n"))
+        self.assertEqual(stack_frames.apply(out), (out, 0))
+
+    def test_a_frame_without_an_address_taken_local_or_with_unknown_sizes_is_left_alone(self):
+        plain = self.SRC.replace(" BYREF", "")
+        self.assertEqual(stack_frames.apply(plain), (plain, 0))
+        odd = self.SRC.replace("int v3;", "struct_x v3;")
+        self.assertEqual(stack_frames.apply(odd), (odd, 0))
+        overlap = self.SRC.replace("[sp+Ch]", "[sp+9h]")
+        self.assertEqual(stack_frames.apply(overlap), (overlap, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in stack_frames.IMAGES:
+            text = (stack_frames.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(stack_frames.apply(text)[1], 0)
+
+
+class DoubleArgs(unittest.TestCase):
+    SRC = ('uint64_t ddiv(unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4) __asm__("__libmatch___aeabi_ddiv");\n'
+           'unsigned int d2f(unsigned int a1, int a2) __asm__("__libmatch___aeabi_d2f");\n'
+           "// f @ 0x100000\nint f(int a1) {\n  int v1; // r0\n  int v2; // r0\n  uint64_t v3; // r0\n  int v4; // r0\n\n"
+           "  v1 = ddiv(a1, 0, 1, 2);\n  v2 = a1;\n  v3 = ddiv(a1, 0, 1, 2);\n  v4 = ddiv(a1, 0, 1, 2);\n"
+           "  g(v4);\n"
+           "  return ((int (*)())d2f)(v1) + ((int (*)())d2f)(v2) + ((int (*)())d2f)(v3) + ((int (*)())d2f)(v4);\n}\n")
+
+    def test_a_double_reaches_the_helper_with_both_words(self):
+        out, n = double_args.apply(self.SRC)
+        self.assertEqual(n, 2)
+        self.assertIn("  uint64_t v1; // r0\n  int v2; // r0\n  uint64_t v3; // r0\n  int v4; // r0\n", out)
+        self.assertIn("return ((int (*)(uint64_t))d2f)(v1) + ((int (*)())d2f)(v2) + "
+                      "((int (*)(uint64_t))d2f)(v3) + ((int (*)())d2f)(v4);", out)
+        self.assertEqual(double_args.apply(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in double_args.IMAGES:
+            text = (double_args.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(double_args.apply(text)[1], 0)
+
+
+class DwordCompares(unittest.TestCase):
+    SRC = ("// f @ 0x100000\nint f(int a1, unsigned int a2) {\n  int v4; // r3\n  unsigned int v5; // r2\n\n"
+           "  if ( *(volatile uint32_t *)a1 < v4 && v5 <= 49 )\n    return 1;\n"
+           "  if ( v4 >= *(volatile uint32_t *)(a1 + 4 * (v5 + 1)) || *(volatile uint32_t *)(a1 + 8) > a2 )\n    return 2;\n"
+           "  if ( *(volatile uint32_t *)(a1 + 8) > v5 || *(volatile uint32_t *)(a1 + 8) > 1u )\n    return 3;\n"
+           "  return *(volatile uint32_t *)(a1 + 16) - v4 >= a1;\n}\n")
+
+    def test_a_load_compared_with_a_signed_local_is_a_signed_compare(self):
+        out, n = dword_compares.apply(self.SRC)
+        self.assertEqual(n, 2)
+        self.assertIn("if ( (int)*(volatile uint32_t *)a1 < v4 && v5 <= 49 )", out)
+        self.assertIn("if ( v4 >= (int)*(volatile uint32_t *)(a1 + 4 * (v5 + 1)) || *(volatile uint32_t *)(a1 + 8) > a2 )", out)
+        self.assertIn("if ( *(volatile uint32_t *)(a1 + 8) > v5 || *(volatile uint32_t *)(a1 + 8) > 1u )", out)
+        self.assertIn("return *(volatile uint32_t *)(a1 + 16) - v4 >= a1;", out)
+        self.assertEqual(dword_compares.apply(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in dword_compares.IMAGES:
+            text = (dword_compares.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(dword_compares.apply(text)[1], 0)
+
+
+class FloatBits(unittest.TestCase):
+    SRC = ("// f @ 0x100000\nint f(int a1) {\n  float v5; // r0\n  int v6; // r0\n  float v7; // r0\n\n"
+           "  v5 = ((int (*)(uint64_t))d2f)(a1);\n  v6 = ((int (*)(uint64_t))d2f)(a1);\n  v7 = v5 * 2.0;\n"
+           "  return f2d(LODWORD(v5)) + f2d(LODWORD(v6)) + g(v7);\n}\n"
+           "// h @ 0x100010\nint h(int v5) {\n  return LODWORD(v5);\n}\n")
+
+    def test_a_float_local_carries_the_helper_result_as_bits(self):
+        out, n = float_bits.apply(self.SRC)
+        self.assertEqual(n, 2)
+        self.assertIn("  v5 = COERCE_FLOAT(((int (*)(uint64_t))d2f)(a1));\n  v6 = ((int (*)(uint64_t))d2f)(a1);\n  v7 = v5 * 2.0;\n", out)
+        self.assertIn("return f2d(COERCE_UNSIGNED_INT(v5)) + f2d(LODWORD(v6)) + g(v7);", out)
+        self.assertIn("int h(int v5) {\n  return LODWORD(v5);", out)
+        self.assertEqual(float_bits.apply(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in float_bits.IMAGES:
+            text = (float_bits.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(float_bits.apply(text)[1], 0)
 
 
 class PeriphSymbols(unittest.TestCase):
