@@ -226,13 +226,15 @@ release tarball
   `make -C src check` still succeeds (current smoke results above).
 - **Linked comparison over all composed functions**:
   `tools/linked_recon_run.py --corpus` compares all 4,714 composed functions
-  against the original in the full link: **4,228 match / 230 differ / 256 not
+  against the original in the full link: **4,230 match / 228 differ / 256 not
   comparable** (exercised default-state path only; first run 3,581 / 433 /
   700). The run ends at a return or at the assert trap (`udf #255`) and the
   tick counters advance per read. Post-compose rules that came out of it, in
   order: `tools/callsite_targets.py`, `periph_symbols.py`, `asm_returns.py`,
   `call_cast_returns.py`, `double_args.py`, `float_bits.py`,
-  `stack_frames.py`, `dword_compares.py` (each has `--check`). The 25 targets
+  `stack_frames.py`, `dword_compares.py` (each has `--check`);
+  `fwstruct compose` runs them with heal through `tools/post_compose.py`, and
+  `make -C src reproduce` checks a fresh compose equals the tracked `src/`. The 25 targets
   are 20 PASS / 5 FAIL in the linked run. Causes and counts:
   `docs/LINKED_CORPUS_COMPARISON.md`.
 - **Compose dedupe**: units deduped by address, preferring the plain
@@ -300,10 +302,11 @@ python3 harness_v17/naming.py                # legacy full-function naming drive
 # Decompile pipeline (Hex-Rays, per image)
 harness_v19/scripts/run_v19.sh <image> both   # image names: fmacfw_8800d80_*_u02_bin etc.
 
-# Mechanical rules on the composed source (after compose + heal_composed; idempotent, --check)
-python3 tools/heal_two_d_subscript.py         # SYM[i][k] is the element, not its address
-python3 tools/libmatch.py scan && python3 tools/libmatch.py apply   # byte-identical libc/libgcc routines -> link the library routine
-python3 tools/volatile_pointees.py            # scalar pointees volatile (register access order at -O2)
+# Produce src/<image>/main.c: compose, then tools/post_compose.py (heal_composed +
+# every mechanical rule, in order). Needs inputs/firmware/*.bin (tools/fetch_firmware.sh).
+bin/fwstruct compose                          # -raw stops before post_compose
+python3 tools/post_compose.py --check         # every rule at its fixed point, sources compile
+make -C src reproduce                         # fresh compose == tracked src/ (git diff --exit-code)
 
 # Truth-lane behavioral verification
 python3 tools/truth_lane_smoke.py --final-dir extraction_out/reconstruction/mega7/final --out /tmp/opencode/truth_lane_smoke

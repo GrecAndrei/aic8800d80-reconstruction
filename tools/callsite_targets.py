@@ -99,11 +99,42 @@ def direct_targets(blob: bytes, start: int, end: int, starts: set[int]) -> set[i
     return out
 
 
-def rebind(text: str, blob: bytes) -> tuple[str, list, list]:
+def direct_sites(blob: bytes, start: int, end: int, starts: set[int]) -> list[int]:
+    """Function starts reached by direct branches from [start, end), in address order."""
+    from capstone import CS_ARCH_ARM, CS_MODE_MCLASS, CS_MODE_THUMB, Cs
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+    md.skipdata = True
+    out = []
+    for ins in md.disasm(blob[start - ANALYSIS_BASE:end - ANALYSIS_BASE], start):
+        if ins.mnemonic in ("bl", "b", "b.w") and ins.op_str.startswith("#"):
+            t = int(ins.op_str[1:], 16)
+            if t in starts and t != start:
+                out.append(t)
+    return out
+
+
+BRANCHING = re.compile(r"\b(if|else|for|while|do|switch|goto|case)\b|[?]|&&|\|\|")
+
+
+def straight_line_swaps(body: str, family: list[str], sites: list[str]) -> list[str] | None:
+    """Per-occurrence names for a body that mentions one duplicate-name family
+    as often as the binary branches to it, when the body has no control flow:
+    the occurrences are then in the binary's order. None when not applicable."""
+    if BRANCHING.search(body):
+        return None
+    uses = [x for x in IDENT.findall(body) if x in family]
+    if len(uses) != len(sites) or uses == sites:
+        return None
+    return sites
+
+
+def rebind(text: str, blob: bytes, fit: bool = True) -> tuple[str, list, list]:
     """Return (text, rebound, skipped), each [(caller, old callee, new callee)].
 
     Skipped: the binary targets the other definition, but its prototype does not
     fit the call as written, so the call site is left alone and reported.
+    With fit=False (before heal_composed, which then casts those calls) the
+    prototype is not consulted.
     """
     marks = list(MARKER.finditer(text))
     addr = {m.group(1): int(m.group(2), 16) for m in marks}
@@ -127,11 +158,28 @@ def rebind(text: str, blob: bytes) -> tuple[str, list, list]:
                 continue
             cands = [t for t in free if same_family(n, t)]
             if len(cands) == 1:
-                if compiles_as(body, n, cands[0], protos):
+                if not fit or compiles_as(body, n, cands[0], protos):
                     swaps[n] = cands[0]
                 else:
                     skipped.append((m.group(1), n, cands[0]))
-        # two names must not claim the same target
+        if not swaps:
+            # the binary reaches two members of a family the body names by one
+            # name: in a body without control flow, bind them in call order
+            sites = [name[t] for t in direct_sites(blob, a, min(end, ANALYSIS_BASE + len(blob)), starts)]
+            for n in sorted(named):
+                fam = [x for x in addr if x == n or same_family(n, x)]
+                fam_sites = [x for x in sites if x in fam]
+                want = straight_line_swaps(body, fam, fam_sites)
+                if want is None or m.group(1) in fam:
+                    continue
+                if fit and not all(protos.get(x) == protos.get(n) for x in want):
+                    skipped += [(m.group(1), n, x) for x in sorted(set(want) - {n})]
+                    continue
+                it = iter(want)
+                body = re.sub(r"\b(" + "|".join(map(re.escape, fam)) + r")\b",
+                              lambda k: next(it), body)
+                changes.append((m.group(1), n, "/".join(want)))
+                break
         if len(set(swaps.values())) != len(swaps):
             swaps = {}
         if swaps:
@@ -209,12 +257,16 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--check", action="store_true")
     ap.add_argument("-v", "--verbose", action="store_true")
+    ap.add_argument("--before-heal", action="store_true",
+                    help="rebind even where the callee's prototype does not fit; "
+                         "heal_composed must run next to cast those calls")
     args = ap.parse_args()
     pending = 0
     for short, long in IMAGES.items():
         path = REPO / "src" / short / "main.c"
         blob = (REPO / "inputs" / "firmware" / f"{long}.bin").read_bytes()
-        out, changes, skipped = rebind(path.read_text(errors="replace"), blob)
+        out, changes, skipped = rebind(path.read_text(errors="replace"), blob,
+                                       fit=not args.before_heal)
         out, labels = entry_labels(out, blob)
         pending += len(changes) + len(labels)
         print(f"[callsite_targets] {short}: {len(changes)} call-site names in "

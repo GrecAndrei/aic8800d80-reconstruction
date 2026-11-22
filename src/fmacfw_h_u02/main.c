@@ -11240,7 +11240,7 @@ int rf_calibration(int a1, int a2, volatile uint32_t *a3, volatile uint32_t *a4,
   } _frame;
   v7 = (volatile int *)dword_104C14;
   check_feature_flag(1, dword_104C10);
-  ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v61), dword_104C18, 128);
+  memcpy_1((void *)(_frame.v61), (void *)(uintptr_t)(dword_104C18), 128);
   v11 = *v7;
   v12 = v7[1];
   v13 = v7[2];
@@ -11257,7 +11257,7 @@ int rf_calibration(int a1, int a2, volatile uint32_t *a3, volatile uint32_t *a4,
   _frame.v60[5] = v15;
   _frame.v60[6] = v16;
   _frame.v60[7] = v17;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v62), v7 + 4, 128);
+  memcpy_1(_frame.v62, (void *)(v7 + 4), 128);
   v18 = rx_packet_alloc(0, 0, a3);
   _frame.v55 = a1 + 128;
   _frame.v56 = a1 + 384;
@@ -11497,31 +11497,31 @@ int float_interp(volatile int *a1, int a2, int a3, int a4, volatile uint64_t *a5
   uint64_t v62; // [sp+8h] [bp-14h]
   uint64_t v63; // [sp+10h] [bp-Ch]
 
-  v6 = ((int (*)())double_to_float_1)(a3, a4);
+  v6 = double_to_float_1(a3, a4);
   v9 = alloc_tx_event(dword_104F90, v6, v8);
   v10 = hw_block_disable(v9);
   v11 = a1;
   alloc_tx_event(dword_104F98, (int)(float)(v10 * flt_104F94), v12);
   v13 = a5[2];
   v14 = ((uint64_t (*)())double_compare_common)(*((volatile uint32_t *)a5 + 4), *((volatile uint32_t *)a5 + 5), 0, dword_104F9C);
-  ((int (*)())double_to_float_1)(v14, HIDWORD(v14));
+  double_to_float_1(v14, HIDWORD(v14));
   v15 = a5[1];
   v16 = ((uint64_t (*)())double_compare_common)(*((volatile uint32_t *)a5 + 2), *((volatile uint32_t *)a5 + 3), 0, dword_104F9C);
-  v17 = ((int (*)())double_to_float_1)(v16, HIDWORD(v16));
+  v17 = double_to_float_1(v16, HIDWORD(v16));
   v18 = *a5;
   v19 = v17;
   v20 = ((uint64_t (*)())double_compare_common)(*(volatile uint32_t *)a5, *((volatile uint32_t *)a5 + 1), 0, dword_104F9C);
-  v21 = ((int (*)())double_to_float_1)(v20, HIDWORD(v20));
+  v21 = double_to_float_1(v20, HIDWORD(v20));
   v22 = a5[5];
   v63 = a5[4];
   v62 = a5[3];
   alloc_tx_event(dword_104FA0, v21, v19);
   v23 = ((uint64_t (*)())double_compare_common)(v22, HIDWORD(v22), 0, dword_104F9C);
-  ((int (*)())double_to_float_1)(v23, HIDWORD(v23));
+  double_to_float_1(v23, HIDWORD(v23));
   v24 = ((uint64_t (*)())double_compare_common)(v63, HIDWORD(v63), 0, dword_104F9C);
-  v25 = ((int (*)())double_to_float_1)(v24, HIDWORD(v24));
+  v25 = double_to_float_1(v24, HIDWORD(v24));
   v26 = ((uint64_t (*)())double_compare_common)(v62, HIDWORD(v62), 0, dword_104F9C);
-  v27 = ((int (*)())double_to_float_1)(v26, HIDWORD(v26));
+  v27 = double_to_float_1(v26, HIDWORD(v26));
   alloc_tx_event(dword_104FA4, v27, v25);
   v28 = v11 + 32;
   do
@@ -11679,7 +11679,7 @@ int div_by_20(float a1, int a2, int a3) {
   v5 = load_version_string(a1 / 20.0);
   v6 = ((uint64_t (*)())float_to_double)((float)a2 * v5);
   v7 = double_exp_check(v6);
-  v8 = ((int (*)())double_to_float_1)(v7, HIDWORD(v7));
+  v8 = double_to_float_1(v7, HIDWORD(v7));
   if ( v8 <= 232 )
   {
     if ( v8 > 31 )
@@ -18204,7 +18204,7 @@ LABEL_37:
           v110 = load_version_string((float)-v97 / 20.0);
           v111 = ((uint64_t (*)())float_to_double)((float)v106 * v110);
           v112 = double_exp_check(v111);
-          v96 = ((int (*)())double_to_float_1)(v112, HIDWORD(v112));
+          v96 = double_to_float_1(v112, HIDWORD(v112));
           v95 = v96 | v185 | 0xFFC000;
           v98 = 1;
         }
@@ -18674,7 +18674,7 @@ LABEL_3:
       *((volatile uint8_t *)v24 + 44) = 0;
       *((volatile uint8_t *)v24 + 52) = 0;
       rf_iqk_init((volatile unsigned int *)v31, (volatile uint8_t *)(a2 + 125), (int)v24);
-      ((int (*)())rf_calibration_1)((int)(uintptr_t)(_frame.v37), dword_10C4A4, (void *)(uintptr_t)(a2 + 104), (void *)(uintptr_t)(a2 + 125), (int)(uintptr_t)(v24), 6, 1, _frame.v36, 0, 0, &_frame.v38);
+      rf_calibration_1(_frame.v37, dword_10C4A4, a2 + 104, a2 + 125, v24, 6, 1, _frame.v36, 0, 0, &_frame.v38);
       *((volatile uint8_t *)v24 + 4) = 0;
       *((volatile uint8_t *)v24 + 12) = 0;
       *((volatile uint8_t *)v24 + 20) = 0;
@@ -19184,7 +19184,7 @@ int patch_dispatch(volatile uint16_t *a1) {
     a1[4] = v13;
     *v12 = 4;
   }
-  return ((int (*)())rx_process_packet_1)(v5 + 12);
+  return rx_process_packet_1(v5 + 12);
 }
 
 
@@ -20037,7 +20037,7 @@ int stack_struct_init(int a1, int a2) {
   uint8_t v82[260]; // [sp+10h] [bp-104h] BYREF
   } _frame;
   CPSR = __get_CPSR();
-  v4 = ((int (*)())rx_process_packet_2)((int)(uintptr_t)(_frame.v82), 256, 0, a1, a2);
+  v4 = rx_process_packet_2(_frame.v82, 256, 0, (void *)(uintptr_t)(a1), (void *)(uintptr_t)(a2));
   v6 = v4;
   if ( v4 <= 0 )
     return v6;
@@ -20219,7 +20219,7 @@ if ( !memcmp((int)(uintptr_t)(_frame.v82), dword_10D9BC, 5) ) { v29 = dword_10D9
     if ( v35 + v7 <= 1720 )
     {
       _frame.v81 = (volatile int *)off_10DACC;
-      ((int (*)())memcpy_1)(*(volatile uint32_t *)off_10DACC + v35, _frame.v82, v7);
+      memcpy_1((void *)(uintptr_t)(*(volatile uint32_t *)off_10DACC + v35), _frame.v82, v7);
       v75 = (uint8_t)*v28;
       v41 = _frame.v81;
       v76 = v7 + *v34;
@@ -20263,7 +20263,7 @@ if ( !memcmp((int)(uintptr_t)(_frame.v82), dword_10D9BC, 5) ) { v29 = dword_10D9
                                                                                                   + 4));
   if ( v43 )
   {
-    ((int (*)())memcpy_1)(v43 + 4, _frame.v82, v7);
+    memcpy_1((void *)(uintptr_t)(v43 + 4), _frame.v82, v7);
     v35 = (v35 & ~0xFFFFu) | ((uint16_t)(v7) & 0xFFFFu);
 LABEL_48:
     *(volatile uint16_t *)v43 = v6 + 1;
@@ -20511,9 +20511,9 @@ int make_bit_mask(int result, int a2, int a3) {
 // ptr_add_12 @ 0x10dcc8
 int ptr_add_12() {
   if ( *((volatile uint8_t *)off_10DCDC + 369) )
-    return (int)(uintptr_t)(mmio_set_bit_1(2));
+    return mmio_set_bit_1(2);
   else
-    return (int)(uintptr_t)(mmio_clear_bit_1(2));
+    return mmio_clear_bit_1(2);
 }
 
 
@@ -20521,9 +20521,9 @@ int ptr_add_12() {
 // ptr_add_12_alt @ 0x10dce0
 int ptr_add_12_alt() {
   if ( *((volatile uint8_t *)off_10DCF4 + 369) )
-    return (int)(uintptr_t)(mmio_set_bit_1(1));
+    return mmio_set_bit_1(1);
   else
-    return (int)(uintptr_t)(mmio_clear_bit_1(1));
+    return mmio_clear_bit_1(1);
 }
 
 
@@ -20872,7 +20872,7 @@ int rf_hw_init() {
   v3 = unsigned_int_to_double(v2[4]);
   v4 = ((uint64_t (*)())double_compare_common)(v3, HIDWORD(v3), dword_10E3D8, dword_10E3DC);
   v5 = double_compare_neg(v4, HIDWORD(v4), dword_10E3E0, dword_10E3E4);
-  v6 = ((int (*)())double_to_float_1)(v5, HIDWORD(v5));
+  v6 = double_to_float_1(v5, HIDWORD(v5));
   alloc_tx_event(dword_10E404, v6, v7);
   v8 = call_patch_hook_0(dword_10E408);
   v10 = v6 - 1400;
@@ -20883,7 +20883,7 @@ int rf_hw_init() {
   {
     v13 = signed_int_to_double(v11);
     v14 = ((uint64_t (*)())double_compare_common)(v13, HIDWORD(v13), dword_10E3E8, dword_10E3EC);
-    v15 = ((int (*)())double_to_float_1)(v14, HIDWORD(v14));
+    v15 = double_to_float_1(v14, HIDWORD(v14));
     v16 = v15;
     if ( v10 <= 0 )
     {
@@ -20913,7 +20913,7 @@ int rf_hw_init() {
       v19 = unsigned_int_to_double(v18[4]);
       v20 = ((uint64_t (*)())double_compare_common)(v19, HIDWORD(v19), dword_10E3D8, dword_10E3DC);
       v21 = double_compare_neg(v20, HIDWORD(v20), dword_10E3E0, dword_10E3E4);
-      v6 = ((int (*)())double_to_float_1)(v21, HIDWORD(v21));
+      v6 = double_to_float_1(v21, HIDWORD(v21));
       alloc_tx_event(dword_10E40C, v16, v17);
       if ( v6 <= 1400 )
         v22 = 1;
@@ -20965,7 +20965,7 @@ LABEL_19:
     v30 = unsigned_int_to_double(v25[4]);
     v31 = ((uint64_t (*)())double_compare_common)(v30, HIDWORD(v30), dword_10E3D8, dword_10E3DC);
     v32 = double_compare_neg(v31, HIDWORD(v31), dword_10E3E0, dword_10E3E4);
-    v42 = ((int (*)())double_to_float_1)(v32, HIDWORD(v32));
+    v42 = double_to_float_1(v32, HIDWORD(v32));
     alloc_tx_event(v26, v29, v28);
     v33 = v6 - 1400;
     v9 = v42 - 1400;
@@ -20995,7 +20995,7 @@ LABEL_28:
   v36 = unsigned_int_to_double(v35[4]);
   v37 = ((uint64_t (*)())double_compare_common)(v36, HIDWORD(v36), dword_10E3D8, dword_10E3DC);
   v38 = double_compare_neg(v37, HIDWORD(v37), dword_10E3E0, dword_10E3E4);
-  v39 = ((int (*)())double_to_float_1)(v38, HIDWORD(v38));
+  v39 = double_to_float_1(v38, HIDWORD(v38));
   alloc_tx_event(dword_10E414, v39, v40);
   return call_patch_hook_2(dword_10E3F8, 0, 15360);
 }
@@ -21063,7 +21063,7 @@ int rf_hw_init_alt() {
   v4 = ((uint64_t (*)())double_compare_common)(v3, HIDWORD(v3), dword_10E6B8, dword_10E6BC);
   v5 = double_compare_core(v4, HIDWORD(v4), dword_10E6C0, dword_10E6C4);
   v6 = double_compare_neg(v5, HIDWORD(v5), dword_10E6B8, dword_10E6BC);
-  v7 = ((int (*)())double_to_float_1)(v6, HIDWORD(v6));
+  v7 = double_to_float_1(v6, HIDWORD(v6));
   v8 = call_patch_hook_0(dword_10E6E0) & 0x1F;
   v9 = v7 - 840;
   debug_printf(dword_10E6E4, v7, v8);
@@ -21086,7 +21086,7 @@ int rf_hw_init_alt() {
   {
     v11 = signed_int_to_double(v10);
     v12 = ((uint64_t (*)())double_compare_common)(v11, HIDWORD(v11), dword_10E6C8, dword_10E6CC);
-    v13 = ((int (*)())double_to_float_1)(v12, HIDWORD(v12));
+    v13 = double_to_float_1(v12, HIDWORD(v12));
     v14 = v13;
     if ( v9 <= 0 )
     {
@@ -21120,7 +21120,7 @@ int rf_hw_init_alt() {
     v18 = ((uint64_t (*)())double_compare_common)(v17, HIDWORD(v17), dword_10E6B8, dword_10E6BC);
     v19 = double_compare_core(v18, HIDWORD(v18), dword_10E6C0, dword_10E6C4);
     v20 = double_compare_neg(v19, HIDWORD(v19), dword_10E6B8, dword_10E6BC);
-    v7 = ((int (*)())double_to_float_1)(v20, HIDWORD(v20));
+    v7 = double_to_float_1(v20, HIDWORD(v20));
     alloc_tx_event(dword_10E6E8, v14, v15);
     if ( v7 <= 840 )
       v21 = 1;
@@ -21152,7 +21152,7 @@ int rf_hw_init_alt() {
     v29 = ((uint64_t (*)())double_compare_common)(v28, HIDWORD(v28), dword_10E6B8, dword_10E6BC);
     v30 = double_compare_core(v29, HIDWORD(v29), dword_10E6C0, dword_10E6C4);
     v31 = double_compare_neg(v30, HIDWORD(v30), dword_10E6B8, dword_10E6BC);
-    v32 = ((int (*)())double_to_float_1)(v31, HIDWORD(v31));
+    v32 = double_to_float_1(v31, HIDWORD(v31));
     alloc_tx_event(dword_10E6EC, v9, v25);
     v33 = v7 - 840;
     v34 = v32 - 840;
@@ -21186,7 +21186,7 @@ LABEL_33:
   v37 = ((uint64_t (*)())double_compare_common)(v36, HIDWORD(v36), dword_10E6B8, dword_10E6BC);
   v38 = double_compare_core(v37, HIDWORD(v37), dword_10E6C0, dword_10E6C4);
   v39 = double_compare_neg(v38, HIDWORD(v38), dword_10E6B8, dword_10E6BC);
-  v40 = ((int (*)())double_to_float_1)(v39, HIDWORD(v39));
+  v40 = double_to_float_1(v39, HIDWORD(v39));
   debug_printf(dword_10E6F4, v40);
   result = *((volatile uint32_t *)off_10E6F8 + 94);
   if ( result != 0x80000000 )
@@ -21254,11 +21254,11 @@ int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
   {
     v24 = v13;
     v20 += v23;
-    v13 = ((int (*)())__usat)(3u, v21 + v20);
+    v13 = __usat(3u, v21 + v20);
     *v11 = *v11 & 0xFFFFFFF8 | v13;
     *v12 = *v12 & 0xFFFF8FFF | (v13 << 12);
     v25 = v3;
-    v3 = ((int (*)())__usat)(4u, v22 + v20 - v13);
+    v3 = __usat(4u, v22 + v20 - v13);
     *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
     *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
     v15 = v9;
@@ -21688,7 +21688,7 @@ int write_mmio_register() {
 
 // rf_get_status @ 0x10ede4
 int rf_get_status() {
-  return (uint16_t)((int (*)())mmio_read32_1)(dword_10EDF4, 1) >> 11;
+  return (uint16_t)mmio_read32_1(dword_10EDF4, 1) >> 11;
 }
 
 
@@ -21984,7 +21984,7 @@ int rf_get_state() {
     v13 = (int ( **)(int))off_10F3DC;
     *(volatile uint16_t *)(v12 + 8244) = 0;
     v14 = rf_read_channel();
-    ((int (*)())rf_read_status_1)((void *)(uintptr_t)(v14));
+    rf_read_status_1(v14);
     v15 = v13[6](dword_10F400);
     v16 = v13[7](v15);
     v4 = (v4 & ~0xFFFFFFFFull) | ((uint32_t)(((int (*)())set_config_field)(v16)) & 0xFFFFFFFFu);
@@ -22117,7 +22117,7 @@ LABEL_24:
             goto LABEL_25;
         }
         alloc_tx_event(dword_10F718, *(volatile uint8_t *)(v14 + 35), v14);
-        ((int (*)())phy_set_channel_1)(v13, v10, 0x80000000);
+        phy_set_channel_1(v13, v10, 0x80000000);
       }
       while ( v6[326] );
 LABEL_25:
@@ -22136,7 +22136,7 @@ LABEL_26:
             break;
           alloc_tx_event(dword_10F718, v18[35], v18[37]);
           v24 = (int)(uintptr_t)(list_pop((int)(uintptr_t)(v6 + 316)));
-          ((int (*)())phy_set_channel_1)(v24, v10, 0x80000000);
+          phy_set_channel_1(v24, v10, 0x80000000);
           v16 = v6[316];
           if ( !v16 )
             goto LABEL_37;
@@ -22222,7 +22222,7 @@ int ipc_send_command() {
   int v0; // r0
 
   v0 = tx_send_pdu(1037, 1, 13, 8);
-  return ((int (*)())rx_process_packet_1)(v0);
+  return rx_process_packet_1(v0);
 }
 
 
@@ -23839,9 +23839,9 @@ int memmove(int a1, int a2, int a3) {
     {
       v17 = (volatile uint8_t *)off_110FEC;
       if ( *((volatile uint8_t *)off_110FEC + 369) )
-        result = (int)(uintptr_t)(mmio_clear_bit_1(1));
+        result = mmio_clear_bit_1(1);
       else
-        result = (int)(uintptr_t)(mmio_set_bit_1(1));
+        result = mmio_set_bit_1(1);
       v18 = v17[374];
       *v16 = 1;
       if ( v18 != 1 )
@@ -24623,7 +24623,7 @@ int send_data_word(int result, int a2) {
   *(volatile uint16_t *)v4 = a2;
   if ( result && a2 )
   {
-    result = ((int (*)())memcpy_1)(v3, result, a2);
+    result = (int)(uintptr_t)(memcpy_1((void *)(uintptr_t)(v3), (void *)(uintptr_t)(result), a2));
     v4 = *v2;
   }
   v6 = (void *)(uintptr_t)(off_111A20);
@@ -24877,7 +24877,7 @@ int wlan_set_band(volatile uint32_t *a1, int a2) {
   v5 = (void *)(uintptr_t)(off_111D88);
   v6 = (void *)(uintptr_t)(off_111D8C);
   *(volatile uint8_t *)off_111D84 = 1;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(v6), a1, 80);
+  memcpy_1(v6, (void *)(a1), 80);
   v8 = v5[97];
   if ( v8 )
   {
@@ -25754,7 +25754,7 @@ LABEL_72:
           v44 = 64 - *(volatile uint16_t *)v19;
           if ( v44 >= (uint16_t)(*((volatile uint16_t *)off_1123F4 + 4) - v42) )
             v44 = (v44 & ~0xFFFFu) | ((uint16_t)(*((volatile uint16_t *)off_1123F4 + 4) - v42) & 0xFFFFu);
-          ((int (*)())memcpy_1)(v42 + *((volatile uint32_t *)off_1123F4 + 1), *(volatile uint32_t *)off_112748, (uint16_t)v44);
+          memcpy_1((void *)(uintptr_t)(v42 + *((volatile uint32_t *)off_1123F4 + 1)), (void *)(uintptr_t)(*(volatile uint32_t *)off_112748), (uint16_t)v44);
           v45 = *((volatile uint16_t *)v2 + 4);
           v46 = (uint16_t)(v44 + *((volatile uint16_t *)v2 + 5));
           *((volatile uint16_t *)v2 + 5) = v46;
@@ -26725,7 +26725,7 @@ volatile uint32_t * rf_is_sleep(int a1) {
   {
     case 1:
       v2 = (void *)(uintptr_t)(off_113554);
-      v3 = ((int (*)())memcpy_1)(off_113554, dword_113558, 18);
+      v3 = (int)(uintptr_t)(memcpy_1((void *)(uintptr_t)(off_113554), (void *)(uintptr_t)(dword_113558), 18));
       if ( *((volatile uint8_t *)off_11355C + 370) && call_patch_1fc_check(v3) )
       {
         v4 = call_patch_1fc_arg2();
@@ -27241,7 +27241,7 @@ LABEL_7:
   *(volatile uint32_t *)(v7 + 4) = 0;
   *(volatile uint32_t *)(v7 + 72) = 0;
   *(volatile uint32_t *)(v6 + 44) = 0;
-  ((int (*)())memcpy_1)(v6 + 4, a1, 28);
+  memcpy_1((void *)(uintptr_t)(v6 + 4), (void *)(uintptr_t)(a1), 28);
   v9 = *(volatile uint16_t *)(v6 + 30);
   v10 = *(volatile uint32_t *)off_113C54;
   *(volatile uint16_t *)(v6 + 6) = 0;
@@ -28150,7 +28150,7 @@ int patch_apply(int a1, int a2, unsigned int a3) {
   v7 = v6 & 1;
   if ( (v6 & 1) != 0 )
   {
-    ((int (*)())memcpy_1)(a2, _frame.v10, 4);
+    memcpy_1((void *)(uintptr_t)(a2), _frame.v10, 4);
     v7 = 4;
     if ( (v6 & 2) == 0 )
     {
@@ -28164,7 +28164,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  ((int (*)())memcpy_1)(a2 + v7, _frame.v11, 12);
+  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v11, 12);
   v7 += 12;
   if ( (v6 & 4) == 0 )
   {
@@ -28174,7 +28174,7 @@ LABEL_8:
     goto LABEL_20;
   }
 LABEL_22:
-  ((int (*)())memcpy_1)(a2 + v7, _frame.v12, 20);
+  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v12, 20);
   v7 += 20;
   if ( (v6 & 8) == 0 )
   {
@@ -28184,7 +28184,7 @@ LABEL_9:
     goto LABEL_18;
   }
 LABEL_20:
-  ((int (*)())memcpy_1)(a2 + v7, _frame.v13, 4);
+  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v13, 4);
   v7 += 4;
   if ( (v6 & 0x20) == 0 )
   {
@@ -28194,7 +28194,7 @@ LABEL_10:
     goto LABEL_16;
   }
 LABEL_18:
-  ((int (*)())memcpy_1)(a2 + v7, _frame.v14, 4);
+  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v14, 4);
   v7 += 4;
   if ( (v6 & 0x40) == 0 )
   {
@@ -28204,12 +28204,12 @@ LABEL_11:
     goto LABEL_15;
   }
 LABEL_16:
-  ((int (*)())memcpy_1)(a2 + v7, _frame.v15, 4);
+  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v15, 4);
   v7 += 4;
   if ( (v6 & 0x80) != 0 )
   {
 LABEL_15:
-    ((int (*)())memcpy_1)(a2 + v7, _frame.v16, 4);
+    memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v16, 4);
     v7 += 4;
   }
 LABEL_12:
@@ -28285,7 +28285,7 @@ int patch_apply_ext(int a1, int a2, unsigned int a3) {
   v6 = (uint8_t)_frame.v9 & (uint8_t)a1 & 2;
   if ( ((uint8_t)_frame.v9 & (uint8_t)a1 & 2) != 0 )
   {
-    ((int (*)())memcpy_1)(a2, _frame.v10, 6);
+    memcpy_1((void *)(uintptr_t)(a2), _frame.v10, 6);
     v6 = 6;
     if ( (a1 & 0x100000) == 0 )
     {
@@ -28299,7 +28299,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  ((int (*)())memcpy_1)(a2 + v6, _frame.v11, 2);
+  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v11, 2);
   v6 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -28309,7 +28309,7 @@ LABEL_8:
     goto LABEL_17;
   }
 LABEL_19:
-  ((int (*)())memcpy_1)(a2 + v6, _frame.v12, 8);
+  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v12, 8);
   v6 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
@@ -28319,7 +28319,7 @@ LABEL_9:
     goto LABEL_15;
   }
 LABEL_17:
-  ((int (*)())memcpy_1)(a2 + v6, _frame.v13, 4);
+  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v13, 4);
   v6 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
@@ -28329,12 +28329,12 @@ LABEL_10:
     goto LABEL_14;
   }
 LABEL_15:
-  ((int (*)())memcpy_1)(a2 + v6, _frame.v14, 2);
+  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v14, 2);
   v6 += 2;
   if ( (a1 & 0x1000000) != 0 )
   {
 LABEL_14:
-    ((int (*)())memcpy_1)(a2 + v6, _frame.v15, 10);
+    memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v15, 10);
     v6 += 10;
   }
 LABEL_11:
@@ -29271,7 +29271,7 @@ void ll_init_tables() {
   {
     write_mmio_register();
     if ( *(volatile uint16_t *)(*v0 + 8) )
-      ((int (*)())rf_set_channel_1)(*(volatile uint16_t *)(*v0 + 8));
+      rf_set_channel_1(*(volatile uint16_t *)(*v0 + 8));
   }
   v1 = (volatile uint8_t **)off_115E1C;
   if ( **(volatile uint8_t **)off_115E1C == 2 )
@@ -29973,7 +29973,7 @@ LABEL_7:
   *(volatile uint32_t *)(v25 + 48) = v3[25];
   *(volatile uint32_t *)(v25 + 68) = v28 | 0x600;
   v3[12] = v27 | 2;
-  ((int (*)())memcpy_1)(v25 + 272, v3 + 11, 52);
+  memcpy_1((void *)(uintptr_t)(v25 + 272), (void *)(v3 + 11), 52);
   v29 = *(volatile uint16_t *)(a1 + 30);
   result = v29 << 31;
   if ( (v29 & 1) != 0 )
@@ -30418,7 +30418,7 @@ int rx_process_packet(int a1, int a2, char a3) {
     }
   }
   *(volatile uint8_t *)(v5 + 36) = a3;
-  ((int (*)())rx_packet_process_1)(a1, a2);
+  rx_packet_process_1(a1, a2);
   if ( *(volatile uint16_t *)(a1 + 24) == 36488 )
     alloc_tx_event(dword_116CF8, 36488, *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 76) + 36));
   v8 = *(volatile uint32_t *)(a1 + 8);
@@ -31723,7 +31723,7 @@ void check_cal_status(int a1, volatile uint32_t *a2) {
             v10 = v8;
             _frame.v26 = *(volatile uint32_t *)(a1 + 84) & 0x3FFFFFFF;
             _frame.v25 = v9;
-            ((int (*)())memcpy_1)((int)(uintptr_t)(v6 + 4), &_frame.v25, 8);
+            memcpy_1(v6 + 4, (void *)(&_frame.v25), 8);
             v11 = *((volatile uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -31878,7 +31878,7 @@ int is_initialized(int a1, int a2, int a3, int a4) {
         v13 = *(volatile uint16_t *)(a1 + 48);
         if ( (v13 == 52 || v13 == 28) && *(volatile uint8_t *)(v8 + 13) == v12 >> 12 )
         {
-          result = ((int (*)())memcpy_1)(v8 + 228, v11 + 18, 34);
+          result = (int)(uintptr_t)(memcpy_1((void *)(uintptr_t)(v8 + 228), (void *)(uintptr_t)(v11 + 18), 34));
           *(volatile uint32_t *)(v8 + 224) = v8 + 228;
 LABEL_17:
           *(volatile uint16_t *)(v8 + 8) |= 0x40u;
@@ -32716,7 +32716,7 @@ int update_mic(int a1, int a2, int a3) {
     v5 = dword_118AFC;
     v6 = v3 + 44;
   }
-  result = ((int (*)())memcpy_1)(v6, v5, 52);
+  result = (int)(uintptr_t)(memcpy_1((void *)(uintptr_t)(v6), (void *)(uintptr_t)(v5), 52));
   v8 = *(volatile uint32_t *)off_118AF8;
   if ( *(volatile uint32_t *)(v3 + 64) & 0x7C | (*(volatile uint32_t *)(v3 + 64) >> 11) & 6 )
     v9 = (uint16_t)((uint16_t)*(volatile uint32_t *)off_118AF8 << 8) | (uint8_t)v8;
@@ -33225,7 +33225,7 @@ LABEL_5:
     *(volatile uint8_t *)(v13 + 109) = 0;
     *(volatile uint8_t *)(v13 + 110) = 0;
     *(volatile uint8_t *)(v13 + 111) = 0;
-    ((int (*)())memcpy_1)(v13 + 112, a2, 6);
+    memcpy_1((void *)(uintptr_t)(v13 + 112), (void *)(uintptr_t)(a2), 6);
     v14 = (void *)(uintptr_t)(off_119240);
     v15 = *((volatile uint16_t *)off_119240 + 254);
     v16 = *(volatile uint16_t *)(a1 + 104);
@@ -33237,7 +33237,7 @@ LABEL_5:
     *(volatile uint16_t *)(v13 + 128) = v16;
     v14[254] = v15;
     *(volatile uint16_t *)(v13 + 130) = 16 * v15;
-((int (*)())memcpy_1)( v13 + 132, dword_119244 + (*(volatile uint8_t *)(a1 + 107) << 9), *(volatile uint16_t *)(v9 + 2 * *(volatile uint8_t *)(a1 + 107)) - 24);
+memcpy_1((void *)(uintptr_t)(v13 + 132), (void *)(uintptr_t)(dword_119244 + (*(volatile uint8_t *)(a1 + 107) << 9)), *(volatile uint16_t *)(v9 + 2 * *(volatile uint8_t *)(a1 + 107)) - 24);
     *(volatile uint32_t *)(v12 + 88) = 0;
     *(volatile uint32_t *)(v12 + 92) = 0;
     *(volatile uint8_t *)(v12 + 28) = *(volatile uint8_t *)(a1 + 107);
@@ -35026,7 +35026,7 @@ LABEL_5:
       v43 = dword_11AB30;
       goto LABEL_41;
     }
-    ((int (*)())memcpy_1)(v11, v2, 360);
+    memcpy_1((void *)(uintptr_t)(v11), (void *)(uintptr_t)(v2), 360);
     v13 = *(volatile uint8_t *)(v3 + *(volatile uint8_t *)(v12 + 13));
   }
   v14 = *(volatile uint32_t *)(v7 + 76);
@@ -36678,7 +36678,7 @@ int rx_queue_process() {
     if ( v3 )
     {
 LABEL_3:
-      ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v12), dword_11BE54, 144);
+      memcpy_1((void *)(_frame.v12), (void *)(uintptr_t)(dword_11BE54), 144);
       v4 = *((volatile uint8_t *)v0 + 160);
       if ( _frame.v12[1] )
         mem_set_util(dword_11BE54);
@@ -36786,7 +36786,7 @@ LABEL_13:
         }
         else if ( *(volatile uint8_t *)(a2 + 13) == v12 >> 12 )
         {
-          ((int (*)())memcpy_1)(a2 + 228, v8 + 1, v11 - 2);
+          memcpy_1((void *)(uintptr_t)(a2 + 228), (void *)(v8 + 1), v11 - 2);
           *(volatile uint32_t *)(a2 + 224) = a2 + 228;
           return 1;
         }
@@ -37842,7 +37842,7 @@ volatile uint16_t * sta_get_state(volatile uint16_t *result, int a2, int a3) {
         v31 = (volatile uint8_t *)tx_send_pdu(73, 13, 0, 2);
         *v31 = v9;
         v31[1] = 1;
-        ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v31));
+        rx_process_packet_1((int)(uintptr_t)(v31));
         if ( !*(volatile uint8_t *)(v7 + 36) && *(volatile uint8_t *)(v7 + 35) <= 0x1Fu )
         {
           v32 = dword_11CDFC;
@@ -37915,7 +37915,7 @@ volatile uint16_t * sta_get_state(volatile uint16_t *result, int a2, int a3) {
             v23 = (volatile uint8_t *)tx_send_pdu(73, 13, v18, 2);
             *v23 = v19;
             v23[1] = 1;
-            ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v23));
+            rx_process_packet_1((int)(uintptr_t)(v23));
             if ( *(volatile uint8_t *)(v21 + 36) || *(volatile uint8_t *)(v21 + 35) > 0x1Fu )
             {
               v18 = (v18 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(v17 + 234)) & 0xFFu);
@@ -37990,7 +37990,7 @@ volatile uint16_t * sta_get_state(volatile uint16_t *result, int a2, int a3) {
         v45 = (volatile uint8_t *)tx_send_pdu(73, 13, 0, 2);
         *v45 = v9;
         v45[1] = 0;
-        ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v45));
+        rx_process_packet_1((int)(uintptr_t)(v45));
         if ( !*(volatile uint8_t *)(v7 + 36) && *(volatile uint8_t *)(v7 + 35) <= 0x1Fu )
         {
           v46 = (volatile int *)off_11D17C;
@@ -38062,7 +38062,7 @@ volatile uint16_t * sta_get_state(volatile uint16_t *result, int a2, int a3) {
           {
             v58 = (volatile uint16_t *)tx_send_pdu(73, 13, 0, 2);
             *v58 = (uint8_t)v28;
-            ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v58));
+            rx_process_packet_1((int)(uintptr_t)(v58));
             if ( !*(volatile uint8_t *)(v29 + 36) && *(volatile uint8_t *)(v29 + 35) <= 0x1Fu )
             {
               v59 = (void *)dword_11D178;
@@ -38141,7 +38141,7 @@ volatile uint16_t * sta_get_state(volatile uint16_t *result, int a2, int a3) {
           v57 = tx_send_pdu(74, 13, 0, 4);
           *(volatile uint8_t *)v57 = v9;
           *(volatile uint16_t *)(v57 + 1) = (uint8_t)v85;
-          result = (volatile uint16_t *)((int (*)())rx_process_packet_1)(v57);
+          result = (volatile uint16_t *)rx_process_packet_1(v57);
         }
       }
     }
@@ -38178,7 +38178,7 @@ volatile uint16_t * sta_get_state(volatile uint16_t *result, int a2, int a3) {
               *v84 = v9;
               v84[1] = v14;
               v84[2] = 1;
-              return (volatile uint16_t *)((int (*)())rx_process_packet_1)((int)(uintptr_t)(v84));
+              return (volatile uint16_t *)rx_process_packet_1((int)(uintptr_t)(v84));
             }
 LABEL_16:
             v15 = dword_11CE00 + 696 * v9;
@@ -38489,7 +38489,7 @@ LABEL_38:
             v24 = signed_int_to_double(v21);
             v25 = ((uint64_t (*)())double_compare_common)(v24, HIDWORD(v24), dword_11D4E8, dword_11D4EC);
             v26 = ((uint64_t (*)())double_compare_eq)(v23, HIDWORD(v23), v25, HIDWORD(v25));
-            *(volatile uint8_t *)(v49 + 689) = ((int (*)())double_to_float_1)(v26, HIDWORD(v26));
+            *(volatile uint8_t *)(v49 + 689) = double_to_float_1(v26, HIDWORD(v26));
           }
           return 0;
         }
@@ -39742,9 +39742,9 @@ LABEL_6:
     }
 LABEL_2:
     if ( v11 == 1 )
-      rx_packet_process_2((int)(uintptr_t)(_frame.v58), a2, (void *)(&_frame.v57));
+      rx_packet_process_2((void *)(_frame.v58), a2, (void *)(&_frame.v57));
     else
-      ((int (*)())rx_packet_parse_1)((int)(uintptr_t)(_frame.v58), a2, a3, &_frame.v57, 0);
+      rx_packet_parse_1((void *)(_frame.v58), a2, a3, (void *)(&_frame.v57), 0);
     v14 = **v7;
     if ( v14 != 2 )
       goto LABEL_5;
@@ -39861,7 +39861,7 @@ int tx_packet_complete(int a1) {
   v9 = *v7;
   if ( v9 == 3 )
   {
-    v2 = ((int (*)())list_foreach_1)();
+    v2 = list_foreach_1();
     v9 = **v5;
     v3 = v2 + 60;
   }
@@ -39946,11 +39946,11 @@ LABEL_37:
 LABEL_5:
       if ( v9 == 1 )
       {
-        rx_packet_process_2((int)(uintptr_t)(_frame.v72), v10, (void *)(&_frame.v71));
+        rx_packet_process_2((void *)(_frame.v72), v10, &_frame.v71);
       }
       else
       {
-        ((int (*)())rx_packet_parse_1)((int)(uintptr_t)(_frame.v72), v10, v3, &_frame.v71, 0);
+        rx_packet_parse_1((void *)(_frame.v72), v10, v3, (void *)(&_frame.v71), 0);
         v4[7] = v10 + v3;
       }
 LABEL_7:
@@ -40333,8 +40333,8 @@ int send_ke_message(int a1) {
   v2 = tx_send_pdu(139, 13, 0, 24);
   v3 = a1;
   v4 = v2;
-  ((int (*)())memcpy_1)(v2, v3, 24);
-  return ((int (*)())rx_process_packet_1)(v4);
+  memcpy_1((void *)(uintptr_t)(v2), (void *)(uintptr_t)(v3), 24);
+  return rx_process_packet_1(v4);
 }
 
 
@@ -41440,7 +41440,7 @@ if ( cfm_radio_check((void *)(_frame.v55), &_frame.v54) ) return 1;
   v31 = (uint8_t)v4[17] + (uint8_t)v4[18];
   *(volatile uint32_t *)off_11F9E4 = 0;
   if ( v31 <= 1 )
-    get_current_channel();
+    get_current_channel_1();
   check_feature_flag(256, dword_11F9EC);
   v32 = (volatile uint32_t *)((uint8_t)v4[18] + (uint8_t)v4[17]);
   v33 = v32 == (volatile uint32_t *)1;
@@ -41731,7 +41731,7 @@ LABEL_9:
     *((volatile uint32_t *)off_11FD90 + 4) = 0;
   *(volatile uint32_t *)off_11FD94 = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
-    get_current_channel();
+    get_current_channel_1();
   memset_thunk(v3, 0, 0x528u);
   v9 = v2 + 1320 * a1;
   v10 = dword_11FD98;
@@ -41791,7 +41791,7 @@ uint64_t get_bss_by_channel(volatile uint8_t *a1, char a2) {
       *(volatile uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = *(volatile uint64_t *)&dword_120040;
       break;
     case 5:
-      ((int (*)())memcpy_1)(v7 + 560 + v5, a1 + 8, 16);
+      memcpy_1((void *)(uintptr_t)(v7 + 560 + v5), a1 + 8, 16);
       goto LABEL_3;
     default:
 LABEL_3:
@@ -42011,7 +42011,7 @@ int alloc_ctrl_block(int a1) {
         *((volatile uint8_t *)off_1202B0 + 9) = 1;
       }
     }
-    return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v2));
+    return rx_process_packet_1((int)(uintptr_t)(v2));
   }
   *(volatile uint8_t *)(a1 + 146) = v7;
   if ( !v5 )
@@ -42022,10 +42022,10 @@ int alloc_ctrl_block(int a1) {
     mem_copy_util(a1 + 24, *((volatile uint32_t *)off_1202AC + 4) + *(volatile uint32_t *)(dword_1202A8 + 696 * v8 + 8));
     *(volatile uint8_t *)(a1 + 128) = 0;
     *(volatile uint8_t *)(a1 + 147) = 1;
-    return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v2));
+    return rx_process_packet_1((int)(uintptr_t)(v2));
   }
   rf_read_reg(a1);
-  return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v2));
+  return rx_process_packet_1((int)(uintptr_t)(v2));
 }
 
 
@@ -42051,7 +42051,7 @@ void mac_clear_irq() {
   v0 = *((volatile uint8_t *)off_1202F0 + 18) + *((volatile uint8_t *)off_1202F0 + 17);
   *(volatile uint32_t *)off_1202F4 = 0;
   if ( v0 <= 1 )
-    get_current_channel();
+    get_current_channel_1();
 }
 
 
@@ -42107,7 +42107,7 @@ int alloc_shared_packet(int a1) {
 
   v2 = (volatile uint32_t *)tx_send_pdu(143, 0, 255, 4);
   *v2 = a1;
-  return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v2));
+  return rx_process_packet_1((int)(uintptr_t)(v2));
 }
 
 
@@ -42302,7 +42302,7 @@ volatile uint32_t *get_rf_state() {
   v9 = deinit_bt_global_0x190688(v8);
   init_bt_global_0x190310(v9);
   ke_get_state();
-  return (void *)(uintptr_t)(((int (*)())rf_phy_init_1)());
+  return rf_phy_init_1();
 }
 
 
@@ -43886,7 +43886,7 @@ LABEL_9:
           v32 = (volatile uint8_t *)tx_send_pdu(73, 13, 0, 2);
           *v32 = v27;
           v32[1] = 0;
-          ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v32));
+          rx_process_packet_1((int)(uintptr_t)(v32));
           if ( !v29[36] && v29[35] <= 0x1Fu )
           {
             v33 = (volatile int *)off_121EC4;
@@ -43969,7 +43969,7 @@ int rf_read_reg(int a1) {
 
   v2 = (volatile uint8_t *)tx_send_pdu(67, 6, 0, 1);
   *v2 = *(volatile uint8_t *)(a1 + 107);
-  return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v2));
+  return rx_process_packet_1((int)(uintptr_t)(v2));
 }
 
 
@@ -44082,7 +44082,7 @@ int set_rf_tx_power_compensation(volatile uint8_t *a1, int a2) {
     *v8 = a1[107];
     v8[1] = v6;
     v8[2] = v7;
-    result = ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v8));
+    result = rx_process_packet_1((int)(uintptr_t)(v8));
 LABEL_7:
     a1[145] = v6;
   }
@@ -44431,7 +44431,7 @@ int send_hci_event(char a1, char a2) {
   v4 = (volatile uint8_t *)tx_send_pdu(89, 13, 0, 2);
   *v4 = a1;
   v4[1] = a2;
-  return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+  return rx_process_packet_1((int)(uintptr_t)(v4));
 }
 
 
@@ -44665,7 +44665,7 @@ int send_hci_command_status(int a1, int a2, int a3, int a4) {
 
   v5 = (volatile uint8_t *)tx_send_pdu(11, a4, a3, 3);
   *v5 = ke_send_msg(a2, v5 + 1, v5 + 2);
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v5));
+  rx_process_packet_1((int)(uintptr_t)(v5));
   return 0;
 }
 
@@ -44692,11 +44692,11 @@ int send_hci_le_meta_event(int a1, volatile uint8_t *a2, int a3, int a4) {
   {
     *(volatile uint8_t *)(v5 + 8) = *(volatile uint8_t *)(v8 + 142);
 LABEL_4:
-    ((int (*)())rx_process_packet_1)(v5);
+    rx_process_packet_1(v5);
     return 0;
   }
   *(volatile uint8_t *)(v5 + 8) = *(volatile uint8_t *)(v6 + 689);
-  ((int (*)())rx_process_packet_1)(v5);
+  rx_process_packet_1(v5);
   return 0;
 }
 
@@ -44791,7 +44791,7 @@ int send_hci_vendor_event(int a1, int a2, int a3, int a4) {
 
 // copy_config_data @ 0x1229e8
 int copy_config_data(int a1, int a2, int a3, int a4) {
-  ((int (*)())memcpy_1)(dword_122A04, a2, 69);
+  memcpy_1((void *)(uintptr_t)(dword_122A04), (void *)(uintptr_t)(a2), 69);
   mac_write_header_word(120, a4, a3);
   return 0;
 }
@@ -45084,7 +45084,7 @@ int ke_send_msg_74(int a1, int a2, int a3, int a4) {
   v7 = dword_122E6C;
   v4[4] = BYTE1(v6);
   alloc_tx_event(v7, HIBYTE(v5), (uint8_t)v6);
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+  rx_process_packet_1((int)(uintptr_t)(v4));
   return 0;
 }
 
@@ -45147,7 +45147,7 @@ int ke_send_msg_7c(int a1, volatile uint8_t *a2, int a3, int a4) {
     v11 = (v11 & ~0xFFu) | ((uint8_t)(v9[188]) & 0xFFu);
   }
   *v7 = v11;
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v7));
+  rx_process_packet_1((int)(uintptr_t)(v7));
   return 0;
 }
 
@@ -45236,11 +45236,11 @@ int ke_send_msg_81(int a1, int a2, int a3, int a4) {
   v4 = (volatile uint8_t *)tx_send_pdu(129, a4, a3, 64);
   v5 = dword_123050;
   *v4 = 0;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(v4 + 1), v5, 36);
+  memcpy_1(v4 + 1, (void *)(uintptr_t)(v5), 36);
   v6 = (uint8_t)(*v4 + 36);
   *v4 = v6;
   v4[v6 + 1] = 0;
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+  rx_process_packet_1((int)(uintptr_t)(v4));
   return 0;
 }
 
@@ -45252,10 +45252,10 @@ int ke_send_msg_85(int a1, int a2, int a3, int a4) {
   unsigned int v5; // r0
 
   v4 = (volatile uint8_t *)tx_send_pdu(133, a4, a3, 1);
-  v5 = ((int (*)())mmio_read32_1)(dword_12308C, 1);
+  v5 = mmio_read32_1(dword_12308C, 1);
   *v4 = (BYTE2(v5) ^ 1) & 1;
   alloc_tx_event(dword_123090, v5, HIWORD(v5) & 1);
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+  rx_process_packet_1((int)(uintptr_t)(v4));
   return 0;
 }
 
@@ -45321,7 +45321,7 @@ int ke_send_msg_88(int a1, volatile int *a2, int a3, int a4) {
       }
       *(volatile uint8_t *)(v8 + 4) = v17;
       alloc_tx_event(dword_1231A0, v17, v18);
-      ((int (*)())rx_process_packet_1)(v8);
+      rx_process_packet_1(v8);
       result = 0;
       break;
     case 2:
@@ -45330,7 +45330,7 @@ int ke_send_msg_88(int a1, volatile int *a2, int a3, int a4) {
       v21 = rf_power_adjust();
       *(volatile uint8_t *)(v8 + 5) = v21;
       alloc_tx_event(dword_1231A4, v20[363], v21);
-      ((int (*)())rx_process_packet_1)(v8);
+      rx_process_packet_1(v8);
       result = 0;
       break;
     case 3:
@@ -45340,7 +45340,7 @@ int ke_send_msg_88(int a1, volatile int *a2, int a3, int a4) {
       *((volatile uint32_t *)off_123194 + 98) = v22;
       alloc_tx_event(v24, v22, v7);
       *(volatile uint32_t *)(v8 + 4) = v23[98];
-      ((int (*)())rx_process_packet_1)(v8);
+      rx_process_packet_1(v8);
       result = 0;
       break;
     case 4:
@@ -45348,7 +45348,7 @@ int ke_send_msg_88(int a1, volatile int *a2, int a3, int a4) {
       v26 = *((volatile uint32_t *)off_123194 + 98);
       *(volatile uint32_t *)(v8 + 4) = v26;
       alloc_tx_event(v25, v26, v7);
-      ((int (*)())rx_process_packet_1)(v8);
+      rx_process_packet_1(v8);
       result = 0;
       break;
     case 5:
@@ -45358,12 +45358,12 @@ int ke_send_msg_88(int a1, volatile int *a2, int a3, int a4) {
       *((volatile uint32_t *)off_123194 + 98) = v14;
       *(volatile uint32_t *)(v8 + 4) = v14;
       alloc_tx_event(v13, v14, v12);
-      ((int (*)())rx_process_packet_1)(v8);
+      rx_process_packet_1(v8);
       result = 0;
       break;
     default:
 LABEL_3:
-      ((int (*)())rx_process_packet_1)(v8);
+      rx_process_packet_1(v8);
       result = 0;
       break;
   }
@@ -45578,11 +45578,11 @@ int ke_send_msg_54(int a1, volatile uint8_t *a2) {
   {
     ((int (*)())lll_conn_phy_get)();
 LABEL_5:
-    ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+    rx_process_packet_1((int)(uintptr_t)(v4));
     return 0;
   }
   ((int (*)())lll_conn_phy_ld_get)();
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+  rx_process_packet_1((int)(uintptr_t)(v4));
   return 0;
 }
 
@@ -45620,11 +45620,11 @@ int parse_subframe_header(int a1, volatile uint8_t *a2) {
          + *((volatile uint32_t *)a2 + 3)) != 255 )
       *v4 = 0;
 LABEL_6:
-    ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+    rx_process_packet_1((int)(uintptr_t)(v4));
     return 0;
   }
   *v4 = ((int (*)())lll_conn_ready_check)();
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+  rx_process_packet_1((int)(uintptr_t)(v4));
   return 0;
 }
 
@@ -45668,7 +45668,7 @@ int mac_data_request(int a1, volatile uint8_t *a2, int a3, int a4) {
     *v10 = *a2;
     v10[1] = v9;
     v10[2] = 4;
-    ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v10));
+    rx_process_packet_1((int)(uintptr_t)(v10));
   }
   return 0;
 }
@@ -45732,7 +45732,7 @@ LABEL_4:
   *v12 = a2[1];
   v12[1] = a2[2];
   v12[2] = v11;
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v12));
+  rx_process_packet_1((int)(uintptr_t)(v12));
   return 0;
 }
 
@@ -45814,7 +45814,7 @@ LABEL_4:
     default:
       break;
   }
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v7));
+  rx_process_packet_1((int)(uintptr_t)(v7));
   return 0;
 }
 
@@ -45832,7 +45832,7 @@ int trace_printf(int a1, volatile uint8_t *a2, int a3, int a4) {
   v7 = v6;
   compute_byte_delta(v4);
   get_calibration_value(v4, (void *)(uintptr_t)(v7 + 1), (void *)(uintptr_t)(v7));
-  ((int (*)())rx_process_packet_1)(v7);
+  rx_process_packet_1(v7);
   return 0;
 }
 
@@ -45949,7 +45949,7 @@ LABEL_3:
   if ( v8 )
     v9 |= 0x80000u;
   *(volatile uint32_t *)(v7 + 20) = v9 | 0x600000;
-  ((int (*)())rx_process_packet_1)(v7);
+  rx_process_packet_1(v7);
   return 0;
 }
 
@@ -46347,7 +46347,7 @@ LABEL_76:
           v63 = (volatile uint8_t *)tx_send_pdu(7, a4, (int)(uintptr_t)(a3), 2);
           v15 = (void *)(uintptr_t)(off_124194);
           *v63 = transmit_radio_packet((volatile int *)(a2 + 2), *a2, a2[8], v63 + 1);
-          ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v63));
+          rx_process_packet_1((int)(uintptr_t)(v63));
           v16 = 0;
           goto LABEL_10;
         case 8u:
@@ -46381,7 +46381,7 @@ LABEL_67:
           v15 = (void *)(uintptr_t)(off_124194);
           v60 = v59;
           check_boot_flag((volatile uint16_t *)a2, a2[10]);
-          ((int (*)())rx_process_packet_1)(v60);
+          rx_process_packet_1(v60);
           v16 = 0;
           goto LABEL_10;
         case 0x12u:
@@ -46430,7 +46430,7 @@ LABEL_53:
         case 0x18u:
 LABEL_52:
           v15 = (void *)(uintptr_t)(off_124194);
-          ((int (*)())memcpy_1)(dword_1241B0 + 1320 * a2[6], a2, 6);
+          memcpy_1((void *)(uintptr_t)(dword_1241B0 + 1320 * a2[6]), a2, 6);
           v48 = (void *)(uintptr_t)(off_1241B8);
           v49 = *((volatile uint16_t *)a2 + 2);
           *(volatile uint32_t *)off_1241B4 = *(volatile uint32_t *)a2;
@@ -46837,7 +46837,7 @@ LABEL_27:
           *v28 = a2[1];
           v28[1] = a2[2];
           v28[2] = v17;
-          ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v28));
+          rx_process_packet_1((int)(uintptr_t)(v28));
           v15 = (void *)(uintptr_t)(off_123E24);
           v16 = 0;
           goto LABEL_10;
@@ -47457,8 +47457,8 @@ int mac_isr_check(volatile uint8_t *a1, int a2, int a3) {
       v10[1] = a1[34];
       v11 = v10;
       a1[668] = 0;
-      ((int (*)())memcpy_1)((int)(uintptr_t)(v10 + 2), a1 + 38, 6);
-      return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v11));
+      memcpy_1(v10 + 2, a1 + 38, 6);
+      return rx_process_packet_1((int)(uintptr_t)(v11));
     }
   }
   return result;
@@ -47974,7 +47974,7 @@ int tx_path_setup(int a1) {
           v19 = (volatile uint8_t *)tx_send_pdu(78, 13, 0, 2),
           *v19 = v18,
           v19[1] = v14,
-          ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v19)),
+          rx_process_packet_1((int)(uintptr_t)(v19)),
           !*(volatile uint8_t *)(a1 + 231)) )
     {
       *(volatile uint8_t *)(a1 + 231) = 1;
@@ -48242,7 +48242,7 @@ int bt_task_init(int a1) {
   v7 = *(volatile uint8_t *)(v5 + 107);
   *((volatile uint8_t *)off_125950 + 9) = 1;
   v3[10] = 0;
-  ((int (*)())memcpy_1)(v6 + 108, v4 + (v7 << 9), *(volatile uint16_t *)(a1 + 4));
+  memcpy_1((void *)(uintptr_t)(v6 + 108), (void *)(uintptr_t)(v4 + (v7 << 9)), *(volatile uint16_t *)(a1 + 4));
   return ipc_trace_send(v5);
 }
 
@@ -48316,7 +48316,7 @@ LABEL_20:
         *v25 = v17;
         v25[1] = v4;
         v25[2] = v4;
-        ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v25));
+        rx_process_packet_1((int)(uintptr_t)(v25));
         v5 = dword_125B68;
         if ( *v16 )
         {
@@ -48559,7 +48559,7 @@ int ipc_post_msg(int a1) {
   v3 = (void *)(uintptr_t)(off_125C84);
   *v2 = *(volatile uint8_t *)(a1 + 26);
   *v3 &= ~4u;
-  return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v2));
+  return rx_process_packet_1((int)(uintptr_t)(v2));
 }
 
 
@@ -49906,7 +49906,7 @@ int llc_sem_lock() {
   v3[1] = v5;
   v3[3] = 0;
   v3[2] = *(volatile uint8_t *)(v2 + 26);
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v3));
+  rx_process_packet_1((int)(uintptr_t)(v3));
   v7 = v0[10];
   if ( v7 )
   {
@@ -50118,7 +50118,7 @@ int llc_conn_command(int result) {
       {
         v4 = (volatile uint8_t *)tx_send_pdu(69, 13, 0, 1);
         *v4 = *(volatile uint8_t *)(v3 + 24);
-        ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+        rx_process_packet_1((int)(uintptr_t)(v4));
       }
       if ( *((volatile int *)off_127020 + 1) > 0 )
       {
@@ -50147,7 +50147,7 @@ int llc_conn_command(int result) {
       *(volatile uint8_t *)(v2 + 16) = 2;
       v8 = (volatile uint32_t *)tx_send_pdu(140, 0, 255, 4);
       *v8 = dword_12702C;
-      return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v8));
+      return rx_process_packet_1((int)(uintptr_t)(v8));
     }
   }
   return result;
@@ -50490,7 +50490,7 @@ LABEL_23:
   }
   *((volatile uint8_t *)v21 + 2) = *v25;
 LABEL_26:
-  ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v21));
+  rx_process_packet_1((int)(uintptr_t)(v21));
   v27 = (void *)(uintptr_t)(off_127508);
   v28 = **(volatile int16_t **)off_127504;
   v29 = *((volatile uint32_t *)off_127508 + 1) & 0xFFFFDDFF;
@@ -51699,7 +51699,7 @@ int wifi_disable_action(int result) {
     *(volatile uint8_t *)(v5 + 16) = *(volatile uint8_t *)(v1 + 12);
     *(volatile uint32_t *)(v5 + 12) = (unsigned int)(((unsigned int)dword_128340
                                          * (uint64_t)(unsigned int)(*(volatile uint32_t *)(v8 + 696 * v4 + 8) - 5000)) >> 32) >> 6;
-    result = ((int (*)())rx_process_packet_1)(v5);
+    result = rx_process_packet_1(v5);
     v3[88] |= 0x20u;
   }
   return result;
@@ -52183,7 +52183,7 @@ int bsscfg_current(int a1) {
     v4 = (volatile uint8_t *)tx_send_pdu(5143, 5, 5, 2);
     *v4 = 1;
     v4[1] = *(volatile uint8_t *)(v2 + 107);
-    ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v4));
+    rx_process_packet_1((int)(uintptr_t)(v4));
   }
   return bsscfg_index(v1[16], a1);
 }
@@ -52990,7 +52990,7 @@ int bus_cmd52_write(int a1, int a2) {
   {
     *(volatile uint8_t *)(v4 + 3) = 0;
   }
-  return ((int (*)())rx_process_packet_1)(v4);
+  return rx_process_packet_1(v4);
 }
 
 
@@ -53352,7 +53352,7 @@ LABEL_26:
       v11 = (volatile uint8_t *)tx_send_pdu(77, 13, result[134], 2);
       *v11 = v1[113];
       v11[1] = v9 != 1;
-      ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v11));
+      rx_process_packet_1((int)(uintptr_t)(v11));
       v1[133] = v10;
       result = (volatile uint8_t *)((int (*)())nullsub_5)(*(volatile uint32_t *)(v4 + 1320 * v5 + 72), v9 != 1);
       if ( v9 == 1 )
@@ -53538,7 +53538,7 @@ LABEL_15:
       v6 = (volatile uint8_t *)tx_send_pdu(77, 13, 0, 2);
       *v6 = v1[113];
       v6[1] = 1;
-      ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v6));
+      rx_process_packet_1((int)(uintptr_t)(v6));
       v1[133] = 0;
       result = (volatile uint8_t *)((int (*)())nullsub_5)(*(volatile uint32_t *)(v4 + 1320 * v5 + 72), 1);
       goto LABEL_30;
@@ -53563,7 +53563,7 @@ LABEL_41:
 LABEL_42:
     v14 = (volatile uint16_t *)tx_send_pdu(77, 13, 0, 2);
     *v14 = v1[113];
-    ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v14));
+    rx_process_packet_1((int)(uintptr_t)(v14));
     v1[133] = 1;
     result = (volatile uint8_t *)((int (*)())nullsub_5)(*(volatile uint32_t *)(v4 + 1320 * v5 + 72), 0);
     goto LABEL_43;
@@ -55124,7 +55124,7 @@ int send_vendor_command(int a1, int a2, int a3, int a4) {
   if ( hci_cmd_handler(2) )
   {
     *v6 = 8;
-    ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v6));
+    rx_process_packet_1((int)(uintptr_t)(v6));
     return 0;
   }
   else
@@ -55137,7 +55137,7 @@ int send_vendor_command(int a1, int a2, int a3, int a4) {
     v7[10] = 0;
     *((volatile uint16_t *)v7 + 4) = v4;
     log_trace_event(a2);
-    ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v6));
+    rx_process_packet_1((int)(uintptr_t)(v6));
     return 1;
   }
 }
@@ -55459,7 +55459,7 @@ int rf_execute_cmd(char a1, int a2) {
   v3 = (volatile uint8_t *)tx_send_pdu(2052, a2, 2, 1);
   check_feature_flag(4, dword_12B3D0);
   *v3 = a1;
-  return ((int (*)())rx_process_packet_1)((int)(uintptr_t)(v3));
+  return rx_process_packet_1((int)(uintptr_t)(v3));
 }
 
 
@@ -56901,7 +56901,7 @@ int mac_write_header_word(int16_t a1, int16_t a2, int16_t a3) {
   int v3; // r0
 
   v3 = tx_send_pdu(a1, a2, a3, 0);
-  return ((int (*)())rx_process_packet_1)(v3);
+  return rx_process_packet_1(v3);
 }
 
 
@@ -56911,7 +56911,7 @@ int nop_function(int a1, int16_t a2, int16_t a3, int16_t a4) {
   *(volatile uint16_t *)(a1 - 8) = a2;
   *(volatile uint16_t *)(a1 - 6) = a3;
   *(volatile uint16_t *)(a1 - 4) = a4;
-  return ((int (*)())rx_process_packet_1)(a1);
+  return rx_process_packet_1(a1);
 }
 
 
@@ -58064,13 +58064,13 @@ int load_version_string(int a1) {
   uint8_t v10[132]; // [sp+80h] [bp-84h] BYREF
   } _frame;
   v1 = dword_12D458;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v9), dword_12D458, 128);
-  ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v10), v1 + 128, 128);
+  memcpy_1((void *)(_frame.v9), (void *)(uintptr_t)(dword_12D458), 128);
+  memcpy_1(_frame.v10, (void *)(uintptr_t)(v1 + 128), 128);
   v3 = ((uint64_t (*)())float_to_double)(a1);
   v4 = ((uint64_t (*)())double_compare_common)(v3, HIDWORD(v3), dword_12D450, dword_12D454);
   v5 = ((uint64_t (*)())double_compare_common)(v4, HIDWORD(v4), 0, dword_12D45C);
   v6 = ((uint64_t (*)())double_compare_eq)(v5, HIDWORD(v5), 0, dword_12D460);
-  v7 = ((int (*)())double_to_float_1)(v6, HIDWORD(v6));
+  v7 = double_to_float_1(v6, HIDWORD(v6));
   return v7 & 0x7F800000
        | ((((v7 & 0x7FFFFF) * (uint64_t)(int)_frame.v9[(v7 >> 18) & 0x1F]) >> 23) + *(volatile uint32_t *)&_frame.v10[4 * ((v7 >> 18) & 0x1F)]);
 }
@@ -60502,7 +60502,7 @@ LABEL_5:
   v8 = dword_12EC5C;
   *v7 = 0;
   alloc_tx_event(v8);
-  ((int (*)())rx_process_packet_1)((int)v7);
+  rx_process_packet_1((int)v7);
   return 0;
 }
 
@@ -60516,7 +60516,7 @@ int pdu_alloc_40a(int a1, int a2, int16_t a3, int16_t a4) {
   *v4 = 0;
   v4[1] = 0;
   v4[2] = 0;
-  ((int (*)())rx_process_packet_1)((int)v4);
+  rx_process_packet_1((int)v4);
   return 0;
 }
 
@@ -60537,9 +60537,9 @@ int pdu_alloc_424(int a1, volatile uint32_t *a2, int16_t a3, int16_t a4) {
   *v5 = v6;
   v5[1] = v7;
   v8 = (int)v5;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(v5 + 2), v6, v7);
+  memcpy_1((void *)(v5 + 2), (void *)(uintptr_t)(v6), v7);
   alloc_tx_event(dword_12ECD0, *a2, *(volatile uint32_t *)(v8 + 4) + *a2, *(volatile uint32_t *)(v8 + 8));
-  ((int (*)())rx_process_packet_1)(v8);
+  rx_process_packet_1(v8);
   return 0;
 }
 
@@ -60561,9 +60561,9 @@ int pdu_alloc_40c(int a1, volatile uint32_t *a2, int16_t a3, int16_t a4) {
     *v5 = 255;
   if ( v8 << 30 )
     *v5 = 1;
-  ((int (*)())memcpy_1)(v6, a2 + 2, v8);
+  memcpy_1((void *)(uintptr_t)(v6), (void *)(a2 + 2), v8);
   alloc_tx_event(dword_12ED28, *a2, a2[1] + *a2, a2[2], *v5);
-  ((int (*)())rx_process_packet_1)((int)v5);
+  rx_process_packet_1((int)v5);
   return 0;
 }
 
@@ -60603,7 +60603,7 @@ int send_mcu_cmd_0x412(int a1, volatile int *a2, int16_t a3, int16_t a4) {
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       mmio_rmw32((int)v7, a2[2], a2[1], 1);
-      v9 = ((int (*)())mmio_read32_1)(*a2, 1);
+      v9 = mmio_read32_1(*a2, 1);
       v8 = (v8 & ~0xFFFFFFFFull) | ((uint32_t)(*a2) & 0xFFFFFFFFu);
     }
     else
@@ -60617,7 +60617,7 @@ int send_mcu_cmd_0x412(int a1, volatile int *a2, int16_t a3, int16_t a4) {
     *(volatile uint32_t *)v6 = v8;
   }
   alloc_tx_event(dword_12EDE4, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
-  ((int (*)())rx_process_packet_1)(v6);
+  rx_process_packet_1(v6);
   return 0;
 }
 
@@ -60635,7 +60635,7 @@ int send_mcu_cmd_0x401(int a1, volatile int *a2, int16_t a3, int16_t a4) {
   v7 = (volatile uint32_t *)v5;
   if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
   {
-    v9 = ((int (*)())mmio_read32_1)(*a2, 1);
+    v9 = mmio_read32_1(*a2, 1);
     v6 = (volatile uint32_t *)*a2;
     v7[1] = v9;
   }
@@ -60645,7 +60645,7 @@ int send_mcu_cmd_0x401(int a1, volatile int *a2, int16_t a3, int16_t a4) {
   }
   *v7 = (int)(uintptr_t)(v6);
   alloc_tx_event(dword_12EE34);
-  ((int (*)())rx_process_packet_1)((int)v7);
+  rx_process_packet_1((int)v7);
   return 0;
 }
 
@@ -60693,7 +60693,7 @@ int send_mcu_cmd_0x403(int a1, volatile int *a2, int16_t a3, int16_t a4) {
     if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       mmio_read32_variant((int)v7, a2[1], 1);
-      v9 = ((int (*)())mmio_read32_1)(*a2, 1);
+      v9 = mmio_read32_1(*a2, 1);
       v8 = *a2;
     }
     else
@@ -60707,7 +60707,7 @@ int send_mcu_cmd_0x403(int a1, volatile int *a2, int16_t a3, int16_t a4) {
     *v6 = v8;
   }
   alloc_tx_event(dword_12EF1C, v10);
-  ((int (*)())rx_process_packet_1)((int)v6);
+  rx_process_packet_1((int)v6);
   return 0;
 }
 
@@ -60806,7 +60806,7 @@ int send_mcu_cmd_0x40e(int a1, volatile int *a2, int16_t a3, int16_t a4) {
   }
   *v7 = (uint8_t)call_patch_1fc_0();
   alloc_tx_event(loc_12F044);
-  ((int (*)())rx_process_packet_1)((int)v7);
+  rx_process_packet_1((int)v7);
   return 0;
 }
 
@@ -60959,7 +60959,7 @@ int unknown_12f2c8(int a1, int a2, int a3) {
   result = alloc_tx_event(v5, a1, a2, a3 & 0xFFFFF);
   if ( *(volatile int *)off_12F328 >= 0 )
   {
-    ((int (*)())rf_irq_clear_1)();
+    rf_irq_clear_1();
     result = irq_disable_global_2(0x80000000);
   }
   if ( *v4 )
@@ -61156,7 +61156,7 @@ void state_check_0x182ba0_b(int a1) {
     if ( v2 )
     {
       *(volatile uint32_t *)(a1 + 24) = 49374;
-      ((int (*)())memcpy_1)(v2, a1, 28);
+      memcpy_1((void *)(uintptr_t)(v2), (void *)(uintptr_t)(a1), 28);
       v4 = (void *)(uintptr_t)(off_12F4A0);
       while ( !*(volatile uint32_t *)off_12F4A0 )
         ;
@@ -61872,14 +61872,14 @@ int is_compact_mac_string(int a1, int a2) {
   if ( memcpy_aligned(*(volatile uint32_t *)(a2 + 4)) != 12 || memcpy_aligned(*(volatile uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(volatile uint8_t **)(a2 + 4);
-  ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v26), v3 + 8, 4);
+  memcpy_1(_frame.v26, v3 + 8, 4);
   v3[8] = 0;
   _frame.v27 = 0;
   v4 = parse_uint_base(v3, 0, 0x10u);
   v5 = parse_uint_base(_frame.v26, 0, 0x10u);
   v6 = *(volatile uint8_t **)(a2 + 8);
   v7 = v5;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v26), v6 + 8, 4);
+  memcpy_1(_frame.v26, v6 + 8, 4);
   v6[8] = 0;
   _frame.v27 = 0;
   v8 = parse_uint_base(v6, 0, 0x10u);
@@ -62099,7 +62099,7 @@ if ( memcpy_aligned(dword_130000) != v1 || strcmp(dword_130000, (void *)(uintptr
         v5 = v4;
         if ( v4 )
         {
-          ((int (*)())memcpy_2)((int)(uintptr_t)(v4 + 1), dword_12FFF8);
+          memcpy_2((int)(uintptr_t)(v4 + 1), dword_12FFF8);
           wlan_ioctl_handler_1(dword_130008, v5);
         }
         else
@@ -63973,7 +63973,7 @@ LABEL_21:
 
 // mem_alloc @ 0x1313d8
 int mem_alloc(int a1, int a2, int16_t a3, int16_t a4) {
-  ((int (*)())memcpy_1)(dword_1313F8, a2, 254);
+  memcpy_1((void *)(uintptr_t)(dword_1313F8), (void *)(uintptr_t)(a2), 254);
   mac_write_header_word(5123, a4, a3);
   return 0;
 }
@@ -64029,7 +64029,7 @@ LABEL_9:
     *(volatile uint16_t *)v14 = *(volatile uint16_t *)(v15 + 32);
     *(volatile uint8_t *)(v14 + 3) = v16;
     *(volatile uint8_t *)(v14 + 2) = a2[1];
-    ((int (*)())rx_process_packet_1)(v14);
+    rx_process_packet_1(v14);
   }
   mac_write_header_word(5133, a4, a3);
   return 0;
@@ -64057,7 +64057,7 @@ int handle_adv_report(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
       v10 = (volatile uint8_t *)tx_send_pdu(5145, 5, 6, 2u);
       *v10 = 0;
       v10[1] = *(volatile uint8_t *)(v7 + 34);
-      ((int (*)())rx_process_packet_1)((int)v10);
+      rx_process_packet_1((int)v10);
     }
   }
   else
@@ -64120,7 +64120,7 @@ int rx_mpdu_parse_header(int a1, volatile int *a2, int16_t a3, int16_t a4) {
         *(volatile uint32_t *)(v15 + 2) = *a2;
         *(volatile uint16_t *)(v15 + 10) = v16;
         *(volatile uint32_t *)(v15 + 6) = v17;
-        ((int (*)())rx_process_packet_1)(v15);
+        rx_process_packet_1(v15);
         v18 = *a2;
         v19 = a2[1];
         *(volatile uint16_t *)(v7 + 10) = *((volatile uint16_t *)a2 + 4);
@@ -64136,11 +64136,11 @@ int rx_mpdu_parse_header(int a1, volatile int *a2, int16_t a3, int16_t a4) {
     *(volatile uint32_t *)(v7 + 2) = v11;
     *(volatile uint32_t *)(v7 + 6) = v12;
 LABEL_9:
-    ((int (*)())rx_process_packet_1)(v7);
+    rx_process_packet_1(v7);
     return 0;
   }
   *(volatile uint8_t *)v7 = -1;
-  ((int (*)())rx_process_packet_1)(v7);
+  rx_process_packet_1(v7);
   return 0;
 }
 
@@ -64218,8 +64218,8 @@ int log_bt_event(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
     *(volatile uint16_t *)(v7 + 6) = v11;
     *(volatile uint8_t *)(v7 + 12) = *(volatile uint8_t *)(v8 + 168);
     *(volatile uint8_t *)(v7 + 13) = *(volatile uint16_t *)(v8 + 152);
-    ((int (*)())memcpy_1)(v7 + 14, v8 + 136, 8);
-    ((int (*)())memcpy_1)(v7 + 22, v8 + 4, 120);
+    memcpy_1((void *)(uintptr_t)(v7 + 14), (void *)(uintptr_t)(v8 + 136), 8);
+    memcpy_1((void *)(uintptr_t)(v7 + 22), (void *)(uintptr_t)(v8 + 4), 120);
     if ( *(volatile uint16_t *)(v8 + 184) )
     {
       v12 = 0;
@@ -64258,13 +64258,13 @@ int log_bt_event(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
           __enable_irq();
       }
     }
-    ((int (*)())rx_process_packet_1)(v7);
+    rx_process_packet_1(v7);
     return 0;
   }
   else
   {
     *(volatile uint16_t *)(v5 + 2) = 0;
-    ((int (*)())rx_process_packet_1)(v5);
+    rx_process_packet_1(v5);
     return 0;
   }
 }
@@ -64349,7 +64349,7 @@ LABEL_7:
   else
     v14 = *((volatile uint8_t *)v5 + 376);
   *v12 = v14;
-  ((int (*)())rx_process_packet_1)((int)v12);
+  rx_process_packet_1((int)v12);
   hci_cmd_preprocess(v15, 1);
   return 0;
 }
@@ -64657,7 +64657,7 @@ LABEL_19:
           v62 = (volatile uint8_t *)tx_send_pdu(73, 13, 0, 2u);
           *v62 = v32;
           v62[1] = 1;
-          ((int (*)())rx_process_packet_1)((int)v62);
+          rx_process_packet_1((int)v62);
           if ( v33[36] || v33[35] > 0x1Fu )
           {
             v31 = (v31 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(v25 + 234)) & 0xFFu);
@@ -64722,7 +64722,7 @@ LABEL_19:
     lll_conn_get((volatile uint8_t *)(v74 + v22));
   }
 LABEL_24:
-  ((int (*)())rx_process_packet_1)((int)v5);
+  rx_process_packet_1((int)v5);
   return 0;
 }
 
@@ -64872,7 +64872,7 @@ int process_hci_command(int a1, int a2, int16_t a3, int16_t a4) {
     *((volatile uint16_t *)v4 + 4) = 255;
     v33 = (volatile uint8_t *)tx_send_pdu(49, 0, 5, 1u);
     *v33 = v4[376];
-    ((int (*)())rx_process_packet_1)((int)v33);
+    rx_process_packet_1((int)v33);
     hci_cmd_preprocess(5u, 1);
   }
   return 0;
@@ -64921,7 +64921,7 @@ int wait_for_event(int a1, volatile char *a2, int16_t a3, int16_t a4) {
     if ( v11 )
       v11 = (v11 & ~0xFFu) | ((uint8_t)(*((volatile uint8_t *)v7 + 376)) & 0xFFu);
     *v10 = v11;
-    ((int (*)())rx_process_packet_1)((int)v10);
+    rx_process_packet_1((int)v10);
     hci_cmd_preprocess(5u, 1);
   }
   mac_write_header_word(5140, a4, a3);
@@ -64963,7 +64963,7 @@ int send_req_5(int a1, volatile uint8_t *a2, unsigned int a3, int16_t a4) {
   *(volatile uint32_t *)v7 = v11;
   v7[4] = a4;
   *v9 = v11 == 0;
-  ((int (*)())rx_process_packet_1)((int)v9);
+  rx_process_packet_1((int)v9);
   hci_cmd_preprocess(a3, 1);
   return 0;
 }
@@ -65119,9 +65119,9 @@ int ke_malloc_wrapper(int a1) {
   volatile uint8_t *v2; // r4
 
   v2 = (volatile uint8_t *)tx_send_pdu(12, 0, 5, 1u);
-  ((int (*)())ke_event_schedule_1)(a1);
+  ke_event_schedule_1(a1);
   *v2 = a1;
-  ((int (*)())rx_process_packet_1)((int)v2);
+  rx_process_packet_1((int)v2);
   return mac_write_header_word(5130, 13, 5);
 }
 
@@ -66308,7 +66308,7 @@ LABEL_2:
           *(volatile uint8_t *)(v50 + 6) = *(volatile uint8_t *)(a1 + 107);
           ++v48;
           *(volatile uint8_t *)(v50 + 4) = 0;
-          ((int (*)())rx_process_packet_1)(v50);
+          rx_process_packet_1(v50);
         }
         while ( v48 != 4 );
         v8 = v70;
@@ -66341,7 +66341,7 @@ LABEL_6:
       {
         v73 = (volatile uint8_t *)tx_send_pdu(109, 0, 5, 2u);
         decode_adv_type(v10, v12, v73);
-        ((int (*)())rx_process_packet_1)((int)v73);
+        rx_process_packet_1((int)v73);
         get_adv_report(v10, v12, a1 + 348, v74);
         if ( v74[0] )
         {
@@ -66350,7 +66350,7 @@ LABEL_6:
           *(volatile uint32_t *)v64 = *(volatile uint32_t *)(a1 + 348);
           *(volatile uint32_t *)(v64 + 12) = *(volatile uint32_t *)(a1 + 360);
           *(volatile uint64_t *)(v64 + 4) = v65;
-          ((int (*)())rx_process_packet_1)(v64);
+          rx_process_packet_1(v64);
         }
       }
     }
@@ -66377,7 +66377,7 @@ LABEL_6:
     v58 = tx_send_pdu(111, 0, 5, 4u);
     *(volatile uint16_t *)v58 = v72;
     *(volatile uint8_t *)(v58 + 2) = *(volatile uint8_t *)(a1 + 107);
-    ((int (*)())rx_process_packet_1)(v58);
+    rx_process_packet_1(v58);
 LABEL_102:
     if ( (*(volatile uint32_t *)(a1 + 468) & 0xFF000000) != v66 )
     {
@@ -66389,7 +66389,7 @@ LABEL_102:
       else
         v62 = v61 | 0x100;
       *v59 = v62;
-      ((int (*)())rx_process_packet_1)((int)v59);
+      rx_process_packet_1((int)v59);
     }
     goto LABEL_6;
   }
@@ -66441,7 +66441,7 @@ LABEL_7:
     *(volatile uint32_t *)(v18 + 2) = *(volatile uint32_t *)(a1 + 412);
     *(volatile uint32_t *)(v18 + 6) = v20;
     *(volatile uint16_t *)(v18 + 10) = v21;
-    result = (volatile uint8_t *)((int (*)())rx_process_packet_1)(v18);
+    result = (volatile uint8_t *)rx_process_packet_1(v18);
   }
   if ( v8 )
   {
@@ -66469,7 +66469,7 @@ LABEL_7:
         {
           *((volatile uint16_t *)v8 + 174) = 0;
         }
-        result = (volatile uint8_t *)((int (*)())phy_set_channel_2)(v24, v27);
+        result = (volatile uint8_t *)phy_set_channel_2(v24, v27);
       }
       v28 = *(volatile uint8_t *)(a1 + 413);
       if ( v28 == v9 )
@@ -66947,13 +66947,13 @@ int ble_state_check_13367c(int a1) {
 int ble_state_check_1336bc(int a1, int a2) {
   if ( **(volatile int16_t **)off_1336F8 >= 0 || hci_cmd_handler(6u) == 7 )
   {
-    ((int (*)())ke_msg_dispatch_1)(a2);
+    ke_msg_dispatch_1(a2);
     return 1;
   }
   else
   {
     irq_disable_mmio_write(dword_133700, dword_1336FC, 1012);
-    ((int (*)())ke_msg_dispatch_1)(a2);
+    ke_msg_dispatch_1(a2);
     return 1;
   }
 }
@@ -66975,7 +66975,7 @@ int rf_command_call(int a1, int a2, int16_t a3, int16_t a4) {
   {
     v10 = a3;
     v12 = v6;
-    ((int (*)())ke_msg_send)(*(volatile uint16_t *)(a2 + 2));
+    ((int (*)())ke_msg_send_1)(*(volatile uint16_t *)(a2 + 2));
     v7 = v10;
     v6 = v12;
   }
@@ -67154,7 +67154,7 @@ int ble_state_check_13397c() {
       mac_write_header_word(6148, 13, 6);
       v4[4] = 0;
     }
-    ((int (*)())rx_process_packet_1)(*(volatile uint32_t *)v4 + 12);
+    rx_process_packet_1(*(volatile uint32_t *)v4 + 12);
     v6 = (uint8_t)v4[33];
     *(volatile uint32_t *)v4 = 0;
     if ( v6 )
@@ -67312,7 +67312,7 @@ if ( get_acl_conn_slot((void *)(_frame.v20)) ) { ((int (*)())assert_trace)(1);
         clear_measurements(v4 + 248 + v3, v16, v17, (volatile uint16_t *)(v11 + 16), (volatile int *)(v11 + 8), (volatile int *)(v11 + 4), (volatile char *)(v11 + 24));
       }
       *(volatile uint32_t *)(v11 + 12) = v15;
-      ((int (*)())rx_process_packet_1)(v11);
+      rx_process_packet_1(v11);
       hci_cmd_preprocess(6u, 3);
     }
     v9 = *(volatile uint32_t *)(v1 + 48);
@@ -67490,7 +67490,7 @@ if ( v16 == 3 && mac_backoff_rand((void *)(uintptr_t)(a2 + 64), *(volatile uint1
         v12[5] = v17;
         if ( v18 )
         {
-          ((int (*)())memcpy_1)(dword_133F04, v9 + 1320 * *(volatile uint8_t *)(a2 + 61) + 64, 6);
+          memcpy_1((void *)(uintptr_t)(dword_133F04), (void *)(uintptr_t)(v9 + 1320 * *(volatile uint8_t *)(a2 + 61) + 64), 6);
           ke_timer_set(v9 + 1320 * *(volatile uint8_t *)(a2 + 61), 0, 0);
         }
         else
@@ -67511,7 +67511,7 @@ if ( v16 == 3 && mac_backoff_rand((void *)(uintptr_t)(a2 + 64), *(volatile uint1
       *v8 = 9;
     }
 LABEL_13:
-    ((int (*)())rx_process_packet_1)((int)v8);
+    rx_process_packet_1((int)v8);
     return v19;
   }
   return 2;
@@ -67539,7 +67539,7 @@ int ke_lock_wait() {
     *(volatile uint8_t *)(v4 + 4) = *(volatile uint8_t *)(v1 + 58);
     *(volatile uint16_t *)(v4 + 2) = *(volatile uint16_t *)(v1 + 56);
     *(volatile uint8_t *)v4 = *(volatile uint8_t *)(v1 + 61);
-    ((int (*)())rx_process_packet_1)(v4);
+    rx_process_packet_1(v4);
     v5 = dword_133FD0 + 696 * v3;
     v6 = 2 - (*(volatile uint32_t *)(v2 + 1208) & 1);
     v7 = __rev16(*(volatile uint16_t *)(v1 + 52));
@@ -67550,7 +67550,7 @@ int ke_lock_wait() {
       v8 = (volatile uint8_t *)tx_send_pdu(5145, 5, 6, 2u);
       *v8 = 0;
       v8[1] = *(volatile uint8_t *)(v1 + 61);
-      ((int (*)())rx_process_packet_1)((int)v8);
+      rx_process_packet_1((int)v8);
     }
     ((int (*)())assert_trace)(0);
     return 0;
@@ -67996,7 +67996,7 @@ LABEL_3:
     a2 = 1;
   }
 LABEL_4:
-  ((int (*)())rx_process_packet_1)(v6);
+  rx_process_packet_1(v6);
   return hci_cmd_preprocess(6u, 1);
 }
 
@@ -68084,7 +68084,7 @@ void ble_parse_event(int a1, int a2, int a3) {
   if ( a3 )
     *(volatile uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
-  ((int (*)())rx_process_packet_1)(v9);
+  rx_process_packet_1(v9);
   hci_cmd_preprocess(6u, 2);
 }
 
@@ -68140,7 +68140,7 @@ volatile uint32_t *ble_scan_config() {
   if ( v2 )
     *(volatile uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
-  ((int (*)())rx_process_packet_1)(v4);
+  rx_process_packet_1(v4);
   return hci_cmd_preprocess(6u, 2);
 }
 
@@ -68164,7 +68164,7 @@ int ble_reset_controller() {
   v1 = v0;
   if ( **(volatile int16_t **)off_1346B4 < 0 && !v0 )
     irq_disable_mmio_write(dword_1346BC, dword_1346B8, 766);
-  return ((int (*)())rx_process_packet_1)((int)(v1 + 3));
+  return rx_process_packet_1((int)(v1 + 3));
 }
 
 
@@ -68197,7 +68197,7 @@ int hci_send_cmd_1419(int a1) {
   alloc_tx_event(v8, v3);
   controller_is_ready();
   phy_sleep_prepare(a1);
-  ((int (*)())ke_event_schedule_1)(*(volatile uint8_t *)(a1 + 116));
+  ke_event_schedule_1(*(volatile uint8_t *)(a1 + 116));
   *v4 = 0;
   v4[1] = *(volatile uint8_t *)(a1 + 107);
   wlan_ioctl_handler_1(dword_1347D0, (volatile uint32_t *)v4 - 3);
@@ -68714,7 +68714,7 @@ LABEL_10:
     *(volatile uint32_t *)off_134F70 = *(volatile uint16_t *)(v40 + 68);
   }
   v50 = v25;
-  ((int (*)())rx_process_packet_1)(v17);
+  rx_process_packet_1(v17);
   v41 = v50;
   *(volatile uint32_t *)off_134F74 = dword_134F78;
   if ( v50 == (void *)1 )
@@ -69085,7 +69085,7 @@ volatile uint32_t * mmio_write_sequence(int16_t a1) {
   *(volatile uint16_t *)v3 = a1;
   *(volatile uint8_t *)(v3 + 2) = 1;
   *(volatile uint8_t *)(v3 + 3) = *(volatile uint8_t *)(v2 + 61);
-  ((int (*)())rx_process_packet_1)(v3);
+  rx_process_packet_1(v3);
   return hci_cmd_preprocess(6u, 9);
 }
 
@@ -69351,7 +69351,7 @@ int rf_chan_state_get(unsigned int a1) {
   *(volatile uint32_t *)(v9 + 40) = bswap32(a1);
   hci_cmd_preprocess(6u, 6);
   ke_event_handler(6154, 6, dword_1357E4);
-  return ((int (*)())rx_process_packet_1)(v9);
+  return rx_process_packet_1(v9);
 }
 
 
@@ -69419,7 +69419,7 @@ int ke_msg_alloc(char a1, int a2, unsigned int a3) {
   }
   hci_cmd_preprocess(6u, 7);
   ke_event_handler(6154, 6, dword_1358B4);
-  return ((int (*)())rx_process_packet_1)(v9);
+  return rx_process_packet_1(v9);
 }
 
 
@@ -69479,7 +69479,7 @@ int ke_msg_dispatch_1(int a1) {
 
   v1 = (void *)(uintptr_t)(off_13596C);
   invalid_handler_12c5fc(6154, 6);
-  ((int (*)())memcpy_1)(a1, v1[4], 54);
+  memcpy_1((void *)(uintptr_t)(a1), (void *)(uintptr_t)(v1[4]), 54);
   tx_process_jump(v1[4] - 12);
   v1[4] = a1;
   return mac_dma_setup();
@@ -69633,7 +69633,7 @@ LABEL_5:
     *(volatile uint8_t *)(v16 + 110) = 0;
     *(volatile uint8_t *)(v16 + 111) = 0;
     *(volatile uint32_t *)(v16 + 112) = v20;
-    ((int (*)())memcpy_1)(v16 + 124, a2, 6);
+    memcpy_1((void *)(uintptr_t)(v16 + 124), (void *)(uintptr_t)(a2), 6);
     v21 = *(volatile uint8_t *)(v13 + 107);
     *(volatile uint16_t *)(v16 + 130) = 16 * v60;
     *(volatile uint8_t *)(v15 + 28) = v21;
@@ -69657,7 +69657,7 @@ LABEL_5:
           *(volatile uint8_t *)(v15 + 51) = 4;
           *(volatile uint8_t *)(v15 + 53) = 4;
           ++*(volatile uint64_t *)(v53 + 72);
-          ((int (*)())memcpy_1)((int)(uintptr_t)(&v63), v53 + 72, 6);
+          memcpy_1((void *)(&v63), (void *)(uintptr_t)(v53 + 72), 6);
           *(volatile uint16_t *)(v16 + 134) = v63;
           *(volatile uint16_t *)(v16 + 136) = HIWORD(v63) | (*(volatile uint8_t *)(v53 + 97) << 14);
           v62 = *(volatile uint8_t *)(v15 + 51);
@@ -69667,7 +69667,7 @@ LABEL_5:
           *(volatile uint8_t *)(v15 + 51) = 8;
           *(volatile uint8_t *)(v15 + 53) = 12;
           ++*(volatile uint64_t *)(v53 + 72);
-          ((int (*)())memcpy_1)((int)(uintptr_t)(&v63), v53 + 72, 6);
+          memcpy_1((void *)(&v63), (void *)(uintptr_t)(v53 + 72), 6);
           v48 = v63;
           v49 = HIWORD(v63);
           v46 = v64;
@@ -69680,7 +69680,7 @@ LABEL_5:
           *(volatile uint8_t *)(v15 + 51) = 8;
           *(volatile uint8_t *)(v15 + 53) = 8;
           ++*(volatile uint64_t *)(v53 + 72);
-          ((int (*)())memcpy_1)((int)(uintptr_t)(&v63), v53 + 72, 6);
+          memcpy_1((void *)(&v63), (void *)(uintptr_t)(v53 + 72), 6);
           *(volatile uint16_t *)(v16 + 134) = v63;
           v45 = *(volatile uint8_t *)(v53 + 97);
           v46 = v64;
@@ -69703,7 +69703,7 @@ LABEL_31:
           else
             v52 = __PAIR64__(v41, v40) + 1;
           *(volatile uint64_t *)(v53 + 72) = v52;
-          ((int (*)())memcpy_1)((int)(uintptr_t)(&v63), v53 + 72, 8);
+          memcpy_1((void *)(&v63), (void *)(uintptr_t)(v53 + 72), 8);
           *(volatile uint16_t *)(v16 + 134) = *(volatile uint8_t *)(v53 + 97);
           v42 = HIWORD(v63);
           v43 = v64;
@@ -69739,10 +69739,10 @@ LABEL_31:
     v26 = v61 + v23;
     v65[0] = *(volatile uint32_t *)off_135D40;
     v65[1] = v25;
-    ((int (*)())memcpy_1)(v61 + v23, v65, 8);
+    memcpy_1((void *)(uintptr_t)(v61 + v23), (void *)(v65), 8);
     v66 = v24[1];
-    ((int (*)())memcpy_1)(v26 + 8, &v66, 8);
-    ((int (*)())memcpy_1)(v26 + 16, v59 + 100 + v3, 6);
+    memcpy_1((void *)(uintptr_t)(v26 + 8), (void *)(&v66), 8);
+    memcpy_1((void *)(uintptr_t)(v26 + 16), (void *)(uintptr_t)(v59 + 100 + v3), 6);
     v27 = v3 + 1320 * a1;
     *(volatile uint16_t *)(v26 + 22) = *(volatile uint32_t *)(v27 + 1228);
     *(volatile uint8_t *)(v26 + 24) = *(volatile uint16_t *)(v27 + 1230);
@@ -69762,7 +69762,7 @@ LABEL_31:
     {
       v28 = a3 + 42;
     }
-    ((int (*)())memcpy_1)(v26 + 26, v28, 10);
+    memcpy_1((void *)(uintptr_t)(v26 + 26), v28, 10);
     v29 = *(volatile uint8_t *)(v4 + 696 * v5 + 35);
     v30 = *(volatile uint32_t **)(v15 + 76);
     v31 = *(volatile uint8_t *)(v15 + 53);
@@ -69782,8 +69782,8 @@ LABEL_31:
     }
     if ( (a3[1] & 0x40) != 0 && *(volatile uint8_t *)(v53 + 96) == 1 )
     {
-      ((int (*)())memcpy_1)(v15 + 12, a2, 6);
-      ((int (*)())memcpy_1)(v15 + 18, v59 + 100 + v3, 6);
+      memcpy_1((void *)(uintptr_t)(v15 + 12), (void *)(uintptr_t)(a2), 6);
+      memcpy_1((void *)(uintptr_t)(v15 + 18), (void *)(uintptr_t)(v59 + 100 + v3), 6);
       v51 = v32 - (*(volatile uint8_t *)(v15 + 51) + *(volatile uint8_t *)(v15 + 53));
       *(volatile uint8_t *)(v15 + 27) = 0;
       rf_channel_select(v15, v53 + 80, v26, v51 - 26);
@@ -69801,12 +69801,12 @@ int tx_desc_get(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   volatile uint8_t *v8; // r0
 
   v5 = *((volatile uint16_t *)a2 + 1);
-  ((int (*)())memcpy_1)(dword_135EDC + (*a2 << 9), a2 + 4, v5);
+  memcpy_1((void *)(uintptr_t)(dword_135EDC + (*a2 << 9)), a2 + 4, v5);
   *(volatile uint16_t *)(dword_135EE0 + 2 * *a2) = v5;
   v8 = (volatile uint8_t *)tx_send_pdu(7177, a4, a3, 2u);
   *v8 = 1;
   v8[1] = *a2;
-  ((int (*)())rx_process_packet_1)((int)v8);
+  rx_process_packet_1((int)v8);
   return 0;
 }
 
@@ -69945,7 +69945,7 @@ int rf_config_from_params(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) 
   v11 = (volatile char *)tx_send_pdu(7173, a4, a3, 2u);
   *v11 = v10;
   v11[1] = v16[0];
-  ((int (*)())rx_process_packet_1)((int)v11);
+  rx_process_packet_1((int)v11);
   return 0;
 }
 
@@ -70123,7 +70123,7 @@ LABEL_3:
     v11 = (volatile char *)tx_send_pdu(7169, a4, a3, 4u);
     *v11 = v10;
     v11[1] = *(volatile uint8_t *)(a2 + 51);
-    ((int (*)())rx_process_packet_1)((int)v11);
+    rx_process_packet_1((int)v11);
     return 0;
   }
   if ( hci_cmd_handler(7u) )
@@ -70182,7 +70182,7 @@ LABEL_3:
     else
       *(volatile uint8_t *)(v4 + 1320 * v8 + 461) = 1;
   }
-  ((int (*)())send_hci_event_1)();
+  send_hci_event_1();
   if ( !*(volatile uint32_t *)off_136514 )
   {
     v22 = v4 + 1320 * v8;
@@ -70295,7 +70295,7 @@ volatile uint32_t * send_vendor_hci_command(int a1) {
     v9 = dword_1366D4 + 1320 * v7;
     *(volatile uint8_t *)(v8 + 2) = 1;
     *(volatile uint8_t *)(v8 + 3) = *(volatile uint8_t *)(v9 + 107);
-    ((int (*)())rx_process_packet_1)(v8);
+    rx_process_packet_1(v8);
     v10 = *(volatile uint16_t *)(v3 + 48);
     v11 = *(volatile uint32_t *)(v9 + 72);
     *(volatile uint32_t *)(v9 + 1208) = *(volatile uint32_t *)(v3 + 44);
@@ -70323,7 +70323,7 @@ volatile uint32_t * send_vendor_hci_command(int a1) {
   }
   v4[1] = v5;
   *v4 = a1;
-  ((int (*)())rx_process_packet_1)((int)v4);
+  rx_process_packet_1((int)v4);
   tx_process_jump(v3 - 12);
   *v1 = 0;
   return hci_cmd_preprocess(7u, 0);
@@ -70340,7 +70340,7 @@ int acquire_lock_check_state() {
   v1 = v0;
   if ( **(volatile int16_t **)off_136718 < 0 && !v0 )
     irq_disable_mmio_write(dword_136720, dword_13671C, 210);
-  return ((int (*)())rx_process_packet_1)((int)(v1 + 3));
+  return rx_process_packet_1((int)(v1 + 3));
 }
 
 
@@ -70420,7 +70420,7 @@ volatile uint32_t *send_hci_command() {
   *(volatile uint16_t *)(v1 + 6) = v3;
   *(volatile uint8_t *)(v1 + 8) = *(volatile uint8_t *)(v0 + 50);
   *(volatile uint8_t *)(v1 + 9) = *(volatile uint8_t *)(v0 + 51);
-  ((int (*)())rx_process_packet_1)(v1);
+  rx_process_packet_1(v1);
   return hci_cmd_preprocess(7u, 2);
 }
 
@@ -70559,7 +70559,7 @@ LABEL_5:
       *(volatile uint16_t *)v4 = *(volatile uint16_t *)(a2 + 32);
       *(volatile uint8_t *)(v4 + 3) = *(volatile uint8_t *)(a2 + 34);
       *(volatile uint8_t *)(v4 + 2) = 1;
-      return ((int (*)())rx_process_packet_1)(v4);
+      return rx_process_packet_1(v4);
     }
   }
   return result;
@@ -70654,7 +70654,7 @@ LABEL_20:
   *(volatile uint16_t *)v19 = *(volatile uint16_t *)(a2 + 32);
   *(volatile uint8_t *)(v19 + 3) = *(volatile uint8_t *)(a2 + 34);
   *(volatile uint8_t *)(v19 + 2) = 0;
-  ((int (*)())rx_process_packet_1)(v19);
+  rx_process_packet_1(v19);
   return v8;
 }
 
@@ -70682,7 +70682,7 @@ int rf_get_rate_table_index(int result, int a2) {
         *(volatile uint8_t *)(v4 + 3) = *(volatile uint8_t *)(v2 + 34);
         *(volatile uint8_t *)(v4 + 2) = 0;
         *(volatile uint16_t *)v4 = v5;
-        return ((int (*)())rx_process_packet_1)(v4);
+        return rx_process_packet_1(v4);
       }
     }
   }
@@ -70723,7 +70723,7 @@ LABEL_4:
       *(volatile uint8_t *)(v8 + 109) = 0;
       *(volatile uint8_t *)(v8 + 110) = 0;
       *(volatile uint8_t *)(v8 + 111) = 0;
-      ((int (*)())memcpy_1)(v8 + 112, a2, 6);
+      memcpy_1((void *)(uintptr_t)(v8 + 112), (void *)(uintptr_t)(a2), 6);
       v9 = (void *)(uintptr_t)(off_136D28);
       v10 = *((volatile uint16_t *)off_136D28 + 254);
       v11 = *(volatile uint16_t *)(a1 + 104);
@@ -70842,13 +70842,13 @@ int rf_trace_tx_power(int a1, volatile uint8_t *a2, int a3, int16_t a4) {
     v7[12] = *v10;
     v7[13] = v23;
     v7[14] = v24;
-    ((int (*)())rx_process_packet_1)((int)v7);
+    rx_process_packet_1((int)v7);
     return 0;
   }
   else
   {
     *v6 = 0;
-    ((int (*)())rx_process_packet_1)((int)v6);
+    rx_process_packet_1((int)v6);
     return 0;
   }
 }
@@ -70860,7 +70860,7 @@ int rf_trace_lo_offset(int a1, int a2, int a3, int16_t a4) {
   int v4; // r0
 
   v4 = tx_send_pdu(4107, a4, 4, 1u);
-  ((int (*)())rx_process_packet_1)(v4);
+  rx_process_packet_1(v4);
   check_feature_flag(8, dword_136DDC);
   return 0;
 }
@@ -70874,7 +70874,7 @@ int rf_trace_channel() {
 
   v0 = (volatile uint16_t *)off_136E08;
   v1 = tx_send_pdu(4107, *((volatile uint16_t *)off_136E08 + 1924), 4, 1u);
-  ((int (*)())rx_process_packet_1)(v1);
+  rx_process_packet_1(v1);
   check_feature_flag(8, dword_136E0C, v0[1924]);
   return 0;
 }
@@ -70889,7 +70889,7 @@ int rf_trace_rate_set(int a1, int a2, int a3, int16_t a4) {
   check_feature_flag(8, dword_136E40);
   *v5 = 1;
   v5[1] = *(volatile uint8_t *)(a2 + 2);
-  ((int (*)())rx_process_packet_1)((int)v5);
+  rx_process_packet_1((int)v5);
   return 0;
 }
 
@@ -70914,10 +70914,10 @@ int rf_trace_rate_set2(int a1, volatile uint16_t *a2, int a3, int16_t a4) {
   v6 = (volatile char *)off_136EA8;
   v7 = *a2;
   *(volatile uint16_t *)off_136EA8 = v7;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(v6 + 3), (volatile char *)a2 + 3, v7);
+  memcpy_1(v6 + 3, (volatile char *)a2 + 3, v7);
   *v5 = 1;
   v5[1] = *((volatile uint8_t *)a2 + 2);
-  ((int (*)())rx_process_packet_1)((int)v5);
+  rx_process_packet_1((int)v5);
   return 0;
 }
 
@@ -70956,7 +70956,7 @@ int rf_set_channel_cfg(int a1, int a2, int a3, int16_t a4) {
   v5[1928] = v9;
   *(volatile uint32_t *)v5 = a2;
   *((volatile uint8_t *)v5 + 3899) = 0;
-  v10 = rf_hw_init_2(a2 + 352, 0);
+  v10 = rf_hw_init_2((void *)(uintptr_t)(a2 + 352), 0);
   if ( v10 && (v11 = *(volatile uint8_t *)(v10 + 57), v12 = v10, *(volatile uint8_t *)(v10 + 57)) )
   {
     v18 = *(volatile uint8_t *)(v10 + 58);
@@ -70984,14 +70984,14 @@ int rf_set_channel_cfg(int a1, int a2, int a3, int16_t a4) {
     if ( *v16 >= 0 )
     {
 LABEL_4:
-      ((int (*)())is_initialized_1)(v13);
+      is_initialized_1(v13);
       return 1;
     }
   }
   if ( (*(volatile uint8_t *)(a2 + 352) & 1) == 0 )
     goto LABEL_4;
   v23 = irq_disable_mmio_write(dword_136F88, dword_136F84, 178);
-  ((int (*)())is_initialized_1)(v23);
+  is_initialized_1(v23);
   return 1;
 }
 
@@ -71013,7 +71013,7 @@ int rf_set_channel_freq(int a1, int a2, int a3, int a4) {
   v4[1928] = WORD2(v6);
   if ( a4 == 11 || a4 == 6 )
   {
-    ((int (*)())is_initialized_1)(v6);
+    is_initialized_1(v6);
     return 1;
   }
   else
@@ -71021,8 +71021,8 @@ int rf_set_channel_freq(int a1, int a2, int a3, int a4) {
     v8 = (volatile uint8_t *)tx_send_pdu(4105, a4, 4, 2u);
     v8[1] = 1;
     *v8 = *(volatile uint8_t *)(a2 + 366);
-    v9 = ((int (*)())rx_process_packet_1)((int)v8);
-    ((int (*)())is_initialized_1)(v9);
+    v9 = rx_process_packet_1((int)v8);
+    is_initialized_1(v9);
     return 1;
   }
 }
@@ -71036,7 +71036,7 @@ int rf_trace_channel2(int a1, volatile uint8_t *a2) {
 
   v2 = (volatile uint16_t *)off_137014;
   v4 = tx_send_pdu(4107, *((volatile uint16_t *)off_137014 + 1924), 4, 1u);
-  ((int (*)())rx_process_packet_1)(v4);
+  rx_process_packet_1(v4);
   check_feature_flag(8, dword_137018, v2[1924]);
   util_hex_convert(*a2);
   return 0;
@@ -71059,7 +71059,7 @@ int radio_reg_config() {
   int v1; // r0
 
   v0 = tx_send_pdu(2051, 2, 4, 1u);
-  ((int (*)())rx_process_packet_1)(v0);
+  rx_process_packet_1(v0);
   v1 = hci_cmd_handler(4u);
   check_feature_flag(8, dword_137058, v1);
   return 0;
@@ -71415,7 +71415,7 @@ volatile uint32_t * util_hex_convert(int a1) {
   }
   tx_process_jump(v9 - 12);
   *(volatile uint32_t *)v2 = 0;
-  ((int (*)())rx_process_packet_1)((int)v5);
+  rx_process_packet_1((int)v5);
   *((volatile uint32_t *)off_13747C + 1) &= ~0x20u;
   return hci_cmd_preprocess(4u, 0);
 }
@@ -72611,7 +72611,7 @@ LABEL_46:
     write_hash_header((int)&_frame.v65);
 LABEL_50:
   v50 = (volatile uint16_t *)off_1384D0;
-  ((int (*)())memcpy_1)(_frame.v65, (volatile char *)off_1384D0 + 3, *(volatile uint16_t *)off_1384D0);
+  memcpy_1((void *)(uintptr_t)(_frame.v65), (volatile char *)off_1384D0 + 3, *(volatile uint16_t *)off_1384D0);
   v51 = **(volatile int16_t **)off_1384D4;
   _frame.v65 += *v50;
   v52 = _frame.v65 - (uint32_t)v25;
@@ -72622,7 +72622,7 @@ LABEL_50:
   }
   *(volatile uint16_t *)(v8 + 364) = v52;
   *(volatile uint32_t *)(v8 + 360) = 0;
-  return (volatile uint32_t *)((int (*)())rx_process_packet_1)(v8);
+  return (volatile uint32_t *)rx_process_packet_1(v8);
 }
 
 
@@ -72710,9 +72710,9 @@ volatile uint32_t *is_initialized_1() {
   {
     v13 = *(volatile uint16_t *)(*(volatile uint32_t *)v1 + 364);
     if ( v13 <= 0xC8 )
-      ((int (*)())memcpy_1)(dword_138694, v12, v13);
+      memcpy_1((void *)(uintptr_t)(dword_138694), (void *)(uintptr_t)(v12), v13);
   }
-  return (void *)(uintptr_t)(check_event_flag_1());
+  return check_event_flag_1();
 }
 
 
@@ -73304,7 +73304,7 @@ LABEL_36:
   *(volatile uint8_t *)(v39 + 18) = *((volatile uint8_t *)v4 + 10);
   *(volatile uint8_t *)(v39 + 16) = (v40 & 0x400) != 0;
   *(volatile uint8_t *)(v39 + 17) = *(volatile uint8_t *)(v4[8] + 97);
-  ((int (*)())rx_process_packet_1)(v39);
+  rx_process_packet_1(v39);
   return 0;
 }
 
@@ -74175,9 +74175,16 @@ LABEL_31:
           *(volatile uint8_t *)(v12 + 6) = _frame.v25;
           *(volatile uint8_t *)(v12 + 9) = v14;
           *(volatile uint16_t *)(v12 + 4) = v15;
-          ((int (*)())rx_process_packet_1)(v12);
+          rx_process_packet_1(v12);
           if ( _frame.v24 == 4 )
-((int (*)())ke_timer_set_1)( _frame.v21, v13, *(volatile uint32_t *)(a1 + 52), *(volatile uint16_t *)(v12 + 4), *(volatile uint8_t *)(v12 + 6), *(volatile char *)(v12 + 9), *(volatile uint8_t *)(a1 + 61));
+            ke_timer_set_1(
+              _frame.v21,
+              v13,
+              *(volatile uint32_t *)(a1 + 52),
+              *(volatile uint16_t *)(v12 + 4),
+              *(volatile uint8_t *)(v12 + 6),
+              *(volatile char *)(v12 + 9),
+              *(volatile uint8_t *)(a1 + 61));
           return 0;
         }
         _frame.v22 = v8;
@@ -74269,7 +74276,7 @@ int rf_set_power(volatile char *a1, char a2, int a3) {
   }
   v6 = (uint8_t)(v4 + 6);
   v7 = &a1[v6];
-  ((int (*)())memcpy_1)((int)(uintptr_t)(&v16), &a1[v6], 2);
+  memcpy_1((void *)(&v16), &a1[v6], 2);
   v8 = a1[4] & 1;
   if ( (a1[4] & 1) != 0 )
   {
@@ -74345,7 +74352,7 @@ int rf_get_power(volatile char *a1, char a2, int a3) {
   {
     v3 += 4;
   }
-  result = ((int (*)())memcpy_1)((int)(uintptr_t)(&v6), &a1[(uint8_t)(v3 + 6)], 2);
+  result = (int)(uintptr_t)(memcpy_1((void *)(&v6), &a1[(uint8_t)(v3 + 6)], 2));
   if ( v6 == 36488 )
     return alloc_tx_event(dword_139E18, 36488, a3);
   return result;
@@ -74872,7 +74879,7 @@ int phy_init(int a1, volatile uint32_t *a2) {
     if ( (*(volatile uint16_t *)(a1 + 30) & 1) == 0 )
     {
       *(volatile uint64_t *)(v8 + 72) += v12;
-      ((int (*)())memcpy_1)(a1 + 56, v8 + 72, 2 * v11);
+      memcpy_1((void *)(uintptr_t)(a1 + 56), (void *)(uintptr_t)(v8 + 72), 2 * v11);
     }
     return v10;
   }
@@ -75335,21 +75342,21 @@ int phy_txpower_calc(int a1, int a2) {
   } _frame;
   v2 = *(volatile uint8_t *)(a1 + 28);
   if ( v2 > 3 )
-    return ((int (*)())phy_set_channel_1)(a1, a2, 0x80000000);
+    return phy_set_channel_1(a1, a2, 0x80000000);
   v5 = *(volatile uint8_t *)(a1 + 29);
   if ( v5 == 255 )
   {
     if ( (*(volatile uint16_t *)(a1 + 30) & 8) == 0 )
     {
       alloc_tx_event(dword_13AD98);
-      return ((int (*)())phy_set_channel_1)(a1, a2, 0x80000000);
+      return phy_set_channel_1(a1, a2, 0x80000000);
     }
     goto LABEL_11;
   }
   v6 = dword_13AD6C;
   v7 = dword_13AD6C + 696 * v5;
   if ( !*(volatile uint8_t *)(v7 + 37) || *(volatile uint8_t *)(v7 + 48) )
-    return ((int (*)())phy_set_channel_1)(a1, a2, 0x80000000);
+    return phy_set_channel_1(a1, a2, 0x80000000);
   v9 = *(volatile uint16_t *)(a1 + 30);
   if ( (v9 & 8) != 0 )
   {
@@ -75383,7 +75390,7 @@ LABEL_11:
       if ( v33 == 1 )
       {
         v15 = (v15 & ~0xFFu) | ((uint8_t)(phy_init(a1, (void *)(&_frame.v41))) & 0xFFu);
-        ((int (*)())memcpy_1)(*(volatile uint32_t *)(a1 + 72) + 164, *(volatile uint32_t *)(a1 + 72) + 172, 24);
+        memcpy_1((void *)(uintptr_t)(*(volatile uint32_t *)(a1 + 72) + 164), (void *)(uintptr_t)(*(volatile uint32_t *)(a1 + 72) + 172), 24);
         _frame.v40 = 24;
       }
       else
@@ -75454,14 +75461,14 @@ LABEL_24:
   {
 LABEL_9:
     check_feature_flag(32, dword_13AD70);
-    return ((int (*)())phy_set_channel_1)(a1, a2, 0x80000000);
+    return phy_set_channel_1(a1, a2, 0x80000000);
   }
   v24 = dword_13AD7C;
   v25 = (volatile uint8_t *)(dword_13AD7C + 1320 * v2);
   if ( !v25[108] )
   {
     alloc_tx_event(dword_13AD94);
-    return ((int (*)())phy_set_channel_1)(a1, a2, 0x80000000);
+    return phy_set_channel_1(a1, a2, 0x80000000);
   }
   phy_reset(a1);
   v26 = v6 + 696 * *(volatile uint8_t *)(a1 + 29);
@@ -75776,14 +75783,14 @@ LABEL_31:
           wlan_ioctl_handler_3(dword_13B22C, (volatile uint32_t *)(dword_13B228 + 32 * v7));
           wlan_ioctl_handler_1(dword_13B230, v30);
         }
-        ((int (*)())rf_set_frequency_1)(*(volatile uint8_t *)(a2 + 7), v7);
+        rf_set_frequency_1(*(volatile uint8_t *)(a2 + 7), v7);
         return 0;
       }
       *(volatile uint32_t *)(696 * *(volatile uint8_t *)(dword_13B228 + 32 * v7 + 16)
                 + 12 * *(volatile uint8_t *)(dword_13B228 + 32 * v7 + 22)
                 + dword_13B23C
                 + 448) = *((volatile uint32_t *)off_13B240 + 4);
-      ((int (*)())send_vendor_command_1)(v7);
+      send_vendor_command_1(v7);
     }
     return 0;
   }
@@ -75843,7 +75850,7 @@ LABEL_31:
       hci_cmd_preprocess(a3, 4);
       wlan_ioctl_handler_3(dword_13B22C, (volatile uint32_t *)v27);
       wlan_ioctl_handler_1(dword_13B230, (volatile uint32_t *)v27);
-      ((int (*)())rf_set_frequency_1)((uint16_t)v16, v7);
+      rf_set_frequency_1((uint16_t)v16, v7);
       v17 = 37;
     }
   }
@@ -75902,7 +75909,7 @@ int wait_condition_status(int a1, volatile char *a2, unsigned int a3) {
           v10[2] = v7 - 4;
           *v10 = v8;
           v10[1] = v9;
-          ((int (*)())rx_process_packet_1)((int)v10);
+          rx_process_packet_1((int)v10);
           get_global_base(a3 >> 8);
           hci_cmd_preprocess(a3, 1);
         }
@@ -75975,11 +75982,11 @@ int check_packet_type(int a1, volatile char *a2, unsigned int a3) {
       v11[2] = v10;
       *v11 = v8;
       v11[1] = v9;
-      ((int (*)())rx_process_packet_1)((int)v11);
+      rx_process_packet_1((int)v11);
     }
     *(volatile uint32_t *)(696 * (uint8_t)*a2 + 12 * (uint8_t)a2[1] + dword_13B4B8 + 448) = *((volatile uint32_t *)off_13B4BC
                                                                                                  + 4);
-    ((int (*)())send_vendor_command_1)(v5);
+    send_vendor_command_1(v5);
   }
   return 0;
 }
@@ -76473,7 +76480,7 @@ int build_hci_event(char a1, int a2) {
   v2 = (v2 & ~0xFFFFu) | ((uint16_t)(*(volatile uint16_t *)(v5 + 20)) & 0xFFFFu);
   *(volatile uint16_t *)(v4 + 6) = *(volatile uint16_t *)(v5 + 12);
   *(volatile uint16_t *)(v4 + 4) = v2;
-  return ((int (*)())rx_process_packet_1)(v4);
+  return rx_process_packet_1(v4);
 }
 
 
@@ -76494,7 +76501,7 @@ int rf_set_frequency_1(int a1, int a2) {
   v5[1] = a1;
   *v5 = v7 != 1;
   v5[2] = *(volatile uint8_t *)(v6 + 22);
-  return ((int (*)())rx_process_packet_1)((int)v5);
+  return rx_process_packet_1((int)v5);
 }
 
 
@@ -76533,7 +76540,7 @@ int ke_event_schedule_1(int result) {
         wlan_ioctl_handler_1(v5, (volatile uint32_t *)v3);
       }
       hci_cmd_preprocess((uint16_t)((uint16_t)i << 8) | 8, 4);
-      result = ((int (*)())rf_set_frequency_1)(v4, (uint16_t)i);
+      result = rf_set_frequency_1(v4, (uint16_t)i);
     }
     v3 += 32;
   }
@@ -77005,7 +77012,7 @@ LABEL_9:
       do
         *v20++ = 0;
       while ( v20 != v19 );
-      v24 = ((uint64_t (*)())rx_process_packet_3)(1320 * v12 + 480 + 120 * v16 + dword_13C550, a2, v13 - 18, v4, 0);
+      v24 = rx_process_packet_3(1320 * v12 + 480 + 120 * v16 + dword_13C550, (void *)(uintptr_t)(a2), v13 - 18, v4, 0);
       v26 = v23 == v25;
       if ( v23 == v25 )
         v26 = v22 == v24;
@@ -77112,7 +77119,7 @@ int bt_conn_is_connected(int a1, int a2, int a3, int a4) {
     do
       *v13++ = 0;
     while ( (volatile uint8_t *)(v5 + 18) != v13 );
-    v14 = ((uint64_t (*)())rx_process_packet_3)(result, a2, a3, 24, a4);
+    v14 = rx_process_packet_3(result, (void *)(uintptr_t)(a2), a3, 24, a4);
     for ( i = 0; i != 64; i += 8 )
     {
       v17 = (v14 >> i) | (v15 << (32 - i));
@@ -77385,7 +77392,7 @@ uint64_t rx_process_packet_3(int a1, volatile uint16_t *a2, int a3, int a4, int 
   }
   _frame.v50 = *a2 & 0xC7FF;
   v9 = (volatile char *)a2 + a4;
-  ((int (*)())memcpy_1)((int)(uintptr_t)(_frame.v51), a2 + 2, 18);
+  memcpy_1(_frame.v51, (void *)(a2 + 2), 18);
   v10 = a3 - a4;
   _frame.v38 = 20;
   _frame.v39 = v10;
@@ -81068,7 +81075,7 @@ int l2c_ccb_run(int a1) {
           irq_disable_mmio_write(dword_1400B4, dword_14009C, 3054);
           v44 = a1 + 211;
         }
-        ((int (*)())memcpy_1)(v9 + 170 + v5, v44, 4);
+        memcpy_1((void *)(uintptr_t)(v9 + 170 + v5), (void *)(uintptr_t)(v44), 4);
         v46 = v5 + 200 * v2;
         v47 = *(volatile uint16_t *)(v46 + 174);
         *(volatile uint8_t *)(v46 + 170) = -1;
@@ -82174,14 +82181,14 @@ LABEL_12:
   *(volatile uint8_t *)(v18 + 367) = 1;
   v19 = *(volatile uint8_t *)(a1 + 58);
   *(volatile uint8_t *)(v18 + 252) = v19;
-  ((int (*)())memcpy_1)(v18 + 253, a1 + 59, v19);
+  memcpy_1((void *)(uintptr_t)(v18 + 253), (void *)(uintptr_t)(a1 + 59), v19);
   *(volatile uint8_t *)(v18 + 368) = 1;
   *(volatile uint16_t *)(v18 + 352) = *(volatile uint16_t *)(a1 + 52);
   *(volatile uint16_t *)(v18 + 354) = *(volatile uint16_t *)(a1 + 54);
   *(volatile uint16_t *)(v18 + 356) = *(volatile uint16_t *)(a1 + 56);
   *(volatile uint8_t *)(v18 + 366) = *(volatile uint8_t *)(v7 + 6489);
   *(volatile uint32_t *)(v18 + 372) = *(volatile uint16_t *)(a1 + 48) << 10;
-  return ((int (*)())rx_process_packet_1)(v18);
+  return rx_process_packet_1(v18);
 }
 
 
@@ -82681,7 +82688,7 @@ LABEL_39:
           else
           {
             _frame.v45 = v21[2];
-            ((int (*)())memcpy_1)(v18 + 28, v21, v21[1] + 2);
+            memcpy_1((void *)(uintptr_t)(v18 + 28), v21, v21[1] + 2);
             result = (volatile int *)util_memcmp((volatile uint16_t *)(v18 + 6), (int)v21, v7);
             v29 = _frame.v45;
             if ( !result )
@@ -83034,7 +83041,7 @@ int send_rf_cmd(char a1, int a2) {
   *(volatile uint16_t *)(v4 + 6) = v5;
   *(volatile uint8_t *)(v4 + 1) = *(volatile uint8_t *)(a2 + 46);
   *(volatile uint8_t *)v4 = a1;
-  return ((int (*)())rx_process_packet_1)(v4);
+  return rx_process_packet_1(v4);
 }
 
 
@@ -83370,7 +83377,7 @@ unsigned int bt_data_process(unsigned int result) {
                 v33 = *v31;
                 *(volatile uint16_t *)v30 = 1;
                 *v31 = v33 + 1;
-                parse_adv_report_1((int)(uintptr_t)(v17), (void *)(uintptr_t)(v20), v15, (int)(uintptr_t)((volatile int16_t *)v30));
+                parse_adv_report_1(v17, v20, v15, (volatile int16_t *)v30);
                 send_rf_cmd(4, v30);
                 v34 = (v34 & ~0xFFFFFFFFull) | ((uint32_t)(rf_delay()) & 0xFFFFFFFFu);
                 v35 = *(volatile uint64_t *)(v30 + 24) - v34 - *(volatile uint64_t *)(v3 + 1320 * v5 + 40);
@@ -83385,7 +83392,7 @@ unsigned int bt_data_process(unsigned int result) {
           }
           else if ( v19 == 7 )
           {
-            parse_adv_report_1((int)(uintptr_t)((volatile uint16_t *)(v4 + 18)), (void *)(uintptr_t)(v20), v15, (int)(uintptr_t)(v37));
+            parse_adv_report_1((volatile uint16_t *)(v4 + 18), v20, v15, v37);
             return send_rf_cmd((v18 >> 1) & 7, (int)v37);
           }
         }
@@ -83598,7 +83605,7 @@ LABEL_7:
 LABEL_8:
   v12 = (volatile uint8_t *)tx_send_pdu(12292, a4, a3, 1u);
   *v12 = v6;
-  ((int (*)())rx_process_packet_1)((int)v12);
+  rx_process_packet_1((int)v12);
   return 0;
 }
 
@@ -83670,7 +83677,7 @@ int ll_conn_process(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   }
   v20 = (volatile int *)tx_send_pdu(12289, a4, a3, 1u);
   *v20 = v19;
-  ((int (*)())rx_process_packet_1)((int)v20);
+  rx_process_packet_1((int)v20);
   return 0;
 }
 

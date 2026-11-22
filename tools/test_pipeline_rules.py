@@ -15,6 +15,7 @@ import stack_frames
 import callsite_targets
 import libmatch
 import periph_symbols
+import post_compose
 import volatile_pointees
 from convert_decompiled_to_functions import convert_to_c99, deref_two_d
 
@@ -116,6 +117,23 @@ class CallsiteTargets(unittest.TestCase):
         out, done, left = callsite_targets.rebind(src, self.BLOB)
         self.assertEqual((out, done), (src, []))
         self.assertEqual(left, [("caller", "foo", "foo_1")])
+
+    def test_before_heal_rebinds_without_the_prototype(self):
+        src = self.SRC.replace("int foo_1(int a1)", "int foo_1(int a1, int a2)")
+        out, done, left = callsite_targets.rebind(src, self.BLOB, fit=False)
+        self.assertEqual((done, left), ([("caller", "foo", "foo_1")], []))
+        self.assertIn("return foo_1(a1) + foo_1 (a1);", out)
+
+    def test_two_family_members_in_a_straight_line_body_bind_in_call_order(self):
+        # 0x100000: bl 0x100010; b 0x100008
+        blob = bytes.fromhex("00f006f8" "00f000b8") + self.BLOB[8:]
+        src = self.SRC.replace("return foo(a1) + foo (a1);", "foo(a1);\n  return foo(a1);")
+        out, done, left = callsite_targets.rebind(src, blob)
+        self.assertEqual((done, left), ([("caller", "foo", "foo_1/foo")], []))
+        self.assertIn("foo_1(a1);\n  return foo(a1);", out)
+        self.assertEqual(callsite_targets.rebind(out, blob), (out, [], []))
+        branchy = src.replace("foo(a1);\n", "if ( a1 ) foo(a1);\n")
+        self.assertEqual(callsite_targets.rebind(branchy, blob), (branchy, [], []))
 
     def test_family_is_the_dedupe_suffix_only(self):
         self.assertTrue(callsite_targets.same_family("ke_msg_send", "ke_msg_send_2"))
@@ -348,6 +366,23 @@ class PeriphSymbols(unittest.TestCase):
         for img in periph_symbols.IMAGES:
             text = (periph_symbols.REPO / "src" / img / "main.c").read_text(errors="replace")
             self.assertEqual(periph_symbols.absolute(text)[1], 0)
+
+
+class PostCompose(unittest.TestCase):
+    RULES = {"callsite_targets.py", "periph_symbols.py", "asm_returns.py",
+             "call_cast_returns.py", "double_args.py", "float_bits.py",
+             "stack_frames.py", "dword_compares.py", "heal_two_d_subscript.py",
+             "libmatch.py", "volatile_pointees.py", "heal_composed.py"}
+
+    def test_the_chain_runs_every_rule_and_rebinds_before_heal(self):
+        steps = [(s, a) for s, a, _ in post_compose.STEPS]
+        self.assertEqual({s for s, _ in steps}, self.RULES)
+        self.assertLess(steps.index(("callsite_targets.py", ["--before-heal"])),
+                        steps.index(("heal_composed.py", [])))
+        self.assertLess(steps.index(("libmatch.py", ["scan"])),
+                        steps.index(("libmatch.py", ["apply"])))
+        for s in self.RULES:
+            self.assertTrue((post_compose.TOOLS / s).exists(), s)
 
 
 if __name__ == "__main__":
