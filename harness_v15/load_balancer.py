@@ -21,10 +21,15 @@ Config format (keys.json):
 }
 """
 import json
+import os
 import time
+import uuid
 from collections import defaultdict
 from pathlib import Path
 from threading import Lock
+
+_SESSION_ID = os.environ.get("OPENCODE_SESSION_ID") or f"ses_{uuid.uuid4().hex}"
+_USER_AGENT = "aic8800d80-pipeline/1.0"
 
 
 class KeyState:
@@ -115,22 +120,27 @@ def make_chat_completion_payload(
     system: str,
     user: str,
     model: str,
-    max_tokens: int = 4096,
+    max_tokens: int | None = None,
     temperature: float = 0.0,
+    reasoning_effort: str | None = "max",
 ) -> dict:
     """Build an OpenAI-compatible chat completion request body."""
-    return {
+    payload = {
         "model": model,
-        "max_tokens": max_tokens,
         "temperature": temperature,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
     }
+    if max_tokens is not None:
+        payload["max_tokens"] = max_tokens
+    if reasoning_effort:
+        payload["reasoning_effort"] = reasoning_effort
+    return payload
 
 
-def call_provider(ks: KeyState, payload: dict, timeout: float = 300.0) -> tuple[bool, str, str]:
+def call_provider(ks: KeyState, payload: dict, timeout: float | None = None) -> tuple[bool, str, str]:
     """Call the API. Returns (ok, response_text, error_msg).
 
     ok=True on success; ok=False on error (rate limit, network, etc).
@@ -147,6 +157,8 @@ def call_provider(ks: KeyState, payload: dict, timeout: float = 300.0) -> tuple[
         headers={
             "Content-Type": "application/json",
             "Authorization": f"Bearer {ks.provider['api_key']}",
+            "User-Agent": _USER_AGENT,
+            "x-opencode-session": _SESSION_ID,
         },
         method="POST",
     )

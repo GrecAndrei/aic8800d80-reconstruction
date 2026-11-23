@@ -10,7 +10,6 @@ import (
 	"sort"
 	"strings"
 	"sync"
-	"time"
 
 	"aic8800d80/internal/fileio"
 	"aic8800d80/internal/llm"
@@ -41,11 +40,14 @@ func runNames(args []string) error {
 	fs := flag.NewFlagSet("names", flag.ContinueOnError)
 	var cf commonFlags
 	cf.Register(fs)
-	var keyDir, model string
+	var keyDir, keysFile, endpoint, model, reasoningEffort string
 	var concurrency, maxClusters int
 	fs.StringVar(&keyDir, "llm-key-dir", "", "directory of *.key files for LLM API")
+	fs.StringVar(&keysFile, "llm-keys", "", "path to keys.json (default: <root>/harness_v15/keys/keys.json)")
+	fs.StringVar(&endpoint, "llm-endpoint", llm.Endpoint, "LLM chat completions endpoint")
 	fs.StringVar(&model, "llm-model", llm.Model, "LLM model name")
-	fs.IntVar(&concurrency, "concurrency", 4, "parallel LLM calls")
+	fs.StringVar(&reasoningEffort, "llm-reasoning-effort", llm.ReasoningEffort, "LLM reasoning_effort level")
+	fs.IntVar(&concurrency, "concurrency", 16, "parallel LLM calls")
 	fs.IntVar(&maxClusters, "max-clusters", 0, "max clusters to name (0 = all)")
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -53,14 +55,15 @@ func runNames(args []string) error {
 	if err := cf.Resolve(); err != nil {
 		return err
 	}
+	setFlags := map[string]bool{}
+	fs.Visit(func(f *flag.Flag) { setFlags[f.Name] = true })
 	images, err := cf.SelectedImages()
 	if err != nil {
 		return err
 	}
 
-	// Set up LLM client
+	// Set up LLM client (precedence: --llm-key-dir > env > keys.json)
 	cfg := llm.DefaultConfig()
-	cfg.Model = model
 	if keyDir != "" {
 		if keys, err := llm.LoadKeysFromDir(keyDir); err == nil {
 			cfg.Keys = keys
@@ -70,11 +73,29 @@ func runNames(args []string) error {
 		cfg.Keys = llm.LoadKeysFromEnv()
 	}
 	if len(cfg.Keys) == 0 {
+		kpath := keysFile
+		if kpath == "" {
+			kpath = filepath.Join(cf.Root, "harness_v15", "keys", "keys.json")
+		}
+		if jcfg, err := llm.LoadConfigFromKeysJSON(kpath); err == nil && len(jcfg.Keys) > 0 {
+			cfg = jcfg
+		}
+	}
+	if setFlags["llm-endpoint"] {
+		cfg.Endpoint = endpoint
+	}
+	if setFlags["llm-model"] {
+		cfg.Model = model
+	}
+	if setFlags["llm-reasoning-effort"] {
+		cfg.ReasoningEffort = reasoningEffort
+	}
+	if len(cfg.Keys) == 0 {
 		cf.VPrintf("names: no LLM keys found, running deterministic struct naming (fingerprint/semantic-root heuristic)")
 		return runDeterministicNames(cf, images)
 	}
 	client := llm.New(cfg)
-	cf.VPrintf("names: %d keys, model=%s, concurrency=%d", len(cfg.Keys), model, concurrency)
+	cf.VPrintf("names: %d keys, model=%s, effort=%s, concurrency=%d", len(cfg.Keys), cfg.Model, cfg.ReasoningEffort, concurrency)
 
 	// Collect all cluster candidates
 	type candidate struct {
@@ -104,7 +125,7 @@ func runNames(args []string) error {
 	}
 	cf.VPrintf("  %d cluster candidates across %d images", len(candidates), len(images))
 
-	// Run LLM in parallel
+	// Run LLM in parallel (no time limits)
 	type result struct {
 		image    string
 		group    int
@@ -114,8 +135,7 @@ func runNames(args []string) error {
 	results := make([]result, len(candidates))
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, concurrency)
-	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Minute)
-	defer cancel()
+	ctx := context.Background()
 	for i, c := range candidates {
 		wg.Add(1)
 		go func(i int, c candidate) {

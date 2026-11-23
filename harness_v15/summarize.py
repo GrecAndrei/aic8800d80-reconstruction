@@ -159,10 +159,11 @@ def call_summarizer(digest: dict, keys_path: Path) -> str | None:
         system=SUMMARY_SYSTEM,
         user=prompt,
         model=ks.provider["model"],
-        max_tokens=2000,
+        max_tokens=None,
         temperature=0.2,
+        reasoning_effort=ks.provider.get("reasoning_effort", "max"),
     )
-    ok, text, err = call_provider(ks, payload, timeout=120.0)
+    ok, text, err = call_provider(ks, payload, timeout=None)
     if ok:
         return text
     print(f"[summarize] API error: {err}", file=sys.stderr)

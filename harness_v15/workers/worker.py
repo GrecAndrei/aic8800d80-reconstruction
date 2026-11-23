@@ -23,7 +23,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "harness_v15"))
 
-from load_balancer import LoadBalancer, strip_think_tags  # noqa: E402
+from load_balancer import LoadBalancer, strip_think_tags, _SESSION_ID, _USER_AGENT  # noqa: E402
 from verifier.verify import verify, build_symbol_set, r2_disasm  # noqa: E402
 from workers.tools import TOOL_DEFS, execute_tool  # noqa: E402
 from workers.telemetry import Telemetry, count_message_chars, extract_thinking_chars  # noqa: E402
@@ -225,7 +225,7 @@ def extract_c_function(text: str, fn_name: str) -> str | None:
     return None
 
 
-def call_model_with_tools(ks, messages, tools, timeout: float = 86400.0):
+def call_model_with_tools(ks, messages, tools, timeout: float | None = None):
     """Call the model API with messages + tool definitions. Returns (ok, response_obj, error)."""
     import urllib.request
     import urllib.error
@@ -233,15 +233,22 @@ def call_model_with_tools(ks, messages, tools, timeout: float = 86400.0):
     url = f"{base}/chat/completions"
     payload = {
         "model": ks.provider["model"],
-        "max_tokens": 131072,
         "temperature": 0.0,
         "messages": messages,
         "tools": tools,
     }
+    effort = ks.provider.get("reasoning_effort", "max")
+    if effort:
+        payload["reasoning_effort"] = effort
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         url, data=data,
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {ks.provider['api_key']}"},
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {ks.provider['api_key']}",
+            "User-Agent": _USER_AGENT,
+            "x-opencode-session": _SESSION_ID,
+        },
         method="POST",
     )
     try:

@@ -94,7 +94,7 @@ Output JSON with pattern_name, description, category, template_c."""
         {"role": "user", "content": user},
     ]
     try:
-        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=2000, max_tool_rounds=4)
+        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tool_rounds=4)
     except Exception as e:
         return None, f"err:{e}"
     content = (msg.get('content') or '').strip()
@@ -131,7 +131,7 @@ def main():
     t0 = time.time()
     done = 0
     ok = 0
-    with ThreadPoolExecutor(max_workers=4) as ex:
+    with ThreadPoolExecutor(max_workers=16) as ex:
         futures = {ex.submit(name_cluster, cid, members): cid
                    for cid, members in sorted_clusters}
         for f in as_completed(futures):

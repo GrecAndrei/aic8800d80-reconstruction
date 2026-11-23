@@ -4,7 +4,7 @@
 //
 //	scan        parse v19 decompiled C into funcs.jsonl
 //	structs     cluster funcs by access pattern, propose struct types
-//	names       LLM-name proposed structs (calls deepseek-v4-flash)
+//	names       LLM-name proposed structs (calls glm-5.3 via OpenCode Go)
 //	xref        cross-reference struct fields to functions
 //	callgraph   build call graph from C
 //	magic       classify numeric literals (magic numbers)
@@ -92,7 +92,7 @@ Usage:
 Commands:
   scan         parse v19 decompiled C into funcs.jsonl
   structs      cluster funcs by access pattern, propose struct types
-  names        LLM-name proposed structs (calls deepseek-v4-flash)
+  names        LLM-name proposed structs (calls glm-5.3 via OpenCode Go)
   xref         cross-reference struct fields to functions
   callgraph    build call graph from C
   magic        classify numeric literals
@@ -114,8 +114,10 @@ Common flags:
   --out <path>       output dir (default: <root>/harness_v25/out)
   --images <a,b,c>   comma-separated image list (default: all)
   --llm-key-dir <p>  directory of *.key files for LLM
-  --llm-model <m>    LLM model (default: deepseek-v4-flash)
-  --concurrency <n>  LLM call parallelism (default: 4)
+  --llm-model <m>    LLM model (default: glm-5.3)
+  --llm-endpoint <u> OpenCode/OpenAI chat completions endpoint
+  --llm-reasoning-effort <e> reasoning_effort (default: max)
+  --concurrency <n>  LLM call parallelism (default: 16)
   --verbose          verbose output
 `)
 }

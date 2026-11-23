@@ -26,6 +26,8 @@ import argparse
 import json
 import re
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -256,8 +258,8 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=REPO / "build" / "mmio" / "classifications.jsonl")
     ap.add_argument("--page", default="", help="only classify this page (e.g. 0x4003) for testing")
     ap.add_argument("--max-pages", type=int, default=0, help="stop after this many pages (testing)")
-    ap.add_argument("--workers", type=int, default=1,
-                    help="LLM concurrency (gateway 503s on concurrent; keep 1)")
+    ap.add_argument("--workers", type=int, default=16,
+                    help="LLM concurrency (parallel workers)")
     ap.add_argument("--include-static", action="store_true",
                     help="extend coverage to static candidates in dynamically-touched pages")
     args = ap.parse_args()
@@ -309,36 +311,45 @@ def main() -> int:
     summary = {"pages": 0, "registers": 0, "ok": 0, "salvaged": 0, "failed": 0, "skipped": len(done_addrs), "errors": {}}
     merged: dict[str, dict] = dict(existing) if done_addrs else {}
     append_mode = bool(done_addrs)
+    work_items = []
+    for page in pages:
+        for batch in _chunk(by_page[page]):
+            batch = [ev for ev in batch if ev["addr"].lower() not in done_addrs]
+            if batch:
+                work_items.append((page, batch))
+
+    write_lock = threading.Lock()
     with args.out.open("a" if append_mode else "w", encoding="utf-8") as f:
-        for page in pages:
-            for batch in _chunk(by_page[page]):
-                batch = [ev for ev in batch if ev["addr"].lower() not in done_addrs]
-                if not batch:
-                    continue
-                result, status = classify_batch(batch, page)
-                summary["pages"] += 1
-                if result is None:
-                    summary["failed"] += 1
-                    summary["errors"][status] = summary["errors"].get(status, 0) + 1
-                    print(f"[classify] {page}: FAIL {status}", flush=True)
-                    continue
-                row = {
-                    "page": page,
-                    "generated_at": datetime.now(timezone.utc).isoformat(),
-                    "registers": result,
-                }
-                f.write(json.dumps(row, sort_keys=True) + "\n")
-                for r in result:
-                    merged[r["addr"].lower()] = r
-                    summary["registers"] += 1
-                if status.startswith("salvaged"):
-                    summary["salvaged"] += 1
-                else:
-                    summary["ok"] += 1
-                roles = {r.get("role", "?") for r in result}
-                print(f"[classify] {page}: OK {len(result)} regs roles={sorted(roles)}", flush=True)
-                # Incremental merged write so a partial run survives a restart.
-                merged_path.write_text(json.dumps({"classifications": merged}, indent=1))
+        with ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+            futures = {ex.submit(classify_batch, batch, page): (page, batch) for page, batch in work_items}
+            for fut in as_completed(futures):
+                page, _batch = futures[fut]
+                result, status = fut.result()
+                with write_lock:
+                    summary["pages"] += 1
+                    if result is None:
+                        summary["failed"] += 1
+                        summary["errors"][status] = summary["errors"].get(status, 0) + 1
+                        print(f"[classify] {page}: FAIL {status}", flush=True)
+                        continue
+                    row = {
+                        "page": page,
+                        "generated_at": datetime.now(timezone.utc).isoformat(),
+                        "registers": result,
+                    }
+                    f.write(json.dumps(row, sort_keys=True) + "\n")
+                    f.flush()
+                    for r in result:
+                        merged[r["addr"].lower()] = r
+                        summary["registers"] += 1
+                    if status.startswith("salvaged"):
+                        summary["salvaged"] += 1
+                    else:
+                        summary["ok"] += 1
+                    roles = {r.get("role", "?") for r in result}
+                    print(f"[classify] {page}: OK {len(result)} regs roles={sorted(roles)}", flush=True)
+                    # Incremental merged write so a partial run survives a restart.
+                    merged_path.write_text(json.dumps({"classifications": merged}, indent=1))
 
     print(json.dumps(summary, indent=2))
     print(f"[classify] wrote {args.out}")

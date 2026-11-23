@@ -37,13 +37,13 @@ release tarball
 
 - **Naming DONE**: all 5,623 `sub_*` functions in `src/` have `status=ok`
   names in `harness_v17/names/` (23,498 files; 0 unnamed).
-  - LLM path: DeepSeek V4 Flash via **OpenAI SDK** (`openai` pkg, `base_url`
-    from `harness_v15/keys/keys.json` — untracked, do NOT commit), client
-    sets `default_headers={"User-Agent": "opencode/1.0"}`, `timeout=600`.
-  - **Gateway gotchas (do not regress)**: concurrent requests get HTTP 503 →
-    run `naming_src.py --workers 1`; HTTP 120s timeout starves batches
-    (they take 135–410s of full reasoning) → SDK 600s timeout;
-    prompt caching is automatic (visible via `prompt_cache_hit_tokens`).
+  - LLM path: GLM-5.3 (`reasoning_effort="max"`) via **OpenAI SDK** (`openai` pkg,
+    `base_url` from `harness_v15/keys/keys.json` — untracked, do NOT commit),
+    client sets `User-Agent: aic8800d80-pipeline/1.0`, `x-opencode-session`,
+    no `max_tokens`, and `timeout=None`.
+  - **OpenCode Go defaults**: no concurrency limits, no output limits
+    (`max_tokens` omitted / `0`), and no HTTP timeout (`timeout=None` / `0`);
+    prompt caching is automatic via stable `x-opencode-session`.
   - Disasm cache (linear r2 sweep) mis-decodes 2 bytes when a data pool
     precedes a function start → `naming_src.py::disasm_at_fallback` spawns
     r2 per address with the proven `-a arm -b 16 -m 0x100000` form.
@@ -269,21 +269,23 @@ release tarball
 15. **Use `bin/fwstruct`** for all structure/metadata work.
 16. **Do not commit `harness_v15/keys/`** — API keys are untracked.
 
-## LLM configuration (DeepSeek V4 Flash only)
+## LLM configuration (GLM-5.3 via OpenCode Go)
 
-- Provider: opencode.ai Zen gateway
-- Endpoint: `https://opencode.ai/zen/go/v1/chat/completions`
-- Model: `deepseek-v4-flash`
+- Provider: OpenCode Go (`opencode.ai`)
+- Endpoint: `https://opencode.ai/inference/go/openai/v1/chat/completions`
+- Model: `glm-5.3` with `reasoning_effort: "max"`
 - Key: `harness_v15/keys/keys.json` → `providers[0].api_key` (untracked file)
-- **REQUIRED header**: `User-Agent: opencode/1.0` — without it the gateway
-  returns 403 (Cloudflare bot check). Both Python (oracle.py) and Go
-  (internal/llm) clients already send it.
-- `deepseek-v4-flash` is a reasoning model: it spends most output on
-  reasoning tokens. NEVER set `max_tokens` (it starves the answer).
+- **REQUIRED headers**: `User-Agent: aic8800d80-pipeline/1.0` and a
+  stable session ID `x-opencode-session: ses_<id>` per run/conversation (both
+  Python `oracle.py` and Go `internal/llm` generate and send them).
+- `glm-5.3` is run at `reasoning_effort="max"` with NO output limit
+  (`max_tokens` omitted / `0`) and NO HTTP timeout (`timeout=None` in Python,
+  `Timeout: 0` in Go).
 - Python call path: `harness_v17/oracle.py::call_api` (reads key file,
   builds endpoint from `base_url` + `/chat/completions`).
-- Go call path: `internal/llm.Client` (defaults match the same endpoint).
-- Go keys: `AIC8800D80_LLM_KEY_<N>` env vars or `--llm-key-dir`.
+- Go call path: `internal/llm.Client` (defaults match the same endpoint/model).
+- Go keys: `AIC8800D80_LLM_KEY_<N>` / `OPENCODE_API_KEY` env vars,
+  `--llm-key-dir`, or `harness_v15/keys/keys.json` (`--llm-keys`).
 
 ## Pipeline commands
 
@@ -294,7 +296,7 @@ go build -o bin/fwstruct ./cmd/fwstruct
 # Deterministic structure + metadata (no LLM)
 bin/fwstruct scan | callgraph | structs | magic | initpath | diff | types | ivt | annotate | xref | report
 
-# LLM naming (uses DeepSeek, keys from harness_v15/keys/keys.json)
+# LLM naming (uses glm-5.3 max reasoning, keys from harness_v15/keys/keys.json)
 python3 harness_v17/naming_src.py            # name anonymous sub_* funcs in src/
 bin/fwstruct names                           # name struct clusters
 python3 harness_v17/naming.py                # legacy full-function naming driver

@@ -50,7 +50,7 @@ Use tools to verify your findings. Output JSON."""
         {"role": "system", "content": system},
         {"role": "user", "content": user},
     ]
-    msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=2500, max_tool_rounds=10)
+    msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tool_rounds=10)
     content = msg.get('content') or ''
     if not content:
         return None, tool_calls, "no_content"

@@ -1,18 +1,21 @@
-// Package llm is a client for the DeepSeek V4 Flash LLM API.
+// Package llm is a client for OpenAI-compatible reasoning LLMs (OpenCode Go GLM-5.3).
 //
 // The package supports:
-//   - Per-call timeout (default 120s)
+//   - Unlimited HTTP call timeout by default (Timeout: 0)
 //   - System + user message format
+//   - Configurable reasoning_effort (default "max") and unlimited output tokens (MaxTokens: 0)
 //   - JSON mode (response_format=json_object)
-//   - Multi-key round-robin for rate-limit distribution
+//   - Multi-key round-robin and stable x-opencode-session header
 //
-// All requests go through POST https://opencode.ai/zen/go/v1/chat/completions
-// with model "deepseek-v4-flash".
+// All requests default to POST https://opencode.ai/inference/go/openai/v1/chat/completions
+// with model "glm-5.3".
 package llm
 
 import (
 	"bytes"
 	"context"
+	"crypto/rand"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -26,40 +29,98 @@ import (
 )
 
 const (
-	Endpoint = "https://opencode.ai/zen/go/v1/chat/completions"
-	Model    = "deepseek-v4-flash"
+	Endpoint        = "https://opencode.ai/inference/go/openai/v1/chat/completions"
+	Model           = "glm-5.3"
+	ReasoningEffort = "max"
+	UserAgent       = "aic8800d80-pipeline/1.0"
 )
 
 // Config holds the LLM client configuration.
 type Config struct {
-	Keys        []string
-	Endpoint    string
-	Model       string
-	Timeout     time.Duration
-	MaxTokens   int
-	Temperature float64
+	Keys            []string
+	Endpoint        string
+	Model           string
+	ReasoningEffort string
+	Timeout         time.Duration
+	MaxTokens       int
+	Temperature     float64
 }
 
-// DefaultConfig returns a Config with the default DeepSeek endpoint/model and
-// reasonable defaults. MaxTokens is 0 = unlimited (no output budget), which
-// reasoning models require. Keys should be overridden via env or flags.
+// DefaultConfig returns a Config with the default OpenCode Go GLM-5.3 endpoint,
+// model, max reasoning effort, no output budget (MaxTokens: 0), and no HTTP
+// timeout (Timeout: 0). Keys should be loaded from keys.json, env, or flags.
 func DefaultConfig() Config {
 	return Config{
-		Endpoint:    Endpoint,
-		Model:       Model,
-		Timeout:     120 * time.Second,
-		MaxTokens:   0,
-		Temperature: 0.2,
+		Endpoint:        Endpoint,
+		Model:           Model,
+		ReasoningEffort: ReasoningEffort,
+		Timeout:         0,
+		MaxTokens:       0,
+		Temperature:     0.2,
 	}
 }
 
-// LoadKeysFromEnv reads API keys from AIC8800D80_LLM_KEY_<N> env vars.
-// Returns the keys in numeric order.
+// ProviderEntry describes one entry in harness_v15/keys/keys.json.
+type ProviderEntry struct {
+	Name            string `json:"name"`
+	BaseURL         string `json:"base_url"`
+	APIKey          string `json:"api_key"`
+	Model           string `json:"model"`
+	ReasoningEffort string `json:"reasoning_effort"`
+}
+
+// KeysFile describes harness_v15/keys/keys.json.
+type KeysFile struct {
+	Providers []ProviderEntry `json:"providers"`
+	Strategy  string          `json:"strategy"`
+}
+
+// LoadConfigFromKeysJSON loads API keys and provider settings from keys.json.
+func LoadConfigFromKeysJSON(path string) (Config, error) {
+	cfg := DefaultConfig()
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return cfg, err
+	}
+	var kf KeysFile
+	if err := json.Unmarshal(b, &kf); err != nil {
+		return cfg, err
+	}
+	for _, p := range kf.Providers {
+		k := strings.TrimSpace(p.APIKey)
+		if k != "" && k != "REPLACE_ME" {
+			cfg.Keys = append(cfg.Keys, k)
+		}
+		if cfg.Endpoint == Endpoint && strings.TrimSpace(p.BaseURL) != "" {
+			base := strings.TrimRight(strings.TrimSpace(p.BaseURL), "/")
+			if strings.HasSuffix(base, "/chat/completions") {
+				cfg.Endpoint = base
+			} else {
+				cfg.Endpoint = base + "/chat/completions"
+			}
+		}
+		if cfg.Model == Model && strings.TrimSpace(p.Model) != "" {
+			cfg.Model = strings.TrimSpace(p.Model)
+		}
+		if cfg.ReasoningEffort == ReasoningEffort && strings.TrimSpace(p.ReasoningEffort) != "" {
+			cfg.ReasoningEffort = strings.TrimSpace(p.ReasoningEffort)
+		}
+	}
+	return cfg, nil
+}
+
+// LoadKeysFromEnv reads API keys from AIC8800D80_LLM_KEY_<N> or OPENCODE_API_KEY env vars.
+// Returns the keys in order.
 func LoadKeysFromEnv() []string {
 	var keys []string
 	for i := 1; i <= 16; i++ {
-		k := os.Getenv(fmt.Sprintf("AIC8800D80_LLM_KEY_%d", i))
+		k := strings.TrimSpace(os.Getenv(fmt.Sprintf("AIC8800D80_LLM_KEY_%d", i)))
 		if k != "" {
+			keys = append(keys, k)
+		}
+	}
+	if len(keys) == 0 {
+		if k := strings.TrimSpace(os.Getenv("OPENCODE_API_KEY")); k != "" {
 			keys = append(keys, k)
 		}
 	}
@@ -90,13 +151,25 @@ func LoadKeysFromDir(dir string) ([]string, error) {
 	return keys, nil
 }
 
+func newSessionID() string {
+	if s := strings.TrimSpace(os.Getenv("OPENCODE_SESSION_ID")); s != "" {
+		return s
+	}
+	var buf [16]byte
+	if _, err := rand.Read(buf[:]); err == nil {
+		return "ses_" + hex.EncodeToString(buf[:])
+	}
+	return fmt.Sprintf("ses_%d", time.Now().UnixNano())
+}
+
 // Client is a thread-safe LLM client with key round-robin.
 type Client struct {
-	cfg     Config
-	keys    []string
-	rrIdx   int
-	rrMu    sync.Mutex
-	http    *http.Client
+	cfg       Config
+	keys      []string
+	sessionID string
+	rrIdx     int
+	rrMu      sync.Mutex
+	http      *http.Client
 }
 
 // New creates a new Client. If cfg.Keys is empty and LoadKeysFromEnv returns
@@ -105,10 +178,20 @@ func New(cfg Config) *Client {
 	if len(cfg.Keys) == 0 {
 		cfg.Keys = LoadKeysFromEnv()
 	}
+	if cfg.Endpoint == "" {
+		cfg.Endpoint = Endpoint
+	}
+	if cfg.Model == "" {
+		cfg.Model = Model
+	}
+	if cfg.ReasoningEffort == "" {
+		cfg.ReasoningEffort = ReasoningEffort
+	}
 	return &Client{
-		cfg:  cfg,
-		keys: cfg.Keys,
-		http: &http.Client{Timeout: cfg.Timeout},
+		cfg:       cfg,
+		keys:      cfg.Keys,
+		sessionID: newSessionID(),
+		http:      &http.Client{Timeout: cfg.Timeout},
 	}
 }
 
@@ -120,11 +203,12 @@ type Message struct {
 
 // Request is the chat completions request body.
 type Request struct {
-	Model          string    `json:"model"`
-	Messages       []Message `json:"messages"`
-	MaxTokens      int       `json:"max_tokens,omitempty"`
-	Temperature    float64   `json:"temperature,omitempty"`
-	ResponseFormat *struct {
+	Model           string    `json:"model"`
+	Messages        []Message `json:"messages"`
+	MaxTokens       int       `json:"max_tokens,omitempty"`
+	ReasoningEffort string    `json:"reasoning_effort,omitempty"`
+	Temperature     float64   `json:"temperature,omitempty"`
+	ResponseFormat  *struct {
 		Type string `json:"type"`
 	} `json:"response_format,omitempty"`
 }
@@ -163,10 +247,11 @@ func (c *Client) Call(ctx context.Context, systemPrompt, userPrompt string, json
 	c.rrMu.Unlock()
 
 	req := Request{
-		Model:    c.cfg.Model,
-		Messages: []Message{{Role: "system", Content: systemPrompt}, {Role: "user", Content: userPrompt}},
-		MaxTokens: c.cfg.MaxTokens,
-		Temperature: c.cfg.Temperature,
+		Model:           c.cfg.Model,
+		Messages:        []Message{{Role: "system", Content: systemPrompt}, {Role: "user", Content: userPrompt}},
+		MaxTokens:       c.cfg.MaxTokens,
+		ReasoningEffort: c.cfg.ReasoningEffort,
+		Temperature:     c.cfg.Temperature,
 	}
 	if jsonMode {
 		req.ResponseFormat = &struct {
@@ -183,7 +268,8 @@ func (c *Client) Call(ctx context.Context, systemPrompt, userPrompt string, json
 	}
 	httpReq.Header.Set("Content-Type", "application/json")
 	httpReq.Header.Set("Authorization", "Bearer "+key)
-	httpReq.Header.Set("User-Agent", "opencode/1.0")
+	httpReq.Header.Set("User-Agent", UserAgent)
+	httpReq.Header.Set("x-opencode-session", c.sessionID)
 	resp, err := c.http.Do(httpReq)
 	if err != nil {
 		return "", err

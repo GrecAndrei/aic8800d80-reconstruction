@@ -151,7 +151,7 @@ def chunked(lst, n):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--batch-size', type=int, default=20)
-    ap.add_argument('--workers', type=int, default=12)
+    ap.add_argument('--workers', type=int, default=24)
     ap.add_argument('--limit', type=int, default=0)
     args = ap.parse_args()
     targets = load_targets()

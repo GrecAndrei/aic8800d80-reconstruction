@@ -23,9 +23,12 @@ import argparse
 import json
 import re
 import sys
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+
+_WRITE_LOCK = threading.Lock()
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "harness_v17"))
@@ -180,29 +183,30 @@ def write_record(t, proposed, doc, sub):
         "tool_call_count": 0,
         "tool_calls": [],
     }
-    # Existing record for this address -> update in place.
-    for p in out_dir.glob(f"*__{img}.json"):
-        try:
-            j = json.loads(p.read_text())
-        except Exception:
-            continue
-        if j.get("addr") and int(j.get("addr"), 16) == a:
-            p.write_text(json.dumps(record))
-            return True
-    # No record yet -> create one (collision-free sub_<addr> filename).
-    p = out_dir / f"sub_{a:X}__{img}.json"
-    if p.exists():
-        # Another record already owns this path but not the address: keep it.
-        try:
-            j = json.loads(p.read_text())
-        except Exception:
-            j = None
-        if j is None or int(j.get("addr", "0x0"), 16) == a:
-            p.write_text(json.dumps(record))
-            return True
-        p = out_dir / f"sub_{a:X}_{int(time.time())}__{img}.json"
-    p.write_text(json.dumps(record))
-    return True
+    with _WRITE_LOCK:
+        # Existing record for this address -> update in place.
+        for p in out_dir.glob(f"*__{img}.json"):
+            try:
+                j = json.loads(p.read_text())
+            except Exception:
+                continue
+            if j.get("addr") and int(j.get("addr"), 16) == a:
+                p.write_text(json.dumps(record))
+                return True
+        # No record yet -> create one (collision-free sub_<addr> filename).
+        p = out_dir / f"sub_{a:X}__{img}.json"
+        if p.exists():
+            # Another record already owns this path but not the address: keep it.
+            try:
+                j = json.loads(p.read_text())
+            except Exception:
+                j = None
+            if j is None or int(j.get("addr", "0x0"), 16) == a:
+                p.write_text(json.dumps(record))
+                return True
+            p = out_dir / f"sub_{a:X}_{int(time.time())}__{img}.json"
+        p.write_text(json.dumps(record))
+        return True
 
 
 def chunked(lst, n):
@@ -251,7 +255,7 @@ def main():
                     help="JSON list of {img, addr} to name")
     ap.add_argument("--out-dir", default=str(DEFAULT_OUT))
     ap.add_argument("--batch-size", type=int, default=20)
-    ap.add_argument("--workers", type=int, default=12)
+    ap.add_argument("--workers", type=int, default=24)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--log", help="append progress to this file")
     args = ap.parse_args()

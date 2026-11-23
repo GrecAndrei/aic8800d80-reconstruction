@@ -101,7 +101,7 @@ Investigate deeply with tools. Output the JSON report."""
         {"role": "user", "content": user},
     ]
     try:
-        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=3000, max_tool_rounds=10)
+        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tool_rounds=10)
     except Exception as e:
         return None, f"err:{e}"
     content = (msg.get('content') or '').strip()
@@ -134,7 +134,7 @@ def main():
     t0 = time.time()
     done = 0
     ok = 0
-    with ThreadPoolExecutor(max_workers=4) as ex:
+    with ThreadPoolExecutor(max_workers=16) as ex:
         futures = {ex.submit(deep_investigate, fn, images): fn for fn in TRUTH_LANE}
         for f in as_completed(futures):
             fn = futures[f]

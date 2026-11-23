@@ -8,7 +8,7 @@ The LLM is given a task + tool schema. It must:
 The harness validates that any address literal in the LLM's response
 matches a tool-call result, not an LLM-invented value.
 """
-import json, re, subprocess, sys, time, threading, urllib.request
+import json, os, re, subprocess, sys, time, threading, urllib.request, uuid
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -17,33 +17,68 @@ sys.path.insert(0, str(REPO / "harness_v17"))
 import tools as v17tools
 from tools import TOOL_SCHEMA, call_tool
 
-KEYS = json.load(open(REPO / "harness_v15/keys/keys.json"))['providers']
+DEFAULT_BASE_URL = "https://opencode.ai/inference/go/openai/v1"
+DEFAULT_MODEL = "glm-5.3"
+DEFAULT_REASONING_EFFORT = "max"
+DEFAULT_USER_AGENT = "aic8800d80-pipeline/1.0"
+_SESSION_ID = os.environ.get("OPENCODE_SESSION_ID") or f"ses_{uuid.uuid4().hex}"
+
+
+def _load_keys():
+    keys_path = REPO / "harness_v15/keys/keys.json"
+    if keys_path.exists():
+        try:
+            providers = json.loads(keys_path.read_text()).get("providers", [])
+            if providers:
+                return providers
+        except Exception:
+            pass
+    env_key = os.environ.get("OPENCODE_API_KEY") or os.environ.get("AIC8800D80_LLM_KEY_1")
+    if env_key:
+        return [{
+            "name": "env_opencode_go",
+            "base_url": DEFAULT_BASE_URL,
+            "api_key": env_key,
+            "model": DEFAULT_MODEL,
+            "reasoning_effort": DEFAULT_REASONING_EFFORT,
+        }]
+    return []
+
+
+KEYS = _load_keys()
 _local = threading.local()
 def get_key():
+    if not KEYS:
+        raise RuntimeError("No LLM API providers configured in harness_v15/keys/keys.json or OPENCODE_API_KEY")
     if not hasattr(_local, 'i'):
         _local.i = 0
     k = KEYS[_local.i % len(KEYS)]
     _local.i += 1
     return k
 
-def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=6):
+def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=6, reasoning_effort=None, session_id=None):
     """Call LLM with tools via the OpenAI SDK. Loops until LLM gives a final
     answer or hits max_tool_rounds.
     Returns (final_message_dict, all_tool_calls_made).
 
-    max_tokens is intentionally NOT set by default (no output budget):
-    reasoning models need the full output to finish.
+    max_tokens is omitted (no output budget) and HTTP timeout is disabled
+    (timeout=None) so max reasoning effort never gets starved or cut off.
     """
     from openai import OpenAI
     key = get_key()
-    base_url = key.get('base_url', 'https://opencode.ai/zen/go/v1').rstrip('/')
-    model = key.get('model', 'deepseek-v4-flash')
+    base_url = key.get('base_url', DEFAULT_BASE_URL).rstrip('/')
+    model = key.get('model', DEFAULT_MODEL)
+    effort = reasoning_effort if reasoning_effort is not None else key.get('reasoning_effort', DEFAULT_REASONING_EFFORT)
+    sid = session_id or _SESSION_ID
     client = OpenAI(
         api_key=key['api_key'],
         base_url=base_url,
-        default_headers={"User-Agent": "opencode/1.0"},
-        timeout=600.0,
-        max_retries=2,
+        default_headers={
+            "User-Agent": DEFAULT_USER_AGENT,
+            "x-opencode-session": sid,
+        },
+        timeout=None,
+        max_retries=5,
     )
     tool_results_seen = []  # collect every tool result for validation
     for round_n in range(max_tool_rounds + 1):
@@ -55,6 +90,8 @@ def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=
                 "messages": messages,
                 "temperature": temperature,
             }
+            if effort:
+                kwargs["reasoning_effort"] = effort
             if max_tokens is not None:
                 kwargs["max_tokens"] = max_tokens
             if tools and not is_final_round:
@@ -69,11 +106,15 @@ def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=
             msg = completion.choices[0].message
             if msg.tool_calls and not is_final_round:
                 # Execute each tool call
-                messages.append({
+                assistant_msg = {
                     "role": "assistant",
                     "content": msg.content,
                     "tool_calls": [tc.model_dump(exclude_none=True) for tc in msg.tool_calls],
-                })
+                }
+                rc = getattr(msg, "reasoning_content", None)
+                if rc:
+                    assistant_msg["reasoning_content"] = rc
+                messages.append(assistant_msg)
                 for tc in msg.tool_calls:
                     fn_name = tc.function.name
                     try:

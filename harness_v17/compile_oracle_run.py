@@ -102,7 +102,7 @@ Use tools to verify your findings. Output JSON."""
         {"role": "user", "content": user},
     ]
     try:
-        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=1500, max_tool_rounds=3)
+        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tool_rounds=3)
     except Exception as e:
         return None, f"err:{e}"
     content = (msg.get('content') or '').strip()
@@ -162,7 +162,7 @@ def main():
     done = 0
     ok = 0
     fail = 0
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=24) as ex:
         futures = {}
         for t in targets:
             img = t['img']

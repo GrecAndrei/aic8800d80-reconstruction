@@ -62,7 +62,7 @@ Write a markdown document explaining this subsystem."""
         {"role": "user", "content": user},
     ]
     try:
-        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=3000, max_tool_rounds=4)
+        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tool_rounds=4)
     except Exception as e:
         return None, f"err:{e}"
     content = (msg.get('content') or '').strip()
@@ -84,7 +84,7 @@ def main():
     t0 = time.time()
     done = 0
     ok = 0
-    with ThreadPoolExecutor(max_workers=4) as ex:
+    with ThreadPoolExecutor(max_workers=16) as ex:
         futures = {ex.submit(synthesize_subsystem_docs, sub, fns): sub
                    for sub, fns in by_sub.items()}
         for f in as_completed(futures):
