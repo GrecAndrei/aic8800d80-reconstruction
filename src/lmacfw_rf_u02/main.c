@@ -35,6 +35,7 @@ uint32_t dword_1004C4 = 0x00148a98;  /* ptr -> 0x148a98 */
 uint32_t dword_100558 = 0x00148ad4;  /* ptr -> 0x148ad4 */
 uint32_t dword_10055C = 0x0014aa88;  /* ptr -> 0x14aa88 */
 uint32_t dword_1005E0 = 0x00148ae4;  /* ptr -> 0x148ae4 */
+uint32_t dword_100644 = 0x40340018;  /* ascii "\x18\x004@" */
 uint32_t dword_1007B0 = 0x38e38e39;  /* ascii "9\x8e\xe38" */
 uint32_t dword_1008E8 = 0x001538e0;  /* ptr -> 0x1538e0 */
 uint32_t dword_1008F0 = 0x00148ba4;  /* ptr -> 0x148ba4 */
@@ -146,6 +147,11 @@ uint32_t dword_103004 = 0x001544c0;  /* ptr -> 0x1544c0 */
 uint32_t dword_1033A4 = 0x00148e20;  /* ptr -> 0x148e20 */
 uint32_t dword_1033AC = 0x1c9c3800;
 uint32_t dword_1033B0 = 0x1312d000;
+uint32_t dword_103528 = 0x40509010;  /* ascii "\x10\x90P@" */
+uint32_t dword_10352C = 0x4050901c;  /* ascii "\x1c\x90P@" */
+uint32_t dword_103534 = 0x00148e34;  /* ptr -> 0x148e34 */
+uint32_t dword_103538 = 0x00148e40;  /* ptr -> 0x148e40 */
+uint32_t dword_10353C = 0x00180854;  /* ptr -> 0x180854 */
 uint32_t dword_1035E4 = 0x00148e54;  /* ptr -> 0x148e54 */
 uint32_t dword_10363C = 0x00148e70;  /* ptr -> 0x148e70 */
 uint32_t dword_10386C = 0x10000002;
@@ -874,6 +880,13 @@ uint32_t dword_1125A0 = 0x0014b530;  /* ptr -> 0x14b530 */
 uint32_t dword_1125F0 = 0x0014b548;  /* ptr -> 0x14b548 */
 uint32_t dword_112858 = 0x0014b554;  /* ptr -> 0x14b554 */
 uint32_t dword_112874 = 0x001859fc;  /* ptr -> 0x1859fc */
+uint32_t dword_1128F8 = 0x00185afc;  /* ptr -> 0x185afc */
+uint32_t dword_1128FC = 0x00180564;  /* ptr -> 0x180564 */
+uint32_t dword_112900 = 0x00180526;  /* ptr -> 0x180526 */
+uint32_t dword_112904 = 0x40200000;  /* ascii "\x00\x00 @" */
+uint32_t dword_11290C = 0x001581c0;  /* ptr -> 0x1581c0 */
+uint32_t dword_112910 = 0x0014b570;  /* ptr -> 0x14b570 */
+uint32_t dword_112914 = 0x0014b560;  /* ptr -> 0x14b560 */
 uint32_t dword_112980 = 0x0018047c;  /* ptr -> 0x18047c */
 uint32_t dword_1129D0 = 0x0014b6ac;  /* ptr -> 0x14b6ac */
 uint32_t dword_112B50 = 0xcccccccd;
@@ -1000,8 +1013,19 @@ uint32_t dword_114F28 = 0x0014bd8c;  /* ptr -> 0x14bd8c */
 uint32_t dword_114F2C = 0x0014bda8;  /* ptr -> 0x14bda8 */
 uint32_t dword_115090 = 0x00150ce4;  /* ptr -> 0x150ce4 */
 uint32_t dword_115094 = 0x0014bde4;  /* ptr -> 0x14bde4 */
+uint32_t dword_1151F4 = 0x00180ac0;  /* ptr -> 0x180ac0 */
+uint32_t dword_1151F8 = 0x00185afc;  /* ptr -> 0x185afc */
+uint32_t dword_1151FC = 0x00180564;  /* ptr -> 0x180564 */
 uint32_t dword_115200 = 0x0014be18;  /* ptr -> 0x14be18 */
 uint32_t dword_115204 = 0x00148d8c;  /* ptr -> 0x148d8c */
+uint32_t dword_115208 = 0x40320400;  /* ascii "\x00\x042@" */
+uint32_t dword_115210 = 0x40340018;  /* ascii "\x18\x004@" */
+uint32_t dword_115214 = 0x00180a70;  /* ptr -> 0x180a70 */
+uint32_t dword_115218 = 0x00180664;  /* ptr -> 0x180664 */
+uint32_t dword_11521C = 0x0014be08;  /* ptr -> 0x14be08 */
+uint32_t dword_115220 = 0x0015e28c;  /* ptr -> 0x15e28c */
+uint32_t dword_115224 = 0x4032011c;  /* ascii "\x1c\x012@" */
+uint32_t dword_115228 = 0x0014bdf8;  /* ptr -> 0x14bdf8 */
 uint32_t dword_1152B0 = 0x0018057c;  /* ptr -> 0x18057c */
 uint32_t dword_1152C0 = 0x0014be28;  /* ptr -> 0x14be28 */
 uint32_t dword_1152C4 = 0x0014be50;  /* ptr -> 0x14be50 */
@@ -1431,7 +1455,17 @@ uint32_t dword_11D768 = 0x0014d378;  /* ptr -> 0x14d378 */
 uint32_t dword_11D76C = 0x0014d3a8;  /* ptr -> 0x14d3a8 */
 uint32_t dword_11D770 = 0x0014d3dc;  /* ptr -> 0x14d3dc */
 uint32_t dword_11D774 = 0x0014d410;  /* ptr -> 0x14d410 */
+uint32_t dword_11D89C = 0x40328068;  /* ascii "h\x802@" */
+uint32_t dword_11D8A0 = 0x40328060;  /* ascii "`\x802@" */
+uint32_t dword_11D8A4 = 0x40622000;  /* ascii "\x00 b@" */
+uint32_t dword_11D8A8 = 0x40622004;  /* ascii "\x04 b@" */
+uint32_t dword_11D8AC = 0x0018085c;  /* ptr -> 0x18085c */
 uint32_t dword_11D8B0 = 0x0014d470;  /* ptr -> 0x14d470 */
+uint32_t dword_11D8B4 = 0x40344010;  /* ascii "\x10@4@" */
+uint32_t dword_11D8B8 = 0x40344088;  /* ascii "\x88@4@" */
+uint32_t dword_11D8C0 = 0x40344074;  /* ascii "t@4@" */
+uint32_t dword_11D8C4 = 0x40342184;  /* ascii "\x84!4@" */
+uint32_t dword_11D8C8 = 0x4034001c;  /* ascii "\x1c\x004@" */
 uint32_t dword_11D8CC = 0x0014d478;  /* ptr -> 0x14d478 */
 uint32_t dword_11D8D0 = 0x0014d468;  /* ptr -> 0x14d468 */
 uint32_t dword_11D8EC = 0x001864cc;  /* ptr -> 0x1864cc */
@@ -1525,7 +1559,15 @@ uint32_t dword_11E960 = 0x41cfc000;
 uint32_t dword_11EAC4 = 0x3fd34413;  /* ascii "\x13D\xd3?" */
 uint32_t dword_11EB44 = 0x0014d8c8;  /* ptr -> 0x14d8c8 */
 uint32_t dword_11EB70 = 0x0014da48;  /* ptr -> 0x14da48 */
+uint32_t dword_11EF28 = 0x0014df20;  /* ptr -> 0x14df20 */
+uint32_t dword_11EF2C = 0x00180ac0;  /* ptr -> 0x180ac0 */
+uint32_t dword_11F48C = 0x0014df20;  /* ptr -> 0x14df20 */
+uint32_t dword_11F490 = 0x0014ded0;  /* ptr -> 0x14ded0 */
+uint32_t dword_11F494 = 0x0014aa88;  /* ptr -> 0x14aa88 */
+uint32_t dword_11F498 = 0x00180ac0;  /* ptr -> 0x180ac0 */
 uint32_t dword_11F49C = 0xcccccccd;
+uint32_t dword_11F4A0 = 0x0014df0c;  /* ptr -> 0x14df0c */
+uint32_t dword_11F4A4 = 0x0014def8;  /* ptr -> 0x14def8 */
 uint32_t dword_11F58C = 0x0014dee8;  /* ptr -> 0x14dee8 */
 uint32_t dword_11F590 = 0x0014de5c;  /* ptr -> 0x14de5c */
 uint32_t dword_11F728 = 0x0014de8c;  /* ptr -> 0x14de8c */
@@ -2233,7 +2275,6 @@ uint32_t off_1005D8 = 0x40330000;  /* ascii "\x00\x003@" */
 uint32_t off_1005DC = 0x00180198;  /* ptr -> 0x180198 */
 uint32_t off_1005E4 = 0x4034006c;  /* ascii "l\x004@" */
 uint32_t off_1005F0 = 0x00180198;  /* ptr -> 0x180198 */
-uint32_t off_100644 = 0x40340018;  /* ascii "\x18\x004@" */
 uint32_t off_10067C = 0x40344084;  /* ascii "\x84@4@" */
 uint32_t off_100680 = 0x40343050;  /* ascii "P04@" */
 uint32_t off_100684 = 0x40343004;  /* ascii "\x0404@" */
@@ -2426,8 +2467,6 @@ uint32_t off_1033B4 = 0x00154378;  /* ptr -> 0x154378, ascii "xC\x15\x00" */
 uint32_t off_1033B8 = 0x40100000;
 uint32_t off_1033BC = 0x00154374;  /* ptr -> 0x154374, ascii "tC\x15\x00" */
 uint32_t off_1033C0 = 0x00154370;  /* ptr -> 0x154370, ascii "pC\x15\x00" */
-uint32_t off_103528 = 0x40509010;  /* ascii "\x10\x90P@" */
-uint32_t off_10352C = 0x4050901c;  /* ascii "\x1c\x90P@" */
 uint32_t off_1035CC = 0x40344084;  /* ascii "\x84@4@" */
 uint32_t off_1035D0 = 0x403440a8;  /* ascii "\xa8@4@" */
 uint32_t off_1035D4 = 0x40344088;  /* ascii "\x88@4@" */
@@ -3120,10 +3159,6 @@ uint32_t off_112594 = 0x001581c0;  /* ptr -> 0x1581c0 */
 uint32_t off_11259C = 0x00180526;  /* ptr -> 0x180526 */
 uint32_t off_1125AC = 0x00180526;  /* ptr -> 0x180526 */
 uint32_t off_112848 = 0x40200000;  /* ascii "\x00\x00 @" */
-uint32_t off_1128F8 = 0x00185afc;  /* ptr -> 0x185afc */
-uint32_t off_1128FC = 0x00180564;  /* ptr -> 0x180564 */
-uint32_t off_112900 = 0x00180526;  /* ptr -> 0x180526 */
-uint32_t off_112904 = 0x40200000;  /* ascii "\x00\x00 @" */
 uint32_t off_11297C = 0x00180323;  /* ptr -> 0x180323 */
 uint32_t off_112B40 = 0x0018052a;  /* ptr -> 0x18052a */
 uint32_t off_112B44 = 0x0018052d;  /* ptr -> 0x18052d */
@@ -3284,10 +3319,6 @@ uint32_t off_115098 = 0x00180abc;  /* ptr -> 0x180abc */
 uint32_t off_11509C = 0x0018055c;  /* ptr -> 0x18055c */
 uint32_t off_1150A0 = 0x00180b00;  /* ptr -> 0x180b00 */
 uint32_t off_1150A4 = 0x00180ac4;  /* ptr -> 0x180ac4 */
-uint32_t off_1151F4 = 0x00180ac0;  /* ptr -> 0x180ac0 */
-uint32_t off_1151F8 = 0x00185afc;  /* ptr -> 0x185afc */
-uint32_t off_1151FC = 0x00180564;  /* ptr -> 0x180564 */
-uint32_t off_115208 = 0x40320400;  /* ascii "\x00\x042@" */
 uint32_t off_1152B4 = 0x00185b00;  /* ptr -> 0x185b00 */
 uint32_t off_1152B8 = 0x00180ac0;  /* ptr -> 0x180ac0 */
 uint32_t off_1152BC = 0x0017c010;  /* ptr -> 0x17c010 */
@@ -3845,14 +3876,6 @@ uint32_t off_11D5C4 = 0x00180668;  /* ptr -> 0x180668 */
 uint32_t off_11D730 = 0x40328074;  /* ascii "t\x802@" */
 uint32_t off_11D734 = 0x4032806c;  /* ascii "l\x802@" */
 uint32_t off_11D738 = 0x00180ac0;  /* ptr -> 0x180ac0 */
-uint32_t off_11D89C = 0x40328068;  /* ascii "h\x802@" */
-uint32_t off_11D8A0 = 0x40328060;  /* ascii "`\x802@" */
-uint32_t off_11D8A4 = 0x40622000;  /* ascii "\x00 b@" */
-uint32_t off_11D8A8 = 0x40622004;  /* ascii "\x04 b@" */
-uint32_t off_11D8AC = 0x0018085c;  /* ptr -> 0x18085c */
-uint32_t off_11D8B4 = 0x40344010;  /* ascii "\x10@4@" */
-uint32_t off_11D8B8 = 0x40344088;  /* ascii "\x88@4@" */
-uint32_t off_11D8C4 = 0x40342184;  /* ascii "\x84!4@" */
 uint32_t off_11D9A8 = 0x00185afc;  /* ptr -> 0x185afc */
 uint32_t off_11D9AC = 0x00180564;  /* ptr -> 0x180564 */
 uint32_t off_11D9B0 = 0x00180ac0;  /* ptr -> 0x180ac0 */
@@ -3910,14 +3933,6 @@ uint32_t off_11E6E0 = 0x00180ac0;  /* ptr -> 0x180ac0 */
 uint32_t off_11E714 = 0x001871e8;  /* ptr -> 0x1871e8 */
 uint32_t off_11E760 = 0x00180ac0;  /* ptr -> 0x180ac0 */
 uint32_t off_11E820 = 0x00180ac0;  /* ptr -> 0x180ac0 */
-uint32_t off_11EF28 = 0x0014df20;  /* ptr -> 0x14df20 */
-uint32_t off_11EF2C = 0x00180ac0;  /* ptr -> 0x180ac0 */
-uint32_t off_11F48C = 0x0014df20;  /* ptr -> 0x14df20 */
-uint32_t off_11F490 = 0x0014ded0;  /* ptr -> 0x14ded0 */
-uint32_t off_11F494 = 0x0014aa88;  /* ptr -> 0x14aa88 */
-uint32_t off_11F498 = 0x00180ac0;  /* ptr -> 0x180ac0 */
-uint32_t off_11F4A0 = 0x0014df0c;  /* ptr -> 0x14df0c */
-uint32_t off_11F4A4 = 0x0014def8;  /* ptr -> 0x14def8 */
 uint32_t off_11F4B0 = 0x0015868c;  /* ptr -> 0x15868c */
 uint32_t off_11F4BC = 0x0015868c;  /* ptr -> 0x15868c */
 uint32_t off_11F4C8 = 0x0015868c;  /* ptr -> 0x15868c */
@@ -4371,7 +4386,7 @@ int write_timer_reg(int a1);
 int store_byte_value(int a1);
 int get_device_config();
 int read_byte_register();
-void periph_write_read();
+int periph_write_read();
 volatile uint32_t *periph_config();
 volatile uint32_t *get_device_config_1();
 int periph_process(int result, int a2, int a3, unsigned int a4);
@@ -4423,7 +4438,7 @@ int clock_set_source(int a1, int a2, int a3);
 void check_chip_flag();
 unsigned int configure_external_clock(unsigned int result);
 volatile uint32_t *save_rf_context();
-void rf_init_regs();
+int rf_init_regs(int a1);
 int poll_rf_status(int a1, int a2, int a3, int a4, int a5);
 int configure_bb_clock(int a1, int a2, int a3, int a4, int a5);
 int disable_bb_timer_irq();
@@ -4633,7 +4648,7 @@ volatile uint8_t * ke_poll_event_a(int a1, int a2);
 int util_read_status();
 volatile uint8_t * ke_poll_event_b(int a1, int a2);
 int mmio_read_irq_status();
-void critical_section_enter();
+int critical_section_enter();
 int wait_radio_state(int a1, volatile uint16_t *a2);
 int get_global_14b6ac();
 int tick_counter_update(volatile uint8_t *a1, unsigned int a2, int a3);
@@ -4748,7 +4763,7 @@ void bt_check_state();
 void cli_process_char(int a1);
 int sys_init();
 void bt_driver_init();
-void mmio_wait_flag(int a1, int a2);
+int mmio_wait_flag(int a1, int a2);
 int read_sensor_value();
 int log_u32_value();
 uint64_t get_channel_params(int a1);
@@ -4957,7 +4972,7 @@ volatile int *rf_cmd_wait();
 unsigned int rf_shutdown();
 int rf_irq_handler_2();
 int rf_cmd_set();
-void rf_cmd_clear(int a1, int a2);
+void rf_cmd_clear();
 int log_two_strings();
 int util_flash_erase(int a1);
 int timer_disable_delay();
@@ -5716,18 +5731,42 @@ int read_byte_register() {
 
 
 // periph_write_read @ 0x1005f4
-void periph_write_read() {
-  int v1; // [sp+0h] [bp-Ch]
+int periph_write_read() {
+  volatile unsigned int v0; // r0
+  unsigned int v1; // r0
+  int v3; // r2
+  volatile unsigned int v4; // r1
+  int result; // r0
+  unsigned int v6; // r1
+  int v8; // r3
+  int v9; // [sp+0h] [bp-Ch]
+  int v10; // [sp+4h] [bp-8h]
 
-  *(volatile uint32_t *)off_100644 = 17;
-  while ( 1 )
+  *(volatile uint32_t *)dword_100644 = 17;
+  v0 = (*(volatile uint32_t *)0x40501010u);
+  v1 = v0 + 10;
+  do
   {
-    v1 = 32;
-    while ( v1-- )
+    v9 = 32;
+    while ( v9-- )
       ;
+    v3 = (*(volatile uint32_t *)0x40501010u) - v1;
   }
+  while ( v3 < 0 );
+  *(volatile uint32_t *)dword_100644 = 0;
+  v4 = (*(volatile uint32_t *)0x40501010u);
+  result = 32;
+  v6 = v4 + 10;
+  do
+  {
+    v10 = 32;
+    while ( v10-- )
+      ;
+    v8 = (*(volatile uint32_t *)0x40501010u) - v6;
+  }
+  while ( v8 < 0 );
+  return result;
 }
-
 
 
 // periph_config @ 0x10064c
@@ -8092,21 +8131,125 @@ volatile uint32_t *save_rf_context() {
 
 
 // rf_init_regs @ 0x1033c4
-void rf_init_regs() {
-  volatile unsigned int *v0; // r6
-  volatile unsigned int *v1; // r5
+int rf_init_regs(int a1) {
+  volatile uint32_t *v1; // r6
+  volatile uint32_t *v2; // r5
+  int v3; // r7
+  int v4; // r8
+  uint16_t v5; // r11
+  unsigned int v6; // r2
+  int v7; // r10
+  unsigned int v8; // r3
+  int v9; // r0
+  unsigned int v10; // r12
+  int v11; // r1
+  unsigned int v12; // r12
+  int v13; // r1
+  int v14; // r12
+  int v15; // r1
+  int v16; // r7
+  uint16_t v17; // r9
+  uint16_t v18; // r2
+  unsigned int v19; // r0
+  uint8_t v20; // r4
+  int result; // r0
+  unsigned int v22; // [sp+0h] [bp-Ch]
 
-  v0 = (volatile unsigned int *)off_103528;
-  v1 = (volatile unsigned int *)off_10352C;
-  *(volatile uint32_t *)off_103528 |= 0x10u;
-  *v1 = *v1 & 0xFFFFC0FF | 0x300;
-  *v0 &= ~0x200u;
-  *v0 = *v0 & 0xFFFE03FF | 0x10000;
-  *v1 |= 0x4000u;
-  while ( 1 )
-    ;
+  v1 = (volatile uint32_t *)dword_103528;
+  v2 = (volatile uint32_t *)dword_10352C;
+  *(volatile uint32_t *)dword_103528 |= 0x10u;
+  v3 = 0;
+  v4 = 0;
+  *v2 = *v2 & 0xFFFFC0FF | 0x300;
+  v5 = 0;
+  v6 = 64;
+  while ( 2 )
+  {
+    *v1 = *v1 & 0xFFFFFDFF | (v4 << 9);
+    v7 = (v7 & ~0xFFFFu) | ((uint16_t)(10) & 0xFFFFu);
+    do
+    {
+      *v1 = *v1 & 0xFFFE03FF | (v6 << 10);
+      v8 = (uint8_t)v6;
+      v9 = 0;
+      while ( 1 )
+      {
+        *v2 |= 0x4000u;
+        v10 = REG_4032_0120 + 5;
+        do
+          v11 = REG_4032_0120 - v10;
+        while ( v11 < 0 );
+        *v2 &= ~0x4000u;
+        v12 = REG_4032_0120 + 5;
+        do
+          v13 = REG_4032_0120 - v12;
+        while ( v13 < 0 );
+        v14 = (*v1 >> 3) & 1;
+        if ( v9 )
+        {
+          if ( v14 != v3 )
+            break;
+        }
+        if ( v4 )
+          v15 = (*v1 >> 3) & 1;
+        else
+          v15 = (*v1 & 8) == 0;
+        if ( v15 )
+        {
+          if ( v8 )
+          {
+            v8 = (uint8_t)(v8 - 1);
+            v16 = (v8 << 10) & 0x1FC00;
+          }
+          else
+          {
+            v16 = 0;
+          }
+        }
+        else
+        {
+          if ( v8 <= 0x7E )
+            v8 = (uint8_t)(v8 + 1);
+          v16 = (v8 << 10) & 0x1FC00;
+        }
+        v9 = (uint8_t)(v9 + 1);
+        *v1 = *v1 & 0xFFFE03FF | v16;
+        if ( v9 == 128 )
+        {
+          v3 = v14;
+          break;
+        }
+        v3 = v14;
+      }
+      v22 = v8;
+      v17 = v8;
+      v5 += v8;
+      ((int (*)())check_interrupt_flag)(0x2000, dword_103534, v6);
+      if ( v22 <= 0x40 )
+        v18 = v17 - v7;
+      else
+        v18 = v17 + v7;
+      v7 = (uint16_t)(v7 - 20);
+      v6 = __usat(7u, v18);
+    }
+    while ( v7 != 65506 );
+    if ( !v4 )
+    {
+      v4 = 1;
+      continue;
+    }
+    break;
+  }
+  v19 = dword_103538;
+  *(volatile uint32_t *)dword_103528 = ((v5 + 2) << 8) & 0x1FC00 | *(volatile uint32_t *)dword_103528 & 0xFFFE03FF;
+  v20 = ((unsigned int)v5 + 2) >> 2;
+  result = log_printf(v19, 40 * a1 + 280, v20);
+  if ( a1 )
+    *(volatile uint8_t *)(dword_10353C + 1) = v20;
+  else
+    *(volatile uint8_t *)dword_10353C = v20;
+  return result;
 }
-
 
 
 // poll_rf_status @ 0x103540
@@ -17397,7 +17540,7 @@ if ( mmio_read_128((int)(uintptr_t)(&v96)) ) { v38 = -1;
           memcpy_advance(1, 16, 0x10u, *(volatile uint32_t *)off_10CA9C);
         }
         rf_cal_read_1();
-        rf_init_regs();
+        ((int (*)())rf_init_regs)();
       }
     }
     else
@@ -25497,41 +25640,59 @@ LABEL_19:
 
 
 // critical_section_enter @ 0x112878
-void critical_section_enter() {
+int critical_section_enter() {
   volatile int *v0; // r4
-  int v1; // r2
-  int v2; // r3
+  volatile uint8_t *v1; // r5
+  int v2; // r2
   int v3; // r3
-  int v4; // r2
+  volatile unsigned int v4; // r2
+  unsigned int v5; // r2
+  int v6; // r3
+  uint16_t v7; // r1
+  int result; // r0
+  int v9; // r3
+  int v10; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(volatile uint32_t *)off_1128F8 = 1;
+    *(volatile uint32_t *)dword_1128F8 = 1;
   }
-  v0 = (volatile int *)off_1128FC;
-  v1 = *(volatile uint8_t *)off_112900;
-  v2 = *(volatile uint32_t *)off_1128FC + 1;
-  *(volatile uint32_t *)off_1128FC = v2;
-  if ( v1 )
-  {
-    *((volatile uint32_t *)off_112904 + 513) |= 1u;
-    while ( 1 )
-      ;
-  }
+  v0 = (volatile int *)dword_1128FC;
+  v1 = (volatile uint8_t *)dword_112900;
+  v2 = *(volatile uint8_t *)dword_112900;
+  v3 = *(volatile uint32_t *)dword_1128FC + 1;
+  *(volatile uint32_t *)dword_1128FC = v3;
   if ( v2 )
   {
-    v3 = v2 - 1;
-    v4 = *(volatile uint32_t *)off_1128F8;
-    *v0 = v3;
-    if ( !v3 )
+    *(volatile uint32_t *)(dword_112904 + 0x804) |= 1u;
+    v4 = (*(volatile uint32_t *)0x40501010u);
+    v5 = v4 + 9000;
+    do
+      v6 = v5 - (*(volatile uint32_t *)0x40501010u);
+    while ( v6 >= 0 );
+    v7 = *(volatile uint16_t *)(dword_11290C + 0xB2);
+    *(volatile uint32_t *)(dword_112904 + 0x804) &= ~1u;
+    if ( (v7 & 0x4000) != 0 )
+      result = (int)(uintptr_t)(uart_tx_string((void *)(uintptr_t)(dword_112910)));
+    else
+      result = dispatch_event_handler_1(dword_112914);
+    v3 = *v0;
+    *v1 = 0;
+  }
+  if ( v3 )
+  {
+    v9 = v3 - 1;
+    v10 = *(volatile uint32_t *)dword_1128F8;
+    *v0 = v9;
+    if ( !v9 )
     {
-      if ( v4 )
+      if ( v10 )
         __enable_irq();
     }
   }
+  return result;
 }
-
 
 
 // wait_radio_state @ 0x112918
@@ -28789,36 +28950,96 @@ void bt_driver_init() {
 
 
 // mmio_wait_flag @ 0x1150a8
-void mmio_wait_flag(int a1, int a2) {
+int mmio_wait_flag(int a1, int a2) {
   int v2; // r3
-  int v3; // r2
-  int v4; // r1
-  int v5; // r3
+  volatile uint32_t *v3; // r4
+  unsigned int v4; // r2
+  unsigned int v5; // r1
   int v6; // r0
-  volatile uint32_t *v7; // r3
+  int v7; // r0
+  volatile uint32_t *v8; // r3
+  volatile unsigned int v9; // r1
+  unsigned int v10; // r1
+  int v11; // r3
+  volatile uint32_t *v12; // r5
+  int v13; // r0
+  unsigned int v14; // r5
+  int v15; // r2
+  unsigned int v16; // r1
+  int result; // r0
+  int v18; // r3
+  int v19; // r2
+  int v20; // r6
+  int v21; // r2
+  volatile unsigned int v22; // r3
 
-  v2 = **(volatile uint16_t **)off_1151F4;
+  v2 = **(volatile uint16_t **)dword_1151F4;
   if ( (v2 & 1) != 0 )
     rf_init_phy(a1, a2, v2 << 31);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(volatile uint32_t *)off_1151F8 = 1;
+    *(volatile uint32_t *)dword_1151F8 = 1;
   }
-  v3 = dword_115200;
-  v4 = dword_115204;
-  v5 = *(volatile uint32_t *)off_1151FC + 1;
-  *(volatile uint32_t *)off_1151FC = v5;
-  check_interrupt_flag(1024, v4, v3, v5);
+  v3 = (volatile uint32_t *)dword_1151FC;
+  v4 = dword_115200;
+  v5 = dword_115204;
+  ++*(volatile uint32_t *)dword_1151FC;
+  ((int (*)())check_interrupt_flag)(1024, v5, v4);
   v6 = enter_critical_section_1(0x80000000);
-  rf_cmd_wait(v6);
-  v7 = (void *)(uintptr_t)(off_115208);
-  *(volatile uint32_t *)off_115208 &= 0xFFFFFFu;
-  *v7 |= 0x10u;
-  while ( 1 )
-    ;
+  v7 = (int)(uintptr_t)(rf_cmd_wait(v6));
+  v8 = (volatile uint32_t *)dword_115208;
+  *(volatile uint32_t *)dword_115208 &= 0xFFFFFFu;
+  *v8 |= 0x10u;
+  v9 = (*(volatile uint32_t *)0x40501010u);
+  v10 = v9 + 100;
+  do
+    v11 = v10 - (*(volatile uint32_t *)0x40501010u);
+  while ( v11 >= 0 );
+  v12 = (volatile uint32_t *)dword_115210;
+  *(volatile uint32_t *)dword_115210 |= 0x111u;
+  v13 = (int)(uintptr_t)(rf_acquire(v7));
+  *(volatile uint32_t *)dword_115208 &= ~0x10u;
+  *v12 &= 0xFFFFFEEE;
+  chip_id_is_one(v13);
+  if ( !flash_write_byte(0) )
+    enter_critical_section_1(0x2000000);
+  v14 = dword_115214;
+  find_link_in_list();
+  if ( *(volatile uint8_t *)v14 && !*(volatile uint8_t *)dword_115218 && *(volatile uint8_t *)(v14 + 6) )
+  {
+    v20 = *(volatile char *)(v14 + 7) + (char)(*(volatile uint8_t *)(v14 + 5) + (*(volatile uint8_t *)dword_115224 & 3));
+    if ( v20 >= *(volatile char *)(v14 + 4) )
+      v20 = (v20 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(v14 + 4)) & 0xFFu);
+    gpio_config((char)v20);
+    v21 = *(volatile uint16_t *)(v14 + 8);
+    v22 = (*(volatile uint32_t *)0x40501010u);
+    *(volatile uint8_t *)(v14 + 7) = v20;
+    *(volatile uint8_t *)(v14 + 0xB) = 1;
+    ke_enter_critical(v14 + 12, v22 + 60000 * v21);
+    dispatch_event_handler_1(dword_115228);
+  }
+  v16 = dword_11521C;
+  *(volatile uint8_t *)(v14 + 6) = 0;
+  ((int (*)())check_interrupt_flag)(1024, v16, v15);
+  if ( *(volatile uint32_t *)dword_115220 )
+    set_busy_flag_alt(0x2000);
+  result = timer_event_check();
+  if ( result )
+    result = set_busy_flag_alt(0x400000);
+  if ( *v3 )
+  {
+    v18 = *v3 - 1;
+    v19 = *(volatile uint32_t *)dword_1151F8;
+    *v3 = v18;
+    if ( !v18 )
+    {
+      if ( v19 )
+        __enable_irq();
+    }
+  }
+  return result;
 }
-
 
 
 // read_sensor_value @ 0x11522c
@@ -38996,57 +39217,101 @@ int rf_cmd_set() {
 
 
 // rf_cmd_clear @ 0x11d778
-void rf_cmd_clear(int a1, int a2) {
-  int v2; // r4
-  volatile int *v3; // r0
-  volatile int *v4; // r1
-  int v5; // r2
-  int v6; // r3
-  volatile unsigned int *v7; // r1
-  int v8; // r0
-  int v9; // r0
-  int v10; // r0
+void rf_cmd_clear() {
+  int v0; // r4
+  volatile uint32_t *v1; // r0
+  volatile uint32_t *v2; // r1
+  int v3; // r2
+  int v4; // r3
+  volatile uint32_t *v5; // r1
+  unsigned int v6; // r0
+  volatile unsigned int v7; // r2
+  signed int v8; // r3
+  volatile uint32_t *v9; // r1
+  volatile uint32_t *v10; // r5
+  signed int v11; // r3
+  volatile uint32_t *v12; // r4
+  signed int v13; // r3
+  signed int v14; // r3
+  volatile uint32_t *v15; // r4
+  unsigned int v16; // r2
+  int v17; // r3
+  unsigned int v18; // r0
+  unsigned int v19; // r0
+  unsigned int v20; // r0
 
-  v2 = *(volatile uint32_t *)off_11D89C & *(volatile uint32_t *)off_11D8A0;
-  *(volatile uint32_t *)((volatile char *)off_11D89C + 0xFFFFFFFC) = v2;
-  if ( v2 << 30 )
+  v0 = *(volatile uint32_t *)dword_11D89C & *(volatile uint32_t *)dword_11D8A0;
+  *(volatile uint32_t *)(dword_11D89C + 0xFFFFFFFC) = v0;
+  if ( v0 << 30 )
   {
-    v3 = (volatile int *)off_11D8A4;
-    v4 = (volatile int *)off_11D8A8;
-    v5 = *(volatile uint32_t *)off_11D8A4;
-    v6 = *(volatile uint32_t *)off_11D8A8;
-    if ( (v2 & 1) != 0 && !*((volatile uint8_t *)off_11D8AC + 36) )
+    v1 = (volatile uint32_t *)dword_11D8A4;
+    v2 = (volatile uint32_t *)dword_11D8A8;
+    v3 = *(volatile uint32_t *)dword_11D8A4;
+    v4 = *(volatile uint32_t *)dword_11D8A8;
+    if ( (v0 & 1) != 0 && !*(volatile uint8_t *)(dword_11D8AC + 0x24) )
     {
-      *(volatile uint32_t *)off_11D8A4 = v5 | 0x5400;
-      *v3 = v5 | 0xFC00;
-      *v4 = v6 | 0x500000;
-      v10 = dword_11D8D0;
-      *v4 = v6 | 0xF00000;
-      dispatch_event_handler_1(v10, v4);
+      *(volatile uint32_t *)dword_11D8A4 = v3 | 0x5400;
+      *v1 = v3 | 0xFC00;
+      *v2 = v4 | 0x500000;
+      v20 = dword_11D8D0;
+      *v2 = v4 | 0xF00000;
+      dispatch_event_handler_1(v20);
     }
     else
     {
-      v7 = (volatile unsigned int *)off_11D8A8;
-      v8 = dword_11D8B0;
-      *(volatile uint32_t *)off_11D8A4 = v5 & 0xFFFF57FF;
-      *v7 = v6 & 0xFF5FFFFF;
-      dispatch_event_handler_1(v8, v7);
+      v5 = (volatile uint32_t *)dword_11D8A8;
+      v6 = dword_11D8B0;
+      *(volatile uint32_t *)dword_11D8A4 = v3 & 0xFFFF57FF;
+      *v5 = v4 & 0xFF5FFFFF;
+      dispatch_event_handler_1(v6);
     }
   }
-  if ( (v2 & 4) != 0 )
+  if ( (v0 & 4) != 0 )
   {
-    if ( (*(volatile uint32_t *)off_11D8B4 & 1) != 0 )
+    if ( (*(volatile uint32_t *)dword_11D8B4 & 1) != 0 )
     {
-      *(volatile uint32_t *)off_11D8B8 |= 0x400000u;
-      while ( 1 )
-        ;
+      *(volatile uint32_t *)dword_11D8B8 |= 0x400000u;
+      v7 = (*(volatile uint32_t *)0x40501010u);
+      do
+        v8 = v7 + 3 - (*(volatile uint32_t *)0x40501010u);
+      while ( v8 >= 0 );
+      v9 = (volatile uint32_t *)dword_11D8C4;
+      v10 = (volatile uint32_t *)dword_11D8C8;
+      *(volatile uint32_t *)dword_11D8C0 = *(volatile uint32_t *)dword_11D8C0 & 0xFFFE1FFF | 0xE000;
+      *v9 |= 1u;
+      *v10 = 0;
+      do
+        v11 = v7 + 4 - (*(volatile uint32_t *)0x40501010u);
+      while ( v11 >= 0 );
+      v12 = (volatile uint32_t *)dword_11D8C8;
+      *(volatile uint32_t *)dword_11D8B4 &= ~1u;
+      *v12 = 1;
+      do
+        v13 = v7 + 5 - (*(volatile uint32_t *)0x40501010u);
+      while ( v13 >= 0 );
+      *(volatile uint32_t *)dword_11D8C8 = 0;
+      do
+        v14 = v7 + 6 - (*(volatile uint32_t *)0x40501010u);
+      while ( v14 >= 0 );
+      v15 = (volatile uint32_t *)dword_11D8C8;
+      *(volatile uint32_t *)dword_11D8B4 |= 1u;
+      v16 = v7 + 36;
+      *v15 = 1;
+      do
+        v17 = v16 - (*(volatile uint32_t *)0x40501010u);
+      while ( v17 >= 0 );
+      v18 = dword_11D8CC;
+      *(volatile uint32_t *)dword_11D8B8 &= 0xFF9FFFFF;
+      dispatch_event_handler_1(v18);
     }
-    v9 = dword_11D8CC;
-    *(volatile uint32_t *)off_11D8C4 |= 1u;
-    dispatch_event_handler_1(v9, a2);
+    else
+    {
+      v19 = dword_11D8CC;
+      *(volatile uint32_t *)dword_11D8C4 |= 1u;
+      dispatch_event_handler_1(v19);
+    }
   }
 }
-
 
 
 // log_two_strings @ 0x11d8d4
@@ -40832,7 +41097,7 @@ unsigned int rf_parse_cal_cmd(volatile char *a1, int a2, unsigned int a3, volati
   volatile char *v26; // r0
   unsigned int v27; // r3
   unsigned int v28; // t1
-  int v29; // r10
+  unsigned int v29; // r10
   volatile uint8_t *v30; // lr
   char v31; // r0
   int v32; // cc
@@ -40842,7 +41107,7 @@ unsigned int rf_parse_cal_cmd(volatile char *a1, int a2, unsigned int a3, volati
   volatile char *v36; // t1
   volatile uint8_t *v37; // t1
   int v38; // r2
-  volatile char *v39; // lr
+  unsigned int v39; // lr
   int v40; // r3
   volatile uint8_t *v41; // r12
   char v42; // r1
@@ -40855,7 +41120,7 @@ unsigned int rf_parse_cal_cmd(volatile char *a1, int a2, unsigned int a3, volati
   int v49; // t1
   char v50; // r9
   volatile uint8_t *v51; // t1
-  volatile char *v52; // lr
+  unsigned int v52; // lr
   int v53; // r3
   volatile uint8_t *v54; // r12
   char v55; // r2
@@ -40874,9 +41139,9 @@ unsigned int rf_parse_cal_cmd(volatile char *a1, int a2, unsigned int a3, volati
   int v68; // r12
   int v69; // t1
   int v71; // t1
-  volatile char *v72; // r12
+  unsigned int v72; // r12
   int v73; // r3
-  volatile char *v74; // lr
+  unsigned int v74; // lr
   int v75; // r3
   struct __attribute__((packed)) { int v76; // [sp+0h] [bp-54h]
   int v77; // [sp+4h] [bp-50h]
@@ -40920,7 +41185,7 @@ LABEL_3:
           case '*':
             v61 = 4;
 LABEL_124:
-            v13 = *((volatile uint8_t *)((volatile uint32_t *)(uintptr_t)&off_11F48C)[v13] + v61);
+            v13 = *(volatile uint8_t *)(dword_11F48C + 8 * v13 + v61);
             switch ( v13 )
             {
               case 0:
@@ -40929,8 +41194,8 @@ LABEL_124:
                 goto LABEL_11;
               case 2:
 LABEL_44:
-                if ( **(volatile uint16_t **)off_11EF2C < 0 )
-                  flash_ctrl_init(off_11F494, off_11F490, 283);
+                if ( **(volatile uint16_t **)dword_11EF2C < 0 )
+                  flash_ctrl_init(dword_11F494, dword_11F490, 283);
                 v13 = 2;
                 goto LABEL_12;
               case 3:
@@ -40950,7 +41215,7 @@ LABEL_44:
             v14 = 2;
             goto LABEL_7;
           case '0':
-            v13 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11EF28)[v13] + (3));
+            v13 = *(volatile uint8_t *)(dword_11EF28 + 8 * v13 + 3);
             switch ( v13 )
             {
               case 0:
@@ -41006,7 +41271,7 @@ LABEL_29:
             {
               v14 = 0;
 LABEL_7:
-              v13 = *((volatile uint8_t *)((volatile uint32_t *)(uintptr_t)&off_11EF28)[v13] + v14);
+              v13 = *(volatile uint8_t *)(dword_11EF28 + 8 * v13 + v14);
               switch ( v13 )
               {
                 case 0:
@@ -41029,7 +41294,7 @@ LABEL_7:
                   goto LABEL_161;
               }
             }
-            v13 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11EF28)[v13] + (4));
+            v13 = *(volatile uint8_t *)(dword_11EF28 + 8 * v13 + 4);
             switch ( v13 )
             {
               case 0:
@@ -41111,8 +41376,8 @@ LABEL_21:
                 }
                 else
                 {
-                  if ( **(volatile uint16_t **)off_11EF2C < 0 )
-                    flash_ctrl_init(off_11F494, off_11F490, 334);
+                  if ( **(volatile uint16_t **)dword_11EF2C < 0 )
+                    flash_ctrl_init(dword_11F494, dword_11F490, 334);
                   v13 = 6;
                 }
                 goto LABEL_12;
@@ -41120,8 +41385,8 @@ LABEL_21:
                 goto LABEL_9;
               default:
 LABEL_161:
-                if ( **(volatile uint16_t **)off_11F498 < 0 )
-                  flash_ctrl_init(off_11F494, off_11F490, 594);
+                if ( **(volatile uint16_t **)dword_11F498 < 0 )
+                  flash_ctrl_init(dword_11F494, dword_11F490, 594);
                 goto LABEL_12;
             }
         }
@@ -41132,13 +41397,13 @@ LABEL_9:
           case 'a':
             v37 = (volatile uint8_t *)*a5++;
             v38 = _frame.v78;
-            v39 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0]);
+            v39 = dword_11F4A0;
             v41 = v37 + 1;
             v40 = *v37;
             if ( _frame.v78 )
             {
-              v42 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0] + (v40 >> 4));
-              v43 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0] + (v40 & 0xF));
+              v42 = *(volatile uint8_t *)(dword_11F4A0 + (v40 >> 4));
+              v43 = *(volatile uint8_t *)(dword_11F4A0 + (v40 & 0xF));
               _frame.v80 = v42;
               if ( _frame.v78 >= 0x15 )
                 v38 = 21;
@@ -41168,8 +41433,8 @@ LABEL_106:
             else
             {
               v63 = v40 >> 4;
-              v64 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0] + (v40 & 0xF));
-              _frame.v80 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0] + (v63));
+              v64 = *(volatile uint8_t *)(dword_11F4A0 + (v40 & 0xF));
+              _frame.v80 = *(volatile uint8_t *)(dword_11F4A0 + v63);
               _frame.v81 = v64;
               v21 = -47;
               v25 = 47;
@@ -41181,8 +41446,8 @@ LABEL_106:
             {
               v48 = ((uint8_t)v41 & 3) == 0;
               v49 = *v41++;
-              *v47 = v39[v49 >> 4];
-              v47[1] = v39[v49 & 0xF];
+              *v47 = *(volatile uint8_t *)(v39 + (v49 >> 4));
+              v47[1] = *(volatile uint8_t *)(v39 + (v49 & 0xF));
               if ( v48 )
                 v50 = 58;
               else
@@ -41195,11 +41460,11 @@ LABEL_106:
           case 'M':
           case 'm':
             v51 = (volatile uint8_t *)*a5++;
-            v52 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0]);
+            v52 = dword_11F4A0;
             v54 = v51 + 6;
             v53 = *v51;
-            v55 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0] + (v53 >> 4));
-            _frame.v81 = *((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0] + (v53 & 0xF));
+            v55 = *(volatile uint8_t *)(dword_11F4A0 + (v53 >> 4));
+            _frame.v81 = *(volatile uint8_t *)(dword_11F4A0 + (v53 & 0xF));
             _frame.v80 = v55;
             v56 = v51 + 1;
             v57 = &_frame.v80;
@@ -41207,8 +41472,8 @@ LABEL_106:
             {
               v58 = *v56++;
               v57[2] = 58;
-              v59 = v52[v58 & 0xF];
-              v57[3] = v52[v58 >> 4];
+              v59 = *(volatile uint8_t *)(v52 + (v58 & 0xF));
+              v57[3] = *(volatile uint8_t *)(v52 + (v58 >> 4));
               v57[4] = v59;
               v57 += 3;
             }
@@ -41232,13 +41497,13 @@ LABEL_106:
               {
                 case 'X':
 LABEL_152:
-                  v74 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_11F4A0)[0]);
+                  v74 = dword_11F4A0;
                   v23 = _frame.v83;
                   do
                   {
                     v75 = v20 & 0xF;
                     v20 >>= 4;
-                    *--v23 = v74[v75];
+                    *--v23 = *(volatile uint8_t *)(v74 + v75);
                     v25 = (uintptr_t)(_frame.v83) - (uintptr_t)(v23);
                   }
                   while ( v20 );
@@ -41276,13 +41541,13 @@ LABEL_142:
                   v25 = 0;
                   goto LABEL_55;
               }
-              v72 = (void *)(uintptr_t)(off_11F4A4);
+              v72 = dword_11F4A4;
               v23 = _frame.v83;
               do
               {
                 v73 = v20 & 0xF;
                 v20 >>= 4;
-                *--v23 = v72[v73];
+                *--v23 = *(volatile uint8_t *)(v72 + v73);
                 v25 = (uintptr_t)(_frame.v83) - (uintptr_t)(v23);
               }
               while ( v20 );
@@ -41324,10 +41589,10 @@ LABEL_78:
             v30 = _frame.v83;
             do
             {
-              v31 = v20 - 10 * ((unsigned int)(((unsigned int)v29 * (uint64_t)v20) >> 32) >> 3) + 48;
+              v31 = v20 - 10 * ((unsigned int)((v29 * (uint64_t)v20) >> 32) >> 3) + 48;
               v32 = v20 > 9;
               v33 = v30;
-              v20 = (unsigned int)(((unsigned int)v29 * (uint64_t)v20) >> 32) >> 3;
+              v20 = (unsigned int)((v29 * (uint64_t)v20) >> 32) >> 3;
               *--v30 = v31;
               v34 = v25++;
             }
@@ -41552,7 +41817,7 @@ LABEL_65:
             v10 = v27;
             v13 = 7;
 LABEL_12:
-            v15 = *v8++;
+            v15 = (uint8_t)*v8++;
             v7 = v15;
             if ( !v15 )
               goto LABEL_13;

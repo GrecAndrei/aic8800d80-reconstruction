@@ -10,42 +10,67 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_112E4C;
+extern uint32_t dword_112E50;
+extern uint32_t dword_112E54;
+extern uint32_t dword_112E58;
+extern uint32_t dword_112E60;
+extern uint32_t dword_112E64;
+extern uint32_t dword_112E68;
+
 // critical_enter @ 0x112dcc, size 126 bytes
-// Doc: rf_stream_start2_n_41a [rf]: Start RF stream variant 2
-// rf_stream_start2_n_41a [rf]: Start RF stream variant 2
-void critical_enter()
+int critical_enter()
 {
   int *v0; // r4
-  int v1; // r2
-  int v2; // r3
+  uint8_t *v1; // r5
+  int v2; // r2
   int v3; // r3
-  int v4; // r2
+  volatile unsigned int v4; // r2
+  unsigned int v5; // r2
+  int v6; // r3
+  uint16_t v7; // r1
+  int result; // r0
+  int v9; // r3
+  int v10; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)rf_cmd_send_n_20 = 1;
+    *(uint32_t *)dword_112E4C = 1;
   }
-  v0 = (int *)rf_stream_start2_e50;
-  v1 = *(uint8_t *)rf_stream_start2_n_3f8;
-  v2 = *(uint32_t *)rf_stream_start2_e50 + 1;
-  *(uint32_t *)rf_stream_start2_e50 = v2;
-  if ( v1 )
-  {
-    *((uint32_t *)rf_msg_handler_n_108 + 513) |= 1u;
-    while ( 1 )
-      ;
-  }
+  v0 = (int *)dword_112E50;
+  v1 = (uint8_t *)dword_112E54;
+  v2 = *(uint8_t *)dword_112E54;
+  v3 = *(uint32_t *)dword_112E50 + 1;
+  *(uint32_t *)dword_112E50 = v3;
   if ( v2 )
   {
-    v3 = v2 - 1;
-    v4 = *(uint32_t *)rf_cmd_send_n_20;
-    *v0 = v3;
-    if ( !v3 )
+    *(uint32_t *)(dword_112E58 + 0x804) |= 1u;
+    v4 = (*(volatile uint32_t *)0x40501010u);
+    v5 = v4 + 9000;
+    do
+      v6 = v5 - (*(volatile uint32_t *)0x40501010u);
+    while ( v6 >= 0 );
+    v7 = *(uint16_t *)(dword_112E60 + 0xB2);
+    *(uint32_t *)(dword_112E58 + 0x804) &= ~1u;
+    if ( (v7 & 0x4000) != 0 )
+      result = sub_10D60C(dword_112E64);
+    else
+      result = sub_12ECB0(dword_112E68);
+    v3 = *v0;
+    *v1 = 0;
+  }
+  if ( v3 )
+  {
+    v9 = v3 - 1;
+    v10 = *(uint32_t *)dword_112E4C;
+    *v0 = v9;
+    if ( !v9 )
     {
-      if ( v4 )
+      if ( v10 )
         __enable_irq();
     }
   }
+  return result;
 }
-

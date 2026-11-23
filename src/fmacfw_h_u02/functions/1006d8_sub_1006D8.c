@@ -10,19 +10,41 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_100728;
+
+extern uint32_t dword_100728;
 
 // mmio_write_cmd @ 0x1006d8, size 78 bytes
-void __noreturn mmio_write_cmd()
+void  mmio_write_cmd()
 {
-  int v1; // [sp+0h] [bp-Ch]
+  volatile unsigned int v0; // r0
+  unsigned int v1; // r0
+  int v3; // r2
+  volatile unsigned int v4; // r1
+  unsigned int v5; // r1
+  int v7; // r3
+  int v8; // [sp+0h] [bp-Ch]
+  int v9; // [sp+4h] [bp-8h]
 
-  *(uint32_t *)off_100728 = 17;
-  while ( 1 )
+  *(uint32_t *)dword_100728 = 17;
+  v0 = (*(volatile uint32_t *)0x40501010u);
+  v1 = v0 + 10;
+  do
   {
-    v1 = 32;
-    while ( v1-- )
+    v8 = 32;
+    while ( v8-- )
       ;
+    v3 = (*(volatile uint32_t *)0x40501010u) - v1;
   }
+  while ( v3 < 0 );
+  *(uint32_t *)dword_100728 = 0;
+  v4 = (*(volatile uint32_t *)0x40501010u);
+  v5 = v4 + 10;
+  do
+  {
+    v9 = 32;
+    while ( v9-- )
+      ;
+    v7 = (*(volatile uint32_t *)0x40501010u) - v5;
+  }
+  while ( v7 < 0 );
 }
-

@@ -146,6 +146,20 @@ def convert_to_c99(text: str) -> str:
         return f"((uint8_t *)(uintptr_t){sym_s}[{i}] + ({k}))"
     text = TWO_D_SUB.sub(two_d, text)
     text, _ = deref_two_d(text)
+    # Scalar peripheral symbols emitted by Hex-Rays (e.g. dword_40501010) are
+    # direct MMIO registers, not linker-allocated RAM; preserve indexed arrays
+    # like dword_40021000[i] for heal_composed + periph_symbols.
+    _w = {"dword": "uint32_t", "unk": "uint32_t", "word": "uint16_t", "byte": "uint8_t"}
+    text = re.sub(
+        r"&\b(dword|word|byte|unk)_((?:4|5)[0-9A-Fa-f]{7}|[Ee]00[0-9A-Fa-f]{5})\b(?!\s*\[)",
+        lambda m: f"((volatile {_w[m.group(1)]} *)0x{m.group(2).lower()}u)",
+        text,
+    )
+    text = re.sub(
+        r"\b(dword|word|byte|unk)_((?:4|5)[0-9A-Fa-f]{7}|[Ee]00[0-9A-Fa-f]{5})\b(?!\s*\[)",
+        lambda m: f"(*(volatile {_w[m.group(1)]} *)0x{m.group(2).lower()}u)",
+        text,
+    )
     return text
 
 
@@ -163,6 +177,14 @@ def build(src_text: str, out_dir: Path, name: str | None = None) -> Path | None:
         i += 1
     body = "\n".join(lines[i:]).strip()
     body = convert_to_c99(body)
+    if name is not None:
+        sig_m = re.match(r"^([^\n;{]*?\b)([A-Za-z_]\w*)(\s*\()", body)
+        if sig_m and sig_m.group(2) != name:
+            def_name = sig_m.group(2)
+            body = sig_m.group(1) + name + sig_m.group(3) + body[sig_m.end():]
+            body = re.sub(rf"\b{re.escape(def_name)}\b(?=\s*\()", name, body)
+        if orig_name != name:
+            body = re.sub(rf"\b{re.escape(orig_name)}\b(?=\s*\()", name, body)
     # Data symbols referenced by the body -> extern decls (unique, address order).
     syms = {}
     for kind, val in DATA_SYM_RE.findall(body):

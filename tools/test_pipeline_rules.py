@@ -362,6 +362,12 @@ class PeriphSymbols(unittest.TestCase):
         self.assertIn("x = (uintptr_t)&dword_12C2CC; y = dword_40504080;", out)
         self.assertEqual(periph_symbols.absolute(out), (out, 0))
 
+    def test_convert_to_c99_rewrites_scalar_peripheral_mmio(self):
+        out = convert_to_c99("v0 = dword_40501010;\nunk_40501008 = 4;\ndword_40021000[i] = 1;")
+        self.assertIn("(*(volatile uint32_t *)0x40501010u)", out)
+        self.assertIn("(*(volatile uint32_t *)0x40501008u) = 4;", out)
+        self.assertIn("dword_40021000[i] = 1;", out)
+
     def test_tracked_sources_are_at_the_fixed_point(self):
         for img in periph_symbols.IMAGES:
             text = (periph_symbols.REPO / "src" / img / "main.c").read_text(errors="replace")

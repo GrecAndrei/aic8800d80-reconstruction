@@ -1058,12 +1058,25 @@ class Aic8800D80Platform:
                     return False
             return True
 
+        self._on_mem_cb = on_mem
         self.mu.hook_add(UC_HOOK_CODE, on_code)
         self.mu.hook_add(UC_HOOK_INSN_INVALID, on_insn_invalid)
         self.mu.hook_add(
             UC_HOOK_MEM_FETCH_UNMAPPED, on_unmapped_fetch,
         )
-        self.mu.hook_add(UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem)
+        # Scope the default READ|WRITE hook to peripheral MMIO windows only:
+        # registering UC_HOOK_MEM_READ|UC_HOOK_MEM_WRITE over executing code
+        # or stack triggers a Unicorn 2.1.4 TCG bug that corrupts conditional
+        # branches (`it`/`bne.n`). spin_break=True attaches the RAM window for
+        # the duration of run() only.
+        self.mu.hook_add(
+            UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem,
+            begin=MMIO_PHANTOM_BASE, end=MMIO_PHANTOM_END - 1,
+        )
+        self.mu.hook_add(
+            UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem,
+            begin=0xE0000000, end=0xE00FFFFF,
+        )
         self.mu.hook_add(
             UC_HOOK_MEM_READ_UNMAPPED | UC_HOOK_MEM_WRITE_UNMAPPED,
             on_unmapped,
@@ -1375,6 +1388,16 @@ class Aic8800D80Platform:
                 stop["value"] = "capped"
                 uc.emu_stop()
         cap_hook = self.mu.hook_add(UC_HOOK_CODE, on_code_cap)
+        sb_hook = (
+            self.mu.hook_add(
+                UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE,
+                self._on_mem_cb,
+                begin=SPIN_BREAK_ADDR_LO,
+                end=MMIO_PHANTOM_BASE - 1,
+            )
+            if spin_break
+            else None
+        )
 
         # Null-function-pointer calls, udf asserts and spin-break branch-jumps
         # stop the engine via the INSN_INVALID / code hooks (``_null_return_lr``
@@ -1383,73 +1406,76 @@ class Aic8800D80Platform:
         # pathological chain while leaving room for driver-init functions with
         # many wait-jumps (default 256; raise via ``max_reexits``).
         start_ea = entry | 1
-        for _ in range(max_reexits):
-            try:
-                self.mu.emu_start(start_ea, RETURN_STOP)
-                if self._asserted:
-                    stop["value"] = "asserted"
-                    break
-                if self._skip_to is not None:
-                    start_ea = self._skip_to | 1
-                    self._skip_to = None
-                    continue
-                if self._null_return_lr is not None:
-                    lr = self._null_return_lr
-                    self._null_return_lr = None
-                    self.mu.reg_write(UC_ARM_REG_R0, 0)
-                    start_ea = lr | 1
-                    continue
-                break
-            except UcError as e:
-                if self._asserted:
-                    stop["value"] = "asserted"
-                    break
-                if self._skip_to is not None:
-                    start_ea = self._skip_to | 1
-                    self._skip_to = None
-                    continue
-                if self._null_return_lr is not None:
-                    lr = self._null_return_lr
-                    self._null_return_lr = None
-                    self.mu.reg_write(UC_ARM_REG_R0, 0)
-                    start_ea = lr
-                    continue
-                if getattr(e, "errno", None) == UC_ERR_EXCEPTION:
-                    # A return into the sentinel page fetched at an ODD address
-                    # (pop {pc} restoring RETURN_STOP|1 = 0xdeadc001) raises
-                    # UC_ERR_EXCEPTION before the code hook can stop us. That
-                    # is a clean return, not a fault.
-                    pc = int(self.mu.reg_read(UC_ARM_REG_PC))
-                    if SENTINEL_BASE <= pc < SENTINEL_END:
-                        stop["value"] = "returned"
+        try:
+            for _ in range(max_reexits):
+                try:
+                    self.mu.emu_start(start_ea, RETURN_STOP)
+                    if self._asserted:
+                        stop["value"] = "asserted"
                         break
-                    # CPU exception (e.g. ``mcr p0`` = Undefined Instruction).
-                    # This firmware has no coprocessors, so such an instruction
-                    # only appears as DATA/PADDING misdecoded after a garbage
-                    # indirect branch into a data region. Same handling as the
-                    # INSN_INVALID garbage branch: return via LR (r0 = 0) so
-                    # the caller's error path handles it; if LR is garbage too,
-                    # end at the return sentinel.
-                    lr = int(self.mu.reg_read(UC_ARM_REG_LR))
-                    self.mu.reg_write(UC_ARM_REG_R0, 0)
-                    if 0x10000 <= lr < 0x1a0000:
+                    if self._skip_to is not None:
+                        start_ea = self._skip_to | 1
+                        self._skip_to = None
+                        continue
+                    if self._null_return_lr is not None:
+                        lr = self._null_return_lr
+                        self._null_return_lr = None
+                        self.mu.reg_write(UC_ARM_REG_R0, 0)
                         start_ea = lr | 1
-                    else:
-                        self.mu.reg_write(UC_ARM_REG_PC, RETURN_STOP)
-                        start_ea = RETURN_STOP
-                    continue
-                stop["value"] = "fault"
-                fault["detail"] = str(e)
-                fault["pc"] = hex(self.mu.reg_read(UC_ARM_REG_PC))
-                if self.last_unmapped:
-                    pc0, acc, addr, sz = self.last_unmapped[-1]
-                    fault["access"] = ("read" if acc in (UC_MEM_READ, UC_MEM_READ_UNMAPPED)
-                                       else "write")
-                    fault["address"] = hex(addr)
-                    fault["size"] = sz
-                break
-
-        self.mu.hook_del(cap_hook)
+                        continue
+                    break
+                except UcError as e:
+                    if self._asserted:
+                        stop["value"] = "asserted"
+                        break
+                    if self._skip_to is not None:
+                        start_ea = self._skip_to | 1
+                        self._skip_to = None
+                        continue
+                    if self._null_return_lr is not None:
+                        lr = self._null_return_lr
+                        self._null_return_lr = None
+                        self.mu.reg_write(UC_ARM_REG_R0, 0)
+                        start_ea = lr
+                        continue
+                    if getattr(e, "errno", None) == UC_ERR_EXCEPTION:
+                        # A return into the sentinel page fetched at an ODD address
+                        # (pop {pc} restoring RETURN_STOP|1 = 0xdeadc001) raises
+                        # UC_ERR_EXCEPTION before the code hook can stop us. That
+                        # is a clean return, not a fault.
+                        pc = int(self.mu.reg_read(UC_ARM_REG_PC))
+                        if SENTINEL_BASE <= pc < SENTINEL_END:
+                            stop["value"] = "returned"
+                            break
+                        # CPU exception (e.g. ``mcr p0`` = Undefined Instruction).
+                        # This firmware has no coprocessors, so such an instruction
+                        # only appears as DATA/PADDING misdecoded after a garbage
+                        # indirect branch into a data region. Same handling as the
+                        # INSN_INVALID garbage branch: return via LR (r0 = 0) so
+                        # the caller's error path handles it; if LR is garbage too,
+                        # end at the return sentinel.
+                        lr = int(self.mu.reg_read(UC_ARM_REG_LR))
+                        self.mu.reg_write(UC_ARM_REG_R0, 0)
+                        if 0x10000 <= lr < 0x1a0000:
+                            start_ea = lr | 1
+                        else:
+                            self.mu.reg_write(UC_ARM_REG_PC, RETURN_STOP)
+                            start_ea = RETURN_STOP
+                        continue
+                    stop["value"] = "fault"
+                    fault["detail"] = str(e)
+                    fault["pc"] = hex(self.mu.reg_read(UC_ARM_REG_PC))
+                    if self.last_unmapped:
+                        pc0, acc, addr, sz = self.last_unmapped[-1]
+                        fault["access"] = ("read" if acc in (UC_MEM_READ, UC_MEM_READ_UNMAPPED)
+                                           else "write")
+                        fault["address"] = hex(addr)
+                        fault["size"] = sz
+                    break
+        finally:
+            self.mu.hook_del(cap_hook)
+            if sb_hook is not None:
+                self.mu.hook_del(sb_hook)
 
         if stop["value"] == "running":
             pc = self.mu.reg_read(UC_ARM_REG_PC)

@@ -10,45 +10,69 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_112EB0;
-extern uint32_t off_112EB4;
-extern uint32_t off_112EB8;
-extern uint32_t off_112EBC;
+
+extern uint32_t dword_112EB0;
+extern uint32_t dword_112EB4;
+extern uint32_t dword_112EB8;
+extern uint32_t dword_112EBC;
+extern uint32_t dword_112EC4;
+extern uint32_t dword_112EC8;
+extern uint32_t dword_112ECC;
 
 // phy_irq_handler @ 0x112e30, size 126 bytes
-void phy_irq_handler()
+int phy_irq_handler()
 {
   int *v0; // r4
-  int v1; // r2
-  int v2; // r3
+  uint8_t *v1; // r5
+  int v2; // r2
   int v3; // r3
-  int v4; // r2
+  volatile unsigned int v4; // r2
+  unsigned int v5; // r2
+  int v6; // r3
+  unsigned int v7; // r2
+  int v8; // r1
+  int result; // r0
+  int v10; // r3
+  int v11; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)off_112EB0 = 1;
+    *(uint32_t *)dword_112EB0 = 1;
   }
-  v0 = (int *)off_112EB4;
-  v1 = *(uint8_t *)off_112EB8;
-  v2 = *(uint32_t *)off_112EB4 + 1;
-  *(uint32_t *)off_112EB4 = v2;
-  if ( v1 )
-  {
-    *((uint32_t *)off_112EBC + 513) |= 1u;
-    while ( 1 )
-      ;
-  }
+  v0 = (int *)dword_112EB4;
+  v1 = (uint8_t *)dword_112EB8;
+  v2 = *(uint8_t *)dword_112EB8;
+  v3 = *(uint32_t *)dword_112EB4 + 1;
+  *(uint32_t *)dword_112EB4 = v3;
   if ( v2 )
   {
-    v3 = v2 - 1;
-    v4 = *(uint32_t *)off_112EB0;
-    *v0 = v3;
-    if ( !v3 )
+    *(uint32_t *)(dword_112EBC + 0x804) |= 1u;
+    v4 = (*(volatile uint32_t *)0x40501010u);
+    v5 = v4 + 9000;
+    do
+      v6 = v5 - (*(volatile uint32_t *)0x40501010u);
+    while ( v6 >= 0 );
+    v7 = dword_112EBC;
+    v8 = *(uint16_t *)(dword_112EC4 + 0xB2);
+    *(uint32_t *)(dword_112EBC + 0x804) &= ~1u;
+    if ( (v8 & 0x4000) != 0 )
+      result = sub_10D674(dword_112EC8);
+    else
+      result = msg_parse(dword_112ECC, v8, v7, v8 << 17);
+    v3 = *v0;
+    *v1 = 0;
+  }
+  if ( v3 )
+  {
+    v10 = v3 - 1;
+    v11 = *(uint32_t *)dword_112EB0;
+    *v0 = v10;
+    if ( !v10 )
     {
-      if ( v4 )
+      if ( v11 )
         __enable_irq();
     }
   }
+  return result;
 }
-
