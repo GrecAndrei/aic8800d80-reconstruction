@@ -6963,9 +6963,9 @@ volatile char * memcpy_aligned(volatile char *a1, volatile char *a2, unsigned in
 unsigned int memmove_4(unsigned int result, unsigned int a2, unsigned int a3);
 int random();
 volatile uint8_t * memset(volatile uint8_t *result, uint8_t a2);
-int strcmp(unsigned int a1, volatile unsigned int *a2) __asm__("__libmatch_strcmp");
+int strcmp(unsigned int a1, volatile unsigned int *a2);
 unsigned int memcpy_2(unsigned int result, unsigned int a2) __asm__("__libmatch_strcpy");
-unsigned int memmove_5(unsigned int a1) __asm__("__libmatch_strlen");
+unsigned int memmove_5(unsigned int a1);
 int memset_1(volatile uint8_t *a1, volatile uint8_t *a2, int a3);
 void empty_isr();
 void empty_isr_alt();
@@ -38876,7 +38876,7 @@ LABEL_19:
             if ( v17 == 128 )
             {
               v53 = 0;
-              v40 = ((int (*)())rx_process_packet)(a1 + 20, v18, v49, &v53);
+              v40 = rx_process_packet_1(a1 + 20, v18, v49, &v53);
               ipc_msg_receive(v53, *(volatile uint16_t *)(a1 + 48), v18);
               si_watchdog(v18);
               if ( v40 )
@@ -84738,7 +84738,7 @@ LABEL_5:
 
 
 // memcpy_aligned @ 0x14380c
-/* libmatch: 308 bytes identical to memcpy (libc.a:lib_a-memcpy.o); the library routine is linked */
+/* libmatch: 308 bytes identical to memcpy (libc.a:libc_a-memcpy.o); the library routine is linked */
 
 
 // memmove_4 @ 0x143940
@@ -84951,15 +84951,418 @@ LABEL_18:
 
 
 // strcmp @ 0x143b48
-/* libmatch: 724 bytes identical to strcmp (libc.a:lib_a-strcmp.o); the library routine is linked */
+int strcmp(unsigned int a1, volatile unsigned int *a2) {
+uint32_t _R12;
+uint64_t _R2;
+uint64_t _R3;
+uint32_t _R4;
+uint32_t _R5;
+
+  int v3; // r2
+  int v4; // r3
+  char v7; // r4
+  volatile uint64_t *v8; // r0
+  volatile uint64_t *v9; // r1
+  uint64_t v10; // t1
+  uint64_t v11; // t1
+  int v12; // r4
+  uint64_t v14; // r6
+  uint64_t v15; // t1
+  uint64_t v16; // t1
+  char v30; // r4
+  char v31; // r4
+  char v32; // r4
+  unsigned int v34; // t1
+  unsigned int v35; // r3
+  unsigned int v36; // t1
+  char v42; // r4
+  volatile int *v43; // r0
+  int v44; // r2
+  int v45; // t1
+  volatile uint32_t *v46; // r1
+  int v47; // t1
+  int v48; // r4
+  int v49; // r4
+  volatile char *v50; // r1
+  volatile int *v51; // r0
+  int v52; // r2
+  int v53; // t1
+  int v54; // r3
+  uint8_t v55; // t2
+  int v56; // r4
+  int v57; // r3
+  uint8_t v58; // t2
+  volatile unsigned int *v59; // r0
+  unsigned int v61; // t1
+  char v63; // cc
+  volatile uint32_t *v64; // r1
+  volatile uint16_t *v65; // r1
+  unsigned int v66; // r3
+  unsigned int v67; // t1
+  unsigned int v71; // t1
+  unsigned int v72; // t1
+  unsigned int v76; // t1
+  unsigned int v77; // t1
+  unsigned int v81; // t1
+  unsigned int v82; // t1
+  unsigned int v84; // r3
+
+  v3 = *(volatile uint8_t *)a1;
+  v4 = *(volatile uint8_t *)a2;
+  _ZF = v3 == 1;
+  if ( *(volatile uint8_t *)a1 )
+    _ZF = v3 == v4;
+  if ( !_ZF )
+    return v3 - v4;
+  _R12 = -1;
+  if ( !((a1 | (unsigned int)a2) << 29) )
+    goto LABEL_9;
+  if ( ((a1 ^ (unsigned int)a2) & 7) == 0 )
+  {
+    v7 = a1 & 7;
+    v8 = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
+    v9 = (volatile uint64_t *)((unsigned int)a2 & 0xFFFFFFF8);
+    v10 = *v8;
+    a1 = (unsigned int)(v8 + 2);
+    _R2 = v10;
+    _ZF = (v7 & 4) == 0;
+    v11 = *v9;
+    a2 = (volatile unsigned int *)(v9 + 2);
+    v12 = -1 << (8 * (v7 & 3));
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~v12) & 0xFFFFFFFFULL) << 0);
+    v14 = v11 | (unsigned int)~v12;
+    if ( !_ZF )
+    {
+      _R2 = _R2 | (((uint64_t)(~v12)) << 32);
+      _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
+      v14 = v14 | (((uint64_t)(~v12)) << 32);
+      v14 = (v14 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
+    }
+    while ( 1 )
+    {
+      (void)0;
+
+      _R4 = _R2 ^ v14;
+      _R4 = (uint32_t)_R4 | __zmask32((uint32_t)_R2);
+
+      if ( _R4 )
+        break;
+      (void)0;
+
+      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
+      _R5 = (uint32_t)_R5 | __zmask32((uint32_t)(_R2 >> 32));
+
+      if ( _R5 )
+        goto LABEL_14;
+      _R2 = *(volatile uint64_t *)(a1 - 8);
+      v14 = *((volatile uint64_t *)a2 - 1);
+      (void)0;
+
+      _R4 = _R2 ^ v14;
+      _R4 = (uint32_t)_R4 | __zmask32((uint32_t)_R2);
+
+      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
+      _R5 = (uint32_t)_R5 | __zmask32((uint32_t)(_R2 >> 32));
+
+      _R5 = _R5 | _R4;
+      if ( _R5 )
+      {
+        if ( !_R4 )
+        {
+LABEL_14:
+          v30 = __clz(bswap32(_R5)) & 0xF8;
+          return (uint8_t)(HIDWORD(_R2) >> v30) - (uint8_t)(HIDWORD(v14) >> v30);
+        }
+        break;
+      }
+LABEL_9:
+      v15 = *(volatile uint64_t *)a1;
+      a1 += 16;
+      _R2 = v15;
+      v16 = *(volatile uint64_t *)a2;
+      a2 += 4;
+      v14 = v16;
+    }
+    v31 = __clz(bswap32(_R4)) & 0xF8;
+    return (uint8_t)((unsigned int)_R2 >> v31) - (uint8_t)((unsigned int)v14 >> v31);
+  }
+  if ( (((uint8_t)a1 ^ (uint8_t)a2) & 3) == 0 )
+  {
+    v32 = a1 & 3;
+    if ( (a1 & 3) != 0 )
+    {
+      v43 = (volatile int *)(a1 & 0xFFFFFFFC);
+      v45 = *v43;
+      a1 = (unsigned int)(v43 + 2);
+      v44 = v45;
+      v46 = (void *)((volatile uint32_t *)((unsigned int)a2 & 0xFFFFFFFC));
+      v47 = *v46;
+      a2 = (void *)(v46 + 2);
+      v48 = -1 << (8 * v32);
+      _R2 = v44 | ~v48;
+      v35 = v47 | ~v48;
+      goto LABEL_19;
+    }
+    do
+    {
+      v34 = *(volatile uint32_t *)a1;
+      a1 += 8;
+      _R2 = v34;
+      v36 = *a2;
+      a2 += 2;
+      v35 = v36;
+LABEL_19:
+      (void)0;
+
+      _R5 = _R2 ^ v35;
+      _R5 = (uint32_t)_R5 | __zmask32((uint32_t)_R2);
+
+      if ( _R5 )
+        break;
+      _R2 = *(volatile uint32_t *)(a1 - 4);
+      v35 = *(a2 - 1);
+      (void)0;
+
+      _R5 = _R2 ^ v35;
+      _R5 = (uint32_t)_R5 | __zmask32((uint32_t)_R2);
+
+    }
+    while ( !_R5 );
+    v42 = __clz(bswap32(_R5)) & 0xF8;
+    return (uint8_t)(_R2 >> v42) - (uint8_t)(v35 >> v42);
+  }
+  v49 = a1 & 3;
+  if ( (a1 & 3) != 0 )
+  {
+    v50 = (volatile char *)a2 - v49;
+    v51 = (volatile int *)(a1 & 0xFFFFFFFC);
+    v53 = *v51;
+    a1 = (unsigned int)(v51 + 1);
+    v52 = v53;
+    if ( v49 << 31 )
+    {
+      if ( __CFSHL__(v49, 31) )
+      {
+LABEL_31:
+        a2 = (volatile unsigned int *)(v50 + 4);
+        goto LABEL_32;
+      }
+      v54 = (uint8_t)v50[2];
+      v55 = __ROR4__(v52, 16);
+      v56 = v55 - v54;
+      if ( v55 != v54 || !v50[2] )
+        return v56;
+    }
+    v57 = (uint8_t)v50[3];
+    v58 = __ROR4__(v52, 24);
+    v56 = v58 - v57;
+    if ( v58 != v57 || !v50[3] )
+      return v56;
+    goto LABEL_31;
+  }
+LABEL_32:
+  v61 = *(volatile uint32_t *)a1;
+  v59 = (volatile unsigned int *)(a1 + 4);
+  _R2 = v61;
+  _CF = __CFSHL__(a2, 31);
+  v63 = ((uint32_t)a2 << 31 != 0) & __CFSHL__(a2, 31);
+  v64 = (volatile uint32_t *)((unsigned int)a2 & 0xFFFFFFFC);
+  v67 = *v64;
+  v65 = (volatile uint16_t *)(v64 + 1);
+  v66 = v67;
+  if ( v63 )
+  {
+    while ( 1 )
+    {
+      (void)0;
+
+      _R5 = (uint8_t)_R2 ^ (uint8_t)(v66 >> 24);
+      if ( (uint32_t)_R5 )
+      {
+        v66 >>= 24;
+        goto LABEL_59;
+      }
+      _R5 = (uint32_t)_R5 | __zmask32((uint32_t)_R2);
+      if ( _R5 )
+        break;
+      v81 = *(volatile uint32_t *)v65;
+      v65 += 2;
+      v66 = v81;
+      if ( ((uint8_t)_R2 ^ _R2) != v81 << 8 )
+        goto LABEL_57;
+      v82 = *v59++;
+      _R2 = v82;
+    }
+    if ( !(uint8_t)_R5 )
+    {
+      v66 = *(volatile uint32_t *)v65;
+LABEL_57:
+      _R2 >>= 8;
+      v66 &= 0xFFFFFFu;
+      goto LABEL_59;
+    }
+    return 0;
+  }
+  else if ( _CF )
+  {
+    while ( 1 )
+    {
+      (void)0;
+
+      _R5 = (uint16_t)_R2 ^ HIWORD(v66);
+      if ( (uint32_t)_R5 )
+      {
+        v66 >>= 16;
+        goto LABEL_59;
+      }
+      _R5 = (uint32_t)_R5 | __zmask32((uint32_t)_R2);
+      if ( _R5 )
+        break;
+      v76 = *(volatile uint32_t *)v65;
+      v65 += 2;
+      v66 = v76;
+      if ( ((uint16_t)_R2 ^ _R2) != v76 << 16 )
+      {
+        _R2 >>= 16;
+        v66 = (uint16_t)v66;
+        goto LABEL_59;
+      }
+      v77 = *v59++;
+      _R2 = v77;
+    }
+    if ( (uint16_t)_R5 )
+      return 0;
+    v66 = *v65;
+    _R2 >>= 16;
+LABEL_59:
+    _R2 = bswap32(_R2);
+    v84 = bswap32(v66);
+    (void)0;
+
+    _R4 = _R2 ^ v84;
+    _R5 = (uint32_t)_R4 | __zmask32((uint32_t)_R2);
+
+    _R4 = ((unsigned)(_R4) & 0xFFFFFF00U) | (((unsigned)(__clz(_R5)) & 0xFFU) << 0);
+    return ((uint32_t)_R2 << _R4 >> 24) - (v84 << _R4 >> 24);
+  }
+  else
+  {
+    while ( 1 )
+    {
+      (void)0;
+
+      _R5 = _R2 & 0xFFFFFF ^ (v66 >> 8);
+      if ( (uint32_t)_R5 )
+      {
+        v66 >>= 8;
+        goto LABEL_59;
+      }
+      _R5 = (uint32_t)_R5 | __zmask32((uint32_t)_R2);
+      if ( _R5 )
+        break;
+      v71 = *(volatile uint32_t *)v65;
+      v65 += 2;
+      v66 = v71;
+      if ( (_R2 & 0xFFFFFF ^ _R2) != v71 << 24 )
+      {
+        _R2 >>= 24;
+        v66 = (uint8_t)v66;
+        goto LABEL_59;
+      }
+      v72 = *v59++;
+      _R2 = v72;
+    }
+    if ( (_R5 & 0xFFFFFF) != 0 )
+      return 0;
+    return -*(volatile uint8_t *)v65;
+  }
+}
 
 
 // memcpy_2 @ 0x143e1c
-/* libmatch: 186 bytes identical to strcpy (libc.a:lib_a-strcpy.o); the library routine is linked */
+/* libmatch: 186 bytes identical to strcpy (libc.a:libc_a-strcpy.o); the library routine is linked */
 
 
 // memmove_5 @ 0x143f00
-/* libmatch: 220 bytes identical to strlen (libc.a:lib_a-strlen.o); the library routine is linked */
+unsigned int memmove_5(unsigned int a1) {
+uint32_t _R12;
+uint64_t _R2;
+uint64_t _R3;
+uint32_t _R4;
+
+  volatile uint64_t *v1; // r1
+  int v3; // r4
+  int v5; // r0
+  int v15; // r5
+
+  __pld((void *)a1);
+  v1 = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
+  _R12 = -1;
+  v3 = a1 & 7;
+  __pld((void *)((a1 & 0xFFFFFFF8) + 32));
+  if ( (a1 & 7) != 0 )
+  {
+    _R2 = *v1;
+    v5 = -v3;
+    __pld(v1 + 8);
+    v15 = -1 << (8 * (v3 & 3));
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~v15) & 0xFFFFFFFFULL) << 0);
+    if ( (v3 & 4) != 0 )
+    {
+      _R2 = _R2 | (((uint64_t)(~v15)) << 32);
+      _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
+    }
+    _R4 = 0;
+    goto LABEL_4;
+  }
+  _R4 = 0;
+  v5 = -8;
+  do
+  {
+    _R2 = *v1;
+    __pld(v1 + 8);
+    v5 += 8;
+LABEL_4:
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
+_R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
+
+    if ( HIDWORD(_R2) )
+      break;
+    _R2 = v1[1];
+    (void)0;
+
+    v5 += 8;
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
+_R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
+
+    if ( HIDWORD(_R2) )
+      break;
+    _R2 = v1[2];
+    (void)0;
+
+    v5 += 8;
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
+_R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
+
+    if ( HIDWORD(_R2) )
+      break;
+    _R2 = v1[3];
+    v1 += 4;
+    (void)0;
+
+    v5 += 8;
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
+_R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
+
+  }
+  while ( !HIDWORD(_R2) );
+  if ( !(uint32_t)_R2 )
+  {
+    v5 += 4;
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(HIDWORD(_R2)) & 0xFFFFFFFFULL) << 0);
+  }
+  return v5 + (__clz(bswap32(_R2)) >> 3);
+}
 
 
 // memset_1 @ 0x143fdc

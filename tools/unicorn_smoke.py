@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import subprocess
 import tempfile
 from dataclasses import dataclass
@@ -82,13 +83,50 @@ def libgcc_archive(cpu: str) -> str | None:
     return out if Path(out).is_file() else None
 
 
+def _libgcc_defined_symbols(libgcc: str | None) -> set[str]:
+    if not libgcc:
+        return set()
+    nm = shutil.which("arm-none-eabi-nm") or "nm"
+    out = subprocess.run([nm, "--defined-only", libgcc], capture_output=True, text=True, check=True).stdout
+    syms: set[str] = set()
+    for line in out.splitlines():
+        parts = line.split()
+        if len(parts) >= 3 and parts[1] not in ("U", "u"):
+            syms.add(parts[-1])
+    return syms
+
+
+def _emit_gnu_ld_stubs(obj: Path, out_dir: Path, target: str, cpu: str, libgcc: str | None) -> Path | None:
+    """GNU arm-none-eabi-ld rejects undefined MOVW/MOVT relocations even with
+    --unresolved-symbols=ignore-all; give unresolved firmware symbols weak
+    Thumb return-0 stubs so they link and execute safely."""
+    nm = shutil.which("arm-none-eabi-nm") or "nm"
+    undef_out = subprocess.run([nm, "-u", str(obj)], capture_output=True, text=True, check=True).stdout
+    undefs = sorted({line.split()[-1] for line in undef_out.splitlines() if line.split()})
+    known = _libgcc_defined_symbols(libgcc)
+    missing = [s for s in undefs if s not in known]
+    if not missing:
+        return None
+    asm = [".syntax unified", ".thumb"]
+    for sym in missing:
+        asm.extend([f".weak {sym}", ".thumb_func", f"{sym}:", "  movs r0, #0", "  bx lr"])
+    stub_s = out_dir / f"{obj.stem}_stubs.s"
+    stub_o = out_dir / f"{obj.stem}_stubs.o"
+    stub_s.write_text("\n".join(asm) + "\n", encoding="utf-8")
+    subprocess.run(
+        ["clang", f"--target={target}", f"-mcpu={cpu}", "-mthumb", "-c", str(stub_s), "-o", str(stub_o)],
+        check=True,
+    )
+    return stub_o
+
+
 def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, entry: str) -> Path:
     elf = out_dir / (src.stem + ".elf")
     # Clang lowers float<->int conversions to __aeabi_* calls. Left unresolved
     # they link as `bl 0`, and the run walks off into unmapped memory until the
     # instruction cap. Resolve them from libgcc; firmware callees stay unresolved.
     libgcc = libgcc_archive(cpu)
-    cmd = [
+    cflags = [
         "clang",
         f"--target={target}",
         f"-mcpu={cpu}",
@@ -97,13 +135,41 @@ def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, en
         "-fno-builtin",
         "-fdata-sections",
         "-ffunction-sections",
-        "-fuse-ld=lld",
         f"-O{opt}",
-        str(src),
+    ]
+    if shutil.which("ld.lld"):
+        cmd = [
+            *cflags,
+            "-fuse-ld=lld",
+            str(src),
+            "-nostdlib",
+            *([libgcc] if libgcc else []),
+            "-Wl,--unresolved-symbols=ignore-all",
+            "-Wl,--image-base=0x1000",
+            f"-Wl,-e,{entry}",
+            "-o",
+            str(elf),
+        ]
+        subprocess.run(cmd, check=True)
+        return elf
+    ld = shutil.which("arm-none-eabi-ld")
+    if not ld:
+        raise RuntimeError("neither ld.lld nor arm-none-eabi-ld found on PATH")
+    obj = out_dir / (src.stem + ".o")
+    subprocess.run([*cflags, "-c", str(src), "-o", str(obj)], check=True)
+    stub_o = _emit_gnu_ld_stubs(obj, out_dir, target, cpu, libgcc)
+    cmd = [
+        "clang",
+        f"--target={target}",
+        f"-mcpu={cpu}",
+        "-mthumb",
+        f"-fuse-ld={ld}",
+        str(obj),
+        *([str(stub_o)] if stub_o else []),
         "-nostdlib",
         *([libgcc] if libgcc else []),
         "-Wl,--unresolved-symbols=ignore-all",
-        "-Wl,--image-base=0x1000",
+        "-Wl,-Ttext=0x1000",
         f"-Wl,-e,{entry}",
         "-o",
         str(elf),

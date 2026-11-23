@@ -256,7 +256,7 @@ var headerIntrinsic = map[string]bool{
 	"vcvts_n_s32_f32": true, "vcvts_n_f32_u32": true,
 	"__rev": true, "__rev16": true, "__usat": true,
 	"__get_CPSR": true, "__disable_irq": true, "__enable_irq": true,
-	"__pld": true, "MEMD": true,
+	"__pld": true, "MEMD": true, "__zmask32": true,
 	"SHIBYTE": true, "SLOBYTE": true, "WORD1": true, "WORD2": true,
 	"SHIDWORD": true, "__ROR4__": true, "_byteswap_ushort": true,
 	"BYTE1": true, "BYTE2": true, "BYTE3": true, "BYTE4": true,

@@ -167,31 +167,49 @@ def bind(text: str, rows: list[dict]) -> tuple[str, list[dict]]:
     return head + "".join(pieces), done
 
 
+def _member_syms(obj: Path) -> dict[str, tuple[object, str]]:
+    with obj.open("rb") as f:
+        elf = ELFFile(f)
+        syms: dict[str, tuple[object, str]] = {}
+        for s in elf.get_section_by_name(".symtab").iter_symbols():
+            if not s.name or s["st_info"]["bind"] == "STB_LOCAL" or not isinstance(s["st_shndx"], int):
+                continue
+            data = elf.get_section(s["st_shndx"]).data()[(s["st_value"] & ~1):][:s["st_size"]]
+            syms[s.name] = (s, hashlib.sha256(data).hexdigest())
+        return syms
+
+
+def _find_member_for_row(lib_dir: Path, row: dict) -> Path:
+    cand = lib_dir / row["member"]
+    if cand.is_file():
+        syms = _member_syms(cand)
+        if row["symbol"] in syms and syms[row["symbol"]][1] == row["sha256"]:
+            return cand
+    # Archive member filenames vary across newlib/GCC releases (e.g. lib_a- vs libc_a-).
+    for obj in sorted(lib_dir.glob("*.o")):
+        syms = _member_syms(obj)
+        if row["symbol"] in syms and syms[row["symbol"]][1] == row["sha256"]:
+            return obj
+    raise SystemExit(f"libmatch: {row['symbol']} ({row['sha256'][:12]}) not found in {lib_dir.name}; "
+                     f"rerun 'tools/libmatch.py scan'")
+
+
 def link_objects(img: str, out_dir: Path) -> list[Path]:
     """Matched archive members for `img`, global symbols prefixed, bytes re-checked."""
     rows = load_meta()["images"].get(img, [])
     src = out_dir / "libmatch"
-    members = sorted({(r["lib"], r["member"]) for r in rows})
-    objs = []
-    for lib in sorted({l for l, _ in members}):
+    for lib in sorted({r["lib"] for r in rows}):
         extract(lib, src / lib)
-    for lib, member in members:
-        obj = src / lib / member
-        with obj.open("rb") as f:
-            elf = ELFFile(f)
-            syms = {s.name: s for s in elf.get_section_by_name(".symtab").iter_symbols()
-                    if s.name and s["st_info"]["bind"] != "STB_LOCAL" and isinstance(s["st_shndx"], int)}
-            for r in rows:
-                if (r["lib"], r["member"]) != (lib, member):
-                    continue
-                s = syms[r["symbol"]]
-                data = elf.get_section(s["st_shndx"]).data()[(s["st_value"] & ~1):][:s["st_size"]]
-                if hashlib.sha256(data).hexdigest() != r["sha256"]:
-                    raise SystemExit(f"libmatch: {r['symbol']} in {lib}:{member} differs from "
-                                     f"metadata/libmatch.json; rerun 'tools/libmatch.py scan'")
-        ren = src / f"{lib}.{member}.syms"
+    by_member: dict[tuple[str, Path], list[dict]] = {}
+    for r in rows:
+        obj = _find_member_for_row(src / r["lib"], r)
+        by_member.setdefault((r["lib"], obj), []).append(r)
+    objs = []
+    for (lib, obj), _mrows in sorted(by_member.items(), key=lambda kv: (kv[0][0], kv[0][1].name)):
+        syms = _member_syms(obj)
+        ren = src / f"{lib}.{obj.name}.syms"
         ren.write_text("".join(f"{n} {PREFIX}{n}\n" for n in sorted(syms)))
-        dst = src / f"{lib}.{member}"
+        dst = src / f"{lib}.{obj.name}"
         subprocess.run([OBJCOPY, f"--redefine-syms={ren}", str(obj), str(dst)], check=True)
         objs.append(dst)
     return objs

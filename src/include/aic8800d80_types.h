@@ -113,4 +113,16 @@ uint32_t _CF = 0, _ZF = 0, _NF = 0, _OF = 0, _VF = 0;
 /* Firmware memory image size: load base 0x100000, IDA LOAD extended to 0x200000 */
 #define MEMORY_IMAGE_SIZE 0x100000
 
+/* __zmask32 — 0xFF per byte lane that is zero (mechanical re-emission of the
+   Hex-Rays UADD8/SEL word-scan asm: SEL Rd, Rn, R12 selects 0xFF into lanes
+   whose UADD8 input byte was 0, i.e. Rd = Rn | __zmask32(input)). */
+static inline uint32_t __zmask32(uint32_t w) {
+	uint32_t m = 0;
+	if (((w >> 0) & 0xFF) == 0) m |= 0xFFu;
+	if (((w >> 8) & 0xFF) == 0) m |= 0xFFu << 8;
+	if (((w >> 16) & 0xFF) == 0) m |= 0xFFu << 16;
+	if (((w >> 24) & 0xFF) == 0) m |= 0xFFu << 24;
+	return m;
+}
+
 #endif /* AIC8800D80_TYPES_H */

@@ -1,5 +1,5 @@
 {
- "toolchain": "arm-none-eabi-gcc (15:10.3-2021.07-4) 10.3.1 20210621 (release)",
+ "toolchain": "arm-none-eabi-gcc (Arch Repository) 16.2.0",
  "min_size": 16,
  "images": {
   "fmacfw_8800d80_h_u02": [
@@ -284,17 +284,8 @@
     "symbol": "memcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-memcpy.o",
+    "member": "libc_a-memcpy.o",
     "sha256": "f7d55b134d670e0b2158973b976317b32cd3e4ff70d9036be971c2525779e230"
-   },
-   {
-    "address": "0x143968",
-    "size": 724,
-    "symbol": "strcmp",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strcmp.o",
-    "sha256": "33a64767ac33159ac19457f49e96c5b16114f69654d7b9ab5494c09615b09d5d"
    },
    {
     "address": "0x143c3c",
@@ -302,17 +293,8 @@
     "symbol": "strcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-strcpy.o",
+    "member": "libc_a-strcpy.o",
     "sha256": "61c0315134df2deaf755b14c5183708c8d87b766be2e4674db51e39be1465dd4"
-   },
-   {
-    "address": "0x143d00",
-    "size": 220,
-    "symbol": "strlen",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strlen.o",
-    "sha256": "11c097395cdbc321eb3ef04cb8f0133e1c3d78e79e4d0f2349d62c4ec4054d5f"
    }
   ],
   "fmacfw_8800d80_u02": [
@@ -597,17 +579,8 @@
     "symbol": "memcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-memcpy.o",
+    "member": "libc_a-memcpy.o",
     "sha256": "f7d55b134d670e0b2158973b976317b32cd3e4ff70d9036be971c2525779e230"
-   },
-   {
-    "address": "0x143aa8",
-    "size": 724,
-    "symbol": "strcmp",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strcmp.o",
-    "sha256": "33a64767ac33159ac19457f49e96c5b16114f69654d7b9ab5494c09615b09d5d"
    },
    {
     "address": "0x143d7c",
@@ -615,17 +588,8 @@
     "symbol": "strcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-strcpy.o",
+    "member": "libc_a-strcpy.o",
     "sha256": "61c0315134df2deaf755b14c5183708c8d87b766be2e4674db51e39be1465dd4"
-   },
-   {
-    "address": "0x143e40",
-    "size": 220,
-    "symbol": "strlen",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strlen.o",
-    "sha256": "11c097395cdbc321eb3ef04cb8f0133e1c3d78e79e4d0f2349d62c4ec4054d5f"
    }
   ],
   "fmacfwbt_8800d80_u02": [
@@ -910,17 +874,8 @@
     "symbol": "memcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-memcpy.o",
+    "member": "libc_a-memcpy.o",
     "sha256": "f7d55b134d670e0b2158973b976317b32cd3e4ff70d9036be971c2525779e230"
-   },
-   {
-    "address": "0x143b48",
-    "size": 724,
-    "symbol": "strcmp",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strcmp.o",
-    "sha256": "33a64767ac33159ac19457f49e96c5b16114f69654d7b9ab5494c09615b09d5d"
    },
    {
     "address": "0x143e1c",
@@ -928,17 +883,8 @@
     "symbol": "strcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-strcpy.o",
+    "member": "libc_a-strcpy.o",
     "sha256": "61c0315134df2deaf755b14c5183708c8d87b766be2e4674db51e39be1465dd4"
-   },
-   {
-    "address": "0x143f00",
-    "size": 220,
-    "symbol": "strlen",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strlen.o",
-    "sha256": "11c097395cdbc321eb3ef04cb8f0133e1c3d78e79e4d0f2349d62c4ec4054d5f"
    }
   ],
   "lmacfw_rf_8800d80_u02": [
@@ -1223,17 +1169,8 @@
     "symbol": "memcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-memcpy.o",
+    "member": "libc_a-memcpy.o",
     "sha256": "f7d55b134d670e0b2158973b976317b32cd3e4ff70d9036be971c2525779e230"
-   },
-   {
-    "address": "0x128508",
-    "size": 724,
-    "symbol": "strcmp",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strcmp.o",
-    "sha256": "33a64767ac33159ac19457f49e96c5b16114f69654d7b9ab5494c09615b09d5d"
    },
    {
     "address": "0x1287dc",
@@ -1241,17 +1178,8 @@
     "symbol": "strcpy",
     "aliases": [],
     "lib": "libc.a",
-    "member": "lib_a-strcpy.o",
+    "member": "libc_a-strcpy.o",
     "sha256": "61c0315134df2deaf755b14c5183708c8d87b766be2e4674db51e39be1465dd4"
-   },
-   {
-    "address": "0x1288c0",
-    "size": 220,
-    "symbol": "strlen",
-    "aliases": [],
-    "lib": "libc.a",
-    "member": "lib_a-strlen.o",
-    "sha256": "11c097395cdbc321eb3ef04cb8f0133e1c3d78e79e4d0f2349d62c4ec4054d5f"
    }
   ]
  }
