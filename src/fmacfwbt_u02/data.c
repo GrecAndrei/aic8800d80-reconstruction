@@ -4671,6 +4671,7 @@ uint32_t off_135870 = 0x00192d38;  /* ptr -> 0x192d38, ascii "8-\x19\x00" */
 uint32_t off_135874 = 0x00182c24;  /* ptr -> 0x182c24, ascii "$,\x18\x00" */
 uint32_t off_135880 = 0x001660d0;  /* ptr -> 0x1660d0 */
 uint32_t off_135914 = 0x00192d38;  /* ptr -> 0x192d38, ascii "8-\x19\x00" */
+uint32_t off_135A68 = 0x00188950;  /* ptr -> 0x188950 */
 uint32_t off_135B34 = 0x00182c24;  /* ptr -> 0x182c24, ascii "$,\x18\x00" */
 uint32_t off_135B38 = 0x00192d38;  /* ptr -> 0x192d38, ascii "8-\x19\x00" */
 uint32_t off_135B40 = 0x0016e360;  /* ptr -> 0x16e360 */

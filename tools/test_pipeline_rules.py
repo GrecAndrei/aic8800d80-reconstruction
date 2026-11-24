@@ -420,6 +420,10 @@ class PeriphSymbols(unittest.TestCase):
         self.assertIn('__asm volatile("msr msp, %0" : : "r"(_R0) : "memory");', out)
         self.assertIn("(unsigned int *)(*(void **)&(varg_r1))", out)
 
+    def test_convert_to_c99_normalizes_hwbase_aicfn(self):
+        out = convert_to_c99("aicfn_1334f0_end(a, b, c);\naicfn_12f2c8_end(1);")
+        self.assertEqual(out, "sub_1334F0(a, b, c);\nsub_12F2C8(1);")
+
     def test_tracked_sources_are_at_the_fixed_point(self):
         for img in periph_symbols.IMAGES:
             text = (periph_symbols.REPO / "src" / img / "main.c").read_text(errors="replace")

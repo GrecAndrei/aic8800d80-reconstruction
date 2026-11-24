@@ -152,6 +152,9 @@ def convert_to_c99(text: str) -> str:
         r"(unsigned int *)(*(void **)&(\1))",
         text,
     )
+    # hw-base IDBs name anonymous functions aicfn_<addr>_end; normalize to sub_<ADDR>
+    # so compose and callsite_targets resolve them to the composed unit names.
+    text = re.sub(r"\baicfn_([0-9A-Fa-f]+)_end\b", lambda m: f"sub_{m.group(1).upper()}", text)
     # 2D data-symbol subscript -> byte deref of the element (the heal's
     # scalar-subscript rewrite leaves the second [k] dangling otherwise).
     def two_d(m):

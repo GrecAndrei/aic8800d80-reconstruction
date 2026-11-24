@@ -44191,6 +44191,15 @@
   },
   {
     "kind": "off",
+    "addr": 1268328,
+    "size": 4,
+    "value": 1608016,
+    "in_image": true,
+    "is_ptr": true,
+    "ptr_to": 1608016
+  },
+  {
+    "kind": "off",
     "addr": 1268532,
     "size": 4,
     "value": 1584164,
