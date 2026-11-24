@@ -647,8 +647,9 @@ class Aic8800D80Platform:
             # real work is already done; execute no further and return via LR
             # (r0 = 0) so the caller's error path handles the NULL result — the
             # same class as the low-page and invalid-instruction handlers.
+            pc_even = pc & ~1
             if not (CHIP_BASE <= pc < CHIP_BASE + len(self.image)) \
-                    and pc != BOOT_STUB_BASE:
+                    and not (BOOT_STUB_BASE <= pc_even < BOOT_STUB_BASE + len(BOOT_STUB_BYTES)):
                 self._null_return(uc)
                 return
             # free(NULL) is a no-op per C semantics; the firmware's allocator
