@@ -1,0 +1,163 @@
+{
+  "schema": "aic8800d80-bootrom-contract/v1",
+  "table_base": "0x180",
+  "addressing": {
+    "analysis_base": "0x100000",
+    "hardware_image_base": "0x120000",
+    "note": "ROM vector addresses are absolute low memory and do not shift with image base"
+  },
+  "slots": {
+    "0x1b0": {
+      "index": 12,
+      "name": "reg_read32_hook",
+      "confidence": "high",
+      "abi": "uint32_t f(uint32_t addr)",
+      "model": "sparse_register_file"
+    },
+    "0x1b4": {
+      "index": 13,
+      "name": "reg_write32_hook",
+      "confidence": "high",
+      "abi": "void f(uint32_t addr, uint32_t value)",
+      "model": "sparse_register_file"
+    },
+    "0x1b8": {
+      "index": 14,
+      "name": "reg_masked_write_hook",
+      "confidence": "medium-high",
+      "abi": "void f(uint32_t addr, uint32_t value, uint32_t mask)",
+      "model": "sparse_register_file_rmw"
+    },
+    "0x1c8": {
+      "index": 18,
+      "name": "environment_base_query",
+      "confidence": "medium",
+      "abi": "uint32_t f(void)",
+      "model": "profile_value",
+      "zero_valid_for_exactness": false
+    },
+    "0x1d0": {
+      "index": 20,
+      "name": "lmac_unknown_service_20",
+      "confidence": "low",
+      "abi": "unknown",
+      "model": "trace_only_noop"
+    },
+    "0x1d4": {
+      "index": 21,
+      "name": "lmac_unknown_service_21",
+      "confidence": "low",
+      "abi": "unknown",
+      "model": "trace_only_noop"
+    },
+    "0x1d8": {
+      "index": 22,
+      "name": "external_block_read",
+      "confidence": "high",
+      "abi": "void f(uint32_t src, uint32_t len, void *dst)",
+      "model": "external_memory_copy",
+      "return_use": "ignored"
+    },
+    "0x1e0": {
+      "index": 24,
+      "name": "external_block_commit_like",
+      "confidence": "low-medium",
+      "abi": "void f(uint32_t addr, uint32_t len)",
+      "model": "trace_and_configurable_commit"
+    },
+    "0x1fc": {
+      "index": 31,
+      "name": "rom_command_dispatcher",
+      "confidence": "high",
+      "abi": "uint32_t f(uint32_t command)",
+      "model": "profiled_command_table",
+      "commands": {
+        "1": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "2": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "6": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "7": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "8": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "9": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "10": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "11": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "15": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "16": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "17": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        },
+        "27": {
+          "confidence": "medium",
+          "meaning": "hardware/chip/OTP/configuration data"
+        }
+      }
+    }
+  },
+  "external_memory_regions": [
+    {
+      "name": "config_cali",
+      "magic": "CALI",
+      "length": 72,
+      "offset_from_derived_base": "0x2000"
+    },
+    {
+      "name": "config_wifi",
+      "magic": "WIFI",
+      "length": 320,
+      "offset_from_derived_base": "0x1000"
+    },
+    {
+      "name": "lmac_80byte_block",
+      "length": 80,
+      "offset_from_derived_base": "0x0",
+      "meaning": "unresolved"
+    }
+  ],
+  "explicit_unknowns": [
+    "exact 0x1c8 base semantics",
+    "lmac 0x1d0/0x1d4 semantics",
+    "0x1e0 commit operation",
+    "production 0x1fc command values",
+    "dynamic patch-time command tables"
+  ],
+  "default_emulator_profile": {
+    "name": "zero_compat_plus_minimal_config_magic",
+    "environment_base": 0,
+    "derived_config_base": "0x3ffc000",
+    "registers": "sparse zero default; writes and masked writes persist within a platform run",
+    "commands": "zero default unless explicitly supplied",
+    "config_payloads": "zero-filled; CALI and WIFI magic bytes are seeded so copy/validation paths are exercised",
+    "unknown_services": "trace-only no-op",
+    "warning": "This is an explicit synthetic shared environment for comparative emulation, not recovered production ROM/OTP/calibration data."
+  }
+}

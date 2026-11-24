@@ -79,6 +79,8 @@ from unicorn.arm_const import (
     UC_ARM_REG_LR,
     UC_ARM_REG_PC,
     UC_ARM_REG_R0,
+    UC_ARM_REG_R1,
+    UC_ARM_REG_R2,
     UC_ARM_REG_SP,
     UC_CPU_ARM_CORTEX_M3,
     UC_CPU_ARM_CORTEX_M4,
@@ -163,8 +165,21 @@ ALLOC_FREE_ENTRIES = {
     "fmacfwbt_8800d80_u02": (0x14CDF0,),
     "lmacfw_rf_8800d80_u02": (0x13E078,),
 }
-BOOT_STUB_BASE = 0x20080000    # dedicated stub page just past main SRAM
-BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # Thumb: movs r0,#0 ; bx lr
+BOOT_STUB_BASE = 0x20080000    # dedicated virtual boot-ROM page just past main SRAM
+BOOT_STUB_STRIDE = 0x10
+BOOT_STUB_BYTES = b"\x00\x20\x70\x47"  # fallback at each entry: movs r0,#0 ; bx lr
+BOOT_ROM_ENTRY = {
+    slot: BOOT_STUB_BASE + i * BOOT_STUB_STRIDE
+    for i, slot in enumerate(BOOT_CALLBACK_SLOTS)
+}
+BOOT_ROM_SLOT_AT_PC = {pc: slot for slot, pc in BOOT_ROM_ENTRY.items()}
+# Minimal explicit external-configuration profile. The firmware derives this
+# base as (slot 0x1c8 result) + 0x3fc0000 + 0x3c000; the zero environment
+# profile therefore uses 0x3ffc000. CALI/WIFI magics are seeded so the copy
+# contract is exercised, while all payload fields remain the documented zero
+# compatibility profile rather than invented calibration data.
+BOOT_CONFIG_BASE = 0x3ffc000
+BOOT_CONFIG_SIZE = 0x3000
 
 # Spin-breaker / garbage-branch handling: a function blocked on an OS wait loops
 # on a completion flag (`while (*flag != 0)` crypto/BT semaphore, `while
@@ -460,13 +475,23 @@ class Aic8800D80Platform:
 
     def __init__(self, image_path: Path, mmio_model: dict[int, str] | None = None,
                  cpu_model: int = UC_CPU_ARM_CORTEX_M4,
-                 behavior_model: dict[str, dict] | None = None):
+                 behavior_model: dict[str, dict] | None = None,
+                 boot_rom_profile: dict | None = None):
         self.image_path = Path(image_path)
         self.image = self.image_path.read_bytes()
         self.image_addr = CHIP_BASE
         self.mmio_model = mmio_model if mmio_model is not None else load_mmio_model()
         self.behavior_model = (behavior_model if behavior_model is not None
                                else load_mmio_behavior())
+        # External boot-ROM contract state. This is environment state, not
+        # firmware reconstruction: the profile is explicit and shared by the
+        # original and linked-reconstruction runs. Unknown command/config
+        # payloads default to the documented zero compatibility profile.
+        self.boot_rom_profile = boot_rom_profile or {}
+        self.rom_regs: dict[int, int] = dict(self.boot_rom_profile.get("registers", {}))
+        self.rom_command_results: dict[int, int] = dict(self.boot_rom_profile.get("commands", {}))
+        self.rom_env_base = int(self.boot_rom_profile.get("environment_base", 0))
+        self.rom_trace: list[dict] = []
         # RX-FIFO status registers (behavior type "rx"), keyed by status addr.
         self._rx_statuses: dict[int, dict] = {
             int(a, 16): b.get("behavior") or {}
@@ -509,6 +534,10 @@ class Aic8800D80Platform:
         self.call_depth = 0
         # Set by the null-function-pointer hook; run() re-enters at this LR.
         self._null_return_lr: int | None = None
+        # Set by the virtual boot-ROM service hook; unlike a null call this
+        # carries the service's contractual r0 result back to the caller.
+        self._rom_return_lr: int | None = None
+        self._rom_return_r0 = 0
         # Set by the udf-assert hook; run() re-enters here (skipping the udf).
         self._skip_to: int | None = None
         # Spin-breaker: enabled per run() call (not during boot). Flipped wait
@@ -583,36 +612,108 @@ class Aic8800D80Platform:
         self._seed_boot_callbacks()
 
     def _seed_boot_callbacks(self) -> None:
-        """Install a no-op stub and point the boot-ROM callback slots at it.
+        """Install the explicit virtual boot-ROM contract.
 
-        The firmware calls through fixed low-memory vectors (0x1b0/0x1b4/
-        0x1b8 + one image-specific slot) that the boot ROM populates before
-        the image runs. Without seeding, the emulator reads 0 there and the
-        indirect call ``bx r3`` branches to address 0 (invalid instruction).
-        We write a tiny Thumb ``movs r0,#0; bx lr`` stub into a dedicated
-        page and point every slot at it, so the call returns 0 exactly like
-        the reconstruction smoke's stub does.
+        The real ROM is external environment, not part of the firmware image.
+        Each vector receives a distinct entry in a dedicated page. The code
+        hook intercepts those entries and performs the documented Python-side
+        contract service, so ROM implementation instructions are not confused
+        with firmware execution. The page is filled with `bx lr` as a safe
+        fallback; every entry also has the historical return-zero stub bytes.
         """
-        stub = BOOT_STUB_BASE
+        stub_page = BOOT_STUB_BASE & ~(PAGE_SIZE - 1)
         try:
-            self._map_rwx(stub & ~(PAGE_SIZE - 1), PAGE_SIZE)
-            self.mu.mem_write(stub, BOOT_STUB_BYTES)
+            self._map_rwx(stub_page, PAGE_SIZE)
+            self.mu.mem_write(stub_page, b"\x70\x47" * (PAGE_SIZE // 2))  # bx lr everywhere
         except UcError:
             return
-        # Slots live in the low boot-ROM page (0x0-0xFFF); map it so the
-        # seeded values are readable (on_mem fires for mapped reads, leaving
-        # the value we wrote intact).
-        low = 0x0
         try:
-            self._map_rwx(low, PAGE_SIZE)
+            self._map_rwx(0, PAGE_SIZE)
         except UcError:
             return
         for slot in BOOT_CALLBACK_SLOTS:
+            entry = BOOT_ROM_ENTRY[slot]
             try:
-                # Thumb bit set: bx r3 enters Thumb mode at the stub.
-                self.mu.mem_write(slot, struct.pack("<I", stub | 1))
+                self.mu.mem_write(entry, BOOT_STUB_BYTES)
+                self.mu.mem_write(slot, struct.pack("<I", entry | 1))
             except UcError:
                 pass
+        # Minimal external configuration profile used by slot 0x1d8 copies.
+        try:
+            self._map_rwx(BOOT_CONFIG_BASE, BOOT_CONFIG_SIZE)
+            self.mu.mem_write(BOOT_CONFIG_BASE, b"\x00" * BOOT_CONFIG_SIZE)
+            self.mu.mem_write(BOOT_CONFIG_BASE + 0x2000, b"CALI")
+            self.mu.mem_write(BOOT_CONFIG_BASE + 0x1000, b"WIFI")
+        except UcError:
+            pass
+
+    def _boot_rom_service(self, uc, slot: int, pc: int) -> None:
+        """Execute one virtual boot-ROM vector and schedule return to LR.
+
+        The service layer implements only the evidence-backed external contract
+        in metadata/boot_rom_contract.json. Unknown payload values remain zero
+        by explicit profile, but control flow and mandatory memory/register
+        side effects are modeled instead of being hidden inside a generic
+        return-zero stub.
+        """
+        r0 = int(uc.reg_read(UC_ARM_REG_R0))
+        r1 = int(uc.reg_read(UC_ARM_REG_R1))
+        r2 = int(uc.reg_read(UC_ARM_REG_R2))
+        result = 0
+        extra: dict[str, object] = {}
+        if slot == 0x1b0:       # uint32_t reg_read32(uint32_t addr)
+            result = self.rom_regs.get(r0, 0)
+        elif slot == 0x1b4:     # void reg_write32(uint32_t addr, uint32_t value)
+            old = self.rom_regs.get(r0, 0)
+            self.rom_regs[r0] = r1
+            extra["old"] = hex(old)
+        elif slot == 0x1b8:     # void reg_masked_write(addr, value, mask)
+            old = self.rom_regs.get(r0, 0)
+            stored = ((old & ~r2 & 0xFFFFFFFF) | (r1 & r2)) & 0xFFFFFFFF
+            self.rom_regs[r0] = stored
+            extra["old"] = hex(old)
+            extra["stored"] = hex(stored)
+        elif slot == 0x1c8:     # uint32_t environment_base_query(void)
+            result = self.rom_env_base & 0xFFFFFFFF
+        elif slot == 0x1d8:     # void external_block_read(src, len, dst)
+            src, length, dst = r0, r1, r2
+            if length > 0x100000:
+                length = 0x100000
+                extra["length_clamped"] = True
+            try:
+                data = bytes(uc.mem_read(src, length))
+            except UcError:
+                data = b"\x00" * length
+                extra["unmapped_src"] = hex(src)
+            try:
+                uc.mem_write(dst, data)
+                extra["copied"] = length
+            except UcError:
+                extra["unmapped_dst"] = hex(dst)
+        elif slot == 0x1e0:     # commit/writeback-like; exact operation unknown
+            extra["model"] = "trace_only_noop"
+        elif slot == 0x1fc:     # uint32_t rom_command_dispatcher(command)
+            result = int(self.rom_command_results.get(r0, 0)) & 0xFFFFFFFF
+            extra["command"] = r0
+        else:                   # lmac 0x1d0/0x1d4: evidence currently insufficient
+            extra["model"] = "unknown_trace_only_noop"
+
+        event = {
+            "slot": hex(slot), "pc": hex(pc),
+            "r0": hex(r0), "r1": hex(r1), "r2": hex(r2),
+            "result": hex(result & 0xFFFFFFFF), **extra,
+        }
+        self.rom_trace.append(event)
+        lr = int(uc.reg_read(UC_ARM_REG_LR))
+        # Accept both the original hardware image window and the linked
+        # reconstruction window (0x800000-0xc00000). Anything else is already
+        # a corrupt return path, so terminate at the ordinary return sentinel.
+        if (0x10000 <= lr < 0x1A0000) or (0x00800000 <= lr < 0x00C00000):
+            self._rom_return_lr = lr
+        else:
+            self._rom_return_lr = RETURN_STOP
+        self._rom_return_r0 = result & 0xFFFFFFFF
+        uc.emu_stop()
 
     def _map_rwx(self, base: int, size: int) -> None:
         try:
@@ -648,8 +749,12 @@ class Aic8800D80Platform:
             # (r0 = 0) so the caller's error path handles the NULL result — the
             # same class as the low-page and invalid-instruction handlers.
             pc_even = pc & ~1
+            rom_slot = BOOT_ROM_SLOT_AT_PC.get(pc_even)
+            if rom_slot is not None:
+                self._boot_rom_service(uc, rom_slot, pc_even)
+                return
             if not (CHIP_BASE <= pc < CHIP_BASE + len(self.image)) \
-                    and not (BOOT_STUB_BASE <= pc_even < BOOT_STUB_BASE + len(BOOT_STUB_BYTES)):
+                    and not (BOOT_STUB_BASE <= pc_even < BOOT_STUB_BASE + PAGE_SIZE):
                 self._null_return(uc)
                 return
             # free(NULL) is a no-op per C semantics; the firmware's allocator
@@ -1382,7 +1487,10 @@ class Aic8800D80Platform:
         stop = {"value": "running"}
         self._invalid_retry_pc = None
         self._null_return_lr = None
+        self._rom_return_lr = None
+        self._rom_return_r0 = 0
         self._skip_to = None
+        self.rom_trace = []
 
         def on_code_cap(uc, address, size, user_data):
             if self.insn_count >= max_insns:
@@ -1414,6 +1522,13 @@ class Aic8800D80Platform:
                     if self._asserted:
                         stop["value"] = "asserted"
                         break
+                    if self._rom_return_lr is not None:
+                        lr = self._rom_return_lr
+                        result = self._rom_return_r0
+                        self._rom_return_lr = None
+                        self.mu.reg_write(UC_ARM_REG_R0, result)
+                        start_ea = lr | 1
+                        continue
                     if self._skip_to is not None:
                         start_ea = self._skip_to | 1
                         self._skip_to = None
@@ -1429,6 +1544,13 @@ class Aic8800D80Platform:
                     if self._asserted:
                         stop["value"] = "asserted"
                         break
+                    if self._rom_return_lr is not None:
+                        lr = self._rom_return_lr
+                        result = self._rom_return_r0
+                        self._rom_return_lr = None
+                        self.mu.reg_write(UC_ARM_REG_R0, result)
+                        start_ea = lr | 1
+                        continue
                     if self._skip_to is not None:
                         start_ea = self._skip_to | 1
                         self._skip_to = None
@@ -1516,6 +1638,7 @@ class Aic8800D80Platform:
                                        and is_periph_addr(int(t["addr"], 16))})
         stats = {
             "instructions": self.insn_count,
+            "rom_calls": list(self.rom_trace),
             "mmio_reads": len(reads),
             "mmio_writes": len(writes),
             "unique_mmio_addrs": [hex(a) for a in unique],
