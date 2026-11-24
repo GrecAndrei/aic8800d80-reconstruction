@@ -112,6 +112,14 @@ class RamAndVerdictTests(unittest.TestCase):
         self.assertEqual(v["status"], "MATCH")
         self.assertTrue(v["exercised"])
 
+    def test_machine_nullsub_excludes_r0_without_counting_as_exercised(self):
+        v = fm.evaluate_outcomes(
+            "returned", 0x1234, [], "returned", 0, [], None, [], True, False, False, None,
+            is_void=False, is_void_ub=True, r0_exclude=True,
+        )
+        self.assertEqual(v["status"], "MATCH")
+        self.assertFalse(v["exercised"])
+
 
     def test_void_ub_detection_and_reason_split(self):
         src = (

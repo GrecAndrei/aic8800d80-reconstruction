@@ -64,6 +64,7 @@ if str(TOOLS_DIR) not in sys.path:
 import aic8800d80_emulator as emu
 import corpus_sweep as cs
 import linked_recon_run as lrr
+import prototype_infer
 
 REPO = TOOLS_DIR.parent
 DEFAULT_JSON = REPO / "metadata" / "fidelity_meter.json"
@@ -384,6 +385,7 @@ def scan_static_defects(image: str) -> dict:
         "jumpout_examples": jumpout_fns[:10],
         "memory_macro_functions": len(memory_fns),
         "under_arity_cast_calls": len(under_arity_calls),
+        "under_arity_calls": under_arity_calls,
         "under_arity_examples": under_arity_calls[:20],
         "static_defect_functions": len(defect_fn_set),
     }
@@ -677,6 +679,7 @@ def evaluate_outcomes(
     ram_diff_addr: int | None,
     is_void: bool,
     is_void_ub: bool = False,
+    r0_exclude: bool = False,
     orig_image: bytes | None = None,
     elf_info: dict | None = None,
 ) -> dict:
@@ -695,7 +698,7 @@ def evaluate_outcomes(
         return {"status": "DIFFER", "reason": f"assert_trap_only_in_{side}", "mmio_match": False}
 
     mmio_match = (orig_mmio == recon_mmio)
-    check_r0 = (not is_void) and (orig_term == "returned")
+    check_r0 = (not is_void) and (not r0_exclude) and (orig_term == "returned")
     r0_match = True
     reloc_r0 = False
     if check_r0 and orig_r0 != recon_r0:
@@ -824,6 +827,8 @@ def _eval_function(key: int) -> dict:
     name = meta["marker"]
     is_void = meta["is_void"]
     is_void_ub = meta.get("is_void_ub", False)
+    r0_exclude = meta.get("r0_exclude", False)
+    machine_class = meta.get("machine_class", "unknown")
     max_insns = _CTX["max_insns"]
 
     linked_addr = elf["by_name"].get(name)
@@ -901,7 +906,7 @@ def _eval_function(key: int) -> dict:
             tr, recon_r0, recon_mmio,
             stopped_in, left,
             ram_match, o_mut, r_mut, ram_diff_addr, is_void, is_void_ub,
-            orig_image=po.image, elf_info=elf,
+            r0_exclude=r0_exclude, orig_image=po.image, elf_info=elf,
         )
 
     return {
@@ -909,6 +914,7 @@ def _eval_function(key: int) -> dict:
         "address": hex(key),
         "function": name,
         "is_void": is_void,
+        "machine_class": machine_class,
         "vectors": vec_results,
     }
 
@@ -1103,6 +1109,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
         "per_vector": per_vector,
         "per_image": per_image,
         "aggregate": {
+            "machine_nullsub_excluded": sum(1 for r in rows if r.get("machine_class") in {"exact_nullsub", "nullsub_tail_alias"}),
             "exercised_all_match": agg["EXERCISED_ALL_MATCH"],
             "vacuous_all_match": agg["VACUOUS_ALL_MATCH"],
             "failing_any_vector": agg["FAILING_ANY_VECTOR"],
@@ -1146,6 +1153,7 @@ def print_dashboard(report: dict) -> None:
     print(f"  VACUOUS_ALL_MATCH   : {agg['vacuous_all_match']:4d} (all matched, but 0 MMIO/RAM/non-zero r0 observed)")
     print(f"  FAILING_ANY_VECTOR  : {agg['failing_any_vector']:4d} (proven bug on >=1 vector)")
     print(f"  NEVER_COMPARABLE    : {agg['never_comparable']:4d}")
+    print(f"  MACHINE_NULLSUB_R0_EXCLUDED: {agg.get('machine_nullsub_excluded', 0):4d} (bx-lr/nullsub aliases; vacuous structural units)")
 
     tl = report.get("axis4_truth_lane")
     if tl:
@@ -1206,14 +1214,17 @@ def main() -> int:
 
         main_text = (REPO / "src" / short / "main.c").read_text(errors="replace")
         parsed = parse_composed_functions(main_text)
-        func_meta = {
-            k: {
+        proto_by_addr = {int(r["address"], 16): r for r in prototype_infer.scan_image(img)}
+        func_meta = {}
+        for k, v in parsed.items():
+            machine_class = proto_by_addr.get(k, {}).get("class", "unknown")
+            func_meta[k] = {
                 "marker": v["marker"],
                 "is_void": v["is_void"],
                 "is_void_ub": v["is_void_ub"],
+                "machine_class": machine_class,
+                "r0_exclude": machine_class in {"exact_nullsub", "nullsub_tail_alias"},
             }
-            for k, v in parsed.items()
-        }
         keys = sorted(func_meta)
         with ctx.Pool(
             args.jobs,
