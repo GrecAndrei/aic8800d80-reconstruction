@@ -6830,7 +6830,6 @@ int zf();
 
 /* --- function bodies --- */
 /* forward decls (undeclared identifiers, heal-generated) */
-extern volatile uint32_t MEMORY[];
 int aFalse();
 int aParamInstNbrIn();
 int aRcGetStaStats_1();
@@ -11377,7 +11376,7 @@ int ke_acquire_lock() {
   int result; // r0
   int v16; // r3
 
-  v0 = (MEMORY[0x100000] & 1) == 0;
+  v0 = (MEMD(0x100000) & 1) == 0;
   v1 = 0;
   v2 = (volatile int *)(4 * (v0 + 0x40000));
   v3 = v0 + 278528;
@@ -22152,21 +22151,21 @@ int rf_gpio_init_alt() {
 
 // call_patch_hook_0 @ 0x10ec2c
 int call_patch_hook_0() {
-  return ((int (*)())MEMD(432))();
+  return ((int (*)())MEMD(0x1B0))();
 }
 
 
 
 // call_patch_hook_1 @ 0x10ec34
 int call_patch_hook_1() {
-  return ((int (*)())MEMD(436))();
+  return ((int (*)())MEMD(0x1B4))();
 }
 
 
 
 // call_patch_hook_2 @ 0x10ec3c
 int call_patch_hook_2() {
-  return ((int (*)())MEMD(440))();
+  return ((int (*)())MEMD(0x1B8))();
 }
 
 
@@ -28202,21 +28201,21 @@ LABEL_5:
 
 // call_patch_1fc_0 @ 0x114700
 int call_patch_1fc_0() {
-  return ((int (*)())MEMD(508))();
+  return ((int (*)())MEMD(0x1FC))();
 }
 
 
 
 // call_patch_1fc_check @ 0x114708
 unsigned int call_patch_1fc_check() {
-  return ((unsigned int)((int (*)())MEMD(508))(1) >> 9) & 1;
+  return ((unsigned int)((int (*)())MEMD(0x1FC))(1) >> 9) & 1;
 }
 
 
 
 // call_patch_1fc_arg2 @ 0x11471c
 int call_patch_1fc_arg2() {
-  return ((int (*)())MEMD(508))(2);
+  return ((int (*)())MEMD(0x1FC))(2);
 }
 
 
@@ -28225,7 +28224,7 @@ int call_patch_1fc_arg2() {
 int rf_cmd_6_read(volatile uint8_t *a1) {
   int16_t v2; // r0
 
-  v2 = ((int (*)())MEMORY[0x1FC])(6);
+  v2 = ((int (*)())MEMD(0x1FC))(6);
   if ( (v2 & 0xFF00) != 0 )
   {
     *a1 = HIBYTE(v2);
@@ -28248,7 +28247,7 @@ int rf_cmd_6_version(volatile uint8_t *a1) {
   unsigned int v2; // r0
   char v4; // r3
 
-  v2 = ((int (*)())MEMORY[0x1FC])(6);
+  v2 = ((int (*)())MEMD(0x1FC))(6);
   if ( HIBYTE(v2) )
   {
     *a1 = HIBYTE(v2);
@@ -28279,8 +28278,8 @@ int rf_cmd_8_write(volatile uint32_t *a1, volatile unsigned int *a2) {
   unsigned int v9; // r3
   int result; // r0
 
-  v4 = ((int (*)())MEMORY[0x1FC])(8);
-  v5 = ((int (*)())MEMORY[0x1FC])(9);
+  v4 = ((int (*)())MEMD(0x1FC))(8);
+  v5 = ((int (*)())MEMD(0x1FC))(9);
   v6 = HIWORD(v4) << 16;
   if ( v6 | v5 )
   {
@@ -28290,8 +28289,8 @@ int rf_cmd_8_write(volatile uint32_t *a1, volatile unsigned int *a2) {
   }
   else
   {
-    v7 = ((int (*)())MEMORY[0x1FC])(7);
-    v8 = ((int (*)())MEMORY[0x1FC])(8);
+    v7 = ((int (*)())MEMD(0x1FC))(7);
+    v8 = ((int (*)())MEMD(0x1FC))(8);
     v9 = v8;
     if ( v7 )
     {
@@ -28333,7 +28332,7 @@ int packet_prepare_a(int a1, int a2) {
   v14[0] = *(volatile uint32_t *)dword_114858;
   v14[1] = v3;
   v14[2] = v4;
-  v5 = ((int (*)())MEMORY[0x1FC])(v14[a1]);
+  v5 = ((int (*)())MEMD(0x1FC))(v14[a1]);
   v6 = 0;
   v7 = 0;
   do
@@ -28393,9 +28392,9 @@ int packet_prepare_b(int a1, int a2) {
   _frame.v18[1] = v3;
   _frame.v18[2] = v4;
   v5 = _frame.v18[a1];
-  _frame.v16 = ((int (*)())MEMORY[0x1FC])(v5);
+  _frame.v16 = ((int (*)())MEMD(0x1FC))(v5);
   v6 = _frame.v16;
-  v7 = ((int (*)())MEMORY[0x1FC])(v5 + 1);
+  v7 = ((int (*)())MEMD(0x1FC))(v5 + 1);
   v8 = 0;
   _frame.v17 = v7;
   result = 0;
@@ -28442,7 +28441,7 @@ int rf_cmd_a(char a1, volatile uint8_t *a2) {
   int result; // r0
   char v6; // r2
 
-  v3 = (unsigned int)((int (*)())MEMORY[0x1FC])(10) >> (8 * a1);
+  v3 = (unsigned int)((int (*)())MEMD(0x1FC))(10) >> (8 * a1);
   v4 = (uint8_t)v3 >> 4;
   if ( (v3 & 0xF0) != 0 )
   {
@@ -28475,7 +28474,7 @@ int rf_cmd_b(char a1, volatile uint8_t *a2) {
   int result; // r0
   char v6; // r2
 
-  v3 = (unsigned int)((int (*)())MEMORY[0x1FC])(11) >> (8 * a1);
+  v3 = (unsigned int)((int (*)())MEMD(0x1FC))(11) >> (8 * a1);
   v4 = (uint8_t)v3 >> 4;
   if ( (v3 & 0xF0) != 0 )
   {
@@ -28508,7 +28507,7 @@ int rf_cmd_10(volatile int *a1) {
   int result; // r0
   int v5; // r3
 
-  v2 = ((int (*)())MEMORY[0x1FC])(16);
+  v2 = ((int (*)())MEMD(0x1FC))(16);
   v3 = v2 >> 4;
   if ( (v2 & 0xF0) != 0 )
   {
@@ -28538,21 +28537,21 @@ int rf_cmd_10(volatile int *a1) {
 
 // rf_reg_0x11_bits_0_2 @ 0x1149c8
 int rf_reg_0x11_bits_0_2() {
-  return ((int (*)())MEMD(508))(17) & 7;
+  return ((int (*)())MEMD(0x1FC))(17) & 7;
 }
 
 
 
 // rf_reg_0x11_bits_3_5 @ 0x1149dc
 unsigned int rf_reg_0x11_bits_3_5() {
-  return ((unsigned int)((int (*)())MEMD(508))(17) >> 3) & 7;
+  return ((unsigned int)((int (*)())MEMD(0x1FC))(17) >> 3) & 7;
 }
 
 
 
 // rf_reg_0x11_bits_6_8 @ 0x1149f0
 unsigned int rf_reg_0x11_bits_6_8() {
-  return ((unsigned int)((int (*)())MEMD(508))(17) >> 6) & 7;
+  return ((unsigned int)((int (*)())MEMD(0x1FC))(17) >> 6) & 7;
 }
 
 
@@ -28561,7 +28560,7 @@ unsigned int rf_reg_0x11_bits_6_8() {
 int invoke_rom_api(volatile uint8_t *a1) {
   int16_t v2; // r0
 
-  v2 = ((int (*)())MEMORY[0x1FC])(15);
+  v2 = ((int (*)())MEMD(0x1FC))(15);
   if ( (v2 & 0xFF00) != 0 )
   {
     *a1 = HIBYTE(v2);
@@ -28581,28 +28580,28 @@ int invoke_rom_api(volatile uint8_t *a1) {
 
 // rf_reg_0x0f_bit_18 @ 0x114a30
 unsigned int rf_reg_0x0f_bit_18() {
-  return ((unsigned int)((int (*)())MEMD(508))(15) >> 18) & 1;
+  return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 18) & 1;
 }
 
 
 
 // rf_reg_0x0f_bit_19 @ 0x114a44
 unsigned int rf_reg_0x0f_bit_19() {
-  return ((unsigned int)((int (*)())MEMD(508))(15) >> 19) & 1;
+  return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 19) & 1;
 }
 
 
 
 // rf_reg_0x0f_bit_20 @ 0x114a58
 unsigned int rf_reg_0x0f_bit_20() {
-  return ((unsigned int)((int (*)())MEMD(508))(15) >> 20) & 1;
+  return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 20) & 1;
 }
 
 
 
 // rf_reg_0x1b @ 0x114a6c
 int rf_reg_0x1b() {
-  return ((int (*)())MEMD(508))(27);
+  return ((int (*)())MEMD(0x1FC))(27);
 }
 
 
@@ -28621,7 +28620,7 @@ int undefined_instruction_handler() {
   }
   v0 = (volatile int *)off_114AB4;
   ++*(volatile uint32_t *)off_114AB4;
-  result = ((int (*)())MEMORY[0x1C8])();
+  result = ((int (*)())MEMD(0x1C8))();
   if ( *v0 )
   {
     v2 = *v0 - 1;
@@ -28667,7 +28666,7 @@ int patch_apply(int a1, int a2, unsigned int a3) {
   } _frame;
   if ( !*(volatile uint32_t *)off_114BE8 )
     get_global_context();
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_114BEC + 0x2000, 72, _frame.v9);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114BEC + 0x2000, 72, _frame.v9);
   if ( _frame.v9[0] != dword_114BF0 )
     return -1;
   v6 = a1 & _frame.v9[1];
@@ -28803,7 +28802,7 @@ int patch_apply_ext(int a1, int a2, unsigned int a3) {
   } _frame;
   if ( !*(volatile uint32_t *)off_114D20 )
     get_global_context();
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_114D24 + 4096, 320, &_frame.v8);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114D24 + 4096, 320, &_frame.v8);
   if ( _frame.v8 != dword_114D28 )
     return -1;
   if ( (_frame.v9 & a1) == 0 )
@@ -57558,7 +57557,7 @@ volatile uint32_t * tx_pkt_process(volatile char *a1) {
   *(volatile uint32_t *)off_12CB74 = v8;
   if ( !v2 )
   {
-    MEMORY[0] = (int)(uintptr_t)(v5);
+    MEMD(0) = (int)(uintptr_t)(v5);
     __und(0xFFu);
   }
   v9 = *((volatile uint32_t *)v2 + 1);
@@ -57568,7 +57567,7 @@ volatile uint32_t * tx_pkt_process(volatile char *a1) {
     {
       if ( **v1 < 0 )
         irq_disable_mmio_write(dword_12CB80, dword_12CB78, 247);
-      MEMORY[0] = (int)(uintptr_t)(v5);
+      MEMD(0) = (int)(uintptr_t)(v5);
       __und(0xFFu);
     }
     while ( 1 )

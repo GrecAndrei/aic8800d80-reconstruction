@@ -28,7 +28,8 @@ Undef resolution strategy (per symbol, in order):
        - call relocation or ``sub_*`` prefix: weak stub + record (real
          missing code that still needs decompile + LLM name + recompose).
        - data relocation: ``.bss`` blob.
-  6. ``MEMORY`` / ``COERCE_*`` decompiler noise: ``.bss`` blob.
+  6. ``COERCE_*`` decompiler noise: ``.bss`` blob. ``MEMORY`` is forbidden:
+     absolute-memory accesses must have been rewritten to MEMD before linking.
 
 The weak aliases/stubs are LINK-TIME SCAFFOLDING only — they are not claimed
 as reconstructed bodies. Every stub is listed in ``report.json`` under
@@ -67,7 +68,7 @@ LONG_TO_SHORT = {
 V14_TO_CHIP = 0x1100000
 FUNC_RELOCS = {"R_ARM_THM_CALL", "R_ARM_THM_JUMP24", "R_ARM_CALL", "R_ARM_JUMP24"}
 LIBC_HELPERS = {"memmove", "memcpy", "memset", "strlen", "strcpy", "strcmp", "memcmp"}
-ARTIFACT_NAMES = {"MEMORY", "COERCE_UNSIGNED_INT", "COERCE_FLOAT"}
+ARTIFACT_NAMES = {"COERCE_UNSIGNED_INT", "COERCE_FLOAT"}
 CC = os.environ.get("CROSS_COMPILE", "arm-none-eabi-") + "gcc"
 NM = os.environ.get("CROSS_COMPILE", "arm-none-eabi-") + "nm"
 READELF = os.environ.get("CROSS_COMPILE", "arm-none-eabi-") + "readelf"
@@ -211,6 +212,11 @@ def main() -> int:
                 stubs.append({"symbol": u, "address": hex(chip),
                               "reason": "dataset-address-not-in-composed"})
                 continue
+            if u == "MEMORY":
+                raise SystemExit(
+                    f"{img}: undefined MEMORY symbol; run absolute_memory/post-compose repair "
+                    "instead of linking a fake memory blob"
+                )
             if u in ARTIFACT_NAMES and not is_call:
                 blobs.append(u)
                 blob_l.append(u)

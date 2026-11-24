@@ -20,6 +20,7 @@ TOOLS = Path(__file__).resolve().parent
 # (script, arguments, has --check)
 STEPS = [
     ("callsite_targets.py", ["--before-heal"], True),
+    ("absolute_memory.py", [], True),
     ("heal_composed.py", [], True),
     ("heal_two_d_subscript.py", [], True),
     ("libmatch.py", ["scan"], True),

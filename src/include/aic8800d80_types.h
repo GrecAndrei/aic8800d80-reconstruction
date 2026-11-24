@@ -118,7 +118,11 @@ static inline int32_t vcvts_n_s32_f32(float v, int n) {
 }
 static inline float vcvts_n_f32_u32(uint32_t v, int n) { return (float)v / (float)(1u << n); }
 static inline uint8_t __CFADD__(uint32_t a, uint32_t b) { return ((a + b) < a); }
-static inline uint32_t MEMD(unsigned idx) { return (uint32_t)(uintptr_t)(0x100000u + idx * 4u); }
+/* Hex-Rays MEMORY[addr] / MEMD(addr) is a volatile dword access at the
+ * absolute byte address addr (not a dword index and not image-relative). It
+ * must remain an lvalue: assert paths write MEMORY[0], while the boot-ROM
+ * callback thunks read low-memory vector slots such as 0x1b0 and 0x1fc. */
+#define MEMD(idx) (*(volatile uint32_t *)(uintptr_t)(idx))
 static inline uint32_t JUMPOUT(void) { return 0; }
 
 /* Pseudo Registers & Condition Flags */

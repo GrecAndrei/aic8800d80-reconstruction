@@ -22,6 +22,8 @@ import re
 import sys
 from pathlib import Path
 
+import absolute_memory
+
 HEADER = """#include <stdint.h>
 #include <stddef.h>
 #include <stdarg.h>
@@ -181,6 +183,9 @@ def convert_to_c99(text: str) -> str:
         lambda m: f"(*(volatile {_w[m.group(1)]} *)0x{m.group(2).lower()}u)",
         text,
     )
+    text, _, unsupported_memory = absolute_memory.rewrite(text)
+    if unsupported_memory:
+        raise SystemExit(f"unsupported MEMORY subscripts: {unsupported_memory}")
     return text
 
 

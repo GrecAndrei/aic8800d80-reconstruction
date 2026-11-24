@@ -4851,8 +4851,6 @@ int x9BWARNING();
 int zf();
 
 /* --- function bodies --- */
-/* forward decls (undeclared identifiers, heal-generated) */
-extern volatile uint32_t MEMORY[];
 // start @ 0x1001a8
 int start() {
   int v0; // r2
@@ -9201,7 +9199,7 @@ int wait_rf_ready() {
   int result; // r0
   int v16; // r3
 
-  v0 = (MEMORY[0x100000] & 1) == 0;
+  v0 = (MEMD(0x100000) & 1) == 0;
   v1 = 0;
   v2 = (volatile int *)(4 * (v0 + 0x40000));
   v3 = v0 + 278528;
@@ -20413,21 +20411,21 @@ int gpio_bank_init2() {
 
 // call_indirect_table @ 0x10efa4
 int call_indirect_table() {
-  return ((int (*)())MEMD(432))();
+  return ((int (*)())MEMD(0x1B0))();
 }
 
 
 
 // call_slot_0x1b4 @ 0x10efac
 int call_slot_0x1b4() {
-  return ((int (*)())MEMD(436))();
+  return ((int (*)())MEMD(0x1B4))();
 }
 
 
 
 // call_slot_0x1b8 @ 0x10efb4
 int call_slot_0x1b8() {
-  return ((int (*)())MEMD(440))();
+  return ((int (*)())MEMD(0x1B8))();
 }
 
 
@@ -26719,7 +26717,7 @@ int ke_event_schedule() {
   }
   v0 = (volatile int *)off_114254;
   ++*(volatile uint32_t *)off_114254;
-  result = ((int (*)())MEMORY[0x1C8])();
+  result = ((int (*)())MEMD(0x1C8))();
   if ( *v0 )
   {
     v2 = *v0 - 1;
@@ -26750,7 +26748,7 @@ int ke_event_schedule_alt() {
   }
   v0 = (volatile int *)off_114294;
   ++*(volatile uint32_t *)off_114294;
-  result = ((int (*)())MEMORY[0x1D0])();
+  result = ((int (*)())MEMD(0x1D0))();
   if ( *v0 )
   {
     v2 = *v0 - 1;
@@ -26781,7 +26779,7 @@ int ke_event_schedule_prio() {
   }
   v0 = (volatile int *)off_1142D4;
   ++*(volatile uint32_t *)off_1142D4;
-  result = ((int (*)())MEMORY[0x1D4])();
+  result = ((int (*)())MEMD(0x1D4))();
   if ( *v0 )
   {
     v2 = *v0 - 1;
@@ -26800,7 +26798,7 @@ int ke_event_schedule_prio() {
 
 // call_slot_0x1d8 @ 0x1142d8
 int call_slot_0x1d8() {
-  return ((int (*)())MEMD(472))();
+  return ((int (*)())MEMD(0x1D8))();
 }
 
 
@@ -26834,7 +26832,7 @@ int ke_task_handler(int a1, int a2, unsigned int a3) {
   } _frame;
   if ( !*(volatile uint32_t *)off_114410 )
     ke_event_busy_check();
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_114414 + 0x2000, 72, _frame.v9);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114414 + 0x2000, 72, _frame.v9);
   if ( _frame.v9[0] != dword_114418 )
     return -1;
   v6 = a1 & _frame.v9[1];
@@ -26936,7 +26934,7 @@ int ke_task_process(int a1, volatile char *a2, unsigned int a3) {
     ke_event_busy_check(a1);
   v6 = (void *)(uintptr_t)(off_11454C);
   v7 = dword_114550;
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_11454C + 0x2000, 72, &_frame.v13);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_11454C + 0x2000, 72, &_frame.v13);
   if ( _frame.v13 == v7 )
   {
     v8 = a1 & 1;
@@ -27030,7 +27028,7 @@ LABEL_11:
 LABEL_12:
   ke_event_schedule_alt();
   ke_event_schedule_prio();
-  return ((int (*)())MEMORY[0x1E0])(*v6 + 0x2000, 72);
+  return ((int (*)())MEMD(0x1E0))(*v6 + 0x2000, 72);
 }
 
 
@@ -27139,7 +27137,7 @@ int bus_read_buf(int a1, int a2, unsigned int a3) {
   } _frame;
   if ( !*(volatile uint32_t *)off_1146D8 )
     ke_event_busy_check();
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_1146DC + 4096, 320, &_frame.v8);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_1146DC + 4096, 320, &_frame.v8);
   if ( _frame.v8 != dword_1146E0 )
     return -1;
   if ( (_frame.v9 & a1) == 0 )
@@ -27232,7 +27230,7 @@ int bus_write_buf(int a1, volatile char *a2, unsigned int a3) {
     ke_event_busy_check(a1);
   v6 = (void *)(uintptr_t)(off_114814);
   v7 = dword_114818;
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_114814 + 4096, 320, &_frame.v13);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114814 + 4096, 320, &_frame.v13);
   if ( _frame.v13 == v7 )
   {
     v8 = a1 & 2;
@@ -27319,7 +27317,7 @@ LABEL_10:
 LABEL_11:
   ke_event_schedule_alt();
   ke_event_schedule_prio();
-  return ((int (*)())MEMORY[0x1E0])(*v6 + 4096, 320);
+  return ((int (*)())MEMD(0x1E0))(*v6 + 4096, 320);
 }
 
 
@@ -27401,7 +27399,7 @@ int hci_tx_data(int a1, int a2, unsigned int a3) {
   } _frame;
   if ( !*(volatile uint32_t *)off_1148F8 )
     ke_event_busy_check();
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_1148FC, 80, _frame.v8);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_1148FC, 80, _frame.v8);
   if ( _frame.v8[0] != dword_114900 )
     return -1;
   v6 = a1 & _frame.v8[1];
@@ -27430,7 +27428,7 @@ int hci_rx_data(int a1, volatile char *a2, unsigned int a3) {
     ke_event_busy_check(a1);
   v6 = (void *)(uintptr_t)(off_114998);
   v7 = dword_1149A0;
-  ((int (*)())MEMORY[0x1D8])(*(volatile uint32_t *)off_114998, 80, &_frame.v9);
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114998, 80, &_frame.v9);
   if ( _frame.v9 == v7 )
   {
     _frame.v10 |= a1;
@@ -27451,7 +27449,7 @@ int hci_rx_data(int a1, volatile char *a2, unsigned int a3) {
 LABEL_5:
   ke_event_schedule_alt();
   ke_event_schedule_prio();
-  return ((int (*)())MEMORY[0x1E0])(*v6, 80);
+  return ((int (*)())MEMD(0x1E0))(*v6, 80);
 }
 
 
@@ -38838,7 +38836,7 @@ volatile uint32_t * check_buffer_size(volatile char *a1) {
   *(volatile uint32_t *)off_11E164 = v8;
   if ( !v2 )
   {
-    MEMORY[0] = (int)(uintptr_t)(v5);
+    MEMD(0) = (int)(uintptr_t)(v5);
     __und(0xFFu);
   }
   v9 = *((volatile uint32_t *)v2 + 1);
@@ -38848,7 +38846,7 @@ volatile uint32_t * check_buffer_size(volatile char *a1) {
     {
       if ( **v1 < 0 )
         flash_ctrl_init(dword_11E170, dword_11E168, 247);
-      MEMORY[0] = (int)(uintptr_t)(v5);
+      MEMD(0) = (int)(uintptr_t)(v5);
       __und(0xFFu);
     }
     while ( 1 )

@@ -6,6 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import absolute_memory
 import arm_shifts
 import asm_returns
 import call_cast_returns
@@ -23,6 +24,36 @@ import signed_halfwords
 import signed_muls
 import volatile_pointees
 from convert_decompiled_to_functions import convert_to_c99, deref_two_d
+
+
+class AbsoluteMemory(unittest.TestCase):
+    def test_constant_memory_accesses_become_absolute_memd_lvalues(self):
+        src = ('  v0 = (MEMORY[0x100000] & 1) == 0;\n'
+               '  MEMORY[0] = (int)(uintptr_t)(v5);\n'
+               '  return ((int (*)())MEMORY[0x1FC])(27);\n')
+        out, n, unsupported = absolute_memory.rewrite(src)
+        self.assertEqual((n, unsupported), (3, []))
+        self.assertIn('MEMD(0x100000)', out)
+        self.assertIn('MEMD(0) =', out)
+        self.assertIn('((int (*)())MEMD(0x1FC))(27)', out)
+        self.assertNotIn('MEMORY[', out)
+        self.assertEqual(absolute_memory.rewrite(out), (out, 0, []))
+
+    def test_decimal_and_nonconstant_subscripts(self):
+        out, n, unsupported = absolute_memory.rewrite('x = MEMORY[508]; y = MEMORY[i]; z = MEMD(508);')
+        self.assertEqual(n, 2)
+        self.assertEqual(unsupported, ['i'])
+        self.assertIn('x = MEMD(0x1FC);', out)
+        self.assertIn('z = MEMD(0x1FC);', out)
+        self.assertIn('MEMORY[i]', out)
+
+    def test_comments_and_strings_are_not_rewritten(self):
+        src = '// MEMORY[0x1FC]\ns = "MEMORY[0]"; x = MEMORY[ 0x1fc ];\n'
+        out, n, unsupported = absolute_memory.rewrite(src)
+        self.assertEqual((n, unsupported), (1, []))
+        self.assertIn('// MEMORY[0x1FC]', out)
+        self.assertIn('"MEMORY[0]"', out)
+        self.assertIn('x = MEMD(0x1FC);', out)
 
 
 class VolatilePointees(unittest.TestCase):
@@ -578,7 +609,7 @@ class PostCompose(unittest.TestCase):
              "stack_frames.py", "dword_compares.py", "arm_shifts.py",
              "float_compares.py", "signed_muls.py", "signed_halfwords.py",
              "heal_two_d_subscript.py", "libmatch.py", "volatile_pointees.py",
-             "heal_composed.py"}
+             "heal_composed.py", "absolute_memory.py"}
 
     def test_the_chain_runs_every_rule_and_rebinds_before_heal(self):
         steps = [(s, a) for s, a, _ in post_compose.STEPS]
