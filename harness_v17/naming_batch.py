@@ -14,7 +14,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "harness_v17"))
 import tools as v17tools
-from oracle import call_api, call_tool, TOOL_SCHEMA, validate_no_invented_addresses
+from oracle import (
+    call_api, call_tool, TOOL_SCHEMA, validate_no_invented_addresses,
+    STATIC_FIRMWARE_SYSTEM_PREFIX, get_cache_stats,
+)
 from naming import load_targets, _bin_size
 
 OUT = REPO / "harness_v17/names"
@@ -68,14 +71,16 @@ def process_batch(targets):
     valid, batch_prompt = build_batch(targets)
     if not valid:
         return ["no_target"] * len(targets)
-    system = """You name anonymous firmware functions. For each function in the batch, output JSON with:
+    system = STATIC_FIRMWARE_SYSTEM_PREFIX + """
+
+=== BATCH NAMING MODE ===
+For each function in the batch, output JSON with:
 - "i": index (0-based, matching the input)
 - "name": snake_case_name (best guess based on disasm)
 - "doc": 1-line description
-- "sub": rf|mac|tx|rx|ke|scan|bt|patch|ipc|mmio|util|unknown
+- "sub": rf|mac|tx|rx|ke|scan|bt|sec|ipc|patch|mmio|util|unknown
 
 CRITICAL: Return EXACTLY one entry per function in the input.
-
 Output ONLY a JSON array (no prose). Be terse."""
     user = f"""Name these {len(valid)} functions. You MUST return exactly {len(valid)} JSON entries.
 
@@ -164,6 +169,13 @@ def main():
     t0 = time.time()
     done = ok = fail = nodis = 0
     statuses = {}
+    if batches and args.workers > 1 and len(batches) > 1:
+        # Warm up the static system prompt cache before fanning out parallel workers
+        for r in process_batch(batches[0]):
+            done += 1
+            statuses[r] = statuses.get(r, 0) + 1
+            if r == "ok": ok += 1
+        batches = batches[1:]
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
         futures = {ex.submit(process_batch, b): b for b in batches}
         for f in as_completed(futures):
@@ -177,7 +189,9 @@ def main():
                 eta = (len(targets) - done) / rate if rate > 0 else 0
                 print(f"  {done}/{len(targets)} ok={ok} rate={rate:.1f}/s eta={eta:.0f}s", file=sys.stderr, flush=True)
                 print(f"    statuses: {dict(sorted(statuses.items(), key=lambda x: -x[1])[:6])}", file=sys.stderr, flush=True)
-    print(f"\nDONE: {done} in {time.time()-t0:.1f}s ok={ok}", file=sys.stderr)
+    cs = get_cache_stats()
+    pct = (100.0 * cs["cached_tokens"] / cs["prompt_tokens"]) if cs["prompt_tokens"] else 0.0
+    print(f"\nDONE: {done} in {time.time()-t0:.1f}s ok={ok} cache={cs['cached_tokens']}/{cs['prompt_tokens']} ({pct:.1f}%)", file=sys.stderr)
 
 
 if __name__ == "__main__":

@@ -2,923 +2,806 @@
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit parameter payload pointer or status value"
       }
     ],
     "group": 0,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_3c7a068a532c9e4e_t"
+    "struct_name": "msg_param_u32"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "coeff",
+        "comment": "32-bit RF/PHY calibration coefficient or register value at offset 0x4"
       }
     ],
     "group": 1,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_306cfb76c87b2c18_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "cal_value",
+        "comment": "32-bit calibration coefficient or measured value"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "cal_aux",
+        "comment": "32-bit auxiliary calibration value or pointer"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "cal_mode",
+        "comment": "8-bit calibration mode, band, or status flag"
       }
     ],
     "group": 2,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_975b6fd59387d14b_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "ptr",
+        "comment": "Pointer to RF/PHY data buffer or table at offset 0x4"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "len",
+        "comment": "Associated length, count, or second pointer/word at offset 0x8"
       }
     ],
     "group": 3,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_ae1204ace4b6a2e4_t"
+    "struct_name": "rf_buf_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "idx",
+        "comment": "byte index/flags selecting RF/PHY parameter or calibration entry"
       },
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit parameter value or pointer associated with the index"
       }
     ],
     "group": 4,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_1e0091ad357bab48_t"
+    "struct_name": "rf_param_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 1
+        "name": "flags",
+        "comment": "single-byte flag/index at offset 0x8, first union member of the payload slot"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit value or pointer overlapping the same slot, second union member"
       }
     ],
     "group": 5,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_47f042a577f4c5e7_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x1",
-        "offset": 1,
-        "size": 1
+        "name": "cal_flags",
+        "comment": "calibration enable and status flags"
       },
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 1
+        "name": "band",
+        "comment": "RF band selector"
       },
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "bw",
+        "comment": "channel bandwidth code"
       },
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "freq",
+        "comment": "primary channel frequency in MHz"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "chan_idx",
+        "comment": "channel index or calibration step"
       },
       {
-        "name": "field_0xa",
-        "offset": 10,
-        "size": 4
+        "name": "coeff_ptr",
+        "comment": "pointer to calibration coefficient table"
       },
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 2
+        "name": "gain_idx",
+        "comment": "RF gain index or temperature code"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 4
+        "name": "cal_value",
+        "comment": "packed calibration register value"
       },
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 2
+        "name": "i_coeff",
+        "comment": "in-phase calibration coefficient"
       },
       {
-        "name": "field_0x16",
-        "offset": 22,
-        "size": 2
+        "name": "q_coeff",
+        "comment": "quadrature calibration coefficient"
       }
     ],
     "group": 6,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_38f2c0478a1d160e_t"
+    "struct_name": "rf_cal_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "single 32-bit parameter word read/written by RF calibration helpers"
       }
     ],
     "group": 7,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_4def596b8bf5b753_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 4
+        "name": "cal_param",
+        "comment": "32-bit calibration/control parameter or pointer used by RF calibration routines"
       }
     ],
     "group": 8,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_5dd2b94aede8e2b0_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x2c",
-        "offset": 44,
-        "size": 4
+        "name": "ctx_ptr",
+        "comment": "32-bit pointer to related context/table"
       }
     ],
     "group": 9,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_d3bec76ef8c6e5b6_t"
+    "struct_name": "rf_ctx_hdr"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "handle",
+        "comment": "32-bit context handle or pointer payload at offset 0x4"
       }
     ],
     "group": 10,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v3",
-    "struct_name": "struct_shape_577e87c2877917ee_t"
+    "struct_name": "ctx_handle_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "cal_status",
+        "comment": "byte-sized calibration status/gain index used by RF/PHY helper"
       }
     ],
     "group": 11,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_a2b80567eae5185d_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "flags",
+        "comment": "Byte flags/config bits controlling RF/PHY setup"
       },
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 1
+        "name": "state",
+        "comment": "Byte state or mode value used by calibration/setup routine"
       }
     ],
     "group": 12,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_a9da358ceb7904fe_t"
+    "struct_name": "rf_cfg_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x24c",
-        "offset": 588,
-        "size": 4
+        "name": "cal_lut_ptr",
+        "comment": "pointer to RF calibration look-up table (4-byte value at offset 0x24c)"
       }
     ],
     "group": 13,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_308af5cb21157398_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x1",
-        "offset": 1,
-        "size": 1
+        "name": "band",
+        "comment": "RF band selector"
       },
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 1
+        "name": "bw",
+        "comment": "channel bandwidth setting"
       },
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "path",
+        "comment": "RF/PHY signal path index"
       },
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "freq",
+        "comment": "channel or calibration frequency in MHz"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 2
+        "name": "gain_idx",
+        "comment": "gain table index for calibration"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "coeff",
+        "comment": "calibration coefficient or offset value"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "lut_ptr",
+        "comment": "pointer to calibration LUT or context"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "status",
+        "comment": "calibration or configuration status byte"
       }
     ],
     "group": 14,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_98f74dac57ee12d0_t"
+    "struct_name": "rf_cal_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "id",
+        "comment": "16-bit entry identifier or state index"
       },
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "ctrl_word",
+        "comment": "combined control/status word overlapping the id field"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 4
+        "name": "ctx_ptr",
+        "comment": "pointer to associated context or buffer"
       }
     ],
     "group": 15,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v8",
-    "struct_name": "struct_shape_3624d98ee7ad4438_t"
+    "struct_name": "rf_ctrl_node"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "rf_cfg",
+        "comment": "Pointer to RF front-end configuration block"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "cal_data",
+        "comment": "Pointer to calibration data or result buffer"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "state",
+        "comment": "RF calibration state or enable flag"
       },
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 2
+        "name": "chan",
+        "comment": "Channel index or frequency selector"
       },
       {
-        "name": "field_0x54",
-        "offset": 84,
-        "size": 4
+        "name": "lut_ptr",
+        "comment": "Pointer to calibration lookup table"
       },
       {
-        "name": "field_0x98",
-        "offset": 152,
-        "size": 1
+        "name": "status",
+        "comment": "Calibration completion or error status"
       }
     ],
     "group": 16,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_70ff902047ce18e9_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "Pointer to RF configuration or calibration table"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "state",
+        "comment": "RF calibration state or status flag"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "coeff",
+        "comment": "32-bit RF calibration coefficient or register value"
       }
     ],
     "group": 17,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_952b120834e8d02b_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cfg_word_0",
+        "comment": "32-bit RF calibration parameter word at 0x4"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 1
+        "name": "cfg_byte_0",
+        "comment": "byte view of calibration parameter at 0x8"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "cfg_word_1",
+        "comment": "32-bit calibration parameter word at 0x8"
       },
       {
-        "name": "field_0x9",
-        "offset": 9,
-        "size": 1
+        "name": "cfg_byte_1",
+        "comment": "byte view of calibration parameter at 0x9"
       },
       {
-        "name": "field_0x9",
-        "offset": 9,
-        "size": 4
+        "name": "cfg_word_2",
+        "comment": "32-bit calibration parameter word at 0x9"
       },
       {
-        "name": "field_0xa",
-        "offset": 10,
-        "size": 4
+        "name": "cfg_word_3",
+        "comment": "32-bit calibration parameter word at 0xa"
       },
       {
-        "name": "field_0xb",
-        "offset": 11,
-        "size": 1
+        "name": "cfg_byte_2",
+        "comment": "byte view of calibration parameter at 0xb"
       },
       {
-        "name": "field_0xb",
-        "offset": 11,
-        "size": 4
+        "name": "cfg_word_4",
+        "comment": "32-bit calibration parameter word at 0xb"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "cfg_word_5",
+        "comment": "32-bit calibration parameter word at 0xc"
       },
       {
-        "name": "field_0xd",
-        "offset": 13,
-        "size": 4
+        "name": "cfg_word_6",
+        "comment": "32-bit calibration parameter word at 0xd"
       },
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 4
+        "name": "cfg_word_7",
+        "comment": "32-bit calibration parameter word at 0xe"
       },
       {
-        "name": "field_0xf",
-        "offset": 15,
-        "size": 4
+        "name": "cfg_word_8",
+        "comment": "32-bit calibration parameter word at 0xf"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "cfg_byte_3",
+        "comment": "byte view of calibration parameter at 0x10"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 4
+        "name": "cfg_word_9",
+        "comment": "32-bit calibration parameter word at 0x10"
       }
     ],
     "group": 18,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_59bac8b9771d05f0_t"
+    "struct_name": "rf_cal_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "cal_state",
+        "comment": "calibration state/flag byte used by RF calibration path"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 1
+        "name": "cal_mode",
+        "comment": "calibration mode or result flag byte"
       }
     ],
     "group": 19,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_dcd56cf427c87065_t"
+    "struct_name": "rf_cal_ctrl"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value0",
+        "comment": "First 32-bit RF/PHY parameter word passed to the register-setup helper"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "value1",
+        "comment": "Second 32-bit RF/PHY parameter word, paired with the first in calibration/register programming"
       }
     ],
     "group": 20,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_8b69a534290e32c7_t"
+    "struct_name": "rf_param_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 4
+        "name": "cfg_val32",
+        "comment": "32-bit RF/PHY configuration value or pointer used by calibration routine"
       },
       {
-        "name": "field_0x26",
-        "offset": 38,
-        "size": 2
+        "name": "cfg_idx16",
+        "comment": "16-bit index, length, or parameter value associated with the calibration descriptor"
       }
     ],
     "group": 21,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_c64a916477296c91_t"
+    "struct_name": "rf_cal_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "ctx",
+        "comment": "32-bit context pointer or handle passed as v5 to helper sub_121490"
       }
     ],
     "group": 22,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_a622a52e753ecd09_t"
+    "struct_name": "rf_helper_ref"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 1
+        "name": "cmd",
+        "comment": "command/opcode byte selecting RF or LMAC operation"
       },
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "flags",
+        "comment": "operation flags and mode bits"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 2
+        "name": "length",
+        "comment": "payload or parameter length in bytes"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "msg_id",
+        "comment": "message or command identifier"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "data_ptr",
+        "comment": "pointer to command payload or context data"
       }
     ],
     "group": 23,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_3a92092eb62ac16b_t"
+    "struct_name": "rf_cmd_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0x68",
-        "offset": 104,
-        "size": 1
+        "name": "cal_status",
+        "comment": "calibration state/flag byte at offset 0x68"
       }
     ],
     "group": 24,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a3",
-    "struct_name": "struct_shape_11b1333002455250_t"
+    "struct_name": "rf_cal_state"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value0",
+        "comment": "First 32-bit RF/PHY configuration or calibration parameter"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "value1",
+        "comment": "Second 32-bit RF/PHY configuration or calibration parameter"
       }
     ],
     "group": 25,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v8",
-    "struct_name": "struct_shape_ef87382bfa64f577_t"
+    "struct_name": "rf_param_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit RF/PHY configuration value or pointer"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "id",
+        "comment": "16-bit configuration identifier or length"
       }
     ],
     "group": 26,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_7831ef8ca2b3f0b1_t"
+    "struct_name": "rf_cfg_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "pointer to RF calibration/config parameter block"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "status",
+        "comment": "calibration status or result code"
       }
     ],
     "group": 27,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v3",
-    "struct_name": "struct_shape_03634ba794a6432f_t"
+    "struct_name": "rf_cal_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "param",
+        "comment": "32-bit parameter word (pointer, length, or config value) consumed by the RF/PHY callee at offset 0x8"
       }
     ],
     "group": 28,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_166a6958e173a83a_t"
+    "struct_name": "rf_param_arg"
   },
   {
     "fields": [
       {
-        "name": "field_0x27c",
-        "offset": 636,
-        "size": 4
+        "name": "cal_coeff_a",
+        "comment": "First 32-bit calibration coefficient or pointer value"
       },
       {
-        "name": "field_0x280",
-        "offset": 640,
-        "size": 4
+        "name": "cal_coeff_b",
+        "comment": "Second 32-bit calibration coefficient or pointer value"
       }
     ],
     "group": 29,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_dae7a229559994db_t"
+    "struct_name": "rf_cal_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 1
+        "name": "param_a",
+        "comment": "First byte-sized RF/PHY parameter at offset 0x2"
       },
       {
-        "name": "field_0x5",
-        "offset": 5,
-        "size": 1
+        "name": "param_b",
+        "comment": "Second byte-sized RF/PHY parameter at offset 0x5"
       }
     ],
     "group": 30,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_9522ba571bbbb575_t"
+    "struct_name": "rf_param_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 1
+        "name": "flags",
+        "comment": "byte view of packed flag/state bits at tail of parameter block"
       },
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 4
+        "name": "flags_word",
+        "comment": "32-bit word view of packed flags starting at same byte"
       },
       {
-        "name": "field_0x15",
-        "offset": 21,
-        "size": 1
+        "name": "state",
+        "comment": "byte view of secondary state/mode field adjacent to flags"
       },
       {
-        "name": "field_0x15",
-        "offset": 21,
-        "size": 4
+        "name": "state_word",
+        "comment": "32-bit word view of state bits starting at same byte"
       }
     ],
     "group": 31,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_55b89a6f37e6e4c8_t"
+    "struct_name": "cal_cmd_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x61",
-        "offset": 97,
-        "size": 1
+        "name": "cal_status",
+        "comment": "single-byte calibration/control status flag at offset 0x61"
       }
     ],
     "group": 32,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_0f3a9e2bf7ccbd87_t"
+    "struct_name": "rf_cal_state"
   },
   {
     "fields": [
       {
-        "name": "field_0x68",
-        "offset": 104,
-        "size": 4
+        "name": "cal_data_ptr",
+        "comment": "Pointer to RF calibration/test data block at offset 0x68"
       },
       {
-        "name": "field_0x84",
-        "offset": 132,
-        "size": 4
+        "name": "rf_cfg_ptr",
+        "comment": "Pointer to RF front-end configuration structure at offset 0x84"
       }
     ],
     "group": 33,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a4",
-    "struct_name": "struct_shape_7b95c7643aea318b_t"
+    "struct_name": "rf_test_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x98",
-        "offset": 152,
-        "size": 1
+        "name": "cal_state",
+        "comment": "Calibration status/state flag byte at offset 0x98"
       }
     ],
     "group": 34,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v3",
-    "struct_name": "struct_shape_d9451a761b0e5b77_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "event_id",
+        "comment": "Event or context identifier passed with the handler argument"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 2
+        "name": "payload_len",
+        "comment": "Length of the overlapping payload field"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "payload_word",
+        "comment": "Word-sized payload value unioned with the length field"
       }
     ],
     "group": 35,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_349bb25ffc1cb828_t"
+    "struct_name": "rf_event_msg"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cb",
+        "comment": "32-bit pointer, likely callback or context reference"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "ptr",
+        "comment": "32-bit pointer to buffer, LUT, or cal data"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 2
+        "name": "len",
+        "comment": "16-bit length or count of calibration data"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 1
+        "name": "state",
+        "comment": "byte state or index flag"
       }
     ],
     "group": 36,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_ff9eb3115205ae79_t"
+    "struct_name": "rf_cal_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 4
+        "name": "ctx",
+        "comment": "Pointer or handle to an RF/calibration sub-context at offset 0x14"
       }
     ],
     "group": 37,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_7e5e6534533d0ae6_t"
+    "struct_name": "rf_ctx_ptr"
   },
   {
     "fields": [
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 1
+        "name": "rf_flags",
+        "comment": "RF/PHY configuration flags or mode selector"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 4
+        "name": "rf_cfg_word",
+        "comment": "32-bit RF configuration value or pointer"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "cal_tbl_ptr",
+        "comment": "Pointer to calibration table or coefficient data"
       },
       {
-        "name": "field_0x26",
-        "offset": 38,
-        "size": 2
+        "name": "param_len",
+        "comment": "16-bit length, band, or channel parameter"
       },
       {
-        "name": "field_0x35",
-        "offset": 53,
-        "size": 1
+        "name": "cal_status",
+        "comment": "Calibration or configuration status byte"
       }
     ],
     "group": 38,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_887974ed550c1c05_t"
+    "struct_name": "rf_cal_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "gain_idx",
+        "comment": "RF gain or attenuation index used by the calibration helper"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "in-phase calibration coefficient word"
       },
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "quadrature calibration coefficient word"
       },
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 1
+        "name": "cal_status",
+        "comment": "calibration status or validity flag byte"
       }
     ],
     "group": 39,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_4085fec68f5a7844_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 2
+        "name": "rate_flags",
+        "comment": "2-byte rate/band or calibration flags at 0x0e"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 1
+        "name": "state",
+        "comment": "1-byte state/valid flag at 0x18"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "32-bit pointer or config value overlaid at 0x18"
       }
     ],
     "group": 40,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_f428326965d542a0_t"
+    "struct_name": "rf_cal_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 4
+        "name": "reg_addr",
+        "comment": "packed 32-bit RF register address/index at offset 0x2"
       },
       {
-        "name": "field_0x5",
-        "offset": 5,
-        "size": 4
+        "name": "reg_data",
+        "comment": "packed 32-bit RF register write value/coefficient at offset 0x5"
       }
     ],
     "group": 41,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a3",
-    "struct_name": "struct_shape_4a771e920e9db4cd_t"
+    "struct_name": "rf_cal_param_pair"
   },
   {
     "fields": [
@@ -946,764 +829,674 @@
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "word_val",
+        "comment": "32-bit word at offset 0x4 holding RF/PHY coefficient or register value"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 4
+        "name": "short_hi",
+        "comment": "16-bit upper half aliasing the same data at offset 0x6"
       }
     ],
     "group": 43,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_27d2ad114e4fa19d_t"
+    "struct_name": "rf_coeff_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "rf_mode",
+        "comment": "RF band/mode selector used by front-end setup"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "cfg_flags",
+        "comment": "Configuration flags controlling calibration path"
       },
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "cal_status",
+        "comment": "Calibration status/result word"
       },
       {
-        "name": "field_0x60",
-        "offset": 96,
-        "size": 4
+        "name": "cal_state",
+        "comment": "Current RF calibration state or stage"
       },
       {
-        "name": "field_0x64",
-        "offset": 100,
-        "size": 4
+        "name": "gain_idx",
+        "comment": "Selected gain index for the RF path"
       },
       {
-        "name": "field_0x68",
-        "offset": 104,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "I-branch calibration coefficient"
       },
       {
-        "name": "field_0x6c",
-        "offset": 108,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "Q-branch calibration coefficient"
       },
       {
-        "name": "field_0x70",
-        "offset": 112,
-        "size": 4
+        "name": "dc_i",
+        "comment": "I-channel DC offset correction value"
       },
       {
-        "name": "field_0x74",
-        "offset": 116,
-        "size": 4
+        "name": "dc_q",
+        "comment": "Q-channel DC offset correction value"
       },
       {
-        "name": "field_0x78",
-        "offset": 120,
-        "size": 4
+        "name": "lo_coeff",
+        "comment": "LO leakage compensation coefficient"
       },
       {
-        "name": "field_0x84",
-        "offset": 132,
-        "size": 4
+        "name": "temp_comp",
+        "comment": "Temperature compensation word"
       }
     ],
     "group": 44,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_68fb6a36900213a1_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "32-bit pointer/control word at offset 0x8 referencing RF/PHY config or calibration context"
       }
     ],
     "group": 45,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_c5b283e3fc0dc5df_t"
+    "struct_name": "rf_ctrl_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "entry_idx",
+        "comment": "16-bit index/state selecting the calibration table entry or step"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "32-bit pointer to the calibration configuration or coefficient buffer"
       },
       {
-        "name": "field_0x28",
-        "offset": 40,
-        "size": 4
+        "name": "cal_result",
+        "comment": "32-bit accumulated calibration result or status word"
       }
     ],
     "group": 46,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v8",
-    "struct_name": "struct_shape_cf00cd48a7f934b6_t"
+    "struct_name": "rf_cal_sub_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "32-bit calibration data pointer or coefficient value referenced at offset 0x18"
       }
     ],
     "group": 47,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_409f10655144dcf3_t"
+    "struct_name": "rf_cal_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x66",
-        "offset": 102,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "In-phase calibration coefficient or RF register word"
       },
       {
-        "name": "field_0x6c",
-        "offset": 108,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "Quadrature calibration coefficient or RF register word"
       },
       {
-        "name": "field_0x70",
-        "offset": 112,
-        "size": 4
+        "name": "cal_word",
+        "comment": "Additional calibration result/register word"
       },
       {
-        "name": "field_0x74",
-        "offset": 116,
-        "size": 1
+        "name": "status",
+        "comment": "Calibration status or valid flag byte"
       }
     ],
     "group": 48,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_ecb940657e48d407_t"
+    "struct_name": "rf_cal_frag"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "param",
+        "comment": "16-bit RF calibration/test parameter, index, or length value"
       }
     ],
     "group": 49,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_98a0511e6845f572_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 2
+        "name": "value",
+        "comment": "16-bit RF/PHY parameter or setting value"
       }
     ],
     "group": 50,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_a0414dffebd7e511_t"
+    "struct_name": "rf_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "msg_id",
+        "comment": "message identifier selecting the handler"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 2
+        "name": "dest_id",
+        "comment": "destination task id"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "src_id",
+        "comment": "source task id"
       },
       {
-        "name": "field_0xa",
-        "offset": 10,
-        "size": 2
+        "name": "param_len",
+        "comment": "length of message parameter payload in bytes"
       }
     ],
     "group": 51,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_6b63a8ae556506f8_t"
+    "struct_name": "ke_msg_header"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "addr",
+        "comment": "First 32-bit word: register or buffer address/target for RF calibration helper"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "value",
+        "comment": "Second 32-bit word: data value or length/min-max parameter paired with addr"
       }
     ],
     "group": 52,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_0575200298914114_t"
+    "struct_name": "rf_cal_param_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "flag",
+        "comment": "single-byte flag/index view at offset 0x10 (union member)"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit pointer/value view overlapping offset 0x10 (union member)"
       }
     ],
     "group": 53,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_2182e65d2e9f910f_t"
+    "struct_name": "rf_cal_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x3c",
-        "offset": 60,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "pointer or status word at offset 0x3c used by RF calibration/test routine"
       }
     ],
     "group": 54,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_9858a6d1e63adaed_t"
+    "struct_name": "rf_test_ctl"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "id",
+        "comment": "Timer message id (16-bit)"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 2
+        "name": "task",
+        "comment": "Owner task id receiving timer expiry"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "time",
+        "comment": "Timer expiry time / delay in ticks"
       }
     ],
     "group": 55,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_731fc059f9ee4c06_t"
+    "struct_name": "ke_timer"
   },
   {
     "fields": [
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "mode",
+        "comment": "mode/channel selector byte consumed by RF command handler"
       }
     ],
     "group": 56,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_94d9183d978b5770_t"
+    "struct_name": "rf_cmd_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x38",
-        "offset": 56,
-        "size": 4
+        "name": "cal_ctrl",
+        "comment": "Calibration control/configuration word used by the RF calibration routine"
       },
       {
-        "name": "field_0x58",
-        "offset": 88,
-        "size": 4
+        "name": "cal_status",
+        "comment": "Calibration status or result value updated during RF calibration"
       }
     ],
     "group": 57,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_7b80613e79cb9d5c_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x48",
-        "offset": 72,
-        "size": 4
+        "name": "field_48",
+        "comment": "32-bit pointer/status word at offset 0x48 used by RF firmware helper sub_118324"
       }
     ],
     "group": 58,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_dcf6c447ba1b79c4_t"
+    "struct_name": "rf_ctx_blob"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 1
+        "name": "len",
+        "comment": "byte-sized length or mode selector at start of parameter payload"
       },
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit parameter/register value overlaying the same offset"
       }
     ],
     "group": 59,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_989d79c8f6841867_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 4
+        "name": "ctrl_value",
+        "comment": "32-bit RF control/calibration value referenced by the RF LMAC caller"
       }
     ],
     "group": 60,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_02b937d5e3575137_t"
+    "struct_name": "rf_ctrl_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 2
+        "name": "len",
+        "comment": "16-bit trailing length/id/count field of a compact descriptor"
       }
     ],
     "group": 61,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_ebe081d5a6602816_t"
+    "struct_name": "msg_hdr_frag"
   },
   {
     "fields": [
       {
-        "name": "field_0x19",
-        "offset": 25,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "32-bit pointer/value to calibration data or register word"
       },
       {
-        "name": "field_0x1d",
-        "offset": 29,
-        "size": 1
+        "name": "cal_idx",
+        "comment": "calibration table or gain index selector"
       },
       {
-        "name": "field_0x1e",
-        "offset": 30,
-        "size": 1
+        "name": "flags",
+        "comment": "status/flag byte for calibration entry"
       }
     ],
     "group": 62,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_7d39c50d21c3175f_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x10a",
-        "offset": 266,
-        "size": 4
+        "name": "cal_value",
+        "comment": "RF calibration coefficient or TX-power target word at offset 0x10a"
       }
     ],
     "group": 63,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_5a48f826a86a86bc_t"
+    "struct_name": "rf_cal_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "rf_ctx_ptr",
+        "comment": "32-bit pointer/handle to RF calibration or context data used by the RF firmware routine"
       }
     ],
     "group": 64,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_193136455a54ea90_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "ctx_ptr",
+        "comment": "32-bit context/buffer pointer or handle used by RF/PHY lower-MAC routine"
       }
     ],
     "group": 65,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_b4fc684f1d3e8d6a_t"
+    "struct_name": "rf_op_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 4
+        "name": "cal_flags",
+        "comment": "calibration mode and status flags"
       },
       {
-        "name": "field_0x70",
-        "offset": 112,
-        "size": 4
+        "name": "dpd_tbl",
+        "comment": "digital predistortion table pointer"
       },
       {
-        "name": "field_0x78",
-        "offset": 120,
-        "size": 4
+        "name": "iq_cal",
+        "comment": "IQ imbalance calibration data pointer"
       },
       {
-        "name": "field_0x7c",
-        "offset": 124,
-        "size": 4
+        "name": "dcoc_cal",
+        "comment": "DC offset calibration data pointer"
       },
       {
-        "name": "field_0x84",
-        "offset": 132,
-        "size": 4
+        "name": "lo_cal",
+        "comment": "local oscillator calibration data pointer"
       },
       {
-        "name": "field_0x8c",
-        "offset": 140,
-        "size": 4
+        "name": "temp_comp",
+        "comment": "temperature compensation state pointer"
       },
       {
-        "name": "field_0x98",
-        "offset": 152,
-        "size": 4
+        "name": "pwr_tbl",
+        "comment": "TX power calibration table pointer"
       },
       {
-        "name": "field_0xa4",
-        "offset": 164,
-        "size": 4
+        "name": "status",
+        "comment": "overall RF calibration status"
       }
     ],
     "group": 66,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_322e89de501157cd_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "coeff",
+        "comment": "32-bit packed RF calibration coefficient word accessed by the cal routine"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 4
+        "name": "coeff_pair",
+        "comment": "overlapping 16-bit I/Q coefficient pair aliasing the same word"
       }
     ],
     "group": 67,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_fe34963d565524c4_t"
+    "struct_name": "rf_cal_coeff"
   },
   {
     "fields": [
       {
-        "name": "field_0x50",
-        "offset": 80,
-        "size": 4
+        "name": "pwr_lut_val",
+        "comment": "32-bit TX power/calibration LUT entry at block offset 0x50"
       },
       {
-        "name": "field_0x55",
-        "offset": 85,
-        "size": 1
+        "name": "gain_idx",
+        "comment": "single-byte gain or antenna index sharing offset 0x55"
       },
       {
-        "name": "field_0x55",
-        "offset": 85,
-        "size": 4
+        "name": "cal_coeff_word",
+        "comment": "32-bit calibration coefficient word overlaid at offset 0x55"
       },
       {
-        "name": "field_0x5e",
-        "offset": 94,
-        "size": 4
+        "name": "temp_comp",
+        "comment": "32-bit temperature compensation or DPD/IQ correction value at offset 0x5e"
       }
     ],
     "group": 68,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_26101caaaab44b04_t"
+    "struct_name": "rf_phy_param_blk"
   },
   {
     "fields": [
       {
-        "name": "field_0x23",
-        "offset": 35,
-        "size": 1
+        "name": "cal_state",
+        "comment": "calibration state or gain-index flag byte"
       },
       {
-        "name": "field_0x2c",
-        "offset": 44,
-        "size": 4
+        "name": "tbl_ptr",
+        "comment": "pointer to calibration table or context"
       }
     ],
     "group": 69,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_f6c9bed73e894202_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x40",
-        "offset": 64,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "32-bit pointer/value at offset 0x40, likely a calibration or channel-config reference"
       }
     ],
     "group": 70,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_1fbd3e90349dfea9_t"
+    "struct_name": "rf_ctx_ref"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 1
+        "name": "mode_idx",
+        "comment": "1-byte RF/PHY mode or index selector at offset 0x2"
       }
     ],
     "group": 71,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_6abdb09095ee30fa_t"
+    "struct_name": "rf_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "rf_cal_ptr",
+        "comment": "32-bit pointer/handle to RF calibration data or register block used by the RF calibration routine at offset 0x30"
       }
     ],
     "group": 72,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_5f8d98c95d890899_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "status",
+        "comment": "calibration status/control word at mid-struct"
       },
       {
-        "name": "field_0x60",
-        "offset": 96,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "in-phase calibration coefficient"
       },
       {
-        "name": "field_0x64",
-        "offset": 100,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "quadrature calibration coefficient"
       }
     ],
     "group": 73,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_6d3091d7dec7574a_t"
+    "struct_name": "rf_iq_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "32-bit RF calibration coefficient or context pointer consumed by the RF cal routine"
       }
     ],
     "group": 74,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_3f0db2d6c78fbdeb_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "state",
+        "comment": "One-byte RF/PHY configuration state or flag at offset 0x10"
       }
     ],
     "group": 75,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_e2eb643af7bf3cd7_t"
+    "struct_name": "rf_cfg_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x7",
-        "offset": 7,
-        "size": 1
+        "name": "flags",
+        "comment": "trailing byte flag/index of the 8-byte entry, used by the RF/index helper"
       }
     ],
     "group": 76,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_4465f9198320e57b_t"
+    "struct_name": "rf_idx_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "In-phase calibration coefficient or parameter word"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "Quadrature calibration coefficient or parameter word"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "status",
+        "comment": "Calibration status, flags, or result word"
       }
     ],
     "group": 77,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_dca9fcc8f9d3947e_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x34",
-        "offset": 52,
-        "size": 4
+        "name": "cal_data_ptr",
+        "comment": "Pointer to calibration data or channel-specific RF parameters"
       },
       {
-        "name": "field_0x38",
-        "offset": 56,
-        "size": 4
+        "name": "cal_ctx_ptr",
+        "comment": "Pointer to associated calibration context or result buffer"
       },
       {
-        "name": "field_0x5e",
-        "offset": 94,
-        "size": 1
+        "name": "cal_done",
+        "comment": "Calibration completion/enable flag byte"
       },
       {
-        "name": "field_0x61",
-        "offset": 97,
-        "size": 1
+        "name": "cal_status",
+        "comment": "Calibration status or result code byte"
       }
     ],
     "group": 78,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_6ef1f87e4a007900_t"
+    "struct_name": "rf_cal_chan_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x60",
-        "offset": 96,
-        "size": 4
+        "name": "cal_coeff0",
+        "comment": "First 32-bit trailing RF calibration coefficient or table value"
       },
       {
-        "name": "field_0x64",
-        "offset": 100,
-        "size": 4
+        "name": "cal_coeff1",
+        "comment": "Second 32-bit trailing RF calibration coefficient or table value"
       }
     ],
     "group": 79,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_c6fae80132b57a32_t"
+    "struct_name": "rf_cal_tail"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "param_ptr",
+        "comment": "Pointer to RF/PHY calibration parameter or payload data"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "param_len",
+        "comment": "16-bit length or identifier for the parameter block"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "param_word",
+        "comment": "32-bit aliased value at same offset, e.g. flags or combined length/ID"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "next_ptr",
+        "comment": "Pointer to the next descriptor or trailing context"
       }
     ],
     "group": 80,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_5982f24b8f374757_t"
+    "struct_name": "rf_cal_param_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0x24",
-        "offset": 36,
-        "size": 4
+        "name": "cal_param",
+        "comment": "calibration parameter or status word"
       },
       {
-        "name": "field_0x50",
-        "offset": 80,
-        "size": 4
+        "name": "tbl_ptr",
+        "comment": "pointer to calibration table or result buffer"
       }
     ],
     "group": 81,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_a277abf5f806975d_t"
+    "struct_name": "rf_cal_cfg"
   },
   {
     "fields": [
@@ -1786,1130 +1579,994 @@
   {
     "fields": [
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit value/pointer field accessed at offset 0xe"
       }
     ],
     "group": 83,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v8",
-    "struct_name": "struct_shape_866cce8693c82405_t"
+    "struct_name": "rf_lmac_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "next",
+        "comment": "32-bit link/context pointer to next node or associated object"
       }
     ],
     "group": 84,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_42eec7356608c879_t"
+    "struct_name": "co_list_node"
   },
   {
     "fields": [
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "pointer to RF/PHY calibration configuration block"
       },
       {
-        "name": "field_0x26",
-        "offset": 38,
-        "size": 2
+        "name": "chan_idx",
+        "comment": "channel or calibration table index for the current band"
       },
       {
-        "name": "field_0x2c",
-        "offset": 44,
-        "size": 4
+        "name": "cal_param",
+        "comment": "32-bit calibration coefficient/parameter value"
       },
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "pwr_param",
+        "comment": "32-bit TX power or gain parameter used by calibration"
       }
     ],
     "group": 85,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_2a0d4bd02e91b1c0_t"
+    "struct_name": "rf_cal_chan_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 2
+        "name": "value",
+        "comment": "16-bit RF/PHY parameter (channel, frequency, or register index) at offset 0x2"
       }
     ],
     "group": 86,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_7b2936a4a1a2d468_t"
+    "struct_name": "rf_phy_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "coeff_i",
+        "comment": "First 32-bit RF/PHY calibration coefficient read at offset 0x4"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 4
+        "name": "coeff_q",
+        "comment": "Second 32-bit RF/PHY calibration coefficient read at offset 0x6"
       }
     ],
     "group": 87,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_a791fe25f77459d1_t"
+    "struct_name": "rf_cal_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 1
+        "name": "state",
+        "comment": "calibration/channel state or flag byte checked by the RF caller"
       },
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "pointer or configuration word used by the RF calibration path"
       }
     ],
     "group": 88,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_fddbd8a3b87c202c_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "rf_param",
+        "comment": "32-bit RF/PHY parameter or pointer at offset 0x1c"
       },
       {
-        "name": "field_0x41",
-        "offset": 65,
-        "size": 1
+        "name": "mode_flags",
+        "comment": "byte flag selecting band or RF mode option at offset 0x41"
       }
     ],
     "group": 89,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_2cbcc6886180d383_t"
+    "struct_name": "rf_phy_cfg_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "status",
+        "comment": "calibration state/flag byte at offset 3"
       }
     ],
     "group": 90,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_4c2761b26d9968ff_t"
+    "struct_name": "rf_cal_status"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 1
+        "name": "mode",
+        "comment": "RF calibration/channel mode or state index byte consumed by the RF setup path"
       }
     ],
     "group": 91,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_da0e2545c0b045da_t"
+    "struct_name": "rf_cfg_flag"
   },
   {
     "fields": [
       {
-        "name": "field_0x55",
-        "offset": 85,
-        "size": 1
+        "name": "flags",
+        "comment": "single byte control/status flag used by RF helper sub_11c540"
       }
     ],
     "group": 92,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_5d51b974e1ed30b4_t"
+    "struct_name": "rf_ctrl_flags"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 2
+        "name": "tag",
+        "comment": "16-bit calibration tag/length field at start of payload"
       },
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit value or pointer overlapping the tag word"
       }
     ],
     "group": 93,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_c1f2edc4666a62e5_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x16f",
-        "offset": 367,
-        "size": 1
+        "name": "cal_flag",
+        "comment": "per-step calibration enable/status byte in the RF calibration context"
       }
     ],
     "group": 94,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_3473d82ffc7f9d38_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x1814",
-        "offset": 6164,
-        "size": 4
+        "name": "lut_ptr",
+        "comment": "Pointer or status word within the RF calibration context at offset 0x1814, likely a calibration LUT/table base or status flag"
       }
     ],
     "group": 95,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_0fa67755ba3d2969_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "param",
+        "comment": "Control or calibration parameter word at offset 0xc, passed via a1"
       }
     ],
     "group": 96,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_ba4db59ecb412afe_t"
+    "struct_name": "rf_ctrl_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x48",
-        "offset": 72,
-        "size": 4
+        "name": "ctx_ptr",
+        "comment": "32-bit pointer or status word at offset 0x48 referenced by sub_11c324"
       }
     ],
     "group": 97,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_22ec57d70888b96b_t"
+    "struct_name": "rf_env_frag"
   },
   {
     "fields": [
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "I-path calibration coefficient or gain value"
       },
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "Q-path calibration coefficient or gain value"
       },
       {
-        "name": "field_0x34",
-        "offset": 52,
-        "size": 1
+        "name": "cal_status",
+        "comment": "calibration status flag"
       },
       {
-        "name": "field_0x35",
-        "offset": 53,
-        "size": 1
+        "name": "cal_valid",
+        "comment": "calibration valid/enable flag"
       }
     ],
     "group": 98,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_7dd1ba7268cad807_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit RF/PHY parameter, register word, or pointer stored at offset 0x8"
       }
     ],
     "group": 99,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_46d8a43be1476f36_t"
+    "struct_name": "rf_param_block"
   },
   {
     "fields": [
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 4
+        "name": "cal_param",
+        "comment": "32-bit calibration/channel parameter consumed by the RF calibration routine"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 1
+        "name": "cal_mode",
+        "comment": "byte-sized calibration mode selector"
       },
       {
-        "name": "field_0x1a",
-        "offset": 26,
-        "size": 1
+        "name": "cal_flags",
+        "comment": "byte-sized calibration status/control flags"
       }
     ],
     "group": 100,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_8cfbc74f5dad038c_t"
+    "struct_name": "rf_cal_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 4
+        "name": "cal_coeff",
+        "comment": "32-bit calibration coefficient or intermediate value used by the RF calibration routine"
       },
       {
-        "name": "field_0x24",
-        "offset": 36,
-        "size": 4
+        "name": "cal_result",
+        "comment": "32-bit calibration result or channel/power parameter read by the RF control path"
       }
     ],
     "group": 101,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_f87c91cd66a0e061_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "I-path calibration coefficient or config word"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "Q-path calibration coefficient or config word"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 2
+        "name": "gain_idx",
+        "comment": "RF gain-table index or calibration value"
       },
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 1
+        "name": "flags",
+        "comment": "Calibration control flags or status bits"
       }
     ],
     "group": 102,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_7153ecccc64f1408_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "link",
+        "comment": "Linked-list or owner pointer to the calibration context"
       },
       {
-        "name": "field_0x250",
-        "offset": 592,
-        "size": 4
+        "name": "cal_status",
+        "comment": "Calibration state/status word"
       },
       {
-        "name": "field_0x270",
-        "offset": 624,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "I-path calibration coefficient or parameter"
       },
       {
-        "name": "field_0x274",
-        "offset": 628,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "Q-path calibration coefficient or parameter"
       },
       {
-        "name": "field_0x278",
-        "offset": 632,
-        "size": 4
+        "name": "cal_result",
+        "comment": "Calibration result or measurement value"
       }
     ],
     "group": 103,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_7c3a14e4950f39dc_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "cal_val",
+        "comment": "32-bit RF calibration/measurement value passed in a3"
       }
     ],
     "group": 104,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a3",
-    "struct_name": "struct_shape_c8c386800c339d62_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x38",
-        "offset": 56,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "4-byte pointer or coefficient slot at offset 0x38 used by the RF calibration routine"
       }
     ],
     "group": 105,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_5dddf4f405933bcb_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit control/parameter value or pointer at offset 0x4"
       },
       {
-        "name": "field_0xb",
-        "offset": 11,
-        "size": 1
+        "name": "status",
+        "comment": "trailing flag/status byte at offset 0xb"
       }
     ],
     "group": 106,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_5f913cb8bc708d42_t"
+    "struct_name": "rf_ctrl_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 2
+        "name": "coeff_word",
+        "comment": "16-bit calibration coefficient/index word at offset 0xe"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 1
+        "name": "state",
+        "comment": "8-bit status/flag byte at offset 0x18"
       }
     ],
     "group": 107,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_4e8265f279dbdf36_t"
+    "struct_name": "rf_cal_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "value",
+        "comment": "16-bit parameter payload (channel/index/length) used by RF handler"
       }
     ],
     "group": 108,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_8a036e7e8c8f34e7_t"
+    "struct_name": "rf_msg_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "state",
+        "comment": "32-bit state/register value or pointer used by the RF/PHY helper"
       }
     ],
     "group": 109,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v3",
-    "struct_name": "struct_shape_5ef98d1300729b72_t"
+    "struct_name": "lmac_rf_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x48",
-        "offset": 72,
-        "size": 4
+        "name": "lut_ptr",
+        "comment": "Pointer to RF calibration LUT/table"
       },
       {
-        "name": "field_0x50",
-        "offset": 80,
-        "size": 4
+        "name": "coeff_ptr",
+        "comment": "Pointer to calibration coefficient or data buffer"
       },
       {
-        "name": "field_0x55",
-        "offset": 85,
-        "size": 1
+        "name": "cal_state",
+        "comment": "Calibration state/index byte"
       },
       {
-        "name": "field_0x5e",
-        "offset": 94,
-        "size": 1
+        "name": "flags",
+        "comment": "RF/PHY configuration flag byte"
       }
     ],
     "group": 110,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_f97e01fef11b47f8_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x5e",
-        "offset": 94,
-        "size": 1
+        "name": "flags",
+        "comment": "byte-sized flag field at the shared offset, read for status/bits"
       },
       {
-        "name": "field_0x5e",
-        "offset": 94,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit word overlaid on the same offset, accessed as a full parameter value"
       }
     ],
     "group": 111,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v3",
-    "struct_name": "struct_shape_c3b53ddd7be363b0_t"
+    "struct_name": "rf_param_overlay"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value0",
+        "comment": "first 32-bit parameter word"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "value1",
+        "comment": "second 32-bit parameter word"
       }
     ],
     "group": 112,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_1fde98a9a9b51dd8_t"
+    "struct_name": "rf_param_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "cal_state",
+        "comment": "Calibration state/flag byte at offset 0x10"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 1
+        "name": "cal_status",
+        "comment": "Calibration status or index byte at offset 0x18"
       }
     ],
     "group": 113,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_e444b4c1b93fe6f4_t"
+    "struct_name": "rf_cal_state"
   },
   {
     "fields": [
       {
-        "name": "field_0x5f",
-        "offset": 95,
-        "size": 1
+        "name": "cal_state",
+        "comment": "Calibration status/flag byte at offset 0x5f"
       }
     ],
     "group": 114,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_ccf0e6af23073e20_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cfg_ptr",
+        "comment": "Pointer to RF/PHY calibration configuration data"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "cal_data",
+        "comment": "Pointer or 32-bit calibration parameter/value"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 1
+        "name": "cal_state",
+        "comment": "Single-byte calibration state or enable flag"
       }
     ],
     "group": 115,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v5",
-    "struct_name": "struct_shape_bf706901a513e4dd_t"
+    "struct_name": "rf_cal_ctrl"
   },
   {
     "fields": [
       {
-        "name": "field_0x66",
-        "offset": 102,
-        "size": 4
+        "name": "rf_handle",
+        "comment": "32-bit RF/PHY handle or pointer used by calibration helper"
       },
       {
-        "name": "field_0x74",
-        "offset": 116,
-        "size": 1
+        "name": "state",
+        "comment": "single-byte RF control state or flag"
       }
     ],
     "group": 116,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_507cdcd951aec6fd_t"
+    "struct_name": "rf_ctrl_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "opcode",
+        "comment": "RF/PHY test command opcode or selector"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 4
+        "name": "arg",
+        "comment": "Command argument word (channel/frequency or index)"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "value",
+        "comment": "Input value or coefficient payload word"
       },
       {
-        "name": "field_0xa",
-        "offset": 10,
-        "size": 4
+        "name": "flags",
+        "comment": "Command option/flag bitfield"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 1
+        "name": "mode",
+        "comment": "Operating mode or path selector (1 byte)"
       },
       {
-        "name": "field_0xd",
-        "offset": 13,
-        "size": 4
+        "name": "result",
+        "comment": "Result/status word written back by handler"
       },
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 2
+        "name": "status",
+        "comment": "Short status or error code (2 bytes)"
       },
       {
-        "name": "field_0xe",
-        "offset": 14,
-        "size": 4
+        "name": "data",
+        "comment": "Aliased 32-bit data/coefficient at same offset"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "path",
+        "comment": "RF path or antenna index (1 byte)"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 1
+        "name": "index",
+        "comment": "Table/entry index (1 byte)"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 4
+        "name": "reg_val",
+        "comment": "Register or LUT value at same offset (32-bit)"
       },
       {
-        "name": "field_0x1a",
-        "offset": 26,
-        "size": 1
+        "name": "rate",
+        "comment": "Rate or sub-index selector (1 byte)"
       }
     ],
     "group": 117,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_53ea5f8e93d46b2e_t"
+    "struct_name": "rf_test_cmd"
   },
   {
     "fields": [
       {
-        "name": "field_0x5",
-        "offset": 5,
-        "size": 4
+        "name": "cal_word_lo",
+        "comment": "first 32-bit calibration/measurement word read from the packed payload at unaligned offset 0x5"
       },
       {
-        "name": "field_0x6",
-        "offset": 6,
-        "size": 4
+        "name": "cal_word_hi",
+        "comment": "overlapping 32-bit calibration/measurement word read at offset 0x6, one byte later than cal_word_lo"
       }
     ],
     "group": 118,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_62f550d8f0fe0a62_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 4
+        "name": "param",
+        "comment": "32-bit pointer or calibration parameter consumed by sub_11601c"
       }
     ],
     "group": 119,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_e2a1725c24ebc590_t"
+    "struct_name": "rf_cal_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit payload or handle stored after the list link"
       }
     ],
     "group": 120,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a3",
-    "struct_name": "struct_shape_4e0bc7e5657bf826_t"
+    "struct_name": "cal_list_node"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 2
+        "name": "len",
+        "comment": "16-bit length/index parameter stored at offset 0x4 of the RF parameter block"
       }
     ],
     "group": 121,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_285e0f9d5adb78a1_t"
+    "struct_name": "rf_param"
   },
   {
     "fields": [
       {
-        "name": "field_0xf",
-        "offset": 15,
-        "size": 1
+        "name": "band",
+        "comment": "RF band/antenna index byte"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 1
+        "name": "bw",
+        "comment": "channel bandwidth or path selector byte"
       },
       {
-        "name": "field_0x2c",
-        "offset": 44,
-        "size": 4
+        "name": "cal_lut_ptr",
+        "comment": "pointer to calibration LUT/coefficient block"
       },
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "cal_param",
+        "comment": "32-bit calibration parameter/status value"
       }
     ],
     "group": 122,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_ff416ab5f1b70016_t"
+    "struct_name": "rf_cal_chan_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "lut_ptr",
+        "comment": "Pointer to RF calibration LUT or coefficient table at offset 0x4"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "aux_ptr",
+        "comment": "Secondary pointer to auxiliary RF data or config buffer at offset 0xc"
       }
     ],
     "group": 123,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_b10137c031c212bd_t"
+    "struct_name": "rf_lut_desc"
   },
   {
     "fields": [
       {
-        "name": "field_0xb",
-        "offset": 11,
-        "size": 4
+        "name": "ctx_ptr",
+        "comment": "32-bit context/buffer pointer or handle word at offset 0xb"
       }
     ],
     "group": 124,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_da41885616d9f320_t"
+    "struct_name": "rf_param_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 4
+        "name": "rf_ctrl_word",
+        "comment": "32-bit RF/PHY control word or context handle at 0x14"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 2
+        "name": "chan_flags",
+        "comment": "16-bit channel/bandwidth flag subfield at 0x1c"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "chan_cfg",
+        "comment": "32-bit combined channel/bandwidth configuration at 0x1c"
       }
     ],
     "group": 125,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v6",
-    "struct_name": "struct_shape_ffd6d6f3fd28eedc_t"
+    "struct_name": "rf_chan_cfg"
   },
   {
     "fields": [
       {
-        "name": "field_0x168",
-        "offset": 360,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "in-phase calibration coefficient or LUT pointer written by RF cal routine"
       },
       {
-        "name": "field_0x16c",
-        "offset": 364,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "quadrature calibration coefficient paired with i_coeff"
       }
     ],
     "group": 126,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_c84856e619d9b096_t"
+    "struct_name": "rf_iq_cal_pair"
   },
   {
     "fields": [
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit register or calibration word accessed by the RF test helper"
       }
     ],
     "group": 127,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v2",
-    "struct_name": "struct_shape_13e44f03037cbbdb_t"
+    "struct_name": "rf_reg_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "ptr",
+        "comment": "32-bit pointer or handle to the associated context or list element"
       }
     ],
     "group": 128,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v8",
-    "struct_name": "struct_shape_beb54edbc2808da2_t"
+    "struct_name": "ptr_node"
   },
   {
     "fields": [
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 4
+        "name": "coeff0",
+        "comment": "first calibration coefficient word (gain/I/Q or DC term) at offset 0x20"
       },
       {
-        "name": "field_0x24",
-        "offset": 36,
-        "size": 4
+        "name": "coeff1",
+        "comment": "second calibration coefficient word at offset 0x24"
       },
       {
-        "name": "field_0x28",
-        "offset": 40,
-        "size": 4
+        "name": "coeff2",
+        "comment": "third calibration coefficient word at offset 0x28"
       }
     ],
     "group": 129,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a3",
-    "struct_name": "struct_shape_f9c6379d3e24b2f9_t"
+    "struct_name": "rf_cal_coeff_blk"
   },
   {
     "fields": [
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "32-bit calibration/test context handle or config pointer"
       }
     ],
     "group": 130,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_1dea9ed6c2a0bce2_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x1",
-        "offset": 1,
-        "size": 1
+        "name": "i_coeff",
+        "comment": "I-branch 8-bit calibration coefficient/level"
       },
       {
-        "name": "field_0x2",
-        "offset": 2,
-        "size": 1
+        "name": "q_coeff",
+        "comment": "Q-branch 8-bit calibration coefficient/level"
       }
     ],
     "group": 131,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a4",
-    "struct_name": "struct_shape_341bba67bc55c6c8_t"
+    "struct_name": "rf_iq_param"
   },
   {
     "fields": [
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "32-bit pointer/handle to RF calibration or PHY control data referenced at offset 0x20"
       }
     ],
     "group": 132,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_a985326216d2eaf8_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x3",
-        "offset": 3,
-        "size": 1
+        "name": "flags",
+        "comment": "byte flag/index selecting calibration path or gain step"
       },
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "value",
+        "comment": "32-bit calibration coefficient, pointer, or register value"
       }
     ],
     "group": 133,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v4",
-    "struct_name": "struct_shape_e40dc22b933af723_t"
+    "struct_name": "rf_cal_entry"
   },
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cfg_word",
+        "comment": "32-bit RF/PHY configuration value or pointer"
       },
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "cal_word",
+        "comment": "32-bit calibration or control parameter"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 2
+        "name": "ctrl_flags",
+        "comment": "16-bit flags or status field in the 0x10 union"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 4
+        "name": "ctrl_word",
+        "comment": "32-bit view of the 0x10 control/status word"
       }
     ],
     "group": 134,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a2",
-    "struct_name": "struct_shape_fbdbe47bea5f1f9d_t"
+    "struct_name": "rf_ctrl_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x24",
-        "offset": 36,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "In-phase calibration/compensation coefficient"
       },
       {
-        "name": "field_0x26",
-        "offset": 38,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "Quadrature-phase calibration/compensation coefficient"
       },
       {
-        "name": "field_0x28",
-        "offset": 40,
-        "size": 4
+        "name": "dc_offset",
+        "comment": "Residual DC offset or LO leakage correction value"
       }
     ],
     "group": 135,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v1",
-    "struct_name": "struct_shape_f670ad470489e3d9_t"
+    "struct_name": "rf_cal_coeff"
   },
   {
     "fields": [
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "cal_lut",
+        "comment": "Pointer/word to calibration LUT or coefficient table"
       },
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 2
+        "name": "gain_idx",
+        "comment": "RF gain stage index or table length for calibration"
       },
       {
-        "name": "field_0x41",
-        "offset": 65,
-        "size": 1
+        "name": "cal_valid",
+        "comment": "Calibration valid/done flag byte"
       },
       {
-        "name": "field_0x54",
-        "offset": 84,
-        "size": 4
+        "name": "rf_status",
+        "comment": "RF calibration status word or result pointer"
       }
     ],
     "group": 136,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_a194d4361fd8b82d_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0x30",
-        "offset": 48,
-        "size": 4
+        "name": "cal_tbl_ptr",
+        "comment": "Pointer to RF calibration table/context"
       },
       {
-        "name": "field_0x34",
-        "offset": 52,
-        "size": 4
+        "name": "dpd_tbl_ptr",
+        "comment": "Pointer to DPD coefficient table"
       },
       {
-        "name": "field_0x40",
-        "offset": 64,
-        "size": 4
+        "name": "iq_cal_ptr",
+        "comment": "Pointer to IQ calibration data"
       },
       {
-        "name": "field_0x50",
-        "offset": 80,
-        "size": 4
+        "name": "dcoc_cal_ptr",
+        "comment": "Pointer to DCOC calibration data"
       },
       {
-        "name": "field_0x80",
-        "offset": 128,
-        "size": 1
+        "name": "path_idx",
+        "comment": "RF path/antenna index"
       },
       {
-        "name": "field_0x81",
-        "offset": 129,
-        "size": 1
+        "name": "band_idx",
+        "comment": "RF band index"
       },
       {
-        "name": "field_0x82",
-        "offset": 130,
-        "size": 1
+        "name": "bw_idx",
+        "comment": "Channel bandwidth index"
       },
       {
-        "name": "field_0x83",
-        "offset": 131,
-        "size": 1
+        "name": "gain_idx",
+        "comment": "TX/RX gain table index"
       },
       {
-        "name": "field_0x84",
-        "offset": 132,
-        "size": 1
+        "name": "flag_lo",
+        "comment": "Low calibration flag byte"
       },
       {
-        "name": "field_0x84",
-        "offset": 132,
-        "size": 2
+        "name": "cal_flags",
+        "comment": "16-bit calibration status flags"
       },
       {
-        "name": "field_0x85",
-        "offset": 133,
-        "size": 1
+        "name": "flag_hi",
+        "comment": "High calibration flag byte"
       },
       {
-        "name": "field_0x86",
-        "offset": 134,
-        "size": 1
+        "name": "cal_step",
+        "comment": "Calibration sequence step"
       },
       {
-        "name": "field_0x87",
-        "offset": 135,
-        "size": 1
+        "name": "cal_state",
+        "comment": "Calibration state value"
       },
       {
-        "name": "field_0x88",
-        "offset": 136,
-        "size": 1
+        "name": "cal_status",
+        "comment": "Calibration result/status byte"
       }
     ],
     "group": 137,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_770945b285444a85_t"
+    "struct_name": "rf_cal_ctx"
   },
   {
     "fields": [
       {
-        "name": "field_0xc",
-        "offset": 12,
-        "size": 4
+        "name": "i_coeff",
+        "comment": "in-phase calibration coefficient word"
       },
       {
-        "name": "field_0x10",
-        "offset": 16,
-        "size": 4
+        "name": "q_coeff",
+        "comment": "quadrature calibration coefficient word"
       },
       {
-        "name": "field_0x14",
-        "offset": 20,
-        "size": 4
+        "name": "dc_i",
+        "comment": "I-branch DC offset correction value"
       },
       {
-        "name": "field_0x18",
-        "offset": 24,
-        "size": 4
+        "name": "dc_q",
+        "comment": "Q-branch DC offset correction value"
       },
       {
-        "name": "field_0x1c",
-        "offset": 28,
-        "size": 4
+        "name": "gain_idx",
+        "comment": "RF gain/step index the coefficients apply to"
       },
       {
-        "name": "field_0x20",
-        "offset": 32,
-        "size": 4
+        "name": "cal_status",
+        "comment": "calibration validity/status word for this entry"
       }
     ],
     "group": 138,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "a1",
-    "struct_name": "struct_shape_d3b9b2fca1ffd7e5_t"
+    "struct_name": "rf_cal_coeff"
   },
   {
     "fields": [
@@ -2932,19 +2589,17 @@
   {
     "fields": [
       {
-        "name": "field_0x4",
-        "offset": 4,
-        "size": 4
+        "name": "cal_ptr",
+        "comment": "32-bit calibration data pointer or value"
       },
       {
-        "name": "field_0x8",
-        "offset": 8,
-        "size": 2
+        "name": "cal_idx",
+        "comment": "16-bit calibration index or status"
       }
     ],
     "group": 140,
     "image": "lmacfw_rf_8800d80_u02_bin",
     "primary_arg": "v7",
-    "struct_name": "struct_shape_e6d7646e0b18348a_t"
+    "struct_name": "rf_cal_entry"
   }
 ]

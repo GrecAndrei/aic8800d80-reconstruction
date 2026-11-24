@@ -6342,7 +6342,7 @@ int ke_event_send_1(int a1, int a2);
 void mmio_wait_reg();
 unsigned int ll_seq_update();
 int rf_map_channel(int a1);
-int sub_123058C();
+int rf_temp_sensor_start();
 int ke_event_handler();
 int log_mac_state();
 int ke_timeout_to_ticks(int a1);
@@ -6782,6 +6782,7 @@ int __CFSUB__();
 int a2();
 int a3();
 int cf();
+int sub_123058C();
 int v10();
 int v11();
 int v13();
@@ -63231,8 +63232,8 @@ int rf_map_channel(int a1) {
 
 
 
-// sub_123058C @ 0x13058c
-int sub_123058C() {
+// rf_temp_sensor_start @ 0x13058c
+int rf_temp_sensor_start() {
   return gpio_reset();
 }
 

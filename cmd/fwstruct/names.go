@@ -143,7 +143,8 @@ func runNames(args []string) error {
 	}
 	cf.VPrintf("  %d cluster candidates across %d images", len(candidates), len(images))
 
-	// Run LLM in parallel (no time limits)
+	// Run LLM in parallel (no time limits). Warm up the static system prompt
+	// cache on candidate[0] before fanning out so parallel workers hit cache.
 	type result struct {
 		image    string
 		group    int
@@ -151,26 +152,43 @@ func runNames(args []string) error {
 		err      error
 	}
 	results := make([]result, len(candidates))
+	ctx := context.Background()
+	runOne := func(i int, c candidate) {
+		in := buildNamingInput(c.image, c.cluster)
+		prop, err := llm.NameStruct(ctx, client, in)
+		results[i] = result{image: c.image, group: c.group, proposal: prop, err: err}
+		if err != nil {
+			cf.VPrintf("  %s/%d: %v", c.image, c.group, err)
+		} else {
+			cf.VPrintf("  %s/%d: %s", c.image, c.group, prop.StructName)
+		}
+	}
+	startIdx := 0
+	if len(candidates) > 1 && concurrency > 1 {
+		cf.VPrintf("  warming prompt cache on %s/%d...", candidates[0].image, candidates[0].group)
+		runOne(0, candidates[0])
+		startIdx = 1
+	}
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, concurrency)
-	ctx := context.Background()
-	for i, c := range candidates {
+	for i := startIdx; i < len(candidates); i++ {
+		c := candidates[i]
 		wg.Add(1)
 		go func(i int, c candidate) {
 			defer wg.Done()
 			sem <- struct{}{}
 			defer func() { <-sem }()
-			in := buildNamingInput(c.image, c.cluster)
-			prop, err := llm.NameStruct(ctx, client, in)
-			results[i] = result{image: c.image, group: c.group, proposal: prop, err: err}
-			if err != nil {
-				cf.VPrintf("  %s/%d: %v", c.image, c.group, err)
-			} else {
-				cf.VPrintf("  %s/%d: %s", c.image, c.group, prop.StructName)
-			}
+			runOne(i, c)
 		}(i, c)
 	}
 	wg.Wait()
+	if calls, ptok, ctok := client.CacheStats(); calls > 0 {
+		pct := 0.0
+		if ptok > 0 {
+			pct = 100.0 * float64(ctok) / float64(ptok)
+		}
+		cf.VPrintf("  prompt cache: calls=%d prompt_tokens=%d cached_tokens=%d (%.1f%%)", calls, ptok, ctok, pct)
+	}
 
 	// Seed with preserved proposals for skipped already-named clusters so
 	// <img>_named.json and proposals.json never drop prior entries.

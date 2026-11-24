@@ -1,0 +1,8 @@
+{
+  "total_files": 5961,
+  "fixed_files": 2645,
+  "total_fixes": 17656,
+  "by_kind": {
+    "array_index": 17656
+  }
+}

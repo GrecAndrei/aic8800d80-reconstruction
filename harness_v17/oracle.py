@@ -17,11 +17,94 @@ sys.path.insert(0, str(REPO / "harness_v17"))
 import tools as v17tools
 from tools import TOOL_SCHEMA, call_tool
 
-DEFAULT_BASE_URL = "https://opencode.ai/inference/go/openai/v1"
-DEFAULT_MODEL = "glm-5.3"
+DEFAULT_BASE_URL = "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
+DEFAULT_MODEL = "qwen4-max-preview"
 DEFAULT_REASONING_EFFORT = "max"
 DEFAULT_USER_AGENT = "aic8800d80-pipeline/1.0"
 _SESSION_ID = os.environ.get("OPENCODE_SESSION_ID") or f"ses_{uuid.uuid4().hex}"
+
+# Static >=1,200-token AIC8800D80 firmware reference prefix shared across all
+# function-naming calls so Alibaba Token Plan / DashScope hits prompt cache
+# (>=1,024-token prefix threshold) on every call.
+STATIC_FIRMWARE_SYSTEM_PREFIX = """You are a senior embedded WiFi/Bluetooth firmware reverse engineer specializing in ARM Cortex-M4 Thumb-2 wireless SoC firmware, specifically the AIC8800D80 (Marvell 88W8800 / RivieraWaves RW-NX MAC + LMAC/FMAC split) wireless chipset.
+
+=== TARGET PLATFORM & FIRMWARE ARCHITECTURE ===
+1. CPU & ABI:
+   - ARM Cortex-M4F (ARMv7E-M, Thumb-2 instruction set, little-endian, 32-bit pointers, VFPv4-SP).
+   - AAPCS calling convention: r0..r3 carry arguments a1..a4; r0 (or r0:r1 for 64-bit) returns the result.
+   - Four firmware images exist in this repository:
+     * fmacfw_8800d80_h_u02_bin: FullMAC WiFi host-interface variant (SDIO/USB high-throughput host offload, ~340 KB).
+     * fmacfw_8800d80_u02_bin: FullMAC WiFi standard variant (802.11a/b/g/n/ac/ax MAC, SME/MLME, STA/AP/P2P, ~340 KB).
+     * fmacfwbt_8800d80_u02_bin: FullMAC WiFi + Bluetooth/BLE coexistence firmware (adds BT/BLE controller, HCI, PTA coex, ~340 KB).
+     * lmacfw_rf_8800d80_u02_bin: LowerMAC + RF test/calibration firmware (PHY/RF front-end, TX/RX calibration, DPD/IQ/LO/DCOC, ~220 KB).
+   - Hardware runtime load base is 0x120000; static analysis / decompiled symbols use analysis-space base 0x100000 (file_offset + 0x100000).
+   - Peripheral MMIO occupies 0x40000000..0x60000000:
+     * 0x40032000: UART / console TX/RX/status registers (0x40032000 data, 0x40032014 status).
+     * 0x40100000..0x401fffff: System control, PMU, clock/PLL, GPIO, IOMUX, reset/power gating.
+     * 0x40200000..0x402fffff: RF front-end / analog bus / calibration registers (0x40200014 rf_bus_reset_status, 0x40200900+ RF bus).
+     * 0x40300000..0x403fffff: RivieraWaves RW-NX MAC-HW, PHY/MDM registers, tick counter (0x40320120 rf_tick_counter).
+     * 0x40500000..0x405fffff: Timers (0x40501010 timer_value), watchdog, IPC, DMA, SDIO/USB host controller, crypto/AES/CCMP/GCMP/TKIP.
+     * 0x40600000+: Bluetooth / BLE baseband, modem, and WiFi/BT PTA coexistence registers.
+
+2. CORE FIRMWARE SUBSYSTEMS & FUNCTION NAMING CONVENTIONS:
+   - rf: RF transceiver control, PLL/synth tuning, TX/RX gain tables, IQ/DCOC/LO/DPD calibration, PA/LNA/FEM switching, thermal compensation, RF bus read/write/poll helpers.
+   - mac: 802.11 MAC management (MM/ME/SM/APM/VIF/STA), beacon/TIM/DTIM handling, TSF/TBTT, channel context switching, power save (PS/U-APSD/TWT), rate control (RC), Block Ack (BAM).
+   - tx: TX descriptor preparation (txl/txd/tx_hd/tx_pbd), A-MPDU aggregation, EDCA/AC queues, TX confirmation (tx_cfm), TX power control (TPC), frame header/QoS/HT/VHT/HE building.
+   - rx: RX descriptor ring management (rxl/rxd/rx_hd/rx_swdesc), defragmentation, reorder buffer, RX vector parsing, management/control/data frame dispatch, promiscuous/monitor mode.
+   - ke: RivieraWaves kernel event loop (ke_event, ke_msg, ke_task, ke_timer, ke_state), dynamic heap allocator (ke_malloc/ke_free), singly/doubly linked lists (co_list).
+   - scan: Active/passive channel scanning (scan/scanu), Probe Request generation, Probe Response/Beacon parsing, IE parsing, BSS table updates.
+   - bt: Bluetooth Classic / BLE controller, HCI command/event/ACL/SCO packet handlers, LMP/LL state machines, inquiry/page/advertising/scanning, WiFi/BT PTA coexistence.
+   - sec / crypto: Hardware cipher key table management, WEP/TKIP/CCMP/GCMP/BIP key install/remove, PN/IV replay checks, MFP/PMF.
+   - ipc: Host-to-embedded and embedded-to-host IPC rings, SDIO/USB/SPI host transport, mailbox/interrupt signaling, firmware message/data forwarding.
+   - patch: Boot ROM patch table installation, patch jump hooks, ROM callback table initialization, OTP/efuse/NVRAM config loading.
+   - mmio: Low-level hardware register polling, bitfield read-modify-write, peripheral clock/reset/IRQ enable/disable, DMA/GPIO/UART/timer drivers.
+   - util: Compiler/libc/EABI helpers (memcpy, memset, memcmp, strlen, sprintf/vsnprintf, __aeabi_* float/double/div), CRC/checksum, bitmask/ring-buffer utilities.
+
+3. NAMING QUALITY RULES:
+   - Always produce a descriptive, idiomatic C snake_case identifier reflecting the function's subsystem and action (e.g., rf_iq_cal_apply, vif_chan_ctxt_link, txl_cfm_evt_handle, ke_timer_schedule, sdio_rx_buf_push, bt_hci_cmd_dispatch).
+   - NEVER output generic placeholder names such as sub_*, unknown_*, func_*, bad_func_*, unnamed_*, or raw hex addresses as the function name.
+   - Keep names concise (2-5 snake_case words, <= 40 characters) and valid C identifiers matching ^[a-z][a-z0-9_]*$.
+   - You may NEVER compute, derive, or invent any numeric address, offset, or size in your head. Only quote addresses that appear verbatim in the prompt or in a tool result."""
+
+_CACHE_LOCK = threading.Lock()
+CACHE_STATS = {"calls": 0, "prompt_tokens": 0, "cached_tokens": 0}
+
+
+def get_cache_stats():
+    with _CACHE_LOCK:
+        return dict(CACHE_STATS)
+
+
+def _record_usage(completion):
+    usage = getattr(completion, "usage", None)
+    if not usage:
+        return
+    ptok = getattr(usage, "prompt_tokens", 0) or 0
+    details = getattr(usage, "prompt_tokens_details", None)
+    ctok = (getattr(details, "cached_tokens", 0) if details else 0) or 0
+    if not ctok:
+        ctok = getattr(usage, "cache_read_input_tokens", 0) or 0
+    with _CACHE_LOCK:
+        CACHE_STATS["calls"] += 1
+        CACHE_STATS["prompt_tokens"] += int(ptok)
+        CACHE_STATS["cached_tokens"] += int(ctok)
+
+
+def _apply_prompt_cache(messages, enabled=True):
+    if not enabled or not messages:
+        return messages
+    out = list(messages)
+    first = out[0]
+    if first.get("role") == "system" and isinstance(first.get("content"), str) and first["content"]:
+        out[0] = {
+            "role": "system",
+            "content": [{
+                "type": "text",
+                "text": first["content"],
+                "cache_control": {"type": "ephemeral"},
+            }],
+        }
+    return out
 
 
 def _load_keys():
@@ -33,14 +116,21 @@ def _load_keys():
                 return providers
         except Exception:
             pass
-    env_key = os.environ.get("OPENCODE_API_KEY") or os.environ.get("AIC8800D80_LLM_KEY_1")
+    env_key = (
+        os.environ.get("DASHSCOPE_API_KEY")
+        or os.environ.get("BAILIAN_API_KEY")
+        or os.environ.get("ALIBABA_API_KEY")
+        or os.environ.get("OPENCODE_API_KEY")
+        or os.environ.get("AIC8800D80_LLM_KEY_1")
+    )
     if env_key:
         return [{
-            "name": "env_opencode_go",
+            "name": "env_default",
             "base_url": DEFAULT_BASE_URL,
             "api_key": env_key,
             "model": DEFAULT_MODEL,
             "reasoning_effort": DEFAULT_REASONING_EFFORT,
+            "prompt_cache": True,
         }]
     return []
 
@@ -49,37 +139,53 @@ KEYS = _load_keys()
 _local = threading.local()
 def get_key():
     if not KEYS:
-        raise RuntimeError("No LLM API providers configured in harness_v15/keys/keys.json or OPENCODE_API_KEY")
+        raise RuntimeError("No LLM API providers configured in harness_v15/keys/keys.json or DASHSCOPE_API_KEY")
     if not hasattr(_local, 'i'):
         _local.i = 0
     k = KEYS[_local.i % len(KEYS)]
     _local.i += 1
     return k
 
+
+def _get_client(api_key, base_url, sid):
+    from openai import OpenAI
+    pool = getattr(_local, "clients", None)
+    if pool is None:
+        pool = {}
+        _local.clients = pool
+    ckey = (base_url, api_key, sid)
+    client = pool.get(ckey)
+    if client is None:
+        headers = {"User-Agent": DEFAULT_USER_AGENT}
+        if "opencode.ai" in base_url:
+            headers["x-opencode-session"] = sid
+        client = OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            default_headers=headers,
+            timeout=None,
+            max_retries=5,
+        )
+        pool[ckey] = client
+    return client
+
 def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=6, reasoning_effort=None, session_id=None):
     """Call LLM with tools via the OpenAI SDK. Loops until LLM gives a final
     answer or hits max_tool_rounds.
     Returns (final_message_dict, all_tool_calls_made).
 
-    max_tokens is omitted (no output budget) and HTTP timeout is disabled
-    (timeout=None) so max reasoning effort never gets starved or cut off.
+    Uses persistent thread-local keep-alive clients, explicit prompt caching on
+    the leading system block, no output cap (max_tokens omitted), and no HTTP
+    timeout (timeout=None).
     """
-    from openai import OpenAI
     key = get_key()
     base_url = key.get('base_url', DEFAULT_BASE_URL).rstrip('/')
     model = key.get('model', DEFAULT_MODEL)
     effort = reasoning_effort if reasoning_effort is not None else key.get('reasoning_effort', DEFAULT_REASONING_EFFORT)
+    prompt_cache = key.get('prompt_cache', True)
     sid = session_id or _SESSION_ID
-    client = OpenAI(
-        api_key=key['api_key'],
-        base_url=base_url,
-        default_headers={
-            "User-Agent": DEFAULT_USER_AGENT,
-            "x-opencode-session": sid,
-        },
-        timeout=None,
-        max_retries=5,
-    )
+    client = _get_client(key['api_key'], base_url, sid)
+    messages = _apply_prompt_cache(messages, enabled=prompt_cache)
     tool_results_seen = []  # collect every tool result for validation
     for round_n in range(max_tool_rounds + 1):
         # On the last round, force a final answer (no tools)
@@ -102,7 +208,15 @@ def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=
                     "role": "user",
                     "content": "STOP using tools. Output your final JSON answer NOW based on what you've seen. No more tool calls."
                 })
-            completion = client.chat.completions.create(**kwargs)
+            completion = None
+            for attempt in range(4):
+                completion = client.chat.completions.create(**kwargs)
+                _record_usage(completion)
+                msg = completion.choices[0].message
+                if msg.tool_calls or (msg.content and msg.content.strip()):
+                    break
+                if attempt < 3:
+                    time.sleep(2 ** attempt)
             msg = completion.choices[0].message
             if msg.tool_calls and not is_final_round:
                 # Execute each tool call
@@ -136,6 +250,18 @@ def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=
     return {'content': None, 'error': 'max_tool_rounds'}, tool_results_seen
 
 _ADDR_RE = re.compile(r'0x[0-9a-fA-F]+')
+def _collect_addrs(obj, allowed):
+    if isinstance(obj, str):
+        for m in _ADDR_RE.findall(obj):
+            allowed.add(m.lower())
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            _collect_addrs(v, allowed)
+    elif isinstance(obj, (list, tuple)):
+        for item in obj:
+            _collect_addrs(item, allowed)
+
+
 def validate_no_invented_addresses(content, tool_results, original_prompt=None):
     """Reject LLM output that contains address literals NOT seen in tool results
     or in the original prompt. Returns (is_valid, list_of_invented_addrs).
@@ -143,33 +269,9 @@ def validate_no_invented_addresses(content, tool_results, original_prompt=None):
     if not content:
         return True, []
     allowed = set()
-    # Collect from tool results
-    for tr in tool_results:
-        r = tr.get('result', {})
-        if isinstance(r, dict):
-            result = r.get('result')
-            if isinstance(result, str):
-                for m in _ADDR_RE.findall(result):
-                    allowed.add(m.lower())
-            elif isinstance(result, list):
-                for item in result:
-                    if isinstance(item, str):
-                        for m in _ADDR_RE.findall(item):
-                            allowed.add(m.lower())
-            elif isinstance(result, dict):
-                for v in result.values():
-                    if isinstance(v, str):
-                        for m in _ADDR_RE.findall(v):
-                            allowed.add(m.lower())
-        # Also allow tool inputs
-        for v in tr.get('args', {}).values():
-            if isinstance(v, str):
-                for m in _ADDR_RE.findall(v):
-                    allowed.add(m.lower())
-    # Collect from original prompt (the LLM has seen this, may quote from it)
+    _collect_addrs(tool_results, allowed)
     if original_prompt:
-        for m in _ADDR_RE.finditer(original_prompt):
-            allowed.add(m.group(0).lower())
+        _collect_addrs(original_prompt, allowed)
     # Find addresses in LLM output
     invented = []
     # Common sentinel values that are NOT memory addresses
@@ -201,16 +303,14 @@ def name_function(function_name, image, address, disasm_lines, behavioral_text, 
     LLM may NOT compute addresses/offsets - it must use tools.
     Returns: dict with name, params, docstring, tool_calls
     """
-    system = """You are reverse-engineering a WiFi firmware function. You have a set of tools to look up addresses, structs, registers, callers, and behavioral traces.
+    system = STATIC_FIRMWARE_SYSTEM_PREFIX + """
 
-CRITICAL RULES:
-1. You may NOT compute, derive, or invent any numeric address, offset, or size in your head. If you need an address/offset, call a tool.
-2. If a tool result gives you an address (e.g., "0x40040000"), you may quote it back in your final answer.
-3. If you need a struct field offset, call struct_field_offset. If you need a register name, call register_at.
-4. Output ONLY a single JSON object as your final answer. No prose, no explanation, no code.
-5. The JSON schema is exactly: {"name": "snake_case_name", "params": [{"type": "type_name", "purpose": "1-line"}], "docstring": "1-line description", "subsystem": "rf|mac|tx|rx|ke|scan|...|unknown"}
-
-BE EFFICIENT: Make 3-5 tool calls max. Don't keep exploring forever. After 3-5 tool calls you should have enough to answer. If you find it has no behavioral trace and basic disasm, just give your best guess."""
+=== SINGLE-FUNCTION TOOL-USE MODE ===
+You have a set of tools to look up addresses, structs, registers, callers, and behavioral traces.
+1. If you need a struct field offset, call struct_field_offset. If you need a register name, call register_at.
+2. Output ONLY a single JSON object as your final answer. No prose, no explanation, no code.
+3. The JSON schema is exactly: {"name": "snake_case_name", "params": [{"type": "type_name", "purpose": "1-line"}], "docstring": "1-line description", "subsystem": "rf|mac|tx|rx|ke|scan|bt|sec|ipc|patch|mmio|util|unknown"}
+4. BE EFFICIENT: Make 3-5 tool calls max. After 3-5 tool calls you should have enough to answer."""
 
     user = f"""Function: {function_name} (current anonymous name)
 Image: {image}
@@ -232,8 +332,8 @@ Propose: (a) a real function name based on what it does, (b) parameter types, (c
     content = msg.get('content') or ''
     if not content:
         return None, tool_calls, "no_content"
-    # Validate: no invented addresses (allowed = tool_results + original prompt)
-    is_valid, invented = validate_no_invented_addresses(content, tool_calls, user)
+    # Validate: no invented addresses (allowed = tool_results + system/user prompt)
+    is_valid, invented = validate_no_invented_addresses(content, tool_calls, system + "\n" + user)
     if not is_valid:
         return None, tool_calls, f"invented_addrs:{','.join(invented[:5])}"
     # Try to parse JSON — find first '{' and balance braces

@@ -8,7 +8,7 @@
       "id": 0,
       "group_id": 0,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3c7a068a532c9e4e_t",
+      "name": "msg_param_u32",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -41,7 +41,7 @@
       "id": 1,
       "group_id": 1,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_306cfb76c87b2c18_t",
+      "name": "rf_cal_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -70,7 +70,7 @@
       "id": 2,
       "group_id": 2,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_975b6fd59387d14b_t",
+      "name": "rf_cal_param",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -111,7 +111,7 @@
       "id": 3,
       "group_id": 3,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ae1204ace4b6a2e4_t",
+      "name": "rf_buf_desc",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -144,7 +144,7 @@
       "id": 4,
       "group_id": 4,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1e0091ad357bab48_t",
+      "name": "rf_param_entry",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -177,7 +177,7 @@
       "id": 5,
       "group_id": 5,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_47f042a577f4c5e7_t",
+      "name": "rf_cal_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -208,7 +208,7 @@
       "id": 6,
       "group_id": 6,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_38f2c0478a1d160e_t",
+      "name": "rf_cal_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -297,7 +297,7 @@
       "id": 7,
       "group_id": 7,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4def596b8bf5b753_t",
+      "name": "rf_cal_param",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -323,7 +323,7 @@
       "id": 8,
       "group_id": 8,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5dd2b94aede8e2b0_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -349,7 +349,7 @@
       "id": 9,
       "group_id": 9,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_d3bec76ef8c6e5b6_t",
+      "name": "rf_ctx_hdr",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -375,7 +375,7 @@
       "id": 10,
       "group_id": 10,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_577e87c2877917ee_t",
+      "name": "ctx_handle_desc",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -401,7 +401,7 @@
       "id": 11,
       "group_id": 11,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a2b80567eae5185d_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -426,7 +426,7 @@
       "id": 12,
       "group_id": 12,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a9da358ceb7904fe_t",
+      "name": "rf_cfg_entry",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -458,7 +458,7 @@
       "id": 13,
       "group_id": 13,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_308af5cb21157398_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -483,7 +483,7 @@
       "id": 14,
       "group_id": 14,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_98f74dac57ee12d0_t",
+      "name": "rf_cal_cfg",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -557,7 +557,7 @@
       "id": 15,
       "group_id": 15,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3624d98ee7ad4438_t",
+      "name": "rf_ctrl_node",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -594,7 +594,7 @@
       "id": 16,
       "group_id": 16,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_70ff902047ce18e9_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -654,7 +654,7 @@
       "id": 17,
       "group_id": 17,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_952b120834e8d02b_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -693,7 +693,7 @@
       "id": 18,
       "group_id": 18,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_59bac8b9771d05f0_t",
+      "name": "rf_cal_cfg",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -801,7 +801,7 @@
       "id": 19,
       "group_id": 19,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dcd56cf427c87065_t",
+      "name": "rf_cal_ctrl",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -833,7 +833,7 @@
       "id": 20,
       "group_id": 20,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_8b69a534290e32c7_t",
+      "name": "rf_param_pair",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -865,7 +865,7 @@
       "id": 21,
       "group_id": 21,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c64a916477296c91_t",
+      "name": "rf_cal_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -897,7 +897,7 @@
       "id": 22,
       "group_id": 22,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a622a52e753ecd09_t",
+      "name": "rf_helper_ref",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -922,7 +922,7 @@
       "id": 23,
       "group_id": 23,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3a92092eb62ac16b_t",
+      "name": "rf_cmd_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -975,7 +975,7 @@
       "id": 24,
       "group_id": 24,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_11b1333002455250_t",
+      "name": "rf_cal_state",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -1000,7 +1000,7 @@
       "id": 25,
       "group_id": 25,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ef87382bfa64f577_t",
+      "name": "rf_param_pair",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -1032,7 +1032,7 @@
       "id": 26,
       "group_id": 26,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7831ef8ca2b3f0b1_t",
+      "name": "rf_cfg_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -1064,7 +1064,7 @@
       "id": 27,
       "group_id": 27,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_03634ba794a6432f_t",
+      "name": "rf_cal_entry",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -1096,7 +1096,7 @@
       "id": 28,
       "group_id": 28,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_166a6958e173a83a_t",
+      "name": "rf_param_arg",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1121,7 +1121,7 @@
       "id": 29,
       "group_id": 29,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dae7a229559994db_t",
+      "name": "rf_cal_pair",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1153,7 +1153,7 @@
       "id": 30,
       "group_id": 30,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_9522ba571bbbb575_t",
+      "name": "rf_param_pair",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -1185,7 +1185,7 @@
       "id": 31,
       "group_id": 31,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_55b89a6f37e6e4c8_t",
+      "name": "cal_cmd_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1227,7 +1227,7 @@
       "id": 32,
       "group_id": 32,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_0f3a9e2bf7ccbd87_t",
+      "name": "rf_cal_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1252,7 +1252,7 @@
       "id": 33,
       "group_id": 33,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7b95c7643aea318b_t",
+      "name": "rf_test_ctx",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -1284,7 +1284,7 @@
       "id": 34,
       "group_id": 34,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_d9451a761b0e5b77_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -1309,7 +1309,7 @@
       "id": 35,
       "group_id": 35,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_349bb25ffc1cb828_t",
+      "name": "rf_event_msg",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1346,7 +1346,7 @@
       "id": 36,
       "group_id": 36,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ff9eb3115205ae79_t",
+      "name": "rf_cal_entry",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -1392,7 +1392,7 @@
       "id": 37,
       "group_id": 37,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7e5e6534533d0ae6_t",
+      "name": "rf_ctx_ptr",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -1417,7 +1417,7 @@
       "id": 38,
       "group_id": 38,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_887974ed550c1c05_t",
+      "name": "rf_cal_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1470,7 +1470,7 @@
       "id": 39,
       "group_id": 39,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4085fec68f5a7844_t",
+      "name": "rf_cal_param",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -1516,7 +1516,7 @@
       "id": 40,
       "group_id": 40,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f428326965d542a0_t",
+      "name": "rf_cal_entry",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -1553,7 +1553,7 @@
       "id": 41,
       "group_id": 41,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4a771e920e9db4cd_t",
+      "name": "rf_cal_param_pair",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -1624,7 +1624,7 @@
       "id": 43,
       "group_id": 43,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_27d2ad114e4fa19d_t",
+      "name": "rf_coeff_pair",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -1656,7 +1656,7 @@
       "id": 44,
       "group_id": 44,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_68fb6a36900213a1_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1751,7 +1751,7 @@
       "id": 45,
       "group_id": 45,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c5b283e3fc0dc5df_t",
+      "name": "rf_ctrl_ctx",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -1776,7 +1776,7 @@
       "id": 46,
       "group_id": 46,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_cf00cd48a7f934b6_t",
+      "name": "rf_cal_sub_ctx",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -1815,7 +1815,7 @@
       "id": 47,
       "group_id": 47,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_409f10655144dcf3_t",
+      "name": "rf_cal_entry",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1840,7 +1840,7 @@
       "id": 48,
       "group_id": 48,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ecb940657e48d407_t",
+      "name": "rf_cal_frag",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1886,7 +1886,7 @@
       "id": 49,
       "group_id": 49,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_98a0511e6845f572_t",
+      "name": "rf_cal_param",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -1911,7 +1911,7 @@
       "id": 50,
       "group_id": 50,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a0414dffebd7e511_t",
+      "name": "rf_param",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -1936,7 +1936,7 @@
       "id": 51,
       "group_id": 51,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_6b63a8ae556506f8_t",
+      "name": "ke_msg_header",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -1982,7 +1982,7 @@
       "id": 52,
       "group_id": 52,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_0575200298914114_t",
+      "name": "rf_cal_param_pair",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2014,7 +2014,7 @@
       "id": 53,
       "group_id": 53,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_2182e65d2e9f910f_t",
+      "name": "rf_cal_cfg",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -2044,7 +2044,7 @@
       "id": 54,
       "group_id": 54,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_9858a6d1e63adaed_t",
+      "name": "rf_test_ctl",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -2069,7 +2069,7 @@
       "id": 55,
       "group_id": 55,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_731fc059f9ee4c06_t",
+      "name": "ke_timer",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -2108,7 +2108,7 @@
       "id": 56,
       "group_id": 56,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_94d9183d978b5770_t",
+      "name": "rf_cmd_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2133,7 +2133,7 @@
       "id": 57,
       "group_id": 57,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7b80613e79cb9d5c_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -2165,7 +2165,7 @@
       "id": 58,
       "group_id": 58,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dcf6c447ba1b79c4_t",
+      "name": "rf_ctx_blob",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2190,7 +2190,7 @@
       "id": 59,
       "group_id": 59,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_989d79c8f6841867_t",
+      "name": "rf_cal_param",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -2220,7 +2220,7 @@
       "id": 60,
       "group_id": 60,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_02b937d5e3575137_t",
+      "name": "rf_ctrl_ctx",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -2245,7 +2245,7 @@
       "id": 61,
       "group_id": 61,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ebe081d5a6602816_t",
+      "name": "msg_hdr_frag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2270,7 +2270,7 @@
       "id": 62,
       "group_id": 62,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7d39c50d21c3175f_t",
+      "name": "rf_cal_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2309,7 +2309,7 @@
       "id": 63,
       "group_id": 63,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5a48f826a86a86bc_t",
+      "name": "rf_cal_entry",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -2334,7 +2334,7 @@
       "id": 64,
       "group_id": 64,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_193136455a54ea90_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -2359,7 +2359,7 @@
       "id": 65,
       "group_id": 65,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_b4fc684f1d3e8d6a_t",
+      "name": "rf_op_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2384,7 +2384,7 @@
       "id": 66,
       "group_id": 66,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_322e89de501157cd_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -2458,7 +2458,7 @@
       "id": 67,
       "group_id": 67,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_fe34963d565524c4_t",
+      "name": "rf_cal_coeff",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2490,7 +2490,7 @@
       "id": 68,
       "group_id": 68,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_26101caaaab44b04_t",
+      "name": "rf_phy_param_blk",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -2534,7 +2534,7 @@
       "id": 69,
       "group_id": 69,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f6c9bed73e894202_t",
+      "name": "rf_cal_param",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -2566,7 +2566,7 @@
       "id": 70,
       "group_id": 70,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1fbd3e90349dfea9_t",
+      "name": "rf_ctx_ref",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -2591,7 +2591,7 @@
       "id": 71,
       "group_id": 71,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_6abdb09095ee30fa_t",
+      "name": "rf_cfg",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -2616,7 +2616,7 @@
       "id": 72,
       "group_id": 72,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5f8d98c95d890899_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -2641,7 +2641,7 @@
       "id": 73,
       "group_id": 73,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_6d3091d7dec7574a_t",
+      "name": "rf_iq_cal_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -2680,7 +2680,7 @@
       "id": 74,
       "group_id": 74,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3f0db2d6c78fbdeb_t",
+      "name": "rf_cal_param",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -2705,7 +2705,7 @@
       "id": 75,
       "group_id": 75,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e2eb643af7bf3cd7_t",
+      "name": "rf_cfg_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -2730,7 +2730,7 @@
       "id": 76,
       "group_id": 76,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4465f9198320e57b_t",
+      "name": "rf_idx_entry",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -2755,7 +2755,7 @@
       "id": 77,
       "group_id": 77,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dca9fcc8f9d3947e_t",
+      "name": "rf_cal_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2794,7 +2794,7 @@
       "id": 78,
       "group_id": 78,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_6ef1f87e4a007900_t",
+      "name": "rf_cal_chan_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -2840,7 +2840,7 @@
       "id": 79,
       "group_id": 79,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c6fae80132b57a32_t",
+      "name": "rf_cal_tail",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -2872,7 +2872,7 @@
       "id": 80,
       "group_id": 80,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5982f24b8f374757_t",
+      "name": "rf_cal_param_desc",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -2916,7 +2916,7 @@
       "id": 81,
       "group_id": 81,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a277abf5f806975d_t",
+      "name": "rf_cal_cfg",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -3064,7 +3064,7 @@
       "id": 83,
       "group_id": 83,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_866cce8693c82405_t",
+      "name": "rf_lmac_entry",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -3089,7 +3089,7 @@
       "id": 84,
       "group_id": 84,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_42eec7356608c879_t",
+      "name": "co_list_node",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -3114,7 +3114,7 @@
       "id": 85,
       "group_id": 85,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_2a0d4bd02e91b1c0_t",
+      "name": "rf_cal_chan_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3160,7 +3160,7 @@
       "id": 86,
       "group_id": 86,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7b2936a4a1a2d468_t",
+      "name": "rf_phy_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -3185,7 +3185,7 @@
       "id": 87,
       "group_id": 87,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a791fe25f77459d1_t",
+      "name": "rf_cal_pair",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -3217,7 +3217,7 @@
       "id": 88,
       "group_id": 88,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_fddbd8a3b87c202c_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3249,7 +3249,7 @@
       "id": 89,
       "group_id": 89,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_2cbcc6886180d383_t",
+      "name": "rf_phy_cfg_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -3281,7 +3281,7 @@
       "id": 90,
       "group_id": 90,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4c2761b26d9968ff_t",
+      "name": "rf_cal_status",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -3306,7 +3306,7 @@
       "id": 91,
       "group_id": 91,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_da0e2545c0b045da_t",
+      "name": "rf_cfg_flag",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -3331,7 +3331,7 @@
       "id": 92,
       "group_id": 92,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5d51b974e1ed30b4_t",
+      "name": "rf_ctrl_flags",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -3356,7 +3356,7 @@
       "id": 93,
       "group_id": 93,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c1f2edc4666a62e5_t",
+      "name": "rf_cal_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -3386,7 +3386,7 @@
       "id": 94,
       "group_id": 94,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3473d82ffc7f9d38_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -3411,7 +3411,7 @@
       "id": 95,
       "group_id": 95,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_0fa67755ba3d2969_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -3436,7 +3436,7 @@
       "id": 96,
       "group_id": 96,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ba4db59ecb412afe_t",
+      "name": "rf_ctrl_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3461,7 +3461,7 @@
       "id": 97,
       "group_id": 97,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_22ec57d70888b96b_t",
+      "name": "rf_env_frag",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -3486,7 +3486,7 @@
       "id": 98,
       "group_id": 98,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7dd1ba7268cad807_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -3532,7 +3532,7 @@
       "id": 99,
       "group_id": 99,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_46d8a43be1476f36_t",
+      "name": "rf_param_block",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -3557,7 +3557,7 @@
       "id": 100,
       "group_id": 100,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_8cfbc74f5dad038c_t",
+      "name": "rf_cal_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3596,7 +3596,7 @@
       "id": 101,
       "group_id": 101,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f87c91cd66a0e061_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -3628,7 +3628,7 @@
       "id": 102,
       "group_id": 102,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7153ecccc64f1408_t",
+      "name": "rf_cal_param",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -3674,7 +3674,7 @@
       "id": 103,
       "group_id": 103,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7c3a14e4950f39dc_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -3727,7 +3727,7 @@
       "id": 104,
       "group_id": 104,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c8c386800c339d62_t",
+      "name": "rf_cal_param",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -3752,7 +3752,7 @@
       "id": 105,
       "group_id": 105,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5dddf4f405933bcb_t",
+      "name": "rf_cal_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -3777,7 +3777,7 @@
       "id": 106,
       "group_id": 106,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5f913cb8bc708d42_t",
+      "name": "rf_ctrl_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -3809,7 +3809,7 @@
       "id": 107,
       "group_id": 107,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4e8265f279dbdf36_t",
+      "name": "rf_cal_entry",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -3841,7 +3841,7 @@
       "id": 108,
       "group_id": 108,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_8a036e7e8c8f34e7_t",
+      "name": "rf_msg_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -3866,7 +3866,7 @@
       "id": 109,
       "group_id": 109,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5ef98d1300729b72_t",
+      "name": "lmac_rf_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -3891,7 +3891,7 @@
       "id": 110,
       "group_id": 110,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f97e01fef11b47f8_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3937,7 +3937,7 @@
       "id": 111,
       "group_id": 111,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c3b53ddd7be363b0_t",
+      "name": "rf_param_overlay",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -3967,7 +3967,7 @@
       "id": 112,
       "group_id": 112,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1fde98a9a9b51dd8_t",
+      "name": "rf_param_pair",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -3999,7 +3999,7 @@
       "id": 113,
       "group_id": 113,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e444b4c1b93fe6f4_t",
+      "name": "rf_cal_state",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4031,7 +4031,7 @@
       "id": 114,
       "group_id": 114,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ccf0e6af23073e20_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4056,7 +4056,7 @@
       "id": 115,
       "group_id": 115,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_bf706901a513e4dd_t",
+      "name": "rf_cal_ctrl",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -4095,7 +4095,7 @@
       "id": 116,
       "group_id": 116,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_507cdcd951aec6fd_t",
+      "name": "rf_ctrl_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4127,7 +4127,7 @@
       "id": 117,
       "group_id": 117,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_53ea5f8e93d46b2e_t",
+      "name": "rf_test_cmd",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4225,7 +4225,7 @@
       "id": 118,
       "group_id": 118,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_62f550d8f0fe0a62_t",
+      "name": "rf_cal_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -4257,7 +4257,7 @@
       "id": 119,
       "group_id": 119,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e2a1725c24ebc590_t",
+      "name": "rf_cal_param",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -4282,7 +4282,7 @@
       "id": 120,
       "group_id": 120,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4e0bc7e5657bf826_t",
+      "name": "cal_list_node",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -4307,7 +4307,7 @@
       "id": 121,
       "group_id": 121,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_285e0f9d5adb78a1_t",
+      "name": "rf_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4332,7 +4332,7 @@
       "id": 122,
       "group_id": 122,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ff416ab5f1b70016_t",
+      "name": "rf_cal_chan_cfg",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -4378,7 +4378,7 @@
       "id": 123,
       "group_id": 123,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_b10137c031c212bd_t",
+      "name": "rf_lut_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4410,7 +4410,7 @@
       "id": 124,
       "group_id": 124,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_da41885616d9f320_t",
+      "name": "rf_param_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4435,7 +4435,7 @@
       "id": 125,
       "group_id": 125,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ffd6d6f3fd28eedc_t",
+      "name": "rf_chan_cfg",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -4472,7 +4472,7 @@
       "id": 126,
       "group_id": 126,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c84856e619d9b096_t",
+      "name": "rf_iq_cal_pair",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4504,7 +4504,7 @@
       "id": 127,
       "group_id": 127,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_13e44f03037cbbdb_t",
+      "name": "rf_reg_param",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4529,7 +4529,7 @@
       "id": 128,
       "group_id": 128,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_beb54edbc2808da2_t",
+      "name": "ptr_node",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -4554,7 +4554,7 @@
       "id": 129,
       "group_id": 129,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f9c6379d3e24b2f9_t",
+      "name": "rf_cal_coeff_blk",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -4593,7 +4593,7 @@
       "id": 130,
       "group_id": 130,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1dea9ed6c2a0bce2_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4618,7 +4618,7 @@
       "id": 131,
       "group_id": 131,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_341bba67bc55c6c8_t",
+      "name": "rf_iq_param",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -4650,7 +4650,7 @@
       "id": 132,
       "group_id": 132,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a985326216d2eaf8_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -4675,7 +4675,7 @@
       "id": 133,
       "group_id": 133,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e40dc22b933af723_t",
+      "name": "rf_cal_entry",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -4707,7 +4707,7 @@
       "id": 134,
       "group_id": 134,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_fbdbe47bea5f1f9d_t",
+      "name": "rf_ctrl_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -4751,7 +4751,7 @@
       "id": 135,
       "group_id": 135,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f670ad470489e3d9_t",
+      "name": "rf_cal_coeff",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -4790,7 +4790,7 @@
       "id": 136,
       "group_id": 136,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a194d4361fd8b82d_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4836,7 +4836,7 @@
       "id": 137,
       "group_id": 137,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_770945b285444a85_t",
+      "name": "rf_cal_ctx",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -4950,7 +4950,7 @@
       "id": 138,
       "group_id": 138,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_d3b9b2fca1ffd7e5_t",
+      "name": "rf_cal_coeff",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5042,7 +5042,7 @@
       "id": 140,
       "group_id": 140,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e6d7646e0b18348a_t",
+      "name": "rf_cal_entry",
       "primary_arg": "v7",
       "fingerprint": [
         {

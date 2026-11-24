@@ -33,24 +33,108 @@ type FieldInput struct {
 // Uses a 2-turn strategy: Turn 1 asks for a one-line name, Turn 2 asks for
 // the full JSON. The 2-turn approach avoids the model getting stuck in
 // thinking before producing the answer.
+// structNamingSystemPrompt is a byte-identical static prefix (>1,200 tokens)
+// shared across every cluster and both Turn 1 and Turn 2 so providers with
+// >=1,024-token prefix caching (e.g. Alibaba Token Plan deepseek-v4.1-flash-1017)
+// hit cache on every subsequent request and on Turn 2 continuation.
+const structNamingSystemPrompt = `You are a senior embedded WiFi/Bluetooth firmware reverse engineer specializing in ARM Cortex-M4 Thumb-2 wireless SoC firmware, specifically the AIC8800D80 (Marvell 88W8800 / RivieraWaves RW-NX MAC + LMAC/FMAC split) wireless chipset.
+
+=== TARGET PLATFORM & FIRMWARE ARCHITECTURE ===
+1. CPU & ABI:
+   - ARM Cortex-M4F (ARMv7E-M, Thumb-2 instruction set, little-endian, 32-bit pointers, VFPv4-SP).
+   - AAPCS calling convention: a1..a4 map to r0..r3; struct pointers are typically passed in a1 (r0) for object methods or a2 (r1) for event/message handlers.
+   - Four firmware images exist in this repository:
+     * fmacfw_8800d80_h_u02_bin: FullMAC WiFi host-interface variant (SDIO/USB high-throughput host offload, ~340 KB).
+     * fmacfw_8800d80_u02_bin: FullMAC WiFi standard variant (802.11a/b/g/n/ac/ax MAC, SME/MLME, STA/AP/P2P, ~340 KB).
+     * fmacfwbt_8800d80_u02_bin: FullMAC WiFi + Bluetooth/BLE coexistence firmware (adds BT/BLE controller, HCI, PTA coex, ~340 KB).
+     * lmacfw_rf_8800d80_u02_bin: LowerMAC + RF test/calibration firmware (PHY/RF front-end, TX/RX calibration, DPD/IQ/LO/DCOC, ~220 KB).
+   - Hardware load base is 0x120000; static analysis / decompiled symbols use analysis-space base 0x100000 (file_offset + 0x100000).
+   - Peripheral MMIO occupies 0x40000000..0x60000000 (sysctrl, clock/PLL, RF/MDM/PHY, MAC-HW 0x40300000+, IPC/DMA, SDIO/USB, UART/console 0x40032000, timers/WDT 0x40501000+, crypto/AES/CCMP/GCMP/TKIP, BT/BLE baseband & PTA).
+
+2. CORE FIRMWARE SUBSYSTEMS & TYPICAL STRUCT FAMILIES:
+   - Kernel / Event Loop (ke_* / co_*):
+     * co_list_hdr (next pointer at offset 0x0, size 4), co_list (first @ 0x0, last @ 0x4).
+     * ke_msg (hdr @ 0x0, id @ 0x4, dest_id @ 0x6, src_id @ 0x8, param_len @ 0xa, param[] @ 0xc).
+     * ke_timer (next @ 0x0, id @ 0x4, task @ 0x6, time @ 0x8).
+     * ke_task_desc / ke_state_handler / ke_msg_handler (msg_id, func ptr).
+     * Dynamic heap / block allocator descriptors (free_list, pool_head, block_size, alloc_cnt, free_cnt).
+   - MAC Management & Interface State (vif_* / sta_* / mm_* / me_* / sm_* / apm_*):
+     * vif_info_tag (virtual interface: index, type STA/AP/IBSS/MONITOR, active, mac_addr[6], bssid[6], chan_ctxt, txq, bcn_int, dtim_period, key_info, ps_state, twt, uapsd).
+     * sta_info_tag (station entry: staid, inst_nbr, valid, mac_addr[6], aid, ctrl_port_state, ba_info, pol_tbl, rate_info, rssi, ps_state, txq_list, ht_cap/vht_cap/he_cap).
+     * chan_ctxt_tag / chan_tbtt_tag (channel context: band, type/bw, prim20_freq, center1_freq, center2_freq, tx_power, vif_index, status, linked list).
+     * mm_env_tag / mm_bcn_env_tag / mm_timer_tag (MAC management state, beacon template, TIM/DTIM, TSF offset, power save).
+     * scan_env_tag / scanu_env_tag (active/passive scan state, chan_idx, ssid_list, ie_addr, probe_req_desc, scan_result).
+     * sm_connect_req / sm_env_tag (STA connection state machine: bssid, ssid, auth_type, flags, vif_idx, assoc_ie, status).
+     * apm_env_tag / apm_start_req (AP mode state: bcn_addr, bcn_len, tim_oft, tim_len, bcn_int, flags, vif_idx).
+   - TX / RX Data Path & DMA Descriptors (txl_* / rxl_* / txd_* / rxd_* / dma_* / ipc_*):
+     * txdesc / tx_hw_desc / tx_hd (upatterntx, nextfrmexseq_ptr, nextmpdudesc_ptr, first_pbd_ptr, datastartptr, dataendptr, frmlen, frmlifetime, phyctrlinfo, policyentryaddr, macctrlinfo1, macctrlinfo2, statinfo).
+     * tx_pbd (upatterntx, next, datastartptr, dataendptr, bufctrlinfo).
+     * tx_cfm_tag (pn[4], sn, timestamp, credits, ampdu_size, status).
+     * rx_hd / rx_dmadesc / rx_swdesc / rx_pbd (upatternrx, next, first_pbd_ptr, swdesc, datastartptr, dataendptr, headerctrlinfo, frmlen, ampdu_stat_info, tsflo, tsfhi, recvec1a..1d, recvec2a..2b, statinfo).
+     * dma_desc (src, dest, length, ctrl, next).
+     * ipc_emb_env_tag / ipc_shared_env_tag (txdesc_idx, rxbuf_idx, msg_idx, dbg_idx, host/emb ring buffers, SDIO/USB aggregation queues).
+     * bam_env_tag / rc_sta_stats (Block Ack session: ba_policy, tid, ssn, win_size, timeout; Rate Control: retry_chain, tp, prob, mcs, bw, gi).
+   - PHY / RF Front-End & Calibration (phy_* / rf_* / mdm_* / cal_* / tpc_*):
+     * phy_cfg_tag / phy_channel_info (band, bw, freq, path_mask, tx_pwr_tbl, rssi_offset).
+     * rf_cal_ctx / rf_dpd_tbl / rf_iq_cal / rf_dcoc_cal / rf_lo_cal (gain_idx, i_coeff, q_coeff, dc_i, dc_q, lut_ptr, temp_comp, status).
+     * tpc_cfg / pwr_tbl (per-rate TX power limits for 11b/11g/11n/11ac/11ax, channel edge backoff, regulatory domain).
+   - Security / Crypto (sec_* / key_* / mfp_*):
+     * key_info_tag (key[4] uint32, tx_pn, rx_pn[16], key_idx, cipher_suite WEP/TKIP/CCMP/GCMP/BIP, hw_key_idx, valid).
+   - Bluetooth / BLE & Coexistence (bt_* / hci_* / lmp_* / ll_* / pta_*):
+     * hci_cmd_desc / hci_acl_desc / bt_conn_ctx / ble_adv_ctx / pta_coex_cfg (opcode, param_len, handle, bd_addr[6], priority, slot_time, mask).
+   - Host Interface, Logging & Utility (sdio_* / usb_* / uart_* / log_* / ring_buf_*):
+     * ring_buf (base, size, head, tail, count, mask).
+     * log_ctx / dbg_env (level, mask, uart_base, fmt_buf, timestamp).
+
+=== STRUCT NAMING METHODOLOGY ===
+When analyzing a recovered struct cluster:
+1. Inspect the field offset map and field sizes (1=uint8/flags/idx, 2=uint16/len/id/port, 4=uint32/ptr/reg/mask, 6=MAC/BD addr, 8=uint64/TSF/PN).
+2. Inspect the sample caller function names and code snippet for domain clues (subsystem prefix, register accesses, list links at offset 0x0, state fields, counters, flags, pointers).
+3. Choose a concise, idiomatic C snake_case struct name (NO leading "struct_" and NO trailing "_t" unless already a standard short tag; e.g., "vif_state", "tx_hw_desc", "rf_cal_ctx", "ke_timer_node", "sdio_rx_ring", "scan_chan_cfg"). Never emit generic placeholder names like "struct_shape_*" or "unknown_struct".
+4. Choose concise semantic snake_case field names (e.g., "next", "state", "flags", "len", "mac_addr", "chan", "tx_pwr", "status", "cb", "ctx"). Never embed raw hex offsets like "field_0x10" in field names.
+
+=== TWO-TURN INTERACTION PROTOCOL ===
+- Turn 1 (Brief): You receive the full struct cluster layout, field offsets/sizes, reader/writer hints, sample caller functions, and code snippet. Respond with ONE concise plain-text line describing what this struct represents (no markdown, no code fences, no "struct" prefix).
+- Turn 2 (JSON): In the next turn of the same conversation, you will be asked to emit ONLY a single valid JSON object with NO prose, NO markdown fences, and NO commentary, using this exact schema:
+  {"struct_name":"<snake_case>","fields":[{"name":"<snake_case>","comment":"<one-line semantic>"}]}
+  Emit one entry in "fields" for each input field, in the exact same offset order.`
+
+// NameStruct asks the LLM to propose a name + field names for a struct.
+//
+// Uses a 2-turn append-only conversation sharing the >1,200-token static
+// system prompt so both cross-cluster requests and Turn 2 hit the prompt cache.
 func NameStruct(ctx context.Context, c *Client, in StructProposalInput) (*StructProposal, error) {
-	// Turn 1: brief
-	t1System := "You are a senior firmware reverse engineer. You will be given a struct's field layout and asked to name it concisely. Answer in 1 short line. Do not include a prefix like 'struct'."
-	t1User := buildBriefPrompt(in)
-	brief, err := c.Call(ctx, t1System, t1User, false)
+	t1User := buildFullStructPrompt(in)
+	t1Msgs := []Message{
+		{Role: "system", Content: structNamingSystemPrompt},
+		{Role: "user", Content: t1User},
+	}
+	brief, err := c.CallMessages(ctx, t1Msgs, false)
 	if err != nil {
 		return nil, fmt.Errorf("turn1: %w", err)
 	}
 	brief = cleanBrief(brief)
-	// Turn 2: full JSON
-	t2System := "You are a senior firmware reverse engineer. Output JSON only, with no commentary. The JSON schema is {\"struct_name\":\"<snake_case>\",\"fields\":[{\"name\":\"<snake_case>\",\"comment\":\"<one-line semantic>\"}]}. Do not include offsets in field names; use semantic names from firmware context."
-	t2User := buildJSONPrompt(in, brief)
-	resp, err := c.Call(ctx, t2System, t2User, true)
+
+	t2Msgs := []Message{
+		{Role: "system", Content: structNamingSystemPrompt},
+		{Role: "user", Content: t1User},
+		{Role: "assistant", Content: brief},
+		{Role: "user", Content: fmt.Sprintf(
+			"Now output ONLY the JSON object matching the schema for this %d-field struct in exact offset order. "+
+				"Use concise semantic snake_case names (no hex offsets, no 'struct_' prefix). No prose or markdown.",
+			len(in.Fields),
+		)},
+	}
+	resp, err := c.CallMessages(ctx, t2Msgs, true)
 	if err != nil {
 		return nil, fmt.Errorf("turn2: %w", err)
 	}
-	// Parse JSON, tolerate junk
-	return parseProposal(resp, in)
+	prop, err := parseProposal(resp, in)
+	if err != nil {
+		return nil, err
+	}
+	prop.Brief = brief
+	return prop, nil
 }
 
 // StructProposal is the LLM's output.
@@ -65,12 +149,19 @@ type StructFieldName struct {
 	Comment string `json:"comment"`
 }
 
-func buildBriefPrompt(in StructProposalInput) string {
+func buildFullStructPrompt(in StructProposalInput) string {
 	var b strings.Builder
 	b.WriteString(fmt.Sprintf("Image: %s, cluster %d, primary arg: %s\n", in.Image, in.ClusterID, in.PrimaryArg))
-	b.WriteString(fmt.Sprintf("Fields (%d):\n", len(in.Fields)))
+	b.WriteString(fmt.Sprintf("Fields (%d), in offset order:\n", len(in.Fields)))
 	for _, f := range in.Fields {
-		b.WriteString(fmt.Sprintf("  %s @ offset 0x%x size=%d\n", f.Name, f.Offset, f.Size))
+		hint := ""
+		if f.ReaderHint != "" {
+			hint += " [readers: " + f.ReaderHint + "]"
+		}
+		if f.WriterHint != "" {
+			hint += " [writers: " + f.WriterHint + "]"
+		}
+		b.WriteString(fmt.Sprintf("  %s @ offset=0x%x size=%d%s\n", f.Name, f.Offset, f.Size, hint))
 	}
 	b.WriteString("\nSample caller funcs (top 5):\n")
 	for i, fn := range in.SampleFuncs {
@@ -87,26 +178,7 @@ func buildBriefPrompt(in StructProposalInput) string {
 			b.WriteString(in.SampleCode + "\n")
 		}
 	}
-	b.WriteString("\nIn one short line, what is this struct likely to be? (e.g. 'WiFi vif state', 'mmio register poll context', 'tx packet buffer').")
-	return b.String()
-}
-
-func buildJSONPrompt(in StructProposalInput, brief string) string {
-	var b strings.Builder
-	b.WriteString("Brief: " + brief + "\n\n")
-	b.WriteString(fmt.Sprintf("Image: %s, cluster %d, primary arg: %s\n", in.Image, in.ClusterID, in.PrimaryArg))
-	b.WriteString(fmt.Sprintf("Fields (%d), in offset order:\n", len(in.Fields)))
-	for _, f := range in.Fields {
-		hint := ""
-		if f.ReaderHint != "" {
-			hint += " [readers: " + f.ReaderHint + "]"
-		}
-		if f.WriterHint != "" {
-			hint += " [writers: " + f.WriterHint + "]"
-		}
-		b.WriteString(fmt.Sprintf("  offset=0x%x size=%d%s\n", f.Offset, f.Size, hint))
-	}
-	b.WriteString("\nOutput JSON with struct_name and fields. Field names should be semantic (e.g. 'mac_addr', 'bssid_lo', 'op', 'state'). 6-8 chars max per name. No prefixes.")
+	b.WriteString("\nTurn 1: In one short line, what is this struct likely to be?")
 	return b.String()
 }
 

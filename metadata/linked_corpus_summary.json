@@ -1,86 +1,64 @@
 {
-  "functions": 4714,
+  "functions": 4720,
   "outcomes": {
-    "DIFFER": 228,
-    "MATCH": 4230,
-    "NOT_RUN": 256
+    "DIFFER": 55,
+    "MATCH": 4346,
+    "NOT_RUN": 319
   },
-  "per_image": {
+  "per_image_match": {
     "fmacfw_8800d80_h_u02": {
-      "DIFFER": 40,
-      "MATCH": 1174,
-      "NOT_RUN": 69
+      "MATCH": 1186,
+      "total": 1284
     },
     "fmacfw_8800d80_u02": {
-      "DIFFER": 39,
-      "MATCH": 1174,
-      "NOT_RUN": 69
+      "MATCH": 1188,
+      "total": 1285
     },
     "fmacfwbt_8800d80_u02": {
-      "DIFFER": 41,
-      "MATCH": 1181,
-      "NOT_RUN": 62
+      "MATCH": 1193,
+      "total": 1285
     },
     "lmacfw_rf_8800d80_u02": {
-      "DIFFER": 108,
-      "MATCH": 701,
-      "NOT_RUN": 56
+      "MATCH": 779,
+      "total": 866
     }
   },
   "groups": {
     "DIFFER": {
-      "console_text": 122,
-      "no_return_in:prepare_debug_buffer": 12,
-      "no_return_in:periph_write_read": 10,
-      "no_return_in:clock_start": 7,
-      "no_return_in:mmio_write_cmd": 7,
-      "no_return_in:send_command": 7,
-      "assert_trap_only_in_original": 6,
-      "no_return_in:rf_init_regs": 5,
-      "no_return_in:rx_process_packet_2": 4,
-      "no_return_in:crypto_start_operation": 3,
-      "no_return_in:hw_init": 3,
-      "no_return_in:main_loop_dispatch": 3,
-      "no_return_in:rf_cal_init": 3,
-      "register_write_in:load_const_table": 2,
-      "register_write_in:load_device_desc": 2,
-      "register_write_in:memcpy_from_rodata": 2,
-      "register_write_in:noop_130E00": 2,
-      "register_write_in:rf_load_calib_data": 2,
+      "console_text": 24,
+      "register_write_in:bt_enable": 2,
+      "register_write_in:format_log_message": 2,
+      "register_write_in:radio_init": 2,
+      "register_write_in:rf_calibrate": 2,
+      "register_write_in:sdio_irq_enable": 2,
+      "register_write_in:tx_packet_handler": 2,
       "no_return_in:__aeabi_ddiv_nan": 1,
-      "no_return_in:bt_get_conn_interval": 1,
-      "no_return_in:check_event_flag": 1,
       "no_return_in:double_compare_ord": 1,
       "no_return_in:double_divide": 1,
       "no_return_in:double_unordered": 1,
-      "no_return_in:enable_radio_controller": 1,
-      "no_return_in:mac_status_check": 1,
-      "no_return_in:mmio_wait_flag": 1,
-      "no_return_in:rx_packet_pending": 1,
-      "no_return_in:scan_process_list": 1,
-      "no_return_in:tx_handle_acked_list": 1,
-      "register_write_in:check_abort_flag": 1,
-      "register_write_in:cmd_handler_a": 1,
       "register_write_in:gpio_mode_set": 1,
+      "register_write_in:gpio_pad_ctrl_set": 1,
+      "register_write_in:gpio_set_alternate": 1,
       "register_write_in:gpio_set_pin_mode": 1,
-      "register_write_in:is_patch_loaded": 1,
-      "register_write_in:llm_pdu_tx_cfg": 1,
+      "register_write_in:load_const_table": 1,
+      "register_write_in:load_device_desc": 1,
       "register_write_in:mac_irq_enable": 1,
       "register_write_in:mac_tx_enable": 1,
-      "register_write_in:memcpy": 1,
+      "register_write_in:memcpy_from_rodata": 1,
       "register_write_in:rf_analog_ctrl_set": 1,
-      "register_write_in:rf_reg_update": 1,
-      "register_write_in:ring_buf_used": 1,
-      "register_write_in:scan_enable": 1,
-      "register_write_in:wlan_ioctl_handler_1": 1
+      "register_write_in:rf_calibrate_tx": 1,
+      "register_write_in:rf_control_field_set": 1,
+      "register_write_in:rf_gpio_init_alt": 1,
+      "register_write_in:rf_load_calib_data": 1,
+      "register_write_in:scan_enable": 1
     },
     "MATCH": {
-      "identical_peripheral_writes": 3694,
-      "identical_peripheral_writes_up_to_assert_trap": 536
+      "identical_peripheral_writes": 3803,
+      "identical_peripheral_writes_up_to_assert_trap": 543
     },
     "NOT_RUN": {
-      "original_does_not_return_standalone": 187,
-      "not_in_linked_image": 69
+      "original_does_not_return_standalone": 205,
+      "not_in_linked_image": 114
     }
   }
 }

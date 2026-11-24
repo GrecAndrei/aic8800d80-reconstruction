@@ -8,7 +8,7 @@
       "id": 0,
       "group_id": 0,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3c7a068a532c9e4e_t",
+      "name": "msg_u32_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -38,7 +38,7 @@
       "id": 1,
       "group_id": 1,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_306cfb76c87b2c18_t",
+      "name": "handle_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -68,7 +68,7 @@
       "id": 2,
       "group_id": 2,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ba4db59ecb412afe_t",
+      "name": "sub_ctx_ref",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -95,7 +95,7 @@
       "id": 3,
       "group_id": 3,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6b35cd45849bd10e_t",
+      "name": "env_ctx_tail",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -122,7 +122,7 @@
       "id": 4,
       "group_id": 4,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_975b6fd59387d14b_t",
+      "name": "dma_desc_frag",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -163,7 +163,7 @@
       "id": 5,
       "group_id": 5,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3e4b5fc8f2a7c454_t",
+      "name": "mac_ctx_tail",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -197,7 +197,7 @@
       "id": 6,
       "group_id": 6,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4def596b8bf5b753_t",
+      "name": "list_node_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -223,7 +223,7 @@
       "id": 7,
       "group_id": 7,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f904beea6e5be58a_t",
+      "name": "vif_mm_ctrl_tail",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -256,7 +256,7 @@
       "id": 8,
       "group_id": 8,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1e0091ad357bab48_t",
+      "name": "host_if_node",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -289,7 +289,7 @@
       "id": 9,
       "group_id": 9,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a8a5029bcd02a3a3_t",
+      "name": "msg_param_hdr",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -315,7 +315,7 @@
       "id": 10,
       "group_id": 10,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_38fa8c258298ced6_t",
+      "name": "msg_param_hdr",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -341,7 +341,7 @@
       "id": 11,
       "group_id": 11,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d3bec76ef8c6e5b6_t",
+      "name": "hif_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -367,7 +367,7 @@
       "id": 12,
       "group_id": 12,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_409f10655144dcf3_t",
+      "name": "cb_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -393,7 +393,7 @@
       "id": 13,
       "group_id": 13,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b10137c031c212bd_t",
+      "name": "host_dma_entry",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -426,7 +426,7 @@
       "id": 14,
       "group_id": 14,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7b2936a4a1a2d468_t",
+      "name": "evt_param_hdr",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -452,7 +452,7 @@
       "id": 15,
       "group_id": 15,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f5f80a7c2a2fa490_t",
+      "name": "ctx_handle_ref",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -478,7 +478,7 @@
       "id": 16,
       "group_id": 16,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b880c8e36ddba43e_t",
+      "name": "desc_tail_overlay",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -509,7 +509,7 @@
       "id": 17,
       "group_id": 17,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3f0db2d6c78fbdeb_t",
+      "name": "ref_node",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -535,7 +535,7 @@
       "id": 18,
       "group_id": 18,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_29efb92ad2ea275d_t",
+      "name": "env_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -561,7 +561,7 @@
       "id": 19,
       "group_id": 19,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_029170a7ff473d50_t",
+      "name": "fw_env_ctx",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -587,7 +587,7 @@
       "id": 20,
       "group_id": 20,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ae1204ace4b6a2e4_t",
+      "name": "buf_desc",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -620,7 +620,7 @@
       "id": 21,
       "group_id": 21,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8b69a534290e32c7_t",
+      "name": "dma_pair_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -653,7 +653,7 @@
       "id": 22,
       "group_id": 22,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_47f042a577f4c5e7_t",
+      "name": "event_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -684,7 +684,7 @@
       "id": 23,
       "group_id": 23,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_42eec7356608c879_t",
+      "name": "co_list_anchor",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -710,7 +710,7 @@
       "id": 24,
       "group_id": 24,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f669633e804759b7_t",
+      "name": "subsys_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -763,7 +763,7 @@
       "id": 25,
       "group_id": 25,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f6aa5a7a7fda090c_t",
+      "name": "vif_state",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -823,7 +823,7 @@
       "id": 26,
       "group_id": 26,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a791fe25f77459d1_t",
+      "name": "ke_msg_id_pair",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -855,7 +855,7 @@
       "id": 27,
       "group_id": 27,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cc54be044e3129b9_t",
+      "name": "mac_ctx_fragment",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -887,7 +887,7 @@
       "id": 28,
       "group_id": 28,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_bf972c2d384880fe_t",
+      "name": "hci_if_frame_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -959,7 +959,7 @@
       "id": 29,
       "group_id": 29,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5b4ed6eb930c8c94_t",
+      "name": "cfg_state",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -998,7 +998,7 @@
       "id": 30,
       "group_id": 30,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_511c8c9d7001e050_t",
+      "name": "packed_desc_tail",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -1030,7 +1030,7 @@
       "id": 31,
       "group_id": 31,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cca0d43d3e134166_t",
+      "name": "vif_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1083,7 +1083,7 @@
       "id": 32,
       "group_id": 32,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_04ece1d8a95e2451_t",
+      "name": "phy_path_cfg",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -1115,7 +1115,7 @@
       "id": 33,
       "group_id": 33,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8279af0cb4ae85a4_t",
+      "name": "mac_addr_words",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1147,7 +1147,7 @@
       "id": 34,
       "group_id": 34,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3ba5a57b69cf0ec9_t",
+      "name": "host_buf_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1186,7 +1186,7 @@
       "id": 35,
       "group_id": 35,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_27d2ad114e4fa19d_t",
+      "name": "pkt_hdr_overlay",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -1218,7 +1218,7 @@
       "id": 36,
       "group_id": 36,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3232b1c9384217b2_t",
+      "name": "mm_env_tag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1257,7 +1257,7 @@
       "id": 37,
       "group_id": 37,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2ec5e40452c035f1_t",
+      "name": "mac_state_block",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -1282,7 +1282,7 @@
       "id": 38,
       "group_id": 38,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_992a96b24e2cbfb9_t",
+      "name": "host_if_ctx",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -1335,7 +1335,7 @@
       "id": 39,
       "group_id": 39,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_62f550d8f0fe0a62_t",
+      "name": "mac_word_view",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1367,7 +1367,7 @@
       "id": 40,
       "group_id": 40,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_38f46b313713524c_t",
+      "name": "msg_param_view",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -1406,7 +1406,7 @@
       "id": 41,
       "group_id": 41,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a622a52e753ecd09_t",
+      "name": "co_list_node_ptr",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -1431,7 +1431,7 @@
       "id": 42,
       "group_id": 42,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2e2972028ffc9d1c_t",
+      "name": "mm_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1470,7 +1470,7 @@
       "id": 43,
       "group_id": 43,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c2a45d1247dbb61d_t",
+      "name": "hostif_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1502,7 +1502,7 @@
       "id": 44,
       "group_id": 44,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b4fc684f1d3e8d6a_t",
+      "name": "msg_node",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1527,7 +1527,7 @@
       "id": 45,
       "group_id": 45,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b6aa92bf4a126183_t",
+      "name": "mac_ctrl_overlay",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1564,7 +1564,7 @@
       "id": 46,
       "group_id": 46,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e7b356a3f8117c5e_t",
+      "name": "ctx_entry",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -1596,7 +1596,7 @@
       "id": 47,
       "group_id": 47,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a9da358ceb7904fe_t",
+      "name": "phy_cfg_desc",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -1628,7 +1628,7 @@
       "id": 48,
       "group_id": 48,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_285e0f9d5adb78a1_t",
+      "name": "ke_msg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1653,7 +1653,7 @@
       "id": 49,
       "group_id": 49,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b4b78fcdbf97dce4_t",
+      "name": "host_xfer_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -1718,7 +1718,7 @@
       "id": 50,
       "group_id": 50,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3f08f80ddabe5739_t",
+      "name": "vif_info",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -1834,7 +1834,7 @@
       "id": 51,
       "group_id": 51,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5f08773c1ad09cef_t",
+      "name": "rx_frame_info",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -1885,7 +1885,7 @@
       "id": 52,
       "group_id": 52,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5dd2b94aede8e2b0_t",
+      "name": "ctx_handle",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -1910,7 +1910,7 @@
       "id": 53,
       "group_id": 53,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c586f163c753ed78_t",
+      "name": "tx_pwr_cfg",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -2031,7 +2031,7 @@
       "id": 54,
       "group_id": 54,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e9977a9b3036a8b2_t",
+      "name": "ke_param_ie_blob",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2117,7 +2117,7 @@
       "id": 55,
       "group_id": 55,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_30cf4a9ac2415bfc_t",
+      "name": "ke_msg",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -2210,7 +2210,7 @@
       "id": 56,
       "group_id": 56,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_dff9da6d21afaa4d_t",
+      "name": "host_if_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -2256,7 +2256,7 @@
       "id": 57,
       "group_id": 57,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a8e5c3fec221b22a_t",
+      "name": "host_if_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -2309,7 +2309,7 @@
       "id": 58,
       "group_id": 58,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e3b4aa4afcae60c9_t",
+      "name": "event_param_blk",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -2348,7 +2348,7 @@
       "id": 59,
       "group_id": 59,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e118c4b0240ff8ba_t",
+      "name": "tx_desc_ctrl_tail",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2394,7 +2394,7 @@
       "id": 60,
       "group_id": 60,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5c292cc39adba4a1_t",
+      "name": "ipc_cmd_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2426,7 +2426,7 @@
       "id": 61,
       "group_id": 61,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cf1dcc428c17eb5a_t",
+      "name": "packed_iface_buf_hdr",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2493,7 +2493,7 @@
       "id": 62,
       "group_id": 62,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7831ef8ca2b3f0b1_t",
+      "name": "ke_msg_hdr",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -2525,7 +2525,7 @@
       "id": 63,
       "group_id": 63,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3ad9ac0f5fba51b2_t",
+      "name": "host_cmd_desc",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -2604,7 +2604,7 @@
       "id": 64,
       "group_id": 64,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1bb372710006a20f_t",
+      "name": "ipc_ring_idx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -2664,7 +2664,7 @@
       "id": 65,
       "group_id": 65,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1a8aedb39847ae63_t",
+      "name": "mm_vif_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2696,7 +2696,7 @@
       "id": 66,
       "group_id": 66,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c21e2eec551006c1_t",
+      "name": "packed_elem_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2740,7 +2740,7 @@
       "id": 67,
       "group_id": 67,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_190ca4e7019851cd_t",
+      "name": "ipc_host_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2786,7 +2786,7 @@
       "id": 68,
       "group_id": 68,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a66e61f371158358_t",
+      "name": "ipc_host_env",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -2846,7 +2846,7 @@
       "id": 69,
       "group_id": 69,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7928bff0fecef949_t",
+      "name": "tx_hw_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2906,7 +2906,7 @@
       "id": 70,
       "group_id": 70,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ba81abf971ac381a_t",
+      "name": "ctx_param_block",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -2938,7 +2938,7 @@
       "id": 71,
       "group_id": 71,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_0e148955fa13f5a0_t",
+      "name": "ke_msg_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -2970,7 +2970,7 @@
       "id": 72,
       "group_id": 72,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8ffba2313dbf3287_t",
+      "name": "mac_state_flags",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -3002,7 +3002,7 @@
       "id": 73,
       "group_id": 73,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1d48a6ed2f6cc94d_t",
+      "name": "vif_state_byte",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3027,7 +3027,7 @@
       "id": 74,
       "group_id": 74,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_acacba8ee85e60c3_t",
+      "name": "mac_key",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -3059,7 +3059,7 @@
       "id": 75,
       "group_id": 75,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d3b9b2fca1ffd7e5_t",
+      "name": "tx_cfm_tag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3119,7 +3119,7 @@
       "id": 76,
       "group_id": 76,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b468cb8a92291cc8_t",
+      "name": "short_msg_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3144,7 +3144,7 @@
       "id": 77,
       "group_id": 77,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_99a32efb8559066b_t",
+      "name": "env_ctrl_block",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -3183,7 +3183,7 @@
       "id": 78,
       "group_id": 78,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a8524cac4af1d612_t",
+      "name": "msg_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3229,7 +3229,7 @@
       "id": 79,
       "group_id": 79,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7153ecccc64f1408_t",
+      "name": "cmd_desc",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -3275,7 +3275,7 @@
       "id": 80,
       "group_id": 80,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_753ff80a26c17562_t",
+      "name": "msg_hdr_len",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -3300,7 +3300,7 @@
       "id": 81,
       "group_id": 81,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9fcc458b5ec11b75_t",
+      "name": "fw_ctrl_blk",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3325,7 +3325,7 @@
       "id": 82,
       "group_id": 82,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4465f9198320e57b_t",
+      "name": "ctrl_state_hdr",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -3350,7 +3350,7 @@
       "id": 83,
       "group_id": 83,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5cccc29be60ec9ec_t",
+      "name": "mgmt_frame_trailer",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -3387,7 +3387,7 @@
       "id": 84,
       "group_id": 84,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c92130dbf1b81fd8_t",
+      "name": "txrx_desc_ctrl",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3535,7 +3535,7 @@
       "id": 85,
       "group_id": 85,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_699141ab12b11fd3_t",
+      "name": "handler_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -3567,7 +3567,7 @@
       "id": 86,
       "group_id": 86,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_52c2f30b37c57e7e_t",
+      "name": "rf_channel_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3620,7 +3620,7 @@
       "id": 87,
       "group_id": 87,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f09128f8a2e33889_t",
+      "name": "fw_env_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -3687,7 +3687,7 @@
       "id": 88,
       "group_id": 88,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e6229ea0b6c6b9f9_t",
+      "name": "mm_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3733,7 +3733,7 @@
       "id": 89,
       "group_id": 89,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_09dba87c2f5dbf64_t",
+      "name": "cmd_status",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -3758,7 +3758,7 @@
       "id": 90,
       "group_id": 90,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_34ecc3c1ccb255a5_t",
+      "name": "mac_env_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -3870,7 +3870,7 @@
       "id": 91,
       "group_id": 91,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f1a49862777666b4_t",
+      "name": "host_msg_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -3942,7 +3942,7 @@
       "id": 92,
       "group_id": 92,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_19cbbcfbd697c3e4_t",
+      "name": "fw_ctrl_flags_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4000,7 +4000,7 @@
       "id": 93,
       "group_id": 93,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c8c386800c339d62_t",
+      "name": "host_desc_ctx",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -4025,7 +4025,7 @@
       "id": 94,
       "group_id": 94,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4d31001309000c3b_t",
+      "name": "call_arg_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -4057,7 +4057,7 @@
       "id": 95,
       "group_id": 95,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_944fd37fa267570b_t",
+      "name": "rt_ctx_blk",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4082,7 +4082,7 @@
       "id": 96,
       "group_id": 96,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a60a813927eda34f_t",
+      "name": "ctrl_block_frag",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4114,7 +4114,7 @@
       "id": 97,
       "group_id": 97,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_91a05c897897f203_t",
+      "name": "vif_ctx",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -4184,7 +4184,7 @@
       "id": 98,
       "group_id": 98,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_05061dfd244c2e47_t",
+      "name": "hostif_env",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -4249,7 +4249,7 @@
       "id": 99,
       "group_id": 99,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_73c187cd93e40b68_t",
+      "name": "mgmt_body_overlay",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -4286,7 +4286,7 @@
       "id": 100,
       "group_id": 100,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cd88cd40b263e8d9_t",
+      "name": "ke_msg",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -4346,7 +4346,7 @@
       "id": 101,
       "group_id": 101,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_46d8a43be1476f36_t",
+      "name": "cmd_param_blk",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4371,7 +4371,7 @@
       "id": 102,
       "group_id": 102,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1fc0c673a4558db3_t",
+      "name": "vif_info",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4424,7 +4424,7 @@
       "id": 103,
       "group_id": 103,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_67799f0faf763566_t",
+      "name": "ipc_host_msg",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -4704,7 +4704,7 @@
       "id": 104,
       "group_id": 104,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c8094c44f0fc4b7e_t",
+      "name": "evt_ctx_frag",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -4729,7 +4729,7 @@
       "id": 105,
       "group_id": 105,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_adc722f326113116_t",
+      "name": "env_flag_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4754,7 +4754,7 @@
       "id": 106,
       "group_id": 106,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_00354c31db70e66d_t",
+      "name": "vif_state",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -4779,7 +4779,7 @@
       "id": 107,
       "group_id": 107,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_166a6958e173a83a_t",
+      "name": "ke_timer",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -4804,7 +4804,7 @@
       "id": 108,
       "group_id": 108,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e5595efc62a30418_t",
+      "name": "tx_param_cfg",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -4850,7 +4850,7 @@
       "id": 109,
       "group_id": 109,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_0ea6f4975ee9e911_t",
+      "name": "fw_env_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4875,7 +4875,7 @@
       "id": 110,
       "group_id": 110,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f9520cf68b3c8f8d_t",
+      "name": "frame_parse_view",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -4935,7 +4935,7 @@
       "id": 111,
       "group_id": 111,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c4594586bec90f0e_t",
+      "name": "vif_ctx_tail",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -4960,7 +4960,7 @@
       "id": 112,
       "group_id": 112,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_048175ad59a3661e_t",
+      "name": "host_if_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5011,7 +5011,7 @@
       "id": 113,
       "group_id": 113,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c74caaffec634a55_t",
+      "name": "dma_buf_desc",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -5057,7 +5057,7 @@
       "id": 114,
       "group_id": 114,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d7aeef2ddff6b2e3_t",
+      "name": "msg_param_byte",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -5082,7 +5082,7 @@
       "id": 115,
       "group_id": 115,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9290731f3294350e_t",
+      "name": "ctx_state_flags",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -5107,7 +5107,7 @@
       "id": 116,
       "group_id": 116,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_0710c1f0ba39b0d6_t",
+      "name": "tlv_param",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5139,7 +5139,7 @@
       "id": 117,
       "group_id": 117,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_401e6528a31b8f8e_t",
+      "name": "tx_desc_tail_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -5164,7 +5164,7 @@
       "id": 118,
       "group_id": 118,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d3f978d6da8b2a7f_t",
+      "name": "host_desc_ctx",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -5189,7 +5189,7 @@
       "id": 119,
       "group_id": 119,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_dc0978112a45e0e8_t",
+      "name": "param_hdr",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -5221,7 +5221,7 @@
       "id": 120,
       "group_id": 120,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_250c5c6f233576ee_t",
+      "name": "ke_msg_hdr",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -5267,7 +5267,7 @@
       "id": 121,
       "group_id": 121,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a2283d62454a4943_t",
+      "name": "fw_env_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -5306,7 +5306,7 @@
       "id": 122,
       "group_id": 122,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1e9c7ab2e7dc3a08_t",
+      "name": "ctx_word_528",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -5336,7 +5336,7 @@
       "id": 123,
       "group_id": 123,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9091f4347f1a318a_t",
+      "name": "mac_env_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -5375,7 +5375,7 @@
       "id": 124,
       "group_id": 124,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a85c77064b868e04_t",
+      "name": "vif_ctxt",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5433,7 +5433,7 @@
       "id": 125,
       "group_id": 125,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a5117058c18a376d_t",
+      "name": "dma_desc_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -5477,7 +5477,7 @@
       "id": 126,
       "group_id": 126,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1bf431e19dd29a0d_t",
+      "name": "mac_addr_view",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -5535,7 +5535,7 @@
       "id": 127,
       "group_id": 127,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ff5849060ac2db98_t",
+      "name": "tlv_elem",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5567,7 +5567,7 @@
       "id": 128,
       "group_id": 128,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_dca9fcc8f9d3947e_t",
+      "name": "buf_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5606,7 +5606,7 @@
       "id": 129,
       "group_id": 129,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_dd443623c8a2adb5_t",
+      "name": "pkt_hdr_view",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -5638,7 +5638,7 @@
       "id": 130,
       "group_id": 130,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f3e2adb5a9297ae7_t",
+      "name": "vif_ctx_blk",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -5670,7 +5670,7 @@
       "id": 131,
       "group_id": 131,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_202a7aa4954eccd1_t",
+      "name": "runtime_ctx",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -5702,7 +5702,7 @@
       "id": 132,
       "group_id": 132,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_acb60930627a412f_t",
+      "name": "byte_flag_cfg",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -5734,7 +5734,7 @@
       "id": 133,
       "group_id": 133,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5b77899b11bc2b11_t",
+      "name": "chan_cfg_status",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -5766,7 +5766,7 @@
       "id": 134,
       "group_id": 134,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_acfbd09b19f152ba_t",
+      "name": "mgmt_ie_frag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5805,7 +5805,7 @@
       "id": 135,
       "group_id": 135,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f3c8d08042735383_t",
+      "name": "frame_buf_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -5837,7 +5837,7 @@
       "id": 136,
       "group_id": 136,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_498d6abb688331e1_t",
+      "name": "hostif_ctrl_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5881,7 +5881,7 @@
       "id": 137,
       "group_id": 137,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a7db830072748661_t",
+      "name": "short_len_hdr",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -5906,7 +5906,7 @@
       "id": 138,
       "group_id": 138,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_45bdacf2cb8bd223_t",
+      "name": "host_if_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -5952,7 +5952,7 @@
       "id": 139,
       "group_id": 139,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c27f94d3f5c8a139_t",
+      "name": "chan_rf_cfg",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -6047,7 +6047,7 @@
       "id": 140,
       "group_id": 140,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_94d9183d978b5770_t",
+      "name": "byte_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -6072,7 +6072,7 @@
       "id": 141,
       "group_id": 141,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3d6ad41d0e3cdcaf_t",
+      "name": "host_if_queue_node",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -6132,7 +6132,7 @@
       "id": 142,
       "group_id": 142,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_fee2cbc71e5c638d_t",
+      "name": "ke_msg_hdr_ext",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -6178,7 +6178,7 @@
       "id": 143,
       "group_id": 143,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f46cb5fbab9501a0_t",
+      "name": "buf_desc",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -6210,7 +6210,7 @@
       "id": 144,
       "group_id": 144,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b33bbd886647b016_t",
+      "name": "sdio_rx_frame_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -6319,7 +6319,7 @@
       "id": 145,
       "group_id": 145,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_caa6817b74b8abf1_t",
+      "name": "mac_context",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -6344,7 +6344,7 @@
       "id": 146,
       "group_id": 146,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5db77455190da09f_t",
+      "name": "packed_msg_hdr",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -6407,7 +6407,7 @@
       "id": 147,
       "group_id": 147,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7d39c50d21c3175f_t",
+      "name": "sta_rate_stats_tail",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -6446,7 +6446,7 @@
       "id": 148,
       "group_id": 148,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_04dfa24b3e7c83a7_t",
+      "name": "event_param_hdr",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -6478,7 +6478,7 @@
       "id": 149,
       "group_id": 149,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6a18381f1f538cce_t",
+      "name": "event_arg_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -6510,7 +6510,7 @@
       "id": 150,
       "group_id": 150,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6390a8cf7a9d60e9_t",
+      "name": "hostif_buf_desc",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -6547,7 +6547,7 @@
       "id": 151,
       "group_id": 151,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_98f74dac57ee12d0_t",
+      "name": "chan_ctxt",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -6621,7 +6621,7 @@
       "id": 152,
       "group_id": 152,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6569c403f8cd97b9_t",
+      "name": "ctx_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -6646,7 +6646,7 @@
       "id": 153,
       "group_id": 153,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_82a350942d08f381_t",
+      "name": "host_msg_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -6699,7 +6699,7 @@
       "id": 154,
       "group_id": 154,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_60e4daa662b469fc_t",
+      "name": "msg_word_hdr",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -6736,7 +6736,7 @@
       "id": 155,
       "group_id": 155,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f6524c24fc3fb15e_t",
+      "name": "msg_handler_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -6768,7 +6768,7 @@
       "id": 156,
       "group_id": 156,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d8e13623ec52d863_t",
+      "name": "ctx_tail",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -6800,7 +6800,7 @@
       "id": 157,
       "group_id": 157,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_14731c1c2ceb6a97_t",
+      "name": "host_if_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -6898,7 +6898,7 @@
       "id": 158,
       "group_id": 158,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e26e0c0c9d48d07c_t",
+      "name": "mac_ctxt_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -6923,7 +6923,7 @@
       "id": 159,
       "group_id": 159,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_87483456a8b7e022_t",
+      "name": "mac_ctrl_blk",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -6955,7 +6955,7 @@
       "id": 160,
       "group_id": 160,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_15218e8ca773db45_t",
+      "name": "byte_flag_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -7001,7 +7001,7 @@
       "id": 161,
       "group_id": 161,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f8b48c5bec9c7b6d_t",
+      "name": "vif_info_tag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -7093,7 +7093,7 @@
       "id": 162,
       "group_id": 162,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c6fae80132b57a32_t",
+      "name": "mac_desc_tail",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -7125,7 +7125,7 @@
       "id": 163,
       "group_id": 163,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b018caef1a0375f2_t",
+      "name": "host_msg_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -7183,7 +7183,7 @@
       "id": 164,
       "group_id": 164,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e2f6498910775b7e_t",
+      "name": "sta_info_tag",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -7257,7 +7257,7 @@
       "id": 165,
       "group_id": 165,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f56fca10b12929d2_t",
+      "name": "vif_ctxt_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -7324,7 +7324,7 @@
       "id": 166,
       "group_id": 166,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8cfbc74f5dad038c_t",
+      "name": "mac_if_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -7363,7 +7363,7 @@
       "id": 167,
       "group_id": 167,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5fab201edd646a55_t",
+      "name": "mm_ctx_env",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -7395,7 +7395,7 @@
       "id": 168,
       "group_id": 168,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9858a6d1e63adaed_t",
+      "name": "host_cmd_param",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -7420,7 +7420,7 @@
       "id": 169,
       "group_id": 169,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5b0d42f458f4391d_t",
+      "name": "vif_param_flags",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -7452,7 +7452,7 @@
       "id": 170,
       "group_id": 170,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_fc8f9f2c1e20c317_t",
+      "name": "fw_env_ctx",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -7477,7 +7477,7 @@
       "id": 171,
       "group_id": 171,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e6d7646e0b18348a_t",
+      "name": "node_ref",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -7509,7 +7509,7 @@
       "id": 172,
       "group_id": 172,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d63c7677a4d1443d_t",
+      "name": "mac_hw_status",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -7539,7 +7539,7 @@
       "id": 173,
       "group_id": 173,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_11fb02919a93f89d_t",
+      "name": "ctx_hdr",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -7571,7 +7571,7 @@
       "id": 174,
       "group_id": 174,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_614f6d5f59a05037_t",
+      "name": "state_flag_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -7596,7 +7596,7 @@
       "id": 175,
       "group_id": 175,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7e1377ea60aa548e_t",
+      "name": "ctx_state_alias",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -7626,7 +7626,7 @@
       "id": 176,
       "group_id": 176,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5a293d54446f2395_t",
+      "name": "ctx_desc",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -7697,7 +7697,7 @@
       "id": 178,
       "group_id": 178,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ffd6d6f3fd28eedc_t",
+      "name": "hostif_desc_frag",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -7734,7 +7734,7 @@
       "id": 179,
       "group_id": 179,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_bfbe62e35fe2d8be_t",
+      "name": "host_dma_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -7820,7 +7820,7 @@
       "id": 180,
       "group_id": 180,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f06fab9285d92f66_t",
+      "name": "hif_ctrl_block",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -7873,7 +7873,7 @@
       "id": 181,
       "group_id": 181,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7b6e520a1bd7d8c7_t",
+      "name": "hci_cmd_param",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -7905,7 +7905,7 @@
       "id": 182,
       "group_id": 182,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_503211d749ce7ccd_t",
+      "name": "ext_ctx",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -7930,7 +7930,7 @@
       "id": 183,
       "group_id": 183,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_fc50e00ad9f120b6_t",
+      "name": "hostif_ctrl",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -7962,7 +7962,7 @@
       "id": 184,
       "group_id": 184,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a3595cd062fdf7ec_t",
+      "name": "tx_status_tail",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -8011,7 +8011,7 @@
       "id": 185,
       "group_id": 185,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_13e44f03037cbbdb_t",
+      "name": "ipc_msg_hdr",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -8036,7 +8036,7 @@
       "id": 186,
       "group_id": 186,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8d8f1153d2a18724_t",
+      "name": "mac_entry_desc",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -8073,7 +8073,7 @@
       "id": 187,
       "group_id": 187,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ce4ae6a87645069b_t",
+      "name": "rf_reg_triple",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -8112,7 +8112,7 @@
       "id": 188,
       "group_id": 188,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_11b1333002455250_t",
+      "name": "mac_env_state",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -8137,7 +8137,7 @@
       "id": 189,
       "group_id": 189,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5b3848e250c213ab_t",
+      "name": "iface_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -8174,7 +8174,7 @@
       "id": 190,
       "group_id": 190,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_49692865827f1524_t",
+      "name": "host_if_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -8246,7 +8246,7 @@
       "id": 191,
       "group_id": 191,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_341bba67bc55c6c8_t",
+      "name": "hw_cfg_pair",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -8278,7 +8278,7 @@
       "id": 192,
       "group_id": 192,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7f1535fc3982c606_t",
+      "name": "env_context",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -8343,7 +8343,7 @@
       "id": 193,
       "group_id": 193,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b530d76b42ecc3e8_t",
+      "name": "ctx_blob",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -8368,7 +8368,7 @@
       "id": 194,
       "group_id": 194,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d749c3e04919c463_t",
+      "name": "phy_ctrl_block",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -8414,7 +8414,7 @@
       "id": 195,
       "group_id": 195,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1a49f90d33376f90_t",
+      "name": "ke_msg",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -8467,7 +8467,7 @@
       "id": 196,
       "group_id": 196,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_08f6d1dd2daae121_t",
+      "name": "vif_info_tag",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -8558,7 +8558,7 @@
       "id": 197,
       "group_id": 197,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_704f36e917efdbcc_t",
+      "name": "mm_if_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -8604,7 +8604,7 @@
       "id": 198,
       "group_id": 198,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4006157ad843b526_t",
+      "name": "op_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -8629,7 +8629,7 @@
       "id": 199,
       "group_id": 199,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_513bf96d83cc1b5f_t",
+      "name": "cfg_param_record",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -8661,7 +8661,7 @@
       "id": 200,
       "group_id": 200,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_50206d2a99fd2293_t",
+      "name": "phy_cal_ctx",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -8686,7 +8686,7 @@
       "id": 201,
       "group_id": 201,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a936bf9fb1b8adf4_t",
+      "name": "ba_sta_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -8786,7 +8786,7 @@
       "id": 202,
       "group_id": 202,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_577e87c2877917ee_t",
+      "name": "opaque_word_ref",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -8843,7 +8843,7 @@
       "id": 204,
       "group_id": 204,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ca086faa4b8df53c_t",
+      "name": "peer_link_info",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -8889,7 +8889,7 @@
       "id": 205,
       "group_id": 205,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4a104cf4943c0206_t",
+      "name": "ctx_record_frag",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -8921,7 +8921,7 @@
       "id": 206,
       "group_id": 206,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_28cb0c87f82fe9ff_t",
+      "name": "host_if_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -8998,7 +8998,7 @@
       "id": 207,
       "group_id": 207,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1106379418bceb24_t",
+      "name": "cfg_param_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -9037,7 +9037,7 @@
       "id": 208,
       "group_id": 208,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5dddf4f405933bcb_t",
+      "name": "msg_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -9062,7 +9062,7 @@
       "id": 209,
       "group_id": 209,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d3aeb29505d404fd_t",
+      "name": "ipc_host_ctx",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -9122,7 +9122,7 @@
       "id": 210,
       "group_id": 210,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3174a17d282c6d95_t",
+      "name": "hi_ctx_frag",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -9154,7 +9154,7 @@
       "id": 211,
       "group_id": 211,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_caba64ee64942e61_t",
+      "name": "mac_addr_u32_pair",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -9186,7 +9186,7 @@
       "id": 212,
       "group_id": 212,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d6e0bcd477fb6c91_t",
+      "name": "ctrl_flags_union",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -9228,7 +9228,7 @@
       "id": 213,
       "group_id": 213,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d0301939f9acca6b_t",
+      "name": "peer_link_ctx",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -9375,7 +9375,7 @@
       "id": 214,
       "group_id": 214,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9214530cb58aa78a_t",
+      "name": "vif_mac_ctx",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -9526,7 +9526,7 @@
       "id": 215,
       "group_id": 215,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6c9fdd0dbc75d158_t",
+      "name": "cfg_param_pair",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -9558,7 +9558,7 @@
       "id": 216,
       "group_id": 216,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ede3f043845bca78_t",
+      "name": "dma_buf_desc",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -9611,7 +9611,7 @@
       "id": 217,
       "group_id": 217,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1dd018a7a5bfe01f_t",
+      "name": "cfg_entry_frag",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -9657,7 +9657,7 @@
       "id": 218,
       "group_id": 218,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2ae5b2fa54786ac5_t",
+      "name": "phy_param_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -9696,7 +9696,7 @@
       "id": 219,
       "group_id": 219,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4593c31f2428c7d5_t",
+      "name": "param_block",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -9721,7 +9721,7 @@
       "id": 220,
       "group_id": 220,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b21583e6840b6f15_t",
+      "name": "hostif_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -9753,7 +9753,7 @@
       "id": 221,
       "group_id": 221,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_14bbd916f15a519a_t",
+      "name": "scan_bss_entry",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -9865,7 +9865,7 @@
       "id": 222,
       "group_id": 222,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_349bb25ffc1cb828_t",
+      "name": "msg_param_desc",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -9902,7 +9902,7 @@
       "id": 223,
       "group_id": 223,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b16ea2fb8adbd9cf_t",
+      "name": "tx_hdr_frag",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -9941,7 +9941,7 @@
       "id": 224,
       "group_id": 224,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_02b937d5e3575137_t",
+      "name": "hostif_desc_frag",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -9966,7 +9966,7 @@
       "id": 225,
       "group_id": 225,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_87cfd016e272fc81_t",
+      "name": "ipc_xfer_hdr",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -9998,7 +9998,7 @@
       "id": 226,
       "group_id": 226,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5eb862193c86e7b0_t",
+      "name": "tx_cfm_tag",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -10023,7 +10023,7 @@
       "id": 227,
       "group_id": 227,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f3a976641634a59d_t",
+      "name": "host_if_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -10109,7 +10109,7 @@
       "id": 228,
       "group_id": 228,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6d2446a6b10b3dce_t",
+      "name": "hw_ctrl_status_regs",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -10158,7 +10158,7 @@
       "id": 229,
       "group_id": 229,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5d2581ea0a46a208_t",
+      "name": "mac_ctrl_param",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -10190,7 +10190,7 @@
       "id": 230,
       "group_id": 230,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a49e90ad9eb3839f_t",
+      "name": "addr_word_view",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -10229,7 +10229,7 @@
       "id": 231,
       "group_id": 231,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_de6fec59a1952742_t",
+      "name": "mac_env_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -10254,7 +10254,7 @@
       "id": 232,
       "group_id": 232,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_81e844f5f49170d6_t",
+      "name": "v2_param_cfg",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -10286,7 +10286,7 @@
       "id": 233,
       "group_id": 233,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_de0cab6239c8d6b6_t",
+      "name": "host_if_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -10332,7 +10332,7 @@
       "id": 234,
       "group_id": 234,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3afa1c0520e084dd_t",
+      "name": "tx_stat_tail",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -10364,7 +10364,7 @@
       "id": 235,
       "group_id": 235,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7f59549c632c7357_t",
+      "name": "host_msg_tail_params",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -10396,7 +10396,7 @@
       "id": 236,
       "group_id": 236,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_fe34963d565524c4_t",
+      "name": "ke_msg_hdr_view",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -10428,7 +10428,7 @@
       "id": 237,
       "group_id": 237,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b1b1331f57a3b3f4_t",
+      "name": "fw_msg_desc",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -10467,7 +10467,7 @@
       "id": 238,
       "group_id": 238,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d443f71414cb21ed_t",
+      "name": "host_xfer_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -10555,7 +10555,7 @@
       "id": 239,
       "group_id": 239,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_06ca5b82fb509860_t",
+      "name": "handle_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -10580,7 +10580,7 @@
       "id": 240,
       "group_id": 240,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_58e03d32942788a2_t",
+      "name": "vif_ctxt_frag",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -10619,7 +10619,7 @@
       "id": 241,
       "group_id": 241,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6486b830e6e5e829_t",
+      "name": "vif_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -10735,7 +10735,7 @@
       "id": 242,
       "group_id": 242,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_99c30762cfa3c8e7_t",
+      "name": "sta_rate_info",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -10816,7 +10816,7 @@
       "id": 243,
       "group_id": 243,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_78cc5fcc42bf4721_t",
+      "name": "sta_info_tag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -10912,7 +10912,7 @@
       "id": 244,
       "group_id": 244,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cad4501ef02907ed_t",
+      "name": "msg_param_u8",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -10937,7 +10937,7 @@
       "id": 245,
       "group_id": 245,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9234b0b726abba27_t",
+      "name": "host_ipc_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -11018,7 +11018,7 @@
       "id": 246,
       "group_id": 246,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8b4509fd8609ec4e_t",
+      "name": "msg_param_hdr",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -11069,7 +11069,7 @@
       "id": 247,
       "group_id": 247,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_fb50fb61bede00e6_t",
+      "name": "mac_hw_policy_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11178,7 +11178,7 @@
       "id": 248,
       "group_id": 248,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5fa3b159901773cc_t",
+      "name": "phy_chan_cfg",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -11224,7 +11224,7 @@
       "id": 249,
       "group_id": 249,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ff66b476de72cd69_t",
+      "name": "conn_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11256,7 +11256,7 @@
       "id": 250,
       "group_id": 250,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_46da2f866d4ca7f2_t",
+      "name": "host_if_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11420,7 +11420,7 @@
       "id": 251,
       "group_id": 251,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8724d87c40e88da4_t",
+      "name": "hostif_xfer_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11480,7 +11480,7 @@
       "id": 252,
       "group_id": 252,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_254674bb8c42f859_t",
+      "name": "mm_if_env",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -11533,7 +11533,7 @@
       "id": 253,
       "group_id": 253,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e85a4f70584acbda_t",
+      "name": "task_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11579,7 +11579,7 @@
       "id": 254,
       "group_id": 254,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ea26f81a66417855_t",
+      "name": "sta_info",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -11625,7 +11625,7 @@
       "id": 255,
       "group_id": 255,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f6ef65b58375b609_t",
+      "name": "host_dma_desc",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -11690,7 +11690,7 @@
       "id": 256,
       "group_id": 256,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5bbf4b88e702b31c_t",
+      "name": "host_ring_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11729,7 +11729,7 @@
       "id": 257,
       "group_id": 257,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a89681531f17aa6e_t",
+      "name": "ctx_handle",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11761,7 +11761,7 @@
       "id": 258,
       "group_id": 258,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_eda4666e023f4f64_t",
+      "name": "mac_ctx_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -11821,7 +11821,7 @@
       "id": 259,
       "group_id": 259,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3fb68d3fd335bec5_t",
+      "name": "fw_hdr_view",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -11860,7 +11860,7 @@
       "id": 260,
       "group_id": 260,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1aa9fc4b4e626664_t",
+      "name": "vif_state",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -11944,7 +11944,7 @@
       "id": 261,
       "group_id": 261,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9bd9fe1b0d7ccb64_t",
+      "name": "mac_cfg_state",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -11983,7 +11983,7 @@
       "id": 262,
       "group_id": 262,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ccc95416210d9a73_t",
+      "name": "ctrl_status_byte",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12008,7 +12008,7 @@
       "id": 263,
       "group_id": 263,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2de92190c2bbca94_t",
+      "name": "rx_frame_view",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -12047,7 +12047,7 @@
       "id": 264,
       "group_id": 264,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b71c57cc6d28c10b_t",
+      "name": "host_ipc_msg_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -12100,7 +12100,7 @@
       "id": 265,
       "group_id": 265,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e40dc22b933af723_t",
+      "name": "hdr_tag_ext",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -12132,7 +12132,7 @@
       "id": 266,
       "group_id": 266,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b3427d62640ac870_t",
+      "name": "fmac_env_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -12157,7 +12157,7 @@
       "id": 267,
       "group_id": 267,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c76bfd272c073d33_t",
+      "name": "coex_ctrl_block",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12187,7 +12187,7 @@
       "id": 268,
       "group_id": 268,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_60c36e785ad19540_t",
+      "name": "ctx_env",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -12219,7 +12219,7 @@
       "id": 269,
       "group_id": 269,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_754785a3797a784b_t",
+      "name": "vif_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12258,7 +12258,7 @@
       "id": 270,
       "group_id": 270,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1d9dcbbc7248df15_t",
+      "name": "rx_frame_parse_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12381,7 +12381,7 @@
       "id": 271,
       "group_id": 271,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b61dca5269c3db69_t",
+      "name": "frame_trailer_word",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -12406,7 +12406,7 @@
       "id": 272,
       "group_id": 272,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c41955718725ff39_t",
+      "name": "rfe_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -12438,7 +12438,7 @@
       "id": 273,
       "group_id": 273,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4c4266225b5d1bb2_t",
+      "name": "ctrl_state_byte",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12463,7 +12463,7 @@
       "id": 274,
       "group_id": 274,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ef87382bfa64f577_t",
+      "name": "buf_desc",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -12495,7 +12495,7 @@
       "id": 275,
       "group_id": 275,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2b97806806457121_t",
+      "name": "event_param_block",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -12541,7 +12541,7 @@
       "id": 276,
       "group_id": 276,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3473d82ffc7f9d38_t",
+      "name": "host_ipc_env",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -12566,7 +12566,7 @@
       "id": 277,
       "group_id": 277,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6b63a8ae556506f8_t",
+      "name": "ke_msg_hdr",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -12612,7 +12612,7 @@
       "id": 278,
       "group_id": 278,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c9454e54e8c20670_t",
+      "name": "tx_rate_policy",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -12651,7 +12651,7 @@
       "id": 279,
       "group_id": 279,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_dcf6c447ba1b79c4_t",
+      "name": "ctx_ref",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12676,7 +12676,7 @@
       "id": 280,
       "group_id": 280,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4c2761b26d9968ff_t",
+      "name": "pkt_status_flags",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -12701,7 +12701,7 @@
       "id": 281,
       "group_id": 281,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d3b460d9fbc7f9b5_t",
+      "name": "vif_info_tag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12740,7 +12740,7 @@
       "id": 282,
       "group_id": 282,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f7aa66a8078b26b3_t",
+      "name": "host_msg_record",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -12779,7 +12779,7 @@
       "id": 283,
       "group_id": 283,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5d1e4992ba976375_t",
+      "name": "mac_ctx_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12832,7 +12832,7 @@
       "id": 284,
       "group_id": 284,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_eeb3aadb5c925350_t",
+      "name": "sdio_env_tag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -12927,7 +12927,7 @@
       "id": 285,
       "group_id": 285,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5a48f826a86a86bc_t",
+      "name": "ctx_status_word",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -12952,7 +12952,7 @@
       "id": 286,
       "group_id": 286,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_fbdbe47bea5f1f9d_t",
+      "name": "ke_msg_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -12996,7 +12996,7 @@
       "id": 287,
       "group_id": 287,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_dae7a229559994db_t",
+      "name": "mm_env_tail",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -13028,7 +13028,7 @@
       "id": 288,
       "group_id": 288,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d3b82d6082db1030_t",
+      "name": "sta_info_tag",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -13081,7 +13081,7 @@
       "id": 289,
       "group_id": 289,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8ac735328eaa8401_t",
+      "name": "mm_env_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -13106,7 +13106,7 @@
       "id": 290,
       "group_id": 290,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2bfb001acfaa3646_t",
+      "name": "cfg_param_blk",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -13145,7 +13145,7 @@
       "id": 291,
       "group_id": 291,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5ef98d1300729b72_t",
+      "name": "ctx_ref",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -13170,7 +13170,7 @@
       "id": 292,
       "group_id": 292,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3991c9b0bed42a2a_t",
+      "name": "vif_state",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -13296,7 +13296,7 @@
       "id": 293,
       "group_id": 293,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ceb69bd3fa9264dd_t",
+      "name": "ipc_msg_params",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -13345,7 +13345,7 @@
       "id": 294,
       "group_id": 294,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_0a17bbe4151e77dd_t",
+      "name": "unaligned_payload_ref",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -13377,7 +13377,7 @@
       "id": 295,
       "group_id": 295,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d6850e46a5573935_t",
+      "name": "hostif_msg_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -13440,7 +13440,7 @@
       "id": 296,
       "group_id": 296,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_42f185aeb70fdba9_t",
+      "name": "fw_env_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -13477,7 +13477,7 @@
       "id": 297,
       "group_id": 297,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_0ced4360b09581b7_t",
+      "name": "ke_msg_param_ext",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -13537,7 +13537,7 @@
       "id": 298,
       "group_id": 298,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_0b66b30aa4cba994_t",
+      "name": "type_status_byte",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -13562,7 +13562,7 @@
       "id": 299,
       "group_id": 299,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8f2e61373e6784f7_t",
+      "name": "vif_state_frag",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -13594,7 +13594,7 @@
       "id": 300,
       "group_id": 300,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1ff408c51bb030b3_t",
+      "name": "vif_state",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -13647,7 +13647,7 @@
       "id": 301,
       "group_id": 301,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_57641e498d6300a5_t",
+      "name": "sta_vif_state",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -13693,7 +13693,7 @@
       "id": 302,
       "group_id": 302,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_879ed79094214af0_t",
+      "name": "hostif_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -13744,7 +13744,7 @@
       "id": 303,
       "group_id": 303,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_25511d59a09c2072_t",
+      "name": "tlv_entry",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -13776,7 +13776,7 @@
       "id": 304,
       "group_id": 304,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f7058f329e957441_t",
+      "name": "pkt_elem",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -13801,7 +13801,7 @@
       "id": 305,
       "group_id": 305,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_290ddd93c21fad69_t",
+      "name": "hostif_state_tail",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -13833,7 +13833,7 @@
       "id": 306,
       "group_id": 306,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_0575200298914114_t",
+      "name": "desc_pair",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -13865,7 +13865,7 @@
       "id": 307,
       "group_id": 307,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_322e89de501157cd_t",
+      "name": "sta_link_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -13939,7 +13939,7 @@
       "id": 308,
       "group_id": 308,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a1856bc25c4bee6b_t",
+      "name": "ctrl_byte_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -13964,7 +13964,7 @@
       "id": 309,
       "group_id": 309,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3db618fb302bfc95_t",
+      "name": "chan_ctxt",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -14059,7 +14059,7 @@
       "id": 310,
       "group_id": 310,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_361e23bf79838706_t",
+      "name": "desc_word_alias",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -14089,7 +14089,7 @@
       "id": 311,
       "group_id": 311,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cc2ece4c50318083_t",
+      "name": "mm_vif_env",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -14182,7 +14182,7 @@
       "id": 312,
       "group_id": 312,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_16b7a2957446ef15_t",
+      "name": "rx_hd",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -14214,7 +14214,7 @@
       "id": 313,
       "group_id": 313,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f7eb5f4e4506632c_t",
+      "name": "fw_ctx_flag",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -14239,7 +14239,7 @@
       "id": 314,
       "group_id": 314,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_437aa07f4174d2f7_t",
+      "name": "frame_hdr_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -14271,7 +14271,7 @@
       "id": 315,
       "group_id": 315,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_32abb5a26aa031f7_t",
+      "name": "node_ctx",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -14296,7 +14296,7 @@
       "id": 316,
       "group_id": 316,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_344f3e0208a4acde_t",
+      "name": "sta_vif_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -14349,7 +14349,7 @@
       "id": 317,
       "group_id": 317,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cacd5c0e5cc18006_t",
+      "name": "rate_pwr_entry",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -14381,7 +14381,7 @@
       "id": 318,
       "group_id": 318,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_77e64c94f1433518_t",
+      "name": "host_if_ctx",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -14406,7 +14406,7 @@
       "id": 319,
       "group_id": 319,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_560513ad11949de5_t",
+      "name": "iface_cfg_ptrs",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -14438,7 +14438,7 @@
       "id": 320,
       "group_id": 320,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cdd383b504cd1ba0_t",
+      "name": "tpc_rate_pwr_cfg",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -14680,7 +14680,7 @@
       "id": 321,
       "group_id": 321,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7e7104c3dafce1f2_t",
+      "name": "msg_param_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -14719,7 +14719,7 @@
       "id": 322,
       "group_id": 322,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_05a9405bfbfef297_t",
+      "name": "ipc_emb_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -14807,7 +14807,7 @@
       "id": 323,
       "group_id": 323,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1662052283612091_t",
+      "name": "rf_cmd_param",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -14853,7 +14853,7 @@
       "id": 324,
       "group_id": 324,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a0414dffebd7e511_t",
+      "name": "u16_param_block",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -14878,7 +14878,7 @@
       "id": 325,
       "group_id": 325,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3837271c6350869a_t",
+      "name": "ipc_host_env",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -14950,7 +14950,7 @@
       "id": 326,
       "group_id": 326,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_bc20c52d5b2d2800_t",
+      "name": "fw_env_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -14975,7 +14975,7 @@
       "id": 327,
       "group_id": 327,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3221eef4524a954c_t",
+      "name": "vif_sta_state",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -15028,7 +15028,7 @@
       "id": 328,
       "group_id": 328,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d229f98966322ba3_t",
+      "name": "bt_conn_ctx",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -15060,7 +15060,7 @@
       "id": 329,
       "group_id": 329,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a0a1f095e7752dec_t",
+      "name": "vif_state",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -15106,7 +15106,7 @@
       "id": 330,
       "group_id": 330,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3a92092eb62ac16b_t",
+      "name": "ke_msg_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -15159,7 +15159,7 @@
       "id": 331,
       "group_id": 331,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_92fd506dee451971_t",
+      "name": "op_param",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -15189,7 +15189,7 @@
       "id": 332,
       "group_id": 332,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_28c563904995fd9b_t",
+      "name": "task_env_ctx",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -15235,7 +15235,7 @@
       "id": 333,
       "group_id": 333,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_8454114298db1a5a_t",
+      "name": "packed_blob_hdr",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -15260,7 +15260,7 @@
       "id": 334,
       "group_id": 334,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e76724afd036ddc7_t",
+      "name": "ctx_desc",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -15285,7 +15285,7 @@
       "id": 335,
       "group_id": 335,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_74306a0551b63348_t",
+      "name": "hostio_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -15310,7 +15310,7 @@
       "id": 336,
       "group_id": 336,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7c3a14e4950f39dc_t",
+      "name": "ipc_host_env",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -15363,7 +15363,7 @@
       "id": 337,
       "group_id": 337,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7fe7cf023f44d5b6_t",
+      "name": "ke_msg_hdr",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -15409,7 +15409,7 @@
       "id": 338,
       "group_id": 338,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_73af87025dc7ec51_t",
+      "name": "host_if_msg_desc",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -15488,7 +15488,7 @@
       "id": 339,
       "group_id": 339,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_76f98fde7d6b6339_t",
+      "name": "fw_ctx_state",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -15513,7 +15513,7 @@
       "id": 340,
       "group_id": 340,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_76f6778cb1e0c90f_t",
+      "name": "vif_info",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -15604,7 +15604,7 @@
       "id": 341,
       "group_id": 341,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_636c417b4b9b36c8_t",
+      "name": "entry_state",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -15643,7 +15643,7 @@
       "id": 342,
       "group_id": 342,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_82680380501edf1f_t",
+      "name": "msg_param_ref",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -15675,7 +15675,7 @@
       "id": 343,
       "group_id": 343,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_da41885616d9f320_t",
+      "name": "ipc_msg_frag",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -15700,7 +15700,7 @@
       "id": 344,
       "group_id": 344,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_16b7e507ffa78ed1_t",
+      "name": "desc_tail_ctrl",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -15730,7 +15730,7 @@
       "id": 345,
       "group_id": 345,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_943b09d4208793af_t",
+      "name": "vif_state_flags",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -15762,7 +15762,7 @@
       "id": 346,
       "group_id": 346,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e2eb643af7bf3cd7_t",
+      "name": "if_ctrl_state",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -15787,7 +15787,7 @@
       "id": 347,
       "group_id": 347,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7efa186e11d0de04_t",
+      "name": "ipc_emb_env",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -15861,7 +15861,7 @@
       "id": 348,
       "group_id": 348,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a83edff00cbd7571_t",
+      "name": "chan_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -15907,7 +15907,7 @@
       "id": 349,
       "group_id": 349,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a7473d7964f016fb_t",
+      "name": "fw_ctrl_ctx",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -15932,7 +15932,7 @@
       "id": 350,
       "group_id": 350,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9358c2b4cb7f76e2_t",
+      "name": "frm_hdr_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -15957,7 +15957,7 @@
       "id": 351,
       "group_id": 351,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7bdd9fd37e41365e_t",
+      "name": "mac_ctrl_status",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -16003,7 +16003,7 @@
       "id": 352,
       "group_id": 352,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7dc4ae733aba7ec0_t",
+      "name": "phy_chan_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -16075,7 +16075,7 @@
       "id": 353,
       "group_id": 353,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c625bf5040cbcfe1_t",
+      "name": "host_agg_desc",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -16142,7 +16142,7 @@
       "id": 354,
       "group_id": 354,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_22509dea40e9384e_t",
+      "name": "ctx_status_word",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -16167,7 +16167,7 @@
       "id": 355,
       "group_id": 355,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_135722939cf04105_t",
+      "name": "io_desc_ctx",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -16199,7 +16199,7 @@
       "id": 356,
       "group_id": 356,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a81f13a3a6f82daf_t",
+      "name": "sta_link_stats",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -16378,7 +16378,7 @@
       "id": 357,
       "group_id": 357,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_83c22754168af181_t",
+      "name": "vif_info",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -16403,7 +16403,7 @@
       "id": 358,
       "group_id": 358,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e6ef7b8f31048222_t",
+      "name": "ctx_status_byte",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -16428,7 +16428,7 @@
       "id": 359,
       "group_id": 359,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_a8a35cc795cf459e_t",
+      "name": "msg_param_byte",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -16453,7 +16453,7 @@
       "id": 360,
       "group_id": 360,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5c90cf3b5797e8a8_t",
+      "name": "ipc_desc_tail",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -16506,7 +16506,7 @@
       "id": 361,
       "group_id": 361,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_81d002d4c1628b70_t",
+      "name": "msg_param_block",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -16543,7 +16543,7 @@
       "id": 362,
       "group_id": 362,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_815e2895e476ff58_t",
+      "name": "rx_frame_parse_ctx",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -16617,7 +16617,7 @@
       "id": 363,
       "group_id": 363,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9be947d20d714e25_t",
+      "name": "ctrl_cfg_desc",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -16663,7 +16663,7 @@
       "id": 364,
       "group_id": 364,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_26e124833ab4ff20_t",
+      "name": "param_word_block",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -16702,7 +16702,7 @@
       "id": 365,
       "group_id": 365,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_542cacfcefefb85a_t",
+      "name": "vif_stat_blk",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -16746,7 +16746,7 @@
       "id": 366,
       "group_id": 366,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_eb00610fdcb7d903_t",
+      "name": "mac_ctx_flag",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -16771,7 +16771,7 @@
       "id": 367,
       "group_id": 367,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7c122efd14b95a00_t",
+      "name": "host_xfer_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -16810,7 +16810,7 @@
       "id": 368,
       "group_id": 368,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2a188e978cced104_t",
+      "name": "fw_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -16835,7 +16835,7 @@
       "id": 369,
       "group_id": 369,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_646a6ac6e97f333e_t",
+      "name": "callback_ctx",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -16874,7 +16874,7 @@
       "id": 370,
       "group_id": 370,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_cc1f380148b5ebb1_t",
+      "name": "queue_desc",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -16906,7 +16906,7 @@
       "id": 371,
       "group_id": 371,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2d85c448c6424104_t",
+      "name": "ctrl_block_tail",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -16945,7 +16945,7 @@
       "id": 372,
       "group_id": 372,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_53f2f36036e481ec_t",
+      "name": "msg_param_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -16982,7 +16982,7 @@
       "id": 373,
       "group_id": 373,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_fcc782adea2b4506_t",
+      "name": "msg_desc_hdr",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -17019,7 +17019,7 @@
       "id": 374,
       "group_id": 374,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5f913cb8bc708d42_t",
+      "name": "vif_ctrl_ctx",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -17051,7 +17051,7 @@
       "id": 375,
       "group_id": 375,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_952b120834e8d02b_t",
+      "name": "host_buf_desc",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -17090,7 +17090,7 @@
       "id": 376,
       "group_id": 376,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_110157c708c726f1_t",
+      "name": "mac_env_ctx",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -17122,7 +17122,7 @@
       "id": 377,
       "group_id": 377,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f23c31c5ab5286f7_t",
+      "name": "entry_flag_pair",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -17154,7 +17154,7 @@
       "id": 378,
       "group_id": 378,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_d94ccb3fb2338cb3_t",
+      "name": "phy_rf_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -17280,7 +17280,7 @@
       "id": 379,
       "group_id": 379,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_30b771bd9d5ecc67_t",
+      "name": "host_dma_ring_ctx",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -17361,7 +17361,7 @@
       "id": 380,
       "group_id": 380,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ca126f7e437087f5_t",
+      "name": "host_session_ctx",
       "primary_arg": "v7",
       "fingerprint": [
         {
@@ -17454,7 +17454,7 @@
       "id": 381,
       "group_id": 381,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_e01aafd04f7bceb0_t",
+      "name": "host_if_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -17486,7 +17486,7 @@
       "id": 382,
       "group_id": 382,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b5260e31890f8205_t",
+      "name": "ke_msg_param_blk",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -17532,7 +17532,7 @@
       "id": 383,
       "group_id": 383,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5982f24b8f374757_t",
+      "name": "msg_param_block",
       "primary_arg": "v4",
       "fingerprint": [
         {
@@ -17576,7 +17576,7 @@
       "id": 384,
       "group_id": 384,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ac12c65be6fc405f_t",
+      "name": "mm_env_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -17728,7 +17728,7 @@
       "id": 385,
       "group_id": 385,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_15c4589ad96044d5_t",
+      "name": "mac_status_tail",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -17760,7 +17760,7 @@
       "id": 386,
       "group_id": 386,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_87068c1071f8042d_t",
+      "name": "host_dma_desc",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -17825,7 +17825,7 @@
       "id": 387,
       "group_id": 387,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_79e173c0ab2ddd0b_t",
+      "name": "hdr_pfx_word",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -17850,7 +17850,7 @@
       "id": 388,
       "group_id": 388,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b1b11896dc7efdc4_t",
+      "name": "phy_chan_cal_cfg",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -17959,7 +17959,7 @@
       "id": 389,
       "group_id": 389,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_1a42d81aa7eb4f3d_t",
+      "name": "ipc_ring_elem",
       "primary_arg": "a3",
       "fingerprint": [
         {
@@ -18019,7 +18019,7 @@
       "id": 390,
       "group_id": 390,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ef744d878304ee91_t",
+      "name": "host_xfer_desc",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -18079,7 +18079,7 @@
       "id": 391,
       "group_id": 391,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9816899879d16b7a_t",
+      "name": "hw_ctx_flags",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -18104,7 +18104,7 @@
       "id": 392,
       "group_id": 392,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_5094c4ccd4059847_t",
+      "name": "vif_mac_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -18129,7 +18129,7 @@
       "id": 393,
       "group_id": 393,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_7b95c7643aea318b_t",
+      "name": "host_if_ctx",
       "primary_arg": "a4",
       "fingerprint": [
         {
@@ -18161,7 +18161,7 @@
       "id": 394,
       "group_id": 394,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_72d976896f5bde90_t",
+      "name": "fw_state_tail",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -18212,7 +18212,7 @@
       "id": 395,
       "group_id": 395,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_eb606fd34411f38e_t",
+      "name": "desc_ctx",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -18258,7 +18258,7 @@
       "id": 396,
       "group_id": 396,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_6dfa5cb05fc7360b_t",
+      "name": "hostif_env",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -18339,7 +18339,7 @@
       "id": 397,
       "group_id": 397,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4c7998f9c687a895_t",
+      "name": "ke_msg_param_blk",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -18364,7 +18364,7 @@
       "id": 398,
       "group_id": 398,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_f87c91cd66a0e061_t",
+      "name": "tx_status_stats",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -18396,7 +18396,7 @@
       "id": 399,
       "group_id": 399,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_54053c68b4b343c4_t",
+      "name": "mm_env_ext",
       "primary_arg": "v3",
       "fingerprint": [
         {
@@ -18428,7 +18428,7 @@
       "id": 400,
       "group_id": 400,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_b90806ab3eaa9544_t",
+      "name": "sta_peer_env",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -18493,7 +18493,7 @@
       "id": 401,
       "group_id": 401,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_2707b6a4a84207c3_t",
+      "name": "ctx_ref",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -18518,7 +18518,7 @@
       "id": 402,
       "group_id": 402,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_c5b283e3fc0dc5df_t",
+      "name": "io_ctx_node",
       "primary_arg": "v5",
       "fingerprint": [
         {
@@ -18543,7 +18543,7 @@
       "id": 403,
       "group_id": 403,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_77f163cda63cc4f8_t",
+      "name": "vif_ctrl_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -18589,7 +18589,7 @@
       "id": 404,
       "group_id": 404,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_9079bfac8751c0a9_t",
+      "name": "sdio_host_cfg",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -18649,7 +18649,7 @@
       "id": 405,
       "group_id": 405,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_38d37d6a13fbc8fe_t",
+      "name": "evt_msg_param",
       "primary_arg": "a2",
       "fingerprint": [
         {
@@ -18681,7 +18681,7 @@
       "id": 406,
       "group_id": 406,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_93b4c961ce935228_t",
+      "name": "aux_ctx_blk",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -18706,7 +18706,7 @@
       "id": 407,
       "group_id": 407,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_4b01aabe0745a88d_t",
+      "name": "hostif_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -18745,7 +18745,7 @@
       "id": 408,
       "group_id": 408,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_58c2bc326f3a19c7_t",
+      "name": "mac_env_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -18777,7 +18777,7 @@
       "id": 409,
       "group_id": 409,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_04b55647cd552abb_t",
+      "name": "mac_entity_ctx",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -18865,7 +18865,7 @@
       "id": 410,
       "group_id": 410,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_731fc059f9ee4c06_t",
+      "name": "ke_msg_hdr",
       "primary_arg": "v1",
       "fingerprint": [
         {
@@ -18904,7 +18904,7 @@
       "id": 411,
       "group_id": 411,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_edaf70536c920796_t",
+      "name": "phy_cmd_param",
       "primary_arg": "v8",
       "fingerprint": [
         {
@@ -18950,7 +18950,7 @@
       "id": 412,
       "group_id": 412,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_80c88bf64632a9ee_t",
+      "name": "pkt_ctx_desc",
       "primary_arg": "v6",
       "fingerprint": [
         {
@@ -18987,7 +18987,7 @@
       "id": 413,
       "group_id": 413,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_3c468cf247f496d1_t",
+      "name": "ctrl_state_blk",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -19019,7 +19019,7 @@
       "id": 414,
       "group_id": 414,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_ce0fda109ef83c69_t",
+      "name": "vif_ctx",
       "primary_arg": "a1",
       "fingerprint": [
         {
@@ -19065,7 +19065,7 @@
       "id": 415,
       "group_id": 415,
       "image": "fmacfw_8800d80_h_u02_bin",
-      "name": "struct_shape_84a0c72dccfa9566_t",
+      "name": "ctx_ref",
       "primary_arg": "v2",
       "fingerprint": [
         {

@@ -1,0 +1,38 @@
+// sub_10C638 @ 0x10c638, size 172 bytes
+int sub_10C638()
+{
+  int *v0; // r2
+  unsigned int *v1; // r1
+  _DWORD *v2; // r4
+  int v3; // r0
+  unsigned int v4; // r3
+  unsigned int v5; // r5
+  int result; // r0
+
+  v0 = (int *)off_10C6E8;
+  *((_DWORD *)off_10C6E4 + 64) = 6;
+  *(_DWORD *)(v0 + 0x4) &= ~0x40000u;
+  *(_DWORD *)(v0 + 0x4) |= 0x20000u;
+  while ( (*(_DWORD *)(v0 + 0x30) & 0x44) != 4 )
+    ;
+  v1 = (unsigned int *)off_10C6F4;
+  v2 = off_10C6E4;
+  v3 = dword_10C6F8;
+  v4 = (unsigned int)(((unsigned int)dword_10C6F0 * (unsigned __int64)*(unsigned int *)off_10C6EC) >> 32) >> 18;
+  v5 = v4 | 0x80140000;
+  v4 |= 0x140000u;
+  *(_DWORD *)off_10C6F4 = v4;
+  *v1 = v5;
+  *v1 = v4;
+  *(_DWORD *)(v0 + 0x4) |= 0x18802u;
+  *(_DWORD *)(v2 + 0x144) = 8;
+  *v0 = *v0 & 0x3BF | 0x40 | *v0 & v3;
+  *(_DWORD *)(v2 + 0x38) |= 1u;
+  *(_DWORD *)(v0 + 0x44) |= 0x88000000;
+  *(_DWORD *)(v0 + 0x54) &= ~0x200000u;
+  result = v3 & *(_DWORD *)(v0 + 0x54);
+  *(_DWORD *)(v0 + 0x54) = *(_DWORD *)(v0 + 0x54) & 0x3FD | 2 | result;
+  *(_DWORD *)(v0 + 0x54) &= ~0x800u;
+  return result;
+}
+

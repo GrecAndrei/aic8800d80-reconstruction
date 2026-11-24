@@ -94,8 +94,13 @@ writes with values, callees included) and it shows a second, wider defect:
 
 | build of `src/` | PASS | REVIEW | FAIL |
 |---|---:|---:|---:|
-| `-O2` (the `make -C src check` build) | 14 | 0 | 11 |
-| `-O0` | 19 | 0 | 6 |
+| `-O2` (initial baseline) | 14 | 0 | 11 |
+| `-O0` (initial baseline) | 19 | 0 | 6 |
+| **`-O2` (current: `make -C src check` + `_hw.i64` + `libmatch`)** | **24** | **0** | **1** |
+
+In the current build, 24 of 25 targets PASS in `tools/linked_recon_run.py --all`;
+the only remaining FAIL is `rf_timer_toggle_update` in `fmacfw_8800d80_h_u02.bin`
+(`peripheral_writes_differ`).
 
 The 5 extra `-O2` failures are smoke PASS rows: `rf_hw_timer_init` ×2,
 `crypto_hw_enable` ×2 and `crypto_key_load`. The source accesses registers
