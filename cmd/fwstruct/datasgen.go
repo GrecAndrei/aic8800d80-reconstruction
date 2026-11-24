@@ -39,6 +39,10 @@ var dataSymRe = regexp.MustCompile(`\b(off|dword|byte|word|qword|unk|algn|flt|db
 //   off_1001FC()  →  the value at 0x1001FC is a code pointer.
 var dataCallRe = regexp.MustCompile(`\b(off|dword|word|byte|unk|loc)_([0-9a-fA-F]{4,8})\s*\(`)
 
+// dataWide64Re matches data symbols dereferenced as 64-bit values (e.g.
+// *(uint64_t *)&dword_10DF50 for IEEE-754 double literal-pool constants).
+var dataWide64Re = regexp.MustCompile(`\*\(\s*(?:const\s+|volatile\s+)*(?:u?int64_t|double|__int64)\s*\*\s*\)\s*&\s*((?:dword|off|unk|word|byte)_[0-9a-fA-F]{4,8})\b`)
+
 var kindSizes = map[string]int{
 	"dword": 4, "off": 4, "unk": 4, "algn": 4,
 	"word": 2, "byte": 1, "qword": 8,
@@ -80,7 +84,7 @@ func runDataSgen(args []string) error {
 		binName := strings.TrimSuffix(img, "_bin")
 		srcDir := strings.Replace(binName, "8800d80_", "", 1)
 		funcDir := filepath.Join(cf.Root, "src", srcDir, "functions")
-		syms, fnPtrs, err := collectDataSymbols(funcDir)
+		syms, fnPtrs, wide64, err := collectDataSymbols(funcDir)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "  %s: %v\n", img, err)
 			continue
@@ -90,7 +94,7 @@ func runDataSgen(args []string) error {
 		if err != nil {
 			return fmt.Errorf("read %s: %w", binPath, err)
 		}
-		rows, err := materialize(syms, bin)
+		rows, err := materialize(syms, wide64, bin)
 		if err != nil {
 			return err
 		}
@@ -180,13 +184,14 @@ func activeFunctionFiles(funcDir string) ([]os.DirEntry, error) {
 	return chosen, nil
 }
 
-func collectDataSymbols(funcDir string) (map[string]int, map[string]bool, error) {
+func collectDataSymbols(funcDir string) (map[string]int, map[string]bool, map[string]bool, error) {
 	entries, err := activeFunctionFiles(funcDir)
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, nil, err
 	}
 	syms := map[string]int{} // name -> addr
 	fnPtrs := map[string]bool{}
+	wide64 := map[string]bool{}
 	for _, e := range entries {
 		text, err := os.ReadFile(filepath.Join(funcDir, e.Name()))
 		if err != nil {
@@ -203,11 +208,14 @@ func collectDataSymbols(funcDir string) (map[string]int, map[string]bool, error)
 		for _, m := range dataCallRe.FindAllSubmatch(text, -1) {
 			fnPtrs[fmt.Sprintf("%s_%s", string(m[1]), strings.ToUpper(string(m[2])))] = true
 		}
+		for _, m := range dataWide64Re.FindAllSubmatch(text, -1) {
+			wide64[string(m[1])] = true
+		}
 	}
-	return syms, fnPtrs, nil
+	return syms, fnPtrs, wide64, nil
 }
 
-func materialize(syms map[string]int, bin []byte) ([]dataSym, error) {
+func materialize(syms map[string]int, wide64 map[string]bool, bin []byte) ([]dataSym, error) {
 	names := make([]string, 0, len(syms))
 	for n := range syms {
 		names = append(names, n)
@@ -221,6 +229,9 @@ func materialize(syms map[string]int, bin []byte) ([]dataSym, error) {
 		size := kindSizes[kind]
 		if size == 0 {
 			continue
+		}
+		if wide64[name] && size < 8 {
+			size = 8
 		}
 		if prev, ok := seen[addr]; ok && prev >= size {
 			continue // same addr already emitted with larger size
@@ -273,15 +284,15 @@ func materialize(syms map[string]int, bin []byte) ([]dataSym, error) {
 func annotateLine(r dataSym) string {
 	name := fmt.Sprintf("%s_%X", r.Kind, r.Addr)
 	decl := ""
-	switch r.Kind {
-	case "byte":
-		decl = fmt.Sprintf("uint8_t %s = 0x%02x;", name, r.Value)
-	case "word":
-		decl = fmt.Sprintf("uint16_t %s = 0x%04x;", name, r.Value)
-	case "qword":
-		decl = fmt.Sprintf("uint64_t %s = 0x%016xULL;", name, r.Value)
-	case "jpt":
+	switch {
+	case r.Kind == "jpt":
 		return jptLine(r, name)
+	case r.Size == 8 || r.Kind == "qword":
+		decl = fmt.Sprintf("uint64_t %s = 0x%016xULL;", name, r.Value)
+	case r.Kind == "byte":
+		decl = fmt.Sprintf("uint8_t %s = 0x%02x;", name, r.Value)
+	case r.Kind == "word":
+		decl = fmt.Sprintf("uint16_t %s = 0x%04x;", name, r.Value)
 	default: // dword, off, unk, algn, flt, dbl, loc
 		decl = fmt.Sprintf("uint32_t %s = 0x%08x;", name, r.Value)
 	}

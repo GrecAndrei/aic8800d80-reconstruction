@@ -5,28 +5,28 @@
 platform and MMIO model: once in the original binary, once in the fully linked
 reconstruction (`tools/full_link.py`, callees real), and compares the ordered
 peripheral writes with their values. The 25 truth-lane targets
-(`docs/TRUTH_LANE_REVIEW_VERDICTS.md`) are a subset: **24 PASS / 0 REVIEW / 1 FAIL**
-(only `rf_timer_toggle_update` in `fmacfw_h_u02` remains FAIL).
+(`docs/TRUTH_LANE_REVIEW_VERDICTS.md`) are a subset: **25 PASS / 0 REVIEW / 0 FAIL**.
 
 A MATCH is an identical peripheral write sequence on one default-state path
 (zeroed RAM, zero arguments, boot callbacks stubbed). It is not behavioral
-equivalence. 543 of the 4,346 matches end at the firmware's assert trap
-in both runs (`identical_peripheral_writes_up_to_assert_trap`), and 3,803 return
+equivalence. 547 of the 4,393 matches end at the firmware's assert trap
+in both runs (`identical_peripheral_writes_up_to_assert_trap`), and 3,846 return
 with identical peripheral writes (`identical_peripheral_writes`).
 
 ## Counts
 
-| | first run | after the two call-site/register rules | after the six further rules | regenerated `src/` (prior) | **current (`_hw.i64` + libmatch + fnptr reloc)** |
+| | first run | after the two call-site/register rules | after the six further rules | `_hw.i64` + libmatch + fnptr reloc | **current (64-bit pools + post-compose rules)** |
 |---|---|---|---|---|---|
-| MATCH | 3,581 | 3,743 | 4,228 | 4,230 | **4,346** |
-| DIFFER | 433 | 271 | 230 | 228 | **55** |
-| NOT_RUN (no comparison exists) | 700 | 700 | 256 | 256 | **319** |
+| MATCH | 3,581 | 3,743 | 4,228 | 4,346 | **4,393** |
+| DIFFER | 433 | 271 | 230 | 55 | **0** |
+| NOT_RUN (no comparison exists) | 700 | 700 | 256 | 319 | **327** |
 
-Per image MATCH / total, now: fmacfw_h `1,186 / 1,284`, fmacfw `1,188 / 1,285`,
-fmacfwbt `1,193 / 1,285`, lmacfw_rf `779 / 866`.
+Per image MATCH / total, now: fmacfw_h `1,197 / 1,284`, fmacfw `1,199 / 1,285`,
+fmacfwbt `1,204 / 1,285`, lmacfw_rf `793 / 866`.
 `metadata/linked_corpus_summary.json` records the current run's exact summary
-(`205` `original_does_not_return_standalone` + `114` `not_in_linked_image` for
-`NOT_RUN`; `24` `console_text` + `31` other rows for `DIFFER`).
+(`205` `original_does_not_return_standalone` + `122` `not_in_linked_image` for
+`NOT_RUN`, with the 8 additional `not_in_linked_image` rows being unreferenced
+interior fragments dropped inside matched `libmatch` library routines; `0` `DIFFER`).
 
 Row by row, from the second column to the third:
 
@@ -205,19 +205,23 @@ Each runs on the composed `src/<image>/main.c`, adds no body, renames nothing,
 is idempotent, has `--check`, and has a fixed-point test in
 `tools/test_pipeline_rules.py`. Order: `callsite_targets`, `periph_symbols`,
 `asm_returns`, `call_cast_returns`, `double_args`, `float_bits`,
-`stack_frames`, `dword_compares`.
+`stack_frames`, `dword_compares`, `arm_shifts`, `float_compares`.
 
 | rule | what it restores | sites | rows it moved to MATCH |
 |---|---|---|---|
 | `tools/asm_returns.py` | the `return` Hex-Rays printed as `__asm { POP {...,PC} }` and the v19 strip deleted, taken from the tracked pre-strip text in `harness_v25/out/` | | with the next three: 23 |
 | `tools/callsite_targets.py` (extended) | a call to an interior label `loc_...` that the binary reaches by a direct `bl` within 32 bytes of a function start, at a `push`, is a call of that function's second entry | 3 labels | |
 | `src/Makefile` `DIALECT` | `-fsigned-char -fwrapv -fno-delete-null-pointer-checks -fno-strict-aliasing`: the compiler reads decompiler output with the machine's semantics | | |
-| `src/include/aic8800d80_types.h` | `HIBYTE`/`HIWORD`/`BYTEn`/`WORDn` at the bit positions the disassembly shows, `__usat` clamps, `__OFADD__`/`__OFSUB__`, `__und` | | |
-| `tools/stack_frames.py` | stack locals at their printed `sp` offsets in one packed struct, for functions that reach one local through the address of another | 56 / 56 / 55 / 51 functions | 8 |
+| `src/include/aic8800d80_types.h` | `HIBYTE`/`HIWORD`/`BYTEn`/`WORDn` at the bit positions the disassembly shows, `__usat` clamps, `__OFADD__`/`__OFSUB__`, `__und`, `vcvts_n_s32_f32`/`vcvts_n_f32_u32` fixed-point scaling | | |
+| `cmd/fwstruct/datasgen.go` (`dataWide64Re`) | emit 64-bit `uint64_t` literal-pool definitions for `*(volatile uint64_t *)&dword_*` reads so upper IEEE-754 double words are preserved | 46 symbols / 75 sites per image | 39 (24 `console_text` + 15 float diffs, incl. `rf_timer_toggle_update`) |
+| `tools/stack_frames.py` | stack locals at their printed `sp` offsets in one packed struct (grouping same-offset spill locals into anonymous `union`s), for functions that reach one local through the address of another | 73 / 73 / 71 / 59 functions | 8 initially + 7 from spill-union extension |
 | `tools/call_cast_returns.py` | a call through `((int (*)())F)` keeps F's 64-bit result when F returns r0:r1 | | 0 by itself |
 | `tools/double_args.py` | a double handed to a one-double RTABI helper keeps both words | 23 / 23 / 19 / 27 calls | 0 by itself |
 | `tools/float_bits.py` | a float local assigned from an `int`-cast helper call and read as `LODWORD(v)` is a bit copy (`COERCE_FLOAT`, `COERCE_UNSIGNED_INT`), not a numeric conversion | 14 / 14 / 14 / 20 | 3 |
 | `tools/dword_compares.py` | `*(_DWORD *)p < v` with `int v` is a signed compare (`cmp; bge` in the binary) | 11 / 11 / 11 / 8 compares | 4 |
+| `tools/arm_shifts.py` | mask mod-256 ARM exponent shift counts (`& 0xFF`) in `round()` (`double_exp_check`) so GCC `-O2` does not drop shifts >= 32 as UB | 4 / 4 / 4 / 4 shifts | (verified with spill unions) |
+| `tools/float_compares.py` | rewrite float loop-exit `if ( a < b ) break/goto` to `if ( !(a >= b) )` to preserve ARM VFP `bge` NaN exit semantics (`mem_swap_fields` and siblings) | 2 / 2 / 2 / 2 compares | 4 (`mmio_set_bit10`, `mac_irq_enable`, `mac_tx_enable`, `bb_reset`) |
+| `tools/libmatch.py` (interior drop) | after binding exact matched routines, iteratively drop unreferenced interior fragments split by IDA inside a matched routine | 2 / 2 / 2 / 2 fragments | 4 moved from `DIFFER` to `NOT_RUN` (`not_in_linked_image`) |
 
 Sites are per image in the order fmacfw, fmacfw_h, fmacfwbt, lmacfw_rf. The
 first four rows were measured together (3,743 to 3,766 MATCH, before the
@@ -269,7 +273,8 @@ address-of a `dword_/word_/byte_/unk_` symbol whose address is in
 --before-heal`, `heal_composed.py`, `heal_two_d_subscript.py`, `libmatch.py
 scan` and `apply`, `volatile_pointees.py`, `callsite_targets.py`,
 `periph_symbols.py`, `asm_returns.py`, `call_cast_returns.py`,
-`double_args.py`, `float_bits.py`, `stack_frames.py`, `dword_compares.py`.
+`double_args.py`, `float_bits.py`, `stack_frames.py`, `dword_compares.py`,
+`arm_shifts.py`, `float_compares.py`.
 `fwstruct compose -raw` stops before that; `post_compose.py --check` runs every
 step's check. `make -C src reproduce` rebuilds `fwstruct`, composes and fails
 if `src/` or `metadata/libmatch.json` then differ from the tracked files.

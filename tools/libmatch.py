@@ -224,21 +224,26 @@ def load_meta() -> dict:
 
 
 def bind(text: str, rows: list[dict]) -> tuple[str, list[dict]]:
-    """Bind every composed function that starts at a matched address."""
+    """Bind every composed function that starts at a matched address, and drop
+    unreferenced interior fragments split by IDA inside a matched routine."""
     by_addr = {int(r["address"], 16): r for r in rows}
+    ranges = [(int(r["address"], 16), int(r["address"], 16) + r["size"], r) for r in rows]
     split = text.index(BODIES)
     head, tail = text[:split], text[split:]
-    marks = list(MARKER.finditer(tail))
     done: list[dict] = []
+
+    marks = list(MARKER.finditer(tail))
     pieces, last = [], 0
     for i, m in enumerate(marks):
-        row = by_addr.get(int(m.group(2), 16))
-        if row is None:
-            continue
+        addr = int(m.group(2), 16)
         end = marks[i + 1].start() if i + 1 < len(marks) else len(tail)
         if "{" not in tail[m.end():end]:
-            continue                       # already bound
-        name, label = m.group(1), PREFIX + row["symbol"]
+            continue                       # already bound/dropped
+        name = m.group(1)
+        row = by_addr.get(addr)
+        if row is None:
+            continue
+        label = PREFIX + row["symbol"]
         decl = re.compile(r"(?m)^([^\n;{}]*\b" + re.escape(name) + r"\s*\([^;{}]*\));$")
         hit = decl.search(head)
         if hit is None:
@@ -250,7 +255,41 @@ def bind(text: str, rows: list[dict]) -> tuple[str, list[dict]]:
         last = end
         done.append({"name": name, **row})
     pieces.append(tail[last:])
-    return head + "".join(pieces), done
+    tail = "".join(pieces)
+
+    # Drop unreferenced interior fragments after matched library bodies are gone,
+    # repeating until fixed point in case dropped fragments referenced other fragments.
+    while True:
+        marks = list(MARKER.finditer(tail))
+        pieces, last = [], 0
+        dropped = 0
+        for i, m in enumerate(marks):
+            addr = int(m.group(2), 16)
+            end = marks[i + 1].start() if i + 1 < len(marks) else len(tail)
+            if "{" not in tail[m.end():end]:
+                continue
+            parent = next((r for lo, hi, r in ranges if lo < addr < hi), None)
+            if parent is None:
+                continue
+            name = m.group(1)
+            body_text = tail[m.end():end]
+            other = tail[:m.start()] + tail[end:]
+            if re.search(rf"\b{re.escape(name)}\b", other):
+                continue
+            if len(re.findall(rf"\b{re.escape(name)}\b", body_text)) > 1:
+                continue
+            pieces.append(tail[last:m.end()])
+            pieces.append(f"/* libmatch: interior fragment of {parent['symbol']} @ {parent['address']} "
+                          f"({parent['lib']}:{parent['member']}); dropped */\n\n\n")
+            last = end
+            dropped += 1
+            done.append({"name": name, "address": f"{addr:#x}", "symbol": f"{parent['symbol']}+interior"})
+        pieces.append(tail[last:])
+        tail = "".join(pieces)
+        if not dropped:
+            break
+
+    return head + tail, done
 
 
 def _member_syms(obj: Path) -> dict[str, tuple[object, str]]:

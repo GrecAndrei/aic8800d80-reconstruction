@@ -73,8 +73,8 @@ uint32_t dword_1019A0 = 0x0002d15e;
 uint32_t dword_101C60 = 0x00148d00;  /* ptr -> 0x148d00 */
 uint32_t dword_101C64 = 0x0014aa88;  /* ptr -> 0x14aa88 */
 uint32_t dword_101DBC = 0x00180844;  /* ptr -> 0x180844 */
-uint32_t dword_102150 = 0xc28f5c29;  /* ascii ")\x5c\x8f\xc2" */
-uint32_t dword_102158 = 0x00000000;
+uint64_t dword_102150 = 0x401228f5c28f5c29ULL;  /* ascii ")\x5c\x8f\xc2\xf5(\x12@" */
+uint64_t dword_102158 = 0x403d600000000000ULL;
 uint32_t dword_102174 = 0x0ffc0000;
 uint32_t dword_1021A4 = 0x3ff40000;
 uint32_t dword_1021A8 = 0x41500000;  /* ascii "\x00\x00PA" */
@@ -86,7 +86,7 @@ uint32_t dword_1021C4 = 0x42440000;  /* ascii "\x00\x00DB" */
 uint32_t dword_1021CC = 0x40640000;  /* ascii "\x00\x00d@" */
 uint32_t dword_1021D0 = 0x40540000;  /* ascii "\x00\x00T@" */
 uint32_t dword_1021E4 = 0x41900000;
-uint32_t dword_1024A0 = 0xb851eb85;
+uint64_t dword_1024A0 = 0x400f851eb851eb85ULL;
 uint32_t dword_1024A8 = 0x40e00000;
 uint32_t dword_1024AC = 0x3fe00000;
 uint32_t dword_1024B0 = 0x41900000;
@@ -155,17 +155,17 @@ uint32_t dword_103F94 = 0x00f70410;
 uint32_t dword_103F98 = 0x10000002;
 uint32_t dword_103FA4 = 0x01000101;
 uint32_t dword_103FA8 = 0x01000109;
-uint32_t dword_1041D8 = 0x52713c02;  /* ascii "\x02<qR" */
-uint32_t dword_1041E0 = 0x6bb98c7e;  /* ascii "~\x8c\xb9k" */
-uint32_t dword_1041E8 = 0x60aa64c3;  /* ascii "\xc3d\xaa`" */
-uint32_t dword_1041F0 = 0x543da7a8;  /* ascii "\xa8\xa7=T" */
-uint32_t dword_1041F8 = 0x54411744;  /* ascii "D\x17AT" */
+uint64_t dword_1041D8 = 0x3fe921fb52713c02ULL;  /* ascii "\x02<qR\xfb!\xe9?" */
+uint64_t dword_1041E0 = 0x3fb0f9096bb98c7eULL;
+uint64_t dword_1041E8 = 0x3fcf525460aa64c3ULL;  /* ascii "\xc3d\xaa`TR\xcf?" */
+uint64_t dword_1041F0 = 0x3ff921fb543da7a8ULL;  /* ascii "\xa8\xa7=T\xfb!\xf9?" */
+uint64_t dword_1041F8 = 0x400921fb54411744ULL;  /* ascii "D\x17AT\xfb!\x09@" */
 uint32_t dword_10470C = 0x66666667;  /* ascii "gfff" */
 uint32_t dword_104A8C = 0x408f4000;  /* ascii "\x00@\x8f@" */
 uint32_t dword_104B48 = 0xfffff000;
-uint32_t dword_105030 = 0xd9d7bdbb;
-uint32_t dword_105040 = 0x66666666;  /* ascii "ffff" */
-uint32_t dword_105FC8 = 0x00000000;
+uint64_t dword_105030 = 0x3ddb7cdfd9d7bdbbULL;
+uint64_t dword_105040 = 0x3fee666666666666ULL;  /* ascii "ffffff\xee?" */
+uint64_t dword_105FC8 = 0x40cfff8000000000ULL;
 uint32_t dword_106A68 = 0xfffe0000;
 uint32_t dword_106A6C = 0x0001ffff;
 uint32_t dword_106A70 = 0x40346c00;  /* ascii "\x00l4@" */
@@ -197,12 +197,12 @@ uint32_t dword_1089B0 = 0xffffc000;
 uint32_t dword_108F44 = 0xfffe00ff;
 uint32_t dword_109360 = 0xffffc950;
 uint32_t dword_109364 = 0xfffffc19;
-uint32_t dword_1099A0 = 0x88e368f1;
+uint64_t dword_1099A0 = 0x3ee4f8b588e368f1ULL;
 uint32_t dword_109D2C = 0x0018098c;  /* ptr -> 0x18098c */
 uint32_t dword_109D30 = 0x0018088c;  /* ptr -> 0x18088c */
 uint32_t dword_109D34 = 0x0018090c;  /* ptr -> 0x18090c */
 uint32_t dword_109D3C = 0x33d6bf95;
-uint32_t dword_10A068 = 0xcccccccd;
+uint64_t dword_10A068 = 0x3ff4cccccccccccdULL;
 uint32_t dword_10A8E0 = 0x0001ff00;
 uint32_t dword_10AF6C = 0x40346400;  /* ascii "\x00d4@" */
 uint32_t dword_10AF70 = 0x40346000;  /* ascii "\x00`4@" */
@@ -220,12 +220,12 @@ uint32_t dword_10B548 = 0x001801a4;  /* ptr -> 0x1801a4 */
 uint32_t dword_10B54C = 0x001801f8;  /* ptr -> 0x1801f8 */
 uint32_t dword_10B558 = 0x08000328;
 uint32_t dword_10B7CC = 0x405c8000;  /* ascii "\x00\x80\x5c@" */
-uint32_t dword_10BB50 = 0x33333333;  /* ascii "3333" */
-uint32_t dword_10BB58 = 0x33333333;  /* ascii "3333" */
+uint64_t dword_10BB50 = 0x3fd3333333333333ULL;  /* ascii "333333\xd3?" */
+uint64_t dword_10BB58 = 0xbfd3333333333333ULL;  /* ascii "333333\xd3\xbf" */
 uint32_t dword_10BF00 = 0x097f097f;
 uint32_t dword_10BF24 = 0x00ffcc80;
-uint32_t dword_10C158 = 0x00000000;
-uint32_t dword_10C168 = 0x00000000;
+uint64_t dword_10C158 = 0x40b30a0000000000ULL;
+uint64_t dword_10C168 = 0x40b3720000000000ULL;
 uint32_t dword_10C190 = 0x3ff40000;
 uint32_t dword_10C194 = 0x41500000;  /* ascii "\x00\x00PA" */
 uint32_t dword_10C19C = 0x3fffe000;
@@ -265,21 +265,21 @@ uint32_t dword_10DC70 = 0x70001004;
 uint32_t dword_10DCA8 = 0x70001004;
 uint32_t dword_10DCE0 = 0x70001004;
 uint32_t dword_10DD18 = 0x70001004;
-uint32_t dword_10DDA0 = 0x00000000;
-uint32_t dword_10DDA8 = 0x00000000;
-uint32_t dword_10DDB0 = 0x00000000;
+uint64_t dword_10DDA0 = 0x4074a00000000000ULL;
+uint64_t dword_10DDA8 = 0x40e0100000000000ULL;
+uint64_t dword_10DDB0 = 0x4071b00000000000ULL;
 uint32_t dword_10DDC0 = 0xe0180ffd;
 uint32_t dword_10DDC4 = 0xffe7f803;
-uint32_t dword_10DE70 = 0x00000000;
-uint32_t dword_10DE78 = 0x00000000;
-uint32_t dword_10DE80 = 0x00000000;
+uint64_t dword_10DE70 = 0x4074a00000000000ULL;
+uint64_t dword_10DE78 = 0x40e0100000000000ULL;
+uint64_t dword_10DE80 = 0x4071b00000000000ULL;
 uint32_t dword_10DE90 = 0xe0180ffd;
 uint32_t dword_10DE94 = 0xffe7f803;
 uint32_t dword_10DEE8 = 0xe0180ffd;
 uint32_t dword_10DEEC = 0xffe7f803;
-uint32_t dword_10DF38 = 0x00000000;
-uint32_t dword_10DF40 = 0x00000000;
-uint32_t dword_10DF48 = 0x00000000;
+uint64_t dword_10DF38 = 0x4074a00000000000ULL;
+uint64_t dword_10DF40 = 0x40e0100000000000ULL;
+uint64_t dword_10DF48 = 0x4071b00000000000ULL;
 uint32_t dword_10DFF0 = 0xe0180ffd;
 uint32_t dword_10DFF4 = 0xffe7f803;
 uint32_t dword_10DFF8 = 0x000805e4;
@@ -299,29 +299,29 @@ uint32_t dword_10E210 = 0x70001004;
 uint32_t dword_10E2D0 = 0xe0180ffd;
 uint32_t dword_10E2D4 = 0xffe7f803;
 uint32_t dword_10E2D8 = 0x000805e4;
-uint32_t dword_10E3E8 = 0x00000000;
-uint32_t dword_10E3F0 = 0x00000000;
-uint32_t dword_10E3F8 = 0xf3b645a2;
-uint32_t dword_10E400 = 0x8f5c28f6;  /* ascii "\xf6(\x5c\x8f" */
+uint64_t dword_10E3E8 = 0x4092f80000000000ULL;
+uint64_t dword_10E3F0 = 0x40e0100000000000ULL;
+uint64_t dword_10E3F8 = 0x3ff8d4fdf3b645a2ULL;
+uint64_t dword_10E400 = 0x3ff0f5c28f5c28f6ULL;
 uint32_t dword_10E40C = 0x40180000;
 uint32_t dword_10E410 = 0x40200000;  /* ascii "\x00\x00 @" */
 uint32_t dword_10E414 = 0x40400000;  /* ascii "\x00\x00@@" */
 uint32_t dword_10E418 = 0x408f4000;  /* ascii "\x00@\x8f@" */
-uint32_t dword_10E4A8 = 0x00000000;
-uint32_t dword_10E4B0 = 0x00000000;
-uint32_t dword_10E4B8 = 0xf3b645a2;
-uint32_t dword_10E4C0 = 0x8f5c28f6;  /* ascii "\xf6(\x5c\x8f" */
+uint64_t dword_10E4A8 = 0x4092f80000000000ULL;
+uint64_t dword_10E4B0 = 0x40e0100000000000ULL;
+uint64_t dword_10E4B8 = 0x3ff8d4fdf3b645a2ULL;
+uint64_t dword_10E4C0 = 0x3ff0f5c28f5c28f6ULL;
 uint32_t dword_10E4CC = 0x40300000;  /* ascii "\x00\x000@" */
 uint32_t dword_10E4D0 = 0x40400000;  /* ascii "\x00\x00@@" */
 uint32_t dword_10E4D4 = 0x408f4000;  /* ascii "\x00@\x8f@" */
-uint32_t dword_10E750 = 0x32cd32cd;  /* ascii "\xcd2\xcd2" */
-uint32_t dword_10E758 = 0x00000000;
-uint32_t dword_10E760 = 0x47ae147b;  /* ascii "{\x14\xaeG" */
+uint64_t dword_10E750 = 0x3fa932cd32cd32cdULL;  /* ascii "\xcd2\xcd2\xcd2\xa9?" */
+uint64_t dword_10E758 = 0x40994c0000000000ULL;
+uint64_t dword_10E760 = 0x3fa47ae147ae147bULL;  /* ascii "{\x14\xaeG\xe1z\xa4?" */
 uint32_t dword_10E76C = 0x0a0ea5e4;
 uint32_t dword_10E778 = 0xe000fff0;
-uint32_t dword_10EA30 = 0x00000000;
-uint32_t dword_10EA38 = 0x00000000;
-uint32_t dword_10EA40 = 0xc28f5c29;  /* ascii ")\x5c\x8f\xc2" */
+uint64_t dword_10EA30 = 0x4092f80000000000ULL;
+uint64_t dword_10EA38 = 0x40e0100000000000ULL;
+uint64_t dword_10EA40 = 0x3fac28f5c28f5c29ULL;  /* ascii ")\x5c\x8f\xc2\xf5(\xac?" */
 uint32_t dword_10EA50 = 0xe000fff0;
 uint32_t dword_10EA54 = 0x0a0ea5e5;
 uint32_t dword_10EE58 = 0x0a0ea5e4;
@@ -574,8 +574,8 @@ uint32_t dword_116828 = 0x0014c0c8;  /* ptr -> 0x14c0c8 */
 uint32_t dword_11682C = 0x0014c0b0;  /* ptr -> 0x14c0b0 */
 uint32_t dword_116830 = 0x00185ce8;  /* ptr -> 0x185ce8 */
 uint32_t dword_116834 = 0x00185f68;  /* ptr -> 0x185f68, ascii "h_\x18\x00" */
-uint32_t dword_116B38 = 0x66666666;  /* ascii "ffff" */
-uint32_t dword_116B40 = 0x33333333;  /* ascii "3333" */
+uint64_t dword_116B38 = 0x3fe6666666666666ULL;  /* ascii "ffffff\xe6?" */
+uint64_t dword_116B40 = 0x3fd3333333333333ULL;  /* ascii "333333\xd3?" */
 uint32_t dword_116B48 = 0x00180ac0;  /* ptr -> 0x180ac0 */
 uint32_t dword_116B4C = 0x001581c0;  /* ptr -> 0x1581c0 */
 uint32_t dword_116B50 = 0x001862e8;  /* ptr -> 0x1862e8 */
@@ -756,8 +756,8 @@ uint32_t dword_11CB7C = 0x0001adb0;
 uint32_t dword_11CB80 = 0xcccccccd;
 uint32_t dword_11CCFC = 0x00185f68;  /* ptr -> 0x185f68, ascii "h_\x18\x00" */
 uint32_t dword_11CD00 = 0x0017bed0;  /* ptr -> 0x17bed0 */
-uint32_t dword_11CFD0 = 0xb851eb85;
-uint32_t dword_11CFD8 = 0xc0000000;
+uint64_t dword_11CFD0 = 0x400f851eb851eb85ULL;
+uint64_t dword_11CFD8 = 0x40860cccc0000000ULL;
 uint32_t dword_11CFE4 = 0x0003ff00;
 uint32_t dword_11CFE8 = 0x0ffc0000;
 uint32_t dword_11CFF0 = 0x00ffff00;
@@ -847,10 +847,10 @@ extern uint32_t dword_11E718;  /* ptr -> 0x13e621 */
 uint32_t dword_11E824 = 0x0014d8b8;  /* ptr -> 0x14d8b8 */
 uint32_t dword_11E828 = 0x0014d880;  /* ptr -> 0x14d880 */
 uint32_t dword_11E8DC = 0x0014da48;  /* ptr -> 0x14da48 */
-uint32_t dword_11E950 = 0x0979a371;  /* ascii "q\xa3y\x09" */
+uint64_t dword_11E950 = 0x400a934f0979a371ULL;  /* ascii "q\xa3y\x09O\x93\x0a@" */
 uint32_t dword_11E95C = 0x41600000;  /* ascii "\x00\x00`A" */
 uint32_t dword_11E960 = 0x41cfc000;
-uint32_t dword_11EAC0 = 0x55475a32;  /* ascii "2ZGU" */
+uint64_t dword_11EAC0 = 0x3fd3441355475a32ULL;  /* ascii "2ZGU\x13D\xd3?" */
 uint32_t dword_11EB44 = 0x0014d8c8;  /* ptr -> 0x14d8c8 */
 uint32_t dword_11EB70 = 0x0014da48;  /* ptr -> 0x14da48 */
 uint32_t dword_11EF28 = 0x0014df20;  /* ptr -> 0x14df20 */
@@ -7117,12 +7117,12 @@ int rf_calibrate( unsigned int a1, int a2, unsigned int r2_0, unsigned int a4, u
   volatile uint32_t *v167; // r1
   volatile uint32_t *v168; // r2
   int v169; // r3
-  unsigned int v171; // [sp+24h] [bp-50h]
-  unsigned int v172; // [sp+24h] [bp-50h]
+  struct __attribute__((packed)) { union { unsigned int v171; // [sp+24h] [bp-50h]
+  unsigned int v172; }; // [sp+24h] [bp-50h]
   volatile uint8_t *v173; // [sp+28h] [bp-4Ch]
   int v174; // [sp+2Ch] [bp-48h]
-  uint32_t v175[16]; // [sp+34h] [bp-40h] BYREF
-
+  char _pad3[4]; uint32_t v175[16]; // [sp+34h] [bp-40h] BYREF
+  } _frame;
   dispatch_event_handler_1("\x9D\x87%s: band=%d freq=%d freq1=%d chantype=%d sx=%d\n", aPhyHwSetChanne, a1, a2, r2_0, a4, a6);
   if ( **(volatile uint8_t **)off_102168 != 3 )
     dispatch_event_handler_1("setch:%d\r\n", r2_0);
@@ -7174,7 +7174,7 @@ int rf_calibrate( unsigned int a1, int a2, unsigned int r2_0, unsigned int a4, u
   if ( a1 )
   {
 LABEL_49:
-    v173 = (void *)(uintptr_t)(off_10250C);
+    _frame.v173 = (void *)(uintptr_t)(off_10250C);
     v133 = (void *)(uintptr_t)(off_10250C);
     mac_ctrl_clear(r2_0);
     if ( v133[1] )
@@ -7192,7 +7192,7 @@ LABEL_49:
     }
     goto LABEL_18;
   }
-  v173 = (void *)(uintptr_t)(off_102190);
+  _frame.v173 = (void *)(uintptr_t)(off_102190);
   v21 = (void *)(uintptr_t)(off_102190);
   mac_ctrl_set(r2_0, a4);
   if ( v21[1] )
@@ -7362,8 +7362,8 @@ if ( ((int (*)())double_ge)(v58, v59) ) { v162 = ((uint64_t (*)())aeabi_dadd)(v5
   v77 = (v77 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v77 = (v77 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1021AC) << 32);
   v78 = double_add(v76, v77);
-  v171 = *v69;
-  *v69 = v171 & 0xFFFF8000 | ((int (*)(uint64_t))aeabi_d2iz)(v78) & 0x7FFF;
+  _frame.v171 = *v69;
+  *v69 = _frame.v171 & 0xFFFF8000 | ((int (*)(uint64_t))aeabi_d2iz)(v78) & 0x7FFF;
   v79 = (v79 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1024A8) << 32);
   v79 = (v79 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v80 = ((uint64_t (*)())aeabi_dadd)(v50, v79);
@@ -7476,7 +7476,7 @@ if ( ((int (*)())double_ge)(v58, v59) ) { v162 = ((uint64_t (*)())aeabi_dadd)(v5
     goto LABEL_68;
   v134 = (void *)(uintptr_t)(off_1027D4);
   v135 = *(volatile uint8_t *)off_1027D8;
-  v174 = *(volatile uint32_t *)(uintptr_t)(off_1027D4);
+  _frame.v174 = *(volatile uint32_t *)(uintptr_t)(off_1027D4);
   v136 = *(volatile uint32_t *)(uintptr_t)(off_1027D4);
   *(volatile uint8_t *)off_1027D0 = 0;
   if ( !v135 && v136 )
@@ -7511,55 +7511,55 @@ LABEL_82:
 LABEL_63:
   v140 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[1];
   v141 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[2];
-  v175[0] = ((volatile uint32_t *)(uintptr_t)off_1027E8)[0];
-  v175[1] = v140;
-  v175[2] = v141;
+  _frame.v175[0] = ((volatile uint32_t *)(uintptr_t)off_1027E8)[0];
+  _frame.v175[1] = v140;
+  _frame.v175[2] = v141;
   v142 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[5];
   v143 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[6];
   v144 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[7];
-  v175[3] = ((volatile uint32_t *)(uintptr_t)off_1027E8)[4];
-  v175[4] = v142;
-  v175[5] = v143;
-  v175[6] = v144;
+  _frame.v175[3] = ((volatile uint32_t *)(uintptr_t)off_1027E8)[4];
+  _frame.v175[4] = v142;
+  _frame.v175[5] = v143;
+  _frame.v175[6] = v144;
   v145 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[9];
   v146 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[10];
   v147 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[11];
-  v175[7] = ((volatile uint32_t *)(uintptr_t)off_1027E8)[8];
-  v175[8] = v145;
-  v175[9] = v146;
-  v175[10] = v147;
+  _frame.v175[7] = ((volatile uint32_t *)(uintptr_t)off_1027E8)[8];
+  _frame.v175[8] = v145;
+  _frame.v175[9] = v146;
+  _frame.v175[10] = v147;
   v148 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[12];
   v149 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[13];
   v150 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[14];
   v151 = ((volatile uint32_t *)(uintptr_t)off_1027E8)[15];
-  v172 = off_1027EC + 8 * v105;
-  *(volatile uint8_t *)(v172 + 4) = 1;
+  _frame.v172 = off_1027EC + 8 * v105;
+  *(volatile uint8_t *)(_frame.v172 + 4) = 1;
   v152 = (void *)(uintptr_t)(off_1027F0);
-  v175[11] = v148;
-  v175[12] = v149;
-  v175[13] = v150;
-  v175[14] = v151;
+  _frame.v175[11] = v148;
+  _frame.v175[12] = v149;
+  _frame.v175[13] = v150;
+  _frame.v175[14] = v151;
   v153 = off_1027F4;
   *(volatile uint32_t *)off_1027F0 |= 0x8000u;
   *v152 |= 0x2000u;
-  apply_dsp_transform((int)v175, v153, 0, 0, (volatile uint16_t *)off_1027EC, 6, 1);
+  apply_dsp_transform((int)_frame.v175, v153, 0, 0, (volatile uint16_t *)off_1027EC, 6, 1);
   *v152 &= ~0x8000u;
   *v152 &= ~0x2000u;
-  *(volatile uint8_t *)(v172 + 4) = 0;
+  *(volatile uint8_t *)(_frame.v172 + 4) = 0;
   if ( r2_0 <= 0x1387 )
   {
     rf_ctrl_set(0, r2_0);
-    if ( v173[13] )
-      v173[15] |= 1u;
+    if ( _frame.v173[13] )
+      _frame.v173[15] |= 1u;
   }
   else
   {
     rf_ctrl_set(1, r2_0);
   }
-  if ( !*(volatile uint8_t *)off_1027D8 && v174 )
+  if ( !*(volatile uint8_t *)off_1027D8 && _frame.v174 )
   {
     v154 = *v139;
-    *(volatile uint32_t *)(uintptr_t)(off_1027D4) = v174;
+    *(volatile uint32_t *)(uintptr_t)(off_1027D4) = _frame.v174;
     if ( !v154 )
       goto LABEL_68;
   }
@@ -9480,17 +9480,17 @@ int tx_power_calibrate(int a1, int a2, volatile uint32_t *a3) {
   int v26; // r4
   float v27; // s15
   int result; // r0
-  int v29; // [sp+4h] [bp-A8h]
-  int v30; // [sp+4h] [bp-A8h]
+  struct __attribute__((packed)) { union { int v29; // [sp+4h] [bp-A8h]
+  int v30; }; // [sp+4h] [bp-A8h]
   int v31; // [sp+8h] [bp-A4h]
   int v32; // [sp+Ch] [bp-A0h]
   int v33; // [sp+10h] [bp-9Ch]
   int v34; // [sp+14h] [bp-98h]
-  int v35; // [sp+1Ch] [bp-90h]
-  int v36; // [sp+24h] [bp-88h]
+  char _pad5[4]; int v35; // [sp+1Ch] [bp-90h]
+  char _pad6[4]; int v36; // [sp+24h] [bp-88h]
   float v37; // [sp+28h] [bp-84h] BYREF
   float v38; // [sp+2Ch] [bp-80h]
-
+  } _frame;
   if ( a1 )
     v3 = 2560;
   else
@@ -9499,7 +9499,7 @@ int tx_power_calibrate(int a1, int a2, volatile uint32_t *a3) {
     v6 = 528;
   else
     v6 = 256;
-  v32 = v3;
+  _frame.v32 = v3;
   if ( a1 )
     v7 = 2624;
   else
@@ -9508,9 +9508,9 @@ int tx_power_calibrate(int a1, int a2, volatile uint32_t *a3) {
     v8 = 32;
   else
     v8 = 16;
-  memset_thunk((volatile int *)&v37, 0, 0x80u);
+  memset_thunk((volatile int *)&_frame.v37, 0, 0x80u);
   v9 = flt_1043D4;
-  v29 = v6;
+  _frame.v29 = v6;
   v10 = 10;
   v11 = 0;
   do
@@ -9526,56 +9526,56 @@ int tx_power_calibrate(int a1, int a2, volatile uint32_t *a3) {
     }
   }
   while ( v10 < v7 );
-  v35 = v11;
-  v15 = v11 - v29;
-  if ( v11 - v29 <= 0 )
+  _frame.v35 = v11;
+  v15 = v11 - _frame.v29;
+  if ( v11 - _frame.v29 <= 0 )
   {
-    v35 = v11 + v32;
-    v15 = v11 + v32 - v29;
-    v36 = 1;
+    _frame.v35 = v11 + _frame.v32;
+    v15 = v11 + _frame.v32 - _frame.v29;
+    _frame.v36 = 1;
   }
   else
   {
-    v36 = 0;
+    _frame.v36 = 0;
   }
-  v33 = v15 - 1;
+  _frame.v33 = v15 - 1;
   v16 = flt_1043D4;
-  v34 = v15;
-  v17 = (volatile int *)&v37;
+  _frame.v34 = v15;
+  v17 = (volatile int *)&_frame.v37;
   do
   {
-    v31 = 9;
+    _frame.v31 = 9;
     *(volatile float *)v17++ = v16;
-    v30 = v34;
+    _frame.v30 = _frame.v34;
     do
     {
-      v18 = v30;
+      v18 = _frame.v30;
       v19 = 5;
       do
       {
         v20 = lookup_rf_table(v18, a2, a3);
-        v21 = lookup_rf_table(v33 - v34 + v18, a2, a3);
+        v21 = lookup_rf_table(_frame.v33 - _frame.v34 + v18, a2, a3);
         --v19;
         v18 += v8;
         *((volatile float *)v17 - 1) = *((volatile float *)v17 - 1) + (float)(v20 - v21);
       }
       while ( v19 );
-      v30 += v32;
-      --v31;
+      _frame.v30 += _frame.v32;
+      --_frame.v31;
     }
-    while ( v31 );
-    ++v34;
-    ++v33;
+    while ( _frame.v31 );
+    ++_frame.v34;
+    ++_frame.v33;
   }
-  while ( v17 != (volatile int *)(&v37 + v8) );
+  while ( v17 != (volatile int *)(&_frame.v37 + v8) );
   v22 = 0;
   v23 = flt_1043D4;
-  v24 = &v37;
+  v24 = &_frame.v37;
   v25 = 0;
 LABEL_32:
-  if ( (float)((float)(v37 + v38) * 0.5) > v23 )
+  if ( (float)((float)(_frame.v37 + _frame.v38) * 0.5) > v23 )
   {
-    v23 = (float)(v37 + v38) * 0.5;
+    v23 = (float)(_frame.v37 + _frame.v38) * 0.5;
     v25 = v22;
   }
   do
@@ -9601,9 +9601,9 @@ LABEL_32:
     }
   }
   while ( v26 < v8 );
-  result = v35 + v25 + 1;
-  if ( v36 )
-    result -= v32;
+  result = _frame.v35 + v25 + 1;
+  if ( _frame.v36 )
+    result -= _frame.v32;
   return result;
 }
 
@@ -10187,7 +10187,7 @@ int list_remove(int a1, float a2, volatile int *a3, int a4, int a5) {
         v9 = *(volatile float *)(v7 - 4);
         v7 -= 4;
         --v8;
-        if ( v9 < a2 )
+        if ( !(v9 >= a2) )
           break;
         a3[1] = v8;
         if ( v8 == -1 )
@@ -10208,7 +10208,7 @@ LABEL_6:
       v14 = *(volatile float *)(v12 - 4);
       v12 -= 4;
       --v13;
-      if ( v14 < a2 )
+      if ( !(v14 >= a2) )
         goto LABEL_6;
       a3[1] = v13;
       if ( v13 == -1 )
@@ -10338,21 +10338,21 @@ int rx_packet_handler( int a1, int a2, int a3, int a4, uint8_t a5, char a6, uint
   volatile int *v100; // r0
   volatile int *v101; // r1
   int v102; // t1
-  int v103; // [sp+2Ch] [bp-180h]
-  int v104; // [sp+30h] [bp-17Ch]
+  struct __attribute__((packed)) { int v103; // [sp+2Ch] [bp-180h]
+  union { int v104; // [sp+30h] [bp-17Ch]
   int v105; // [sp+30h] [bp-17Ch]
-  int v106; // [sp+30h] [bp-17Ch]
-  volatile float *v107; // [sp+34h] [bp-178h]
+  int v106; }; // [sp+30h] [bp-17Ch]
+  union { volatile float *v107; // [sp+34h] [bp-178h]
   volatile float *v108; // [sp+34h] [bp-178h]
-  unsigned int v109; // [sp+34h] [bp-178h]
-  int a4a; // [sp+38h] [bp-174h]
+  unsigned int v109; }; // [sp+34h] [bp-178h]
+  union { int a4a; // [sp+38h] [bp-174h]
   int a4b; // [sp+38h] [bp-174h]
-  int a4c; // [sp+38h] [bp-174h]
+  int a4c; }; // [sp+38h] [bp-174h]
   int v113; // [sp+3Ch] [bp-170h]
   int v114; // [sp+40h] [bp-16Ch]
   int v115; // [sp+44h] [bp-168h]
   int v116; // [sp+48h] [bp-164h]
-  int a3a; // [sp+5Ch] [bp-150h] BYREF
+  char _pad8[16]; int a3a; // [sp+5Ch] [bp-150h] BYREF
   unsigned int v119; // [sp+60h] [bp-14Ch]
   int v120; // [sp+64h] [bp-148h]
   float v121[16]; // [sp+68h] [bp-144h] BYREF
@@ -10384,9 +10384,9 @@ int rx_packet_handler( int a1, int a2, int a3, int a4, uint8_t a5, char a6, uint
   int v147; // [sp+1A0h] [bp-Ch]
   int v148; // [sp+1A4h] [bp-8h]
   uint8_t v149[4]; // [sp+1A8h] [bp-4h] BYREF
-
+  } _frame;
   v11 = (volatile float *)a3;
-  v104 = a9 - 1;
+  _frame.v104 = a9 - 1;
   if ( a2 > 1 )
   {
     v12 = a3 + 128 + 4 * a2;
@@ -10412,11 +10412,11 @@ if ( ((int (*)())double_lt)(v16, v18) ) { check_interrupt_flag(1, aWarningAmIsNo
   {
     v19 = aeabi_i2d(a1);
     v20 = flt_105038;
-    a4a = (int)v11;
-    v21 = v122;
-    v22 = (volatile float *)v123;
+    _frame.a4a = (int)v11;
+    v21 = _frame.v122;
+    v22 = (volatile float *)_frame.v123;
     v23 = 0;
-    v24 = v121;
+    v24 = _frame.v121;
     v25 = v19;
     do
     {
@@ -10427,20 +10427,20 @@ if ( ((int (*)())double_lt)(v16, v18) ) { check_interrupt_flag(1, aWarningAmIsNo
       *v22++ = v20;
     }
     while ( v23 != a1 );
-    v11 = (volatile float *)a4a;
+    v11 = (volatile float *)_frame.a4a;
   }
-  v28 = v121[v104];
+  v28 = _frame.v121[_frame.v104];
   v29 = 0;
-  a4b = a2 - 1;
-  v120 = a2 - 1;
-  list_remove(a2, v28, &a3a, (int)v11, 0);
-  v30 = &v11[v119];
-  v31 = &v11[a3a];
+  _frame.a4b = a2 - 1;
+  _frame.v120 = a2 - 1;
+  list_remove(a2, v28, &_frame.a3a, (int)v11, 0);
+  v30 = &v11[_frame.v119];
+  v31 = &v11[_frame.a3a];
   v32 = *v30;
   v33 = v30[32];
   v34 = v31[32] - v33;
   v35 = *v31 - *v30;
-  v122[v104] = v28;
+  _frame.v122[_frame.v104] = v28;
   v36 = (float)((float)((float)(v34 / v35) * (float)(v28 - v32)) + v33) / v28;
   if ( a1 <= 0 )
   {
@@ -10452,22 +10452,22 @@ if ( ((int (*)())double_lt)(v16, v18) ) { check_interrupt_flag(1, aWarningAmIsNo
   }
   else
   {
-    v37 = v122;
-    v38 = v121;
+    v37 = _frame.v122;
+    v38 = _frame.v121;
     do
     {
-      if ( v29 != v104 )
+      if ( v29 != _frame.v104 )
       {
         v40 = v36 * *v38;
-        list_remove(a2, v40, &a3a, (int)v11, 1);
-        if ( a3a )
+        list_remove(a2, v40, &_frame.a3a, (int)v11, 1);
+        if ( _frame.a3a )
         {
-          v41 = &v11[a3a];
-if ( a4b == v119 || (v42 = v11[v119 + 32], v107 = &v11[v119], v43 = v41[32] - v42, v44 = ((uint64_t (*)())aeabi_d2f)(COERCE_UNSIGNED_INT(v43)), ((int (*)())double_lt)(v44, *(volatile uint64_t *)&dword_105030)) ) { v39 = 1.0;
+          v41 = &v11[_frame.a3a];
+if ( _frame.a4b == _frame.v119 || (v42 = v11[_frame.v119 + 32], _frame.v107 = &v11[_frame.v119], v43 = v41[32] - v42, v44 = ((uint64_t (*)())aeabi_d2f)(COERCE_UNSIGNED_INT(v43)), ((int (*)())double_lt)(v44, *(volatile uint64_t *)&dword_105030)) ) { v39 = 1.0;
           }
           else
           {
-            v39 = (float)((float)((float)(*v41 - *v107) * (float)(v40 - v42)) / v43) + *v107;
+            v39 = (float)((float)((float)(*v41 - *_frame.v107) * (float)(v40 - v42)) / v43) + *_frame.v107;
           }
         }
         else
@@ -10483,30 +10483,30 @@ if ( a4b == v119 || (v42 = v11[v119 + 32], v107 = &v11[v119], v43 = v41[32] - v4
     while ( a1 != v29 );
   }
   v45 = flt_105038;
-  v105 = a1;
+  _frame.v105 = a1;
   v46 = flt_10503C;
   v47 = a9 - 1;
   v48 = -1;
   v49 = a9 - 1;
   while ( 1 )
   {
-    v56 = v122[v47];
-    list_remove(a2, v56, &a3a, (int)v11, 0);
-    if ( a3a )
+    v56 = _frame.v122[v47];
+    list_remove(a2, v56, &_frame.a3a, (int)v11, 0);
+    if ( _frame.a3a )
     {
-      v108 = &v11[v119];
-      v50 = &v11[a3a];
-      if ( a4b == v119 )
+      _frame.v108 = &v11[_frame.v119];
+      v50 = &v11[_frame.a3a];
+      if ( _frame.a4b == _frame.v119 )
       {
-        v54 = v11[a4b + 96];
+        v54 = v11[_frame.a4b + 96];
       }
       else
       {
-        v51 = *v108;
-        v52 = *v50 - *v108;
+        v51 = *_frame.v108;
+        v52 = *v50 - *_frame.v108;
         v53 = ((uint64_t (*)())aeabi_d2f)(COERCE_UNSIGNED_INT(v52));
 if ( !((int (*)())double_gt)(v53, *(volatile uint64_t *)&dword_105030) ) v52 = v46;
-        v54 = (float)((float)((float)(v50[96] - v108[96]) / v52) * (float)(v56 - v51)) + v108[96];
+        v54 = (float)((float)((float)(v50[96] - _frame.v108[96]) / v52) * (float)(v56 - v51)) + _frame.v108[96];
       }
     }
     else
@@ -10517,23 +10517,23 @@ if ( !((int (*)())double_gt)(v53, *(volatile uint64_t *)&dword_105030) ) v52 = v
     if ( v47 != v49 )
     {
       v54 = v45 - v54;
-      *(volatile float *)&v149[4 * v47 - 192] = v54;
+      *(volatile float *)&_frame.v149[4 * v47 - 192] = v54;
     }
     v47 = v48 + 1;
     if ( v55 )
       v45 = v54;
-    if ( v105 <= v47 )
+    if ( _frame.v105 <= v47 )
       break;
     ++v48;
   }
   check_interrupt_flag(1, aIDpdOutDpdPmOu);
-  if ( v105 > 0 )
+  if ( _frame.v105 > 0 )
   {
     v57 = flt_105300;
-    v58 = v122;
-    v59 = &v124;
-    v60 = (volatile float *)v123;
-    v61 = (void *)(v140);
+    v58 = _frame.v122;
+    v59 = &_frame.v124;
+    v60 = (volatile float *)_frame.v123;
+    v61 = (void *)(_frame.v140);
     v62 = 0;
     do
     {
@@ -10551,22 +10551,22 @@ if ( !((int (*)())double_gt)(v53, *(volatile uint64_t *)&dword_105030) ) v52 = v
         *(v61 - 1) = v68 + (v68 < 0 ? 0x400 : 0);
       check_interrupt_flag(1, a5d5d5d, v66);
     }
-    while ( v105 != v62 );
+    while ( _frame.v105 != v62 );
   }
 LABEL_44:
-  v69 = (v127 << 10) + (v126 << 20) + v128;
-  v103 = (v130 << 10) + (v129 << 20) + v131;
-  v106 = (v133 << 10) + (v132 << 20) + v134;
-  v109 = (v136 << 10) + (v135 << 20) + v137;
-  v113 = v140[1] + 1049600 * v140[0];
-  v114 = (v140[3] << 10) + (v140[2] << 20) + v140[4];
-  v115 = (v140[6] << 10) + (v140[5] << 20) + v140[7];
-  a4c = (v139 << 10) + (v138 << 20);
-  v70 = (v142 << 10) + (v141 << 20) + v143;
+  v69 = (_frame.v127 << 10) + (_frame.v126 << 20) + _frame.v128;
+  _frame.v103 = (_frame.v130 << 10) + (_frame.v129 << 20) + _frame.v131;
+  _frame.v106 = (_frame.v133 << 10) + (_frame.v132 << 20) + _frame.v134;
+  _frame.v109 = (_frame.v136 << 10) + (_frame.v135 << 20) + _frame.v137;
+  _frame.v113 = _frame.v140[1] + 1049600 * _frame.v140[0];
+  _frame.v114 = (_frame.v140[3] << 10) + (_frame.v140[2] << 20) + _frame.v140[4];
+  _frame.v115 = (_frame.v140[6] << 10) + (_frame.v140[5] << 20) + _frame.v140[7];
+  _frame.a4c = (_frame.v139 << 10) + (_frame.v138 << 20);
+  v70 = (_frame.v142 << 10) + (_frame.v141 << 20) + _frame.v143;
   v71 = 15 - a8;
-  v72 = (v145 << 10) + (v144 << 20) + v146;
-  v73 = (v148 << 10) + (v147 << 20);
-  v74 = v125 + (v124 << 10);
+  v72 = (_frame.v145 << 10) + (_frame.v144 << 20) + _frame.v146;
+  v73 = (_frame.v148 << 10) + (_frame.v147 << 20);
+  v74 = _frame.v125 + (_frame.v124 << 10);
   if ( !a7 )
   {
     if ( a8 == 4 )
@@ -10579,26 +10579,26 @@ LABEL_44:
     }
 LABEL_48:
     v75 = (void *)(&((volatile uint32_t *)(uintptr_t)off_105308)[316 * a7 + 12 * v71]);
-    v116 = v71 + 24;
+    _frame.v116 = v71 + 24;
     v76 = v71;
     v77 = a4 + 96 + 48 * v71;
-    v78 = v125 + (v124 << 10);
-    v79 = (v142 << 10) + (v141 << 20) + v143;
+    v78 = _frame.v125 + (_frame.v124 << 10);
+    v79 = (_frame.v142 << 10) + (_frame.v141 << 20) + _frame.v143;
     v80 = v75;
-    v81 = (v127 << 10) + (v126 << 20) + v128;
+    v81 = (_frame.v127 << 10) + (_frame.v126 << 20) + _frame.v128;
     v82 = v76;
     do
     {
       check_interrupt_flag(1, aDpdUseDTable, v82);
-      *(volatile uint32_t *)(v77 - 40) = v103;
-      *(volatile uint32_t *)(v77 - 36) = v106;
-      *(volatile uint32_t *)(v77 - 32) = v109;
-      *(volatile uint32_t *)(v77 - 28) = a4c;
-      *(volatile uint32_t *)(v77 - 24) = v113;
-      *(volatile uint32_t *)(v77 - 20) = v114;
+      *(volatile uint32_t *)(v77 - 40) = _frame.v103;
+      *(volatile uint32_t *)(v77 - 36) = _frame.v106;
+      *(volatile uint32_t *)(v77 - 32) = _frame.v109;
+      *(volatile uint32_t *)(v77 - 28) = _frame.a4c;
+      *(volatile uint32_t *)(v77 - 24) = _frame.v113;
+      *(volatile uint32_t *)(v77 - 20) = _frame.v114;
       *(volatile uint32_t *)(v77 - 48) = v78;
       *(volatile uint32_t *)(v77 - 44) = v81;
-      *(volatile uint32_t *)(v77 - 16) = v115;
+      *(volatile uint32_t *)(v77 - 16) = _frame.v115;
       *(volatile uint32_t *)(v77 - 12) = v79;
       *(volatile uint32_t *)(v77 - 8) = v72;
       *(volatile uint32_t *)(v77 - 4) = v73;
@@ -10615,7 +10615,7 @@ LABEL_48:
       v80 += 96;
       v77 += 384;
     }
-    while ( v116 != v82 );
+    while ( _frame.v116 != v82 );
     v70 = v79;
     v69 = v81;
     v74 = v78;
@@ -10635,13 +10635,13 @@ LABEL_48:
              " pm6=%x\n",
              v74,
              v69,
-             v103,
-             v106,
-             v109,
-             a4c,
-             v113,
-             v114,
-             v115,
+             _frame.v103,
+             _frame.v106,
+             _frame.v109,
+             _frame.a4c,
+             _frame.v113,
+             _frame.v114,
+             _frame.v115,
              v70,
              v72,
              v73);
@@ -10655,20 +10655,20 @@ LABEL_48:
     v87 = (volatile int *)off_1053B8;
     check_interrupt_flag(1, "dpd use %d table\n", v71);
     v96 = (volatile uint32_t *)(a4 + 48 * v71);
-    v96[14] = v103;
-    v96[15] = v106;
-    v96[16] = v109;
-    v96[17] = a4c;
-    v96[18] = v113;
+    v96[14] = _frame.v103;
+    v96[15] = _frame.v106;
+    v96[16] = _frame.v109;
+    v96[17] = _frame.a4c;
+    v96[18] = _frame.v113;
     v97 = 12 * v71 + 12;
-    v96[19] = v114;
+    v96[19] = _frame.v114;
     v96[12] = v74;
     v96[13] = v69;
     v96[22] = v72;
     v96[23] = v73;
     v98 = 4 * v97 - 48;
     v88 = a4 + 96;
-    v96[20] = v115;
+    v96[20] = _frame.v115;
     v96[21] = v70;
     v99 = (volatile int *)(a4 + 4 * v97);
     v100 = (volatile int *)(v98 + a4 + 96);
@@ -10690,16 +10690,16 @@ LABEL_48:
   check_interrupt_flag(1, "dpd use %d table\n", v89);
   v89 *= 3;
   v90 = (volatile uint32_t *)(a4 + 16 * v89);
-  v90[14] = v103;
-  v90[15] = v106;
-  v90[16] = v109;
-  v90[17] = a4c;
-  v90[18] = v113;
-  v90[19] = v114;
+  v90[14] = _frame.v103;
+  v90[15] = _frame.v106;
+  v90[16] = _frame.v109;
+  v90[17] = _frame.a4c;
+  v90[18] = _frame.v113;
+  v90[19] = _frame.v114;
   v91 = 4 * v89 + 12;
   v90[12] = v74;
   v90[13] = v69;
-  v90[20] = v115;
+  v90[20] = _frame.v115;
   v90[21] = v70;
   v90[22] = v72;
   v90[23] = v73;
@@ -10729,13 +10729,13 @@ LABEL_48:
            " pm6=%x\n",
            v74,
            v69,
-           v103,
-           v106,
-           v109,
-           a4c,
-           v113,
-           v114,
-           v115,
+           _frame.v103,
+           _frame.v106,
+           _frame.v109,
+           _frame.a4c,
+           _frame.v113,
+           _frame.v114,
+           _frame.v115,
            v70,
            v72,
            v73);
@@ -13138,10 +13138,10 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
   volatile uint32_t *v97; // r5
   volatile unsigned int *v98; // r1
   int v99; // r2
-  int v100; // [sp+0h] [bp-1F4h]
-  int v101; // [sp+8h] [bp-1ECh]
+  struct __attribute__((packed)) { int v100; // [sp+0h] [bp-1F4h]
+  char _pad1[4]; union { int v101; // [sp+8h] [bp-1ECh]
   unsigned int v102; // [sp+8h] [bp-1ECh]
-  int v103; // [sp+8h] [bp-1ECh]
+  int v103; }; // [sp+8h] [bp-1ECh]
   int v104; // [sp+Ch] [bp-1E8h]
   int v105; // [sp+10h] [bp-1E4h]
   int v106; // [sp+14h] [bp-1E0h]
@@ -13200,24 +13200,24 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
   int v159; // [sp+E8h] [bp-10Ch]
   int v160; // [sp+ECh] [bp-108h]
   int v161; // [sp+F0h] [bp-104h]
-  int v163; // [sp+F8h] [bp-FCh]
+  char _pad60[4]; int v163; // [sp+F8h] [bp-FCh]
   int v164; // [sp+FCh] [bp-F8h]
-  volatile unsigned int *v166; // [sp+104h] [bp-F0h]
+  char _pad62[4]; volatile unsigned int *v166; // [sp+104h] [bp-F0h]
   uint32_t v167[3]; // [sp+108h] [bp-ECh]
   unsigned int a1a[4]; // [sp+114h] [bp-E0h] BYREF
   int v169; // [sp+124h] [bp-D0h] BYREF
   int v170; // [sp+128h] [bp-CCh]
   int v171; // [sp+12Ch] [bp-C8h]
   uint64_t v172; // [sp+130h] [bp-C4h]
-  unsigned int v173; // [sp+150h] [bp-A4h]
+  char _pad69[24]; unsigned int v173; // [sp+150h] [bp-A4h]
   uint32_t a2a[10]; // [sp+154h] [bp-A0h] BYREF
   char v175; // [sp+17Ch] [bp-78h] BYREF
-  int v176; // [sp+18Ch] [bp-68h]
-  int v177; // [sp+198h] [bp-5Ch] BYREF
+  char _pad72[15]; int v176; // [sp+18Ch] [bp-68h]
+  char _pad73[8]; int v177; // [sp+198h] [bp-5Ch] BYREF
   int v178; // [sp+19Ch] [bp-58h]
   int v179; // [sp+1A0h] [bp-54h]
   int v180; // [sp+1A4h] [bp-50h]
-
+  } _frame;
   v7 = (volatile int *)off_107F30;
   v8 = (volatile unsigned int *)off_107F64;
   v9 = (volatile unsigned int *)off_107F34;
@@ -13225,19 +13225,19 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
   v11 = (volatile int *)off_107F38;
   v12 = (volatile unsigned int *)off_107F70;
   v13 = (volatile int *)off_107F74;
-  v161 = *(volatile uint32_t *)off_107F68;
-  v160 = *(volatile uint32_t *)off_107F30;
-  v159 = *(volatile uint32_t *)off_107F30;
-  v158 = *(volatile uint32_t *)off_107F64;
-  v157 = *(volatile uint32_t *)off_107F34;
-  v156 = *(volatile uint32_t *)off_107F34;
-  v155 = *(volatile uint32_t *)off_107F34;
-  v154 = *(volatile uint32_t *)off_107F34;
-  v153 = *(volatile uint32_t *)off_107F6C;
-  v152 = *(volatile uint32_t *)off_107F6C;
-  v151 = *(volatile uint32_t *)off_107F38;
-  v150 = *(volatile uint32_t *)off_107F30;
-  v149 = *(volatile uint32_t *)off_107F30;
+  _frame.v161 = *(volatile uint32_t *)off_107F68;
+  _frame.v160 = *(volatile uint32_t *)off_107F30;
+  _frame.v159 = *(volatile uint32_t *)off_107F30;
+  _frame.v158 = *(volatile uint32_t *)off_107F64;
+  _frame.v157 = *(volatile uint32_t *)off_107F34;
+  _frame.v156 = *(volatile uint32_t *)off_107F34;
+  _frame.v155 = *(volatile uint32_t *)off_107F34;
+  _frame.v154 = *(volatile uint32_t *)off_107F34;
+  _frame.v153 = *(volatile uint32_t *)off_107F6C;
+  _frame.v152 = *(volatile uint32_t *)off_107F6C;
+  _frame.v151 = *(volatile uint32_t *)off_107F38;
+  _frame.v150 = *(volatile uint32_t *)off_107F30;
+  _frame.v149 = *(volatile uint32_t *)off_107F30;
   *(volatile uint32_t *)off_107F68 = *(volatile uint32_t *)off_107F68 & 0xF8FFFFFF | 0x1000000;
   v14 = (volatile int *)off_107F3C;
   *v7 |= 0x100000u;
@@ -13250,40 +13250,40 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
   *v10 &= 0xFFFE00FF;
   *v10 |= 0x20000u;
   *v10 |= 0x40000u;
-  v148 = *v12;
-  v147 = *v12;
-  v146 = *(volatile uint32_t *)off_107F40;
-  v145 = *(volatile uint32_t *)off_107F40;
-  v144 = *(volatile uint32_t *)off_107F44;
-  v143 = *(volatile uint32_t *)off_107F44;
-  v142 = *(volatile uint32_t *)off_107F48;
-  v141 = *(volatile uint32_t *)off_107F48;
-  v140 = *(volatile uint32_t *)off_107F4C;
-  v139 = *(volatile uint32_t *)off_107F4C;
-  v138 = *v13;
-  v137 = *v13;
-  v136 = *v13;
-  v135 = *v13;
-  v134 = *v13;
-  v133 = *v11;
-  v132 = *v11;
-  v131 = *v14;
-  v130 = *v14;
-  v129 = *v14;
-  v128 = *v14;
-  v127 = *v7;
-  v126 = *v7;
-  v125 = *v7;
-  v124 = *v7;
-  v123 = *(volatile uint32_t *)off_107F50;
-  v122 = *(volatile uint32_t *)off_107F54;
-  v121 = *v8;
-  v120 = *(volatile uint32_t *)off_107F58;
-  v119 = *v8;
-  v118 = *(volatile uint32_t *)off_107F5C;
-  v117 = *(volatile uint32_t *)off_107F60;
-  v115 = *v7;
-  v116 = *v7;
+  _frame.v148 = *v12;
+  _frame.v147 = *v12;
+  _frame.v146 = *(volatile uint32_t *)off_107F40;
+  _frame.v145 = *(volatile uint32_t *)off_107F40;
+  _frame.v144 = *(volatile uint32_t *)off_107F44;
+  _frame.v143 = *(volatile uint32_t *)off_107F44;
+  _frame.v142 = *(volatile uint32_t *)off_107F48;
+  _frame.v141 = *(volatile uint32_t *)off_107F48;
+  _frame.v140 = *(volatile uint32_t *)off_107F4C;
+  _frame.v139 = *(volatile uint32_t *)off_107F4C;
+  _frame.v138 = *v13;
+  _frame.v137 = *v13;
+  _frame.v136 = *v13;
+  _frame.v135 = *v13;
+  _frame.v134 = *v13;
+  _frame.v133 = *v11;
+  _frame.v132 = *v11;
+  _frame.v131 = *v14;
+  _frame.v130 = *v14;
+  _frame.v129 = *v14;
+  _frame.v128 = *v14;
+  _frame.v127 = *v7;
+  _frame.v126 = *v7;
+  _frame.v125 = *v7;
+  _frame.v124 = *v7;
+  _frame.v123 = *(volatile uint32_t *)off_107F50;
+  _frame.v122 = *(volatile uint32_t *)off_107F54;
+  _frame.v121 = *v8;
+  _frame.v120 = *(volatile uint32_t *)off_107F58;
+  _frame.v119 = *v8;
+  _frame.v118 = *(volatile uint32_t *)off_107F5C;
+  _frame.v117 = *(volatile uint32_t *)off_107F60;
+  _frame.v115 = *v7;
+  _frame.v116 = *v7;
   *v11 |= 0x8000u;
   *v11 &= 0xFFFF8FFF;
   *v11 &= ~0x800u;
@@ -13337,7 +13337,7 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
   *v25 |= 0x400000u;
   disable_bb_timer_irq();
   check_interrupt_flag(1, aStLoft);
-  v114 = *(volatile uint32_t *)off_1082A0;
+  _frame.v114 = *(volatile uint32_t *)off_1082A0;
   *(volatile uint32_t *)off_1082A0 = *(volatile uint32_t *)off_1082A0 & 0xFFFFFFF | 0x10000000;
   do
   {
@@ -13359,75 +13359,75 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
     v30 = (volatile int *)off_1082EC;
     v31 = ((volatile uint32_t *)(uintptr_t)off_1082A8)[1];
     v32 = ((volatile uint32_t *)(uintptr_t)off_1082A8)[2];
-    v167[0] = ((volatile uint32_t *)(uintptr_t)off_1082A8)[0];
-    v167[1] = v31;
-    v167[2] = v32;
-    ((int (*)())memset)((void *)(a1a), 0, sizeof(a1a));
+    _frame.v167[0] = ((volatile uint32_t *)(uintptr_t)off_1082A8)[0];
+    _frame.v167[1] = v31;
+    _frame.v167[2] = v32;
+    ((int (*)())memset)((void *)(_frame.a1a), 0, sizeof(_frame.a1a));
     v33 = 0;
-    v110 = 6;
+    _frame.v110 = 6;
     do
     {
       if ( v33 )
       {
         if ( v33 == 1 )
         {
-          v170 = 24;
+          _frame.v170 = 24;
           v34 = 1;
-          v166 = a2 + 1;
+          _frame.v166 = a2 + 1;
         }
         else
         {
-          v170 = 15;
-          v166 = a2;
+          _frame.v170 = 15;
+          _frame.v166 = a2;
           v34 = 0;
         }
       }
       else
       {
-        v170 = 15;
-        v166 = a2 + 2;
+        _frame.v170 = 15;
+        _frame.v166 = a2 + 2;
         v34 = 2;
       }
       check_interrupt_flag(1, "===========table[%d]===========\n", v33);
-      mac_get_params(a2[v33], a2a);
-      check_interrupt_flag(1, "cal_all_times=%d\n", v176);
-      if ( v176 <= 0 )
+      mac_get_params(a2[v33], _frame.a2a);
+      check_interrupt_flag(1, "cal_all_times=%d\n", _frame.v176);
+      if ( _frame.v176 <= 0 )
       {
-        v107 = v167[v34];
+        _frame.v107 = _frame.v167[v34];
       }
       else
       {
-        v164 = v34;
-        v108 = 2 * (4 * v34 + 1);
-        v163 = v34 << 12;
+        _frame.v164 = v34;
+        _frame.v108 = 2 * (4 * v34 + 1);
+        _frame.v163 = v34 << 12;
         v35 = dword_1082B4;
         v36 = dword_1082F0;
-        v107 = v167[v34];
-        v106 = a1 + 32 * v34;
-        v109 = (volatile int *)&v175;
-        v112 = 0;
-        v113 = v110 << 8;
+        _frame.v107 = _frame.v167[v34];
+        _frame.v106 = a1 + 32 * v34;
+        _frame.v109 = (volatile int *)&_frame.v175;
+        _frame.v112 = 0;
+        _frame.v113 = _frame.v110 << 8;
         do
         {
-          v37 = dword_1082B8 | v163 | (*v109 << 8);
+          v37 = dword_1082B8 | _frame.v163 | (*_frame.v109 << 8);
           *(volatile uint32_t *)off_1082C0 = v37;
-          v38 = *v109++;
+          v38 = *_frame.v109++;
           check_interrupt_flag(1, "****************table[%d] cal [%x] index.********************\n", v33, v38);
           check_interrupt_flag(1, "tx_gain_map=%x\n", v37);
-          v171 = 0;
-          load_patch_bundle((int)&v169);
-          v39 = v110;
-          for ( i = v113; ; i = v39 << 8 )
+          _frame.v171 = 0;
+          load_patch_bundle((int)&_frame.v169);
+          v39 = _frame.v110;
+          for ( i = _frame.v113; ; i = v39 << 8 )
           {
             *v28 = i & 0xF00 | *v28 & 0xFFFFF0FF;
             *v29 &= v35;
             *v29 &= v36;
             *v30 &= v35;
             *v30 &= v36;
-            rf_core_irq_poll((int)&v169);
+            rf_core_irq_poll((int)&_frame.v169);
             rf_clear_irq_flag();
             rf_get_cca_status();
-            rf_core_irq_dispatch((int)&v169);
+            rf_core_irq_dispatch((int)&_frame.v169);
             rf_clear_irq_flag_alt();
             rf_get_rx_rssi();
             v41 = *v30 & 0xFFF;
@@ -13435,66 +13435,66 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
             v43 = (*v30 & 0x800) != 0 ? v41 - 4096 : *v30 & 0xFFF;
             if ( v42 <= 1024 && v43 <= 1024 )
               break;
-            v100 = v43;
+            _frame.v100 = v43;
             v99 = v39;
             v39 = (uint8_t)(v39 - 1);
-            check_interrupt_flag(1, "loft_bit_ctrl_ini=%d loft_i=%d loft_q=%d loft i/q too big,re cal\n", v99, v42, v100);
+            check_interrupt_flag(1, "loft_bit_ctrl_ini=%d loft_i=%d loft_q=%d loft i/q too big,re cal\n", v99, v42, _frame.v100);
           }
-          v110 = v39;
-          v113 = i;
+          _frame.v110 = v39;
+          _frame.v113 = i;
           v44 = HIWORD(*v30) & 0xFFF;
           *v28 = ((v39 + 1) << 8) & 0xF00 | *v28 & 0xFFFFF0FF;
           check_interrupt_flag(1, aReCalI);
           *v30 = dword_1082CC & (v44 << 17) | *v30 & v35;
-          rf_core_irq_poll((int)&v169);
+          rf_core_irq_poll((int)&_frame.v169);
           rf_clear_irq_flag();
           rf_get_cca_status();
           check_interrupt_flag(1, aReCalQ);
           *v30 = (2 * v41) & 0xFFF | *v30 & v36;
-          rf_core_irq_dispatch((int)&v169);
+          rf_core_irq_dispatch((int)&_frame.v169);
           rf_clear_irq_flag_alt();
           rf_get_rx_rssi();
           v45 = HIWORD(*v30) & 0xFFF;
           v46 = *v30 & 0xFFF;
           v47 = v46 + (v45 << 16);
-          *(volatile uint32_t *)(v106 + 8) = v47;
+          *(volatile uint32_t *)(_frame.v106 + 8) = v47;
           v48 = v47 | (*v28 >> 8 << 28);
-          *(volatile uint32_t *)(v106 + 8) = v48;
-          v101 = v45 << 16;
-          check_interrupt_flag(1, "loft_res[%d]=%x\n", v108, v48);
+          *(volatile uint32_t *)(_frame.v106 + 8) = v48;
+          _frame.v101 = v45 << 16;
+          check_interrupt_flag(1, "loft_res[%d]=%x\n", _frame.v108, v48);
           *v30 &= v35;
           *v30 &= v36;
-          gpio_output((int)&v169, 1);
-          a1a[0] = v173;
-          timer_delta_compare(a1a, (int)&v169);
-          pinmux_config((int)&v169, 1);
-          v49 = v173;
-          check_interrupt_flag(1, "din_i=%4x,  din_q=%4x,  pwr_bypass=%4d\n", HIWORD(*v30) & 0xFFF, *v30 & 0xFFF, v173);
-          *v30 = *v30 & v35 | v101;
+          gpio_output((int)&_frame.v169, 1);
+          _frame.a1a[0] = _frame.v173;
+          timer_delta_compare(_frame.a1a, (int)&_frame.v169);
+          pinmux_config((int)&_frame.v169, 1);
+          v49 = _frame.v173;
+          check_interrupt_flag(1, "din_i=%4x,  din_q=%4x,  pwr_bypass=%4d\n", HIWORD(*v30) & 0xFFF, *v30 & 0xFFF, _frame.v173);
+          *v30 = *v30 & v35 | _frame.v101;
           *v30 = v46 | *v30 & v36;
-          pinmux_config((int)&v169, 1);
-          v50 = v173;
-          check_interrupt_flag(1, "din_i=%4x,  din_q=%4x,  pwr_use=%4d\n", HIWORD(*v30) & 0xFFF, *v30 & 0xFFF, v173);
+          pinmux_config((int)&_frame.v169, 1);
+          v50 = _frame.v173;
+          check_interrupt_flag(1, "din_i=%4x,  din_q=%4x,  pwr_use=%4d\n", HIWORD(*v30) & 0xFFF, *v30 & 0xFFF, _frame.v173);
           if ( v49 <= v50 )
           {
             check_interrupt_flag(1, aLoftCalCantBeU);
-            v107 = 0;
-            *(volatile uint32_t *)(v106 + 8) = 0;
+            _frame.v107 = 0;
+            *(volatile uint32_t *)(_frame.v106 + 8) = 0;
           }
           else
           {
-            v107 &= 1u;
+            _frame.v107 &= 1u;
             check_interrupt_flag(1, aLoftCanBeUsed);
           }
           v51 = *v28;
-          v102 = *v30;
+          _frame.v102 = *v30;
           v52 = *v30;
-          v53 = *(v109 - 1);
-          v167[v164] = v107;
-          check_interrupt_flag(1, "ana_index[%x] loft_ok[%d]=%d\n", v53, v33, v107);
-          check_interrupt_flag(1, "wdata=%x\n", (v52 & 0xFFF) + ((HIWORD(v102) & 0xFFF) << 16) + (v51 >> 8 << 28));
-          *v30 = *v30 & v35 | ((*(volatile uint16_t *)(v106 + 10) & 0xFFF) << 16);
-          *v30 = *(volatile uint32_t *)(v106 + 8) & 0xFFF | *v30 & v36;
+          v53 = *(_frame.v109 - 1);
+          _frame.v167[_frame.v164] = _frame.v107;
+          check_interrupt_flag(1, "ana_index[%x] loft_ok[%d]=%d\n", v53, v33, _frame.v107);
+          check_interrupt_flag(1, "wdata=%x\n", (v52 & 0xFFF) + ((HIWORD(_frame.v102) & 0xFFF) << 16) + (v51 >> 8 << 28));
+          *v30 = *v30 & v35 | ((*(volatile uint16_t *)(_frame.v106 + 10) & 0xFFF) << 16);
+          *v30 = *(volatile uint32_t *)(_frame.v106 + 8) & 0xFFF | *v30 & v36;
           check_interrupt_flag(1, "use loft_i_offset=%x  loft_q_offset=%x \n", HIWORD(*v30) & 0xFFF, *v30 & 0xFFF);
           check_interrupt_flag(1, aLoftAmPhCal);
           v54 = (volatile int *)off_1085F0;
@@ -13503,12 +13503,12 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
           *v28 &= ~0x40000000u;
           *v28 &= 0xCFFFFFFF;
           v57 = *v54 & v36;
-          a2a[6] = 1;
-          v177 = 600;
-          v178 = 600;
-          v179 = 0;
-          v180 = 0;
-          v169 = 0;
+          _frame.a2a[6] = 1;
+          _frame.v177 = 600;
+          _frame.v178 = 600;
+          _frame.v179 = 0;
+          _frame.v180 = 0;
+          _frame.v169 = 0;
           *v54 = v57 | 0x300;
           *v55 = *v55 & 0xFFFFFF8F | 0x50;
           *v56 = *v56 & 0xFFF0FFFF | 0x10000;
@@ -13516,71 +13516,71 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
           *v56 = *v56 & 0xFFFFF0FF | 0x100;
           *v56 = *v56 & 0xFFFFFF0F | 0x20;
           *v56 = *v56 & 0xFFFFFFF0 | 3;
-          v171 = 10;
+          _frame.v171 = 10;
           v58 = 0;
-          load_patch_bundle((int)&v169);
-          v111 = 0;
+          load_patch_bundle((int)&_frame.v169);
+          _frame.v111 = 0;
           do
           {
             while ( 1 )
             {
-              v104 = v177;
-              v105 = v178;
-              v59 = v179;
-              v103 = v180;
-              v169 = v58;
-              timer_ticks_to_micros(&v177);
-              rf_core_set_clock_override((int)&v177, (void *)(&v169));
-              rx_queue_pop_packet((int)&v169, &v177, (int)a2a);
+              _frame.v104 = _frame.v177;
+              _frame.v105 = _frame.v178;
+              v59 = _frame.v179;
+              _frame.v103 = _frame.v180;
+              _frame.v169 = v58;
+              timer_ticks_to_micros(&_frame.v177);
+              rf_core_set_clock_override((int)&_frame.v177, (void *)(&_frame.v169));
+              rx_queue_pop_packet((int)&_frame.v169, &_frame.v177, (int)_frame.a2a);
               v60 = v58;
               if ( v58 )
                 break;
-              if ( v172 )
+              if ( _frame.v172 )
               {
-                v59 = v179;
-                v103 = v180;
+                v59 = _frame.v179;
+                _frame.v103 = _frame.v180;
                 v61 = 0;
                 v58 = 1;
               }
               else
               {
-                check_interrupt_flag(1, aEnterReLoftCal, HIDWORD(v172), (unsigned int)v172 | HIDWORD(v172));
-                ++v111;
-                v171 += 6;
-                load_patch_bundle((int)&v169);
-                v177 = v104;
-                v178 = v105;
-                v179 = v59;
-                v180 = v103;
-                v61 = -(v111 <= 2);
-                v58 = v111 > 2;
+                check_interrupt_flag(1, aEnterReLoftCal, HIDWORD(_frame.v172), (unsigned int)_frame.v172 | HIDWORD(_frame.v172));
+                ++_frame.v111;
+                _frame.v171 += 6;
+                load_patch_bundle((int)&_frame.v169);
+                _frame.v177 = _frame.v104;
+                _frame.v178 = _frame.v105;
+                _frame.v179 = v59;
+                _frame.v180 = _frame.v103;
+                v61 = -(_frame.v111 <= 2);
+                v58 = _frame.v111 > 2;
               }
-              check_interrupt_flag(1, "time[%d] am=%d,ph=%d\n", v61, v59, v103);
+              check_interrupt_flag(1, "time[%d] am=%d,ph=%d\n", v61, v59, _frame.v103);
             }
             ++v58;
-            check_interrupt_flag(1, "time[%d] am=%d,ph=%d\n", v60, v179, v180);
+            check_interrupt_flag(1, "time[%d] am=%d,ph=%d\n", v60, _frame.v179, _frame.v180);
           }
           while ( v58 != 5 );
           v73 = (*v28 >> 12) & 7;
-          v74 = dword_108968 & (v180 << 16);
+          v74 = dword_108968 & (_frame.v180 << 16);
           v75 = HIWORD(*v28) & 7;
-          v76 = v179 & 0xFFF;
-          *(volatile uint32_t *)(v106 + 12) = v74 + (v73 << 28) + (v75 << 12) + v76;
+          v76 = _frame.v179 & 0xFFF;
+          *(volatile uint32_t *)(_frame.v106 + 12) = v74 + (v73 << 28) + (v75 << 12) + v76;
           check_interrupt_flag(1, "phase_bit=%d,am_bit=%d\n", v73, v75);
-          check_interrupt_flag(1, "loft_res[%d]=%x\n", v108 + 1, *(volatile uint32_t *)(v106 + 12));
+          check_interrupt_flag(1, "loft_res[%d]=%x\n", _frame.v108 + 1, *(volatile uint32_t *)(_frame.v106 + 12));
           *v29 &= v35;
           *v29 &= v36;
-          gpio_output((int)&v169, 0);
-          a1a[0] = v173;
-          timer_delta_compare(a1a, (int)&v169);
-          pinmux_config((int)&v169, 0);
-          v77 = v173;
-          check_interrupt_flag(1, "am=%4x, ph=%4x, pwr_am0_ph0=%4d\n", *v29 & 0xFFF, HIWORD(*v29) & 0xFFF, v173);
+          gpio_output((int)&_frame.v169, 0);
+          _frame.a1a[0] = _frame.v173;
+          timer_delta_compare(_frame.a1a, (int)&_frame.v169);
+          pinmux_config((int)&_frame.v169, 0);
+          v77 = _frame.v173;
+          check_interrupt_flag(1, "am=%4x, ph=%4x, pwr_am0_ph0=%4d\n", *v29 & 0xFFF, HIWORD(*v29) & 0xFFF, _frame.v173);
           *v29 = v74 | *v29 & v35;
           *v29 = v76 | *v29 & v36;
-          pinmux_config((int)&v169, 0);
-          v78 = v173;
-          check_interrupt_flag(1, "am=%4x, ph=%4x,  pwr_am_ph=%4d\n", *v29 & 0xFFF, HIWORD(*v29) & 0xFFF, v173);
+          pinmux_config((int)&_frame.v169, 0);
+          v78 = _frame.v173;
+          check_interrupt_flag(1, "am=%4x, ph=%4x,  pwr_am_ph=%4d\n", *v29 & 0xFFF, HIWORD(*v29) & 0xFFF, _frame.v173);
           v79 = (volatile unsigned int *)off_108980;
           v80 = (volatile unsigned int *)off_108984;
           *(volatile uint32_t *)off_10897C = *(volatile uint32_t *)off_10897C & v36 | 0xC0;
@@ -13593,21 +13593,21 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
           if ( v77 <= v78 )
           {
             check_interrupt_flag(1, aLoftAmPhCantBe);
-            *(volatile uint32_t *)(v106 + 12) = 0;
+            *(volatile uint32_t *)(_frame.v106 + 12) = 0;
           }
           else
           {
             check_interrupt_flag(1, aLoftAmPhCanBeU);
           }
-          v106 += 8;
-          v81 = v176 <= ++v112;
-          v108 += 2;
+          _frame.v106 += 8;
+          v81 = _frame.v176 <= ++_frame.v112;
+          _frame.v108 += 2;
         }
         while ( !v81 );
       }
-      *v166 = *v166 & 0xFFFDFFFF | (v107 << 17);
-      check_interrupt_flag(1, "loft_ok[%d]=%d\n", v33, v107);
-      check_interrupt_flag(1, "loft_dpd_bit_mask=%x\n", *v166);
+      *_frame.v166 = *_frame.v166 & 0xFFFDFFFF | (_frame.v107 << 17);
+      check_interrupt_flag(1, "loft_ok[%d]=%d\n", v33, _frame.v107);
+      check_interrupt_flag(1, "loft_dpd_bit_mask=%x\n", *_frame.v166);
       ++v33;
     }
     while ( v33 != 3 );
@@ -13618,69 +13618,69 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
     v85 = (volatile unsigned int *)off_1089C4;
     v86 = (void *)(uintptr_t)(off_1089C8);
     v87 = (void *)(uintptr_t)(off_1089CC);
-    *(volatile uint32_t *)off_108994 = v133 & 0x8000 | *(volatile uint32_t *)off_108994 & 0xFFFF7FFF;
+    *(volatile uint32_t *)off_108994 = _frame.v133 & 0x8000 | *(volatile uint32_t *)off_108994 & 0xFFFF7FFF;
     v88 = (volatile unsigned int *)off_10899C;
-    *v82 = v132 & 0x7000 | *v82 & 0xFFFF8FFF;
+    *v82 = _frame.v132 & 0x7000 | *v82 & 0xFFFF8FFF;
     v89 = (volatile unsigned int *)off_1089A0;
-    *v83 = v161 & 0x7000000 | *v83 & 0xF8FFFFFF;
-    *v82 = *v82 & 0xFFFFF7FF | v151 & 0x800;
+    *v83 = _frame.v161 & 0x7000000 | *v83 & 0xF8FFFFFF;
+    *v82 = *v82 & 0xFFFFF7FF | _frame.v151 & 0x800;
     v90 = (volatile unsigned int *)off_1089A4;
-    *v88 = *v88 & 0xFFFBFFFF | v149 & 0x40000;
+    *v88 = *v88 & 0xFFFBFFFF | _frame.v149 & 0x40000;
     v91 = (volatile unsigned int *)off_1089A8;
-    *v88 = *v88 & 0xFFF7FFFF | v150 & 0x80000;
+    *v88 = *v88 & 0xFFF7FFFF | _frame.v150 & 0x80000;
     v92 = (volatile unsigned int *)off_1089AC;
-    *v89 = *v89 & 0xFF7FFFFF | v131 & 0x800000;
-    *v89 = *v89 & 0xFFBFFFFF | v130 & 0x400000;
+    *v89 = *v89 & 0xFF7FFFFF | _frame.v131 & 0x800000;
+    *v89 = *v89 & 0xFFBFFFFF | _frame.v130 & 0x400000;
     v93 = dword_1089B0;
-    *v89 = *v89 & 0xFFEFFFFF | v129 & 0x100000;
-    *v89 = v128 & 0x200000 | *v89 & 0xFFDFFFFF;
+    *v89 = *v89 & 0xFFEFFFFF | _frame.v129 & 0x100000;
+    *v89 = _frame.v128 & 0x200000 | *v89 & 0xFFDFFFFF;
     v94 = (void *)(uintptr_t)(off_1089B4);
-    *v88 = v127 & 0x20000 | *v88 & 0xFFFDFFFF;
-    *v88 = v126 & 0x10000 | *v88 & 0xFFFEFFFF;
-    *v88 = v125 & 0x8000 | *v88 & 0xFFFF7FFF;
+    *v88 = _frame.v127 & 0x20000 | *v88 & 0xFFFDFFFF;
+    *v88 = _frame.v126 & 0x10000 | *v88 & 0xFFFEFFFF;
+    *v88 = _frame.v125 & 0x8000 | *v88 & 0xFFFF7FFF;
     v95 = (volatile unsigned int *)off_108984;
-    *v88 = v124 & 0x4000 | *v88 & 0xFFFFBFFF;
+    *v88 = _frame.v124 & 0x4000 | *v88 & 0xFFFFBFFF;
     v96 = (void *)(uintptr_t)(off_1089B8);
-    *v84 = v123 & 0x40000 | *v84 & 0xFFFBFFFF;
-    *(volatile uint32_t *)off_1089B8 = v122 & 0x3000 | *v96 & 0xFFFFCFFF;
+    *v84 = _frame.v123 & 0x40000 | *v84 & 0xFFFBFFFF;
+    *(volatile uint32_t *)off_1089B8 = _frame.v122 & 0x3000 | *v96 & 0xFFFFCFFF;
     v97 = (void *)(uintptr_t)(off_1089BC);
-    *v90 = v121 & 3 | *v90 & 0xFFFFFFFC;
-    *(volatile uint32_t *)off_1089BC = v120 & 0x1C0000 | *v97 & 0xFFE3FFFF;
-    *v90 = v119 & 4 | *v90 & 0xFFFFFFFB;
-    *v88 = v116 & 0x800000 | *v88 & 0xFF7FFFFF;
-    *v88 = v115 & 0x400000 | *v88 & 0xFFBFFFFF;
-    *v88 = v160 & 0x200000 | *v88 & 0xFFDFFFFF;
-    *v88 = v159 & 0x100000 | *v88 & 0xFFEFFFFF;
-    *v90 = v158 & 0xF0 | *v90 & 0xFFFFFF0F;
-    *v91 = v157 & 0x80 | *v91 & 0xFFFFFF7F;
-    *v91 = v156 & 0x70 | *v91 & 0xFFFFFF8F;
-    *v91 = v155 & 0x400 | *v91 & 0xFFFFFBFF;
-    *v91 = v154 & 0x300 | *v91 & 0xFFFFFCFF;
-    *v92 = *v92 & 0xFFBFFFFF | v153 & 0x400000;
-    *v92 = *v92 & 0xFFDFFFFF | v152 & 0x200000;
+    *v90 = _frame.v121 & 3 | *v90 & 0xFFFFFFFC;
+    *(volatile uint32_t *)off_1089BC = _frame.v120 & 0x1C0000 | *v97 & 0xFFE3FFFF;
+    *v90 = _frame.v119 & 4 | *v90 & 0xFFFFFFFB;
+    *v88 = _frame.v116 & 0x800000 | *v88 & 0xFF7FFFFF;
+    *v88 = _frame.v115 & 0x400000 | *v88 & 0xFFBFFFFF;
+    *v88 = _frame.v160 & 0x200000 | *v88 & 0xFFDFFFFF;
+    *v88 = _frame.v159 & 0x100000 | *v88 & 0xFFEFFFFF;
+    *v90 = _frame.v158 & 0xF0 | *v90 & 0xFFFFFF0F;
+    *v91 = _frame.v157 & 0x80 | *v91 & 0xFFFFFF7F;
+    *v91 = _frame.v156 & 0x70 | *v91 & 0xFFFFFF8F;
+    *v91 = _frame.v155 & 0x400 | *v91 & 0xFFFFFBFF;
+    *v91 = _frame.v154 & 0x300 | *v91 & 0xFFFFFCFF;
+    *v92 = *v92 & 0xFFBFFFFF | _frame.v153 & 0x400000;
+    *v92 = *v92 & 0xFFDFFFFF | _frame.v152 & 0x200000;
     result = (void *)(uintptr_t)(off_108C9C);
     *v92 &= 0xFFFE00FF;
     *v92 &= ~0x20000u;
     *v92 |= 0x40000u;
-    *v85 = *v85 & v93 | v148 & 0x3FFF;
-    *v85 = *v85 & 0xC000FFFF | ((HIWORD(v147) & 0x3FFF) << 16);
-    *v94 = *v94 & v93 | v146 & 0x3FFF;
-    *v94 = *v94 & 0xC000FFFF | ((HIWORD(v145) & 0x3FFF) << 16);
-    *result = *result & v93 | v144 & 0x3FFF;
-    *result = *result & 0xC000FFFF | ((HIWORD(v143) & 0x3FFF) << 16);
-    *v86 = *v86 & v93 | v142 & 0x3FFF;
-    *v86 = *v86 & 0xC000FFFF | ((HIWORD(v141) & 0x3FFF) << 16);
-    *v87 = v93 & *v87 | v140 & 0x3FFF;
-    *v87 = *v87 & 0xC000FFFF | ((HIWORD(v139) & 0x3FFF) << 16);
-    *v95 = v138 & 0xF0000 | *v95 & 0xFFF0FFFF;
-    *v95 = v137 & 0xF000 | *v95 & 0xFFFF0FFF;
-    *v95 = v136 & 0xF00 | *v95 & 0xFFFFF0FF;
-    *v95 = v135 & 0xF0 | *v95 & 0xFFFFFF0F;
+    *v85 = *v85 & v93 | _frame.v148 & 0x3FFF;
+    *v85 = *v85 & 0xC000FFFF | ((HIWORD(_frame.v147) & 0x3FFF) << 16);
+    *v94 = *v94 & v93 | _frame.v146 & 0x3FFF;
+    *v94 = *v94 & 0xC000FFFF | ((HIWORD(_frame.v145) & 0x3FFF) << 16);
+    *result = *result & v93 | _frame.v144 & 0x3FFF;
+    *result = *result & 0xC000FFFF | ((HIWORD(_frame.v143) & 0x3FFF) << 16);
+    *v86 = *v86 & v93 | _frame.v142 & 0x3FFF;
+    *v86 = *v86 & 0xC000FFFF | ((HIWORD(_frame.v141) & 0x3FFF) << 16);
+    *v87 = v93 & *v87 | _frame.v140 & 0x3FFF;
+    *v87 = *v87 & 0xC000FFFF | ((HIWORD(_frame.v139) & 0x3FFF) << 16);
+    *v95 = _frame.v138 & 0xF0000 | *v95 & 0xFFF0FFFF;
+    *v95 = _frame.v137 & 0xF000 | *v95 & 0xFFFF0FFF;
+    *v95 = _frame.v136 & 0xF00 | *v95 & 0xFFFFF0FF;
+    *v95 = _frame.v135 & 0xF0 | *v95 & 0xFFFFFF0F;
     v98 = (volatile unsigned int *)off_108CA0;
-    *v95 = *v95 & 0xFFFFFFF0 | v134 & 0xF;
-    *v98 = *v98 & 0x7FFFFFFF | v118 & 0x80000000;
-    *(volatile uint32_t *)off_108CA4 = v117;
-    *(v84 - 19976) = *(volatile unsigned int *)((volatile char *)v84 + 0xFFFFFFE0 - 79872) & 0xFFFFFFF | v114 & 0xF0000000;
+    *v95 = *v95 & 0xFFFFFFF0 | _frame.v134 & 0xF;
+    *v98 = *v98 & 0x7FFFFFFF | _frame.v118 & 0x80000000;
+    *(volatile uint32_t *)off_108CA4 = _frame.v117;
+    *(v84 - 19976) = *(volatile unsigned int *)((volatile char *)v84 + 0xFFFFFFE0 - 79872) & 0xFFFFFFF | _frame.v114 & 0xF0000000;
   }
   else
   {
@@ -13689,8 +13689,8 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
     v64 = a3 - 100 * v63;
     poll_rf_status();
     *(volatile uint32_t *)off_108604 &= ~1u;
-    v170 = 30;
-    v171 = v63;
+    _frame.v170 = 30;
+    _frame.v171 = v63;
     dispatch_event_handler_1("pwr=%d\n", v63);
     v65 = HIWORD(v15) & 0xFFF;
     v66 = HIWORD(a5) & 0xFFF;
@@ -13716,11 +13716,11 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
     *v71 = *v71 & v70 | (v66 << 16);
     *v71 = a5 & 0xFFF | *v71 & v62;
     clk_set_divider();
-    load_patch_bundle((int)&v169);
-    pinmux_config((int)&v169, 0);
-    check_interrupt_flag(1, "am=%4x, ph=%4x,  dump_pwr=%4d\n", *v71 & 0xFFF, HIWORD(*v71) & 0xFFF, v173);
-    pinmux_config((int)&v169, 0);
-    check_interrupt_flag(1, "am=%4x, ph=%4x,  dump_pwr=%4d\n", *v71 & 0xFFF, HIWORD(*v71) & 0xFFF, v173);
+    load_patch_bundle((int)&_frame.v169);
+    pinmux_config((int)&_frame.v169, 0);
+    check_interrupt_flag(1, "am=%4x, ph=%4x,  dump_pwr=%4d\n", *v71 & 0xFFF, HIWORD(*v71) & 0xFFF, _frame.v173);
+    pinmux_config((int)&_frame.v169, 0);
+    check_interrupt_flag(1, "am=%4x, ph=%4x,  dump_pwr=%4d\n", *v71 & 0xFFF, HIWORD(*v71) & 0xFFF, _frame.v173);
     write_timer_reg(500);
     return (volatile uint32_t *)enable_bb_clock();
   }
@@ -16273,17 +16273,17 @@ int apply_dsp_transform(int a1, int a2, int a3, int a4, volatile uint16_t *a5, i
   int v142; // r10
   int v143; // r4
   unsigned int v144; // r0
-  int a8; // [sp+Ch] [bp-588h]
-  int v146; // [sp+24h] [bp-570h]
-  int v147; // [sp+24h] [bp-570h]
+  struct __attribute__((packed)) { int a8; // [sp+Ch] [bp-588h]
+  char _pad1[20]; union { int v146; // [sp+24h] [bp-570h]
+  int v147; }; // [sp+24h] [bp-570h]
   int a4a; // [sp+28h] [bp-56Ch]
   int v149; // [sp+2Ch] [bp-568h]
-  int v150; // [sp+30h] [bp-564h]
-  int v151; // [sp+30h] [bp-564h]
-  volatile uint32_t *v152; // [sp+34h] [bp-560h]
-  int v153; // [sp+34h] [bp-560h]
-  int v154; // [sp+38h] [bp-55Ch]
-  int v155; // [sp+38h] [bp-55Ch]
+  union { int v150; // [sp+30h] [bp-564h]
+  int v151; }; // [sp+30h] [bp-564h]
+  union { volatile uint32_t *v152; // [sp+34h] [bp-560h]
+  int v153; }; // [sp+34h] [bp-560h]
+  union { int v154; // [sp+38h] [bp-55Ch]
+  int v155; }; // [sp+38h] [bp-55Ch]
   int v156; // [sp+3Ch] [bp-558h]
   int v157; // [sp+40h] [bp-554h]
   int v158; // [sp+44h] [bp-550h]
@@ -16293,38 +16293,38 @@ int apply_dsp_transform(int a1, int a2, int a3, int a4, volatile uint16_t *a5, i
   volatile uint8_t *v162; // [sp+54h] [bp-540h]
   int v163; // [sp+58h] [bp-53Ch]
   int v164; // [sp+5Ch] [bp-538h]
-  volatile int *v165; // [sp+64h] [bp-530h]
+  char _pad16[4]; volatile int *v165; // [sp+64h] [bp-530h]
   unsigned int v166; // [sp+68h] [bp-52Ch]
   int v167; // [sp+6Ch] [bp-528h]
-  volatile int *v168; // [sp+70h] [bp-524h]
-  uint64_t v169; // [sp+70h] [bp-524h]
-  int v171; // [sp+7Ch] [bp-518h]
-  volatile uint32_t *v173; // [sp+88h] [bp-50Ch]
-  uint16_t a3a[2]; // [sp+94h] [bp-500h] BYREF
+  union { volatile int *v168; // [sp+70h] [bp-524h]
+  uint64_t v169; }; // [sp+70h] [bp-524h]
+  char _pad20[4]; int v171; // [sp+7Ch] [bp-518h]
+  char _pad21[8]; volatile uint32_t *v173; // [sp+88h] [bp-50Ch]
+  char _pad22[8]; uint16_t a3a[2]; // [sp+94h] [bp-500h] BYREF
   uint16_t v176; // [sp+98h] [bp-4FCh]
-  uint32_t v177[6]; // [sp+9Ch] [bp-4F8h] BYREF
+  char _pad24[2]; uint32_t v177[6]; // [sp+9Ch] [bp-4F8h] BYREF
   int result[48]; // [sp+B4h] [bp-4E0h] BYREF
   uint8_t v179[192]; // [sp+174h] [bp-420h] BYREF
   uint16_t v180[48]; // [sp+234h] [bp-360h] BYREF
   float v181; // [sp+294h] [bp-300h]
-  uint8_t v182; // [sp+29Ch] [bp-2F8h]
-  uint64_t v183; // [sp+2A0h] [bp-2F4h]
+  char _pad29[4]; uint8_t v182; // [sp+29Ch] [bp-2F8h]
+  char _pad30[3]; uint64_t v183; // [sp+2A0h] [bp-2F4h]
   int v184; // [sp+2A8h] [bp-2ECh]
   uint64_t v185; // [sp+2ACh] [bp-2E8h]
   int v186; // [sp+2B4h] [bp-2E0h]
   int v187; // [sp+2B8h] [bp-2DCh]
   float v188; // [sp+2BCh] [bp-2D8h]
-  int v189; // [sp+2C8h] [bp-2CCh]
+  char _pad36[8]; int v189; // [sp+2C8h] [bp-2CCh]
   int v190; // [sp+2CCh] [bp-2C8h]
   int v191; // [sp+2D0h] [bp-2C4h]
   int v192; // [sp+2D4h] [bp-2C0h]
-  char v193; // [sp+2E4h] [bp-2B0h] BYREF
-  float v194; // [sp+308h] [bp-28Ch] BYREF
+  char _pad40[12]; char v193; // [sp+2E4h] [bp-2B0h] BYREF
+  char _pad41[35]; float v194; // [sp+308h] [bp-28Ch] BYREF
   uint16_t v195[2]; // [sp+30Ch] [bp-288h] BYREF
   uint16_t v196; // [sp+310h] [bp-284h]
-  int v197; // [sp+580h] [bp-14h]
+  char _pad44[622]; int v197; // [sp+580h] [bp-14h]
   int v198; // [sp+584h] [bp-10h]
-  int v199; // [sp+5F8h] [bp+64h]
+  } _frame;  int v199; // [sp+5F8h] [bp+64h]
   int v200; // [sp+5FCh] [bp+68h]
   int a11; // [sp+600h] [bp+6Ch]
 
@@ -16334,8 +16334,8 @@ int apply_dsp_transform(int a1, int a2, int a3, int a4, volatile uint16_t *a5, i
   v10 = dword_10B23C;
   v11 = dword_10B250;
   *(volatile uint32_t *)off_10B218 &= ~1u;
-  v171 = v9 & 1;
-  v12 = (volatile int *)v179;
+  _frame.v171 = v9 & 1;
+  v12 = (volatile int *)_frame.v179;
   gpio_set_pin(0);
   v13 = dword_10B238;
   v14 = dword_10B240;
@@ -16357,7 +16357,7 @@ int apply_dsp_transform(int a1, int a2, int a3, int a4, volatile uint16_t *a5, i
       v44 = v13;
     }
     v45 = (volatile unsigned int *)(v44 + 4);
-    v46 = &result[16 * i + 16];
+    v46 = &_frame.result[16 * i + 16];
     v47 = (volatile unsigned int *)(v44 + 516);
     do
     {
@@ -16389,78 +16389,78 @@ LABEL_5:
   *v21 &= ~0x400u;
   dispatch_event_handler_1(aDpdStart);
   check_interrupt_flag(1, aDpdCal);
-  v161 = a5;
-  v173 = v21;
+  _frame.v161 = a5;
+  _frame.v173 = v21;
   do
   {
-    v23 = *((volatile uint8_t *)v161 + 4);
+    v23 = *((volatile uint8_t *)_frame.v161 + 4);
     if ( v23 != 1 )
       goto LABEL_10;
-    v49 = *v161;
+    v49 = *_frame.v161;
     check_interrupt_flag(1, "*********************dpd  freq= [%d] *********************\n", v49);
     if ( v49 <= 0x1388 )
     {
       v50 = (volatile int *)off_10B560;
       v51 = a2;
-      v150 = 0;
+      _frame.v150 = 0;
       v52 = 0;
-      v167 = 0;
-      v146 = 0;
+      _frame.v167 = 0;
+      _frame.v146 = 0;
       v23 = 0;
-      a4a = 0;
-      v152 = v177;
+      _frame.a4a = 0;
+      _frame.v152 = _frame.v177;
       goto LABEL_29;
     }
     v141 = rf_check_freq(v49);
     v142 = dword_10BF24;
     v143 = 0;
-    a4a = (uint8_t)(v141 + 1);
-    v52 = a4a;
+    _frame.a4a = (uint8_t)(v141 + 1);
+    v52 = _frame.a4a;
     v50 = (volatile int *)(off_10BF10 + 384 * v141);
     dispatch_event_handler_1(aCapacitanceCal);
     while ( 1 )
     {
-      *(volatile uint32_t *)v195 = 0;
-      v196 = 0;
+      *(volatile uint32_t *)_frame.v195 = 0;
+      _frame.v196 = 0;
       v144 = v142 | (v143 << 12);
       if ( v143 != 1 )
         break;
-      v190 = 3;
-      v195[0] = 2048;
-      prcm_start(v144, (int)v180, v195, 0, 1, 1, 1, a4a);
+      _frame.v190 = 3;
+      _frame.v195[0] = 2048;
+      prcm_start(v144, (int)_frame.v180, _frame.v195, 0, 1, 1, 1, _frame.a4a);
 LABEL_177:
       ++v143;
     }
-    v190 = 3;
-    v195[0] = 2048;
-    prcm_start(v144, (int)v180, v195, 0, 1, v143, 1, a4a);
+    _frame.v190 = 3;
+    _frame.v195[0] = 2048;
+    prcm_start(v144, (int)_frame.v180, _frame.v195, 0, 1, v143, 1, _frame.a4a);
     if ( v143 != 2 )
       goto LABEL_177;
-    v167 = 1;
-    v51 = a2 + 1264 * a4a;
-    v150 = 3 * a4a;
-    v146 = 3 * a4a;
-    v152 = &v177[a4a];
+    _frame.v167 = 1;
+    v51 = a2 + 1264 * _frame.a4a;
+    _frame.v150 = 3 * _frame.a4a;
+    _frame.v146 = 3 * _frame.a4a;
+    _frame.v152 = &_frame.v177[_frame.a4a];
 LABEL_29:
     v53 = (volatile int *)off_10B564;
-    *v173 |= 0x400u;
+    *_frame.v173 |= 0x400u;
     v54 = *v53;
     v55 = v53[1];
     v56 = v53[2];
     v57 = v53[3];
     v53 += 4;
-    *v173 &= ~0x400u;
-    v177[0] = v54;
-    v177[1] = v55;
-    v177[2] = v56;
-    v177[3] = v57;
+    *_frame.v173 &= ~0x400u;
+    _frame.v177[0] = v54;
+    _frame.v177[1] = v55;
+    _frame.v177[2] = v56;
+    _frame.v177[3] = v57;
     v58 = v53[1];
     v59 = v51 + 16;
-    v177[4] = *v53;
-    v177[5] = v58;
+    _frame.v177[4] = *v53;
+    _frame.v177[5] = v58;
     v60 = v51;
     v61 = v51 - 4;
-    process_signal_buffer((volatile uint32_t *)a1, v60, v59, a4a, (int)v177, a6, a7, a8, v199, v200, a11);
+    process_signal_buffer((volatile uint32_t *)a1, v60, v59, _frame.a4a, (int)_frame.v177, a6, a7, _frame.a8, v199, v200, a11);
     write_timer_reg(0);
     v64 = *(volatile uint32_t *)(v61 + 4);
     v63 = (volatile unsigned int *)(v61 + 4);
@@ -16500,11 +16500,11 @@ LABEL_30:
         v67 = 32;
       }
       v68 = HIWORD(v62) & 1;
-      *(volatile uint8_t *)(a3 + v146 + v65) = v68;
+      *(volatile uint8_t *)(a3 + _frame.v146 + v65) = v68;
       check_interrupt_flag(1, "table [%d] dpd_ok=%d\n", v65, v68);
-      phy_set_txpower(*v63, (int)v195, v23);
-      check_interrupt_flag(1, "ana_pwr_max=%x\n", v197);
-      check_interrupt_flag(1, "ana_pwr_min=%x\n", v198);
+      phy_set_txpower(*v63, (int)_frame.v195, v23);
+      check_interrupt_flag(1, "ana_pwr_max=%x\n", _frame.v197);
+      check_interrupt_flag(1, "ana_pwr_min=%x\n", _frame.v198);
       if ( v68 && v67 < v66 )
       {
         v132 = &v50[v67 - 1];
@@ -16522,18 +16522,18 @@ LABEL_30:
           if ( v136 == 7 )
             v139 = 5;
 LABEL_155:
-          if ( v198 <= v136 && v197 >= v136 )
+          if ( _frame.v198 <= v136 && _frame.v197 >= v136 )
           {
-            if ( v136 > 8 || *v152 || v65 != 1 )
+            if ( v136 > 8 || *_frame.v152 || v65 != 1 )
             {
               *v134 = v133 & 0xFF3F7FFF | (v139 << 24);
             }
             else
             {
               *v134 = v133 | 0xC08000;
-              v155 = v138;
+              _frame.v155 = v138;
               check_interrupt_flag(1, "table 1 index %d bypass\n", v136);
-              v138 = v155;
+              v138 = _frame.v155;
             }
           }
           if ( (volatile unsigned int *)v137 == v134 )
@@ -16577,113 +16577,113 @@ LABEL_35:
           goto LABEL_30;
       }
     }
-    v166 = dword_10B540;
+    _frame.v166 = dword_10B540;
     dispatch_event_handler_1(aPwrCalStart);
     v70 = flt_10B550;
-    v160 = (volatile int *)(dword_10B548 + 4 * v52);
+    _frame.v160 = (volatile int *)(dword_10B548 + 4 * v52);
     v71 = 0;
-    v157 = 0;
-    v162 = (volatile uint8_t *)(v150 + dword_10B54C);
-    v149 = 0;
-    v165 = v50 + 16;
+    _frame.v157 = 0;
+    _frame.v162 = (volatile uint8_t *)(_frame.v150 + dword_10B54C);
+    _frame.v149 = 0;
+    _frame.v165 = v50 + 16;
     while ( 2 )
     {
       check_interrupt_flag(
         1,
         "/***************************************cal tx_gain_table=%d********************************/\n",
-        v149);
-      memset_thunk(result, 0, 0x40u);
-      v194 = 1.0;
-      v188 = v70;
-      v187 = 8;
-      v183 = 15;
-      v72 = (volatile float *)&v193;
+        _frame.v149);
+      memset_thunk(_frame.result, 0, 0x40u);
+      _frame.v194 = 1.0;
+      _frame.v188 = v70;
+      _frame.v187 = 8;
+      _frame.v183 = 15;
+      v72 = (volatile float *)&_frame.v193;
       do
         *v72++ = v70;
-      while ( &v194 != v72 );
-      if ( a4a )
+      while ( &_frame.v194 != v72 );
+      if ( _frame.a4a )
       {
-        v176 = 1792;
-        a3a[1] = 2048;
-        if ( v149 )
+        _frame.v176 = 1792;
+        _frame.a3a[1] = 2048;
+        if ( _frame.v149 )
         {
-          if ( v149 == 1 )
+          if ( _frame.v149 == 1 )
           {
-            a3a[0] = 2048;
+            _frame.a3a[0] = 2048;
             v73 = 8;
-            v190 = 4;
-            v191 = 4;
+            _frame.v190 = 4;
+            _frame.v191 = 4;
             v74 = 12;
-            v185 = 0x800000009LL;
-            v186 = 12;
-            v192 = 8;
-            v163 = 4096;
+            _frame.v185 = 0x800000009LL;
+            _frame.v186 = 12;
+            _frame.v192 = 8;
+            _frame.v163 = 4096;
           }
           else
           {
             v123 = (*(volatile uint8_t *)off_10BB8C & 0xC0) == 192;
-            v190 = 6;
-            v191 = 6;
+            _frame.v190 = 6;
+            _frame.v191 = 6;
             if ( v123 )
               v124 = 768;
             else
               v124 = 960;
             v74 = 12;
-            v192 = 6;
-            v185 = 0x900000009LL;
-            a3a[0] = v124;
-            v186 = 12;
-            v163 = 0;
+            _frame.v192 = 6;
+            _frame.v185 = 0x900000009LL;
+            _frame.a3a[0] = v124;
+            _frame.v186 = 12;
+            _frame.v163 = 0;
             v73 = 8;
           }
         }
         else
         {
           v74 = 14;
-          v190 = 4;
-          v191 = 4;
+          _frame.v190 = 4;
+          _frame.v191 = 4;
           v73 = 8;
-          v185 = 0x90000000ELL;
-          v186 = 14;
-          a3a[0] = 896;
-          v192 = 8;
-          v163 = 0x2000;
+          _frame.v185 = 0x90000000ELL;
+          _frame.v186 = 14;
+          _frame.a3a[0] = 896;
+          _frame.v192 = 8;
+          _frame.v163 = 0x2000;
         }
       }
       else
       {
         v73 = 8;
-        v185 = 0x80000000BLL;
+        _frame.v185 = 0x80000000BLL;
         v74 = 12;
-        v186 = 12;
-        if ( v149 )
+        _frame.v186 = 12;
+        if ( _frame.v149 )
         {
-          *(volatile uint32_t *)a3a = dword_10B558;
-          v176 = 1280;
-          if ( v149 == 2 )
-            *(volatile uint32_t *)a3a = 83887360;
+          *(volatile uint32_t *)_frame.a3a = dword_10B558;
+          _frame.v176 = 1280;
+          if ( _frame.v149 == 2 )
+            *(volatile uint32_t *)_frame.a3a = 83887360;
           v73 = 7;
           v74 = 11;
-          v185 = 0x90000000ALL;
-          v186 = 11;
-          v187 = 7;
-          v190 = 2;
-          v191 = 2;
-          v192 = 4;
-          v163 = 0;
+          _frame.v185 = 0x90000000ALL;
+          _frame.v186 = 11;
+          _frame.v187 = 7;
+          _frame.v190 = 2;
+          _frame.v191 = 2;
+          _frame.v192 = 4;
+          _frame.v163 = 0;
         }
         else
         {
-          v190 = 0;
-          *(volatile uint32_t *)a3a = dword_10BF00;
-          v176 = 2431;
-          v192 = 8;
-          v191 = 6;
-          v163 = 4096;
+          _frame.v190 = 0;
+          *(volatile uint32_t *)_frame.a3a = dword_10BF00;
+          _frame.v176 = 2431;
+          _frame.v192 = 8;
+          _frame.v191 = 6;
+          _frame.v163 = 4096;
         }
       }
       v75 = -100;
-      v76 = v165 - 17;
+      v76 = _frame.v165 - 17;
       for ( j = 0; j != 32; ++j )
       {
         v78 = v76[1];
@@ -16695,20 +16695,20 @@ LABEL_35:
             v75 = v79;
         }
       }
-      v154 = 255;
-      v153 = 255;
-      v156 = 255;
-      v168 = v50;
-      v158 = 0;
-      v159 = 0;
-      v80 = v165;
-      v81 = v166;
-      v151 = v75 + 1;
+      _frame.v154 = 255;
+      _frame.v153 = 255;
+      _frame.v156 = 255;
+      _frame.v168 = v50;
+      _frame.v158 = 0;
+      _frame.v159 = 0;
+      v80 = _frame.v165;
+      v81 = _frame.v166;
+      _frame.v151 = v75 + 1;
       v82 = v7;
       v83 = v70;
       v84 = 0;
       v85 = -16;
-      v164 = v75;
+      _frame.v164 = v75;
       v86 = v75 + 1;
       v87 = v74;
       v88 = 15;
@@ -16717,57 +16717,57 @@ LABEL_35:
         if ( v85 >= 0 )
         {
           v89 = *(v80 - 32);
-          v147 = v85;
+          _frame.v147 = v85;
           v90 = v80 - 32;
           v91 = (v89 >> 8) & 0xF;
         }
         else
         {
           v89 = *v80;
-          v147 = v85 + 32;
+          _frame.v147 = v85 + 32;
           v90 = v80;
           v91 = ((unsigned int)*v80 >> 8) & 0xF;
         }
         if ( v91 > SHIDWORD(v88) )
-          v183 = (v183 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v91) << 32);
+          _frame.v183 = (_frame.v183 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v91) << 32);
         if ( v91 < (int)v88 )
-          v183 = (v183 & ~0xFFFFFFFFull) | ((uint32_t)(v91) & 0xFFFFFFFFu);
+          _frame.v183 = (_frame.v183 & ~0xFFFFFFFFull) | ((uint32_t)(v91) & 0xFFFFFFFFu);
         if ( v91 == v87 && !v84 )
         {
-          if ( *v162 )
+          if ( *_frame.v162 )
           {
-            check_interrupt_flag(1, "dig_pwr_ini[%d][%d]=%x ", v149, v52, *v160);
+            check_interrupt_flag(1, "dig_pwr_ini[%d][%d]=%x ", _frame.v149, v52, *_frame.v160);
           }
           else
           {
-            *v160 = (uint8_t)v89;
-            *v162 = 1;
-            check_interrupt_flag(1, "ch[%d] table[%d] first_value=%x ", v52, v149, (uint8_t)v89);
+            *_frame.v160 = (uint8_t)v89;
+            *_frame.v162 = 1;
+            check_interrupt_flag(1, "ch[%d] table[%d] first_value=%x ", v52, _frame.v149, (uint8_t)v89);
           }
-          v92 = *v160;
-          v93 = aeabi_i2d(*v160);
+          v92 = *_frame.v160;
+          v93 = aeabi_i2d(*_frame.v160);
           v94 = (v94 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
           v94 = (v94 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10B7CC) << 32);
           v95 = ((uint64_t (*)())aeabi_dsub)(v93, v94);
           v96 = ((int (*)(uint64_t))aeabi_dmul)(v95);
           v83 = COERCE_FLOAT(float_to_double(v96)) * 20.0;
-          v156 = v147;
+          _frame.v156 = _frame.v147;
           v97 = COERCE_FLOAT(crc32_block(COERCE_INT((float)-v83 / 20.0)));
           v98 = ((uint64_t (*)())aeabi_d2f)(COERCE_UNSIGNED_INT((float)v92 * v97));
           v99 = parse_data_field(v98);
           v82 = ((int (*)(uint64_t))double_to_float_1)(v99);
-          v81 = v82 | v163 | 0xFFC000;
+          v81 = v82 | _frame.v163 | 0xFFC000;
           v84 = 1;
         }
-        if ( (uint32_t)v185 == v91 && !v158 )
+        if ( (uint32_t)_frame.v185 == v91 && !_frame.v158 )
         {
-          v153 = v147;
-          v158 = 1;
+          _frame.v153 = _frame.v147;
+          _frame.v158 = 1;
         }
-        if ( HIDWORD(v185) == v91 && !v159 )
+        if ( HIDWORD(_frame.v185) == v91 && !_frame.v159 )
         {
-          v154 = v147;
-          v159 = 1;
+          _frame.v154 = _frame.v147;
+          _frame.v159 = 1;
         }
         if ( v85 == v86 )
           *(volatile uint8_t *)off_10B55C = *v90;
@@ -16775,88 +16775,88 @@ LABEL_35:
         ++v80;
         if ( v85 == 16 )
           break;
-        v88 = v183;
-        v87 = v186;
+        v88 = _frame.v183;
+        v87 = _frame.v186;
       }
-      v50 = v168;
-      v166 = v81;
+      v50 = _frame.v168;
+      _frame.v166 = v81;
       v7 = v82;
-      check_interrupt_flag(1, aAnaMaxIndexXAn, HIDWORD(v183), (uint32_t)v183, v164, *(volatile uint8_t *)off_10B7D4);
-      if ( v156 == 255 )
+      check_interrupt_flag(1, aAnaMaxIndexXAn, HIDWORD(_frame.v183), (uint32_t)_frame.v183, _frame.v164, *(volatile uint8_t *)off_10B7D4);
+      if ( _frame.v156 == 255 )
       {
         dispatch_event_handler_1(aWarningNeedCha);
         dispatch_event_handler_1("base_index=%d\n", 255);
         v7 = 100;
-        v125 = v153;
-        if ( v153 != 255 )
+        v125 = _frame.v153;
+        if ( _frame.v153 != 255 )
           goto LABEL_130;
 LABEL_167:
         dispatch_event_handler_1("base_second_index=%d\n", v125);
         goto LABEL_130;
       }
-      if ( v153 != 255 && v154 != 255 )
+      if ( _frame.v153 != 255 && _frame.v154 != 255 )
         goto LABEL_80;
       dispatch_event_handler_1(aWarningNeedCha);
-      v125 = v153;
-      if ( v153 == 255 )
+      v125 = _frame.v153;
+      if ( _frame.v153 == 255 )
         goto LABEL_167;
 LABEL_130:
-      if ( v154 == 255 )
+      if ( _frame.v154 == 255 )
         dispatch_event_handler_1("base_third_index=%d\n", 255);
 LABEL_80:
-      if ( v156 > 15 )
-        v156 -= 32;
-      if ( v153 > 15 )
-        v153 -= 32;
-      if ( v154 > 15 )
-        v154 -= 32;
+      if ( _frame.v156 > 15 )
+        _frame.v156 -= 32;
+      if ( _frame.v153 > 15 )
+        _frame.v153 -= 32;
+      if ( _frame.v154 > 15 )
+        _frame.v154 -= 32;
       check_interrupt_flag(
         1,
         "base_index=%d ana_index=%x dig_pwr=%x pwr_stage_coin_index0=%x base_second_index=%2d pwr_stage_coin_index1=%x ba"
         "se_third_index=%2d\n",
-        v156,
-        v186,
+        _frame.v156,
+        _frame.v186,
         v7,
-        (uint32_t)v185,
-        v153,
-        HIDWORD(v185),
-        v154);
-      v100 = v187;
-      if ( SHIDWORD(v183) >= v187 )
+        (uint32_t)_frame.v185,
+        _frame.v153,
+        HIDWORD(_frame.v185),
+        _frame.v154);
+      v100 = _frame.v187;
+      if ( SHIDWORD(_frame.v183) >= _frame.v187 )
       {
-        v101 = (volatile float *)&v180[2 * v187 + 74];
+        v101 = (volatile float *)&_frame.v180[2 * _frame.v187 + 74];
         do
         {
-          v102 = (float)(v186 - v100) * v194;
+          v102 = (float)(_frame.v186 - v100) * _frame.v194;
           *v101++ = v102;
           check_interrupt_flag(1, "ana_index[%x] reduce_dig_i*100=%d \n", v100++, (int)(float)(v102 * v22));
         }
-        while ( SHIDWORD(v183) >= v100 );
+        while ( SHIDWORD(_frame.v183) >= v100 );
       }
-      prcm_start(v81, (int)v180, a3a, 0, v167, v149, 0, v52);
-      v103 = v185;
-      v104 = (uint16_t)v180[v186];
-      v105 = (uint16_t)v180[(uint32_t)v185 + 16];
-      v106 = (uint16_t)v180[HIDWORD(v185) + 32];
-      if ( (int)v185 <= SHIDWORD(v183) )
+      prcm_start(v81, (int)_frame.v180, _frame.a3a, 0, _frame.v167, _frame.v149, 0, v52);
+      v103 = _frame.v185;
+      v104 = (uint16_t)_frame.v180[_frame.v186];
+      v105 = (uint16_t)_frame.v180[(uint32_t)_frame.v185 + 16];
+      v106 = (uint16_t)_frame.v180[HIDWORD(_frame.v185) + 32];
+      if ( (int)_frame.v185 <= SHIDWORD(_frame.v183) )
       {
-        v103 = (v103 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(&v180[v185 - 1]) << 32);
-        v129 = (volatile float *)&result[v185];
+        v103 = (v103 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(&_frame.v180[_frame.v185 - 1]) << 32);
+        v129 = (volatile float *)&_frame.result[_frame.v185];
         do
         {
           v130 = *(volatile uint16_t *)(HIDWORD(v103) + 2);
           v103 = (v103 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v103 >> 32) & 0xFFFFFFFFu) + (uint32_t)(2))) << 32;;
-          min_u32(v130, v104, (int)v180);
-          v131 = HIDWORD(v183);
-          *v129++ = v181;
+          min_u32(v130, v104, (int)_frame.v180);
+          v131 = HIDWORD(_frame.v183);
+          *v129++ = _frame.v181;
           v103 = (v103 & ~0xFFFFFFFFull) | ((uint32_t)(v103 + 1) & 0xFFFFFFFFu);
         }
         while ( v131 >= (int)v103 );
-        v107 = (float)(v153 - v156) - *(volatile float *)&result[v185];
+        v107 = (float)(_frame.v153 - _frame.v156) - *(volatile float *)&_frame.result[_frame.v185];
         check_interrupt_flag(1, "stage_pwr_diff0*100= %d\n", (int)(float)(v107 * v22));
-        scale_f32(v107, v7, (int)v180);
-        check_interrupt_flag(1, "base_index=%d dig_pwr=%x base_second_index=%d\n", v156, v7, v153);
-        v103 = v185;
+        scale_f32(v107, v7, (int)_frame.v180);
+        check_interrupt_flag(1, "base_index=%d dig_pwr=%x base_second_index=%d\n", _frame.v156, v7, _frame.v153);
+        v103 = _frame.v185;
       }
       else
       {
@@ -16864,40 +16864,40 @@ LABEL_80:
       }
       if ( SHIDWORD(v103) < (int)v103 )
       {
-        v126 = &v180[HIDWORD(v103) + 16];
-        v103 = (v103 & ~0xFFFFFFFFull) | ((uint32_t)(&result[HIDWORD(v103)]) & 0xFFFFFFFFu);
+        v126 = &_frame.v180[HIDWORD(v103) + 16];
+        v103 = (v103 & ~0xFFFFFFFFull) | ((uint32_t)(&_frame.result[HIDWORD(v103)]) & 0xFFFFFFFFu);
         do
         {
           v127 = *v126++;
           check_interrupt_flag(1, "pwr_amp_back[1][%d]=%d ", HIDWORD(v103), v127);
-          min_u32(v127, v105, (int)v180);
-          v128 = HIDWORD(v185);
-          *(volatile float *)v103 = v181;
+          min_u32(v127, v105, (int)_frame.v180);
+          v128 = HIDWORD(_frame.v185);
+          *(volatile float *)v103 = _frame.v181;
           v103 = (v103 & ~0xFFFFFFFFull) | ((uint32_t)(v103 + 4) & 0xFFFFFFFFu);
-          v108 = (float)(v154 - v153) - *(volatile float *)&result[v128];
+          v108 = (float)(_frame.v154 - _frame.v153) - *(volatile float *)&_frame.result[v128];
           v103 = (v103 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v103 >> 32) & 0xFFFFFFFFu) + (uint32_t)(1))) << 32;;
           check_interrupt_flag(1, "stage_pwr_diff1*100= %d\n", (int)(float)(v108 * v22));
         }
-        while ( (int)v185 > SHIDWORD(v103) );
-        v103 = (v103 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(HIDWORD(v185)) << 32);
+        while ( (int)_frame.v185 > SHIDWORD(v103) );
+        v103 = (v103 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(HIDWORD(_frame.v185)) << 32);
       }
       else
       {
         v108 = v70;
       }
-      v103 = (v103 & ~0xFFFFFFFFull) | ((uint32_t)(v187) & 0xFFFFFFFFu);
-      if ( v187 < SHIDWORD(v103) )
+      v103 = (v103 & ~0xFFFFFFFFull) | ((uint32_t)(_frame.v187) & 0xFFFFFFFFu);
+      if ( _frame.v187 < SHIDWORD(v103) )
       {
-        v103 = (v103 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(&v180[v187 + 32]) << 32);
-        v109 = (volatile float *)&result[v187];
+        v103 = (v103 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(&_frame.v180[_frame.v187 + 32]) << 32);
+        v109 = (volatile float *)&_frame.result[_frame.v187];
         do
         {
           v110 = (uint16_t)*(volatile uint16_t *)HIDWORD(v103);
           v103 = (v103 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v103 >> 32) & 0xFFFFFFFFu) + (uint32_t)(2))) << 32;;
           check_interrupt_flag(1, "pwr_amp_back[2][%d]=%d ", (uint32_t)v103, v110);
-          min_u32(v110, v106, (int)v180);
-          v111 = HIDWORD(v185);
-          *v109++ = v181;
+          min_u32(v110, v106, (int)_frame.v180);
+          v111 = HIDWORD(_frame.v185);
+          *v109++ = _frame.v181;
           v103 = (v103 & ~0xFFFFFFFFull) | ((uint32_t)(v103 + 1) & 0xFFFFFFFFu);
         }
         while ( v111 > (int)v103 );
@@ -16909,87 +16909,87 @@ LABEL_80:
         while ( 2 )
         {
           if ( v113 < 0 )
-            v116 = v157 + 32;
+            v116 = _frame.v157 + 32;
           else
-            v116 = v157;
+            v116 = _frame.v157;
           v117 = v116 + v113;
           v118 = ((unsigned int)v50[v116 + v113] >> 8) & 0xF;
-          v119 = *(volatile float *)&result[v118];
-          v184 = v118;
+          v119 = *(volatile float *)&_frame.result[v118];
+          _frame.v184 = v118;
           v120 = (volatile unsigned int *)&v50[v116 + v113];
-          if ( v164 < v113 )
+          if ( _frame.v164 < v113 )
           {
             if ( v118 > 9 )
               v114 = v70;
             else
-              v114 = v188;
-            if ( (int)v185 <= v118 )
+              v114 = _frame.v188;
+            if ( (int)_frame.v185 <= v118 )
             {
-              v71 = v113 - v156;
-              v121 = (float)((float)((float)((float)(v113 - v156) - v119) + v83) + v114) + *((volatile float *)&v189 + v118);
-              check_interrupt_flag(1, "tx_gain_map_idx=%d base_index=%d ", v113, v156);
+              v71 = v113 - _frame.v156;
+              v121 = (float)((float)((float)((float)(v113 - _frame.v156) - v119) + v83) + v114) + *((volatile float *)&_frame.v189 + v118);
+              check_interrupt_flag(1, "tx_gain_map_idx=%d base_index=%d ", v113, _frame.v156);
               check_interrupt_flag(
                 1,
                 "pwr_th*100=%-5d pwr_act*100=%-5d ",
-                -100 * v156 + 100 * v113,
+                -100 * _frame.v156 + 100 * v113,
                 (int)(float)(v119 * v22));
-              scale_f32(v121, v7, (int)v180);
+              scale_f32(v121, v7, (int)_frame.v180);
             }
             else
             {
-              if ( SHIDWORD(v185) > v118 )
+              if ( SHIDWORD(_frame.v185) > v118 )
               {
-                v71 = v113 - v154;
-                v115 = (float)((float)((float)((float)((float)((float)(v113 - v154) - v119) + v108) + v107) + v83) + v114)
-                     + *((volatile float *)&v189 + v118);
-                check_interrupt_flag(1, "tx_gain_map_idx=%d base_third_index=%d ", v113, v154);
+                v71 = v113 - _frame.v154;
+                v115 = (float)((float)((float)((float)((float)((float)(v113 - _frame.v154) - v119) + v108) + v107) + v83) + v114)
+                     + *((volatile float *)&_frame.v189 + v118);
+                check_interrupt_flag(1, "tx_gain_map_idx=%d base_third_index=%d ", v113, _frame.v154);
                 check_interrupt_flag(
                   1,
                   "pwr_th*100=%-5d pwr_act*100=%-5d stage_pwr_diff0*100=%-2d stage_pwr_diff1*100=%-2d ",
-                  -100 * v154 + 100 * v113,
+                  -100 * _frame.v154 + 100 * v113,
                   (int)(float)(v119 * v22),
                   (int)(float)(v107 * v22),
                   (int)(float)(v108 * v22));
               }
               else
               {
-                v71 = v113 - v153;
-                v115 = (float)((float)((float)((float)((float)(v113 - v153) - v119) + v107) + v83) + v114)
-                     + *((volatile float *)&v189 + v118);
-                check_interrupt_flag(1, "tx_gain_map_idx=%d base_second_index=%d ", v113, v153);
+                v71 = v113 - _frame.v153;
+                v115 = (float)((float)((float)((float)((float)(v113 - _frame.v153) - v119) + v107) + v83) + v114)
+                     + *((volatile float *)&_frame.v189 + v118);
+                check_interrupt_flag(1, "tx_gain_map_idx=%d base_second_index=%d ", v113, _frame.v153);
                 check_interrupt_flag(
                   1,
                   "pwr_th*100=%-5d pwr_act*100=%-5d stage_pwr_diff0*100=%-2d ",
-                  -100 * v153 + 100 * v113,
+                  -100 * _frame.v153 + 100 * v113,
                   (int)(float)(v119 * v22),
                   (int)(float)(v107 * v22));
               }
-              scale_f32(v115, v7, (int)v180);
+              scale_f32(v115, v7, (int)_frame.v180);
             }
-            check_interrupt_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v117, v118, v182);
-            if ( v113 == v151 )
+            check_interrupt_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v117, v118, _frame.v182);
+            if ( v113 == _frame.v151 )
             {
               check_interrupt_flag(1, aMinDiffCal);
-              min_u32(v182, *(volatile uint8_t *)off_10BB88, (int)v180);
-              v112 = v181;
+              min_u32(_frame.v182, *(volatile uint8_t *)off_10BB88, (int)_frame.v180);
+              v112 = _frame.v181;
             }
           }
           else
           {
             check_interrupt_flag(1, "tx_gain_map_idx=%d ", v113);
-            scale_f32(v112, LOBYTE(v50[v117]), (int)v180);
+            scale_f32(v112, LOBYTE(v50[v117]), (int)_frame.v180);
           }
-          check_interrupt_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v117, v118, v182);
-          *(volatile uint8_t *)v120 = v182;
-          if ( a4a || v149 || v118 != 15 )
+          check_interrupt_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v117, v118, _frame.v182);
+          *(volatile uint8_t *)v120 = _frame.v182;
+          if ( _frame.a4a || _frame.v149 || v118 != 15 )
             goto LABEL_108;
           check_interrupt_flag(1, aPwrReCal);
-          prcm_start(*v120, (int)v180, a3a, 1, v167, 0, 0, 0);
-          min_u32(v180[15], v104, (int)v180);
-          v122 = v181;
-          check_interrupt_flag(1, "pwr_th*100=%-5d pwr_act*100=%-5d ", 100 * v71, (int)(float)(v181 * v22));
-          v169 = ((uint64_t (*)())aeabi_d2f)(COERCE_UNSIGNED_INT((float)v71 - v122));
-if ( !((int (*)())double_gt)(v169, *(volatile uint64_t *)&dword_10BB50) && !((int (*)())double_lt)(v169, *(volatile uint64_t *)&dword_10BB58) ) { check_interrupt_flag(1, "pwr_diff*100=%d,dont need change\n", (int)(float)((float)((float)v71 - v122) * v22));
+          prcm_start(*v120, (int)_frame.v180, _frame.a3a, 1, _frame.v167, 0, 0, 0);
+          min_u32(_frame.v180[15], v104, (int)_frame.v180);
+          v122 = _frame.v181;
+          check_interrupt_flag(1, "pwr_th*100=%-5d pwr_act*100=%-5d ", 100 * v71, (int)(float)(_frame.v181 * v22));
+          _frame.v169 = ((uint64_t (*)())aeabi_d2f)(COERCE_UNSIGNED_INT((float)v71 - v122));
+if ( !((int (*)())double_gt)(_frame.v169, *(volatile uint64_t *)&dword_10BB50) && !((int (*)())double_lt)(_frame.v169, *(volatile uint64_t *)&dword_10BB58) ) { check_interrupt_flag(1, "pwr_diff*100=%d,dont need change\n", (int)(float)((float)((float)v71 - v122) * v22));
 LABEL_108:
             if ( --v113 == -17 )
               goto LABEL_120;
@@ -16997,29 +16997,29 @@ LABEL_108:
           }
           break;
         }
-        scale_f32((float)v71 - v122, v182, (int)v180);
+        scale_f32((float)v71 - v122, _frame.v182, (int)_frame.v180);
         --v113;
-        check_interrupt_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v117, 15, v182);
-        *(volatile uint8_t *)v120 = v182;
+        check_interrupt_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v117, 15, _frame.v182);
+        *(volatile uint8_t *)v120 = _frame.v182;
         if ( v113 != -17 )
           continue;
         break;
       }
 LABEL_120:
-      v157 += 32;
-      v160 += 7;
-      v165 += 32;
-      v123 = v149++ == 2;
-      ++v162;
+      _frame.v157 += 32;
+      _frame.v160 += 7;
+      _frame.v165 += 32;
+      v123 = _frame.v149++ == 2;
+      ++_frame.v162;
       if ( !v123 )
         continue;
       break;
     }
     dispatch_event_handler_1(aPwrCalEnd);
 LABEL_10:
-    v161 += 4;
+    _frame.v161 += 4;
   }
-  while ( v161 != a5 + 28 );
+  while ( _frame.v161 != a5 + 28 );
   v24 = (volatile uint32_t *)off_10B21C;
   v25 = dword_10B234;
   v26 = dword_10B238;
@@ -17030,7 +17030,7 @@ LABEL_10:
   dispatch_event_handler_1(aDpdEnd);
   gpio_set_pin(0);
   v29 = dword_10B240;
-  v30 = (volatile int *)v179;
+  v30 = (volatile int *)_frame.v179;
   for ( k = 0; k != 3; ++k )
   {
     if ( k )
@@ -17049,7 +17049,7 @@ LABEL_10:
       v39 = v26;
     }
     v40 = (volatile unsigned int *)(v39 + 4);
-    v41 = &result[16 * k + 16];
+    v41 = &_frame.result[16 * k + 16];
     v42 = (volatile unsigned int *)(v39 + 484);
     do
     {
@@ -17073,7 +17073,7 @@ LABEL_15:
   }
   gpio_clear_pin(0);
   v37 = (void *)(uintptr_t)(off_10B244);
-  *(volatile uint32_t *)off_10B218 = *(volatile uint32_t *)off_10B218 & 0xFFFFFFFE | v171;
+  *(volatile uint32_t *)off_10B218 = *(volatile uint32_t *)off_10B218 & 0xFFFFFFFE | _frame.v171;
   check_interrupt_flag(1, "tia_aux_gbit000=%d\n", (*v37 >> 21) & 7);
   return dispatch_event_handler_1(aMiscDpdCalibSi_0);
 }
@@ -17398,16 +17398,16 @@ int configure_dma_engine() {
   int v84; // r5
   char v85; // t1
   int v86; // r3
-  volatile uint8_t *v87; // [sp+8h] [bp-A4h]
-  volatile int *v88; // [sp+8h] [bp-A4h]
+  struct __attribute__((packed)) { union { volatile uint8_t *v87; // [sp+8h] [bp-A4h]
+  volatile int *v88; }; // [sp+8h] [bp-A4h]
   volatile uint8_t *v89; // [sp+Ch] [bp-A0h]
-  uint8_t a1[2]; // [sp+12h] [bp-9Ah] BYREF
+  char _pad2[2]; uint8_t a1[2]; // [sp+12h] [bp-9Ah] BYREF
   int v91; // [sp+14h] [bp-98h] BYREF
   int v92; // [sp+18h] [bp-94h] BYREF
   int v93; // [sp+1Ch] [bp-90h]
   int v94; // [sp+20h] [bp-8Ch]
   uint8_t v95[136]; // [sp+24h] [bp-88h] BYREF
-
+  } _frame;
   v0 = (void *)(uintptr_t)(off_10C3DC);
   *((volatile uint32_t *)off_10C3D8 + 64) = 8;
   if ( !v0[2] )
@@ -17486,20 +17486,20 @@ LABEL_15:
   check_chip_flag();
   v12[4] |= 2u;
   save_rf_context();
-  a1[0] = 0;
-  a1[1] = 0;
+  _frame.a1[0] = 0;
+  _frame.a1[1] = 0;
   if ( (*v12 & 0x2000000) == 0 )
   {
-    *(volatile uint32_t *)v95 = 0;
-    if ( bus_read32((int)v95) )
+    *(volatile uint32_t *)_frame.v95 = 0;
+    if ( bus_read32((int)_frame.v95) )
     {
-      v13 = a1[0];
+      v13 = _frame.a1[0];
     }
     else
     {
-      v13 = v95[0];
-      a1[0] = v95[0];
-      a1[1] = v95[1];
+      v13 = _frame.v95[0];
+      _frame.a1[0] = _frame.v95[0];
+      _frame.a1[1] = _frame.v95[1];
     }
     if ( v13 )
       goto LABEL_19;
@@ -17507,31 +17507,31 @@ LABEL_60:
     set_xtal_ftune(15);
     goto LABEL_22;
   }
-  mmio_read_status(a1);
-  mmio_read_byte(&a1[1]);
-  v13 = a1[0];
-  if ( !a1[0] )
+  mmio_read_status(_frame.a1);
+  mmio_read_byte(&_frame.a1[1]);
+  v13 = _frame.a1[0];
+  if ( !_frame.a1[0] )
     goto LABEL_60;
 LABEL_19:
   if ( v13 > 0x1F )
   {
     v13 = 31;
-    a1[0] = 31;
+    _frame.a1[0] = 31;
   }
   set_xtal_ftune(v13);
-  log_printf("set xtal_cap 0x%x\n", a1[0]);
+  log_printf("set xtal_cap 0x%x\n", _frame.a1[0]);
 LABEL_22:
-  v14 = a1[1];
-  if ( a1[1] )
+  v14 = _frame.a1[1];
+  if ( _frame.a1[1] )
   {
-    if ( a1[1] <= 0x3Fu )
+    if ( _frame.a1[1] <= 0x3Fu )
     {
-      v15 = (a1[1] << 18) & 0xFC0000;
+      v15 = (_frame.a1[1] << 18) & 0xFC0000;
     }
     else
     {
       v14 = 63;
-      a1[1] = 63;
+      _frame.a1[1] = 63;
       v15 = 16515072;
     }
     *(volatile uint32_t *)off_10C72C = *(volatile uint32_t *)off_10C72C & 0xFF03FFFF | v15;
@@ -17584,10 +17584,10 @@ LABEL_22:
   }
   else
   {
-    v93 = 0;
-    v94 = 0;
-    v92 = 0;
-    if ( bus_read_12((int)&v92) )
+    _frame.v93 = 0;
+    _frame.v94 = 0;
+    _frame.v92 = 0;
+    if ( bus_read_12((int)&_frame.v92) )
     {
       v58 = (void *)(uintptr_t)(off_10CA90);
     }
@@ -17597,13 +17597,13 @@ LABEL_22:
       v78 = (void *)(uintptr_t)(off_10CBDC);
       log_printf(aFlTxpwrOfst24g);
       v79 = 0;
-      v88 = &v92;
+      _frame.v88 = &_frame.v92;
       v80 = (volatile uint8_t *)v77;
       v81 = (void *)(v78);
       do
       {
         log_printf("\r\n  [%d] =", v79);
-        v82 = v88;
+        v82 = _frame.v88;
         v83 = v80;
         v84 = 0;
         do
@@ -17617,7 +17617,7 @@ LABEL_22:
         }
         while ( v84 != 3 );
         ++v79;
-        v88 = (volatile int *)((volatile char *)v88 + 3);
+        _frame.v88 = (volatile int *)((volatile char *)_frame.v88 + 3);
         v80 += 3;
       }
       while ( v79 != 3 );
@@ -17626,20 +17626,20 @@ LABEL_22:
       log_printf((const volatile char *)off_10CBC8);
       v58[1] |= 1u;
     }
-    ((int (*)())memset)(v95, 0, 20);
-    if ( !mmio_read_4((int)v95) )
+    ((int (*)())memset)(_frame.v95, 0, 20);
+    if ( !mmio_read_4((int)_frame.v95) )
     {
       v68 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_10CBD8)[0]);
       log_printf(aFlTxpwrOfst5g);
-      v89 = v58;
+      _frame.v89 = v58;
       v69 = dword_10CBBC;
-      v87 = v95;
+      _frame.v87 = _frame.v95;
       v70 = (void *)(v68);
       v71 = 0;
       do
       {
         log_printf("\r\n  [%d] =", v71);
-        v72 = v87;
+        v72 = _frame.v87;
         v73 = (volatile uint8_t *)v69;
         v74 = 0;
         do
@@ -17653,23 +17653,23 @@ LABEL_22:
         while ( v74 != 6 );
         v17 += 6;
         ++v71;
-        v87 += 6;
+        _frame.v87 += 6;
         v69 += 6;
       }
       while ( v17 != 18 );
-      v58 = v89;
+      v58 = _frame.v89;
       log_printf((const volatile char *)off_10CBC8);
-      v89[1] |= 1u;
+      _frame.v89[1] |= 1u;
     }
-    if ( mmio_read_128((int)&v91) )
+    if ( mmio_read_128((int)&_frame.v91) )
     {
       v31 = -1;
       *v58 = -1;
     }
     else
     {
-      v59 = (char)v91;
-      *v58 = v91;
+      v59 = (char)_frame.v91;
+      *v58 = _frame.v91;
       v31 = v59;
     }
   }
@@ -17690,13 +17690,13 @@ LABEL_22:
     }
     else
     {
-      *(volatile uint32_t *)v95 = 0;
-      if ( !mmio_read_32((int)v95) )
+      *(volatile uint32_t *)_frame.v95 = 0;
+      if ( !mmio_read_32((int)_frame.v95) )
       {
         v65 = (void *)(uintptr_t)(off_10CA88);
-        v66 = *((volatile uint8_t *)off_10CA84 + v95[1]);
-        v67 = *((volatile uint8_t *)off_10CA84 + v95[2]);
-        *(volatile uint8_t *)off_10CA88 = *((volatile uint8_t *)off_10CA84 + v95[0]);
+        v66 = *((volatile uint8_t *)off_10CA84 + _frame.v95[1]);
+        v67 = *((volatile uint8_t *)off_10CA84 + _frame.v95[2]);
+        *(volatile uint8_t *)off_10CA88 = *((volatile uint8_t *)off_10CA84 + _frame.v95[0]);
         v65[1] = v66;
         v65[2] = v67;
       }
@@ -17785,26 +17785,26 @@ LABEL_22:
   v39 = (void *)(uintptr_t)(off_10C7A0);
   v40 = dword_10C77C;
   *(volatile uint32_t *)off_10C778 |= 0x8000000u;
-  v92 = 3983;
-  v93 = v40;
+  _frame.v92 = 3983;
+  _frame.v93 = v40;
   *v39 = 2;
-  call_tx_function(0, 2437, (int)&v92, (int)v95);
+  call_tx_function(0, 2437, (int)&_frame.v92, (int)_frame.v95);
   *v39 = 0;
   clock_set_source(0, 0, 0);
-  call_rx_function(0, 2437, (int)&v92, (int)v95, 1u, 0);
+  call_rx_function(0, 2437, (int)&_frame.v92, (int)_frame.v95, 1u, 0);
   if ( (*v33 & 2) == 0 )
   {
     v62 = (void *)(uintptr_t)(off_10CAAC);
-    v92 = 3855;
+    _frame.v92 = 3855;
     *(volatile uint8_t *)off_10CAAC = 2;
-    call_tx_function(1, 5250, (int)&v92, (int)v95);
-    call_tx_function(1, 5500, (int)&v92, (int)v95);
-    call_tx_function(1, 5700, (int)&v92, (int)v95);
+    call_tx_function(1, 5250, (int)&_frame.v92, (int)_frame.v95);
+    call_tx_function(1, 5500, (int)&_frame.v92, (int)_frame.v95);
+    call_tx_function(1, 5700, (int)&_frame.v92, (int)_frame.v95);
     *v62 = 0;
     clock_set_source(1, 0, 0);
-    call_rx_function(1, 5700, (int)&v92, (int)v95, 1u, 0);
-    call_rx_function(1, 5250, (int)&v92, (int)v95, 1u, 0);
-    call_rx_function(1, 5500, (int)&v92, (int)v95, 1u, 0);
+    call_rx_function(1, 5700, (int)&_frame.v92, (int)_frame.v95, 1u, 0);
+    call_rx_function(1, 5250, (int)&_frame.v92, (int)_frame.v95, 1u, 0);
+    call_rx_function(1, 5500, (int)&_frame.v92, (int)_frame.v95, 1u, 0);
   }
   v41 = mac_packet_dispatch();
   v42 = (void *)(uintptr_t)(off_10C784);
@@ -17816,12 +17816,12 @@ LABEL_22:
   dispatch_event_handler_1("Init T=%d C, ipa_target=%d\n", v41, v43);
   if ( (*v33 & 2) == 0 )
   {
-    v61 = gpio_bank_init((int)&v91);
-    log_printf("cal_ipa_5g offset=%d, cgm=%d\n", v61, v91);
+    v61 = gpio_bank_init((int)&_frame.v91);
+    log_printf("cal_ipa_5g offset=%d, cgm=%d\n", v61, _frame.v91);
   }
   v44 = gpio_bank_init2();
   log_printf("cal_ipa_24g offset=%d\n", v44);
-  call_rx_function(1, 5500, (int)&v92, (int)v95, 0, 1u);
+  call_rx_function(1, 5500, (int)&_frame.v92, (int)_frame.v95, 0, 1u);
   result = rf_calibrate(0, 2437, 0x985u, 0, 0, 0);
   v46 = (void *)(uintptr_t)(off_10CA68);
   v47 = (void *)(uintptr_t)(off_10CA6C);
@@ -34114,12 +34114,12 @@ int process_cmd_extended(int a1, volatile char *a2, unsigned int a3, int a4) {
   char v46; // r7
   volatile uint8_t *v47; // r0
   int v48; // r3
-  int v49; // [sp+Ch] [bp-18h]
-  int v50; // [sp+10h] [bp-14h]
-  int v51; // [sp+10h] [bp-14h]
+  struct __attribute__((packed)) { int v49; // [sp+Ch] [bp-18h]
+  union { int v50; // [sp+10h] [bp-14h]
+  int v51; }; // [sp+10h] [bp-14h]
   int v52; // [sp+14h] [bp-10h]
-  uint8_t a1a[5]; // [sp+1Fh] [bp-5h] BYREF
-
+  char _pad3[7]; uint8_t a1a[5]; // [sp+1Fh] [bp-5h] BYREF
+  } _frame;
   v8 = flash_write_byte(a3);
   if ( v8 )
   {
@@ -34295,41 +34295,41 @@ LABEL_37:
           v31 = (uint8_t)a2[3];
           v32 = dword_11A66C;
           v33 = dword_11A66C + 224 * v31;
-          a1a[0] = 0;
-          v34 = reset_link_status(a1a);
+          _frame.a1a[0] = 0;
+          v34 = reset_link_status(_frame.a1a);
           v35 = *(volatile uint8_t *)(v33 + 94);
           v36 = (uint8_t)a2[2];
           *(volatile uint8_t *)(v33 + 96) = v36;
           if ( !v35 )
           {
-            v49 = 224 * v31;
+            _frame.v49 = 224 * v31;
             if ( v36 )
             {
-              v52 = v34;
+              _frame.v52 = v34;
               v37 = (*(volatile uint32_t *)0x40501010u);
-              v50 = dword_11A63C + 152 * *(volatile uint8_t *)(v33 + 102);
-              ke_enter_critical((volatile uint32_t *)(v49 + 24 + v32), v37 + *(volatile uint32_t *)(v50 + 8));
-              *(volatile uint16_t *)(v50 + 30) = *(volatile uint16_t *)a2;
+              _frame.v50 = dword_11A63C + 152 * *(volatile uint8_t *)(v33 + 102);
+              ke_enter_critical((volatile uint32_t *)(_frame.v49 + 24 + v32), v37 + *(volatile uint32_t *)(_frame.v50 + 8));
+              *(volatile uint16_t *)(_frame.v50 + 30) = *(volatile uint16_t *)a2;
               clear_bb_irq();
               check_interrupt_flag(
                 256,
                 "vif state active:%d,%d,%d\r\n",
-                *(volatile uint8_t *)(v50 + 33),
-                *(volatile uint16_t *)(v50 + 30),
-                v52);
+                *(volatile uint8_t *)(_frame.v50 + 33),
+                *(volatile uint16_t *)(_frame.v50 + 30),
+                _frame.v52);
               *(volatile uint32_t *)off_11A648 = (uint16_t)*(volatile uint32_t *)off_11A648 | (*(volatile uint16_t *)a2 << 16);
               *(volatile uint8_t *)(v33 + 116) = 0;
               *(volatile uint32_t *)(v33 + 112) = 0;
               v38 = (*(volatile uint32_t *)0x40501010u);
               *(volatile uint32_t *)(v33 + 108) = v38;
-              rf_get_status_1((int)(uintptr_t)((volatile uint32_t *)(v32 + v49)));
+              rf_get_status_1((int)(uintptr_t)((volatile uint32_t *)(v32 + _frame.v49)));
               v36 = (uint8_t)a2[2];
             }
             else
             {
-              v51 = v34;
-              ke_exit_critical((int)(uintptr_t)((volatile uint32_t *)(v49 + 24 + v32)));
-              check_interrupt_flag(256, "vif state inactive:%d\r\n", v51);
+              _frame.v51 = v34;
+              ke_exit_critical((int)(uintptr_t)((volatile uint32_t *)(_frame.v49 + 24 + v32)));
+              check_interrupt_flag(256, "vif state inactive:%d\r\n", _frame.v51);
               if ( (*(volatile uint32_t *)off_11A718 & 0x8000) != 0 )
                 sys_status_bit21_get();
               v48 = v32 + 224 * v31;
@@ -44374,10 +44374,10 @@ int init_system(int a1, unsigned int a2, unsigned int a3, int a4) {
   char v57; // r4
   int v58; // r0
   unsigned int v59; // r9
-  int v60; // [sp+0h] [bp-2Ch]
+  struct __attribute__((packed)) { union { int v60; // [sp+0h] [bp-2Ch]
   int v61; // [sp+0h] [bp-2Ch]
   int v62; // [sp+0h] [bp-2Ch]
-  volatile uint32_t *v63; // [sp+0h] [bp-2Ch]
+  volatile uint32_t *v63; }; // [sp+0h] [bp-2Ch]
   volatile int *p_a3a; // [sp+4h] [bp-28h]
   uint32_t v65[3]; // [sp+8h] [bp-24h] BYREF
   int a3a; // [sp+14h] [bp-18h] BYREF
@@ -44386,7 +44386,7 @@ int init_system(int a1, unsigned int a2, unsigned int a3, int a4) {
   int v69; // [sp+20h] [bp-Ch]
   int v70; // [sp+24h] [bp-8h]
   uint8_t v71[4]; // [sp+28h] [bp-4h] BYREF
-
+  } _frame;
   v4 = HIBYTE(*(volatile uint32_t *)off_122A40) & 2;
   v5 = a1;
   if ( a1 )
@@ -44410,35 +44410,35 @@ int init_system(int a1, unsigned int a2, unsigned int a3, int a4) {
             {
               dispatch_event_handler_1("set ef_pwrofst2x_2.4g:\n  [%d][%d]=%d\n", a2, a3, a4);
               *(volatile uint8_t *)(*(volatile uint32_t *)off_122C60 + 3 * a2 + a3) = a4;
-              v58 = tx_desc_build(a2, a3, (void *)(&a3a));
+              v58 = tx_desc_build(a2, a3, (void *)(&_frame.a3a));
               v57 = v58;
               v59 = 2 * a2;
-              if ( (char)a3a == a4 )
+              if ( (char)_frame.a3a == a4 )
                 mmio_reg_write_1b(v5);
               else
-                dispatch_event_handler_1("failed to set, rd=%d(rem:%d)\n", (char)a3a, v58);
+                dispatch_event_handler_1("failed to set, rd=%d(rem:%d)\n", (char)_frame.a3a, v58);
             }
             *(volatile uint8_t *)(dword_122C5C + a2 + v59 + a3) = v57;
           }
           else
           {
-            a3a = 0;
-            v67 = 0;
-            v68 = 0;
-            bus_read_12((int)&a3a);
+            _frame.a3a = 0;
+            _frame.v67 = 0;
+            _frame.v68 = 0;
+            bus_read_12((int)&_frame.a3a);
             dispatch_event_handler_1("set fl_pwrofst2x_2.4g:\n  [%d][%d]=%d\n", a2, a3, a4);
             v37 = 3 * a2;
             v38 = *(volatile uint32_t *)off_122A50 + v37;
-            v39 = &v71[v37 + a3];
+            v39 = &_frame.v71[v37 + a3];
             *(volatile uint8_t *)(v38 + a3) = a4;
             *(v39 - 20) = a4;
-            mmio_write_2((int)&a3a);
-            bus_read_12((int)&a3a);
+            mmio_write_2((int)&_frame.a3a);
+            bus_read_12((int)&_frame.a3a);
             v40 = (char)*(v39 - 20);
             if ( v40 == a4 )
             {
-              v65[0] = 0;
-              mmio_write_128((int)v65);
+              _frame.v65[0] = 0;
+              mmio_write_128((int)_frame.v65);
             }
             else
             {
@@ -44494,37 +44494,37 @@ LABEL_78:
             {
               dispatch_event_handler_1("set ef_pwrofst2x_5g:\n  [%d][%d]=%d\n", a2, a3, a4);
               *(volatile uint8_t *)(*(volatile uint32_t *)off_122A64 + 6 * a2 + a3) = a4;
-              v25 = rx_desc_build(a2, a3, (void *)(&a3a));
+              v25 = rx_desc_build(a2, a3, (void *)(&_frame.a3a));
               v24 = v25;
               v26 = 2 * a2;
-              if ( (char)a3a == a4 )
+              if ( (char)_frame.a3a == a4 )
                 mmio_reg_write_1b(1);
               else
-                dispatch_event_handler_1("failed to set, rd=%d(rem:%d)\n", (char)a3a, v25);
+                dispatch_event_handler_1("failed to set, rd=%d(rem:%d)\n", (char)_frame.a3a, v25);
             }
             *(volatile uint8_t *)(dword_122A58 + 2 * (a2 + v26) + a3) = v24;
           }
           else
           {
-            a3a = 0;
-            v67 = 0;
-            v68 = 0;
-            v69 = 0;
-            v70 = 0;
-            mmio_read_4((int)&a3a);
+            _frame.a3a = 0;
+            _frame.v67 = 0;
+            _frame.v68 = 0;
+            _frame.v69 = 0;
+            _frame.v70 = 0;
+            mmio_read_4((int)&_frame.a3a);
             dispatch_event_handler_1("set fl_pwrofst2x_5g:\n  [%d][%d]=%d\n", a2, a3, a4);
             v43 = 3 * a2;
             v44 = *(volatile uint32_t *)off_122C50 + 2 * v43;
-            v45 = &v71[2 * v43 + a3];
+            v45 = &_frame.v71[2 * v43 + a3];
             *(volatile uint8_t *)(v44 + a3) = a4;
             *(v45 - 20) = a4;
-            mmio_write_4((int)&a3a);
-            mmio_read_4((int)&a3a);
+            mmio_write_4((int)&_frame.a3a);
+            mmio_read_4((int)&_frame.a3a);
             v46 = (char)*(v45 - 20);
             if ( v46 == a4 )
             {
-              v65[0] = 0;
-              mmio_write_128((int)v65);
+              _frame.v65[0] = 0;
+              mmio_write_128((int)_frame.v65);
             }
             else
             {
@@ -44564,14 +44564,14 @@ LABEL_78:
   }
   if ( !v4 )
   {
-    ((int (*)())memset)((void *)(v65), 0, sizeof(v65));
-    v67 = 0;
-    v68 = 0;
-    v69 = 0;
-    v70 = 0;
-    a3a = 0;
+    ((int (*)())memset)((void *)(_frame.v65), 0, sizeof(_frame.v65));
+    _frame.v67 = 0;
+    _frame.v68 = 0;
+    _frame.v69 = 0;
+    _frame.v70 = 0;
+    _frame.a3a = 0;
     dispatch_event_handler_1(aFlPwrofst2x24g, a2, a3, a4);
-    if ( bus_read_12((int)v65) )
+    if ( bus_read_12((int)_frame.v65) )
     {
       memset_thunk((volatile int *)dword_122A48, 0xFu, 9u);
       dispatch_event_handler_1(aEmpty);
@@ -44583,12 +44583,12 @@ LABEL_78:
       dispatch_event_handler_1(a011b1OfdmHighr);
       dispatch_event_handler_1(aChan14591013);
       v49 = 0;
-      v63 = v65;
+      _frame.v63 = _frame.v65;
       v50 = (volatile uint8_t *)v47;
       do
       {
         dispatch_event_handler_1("\n  [%d] =", v49);
-        v51 = (volatile char *)v63;
+        v51 = (volatile char *)_frame.v63;
         v52 = v50;
         for ( i = 0; i != 3; ++i )
         {
@@ -44599,14 +44599,14 @@ LABEL_78:
           dispatch_event_handler_1("\t%d", *(volatile char *)(v55 + 3 * v49));
         }
         ++v49;
-        v63 = (volatile uint32_t *)((volatile char *)v63 + 3);
+        _frame.v63 = (volatile uint32_t *)((volatile char *)_frame.v63 + 3);
         v50 += 3;
       }
       while ( v49 != 3 );
       dispatch_event_handler_1((const volatile char *)off_122C6C);
     }
     dispatch_event_handler_1(aFlPwrofst2x5g);
-    v29 = mmio_read_4((int)&a3a);
+    v29 = mmio_read_4((int)&_frame.a3a);
     if ( v29 )
     {
       memset_thunk((volatile int *)dword_122C70, 0xFu, 0x12u);
@@ -44614,16 +44614,16 @@ LABEL_78:
     }
     else
     {
-      v62 = dword_122A58;
+      _frame.v62 = dword_122A58;
       dispatch_event_handler_1(a0OfdmLowrate1O);
       v30 = (volatile int *)off_122A64;
       dispatch_event_handler_1(aChan3650516498);
-      p_a3a = &a3a;
+      _frame.p_a3a = &_frame.a3a;
       do
       {
         dispatch_event_handler_1("\n  [%d] =", v29);
-        v32 = (volatile uint8_t *)v62;
-        v31 = (volatile char *)p_a3a;
+        v32 = (volatile uint8_t *)_frame.v62;
+        v31 = (volatile char *)_frame.p_a3a;
         for ( j = 0; j != 6; ++j )
         {
           v34 = *v31++;
@@ -44633,17 +44633,17 @@ LABEL_78:
           v36 = v35 + j;
           dispatch_event_handler_1("\t%d", *(volatile char *)(v36 + v4));
         }
-        p_a3a = (volatile int *)((volatile char *)p_a3a + 6);
+        _frame.p_a3a = (volatile int *)((volatile char *)_frame.p_a3a + 6);
         v4 += 6;
         ++v29;
-        v62 += 6;
+        _frame.v62 += 6;
       }
       while ( v4 != 18 );
       dispatch_event_handler_1((const volatile char *)off_122A5C);
     }
     return 0;
   }
-  v60 = dword_122A48;
+  _frame.v60 = dword_122A48;
   dispatch_event_handler_1(aEfPwrofst2x24g, a2, a3);
   v6 = (void *)(uintptr_t)(off_122A50);
   dispatch_event_handler_1(aChan14591013);
@@ -44651,7 +44651,7 @@ LABEL_78:
   {
     v7 = tx_desc_init(v5, *v6 + 3 * v5);
     dispatch_event_handler_1("\n  [%d] =", v5);
-    v8 = (volatile uint8_t *)v60;
+    v8 = (volatile uint8_t *)_frame.v60;
     v9 = 0;
     do
     {
@@ -44662,10 +44662,10 @@ LABEL_78:
     }
     while ( v9 != 3 );
     ++v5;
-    v60 += 3;
+    _frame.v60 += 3;
   }
   while ( v5 != 3 );
-  v61 = dword_122A58;
+  _frame.v61 = dword_122A58;
   dispatch_event_handler_1((const volatile char *)off_122A5C);
   v12 = (void *)(uintptr_t)(off_122A64);
   dispatch_event_handler_1("ef_pwrofst2x_5g: [0]:ofdm_lowrate, [1]:ofdm_highrate, [2]:ofdm_midrate");
@@ -44674,7 +44674,7 @@ LABEL_78:
   {
     v14 = rx_desc_init(k, *v12 + 6 * k);
     dispatch_event_handler_1("\n  [%d] =", k);
-    v15 = (volatile uint8_t *)v61;
+    v15 = (volatile uint8_t *)_frame.v61;
     v16 = 0;
     do
     {
@@ -44684,7 +44684,7 @@ LABEL_78:
       *v15++ = v17;
     }
     while ( v16 != 6 );
-    v61 += 6;
+    _frame.v61 += 6;
   }
   dispatch_event_handler_1((const volatile char *)off_122A5C);
   return 0;
@@ -50097,7 +50097,7 @@ uint64_t parse_data_field(uint64_t a1) {
   {
     if ( v2 <= 51 )
     {
-      v6 = 0xFFFFFFFF >> ((HIDWORD(a1) >> 20) - 19);
+      v6 = 0xFFFFFFFF >> (((HIDWORD(a1) >> 20) - 19) & 0xFF);
       if ( ((unsigned int)a1 & v6) != 0 )
       {
         v7 = 1 << (51 - v2);
@@ -50124,9 +50124,9 @@ uint64_t parse_data_field(uint64_t a1) {
       v5 = 0;
       return __PAIR64__(v3, v5);
     }
-    if ( HIDWORD(a1) & (dword_127224 >> ((HIDWORD(a1) >> 20) + 1)) | (unsigned int)a1 )
+    if ( HIDWORD(a1) & (dword_127224 >> (((HIDWORD(a1) >> 20) + 1) & 0xFF)) | (unsigned int)a1 )
     {
-      v3 = (HIDWORD(a1) + (0x80000 >> ((HIDWORD(a1) >> 20) + 1))) & ~(dword_127224 >> ((HIDWORD(a1) >> 20) + 1));
+      v3 = (HIDWORD(a1) + (0x80000 >> (((HIDWORD(a1) >> 20) + 1) & 0xFF))) & ~(dword_127224 >> (((HIDWORD(a1) >> 20) + 1) & 0xFF));
       v5 = 0;
       return __PAIR64__(v3, v5);
     }
@@ -50206,68 +50206,7 @@ unsigned int float_to_i24(unsigned int a1) {
 
 
 // aeabi_dadd_internal @ 0x1277fc
-int aeabi_dadd_internal(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8) {
-  int v8; // cf
-  int v9; // r4
-  int v10; // r12
-  int v11; // zf
-  int v12; // r5
-  int v13; // zf
-  int v14; // zf
-
-  v11 = v9 == v10;
-  v12 = v10 & (a4 >> 20);
-  if ( v9 != v10 )
-    v11 = v12 == v10;
-  if ( v11 )
-  {
-    v14 = (result | (2 * a2)) == 0;
-    if ( result | (2 * a2) )
-    {
-      v14 = (a3 | (2 * a4)) == 0;
-    }
-    else
-    {
-      result = a3;
-      a2 = a4;
-    }
-    if ( !v14 && (v9 != v10 || !(result | (a2 << 12))) && (v12 != v10 || !(a3 | (a4 << 12))) )
-      
-      return result;
-    return result;
-  }
-  v13 = (result | (2 * a2)) == 0;
-  if ( result | (2 * a2) )
-    v13 = (a3 | (2 * a4)) == 0;
-  if ( v13 )
-    return result;
-  if ( v9 )
-    goto LABEL_27;
-  while ( 1 )
-  {
-    v8 = __CFSHL__(result, 1);
-    result *= 2;
-    a2 += v8 + a2;
-    if ( (a2 & 0x100000) != 0 )
-      break;
-    --v9;
-  }
-  if ( !v12 )
-  {
-LABEL_27:
-    while ( 1 )
-    {
-      v8 = __CFSHL__(a3, 1);
-      a3 *= 2;
-      a4 += v8 + a4;
-      if ( (a4 & 0x100000) != 0 )
-        break;
-      --v12;
-    }
-  }
-  return result;
-}
-
+/* libmatch: interior fragment of __aeabi_dmul @ 0x127620 (libgcc.a:_arm_muldf3.o); dropped */
 
 
 // aeabi_dsub @ 0x127874
@@ -50275,70 +50214,7 @@ LABEL_27:
 
 
 // double_unordered @ 0x1279e2
-int double_unordered(int result, int a2, int a3, unsigned int a4) {
-  int v4; // cf
-  int v5; // r4
-  int v6; // r12
-  unsigned int v7; // r5
-  int v8; // zf
-  int v9; // zf
-
-  v7 = v6 & (a4 >> 20);
-  v8 = v5 == v6;
-  if ( v5 == v6 )
-    v8 = v7 == v6;
-if ( v8 ) LABEL_25: ((int (*)())JUMPOUT)(0x12786A);
-  if ( v5 == v6 )
-  {
-    if ( result | (a2 << 12) || v7 == v6 )
-      goto LABEL_25;
-LABEL_26:
-    ((int (*)())JUMPOUT)(0x127854);
-  }
-  if ( v7 == v6 )
-  {
-    if ( a3 | (a4 << 12) )
-      goto LABEL_25;
-    goto LABEL_27;
-  }
-  v9 = (result | (2 * a2)) == 0;
-  if ( result | (2 * a2) )
-    v9 = (a3 | (2 * a4)) == 0;
-  if ( v9 )
-  {
-    if ( result | (2 * a2) )
-      goto LABEL_26;
-    if ( !(a3 | (2 * a4)) )
-      goto LABEL_25;
-LABEL_27:
-    ((int (*)())JUMPOUT)(0x127818);
-  }
-  if ( v5 )
-    goto LABEL_30;
-  while ( 1 )
-  {
-    v4 = __CFSHL__(result, 1);
-    result *= 2;
-    a2 += v4 + a2;
-    if ( (a2 & 0x100000) != 0 )
-      break;
-    --v5;
-  }
-  if ( !v7 )
-  {
-LABEL_30:
-    while ( 1 )
-    {
-      v4 = __CFSHL__(a3, 1);
-      a3 *= 2;
-      a4 += v4 + a4;
-      if ( (a4 & 0x100000) != 0 )
-        break;
-      --v7;
-    }
-  }
-  return result;
-}
+/* libmatch: interior fragment of __aeabi_ddiv @ 0x127874 (libgcc.a:_arm_muldivdf3.o); dropped */
 
 
 // double_compare @ 0x127a54

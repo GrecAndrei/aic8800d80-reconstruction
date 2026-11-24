@@ -6,11 +6,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import arm_shifts
 import asm_returns
 import call_cast_returns
 import double_args
 import dword_compares
 import float_bits
+import float_compares
 import heal_composed
 import stack_frames
 import callsite_targets
@@ -80,6 +82,29 @@ class LibMatch(unittest.TestCase):
 
     def test_idempotent(self):
         out, _ = libmatch.bind(self.SRC, self.ROWS)
+        self.assertEqual(libmatch.bind(out, self.ROWS), (out, []))
+
+    def test_drops_unreferenced_interior_fragment_but_keeps_called_or_recursive(self):
+        src = (
+            "unsigned int memmove_5(unsigned int a1);\n"
+            "int keep(int a);\n"
+            "int frag_dead(int a);\n"
+            "int frag_called(int a);\n"
+            "int frag_rec(int a);\n"
+            "/* --- function bodies --- */\n"
+            "// keep @ 0x100000\nint keep(int a) {\n  return memmove_5(a) + frag_called(a);\n}\n\n\n"
+            "// memmove_5 @ 0x143f00\nunsigned int memmove_5(unsigned int a1) {\n  return frag_dead(a1);\n}\n\n\n"
+            "// frag_dead @ 0x143f20\nint frag_dead(int a) {\n  JUMPOUT(0x143f00);\n}\n\n\n"
+            "// frag_called @ 0x143f40\nint frag_called(int a) {\n  return a + 1;\n}\n\n\n"
+            "// frag_rec @ 0x143f60\nint frag_rec(int a) {\n  return a ? frag_rec(a - 1) : 0;\n}\n\n\n"
+        )
+        out, done = libmatch.bind(src, self.ROWS)
+        self.assertEqual([(d["name"], d["symbol"]) for d in done],
+                         [("memmove_5", "strlen"), ("frag_dead", "strlen+interior")])
+        self.assertIn("/* libmatch: interior fragment of strlen @ 0x143f00", out)
+        self.assertNotIn("JUMPOUT(0x143f00)", out)
+        self.assertIn("// frag_called @ 0x143f40\nint frag_called(int a) {", out)
+        self.assertIn("// frag_rec @ 0x143f60\nint frag_rec(int a) {", out)
         self.assertEqual(libmatch.bind(out, self.ROWS), (out, []))
 
     def test_tracked_matches_are_current_and_applied(self):
@@ -286,6 +311,21 @@ class StackFrames(unittest.TestCase):
         overlap = self.SRC.replace("[sp+Ch]", "[sp+9h]")
         self.assertEqual(stack_frames.apply(overlap), (overlap, 0))
 
+    def test_same_offset_spill_slots_become_anonymous_union(self):
+        src = ("// g @ 0x100000\nint g(int a1) {\n"
+               "  int v1; // [sp+0h] [bp-Ch]\n"
+               "  unsigned int v2; // [sp+0h] [bp-Ch]\n"
+               "  int v3; // [sp+4h] [bp-8h] BYREF\n"
+               "  int v4; // [sp+8h] [bp-4h]\n\n"
+               "  v1 = a1; v2 = v1 + 1; return (&v3)[1] + v4;\n}\n")
+        out, n = stack_frames.apply(src)
+        self.assertEqual(n, 1)
+        self.assertIn("struct __attribute__((packed)) { union { int v1;", out)
+        self.assertIn("unsigned int v2; }; // [sp+0h]", out)
+        self.assertIn("_frame.v1 = a1; _frame.v2 = _frame.v1 + 1;", out)
+        self.assertEqual(out.count("\n"), src.count("\n"))
+        self.assertEqual(stack_frames.apply(out), (out, 0))
+
     def test_tracked_sources_are_at_the_fixed_point(self):
         for img in stack_frames.IMAGES:
             text = (stack_frames.REPO / "src" / img / "main.c").read_text(errors="replace")
@@ -404,11 +444,57 @@ class HealSubscript(unittest.TestCase):
         self.assertEqual(line2, "  v2 = x*2 + *(uint32_t *)(uintptr_t)(off_123474);\n")
 
 
+class ArmShifts(unittest.TestCase):
+    def test_masks_mod256_exponent_shifts_once(self):
+        src = ("v6 = 0xFFFFFFFF >> ((HIDWORD(a1) >> 20) - 19);\n"
+               "v3 = (0x80000 >> ((HIDWORD(a1) >> 20) + 1));\n")
+        out, n = arm_shifts.apply(src)
+        self.assertEqual(n, 2)
+        self.assertIn("0xFFFFFFFF >> (((HIDWORD(a1) >> 20) - 19) & 0xFF)", out)
+        self.assertIn("0x80000 >> (((HIDWORD(a1) >> 20) + 1) & 0xFF)", out)
+        self.assertEqual(arm_shifts.apply(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in arm_shifts.IMAGES:
+            text = (arm_shifts.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(arm_shifts.apply(text)[1], 0)
+
+
+class FloatCompares(unittest.TestCase):
+    def test_rewrites_float_loop_exit_lt_to_negated_ge_once(self):
+        src = (
+            "// mem_swap_fields @ 0x1051d0\n"
+            "int mem_swap_fields(int a1, float a2) {\n"
+            "  float v9; // s14\n"
+            "  int v8;\n"
+            "  while ( 1 ) {\n"
+            "    if ( v9 < a2 )\n"
+            "      break;\n"
+            "    if ( v8 < a1 )\n"
+            "      goto LABEL_6;\n"
+            "  }\n"
+            "LABEL_6:\n"
+            "  return 0;\n"
+            "}\n"
+        )
+        out, n = float_compares.apply(src)
+        self.assertEqual(n, 1)
+        self.assertIn("if ( !(v9 >= a2) )\n      break;", out)
+        self.assertIn("if ( v8 < a1 )", out)
+        self.assertEqual(float_compares.apply(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in float_compares.IMAGES:
+            text = (float_compares.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(float_compares.apply(text)[1], 0)
+
+
 class PostCompose(unittest.TestCase):
     RULES = {"callsite_targets.py", "periph_symbols.py", "asm_returns.py",
              "call_cast_returns.py", "double_args.py", "float_bits.py",
-             "stack_frames.py", "dword_compares.py", "heal_two_d_subscript.py",
-             "libmatch.py", "volatile_pointees.py", "heal_composed.py"}
+             "stack_frames.py", "dword_compares.py", "arm_shifts.py",
+             "float_compares.py", "heal_two_d_subscript.py", "libmatch.py",
+             "volatile_pointees.py", "heal_composed.py"}
 
     def test_the_chain_runs_every_rule_and_rebinds_before_heal(self):
         steps = [(s, a) for s, a, _ in post_compose.STEPS]

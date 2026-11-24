@@ -39,12 +39,9 @@ int  sub_10E9D8(int a1)
   unsigned int v12; // r7
   unsigned int v13; // r6
   int result; // r0
-  int v15; // [sp+0h] [bp-18h]
-  unsigned int *a6; // [sp+4h] [bp-14h]
-  int v17; // [sp+8h] [bp-10h]
   uint16_t a1a[2]; // [sp+Ch] [bp-Ch] BYREF
-  int v19; // [sp+10h] [bp-8h]
-  uint16_t v20; // [sp+14h] [bp-4h]
+  int v17; // [sp+10h] [bp-8h]
+  uint16_t v18; // [sp+14h] [bp-4h]
 
   v1 = off_10EADC;
   v2 = dword_10EAE0;
@@ -53,15 +50,15 @@ int  sub_10E9D8(int a1)
   v5 = off_10EB00;
   v6 = dword_10EAEC;
   v7 = (unsigned int *)off_10EAF0;
-  v20 = 0;
+  v18 = 0;
   *((uint32_t *)off_10EAFC + 14) = 296;
   v1[3] = v1[3] & 0xE0000000 | v2;
   v1[2] = v3 & v1[2] | 0x1200000D;
   *v4 |= 2u;
   *v4 &= ~1u;
   *(uint32_t *)a1a = v6;
-  v19 = 5610;
-  sub_102970(a1a, 0, a1, 5610, v15, a1, v17);
+  v17 = 5610;
+  sub_102970(a1a, 0);
   v8 = (int *)off_10EAF4;
   v9 = dword_10EAF8;
   *v5 |= 0x80000000;
@@ -74,7 +71,7 @@ int  sub_10E9D8(int a1)
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = sub_10E6FC(4u, 8u, a6);
+  result = sub_10E6FC(4u, 8u, (unsigned int *)a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;

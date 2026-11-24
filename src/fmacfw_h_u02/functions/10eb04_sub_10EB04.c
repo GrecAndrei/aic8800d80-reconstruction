@@ -40,9 +40,8 @@ int sub_10EB04()
   unsigned int v12; // r6
   unsigned int v13; // r5
   int result; // r0
-  int v15; // [sp+0h] [bp-10h]
-  int a6; // [sp+4h] [bp-Ch] BYREF
-  uint16_t v17; // [sp+Ch] [bp-4h]
+  int a6[2]; // [sp+4h] [bp-Ch] BYREF
+  uint16_t v16; // [sp+Ch] [bp-4h]
 
   v0 = (unsigned int *)off_10EC04;
   v1 = off_10EC08;
@@ -52,13 +51,15 @@ int sub_10EB04()
   v5 = off_10EC14;
   v6 = off_10EC28;
   v7 = dword_10EC18;
-  v17 = 0;
+  v16 = 0;
   *((uint32_t *)off_10EC04 + 14) = 296;
   *(uint32_t *)(v1 + 0xC) = v2 | *(uint32_t *)(v1 + 0xC) & 0xE0000000;
   *(uint32_t *)(v1 + 8) = v3 & *(uint32_t *)(v1 + 8) | 0x1200000D;
   *v4 |= 0x20000000u;
   *v5 &= ~1u;
-  sub_102970((uint16_t *)&a6, 0, v1, 2442, v15, v7, 2442);
+  a6[0] = v7;
+  a6[1] = 2442;
+  sub_102970((uint16_t *)a6, 0);
   v8 = (int *)off_10EC1C;
   v9 = dword_10EC20;
   v0 += 593954;

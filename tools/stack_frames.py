@@ -66,14 +66,29 @@ def frame_function(lines: list[str]) -> list[str] | None:
         slots.append((int(m.group("sp"), 16), ns[1], ns[0], i, m))
     if not any(s[4].group("byref") for s in slots) or slots != sorted(slots, key=lambda s: s[0]):
         return None
-    out, end = list(lines), slots[0][0]
-    for n, (sp, size, _name, i, m) in enumerate(slots):
+    groups: list[list[tuple[int, int, str, int, re.Match]]] = []
+    for s in slots:
+        if groups and groups[-1][0][0] == s[0]:
+            groups[-1].append(s)
+        else:
+            groups.append([s])
+    out, end = list(lines), groups[0][0][0]
+    for n, grp in enumerate(groups):
+        sp = grp[0][0]
         if sp < end:
             return None
         pad = f"char _pad{n}[{sp - end}]; " if sp > end else ""
         head = "struct __attribute__((packed)) { " if n == 0 else ""
-        out[i] = f"  {head}{pad}{lines[i][2:]}"
-        end = sp + size
+        if len(grp) == 1:
+            i = grp[0][3]
+            out[i] = f"  {head}{pad}{lines[i][2:]}"
+        else:
+            first_i = grp[0][3]
+            out[first_i] = f"  {head}{pad}union {{ {lines[first_i][2:]}"
+            last_i, last_m = grp[-1][3], grp[-1][4]
+            semi = lines[last_i].index(";")
+            out[last_i] = f"{lines[last_i][:semi + 1]} }};{lines[last_i][semi + 1:]}"
+        end = sp + max(s[1] for s in grp)
     names = re.compile(r"(?<![\w.>])(" + "|".join(re.escape(s[2]) for s in slots) + r")\b")
     last = idx[-1]
     for i in range(last + 1, len(out)):

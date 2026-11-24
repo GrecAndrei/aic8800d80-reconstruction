@@ -58,7 +58,7 @@ func TestCollectDataSymbolsDedup(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(funcDir, "104000_unique_fn.c"), []byte("int g() { return dword_104100; }"), 0644); err != nil {
 		t.Fatal(err)
 	}
-	syms, _, err := collectDataSymbols(funcDir)
+	syms, _, wide64, err := collectDataSymbols(funcDir)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -67,5 +67,39 @@ func TestCollectDataSymbolsDedup(t *testing.T) {
 	}
 	if syms["off_103934"] != 0x103934 || syms["dword_104100"] != 0x104100 {
 		t.Fatalf("expected off_103934 and dword_104100, got %v", syms)
+	}
+	if len(wide64) != 0 {
+		t.Fatalf("unexpected wide64: %v", wide64)
+	}
+}
+
+func TestCollectDataSymbolsWide64(t *testing.T) {
+	dir := t.TempDir()
+	funcDir := filepath.Join(dir, "functions")
+	if err := os.MkdirAll(funcDir, 0755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(funcDir, "100000_fn.c"), []byte("uint64_t f() { return *(uint64_t *)&dword_100000; }"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	syms, _, wide64, err := collectDataSymbols(funcDir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !wide64["dword_100000"] {
+		t.Fatalf("expected dword_100000 in wide64, got %v", wide64)
+	}
+	// IEEE-754 double 330.0 = 0x4074a00000000000 (little-endian)
+	bin := []byte{0x00, 0x00, 0x00, 0x00, 0x00, 0xa0, 0x74, 0x40}
+	rows, err := materialize(syms, wide64, bin)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(rows) != 1 || rows[0].Size != 8 || rows[0].Value != 0x4074a00000000000 {
+		t.Fatalf("unexpected rows: %+v", rows)
+	}
+	line := annotateLine(rows[0])
+	if !strings.HasPrefix(line, "uint64_t dword_100000 = 0x4074a00000000000ULL;") {
+		t.Fatalf("unexpected decl: %q", line)
 	}
 }

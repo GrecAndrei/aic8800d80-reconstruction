@@ -96,11 +96,14 @@ writes with values, callees included) and it shows a second, wider defect:
 |---|---:|---:|---:|
 | `-O2` (initial baseline) | 14 | 0 | 11 |
 | `-O0` (initial baseline) | 19 | 0 | 6 |
-| **`-O2` (current: `make -C src check` + `_hw.i64` + `libmatch`)** | **24** | **0** | **1** |
+| `-O2` (`_hw.i64` + `libmatch`) | 24 | 0 | 1 |
+| **`-O2` (current: `make -C src check` + 64-bit pools + post-compose rules)** | **25** | **0** | **0** |
 
-In the current build, 24 of 25 targets PASS in `tools/linked_recon_run.py --all`;
-the only remaining FAIL is `rf_timer_toggle_update` in `fmacfw_8800d80_h_u02.bin`
-(`peripheral_writes_differ`).
+In the current build, all **25 of 25** targets PASS in `tools/linked_recon_run.py --all`
+(`0 REVIEW / 0 FAIL`). The final remaining failure (`rf_timer_toggle_update` in
+`fmacfw_8800d80_h_u02.bin`) closed once `cmd/fwstruct/datasgen.go` materialized
+64-bit `uint64_t` literal-pool entries for `*(volatile uint64_t *)&dword_*` reads
+(preserving the IEEE-754 double constants read by `hw_poll_status` and callers).
 
 The 5 extra `-O2` failures are smoke PASS rows: `rf_hw_timer_init` ×2,
 `crypto_hw_enable` ×2 and `crypto_key_load`. The source accesses registers
@@ -176,7 +179,7 @@ python3 -m unittest discover -s tools -p 'test_*.py'
 python3 tools/libmatch.py scan --check && python3 tools/libmatch.py apply --check
 python3 tools/heal_two_d_subscript.py --check && python3 tools/volatile_pointees.py --check
 python3 tools/callsite_targets.py --check && python3 tools/periph_symbols.py --check   # docs/LINKED_CORPUS_COMPARISON.md
-for r in asm_returns call_cast_returns double_args float_bits stack_frames dword_compares; do python3 tools/$r.py --check; done
+for r in asm_returns call_cast_returns double_args float_bits stack_frames dword_compares arm_shifts float_compares; do python3 tools/$r.py --check; done
 
 make -C src check                      # add OPT=-O0 for the diagnostic build
 python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run

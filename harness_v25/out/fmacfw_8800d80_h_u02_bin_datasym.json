@@ -558,18 +558,18 @@
   {
     "kind": "dword",
     "addr": 1057272,
-    "size": 4,
-    "value": 3264175145,
+    "size": 8,
+    "value": 4616797604004453417,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\")\\x5c\\x8f\\xc2\""
+    "text": "\")\\x5c\\x8f\\xc2\\xf5(\\x12@\""
   },
   {
     "kind": "dword",
     "addr": 1057280,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4628961545123004416,
     "in_image": true,
     "is_ptr": false
   },
@@ -672,8 +672,8 @@
   {
     "kind": "dword",
     "addr": 1058024,
-    "size": 4,
-    "value": 3092376453,
+    "size": 8,
+    "value": 4616054510065937285,
     "in_image": true,
     "is_ptr": false
   },
@@ -1272,52 +1272,50 @@
   {
     "kind": "dword",
     "addr": 1066728,
-    "size": 4,
-    "value": 1383152642,
+    "size": 8,
+    "value": 4605249457266703362,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"\\x02\u003cqR\""
+    "text": "\"\\x02\u003cqR\\xfb!\\xe9?\""
   },
   {
     "kind": "dword",
     "addr": 1066736,
-    "size": 4,
-    "value": 1807322238,
+    "size": 8,
+    "value": 4589441839147879550,
     "in_image": true,
-    "is_ptr": false,
-    "printable": true,
-    "text": "\"~\\x8c\\xb9k\""
+    "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1066744,
-    "size": 4,
-    "value": 1621779651,
+    "size": 8,
+    "value": 4597984266921075907,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"\\xc3d\\xaa`\""
+    "text": "\"\\xc3d\\xaa`TR\\xcf?\""
   },
   {
     "kind": "dword",
     "addr": 1066752,
-    "size": 4,
-    "value": 1413326760,
+    "size": 8,
+    "value": 4609753056924247976,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"\\xa8\\xa7=T\""
+    "text": "\"\\xa8\\xa7=T\\xfb!\\xf9?\""
   },
   {
     "kind": "dword",
     "addr": 1066760,
-    "size": 4,
-    "value": 1413551940,
+    "size": 8,
+    "value": 4614256656551843652,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"D\\x17AT\""
+    "text": "\"D\\x17AT\\xfb!\\x09@\""
   },
   {
     "kind": "dword",
@@ -1350,26 +1348,26 @@
   {
     "kind": "dword",
     "addr": 1070400,
-    "size": 4,
-    "value": 3654794683,
+    "size": 8,
+    "value": 4457293557087583675,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1070416,
-    "size": 4,
-    "value": 1717986918,
+    "size": 8,
+    "value": 4606732058837280358,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"ffff\""
+    "text": "\"ffffff\\xee?\""
   },
   {
     "kind": "dword",
     "addr": 1074392,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4670232263827390464,
     "in_image": true,
     "is_ptr": false
   },
@@ -1624,8 +1622,8 @@
   {
     "kind": "dword",
     "addr": 1088600,
-    "size": 4,
-    "value": 2296604913,
+    "size": 8,
+    "value": 4532020583610935537,
     "in_image": true,
     "is_ptr": false
   },
@@ -1667,8 +1665,8 @@
   {
     "kind": "dword",
     "addr": 1090336,
-    "size": 4,
-    "value": 3435973837,
+    "size": 8,
+    "value": 4608533498688228557,
     "in_image": true,
     "is_ptr": false
   },
@@ -1835,22 +1833,22 @@
   {
     "kind": "dword",
     "addr": 1097208,
-    "size": 4,
-    "value": 858993459,
+    "size": 8,
+    "value": 4599075939470750515,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"3333\""
+    "text": "\"333333\\xd3?\""
   },
   {
     "kind": "dword",
     "addr": 1097216,
-    "size": 4,
-    "value": 858993459,
+    "size": 8,
+    "value": 13822447976325526323,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"3333\""
+    "text": "\"333333\\xd3\\xbf\""
   },
   {
     "kind": "dword",
@@ -1871,16 +1869,16 @@
   {
     "kind": "dword",
     "addr": 1098832,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4662081034374873088,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1098848,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4662195383584161792,
     "in_image": true,
     "is_ptr": false
   },
@@ -2360,24 +2358,24 @@
   {
     "kind": "dword",
     "addr": 1105544,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4644513037586268160,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1105552,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4674754005396619264,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1105560,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4643686204842180608,
     "in_image": true,
     "is_ptr": false
   },
@@ -2416,60 +2414,58 @@
   {
     "kind": "dword",
     "addr": 1105744,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4644513037586268160,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1105752,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4674754005396619264,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1105760,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4643686204842180608,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106032,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4653054043910832128,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106040,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4674754005396619264,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106048,
-    "size": 4,
-    "value": 4088808866,
+    "size": 8,
+    "value": 4609668405794325922,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106056,
-    "size": 4,
-    "value": 2405181686,
+    "size": 8,
+    "value": 4607452634777659638,
     "in_image": true,
-    "is_ptr": false,
-    "printable": true,
-    "text": "\"\\xf6(\\x5c\\x8f\""
+    "is_ptr": false
   },
   {
     "kind": "dword",
@@ -2512,36 +2508,34 @@
   {
     "kind": "dword",
     "addr": 1106224,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4653054043910832128,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106232,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4674754005396619264,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106240,
-    "size": 4,
-    "value": 4088808866,
+    "size": 8,
+    "value": 4609668405794325922,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106248,
-    "size": 4,
-    "value": 2405181686,
+    "size": 8,
+    "value": 4607452634777659638,
     "in_image": true,
-    "is_ptr": false,
-    "printable": true,
-    "text": "\"\\xf6(\\x5c\\x8f\""
+    "is_ptr": false
   },
   {
     "kind": "dword",
@@ -2576,30 +2570,30 @@
   {
     "kind": "dword",
     "addr": 1106904,
-    "size": 4,
-    "value": 852308685,
+    "size": 8,
+    "value": 4587253552355553997,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"\\xcd2\\xcd2\""
+    "text": "\"\\xcd2\\xcd2\\xcd2\\xa9?\""
   },
   {
     "kind": "dword",
     "addr": 1106912,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4654835252747829248,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1106920,
-    "size": 4,
-    "value": 1202590843,
+    "size": 8,
+    "value": 4585925428558828667,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"{\\x14\\xaeG\""
+    "text": "\"{\\x14\\xaeG\\xe1z\\xa4?\""
   },
   {
     "kind": "dword",
@@ -2620,28 +2614,28 @@
   {
     "kind": "dword",
     "addr": 1107640,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4653054043910832128,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1107648,
-    "size": 4,
-    "value": 0,
+    "size": 8,
+    "value": 4674754005396619264,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1107656,
-    "size": 4,
-    "value": 3264175145,
+    "size": 8,
+    "value": 4588087156379966505,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\")\\x5c\\x8f\\xc2\""
+    "text": "\")\\x5c\\x8f\\xc2\\xf5(\\xac?\""
   },
   {
     "kind": "dword",
@@ -7039,22 +7033,22 @@
   {
     "kind": "dword",
     "addr": 1168608,
-    "size": 4,
-    "value": 1717986918,
+    "size": 8,
+    "value": 4604480259023595110,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"ffff\""
+    "text": "\"ffffff\\xe6?\""
   },
   {
     "kind": "dword",
     "addr": 1168616,
-    "size": 4,
-    "value": 858993459,
+    "size": 8,
+    "value": 4599075939470750515,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"3333\""
+    "text": "\"333333\\xd3?\""
   },
   {
     "kind": "dword",
@@ -7461,22 +7455,22 @@
   {
     "kind": "dword",
     "addr": 1176160,
-    "size": 4,
-    "value": 1547066422,
+    "size": 8,
+    "value": 6644599688776801334,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"6\\x5c6\\x5c\""
+    "text": "\"6\\x5c6\\x5c6\\x5c6\\x5c\""
   },
   {
     "kind": "dword",
     "addr": 1176168,
-    "size": 4,
-    "value": 1547066423,
+    "size": 8,
+    "value": 6644599688776801335,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"7\\x5c6\\x5c\""
+    "text": "\"7\\x5c6\\x5c6\\x5c6\\x5c\""
   },
   {
     "kind": "dword",
@@ -7620,12 +7614,12 @@
   {
     "kind": "dword",
     "addr": 1179712,
-    "size": 4,
-    "value": 1547066422,
+    "size": 8,
+    "value": 6644599688776801334,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"6\\x5c6\\x5c\""
+    "text": "\"6\\x5c6\\x5c6\\x5c6\\x5c\""
   },
   {
     "kind": "dword",
@@ -10844,16 +10838,16 @@
   {
     "kind": "dword",
     "addr": 1226360,
-    "size": 4,
-    "value": 3092376453,
+    "size": 8,
+    "value": 4616054510065937285,
     "in_image": true,
     "is_ptr": false
   },
   {
     "kind": "dword",
     "addr": 1226368,
-    "size": 4,
-    "value": 3221225472,
+    "size": 8,
+    "value": 4649417738840702976,
     "in_image": true,
     "is_ptr": false
   },
@@ -11749,12 +11743,12 @@
   {
     "kind": "dword",
     "addr": 1234000,
-    "size": 4,
-    "value": 158966641,
+    "size": 8,
+    "value": 4614662735865160561,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"q\\xa3y\\x09\""
+    "text": "\"q\\xa3y\\x09O\\x93\\x0a@\""
   },
   {
     "kind": "dword",
@@ -11777,12 +11771,12 @@
   {
     "kind": "dword",
     "addr": 1234368,
-    "size": 4,
-    "value": 1430739506,
+    "size": 8,
+    "value": 4599094494301215282,
     "in_image": true,
     "is_ptr": false,
     "printable": true,
-    "text": "\"2ZGU\""
+    "text": "\"2ZGU\\x13D\\xd3?\""
   },
   {
     "kind": "dword",

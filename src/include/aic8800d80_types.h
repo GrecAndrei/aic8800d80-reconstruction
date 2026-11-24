@@ -109,8 +109,14 @@ static inline int32_t hx_slodword_f64(double v) { uint64_t u; __builtin_memcpy(&
         __builtin_types_compatible_p(__typeof__(x), double), \
         hx_slodword_f64(__builtin_choose_expr(__builtin_types_compatible_p(__typeof__(x), double), (x), 0.0)), \
         ((int32_t)LODWORD(x))))
-static inline float vcvts_n_s32_f32(int32_t v, int n) { return (float)v * (float)(1u << n); }
-static inline float vcvts_n_f32_u32(uint32_t v, int n) { return (float)v * (float)(1u << n); }
+static inline int32_t vcvts_n_s32_f32(float v, int n) {
+    float s = v * (float)(1u << n);
+    if (s != s) return 0;
+    if (s >= 2147483648.0f) return 0x7fffffff;
+    if (s <= -2147483648.0f) return (int32_t)0x80000000u;
+    return (int32_t)s;
+}
+static inline float vcvts_n_f32_u32(uint32_t v, int n) { return (float)v / (float)(1u << n); }
 static inline uint8_t __CFADD__(uint32_t a, uint32_t b) { return ((a + b) < a); }
 static inline uint32_t MEMD(unsigned idx) { return (uint32_t)(uintptr_t)(0x100000u + idx * 4u); }
 static inline uint32_t JUMPOUT(void) { return 0; }

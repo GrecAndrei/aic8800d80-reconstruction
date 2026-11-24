@@ -33,6 +33,8 @@ STEPS = [
     ("float_bits.py", [], True),
     ("stack_frames.py", [], True),
     ("dword_compares.py", [], True),
+    ("arm_shifts.py", [], True),
+    ("float_compares.py", [], True),
 ]
 
 
