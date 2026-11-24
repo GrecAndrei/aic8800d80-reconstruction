@@ -763,8 +763,6 @@ extern uint32_t dword_11C98C;  /* ptr -> 0x13b635 */
 uint32_t dword_11C9C0 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_11CA10 = 0x0018eef0;  /* ptr -> 0x18eef0 */
 uint32_t dword_11CD10 = 0x00188cf0;  /* ptr -> 0x188cf0 */
-uint32_t dword_11CD18 = 0x00168398;  /* ptr -> 0x168398 */
-uint32_t dword_11CD1C = 0x00167ac0;  /* ptr -> 0x167ac0 */
 uint32_t dword_11CD20 = 0x00188950;  /* ptr -> 0x188950 */
 uint32_t dword_11CEAC = 0x00167d80;  /* ptr -> 0x167d80 */
 uint32_t dword_11CEB8 = 0x001683f4;  /* ptr -> 0x1683f4 */
@@ -5472,7 +5470,7 @@ int copy_config_struct();
 int radio_process_packet();
 unsigned int radio_set_power(unsigned int result);
 volatile uint32_t *read_hw_status();
-int wait_for_hw_data(int result);
+unsigned int wait_for_hw_data(unsigned int result);
 int hw_init(int a1);
 int hw_enable();
 int rf_pll_enable();
@@ -6322,7 +6320,7 @@ int jump_to_10ca3c();
 volatile int * process_pending_queue(volatile int *result, int a2);
 int dispatch_if_ready(int result);
 int jump_to_10c824_zero();
-int irq_lock_save_1(unsigned int a1);
+int irq_lock_save_1(unsigned int a1, int a2);
 int get_shared_buf_size();
 unsigned int rx_packet_process(unsigned int a1, int a2, int a3);
 int parse_space_token(volatile uint8_t *a1, int a2);
@@ -6837,6 +6835,7 @@ int aParamInstNbrIn();
 int aPreType0();
 int aPreType1();
 int aRcCheckRateCon();
+int aRcGetStaStats_1();
 int aRcSsRateMapHtN();
 int aRcSsRateMapLCo();
 int aSgi0();
@@ -10210,12 +10209,16 @@ volatile uint32_t *read_hw_status() {
 
 
 // wait_for_hw_data @ 0x103140
-int wait_for_hw_data(int result) {
-  while ( result )
-    ;
+unsigned int wait_for_hw_data(unsigned int result) {
+  volatile unsigned int v1; // r1
+  unsigned int v2; // r3
+
+  v1 = (*(volatile uint32_t *)0x40501010u);
+  do
+    v2 = (*(volatile uint32_t *)0x40501010u) - v1;
+  while ( v2 < result );
   return result;
 }
-
 
 
 // hw_init @ 0x103154
@@ -14501,7 +14504,7 @@ int rf_load_tx_config(int a1) {
   int v26; // r8
   volatile unsigned int *v27; // r5
   int v28; // r0
-  int v30; // [sp+0h] [bp-60h]
+  struct __attribute__((packed)) { int v30; // [sp+0h] [bp-60h]
   int v31; // [sp+4h] [bp-5Ch]
   int v32; // [sp+8h] [bp-58h]
   int v33; // [sp+Ch] [bp-54h]
@@ -14526,58 +14529,58 @@ int rf_load_tx_config(int a1) {
   int v52; // [sp+58h] [bp-8h]
   int v53; // [sp+5Ch] [bp-4h]
   int v54; // [sp+60h] [bp+0h] BYREF
-
+  } _frame;
   v2 = ((volatile uint32_t *)(uintptr_t)off_107668)[99];
   v3 = ((volatile uint32_t *)(uintptr_t)off_107668)[100];
   v4 = ((volatile uint32_t *)(uintptr_t)off_107668)[101];
-  v30 = ((volatile uint32_t *)(uintptr_t)off_107668)[98];
-  v31 = v2;
-  v32 = v3;
-  v33 = v4;
+  _frame.v30 = ((volatile uint32_t *)(uintptr_t)off_107668)[98];
+  _frame.v31 = v2;
+  _frame.v32 = v3;
+  _frame.v33 = v4;
   v5 = ((volatile uint32_t *)(uintptr_t)off_107668)[103];
   v6 = ((volatile uint32_t *)(uintptr_t)off_107668)[104];
   v7 = ((volatile uint32_t *)(uintptr_t)off_107668)[105];
-  v34 = ((volatile uint32_t *)(uintptr_t)off_107668)[102];
-  v35 = v5;
-  v36 = v6;
-  v37 = v7;
+  _frame.v34 = ((volatile uint32_t *)(uintptr_t)off_107668)[102];
+  _frame.v35 = v5;
+  _frame.v36 = v6;
+  _frame.v37 = v7;
   v8 = ((volatile uint32_t *)(uintptr_t)off_107668)[107];
   v9 = ((volatile uint32_t *)(uintptr_t)off_107668)[108];
   v10 = ((volatile uint32_t *)(uintptr_t)off_107668)[109];
-  v38 = ((volatile uint32_t *)(uintptr_t)off_107668)[106];
-  v39 = v8;
-  v40 = v9;
-  v41 = v10;
+  _frame.v38 = ((volatile uint32_t *)(uintptr_t)off_107668)[106];
+  _frame.v39 = v8;
+  _frame.v40 = v9;
+  _frame.v41 = v10;
   v11 = ((volatile uint32_t *)(uintptr_t)off_107668)[111];
   v12 = ((volatile uint32_t *)(uintptr_t)off_107668)[112];
   v13 = ((volatile uint32_t *)(uintptr_t)off_107668)[113];
-  v42 = ((volatile uint32_t *)(uintptr_t)off_107668)[110];
-  v43 = v11;
-  v44 = v12;
-  v45 = v13;
+  _frame.v42 = ((volatile uint32_t *)(uintptr_t)off_107668)[110];
+  _frame.v43 = v11;
+  _frame.v44 = v12;
+  _frame.v45 = v13;
   v14 = *(volatile uint32_t *)(a1 + 8);
   v15 = ((volatile uint32_t *)(uintptr_t)off_107668)[115];
   v16 = ((volatile uint32_t *)(uintptr_t)off_107668)[116];
   v17 = ((volatile uint32_t *)(uintptr_t)off_107668)[117];
   v18 = ((uint64_t)((int32_t)dword_10766C * (int64_t)(int32_t)(*(volatile int *)(a1 + 4))) >> 32) - (*(volatile int *)(a1 + 4) >> 31);
-  v46 = ((volatile uint32_t *)(uintptr_t)off_107668)[114];
-  v47 = v15;
-  v48 = v16;
-  v49 = v17;
+  _frame.v46 = ((volatile uint32_t *)(uintptr_t)off_107668)[114];
+  _frame.v47 = v15;
+  _frame.v48 = v16;
+  _frame.v49 = v17;
   if ( v18 >= (int)(((uint64_t)((int32_t)dword_10766C * (int64_t)(int32_t)(v14)) >> 32) - (v14 >> 31)) )
     v18 = ((uint64_t)((int32_t)dword_10766C * (int64_t)(int32_t)(v14)) >> 32) - (v14 >> 31);
   v19 = ((volatile uint32_t *)(uintptr_t)off_107668)[119];
   v20 = ((volatile uint32_t *)(uintptr_t)off_107668)[120];
   v21 = ((volatile uint32_t *)(uintptr_t)off_107668)[121];
   v22 = v18 & ~(v18 >> 31);
-  v23 = &v54 + v22;
+  v23 = &_frame.v54 + v22;
   v24 = (volatile unsigned int *)off_107678;
   v25 = *(v23 - 24);
   v26 = *(volatile uint32_t *)off_107678;
-  v50 = ((volatile uint32_t *)(uintptr_t)off_107668)[118];
-  v51 = v19;
-  v52 = v20;
-  v53 = v21;
+  _frame.v50 = ((volatile uint32_t *)(uintptr_t)off_107668)[118];
+  _frame.v51 = v19;
+  _frame.v52 = v20;
+  _frame.v53 = v21;
   v27 = (volatile unsigned int *)off_107670;
   v28 = *(v23 - 12);
   *(volatile uint32_t *)(a1 + 8) = 3 * v22;
@@ -17121,41 +17124,41 @@ int dsp_filter_process( volatile uint32_t *a1, int a2, int a3, int a4, int a5, i
   int v35; // cc
   int result; // r0
   volatile uint32_t *v37; // r3
-  int v38; // [sp+20h] [bp-20h]
+  struct __attribute__((packed)) { int v38; // [sp+20h] [bp-20h]
   int v39; // [sp+24h] [bp-1Ch]
-  int v40; // [sp+2Ch] [bp-14h]
+  char _pad2[4]; int v40; // [sp+2Ch] [bp-14h]
   int a1a; // [sp+30h] [bp-10h]
   volatile int *v42; // [sp+34h] [bp-Ch]
   volatile int *v43; // [sp+38h] [bp-8h]
   volatile unsigned int *v44; // [sp+3Ch] [bp-4h]
   uint32_t v45[3]; // [sp+40h] [bp+0h] BYREF
   int a2a[5]; // [sp+4Ch] [bp+Ch] BYREF
-  float v47; // [sp+24Ch] [bp+20Ch]
+  char _pad9[492]; float v47; // [sp+24Ch] [bp+20Ch]
   float v48; // [sp+250h] [bp+210h]
   float v49; // [sp+254h] [bp+214h]
   float v50; // [sp+258h] [bp+218h]
   char v51; // [sp+25Ch] [bp+21Ch] BYREF
-  int v52; // [sp+2BCh] [bp+27Ch]
-  unsigned int v53; // [sp+2CCh] [bp+28Ch]
+  char _pad14[95]; int v52; // [sp+2BCh] [bp+27Ch]
+  char _pad15[12]; unsigned int v53; // [sp+2CCh] [bp+28Ch]
   uint8_t v54[1204]; // [sp+2D0h] [bp+290h] BYREF
-
+  } _frame;
   v11 = (void *)(uintptr_t)(off_10A30C);
   v13 = ((volatile uint32_t *)(uintptr_t)off_10A2C0)[1];
   v14 = ((volatile uint32_t *)(uintptr_t)off_10A2C0)[2];
-  v45[0] = ((volatile uint32_t *)(uintptr_t)off_10A2C0)[0];
-  v45[1] = v13;
-  v45[2] = v14;
+  _frame.v45[0] = ((volatile uint32_t *)(uintptr_t)off_10A2C0)[0];
+  _frame.v45[1] = v13;
+  _frame.v45[2] = v14;
   v15 = flt_10A2C4;
-  v42 = (void *)(v45);
+  _frame.v42 = (void *)(_frame.v45);
   *(volatile uint32_t *)(a5 + 4 * a4) = 1;
-  v44 = (volatile unsigned int *)(a2 - 4);
-  v40 = 1;
-  v43 = (volatile int *)(a5 + 4 * a4);
+  _frame.v44 = (volatile unsigned int *)(a2 - 4);
+  _frame.v40 = 1;
+  _frame.v43 = (volatile int *)(a5 + 4 * a4);
   v17 = 0;
   while ( 2 )
   {
-    v19 = v44[1];
-    ++v44;
+    v19 = _frame.v44[1];
+    ++_frame.v44;
     v20 = (uint8_t)v17;
     if ( !v19 )
     {
@@ -17169,26 +17172,26 @@ int dsp_filter_process( volatile uint32_t *a1, int a2, int a3, int a4, int a5, i
       goto LABEL_29;
     }
     state_check_feature(1, "===========table[%d]===========\n", v17);
-    v21 = *v44;
-    v52 = 0;
-    llc_connection_init(v21, (int)a2a, a4);
-    state_check_feature(1, "table %d cal %d times.\n", v17, v52);
-    v38 = *v42;
-    if ( v52 <= 0 )
+    v21 = *_frame.v44;
+    _frame.v52 = 0;
+    llc_connection_init(v21, (int)_frame.a2a, a4);
+    state_check_feature(1, "table %d cal %d times.\n", v17, _frame.v52);
+    _frame.v38 = *_frame.v42;
+    if ( _frame.v52 <= 0 )
       goto LABEL_27;
-    a1a = v17;
-    v39 = 0;
-    v22 = &v51;
+    _frame.a1a = v17;
+    _frame.v39 = 0;
+    v22 = &_frame.v51;
     do
     {
       v23 = *((volatile uint32_t *)v22 + 16);
       while ( !*a1 )
         timer_set(1);
       state_check_feature(1, aStDpdCal);
-      rf_init((int)a2a, (int)v54, v20, v23, a4, 0);
+      rf_init((int)_frame.a2a, (int)_frame.v54, v20, v23, a4, 0);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      mmio_set_bits(v23, a2a, (int)v54, v20, 0, a4, a6, a7, a9, a10, a11);
+      mmio_set_bits(v23, _frame.a2a, (int)_frame.v54, v20, 0, a4, a6, a7, a9, a10, a11);
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
       state_check_feature(1, aDpdCalEnd);
@@ -17196,18 +17199,18 @@ int dsp_filter_process( volatile uint32_t *a1, int a2, int a3, int a4, int a5, i
         timer_set(1);
       v24 = flt_10A2DC;
       state_check_feature(1, aStDpdVerify);
-      rf_init((int)a2a, (int)v54, v20, v23, a4, 1);
+      rf_init((int)_frame.a2a, (int)_frame.v54, v20, v23, a4, 1);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      mmio_set_bits(v23, a2a, (int)v54, v20, 1, a4, a6, 0, a9, a10, a11);
+      mmio_set_bits(v23, _frame.a2a, (int)_frame.v54, v20, 1, a4, a6, 0, a9, a10, a11);
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
       state_check_feature(1, aDpdCalEnd);
       state_check_feature(1, aDefaultDpdCal);
-      state_check_feature(1, "am*1000000:%6d  %d\n", (int)(float)(v47 * v24), (int)(float)(v48 * v24));
-      state_check_feature(1, "ph*1000000:%6d  %d\n", (int)(float)(v49 * v24), (int)(float)(v50 * v24));
-      v25 = v47 / v48;
-      v26 = v49 / v50;
+      state_check_feature(1, "am*1000000:%6d  %d\n", (int)(float)(_frame.v47 * v24), (int)(float)(_frame.v48 * v24));
+      state_check_feature(1, "ph*1000000:%6d  %d\n", (int)(float)(_frame.v49 * v24), (int)(float)(_frame.v50 * v24));
+      v25 = _frame.v47 / _frame.v48;
+      v26 = _frame.v49 / _frame.v50;
       if ( v23 == 11 )
       {
         v27 = 3.0;
@@ -17244,11 +17247,11 @@ int dsp_filter_process( volatile uint32_t *a1, int a2, int a3, int a4, int a5, i
       v31 = (int)(float)(v25 * v30);
       state_check_feature(1, "am_compare     * 10000 = %6d  ", v31);
       state_check_feature(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
-      state_check_feature(1, "verify_ph_var_sum * 10000 = %6d\n", (int)(float)(v49 * v30));
+      state_check_feature(1, "verify_ph_var_sum * 10000 = %6d\n", (int)(float)(_frame.v49 * v30));
       if ( v29 >= v25 )
       {
-        v32 = v53;
-        if ( *(volatile float *)&v53 < 2.0 )
+        v32 = _frame.v53;
+        if ( *(volatile float *)&_frame.v53 < 2.0 )
           goto LABEL_19;
         *(volatile uint32_t *)v22 = 0;
         *((volatile uint32_t *)v22 + 8) = 0;
@@ -17256,10 +17259,10 @@ int dsp_filter_process( volatile uint32_t *a1, int a2, int a3, int a4, int a5, i
         state_check_feature(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
         state_check_feature(1, "am_compare     * 10000 = %6d  ", (int)(float)(v25 * v30));
         state_check_feature(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
-        state_check_feature(1, "table[%d] dpd cal is not good, ana_index %x use default.\n", a1a, v23);
-        if ( v23 <= 10 && a1a == 1 )
+        state_check_feature(1, "table[%d] dpd cal is not good, ana_index %x use default.\n", _frame.a1a, v23);
+        if ( v23 <= 10 && _frame.a1a == 1 )
         {
-          v40 = 0;
+          _frame.v40 = 0;
           ke_event_schedule_1("table 1 index %x dont use dpd\n", v23);
           *(volatile uint32_t *)v22 = 1;
           *((volatile uint32_t *)v22 + 8) = 1;
@@ -17269,72 +17272,72 @@ int dsp_filter_process( volatile uint32_t *a1, int a2, int a3, int a4, int a5, i
       {
         if ( v27 < v26 )
         {
-          v32 = v53;
+          v32 = _frame.v53;
 LABEL_19:
           *(volatile uint32_t *)v22 = 1;
           *((volatile uint32_t *)v22 + 8) = 1;
-if ( v23 <= 8 && v27 > v26 && (v33 = ((uint64_t (*)())__aeabi_f2d)(v32), ((int (*)())__aeabi_dcmpgt)(v33, *(volatile uint64_t *)&dword_10A2B8)) && a1a == 1 ) { state_check_feature(1, "am_compare_thr * 10000 = %6d  ", v28);
+if ( v23 <= 8 && v27 > v26 && (v33 = ((uint64_t (*)())__aeabi_f2d)(v32), ((int (*)())__aeabi_dcmpgt)(v33, *(volatile uint64_t *)&dword_10A2B8)) && _frame.a1a == 1 ) { state_check_feature(1, "am_compare_thr * 10000 = %6d  ", v28);
             state_check_feature(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
             state_check_feature(1, "am_compare     * 10000 = %6d  ", v31);
             state_check_feature(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
-            state_check_feature(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(volatile float *)&v53 * flt_10A5B0));
+            state_check_feature(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(volatile float *)&_frame.v53 * flt_10A5B0));
             state_check_feature(1, "verify ph is larger, table 1 index %x dont use dpd\n", v23);
-            v40 = 0;
+            _frame.v40 = 0;
           }
           else
           {
-            state_check_feature(1, "table[%d] dpd cal success, ana_index %x can be used.\n", a1a, v23);
-            v40 = 1;
+            state_check_feature(1, "table[%d] dpd cal success, ana_index %x can be used.\n", _frame.a1a, v23);
+            _frame.v40 = 1;
           }
           goto LABEL_24;
         }
-        v32 = v53;
-        if ( *(volatile float *)&v53 < 2.0 )
+        v32 = _frame.v53;
+        if ( *(volatile float *)&_frame.v53 < 2.0 )
           goto LABEL_19;
         *(volatile uint32_t *)v22 = 1;
         *((volatile uint32_t *)v22 + 8) = 0;
-        state_check_feature(1, "table[%d] dpd cal success, ph deviation is small, ana_index %x can be used.\n", a1a, v23);
-        if ( v23 <= 8 && a1a == 1 )
+        state_check_feature(1, "table[%d] dpd cal success, ph deviation is small, ana_index %x can be used.\n", _frame.a1a, v23);
+        if ( v23 <= 8 && _frame.a1a == 1 )
         {
-          if ( *(volatile float *)&v53 > 2.0 )
+          if ( *(volatile float *)&_frame.v53 > 2.0 )
           {
             state_check_feature(1, "am_compare_thr * 10000 = %6d  ", v28);
             state_check_feature(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
             state_check_feature(1, "am_compare     * 10000 = %6d  ", v31);
             state_check_feature(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
-            state_check_feature(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(volatile float *)&v53 * v30));
+            state_check_feature(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(volatile float *)&_frame.v53 * v30));
             state_check_feature(1, "verify ph is larger, table 1 index %x dont use dpd\n", v23);
-            v40 = 0;
+            _frame.v40 = 0;
             state_check_feature(1, "table 1 index %x dont use dpd\n", v23);
           }
           else
           {
-            v40 = 1;
+            _frame.v40 = 1;
           }
         }
         else
         {
-          v40 = 1;
+          _frame.v40 = 1;
         }
       }
 LABEL_24:
-      v38 &= *(volatile uint32_t *)v22;
-      v34 = *v43 & v40;
-      v35 = v52 <= ++v39;
-      *v42 = v38;
+      _frame.v38 &= *(volatile uint32_t *)v22;
+      v34 = *_frame.v43 & _frame.v40;
+      v35 = _frame.v52 <= ++_frame.v39;
+      *_frame.v42 = _frame.v38;
       v22 += 4;
-      *v43 = v34;
+      *_frame.v43 = v34;
     }
     while ( !v35 );
-    v17 = a1a;
+    v17 = _frame.a1a;
 LABEL_27:
-    *v44 = *v44 & 0xFFFEFFFF | (v38 << 16);
+    *_frame.v44 = *_frame.v44 & 0xFFFEFFFF | (_frame.v38 << 16);
 LABEL_28:
     if ( v20 != 2 )
     {
 LABEL_29:
       ++v17;
-      ++v42;
+      ++_frame.v42;
       continue;
     }
     break;
@@ -18377,10 +18380,10 @@ int phy_calibrate(int a1, int a2, int a3, int a4, volatile uint16_t *a5, int a6,
   uint16_t v196; // [sp+310h] [bp-284h]
   char _pad44[622]; int v197; // [sp+580h] [bp-14h]
   int v198; // [sp+584h] [bp-10h]
-  } _frame;  int v199; // [sp+5F8h] [bp+64h]
+  char _pad46[112]; int v199; // [sp+5F8h] [bp+64h]
   int v200; // [sp+5FCh] [bp+68h]
   int a11; // [sp+600h] [bp+6Ch]
-
+  } _frame;
   ke_event_schedule_1(aMiscDpdCalibSi);
   v8 = dword_10B478;
   v9 = *(volatile uint32_t *)off_10B458;
@@ -18529,7 +18532,7 @@ LABEL_29:
     _frame.v177[5] = v58;
     v60 = v51;
     v61 = v51 - 4;
-    dsp_filter_process((volatile uint32_t *)a1, v60, v59, _frame.a4a, (int)_frame.v177, a6, a7, _frame.a8, v199, v200, a11);
+    dsp_filter_process((volatile uint32_t *)a1, v60, v59, _frame.a4a, (int)_frame.v177, a6, a7, _frame.a8, _frame.v199, _frame.v200, _frame.a11);
     timer_set(0);
     v64 = *(volatile uint32_t *)(v61 + 4);
     v63 = (volatile unsigned int *)(v61 + 4);
@@ -33467,7 +33470,7 @@ LABEL_54:
                 timer_check_state(v4, (volatile uint32_t *)(v7 + 4));
                 if ( (*(volatile uint16_t *)(v4 + 30) & 1) != 0 )
                   set_system_flag_1(512);
-                v3 = (volatile uint32_t *)((int (*)())irq_lock_save_1)((uint8_t)a1, v4);
+                v3 = (volatile uint32_t *)irq_lock_save_1((uint8_t)a1, v4);
               }
               goto LABEL_36;
             }
@@ -33733,7 +33736,7 @@ LABEL_101:
       if ( *v20 == 1 )
         ke_msg_dispatch();
 LABEL_31:
-      v3 = (volatile uint32_t *)((int (*)())irq_lock_save_1)((uint8_t)a1, v4);
+      v3 = (volatile uint32_t *)irq_lock_save_1((uint8_t)a1, v4);
       if ( v12 )
       {
         if ( _frame.v65 )
@@ -33808,7 +33811,7 @@ volatile uint32_t * rf_calib_config(unsigned int a1, int a2, int a3) {
     }
     else
     {
-      ((int (*)())irq_lock_save_1)(a1, (int)v7);
+      irq_lock_save_1(a1, (int)v7);
     }
   }
   return system_init();
@@ -36847,11 +36850,10 @@ int off_84_table(int a1, int a2) {
   v6 = *(volatile uint16_t *)(a1 + 4);
   --*(volatile uint8_t *)(v4 + 80);
   if ( v6 )
-    return list_append((void *)(uintptr_t)(a1), *(volatile uint32_t *)(v5 + 72), a2);
+    return list_append((volatile uint32_t *)a1, *(volatile uint32_t *)(v5 + 72), a2);
   else
-    return ((int (*)())btlp_enter_sleep)();
+    return btlp_enter_sleep((volatile uint32_t *)a1);
 }
-
 
 
 // zero_global_if_flag_clear @ 0x11b634
@@ -38495,38 +38497,34 @@ int tx_start(int a1, int a2) {
   volatile uint32_t *v4; // r7
   int v5; // r6
   int v7; // r10
-  int v8; // r0
-  int v9; // r9
+  int v8; // r9
+  int16_t v9; // r3
   int16_t v10; // r3
-  int16_t v11; // r3
-  void *v12; // r1
-  int v13; // r2
-  int v14; // r3
-  int v15; // r8
-  int v16; // r7
+  int v11; // r8
+  int v12; // r7
   int result; // r0
-  int v18; // r9
-  int v19; // r3
-  int v20; // r10
-  int v21; // r11
-  int v22; // r1
-  uint64_t v23; // kr00_8
-  int v24; // r8
-  char v25; // r3
-  volatile int *v26; // r3
-  volatile int *v27; // r2
-  int v28; // r1
-  int v29; // t1
-  unsigned int v30; // r1
-  int v31; // r2
-  void *v32; // r1
-  int v33; // r2
-  unsigned int v34; // r2
-  int v35; // r0
-  int v36; // r2
-  unsigned int v37; // r2
-  int v38; // [sp+0h] [bp-Ch]
-  volatile int *v39; // [sp+4h] [bp-8h]
+  int v14; // r9
+  unsigned int v15; // r3
+  int v16; // r10
+  int v17; // r11
+  int v18; // r1
+  int64_t v19; // kr00_8
+  int v20; // r8
+  char v21; // r3
+  volatile int *v22; // r3
+  volatile int *v23; // r2
+  int v24; // r1
+  int v25; // t1
+  unsigned int v26; // r1
+  int v27; // r2
+  void *v28; // r1
+  int v29; // r2
+  unsigned int v30; // r2
+  int v31; // r0
+  int v32; // r2
+  unsigned int v33; // r2
+  int v34; // [sp+0h] [bp-Ch]
+  volatile int *v35; // [sp+4h] [bp-8h]
 
   v2 = (volatile uint8_t *)off_11CD04;
   v3 = *(volatile uint32_t *)(a1 + 68);
@@ -38535,23 +38533,23 @@ int tx_start(int a1, int a2) {
   v7 = a2;
   if ( (a2 & 0x800000) != 0 )
   {
-    v8 = ((int (*)())mac_irq_handler_1)(a1);
-    v9 = 9;
+    mac_irq_handler_1();
+    v8 = 9;
     while ( 1 )
     {
-      v10 = *(volatile uint16_t *)(v3 + 8);
-      if ( (v10 & 0x20) != 0 )
+      v9 = *(volatile uint16_t *)(v3 + 8);
+      if ( (v9 & 0x20) != 0 )
         break;
-      v8 = ((int (*)())mac_irq_handler_1)(v8);
-      if ( !--v9 )
+      mac_irq_handler_1();
+      if ( !--v8 )
       {
-        v11 = *(volatile uint16_t *)(v3 + 8);
-        if ( (v11 & 0x60) != 0x20 )
+        v10 = *(volatile uint16_t *)(v3 + 8);
+        if ( (v10 & 0x60) != 0x20 )
         {
-          if ( (v11 & 0x20) == 0 )
+          if ( (v10 & 0x20) == 0 )
           {
-            v15 = dword_11CD20;
-            v16 = 84 * v5;
+            v11 = dword_11CD20;
+            v12 = 84 * v5;
             list_pop_front(84 * v5 + 28 + dword_11CD20);
             ke_timer_tick(v3);
             *(volatile uint32_t *)(a1 + 68) = 0;
@@ -38560,30 +38558,29 @@ int tx_start(int a1, int a2) {
 LABEL_7:
           ke_timer_tick(v3);
           *(volatile uint32_t *)(a1 + 68) = 0;
-          v14 = v2[199];
-          v15 = dword_11CD20;
-          v16 = 84 * v5;
+          v11 = dword_11CD20;
+          v12 = 84 * v5;
           if ( v2[199] )
             goto LABEL_19;
 LABEL_8:
-          ((int (*)())ke_task_set_event)(v2[190], (int)v12, v13, v14);
-          list_pop_front(v16 + 12 + v15);
+          ke_task_set_event(v2[190]);
+          list_pop_front(v12 + 12 + v11);
           if ( *(volatile uint16_t *)(a1 + 4) )
-            return list_append((void *)(uintptr_t)(a1), v7, v5);
-          return ((int (*)())btlp_enter_sleep)();
+            return list_append((volatile uint32_t *)a1, v7, v5);
+          return btlp_enter_sleep((volatile uint32_t *)a1);
         }
         v7 &= ~0x800000u;
         v4[18] &= ~0x800000u;
-        if ( (v11 & 0x20) == 0 )
+        if ( (v10 & 0x20) == 0 )
           goto LABEL_22;
 LABEL_31:
         ke_timer_tick(v3);
-        v15 = dword_11CD20;
+        v11 = dword_11CD20;
         *(volatile uint32_t *)(a1 + 68) = 0;
         goto LABEL_12;
       }
     }
-    if ( (v10 & 0x60) != 0x20 )
+    if ( (v9 & 0x60) != 0x20 )
       goto LABEL_7;
     v7 &= ~0x800000u;
     v4[18] &= ~0x800000u;
@@ -38591,135 +38588,131 @@ LABEL_31:
   }
   if ( (*(volatile uint16_t *)(v3 + 8) & 0x20) != 0 )
   {
-    v15 = dword_11CD20;
+    v11 = dword_11CD20;
     ke_timer_tick(*(volatile uint32_t *)(a1 + 68));
     *(volatile uint32_t *)(a1 + 68) = 0;
   }
   else
   {
 LABEL_22:
-    v15 = dword_11CD20;
+    v11 = dword_11CD20;
     list_pop_front(84 * (int16_t)v5 + 28 + dword_11CD20);
     ke_timer_tick(v3);
     *(volatile uint32_t *)(a1 + 68) = 0;
   }
 LABEL_12:
-  v18 = BYTE1(v7);
+  v14 = BYTE1(v7);
   if ( v2[199] )
   {
-    v12 = (void *)(uintptr_t)(off_11CD08);
-    v13 = HIBYTE(*(volatile uint32_t *)off_11CD08) & 7;
-    v19 = v13 + 1;
-    if ( v13 + 1 >= (unsigned int)v2[165] )
-      v19 = v2[165];
-    *(volatile uint32_t *)off_11CD08 = (v19 << 24) & 0x7000000 | *(volatile uint32_t *)off_11CD08 & 0xF8FFFFFF;
+    v15 = (HIBYTE(*(volatile uint32_t *)off_11CD08) & 7) + 1;
+    if ( v15 >= v2[165] )
+      v15 = v2[165];
+    *(volatile uint32_t *)off_11CD08 = (v15 << 24) & 0x7000000 | *(volatile uint32_t *)off_11CD08 & 0xF8FFFFFF;
   }
   if ( BYTE1(v7) <= 4u )
   {
-    v20 = *(volatile uint32_t *)(a1 + 72);
-    if ( v18 )
+    v16 = *(volatile uint32_t *)(a1 + 72);
+    if ( v14 )
     {
-      v21 = v20 + 44;
+      v17 = v16 + 44;
     }
     else
     {
       if ( *(volatile uint16_t *)(a1 + 4) )
       {
-        v26 = *(volatile int **)(a1 + 44);
-        v21 = v20 + 44;
-        v27 = v26;
-        v28 = v20 + 40;
+        v22 = *(volatile int **)(a1 + 44);
+        v17 = v16 + 44;
+        v23 = v22;
+        v24 = v16 + 40;
         do
         {
-          v29 = *v27++;
-          *(volatile uint32_t *)(v28 + 4) = v29;
-          v28 += 4;
+          v25 = *v23++;
+          *(volatile uint32_t *)(v24 + 4) = v25;
+          v24 += 4;
         }
-        while ( v26 + 16 != v27 );
+        while ( v22 + 16 != v23 );
         if ( (*(volatile uint16_t *)(a1 + 30) & 0x2000) != 0 )
         {
-          v38 = *(volatile uint32_t *)(dword_11CD10 + 696 * *(volatile uint8_t *)(a1 + 29) + 340);
+          v34 = *(volatile uint32_t *)(dword_11CD10 + 696 * *(volatile uint8_t *)(a1 + 29) + 340);
           if ( **(volatile int16_t **)off_11CD0C < 0 && !*(volatile uint32_t *)(dword_11CD10 + 696 * *(volatile uint8_t *)(a1 + 29) + 340) )
           {
-            v39 = v26;
-            mmio_irq_clear(dword_11CD1C, dword_11CD18, 475);
-            v26 = v39;
+            v35 = v22;
+            mmio_irq_clear((int)aRcSsNull, (int)aRcGetStaStats_1, 475);
+            v22 = v35;
           }
-          v30 = *(volatile uint32_t *)(v38 + 156);
-          *(volatile uint32_t *)(v20 + 68) = v26[5];
-          v31 = *(volatile uint32_t *)(v38 + 160);
-          *(volatile uint32_t *)(v20 + 84) = v26[9];
-          *(volatile uint32_t *)(v20 + 64) = v30;
-          *(volatile uint32_t *)(v20 + 80) = v31;
-          if ( ((v30 >> 11) & 5) == 5 )
+          v26 = *(volatile uint32_t *)(v34 + 156);
+          *(volatile uint32_t *)(v16 + 68) = v22[5];
+          v27 = *(volatile uint32_t *)(v34 + 160);
+          *(volatile uint32_t *)(v16 + 84) = v22[9];
+          *(volatile uint32_t *)(v16 + 64) = v26;
+          *(volatile uint32_t *)(v16 + 80) = v27;
+          if ( ((v26 >> 11) & 5) == 5 )
           {
-            v34 = v31 & 0xFFFCFFFF;
-            if ( (v30 & 0x600) == 0x400 )
-              v35 = 0x20000;
+            v30 = v27 & 0xFFFCFFFF;
+            if ( (v26 & 0x600) == 0x400 )
+              v31 = 0x20000;
             else
-              v35 = 0x10000;
-            v36 = v34 | v35;
-            if ( *(volatile uint8_t *)(v38 + 165) )
-              v37 = v36 | 0x40000;
+              v31 = 0x10000;
+            v32 = v30 | v31;
+            if ( *(volatile uint8_t *)(v34 + 165) )
+              v33 = v32 | 0x40000;
             else
-              v37 = v36 & 0xFFFBFFFF;
-            *(volatile uint32_t *)(v20 + 80) = v37;
+              v33 = v32 & 0xFFFBFFFF;
+            *(volatile uint32_t *)(v16 + 80) = v33;
           }
-          if ( (v26[15] & 4) == 0 )
-            *(volatile uint32_t *)(v20 + 48) &= 0xFFFFFE7F;
+          if ( (v22[15] & 4) == 0 )
+            *(volatile uint32_t *)(v16 + 48) &= 0xFFFFFE7F;
         }
       }
       else
       {
-        v21 = v20 + 44;
+        v17 = v16 + 44;
       }
-      set_cal_value((volatile unsigned int *)a1);
+      set_cal_value((void *)(uintptr_t)(a1));
     }
-    v22 = *(volatile uint32_t *)&v2[28 * v5 + 36];
-    v23 = *(volatile uint64_t *)(v20 + 96);
-    v4[16] = v23;
-    v4[18] = (v18 + 1) << 8;
-    v4[11] = HIDWORD(v23);
-    v4[12] = v21;
+    v18 = *(volatile uint32_t *)&v2[28 * v5 + 36];
+    v19 = *(volatile uint64_t *)(v16 + 96);
+    v4[16] = v19;
+    v4[18] = (v14 + 1) << 8;
+    v4[11] = HIDWORD(v19);
+    v4[12] = v17;
     result = (int)(v4 + 3);
-    if ( v22 )
+    if ( v18 )
     {
-      v4[4] = v22;
+      v4[4] = v18;
     }
     else
     {
-      v32 = (void *)(uintptr_t)(off_11CD14);
-      *(volatile uint32_t *)(v15 + 84 * v5) = result;
-      v33 = 84 * v5 + v15;
-      if ( !*(volatile uint8_t *)(*(volatile uint32_t *)v32 + 1) )
+      v28 = (void *)(uintptr_t)(off_11CD14);
+      *(volatile uint32_t *)(v11 + 84 * v5) = result;
+      v29 = 84 * v5 + v11;
+      if ( !*(volatile uint8_t *)(*(volatile uint32_t *)v28 + 1) )
       {
-        *(volatile uint32_t *)(v33 + 4) = 0;
-        *(volatile uint32_t *)(v33 + 8) = 0;
+        *(volatile uint32_t *)(v29 + 4) = 0;
+        *(volatile uint32_t *)(v29 + 8) = 0;
       }
     }
-    v24 = v15 + 84 * v5;
-    v25 = *(volatile uint8_t *)(v24 + 80) + 1;
+    v20 = v11 + 84 * v5;
+    v21 = *(volatile uint8_t *)(v20 + 80) + 1;
     *(volatile uint32_t *)&v2[28 * v5 + 36] = result;
-    *(volatile uint8_t *)(v24 + 80) = v25;
+    *(volatile uint8_t *)(v20 + 80) = v21;
   }
   else
   {
     v4[18] |= 0x10000u;
-    v16 = 84 * v5;
+    v12 = 84 * v5;
 LABEL_18:
-    v14 = v2[199];
     if ( !v2[199] )
       goto LABEL_8;
 LABEL_19:
     *(volatile uint32_t *)off_11CD08 = (v2[164] << 24) & 0x7000000 | *(volatile uint32_t *)off_11CD08 & 0xF8FFFFFF;
-    list_pop_front(v16 + 12 + v15);
+    list_pop_front(v12 + 12 + v11);
     if ( !*(volatile uint16_t *)(a1 + 4) )
-      return ((int (*)())btlp_enter_sleep)();
-    return list_append((void *)(uintptr_t)(a1), v7, v5);
+      return btlp_enter_sleep((volatile uint32_t *)a1);
+    return list_append((volatile uint32_t *)a1, v7, v5);
   }
   return result;
 }
-
 
 
 // poll_hw_cmd @ 0x11cd24
@@ -49651,9 +49644,9 @@ volatile uint32_t * scan_state_process(volatile uint32_t *result) {
   char v80; // [sp+40h] [bp-2Ch] BYREF
   char _pad12[7]; char v81; // [sp+48h] [bp-24h] BYREF
   char _pad13[31]; uint32_t var4[2]; // [sp+68h] [bp-4h] BYREF
-  } _frame;  int vars4; // [sp+70h] [bp+4h]
+  int vars4; // [sp+70h] [bp+4h]
   int vars8; // [sp+74h] [bp+8h]
-
+  } _frame;
   _frame.v71 = (int)result;
   if ( *((volatile uint8_t *)off_1263B0 + 90) <= 1u )
     return result;
@@ -49767,8 +49760,8 @@ LABEL_59:
           v65 = **v1;
           _frame.var4[0] = v10;
           _frame.var4[1] = _frame.v72;
-          vars4 = *(volatile uint32_t *)(v9 + 36);
-          vars8 = vars4 + 10000;
+          _frame.vars4 = *(volatile uint32_t *)(v9 + 36);
+          _frame.vars8 = _frame.vars4 + 10000;
           v50 = 8;
           if ( v65 >= 0 )
             goto LABEL_61;
@@ -57778,6 +57771,7 @@ int bt_buf_alloc(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
 // hci_evt_send @ 0x12cbb4
 volatile uint32_t * hci_evt_send(int a1) {
   int v1; // r3
+  volatile char *v4; // r0
 
   v1 = *(volatile uint16_t *)(a1 - 6);
   if ( **(volatile int16_t **)off_12CC20 >= 0 || (uint8_t)v1 <= 0xEu )
@@ -57798,10 +57792,11 @@ volatile uint32_t * hci_evt_send(int a1) {
     *(volatile uint16_t *)(a1 - 8),
     *(volatile uint16_t *)(a1 - 4),
     v1);
+  v4 = (volatile char *)(a1 - 12);
   if ( *(volatile uint8_t *)off_12CC34 )
-    return hci_tx_packet((volatile char *)(a1 - 12));
+    return hci_tx_packet(v4);
   else
-    return (volatile uint32_t *)((int (*)())patch_jump)();
+    return (volatile uint32_t *)patch_jump((void *)(v4));
 }
 
 
@@ -62073,37 +62068,36 @@ int jump_to_10c824_zero() {
 
 
 // irq_lock_save_1 @ 0x12f810
-int irq_lock_save_1(unsigned int a1) {
-  volatile int *v2; // r5
+int irq_lock_save_1(unsigned int a1, int a2) {
+  volatile int *v3; // r5
   int result; // r0
-  int v4; // r3
-  int v5; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_12F860 = 1;
   }
-  v2 = (volatile int *)off_12F864;
+  v3 = (volatile int *)off_12F864;
   ++*(volatile uint32_t *)off_12F864;
-  result = ((int (*)())send_to_global_queue)();
+  result = send_to_global_queue((volatile uint32_t *)a2);
   if ( a1 <= 4 )
     --*(volatile uint8_t *)(dword_12F868 + a1);
-  if ( *v2 )
+  if ( *v3 )
   {
-    v4 = *v2 - 1;
-    v5 = *(volatile uint32_t *)off_12F860;
-    *v2 = v4;
-    if ( !v4 )
+    v5 = *v3 - 1;
+    v6 = *(volatile uint32_t *)off_12F860;
+    *v3 = v5;
+    if ( !v5 )
     {
-      if ( v5 )
+      if ( v6 )
         __enable_irq();
     }
   }
   --*((volatile uint32_t *)off_12F86C + 126);
   return result;
 }
-
 
 
 // get_shared_buf_size @ 0x12f870
@@ -79863,11 +79857,11 @@ int tx_process_ll_queue(int result, int a2) {
   int v5; // r5
   int v6; // r7
   volatile uint32_t *v7; // r4
-  int v8; // r6
+  unsigned int v8; // r6
   unsigned int v9; // r1
-  uint64_t v10; // r2
+  int64_t v10; // r2
   unsigned int v11; // t1
-  uint64_t v12; // kr00_8
+  int64_t v12; // kr00_8
   uint8_t v13[52]; // [sp+4h] [bp-34h] BYREF
 
   if ( *(volatile uint16_t *)(result + 184) )
@@ -79898,9 +79892,9 @@ int tx_process_ll_queue(int result, int a2) {
             if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
-          ((int (*)())memmove_4)((int)(uintptr_t)(v13), v8);
-          ((int (*)())memmove_4)(v8, v8 + 12);
-          result = ((int (*)())memmove_4)(v8 + 12, (int)(uintptr_t)(v13));
+          memmove_4((unsigned int)v13, v8, 0xCu);
+          memmove_4(v8, v8 + 12, 0xCu);
+          result = memmove_4(v8 + 12, (unsigned int)v13, 0xCu);
           ++v5;
           v12 = *(volatile uint64_t *)(v7 - 1);
           v9 = v6;
@@ -79920,7 +79914,6 @@ LABEL_10:
   }
   return result;
 }
-
 
 
 // rx_init_packet_buf @ 0x13e30c

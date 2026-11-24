@@ -328,6 +328,17 @@ class StackFrames(unittest.TestCase):
         self.assertEqual(out.count("\n"), src.count("\n"))
         self.assertEqual(stack_frames.apply(out), (out, 0))
 
+    def test_bp_plus_zero_locals_stay_in_frame(self):
+        src = ("// h @ 0x100000\nint h(int a1) {\n"
+               "  int v34; // [sp+3Ch] [bp-4h]\n"
+               "  uint64_t vars0[2]; // [sp+40h] [bp+0h] BYREF\n\n"
+               "  v34 = a1; return *((volatile uint32_t *)&vars0[0] - 1);\n}\n")
+        out, n = stack_frames.apply(src)
+        self.assertEqual(n, 1)
+        self.assertIn("_frame.vars0[0]", out)
+        self.assertIn("  } _frame;\n  _frame.v34 = a1;", out)
+        self.assertEqual(stack_frames.apply(out), (out, 0))
+
     def test_tracked_sources_are_at_the_fixed_point(self):
         for img in stack_frames.IMAGES:
             text = (stack_frames.REPO / "src" / img / "main.c").read_text(errors="replace")

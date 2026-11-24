@@ -15,32 +15,34 @@ extern uint32_t dword_12C9FC;
 extern uint32_t off_12C9F8;
 extern uint32_t off_12CA0C;
 
-// ke_msg_send_2 @ 0x12c98c, size 106 bytes
-uint32_t * ke_msg_send_2(int a1)
+// sub_12C98C @ 0x12c98c, size 106 bytes
+uint32_t * sub_12C98C(int a1)
 {
   int v1; // r3
+  char *v4; // r0
 
   v1 = *(uint16_t *)(a1 - 6);
-  if ( **(uint16_t **)off_12C9F8 >= 0 || (uint8_t)v1 <= 0xEu )
+  if ( **(int16_t **)off_12C9F8 >= 0 || (uint8_t)v1 <= 0xEu )
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      cmd_handler_a(dword_12C9FC, (uint32_t *)(a1 - 12));
-      return (uint32_t *)unknown_func_12d104(0x4000000);
+      sub_12D248(dword_12C9FC, (uint32_t *)(a1 - 12));
+      return (uint32_t *)sub_12D104(0x4000000);
     }
   }
   else
   {
-    mmio_clear_register((int)aIdTaskMax, (int)aKeTaskLocal, 183);
+    sub_12F46C((int)aIdTaskMax, (int)aKeTaskLocal, 183);
     v1 = *(uint16_t *)(a1 - 6);
   }
-  event_dispatch(
+  sub_12EA88(
     "\x9D\x80Dispatching msg:%x from tsk:%x to tsk:%x\n",
     *(uint16_t *)(a1 - 8),
     *(uint16_t *)(a1 - 4),
     v1);
+  v4 = (char *)(a1 - 12);
   if ( *(uint8_t *)off_12CA0C )
-    return tx_pkt_enqueue((char *)(a1 - 12));
+    return sub_12CBC8(v4);
   else
-    return (uint32_t *)read_mode_0x182ba0();
+    return (uint32_t *)sub_12F52C(v4);
 }

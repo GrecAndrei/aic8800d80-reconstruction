@@ -20,6 +20,8 @@ Env:
               analysis-space, e.g. "sub_100A80")
   DREDECLS  - comma-separated analysis-space addrs of callers to re-decompile
               (output file name = analysis-space sub_ name)
+  DVOLATILES - comma-separated absolute addrs to type as `volatile unsigned int`
+              before decompiling (e.g. tick-counter MMIO `0x40501010`)
   DHW       - "1" when the IDB is at the hardware base (targets += 0x20000)
 """
 import json
@@ -40,6 +42,7 @@ def log(msg):
 img = os.environ.get("DIMG", "")
 fixes = json.loads(os.environ.get("DFIXES", "[]"))
 reds = [int(a, 16) for a in os.environ.get("DREDECLS", "").split(",") if a.strip()]
+vols = [int(a, 16) for a in os.environ.get("DVOLATILES", "").split(",") if a.strip()]
 hw = os.environ.get("DHW", "0") == "1"
 shift = lambda a: a + HW_OFFSET if hw else a
 
@@ -52,6 +55,13 @@ log(f"segment {seg.start_ea:#x}-{seg.end_ea:#x}")
 if not idaapi.init_hexrays_plugin():
     log("Hex-Rays unavailable")
     idc.qexit(1)
+
+til = ida_typeinf.get_idbtil() if hasattr(ida_typeinf, "get_idbtil") else None
+for va in vols:
+    vtif = ida_typeinf.tinfo_t()
+    ida_typeinf.parse_decl(vtif, til, "volatile unsigned int x;", ida_typeinf.PT_SIL)
+    ok = ida_typeinf.apply_tinfo(va, vtif, ida_typeinf.TINFO_DEFINITE)
+    log(f"  volatile set at {va:#x}: ok={ok}")
 
 out_dir = OUT / img
 out_dir.mkdir(parents=True, exist_ok=True)

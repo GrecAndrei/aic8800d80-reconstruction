@@ -10,11 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// get_controller_state @ 0x1032e8, size 14 bytes
-int  get_controller_state(int result)
+// sub_1032E8 @ 0x1032e8, size 14 bytes
+unsigned int  sub_1032E8(unsigned int result)
 {
-  while ( result )
-    ;
+  volatile unsigned int v1; // r1
+  unsigned int v2; // r3
+
+  v1 = (*(volatile uint32_t *)0x40501010u);
+  do
+    v2 = (*(volatile uint32_t *)0x40501010u) - v1;
+  while ( v2 < result );
   return result;
 }
-

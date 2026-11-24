@@ -10,19 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rx_get_length @ 0x13e090, size 160 bytes
-int  rx_get_length(int result, int a2)
+// sub_13E090 @ 0x13e090, size 160 bytes
+int  sub_13E090(int result, int a2)
 {
   unsigned int v2; // r11
   int v4; // r9
   int v5; // r5
   int v6; // r7
   uint32_t *v7; // r4
-  int v8; // r6
+  unsigned int v8; // r6
   unsigned int v9; // r1
-  uint64_t v10; // r2
+  int64_t v10; // r2
   unsigned int v11; // t1
-  uint64_t v12; // kr00_8
+  int64_t v12; // kr00_8
   uint8_t v13[52]; // [sp+4h] [bp-34h] BYREF
 
   if ( *(uint16_t *)(result + 184) )
@@ -53,9 +53,9 @@ int  rx_get_length(int result, int a2)
             if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
-          memmove(v13, v8);
-          memmove(v8, v8 + 12);
-          result = memmove(v8 + 12, v13);
+          sub_143764((unsigned int)v13, v8, 0xCu);
+          sub_143764(v8, v8 + 12, 0xCu);
+          result = sub_143764(v8 + 12, (unsigned int)v13, 0xCu);
           ++v5;
           v12 = *(uint64_t *)(v7 - 1);
           v9 = v6;
@@ -75,4 +75,3 @@ LABEL_10:
   }
   return result;
 }
-

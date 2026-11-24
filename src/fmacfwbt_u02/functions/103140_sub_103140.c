@@ -10,11 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// wait_for_hw_data @ 0x103140, size 14 bytes
-int  wait_for_hw_data(int result)
+// sub_103140 @ 0x103140, size 14 bytes
+unsigned int  sub_103140(unsigned int result)
 {
-  while ( result )
-    ;
+  volatile unsigned int v1; // r1
+  unsigned int v2; // r3
+
+  v1 = (*(volatile uint32_t *)0x40501010u);
+  do
+    v2 = (*(volatile uint32_t *)0x40501010u) - v1;
+  while ( v2 < result );
   return result;
 }
-

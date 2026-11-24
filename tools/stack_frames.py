@@ -23,7 +23,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 IMAGES = ("fmacfw_u02", "fmacfw_h_u02", "fmacfwbt_u02", "lmacfw_rf_u02")
 MARKER = re.compile(r"^// \S+ @ 0x[0-9a-fA-F]+\s*$")
-SLOT = re.compile(r"^  (?P<decl>[^;/]+); // \[sp\+(?P<sp>[0-9A-Fa-f]+)h\] \[bp-[0-9A-Fa-f]+h\](?P<byref> BYREF)?\s*$")
+SLOT = re.compile(r"^  (?P<decl>[^;/]+); // \[sp\+(?P<sp>[0-9A-Fa-f]+)h\] \[bp[+-][0-9A-Fa-f]+h\](?P<byref> BYREF)?\s*$")
 NAME = re.compile(r"(?P<type>.*?)(?P<name>\b[A-Za-z_]\w*)(?P<dims>(?:\[\d+\])*)$")
 SIZES = {"char": 1, "signed char": 1, "unsigned char": 1, "uint8_t": 1, "int8_t": 1, "bool": 1,
          "int16_t": 2, "uint16_t": 2, "short": 2, "unsigned short": 2,
@@ -54,6 +54,8 @@ def frame_function(lines: list[str]) -> list[str] | None:
     """Return the function's lines with its stack locals in one frame struct."""
     if any(DONE in ln for ln in lines):
         return None
+    sig = lines[1] if len(lines) > 1 else ""
+    params = set(re.findall(r"\b([A-Za-z_]\w*)\b(?=\s*[,)])", sig.split("{", 1)[0]))
     idx = [i for i, ln in enumerate(lines) if SLOT.match(ln)]
     if len(idx) < 2 or idx[-1] - idx[0] != len(idx) - 1 or idx[-1] + 1 >= len(lines):
         return None
@@ -61,7 +63,7 @@ def frame_function(lines: list[str]) -> list[str] | None:
     for i in idx:
         m = SLOT.match(lines[i])
         ns = slot_size(m.group("decl"))
-        if ns is None:
+        if ns is None or ns[0] in params:
             return None
         slots.append((int(m.group("sp"), 16), ns[1], ns[0], i, m))
     if not any(s[4].group("byref") for s in slots) or slots != sorted(slots, key=lambda s: s[0]):

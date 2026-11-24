@@ -6808,26 +6808,6 @@
   },
   {
     "kind": "dword",
-    "addr": 1165528,
-    "size": 4,
-    "value": 1475080,
-    "in_image": true,
-    "is_ptr": true,
-    "ptr_to": 1475080
-  },
-  {
-    "kind": "dword",
-    "addr": 1165532,
-    "size": 4,
-    "value": 1472816,
-    "in_image": true,
-    "is_ptr": true,
-    "ptr_to": 1472816,
-    "printable": true,
-    "text": "\"0y\\x16\\x00\""
-  },
-  {
-    "kind": "dword",
     "addr": 1165536,
     "size": 4,
     "value": 1605772,
