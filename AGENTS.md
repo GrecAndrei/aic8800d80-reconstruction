@@ -35,6 +35,17 @@ release tarball
 
 ## Current status (2026-08-01)
 
+- **Reset entry corrected (2026-11-24)**: the real IVT entry `start`
+  at analysis `0x1001a8` / hardware `0x1201a8` is reconstructed in all 4
+  images from hardware-base Hex-Rays decompilation
+  (`harness_v19/scripts/ida_decompile_reset_entry.py`, mechanical conversion:
+  `tools/rebuild_boot_entry.py`). Compose now excludes the old data-as-code
+  artifact at `0x100100` (file 0x100-0x1a7 is header/padding, not code).
+  Targeted boot verification at 500k instructions: every reconstructed
+  peripheral write matches the original prefix (fmacfw_h 1,964/1,964,
+  fmacfw 1,960/1,960, fmacfwbt 1,953/1,953, lmacfw_rf 2,238/2,238);
+  `tools/fidelity_meter.py` therefore defaults `--boot-insns` to 500k.
+
 - **Naming DONE**: all 5,623 `sub_*` functions in `src/` have `status=ok`
   names in `harness_v17/names/` (23,498 files; 0 unnamed).
   - LLM path: GLM-5.3 (`reasoning_effort="max"`) via **OpenAI SDK** (`openai` pkg,

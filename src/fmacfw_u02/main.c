@@ -5412,7 +5412,7 @@ const char aWrongPsp[] = "\nWrong PSP!";  /* @ 0x1472bc */
 uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};
 
 /* --- forward declarations --- */
-int start(int a1, int a2, volatile uint32_t *a3);
+int start();
 volatile int * memset(volatile int *result, uint8_t a2, unsigned int a3);
 int ke_event_handler(int a1, int a2, int a3, int a4);
 void queue_init();
@@ -6848,48 +6848,27 @@ int aSgiRcSsShortGi();
 int aStateHandlerMs();
 int aTwtHandleActio();
 int aTwtHandleSetup();
-// start @ 0x100100
-int start(int a1, int a2, volatile uint32_t *a3) {
-  volatile uint32_t *v4; // r4
-  int v5; // r6
-  int ( *v6)(int); // r9
-  int v7; // r5
-  int v9; // r0
-  int v10; // r2
-  int v11; // r3
+// start @ 0x1001a8
+int start() {
+  int v0; // r2
+  int v1; // r3
 
-  v7 = *(volatile uint8_t *)(a1 + 3);
-  if ( (a3 != 0) & 0 )
+  if ( (uint16_t)*(volatile uint32_t *)off_1001EC == 49729
+    || (*((volatile uint32_t *)off_1001F0 + 23) & 3) != 2
+    || (v0 = *((volatile uint32_t *)off_1001F4 + 92), v1 = *((volatile uint32_t *)off_1001F4 + 93), v0 >= 0)
+    || v1 >= 0 )
   {
-    v9 = a1 + 220;
-    if ( (uint16_t)*(volatile uint32_t *)off_1001EC == 49729
-      || (*((volatile uint32_t *)off_1001F0 + 23) & 3) != 2
-      || (v10 = *((volatile uint32_t *)off_1001F4 + 92), v11 = *((volatile uint32_t *)off_1001F4 + 93), v10 >= 0)
-      || v11 >= 0 )
-    {
-      dword_1001F8;
-      
-      return off_1001FC();
-    }
-    else
-    {
-      v10 & 0xFFFFFFF;
-      
-      return ((int ( *)(int))(v11 & 0xFFFFFFF))(v9);
-    }
+    _R0 = dword_1001F8;
+    __asm volatile("msr msp, %0" : : "r"(_R0) : "memory");
+    return off_1001FC();
   }
   else
   {
-    *v4 = a1;
-    v4[1] = (int)(uintptr_t)(a3);
-    v4[2] = v7;
-    *a3 = a1;
-    a3[1] = (int)(uintptr_t)(a3);
-    a3[2] = v5;
-    return v6(a1);
+    _R2 = v0 & 0xFFFFFFF;
+    __asm volatile("msr msp, %0" : : "r"(_R2) : "memory");
+    return ((int (*)(void))(v1 & 0xFFFFFFF))();
   }
 }
-
 
 
 // memset @ 0x100200

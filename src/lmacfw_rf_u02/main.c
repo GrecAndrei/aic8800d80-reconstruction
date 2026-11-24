@@ -3916,7 +3916,7 @@ const char aWrongTypeChgrp[] = "wrong type/chgrp\n";  /* @ 0x12e5a4 */
 uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};
 
 /* --- forward declarations --- */
-int start(int a1, int a2, unsigned int a3);
+int start();
 volatile int * memset_thunk(volatile int *result, uint8_t a2, unsigned int a3);
 int process_state_update();
 void init_buffer_list();
@@ -4853,44 +4853,27 @@ int zf();
 /* --- function bodies --- */
 /* forward decls (undeclared identifiers, heal-generated) */
 extern volatile uint32_t MEMORY[];
-// start @ 0x100100
-int start(int a1, int a2, unsigned int a3) {
-  int v3; // r6
-  volatile int *v4; // r5
-  int v5; // r2
-  int v6; // r3
+// start @ 0x1001a8
+int start() {
+  int v0; // r2
+  int v1; // r3
 
-  do
-  {
-    while ( 1 )
-    {
-      v4 = *(volatile int **)(a3 + 76);
-      if ( a1 != 0 && a3 >= 0x1D )
-        break;
-      v3 += 8;
-      a1 = *v4;
-      a3 = v4[1];
-    }
-  }
-  while ( a3 == 0 || a3 < 0x1D );
-  *(volatile uint16_t *)(a1 + 14) = a1;
   if ( (uint16_t)*(volatile uint32_t *)off_1001EC == 49729
     || (*((volatile uint32_t *)off_1001F0 + 23) & 3) != 2
-    || (v5 = *((volatile uint32_t *)off_1001F4 + 92), v6 = *((volatile uint32_t *)off_1001F4 + 93), v5 >= 0)
-    || v6 >= 0 )
+    || (v0 = *((volatile uint32_t *)off_1001F4 + 92), v1 = *((volatile uint32_t *)off_1001F4 + 93), v0 >= 0)
+    || v1 >= 0 )
   {
-    dword_1001F8;
-    
+    _R0 = dword_1001F8;
+    __asm volatile("msr msp, %0" : : "r"(_R0) : "memory");
     return off_1001FC();
   }
   else
   {
-    v5 & 0xFFFFFFF;
-    
-    return ((int (*)(void))(v6 & 0xFFFFFFF))();
+    _R2 = v0 & 0xFFFFFFF;
+    __asm volatile("msr msp, %0" : : "r"(_R2) : "memory");
+    return ((int (*)(void))(v1 & 0xFFFFFFF))();
   }
 }
-
 
 
 // memset_thunk @ 0x100200

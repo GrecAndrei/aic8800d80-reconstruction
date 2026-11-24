@@ -1163,7 +1163,7 @@ def main() -> int:
     ap.add_argument("--image", choices=IMAGES, help="evaluate one image only")
     ap.add_argument("--jobs", type=int, default=8, help="worker processes (default: 8)")
     ap.add_argument("--max-insns", type=int, default=50000, help="per-vector instruction cap")
-    ap.add_argument("--boot-insns", type=int, default=100000, help="Axis 4 boot trace cap")
+    ap.add_argument("--boot-insns", type=int, default=500000, help="Axis 4 boot trace cap")
     ap.add_argument("--vectors", default=",".join(DEFAULT_VECTORS),
                     help=f"comma-separated vectors from {','.join(ALL_VECTORS)}")
     ap.add_argument("--no-build-check", action="store_true",

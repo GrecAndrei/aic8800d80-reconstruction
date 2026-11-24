@@ -554,7 +554,6 @@ func disambiguateCallSites(units []fnUnit, callEdges map[int]map[int]bool) {
 	}
 }
 
-
 func readFunctionUnits(funcDir string) ([]fnUnit, error) {
 	entries, err := os.ReadDir(funcDir)
 	if err != nil {
@@ -626,6 +625,27 @@ func readFunctionUnits(funcDir string) ([]fnUnit, error) {
 		}
 	}
 	units = kept
+
+	// Drop the scan artifact at 0x100100 once the real reset entry is present.
+	// Bytes 0x100-0x1a7 are header/padding data that the old scan decoded as
+	// the start of ``start``; the IVT reset vector enters at 0x1001a8.
+	hasResetEntry := false
+	for _, u := range units {
+		if u.Addr == 0x1001A8 && u.Orig == "start" {
+			hasResetEntry = true
+			break
+		}
+	}
+	if hasResetEntry {
+		filtered := make([]fnUnit, 0, len(units))
+		for _, u := range units {
+			if u.Addr == 0x100100 && u.Orig == "start" {
+				continue
+			}
+			filtered = append(filtered, u)
+		}
+		units = filtered
+	}
 	return units, nil
 }
 

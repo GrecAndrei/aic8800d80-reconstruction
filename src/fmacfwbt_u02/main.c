@@ -5408,7 +5408,7 @@ const char aWrongPsp[] = "\nWrong PSP!";  /* @ 0x147364 */
 uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};
 
 /* --- forward declarations --- */
-int start(int a1, int a2, int a3);
+int start();
 volatile int * memset_byte(volatile int *result, uint8_t a2, unsigned int a3);
 int ke_evt_handler(int a1, int a2, int a3, int a4);
 void ke_task_init();
@@ -6843,29 +6843,15 @@ int aSgiRcSsShortGi();
 int aTwtHandleActio();
 int aTwtHandleSetup();
 int aVolatileUint8T();
-// start @ 0x100100
-int start(int a1, int a2, int a3) {
-  int v4; // r4
-  volatile int *v5; // r6
-  int v6; // r5
-  int v7; // r2
-  int v8; // r3
+// start @ 0x1001a8
+int start() {
+  int v0; // r2
+  int v1; // r3
 
-  v6 = *(volatile uint8_t *)(a1 + 20);
-  if ( !((a3 < 0) ^ _VF | (a3 == 0)) )
-    ((int (*)())JUMPOUT)(0x1001F2);
-  *v5 = a1;
-  v5[1] = v4;
-  v5[2] = (int)v5;
-  *v5 = a1;
-  v5[1] = a3;
-  v5[2] = a3;
-  v5[3] = v6;
-  v5[4] = (int)v5;
   if ( (uint16_t)*(volatile uint32_t *)off_1001EC == 49729
     || (*((volatile uint32_t *)off_1001F0 + 23) & 3) != 2
-    || (v7 = *((volatile uint32_t *)off_1001F4 + 92), v8 = *((volatile uint32_t *)off_1001F4 + 93), v7 >= 0)
-    || v8 >= 0 )
+    || (v0 = *((volatile uint32_t *)off_1001F4 + 92), v1 = *((volatile uint32_t *)off_1001F4 + 93), v0 >= 0)
+    || v1 >= 0 )
   {
     _R0 = dword_1001F8;
     __asm volatile("msr msp, %0" : : "r"(_R0) : "memory");
@@ -6873,9 +6859,9 @@ int start(int a1, int a2, int a3) {
   }
   else
   {
-    _R2 = v7 & 0xFFFFFFF;
+    _R2 = v0 & 0xFFFFFFF;
     __asm volatile("msr msp, %0" : : "r"(_R2) : "memory");
-    return ((int (*)(void))(v8 & 0xFFFFFFF))();
+    return ((int (*)(void))(v1 & 0xFFFFFFF))();
   }
 }
 

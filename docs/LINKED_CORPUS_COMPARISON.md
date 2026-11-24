@@ -226,10 +226,23 @@ is idempotent, has `--check`, and has a fixed-point test in
 | `tools/signed_halfwords.py` | restore Hex-Rays signed `__int16` (`int16_t`) from `harness_v25/out/*_bin_types/` on locals, `(volatile) uint16_t */**` casts, `**(volatile uint16_t **) < 0` checks, and matching `(int16_t)` casts | 316 / 303 / 316 / 117 sites | 5M-boot (`gpio_mode_set`, `gpio_pad_ctrl_set`, un-eliminates dead `< 0` branches) |
 | `tools/libmatch.py` (interior drop) | after binding exact matched routines, iteratively drop unreferenced interior fragments split by IDA inside a matched routine | 2 / 2 / 2 / 2 fragments | 4 moved from `DIFFER` to `NOT_RUN` (`not_in_linked_image`) |
 
-Full boot from reset (`start @ 0x100100`, 5M-instruction cap) now matches
+Full boot from reset (`start @ 0x1001a8`, 5M-instruction cap) now matches
 identically with zero differences (`diff=None`, `left=[]`) across all 8,020
 peripheral writes in `fmacfw_8800d80_h_u02` and all 8,010 peripheral writes
 in `fmacfwbt_8800d80_u02` (until entering the polling/idle loop).
+
+2026-11-24 reset-entry correction: file 0x100-0x1a7 is header/padding data,
+not code. The real IVT reset entry at file 0x1a8 (analysis `0x1001a8`,
+hardware `0x1201a8`) is now the composed `start` in all four images, produced
+by hardware-base Hex-Rays decompilation through
+`harness_v19/scripts/ida_decompile_reset_entry.py` and mechanically converted
+by `tools/rebuild_boot_entry.py`; compose excludes the former data-as-code
+`0x100100` artifact. At a 500k-instruction boot cap every reconstructed
+peripheral write matches the original prefix: fmacfw_h 1,964/1,964,
+fmacfw 1,960/1,960, fmacfwbt 1,953/1,953, lmacfw_rf 2,238/2,238. The original
+has more writes at the same cap only because the recompiled C is less
+instruction-efficient than the original memset/copy loops; no mismatching
+reconstruction write was observed.
 
 Sites are per image in the order fmacfw, fmacfw_h, fmacfwbt, lmacfw_rf. The
 first four rows were measured together (3,743 to 3,766 MATCH, before the
