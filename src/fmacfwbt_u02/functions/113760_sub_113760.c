@@ -10,66 +10,68 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_113804;
 extern uint32_t off_1137FC;
 extern uint32_t off_113800;
-extern uint32_t dword_113804;
-extern uint32_t off_11380C;
 extern uint32_t off_113808;
+extern uint32_t off_11380C;
 extern uint32_t off_113810;
 extern uint32_t off_113814;
 extern uint32_t off_113818;
-extern uint32_t dword_11381C;
 extern uint32_t off_113820;
 
 // critical_section_enter @ 0x113760, size 156 bytes
-void critical_section_enter()
+int  critical_section_enter(uint32_t *a1)
 {
-  int *v0; // r4
-  int v1; // r0
-  uint8_t *v2; // r1
+  int *v2; // r4
   int v3; // r0
-  uint16_t v4; // r3
-  int v5; // r3
-  int v6; // r2
+  uint8_t *v4; // r1
+  int result; // r0
+  uint16_t v6; // r3
   int v7; // r3
+  int v8; // r2
+  int v9; // r3
+  int v10; // r1
+  int v11; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_1137FC = 1;
   }
-  v0 = (int *)off_113800;
-  v1 = dword_113804;
+  v2 = (int *)off_113800;
+  v3 = dword_113804;
   ++*(uint32_t *)off_113800;
-  check_abort_flag(v1);
-  v2 = off_11380C;
-  v3 = *(uint8_t *)off_11380C;
-  v4 = *(uint16_t *)off_113808 + 1;
-  *(uint16_t *)off_113808 = v4;
-  if ( v3 && *(uint8_t *)off_113810 <= (unsigned int)v4 )
+  check_abort_flag(v3, a1);
+  v4 = off_11380C;
+  result = *(uint8_t *)off_11380C;
+  v6 = *(uint16_t *)off_113808 + 1;
+  *(uint16_t *)off_113808 = v6;
+  if ( result && *(uint8_t *)off_113810 <= (unsigned int)v6 )
   {
-    v7 = *(uint8_t *)off_113814;
-    *v2 = 0;
-    if ( v7 )
+    v9 = *(uint8_t *)off_113814;
+    *v4 = 0;
+    if ( v9 )
       *((uint32_t *)off_113818 + 512) &= ~0x2000u;
     else
       *((uint32_t *)off_113818 + 713) &= ~1u;
     phy_reg_modify(1);
-    irq_lock(1069, 1);
-    state_check_feature(512, dword_11381C);
+    irq_lock((char *)0x42D, 1);
+    result = state_check_feature(512, aWfr);
     if ( !*(uint8_t *)off_113820 )
-      bt_ctrl_main_task();
+      bt_ctrl_main_task(result, v10, v11, *(uint8_t *)off_113820);
   }
-  if ( *v0 )
+  if ( *v2 )
   {
-    v5 = *v0 - 1;
-    v6 = *(uint32_t *)off_1137FC;
-    *v0 = v5;
-    if ( !v5 )
+    v7 = *v2 - 1;
+    v8 = *(uint32_t *)off_1137FC;
+    *v2 = v7;
+    if ( !v7 )
     {
-      if ( v6 )
+      if ( v8 )
         __enable_irq();
     }
   }
+  return result;
 }
-

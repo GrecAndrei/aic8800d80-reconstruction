@@ -10,45 +10,48 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_1134E8;
+extern uint32_t off_1134EC;
+extern uint32_t off_1134F0;
+extern uint32_t off_1134F4;
+extern uint32_t off_1134F8;
+extern uint32_t off_1134FC;
+
 // mode_to_config_get @ 0x11347c, size 106 bytes
-// Doc: rf_stream_start2_n26e [rf]: RF stream start variant; tail-calls helper at 0x114e84
-// rf_stream_start2_n26e [rf]: RF stream start variant; tail-calls helper at 0x114e84
-uint32_t * mode_to_config_get(int a1)
+int * mode_to_config_get(int a1)
 {
-  uint32_t *result; // r0
-  uint32_t *v2; // r4
-  int v3; // r0
-  unsigned int v4; // r0
+  int *result; // r0
+  int *v2; // r4
+  unsigned int v3; // r0
 
   switch ( a1 )
   {
     case 1:
-      v2 = rf_bus_write2_n1be;
-      v3 = memcpy_aligned(rf_bus_write2_n1be, rf_stream_start2_n2a8, 18);
-      if ( *((uint8_t *)rf_fault_dump_n_3ec + 370) && get_hw_info_bit9(v3) )
+      v2 = (int *)off_1134F0;
+      memcpy_aligned((char *)off_1134F0, (char *)off_1134F4, 0x12u);
+      if ( BYTE2(((uint32_t *)(uintptr_t)off_1134F8)[92]) && get_hw_info_bit9() )
       {
-        v4 = get_hw_info_2();
-        v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
+        v3 = get_hw_info_2();
+        v2[2] = ((HIWORD(v3) << 16) + 0x10000) | (uint16_t)v3;
         return v2;
       }
-      else if ( *(uint16_t *)rf_stream_start2_n2b1 == 0xFFFF
-             || *((uint16_t *)rf_stream_start2_n2b1 + 1) == 0xFFFF )
+      else if ( *(uint16_t *)off_1134FC == 0xFFFF || *((uint16_t *)off_1134FC + 1) == 0xFFFF )
       {
-        return rf_bus_write2_n1be;
+        return (int *)off_1134F0;
       }
       else
       {
-        result = rf_bus_write2_n1be;
-        v2[2] = *(uint32_t *)rf_stream_start2_n2b1;
+        result = (int *)off_1134F0;
+        v2[2] = *(uint32_t *)off_1134FC;
       }
       break;
     case 6:
-      return (uint32_t *)rf_stream_start2_4ec;
+      return (int *)off_1134EC;
     case 15:
-      return (uint32_t *)rf_stream_start2_n29c;
+      return (int *)off_1134E8[0];
     default:
-      return 0;
+      return nullptr;
   }
   return result;
 }
-

@@ -10,28 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_11459C;
+
 extern uint32_t off_1145A0;
-extern uint32_t off_1145A8;
 extern uint32_t off_1145A4;
+extern uint32_t off_1145A8;
 
 // process_global_167204 @ 0x114574, size 40 bytes
-int  process_global_167204(int a1, int a2, int a3)
+int process_global_167204()
 {
   int result; // r0
-  uint8_t *v4; // r3
-  uint32_t *v5; // r1
+  uint8_t *v1; // r3
+  uint32_t *v2; // r1
 
-  result = event_dispatch(dword_11459C, a2, a3);
-  v4 = off_1145A0;
+  result = event_dispatch(aErrorLpLevelPo_0);
+  v1 = off_1145A0;
   if ( *((uint8_t *)off_1145A0 + 3) )
   {
-    v5 = off_1145A8;
+    v2 = off_1145A8;
     *(uint32_t *)off_1145A4 &= ~8u;
-    *v5 &= 0xFFFFFFF0;
-    v4[3] = 0;
+    *v2 &= 0xFFFFFFF0;
+    v1[3] = 0;
     return 0;
   }
   return result;
 }
-

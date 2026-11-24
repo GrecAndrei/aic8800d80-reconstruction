@@ -10,17 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12FCCC;
-extern uint32_t dword_12FCD0;
-extern uint32_t dword_12FCC8;
-extern uint32_t dword_12FCE0;
-extern uint32_t dword_12FCDC;
-extern uint32_t dword_12FCD4;
-extern uint32_t dword_12FCD8;
 
 // parse_hex10 @ 0x12fc38, size 144 bytes
-// Doc: sub_122FC38 [util]: Calls helper with args from struct, sets up state
-// sub_122FC38 [util]: Calls helper with args from struct, sets up state
 int  parse_hex10(int a1, int a2)
 {
   int v4; // r0
@@ -28,16 +21,16 @@ int  parse_hex10(int a1, int a2)
   int v7; // r0
   int v8; // r4
 
-  v4 = parse_hex_or_dec(*(uint8_t **)(a2 + 4), 0, 0xAu);
+  v4 = parse_hex_or_dec(*(uint8_t **)(a2 + 4), nullptr, 0xAu);
   if ( v4 )
   {
     if ( v4 == 1 )
     {
       if ( a1 <= 2 )
         goto LABEL_5;
-      v6 = parse_hex_or_dec(*(uint8_t **)(a2 + 8), 0, 0x10u);
+      v6 = parse_hex_or_dec(*(uint8_t **)(a2 + 8), nullptr, 0x10u);
       **(uint16_t **)off_12FCCC = v6;
-      event_dispatch(dword_12FCD0, v6);
+      event_dispatch("cfg dbg_msk: 0x%x\n", v6);
       return 0;
     }
     else if ( v4 == 2 )
@@ -45,26 +38,25 @@ int  parse_hex10(int a1, int a2)
       if ( a1 <= 2 )
       {
 LABEL_5:
-        event_dispatch(dword_12FCC8);
+        event_dispatch(aInvalidArgs);
         return 0;
       }
-      v8 = parse_hex_or_dec(*(uint8_t **)(a2 + 8), 0, 0x10u);
-      event_dispatch(dword_12FCE0, v8);
+      v8 = parse_hex_or_dec(*(uint8_t **)(a2 + 8), nullptr, 0x10u);
+      event_dispatch("cfg dbg mod: %08X\n", v8);
       ipc_set_data0(v8);
       return 0;
     }
     else
     {
-      event_dispatch(dword_12FCDC, v4);
+      event_dispatch("invalid func: %d\n", v4);
       return 0;
     }
   }
   else
   {
-    event_dispatch(dword_12FCD4, **(uint16_t **)off_12FCCC);
+    event_dispatch("cur dbg_msk: 0x%x\n", **(uint16_t **)off_12FCCC);
     v7 = ipc_get_data0();
-    event_dispatch(dword_12FCD8, v7);
+    event_dispatch("dbg mod: %08X\n", v7);
     return 0;
   }
 }
-

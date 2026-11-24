@@ -10,37 +10,37 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12C9F8;
+
 extern uint32_t dword_12C9FC;
-extern uint32_t dword_12CA04;
-extern uint32_t dword_12CA00;
-extern uint32_t dword_12CA08;
+extern uint32_t off_12C9F8;
 extern uint32_t off_12CA0C;
 
-// ke_msg_send @ 0x12c98c, size 106 bytes
-int  ke_msg_send(int a1)
+// ke_msg_send_2 @ 0x12c98c, size 106 bytes
+uint32_t * ke_msg_send_2(int a1)
 {
-  int16_t v1; // r3
-  uint16_t *v4; // r0
+  int v1; // r3
 
   v1 = *(uint16_t *)(a1 - 6);
-  if ( **(int16_t **)off_12C9F8 >= 0 || (uint8_t)v1 <= 0xEu )
+  if ( **(uint16_t **)off_12C9F8 >= 0 || (uint8_t)v1 <= 0xEu )
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      cmd_handler_a(dword_12C9FC);
-      return unknown_func_12d104(0x4000000);
+      cmd_handler_a(dword_12C9FC, (uint32_t *)(a1 - 12));
+      return (uint32_t *)unknown_func_12d104(0x4000000);
     }
   }
   else
   {
-    mmio_clear_register(dword_12CA04, dword_12CA00, 183);
+    mmio_clear_register((int)aIdTaskMax, (int)aKeTaskLocal, 183);
+    v1 = *(uint16_t *)(a1 - 6);
   }
-  event_dispatch(dword_12CA08, *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
-  v4 = (uint16_t *)(a1 - 12);
+  event_dispatch(
+    "\x9D\x80Dispatching msg:%x from tsk:%x to tsk:%x\n",
+    *(uint16_t *)(a1 - 8),
+    *(uint16_t *)(a1 - 4),
+    v1);
   if ( *(uint8_t *)off_12CA0C )
-    return tx_pkt_enqueue(v4);
+    return tx_pkt_enqueue((char *)(a1 - 12));
   else
-    return read_mode_0x182ba0(v4);
+    return (uint32_t *)read_mode_0x182ba0();
 }
-

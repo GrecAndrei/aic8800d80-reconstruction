@@ -10,36 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_114078;
-extern uint32_t dword_11407C;
-extern uint32_t dword_11408C;
-extern uint32_t dword_114088;
-extern uint32_t dword_114084;
 extern uint32_t off_114080;
+extern uint32_t off_114084;
 
 // band_is_supported @ 0x114024, size 82 bytes
-int  band_is_supported(int a1, int a2, int a3, int a4)
+int  band_is_supported(int a1)
 {
   int result; // r0
-  int v5; // r2
+  int v2; // r2
 
   if ( a1 == *(uint32_t *)off_114078 )
   {
-    v5 = 0;
+    v2 = 0;
   }
   else
   {
     if ( a1 != *((uint32_t *)off_114078 + 1) )
     {
-      result = ke_event_schedule(dword_11407C, a1, *(uint32_t *)off_114078);
+      result = ke_event_schedule_1("%s, func 0x%x unknown\n", (const char *)a1, *(uint32_t *)off_114078);
       goto LABEL_4;
     }
-    v5 = 1;
+    v2 = 1;
   }
-  result = ke_event_schedule(dword_11408C, dword_114088, *(uint32_t *)(dword_114084 + 4 * v5));
+  result = ke_event_schedule_1("%s, func is %s\n", aUsbTransErrorH, *(const char **)&*((uint8_t *)(uintptr_t)off_114084[0] + (4 * v2)));
 LABEL_4:
-  if ( *((uint8_t *)off_114080 + 353) )
-    return patch_aware_dispatch(1068, 1, 1000 * *((uint8_t *)off_114080 + 354), a4);
+  if ( BYTE1(((uint32_t *)(uintptr_t)off_114080)[88]) )
+    return patch_aware_dispatch(1068, 1, 1000 * BYTE2(((uint32_t *)(uintptr_t)off_114080)[88]));
   return result;
 }
-

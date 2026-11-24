@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1121C0;
-extern uint32_t dword_1121D0;
+
 extern uint32_t dword_1121C4;
 extern uint32_t dword_1121C8;
 extern uint32_t dword_1121CC;
+extern uint32_t off_1121C0;
 
 // global_copy_u16 @ 0x11211c, size 162 bytes
 int  global_copy_u16(int a1, int a2, unsigned int a3)
@@ -35,7 +35,7 @@ int  global_copy_u16(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    log_printf(dword_1121D0);
+    log_printf(aErrAlignmentEr);
     return 3;
   }
   else
@@ -74,4 +74,3 @@ int  global_copy_u16(int a1, int a2, unsigned int a3)
     }
   }
 }
-

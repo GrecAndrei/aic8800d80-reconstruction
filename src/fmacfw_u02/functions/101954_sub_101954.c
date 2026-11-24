@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_101978;
 extern uint32_t off_10197C;
-extern uint32_t dword_101980;
 
 // rf_copy_register @ 0x101954, size 36 bytes
 int rf_copy_register()
@@ -24,8 +24,7 @@ int rf_copy_register()
   v1 = *(uint32_t *)off_101978;
   *(uint32_t *)off_10197C = *(uint32_t *)off_101978;
   if ( (v1 & 0x1000) == 0 )
-    return event_dispatch(dword_101980, v1, v0);
+    return event_dispatch("no other rc isr: %x\n", v1);
   *(uint32_t *)&v0[-8] &= ~0x1000u;
   return unknown_func_12d104(16);
 }
-

@@ -10,21 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_112AE8;
-extern uint32_t dword_112AF4;
-extern uint32_t dword_112AEC;
 extern uint32_t off_112AF0;
 
 // ke_wait_event_a @ 0x112ac0, size 40 bytes
-uint8_t * ke_wait_event_a(int a1, int a2, int a3)
+int ke_wait_event_a()
 {
-  uint8_t *result; // r0
+  int result; // r0
 
-  if ( (*((uint16_t *)off_112AE8 + 89) & 0x4000) != 0 )
-    result = uart_puts((uint8_t *)dword_112AF4);
+  if ( (((uint32_t *)(uintptr_t)off_112AE8)[44] & 0x40000000) != 0 )
+    result = (int)uart_puts(aUsbSusp_0);
   else
-    result = (uint8_t *)ke_event_schedule(dword_112AEC, a2, a3);
+    result = ke_event_schedule_1(aUsbSusp);
   *(uint8_t *)off_112AF0 = 1;
   return result;
 }
-

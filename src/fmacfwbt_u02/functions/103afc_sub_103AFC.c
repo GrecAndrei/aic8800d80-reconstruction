@@ -10,43 +10,26 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103CEC;
+
 extern uint32_t dword_103CF0;
+extern uint32_t dword_103CFC;
+extern uint32_t dword_103D0C;
+extern uint32_t dword_103D18;
+extern uint32_t dword_103D20;
+extern uint32_t dword_103D28;
+extern uint32_t dword_103D30;
+extern uint32_t dword_103D38;
+extern uint32_t dword_103D40;
+extern uint32_t dword_103D48;
+extern uint32_t dword_103D50;
+extern uint32_t dword_103D58;
+extern uint32_t dword_103D60;
+extern uint32_t dword_103D68;
+extern uint32_t dword_103D70;
+extern uint32_t off_103CEC;
 extern uint32_t off_103CF4;
 extern uint32_t off_103CF8;
-extern uint32_t dword_103D20;
-extern uint32_t dword_103D24;
-extern uint32_t dword_103D18;
-extern uint32_t dword_103D1C;
-extern uint32_t dword_103D28;
-extern uint32_t dword_103D2C;
-extern uint32_t dword_103D30;
-extern uint32_t dword_103D34;
-extern uint32_t dword_103D38;
-extern uint32_t dword_103D3C;
-extern uint32_t dword_103D40;
-extern uint32_t dword_103D44;
-extern uint32_t dword_103D50;
-extern uint32_t dword_103D54;
-extern uint32_t dword_103D58;
-extern uint32_t dword_103D5C;
-extern uint32_t dword_103D60;
-extern uint32_t dword_103D64;
-extern uint32_t dword_103D68;
-extern uint32_t dword_103D6C;
-extern uint32_t dword_103D70;
-extern uint32_t dword_103D74;
 extern uint32_t off_103D08;
-extern uint32_t dword_103D0C;
-extern uint32_t dword_103D78;
-extern uint32_t dword_103D7C;
-extern uint32_t dword_103D80;
-extern uint32_t dword_103CFC;
-extern uint32_t dword_103D00;
-extern uint32_t dword_103D04;
-extern uint32_t dword_103D48;
-extern uint32_t dword_103D4C;
-extern uint32_t dword_103D10;
 extern uint32_t off_103D14;
 
 // ke_sleep_set_mode @ 0x103afc, size 496 bytes
@@ -57,27 +40,19 @@ int  ke_sleep_set_mode(int a1)
   unsigned int v3; // r1
   int v4; // r5
   unsigned int v5; // r3
-  int v6; // r0
-  void *v7; // r2
-  unsigned int *v8; // r4
-  int *v9; // r5
-  int v10; // r6
-  int v11; // r0
-  int v12; // r1
+  const char *v6; // r0
+  unsigned int *v7; // r4
+  int *v8; // r5
+  int v9; // r6
+  unsigned int *v11; // r2
+  int *v12; // r4
+  int v13; // r5
   int v14; // r1
-  unsigned int *v15; // r2
-  int *v16; // r4
-  int v17; // r5
-  int v18; // r1
-  int v19; // r0
-  int v20; // r3
-  unsigned int v21; // r1
-  void *v22; // r2
-  unsigned int *v23; // r4
-  int *v24; // r5
-  int v25; // r6
-  int v26; // r0
-  int v27; // r1
+  const char *v15; // r0
+  int v16; // r3
+  unsigned int *v17; // r4
+  int *v18; // r5
+  int v19; // r6
 
   *(uint32_t *)off_103CEC = dword_103CF0;
   if ( a1 )
@@ -85,12 +60,12 @@ int  ke_sleep_set_mode(int a1)
     switch ( a1 )
     {
       case 1:
-        v15 = (unsigned int *)off_103CF4;
-        v16 = (int *)off_103CF8;
-        v17 = dword_103D20;
-        v18 = *(uint32_t *)off_103CF4;
-        v19 = dword_103D24;
-        v20 = *(uint32_t *)off_103CF4 & 0x70 | 1;
+        v11 = (unsigned int *)off_103CF4;
+        v12 = (int *)off_103CF8;
+        v13 = dword_103D20;
+        v14 = *(uint32_t *)off_103CF4;
+        v15 = aDumpDac150m;
+        v16 = *(uint32_t *)off_103CF4 & 0x70 | 1;
         break;
       case 10:
         v1 = (unsigned int *)off_103CF4;
@@ -98,7 +73,7 @@ int  ke_sleep_set_mode(int a1)
         v3 = *(uint32_t *)off_103CF4;
         v4 = dword_103D18;
         v5 = *(uint32_t *)off_103CF4;
-        v6 = dword_103D1C;
+        v6 = aDumpDpdTxRx;
         goto LABEL_24;
       case 14:
         v1 = (unsigned int *)off_103CF4;
@@ -106,15 +81,15 @@ int  ke_sleep_set_mode(int a1)
         v3 = *(uint32_t *)off_103CF4;
         v4 = dword_103D28;
         v5 = *(uint32_t *)off_103CF4;
-        v6 = dword_103D2C;
+        v6 = aDumpLoftOut;
         goto LABEL_24;
       case 2:
-        v15 = (unsigned int *)off_103CF4;
-        v16 = (int *)off_103CF8;
-        v17 = dword_103D30;
-        v18 = *(uint32_t *)off_103CF4;
-        v19 = dword_103D34;
-        v20 = *(uint32_t *)off_103CF4 & 0x70 | 2;
+        v11 = (unsigned int *)off_103CF4;
+        v12 = (int *)off_103CF8;
+        v13 = dword_103D30;
+        v14 = *(uint32_t *)off_103CF4;
+        v15 = aDumpAdcIn;
+        v16 = *(uint32_t *)off_103CF4 & 0x70 | 2;
         break;
       default:
         switch ( a1 )
@@ -125,7 +100,7 @@ int  ke_sleep_set_mode(int a1)
             v3 = *(uint32_t *)off_103CF4;
             v4 = dword_103D38;
             v5 = *(uint32_t *)off_103CF4;
-            v6 = dword_103D3C;
+            v6 = aDumpRxDataIq;
             break;
           case 30:
             v1 = (unsigned int *)off_103CF4;
@@ -133,7 +108,7 @@ int  ke_sleep_set_mode(int a1)
             v3 = *(uint32_t *)off_103CF4;
             v4 = dword_103D40;
             v5 = *(uint32_t *)off_103CF4;
-            v6 = dword_103D44;
+            v6 = aDumpRcAdcIq;
             break;
           case 31:
             v1 = (unsigned int *)off_103CF4;
@@ -141,7 +116,7 @@ int  ke_sleep_set_mode(int a1)
             v3 = *(uint32_t *)off_103CF4;
             v4 = dword_103D50;
             v5 = *(uint32_t *)off_103CF4;
-            v6 = dword_103D54;
+            v6 = aDumpDccancelOu;
             break;
           case 32:
             v1 = (unsigned int *)off_103CF4;
@@ -149,7 +124,7 @@ int  ke_sleep_set_mode(int a1)
             v3 = *(uint32_t *)off_103CF4;
             v4 = dword_103D58;
             v5 = *(uint32_t *)off_103CF4;
-            v6 = dword_103D5C;
+            v6 = aDumpPreDgcOutI;
             break;
           case 33:
             v1 = (unsigned int *)off_103CF4;
@@ -157,7 +132,7 @@ int  ke_sleep_set_mode(int a1)
             v3 = *(uint32_t *)off_103CF4;
             v4 = dword_103D60;
             v5 = *(uint32_t *)off_103CF4;
-            v6 = dword_103D64;
+            v6 = aDumpNotchOutIq;
             break;
           default:
             if ( a1 != 4 )
@@ -169,7 +144,7 @@ int  ke_sleep_set_mode(int a1)
                 v3 = *(uint32_t *)off_103CF4;
                 v4 = dword_103D68;
                 v5 = *(uint32_t *)off_103CF4;
-                v6 = dword_103D6C;
+                v6 = aDumpRcOutIq;
                 break;
               }
               if ( a1 != 50 )
@@ -182,25 +157,22 @@ int  ke_sleep_set_mode(int a1)
                     v3 = *(uint32_t *)off_103CF4;
                     v4 = dword_103D70;
                     v5 = *(uint32_t *)off_103CF4;
-                    v6 = dword_103D74;
+                    v6 = aDumpRcStatus;
                     break;
                   case 7:
-                    v22 = off_103CF4;
-                    v23 = (unsigned int *)off_103D08;
-                    v24 = (int *)off_103CF8;
-                    v25 = dword_103D0C;
-                    v26 = dword_103D78;
-                    v27 = *(uint32_t *)off_103CF4 & 0x70;
+                    v17 = (unsigned int *)off_103D08;
+                    v18 = (int *)off_103CF8;
+                    v19 = dword_103D0C;
                     *(uint32_t *)off_103CF4 &= 0xFFFFFF70;
-                    *v23 = *v23 & 0xFF00FFFF | 0x540000;
-                    *v24 = v25;
-                    ke_event_schedule(v26, v27, v22);
+                    *v17 = *v17 & 0xFF00FFFF | 0x540000;
+                    *v18 = v19;
+                    ke_event_schedule_1(aDumpLpfOutBpfO);
                     goto LABEL_22;
                   case 8:
                     v1 = (unsigned int *)off_103CF4;
                     v2 = (int *)off_103CF8;
                     v4 = dword_103D0C;
-                    v6 = dword_103D7C;
+                    v6 = aDumpGainLoft2I;
                     *(uint32_t *)off_103D08 = *(uint32_t *)off_103D08 & 0xFF00FFFF | 0x570000;
                     v3 = *v1;
                     v5 = *v1;
@@ -209,7 +181,7 @@ int  ke_sleep_set_mode(int a1)
                     v1 = (unsigned int *)off_103CF4;
                     v2 = (int *)off_103CF8;
                     v4 = dword_103D0C;
-                    v6 = dword_103D80;
+                    v6 = aDumpGainLoftIn;
                     *(uint32_t *)off_103D08 = *(uint32_t *)off_103D08 & 0xFF00FFFF | 0x30000;
                     v3 = *v1;
                     v5 = *v1;
@@ -221,9 +193,9 @@ int  ke_sleep_set_mode(int a1)
                     v4 = dword_103CFC;
                     v5 = *(uint32_t *)off_103CF4;
                     if ( a1 == 9 )
-                      v6 = dword_103D00;
+                      v6 = aDumpAuxFifoOut;
                     else
-                      v6 = dword_103D04;
+                      v6 = aReselectMode;
                     break;
                 }
                 break;
@@ -234,34 +206,28 @@ int  ke_sleep_set_mode(int a1)
             v3 = *(uint32_t *)off_103CF4;
             v4 = dword_103D48;
             v5 = *(uint32_t *)off_103CF4;
-            v6 = dword_103D4C;
+            v6 = aDumpRcInIq;
             break;
         }
 LABEL_24:
-        v14 = v3 & 0x70;
-        *v1 = v5 & 0xFFFFFF00 | v14;
+        *v1 = v5 & 0xFFFFFF00 | v3 & 0x70;
         *v2 = v4;
-        ke_event_schedule(v6, v14, v1);
+        ke_event_schedule_1(v6);
         goto LABEL_22;
     }
-    v21 = v18 & 0xFFFFFF00;
-    *v15 = v20 | v21;
-    *v16 = v17;
-    ke_event_schedule(v19, v21, v15);
+    *v11 = v16 | v14 & 0xFFFFFF00;
+    *v12 = v13;
+    ke_event_schedule_1(v15);
     goto LABEL_22;
   }
-  v7 = off_103CF4;
-  v8 = (unsigned int *)off_103D08;
-  v9 = (int *)off_103CF8;
-  v10 = dword_103D0C;
-  v11 = dword_103D10;
-  v12 = *(uint32_t *)off_103CF4 & 0x70;
+  v7 = (unsigned int *)off_103D08;
+  v8 = (int *)off_103CF8;
+  v9 = dword_103D0C;
   *(uint32_t *)off_103CF4 &= 0xFFFFFF70;
-  *v8 = *v8 & 0xFF00FFFF | 0x770000;
-  *v9 = v10;
-  ke_event_schedule(v11, v12, v7);
+  *v7 = *v7 & 0xFF00FFFF | 0x770000;
+  *v8 = v9;
+  ke_event_schedule_1(aDumpLoftPwrInO);
 LABEL_22:
   *(uint32_t *)off_103D14 = 769;
   return timer_set(500);
 }
-

@@ -10,14 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12FEB8;
-extern uint32_t off_12FEBC;
+
 extern uint32_t dword_12FEC0;
 extern uint32_t dword_12FEC4;
 extern uint32_t dword_12FEC8;
 extern uint32_t dword_12FECC;
 extern uint32_t dword_12FED0;
 extern uint32_t dword_12FED4;
+extern uint32_t off_12FEB8;
+extern uint32_t off_12FEBC;
 
 // debug_assert @ 0x12fe58, size 94 bytes
 int debug_assert()
@@ -56,4 +57,3 @@ int debug_assert()
   }
   return result;
 }
-

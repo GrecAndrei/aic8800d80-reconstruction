@@ -10,16 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_112568;
-extern uint32_t off_112560;
-extern uint32_t dword_112564;
+
+extern uint32_t dword_112548;
 extern uint32_t dword_112554;
 extern uint32_t dword_112558;
+extern uint32_t dword_112564;
+extern uint32_t dword_112568;
+extern uint32_t off_112538;
+extern uint32_t off_11253C;
+extern uint32_t off_112540;
+extern uint32_t off_112544;
+extern uint32_t off_11254C;
+extern uint32_t off_112550;
+extern uint32_t off_11255C;
+extern uint32_t off_112560;
 
-// rf_init @ 0x1122f0, size 582 bytes
-// Doc: rf_bus_setup_n3a0 [mac]: Set up RF bus register pairs from input bytes
-// rf_bus_setup_n3a0 [mac]: Set up RF bus register pairs from input bytes
-int rf_init()
+// rf_init_1 @ 0x1122f0, size 582 bytes
+int rf_init_1()
 {
   uint8_t *v0; // r3
   uint32_t *v1; // r4
@@ -50,29 +57,29 @@ int rf_init()
   uint32_t *v26; // r2
   uint32_t *v27; // r3
 
-  v0 = rf_cmd_send_n_3dc;
-  v1 = rf_cmd_send_n_3d8;
-  *(uint8_t *)rf_cmd_send_2 = 2;
+  v0 = off_11253C;
+  v1 = off_112540;
+  *(uint8_t *)off_112538 = 2;
   *v0 = 0;
   v1[896] &= ~1u;
   v1[513] &= ~1u;
   timer_init();
   if ( (v1[6] & 0x80) != 0 )
     v1[6] &= ~0x80u;
-  v2 = rf_cmd_send_n_3d8;
-  *((uint32_t *)rf_cmd_send_n_3d8 + 513) |= 0x200u;
+  v2 = off_112540;
+  *((uint32_t *)off_112540 + 513) |= 0x200u;
   while ( (v2[5] & 0x80) == 0 )
     ;
-  v3 = (int *)rf_cmd_send_n_3d4;
-  v4 = rf_bus_reset_helper;
-  v5 = rf_cmd_send_n_3d4;
+  v3 = (int *)off_112544;
+  v4 = dword_112548;
+  v5 = off_112544;
   for ( i = 1; ; ++i )
   {
     if ( i == 1 )
     {
       if ( (*v5 & 0x80008000) != 0 )
         *v5 |= v4;
-      goto rf_bus_reset_n82;
+      goto LABEL_11;
     }
     v7 = *v3;
     if ( (*v3 & 0x80008000) != 0 )
@@ -90,18 +97,18 @@ int rf_init()
     }
     if ( i == 6 )
       break;
-rf_bus_reset_n82:
+LABEL_11:
     v3 += 8;
   }
-  v8 = rf_cmd_send_n_3d8;
-  *((uint32_t *)rf_cmd_send_n_3d8 + 513) |= 0x400u;
+  v8 = off_112540;
+  *((uint32_t *)off_112540 + 513) |= 0x400u;
   v8[513] |= 0x80u;
   while ( (v8[5] & 0x40) == 0 )
     ;
-  v9 = (int *)rf_bus_reset_n25c;
+  v9 = (int *)off_11254C;
   v10 = dword_112568;
-  v11 = rf_bus_reset_helper;
-  v12 = (int *)rf_bus_reset_n25c;
+  v11 = dword_112548;
+  v12 = (int *)off_11254C;
   v13 = 1;
   while ( 2 )
   {
@@ -151,8 +158,8 @@ LABEL_24:
     }
     break;
   }
-  v17 = rf_cmd_send_n_3d8;
-  *((uint32_t *)rf_cmd_send_n_3d8 + 4) = 1072;
+  v17 = off_112540;
+  *((uint32_t *)off_112540 + 4) = 1072;
   while ( (v17[4] & 0x30) != 0 )
     ;
   v17[513] |= 0x100u;
@@ -164,42 +171,41 @@ LABEL_24:
   {
     v22 = off_112560;
     v23 = dword_112564;
-    v24 = rf_cmd_send_n_3d8;
+    v24 = off_112540;
     v17[9] = 285;
     v17[10] = v23;
     *v22 = 318;
     v17[513] |= 0x80u;
     while ( (v24[5] & 0x40) == 0 )
       ;
-    while ( *((int *)rf_cmd_send_n_3d8 + 4) >= 0 )
+    while ( *((int *)off_112540 + 4) >= 0 )
       ;
-    v25 = rf_cmd_send_n_3d8;
-    *((uint32_t *)rf_cmd_send_n_3d8 + 4) = 1056;
+    v25 = off_112540;
+    *((uint32_t *)off_112540 + 4) = 1056;
     while ( (v25[4] & 0x20) != 0 )
       ;
-    v26 = rf_cmd_send_n_3d8;
+    v26 = off_112540;
     v25[513] |= 0x100u;
     v25[513] |= 0x200u;
     while ( (v26[5] & 0x80) == 0 )
       ;
-    v27 = rf_cmd_send_n_3d8;
+    v27 = off_112540;
     v26[4] |= 0x10u;
     while ( (v27[4] & 0x10) != 0 )
       ;
     v27[513] |= 0x400u;
   }
-  v18 = rf_cmd_send_n_3c8;
+  v18 = off_112550;
   v19 = (int *)dword_112554;
-  *((uint32_t *)rf_cmd_send_n_3d8 + 512) &= 0xFFFFF80F;
+  *((uint32_t *)off_112540 + 512) &= 0xFFFFF80F;
   v18[1] = 0;
   v18[2] = 0;
   *(uint8_t *)v18 = 0;
-  sub_100200(v19, 0, 0x50u);
-  sub_100200((int *)dword_112558, 0, 0x50u);
+  memset_thunk(v19, 0, 0x50u);
+  memset_thunk((int *)dword_112558, 0, 0x50u);
   result = timer_set_alarm();
-  v21 = *((int ( **)(uint32_t))rf_register_field_reset_26c + 8);
+  v21 = *(int ( **)(uint32_t))&((uint32_t *)(uintptr_t)off_11255C)[32];
   if ( v21 )
     return v21(0);
   return result;
 }
-

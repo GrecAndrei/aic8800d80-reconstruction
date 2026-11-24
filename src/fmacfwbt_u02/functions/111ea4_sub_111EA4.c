@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_111F44;
-extern uint32_t dword_111F54;
+
 extern uint32_t dword_111F48;
 extern uint32_t dword_111F4C;
 extern uint32_t dword_111F50;
+extern uint32_t off_111F44;
 
-// ke_msg_handler @ 0x111ea4, size 158 bytes
-int  ke_msg_handler(int a1, int a2, unsigned int a3)
+// ke_msg_handler_1 @ 0x111ea4, size 158 bytes
+int  ke_msg_handler_1(int a1, int a2, unsigned int a3)
 {
   int v3; // r4
   int v4; // r12
@@ -35,7 +35,7 @@ int  ke_msg_handler(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    printf_wrapper(dword_111F54);
+    printf_wrapper(aErrAlignmentEr);
     return 3;
   }
   else
@@ -74,4 +74,3 @@ int  ke_msg_handler(int a1, int a2, unsigned int a3)
     }
   }
 }
-

@@ -10,16 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_140D88;
+
 extern uint32_t dword_140D84;
+extern uint32_t dword_140D88;
 extern uint32_t dword_140D8C;
 extern uint32_t off_140D90;
-extern uint32_t dword_140D98;
-extern uint32_t dword_140D94;
 
 // ble_ll_adv_reset @ 0x140bec, size 408 bytes
-// Doc: sub_1240BEC [unknown]: Worker function with r4-r11/lr saved, takes r0,r1 args
-// sub_1240BEC [unknown]: Worker function with r4-r11/lr saved, takes r0,r1 args
 int  ble_ll_adv_reset(int a1, int a2)
 {
   int v3; // r5
@@ -38,7 +35,7 @@ int  ble_ll_adv_reset(int a1, int a2)
   char *v16; // r0
   char *v17; // r5
   int v18; // r6
-  int v19; // r2
+  unsigned int v19; // r2
 
   if ( a2 )
   {
@@ -86,10 +83,10 @@ LABEL_12:
     *(uint32_t *)(a1 + 96) = v13;
     if ( v13 >= v12 )
     {
-      if ( **(int16_t **)off_140D90 < 0 && ble_ll_adv_chk_active() )
+      if ( **(uint16_t **)off_140D90 < 0 && ble_ll_adv_chk_active() )
       {
         if ( *(uint32_t *)(a1 + 92) )
-          mmio_clear_register(dword_140D98, dword_140D94, 1585);
+          mmio_clear_register((int)aRmNoMoreMeasur, (int)aRmProcessBeaco, 1585);
       }
       rx_phy_status_parse(0xBu, 2);
       return ble_ll_adv_sm_check(a1, 0);
@@ -115,7 +112,7 @@ LABEL_12:
     if ( v14 >= v15 )
       goto LABEL_6;
   }
-  v18 = ke_msg_alloc(4096, 4, 11, 0x178u);
+  v18 = ke_msg_alloc(4096, 4, 11, 376);
   *(uint32_t *)v18 = *(uint32_t *)v17;
   *(uint16_t *)(v18 + 4) = *((uint16_t *)v17 + 2);
   if ( !*(uint8_t *)(a1 + 3) )
@@ -123,13 +120,12 @@ LABEL_12:
   *(uint8_t *)(v18 + 367) = 1;
   v19 = *(uint8_t *)(a1 + 58);
   *(uint8_t *)(v18 + 252) = v19;
-  memcpy(v18 + 253, a1 + 59, v19);
+  memcpy((char *)(v18 + 253), (char *)(a1 + 59), v19);
   *(uint8_t *)(v18 + 368) = 1;
   *(uint16_t *)(v18 + 352) = *(uint16_t *)(a1 + 52);
   *(uint16_t *)(v18 + 354) = *(uint16_t *)(a1 + 54);
   *(uint16_t *)(v18 + 356) = *(uint16_t *)(a1 + 56);
   *(uint8_t *)(v18 + 366) = *(uint8_t *)(v7 + 6489);
   *(uint32_t *)(v18 + 372) = *(uint16_t *)(a1 + 48) << 10;
-  return ke_msg_send(v18);
+  return (int)ke_msg_send_2(v18);
 }
-

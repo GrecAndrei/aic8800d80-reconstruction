@@ -10,35 +10,34 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12FE50;
+
+extern uint32_t dword_12FE64;
+extern uint32_t dword_12FE68;
+extern uint32_t dword_12FE9C;
+extern uint32_t dword_12FEA0;
+extern uint32_t off_12FE54;
 extern uint32_t off_12FE58;
 extern uint32_t off_12FE5C;
-extern uint32_t off_12FE84;
-extern uint32_t off_12FE88;
 extern uint32_t off_12FE60;
-extern uint32_t off_12FE54;
-extern uint32_t dword_12FE64;
-extern uint32_t off_12FE8C;
-extern uint32_t off_12FE90;
 extern uint32_t off_12FE6C;
-extern uint32_t dword_12FE68;
-extern uint32_t off_12FE94;
 extern uint32_t off_12FE70;
 extern uint32_t off_12FE74;
 extern uint32_t off_12FE78;
-extern uint32_t off_12FE98;
-extern uint32_t dword_12FE9C;
-extern uint32_t dword_12FEA0;
 extern uint32_t off_12FE7C;
-extern uint32_t dword_12FE80;
+extern uint32_t off_12FE84;
+extern uint32_t off_12FE88;
+extern uint32_t off_12FE8C;
+extern uint32_t off_12FE90;
+extern uint32_t off_12FE94;
+extern uint32_t off_12FE98;
 
 // parse_hex12 @ 0x12fce4, size 362 bytes
 int  parse_hex12(int a1, int a2)
 {
-  uint8_t *v3; // r6
+  int v3; // r6
   unsigned int v4; // r6
   uint16_t v5; // r0
-  uint8_t *v6; // r5
+  int v6; // r5
   uint16_t v7; // r7
   unsigned int v8; // r8
   uint32_t *v9; // r0
@@ -56,26 +55,25 @@ int  parse_hex12(int a1, int a2)
   int *v21; // r12
   int v22; // lr
   int v23; // r9
-  int v24; // r0
-  uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
-  char v27; // [sp+Ch] [bp-8h]
+  char a1a[4]; // [sp+8h] [bp-Ch] BYREF
+  char v26; // [sp+Ch] [bp-8h]
 
-  if ( memmove(*(uint32_t *)(a2 + 4)) != 12 || memmove(*(uint32_t *)(a2 + 8)) != 12 )
+  if ( memmove_1(*(uint32_t *)(a2 + 4)) != 12 || memmove_1(*(uint32_t *)(a2 + 8)) != 12 )
     return -2;
-  v3 = *(uint8_t **)(a2 + 4);
-  memcpy(v26, v3 + 8, 4);
-  v3[8] = 0;
-  v27 = 0;
-  v4 = parse_hex_or_dec(v3, 0, 0x10u);
-  v5 = parse_hex_or_dec(v26, 0, 0x10u);
-  v6 = *(uint8_t **)(a2 + 8);
+  v3 = *(uint32_t *)(a2 + 4);
+  memcpy(a1a, (char *)(v3 + 8), 4u);
+  *(uint8_t *)(v3 + 8) = 0;
+  v26 = 0;
+  v4 = parse_hex_or_dec((uint8_t *)v3, nullptr, 0x10u);
+  v5 = parse_hex_or_dec((uint8_t *)a1a, nullptr, 0x10u);
+  v6 = *(uint32_t *)(a2 + 8);
   v7 = v5;
-  memcpy(v26, v6 + 8, 4);
-  v6[8] = 0;
-  v27 = 0;
-  v8 = parse_hex_or_dec(v6, 0, 0x10u);
-  LOWORD(v6) = parse_hex_or_dec(v26, 0, 0x10u);
-  event_dispatch(dword_12FE50);
+  memcpy(a1a, (char *)(v6 + 8), 4u);
+  *(uint8_t *)(v6 + 8) = 0;
+  v26 = 0;
+  v8 = parse_hex_or_dec((uint8_t *)v6, nullptr, 0x10u);
+  LOWORD(v6) = parse_hex_or_dec((uint8_t *)a1a, nullptr, 0x10u);
+  event_dispatch(aSetMonitor);
   v9 = off_12FE58;
   v10 = off_12FE5C;
   v11 = off_12FE84;
@@ -118,9 +116,7 @@ int  parse_hex12(int a1, int a2)
   *(uint32_t *)off_12FE7C = __rev16((uint16_t)v6);
   *(uint32_t *)&v20[-148] = 7;
   *(uint32_t *)&v20[-148] = v23;
-  v24 = dword_12FE80;
   *v21 = v22;
-  event_dispatch(v24, v4, v7, v8, (uint16_t)v6);
+  event_dispatch("set mon: mac=%08x%04x, bssid=%08x%04x\n", v4, v7, v8, (uint16_t)v6);
   return 0;
 }
-

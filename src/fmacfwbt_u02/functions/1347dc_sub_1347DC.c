@@ -10,26 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1348F4;
+extern uint32_t dword_1348FC;
 extern uint32_t off_1348E0;
 extern uint32_t off_1348E4;
 extern uint32_t off_1348E8;
-extern uint32_t off_1348F0;
 extern uint32_t off_1348EC;
-extern uint32_t dword_1348F4;
+extern uint32_t off_1348F0;
 extern uint32_t off_1348F8;
-extern uint32_t dword_1348FC;
 extern uint32_t off_134900;
 
 // rx_security_check @ 0x1347dc, size 260 bytes
-// Doc: sub_12347DC [unknown]: Generic helper pushing multiple regs, reads byte from r1, accesses global table
-// sub_12347DC [unknown]: Generic helper pushing multiple regs, reads byte from r1, accesses global table
-void  rx_security_check(int a1, int a2, int a3)
+int  rx_security_check(int a1, int a2, int a3)
 {
   uint32_t *v4; // r3
   uint8_t *v7; // r9
   int *v8; // r10
   int v9; // r4
-  int16_t v10; // lr
+  uint16_t v10; // lr
   int v11; // r0
   int v12; // r1
   int v13; // r2
@@ -37,9 +36,10 @@ void  rx_security_check(int a1, int a2, int a3)
   int v15; // r1
   int v16; // r2
   int v17; // r3
-  uint32_t *v18; // r6
-  uint32_t *v19; // r4
-  unsigned int v20; // r2
+  int result; // r0
+  uint32_t *v19; // r6
+  uint32_t *v20; // r4
+  unsigned int v21; // r2
 
   v4 = off_1348E0;
   if ( !*(uint8_t *)(a2 + 2)
@@ -49,21 +49,21 @@ void  rx_security_check(int a1, int a2, int a3)
   {
     if ( *((uint8_t *)off_1348E0 + 14) == 1 )
     {
-      v18 = off_1348F0;
+      v19 = off_1348F0;
       *(uint32_t *)off_1348EC = dword_1348F4;
-      v19 = off_1348F8;
-      *v18 &= 0xFFFFFFF0;
-      *v19 &= ~0x80000000;
+      v20 = off_1348F8;
+      *v19 &= 0xFFFFFFF0;
+      *v20 &= ~0x80000000;
       v4[1] = a1;
       v4[2] = a2;
       *((uint8_t *)v4 + 12) = a3;
       *((uint8_t *)v4 + 13) = 1;
       *((uint16_t *)v4 + 1) = 257;
-      v20 = dword_1348FC;
-      v18[35594] = 0;
-      patch_aware_dispatch(6155, 6, v20);
+      v21 = dword_1348FC;
+      v19[35594] = 0;
+      patch_aware_dispatch(6155, 6, v21);
       clock_disable();
-      return;
+      return result;
     }
     *((uint8_t *)off_1348E0 + 3) = 0;
   }
@@ -75,7 +75,7 @@ void  rx_security_check(int a1, int a2, int a3)
   }
   v7 = off_134900;
   v8 = *((int **)off_134900 + 4);
-  v9 = bt_buf_alloc(4098, 4, 6, 0x178u);
+  v9 = bt_buf_alloc(4098, 4, 6, 376);
   *(uint32_t *)v9 = *(uint32_t *)a2;
   v10 = *(uint16_t *)(a2 + 4);
   *(uint8_t *)(v9 + 367) = 1;
@@ -106,6 +106,5 @@ void  rx_security_check(int a1, int a2, int a3)
     *(uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
   hci_evt_send(v9);
-  hci_cmd_send(6u, 2);
+  return hci_cmd_send(6u, 2);
 }
-

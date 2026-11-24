@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136E60;
+
 extern uint32_t off_136E5C;
 
 // rf_calibration_meas @ 0x136e44, size 22 bytes
 int  rf_calibration_meas(int a1, int a2, int a3, int a4)
 {
-  check_feature_flag(8, dword_136E60, a4, *((uint16_t *)off_136E5C + 1924));
+  check_feature_flag(8, "scanning scanu req:%d,%d\n", a4, *((uint16_t *)off_136E5C + 1924));
   return 2;
 }
-

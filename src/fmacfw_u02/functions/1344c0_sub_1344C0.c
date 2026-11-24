@@ -10,12 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1345B4;
 extern uint32_t off_1345B8;
 extern uint32_t off_1345BC;
 
 // send_hci_packet @ 0x1344c0, size 242 bytes
-uint32_t * send_hci_packet(int a1, int a2)
+int  send_hci_packet(int a1, int a2)
 {
   int *v4; // r5
   int v5; // r0
@@ -27,7 +28,7 @@ uint32_t * send_hci_packet(int a1, int a2)
   int v11; // r1
   int v12; // r2
   int v13; // r3
-  int16_t v15; // r3
+  uint16_t v15; // r3
   int v16; // r5
   int v17; // r0
   int v18; // r3
@@ -36,7 +37,7 @@ uint32_t * send_hci_packet(int a1, int a2)
   uint32_t v21[2]; // [sp+8h] [bp-8h]
 
   v4 = *((int **)off_1345B4 + 4);
-  v5 = ke_msg_alloc(4096, 4, 6, 0x178u);
+  v5 = ke_msg_alloc(4096, 4, 6, 376);
   *(uint8_t *)(v5 + 366) = *((uint8_t *)v4 + 61);
   v6 = v5;
   v7 = *v4;
@@ -75,7 +76,7 @@ LABEL_3:
   else
   {
     v15 = *((uint16_t *)off_1345B8 + 2);
-    *(uint32_t *)(v6 + 352) = *(uint32_t *)off_1345B8;
+    *(uint32_t *)(v6 + 352) = *off_1345B8;
     *(uint16_t *)(v6 + 356) = v15;
     if ( a2 )
       goto LABEL_3;
@@ -90,7 +91,7 @@ LABEL_3:
     if ( v17 )
     {
       v18 = v21[a2];
-      v19 = 6 * (int16_t)v17 + v18;
+      v19 = 6 * (uint16_t)v17 + v18;
       do
       {
         if ( (*(uint8_t *)(v18 + 3) & 2) == 0 )
@@ -111,7 +112,6 @@ LABEL_3:
     a2 = 1;
   }
 LABEL_4:
-  ke_msg_send(v6);
+  ke_msg_send_2(v6);
   return rx_phy_status_parse(6u, 1);
 }
-

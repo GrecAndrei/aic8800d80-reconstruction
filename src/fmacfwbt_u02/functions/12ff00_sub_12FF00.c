@@ -10,35 +10,34 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13006C;
+
+extern uint32_t dword_130080;
+extern uint32_t dword_130084;
+extern uint32_t dword_1300B8;
+extern uint32_t dword_1300BC;
+extern uint32_t off_130070;
 extern uint32_t off_130074;
 extern uint32_t off_130078;
-extern uint32_t off_1300A0;
-extern uint32_t off_1300A4;
 extern uint32_t off_13007C;
-extern uint32_t off_130070;
-extern uint32_t dword_130080;
-extern uint32_t off_1300A8;
-extern uint32_t off_1300AC;
 extern uint32_t off_130088;
-extern uint32_t dword_130084;
-extern uint32_t off_1300B0;
 extern uint32_t off_13008C;
 extern uint32_t off_130090;
 extern uint32_t off_130094;
-extern uint32_t off_1300B4;
-extern uint32_t dword_1300B8;
-extern uint32_t dword_1300BC;
 extern uint32_t off_130098;
-extern uint32_t dword_13009C;
+extern uint32_t off_1300A0;
+extern uint32_t off_1300A4;
+extern uint32_t off_1300A8;
+extern uint32_t off_1300AC;
+extern uint32_t off_1300B0;
+extern uint32_t off_1300B4;
 
 // l2cap_pdu_check @ 0x12ff00, size 362 bytes
 int  l2cap_pdu_check(int a1, int a2)
 {
-  uint8_t *v3; // r6
+  int v3; // r6
   unsigned int v4; // r6
   uint16_t v5; // r0
-  uint8_t *v6; // r5
+  int v6; // r5
   uint16_t v7; // r7
   unsigned int v8; // r8
   uint32_t *v9; // r0
@@ -56,26 +55,25 @@ int  l2cap_pdu_check(int a1, int a2)
   int *v21; // r12
   int v22; // lr
   int v23; // r9
-  int v24; // r0
-  uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
-  char v27; // [sp+Ch] [bp-8h]
+  char a1a[4]; // [sp+8h] [bp-Ch] BYREF
+  char v26; // [sp+Ch] [bp-8h]
 
-  if ( memmove(*(uint32_t *)(a2 + 4)) != 12 || memmove(*(uint32_t *)(a2 + 8)) != 12 )
+  if ( memmove_5(*(uint32_t *)(a2 + 4)) != 12 || memmove_5(*(uint32_t *)(a2 + 8)) != 12 )
     return -2;
-  v3 = *(uint8_t **)(a2 + 4);
-  memcpy_aligned(v26, v3 + 8, 4);
-  v3[8] = 0;
-  v27 = 0;
-  v4 = parse_integer(v3, 0, 0x10u);
-  v5 = parse_integer(v26, 0, 0x10u);
-  v6 = *(uint8_t **)(a2 + 8);
+  v3 = *(uint32_t *)(a2 + 4);
+  memcpy_aligned(a1a, (char *)(v3 + 8), 4u);
+  *(uint8_t *)(v3 + 8) = 0;
+  v26 = 0;
+  v4 = parse_integer((uint8_t *)v3, nullptr, 0x10u);
+  v5 = parse_integer((uint8_t *)a1a, nullptr, 0x10u);
+  v6 = *(uint32_t *)(a2 + 8);
   v7 = v5;
-  memcpy_aligned(v26, v6 + 8, 4);
-  v6[8] = 0;
-  v27 = 0;
-  v8 = parse_integer(v6, 0, 0x10u);
-  LOWORD(v6) = parse_integer(v26, 0, 0x10u);
-  ke_event_schedule(dword_13006C);
+  memcpy_aligned(a1a, (char *)(v6 + 8), 4u);
+  *(uint8_t *)(v6 + 8) = 0;
+  v26 = 0;
+  v8 = parse_integer((uint8_t *)v6, nullptr, 0x10u);
+  LOWORD(v6) = parse_integer((uint8_t *)a1a, nullptr, 0x10u);
+  ke_event_schedule_1(aSetMonitor);
   v9 = off_130074;
   v10 = off_130078;
   v11 = off_1300A0;
@@ -118,9 +116,7 @@ int  l2cap_pdu_check(int a1, int a2)
   *(uint32_t *)off_130098 = __rev16((uint16_t)v6);
   *(uint32_t *)&v20[-148] = 7;
   *(uint32_t *)&v20[-148] = v23;
-  v24 = dword_13009C;
   *v21 = v22;
-  ke_event_schedule(v24, v4, v7, v8, (uint16_t)v6);
+  ke_event_schedule_1("set mon: mac=%08x%04x, bssid=%08x%04x\n", v4, v7, v8, (uint16_t)v6);
   return 0;
 }
-

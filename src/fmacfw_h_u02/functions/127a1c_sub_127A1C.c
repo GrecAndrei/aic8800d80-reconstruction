@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_127BDC;
-extern uint32_t dword_127BE0;
-extern uint32_t off_127BF0;
+
 extern uint32_t dword_127BE4;
 extern uint32_t dword_127BEC;
+extern uint32_t off_127BDC;
 extern uint32_t off_127BE8;
+extern uint32_t off_127BF0;
 
 // cfm_event_handler @ 0x127a1c, size 446 bytes
 int  cfm_event_handler(uint8_t *a1, int a2)
@@ -27,16 +27,16 @@ int  cfm_event_handler(uint8_t *a1, int a2)
   char v8; // r3
   uint8_t *v10; // r8
   char v11; // r3
-  int v12; // r0
+  uint32_t *v12; // r0
   uint8_t *v13; // r2
-  int16_t v14; // r1
+  uint16_t v14; // r1
   unsigned int v15; // r1
   int v16; // r2
   int v17; // r0
-  int v18; // r0
+  uint32_t *v18; // r0
 
   v2 = off_127BDC;
-  check_feature_flag(8, dword_127BE0);
+  check_feature_flag(8, "roc: %d, dur=%d, st=%d\r\n", *a1, *((uint32_t *)a1 + 3), *((uint8_t *)off_127BDC + 128));
   v5 = *a1;
   if ( *a1 )
   {
@@ -50,8 +50,8 @@ int  cfm_event_handler(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          mem_set_util((int)off_127BF0 + 64);
-          v12 = v7[8];
+          mem_set_util((uint32_t *)off_127BF0 + 16);
+          v12 = (uint32_t *)v7[8];
           v7[18] = 0;
           llc_version_read(v12);
         }
@@ -64,7 +64,7 @@ int  cfm_event_handler(uint8_t *a1, int a2)
         {
           if ( v13 == v2 + 112 && (uint8_t *)v7[20] == v13 )
           {
-            mem_set_util((int)(v7 + 16));
+            mem_set_util(v7 + 16);
             v7[18] = 0;
           }
           v7[11] = 0;
@@ -80,7 +80,7 @@ int  cfm_event_handler(uint8_t *a1, int a2)
       v2[136] = -1;
       if ( (v8 & 0x12) != 0x10 )
         return 0;
-      v18 = dword_127BEC;
+      v18 = (uint32_t *)dword_127BEC;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
       mem_set_util(v18);
@@ -88,7 +88,7 @@ int  cfm_event_handler(uint8_t *a1, int a2)
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_handler(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_handler(4u) == 1 )
   {
     v10 = off_127BF0;
     v11 = *((uint8_t *)off_127BF0 + 88);
@@ -142,4 +142,3 @@ LABEL_25:
   v10[88] = v11 & 0xDF;
   return 1;
 }
-

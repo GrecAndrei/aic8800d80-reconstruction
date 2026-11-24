@@ -10,11 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_114154;
-extern uint32_t dword_114160;
 extern uint32_t off_114158;
 extern uint32_t off_11415C;
-extern uint32_t dword_114164;
 
 // invoke_callback @ 0x114114, size 64 bytes
 int invoke_callback()
@@ -25,14 +24,13 @@ int invoke_callback()
 
   v0 = (*(int ( **)(uint32_t))(*((uint32_t *)off_114154 + 2) + 16))(*((uint32_t *)off_114154 + 1));
   if ( !v0 )
-    return log_printf(dword_114160);
+    return log_printf(aErrNoWlanDataB);
   v1 = (uint32_t *)v0;
   result = irq_state_load_b(*(uint32_t *)off_114158 + v0, *(uint32_t *)off_11415C);
   if ( result < 0 )
   {
     is_controller_mode(v1);
-    return log_printf(dword_114164);
+    return log_printf(aWlanDataRecvRe);
   }
   return result;
 }
-

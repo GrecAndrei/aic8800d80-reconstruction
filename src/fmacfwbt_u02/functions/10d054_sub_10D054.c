@@ -10,22 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10D070;
-extern uint32_t off_10D078;
+
 extern uint32_t off_10D074;
+extern uint32_t off_10D078;
 
 // hw_reg_write @ 0x10d054, size 26 bytes
-// Doc: sub_120D054 [mmio]: Store context pointer and initialize MMIO register base
-// sub_120D054 [mmio]: Store context pointer and initialize MMIO register base
-int  hw_reg_write(int a1, int a2, int a3)
+int  hw_reg_write(int a1)
 {
   int result; // r0
-  uint32_t *v5; // r3
+  uint32_t *v3; // r3
 
-  result = ke_event_schedule(dword_10D070, a1, a3);
-  v5 = off_10D078;
+  result = ke_event_schedule_1("chan notify: %x\r\n", a1);
+  v3 = off_10D078;
   *(uint32_t *)off_10D074 = a1;
-  *v5 = 0x1000000;
+  *v3 = 0x1000000;
   return result;
 }
-

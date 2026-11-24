@@ -13,41 +13,37 @@
 
 extern uint32_t dword_1355BC;
 extern uint32_t off_1355B8;
-extern uint32_t off_1355C0;
-extern uint32_t off_1355C4;
 
-// sub_135528 @ 0x135528, size 144 bytes
-int  sub_135528(int a1)
+// mac_proc_bss_color_change @ 0x135528, size 144 bytes
+int  mac_proc_bss_color_change(int a1)
 {
   int v2; // r6
-  int v3; // r2
   int result; // r0
-  int v5; // r6
-  int v6; // r4
+  int v4; // r6
+  int v5; // r4
 
   v2 = *(uint8_t *)(a1 + 8);
-  if ( sub_12CD48(6) == 10 || sub_12CD48(6) == 9 )
+  if ( hci_cmd_handler(6u) == 10 || hci_cmd_handler(6u) == 9 )
     return 2;
-  if ( sub_12CD48(6) )
+  if ( hci_cmd_handler(6u) )
   {
-    v3 = *(uint8_t *)(*((uint32_t *)off_1355B8 + 4) + 61);
-    if ( v3 != *(uint8_t *)(a1 + 8) )
+    if ( *(uint8_t *)(*((uint32_t *)off_1355B8 + 4) + 61) != *(uint8_t *)(a1 + 8) )
       return 2;
-    sub_12EB90(256, off_1355C4, v3);
-    if ( sub_12C774(6154, 6) )
-      sub_12C5FC(6154, 6);
-    sub_134CC4(1);
+    check_feature_flag(256, aDeauthHandlerI);
+    if ( rf_get_state_1(6154, 6) )
+      invalid_handler_12c5fc((char *)0x180A, 6);
+    assert_trace(1);
     return 0;
   }
   else
   {
-    v5 = dword_1355BC + 1320 * v2;
-    result = *(uint8_t *)(v5 + 108);
-    if ( *(uint8_t *)(v5 + 108) )
+    v4 = dword_1355BC + 1320 * v2;
+    result = *(uint8_t *)(v4 + 108);
+    if ( *(uint8_t *)(v4 + 108) )
     {
-      v6 = *(uint16_t *)(a1 + 12);
-      sub_12EB90(256, off_1355C0[0], v6);
-      sub_134C4C(v5, v6, 0);
+      v5 = *(uint16_t *)(a1 + 12);
+      check_feature_flag(256, "deauth_handler: reason code =%d\r\n", v5);
+      ke_timer_set(v4, v5, 0);
       return 0;
     }
   }

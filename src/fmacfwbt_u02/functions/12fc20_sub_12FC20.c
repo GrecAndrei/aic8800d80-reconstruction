@@ -10,26 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12FC40;
-extern uint32_t dword_12FC44;
 
-// event_handlers_dispatch @ 0x12fc20, size 32 bytes
-int event_handlers_dispatch()
+extern uint32_t off_12FC40;
+
+// sub_12FC20 @ 0x12fc20, size 32 bytes
+int sub_12FC20()
 {
-  uint32_t *v0; // r4
-  int v1; // r6
-  int v2; // r5
+  unsigned int v0; // r4
+  unsigned int v1; // r5
+  const char *v2; // r2
 
-  v0 = (uint32_t *)dword_12FC40;
-  v1 = dword_12FC44;
-  v2 = dword_12FC40 + 112;
+  v0 = off_12FC40;
+  v1 = off_12FC40 + 112;
   do
   {
-    if ( v0[1] )
-      printf_wrapper(v1, *v0);
-    v0 += 4;
+    v2 = *(const char **)(v0 + 4);
+    if ( v2 )
+      sub_10DA7C("%s %s\r\n", *(const char **)v0, v2);
+    v0 += 16;
   }
-  while ( v0 != (uint32_t *)v2 );
+  while ( v0 != v1 );
   return 0;
 }
-

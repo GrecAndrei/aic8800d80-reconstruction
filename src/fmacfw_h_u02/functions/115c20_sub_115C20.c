@@ -11,9 +11,6 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 
-extern uint32_t dword_115DE4;
-extern uint32_t dword_115DE8;
-extern uint32_t dword_115DEC;
 extern uint32_t dword_115DF0;
 extern uint32_t dword_115DF4;
 extern uint32_t dword_115DF8;
@@ -32,10 +29,10 @@ extern uint32_t dword_115E24;
 void  ll_init_tables(int a1, int a2, int a3, int a4)
 {
   unsigned int v4; // r5
-  int v5; // r0
-  uint8_t **v6; // r10
-  int v7; // r3
-  int v8; // r0
+  uint8_t **v5; // r10
+  int v6; // r3
+  int v7; // r0
+  int v8; // r1
   uint8_t *v9; // r7
   int *v10; // r8
   int *v11; // r4
@@ -52,23 +49,23 @@ void  ll_init_tables(int a1, int a2, int a3, int a4)
   uint32_t *v22; // r2
 
   v4 = dword_115DF0;
-  v5 = msg_parse(dword_115DEC, dword_115DE8, dword_115DE4, a4);
+  alloc_tx_event("\x9A%s - build: %s\n", aV6911, aLaJul032024152);
   if ( *(uint32_t *)dword_115DF4 )
   {
-    sub_10EDD4(v5);
+    write_mmio_register();
     if ( *(uint16_t *)(*(uint32_t *)v4 + 8) )
-      sub_10ED98(*(uint16_t *)(*(uint32_t *)v4 + 8));
+      rf_set_channel_1(*(uint16_t *)(*(uint32_t *)v4 + 8));
   }
-  v6 = (uint8_t **)dword_115E1C;
+  v5 = (uint8_t **)dword_115E1C;
   if ( **(uint8_t **)dword_115E1C == 2 )
   {
-    v7 = *(uint32_t *)v4;
-    *(uint8_t *)(v7 + 6) = 2;
-    *(uint8_t *)(v7 + 3) = 1;
+    v6 = *(uint32_t *)v4;
+    *(uint8_t *)(v6 + 6) = 2;
+    *(uint8_t *)(v6 + 3) = 1;
   }
-  v8 = sub_1144FC(*(uint16_t *)(*(uint32_t *)v4 + 4));
+  v7 = scheduler_entry(*(uint16_t *)(*(uint32_t *)v4 + 4));
   if ( !*(uint8_t *)(*(uint32_t *)v4 + 3) )
-    v8 = sub_114588(v8);
+    rf_emit_setup_word();
   __enable_irq();
   __dsb(0xFu);
   __isb(0xFu);
@@ -82,10 +79,10 @@ void  ll_init_tables(int a1, int a2, int a3, int a4)
     while ( 1 )
     {
       if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
-        v8 = sub_114578(v8);
+        memory_barrier();
       if ( !*v9 )
-        v8 = sub_12D050(v8);
-      v8 = sub_130030(v8);
+        process_event_queue();
+      v7 = rf_calibration_proc(v7, v8);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -99,10 +96,10 @@ void  ll_init_tables(int a1, int a2, int a3, int a4)
       if ( v15 )
         goto LABEL_15;
     }
-    v8 = idle_processing(v8);
+    sleep_mode_read(v7);
     if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
-      v8 = sub_114588(v8);
-    if ( **v6 == 1 && *(uint8_t *)dword_115E04 )
+      rf_emit_setup_word();
+    if ( **v5 == 1 && *(uint8_t *)dword_115E04 )
       break;
     do
     {
@@ -110,7 +107,7 @@ LABEL_21:
       __dsb(0xFu);
       __wfi();
       __isb(0xFu);
-      if ( **v6 != 3 )
+      if ( **v5 != 3 )
       {
         if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
           goto LABEL_28;
@@ -119,16 +116,16 @@ LABEL_23:
           goto LABEL_29;
         goto LABEL_24;
       }
-      v8 = sub_115470(v8);
+      v7 = fault_status_read();
     }
-    while ( !v8 );
+    while ( !v7 );
     if ( !*(uint8_t *)(*(uint32_t *)v4 + 3) )
       goto LABEL_23;
 LABEL_28:
-    v8 = sub_11459C(v8);
+    set_state_flag();
     if ( *(uint8_t *)(v13 + 1) )
 LABEL_29:
-      v8 = sub_115500(v8);
+      v7 = rf_power_control();
 LABEL_24:
     v15 = *v11;
     if ( *v11 )
@@ -147,8 +144,8 @@ LABEL_15:
   v18 = **(uint8_t **)dword_115E08;
   if ( v18 == 3 )
   {
-    v8 = sub_1111B4(v8);
-    if ( v8 )
+    v7 = get_init_flag();
+    if ( v7 )
       goto LABEL_36;
     v18 = **(uint8_t **)dword_115E08;
   }
@@ -162,7 +159,7 @@ LABEL_15:
     goto LABEL_21;
   }
 LABEL_36:
-  v8 = sub_12E8D0(v8);
+  mmio_read_bit13();
   v19 = (*(volatile uint32_t *)0x40501010u);
   v20 = v19 + 28;
   do

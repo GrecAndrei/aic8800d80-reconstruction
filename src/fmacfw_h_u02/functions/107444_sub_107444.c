@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_107524;
 extern uint32_t off_107528;
 extern uint32_t off_10752C;
-extern uint32_t dword_107530;
-extern uint32_t dword_107534;
+extern uint32_t off_107534;
 
 // pll_set_ratio @ 0x107444, size 222 bytes
 int  pll_set_ratio(int a1, int a2)
@@ -45,8 +45,8 @@ int  pll_set_ratio(int a1, int a2)
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
   mmio_read32(5);
-  check_feature_flag(1, dword_107530);
-  result = check_feature_flag(1, dword_107534);
+  check_feature_flag(1, "rd_pwr=%4d  ", *(uint32_t *)(a1 + 44));
+  result = check_feature_flag(1, (const char *)off_107534);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;
@@ -56,4 +56,3 @@ int  pll_set_ratio(int a1, int a2)
   *v2 = *v2 & 0xFFFFFF8F | 0x40;
   return result;
 }
-

@@ -10,12 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_115744;
+extern uint32_t off_115748;
+extern uint32_t off_11574C;
 extern uint32_t off_115750;
-extern uint32_t dword_115758;
+extern uint32_t off_115754;
+extern uint32_t off_11575C;
+extern uint32_t off_115764;
 
 // rf_mode_switch @ 0x11565c, size 230 bytes
-// Doc: patch_apply_n1d8 [patch]: Apply firmware patch table entry by index
-// patch_apply_n1d8 [patch]: Apply firmware patch table entry by index
 int rf_mode_switch()
 {
   int v0; // r4
@@ -23,37 +27,35 @@ int rf_mode_switch()
   uint32_t *v2; // r2
   uint32_t *v3; // r3
   uint32_t *v4; // r3
-  int v6; // r1
-  int v7; // r1
-  uint32_t *v8; // r2
+  uint32_t *v6; // r2
 
-  if ( **(uint8_t **)patch_xor_apply_loop == 2 )
+  if ( **(uint8_t **)off_115744 == 2 )
   {
     if ( get_global_state() )
-      v0 = *((uint32_t *)patch_apply_n27c_5764 + 87);
+      v0 = ((uint32_t *)(uintptr_t)off_115764)[87];
     else
       v0 = 16;
     rf_init_bb();
     *((uint32_t *)off_115750 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    ke_event_schedule(dword_115758, v6, 1);
-    v8 = patch_apply_n274;
-    *((uint32_t *)patch_apply_n274 + 513) |= 2u;
-    v8[4] |= 1u;
-    while ( (v8[4] & 1) != 0 )
+    ke_event_schedule_1(aSftDis);
+    v6 = off_11575C;
+    *((uint32_t *)off_11575C + 513) |= 2u;
+    v6[4] |= 1u;
+    while ( (v6[4] & 1) != 0 )
       ;
-    ke_event_schedule(patch_apply_n278, v7, v8);
+    ke_event_schedule_1(aSftrstDone);
   }
   else
   {
     v0 = 16;
   }
-  v1 = patch_apply_n260;
-  if ( (*((uint32_t *)patch_apply_n260 + 74) & 0x80) != 0 )
+  v1 = off_115748;
+  if ( (*((uint32_t *)off_115748 + 74) & 0x80) != 0 )
   {
-    v2 = patch_apply_n264;
-    *((uint32_t *)patch_apply_n260 + 74) = 128;
+    v2 = off_11574C;
+    *((uint32_t *)off_115748 + 74) = 128;
     if ( (v2[1] & 0x20000) != 0 )
     {
       v1[65] = 2;
@@ -61,10 +63,10 @@ int rf_mode_switch()
       v2[1] |= 0x40000u;
     }
   }
-  v3 = patch_apply_n264;
-  if ( (*((uint32_t *)patch_apply_n264 + 2) & 0x20000) != 0 )
+  v3 = off_11574C;
+  if ( (*((uint32_t *)off_11574C + 2) & 0x20000) != 0 )
   {
-    *((uint32_t *)patch_apply_n260 + 65) = 8;
+    *((uint32_t *)off_115748 + 65) = 8;
     v3[2] &= ~0x20000u;
     v3[2] |= 0x40000u;
   }
@@ -76,9 +78,8 @@ int rf_mode_switch()
   __dsb(0xFu);
   __isb(0xFu);
   irq_disable();
-  if ( *(uint8_t *)(*(uint32_t *)patch_apply_5754 + 3) )
+  if ( *(uint8_t *)(*(uint32_t *)off_115754 + 3) )
     get_core_state();
   __disable_irq();
   return v0;
 }
-

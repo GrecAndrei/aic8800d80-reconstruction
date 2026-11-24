@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_107054;
 extern uint32_t off_107058;
 extern uint32_t off_10705C;
-extern uint32_t dword_107060;
-extern uint32_t dword_107064;
+extern uint32_t off_107064;
 
 // pinmux_config @ 0x106f74, size 222 bytes
 int  pinmux_config(int a1, int a2)
@@ -23,9 +23,6 @@ int  pinmux_config(int a1, int a2)
   unsigned int *v3; // r4
   uint32_t *v5; // r2
   int v6; // r3
-  int v7; // r3
-  int v8; // r2
-  int v9; // r3
   int result; // r0
 
   v2 = (unsigned int *)off_107054;
@@ -48,8 +45,8 @@ int  pinmux_config(int a1, int a2)
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
   write_timer_reg(5);
-  check_interrupt_flag(1, dword_107060, *(uint32_t *)(a1 + 44), v7);
-  result = check_interrupt_flag(1, dword_107064, v8, v9);
+  check_interrupt_flag(1, "rd_pwr=%4d  ", *(uint32_t *)(a1 + 44));
+  result = check_interrupt_flag(1, (const char *)off_107064);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;
@@ -59,4 +56,3 @@ int  pinmux_config(int a1, int a2)
   *v2 = *v2 & 0xFFFFFF8F | 0x40;
   return result;
 }
-

@@ -10,18 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_139144;
+
 extern uint32_t dword_139148;
 extern uint32_t dword_139154;
-extern uint32_t off_13915C;
-extern uint32_t dword_139164;
-extern uint32_t dword_139160;
-extern uint32_t off_13914C;
-extern uint32_t dword_139150;
 extern uint32_t dword_139158;
+extern uint32_t off_139144;
+extern uint32_t off_139150;
+extern uint32_t off_13915C;
 
 // bt_send_packet @ 0x138ea4, size 672 bytes
-int  bt_send_packet(unsigned int a1, int a2, int a3)
+int  bt_send_packet(int a1, int a2, int a3)
 {
   uint16_t *v3; // r6
   char v5; // r5
@@ -30,22 +28,22 @@ int  bt_send_packet(unsigned int a1, int a2, int a3)
   int v9; // r7
   uint32_t *v10; // r4
   int v11; // r2
-  int16_t v13; // r2
+  uint16_t v13; // r2
   char v14; // r1
-  uint32_t *v15; // r3
-  int v16; // r1
-  int v17; // r3
-  uint64_t v18; // r2
-  int v19; // r0
+  volatile unsigned int v15; // r1
+  void *v16; // r3
+  uint64_t v17; // r2
+  int v18; // r0
+  volatile unsigned int v19; // r3
   int v20; // r0
-  unsigned int v21; // r5
-  int16_t v22; // r3
-  int16_t v23; // r6
-  int16_t v24; // r1
-  uint32_t *v25; // r0
+  int v21; // r5
+  uint16_t v22; // r3
+  uint16_t v23; // r6
+  uint16_t v24; // r1
+  int v25; // r0
   int v26; // r3
   uint32_t *v27; // r0
-  uint8_t v28[24]; // [sp+8h] [bp-18h] BYREF
+  uint64_t a2a[3]; // [sp+8h] [bp-18h] BYREF
 
   v3 = off_139144;
   v5 = a2;
@@ -69,8 +67,8 @@ LABEL_15:
     {
       v27 = list_pop(dword_139154);
       v10 = v27;
-      if ( **(int16_t **)off_13915C < 0 && !v27 )
-        irq_disable_mmio_write(dword_139164, dword_139160, 1111);
+      if ( **(uint16_t **)off_13915C < 0 && !v27 )
+        irq_disable_mmio_write((int)aDefragNull, (int)aRxuCntrlDefrag, 1111);
       rf_lookup_tx_power(0, 4, v10[5]);
     }
     v13 = v3[2];
@@ -79,26 +77,25 @@ LABEL_15:
     *((uint8_t *)v10 + 8) = 1;
     *((uint8_t *)v10 + 4) = 0;
     v14 = *((uint8_t *)v3 + 8);
-    v15 = off_13914C;
     v10[4] = 0;
     *((uint8_t *)v10 + 9) = v14;
-    v16 = v15[4];
-    v17 = dword_139150;
+    v15 = (*(volatile uint32_t *)0x40501010u);
+    v16 = off_139150;
     *((uint16_t *)v10 + 5) = v13;
-    v10[14] = v17;
+    v10[14] = v16;
     v10[15] = v10;
-    mem_copy_util((int)(v10 + 13), v16 + 100000);
+    mem_copy_util(v10 + 13, v15 + 100000);
     if ( (v3[24] & 1) != 0 )
-      rf_handle_command(a1, (int)(v10 + 7), 1, 0);
+      rf_handle_command(a1, v10 + 7, 1, 0);
     *(uint32_t *)(a1 + 96) &= ~0x20u;
     rf_get_channel_freq(a1, 1);
-    HIDWORD(v18) = *((uint32_t *)v3 + 16);
-    LODWORD(v18) = *((uint32_t *)v3 + 7);
-    v19 = dword_139154;
-    *((uint64_t *)v10 + 2) = v18;
+    HIDWORD(v17) = *((uint32_t *)v3 + 16);
+    LODWORD(v17) = *((uint32_t *)v3 + 7);
+    v18 = dword_139154;
+    *((uint64_t *)v10 + 2) = v17;
     *((uint8_t *)v10 + 5) = *((uint8_t *)v3 + 49);
     *((uint16_t *)v10 + 6) = *(uint16_t *)(a1 + 48);
-    wlan_ioctl_handler_1(v19, v10);
+    wlan_ioctl_handler_1(v18, v10);
     goto LABEL_20;
   }
   v8 = *(uint16_t *)off_139144 & 0x400;
@@ -130,7 +127,7 @@ LABEL_7:
     *((uint16_t *)v10 + 6) = v22;
     if ( (v3[24] & 1) != 0 )
     {
-      if ( rf_handle_command(a1, (int)(v10 + 7), 0, v8 == 0) )
+      if ( rf_handle_command(a1, v10 + 7, 0, v8 == 0) )
       {
         v26 = *(uint32_t *)(a1 + 96);
         if ( !v8 )
@@ -146,7 +143,8 @@ LABEL_7:
         tx_packet_start(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
         v10[4] += v21;
 LABEL_20:
-        v10[6] = *((uint32_t *)off_13914C + 4);
+        v19 = (*(volatile uint32_t *)0x40501010u);
+        v10[6] = v19;
         return 1;
       }
       v23 = 4;
@@ -167,9 +165,9 @@ LABEL_30:
         v24 = 8;
       v25 = rf_lookup_tx_power(0, v24, v10[5]);
       if ( v25 )
-        v25[18] = *((uint16_t *)v10 + 6);
+        *(uint32_t *)(v25 + 72) = *((uint16_t *)v10 + 6);
       rf_lookup_tx_power(0, v23, v10[5]);
-      mem_set_util((int)(v10 + 13));
+      mem_set_util(v10 + 13);
       wlan_ioctl_handler_3(dword_139154, v10);
       wlan_ioctl_handler_1(dword_139148, v10);
       goto LABEL_20;
@@ -178,17 +176,20 @@ LABEL_30:
   }
   if ( (*((uint8_t *)off_139144 + 48) & 1) != 0 )
   {
-    if ( !rf_handle_command(a1, (int)v28, 1, 1) )
+    if ( !rf_handle_command(a1, a2a, 1, 1) )
       return v9;
     *(uint16_t *)(a1 + 48) -= 8;
   }
   v20 = dword_139158 + 1320 * *((uint8_t *)v3 + 10);
   if ( *(uint8_t *)(v20 + 1227)
-    && parse_param_direction((uint8_t *)(v20 + 107), (uint32_t *)(v20 + 1228), *(char **)(*(uint32_t *)(a1 + 28) + 8), a3) == 1 )
+    && parse_param_direction(
+         (uint8_t *)(v20 + 107),
+         (uint32_t *)(v20 + 1228),
+         *(uint32_t *)(*(uint32_t *)(a1 + 28) + 8),
+         a3) == 1 )
   {
     return v9;
   }
   rf_get_channel_freq(a1, 3);
   return 1;
 }
-

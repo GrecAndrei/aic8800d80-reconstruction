@@ -10,11 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13432C;
 extern uint32_t off_134330;
 
 // ble_clear_state @ 0x1342f4, size 54 bytes
-uint32_t *ble_clear_state()
+int ble_clear_state()
 {
   uint32_t *v0; // r4
   uint16_t *v1; // r3
@@ -28,10 +29,9 @@ uint32_t *ble_clear_state()
   *((uint8_t *)v1 + 3) = 0;
   if ( v2 )
   {
-    tx_process_jump(v2 - 12);
-    tx_process_jump(v0[5] - 12);
+    tx_process_jump((char *)(v2 - 12));
+    tx_process_jump((char *)(v0[5] - 12));
   }
-  sub_100200((int *)off_13432C, 0, 0x2Cu);
+  memset_thunk((int *)off_13432C, 0, 0x2Cu);
   return hci_cmd_preprocess(6u, 0);
 }
-

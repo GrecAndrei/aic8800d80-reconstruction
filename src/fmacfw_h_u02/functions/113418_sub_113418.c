@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1134CC;
 extern uint32_t off_1134C4;
 extern uint32_t off_1134C8;
-extern uint32_t dword_1134CC;
-extern uint32_t dword_1134D0;
 extern uint32_t off_1134D4;
-extern uint32_t dword_1134D8;
-extern uint32_t dword_1134DC;
+extern uint32_t off_1134DC;
 
 // rf_set_state @ 0x113418, size 172 bytes
 int  rf_set_state(int a1, int a2, int a3)
@@ -26,11 +25,10 @@ int  rf_set_state(int a1, int a2, int a3)
   uint8_t *v5; // r4
   int v6; // r3
   int v7; // r5
-  int v8; // r7
-  int v9; // r6
+  int v8; // r6
+  uint32_t *v9; // r0
   int v10; // r8
   int v11; // r3
-  int v13; // r4
 
   v3 = (uint8_t *)off_1134C4;
   if ( a3 )
@@ -46,45 +44,43 @@ int  rf_set_state(int a1, int a2, int a3)
     if ( v6 )
     {
       v7 = dword_1134CC;
-      v8 = dword_1134D0;
-      v9 = dword_1134CC - 8;
+      v8 = dword_1134CC - 8;
       do
       {
         while ( 1 )
         {
-          v10 = *(uint32_t *)(*(uint32_t *)(list_pop(v7) + 4) + 4);
+          v9 = list_pop(v7);
+          v10 = *(uint32_t *)(v9[1] + 4);
           --*v5;
-          wlan_ioctl_handler_1(v9);
+          wlan_ioctl_handler_1(v8, v9);
           v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
           ++*(uint16_t *)off_1134D4;
-          a1 = irq_disable_global_2(128);
+          irq_disable_global_2(128);
           if ( !*v5 )
             goto LABEL_12;
         }
         if ( v11 == 1 )
         {
-          a1 = wait_for_state((uint32_t *)v10);
+          wait_for_state((uint32_t *)v10);
         }
         else
         {
-          debug_printf(v8);
-          a1 = process_packet_params(v10, 32, 1, 0);
+          debug_printf("###err### %x\r\n", v10);
+          process_packet_params(v10, 32, 1, 0);
         }
       }
       while ( *v5 );
     }
 LABEL_12:
-    rf_is_idle(a1, a2);
+    rf_is_idle();
     return 1;
   }
   else
   {
-    v13 = a1;
-    debug_printf(dword_1134D8, *v3);
-    check_global_value(dword_1134DC, v13, a2, *v3);
+    debug_printf("usb wlan send err %d\n", *v3);
+    check_global_value(off_1134DC);
     return 1;
   }
 }
-

@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12577C;
 
 // co_list_push @ 0x125764, size 22 bytes
-int  co_list_push(uint16_t *a1)
+int  co_list_push(int a1)
 {
   if ( *((uint32_t *)off_12577C + 1) )
-    return wlan_ioctl_handler_1((char *)off_12577C + 12);
+    return wlan_ioctl_handler_1((int)off_12577C + 12, (uint32_t *)(a1 - 12));
   else
-    return rx_pkt_parse(a1);
+    return (int)rx_pkt_parse((uint16_t *)a1);
 }
-

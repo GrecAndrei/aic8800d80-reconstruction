@@ -10,28 +10,24 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10516C;
-extern uint32_t off_105180;
+
 extern uint32_t dword_105170;
-extern uint32_t off_105184;
+extern uint32_t off_10516C;
 extern uint32_t off_105174;
-extern uint32_t dword_105178;
-extern uint32_t dword_10517C;
+extern uint32_t off_105180;
+extern uint32_t off_105184;
 
 // mac_reset_disable @ 0x1050c0, size 172 bytes
-int  mac_reset_disable(int16_t a1, int a2, int a3, int a4)
+int  mac_reset_disable(int a1, int a2, int a3, int a4)
 {
   unsigned int *v4; // r4
   int *v5; // r9
   int v6; // r5
   uint32_t *v7; // r11
   uint32_t *v12; // r2
-  int v13; // r1
-  unsigned int v14; // r5
-  unsigned int v15; // r0
+  unsigned int v13; // r5
+  unsigned int v14; // r0
   int result; // r0
-  int v17; // r1
-  int v18; // r2
 
   v4 = (unsigned int *)off_10516C;
   v5 = (int *)off_105180;
@@ -46,15 +42,13 @@ int  mac_reset_disable(int16_t a1, int a2, int a3, int a4)
   *v7 = 8;
   timer_delay(300);
   v12 = off_105174;
-  v13 = dword_105178;
   *v4 |= 0x40000000u;
-  v14 = HIWORD(*v12) & 0x3FFF;
-  v15 = *v4 & 0xBFFFFFFF;
-  *(uint16_t *)(a2 + 2 * (a3 + 16 * a4)) = v14;
-  *v4 = v15;
-  result = check_status_bits(1, v13);
-  if ( v14 > 0x3E80 )
-    return event_dispatch(dword_10517C, v17, v18);
+  v13 = HIWORD(*v12) & 0x3FFF;
+  v14 = *v4 & 0xBFFFFFFF;
+  *(uint16_t *)(a2 + 2 * (a3 + 16 * a4)) = v13;
+  *v4 = v14;
+  result = check_status_bits(1, "amp=%x pwr_amp_back[%d][%x]=%6d\n", a1, a4, a3, v13);
+  if ( v13 > 0x3E80 )
+    return event_dispatch(aWarningDataSat_0);
   return result;
 }
-

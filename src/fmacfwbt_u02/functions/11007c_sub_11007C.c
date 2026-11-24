@@ -10,37 +10,41 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1100C4;
+extern uint32_t dword_1100CC;
+extern uint32_t off_1100C8;
+extern uint32_t off_1100D0;
+
 // adv_irq_handler @ 0x11007c, size 72 bytes
-// Doc: log_free_dispatch_n234 [util]: Dispatch and free log buffer entries
-// log_free_dispatch_n234 [util]: Dispatch and free log buffer entries
-int adv_irq_handler()
+uint32_t *adv_irq_handler()
 {
   void *v0; // r8
-  int result; // r0
+  uint32_t *result; // r0
   uint32_t *v2; // r5
   int v3; // r7
   int v4; // r6
   int v5; // r4
-  unsigned int v6; // r1
+  uint32_t *v6; // r0
+  unsigned int v7; // r1
 
-  v0 = log_free_dispatch_n270;
-  result = zero_struct(log_free_dispatch_n264);
+  v0 = off_1100D0;
+  result = zero_struct((uint32_t *)dword_1100C4);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
-    v2 = log_free_dispatch_n268;
-    v3 = log_free_dispatch_4;
-    v4 = log_free_dispatch_n264;
+    v2 = off_1100C8;
+    v3 = dword_1100CC;
+    v4 = dword_1100C4;
     v5 = 0;
     do
     {
-      rx_process_item(v3, 0x6B8u);
-      result = check_abort_flag(v4);
-      v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
+      v6 = rx_process_item(v3, 0x6B8u);
+      result = (uint32_t *)check_abort_flag(v4, v6);
+      v7 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
     }
-    while ( v6 > (uint16_t)v5 );
+    while ( v7 > (uint16_t)v5 );
   }
   return result;
 }
-

@@ -10,10 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_135914;
-extern uint32_t dword_135920;
+
 extern uint32_t dword_135918;
-extern uint32_t dword_13591C;
+extern uint32_t off_135914;
 
 // rf_check_channel_10 @ 0x135884, size 144 bytes
 int  rf_check_channel_10(int a1)
@@ -30,10 +29,10 @@ int  rf_check_channel_10(int a1)
   {
     if ( *(uint8_t *)(*((uint32_t *)off_135914 + 4) + 61) != *(uint8_t *)(a1 + 8) )
       return 2;
-    state_check_feature(256, dword_135920);
+    state_check_feature(256, aDeauthHandlerI);
     if ( find_hci_conn_by_handle(6154, 6) )
-      irq_lock(6154, 6);
-    event_dispatch(1);
+      irq_lock((char *)0x180A, 6);
+    event_dispatch_1(1);
     return 0;
   }
   else
@@ -43,11 +42,10 @@ int  rf_check_channel_10(int a1)
     if ( *(uint8_t *)(v4 + 108) )
     {
       v5 = *(uint16_t *)(a1 + 12);
-      state_check_feature(256, dword_13591C, v5);
+      state_check_feature(256, "deauth_handler: reason code =%d\r\n", v5);
       init_rf_config(v4, v5, 0);
       return 0;
     }
   }
   return result;
 }
-

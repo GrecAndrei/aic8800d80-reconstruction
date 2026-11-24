@@ -10,32 +10,36 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_110188;
+extern uint32_t off_11017C;
+extern uint32_t off_110180;
+extern uint32_t off_110184;
+
 // calculate_rf_power @ 0x110100, size 122 bytes
-// Doc: message_dispatch_n72 [ipc]: Dispatches incoming IPC messages by type id (switch on msg id 0xd)
-// message_dispatch_n72 [ipc]: Dispatches incoming IPC messages by type id (switch on msg id 0xd)
 int calculate_rf_power()
 {
   void *v0; // r4
   int v1; // r3
   uint32_t *v2; // r0
-  int16_t v3; // r2
-  int16_t v4; // r1
+  uint16_t v3; // r2
+  uint16_t v4; // r1
   uint64_t v5; // kr00_8
   uint16_t v7[2]; // [sp+4h] [bp-14h] BYREF
   uint16_t v8[8]; // [sp+8h] [bp-10h] BYREF
 
-  v0 = log_free_dispatch_n174;
-  v1 = *(uint32_t *)log_free_dispatch_n174;
-  v2 = log_free_dispatch_0184;
-  v3 = *((uint16_t *)log_free_dispatch_n178 + 153);
-  v4 = *((uint16_t *)log_free_dispatch_n178 + 154) - 4;
-  v7[1] = *(uint16_t *)(*(uint32_t *)log_free_dispatch_n174 + 2);
+  v0 = off_11017C;
+  v1 = *(uint32_t *)off_11017C;
+  v2 = off_110184;
+  v3 = HIWORD(((uint32_t *)(uintptr_t)off_110180)[76]);
+  v4 = LOWORD(((uint32_t *)(uintptr_t)off_110180)[77]) - 4;
+  v7[1] = *(uint16_t *)(*(uint32_t *)off_11017C + 2);
   v8[1] = *(uint16_t *)(v1 + 4);
   v8[5] = *(uint16_t *)(v1 + 6);
   v8[7] = *(uint16_t *)(v1 + 8);
   v5 = *(uint64_t *)(v1 + 20);
-  *(uint32_t *)log_free_dispatch_0184 = v5;
-  v2[3] = log_free_dispatch_n180;
+  *(uint32_t *)off_110184 = v5;
+  v2[3] = dword_110188;
   v2[1] = HIDWORD(v5);
   *((uint8_t *)v2 + 8) = 1;
   v8[2] = v4;
@@ -47,4 +51,3 @@ int calculate_rf_power()
   hci_handle_command(v2, (int)v7, 0x20u);
   return hci_send_command((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
 }
-

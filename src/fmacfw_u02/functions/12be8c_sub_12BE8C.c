@@ -10,82 +10,60 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12BFA4;
 extern uint32_t off_12BFA8;
-extern uint32_t dword_12BFC0;
-extern uint32_t dword_12BFBC;
 extern uint32_t off_12BFAC;
-extern uint32_t off_12BFD0;
-extern uint32_t off_12BFD4;
-extern uint32_t dword_12BFD8;
 extern uint32_t off_12BFB0;
 extern uint32_t off_12BFB4;
 extern uint32_t off_12BFB8;
-extern uint32_t dword_12BFC4;
-extern uint32_t dword_12BFCC;
-extern uint32_t dword_12BFEC;
-extern uint32_t dword_12BFE8;
-extern uint32_t dword_12BFE4;
-extern uint32_t dword_12BFE0;
-extern uint32_t dword_12BFDC;
-extern uint32_t dword_12BFC8;
+extern uint32_t off_12BFD0;
+extern uint32_t off_12BFD4;
 
 // mmio_copy_reg @ 0x12be8c, size 280 bytes
-int  mmio_copy_reg(int a1, int a2)
+int mmio_copy_reg()
 {
-  void *v2; // r2
-  int v3; // r4
+  int v0; // r4
   int result; // r0
-  int v5; // r1
-  int v6; // r2
-  int v7; // r3
-  int v8; // r1
-  int v9; // r0
-  int v10; // r2
-  char *v11; // r4
-  int v12; // r1
-  int v13; // r2
+  int *v2; // r4
+  int v3; // r1
 
-  v2 = off_12BFA4;
-  v3 = *(uint32_t *)off_12BFA4;
+  v0 = *(uint32_t *)off_12BFA4;
   *(uint32_t *)off_12BFA8 = *(uint32_t *)off_12BFA4;
-  result = v3 << 21;
-  if ( (v3 & 0x400) != 0 )
+  result = v0 << 21;
+  if ( (v0 & 0x400) != 0 )
   {
-    event_dispatch(dword_12BFC0, a2, v2);
+    event_dispatch(aErrorThereIsNo_0);
     while ( 1 )
       ;
   }
-  v5 = v3 << 23;
-  if ( (v3 & 0x100) == 0 )
+  if ( (v0 & 0x100) == 0 )
   {
-    v6 = v3 << 22;
-    if ( (v3 & 0x200) == 0 )
+    if ( (v0 & 0x200) == 0 )
       goto LABEL_4;
 LABEL_13:
-    event_dispatch(dword_12BFBC, v5, v6);
+    event_dispatch(aErrorThereIsNo);
     while ( 1 )
       ;
   }
   result = rf_counter_get();
-  v6 = v3 << 22;
-  if ( (v3 & 0x200) != 0 )
+  if ( (v0 & 0x200) != 0 )
     goto LABEL_13;
 LABEL_4:
-  if ( (v3 & 0x10) != 0 )
+  if ( (v0 & 0x10) != 0 )
   {
-    mmio_set_bit(4);
-    result = phy_band_validate(4);
+    mmio_set_bit_1(4);
+    result = phy_band_validate(4u);
   }
-  if ( (v3 & 0x2F) != 0 )
+  if ( (v0 & 0x2F) != 0 )
   {
     if ( *(uint8_t *)off_12BFAC )
     {
-      v11 = (char *)off_12BFD0;
-      write_phy_config(*((uint8_t *)off_12BFD0 + 411));
-      v12 = v11[411];
-      *((uint8_t *)off_12BFD4 + 9) = v12;
-      return event_dispatch(dword_12BFD8, v12, v13);
+      v2 = (int *)off_12BFD0;
+      write_phy_config(HIBYTE(((uint32_t *)(uintptr_t)off_12BFD0)[102]));
+      v3 = *((char *)v2 + 411);
+      *((uint8_t *)off_12BFD4 + 9) = v3;
+      return event_dispatch("update:%d\n", v3);
     }
     if ( *(uint8_t *)off_12BFB0 )
     {
@@ -94,64 +72,40 @@ LABEL_4:
         *((uint8_t *)off_12BFB0 + 6) = 1;
     }
   }
-  v7 = **(int16_t **)off_12BFB8;
-  if ( v7 < 0 )
+  if ( **(uint16_t **)off_12BFB8 < 0 )
   {
-    if ( (v3 & 1) != 0 )
+    if ( (v0 & 1) != 0 )
     {
-      v8 = dword_12BFC4;
-      v9 = dword_12BFCC;
-      v10 = 760;
+      return bad_func_0x12f408((int)aTimerPendingHa_0, (int)aHalMachwAbsTim, 760);
     }
-    else if ( (v3 & 2) != 0 )
+    else if ( (v0 & 2) != 0 )
     {
-      v8 = dword_12BFC4;
-      v9 = dword_12BFEC;
-      v10 = 761;
+      return bad_func_0x12f408((int)aTimerPendingHa_5, (int)aHalMachwAbsTim, 761);
+    }
+    else if ( (v0 & 4) != 0 )
+    {
+      return bad_func_0x12f408((int)aTimerPendingHa_4, (int)aHalMachwAbsTim, 762);
     }
     else
     {
-      v7 = v3 << 29;
-      if ( (v3 & 4) != 0 )
+      result = v0 << 28;
+      if ( (v0 & 8) != 0 )
       {
-        v8 = dword_12BFC4;
-        v9 = dword_12BFE8;
-        v10 = 762;
+        return bad_func_0x12f408((int)aTimerPendingHa_3, (int)aHalMachwAbsTim, 763);
       }
-      else
+      else if ( (v0 & 0x80) != 0 )
       {
-        result = v3 << 28;
-        if ( (v3 & 8) != 0 )
-        {
-          v8 = dword_12BFC4;
-          v9 = dword_12BFE4;
-          v10 = 763;
-        }
-        else if ( (v3 & 0x80) != 0 )
-        {
-          v8 = dword_12BFC4;
-          v9 = dword_12BFE0;
-          v10 = 765;
-        }
-        else if ( (v3 & 0x40) != 0 )
-        {
-          v8 = dword_12BFC4;
-          v9 = dword_12BFDC;
-          v10 = 767;
-        }
-        else
-        {
-          v7 = v3 << 26;
-          if ( (v3 & 0x20) == 0 )
-            return result;
-          v8 = dword_12BFC4;
-          v9 = dword_12BFC8;
-          v10 = 769;
-        }
+        return bad_func_0x12f408((int)aTimerPendingHa_2, (int)aHalMachwAbsTim, 765);
+      }
+      else if ( (v0 & 0x40) != 0 )
+      {
+        return bad_func_0x12f408((int)aTimerPendingHa_1, (int)aHalMachwAbsTim, 767);
+      }
+      else if ( (v0 & 0x20) != 0 )
+      {
+        return bad_func_0x12f408((int)aTimerPendingHa, (int)aHalMachwAbsTim, 769);
       }
     }
-    return bad_func_0x12f408(v9, v8, v10, v7);
   }
   return result;
 }
-

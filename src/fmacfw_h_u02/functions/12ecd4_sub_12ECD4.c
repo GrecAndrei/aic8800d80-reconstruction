@@ -10,18 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12ED28;
-
 // pdu_alloc_40c @ 0x12ecd4, size 82 bytes
-int  pdu_alloc_40c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+int  pdu_alloc_40c(int a1, uint32_t *a2, int a3, int a4)
 {
   uint32_t *v5; // r5
-  int v6; // r0
+  char *v6; // r0
   int v7; // zf
-  int v8; // r2
+  unsigned int v8; // r2
 
-  v5 = (uint32_t *)tx_send_pdu(1036, a4, a3, 4u);
-  v6 = *a2;
+  v5 = (uint32_t *)tx_send_pdu(1036, a4, a3, 4);
+  v6 = (char *)*a2;
   v7 = *a2 << 30 == 0;
   v8 = a2[1];
   *v5 = 0;
@@ -29,9 +27,8 @@ int  pdu_alloc_40c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
     *v5 = 255;
   if ( v8 << 30 )
     *v5 = 1;
-  memcpy(v6, a2 + 2, v8);
-  alloc_tx_event(dword_12ED28, *a2, a2[1] + *a2, a2[2], *v5);
-  rx_process_packet((int)v5);
+  memcpy_1(v6, (char *)a2 + 8, v8);
+  alloc_tx_event(asc_14ABDC, *a2, a2[1] + *a2, a2[2], *v5);
+  rx_process_packet_1((int)v5);
   return 0;
 }
-

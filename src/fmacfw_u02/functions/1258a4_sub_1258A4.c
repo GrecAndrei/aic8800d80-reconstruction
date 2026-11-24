@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1258BC;
 
 // co_list_remove @ 0x1258a4, size 22 bytes
-int  co_list_remove(uint16_t *a1)
+int  co_list_remove(int a1)
 {
   if ( *((uint32_t *)off_1258BC + 1) )
-    return cmd_handler_a((char *)off_1258BC + 12);
+    return cmd_handler_a((int)off_1258BC + 12, (uint32_t *)(a1 - 12));
   else
-    return hci_acl_header_parse(a1);
+    return (int)hci_acl_header_parse((uint16_t *)a1);
 }
-

@@ -10,16 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_118550;
 extern uint32_t off_118554;
 extern uint32_t off_118558;
 extern uint32_t off_11855C;
 extern uint32_t off_118560;
 extern uint32_t off_118564;
-extern uint32_t off_11856C;
-extern uint32_t dword_118578;
 extern uint32_t off_118568;
-extern uint32_t dword_118574;
+extern uint32_t off_11856C;
 extern uint32_t off_118570;
 
 // ke_msg_dispatch @ 0x11849c, size 178 bytes
@@ -35,7 +34,7 @@ uint32_t *ke_msg_dispatch()
   uint32_t *v7; // r2
   int v8; // r1
   uint16_t *v9; // r4
-  int16_t v10; // r2
+  uint16_t v10; // r2
   int v11; // r3
   uint32_t *v12; // r5
   int v13; // r1
@@ -46,11 +45,11 @@ uint32_t *ke_msg_dispatch()
   if ( result )
   {
     v1 = result;
-    v2 = (uint32_t *)critical_enter_0();
+    v2 = critical_enter_0();
     v3 = v2;
     if ( v2 )
     {
-      v4 = (int *)off_118554;
+      v4 = off_118554;
       *v2 = 0;
       v5 = *v4;
       v3[1] = 0;
@@ -78,7 +77,7 @@ uint32_t *ke_msg_dispatch()
         }
         else
         {
-          ke_event_schedule(dword_118578, v8, v7);
+          ke_event_schedule_1(aSdioTailError);
           v8 = *v6;
         }
       }
@@ -86,7 +85,7 @@ uint32_t *ke_msg_dispatch()
       {
         if ( *(uint32_t *)off_118568 )
         {
-          ke_event_schedule(dword_118574, v8, v7);
+          ke_event_schedule_1(aBug);
           v8 = *v6;
         }
         v9 = off_11856C;
@@ -119,4 +118,3 @@ uint32_t *ke_msg_dispatch()
   }
   return result;
 }
-

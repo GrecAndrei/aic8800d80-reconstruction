@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_107C18;
-extern uint32_t off_107C14;
-extern uint32_t dword_107C1C;
-extern uint32_t off_107C24;
+
 extern uint32_t dword_107C20;
+extern uint32_t off_107C14;
+extern uint32_t off_107C18;
+extern uint32_t off_107C24;
 
 // rf_get_cca_status @ 0x107bd8, size 60 bytes
 int rf_get_cca_status()
@@ -28,10 +28,9 @@ int rf_get_cca_status()
   v0 = (unsigned int *)off_107C18;
   v1 = *(uint32_t *)off_107C18;
   v2 = *(uint32_t *)off_107C14 >> 20;
-  result = check_interrupt_flag(1, dword_107C1C, v2, off_107C14);
+  result = check_interrupt_flag(1, "calib_loft_i=%x\n", v2);
   v4 = off_107C24;
   *v0 = dword_107C20 & (((HIWORD(v1) & 0xFFF) + v2) << 16) | *v0 & 0xF000FFFF;
   *v4 |= 0x800000u;
   return result;
 }
-

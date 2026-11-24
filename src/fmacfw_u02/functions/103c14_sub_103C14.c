@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_103C58;
 extern uint32_t off_103C5C;
 extern uint32_t off_103C60;
 extern uint32_t off_103C64;
-extern uint32_t off_103C58;
-extern uint32_t dword_103C68;
 
 // configure_gpio_bits @ 0x103c14, size 66 bytes
 int configure_gpio_bits()
@@ -31,6 +31,5 @@ int configure_gpio_bits()
   *v1 &= ~0x1000000u;
   *v2 &= 0xFFE7FFFF;
   timer_delay(10);
-  return check_status_bits(0x2000, dword_103C68);
+  return check_status_bits(0x2000, aWfDfeAndRfintf_0);
 }
-

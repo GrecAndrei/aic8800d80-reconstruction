@@ -10,45 +10,42 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12F45C;
 extern uint32_t off_12F460;
-extern uint32_t dword_12F464;
 extern uint32_t off_12F468;
 
 // bad_func_0x12f408 @ 0x12f408, size 82 bytes
 int  bad_func_0x12f408(int a1, int a2, int a3)
 {
-  int *v4; // r4
-  int v5; // r0
+  int *v3; // r4
   int result; // r0
-  int v7; // r3
-  int v8; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_12F45C = 1;
   }
-  v4 = (int *)off_12F460;
-  v5 = dword_12F464;
+  v3 = (int *)off_12F460;
   ++*(uint32_t *)off_12F460;
-  result = event_dispatch(v5, a1, a2, a3 & 0xFFFFF);
+  result = event_dispatch("\x9BASSERT (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
   if ( *(int *)off_12F468 >= 0 )
   {
     mmio_clear_irqs();
     result = unknown_func_12d104(0x80000000);
   }
-  if ( *v4 )
+  if ( *v3 )
   {
-    v7 = *v4 - 1;
-    v8 = *(uint32_t *)off_12F45C;
-    *v4 = v7;
-    if ( !v7 )
+    v5 = *v3 - 1;
+    v6 = *(uint32_t *)off_12F45C;
+    *v3 = v5;
+    if ( !v5 )
     {
-      if ( v8 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

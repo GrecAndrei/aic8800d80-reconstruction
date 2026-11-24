@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11A93C;
 
 // get_channel_by_handle @ 0x11a900, size 58 bytes
@@ -28,10 +29,9 @@ int  get_channel_by_handle(int result)
     v4 = result;
     *(uint8_t *)(v2 + 14) = v3;
     if ( !v3 )
-      cmd_handler_a(*(uint32_t *)(v2 + 340));
+      cmd_handler_a(*(uint32_t *)(v2 + 340), (uint32_t *)v2);
     *(uint32_t *)(v1 + 84 * v4 + 40) = 0;
     return 84;
   }
   return result;
 }
-

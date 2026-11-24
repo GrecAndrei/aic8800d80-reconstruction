@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10CAB8;
-extern uint32_t off_10CAD0;
+
+extern uint32_t dword_10CAC4;
 extern uint32_t dword_10CAD4;
+extern uint32_t off_10CAB8;
 extern uint32_t off_10CABC;
+extern uint32_t off_10CAC0;
+extern uint32_t off_10CAC8;
+extern uint32_t off_10CAD0;
 extern uint32_t off_10CAD8;
 extern uint32_t off_10CADC;
-extern uint32_t dword_10CAC4;
-extern uint32_t off_10CAC0;
-extern uint32_t dword_10CACC;
-extern uint32_t off_10CAC8;
 
 // memory_buffer_alloc @ 0x10c9cc, size 236 bytes
 int  memory_buffer_alloc(char a1)
@@ -33,17 +33,18 @@ int  memory_buffer_alloc(char a1)
   unsigned int v7; // r2
   unsigned int v8; // r4
   int *v9; // r9
-  int v10; // r0
+  uint32_t *v10; // r0
   int v11; // r1
-  int v12; // r3
+  uint32_t *v12; // r3
   int v13; // r1
   int v14; // r2
   int v15; // r0
+  uint8_t *v16; // r1
   int result; // r0
 
   unknown_func_12d14c(2048);
-  v1 = *(uint32_t *)off_10CAB8;
-  if ( *(uint32_t *)(*(uint32_t *)off_10CAB8 + 636) )
+  v1 = ((uint32_t *)(uintptr_t)off_10CAB8)[0];
+  if ( *(uint32_t *)(((uint32_t *)(uintptr_t)off_10CAB8)[0] + 636) )
   {
     v2 = (uint8_t *)off_10CAD0;
     v3 = dword_10CAD4;
@@ -57,7 +58,7 @@ int  memory_buffer_alloc(char a1)
         break;
       v8 = v2[1620]
          + 1
-         - 81 * ((unsigned int)(((unsigned int)v3 * (unsigned uint64_t)((unsigned int)v2[1620] + 1)) >> 32) >> 6);
+         - 81 * ((unsigned int)(((unsigned int)v3 * (uint64_t)((unsigned int)v2[1620] + 1)) >> 32) >> 6);
       v2[1621] = v6 + 1;
       v2[1620] = v8;
       if ( (__get_CPSR() & 1) == 0 )
@@ -85,16 +86,16 @@ int  memory_buffer_alloc(char a1)
         }
       }
       v15 = dword_10CAC4;
-      *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10CAC0;
-      cmd_handler_a(v15);
+      v16 = &v2[20 * v8];
+      *((uint32_t *)v16 + 1) = (char *)v12 + *off_10CAC0;
+      cmd_handler_a(v15, v16);
       if ( !*(uint32_t *)(v1 + 636) )
         goto LABEL_13;
     }
-    log_printf(dword_10CACC, v6, v7);
+    log_printf("rxused=%d, total=%d\r\n", v6, v7);
   }
 LABEL_13:
   result = unknown_func_12d104(256);
   *(uint32_t *)off_10CAC8 = (1 << (a1 + 8)) & 0x1F00;
   return result;
 }
-

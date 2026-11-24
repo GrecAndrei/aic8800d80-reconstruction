@@ -10,22 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12F494;
+
 extern uint32_t off_12F490;
 extern uint32_t off_12F498;
 
 // mmio_clear_register @ 0x12f46c, size 36 bytes
 int  mmio_clear_register(int a1, int a2, int a3)
 {
-  int v4; // r0
   int result; // r0
 
   __disable_irq();
-  v4 = dword_12F494;
   *(uint32_t *)off_12F490 = 0;
-  result = event_dispatch(v4, a1, a2, a3 & 0xFFFFF);
-  while ( *(uint32_t *)off_12F498 )
+  result = event_dispatch("\x9BASSERT (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
+  while ( *off_12F498 )
     ;
   return result;
 }
-

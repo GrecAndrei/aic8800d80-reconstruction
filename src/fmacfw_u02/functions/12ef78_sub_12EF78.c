@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12EFA4;
+
 extern uint32_t off_12EFA8;
 
 // cb_send_0x16ae04 @ 0x12ef78, size 42 bytes
-int  cb_send_0x16ae04(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+int  cb_send_0x16ae04(int a1, uint32_t *a2, int a3, int a4)
 {
-  event_dispatch(dword_12EFA4, *a2);
+  event_dispatch("\x9D\x81DBG: Setting severity filter: 0x%08x\n", *a2);
   *((uint32_t *)off_12EFA8 + 1) = *a2;
   ke_msg_send_no_param(1031, a4, a3);
   return 0;
 }
-

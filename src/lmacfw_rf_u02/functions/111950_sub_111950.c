@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1119F0;
-extern uint32_t dword_111A00;
+
 extern uint32_t dword_1119F4;
 extern uint32_t dword_1119F8;
 extern uint32_t dword_1119FC;
+extern uint32_t off_1119F0;
 
 // rf_channel_update @ 0x111950, size 158 bytes
 int  rf_channel_update(int a1, int a2, unsigned int a3)
@@ -35,7 +35,7 @@ int  rf_channel_update(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    log_printf(dword_111A00);
+    log_printf(aErrAlignmentEr);
     return 3;
   }
   else
@@ -74,4 +74,3 @@ int  rf_channel_update(int a1, int a2, unsigned int a3)
     }
   }
 }
-

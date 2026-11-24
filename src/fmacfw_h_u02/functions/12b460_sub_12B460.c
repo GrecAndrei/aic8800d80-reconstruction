@@ -10,38 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12B688;
+
+extern uint32_t dword_12B678;
+extern uint32_t dword_12B680;
 extern uint32_t dword_12B68C;
 extern uint32_t dword_12B690;
-extern uint32_t dword_12B6C0;
-extern uint32_t off_12B6BC;
-extern uint32_t dword_12B680;
-extern uint32_t off_12B69C;
-extern uint32_t dword_12B6A0;
-extern uint32_t dword_12B678;
-extern uint32_t dword_12B67C;
-extern uint32_t off_12B694;
 extern uint32_t dword_12B698;
+extern uint32_t dword_12B6A0;
+extern uint32_t dword_12B6AC;
+extern uint32_t dword_12B6B8;
+extern uint32_t dword_12B6C0;
+extern uint32_t off_12B688;
+extern uint32_t off_12B694;
+extern uint32_t off_12B69C;
 extern uint32_t off_12B6A4;
 extern uint32_t off_12B6A8;
-extern uint32_t dword_12B6AC;
 extern uint32_t off_12B6B0;
 extern uint32_t off_12B6B4;
+extern uint32_t off_12B6BC;
 
-// rf_irq_service @ 0x12b460, size 530 bytes
-unsigned int  rf_irq_service(unsigned int result)
+// sub_12B460 @ 0x12b460, size 530 bytes
+unsigned int  sub_12B460(unsigned int result)
 {
-  uint32_t *v1; // r6
+  unsigned int *v1; // r6
   unsigned int v2; // r5
   int v3; // r2
   int v4; // r7
   int v5; // r8
   unsigned int v6; // r4
   uint64_t v7; // r0
-  int v8; // r0
-  float v9; // r0
-  int v10; // r0
-  int v11; // r0
+  uint64_t v8; // r0
+  unsigned int v9; // r0
+  uint64_t v10; // r0
+  uint64_t v11; // r0
   unsigned int *v12; // r2
   unsigned int v13; // r3
   int v14; // r3
@@ -51,11 +52,13 @@ unsigned int  rf_irq_service(unsigned int result)
   unsigned int *v18; // r1
   unsigned int *v19; // r2
   int v20; // r1
-  int v21; // r0
-  unsigned int *v22; // r7
-  int v23; // r0
+  uint64_t v21; // r0
+  unsigned int v22; // r0
+  uint64_t v23; // r0
+  unsigned int *v24; // r7
+  uint64_t v25; // r0
 
-  v1 = off_12B688;
+  v1 = (unsigned int *)off_12B688;
   v2 = (uint8_t)*(uint32_t *)off_12B688;
   if ( result != v2 )
   {
@@ -69,20 +72,23 @@ unsigned int  rf_irq_service(unsigned int result)
     *v1 = v4 & ((result * ((*v1 >> 18) & 0x3FF) / v2) << 18) | *v1 & v5;
     if ( result == 240 )
     {
-      v21 = double_exp_check(dword_12B680);
-      *v1 = v4 & (double_to_float_rounding(v21) << 18) | *v1 & v5;
-      v22 = (unsigned int *)off_12B69C;
-      v23 = double_exp_check(0);
-      *v22 = dword_12B6A0 & (double_to_float_rounding(v23) << 20) | *v22 & 0xC00FFFFF;
+      v21 = sub_1424DC(*(uint64_t *)&dword_12B680);
+      v22 = sub_142EEC(v21);
+      HIDWORD(v23) = dword_12B6B8;
+      *v1 = v4 & (v22 << 18) | *v1 & v5;
+      v24 = (unsigned int *)off_12B69C;
+      LODWORD(v23) = 0;
+      v25 = sub_1424DC(v23);
+      *v24 = dword_12B6A0 & (sub_142EEC(v25) << 20) | *v24 & 0xC00FFFFF;
     }
     else
     {
-      v7 = signed_int_to_double(result);
-      v8 = double_compare_common(v7, HIDWORD(v7), dword_12B678, dword_12B67C);
-      v9 = double_to_int(v8);
-      v10 = float_to_double(LODWORD(v9));
-      v11 = double_exp_check(v10);
-      *v1 = v4 & (double_to_float_rounding(v11) << 18) | *v1 & v5;
+      v7 = sub_142894(result);
+      v8 = sub_142968(v7, *(uint64_t *)&dword_12B678);
+      v9 = sub_142F2C(v8);
+      v10 = sub_1428B8(v9);
+      v11 = sub_1424DC(v10);
+      *v1 = v4 & (sub_142EEC(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_12B69C;
     *(uint32_t *)off_12B694 = dword_12B698 & ((v6 * (uint16_t)(*(uint32_t *)off_12B694 >> 8) / v2) << 8)
@@ -118,4 +124,3 @@ unsigned int  rf_irq_service(unsigned int result)
   }
   return result;
 }
-

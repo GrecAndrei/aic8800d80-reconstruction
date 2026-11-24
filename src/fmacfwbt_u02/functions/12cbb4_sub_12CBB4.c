@@ -10,32 +10,37 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_12CC24;
+extern uint32_t off_12CC20;
+extern uint32_t off_12CC34;
+
 // hci_evt_send @ 0x12cbb4, size 106 bytes
-// Doc: message_dispatch_n52_cc06 [ipc]: Dispatches an incoming IPC message by ID
-// message_dispatch_n52_cc06 [ipc]: Dispatches an incoming IPC message by ID
-int  hci_evt_send(int a1)
+uint32_t * hci_evt_send(int a1)
 {
-  int16_t v1; // r3
-  uint16_t *v4; // r0
+  int v1; // r3
 
   v1 = *(uint16_t *)(a1 - 6);
-  if ( **(int16_t **)message_dispatch_c20 >= 0 || (uint8_t)v1 <= 0xEu )
+  if ( **(uint16_t **)off_12CC20 >= 0 || (uint8_t)v1 <= 0xEu )
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      check_abort_flag(message_dispatch_n70);
-      return set_system_flag_1(0x4000000);
+      check_abort_flag(dword_12CC24, (uint32_t *)(a1 - 12));
+      return (uint32_t *)set_system_flag_1(0x4000000);
     }
   }
   else
   {
-    mmio_irq_clear(message_dispatch2_cc2c, message_dispatch_n74, 183);
+    mmio_irq_clear((int)aIdTaskMax, (int)aKeTaskLocal, 183);
+    v1 = *(uint16_t *)(a1 - 6);
   }
-  ke_event_schedule(message_dispatch_n7c, *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
-  v4 = (uint16_t *)(a1 - 12);
-  if ( *(uint8_t *)message_dispatch_n80 )
-    return hci_tx_packet(v4);
+  ke_event_schedule_1(
+    "\x9D\x80Dispatching msg:%x from tsk:%x to tsk:%x\n",
+    *(uint16_t *)(a1 - 8),
+    *(uint16_t *)(a1 - 4),
+    v1);
+  if ( *(uint8_t *)off_12CC34 )
+    return hci_tx_packet((char *)(a1 - 12));
   else
-    return patch_jump(v4);
+    return (uint32_t *)patch_jump();
 }
-

@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_114BF0;
 extern uint32_t off_114BF4;
 
 // invalid_handler @ 0x114bb8, size 54 bytes
-// Doc: patch_apply_n_2ce [patch]: Apply next ROM patch from patch table iterator
-// patch_apply_n_2ce [patch]: Apply next ROM patch from patch table iterator
 int invalid_handler()
 {
   int *v0; // r4
@@ -25,7 +25,7 @@ int invalid_handler()
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)rf_fault_dump_bf0 = 1;
+    *(uint32_t *)off_114BF0 = 1;
   }
   v0 = (int *)off_114BF4;
   ++*(uint32_t *)off_114BF4;
@@ -33,7 +33,7 @@ int invalid_handler()
   if ( *v0 )
   {
     v2 = *v0 - 1;
-    v3 = *(uint32_t *)rf_fault_dump_bf0;
+    v3 = *(uint32_t *)off_114BF0;
     *v0 = v2;
     if ( !v2 )
     {
@@ -43,4 +43,3 @@ int invalid_handler()
   }
   return result;
 }
-

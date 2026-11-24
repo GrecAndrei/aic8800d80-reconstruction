@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11DDD0;
+extern uint32_t off_11DDD4;
 extern uint32_t off_11DDDC;
 extern uint32_t off_11DDE0;
-extern uint32_t off_11DDD4;
-extern uint32_t dword_11DDD8;
 
 // tx_unlock @ 0x11dd2c, size 162 bytes
 int tx_unlock()
@@ -46,7 +46,7 @@ int tx_unlock()
           break;
         v5 = 1;
       }
-      list_pop_front(v0);
+      list_pop_front((int)v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -59,7 +59,7 @@ int tx_unlock()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = rf_tx_timestamp_check();
+        result = rf_tx_timestamp_check(result);
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -79,9 +79,8 @@ int tx_unlock()
   if ( *((uint8_t *)off_11DDD4 + 69) )
   {
     set_system_flag_1(0x80000);
-    result = state_check_feature(1024, dword_11DDD8);
+    result = state_check_feature(1024, aHostBufferReco);
     v9[69] = 0;
   }
   return result;
 }
-

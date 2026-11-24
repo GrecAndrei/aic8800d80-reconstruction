@@ -10,9 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12509C;
-extern uint32_t dword_125098;
-
 // set_rf_byte @ 0x12506c, size 42 bytes
 int  set_rf_byte(int a1, int a2)
 {
@@ -20,15 +17,14 @@ int  set_rf_byte(int a1, int a2)
 
   if ( a1 <= 1 )
   {
-    dispatch_event_handler(dword_12509C);
+    dispatch_event_handler_1(asc_130380, a2);
     return 1;
   }
   else
   {
-    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0xAu);
     set_reg_158a08_bit16(v2);
-    dispatch_event_handler(dword_125098);
+    dispatch_event_handler_1(asc_130320);
     return 0;
   }
 }
-

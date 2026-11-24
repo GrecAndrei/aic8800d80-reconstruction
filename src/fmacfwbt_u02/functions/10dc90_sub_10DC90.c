@@ -10,9 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10DCE0;
+
 extern uint32_t off_10DCE4;
-extern uint32_t dword_10DCE8;
 
 // set_radio_channel @ 0x10dc90, size 78 bytes
 int  set_radio_channel(int a1)
@@ -23,7 +22,7 @@ int  set_radio_channel(int a1)
   int v4; // r5
 
   v1 = BYTE2(a1);
-  result = printf_wrapper(dword_10DCE0, BYTE2(a1));
+  result = printf_wrapper("wakeup:%d\n", BYTE2(a1));
   if ( v1 == 3 )
   {
     v3 = gpio_test_bit_reg0(3);
@@ -33,15 +32,14 @@ int  set_radio_channel(int a1)
     }
     else
     {
-      if ( *((uint8_t *)off_10DCE4 + 369) )
+      if ( BYTE1(((uint32_t *)(uintptr_t)off_10DCE4)[92]) )
         gpio_set_bit_reg0(2);
       else
         gpio_clear_bit_reg0(2);
       v4 = 2;
     }
-    printf_wrapper(dword_10DCE8, v3);
+    printf_wrapper("wkbt=%d\r\n", v3);
     return power_mode_set(v4);
   }
   return result;
 }
-

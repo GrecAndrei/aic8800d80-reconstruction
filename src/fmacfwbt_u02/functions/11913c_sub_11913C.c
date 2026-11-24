@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_119164;
 
 // ble_conn_event_handler @ 0x11913c, size 40 bytes
@@ -20,7 +21,7 @@ int  ble_conn_event_handler(int result, int a2)
 
   v2 = result;
   if ( !*(uint8_t *)(result + 96) )
-    result = check_abort_flag(dword_119164);
+    result = check_abort_flag(dword_119164, (uint32_t *)result);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 88);
@@ -29,4 +30,3 @@ int  ble_conn_event_handler(int result, int a2)
   }
   return result;
 }
-

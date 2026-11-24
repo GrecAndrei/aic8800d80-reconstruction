@@ -10,45 +10,42 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_114478;
-extern uint32_t off_11447C;
 extern uint32_t off_114480;
-extern uint32_t dword_114490;
 extern uint32_t off_114484;
 extern uint32_t off_114488;
 extern uint32_t off_11448C;
-extern uint32_t dword_114494;
 
-// check_radio_flag @ 0x114408, size 110 bytes
-// Doc: sub_1214408 [ipc]: Unidentified helper, possibly IPC/mailbox glue
-// sub_1214408 [ipc]: Unidentified helper, possibly IPC/mailbox glue
-int  check_radio_flag(int result)
+// check_radio_flag_1 @ 0x114408, size 110 bytes
+unsigned int  check_radio_flag_1(unsigned int result)
 {
+  int v1; // r2
+
   if ( !result )
   {
+    v1 = *(uint32_t *)off_114478;
     if ( *(uint32_t *)off_114478
-      && (result = *((uint32_t *)off_11447C + 4),
-          *(uint32_t *)(*(uint32_t *)off_114478 + 12) - result - *((uint16_t *)off_114480 + 92) - 2000 < 0) )
+      && (result = (*(volatile uint32_t *)0x40501010u), (int)(*(uint32_t *)(v1 + 12) - result - LOWORD(((uint32_t *)(uintptr_t)off_114480)[46]) - 2000) < 0) )
     {
-      result = state_check_feature(2, dword_114490);
+      result = state_check_feature(2, "timer: not allow %x\r\n", *(uint32_t *)(v1 + 4));
     }
     else
     {
       if ( !*(uint8_t *)off_114484
-        || (result = *((uint32_t *)off_11447C + 4),
-            *((uint32_t *)off_114484 + 1)
-          + *((uint32_t *)off_114484 + 2)
-          - result
-          - *((uint16_t *)off_114480 + 92)
-          - *(uint16_t *)(*(uint32_t *)off_114488 + 52) >= 0) )
+        || (result = (*(volatile uint32_t *)0x40501010u),
+            (int)(*((uint32_t *)off_114484 + 1)
+                + *((uint32_t *)off_114484 + 2)
+                - result
+                - LOWORD(((uint32_t *)(uintptr_t)off_114480)[46])
+                - *(uint16_t *)(*(uint32_t *)off_114488 + 52)) >= 0) )
       {
         *(uint32_t *)off_11448C = 0x40000000;
         return result;
       }
-      result = state_check_feature(2, dword_114494);
+      result = state_check_feature(2, aOffsetNotAllow);
     }
   }
   *(uint32_t *)off_11448C = 0x80000000;
   return result;
 }
-

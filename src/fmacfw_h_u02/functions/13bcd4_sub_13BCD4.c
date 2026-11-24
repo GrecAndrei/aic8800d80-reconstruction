@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13BD58;
+
 extern uint32_t dword_13BD4C;
 extern uint32_t dword_13BD50;
 extern uint32_t dword_13BD54;
+extern uint32_t dword_13BD58;
 
-// ke_event_schedule @ 0x13bcd4, size 120 bytes
-int  ke_event_schedule(int result)
+// ke_event_schedule_1 @ 0x13bcd4, size 120 bytes
+int  ke_event_schedule_1(int result)
 {
   int v1; // r9
   int v2; // r6
@@ -50,10 +51,9 @@ int  ke_event_schedule(int result)
         wlan_ioctl_handler_1(v5, (uint32_t *)v3);
       }
       hci_cmd_preprocess((uint16_t)((uint16_t)i << 8) | 8, 4);
-      result = rf_set_frequency(v4, (uint16_t)i);
+      result = rf_set_frequency_1(v4, (uint16_t)i);
     }
     v3 += 32;
   }
   return result;
 }
-

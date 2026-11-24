@@ -10,118 +10,116 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11F130;
+extern uint32_t dword_11F144;
 extern uint32_t dword_11F154;
-extern uint32_t dword_11F138;
 extern uint32_t off_11F13C;
 extern uint32_t off_11F140;
-extern uint32_t dword_11F144;
 extern uint32_t off_11F148;
 extern uint32_t off_11F14C;
 extern uint32_t off_11F150;
 
 // get_connection_tx_power @ 0x11efec, size 322 bytes
-unsigned int  get_connection_tx_power(unsigned int a1)
+int  get_connection_tx_power(unsigned int a1, int a2, int a3, int a4)
 {
-  int v1; // r7
-  int v2; // r8
-  int v3; // r5
-  int v4; // r9
-  int v5; // r6
-  int v6; // r3
-  uint32_t *v8; // r2
-  unsigned int v9; // r3
-  int v10; // r1
-  int v11; // r0
-  int v12; // r12
-  int v13; // r0
-  unsigned int result; // r0
-  int v15; // r8
-  int *v16; // r0
-  int v17; // r2
-  int *v18; // r3
-  int v19; // r3
+  int v4; // r7
+  int v5; // r8
+  int v6; // r5
+  int v7; // r9
+  int v8; // r6
+  int v9; // r3
+  uint32_t *v11; // r2
+  unsigned int v12; // r3
+  int v13; // r1
+  int v14; // r0
+  int v15; // r12
+  int result; // r0
+  int v17; // r8
+  int *v18; // r0
+  int v19; // r2
+  int *v20; // r3
+  int v21; // r3
 
-  v1 = dword_11F130;
-  v2 = dword_11F154;
-  v3 = dword_11F130 + 696 * a1;
-  v4 = *(uint8_t *)(v3 + 34);
-  v5 = 1320 * v4;
-  v6 = dword_11F154 + 1320 * v4;
-  if ( *(uint8_t *)(v6 + 1224) )
-    --*(uint8_t *)(v6 + 1226);
-  check_feature_flag(256, dword_11F138);
-  wlan_ioctl_handler_3(v5 + 240 + v2, v3);
+  v4 = dword_11F130;
+  v5 = dword_11F154;
+  v6 = dword_11F130 + 696 * a1;
+  v7 = *(uint8_t *)(v6 + 34);
+  v8 = 1320 * v7;
+  v9 = dword_11F154 + 1320 * v7;
+  if ( *(uint8_t *)(v9 + 1224) )
+    --*(uint8_t *)(v9 + 1226);
+  check_feature_flag(256, "%s: sta_idx=%d\n", aStaMgmtUnregis, a1);
+  wlan_ioctl_handler_3(v8 + 240 + v5, (uint32_t *)v6);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_11F13C = 1;
   }
-  v8 = off_11F140;
-  v9 = v1 + 696 * a1;
-  v10 = *(uint32_t *)off_11F140;
-  v11 = *(uint32_t *)(v9 + 44);
-  v12 = *(uint32_t *)off_11F140 + 1;
-  *(uint32_t *)off_11F140 = v12;
-  *(uint8_t *)(v9 + 37) = 0;
-  if ( v11 )
+  v11 = off_11F140;
+  v12 = v4 + 696 * a1;
+  v13 = *(uint32_t *)off_11F140;
+  v14 = *(uint32_t *)(v12 + 44);
+  v15 = *(uint32_t *)off_11F140 + 1;
+  *(uint32_t *)off_11F140 = v15;
+  *(uint8_t *)(v12 + 37) = 0;
+  if ( v14 )
   {
-    *(uint8_t *)(v11 + 37) = 0;
-    if ( !v12 )
+    *(uint8_t *)(v14 + 37) = 0;
+    if ( !v15 )
     {
 LABEL_7:
-      check_ll_event_queue(v11);
-      wlan_ioctl_handler_1(dword_11F144);
+      check_ll_event_queue(v14);
+      wlan_ioctl_handler_1(dword_11F144, *(uint32_t **)(v4 + 696 * a1 + 44));
       goto LABEL_8;
     }
-    v16 = (int *)off_11F13C;
-    *v8 = v10;
-    v17 = *v16;
-    if ( v10 )
+    v18 = (int *)off_11F13C;
+    *v11 = v13;
+    v19 = *v18;
+    if ( v13 )
     {
-      v11 = *(uint32_t *)(v9 + 44);
+      v14 = *(uint32_t *)(v12 + 44);
       goto LABEL_7;
     }
   }
   else
   {
-    if ( !v12 )
+    if ( !v15 )
       goto LABEL_8;
-    v18 = (int *)off_11F13C;
-    *v8 = v10;
-    v17 = *v18;
-    if ( v10 )
+    v20 = (int *)off_11F13C;
+    *v11 = v13;
+    v19 = *v20;
+    if ( v13 )
       goto LABEL_8;
   }
-  if ( v17 )
+  if ( v19 )
     __enable_irq();
-  v11 = *(uint32_t *)(v1 + 696 * a1 + 44);
-  if ( v11 )
+  v14 = *(uint32_t *)(v4 + 696 * a1 + 44);
+  if ( v14 )
     goto LABEL_7;
 LABEL_8:
-  check_ll_event_queue(v3);
-  v13 = wlan_ioctl_handler_1(dword_11F144);
-  result = get_rx_pdu(v13);
+  check_ll_event_queue(v6);
+  wlan_ioctl_handler_1(dword_11F144, (uint32_t *)v6);
+  result = get_rx_pdu();
   if ( !result )
   {
-    if ( *((uint8_t *)off_11F148 + 408) )
-      result = rf_setup_channel(v2 + v5);
+    if ( LOBYTE(((uint32_t *)(uintptr_t)off_11F148)[102]) )
+      result = rf_setup_channel(v5 + v8);
     else
       result = rf_reg_write_byte(0xC2u);
   }
   if ( a1 <= 0x1F )
   {
-    v15 = v2 + 1320 * v4;
-    if ( *(uint8_t *)(v15 + 106) == 2 && !*(uint8_t *)(v15 + 1224) )
+    v17 = v5 + 1320 * v7;
+    if ( *(uint8_t *)(v17 + 106) == 2 && !*(uint8_t *)(v17 + 1224) )
     {
       if ( !*(uint8_t *)off_11F14C
-        || (v19 = (uint8_t)(*(uint8_t *)off_11F14C - 1), *(uint8_t *)off_11F14C = v19, !v19) )
+        || (v21 = (uint8_t)(*(uint8_t *)off_11F14C - 1), *(uint8_t *)off_11F14C = v21, !v21) )
       {
         if ( *((uint8_t *)off_11F150 + 18) + *((uint8_t *)off_11F150 + 17) == 1 )
-          return rf_rate_code_check(result);
+          return rf_rate_code_check();
       }
     }
   }
   return result;
 }
-

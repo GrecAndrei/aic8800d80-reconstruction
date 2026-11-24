@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_133A88;
-extern uint32_t dword_133AA0;
-extern uint32_t dword_133A9C;
-extern uint32_t off_133A8C;
-extern uint32_t off_133A90;
+
 extern uint32_t dword_133A94;
 extern uint32_t dword_133A98;
+extern uint32_t off_133A88;
+extern uint32_t off_133A8C;
+extern uint32_t off_133A90;
 
 // ble_state_check_13397c @ 0x13397c, size 266 bytes
 int ble_state_check_13397c()
@@ -28,10 +27,10 @@ int ble_state_check_13397c()
   int v5; // r3
   int v6; // r1
   int v7; // [sp+0h] [bp-Ch] BYREF
-  int v8; // [sp+4h] [bp-8h] BYREF
+  int a2; // [sp+4h] [bp-8h] BYREF
 
-  if ( **(int16_t **)off_133A88 < 0 && hci_cmd_handler(6u) != 4 && hci_cmd_handler(6u) != 10 )
-    irq_disable_mmio_write(dword_133AA0, dword_133A9C, 697);
+  if ( **(uint16_t **)off_133A88 < 0 && hci_cmd_handler(6u) != 4 && hci_cmd_handler(6u) != 10 )
+    irq_disable_mmio_write((int)aKeStateGetTask_9, (int)aMeSetActiveCfm, 697);
   if ( hci_cmd_handler(6u) == 10 )
   {
     v4 = off_133A8C;
@@ -42,15 +41,15 @@ int ble_state_check_13397c()
       mac_write_header_word(6148, 13, 6);
       v4[4] = 0;
     }
-    rx_process_packet(*(uint32_t *)v4 + 12);
+    rx_process_packet_1(*(uint32_t *)v4 + 12);
     v6 = (uint8_t)v4[33];
     *(uint32_t *)v4 = 0;
     if ( v6 )
     {
       v7 = 0;
-      v8 = 0;
-      ble_get_addr_flag(&v7, &v8);
-      ble_parse_event(v7, v8, 0);
+      a2 = 0;
+      ble_get_addr_flag(&v7, &a2);
+      ble_parse_event(v7, a2, 0);
     }
     else
     {
@@ -99,4 +98,3 @@ LABEL_5:
     return 0;
   }
 }
-

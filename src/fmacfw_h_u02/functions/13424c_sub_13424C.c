@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13429C;
 extern uint32_t off_1342A0;
 extern uint32_t off_1342A4;
-extern uint32_t dword_1342A8;
 
 // unknown_func_13424c @ 0x13424c, size 80 bytes
 int unknown_func_13424c()
@@ -56,7 +56,6 @@ int unknown_func_13424c()
         __enable_irq();
     }
   }
-  alloc_tx_event(dword_1342A8);
+  alloc_tx_event(aSmCoexTsTimeou);
   return 0;
 }
-

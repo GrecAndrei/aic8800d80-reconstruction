@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_127040;
-extern uint32_t dword_127048;
+
 extern uint32_t dword_127044;
+extern uint32_t dword_127048;
+extern uint32_t off_127040;
 
 // rf_cmd_check @ 0x126fd8, size 104 bytes
 int  rf_cmd_check(char a1)
@@ -37,9 +38,9 @@ int  rf_cmd_check(char a1)
   v1[4] = a1;
   v1[6] = a1;
   if ( v4 > 29 )
-    v5 = (unsigned int)(((unsigned int)dword_127048 * (unsigned uint64_t)(unsigned int)(v4 - 30)) >> 32) >> 3;
+    v5 = (unsigned int)(((unsigned int)dword_127048 * (uint64_t)(unsigned int)(v4 - 30)) >> 32) >> 3;
   else
-    v5 = ((int)((unsigned uint64_t)(dword_127044 * (uint64_t)(v4 - 40)) >> 32) >> 2) - ((v4 - 40) >> 31);
+    v5 = ((int)((uint64_t)(dword_127044 * (uint64_t)(v4 - 40)) >> 32) >> 2) - ((v4 - 40) >> 31);
   if ( v5 >= 8 )
     v5 = 8;
   if ( v5 < -7 )
@@ -47,4 +48,3 @@ int  rf_cmd_check(char a1)
   v1[2] = v5;
   return freq_offset_to_channel(v3);
 }
-

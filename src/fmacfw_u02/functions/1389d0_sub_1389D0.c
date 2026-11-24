@@ -10,18 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_138A5C;
+
 extern uint32_t dword_138A60;
-extern uint32_t off_138A58;
-extern uint32_t dword_138A70;
-extern uint32_t dword_138A6C;
 extern uint32_t dword_138A64;
 extern uint32_t dword_138A68;
+extern uint32_t off_138A58;
+extern uint32_t off_138A5C;
 
 // tx_power_lookup @ 0x1389d0, size 136 bytes
-// Doc: sub_12389D0 [util]: Table-driven dispatch using index lookup with ldrsh from globals
-// sub_12389D0 [util]: Table-driven dispatch using index lookup with ldrsh from globals
-uint32_t * tx_power_lookup(int a1, int16_t a2, int a3)
+int  tx_power_lookup(int a1, uint16_t a2, int a3)
 {
   uint8_t *v3; // r5
   int v4; // r4
@@ -35,12 +32,12 @@ uint32_t * tx_power_lookup(int a1, int16_t a2, int a3)
   v4 = *((uint8_t *)off_138A5C + 68);
   v5 = dword_138A60;
   v6 = (uint32_t *)(dword_138A60 + 80 * v4);
-  if ( **(int16_t **)off_138A58 < 0 )
+  if ( **(uint16_t **)off_138A58 < 0 )
   {
     v7 = 4 * v4;
     if ( *(uint16_t *)(dword_138A60 + 80 * v4 + 76) )
     {
-      bad_func_0x12f408(dword_138A70, dword_138A6C, 175);
+      bad_func_0x12f408((int)aRxStatDescValS, (int)aRxuCntrlDescPr, 175);
       return 0;
     }
   }
@@ -59,7 +56,6 @@ uint32_t * tx_power_lookup(int a1, int16_t a2, int a3)
   v3[68] = v3[68]
          + 1
          - -64
-         * ((unsigned int)(((unsigned int)dword_138A68 * (unsigned uint64_t)((unsigned int)(uint8_t)v3[68] + 1)) >> 32) >> 7);
-  return v6;
+         * ((unsigned int)(((unsigned int)dword_138A68 * (uint64_t)((unsigned int)(uint8_t)v3[68] + 1)) >> 32) >> 7);
+  return (int)v6;
 }
-

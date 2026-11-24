@@ -10,87 +10,64 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_135514;
-extern uint32_t dword_13551C;
 extern uint32_t off_135518;
-extern uint32_t dword_135524;
-extern uint32_t dword_135520;
+extern uint32_t off_135524;
 
 // hci_send_vendor_cmd @ 0x135458, size 186 bytes
-void  hci_send_vendor_cmd(
-        char *a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11,
-        int a12,
-        int a13)
+int  hci_send_vendor_cmd(char *a1)
 {
-  int v14; // r8
-  unsigned int v15; // r1
-  int v16; // r6
-  int v17; // r3
-  int v18; // r1
-  char *v19; // r4
-  int v20; // r12
-  char *v21; // r3
-  char v22; // t1
-  int v23; // r1
-  int v24; // r2
-  int v25; // r1
+  int v2; // r8
+  unsigned int v3; // r1
+  int v4; // r6
+  int v5; // r3
+  int v6; // r1
+  char *v7; // r4
+  int v8; // r12
+  char *v9; // r3
+  char v10; // t1
 
-  v14 = *((uint32_t *)off_135514 + 5);
-  invalid_handler_12c5fc(6154, 6);
-  v15 = *(uint16_t *)a1;
-  v16 = *((uint16_t *)a1 + 7);
-  if ( v15 <= 5 )
+  v2 = *((uint32_t *)off_135514 + 5);
+  invalid_handler_12c5fc((char *)0x180A, 6);
+  v3 = *(uint16_t *)a1;
+  v4 = *((uint16_t *)a1 + 7);
+  if ( v3 <= 5 )
   {
-    v25 = dword_13551C;
-    *(uint16_t *)(v14 + 16) = 0;
-    check_feature_flag(256, v25, v16);
-    if ( !v16 )
-    {
-LABEL_9:
-      mmio_write_sequence(*((uint16_t *)a1 + 8) & 0x3FFF);
-      return;
-    }
+    *(uint16_t *)(v2 + 16) = 0;
+    check_feature_flag(256, "assoc_rsp_handler:%d\r\n", v4);
+    if ( !v4 )
+      return mmio_write_sequence(*((uint16_t *)a1 + 8) & 0x3FFF);
   }
   else
   {
-    v17 = *(uint16_t *)(v14 + 14);
-    v18 = (uint16_t)(v15 - 6);
-    v19 = a1 + 18;
-    if ( v18 + v17 > 800 )
+    v5 = *(uint16_t *)(v2 + 14);
+    v6 = (uint16_t)(v3 - 6);
+    v7 = a1 + 18;
+    if ( v6 + v5 > 800 )
     {
-      if ( **(int16_t **)off_135518 < 0 )
+      if ( **(uint16_t **)off_135518 < 0 )
       {
-        mmio_write_field(dword_135524, dword_135520, 1236);
-        v17 = *(uint16_t *)(v14 + 14);
+        mmio_write_field(off_135524, (int)aSmAssocRspHand, 1236);
+        v5 = *(uint16_t *)(v2 + 14);
       }
-      v18 = (uint16_t)(800 - v17);
+      v6 = (uint16_t)(800 - v5);
     }
-    v20 = v14 + 20 + v17;
-    if ( v18 )
+    v8 = v2 + 20 + v5;
+    if ( v6 )
     {
       do
       {
-        v21 = v19 - 18;
-        v22 = *v19++;
-        *(uint8_t *)(v21 - a1 + v20) = v22;
+        v9 = v7 - 18;
+        v10 = *v7++;
+        *(uint8_t *)(v9 - a1 + v8) = v10;
       }
-      while ( v19 != &a1[v18 + 18] );
+      while ( v7 != &a1[v6 + 18] );
     }
-    *(uint16_t *)(v14 + 16) = v18;
-    check_feature_flag(256, dword_13551C, v16);
-    if ( !v16 )
-      goto LABEL_9;
+    *(uint16_t *)(v2 + 16) = v6;
+    check_feature_flag(256, "assoc_rsp_handler:%d\r\n", v4);
+    if ( !v4 )
+      return mmio_write_sequence(*((uint16_t *)a1 + 8) & 0x3FFF);
   }
-  assert_trace(v16, v23, v24, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+  return assert_trace(v4);
 }
-

@@ -10,21 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11A8D8;
 extern uint32_t off_11A8BC;
 extern uint32_t off_11A8C0;
-extern uint32_t dword_11A8D8;
-extern uint32_t off_11A8DC;
-extern uint32_t off_11A8E0;
 extern uint32_t off_11A8C4;
 extern uint32_t off_11A8C8;
-extern uint32_t off_11A8D4;
 extern uint32_t off_11A8CC;
-extern uint32_t dword_11A8D0;
+extern uint32_t off_11A8D4;
+extern uint32_t off_11A8DC;
+extern uint32_t off_11A8E0;
 
 // rx_update_meta @ 0x11a7c8, size 242 bytes
 int  rx_update_meta(uint8_t *a1)
 {
-  uint8_t *v1; // r2
+  int *v1; // r2
   int v2; // r3
   uint8_t v4; // r0
   uint8_t v5; // r4
@@ -44,14 +44,14 @@ int  rx_update_meta(uint8_t *a1)
   v1 = off_11A8BC;
   v2 = a1[16];
   *((uint8_t *)off_11A8BC + 360) = a1[17];
-  v1[361] = a1[18];
+  *((uint8_t *)v1 + 361) = a1[18];
   v4 = a1[21];
-  v1[356] = v4;
+  *((uint8_t *)v1 + 356) = v4;
   v5 = a1[22];
-  v1[357] = v5;
+  *((uint8_t *)v1 + 357) = v5;
   v6 = a1[23];
-  v1[358] = v6;
-  v1[359] = v6 + v4 + v5;
+  *((uint8_t *)v1 + 358) = v6;
+  *((uint8_t *)v1 + 359) = v6 + v4 + v5;
   if ( a1[19] )
     *(uint32_t *)off_11A8C0 |= 0x10u;
   else
@@ -96,13 +96,12 @@ int  rx_update_meta(uint8_t *a1)
         {
           *(uint32_t *)off_11A8D4 = v15;
         }
-        poll_hw_status();
+        poll_hw_status_1();
       }
     }
   }
   if ( a1[24] )
     *(uint8_t *)off_11A8CC = a1[24];
-  dispatch_event_handler(dword_11A8D0, v7);
-  return handle_ipc_request(a1, 28, 1, 0);
+  dispatch_event_handler_1(aSetVendorCa, v7);
+  return handle_ipc_request((int)a1, 28, 1, 0);
 }
-

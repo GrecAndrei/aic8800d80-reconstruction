@@ -10,10 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_100000;
-extern uint32_t dword_103EAC;
-extern uint32_t dword_103EB0;
-
 // wait_rf_ready @ 0x103da8, size 258 bytes
 int wait_rf_ready()
 {
@@ -27,16 +23,15 @@ int wait_rf_ready()
   int v7; // r12
   int v8; // r9
   int v9; // r8
-  int v10; // r3
-  int v11; // r1
-  int v12; // r0
-  unsigned int v13; // r0
-  unsigned int v14; // r3
-  int16_t v15; // r2
+  int v10; // r1
+  int v11; // r0
+  unsigned int v12; // r0
+  unsigned int v13; // r3
+  uint16_t v14; // r2
   int result; // r0
-  int v17; // r3
+  int v16; // r3
 
-  v0 = (dword_100000[0] & 1) == 0;
+  v0 = (MEMORY[0x100000] & 1) == 0;
   v1 = 0;
   v2 = (int *)(4 * (v0 + 0x40000));
   v3 = v0 + 278528;
@@ -48,44 +43,42 @@ int wait_rf_ready()
   v9 = 0;
   do
   {
-    v10 = *v4;
-    v11 = (unsigned int)*v4 >> 20;
+    v10 = (unsigned int)*v4 >> 20;
     if ( *v4 < 0 )
-      v11 -= 4096;
-    v12 = (uint16_t)v10 >> 4;
+      v10 -= 4096;
+    v11 = (uint16_t)*v4 >> 4;
     if ( (((unsigned int)*v4 >> 4) & 0x800) != 0 )
-      v12 -= 4096;
-    if ( v7 < v11 )
-      v7 = v11;
+      v11 -= 4096;
+    if ( v7 < v10 )
+      v7 = v10;
     v4 += 2;
-    if ( v6 < v12 )
-      v6 = v12;
-    if ( v1 >= v11 )
-      v1 = v11;
-    v9 += v11;
-    v8 += v12;
+    if ( v6 < v11 )
+      v6 = v11;
+    if ( v1 >= v10 )
+      v1 = v10;
+    v9 += v10;
+    v8 += v11;
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    check_interrupt_flag(1, dword_103EAC, v1, v10);
-  check_interrupt_flag(1, dword_103EB0, v9, v8);
+    check_interrupt_flag(1, aWarningDataSat);
+  check_interrupt_flag(1, "sum_i=%d\nsum_q=%d\ndc_i=%d\ndc_q=%d\n", v9, v8, v9 / 0x2000, v8 / 0x2000);
   do
   {
-    v13 = *v2;
-    v14 = (unsigned int)*v2 >> 20;
+    v12 = *v2;
+    v13 = (unsigned int)*v2 >> 20;
     if ( *v2 < 0 )
-      LOWORD(v14) = v14 - 4096;
-    v15 = (uint16_t)v13 >> 4;
-    result = v13 >> 4 << 20;
-    v17 = (int16_t)(v14 - v9 / 0x2000);
+      LOWORD(v13) = v13 - 4096;
+    v14 = (uint16_t)v12 >> 4;
+    result = v12 >> 4 << 20;
+    v16 = (uint16_t)(v13 - v9 / 0x2000);
     if ( result < 0 )
-      v15 -= 4096;
-    *v2 = ((v17 + (v17 < 0 ? 0x1000 : 0)) << 20)
+      v14 -= 4096;
+    *v2 = ((v16 + (v16 < 0 ? 0x1000 : 0)) << 20)
         + 65537
-        + 16 * ((int16_t)(v15 - v8 / 0x2000) + ((int16_t)(v15 - v8 / 0x2000) < 0 ? 0x1000 : 0));
+        + 16 * ((uint16_t)(v14 - v8 / 0x2000) + ((uint16_t)(v14 - v8 / 0x2000) < 0 ? 0x1000 : 0));
     v2 += 2;
   }
   while ( (int *)(4 * v3) != v2 );
   return result;
 }
-

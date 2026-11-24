@@ -10,57 +10,50 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1035D0;
+
 extern uint32_t off_1035CC;
+extern uint32_t off_1035D0;
 extern uint32_t off_1035D4;
+extern uint32_t off_1035D8;
 extern uint32_t off_1035DC;
 extern uint32_t off_1035E0;
-extern uint32_t dword_1035E4;
-extern uint32_t off_1035D8;
 
 // poll_rf_status @ 0x103540, size 138 bytes
-int  poll_rf_status(int a1, int a2, int a3, int a4, int a5)
+int poll_rf_status()
 {
-  uint32_t *v5; // r2
-  int v6; // r3
-  uint32_t *v7; // r3
-  uint32_t *v8; // r2
-  int v9; // r3
-  int *v10; // r3
-  int *v11; // r0
-  int v12; // r1
-  int v13; // r2
-  int v14; // r3
+  uint32_t *v0; // r2
+  int v1; // r3
+  uint32_t *v2; // r3
+  uint32_t *v3; // r2
+  int v4; // r3
+  uint32_t *v5; // r3
+  uint32_t *v6; // r0
 
-  v5 = off_1035D0;
+  v0 = off_1035D0;
   *(uint32_t *)off_1035CC |= 1u;
-  while ( (*v5 & 0x10) == 0 )
+  while ( (*v0 & 0x10) == 0 )
   {
-    LOWORD(v6) = 50;
+    LOWORD(v1) = 50;
     do
-      v6 = (uint16_t)(v6 - 1);
-    while ( v6 );
+      v1 = (uint16_t)(v1 - 1);
+    while ( v1 );
   }
-  v7 = off_1035D4;
-  v8 = off_1035D0;
+  v2 = off_1035D4;
+  v3 = off_1035D0;
   *(uint32_t *)off_1035D4 |= 0x80000u;
-  *v7 |= 0x100000u;
-  while ( (*v8 & 8) == 0 )
+  *v2 |= 0x100000u;
+  while ( (*v3 & 8) == 0 )
   {
-    LOWORD(v9) = 50;
+    LOWORD(v4) = 50;
     do
-      v9 = (uint16_t)(v9 - 1);
-    while ( v9 );
+      v4 = (uint16_t)(v4 - 1);
+    while ( v4 );
   }
-  v10 = (int *)off_1035DC;
-  v11 = (int *)off_1035E0;
-  v12 = dword_1035E4;
+  v5 = off_1035DC;
+  v6 = off_1035E0;
   *(uint32_t *)off_1035D8 |= 0x20000u;
-  *v10 |= 0x1000000u;
-  v13 = *v10 | 0x8000000;
-  *v10 = v13;
-  v14 = *v11 | 0x524;
-  *v11 = v14;
-  return check_interrupt_flag(0x2000, v12, v13, v14, a5);
+  *v5 |= 0x1000000u;
+  *v5 |= 0x8000000u;
+  *v6 |= 0x524u;
+  return check_interrupt_flag(0x2000, aWfDfeAndRfintf);
 }
-

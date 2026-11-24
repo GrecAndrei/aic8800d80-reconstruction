@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1239B8;
 extern uint32_t off_1239BC;
 extern uint32_t off_1239C0;
@@ -20,13 +21,12 @@ int  unknown_handler(int a1, int a2, int a3, int a4)
   int *v4; // r4
   uint32_t *v5; // r5
   int v6; // r6
-  uint64_t v7; // r0
-  int v8; // r2
-  int v9; // r0
-  int v10; // r0
+  int v7; // r0
+  int v8; // r1
+  int v9; // r2
+  int v10; // r3
   int v11; // r3
-  int v12; // r3
-  int v13; // r0
+  int v12; // r0
 
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -37,27 +37,26 @@ int  unknown_handler(int a1, int a2, int a3, int a4)
   v5 = off_1239C0;
   v6 = *(uint32_t *)off_1239C0;
   ++*(uint32_t *)off_1239BC;
-  v7 = mmio_write_one();
-  v9 = rf_get_status(v7, SHIDWORD(v7), v8);
-  v10 = ke_int_lock_save(v9);
-  ke_task_reset(v10);
+  mmio_write_one();
+  rf_get_status(v7, v8, v9);
+  ke_int_lock_save();
+  ke_task_reset();
   mem_pool_init();
   get_bt_state();
-  v11 = *v4;
+  v10 = *v4;
   *v5 = v6;
-  if ( v11 )
+  if ( v10 )
   {
-    v12 = v11 - 1;
-    v13 = *(uint32_t *)off_1239B8;
-    *v4 = v12;
-    if ( !v12 )
+    v11 = v10 - 1;
+    v12 = *(uint32_t *)off_1239B8;
+    *v4 = v11;
+    if ( !v11 )
     {
-      if ( v13 )
+      if ( v12 )
         __enable_irq();
     }
   }
   ke_msg_send_no_param(1, a4, a3);
-  rx_phy_status_parse(0);
+  rx_phy_status_parse(0, 0);
   return 0;
 }
-

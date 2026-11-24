@@ -10,25 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_125930;
-extern uint32_t dword_125968;
-extern uint32_t dword_125964;
 extern uint32_t off_125934;
-extern uint32_t off_12593C;
-extern uint32_t dword_125940;
 extern uint32_t off_125938;
-extern uint32_t dword_125960;
-extern uint32_t dword_12596C;
-extern uint32_t dword_125948;
-extern uint32_t dword_125944;
-extern uint32_t dword_12594C;
-extern uint32_t dword_125950;
-extern uint32_t dword_125954;
-extern uint32_t dword_125958;
-extern uint32_t dword_12595C;
+extern uint32_t off_12593C;
+extern uint32_t off_12595C;
 
 // process_bt_inquiry_event @ 0x1256e0, size 592 bytes
-int  process_bt_inquiry_event(int a1, uint8_t **a2)
+int  process_bt_inquiry_event(int a1, uint32_t *a2)
 {
   int v4; // r0
   int v5; // r5
@@ -54,47 +44,46 @@ int  process_bt_inquiry_event(int a1, uint8_t **a2)
   unsigned int v25; // r1
   int v26; // r2
   uint32_t *v28; // r8
-  int v29; // r7
   int i; // r4
-  int v31; // r1
-  uint32_t *v32; // r7
-  int v33; // r9
-  int v34; // r6
+  int v30; // r1
+  uint32_t *v31; // r7
   int j; // r8
   int k; // r4
-  int v37; // r1
+  int v34; // r1
+  int v35; // [sp+4h] [bp-8h]
+  int v36; // [sp+4h] [bp-8h]
 
-  v4 = parse_number(a2[1], 0, 0);
+  v4 = parse_number((uint8_t *)a2[1], nullptr, 0);
   v5 = v4;
   if ( v4 )
   {
     if ( v4 == 1 )
     {
-      v17 = off_125930;
+      v17 = (uint8_t *)off_125930;
       ++*(uint8_t *)off_125930;
       if ( a1 <= 4 )
       {
 LABEL_50:
-        dispatch_event_handler(dword_125968);
+        dispatch_event_handler_1(aWrongArgs);
         return -1;
       }
-      v18 = parse_number(a2[2], 0, 0);
-      v19 = parse_number(a2[3], 0, 0);
+      v18 = parse_number((uint8_t *)a2[2], nullptr, 0);
+      v19 = parse_number((uint8_t *)a2[3], nullptr, 0);
       v20 = v19;
       if ( v18 > 2 || v19 > 2 )
       {
 LABEL_49:
-        dispatch_event_handler(dword_125964);
+        dispatch_event_handler_1(aWrongTypeChgrp);
         return -1;
       }
-      v21 = a2[4];
+      v21 = (uint8_t *)a2[4];
       v22 = off_125934;
-      v23 = parse_number(v21, 0, 0);
+      v23 = parse_number(v21, nullptr, 0);
       v24 = -7;
       if ( v23 > -7 )
         v24 = v23;
       if ( v24 >= 7 )
-        LOBYTE(v24) = 7;
+        v24 = 7;
       *(uint8_t *)(3 * v18 + *(uint32_t *)off_12593C + v20) = v24;
       v25 = *((uint16_t *)v22 + 20);
       if ( v25 > 0x97B )
@@ -110,34 +99,36 @@ LABEL_49:
       }
       if ( !v22[36] && v26 == v20 )
       {
+        v36 = v24;
         rf_ctrl_set(0, v25);
+        v24 = v36;
         ++*v17;
       }
-      dispatch_event_handler(dword_125940, v18, v20);
+      dispatch_event_handler_1("set pwrofst2x_2.4g:\n  [%d][%d]=%d\n", v18, v20, v24);
       return 0;
     }
     else
     {
       if ( v4 == 2 )
       {
-        v6 = off_125930;
+        v6 = (uint8_t *)off_125930;
         ++*(uint8_t *)off_125930;
         if ( a1 > 4 )
         {
-          v7 = parse_number(a2[2], 0, 0);
-          v8 = parse_number(a2[3], 0, 0);
+          v7 = parse_number((uint8_t *)a2[2], nullptr, 0);
+          v8 = parse_number((uint8_t *)a2[3], nullptr, 0);
           v9 = v8;
           if ( v7 <= 2 && v8 <= 5 )
           {
-            v10 = a2[4];
+            v10 = (uint8_t *)a2[4];
             v11 = (uint16_t *)off_125934;
-            v12 = parse_number(v10, 0, 0);
+            v12 = parse_number(v10, nullptr, 0);
             v13 = -7;
             if ( v12 > -7 )
               v13 = v12;
             if ( v13 >= 7 )
-              LOBYTE(v13) = 7;
-            *(uint8_t *)(*(uint32_t *)off_125938 + 6 * v7 + v9) = v13;
+              v13 = 7;
+            *(uint8_t *)(*(uint32_t *)off_125938[0] + 6 * v7 + v9) = v13;
             v14 = v11[20];
             v15 = *((uint8_t *)v11 + 36);
             if ( v14 > 0x1666 )
@@ -169,13 +160,15 @@ LABEL_49:
             if ( v15 != 1 )
             {
 LABEL_40:
-              dispatch_event_handler(dword_125960, v7, v9);
+              dispatch_event_handler_1("set pwrofst2x_5g:\n  [%d][%d]=%d\n", v7, v9, v13);
               return 0;
             }
 LABEL_45:
             if ( v16 == v9 )
             {
+              v35 = v13;
               rf_ctrl_set(v15, v14);
+              v13 = v35;
               ++*v6;
             }
             goto LABEL_40;
@@ -184,43 +177,39 @@ LABEL_45:
         }
         goto LABEL_50;
       }
-      dispatch_event_handler(dword_12596C);
+      dispatch_event_handler_1(aWrongFunc_0);
       return -1;
     }
   }
   else
   {
     v28 = off_12593C;
-    v29 = dword_125948;
-    dispatch_event_handler(dword_125944);
-    dispatch_event_handler(dword_12594C);
+    dispatch_event_handler_1(aPwrofst2x24g01);
+    dispatch_event_handler_1(aChan14591013);
     do
     {
-      dispatch_event_handler(dword_125950, v5);
+      dispatch_event_handler_1("\n  [%d] =", v5);
       for ( i = 0; i != 3; ++i )
       {
-        v31 = *(char *)(*v28 + 3 * v5 + i);
-        dispatch_event_handler(v29, v31);
+        v30 = *(char *)(*v28 + 3 * v5 + i);
+        dispatch_event_handler_1("\t%d", v30);
       }
       ++v5;
     }
     while ( v5 != 3 );
-    v32 = off_125938;
-    v33 = dword_125950;
-    v34 = dword_125948;
-    dispatch_event_handler(dword_125954);
-    dispatch_event_handler(dword_125958);
+    v31 = off_125938[0];
+    dispatch_event_handler_1(aPwrofst2x5g0Of);
+    dispatch_event_handler_1(aChan3650516498);
     for ( j = 0; j != 3; ++j )
     {
-      dispatch_event_handler(v33, j);
+      dispatch_event_handler_1("\n  [%d] =", j);
       for ( k = 0; k != 6; ++k )
       {
-        v37 = *(char *)(*v32 + 6 * j + k);
-        dispatch_event_handler(v34, v37);
+        v34 = *(char *)(*v31 + 6 * j + k);
+        dispatch_event_handler_1("\t%d", v34);
       }
     }
-    dispatch_event_handler(dword_12595C);
+    dispatch_event_handler_1((const char *)off_12595C);
     return 0;
   }
 }
-

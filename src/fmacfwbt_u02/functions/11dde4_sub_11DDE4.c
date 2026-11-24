@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11DE98;
 extern uint32_t off_11DE9C;
+extern uint32_t off_11DEA0;
 extern uint32_t off_11DEA8;
 extern uint32_t off_11DEAC;
-extern uint32_t off_11DEA0;
-extern uint32_t dword_11DEA4;
 
 // rf_wait_idle @ 0x11dde4, size 180 bytes
 int rf_wait_idle()
@@ -46,7 +46,7 @@ int rf_wait_idle()
       {
         if ( (*(uint8_t *)(v1 + 16) & 1) == 0 && !*v3 )
           break;
-        list_pop_front(v0);
+        list_pop_front((int)v0);
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();
@@ -62,7 +62,7 @@ int rf_wait_idle()
           v7(*(uint32_t *)(v1 + 8));
         result = *(uint32_t *)(v1 + 12);
         if ( result )
-          result = rf_tx_timestamp_check();
+          result = rf_tx_timestamp_check(result);
         if ( *v5 )
         {
           v8 = *v5 - 1;
@@ -81,11 +81,10 @@ int rf_wait_idle()
       if ( *((uint8_t *)off_11DEA0 + 69) )
       {
         set_system_flag_1(0x80000);
-        result = state_check_feature(1024, dword_11DEA4);
+        result = state_check_feature(1024, aHostBufferReco);
         v10[69] = 0;
       }
     }
   }
   return result;
 }
-

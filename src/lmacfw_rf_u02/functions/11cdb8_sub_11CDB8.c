@@ -10,42 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_11CFE0;
+
+extern uint32_t dword_11CFD0;
+extern uint32_t dword_11CFD8;
 extern uint32_t dword_11CFE4;
 extern uint32_t dword_11CFE8;
-extern uint32_t dword_11D018;
-extern uint32_t off_11D014;
-extern uint32_t dword_11CFD8;
-extern uint32_t dword_11CFDC;
-extern uint32_t dword_11D010;
-extern uint32_t off_11CFF4;
-extern uint32_t dword_11CFF8;
-extern uint32_t dword_11CFD0;
-extern uint32_t dword_11CFD4;
-extern uint32_t off_11CFEC;
 extern uint32_t dword_11CFF0;
+extern uint32_t dword_11CFF8;
+extern uint32_t dword_11D004;
+extern uint32_t dword_11D010;
+extern uint32_t dword_11D018;
+extern uint32_t off_11CFE0;
+extern uint32_t off_11CFEC;
+extern uint32_t off_11CFF4;
 extern uint32_t off_11CFFC;
 extern uint32_t off_11D000;
-extern uint32_t dword_11D004;
 extern uint32_t off_11D008;
 extern uint32_t off_11D00C;
+extern uint32_t off_11D014;
 
-// rf_set_frequency @ 0x11cdb8, size 530 bytes
-// Doc: sub_121CDB8 [util]: Check firmware ready flag from MMIO
-// sub_121CDB8 [util]: Check firmware ready flag from MMIO
-unsigned int  rf_set_frequency(unsigned int result)
+// sub_11CDB8 @ 0x11cdb8, size 530 bytes
+unsigned int  sub_11CDB8(unsigned int result)
 {
-  uint32_t *v1; // r6
+  unsigned int *v1; // r6
   unsigned int v2; // r5
   int v3; // r2
   int v4; // r7
   int v5; // r8
   unsigned int v6; // r4
   uint64_t v7; // r0
-  int v8; // r0
-  float v9; // r0
+  uint64_t v8; // r0
+  unsigned int v9; // r0
   uint64_t v10; // r0
-  int v11; // r0
+  uint64_t v11; // r0
   unsigned int *v12; // r2
   unsigned int v13; // r3
   int v14; // r3
@@ -55,13 +52,13 @@ unsigned int  rf_set_frequency(unsigned int result)
   unsigned int *v18; // r1
   unsigned int *v19; // r2
   int v20; // r1
-  int v21; // r0
-  int v22; // r0
-  int v23; // r1
+  uint64_t v21; // r0
+  unsigned int v22; // r0
+  uint64_t v23; // r0
   unsigned int *v24; // r7
-  int v25; // r0
+  uint64_t v25; // r0
 
-  v1 = off_11CFE0;
+  v1 = (unsigned int *)off_11CFE0;
   v2 = (uint8_t)*(uint32_t *)off_11CFE0;
   if ( result != v2 )
   {
@@ -75,22 +72,23 @@ unsigned int  rf_set_frequency(unsigned int result)
     *v1 = v4 & ((result * ((*v1 >> 18) & 0x3FF) / v2) << 18) | *v1 & v5;
     if ( result == 240 )
     {
-      v21 = parse_data_field(dword_11CFD8, dword_11CFDC);
-      v22 = aeabi_d2iz(v21);
-      v23 = dword_11D010;
+      v21 = sub_127194(*(uint64_t *)&dword_11CFD8);
+      v22 = sub_127BA4(v21);
+      HIDWORD(v23) = dword_11D010;
       *v1 = v4 & (v22 << 18) | *v1 & v5;
       v24 = (unsigned int *)off_11CFF4;
-      v25 = parse_data_field(0, v23);
-      *v24 = dword_11CFF8 & (aeabi_d2iz(v25) << 20) | *v24 & 0xC00FFFFF;
+      LODWORD(v23) = 0;
+      v25 = sub_127194(v23);
+      *v24 = dword_11CFF8 & (sub_127BA4(v25) << 20) | *v24 & 0xC00FFFFF;
     }
     else
     {
-      v7 = aeabi_i2d(result);
-      v8 = aeabi_dadd(v7, HIDWORD(v7), dword_11CFD0, dword_11CFD4);
-      v9 = aeabi_dmul(v8);
-      v10 = aeabi_d2f(LODWORD(v9));
-      v11 = parse_data_field(v10, HIDWORD(v10));
-      *v1 = v4 & (aeabi_d2iz(v11) << 18) | *v1 & v5;
+      v7 = sub_12754C(result);
+      v8 = sub_127620(v7, *(uint64_t *)&dword_11CFD0);
+      v9 = sub_127BE4(v8);
+      v10 = sub_127570(v9);
+      v11 = sub_127194(v10);
+      *v1 = v4 & (sub_127BA4(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_11CFF4;
     *(uint32_t *)off_11CFEC = dword_11CFF0 & ((v6 * (uint16_t)(*(uint32_t *)off_11CFEC >> 8) / v2) << 8)
@@ -126,4 +124,3 @@ unsigned int  rf_set_frequency(unsigned int result)
   }
   return result;
 }
-

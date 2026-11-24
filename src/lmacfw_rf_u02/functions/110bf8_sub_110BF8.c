@@ -10,42 +10,40 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_110C78;
+
 extern uint32_t dword_110C70;
-extern uint32_t dword_110C74;
 
 // ke_alloc_node @ 0x110bf8, size 118 bytes
-int  ke_alloc_node(char a1, int a2, int a3)
+int  ke_alloc_node(char a1, char *a2, unsigned int a3, int a4)
 {
-  uint32_t *v6; // r0
-  uint32_t *v7; // r4
-  uint32_t *v8; // r6
-  int v9; // r2
-  int v10; // r3
+  uint32_t *v7; // r0
+  uint32_t *v8; // r4
+  uint32_t *v9; // r6
+  int v10; // r2
+  int v11; // r3
 
-  v6 = mem_alloc_checked(4);
-  if ( !v6 )
-    return log_printf(dword_110C78);
-  v7 = v6;
-  v8 = (uint32_t *)irq_disable();
-  if ( v8 )
+  v7 = mem_alloc_checked(4);
+  if ( !v7 )
+    return log_printf(aErrNoMsgPkt);
+  v8 = v7;
+  v9 = irq_disable();
+  if ( v9 )
   {
-    *(uint8_t *)v7 = a3;
-    *((uint8_t *)v7 + 1) = BYTE1(a3) & 0xF;
-    *((uint8_t *)v7 + 2) = a1;
-    *((uint8_t *)v7 + 3) = 0;
-    memcpy_large(v7 + 1, a2, a3);
-    v9 = v8[2];
-    v10 = dword_110C70;
-    v8[1] = 0;
-    *v8 = v7;
-    v8[2] = (uint16_t)(a3 + 4) | v10 & v9 | 0x80000000;
-    return irq_disable_set_flag_4((int)v8);
+    *(uint8_t *)v8 = a3;
+    *((uint8_t *)v8 + 1) = BYTE1(a3) & 0xF;
+    *((uint8_t *)v8 + 2) = a1;
+    *((uint8_t *)v8 + 3) = 0;
+    memcpy_large((char *)v8 + 4, a2, a3);
+    v10 = v9[2];
+    v11 = dword_110C70;
+    v9[1] = 0;
+    *v9 = v8;
+    v9[2] = (uint16_t)(a3 + 4) | v11 & v10 | 0x80000000;
+    return irq_disable_set_flag_4((int)v9);
   }
   else
   {
-    log_printf(dword_110C74);
-    return mem_free(v7);
+    log_printf(aErrSendMsgCfgT);
+    return mem_free(v8);
   }
 }
-

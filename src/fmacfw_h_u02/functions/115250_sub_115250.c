@@ -10,36 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_115298;
-extern uint32_t dword_1152A8;
-extern uint32_t dword_1152B0;
-extern uint32_t dword_1152AC;
-extern uint32_t dword_11529C;
-extern uint32_t dword_1152A0;
-extern uint32_t dword_1152A4;
-
 // process_debug_char @ 0x115250, size 72 bytes
-void  __noreturn process_debug_char(int a1)
+void  process_debug_char(int a1)
 {
-  debug_printf(dword_115298);
+  debug_printf(aFaultHandlerFa);
   switch ( a1 )
   {
     case '0':
-      debug_printf(dword_1152A8);
+      debug_printf(aBusfault);
       break;
     case '@':
-      debug_printf(dword_1152B0);
+      debug_printf(aUsagefault);
       break;
     case ' ':
-      debug_printf(dword_1152AC);
+      debug_printf(aMemmanagefault);
       break;
     default:
-      debug_printf(dword_11529C);
+      debug_printf(aHardfault);
       break;
   }
-  debug_printf(dword_1152A0);
+  debug_printf(aContext);
   apply_patch_table();
-  debug_printf(dword_1152A4);
+  debug_printf(aFaultHandler);
   log_boot_message();
 }
-

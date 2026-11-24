@@ -10,11 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_118DC0;
-extern uint32_t off_118DB0;
+
 extern uint32_t dword_118DB4;
-extern uint32_t off_118DB8;
 extern uint32_t dword_118DBC;
+extern uint32_t off_118DB0;
+extern uint32_t off_118DB8;
+extern uint32_t off_118DC0;
 
 // tx_pool_init @ 0x118d28, size 134 bytes
 uint32_t *tx_pool_init()
@@ -42,7 +43,7 @@ uint32_t *tx_pool_init()
       *v1 = 1;
     }
     ++*v0;
-    result = (uint32_t *)mem_word_load(v2);
+    result = mem_word_load(v2);
     v5 = result;
     if ( *v0 )
     {
@@ -65,9 +66,8 @@ uint32_t *tx_pool_init()
     }
     else if ( !*((uint8_t *)v5 + 96) )
     {
-      cmd_handler_a(dword_118DBC);
+      cmd_handler_a(dword_118DBC, v5);
     }
   }
   return result;
 }
-

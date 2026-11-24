@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1210F4;
 
 // set_clock_divisor @ 0x1210e4, size 14 bytes
 int set_clock_divisor()
 {
   *(uint32_t *)off_1210F4 = 48;
-  return rx_phy_status_parse(0);
+  return rx_phy_status_parse(0, 1);
 }
-

@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_134688;
 extern uint32_t off_13468C;
 
 // llm_get_ctrl_flags @ 0x134650, size 54 bytes
-// Doc: sub_1234650 [util]: Clear/reset state structure fields and zero registers
-// sub_1234650 [util]: Clear/reset state structure fields and zero registers
-uint32_t *llm_get_ctrl_flags()
+int llm_get_ctrl_flags()
 {
   uint32_t *v0; // r4
   uint16_t *v1; // r3
@@ -30,10 +29,9 @@ uint32_t *llm_get_ctrl_flags()
   *((uint8_t *)v1 + 3) = 0;
   if ( v2 )
   {
-    jump_to_tx_entry(v2 - 12);
-    jump_to_tx_entry(v0[5] - 12);
+    jump_to_tx_entry((char *)(v2 - 12));
+    jump_to_tx_entry((char *)(v0[5] - 12));
   }
   memset_byte((int *)off_134688, 0, 0x2Cu);
   return hci_cmd_send(6u, 0);
 }
-

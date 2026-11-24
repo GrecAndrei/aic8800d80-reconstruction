@@ -10,23 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1132B4;
+
 extern uint32_t dword_1132B8;
 extern uint32_t dword_1132BC;
+extern uint32_t off_1132B4;
 
 // tx_event_handler @ 0x113280, size 52 bytes
-// Doc: sub_1213280 [unknown]: Unidentified initialization helper in lmacfw_rf
-// sub_1213280 [unknown]: Unidentified initialization helper in lmacfw_rf
-int tx_event_handler()
+uint32_t *tx_event_handler()
 {
   void *v0; // r5
-  int result; // r0
+  uint32_t *result; // r0
   int v2; // r7
   int v3; // r6
   int v4; // r4
+  uint32_t *v5; // r0
 
   v0 = off_1132B4;
-  result = list_init(dword_1132B8);
+  result = list_init_1((uint32_t *)dword_1132B8);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 4) )
   {
     v2 = dword_1132BC;
@@ -34,12 +34,11 @@ int tx_event_handler()
     v4 = 0;
     do
     {
-      list_iterate(v2, 0x7Cu);
-      result = check_kernel_state(v3);
+      v5 = list_iterate(v2, 0x7Cu);
+      result = (uint32_t *)check_kernel_state(v3, v5);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }
-

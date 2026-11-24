@@ -10,20 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1231CC;
-extern uint32_t dword_1231D0;
 
 // send_cmd_85 @ 0x123194, size 56 bytes
-int  send_cmd_85(int a1, int a2, int a3, int a4)
+int  send_cmd_85(int a1, int a2, uint16_t a3, uint16_t a4)
 {
   uint8_t *v4; // r4
   unsigned int v5; // r0
+  int v6; // r3
 
   v4 = (uint8_t *)ke_msg_alloc(133, a4, a3, 1);
   v5 = mmio_read32(dword_1231CC, 1);
-  *v4 = (BYTE2(v5) ^ 1) & 1;
-  event_dispatch(dword_1231D0, v5, HIWORD(v5) & 1);
-  ke_msg_send(v4);
+  v6 = (BYTE2(v5) ^ 1) & 1;
+  *v4 = v6;
+  event_dispatch("read reg =%x, wifi disable regbit = %d, cfm->wifi_disable=%d\n", v5, HIWORD(v5) & 1, v6);
+  ke_msg_send_2((int)v4);
   return 0;
 }
-

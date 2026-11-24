@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11DA58;
 extern uint32_t off_11DA5C;
+extern uint32_t off_11DA60;
 extern uint32_t off_11DA68;
 extern uint32_t off_11DA6C;
-extern uint32_t off_11DA60;
-extern uint32_t dword_11DA64;
 
 // mac_wait_scan @ 0x11d9a4, size 180 bytes
 int mac_wait_scan()
@@ -46,7 +46,7 @@ int mac_wait_scan()
       {
         if ( (*(uint8_t *)(v1 + 16) & 1) == 0 && !*v3 )
           break;
-        mem_word_load(v0);
+        mem_word_load((int)v0);
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();
@@ -62,7 +62,7 @@ int mac_wait_scan()
           v7(*(uint32_t *)(v1 + 8));
         result = *(uint32_t *)(v1 + 12);
         if ( result )
-          result = radio_get_status();
+          result = radio_get_status(result);
         if ( *v5 )
         {
           v8 = *v5 - 1;
@@ -81,11 +81,10 @@ int mac_wait_scan()
       if ( *((uint8_t *)off_11DA60 + 69) )
       {
         unknown_func_12d104(0x80000);
-        result = check_status_bits(1024, dword_11DA64);
+        result = check_status_bits(1024, aHostBufferReco);
         v10[69] = 0;
       }
     }
   }
   return result;
 }
-

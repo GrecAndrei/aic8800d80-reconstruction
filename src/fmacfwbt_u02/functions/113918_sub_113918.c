@@ -10,29 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_113A50;
 extern uint32_t off_113A20;
+extern uint32_t off_113A24;
 extern uint32_t off_113A28;
 extern uint32_t off_113A2C;
-extern uint32_t off_113A24;
 extern uint32_t off_113A30;
+extern uint32_t off_113A34;
 extern uint32_t off_113A38;
 extern uint32_t off_113A3C;
-extern uint32_t off_113A34;
 extern uint32_t off_113A40;
 extern uint32_t off_113A44;
-extern uint32_t dword_113A78;
-extern uint32_t dword_113A74;
 extern uint32_t off_113A48;
-extern uint32_t dword_113A50;
+extern uint32_t off_113A4C;
 extern uint32_t off_113A54;
 extern uint32_t off_113A58;
-extern uint32_t off_113A4C;
 extern uint32_t off_113A5C;
 extern uint32_t off_113A60;
 extern uint32_t off_113A64;
 extern uint32_t off_113A68;
 extern uint32_t off_113A6C;
-extern uint32_t dword_113A70;
 
 // rf_stat_read @ 0x113918, size 264 bytes
 int  rf_stat_read(int a1)
@@ -46,7 +44,7 @@ int  rf_stat_read(int a1)
   uint32_t *v7; // r2
   uint32_t *v8; // r3
   uint32_t *v9; // r4
-  uint8_t *v10; // r3
+  int *v10; // r3
   int v11; // r5
   int v12; // r0
   int v13; // r1
@@ -58,9 +56,6 @@ int  rf_stat_read(int a1)
   int v19; // cc
   char v20; // r0
   int v21; // r3
-  void *v22; // r2
-  int v23; // r0
-  int v25; // r0
 
   v1 = off_113A20;
   v2 = off_113A28;
@@ -90,14 +85,14 @@ int  rf_stat_read(int a1)
   v8[4] = v6 + 12;
   *v9 = v6 + 14;
   memset_byte(v6, 0, 0xCB8u);
-  if ( **(int16_t **)off_113A44 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
-    mmio_irq_clear(dword_113A78, dword_113A74, 758);
-  v10 = off_113A48;
-  v11 = *((uint16_t *)off_113A48 + 164);
-  v12 = *((uint16_t *)off_113A48 + 154);
+  if ( **(uint16_t **)off_113A44 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
+    mmio_irq_clear((int)aIndexHostIfPar, (int)aHostUsbWlanIni, 758);
+  v10 = (int *)off_113A48;
+  v11 = LOWORD(((uint32_t *)(uintptr_t)off_113A48)[82]);
+  v12 = LOWORD(((uint32_t *)(uintptr_t)off_113A48)[77]);
   v13 = dword_113A50;
   v14 = off_113A54;
-  *(uint32_t *)off_113A58 = *((uint16_t *)off_113A48 + 153) - *(uint32_t *)off_113A4C - 4;
+  *(uint32_t *)off_113A58 = HIWORD(((uint32_t *)(uintptr_t)off_113A48)[76]) - *off_113A4C - 4;
   v15 = (int *)off_113A5C;
   v16 = off_113A60;
   v17 = v13 * v11;
@@ -108,9 +103,9 @@ int  rf_stat_read(int a1)
     v17 = (int)off_113A68;
   else
     v15 = (int *)off_113A68;
-  *v18 = v10[320];
-  v20 = v10[321];
-  v21 = (uint8_t)v10[368];
+  *v18 = *((uint8_t *)v10 + 320);
+  v20 = *((uint8_t *)v10 + 321);
+  v21 = *((uint8_t *)v10 + 368);
   *v16 = v20;
   if ( v19 )
     *v15 = v17;
@@ -118,17 +113,13 @@ int  rf_stat_read(int a1)
     *(uint32_t *)v17 = v15;
   if ( v21 )
   {
-    v22 = off_113A6C;
-    v23 = dword_113A70;
     *(uint8_t *)off_113A6C = v21;
-    ke_event_schedule(v23, v21, v22);
+    ke_event_schedule_1("usb in agg cnt %d\n", v21);
   }
   else
   {
-    v25 = dword_113A70;
     *(uint8_t *)off_113A6C = 10;
-    ke_event_schedule(v25, 10, v15);
+    ke_event_schedule_1("usb in agg cnt %d\n", 10);
   }
   return 1;
 }
-

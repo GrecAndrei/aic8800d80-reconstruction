@@ -10,36 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114F14;
-extern uint32_t dword_114F24;
-extern uint32_t dword_114F2C;
-extern uint32_t dword_114F28;
-extern uint32_t dword_114F18;
-extern uint32_t dword_114F1C;
-extern uint32_t dword_114F20;
-
 // cli_process_char @ 0x114ecc, size 72 bytes
-void  __noreturn cli_process_char(int a1)
+void  cli_process_char(int a1)
 {
-  log_printf(dword_114F14);
+  log_printf(aFaultHandlerFa);
   switch ( a1 )
   {
     case '0':
-      log_printf(dword_114F24);
+      log_printf(aBusfault);
       break;
     case '@':
-      log_printf(dword_114F2C);
+      log_printf(aUsagefault);
       break;
     case ' ':
-      log_printf(dword_114F28);
+      log_printf(aMemmanagefault);
       break;
     default:
-      log_printf(dword_114F18);
+      log_printf(aHardfault);
       break;
   }
-  log_printf(dword_114F1C);
+  log_printf(aContext);
   init_ram_table();
-  log_printf(dword_114F20);
+  log_printf(aFaultHandler);
   bt_check_state();
 }
-

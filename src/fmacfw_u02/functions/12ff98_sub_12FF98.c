@@ -10,14 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12FFF8;
-extern uint32_t off_12FFFC;
+
 extern uint32_t dword_130000;
 extern uint32_t dword_130004;
 extern uint32_t dword_130008;
 extern uint32_t dword_13000C;
 extern uint32_t dword_130010;
 extern uint32_t dword_130014;
+extern uint32_t off_12FFF8;
+extern uint32_t off_12FFFC;
 
 // call_handler @ 0x12ff98, size 94 bytes
 int call_handler()
@@ -56,4 +57,3 @@ int call_handler()
   }
   return result;
 }
-

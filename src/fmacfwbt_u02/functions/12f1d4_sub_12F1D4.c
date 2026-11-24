@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12F200;
+
 extern uint32_t off_12F204;
 
 // ke_event_send_b @ 0x12f1d4, size 42 bytes
-int  ke_event_send_b(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+int  ke_event_send_b(int a1, uint32_t *a2, int a3, int a4)
 {
-  ke_event_schedule(dword_12F200, *a2);
+  ke_event_schedule_1("\x9D\x81DBG: Setting module filter: 0x%08x\n", *a2);
   *(uint32_t *)off_12F204 = *a2;
   hci_evt_alloc_send(1029, a4, a3);
   return 0;
 }
-

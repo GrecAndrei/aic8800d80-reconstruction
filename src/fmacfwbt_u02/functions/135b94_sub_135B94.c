@@ -10,25 +10,24 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_135C0C;
-extern uint32_t dword_135C18;
-extern uint32_t dword_135C14;
+
 extern uint32_t dword_135C10;
+extern uint32_t off_135C0C;
 
 // send_hci_vendor_cmd @ 0x135b94, size 120 bytes
 int  send_hci_vendor_cmd(char a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int v6; // r0
-  int16_t **v7; // r3
-  int16_t *v8; // r3
+  uint16_t **v7; // r3
+  uint16_t *v8; // r3
   int v9; // r5
   int v10; // r3
   unsigned int v11; // r4
 
   v3 = a3;
   v6 = bt_buf_alloc(6152, 13, 6, (uint16_t)(a3 + 4));
-  v7 = (int16_t **)off_135C0C;
+  v7 = (uint16_t **)off_135C0C;
   *(uint8_t *)v6 = a1;
   v8 = *v7;
   *(uint16_t *)(v6 + 2) = v3;
@@ -36,7 +35,7 @@ int  send_hci_vendor_cmd(char a1, int a2, unsigned int a3)
   if ( *v8 < 0 )
   {
     if ( v3 >= get_shared_buf_size() - 4 )
-      mmio_irq_clear(dword_135C18, dword_135C14, 1444);
+      mmio_irq_clear((int)aIndFtIeLenMaci, (int)aSmFtAuthOverAi, 1444);
     v3 = *(uint16_t *)(v9 + 2);
   }
   if ( v3 )
@@ -52,6 +51,5 @@ int  send_hci_vendor_cmd(char a1, int a2, unsigned int a3)
   }
   hci_cmd_send(6u, 7);
   patch_aware_dispatch(6154, 6, dword_135C10);
-  return hci_evt_send(v9);
+  return (int)hci_evt_send(v9);
 }
-

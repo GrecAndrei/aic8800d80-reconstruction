@@ -10,23 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12672C;
-extern uint32_t off_126734;
 extern uint32_t off_126730;
-extern uint32_t off_12673C;
-extern uint32_t off_126758;
-extern uint32_t dword_126748;
+extern uint32_t off_126734;
 extern uint32_t off_126738;
+extern uint32_t off_12673C;
 extern uint32_t off_126740;
 extern uint32_t off_126744;
-extern uint32_t off_12674C;
 extern uint32_t off_126750;
 extern uint32_t off_126754;
-extern uint32_t dword_12675C;
+extern uint32_t off_126758;
 extern uint32_t off_126760;
 
-// rf_state_machine @ 0x126588, size 418 bytes
-int rf_state_machine()
+// sub_126588 @ 0x126588, size 418 bytes
+int sub_126588()
 {
   int v0; // r3
   uint8_t *v1; // r5
@@ -37,41 +35,36 @@ int rf_state_machine()
   int v6; // r7
   int v7; // r10
   float v8; // r3
-  float v9; // r9
+  unsigned int v9; // r9
   uint64_t v10; // r0
   uint64_t v11; // r0
   unsigned int v12; // r2
-  unsigned uint64_t v13; // r8
+  uint64_t v13; // r8
   uint64_t v14; // r0
   uint64_t v15; // r2
-  unsigned uint64_t v16; // r0
+  uint64_t v16; // r0
   uint64_t v17; // r8
   char *v18; // r4
   char v19; // r0
   int v20; // r2
   int v21; // r3
-  int v22; // r0
-  int *v23; // r0
-  int *v24; // r1
-  uint32_t *v25; // r2
-  int v26; // r3
-  uint8_t *v27; // r4
-  int v28; // r6
-  uint64_t v29; // r0
-  unsigned int v30; // r2
-  unsigned uint64_t v31; // r6
-  uint64_t v32; // r0
-  int v33; // r0
-  float v34; // r0
-  uint64_t v35; // r0
-  uint64_t v36; // r0
-  char v37; // r3
-  int v38; // r0
-  uint64_t v40; // r8
-  uint64_t v41; // r0
-  int v42; // r0
-  int v43; // r0
-  uint32_t *v44; // r3
+  volatile unsigned int *v22; // r1
+  uint32_t *v23; // r2
+  volatile unsigned int v24; // r3
+  uint8_t *v25; // r4
+  int v26; // r6
+  uint64_t v27; // r0
+  unsigned int v28; // r2
+  uint64_t v29; // r6
+  uint64_t v30; // r0
+  uint64_t v31; // r0
+  unsigned int v32; // r0
+  uint64_t v33; // r0
+  uint64_t v34; // r0
+  uint64_t v36; // r8
+  uint64_t v37; // r0
+  uint64_t v38; // r0
+  uint32_t *v39; // r3
 
   v0 = *(uint8_t *)off_12672C;
   v1 = off_126734;
@@ -80,39 +73,37 @@ int rf_state_machine()
   {
     if ( *v1 == 2 )
     {
-      v27 = off_12673C;
-      v28 = *(uint16_t *)off_12673C;
+      v25 = off_12673C;
+      v26 = *(uint16_t *)off_12673C;
       if ( *(uint16_t *)off_12673C )
       {
-        v29 = aeabi_i2d(*(uint32_t *)off_126758);
-        v30 = v29;
-        LODWORD(v29) = v28;
-        v31 = __PAIR64__(HIDWORD(v29), v30);
-        v32 = aeabi_i2d(v29);
-        v33 = aeabi_dsub(v31, HIDWORD(v31), v32, HIDWORD(v32));
-        v34 = aeabi_dmul(v33);
-        v35 = aeabi_d2f(LODWORD(v34));
+        v27 = sub_12754C(*(uint32_t *)off_126758);
+        v28 = v27;
+        LODWORD(v27) = v26;
+        v29 = __PAIR64__(HIDWORD(v27), v28);
+        v30 = sub_12754C(v27);
+        v31 = sub_127874(v29, v30);
+        v32 = sub_127BE4(v31);
+        v33 = sub_127570(v32);
       }
       else
       {
-        v35 = 0;
+        v33 = 0;
       }
-      v36 = parse_data_field(v35, HIDWORD(v35));
-      v37 = double_to_float(v36, HIDWORD(v36));
-      v38 = dword_126748;
-      v27[5] = v37;
+      v34 = sub_127194(v33);
+      v25[5] = sub_127B54(v34);
       *v1 = 3;
-      dispatch_event_handler(v38);
-      return set_busy_flag_alt(0x2000);
+      sub_11F504("cob state -> %d\n", 3);
+      return sub_11E5E0(0x2000);
     }
     else
     {
-      return ll_state_reset();
+      return sub_12632C();
     }
   }
   else if ( *v1 )
   {
-    v2 = off_126738;
+    v2 = (uint8_t *)off_126738;
     v3 = (char *)off_12673C;
     v4 = *(uint8_t *)off_126738 - 1;
     v5 = (char *)off_12673C + 8 * v4;
@@ -120,64 +111,60 @@ int rf_state_machine()
     v7 = (uint8_t)v5[2];
     if ( v5[2] )
     {
-      v40 = aeabi_i2d(*(uint32_t *)off_126758);
-      v41 = aeabi_i2d(v7);
-      v42 = aeabi_dsub(v40, HIDWORD(v40), v41, HIDWORD(v41));
-      v9 = aeabi_dmul(v42);
+      v36 = sub_12754C(*(uint32_t *)off_126758);
+      v37 = sub_12754C(v7);
+      v38 = sub_127874(v36, v37);
+      v9 = sub_127BE4(v38);
       v8 = *(float *)off_126740 / (float)v7;
       *(float *)off_126740 = v8;
     }
     else
     {
       v8 = *(float *)off_126740;
-      v9 = 0.0;
+      v9 = 0;
     }
-    v10 = aeabi_d2f(LODWORD(v8));
-    v11 = parse_data_field(v10, HIDWORD(v10));
+    v10 = sub_127570(LODWORD(v8));
+    v11 = sub_127194(v10);
     v12 = v11;
-    *(float *)&v11 = v9;
+    LODWORD(v11) = v9;
     v13 = __PAIR64__(HIDWORD(v11), v12);
-    v14 = aeabi_d2f(v11);
-    v15 = parse_data_field(v14, HIDWORD(v14));
+    v14 = sub_127570(v11);
+    v15 = sub_127194(v14);
     v16 = v13;
     v17 = v15;
     v18 = &v3[v6];
-    v18[4] = double_to_float(v16, HIDWORD(v16));
-    v19 = double_to_float(v17, HIDWORD(v17));
+    v18[4] = sub_127B54(v16);
+    v19 = sub_127B54(v17);
     v20 = (uint8_t)*v2;
     v21 = *(uint8_t *)off_126744;
     v18[3] = v19;
-    v22 = dword_126748;
     if ( v20 == v21 )
     {
       *v1 = 4;
-      dispatch_event_handler(v22);
+      sub_11F504("cob state -> %d\n", 4);
     }
     else
     {
       *v1 = 2;
-      dispatch_event_handler(v22);
-      v23 = (int *)off_12674C;
-      v24 = (int *)off_126750;
-      v25 = off_126754;
+      sub_11F504("cob state -> %d\n", 2);
+      v22 = (volatile unsigned int *)off_126750;
+      v23 = off_126754;
       ++*v2;
-      v26 = *v23;
-      *v24 = *v23;
-      *v25 = v26 + 1000000;
+      v24 = REG_4032_0120;
+      *v22 = v24;
+      *v23 = v24 + 1000000;
     }
-    return set_busy_flag_alt(0x2000);
+    return sub_11E5E0(0x2000);
   }
   else
   {
-    dispatch_event_handler(dword_12675C);
-    v43 = dword_126748;
+    sub_11F504(aCobGoldenStart);
     *v1 = 1;
-    dispatch_event_handler(v43);
-    v44 = off_126760;
+    sub_11F504("cob state -> %d\n", 1);
+    v39 = off_126760;
     *(uint32_t *)off_126760 |= 0x100u;
-    *v44 |= 0x200u;
-    *v44 |= 0x400u;
-    return set_busy_flag_alt(0x2000);
+    *v39 |= 0x200u;
+    *v39 |= 0x400u;
+    return sub_11E5E0(0x2000);
   }
 }
-

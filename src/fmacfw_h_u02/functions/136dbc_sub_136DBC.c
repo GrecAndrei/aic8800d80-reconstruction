@@ -10,16 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136DDC;
-
 // rf_trace_lo_offset @ 0x136dbc, size 32 bytes
-int  rf_trace_lo_offset(int a1, int a2, int a3, int16_t a4)
+int  rf_trace_lo_offset(int a1, int a2, int a3, int a4)
 {
   int v4; // r0
 
-  v4 = tx_send_pdu(4107, a4, 4, 1u);
-  rx_process_packet(v4);
-  check_feature_flag(8, dword_136DDC);
+  v4 = tx_send_pdu(4107, a4, 4, 1);
+  rx_process_packet_1(v4);
+  check_feature_flag(8, aScanuIdleCance);
   return 0;
 }
-

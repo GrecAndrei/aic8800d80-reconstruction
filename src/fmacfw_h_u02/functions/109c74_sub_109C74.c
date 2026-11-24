@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_109E98;
-extern uint32_t dword_109E9C;
-extern uint32_t dword_109EAC;
-extern uint32_t dword_109EA4;
 
-// rf_load_cal_config @ 0x109c74, size 546 bytes
-int  rf_load_cal_config(int a1, int a2, int a3, int a4)
+extern float flt_109EA0;
+extern float flt_109EA8;
+extern uint32_t off_109E98;
+
+// sub_109C74 @ 0x109c74, size 546 bytes
+int  sub_109C74(int a1, float *a2, int a3, int a4)
 {
   int v8; // r1
   int v9; // r2
@@ -43,7 +43,7 @@ int  rf_load_cal_config(int a1, int a2, int a3, int a4)
   uint64_t v30; // r0
   uint64_t v31; // r8
   uint64_t v32; // r0
-  int v33; // r0
+  uint64_t v33; // r0
   int v34; // r3
   int v35; // r7
   uint32_t *v36; // r6
@@ -60,54 +60,54 @@ int  rf_load_cal_config(int a1, int a2, int a3, int a4)
   float v47; // s19
   float *v48; // r7
   int v49; // r8
-  int v50; // r9
+  float *v50; // r9
   int v51; // t1
   float v52; // s16
-  int v53; // r5
-  int v54; // r1
+  float *v53; // r5
+  float v54; // s13
   int v56; // [sp+0h] [bp-44h]
   int v57; // [sp+4h] [bp-40h]
-  float v58[3]; // [sp+8h] [bp-3Ch] BYREF
-  float v59[3]; // [sp+14h] [bp-30h] BYREF
+  float a2a[3]; // [sp+8h] [bp-3Ch] BYREF
+  float a3a[3]; // [sp+14h] [bp-30h] BYREF
   uint32_t v60[9]; // [sp+20h] [bp-24h] BYREF
 
-  v8 = *(uint32_t *)(dword_109E98 + 4);
-  v9 = *(uint32_t *)(dword_109E98 + 8);
-  v10 = *(uint32_t *)(dword_109E98 + 12);
-  v60[0] = *(uint32_t *)dword_109E98;
+  v8 = ((uint32_t *)(uintptr_t)off_109E98)[1];
+  v9 = ((uint32_t *)(uintptr_t)off_109E98)[2];
+  v10 = ((uint32_t *)(uintptr_t)off_109E98)[3];
+  v60[0] = ((uint32_t *)(uintptr_t)off_109E98)[0];
   v60[1] = v8;
   v60[2] = v9;
   v60[3] = v10;
-  v11 = *(uint32_t *)(dword_109E98 + 20);
-  v12 = *(uint32_t *)(dword_109E98 + 24);
-  v13 = *(uint32_t *)(dword_109E98 + 28);
-  v60[4] = *(uint32_t *)(dword_109E98 + 16);
+  v11 = ((uint32_t *)(uintptr_t)off_109E98)[5];
+  v12 = ((uint32_t *)(uintptr_t)off_109E98)[6];
+  v13 = ((uint32_t *)(uintptr_t)off_109E98)[7];
+  v60[4] = ((uint32_t *)(uintptr_t)off_109E98)[4];
   v60[5] = v11;
   v60[6] = v12;
   v60[7] = v13;
-  v14 = *(float *)(a2 + 16);
-  v15 = *(float *)(a2 + 136);
-  v16 = *(float *)(a2 + 8);
-  v17 = *(float *)(a2 + 144);
-  v58[1] = *(float *)(a2 + 12);
+  v14 = a2[4];
+  v15 = a2[34];
+  v16 = a2[2];
+  v17 = a2[36];
+  a2a[1] = a2[3];
   v18 = 0.0;
   v19 = a1;
-  v58[2] = v14;
-  v59[0] = v15;
-  v20 = *(float *)(a2 + 140);
+  a2a[2] = v14;
+  a3a[0] = v15;
+  v20 = a2[35];
   v57 = a1;
-  v58[0] = v16;
-  *(uint32_t *)(a2 + 636) = 0;
-  *(uint32_t *)(a2 + 640) = 0;
+  a2a[0] = v16;
+  a2[159] = 0.0;
+  a2[160] = 0.0;
   v56 = a3;
-  v59[1] = v20;
-  v59[2] = v17;
-  f32_pair_compare(0, v58, v59, a4);
+  a3a[1] = v20;
+  a3a[2] = v17;
+  sub_1099F0(0, a2a, a3a, a4);
   if ( v19 > 0 )
   {
     v21 = v60;
-    v22 = (float *)a2;
-    v23 = (float *)(a2 + 4 * v19);
+    v22 = a2;
+    v23 = &a2[v19];
     while ( ++v22 != v23 )
     {
       while ( 1 )
@@ -119,13 +119,13 @@ int  rf_load_cal_config(int a1, int a2, int a3, int a4)
         v25 = *(float *)(a4 + 8);
         v26 = v22[32];
         v27 = v25 * *v22++;
-        v28 = float_to_double((float)(v27 - v26) + *(float *)(a4 + 12));
-        v29 = double_compare_common(v28, HIDWORD(v28), v28, HIDWORD(v28));
-        v30 = float_to_double((float)(v25 * v25) + 1.0);
-        v31 = double_compare_core(v29, HIDWORD(v29), v30, HIDWORD(v30));
-        v32 = float_to_double(LODWORD(v18));
-        v33 = double_compare_eq(v31, HIDWORD(v31), v32, HIDWORD(v32));
-        v18 = COERCE_FLOAT(double_to_int(v33));
+        v28 = sub_1428B8(COERCE_UNSIGNED_INT((float)(v27 - v26) + *(float *)(a4 + 12)));
+        v29 = sub_142968(v28, v28);
+        v30 = sub_1428B8(COERCE_UNSIGNED_INT((float)(v25 * v25) + 1.0));
+        v31 = sub_142BBC(v29, v30);
+        v32 = sub_1428B8(LODWORD(v18));
+        v33 = sub_1425FC(v31, v32);
+        v18 = COERCE_FLOAT(sub_142F2C(v33));
         if ( v22 == v23 )
           goto LABEL_6;
       }
@@ -134,28 +134,28 @@ int  rf_load_cal_config(int a1, int a2, int a3, int a4)
 LABEL_6:
   if ( !v56 )
   {
-    check_feature_flag(1, dword_109E9C);
+    sub_12EB90(1, aDpdBypassStatu);
     v34 = v57;
     if ( v57 > 0 )
       goto LABEL_8;
 LABEL_20:
     v45 = flt_109EA0;
     v46 = flt_109EA0;
-    v49 = 4 * v56;
+    v49 = v56;
     goto LABEL_18;
   }
-  check_feature_flag(1, dword_109EAC);
+  sub_12EB90(1, aDbdCalAmpmTabl);
   v34 = v57;
   if ( v57 <= 0 )
     goto LABEL_20;
 LABEL_8:
   v35 = 4 * v34 + 384;
   v36 = v60;
-  v37 = (float *)(a2 + 384);
+  v37 = a2 + 96;
   v38 = flt_109EA0;
-  v39 = (float *)(a2 + v35);
+  v39 = (float *)((char *)a2 + v35);
   v40 = v60;
-  v41 = (float *)(a2 + 384);
+  v41 = a2 + 96;
   v42 = 0;
   while ( ++v41 != v39 )
   {
@@ -176,9 +176,9 @@ LABEL_12:
   v45 = (float)v42;
   v46 = flt_109EA0;
   v47 = v38 / (float)v42;
-  v48 = (float *)(v35 + a2);
-  v49 = 4 * v56;
-  v50 = a2 + 4 * v56;
+  v48 = (float *)((char *)a2 + v35);
+  v49 = v56;
+  v50 = &a2[v56];
   while ( v48 != ++v37 )
   {
     while ( 1 )
@@ -188,8 +188,8 @@ LABEL_12:
       if ( v51 != 1 )
         break;
       v52 = *v37 - v47;
-      if ( (float)int_abs((int)v52) > *(float *)(v50 + 636) )
-        *(float *)(v50 + 636) = (float)int_abs((int)v52);
+      if ( (float)sub_1435C8((int)v52) > v50[159] )
+        v50[159] = (float)sub_1435C8((int)v52);
       ++v37;
       v46 = v46 + (float)(v52 * v52);
       if ( v48 == v37 )
@@ -197,10 +197,13 @@ LABEL_12:
     }
   }
 LABEL_18:
-  v53 = a2 + v49;
-  v54 = dword_109EA4;
-  *(float *)(v53 + 512) = v18 / v45;
-  *(float *)(v53 + 520) = v46 / v45;
-  return check_feature_flag(1, v54);
+  v53 = &a2[v49];
+  v54 = flt_109EA8;
+  v53[128] = v18 / v45;
+  v53[130] = v46 / v45;
+  return sub_12EB90(
+           1,
+           "am_var*1000000=%10d ph_var*1000000=%10d\n",
+           (int)(float)((float)(v18 / v45) * v54),
+           (int)(float)((float)(v46 / v45) * v54));
 }
-

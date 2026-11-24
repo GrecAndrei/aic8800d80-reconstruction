@@ -10,35 +10,35 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_110074;
-extern uint32_t off_110070;
-extern uint32_t dword_110078;
 
-// rf_tx_power_get @ 0x10fff0, size 122 bytes
-// Doc: log_free_pool_dispatch2_n460 [util]: Dispatch log entry into free pool with metadata fields
-// log_free_pool_dispatch2_n460 [util]: Dispatch log entry into free pool with metadata fields
-int rf_tx_power_get()
+extern uint32_t dword_110078;
+extern uint32_t off_11006C;
+extern uint32_t off_110070;
+extern uint32_t off_110074;
+
+// sub_10FFF0 @ 0x10fff0, size 122 bytes
+int sub_10FFF0()
 {
   void *v0; // r4
   int v1; // r3
-  uint32_t *v2; // r0
-  int16_t v3; // r2
-  int16_t v4; // r1
+  int *v2; // r0
+  uint16_t v3; // r2
+  uint16_t v4; // r1
   uint64_t v5; // kr00_8
   uint16_t v7[2]; // [sp+4h] [bp-14h] BYREF
   uint16_t v8[8]; // [sp+8h] [bp-10h] BYREF
 
-  v0 = log_free_pool_dispatch2_n49c;
-  v1 = *(uint32_t *)log_free_pool_dispatch2_n49c;
+  v0 = off_11006C;
+  v1 = *(uint32_t *)off_11006C;
   v2 = off_110074;
-  v3 = *((uint16_t *)off_110070 + 153);
-  v4 = *((uint16_t *)off_110070 + 154) - 4;
-  v7[1] = *(uint16_t *)(*(uint32_t *)log_free_pool_dispatch2_n49c + 2);
+  v3 = *((uint16_t *)off_110070[0] + 153);
+  v4 = *((uint16_t *)off_110070[0] + 154) - 4;
+  v7[1] = *(uint16_t *)(*(uint32_t *)off_11006C + 2);
   v8[1] = *(uint16_t *)(v1 + 4);
   v8[5] = *(uint16_t *)(v1 + 6);
   v8[7] = *(uint16_t *)(v1 + 8);
   v5 = *(uint64_t *)(v1 + 20);
-  *(uint32_t *)off_110074 = v5;
+  *off_110074 = v5;
   v2[3] = dword_110078;
   v2[1] = HIDWORD(v5);
   *((uint8_t *)v2 + 8) = 1;
@@ -48,7 +48,6 @@ int rf_tx_power_get()
   v8[4] = 1596;
   v8[0] = 124;
   v8[3] = 0;
-  ke_msg_send(v2, (int)v7, 0x20u);
-  return mem_region_init((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
+  sub_10F814(v2, (int)v7, 0x20u);
+  return sub_10FE5C((int)v8, *(uint32_t *)(*(uint32_t *)v0 + 28), *(uint32_t *)(*(uint32_t *)v0 + 32));
 }
-

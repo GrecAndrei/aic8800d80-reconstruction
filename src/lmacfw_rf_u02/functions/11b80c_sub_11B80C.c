@@ -10,28 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11B9C4;
 extern uint32_t off_11B9B0;
 extern uint32_t off_11B9B4;
 extern uint32_t off_11B9B8;
 extern uint32_t off_11B9BC;
+extern uint32_t off_11B9C0;
 extern uint32_t off_11B9C8;
 extern uint32_t off_11B9CC;
-extern uint32_t off_11B9D4;
-extern uint32_t dword_11B9DC;
-extern uint32_t dword_11B9D8;
 extern uint32_t off_11B9D0;
-extern uint32_t off_11B9C0;
-extern uint32_t dword_11B9C4;
+extern uint32_t off_11B9D4;
 
 // rx_queue_reset @ 0x11b80c, size 420 bytes
 int rx_queue_reset()
 {
-  uint32_t *v0; // r5
-  uint32_t *v1; // r6
+  int *v0; // r5
+  int *v1; // r6
   int v2; // r4
   uint8_t *v3; // r0
   int v4; // r3
-  int16_t v5; // r3
+  uint16_t v5; // r3
   BOOL v6; // r7
   int v7; // r3
   unsigned int v8; // r3
@@ -42,11 +41,11 @@ int rx_queue_reset()
   int v14; // r2
   int v15; // r3
 
-  v0 = off_11B9B0;
+  v0 = off_11B9B0[0];
   v1 = off_11B9B4;
-  v2 = *((uint32_t *)off_11B9B0 + 11);
+  v2 = *((uint8_t *)(uintptr_t)off_11B9B0[0] + (11));
   tx_set_power((uint8_t *)(v2 + 4), 0);
-  util_byte_to_hex(*(char *)(v2 + 12));
+  util_byte_to_hex(*(uint8_t *)(v2 + 12));
   *(uint32_t *)off_11B9B8 = v1[*(uint8_t *)(v2 + 4) + 5];
   if ( *(uint8_t *)(v2 + 24) == 3 )
   {
@@ -63,7 +62,7 @@ int rx_queue_reset()
     v6 = 0;
     goto LABEL_7;
   }
-  v3 = (uint8_t *)ke_msg_send(68, 4, 0, 4);
+  v3 = (uint8_t *)ke_msg_send_1(68, 4, 0, 4);
   v4 = *(uint8_t *)(v2 + 24);
   *v3 = v4;
   if ( v4 == 4 )
@@ -80,7 +79,7 @@ int rx_queue_reset()
   v3[1] = v5;
   v3[3] = 0;
   v3[2] = *(uint8_t *)(v2 + 26);
-  rx_irq_handler(v3);
+  rx_irq_handler_1((int)v3);
   v7 = v0[10];
   if ( v7 )
   {
@@ -123,13 +122,13 @@ LABEL_29:
     if ( v13 != 3 )
       return write_bb_control();
 LABEL_31:
-    v14 = **(int16_t **)off_11B9C8;
+    v14 = **(uint16_t **)off_11B9C8;
     v15 = v1[1] | 0x2200;
     *(uint32_t *)off_11B9CC = 0;
     v1[1] = v15;
     if ( v14 < 0 && *(uint32_t *)off_11B9D4 << 28 )
     {
-      flash_cmd_exec(dword_11B9DC, dword_11B9D8, 472);
+      flash_cmd_exec((int)aNxmacCurrentSt, (int)aMmRxFilterSet_1, 472);
       v15 = v1[1];
     }
     *(uint32_t *)off_11B9D0 = v15 | *v1;
@@ -137,8 +136,8 @@ LABEL_31:
     return write_bb_control();
   }
 LABEL_10:
-  rf_reg_update();
-  v9 = *((uint32_t *)off_11B9C0 + 2);
+  rf_reg_update_1();
+  v9 = off_11B9C0[2];
   if ( v9 )
   {
     v10 = dword_11B9C4;
@@ -165,4 +164,3 @@ LABEL_15:
   }
   return write_bb_control();
 }
-

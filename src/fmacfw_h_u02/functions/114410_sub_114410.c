@@ -10,11 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114418;
-
 // get_config_a @ 0x114410, size 6 bytes
-int  get_config_a(int a1, int a2, int a3)
+int get_config_a()
 {
-  return alloc_tx_event(dword_114418, a2, a3);
+  return alloc_tx_event(aErrorLpLevelPo_1);
 }
-

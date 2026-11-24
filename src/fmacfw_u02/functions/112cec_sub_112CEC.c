@@ -10,18 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_112F40;
+
+extern uint32_t dword_112F44;
+extern uint32_t dword_112F48;
+extern uint32_t dword_112F4C;
+extern uint32_t dword_112F60;
+extern uint32_t dword_112F64;
 extern uint32_t dword_112F68;
+extern uint32_t dword_112F6C;
+extern uint32_t off_112F40;
 extern uint32_t off_112F54;
 extern uint32_t off_112F58;
 extern uint32_t off_112F5C;
-extern uint32_t dword_112F60;
-extern uint32_t dword_112F64;
-extern uint32_t dword_112F44;
-extern uint32_t dword_112F48;
-extern uint32_t dword_112F50;
-extern uint32_t dword_112F4C;
-extern uint32_t dword_112F6C;
 
 // undef_stub @ 0x112cec, size 594 bytes
 int undef_stub()
@@ -36,32 +36,35 @@ int undef_stub()
   int v7; // r11
   uint32_t *v8; // r6
   int v9; // r5
-  int v10; // r4
-  int v11; // r9
-  char *v12; // r3
-  int ( *v13)(int, int, BOOL); // r3
-  uint32_t *v14; // r5
-  int v15; // r6
-  int v16; // r9
-  int v17; // r7
+  unsigned int v10; // r2
+  int v11; // r4
+  int v12; // r9
+  char *v13; // r3
+  int v14; // r1
+  int ( *v15)(int, int, BOOL); // r3
+  uint32_t *v16; // r5
+  int v17; // r6
+  int v18; // r9
+  int v19; // r7
   int i; // r4
-  char *v19; // r3
-  int v20; // r3
-  int v21; // r3
-  int v22; // r3
-  uint32_t *v23; // r3
-  uint32_t **v24; // r4
-  int *v25; // r0
-  int v26; // r1
-  uint32_t *v27; // r1
-  int v28; // r4
-  int ( *v29)(int, int, uint32_t); // r3
-  BOOL v31; // [sp+4h] [bp-10h]
-  int v32; // [sp+4h] [bp-10h]
-  int v33; // [sp+8h] [bp-Ch]
-  int v34; // [sp+8h] [bp-Ch]
-  int v35; // [sp+Ch] [bp-8h]
-  int v36; // [sp+Ch] [bp-8h]
+  char *v21; // r3
+  int v22; // r2
+  uint64_t v23; // r0
+  int v24; // r3
+  int v25; // r3
+  int v26; // r3
+  uint32_t *v27; // r3
+  uint32_t *v28; // r4
+  int *v29; // r0
+  int v30; // r1
+  int v31; // r4
+  int ( *v32)(int, int, uint32_t); // r3
+  BOOL v34; // [sp+4h] [bp-10h]
+  int v35; // [sp+4h] [bp-10h]
+  int v36; // [sp+8h] [bp-Ch]
+  int v37; // [sp+8h] [bp-Ch]
+  int v38; // [sp+Ch] [bp-8h]
+  int v39; // [sp+Ch] [bp-8h]
 
   v0 = off_112F40;
   v1 = *((uint32_t *)off_112F40 + 5);
@@ -80,7 +83,6 @@ int undef_stub()
   }
   else
   {
-    HIDWORD(v3) = v2 << 18;
     v4 = v2 & dword_112F68;
     v5 = v2 & 0x40000;
     v6 = v2 & 0x80000;
@@ -88,138 +90,136 @@ int undef_stub()
     if ( (v2 & 0x2000) == 0 )
       goto LABEL_3;
   }
-  v22 = *((uint32_t *)off_112F40 + 514);
-  if ( (v22 & 6) != 0 && (v22 & 2) != 0 )
+  v26 = *((uint32_t *)off_112F40 + 514);
+  if ( (v26 & 6) != 0 && (v26 & 2) != 0 )
     *(uint32_t *)off_112F54 = 1;
-  v23 = off_112F40;
-  v24 = (uint32_t **)off_112F58;
-  v25 = (int *)off_112F5C;
-  v26 = dword_112F60;
+  v27 = off_112F40;
+  v28 = off_112F58;
+  v29 = (int *)off_112F5C;
+  v30 = dword_112F60;
   *((uint32_t *)off_112F40 + 576) = dword_112F60;
-  v23[704] = v26;
-  v27 = *v24;
-  v28 = *v25;
+  v27[704] = v30;
+  HIDWORD(v3) = *v28;
+  v31 = *v29;
   LODWORD(v3) = dword_112F64;
-  *v27 = dword_112F64;
-  v27[1] = v28;
-  v23[709] = v27;
-  v23[706] = v23[706];
-  HIDWORD(v3) = v23[704] | 0x84000000;
-  v23[704] = HIDWORD(v3);
+  *(uint32_t *)HIDWORD(v3) = dword_112F64;
+  *(uint32_t *)(HIDWORD(v3) + 4) = v31;
+  v27[709] = HIDWORD(v3);
+  v27[706] = v27[706];
+  v27[704] |= 0x84000000;
 LABEL_3:
   if ( v5 )
   {
     v8 = off_112F40;
     v9 = dword_112F44;
-    v5 = *((uint32_t *)off_112F40 + 518);
-    v10 = 0;
-    v11 = v5 & *((uint32_t *)off_112F40 + 519);
+    v10 = *((uint32_t *)off_112F40 + 518);
+    v11 = 0;
+    v12 = v10 & *((uint32_t *)off_112F40 + 519);
     while ( 1 )
     {
       LODWORD(v3) = 1;
-      if ( ((1 << v10) & v11) != 0 )
+      if ( ((1 << v11) & v12) != 0 )
       {
-        if ( !v10 )
+        if ( !v11 )
         {
           HIDWORD(v3) = v8[578];
           v8[578] = HIDWORD(v3);
-          v21 = v8[516] & HIDWORD(v3);
-          if ( (v21 & 0x18) != 0 )
+          v25 = v8[516] & HIDWORD(v3);
+          if ( (v25 & 0x18) != 0 )
           {
             v8[516] &= ~0x10u;
             unknown_16(0, 0x200000, 0);
           }
-          else if ( (v21 & 1) != 0 )
+          else if ( (v25 & 1) != 0 )
           {
-            rf_init(v3);
+            rf_init(v3, (uint32_t *)v10);
           }
           goto LABEL_14;
         }
-        v12 = (char *)&v8[8 * v10 - 8];
-        v5 = *((uint32_t *)v12 + 586);
-        *((uint32_t *)v12 + 586) = v5;
-        HIDWORD(v3) = v8[516] & v5;
-        if ( (v3 & 0x900000000LL) != 0 )
+        v13 = (char *)&v8[8 * v11 - 8];
+        v10 = *((uint32_t *)v13 + 586);
+        *((uint32_t *)v13 + 586) = v10;
+        v14 = v8[516] & v10;
+        if ( (v14 & 9) != 0 )
         {
           if ( *(uint8_t *)(v9 - 5) )
           {
-            v33 = *(uint32_t *)(v9 - 12);
-            v35 = *(uint32_t *)(v9 - 16);
-            v31 = (v5 & 1) == 0;
-            if ( (v5 & 1) == 0 )
-              flash_erase_main((int *)1, (uint8_t)v10);
+            v36 = *(uint32_t *)(v9 - 12);
+            v38 = *(uint32_t *)(v9 - 16);
+            v34 = (v10 & 1) == 0;
+            if ( (v10 & 1) == 0 )
+              flash_erase_main(1, (uint8_t)v11);
             LODWORD(v3) = memset((int *)(v9 - 16), 0, 0x10u);
-            v13 = *(int ( **)(int, int, BOOL))(dword_112F48 + 4 * v10 + 52);
-            if ( v13 )
-              LODWORD(v3) = v13(v35, v33, v31);
+            v15 = *(int ( **)(int, int, BOOL))(dword_112F48 + 4 * v11 + 52);
+            if ( v15 )
+              LODWORD(v3) = v15(v38, v36, v34);
           }
         }
         else
         {
-          LODWORD(v3) = log_printf(dword_112F50);
+          LODWORD(v3) = log_printf("irq %x\r\n", v14);
         }
       }
-      if ( (uint8_t)v10 == 5 )
+      if ( (uint8_t)v11 == 5 )
         break;
 LABEL_14:
-      ++v10;
+      ++v11;
       v9 += 16;
     }
   }
   if ( v6 )
   {
-    v14 = off_112F40;
-    v15 = dword_112F4C;
-    v16 = dword_112F6C;
-    v17 = *((uint32_t *)off_112F40 + 518) & *((uint32_t *)off_112F40 + 519);
+    v16 = off_112F40;
+    v17 = dword_112F4C;
+    v18 = dword_112F6C;
+    v19 = *((uint32_t *)off_112F40 + 518) & *((uint32_t *)off_112F40 + 519);
     for ( i = 0; ; ++i )
     {
-      if ( ((0x10000 << i) & v17) != 0 )
+      if ( ((0x10000 << i) & v19) != 0 )
       {
         if ( !i )
         {
-          HIDWORD(v3) = v14[706];
-          v14[706] = HIDWORD(v3);
-          v20 = v14[517] & HIDWORD(v3);
-          v5 = v20 << 27;
-          if ( (v20 & 0x10) != 0 )
+          HIDWORD(v23) = v16[706];
+          v16[706] = HIDWORD(v23);
+          v24 = v16[517] & HIDWORD(v23);
+          if ( (v24 & 0x10) != 0 )
           {
-            v14[517] &= ~0x10u;
+            v16[517] &= ~0x10u;
             LODWORD(v3) = unknown_15(0, 0x200000, 0);
           }
-          else if ( (v20 & 0x29) != 0 )
+          else if ( (v24 & 0x29) != 0 )
           {
-            LODWORD(v3) = 0;
-            LODWORD(v3) = rf_init(v3);
+            LODWORD(v23) = 0;
+            LODWORD(v3) = rf_init(v23, (uint32_t *)(v24 << 27));
           }
           goto LABEL_19;
         }
-        v19 = (char *)&v14[8 * i - 8];
-        v5 = *((uint32_t *)v19 + 714);
-        *((uint32_t *)v19 + 714) = v5;
-        if ( (v14[517] & v5 & 1) != 0 )
+        v21 = (char *)&v16[8 * i - 8];
+        v22 = *((uint32_t *)v21 + 714);
+        *((uint32_t *)v21 + 714) = v22;
+        if ( (v16[517] & v22 & 1) != 0 )
         {
-          if ( *(uint8_t *)(v15 - 8) )
+          if ( *(uint8_t *)(v17 - 8) )
           {
-            v34 = **(uint16_t **)(v16 + 4 * i);
-            v32 = *(uint32_t *)(v15 - 12);
-            v36 = *(uint32_t *)(v15 - 16);
-            LODWORD(v3) = memset((int *)(v15 - 16), 0, 0x10u);
-            v29 = *(int ( **)(int, int, uint32_t))(4 * i + dword_112F48 + 32);
-            if ( v29 )
-              LODWORD(v3) = v29(v36, v32 - v34, 0);
+            v37 = **(uint16_t **)(v18 + 4 * i);
+            v35 = *(uint32_t *)(v17 - 12);
+            v39 = *(uint32_t *)(v17 - 16);
+            LODWORD(v3) = memset((int *)(v17 - 16), 0, 0x10u);
+            v32 = *(int ( **)(int, int, uint32_t))(4 * i + dword_112F48 + 32);
+            if ( v32 )
+              LODWORD(v3) = v32(v39, v35 - v37, 0);
           }
         }
       }
       if ( (uint8_t)i == 5 )
         break;
 LABEL_19:
-      v15 += 16;
+      v17 += 16;
     }
   }
   if ( v7 )
   {
-    LODWORD(v3) = get_state_byte(v3, SHIDWORD(v3), v5);
+    LODWORD(v3) = get_state_byte();
     if ( v4 >= 0 )
       return v3;
   }
@@ -227,7 +227,6 @@ LABEL_19:
   {
     return v3;
   }
-  LODWORD(v3) = rf_isr_clear(v3, SHIDWORD(v3), v5);
+  LODWORD(v3) = rf_isr_clear();
   return v3;
 }
-

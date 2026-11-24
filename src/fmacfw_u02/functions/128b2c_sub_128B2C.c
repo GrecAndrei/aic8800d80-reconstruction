@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128BC8;
-extern uint32_t dword_128BDC;
-extern uint32_t off_128BD0;
-extern uint32_t off_128BCC;
-extern uint32_t off_128BD4;
+
 extern uint32_t dword_128BD8;
+extern uint32_t off_128BC8;
+extern uint32_t off_128BCC;
+extern uint32_t off_128BD0;
+extern uint32_t off_128BD4;
 
 // wlc_check_rate_flag @ 0x128b2c, size 154 bytes
 int  wlc_check_rate_flag(int a1, int a2, int a3)
@@ -25,8 +25,7 @@ int  wlc_check_rate_flag(int a1, int a2, int a3)
   int v6; // r5
   uint8_t *v7; // r3
   int v8; // r2
-  int v9; // r0
-  int v11; // r1
+  uint32_t *v9; // r0
 
   if ( (a2 & 0x800000) != 0 )
   {
@@ -41,9 +40,8 @@ int  wlc_check_rate_flag(int a1, int a2, int a3)
     *(uint8_t *)(a1 + 115) = v4;
     if ( *(uint8_t *)(v5 + 1) == v4 )
     {
-      v11 = dword_128BDC;
       *(uint8_t *)(a1 + 115) = 0;
-      check_status_bits(1024, v11);
+      check_status_bits(1024, aPsLinkloss, a3);
       send_fw_cmd(a1);
       return 1;
     }
@@ -64,7 +62,7 @@ int  wlc_check_rate_flag(int a1, int a2, int a3)
           *(uint32_t *)off_128BD4 &= ~0x80000000;
         if ( v7[8] )
           --v7[8];
-        v9 = dword_128BD8;
+        v9 = (uint32_t *)dword_128BD8;
         v7[29] = 0;
         fault_handler(v9);
         *(uint32_t *)(a1 + 4) &= ~0x200u;
@@ -73,4 +71,3 @@ int  wlc_check_rate_flag(int a1, int a2, int a3)
     }
   }
 }
-

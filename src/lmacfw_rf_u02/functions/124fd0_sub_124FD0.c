@@ -10,9 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_125000;
-extern uint32_t dword_124FFC;
-
 // set_super_timeout @ 0x124fd0, size 42 bytes
 int  set_super_timeout(int a1, int a2)
 {
@@ -20,15 +17,14 @@ int  set_super_timeout(int a1, int a2)
 
   if ( a1 <= 1 )
   {
-    dispatch_event_handler(dword_125000);
+    dispatch_event_handler_1(asc_13032C, a2);
     return 1;
   }
   else
   {
-    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0xAu);
     rf_set_bit18(v2);
-    dispatch_event_handler(dword_124FFC);
+    dispatch_event_handler_1(asc_130320);
     return 0;
   }
 }
-

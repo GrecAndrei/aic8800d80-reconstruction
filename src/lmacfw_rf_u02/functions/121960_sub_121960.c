@@ -10,45 +10,42 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1219B4;
 extern uint32_t off_1219B8;
-extern uint32_t dword_1219BC;
 extern uint32_t off_1219C0;
 
-// ke_int_lock @ 0x121960, size 82 bytes
-int  ke_int_lock(int a1, int a2, int a3)
+// sub_121960 @ 0x121960, size 82 bytes
+int  sub_121960(int a1, int a2, int a3)
 {
-  int *v4; // r4
-  int v5; // r0
+  int *v3; // r4
   int result; // r0
-  int v7; // r3
-  int v8; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_1219B4 = 1;
   }
-  v4 = (int *)off_1219B8;
-  v5 = dword_1219BC;
+  v3 = (int *)off_1219B8;
   ++*(uint32_t *)off_1219B8;
-  result = dispatch_event_handler(v5, a1, a2, a3 & 0xFFFFF);
+  result = sub_11F504("\x9BASSERT (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
   if ( *(int *)off_1219C0 >= 0 )
   {
-    rf_cmd_cancel();
-    result = set_busy_flag_alt(0x80000000);
+    sub_11D31C();
+    result = sub_11E5E0(0x80000000);
   }
-  if ( *v4 )
+  if ( *v3 )
   {
-    v7 = *v4 - 1;
-    v8 = *(uint32_t *)off_1219B4;
-    *v4 = v7;
-    if ( !v7 )
+    v5 = *v3 - 1;
+    v6 = *(uint32_t *)off_1219B4;
+    *v3 = v5;
+    if ( !v5 )
     {
-      if ( v8 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

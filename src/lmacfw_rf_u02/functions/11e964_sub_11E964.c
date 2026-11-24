@@ -10,13 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// float_extract_parts @ 0x11e964, size 242 bytes
-float  float_extract_parts(unsigned int a1)
+
+extern float flt_11EA58;
+extern float flt_11EA5C;
+extern float flt_11EA60;
+extern float flt_11EA64;
+extern float flt_11EA68;
+extern float flt_11EA6C;
+extern float flt_11EA70;
+extern float flt_11EA74;
+extern float flt_11EA78;
+extern float flt_11EA7C;
+extern float flt_11EA80;
+extern float flt_11EA84;
+extern float flt_11EA88;
+extern float flt_11EA8C;
+extern float flt_11EA90;
+extern float flt_11EA94;
+extern float flt_11EA98;
+
+// sub_11E964 @ 0x11e964, size 242 bytes
+unsigned int  sub_11E964(unsigned int a1)
 {
   unsigned int v1; // r3
   int v2; // s15
   int v3; // r0
   float v4; // s15
+  unsigned int result; // r0
   float v6; // s15
   float v7; // s13
   float v8; // s14
@@ -38,23 +58,23 @@ float  float_extract_parts(unsigned int a1)
         v6 = (float)(unsigned int)v2;
         if ( v1 < 0x500000 )
         {
-          v4 = (float)(v6 * sdio_buffer_prepare_n_130) + sdio_buffer_prepare_n_12c;
+          v4 = (float)(v6 * flt_11EA84) + flt_11EA88;
         }
         else if ( v1 >= 0x600000 )
         {
           if ( v1 >= 0x700000 )
-            v7 = sdio_buffer_prepare_v2;
+            v7 = flt_11EA90;
           else
-            v7 = sdio_buffer_prepare_n_128;
+            v7 = flt_11EA8C;
           if ( v1 >= 0x700000 )
-            v8 = rf_cmd_send_n_426_ea98;
+            v8 = flt_11EA98;
           else
-            v8 = sdio_buffer_prepare_n_120;
+            v8 = flt_11EA94;
           v4 = (float)(v6 * v7) + v8;
         }
         else
         {
-          v4 = (float)(v6 * flt_11EA7C) + sdio_buffer_prepare_n_134;
+          v4 = (float)(v6 * flt_11EA7C) + flt_11EA80;
         }
       }
       else
@@ -71,6 +91,6 @@ float  float_extract_parts(unsigned int a1)
   {
     v4 = (float)((float)v2 * flt_11EA58) + flt_11EA5C;
   }
-  return (float)(v3 - 127) + (float)(v4 * flt_11EA60);
+  *(float *)&result = (float)(v3 - 127) + (float)(v4 * flt_11EA60);
+  return result;
 }
-

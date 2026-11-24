@@ -10,11 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1143C0;
-
 // log_debug_b @ 0x1143b8, size 6 bytes
-int  log_debug_b(int a1, int a2, int a3)
+int log_debug_b()
 {
-  return ke_event_schedule(dword_1143C0, a2, a3);
+  return ke_event_schedule_1(aErrorLpLevelPo);
 }
-

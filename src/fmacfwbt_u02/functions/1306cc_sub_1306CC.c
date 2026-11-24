@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13070C;
+
 extern uint32_t off_130710;
 
 // rf_calibrate_value @ 0x1306cc, size 62 bytes
-unsigned int rf_calibrate_value()
+int rf_calibrate_value()
 {
   int v0; // s15
   int v1; // r3
 
   v0 = (int)COERCE_FLOAT(wait_radio_ready());
-  ke_event_schedule(dword_13070C, v0);
+  ke_event_schedule_1("\x9D\x89t=%d C\n", v0);
   v1 = (char)v0 - *((char *)off_130710 + 3);
   if ( v1 < 0 )
     v1 = *((char *)off_130710 + 3) - (char)v0;
@@ -31,4 +31,3 @@ unsigned int rf_calibrate_value()
   }
   return ll_seq_update();
 }
-

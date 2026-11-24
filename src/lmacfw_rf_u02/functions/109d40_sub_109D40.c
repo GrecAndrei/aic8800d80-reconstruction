@@ -10,42 +10,22 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10A0BC;
-extern uint32_t dword_10A070;
-extern uint32_t dword_10A354;
-extern uint32_t dword_10A358;
-extern uint32_t dword_10A35C;
-extern uint32_t dword_10A078;
-extern uint32_t dword_10A07C;
-extern uint32_t dword_10A080;
-extern uint32_t dword_10A084;
-extern uint32_t dword_10A088;
-extern uint32_t dword_10A090;
-extern uint32_t dword_10A094;
-extern uint32_t dword_10A098;
-extern uint32_t dword_10A0A4;
-extern uint32_t dword_10A0A8;
-extern uint32_t dword_10A0AC;
-extern uint32_t dword_10A0B0;
-extern uint32_t dword_10A0B4;
-extern uint32_t dword_10A328;
-extern uint32_t dword_10A32C;
-extern uint32_t dword_10A330;
-extern uint32_t dword_10A334;
-extern uint32_t dword_10A338;
-extern uint32_t dword_10A33C;
+
 extern uint32_t dword_10A068;
-extern uint32_t dword_10A06C;
-extern uint32_t dword_10A364;
-extern uint32_t dword_10A368;
-extern uint32_t dword_10A0B8;
-extern uint32_t dword_10A340;
-extern uint32_t dword_10A34C;
+extern float flt_10A074;
+extern float flt_10A08C;
+extern float flt_10A09C;
+extern float flt_10A0A0;
+extern float flt_10A344;
+extern float flt_10A348;
+extern float flt_10A360;
+extern uint32_t off_10A070;
+extern uint32_t off_10A0BC;
 extern uint32_t off_10A350;
 
-// process_signal_buffer @ 0x109d40, size 1512 bytes
-int  process_signal_buffer(
-        int *a1,
+// sub_109D40 @ 0x109d40, size 1512 bytes
+int  sub_109D40(
+        uint32_t *a1,
         int a2,
         int a3,
         int a4,
@@ -55,312 +35,261 @@ int  process_signal_buffer(
         int a8,
         int a9,
         int a10,
-        uint64_t *a11)
+        int a11)
 {
-  int *v11; // r10
+  uint32_t *v11; // r10
   int v13; // r1
   int v14; // r2
   float v15; // s20
   int v17; // r7
-  unsigned int *v19; // r2
-  unsigned int v20; // r3
-  unsigned int v21; // r11
-  unsigned int v22; // r0
-  int v23; // r2
-  char *v24; // r7
-  int v25; // r3
-  int i; // r4
-  int v27; // r1
-  int v28; // r3
-  int v29; // r2
-  int v30; // r2
-  int j; // r3
-  float v32; // s16
-  int v33; // r1
+  unsigned int v19; // r3
+  int v20; // r11
+  unsigned int v21; // r0
+  char *v22; // r7
+  int v23; // r4
+  float v24; // s16
+  float v25; // s21
+  float v26; // s22
+  float v27; // s17
+  int v28; // r8
+  float v29; // s23
+  float v30; // s16
+  int v31; // s25
+  unsigned int v32; // s15
+  uint64_t v33; // r0
   int v34; // r3
-  int v35; // r2
-  int v36; // r2
-  int v37; // r3
-  int v38; // r3
-  float v39; // s21
-  float v40; // s22
-  float v41; // s17
-  int v42; // r8
-  float v43; // s23
-  float v44; // s16
-  int v45; // r3
-  int v46; // s25
-  int v47; // r3
-  int v48; // r3
-  int v49; // r3
-  int v50; // r3
-  float v51; // s15
-  uint64_t v52; // r0
-  int v53; // r3
-  int v54; // cc
-  unsigned int *v55; // r2
-  int v56; // r1
-  int v57; // r3
-  int v58; // r3
-  int v59; // r3
-  int v60; // r1
-  int k; // r3
+  int v35; // cc
   int result; // r0
-  uint32_t *v63; // r3
-  int v64; // r3
-  int v65; // r3
-  int v66; // r3
-  int v67; // r3
-  int v68; // r3
-  int v69; // r3
-  int v70; // r3
-  int v71; // r3
-  int v72; // r3
-  int v73; // r3
-  int v74; // r3
-  int v75; // [sp+20h] [bp-20h]
-  int v76; // [sp+24h] [bp-1Ch]
-  int v77; // [sp+2Ch] [bp-14h]
-  int v78; // [sp+30h] [bp-10h]
-  int *v79; // [sp+34h] [bp-Ch]
-  int *v80; // [sp+38h] [bp-8h]
-  unsigned int *v81; // [sp+3Ch] [bp-4h]
-  uint32_t v82[3]; // [sp+40h] [bp+0h] BYREF
-  int v83[5]; // [sp+4Ch] [bp+Ch] BYREF
-  float v84; // [sp+24Ch] [bp+20Ch]
-  float v85; // [sp+250h] [bp+210h]
-  float v86; // [sp+254h] [bp+214h]
-  float v87; // [sp+258h] [bp+218h]
-  char v88; // [sp+25Ch] [bp+21Ch] BYREF
-  int v89; // [sp+2BCh] [bp+27Ch]
-  float v90; // [sp+2CCh] [bp+28Ch]
-  uint8_t v91[1204]; // [sp+2D0h] [bp+290h] BYREF
+  uint32_t *v37; // r3
+  int v38; // [sp+20h] [bp-20h]
+  int v39; // [sp+24h] [bp-1Ch]
+  int v40; // [sp+2Ch] [bp-14h]
+  int a1a; // [sp+30h] [bp-10h]
+  int *v42; // [sp+34h] [bp-Ch]
+  int *v43; // [sp+38h] [bp-8h]
+  unsigned int *v44; // [sp+3Ch] [bp-4h]
+  uint32_t v45[3]; // [sp+40h] [bp+0h] BYREF
+  int a2a[5]; // [sp+4Ch] [bp+Ch] BYREF
+  float v47; // [sp+24Ch] [bp+20Ch]
+  float v48; // [sp+250h] [bp+210h]
+  float v49; // [sp+254h] [bp+214h]
+  float v50; // [sp+258h] [bp+218h]
+  char v51; // [sp+25Ch] [bp+21Ch] BYREF
+  int v52; // [sp+2BCh] [bp+27Ch]
+  unsigned int v53; // [sp+2CCh] [bp+28Ch]
+  uint8_t v54[1204]; // [sp+2D0h] [bp+290h] BYREF
 
-  v11 = (int *)off_10A0BC;
-  v13 = *(uint32_t *)(dword_10A070 + 4);
-  v14 = *(uint32_t *)(dword_10A070 + 8);
-  v82[0] = *(uint32_t *)dword_10A070;
-  v82[1] = v13;
-  v82[2] = v14;
+  v11 = off_10A0BC;
+  v13 = ((uint32_t *)(uintptr_t)off_10A070)[1];
+  v14 = ((uint32_t *)(uintptr_t)off_10A070)[2];
+  v45[0] = ((uint32_t *)(uintptr_t)off_10A070)[0];
+  v45[1] = v13;
+  v45[2] = v14;
   v15 = flt_10A074;
-  v79 = v82;
+  v42 = v45;
   *(uint32_t *)(a5 + 4 * a4) = 1;
-  v81 = (unsigned int *)(a2 - 4);
-  v77 = 1;
-  v80 = (int *)(a5 + 4 * a4);
+  v44 = (unsigned int *)(a2 - 4);
+  v40 = 1;
+  v43 = (int *)(a5 + 4 * a4);
   v17 = 0;
   while ( 2 )
   {
-    v19 = v81 + 1;
-    v20 = v81[1];
-    ++v81;
-    v21 = (uint8_t)v17;
-    if ( !v20 )
+    v19 = v44[1];
+    ++v44;
+    v20 = (uint8_t)v17;
+    if ( !v19 )
     {
-      check_interrupt_flag(1, dword_10A354, v17, 0);
-      check_interrupt_flag(1, dword_10A358, v17, v64);
+      sub_11F74C(1, "===========table[%d]===========\n", v17);
+      sub_11F74C(1, "table %d dont need cal.\n", v17);
       goto LABEL_28;
     }
     if ( !a4 && v17 == 1 )
     {
-      check_interrupt_flag(1, dword_10A35C, v19, v20);
+      sub_11F74C(1, a24gTable1DontN);
       goto LABEL_29;
     }
-    check_interrupt_flag(1, dword_10A078, v17, v20);
-    v22 = *v81;
-    v89 = 0;
-    phy_set_txpower(v22, (int)v83, a4, (int)v81);
-    check_interrupt_flag(1, dword_10A07C, v17, v89);
-    v75 = *v79;
-    if ( v89 <= 0 )
+    sub_11F74C(1, "===========table[%d]===========\n", v17);
+    v21 = *v44;
+    v52 = 0;
+    sub_105494(v21, (int)a2a, a4);
+    sub_11F74C(1, "table %d cal %d times.\n", v17, v52);
+    v38 = *v42;
+    if ( v52 <= 0 )
       goto LABEL_27;
-    v78 = v17;
-    v76 = 0;
-    v24 = &v88;
+    a1a = v17;
+    v39 = 0;
+    v22 = &v51;
     do
     {
-      v25 = *a1;
-      for ( i = *((uint32_t *)v24 + 16); !*a1; v25 = *a1 )
-        write_timer_reg(1);
-      check_interrupt_flag(1, dword_10A080, v23, v25);
-      prcm_stop((int)v83, (int)v91, v21, i, a4, 0);
+      v23 = *((uint32_t *)v22 + 16);
+      while ( !*a1 )
+        sub_100560(1);
+      sub_11F74C(1, aStDpdCal);
+      sub_105578((int)a2a, (int)v54, v20, v23, a4, 0);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      mmio_set_flag(i, v83, (int)v91, v21, 0, a4, a6, a7, a9, a10, a11);
-      v27 = dword_10A084;
+      sub_109BF8(v23, a2a, (int)v54, v20, 0, a4, a6, a7, a9, a10, a11);
       *v11 |= 0x8000u;
-      v28 = *v11 | 0x2000;
-      *v11 = v28;
-      check_interrupt_flag(1, v27, v29, v28);
-      for ( j = a1[1]; !j; j = a1[1] )
-        write_timer_reg(1);
-      v32 = flt_10A08C;
-      check_interrupt_flag(1, dword_10A088, v30, j);
-      prcm_stop((int)v83, (int)v91, v21, i, a4, 1);
+      *v11 |= 0x2000u;
+      sub_11F74C(1, aDpdCalEnd);
+      while ( !a1[1] )
+        sub_100560(1);
+      v24 = flt_10A08C;
+      sub_11F74C(1, aStDpdVerify);
+      sub_105578((int)a2a, (int)v54, v20, v23, a4, 1);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      mmio_set_flag(i, v83, (int)v91, v21, 1, a4, a6, 0, a9, a10, a11);
-      v33 = dword_10A084;
+      sub_109BF8(v23, a2a, (int)v54, v20, 1, a4, a6, 0, a9, a10, a11);
       *v11 |= 0x8000u;
-      v34 = *v11 | 0x2000;
-      *v11 = v34;
-      check_interrupt_flag(1, v33, v35, v34);
-      check_interrupt_flag(1, dword_10A090, v36, v37);
-      check_interrupt_flag(1, dword_10A094, (int)(float)(v84 * v32), (int)(float)(v85 * v32));
-      check_interrupt_flag(1, dword_10A098, (int)(float)(v86 * v32), (int)(float)(v87 * v32));
-      v39 = v84 / v85;
-      v40 = v86 / v87;
-      if ( i == 11 )
+      *v11 |= 0x2000u;
+      sub_11F74C(1, aDpdCalEnd);
+      sub_11F74C(1, aDefaultDpdCal);
+      sub_11F74C(1, "am*1000000:%6d  %d\n", (int)(float)(v47 * v24), (int)(float)(v48 * v24));
+      sub_11F74C(1, "ph*1000000:%6d  %d\n", (int)(float)(v49 * v24), (int)(float)(v50 * v24));
+      v25 = v47 / v48;
+      v26 = v49 / v50;
+      if ( v23 == 11 )
       {
-        v41 = 3.0;
-        v43 = 3.0;
-        v42 = 30000;
+        v27 = 3.0;
+        v29 = 3.0;
+        v28 = 30000;
+      }
+      else if ( (unsigned int)(v23 - 12) <= 1 )
+      {
+        v29 = flt_10A344;
+        v28 = 11000;
+        v27 = 3.0;
+      }
+      else if ( v23 == 14 )
+      {
+        v29 = flt_10A348;
+        v28 = 13000;
+        v27 = 3.0;
+      }
+      else if ( v23 <= 7 )
+      {
+        v27 = v15;
+        v29 = v15;
+        v28 = 10010;
       }
       else
       {
-        v38 = i - 12;
-        if ( (unsigned int)(i - 12) <= 1 )
-        {
-          v43 = flt_10A344;
-          v42 = 11000;
-          v41 = 3.0;
-        }
-        else if ( i == 14 )
-        {
-          v43 = flt_10A348;
-          v42 = 13000;
-          v41 = 3.0;
-        }
-        else if ( i <= 7 )
-        {
-          v41 = v15;
-          v43 = v15;
-          v42 = 10010;
-        }
-        else
-        {
-          v41 = flt_10A09C;
-          v42 = 11000;
-          v43 = flt_10A09C;
-        }
+        v27 = flt_10A09C;
+        v28 = 11000;
+        v29 = flt_10A09C;
       }
-      v44 = flt_10A0A0;
-      check_interrupt_flag(1, dword_10A0A4, v42, v38);
-      check_interrupt_flag(1, dword_10A0A8, (int)(float)(v41 * v44), v45);
-      v46 = (int)(float)(v39 * v44);
-      check_interrupt_flag(1, dword_10A0AC, v46, v47);
-      check_interrupt_flag(1, dword_10A0B0, (int)(float)(v40 * v44), v48);
-      check_interrupt_flag(1, dword_10A0B4, (int)(float)(v86 * v44), v49);
-      if ( v43 >= v39 )
+      v30 = flt_10A0A0;
+      sub_11F74C(1, "am_compare_thr * 10000 = %6d  ", v28);
+      sub_11F74C(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+      v31 = (int)(float)(v25 * v30);
+      sub_11F74C(1, "am_compare     * 10000 = %6d  ", v31);
+      sub_11F74C(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+      sub_11F74C(1, "verify_ph_var_sum * 10000 = %6d\n", (int)(float)(v49 * v30));
+      if ( v29 >= v25 )
       {
-        v51 = v90;
-        if ( v90 < 2.0 )
+        v32 = v53;
+        if ( *(float *)&v53 < 2.0 )
           goto LABEL_19;
-        v56 = dword_10A328;
-        *(uint32_t *)v24 = 0;
-        *((uint32_t *)v24 + 8) = 0;
-        check_interrupt_flag(1, v56, v42, v50);
-        check_interrupt_flag(1, dword_10A32C, (int)(float)(v41 * v44), v57);
-        check_interrupt_flag(1, dword_10A330, (int)(float)(v39 * v44), v58);
-        check_interrupt_flag(1, dword_10A334, (int)(float)(v40 * v44), v59);
-        check_interrupt_flag(1, dword_10A338, v78, i);
-        if ( i <= 10 && v78 == 1 )
+        *(uint32_t *)v22 = 0;
+        *((uint32_t *)v22 + 8) = 0;
+        sub_11F74C(1, "am_compare_thr * 10000 = %6d  ", v28);
+        sub_11F74C(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+        sub_11F74C(1, "am_compare     * 10000 = %6d  ", (int)(float)(v25 * v30));
+        sub_11F74C(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+        sub_11F74C(1, "table[%d] dpd cal is not good, ana_index %x use default.\n", a1a, v23);
+        if ( v23 <= 10 && a1a == 1 )
         {
-          v77 = 0;
-          dispatch_event_handler(dword_10A33C, i);
-          *(uint32_t *)v24 = 1;
-          *((uint32_t *)v24 + 8) = 1;
+          v40 = 0;
+          sub_11F504("table 1 index %x dont use dpd\n", v23);
+          *(uint32_t *)v22 = 1;
+          *((uint32_t *)v22 + 8) = 1;
         }
       }
       else
       {
-        if ( v41 < v40 )
+        if ( v27 < v26 )
         {
-          v51 = v90;
+          v32 = v53;
 LABEL_19:
-          *(uint32_t *)v24 = 1;
-          *((uint32_t *)v24 + 8) = 1;
-          if ( i <= 8
-            && v41 > v40
-            && (v52 = aeabi_d2f(LODWORD(v51)), double_gt(v52, HIDWORD(v52), dword_10A068, dword_10A06C))
-            && v78 == 1 )
+          *(uint32_t *)v22 = 1;
+          *((uint32_t *)v22 + 8) = 1;
+          if ( v23 <= 8
+            && v27 > v26
+            && (v33 = sub_127570(v32), sub_127B40(v33, *(uint64_t *)&dword_10A068))
+            && a1a == 1 )
           {
-            check_interrupt_flag(1, dword_10A328, v42, 1);
-            check_interrupt_flag(1, dword_10A32C, (int)(float)(v41 * v44), v65);
-            check_interrupt_flag(1, dword_10A330, v46, v66);
-            check_interrupt_flag(1, dword_10A334, (int)(float)(v40 * v44), v67);
-            check_interrupt_flag(1, dword_10A364, (int)(float)(v90 * flt_10A360), v68);
-            check_interrupt_flag(1, dword_10A368, i, v69);
-            v77 = 0;
+            sub_11F74C(1, "am_compare_thr * 10000 = %6d  ", v28);
+            sub_11F74C(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+            sub_11F74C(1, "am_compare     * 10000 = %6d  ", v31);
+            sub_11F74C(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+            sub_11F74C(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(float *)&v53 * flt_10A360));
+            sub_11F74C(1, "verify ph is larger, table 1 index %x dont use dpd\n", v23);
+            v40 = 0;
           }
           else
           {
-            check_interrupt_flag(1, dword_10A0B8, v78, i);
-            v77 = 1;
+            sub_11F74C(1, "table[%d] dpd cal success, ana_index %x can be used.\n", a1a, v23);
+            v40 = 1;
           }
           goto LABEL_24;
         }
-        v51 = v90;
-        if ( v90 < 2.0 )
+        v32 = v53;
+        if ( *(float *)&v53 < 2.0 )
           goto LABEL_19;
-        v60 = dword_10A340;
-        *(uint32_t *)v24 = 1;
-        *((uint32_t *)v24 + 8) = 0;
-        check_interrupt_flag(1, v60, v78, i);
-        if ( i <= 8 && v78 == 1 )
+        *(uint32_t *)v22 = 1;
+        *((uint32_t *)v22 + 8) = 0;
+        sub_11F74C(1, "table[%d] dpd cal success, ph deviation is small, ana_index %x can be used.\n", a1a, v23);
+        if ( v23 <= 8 && a1a == 1 )
         {
-          if ( v90 > 2.0 )
+          if ( *(float *)&v53 > 2.0 )
           {
-            check_interrupt_flag(1, dword_10A328, v42, 1);
-            check_interrupt_flag(1, dword_10A32C, (int)(float)(v41 * v44), v70);
-            check_interrupt_flag(1, dword_10A330, v46, v71);
-            check_interrupt_flag(1, dword_10A334, (int)(float)(v40 * v44), v72);
-            check_interrupt_flag(1, dword_10A364, (int)(float)(v90 * v44), v73);
-            check_interrupt_flag(1, dword_10A368, i, v74);
-            v77 = 0;
-            check_interrupt_flag(1, dword_10A33C, i, 0);
+            sub_11F74C(1, "am_compare_thr * 10000 = %6d  ", v28);
+            sub_11F74C(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+            sub_11F74C(1, "am_compare     * 10000 = %6d  ", v31);
+            sub_11F74C(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+            sub_11F74C(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(float *)&v53 * v30));
+            sub_11F74C(1, "verify ph is larger, table 1 index %x dont use dpd\n", v23);
+            v40 = 0;
+            sub_11F74C(1, "table 1 index %x dont use dpd\n", v23);
           }
           else
           {
-            v77 = 1;
+            v40 = 1;
           }
         }
         else
         {
-          v77 = 1;
+          v40 = 1;
         }
       }
 LABEL_24:
-      v23 = v89;
-      v75 &= *(uint32_t *)v24;
-      v53 = *v80 & v77;
-      v54 = v89 <= ++v76;
-      *v79 = v75;
-      v24 += 4;
-      *v80 = v53;
+      v38 &= *(uint32_t *)v22;
+      v34 = *v43 & v40;
+      v35 = v52 <= ++v39;
+      *v42 = v38;
+      v22 += 4;
+      *v43 = v34;
     }
-    while ( !v54 );
-    v17 = v78;
+    while ( !v35 );
+    v17 = a1a;
 LABEL_27:
-    v55 = v81;
-    *v81 = *v81 & 0xFFFEFFFF | (v75 << 16);
+    *v44 = *v44 & 0xFFFEFFFF | (v38 << 16);
 LABEL_28:
-    if ( v21 != 2 )
+    if ( v20 != 2 )
     {
 LABEL_29:
       ++v17;
-      ++v79;
+      ++v42;
       continue;
     }
     break;
   }
-  for ( k = a1[2]; !k; k = a1[2] )
-    write_timer_reg(1);
-  result = check_interrupt_flag(1, dword_10A34C, v55, k);
-  v63 = off_10A350;
+  while ( !a1[2] )
+    sub_100560(1);
+  result = sub_11F74C(1, aDpdUse);
+  v37 = off_10A350;
   *(uint32_t *)off_10A350 &= ~0x200u;
-  *v63 |= 0x200u;
-  *v63 &= ~0x200u;
+  *v37 |= 0x200u;
+  *v37 &= ~0x200u;
   return result;
 }
-

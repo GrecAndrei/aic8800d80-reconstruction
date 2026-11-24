@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_121644;
 
 // util_delay_clear_flag @ 0x121624, size 32 bytes
@@ -17,6 +18,5 @@ int util_delay_clear_flag()
 {
   irq_disable_global_3(0x2000000);
   *((uint32_t *)off_121644 + 1) &= ~4u;
-  return hci_cmd_preprocess(0);
+  return hci_cmd_preprocess(0, 0);
 }
-

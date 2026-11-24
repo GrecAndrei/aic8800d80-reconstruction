@@ -10,12 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_127AAC;
-extern uint32_t off_127AA8;
+
 extern uint32_t dword_127AB0;
 extern uint32_t dword_127AB4;
-extern uint32_t off_127ACC;
+extern uint32_t dword_127AB8;
+extern uint32_t dword_127ABC;
+extern uint32_t dword_127AC0;
+extern uint32_t dword_127AC4;
+extern uint32_t off_127AA8;
+extern uint32_t off_127AAC;
 extern uint32_t off_127AC8;
+extern uint32_t off_127ACC;
 
 // stat_clear @ 0x127a1c, size 140 bytes
 int stat_clear()
@@ -40,7 +45,7 @@ int stat_clear()
     *((uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      cmd_handler_a(v1);
+      cmd_handler_a((int)v1, i);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -52,12 +57,12 @@ LABEL_4:
   }
   if ( v2 != 4 )
     goto LABEL_4;
-  zero_8_bytes(dword_127AB0);
-  zero_8_bytes(dword_127AB4);
-  cmd_handler_a(dword_127AB0);
-  cmd_handler_a(dword_127AB0);
-  cmd_handler_a(dword_127AB0);
-  result = cmd_handler_a(dword_127AB0);
+  zero_8_bytes((uint32_t *)dword_127AB0);
+  zero_8_bytes((uint32_t *)dword_127AB4);
+  cmd_handler_a(dword_127AB0, (uint32_t *)dword_127AB8);
+  cmd_handler_a(dword_127AB0, (uint32_t *)dword_127ABC);
+  cmd_handler_a(dword_127AB0, (uint32_t *)dword_127AC0);
+  result = cmd_handler_a(dword_127AB0, (uint32_t *)dword_127AC4);
   v5 = off_127AA8;
   v6 = off_127ACC;
   *((uint32_t *)off_127AA8 + 13) = off_127AC8;
@@ -65,4 +70,3 @@ LABEL_4:
   v5[18] = 0;
   return result;
 }
-

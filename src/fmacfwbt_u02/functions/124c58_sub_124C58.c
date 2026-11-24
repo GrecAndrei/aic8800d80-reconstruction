@@ -10,21 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_124D50;
 extern uint32_t off_124D48;
 extern uint32_t off_124D4C;
+extern uint32_t off_124D54;
+extern uint32_t off_124D58;
+extern uint32_t off_124D60;
 extern uint32_t off_124D64;
 extern uint32_t off_124D68;
 extern uint32_t off_124D6C;
-extern uint32_t dword_124D50;
-extern uint32_t off_124D54;
-extern uint32_t off_124D60;
-extern uint32_t off_124D58;
-extern uint32_t dword_124D5C;
 
 // ble_store_adv_data @ 0x124c58, size 240 bytes
 int  ble_store_adv_data(uint8_t *a1)
 {
-  uint8_t *v1; // r3
+  int *v1; // r3
   int v2; // r4
   int v3; // r1
   int v5; // r0
@@ -39,20 +39,20 @@ int  ble_store_adv_data(uint8_t *a1)
   int i; // r4
   int v15; // r3
   int v16; // t1
-  void *v17; // r2
+  int v17; // r2
 
-  v1 = off_124D48;
+  v1 = (int *)off_124D48;
   v2 = a1[16];
-  *((uint8_t *)off_124D48 + 360) = a1[17];
-  v1[361] = a1[18];
+  LOBYTE(((uint32_t *)(uintptr_t)off_124D48)[90]) = a1[17];
+  *((uint8_t *)v1 + 361) = a1[18];
   v3 = a1[21];
-  v1[356] = v3;
+  *((uint8_t *)v1 + 356) = v3;
   v5 = a1[22];
-  v1[357] = v5;
+  *((uint8_t *)v1 + 357) = v5;
   v6 = a1[23];
-  v1[358] = v6;
+  *((uint8_t *)v1 + 358) = v6;
   v7 = v3 + v5;
-  v1[359] = v6 + v7;
+  *((uint8_t *)v1 + 359) = v6 + v7;
   if ( a1[19] )
     *(uint32_t *)off_124D4C |= 0x10u;
   else
@@ -72,7 +72,7 @@ int  ble_store_adv_data(uint8_t *a1)
     v16 = *((uint32_t *)v12 + 1);
     v12 += 4;
     v15 = v16;
-    v17 = (void *)(uint8_t)i;
+    v17 = (uint8_t)i;
     if ( v16 )
     {
       *(uint32_t *)(v11 + 4 * i) = v15;
@@ -103,9 +103,8 @@ int  ble_store_adv_data(uint8_t *a1)
   if ( a1[24] )
   {
     v17 = off_124D58;
-    *(uint8_t *)off_124D58 = a1[24];
+    *off_124D58 = a1[24];
   }
-  ke_event_schedule(dword_124D5C, v7, v17);
-  return rx_packet_handler(a1, 28, 1, 0);
+  ke_event_schedule_1(aSetVendorCa, v7, v17);
+  return rx_packet_handler_2((int)a1, 28, 1, 0);
 }
-

@@ -10,21 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11774C;
-extern uint32_t off_117748;
+extern uint32_t dword_117778;
+extern uint32_t dword_11777C;
 extern uint32_t dword_117780;
+extern uint32_t off_117748;
 extern uint32_t off_117750;
-extern uint32_t dword_117754;
 extern uint32_t off_117758;
 extern uint32_t off_11775C;
-extern uint32_t dword_11777C;
 extern uint32_t off_117760;
 extern uint32_t off_117764;
 extern uint32_t off_117768;
-extern uint32_t off_11776C;
 extern uint32_t off_117770;
 extern uint32_t off_117774;
-extern uint32_t dword_117778;
 
 // ke_msg_dispatch @ 0x117560, size 488 bytes
 int  ke_msg_dispatch(int a1, int a2)
@@ -35,20 +34,20 @@ int  ke_msg_dispatch(int a1, int a2)
   int v7; // r11
   int v8; // r9
   int v10; // r3
-  int16_t v11; // r1
+  uint16_t v11; // r1
   int v12; // r6
   int v13; // r3
   int *v14; // r6
   int v15; // r2
   char v16; // r3
-  int v17; // r0
-  int v18; // r1
-  uint8_t *v19; // r3
+  int v17; // r1
+  uint8_t *v18; // r3
+  volatile unsigned int v19; // r3
   int v20; // r3
   int v21; // r2
   int v22; // r2
   int v23; // r1
-  int16_t v24; // r3
+  uint16_t v24; // r3
   int *v25; // r3
   int v26; // r3
   int v27; // r2
@@ -75,7 +74,7 @@ int  ke_msg_dispatch(int a1, int a2)
      || (v12 = *((uint32_t *)off_117750 + 10)) == 0
      || *(uint8_t *)(v12 + 24) <= 2u
      || (v13 = *(uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, alloc_tx_event(dword_117754, v12 == v13, (uint8_t)v11), v12 == v31))
+     || (v31 = v13, alloc_tx_event("is_on_chan:%d, %x\n", v12 == v13, (uint8_t)v11), v12 == v31))
     && get_connection_state(a1) )
   {
     *(uint32_t *)(v7 + 68) |= 0x100u;
@@ -98,19 +97,21 @@ int  ke_msg_dispatch(int a1, int a2)
       v30[2] = a1;
       v30[3] = a1;
     }
-    v17 = wlan_ioctl_handler_1(v4 + 12);
-    v18 = *((uint32_t *)off_117760 + 8);
+    wlan_ioctl_handler_1((int)(v4 + 12), (uint32_t *)a1);
+    v17 = *((uint32_t *)off_117760 + 8);
     ++*((uint32_t *)off_117748 + 126);
-    if ( v18 )
+    if ( v17 )
     {
-      v19 = *(uint8_t **)off_117764;
-      v17 = 0x80000000;
+      v18 = *(uint8_t **)off_117764;
       *(uint32_t *)off_117768 = 0x80000000;
-      if ( *v19 == 3 && v18 == v8 )
-        *(uint32_t *)(v6 + 1320 * v5 + 120) = *((uint32_t *)off_11776C + 4);
+      if ( *v18 == 3 && v17 == v8 )
+      {
+        v19 = (*(volatile uint32_t *)0x40501010u);
+        *(uint32_t *)(v6 + 1320 * v5 + 120) = v19;
+      }
     }
     if ( **(uint8_t **)off_117770 == 2 && (*(uint32_t *)off_117774 & dword_117778) == 0 )
-      process_event(v17, v18, *(uint32_t *)off_117774);
+      process_event();
     if ( *v14 )
     {
       v20 = *v14 - 1;
@@ -171,8 +172,7 @@ int  ke_msg_dispatch(int a1, int a2)
   }
   else
   {
-    conn_table_get((uint8_t *)a1, a2);
+    conn_table_get(a1, a2);
     return 1;
   }
 }
-

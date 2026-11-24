@@ -10,21 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_110218;
+
 extern uint32_t dword_11021C;
 extern uint32_t dword_110220;
+extern uint32_t off_110218;
 
 // get_link_rate @ 0x1101e4, size 52 bytes
-int get_link_rate()
+uint32_t *get_link_rate()
 {
   void *v0; // r5
-  int result; // r0
+  uint32_t *result; // r0
   int v2; // r7
   int v3; // r6
   int v4; // r4
+  uint32_t *v5; // r0
 
   v0 = off_110218;
-  result = zero_8_bytes(dword_11021C);
+  result = zero_8_bytes((uint32_t *)dword_11021C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_110220;
@@ -32,12 +34,11 @@ int get_link_rate()
     v4 = 0;
     do
     {
-      rx_packet_handler(v2, 0xCu);
-      result = cmd_handler_a(v3);
+      v5 = rx_packet_handler_1(v2, 0xCu);
+      result = (uint32_t *)cmd_handler_a(v3, v5);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }
-

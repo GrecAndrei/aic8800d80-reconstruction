@@ -10,27 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_121F0C;
 
-// buffer_flush @ 0x121ee8, size 32 bytes
-// Doc: rf_cmd_dispatch_n_4b [rf]: Dispatches completed RF command response
-// rf_cmd_dispatch_n_4b [rf]: Dispatches completed RF command response
-int buffer_flush()
+extern uint32_t off_121F08;
+
+// sub_121EE8 @ 0x121ee8, size 32 bytes
+int sub_121EE8()
 {
-  uint32_t *v0; // r4
-  int v1; // r6
-  int v2; // r5
+  unsigned int v0; // r4
+  unsigned int v1; // r5
+  const char *v2; // r2
 
-  v0 = (uint32_t *)rf_mem_write_n_123;
-  v1 = dword_121F0C;
-  v2 = rf_mem_write_n_123 + 880;
+  v0 = off_121F08;
+  v1 = off_121F08 + 880;
   do
   {
-    if ( v0[1] )
-      log_printf(v1, *v0);
-    v0 += 4;
+    v2 = *(const char **)(v0 + 4);
+    if ( v2 )
+      sub_10DA6C("%s %s\r\n", *(const char **)v0, v2);
+    v0 += 16;
   }
-  while ( v0 != (uint32_t *)v2 );
+  while ( v0 != v1 );
   return 0;
 }
-

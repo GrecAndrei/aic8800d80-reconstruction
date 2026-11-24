@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_12E29C;
 extern uint32_t dword_12E2A0;
 extern uint32_t dword_12E2A4;
 
 // freq_to_chan_map @ 0x12e1fc, size 158 bytes
-// Doc: sdio_buffer_prepare_20e [ipc]: Prepare SDIO DMA buffer for transfer
-// sdio_buffer_prepare_20e [ipc]: Prepare SDIO DMA buffer for transfer
 int  freq_to_chan_map(unsigned int a1)
 {
   int result; // r0
 
-  if ( a1 > sdio_buffer_prepare_n_a8_e29c )
+  if ( a1 > dword_12E29C )
   {
     if ( a1 == dword_12E2A0 )
     {
@@ -46,7 +46,7 @@ int  freq_to_chan_map(unsigned int a1)
       return 255;
     }
   }
-  else if ( a1 <= sdio_buffer_prepare_n_a8_e29c - 18 )
+  else if ( a1 <= dword_12E29C - 18 )
   {
     return 255;
   }
@@ -107,4 +107,3 @@ int  freq_to_chan_map(unsigned int a1)
   }
   return result;
 }
-

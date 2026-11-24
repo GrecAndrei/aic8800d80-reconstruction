@@ -10,10 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_126054;
-extern uint32_t dword_126060;
+
 extern uint32_t dword_12605C;
-extern uint32_t dword_126058;
+extern uint32_t off_126054;
 
 // check_radio_flag @ 0x125ffc, size 88 bytes
 int  check_radio_flag(int a1, int a2, int a3)
@@ -22,23 +21,22 @@ int  check_radio_flag(int a1, int a2, int a3)
 
   if ( (*(uint32_t *)off_126054 & 0x2000000) != 0 )
   {
-    dispatch_event_handler(dword_126060, dword_12605C, a3, HIBYTE(*(uint32_t *)off_126054) & 2);
+    dispatch_event_handler_1("getcc: %s\r\n", (const char *)dword_12605C);
     return 0;
   }
   else
   {
     *(uint16_t *)v4 = 0;
-    sub_114868((int)v4);
+    rf_cmd_wait_n_7e((int)v4);
     if ( v4[0] == 255 || v4[1] == 255 )
     {
-      dispatch_event_handler(dword_126058);
+      dispatch_event_handler_1(aNoCountrycodeI);
       return 0;
     }
     else
     {
-      dispatch_event_handler(dword_126060, v4);
+      dispatch_event_handler_1("getcc: %s\r\n", (const char *)v4);
       return 0;
     }
   }
 }
-

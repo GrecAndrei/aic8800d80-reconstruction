@@ -10,25 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_129384;
+
+extern uint32_t off_129354;
 extern uint32_t off_129358;
 extern uint32_t off_12935C;
 extern uint32_t off_129360;
 extern uint32_t off_129364;
 extern uint32_t off_129368;
-extern uint32_t off_129354;
-extern uint32_t dword_129370;
 extern uint32_t off_129374;
 extern uint32_t off_129378;
-extern uint32_t off_129380;
 extern uint32_t off_12937C;
+extern uint32_t off_129380;
+extern uint32_t off_129384;
 
 // chip_register_read @ 0x129254, size 254 bytes
 int chip_register_read()
 {
   unsigned int *v0; // r12
   int *v1; // r1
-  uint8_t *v2; // r7
+  int *v2; // r7
   uint32_t *v3; // r4
   unsigned int v4; // r0
   unsigned int *v5; // r5
@@ -44,9 +44,9 @@ int chip_register_read()
 
   v0 = (unsigned int *)off_129384;
   v1 = (int *)off_129358;
-  v2 = off_12935C;
+  v2 = (int *)off_12935C;
   v3 = off_129360;
-  v4 = *((uint16_t *)off_12935C + 93);
+  v4 = HIWORD(((uint32_t *)(uintptr_t)off_12935C)[46]);
   v5 = (unsigned int *)off_129364;
   v6 = (uint8_t **)off_129368;
   *(uint32_t *)off_129354 |= 0x40000000u;
@@ -55,12 +55,12 @@ int chip_register_read()
   *v0 = *v0 & 0xFFFFFF00 | 0x10;
   *v5 = *v5 & 0xFFFFFF03 | 0x10;
   *v1 = *v1 & 0x3FFFFF | (((v4 >> 5) + 32) << 22);
-  result = check_feature_flag(2, dword_129370);
+  result = check_feature_flag(2, "%s:%d,%d\r\n", aPsUpmEnter, **v6, (v4 >> 5) + 32);
   v8 = *v6;
   v9 = **v6;
   if ( v9 == 1 )
   {
-    if ( v2[189] )
+    if ( *((uint8_t *)v2 + 189) )
     {
       result = (int)off_129374;
       *(uint32_t *)off_129378 &= ~0x2000000u;
@@ -77,7 +77,7 @@ int chip_register_read()
     *v13 = 4;
     *v14 = 1;
     *v3 &= 0xFFFBFFFE;
-    v9 = (uint8_t)*v8;
+    v9 = *v8;
   }
   if ( v9 != 2 )
   {
@@ -95,4 +95,3 @@ LABEL_6:
   *v12 &= ~1u;
   return 63;
 }
-

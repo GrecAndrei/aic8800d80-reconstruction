@@ -10,59 +10,53 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_118E2C;
-extern uint32_t dword_118E30;
-extern uint32_t dword_118E34;
 
 // rf_calib_config @ 0x118d80, size 172 bytes
-int  rf_calib_config(int a1, int a2, int a3)
+uint32_t * rf_calib_config(unsigned int a1, int a2, int a3)
 {
-  int16_t **v3; // r8
-  int v4; // r10
-  int v5; // r9
-  int v9; // r4
-  int v10; // r1
+  uint16_t **v3; // r8
+  uint32_t *v7; // r4
+  int v8; // r1
 
-  v3 = (int16_t **)off_118E2C;
-  v4 = dword_118E30;
-  v5 = dword_118E34;
+  v3 = (uint16_t **)off_118E2C;
   while ( 1 )
   {
-    v9 = list_pop_front(a2);
-    if ( !v9 )
+    v7 = list_pop_front(a2);
+    if ( !v7 )
       break;
     while ( 1 )
     {
-      v10 = *(uint32_t *)(v9 + 76);
-      if ( *(uint32_t *)(v9 + 68) )
+      v8 = v7[19];
+      if ( v7[17] )
       {
-        *(uint32_t *)(v10 + 4) = 2080374784;
+        *(uint32_t *)(v8 + 4) = 2080374784;
       }
-      else if ( *(int *)(v10 + 4) >= 0 )
+      else if ( *(int *)(v8 + 4) >= 0 )
       {
-        *(uint32_t *)(v10 + 4) = 0x40000000;
+        *(uint32_t *)(v8 + 4) = 0x40000000;
       }
-      if ( *(uint16_t *)(v9 + 4) )
+      if ( *((uint16_t *)v7 + 2) )
         break;
-      btlp_enter_sleep(v9);
-      v9 = list_pop_front(a2);
-      if ( !v9 )
+      btlp_enter_sleep(v7);
+      v7 = list_pop_front(a2);
+      if ( !v7 )
         return system_init();
     }
-    *(uint32_t *)(v10 + 4) |= 0x800000u;
-    timer_check_state(v9, (uint32_t *)(v10 + 4));
-    release_buffer(v9);
-    if ( mac_tx_start(v9, 1) )
+    *(uint32_t *)(v8 + 4) |= 0x800000u;
+    timer_check_state((int)v7, (uint32_t *)(v8 + 4));
+    release_buffer((int)v7);
+    if ( mac_tx_start_1((int)v7, 1) )
     {
       if ( **v3 < 0 && !a3 )
-        mmio_irq_clear(v5, v4, 1105);
-      check_abort_flag(a3);
+        mmio_irq_clear((int)aRepushList, (int)aTxlCfmFlush, 1105);
+      check_abort_flag(a3, v7);
     }
     else
     {
-      irq_lock_save(a1, v9);
+      irq_lock_save_1(a1, (int)v7);
     }
   }
   return system_init();
 }
-

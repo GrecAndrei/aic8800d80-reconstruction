@@ -10,19 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_119D18;
-extern uint32_t off_119D14;
-extern uint32_t dword_119D20;
-extern uint32_t dword_119D30;
+
 extern uint32_t dword_119D1C;
 extern uint32_t dword_119D24;
 extern uint32_t dword_119D28;
 extern uint32_t dword_119D2C;
+extern uint32_t dword_119D30;
+extern uint32_t off_119D14;
+extern uint32_t off_119D18;
+extern uint32_t off_119D20;
 
 // compare_global_counters @ 0x119c0c, size 264 bytes
-int *compare_global_counters()
+int compare_global_counters()
 {
-  uint32_t *v0; // r3
+  int *v0; // r3
   uint64_t v1; // kr00_8
   uint64_t v2; // kr08_8
   int **v3; // r5
@@ -31,7 +32,7 @@ int *compare_global_counters()
   int v6; // r6
   int **v7; // r9
   int *v8; // t1
-  int *result; // r0
+  int result; // r0
   int v10; // t1
   int v11; // r11
   int v12; // r10
@@ -40,26 +41,26 @@ int *compare_global_counters()
   int v15; // r3
 
   v0 = off_119D18;
-  if ( *(uint32_t *)off_119D18 != *(uint32_t *)off_119D14 )
+  if ( *off_119D18 != *(uint32_t *)off_119D14 )
   {
     v1 = *(uint64_t *)((char *)off_119D14 + 4);
     v2 = *(uint64_t *)((char *)off_119D14 + 12);
-    *(uint32_t *)off_119D18 = *(uint32_t *)off_119D14;
+    *off_119D18 = *(uint32_t *)off_119D14;
     v0[1] = v1;
     v0[2] = HIDWORD(v1);
     v0[3] = v2;
     v0[4] = HIDWORD(v2);
   }
   v3 = (int **)off_119D18;
-  v4 = (int *)dword_119D20;
+  v4 = off_119D20;
   v5 = dword_119D30;
   v6 = dword_119D1C;
-  sub_100200((int *)dword_119D1C, 0, 0x30u);
+  memset_thunk((int *)dword_119D1C, 0, 0x30u);
   v7 = v3 + 6;
   do
   {
     v8 = *v3++;
-    result = sub_100200(v8, 0, 360 * *v4);
+    result = (int)memset_thunk(v8, 0, 360 * *v4);
     v10 = *v4++;
     if ( v10 > 0 )
     {
@@ -100,7 +101,7 @@ int *compare_global_counters()
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = (int *)wlan_ioctl_handler_1(v6);
+        result = wlan_ioctl_handler_1(v6, v13);
         ++v12;
         v11 += 90;
       }
@@ -111,4 +112,3 @@ int *compare_global_counters()
   while ( v3 != v7 );
   return result;
 }
-

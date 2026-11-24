@@ -10,22 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_101D28;
 extern uint32_t off_101D2C;
+extern uint32_t off_101D30;
 extern uint32_t off_101D34;
 extern uint32_t off_101D38;
-extern uint32_t off_101D30;
 extern uint32_t off_101D3C;
-extern uint32_t off_101D48;
-extern uint32_t dword_101D50;
-extern uint32_t dword_101D4C;
-extern uint32_t dword_101D54;
 extern uint32_t off_101D40;
 extern uint32_t off_101D44;
+extern uint32_t off_101D48;
+extern uint32_t off_101D50;
 
 // rf_poll_handler @ 0x101b00, size 550 bytes
-// Doc: sub_1201B00 [mac]: FMAC init/setup routine reading state from globals
-// sub_1201B00 [mac]: FMAC init/setup routine reading state from globals
 int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
 {
   int result; // r0
@@ -51,7 +48,7 @@ int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
   v5 = *((uint16_t *)off_101D28 + 20);
   if ( !*((uint8_t *)off_101D28 + 36) )
   {
-    if ( *((uint8_t *)off_101D2C + 197) )
+    if ( BYTE1(((uint32_t *)(uintptr_t)off_101D2C)[49]) )
     {
       if ( v5 > 0x97B )
       {
@@ -60,20 +57,20 @@ int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
         else
           result = 1;
       }
-      v7 = *((char *)off_101D2C + 198);
-      v8 = *((char *)off_101D2C + 210);
-      v9 = *((uint8_t *)off_101D34 + 10) + *(uint8_t *)off_101D38 + *(uint8_t *)(*(uint32_t *)off_101D30 + result + 6);
-      v10 = *(uint8_t *)off_101D38 + *((uint8_t *)off_101D34 + 8) + *(uint8_t *)(*(uint32_t *)off_101D30 + result);
+      v7 = SBYTE2(((uint32_t *)(uintptr_t)off_101D2C)[49]);
+      v8 = SBYTE2(((uint32_t *)(uintptr_t)off_101D2C)[52]);
+      v9 = *(uint8_t *)(off_101D34 + 0xA) + *(uint8_t *)off_101D38 + *(uint8_t *)(*(uint32_t *)off_101D30 + result + 6);
+      v10 = *(uint8_t *)off_101D38 + *(uint8_t *)(off_101D34 + 8) + *(uint8_t *)(*(uint32_t *)off_101D30 + result);
       v11 = v10;
-      if ( *((uint8_t *)off_101D2C + 396) )
+      if ( LOBYTE(((uint32_t *)(uintptr_t)off_101D2C)[99]) )
       {
         result = *(uint8_t *)(*(uint32_t *)off_101D3C + result);
         v7 = (char)(result + v7);
         v8 = (char)(v8 + result);
       }
-      if ( (*((uint32_t *)off_101D2C + 98) & 2) != 0 )
+      if ( (((uint32_t *)(uintptr_t)off_101D2C)[98] & 2) != 0 )
       {
-        result = ke_event_get(0, *((uint16_t *)off_101D28 + 20));
+        result = (int)ke_event_get(0, *((uint16_t *)off_101D28 + 20));
         v11 = v10;
         if ( result )
         {
@@ -81,13 +78,13 @@ int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
         }
         else
         {
-          if ( **(int16_t **)off_101D48 < 0 )
+          if ( **(uint16_t **)off_101D48 < 0 )
           {
-            call_shared_handler(dword_101D50, dword_101D4C, 6857);
+            call_shared_handler(off_101D50, (int)aPhyGetRfGainId, 6857);
             v11 = v10;
           }
           v22 = v11;
-          result = event_dispatch(dword_101D54, 0, v5);
+          result = event_dispatch("invalid chan, band=%d, freq=%d\n", 0, v5);
           v11 = v22;
           v20 = 15;
         }
@@ -110,17 +107,17 @@ int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
       *a3 = (v13 >> 1) + v8;
       return result;
     }
-    if ( **(int16_t **)off_101D48 >= 0 )
+    if ( **(uint16_t **)off_101D48 >= 0 )
       return result;
     v19 = 6875;
-    return mmio_clear_register(dword_101D50, dword_101D4C, v19);
+    return mmio_clear_register(off_101D50, (int)aPhyGetRfGainId, v19);
   }
-  if ( !*((uint8_t *)off_101D2C + 197) )
+  if ( !BYTE1(((uint32_t *)(uintptr_t)off_101D2C)[49]) )
   {
-    if ( **(int16_t **)off_101D48 >= 0 )
+    if ( **(uint16_t **)off_101D48 >= 0 )
       return result;
     v19 = 6921;
-    return mmio_clear_register(dword_101D50, dword_101D4C, v19);
+    return mmio_clear_register(off_101D50, (int)aPhyGetRfGainId, v19);
   }
   if ( v5 <= 0x1666 )
   {
@@ -145,23 +142,23 @@ int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
   {
     v14 = 5;
   }
-  result = *((uint8_t *)off_101D2C + 396);
-  v15 = *((char *)off_101D2C + 236);
-  v16 = *((uint8_t *)off_101D38 + 1) + *((uint8_t *)off_101D34 + 11) + *(uint8_t *)(*(uint32_t *)off_101D40 + v14);
-  if ( *((uint8_t *)off_101D2C + 396) )
+  result = LOBYTE(((uint32_t *)(uintptr_t)off_101D2C)[99]);
+  v15 = SLOBYTE(((uint32_t *)(uintptr_t)off_101D2C)[59]);
+  v16 = *(uint8_t *)(off_101D38 + 1) + *(uint8_t *)(off_101D34 + 0xB) + *(uint8_t *)(*(uint32_t *)off_101D40 + v14);
+  if ( LOBYTE(((uint32_t *)(uintptr_t)off_101D2C)[99]) )
     v15 = (char)(*(uint8_t *)(*(uint32_t *)off_101D44 + v14) + v15);
-  if ( (*((uint32_t *)off_101D2C + 98) & 2) != 0 )
+  if ( (((uint32_t *)(uintptr_t)off_101D2C)[98] & 2) != 0 )
   {
-    result = ke_event_get(1, *((uint16_t *)off_101D28 + 20));
+    result = (int)ke_event_get(1, *((uint16_t *)off_101D28 + 20));
     if ( result )
     {
       v21 = *(char *)(result + 4);
     }
     else
     {
-      if ( **(int16_t **)off_101D48 < 0 )
-        call_shared_handler(dword_101D50, dword_101D4C, 6907);
-      result = event_dispatch(dword_101D54, 1, v5);
+      if ( **(uint16_t **)off_101D48 < 0 )
+        call_shared_handler(off_101D50, (int)aPhyGetRfGainId, 6907);
+      result = event_dispatch("invalid chan, band=%d, freq=%d\n", 1, v5);
       v21 = 15;
     }
     if ( v15 >= v21 )
@@ -176,4 +173,3 @@ int  rf_poll_handler(int a1, uint8_t *a2, uint8_t *a3)
   *a2 = v18;
   return result;
 }
-

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_111248;
-extern uint32_t dword_11124C;
 
 // timer_get_raw @ 0x1111cc, size 124 bytes
 int  timer_get_raw(int a1)
@@ -38,6 +38,5 @@ int  timer_get_raw(int a1)
   }
   *v1 = v4;
   *v1 = v2 | 0xC00000;
-  return debug_printf(dword_11124C, *(uint32_t *)off_111248 & 0x3FFFFF);
+  return debug_printf("sdio pahse cfg %x\n", *(uint32_t *)off_111248 & 0x3FFFFF);
 }
-

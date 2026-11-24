@@ -10,13 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_107A7C;
-extern uint32_t dword_107A80;
-extern uint32_t dword_107A88;
-extern uint32_t dword_107A84;
-
-// sched_min_delta @ 0x1079cc, size 174 bytes
-int  sched_min_delta(unsigned int *a1, int a2)
+// sub_1079CC @ 0x1079cc, size 174 bytes
+int  sub_1079CC(unsigned int *a1, int a2)
 {
   unsigned int v2; // r3
   unsigned int v3; // r5
@@ -34,18 +29,17 @@ int  sched_min_delta(unsigned int *a1, int a2)
   if ( v3 < v2 )
     v3 = v2;
   v5 = *(uint32_t *)(a2 + 8);
-  check_status_bits(1, dword_107A7C);
-  v6 = (int)(float)(COERCE_FLOAT(((int ( *)(uint32_t))free_msg)(vcvts_n_f32_u32(v3, 0xFu))) * 10.0);
-  check_status_bits(1, dword_107A80);
+  sub_12ECD0(1, "pwr_hih=%d\n", v3);
+  v6 = (int)(float)(COERCE_FLOAT(sub_12D6E0(COERCE_UNSIGNED_INT(vcvts_n_f32_u32(v3, 0xFu)))) * 10.0);
+  sub_12ECD0(1, "pwr_db=%d\n", v6);
   if ( v6 >= -1 )
   {
-    check_status_bits(1, dword_107A88);
+    sub_12ECD0(1, "sat> %d \n", -2);
   }
   else if ( v6 < -30 )
   {
-    check_status_bits(1, dword_107A84);
+    sub_12ECD0(1, "sma %d\n", -30);
   }
-  *(uint32_t *)(a2 + 8) = (int)((float ( *)(uint32_t))branch_to_1426b0)((float)(~v6 + v5));
-  return timer_ticks_to_usec(a2);
+  *(uint32_t *)(a2 + 8) = (int)COERCE_FLOAT(sub_12D708(COERCE_INT((float)(~v6 + v5))));
+  return sub_107760(a2);
 }
-

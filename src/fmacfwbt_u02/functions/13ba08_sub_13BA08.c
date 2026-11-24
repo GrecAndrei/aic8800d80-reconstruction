@@ -10,18 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_13BA9C;
 extern uint32_t dword_13BAA0;
 extern uint32_t dword_13BAA4;
 
 // rf_init_queues @ 0x13ba08, size 146 bytes
-uint32_t *rf_init_queues()
+int rf_init_queues()
 {
   uint32_t *v0; // r9
   int v1; // r5
   int v2; // r8
   unsigned int i; // r4
-  uint32_t *result; // r0
+  int result; // r0
 
   v0 = (uint32_t *)dword_13BA9C;
   zero_struct((uint32_t *)dword_13BA9C);
@@ -50,4 +51,3 @@ LABEL_3:
     goto LABEL_3;
   return result;
 }
-

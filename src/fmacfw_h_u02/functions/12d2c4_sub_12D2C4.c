@@ -36,4 +36,3 @@ uint32_t * list_find_prev(uint32_t *result, uint32_t *a2, uint32_t *a3)
   }
   return result;
 }
-

@@ -10,26 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_138694;
+extern uint32_t dword_1386A0;
 extern uint32_t off_138664;
 extern uint32_t off_138668;
 extern uint32_t off_13866C;
 extern uint32_t off_138670;
 extern uint32_t off_138674;
 extern uint32_t off_138678;
-extern uint32_t off_13869C;
-extern uint32_t off_1386A4;
-extern uint32_t dword_1386A0;
 extern uint32_t off_13867C;
-extern uint32_t dword_138698;
-extern uint32_t dword_138684;
-extern uint32_t dword_138680;
+extern uint32_t off_138688;
 extern uint32_t off_13868C;
 extern uint32_t off_138690;
-extern uint32_t off_138688;
-extern uint32_t dword_138694;
+extern uint32_t off_13869C;
 
-// is_initialized @ 0x138528, size 316 bytes
-uint32_t *is_initialized()
+// is_initialized_1 @ 0x138528, size 316 bytes
+int is_initialized_1()
 {
   uint32_t *v0; // r6
   uint16_t *v1; // r4
@@ -43,12 +40,11 @@ uint32_t *is_initialized()
   BOOL v9; // r0
   int *v10; // r2
   uint16_t *v11; // r0
-  int v12; // r1
+  char *v12; // r1
   unsigned int v13; // r2
   int v15; // r1
-  uint32_t *v16; // r2
-  int v17; // r3
-  int v18; // r2
+  int v16; // r3
+  volatile unsigned int v17; // r2
 
   if ( *(uint8_t *)off_138664 )
     rf_reg_write_byte(0xC2u);
@@ -60,12 +56,11 @@ uint32_t *is_initialized()
   if ( (*(uint32_t *)off_138670 & 4) != 0 )
   {
     v15 = *(uint16_t *)(*(uint32_t *)off_13869C + 54);
-    v16 = off_1386A4;
-    v17 = dword_1386A0 + 1320 * *(uint8_t *)(*(uint32_t *)off_138674 + 366);
+    v16 = dword_1386A0 + 1320 * *(uint8_t *)(*(uint32_t *)off_138674 + 366);
     *((uint8_t *)off_138678 + 29) = 3;
-    v18 = v16[4];
-    v2[5] = v17;
-    mem_copy_util((int)(v2 + 3), v15 + v18);
+    v17 = (*(volatile uint32_t *)0x40501010u);
+    v2[5] = v16;
+    mem_copy_util(v2 + 3, v15 + v17);
     *((uint8_t *)v2 + 28) = 1;
     *v0 &= ~4u;
   }
@@ -88,7 +83,7 @@ uint32_t *is_initialized()
   v7 = *(uint8_t **)v1;
   if ( *(uint8_t *)(*(uint32_t *)v1 + 368) == 1 && v7[252] == 7 )
   {
-    v9 = memcmp(v7 + 253, dword_138698, 7) == 0;
+    v9 = memcmp((unsigned int)(v7 + 253), (unsigned int)aDirect, 7u) == 0;
     v7 = *(uint8_t **)v1;
     v3 = *((uint8_t *)v1 + 3850);
     v8 = v9;
@@ -99,7 +94,7 @@ uint32_t *is_initialized()
     LOBYTE(v9) = 0;
   }
   *((uint8_t *)v1 + 3898) = v9;
-  check_feature_flag(8, dword_138684, dword_138680, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
+  check_feature_flag(8, "%s:%d,%d,%d,cnt=%d\r\n", aScanuStart, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
   v10 = (int *)off_13868C;
   v11 = off_138690;
   *(uint32_t *)off_138688 |= 4u;
@@ -107,13 +102,12 @@ uint32_t *is_initialized()
   *v10 = (HIWORD(*v10) << 16) | 0x5DC;
   v2[1] |= 0x20u;
   hci_cmd_preprocess(4u, 1);
-  v12 = *(uint32_t *)(*(uint32_t *)v1 + 360);
+  v12 = *(char **)(*(uint32_t *)v1 + 360);
   if ( v12 )
   {
     v13 = *(uint16_t *)(*(uint32_t *)v1 + 364);
     if ( v13 <= 0xC8 )
-      memcpy(dword_138694, v12, v13);
+      memcpy_1((char *)dword_138694, v12, v13);
   }
-  return check_event_flag();
+  return check_event_flag_1();
 }
-

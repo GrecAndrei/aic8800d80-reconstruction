@@ -10,36 +10,34 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_107720;
-extern uint32_t dword_107724;
-extern uint32_t dword_107728;
-extern uint32_t dword_10772C;
-extern uint32_t dword_107730;
-
-// ke_event_schedule @ 0x10767c, size 164 bytes
-int  ke_event_schedule(unsigned int a1, uint32_t *a2, int a3)
+// sub_10767C @ 0x10767c, size 164 bytes
+int  sub_10767C(int a1, uint32_t *a2, int a3)
 {
   int v3; // r8
   int v7; // s15
+  int v8; // r2
+  int v9; // r2
 
   v3 = *(uint32_t *)(a3 + 8);
-  state_check_feature(1, dword_107720);
-  state_check_feature(1, dword_107724);
-  v7 = (int)(float)(COERCE_FLOAT(((int ( *)(uint32_t))system_init_sequence)(vcvts_n_f32_u32(a1, 0xEu))) * 10.0);
-  state_check_feature(1, dword_107728);
-  if ( a2[8] < v7 )
+  sub_12EEF8(1, "gain_base=%d\n", v3);
+  sub_12EEF8(1, "pwr_hih=%d\n", a1);
+  v7 = (int)(float)(COERCE_FLOAT(sub_12D908(COERCE_UNSIGNED_INT(vcvts_n_f32_u32(a1, 0xEu)))) * 10.0);
+  sub_12EEF8(1, "pwr_db=%d\n", v7);
+  v8 = a2[8];
+  if ( v8 < v7 )
   {
-    state_check_feature(1, dword_10772C);
-    if ( a2[9] <= v7 )
+    sub_12EEF8(1, "sat> %d \n", v8);
+    v9 = a2[9];
+    if ( v9 <= v7 )
       goto LABEL_3;
 LABEL_5:
-    state_check_feature(1, dword_107730);
+    sub_12EEF8(1, "sma %d\n", v9);
     goto LABEL_3;
   }
-  if ( a2[9] > v7 )
+  v9 = a2[9];
+  if ( v9 > v7 )
     goto LABEL_5;
 LABEL_3:
-  *(uint32_t *)(a3 + 8) = (int)((float ( *)(uint32_t))tail_call_14274c)((float)(unsigned int)(a2[7] - v7 + v3));
-  return rf_load_tx_config(a3);
+  *(uint32_t *)(a3 + 8) = (int)COERCE_FLOAT(sub_12D930(COERCE_INT((float)(unsigned int)(a2[7] - v7 + v3))));
+  return sub_1075B8(a3);
 }
-

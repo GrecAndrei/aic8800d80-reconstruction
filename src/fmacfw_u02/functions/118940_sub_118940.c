@@ -10,61 +10,53 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1189EC;
-extern uint32_t dword_1189F0;
-extern uint32_t dword_1189F4;
 
 // rf_tx_setup @ 0x118940, size 172 bytes
-// Doc: sub_1218940 [util]: Helper with 3 args loading pointers from a 3-entry table (0x182b60/0x167bc0/0x167b74)
-// sub_1218940 [util]: Helper with 3 args loading pointers from a 3-entry table (0x182b60/0x167bc0/0x167b74)
-int  rf_tx_setup(int a1, int a2, int a3)
+uint32_t * rf_tx_setup(unsigned int a1, int a2, int a3)
 {
-  int16_t **v3; // r8
-  int v4; // r10
-  int v5; // r9
-  int v9; // r4
-  int v10; // r1
+  uint16_t **v3; // r8
+  uint32_t *v7; // r4
+  int v8; // r1
 
-  v3 = (int16_t **)off_1189EC;
-  v4 = dword_1189F0;
-  v5 = dword_1189F4;
+  v3 = (uint16_t **)off_1189EC;
   while ( 1 )
   {
-    v9 = mem_word_load(a2);
-    if ( !v9 )
+    v7 = mem_word_load(a2);
+    if ( !v7 )
       break;
     while ( 1 )
     {
-      v10 = *(uint32_t *)(v9 + 76);
-      if ( *(uint32_t *)(v9 + 68) )
+      v8 = v7[19];
+      if ( v7[17] )
       {
-        *(uint32_t *)(v10 + 4) = 2080374784;
+        *(uint32_t *)(v8 + 4) = 2080374784;
       }
-      else if ( *(int *)(v10 + 4) >= 0 )
+      else if ( *(int *)(v8 + 4) >= 0 )
       {
-        *(uint32_t *)(v10 + 4) = 0x40000000;
+        *(uint32_t *)(v8 + 4) = 0x40000000;
       }
-      if ( *(uint16_t *)(v9 + 4) )
+      if ( *((uint16_t *)v7 + 2) )
         break;
-      free_buf_1882c0(v9);
-      v9 = mem_word_load(a2);
-      if ( !v9 )
+      free_buf_1882c0(v7);
+      v7 = mem_word_load(a2);
+      if ( !v7 )
         return tx_pool_init();
     }
-    *(uint32_t *)(v10 + 4) |= 0x800000u;
-    ll_state_check(v9, (uint32_t *)(v10 + 4));
-    call_delayed_callback(v9);
-    if ( ll_conn_tx_pdu_check(v9, 1) )
+    *(uint32_t *)(v8 + 4) |= 0x800000u;
+    ll_state_check((int)v7, (uint32_t *)(v8 + 4));
+    call_delayed_callback((int)v7);
+    if ( ll_conn_tx_pdu_check((int)v7, 1) )
     {
       if ( **v3 < 0 && !a3 )
-        mmio_clear_register(v5, v4, 1105);
-      cmd_handler_a(a3);
+        mmio_clear_register((int)aRepushList, (int)aTxlCfmFlush, 1105);
+      cmd_handler_a(a3, v7);
     }
     else
     {
-      save_context_args(a1, v9);
+      save_context_args(a1, (int)v7);
     }
   }
   return tx_pool_init();
 }
-

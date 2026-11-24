@@ -10,17 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1230C8;
-extern uint32_t off_1230CC;
+
 extern uint32_t dword_1230D0;
 extern uint32_t dword_1230D4;
 extern uint32_t dword_1230D8;
 extern uint32_t dword_1230DC;
 extern uint32_t dword_1230E0;
 extern uint32_t dword_1230E4;
+extern uint32_t off_1230C8;
+extern uint32_t off_1230CC;
 
-// enter_critical_section @ 0x123068, size 94 bytes
-int enter_critical_section()
+// enter_critical_section_2 @ 0x123068, size 94 bytes
+int enter_critical_section_2()
 {
   int *v0; // r4
   uint32_t *v1; // r0
@@ -37,8 +38,8 @@ int enter_critical_section()
   v0 = (int *)off_1230CC;
   v1 = (uint32_t *)dword_1230D0;
   ++*(uint32_t *)off_1230CC;
-  list_init(v1);
-  list_init((uint32_t *)dword_1230D4);
+  list_init_1(v1);
+  list_init_1((uint32_t *)dword_1230D4);
   check_kernel_state(dword_1230D0, (uint32_t *)dword_1230D8);
   check_kernel_state(dword_1230D0, (uint32_t *)dword_1230DC);
   check_kernel_state(dword_1230D0, (uint32_t *)dword_1230E0);
@@ -56,4 +57,3 @@ int enter_critical_section()
   }
   return result;
 }
-

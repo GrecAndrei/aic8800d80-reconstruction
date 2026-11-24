@@ -10,18 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_124F5C;
-
 // set_private_addr @ 0x124f40, size 28 bytes
-// Doc: sub_1224F42 [rf]: RF register read wrapper and event post
-// sub_1224F42 [rf]: RF register read wrapper and event post
 int  set_private_addr(int a1, int a2)
 {
   uint8_t v2; // r0
 
-  v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0);
+  v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0);
   rf_write_synth(v2);
-  dispatch_event_handler(dword_124F5C);
+  dispatch_event_handler_1(asc_1302BC);
   return 0;
 }
-

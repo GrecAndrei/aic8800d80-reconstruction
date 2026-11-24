@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_124ABC;
 extern uint32_t off_124AC0;
 extern uint32_t off_124AC4;
 extern uint32_t off_124AC8;
 extern uint32_t off_124ACC;
-extern uint32_t dword_124AD0;
 
 // mmio_read_byte @ 0x1249fc, size 192 bytes
 int  mmio_read_byte(uint8_t *a1)
@@ -25,9 +25,8 @@ int  mmio_read_byte(uint8_t *a1)
   unsigned int *v4; // r0
   int v5; // r1
   unsigned int *v6; // r0
-  unsigned int v7; // r1
+  int v7; // r1
   unsigned int *v8; // r0
-  int v9; // r2
 
   v1 = *a1;
   v3 = (uint8_t)*(uint32_t *)off_124ABC;
@@ -52,22 +51,11 @@ int  mmio_read_byte(uint8_t *a1)
     *v8 = *v8 & 0xFF0000FF | ((v3 * v7) << 8);
   }
   if ( a1[3] )
-  {
-    v7 = (unsigned int)off_124ACC;
     *(uint32_t *)off_124ACC = *(uint32_t *)off_124ACC & 0xFFFFFF00 | a1[3];
-  }
   if ( a1[4] )
-  {
-    v7 = (unsigned int)off_124ACC;
     *(uint32_t *)off_124ACC = *(uint32_t *)off_124ACC & 0xFFFF00FF | (a1[4] << 8);
-  }
-  v9 = a1[5];
   if ( a1[5] )
-  {
-    v7 = (unsigned int)off_124ACC;
-    *(uint32_t *)off_124ACC = *(uint32_t *)off_124ACC & 0xFF00FFFF | (v9 << 16);
-  }
-  alloc_tx_event(dword_124AD0, v7, v9);
-  return process_packet_params(a1, 6, 1, 0);
+    *(uint32_t *)off_124ACC = *(uint32_t *)off_124ACC & 0xFF00FFFF | (a1[5] << 16);
+  alloc_tx_event(aSetVendorTs);
+  return process_packet_params((int)a1, 6, 1, 0);
 }
-

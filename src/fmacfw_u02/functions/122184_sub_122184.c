@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1221FC;
 extern uint32_t dword_122200;
 extern uint32_t dword_122204;
 extern uint32_t off_1221F8;
 extern uint32_t off_122208;
+extern uint32_t off_12220C;
 extern uint32_t off_122210;
 extern uint32_t off_122214;
-extern uint32_t off_12220C;
-extern uint32_t dword_122218;
 
 // mmio_update @ 0x122184, size 116 bytes
 int  mmio_update(int a1)
@@ -31,12 +31,10 @@ int  mmio_update(int a1)
   int v6; // r2
   int v7; // t1
   int v8; // r4
-  uint8_t *v9; // r4
+  int *v9; // r4
   uint8_t *v10; // r1
   uint8_t *v11; // r2
-  int v12; // r1
-  int v13; // r2
-  uint32_t v15[7]; // [sp+0h] [bp-1Ch] BYREF
+  uint32_t v13[7]; // [sp+0h] [bp-1Ch] BYREF
 
   v1 = (int *)dword_1221FC;
   v2 = dword_122200;
@@ -66,17 +64,16 @@ LABEL_5:
     ++v4;
   }
   while ( v1 != (int *)v3 );
-  v9 = off_122208;
-  write_phy_config(*((uint8_t *)off_122208 + 409));
+  v9 = (int *)off_122208;
+  write_phy_config(BYTE1(((uint32_t *)(uintptr_t)off_122208)[102]));
   v10 = off_122210;
   v11 = off_122214;
-  *((uint8_t *)off_12220C + 7) = v9[409];
-  memset(&v15[1], 0, 16);
+  *((uint8_t *)off_12220C + 7) = *((uint8_t *)v9 + 409);
+  memset(&v13[1], 0, 16);
   *v10 = 0;
-  v15[0] = 0;
+  v13[0] = 0;
   *v11 = 0;
-  v15[5] = 0;
-  timer_queue_init((int)v15);
-  return event_dispatch(dword_122218, v12, v13);
+  v13[5] = 0;
+  timer_queue_init((int)v13);
+  return event_dispatch(aEdcaM0);
 }
-

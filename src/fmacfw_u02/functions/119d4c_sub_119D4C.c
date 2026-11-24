@@ -10,19 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_119E58;
-extern uint32_t off_119E54;
-extern uint32_t dword_119E60;
-extern uint32_t dword_119E70;
+
 extern uint32_t dword_119E5C;
 extern uint32_t dword_119E64;
 extern uint32_t dword_119E68;
 extern uint32_t dword_119E6C;
+extern uint32_t dword_119E70;
+extern uint32_t off_119E54;
+extern uint32_t off_119E58;
+extern uint32_t off_119E60;
 
 // queue_counters_equal @ 0x119d4c, size 264 bytes
-int *queue_counters_equal()
+int queue_counters_equal()
 {
-  uint32_t *v0; // r3
+  int *v0; // r3
   uint64_t v1; // kr00_8
   uint64_t v2; // kr08_8
   int **v3; // r5
@@ -31,7 +32,7 @@ int *queue_counters_equal()
   int v6; // r6
   int **v7; // r9
   int *v8; // t1
-  int *result; // r0
+  int result; // r0
   int v10; // t1
   int v11; // r11
   int v12; // r10
@@ -40,18 +41,18 @@ int *queue_counters_equal()
   int v15; // r3
 
   v0 = off_119E58;
-  if ( *(uint32_t *)off_119E58 != *(uint32_t *)off_119E54 )
+  if ( *off_119E58 != *(uint32_t *)off_119E54 )
   {
     v1 = *(uint64_t *)((char *)off_119E54 + 4);
     v2 = *(uint64_t *)((char *)off_119E54 + 12);
-    *(uint32_t *)off_119E58 = *(uint32_t *)off_119E54;
+    *off_119E58 = *(uint32_t *)off_119E54;
     v0[1] = v1;
     v0[2] = HIDWORD(v1);
     v0[3] = v2;
     v0[4] = HIDWORD(v2);
   }
   v3 = (int **)off_119E58;
-  v4 = (int *)dword_119E60;
+  v4 = off_119E60;
   v5 = dword_119E70;
   v6 = dword_119E5C;
   memset((int *)dword_119E5C, 0, 0x30u);
@@ -59,7 +60,7 @@ int *queue_counters_equal()
   do
   {
     v8 = *v3++;
-    result = memset(v8, 0, 360 * *v4);
+    result = (int)memset(v8, 0, 360 * *v4);
     v10 = *v4++;
     if ( v10 > 0 )
     {
@@ -100,7 +101,7 @@ int *queue_counters_equal()
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = (int *)cmd_handler_a(v6);
+        result = cmd_handler_a(v6, v13);
         ++v12;
         v11 += 90;
       }
@@ -111,4 +112,3 @@ int *queue_counters_equal()
   while ( v3 != v7 );
   return result;
 }
-

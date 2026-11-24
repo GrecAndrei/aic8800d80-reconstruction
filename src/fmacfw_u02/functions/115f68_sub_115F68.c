@@ -10,12 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_115FF0;
+
 extern uint32_t dword_115FEC;
+extern uint32_t off_115FF0;
 extern uint32_t off_115FF4;
 extern uint32_t off_115FF8;
-extern uint32_t dword_115FFC;
-extern uint32_t dword_116000;
 extern uint32_t off_116004;
 
 // kernel_event_wait @ 0x115f68, size 132 bytes
@@ -27,17 +26,18 @@ int kernel_event_wait()
   void *v3; // r8
   int v4; // r7
   uint16_t v5; // r9
+  int *v6; // r1
   int result; // r0
 
   v0 = (int **)off_115FF0;
-  zero_8_bytes(dword_115FEC);
-  if ( **(int16_t **)off_115FF4 < 0 )
+  zero_8_bytes((uint32_t *)dword_115FEC);
+  if ( **(uint16_t **)off_115FF4 < 0 )
   {
     v2 = *v0;
     v1 = off_115FF8;
     if ( !*v0 || !*(uint32_t *)off_115FF8 )
     {
-      mmio_clear_register(dword_115FFC, dword_116000, 90);
+      mmio_clear_register((int)aTxdescArray0Tx, (int)aTxTxdescInit, 90);
       v2 = *v0;
     }
   }
@@ -52,11 +52,11 @@ int kernel_event_wait()
   v5 = 0;
   do
   {
-    (*v0)[22 * v5 + 19] = *v1 + 80 * v5;
-    result = cmd_handler_a(v4);
+    v6 = &(*v0)[22 * v5];
+    v6[19] = *v1 + 80 * v5;
+    result = cmd_handler_a(v4, v6);
     ++v5;
   }
   while ( *(uint16_t *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );
   return result;
 }
-

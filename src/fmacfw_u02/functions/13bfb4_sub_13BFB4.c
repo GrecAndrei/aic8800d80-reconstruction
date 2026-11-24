@@ -10,62 +10,61 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_13C0A0;
+
 extern uint32_t dword_13C094;
 extern uint32_t dword_13C098;
 extern uint32_t off_13C09C;
 
 // check_fw_state_byte @ 0x13bfb4, size 222 bytes
-int  check_fw_state_byte(int a1, int a2, int16_t a3)
+int  check_fw_state_byte(int a1, int a2, uint16_t a3)
 {
-  int v6; // r0
+  uint16_t v6; // r0
   char v7; // r11
-  uint32_t *v8; // r8
-  int v9; // r4
-  int16_t v10; // r6
-  char v11; // r0
-  int16_t v12; // r12
-  int v13; // r2
-  int v14; // zf
-  int16_t v15; // r0
-  int v16; // r7
-  int v17; // r2
-  uint16_t v18; // r6
+  int v8; // r4
+  uint16_t v9; // r6
+  char v10; // r0
+  uint16_t v11; // r12
+  int v12; // r2
+  int v13; // zf
+  uint16_t v14; // r0
+  int v15; // r7
+  volatile unsigned int v16; // r2
+  uint16_t v17; // r6
+  volatile unsigned int v18; // r3
 
-  v6 = read_global_state_byte();
+  v6 = read_global_state_byte(a1, a2);
   v7 = v6;
   if ( (uint8_t)v6 == 33 )
     return 3;
-  v8 = off_13C0A0;
-  v9 = dword_13C094 + 32 * (uint8_t)v6;
-  v10 = v6;
-  *(uint8_t *)(v9 + 22) = a2;
-  *(uint8_t *)(v9 + 16) = a1;
-  v11 = scale_timer_value(v6);
-  v13 = dword_13C098;
-  *(uint8_t *)(v9 + 23) = v11;
-  v14 = (*(uint32_t *)(v13 + 696 * a1 + 4) & 0x20) == 0;
-  v15 = *(uint16_t *)(*(uint32_t *)off_13C09C + 2);
-  *(uint8_t *)(v9 + 18) = 1;
-  *(uint8_t *)(v9 + 17) = 1;
-  *(uint32_t *)(v9 + 4) = 0;
-  v16 = v13 + 696 * a1 + 12 * a2;
-  if ( !v14 )
-    v12 = 256;
-  v17 = v8[4];
-  if ( v14 )
-    v12 = 64;
-  *(uint16_t *)(v9 + 20) = v12;
-  *(uint16_t *)(v9 + 14) = v15;
-  *(uint32_t *)(v9 + 8) = v17;
-  *(uint16_t *)(v9 + 12) = a3;
-  *(uint8_t *)(v16 + 453) = v7;
-  adv_set_params(a1, v9, 2, 0, 0, 39, 0);
-  v18 = (v10 << 8) | 8;
-  adv_set_params(a1, v9, 0, 0, 0, 0, 0);
-  *(uint32_t *)(v16 + 444) = v8[4];
-  ke_task_create(0x2000, v18, 0x7D000u);
-  rx_phy_status_parse(v18, 2);
+  v8 = dword_13C094 + 32 * (uint8_t)v6;
+  v9 = v6;
+  *(uint8_t *)(v8 + 22) = a2;
+  *(uint8_t *)(v8 + 16) = a1;
+  v10 = scale_timer_value();
+  v12 = dword_13C098;
+  *(uint8_t *)(v8 + 23) = v10;
+  v13 = (*(uint32_t *)(v12 + 696 * a1 + 4) & 0x20) == 0;
+  v14 = *(uint16_t *)(*(uint32_t *)off_13C09C + 2);
+  *(uint8_t *)(v8 + 18) = 1;
+  *(uint8_t *)(v8 + 17) = 1;
+  *(uint32_t *)(v8 + 4) = 0;
+  v15 = v12 + 696 * a1 + 12 * a2;
+  if ( !v13 )
+    v11 = 256;
+  v16 = (*(volatile uint32_t *)0x40501010u);
+  if ( v13 )
+    v11 = 64;
+  *(uint16_t *)(v8 + 20) = v11;
+  *(uint16_t *)(v8 + 14) = v14;
+  *(uint32_t *)(v8 + 8) = v16;
+  *(uint16_t *)(v8 + 12) = a3;
+  *(uint8_t *)(v15 + 453) = v7;
+  adv_set_params(a1, v8, 2, 0, 0, 0x27u, 0);
+  v17 = (v9 << 8) | 8;
+  adv_set_params(a1, v8, 0, 0, 0, 0, 0);
+  v18 = (*(volatile uint32_t *)0x40501010u);
+  *(uint32_t *)(v15 + 444) = v18;
+  ke_task_create(0x2000, v17, 0x7D000u);
+  rx_phy_status_parse(v17, 2);
   return 0;
 }
-

@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128A88;
-extern uint32_t dword_128A9C;
-extern uint32_t off_128A90;
-extern uint32_t off_128A8C;
-extern uint32_t off_128A94;
+
 extern uint32_t dword_128A98;
+extern uint32_t off_128A88;
+extern uint32_t off_128A8C;
+extern uint32_t off_128A90;
+extern uint32_t off_128A94;
 
 // log_printf @ 0x1289ec, size 154 bytes
 int  log_printf(int a1, int a2, int a3)
@@ -25,8 +25,7 @@ int  log_printf(int a1, int a2, int a3)
   int v6; // r5
   uint8_t *v7; // r3
   int v8; // r2
-  int v9; // r0
-  int v11; // r1
+  uint32_t *v9; // r0
 
   if ( (a2 & 0x800000) != 0 )
   {
@@ -41,9 +40,8 @@ int  log_printf(int a1, int a2, int a3)
     *(uint8_t *)(a1 + 115) = v4;
     if ( *(uint8_t *)(v5 + 1) == v4 )
     {
-      v11 = dword_128A9C;
       *(uint8_t *)(a1 + 115) = 0;
-      check_feature_flag(1024, v11);
+      check_feature_flag(1024, aPsLinkloss, a3);
       rf_read_reg(a1);
       return 1;
     }
@@ -64,7 +62,7 @@ int  log_printf(int a1, int a2, int a3)
           *(uint32_t *)off_128A94 &= ~0x80000000;
         if ( v7[8] )
           --v7[8];
-        v9 = dword_128A98;
+        v9 = (uint32_t *)dword_128A98;
         v7[29] = 0;
         mem_set_util(v9);
         *(uint32_t *)(a1 + 4) &= ~0x200u;
@@ -73,4 +71,3 @@ int  log_printf(int a1, int a2, int a3)
     }
   }
 }
-

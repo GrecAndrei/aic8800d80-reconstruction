@@ -10,23 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_124B1C;
 extern uint32_t off_124B14;
 extern uint32_t off_124B18;
+extern uint32_t off_124B20;
+extern uint32_t off_124B24;
+extern uint32_t off_124B2C;
 extern uint32_t off_124B30;
 extern uint32_t off_124B34;
 extern uint32_t off_124B38;
-extern uint32_t dword_124B1C;
-extern uint32_t off_124B20;
-extern uint32_t off_124B2C;
-extern uint32_t off_124B24;
-extern uint32_t dword_124B28;
 
 // llc_update_channel_map @ 0x124a24, size 240 bytes
-// Doc: sub_1224A24 [rf]: Copies RF parameter block fields into shared config struct
-// sub_1224A24 [rf]: Copies RF parameter block fields into shared config struct
 int  llc_update_channel_map(uint8_t *a1)
 {
-  uint8_t *v1; // r3
+  int *v1; // r3
   int v2; // r4
   int v3; // r1
   int v5; // r0
@@ -41,20 +39,20 @@ int  llc_update_channel_map(uint8_t *a1)
   int i; // r4
   int v15; // r3
   int v16; // t1
-  void *v17; // r2
+  int v17; // r2
 
-  v1 = off_124B14;
+  v1 = (int *)off_124B14;
   v2 = a1[16];
-  *((uint8_t *)off_124B14 + 360) = a1[17];
-  v1[361] = a1[18];
+  LOBYTE(((uint32_t *)(uintptr_t)off_124B14)[90]) = a1[17];
+  *((uint8_t *)v1 + 361) = a1[18];
   v3 = a1[21];
-  v1[356] = v3;
+  *((uint8_t *)v1 + 356) = v3;
   v5 = a1[22];
-  v1[357] = v5;
+  *((uint8_t *)v1 + 357) = v5;
   v6 = a1[23];
-  v1[358] = v6;
+  *((uint8_t *)v1 + 358) = v6;
   v7 = v3 + v5;
-  v1[359] = v6 + v7;
+  *((uint8_t *)v1 + 359) = v6 + v7;
   if ( a1[19] )
     *(uint32_t *)off_124B18 |= 0x10u;
   else
@@ -74,7 +72,7 @@ int  llc_update_channel_map(uint8_t *a1)
     v16 = *((uint32_t *)v12 + 1);
     v12 += 4;
     v15 = v16;
-    v17 = (void *)(uint8_t)i;
+    v17 = (uint8_t)i;
     if ( v16 )
     {
       *(uint32_t *)(v11 + 4 * i) = v15;
@@ -105,9 +103,8 @@ int  llc_update_channel_map(uint8_t *a1)
   if ( a1[24] )
   {
     v17 = off_124B24;
-    *(uint8_t *)off_124B24 = a1[24];
+    *off_124B24 = a1[24];
   }
-  event_dispatch(dword_124B28, v7, v17);
-  return send_msg(a1, 28, 1, 0);
+  event_dispatch(aSetVendorCa, v7, v17);
+  return send_msg((int)a1, 28, 1, 0);
 }
-

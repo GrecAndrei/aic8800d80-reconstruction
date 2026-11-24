@@ -10,39 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_110500;
 extern uint32_t off_1104F8;
 extern uint32_t off_1104FC;
-extern uint32_t dword_110500;
 
 // is_park_mode @ 0x1104c0, size 54 bytes
-int is_park_mode()
+int  is_park_mode(uint32_t *a1)
 {
-  int *v0; // r4
-  int v1; // r0
+  int *v2; // r4
+  int v3; // r0
   int result; // r0
-  int v3; // r3
-  int v4; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_1104F8 = 1;
   }
-  v0 = (int *)off_1104FC;
-  v1 = dword_110500;
+  v2 = (int *)off_1104FC;
+  v3 = dword_110500;
   ++*(uint32_t *)off_1104FC;
-  result = cmd_handler_a(v1);
-  if ( *v0 )
+  result = cmd_handler_a(v3, a1);
+  if ( *v2 )
   {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_1104F8;
-    *v0 = v3;
-    if ( !v3 )
+    v5 = *v2 - 1;
+    v6 = *(uint32_t *)off_1104F8;
+    *v2 = v5;
+    if ( !v5 )
     {
-      if ( v4 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

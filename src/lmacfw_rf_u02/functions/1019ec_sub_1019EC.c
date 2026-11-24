@@ -10,8 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_101A18;
-extern uint32_t dword_101A1C;
+
 extern uint32_t off_101A14;
 
 // mac_time_get @ 0x1019ec, size 40 bytes
@@ -22,7 +21,7 @@ uint64_t * mac_time_get(uint64_t *result, int a2)
   v2 = result;
   if ( a2 )
   {
-    result = (uint64_t *)dispatch_event_handler(dword_101A18, dword_101A1C);
+    result = (uint64_t *)dispatch_event_handler_1("\x9B\x87%s: radio %d does not exist\n", aPhyGetChannel, a2);
     *v2 = *(uint64_t *)((char *)off_101A14 + 36);
   }
   else
@@ -31,4 +30,3 @@ uint64_t * mac_time_get(uint64_t *result, int a2)
   }
   return result;
 }
-

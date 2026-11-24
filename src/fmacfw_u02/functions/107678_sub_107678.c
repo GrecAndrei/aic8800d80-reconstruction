@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10774C;
 extern uint32_t off_107750;
 extern uint32_t off_107754;
-extern uint32_t dword_107758;
-extern uint32_t dword_10775C;
+extern uint32_t off_10775C;
 
 // rf_txrx_path_enable @ 0x107678, size 212 bytes
 int  rf_txrx_path_enable(int a1, int a2)
@@ -22,8 +22,7 @@ int  rf_txrx_path_enable(int a1, int a2)
   uint32_t *v2; // r5
   unsigned int *v3; // r4
   uint32_t *v5; // r2
-  int v6; // r1
-  int v7; // r2
+  int v6; // r2
   int result; // r0
 
   v2 = off_10774C;
@@ -40,14 +39,13 @@ int  rf_txrx_path_enable(int a1, int a2)
   *v2 &= ~1u;
   timer_delay(100);
   v5 = off_107754;
-  v6 = dword_107758;
   *v3 |= 0x4000000u;
-  v7 = *v5 & 0x7FFF;
+  v6 = *v5 & 0x7FFF;
   *v3 &= ~0x4000000u;
-  *(uint32_t *)(a1 + 44) = v7;
-  check_status_bits(1, v6);
+  *(uint32_t *)(a1 + 44) = v6;
+  check_status_bits(1, "lpf_bypass_pwr=%4d   ", v6);
   timer_delay(5);
-  result = check_status_bits(1, dword_10775C);
+  result = check_status_bits(1, (const char *)off_10775C);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v2 &= ~4u;
@@ -58,4 +56,3 @@ int  rf_txrx_path_enable(int a1, int a2)
   *v3 &= ~0x100000u;
   return result;
 }
-

@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_124E30;
 extern uint32_t off_124E34;
 extern uint32_t off_124E38;
 extern uint32_t off_124E3C;
 extern uint32_t off_124E40;
-extern uint32_t dword_124E44;
 
 // radio_read_config @ 0x124d70, size 192 bytes
 int  radio_read_config(uint8_t *a1)
@@ -25,9 +25,8 @@ int  radio_read_config(uint8_t *a1)
   unsigned int *v4; // r0
   int v5; // r1
   unsigned int *v6; // r0
-  unsigned int v7; // r1
+  int v7; // r1
   unsigned int *v8; // r0
-  int v9; // r2
 
   v1 = *a1;
   v3 = (uint8_t)*(uint32_t *)off_124E30;
@@ -52,22 +51,11 @@ int  radio_read_config(uint8_t *a1)
     *v8 = *v8 & 0xFF0000FF | ((v3 * v7) << 8);
   }
   if ( a1[3] )
-  {
-    v7 = (unsigned int)off_124E40;
     *(uint32_t *)off_124E40 = *(uint32_t *)off_124E40 & 0xFFFFFF00 | a1[3];
-  }
   if ( a1[4] )
-  {
-    v7 = (unsigned int)off_124E40;
     *(uint32_t *)off_124E40 = *(uint32_t *)off_124E40 & 0xFFFF00FF | (a1[4] << 8);
-  }
-  v9 = a1[5];
   if ( a1[5] )
-  {
-    v7 = (unsigned int)off_124E40;
-    *(uint32_t *)off_124E40 = *(uint32_t *)off_124E40 & 0xFF00FFFF | (v9 << 16);
-  }
-  ke_event_schedule(dword_124E44, v7, v9);
-  return rx_packet_handler(a1, 6, 1, 0);
+    *(uint32_t *)off_124E40 = *(uint32_t *)off_124E40 & 0xFF00FFFF | (a1[5] << 16);
+  ke_event_schedule_1(aSetVendorTs);
+  return rx_packet_handler_2((int)a1, 6, 1, 0);
 }
-

@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_133BC8;
-extern uint32_t dword_133BE0;
-extern uint32_t dword_133BDC;
-extern uint32_t off_133BCC;
-extern uint32_t off_133BD0;
+
 extern uint32_t dword_133BD4;
 extern uint32_t dword_133BD8;
+extern uint32_t off_133BC8;
+extern uint32_t off_133BCC;
+extern uint32_t off_133BD0;
 
 // main_loop_check @ 0x133abc, size 266 bytes
 int main_loop_check()
@@ -28,10 +27,10 @@ int main_loop_check()
   int v5; // r3
   int v6; // r1
   int v7; // [sp+0h] [bp-Ch] BYREF
-  int v8; // [sp+4h] [bp-8h] BYREF
+  int a2; // [sp+4h] [bp-8h] BYREF
 
-  if ( **(int16_t **)off_133BC8 < 0 && rx_rate_field_parse(6u) != 4 && rx_rate_field_parse(6u) != 10 )
-    mmio_clear_register(dword_133BE0, dword_133BDC, 697);
+  if ( **(uint16_t **)off_133BC8 < 0 && rx_rate_field_parse(6u) != 4 && rx_rate_field_parse(6u) != 10 )
+    mmio_clear_register((int)aKeStateGetTask_9, (int)aMeSetActiveCfm, 697);
   if ( rx_rate_field_parse(6u) == 10 )
   {
     v4 = off_133BCC;
@@ -42,15 +41,15 @@ int main_loop_check()
       ke_msg_send_no_param(6148, 13, 6);
       v4[4] = 0;
     }
-    ke_msg_send(*(uint32_t *)v4 + 12);
+    ke_msg_send_2(*(uint32_t *)v4 + 12);
     v6 = (uint8_t)v4[33];
     *(uint32_t *)v4 = 0;
     if ( v6 )
     {
       v7 = 0;
-      v8 = 0;
-      get_controller_state(&v7, &v8);
-      rx_packet_handler(v7, v8, 0);
+      a2 = 0;
+      get_controller_state_1(&v7, &a2);
+      rx_packet_handler_3(v7, a2, 0);
     }
     else
     {
@@ -99,4 +98,3 @@ LABEL_5:
     return 0;
   }
 }
-

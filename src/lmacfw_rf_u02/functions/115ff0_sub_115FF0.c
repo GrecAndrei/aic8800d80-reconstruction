@@ -10,8 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_116014;
-extern uint32_t dword_116018;
+extern uint32_t off_116018;
 
 // event_cb_register @ 0x115ff0, size 34 bytes
 int  event_cb_register(int a1, int a2, int a3)
@@ -20,7 +21,6 @@ int  event_cb_register(int a1, int a2, int a3)
 
   v3 = dword_116014;
   **(uint32_t **)(a1 + 32) = a2;
-  check_kernel_state(v3 + 8 * a3);
-  return set_busy_flag_alt(*(uint32_t *)(dword_116018 + 4 * a3));
+  check_kernel_state(v3 + 8 * a3, (uint32_t *)a1);
+  return set_busy_flag_alt(((uint32_t *)(uintptr_t)off_116018)[a3]);
 }
-

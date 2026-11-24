@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_111F00;
 extern uint32_t off_111EF8;
-extern uint32_t dword_111F04;
 extern uint32_t off_111EFC;
 
 // wlan_wait_ready @ 0x111dbc, size 316 bytes
-int * wlan_wait_ready(int *result, unsigned int a2, int a3, unsigned int a4)
+int  wlan_wait_ready(int result, int a2, int a3, unsigned int a4)
 {
-  unsigned int v4; // r6
+  int v4; // r6
   unsigned int v7; // r11
   int v8; // r7
   int v9; // r10
@@ -60,7 +60,7 @@ int * wlan_wait_ready(int *result, unsigned int a2, int a3, unsigned int a4)
           if ( v7 - 1025 < 0x400 )
             v7 >>= 1;
           else
-            v18 = ((unsigned int)dword_111F00 * (unsigned uint64_t)v7) >> 32;
+            v18 = ((unsigned int)dword_111F00 * (uint64_t)v7) >> 32;
           if ( v19 )
             LOWORD(v7) = v18 >> 1;
         }
@@ -79,7 +79,7 @@ int * wlan_wait_ready(int *result, unsigned int a2, int a3, unsigned int a4)
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)debug_printf(dword_111F04, v13, v9, 2048);
+        result = debug_printf("FIFO ERROR: overflow, addr is %d, size is %d, Total RAM is %d", v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = off_111EFC;
@@ -100,4 +100,3 @@ int * wlan_wait_ready(int *result, unsigned int a2, int a3, unsigned int a4)
   }
   return result;
 }
-

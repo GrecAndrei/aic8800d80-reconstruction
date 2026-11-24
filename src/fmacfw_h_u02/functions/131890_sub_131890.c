@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13191C;
 
 // set_scan_enable @ 0x131890, size 138 bytes
-int  set_scan_enable(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
+int  set_scan_enable(int a1, uint8_t *a2, int a3, int a4)
 {
   uint32_t *v5; // r5
   int v6; // r7
@@ -23,7 +24,7 @@ int  set_scan_enable(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
   uint8_t *v12; // r0
   int v13; // r3
   char v14; // r3
-  unsigned int v15; // [sp+4h] [bp-8h]
+  int a3a; // [sp+4h] [bp-8h]
 
   v5 = off_13191C;
   v6 = *((uint32_t *)off_13191C + 1);
@@ -36,10 +37,10 @@ int  set_scan_enable(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
   *((uint32_t *)off_13191C + 1) = v9;
   if ( !v10 )
     goto LABEL_7;
-  v15 = a3;
+  a3a = a3;
   if ( hci_cmd_handler(5u) == 1 )
     return 2;
-  LOWORD(a3) = v15;
+  a3 = a3a;
   if ( (uint8_t)v6 )
   {
     if ( *a2 )
@@ -53,7 +54,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  v12 = (uint8_t *)tx_send_pdu(49, 0, v15, 1u);
+  v12 = (uint8_t *)tx_send_pdu(49, 0, a3a, 1);
   v13 = v5[1];
   *((uint16_t *)v5 + 4) = a4;
   if ( v13 )
@@ -61,8 +62,7 @@ LABEL_7:
   else
     v14 = *((uint8_t *)v5 + 376);
   *v12 = v14;
-  rx_process_packet((int)v12);
-  hci_cmd_preprocess(v15, 1);
+  rx_process_packet_1((int)v12);
+  hci_cmd_preprocess(a3a, 1);
   return 0;
 }
-

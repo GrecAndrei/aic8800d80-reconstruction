@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_120FA0;
 
 // is_band_5g @ 0x120f74, size 42 bytes
 int is_band_5g()
 {
-  if ( hci_cmd_handler(0) == 1 )
-    *(uint32_t *)off_120FA0 = 48;
-  return hci_cmd_preprocess(0);
+  if ( hci_cmd_handler(0) != 1 )
+    return hci_cmd_preprocess(0, 0);
+  *(uint32_t *)off_120FA0 = 48;
+  return hci_cmd_preprocess(0, 1);
 }
-

@@ -10,9 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// rf_register_write @ 0x10c4ac, size 74 bytes
-void  __noreturn rf_register_write(int a1, int a2)
+// sub_10C4AC @ 0x10c4ac, size 74 bytes
+void  sub_10C4AC(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6)
 {
-  rf_calibrate_tx(a1, a2, a2, 0);
-}
+  int v9; // r0
 
+  sub_101EC0(a1, a2, a2, 0, 0, 0);
+  sub_10C220((unsigned int *)a3, a4, a5, a6);
+  if ( a5 )
+  {
+    if ( a1 == 1 )
+      v9 = 28;
+    else
+      v9 = 3;
+    sub_102CCC(v9, (uint16_t *)a4);
+  }
+}

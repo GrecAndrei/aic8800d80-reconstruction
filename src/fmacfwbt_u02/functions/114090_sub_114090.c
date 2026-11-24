@@ -10,35 +10,36 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1140E0;
 extern uint32_t off_1140D8;
 extern uint32_t off_1140DC;
-extern uint32_t dword_1140E0;
 
 // init_hw_timers @ 0x114090, size 72 bytes
-int init_hw_timers()
+uint32_t *init_hw_timers()
 {
-  uint32_t *v0; // r5
+  int *v0; // r5
   void *v1; // r7
-  int result; // r0
+  uint32_t *result; // r0
   int v3; // r6
   int v4; // r4
+  uint32_t *v5; // r0
 
-  v0 = off_1140D8;
+  v0 = (int *)off_1140D8;
   v1 = off_1140DC;
-  zero_struct(*(uint32_t *)off_1140D8 + 564);
-  result = zero_struct(*v0 + 572);
+  zero_struct((uint32_t *)(((uint32_t *)(uintptr_t)off_1140D8)[0] + 564));
+  result = zero_struct((uint32_t *)(*v0 + 572));
   if ( *(uint16_t *)(*(uint32_t *)v1 + 8) )
   {
     v3 = dword_1140E0;
     v4 = 0;
     do
     {
-      rx_process_item(v3, 0x6B8u);
-      result = check_abort_flag(*v0 + 564);
+      v5 = rx_process_item(v3, 0x6B8u);
+      result = (uint32_t *)check_abort_flag(*v0 + 564, v5);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }
-

@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1248E0;
+extern uint32_t dword_1248E8;
 extern uint32_t off_1248D8;
 extern uint32_t off_1248DC;
-extern uint32_t dword_1248EC;
-extern uint32_t dword_1248E0;
 extern uint32_t off_1248E4;
-extern uint32_t dword_1248E8;
 
-// mmio_set_flag @ 0x1248a4, size 50 bytes
-int mmio_set_flag()
+// mmio_set_flag_1 @ 0x1248a4, size 50 bytes
+int mmio_set_flag_1()
 {
   uint8_t *v0; // r4
   int *v1; // r3
@@ -29,7 +29,7 @@ int mmio_set_flag()
   v0 = off_1248DC;
   if ( *(uint8_t *)off_1248DC )
   {
-    dispatch_event_handler(dword_1248EC);
+    dispatch_event_handler_1(asc_130078);
     return 0;
   }
   else
@@ -42,4 +42,3 @@ int mmio_set_flag()
     return 0;
   }
 }
-

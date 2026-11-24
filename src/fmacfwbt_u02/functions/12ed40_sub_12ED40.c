@@ -10,72 +10,60 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12EEE8;
-extern uint32_t dword_12EED4;
-extern uint32_t dword_12EEE0;
-extern uint32_t dword_12EED8;
-extern uint32_t dword_12EEE4;
-extern uint32_t dword_12EEEC;
-extern uint32_t dword_12EEF0;
-extern uint32_t dword_12EEDC;
-extern uint32_t dword_12EEF4;
 
-// rx_packet_handler @ 0x12ed40, size 404 bytes
-unsigned int  rx_packet_handler(unsigned int result, int a2, int a3, int a4)
+extern uint32_t off_12EEE0;
+extern uint32_t off_12EEF4;
+
+// rx_packet_handler_2 @ 0x12ed40, size 404 bytes
+int  rx_packet_handler_2(int result, int a2, int a3, int a4)
 {
   int v4; // r4
-  int v5; // r9
-  unsigned int v6; // r5
-  unsigned int v7; // r7
-  int v8; // r8
-  int v9; // r10
-  uint16_t *v10; // r6
-  unsigned int v11; // r11
-  int v12; // r1
-  int v13; // r0
-  int v14; // r10
-  uint8_t *v15; // r11
-  int v16; // r4
-  unsigned int v17; // r8
-  unsigned int v19; // r8
-  int v20; // r0
-  int v21; // r10
-  unsigned int v22; // r8
-  unsigned int v23; // r6
-  unsigned int v24; // [sp+Ch] [bp-10h]
-  int v26; // [sp+14h] [bp-8h]
+  unsigned int v5; // r5
+  unsigned int v6; // r7
+  uint16_t *v7; // r6
+  unsigned int v8; // r11
+  int v9; // r1
+  const char *v10; // r0
+  int v11; // r10
+  uint8_t *v12; // r11
+  int v13; // r4
+  unsigned int v14; // r8
+  unsigned int v16; // r8
+  int v17; // r0
+  unsigned int v18; // r8
+  unsigned int v19; // r6
+  unsigned int v20; // [sp+Ch] [bp-10h]
+  int v22; // [sp+14h] [bp-8h]
 
   if ( !a2 )
     return result;
   v4 = a3;
   if ( a3 != 4 && (unsigned int)(a3 - 1) > 1 )
     return result;
-  v5 = dword_12EEE8;
-  v24 = a2 * a3;
-  v6 = -a3 & result;
+  v20 = a2 * a3;
+  v5 = -a3 & result;
   while ( 1 )
   {
-    ke_event_schedule(dword_12EED4, v6);
-    v7 = v24;
-    if ( v24 >= 0x10 )
-      v7 = 16;
-    if ( ((v6 >> 20) & 0xFFFFFDFF) == 0x500 )
+    ke_event_schedule_1("%08x:", v5);
+    v6 = v20;
+    if ( v20 >= 0x10 )
+      v6 = 16;
+    if ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      if ( !v24 )
-        return (unsigned int)uart_puts((uint8_t *)dword_12EEE0);
-      v21 = dword_12EED8;
-      v22 = 0;
+      if ( !v20 )
+        return (int)uart_puts(off_12EEE0);
+      v18 = 0;
       while ( 1 )
       {
-        v23 = jump_table_1b0();
+        v19 = jump_table_1b0();
         if ( v4 == 4 )
           break;
         if ( v4 == 2 )
         {
-          v22 += 4;
-          ke_event_schedule(dword_12EEE4, (uint16_t)v23, HIWORD(v23), BYTE2(v23));
-          v6 += 4;
-          if ( v7 <= v22 )
+          v18 += 4;
+          ke_event_schedule_1(" %04X %04X", (uint16_t)v19, HIWORD(v19));
+          v5 += 4;
+          if ( v6 <= v18 )
           {
 LABEL_40:
             a4 = 0;
@@ -84,104 +72,101 @@ LABEL_40:
         }
         else
         {
-          ke_event_schedule(v5);
+          ke_event_schedule_1(" %02X %02X %02X %02X", (uint8_t)v19, BYTE1(v19), BYTE2(v19), HIBYTE(v19));
 LABEL_36:
-          v22 += 4;
-          v6 += 4;
-          if ( v7 <= v22 )
+          v18 += 4;
+          v5 += 4;
+          if ( v6 <= v18 )
             goto LABEL_40;
         }
       }
-      ke_event_schedule(v21, v23, BYTE1(v23), BYTE2(v23));
+      ke_event_schedule_1(" %08X", v19);
       goto LABEL_36;
     }
-    if ( v24 )
+    if ( v20 )
       break;
     if ( a4 )
     {
-      v10 = (uint16_t *)v6;
+      v7 = (uint16_t *)v5;
       goto LABEL_20;
     }
 LABEL_31:
-    result = (unsigned int)uart_puts((uint8_t *)dword_12EEE0);
-    v24 -= v7;
-    if ( !v24 )
+    result = (int)uart_puts(off_12EEE0);
+    v20 -= v6;
+    if ( !v20 )
       return result;
   }
-  v8 = dword_12EEEC;
-  v9 = dword_12EEF0;
-  v10 = (uint16_t *)v6;
-  v11 = 0;
+  v7 = (uint16_t *)v5;
+  v8 = 0;
   do
   {
     while ( 1 )
     {
-      v13 = v8;
+      v10 = a02x;
       if ( v4 != 4 )
         break;
-      v11 += 4;
-      ke_event_schedule(dword_12EED8, *(uint32_t *)v10);
-      v10 += 2;
-      if ( v7 <= v11 )
+      v8 += 4;
+      ke_event_schedule_1(" %08X", *(uint32_t *)v7);
+      v7 += 2;
+      if ( v6 <= v8 )
         goto LABEL_18;
     }
     if ( v4 == 2 )
-      v12 = *v10;
+      v9 = *v7;
     else
-      v12 = *(uint8_t *)v10;
+      v9 = *(uint8_t *)v7;
     if ( v4 == 2 )
-      v13 = v9;
-    v11 += v4;
-    ke_event_schedule(v13, v12);
-    v10 = (uint16_t *)((char *)v10 + v4);
+      v10 = a04x;
+    v8 += v4;
+    ke_event_schedule_1(v10, v9);
+    v7 = (uint16_t *)((char *)v7 + v4);
   }
-  while ( v7 > v11 );
+  while ( v6 > v8 );
 LABEL_18:
   if ( !a4 )
     goto LABEL_30;
-  if ( v24 > 0xF )
+  if ( v20 > 0xF )
   {
-    uart_puts((uint8_t *)dword_12EEDC);
+    uart_puts(asc_14ADA8);
     goto LABEL_26;
   }
 LABEL_20:
-  v14 = v4 - 1;
-  v26 = v4;
-  v15 = (uint8_t *)dword_12EEF4;
-  v16 = 0;
-  v17 = 16 - v7;
+  v11 = v4 - 1;
+  v22 = v4;
+  v12 = off_12EEF4;
+  v13 = 0;
+  v14 = 16 - v6;
   do
   {
-    while ( (v14 & v16++) != 0 )
+    while ( (v11 & v13++) != 0 )
     {
-      uart_puts(v15);
-      if ( v17 == v16 )
+      uart_puts(v12);
+      if ( v14 == v13 )
         goto LABEL_25;
     }
     uart_putc(32);
-    uart_puts(v15);
+    uart_puts(v12);
   }
-  while ( v17 != v16 );
+  while ( v14 != v13 );
 LABEL_25:
-  v4 = v26;
-  uart_puts((uint8_t *)dword_12EEDC);
-  if ( v24 )
+  v4 = v22;
+  uart_puts(asc_14ADA8);
+  if ( v20 )
   {
 LABEL_26:
-    v19 = 0;
+    v16 = 0;
     do
     {
-      v20 = *(uint8_t *)(v6 + v19);
-      if ( (unsigned int)(v20 - 31) > 0x5F )
-        v20 = 46;
-      ++v19;
-      uart_putc(v20);
+      v17 = *(uint8_t *)(v5 + v16);
+      if ( (unsigned int)(v17 - 31) > 0x5F )
+        v17 = 46;
+      ++v16;
+      uart_putc(v17);
     }
-    while ( v7 > v19 );
+    while ( v6 > v16 );
 LABEL_30:
-    v6 = (unsigned int)v10;
+    v5 = (unsigned int)v7;
     goto LABEL_31;
   }
-  return (unsigned int)uart_puts((uint8_t *)dword_12EEE0);
+  return (int)uart_puts(off_12EEE0);
 }
-

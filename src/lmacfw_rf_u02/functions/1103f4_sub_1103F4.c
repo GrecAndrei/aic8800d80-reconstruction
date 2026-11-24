@@ -10,19 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1104F8;
 extern uint32_t off_1104FC;
+extern uint32_t off_110500;
+extern uint32_t off_110504;
+extern uint32_t off_110508;
+extern uint32_t off_110518;
 extern uint32_t off_110524;
 extern uint32_t off_110528;
-extern uint32_t off_110500;
-extern uint32_t dword_11051C;
-extern uint32_t off_110518;
-extern uint32_t dword_110520;
-extern uint32_t off_110504;
-extern uint32_t dword_110514;
-extern uint32_t off_110508;
-extern uint32_t dword_110510;
-extern uint32_t dword_11050C;
 
 // rx_irq_handler @ 0x1103f4, size 260 bytes
 int  rx_irq_handler(int result)
@@ -30,16 +26,16 @@ int  rx_irq_handler(int result)
   uint32_t *v1; // r4
   unsigned int v2; // r3
   int *v3; // r6
-  int **v4; // r9
+  uint32_t *v4; // r9
   uint32_t *v5; // r8
   int v6; // r5
   int *v7; // r7
-  int v8; // r10
-  int *v9; // r0
-  int *v10; // r11
+  uint32_t *v8; // r10
+  uint32_t *v9; // r0
+  uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
-  int16_t v13; // r3
+  uint16_t v13; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
@@ -47,7 +43,7 @@ int  rx_irq_handler(int result)
   v1 = off_1104F8;
   v2 = *(uint16_t *)(result + 28);
   v3 = (int *)off_1104FC;
-  v4 = (int **)off_110524;
+  v4 = off_110524;
   v5 = off_110528;
   v6 = result;
 LABEL_2:
@@ -57,17 +53,17 @@ LABEL_2:
     v8 = irq_disable_set_flag();
     if ( !v8 )
     {
-      result = log_printf(dword_11051C, *(uint32_t *)off_110518);
+      result = log_printf("rep: no rxmsg buffer, %d\r\n", *(uint32_t *)off_110518);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return set_busy_flag_alt(256);
     }
-    v9 = (int *)irq_disable();
+    v9 = irq_disable();
     v10 = v9;
     if ( !v9 )
     {
-      log_printf(dword_110520);
-      result = irq_disable_set_flag_preserve();
+      log_printf(aRepRxmsgNoDesc);
+      result = irq_disable_set_flag_preserve(v8);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return set_busy_flag_alt(256);
@@ -94,15 +90,15 @@ LABEL_2:
       }
       else
       {
-        log_printf(dword_110514);
+        log_printf(aRxmsgTailError);
         v11 = *v7;
       }
     }
     else
     {
-      if ( **(int16_t **)off_110508 < 0 && *v4 )
+      if ( **(uint16_t **)off_110508 < 0 && *v4 )
       {
-        flash_ctrl_init(dword_110510, dword_11050C, 261);
+        flash_ctrl_init((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
       }
       *v4 = v10;
@@ -133,4 +129,3 @@ LABEL_2:
   }
   return result;
 }
-

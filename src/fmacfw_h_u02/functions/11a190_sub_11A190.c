@@ -18,7 +18,6 @@ int  decrement_refcount(int result)
   v1 = *(uint8_t *)(result + 14) - 1;
   *(uint8_t *)(result + 14) = v1;
   if ( !v1 )
-    return wlan_ioctl_handler_1(*(uint32_t *)(result + 340));
+    return wlan_ioctl_handler_1(*(uint32_t *)(result + 340), (uint32_t *)result);
   return result;
 }
-

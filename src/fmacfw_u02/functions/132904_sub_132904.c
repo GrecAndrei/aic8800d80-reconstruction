@@ -10,16 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_132C2C;
+
 extern uint32_t dword_132C30;
 extern uint32_t dword_132C34;
-extern uint32_t dword_132C38;
 extern uint32_t dword_132C48;
+extern uint32_t off_132C2C;
 extern uint32_t off_132C3C;
-extern uint32_t dword_132D00;
-extern uint32_t dword_132CFC;
 extern uint32_t off_132C40;
 extern uint32_t off_132C44;
+extern uint32_t off_132D00;
 
 // tx_send_controller_pkt @ 0x132904, size 1016 bytes
 uint32_t * tx_send_controller_pkt(int a1)
@@ -42,7 +41,7 @@ uint32_t * tx_send_controller_pkt(int a1)
   int v17; // r0
   int v18; // t1
   int v19; // r2
-  int16_t v20; // r0
+  uint16_t v20; // r0
   unsigned int v21; // r2
   unsigned int v22; // r8
   unsigned int v23; // lr
@@ -52,7 +51,7 @@ uint32_t * tx_send_controller_pkt(int a1)
   unsigned int v27; // lr
   int v28; // r8
   unsigned int v29; // r10
-  int16_t v30; // r2
+  uint16_t v30; // r2
   unsigned int v31; // r3
   int v32; // r0
   int v33; // r3
@@ -64,7 +63,7 @@ uint32_t * tx_send_controller_pkt(int a1)
   uint32_t *v39; // r8
   unsigned int *v40; // r6
   int *v41; // r10
-  uint8_t *v42; // r7
+  int *v42; // r7
   int v43; // r2
   unsigned int v44; // r0
   unsigned int v45; // t1
@@ -82,19 +81,19 @@ uint32_t * tx_send_controller_pkt(int a1)
   int v58; // r0
   unsigned int v59; // r0
   int v60; // r0
-  int v61; // [sp+14h] [bp-50h]
-  int v62; // [sp+18h] [bp-4Ch]
-  int v63; // [sp+18h] [bp-4Ch]
+  unsigned int v61; // [sp+14h] [bp-50h]
+  int a8; // [sp+18h] [bp-4Ch]
+  char v63[4]; // [sp+18h] [bp-4Ch]
   int v64; // [sp+1Ch] [bp-48h]
   BOOL v65; // [sp+20h] [bp-44h]
   int v66; // [sp+20h] [bp-44h]
   int v67; // [sp+24h] [bp-40h]
   unsigned int v68; // [sp+24h] [bp-40h]
   uint32_t *v69; // [sp+24h] [bp-40h]
-  int v70; // [sp+28h] [bp-3Ch]
+  unsigned int v70; // [sp+28h] [bp-3Ch]
   int v71; // [sp+28h] [bp-3Ch]
   unsigned int v72; // [sp+2Ch] [bp-38h]
-  char *v73; // [sp+30h] [bp-34h]
+  int *v73; // [sp+30h] [bp-34h]
   char v74; // [sp+34h] [bp-30h]
   unsigned int v75; // [sp+3Ch] [bp-28h]
   uint8_t v76[16]; // [sp+40h] [bp-24h] BYREF
@@ -121,13 +120,16 @@ uint32_t * tx_send_controller_pkt(int a1)
     *v9++ = v7[3];
   }
   while ( v10 != v7 );
-  v62 = v1 & 1;
+  a8 = v1 & 1;
   if ( (v1 & 1) == 0 )
-    goto LABEL_23;
+  {
+    a8 = (v70 >> 3) & 1;
+    goto LABEL_24;
+  }
   v12 = *(uint32_t *)(a1 + 340);
-  v67 = *((uint8_t *)off_132C2C + 359);
+  v67 = HIBYTE(((uint32_t *)(uintptr_t)off_132C2C)[89]);
   v75 = *(uint8_t *)(a1 + 312);
-  v73 = (char *)off_132C2C + 356;
+  v73 = &((uint32_t *)(uintptr_t)off_132C2C)[89];
   v74 = v1;
   v65 = 0;
   v13 = (uint16_t *)(v12 + 136);
@@ -142,7 +144,7 @@ uint32_t * tx_send_controller_pkt(int a1)
     if ( !v67 || v14 == 3 )
       v19 = 0x40000000;
     else
-      v19 = (uint8_t)v73[v14] << 29;
+      v19 = *((uint8_t *)v73 + v14) << 29;
     v20 = *(uint16_t *)(v16 + 12 * v17 + 10);
     v21 = v20 & 0x3FFF | v19;
     if ( ((v21 >> 11) & 6) != 0 )
@@ -165,9 +167,9 @@ LABEL_20:
               v65 = v27 == v72;
 LABEL_22:
             *v15 = *v15 & 0x1FFFC000 | v21;
-            goto LABEL_57;
+            goto LABEL_58;
           }
-LABEL_65:
+LABEL_66:
           v59 = v72;
           if ( v27 < v75 )
             v59 = v27;
@@ -192,11 +194,11 @@ LABEL_65:
       }
       if ( v14 )
         goto LABEL_20;
-      goto LABEL_65;
+      goto LABEL_66;
     }
-    v62 = 0;
+    a8 = 0;
     *v15 = *v15 & 0x1FFFC000 | v21;
-LABEL_57:
+LABEL_58:
     ++v14;
     ++v15;
   }
@@ -206,14 +208,14 @@ LABEL_57:
   v3 = v2 + 5;
   if ( v65 )
     v61 = v56 | ((v72 + 1) << 7);
-  if ( v62 )
+  if ( a8 )
     v57 = v70 | 8;
   else
     v57 = v70 & 0xFFFFFFF7;
   v1 = v74 | 2;
   v2[15] = v57;
   *(uint8_t *)(a1 + 350) = v74 | 2;
-LABEL_23:
+LABEL_24:
   if ( (v1 & 0x20) != 0 )
   {
     v28 = *(uint32_t *)(a1 + 340);
@@ -223,7 +225,7 @@ LABEL_23:
     v30 = *(uint16_t *)(v71 + 10);
     v31 = v30 & 0x3FFF | 0x40000000;
     v68 = v31;
-    if ( *((uint8_t *)off_132C2C + 197) && (v2[5] & 0x387F) != (v31 & 0x387F) )
+    if ( BYTE1(((uint32_t *)(uintptr_t)off_132C2C)[49]) && (v2[5] & 0x387F) != (v31 & 0x387F) )
     {
       v32 = rx_packet_handler(
               (v31 >> 11) & 7,
@@ -237,8 +239,8 @@ LABEL_23:
     *(uint8_t *)(v28 + 165) = (v30 & 0x4000) != 0;
     *(uint32_t *)(v28 + 156) = v66 & v33 | v68;
     if ( get_flag_bit(5u, 4u) )
-      event_dispatch(dword_132C38, *(uint32_t *)(v28 + 156), v29);
-    ble_ll_adv_rx_scan_req(v2, *(uint32_t *)(v28 + 156));
+      event_dispatch("trial rate/power=(%x,%x)\n", *(uint32_t *)(v28 + 156), v29);
+    ble_ll_adv_rx_scan_req((int)v2, *(uint32_t *)(v28 + 156), 0, (v61 & 0x180) != 0, ((v61 >> 7) & 3) - 1, 0, 0, a8);
     v1 = *(uint8_t *)(a1 + 350);
   }
   if ( (v1 & 2) != 0 )
@@ -257,27 +259,27 @@ LABEL_23:
   }
   if ( (v1 & 0x10) != 0 )
   {
-    v63 = dword_132C30 + 1320 * *(uint8_t *)(a1 + 34);
+    *(uint32_t *)v63 = dword_132C30 + 1320 * *(uint8_t *)(a1 + 34);
     v69 = v2;
     v39 = v77;
     v40 = (unsigned int *)v76;
     v41 = v3;
-    v42 = (uint8_t *)off_132C2C;
+    v42 = (int *)off_132C2C;
     do
     {
-      v43 = v42[197];
+      v43 = *((uint8_t *)v42 + 197);
       v45 = *v40++;
       v44 = v45;
       v46 = HIWORD(*v39) << 16;
       *v39++ = v46;
       if ( v43 )
       {
-        v58 = rx_packet_handler((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(v63 + 72) + 4));
+        v58 = rx_packet_handler((v44 >> 11) & 7, v44 & 0x7F, (uint8_t *)(*(uint32_t *)(*(uint32_t *)v63 + 72) + 4));
         *(v39 - 1) = v46 | v58 | (v58 << 8);
       }
-      else if ( **(int16_t **)off_132C3C < 0 )
+      else if ( **(uint16_t **)off_132C3C < 0 )
       {
-        mmio_clear_register(dword_132D00, dword_132CFC, 986);
+        mmio_clear_register(off_132D00, (int)aMeUpdateBuffer, 986);
       }
     }
     while ( v77 != v40 );
@@ -326,4 +328,3 @@ LABEL_23:
   *(uint8_t *)(a1 + 350) = 0;
   return v2;
 }
-

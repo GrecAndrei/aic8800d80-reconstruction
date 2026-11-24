@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13B634;
-extern uint32_t dword_13B630;
+
 extern uint32_t dword_13B62C;
+extern uint32_t dword_13B630;
+extern uint32_t dword_13B634;
 
 // adv_pdu_conn_req_check @ 0x13b600, size 42 bytes
 int  adv_pdu_conn_req_check(int a1, int a2, unsigned int a3)
@@ -29,4 +30,3 @@ int  adv_pdu_conn_req_check(int a1, int a2, unsigned int a3)
   }
   return 0;
 }
-

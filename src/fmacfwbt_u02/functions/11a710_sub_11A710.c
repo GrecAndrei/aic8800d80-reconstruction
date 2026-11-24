@@ -11,8 +11,6 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 // ke_timer_tick @ 0x11a710, size 22 bytes
-// Doc: sub_121A710 [bt]: Decrement refcount and fetch linked buffer pointer
-// sub_121A710 [bt]: Decrement refcount and fetch linked buffer pointer
 int  ke_timer_tick(int result)
 {
   char v1; // r3
@@ -20,7 +18,6 @@ int  ke_timer_tick(int result)
   v1 = *(uint8_t *)(result + 14) - 1;
   *(uint8_t *)(result + 14) = v1;
   if ( !v1 )
-    return check_abort_flag(*(uint32_t *)(result + 340));
+    return check_abort_flag(*(uint32_t *)(result + 340), (uint32_t *)result);
   return result;
 }
-

@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_103B40;
 extern uint32_t off_103B44;
 extern uint32_t off_103B48;
 extern uint32_t off_103B4C;
-extern uint32_t off_103B40;
-extern uint32_t dword_103B50;
 
 // rf_calibrate @ 0x103afc, size 66 bytes
 int rf_calibrate()
@@ -31,6 +31,5 @@ int rf_calibrate()
   *v1 &= ~0x1000000u;
   *v2 &= 0xFFE7FFFF;
   mmio_read32(10);
-  return check_feature_flag(0x2000, dword_103B50);
+  return check_feature_flag(0x2000, aWfDfeAndRfintf_0);
 }
-

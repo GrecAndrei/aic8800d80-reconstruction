@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_134790;
 extern uint32_t off_134798;
-extern uint32_t dword_134794;
 
-// tx_packet_handler @ 0x1346e8, size 166 bytes
-uint32_t *tx_packet_handler()
+// tx_packet_handler_1 @ 0x1346e8, size 166 bytes
+int tx_packet_handler_1()
 {
   char *v0; // r5
   uint8_t *v1; // r8
@@ -23,7 +23,7 @@ uint32_t *tx_packet_handler()
   int *v3; // r10
   int v4; // r4
   uint64_t v5; // r2
-  int16_t v6; // lr
+  uint16_t v6; // lr
   int v7; // r0
   int v8; // r1
   uint64_t v9; // r2
@@ -34,9 +34,9 @@ uint32_t *tx_packet_handler()
   v1 = off_134798;
   v2 = *((uint8_t *)off_134790 + 12);
   v3 = *((int **)off_134798 + 4);
-  v4 = ke_msg_alloc(4098, 4, 6, 0x178u);
-  event_dispatch(dword_134794);
-  ke_int_lock(6155, 6);
+  v4 = ke_msg_alloc(4098, 4, 6, 376);
+  event_dispatch(aTs1);
+  ke_int_lock((char *)0x180B, 6);
   v5 = *(uint64_t *)(v0 + 4);
   v0[14] = 0;
   *(uint32_t *)(v4 + 352) = *(uint32_t *)v5;
@@ -65,7 +65,6 @@ uint32_t *tx_packet_handler()
   if ( v2 )
     *(uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
-  ke_msg_send(v4);
+  ke_msg_send_2(v4);
   return rx_phy_status_parse(6u, 2);
 }
-

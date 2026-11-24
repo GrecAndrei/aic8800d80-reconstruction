@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12EBD8;
+
 extern uint32_t off_12EBDC;
 
 // radio_init @ 0x12ebb8, size 32 bytes
 int radio_init()
 {
-  alloc_tx_event(dword_12EBD8);
-  invalid_handler_12c5fc(1071, 1);
+  alloc_tx_event(aUsbOff);
+  invalid_handler_12c5fc((char *)0x42F, 1);
   *((uint32_t *)off_12EBDC + 20) &= ~2u;
   return 0;
 }
-

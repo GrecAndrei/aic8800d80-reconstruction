@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_128BA4;
-extern uint32_t dword_128BA8;
+
+extern uint32_t off_128BA8;
 extern uint32_t off_128BAC;
 
 // log_message @ 0x128b60, size 64 bytes
@@ -21,8 +21,8 @@ int  log_message(int a1, int a2)
   uint16_t *v5; // r2
   char v6; // r3
 
-  check_feature_flag(2, dword_128BA4);
-  result = log_printf(a1, a2, dword_128BA8);
+  check_feature_flag(2, "%s:%x\r\n", aPsEnableCfm, a2);
+  result = log_printf(a1, a2, off_128BA8);
   if ( result )
   {
     v5 = (uint16_t *)off_128BAC;
@@ -34,4 +34,3 @@ int  log_message(int a1, int a2)
   }
   return result;
 }
-

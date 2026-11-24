@@ -10,10 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_125F48;
-extern uint32_t dword_125F54;
+
 extern uint32_t dword_125F50;
-extern uint32_t dword_125F4C;
+extern uint32_t off_125F48;
 
 // poll_radio_status @ 0x125ef0, size 88 bytes
 int  poll_radio_status(int a1, int a2, int a3)
@@ -22,7 +21,7 @@ int  poll_radio_status(int a1, int a2, int a3)
 
   if ( (*(uint32_t *)off_125F48 & 0x2000000) != 0 )
   {
-    dispatch_event_handler(dword_125F54, dword_125F50, a3, HIBYTE(*(uint32_t *)off_125F48) & 2);
+    dispatch_event_handler_1("getcc: %s\r\n", (const char *)dword_125F50);
     return 0;
   }
   else
@@ -31,14 +30,13 @@ int  poll_radio_status(int a1, int a2, int a3)
     bus_read_2((int)v4);
     if ( v4[0] == 255 || v4[1] == 255 )
     {
-      dispatch_event_handler(dword_125F4C);
+      dispatch_event_handler_1(aNoCountrycodeI);
       return 0;
     }
     else
     {
-      dispatch_event_handler(dword_125F54, v4);
+      dispatch_event_handler_1("getcc: %s\r\n", (const char *)v4);
       return 0;
     }
   }
 }
-

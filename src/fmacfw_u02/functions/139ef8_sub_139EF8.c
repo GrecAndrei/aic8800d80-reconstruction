@@ -10,20 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_139F58;
-
 // scan_parse_response @ 0x139ef8, size 96 bytes
-int  scan_parse_response(char *a1, char a2, int a3)
+char * scan_parse_response(char *a1, char a2, int a3)
 {
   char v3; // r3
-  int result; // r0
-  uint16_t v6; // [sp+6h] [bp-2h] BYREF
+  char *result; // r0
+  char a1a[2]; // [sp+6h] [bp-2h] BYREF
 
   if ( *a1 >= 0 )
     v3 = 24;
   else
     v3 = 26;
-  v6 = 0;
+  *(uint16_t *)a1a = 0;
   if ( (a2 & 0x78) == 8 )
   {
     v3 += 8;
@@ -32,9 +30,8 @@ int  scan_parse_response(char *a1, char a2, int a3)
   {
     v3 += 4;
   }
-  result = memcpy(&v6, &a1[(uint8_t)(v3 + 6)], 2);
-  if ( v6 == 36488 )
-    return event_dispatch(dword_139F58, 36488, a3);
+  result = memcpy(a1a, &a1[(uint8_t)(v3 + 6)], 2u);
+  if ( *(uint16_t *)a1a == 36488 )
+    return (char *)event_dispatch("rx eapol:%x,%d\r\n", 36488, a3);
   return result;
 }
-

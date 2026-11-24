@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_125AE0;
 
 // list_remove @ 0x125ac8, size 22 bytes
-int  list_remove(uint16_t *a1)
+int  list_remove(int a1)
 {
   if ( *((uint32_t *)off_125AE0 + 1) )
-    return check_abort_flag((char *)off_125AE0 + 12);
+    return check_abort_flag((int)off_125AE0 + 12, (uint32_t *)(a1 - 12));
   else
-    return rx_header_parse(a1);
+    return (int)rx_header_parse((uint16_t *)a1);
 }
-

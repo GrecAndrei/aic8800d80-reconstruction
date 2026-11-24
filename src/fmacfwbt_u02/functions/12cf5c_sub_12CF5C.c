@@ -10,30 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12D074;
-extern uint32_t dword_12D09C;
-extern uint32_t dword_12D090;
-extern uint32_t dword_12D078;
-extern uint32_t dword_12D0A4;
-extern uint32_t dword_12D0A0;
-extern uint32_t dword_12D0A8;
-extern uint32_t dword_12D098;
-extern uint32_t dword_12D094;
-extern uint32_t dword_12D07C;
-extern uint32_t dword_12D0AC;
+
 extern uint32_t dword_12D080;
+extern uint32_t dword_12D08C;
+extern uint32_t off_12D074;
+extern uint32_t off_12D078;
 extern uint32_t off_12D084;
 extern uint32_t off_12D088;
-extern uint32_t dword_12D08C;
+extern uint32_t off_12D0AC;
 
 // hci_cmd_send @ 0x12cf5c, size 278 bytes
-uint32_t * hci_cmd_send(unsigned int a1, int a2)
+int  hci_cmd_send(unsigned int a1, int a2)
 {
-  int16_t **v2; // r7
+  uint16_t **v2; // r7
   unsigned int v5; // r9
   int v6; // r6
   uint16_t *v7; // r9
-  uint32_t *result; // r0
+  int result; // r0
   int ( *v9)(uint32_t *, int); // r8
   int v10; // r7
   int *v11; // r6
@@ -41,57 +34,59 @@ uint32_t * hci_cmd_send(unsigned int a1, int a2)
   int v13; // r0
   int v14; // r3
   int v15; // r2
-  int v16; // r6
+  uint32_t *v16; // r1
+  int *v17; // r6
 
-  v2 = (int16_t **)off_12D074;
+  v2 = (uint16_t **)off_12D074;
   v5 = a1 >> 8;
   v6 = (uint8_t)a1;
-  if ( **(int16_t **)off_12D074 >= 0 )
+  if ( **(uint16_t **)off_12D074 >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
-    mmio_irq_clear(dword_12D09C, dword_12D090, 173);
+    mmio_irq_clear((int)aTypeTaskMax, (int)aKeStateSet, 173);
     if ( **v2 >= 0 )
     {
 LABEL_2:
-      v7 = (uint16_t *)(*(uint32_t *)(dword_12D078 + 16 * v6 + 8) + 2 * v5);
+      v7 = (uint16_t *)(((uint32_t *)(uintptr_t)off_12D078)[4 * v6 + 2] + 2 * v5);
       goto LABEL_3;
     }
     if ( v6 != 14 )
-      mmio_irq_clear(dword_12D0A4, dword_12D0A0, 183);
+      mmio_irq_clear((int)aIdTaskMax, (int)aKeTaskLocal_0, 183);
   }
   else if ( (uint8_t)a1 != 13 )
   {
     goto LABEL_16;
   }
-  mmio_irq_clear(dword_12D0A8, dword_12D090, 174);
+  mmio_irq_clear((int)aKeTaskLocalTyp, (int)aKeStateSet, 174);
   if ( **v2 >= 0 )
     goto LABEL_2;
 LABEL_16:
-  v16 = dword_12D078 + 16 * v6;
-  if ( *(uint16_t *)(v16 + 14) > v5 )
+  v17 = &((uint32_t *)(uintptr_t)off_12D078)[4 * v6];
+  if ( *((uint16_t *)v17 + 7) > v5 )
   {
-    v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
+    v7 = (uint16_t *)(v17[2] + 2 * v5);
     if ( v7 )
       goto LABEL_3;
     goto LABEL_18;
   }
-  mmio_irq_clear(dword_12D098, dword_12D090, 175);
-  v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
+  mmio_irq_clear((int)aIdxTaskDescTyp, (int)aKeStateSet, 175);
+  v7 = (uint16_t *)(v17[2] + 2 * v5);
   if ( **v2 < 0 && !v7 )
 LABEL_18:
-    mmio_irq_clear(dword_12D094, dword_12D090, 180);
+    mmio_irq_clear((int)aKeStateidPtr, (int)aKeStateSet, 180);
 LABEL_3:
-  result = (uint32_t *)ke_event_schedule(dword_12D07C, a1, a2);
+  result = ke_event_schedule_1("\x80\x9Dset tsk:%x:%x\n", a1, a2);
   if ( (uint16_t)*v7 != a2 )
   {
-    v9 = (int ( *)(uint32_t *, int))dword_12D0AC;
+    v9 = (int ( *)(uint32_t *, int))off_12D0AC;
     v10 = dword_12D080;
     v11 = (int *)off_12D084;
     *v7 = a2;
     while ( 1 )
     {
-      result = tx_list_foreach(v10, v9, a1);
+      result = (int)tx_list_foreach(v10, v9, a1);
+      v16 = (uint32_t *)result;
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -102,7 +97,7 @@ LABEL_3:
       v12 = (int *)off_12D088;
       v13 = dword_12D08C;
       ++*(uint32_t *)off_12D088;
-      check_abort_flag(v13);
+      check_abort_flag(v13, v16);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -119,4 +114,3 @@ LABEL_3:
   }
   return result;
 }
-

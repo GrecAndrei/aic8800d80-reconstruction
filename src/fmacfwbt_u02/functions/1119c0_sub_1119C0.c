@@ -10,13 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_111A64;
+extern uint32_t dword_111A68;
 extern uint32_t dword_111A70;
 extern uint32_t dword_111A74;
+extern uint32_t off_111A6C;
 
-// tx_desc_hw_config @ 0x1119c0, size 162 bytes
-// Doc: rf_bus_write_n98 [rf]: Writes data word to RF bus
-// rf_bus_write_n98 [rf]: Writes data word to RF bus
-int * tx_desc_hw_config(int a1, int a2, int a3)
+// sub_1119C0 @ 0x1119c0, size 162 bytes
+int  sub_1119C0(int a1, int a2, int a3)
 {
   uint32_t *v3; // r6
   int *v4; // r5
@@ -25,8 +27,8 @@ int * tx_desc_hw_config(int a1, int a2, int a3)
 
   if ( a1 )
   {
-    v3 = (uint32_t *)(rf_bus_write_na4 + 32 * (a1 - 1) + 8);
-    v4 = (int *)(rf_bus_write_na4 + 32 * (a1 - 1));
+    v3 = (uint32_t *)(dword_111A64 + 32 * (a1 - 1) + 8);
+    v4 = (int *)(dword_111A64 + 32 * (a1 - 1));
   }
   else
   {
@@ -34,17 +36,17 @@ int * tx_desc_hw_config(int a1, int a2, int a3)
     v4 = (int *)dword_111A74;
   }
   v5 = *v4;
-  if ( (*v4 & 0x80008000) != 0 && ((rf_bus_setup_n_2f0 & v5) != 0x20000 || a2 != 0x8000000 || a3) )
+  if ( (*v4 & 0x80008000) != 0 && ((dword_111A68 & v5) != 0x20000 || a2 != 0x8000000 || a3) )
   {
-    v6 = rf_bus_write2_n_c;
-    *((uint32_t *)rf_bus_write2_n_c + 513) |= 0x200u;
+    v6 = off_111A6C;
+    *((uint32_t *)off_111A6C + 513) |= 0x200u;
     while ( (v6[5] & 0x80) == 0 )
       ;
     *v4 |= a2 | 0x8008000;
     if ( a3 )
       *v4 &= ~a3;
     if ( !a1 )
-      goto rf_msg_handler_n_26d;
+      goto LABEL_10;
     if ( v5 < 0 )
     {
       *v3 = 2;
@@ -52,17 +54,16 @@ int * tx_desc_hw_config(int a1, int a2, int a3)
       while ( (*v3 & 2) == 0 )
         ;
       if ( (v5 & 0x8000) != 0 )
-        goto rf_msg_handler_n_26d;
+        goto LABEL_10;
     }
     else if ( (v5 & 0x8000) != 0 )
     {
-rf_msg_handler_n_26d:
-      *((uint32_t *)rf_bus_write2_n_c + 513) |= 0x400u;
-      return tx_hdr_clear(a1);
+LABEL_10:
+      *((uint32_t *)off_111A6C + 513) |= 0x400u;
+      return sub_1117C8(a1);
     }
     *v4 &= ~0x8000u;
-    goto rf_msg_handler_n_26d;
+    goto LABEL_10;
   }
-  return tx_hdr_clear(a1);
+  return sub_1117C8(a1);
 }
-

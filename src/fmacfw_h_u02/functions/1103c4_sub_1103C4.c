@@ -10,19 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1104C8;
 extern uint32_t off_1104CC;
+extern uint32_t off_1104D0;
+extern uint32_t off_1104D4;
+extern uint32_t off_1104D8;
+extern uint32_t off_1104E8;
 extern uint32_t off_1104F4;
 extern uint32_t off_1104F8;
-extern uint32_t off_1104D0;
-extern uint32_t dword_1104EC;
-extern uint32_t off_1104E8;
-extern uint32_t dword_1104F0;
-extern uint32_t off_1104D4;
-extern uint32_t dword_1104E4;
-extern uint32_t off_1104D8;
-extern uint32_t dword_1104E0;
-extern uint32_t dword_1104DC;
 
 // mac_tx_setup @ 0x1103c4, size 258 bytes
 int  mac_tx_setup(int result)
@@ -30,16 +26,16 @@ int  mac_tx_setup(int result)
   uint32_t *v1; // r4
   unsigned int v2; // r3
   int *v3; // r6
-  int **v4; // r9
+  uint32_t *v4; // r9
   uint32_t *v5; // r8
   int v6; // r5
   int *v7; // r7
-  int v8; // r10
-  int *v9; // r0
-  int *v10; // r11
+  uint32_t *v8; // r10
+  uint32_t *v9; // r0
+  uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
-  int16_t v13; // r3
+  uint16_t v13; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
@@ -47,7 +43,7 @@ int  mac_tx_setup(int result)
   v1 = off_1104C8;
   v2 = *(uint16_t *)(result + 28);
   v3 = (int *)off_1104CC;
-  v4 = (int **)off_1104F4;
+  v4 = off_1104F4;
   v5 = off_1104F8;
   v6 = result;
 LABEL_2:
@@ -57,17 +53,17 @@ LABEL_2:
     v8 = mmio_read_1();
     if ( !v8 )
     {
-      result = debug_printf(dword_1104EC, *(uint32_t *)off_1104E8);
+      result = debug_printf("rep: no rxmsg buffer, %d\r\n", *(uint32_t *)off_1104E8);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return irq_disable_global_2(32);
     }
-    v9 = (int *)mmio_read_0();
+    v9 = mmio_read_0();
     v10 = v9;
     if ( !v9 )
     {
-      debug_printf(dword_1104F0);
-      result = mmio_write_2();
+      debug_printf(aRepRxmsgNoDesc);
+      result = mmio_write_2(v8);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return irq_disable_global_2(32);
@@ -94,15 +90,15 @@ LABEL_2:
       }
       else
       {
-        debug_printf(dword_1104E4);
+        debug_printf(aRxmsgTailError);
         v11 = *v7;
       }
     }
     else
     {
-      if ( **(int16_t **)off_1104D8 < 0 && *v4 )
+      if ( **(uint16_t **)off_1104D8 < 0 && *v4 )
       {
-        irq_disable_mmio_write(dword_1104E0, dword_1104DC, 261);
+        irq_disable_mmio_write((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
       }
       *v4 = v10;
@@ -133,4 +129,3 @@ LABEL_2:
   }
   return result;
 }
-

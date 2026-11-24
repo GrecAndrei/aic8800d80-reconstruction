@@ -10,20 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_11EAC4;
 
-// float_to_double @ 0x11eaa0, size 26 bytes
-// Doc: sdio_buffer_prepare_n_108 [mac]: Prepares SDIO host buffer for transfer
-// sdio_buffer_prepare_n_108 [mac]: Prepares SDIO host buffer for transfer
-float  float_to_double(unsigned int a1)
+extern uint32_t dword_11EAC0;
+
+// sub_11EAA0 @ 0x11eaa0, size 26 bytes
+unsigned int  sub_11EAA0(unsigned int a1)
 {
-  float v1; // r0
+  unsigned int v1; // r0
   uint64_t v2; // r0
-  int v3; // r0
+  uint64_t v3; // r0
 
-  v1 = float_extract_parts(a1);
-  v2 = aeabi_d2f(LODWORD(v1));
-  v3 = aeabi_dadd(v2, HIDWORD(v2), sdio_buffer_prepare_n_f4, dword_11EAC4);
-  return aeabi_dmul(v3);
+  v1 = sub_11E964(a1);
+  v2 = sub_127570(v1);
+  v3 = sub_127620(v2, *(uint64_t *)&dword_11EAC0);
+  return sub_127BE4(v3);
 }
-

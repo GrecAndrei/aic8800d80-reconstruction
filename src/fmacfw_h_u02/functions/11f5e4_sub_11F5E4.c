@@ -10,39 +10,41 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_11F648;
+
 extern uint32_t dword_11F64C;
-extern uint32_t dword_11F650;
+extern uint32_t off_11F648;
+extern uint32_t off_11F650;
 
 // reset_controller_block @ 0x11f5e4, size 98 bytes
 int reset_controller_block()
 {
-  uint8_t *v0; // r8
+  uint32_t *v0; // r8
   int v1; // r4
-  int v2; // r7
+  void *v2; // r7
   int v3; // r6
+  uint32_t *v4; // r1
   int result; // r0
 
   v0 = off_11F648;
-  sub_100200((int *)off_11F648, 0, 0x18u);
+  memset_thunk((int *)off_11F648, 0, 0x18u);
   clear_stats_buf(v0);
   v1 = dword_11F64C;
-  v2 = dword_11F650;
-  clear_stats_buf(v0 + 8);
+  v2 = off_11F650;
+  clear_stats_buf(v0 + 2);
   v3 = v1 + 5280;
   do
   {
-    sub_100200((int *)v1, 0, 0x528u);
+    memset_thunk((int *)v1, 0, 0x528u);
     *(uint32_t *)(v1 + 52) = v2;
     *(uint32_t *)(v1 + 56) = v1;
     *(uint8_t *)(v1 + 106) = 5;
     *(uint8_t *)(v1 + 109) = 127;
     *(uint8_t *)(v1 + 110) = 127;
+    v4 = (uint32_t *)v1;
     v1 += 1320;
-    result = wlan_ioctl_handler_1(v0);
+    result = wlan_ioctl_handler_1((int)v0, v4);
   }
   while ( v1 != v3 );
-  v0[16] = -1;
+  *((uint8_t *)v0 + 16) = -1;
   return result;
 }
-

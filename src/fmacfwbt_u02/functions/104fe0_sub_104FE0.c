@@ -10,48 +10,52 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_105080;
 
-// util_compare_time @ 0x104fe0, size 154 bytes
-int  util_compare_time(int a1, int a2, int a3)
+extern float flt_10507C;
+extern float flt_105084;
+
+// sub_104FE0 @ 0x104fe0, size 154 bytes
+int  sub_104FE0(int a1, int a2, int a3)
 {
   float v6; // s14
-  uint64_t v8; // r8
-  uint64_t v9; // r0
-  int v10; // r0
-  int v11; // r0
-  float v12; // r0
-  float v13; // s14
-  uint64_t v14; // r8
-  uint64_t v15; // r0
-  int v16; // r0
-  int v17; // r0
+  int v7; // r3
+  uint64_t v9; // r8
+  uint64_t v10; // r0
+  uint64_t v11; // r0
+  unsigned int v12; // r0
+  float v13; // r0
+  float v14; // s14
+  uint64_t v15; // r8
+  uint64_t v16; // r0
+  uint64_t v17; // r0
+  unsigned int v18; // r0
 
   if ( a1 > a2 )
   {
-    v14 = __aeabi_i2d(a1);
-    v15 = __aeabi_i2d(a2);
-    v16 = __aeabi_ddiv(v14, HIDWORD(v14), v15, HIDWORD(v15));
-    v17 = double_to_float(v16);
-    v12 = COERCE_FLOAT(system_init_sequence(v17));
-    v13 = 20.0;
+    v15 = sub_142A70(a1);
+    v16 = sub_142A70(a2);
+    v17 = sub_142D98(v15, v16);
+    v18 = sub_143108(v17);
+    v13 = COERCE_FLOAT(sub_12D908(v18));
+    v14 = 20.0;
     goto LABEL_6;
   }
   if ( a1 < a2 )
   {
-    v8 = __aeabi_i2d(a2);
-    v9 = __aeabi_i2d(a1);
-    v10 = __aeabi_ddiv(v8, HIDWORD(v8), v9, HIDWORD(v9));
-    v11 = double_to_float(v10);
-    v12 = COERCE_FLOAT(system_init_sequence(v11));
-    v13 = -20.0;
+    v9 = sub_142A70(a2);
+    v10 = sub_142A70(a1);
+    v11 = sub_142D98(v9, v10);
+    v12 = sub_143108(v11);
+    v13 = COERCE_FLOAT(sub_12D908(v12));
+    v14 = -20.0;
 LABEL_6:
-    v6 = v12 * v13;
+    v6 = v13 * v14;
+    v7 = (int)(float)(v6 * flt_105084);
     goto LABEL_4;
   }
   v6 = flt_10507C;
+  v7 = 0;
 LABEL_4:
   *(float *)(a3 + 96) = v6;
-  return state_check_feature(1, dword_105080);
+  return sub_12EEF8(1, "am_back_cur=%d am_back_base=%d pwr_act_diff*100=%d\n", a1, a2, v7);
 }
-

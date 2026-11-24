@@ -10,16 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114EA8;
 
-// patch_check_valid @ 0x114e84, size 28 bytes
-// Doc: patch_apply_n_24 [patch]: Apply firmware patch variant 24
-// patch_apply_n_24 [patch]: Apply firmware patch variant 24
-void __noreturn patch_check_valid()
+extern uint32_t off_114EA0;
+extern uint32_t off_114EA8;
+
+// sub_114E84 @ 0x114e84, size 28 bytes
+void  sub_114E84()
 {
-  if ( **(int16_t **)patch_apply_n_c < 0 )
-    mmio_clear_register(dword_114EA8, patch_apply_n_8, 242);
+  if ( **(uint16_t **)off_114EA0 < 0 )
+    sub_12F46C(off_114EA8, (int)aDummyHandler, 242);
   while ( 1 )
     ;
 }
-

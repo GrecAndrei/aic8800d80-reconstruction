@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_107668;
+
 extern uint32_t dword_10766C;
-extern uint32_t off_107678;
+extern uint32_t off_107668;
 extern uint32_t off_107670;
-extern uint32_t dword_107674;
+extern uint32_t off_107678;
 
 // rf_load_tx_config @ 0x1075b8, size 176 bytes
 int  rf_load_tx_config(int a1)
@@ -46,91 +46,88 @@ int  rf_load_tx_config(int a1)
   int v26; // r8
   unsigned int *v27; // r5
   int v28; // r0
-  int v29; // r1
-  int v31; // [sp+0h] [bp-60h]
-  int v32; // [sp+4h] [bp-5Ch]
-  int v33; // [sp+8h] [bp-58h]
-  int v34; // [sp+Ch] [bp-54h]
-  int v35; // [sp+10h] [bp-50h]
-  int v36; // [sp+14h] [bp-4Ch]
-  int v37; // [sp+18h] [bp-48h]
-  int v38; // [sp+1Ch] [bp-44h]
-  int v39; // [sp+20h] [bp-40h]
-  int v40; // [sp+24h] [bp-3Ch]
-  int v41; // [sp+28h] [bp-38h]
-  int v42; // [sp+2Ch] [bp-34h]
-  int v43; // [sp+30h] [bp-30h]
-  int v44; // [sp+34h] [bp-2Ch]
-  int v45; // [sp+38h] [bp-28h]
-  int v46; // [sp+3Ch] [bp-24h]
-  int v47; // [sp+40h] [bp-20h]
-  int v48; // [sp+44h] [bp-1Ch]
-  int v49; // [sp+48h] [bp-18h]
-  int v50; // [sp+4Ch] [bp-14h]
-  int v51; // [sp+50h] [bp-10h]
-  int v52; // [sp+54h] [bp-Ch]
-  int v53; // [sp+58h] [bp-8h]
-  int v54; // [sp+5Ch] [bp-4h]
-  int v55; // [sp+60h] [bp+0h] BYREF
+  int v30; // [sp+0h] [bp-60h]
+  int v31; // [sp+4h] [bp-5Ch]
+  int v32; // [sp+8h] [bp-58h]
+  int v33; // [sp+Ch] [bp-54h]
+  int v34; // [sp+10h] [bp-50h]
+  int v35; // [sp+14h] [bp-4Ch]
+  int v36; // [sp+18h] [bp-48h]
+  int v37; // [sp+1Ch] [bp-44h]
+  int v38; // [sp+20h] [bp-40h]
+  int v39; // [sp+24h] [bp-3Ch]
+  int v40; // [sp+28h] [bp-38h]
+  int v41; // [sp+2Ch] [bp-34h]
+  int v42; // [sp+30h] [bp-30h]
+  int v43; // [sp+34h] [bp-2Ch]
+  int v44; // [sp+38h] [bp-28h]
+  int v45; // [sp+3Ch] [bp-24h]
+  int v46; // [sp+40h] [bp-20h]
+  int v47; // [sp+44h] [bp-1Ch]
+  int v48; // [sp+48h] [bp-18h]
+  int v49; // [sp+4Ch] [bp-14h]
+  int v50; // [sp+50h] [bp-10h]
+  int v51; // [sp+54h] [bp-Ch]
+  int v52; // [sp+58h] [bp-8h]
+  int v53; // [sp+5Ch] [bp-4h]
+  int v54; // [sp+60h] [bp+0h] BYREF
 
-  v2 = *(uint32_t *)(dword_107668 + 396);
-  v3 = *(uint32_t *)(dword_107668 + 400);
-  v4 = *(uint32_t *)(dword_107668 + 404);
-  v31 = *(uint32_t *)(dword_107668 + 392);
-  v32 = v2;
-  v33 = v3;
-  v34 = v4;
-  v5 = *(uint32_t *)(dword_107668 + 412);
-  v6 = *(uint32_t *)(dword_107668 + 416);
-  v7 = *(uint32_t *)(dword_107668 + 420);
-  v35 = *(uint32_t *)(dword_107668 + 408);
-  v36 = v5;
-  v37 = v6;
-  v38 = v7;
-  v8 = *(uint32_t *)(dword_107668 + 428);
-  v9 = *(uint32_t *)(dword_107668 + 432);
-  v10 = *(uint32_t *)(dword_107668 + 436);
-  v39 = *(uint32_t *)(dword_107668 + 424);
-  v40 = v8;
-  v41 = v9;
-  v42 = v10;
-  v11 = *(uint32_t *)(dword_107668 + 444);
-  v12 = *(uint32_t *)(dword_107668 + 448);
-  v13 = *(uint32_t *)(dword_107668 + 452);
-  v43 = *(uint32_t *)(dword_107668 + 440);
-  v44 = v11;
-  v45 = v12;
-  v46 = v13;
+  v2 = ((uint32_t *)(uintptr_t)off_107668)[99];
+  v3 = ((uint32_t *)(uintptr_t)off_107668)[100];
+  v4 = ((uint32_t *)(uintptr_t)off_107668)[101];
+  v30 = ((uint32_t *)(uintptr_t)off_107668)[98];
+  v31 = v2;
+  v32 = v3;
+  v33 = v4;
+  v5 = ((uint32_t *)(uintptr_t)off_107668)[103];
+  v6 = ((uint32_t *)(uintptr_t)off_107668)[104];
+  v7 = ((uint32_t *)(uintptr_t)off_107668)[105];
+  v34 = ((uint32_t *)(uintptr_t)off_107668)[102];
+  v35 = v5;
+  v36 = v6;
+  v37 = v7;
+  v8 = ((uint32_t *)(uintptr_t)off_107668)[107];
+  v9 = ((uint32_t *)(uintptr_t)off_107668)[108];
+  v10 = ((uint32_t *)(uintptr_t)off_107668)[109];
+  v38 = ((uint32_t *)(uintptr_t)off_107668)[106];
+  v39 = v8;
+  v40 = v9;
+  v41 = v10;
+  v11 = ((uint32_t *)(uintptr_t)off_107668)[111];
+  v12 = ((uint32_t *)(uintptr_t)off_107668)[112];
+  v13 = ((uint32_t *)(uintptr_t)off_107668)[113];
+  v42 = ((uint32_t *)(uintptr_t)off_107668)[110];
+  v43 = v11;
+  v44 = v12;
+  v45 = v13;
   v14 = *(uint32_t *)(a1 + 8);
-  v15 = *(uint32_t *)(dword_107668 + 460);
-  v16 = *(uint32_t *)(dword_107668 + 464);
-  v17 = *(uint32_t *)(dword_107668 + 468);
-  v18 = ((unsigned uint64_t)(dword_10766C * (uint64_t)*(int *)(a1 + 4)) >> 32) - (*(int *)(a1 + 4) >> 31);
-  v47 = *(uint32_t *)(dword_107668 + 456);
-  v48 = v15;
-  v49 = v16;
-  v50 = v17;
-  if ( v18 >= (int)(((unsigned uint64_t)(dword_10766C * (uint64_t)v14) >> 32) - (v14 >> 31)) )
-    v18 = ((unsigned uint64_t)(dword_10766C * (uint64_t)v14) >> 32) - (v14 >> 31);
-  v19 = *(uint32_t *)(dword_107668 + 476);
-  v20 = *(uint32_t *)(dword_107668 + 480);
-  v21 = *(uint32_t *)(dword_107668 + 484);
+  v15 = ((uint32_t *)(uintptr_t)off_107668)[115];
+  v16 = ((uint32_t *)(uintptr_t)off_107668)[116];
+  v17 = ((uint32_t *)(uintptr_t)off_107668)[117];
+  v18 = ((uint64_t)(dword_10766C * (uint64_t)*(int *)(a1 + 4)) >> 32) - (*(int *)(a1 + 4) >> 31);
+  v46 = ((uint32_t *)(uintptr_t)off_107668)[114];
+  v47 = v15;
+  v48 = v16;
+  v49 = v17;
+  if ( v18 >= (int)(((uint64_t)(dword_10766C * (uint64_t)v14) >> 32) - (v14 >> 31)) )
+    v18 = ((uint64_t)(dword_10766C * (uint64_t)v14) >> 32) - (v14 >> 31);
+  v19 = ((uint32_t *)(uintptr_t)off_107668)[119];
+  v20 = ((uint32_t *)(uintptr_t)off_107668)[120];
+  v21 = ((uint32_t *)(uintptr_t)off_107668)[121];
   v22 = v18 & ~(v18 >> 31);
-  v23 = &v55 + v22;
+  v23 = &v54 + v22;
   v24 = (unsigned int *)off_107678;
   v25 = *(v23 - 24);
   v26 = *(uint32_t *)off_107678;
-  v51 = *(uint32_t *)(dword_107668 + 472);
-  v52 = v19;
-  v53 = v20;
-  v54 = v21;
+  v50 = ((uint32_t *)(uintptr_t)off_107668)[118];
+  v51 = v19;
+  v52 = v20;
+  v53 = v21;
   v27 = (unsigned int *)off_107670;
   v28 = *(v23 - 12);
-  v29 = dword_107674;
   *(uint32_t *)(a1 + 8) = 3 * v22;
   *v24 = (v25 << 12) & 0x7000 | v26 & 0xFFFF8FFF;
   *v27 |= 0x400u;
   *v27 = (v28 << 8) & 0x300 | *v27 & 0xFFFFFCFF;
-  return state_check_feature(1, v29);
+  return state_check_feature(1, "index=%d shift_idx=%d\n", v22, 3 * v22);
 }
-

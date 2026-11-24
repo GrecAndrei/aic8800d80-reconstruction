@@ -10,16 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10FF0C;
-extern uint32_t off_10FF18;
-extern uint32_t dword_10FF20;
 extern uint32_t off_10FF10;
 extern uint32_t off_10FF14;
-extern uint32_t dword_10FF1C;
-extern uint32_t dword_10FF2C;
-extern uint32_t dword_10FF28;
-extern uint32_t dword_10FF24;
-extern uint32_t dword_10FF30;
+extern uint32_t off_10FF18;
 
 // util_is_nonnull @ 0x10fce0, size 554 bytes
 int  util_is_nonnull(int a1, uint32_t *a2)
@@ -41,7 +36,7 @@ int  util_is_nonnull(int a1, uint32_t *a2)
   int v18; // r6
   uint16_t *v19; // r9
   int v20; // r6
-  int16_t v21; // r3
+  uint16_t v21; // r3
   int v22; // r0
   int v23; // r3
   int v24; // r3
@@ -60,7 +55,7 @@ int  util_is_nonnull(int a1, uint32_t *a2)
   }
   else
   {
-    log_printf(dword_10FF20, a2);
+    log_printf("get_native_pool_id: Invalid buffer passed: %x\n", a2);
     v5 = 0;
   }
   if ( *(uint8_t *)(a1 + 8) <= v5 )
@@ -81,7 +76,7 @@ int  util_is_nonnull(int a1, uint32_t *a2)
     v15 = *(uint32_t *)off_10FF18;
     if ( (unsigned int)a2 < *(uint32_t *)off_10FF18 || (unsigned int)a2 > *((uint32_t *)off_10FF18 + 1) + v15 )
     {
-      log_printf(dword_10FF1C, a2);
+      log_printf("get_pattern: Invalid buffer passed: %x\n", a2);
     }
     else
     {
@@ -148,7 +143,7 @@ LABEL_40:
       }
       else
       {
-        log_printf(dword_10FF2C, a2);
+        log_printf("set_pattern: Invalid buffer passed: %x\n", a2);
       }
       if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
         || (unsigned int)a2 >= *(uint32_t *)off_10FF18
@@ -158,7 +153,7 @@ LABEL_40:
       }
       else
       {
-        log_printf(dword_10FF28, a2);
+        log_printf("set_next_buffer_addr: Invalid buffer passed: %x\n", a2);
       }
       v21 = *(uint16_t *)(v6 + v20);
       v22 = *v7;
@@ -187,7 +182,7 @@ LABEL_36:
   if ( (unsigned int)a2 < *v14 )
   {
 LABEL_38:
-    log_printf(dword_10FF24, a2);
+    log_printf("decr_num_users: Invalid buffer passed: %x\n", a2);
     goto LABEL_39;
   }
 LABEL_37:
@@ -209,7 +204,7 @@ LABEL_39:
   }
   else
   {
-    log_printf(dword_10FF30, a2);
+    log_printf("set_num_users: Invalid buffer passed: %x\n", a2);
   }
   if ( *v7 )
   {
@@ -224,4 +219,3 @@ LABEL_39:
   }
   return 1;
 }
-

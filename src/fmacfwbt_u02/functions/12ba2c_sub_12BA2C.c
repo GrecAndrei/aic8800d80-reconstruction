@@ -10,63 +10,61 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12BAA4;
-extern uint32_t off_12BAC0;
-extern uint32_t dword_12BACC;
-extern uint32_t dword_12BAC8;
 extern uint32_t off_12BAA8;
 extern uint32_t off_12BAB0;
 extern uint32_t off_12BAB4;
 extern uint32_t off_12BAB8;
 extern uint32_t off_12BABC;
-extern uint32_t off_12BAAC;
+extern uint32_t off_12BAC0;
 extern uint32_t off_12BAC4;
 
 // rf_check_clk_state @ 0x12ba2c, size 120 bytes
 int rf_check_clk_state()
 {
   uint32_t *v0; // r1
-  int v1; // r6
-  int *v2; // r4
-  uint32_t *v3; // r2
-  uint32_t *v4; // r5
-  uint32_t *v5; // r7
-  int v6; // r3
+  volatile unsigned int v1; // r3
+  int v2; // r6
+  uint32_t *v3; // r4
+  uint32_t *v4; // r2
+  uint32_t *v5; // r5
+  uint32_t *v6; // r7
   int result; // r0
   uint32_t *v8; // r4
   int v9; // r3
   int *v10; // r3
   int v11; // r3
 
-  if ( **(int16_t **)off_12BAA4 < 0 && !(*(uint32_t *)off_12BAC0 << 28) )
-    return ke_int_lock(dword_12BACC, dword_12BAC8, 213, *(uint32_t *)off_12BAC0);
+  if ( **(uint16_t **)off_12BAA4 < 0 && !(*(uint32_t *)off_12BAC0 << 28) )
+    return ke_int_lock_1((int)aNxmacCurrentSt_0, (int)aHalMachwIdleRe, 213);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_12BAA8 = 1;
   }
   v0 = off_12BAB0;
-  v1 = *(uint32_t *)off_12BAB0;
-  v2 = (int *)off_12BAB4;
-  v3 = off_12BAB8;
-  v4 = off_12BABC;
-  v5 = off_12BAC0;
-  v6 = *(uint32_t *)off_12BAAC + 25000;
+  v1 = REG_4032_0120;
+  v2 = *(uint32_t *)off_12BAB0;
+  v3 = off_12BAB4;
+  v4 = off_12BAB8;
+  v5 = off_12BABC;
+  v6 = off_12BAC0;
   result = *(uint32_t *)off_12BAB0 + 1;
   *(uint32_t *)off_12BAB0 = result;
-  *v2 = v6;
+  *v3 = v1 + 25000;
   v8 = off_12BAC4;
-  *v3 = 128;
+  *v4 = 128;
   v9 = v8[1] | 4;
-  *v4 |= 0x80u;
+  *v5 |= 0x80u;
   v8[1] = v9;
-  *v5 = 0;
+  *v6 = 0;
   if ( result )
   {
     v10 = (int *)off_12BAA8;
-    *v0 = v1;
+    *v0 = v2;
     v11 = *v10;
-    if ( !v1 )
+    if ( !v2 )
     {
       if ( v11 )
         __enable_irq();
@@ -74,4 +72,3 @@ int rf_check_clk_state()
   }
   return result;
 }
-

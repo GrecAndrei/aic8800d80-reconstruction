@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_116EEC;
+
 extern uint32_t dword_116ED8;
+extern uint32_t dword_116EEC;
 extern uint32_t off_116EDC;
-extern uint32_t dword_116EE8;
-extern uint32_t dword_116EE4;
-extern uint32_t off_116EF0;
 extern uint32_t off_116EE0;
+extern uint32_t off_116EF0;
 
 // get_bt_param @ 0x116de0, size 248 bytes
 int  get_bt_param(int result, int a2, int a3)
@@ -24,11 +23,10 @@ int  get_bt_param(int result, int a2, int a3)
   int v4; // r6
   int *v6; // r5
   int v7; // r2
-  int v8; // r3
-  void *v9; // r8
-  int v10; // r3
+  void *v8; // r8
+  int v9; // r3
+  int v10; // r2
   int v11; // r2
-  int v12; // r2
 
   v4 = result;
   if ( a3 == 5 )
@@ -36,40 +34,39 @@ int  get_bt_param(int result, int a2, int a3)
   else
     v6 = (int *)(dword_116ED8 + 84 * a3);
   v7 = *v6;
-  v8 = **(int16_t **)off_116EDC;
-  if ( v8 < 0 && v7 == result )
-    return ke_int_lock(dword_116EE8, dword_116EE4, 1972, v8);
+  if ( **(uint16_t **)off_116EDC < 0 && v7 == result )
+    return ke_int_lock_1((int)aPrevHdFirstThd, (int)aTxlFrameExchan, 1972);
   if ( v7 )
   {
-    v9 = off_116EF0;
-    v10 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
+    v8 = off_116EF0;
+    v9 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
     if ( *(uint8_t *)(*(uint32_t *)off_116EF0 + 1) || !v6[2] )
       *(uint32_t *)(v7 + 4) = result;
     else
       *(uint32_t *)(v6[1] + 4) = result;
     if ( a3 == 5
       || !*((uint8_t *)off_116EE0 + 28 * a3 + 46)
-      && ((v11 = *((uint32_t *)off_116EE0 + 52), result = v11 << 31, (v11 & 1) == 0)
+      && ((v10 = *((uint32_t *)off_116EE0 + 52), result = v10 << 31, (v10 & 1) == 0)
        || *((uint8_t *)off_116EE0 + 190) != a3) )
     {
       result = switch_rf_path(a3);
-      v10 = *(uint8_t *)(*(uint32_t *)v9 + 1);
+      v9 = *(uint8_t *)(*(uint32_t *)v8 + 1);
     }
   }
   else if ( a3 != 5
-         && ((v8 = (int)off_116EE0, v7 = 8 * a3, *((uint8_t *)off_116EE0 + 28 * a3 + 46))
+         && (*((uint8_t *)off_116EE0 + 28 * a3 + 46)
           || (result = *((uint8_t *)off_116EE0 + 190), (*((uint32_t *)off_116EE0 + 52) & 1) != 0) && a3 == result) )
   {
-    v12 = *(uint32_t *)off_116EF0;
+    v11 = *(uint32_t *)off_116EF0;
     *((uint32_t *)off_116EE0 + 7 * a3 + 9) = v4;
-    v10 = *(uint8_t *)(v12 + 1);
+    v9 = *(uint8_t *)(v11 + 1);
   }
   else
   {
-    result = get_cal_item(v4, a3, v7, v8);
-    v10 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
+    result = get_cal_item(v4, a3);
+    v9 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
   }
-  if ( !v10 )
+  if ( !v9 )
   {
     if ( (*(uint32_t *)(a2 + 56) & 0x200000) != 0 )
     {
@@ -85,4 +82,3 @@ int  get_bt_param(int result, int a2, int a3)
   *(uint32_t *)(dword_116ED8 + 84 * a3) = a2;
   return result;
 }
-

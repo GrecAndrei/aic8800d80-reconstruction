@@ -10,84 +10,60 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12C1CC;
 extern uint32_t off_12C1D0;
-extern uint32_t dword_12C1E8;
-extern uint32_t dword_12C1E4;
 extern uint32_t off_12C1D4;
-extern uint32_t off_12C1F8;
-extern uint32_t off_12C1FC;
-extern uint32_t dword_12C200;
 extern uint32_t off_12C1D8;
 extern uint32_t off_12C1DC;
 extern uint32_t off_12C1E0;
-extern uint32_t dword_12C1EC;
-extern uint32_t dword_12C1F4;
-extern uint32_t dword_12C214;
-extern uint32_t dword_12C210;
-extern uint32_t dword_12C20C;
-extern uint32_t dword_12C208;
-extern uint32_t dword_12C204;
-extern uint32_t dword_12C1F0;
+extern uint32_t off_12C1F8;
+extern uint32_t off_12C1FC;
 
 // power_state_read @ 0x12c0b4, size 280 bytes
-// Doc: sub_122C0B4 [mmio]: Copy MMIO register value from 0x40328084 to 0x40328088
-// sub_122C0B4 [mmio]: Copy MMIO register value from 0x40328084 to 0x40328088
-int  power_state_read(int a1, int a2)
+int power_state_read()
 {
-  void *v2; // r2
-  int v3; // r4
+  int v0; // r4
   int result; // r0
-  int v5; // r1
-  int v6; // r2
-  int v7; // r3
-  int v8; // r1
-  int v9; // r0
-  int v10; // r2
-  char *v11; // r4
-  int v12; // r1
-  int v13; // r2
+  int *v2; // r4
+  int v3; // r1
 
-  v2 = off_12C1CC;
-  v3 = *(uint32_t *)off_12C1CC;
+  v0 = *(uint32_t *)off_12C1CC;
   *(uint32_t *)off_12C1D0 = *(uint32_t *)off_12C1CC;
-  result = v3 << 21;
-  if ( (v3 & 0x400) != 0 )
+  result = v0 << 21;
+  if ( (v0 & 0x400) != 0 )
   {
-    ke_event_schedule(dword_12C1E8, a2, v2);
+    ke_event_schedule_1(aErrorThereIsNo_0);
     while ( 1 )
       ;
   }
-  v5 = v3 << 23;
-  if ( (v3 & 0x100) == 0 )
+  if ( (v0 & 0x100) == 0 )
   {
-    v6 = v3 << 22;
-    if ( (v3 & 0x200) == 0 )
+    if ( (v0 & 0x200) == 0 )
       goto LABEL_4;
 LABEL_13:
-    ke_event_schedule(dword_12C1E4, v5, v6);
+    ke_event_schedule_1(aErrorThereIsNo);
     while ( 1 )
       ;
   }
   result = seq_count_restart();
-  v6 = v3 << 22;
-  if ( (v3 & 0x200) != 0 )
+  if ( (v0 & 0x200) != 0 )
     goto LABEL_13;
 LABEL_4:
-  if ( (v3 & 0x10) != 0 )
+  if ( (v0 & 0x10) != 0 )
   {
     mmio_set_bit(4);
-    result = conn_get(4);
+    result = conn_get(4u);
   }
-  if ( (v3 & 0x2F) != 0 )
+  if ( (v0 & 0x2F) != 0 )
   {
     if ( *(uint8_t *)off_12C1D4 )
     {
-      v11 = (char *)off_12C1F8;
-      write_mmio_byte(*((uint8_t *)off_12C1F8 + 411));
-      v12 = v11[411];
-      *((uint8_t *)off_12C1FC + 9) = v12;
-      return ke_event_schedule(dword_12C200, v12, v13);
+      v2 = (int *)off_12C1F8;
+      write_mmio_byte(HIBYTE(((uint32_t *)(uintptr_t)off_12C1F8)[102]));
+      v3 = *((char *)v2 + 411);
+      *((uint8_t *)off_12C1FC + 9) = v3;
+      return ke_event_schedule_1("update:%d\n", v3);
     }
     if ( *(uint8_t *)off_12C1D8 )
     {
@@ -96,64 +72,40 @@ LABEL_4:
         *((uint8_t *)off_12C1D8 + 6) = 1;
     }
   }
-  v7 = **(int16_t **)off_12C1E0;
-  if ( v7 < 0 )
+  if ( **(uint16_t **)off_12C1E0 < 0 )
   {
-    if ( (v3 & 1) != 0 )
+    if ( (v0 & 1) != 0 )
     {
-      v8 = dword_12C1EC;
-      v9 = dword_12C1F4;
-      v10 = 760;
+      return ke_int_lock_1((int)aTimerPendingHa_0, (int)aHalMachwAbsTim, 760);
     }
-    else if ( (v3 & 2) != 0 )
+    else if ( (v0 & 2) != 0 )
     {
-      v8 = dword_12C1EC;
-      v9 = dword_12C214;
-      v10 = 761;
+      return ke_int_lock_1((int)aTimerPendingHa_5, (int)aHalMachwAbsTim, 761);
+    }
+    else if ( (v0 & 4) != 0 )
+    {
+      return ke_int_lock_1((int)aTimerPendingHa_4, (int)aHalMachwAbsTim, 762);
     }
     else
     {
-      v7 = v3 << 29;
-      if ( (v3 & 4) != 0 )
+      result = v0 << 28;
+      if ( (v0 & 8) != 0 )
       {
-        v8 = dword_12C1EC;
-        v9 = dword_12C210;
-        v10 = 762;
+        return ke_int_lock_1((int)aTimerPendingHa_3, (int)aHalMachwAbsTim, 763);
       }
-      else
+      else if ( (v0 & 0x80) != 0 )
       {
-        result = v3 << 28;
-        if ( (v3 & 8) != 0 )
-        {
-          v8 = dword_12C1EC;
-          v9 = dword_12C20C;
-          v10 = 763;
-        }
-        else if ( (v3 & 0x80) != 0 )
-        {
-          v8 = dword_12C1EC;
-          v9 = dword_12C208;
-          v10 = 765;
-        }
-        else if ( (v3 & 0x40) != 0 )
-        {
-          v8 = dword_12C1EC;
-          v9 = dword_12C204;
-          v10 = 767;
-        }
-        else
-        {
-          v7 = v3 << 26;
-          if ( (v3 & 0x20) == 0 )
-            return result;
-          v8 = dword_12C1EC;
-          v9 = dword_12C1F0;
-          v10 = 769;
-        }
+        return ke_int_lock_1((int)aTimerPendingHa_2, (int)aHalMachwAbsTim, 765);
+      }
+      else if ( (v0 & 0x40) != 0 )
+      {
+        return ke_int_lock_1((int)aTimerPendingHa_1, (int)aHalMachwAbsTim, 767);
+      }
+      else if ( (v0 & 0x20) != 0 )
+      {
+        return ke_int_lock_1((int)aTimerPendingHa, (int)aHalMachwAbsTim, 769);
       }
     }
-    return ke_int_lock(v9, v8, v10, v7);
   }
   return result;
 }
-

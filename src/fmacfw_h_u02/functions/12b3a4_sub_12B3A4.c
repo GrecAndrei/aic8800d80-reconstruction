@@ -10,16 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12B3D0;
-
 // rf_execute_cmd @ 0x12b3a4, size 40 bytes
-int  rf_execute_cmd(char a1, int a2)
+uint32_t * rf_execute_cmd(char a1, uint16_t a2)
 {
-  uint8_t *v3; // r4
+  char *v3; // r4
 
-  v3 = (uint8_t *)tx_send_pdu(2052, a2, 2, 1);
-  check_feature_flag(4, dword_12B3D0);
+  v3 = (char *)tx_send_pdu(2052, a2, 2, 1);
+  check_feature_flag(4, "%s\r\n", aScanSendCancel);
   *v3 = a1;
-  return rx_process_packet(v3);
+  return rx_process_packet_1((int)v3);
 }
-

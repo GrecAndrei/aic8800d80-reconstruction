@@ -10,16 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_116CF4;
-extern uint32_t off_116CF0;
-extern uint32_t dword_116D00;
-extern uint32_t dword_116CFC;
-extern uint32_t dword_116CF8;
-extern uint32_t dword_116D0C;
-extern uint32_t dword_116D04;
-extern uint32_t dword_116D08;
-extern uint32_t off_116CE8;
+
 extern uint32_t dword_116CEC;
+extern uint32_t dword_116CF4;
+extern uint32_t off_116CE8;
+extern uint32_t off_116CF0;
 
 // rx_process_packet @ 0x116b0c, size 474 bytes
 int  rx_process_packet(int a1, int a2, char a3)
@@ -38,7 +33,7 @@ int  rx_process_packet(int a1, int a2, char a3)
   unsigned int v18; // r1
   int v19; // r2
   int v20; // r2
-  int16_t **v21; // r6
+  uint16_t **v21; // r6
   int v22; // r5
   uint16_t *v23; // r3
   int v24; // r3
@@ -65,14 +60,14 @@ int  rx_process_packet(int a1, int a2, char a3)
     if ( (*(uint16_t *)(a1 + 30) & 0x2000) != 0 )
     {
       v16 = *(uint32_t *)(dword_116CF4 + 696 * *(uint8_t *)(a1 + 29) + 340);
-      if ( **(int16_t **)off_116CF0 >= 0 || v16 )
+      if ( **(uint16_t **)off_116CF0 >= 0 || v16 )
       {
         v17 = v5;
       }
       else
       {
         v29 = v12;
-        irq_disable_mmio_write(dword_116D00, dword_116CFC, 475);
+        irq_disable_mmio_write((int)aRcSsNull, (int)aRcGetStaStats, 475);
         v17 = *(uint32_t *)(a1 + 72);
         v12 = v29;
       }
@@ -102,26 +97,26 @@ int  rx_process_packet(int a1, int a2, char a3)
     }
   }
   *(uint8_t *)(v5 + 36) = a3;
-  rx_packet_process(a1, a2);
+  rx_packet_process_1(a1, a2);
   if ( *(uint16_t *)(a1 + 24) == 36488 )
-    alloc_tx_event(dword_116CF8, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
+    alloc_tx_event("txl :%x, len=%d\r\n", 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
   v8 = *(uint32_t *)(a1 + 8);
   v9 = *(uint32_t *)(a1 + 72);
   if ( v8 >= 0 || (v20 = *(uint16_t *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
   {
-    if ( hci_cmd_handler(6) == 6 )
+    if ( hci_cmd_handler(6u) == 6 )
       goto LABEL_24;
 LABEL_7:
     v10 = *(uint32_t **)(a1 + 72);
     goto LABEL_8;
   }
   *(uint32_t *)(v9 + 60) = *(uint32_t *)(v9 + 60) & 0xFFFF00FF | 0xE00;
-  if ( hci_cmd_handler(6) != 6 )
+  if ( hci_cmd_handler(6u) != 6 )
     goto LABEL_7;
 LABEL_24:
-  v21 = (int16_t **)off_116CF0;
+  v21 = (uint16_t **)off_116CF0;
   v22 = *(uint32_t *)(a1 + 76);
-  if ( **(int16_t **)off_116CF0 >= 0 )
+  if ( **(uint16_t **)off_116CF0 >= 0 )
   {
     v23 = *(uint16_t **)(v22 + 28);
     if ( v23 )
@@ -135,7 +130,7 @@ LABEL_28:
   v10 = *(uint32_t **)(a1 + 72);
   if ( !v10 )
   {
-    irq_disable_mmio_write(dword_116D0C, dword_116D04, 518);
+    irq_disable_mmio_write((int)aTxlBufferGetTx, (int)aTxlBufferMachd, 518);
     v23 = *(uint16_t **)(v22 + 28);
     if ( v23 )
       goto LABEL_28;
@@ -150,7 +145,7 @@ LABEL_41:
     v24 = *(uint32_t *)(v22 + 24);
     if ( v24 )
       goto LABEL_27;
-    irq_disable_mmio_write(dword_116D08, dword_116D04, 525);
+    irq_disable_mmio_write((int)aThdFirstPbdPtr, (int)aTxlBufferMachd, 525);
 LABEL_26:
     v24 = *(uint32_t *)(v22 + 24);
 LABEL_27:
@@ -161,12 +156,11 @@ LABEL_29:
   if ( (*v23 & 0xFC) == 0xB0 )
     *(uint32_t *)(v9 + 60) = *(uint32_t *)(v9 + 60) & 0xFFFF00FF | 0x1400;
 LABEL_8:
-  if ( *((uint8_t *)off_116CE8 + 360) && (*(uint16_t *)(a1 + 30) & 8) == 0 && (*(uint32_t *)(a1 + 8) & 0x40000000) == 0 )
-    *(uint8_t *)(v9 + 61) = *((uint8_t *)off_116CE8 + 360);
+  if ( LOBYTE(((uint32_t *)(uintptr_t)off_116CE8)[90]) && (*(uint16_t *)(a1 + 30) & 8) == 0 && (*(uint32_t *)(a1 + 8) & 0x40000000) == 0 )
+    *(uint8_t *)(v9 + 61) = ((uint32_t *)(uintptr_t)off_116CE8)[90];
   v10[4] = dword_116CEC;
   v10[2] = a1;
   v10[3] = a1;
   mac_update_flags(a1, a1, (int)v10, a2);
   return 0;
 }
-

@@ -10,20 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10D0D8;
-extern uint32_t off_10D0E0;
+
 extern uint32_t off_10D0DC;
+extern uint32_t off_10D0E0;
 
 // bt_set_address @ 0x10d0bc, size 26 bytes
-int  bt_set_address(int a1, int a2, int a3)
+int  bt_set_address(int a1)
 {
   int result; // r0
-  uint32_t *v5; // r3
+  uint32_t *v3; // r3
 
-  result = alloc_tx_event(dword_10D0D8, a1, a3);
-  v5 = off_10D0E0;
+  result = alloc_tx_event("chan notify: %x\r\n", a1);
+  v3 = off_10D0E0;
   *(uint32_t *)off_10D0DC = a1;
-  *v5 = 0x1000000;
+  *v3 = 0x1000000;
   return result;
 }
-

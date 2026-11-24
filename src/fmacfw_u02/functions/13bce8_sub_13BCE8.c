@@ -10,24 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_13BD54;
 extern uint32_t dword_13BD58;
-extern uint32_t dword_13BD5C;
+extern uint32_t off_13BD5C;
 
 // rf_pll_calibrate @ 0x13bce8, size 108 bytes
 int  rf_pll_calibrate(int result)
 {
   int v1; // r4
   int v2; // r5
-  int v3; // r10
+  void *a7; // r10
   int v4; // r7
-  int16_t v5; // r9
+  uint16_t v5; // r9
   int v6; // r6
   int v7; // t1
 
   v1 = dword_13BD54;
   v2 = dword_13BD58;
-  v3 = dword_13BD5C;
+  a7 = off_13BD5C;
   v4 = result;
   v5 = -128 * dword_13BD54;
   v6 = dword_13BD54 + 64;
@@ -41,7 +42,7 @@ int  rf_pll_calibrate(int result)
       {
         rx_phy_status_parse((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(uint8_t *)(v2 + 25) = 0;
-        result = adv_set_params(v4, v2, 2, 0, 0, 39, v3);
+        result = adv_set_params(v4, v2, 2, 0, 0, 0x27u, (int)a7);
       }
     }
     v2 += 32;
@@ -49,4 +50,3 @@ int  rf_pll_calibrate(int result)
   while ( v1 != v6 );
   return result;
 }
-

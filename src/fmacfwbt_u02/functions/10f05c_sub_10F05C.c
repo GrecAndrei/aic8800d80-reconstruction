@@ -10,11 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10F0A8;
 extern uint32_t off_10F0AC;
+extern uint32_t off_10F0B0;
 
 // copy_stats @ 0x10f05c, size 74 bytes
-void __noreturn copy_stats()
+int copy_stats()
 {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -38,5 +40,9 @@ void __noreturn copy_stats()
   *(uint64_t *)(v2 + 12) = v3;
   *((uint32_t *)v2 + 5) = v5;
   hw_enable();
+  hw_config_init_0688();
+  enable_nvic_irq();
+  if ( **(uint8_t **)off_10F0B0 == 3 )
+    clear_context_182b48();
+  return clear_182b70_struct();
 }
-

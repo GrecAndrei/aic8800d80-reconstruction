@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_128CE4;
-extern uint32_t dword_128CE8;
+
+extern uint32_t off_128CE8;
 extern uint32_t off_128CEC;
 
 // wlc_log_event_a @ 0x128ca0, size 64 bytes
@@ -21,8 +21,8 @@ int  wlc_log_event_a(int a1, int a2)
   uint16_t *v5; // r2
   char v6; // r3
 
-  check_status_bits(2, dword_128CE4);
-  result = wlc_check_rate_flag(a1, a2, dword_128CE8);
+  check_status_bits(2, "%s:%x\r\n", aPsEnableCfm, a2);
+  result = wlc_check_rate_flag(a1, a2, off_128CE8);
   if ( result )
   {
     v5 = (uint16_t *)off_128CEC;
@@ -34,4 +34,3 @@ int  wlc_log_event_a(int a1, int a2)
   }
   return result;
 }
-

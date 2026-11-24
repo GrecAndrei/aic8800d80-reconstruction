@@ -10,13 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// float32_decompose @ 0x12d7cc, size 242 bytes
-float  float32_decompose(unsigned int a1)
+
+extern float flt_12D8C0;
+extern float flt_12D8C4;
+extern float flt_12D8C8;
+extern float flt_12D8CC;
+extern float flt_12D8D0;
+extern float flt_12D8D4;
+extern float flt_12D8D8;
+extern float flt_12D8DC;
+extern float flt_12D8E0;
+extern float flt_12D8E4;
+extern float flt_12D8E8;
+extern float flt_12D8EC;
+extern float flt_12D8F0;
+extern float flt_12D8F4;
+extern float flt_12D8F8;
+extern float flt_12D8FC;
+extern float flt_12D900;
+
+// sub_12D7CC @ 0x12d7cc, size 242 bytes
+unsigned int  sub_12D7CC(unsigned int a1)
 {
   unsigned int v1; // r3
   int v2; // s15
   int v3; // r0
   float v4; // s15
+  unsigned int result; // r0
   float v6; // s15
   float v7; // s13
   float v8; // s14
@@ -71,6 +91,6 @@ float  float32_decompose(unsigned int a1)
   {
     v4 = (float)((float)v2 * flt_12D8C0) + flt_12D8C4;
   }
-  return (float)(v3 - 127) + (float)(v4 * flt_12D8C8);
+  *(float *)&result = (float)(v3 - 127) + (float)(v4 * flt_12D8C8);
+  return result;
 }
-

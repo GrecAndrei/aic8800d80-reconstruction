@@ -16,8 +16,6 @@ extern uint32_t dword_1128FC;
 extern uint32_t dword_112900;
 extern uint32_t dword_112904;
 extern uint32_t dword_11290C;
-extern uint32_t dword_112910;
-extern uint32_t dword_112914;
 
 // critical_section_enter @ 0x112878, size 126 bytes
 int critical_section_enter()
@@ -55,9 +53,9 @@ int critical_section_enter()
     v7 = *(uint16_t *)(dword_11290C + 0xB2);
     *(uint32_t *)(dword_112904 + 0x804) &= ~1u;
     if ( (v7 & 0x4000) != 0 )
-      result = sub_10D654(dword_112910);
+      result = (int)uart_tx_string(aUsbRmtwkup);
     else
-      result = sub_11F504(dword_112914);
+      result = dispatch_event_handler_1(aUsbRmtwkup_0);
     v3 = *v0;
     *v1 = 0;
   }

@@ -132,8 +132,26 @@ def convert_to_c99(text: str) -> str:
     text = re.sub(r"\bJUMPOUT\(0x([0-9A-Fa-f]+)\)", jout, text)
     # MSVC __asm { MSR.W MSP, R0 } -> GCC inline asm (the register globals
     # _R0/_R2/etc. live in aic8800d80_types.h).
-    text = re.sub(r"__asm\s*\{\s*MSR\.W\s+MSP,\s*([A-Za-z_]\w*)\s*\}",
-                  r'__asm volatile("msr msp, %0" : : "r"(\1) : "memory");', text)
+    text = re.sub(
+        r"__asm\s*\{\s*MSR\.W\s+MSP,\s*([A-Za-z_]\w*)\s*\}",
+        lambda m: '__asm volatile("msr msp, %0" : : "r"(' + (f"_{m.group(1)}" if re.match(r"^R\d+$", m.group(1)) else m.group(1)) + ') : "memory");',
+        text,
+    )
+    # Hex-Rays emits `(*SYM)[k]` when a literal-pool slot `SYM` (`uint32_t` holding
+    # a base pointer) is typed as pointer-to-array; `(*SYM)` is the base pointer,
+    # so `(*SYM)[k]` == `((uint32_t *)(uintptr_t)SYM)[k]`.
+    text = re.sub(
+        r"\(\*(?P<sym>(?:off|dword|word|byte|unk|qword|algn|flt|dbl|jpt|loc)_[0-9A-Fa-f]{4,8})\)\[",
+        r"((uint32_t *)(uintptr_t)\g<sym>)[",
+        text,
+    )
+    # ARM AAPCS va_list is a struct ({ void *__ap; }); casting directly to a
+    # pointer fails GCC/Clang. Extract __ap via *(void **)&(varg_rN).
+    text = re.sub(
+        r"\(\s*(?:unsigned\s+int|uint32_t|int|void)\s*\*\s*\)\s*(varg_r\d+)\b",
+        r"(unsigned int *)(*(void **)&(\1))",
+        text,
+    )
     # 2D data-symbol subscript -> byte deref of the element (the heal's
     # scalar-subscript rewrite leaves the second [k] dangling otherwise).
     def two_d(m):

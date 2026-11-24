@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_114A38;
+
 // copy_global_1672f8 @ 0x11499c, size 156 bytes
-// Doc: rf_fault_dump_n2ac [rf]: RF fault dump helper n2ac
-// rf_fault_dump_n2ac [rf]: RF fault dump helper n2ac
 int  copy_global_1672f8(int a1, int a2)
 {
   int v3; // r1
@@ -32,9 +33,9 @@ int  copy_global_1672f8(int a1, int a2)
   int v17; // [sp+8h] [bp-14h]
   uint32_t v18[4]; // [sp+Ch] [bp-10h] BYREF
 
-  v3 = *(uint32_t *)(rf_fault_dump_4a38 + 4);
-  v4 = *(uint32_t *)(rf_fault_dump_4a38 + 8);
-  v18[0] = *(uint32_t *)rf_fault_dump_4a38;
+  v3 = ((uint32_t *)(uintptr_t)off_114A38)[1];
+  v4 = ((uint32_t *)(uintptr_t)off_114A38)[2];
+  v18[0] = ((uint32_t *)(uintptr_t)off_114A38)[0];
   v18[1] = v3;
   v18[2] = v4;
   v5 = v18[a1];
@@ -56,7 +57,7 @@ int  copy_global_1672f8(int a1, int a2)
       {
         result |= 2 << (4 * v8);
         v15 = (uint8_t *)(a2 + v8);
-        goto rf_fault_dump_n2aa;
+        goto LABEL_8;
       }
       result |= v12;
       v10 = v14;
@@ -69,7 +70,7 @@ int  copy_global_1672f8(int a1, int a2)
       LOBYTE(v12) = 1;
     LOBYTE(v14) = v13 * v12;
     v15 = (uint8_t *)(a2 + v8);
-rf_fault_dump_n2aa:
+LABEL_8:
     ++v8;
     *v15 = v14;
     if ( v8 == 6 )
@@ -77,4 +78,3 @@ rf_fault_dump_n2aa:
     v6 = *(uint32_t *)((char *)&v18[-2] + (v8 & 0xFFFFFFFC));
   }
 }
-

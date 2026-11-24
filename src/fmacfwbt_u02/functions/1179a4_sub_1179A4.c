@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_117AA8;
+extern uint32_t dword_117AC0;
 extern uint32_t dword_117AC8;
 extern uint32_t off_117AA4;
-extern uint32_t dword_117AA8;
 extern uint32_t off_117AAC;
 extern uint32_t off_117AB0;
 extern uint32_t off_117AB4;
-extern uint32_t dword_117AC0;
-extern uint32_t off_117AC4;
 extern uint32_t off_117AB8;
 extern uint32_t off_117ABC;
 
@@ -26,7 +26,7 @@ int  conn_tx(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r0
-  int16_t v6; // r1
+  uint16_t v6; // r1
   uint32_t *v7; // r3
   int v8; // r3
   uint8_t *v9; // r2
@@ -35,6 +35,7 @@ int  conn_tx(int a1, int a2)
   int v12; // r3
   int v13; // r3
   int v14; // r2
+  volatile unsigned int v15; // r2
 
   if ( a2 == 5 )
     v4 = (char *)dword_117AC8;
@@ -64,7 +65,10 @@ int  conn_tx(int a1, int a2)
     v9 = *(uint8_t **)off_117AB0;
     *(uint32_t *)off_117AB4 = 0x80000000;
     if ( *v9 == 3 && v8 == dword_117AC0 + 1320 * *(uint8_t *)(a1 + 28) )
-      *(uint32_t *)(v8 + 120) = *((uint32_t *)off_117AC4 + 4);
+    {
+      v15 = (*(volatile uint32_t *)0x40501010u);
+      *(uint32_t *)(v8 + 120) = v15;
+    }
   }
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -74,11 +78,11 @@ int  conn_tx(int a1, int a2)
   v10 = (int *)off_117ABC;
   ++*(uint32_t *)off_117ABC;
   llc_rx_llcp_handler(a1, a2);
-  check_abort_flag(v4 + 12);
+  check_abort_flag((int)(v4 + 12), (uint32_t *)a1);
   tx_slot_counter_inc(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117AA4 + 126);
-  rf_isr(a1);
+  rf_isr_1(a1);
   result = ke_timer_calc(a1, a2, 0);
   v12 = *v10;
   *(uint16_t *)(a1 + 82) |= 1u;
@@ -95,4 +99,3 @@ int  conn_tx(int a1, int a2)
   }
   return result;
 }
-

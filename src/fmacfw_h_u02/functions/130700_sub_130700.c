@@ -10,26 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_130B68;
+
 extern uint32_t dword_130B78;
-extern uint32_t dword_130B64;
-extern uint32_t off_130B74;
-extern uint32_t dword_130BD0;
+extern uint32_t off_130B64;
+extern uint32_t off_130B68;
 extern uint32_t off_130B70;
-extern uint32_t dword_130B6C;
+extern uint32_t off_130B74;
 
 // ampdu_negotiate_params @ 0x130700, size 1230 bytes
-int  ampdu_negotiate_params(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6, int a7)
+int  ampdu_negotiate_params(uint8_t *a1, int a2, uint16_t *a3, int a4, uint32_t *a5, uint16_t *a6, int a7)
 {
   int v8; // r5
-  int16_t v9; // r7
+  uint16_t v9; // r7
   int v10; // r6
   int v12; // r0
   uint16_t *v13; // r3
   int v14; // r0
   uint8_t *v15; // r7
   int v16; // r2
-  int16_t v17; // r9
+  uint16_t v17; // r9
   int v18; // r0
   int v19; // lr
   int v20; // r3
@@ -38,15 +37,15 @@ int  ampdu_negotiate_params(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, 
   int v23; // r3
   int v24; // r8
   char *v25; // r2
-  char *v26; // r12
+  int v26; // r12
   char v27; // t1
   unsigned int v28; // r12
   int v29; // r3
-  char *v30; // lr
+  int v30; // lr
   unsigned int v31; // r12
   char *v32; // r2
   char v33; // t1
-  int16_t v34; // r0
+  uint16_t v34; // r0
   int v35; // r3
   char *v36; // r2
   char v37; // t1
@@ -65,12 +64,12 @@ int  ampdu_negotiate_params(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, 
   uint8_t *v50; // r5
   int v51; // r2
   int v52; // r3
-  int16_t v53; // r3
-  char *v55; // r0
+  uint16_t v53; // r3
+  int v55; // r0
   char *v56; // r2
   char v57; // t1
   int v58; // r5
-  int16_t v59; // r9
+  uint16_t v59; // r9
   char v60; // r0
   uint8_t *v61; // r3
   uint8_t *v62; // r3
@@ -89,23 +88,23 @@ int  ampdu_negotiate_params(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, 
   unsigned int v75; // r11
   char v76; // r1
   char v77; // r3
-  int16_t v78; // lr
+  uint16_t v78; // lr
   uint8_t *v79; // r2
   int v80; // r12
   uint8_t *v81; // r12
-  int16_t v82; // r0
-  int16_t v83; // [sp+4h] [bp-60h]
-  int v84; // [sp+8h] [bp-5Ch]
+  uint16_t v82; // r0
+  uint16_t v83; // [sp+4h] [bp-60h]
+  int a3a; // [sp+8h] [bp-5Ch]
   char v85; // [sp+Ch] [bp-58h]
   char *v86; // [sp+10h] [bp-54h]
   int v87; // [sp+14h] [bp-50h]
   int v88; // [sp+18h] [bp-4Ch]
-  uint8_t *v89; // [sp+1Ch] [bp-48h] BYREF
-  char v90; // [sp+23h] [bp-41h] BYREF
-  uint32_t v91[2]; // [sp+24h] [bp-40h] BYREF
+  int a1a; // [sp+1Ch] [bp-48h] BYREF
+  char a2a; // [sp+23h] [bp-41h] BYREF
+  uint32_t result[2]; // [sp+24h] [bp-40h] BYREF
   uint8_t v92[2]; // [sp+2Ch] [bp-38h] BYREF
   int v93; // [sp+2Eh] [bp-36h]
-  int16_t v94; // [sp+32h] [bp-32h]
+  uint16_t v94; // [sp+32h] [bp-32h]
   int v95; // [sp+54h] [bp-10h]
 
   v8 = a7;
@@ -113,13 +112,13 @@ int  ampdu_negotiate_params(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, 
   v10 = *(uint16_t *)(a7 + 54);
   if ( !v9 )
     v9 = 5;
-  v89 = (uint8_t *)a1;
+  a1a = (int)a1;
   v12 = get_phy_config_entry(a4);
-  v13 = v89;
+  v13 = (uint16_t *)a1a;
   v14 = v12 | (*(uint32_t *)(a2 + 224) >> 1) & 0x10;
-  *((uint16_t *)v89 + 1) = v9;
+  *(uint16_t *)(a1a + 2) = v9;
   *v13 = v14;
-  v84 = (uint16_t)v14;
+  a3a = (uint16_t)v14;
   v15 = (uint8_t *)(a7 + 64);
   if ( a3 )
   {
@@ -136,55 +135,55 @@ int  ampdu_negotiate_params(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, 
   }
   *a5 = &v13[v16];
   v18 = *(uint8_t *)(a2 + 126);
-  v89 = &v13[v16];
+  a1a = (int)&v13[v16];
   LOBYTE(v13[v16]) = 0;
   v19 = v18 + 2;
-  v89[1] = v18;
+  *(uint8_t *)(a1a + 1) = v18;
   if ( v18 )
   {
-    v20 = (int)v89;
-    v55 = (char *)(v18 + 127 + a2);
+    v20 = a1a;
+    v55 = v18 + 127 + a2;
     v56 = (char *)(a2 + 127);
     do
     {
       v57 = *v56++;
       v56[v20 - a2 - 126] = v57;
     }
-    while ( v55 != v56 );
+    while ( (char *)v55 != v56 );
   }
   else
   {
-    v20 = (int)v89;
+    v20 = a1a;
   }
   v21 = *(uint8_t *)(a2 + 176);
-  v89 = (uint8_t *)(v19 + v20);
+  a1a = v19 + v20;
   *(uint8_t *)(v19 + v20) = 1;
   v22 = v21;
   if ( v21 >= 8 )
     v22 = 8;
-  v89[1] = v22;
-  v23 = (int)v89;
+  *(uint8_t *)(a1a + 1) = v22;
+  v23 = a1a;
   v24 = v22 + 2;
   v25 = (char *)(a2 + 177);
   if ( v21 )
   {
-    v26 = (char *)(v22 + 177 + a2);
+    v26 = v22 + 177 + a2;
     do
     {
       v27 = *v25++;
       v25[v23 - a2 - 176] = v27;
     }
-    while ( v25 != v26 );
+    while ( v25 != (char *)v26 );
   }
   v28 = *(uint8_t *)(a2 + 176);
   v83 = v17 + v19 + v24;
-  v89 = (uint8_t *)(v24 + v23);
+  a1a = v24 + v23;
   if ( v28 > 8 )
   {
     *(uint8_t *)(v24 + v23) = 50;
-    v89[1] = v28 - 8;
-    v29 = (int)v89;
-    v30 = (char *)(v28 + 177 + a2);
+    *(uint8_t *)(a1a + 1) = v28 - 8;
+    v29 = a1a;
+    v30 = v28 + 177 + a2;
     v31 = v28 - 6;
     v32 = (char *)(a2 + 185);
     do
@@ -192,27 +191,27 @@ int  ampdu_negotiate_params(int a1, int a2, uint16_t *a3, int a4, uint32_t *a5, 
       v33 = *v32++;
       v32[v29 - a2 - 184] = v33;
     }
-    while ( v32 != v30 );
-    v89 = (uint8_t *)(v29 + v31);
+    while ( v32 != (char *)v30 );
+    a1a = v29 + v31;
     v83 += v31;
   }
-  if ( (v84 & 0x100) == 0 )
+  if ( (a3a & 0x100) == 0 )
     goto LABEL_17;
-  v61 = v89++;
+  v61 = (uint8_t *)a1a++;
   *v61 = 33;
-  v62 = v89++;
+  v62 = (uint8_t *)a1a++;
   *v62 = 2;
-  get_calibration_offsets(v91, &v90);
-  if ( SLOBYTE(v91[0]) > *(char *)(a2 + 172) )
-    LOBYTE(v91[0]) = *(uint8_t *)(a2 + 172);
-  v63 = v89++;
-  *v63 = v90;
-  v64 = v89++;
-  *v64 = v91[0];
-  v65 = v89++;
+  get_calibration_offsets(result, &a2a);
+  if ( SLOBYTE(result[0]) > *(char *)(a2 + 172) )
+    LOBYTE(result[0]) = *(uint8_t *)(a2 + 172);
+  v63 = (uint8_t *)a1a++;
+  *v63 = a2a;
+  v64 = (uint8_t *)a1a++;
+  *v64 = result[0];
+  v65 = (uint8_t *)a1a++;
   *v65 = 36;
-  v86 = v89;
-  v66 = v89 + 1;
+  v86 = (char *)a1a;
+  v66 = (uint8_t *)(a1a + 1);
   if ( *(uint8_t *)(a2 + 164) )
   {
     v67 = *((uint8_t *)off_130B68 + 371);
@@ -257,7 +256,7 @@ LABEL_62:
         v80 = v74 - 4992;
         if ( (uint16_t)(v80 - 13) <= 0x370u )
         {
-          v75 = (unsigned int)(((unsigned int)dword_130B78 * (unsigned uint64_t)(unsigned int)(v80 - 8)) >> 32) >> 2;
+          v75 = (unsigned int)(((unsigned int)dword_130B78 * (uint64_t)(unsigned int)(v80 - 8)) >> 32) >> 2;
           v73 = (uint8_t)v75;
           goto LABEL_58;
         }
@@ -272,7 +271,7 @@ LABEL_62:
       }
       else
       {
-        v75 = (unsigned int)(((unsigned int)dword_130B78 * (unsigned uint64_t)(unsigned int)(v74 - 2407)) >> 32) >> 2;
+        v75 = (unsigned int)(((unsigned int)dword_130B78 * (uint64_t)(unsigned int)(v74 - 2407)) >> 32) >> 2;
         v73 = (uint8_t)v75;
       }
 LABEL_58:
@@ -301,14 +300,14 @@ LABEL_61:
       goto LABEL_61;
     }
 LABEL_71:
-    v89 = v66 + 1;
+    a1a = (int)(v66 + 1);
     *v66 = v72;
-    v81 = v89++;
+    v81 = (uint8_t *)a1a++;
     *v81 = v70;
     v85 += 2;
     v71 = v73;
     v70 = (uint8_t)(v70 + 2);
-    v66 = v89;
+    v66 = (uint8_t *)a1a;
     goto LABEL_61;
   }
   v77 = 2;
@@ -316,15 +315,15 @@ LABEL_71:
   v76 = 0;
   v78 = 2;
 LABEL_64:
-  v89 = v66 + 1;
+  a1a = (int)(v66 + 1);
   *v66 = v76;
-  v79 = v89++;
+  v79 = (uint8_t *)a1a++;
   *v79 = v70;
   v83 += v78 + 6;
   *v86 = v77;
 LABEL_17:
-  v34 = write_f5p_header((int)&v89);
-  v35 = (int)v89;
+  v34 = write_f5p_header((int)&a1a);
+  v35 = a1a;
   if ( v10 )
   {
     v36 = (char *)(a7 + 64);
@@ -338,20 +337,20 @@ LABEL_17:
   v38 = *(uint32_t *)(a2 + 224);
   v39 = v35 + v10;
   v40 = (uint16_t)(v83 + v10 + v34);
-  v89 = (uint8_t *)v39;
+  a1a = v39;
   LOBYTE(v41) = v38;
   if ( (v38 & 1) != 0 )
   {
-    v42 = *(uint32_t *)(dword_130B64 + 4);
-    v43 = *(uint32_t *)(dword_130B64 + 8);
-    v91[0] = *(uint32_t *)dword_130B64;
-    v91[1] = v42;
+    v42 = ((uint32_t *)(uintptr_t)off_130B64)[1];
+    v43 = ((uint32_t *)(uintptr_t)off_130B64)[2];
+    result[0] = ((uint32_t *)(uintptr_t)off_130B64)[0];
+    result[1] = v42;
     v92[1] = BYTE1(v43);
     v94 = 0;
     v93 = 0;
     v92[0] = 0;
-    v44 = v39 - (uint32_t)v91;
-    v45 = v91;
+    v44 = v39 - (uint32_t)result;
+    v45 = result;
     for ( i = -35; ; i = v47 )
     {
       v45[v44] = i;
@@ -360,12 +359,12 @@ LABEL_17:
       v47 = *++v45;
     }
     v40 = (uint16_t)(v40 + 9);
-    v89 += 9;
+    a1a += 9;
     LOBYTE(v41) = v38;
   }
   if ( (v38 & 2) != 0 && (*((uint8_t *)off_130B68 + 374) & 1) != 0 )
   {
-    v82 = write_dash_header((int *)&v89);
+    v82 = write_dash_header(&a1a);
     v41 = *(uint32_t *)(a2 + 224);
     v40 = (uint16_t)(v82 + v40);
   }
@@ -377,48 +376,47 @@ LABEL_17:
     {
       v58 = *((uint8_t *)off_130B68 + 373);
       if ( (*(uint8_t *)off_130B74 & 8) != 0
-        || (alloc_tx_event(dword_130BD0, v49 << 30), *((uint8_t *)v48 + 373) <= 1u) )
+        || (alloc_tx_event(aAssocReq8800d4, v49 << 30), *((uint8_t *)v48 + 373) <= 1u) )
       {
-        v59 = v40 + write_bf_header((int)&v89);
+        v59 = v40 + write_bf_header((int)&a1a);
         v60 = phy_get_rate_code(v48[28]);
         if ( v58 == 4 )
           LOBYTE(v58) = 3;
       }
       else
       {
-        v59 = v40 + write_bf_header((int)&v89);
+        v59 = v40 + write_bf_header((int)&a1a);
         v60 = phy_get_rate_code(v48[28]);
         LOBYTE(v58) = 1;
       }
-      *v89 = -57;
-      v89[1] = 1;
-      v89[2] = v58 | (16 * v60);
+      *(uint8_t *)a1a = -57;
+      *(uint8_t *)(a1a + 1) = 1;
+      *(uint8_t *)(a1a + 2) = v58 | (16 * v60);
       v41 = *(uint32_t *)(a2 + 224);
       v40 = (uint16_t)(v59 + 3);
-      v89 += 3;
+      a1a += 3;
     }
   }
   if ( (v41 & 8) != 0 && (*((uint8_t *)off_130B68 + 374) & 4) != 0 )
-    v40 = (uint16_t)((uint16_t)write_hash_header((int)&v89) + v40);
+    v40 = (uint16_t)((uint16_t)write_hash_header((int)&a1a) + v40);
   v50 = test_arg2_one_12db60(v15, v10);
-  rf_set_antenna_cfg(v15, v10, v84, v91);
+  rf_set_antenna_cfg((int)v15, v10, a3a, (int)result);
   if ( *(uint16_t *)(a2 + 228)
     && (!v50 && (v51 = v95 << 26, (v95 & 0x20) != 0) || (*(uint32_t *)(*((uint32_t *)off_130B70 + 4) + 48) & 0x40) != 0) )
   {
-    check_feature_flag(256, dword_130B6C, v51);
-    *v89 = 54;
-    v89[1] = 3;
-    v52 = (int)v89;
-    *((uint16_t *)v89 + 1) = *(uint16_t *)(a2 + 228);
+    check_feature_flag(256, aAddMde, v51);
+    *(uint8_t *)a1a = 54;
+    *(uint8_t *)(a1a + 1) = 3;
+    v52 = a1a;
+    *(uint16_t *)(a1a + 2) = *(uint16_t *)(a2 + 228);
     *(uint8_t *)(v52 + 4) = *(uint8_t *)(a2 + 230);
     v40 = (uint16_t)(v40 + 5);
-    v53 = (uint16_t)v89 + 5;
+    v53 = a1a + 5;
   }
   else
   {
-    v53 = (int16_t)v89;
+    v53 = a1a;
   }
   *a6 = v53 - *(uint16_t *)a5;
   return v40;
 }
-

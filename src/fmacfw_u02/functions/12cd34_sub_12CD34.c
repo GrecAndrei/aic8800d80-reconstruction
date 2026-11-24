@@ -10,28 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12CE4C;
-extern uint32_t dword_12CE74;
-extern uint32_t dword_12CE68;
-extern uint32_t dword_12CE50;
-extern uint32_t dword_12CE7C;
-extern uint32_t dword_12CE80;
-extern uint32_t dword_12CE70;
-extern uint32_t dword_12CE6C;
-extern uint32_t dword_12CE54;
-extern uint32_t off_12CE60;
+
+extern uint32_t dword_12CE58;
 extern uint32_t dword_12CE64;
+extern uint32_t off_12CE4C;
+extern uint32_t off_12CE50;
+extern uint32_t off_12CE5C;
+extern uint32_t off_12CE60;
+extern uint32_t off_12CE84;
 
 // rx_phy_status_parse @ 0x12cd34, size 278 bytes
-// Doc: message_dispatch_n4a2 [ipc]: Dispatch firmware message via handler table
-// message_dispatch_n4a2 [ipc]: Dispatch firmware message via handler table
-uint32_t * rx_phy_status_parse(unsigned int a1, int a2)
+int  rx_phy_status_parse(unsigned int a1, int a2)
 {
-  int16_t **v2; // r7
+  uint16_t **v2; // r7
   unsigned int v5; // r9
   int v6; // r6
   uint16_t *v7; // r9
-  uint32_t *result; // r0
+  int result; // r0
   int ( *v9)(uint32_t *, int); // r8
   int v10; // r7
   int *v11; // r6
@@ -39,57 +34,59 @@ uint32_t * rx_phy_status_parse(unsigned int a1, int a2)
   int v13; // r0
   int v14; // r3
   int v15; // r2
-  int v16; // r6
+  uint32_t *v16; // r1
+  int *v17; // r6
 
-  v2 = (int16_t **)off_12CE4C;
+  v2 = (uint16_t **)off_12CE4C;
   v5 = a1 >> 8;
   v6 = (uint8_t)a1;
-  if ( **(int16_t **)off_12CE4C >= 0 )
-    goto message_dispatch_n3c2;
+  if ( **(uint16_t **)off_12CE4C >= 0 )
+    goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
-    mmio_clear_register(dword_12CE74, dword_12CE68, 173);
+    mmio_clear_register((int)aTypeTaskMax, (int)aKeStateSet, 173);
     if ( **v2 >= 0 )
     {
-message_dispatch_n3c2:
-      v7 = (uint16_t *)(*(uint32_t *)(dword_12CE50 + 16 * v6 + 8) + 2 * v5);
-      goto message_dispatch_n3ce;
+LABEL_2:
+      v7 = (uint16_t *)(((uint32_t *)(uintptr_t)off_12CE50)[4 * v6 + 2] + 2 * v5);
+      goto LABEL_3;
     }
     if ( v6 != 14 )
-      mmio_clear_register(dword_12CE7C, ipc_doorbell_handler_n3a, 183);
+      mmio_clear_register((int)aIdTaskMax, (int)aKeTaskLocal_0, 183);
   }
   else if ( (uint8_t)a1 != 13 )
   {
-    goto message_dispatch_n440;
+    goto LABEL_16;
   }
-  mmio_clear_register(dword_12CE80, dword_12CE68, 174);
+  mmio_clear_register((int)aKeTaskLocalTyp, (int)aKeStateSet, 174);
   if ( **v2 >= 0 )
-    goto message_dispatch_n3c2;
-message_dispatch_n440:
-  v16 = dword_12CE50 + 16 * v6;
-  if ( *(uint16_t *)(v16 + 14) > v5 )
+    goto LABEL_2;
+LABEL_16:
+  v17 = &((uint32_t *)(uintptr_t)off_12CE50)[4 * v6];
+  if ( *((uint16_t *)v17 + 7) > v5 )
   {
-    v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
+    v7 = (uint16_t *)(v17[2] + 2 * v5);
     if ( v7 )
-      goto message_dispatch_n3ce;
-    goto message_dispatch_n458;
+      goto LABEL_3;
+    goto LABEL_18;
   }
-  mmio_clear_register(dword_12CE70, dword_12CE68, 175);
-  v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
+  mmio_clear_register((int)aIdxTaskDescTyp, (int)aKeStateSet, 175);
+  v7 = (uint16_t *)(v17[2] + 2 * v5);
   if ( **v2 < 0 && !v7 )
-message_dispatch_n458:
-    mmio_clear_register(dword_12CE6C, dword_12CE68, 180);
-message_dispatch_n3ce:
-  result = (uint32_t *)event_dispatch(dword_12CE54, a1, a2);
+LABEL_18:
+    mmio_clear_register((int)aKeStateidPtr, (int)aKeStateSet, 180);
+LABEL_3:
+  result = event_dispatch("\x80\x9Dset tsk:%x:%x\n", a1, a2);
   if ( (uint16_t)*v7 != a2 )
   {
-    v9 = (int ( *)(uint32_t *, int))message_dispatch_n4f9;
-    v10 = message_dispatch_n4cc;
-    v11 = (int *)message_dispatch_n4d0;
+    v9 = (int ( *)(uint32_t *, int))off_12CE84;
+    v10 = dword_12CE58;
+    v11 = (int *)off_12CE5C;
     *v7 = a2;
     while ( 1 )
     {
-      result = pkt_word_get(v10, v9, a1);
+      result = (int)pkt_word_get(v10, v9, a1);
+      v16 = (uint32_t *)result;
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -100,7 +97,7 @@ message_dispatch_n3ce:
       v12 = (int *)off_12CE60;
       v13 = dword_12CE64;
       ++*(uint32_t *)off_12CE60;
-      cmd_handler_a(v13);
+      cmd_handler_a(v13, v16);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -117,4 +114,3 @@ message_dispatch_n3ce:
   }
   return result;
 }
-

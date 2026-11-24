@@ -10,16 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_124BFC;
 extern uint32_t off_124C00;
 extern uint32_t off_124C04;
 extern uint32_t off_124C08;
 extern uint32_t off_124C0C;
-extern uint32_t dword_124C10;
 
 // rf_rssi_read @ 0x124b3c, size 192 bytes
-// Doc: sub_1224B3C [util]: Helper reading a byte from a global and indexing input pointer
-// sub_1224B3C [util]: Helper reading a byte from a global and indexing input pointer
 int  rf_rssi_read(uint8_t *a1)
 {
   int v1; // r1
@@ -27,9 +25,8 @@ int  rf_rssi_read(uint8_t *a1)
   unsigned int *v4; // r0
   int v5; // r1
   unsigned int *v6; // r0
-  unsigned int v7; // r1
+  int v7; // r1
   unsigned int *v8; // r0
-  int v9; // r2
 
   v1 = *a1;
   v3 = (uint8_t)*(uint32_t *)off_124BFC;
@@ -54,22 +51,11 @@ int  rf_rssi_read(uint8_t *a1)
     *v8 = *v8 & 0xFF0000FF | ((v3 * v7) << 8);
   }
   if ( a1[3] )
-  {
-    v7 = (unsigned int)off_124C0C;
     *(uint32_t *)off_124C0C = *(uint32_t *)off_124C0C & 0xFFFFFF00 | a1[3];
-  }
   if ( a1[4] )
-  {
-    v7 = (unsigned int)off_124C0C;
     *(uint32_t *)off_124C0C = *(uint32_t *)off_124C0C & 0xFFFF00FF | (a1[4] << 8);
-  }
-  v9 = a1[5];
   if ( a1[5] )
-  {
-    v7 = (unsigned int)off_124C0C;
-    *(uint32_t *)off_124C0C = *(uint32_t *)off_124C0C & 0xFF00FFFF | (v9 << 16);
-  }
-  event_dispatch(dword_124C10, v7, v9);
-  return send_msg(a1, 6, 1, 0);
+    *(uint32_t *)off_124C0C = *(uint32_t *)off_124C0C & 0xFF00FFFF | (a1[5] << 16);
+  event_dispatch(aSetVendorTs);
+  return send_msg((int)a1, 6, 1, 0);
 }
-

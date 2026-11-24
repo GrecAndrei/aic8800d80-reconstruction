@@ -10,15 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_127CD0;
-extern uint32_t off_127CCC;
+
 extern uint32_t dword_127CD4;
 extern uint32_t dword_127CD8;
+extern uint32_t dword_127CDC;
+extern uint32_t dword_127CE0;
+extern uint32_t dword_127CE4;
+extern uint32_t dword_127CE8;
+extern uint32_t off_127CCC;
+extern uint32_t off_127CD0;
+extern uint32_t off_127CEC;
 extern uint32_t off_127CF0;
-extern uint32_t dword_127CEC;
 
-// bt_init @ 0x127c40, size 140 bytes
-int bt_init()
+// bt_init_1 @ 0x127c40, size 140 bytes
+int bt_init_1()
 {
   int *v0; // r7
   void *v1; // r6
@@ -40,7 +45,7 @@ int bt_init()
     *((uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      check_abort_flag(v1);
+      check_abort_flag((int)v1, i);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -52,17 +57,16 @@ LABEL_4:
   }
   if ( v2 != 4 )
     goto LABEL_4;
-  zero_struct(dword_127CD4);
-  zero_struct(dword_127CD8);
-  check_abort_flag(dword_127CD4);
-  check_abort_flag(dword_127CD4);
-  check_abort_flag(dword_127CD4);
-  result = check_abort_flag(dword_127CD4);
+  zero_struct((uint32_t *)dword_127CD4);
+  zero_struct((uint32_t *)dword_127CD8);
+  check_abort_flag(dword_127CD4, (uint32_t *)dword_127CDC);
+  check_abort_flag(dword_127CD4, (uint32_t *)dword_127CE0);
+  check_abort_flag(dword_127CD4, (uint32_t *)dword_127CE4);
+  result = check_abort_flag(dword_127CD4, (uint32_t *)dword_127CE8);
   v5 = off_127CCC;
   v6 = off_127CF0;
-  *((uint32_t *)off_127CCC + 13) = dword_127CEC;
+  *((uint32_t *)off_127CCC + 13) = off_127CEC;
   v5[17] = v6;
   v5[18] = 0;
   return result;
 }
-

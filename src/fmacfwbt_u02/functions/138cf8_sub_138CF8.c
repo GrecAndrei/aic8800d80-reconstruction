@@ -10,11 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_138DA4;
+
 extern uint32_t dword_138DA8;
-extern uint32_t dword_138DAC;
-extern uint32_t dword_138DB4;
-extern uint32_t dword_138DB0;
+extern uint32_t off_138DA4;
 
 // rf_cal_is_valid @ 0x138cf8, size 170 bytes
 int  rf_cal_is_valid(uint16_t *a1)
@@ -36,7 +34,7 @@ int  rf_cal_is_valid(uint16_t *a1)
         if ( *(uint8_t *)(i + 106) == 2 )
         {
           v6 = 1320 * v3;
-          if ( !memcpy(a1 + 2, i + 100, 6) )
+          if ( !memcpy_1((unsigned int)(a1 + 2), i + 100, 6u) )
             break;
         }
       }
@@ -46,21 +44,29 @@ int  rf_cal_is_valid(uint16_t *a1)
     v7 = *(uint32_t **)(v2 + v6 + 240);
     if ( v7 )
     {
-      while ( memcpy(a1 + 5, (char *)v7 + 38, 6) )
+      while ( memcpy_1((unsigned int)(a1 + 5), (unsigned int)v7 + 38, 6u) )
       {
         v7 = (uint32_t *)*v7;
         if ( !v7 )
           goto LABEL_14;
       }
-      ke_event_schedule(dword_138DAC, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
+      ke_event_schedule_1(
+        "keyInValid[%04X:%04X:%04X]\n",
+        (uint16_t)a1[5],
+        (uint16_t)a1[6],
+        (uint16_t)a1[7]);
     }
     else
     {
 LABEL_14:
-      ke_event_schedule(dword_138DB4, dword_138DB0, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
-      txpwr_event_handler(v2 + v6, (int)(a1 + 5));
+      ke_event_schedule_1(
+        "%s: send_deauth[%04X:%04X:%04X]\n",
+        aRxuCntrlSpurio,
+        (uint16_t)a1[5],
+        (uint16_t)a1[6],
+        (uint16_t)a1[7]);
+      txpwr_event_handler(v2 + v6, (char *)a1 + 10);
     }
   }
   return 0;
 }
-

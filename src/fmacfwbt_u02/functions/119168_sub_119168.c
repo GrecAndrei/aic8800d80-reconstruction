@@ -10,11 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_119200;
-extern uint32_t off_1191F0;
+
 extern uint32_t dword_1191F4;
-extern uint32_t off_1191F8;
 extern uint32_t dword_1191FC;
+extern uint32_t off_1191F0;
+extern uint32_t off_1191F8;
+extern uint32_t off_119200;
 
 // system_init @ 0x119168, size 134 bytes
 uint32_t *system_init()
@@ -42,7 +43,7 @@ uint32_t *system_init()
       *v1 = 1;
     }
     ++*v0;
-    result = (uint32_t *)list_pop_front(v2);
+    result = list_pop_front(v2);
     v5 = result;
     if ( *v0 )
     {
@@ -65,9 +66,8 @@ uint32_t *system_init()
     }
     else if ( !*((uint8_t *)v5 + 96) )
     {
-      check_abort_flag(dword_1191FC);
+      check_abort_flag(dword_1191FC, v5);
     }
   }
   return result;
 }
-

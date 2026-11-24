@@ -10,27 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1253B8;
+
 extern uint32_t off_1253B0;
-extern uint32_t dword_1253B4;
 
 // bt_conditional_action @ 0x12537c, size 50 bytes
 int  bt_conditional_action(int a1, int a2)
 {
   BOOL v2; // r1
-  int v3; // r0
 
   if ( a1 <= 1 )
   {
-    dispatch_event_handler(dword_1253B8, *(uint32_t *)off_1253B0);
+    dispatch_event_handler_1("txpwr_manual_mode: %x\r\n", *(uint32_t *)off_1253B0);
   }
   else
   {
-    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0) != 0;
-    v3 = dword_1253B4;
+    v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0) != 0;
     *(uint32_t *)off_1253B0 = v2;
-    dispatch_event_handler(v3);
+    dispatch_event_handler_1("set txpwr_manual_mode: %x\r\n", v2);
   }
   return 0;
 }
-

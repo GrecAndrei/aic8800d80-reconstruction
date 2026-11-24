@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13537C;
-extern uint32_t dword_135380;
 
 // get_conn_info @ 0x1352ec, size 142 bytes
 int  get_conn_info(int a1, int a2)
@@ -19,18 +19,18 @@ int  get_conn_info(int a1, int a2)
   int v2; // r5
   uint8_t *v3; // r7
   int result; // r0
-  int16_t v7; // r5
+  uint16_t v7; // r5
 
   v2 = *(uint32_t *)(a1 + 72);
   v3 = off_13537C;
   state_check_feature(
     256,
-    dword_135380,
+    "tx cfm:%d,%x,%x\r\n",
     *((uint8_t *)off_13537C + 34),
     a2,
     (uint8_t)*(uint16_t *)(v2 + 108));
   if ( !v3[34] )
-    return event_dispatch(1);
+    return event_dispatch_1(1);
   v7 = *(uint16_t *)(v2 + 108);
   if ( hci_cmd_send_short(6u) != 5 )
   {
@@ -55,4 +55,3 @@ LABEL_5:
   }
   return result;
 }
-

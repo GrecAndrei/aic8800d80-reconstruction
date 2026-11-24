@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_134C44;
 extern uint32_t dword_134C48;
 extern uint32_t off_134C3C;
 extern uint32_t off_134C40;
-extern uint32_t dword_134C44;
 
 // lld_evt_get_current @ 0x134a90, size 428 bytes
-uint32_t *lld_evt_get_current()
+int lld_evt_get_current()
 {
   int v0; // r10
   int v1; // r5
@@ -38,30 +39,32 @@ uint32_t *lld_evt_get_current()
   int v17; // r0
   int v18; // t1
   int v19; // r0
-  int *v21; // r6
-  int v22; // [sp+0h] [bp-Ch]
+  int v20; // r0
+  int v21; // r1
+  int *v23; // r6
+  int v24; // [sp+0h] [bp-Ch]
 
   v0 = dword_134C48;
   v1 = *((uint32_t *)off_134C3C + 4);
-  v22 = *(uint8_t *)(v1 + 61);
-  v2 = (uint8_t *)tx_send_pdu(5145, 5, 6, 2u);
-  v3 = tx_send_pdu(24, 0, 6, 8u);
-  v4 = 1320 * v22;
-  v5 = tx_send_pdu(22, 0, 6, 8u);
-  v6 = tx_send_pdu(20, 0, 6, 4u);
-  v7 = (uint8_t *)tx_send_pdu(5143, 5, 6, 2u);
+  v24 = *(uint8_t *)(v1 + 61);
+  v2 = (uint8_t *)tx_send_pdu(5145, 5, 6, 2);
+  v3 = tx_send_pdu(24, 0, 6, 8);
+  v4 = 1320 * v24;
+  v5 = tx_send_pdu(22, 0, 6, 8);
+  v6 = tx_send_pdu(20, 0, 6, 4);
+  v7 = (uint8_t *)tx_send_pdu(5143, 5, 6, 2);
   controller_is_ready();
   *v2 = 1;
   v2[1] = *(uint8_t *)(v1 + 61);
   wlan_ioctl_handler_1((int)off_134C3C + 24, (uint32_t *)v2 - 3);
-  v8 = *(uint32_t *)(v0 + 1320 * v22 + 368);
-  *(uint16_t *)(v3 + 4) = *(uint16_t *)(v0 + 1320 * v22 + 372);
+  v8 = *(uint32_t *)(v0 + 1320 * v24 + 368);
+  *(uint16_t *)(v3 + 4) = *(uint16_t *)(v0 + 1320 * v24 + 372);
   v9 = off_134C3C;
   *(uint32_t *)v3 = v8;
   *(uint8_t *)(v3 + 6) = *(uint8_t *)(v1 + 61);
   wlan_ioctl_handler_1((int)v9 + 24, (uint32_t *)(v3 - 12));
-  *(uint8_t *)(v5 + 5) = *(uint8_t *)(v0 + 1320 * v22 + 412);
-  v10 = handle_rx_packet((uint8_t *)(1320 * v22 + 424 + v0), 1);
+  *(uint8_t *)(v5 + 5) = *(uint8_t *)(v0 + 1320 * v24 + 412);
+  v10 = handle_rx_packet((uint8_t *)(1320 * v24 + 424 + v0), 1);
   v11 = *(uint8_t *)(v5 + 5);
   *(uint32_t *)v5 = v10;
   *(uint8_t *)(v5 + 4) = *(uint8_t *)(v1 + 61);
@@ -78,22 +81,22 @@ uint32_t *lld_evt_get_current()
   }
   wlan_ioctl_handler_1(dword_134C44, (uint32_t *)(v5 - 12));
   v12 = dword_134C44;
-  v13 = v0 + 1320 * v22;
+  v13 = v0 + 1320 * v24;
   *(uint16_t *)v6 = *(uint16_t *)(v13 + 422);
   *(uint8_t *)(v6 + 2) = *(uint8_t *)(v1 + 61);
   wlan_ioctl_handler_1(v12, (uint32_t *)(v6 - 12));
   if ( (*(uint32_t *)(v13 + 472) & 8) != 0 )
   {
-    v21 = (int *)tx_send_pdu(113, 0, 6, 4u);
-    *v21 = rf_read_status_flags(v0 + v4 + 248);
-    wlan_ioctl_handler_1(dword_134C44, v21 - 3);
+    v23 = (int *)tx_send_pdu(113, 0, 6, 4);
+    *v23 = rf_read_status_flags(v0 + v4 + 248);
+    wlan_ioctl_handler_1(dword_134C44, v23 - 3);
   }
   v14 = 0;
   v15 = dword_134C44;
   v16 = (int *)(v0 + v4 + 440);
   do
   {
-    v17 = tx_send_pdu(26, 0, 6, 8u);
+    v17 = tx_send_pdu(26, 0, 6, 8);
     v18 = *v16++;
     *(uint32_t *)v17 = v18;
     *(uint8_t *)(v17 + 5) = v14;
@@ -106,8 +109,7 @@ uint32_t *lld_evt_get_current()
   *v7 = 1;
   v19 = dword_134C44;
   v7[1] = *(uint8_t *)(v1 + 61);
-  wlan_ioctl_handler_1(v19, (uint32_t *)v7 - 3);
-  ble_reset_controller();
+  v20 = wlan_ioctl_handler_1(v19, (uint32_t *)v7 - 3);
+  ble_reset_controller(v20, v21);
   return hci_cmd_preprocess(6u, 4);
 }
-

@@ -10,21 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_117D54;
-extern uint32_t dword_117D5C;
-extern uint32_t dword_117D58;
+extern uint32_t dword_117D68;
 extern uint32_t off_117D60;
 extern uint32_t off_117D64;
-extern uint32_t dword_117D68;
 
 // rf_calibration_table_get @ 0x117cb4, size 160 bytes
-// Doc: sub_1217CB4 [util]: Index/compute entry into table via stride*8 multiply
-// sub_1217CB4 [util]: Index/compute entry into table via stride*8 multiply
 int  rf_calibration_table_get(int a1)
 {
   int v1; // r6
   int v3; // r5
-  int v4; // r5
+  uint32_t *v4; // r5
   uint32_t *v5; // r2
   int v6; // r3
   int v7; // r1
@@ -36,8 +33,8 @@ int  rf_calibration_table_get(int a1)
 
   v1 = dword_117D54;
   v3 = 19 * a1;
-  check_interrupt_flag(256, dword_117D5C, dword_117D58, a1);
-  v4 = v1 + 8 * v3;
+  check_interrupt_flag(256, "%s: sta_idx=%d\n", aStaMgmtUnregis, a1);
+  v4 = (uint32_t *)(v1 + 8 * v3);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -57,7 +54,7 @@ int  rf_calibration_table_get(int a1)
     {
 LABEL_5:
       mutex_acquire_if_ready(v8);
-      check_kernel_state(dword_117D68);
+      check_kernel_state(dword_117D68, *(uint32_t **)(v1 + 152 * a1 + 44));
       goto LABEL_6;
     }
     v11 = (int *)off_117D60;
@@ -85,7 +82,6 @@ LABEL_5:
   if ( v8 )
     goto LABEL_5;
 LABEL_6:
-  mutex_acquire_if_ready(v4);
-  return check_kernel_state(dword_117D68);
+  mutex_acquire_if_ready((int)v4);
+  return check_kernel_state(dword_117D68, v4);
 }
-

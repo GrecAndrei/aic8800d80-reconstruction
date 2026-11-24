@@ -10,21 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_126308;
 extern uint32_t off_1262EC;
-extern uint32_t dword_126328;
+extern uint32_t off_1262F0;
 extern uint32_t off_1262F4;
 extern uint32_t off_1262F8;
 extern uint32_t off_1262FC;
 extern uint32_t off_126300;
-extern uint32_t off_1262F0;
 extern uint32_t off_126304;
-extern uint32_t dword_126308;
-extern uint32_t dword_12630C;
+extern uint32_t off_126310;
 extern uint32_t off_126314;
 extern uint32_t off_126318;
 extern uint32_t off_12631C;
-extern uint32_t off_126310;
-extern uint32_t dword_126324;
 extern uint32_t off_126320;
 
 // ll_state_process @ 0x126258, size 148 bytes
@@ -34,22 +32,21 @@ int  ll_state_process(int a1, int a2, char a3)
   uint8_t *v5; // r3
   uint8_t *v6; // r0
   uint8_t *v7; // r1
-  uint8_t *v8; // r2
+  char *v8; // r2
   uint32_t *v9; // r3
   int *v10; // r0
   uint32_t *v11; // r0
   uint8_t *v12; // r1
-  uint8_t *v13; // r2
-  int v14; // r0
+  char *v13; // r2
 
   v3 = off_1262EC;
   if ( *(uint8_t *)off_1262EC )
-    dispatch_event_handler(dword_126328);
+    dispatch_event_handler_1("cob isn't idle: %d\n", *(uint8_t *)off_1262EC);
   v5 = off_1262F4;
   v6 = off_1262F8;
   v7 = off_1262FC;
-  v8 = off_126300;
-  *(uint32_t *)off_1262F0 = -1;
+  v8 = (char *)off_126300;
+  *off_1262F0 = -1;
   *v5 = 0;
   v9 = off_126304;
   *v6 = 0;
@@ -59,8 +56,8 @@ int  ll_state_process(int a1, int a2, char a3)
   *v9 |= 0x100u;
   *v9 |= 0x200u;
   *v9 |= 0x400u;
-  sub_100200(v10, 0, 8u);
-  dispatch_event_handler(dword_12630C);
+  memset_thunk(v10, 0, 8u);
+  dispatch_event_handler_1(aCobDutStart);
   v11 = off_126314;
   v12 = off_126318;
   v13 = off_12631C;
@@ -69,10 +66,8 @@ int  ll_state_process(int a1, int a2, char a3)
   *v12 = 1;
   *v13 = 1;
   set_xtal_ftune(16);
-  v14 = dword_126324;
   *(uint32_t *)off_126320 = *(uint32_t *)off_126320 & 0xFF03FFFF | 0x800000;
   *v3 = 5;
-  dispatch_event_handler(v14);
+  dispatch_event_handler_1("cob state -> %d\n", 5);
   return set_busy_flag_alt(0x2000);
 }
-

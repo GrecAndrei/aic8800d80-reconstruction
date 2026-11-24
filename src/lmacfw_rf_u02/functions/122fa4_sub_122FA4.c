@@ -10,17 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_123010;
-extern uint32_t dword_12301C;
-extern uint32_t dword_123018;
-extern uint32_t dword_123014;
-extern uint32_t dword_12300C;
-
 // lookup_entry @ 0x122fa4, size 104 bytes
-unsigned int  lookup_entry(int a1, int a2)
+int  lookup_entry(int a1, int a2)
 {
   unsigned int v4; // r0
-  unsigned int v5; // r4
+  int v5; // r4
 
   v4 = rf_get_reg1_bit9();
   v5 = v4;
@@ -30,11 +24,11 @@ unsigned int  lookup_entry(int a1, int a2)
     {
       if ( v4 )
       {
-        dispatch_event_handler(dword_123010);
+        dispatch_event_handler_1(aAlreadySet);
       }
       else
       {
-        dispatch_event_handler(dword_12301C, a2);
+        dispatch_event_handler_1("set ef_usb_id=%x\n", a2);
         mmio_write_reg2(__ROR4__(a2, 16));
         rf_set_reg1_bit9();
       }
@@ -42,7 +36,7 @@ unsigned int  lookup_entry(int a1, int a2)
     }
     else
     {
-      dispatch_event_handler(dword_123018);
+      dispatch_event_handler_1(aWrongFunc_0);
       return 0;
     }
   }
@@ -51,13 +45,12 @@ unsigned int  lookup_entry(int a1, int a2)
     if ( v4 )
     {
       v5 = __ROR4__(rf_get_reg2(), 16);
-      dispatch_event_handler(dword_123014, v5);
+      dispatch_event_handler_1("get ef_usb_id=%x\n", v5);
     }
     else
     {
-      dispatch_event_handler(dword_12300C);
+      dispatch_event_handler_1(aUnset);
     }
     return v5;
   }
 }
-

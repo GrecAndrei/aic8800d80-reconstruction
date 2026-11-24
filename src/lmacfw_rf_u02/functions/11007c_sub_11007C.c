@@ -10,24 +10,26 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1100D0;
+
 extern uint32_t dword_1100C4;
-extern uint32_t off_1100C8;
 extern uint32_t dword_1100CC;
+extern uint32_t off_1100C8;
+extern uint32_t off_1100D0;
 
 // rx_channel_event @ 0x11007c, size 72 bytes
-int rx_channel_event()
+uint32_t *rx_channel_event()
 {
   void *v0; // r8
-  int result; // r0
+  uint32_t *result; // r0
   uint32_t *v2; // r5
   int v3; // r7
   int v4; // r6
   int v5; // r4
-  unsigned int v6; // r1
+  uint32_t *v6; // r0
+  unsigned int v7; // r1
 
   v0 = off_1100D0;
-  result = list_init(dword_1100C4);
+  result = list_init_1((uint32_t *)dword_1100C4);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 6) )
   {
     v2 = off_1100C8;
@@ -36,14 +38,13 @@ int rx_channel_event()
     v5 = 0;
     do
     {
-      list_iterate(v3, 0x63Cu);
-      result = check_kernel_state(v4);
-      v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
+      v6 = list_iterate(v3, 0x63Cu);
+      result = (uint32_t *)check_kernel_state(v4, v6);
+      v7 = *(uint16_t *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;
     }
-    while ( v6 > (uint16_t)v5 );
+    while ( v7 > (uint16_t)v5 );
   }
   return result;
 }
-

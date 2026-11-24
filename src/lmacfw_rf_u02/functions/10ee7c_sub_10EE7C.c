@@ -10,19 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10EF7C;
-extern uint32_t off_10EF80;
+
 extern uint32_t dword_10EF84;
 extern uint32_t dword_10EF88;
-extern uint32_t off_10EF9C;
-extern uint32_t off_10EF8C;
-extern uint32_t off_10EFA0;
 extern uint32_t dword_10EF90;
-extern uint32_t off_10EF94;
 extern uint32_t dword_10EF98;
+extern uint32_t off_10EF7C;
+extern uint32_t off_10EF80;
+extern uint32_t off_10EF8C;
+extern uint32_t off_10EF94;
+extern uint32_t off_10EF9C;
+extern uint32_t off_10EFA0;
 
-// gpio_bank_init2 @ 0x10ee7c, size 256 bytes
-int gpio_bank_init2()
+// sub_10EE7C @ 0x10ee7c, size 256 bytes
+int sub_10EE7C()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r2
@@ -39,8 +40,9 @@ int gpio_bank_init2()
   unsigned int v12; // r6
   unsigned int v13; // r5
   int result; // r0
-  uint32_t v15[2]; // [sp+4h] [bp-Ch] BYREF
-  int16_t v16; // [sp+Ch] [bp-4h]
+  uint8_t a1[4]; // [sp+4h] [bp-Ch] BYREF
+  int v16; // [sp+8h] [bp-8h]
+  uint16_t v17; // [sp+Ch] [bp-4h]
 
   v0 = (unsigned int *)off_10EF7C;
   v1 = off_10EF80;
@@ -50,15 +52,15 @@ int gpio_bank_init2()
   v5 = off_10EF8C;
   v6 = off_10EFA0;
   v7 = dword_10EF90;
-  v16 = 0;
+  v17 = 0;
   *((uint32_t *)off_10EF7C + 14) = 296;
   v1[3] = v2 | v1[3] & 0xE0000000;
   v1[2] = v3 & v1[2] | 0x1200000D;
   *v4 |= 0x20000000u;
   *v5 &= ~1u;
-  v15[0] = v7;
-  v15[1] = 2442;
-  tx_set_power((uint8_t *)v15, 0);
+  *(uint32_t *)a1 = v7;
+  v16 = 2442;
+  sub_102908(a1, 0);
   v8 = (int *)off_10EF94;
   v9 = dword_10EF98;
   v0 += 593954;
@@ -72,7 +74,7 @@ int gpio_bank_init2()
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
   *v0 |= 0x400000u;
-  result = gpio_af_set(4);
+  result = sub_10EC2C(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
   *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;
@@ -81,4 +83,3 @@ int gpio_bank_init2()
   *v0 = v13 & 0x400000 | *v0 & 0xFFBFFFFF;
   return result;
 }
-

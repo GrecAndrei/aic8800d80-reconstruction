@@ -10,18 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10F978;
 extern uint32_t off_10F97C;
-extern uint32_t dword_10F968;
-extern uint32_t dword_10F96C;
-extern uint32_t dword_10F970;
-extern uint32_t dword_10F974;
 
 // ke_msg_handler @ 0x10f77c, size 492 bytes
 unsigned int  ke_msg_handler(int *a1, int a2, unsigned int a3)
 {
   unsigned int result; // r0
-  int v6; // r2
+  unsigned int v6; // r2
   unsigned int v7; // r3
   int *v8; // r8
   uint32_t *v9; // r9
@@ -38,7 +35,7 @@ unsigned int  ke_msg_handler(int *a1, int a2, unsigned int a3)
   uint32_t *v20; // r7
   int v21; // r5
   unsigned int v22; // r3
-  int v23; // r2
+  unsigned int v23; // r2
   unsigned int v24; // r3
   int v25; // [sp+0h] [bp-24h]
   int v26; // [sp+4h] [bp-20h]
@@ -82,7 +79,7 @@ unsigned int  ke_msg_handler(int *a1, int a2, unsigned int a3)
     v27 = v13;
     *(uint16_t *)(v14 + 4) = result;
     v15 = (uint32_t *)(v28 + 4);
-    v16 = 0;
+    v16 = nullptr;
     v29 = v10;
     do
     {
@@ -98,7 +95,7 @@ unsigned int  ke_msg_handler(int *a1, int a2, unsigned int a3)
       }
       else
       {
-        printf_wrapper(dword_10F968, v15);
+        printf_wrapper("set_native_pool_id: Invalid buffer passed: %x\n", v15);
         v17 = *v8;
         if ( *v8 > (unsigned int)v15 )
           goto LABEL_22;
@@ -115,7 +112,7 @@ LABEL_12:
           goto LABEL_25;
         goto LABEL_13;
       }
-      printf_wrapper(dword_10F96C, v15);
+      printf_wrapper("set_pattern: Invalid buffer passed: %x\n", v15);
       v18 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_25;
@@ -132,7 +129,7 @@ LABEL_14:
           goto LABEL_28;
         goto LABEL_15;
       }
-      printf_wrapper(dword_10F970, v15);
+      printf_wrapper("set_num_users: Invalid buffer passed: %x\n", v15);
       v19 = *v8;
       if ( *v8 > (unsigned int)v15 )
         goto LABEL_28;
@@ -146,7 +143,7 @@ LABEL_16:
         *v15 = v20;
         goto LABEL_17;
       }
-      printf_wrapper(dword_10F974, v15);
+      printf_wrapper("set_next_buffer_addr: Invalid buffer passed: %x\n", v15);
 LABEL_17:
       ++v12;
       ++*(uint16_t *)v14;
@@ -177,4 +174,3 @@ LABEL_6:
     return result;
   }
 }
-

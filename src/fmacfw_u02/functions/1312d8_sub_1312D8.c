@@ -10,43 +10,40 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1314C0;
-extern uint32_t off_1314C8;
+
+extern uint32_t dword_1314F4;
 extern uint32_t off_1314C4;
-extern uint32_t off_1314F8;
-extern uint32_t off_1314D8;
+extern uint32_t off_1314C8;
+extern uint32_t off_1314CC;
+extern uint32_t off_1314D0;
 extern uint32_t off_1314D4;
+extern uint32_t off_1314D8;
+extern uint32_t off_1314DC;
+extern uint32_t off_1314E0;
+extern uint32_t off_1314E4;
 extern uint32_t off_1314EC;
 extern uint32_t off_1314F0;
-extern uint32_t off_1314DC;
-extern uint32_t off_1314E8;
-extern uint32_t off_1314E4;
-extern uint32_t dword_1314F4;
-extern uint32_t off_1314E0;
-extern uint32_t off_1314D0;
-extern uint32_t off_1314CC;
-extern uint32_t off_131500;
+extern uint32_t off_1314F8;
 extern uint32_t off_1314FC;
+extern uint32_t off_131500;
 extern uint32_t off_131504;
 extern uint32_t off_131508;
+extern uint32_t off_13150C;
 extern uint32_t off_131510;
 extern uint32_t off_131514;
-extern uint32_t off_13150C;
 
 // ke_event_lookup @ 0x1312d8, size 486 bytes
-// Doc: sub_12312D8 [tx]: Parse header bytes and dispatch via table lookup
-// sub_12312D8 [tx]: Parse header bytes and dispatch via table lookup
-int  ke_event_lookup(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+int  ke_event_lookup(int a1, uint8_t *a2, int a3, int a4)
 {
   int v7; // r1
-  uint8_t *v8; // r3
+  int *v8; // r3
   uint32_t *v10; // r1
   uint32_t *v11; // r2
   uint32_t *v12; // r0
   uint32_t *v13; // r7
   int v14; // r4
   uint32_t *v15; // r2
-  int v16; // r3
+  volatile unsigned int v16; // r3
   int v17; // r1
   uint32_t *v18; // r2
   uint32_t *v19; // r0
@@ -54,9 +51,9 @@ int  ke_event_lookup(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   uint32_t *v21; // r7
   uint8_t *v22; // r2
   int *v23; // r4
-  int v24; // r3
+  volatile unsigned int v24; // r3
   int v25; // r1
-  int v26; // r0
+  uint32_t *v26; // r0
   uint32_t *v27; // r2
   uint32_t *v28; // r0
   uint32_t *v29; // r4
@@ -67,14 +64,14 @@ int  ke_event_lookup(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   unsigned int *v34; // r1
   uint32_t *v35; // r2
 
-  check_status_bits(2, dword_1314C0, *a2, a2[1]);
+  check_status_bits(2, "set lp:%d, disable_filter=%d\n", *a2, a2[1]);
   v7 = *a2;
-  v8 = off_1314C8;
+  v8 = (int *)off_1314C8;
   **(uint8_t **)off_1314C4 = v7;
-  v8[412] = a2[1];
+  *((uint8_t *)v8 + 412) = a2[1];
   if ( v7 == 1 )
   {
-    if ( v8[189] )
+    if ( *((uint8_t *)v8 + 189) )
     {
       v27 = off_1314F8;
       v28 = off_1314D8;
@@ -109,9 +106,9 @@ int  ke_event_lookup(int a1, uint8_t *a2, int16_t a3, int16_t a4)
               if ( !v23 )
                 goto LABEL_21;
             }
-            v24 = *((uint32_t *)off_1314E8 + 4);
+            v24 = (*(volatile uint32_t *)0x40501010u);
             v25 = *(uint16_t *)(*(uint32_t *)off_1314E4 + 54);
-            v26 = dword_1314F4;
+            v26 = (uint32_t *)dword_1314F4;
             *((uint32_t *)off_1314DC + 5) = v23;
             v22[29] = 4;
             unknown_worker(v26, v25 + v24);
@@ -138,13 +135,13 @@ LABEL_21:
     v15[20] &= ~0x40000u;
     if ( v14 && *(uint8_t *)(v14 + 108) )
     {
-      v16 = *((uint32_t *)off_1314E8 + 4);
+      v16 = (*(volatile uint32_t *)0x40501010u);
       v17 = *(uint16_t *)(*(uint32_t *)off_1314E4 + 54);
       v13[5] = v14;
       *((uint8_t *)v13 + 29) = 4;
-      unknown_worker((int)(v13 + 3), v17 + v16);
+      unknown_worker(v13 + 3, v17 + v16);
       *(uint32_t *)(v14 + 4) |= 0x200u;
-      fault_handler(v14 + 24);
+      fault_handler((uint32_t *)(v14 + 24));
     }
   }
   else if ( !v7 && **(uint8_t **)off_1314CC == 3 )
@@ -160,7 +157,7 @@ LABEL_21:
     v32[20] |= 0x40000u;
     if ( (*v30 & 4) != 0 )
     {
-      if ( v8[190] )
+      if ( *((uint8_t *)v8 + 190) )
       {
         v33 = off_131500;
         *(uint32_t *)off_1314FC &= ~0x200u;
@@ -183,4 +180,3 @@ LABEL_21:
   ke_msg_send_no_param(5142, a4, a3);
   return 0;
 }
-

@@ -10,20 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_102BEC;
-extern uint32_t dword_102BE8;
+
 extern uint32_t off_102BF0;
-extern uint32_t dword_102BF8;
-extern uint32_t dword_102BF4;
+extern uint32_t off_102BF8;
 
 // check_radio_state @ 0x102bc0, size 38 bytes
-int  check_radio_state(int a1, int a2, int a3)
+int check_radio_state()
 {
   int result; // r0
 
-  result = event_dispatch(dword_102BEC, dword_102BE8, a3);
-  if ( **(int16_t **)off_102BF0 < 0 )
-    return mmio_clear_register(dword_102BF8, dword_102BF4, 61);
+  result = event_dispatch("%s\r\n", aIntcSpurious);
+  if ( **(uint16_t **)off_102BF0 < 0 )
+    return mmio_clear_register(off_102BF8, (int)aIntcSpurious_0, 61);
   return result;
 }
-

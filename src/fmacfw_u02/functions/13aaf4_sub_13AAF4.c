@@ -10,14 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13AB60;
-extern uint32_t dword_13AB64;
+
 extern uint32_t off_13AB68;
 extern uint32_t off_13AB6C;
 
 // ll_conn_event_prepare @ 0x13aaf4, size 106 bytes
-// Doc: sub_123AAF4 [mac]: Process descriptor fields and prepare output buffers
-// sub_123AAF4 [mac]: Process descriptor fields and prepare output buffers
 int  ll_conn_event_prepare(int a1, int a2, int a3)
 {
   int v6; // r3
@@ -29,14 +26,14 @@ int  ll_conn_event_prepare(int a1, int a2, int a3)
 
   check_status_bits(
     32,
-    dword_13AB60,
+    "txu discard: %d, %x, %d\r\n",
     *(uint16_t *)(a1 + 32),
     *(uint16_t *)(a1 + 30),
     *(uint8_t *)(a1 + 27));
   v6 = *(uint16_t *)(a1 + 30);
   v7 = v6 << 31;
   if ( (v6 & 1) != 0 || (irq_counter_inc(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
-    event_dispatch(dword_13AB64, v7);
+    event_dispatch(aRetransmitTxuD, v7);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -44,7 +41,7 @@ int  ll_conn_event_prepare(int a1, int a2, int a3)
   }
   v8 = (int *)off_13AB6C;
   ++*(uint32_t *)off_13AB6C;
-  result = ipc_handler_register(a1, a3, a2);
+  result = ipc_handler_register((uint32_t *)a1, a3, a2);
   if ( *v8 )
   {
     v10 = *v8 - 1;
@@ -58,4 +55,3 @@ int  ll_conn_event_prepare(int a1, int a2, int a3)
   }
   return result;
 }
-

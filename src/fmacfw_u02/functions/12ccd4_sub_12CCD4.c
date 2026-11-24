@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// iterate_word_array @ 0x12ccd4, size 82 bytes
-// Doc: message_dispatch_tail_n390 [ipc]: Tail handler for message dispatch, returns status
-// message_dispatch_tail_n390 [ipc]: Tail handler for message dispatch, returns status
-int  iterate_word_array(int a1, int *a2, int a3)
+
+extern uint32_t off_12CD28;
+
+// sub_12CCD4 @ 0x12ccd4, size 82 bytes
+int  sub_12CCD4(int a1, int *a2, int a3)
 {
   int v3; // r3
   int v5; // r2
@@ -37,11 +38,10 @@ int  iterate_word_array(int a1, int *a2, int a3)
       return 0;
   }
   result = *(uint32_t *)(v8 + 4);
-  if ( **(int16_t **)message_dispatch_n39c < 0 && !result )
+  if ( **(uint16_t **)off_12CD28 < 0 && !result )
   {
-    mmio_clear_register(message_dispatch_n3a4, message_dispatch_n3a0, 239);
+    sub_12F46C((int)aStateHandlerMs, (int)aKeHandlerSearc, 239);
     return *(uint32_t *)(v7 + *a2 + 4);
   }
   return result;
 }
-

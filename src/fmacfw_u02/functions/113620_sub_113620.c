@@ -10,48 +10,48 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_11368C;
+extern uint32_t off_113690;
+extern uint32_t off_113694;
+extern uint32_t off_113698;
 extern uint32_t off_11369C;
 extern uint32_t off_1136A0;
-extern uint32_t dword_11368C;
 
 // is_single_channel @ 0x113620, size 106 bytes
-// Doc: rf_cmd_queue_next_n1b0 [rf]: Processes next pending RF command in queue
-// rf_cmd_queue_next_n1b0 [rf]: Processes next pending RF command in queue
-uint32_t * is_single_channel(int a1)
+int * is_single_channel(int a1)
 {
-  uint32_t *result; // r0
-  uint32_t *v2; // r4
-  int v3; // r0
-  unsigned int v4; // r0
+  int *result; // r0
+  int *v2; // r4
+  unsigned int v3; // r0
 
   switch ( a1 )
   {
     case 1:
-      v2 = rf_stream_start2_n2a4;
-      v3 = memcpy(rf_stream_start2_n2a4, rf_stream_start2_n2a8_3698, 18);
-      if ( *((uint8_t *)off_11369C + 370) && get_hook_bit_9(v3) )
+      v2 = (int *)off_113694;
+      memcpy((char *)off_113694, (char *)off_113698, 0x12u);
+      if ( BYTE2(((uint32_t *)(uintptr_t)off_11369C)[92]) && get_hook_bit_9() )
       {
-        v4 = call_hook_2();
-        v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
+        v3 = call_hook_2();
+        v2[2] = ((HIWORD(v3) << 16) + 0x10000) | (uint16_t)v3;
         return v2;
       }
       else if ( *(uint16_t *)off_1136A0 == 0xFFFF || *((uint16_t *)off_1136A0 + 1) == 0xFFFF )
       {
-        return rf_stream_start2_n2a4;
+        return (int *)off_113694;
       }
       else
       {
-        result = rf_stream_start2_n2a4;
+        result = (int *)off_113694;
         v2[2] = *(uint32_t *)off_1136A0;
       }
       break;
     case 6:
-      return (uint32_t *)rf_cmd_queue_next_n1dc;
+      return (int *)off_113690;
     case 15:
-      return (uint32_t *)dword_11368C;
+      return (int *)off_11368C[0];
     default:
-      return 0;
+      return nullptr;
   }
   return result;
 }
-

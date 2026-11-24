@@ -10,25 +10,24 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1358B0;
-extern uint32_t dword_1358BC;
-extern uint32_t dword_1358B8;
+
 extern uint32_t dword_1358B4;
+extern uint32_t off_1358B0;
 
 // ke_msg_alloc @ 0x135838, size 120 bytes
 int  ke_msg_alloc(char a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int v6; // r0
-  int16_t **v7; // r3
-  int16_t *v8; // r3
+  uint16_t **v7; // r3
+  uint16_t *v8; // r3
   int v9; // r5
   int v10; // r3
   unsigned int v11; // r4
 
   v3 = a3;
   v6 = tx_send_pdu(6152, 13, 6, (uint16_t)(a3 + 4));
-  v7 = (int16_t **)off_1358B0;
+  v7 = (uint16_t **)off_1358B0;
   *(uint8_t *)v6 = a1;
   v8 = *v7;
   *(uint16_t *)(v6 + 2) = v3;
@@ -36,7 +35,7 @@ int  ke_msg_alloc(char a1, int a2, unsigned int a3)
   if ( *v8 < 0 )
   {
     if ( v3 >= get_buffer_size() - 4 )
-      irq_disable_mmio_write(dword_1358BC, dword_1358B8, 1444);
+      irq_disable_mmio_write((int)aIndFtIeLenMaci, (int)aSmFtAuthOverAi, 1444);
     v3 = *(uint16_t *)(v9 + 2);
   }
   if ( v3 )
@@ -52,6 +51,5 @@ int  ke_msg_alloc(char a1, int a2, unsigned int a3)
   }
   hci_cmd_preprocess(6u, 7);
   ke_event_handler(6154, 6, dword_1358B4);
-  return rx_process_packet(v9);
+  return (int)rx_process_packet_1(v9);
 }
-

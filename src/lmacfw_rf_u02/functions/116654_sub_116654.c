@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1166BC;
-extern uint32_t off_1166C0;
+
 extern uint32_t dword_1166C4;
 extern uint32_t dword_1166C8;
+extern uint32_t off_1166BC;
+extern uint32_t off_1166C0;
 
 // pool_alloc_init @ 0x116654, size 102 bytes
 uint32_t *pool_alloc_init()
@@ -27,7 +28,7 @@ uint32_t *pool_alloc_init()
   int v6; // r3
   void ( *v7)(uint32_t, uint32_t); // r3
 
-  enter_critical_section(0x200000);
+  enter_critical_section_1(0x200000);
   v0 = (int *)off_1166BC;
   v1 = (int *)off_1166C0;
   v2 = dword_1166C4;
@@ -39,7 +40,7 @@ uint32_t *pool_alloc_init()
       *v1 = 1;
     }
     ++*v0;
-    result = (uint32_t *)list_pop_front(v2);
+    result = list_pop_front(v2);
     v4 = result;
     v5 = *v0 - 1;
     if ( *v0 )
@@ -58,8 +59,7 @@ uint32_t *pool_alloc_init()
     if ( v7 )
       v7(result[12], *(uint32_t *)(result[8] + 68));
     if ( !*((uint8_t *)v4 + 52) )
-      check_kernel_state(dword_1166C8);
+      check_kernel_state(dword_1166C8, v4);
   }
   return result;
 }
-

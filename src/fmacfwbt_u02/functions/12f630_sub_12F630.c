@@ -10,47 +10,42 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12F684;
 extern uint32_t off_12F688;
-extern uint32_t dword_12F68C;
 extern uint32_t off_12F690;
 
-// ke_int_lock @ 0x12f630, size 82 bytes
-// Doc: sub_122F630 [bt]: BT/LMAC helper: branches on shifted flag and dispatches
-// sub_122F630 [bt]: BT/LMAC helper: branches on shifted flag and dispatches
-int  ke_int_lock(int a1, int a2, int a3)
+// ke_int_lock_1 @ 0x12f630, size 82 bytes
+int  ke_int_lock_1(int a1, int a2, int a3)
 {
-  int *v4; // r4
-  int v5; // r0
+  int *v3; // r4
   int result; // r0
-  int v7; // r3
-  int v8; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_12F684 = 1;
   }
-  v4 = (int *)off_12F688;
-  v5 = dword_12F68C;
+  v3 = (int *)off_12F688;
   ++*(uint32_t *)off_12F688;
-  result = ke_event_schedule(v5, a1, a2, a3 & 0xFFFFF);
+  result = ke_event_schedule_1("\x9BASSERT (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
   if ( *(int *)off_12F690 >= 0 )
   {
     mmio_clear_high_bits();
     result = set_system_flag_1(0x80000000);
   }
-  if ( *v4 )
+  if ( *v3 )
   {
-    v7 = *v4 - 1;
-    v8 = *(uint32_t *)off_12F684;
-    *v4 = v7;
-    if ( !v7 )
+    v5 = *v3 - 1;
+    v6 = *(uint32_t *)off_12F684;
+    *v3 = v5;
+    if ( !v5 )
     {
-      if ( v8 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

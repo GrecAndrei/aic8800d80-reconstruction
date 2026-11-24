@@ -10,8 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1191B4;
-
 // rf_agc_control @ 0x119190, size 36 bytes
 int  rf_agc_control(int result, int a2, int a3)
 {
@@ -24,9 +22,8 @@ int  rf_agc_control(int result, int a2, int a3)
   }
   else
   {
-    check_interrupt_flag(1024, dword_1191B4, a3, a2 << 8);
-    return kernel_send_evt(v3);
+    check_interrupt_flag(1024, aBcnLinkloss, a3, a2 << 8);
+    return (int)kernel_send_evt(v3);
   }
   return result;
 }
-

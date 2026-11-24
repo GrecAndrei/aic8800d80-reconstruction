@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_128C14;
-extern uint32_t dword_128C18;
+
+extern uint32_t off_128C18;
 extern uint32_t off_128C1C;
 extern uint32_t off_128C20;
 
@@ -22,8 +22,8 @@ uint16_t * sec_log_dbg(int a1, int a2)
   int *i; // r3
   int v6; // r3
 
-  check_feature_flag(2, dword_128C14);
-  result = (uint16_t *)log_printf(a1, a2, dword_128C18);
+  check_feature_flag(2, "%s:%x\r\n", aPsDisableCfm, a2);
+  result = (uint16_t *)log_printf(a1, a2, off_128C18);
   if ( result )
   {
     result = (uint16_t *)off_128C1C;
@@ -44,4 +44,3 @@ uint16_t * sec_log_dbg(int a1, int a2)
   }
   return result;
 }
-

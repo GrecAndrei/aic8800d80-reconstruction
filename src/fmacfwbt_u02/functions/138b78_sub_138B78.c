@@ -10,17 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_138BA8;
 
 // tx_power_cal_apply @ 0x138b78, size 46 bytes
-uint32_t ** tx_power_cal_apply(uint32_t *a1)
+int  tx_power_cal_apply(int a1)
 {
   int v1; // r5
+  int v3; // r1
 
   v1 = dword_138BA8;
-  tx_power_cal_read(0, 4, a1[5]);
-  check_abort_flag_3(v1, a1);
-  check_abort_flag(v1 - 8, a1);
-  return process_pending_queue((uint32_t **)(v1 - 32));
+  tx_power_cal_read(0, 4, *(uint32_t *)(a1 + 20));
+  check_abort_flag_3(v1, (uint32_t *)a1);
+  check_abort_flag(v1 - 8, (uint32_t *)a1);
+  return (int)process_pending_queue((int *)(v1 - 32), v3);
 }
-

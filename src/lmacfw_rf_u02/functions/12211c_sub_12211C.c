@@ -10,37 +10,35 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_122188;
-extern uint32_t dword_12218C;
-extern uint32_t off_122194;
+
 extern uint32_t off_122190;
+extern uint32_t off_122194;
 
 // parse_len_value @ 0x12211c, size 108 bytes
 int  parse_len_value(int a1, int a2)
 {
   int v3; // r5
-  int v4; // r4
+  void ( *v4)(int); // r4
   int v5; // r0
   uint32_t *v6; // r3
 
   if ( a1 <= 2 )
   {
-    v4 = parse_number(*(uint8_t **)(a2 + 4), 0, 0x10u);
-    dispatch_event_handler(dword_122188, v4);
+    v4 = (void ( *)(int))parse_number(*(uint8_t **)(a2 + 4), nullptr, 0x10u);
+    dispatch_event_handler_1("Goto %p\r\n", v4);
     goto LABEL_5;
   }
-  v3 = parse_number(*(uint8_t **)(a2 + 4), 0, 0);
-  v4 = parse_number(*(uint8_t **)(a2 + 8), 0, 0x10u);
-  dispatch_event_handler(dword_122188, v4);
+  v3 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0);
+  v4 = (void ( *)(int))parse_number(*(uint8_t **)(a2 + 8), nullptr, 0x10u);
+  dispatch_event_handler_1("Goto %p\r\n", v4);
   if ( v3 == 1 )
 LABEL_5:
-    v4 = *(uint32_t *)(v4 + 4);
-  v5 = dispatch_event_handler(dword_12218C, v4);
+    v4 = *((void ( **)(int))v4 + 1);
+  v5 = dispatch_event_handler_1("PC=%p\r\n", v4);
   v6 = off_122194;
   *((uint32_t *)off_122190 + 65) = 8;
   v6[2] &= ~0x20000u;
   v6[2] |= 0x40000u;
-  ((void ( *)(int))v4)(v5);
+  v4(v5);
   return 0;
 }
-

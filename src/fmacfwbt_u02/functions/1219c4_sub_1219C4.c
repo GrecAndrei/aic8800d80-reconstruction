@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1219E4;
 
 // dma_free_buf @ 0x1219c4, size 32 bytes
@@ -17,6 +18,5 @@ int dma_free_buf()
 {
   set_system_flag_2(0x2000000);
   *((uint32_t *)off_1219E4 + 1) &= ~4u;
-  return hci_cmd_send(0);
+  return hci_cmd_send(0, 0);
 }
-

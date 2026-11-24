@@ -10,12 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_126848;
-extern uint32_t dword_126868;
-extern uint32_t off_126858;
+
+extern uint32_t off_126848;
 extern uint32_t off_126854;
-extern uint32_t dword_12684C;
-extern uint32_t dword_126850;
+extern uint32_t off_126858;
 extern uint32_t off_12685C;
 extern uint32_t off_126860;
 extern uint32_t off_126864;
@@ -32,7 +30,7 @@ uint32_t * rf_config_load(int a1)
   int v8; // r1
   int v9; // r2
   int v10; // r3
-  uint32_t *result; // r0
+  uint32_t *v11; // r0
   int v12; // r4
   uint32_t *v13; // r1
   uint32_t *v14; // r4
@@ -43,7 +41,7 @@ uint32_t * rf_config_load(int a1)
   uint32_t *v19; // r1
   uint32_t *v20; // r4
   uint64_t *v21; // r5
-  uint64_t v22; // [sp+8h] [bp-38h] BYREF
+  uint64_t result; // [sp+8h] [bp-38h] BYREF
   int v23; // [sp+10h] [bp-30h]
   int v24; // [sp+14h] [bp-2Ch]
   int v25; // [sp+18h] [bp-28h]
@@ -58,45 +56,45 @@ uint32_t * rf_config_load(int a1)
   int v34; // [sp+3Ch] [bp-4h]
   uint64_t vars0[2]; // [sp+40h] [bp+0h] BYREF
 
-  v2 = *(uint32_t *)(dword_126848 + 4);
-  v3 = *(uint32_t *)(dword_126848 + 8);
-  v4 = *(uint32_t *)(dword_126848 + 12);
-  v23 = *(uint32_t *)dword_126848;
+  v2 = ((uint32_t *)(uintptr_t)off_126848)[1];
+  v3 = ((uint32_t *)(uintptr_t)off_126848)[2];
+  v4 = ((uint32_t *)(uintptr_t)off_126848)[3];
+  v23 = ((uint32_t *)(uintptr_t)off_126848)[0];
   v24 = v2;
   v25 = v3;
   v26 = v4;
-  v5 = *(uint32_t *)(dword_126848 + 20);
-  v6 = *(uint32_t *)(dword_126848 + 24);
-  v7 = *(uint32_t *)(dword_126848 + 28);
-  v27 = *(uint32_t *)(dword_126848 + 16);
+  v5 = ((uint32_t *)(uintptr_t)off_126848)[5];
+  v6 = ((uint32_t *)(uintptr_t)off_126848)[6];
+  v7 = ((uint32_t *)(uintptr_t)off_126848)[7];
+  v27 = ((uint32_t *)(uintptr_t)off_126848)[4];
   v28 = v5;
   v29 = v6;
   v30 = v7;
-  v8 = *(uint32_t *)(dword_126848 + 36);
-  v9 = *(uint32_t *)(dword_126848 + 40);
-  v10 = *(uint32_t *)(dword_126848 + 44);
-  v31 = *(uint32_t *)(dword_126848 + 32);
+  v8 = ((uint32_t *)(uintptr_t)off_126848)[9];
+  v9 = ((uint32_t *)(uintptr_t)off_126848)[10];
+  v10 = ((uint32_t *)(uintptr_t)off_126848)[11];
+  v31 = ((uint32_t *)(uintptr_t)off_126848)[8];
   v32 = v8;
   v33 = v9;
   v34 = v10;
   if ( !a1 )
   {
-    result = (uint32_t *)dispatch_event_handler(dword_126868);
+    v11 = (uint32_t *)dispatch_event_handler_1(aNotchOff);
     v18 = off_126858;
     *(uint32_t *)off_126854 |= 0x80000000;
     *v18 |= 0x80000000;
-    return result;
+    return v11;
   }
   if ( a1 > 3 )
-    return (uint32_t *)dispatch_event_handler(dword_12684C, a1);
-  mac_time_get(&v22, 0);
-  v12 = BYTE1(v22);
-  result = (uint32_t *)dispatch_event_handler(dword_126850, a1, WORD2(v22), WORD1(v22), BYTE1(v22));
+    return (uint32_t *)dispatch_event_handler_1("invalid func:%d\n", a1);
+  mac_time_get(&result, 0);
+  v12 = BYTE1(result);
+  v11 = (uint32_t *)dispatch_event_handler_1("notch%d on @%d,%d,%d\n", a1, WORD2(result), WORD1(result), BYTE1(result));
   if ( !v12 )
   {
     v19 = off_126858;
     v20 = off_12685C;
-    result = off_126860;
+    v11 = off_126860;
     *(uint32_t *)off_126854 &= ~0x80000000;
     v15 = off_126864;
     v21 = &vars0[a1 - 1];
@@ -109,7 +107,7 @@ uint32_t * rf_config_load(int a1)
   {
     v13 = off_126858;
     v14 = off_12685C;
-    result = off_126860;
+    v11 = off_126860;
     *(uint32_t *)off_126854 &= ~0x80000000;
     v15 = off_126864;
     *v13 &= ~0x80000000;
@@ -117,10 +115,9 @@ uint32_t * rf_config_load(int a1)
     *v14 = *((uint32_t *)v16 - 8);
     v17 = *((uint32_t *)v16 - 7);
 LABEL_8:
-    *result = v17;
+    *v11 = v17;
     *v15 |= 2u;
     *v15 |= 1u;
   }
-  return result;
+  return v11;
 }
-

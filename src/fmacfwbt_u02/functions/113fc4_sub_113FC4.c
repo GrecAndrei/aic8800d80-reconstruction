@@ -10,14 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_113FD4;
-
 // log_and_handle @ 0x113fc4, size 16 bytes
-// Doc: sub_1213FC4 [util]: Store byte field and save callee-saved regs
-// sub_1213FC4 [util]: Store byte field and save callee-saved regs
-int  log_and_handle(int a1, int a2, int a3)
+int log_and_handle()
 {
-  ke_event_schedule(dword_113FD4, a2, a3);
+  ke_event_schedule_1(aHostReady);
   return dispatch_function_ptr();
 }
-

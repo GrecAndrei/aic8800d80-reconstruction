@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_121418;
 
 // check_isr_handler @ 0x1213ec, size 42 bytes
 int check_isr_handler()
 {
-  if ( hci_cmd_send_short(0) == 1 )
-    *(uint32_t *)off_121418 = 48;
-  return hci_cmd_send(0);
+  if ( hci_cmd_send_short(0) != 1 )
+    return hci_cmd_send(0, 0);
+  *(uint32_t *)off_121418 = 48;
+  return hci_cmd_send(0, 1);
 }
-

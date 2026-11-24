@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103BFC;
+
 extern uint32_t off_103BF8;
+extern uint32_t off_103BFC;
 extern uint32_t off_103C00;
+extern uint32_t off_103C04;
 extern uint32_t off_103C08;
 extern uint32_t off_103C0C;
-extern uint32_t dword_103C10;
-extern uint32_t off_103C04;
 
 // enable_pa @ 0x103b6c, size 138 bytes
 int enable_pa()
@@ -28,7 +28,6 @@ int enable_pa()
   int v4; // r3
   uint32_t *v5; // r3
   uint32_t *v6; // r0
-  int v7; // r1
 
   v0 = off_103BFC;
   *(uint32_t *)off_103BF8 |= 1u;
@@ -52,11 +51,9 @@ int enable_pa()
   }
   v5 = off_103C08;
   v6 = off_103C0C;
-  v7 = dword_103C10;
   *(uint32_t *)off_103C04 |= 0x20000u;
   *v5 |= 0x1000000u;
   *v5 |= 0x8000000u;
   *v6 |= 0x524u;
-  return check_status_bits(0x2000, v7);
+  return check_status_bits(0x2000, aWfDfeAndRfintf);
 }
-

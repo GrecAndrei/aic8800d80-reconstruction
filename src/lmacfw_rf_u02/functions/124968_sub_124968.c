@@ -10,25 +10,22 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1249E8;
-extern uint32_t off_124A00;
 extern uint32_t off_1249EC;
-extern uint32_t off_1249F0;
-extern uint32_t dword_124A0C;
-extern uint32_t off_1249F8;
 extern uint32_t off_1249F4;
+extern uint32_t off_1249F8;
 extern uint32_t off_1249FC;
-extern uint32_t dword_124A04;
-extern uint32_t dword_124A08;
+extern uint32_t off_124A00;
 
 // mmio_check_status @ 0x124968, size 128 bytes
 int mmio_check_status()
 {
   int *v0; // r6
   uint32_t *v1; // r4
-  uint32_t *v2; // r5
-  int v3; // r7
-  void *v4; // r1
+  volatile unsigned int v2; // r7
+  unsigned int v3; // r3
+  int v4; // r1
   int v5; // r3
   int v6; // r2
 
@@ -41,14 +38,14 @@ int mmio_check_status()
     }
     v0 = (int *)off_1249EC;
     v1 = off_1249E8;
-    v2 = off_1249F0;
     ++*(uint32_t *)off_1249EC;
     *v1 = 0;
-    v3 = v2[4];
+    v2 = (*(volatile uint32_t *)0x40501010u);
     while ( *v1 << 28 )
     {
-      if ( (unsigned int)(v2[4] - v3) > 0x7530 )
-        dispatch_event_handler(dword_124A0C, *v1 << 28, 30000);
+      v3 = (*(volatile uint32_t *)0x40501010u) - v2;
+      if ( v3 > 0x7530 )
+        dispatch_event_handler_1(aIdleErr, *v1 << 28, 30000);
     }
     v4 = off_1249F8;
     while ( (*(uint32_t *)off_1249F8 & *(uint32_t *)off_1249F4 & 4) == 0 )
@@ -65,9 +62,8 @@ int mmio_check_status()
           __enable_irq();
       }
     }
-    dispatch_event_handler(dword_124A04, v4);
+    dispatch_event_handler_1(aForceIdled, v4);
   }
-  dispatch_event_handler(dword_124A08);
+  dispatch_event_handler_1(aRxStatStop);
   return 0;
 }
-

@@ -11,8 +11,6 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 // list_find @ 0x11e888, size 42 bytes
-// Doc: sdio_buffer_prepare_n_32a [tx]: Validate/prepare SDIO buffer descriptor
-// sdio_buffer_prepare_n_32a [tx]: Validate/prepare SDIO buffer descriptor
 uint32_t * list_find(uint32_t *result, uint32_t *a2, uint32_t *a3)
 {
   uint32_t **v3; // r3
@@ -38,4 +36,3 @@ uint32_t * list_find(uint32_t *result, uint32_t *a2, uint32_t *a3)
   }
   return result;
 }
-

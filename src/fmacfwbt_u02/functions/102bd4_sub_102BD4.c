@@ -10,30 +10,29 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_102CF0;
-extern uint32_t dword_102D0C;
-extern uint32_t dword_102D00;
+
 extern uint32_t dword_102CF4;
-extern uint32_t dword_102CF8;
+extern uint32_t dword_102D00;
+extern uint32_t off_102CF0;
 extern uint32_t off_102CFC;
-extern uint32_t qword_102D04;
+extern uint64_t qword_102D04;
 
 // radio_event_loop @ 0x102bd4, size 282 bytes
 int  radio_event_loop(int a1, uint16_t *a2)
 {
   unsigned int v4; // r11
-  int v5; // r9
-  int v6; // r8
-  int v7; // r10
-  int *v8; // r6
-  int v9; // r5
-  uint16_t *v10; // r7
-  int v11; // r4
-  int v12; // t1
-  int v13; // r1
+  int v5; // r8
+  int v6; // r10
+  unsigned int *v7; // r6
+  int v8; // r5
+  uint16_t *v9; // r7
+  unsigned int v10; // r4
+  int v11; // t1
+  unsigned int v12; // r4
+  int v13; // r3
   int result; // r0
   int v15; // r4
-  int16_t v16; // r12
+  uint16_t v16; // r12
   char *v17; // r7
   int v18; // r6
   char *v19; // r12
@@ -49,34 +48,33 @@ int  radio_event_loop(int a1, uint16_t *a2)
     ;
   v4 = 0;
   set_radio_ctrl_bits(0);
-  v5 = dword_102D0C;
-  v6 = dword_102D00;
+  v5 = dword_102D00;
   v23 = 0;
   v24 = a2;
-  v7 = a1;
-  while ( ((1 << v4) & v7) == 0 )
+  v6 = a1;
+  while ( ((1 << v4) & v6) == 0 )
   {
     if ( (uint16_t)v4 == 5 )
       goto LABEL_10;
 LABEL_4:
     ++v4;
   }
-  v8 = (int *)(dword_102CF4 + (v4 << 9));
-  v9 = 0;
-  v10 = v24 - 1;
+  v7 = (unsigned int *)(dword_102CF4 + (v4 << 9));
+  v8 = 0;
+  v9 = v24 - 1;
   do
   {
-    v11 = *v8;
-    state_check_feature(0x2000, v5);
-    v12 = v10[1];
-    ++v10;
-    v13 = dword_102CF8;
-    *v8 = v11 & v6 | (v12 << 11);
-    v8 += 8;
+    v10 = *v7;
+    state_check_feature(0x2000, "before %d,%d: dcq/i=%4x\r\n", v4, v8, (uint16_t)(*v7 >> 11));
+    v11 = v9[1];
     ++v9;
-    state_check_feature(0x2000, v13);
+    v12 = v10 & v5 | (v11 << 11);
+    *v7 = v12;
+    v7 += 8;
+    v13 = v8++;
+    state_check_feature(0x2000, "after  %d,%d: dcq/i=%4x\r\n", v4, v13, (uint16_t)(v12 >> 11));
   }
-  while ( v9 != 16 );
+  while ( v8 != 16 );
   if ( v4 <= 1 )
     goto LABEL_4;
   v23 = 1;
@@ -89,14 +87,14 @@ LABEL_10:
   {
     v15 = *(uint32_t *)off_102CFC;
     v25 = *(uint64_t *)off_102CFC;
-    v26 = *((uint32_t *)off_102CFC + 2);
+    v26 = *(uint32_t *)(off_102CFC + 8);
     v16 = 3;
   }
   else
   {
     v15 = qword_102D04;
     v26 = 0;
-    HIDWORD(v25) = HIDWORD(qword_102D04);
+    v25 = qword_102D04;
     v16 = 2;
   }
   v17 = (char *)&v25 + 4;
@@ -125,4 +123,3 @@ LABEL_10:
   }
   return result;
 }
-

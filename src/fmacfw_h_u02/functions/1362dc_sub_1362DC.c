@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136330;
+
 extern uint32_t dword_136334;
 
 // ble_encrypt_data @ 0x1362dc, size 84 bytes
-int  ble_encrypt_data(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+int  ble_encrypt_data(int a1, uint8_t *a2, int a3, int a4)
 {
   int v7; // r4
 
-  check_feature_flag(256, dword_136330);
+  check_feature_flag(256, aApStop);
   v7 = dword_136334 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && *(uint8_t *)(v7 + 108) )
   {
@@ -38,4 +38,3 @@ int  ble_encrypt_data(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     return 0;
   }
 }
-

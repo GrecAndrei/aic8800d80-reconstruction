@@ -10,93 +10,83 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_118FA0;
-extern uint32_t dword_118FD0;
-extern uint32_t dword_118FCC;
-extern uint32_t dword_118FA4;
 extern uint32_t off_118FA8;
-extern uint32_t off_118FD4;
 extern uint32_t off_118FAC;
-extern uint32_t off_118FB0;
-extern uint32_t dword_118FC8;
 extern uint32_t off_118FB4;
 extern uint32_t off_118FB8;
 extern uint32_t off_118FBC;
 extern uint32_t off_118FC0;
 extern uint32_t off_118FC4;
+extern uint32_t off_118FD4;
 
 // rf_state_process @ 0x118ec8, size 214 bytes
-int  rf_state_process(int a1, int a2, int a3)
+int rf_state_process()
 {
-  int v3; // r3
-  int *v4; // r8
-  int *v5; // r4
-  uint32_t *v6; // r5
+  int *v0; // r8
+  int *v1; // r4
+  int v2; // r3
+  volatile unsigned int v3; // r7
+  int v4; // r9
+  unsigned int v5; // r3
+  int v6; // r2
   int v7; // r3
-  int v8; // r7
-  int v9; // r9
-  int v10; // r2
-  unsigned int v11; // r3
-  int v12; // r2
-  int v13; // r3
-  int v14; // r3
+  int v8; // r3
   int result; // r0
-  int v16; // r3
-  int v17; // r3
-  int v18; // r2
+  int v10; // r3
+  int v11; // r3
+  int v12; // r2
 
-  v3 = **(int16_t **)off_118FA0;
-  if ( v3 < 0 && flash_write_byte(0) == 4 )
-    flash_ctrl_init(dword_118FD0, dword_118FCC, 1799);
-  check_interrupt_flag(4, dword_118FA4, a3, v3);
+  if ( **(uint16_t **)off_118FA0 < 0 && flash_write_byte(0) == 4 )
+    flash_ctrl_init((int)aKeStateGetTask, (int)aMmForceIdleReq, 1799);
+  check_interrupt_flag(4, aForceIdle);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_118FA8 = 1;
   }
-  v4 = (int *)off_118FD4;
-  v5 = (int *)off_118FAC;
-  v6 = off_118FB0;
+  v0 = (int *)off_118FD4;
+  v1 = (int *)off_118FAC;
   ++*(uint32_t *)off_118FD4;
-  v7 = *v5;
-  *v5 = 0;
-  v8 = v6[4];
-  v9 = v7 & 0xF;
-  while ( *v5 << 28 )
+  v2 = *v1;
+  *v1 = 0;
+  v3 = (*(volatile uint32_t *)0x40501010u);
+  v4 = v2 & 0xF;
+  while ( *v1 << 28 )
   {
     mmio_status_write();
-    v11 = v6[4] - v8;
-    if ( v11 > 0x7530 )
-      check_interrupt_flag(4, dword_118FC8, v10, v11);
+    v5 = (*(volatile uint32_t *)0x40501010u) - v3;
+    if ( v5 > 0x7530 )
+      check_interrupt_flag(4, aIdleErr);
   }
-  v12 = *(uint32_t *)off_118FB4;
-  v13 = *(uint32_t *)off_118FB8;
-  if ( v9 )
+  v6 = *(uint32_t *)off_118FB4;
+  v7 = *(uint32_t *)off_118FB8;
+  if ( v4 )
   {
-    while ( (v13 & v12 & 4) == 0 )
+    while ( (v7 & v6 & 4) == 0 )
     {
-      v12 = *(uint32_t *)off_118FB4;
-      v13 = *(uint32_t *)off_118FB8;
+      v6 = *(uint32_t *)off_118FB4;
+      v7 = *(uint32_t *)off_118FB8;
     }
   }
-  v14 = *((uint8_t *)off_118FBC + 90);
+  v8 = *((uint8_t *)off_118FBC + 90);
   *(uint32_t *)off_118FC0 = 4;
-  if ( v14 )
-    critical_section_enter();
-  result = flash_erase_sector(0);
-  v16 = *v4;
-  *((uint16_t *)off_118FC4 + 8) = 0;
-  if ( v16 )
+  if ( v8 )
+    critical_section_enter_1();
+  result = flash_erase_sector(0, 3);
+  v10 = *v0;
+  *(uint16_t *)(off_118FC4 + 0x10) = 0;
+  if ( v10 )
   {
-    v17 = v16 - 1;
-    v18 = *(uint32_t *)off_118FA8;
-    *v4 = v17;
-    if ( !v17 )
+    v11 = v10 - 1;
+    v12 = *(uint32_t *)off_118FA8;
+    *v0 = v11;
+    if ( !v11 )
     {
-      if ( v18 )
+      if ( v12 )
         __enable_irq();
     }
   }
   return result;
 }
-

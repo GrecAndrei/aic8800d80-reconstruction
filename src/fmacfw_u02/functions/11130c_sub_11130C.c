@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_111388;
-extern uint32_t dword_11138C;
 
 // read_random_from_mmio @ 0x11130c, size 124 bytes
 int  read_random_from_mmio(int a1)
@@ -38,6 +38,5 @@ int  read_random_from_mmio(int a1)
   }
   *v1 = v4;
   *v1 = v2 | 0xC00000;
-  return log_printf(dword_11138C, *(uint32_t *)off_111388 & 0x3FFFFF);
+  return log_printf("sdio pahse cfg %x\n", *(uint32_t *)off_111388 & 0x3FFFFF);
 }
-

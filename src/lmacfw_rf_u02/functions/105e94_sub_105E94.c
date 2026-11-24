@@ -10,11 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_105F28;
-extern uint32_t dword_105F2C;
-extern uint32_t off_105F34;
+
+extern uint32_t off_105F28;
 extern uint32_t off_105F30;
-extern uint32_t dword_105F38;
+extern uint32_t off_105F34;
 
 // load_device_desc @ 0x105e94, size 146 bytes
 int  load_device_desc(int a1, int a2)
@@ -42,103 +41,72 @@ int  load_device_desc(int a1, int a2)
   int v24; // r3
   int v25; // r6
   int v26; // r2
-  uint8_t *v27; // r3
+  int *v27; // r3
   int v28; // r1
   unsigned int *v29; // r4
   int v30; // r3
-  int v31; // r1
-  unsigned int v32; // r3
-  int v34; // [sp+0h] [bp-6Ch]
-  int v35; // [sp+4h] [bp-68h]
-  int v36; // [sp+8h] [bp-64h]
-  int v37; // [sp+Ch] [bp-60h]
-  int v38; // [sp+10h] [bp-5Ch]
-  int v39; // [sp+14h] [bp-58h]
-  int v40; // [sp+18h] [bp-54h]
-  int v41; // [sp+1Ch] [bp-50h]
-  int v42; // [sp+20h] [bp-4Ch]
-  int v43; // [sp+24h] [bp-48h]
-  int v44; // [sp+28h] [bp-44h]
-  int v45; // [sp+2Ch] [bp-40h]
-  int v46; // [sp+30h] [bp-3Ch]
-  int v47; // [sp+34h] [bp-38h]
-  int v48; // [sp+38h] [bp-34h]
-  int v49; // [sp+3Ch] [bp-30h]
-  int v50; // [sp+40h] [bp-2Ch]
-  int v51; // [sp+44h] [bp-28h]
-  int v52; // [sp+48h] [bp-24h]
-  int v53; // [sp+4Ch] [bp-20h]
-  int v54; // [sp+50h] [bp-1Ch]
-  int v55; // [sp+54h] [bp-18h]
-  int v56; // [sp+58h] [bp-14h]
-  int v57; // [sp+5Ch] [bp-10h]
-  int v58; // [sp+60h] [bp-Ch]
-  int v59; // [sp+64h] [bp-8h]
-  uint8_t v60[4]; // [sp+68h] [bp-4h] BYREF
+  int tbl[27]; // [sp+0h] [bp-6Ch] BYREF
 
-  v4 = *(uint32_t *)(dword_105F28 + 4);
-  v5 = *(uint32_t *)(dword_105F28 + 8);
-  v6 = *(uint32_t *)(dword_105F28 + 12);
-  v34 = *(uint32_t *)dword_105F28;
-  v35 = v4;
-  v36 = v5;
-  v37 = v6;
-  v7 = *(uint32_t *)(dword_105F28 + 20);
-  v8 = *(uint32_t *)(dword_105F28 + 24);
-  v9 = *(uint32_t *)(dword_105F28 + 28);
-  v38 = *(uint32_t *)(dword_105F28 + 16);
-  v39 = v7;
-  v40 = v8;
-  v41 = v9;
-  v10 = *(uint32_t *)(dword_105F28 + 36);
-  v11 = *(uint32_t *)(dword_105F28 + 40);
-  v12 = *(uint32_t *)(dword_105F28 + 44);
-  v42 = *(uint32_t *)(dword_105F28 + 32);
-  v43 = v10;
-  v44 = v11;
-  v45 = v12;
-  v13 = (int *)(dword_105F28 + 48 + 4);
-  v46 = *(uint32_t *)(dword_105F28 + 48);
+  v4 = ((uint32_t *)(uintptr_t)off_105F28)[1];
+  v5 = ((uint32_t *)(uintptr_t)off_105F28)[2];
+  v6 = ((uint32_t *)(uintptr_t)off_105F28)[3];
+  tbl[0] = ((uint32_t *)(uintptr_t)off_105F28)[0];
+  tbl[1] = v4;
+  tbl[2] = v5;
+  tbl[3] = v6;
+  v7 = ((uint32_t *)(uintptr_t)off_105F28)[5];
+  v8 = ((uint32_t *)(uintptr_t)off_105F28)[6];
+  v9 = ((uint32_t *)(uintptr_t)off_105F28)[7];
+  tbl[4] = ((uint32_t *)(uintptr_t)off_105F28)[4];
+  tbl[5] = v7;
+  tbl[6] = v8;
+  tbl[7] = v9;
+  v10 = ((uint32_t *)(uintptr_t)off_105F28)[9];
+  v11 = ((uint32_t *)(uintptr_t)off_105F28)[10];
+  v12 = ((uint32_t *)(uintptr_t)off_105F28)[11];
+  tbl[8] = ((uint32_t *)(uintptr_t)off_105F28)[8];
+  tbl[9] = v10;
+  tbl[10] = v11;
+  tbl[11] = v12;
+  v13 = &((uint32_t *)(uintptr_t)off_105F28)[13];
+  tbl[12] = ((uint32_t *)(uintptr_t)off_105F28)[12];
   v14 = *v13;
   v15 = v13[1];
   v16 = v13[2];
   v17 = v13[3];
   v13 += 4;
-  v47 = v14;
-  v48 = v15;
-  v49 = v16;
-  v50 = v17;
+  tbl[13] = v14;
+  tbl[14] = v15;
+  tbl[15] = v16;
+  tbl[16] = v17;
   v18 = *v13;
   v19 = v13[1];
   v20 = v13[2];
   v21 = v13[3];
   v13 += 4;
-  v51 = v18;
-  v52 = v19;
-  v53 = v20;
-  v54 = v21;
+  tbl[17] = v18;
+  tbl[18] = v19;
+  tbl[19] = v20;
+  tbl[20] = v21;
   v22 = v13[1];
   v23 = v13[2];
   v24 = v13[3];
-  v55 = *v13;
-  v56 = v22;
-  v57 = v23;
-  v58 = v24;
+  tbl[21] = *v13;
+  tbl[22] = v22;
+  tbl[23] = v23;
+  tbl[24] = v24;
   v25 = *(uint32_t *)(a1 + 4 * a2 + 140);
-  v59 = v13[4];
-  check_interrupt_flag(1, dword_105F2C, v25, v59);
+  tbl[25] = v13[4];
+  check_interrupt_flag(1, "shift_idx=%d ", v25);
   if ( v25 > 25 )
     v26 = 12;
   else
     v26 = (v25 / 2) & ~((v25 / 2) >> 31);
-  v27 = &v60[4 * v26];
-  v28 = *((uint32_t *)v27 - 26);
+  v27 = &tbl[v26 + 26];
+  v28 = *(v27 - 26);
   v29 = (unsigned int *)off_105F34;
-  v30 = *((uint32_t *)v27 - 13);
+  v30 = *(v27 - 13);
   *(uint32_t *)off_105F30 = (8 * v28) & 0x38 | *(uint32_t *)off_105F30 & 0xFFFFFFC7;
-  v31 = dword_105F38;
-  v32 = (4 * v30) & 0x1C | *v29 & 0xFFFFFFE3;
-  *v29 = v32;
-  return check_interrupt_flag(1, v31, v26, v32);
+  *v29 = (4 * v30) & 0x1C | *v29 & 0xFFFFFFE3;
+  return check_interrupt_flag(1, "index=%d\n", v26);
 }
-

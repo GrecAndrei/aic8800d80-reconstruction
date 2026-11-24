@@ -10,89 +10,89 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1154A4;
+extern uint32_t off_11549C;
 extern uint32_t off_1154A0;
 
 // ioctl_dispatch2 @ 0x1153b8, size 228 bytes
-// Doc: patch_apply_n_e4_5404 [patch]: Compute patch offset by shifting index left by 7
-// patch_apply_n_e4_5404 [patch]: Compute patch offset by shifting index left by 7
-int  ioctl_dispatch2(int a1, int a2, unsigned int a3)
+int  ioctl_dispatch2(int a1, char *a2, unsigned int a3)
 {
   unsigned int v6; // r4
   int v8; // [sp+0h] [bp-144h] BYREF
   int v9; // [sp+4h] [bp-140h]
-  uint8_t v10[272]; // [sp+14h] [bp-130h] BYREF
-  uint8_t v11[4]; // [sp+124h] [bp-20h] BYREF
-  uint8_t v12[8]; // [sp+128h] [bp-1Ch] BYREF
-  uint8_t v13[4]; // [sp+130h] [bp-14h] BYREF
-  uint8_t v14[2]; // [sp+134h] [bp-10h] BYREF
-  uint8_t v15[14]; // [sp+136h] [bp-Eh] BYREF
+  char v10[272]; // [sp+14h] [bp-130h] BYREF
+  char v11[4]; // [sp+124h] [bp-20h] BYREF
+  char v12[8]; // [sp+128h] [bp-1Ch] BYREF
+  char v13[4]; // [sp+130h] [bp-14h] BYREF
+  char v14[2]; // [sp+134h] [bp-10h] BYREF
+  char a2a[14]; // [sp+136h] [bp-Eh] BYREF
 
-  if ( !*(uint32_t *)patch_apply_n_4c_549c )
+  if ( !*(uint32_t *)off_11549C )
     check_status_flags();
   MEMORY[0x1D8](*(uint32_t *)off_1154A0 + 4096, 320, &v8);
-  if ( v8 != patch_apply_n_44_4a4 )
+  if ( v8 != dword_1154A4 )
     return -1;
   if ( (v9 & a1) == 0 )
     return 1;
   v6 = (uint8_t)v9 & (uint8_t)a1 & 2;
   if ( ((uint8_t)v9 & (uint8_t)a1 & 2) != 0 )
   {
-    memcpy_aligned(a2, v10, 6);
+    memcpy_aligned(a2, v10, 6u);
     v6 = 6;
     if ( (a1 & 0x100000) == 0 )
     {
-patch_apply_n_f0:
+LABEL_7:
       if ( (a1 & 0x200000) == 0 )
-        goto patch_apply_n_ec_53fc;
-      goto rf_cmd_build_44e;
+        goto LABEL_8;
+      goto LABEL_19;
     }
   }
   else if ( (a1 & 0x100000) == 0 )
   {
-    goto patch_apply_n_f0;
+    goto LABEL_7;
   }
-  memcpy_aligned(a2 + v6, v11, 2);
+  memcpy_aligned(&a2[v6], v11, 2u);
   v6 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
-patch_apply_n_ec_53fc:
+LABEL_8:
     if ( (a1 & 0x400000) == 0 )
-      goto patch_apply_400;
+      goto LABEL_9;
     goto LABEL_17;
   }
-rf_cmd_build_44e:
-  memcpy_aligned(a2 + v6, v12, 8);
+LABEL_19:
+  memcpy_aligned(&a2[v6], v12, 8u);
   v6 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
-patch_apply_400:
+LABEL_9:
     if ( (a1 & 0x800000) == 0 )
-      goto patch_apply_n_e4_5404;
+      goto LABEL_10;
     goto LABEL_15;
   }
 LABEL_17:
-  memcpy_aligned(a2 + v6, v13, 4);
+  memcpy_aligned(&a2[v6], v13, 4u);
   v6 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
-patch_apply_n_e4_5404:
+LABEL_10:
     if ( (a1 & 0x1000000) == 0 )
-      goto patch_apply_range;
+      goto LABEL_11;
     goto LABEL_14;
   }
 LABEL_15:
-  memcpy_aligned(a2 + v6, v14, 2);
+  memcpy_aligned(&a2[v6], v14, 2u);
   v6 += 2;
   if ( (a1 & 0x1000000) != 0 )
   {
 LABEL_14:
-    memcpy_aligned(a2 + v6, v15, 10);
+    memcpy_aligned(&a2[v6], a2a, 0xAu);
     v6 += 10;
   }
-patch_apply_range:
+LABEL_11:
   if ( a3 < v6 )
     return -2;
   else
     return 0;
 }
-

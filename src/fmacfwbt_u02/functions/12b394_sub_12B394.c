@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_12B3BC;
-extern uint32_t off_12B3C0;
 extern uint32_t dword_12B3C4;
+extern uint32_t off_12B3C0;
 
 // bt_reset_controller @ 0x12b394, size 40 bytes
 int bt_reset_controller()
@@ -21,7 +22,7 @@ int bt_reset_controller()
   uint32_t *v1; // r3
 
   memset_byte((int *)dword_12B3BC, 0, 0xCu);
-  result = hci_cmd_send(2);
+  result = hci_cmd_send(2u, 0);
   v1 = off_12B3C0;
   *(uint32_t *)off_12B3C0 = dword_12B3C4;
   v1[2] = v1 + 5;
@@ -29,4 +30,3 @@ int bt_reset_controller()
   v1[1] = 0;
   return result;
 }
-

@@ -16,8 +16,6 @@ extern uint32_t dword_112E50;
 extern uint32_t dword_112E54;
 extern uint32_t dword_112E58;
 extern uint32_t dword_112E60;
-extern uint32_t dword_112E64;
-extern uint32_t dword_112E68;
 
 // critical_enter @ 0x112dcc, size 126 bytes
 int critical_enter()
@@ -55,9 +53,9 @@ int critical_enter()
     v7 = *(uint16_t *)(dword_112E60 + 0xB2);
     *(uint32_t *)(dword_112E58 + 0x804) &= ~1u;
     if ( (v7 & 0x4000) != 0 )
-      result = sub_10D60C(dword_112E64);
+      result = (int)uart_puts(aUsbRmtwkup);
     else
-      result = sub_12ECB0(dword_112E68);
+      result = ke_event_schedule_1(aUsbRmtwkup_0);
     v3 = *v0;
     *v1 = 0;
   }

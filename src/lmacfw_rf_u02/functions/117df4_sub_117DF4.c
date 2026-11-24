@@ -10,38 +10,40 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_117E50;
+
 extern uint32_t dword_117E54;
-extern uint32_t dword_117E58;
+extern uint32_t off_117E50;
+extern uint32_t off_117E58;
 
 // btcoex_reset_context @ 0x117df4, size 90 bytes
 int btcoex_reset_context()
 {
-  uint8_t *v0; // r8
+  int *v0; // r8
   int v1; // r4
-  int v2; // r7
+  void *v2; // r7
   int v3; // r6
+  uint32_t *v4; // r1
   int result; // r0
 
   v0 = off_117E50;
-  sub_100200((int *)off_117E50, 0, 0x14u);
-  list_init(v0);
+  memset_thunk(off_117E50, 0, 0x14u);
+  list_init_1(v0);
   v1 = dword_117E54;
-  v2 = dword_117E58;
-  list_init(v0 + 8);
+  v2 = off_117E58;
+  list_init_1(v0 + 2);
   v3 = v1 + 896;
   do
   {
-    sub_100200((int *)v1, 0, 0xE0u);
+    memset_thunk((int *)v1, 0, 0xE0u);
     *(uint8_t *)(v1 + 94) = 5;
     *(uint8_t *)(v1 + 97) = 127;
     *(uint32_t *)(v1 + 52) = v2;
     *(uint32_t *)(v1 + 56) = v1;
+    v4 = (uint32_t *)v1;
     v1 += 224;
-    result = check_kernel_state(v0);
+    result = check_kernel_state((int)v0, v4);
   }
   while ( v1 != v3 );
-  v0[16] = -1;
+  *((uint8_t *)v0 + 16) = -1;
   return result;
 }
-

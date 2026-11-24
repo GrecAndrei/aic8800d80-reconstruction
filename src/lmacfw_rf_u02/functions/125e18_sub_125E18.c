@@ -10,28 +10,24 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_125EE8;
-extern uint32_t dword_125ECC;
-extern uint32_t dword_125ED0;
-extern uint32_t dword_125ED4;
-extern uint32_t dword_125ED8;
+
 extern uint32_t dword_125EDC;
-extern uint32_t dword_125EE0;
+extern uint32_t off_125ECC;
+extern uint32_t off_125ED4;
 extern uint32_t off_125EE4;
-extern uint32_t dword_125EEC;
 
 // acl_rx_handler @ 0x125e18, size 178 bytes
 int  acl_rx_handler(int a1, int a2)
 {
   uint8_t *v3; // r1
   uint8_t *v5; // r1
-  int v6; // r0
-  int v7; // r0
-  int v8; // [sp+4h] [bp-4h]
+  unsigned int v6; // r0
+  unsigned int v7; // r0
+  char *a2a; // [sp+4h] [bp-4h]
 
   if ( a1 <= 1 )
   {
-    dispatch_event_handler(dword_125EE8);
+    dispatch_event_handler_1(asc_1305D8, a2);
     return -1;
   }
   else
@@ -41,10 +37,10 @@ int  acl_rx_handler(int a1, int a2)
       if ( memset_ff(*(uint32_t *)(a2 + 4)) == 1 )
       {
         v3 = *(uint8_t **)(a2 + 4);
-        if ( !v3 || !util_list_find((uint8_t **)dword_125ECC, v3) )
+        if ( !v3 || !util_list_find((uint8_t **)off_125ECC, v3) )
         {
 LABEL_7:
-          dispatch_event_handler(dword_125ED0);
+          dispatch_event_handler_1(aCountrycodeErr);
           return 0;
         }
       }
@@ -53,21 +49,20 @@ LABEL_7:
         if ( memset_ff(*(uint32_t *)(a2 + 4)) != 2 )
           return 0;
         v5 = *(uint8_t **)(a2 + 4);
-        if ( !v5 || !util_list_find((uint8_t **)dword_125ED4, v5) )
+        if ( !v5 || !util_list_find((uint8_t **)off_125ED4, v5) )
           goto LABEL_7;
       }
-      dispatch_event_handler(dword_125ED8);
-      v8 = *(uint32_t *)(a2 + 4);
-      v6 = memset_ff(v8);
-      memcpy_large(dword_125EDC, v8, v6);
-      dispatch_event_handler(dword_125EE0, dword_125EDC);
+      dispatch_event_handler_1(aSetccSuccess);
+      a2a = *(char **)(a2 + 4);
+      v6 = memset_ff((unsigned int)a2a);
+      memcpy_large((char *)dword_125EDC, a2a, v6);
+      dispatch_event_handler_1("country code: %s\n", (const char *)dword_125EDC);
       if ( (*(uint32_t *)off_125EE4 & 0x2000000) == 0 )
         mmio_write_100000_2(dword_125EDC);
       return 0;
     }
     v7 = memset_ff(*(uint32_t *)(a2 + 4));
-    dispatch_event_handler(dword_125EEC, v7);
+    dispatch_event_handler_1("wrong len of countrycode %d\n", v7);
     return -1;
   }
 }
-

@@ -10,28 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1117F8;
 extern uint32_t dword_1117FC;
 
-// tx_hdr_clear @ 0x1117c8, size 48 bytes
-// Doc: rf_bus_mark_nfa_17da [rf]: Mark RF bus state via helper call
-// rf_bus_mark_nfa_17da [rf]: Mark RF bus state via helper call
-int * tx_hdr_clear(int a1)
+// sub_1117C8 @ 0x1117c8, size 48 bytes
+int  sub_1117C8(int a1)
 {
   int v2; // r0
   int v3; // r5
-  int *result; // r0
+  int result; // r0
   int ( *v5)(uint32_t, uint32_t, int); // r3
 
-  v2 = rf_bus_write_n_1c8 + 16 * (a1 - 1);
+  v2 = dword_1117F8 + 16 * (a1 - 1);
   v3 = *(uint8_t *)(v2 + 8);
-  result = memset_byte((int *)v2, 0, 0x10u);
+  result = (int)sub_100200((int *)v2, 0, 0x10u);
   if ( v3 )
   {
-    result = (int *)dword_1117FC;
+    result = dword_1117FC;
     v5 = *(int ( **)(uint32_t, uint32_t, int))(dword_1117FC + 4 * a1 + 32);
     if ( v5 )
-      return (int *)v5(0, 0, 1);
+      return v5(0, 0, 1);
   }
   return result;
 }
-

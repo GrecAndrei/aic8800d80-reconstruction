@@ -11,8 +11,15 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 // call_tx_function @ 0x10c1b4, size 56 bytes
-void  __noreturn call_tx_function(int a1, int a2)
+int  call_tx_function(int a1, int a2, int a3, int a4)
 {
-  rf_calibrate(a1, a2, a2, 0);
-}
+  int v7; // r0
 
+  rf_calibrate(a1, a2, a2, 0, 0, 0);
+  parse_packet_control((unsigned int *)a3, a4, 1, 0);
+  if ( a1 == 1 )
+    v7 = 132;
+  else
+    v7 = 129;
+  return periph_wait_status(v7, (uint16_t *)a4);
+}

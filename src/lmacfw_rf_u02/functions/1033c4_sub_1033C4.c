@@ -13,8 +13,6 @@
 
 extern uint32_t dword_103528;
 extern uint32_t dword_10352C;
-extern uint32_t dword_103534;
-extern uint32_t dword_103538;
 extern uint32_t dword_10353C;
 
 // rf_init_regs @ 0x1033c4, size 356 bytes
@@ -37,11 +35,10 @@ int  rf_init_regs(int a1)
   int v15; // r1
   int v16; // r7
   uint16_t v17; // r9
-  uint16_t v18; // r2
-  unsigned int v19; // r0
-  uint8_t v20; // r4
+  int16_t v18; // r2
+  uint8_t v19; // r4
   int result; // r0
-  unsigned int v22; // [sp+0h] [bp-Ch]
+  unsigned int v21; // [sp+0h] [bp-Ch]
 
   v1 = (uint32_t *)dword_103528;
   v2 = (uint32_t *)dword_10352C;
@@ -109,11 +106,11 @@ int  rf_init_regs(int a1)
         }
         v3 = v14;
       }
-      v22 = v8;
+      v21 = v8;
       v17 = v8;
       v5 += v8;
-      sub_11F74C(0x2000, dword_103534, v6);
-      if ( v22 <= 0x40 )
+      check_interrupt_flag(0x2000, "%x -> %x\n", v6, v8);
+      if ( v21 <= 0x40 )
         v18 = v17 - v7;
       else
         v18 = v17 + v7;
@@ -128,13 +125,12 @@ int  rf_init_regs(int a1)
     }
     break;
   }
-  v19 = dword_103538;
   *(uint32_t *)dword_103528 = ((v5 + 2) << 8) & 0x1FC00 | *(uint32_t *)dword_103528 & 0xFFFE03FF;
-  v20 = ((unsigned int)v5 + 2) >> 2;
-  result = sub_10DA6C(v19, 40 * a1 + 280, v20);
+  v19 = ((unsigned int)v5 + 2) >> 2;
+  result = log_printf("%dM mdll duty: %x\n", 40 * a1 + 280, v19);
   if ( a1 )
-    *(uint8_t *)(dword_10353C + 1) = v20;
+    *(uint8_t *)(dword_10353C + 1) = v19;
   else
-    *(uint8_t *)dword_10353C = v20;
+    *(uint8_t *)dword_10353C = v19;
   return result;
 }

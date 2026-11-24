@@ -10,12 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13B70C;
+
 extern uint32_t dword_13B708;
+extern uint32_t dword_13B70C;
 
 // rf_is_ready @ 0x13b6d4, size 50 bytes
-// Doc: sub_123B6D4 [bt]: Helper in BT firmware, dispatches based on return value
-// sub_123B6D4 [bt]: Helper in BT firmware, dispatches based on return value
 int  rf_is_ready(int a1, int a2, unsigned int a3)
 {
   if ( hci_cmd_send_short(a3) == 2 )
@@ -26,4 +25,3 @@ int  rf_is_ready(int a1, int a2, unsigned int a3)
   }
   return 0;
 }
-

@@ -10,12 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_113820;
-
 // send_hci_event @ 0x113810, size 16 bytes
-int  send_hci_event(int a1, int a2, int a3, int a4)
+int send_hci_event()
 {
-  check_interrupt_flag(256, dword_113820, a3, a4);
+  check_interrupt_flag(256, aHostIpcStart);
   return 1;
 }
-

@@ -10,58 +10,52 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12ED30;
 extern uint32_t off_12ED34;
-extern uint32_t dword_12ED38;
-extern uint32_t dword_12ED3C;
 
-// ke_event_schedule @ 0x12ecb0, size 128 bytes
-int ke_event_schedule(int result, ...)
+// ke_event_schedule_1 @ 0x12ecb0, size 128 bytes
+int ke_event_schedule_1(const char *fmt, ...)
 {
   uint32_t *v1; // r6
-  uint8_t *v2; // r4
-  int16_t **v3; // r8
-  int v4; // r10
-  int v5; // r9
-  unsigned int v6; // r5
-  unsigned int v7; // t1
-  char v8; // r2
-  int varg_r0; // [sp+28h] [bp+20h]
+  const char *v2; // r4
+  uint16_t **v3; // r8
+  unsigned int v4; // r5
+  unsigned int v5; // t1
+  char v6; // r2
+  const char *varg_r0; // [sp+28h] [bp+20h]
   va_list varg_r1; // [sp+2Ch] [bp+24h] BYREF
 
-  va_start(varg_r1, result);
-  varg_r0 = result;
+  va_start(varg_r1, fmt);
+  varg_r0 = fmt;
   v1 = off_12ED30;
   if ( *((uint32_t *)off_12ED30 + 1) )
   {
-    v2 = (uint8_t *)result;
-    v3 = (int16_t **)off_12ED34;
-    v4 = dword_12ED38;
-    v5 = dword_12ED3C;
+    v2 = fmt;
+    v3 = (uint16_t **)off_12ED34;
     do
     {
-      result = (int)v2;
-      v7 = *v2++;
-      v6 = v7;
-      v8 = v7 + 0x80;
-      if ( (v7 & 0x80) == 0 )
+      fmt = v2;
+      v5 = *(uint8_t *)v2++;
+      v4 = v5;
+      v6 = v5 + 0x80;
+      if ( (v5 & 0x80) == 0 )
         break;
-      if ( v6 > 0x89 )
+      if ( v4 > 0x89 )
       {
-        if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
-          result = mmio_irq_clear(v5, v4, 812);
-        if ( v1[1] <= v6 - 154 )
-          return result;
+        if ( **v3 < 0 && (uint8_t)(v4 + 102) > 5u )
+          fmt = (const char *)mmio_irq_clear((int)aDbgSevMinPrefi, (int)aDbgTestPrint, 812);
+        if ( v1[1] <= v4 - 154 )
+          return (int)fmt;
       }
-      else if ( (((unsigned int)~*v1 >> v8) & 1) != 0 )
+      else if ( (((unsigned int)~*v1 >> v6) & 1) != 0 )
       {
-        return result;
+        return (int)fmt;
       }
-      result = (int)v2;
+      fmt = v2;
     }
-    while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return debug_printf(result, (int)varg_r1);
+    while ( varg_r0 + 2 != v2 );
+    return debug_printf(fmt, (unsigned int *)(*(void **)&(varg_r1)));
   }
-  return result;
+  return (int)fmt;
 }
-

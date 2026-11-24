@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_12B198;
-extern uint32_t off_12B19C;
 extern uint32_t dword_12B1A0;
+extern uint32_t off_12B19C;
 
 // rf_env_reset @ 0x12b170, size 40 bytes
 int rf_env_reset()
@@ -21,7 +22,7 @@ int rf_env_reset()
   uint32_t *v1; // r3
 
   memset((int *)dword_12B198, 0, 0xCu);
-  result = rx_phy_status_parse(2);
+  result = rx_phy_status_parse(2u, 0);
   v1 = off_12B19C;
   *(uint32_t *)off_12B19C = dword_12B1A0;
   v1[2] = v1 + 5;
@@ -29,4 +30,3 @@ int rf_env_reset()
   v1[1] = 0;
   return result;
 }
-

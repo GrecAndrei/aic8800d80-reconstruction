@@ -10,14 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13BE98;
+
 extern uint32_t dword_13BE8C;
 extern uint32_t dword_13BE90;
 extern uint32_t dword_13BE94;
+extern uint32_t dword_13BE98;
 
 // rf_scan_chan @ 0x13be14, size 120 bytes
-// Doc: sub_123BE14 [unknown]: Unknown behavioral helper, likely init/state helper
-// sub_123BE14 [unknown]: Unknown behavioral helper, likely init/state helper
 int  rf_scan_chan(int result)
 {
   int v1; // r9
@@ -58,4 +57,3 @@ int  rf_scan_chan(int result)
   }
   return result;
 }
-

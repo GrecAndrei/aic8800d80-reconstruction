@@ -10,54 +10,52 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1182EC;
-extern uint32_t off_118318;
+
 extern uint32_t dword_1182F0;
-extern uint32_t off_1182F4;
 extern uint32_t dword_1182F8;
+extern uint32_t dword_118308;
+extern uint32_t off_1182EC;
+extern uint32_t off_1182F4;
 extern uint32_t off_1182FC;
 extern uint32_t off_118300;
-extern uint32_t dword_118304;
-extern uint32_t dword_118308;
-extern uint32_t dword_118310;
-extern uint32_t dword_118314;
 extern uint32_t off_11830C;
+extern uint32_t off_118318;
 
 // timer_check_state @ 0x118170, size 380 bytes
-void  timer_check_state(int a1, uint32_t *a2)
+int  timer_check_state(int result, uint32_t *a2)
 {
   int v2; // r3
   int v3; // r2
+  int v4; // r4
   uint8_t *v6; // r6
   uint8_t *v7; // r9
-  int v8; // r0
+  uint32_t *v8; // r0
   int v9; // r12
-  int v10; // r7
+  uint32_t *v10; // r7
   unsigned int v11; // r3
-  int16_t v12; // lr
+  uint16_t v12; // lr
   int v13; // r2
   uint32_t *v14; // r1
   int v15; // r3
   int *v16; // r12
   int *v17; // r6
   int v18; // r2
-  int v19; // r0
-  int v20; // r0
-  int v21; // r1
-  int v22; // r3
-  int v23; // r2
-  int v24; // r6
-  int v25; // [sp+0h] [bp-28h] BYREF
-  int v26; // [sp+4h] [bp-24h]
+  int v19; // r3
+  int v20; // r3
+  int v21; // r2
+  int v22; // r6
+  int v23; // [sp+0h] [bp-28h] BYREF
+  int v24; // [sp+4h] [bp-24h]
 
-  v2 = *(uint32_t *)(a1 + 84);
+  v2 = *(uint32_t *)(result + 84);
   if ( v2 < 0 )
   {
     v3 = **(uint8_t **)off_1182EC;
+    v4 = result;
     switch ( v3 )
     {
       case 2:
-        v6 = (uint8_t *)int_disable_set_flag();
+        v6 = int_disable_set_flag();
         if ( v6 )
         {
           v7 = off_118318;
@@ -70,9 +68,9 @@ void  timer_check_state(int a1, uint32_t *a2)
             v6[2] = 18;
             v9 = *a2 & 0xF;
             v10 = v8;
-            v26 = *(uint32_t *)(a1 + 84) & 0x3FFFFFFF;
-            v25 = v9;
-            memcpy_aligned(v6 + 4, &v25, 8);
+            v24 = *(uint32_t *)(v4 + 84) & 0x3FFFFFFF;
+            v23 = v9;
+            memcpy_aligned(v6 + 4, (char *)&v23, 8u);
             v11 = *((uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -86,7 +84,7 @@ void  timer_check_state(int a1, uint32_t *a2)
               v13 = 8 * v11;
             }
             v14 = off_1182F4;
-            *(uint16_t *)(v10 + 12) = v11;
+            *((uint16_t *)v10 + 6) = v11;
             v15 = dword_1182F8;
             v16 = (int *)(*v14 + v13);
             v16[1] = (int)v6;
@@ -94,56 +92,55 @@ void  timer_check_state(int a1, uint32_t *a2)
             LOBYTE(v15) = v7[3074];
             *((uint16_t *)v7 + 4122) = v12;
             v7[3074] = v15 + 1;
-            *(uint32_t *)(v10 + 4) = v16;
-            *(uint8_t *)(v10 + 14) = 1;
-            *(uint32_t *)v10 = 0;
-            *(uint32_t *)(v10 + 8) = 12;
+            v10[1] = v16;
+            *((uint8_t *)v10 + 14) = 1;
+            *v10 = 0;
+            v10[2] = 12;
             if ( (__get_CPSR() & 1) == 0 )
             {
               __disable_irq();
               *(uint32_t *)off_1182FC = 1;
             }
             v17 = (int *)off_118300;
-            v18 = *(uint16_t *)(a1 + 32);
-            v19 = dword_118304;
+            v18 = *(uint16_t *)(v4 + 32);
+            v19 = *a2 & 0xF;
             ++*(uint32_t *)off_118300;
-            ke_event_schedule(v19, a1, v18);
-            v20 = check_abort_flag(dword_118308);
-            rf_calib_init(v20, v21);
+            ke_event_schedule_1("cfms: %x, sn=%d, st=%d\r\n", v4, v18, v19);
+            check_abort_flag(dword_118308, v10);
+            result = rf_calib_init();
             if ( *v17 )
             {
-              v22 = *v17 - 1;
-              v23 = *(uint32_t *)off_1182FC;
-              *v17 = v22;
-              if ( !v22 )
+              v20 = *v17 - 1;
+              v21 = *(uint32_t *)off_1182FC;
+              *v17 = v20;
+              if ( !v20 )
               {
-                if ( v23 )
+                if ( v21 )
                   __enable_irq();
               }
             }
           }
           else
           {
-            printf_wrapper(dword_118310);
+            return printf_wrapper(aErrTxlCfmNoBuf);
           }
         }
         else
         {
-          printf_wrapper(dword_118314);
+          return printf_wrapper(aErrNoMsgPkt);
         }
         break;
       case 1:
-        v24 = *a2 & 0xF;
-        v26 = v2 & 0x3FFFFFFF;
-        v25 = v24;
-        ke_mem_alloc(18, (int)&v25, 8);
-        ke_event_schedule(dword_118304, a1, *(uint16_t *)(a1 + 32));
-        break;
+        v22 = *a2 & 0xF;
+        v24 = v2 & 0x3FFFFFFF;
+        v23 = v22;
+        ke_mem_alloc(18, (char *)&v23, 8u);
+        return ke_event_schedule_1("cfms: %x, sn=%d, st=%d\r\n", v4, *(uint16_t *)(v4 + 32), *a2 & 0xF);
       case 3:
-        **(uint32_t **)off_11830C = *a2 & 0xF;
+        *(uint32_t *)((uint32_t *)(uintptr_t)off_11830C)[0] = *a2 & 0xF;
         pmu_ctrl_write_256();
         break;
     }
   }
+  return result;
 }
-

@@ -10,147 +10,175 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_104A80;
-extern uint32_t dword_104A88;
-extern uint32_t dword_104A8C;
-extern uint32_t dword_104A90;
-extern uint32_t dword_104A94;
 
-// heap_calloc @ 0x1047b8, size 710 bytes
-int  heap_calloc(int *a1, int a2, int a3, int a4, uint64_t *a5)
+extern uint32_t dword_104A8C;
+extern float flt_104A84;
+
+// sub_1047B8 @ 0x1047b8, size 710 bytes
+unsigned int  sub_1047B8(int *a1, int a2, unsigned int a3, int a4, uint64_t *a5)
 {
   int v6; // r0
-  int v8; // r0
-  float v9; // r0
-  int *v10; // r11
-  uint64_t v11; // d9
-  uint64_t v12; // r0
-  uint64_t v13; // d13
-  uint64_t v14; // r0
-  uint64_t v15; // r4
+  float v7; // r0
+  unsigned int *v8; // r11
+  uint64_t v9; // r2
+  uint64_t v10; // d9
+  uint64_t v11; // r0
+  int v12; // r0
+  uint64_t v13; // r2
+  uint64_t v14; // d13
+  int v15; // r6
   uint64_t v16; // r0
   int v17; // r0
-  uint64_t v18; // d8
-  uint64_t v19; // r0
-  uint64_t v20; // r0
+  uint64_t v18; // r4
+  uint64_t v19; // r2
+  int v20; // r8
   uint64_t v21; // r0
   int v22; // r0
-  int *v23; // r10
-  uint64_t v24; // d11
-  uint64_t v25; // r6
-  uint64_t v26; // r0
-  uint64_t v27; // r8
-  uint64_t v28; // r6
+  uint64_t v23; // d8
+  uint64_t v24; // r2
+  uint64_t v25; // r0
+  int v26; // r0
+  uint64_t v27; // r2
+  int v28; // r6
   uint64_t v29; // r0
-  uint64_t v30; // d10
-  uint64_t v31; // r6
-  uint64_t v32; // r0
-  uint64_t v33; // r6
+  int v30; // r0
+  int v31; // r7
+  uint64_t v32; // r2
+  int v33; // r6
   uint64_t v34; // r0
-  uint64_t v35; // r6
-  uint64_t v36; // r0
-  uint64_t v37; // d12
+  int v35; // r0
+  unsigned int *v36; // r10
+  uint64_t v37; // d11
   uint64_t v38; // r6
   uint64_t v39; // r0
-  uint64_t v40; // r6
-  uint64_t v41; // r0
+  uint64_t v40; // r8
+  uint64_t v41; // r6
   uint64_t v42; // r0
-  uint64_t v43; // r8
-  uint64_t v44; // r0
-  uint64_t v45; // r6
-  uint64_t v46; // r0
-  uint64_t v47; // r6
-  uint64_t v48; // r0
+  uint64_t v43; // d10
+  uint64_t v44; // r6
+  uint64_t v45; // r0
+  uint64_t v46; // r6
+  uint64_t v47; // r0
+  uint64_t v48; // r6
   uint64_t v49; // r0
-  uint64_t v50; // r2
-  uint64_t v51; // r0
-  int v52; // r0
-  int result; // r0
-  int v54; // t1
-  uint64_t v55; // r8
-  uint64_t v56; // [sp+0h] [bp-1Ch]
-  uint64_t v57; // [sp+8h] [bp-14h]
-  uint64_t v58; // [sp+10h] [bp-Ch]
+  uint64_t v50; // d12
+  uint64_t v51; // r6
+  uint64_t v52; // r0
+  uint64_t v53; // r6
+  uint64_t v54; // r0
+  uint64_t v55; // r0
+  uint64_t v56; // r8
+  uint64_t v57; // r0
+  uint64_t v58; // r6
+  uint64_t v59; // r0
+  uint64_t v60; // r6
+  uint64_t v61; // r0
+  uint64_t v62; // r0
+  uint64_t v63; // r2
+  uint64_t v64; // r0
+  uint64_t v65; // r0
+  unsigned int result; // r0
+  unsigned int v67; // t1
+  uint64_t v68; // r8
+  uint64_t v69; // [sp+0h] [bp-1Ch]
+  uint64_t v70; // [sp+8h] [bp-14h]
+  uint64_t v71; // [sp+10h] [bp-Ch]
 
-  v6 = double_to_float(a3, a4);
-  v8 = dispatch_event_handler(dword_104A80, v6);
-  v9 = gpio_port_init(v8);
-  v10 = a1;
-  dispatch_event_handler(dword_104A88, (int)(float)(v9 * flt_104A84));
-  v11 = a5[2];
-  v12 = aeabi_dadd(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_104A8C);
-  double_to_float(v12, HIDWORD(v12));
-  v13 = a5[1];
-  v14 = aeabi_dadd(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_104A8C);
-  double_to_float(v14, HIDWORD(v14));
-  v15 = *a5;
-  v16 = aeabi_dadd(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_104A8C);
-  v17 = double_to_float(v16, HIDWORD(v16));
-  v18 = a5[5];
-  v58 = a5[4];
-  v57 = a5[3];
-  dispatch_event_handler(dword_104A90, v17);
-  v19 = aeabi_dadd(v18, HIDWORD(v18), 0, dword_104A8C);
-  double_to_float(v19, HIDWORD(v19));
-  v20 = aeabi_dadd(v58, HIDWORD(v58), 0, dword_104A8C);
-  double_to_float(v20, HIDWORD(v20));
-  v21 = aeabi_dadd(v57, HIDWORD(v57), 0, dword_104A8C);
-  v22 = double_to_float(v21, HIDWORD(v21));
-  dispatch_event_handler(dword_104A94, v22);
-  v23 = v10 + 32;
+  v6 = sub_127B54(*(uint64_t *)&a3);
+  sub_11F504("temp_delta=%d\n", v6);
+  v7 = COERCE_FLOAT(sub_10DD20());
+  v8 = (unsigned int *)a1;
+  sub_11F504("tmp*100=%d\n", (int)(float)(v7 * flt_104A84));
+  HIDWORD(v9) = dword_104A8C;
+  v10 = a5[2];
+  LODWORD(v9) = 0;
+  v11 = sub_127620(v10, v9);
+  v12 = sub_127B54(v11);
+  HIDWORD(v13) = dword_104A8C;
+  v14 = a5[1];
+  v15 = v12;
+  LODWORD(v13) = 0;
+  v16 = sub_127620(v14, v13);
+  v17 = sub_127B54(v16);
+  v18 = *a5;
+  HIDWORD(v19) = dword_104A8C;
+  LODWORD(v19) = 0;
+  v20 = v17;
+  v21 = sub_127620(*a5, v19);
+  v22 = sub_127B54(v21);
+  v23 = a5[5];
+  v71 = a5[4];
+  v70 = a5[3];
+  sub_11F504("x[0]*1000=%3d,x[1]*1000=%3d,x[2]*1000=%3d\n", v22, v20, v15);
+  HIDWORD(v24) = dword_104A8C;
+  LODWORD(v24) = 0;
+  v25 = sub_127620(v23, v24);
+  v26 = sub_127B54(v25);
+  HIDWORD(v27) = dword_104A8C;
+  v28 = v26;
+  LODWORD(v27) = 0;
+  v29 = sub_127620(v71, v27);
+  v30 = sub_127B54(v29);
+  v31 = v28;
+  HIDWORD(v32) = dword_104A8C;
+  LODWORD(v32) = 0;
+  v33 = v30;
+  v34 = sub_127620(v70, v32);
+  v35 = sub_127B54(v34);
+  sub_11F504("y[0]*1000=%3d,y[1]*1000=%3d,y[2]*1000=%3d\n", v35, v33, v31);
+  v36 = v8 + 32;
   do
   {
-    v54 = *v10++;
-    v55 = aeabi_d2f(v54);
-    if ( double_ge(v15, HIDWORD(v15), v55, HIDWORD(v55)) )
+    v67 = *v8++;
+    v68 = sub_127570(v67);
+    if ( sub_127B2C(v18, v68) )
     {
-      v50 = v57;
+      v63 = v70;
     }
-    else if ( double_eq(v13, HIDWORD(v13), v55, HIDWORD(v55)) )
+    else if ( sub_127AF0(v14, v68) )
     {
-      v50 = v58;
+      v63 = v71;
     }
-    else if ( double_le(v11, HIDWORD(v11), v55, HIDWORD(v55)) )
+    else if ( sub_127B18(v10, v68) )
     {
-      v50 = v18;
+      v63 = v23;
     }
     else
     {
-      v24 = double_subtract(v55, HIDWORD(v55), v13, HIDWORD(v13));
-      v25 = double_subtract(v55, HIDWORD(v55), v11, HIDWORD(v11));
-      v26 = double_subtract(v55, HIDWORD(v55), v15, HIDWORD(v15));
-      v27 = v25;
-      v28 = v26;
-      v29 = aeabi_dadd(v57, HIDWORD(v57), v24, HIDWORD(v24));
-      v30 = v28;
-      v31 = aeabi_dadd(v29, HIDWORD(v29), v27, HIDWORD(v27));
-      v32 = double_subtract(v15, HIDWORD(v15), v13, HIDWORD(v13));
-      v33 = aeabi_dsub(v31, HIDWORD(v31), v32, HIDWORD(v32));
-      v34 = double_subtract(v15, HIDWORD(v15), v11, HIDWORD(v11));
-      v35 = aeabi_dsub(v33, HIDWORD(v33), v34, HIDWORD(v34));
-      v36 = aeabi_dadd(v58, HIDWORD(v58), v30, HIDWORD(v30));
-      v37 = v35;
-      v38 = aeabi_dadd(v36, HIDWORD(v36), v27, HIDWORD(v27));
-      v39 = double_subtract(v13, HIDWORD(v13), v15, HIDWORD(v15));
-      v40 = aeabi_dsub(v38, HIDWORD(v38), v39, HIDWORD(v39));
-      v41 = double_subtract(v13, HIDWORD(v13), v11, HIDWORD(v11));
-      v42 = aeabi_dsub(v40, HIDWORD(v40), v41, HIDWORD(v41));
-      v43 = double_add(v37, HIDWORD(v37), v42, HIDWORD(v42));
-      v44 = aeabi_dadd(v18, HIDWORD(v18), v30, HIDWORD(v30));
-      v45 = aeabi_dadd(v44, HIDWORD(v44), v24, HIDWORD(v24));
-      v46 = double_subtract(v11, HIDWORD(v11), v15, HIDWORD(v15));
-      v47 = aeabi_dsub(v45, HIDWORD(v45), v46, HIDWORD(v46));
-      v48 = double_subtract(v11, HIDWORD(v11), v13, HIDWORD(v13));
-      v49 = aeabi_dsub(v47, HIDWORD(v47), v48, HIDWORD(v48));
-      v50 = double_add(v43, HIDWORD(v43), v49, HIDWORD(v49));
+      v37 = sub_1272B0(v68, v14);
+      v38 = sub_1272B0(v68, v10);
+      v39 = sub_1272B0(v68, v18);
+      v40 = v38;
+      v41 = v39;
+      v42 = sub_127620(v70, v37);
+      v43 = v41;
+      v44 = sub_127620(v42, v40);
+      v45 = sub_1272B0(v18, v14);
+      v46 = sub_127874(v44, v45);
+      v47 = sub_1272B0(v18, v10);
+      v48 = sub_127874(v46, v47);
+      v49 = sub_127620(v71, v43);
+      v50 = v48;
+      v51 = sub_127620(v49, v40);
+      v52 = sub_1272B0(v14, v18);
+      v53 = sub_127874(v51, v52);
+      v54 = sub_1272B0(v14, v10);
+      v55 = sub_127874(v53, v54);
+      v56 = sub_1272B4(v50, v55);
+      v57 = sub_127620(v23, v43);
+      v58 = sub_127620(v57, v37);
+      v59 = sub_1272B0(v10, v18);
+      v60 = sub_127874(v58, v59);
+      v61 = sub_1272B0(v10, v14);
+      v62 = sub_127874(v60, v61);
+      v63 = sub_1272B4(v56, v62);
     }
-    v56 = v50;
-    v51 = aeabi_d2f(v10[63]);
-    v52 = aeabi_dadd(v51, HIDWORD(v51), v56, HIDWORD(v56));
-    result = aeabi_dmul(v52);
-    v10[31] = result;
+    v69 = v63;
+    v64 = sub_127570(v8[63]);
+    v65 = sub_127620(v64, v69);
+    result = sub_127BE4(v65);
+    v8[31] = result;
   }
-  while ( v10 != v23 );
+  while ( v8 != v36 );
   return result;
 }
-

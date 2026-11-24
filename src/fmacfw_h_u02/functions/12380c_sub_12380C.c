@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_123878;
 extern uint32_t off_12387C;
 extern uint32_t off_123880;
@@ -20,9 +21,9 @@ int  parse_parameter(int a1, int a2, int a3, int a4)
   int *v4; // r4
   uint32_t *v5; // r5
   int v6; // r6
-  uint64_t v7; // r0
-  int v8; // r2
-  int v9; // r0
+  int v7; // r0
+  int v8; // r1
+  int v9; // r2
   int v10; // r0
   int v11; // r3
   int v12; // r3
@@ -37,12 +38,12 @@ int  parse_parameter(int a1, int a2, int a3, int a4)
   v5 = off_123880;
   v6 = *(uint32_t *)off_123880;
   ++*(uint32_t *)off_12387C;
-  v7 = rf_set_power_on();
-  v9 = check_clock_status(v7, SHIDWORD(v7), v8);
-  v10 = unknown_handler_12c798(v9);
-  vendor_platform_init(v10);
-  alloc_shared_ctx();
-  get_rf_state();
+  rf_set_power_on();
+  check_clock_status(v7, v8, v9);
+  unknown_handler_12c798();
+  vendor_platform_init();
+  v10 = alloc_shared_ctx();
+  get_rf_state(v10);
   v11 = *v4;
   *v5 = v6;
   if ( v11 )
@@ -57,7 +58,6 @@ int  parse_parameter(int a1, int a2, int a3, int a4)
     }
   }
   mac_write_header_word(1, a4, a3);
-  hci_cmd_preprocess(0);
+  hci_cmd_preprocess(0, 0);
   return 0;
 }
-

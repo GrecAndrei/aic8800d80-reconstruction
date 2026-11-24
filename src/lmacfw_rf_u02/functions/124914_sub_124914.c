@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_124938;
+
 extern uint32_t dword_12493C;
 extern uint32_t off_124934;
-extern uint32_t dword_124940;
+extern uint32_t off_124938;
 
 // mmio_enable_clock @ 0x124914, size 32 bytes
 int mmio_enable_clock()
@@ -26,7 +26,6 @@ int mmio_enable_clock()
   *(uint32_t *)off_124934 |= 0x10u;
   *v0 = v1;
   write_bb_control();
-  dispatch_event_handler(dword_124940);
+  dispatch_event_handler_1(aRxStatStart);
   return 0;
 }
-

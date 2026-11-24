@@ -10,37 +10,36 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_114284;
 extern uint32_t off_11427C;
 extern uint32_t off_114280;
-extern uint32_t dword_114284;
 
 // process_task_queue @ 0x114234, size 72 bytes
-// Doc: rf_fault_dump_n_500 [rf]: Dump RF fault information
-// rf_fault_dump_n_500 [rf]: Dump RF fault information
-int process_task_queue()
+uint32_t *process_task_queue()
 {
-  uint32_t *v0; // r5
+  int *v0; // r5
   void *v1; // r7
-  int result; // r0
+  uint32_t *result; // r0
   int v3; // r6
   int v4; // r4
+  uint32_t *v5; // r0
 
-  v0 = off_11427C;
+  v0 = (int *)off_11427C;
   v1 = off_114280;
-  zero_8_bytes(*(uint32_t *)off_11427C + 628);
-  result = zero_8_bytes(*v0 + 636);
+  zero_8_bytes((uint32_t *)(((uint32_t *)(uintptr_t)off_11427C)[0] + 628));
+  result = zero_8_bytes((uint32_t *)(*v0 + 636));
   if ( *(uint16_t *)(*(uint32_t *)v1 + 8) )
   {
     v3 = dword_114284;
     v4 = 0;
     do
     {
-      rx_packet_handler(v3, 0x6B8u);
-      result = cmd_handler_a(*v0 + 628);
+      v5 = rx_packet_handler_1(v3, 0x6B8u);
+      result = (uint32_t *)cmd_handler_a(*v0 + 628, v5);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }
-

@@ -10,43 +10,42 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1144DC;
-extern uint32_t off_1144E0;
 extern uint32_t off_1144E4;
-extern uint32_t dword_1144F4;
 extern uint32_t off_1144E8;
 extern uint32_t off_1144EC;
 extern uint32_t off_1144F0;
-extern uint32_t dword_1144F8;
 
 // default_handler @ 0x11446c, size 110 bytes
-int  default_handler(int result)
+unsigned int  default_handler(unsigned int result)
 {
+  int v1; // r2
+
   if ( !result )
   {
+    v1 = *(uint32_t *)off_1144DC;
     if ( *(uint32_t *)off_1144DC
-      && (result = *((uint32_t *)off_1144E0 + 4),
-          *(uint32_t *)(*(uint32_t *)off_1144DC + 12) - result - *((uint16_t *)off_1144E4 + 92) - 2000 < 0) )
+      && (result = (*(volatile uint32_t *)0x40501010u), (int)(*(uint32_t *)(v1 + 12) - result - LOWORD(((uint32_t *)(uintptr_t)off_1144E4)[46]) - 2000) < 0) )
     {
-      result = check_feature_flag(2, dword_1144F4);
+      result = check_feature_flag(2, "timer: not allow %x\r\n", *(uint32_t *)(v1 + 4));
     }
     else
     {
       if ( !*(uint8_t *)off_1144E8
-        || (result = *((uint32_t *)off_1144E0 + 4),
-            *((uint32_t *)off_1144E8 + 1)
-          + *((uint32_t *)off_1144E8 + 2)
-          - result
-          - *((uint16_t *)off_1144E4 + 92)
-          - *(uint16_t *)(*(uint32_t *)off_1144EC + 52) >= 0) )
+        || (result = (*(volatile uint32_t *)0x40501010u),
+            (int)(*((uint32_t *)off_1144E8 + 1)
+                + *((uint32_t *)off_1144E8 + 2)
+                - result
+                - LOWORD(((uint32_t *)(uintptr_t)off_1144E4)[46])
+                - *(uint16_t *)(*(uint32_t *)off_1144EC + 52)) >= 0) )
       {
         *(uint32_t *)off_1144F0 = 0x40000000;
         return result;
       }
-      result = check_feature_flag(2, dword_1144F8);
+      result = check_feature_flag(2, aOffsetNotAllow);
     }
   }
   *(uint32_t *)off_1144F0 = 0x80000000;
   return result;
 }
-

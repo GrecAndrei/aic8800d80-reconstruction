@@ -10,17 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1019E4;
-extern uint32_t dword_1019EC;
-extern uint32_t dword_1019E8;
 
 // rf_get_status @ 0x1019d0, size 18 bytes
 int  rf_get_status(int a1, int a2, int a3)
 {
-  int result; // r0
-
   if ( *(uint32_t *)off_1019E4 << 28 )
-    return event_dispatch(dword_1019EC, dword_1019E8, a3);
-  return result;
+    return event_dispatch("\x9B%s MAC state != IDLE\n", aPhyStop);
+  return a1;
 }
-

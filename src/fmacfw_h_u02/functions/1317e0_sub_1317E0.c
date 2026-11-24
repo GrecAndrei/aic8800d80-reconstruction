@@ -10,22 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_131828;
-extern uint32_t dword_131834;
-extern uint32_t dword_131830;
 extern uint32_t off_13182C;
 
 // is_link_connected @ 0x1317e0, size 70 bytes
-int  is_link_connected(int a1, int a2, unsigned int a3)
+int  is_link_connected(int a1, int a2, int a3)
 {
   int v4; // r1
 
-  if ( **(int16_t **)off_131828 < 0 && hci_cmd_handler(a3) != 1 )
-    irq_disable_mmio_write(dword_131834, dword_131830, 822);
+  if ( **(uint16_t **)off_131828 < 0 && hci_cmd_handler(a3) != 1 )
+    irq_disable_mmio_write((int)aKeStateGetDest_1, (int)aMmSetPsModeCfm, 822);
   v4 = *((uint16_t *)off_13182C + 4);
   if ( v4 != 255 )
     mac_write_header_word(5146, v4, a3);
   hci_cmd_preprocess(a3, 0);
   return 0;
 }
-

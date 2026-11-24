@@ -10,23 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10AB78;
+
+extern uint32_t dword_10AB98;
+extern uint32_t off_10AB68;
+extern uint32_t off_10AB6C;
+extern uint32_t off_10AB70;
+extern uint32_t off_10AB74;
 extern uint32_t off_10AB7C;
 extern uint32_t off_10AB80;
 extern uint32_t off_10AB84;
 extern uint32_t off_10AB88;
 extern uint32_t off_10AB8C;
 extern uint32_t off_10AB90;
-extern uint32_t off_10ABA0;
 extern uint32_t off_10AB94;
-extern uint32_t dword_10AB98;
-extern uint32_t dword_10AEB4;
-extern uint32_t dword_10AEB8;
+extern uint32_t off_10AB9C;
+extern uint32_t off_10ABA0;
 extern uint32_t off_10AEBC;
 extern uint32_t off_10AEC0;
 extern uint32_t off_10AEC4;
 extern uint32_t off_10AEC8;
-extern uint32_t dword_10AECC;
 
 // rf_set_channel @ 0x10a868, size 1610 bytes
 int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6)
@@ -52,34 +54,41 @@ int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, u
   int v26; // r1
   int v27; // r6
   unsigned int v28; // r7
-  int16_t v29; // r4
-  int16_t v30; // r0
+  uint16_t v29; // r4
+  uint16_t v30; // r0
   unsigned int v31; // r2
   uint8_t v32; // r1
   unsigned int i; // r3
   unsigned int v34; // r4
-  uint32_t *v35; // r1
-  unsigned int *v36; // r3
-  unsigned int *v37; // r1
-  int16_t v38; // r3
-  uint32_t *v39; // r3
-  int v40; // r1
+  unsigned int v35; // r9
+  uint32_t *v36; // r1
+  unsigned int *v37; // r3
+  unsigned int *v38; // r1
+  uint16_t v39; // r3
+  uint32_t *v40; // r3
   unsigned int *v42; // r3
   int v43; // [sp+24h] [bp-7C0h]
   int v44; // [sp+28h] [bp-7BCh]
   int v45; // [sp+34h] [bp-7B0h]
   int v46; // [sp+38h] [bp-7ACh]
-  unsigned int v48; // [sp+44h] [bp-7A0h]
+  unsigned int a1a; // [sp+44h] [bp-7A0h]
   int v49; // [sp+48h] [bp-79Ch]
-  char v52; // [sp+5Ah] [bp-78Ah] BYREF
+  char a3a; // [sp+5Ah] [bp-78Ah] BYREF
   char v53; // [sp+5Bh] [bp-789h] BYREF
-  int v54; // [sp+5Ch] [bp-788h] BYREF
-  int v55; // [sp+60h] [bp-784h] BYREF
-  int v56; // [sp+64h] [bp-780h] BYREF
-  int16_t v57[6]; // [sp+68h] [bp-77Ch] BYREF
-  int16_t v58[952]; // [sp+74h] [bp-770h] BYREF
+  char v54[4]; // [sp+5Ch] [bp-788h] BYREF
+  int result; // [sp+60h] [bp-784h] BYREF
+  unsigned int a2a; // [sp+64h] [bp-780h] BYREF
+  uint16_t v57[6]; // [sp+68h] [bp-77Ch] BYREF
+  uint16_t v58[952]; // [sp+74h] [bp-770h] BYREF
 
-  check_feature_flag(0x2000, dword_10AB78);
+  check_feature_flag(
+    0x2000,
+    "page %x,sdm %x,freq %x,lock %x,rfen %x\n",
+    (*(uint32_t *)off_10AB9C >> 3) & 7,
+    *(uint32_t *)off_10AB68,
+    *(uint32_t *)off_10AB6C,
+    *(uint32_t *)off_10AB70,
+    *(uint32_t *)off_10AB74);
   v8 = ((a1 >> 1) & 1) + 3;
   if ( (a1 & 0xC) != 0 )
   {
@@ -87,11 +96,11 @@ int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, u
       v9 = 5;
     else
       v9 = 10;
-    v48 = v9;
+    a1a = v9;
   }
   else
   {
-    v48 = 1;
+    a1a = 1;
   }
   v10 = off_10AB7C;
   v11 = off_10AB80;
@@ -138,7 +147,7 @@ int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, u
         v20 = a4;
         do
         {
-          *v16 = dword_10AB98 & (((int16_t)v49 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
+          *v16 = dword_10AB98 & (((uint16_t)v49 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
           *v16 |= 0x20000u;
           *v16 |= 0x40000u;
           mmio_read32(1);
@@ -146,40 +155,40 @@ int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, u
           {
             if ( v45 )
             {
-              v21 = (int16_t)v20;
+              v21 = (uint16_t)v20;
             }
             else
             {
-              crypto_aes_setkey(v18, v20, &v52, (char *)&v58[6] + 3 * v20, (int *)&v58[8 * v20 + 54]);
-              v21 = (int16_t)v20;
+              crypto_aes_setkey(v18, v20, &a3a, (char *)&v58[6] + 3 * v20, (int *)&v58[8 * v20 + 54]);
+              v21 = (uint16_t)v20;
               crypto_aes_setkey(v18, v20, &v53, (char *)&v58[30] + 3 * v20, (int *)&v58[8 * v20 + 182]);
             }
             v22 = *((uint8_t *)&v58[6] + 3 * v20 + v46);
             v23 = *((uint8_t *)&v58[30] + 3 * v20 + v46);
             *v19 = *v19 & 0xFE01FFFF | (v22 << 17);
             *v19 = *v19 & 0xFFFF00FF | (v22 << 8);
-            mmio_write_reg2(&v55, (unsigned int *)&v56);
+            mmio_write_reg2(&result, &a2a);
             if ( v22 != v23 )
             {
               *v19 = *v19 & 0xFE01FFFF | (v23 << 17);
               *v19 = *v19 & 0xFFFF00FF | (v23 << 8);
-              mmio_write_reg2(&v54, (unsigned int *)&v56);
+              mmio_write_reg2(v54, &a2a);
             }
           }
           else
           {
             *v19 = *v19 & 0xFE01FFFF | 0x1000000;
             *v19 = *v19 & 0xFFFF00FF | 0x8000;
-            mmio_write_reg2(&v55, (unsigned int *)&v56);
-            v21 = (int16_t)v20;
+            mmio_write_reg2(&result, &a2a);
+            v21 = (uint16_t)v20;
           }
-          check_nonzero_word((uint8_t)v45, v55, &v58[20 * v21 + 310]);
-          check_nonzero_word((uint8_t)v45, v56, &v58[20 * v20 + 630]);
+          check_nonzero_word((uint8_t)v45, result, &v58[20 * v21 + 310]);
+          check_nonzero_word((uint8_t)v45, a2a, &v58[20 * v20 + 630]);
           v20 = (uint8_t)(v20 + 1);
         }
         while ( a5 >= v20 );
       }
-      v24 = v48 == ++v45;
+      v24 = a1a == ++v45;
     }
     while ( !v24 );
     if ( a4 <= a5 )
@@ -190,7 +199,7 @@ int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, u
         while ( 1 )
         {
           v27 = v43 + 4 * v25;
-          if ( v48 != 1 )
+          if ( a1a != 1 )
             break;
           *(uint32_t *)&v58[2 * v27 + 54] = *(uint32_t *)&v58[20 * v25 + 310];
           *(uint32_t *)&v58[2 * v27 + 182] = *(uint32_t *)&v58[20 * v25 + 630];
@@ -203,8 +212,8 @@ int  rf_set_channel(unsigned int a1, unsigned int a2, int a3, unsigned int a4, u
         else
           v26 = 50;
         v44 = v26;
-        *(uint32_t *)&v58[2 * v27 + 54] = aligned_word_masks(v48, v26, (int *)&v58[20 * v25 + 310]);
-        *(uint32_t *)&v58[2 * v27 + 182] = aligned_word_masks(v48, v44, (int *)&v58[20 * v25 + 630]);
+        *(uint32_t *)&v58[2 * v27 + 54] = aligned_word_masks(a1a, v26, (int *)&v58[20 * v25 + 310]);
+        *(uint32_t *)&v58[2 * v27 + 182] = aligned_word_masks(a1a, v44, (int *)&v58[20 * v25 + 630]);
         v25 = (uint8_t)(v25 + 1);
       }
       while ( a5 >= v25 );
@@ -232,7 +241,7 @@ LABEL_28:
       else
         v31 = a2;
       if ( v28 <= 9 )
-        *(uint16_t *)(v31 + 2 * (int16_t)v28) = (uint8_t)v29 | (uint16_t)(v30 << 8);
+        *(uint16_t *)(v31 + 2 * (uint16_t)v28) = (uint8_t)v29 | (uint16_t)(v30 << 8);
       v32 = v28 + 1;
       if ( v28 > 9 )
         v58[v31] = v30;
@@ -244,35 +253,60 @@ LABEL_28:
     for ( i = a4; ; i = (uint8_t)(i + 1) )
     {
       if ( i > 9 )
-        *(uint16_t *)(a2 + 2 * (int16_t)i) = LOBYTE(v57[i - 10]) | (uint16_t)(v58[i - 10] << 8);
+        *(uint16_t *)(a2 + 2 * (uint16_t)i) = LOBYTE(v57[i - 10]) | (uint16_t)(v58[i - 10] << 8);
       if ( a5 == i )
         break;
     }
     v34 = a4;
     do
     {
-      check_feature_flag(0x2000, dword_10AEB4);
-      check_feature_flag(0x2000, dword_10AEB8);
+      v35 = *(uint16_t *)(a2 + 2 * v34);
+      check_feature_flag(
+        0x2000,
+        "fit-in-I %x %x: [%d,%d;%d,%d;%d,%d;%d,%d]\r\n",
+        v34,
+        (uint8_t)v35,
+        128,
+        *(uint32_t *)&v58[8 * v34 + 54],
+        *((uint8_t *)&v58[6] + 3 * v34),
+        *(uint32_t *)&v58[8 * v34 + 56],
+        *((uint8_t *)&v58[6] + 3 * v34 + 1),
+        *(uint32_t *)&v58[8 * v34 + 58],
+        *((uint8_t *)&v58[7] + 3 * v34),
+        *(uint32_t *)&v58[8 * v34 + 60]);
+      check_feature_flag(
+        0x2000,
+        "fit-in-Q %x %x: [%d,%d;%d,%d;%d,%d;%d,%d]\r\n",
+        v34,
+        v35 >> 8,
+        128,
+        *(uint32_t *)&v58[8 * v34 + 182],
+        *((uint8_t *)&v58[30] + 3 * v34),
+        *(uint32_t *)&v58[8 * v34 + 184],
+        *((uint8_t *)&v58[30] + 3 * v34 + 1),
+        *(uint32_t *)&v58[8 * v34 + 186],
+        *((uint8_t *)&v58[31] + 3 * v34),
+        *(uint32_t *)&v58[8 * v34 + 188]);
       v24 = a5 == v34;
       v34 = (uint8_t)(v34 + 1);
     }
     while ( !v24 );
   }
-  v35 = off_10AEBC;
-  v36 = (unsigned int *)off_10AEC0;
+  v36 = off_10AEBC;
+  v37 = (unsigned int *)off_10AEC0;
   *(uint32_t *)off_10AEBC &= ~2u;
-  *v36 |= 4u;
-  *v36 = *v36 & 0xFFFF8FFF | 0x3000;
-  *v36 = *v36 & 0xFFFFF8FF | 0x600;
-  *v36 &= ~8u;
-  *v36 &= ~1u;
-  *(v35 - 6224) &= 0xCFFFFFFF;
+  *v37 |= 4u;
+  *v37 = *v37 & 0xFFFF8FFF | 0x3000;
+  *v37 = *v37 & 0xFFFFF8FF | 0x600;
+  *v37 &= ~8u;
+  *v37 &= ~1u;
+  *(v36 - 6224) &= 0xCFFFFFFF;
   if ( a6 )
   {
-    v37 = (unsigned int *)off_10AEC4;
-    v38 = *(uint16_t *)(a2 + 2 * a4);
-    *(uint32_t *)off_10AEC4 = *(uint32_t *)off_10AEC4 & 0xFE01FFFF | ((uint8_t)v38 << 17);
-    *v37 = v38 & 0xFF00 | *v37 & 0xFFFF00FF;
+    v38 = (unsigned int *)off_10AEC4;
+    v39 = *(uint16_t *)(a2 + 2 * a4);
+    *(uint32_t *)off_10AEC4 = *(uint32_t *)off_10AEC4 & 0xFE01FFFF | ((uint8_t)v39 << 17);
+    *v38 = v39 & 0xFF00 | *v38 & 0xFFFF00FF;
   }
   else
   {
@@ -282,11 +316,9 @@ LABEL_28:
     *v42 = *v42 & 0xFE01FFFF | 0x1000000;
     *v42 = *v42 & 0xFFFF00FF | 0x8000;
   }
-  v39 = off_10AEC8;
-  v40 = dword_10AECC;
+  v40 = off_10AEC8;
   *(uint32_t *)off_10AEC8 &= 0xFFFE00FF;
-  *v39 &= ~0x20000u;
-  *v39 |= 0x40000u;
-  return check_feature_flag(0x2000, v40);
+  *v40 &= ~0x20000u;
+  *v40 |= 0x40000u;
+  return check_feature_flag(0x2000, aWfDccalibEnd);
 }
-

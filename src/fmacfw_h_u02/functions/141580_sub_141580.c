@@ -10,14 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1415EC;
 
 // ke_timer_clear @ 0x141580, size 106 bytes
-uint32_t * ke_timer_clear(int a1, int a2)
+int  ke_timer_clear(int a1, int a2)
 {
   int v2; // r4
   int v4; // r6
-  uint32_t *result; // r0
+  int result; // r0
 
   if ( a2 )
   {
@@ -26,7 +27,7 @@ uint32_t * ke_timer_clear(int a1, int a2)
     if ( bt_global_state_read() )
     {
       if ( hci_cmd_handler(0xBu) == 3 )
-        return (uint32_t *)ke_timer_check();
+        return ke_timer_check();
       else
         return ke_timer_tick_inc();
     }
@@ -34,7 +35,7 @@ uint32_t * ke_timer_clear(int a1, int a2)
     {
       *(uint8_t *)(a1 + 98) = 1;
       acl_tx_setup(a1, 0, 0, v2 + 136 * v4 + 6336);
-      return (uint32_t *)sec_check(a1, 3);
+      return sec_check(a1, 3);
     }
   }
   else
@@ -44,4 +45,3 @@ uint32_t * ke_timer_clear(int a1, int a2)
   }
   return result;
 }
-

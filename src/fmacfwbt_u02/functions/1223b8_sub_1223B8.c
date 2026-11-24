@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_122430;
 extern uint32_t dword_122434;
 extern uint32_t dword_122438;
 extern uint32_t off_12242C;
 extern uint32_t off_12243C;
+extern uint32_t off_122440;
 extern uint32_t off_122444;
 extern uint32_t off_122448;
-extern uint32_t off_122440;
-extern uint32_t dword_12244C;
 
 // dma_tx_setup @ 0x1223b8, size 116 bytes
 int  dma_tx_setup(int a1)
@@ -31,12 +31,10 @@ int  dma_tx_setup(int a1)
   int v6; // r2
   int v7; // t1
   int v8; // r4
-  uint8_t *v9; // r4
+  int *v9; // r4
   uint8_t *v10; // r1
   uint8_t *v11; // r2
-  int v12; // r1
-  int v13; // r2
-  uint32_t v15[7]; // [sp+0h] [bp-1Ch] BYREF
+  uint32_t v13[7]; // [sp+0h] [bp-1Ch] BYREF
 
   v1 = (int *)dword_122430;
   v2 = dword_122434;
@@ -66,17 +64,16 @@ LABEL_5:
     ++v4;
   }
   while ( v1 != (int *)v3 );
-  v9 = off_12243C;
-  write_mmio_byte(*((uint8_t *)off_12243C + 409));
+  v9 = (int *)off_12243C;
+  write_mmio_byte(BYTE1(((uint32_t *)(uintptr_t)off_12243C)[102]));
   v10 = off_122444;
   v11 = off_122448;
-  *((uint8_t *)off_122440 + 7) = v9[409];
-  memset(&v15[1], 0, 16);
+  *((uint8_t *)off_122440 + 7) = *((uint8_t *)v9 + 409);
+  memset(&v13[1], 0, 16);
   *v10 = 0;
-  v15[0] = 0;
+  v13[0] = 0;
   *v11 = 0;
-  v15[5] = 0;
-  delay_loop((int)v15);
-  return ke_event_schedule(dword_12244C, v12, v13);
+  v13[5] = 0;
+  delay_loop((int)v13);
+  return ke_event_schedule_1(aEdcaM0);
 }
-

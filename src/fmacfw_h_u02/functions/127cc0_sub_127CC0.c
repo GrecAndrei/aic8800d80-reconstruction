@@ -10,46 +10,43 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_127D60;
+
 extern uint32_t dword_127D4C;
-extern uint32_t dword_127D5C;
-extern uint32_t dword_127D54;
-extern uint32_t dword_127D58;
 extern uint32_t dword_127D50;
+extern uint32_t off_127D60;
 
 // wifi_disable_calc @ 0x127cc0, size 138 bytes
-int * wifi_disable_calc(int a1)
+int  wifi_disable_calc(int a1)
 {
-  int16_t **v1; // r8
+  uint16_t **v1; // r8
   int v2; // r5
   int *v4; // r6
   int v5; // r7
   int v6; // r4
-  int *result; // r0
+  int result; // r0
 
-  v1 = (int16_t **)off_127D60;
+  v1 = (uint16_t **)off_127D60;
   v2 = dword_127D4C;
   v4 = (int *)(dword_127D4C + 28 * a1);
-  if ( **(int16_t **)off_127D60 < 0 )
+  if ( **(uint16_t **)off_127D60 < 0 )
   {
     v5 = 8 * a1;
     if ( *(uint8_t *)(dword_127D4C + 28 * a1 + 24) != 255
-      || (irq_disable_mmio_write(dword_127D5C, dword_127D54, 3044), **v1 < 0) )
+      || (irq_disable_mmio_write((int)aCtxtIdxChanCtx, (int)aChanCtxtDel, 3044), **v1 < 0) )
     {
       if ( *(uint8_t *)(v2 + 4 * (v5 - a1) + 25) )
-        irq_disable_mmio_write(dword_127D58, dword_127D54, 3046);
+        irq_disable_mmio_write((int)aCtxtNbLinkedVi, (int)aChanCtxtDel, 3046);
     }
   }
   else
   {
     v5 = 8 * a1;
   }
-  wlan_ioctl_handler_1(dword_127D50);
+  wlan_ioctl_handler_1(dword_127D50, v4);
   v6 = v2 + 4 * (v5 - a1);
-  result = sub_100200(v4, 0, 0x1Cu);
+  result = (int)memset_thunk(v4, 0, 0x1Cu);
   *(uint16_t *)(v6 + 14) = 255;
   *(uint8_t *)(v6 + 24) = -1;
   *(uint8_t *)(v6 + 27) = -1;
   return result;
 }
-

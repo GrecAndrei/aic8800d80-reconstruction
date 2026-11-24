@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_127F40;
-extern uint32_t dword_127F44;
-extern uint32_t off_127F54;
+
 extern uint32_t dword_127F48;
 extern uint32_t dword_127F50;
+extern uint32_t off_127F40;
 extern uint32_t off_127F4C;
+extern uint32_t off_127F54;
 
-// rx_packet_handler @ 0x127d80, size 446 bytes
-int  rx_packet_handler(uint8_t *a1, int a2)
+// rx_packet_handler_1 @ 0x127d80, size 446 bytes
+int  rx_packet_handler_1(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
@@ -27,16 +27,16 @@ int  rx_packet_handler(uint8_t *a1, int a2)
   char v8; // r3
   uint8_t *v10; // r8
   char v11; // r3
-  int v12; // r0
+  uint32_t *v12; // r0
   uint8_t *v13; // r2
-  int16_t v14; // r1
+  uint16_t v14; // r1
   unsigned int v15; // r1
   int v16; // r2
   int v17; // r0
-  int v18; // r0
+  uint32_t *v18; // r0
 
   v2 = off_127F40;
-  state_check_feature(8, dword_127F44);
+  state_check_feature(8, "roc: %d, dur=%d, st=%d\r\n", *a1, *((uint32_t *)a1 + 3), *((uint8_t *)off_127F40 + 128));
   v5 = *a1;
   if ( *a1 )
   {
@@ -50,8 +50,8 @@ int  rx_packet_handler(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          ke_event_set_lock((int)off_127F54 + 64);
-          v12 = v7[8];
+          ke_event_set_lock((uint32_t *)off_127F54 + 16);
+          v12 = (uint32_t *)v7[8];
           v7[18] = 0;
           scan_process(v12);
         }
@@ -64,7 +64,7 @@ int  rx_packet_handler(uint8_t *a1, int a2)
         {
           if ( v13 == v2 + 112 && (uint8_t *)v7[20] == v13 )
           {
-            ke_event_set_lock((int)(v7 + 16));
+            ke_event_set_lock(v7 + 16);
             v7[18] = 0;
           }
           v7[11] = 0;
@@ -80,7 +80,7 @@ int  rx_packet_handler(uint8_t *a1, int a2)
       v2[136] = -1;
       if ( (v8 & 0x12) != 0x10 )
         return 0;
-      v18 = dword_127F50;
+      v18 = (uint32_t *)dword_127F50;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
       ke_event_set_lock(v18);
@@ -88,7 +88,7 @@ int  rx_packet_handler(uint8_t *a1, int a2)
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_send_short(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_send_short(4u) == 1 )
   {
     v10 = off_127F54;
     v11 = *((uint8_t *)off_127F54 + 88);
@@ -142,4 +142,3 @@ LABEL_25:
   v10[88] = v11 & 0xDF;
   return 1;
 }
-

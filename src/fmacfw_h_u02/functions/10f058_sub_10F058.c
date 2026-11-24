@@ -10,10 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10F0B8;
+
 extern uint32_t off_10F0B4;
-extern uint32_t dword_10F0BC;
-extern uint32_t off_10F0C0;
+extern uint32_t off_10F0B8;
 
 // rf_get_rssi @ 0x10f058, size 90 bytes
 int rf_get_rssi()
@@ -21,8 +20,8 @@ int rf_get_rssi()
   uint8_t *v0; // r6
   int v1; // r5
   int v2; // r4
-  int v3; // r0
   int result; // r0
+  volatile unsigned int v4; // r3
 
   v0 = off_10F0B8;
   v1 = (char)(*((uint8_t *)off_10F0B8 + 5) + (*(uint8_t *)off_10F0B4 & 3));
@@ -30,12 +29,16 @@ int rf_get_rssi()
   if ( v2 < -62 )
     LOBYTE(v2) = -62;
   rf_reg_write_byte(v2);
-  v3 = dword_10F0BC;
   v0[7] = v2;
-  result = alloc_tx_event(v3, (char)v2, v1);
-  if ( (char)v2 >= -61 )
-    return mem_copy_util(v0 + 12, *((uint32_t *)off_10F0C0 + 4) + 30000 * *((uint16_t *)v0 + 4));
-  v0[11] = 0;
+  result = alloc_tx_event("update# =%d %d\r\n", (char)v2, v1);
+  if ( (char)v2 < -61 )
+  {
+    v0[11] = 0;
+  }
+  else
+  {
+    v4 = (*(volatile uint32_t *)0x40501010u);
+    return mem_copy_util((uint32_t *)v0 + 3, v4 + 30000 * *((uint16_t *)v0 + 4));
+  }
   return result;
 }
-

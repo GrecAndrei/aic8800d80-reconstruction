@@ -10,30 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1190AC;
-extern uint32_t dword_1190B0;
 
 // event_notify @ 0x119084, size 38 bytes
-// Doc: sub_1219084 [util]: Helper that loads a context struct via helper at 0x12d4f8 and returns object
-// sub_1219084 [util]: Helper that loads a context struct via helper at 0x12d4f8 and returns object
-int  event_notify(int a1, int a2)
+uint32_t * event_notify(int a1, int a2)
 {
-  int v4; // r0
-  int v5; // r1
-  int v6; // r2
-  int v7; // r4
+  uint32_t *v4; // r0
+  uint32_t *v5; // r4
 
   v4 = list_pop_front(dword_1190AC);
-  v7 = v4;
+  v5 = v4;
   if ( v4 )
   {
-    tx_packet_enqueue(v4, a1, a2);
-    return v7;
+    tx_packet_enqueue((int)v4, a1, a2);
+    return v5;
   }
   else
   {
-    ke_event_schedule(dword_1190B0, v5, v6);
-    return 0;
+    ke_event_schedule_1(aNoTxlFrame);
+    return nullptr;
   }
 }
-

@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11360C;
 extern uint32_t off_113604;
 extern uint32_t off_113608;
-extern uint32_t dword_11360C;
-extern uint32_t dword_113610;
 extern uint32_t off_113614;
-extern uint32_t dword_113618;
-extern uint32_t dword_11361C;
+extern uint32_t off_11361C;
 
 // set_mode_flag @ 0x113558, size 172 bytes
 int  set_mode_flag(int a1, int a2, int a3)
@@ -26,11 +25,10 @@ int  set_mode_flag(int a1, int a2, int a3)
   uint8_t *v5; // r4
   int v6; // r3
   int v7; // r5
-  int v8; // r7
-  int v9; // r6
+  int v8; // r6
+  uint32_t *v9; // r0
   int v10; // r8
   int v11; // r3
-  int v13; // r4
 
   v3 = (uint8_t *)off_113604;
   if ( a3 )
@@ -46,45 +44,43 @@ int  set_mode_flag(int a1, int a2, int a3)
     if ( v6 )
     {
       v7 = dword_11360C;
-      v8 = dword_113610;
-      v9 = dword_11360C - 8;
+      v8 = dword_11360C - 8;
       do
       {
         while ( 1 )
         {
-          v10 = *(uint32_t *)(*(uint32_t *)(mem_word_load(v7) + 4) + 4);
+          v9 = mem_word_load(v7);
+          v10 = *(uint32_t *)(v9[1] + 4);
           --*v5;
-          cmd_handler_a(v9);
+          cmd_handler_a(v8, v9);
           v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
           ++*(uint16_t *)off_113614;
-          a1 = unknown_func_12d104(128);
+          unknown_func_12d104(128);
           if ( !*v5 )
             goto LABEL_12;
         }
         if ( v11 == 1 )
         {
-          a1 = is_controller_mode((uint32_t *)v10);
+          is_controller_mode((uint32_t *)v10);
         }
         else
         {
-          log_printf(v8);
-          a1 = send_msg(v10, 32, 1, 0);
+          log_printf("###err### %x\r\n", v10);
+          send_msg(v10, 32, 1, 0);
         }
       }
       while ( *v5 );
     }
 LABEL_12:
-    check_init_flag(a1, a2);
+    check_init_flag();
     return 1;
   }
   else
   {
-    v13 = a1;
-    log_printf(dword_113618, *v3);
-    is_current_task(dword_11361C, v13, a2, *v3);
+    log_printf("usb wlan send err %d\n", *v3);
+    is_current_task(off_11361C);
     return 1;
   }
 }
-

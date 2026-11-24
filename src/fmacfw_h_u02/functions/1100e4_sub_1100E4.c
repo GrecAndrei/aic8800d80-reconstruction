@@ -10,24 +10,26 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_110138;
+
 extern uint32_t dword_11012C;
-extern uint32_t off_110130;
 extern uint32_t dword_110134;
+extern uint32_t off_110130;
+extern uint32_t off_110138;
 
 // get_core_temp @ 0x1100e4, size 72 bytes
-int get_core_temp()
+uint32_t *get_core_temp()
 {
   void *v0; // r8
-  int result; // r0
+  uint32_t *result; // r0
   uint32_t *v2; // r5
   int v3; // r7
   int v4; // r6
   int v5; // r4
-  unsigned int v6; // r1
+  uint32_t *v6; // r0
+  unsigned int v7; // r1
 
   v0 = off_110138;
-  result = clear_stats_buf(dword_11012C);
+  result = clear_stats_buf((uint32_t *)dword_11012C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
     v2 = off_110130;
@@ -36,14 +38,13 @@ int get_core_temp()
     v5 = 0;
     do
     {
-      tx_irq_handler(v3, 0x6B8u);
-      result = wlan_ioctl_handler_1(v4);
-      v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
+      v6 = tx_irq_handler(v3, 0x6B8u);
+      result = (uint32_t *)wlan_ioctl_handler_1(v4, v6);
+      v7 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
     }
-    while ( v6 > (uint16_t)v5 );
+    while ( v7 > (uint16_t)v5 );
   }
   return result;
 }
-

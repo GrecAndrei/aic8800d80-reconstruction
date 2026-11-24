@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1220BC;
 extern uint32_t dword_1220C0;
 extern uint32_t dword_1220C4;
 extern uint32_t off_1220B8;
 extern uint32_t off_1220C8;
+extern uint32_t off_1220CC;
 extern uint32_t off_1220D0;
 extern uint32_t off_1220D4;
-extern uint32_t off_1220CC;
-extern uint32_t dword_1220D8;
 
 // rf_setup_channel @ 0x122044, size 116 bytes
 int  rf_setup_channel(int a1)
@@ -31,12 +31,10 @@ int  rf_setup_channel(int a1)
   int v6; // r2
   int v7; // t1
   int v8; // r4
-  uint8_t *v9; // r4
+  int *v9; // r4
   uint8_t *v10; // r1
   uint8_t *v11; // r2
-  int v12; // r1
-  int v13; // r2
-  uint32_t v15[7]; // [sp+0h] [bp-1Ch] BYREF
+  uint32_t v13[7]; // [sp+0h] [bp-1Ch] BYREF
 
   v1 = (int *)dword_1220BC;
   v2 = dword_1220C0;
@@ -66,17 +64,16 @@ LABEL_5:
     ++v4;
   }
   while ( v1 != (int *)v3 );
-  v9 = off_1220C8;
-  rf_reg_write_byte(*((uint8_t *)off_1220C8 + 409));
+  v9 = (int *)off_1220C8;
+  rf_reg_write_byte(BYTE1(((uint32_t *)(uintptr_t)off_1220C8)[102]));
   v10 = off_1220D0;
   v11 = off_1220D4;
-  *((uint8_t *)off_1220CC + 7) = v9[409];
-  memset(&v15[1], 0, 16);
+  *((uint8_t *)off_1220CC + 7) = *((uint8_t *)v9 + 409);
+  memset(&v13[1], 0, 16);
   *v10 = 0;
-  v15[0] = 0;
+  v13[0] = 0;
   *v11 = 0;
-  v15[5] = 0;
-  poll_hw_ready((int)v15);
-  return alloc_tx_event(dword_1220D8, v12, v13);
+  v13[5] = 0;
+  poll_hw_ready((int)v13);
+  return alloc_tx_event(aEdcaM0);
 }
-

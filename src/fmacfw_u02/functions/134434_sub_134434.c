@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13446C;
 extern uint32_t off_134470;
 
 // reset_controller_state @ 0x134434, size 54 bytes
-// Doc: sub_1234434 [util]: Reset/clear a control structure's status fields and byte flags
-// sub_1234434 [util]: Reset/clear a control structure's status fields and byte flags
-uint32_t *reset_controller_state()
+int reset_controller_state()
 {
   uint32_t *v0; // r4
   uint16_t *v1; // r3
@@ -30,10 +29,9 @@ uint32_t *reset_controller_state()
   *((uint8_t *)v1 + 3) = 0;
   if ( v2 )
   {
-    branch_to_12cbc8(v2 - 12);
-    branch_to_12cbc8(v0[5] - 12);
+    branch_to_12cbc8((char *)(v2 - 12));
+    branch_to_12cbc8((char *)(v0[5] - 12));
   }
   memset((int *)off_13446C, 0, 0x2Cu);
   return rx_phy_status_parse(6u, 0);
 }
-

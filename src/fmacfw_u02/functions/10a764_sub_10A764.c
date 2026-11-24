@@ -10,13 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10A9A4;
-extern uint32_t dword_10A9A0;
-
-// dispatch_cmd @ 0x10a764, size 572 bytes
-// Doc: sub_120A764 [rf]: Handle command/buffer with up to 9 entries and stack frame setup
-// sub_120A764 [rf]: Handle command/buffer with up to 9 entries and stack frame setup
-int  dispatch_cmd(int a1, unsigned int a2, uint8_t *a3, int *a4)
+// sub_10A764 @ 0x10a764, size 572 bytes
+int  sub_10A764(int a1, unsigned int a2, uint8_t *a3, int *a4)
 {
   uint8_t *v6; // r6
   uint8_t *v7; // r9
@@ -42,7 +37,7 @@ int  dispatch_cmd(int a1, unsigned int a2, uint8_t *a3, int *a4)
   int v28; // r0
   int v29; // r3
   float v30[3]; // [sp+0h] [bp-58h] BYREF
-  float v31[3]; // [sp+Ch] [bp-4Ch] BYREF
+  float a2a[3]; // [sp+Ch] [bp-4Ch] BYREF
   uint8_t v32[4]; // [sp+18h] [bp-40h] BYREF
   uint8_t var3C[92]; // [sp+1Ch] [bp-3Ch] BYREF
 
@@ -75,10 +70,10 @@ int  dispatch_cmd(int a1, unsigned int a2, uint8_t *a3, int *a4)
       }
       while ( v9 != 4 );
       *v7 = 0;
-      v12 = f32_compare(v30, v31);
+      v12 = sub_109760(v30, a2a);
       *v7 = v12;
       if ( (v12 & 0xE) == 0 )
-        f32_pair_compare(a2, v30, v31, (int)v7);
+        sub_109B30(a2, v30, a2a, (int)v7);
       v7 += 16;
     }
     v13 = (float *)var3C;
@@ -123,15 +118,13 @@ LABEL_21:
       v29 = 0;
       do
       {
-        v15 = (float *)*((uint8_t *)v13 - 4);
-        if ( v15 == (float *)1 )
+        if ( *((uint8_t *)v13 - 4) == 1 )
         {
-          v15 = (float *)&var3C[16 * v17 + 60];
           if ( v17 == 128 )
           {
             v17 = v29;
           }
-          else if ( *v13 <= *(v15 - 15) )
+          else if ( *v13 <= *(float *)&var3C[16 * v17] )
           {
             v17 = v29;
           }
@@ -145,7 +138,7 @@ LABEL_21:
     {
 LABEL_42:
       v21 = 32 * (9 - a2);
-      log_printf(dword_10A9A4, a2, v15);
+      sub_10DC24("gain %x : fit_failed!\r\n", a2);
       return v21;
     }
     goto LABEL_21;
@@ -156,14 +149,14 @@ LABEL_42:
   v26 = (float)a4[2];
   v30[1] = (float)*a3;
   v30[2] = v23;
-  v31[0] = v24;
-  v31[1] = v25;
-  v31[2] = v26;
+  a2a[0] = v24;
+  a2a[1] = v25;
+  a2a[2] = v26;
   v30[0] = 128.0;
   v32[0] = 0;
   if ( a2 > 9 )
   {
-    v28 = f32_compare(v30, v31);
+    v28 = sub_109760(v30, a2a);
     v32[0] = v28;
     if ( (v28 & 0xE) != 0 )
     {
@@ -171,23 +164,23 @@ LABEL_42:
     }
     else
     {
-      f32_pair_compare(a2, v30, v31, (int)v32);
+      sub_109B30(a2, v30, a2a, (int)v32);
       v27 = v32[0];
       v20 = v32[0];
       if ( (v32[0] & 0xE) == 0 )
         goto LABEL_26;
     }
     v21 = 32 * (9 - a2);
-    log_printf(dword_10A9A0, a2, v20);
+    sub_10DC24("gain %x : fit_status %d\r\n", a2, v20);
     return v21;
   }
-  f32_pair_compare(a2, v30, v31, (int)v32);
+  sub_109B30(a2, v30, a2a, (int)v32);
   v20 = v32[0];
   v27 = v32[0];
   if ( (v32[0] & 0xE) != 0 )
   {
     v21 = 128;
-    log_printf(dword_10A9A0, a2, v32[0]);
+    sub_10DC24("gain %x : fit_status %d\r\n", a2, v32[0]);
     return v21;
   }
 LABEL_26:
@@ -195,9 +188,8 @@ LABEL_26:
   if ( v27 )
   {
 LABEL_22:
-    log_printf(dword_10A9A0, a2, v20);
+    sub_10DC24("gain %x : fit_status %d\r\n", a2, v20);
     return v21;
   }
   return v21;
 }
-

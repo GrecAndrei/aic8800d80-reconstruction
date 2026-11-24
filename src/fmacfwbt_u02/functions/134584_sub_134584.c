@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1345A0;
+
+extern uint32_t off_1345A4;
 
 // ll_state_error_check @ 0x134584, size 26 bytes
 int ll_state_error_check()
 {
   int result; // r0
 
-  ke_event_schedule(dword_1345A0);
-  result = irq_lock(6155, 6);
-  *(uint8_t *)(loc_1345A4 + 0xF) = 0;
+  ke_event_schedule_1(aTs2);
+  result = (int)irq_lock((char *)0x180B, 6);
+  *((uint8_t *)off_1345A4 + 15) = 0;
   return result;
 }
-

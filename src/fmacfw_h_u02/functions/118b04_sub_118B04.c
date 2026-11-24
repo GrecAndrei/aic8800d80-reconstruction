@@ -10,28 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_118B2C;
-extern uint32_t dword_118B30;
 
 // lock_acquire @ 0x118b04, size 38 bytes
-int  lock_acquire(int a1, int a2)
+uint32_t * lock_acquire(int a1, int a2)
 {
-  int v4; // r0
-  int v5; // r1
-  int v6; // r2
-  int v7; // r4
+  uint32_t *v4; // r0
+  uint32_t *v5; // r4
 
   v4 = list_pop(dword_118B2C);
-  v7 = v4;
+  v5 = v4;
   if ( v4 )
   {
-    update_mic(v4, a1, a2);
-    return v7;
+    update_mic((int)v4, a1, a2);
+    return v5;
   }
   else
   {
-    alloc_tx_event(dword_118B30, v5, v6);
-    return 0;
+    alloc_tx_event(aNoTxlFrame);
+    return nullptr;
   }
 }
-

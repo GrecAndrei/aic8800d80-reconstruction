@@ -10,8 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_101844;
-extern uint32_t dword_101848;
+
 extern uint32_t off_101840;
 
 // timer_count_read @ 0x101818, size 40 bytes
@@ -22,7 +21,7 @@ uint64_t * timer_count_read(uint64_t *result, int a2)
   v2 = result;
   if ( a2 )
   {
-    result = (uint64_t *)ke_event_schedule(dword_101844, dword_101848, a2);
+    result = (uint64_t *)ke_event_schedule_1("\x9B\x87%s: radio %d does not exist\n", aPhyGetChannel, a2);
     *v2 = *(uint64_t *)((char *)off_101840 + 36);
   }
   else
@@ -31,4 +30,3 @@ uint64_t * timer_count_read(uint64_t *result, int a2)
   }
   return result;
 }
-

@@ -10,19 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10DEA0;
-extern uint32_t off_10DEA4;
+
+extern uint32_t dword_10DE88;
+extern uint32_t dword_10DE90;
+extern uint32_t dword_10DE98;
 extern uint32_t dword_10DEA8;
 extern uint32_t dword_10DEAC;
-extern uint32_t dword_10DE88;
-extern uint32_t dword_10DE8C;
-extern uint32_t dword_10DE90;
-extern uint32_t dword_10DE94;
-extern uint32_t dword_10DE98;
-extern uint32_t dword_10DE9C;
+extern uint32_t off_10DEA0;
+extern uint32_t off_10DEA4;
 
-// hw_block_disable @ 0x10de08, size 128 bytes
-int hw_block_disable()
+// sub_10DE08 @ 0x10de08, size 128 bytes
+unsigned int sub_10DE08()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
@@ -31,7 +29,7 @@ int hw_block_disable()
   uint64_t v4; // r0
   uint64_t v5; // r0
   uint64_t v6; // r0
-  int v7; // r0
+  uint64_t v7; // r0
 
   v0 = off_10DEA0;
   v1 = off_10DEA4;
@@ -46,10 +44,9 @@ int hw_block_disable()
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v4 = unsigned_int_to_double(v1[4]);
-  v5 = double_compare_common(v4, HIDWORD(v4), dword_10DE88, dword_10DE8C);
-  v6 = double_compare_core(v5, HIDWORD(v5), dword_10DE90, dword_10DE94);
-  v7 = double_compare_neg(v6, HIDWORD(v6), dword_10DE98, dword_10DE9C);
-  return double_to_int(v7);
+  v4 = sub_142874(v1[4]);
+  v5 = sub_142968(v4, *(uint64_t *)&dword_10DE88);
+  v6 = sub_142BBC(v5, *(uint64_t *)&dword_10DE90);
+  v7 = sub_1425F8(v6, *(uint64_t *)&dword_10DE98);
+  return sub_142F2C(v7);
 }
-

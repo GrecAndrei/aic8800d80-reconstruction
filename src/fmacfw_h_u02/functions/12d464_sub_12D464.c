@@ -10,13 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// f32_to_f16 @ 0x12d464, size 242 bytes
-float  f32_to_f16(unsigned int a1)
+
+extern float flt_12D558;
+extern float flt_12D55C;
+extern float flt_12D560;
+extern float flt_12D564;
+extern float flt_12D568;
+extern float flt_12D56C;
+extern float flt_12D570;
+extern float flt_12D574;
+extern float flt_12D578;
+extern float flt_12D57C;
+extern float flt_12D580;
+extern float flt_12D584;
+extern float flt_12D588;
+extern float flt_12D58C;
+extern float flt_12D590;
+extern float flt_12D594;
+extern float flt_12D598;
+
+// sub_12D464 @ 0x12d464, size 242 bytes
+unsigned int  sub_12D464(unsigned int a1)
 {
   unsigned int v1; // r3
   int v2; // s15
   int v3; // r0
   float v4; // s15
+  unsigned int result; // r0
   float v6; // s15
   float v7; // s13
   float v8; // s14
@@ -71,6 +91,6 @@ float  f32_to_f16(unsigned int a1)
   {
     v4 = (float)((float)v2 * flt_12D558) + flt_12D55C;
   }
-  return (float)(v3 - 127) + (float)(v4 * flt_12D560);
+  *(float *)&result = (float)(v3 - 127) + (float)(v4 * flt_12D560);
+  return result;
 }
-

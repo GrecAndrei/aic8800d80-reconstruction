@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_121508;
+
 extern uint32_t off_12150C;
 
 // bt_post_event_14ea14 @ 0x1214dc, size 42 bytes
-int  bt_post_event_14ea14(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+int  bt_post_event_14ea14(int a1, uint32_t *a2, int a3, int a4)
 {
-  dispatch_event_handler(dword_121508, *a2);
-  *((uint32_t *)off_12150C + 1) = *a2;
+  dispatch_event_handler_1("\x9D\x81DBG: Setting severity filter: 0x%08x\n", *a2);
+  off_12150C[1] = *a2;
   ke_evt_handler(1031, a4, a3);
   return 0;
 }
-

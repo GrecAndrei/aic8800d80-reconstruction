@@ -10,17 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_141498;
+
 extern uint32_t dword_141494;
-extern uint32_t dword_1414A8;
-extern uint32_t dword_1414A0;
-extern uint32_t dword_1414A4;
 extern uint32_t dword_14149C;
+extern uint32_t off_141498;
+extern uint32_t off_1414A8;
 
 // ke_timer_get_time @ 0x1413a0, size 244 bytes
 void ke_timer_get_time()
 {
-  int16_t **v0; // r6
+  uint16_t **v0; // r6
   int v1; // r3
   int v2; // r5
   unsigned int v3; // r3
@@ -31,10 +30,10 @@ void ke_timer_get_time()
   unsigned int v8; // r3
   unsigned int v9; // r3
 
-  v0 = (int16_t **)off_141498;
+  v0 = (uint16_t **)off_141498;
   v1 = 136 * *(uint32_t *)(dword_141494 + 6480);
   v2 = v1 + 6336 + dword_141494;
-  if ( **(int16_t **)off_141498 >= 0 )
+  if ( **(uint16_t **)off_141498 >= 0 )
   {
     v3 = *(uint8_t *)(v1 + dword_141494 + 6339);
     if ( v3 > 1 )
@@ -56,13 +55,13 @@ LABEL_12:
     if ( v9 != 2 )
     {
 LABEL_18:
-      irq_disable_mmio_write(dword_1414A8, dword_1414A0, 1726);
+      irq_disable_mmio_write(off_1414A8, (int)aRmStartActiveR, 1726);
       return;
     }
   }
   else
   {
-    irq_disable_mmio_write(dword_1414A4, dword_1414A0, 1714);
+    irq_disable_mmio_write((int)aRequestTypeMac, (int)aRmStartActiveR, 1714);
     v8 = *(uint8_t *)(v7 + 6339);
     if ( v8 <= 1 )
       goto LABEL_12;
@@ -97,4 +96,3 @@ LABEL_4:
 LABEL_9:
   bt_ll_state_check(v2, 0);
 }
-

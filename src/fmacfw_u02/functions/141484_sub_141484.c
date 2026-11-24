@@ -10,15 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1414DC;
 
 // ll_event_counter_inc @ 0x141484, size 88 bytes
-uint32_t *ll_event_counter_inc()
+int ll_event_counter_inc()
 {
   int v0; // r3
   int v1; // r0
   int v2; // r4
-  uint32_t *result; // r0
+  int result; // r0
 
   v0 = dword_1414DC;
   v1 = *(uint32_t *)(dword_1414DC + 6480) + 1;
@@ -39,8 +40,7 @@ uint32_t *ll_event_counter_inc()
   else
   {
     rx_phy_status_parse(0xBu, 4);
-    return (uint32_t *)ke_msg_send_no_param(11264, 11, 11);
+    return ke_msg_send_no_param(11264, 11, 11);
   }
   return result;
 }
-

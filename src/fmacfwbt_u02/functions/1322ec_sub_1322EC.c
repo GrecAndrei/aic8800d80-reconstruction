@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13234C;
 
 // llm_event_wait @ 0x1322ec, size 96 bytes
-int  llm_event_wait(int a1, char *a2, int16_t a3, int16_t a4)
+int  llm_event_wait(int a1, char *a2, int a3, int a4)
 {
   uint16_t *v7; // r4
   char v8; // r3
@@ -31,7 +32,7 @@ int  llm_event_wait(int a1, char *a2, int16_t a3, int16_t a4)
   *((uint8_t *)off_13234C + 375) = v8;
   if ( !v9 )
   {
-    v10 = (uint8_t *)bt_buf_alloc(49, 0, 5, 1u);
+    v10 = (uint8_t *)bt_buf_alloc(49, 0, 5, 1);
     v11 = *((uint8_t *)v7 + 375);
     v7[4] = 255;
     if ( v11 )
@@ -43,4 +44,3 @@ int  llm_event_wait(int a1, char *a2, int16_t a3, int16_t a4)
   hci_evt_alloc_send(5140, a4, a3);
   return 0;
 }
-

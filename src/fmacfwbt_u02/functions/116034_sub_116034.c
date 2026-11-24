@@ -10,78 +10,69 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_116154;
 extern uint32_t off_116158;
-extern uint32_t off_11616C;
-extern uint32_t off_116168;
-extern uint32_t dword_116170;
-extern uint32_t off_116178;
-extern uint32_t dword_116184;
-extern uint32_t dword_11617C;
-extern uint32_t off_116174;
 extern uint32_t off_11615C;
 extern uint32_t off_116160;
 extern uint32_t off_116164;
-extern uint32_t dword_116180;
+extern uint32_t off_116168;
+extern uint32_t off_11616C;
+extern uint32_t off_116174;
+extern uint32_t off_116178;
 
 // rx_check_buffers @ 0x116034, size 288 bytes
-// Doc: sub_1216034 [util]: Loads pointer from 0x182c60 and reads its first byte
-// sub_1216034 [util]: Loads pointer from 0x182c60 and reads its first byte
-void rx_check_buffers()
+void  rx_check_buffers(int a1)
 {
-  uint8_t **v0; // r4
-  int v1; // r3
-  uint8_t *v2; // r6
-  int *v3; // r3
-  uint8_t **v4; // r5
-  char v5; // r0
-  int v6; // r1
-  void *v7; // r2
+  uint8_t **v1; // r4
+  uint8_t *v2; // r1
+  int v3; // r3
+  uint8_t *v4; // r6
+  int *v5; // r3
+  uint8_t **v6; // r5
+  char v7; // r0
   char v8; // r0
-  int v9; // r1
-  void *v10; // r2
-  int v11; // r0
 
-  v0 = (uint8_t **)off_116154;
+  v1 = (uint8_t **)off_116154;
+  v2 = *(uint8_t **)off_116154;
   if ( **(uint8_t **)off_116154 )
   {
-    v1 = **(uint8_t **)off_116158;
-    if ( v1 != 1 )
+    v3 = **(uint8_t **)off_116158;
+    if ( v3 != 1 )
       goto LABEL_3;
     goto LABEL_12;
   }
-  v2 = off_11616C;
-  v3 = *((int **)off_116168 + 2);
+  v4 = off_11616C;
+  v5 = *((int **)off_116168 + 2);
   *(uint8_t *)off_11616C = 1;
-  if ( !v3 )
+  if ( !v5 )
   {
 LABEL_10:
-    v4 = (uint8_t **)off_116158;
+    v6 = (uint8_t **)off_116158;
     if ( **(uint8_t **)off_116158 == 3 )
       goto LABEL_4;
-    state_check_feature(2, dword_116170);
-    *v2 = 1;
-    v1 = **v4;
-    if ( v1 != 1 )
+    state_check_feature(2, "lp=%d, ignore=%d\n", *v2, 1);
+    *v4 = 1;
+    v3 = **v6;
+    if ( v3 != 1 )
     {
 LABEL_3:
-      if ( v1 == 2 )
+      if ( v3 == 2 )
         return;
       goto LABEL_4;
     }
 LABEL_12:
-    if ( **v0 == 3 )
+    if ( **v1 == 3 )
     {
       v8 = status_poll();
-      v10 = off_116178;
       *(uint8_t *)off_116178 = v8;
       if ( v8 )
-        ke_event_schedule(dword_116184, v9, v10);
+        ke_event_schedule_1(aWifiidleBtAllo);
       else
-        ke_event_schedule(dword_11617C, v9, v10);
+        ke_event_schedule_1(aWifiidleBtNotA);
       if ( ll_util_get_state() )
         mmio_read_low_nibble();
-      ((void (*)(void))hw_poll_flag)();
+      hw_poll_flag();
       return;
     }
     if ( !ll_util_get_state() || *(uint8_t *)off_116174 )
@@ -93,33 +84,31 @@ LABEL_4:
       && !*((uint8_t *)off_116164 + 29)
       && mac_isr_handler() )
     {
-      v5 = status_poll();
-      v7 = off_116178;
-      *(uint8_t *)off_116178 = v5;
-      if ( !v5 )
+      v7 = status_poll();
+      *(uint8_t *)off_116178 = v7;
+      if ( !v7 )
       {
-        v11 = ke_event_schedule(dword_116180, v6, v7);
-        hw_poll_flag(v11);
+        ke_event_schedule_1(aBt1);
+        hw_poll_flag();
       }
-      if ( (uint8_t)**v0 <= 1u )
+      if ( (uint8_t)**v1 <= 1u )
         mmio_read_low_nibble();
     }
     return;
   }
-  while ( !*((uint8_t *)v3 + 106) )
+  while ( !*((uint8_t *)v5 + 106) )
   {
-    if ( *((uint8_t *)v3 + 108) )
+    if ( *((uint8_t *)v5 + 108) )
       goto LABEL_20;
 LABEL_17:
-    v3 = (int *)*v3;
-    if ( !v3 )
+    v5 = (int *)*v5;
+    if ( !v5 )
       goto LABEL_10;
   }
-  if ( *((uint8_t *)v3 + 106) != 2 )
+  if ( *((uint8_t *)v5 + 106) != 2 )
     goto LABEL_17;
 LABEL_20:
   if ( **(uint8_t **)off_116158 != 3 )
-    state_check_feature(2, dword_116170);
-  *v2 = 0;
+    state_check_feature(2, "lp=%d, ignore=%d\n", *v2, 0);
+  *v4 = 0;
 }
-

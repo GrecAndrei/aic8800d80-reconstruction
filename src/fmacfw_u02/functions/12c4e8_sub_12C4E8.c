@@ -10,30 +10,28 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12C534;
+
+extern uint32_t off_12C528;
+extern uint32_t off_12C52C;
+extern uint32_t off_12C534;
 
 // rf_check_temperature @ 0x12c4e8, size 64 bytes
-// Doc: message_dispatch_n_482 [ipc]: Dispatch incoming IPC/host message (variant n_482)
-// message_dispatch_n_482 [ipc]: Dispatch incoming IPC/host message (variant n_482)
-int  rf_check_temperature(int result, int a2)
+void  rf_check_temperature(int a1, int a2)
 {
   int v2; // r4
   int v3; // r0
 
-  if ( *((uint8_t *)message_dispatch_n_464 + 197) )
+  if ( BYTE1(((uint32_t *)(uintptr_t)off_12C528)[49]) )
   {
     v2 = *(uint32_t *)(*(uint32_t *)(a2 + 76) + 48);
     v3 = rx_packet_handler(
            (*(uint32_t *)(v2 + 20) >> 11) & 7,
            *(uint32_t *)(v2 + 20) & 0x7F,
-           (uint8_t *)(*(uint32_t *)(result + 72) + 4));
-    result = v3 | (v3 << 8);
-    *(uint32_t *)(v2 + 36) = result;
+           (uint8_t *)(*(uint32_t *)(a1 + 72) + 4));
+    *(uint32_t *)(v2 + 36) = v3 | (v3 << 8);
   }
-  else if ( **(int16_t **)msg_dispatch_handler < 0 )
+  else if ( **(uint16_t **)off_12C52C < 0 )
   {
-    return mmio_clear_register(dword_12C534, message_dispatch_n_45c, 92);
+    mmio_clear_register(off_12C534, (int)aTpcUpdateFrame, 92);
   }
-  return result;
 }
-

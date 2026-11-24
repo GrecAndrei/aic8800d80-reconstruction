@@ -10,17 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_112D64;
 extern uint32_t off_112D68;
-extern uint32_t dword_112D7C;
-extern uint32_t dword_112D78;
 extern uint32_t off_112D6C;
 extern uint32_t off_112D70;
-extern uint32_t dword_112D80;
 extern uint32_t off_112D74;
 
 // send_control_packet @ 0x112cc0, size 164 bytes
-int  send_control_packet(int a1, unsigned int a2)
+int  send_control_packet(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
@@ -37,7 +35,7 @@ int  send_control_packet(int a1, unsigned int a2)
   v3 = off_112D68;
   if ( *(uint8_t *)off_112D68 )
   {
-    log_printf(dword_112D7C, dword_112D78, *(uint8_t *)off_112D68);
+    log_printf("err: %s state=%d\r\n", aUsbWlanRecvFcO, *(uint8_t *)off_112D68);
     return -3;
   }
   else
@@ -58,7 +56,7 @@ int  send_control_packet(int a1, unsigned int a2)
     v7 = v6;
     if ( v6 )
     {
-      log_printf(dword_112D80, dword_112D78, v6);
+      log_printf("err: %s ret=%d\r\n", aUsbWlanRecvFcO, v6);
       return -1;
     }
     else
@@ -66,7 +64,7 @@ int  send_control_packet(int a1, unsigned int a2)
       *(uint8_t *)off_112D74 = 1;
       if ( *v2 )
       {
-        rf_enable_tx_patch_dup(0, 1u);
+        rf_enable_tx_patch_dup(0, 1, 0);
         *v3 = 0;
         return -14;
       }
@@ -74,4 +72,3 @@ int  send_control_packet(int a1, unsigned int a2)
   }
   return v7;
 }
-

@@ -10,17 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_133DE4;
-extern uint32_t dword_133DFC;
-extern uint32_t dword_133DF8;
-extern uint32_t off_133DE8;
-extern uint32_t off_133DEC;
+
 extern uint32_t dword_133DF0;
 extern uint32_t dword_133DF4;
+extern uint32_t off_133DE4;
+extern uint32_t off_133DE8;
+extern uint32_t off_133DEC;
 
 // util_reset @ 0x133cd8, size 266 bytes
-// Doc: sub_1233CD8 [unknown]: Unknown helper in fmacfwbt image (reconstructed flow)
-// sub_1233CD8 [unknown]: Unknown helper in fmacfwbt image (reconstructed flow)
 int util_reset()
 {
   int v0; // r2
@@ -30,10 +27,10 @@ int util_reset()
   int v5; // r3
   int v6; // r1
   int v7; // [sp+0h] [bp-Ch] BYREF
-  int v8; // [sp+4h] [bp-8h] BYREF
+  int a2; // [sp+4h] [bp-8h] BYREF
 
-  if ( **(int16_t **)off_133DE4 < 0 && hci_cmd_send_short(6u) != 4 && hci_cmd_send_short(6u) != 10 )
-    mmio_irq_clear(dword_133DFC, dword_133DF8, 697);
+  if ( **(uint16_t **)off_133DE4 < 0 && hci_cmd_send_short(6u) != 4 && hci_cmd_send_short(6u) != 10 )
+    mmio_irq_clear((int)aKeStateGetTask_9, (int)aMeSetActiveCfm, 697);
   if ( hci_cmd_send_short(6u) == 10 )
   {
     v4 = off_133DE8;
@@ -50,9 +47,9 @@ int util_reset()
     if ( v6 )
     {
       v7 = 0;
-      v8 = 0;
-      ull_scan_event_start(&v7, &v8);
-      rx_security_check(v7, v8, 0);
+      a2 = 0;
+      ull_scan_event_start(&v7, &a2);
+      rx_security_check(v7, a2, 0);
     }
     else
     {
@@ -92,13 +89,12 @@ LABEL_5:
       goto LABEL_5;
     if ( v1 == 3 )
     {
-      rf_check_status(dword_133DF4);
+      rf_check_status_1(dword_133DF4);
       if ( *((uint8_t *)off_133DEC + 13) )
         *((uint8_t *)off_133DEC + 15) |= 2u;
       return 0;
     }
-    event_dispatch(1);
+    event_dispatch_1(1);
     return 0;
   }
 }
-

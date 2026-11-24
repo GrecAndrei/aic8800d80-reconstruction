@@ -10,43 +10,26 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103E94;
+
 extern uint32_t dword_103E98;
+extern uint32_t dword_103EA4;
+extern uint32_t dword_103EB4;
+extern uint32_t dword_103EC0;
+extern uint32_t dword_103EC8;
+extern uint32_t dword_103ED0;
+extern uint32_t dword_103ED8;
+extern uint32_t dword_103EE0;
+extern uint32_t dword_103EE8;
+extern uint32_t dword_103EF0;
+extern uint32_t dword_103EF8;
+extern uint32_t dword_103F00;
+extern uint32_t dword_103F08;
+extern uint32_t dword_103F10;
+extern uint32_t dword_103F18;
+extern uint32_t off_103E94;
 extern uint32_t off_103E9C;
 extern uint32_t off_103EA0;
-extern uint32_t dword_103EC8;
-extern uint32_t dword_103ECC;
-extern uint32_t dword_103EC0;
-extern uint32_t dword_103EC4;
-extern uint32_t dword_103ED0;
-extern uint32_t dword_103ED4;
-extern uint32_t dword_103ED8;
-extern uint32_t dword_103EDC;
-extern uint32_t dword_103EE0;
-extern uint32_t dword_103EE4;
-extern uint32_t dword_103EE8;
-extern uint32_t dword_103EEC;
-extern uint32_t dword_103EF8;
-extern uint32_t dword_103EFC;
-extern uint32_t dword_103F00;
-extern uint32_t dword_103F04;
-extern uint32_t dword_103F08;
-extern uint32_t dword_103F0C;
-extern uint32_t dword_103F10;
-extern uint32_t dword_103F14;
-extern uint32_t dword_103F18;
-extern uint32_t dword_103F1C;
 extern uint32_t off_103EB0;
-extern uint32_t dword_103EB4;
-extern uint32_t dword_103F20;
-extern uint32_t dword_103F24;
-extern uint32_t dword_103F28;
-extern uint32_t dword_103EA4;
-extern uint32_t dword_103EA8;
-extern uint32_t dword_103EAC;
-extern uint32_t dword_103EF0;
-extern uint32_t dword_103EF4;
-extern uint32_t dword_103EB8;
 extern uint32_t off_103EBC;
 
 // pmu_write_control @ 0x103ca4, size 496 bytes
@@ -57,27 +40,19 @@ int  pmu_write_control(int a1)
   unsigned int v3; // r1
   int v4; // r5
   unsigned int v5; // r3
-  int v6; // r0
-  void *v7; // r2
-  unsigned int *v8; // r4
-  int *v9; // r5
-  int v10; // r6
-  int v11; // r0
-  int v12; // r1
+  const char *v6; // r0
+  unsigned int *v7; // r4
+  int *v8; // r5
+  int v9; // r6
+  unsigned int *v11; // r2
+  int *v12; // r4
+  int v13; // r5
   int v14; // r1
-  unsigned int *v15; // r2
-  int *v16; // r4
-  int v17; // r5
-  int v18; // r1
-  int v19; // r0
-  int v20; // r3
-  unsigned int v21; // r1
-  void *v22; // r2
-  unsigned int *v23; // r4
-  int *v24; // r5
-  int v25; // r6
-  int v26; // r0
-  int v27; // r1
+  const char *v15; // r0
+  int v16; // r3
+  unsigned int *v17; // r4
+  int *v18; // r5
+  int v19; // r6
 
   *(uint32_t *)off_103E94 = dword_103E98;
   if ( a1 )
@@ -85,12 +60,12 @@ int  pmu_write_control(int a1)
     switch ( a1 )
     {
       case 1:
-        v15 = (unsigned int *)off_103E9C;
-        v16 = (int *)off_103EA0;
-        v17 = dword_103EC8;
-        v18 = *(uint32_t *)off_103E9C;
-        v19 = dword_103ECC;
-        v20 = *(uint32_t *)off_103E9C & 0x70 | 1;
+        v11 = (unsigned int *)off_103E9C;
+        v12 = (int *)off_103EA0;
+        v13 = dword_103EC8;
+        v14 = *(uint32_t *)off_103E9C;
+        v15 = aDumpDac150m;
+        v16 = *(uint32_t *)off_103E9C & 0x70 | 1;
         break;
       case 10:
         v1 = (unsigned int *)off_103E9C;
@@ -98,7 +73,7 @@ int  pmu_write_control(int a1)
         v3 = *(uint32_t *)off_103E9C;
         v4 = dword_103EC0;
         v5 = *(uint32_t *)off_103E9C;
-        v6 = dword_103EC4;
+        v6 = aDumpDpdTxRx;
         goto LABEL_24;
       case 14:
         v1 = (unsigned int *)off_103E9C;
@@ -106,15 +81,15 @@ int  pmu_write_control(int a1)
         v3 = *(uint32_t *)off_103E9C;
         v4 = dword_103ED0;
         v5 = *(uint32_t *)off_103E9C;
-        v6 = dword_103ED4;
+        v6 = aDumpLoftOut;
         goto LABEL_24;
       case 2:
-        v15 = (unsigned int *)off_103E9C;
-        v16 = (int *)off_103EA0;
-        v17 = dword_103ED8;
-        v18 = *(uint32_t *)off_103E9C;
-        v19 = dword_103EDC;
-        v20 = *(uint32_t *)off_103E9C & 0x70 | 2;
+        v11 = (unsigned int *)off_103E9C;
+        v12 = (int *)off_103EA0;
+        v13 = dword_103ED8;
+        v14 = *(uint32_t *)off_103E9C;
+        v15 = aDumpAdcIn;
+        v16 = *(uint32_t *)off_103E9C & 0x70 | 2;
         break;
       default:
         switch ( a1 )
@@ -125,7 +100,7 @@ int  pmu_write_control(int a1)
             v3 = *(uint32_t *)off_103E9C;
             v4 = dword_103EE0;
             v5 = *(uint32_t *)off_103E9C;
-            v6 = dword_103EE4;
+            v6 = aDumpRxDataIq;
             break;
           case 30:
             v1 = (unsigned int *)off_103E9C;
@@ -133,7 +108,7 @@ int  pmu_write_control(int a1)
             v3 = *(uint32_t *)off_103E9C;
             v4 = dword_103EE8;
             v5 = *(uint32_t *)off_103E9C;
-            v6 = dword_103EEC;
+            v6 = aDumpRcAdcIq;
             break;
           case 31:
             v1 = (unsigned int *)off_103E9C;
@@ -141,7 +116,7 @@ int  pmu_write_control(int a1)
             v3 = *(uint32_t *)off_103E9C;
             v4 = dword_103EF8;
             v5 = *(uint32_t *)off_103E9C;
-            v6 = dword_103EFC;
+            v6 = aDumpDccancelOu;
             break;
           case 32:
             v1 = (unsigned int *)off_103E9C;
@@ -149,7 +124,7 @@ int  pmu_write_control(int a1)
             v3 = *(uint32_t *)off_103E9C;
             v4 = dword_103F00;
             v5 = *(uint32_t *)off_103E9C;
-            v6 = dword_103F04;
+            v6 = aDumpPreDgcOutI;
             break;
           case 33:
             v1 = (unsigned int *)off_103E9C;
@@ -157,7 +132,7 @@ int  pmu_write_control(int a1)
             v3 = *(uint32_t *)off_103E9C;
             v4 = dword_103F08;
             v5 = *(uint32_t *)off_103E9C;
-            v6 = dword_103F0C;
+            v6 = aDumpNotchOutIq;
             break;
           default:
             if ( a1 != 4 )
@@ -169,7 +144,7 @@ int  pmu_write_control(int a1)
                 v3 = *(uint32_t *)off_103E9C;
                 v4 = dword_103F10;
                 v5 = *(uint32_t *)off_103E9C;
-                v6 = dword_103F14;
+                v6 = aDumpRcOutIq;
                 break;
               }
               if ( a1 != 50 )
@@ -182,25 +157,22 @@ int  pmu_write_control(int a1)
                     v3 = *(uint32_t *)off_103E9C;
                     v4 = dword_103F18;
                     v5 = *(uint32_t *)off_103E9C;
-                    v6 = dword_103F1C;
+                    v6 = aDumpRcStatus;
                     break;
                   case 7:
-                    v22 = off_103E9C;
-                    v23 = (unsigned int *)off_103EB0;
-                    v24 = (int *)off_103EA0;
-                    v25 = dword_103EB4;
-                    v26 = dword_103F20;
-                    v27 = *(uint32_t *)off_103E9C & 0x70;
+                    v17 = (unsigned int *)off_103EB0;
+                    v18 = (int *)off_103EA0;
+                    v19 = dword_103EB4;
                     *(uint32_t *)off_103E9C &= 0xFFFFFF70;
-                    *v23 = *v23 & 0xFF00FFFF | 0x540000;
-                    *v24 = v25;
-                    event_dispatch(v26, v27, v22);
+                    *v17 = *v17 & 0xFF00FFFF | 0x540000;
+                    *v18 = v19;
+                    event_dispatch(aDumpLpfOutBpfO);
                     goto LABEL_22;
                   case 8:
                     v1 = (unsigned int *)off_103E9C;
                     v2 = (int *)off_103EA0;
                     v4 = dword_103EB4;
-                    v6 = dword_103F24;
+                    v6 = aDumpGainLoft2I;
                     *(uint32_t *)off_103EB0 = *(uint32_t *)off_103EB0 & 0xFF00FFFF | 0x570000;
                     v3 = *v1;
                     v5 = *v1;
@@ -209,7 +181,7 @@ int  pmu_write_control(int a1)
                     v1 = (unsigned int *)off_103E9C;
                     v2 = (int *)off_103EA0;
                     v4 = dword_103EB4;
-                    v6 = dword_103F28;
+                    v6 = aDumpGainLoftIn;
                     *(uint32_t *)off_103EB0 = *(uint32_t *)off_103EB0 & 0xFF00FFFF | 0x30000;
                     v3 = *v1;
                     v5 = *v1;
@@ -221,9 +193,9 @@ int  pmu_write_control(int a1)
                     v4 = dword_103EA4;
                     v5 = *(uint32_t *)off_103E9C;
                     if ( a1 == 9 )
-                      v6 = dword_103EA8;
+                      v6 = aDumpAuxFifoOut;
                     else
-                      v6 = dword_103EAC;
+                      v6 = aReselectMode;
                     break;
                 }
                 break;
@@ -234,34 +206,28 @@ int  pmu_write_control(int a1)
             v3 = *(uint32_t *)off_103E9C;
             v4 = dword_103EF0;
             v5 = *(uint32_t *)off_103E9C;
-            v6 = dword_103EF4;
+            v6 = aDumpRcInIq;
             break;
         }
 LABEL_24:
-        v14 = v3 & 0x70;
-        *v1 = v5 & 0xFFFFFF00 | v14;
+        *v1 = v5 & 0xFFFFFF00 | v3 & 0x70;
         *v2 = v4;
-        event_dispatch(v6, v14, v1);
+        event_dispatch(v6);
         goto LABEL_22;
     }
-    v21 = v18 & 0xFFFFFF00;
-    *v15 = v20 | v21;
-    *v16 = v17;
-    event_dispatch(v19, v21, v15);
+    *v11 = v16 | v14 & 0xFFFFFF00;
+    *v12 = v13;
+    event_dispatch(v15);
     goto LABEL_22;
   }
-  v7 = off_103E9C;
-  v8 = (unsigned int *)off_103EB0;
-  v9 = (int *)off_103EA0;
-  v10 = dword_103EB4;
-  v11 = dword_103EB8;
-  v12 = *(uint32_t *)off_103E9C & 0x70;
+  v7 = (unsigned int *)off_103EB0;
+  v8 = (int *)off_103EA0;
+  v9 = dword_103EB4;
   *(uint32_t *)off_103E9C &= 0xFFFFFF70;
-  *v8 = *v8 & 0xFF00FFFF | 0x770000;
-  *v9 = v10;
-  event_dispatch(v11, v12, v7);
+  *v7 = *v7 & 0xFF00FFFF | 0x770000;
+  *v8 = v9;
+  event_dispatch(aDumpLoftPwrInO);
 LABEL_22:
   *(uint32_t *)off_103EBC = 769;
   return timer_delay(500);
 }
-

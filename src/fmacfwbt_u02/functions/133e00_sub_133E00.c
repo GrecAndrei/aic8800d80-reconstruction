@@ -10,7 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_133E44;
+
 extern uint32_t dword_133E48;
 
 // ll_event_prepare @ 0x133e00, size 66 bytes
@@ -22,7 +22,7 @@ int  ll_event_prepare(int a1, uint8_t *a2)
   int v5; // r4
 
   v2 = *a2;
-  state_check_feature(256, dword_133E44);
+  state_check_feature(256, aConnLossInd);
   result = hci_cmd_send_short(6u);
   if ( result )
     return 2;
@@ -39,4 +39,3 @@ int  ll_event_prepare(int a1, uint8_t *a2)
   }
   return result;
 }
-

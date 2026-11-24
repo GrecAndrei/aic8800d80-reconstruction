@@ -10,30 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128ACC;
-extern uint32_t dword_128AA8;
+
 extern uint32_t dword_128A9C;
-extern uint32_t dword_128AB4;
-extern uint32_t dword_128AB0;
-extern uint32_t dword_128AB8;
-extern uint32_t off_128AD0;
-extern uint32_t dword_128AC0;
-extern uint32_t dword_128AC8;
-extern uint32_t dword_128ABC;
-extern uint32_t dword_128AC4;
-extern uint32_t dword_128AA0;
 extern uint32_t dword_128AA4;
+extern uint32_t dword_128AA8;
+extern uint32_t dword_128ABC;
+extern uint32_t dword_128AC8;
 extern uint32_t off_128AAC;
+extern uint32_t off_128ACC;
+extern uint32_t off_128AD0;
 
 // sta_lookup_by_bss @ 0x128888, size 530 bytes
-// Doc: sub_1228888 [scan]: Scan/index lookup using signed halfword key and rsb scaling
-// sub_1228888 [scan]: Scan/index lookup using signed halfword key and rsb scaling
 int  sta_lookup_by_bss(int a1, int a2)
 {
-  int16_t **v2; // r10
+  uint16_t **v2; // r10
   int v3; // r8
   int v4; // r7
-  int v7; // r6
+  uint32_t *v7; // r6
   int v8; // r9
   int v9; // r1
   uint8_t *v10; // r11
@@ -46,18 +39,19 @@ int  sta_lookup_by_bss(int a1, int a2)
   int result; // r0
   int v18; // r3
   char v19; // r0
-  int16_t *v20; // r3
+  uint16_t *v20; // r3
   unsigned int v21; // r2
   int v22; // r3
   int v23; // r3
   int v24; // r1
 
-  v2 = (int16_t **)off_128ACC;
+  v2 = (uint16_t **)off_128ACC;
   v3 = dword_128AA8;
   v4 = dword_128A9C;
-  v7 = dword_128AA8 + 28 * a2;
-  if ( **(int16_t **)off_128ACC >= 0
-    || *(uint32_t *)(dword_128A9C + 1320 * a1 + 72) && (mmio_clear_register(dword_128AB4, dword_128AB0, 3061), **v2 >= 0) )
+  v7 = (uint32_t *)(dword_128AA8 + 28 * a2);
+  if ( **(uint16_t **)off_128ACC >= 0
+    || *(uint32_t *)(dword_128A9C + 1320 * a1 + 72)
+    && (mmio_clear_register((int)aVifChanCtxtNul_0, (int)aChanCtxtLink, 3061), **v2 >= 0) )
   {
     v8 = 8 * a2;
   }
@@ -65,7 +59,7 @@ int  sta_lookup_by_bss(int a1, int a2)
   {
     v8 = 8 * a2;
     if ( *(uint8_t *)(v3 + 28 * a2 + 24) == 255 )
-      mmio_clear_register(dword_128AB8, dword_128AB0, 3062);
+      mmio_clear_register((int)aCtxtIdxChanCtx, (int)aChanCtxtLink, 3062);
   }
   v9 = v3 + 4 * (v8 - a2);
   v10 = off_128AD0;
@@ -83,12 +77,12 @@ int  sta_lookup_by_bss(int a1, int a2)
     v10[90] = v21;
     if ( *v20 < 0 && v21 > 2 )
     {
-      mmio_clear_register(dword_128AC0, dword_128AB0, 3082);
+      mmio_clear_register((int)aChanEnvNbSched_0, (int)aChanCtxtLink, 3082);
       v21 = (uint8_t)v10[90];
     }
     if ( v21 == 2 )
     {
-      zero_8_bytes(dword_128AC8);
+      zero_8_bytes((uint32_t *)dword_128AC8);
       v23 = dword_128A9C;
       v24 = dword_128A9C + 5280;
       do
@@ -98,27 +92,28 @@ int  sta_lookup_by_bss(int a1, int a2)
       }
       while ( v24 != v23 );
     }
-    cmd_handler_a(dword_128ABC);
+    cmd_handler_a(dword_128ABC, v7);
     if ( (v10[88] & 0xC) != 0 )
     {
       v22 = *((uint32_t *)v10 + 8);
       if ( **v2 < 0 && !v22 )
       {
-        mmio_clear_register(dword_128AC4, dword_128AB0, 3097);
+        mmio_clear_register((int)aChSwitch, (int)aChanCtxtLink, 3097);
         v22 = 0;
       }
       *(uint32_t *)(v22 + 8) = v7;
-    }
-    else if ( *((uint32_t *)v10 + 11) )
-    {
-      *((uint32_t *)v10 + 11) = v7;
+      v12 = *(uint8_t *)(v3 + 4 * (v8 - a2) + 25);
     }
     else
     {
-      ctrl_register_handler(v7);
+      if ( *((uint32_t *)v10 + 11) )
+        *((uint32_t *)v10 + 11) = v7;
+      else
+        ctrl_register_handler(v7);
+      v12 = *(uint8_t *)(v3 + 4 * (v8 - a2) + 25);
     }
   }
-  check_status_bits(256, dword_128AA0);
+  check_status_bits(256, "chan link:%d,%d,%d,%d\r\n", v12, a2, (uint8_t)v10[90], (uint8_t)v10[91]);
   v13 = (uint8_t *)(v4 + 1320 * a1);
   v14 = (uint8_t)v13[1224];
   v13[86] = -1;
@@ -141,14 +136,13 @@ int  sta_lookup_by_bss(int a1, int a2)
       if ( dword_128AA8 + 84 == v15 )
         goto LABEL_10;
     }
-    if ( *(uint32_t *)(v4 + 1320 * v16 + 72) != v7 )
+    if ( *(uint32_t **)(v4 + 1320 * v16 + 72) != v7 )
       *(uint8_t *)(v4 + 1320 * a1 + 85) |= 0x10u;
   }
 LABEL_10:
-  result = get_control_byte(v7);
+  result = get_control_byte((int)v7);
   v18 = *((uint8_t *)off_128AAC + 16);
   if ( v18 != a1 && v18 != 255 )
     return sta_get_current(a2);
   return result;
 }
-

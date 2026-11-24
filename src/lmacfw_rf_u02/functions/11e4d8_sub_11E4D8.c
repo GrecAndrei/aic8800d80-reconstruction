@@ -10,27 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11E5C0;
+extern uint32_t dword_11E5D4;
 extern uint32_t off_11E5B8;
 extern uint32_t off_11E5BC;
-extern uint32_t dword_11E5C0;
-extern uint32_t dword_11E5C4;
-extern uint32_t dword_11E5D4;
 extern uint32_t off_11E5C8;
-extern uint32_t dword_11E5DC;
-extern uint32_t dword_11E5D8;
-extern uint32_t dword_11E5D0;
 extern uint32_t off_11E5CC;
+extern uint32_t off_11E5DC;
 
 // set_busy_flag @ 0x11e4d8, size 222 bytes
-int set_busy_flag()
+uint32_t *set_busy_flag()
 {
   int *v0; // r5
   int v1; // r0
-  int result; // r0
-  uint16_t *v3; // r4
+  uint32_t *result; // r0
+  char *v3; // r4
   int v4; // r3
   int v5; // r2
-  int ( *v6)(uint32_t, uint16_t *, uint32_t, uint32_t); // r6
+  int ( *v6)(uint32_t, char *, uint32_t, uint32_t); // r6
   int v7; // r2
   int v8; // r3
   int v9; // r3
@@ -45,7 +43,7 @@ int set_busy_flag()
   v1 = dword_11E5C0;
   ++*(uint32_t *)off_11E5BC;
   result = list_pop_front(v1);
-  v3 = (uint16_t *)result;
+  v3 = (char *)result;
   if ( *v0 )
   {
     v4 = *v0 - 1;
@@ -59,32 +57,44 @@ int set_busy_flag()
   }
   if ( result )
   {
-    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))flash_read_byte(
-                                                                           *(uint16_t *)(result + 4),
-                                                                           *(uint16_t *)(result + 6));
-    dispatch_event_handler(dword_11E5C4, v3[2]);
+    v6 = (int ( *)(uint32_t, char *, uint32_t, uint32_t))flash_read_byte(
+                                                               *((uint16_t *)result + 2),
+                                                               *((uint16_t *)result + 3));
+    dispatch_event_handler_1(
+      "\x9D\x80Dispatching msg:%x from tsk:%x to tsk:%x\n",
+      *((uint16_t *)v3 + 2),
+      *((uint16_t *)v3 + 4),
+      *((uint16_t *)v3 + 3));
     if ( v6 )
     {
-      result = v6(v3[2], v3 + 6, v3[3], v3[4]);
-      if ( result == 1 )
+      result = (uint32_t *)v6(
+                           *((uint16_t *)v3 + 2),
+                           v3 + 12,
+                           *((uint16_t *)v3 + 3),
+                           *((uint16_t *)v3 + 4));
+      if ( result == (uint32_t *)1 )
         goto LABEL_12;
-      if ( result == 2 )
+      if ( result == (uint32_t *)2 )
       {
-        result = check_kernel_state(dword_11E5D4);
+        result = (uint32_t *)check_kernel_state(dword_11E5D4, v3);
         goto LABEL_12;
       }
       if ( result )
       {
-        if ( **(int16_t **)off_11E5C8 < 0 )
-          result = flash_ctrl_init(dword_11E5DC, dword_11E5D8, 360);
+        if ( **(uint16_t **)off_11E5C8 < 0 )
+          result = (uint32_t *)flash_ctrl_init(off_11E5DC, (int)aKeTaskSchedule, 360);
         goto LABEL_12;
       }
     }
     else
     {
-      dispatch_event_handler(dword_11E5D0, v3[2]);
+      dispatch_event_handler_1(
+        "\x9A\x80No handler found for msg:%x from tsk:%x to tsk:%x\n",
+        *((uint16_t *)v3 + 2),
+        *((uint16_t *)v3 + 4),
+        *((uint16_t *)v3 + 3));
     }
-    result = isr_forward((int)v3);
+    result = isr_forward(v3);
   }
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -97,7 +107,7 @@ LABEL_12:
   *v0 = v8;
   if ( !v7 )
   {
-    result = enter_critical_section(0x4000000);
+    result = (uint32_t *)enter_critical_section_1(0x4000000);
     v8 = *v0;
   }
   if ( v8 )
@@ -113,4 +123,3 @@ LABEL_12:
   }
   return result;
 }
-

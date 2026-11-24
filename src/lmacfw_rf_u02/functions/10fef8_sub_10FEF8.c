@@ -10,13 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10FFDC;
-extern uint32_t off_10FFD4;
-extern uint32_t dword_10FFEC;
+
 extern uint32_t dword_10FFE0;
+extern uint32_t off_10FFD4;
 extern uint32_t off_10FFD8;
-extern uint32_t dword_10FFE8;
-extern uint32_t dword_10FFE4;
 
 // mem_free @ 0x10fef8, size 218 bytes
 int  mem_free(uint32_t *a1)
@@ -29,7 +26,7 @@ int  mem_free(uint32_t *a1)
   result = mem_is_in_heap((unsigned int)a1);
   if ( !result )
   {
-    result = log_printf(dword_10FFDC, a1);
+    result = log_printf("get_native_pool_id: Invalid buffer passed: %x\n", a1);
     v5 = **(uint8_t **)off_10FFD4;
     if ( v5 != 1 )
     {
@@ -39,11 +36,11 @@ int  mem_free(uint32_t *a1)
       {
 LABEL_11:
         if ( !mem_is_in_heap((unsigned int)a1) )
-          log_printf(dword_10FFEC, a1);
+          log_printf("get_user_id: Invalid buffer passed: %x\n", a1);
         return sorted_list_search(dword_10FFE0, a1);
       }
-      if ( **(int16_t **)off_10FFD8 < 0 )
-        return flash_ctrl_init(dword_10FFE8, dword_10FFE4, 204);
+      if ( **(uint16_t **)off_10FFD8 < 0 )
+        return flash_ctrl_init((int)aNativeId3, (int)aPktMemFree, 204);
       return result;
     }
     return irq_disable_set_flag_preserve_2(a1);
@@ -64,7 +61,7 @@ LABEL_11:
   {
     if ( v4 == 3 )
     {
-      if ( **(int16_t **)off_10FFD8 >= 0 )
+      if ( **(uint16_t **)off_10FFD8 >= 0 )
       {
         if ( v3 != 3 )
           return result;
@@ -72,7 +69,7 @@ LABEL_11:
       }
       if ( v3 == 3 )
         return enter_critical_section(a1);
-      return flash_ctrl_init(dword_10FFE8, dword_10FFE4, 204);
+      return flash_ctrl_init((int)aNativeId3, (int)aPktMemFree, 204);
     }
     goto LABEL_11;
   }
@@ -82,4 +79,3 @@ LABEL_11:
     return lock_acquire(a1);
   return result;
 }
-

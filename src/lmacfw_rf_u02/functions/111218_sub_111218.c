@@ -10,9 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_111264;
+extern uint32_t off_111268;
+extern uint32_t off_11126C;
+extern uint32_t off_111270;
+
 // timer_read_count @ 0x111218, size 74 bytes
-// Doc: rf_bus_mark_nbc [rf]: Marks RF bus registers at 0x900-0x914 with flags
-// rf_bus_mark_nbc [rf]: Marks RF bus registers at 0x900-0x914 with flags
 int timer_read_count()
 {
   uint32_t *v0; // r1
@@ -20,10 +24,10 @@ int timer_read_count()
   uint32_t *v2; // r3
   int result; // r0
 
-  v0 = *(uint32_t **)rf_bus_write2_n_2c0;
-  v1 = *(uint32_t *)rf_bus_write_268;
-  v2 = rf_bus_write_n_200;
-  *((uint16_t *)rf_bus_reset2_n_94 + 5) = 0;
+  v0 = *(uint32_t **)off_111264;
+  v1 = *(uint32_t *)off_111268;
+  v2 = off_11126C;
+  *((uint16_t *)off_111270 + 5) = 0;
   *v0 = 167772160;
   v0[1] = v1;
   v2[4] = v2[4] & 0xFFFFF81F | 0x20;
@@ -35,4 +39,3 @@ int timer_read_count()
   v2[576] |= 0x84000000;
   return result;
 }
-

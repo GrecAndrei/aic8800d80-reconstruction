@@ -10,19 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_116AF0;
 
 // get_sta_entry @ 0x116ac0, size 48 bytes
-int  get_sta_entry(uint8_t *a1, char a2)
+int  get_sta_entry(int a1, char a2)
 {
   int v2; // r6
   int v4; // r5
 
   v2 = dword_116AF0;
-  v4 = 696 * (uint8_t)a1[29];
-  a1[27] = a2;
-  a1[97] = 1;
-  check_abort_flag(v4 + 572 + v2);
+  v4 = 696 * *(uint8_t *)(a1 + 29);
+  *(uint8_t *)(a1 + 27) = a2;
+  *(uint8_t *)(a1 + 97) = 1;
+  check_abort_flag(v4 + 572 + v2, (uint32_t *)a1);
   return txpwr_limit_apply(a1, v2 + v4);
 }
-

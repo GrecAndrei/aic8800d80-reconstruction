@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11A7B4;
 extern uint32_t off_11A7B0;
 extern uint32_t off_11A7B8;
 extern uint32_t off_11A7BC;
 extern uint32_t off_11A7C0;
-extern uint32_t dword_11A7C4;
 
 // mmio_clear_bits @ 0x11a72c, size 132 bytes
 int  mmio_clear_bits(uint16_t *a1)
@@ -47,8 +47,7 @@ int  mmio_clear_bits(uint16_t *a1)
   v6[1] = v6[1] & v1 | (v7 << 12);
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
-  poll_hw_status();
-  dispatch_event_handler(dword_11A7C4, *a1);
+  poll_hw_status_1();
+  dispatch_event_handler_1("set txop: bk:%x,be:%x,vi:%x,vo:%x\n", *a1, a1[1], a1[2], a1[3]);
   return 0;
 }
-

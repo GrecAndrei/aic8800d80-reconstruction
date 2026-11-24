@@ -10,30 +10,30 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11ABEC;
 extern uint32_t off_11ABF0;
 extern uint32_t off_11ABF4;
-extern uint32_t dword_11AC00;
-extern uint32_t off_11AC04;
-extern uint32_t dword_11AC0C;
-extern uint32_t dword_11AC08;
 extern uint32_t off_11ABF8;
-extern uint32_t dword_11ABFC;
+extern uint32_t off_11ABFC;
+extern uint32_t off_11AC04;
+extern uint32_t off_11AC0C;
 
-// ke_enter_critical @ 0x11ab18, size 212 bytes
-int  ke_enter_critical(int a1, int a2)
+// sub_11AB18 @ 0x11ab18, size 212 bytes
+int  sub_11AB18(uint32_t *a1, int a2)
 {
   int *v4; // r7
-  uint32_t *v5; // r2
-  int *v6; // r6
-  int v7; // r2
+  volatile unsigned int *v5; // r2
+  int v6; // r3
+  uint32_t *v7; // r6
+  void *v8; // r2
   int result; // r0
-  int v9; // r3
-  int v10; // r3
-  int v11; // r2
+  uint32_t *v10; // r3
+  int v11; // r3
   int v12; // r2
-  uint32_t *v13; // r2
-  int v14; // r1
+  void *v13; // r2
+  volatile unsigned int *v14; // r2
+  int v15; // r1
 
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -43,53 +43,53 @@ int  ke_enter_critical(int a1, int a2)
   v4 = (int *)off_11ABF0;
   v5 = off_11ABF4;
   ++*(uint32_t *)off_11ABF0;
-  if ( a2 - v5[4] < 0 )
+  v6 = *((uint32_t *)v5 + 4);
+  if ( a2 - v6 < 0 )
   {
-    dispatch_event_handler(dword_11AC00, *(uint32_t *)(a1 + 4));
-    if ( **(int16_t **)off_11AC04 < 0 )
-      flash_ctrl_init(dword_11AC0C, dword_11AC08, 131);
+    sub_11F504("timer past: cb=%x, time=%x, curr=%x\r\n", a1[1], a2, v6);
+    if ( **(uint16_t **)off_11AC04 < 0 )
+      sub_1219C4(off_11AC0C, (int)aMmTimerSet, 131);
   }
-  v6 = (int *)off_11ABF8;
-  if ( a1 == *(uint32_t *)off_11ABF8 )
+  v7 = (uint32_t *)off_11ABF8;
+  if ( a1 == *(uint32_t **)off_11ABF8 )
   {
-    list_pop_front(off_11ABF8);
-    v12 = dword_11ABFC;
-    *(uint32_t *)(a1 + 12) = a2;
-    result = list_foreach(v6, a1, v12);
-    v9 = *v6;
-    if ( !*v6 )
+    sub_11E7AC(off_11ABF8);
+    v13 = off_11ABFC;
+    a1[3] = a2;
+    result = sub_11E840((int)v7, a1, (int ( *)(uint32_t *, uint32_t *))v13);
+    v10 = (uint32_t *)*v7;
+    if ( !*v7 )
     {
       *((uint32_t *)off_11ABF4 + 2) = 1024;
       goto LABEL_6;
     }
     goto LABEL_14;
   }
-  check_kernel_state_alt2(off_11ABF8, a1);
-  v7 = dword_11ABFC;
-  *(uint32_t *)(a1 + 12) = a2;
-  result = list_foreach(v6, a1, v7);
-  v9 = *v6;
-  if ( a1 == *v6 )
+  sub_11E7C4(off_11ABF8, a1);
+  v8 = off_11ABFC;
+  a1[3] = a2;
+  result = sub_11E840((int)v7, a1, (int ( *)(uint32_t *, uint32_t *))v8);
+  v10 = (uint32_t *)*v7;
+  if ( a1 == (uint32_t *)*v7 )
   {
 LABEL_14:
-    v13 = off_11ABF4;
-    v14 = *(uint32_t *)(v9 + 12);
+    v14 = off_11ABF4;
+    v15 = v10[3];
     result = 0x40000;
     *((uint32_t *)off_11ABF4 + 2) = 0x40000;
-    v13[12] = v14;
-    v13[2] = 4;
+    *((uint32_t *)v14 + 12) = v15;
+    *((uint32_t *)v14 + 2) = 4;
   }
 LABEL_6:
-  if ( *v4 && (v10 = *v4 - 1, v11 = *(uint32_t *)off_11ABEC, (*v4 = v10) == 0) && v11 )
+  if ( *v4 && (v11 = *v4 - 1, v12 = *(uint32_t *)off_11ABEC, (*v4 = v11) == 0) && v12 )
   {
     __enable_irq();
     if ( a2 - *((uint32_t *)off_11ABF4 + 4) < 0 )
-      return set_busy_flag_alt(0x20000000);
+      return sub_11E5E0(0x20000000);
   }
   else if ( a2 - *((uint32_t *)off_11ABF4 + 4) < 0 )
   {
-    return set_busy_flag_alt(0x20000000);
+    return sub_11E5E0(0x20000000);
   }
   return result;
 }
-

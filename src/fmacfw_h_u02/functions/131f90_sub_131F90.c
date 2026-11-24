@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_131FF0;
 
 // wait_for_event @ 0x131f90, size 96 bytes
-int  wait_for_event(int a1, char *a2, int16_t a3, int16_t a4)
+int  wait_for_event(int a1, char *a2, int a3, int a4)
 {
   uint16_t *v7; // r4
   char v8; // r3
@@ -31,16 +32,15 @@ int  wait_for_event(int a1, char *a2, int16_t a3, int16_t a4)
   *((uint8_t *)off_131FF0 + 375) = v8;
   if ( !v9 )
   {
-    v10 = (uint8_t *)tx_send_pdu(49, 0, 5, 1u);
+    v10 = (uint8_t *)tx_send_pdu(49, 0, 5, 1);
     v11 = *((uint8_t *)v7 + 375);
     v7[4] = 255;
     if ( v11 )
       LOBYTE(v11) = *((uint8_t *)v7 + 376);
     *v10 = v11;
-    rx_process_packet((int)v10);
+    rx_process_packet_1((int)v10);
     hci_cmd_preprocess(5u, 1);
   }
   mac_write_header_word(5140, a4, a3);
   return 0;
 }
-

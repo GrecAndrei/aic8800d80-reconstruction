@@ -10,36 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1140DC;
-extern uint32_t dword_1140E0;
-extern uint32_t dword_1140F0;
-extern uint32_t dword_1140EC;
-extern uint32_t dword_1140E8;
+
 extern uint32_t off_1140E4;
+extern uint32_t off_153308;
+extern uint32_t off_15330C;
 
 // check_global_value @ 0x114088, size 82 bytes
-int  check_global_value(int a1, int a2, int a3, int a4)
+int  check_global_value(int a1)
 {
   int result; // r0
-  int v5; // r2
+  int v2; // r2
 
-  if ( a1 == *(uint32_t *)off_1140DC )
+  if ( a1 == *(uint32_t *)asc_153304 )
   {
-    v5 = 0;
+    v2 = 0;
   }
   else
   {
-    if ( a1 != *((uint32_t *)off_1140DC + 1) )
+    if ( (_UNKNOWN *)a1 != off_153308 )
     {
-      result = alloc_tx_event(dword_1140E0, a1, *(uint32_t *)off_1140DC);
+      result = alloc_tx_event("%s, func 0x%x unknown\n", (const char *)a1, *(uint32_t *)asc_153304);
       goto LABEL_4;
     }
-    v5 = 1;
+    v2 = 1;
   }
-  result = alloc_tx_event(dword_1140F0, dword_1140EC, *(uint32_t *)(dword_1140E8 + 4 * v5));
+  result = alloc_tx_event("%s, func is %s\n", aUsbTransErrorH, (&off_15330C)[v2]);
 LABEL_4:
-  if ( *((uint8_t *)off_1140E4 + 353) )
-    return ke_event_handler(1068, 1, 1000 * *((uint8_t *)off_1140E4 + 354), a4);
+  if ( BYTE1(((uint32_t *)(uintptr_t)off_1140E4)[88]) )
+    return ke_event_handler(1068, 1, 1000 * BYTE2(((uint32_t *)(uintptr_t)off_1140E4)[88]));
   return result;
 }
-

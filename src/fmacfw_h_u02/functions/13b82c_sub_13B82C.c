@@ -10,18 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_13B8C0;
 extern uint32_t dword_13B8C4;
 extern uint32_t dword_13B8C8;
 
 // init_locks @ 0x13b82c, size 146 bytes
-uint32_t *init_locks()
+int init_locks()
 {
   uint32_t *v0; // r9
   int v1; // r5
   int v2; // r8
   unsigned int i; // r4
-  uint32_t *result; // r0
+  int result; // r0
 
   v0 = (uint32_t *)dword_13B8C0;
   clear_stats_buf((uint32_t *)dword_13B8C0);
@@ -50,4 +51,3 @@ LABEL_3:
     goto LABEL_3;
   return result;
 }
-

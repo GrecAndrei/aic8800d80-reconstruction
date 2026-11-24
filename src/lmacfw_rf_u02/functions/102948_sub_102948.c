@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_102960;
 extern uint32_t off_102964;
 
@@ -22,4 +23,3 @@ int event_counter()
   ++*(uint8_t *)off_102964;
   return result;
 }
-

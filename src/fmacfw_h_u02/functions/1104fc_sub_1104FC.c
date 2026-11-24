@@ -10,20 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_11061C;
 extern uint32_t off_110620;
 extern uint32_t off_110624;
-extern uint32_t off_11061C;
-extern uint32_t off_11064C;
-extern uint32_t off_110650;
-extern uint32_t dword_110648;
-extern uint32_t dword_110644;
 extern uint32_t off_110628;
 extern uint32_t off_11062C;
 extern uint32_t off_110630;
 extern uint32_t off_110634;
-extern uint32_t dword_11063C;
-extern uint32_t dword_110640;
 extern uint32_t off_110638;
+extern uint32_t off_11064C;
+extern uint32_t off_110650;
 
 // phy_calibrate @ 0x1104fc, size 286 bytes
 int  phy_calibrate(int a1, int a2)
@@ -40,7 +37,7 @@ int  phy_calibrate(int a1, int a2)
   int *v13; // r3
   int v14; // r0
   int v15; // r1
-  int16_t v16; // r2
+  uint16_t v16; // r2
   uint32_t *v17; // r1
   int v18; // r0
   int v19; // r2
@@ -50,31 +47,31 @@ int  phy_calibrate(int a1, int a2)
   v3 = (int *)off_110624;
   v21 = *(uint16_t *)(*(uint32_t *)off_11061C + 48);
   mac_tx_setup(a2);
-  v6 = *(uint16_t *)(a2 + 0xC);
+  v6 = *(uint16_t *)(a2 + 12);
 LABEL_2:
   v7 = off_11064C;
-  v8 = (int *)off_110650;
+  v8 = off_110650;
   while ( v21 > v6 )
   {
     if ( *v7 <= 4u )
       goto LABEL_24;
-    v9 = (*(int ( **)(uint32_t))(*(uint32_t *)(a1 + 4 + 4) + 16))(*(uint32_t *)(a1 + 4));
+    v9 = (*(int ( **)(uint32_t))(*(uint32_t *)(a1 + 8) + 16))(*(uint32_t *)(a1 + 4));
     if ( !v9 )
     {
-      debug_printf(dword_110648, *v7);
+      debug_printf("rep: no buffer, %d\r\n", *v7);
 LABEL_23:
-      if ( *(uint16_t *)(a2 + 0xC) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_11061C + 50) )
+      if ( *(uint16_t *)(a2 + 12) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_11061C + 50) )
         return 1;
 LABEL_24:
       irq_disable_global_2(32);
       return 1;
     }
-    v10 = (uint32_t *)mmio_read_0();
+    v10 = mmio_read_0();
     v11 = v10;
     if ( !v10 )
     {
-      debug_printf(dword_110644);
-      (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
+      debug_printf(aRepNoDesc);
+      (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 8) + 20))(*(uint32_t *)(a1 + 4), v9);
       goto LABEL_23;
     }
     *v10 = 0;
@@ -101,19 +98,19 @@ LABEL_24:
     }
     else
     {
-      if ( **(int16_t **)off_110630 < 0 && *(uint32_t *)off_110634 )
+      if ( **(uint16_t **)off_110630 < 0 && *(uint32_t *)off_110634 )
       {
-        irq_disable_mmio_write(dword_11063C, dword_110640, 400);
+        irq_disable_mmio_write((int)aSdioFunc1H2dFr_0, (int)aHostSdioReplen, 400);
         v13 = (int *)off_11062C;
         v14 = *(uint32_t *)off_11062C;
       }
       *(uint32_t *)off_110634 = v11;
     }
     v15 = *v3;
-    v16 = *(uint16_t *)(a2 + 0xC);
+    v16 = *(uint16_t *)(a2 + 12);
     *(uint32_t *)(a2 + 4) = v11;
     v6 = (uint16_t)(v16 + 1);
-    *(uint16_t *)(a2 + 0xC) = v6;
+    *(uint16_t *)(a2 + 12) = v6;
     *v3 = (uint16_t)(v15 + 1);
     *(uint32_t *)off_110638 = 1;
     if ( v14 )
@@ -126,7 +123,7 @@ LABEL_24:
         if ( *v17 )
         {
           __enable_irq();
-          v6 = *(uint16_t *)(a2 + 0xC);
+          v6 = *(uint16_t *)(a2 + 12);
         }
       }
       goto LABEL_2;
@@ -134,4 +131,3 @@ LABEL_24:
   }
   return 1;
 }
-

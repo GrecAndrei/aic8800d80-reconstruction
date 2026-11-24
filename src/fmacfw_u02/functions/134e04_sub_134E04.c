@@ -10,215 +10,203 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_135084;
+
+extern uint32_t dword_1350A0;
+extern uint32_t dword_1350B8;
+extern uint32_t dword_1350C0;
+extern uint32_t dword_1350C8;
 extern uint32_t dword_1350CC;
-extern uint32_t dword_135088;
+extern uint32_t off_135084;
 extern uint32_t off_13508C;
 extern uint32_t off_135090;
 extern uint32_t off_135094;
 extern uint32_t off_135098;
-extern uint32_t off_1350C4;
-extern uint32_t off_1350B4;
-extern uint32_t dword_1350C8;
-extern uint32_t dword_13509C;
-extern uint32_t dword_1350A0;
 extern uint32_t off_1350A4;
 extern uint32_t off_1350A8;
 extern uint32_t off_1350AC;
 extern uint32_t off_1350B0;
-extern uint32_t dword_1350B8;
-extern uint32_t off_1350BC;
-extern uint32_t dword_1350C0;
+extern uint32_t off_1350B4;
+extern uint32_t off_1350C4;
 
 // bt_setup_conn_profile @ 0x134e04, size 166 bytes
-// Doc: sub_1234E04 [patch]: Initialize handler table from ROM patches 0x192478/0x18e628/0x16bf80
-// sub_1234E04 [patch]: Initialize handler table from ROM patches 0x192478/0x18e628/0x16bf80
-// positive sp value has been detected, the output may be wrong!
-void  bt_setup_conn_profile(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11,
-        int a12,
-        int a13)
+int  bt_setup_conn_profile(int a1)
 {
-  uint32_t *v14; // r5
-  int v15; // r11
-  int v16; // r7
-  int v17; // r4
-  int v18; // r9
-  int v19; // r10
-  int v20; // r12
-  uint8_t *v21; // r0
-  unsigned int *v22; // r1
-  unsigned int v23; // r2
-  int *v24; // r3
-  char *v25; // r1
-  int *v26; // r3
-  int v27; // r3
+  int v1; // lr
+  uint32_t *v3; // r5
+  int v4; // r11
+  int v5; // r1
+  int v6; // r7
+  int v7; // r4
+  int v8; // r9
+  int v9; // r10
+  int result; // r0
+  int v11; // r12
+  uint8_t *v12; // r0
+  unsigned int *v13; // r1
+  unsigned int v14; // r2
+  int *v15; // r3
+  int v16; // r1
+  int *v17; // r3
+  int v18; // r3
+  int v19; // r2
+  char v20; // lr
+  uint16_t v21; // r0
+  int v22; // lr
+  int v23; // r2
+  int v24; // lr
+  unsigned int v25; // r0
+  unsigned int v26; // r3
+  unsigned int v27; // r3
   int v28; // r2
-  char v29; // lr
-  int16_t v30; // r0
-  int v31; // lr
-  int v32; // r2
-  int v33; // lr
+  int v29; // r3
+  int v30; // r3
+  int v31; // r3
+  uint16_t *v32; // r3
+  int v33; // r3
   unsigned int v34; // r0
-  unsigned int v35; // r3
-  unsigned int v36; // r3
-  int v37; // r2
-  int v38; // r3
-  int v39; // r3
-  int v40; // r3
-  void *v41; // r1
-  uint16_t *v42; // r3
-  int v43; // r3
-  unsigned int v44; // r0
-  uint32_t *v45; // r3
-  uint32_t *v46; // r2
-  int *v47; // r1
-  int v48; // r0
-  int v49; // [sp-8h] [bp-1Ch]
-  void *v50; // [sp-8h] [bp-1Ch]
+  volatile unsigned int v35; // r3
+  uint32_t *v36; // r2
+  int *v37; // r1
+  int v38; // r0
+  int v39; // [sp+Ch] [bp-8h]
+  int v40; // [sp+Ch] [bp-8h]
 
-  v14 = off_135084;
-  v15 = dword_1350CC;
-  v16 = *(uint8_t *)(*((uint32_t *)off_135084 + 4) + 61);
-  v17 = *((uint32_t *)off_135084 + 5);
-  v49 = *((uint32_t *)off_135084 + 4);
-  v18 = dword_1350CC + 1320 * v16;
-  v19 = *(uint8_t *)(v18 + 116);
-  event_dispatch(dword_135088);
-  v20 = v14[4];
-  if ( !v20 )
-LABEL_11:
-    
-  v21 = off_13508C;
-  v22 = (unsigned int *)off_135090;
-  *(uint8_t *)(v17 + 9) = *(uint8_t *)(v49 + 61);
-  v23 = *v22 & 0xFFFFFFEF;
-  v24 = *((int **)off_135094 + 2);
-  *(uint16_t *)v17 = a1;
-  *v22 = v23;
-  v25 = 0;
-  v21[13] = 0;
-  if ( v24 )
+  v3 = off_135084;
+  v4 = dword_1350CC;
+  v5 = *((uint32_t *)off_135084 + 4);
+  v6 = *(uint8_t *)(v5 + 61);
+  v7 = *((uint32_t *)off_135084 + 5);
+  v39 = v5;
+  v8 = dword_1350CC + 1320 * v6;
+  v9 = *(uint8_t *)(v8 + 116);
+  result = event_dispatch("connect ind:%x, %x\n", v5, v1);
+  v11 = v3[4];
+  if ( v11 )
   {
-    do
+    v12 = off_13508C;
+    v13 = (unsigned int *)off_135090;
+    *(uint8_t *)(v7 + 9) = *(uint8_t *)(v39 + 61);
+    v14 = *v13 & 0xFFFFFFEF;
+    v15 = *((int **)off_135094 + 2);
+    *(uint16_t *)v7 = a1;
+    *v13 = v14;
+    v16 = 0;
+    v12[13] = 0;
+    if ( v15 )
     {
-      if ( !*((uint8_t *)v24 + 106) && *((uint8_t *)v24 + 108) )
-        ++v25;
-      v24 = (int *)*v24;
-    }
-    while ( v24 );
-    if ( a1 )
-      goto LABEL_8;
-  }
-  else
-  {
-    v25 = 0;
-    if ( a1 )
-    {
-LABEL_8:
-      v26 = (int *)off_135098;
-      *(uint8_t *)(v17 + 8) = (*(uint32_t *)(v20 + 48) & 0x60) != 0;
-      if ( *v26 < 0 && !v25 )
+      do
       {
-        v46 = off_1350C4;
-        v21[2] = 0;
-        v47 = (int *)off_1350B4;
-        v48 = dword_1350C8;
-        *v46 |= 0x80000000;
-        *v47 = v48;
+        if ( !*((uint8_t *)v15 + 106) && *((uint8_t *)v15 + 108) )
+          ++v16;
+        v15 = (int *)*v15;
       }
-      rx_phy_status_parse(6u, 10);
-      v14[2] = v18;
-      *v14 = v17 - 12;
-      bt_send_host_message(v18);
-LABEL_10:
-      check_status_bits(256, dword_13509C, *(uint8_t *)(v17 + 9), a1, *(uint16_t *)(v17 + 820));
-      branch_to_12cbc8(v14[4] - 12);
-      v14[4] = 0;
-      *((uint8_t *)v14 + 33) = 0;
-      goto LABEL_11;
+      while ( v15 );
+      if ( a1 )
+        goto LABEL_8;
     }
-  }
-  v27 = v15 + 1320 * v16;
-  v28 = dword_1350A0;
-  v29 = *(uint8_t *)(v27 + 116);
-  *(uint32_t *)(v17 + 2) = *(uint32_t *)(v27 + 368);
-  v30 = *(uint16_t *)(v27 + 372);
-  *(uint8_t *)(v17 + 10) = v29;
-  v31 = *(uint32_t *)(v27 + 72);
-  *(uint16_t *)(v17 + 6) = v30;
-  *(uint8_t *)(v17 + 11) = *(uint8_t *)(v31 + 24);
-  v32 = *(uint8_t *)(v28 + 696 * v19 + 309);
-  *(uint8_t *)(v17 + 826) = v32;
-  *(uint8_t *)(v17 + 822) = *(uint8_t *)(v27 + 412);
-  v33 = *(uint8_t *)(v27 + 413);
-  v34 = *(uint16_t *)(v27 + 414);
-  *(uint16_t *)(v17 + 824) = v34;
-  if ( v33 == v32 )
-  {
-    *(uint32_t *)(v17 + 828) = *(uint16_t *)(v27 + 416);
-  }
-  else if ( v32 )
-  {
-    v35 = *(uint16_t *)(v27 + 416);
-    if ( v34 >= v35 )
-      v36 = v35 + 20;
     else
-      v36 = v35 - 20;
-    *(uint32_t *)(v17 + 828) = v36;
+    {
+      v16 = 0;
+      if ( a1 )
+      {
+LABEL_8:
+        v17 = (int *)off_135098;
+        *(uint8_t *)(v7 + 8) = (*(uint32_t *)(v11 + 48) & 0x60) != 0;
+        if ( *v17 < 0 && !v16 )
+        {
+          v36 = off_1350C4;
+          v12[2] = 0;
+          v37 = (int *)off_1350B4;
+          v38 = dword_1350C8;
+          *v36 |= 0x80000000;
+          *v37 = v38;
+        }
+        rx_phy_status_parse(6u, 10);
+        v3[2] = v8;
+        *v3 = v7 - 12;
+        bt_send_host_message(v8);
+LABEL_10:
+        check_status_bits(
+          256,
+          "connect:%d,%d,aid=%d\r\n",
+          *(uint8_t *)(v7 + 9),
+          a1,
+          *(uint16_t *)(v7 + 820));
+        result = (int)branch_to_12cbc8((char *)(v3[4] - 12));
+        v3[4] = 0;
+        *((uint8_t *)v3 + 33) = 0;
+        return result;
+      }
+    }
+    v18 = v4 + 1320 * v6;
+    v19 = dword_1350A0;
+    v20 = *(uint8_t *)(v18 + 116);
+    *(uint32_t *)(v7 + 2) = *(uint32_t *)(v18 + 368);
+    v21 = *(uint16_t *)(v18 + 372);
+    *(uint8_t *)(v7 + 10) = v20;
+    v22 = *(uint32_t *)(v18 + 72);
+    *(uint16_t *)(v7 + 6) = v21;
+    *(uint8_t *)(v7 + 11) = *(uint8_t *)(v22 + 24);
+    v23 = *(uint8_t *)(v19 + 696 * v9 + 309);
+    *(uint8_t *)(v7 + 826) = v23;
+    *(uint8_t *)(v7 + 822) = *(uint8_t *)(v18 + 412);
+    v24 = *(uint8_t *)(v18 + 413);
+    v25 = *(uint16_t *)(v18 + 414);
+    *(uint16_t *)(v7 + 824) = v25;
+    if ( v24 == v23 )
+    {
+      *(uint32_t *)(v7 + 828) = *(uint16_t *)(v18 + 416);
+    }
+    else if ( v23 )
+    {
+      v26 = *(uint16_t *)(v18 + 416);
+      if ( v25 >= v26 )
+        v27 = v26 + 20;
+      else
+        v27 = v26 - 20;
+      *(uint32_t *)(v7 + 828) = v27;
+    }
+    else
+    {
+      *(uint32_t *)(v7 + 828) = v25;
+    }
+    v28 = v4 + 1320 * v6;
+    v29 = *(uint32_t *)(v28 + 472);
+    *(uint32_t *)(v7 + 832) = *(uint16_t *)(v28 + 418);
+    v30 = v29 & 1;
+    *(uint8_t *)(v7 + 12) = v30;
+    if ( v30 )
+      LOBYTE(v30) = *(uint8_t *)(v28 + 457);
+    *(uint8_t *)(v7 + 13) = v30;
+    v31 = v4 + 1320 * v6;
+    *(uint8_t *)(v7 + 8) = (*(uint32_t *)(v11 + 48) & 0x60) != 0;
+    if ( *(uint8_t *)(v31 + 1224) )
+    {
+      *(uint32_t *)off_1350A4 = *(uint16_t *)(v31 + 100) | (*(uint16_t *)(v31 + 102) << 16);
+      *(uint32_t *)off_1350A8 = *(uint16_t *)(v31 + 104);
+      *(uint32_t *)off_1350AC = *(uint16_t *)(v31 + 64) | (*(uint16_t *)(v31 + 66) << 16);
+      *(uint32_t *)off_1350B0 = *(uint16_t *)(v31 + 68);
+    }
+    v40 = v16;
+    ke_msg_send_2(v7);
+    *(uint32_t *)off_1350B4 = dword_1350B8;
+    if ( v40 == 1 )
+    {
+      v32 = (uint16_t *)(v4 + 1320 * v6);
+      *(uint32_t *)off_1350A4 = v32[50] | (v32[51] << 16);
+      *(uint32_t *)off_1350A8 = v32[52];
+    }
+    if ( *(uint8_t *)(v4 + 1320 * v6 + 413) == 2 )
+      is_valid_id((int *)v8, 0, 1);
+    v33 = v4 + 1320 * v6;
+    v34 = *(uint16_t *)(v33 + 416);
+    if ( v34 <= 0x1387 )
+      callback_post(v34 | (*(uint8_t *)(v33 + 413) << 16) | 0x80000000);
+    *(uint8_t *)(v4 + 1320 * v6 + 149) = 1;
+    v35 = (*(volatile uint32_t *)0x40501010u);
+    unknown_worker((uint32_t *)(1320 * v6 + 152 + v4), dword_1350C0 + v35);
+    rx_phy_status_parse(6u, 0);
+    goto LABEL_10;
   }
-  else
-  {
-    *(uint32_t *)(v17 + 828) = v34;
-  }
-  v37 = v15 + 1320 * v16;
-  v38 = *(uint32_t *)(v37 + 472);
-  *(uint32_t *)(v17 + 832) = *(uint16_t *)(v37 + 418);
-  v39 = v38 & 1;
-  *(uint8_t *)(v17 + 12) = v39;
-  if ( v39 )
-    LOBYTE(v39) = *(uint8_t *)(v37 + 457);
-  *(uint8_t *)(v17 + 13) = v39;
-  v40 = v15 + 1320 * v16;
-  *(uint8_t *)(v17 + 8) = (*(uint32_t *)(v20 + 48) & 0x60) != 0;
-  if ( *(uint8_t *)(v40 + 1224) )
-  {
-    *(uint32_t *)off_1350A4 = *(uint16_t *)(v40 + 100) | (*(uint16_t *)(v40 + 102) << 16);
-    *(uint32_t *)off_1350A8 = *(uint16_t *)(v40 + 104);
-    *(uint32_t *)off_1350AC = *(uint16_t *)(v40 + 64) | (*(uint16_t *)(v40 + 66) << 16);
-    *(uint32_t *)off_1350B0 = *(uint16_t *)(v40 + 68);
-  }
-  v50 = v25;
-  ke_msg_send(v17);
-  v41 = v50;
-  *(uint32_t *)off_1350B4 = dword_1350B8;
-  if ( v50 == (void *)1 )
-  {
-    v42 = (uint16_t *)(v15 + 1320 * v16);
-    v41 = off_1350A4;
-    *(uint32_t *)off_1350A4 = v42[50] | (v42[51] << 16);
-    *(uint32_t *)off_1350A8 = v42[52];
-  }
-  if ( *(uint8_t *)(v15 + 1320 * v16 + 413) == 2 )
-    is_valid_id((int *)v18, 0, 1);
-  v43 = v15 + 1320 * v16;
-  v44 = *(uint16_t *)(v43 + 416);
-  if ( v44 <= 0x1387 )
-    callback_post(v44 | (*(uint8_t *)(v43 + 413) << 16) | 0x80000000, (int)v41, 4999);
-  v45 = off_1350BC;
-  *(uint8_t *)(v15 + 1320 * v16 + 149) = 1;
-  unknown_worker(1320 * v16 + 152 + v15, dword_1350C0 + v45[4]);
-  rx_phy_status_parse(6u, 0);
-  goto LABEL_10;
+  return result;
 }
-

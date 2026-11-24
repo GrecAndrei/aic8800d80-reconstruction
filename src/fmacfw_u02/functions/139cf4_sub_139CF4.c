@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_139D6C;
 extern uint32_t dword_139D70;
 extern uint32_t dword_139D74;
@@ -18,18 +19,18 @@ extern uint32_t dword_139D7C;
 extern uint32_t dword_139D80;
 extern uint32_t dword_139D84;
 extern uint32_t dword_139D8C;
-extern uint32_t dword_139D90;
 extern uint32_t off_139D88;
+extern uint32_t off_139D90;
 
 // bt_init_mod @ 0x139cf4, size 118 bytes
-int bt_init_mod()
+void *bt_init_mod()
 {
   uint32_t *v0; // r6
   int v1; // r4
   int v2; // r5
   uint32_t *v3; // r1
   int v4; // r3
-  int result; // r0
+  void *result; // r0
   int v6; // r1
 
   v0 = (uint32_t *)(dword_139D6C + 16);
@@ -50,7 +51,7 @@ int bt_init_mod()
   cmd_handler_a(dword_139D74, (uint32_t *)dword_139D80);
   cmd_handler_a(dword_139D74, (uint32_t *)dword_139D84);
   v4 = dword_139D8C;
-  result = dword_139D90;
+  result = off_139D90;
   *((uint16_t *)off_139D88 + 51) = -1;
   v6 = v4 + 15360;
   do
@@ -65,4 +66,3 @@ int bt_init_mod()
   while ( v6 != v4 );
   return result;
 }
-

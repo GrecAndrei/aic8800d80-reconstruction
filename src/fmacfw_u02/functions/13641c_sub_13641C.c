@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136470;
+
 extern uint32_t dword_136474;
 
 // bt_read_version @ 0x13641c, size 84 bytes
-int  bt_read_version(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+int  bt_read_version(int a1, uint8_t *a2, int a3, int a4)
 {
   int v7; // r4
 
-  check_status_bits(256, dword_136470);
+  check_status_bits(256, aApStop);
   v7 = dword_136474 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && *(uint8_t *)(v7 + 108) )
   {
@@ -38,4 +38,3 @@ int  bt_read_version(int a1, uint8_t *a2, int16_t a3, int16_t a4)
     return 0;
   }
 }
-

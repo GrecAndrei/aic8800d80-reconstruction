@@ -10,16 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_124F3C;
-
 // set_random_addr @ 0x124f20, size 26 bytes
 int  set_random_addr(int a1, int a2)
 {
   int v2; // r0
 
-  v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+  v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0xAu);
   set_reg_180800_bit9(v2);
-  dispatch_event_handler(dword_124F3C);
+  dispatch_event_handler_1(asc_1302A4);
   return 0;
 }
-

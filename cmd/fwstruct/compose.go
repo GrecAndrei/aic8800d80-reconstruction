@@ -140,6 +140,8 @@ func runCompose(args []string) error {
 			}
 			// Normalize Hex-Rays "unsigned uint64_t" leftovers in bodies
 			u.Body = unsignedUintRe.ReplaceAllString(u.Body, "uint${1}_t")
+			// Prevent C compiler from consuming trailing hex digits into \xHH escapes
+			u.Body = splitHexEscapes(u.Body)
 			for _, m := range callRe.FindAllStringSubmatch(u.Body, -1) {
 				n := m[1]
 				if forbiddenCName[n] || cKeywords[n] || strings.HasPrefix(n, "REG_") {
@@ -180,17 +182,28 @@ func runCompose(args []string) error {
 		main.WriteString("#include \"aic8800d80_types.h\"\n")
 		main.WriteString("#include \"aic8800d80_mmio.h\"\n")
 		main.WriteString("#include \"aic8800d80_structs.h\"\n\n")
-		// data definitions (from datasgen)
+		// data definitions (from datasgen); HW-space odd code pointers targeting
+		// composed functions are forward-declared here and initialized after all
+		// function declarations so the linker binds them to reconstructed code.
+		var relocFnPtrs []string
 		dataPath := filepath.Join(cf.Root, "src", srcDir, "data.c")
 		if db, err := os.ReadFile(dataPath); err == nil {
+			rewritten, relocs := relocateFnPtrData(string(db), units)
+			relocFnPtrs = relocs
 			main.WriteString("/* --- data segment --- */\n")
-			main.WriteString(string(db))
+			main.WriteString(rewritten)
 			main.WriteString("\n")
 		}
 		// forward decls for defined functions
 		main.WriteString("/* --- forward declarations --- */\n")
 		for _, u := range units {
 			main.WriteString(fnDecl(u) + ";\n")
+		}
+		if len(relocFnPtrs) > 0 {
+			main.WriteString("\n/* --- relocated function pointers --- */\n")
+			for _, rl := range relocFnPtrs {
+				main.WriteString(rl + "\n")
+			}
 		}
 		// unknown callees
 		calleeList := make([]string, 0, len(callees))
@@ -250,16 +263,102 @@ var forbiddenCName = map[string]bool{
 // src/include/aic8800d80_types.h (never emit forward decls for them).
 var headerIntrinsic = map[string]bool{
 	"JUMPOUT": true, "COERCE_FLOAT": true, "COERCE_UINT32": true,
-	"COERCE_UNSIGNED_INT": true,
+	"COERCE_UNSIGNED_INT": true, "COERCE_INT": true, "SLODWORD": true,
 	"__CFADD__": true, "__OFADD__": true, "__OFSUB__": true,
 	"bswap32": true, "abs16": true, "abs32": true,
 	"vcvts_n_s32_f32": true, "vcvts_n_f32_u32": true,
 	"__rev": true, "__rev16": true, "__usat": true,
 	"__get_CPSR": true, "__disable_irq": true, "__enable_irq": true,
 	"__pld": true, "MEMD": true, "__zmask32": true,
-	"SHIBYTE": true, "SLOBYTE": true, "WORD1": true, "WORD2": true,
+	"SHIBYTE": true, "SLOBYTE": true, "SHIWORD": true, "SLOWORD": true,
+	"WORD1": true, "WORD2": true, "__PAIR64__": true, "__SPAIR64__": true,
 	"SHIDWORD": true, "__ROR4__": true, "_byteswap_ushort": true,
 	"BYTE1": true, "BYTE2": true, "BYTE3": true, "BYTE4": true,
+	"SBYTE1": true, "SBYTE2": true, "SBYTE3": true, "SBYTE4": true,
+}
+
+func isHexByte(c byte) bool {
+	return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')
+}
+
+// splitHexEscapes breaks up C string-literal \xHH sequences followed by a hex
+// digit by closing and reopening the string ("\x9B""c"), matching the original
+// bytes without letting GCC/Clang greedily consume trailing hex digits.
+func splitHexEscapes(s string) string {
+	if !strings.Contains(s, `\x`) {
+		return s
+	}
+	var out strings.Builder
+	out.Grow(len(s) + 32)
+	inStr := false
+	for i := 0; i < len(s); {
+		if !inStr {
+			if i+1 < len(s) && s[i] == '/' && s[i+1] == '/' {
+				end := strings.IndexByte(s[i:], '\n')
+				if end < 0 {
+					out.WriteString(s[i:])
+					break
+				}
+				out.WriteString(s[i : i+end+1])
+				i += end + 1
+				continue
+			}
+			if i+1 < len(s) && s[i] == '/' && s[i+1] == '*' {
+				end := strings.Index(s[i+2:], "*/")
+				if end < 0 {
+					out.WriteString(s[i:])
+					break
+				}
+				out.WriteString(s[i : i+end+4])
+				i += end + 4
+				continue
+			}
+			if s[i] == '\'' {
+				out.WriteByte(s[i])
+				i++
+				for i < len(s) {
+					out.WriteByte(s[i])
+					if s[i] == '\\' && i+1 < len(s) {
+						out.WriteByte(s[i+1])
+						i += 2
+						continue
+					}
+					if s[i] == '\'' {
+						i++
+						break
+					}
+					i++
+				}
+				continue
+			}
+			if s[i] == '"' {
+				inStr = true
+			}
+			out.WriteByte(s[i])
+			i++
+			continue
+		}
+		if s[i] == '\\' && i+1 < len(s) {
+			if i+3 < len(s) && s[i+1] == 'x' && isHexByte(s[i+2]) && isHexByte(s[i+3]) {
+				out.WriteString(s[i : i+4])
+				i += 4
+				if i < len(s) && isHexByte(s[i]) {
+					out.WriteString(`""`)
+				}
+				continue
+			}
+			out.WriteByte(s[i])
+			out.WriteByte(s[i+1])
+			i += 2
+			continue
+		}
+		if s[i] == '"' {
+			inStr = false
+		}
+		out.WriteByte(s[i])
+		i++
+	}
+	return out.String()
 }
 
 // cKeywords can never be function names or callees.
@@ -281,7 +380,57 @@ var unsignedUintRe = regexp.MustCompile(`unsigned uint(8|16|32|64)_t`)
 var callRe = regexp.MustCompile(`\b([A-Za-z_][A-Za-z0-9_]*)\s*\(`)
 
 // dataSymNameRe matches Hex-Rays data symbol names (off_*, dword_*, ...).
-var dataSymNameRe = regexp.MustCompile(`^(off|dword|word|byte|unk|qword|algn)_[0-9A-Fa-f]{4,8}$`)
+var dataSymNameRe = regexp.MustCompile(`^(off|dword|word|byte|unk|qword|algn|asc)_[0-9A-Fa-f]{4,8}$`)
+
+var (
+	dataU32PtrRe  = regexp.MustCompile(`^(uint32_t )((?:off|dword)_[0-9A-Fa-f]+) = 0x([0-9a-fA-F]+);(.*)$`)
+	dataFnPtrDecl = regexp.MustCompile(`^int \(\*((?:off|dword)_[0-9A-Fa-f]+)\)\(\) = \(int \(\*\)\(\)\)0x([0-9a-fA-F]+);(.*)$`)
+)
+
+// relocateFnPtrData rewrites data.c initializers holding hardware-space odd
+// Thumb code pointers ((u.Addr + 0x20000) | 1) into extern declarations plus
+// post-forward-decl initializers pointing at the composed C functions.
+func relocateFnPtrData(dataText string, units []fnUnit) (string, []string) {
+	byAddr := make(map[int]string, len(units))
+	for _, u := range units {
+		byAddr[u.Addr] = u.New
+	}
+	resolve := func(hexStr string) (string, bool) {
+		val, err := strconv.ParseUint(hexStr, 16, 64)
+		if err != nil || val&1 == 0 || val < 0x120001 {
+			return "", false
+		}
+		target, ok := byAddr[int(val-1-0x20000)]
+		return target, ok
+	}
+	lines := strings.Split(dataText, "\n")
+	var relocs []string
+	seen := map[string]bool{}
+	for i, line := range lines {
+		if m := dataU32PtrRe.FindStringSubmatch(line); m != nil {
+			if target, ok := resolve(m[3]); ok {
+				sym, rest := m[2], m[4]
+				lines[i] = "extern uint32_t " + sym + ";" + rest
+				if !seen[sym] {
+					seen[sym] = true
+					relocs = append(relocs, "uint32_t "+sym+" = (uint32_t)(uintptr_t)&"+target+";"+rest)
+				}
+			}
+			continue
+		}
+		if m := dataFnPtrDecl.FindStringSubmatch(line); m != nil {
+			if target, ok := resolve(m[2]); ok {
+				sym, rest := m[1], m[3]
+				lines[i] = "extern int (*" + sym + ")();" + rest
+				if !seen[sym] {
+					seen[sym] = true
+					relocs = append(relocs, "int (*"+sym+")() = (int (*)())&"+target+";"+rest)
+				}
+			}
+		}
+	}
+	return strings.Join(lines, "\n"), relocs
+}
 
 func isDataSymName(n string) bool {
 	return dataSymNameRe.MatchString(n)

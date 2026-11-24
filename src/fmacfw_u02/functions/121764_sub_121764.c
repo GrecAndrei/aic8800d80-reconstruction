@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_121784;
 
 // delay_and_clear_flag @ 0x121764, size 32 bytes
@@ -17,6 +18,5 @@ int delay_and_clear_flag()
 {
   unknown_func_12d14c(0x2000000);
   *((uint32_t *)off_121784 + 1) &= ~4u;
-  return rx_phy_status_parse(0);
+  return rx_phy_status_parse(0, 0);
 }
-

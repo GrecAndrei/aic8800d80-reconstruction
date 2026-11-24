@@ -11,6 +11,7 @@ import call_cast_returns
 import double_args
 import dword_compares
 import float_bits
+import heal_composed
 import stack_frames
 import callsite_targets
 import libmatch
@@ -84,6 +85,9 @@ class LibMatch(unittest.TestCase):
     def test_tracked_matches_are_current_and_applied(self):
         meta = libmatch.load_meta()
         self.assertEqual(libmatch.scan(), meta)
+        h_by_sym = {r["symbol"]: r["address"] for r in meta["images"]["fmacfw_8800d80_h_u02"]}
+        self.assertEqual(h_by_sym["__aeabi_dcmpeq"], "0x142e38")
+        self.assertEqual(h_by_sym["__aeabi_fcmpeq"], "0x143270")
         for img, short in libmatch.IMAGES.items():
             text = (libmatch.REPO / "src" / short / "main.c").read_text()
             self.assertEqual(libmatch.bind(text, meta["images"][img])[1], [])
@@ -368,10 +372,36 @@ class PeriphSymbols(unittest.TestCase):
         self.assertIn("(*(volatile uint32_t *)0x40501008u) = 4;", out)
         self.assertIn("dword_40021000[i] = 1;", out)
 
+    def test_convert_to_c99_rewrites_ptr_to_array_and_msr_msp(self):
+        out = convert_to_c99("v0 = (*off_1142E0)[0];\n__asm { MSR.W MSP, R0 }\nreturn fmt_fn(fmt, (unsigned int *)varg_r1);")
+        self.assertIn("((uint32_t *)(uintptr_t)off_1142E0)[0]", out)
+        self.assertIn('__asm volatile("msr msp, %0" : : "r"(_R0) : "memory");', out)
+        self.assertIn("(unsigned int *)(*(void **)&(varg_r1))", out)
+
     def test_tracked_sources_are_at_the_fixed_point(self):
         for img in periph_symbols.IMAGES:
             text = (periph_symbols.REPO / "src" / img / "main.c").read_text(errors="replace")
             self.assertEqual(periph_symbols.absolute(text)[1], 0)
+
+
+class HealSubscript(unittest.TestCase):
+    def test_off_nonzero_subscript_derefs_pointer_not_literal_pool(self):
+        msg = "error: subscripted value is neither array nor pointer"
+        line, ok = heal_composed.heal_line("  v8 = off_11B6B4[10];\n", msg)
+        self.assertTrue(ok)
+        self.assertEqual(line, "  v8 = ((uint32_t *)(uintptr_t)off_11B6B4)[10];\n")
+        line0, ok0 = heal_composed.heal_line("  v9 = off_11F4A0[0];\n", msg)
+        self.assertTrue(ok0)
+        self.assertEqual(line0, "  v9 = ((uint32_t *)(uintptr_t)&off_11F4A0)[0];\n")
+
+    def test_unary_deref_handles_cast_prefix_and_binary_mul(self):
+        msg = "invalid type argument of unary '*' (have 'uint32_t')"
+        line, ok = heal_composed.heal_line("  v1 = (uint8_t)*off_123474;\n", msg)
+        self.assertTrue(ok)
+        self.assertEqual(line, "  v1 = (uint8_t)*(uint8_t *)(uintptr_t)(off_123474);\n")
+        line2, ok2 = heal_composed.heal_line("  v2 = x*2 + *off_123474;\n", msg)
+        self.assertTrue(ok2)
+        self.assertEqual(line2, "  v2 = x*2 + *(uint32_t *)(uintptr_t)(off_123474);\n")
 
 
 class PostCompose(unittest.TestCase):

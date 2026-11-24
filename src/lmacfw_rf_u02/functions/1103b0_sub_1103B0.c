@@ -10,39 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1103F0;
 extern uint32_t off_1103E8;
 extern uint32_t off_1103EC;
-extern uint32_t dword_1103F0;
 
 // irq_disable_set_flag_preserve_2 @ 0x1103b0, size 54 bytes
-int irq_disable_set_flag_preserve_2()
+int  irq_disable_set_flag_preserve_2(uint32_t *a1)
 {
-  int *v0; // r4
-  int v1; // r0
+  int *v2; // r4
+  int v3; // r0
   int result; // r0
-  int v3; // r3
-  int v4; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_1103E8 = 1;
   }
-  v0 = (int *)off_1103EC;
-  v1 = dword_1103F0;
+  v2 = (int *)off_1103EC;
+  v3 = dword_1103F0;
   ++*(uint32_t *)off_1103EC;
-  result = check_kernel_state(v1);
-  if ( *v0 )
+  result = check_kernel_state(v3, a1);
+  if ( *v2 )
   {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_1103E8;
-    *v0 = v3;
-    if ( !v3 )
+    v5 = *v2 - 1;
+    v6 = *(uint32_t *)off_1103E8;
+    *v2 = v5;
+    if ( !v5 )
     {
-      if ( v4 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

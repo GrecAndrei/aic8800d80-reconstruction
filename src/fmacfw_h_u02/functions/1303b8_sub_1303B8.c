@@ -10,93 +10,90 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_130468;
 extern uint32_t off_13046C;
-extern uint32_t dword_130470;
 
 // read_global_signed_flag @ 0x1303b8, size 174 bytes
-void read_global_signed_flag()
+void  read_global_signed_flag(int a1, int a2)
 {
-  uint8_t *v0; // r4
-  int v1; // r2
-  int v2; // r3
-  unsigned int v3; // r3
-  char v4; // r0
-  int v5; // r1
-  char v6; // r3
-  int v7; // r0
-  uint8_t v8; // [sp+3h] [bp-Dh] BYREF
-  int v9; // [sp+4h] [bp-Ch] BYREF
-  int v10; // [sp+8h] [bp-8h] BYREF
-  int v11; // [sp+Ch] [bp-4h] BYREF
+  uint8_t *v2; // r4
+  int v3; // r2
+  int v4; // r3
+  unsigned int v5; // r3
+  char v6; // r0
+  int v7; // r1
+  char v8; // r3
+  uint8_t a1a; // [sp+3h] [bp-Dh] BYREF
+  int v10; // [sp+4h] [bp-Ch] BYREF
+  int v11; // [sp+8h] [bp-8h] BYREF
+  int v12; // [sp+Ch] [bp-4h] BYREF
 
-  v0 = off_130468;
-  v1 = *(char *)off_130468;
+  v2 = off_130468;
+  v3 = *(char *)off_130468;
   if ( *(uint8_t *)off_130468 )
     return;
-  v8 = *(uint8_t *)off_130468;
-  v2 = *(uint32_t *)off_13046C;
-  v9 = v1;
-  if ( (v2 & 0x2000000) != 0 )
+  a1a = *(uint8_t *)off_130468;
+  v4 = *(uint32_t *)off_13046C;
+  v10 = v3;
+  if ( (v4 & 0x2000000) != 0 )
   {
-    rf_cmd_6_read(&v8);
-    rf_cmd_10(&v9);
+    rf_cmd_6_read(&a1a);
+    rf_cmd_10(&v10);
     goto LABEL_4;
   }
-  v10 = 0;
   v11 = 0;
-  if ( !send_smc_cmd_2((int)&v10) )
-    v8 = v10;
-  if ( send_smc_cmd_0x80((int)&v11) )
+  v12 = 0;
+  if ( !send_smc_cmd_2((int)&v11) )
+    a1a = v11;
+  if ( send_smc_cmd_0x80((int)&v12) )
   {
 LABEL_4:
-    v3 = v8;
-    if ( v8 )
+    v5 = a1a;
+    if ( a1a )
       goto LABEL_5;
     goto LABEL_19;
   }
-  v9 = (char)v11;
-  v3 = v8;
-  if ( v8 )
+  v10 = (char)v12;
+  v5 = a1a;
+  if ( a1a )
   {
 LABEL_5:
-    if ( v3 > 0x1F )
+    if ( v5 > 0x1F )
     {
-      LOBYTE(v3) = 31;
-      v8 = 31;
+      LOBYTE(v5) = 31;
+      a1a = 31;
     }
     goto LABEL_7;
   }
 LABEL_19:
-  LOBYTE(v3) = 15;
+  LOBYTE(v5) = 15;
 LABEL_7:
-  v0[4] = v3;
-  v4 = rf_get_status();
-  v5 = v9;
-  v0[6] = v4;
-  if ( v5 )
+  v2[4] = v5;
+  v6 = rf_get_status();
+  v7 = v10;
+  v2[6] = v6;
+  if ( v7 )
   {
-    if ( v5 < -7 )
+    if ( v7 < -7 )
     {
-      v6 = -7;
-      v9 = -7;
-      v5 = -7;
+      v8 = -7;
+      v10 = -7;
+      v7 = -7;
     }
-    else if ( v5 > 8 )
+    else if ( v7 > 8 )
     {
-      v6 = 8;
-      v9 = 8;
-      v5 = 8;
+      v8 = 8;
+      v10 = 8;
+      v7 = 8;
     }
     else
     {
-      v6 = v5;
+      v8 = v7;
     }
-    v7 = dword_130470;
-    v0[2] = v6;
-    alloc_tx_event(v7, v5);
+    v2[2] = v8;
+    alloc_tx_event("\x9D\x89temp_lvl_calibed=%d\n", v7);
   }
-  v0[3] = 0x80;
-  *v0 = 1;
+  v2[3] = 0x80;
+  *v2 = 1;
 }
-

@@ -10,24 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_134598;
+extern uint32_t dword_1345A0;
 extern uint32_t off_134584;
 extern uint32_t off_134588;
 extern uint32_t off_13458C;
-extern uint32_t off_134594;
 extern uint32_t off_134590;
-extern uint32_t dword_134598;
+extern uint32_t off_134594;
 extern uint32_t off_13459C;
-extern uint32_t dword_1345A0;
 extern uint32_t off_1345A4;
 
 // ble_parse_event @ 0x134480, size 260 bytes
-void  ble_parse_event(int a1, int a2, int a3)
+int  ble_parse_event(int a1, int a2, int a3)
 {
   uint32_t *v4; // r3
   uint8_t *v7; // r9
   int *v8; // r10
   int v9; // r4
-  int16_t v10; // lr
+  uint16_t v10; // lr
   int v11; // r0
   int v12; // r1
   int v13; // r2
@@ -35,9 +36,10 @@ void  ble_parse_event(int a1, int a2, int a3)
   int v15; // r1
   int v16; // r2
   int v17; // r3
-  uint32_t *v18; // r6
-  uint32_t *v19; // r4
-  unsigned int v20; // r2
+  int result; // r0
+  uint32_t *v19; // r6
+  uint32_t *v20; // r4
+  unsigned int v21; // r2
 
   v4 = off_134584;
   if ( !*(uint8_t *)(a2 + 2)
@@ -47,21 +49,21 @@ void  ble_parse_event(int a1, int a2, int a3)
   {
     if ( *((uint8_t *)off_134584 + 14) == 1 )
     {
-      v18 = off_134594;
+      v19 = off_134594;
       *(uint32_t *)off_134590 = dword_134598;
-      v19 = off_13459C;
-      *v18 &= 0xFFFFFFF0;
-      *v19 &= ~0x80000000;
+      v20 = off_13459C;
+      *v19 &= 0xFFFFFFF0;
+      *v20 &= ~0x80000000;
       v4[1] = a1;
       v4[2] = a2;
       *((uint8_t *)v4 + 12) = a3;
       *((uint8_t *)v4 + 13) = 1;
       *((uint16_t *)v4 + 1) = 257;
-      v20 = dword_1345A0;
-      v18[35594] = 0;
-      ke_event_handler(6155, 6, v20);
+      v21 = dword_1345A0;
+      v19[35594] = 0;
+      ke_event_handler(6155, 6, v21);
       enable_clock_2();
-      return;
+      return result;
     }
     *((uint8_t *)off_134584 + 3) = 0;
   }
@@ -73,7 +75,7 @@ void  ble_parse_event(int a1, int a2, int a3)
   }
   v7 = off_1345A4;
   v8 = *((int **)off_1345A4 + 4);
-  v9 = tx_send_pdu(4098, 4, 6, 0x178u);
+  v9 = tx_send_pdu(4098, 4, 6, 376);
   *(uint32_t *)v9 = *(uint32_t *)a2;
   v10 = *(uint16_t *)(a2 + 4);
   *(uint8_t *)(v9 + 367) = 1;
@@ -103,7 +105,6 @@ void  ble_parse_event(int a1, int a2, int a3)
   if ( a3 )
     *(uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
-  rx_process_packet(v9);
-  hci_cmd_preprocess(6u, 2);
+  rx_process_packet_1(v9);
+  return hci_cmd_preprocess(6u, 2);
 }
-

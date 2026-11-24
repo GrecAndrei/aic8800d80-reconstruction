@@ -10,25 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_128F78;
-extern uint32_t dword_128F7C;
+
+extern uint32_t off_128F7C;
 extern uint32_t off_128F80;
 extern uint32_t off_128F84;
 
 // log_alt_state_message @ 0x128f14, size 96 bytes
-uint16_t * log_alt_state_message(int a1, int a2, int a3, int a4)
+uint16_t * log_alt_state_message(int a1, int a2)
 {
   uint16_t *result; // r0
   int *i; // r3
-  int v8; // r3
+  int v6; // r3
 
-  state_check_feature(2, dword_128F78);
-  result = (uint16_t *)is_log_enabled(a1, a2, dword_128F7C);
+  state_check_feature(2, "%s:%x\r\n", aPsDisableCfm, a2);
+  result = (uint16_t *)is_log_enabled(a1, a2, off_128F7C);
   if ( result )
   {
     result = (uint16_t *)off_128F80;
     if ( !*((uint8_t *)off_128F80 + 8)
-      || (v8 = (uint8_t)(*((uint8_t *)off_128F80 + 8) - 1), *((uint8_t *)off_128F80 + 8) = v8, !v8) )
+      || (v6 = (uint8_t)(*((uint8_t *)off_128F80 + 8) - 1), *((uint8_t *)off_128F80 + 8) = v6, !v6) )
     {
       for ( i = *((int **)off_128F84 + 2); i; i = (int *)*i )
       {
@@ -39,9 +39,8 @@ uint16_t * log_alt_state_message(int a1, int a2, int a3, int a4)
         }
       }
       *(uint8_t *)result = 0;
-      return (uint16_t *)hci_evt_alloc_send(50, result[1], 0, a4);
+      return (uint16_t *)hci_evt_alloc_send(50, result[1], 0);
     }
   }
   return result;
 }
-

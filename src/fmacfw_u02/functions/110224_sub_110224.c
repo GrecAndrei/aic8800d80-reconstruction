@@ -10,37 +10,41 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11026C;
+extern uint32_t dword_110274;
+extern uint32_t off_110270;
+extern uint32_t off_110278;
+
 // get_modulation_type @ 0x110224, size 72 bytes
-// Doc: log_free_dispatch_n23e [util]: Dispatch free log entries to consumers
-// log_free_dispatch_n23e [util]: Dispatch free log entries to consumers
-int get_modulation_type()
+uint32_t *get_modulation_type()
 {
   void *v0; // r8
-  int result; // r0
+  uint32_t *result; // r0
   uint32_t *v2; // r5
   int v3; // r7
   int v4; // r6
   int v5; // r4
-  unsigned int v6; // r1
+  uint32_t *v6; // r0
+  unsigned int v7; // r1
 
-  v0 = log_free_dispatch_n270_0278;
-  result = zero_8_bytes(log_free_dispatch_n264);
+  v0 = off_110278;
+  result = zero_8_bytes((uint32_t *)dword_11026C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
   {
-    v2 = log_free_dispatch_n268_0270;
-    v3 = log_free_dispatch_n26c;
-    v4 = log_free_dispatch_n264;
+    v2 = off_110270;
+    v3 = dword_110274;
+    v4 = dword_11026C;
     v5 = 0;
     do
     {
-      rx_packet_handler(v3, 0x6B8u);
-      result = cmd_handler_a(v4);
-      v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
+      v6 = rx_packet_handler_1(v3, 0x6B8u);
+      result = (uint32_t *)cmd_handler_a(v4, v6);
+      v7 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
     }
-    while ( v6 > (uint16_t)v5 );
+    while ( v7 > (uint16_t)v5 );
   }
   return result;
 }
-

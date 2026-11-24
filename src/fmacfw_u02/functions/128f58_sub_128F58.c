@@ -10,27 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128F80;
+
 extern uint32_t off_128F7C;
+extern uint32_t off_128F80;
 extern uint32_t off_128F84;
 extern uint32_t off_128F88;
 
 // wlc_band_set @ 0x128f58, size 34 bytes
-int  wlc_band_set(int a1, int16_t a2)
+int  wlc_band_set(int a1, uint16_t a2)
 {
   uint8_t *v2; // r2
   uint8_t *v3; // r3
   int v4; // zf
-  int (*v5)(void); // r3
+  int ( *v5)(int, int); // r3
 
   v2 = off_128F80;
   v3 = *(uint8_t **)off_128F7C;
   *((uint16_t *)off_128F80 + 1) = a2;
   v4 = *v3 == 2;
-  v5 = (int (*)(void))off_128F84;
+  v5 = (int ( *)(int, int))off_128F84;
   if ( !v4 && a1 )
-    v5 = (int (*)(void))off_128F88;
+    v5 = (int ( *)(int, int))off_128F88;
   v2[8] = 0;
-  return v5();
+  return v5(0, 0x800000);
 }
-

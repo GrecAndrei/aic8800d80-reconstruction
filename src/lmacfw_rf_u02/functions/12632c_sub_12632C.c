@@ -10,60 +10,56 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_126428;
+
 extern uint32_t off_126424;
 extern uint32_t off_12642C;
-extern uint32_t off_126450;
-extern uint32_t dword_126454;
-extern uint32_t off_126434;
 extern uint32_t off_126430;
-extern uint32_t off_126458;
+extern uint32_t off_126434;
 extern uint32_t off_126438;
 extern uint32_t off_12643C;
 extern uint32_t off_126440;
 extern uint32_t off_126444;
 extern uint32_t off_126448;
 extern uint32_t off_12644C;
+extern uint32_t off_126450;
+extern uint32_t off_126458;
 
 // ll_state_reset @ 0x12632c, size 248 bytes
 int ll_state_reset()
 {
-  int v0; // r0
-  int v1; // r4
-  uint8_t *v2; // r8
-  uint16_t *v3; // r5
-  int v4; // r9
-  int v5; // r1
-  uint8_t *v6; // r5
-  uint16_t *v7; // r4
-  uint32_t *v8; // r0
-  uint32_t *v9; // r2
-  uint32_t *v10; // r2
-  unsigned int *v11; // r4
-  int v12; // r1
+  int v0; // r4
+  char *v1; // r8
+  uint16_t *v2; // r5
+  int v3; // r1
+  uint8_t *v4; // r5
+  uint16_t *v5; // r4
+  uint32_t *v6; // r0
+  uint32_t *v7; // r2
+  uint32_t *v8; // r2
+  unsigned int *v9; // r4
+  int v10; // r1
   int result; // r0
-  unsigned int v14; // r3
-  int *v15; // r3
-  int v16; // r3
-  uint32_t *v17; // r3
+  unsigned int v12; // r3
+  int *v13; // r3
+  int v14; // r3
+  uint32_t *v15; // r3
 
-  v0 = dword_126428;
   *(uint8_t *)off_126424 = 0;
-  dispatch_event_handler(v0);
-  v1 = *(uint8_t *)off_12642C;
-  if ( v1 == 1 )
+  dispatch_event_handler_1("cob state -> %d\n", 0);
+  v0 = *(uint8_t *)off_12642C;
+  if ( v0 == 1 )
   {
-    v17 = off_126450;
+    v15 = off_126450;
     *(uint32_t *)off_126450 &= ~0x100u;
-    *v17 &= ~0x200u;
-    *v17 &= ~0x400u;
+    *v15 &= ~0x200u;
+    *v15 &= ~0x400u;
     goto LABEL_15;
   }
   if ( *(uint8_t *)off_12642C )
   {
 LABEL_15:
-    dispatch_event_handler(
-      dword_126454,
+    dispatch_event_handler_1(
+      "dut%d,%d,%d,%d,%d,%d\n",
       *(uint8_t *)off_126434,
       *(uint16_t *)off_126430,
       *((uint8_t *)off_126430 + 2),
@@ -72,60 +68,58 @@ LABEL_15:
       *((char *)off_126430 + 5));
     goto LABEL_7;
   }
-  v2 = off_126458;
-  if ( *(uint8_t *)off_126458 )
+  v1 = off_126458;
+  if ( *off_126458 )
   {
-    v3 = (uint16_t *)off_126430;
-    v4 = dword_126454;
-    v5 = *(uint8_t *)off_12642C;
+    v2 = (uint16_t *)off_126430;
+    v3 = *(uint8_t *)off_12642C;
     do
     {
-      dispatch_event_handler(
-        v4,
-        v5 + 1,
-        v3[4 * v5],
-        LOBYTE(v3[4 * v5 + 1]),
-        SHIBYTE(v3[4 * v5 + 1]),
-        SLOBYTE(v3[4 * v5 + 2]),
-        SHIBYTE(v3[4 * v5 + 2]));
-      v5 = (uint8_t)++v1;
+      dispatch_event_handler_1(
+        "dut%d,%d,%d,%d,%d,%d\n",
+        v3 + 1,
+        v2[4 * v3],
+        LOBYTE(v2[4 * v3 + 1]),
+        SHIBYTE(v2[4 * v3 + 1]),
+        SLOBYTE(v2[4 * v3 + 2]),
+        SHIBYTE(v2[4 * v3 + 2]));
+      v3 = (uint8_t)++v0;
     }
-    while ( (uint8_t)*v2 > (unsigned int)(uint8_t)v1 );
+    while ( (uint8_t)*v1 > (unsigned int)(uint8_t)v0 );
   }
-  v6 = off_126434;
-  v7 = off_126438;
-  sub_100200((int *)off_126430, 0, 8u);
-  v8 = off_12643C;
-  v9 = off_126440;
-  *v6 = 1;
-  *v2 = 1;
+  v4 = (uint8_t *)off_126434;
+  v5 = off_126438;
+  memset_thunk((int *)off_126430, 0, 8u);
+  v6 = off_12643C;
+  v7 = off_126440;
+  *v4 = 1;
+  *v1 = 1;
+  *v5 = 0;
+  *v6 = 0;
   *v7 = 0;
-  *v8 = 0;
-  *v9 = 0;
 LABEL_7:
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_126444 = 1;
   }
-  v10 = off_126448;
-  v11 = (unsigned int *)off_12644C;
-  v12 = *(uint32_t *)off_126448;
+  v8 = off_126448;
+  v9 = (unsigned int *)off_12644C;
+  v10 = *(uint32_t *)off_126448;
   result = *(uint32_t *)off_126448 + 1;
-  v14 = *(uint32_t *)off_12644C & 0xFFFFFBFF;
+  v12 = *(uint32_t *)off_12644C & 0xFFFFFBFF;
   *(uint32_t *)off_126448 = result;
-  *v11 = v14;
+  *v9 = v12;
   if ( result )
   {
-    v15 = (int *)off_126444;
-    *v10 = v12;
-    v16 = *v15;
-    if ( !v12 )
+    v13 = (int *)off_126444;
+    *v8 = v10;
+    v14 = *v13;
+    if ( !v10 )
     {
-      if ( v16 )
+      if ( v14 )
         __enable_irq();
     }
   }
   return result;
 }
-

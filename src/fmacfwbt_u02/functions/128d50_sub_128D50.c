@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128DEC;
-extern uint32_t dword_128E00;
-extern uint32_t off_128DF4;
-extern uint32_t off_128DF0;
-extern uint32_t off_128DF8;
+
 extern uint32_t dword_128DFC;
+extern uint32_t off_128DEC;
+extern uint32_t off_128DF0;
+extern uint32_t off_128DF4;
+extern uint32_t off_128DF8;
 
 // is_log_enabled @ 0x128d50, size 154 bytes
 int  is_log_enabled(int a1, int a2, int a3)
@@ -25,8 +25,7 @@ int  is_log_enabled(int a1, int a2, int a3)
   int v6; // r5
   uint8_t *v7; // r3
   int v8; // r2
-  int v9; // r0
-  int v11; // r1
+  uint32_t *v9; // r0
 
   if ( (a2 & 0x800000) != 0 )
   {
@@ -41,9 +40,8 @@ int  is_log_enabled(int a1, int a2, int a3)
     *(uint8_t *)(a1 + 115) = v4;
     if ( *(uint8_t *)(v5 + 1) == v4 )
     {
-      v11 = dword_128E00;
       *(uint8_t *)(a1 + 115) = 0;
-      state_check_feature(1024, v11);
+      state_check_feature(1024, aPsLinkloss, a3);
       mmio_read_phy(a1);
       return 1;
     }
@@ -64,7 +62,7 @@ int  is_log_enabled(int a1, int a2, int a3)
           *(uint32_t *)off_128DF8 &= ~0x80000000;
         if ( v7[8] )
           --v7[8];
-        v9 = dword_128DFC;
+        v9 = (uint32_t *)dword_128DFC;
         v7[29] = 0;
         ke_event_set_lock(v9);
         *(uint32_t *)(a1 + 4) &= ~0x200u;
@@ -73,4 +71,3 @@ int  is_log_enabled(int a1, int a2, int a3)
     }
   }
 }
-

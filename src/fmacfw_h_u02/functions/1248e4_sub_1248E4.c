@@ -10,21 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1249DC;
 extern uint32_t off_1249D4;
 extern uint32_t off_1249D8;
+extern uint32_t off_1249E0;
+extern uint32_t off_1249E4;
+extern uint32_t off_1249EC;
 extern uint32_t off_1249F0;
 extern uint32_t off_1249F4;
 extern uint32_t off_1249F8;
-extern uint32_t dword_1249DC;
-extern uint32_t off_1249E0;
-extern uint32_t off_1249EC;
-extern uint32_t off_1249E4;
-extern uint32_t dword_1249E8;
 
 // scan_param_update @ 0x1248e4, size 240 bytes
 int  scan_param_update(uint8_t *a1)
 {
-  uint8_t *v1; // r3
+  int *v1; // r3
   int v2; // r4
   int v3; // r1
   int v5; // r0
@@ -39,20 +39,20 @@ int  scan_param_update(uint8_t *a1)
   int i; // r4
   int v15; // r3
   int v16; // t1
-  void *v17; // r2
+  int v17; // r2
 
-  v1 = off_1249D4;
+  v1 = (int *)off_1249D4;
   v2 = a1[16];
-  *((uint8_t *)off_1249D4 + 360) = a1[17];
-  v1[361] = a1[18];
+  LOBYTE(((uint32_t *)(uintptr_t)off_1249D4)[90]) = a1[17];
+  *((uint8_t *)v1 + 361) = a1[18];
   v3 = a1[21];
-  v1[356] = v3;
+  *((uint8_t *)v1 + 356) = v3;
   v5 = a1[22];
-  v1[357] = v5;
+  *((uint8_t *)v1 + 357) = v5;
   v6 = a1[23];
-  v1[358] = v6;
+  *((uint8_t *)v1 + 358) = v6;
   v7 = v3 + v5;
-  v1[359] = v6 + v7;
+  *((uint8_t *)v1 + 359) = v6 + v7;
   if ( a1[19] )
     *(uint32_t *)off_1249D8 |= 0x10u;
   else
@@ -72,7 +72,7 @@ int  scan_param_update(uint8_t *a1)
     v16 = *((uint32_t *)v12 + 1);
     v12 += 4;
     v15 = v16;
-    v17 = (void *)(uint8_t)i;
+    v17 = (uint8_t)i;
     if ( v16 )
     {
       *(uint32_t *)(v11 + 4 * i) = v15;
@@ -103,9 +103,8 @@ int  scan_param_update(uint8_t *a1)
   if ( a1[24] )
   {
     v17 = off_1249E4;
-    *(uint8_t *)off_1249E4 = a1[24];
+    *off_1249E4 = a1[24];
   }
-  alloc_tx_event(dword_1249E8, v7, v17);
-  return process_packet_params(a1, 28, 1, 0);
+  alloc_tx_event(aSetVendorCa, v7, v17);
+  return process_packet_params((int)a1, 28, 1, 0);
 }
-

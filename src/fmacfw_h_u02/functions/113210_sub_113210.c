@@ -10,16 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_113294;
 extern uint32_t off_113298;
-extern uint32_t dword_1132A8;
-extern uint32_t dword_1132A4;
 extern uint32_t off_11329C;
-extern uint32_t dword_1132AC;
 extern uint32_t off_1132A0;
 
 // bt_get_state @ 0x113210, size 130 bytes
-int  bt_get_state(int a1, unsigned int a2)
+int  bt_get_state(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r6
@@ -35,7 +33,7 @@ int  bt_get_state(int a1, unsigned int a2)
   v3 = off_113298;
   if ( *(uint8_t *)off_113298 )
   {
-    debug_printf(dword_1132A8, dword_1132A4, *(uint8_t *)off_113298);
+    debug_printf("err: %s state=%d\r\n", aUsbWlanRecv, *(uint8_t *)off_113298);
     return -3;
   }
   else
@@ -47,7 +45,7 @@ int  bt_get_state(int a1, unsigned int a2)
     v6 = v5;
     if ( v5 )
     {
-      debug_printf(dword_1132AC, dword_1132A4, v5);
+      debug_printf("err: %s ret=%d\r\n", aUsbWlanRecv, v5);
       return -1;
     }
     else
@@ -55,7 +53,7 @@ int  bt_get_state(int a1, unsigned int a2)
       *(uint8_t *)off_1132A0 = 1;
       if ( *v2 )
       {
-        wlan_ctrl_check(0, 1u);
+        wlan_ctrl_check(0, 1, 0);
         *v3 = 0;
         return -14;
       }
@@ -63,4 +61,3 @@ int  bt_get_state(int a1, unsigned int a2)
   }
   return v6;
 }
-

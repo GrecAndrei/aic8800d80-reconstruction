@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1120E8;
-extern uint32_t dword_1120F8;
+
 extern uint32_t dword_1120EC;
 extern uint32_t dword_1120F0;
 extern uint32_t dword_1120F4;
+extern uint32_t off_1120E8;
 
 // periph_channel_flag @ 0x112048, size 158 bytes
 int  periph_channel_flag(int a1, int a2, unsigned int a3)
@@ -35,7 +35,7 @@ int  periph_channel_flag(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    log_printf(dword_1120F8);
+    log_printf(aErrAlignmentEr);
     return 3;
   }
   else
@@ -74,4 +74,3 @@ int  periph_channel_flag(int a1, int a2, unsigned int a3)
     }
   }
 }
-

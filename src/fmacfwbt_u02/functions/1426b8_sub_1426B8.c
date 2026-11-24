@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_142748;
 
-// softfloat_float_op @ 0x1426b8, size 142 bytes
-uint64_t  softfloat_float_op(uint64_t a1)
+// sub_1426B8 @ 0x1426b8, size 142 bytes
+uint64_t  sub_1426B8(uint64_t a1)
 {
   int v1; // r7
   int v2; // r4
@@ -47,7 +48,7 @@ uint64_t  softfloat_float_op(uint64_t a1)
     }
     else if ( v1 == 2047 )
     {
-      return __aeabi_dadd(a1, HIDWORD(a1), a1, HIDWORD(a1));
+      return sub_1427D8(a1, a1);
     }
   }
   else
@@ -69,4 +70,3 @@ uint64_t  softfloat_float_op(uint64_t a1)
   }
   return v4;
 }
-

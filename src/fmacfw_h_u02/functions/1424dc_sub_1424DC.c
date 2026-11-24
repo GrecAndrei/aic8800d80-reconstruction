@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_14256C;
 
-// double_exp_check @ 0x1424dc, size 142 bytes
-uint64_t  double_exp_check(uint64_t a1)
+// sub_1424DC @ 0x1424dc, size 142 bytes
+uint64_t  sub_1424DC(uint64_t a1)
 {
   int v1; // r7
   int v2; // r4
@@ -47,7 +48,7 @@ uint64_t  double_exp_check(uint64_t a1)
     }
     else if ( v1 == 2047 )
     {
-      return double_compare_eq(a1, HIDWORD(a1), a1, HIDWORD(a1));
+      return sub_1425FC(a1, a1);
     }
   }
   else
@@ -69,4 +70,3 @@ uint64_t  double_exp_check(uint64_t a1)
   }
   return v4;
 }
-

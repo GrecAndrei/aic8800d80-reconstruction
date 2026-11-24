@@ -10,42 +10,30 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_105B98;
-extern uint32_t dword_105B9C;
-extern uint32_t dword_105B8C;
-extern uint32_t dword_105B94;
-extern uint32_t dword_105B90;
-
 // mac_conn_event_init @ 0x105abc, size 206 bytes
 int  mac_conn_event_init(unsigned int a1, int a2, int a3)
 {
   int v5; // r5
-  int v6; // r8
-  int v7; // r10
-  int v8; // r7
-  int v9; // r9
+  int v6; // r7
+  int v7; // r9
   int result; // r0
-  int v11; // r1
-  int v12; // r2
-  unsigned int v13; // r0
-  int v14; // r2
-  int v15; // r2
-  int v16; // r1
+  unsigned int v9; // r0
+  int v10; // r2
+  int v11; // r2
+  int v12; // r1
 
   v5 = 0;
   *(uint64_t *)(a2 + 628) = 0x40000000FLL;
   *(uint32_t *)(a2 + 624) = 0;
-  v6 = dword_105B98;
-  v7 = dword_105B9C;
   if ( a3 )
-    v8 = 7;
+    v6 = 7;
   else
-    v8 = 4;
+    v6 = 4;
   if ( a3 )
-    v9 = 15;
+    v7 = 15;
   else
-    v9 = 13;
-  result = check_status_bits(1, dword_105B8C);
+    v7 = 13;
+  result = check_status_bits(1, aBitMaskX, a1);
   do
   {
     if ( a1 )
@@ -53,48 +41,37 @@ int  mac_conn_event_init(unsigned int a1, int a2, int a3)
       if ( ((1 << v5) & a1) >> v5 == 1 )
       {
         *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148)) = v5;
-        check_status_bits(1, v6);
-        v13 = ((1 << v5) & a1) >> v5;
-        v14 = *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148));
-        if ( v14 < v8 )
+        check_status_bits(1, "you want to cal %x index\n", v5);
+        v9 = ((1 << v5) & a1) >> v5;
+        v10 = *(uint32_t *)(a2 + 4 * (*(uint32_t *)(a2 + 624) + 148));
+        if ( v10 < v6 )
         {
-          result = check_status_bits(v13, v7);
-          v12 = *(uint32_t *)(a2 + 624);
-          if ( !v12 )
-          {
-            v12 = *(uint32_t *)(a2 + 592);
-            *(uint32_t *)(a2 + 632) = v12;
-          }
+          result = check_status_bits(v9, " %x ana_pwr_index dont need cal\n", v10);
+          if ( !*(uint32_t *)(a2 + 624) )
+            *(uint32_t *)(a2 + 632) = *(uint32_t *)(a2 + 592);
         }
-        else if ( v14 > v9 )
+        else if ( v10 > v7 )
         {
-          result = check_status_bits(v13, v7);
-          v12 = *(uint32_t *)(a2 + 624);
-          if ( !v12 )
-          {
-            v12 = *(uint32_t *)(a2 + 592);
-            *(uint32_t *)(a2 + 628) = v12;
-          }
+          result = check_status_bits(v9, " %x ana_pwr_index dont need cal\n", v10);
+          if ( !*(uint32_t *)(a2 + 624) )
+            *(uint32_t *)(a2 + 628) = *(uint32_t *)(a2 + 592);
         }
         else
         {
-          result = check_status_bits(v13, dword_105B94);
-          v15 = *(uint32_t *)(a2 + 624);
-          v16 = v15 + 148;
-          v12 = v15 + 1;
-          v11 = *(uint32_t *)(a2 + 4 * v16);
-          *(uint32_t *)(a2 + 624) = v12;
-          *(uint32_t *)(a2 + 628) = v11;
+          result = check_status_bits(v9, "need cal %x ana_pwr_index\n", v10);
+          v11 = *(uint32_t *)(a2 + 624);
+          v12 = *(uint32_t *)(a2 + 4 * (v11 + 148));
+          *(uint32_t *)(a2 + 624) = v11 + 1;
+          *(uint32_t *)(a2 + 628) = v12;
         }
       }
     }
     else
     {
-      result = event_dispatch(dword_105B90, v11, v12);
+      result = event_dispatch(aDpdDontNeedCal);
     }
     ++v5;
   }
   while ( v5 != 16 );
   return result;
 }
-

@@ -10,37 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_110358;
+extern uint32_t off_110350;
+extern uint32_t off_110354;
+
 // critical_enter_7 @ 0x110318, size 54 bytes
-// Doc: log_free_dispatch_n4ec [util]: Dispatch free-list logging routine (variant 4ec)
-// log_free_dispatch_n4ec [util]: Dispatch free-list logging routine (variant 4ec)
-int critical_enter_7()
+int  critical_enter_7(uint32_t *a1)
 {
-  int *v0; // r4
-  int v1; // r0
+  int *v2; // r4
+  int v3; // r0
   int result; // r0
-  int v3; // r3
-  int v4; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)log_free_dispatch_n4f0 = 1;
+    *(uint32_t *)off_110350 = 1;
   }
-  v0 = (int *)log_free_dispatch_n4f4;
-  v1 = log_free_dispatch_0358;
-  ++*(uint32_t *)log_free_dispatch_n4f4;
-  result = check_abort_flag(v1);
-  if ( *v0 )
+  v2 = (int *)off_110354;
+  v3 = dword_110358;
+  ++*(uint32_t *)off_110354;
+  result = check_abort_flag(v3, a1);
+  if ( *v2 )
   {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)log_free_dispatch_n4f0;
-    *v0 = v3;
-    if ( !v3 )
+    v5 = *v2 - 1;
+    v6 = *(uint32_t *)off_110350;
+    *v2 = v5;
+    if ( !v5 )
     {
-      if ( v4 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

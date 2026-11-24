@@ -10,11 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_133DD4;
-extern uint32_t off_133DD0;
-extern uint32_t dword_133DE4;
-extern uint32_t dword_133DE0;
+
 extern uint32_t dword_133DE8;
+extern uint32_t off_133DD0;
+extern uint32_t off_133DD4;
 extern uint32_t off_133DD8;
 extern uint32_t off_133DDC;
 
@@ -33,33 +32,33 @@ int adv_state_handler()
   int v10; // r3
   int v11; // r6
   int v12; // r0
-  int16_t v13; // r2
+  uint16_t v13; // r2
   int v14; // r3
   int v15; // r10
   uint32_t *v16; // r1
   int v17; // r2
   int v18; // r0
-  int v19; // [sp+18h] [bp-Ch] BYREF
-  uint32_t v20[2]; // [sp+1Ch] [bp-8h] BYREF
+  int a1; // [sp+18h] [bp-Ch] BYREF
+  int a2[2]; // [sp+1Ch] [bp-8h] BYREF
 
   v0 = off_133DD4;
   v1 = *((uint32_t *)off_133DD4 + 4);
-  if ( **(int16_t **)off_133DD0 < 0 && rx_rate_field_parse(6u) != 2 )
-    mmio_clear_register(dword_133DE4, dword_133DE0, 344);
+  if ( **(uint16_t **)off_133DD0 < 0 && rx_rate_field_parse(6u) != 2 )
+    mmio_clear_register((int)aKeStateGetTask_10, (int)aScanuJoinCfmHa, 344);
   v2 = *(uint8_t *)(v1 + 61);
   v3 = dword_133DE8;
   v4 = 1320 * v2;
   v5 = dword_133DE8 + 1320 * v2;
   if ( *(int *)(v5 + 472) < 0 )
   {
-    if ( bt_get_conn_by_handle(v20) )
+    if ( bt_get_conn_by_handle((int)a2) )
     {
       bt_setup_conn_profile(1);
     }
     else
     {
-      v11 = ke_msg_alloc(10, 0, 6, 0x20u);
-      sta_lookup_by_bss(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
+      v11 = ke_msg_alloc(10, 0, 6, 32);
+      sta_lookup_by_bss(*(uint8_t *)(v1 + 61), LOBYTE(a2[0]));
       *(uint32_t *)v11 = 0;
       *(uint8_t *)(v11 + 25) = *(uint8_t *)(v1 + 61);
       v12 = *(uint32_t *)(v5 + 368);
@@ -83,15 +82,22 @@ int adv_state_handler()
         }
         else
         {
-          v16 = 0;
+          v16 = nullptr;
         }
         v17 = v14 & 8;
         if ( (v14 & 8) != 0 )
           v17 = v4 + 292 + v3;
-        util_init_outputs(v4 + 248 + v3, v16, v17, (uint16_t *)(v11 + 16), (int *)(v11 + 8), (int *)(v11 + 4), (char *)(v11 + 24));
+        util_init_outputs(
+          v4 + 248 + v3,
+          v16,
+          v17,
+          (uint16_t *)(v11 + 16),
+          (int *)(v11 + 8),
+          (int *)(v11 + 4),
+          (char *)(v11 + 24));
       }
       *(uint32_t *)(v11 + 12) = v15;
-      ke_msg_send(v11);
+      ke_msg_send_2(v11);
       rx_phy_status_parse(6u, 3);
     }
     v9 = *(uint32_t *)(v1 + 48);
@@ -110,21 +116,20 @@ int adv_state_handler()
     bt_setup_conn_profile(1);
     return 0;
   }
-  v19 = (uint8_t)v0[32];
-  v20[0] = v6;
-  get_controller_state(&v19, v20);
+  a1 = (uint8_t)v0[32];
+  a2[0] = v6;
+  get_controller_state_1(&a1, a2);
   if ( *(uint8_t *)off_133DD8 != 1 && *((uint8_t *)off_133DDC + 3) != 1 )
   {
     *((uint8_t *)off_133DDC + 32) = 2;
 LABEL_7:
-    rx_packet_handler(v19, v20[0], 1);
+    rx_packet_handler_3(a1, a2[0], 1);
     return 0;
   }
   v8 = (uint8_t)(*((uint8_t *)off_133DDC + 32) + 1);
   *((uint8_t *)off_133DDC + 32) = v8;
   if ( v8 > 1 )
     goto LABEL_7;
-  rx_packet_handler(v19, v20[0], 0);
+  rx_packet_handler_3(a1, a2[0], 0);
   return 0;
 }
-

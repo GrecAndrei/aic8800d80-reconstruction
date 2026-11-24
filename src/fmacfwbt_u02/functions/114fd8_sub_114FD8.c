@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// load_calib_data2 @ 0x114fd8, size 156 bytes
-// Doc: patch_apply_n_4c6 [patch]: Apply firmware patch entries with sign-extended byte multiply
-// patch_apply_n_4c6 [patch]: Apply firmware patch entries with sign-extended byte multiply
-int  load_calib_data2(int a1, int a2)
+
+extern uint32_t off_115074;
+
+// sub_114FD8 @ 0x114fd8, size 156 bytes
+int  sub_114FD8(int a1, int a2)
 {
   int v3; // r1
   int v4; // r2
@@ -32,9 +33,9 @@ int  load_calib_data2(int a1, int a2)
   int v17; // [sp+8h] [bp-14h]
   uint32_t v18[4]; // [sp+Ch] [bp-10h] BYREF
 
-  v3 = *(uint32_t *)(patch_apply_n_474 + 4);
-  v4 = *(uint32_t *)(patch_apply_n_474 + 8);
-  v18[0] = *(uint32_t *)patch_apply_n_474;
+  v3 = ((uint32_t *)(uintptr_t)off_115074)[1];
+  v4 = ((uint32_t *)(uintptr_t)off_115074)[2];
+  v18[0] = ((uint32_t *)(uintptr_t)off_115074)[0];
   v18[1] = v3;
   v18[2] = v4;
   v5 = v18[a1];
@@ -77,4 +78,3 @@ LABEL_8:
     v6 = *(uint32_t *)((char *)&v18[-2] + (v8 & 0xFFFFFFFC));
   }
 }
-

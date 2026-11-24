@@ -10,45 +10,43 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1142D4;
 extern uint32_t off_1142D8;
 extern uint32_t off_1142DC;
 extern uint32_t off_1142E0;
 
 // sub_11428c @ 0x11428c, size 72 bytes
-// Doc: rf_fault_dump_n [rf]: Dumps the n-th RF fault state (field at offset 0x274 in the global RF state struct), increments the fault counter, and sets the handled flag.
-// rf_fault_dump_n [rf]: Dumps the n-th RF fault state (field at offset 0x274 in the global RF state struct), increments the fault counter, and sets the handled flag.
-int sub_11428c()
+int  sub_11428c(uint32_t *a1)
 {
-  int *v0; // r5
-  uint32_t *v1; // r4
+  int *v1; // r5
+  uint32_t *v2; // r4
   int result; // r0
-  int v3; // r3
-  int v4; // r2
+  int v4; // r3
+  int v5; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_1142D4 = 1;
   }
-  v0 = (int *)off_1142D8;
-  v1 = off_1142DC;
+  v1 = (int *)off_1142D8;
+  v2 = off_1142DC;
   ++*(uint32_t *)off_1142D8;
-  while ( !*v1 )
+  while ( !*v2 )
     ;
-  result = cmd_handler_a(*(uint32_t *)off_1142E0 + 628);
-  *v1 = 1;
-  if ( *v0 )
+  result = cmd_handler_a(((uint32_t *)(uintptr_t)off_1142E0)[0] + 628, a1);
+  *v2 = 1;
+  if ( *v1 )
   {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_1142D4;
-    *v0 = v3;
-    if ( !v3 )
+    v4 = *v1 - 1;
+    v5 = *(uint32_t *)off_1142D4;
+    *v1 = v4;
+    if ( !v4 )
     {
-      if ( v4 )
+      if ( v5 )
         __enable_irq();
     }
   }
   return result;
 }
-

@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1327B4;
+
 extern uint32_t off_1327AC;
-extern uint32_t dword_1327B0;
+extern uint32_t off_1327B4;
 
 // llm_get_adv_addr @ 0x13267c, size 302 bytes
 BOOL  llm_get_adv_addr(int a1, int a2)
@@ -37,7 +37,7 @@ BOOL  llm_get_adv_addr(int a1, int a2)
   v4 = *((uint8_t *)off_1327B4 + 372);
   if ( (*(uint8_t *)off_1327AC & 8) == 0 )
   {
-    ke_event_schedule(dword_1327B0);
+    ke_event_schedule_1(a8800d40HtVhtPa);
     v3 = v3 != 0;
   }
   v7 = *(uint32_t *)(a1 + 4);
@@ -151,4 +151,3 @@ LABEL_15:
   *(uint8_t *)(a1 + 312) = v4;
   return (v12 & 0xC) != 12;
 }
-

@@ -10,30 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_113A44;
+extern uint32_t off_113A3C;
+extern uint32_t off_113A40;
+
 // error_trap @ 0x113a08, size 52 bytes
-// Doc: rf_cmd_process_n4ca [rf]: Process RF command handler (n4ca variant)
-// rf_cmd_process_n4ca [rf]: Process RF command handler (n4ca variant)
-int error_trap()
+uint32_t *error_trap()
 {
   int *v0; // r4
   int v1; // r0
-  int result; // r0
+  uint32_t *result; // r0
   int v3; // r3
   int v4; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)rf_cmd_process_n4e4 = 1;
+    *(uint32_t *)off_113A3C = 1;
   }
-  v0 = (int *)rf_cmd_process_3a40;
-  v1 = rf_cmd_process_n4ec;
-  ++*(uint32_t *)rf_cmd_process_3a40;
+  v0 = (int *)off_113A40;
+  v1 = dword_113A44;
+  ++*(uint32_t *)off_113A40;
   result = mem_word_load(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
-    v4 = *(uint32_t *)rf_cmd_process_n4e4;
+    v4 = *(uint32_t *)off_113A3C;
     *v0 = v3;
     if ( !v3 )
     {
@@ -43,4 +46,3 @@ int error_trap()
   }
   return result;
 }
-

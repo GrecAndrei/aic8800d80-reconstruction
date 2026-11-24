@@ -10,25 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_122058;
-
 // pack_high_byte @ 0x122034, size 36 bytes
-// Doc: fw_state_get_1222036 [util]: FW state getter, reads from 0x16899c control block
-// fw_state_get_1222036 [util]: FW state getter, reads from 0x16899c control block
-int  pack_high_byte(int result, int a2)
+int  pack_high_byte(int result, int a2, int a3)
 {
-  int v2; // r4
+  int v3; // r4
 
-  v2 = result;
+  v3 = result;
   if ( (a2 & 0x800000) != 0 )
   {
     *(uint8_t *)(result + 128) = 0;
   }
   else
   {
-    check_status_bits(1024, dword_122058);
-    return send_fw_cmd(v2);
+    check_status_bits(1024, aBcnLinkloss, a3, a2 << 8);
+    return (int)send_fw_cmd(v3);
   }
   return result;
 }
-

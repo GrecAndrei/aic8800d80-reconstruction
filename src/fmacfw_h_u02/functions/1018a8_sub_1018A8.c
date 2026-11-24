@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1018CC;
 extern uint32_t off_1018D0;
-extern uint32_t dword_1018D4;
 
 // copy_hw_register @ 0x1018a8, size 36 bytes
 int copy_hw_register()
@@ -24,8 +24,7 @@ int copy_hw_register()
   v1 = *(uint32_t *)off_1018CC;
   *(uint32_t *)off_1018D0 = *(uint32_t *)off_1018CC;
   if ( (v1 & 0x1000) == 0 )
-    return alloc_tx_event(dword_1018D4, v1, v0);
+    return alloc_tx_event("no other rc isr: %x\n", v1);
   *(uint32_t *)&v0[-8] &= ~0x1000u;
   return irq_disable_global_2(16);
 }
-

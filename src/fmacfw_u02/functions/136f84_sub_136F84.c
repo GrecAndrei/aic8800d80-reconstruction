@@ -10,13 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136FA0;
+
 extern uint32_t off_136F9C;
 
 // rf_read_cal_data @ 0x136f84, size 22 bytes
 int  rf_read_cal_data(int a1, int a2, int a3, int a4)
 {
-  check_status_bits(8, dword_136FA0, a4, *((uint16_t *)off_136F9C + 1924));
+  check_status_bits(8, "scanning scanu req:%d,%d\n", a4, *((uint16_t *)off_136F9C + 1924));
   return 2;
 }
-

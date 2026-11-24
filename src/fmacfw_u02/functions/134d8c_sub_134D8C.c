@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_134DE4;
-extern uint32_t dword_134DEC;
+
 extern uint32_t dword_134DE8;
+extern uint32_t off_134DE4;
 
 // bt_schedule_ack_timeout @ 0x134d8c, size 86 bytes
 int  bt_schedule_ack_timeout(int a1, int a2, int a3)
@@ -26,7 +26,7 @@ int  bt_schedule_ack_timeout(int a1, int a2, int a3)
   rx_phy_status_parse(6u, 10);
   check_status_bits(
     256,
-    dword_134DEC,
+    "disconnct:%d,%d, sta_tx_cnt=%d, host_init=%d\r\n",
     *(uint8_t *)(a1 + 107),
     a2,
     *(uint16_t *)(dword_134DE8 + 696 * *(uint8_t *)(a1 + 116) + 50),
@@ -36,4 +36,3 @@ int  bt_schedule_ack_timeout(int a1, int a2, int a3)
   else
     return bt_init_hci_buffer();
 }
-

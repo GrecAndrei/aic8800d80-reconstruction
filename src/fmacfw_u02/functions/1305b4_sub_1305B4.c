@@ -10,18 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13060C;
-extern uint32_t dword_130614;
 extern uint32_t off_130610;
 
-// rf_enable @ 0x1305b4, size 88 bytes
-int rf_enable()
+// rf_enable_2 @ 0x1305b4, size 88 bytes
+int rf_enable_2()
 {
   uint8_t *v0; // r4
   int result; // r0
   int v2; // r0
   int v3; // r2
-  int v4; // r0
 
   v0 = off_13060C;
   *((uint8_t *)off_13060C + 1) = 1;
@@ -36,12 +35,10 @@ int rf_enable()
     {
       rf_get_state(v2);
       v3 = (uint8_t)v0[5];
-      v4 = dword_130614;
       v0[6] = v3;
-      event_dispatch(v4, v3);
+      event_dispatch("\x9D\x89adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v3, v3);
     }
-    return ke_task_create(1070, 1, 1000 * *((uint32_t *)off_130610 + 91));
+    return ke_task_create(1070, 1, 1000 * ((uint32_t *)(uintptr_t)off_130610)[91]);
   }
   return result;
 }
-

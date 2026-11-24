@@ -10,45 +10,34 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103F88;
-extern uint32_t off_103F84;
-extern uint32_t dword_103F8C;
-extern uint32_t dword_103F90;
-extern uint32_t off_103F98;
+
 extern uint32_t dword_103F9C;
-extern uint32_t off_103FA0;
+extern uint32_t off_103F84;
+extern uint32_t off_103F88;
 extern uint32_t off_103F94;
-extern uint32_t dword_103FA4;
+extern uint32_t off_103F98;
+extern uint32_t off_103FA0;
 
 // mac_phy_config @ 0x103f2c, size 86 bytes
 int mac_phy_config()
 {
-  int v0; // r2
-  int *v1; // r4
-  int v2; // r0
-  int v3; // r1
-  int v4; // r2
-  int *v5; // r3
-  int v6; // r1
-  uint32_t *v7; // r2
-  int v8; // r0
+  int *v0; // r4
+  int *v1; // r3
+  int v2; // r1
+  uint32_t *v3; // r2
 
-  v0 = 777;
-  v1 = (int *)off_103F88;
+  v0 = (int *)off_103F88;
   *(uint32_t *)off_103F84 = 777;
-  while ( *v1 < 0 )
+  while ( *v0 < 0 )
     timer_delay(1);
-  event_dispatch(dword_103F8C, *(uint32_t *)off_103F88, v0);
-  v2 = dword_103F90;
+  event_dispatch("end_addr=%d\n", *(uint32_t *)off_103F88);
   *(uint32_t *)off_103F84 = 0;
-  event_dispatch(v2, v3, v4);
-  v5 = (int *)off_103F98;
-  v6 = dword_103F9C;
-  v7 = off_103FA0;
+  event_dispatch(aFinish);
+  v1 = (int *)off_103F98;
+  v2 = dword_103F9C;
+  v3 = off_103FA0;
   *(uint32_t *)off_103F94 = 0;
-  *v5 = v6;
-  v8 = dword_103FA4;
-  *v7 &= 0xFF00FFFF;
-  return event_dispatch(v8, 0x4000, v7);
+  *v1 = v2;
+  *v3 &= 0xFF00FFFF;
+  return event_dispatch("*0* dump    r 00100000 %d**\n", 0x4000);
 }
-

@@ -10,48 +10,40 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1224F4;
-extern uint32_t dword_122500;
-extern uint32_t dword_1224F8;
-extern uint32_t dword_1224FC;
-
 // process_items @ 0x12248c, size 104 bytes
-// Doc: rf_mem_write_n46a [rf]: Write value to RF register/memory via internal helper
-// rf_mem_write_n46a [rf]: Write value to RF register/memory via internal helper
 int  process_items(int a1, int a2)
 {
   int v4; // r0
-  int n_c8; // r0
+  int v5; // r0
   unsigned int v7; // r4
 
-  if ( a1 <= 1 || (v4 = parse_number(*(uint8_t **)(a2 + 4), 0, 0)) == 0 )
+  if ( a1 <= 1 || (v4 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0)) == 0 )
   {
-    n_c8 = get_event_handler();
-    dispatch_event_handler(dword_1224F4, n_c8);
+    v5 = get_event_handler();
+    dispatch_event_handler_1("dbg sev: %d\n", v5);
     return 0;
   }
   if ( v4 == 1 )
   {
     if ( a1 == 2 )
     {
-      dispatch_event_handler(dword_122500);
+      dispatch_event_handler_1(aInvalidArgs);
     }
     else
     {
-      v7 = parse_number(*(uint8_t **)(a2 + 8), 0, 0);
+      v7 = parse_number(*(uint8_t **)(a2 + 8), nullptr, 0);
       if ( v7 > 5 )
       {
-        dispatch_event_handler(rf_mem_write_n4d8, v7);
+        dispatch_event_handler_1("invalid sev_idx:%d\n", v7);
       }
       else
       {
-        dispatch_event_handler(dword_1224F8, v7);
+        dispatch_event_handler_1("Cfg dbg sev: %d\n", v7);
         set_global_variable(v7);
       }
     }
     return 0;
   }
-  dispatch_event_handler(dword_1224FC);
+  dispatch_event_handler_1(aInvalidFunc);
   return 0;
 }
-

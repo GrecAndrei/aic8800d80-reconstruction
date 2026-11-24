@@ -14,104 +14,90 @@
 extern uint32_t dword_1151F4;
 extern uint32_t dword_1151F8;
 extern uint32_t dword_1151FC;
-extern uint32_t dword_115200;
-extern uint32_t dword_115204;
 extern uint32_t dword_115208;
 extern uint32_t dword_115210;
 extern uint32_t dword_115214;
 extern uint32_t dword_115218;
-extern uint32_t dword_11521C;
 extern uint32_t dword_115220;
 extern uint32_t dword_115224;
-extern uint32_t dword_115228;
 
 // mmio_wait_flag @ 0x1150a8, size 330 bytes
 int  mmio_wait_flag(int a1, int a2)
 {
-  int v2; // r3
-  uint32_t *v3; // r4
-  unsigned int v4; // r2
+  uint32_t *v2; // r4
+  uint32_t *v3; // r3
+  volatile unsigned int v4; // r1
   unsigned int v5; // r1
-  int v6; // r0
-  int v7; // r0
-  uint32_t *v8; // r3
-  volatile unsigned int v9; // r1
-  unsigned int v10; // r1
-  int v11; // r3
-  uint32_t *v12; // r5
-  int v13; // r0
-  unsigned int v14; // r5
-  int v15; // r2
-  unsigned int v16; // r1
+  int v6; // r3
+  uint32_t *v7; // r5
+  unsigned int v8; // r5
   int result; // r0
-  int v18; // r3
-  int v19; // r2
-  int v20; // r6
-  int v21; // r2
-  volatile unsigned int v22; // r3
+  int v10; // r3
+  int v11; // r2
+  int v12; // r7
+  int v13; // r6
+  int v14; // r2
+  volatile unsigned int v15; // r3
 
-  v2 = **(uint16_t **)dword_1151F4;
-  if ( (v2 & 1) != 0 )
-    sub_1216EC(a1, a2, v2 << 31);
+  if ( (**(uint16_t **)dword_1151F4 & 1) != 0 )
+    rf_init_phy();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)dword_1151F8 = 1;
   }
-  v3 = (uint32_t *)dword_1151FC;
-  v4 = dword_115200;
-  v5 = dword_115204;
+  v2 = (uint32_t *)dword_1151FC;
   ++*(uint32_t *)dword_1151FC;
-  sub_11F74C(1024, v5, v4);
-  v6 = sub_11E628(0x80000000);
-  v7 = sub_11D348(v6);
-  v8 = (uint32_t *)dword_115208;
+  check_interrupt_flag(1024, "%s\r\n", aRwnxlResetEvt);
+  enter_critical_section_1(0x80000000);
+  rf_cmd_wait();
+  v3 = (uint32_t *)dword_115208;
   *(uint32_t *)dword_115208 &= 0xFFFFFFu;
-  *v8 |= 0x10u;
-  v9 = (*(volatile uint32_t *)0x40501010u);
-  v10 = v9 + 100;
+  *v3 |= 0x10u;
+  v4 = (*(volatile uint32_t *)0x40501010u);
+  v5 = v4 + 100;
   do
-    v11 = v10 - (*(volatile uint32_t *)0x40501010u);
-  while ( v11 >= 0 );
-  v12 = (uint32_t *)dword_115210;
+    v6 = v5 - (*(volatile uint32_t *)0x40501010u);
+  while ( v6 >= 0 );
+  v7 = (uint32_t *)dword_115210;
   *(uint32_t *)dword_115210 |= 0x111u;
-  v13 = sub_115E98(v7);
+  rf_acquire();
   *(uint32_t *)dword_115208 &= ~0x10u;
-  *v12 &= 0xFFFFFEEE;
-  sub_1188C4(v13);
-  if ( !sub_11E34C(0) )
-    sub_11E628(0x2000000);
-  v14 = dword_115214;
-  sub_1182F4();
-  if ( *(uint8_t *)v14 && !*(uint8_t *)dword_115218 && *(uint8_t *)(v14 + 6) )
+  *v7 &= 0xFFFFFEEE;
+  chip_id_is_one();
+  if ( !flash_write_byte(0) )
+    enter_critical_section_1(0x2000000);
+  v8 = dword_115214;
+  find_link_in_list();
+  if ( *(uint8_t *)v8 && !*(uint8_t *)dword_115218 && *(uint8_t *)(v8 + 6) )
   {
-    v20 = *(char *)(v14 + 7) + (char)(*(uint8_t *)(v14 + 5) + (*(uint8_t *)dword_115224 & 3));
-    if ( v20 >= *(char *)(v14 + 4) )
-      LOBYTE(v20) = *(uint8_t *)(v14 + 4);
-    sub_1029DC((char)v20);
-    v21 = *(uint16_t *)(v14 + 8);
-    v22 = (*(volatile uint32_t *)0x40501010u);
-    *(uint8_t *)(v14 + 7) = v20;
-    *(uint8_t *)(v14 + 0xB) = 1;
-    sub_11AB18(v14 + 12, v22 + 60000 * v21);
-    sub_11F504(dword_115228);
+    v12 = (char)(*(uint8_t *)(v8 + 5) + (*(uint8_t *)dword_115224 & 3));
+    v13 = *(char *)(v8 + 7) + v12;
+    if ( v13 >= *(char *)(v8 + 4) )
+      LOBYTE(v13) = *(uint8_t *)(v8 + 4);
+    gpio_config(v13);
+    v14 = *(uint16_t *)(v8 + 8);
+    v15 = (*(volatile uint32_t *)0x40501010u);
+    *(uint8_t *)(v8 + 7) = v13;
+    *(uint8_t *)(v8 + 0xB) = 1;
+    ke_enter_critical((uint32_t *)(v8 + 12), v15 + 60000 * v14);
+    dispatch_event_handler_1("update %d, %d\r\n", (char)v13, v12);
   }
-  v16 = dword_11521C;
-  *(uint8_t *)(v14 + 6) = 0;
-  sub_11F74C(1024, v16, v15);
+  *(uint8_t *)(v8 + 6) = 0;
+  check_interrupt_flag(1024, aResetDone);
   if ( *(uint32_t *)dword_115220 )
-    sub_11E5E0(0x2000);
-  result = sub_11798C();
+    set_busy_flag_alt(0x2000);
+  result = timer_event_check();
   if ( result )
-    result = sub_11E5E0(0x400000);
-  if ( *v3 )
+    result = set_busy_flag_alt(0x400000);
+  if ( *v2 )
   {
-    v18 = *v3 - 1;
-    v19 = *(uint32_t *)dword_1151F8;
-    *v3 = v18;
-    if ( !v18 )
+    v10 = *v2 - 1;
+    v11 = *(uint32_t *)dword_1151F8;
+    *v2 = v10;
+    if ( !v10 )
     {
-      if ( v19 )
+      if ( v11 )
         __enable_irq();
     }
   }

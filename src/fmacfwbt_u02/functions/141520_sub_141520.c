@@ -10,15 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_141578;
 
 // increment_event_counter @ 0x141520, size 88 bytes
-uint32_t *increment_event_counter()
+int increment_event_counter()
 {
   int v0; // r3
   int v1; // r0
   int v2; // r4
-  uint32_t *result; // r0
+  int result; // r0
 
   v0 = dword_141578;
   v1 = *(uint32_t *)(dword_141578 + 6480) + 1;
@@ -39,8 +40,7 @@ uint32_t *increment_event_counter()
   else
   {
     hci_cmd_send(0xBu, 4);
-    return (uint32_t *)hci_evt_alloc_send(11264, 11, 11);
+    return hci_evt_alloc_send(11264, 11, 11);
   }
   return result;
 }
-

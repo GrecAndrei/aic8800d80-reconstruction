@@ -10,20 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10D218;
-extern uint32_t off_10D220;
+
 extern uint32_t off_10D21C;
+extern uint32_t off_10D220;
 
 // callback_post @ 0x10d1fc, size 26 bytes
-int  callback_post(int a1, int a2, int a3)
+int  callback_post(int a1)
 {
   int result; // r0
-  uint32_t *v5; // r3
+  uint32_t *v3; // r3
 
-  result = event_dispatch(dword_10D218, a1, a3);
-  v5 = off_10D220;
+  result = event_dispatch("chan notify: %x\r\n", a1);
+  v3 = off_10D220;
   *(uint32_t *)off_10D21C = a1;
-  *v5 = 0x1000000;
+  *v3 = 0x1000000;
   return result;
 }
-

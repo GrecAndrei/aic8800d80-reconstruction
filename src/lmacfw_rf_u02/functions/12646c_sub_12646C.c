@@ -10,18 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12647C;
+
 extern uint32_t off_126478;
 
 // rf_set_flag @ 0x12646c, size 12 bytes
-// Doc: sub_122646C [util]: Bitfield extract/shift helper (mask+shift primitive)
-// sub_122646C [util]: Bitfield extract/shift helper (mask+shift primitive)
 int  rf_set_flag(char a1)
 {
-  int v2; // r0
-
-  v2 = dword_12647C;
   *(uint8_t *)off_126478 = a1;
-  return dispatch_event_handler(v2);
+  return dispatch_event_handler_1("cob state -> %d\n", a1);
 }
-

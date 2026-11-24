@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_107C64;
+
 extern uint32_t off_107C60;
-extern uint32_t dword_107C68;
+extern uint32_t off_107C64;
 extern uint32_t off_107C6C;
 
 // rf_get_rx_rssi @ 0x107c28, size 56 bytes
@@ -27,10 +27,9 @@ int rf_get_rx_rssi()
   v0 = (unsigned int *)off_107C64;
   v1 = *(uint32_t *)off_107C64;
   v2 = (uint16_t)*(uint32_t *)off_107C60 >> 4;
-  result = check_interrupt_flag(1, dword_107C68, v2, off_107C60);
+  result = check_interrupt_flag(1, "calib_loft_q=%x\n", v2);
   v4 = off_107C6C;
   *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;
   *v4 |= 0x400000u;
   return result;
 }
-

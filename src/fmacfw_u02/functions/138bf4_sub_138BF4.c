@@ -10,11 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_138CA0;
+
 extern uint32_t dword_138CA4;
-extern uint32_t dword_138CA8;
-extern uint32_t dword_138CB0;
-extern uint32_t dword_138CAC;
+extern uint32_t off_138CA0;
 
 // rand_gen_u16 @ 0x138bf4, size 170 bytes
 int  rand_gen_u16(uint16_t *a1)
@@ -36,7 +34,7 @@ int  rand_gen_u16(uint16_t *a1)
         if ( *(uint8_t *)(i + 106) == 2 )
         {
           v6 = 1320 * v3;
-          if ( !memcmp(a1 + 2, i + 100, 6) )
+          if ( !memcmp((unsigned int)(a1 + 2), i + 100, 6u) )
             break;
         }
       }
@@ -46,21 +44,29 @@ int  rand_gen_u16(uint16_t *a1)
     v7 = *(uint32_t **)(v2 + v6 + 240);
     if ( v7 )
     {
-      while ( memcmp(a1 + 5, (char *)v7 + 38, 6) )
+      while ( memcmp((unsigned int)(a1 + 5), (unsigned int)v7 + 38, 6u) )
       {
         v7 = (uint32_t *)*v7;
         if ( !v7 )
           goto LABEL_14;
       }
-      event_dispatch(dword_138CA8, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
+      event_dispatch(
+        "keyInValid[%04X:%04X:%04X]\n",
+        (uint16_t)a1[5],
+        (uint16_t)a1[6],
+        (uint16_t)a1[7]);
     }
     else
     {
 LABEL_14:
-      event_dispatch(dword_138CB0, dword_138CAC, (uint16_t)a1[5], (uint16_t)a1[6], (uint16_t)a1[7]);
-      rx_process_callback(v2 + v6, (int)(a1 + 5));
+      event_dispatch(
+        "%s: send_deauth[%04X:%04X:%04X]\n",
+        aRxuCntrlSpurio,
+        (uint16_t)a1[5],
+        (uint16_t)a1[6],
+        (uint16_t)a1[7]);
+      rx_process_callback(v2 + v6, (char *)a1 + 10);
     }
   }
   return 0;
 }
-

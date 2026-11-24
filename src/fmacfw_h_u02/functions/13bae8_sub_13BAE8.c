@@ -10,28 +10,29 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_13BB90;
 extern uint32_t dword_13BB94;
-extern uint32_t dword_13BBA0;
-extern uint32_t dword_13BBA4;
 extern uint32_t dword_13BB98;
 extern uint32_t dword_13BB9C;
+extern uint32_t dword_13BBA0;
+extern uint32_t dword_13BBA4;
 
-// send_vendor_command @ 0x13bae8, size 168 bytes
-uint32_t * send_vendor_command(unsigned int a1)
+// send_vendor_command_1 @ 0x13bae8, size 168 bytes
+int  send_vendor_command_1(unsigned int a1)
 {
-  int v1; // r5
+  unsigned int v1; // r5
   int v3; // r1
   uint8_t *v4; // r3
   int v5; // r2
   int v6; // r0
   int v7; // r3
   uint32_t *v8; // r1
-  uint32_t *v10; // [sp+4h] [bp-8h]
+  uint32_t *a2; // [sp+4h] [bp-8h]
 
   v1 = (a1 << 8) | 8;
-  invalid_handler_12c5fc(0x2000, v1);
-  invalid_handler_12c5fc(8194, v1);
+  invalid_handler_12c5fc((char *)0x2000, v1);
+  invalid_handler_12c5fc((char *)0x2002, v1);
   v3 = dword_13BB90;
   v4 = (uint8_t *)(dword_13BB90 + 32 * a1);
   v5 = v4[17];
@@ -42,22 +43,21 @@ uint32_t * send_vendor_command(unsigned int a1)
     if ( v5 == 1 )
       *(uint8_t *)(696 * v6 + 12 * v7 + dword_13BB94 + 453) = 33;
     v8 = (uint32_t *)(v3 + 32 * a1);
-    v10 = v8;
+    a2 = v8;
     if ( a1 <= 0xF )
       goto LABEL_5;
 LABEL_7:
     wlan_ioctl_handler_3(dword_13BBA0, v8);
-    wlan_ioctl_handler_1(dword_13BBA4, v10);
+    wlan_ioctl_handler_1(dword_13BBA4, a2);
     return hci_cmd_preprocess(v1, 0);
   }
   v8 = (uint32_t *)(dword_13BB90 + 32 * a1);
   *(uint8_t *)(696 * v6 + 12 * v7 + dword_13BB94 + 452) = 33;
-  v10 = v8;
+  a2 = v8;
   if ( a1 > 0xF )
     goto LABEL_7;
 LABEL_5:
   wlan_ioctl_handler_3(dword_13BB98, v8);
-  wlan_ioctl_handler_1(dword_13BB9C, v10);
+  wlan_ioctl_handler_1(dword_13BB9C, a2);
   return hci_cmd_preprocess(v1, 0);
 }
-

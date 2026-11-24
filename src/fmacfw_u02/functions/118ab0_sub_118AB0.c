@@ -10,15 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_118B94;
 extern uint32_t dword_118B98;
 extern uint32_t dword_118B9C;
 extern uint32_t dword_118BA0;
+extern uint32_t dword_118BAC;
 extern uint32_t dword_118BB0;
 extern uint32_t dword_118BB4;
-extern uint32_t dword_118B94;
 extern uint32_t off_118BA4;
 extern uint32_t off_118BA8;
-extern uint32_t dword_118BAC;
 
 // fw_magic_check @ 0x118ab0, size 228 bytes
 int  fw_magic_check(int a1)
@@ -43,8 +44,8 @@ int  fw_magic_check(int a1)
   v5 = dword_118BB0;
   v6 = dword_118BB4;
   v7 = dword_118B94;
-  zero_8_bytes(dword_118B94);
-  zero_8_bytes(v7 + 8);
+  zero_8_bytes((uint32_t *)dword_118B94);
+  zero_8_bytes((uint32_t *)(v7 + 8));
   v8 = v2 + 400;
   do
   {
@@ -64,7 +65,7 @@ int  fw_magic_check(int a1)
       v4[10] = 0;
       v4[15] = 0;
       v4[7] = v3 + 27;
-      cmd_handler_a(v7);
+      cmd_handler_a(v7, (uint32_t *)v2);
     }
     v2 += 100;
     v3 += 155;
@@ -109,4 +110,3 @@ int  fw_magic_check(int a1)
   v12[5] = 4;
   return result;
 }
-

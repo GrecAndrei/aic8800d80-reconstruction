@@ -10,39 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11022C;
 extern uint32_t off_110224;
 extern uint32_t off_110228;
-extern uint32_t dword_11022C;
 
 // irq_disable_arg @ 0x1101ec, size 54 bytes
-int irq_disable_arg()
+int  irq_disable_arg(uint32_t *a1)
 {
-  int *v0; // r4
-  int v1; // r0
+  int *v2; // r4
+  int v3; // r0
   int result; // r0
-  int v3; // r3
-  int v4; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_110224 = 1;
   }
-  v0 = (int *)off_110228;
-  v1 = dword_11022C;
+  v2 = (int *)off_110228;
+  v3 = dword_11022C;
   ++*(uint32_t *)off_110228;
-  result = check_kernel_state(v1);
-  if ( *v0 )
+  result = check_kernel_state(v3, a1);
+  if ( *v2 )
   {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_110224;
-    *v0 = v3;
-    if ( !v3 )
+    v5 = *v2 - 1;
+    v6 = *(uint32_t *)off_110224;
+    *v2 = v5;
+    if ( !v5 )
     {
-      if ( v4 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

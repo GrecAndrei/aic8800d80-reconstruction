@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10C978;
-extern uint32_t off_10C990;
+
+extern uint32_t dword_10C984;
 extern uint32_t dword_10C994;
+extern uint32_t off_10C978;
 extern uint32_t off_10C97C;
+extern uint32_t off_10C980;
+extern uint32_t off_10C988;
+extern uint32_t off_10C990;
 extern uint32_t off_10C998;
 extern uint32_t off_10C99C;
-extern uint32_t dword_10C984;
-extern uint32_t off_10C980;
-extern uint32_t dword_10C98C;
-extern uint32_t off_10C988;
 
 // alloc_rx_buffer @ 0x10c88c, size 236 bytes
 int  alloc_rx_buffer(char a1)
@@ -33,17 +33,18 @@ int  alloc_rx_buffer(char a1)
   unsigned int v7; // r2
   unsigned int v8; // r4
   int *v9; // r9
-  int v10; // r0
+  uint32_t *v10; // r0
   int v11; // r1
-  int v12; // r3
+  uint32_t *v12; // r3
   int v13; // r1
   int v14; // r2
   int v15; // r0
+  uint8_t *v16; // r1
   int result; // r0
 
   irq_disable_global_3(2048);
-  v1 = *(uint32_t *)off_10C978;
-  if ( *(uint32_t *)(*(uint32_t *)off_10C978 + 636) )
+  v1 = ((uint32_t *)(uintptr_t)off_10C978)[0];
+  if ( *(uint32_t *)(((uint32_t *)(uintptr_t)off_10C978)[0] + 636) )
   {
     v2 = (uint8_t *)off_10C990;
     v3 = dword_10C994;
@@ -57,7 +58,7 @@ int  alloc_rx_buffer(char a1)
         break;
       v8 = v2[1620]
          + 1
-         - 81 * ((unsigned int)(((unsigned int)v3 * (unsigned uint64_t)((unsigned int)v2[1620] + 1)) >> 32) >> 6);
+         - 81 * ((unsigned int)(((unsigned int)v3 * (uint64_t)((unsigned int)v2[1620] + 1)) >> 32) >> 6);
       v2[1621] = v6 + 1;
       v2[1620] = v8;
       if ( (__get_CPSR() & 1) == 0 )
@@ -85,16 +86,16 @@ int  alloc_rx_buffer(char a1)
         }
       }
       v15 = dword_10C984;
-      *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10C980;
-      wlan_ioctl_handler_1(v15);
+      v16 = &v2[20 * v8];
+      *((uint32_t *)v16 + 1) = (char *)v12 + *off_10C980;
+      wlan_ioctl_handler_1(v15, v16);
       if ( !*(uint32_t *)(v1 + 636) )
         goto LABEL_13;
     }
-    debug_printf(dword_10C98C, v6, v7);
+    debug_printf("rxused=%d, total=%d\r\n", v6, v7);
   }
 LABEL_13:
   result = irq_disable_global_2(256);
   *(uint32_t *)off_10C988 = (1 << (a1 + 8)) & 0x1F00;
   return result;
 }
-

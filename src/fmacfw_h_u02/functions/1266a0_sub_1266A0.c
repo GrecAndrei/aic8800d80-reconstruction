@@ -10,33 +10,38 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1266D8;
-extern uint32_t off_1266DC;
 extern uint32_t dword_1266E0;
+extern uint32_t off_1266DC;
 
 // llc_env_get @ 0x1266a0, size 56 bytes
-int llc_env_get()
+uint32_t *llc_env_get()
 {
-  int result; // r0
+  uint32_t *result; // r0
   uint32_t *v1; // r4
-  char *v2; // r5
-  char *v3; // r4
+  uint32_t *v2; // r1
+  int v3; // r5
+  int v4; // r4
+  uint32_t *a2; // [sp+4h] [bp-8h]
 
   result = list_pop(dword_1266D8);
+  a2 = result;
   if ( result )
   {
     v1 = off_1266DC;
-    mem_set_util(dword_1266E0);
+    mem_set_util((uint32_t *)dword_1266E0);
+    v2 = a2;
     v1[18] = 0;
-    v2 = (char *)(v1 + 6);
-    v3 = (char *)(v1 + 8);
+    v3 = (int)(v1 + 6);
+    v4 = (int)(v1 + 8);
     do
     {
-      wlan_ioctl_handler_1(v2);
-      result = list_pop(v3);
+      wlan_ioctl_handler_1(v3, v2);
+      result = list_pop(v4);
+      v2 = result;
     }
     while ( result );
   }
   return result;
 }
-

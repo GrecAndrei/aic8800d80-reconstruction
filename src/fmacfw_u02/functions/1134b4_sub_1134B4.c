@@ -10,76 +10,76 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_113550;
 extern uint32_t off_113548;
 extern uint32_t off_11354C;
 extern uint32_t off_113554;
-extern uint32_t dword_113550;
 
-// check_init_flag @ 0x1134b4, size 148 bytes
-int  check_init_flag(int a1, int a2)
+// sub_1134B4 @ 0x1134b4, size 148 bytes
+int sub_1134B4()
 {
-  uint8_t *v2; // r6
-  int **v3; // r4
-  char v4; // r0
-  uint8_t *v5; // r12
-  int *v6; // r7
-  int *v7; // r5
-  unsigned int v8; // r4
-  int *v9; // r1
-  char v10; // r3
-  char v11; // r2
-  uint16_t *v12; // r1
-  int v13; // r2
-  char v14; // r3
+  uint8_t *v0; // r6
+  int **v1; // r4
+  char v2; // r0
+  uint8_t *v3; // r12
+  int *v4; // r7
+  int *v5; // r5
+  unsigned int v6; // r4
+  int *v7; // r1
+  char v8; // r3
+  char v9; // r2
+  uint16_t *v10; // r1
+  int v11; // r2
+  char v12; // r3
 
-  v2 = off_113548;
+  v0 = off_113548;
   if ( *(uint8_t *)off_113548 )
     return -99;
-  v3 = (int **)off_11354C;
-  v4 = read_u32(off_11354C, a2);
-  v5 = off_113554;
-  *(uint8_t *)off_113554 = v4;
-  if ( v4 )
+  v1 = (int **)off_11354C;
+  v2 = sub_12D36C((uint32_t **)off_11354C);
+  v3 = off_113554;
+  *(uint8_t *)off_113554 = v2;
+  if ( v2 )
   {
-    v6 = *v3;
-    v7 = *(int **)(dword_113550 + 8240);
-    if ( v4 != 1 )
+    v4 = *v1;
+    v5 = *(int **)(dword_113550 + 8240);
+    if ( v2 != 1 )
     {
-      v8 = *((uint16_t *)v6 + 6);
-      if ( *((uint16_t *)v7 + 6) < v8 )
+      v6 = *((uint16_t *)v4 + 6);
+      if ( *((uint16_t *)v5 + 6) < v6 )
       {
-        v9 = v6;
-        v10 = v4;
+        v7 = v4;
+        v8 = v2;
         while ( 1 )
         {
-          v11 = v4 - v10--;
-          if ( !v8 )
+          v9 = v2 - v8--;
+          if ( !v6 )
             break;
-          if ( !*v9 || !v10 )
+          if ( !*v7 || !v8 )
           {
-            *v5 = v10;
-            v7 = v9;
+            *v3 = v8;
+            v5 = v7;
             goto LABEL_11;
           }
-          v8 = *(uint16_t *)(*v9 + 12);
-          v7 = v9;
-          v9 = (int *)*v9;
+          v6 = *(uint16_t *)(*v7 + 12);
+          v5 = v7;
+          v7 = (int *)*v7;
         }
-        *v5 = v11;
+        *v3 = v9;
       }
       goto LABEL_11;
     }
-    if ( v7 )
+    if ( v5 )
     {
 LABEL_11:
-      v12 = (uint16_t *)v6[1];
-      v13 = v7[1] + 8 * (*((uint8_t *)v7 + 14) - 1);
-      v14 = *(uint8_t *)(v13 + 3);
-      *v2 = 1;
-      *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return rx_counter_inc(1, v12);
+      v10 = (uint16_t *)v4[1];
+      v11 = v5[1] + 8 * (*((uint8_t *)v5 + 14) - 1);
+      v12 = *(uint8_t *)(v11 + 3);
+      *v0 = 1;
+      *(uint8_t *)(v11 + 3) = v12 & 0xF5 | 0xA;
+      return sub_113010(1, v10);
     }
   }
   return -98;
 }
-

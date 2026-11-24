@@ -10,9 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_111AF4;
+extern uint32_t off_111AF0;
+
 // mmio_set_bit @ 0x1119fc, size 242 bytes
-// Doc: rf_bus_reg_set_bits_n_20e [rf]: Set OR-mask bits in RF bus control register
-// rf_bus_reg_set_bits_n_20e [rf]: Set OR-mask bits in RF bus control register
 int mmio_set_bit()
 {
   uint32_t *v0; // r2
@@ -22,26 +24,25 @@ int mmio_set_bit()
   uint32_t *v4; // r1
   int v5; // r3
   uint32_t *v6; // r2
-  int v7; // r0
 
-  v0 = rf_bus_write_n_74;
-  *((uint32_t *)rf_bus_write_n_74 + 4) |= 1u;
+  v0 = off_111AF0;
+  *((uint32_t *)off_111AF0 + 4) |= 1u;
   while ( (v0[4] & 1) != 0 )
     ;
-  v1 = rf_bus_write_n_74;
-  while ( *((int *)rf_bus_write_n_74 + 4) >= 0 )
+  v1 = off_111AF0;
+  while ( *((int *)off_111AF0 + 4) >= 0 )
     ;
-  v2 = rf_bus_write_n_74;
-  *((uint32_t *)rf_bus_write_n_74 + 3) |= 0x40000007u;
+  v2 = off_111AF0;
+  *((uint32_t *)off_111AF0 + 3) |= 0x40000007u;
   v1[3] = v1[3] & 0xFFFFC0FF | 0x2700;
   v1[4] |= 1u;
   while ( (v2[4] & 1) != 0 )
     ;
-  v3 = rf_bus_write_n_74;
-  while ( *((int *)rf_bus_write_n_74 + 4) >= 0 )
+  v3 = off_111AF0;
+  while ( *((int *)off_111AF0 + 4) >= 0 )
     ;
-  v4 = rf_bus_write_n_74;
-  *((uint32_t *)rf_bus_write_n_74 + 3) |= 0x40000007u;
+  v4 = off_111AF0;
+  *((uint32_t *)off_111AF0 + 3) |= 0x40000007u;
   v3[3] = v3[3] & 0xFFFFC0FF | 0x2700;
   v3[512] &= 0xFFFFE7FC;
   v3[512] |= 0x800004u;
@@ -65,12 +66,10 @@ LABEL_11:
   v6[586] = -1;
   if ( v5 != 6 )
     goto LABEL_11;
-  v4[6] = rf_bus_reset2_nf8;
-  v7 = rf_bus_write_n_6c;
+  v4[6] = dword_111AF4;
   v4[513] &= ~2u;
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return event_dispatch(v7, v4, 46);
+  return event_dispatch(aUsbInitDone);
 }
-

@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11EB48;
 extern uint32_t off_11EB40;
 extern uint32_t off_11EB44;
-extern uint32_t dword_11EB48;
-extern uint32_t dword_11EB4C;
+extern uint32_t off_11EB50;
 
 // check_hw_fw_status @ 0x11eabc, size 132 bytes
 void check_hw_fw_status()
@@ -22,13 +23,15 @@ void check_hw_fw_status()
   uint32_t *v1; // r6
   int v2; // r3
   int v3; // r7
-  int v4; // r3
-  int v5; // r4
-  int v6; // r2
-  unsigned int v7; // r1
-  unsigned int v8; // r2
-  unsigned int v9; // r3
+  uint32_t *v4; // r8
+  int v5; // r3
+  int v6; // r4
+  int v7; // r2
+  int v8; // r12
+  unsigned int v9; // r1
   unsigned int v10; // r2
+  unsigned int v11; // r3
+  unsigned int v12; // r2
 
   v0 = off_11EB40;
   v1 = off_11EB44;
@@ -36,33 +39,42 @@ void check_hw_fw_status()
   if ( v2 != *(uint32_t *)off_11EB44 )
   {
     v3 = dword_11EB48;
+    v4 = off_11EB50;
     do
     {
-      v7 = v2 & 0x7FFFFFFF;
-      v8 = v0[4] - (v2 & 0x7FFFFFFF);
-      v9 = v2 & 0x80000000;
-      if ( v8 > 0x9F )
+      v8 = v0[4];
+      v9 = v2 & 0x7FFFFFFF;
+      v10 = v8 - (v2 & 0x7FFFFFFF);
+      v11 = v2 & 0x80000000;
+      if ( v10 > 0x9F )
       {
-        v4 = v0[5];
+        v5 = v0[5];
       }
       else
       {
-        v10 = v0[3];
-        if ( v7 > v10 )
-          v9 += 0x80000000;
-        v4 = v9 | v10;
-        v0[5] = v4;
+        v12 = v0[3];
+        if ( v9 > v12 )
+          v11 += 0x80000000;
+        v5 = v11 | v12;
+        v0[5] = v5;
       }
-      v5 = v4 & 0x7FFFFFFF;
-      v6 = *(uint32_t *)((v4 & 0x7FFFFFFF) + 0x14);
-      if ( v6 != v3 )
-        alloc_tx_event(dword_11EB4C, v4 & 0x7FFFFFFF, v6);
-      read_chip_revision(v5);
-      *(uint8_t *)(v5 + 156) = 1;
-      capability_get(v5);
+      v6 = v5 & 0x7FFFFFFF;
+      v7 = *(uint32_t *)((v5 & 0x7FFFFFFF) + 0x14);
+      if ( v7 != v3 )
+        alloc_tx_event(
+          "rxbuf2 %08x,%08x: start %08x, end %08x, read %08x, wrptr %08x, rdptr %08x\r\n",
+          v5 & 0x7FFFFFFF,
+          v7,
+          v0[3],
+          v8,
+          v5,
+          *v1,
+          *v4);
+      read_chip_revision(v6);
+      *(uint8_t *)(v6 + 156) = 1;
+      capability_get(v6);
       v2 = v0[5];
     }
     while ( v2 != *v1 );
   }
 }
-

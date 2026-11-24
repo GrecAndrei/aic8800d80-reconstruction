@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_130828;
-extern uint32_t dword_130830;
 extern uint32_t off_13082C;
 
 // rf_afe_enable @ 0x1307d0, size 88 bytes
@@ -21,7 +21,6 @@ int rf_afe_enable()
   int result; // r0
   int v2; // r0
   int v3; // r2
-  int v4; // r0
 
   v0 = off_130828;
   *((uint8_t *)off_130828 + 1) = 1;
@@ -36,12 +35,10 @@ int rf_afe_enable()
     {
       set_periph_status(v2);
       v3 = (uint8_t)v0[5];
-      v4 = dword_130830;
       v0[6] = v3;
-      ke_event_schedule(v4, v3);
+      ke_event_schedule_1("\x9D\x89adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v3, v3);
     }
-    return patch_aware_dispatch(1070, 1, 1000 * *((uint32_t *)off_13082C + 91));
+    return patch_aware_dispatch(1070, 1, 1000 * ((uint32_t *)(uintptr_t)off_13082C)[91]);
   }
   return result;
 }
-

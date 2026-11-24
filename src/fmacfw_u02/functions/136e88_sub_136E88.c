@@ -10,16 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136E98;
+
 extern uint32_t off_136E94;
 
-// rf_power_off @ 0x136e88, size 12 bytes
-int rf_power_off()
+// rf_power_off_1 @ 0x136e88, size 12 bytes
+int rf_power_off_1()
 {
-  int v0; // r0
-
-  v0 = dword_136E98;
   *(uint8_t *)off_136E94 = 0;
-  return event_dispatch(v0);
+  return event_dispatch(aApLpExit);
 }
-

@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_136E08;
-extern uint32_t dword_136E0C;
 
 // rf_trace_channel @ 0x136de0, size 40 bytes
 int rf_trace_channel()
@@ -20,9 +20,8 @@ int rf_trace_channel()
   int v1; // r0
 
   v0 = (uint16_t *)off_136E08;
-  v1 = tx_send_pdu(4107, *((uint16_t *)off_136E08 + 1924), 4, 1u);
-  rx_process_packet(v1);
-  check_feature_flag(8, dword_136E0C, v0[1924]);
+  v1 = tx_send_pdu(4107, *((uint16_t *)off_136E08 + 1924), 4, 1);
+  rx_process_packet_1(v1);
+  check_feature_flag(8, "scan idle cancel cfm %d\r\n", v0[1924]);
   return 0;
 }
-

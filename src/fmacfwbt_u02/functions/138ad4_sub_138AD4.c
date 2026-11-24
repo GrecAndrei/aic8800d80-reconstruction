@@ -10,16 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_138B60;
+
 extern uint32_t dword_138B64;
-extern uint32_t off_138B5C;
-extern uint32_t dword_138B74;
-extern uint32_t dword_138B70;
 extern uint32_t dword_138B68;
 extern uint32_t dword_138B6C;
+extern uint32_t off_138B5C;
+extern uint32_t off_138B60;
 
 // tx_power_cal_read @ 0x138ad4, size 136 bytes
-uint32_t * tx_power_cal_read(int a1, int16_t a2, int a3)
+int  tx_power_cal_read(int a1, uint16_t a2, int a3)
 {
   uint8_t *v3; // r5
   int v4; // r4
@@ -33,12 +32,12 @@ uint32_t * tx_power_cal_read(int a1, int16_t a2, int a3)
   v4 = *((uint8_t *)off_138B60 + 68);
   v5 = dword_138B64;
   v6 = (uint32_t *)(dword_138B64 + 80 * v4);
-  if ( **(int16_t **)off_138B5C < 0 )
+  if ( **(uint16_t **)off_138B5C < 0 )
   {
     v7 = 4 * v4;
     if ( *(uint16_t *)(dword_138B64 + 80 * v4 + 76) )
     {
-      ke_int_lock(dword_138B74, dword_138B70, 175);
+      ke_int_lock_1((int)aRxStatDescValS, (int)aRxuCntrlDescPr, 175);
       return 0;
     }
   }
@@ -57,7 +56,6 @@ uint32_t * tx_power_cal_read(int a1, int16_t a2, int a3)
   v3[68] = v3[68]
          + 1
          - -64
-         * ((unsigned int)(((unsigned int)dword_138B6C * (unsigned uint64_t)((unsigned int)(uint8_t)v3[68] + 1)) >> 32) >> 7);
-  return v6;
+         * ((unsigned int)(((unsigned int)dword_138B6C * (uint64_t)((unsigned int)(uint8_t)v3[68] + 1)) >> 32) >> 7);
+  return (int)v6;
 }
-

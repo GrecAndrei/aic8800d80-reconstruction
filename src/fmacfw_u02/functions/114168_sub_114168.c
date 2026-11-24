@@ -10,14 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114178;
-
 // store_byte_field @ 0x114168, size 16 bytes
-// Doc: sub_1214168 [util]: Store byte and branch helper
-// sub_1214168 [util]: Store byte and branch helper
-int  store_byte_field(int a1, int a2, int a3)
+int store_byte_field()
 {
-  event_dispatch(dword_114178, a2, a3);
+  event_dispatch(aHostReady);
   return invoke_callback();
 }
-

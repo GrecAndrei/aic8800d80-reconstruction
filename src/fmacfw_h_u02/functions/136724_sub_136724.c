@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_136844;
 extern uint32_t dword_136848;
 extern uint32_t off_13683C;
 extern uint32_t off_136840;
-extern uint32_t dword_136844;
 
-// send_hci_event @ 0x136724, size 280 bytes
-uint32_t *send_hci_event()
+// send_hci_event_1 @ 0x136724, size 280 bytes
+int send_hci_event_1()
 {
   int v0; // r11
   int v1; // r4
@@ -29,16 +30,18 @@ uint32_t *send_hci_event()
   int v8; // r9
   int v9; // r0
   int v10; // r0
-  uint8_t *v12; // r0
+  int v11; // r0
+  int v12; // r1
+  uint8_t *v14; // r0
 
   v0 = dword_136848;
   v1 = *(uint32_t *)off_13683C;
   v2 = *(uint8_t *)(*(uint32_t *)off_13683C + 51);
-  v3 = tx_send_pdu(24, 0, 7, 8u);
-  v4 = tx_send_pdu(22, 0, 7, 8u);
-  v5 = tx_send_pdu(20, 0, 7, 4u);
+  v3 = tx_send_pdu(24, 0, 7, 8);
+  v4 = tx_send_pdu(22, 0, 7, 8);
+  v5 = tx_send_pdu(20, 0, 7, 4);
   v6 = v0 + 1320 * v2;
-  v7 = (uint8_t *)tx_send_pdu(5143, 5, 7, 2u);
+  v7 = (uint8_t *)tx_send_pdu(5143, 5, 7, 2);
   is_hci_ready();
   if ( *(uint8_t *)(v6 + 1224) )
   {
@@ -47,10 +50,10 @@ uint32_t *send_hci_event()
   }
   else
   {
-    v12 = (uint8_t *)tx_send_pdu(5145, 5, 7, 2u);
-    *v12 = 1;
-    v12[1] = *(uint8_t *)(v6 + 107);
-    wlan_ioctl_handler_1((int)off_13683C + 4, (uint32_t *)v12 - 3);
+    v14 = (uint8_t *)tx_send_pdu(5145, 5, 7, 2);
+    *v14 = 1;
+    v14[1] = *(uint8_t *)(v6 + 107);
+    wlan_ioctl_handler_1((int)off_13683C + 4, (uint32_t *)v14 - 3);
   }
   v8 = v0 + 1320 * v2;
   v9 = *(uint32_t *)(v8 + 100);
@@ -68,8 +71,7 @@ uint32_t *send_hci_event()
   *v7 = 1;
   v10 = dword_136844;
   v7[1] = *(uint8_t *)(v1 + 51);
-  wlan_ioctl_handler_1(v10, (uint32_t *)v7 - 3);
-  acquire_lock_check_state();
+  v11 = wlan_ioctl_handler_1(v10, (uint32_t *)v7 - 3);
+  acquire_lock_check_state(v11, v12);
   return hci_cmd_preprocess(7u, 1);
 }
-

@@ -10,17 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_111948;
 extern uint32_t off_111940;
-extern uint32_t dword_11194C;
 extern uint32_t off_111944;
 
 // util_process_cmd @ 0x111804, size 316 bytes
-// Doc: rf_mbx_init [rf]: Initialize the N30 RFIC mailbox bus: program control regs, clear pending IRQ, and drain 10-entry status doorbell array.
-// rf_mbx_init [rf]: Initialize the N30 RFIC mailbox bus: program control regs, clear pending IRQ, and drain 10-entry status doorbell array.
-int * util_process_cmd(int *result, unsigned int a2, int a3, unsigned int a4)
+int  util_process_cmd(int result, int a2, int a3, unsigned int a4)
 {
-  unsigned int v4; // r6
+  int v4; // r6
   unsigned int v7; // r11
   int v8; // r7
   int v9; // r10
@@ -62,7 +60,7 @@ int * util_process_cmd(int *result, unsigned int a2, int a3, unsigned int a4)
           if ( v7 - 1025 < 0x400 )
             v7 >>= 1;
           else
-            v18 = ((unsigned int)dword_111948 * (unsigned uint64_t)v7) >> 32;
+            v18 = ((unsigned int)dword_111948 * (uint64_t)v7) >> 32;
           if ( v19 )
             LOWORD(v7) = v18 >> 1;
         }
@@ -81,7 +79,7 @@ int * util_process_cmd(int *result, unsigned int a2, int a3, unsigned int a4)
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)log_printf(dword_11194C, v13, v9, 2048);
+        result = log_printf("FIFO ERROR: overflow, addr is %d, size is %d, Total RAM is %d", v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
       v14 = off_111944;
@@ -102,4 +100,3 @@ int * util_process_cmd(int *result, unsigned int a2, int a3, unsigned int a4)
   }
   return result;
 }
-

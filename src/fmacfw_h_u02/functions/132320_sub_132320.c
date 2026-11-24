@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_132458;
+
 extern uint32_t off_132450;
-extern uint32_t dword_132454;
+extern uint32_t off_132458;
 
 // rf_get_calibration @ 0x132320, size 76 bytes
 BOOL  rf_get_calibration(int a1, int a2)
@@ -37,7 +37,7 @@ BOOL  rf_get_calibration(int a1, int a2)
   v4 = *((uint8_t *)off_132458 + 372);
   if ( (*(uint8_t *)off_132450 & 8) == 0 )
   {
-    alloc_tx_event(dword_132454);
+    alloc_tx_event(a8800d40HtVhtPa);
     v3 = v3 != 0;
   }
   v7 = *(uint32_t *)(a1 + 4);
@@ -72,15 +72,16 @@ LABEL_9:
         v13 = v3;
         if ( v3 >= v10 )
           v13 = v10;
-        *(uint8_t *)(a1 + 0x134) = v13;
+        *(uint8_t *)(a1 + 308) = v13;
         v14 = *(uint8_t *)(a2 + 165);
-        if ( v14 == 4 )
-          JUMPOUT(0x132418);
-LABEL_12:
-        if ( v14 >= v13 )
-          v14 = v13;
-        if ( v14 == 4 )
-          JUMPOUT(0x13241C);
+        if ( v14 != 4 )
+          goto LABEL_12;
+        if ( v13 == 4 )
+          goto LABEL_37;
+LABEL_31:
+        LOBYTE(v14) = v13;
+        if ( v13 >= 2 )
+          LOBYTE(v14) = 2;
         goto LABEL_15;
       }
       v10 = 3;
@@ -105,10 +106,16 @@ LABEL_12:
     }
     v17 = (v16 >> 8) & 7;
     if ( v17 > 4 )
-      JUMPOUT(0x132420);
-    LOWORD(v12) = *(uint16_t *)(a1 + 208);
-    if ( v4 >= v17 )
-      LOBYTE(v4) = v17;
+    {
+      LOWORD(v12) = *(uint16_t *)(a1 + 208);
+      LOBYTE(v4) = 0;
+    }
+    else
+    {
+      LOWORD(v12) = *(uint16_t *)(a1 + 208);
+      if ( v4 >= v17 )
+        LOBYTE(v4) = v17;
+    }
     goto LABEL_9;
   }
   v12 = *(uint16_t *)(a1 + 208);
@@ -118,26 +125,29 @@ LABEL_12:
     v13 = v3;
     if ( v3 )
       v13 = 1;
-    *(uint8_t *)(a1 + 0x134) = v13;
+    *(uint8_t *)(a1 + 308) = v13;
     v14 = *(uint8_t *)(a2 + 165);
     if ( v4 >= v18 )
       v4 = (v12 >> 8) & 3;
     if ( v14 != 4 )
-      goto LABEL_12;
-    LOBYTE(v14) = v13;
-    if ( v13 >= 2 )
-      LOBYTE(v14) = 2;
+    {
+LABEL_12:
+      if ( v14 >= v13 )
+        v14 = v13;
+      if ( v14 != 4 )
+        goto LABEL_15;
+LABEL_37:
+      LOBYTE(v14) = 3;
+      goto LABEL_15;
+    }
+    goto LABEL_31;
   }
-  else
-  {
-    *(uint8_t *)(a1 + 0x134) = 0;
-    if ( v4 >= v18 )
-      v4 = (v12 >> 8) & 3;
-    LOBYTE(v14) = v12 & 2;
-  }
+  *(uint8_t *)(a1 + 308) = 0;
+  if ( v4 >= v18 )
+    v4 = (v12 >> 8) & 3;
+  LOBYTE(v14) = v12 & 2;
 LABEL_15:
-  *(uint8_t *)(a1 + 0x135) = v14;
-  *(uint8_t *)(a1 + 0x138) = v4;
+  *(uint8_t *)(a1 + 309) = v14;
+  *(uint8_t *)(a1 + 312) = v4;
   return (v12 & 0xC) != 12;
 }
-

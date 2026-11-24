@@ -10,11 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12F4B4;
-
 // call_shared_handler @ 0x12f49c, size 22 bytes
 int  call_shared_handler(int a1, int a2, int a3)
 {
-  return event_dispatch(dword_12F4B4, a1, a2, a3 & 0xFFFFF);
+  return event_dispatch("\x9BWARNING (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
 }
-

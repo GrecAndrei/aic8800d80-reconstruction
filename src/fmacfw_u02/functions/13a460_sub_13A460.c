@@ -10,10 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_13A4A0;
-extern uint32_t dword_13A4AC;
-extern uint32_t dword_13A4A8;
+
 extern uint32_t dword_13A4A4;
+extern uint32_t off_13A4A0;
 
 // tx_slot_get @ 0x13a460, size 64 bytes
 int  tx_slot_get(int a1, int a2)
@@ -24,11 +23,10 @@ int  tx_slot_get(int a1, int a2)
 
   v2 = a1 + 4 * a2;
   v3 = *(uint32_t **)(v2 + 408);
-  if ( **(int16_t **)off_13A4A0 < 0 && !v3 )
-    mmio_clear_register(dword_13A4AC, dword_13A4A8, 3320);
-  fault_handler((int)(v3 + 68));
+  if ( **(uint16_t **)off_13A4A0 < 0 && !v3 )
+    mmio_clear_register((int)aReordNull, (int)aRxuCntrlReordD, 3320);
+  fault_handler(v3 + 68);
   result = cmd_handler_a(dword_13A4A4, v3);
   *(uint32_t *)(v2 + 408) = 0;
   return result;
 }
-

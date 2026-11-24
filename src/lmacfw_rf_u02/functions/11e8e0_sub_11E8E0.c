@@ -10,35 +10,38 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_11E958;
+
 extern uint32_t dword_11E950;
-extern uint32_t dword_11E954;
 extern uint32_t dword_11E95C;
 extern uint32_t dword_11E960;
+extern uint32_t off_11E958;
 
-// crc32_block @ 0x11e8e0, size 110 bytes
-// Doc: sdio_buffer_prepare_n_2ac [mmio]: Prepare SDIO buffer descriptors with DMA settings
-// sdio_buffer_prepare_n_2ac [mmio]: Prepare SDIO buffer descriptors with DMA settings
-int  crc32_block(int a1)
+// sub_11E8E0 @ 0x11e8e0, size 110 bytes
+int  sub_11E8E0(int a1)
 {
-  int v1; // r5
+  int *v1; // r5
   uint64_t v3; // r0
   uint64_t v4; // r0
-  uint64_t v5; // r0
+  uint64_t v5; // r2
   uint64_t v6; // r0
-  unsigned int v7; // r0
-  uint32_t v9[32]; // [sp+0h] [bp-104h] BYREF
-  uint8_t v10[132]; // [sp+80h] [bp-84h] BYREF
+  uint64_t v7; // r2
+  uint64_t v8; // r0
+  unsigned int v9; // r0
+  uint32_t v11[32]; // [sp+0h] [bp-104h] BYREF
+  char v12[132]; // [sp+80h] [bp-84h] BYREF
 
-  v1 = dword_11E958;
-  memcpy_large(v9, dword_11E958, 128);
-  memcpy_large(v10, v1 + 128, 128);
-  v3 = aeabi_d2f(a1);
-  v4 = aeabi_dadd(v3, HIDWORD(v3), dword_11E950, dword_11E954);
-  v5 = aeabi_dadd(v4, HIDWORD(v4), 0, dword_11E95C);
-  v6 = double_add(v5, HIDWORD(v5), 0, dword_11E960);
-  v7 = double_to_float(v6, HIDWORD(v6));
-  return v7 & 0x7F800000
-       | ((((v7 & 0x7FFFFF) * (uint64_t)(int)v9[(v7 >> 18) & 0x1F]) >> 23) + *(uint32_t *)&v10[4 * ((v7 >> 18) & 0x1F)]);
+  v1 = (int *)off_11E958;
+  sub_1282E8((char *)v11, (char *)off_11E958, 0x80u);
+  sub_1282E8(v12, (char *)v1 + 128, 0x80u);
+  v3 = sub_127570(a1);
+  v4 = sub_127620(v3, *(uint64_t *)&dword_11E950);
+  HIDWORD(v5) = dword_11E95C;
+  LODWORD(v5) = 0;
+  v6 = sub_127620(v4, v5);
+  HIDWORD(v7) = dword_11E960;
+  LODWORD(v7) = 0;
+  v8 = sub_1272B4(v6, v7);
+  v9 = sub_127B54(v8);
+  return v9 & 0x7F800000
+       | ((((v9 & 0x7FFFFF) * (uint64_t)(int)v11[(v9 >> 18) & 0x1F]) >> 23) + *(uint32_t *)&v12[4 * ((v9 >> 18) & 0x1F)]);
 }
-

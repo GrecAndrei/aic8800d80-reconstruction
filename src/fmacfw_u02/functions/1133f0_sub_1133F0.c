@@ -10,16 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_113494;
 extern uint32_t off_113498;
-extern uint32_t dword_1134AC;
 extern uint32_t off_11349C;
 extern uint32_t off_1134A0;
-extern uint32_t dword_1134B0;
 extern uint32_t off_1134A4;
 
 // ke_task_init @ 0x1133f0, size 164 bytes
-int  ke_task_init(int a1, unsigned int a2)
+int  ke_task_init(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
@@ -36,7 +35,7 @@ int  ke_task_init(int a1, unsigned int a2)
   v3 = off_113498;
   if ( *(uint8_t *)off_113498 )
   {
-    log_printf(dword_1134AC, rf_cmd_queue_next_n_c, *(uint8_t *)off_113498);
+    log_printf("err: %s state=%d\r\n", aUsbWlanRecvFcO, *(uint8_t *)off_113498);
     return -3;
   }
   else
@@ -57,7 +56,7 @@ int  ke_task_init(int a1, unsigned int a2)
     v7 = v6;
     if ( v6 )
     {
-      log_printf(dword_1134B0, rf_cmd_queue_next_n_c, v6);
+      log_printf("err: %s ret=%d\r\n", aUsbWlanRecvFcO, v6);
       return -1;
     }
     else
@@ -65,7 +64,7 @@ int  ke_task_init(int a1, unsigned int a2)
       *(uint8_t *)off_1134A4 = 1;
       if ( *v2 )
       {
-        shared_call_check(0, 1u);
+        shared_call_check(0, 1, 0);
         *v3 = 0;
         return -14;
       }
@@ -73,4 +72,3 @@ int  ke_task_init(int a1, unsigned int a2)
   }
   return v7;
 }
-

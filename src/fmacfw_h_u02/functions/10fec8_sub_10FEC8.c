@@ -10,13 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10FFAC;
-extern uint32_t off_10FFA4;
-extern uint32_t dword_10FFBC;
+
 extern uint32_t dword_10FFB0;
+extern uint32_t off_10FFA4;
 extern uint32_t off_10FFA8;
-extern uint32_t dword_10FFB8;
-extern uint32_t dword_10FFB4;
 
 // wait_for_state @ 0x10fec8, size 218 bytes
 int  wait_for_state(uint32_t *a1)
@@ -29,7 +26,7 @@ int  wait_for_state(uint32_t *a1)
   result = check_state_flag((unsigned int)a1);
   if ( !result )
   {
-    result = debug_printf(dword_10FFAC, a1);
+    result = debug_printf("get_native_pool_id: Invalid buffer passed: %x\n", a1);
     v5 = **(uint8_t **)off_10FFA4;
     if ( v5 != 1 )
     {
@@ -39,11 +36,11 @@ int  wait_for_state(uint32_t *a1)
       {
 LABEL_11:
         if ( !check_state_flag((unsigned int)a1) )
-          debug_printf(dword_10FFBC, a1);
+          debug_printf("get_user_id: Invalid buffer passed: %x\n", a1);
         return util_check_arg(dword_10FFB0, a1);
       }
-      if ( **(int16_t **)off_10FFA8 < 0 )
-        return irq_disable_mmio_write(dword_10FFB8, dword_10FFB4, 204);
+      if ( **(uint16_t **)off_10FFA8 < 0 )
+        return irq_disable_mmio_write((int)aNativeId3, (int)aPktMemFree, 204);
       return result;
     }
     return mmio_write_3(a1);
@@ -64,7 +61,7 @@ LABEL_11:
   {
     if ( v4 == 3 )
     {
-      if ( **(int16_t **)off_10FFA8 >= 0 )
+      if ( **(uint16_t **)off_10FFA8 >= 0 )
       {
         if ( v3 != 3 )
           return result;
@@ -72,7 +69,7 @@ LABEL_11:
       }
       if ( v3 == 3 )
         return assert_fail(a1);
-      return irq_disable_mmio_write(dword_10FFB8, dword_10FFB4, 204);
+      return irq_disable_mmio_write((int)aNativeId3, (int)aPktMemFree, 204);
     }
     goto LABEL_11;
   }
@@ -82,4 +79,3 @@ LABEL_11:
     return util_call_arg(a1);
   return result;
 }
-

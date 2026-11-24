@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_111FA8;
-extern uint32_t dword_111FB8;
+
 extern uint32_t dword_111FAC;
 extern uint32_t dword_111FB0;
 extern uint32_t dword_111FB4;
+extern uint32_t off_111FA8;
 
 // mac_read_queue_reg @ 0x111f08, size 158 bytes
 int  mac_read_queue_reg(int a1, int a2, unsigned int a3)
@@ -35,7 +35,7 @@ int  mac_read_queue_reg(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    debug_printf(dword_111FB8);
+    debug_printf(aErrAlignmentEr);
     return 3;
   }
   else
@@ -74,4 +74,3 @@ int  mac_read_queue_reg(int a1, int a2, unsigned int a3)
     }
   }
 }
-

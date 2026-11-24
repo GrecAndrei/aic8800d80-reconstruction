@@ -10,116 +10,101 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_119ACC;
-extern uint32_t dword_119AD0;
-extern uint32_t dword_119AD8;
-extern uint32_t dword_119ADC;
-extern uint32_t dword_119AE0;
-extern uint32_t dword_119AE4;
-extern uint32_t dword_119AD4;
 
-// ke_alloc_msg_0x88 @ 0x1199cc, size 254 bytes
-// Doc: sub_12199CC [rf]: Allocates 0x88-byte context and initializes RF object
-// sub_12199CC [rf]: Allocates 0x88-byte context and initializes RF object
-int  ke_alloc_msg_0x88(int a1, int *a2, int a3, int a4)
+extern uint32_t off_119ACC;
+
+// sub_1199CC @ 0x1199cc, size 254 bytes
+int  sub_1199CC(int a1, int *a2, uint16_t a3, uint16_t a4)
 {
   int v5; // r6
   int v6; // r0
   int v7; // r4
   int v8; // r1
-  int v9; // r0
   int result; // r0
-  int v11; // r0
-  int v12; // r1
-  uint32_t *v13; // r6
-  int v14; // r3
-  int v15; // r1
-  int v16; // r0
-  uint8_t *v17; // r5
+  int v10; // r1
+  int v11; // r6
+  int v12; // r3
+  int v13; // r1
+  int v14; // r5
+  char v15; // r0
+  int v16; // r1
+  int v17; // r5
   int v18; // r1
-  uint32_t *v19; // r5
-  int v20; // r0
-  int v21; // r0
-  int v22; // r1
 
   v5 = *a2;
-  v6 = ke_msg_send(136, a4, a3, 8);
+  v6 = sub_11DDF0(136, a4, a3, 8);
   v7 = v6;
   *(uint32_t *)v6 = v5;
   switch ( v5 )
   {
     case 0:
       v8 = *((uint8_t *)a2 + 4);
-      *((uint8_t *)off_119ACC + 373) = v8;
-      v9 = dword_119AD0;
-      *(uint8_t *)(v7 + 4) = v8;
-      dispatch_event_handler(v9, v8);
+      *(uint8_t *)(off_119ACC + 0x175) = v8;
+      *(uint8_t *)(v6 + 4) = v8;
+      sub_11F504("tim_bcmc_ign:%x\n", v8);
       goto LABEL_3;
     case 1:
-      v13 = off_119ACC;
-      v14 = *((uint8_t *)a2 + 4);
-      v15 = *((uint8_t *)off_119ACC + 363);
-      *((uint8_t *)off_119ACC + 363) = v14;
-      v13[91] = a2[2];
-      if ( v14 != v15 )
+      v11 = off_119ACC;
+      v12 = *((uint8_t *)a2 + 4);
+      v13 = *(uint8_t *)(off_119ACC + 0x16B);
+      *(uint8_t *)(off_119ACC + 0x16B) = v12;
+      *(uint32_t *)(v11 + 0x16C) = a2[2];
+      if ( v12 != v13 )
       {
-        if ( v14 )
+        if ( v12 )
         {
-          v16 = rf_read_trim(v6);
-          rf_enable(v16);
+          sub_12704C();
+          sub_127108();
         }
         else
         {
-          rf_disable();
+          sub_12716C();
         }
-        v15 = *((uint8_t *)v13 + 363);
+        v13 = *(uint8_t *)(v11 + 0x16B);
       }
-      *(uint8_t *)(v7 + 4) = v15;
-      dispatch_event_handler(dword_119AD8, v15);
-      rx_irq_handler(v7);
+      *(uint8_t *)(v7 + 4) = v13;
+      sub_11F504("temp_comp_en:%x\n", v13);
+      sub_11DE50(v7);
       result = 0;
       break;
     case 2:
-      v17 = (uint8_t *)off_119ACC;
-      *(uint8_t *)(v6 + 4) = *((uint8_t *)off_119ACC + 363);
-      *(uint8_t *)(v6 + 5) = mac_packet_dispatch();
-      dispatch_event_handler(dword_119ADC, v17[363]);
-      rx_irq_handler(v7);
+      v14 = off_119ACC;
+      *(uint8_t *)(v6 + 4) = *(uint8_t *)(off_119ACC + 0x16B);
+      v15 = sub_126E54();
+      *(uint8_t *)(v7 + 5) = v15;
+      sub_11F504("temp_comp_en:%x,t=%d\n", *(uint8_t *)(v14 + 0x16B), v15);
+      sub_11DE50(v7);
       result = 0;
       break;
     case 3:
-      v18 = a2[1];
-      v19 = off_119ACC;
-      v20 = dword_119AE0;
-      *((uint32_t *)off_119ACC + 98) = v18;
-      dispatch_event_handler(v20, v18);
-      *(uint32_t *)(v7 + 4) = v19[98];
-      rx_irq_handler(v7);
+      v16 = a2[1];
+      v17 = off_119ACC;
+      *(uint32_t *)(off_119ACC + 0x188) = v16;
+      sub_11F504("set ext_flags:0x%x\n", v16);
+      *(uint32_t *)(v7 + 4) = *(uint32_t *)(v17 + 0x188);
+      sub_11DE50(v7);
       result = 0;
       break;
     case 4:
-      v21 = dword_119AE4;
-      v22 = *((uint32_t *)off_119ACC + 98);
-      *(uint32_t *)(v7 + 4) = v22;
-      dispatch_event_handler(v21, v22);
-      rx_irq_handler(v7);
+      v18 = *(uint32_t *)(off_119ACC + 0x188);
+      *(uint32_t *)(v6 + 4) = v18;
+      sub_11F504("get ext_flags:0x%x\n", v18);
+      sub_11DE50(v7);
       result = 0;
       break;
     case 5:
-      v11 = dword_119AD4;
-      v12 = (a2[2] ^ *((uint32_t *)off_119ACC + 98)) & a2[1] ^ *((uint32_t *)off_119ACC + 98);
-      *((uint32_t *)off_119ACC + 98) = v12;
-      *(uint32_t *)(v7 + 4) = v12;
-      dispatch_event_handler(v11, v12);
-      rx_irq_handler(v7);
+      v10 = (a2[2] ^ *(uint32_t *)(off_119ACC + 0x188)) & a2[1] ^ *(uint32_t *)(off_119ACC + 0x188);
+      *(uint32_t *)(off_119ACC + 0x188) = v10;
+      *(uint32_t *)(v6 + 4) = v10;
+      sub_11F504("mask set ext_flags:0x%x\n", v10);
+      sub_11DE50(v7);
       result = 0;
       break;
     default:
 LABEL_3:
-      rx_irq_handler(v7);
+      sub_11DE50(v7);
       result = 0;
       break;
   }
   return result;
 }
-

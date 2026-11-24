@@ -10,109 +10,99 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_130268;
+extern uint32_t dword_130278;
 extern uint32_t off_130260;
 extern uint32_t off_130264;
-extern uint32_t dword_130268;
-extern uint32_t dword_13026C;
-extern uint32_t dword_130280;
-extern uint32_t dword_130284;
-extern uint32_t dword_13027C;
-extern uint32_t dword_130270;
-extern uint32_t dword_130274;
-extern uint32_t dword_130278;
+extern uint32_t off_13026C;
 
 // parse_large_ioctl @ 0x130170, size 238 bytes
-// Doc: sub_1230170_handler [unknown]: Pushes r4-r8,sb,lr; allocates 0x4c stack; handler stub
-// sub_1230170_handler [unknown]: Pushes r4-r8,sb,lr; allocates 0x4c stack; handler stub
-uint8_t *parse_large_ioctl()
+int  parse_large_ioctl(int a1, int a2)
 {
-  int *v0; // r6
-  int v1; // r0
-  uint8_t *result; // r0
-  uint8_t *v3; // r4
-  int v4; // r3
-  int v5; // r2
-  uint32_t *v6; // r7
-  int v7; // r8
-  int v8; // r9
+  int *v2; // r6
+  int v3; // r0
+  int result; // r0
+  int v5; // r4
+  int v6; // r3
+  int v7; // r2
+  uint8_t **v8; // r7
   int v9; // r5
   int v10; // r0
   int v11; // r3
   int v12; // r2
-  uint32_t *v13; // r0
+  uint8_t **v13; // r0
   int v14; // r0
-  int v15[18]; // [sp+4h] [bp-48h] BYREF
+  uint8_t *a1a[18]; // [sp+4h] [bp-48h] BYREF
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_130260 = 1;
   }
-  v0 = (int *)off_130264;
-  v1 = dword_130268;
+  v2 = (int *)off_130264;
+  v3 = dword_130268;
   ++*(uint32_t *)off_130264;
-  result = (uint8_t *)mem_word_load(v1);
-  v3 = result;
-  if ( *v0 )
+  result = (int)mem_word_load(v3);
+  v5 = result;
+  if ( *v2 )
   {
-    v4 = *v0 - 1;
-    v5 = *(uint32_t *)off_130260;
-    *v0 = v4;
-    if ( !v4 )
+    v6 = *v2 - 1;
+    v7 = *(uint32_t *)off_130260;
+    *v2 = v6;
+    if ( !v6 )
     {
-      if ( v5 )
+      if ( v7 )
         __enable_irq();
     }
   }
   if ( result )
   {
-    v6 = (uint32_t *)dword_13026C;
-    v7 = dword_130280;
-    v8 = dword_130284;
+    v8 = (uint8_t **)off_13026C;
     do
     {
-      v9 = parse_token_until_space(v3 + 4, (int)v15);
+      v9 = parse_token_until_space((uint8_t *)(v5 + 4), (int)a1a);
       if ( v9 )
       {
-        v13 = parse_ipv4_dot(v15[0], v6, 7);
+        v13 = parse_ipv4_dot(a1a[0], v8, 7);
         if ( v13 )
         {
-          if ( *((int16_t *)v13 + 5) < v9 || *((int16_t *)v13 + 4) > v9 )
+          if ( *((uint16_t *)v13 + 5) < v9 || *((uint16_t *)v13 + 4) > v9 )
           {
-            log_printf(v7, *v13, v13[1]);
+            log_printf(aUsageSS, *v13, v13[1]);
           }
           else
           {
-            v14 = ((int ( *)(int, int *))v13[3])(v9, v15);
+            v14 = ((int ( *)(int, uint8_t **))v13[3])(v9, a1a);
             if ( v14 )
-              log_printf(v8, v14);
+              log_printf("Command fail, ret=%d\r\n", v14);
           }
         }
         else
         {
-          log_printf(dword_13027C, v15[0]);
+          log_printf("Unknown command '%s'\r\n", (const char *)a1a[0]);
         }
       }
       else
       {
-        read_memory_byte((uint8_t *)dword_130270);
+        read_memory_byte(aNoCommand);
       }
-      read_memory_byte((uint8_t *)dword_130274);
+      read_memory_byte(aAic);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
         *(uint32_t *)off_130260 = 1;
       }
       v10 = dword_130278;
-      ++*v0;
-      cmd_handler_a(v10, v3);
-      result = (uint8_t *)mem_word_load(dword_130268);
-      v3 = result;
-      if ( *v0 )
+      ++*v2;
+      cmd_handler_a(v10, (uint32_t *)v5);
+      result = (int)mem_word_load(dword_130268);
+      v5 = result;
+      if ( *v2 )
       {
-        v11 = *v0 - 1;
+        v11 = *v2 - 1;
         v12 = *(uint32_t *)off_130260;
-        *v0 = v11;
+        *v2 = v11;
         if ( !v11 )
         {
           if ( v12 )
@@ -124,4 +114,3 @@ uint8_t *parse_large_ioctl()
   }
   return result;
 }
-

@@ -10,9 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_112ED4;
+extern uint32_t off_112ED0;
+
 // critical_section_run @ 0x112e6c, size 100 bytes
-// Doc: rf_stream_start2_n_3da [rf]: Start RF streaming after pre-check, gate by mode byte
-// rf_stream_start2_n_3da [rf]: Start RF streaming after pre-check, gate by mode byte
 int  critical_section_run(int a1, uint16_t *a2)
 {
   int v4; // r2
@@ -20,7 +22,7 @@ int  critical_section_run(int a1, uint16_t *a2)
   int v6; // r2
 
   critical_enter();
-  if ( *(uint8_t *)rf_stream_start2_n_37b != 4 )
+  if ( *(uint8_t *)off_112ED0 != 4 )
     return 1;
   v4 = a1 - 1;
   if ( (uint8_t)(a1 - 1) > 5u )
@@ -28,11 +30,10 @@ int  critical_section_run(int a1, uint16_t *a2)
   if ( (*((uint32_t *)&REG_4020_0900 + 8 * a1) & 0x8000) == 0 )
     return 5;
   v5 = 32 * v4 + 0x40000000;
-  v6 = rf_stream_start2_alt + 16 * v4;
+  v6 = dword_112ED4 + 16 * v4;
   *(uint32_t *)(v6 + 4) = *a2;
   *(uint8_t *)(v6 + 11) = 1;
   *(uint32_t *)(v5 + 2099508) = a2;
   *((uint32_t *)&REG_4020_0900 + 8 * a1) |= 0x84000000;
   return 0;
 }
-

@@ -10,11 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10F500;
 extern uint32_t off_10F504;
+extern uint32_t off_10F508;
 
 // mem_get_stats @ 0x10f4b8, size 70 bytes
-void __noreturn mem_get_stats()
+int mem_get_stats()
 {
   uint64_t v0; // r0
   uint64_t v1; // kr00_8
@@ -27,5 +29,9 @@ void __noreturn mem_get_stats()
   *v2 = v1;
   v2[1] = v0;
   configure_dma_engine();
+  get_device_config();
+  nvic_enable_irq();
+  if ( **(uint8_t **)off_10F508 == 3 )
+    clear_buffer_180a0c();
+  return clear_mac_info();
 }
-

@@ -10,11 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_102E80;
-extern uint32_t off_102E7C;
 
-// gpio_set_high @ 0x102e48, size 50 bytes
-int  gpio_set_high(int a1)
+extern uint32_t off_102E7C;
+extern uint32_t off_102E80;
+
+// sub_102E48 @ 0x102e48, size 50 bytes
+int  sub_102E48(int a1)
 {
   int *v1; // r2
   int v2; // r3
@@ -32,6 +33,5 @@ int  gpio_set_high(int a1)
     v2 = *v1 | 0x400;
   }
   *v1 = v2;
-  return dma_init(a1);
+  return sub_102E04(a1);
 }
-

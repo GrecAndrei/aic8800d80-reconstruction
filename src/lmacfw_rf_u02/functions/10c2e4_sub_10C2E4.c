@@ -10,166 +10,168 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10C3DC;
+
+extern uint32_t dword_10C3E8;
+extern uint32_t dword_10C73C;
+extern uint32_t dword_10C77C;
+extern uint32_t dword_10C780;
+extern uint32_t dword_10C790;
+extern uint32_t dword_10C798;
+extern uint32_t dword_10CA74;
+extern uint32_t dword_10CBBC;
+extern uint32_t dword_10CBCC;
 extern uint32_t off_10C3D8;
+extern uint32_t off_10C3DC;
 extern uint32_t off_10C3E0;
 extern uint32_t off_10C3E4;
-extern uint32_t dword_10C3E8;
-extern uint32_t off_10C3F8;
-extern uint32_t off_10CA80;
-extern uint32_t off_10CA7C;
 extern uint32_t off_10C3EC;
 extern uint32_t off_10C3F0;
-extern uint32_t off_10CAA4;
-extern uint32_t off_10CAA8;
 extern uint32_t off_10C3F4;
+extern uint32_t off_10C3F8;
 extern uint32_t off_10C71C;
 extern uint32_t off_10C720;
 extern uint32_t off_10C724;
-extern uint32_t dword_10C728;
 extern uint32_t off_10C72C;
-extern uint32_t dword_10C730;
 extern uint32_t off_10C734;
-extern uint32_t dword_10CA8C;
-extern uint32_t dword_10C790;
-extern uint32_t off_10C794;
 extern uint32_t off_10C738;
-extern uint32_t dword_10C798;
-extern uint32_t off_10C79C;
-extern uint32_t dword_10C73C;
-extern uint32_t off_10CA90;
-extern uint32_t dword_10CBCC;
-extern uint32_t off_10CBDC;
-extern uint32_t dword_10CBD0;
-extern uint32_t dword_10CBC0;
-extern uint32_t dword_10CBC4;
-extern uint32_t off_10CBD4;
-extern uint32_t dword_10CBC8;
-extern uint32_t off_10CBD8;
-extern uint32_t dword_10CBB8;
-extern uint32_t dword_10CBBC;
-extern uint32_t dword_10C740;
-extern uint32_t dword_10CA84;
-extern uint32_t off_10CA88;
 extern uint32_t off_10C744;
 extern uint32_t off_10C748;
-extern uint32_t off_10C750;
 extern uint32_t off_10C74C;
-extern uint32_t dword_10C754;
+extern uint32_t off_10C750;
+extern uint32_t off_10C754;
 extern uint32_t off_10C758;
-extern uint32_t dword_10C75C;
-extern uint32_t dword_10C760;
+extern uint32_t off_10C75C;
+extern uint32_t off_10C760;
 extern uint32_t off_10C764;
 extern uint32_t off_10C768;
-extern uint32_t dword_10C76C;
-extern uint32_t dword_10C770;
-extern uint32_t dword_10C774;
+extern uint32_t off_10C76C;
+extern uint32_t off_10C770;
+extern uint32_t off_10C774;
+extern uint32_t off_10C778;
+extern uint32_t off_10C784;
+extern uint32_t off_10C794;
+extern uint32_t off_10C79C;
+extern uint32_t off_10C7A0;
+extern uint32_t off_10C7A4;
+extern uint32_t off_10CA68;
+extern uint32_t off_10CA6C;
+extern uint32_t off_10CA70;
+extern uint32_t off_10CA78;
+extern uint32_t off_10CA7C;
+extern uint32_t off_10CA80;
+extern uint32_t off_10CA84;
+extern uint32_t off_10CA88;
+extern uint32_t off_10CA90;
 extern uint32_t off_10CA94;
 extern uint32_t off_10CA98;
 extern uint32_t off_10CA9C;
+extern uint32_t off_10CAA4;
+extern uint32_t off_10CAA8;
+extern uint32_t off_10CAAC;
+extern uint32_t off_10CBC8;
+extern uint32_t off_10CBD4;
+extern uint32_t off_10CBD8;
+extern uint32_t off_10CBDC;
 
-// configure_dma_engine @ 0x10c2e4, size 2260 bytes
-void __noreturn configure_dma_engine()
+// sub_10C2E4 @ 0x10c2e4, size 2260 bytes
+int sub_10C2E4()
 {
   uint8_t *v0; // r0
   int *v1; // r2
   uint32_t *v2; // r3
   int v3; // r5
   uint32_t *v4; // r4
-  uint32_t *v5; // r10
+  int *v5; // r10
   int v6; // r1
   uint32_t *v7; // r3
   uint32_t *v8; // r1
   int v9; // r0
-  int v10; // r0
-  int v11; // r0
-  int inited; // r0
-  uint32_t *v13; // r3
-  uint32_t *v14; // r1
-  uint32_t *v15; // r4
-  unsigned int v16; // r0
-  int v17; // r2
-  int v18; // r0
-  int v19; // r1
-  int v20; // r4
-  void *v21; // r2
+  uint32_t *v10; // r3
+  uint32_t *v11; // r1
+  uint32_t *v12; // r4
+  unsigned int v13; // r0
+  int v14; // r1
+  int v15; // r4
+  int v16; // r3
+  int v17; // r4
+  uint8_t *v18; // r8
+  uint32_t *v19; // r9
+  uint8_t *v20; // r7
+  int v21; // r5
   int v22; // r0
-  int v23; // r3
-  int v24; // r4
-  uint8_t *v25; // r8
-  uint32_t *v26; // r9
-  uint8_t *v27; // r7
-  int v28; // r5
-  int v29; // r0
-  int v30; // r8
-  uint32_t *v31; // r9
-  int v32; // r4
+  int v23; // r8
+  uint32_t *v24; // r9
+  int v25; // r4
   int i; // r5
-  int v34; // r0
-  uint8_t *v35; // r1
+  int v27; // r0
+  uint8_t *v28; // r1
   int j; // r3
-  int v37; // r2
-  unsigned int v38; // r1
-  int v39; // r2
-  int v40; // r0
+  int v30; // r2
+  unsigned int v31; // r1
+  unsigned int v32; // r0
+  uint32_t *v33; // r4
+  uint32_t *v34; // r3
+  uint32_t *v35; // r2
+  int *v36; // r3
+  int *v37; // r1
+  int *v38; // r2
+  uint8_t *v39; // r10
+  int v40; // r5
   int v41; // r0
-  uint32_t *v42; // r4
-  uint32_t *v43; // r3
-  uint32_t *v44; // r2
-  int v45; // r3
-  int *v46; // r1
-  uint32_t *v47; // r2
+  uint16_t *v42; // r7
+  int v43; // r2
+  int v44; // r0
+  int result; // r0
+  uint32_t *v46; // r3
+  uint32_t *v47; // r1
   int *v48; // r2
-  int v49; // r3
-  int v50; // r0
-  int v51; // r5
-  uint8_t *v52; // r4
-  int v53; // r0
-  int v54; // r2
-  int v55; // r1
-  int v56; // r2
-  uint8_t *v57; // r7
-  int v58; // r1
-  int v59; // r2
-  unsigned int v60; // r3
-  int *v61; // r7
-  uint32_t *v62; // r3
-  uint32_t *v63; // r1
-  uint8_t *v64; // r3
-  char v65; // r1
-  char v66; // r2
-  uint32_t *v67; // r9
-  int v68; // r2
+  int v49; // r1
+  int *v50; // r3
+  int *v51; // r1
+  int *v52; // r2
+  int v53; // r3
+  int v54; // r0
+  int *v55; // r5
+  uint8_t *v56; // r4
+  unsigned int v57; // r0
+  uint8_t *v58; // r7
+  unsigned int v59; // r3
+  int *v60; // r7
+  int v61; // r0
+  uint8_t *v62; // r10
+  uint32_t *v63; // r3
+  uint32_t *v64; // r1
+  uint8_t *v65; // r3
+  char v66; // r1
+  char v67; // r2
+  _UNKNOWN **v68; // r9
   int v69; // r7
   uint32_t *v70; // r6
   int v71; // r9
-  char *v72; // r11
+  uint8_t *v72; // r11
   uint8_t *v73; // r8
   int v74; // r5
-  int v75; // t1
-  int v76; // r0
-  int v77; // r1
-  int v78; // r1
-  int v79; // r5
-  uint32_t *v80; // r9
-  int v81; // r2
-  int v82; // r11
-  uint8_t *v83; // r6
-  uint32_t *v84; // r4
-  char *v85; // r7
-  uint8_t *v86; // r9
-  int v87; // r5
-  int v88; // t1
-  int v89; // r0
-  int v90; // r3
-  int v91; // r1
-  uint8_t *v92; // [sp+8h] [bp-A4h]
-  uint32_t *v93; // [sp+8h] [bp-A4h]
-  uint8_t *v94; // [sp+Ch] [bp-A0h]
-  int16_t v95; // [sp+12h] [bp-9Ah] BYREF
-  int v96; // [sp+14h] [bp-98h] BYREF
-  uint32_t v97[3]; // [sp+18h] [bp-94h] BYREF
-  uint8_t v98[136]; // [sp+24h] [bp-88h] BYREF
+  char v75; // t1
+  int v76; // r1
+  int v77; // r5
+  _UNKNOWN **v78; // r9
+  int v79; // r11
+  uint8_t *v80; // r6
+  uint32_t *v81; // r4
+  int *v82; // r7
+  uint8_t *v83; // r9
+  int v84; // r5
+  char v85; // t1
+  int v86; // r3
+  uint8_t *v87; // [sp+8h] [bp-A4h]
+  int *v88; // [sp+8h] [bp-A4h]
+  uint8_t *v89; // [sp+Ch] [bp-A0h]
+  uint8_t a1[2]; // [sp+12h] [bp-9Ah] BYREF
+  int v91; // [sp+14h] [bp-98h] BYREF
+  int v92; // [sp+18h] [bp-94h] BYREF
+  int v93; // [sp+1Ch] [bp-90h]
+  int v94; // [sp+20h] [bp-8Ch]
+  uint8_t v95[136]; // [sp+24h] [bp-88h] BYREF
 
   v0 = off_10C3DC;
   *((uint32_t *)off_10C3D8 + 64) = 8;
@@ -190,10 +192,10 @@ void __noreturn configure_dma_engine()
   *v1 = *v1 & 0x37F | 0x80 | v3 & *v1;
   if ( v6 && (v1[12] & 0x40) == 0 && (v1[12] & 4) != 0 )
   {
-    v48 = (int *)off_10CA80;
-    v49 = v5[42] | 0x2000000;
+    v52 = (int *)off_10CA80;
+    v53 = v5[42] | 0x2000000;
     *(uint8_t *)off_10CA7C = 1;
-    *v48 = v49;
+    *v52 = v53;
     v4[14] |= 0x10u;
   }
   else
@@ -204,14 +206,14 @@ void __noreturn configure_dma_engine()
   {
     if ( **(uint8_t **)off_10C3F0 == 2 )
     {
-      v62 = off_10CAA4;
-      v63 = off_10CAA8;
+      v63 = off_10CAA4;
+      v64 = off_10CAA8;
       *((uint32_t *)off_10CAA4 + 20) |= 0x40000u;
-      v63[7] &= ~0x100u;
-      v62[9] = v62[9] & 0xFFFFFF00 | 0x60;
-      v62[9] = v62[9] & 0xFFFF00FF | 0xDF00;
+      v64[7] &= ~0x100u;
+      v63[9] = v63[9] & 0xFFFFFF00 | 0x60;
+      v63[9] = v63[9] & 0xFFFF00FF | 0xDF00;
 LABEL_11:
-      v10 = panic_fatal();
+      sub_10D4C8();
       if ( !*(uint32_t *)off_10C3F4 )
         goto LABEL_15;
       goto LABEL_12;
@@ -229,281 +231,367 @@ LABEL_11:
   }
   else
   {
-    v13 = off_10C71C;
-    v14 = off_10C720;
+    v10 = off_10C71C;
+    v11 = off_10C720;
     *((uint32_t *)off_10C71C + 20) |= 0x40000u;
-    v14[7] &= ~0x100u;
-    v13[9] = v13[9] & 0xFFFFFF00 | 0x60;
-    v13[9] = v13[9] & 0xFFFF00FF | 0xDF00;
+    v11[7] &= ~0x100u;
+    v10[9] = v10[9] & 0xFFFFFF00 | 0x60;
+    v10[9] = v10[9] & 0xFFFF00FF | 0xDF00;
   }
-  v10 = rf_phy_init();
-  if ( !*(uint32_t *)off_10C724 )
+  sub_10D474();
+  if ( *(uint32_t *)off_10C724 )
   {
+LABEL_12:
+    sub_10F1E0();
+    sub_10E798();
+    sub_10E4D8();
+  }
 LABEL_15:
-    v15 = off_10C720;
-    check_chip_flag();
-    v15[4] |= 2u;
-    save_rf_context();
-    v95 = 0;
-    if ( (*v15 & 0x2000000) != 0 )
+  v12 = off_10C720;
+  sub_10300C();
+  v12[4] |= 2u;
+  sub_103334();
+  a1[0] = 0;
+  a1[1] = 0;
+  if ( (*v12 & 0x2000000) == 0 )
+  {
+    *(uint32_t *)v95 = 0;
+    if ( sub_114558((int)v95) )
     {
-      mmio_read_status(&v95);
-      mmio_read_byte((char *)&v95 + 1);
-      v16 = (uint8_t)v95;
-      if ( (uint8_t)v95 )
-      {
+      v13 = a1[0];
+    }
+    else
+    {
+      v13 = v95[0];
+      a1[0] = v95[0];
+      a1[1] = v95[1];
+    }
+    if ( v13 )
+      goto LABEL_19;
+LABEL_60:
+    sub_10F170(15);
+    goto LABEL_22;
+  }
+  sub_113B88(a1);
+  sub_113BE8(&a1[1]);
+  v13 = a1[0];
+  if ( !a1[0] )
+    goto LABEL_60;
 LABEL_19:
-        if ( v16 > 0x1F )
-        {
-          v16 = 31;
-          LOBYTE(v95) = 31;
-        }
-        set_xtal_ftune(v16);
-        v18 = log_printf(dword_10C728, (uint8_t)v95, v17);
+  if ( v13 > 0x1F )
+  {
+    v13 = 31;
+    a1[0] = 31;
+  }
+  sub_10F170(v13);
+  sub_10DA6C("set xtal_cap 0x%x\n", a1[0]);
 LABEL_22:
-        v19 = HIBYTE(v95);
-        if ( HIBYTE(v95) )
+  v14 = a1[1];
+  if ( a1[1] )
+  {
+    if ( a1[1] <= 0x3Fu )
+    {
+      v15 = (a1[1] << 18) & 0xFC0000;
+    }
+    else
+    {
+      v14 = 63;
+      a1[1] = 63;
+      v15 = 16515072;
+    }
+    *(uint32_t *)off_10C72C = *(uint32_t *)off_10C72C & 0xFF03FFFF | v15;
+    sub_10DA6C("set xtal_cap_fine 0x%x\n", v14);
+  }
+  v16 = *(uint8_t *)off_10C734;
+  if ( (v16 == 7 || v16 == 193) && !sub_113B4C() )
+  {
+    v57 = sub_113B5C(3);
+    if ( v57 != 3 )
+      sub_10DA6C("sdio_cfg error: %x\n", v57);
+  }
+  v17 = HIBYTE(*(uint32_t *)off_10C720) & 2;
+  if ( v17 )
+  {
+    v18 = (uint8_t *)dword_10C790;
+    v19 = off_10C794;
+    v20 = off_10C738;
+    v21 = 0;
+    do
+    {
+      v22 = sub_113DF8(v21, *v19 + 3 * v21);
+      ++v21;
+      if ( v22 != 546 )
+        v20[1] |= 1u;
+      *v18 = v22 & 0xF;
+      v18[1] = (uint8_t)v22 >> 4;
+      v18[2] = BYTE1(v22) & 0xF;
+      v18 += 3;
+    }
+    while ( v21 != 3 );
+    v23 = dword_10C798;
+    v24 = off_10C79C;
+    v25 = dword_10C73C;
+    for ( i = 0; i != 3; ++i )
+    {
+      v27 = sub_113F3C(i, *v24 + 6 * i);
+      if ( v27 != v25 )
+        v20[1] |= 1u;
+      v28 = (uint8_t *)v23;
+      for ( j = 0; j != 24; j += 4 )
+      {
+        v30 = v27 >> j;
+        *v28++ = v30 & 0xF;
+      }
+      v23 += 6;
+    }
+    v31 = 31 - __clz(sub_114208());
+    *v20 = v31;
+  }
+  else
+  {
+    v93 = 0;
+    v94 = 0;
+    v92 = 0;
+    if ( sub_114570((int)&v92) )
+    {
+      v58 = off_10CA90;
+    }
+    else
+    {
+      v77 = dword_10CBCC;
+      v78 = off_10CBDC;
+      sub_10DA6C(aFlTxpwrOfst24g);
+      v79 = 0;
+      v88 = &v92;
+      v80 = (uint8_t *)v77;
+      v81 = v78;
+      do
+      {
+        sub_10DA6C("\r\n  [%d] =", v79);
+        v82 = v88;
+        v83 = v80;
+        v84 = 0;
+        do
         {
-          if ( HIBYTE(v95) <= 0x3Fu )
-          {
-            v20 = (HIBYTE(v95) << 18) & 0xFC0000;
-          }
-          else
-          {
-            v19 = 63;
-            HIBYTE(v95) = 63;
-            v20 = 16515072;
-          }
-          v21 = off_10C72C;
-          v22 = dword_10C730;
-          *(uint32_t *)off_10C72C = *(uint32_t *)off_10C72C & 0xFF03FFFF | v20;
-          v18 = log_printf(v22, v19, v21);
+          v85 = *(uint8_t *)v82;
+          v82 = (int *)((char *)v82 + 1);
+          *(uint8_t *)(*v81 + v84 + 3 * v79) = v85;
+          v86 = *v81 + v84++;
+          sub_10DA6C(" %d", *(char *)(v86 + 3 * v79));
+          *v83++ = 15;
         }
-        v23 = *(uint8_t *)off_10C734;
-        if ( (v23 == 7 || v23 == 193) && !rf_get_reg1_bits13_16(v18) )
+        while ( v84 != 3 );
+        ++v79;
+        v88 = (int *)((char *)v88 + 3);
+        v80 += 3;
+      }
+      while ( v79 != 3 );
+      v58 = off_10CBD4;
+      v17 = 0;
+      sub_10DA6C((const char *)off_10CBC8);
+      v58[1] |= 1u;
+    }
+    memset(v95, 0, 20);
+    if ( !sub_114588((int)v95) )
+    {
+      v68 = off_10CBD8[0];
+      sub_10DA6C(aFlTxpwrOfst5g);
+      v89 = v58;
+      v69 = dword_10CBBC;
+      v87 = v95;
+      v70 = v68;
+      v71 = 0;
+      do
+      {
+        sub_10DA6C("\r\n  [%d] =", v71);
+        v72 = v87;
+        v73 = (uint8_t *)v69;
+        v74 = 0;
+        do
         {
-          v53 = mmio_rmw_field(3);
-          if ( v53 != 3 )
-            log_printf(dword_10CA8C, v53, v54);
+          v75 = *v72++;
+          *(uint8_t *)(*v70 + v17 + v74) = v75;
+          v76 = *(char *)(*v70 + v17 + v74++);
+          sub_10DA6C(" %d", v76);
+          *v73++ = 15;
         }
-        v24 = HIBYTE(*(uint32_t *)off_10C720) & 2;
-        if ( v24 )
-        {
-          v25 = (uint8_t *)dword_10C790;
-          v26 = off_10C794;
-          v27 = off_10C738;
-          v28 = 0;
-          do
-          {
-            v29 = tx_desc_init(v28, *v26 + 3 * v28);
-            ++v28;
-            if ( v29 != 546 )
-              v27[1] |= 1u;
-            *v25 = v29 & 0xF;
-            v25[1] = (uint8_t)v29 >> 4;
-            v25[2] = BYTE1(v29) & 0xF;
-            v25 += 3;
-          }
-          while ( v28 != 3 );
-          v30 = dword_10C798;
-          v31 = off_10C79C;
-          v32 = dword_10C73C;
-          for ( i = 0; i != 3; ++i )
-          {
-            v34 = rx_desc_init(i, *v31 + 6 * i);
-            if ( v34 != v32 )
-              v27[1] |= 1u;
-            v35 = (uint8_t *)v30;
-            for ( j = 0; j != 24; j += 4 )
-            {
-              v37 = v34 >> j;
-              *v35++ = v37 & 0xF;
-            }
-            v30 += 6;
-          }
-          v38 = 31 - __clz(rf_get_reg0x1b());
-          *v27 = v38;
-        }
-        else
-        {
-          memset(v97, 0, sizeof(v97));
-          if ( bus_read_12(v97) )
-          {
-            v57 = off_10CA90;
-          }
-          else
-          {
-            v79 = dword_10CBCC;
-            v80 = off_10CBDC;
-            log_printf(dword_10CBD0, v55, v56);
-            v82 = 0;
-            v93 = v97;
-            v83 = (uint8_t *)v79;
-            v84 = v80;
-            do
-            {
-              log_printf(dword_10CBC0, v82, v81);
-              v85 = (char *)v93;
-              v86 = v83;
-              v87 = 0;
-              do
-              {
-                v88 = *v85++;
-                v89 = dword_10CBC4;
-                *(uint8_t *)(*v84 + v87 + 3 * v82) = v88;
-                v90 = *v84 + v87++;
-                log_printf(v89, *(char *)(v90 + 3 * v82), v88);
-                *v86++ = 15;
-              }
-              while ( v87 != 3 );
-              ++v82;
-              v93 = (uint32_t *)((char *)v93 + 3);
-              v83 += 3;
-            }
-            while ( v82 != 3 );
-            v57 = off_10CBD4;
-            v24 = 0;
-            log_printf(dword_10CBC8, v91, v81);
-            v57[1] |= 1u;
-          }
-          memset(v98, 0, 20);
-          if ( !mmio_read_4(v98) )
-          {
-            v67 = off_10CBD8;
-            log_printf(dword_10CBB8, v58, v59);
-            v94 = v57;
-            v69 = dword_10CBBC;
-            v92 = v98;
-            v70 = v67;
-            v71 = 0;
-            do
-            {
-              log_printf(dword_10CBC0, v71, v68);
-              v72 = (char *)v92;
-              v73 = (uint8_t *)v69;
-              v74 = 0;
-              do
-              {
-                v75 = *v72++;
-                v76 = dword_10CBC4;
-                *(uint8_t *)(*v70 + v24 + v74) = v75;
-                v77 = *(char *)(*v70 + v24 + v74++);
-                log_printf(v76, v77, v75);
-                *v73++ = 15;
-              }
-              while ( v74 != 6 );
-              v24 += 6;
-              ++v71;
-              v92 += 6;
-              v69 += 6;
-            }
-            while ( v24 != 18 );
-            v57 = v94;
-            log_printf(dword_10CBC8, v78, v68);
-            v94[1] |= 1u;
-          }
-          if ( mmio_read_128(&v96) )
-          {
-            v38 = -1;
-            *v57 = -1;
-          }
-          else
-          {
-            v60 = (char)v96;
-            *v57 = v96;
-            v38 = v60;
-          }
-        }
-        v40 = log_printf(dword_10C740, v38, v39);
-        if ( *((uint8_t *)v5 + 372) )
-        {
-          if ( (*(uint32_t *)off_10C720 & 0x2000000) != 0 )
-          {
-            v40 = rf_get_reg0xf_bit18(v40);
-            if ( v40 )
-            {
-              v50 = rf_get_reg0x11_bits0_2();
-              v51 = dword_10CA84;
-              v52 = off_10CA88;
-              *(uint8_t *)off_10CA88 = *(uint8_t *)(dword_10CA84 + v50);
-              v52[1] = *(uint8_t *)(v51 + rf_get_reg0x11_bits3_5());
-              v40 = rf_get_reg0x11_bits6_8();
-              v52[2] = *(uint8_t *)(v51 + v40);
-            }
-          }
-          else
-          {
-            *(uint32_t *)v98 = 0;
-            v40 = mmio_read_32(v98);
-            if ( !v40 )
-            {
-              v64 = off_10CA88;
-              v40 = *(uint8_t *)(dword_10CA84 + v98[0]);
-              v65 = *(uint8_t *)(dword_10CA84 + v98[1]);
-              v66 = *(uint8_t *)(dword_10CA84 + v98[2]);
-              *(uint8_t *)off_10CA88 = v40;
-              v64[1] = v65;
-              v64[2] = v66;
-            }
-          }
-        }
-        v41 = rf_get_reg0xf_bit19(v40);
-        v42 = off_10C744;
-        if ( v41 )
-          *(uint32_t *)off_10C744 |= 1u;
-        if ( rf_get_reg0xf_bit20() )
-          *v42 |= 2u;
-        *(uint32_t *)off_10C748 &= 0xFFFFFFC7;
-        if ( (*(uint8_t *)off_10C734 & 0xC0) == 0xC0 )
-        {
-          v43 = off_10C750;
-          *(uint32_t *)off_10C74C = dword_10C754;
-          v44 = off_10C758;
-          *v43 = dword_10C75C;
-          v45 = dword_10C760;
-          v46 = (int *)off_10C764;
-          *v44 = dword_10C760;
-          v47 = off_10C768;
-          *v46 = v45;
-          *v47 = dword_10C76C;
-        }
-        memcpy_advance(0, 0, 0x10u, dword_10C770);
-        memcpy_advance(0, 16, 0x10u, dword_10C774);
-        if ( (*v42 & 2) == 0 )
-        {
-          v61 = (int *)off_10CA94;
-          memcpy_advance(0, 32, 0x10u, *((uint32_t *)off_10CA94 + 2));
-          memcpy_advance(0, 48, 0x10u, v61[1]);
-          memcpy_advance(0, 64, 0x10u, *v61);
-          memcpy_advance(1, 0, 0x10u, *(uint32_t *)off_10CA98);
-          memcpy_advance(1, 16, 0x10u, *(uint32_t *)off_10CA9C);
-        }
-        rf_cal_read_1();
-        rf_init_regs();
+        while ( v74 != 6 );
+        v17 += 6;
+        ++v71;
+        v87 += 6;
+        v69 += 6;
+      }
+      while ( v17 != 18 );
+      v58 = v89;
+      sub_10DA6C((const char *)off_10CBC8);
+      v89[1] |= 1u;
+    }
+    if ( sub_1145DC((int)&v91) )
+    {
+      v31 = -1;
+      *v58 = -1;
+    }
+    else
+    {
+      v59 = (char)v91;
+      *v58 = v91;
+      v31 = v59;
+    }
+  }
+  sub_10DA6C("cal_ver=%d\n", v31);
+  if ( *((uint8_t *)v5 + 372) )
+  {
+    if ( (*(uint32_t *)off_10C720 & 0x2000000) != 0 )
+    {
+      if ( sub_1141CC() )
+      {
+        v54 = sub_11413C();
+        v55 = (int *)off_10CA84;
+        v56 = off_10CA88;
+        *(uint8_t *)off_10CA88 = *((uint8_t *)off_10CA84 + v54);
+        v56[1] = *((uint8_t *)v55 + sub_11414C());
+        v56[2] = *((uint8_t *)v55 + sub_11415C());
       }
     }
     else
     {
-      *(uint32_t *)v98 = 0;
-      if ( bus_read32(v98) )
+      *(uint32_t *)v95 = 0;
+      if ( !sub_1145B8((int)v95) )
       {
-        v16 = (uint8_t)v95;
+        v65 = off_10CA88;
+        v66 = *((uint8_t *)off_10CA84 + v95[1]);
+        v67 = *((uint8_t *)off_10CA84 + v95[2]);
+        *(uint8_t *)off_10CA88 = *((uint8_t *)off_10CA84 + v95[0]);
+        v65[1] = v66;
+        v65[2] = v67;
       }
-      else
-      {
-        v16 = v98[0];
-        v95 = *(uint16_t *)v98;
-      }
-      if ( v16 )
-        goto LABEL_19;
     }
-    v18 = set_xtal_ftune(15);
-    goto LABEL_22;
   }
-LABEL_12:
-  v11 = chip_common_write(v10);
-  inited = periph_cmd_poll(v11);
-  periph_cmd_write(inited);
-  goto LABEL_15;
+  v32 = sub_1141DC();
+  v33 = off_10C744;
+  if ( v32 )
+    *(uint32_t *)off_10C744 |= 1u;
+  if ( sub_1141F8() )
+    *v33 |= 2u;
+  *(uint32_t *)off_10C748 &= 0xFFFFFFC7;
+  if ( (*(uint8_t *)off_10C734 & 0xC0) == 0xC0 )
+  {
+    v34 = off_10C750;
+    *off_10C74C = off_10C754;
+    v35 = (uint32_t *)off_10C758;
+    *v34 = off_10C75C;
+    v36 = (int *)off_10C760;
+    v37 = off_10C764;
+    *v35 = off_10C760;
+    v38 = (int *)off_10C768[0];
+    *v37 = (int)v36;
+    *v38 = (int)off_10C76C;
+  }
+  sub_102D4C(0, 0, 0x10u, off_10C770);
+  sub_102D4C(0, 16, 0x10u, off_10C774);
+  if ( (*v33 & 2) == 0 )
+  {
+    v60 = (int *)off_10CA94;
+    sub_102D4C(0, 32, 0x10u, (int)off_10CA94[2]);
+    sub_102D4C(0, 48, 0x10u, v60[1]);
+    sub_102D4C(0, 64, 0x10u, *v60);
+    sub_102D4C(1, 0, 0x10u, *(uint32_t *)off_10CA98);
+    sub_102D4C(1, 16, 0x10u, *(uint32_t *)off_10CA9C);
+  }
+  sub_100D18();
+  sub_1033C4(1);
+  sub_100C3C(0);
+  sub_1033C4(0);
+  if ( (*(uint8_t *)off_10C734 & 0xC0) != 0xC0 && (v5[98] & 4) != 0 )
+  {
+    v48 = (int *)off_10CA70;
+    v49 = dword_10CA74;
+    ((uint32_t *)(uintptr_t)off_10CA70)[13] = dword_10CA74;
+    v49 += 36;
+    v48[14] = v49;
+    v49 -= 37;
+    v48[109] = v49;
+    v49 += 27;
+    v48[110] = v49;
+    v49 -= 25;
+    v48[204] = v49;
+    v49 += 17;
+    v48[205] = v49;
+    v49 += 16;
+    v48[206] = v49;
+    v49 += 25;
+    v48[15] = v49;
+    v48[111] = v49;
+    v48[207] = v49;
+    v48[303] = v49;
+    v48[399] = v49;
+    v48[495] = v49;
+    v49 -= 48;
+    v50 = (int *)off_10CA78;
+    v48[300] = v49;
+    v48[396] = v49;
+    v48[492] = v49;
+    v49 += 16;
+    v48[301] = v49;
+    v48[397] = v49;
+    v48[493] = v49;
+    v49 += 16;
+    v48[302] = v49;
+    v48[398] = v49;
+    v48[494] = v49;
+    v51 = v50 + 1896;
+    do
+    {
+      v50[318] |= 0x8000u;
+      v50 += 316;
+    }
+    while ( v51 != v50 );
+  }
+  v39 = off_10C7A0;
+  v40 = dword_10C77C;
+  *(uint32_t *)off_10C778 |= 0x8000000u;
+  v92 = 3983;
+  v93 = v40;
+  *v39 = 2;
+  sub_10C1B4(0, 2437, (int)&v92, (int)v95);
+  *v39 = 0;
+  sub_102E84(0, 0, 0);
+  sub_10C1EC(0, 2437, (int)&v92, (int)v95, 1u, 0);
+  if ( (*v33 & 2) == 0 )
+  {
+    v62 = off_10CAAC;
+    v92 = 3855;
+    *(uint8_t *)off_10CAAC = 2;
+    sub_10C1B4(1, 5250, (int)&v92, (int)v95);
+    sub_10C1B4(1, 5500, (int)&v92, (int)v95);
+    sub_10C1B4(1, 5700, (int)&v92, (int)v95);
+    *v62 = 0;
+    sub_102E84(1, 0, 0);
+    sub_10C1EC(1, 5700, (int)&v92, (int)v95, 1u, 0);
+    sub_10C1EC(1, 5250, (int)&v92, (int)v95, 1u, 0);
+    sub_10C1EC(1, 5500, (int)&v92, (int)v95, 1u, 0);
+  }
+  v41 = sub_126E54();
+  v42 = off_10C784;
+  v43 = ((int)(((uint64_t)(dword_10C780 * (uint64_t)(4 * (v41 - 35))) >> 32) + 4 * (v41 - 35)) >> 2)
+      - ((4 * (v41 - 35)) >> 31)
+      + 120;
+  *(uint16_t *)off_10C7A4 = v43;
+  *v42 = v43;
+  sub_11F504("Init T=%d C, ipa_target=%d\n", v41, v43);
+  if ( (*v33 & 2) == 0 )
+  {
+    v61 = sub_10ED50((int)&v91);
+    sub_10DA6C("cal_ipa_5g offset=%d, cgm=%d\n", v61, v91);
+  }
+  v44 = sub_10EE7C();
+  sub_10DA6C("cal_ipa_24g offset=%d\n", v44);
+  sub_10C1EC(1, 5500, (int)&v92, (int)v95, 0, 1u);
+  result = sub_101E18(0, 2437, 0x985u, 0, 0, 0);
+  v46 = off_10CA68;
+  v47 = off_10CA6C;
+  *(uint32_t *)off_10CA68 |= 0x20000u;
+  *v46 |= 0x10000u;
+  *v47 |= 1u;
+  return result;
 }
-

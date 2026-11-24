@@ -10,11 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12F374;
-
 // mmio_write_field @ 0x12f35c, size 22 bytes
 int  mmio_write_field(int a1, int a2, int a3)
 {
-  return alloc_tx_event(dword_12F374, a1, a2, a3 & 0xFFFFF);
+  return alloc_tx_event("\x9BWARNING (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
 }
-

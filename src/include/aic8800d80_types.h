@@ -55,9 +55,14 @@ typedef void _UNKNOWN;
 #define SHIWORD(x)  ((int16_t)HIWORD(x))
 #define SLOWORD(x)  ((int16_t)LOWORD(x))
 #define SHIDWORD(x) ((int32_t)HIDWORD(x))
+#define SBYTE1(x)   ((int8_t)BYTE1(x))
+#define SBYTE2(x)   ((int8_t)BYTE2(x))
+#define SBYTE3(x)   ((int8_t)BYTE3(x))
+#define SBYTE4(x)   ((int8_t)BYTE4(x))
 
 /* Hex-Rays Pair & Shift Intrinsics */
 #define __PAIR64__(high, low) (((uint64_t)(uint32_t)(high) << 32) | (uint32_t)(low))
+#define __SPAIR64__(high, low) ((int64_t)__PAIR64__((high), (low)))
 #define __CFSHL__(x, y)       ((uint8_t)((((uint32_t)(uintptr_t)(x)) >> (32 - (y))) & 1))
 #define __clz(x)              ((x) ? __builtin_clz(x) : 32)
 
@@ -95,6 +100,15 @@ static inline uint32_t __ROR4__(uint32_t v, int n)  { return (v >> (n & 31)) | (
 static inline float COERCE_FLOAT(uint32_t v) { float f; __builtin_memcpy(&f, &v, sizeof(f)); return f; }
 static inline uint32_t COERCE_UINT32(float f) { uint32_t v; __builtin_memcpy(&v, &f, sizeof(v)); return v; }
 static inline uint32_t COERCE_UNSIGNED_INT(float v) { uint32_t r; __builtin_memcpy(&r, &v, sizeof(r)); return r; }
+static inline int32_t COERCE_INT(float v) { int32_t r; __builtin_memcpy(&r, &v, sizeof(r)); return r; }
+static inline int32_t hx_slodword_f64(double v) { uint64_t u; __builtin_memcpy(&u, &v, sizeof(u)); return (int32_t)(uint32_t)u; }
+#define SLODWORD(x) __builtin_choose_expr( \
+    __builtin_types_compatible_p(__typeof__(x), float), \
+    COERCE_INT(__builtin_choose_expr(__builtin_types_compatible_p(__typeof__(x), float), (x), 0.0f)), \
+    __builtin_choose_expr( \
+        __builtin_types_compatible_p(__typeof__(x), double), \
+        hx_slodword_f64(__builtin_choose_expr(__builtin_types_compatible_p(__typeof__(x), double), (x), 0.0)), \
+        ((int32_t)LODWORD(x))))
 static inline float vcvts_n_s32_f32(int32_t v, int n) { return (float)v * (float)(1u << n); }
 static inline float vcvts_n_f32_u32(uint32_t v, int n) { return (float)v * (float)(1u << n); }
 static inline uint8_t __CFADD__(uint32_t a, uint32_t b) { return ((a + b) < a); }

@@ -10,28 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1388D8;
+extern uint32_t dword_1388E4;
 extern uint32_t off_1388A8;
 extern uint32_t off_1388AC;
 extern uint32_t off_1388B0;
 extern uint32_t off_1388B4;
 extern uint32_t off_1388B8;
 extern uint32_t off_1388BC;
-extern uint32_t off_1388E0;
-extern uint32_t off_1388E8;
-extern uint32_t dword_1388E4;
 extern uint32_t off_1388C0;
-extern uint32_t dword_1388DC;
-extern uint32_t dword_1388C8;
-extern uint32_t dword_1388C4;
+extern uint32_t off_1388CC;
 extern uint32_t off_1388D0;
 extern uint32_t off_1388D4;
-extern uint32_t off_1388CC;
-extern uint32_t dword_1388D8;
+extern uint32_t off_1388E0;
 
 // periodic_task_handler @ 0x13876c, size 316 bytes
-// Doc: sub_123876C [bt]: Bluetooth firmware handler, checks flag and processes state
-// sub_123876C [bt]: Bluetooth firmware handler, checks flag and processes state
-uint32_t *periodic_task_handler()
+int periodic_task_handler()
 {
   uint32_t *v0; // r6
   uint16_t *v1; // r4
@@ -45,12 +40,11 @@ uint32_t *periodic_task_handler()
   BOOL v9; // r0
   int *v10; // r2
   uint16_t *v11; // r0
-  int v12; // r1
+  char *v12; // r1
   unsigned int v13; // r2
   int v15; // r1
-  uint32_t *v16; // r2
-  int v17; // r3
-  int v18; // r2
+  int v16; // r3
+  volatile unsigned int v17; // r2
 
   if ( *(uint8_t *)off_1388A8 )
     write_mmio_byte(0xC2u);
@@ -62,12 +56,11 @@ uint32_t *periodic_task_handler()
   if ( (*(uint32_t *)off_1388B4 & 4) != 0 )
   {
     v15 = *(uint16_t *)(*(uint32_t *)off_1388E0 + 54);
-    v16 = off_1388E8;
-    v17 = dword_1388E4 + 1320 * *(uint8_t *)(*(uint32_t *)off_1388B8 + 366);
+    v16 = dword_1388E4 + 1320 * *(uint8_t *)(*(uint32_t *)off_1388B8 + 366);
     *((uint8_t *)off_1388BC + 29) = 3;
-    v18 = v16[4];
-    v2[5] = v17;
-    ke_event_lock((int)(v2 + 3), v15 + v18);
+    v17 = (*(volatile uint32_t *)0x40501010u);
+    v2[5] = v16;
+    ke_event_lock(v2 + 3, v15 + v17);
     *((uint8_t *)v2 + 28) = 1;
     *v0 &= ~4u;
   }
@@ -90,7 +83,7 @@ uint32_t *periodic_task_handler()
   v7 = *(uint8_t **)v1;
   if ( *(uint8_t *)(*(uint32_t *)v1 + 368) == 1 && v7[252] == 7 )
   {
-    v9 = memcpy(v7 + 253, dword_1388DC, 7) == 0;
+    v9 = memcpy_1((unsigned int)(v7 + 253), (unsigned int)aDirect, 7u) == 0;
     v7 = *(uint8_t **)v1;
     v3 = *((uint8_t *)v1 + 3850);
     v8 = v9;
@@ -101,7 +94,7 @@ uint32_t *periodic_task_handler()
     LOBYTE(v9) = 0;
   }
   *((uint8_t *)v1 + 3898) = v9;
-  state_check_feature(8, dword_1388C8, dword_1388C4, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
+  state_check_feature(8, "%s:%d,%d,%d,cnt=%d\r\n", aScanuStart, (uint8_t)v7[366], v3, v8, (uint8_t)v7[367]);
   v10 = (int *)off_1388D0;
   v11 = off_1388D4;
   *(uint32_t *)off_1388CC |= 4u;
@@ -109,13 +102,12 @@ uint32_t *periodic_task_handler()
   *v10 = (HIWORD(*v10) << 16) | 0x5DC;
   v2[1] |= 0x20u;
   hci_cmd_send(4u, 1);
-  v12 = *(uint32_t *)(*(uint32_t *)v1 + 360);
+  v12 = *(char **)(*(uint32_t *)v1 + 360);
   if ( v12 )
   {
     v13 = *(uint16_t *)(*(uint32_t *)v1 + 364);
     if ( v13 <= 0xC8 )
-      memcpy_aligned(dword_1388D8, v12, v13);
+      memcpy_aligned((char *)dword_1388D8, v12, v13);
   }
   return adv_state_control();
 }
-

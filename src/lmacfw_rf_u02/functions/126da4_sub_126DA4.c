@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_126DD0;
-extern uint32_t dword_126DD4;
 
 // rx_index_update @ 0x126da4, size 44 bytes
 unsigned int rx_index_update()
@@ -32,8 +32,7 @@ unsigned int rx_index_update()
       v3 = result + 1;
     *((uint8_t *)off_126DD0 + 6) = v3;
     set_xtal_ftune(v3);
-    return dispatch_event_handler(dword_126DD4, v0[5], v0[6]);
+    return dispatch_event_handler_1("\x9D\x89adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v0[5], v0[6]);
   }
   return result;
 }
-

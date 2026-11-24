@@ -10,26 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10E6D4;
+
+extern uint32_t dword_10E6B8;
+extern uint32_t dword_10E6C0;
+extern uint32_t dword_10E6C8;
 extern uint32_t dword_10E6D8;
 extern uint32_t dword_10E6DC;
 extern uint32_t off_10E6D0;
-extern uint32_t dword_10E6B8;
-extern uint32_t dword_10E6BC;
-extern uint32_t dword_10E6C0;
-extern uint32_t dword_10E6C4;
-extern uint32_t dword_10E6E0;
-extern uint32_t dword_10E6E4;
-extern uint32_t dword_10E6C8;
-extern uint32_t dword_10E6CC;
-extern uint32_t dword_10E6E8;
-extern uint32_t dword_10E6EC;
-extern uint32_t dword_10E6F0;
-extern uint32_t dword_10E6F4;
+extern uint32_t off_10E6D4;
 extern uint32_t off_10E6F8;
 
-// rf_hw_init_alt @ 0x10e420, size 664 bytes
-int rf_hw_init_alt()
+// sub_10E420 @ 0x10e420, size 664 bytes
+int sub_10E420()
 {
   uint32_t *v0; // r1
   int v1; // r3
@@ -54,27 +46,26 @@ int rf_hw_init_alt()
   uint64_t v20; // r0
   int v21; // r3
   int v22; // r3
-  int v23; // r11
-  uint32_t *v24; // r6
-  int v25; // r4
+  uint32_t *v23; // r6
+  int v24; // r4
   int i; // r7
-  int v27; // r2
+  int v26; // r2
+  uint64_t v27; // r0
   uint64_t v28; // r0
   uint64_t v29; // r0
   uint64_t v30; // r0
-  uint64_t v31; // r0
-  int v32; // r10
-  int v33; // r5
-  int v34; // r2
-  uint32_t *v35; // r2
+  int v31; // r10
+  int v32; // r5
+  int v33; // r2
+  uint32_t *v34; // r2
+  uint64_t v35; // r0
   uint64_t v36; // r0
   uint64_t v37; // r0
   uint64_t v38; // r0
-  uint64_t v39; // r0
-  int v40; // r0
+  int v39; // r0
   int result; // r0
-  int v42; // [sp+0h] [bp-Ch]
-  int v43; // [sp+4h] [bp-8h]
+  int v41; // [sp+0h] [bp-Ch]
+  int v42; // [sp+4h] [bp-8h]
 
   v0 = off_10E6D4;
   v1 = dword_10E6D8;
@@ -86,14 +77,14 @@ int rf_hw_init_alt()
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v3 = unsigned_int_to_double(v0[4]);
-  v4 = double_compare_common(v3, HIDWORD(v3), dword_10E6B8, dword_10E6BC);
-  v5 = double_compare_core(v4, HIDWORD(v4), dword_10E6C0, dword_10E6C4);
-  v6 = double_compare_neg(v5, HIDWORD(v5), dword_10E6B8, dword_10E6BC);
-  v7 = double_to_float(v6, HIDWORD(v6));
-  v8 = call_patch_hook_0(dword_10E6E0) & 0x1F;
+  v3 = sub_142874(v0[4]);
+  v4 = sub_142968(v3, *(uint64_t *)&dword_10E6B8);
+  v5 = sub_142BBC(v4, *(uint64_t *)&dword_10E6C0);
+  v6 = sub_1425F8(v5, *(uint64_t *)&dword_10E6B8);
+  v7 = sub_142E9C(v6);
+  v8 = sub_10EC2C() & 0x1F;
   v9 = v7 - 840;
-  debug_printf(dword_10E6E4, v7, v8);
+  sub_10DAE4("Initl vcore Volt: %d mV, reg: %x\n", v7, v8);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -106,14 +97,14 @@ int rf_hw_init_alt()
       v22 = 1;
     else
       v22 = -1;
-    v42 = v22;
+    v41 = v22;
     v14 = 0;
   }
   else
   {
-    v11 = signed_int_to_double(v10);
-    v12 = double_compare_common(v11, HIDWORD(v11), dword_10E6C8, dword_10E6CC);
-    v13 = double_to_float(v12, HIDWORD(v12));
+    v11 = sub_142894(v10);
+    v12 = sub_142968(v11, *(uint64_t *)&dword_10E6C8);
+    v13 = sub_142E9C(v12);
     v14 = v13;
     if ( v9 <= 0 )
     {
@@ -127,97 +118,85 @@ int rf_hw_init_alt()
     }
     if ( v15 > 31 )
     {
-      v8 += 9;
       v9 = 9;
       goto LABEL_33;
     }
     if ( v15 <= 12 )
     {
-      v8 -= 9;
       v9 = -9;
       goto LABEL_33;
     }
-    call_patch_hook_2(dword_10E6E0, v15, 31);
+    sub_10EC3C();
     v16 = off_10E6D4;
     *((uint32_t *)off_10E6D4 + 1) = 1;
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
-    v17 = unsigned_int_to_double(v16[4]);
-    v18 = double_compare_common(v17, HIDWORD(v17), dword_10E6B8, dword_10E6BC);
-    v19 = double_compare_core(v18, HIDWORD(v18), dword_10E6C0, dword_10E6C4);
-    v20 = double_compare_neg(v19, HIDWORD(v19), dword_10E6B8, dword_10E6BC);
-    v7 = double_to_float(v20, HIDWORD(v20));
-    alloc_tx_event(dword_10E6E8, v14, v15);
+    v17 = sub_142874(v16[4]);
+    v18 = sub_142968(v17, *(uint64_t *)&dword_10E6B8);
+    v19 = sub_142BBC(v18, *(uint64_t *)&dword_10E6C0);
+    v20 = sub_1425F8(v19, *(uint64_t *)&dword_10E6B8);
+    v7 = sub_142E9C(v20);
+    sub_12E948("step=%d, val=%x, volt=%d\n", v14, v15, v7);
     if ( v7 <= 840 )
       v21 = 1;
     else
       v21 = -1;
-    v42 = v21;
+    v41 = v21;
   }
-  v23 = dword_10E6E0;
-  v24 = off_10E6D4;
-  v43 = v8;
-  v25 = v42 + v14 * v42 + v8;
+  v23 = off_10E6D4;
+  v42 = v8;
+  v24 = v41 + v14 * v41 + v8;
   for ( i = v14 + 1; ; ++i )
   {
-    v27 = v14;
-    v9 = v25 - v43;
+    v26 = v14;
+    v9 = v24 - v42;
     v14 = i;
-    if ( (unsigned int)(v25 - 13) > 0x12 )
+    if ( (unsigned int)(v24 - 13) > 0x12 )
     {
-      v9 = v42 * v27;
-      v8 = v43 + v42 * v27;
+      v9 = v41 * v26;
       goto LABEL_33;
     }
-    call_patch_hook_2(v23, v25, 31);
-    v24[1] = 1;
-    while ( v24[7] != 1 )
+    sub_10EC3C();
+    v23[1] = 1;
+    while ( v23[7] != 1 )
       ;
-    v24[7] = 1;
-    v28 = unsigned_int_to_double(v24[4]);
-    v29 = double_compare_common(v28, HIDWORD(v28), dword_10E6B8, dword_10E6BC);
-    v30 = double_compare_core(v29, HIDWORD(v29), dword_10E6C0, dword_10E6C4);
-    v31 = double_compare_neg(v30, HIDWORD(v30), dword_10E6B8, dword_10E6BC);
-    v32 = double_to_float(v31, HIDWORD(v31));
-    alloc_tx_event(dword_10E6EC, v9, v25);
-    v33 = v7 - 840;
-    v34 = v32 - 840;
-    if ( v33 * (v32 - 840) <= 0 )
+    v23[7] = 1;
+    v27 = sub_142874(v23[4]);
+    v28 = sub_142968(v27, *(uint64_t *)&dword_10E6B8);
+    v29 = sub_142BBC(v28, *(uint64_t *)&dword_10E6C0);
+    v30 = sub_1425F8(v29, *(uint64_t *)&dword_10E6B8);
+    v31 = sub_142E9C(v30);
+    sub_12E948("ofst=%d, val=%x, volt=%d\n", v9, v24, v31);
+    v32 = v7 - 840;
+    v33 = v31 - 840;
+    if ( v32 * (v31 - 840) <= 0 )
       break;
-    v25 += v42;
-    v7 = v32;
+    v24 += v41;
+    v7 = v31;
   }
-  if ( v34 < 0 )
-    v34 = 840 - v32;
   if ( v33 < 0 )
-    v33 = -v33;
-  if ( v34 > v33 )
-  {
-    v9 -= v42;
-    v8 = v43 + v9;
-  }
-  else
-  {
-    v8 = v25;
-  }
+    v33 = 840 - v31;
+  if ( v32 < 0 )
+    v32 = -v32;
+  if ( v33 > v32 )
+    v9 -= v41;
 LABEL_33:
-  debug_printf(dword_10E6F0, v9);
-  call_patch_hook_2(dword_10E6E0, v8, 31);
-  v35 = off_10E6D4;
+  sub_10DAE4("reg_value_offset: %d\n", v9);
+  sub_10EC3C();
+  v34 = off_10E6D4;
   *((uint32_t *)off_10E6D4 + 1) = 1;
-  while ( v35[7] != 1 )
+  while ( v34[7] != 1 )
     ;
-  v35[7] = 1;
-  v36 = unsigned_int_to_double(v35[4]);
-  v37 = double_compare_common(v36, HIDWORD(v36), dword_10E6B8, dword_10E6BC);
-  v38 = double_compare_core(v37, HIDWORD(v37), dword_10E6C0, dword_10E6C4);
-  v39 = double_compare_neg(v38, HIDWORD(v38), dword_10E6B8, dword_10E6BC);
-  v40 = double_to_float(v39, HIDWORD(v39));
-  debug_printf(dword_10E6F4, v40);
-  result = *((uint32_t *)off_10E6F8 + 94);
+  v34[7] = 1;
+  v35 = sub_142874(v34[4]);
+  v36 = sub_142968(v35, *(uint64_t *)&dword_10E6B8);
+  v37 = sub_142BBC(v36, *(uint64_t *)&dword_10E6C0);
+  v38 = sub_1425F8(v37, *(uint64_t *)&dword_10E6B8);
+  v39 = sub_142E9C(v38);
+  sub_10DAE4("Calib vcore Volt: %d mV\n", v39);
+  result = ((uint32_t *)(uintptr_t)off_10E6F8)[94];
   if ( result != 0x80000000 )
-    return timer_get_raw();
+    return sub_1111CC(result);
   return result;
 }
-

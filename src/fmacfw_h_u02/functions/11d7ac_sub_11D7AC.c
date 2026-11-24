@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11D850;
+extern uint32_t off_11D854;
 extern uint32_t off_11D85C;
 extern uint32_t off_11D860;
-extern uint32_t off_11D854;
-extern uint32_t dword_11D858;
 
 // dma_ring_alloc_1 @ 0x11d7ac, size 162 bytes
 int dma_ring_alloc_1()
@@ -46,7 +46,7 @@ int dma_ring_alloc_1()
           break;
         v5 = 1;
       }
-      list_pop(v0);
+      list_pop((int)v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -59,7 +59,7 @@ int dma_ring_alloc_1()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = phy_rate_get();
+        result = phy_rate_get(result);
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -79,9 +79,8 @@ int dma_ring_alloc_1()
   if ( *((uint8_t *)off_11D854 + 69) )
   {
     irq_disable_global_2(0x80000);
-    result = check_feature_flag(1024, dword_11D858);
+    result = check_feature_flag(1024, aHostBufferReco);
     v9[69] = 0;
   }
   return result;
 }
-

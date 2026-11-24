@@ -10,100 +10,91 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_111EC0;
+
+extern uint32_t dword_111EF4;
 extern uint32_t off_111EC4;
 extern uint32_t off_111EC8;
 extern uint32_t off_111ECC;
-extern uint32_t dword_111EF8;
 extern uint32_t off_111ED0;
+extern uint32_t off_111ED8;
+extern uint32_t off_111EDC;
+extern uint32_t off_111EE0;
 extern uint32_t off_111EE8;
 extern uint32_t off_111EEC;
 extern uint32_t off_111EF0;
-extern uint32_t dword_111EF4;
-extern uint32_t dword_111ED4;
-extern uint32_t dword_111EDC;
-extern uint32_t off_111EE0;
-extern uint32_t off_111ED8;
-extern uint32_t dword_111EE4;
 
 // cmd_dispatch @ 0x111db8, size 262 bytes
-int  cmd_dispatch(uint32_t *a1, int a2)
+int  cmd_dispatch(int a1, int a2)
 {
   uint8_t *v4; // r6
-  uint32_t *v5; // r7
-  void *v6; // r0
-  int v7; // r2
-  int v8; // r1
-  uint32_t *v9; // r4
-  int v10; // r1
-  void ( *v11)(int); // r2
-  int v12; // r1
-  uint32_t *v13; // r3
-  uint8_t *v15; // r7
-  int v16; // r0
-  int v17; // r1
-  uint32_t *v18; // r3
+  int *v5; // r7
+  char *v6; // r0
+  int v7; // r1
+  uint32_t *v8; // r4
+  uint32_t *v9; // r3
+  uint8_t *v11; // r7
+  int v12; // r0
+  int v13; // r1
+  uint32_t *v14; // r3
+  void ( *v15)(int); // r2
 
-  event_dispatch(dword_111EC0, 0, a2);
+  event_dispatch("open:%d/%d\n", 0, a2);
   if ( !a1 )
     return 1;
-  if ( !*a1 || !a1[1] || !a1[2] || !a1[5] )
+  if ( !*(uint32_t *)a1 || !*(uint32_t *)(a1 + 4) || !*(uint32_t *)(a1 + 8) || !*(uint32_t *)(a1 + 20) )
     return 2;
   v4 = off_111EC4;
   if ( *(uint8_t *)off_111EC4 )
     return 3;
-  v5 = off_111EC8;
-  v6 = off_111ECC;
+  v5 = (int *)off_111EC8;
+  v6 = (char *)off_111ECC;
   *(uint8_t *)off_111EC4 = 1;
-  memcpy(v6, a1, 80);
-  v8 = v5[97];
-  if ( v8 )
+  memcpy(v6, (char *)a1, 0x50u);
+  v7 = v5[97];
+  if ( v7 )
   {
-    event_dispatch(dword_111EF8, v8, v7);
+    event_dispatch("usb sftdiscon delay %d\n", v7);
     timer_delay(v5[97]);
   }
-  v9 = off_111ED0;
+  v8 = off_111ED0;
   if ( (*((uint32_t *)off_111ED0 + 512) & 0x7F0) != 0 )
   {
-    v15 = off_111EE8;
+    v11 = off_111EE8;
     *((uint32_t *)off_111EE8 + 1) = 0;
-    *((uint32_t *)v15 + 2) = 0;
-    *v15 = 0;
+    *((uint32_t *)v11 + 2) = 0;
+    *v11 = 0;
     *v4 = 4;
-    v16 = mmio_sync();
-    v17 = *(uint32_t *)off_111EEC;
-    v18 = *(uint32_t **)off_111EF0;
-    *v18 = dword_111EF4;
-    v18[1] = v17;
-    v9[709] = v18;
-    v9[706] = v9[706];
-    v11 = *((void ( **)(int))off_111ECC + 19);
-    v10 = 1;
-    v9[704] |= 0x84000000;
-    *v15 = 1;
-    if ( v11 )
-      v11(v16);
+    v12 = mmio_sync();
+    v13 = *(uint32_t *)off_111EEC;
+    v14 = *(uint32_t **)off_111EF0;
+    *v14 = dword_111EF4;
+    v14[1] = v13;
+    v8[709] = v14;
+    v8[706] = v8[706];
+    v15 = *((void ( **)(int))off_111ECC + 19);
+    v8[704] |= 0x84000000;
+    *v11 = 1;
+    if ( v15 )
+      v15(v12);
   }
   else
   {
     if ( (*((uint32_t *)off_111ED0 + 2) & 1) != 0 )
     {
       *((uint32_t *)off_111ED0 + 2) &= ~1u;
-      v9[513] |= 2u;
+      v8[513] |= 2u;
     }
     mmio_set_bit();
   }
-  event_dispatch(dword_111ED4, v10, v11);
-  v12 = dword_111EDC;
-  v13 = off_111EE0;
-  *(uint32_t *)(*((uint32_t *)off_111ED8 + 2) + 320) = dword_111EDC;
-  v13[2] = 1;
+  event_dispatch(aEnableIrq);
+  v9 = off_111EE0;
+  *(uint32_t *)(*((uint32_t *)off_111ED8 + 2) + 320) = off_111EDC;
+  v9[2] = 1;
   if ( a2 == 1 )
   {
     while ( *v4 != 4 )
       ;
   }
-  event_dispatch(dword_111EE4, v12, 1);
+  event_dispatch(aOpenDone);
   return 0;
 }
-

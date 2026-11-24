@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_119F44;
 extern uint32_t dword_119F48;
 extern uint32_t off_119F40;
-extern uint32_t dword_119F44;
 extern uint32_t off_119F4C;
 
 // btm_get_conn_entry @ 0x119d88, size 440 bytes
@@ -24,16 +25,16 @@ int  btm_get_conn_entry(int a1)
   int v4; // r6
   uint64_t v5; // kr00_8
   int v7; // r10
-  int16_t v8; // r3
-  uint8_t *v9; // r2
+  uint16_t v8; // r3
+  int *v9; // r2
   int v11; // r4
   char v12; // r3
   int v13; // r0
   void *v14; // r11
-  int16_t v15; // r2
+  uint16_t v15; // r2
   int v16; // r7
   unsigned int v17; // r0
-  uint8_t *v18; // r3
+  int *v18; // r3
   int v19; // r7
   int v20; // [sp+Ch] [bp-8h]
 
@@ -50,13 +51,13 @@ int  btm_get_conn_entry(int a1)
     *(uint32_t *)(HIDWORD(v5) + 68) = 256;
     *(uint32_t *)(v3 + 68) = 0;
     if ( (uint32_t)v5 )
-      tx_pending_check(v3, a1);
+      tx_pending_check(v3);
     v8 = *(uint16_t *)(v4 + 8);
     if ( (v8 & 2) != 0 )
     {
-      v9 = off_119F40;
+      v9 = (int *)off_119F40;
       *(uint16_t *)(v3 + 82) |= 2u;
-      if ( v9[197] )
+      if ( *((uint8_t *)v9 + 197) )
       {
         v19 = *(uint32_t *)(HIDWORD(v5) + 48);
         if ( v19 )
@@ -79,7 +80,7 @@ int  btm_get_conn_entry(int a1)
       *(uint16_t *)(v3 + 82) |= 2u;
       ll_event_lookup(a1, v5);
     }
-    wlan_ioctl_handler_1(*(uint32_t *)(v4 + 340));
+    wlan_ioctl_handler_1(*(uint32_t *)(v4 + 340), (uint32_t *)v4);
   }
   else
   {
@@ -113,9 +114,9 @@ int  btm_get_conn_entry(int a1)
         v7 = v4 + 84;
       v16 = *(uint32_t *)(v4 + 52);
       v17 = *(uint32_t *)(v4 + 4);
-      v18 = off_119F40;
+      v18 = (int *)off_119F40;
       *(uint32_t *)(v16 + 20) = v17;
-      if ( v18[197] && v16 )
+      if ( *((uint8_t *)v18 + 197) && v16 )
         *(uint8_t *)(v16 + 36) = bt_packet_parser(
                                  (v17 >> 11) & 7,
                                  v17 & 0x7F,
@@ -128,7 +129,7 @@ int  btm_get_conn_entry(int a1)
       *(uint16_t *)(v4 + 8) = v15 | 5;
       ll_event_lookup(a1, v5);
     }
-    wlan_ioctl_handler_1(v1 + 84 * a1 + 28);
+    wlan_ioctl_handler_1(v1 + 84 * a1 + 28, (uint32_t *)v4);
   }
   v11 = v1 + 84 * a1;
   v12 = *(uint8_t *)(v11 + 80);
@@ -136,4 +137,3 @@ int  btm_get_conn_entry(int a1)
   *(uint8_t *)(v11 + 80) = v12 + 1;
   return 84;
 }
-

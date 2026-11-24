@@ -10,27 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1291A4;
+
 extern uint32_t off_1291A0;
+extern uint32_t off_1291A4;
 extern uint32_t off_1291A8;
 extern uint32_t off_1291AC;
 
 // ipc_msg_send @ 0x12917c, size 34 bytes
-int  ipc_msg_send(int a1, int16_t a2)
+int  ipc_msg_send(int a1, uint16_t a2)
 {
   uint8_t *v2; // r2
   uint8_t *v3; // r3
   int v4; // zf
-  int (*v5)(void); // r3
+  int ( *v5)(int, int); // r3
 
   v2 = off_1291A4;
   v3 = *(uint8_t **)off_1291A0;
   *((uint16_t *)off_1291A4 + 1) = a2;
   v4 = *v3 == 2;
-  v5 = (int (*)(void))off_1291A8;
+  v5 = (int ( *)(int, int))off_1291A8;
   if ( !v4 && a1 )
-    v5 = (int (*)(void))off_1291AC;
+    v5 = (int ( *)(int, int))off_1291AC;
   v2[8] = 0;
-  return v5();
+  return v5(0, 0x800000);
 }
-

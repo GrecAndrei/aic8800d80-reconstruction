@@ -10,20 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12AE20;
+
 extern uint32_t off_12AE24;
 
 // get_state_name @ 0x12adec, size 48 bytes
-int  get_state_name(int a1, int a2, int a3, int a4)
+int  get_state_name(int a1, int a2, int a3, uint16_t a4)
 {
   int v5; // r4
 
-  v5 = hci_cmd_handler(2);
-  check_feature_flag(4, dword_12AE20);
+  v5 = hci_cmd_handler(2u);
+  check_feature_flag(4, "%s:%d\r\n", aScanCancelReqH, v5);
   if ( v5 )
     *((uint8_t *)off_12AE24 + 11) = 1;
   else
     rf_execute_cmd(1, a4);
   return 0;
 }
-

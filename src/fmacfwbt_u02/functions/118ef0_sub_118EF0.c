@@ -10,18 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_118FD4;
 extern uint32_t dword_118FD8;
 extern uint32_t dword_118FDC;
 extern uint32_t dword_118FE0;
+extern uint32_t dword_118FEC;
 extern uint32_t dword_118FF0;
 extern uint32_t dword_118FF4;
-extern uint32_t dword_118FD4;
 extern uint32_t off_118FE4;
 extern uint32_t off_118FE8;
-extern uint32_t dword_118FEC;
 
-// ke_task_init @ 0x118ef0, size 228 bytes
-int  ke_task_init(int a1)
+// ke_task_init_1 @ 0x118ef0, size 228 bytes
+int  ke_task_init_1(int a1)
 {
   int v2; // r4
   uint32_t *v3; // r6
@@ -43,8 +44,8 @@ int  ke_task_init(int a1)
   v5 = dword_118FF0;
   v6 = dword_118FF4;
   v7 = dword_118FD4;
-  zero_struct(dword_118FD4);
-  zero_struct(v7 + 8);
+  zero_struct((uint32_t *)dword_118FD4);
+  zero_struct((uint32_t *)(v7 + 8));
   v8 = v2 + 400;
   do
   {
@@ -64,7 +65,7 @@ int  ke_task_init(int a1)
       v4[10] = 0;
       v4[15] = 0;
       v4[7] = v3 + 27;
-      check_abort_flag(v7);
+      check_abort_flag(v7, (uint32_t *)v2);
     }
     v2 += 100;
     v3 += 155;
@@ -77,7 +78,7 @@ int  ke_task_init(int a1)
   v9[13] = 0;
   v9[14] = 0;
   v9[15] = 0;
-  v9[1] = sub_101954() << 14;
+  v9[1] = irq47_status_handler() << 14;
   v11 = get_hw_flash_size();
   v12 = (int *)off_118FE8;
   v13 = dword_118FEC;
@@ -95,7 +96,7 @@ int  ke_task_init(int a1)
   v12[14] = 0;
   v9[12] = 0;
   v12[15] = 0;
-  v12[1] = sub_101954() << 14;
+  v12[1] = irq47_status_handler() << 14;
   result = get_hw_flash_size();
   v12[2] = result;
   v12[3] = 0;
@@ -109,4 +110,3 @@ int  ke_task_init(int a1)
   v12[5] = 4;
   return result;
 }
-

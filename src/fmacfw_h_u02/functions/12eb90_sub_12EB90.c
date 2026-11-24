@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12EBB4;
 
 // check_feature_flag @ 0x12eb90, size 36 bytes
-int check_feature_flag(int result, int a2, ...)
+int check_feature_flag(int a1, const char *fmt, ...)
 {
   va_list varg_r2; // [sp+10h] [bp+8h] BYREF
 
-  va_start(varg_r2, a2);
-  if ( ((uint16_t)result & **(uint16_t **)off_12EBB4) != 0 )
-    return stack_struct_init(a2, (int)varg_r2);
-  return result;
+  va_start(varg_r2, fmt);
+  if ( ((uint16_t)a1 & **(uint16_t **)off_12EBB4) != 0 )
+    return stack_struct_init(fmt, (unsigned int *)(*(void **)&(varg_r2)));
+  return a1;
 }
-

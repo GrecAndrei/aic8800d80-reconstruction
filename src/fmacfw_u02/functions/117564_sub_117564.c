@@ -10,25 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_117668;
+extern uint32_t dword_117680;
 extern uint32_t dword_117688;
 extern uint32_t off_117664;
-extern uint32_t dword_117668;
 extern uint32_t off_11766C;
 extern uint32_t off_117670;
 extern uint32_t off_117674;
-extern uint32_t dword_117680;
-extern uint32_t off_117684;
 extern uint32_t off_117678;
 extern uint32_t off_11767C;
 
 // phy_chan_set @ 0x117564, size 254 bytes
-// Doc: sub_1217564 [mac]: Dispatch routine with 5-way case switch
-// sub_1217564 [mac]: Dispatch routine with 5-way case switch
 int  phy_chan_set(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r0
-  int16_t v6; // r1
+  uint16_t v6; // r1
   uint32_t *v7; // r3
   int v8; // r3
   uint8_t *v9; // r2
@@ -37,6 +35,7 @@ int  phy_chan_set(int a1, int a2)
   int v12; // r3
   int v13; // r3
   int v14; // r2
+  volatile unsigned int v15; // r2
 
   if ( a2 == 5 )
     v4 = (char *)dword_117688;
@@ -66,7 +65,10 @@ int  phy_chan_set(int a1, int a2)
     v9 = *(uint8_t **)off_117670;
     *(uint32_t *)off_117674 = 0x80000000;
     if ( *v9 == 3 && v8 == dword_117680 + 1320 * *(uint8_t *)(a1 + 28) )
-      *(uint32_t *)(v8 + 120) = *((uint32_t *)off_117684 + 4);
+    {
+      v15 = (*(volatile uint32_t *)0x40501010u);
+      *(uint32_t *)(v8 + 120) = v15;
+    }
   }
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -76,7 +78,7 @@ int  phy_chan_set(int a1, int a2)
   v10 = (int *)off_11767C;
   ++*(uint32_t *)off_11767C;
   rate_set_config(a1, a2);
-  cmd_handler_a(v4 + 12);
+  cmd_handler_a((int)(v4 + 12), (uint32_t *)a1);
   tx_len_check(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117664 + 126);
@@ -97,4 +99,3 @@ int  phy_chan_set(int a1, int a2)
   }
   return result;
 }
-

@@ -10,15 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_112040;
 extern uint32_t off_112038;
+extern uint32_t off_11203C;
 
 // state_check_4 @ 0x111efc, size 316 bytes
-// Doc: rf_bus_write_f88 [rf]: Writes a value to the RF control bus
-// rf_bus_write_f88 [rf]: Writes a value to the RF control bus
-int * state_check_4(int *result, unsigned int a2, int a3, unsigned int a4)
+int  state_check_4(int result, int a2, int a3, unsigned int a4)
 {
-  unsigned int v4; // r6
+  int v4; // r6
   unsigned int v7; // r11
   int v8; // r7
   int v9; // r10
@@ -60,7 +60,7 @@ int * state_check_4(int *result, unsigned int a2, int a3, unsigned int a4)
           if ( v7 - 1025 < 0x400 )
             v7 >>= 1;
           else
-            v18 = ((unsigned int)dword_112040 * (unsigned uint64_t)v7) >> 32;
+            v18 = ((unsigned int)dword_112040 * (uint64_t)v7) >> 32;
           if ( v19 )
             LOWORD(v7) = v18 >> 1;
         }
@@ -79,11 +79,11 @@ int * state_check_4(int *result, unsigned int a2, int a3, unsigned int a4)
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)log_printf(rf_bus_write2_0, v13, v9, 2048);
+        result = log_printf("FIFO ERROR: overflow, addr is %d, size is %d, Total RAM is %d", v13, v9, 2048);
         v13 = (uint16_t)*v12;
       }
-      v14 = rf_bus_setup_203c;
-      *((uint32_t *)rf_bus_setup_203c + v4 + 65) = v13 | v10;
+      v14 = off_11203C;
+      *((uint32_t *)off_11203C + v4 + 65) = v13 | v10;
       v15 = (1 << a2) | v14[519];
       *v12 = v8 + v13;
       v14[519] = v15;
@@ -93,11 +93,10 @@ int * state_check_4(int *result, unsigned int a2, int a3, unsigned int a4)
       v16 = 32 * a2 + 1075838976;
       if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
         result = flash_erase_main(0, a2);
-      v17 = rf_bus_setup_203c;
+      v17 = off_11203C;
       *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
       v17[519] |= 0x10000 << a2;
     }
   }
   return result;
 }
-

@@ -10,29 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114EC4;
+
 extern uint32_t off_114EC8;
 
 // bt_check_state @ 0x114e90, size 50 bytes
-void __noreturn bt_check_state()
+void  bt_check_state()
 {
   int v0; // r0
   int v1; // r0
-  int v2; // r0
 
-  log_printf(dword_114EC4);
+  log_printf(aPanic_0);
   if ( *(uint8_t *)(*(uint32_t *)off_114EC8 + 6) == 2 )
   {
-    v2 = wait_hw_ready();
-    ke_event_set(v2);
+    v1 = wait_hw_ready();
+    ke_event_set(v1);
   }
   while ( 1 )
   {
     while ( !uart_rx_ready() )
       ;
     v0 = uart_rx_byte();
-    v1 = process_queue_message(v0);
-    exit_critical_section(v1);
+    process_queue_message(v0);
+    exit_critical_section();
   }
 }
-

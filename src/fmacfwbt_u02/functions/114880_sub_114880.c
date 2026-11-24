@@ -10,52 +10,43 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114910;
+
 extern uint32_t off_114904;
-extern uint32_t dword_114908;
-extern uint32_t dword_11490C;
 
 // semaphore_create @ 0x114880, size 132 bytes
-int  semaphore_create(int a1, uint8_t *a2, int a3, int a4)
+int  semaphore_create(int a1, int *a2, uint16_t a3, uint16_t a4)
 {
-  int16_t v5; // r6
-  int16_t v6; // r7
   uint8_t *v7; // r5
   int v8; // r9
   int v9; // r8
   int v10; // r0
   uint16_t *v11; // r3
-  int v12; // r0
 
-  v5 = a4;
-  v6 = a3;
   v7 = (uint8_t *)bt_buf_alloc(3089, a4, a3, 1);
-  v8 = *(uint32_t *)a2;
-  v9 = a2[4];
-  v10 = dispatch_by_cmd(a2 + 4);
+  v8 = *a2;
+  v9 = *((uint8_t *)a2 + 4);
+  v10 = dispatch_by_cmd((uint8_t *)a2 + 4);
   if ( v10 < 0 )
   {
-    ke_event_schedule(dword_114910, v9, v8);
-    hci_evt_send(v7);
+    ke_event_schedule_1("bt type err:%d, len=%d\n", v9, v8);
+    hci_evt_send((int)v7);
     return 0;
   }
   else if ( v8 == v10 )
   {
     v11 = off_114904;
-    *((uint16_t *)off_114904 + 12) = v6;
-    v11[13] = v5;
+    *((uint16_t *)off_114904 + 12) = a3;
+    v11[13] = a4;
     invoke_callback(a2);
-    v12 = dword_114908;
     *v7 = 1;
-    ke_event_schedule(v12, v9, v8);
-    hci_evt_send(v7);
+    ke_event_schedule_1("\x9D\x81sdio_bt: [%d] len=%d\n", v9, v8);
+    hci_evt_send((int)v7);
     return 1;
   }
   else
   {
-    ke_event_schedule(dword_11490C, v10, v8);
-    hci_evt_send(v7);
+    ke_event_schedule_1("bt len err:%d,%d\n", v10, v8);
+    hci_evt_send((int)v7);
     return 0;
   }
 }
-

@@ -10,12 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_140E24;
+
 extern uint32_t dword_140E20;
+extern uint32_t dword_140E24;
 extern uint32_t dword_140E28;
 extern uint32_t off_140E2C;
-extern uint32_t dword_140E34;
-extern uint32_t dword_140E30;
 
 // timer_start @ 0x140c88, size 408 bytes
 int  timer_start(int a1, int a2)
@@ -36,7 +35,7 @@ int  timer_start(int a1, int a2)
   char *v16; // r0
   char *v17; // r5
   int v18; // r6
-  int v19; // r2
+  unsigned int v19; // r2
 
   if ( a2 )
   {
@@ -84,10 +83,10 @@ LABEL_12:
     *(uint32_t *)(a1 + 96) = v13;
     if ( v13 >= v12 )
     {
-      if ( **(int16_t **)off_140E2C < 0 && is_controller_ready() )
+      if ( **(uint16_t **)off_140E2C < 0 && is_controller_ready() )
       {
         if ( *(uint32_t *)(a1 + 92) )
-          mmio_irq_clear(dword_140E34, dword_140E30, 1585);
+          mmio_irq_clear((int)aRmNoMoreMeasur, (int)aRmProcessBeaco, 1585);
       }
       hci_cmd_send(0xBu, 2);
       return check_scan_enable(a1, 0);
@@ -113,7 +112,7 @@ LABEL_12:
     if ( v14 >= v15 )
       goto LABEL_6;
   }
-  v18 = bt_buf_alloc(4096, 4, 11, 0x178u);
+  v18 = bt_buf_alloc(4096, 4, 11, 376);
   *(uint32_t *)v18 = *(uint32_t *)v17;
   *(uint16_t *)(v18 + 4) = *((uint16_t *)v17 + 2);
   if ( !*(uint8_t *)(a1 + 3) )
@@ -121,13 +120,12 @@ LABEL_12:
   *(uint8_t *)(v18 + 367) = 1;
   v19 = *(uint8_t *)(a1 + 58);
   *(uint8_t *)(v18 + 252) = v19;
-  memcpy_aligned(v18 + 253, a1 + 59, v19);
+  memcpy_aligned((char *)(v18 + 253), (char *)(a1 + 59), v19);
   *(uint8_t *)(v18 + 368) = 1;
   *(uint16_t *)(v18 + 352) = *(uint16_t *)(a1 + 52);
   *(uint16_t *)(v18 + 354) = *(uint16_t *)(a1 + 54);
   *(uint16_t *)(v18 + 356) = *(uint16_t *)(a1 + 56);
   *(uint8_t *)(v18 + 366) = *(uint8_t *)(v7 + 6489);
   *(uint32_t *)(v18 + 372) = *(uint16_t *)(a1 + 48) << 10;
-  return hci_evt_send(v18);
+  return (int)hci_evt_send(v18);
 }
-

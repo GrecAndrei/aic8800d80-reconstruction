@@ -10,32 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_11E310;
-extern uint32_t dword_11E334;
-extern uint32_t dword_11E32C;
-extern uint32_t dword_11E314;
-extern uint32_t dword_11E33C;
-extern uint32_t dword_11E338;
-extern uint32_t dword_11E340;
-extern uint32_t dword_11E344;
-extern uint32_t dword_11E330;
-extern uint32_t dword_11E318;
-extern uint32_t dword_11E348;
+
 extern uint32_t dword_11E31C;
+extern uint32_t dword_11E328;
+extern uint32_t off_11E310;
+extern uint32_t off_11E314;
 extern uint32_t off_11E320;
 extern uint32_t off_11E324;
-extern uint32_t dword_11E328;
+extern uint32_t off_11E348;
 
 // flash_erase_sector @ 0x11e1e4, size 300 bytes
-// Doc: sub_121E1E4 [rf]: LMAC handler checking RF state flags
-// sub_121E1E4 [rf]: LMAC handler checking RF state flags
-uint32_t * flash_erase_sector(unsigned int a1, int a2)
+int  flash_erase_sector(unsigned int a1, int a2)
 {
-  int16_t **v2; // r7
+  uint16_t **v2; // r7
   unsigned int v5; // r9
   unsigned int v6; // r6
   uint16_t *v7; // r9
-  uint32_t *result; // r0
+  int result; // r0
   int ( *v9)(uint32_t *, int); // r8
   int v10; // r7
   int *v11; // r6
@@ -43,20 +34,21 @@ uint32_t * flash_erase_sector(unsigned int a1, int a2)
   int v13; // r0
   int v14; // r3
   int v15; // r2
-  int v16; // r6
+  uint32_t *v16; // r1
+  int *v17; // r6
 
-  v2 = (int16_t **)off_11E310;
+  v2 = (uint16_t **)off_11E310;
   v5 = a1 >> 8;
   v6 = (uint8_t)a1;
-  if ( **(int16_t **)off_11E310 >= 0 )
+  if ( **(uint16_t **)off_11E310 >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 <= 4u )
     goto LABEL_15;
-  flash_ctrl_init(dword_11E334, dword_11E32C, 173);
+  flash_ctrl_init((int)aTypeTaskMax, (int)aKeStateSet, 173);
   if ( **v2 >= 0 )
   {
 LABEL_2:
-    v7 = (uint16_t *)(*(uint32_t *)(dword_11E314 + 16 * v6 + 8) + 2 * v5);
+    v7 = (uint16_t *)(((uint32_t *)(uintptr_t)off_11E314)[4 * v6 + 2] + 2 * v5);
     goto LABEL_3;
   }
   if ( v6 <= 5 )
@@ -64,48 +56,49 @@ LABEL_2:
 LABEL_15:
     if ( (a1 & 0xFC) == 0 )
     {
-      v16 = dword_11E314 + 16 * v6;
-      if ( *(uint16_t *)(v16 + 14) > v5 )
+      v17 = &((uint32_t *)(uintptr_t)off_11E314)[4 * v6];
+      if ( *((uint16_t *)v17 + 7) > v5 )
         goto LABEL_17;
       goto LABEL_25;
     }
   }
   else
   {
-    flash_ctrl_init(dword_11E33C, dword_11E338, 183);
+    flash_ctrl_init((int)aIdTaskMax, (int)aKeTaskLocal_0, 183);
     if ( (a1 & 0xFC) == 0 )
       goto LABEL_23;
   }
-  flash_ctrl_init(dword_11E340, dword_11E32C, 174);
+  flash_ctrl_init((int)aKeTaskLocalTyp, (int)aKeStateSet, 174);
 LABEL_23:
   if ( **v2 >= 0 )
     goto LABEL_2;
-  v16 = dword_11E314 + 16 * v6;
-  if ( *(uint16_t *)(v16 + 14) > v5 )
+  v17 = &((uint32_t *)(uintptr_t)off_11E314)[4 * v6];
+  if ( *((uint16_t *)v17 + 7) > v5 )
   {
 LABEL_17:
-    v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
+    v7 = (uint16_t *)(v17[2] + 2 * v5);
     if ( v7 )
       goto LABEL_3;
     goto LABEL_18;
   }
 LABEL_25:
-  flash_ctrl_init(dword_11E344, dword_11E32C, 175);
-  v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
+  flash_ctrl_init((int)aIdxTaskDescTyp, (int)aKeStateSet, 175);
+  v7 = (uint16_t *)(v17[2] + 2 * v5);
   if ( **v2 < 0 && !v7 )
 LABEL_18:
-    flash_ctrl_init(dword_11E330, dword_11E32C, 180);
+    flash_ctrl_init((int)aKeStateidPtr, (int)aKeStateSet, 180);
 LABEL_3:
-  result = (uint32_t *)dispatch_event_handler(dword_11E318, a1);
+  result = dispatch_event_handler_1("\x80\x9Dset tsk:%x:%x\n", a1, a2);
   if ( (uint16_t)*v7 != a2 )
   {
-    v9 = (int ( *)(uint32_t *, int))dword_11E348;
+    v9 = (int ( *)(uint32_t *, int))off_11E348;
     v10 = dword_11E31C;
     v11 = (int *)off_11E320;
     *v7 = a2;
     while ( 1 )
     {
-      result = co_list_process(v10, v9, a1);
+      result = (int)co_list_process(v10, v9, a1);
+      v16 = (uint32_t *)result;
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -116,7 +109,7 @@ LABEL_3:
       v12 = (int *)off_11E324;
       v13 = dword_11E328;
       ++*(uint32_t *)off_11E324;
-      check_kernel_state(v13);
+      check_kernel_state(v13, v16);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -133,4 +126,3 @@ LABEL_3:
   }
   return result;
 }
-

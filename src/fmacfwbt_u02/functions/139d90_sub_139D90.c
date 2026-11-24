@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_139E08;
 extern uint32_t dword_139E0C;
 extern uint32_t dword_139E10;
@@ -18,18 +19,18 @@ extern uint32_t dword_139E18;
 extern uint32_t dword_139E1C;
 extern uint32_t dword_139E20;
 extern uint32_t dword_139E28;
-extern uint32_t dword_139E2C;
 extern uint32_t off_139E24;
+extern uint32_t off_139E2C;
 
 // init_driver_locks @ 0x139d90, size 118 bytes
-int init_driver_locks()
+void *init_driver_locks()
 {
   uint32_t *v0; // r6
   int v1; // r4
   int v2; // r5
   uint32_t *v3; // r1
   int v4; // r3
-  int result; // r0
+  void *result; // r0
   int v6; // r1
 
   v0 = (uint32_t *)(dword_139E08 + 16);
@@ -50,7 +51,7 @@ int init_driver_locks()
   check_abort_flag(dword_139E10, (uint32_t *)dword_139E1C);
   check_abort_flag(dword_139E10, (uint32_t *)dword_139E20);
   v4 = dword_139E28;
-  result = dword_139E2C;
+  result = off_139E2C;
   *((uint16_t *)off_139E24 + 51) = -1;
   v6 = v4 + 15360;
   do
@@ -65,4 +66,3 @@ int init_driver_locks()
   while ( v6 != v4 );
   return result;
 }
-

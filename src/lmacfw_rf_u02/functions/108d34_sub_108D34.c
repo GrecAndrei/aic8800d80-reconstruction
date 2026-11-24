@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_108F44;
 extern uint32_t off_108F20;
 extern uint32_t off_108F24;
-extern uint32_t off_108F40;
 extern uint32_t off_108F28;
 extern uint32_t off_108F2C;
 extern uint32_t off_108F30;
-extern uint32_t off_108F38;
-extern uint32_t dword_108F44;
-extern uint32_t dword_108F48;
 extern uint32_t off_108F34;
+extern uint32_t off_108F38;
 extern uint32_t off_108F3C;
+extern uint32_t off_108F40;
 
 // rf_core_init @ 0x108d34, size 492 bytes
 uint32_t * rf_core_init(int a1, int a2)
@@ -33,19 +33,20 @@ uint32_t * rf_core_init(int a1, int a2)
   unsigned int *v7; // r4
   uint32_t *v8; // lr
   int v9; // r11
-  int v10; // r10
-  int v11; // r6
-  int *v12; // r5
-  int v15; // r9
+  int v10; // r6
+  int *v11; // r5
+  int v14; // r9
   int i; // r4
-  int v17; // lr
-  int v18; // r1
-  int v19; // r12
-  unsigned int *v20; // r3
+  int v16; // lr
+  int v17; // r1
+  int v18; // r2
+  int v19; // r3
+  int v20; // r12
+  unsigned int *v21; // r3
   uint32_t *result; // r0
-  uint32_t *v22; // r2
-  int v23; // [sp+0h] [bp-Ch] BYREF
-  int v24; // [sp+4h] [bp-8h] BYREF
+  uint32_t *v23; // r2
+  int v24; // [sp+0h] [bp-Ch] BYREF
+  unsigned int a2a; // [sp+4h] [bp-8h] BYREF
 
   v2 = off_108F20;
   v3 = (unsigned int *)off_108F24;
@@ -55,10 +56,9 @@ uint32_t * rf_core_init(int a1, int a2)
   v7 = (unsigned int *)off_108F30;
   v8 = off_108F38;
   v9 = dword_108F44;
-  v10 = dword_108F48;
   *(uint32_t *)off_108F20 &= ~4u;
   *v5 &= 0xFFFF0FFF;
-  v11 = 0;
+  v10 = 0;
   *v6 = 0;
   *v3 |= 0x80u;
   *v7 |= 0x80000000;
@@ -70,7 +70,7 @@ uint32_t * rf_core_init(int a1, int a2)
   *v7 &= ~0x80000000;
   *v3 &= ~0x80u;
   *v2 |= 4u;
-  v12 = (int *)off_108F34;
+  v11 = (int *)off_108F34;
   *v8 |= 2u;
   *v3 = *v3 & 0xFFFF8FFF | 0x4000;
   *v3 = *v3 & 0xF8FFFFFF | 0x6000000;
@@ -79,7 +79,7 @@ uint32_t * rf_core_init(int a1, int a2)
   *v3 |= 1u;
   *v3 |= 8u;
   *v7 = ((unsigned int)v6 + 1059082178) | *v7 & 0x80000000;
-  v15 = ((v4[8208] >> 3) & 7) << 6;
+  v14 = ((v4[8208] >> 3) & 7) << 6;
   for ( i = 0; i != 16; ++i )
   {
     while ( ((a1 >> i) & 1) == 0 )
@@ -87,35 +87,36 @@ uint32_t * rf_core_init(int a1, int a2)
       if ( ++i == 16 )
         goto LABEL_7;
     }
-    *v12 = *v12 & v9 | ((int16_t)(v15 | (4 * i)) << 8);
-    *v12 |= 0x20000u;
-    *v12 |= 0x40000u;
+    *v11 = *v11 & v9 | ((uint16_t)(v14 | (4 * i)) << 8);
+    *v11 |= 0x20000u;
+    *v11 |= 0x40000u;
     write_timer_reg(1);
-    rf_wait_for_command(&v23, (unsigned int *)&v24);
-    v17 = v24 / 8;
-    v18 = i;
+    rf_wait_for_command(&v24, &a2a);
+    v16 = (int)a2a / 8;
+    v17 = i;
+    v18 = v24 / 8;
+    v19 = (int)a2a / 8;
     if ( a2 )
     {
-      *(uint16_t *)(a2 + 4 * v11) = v23 / 8;
-      v19 = a2 + 4 * v11++;
-      *(uint16_t *)(v19 + 2) = v17;
+      *(uint16_t *)(a2 + 4 * v10) = v24 / 8;
+      v20 = a2 + 4 * v10++;
+      *(uint16_t *)(v20 + 2) = v16;
     }
-    dispatch_event_handler(v10, v18);
+    dispatch_event_handler_1(aDc0xXIDQD, v17, v18, v19);
   }
 LABEL_7:
-  v20 = (unsigned int *)off_108F24;
+  v21 = (unsigned int *)off_108F24;
   result = off_108F3C;
-  v22 = off_108F34;
+  v23 = off_108F34;
   *(uint32_t *)off_108F38 &= ~2u;
-  *v20 |= 4u;
-  *v20 = *v20 & 0xFFFF8FFF | 0x3000;
-  *v20 = *v20 & 0xFFFFF8FF | 0x600;
-  *v20 &= ~8u;
-  *v20 &= ~1u;
+  *v21 |= 4u;
+  *v21 = *v21 & 0xFFFF8FFF | 0x3000;
+  *v21 = *v21 & 0xFFFFF8FF | 0x600;
+  *v21 &= ~8u;
+  *v21 &= ~1u;
   *result &= 0xCFFFFFFF;
-  *v22 &= 0xFFFE00FF;
-  *v22 &= ~0x20000u;
-  *v22 |= 0x40000u;
+  *v23 &= 0xFFFE00FF;
+  *v23 &= ~0x20000u;
+  *v23 |= 0x40000u;
   return result;
 }
-

@@ -10,53 +10,53 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_114818;
 extern uint32_t off_114810;
 extern uint32_t off_114814;
-extern uint32_t dword_114818;
-extern uint32_t dword_11481C;
 
 // bus_write_buf @ 0x1146e4, size 298 bytes
-// Doc: sub_12146E4 [util]: LMAC helper with large stack frame and pointer dereference
-// sub_12146E4 [util]: LMAC helper with large stack frame and pointer dereference
-int  bus_write_buf(int a1, int a2, unsigned int a3)
+int  bus_write_buf(int a1, char *a2, unsigned int a3)
 {
   uint32_t *v6; // r6
   int v7; // r5
   unsigned int v8; // r5
   int v9; // r1
-  int v11; // [sp+0h] [bp-140h] BYREF
-  int v12; // [sp+4h] [bp-13Ch]
-  int v13; // [sp+10h] [bp-130h]
-  uint8_t v14[120]; // [sp+14h] [bp-12Ch] BYREF
-  int v15; // [sp+8Ch] [bp-B4h]
-  int v16; // [sp+10Ch] [bp-34h]
-  uint8_t v17[4]; // [sp+124h] [bp-1Ch] BYREF
-  uint8_t v18[8]; // [sp+128h] [bp-18h] BYREF
-  uint8_t v19[4]; // [sp+130h] [bp-10h] BYREF
-  uint8_t v20[2]; // [sp+134h] [bp-Ch] BYREF
-  uint8_t v21[10]; // [sp+136h] [bp-Ah] BYREF
+  int v10; // r2
+  int v11; // r3
+  int v13; // [sp+0h] [bp-140h] BYREF
+  int v14; // [sp+4h] [bp-13Ch]
+  int v15; // [sp+10h] [bp-130h]
+  char a1a[120]; // [sp+14h] [bp-12Ch] BYREF
+  int v17; // [sp+8Ch] [bp-B4h]
+  int v18; // [sp+10Ch] [bp-34h]
+  char v19[4]; // [sp+124h] [bp-1Ch] BYREF
+  char v20[8]; // [sp+128h] [bp-18h] BYREF
+  char v21[4]; // [sp+130h] [bp-10h] BYREF
+  char v22[2]; // [sp+134h] [bp-Ch] BYREF
+  char v23[10]; // [sp+136h] [bp-Ah] BYREF
 
   if ( !*(uint32_t *)off_114810 )
-    ke_event_busy_check();
+    ke_event_busy_check(a1);
   v6 = off_114814;
   v7 = dword_114818;
-  MEMORY[0x1D8](*(uint32_t *)off_114814 + 4096, 320, &v11);
-  if ( v11 == v7 )
+  MEMORY[0x1D8](*(uint32_t *)off_114814 + 4096, 320, &v13);
+  if ( v13 == v7 )
   {
     v8 = a1 & 2;
-    v12 |= a1;
+    v14 |= a1;
     if ( (a1 & 2) == 0 )
       goto LABEL_5;
   }
   else
   {
-    sub_100200(&v11, 0xFFu, 0x140u);
-    v11 = v7;
-    v13 = 0;
+    memset_thunk(&v13, 0xFFu, 0x140u);
+    v13 = v7;
     v15 = 0;
-    v16 = 0;
+    v17 = 0;
+    v18 = 0;
     v8 = a1 & 2;
-    v12 = a1;
+    v14 = a1;
     if ( (a1 & 2) == 0 )
     {
 LABEL_5:
@@ -65,7 +65,7 @@ LABEL_5:
       goto LABEL_14;
     }
   }
-  memcpy_large(v14, a2, 6);
+  memcpy_large(a1a, a2, 6u);
   v8 = 6;
   if ( (a1 & 0x100000) == 0 )
   {
@@ -75,7 +75,7 @@ LABEL_6:
     goto LABEL_15;
   }
 LABEL_14:
-  memcpy_large(v17, a2 + v8, 2);
+  memcpy_large(v19, &a2[v8], 2u);
   v8 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -86,34 +86,38 @@ LABEL_7:
     goto LABEL_16;
   }
 LABEL_15:
-  memcpy_large(v18, a2 + v8, 8);
+  memcpy_large(v20, &a2[v8], 8u);
   v9 = a1 << 9;
   v8 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
 LABEL_8:
+    v10 = a1 << 8;
     if ( (a1 & 0x800000) == 0 )
       goto LABEL_9;
     goto LABEL_17;
   }
 LABEL_16:
-  memcpy_large(v19, a2 + v8, 4);
+  memcpy_large(v21, &a2[v8], 4u);
+  v10 = a1 << 8;
   v8 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
 LABEL_9:
+    v11 = a1 << 7;
     if ( (a1 & 0x1000000) == 0 )
       goto LABEL_10;
 LABEL_18:
-    memcpy_large(v21, a2 + v8, 10);
+    memcpy_large(v23, &a2[v8], 0xAu);
     if ( a3 >= v8 + 10 )
       goto LABEL_11;
 LABEL_19:
-    dispatch_event_handler(dword_11481C, v9);
+    dispatch_event_handler_1(aFlashWifiInfoW, v9, v10, v11, v13, v14);
     goto LABEL_11;
   }
 LABEL_17:
-  memcpy_large(v20, a2 + v8, 2);
+  memcpy_large(v22, &a2[v8], 2u);
+  v11 = a1 << 7;
   v8 += 2;
   if ( (a1 & 0x1000000) != 0 )
     goto LABEL_18;
@@ -125,4 +129,3 @@ LABEL_11:
   ke_event_schedule_prio();
   return MEMORY[0x1E0](*v6 + 4096, 320);
 }
-

@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_124240;
-extern uint32_t dword_124228;
-extern uint32_t off_12423C;
-extern uint32_t dword_124230;
-extern uint32_t dword_124234;
+
 extern uint32_t off_12422C;
+extern uint32_t off_124230;
+extern uint32_t off_124234;
 extern uint32_t off_124238;
+extern uint32_t off_12423C;
+extern uint32_t off_124240;
 
 // mac_tx_frame @ 0x12419c, size 140 bytes
 int  mac_tx_frame(int a1, int a2, int a3, int a4, int a5)
@@ -32,19 +32,19 @@ int  mac_tx_frame(int a1, int a2, int a3, int a4, int a5)
 
   v5 = off_124240;
   v8 = a3;
-  dispatch_event_handler(dword_124228, a1, a2, a3, a4, a5, *((uint8_t *)off_124240 + 36));
+  dispatch_event_handler_1("set apc : %d %d %d %x %x, band %d\n", a1, a2, a3, a4, a5, *((uint8_t *)off_124240 + 36));
   if ( v5[36] )
   {
     if ( a1 == 2 )
     {
-      v10 = *(uint32_t *)off_12423C;
+      v10 = *off_12423C;
     }
     else
     {
       if ( a1 == 1 )
-        v11 = (int *)dword_124230;
+        v11 = (int *)off_124230;
       else
-        v11 = (int *)dword_124234;
+        v11 = off_124234;
       v10 = *v11;
     }
   }
@@ -68,4 +68,3 @@ int  mac_tx_frame(int a1, int a2, int a3, int a4, int a5)
   while ( v15 != v14 );
   return memcpy_advance(1, (16 * a1) & 0xF0, 0x10u, v10);
 }
-

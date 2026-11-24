@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1349AC;
 extern uint32_t off_1349B4;
-extern uint32_t dword_1349B0;
 
 // rx_descriptor_reset @ 0x134904, size 166 bytes
-uint32_t *rx_descriptor_reset()
+int rx_descriptor_reset()
 {
   char *v0; // r5
   uint8_t *v1; // r8
@@ -23,7 +23,7 @@ uint32_t *rx_descriptor_reset()
   int *v3; // r10
   int v4; // r4
   uint64_t v5; // r2
-  int16_t v6; // lr
+  uint16_t v6; // lr
   int v7; // r0
   int v8; // r1
   uint64_t v9; // r2
@@ -34,9 +34,9 @@ uint32_t *rx_descriptor_reset()
   v1 = off_1349B4;
   v2 = *((uint8_t *)off_1349AC + 12);
   v3 = *((int **)off_1349B4 + 4);
-  v4 = bt_buf_alloc(4098, 4, 6, 0x178u);
-  ke_event_schedule(dword_1349B0);
-  irq_lock(6155, 6);
+  v4 = bt_buf_alloc(4098, 4, 6, 376);
+  ke_event_schedule_1(aTs1);
+  irq_lock((char *)0x180B, 6);
   v5 = *(uint64_t *)(v0 + 4);
   v0[14] = 0;
   *(uint32_t *)(v4 + 352) = *(uint32_t *)v5;
@@ -68,4 +68,3 @@ uint32_t *rx_descriptor_reset()
   hci_evt_send(v4);
   return hci_cmd_send(6u, 2);
 }
-

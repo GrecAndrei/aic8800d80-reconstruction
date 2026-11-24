@@ -10,19 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10EC1C;
+
 extern uint32_t dword_10EC20;
 extern uint32_t dword_10EC24;
-extern uint32_t off_10EC28;
-extern uint32_t off_10EC40;
 extern uint32_t dword_10EC2C;
-extern uint32_t off_10EC30;
-extern uint32_t off_10EC3C;
-extern uint32_t off_10EC34;
 extern uint32_t dword_10EC38;
+extern uint32_t off_10EC1C;
+extern uint32_t off_10EC28;
+extern uint32_t off_10EC30;
+extern uint32_t off_10EC34;
+extern uint32_t off_10EC3C;
+extern uint32_t off_10EC40;
 
-// rf_hardware_init @ 0x10eb18, size 260 bytes
-int  rf_hardware_init(unsigned int *a1)
+// sub_10EB18 @ 0x10eb18, size 260 bytes
+int  sub_10EB18(int a1)
 {
   uint32_t *v1; // r2
   int v2; // r7
@@ -38,8 +39,9 @@ int  rf_hardware_init(unsigned int *a1)
   unsigned int v12; // r7
   unsigned int v13; // r6
   int result; // r0
-  uint32_t v16[2]; // [sp+Ch] [bp-Ch] BYREF
-  int16_t v17; // [sp+14h] [bp-4h]
+  uint16_t a1a[2]; // [sp+Ch] [bp-Ch] BYREF
+  int v17; // [sp+10h] [bp-8h]
+  uint16_t v18; // [sp+14h] [bp-4h]
 
   v1 = off_10EC1C;
   v2 = dword_10EC20;
@@ -48,15 +50,15 @@ int  rf_hardware_init(unsigned int *a1)
   v5 = off_10EC40;
   v6 = dword_10EC2C;
   v7 = (unsigned int *)off_10EC30;
-  v17 = 0;
+  v18 = 0;
   *((uint32_t *)off_10EC3C + 14) = 296;
   v1[3] = v1[3] & 0xE0000000 | v2;
   v1[2] = v3 & v1[2] | 0x1200000D;
   *v4 |= 2u;
   *v4 &= ~1u;
-  v16[0] = v6;
-  v16[1] = 5610;
-  rf_enable((uint16_t *)v16, 0);
+  *(uint32_t *)a1a = v6;
+  v17 = 5610;
+  sub_102A20(a1a, 0);
   v8 = (int *)off_10EC34;
   v9 = dword_10EC38;
   *v5 |= 0x80000000;
@@ -69,7 +71,7 @@ int  rf_hardware_init(unsigned int *a1)
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = rf_analog_ctrl_set(4u, 8u, a1);
+  result = sub_10E83C(4u, 8u, (unsigned int *)a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;
@@ -78,4 +80,3 @@ int  rf_hardware_init(unsigned int *a1)
   *v7 = v13 & 0x400000 | *v7 & 0xFFBFFFFF;
   return result;
 }
-

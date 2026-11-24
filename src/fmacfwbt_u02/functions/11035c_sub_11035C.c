@@ -10,38 +10,32 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_110460;
 extern uint32_t off_110464;
+extern uint32_t off_110468;
+extern uint32_t off_11046C;
+extern uint32_t off_110470;
+extern uint32_t off_110480;
 extern uint32_t off_11048C;
 extern uint32_t off_110490;
-extern uint32_t off_110468;
-extern uint32_t dword_110484;
-extern uint32_t off_110480;
-extern uint32_t dword_110488;
-extern uint32_t off_11046C;
-extern uint32_t dword_11047C;
-extern uint32_t off_110470;
-extern uint32_t dword_110478;
-extern uint32_t dword_110474;
 
 // usb_irq_handler @ 0x11035c, size 258 bytes
-// Doc: log_free_dispatch_n500 [util]: Dispatch log buffer free across registered sinks
-// log_free_dispatch_n500 [util]: Dispatch log buffer free across registered sinks
 int  usb_irq_handler(int result)
 {
   uint32_t *v1; // r4
   unsigned int v2; // r3
   int *v3; // r6
-  int **v4; // r9
+  uint32_t *v4; // r9
   uint32_t *v5; // r8
   int v6; // r5
   int *v7; // r7
-  int v8; // r10
-  int *v9; // r0
-  int *v10; // r11
+  uint32_t *v8; // r10
+  uint32_t *v9; // r0
+  uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
-  int16_t v13; // r3
+  uint16_t v13; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
@@ -49,7 +43,7 @@ int  usb_irq_handler(int result)
   v1 = off_110460;
   v2 = *(uint16_t *)(result + 28);
   v3 = (int *)off_110464;
-  v4 = (int **)off_11048C;
+  v4 = off_11048C;
   v5 = off_110490;
   v6 = result;
 LABEL_2:
@@ -59,17 +53,17 @@ LABEL_2:
     v8 = critical_enter_4();
     if ( !v8 )
     {
-      result = printf_wrapper(dword_110484, *(uint32_t *)off_110480);
+      result = printf_wrapper("rep: no rxmsg buffer, %d\r\n", *(uint32_t *)off_110480);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return set_system_flag_1(32);
     }
-    v9 = (int *)critical_enter_0();
+    v9 = critical_enter_0();
     v10 = v9;
     if ( !v9 )
     {
-      printf_wrapper(dword_110488);
-      result = critical_enter_5();
+      printf_wrapper(aRepRxmsgNoDesc);
+      result = critical_enter_5(v8);
       if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return set_system_flag_1(32);
@@ -96,15 +90,15 @@ LABEL_2:
       }
       else
       {
-        printf_wrapper(dword_11047C);
+        printf_wrapper(aRxmsgTailError);
         v11 = *v7;
       }
     }
     else
     {
-      if ( **(int16_t **)off_110470 < 0 && *v4 )
+      if ( **(uint16_t **)off_110470 < 0 && *v4 )
       {
-        mmio_irq_clear(dword_110478, dword_110474, 261);
+        mmio_irq_clear((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
       }
       *v4 = v10;
@@ -135,4 +129,3 @@ LABEL_2:
   }
   return result;
 }
-

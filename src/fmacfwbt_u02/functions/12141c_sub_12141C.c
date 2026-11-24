@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12142C;
 
 // write_pmu_control @ 0x12141c, size 14 bytes
 int write_pmu_control()
 {
   *(uint32_t *)off_12142C = 48;
-  return hci_cmd_send(0);
+  return hci_cmd_send(0, 1);
 }
-

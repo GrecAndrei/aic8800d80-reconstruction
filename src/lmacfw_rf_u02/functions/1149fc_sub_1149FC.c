@@ -10,16 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_114A34;
 extern uint32_t off_114A38;
 extern uint32_t off_114A3C;
 
-// osal_int_exit @ 0x1149fc, size 56 bytes
-int  osal_int_exit(int a1)
+// sub_1149FC @ 0x1149fc, size 56 bytes
+int  sub_1149FC(int a1)
 {
-  BOOL v1; // r0
+  int v1; // r0
   int *v2; // r4
-  int ( *v3)(BOOL); // r2
+  int ( *v3)(char); // r2
   int result; // r0
   int v5; // r3
   int v6; // r2
@@ -31,7 +32,7 @@ int  osal_int_exit(int a1)
     *(uint32_t *)off_114A34 = 1;
   }
   v2 = (int *)off_114A38;
-  v3 = (int ( *)(BOOL))off_114A3C;
+  v3 = (int ( *)(char))off_114A3C;
   ++*(uint32_t *)off_114A38;
   result = v3(v1);
   if ( *v2 )
@@ -47,4 +48,3 @@ int  osal_int_exit(int a1)
   }
   return result;
 }
-

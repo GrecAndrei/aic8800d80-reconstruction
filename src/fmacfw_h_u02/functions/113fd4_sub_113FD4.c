@@ -10,11 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_114014;
-extern uint32_t dword_114020;
 extern uint32_t off_114018;
 extern uint32_t off_11401C;
-extern uint32_t dword_114024;
 
 // invoke_callback @ 0x113fd4, size 64 bytes
 int invoke_callback()
@@ -25,14 +24,13 @@ int invoke_callback()
 
   v0 = (*(int ( **)(uint32_t))(*((uint32_t *)off_114014 + 2) + 16))(*((uint32_t *)off_114014 + 1));
   if ( !v0 )
-    return debug_printf(dword_114020);
+    return debug_printf(aErrNoWlanDataB);
   v1 = (uint32_t *)v0;
   result = bt_get_state(*(uint32_t *)off_114018 + v0, *(uint32_t *)off_11401C);
   if ( result < 0 )
   {
     wait_for_state(v1);
-    return debug_printf(dword_114024);
+    return debug_printf(aWlanDataRecvRe);
   }
   return result;
 }
-

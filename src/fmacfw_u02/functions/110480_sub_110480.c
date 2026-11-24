@@ -10,33 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1104B8;
-extern uint32_t dword_1104BC;
 
-// is_hold_mode @ 0x110480, size 52 bytes
-// Doc: log_free_dispatch_n48e [util]: Increment log free counter and invoke free callback
-// log_free_dispatch_n48e [util]: Increment log free counter and invoke free callback
-int is_hold_mode()
+extern uint32_t dword_1104BC;
+extern uint32_t off_1104B4;
+extern uint32_t off_1104B8;
+
+// sub_110480 @ 0x110480, size 52 bytes
+uint32_t *sub_110480()
 {
   int *v0; // r4
   int v1; // r0
-  int result; // r0
+  uint32_t *result; // r0
   int v3; // r3
   int v4; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)log_free_dispatch_n4ac = 1;
+    *(uint32_t *)off_1104B4 = 1;
   }
   v0 = (int *)off_1104B8;
   v1 = dword_1104BC;
   ++*(uint32_t *)off_1104B8;
-  result = mem_word_load(v1);
+  result = sub_12D2D0(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
-    v4 = *(uint32_t *)log_free_dispatch_n4ac;
+    v4 = *(uint32_t *)off_1104B4;
     *v0 = v3;
     if ( !v3 )
     {
@@ -46,4 +46,3 @@ int is_hold_mode()
   }
   return result;
 }
-

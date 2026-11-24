@@ -10,6 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_1274FC;
 extern uint32_t off_1274DC;
 extern uint32_t off_1274E0;
 extern uint32_t off_1274E4;
@@ -18,17 +20,13 @@ extern uint32_t off_1274EC;
 extern uint32_t off_1274F0;
 extern uint32_t off_1274F4;
 extern uint32_t off_1274F8;
-extern uint32_t off_127524;
-extern uint32_t off_127508;
-extern uint32_t off_127504;
-extern uint32_t off_127510;
-extern uint32_t dword_127518;
-extern uint32_t dword_127514;
-extern uint32_t off_12750C;
-extern uint32_t dword_12751C;
-extern uint32_t dword_1274FC;
-extern uint32_t off_127520;
 extern uint32_t off_127500;
+extern uint32_t off_127504;
+extern uint32_t off_127508;
+extern uint32_t off_12750C;
+extern uint32_t off_127510;
+extern uint32_t off_127520;
+extern uint32_t off_127524;
 
 // llc_state_reset @ 0x12723c, size 670 bytes
 int  llc_state_reset(int a1, int a2)
@@ -50,7 +48,7 @@ int  llc_state_reset(int a1, int a2)
   int v18; // r1
   uint16_t *v19; // r8
   uint16_t *v20; // r0
-  uint16_t *v21; // r7
+  int v21; // r7
   int v22; // r0
   int v23; // r2
   unsigned int *v24; // r12
@@ -67,11 +65,9 @@ int  llc_state_reset(int a1, int a2)
   unsigned int v35; // r10
   uint32_t *v36; // r7
   int v37; // r2
-  void *v38; // r2
-  int v39; // r1
-  int v40; // r0
-  uint32_t *v41; // r7
-  int v42; // r2
+  int v38; // r1
+  uint32_t *v39; // r7
+  int v40; // r2
 
   v2 = off_1274DC;
   *((uint32_t *)off_1274DC + 10) = 0;
@@ -102,7 +98,7 @@ int  llc_state_reset(int a1, int a2)
   if ( a2 )
     goto LABEL_6;
   result = ke_evt_handler();
-  if ( !*((uint8_t *)off_1274F0 + 408) )
+  if ( !LOBYTE(((uint32_t *)(uintptr_t)off_1274F0)[102]) )
     goto LABEL_6;
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
@@ -115,7 +111,7 @@ LABEL_7:
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
-        result = ipc_post_msg(a1);
+        result = (int)ipc_post_msg(a1);
         v14 = (uint8_t)v2[88];
       }
       else
@@ -146,14 +142,13 @@ LABEL_7:
   if ( *((uint16_t *)off_127524 + 2) <= 1u && *((uint16_t *)off_127524 + 3) <= 1u )
   {
 LABEL_50:
-    v41 = off_127508;
-    v42 = **(int16_t **)off_127504;
+    v39 = off_127508;
+    v40 = **(uint16_t **)off_127504;
     *((uint32_t *)off_127508 + 1) |= 0x100040u;
-    if ( v42 < 0 && *(uint32_t *)off_127510 << 28 )
-      mmio_write_field(dword_127518, dword_127514, 472);
-    v38 = off_12750C;
-    v39 = 1;
-    *(uint32_t *)off_12750C = *v41 | v41[1];
+    if ( v40 < 0 && *(uint32_t *)off_127510 << 28 )
+      mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
+    v38 = 1;
+    *(uint32_t *)off_12750C = *v39 | v39[1];
     v15 = 1;
     goto LABEL_48;
   }
@@ -182,17 +177,15 @@ LABEL_38:
       goto LABEL_44;
   }
   v36 = off_127508;
-  v37 = **(int16_t **)off_127504;
+  v37 = **(uint16_t **)off_127504;
   *((uint32_t *)off_127508 + 1) &= 0xFFEFFFBF;
   if ( v37 < 0 && *(uint32_t *)off_127510 << 28 )
-    mmio_write_field(dword_127518, dword_127514, 472);
-  v38 = off_12750C;
+    mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
   *(uint32_t *)off_12750C = *v36 | v36[1];
-  v39 = 0;
+  v38 = 0;
 LABEL_48:
-  v40 = dword_12751C;
   v30[8] = v15;
-  result = alloc_tx_event(v40, v39, v38);
+  result = alloc_tx_event("single ssid %d\n", v38);
 LABEL_6:
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
@@ -202,14 +195,14 @@ LABEL_23:
   v19 = (uint16_t *)rf_get_buffer();
   v20 = (uint16_t *)tx_send_pdu(79, 13, 0, 12);
   *v20 = *v19;
-  v21 = v20;
-  v22 = hci_buffer_get(v19);
+  v21 = (int)v20;
+  v22 = hci_buffer_get((int)v19);
   v23 = dword_1274FC;
   v24 = (unsigned int *)off_127520;
   v25 = off_127500;
-  *((uint32_t *)v21 + 1) = (unsigned int)(((unsigned int)dword_1274FC * (unsigned uint64_t)(unsigned int)v22) >> 32) >> 6;
-  *((uint32_t *)v21 + 2) = (unsigned int)(((unsigned int)v23 * (unsigned uint64_t)*v24) >> 32) >> 6;
-  *((uint8_t *)v21 + 2) = 0;
+  *(uint32_t *)(v21 + 4) = (unsigned int)(((unsigned int)dword_1274FC * (uint64_t)(unsigned int)v22) >> 32) >> 6;
+  *(uint32_t *)(v21 + 8) = (unsigned int)(((unsigned int)v23 * (uint64_t)*v24) >> 32) >> 6;
+  *(uint8_t *)(v21 + 2) = 0;
   v26 = 10;
   while ( 1 )
   {
@@ -219,16 +212,16 @@ LABEL_23:
     if ( !v26 )
       goto LABEL_26;
   }
-  *((uint8_t *)v21 + 2) = *v25;
+  *(uint8_t *)(v21 + 2) = *v25;
 LABEL_26:
-  rx_process_packet(v21);
+  rx_process_packet_1(v21);
   v27 = off_127508;
-  v28 = **(int16_t **)off_127504;
+  v28 = **(uint16_t **)off_127504;
   v29 = *((uint32_t *)off_127508 + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_127508 + 1) = v29;
   if ( v28 < 0 && *(uint32_t *)off_127510 << 28 )
   {
-    mmio_write_field(dword_127518, dword_127514, 472);
+    mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
     v29 = v27[1];
   }
   *(uint32_t *)off_12750C = v29 | *v27;
@@ -248,4 +241,3 @@ LABEL_8:
     return ke_evt_poll();
   return result;
 }
-

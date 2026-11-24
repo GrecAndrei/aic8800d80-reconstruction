@@ -10,36 +10,34 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10EC14;
 extern uint32_t off_10EC18;
 extern uint32_t off_10EC1C;
-extern uint32_t dword_10EC20;
-extern uint32_t dword_10EC24;
-extern uint32_t dword_10EC28;
 
-// gpio_mode_set @ 0x10ea74, size 416 bytes
-int  gpio_mode_set(unsigned int a1, unsigned int a2, unsigned int *a3)
+// sub_10EA74 @ 0x10ea74, size 416 bytes
+int  sub_10EA74(unsigned int a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r4
   unsigned int *v4; // r6
   unsigned int *v5; // r5
-  int16_t *v7; // r5
-  int inited; // r10
-  int v9; // r2
-  unsigned int *v10; // r7
-  unsigned int *v11; // r6
-  unsigned int v12; // r11
-  int v13; // r8
-  int v14; // r9
-  int v15; // r2
-  int v16; // r0
-  int v17; // r2
-  int v19; // r5
-  unsigned int v20; // [sp+Ch] [bp-20h]
-  unsigned int v21; // [sp+10h] [bp-1Ch]
-  int v22; // [sp+14h] [bp-18h]
-  unsigned int v23; // [sp+18h] [bp-14h]
-  unsigned int v24; // [sp+1Ch] [bp-10h]
+  uint16_t *v8; // r5
+  int v9; // r10
+  int v10; // r2
+  unsigned int *v11; // r7
+  unsigned int *v12; // r6
+  unsigned int v13; // r11
+  int v14; // r8
+  int v15; // r9
+  int v16; // r2
+  int v17; // r0
+  int v18; // r2
+  int v20; // r5
+  unsigned int v21; // [sp+Ch] [bp-20h]
+  unsigned int v22; // [sp+10h] [bp-1Ch]
+  int v23; // [sp+14h] [bp-18h]
+  unsigned int v24; // [sp+18h] [bp-14h]
+  unsigned int v25; // [sp+1Ch] [bp-10h]
 
   v4 = (unsigned int *)off_10EC14;
   v5 = (unsigned int *)off_10EC18;
@@ -47,68 +45,69 @@ int  gpio_mode_set(unsigned int a1, unsigned int a2, unsigned int *a3)
   *v5 = ((uint16_t)a1 << 12) & 0x7000 | *v5 & 0xFFFF8FFF;
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
-  v7 = (int16_t *)off_10EC1C;
-  inited = sdio_core_enable();
-  dispatch_event_handler(dword_10EC20, a1);
-  v9 = *v7;
-  if ( v9 > inited )
+  v8 = (uint16_t *)off_10EC1C;
+  v9 = sub_10E2E8();
+  sub_11F504("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
+  v10 = *v8;
+  if ( v10 > v9 )
   {
-    v22 = 1;
+    v23 = 1;
   }
   else
   {
-    if ( v9 >= inited )
+    if ( v10 >= v9 )
     {
-      v19 = 0;
+      v20 = 0;
       goto LABEL_9;
     }
-    v22 = -1;
+    v23 = -1;
   }
   v3 = a2;
-  v10 = (unsigned int *)off_10EC14;
-  v11 = (unsigned int *)off_10EC18;
-  v20 = a1;
-  v21 = a1 + a2;
-  v12 = a1;
-  v13 = 7;
-  v19 = 0;
+  v11 = (unsigned int *)off_10EC14;
+  v12 = (unsigned int *)off_10EC18;
+  v21 = a1;
+  v22 = a1 + a2;
+  v13 = a1;
+  v14 = 7;
+  v20 = 0;
   while ( 1 )
   {
-    v23 = v12;
-    v19 += v22;
-    v12 = __usat(3u, v20 + v19);
-    *v10 = *v10 & 0xFFFFFFF8 | v12;
-    *v11 = *v11 & 0xFFFF8FFF | (v12 << 12);
-    v24 = v3;
-    v3 = __usat(4u, v21 + v19 - v12);
-    *v10 = *v10 & 0xFFFFFF87 | (8 * v3);
-    *v11 = *v11 & 0xFFF87FFF | (v3 << 15);
-    v14 = inited;
-    inited = sdio_core_enable();
-    dispatch_event_handler(dword_10EC24, v12);
-    v15 = *(int16_t *)off_10EC1C;
-    v16 = inited - v15;
-    v17 = v14 - v15;
-    if ( v17 * v16 <= 0 )
+    v24 = v13;
+    v20 += v23;
+    v13 = __usat(3u, v21 + v20);
+    *v11 = *v11 & 0xFFFFFFF8 | v13;
+    *v12 = *v12 & 0xFFFF8FFF | (v13 << 12);
+    v25 = v3;
+    v3 = __usat(4u, v22 + v20 - v13);
+    *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
+    *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
+    v15 = v9;
+    v9 = sub_10E2E8();
+    sub_11F504("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
+    v16 = *(uint16_t *)off_10EC1C;
+    v17 = v9 - v16;
+    v18 = v15 - v16;
+    if ( v18 * v17 <= 0 )
       break;
-    if ( !--v13 )
+    if ( !--v14 )
       goto LABEL_9;
   }
+  if ( v18 < 0 )
+    v18 = -v18;
   if ( v17 < 0 )
     v17 = -v17;
-  if ( v16 < 0 )
-    v16 = -v16;
-  if ( v17 <= v16 )
+  if ( v18 <= v17 )
   {
-    v3 = v24;
-    *v10 = *v10 & 0xFFFFFFF8 | v23 & 7;
-    *v11 = (v23 << 12) & 0x7000 | *v11 & 0xFFFF8FFF;
-    *v10 = (8 * v24) & 0x78 | *v10 & 0xFFFFFF87;
-    *v11 = (v24 << 15) & 0x78000 | *v11 & 0xFFF87FFF;
+    v3 = v25;
+    *v11 = *v11 & 0xFFFFFFF8 | v24 & 7;
+    *v12 = (v24 << 12) & 0x7000 | *v12 & 0xFFFF8FFF;
+    *v11 = (8 * v25) & 0x78 | *v11 & 0xFFFFFF87;
+    v9 = v15;
+    v13 = v24;
+    *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  dispatch_event_handler(dword_10EC28, v19);
+  sub_11F504("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", v20, v13 - v21, v3 - a2, v9);
 LABEL_9:
   *a3 = v3;
-  return v19;
+  return v20;
 }
-

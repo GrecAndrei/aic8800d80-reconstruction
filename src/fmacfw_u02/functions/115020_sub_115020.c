@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_115108;
-extern uint32_t off_115128;
-extern uint32_t off_115114;
-extern uint32_t dword_11511C;
-extern uint32_t off_115120;
-extern uint32_t dword_115124;
 extern uint32_t off_11510C;
 extern uint32_t off_115110;
+extern uint32_t off_115114;
 extern uint32_t off_115118;
+extern uint32_t off_115120;
+extern uint32_t off_115128;
 
 // patch_get_state @ 0x115020, size 230 bytes
 int patch_get_state()
@@ -28,27 +27,25 @@ int patch_get_state()
   uint32_t *v2; // r2
   uint32_t *v3; // r3
   uint32_t *v4; // r3
-  int v6; // r1
-  int v7; // r1
-  uint32_t *v8; // r2
+  uint32_t *v6; // r2
 
   if ( **(uint8_t **)off_115108 == 2 )
   {
     if ( mmio_read_flag_b() )
-      v0 = *((uint32_t *)off_115128 + 87);
+      v0 = ((uint32_t *)(uintptr_t)off_115128)[87];
     else
       v0 = 16;
     mmio_read_flag();
     *((uint32_t *)off_115114 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    event_dispatch(dword_11511C, v6, 1);
-    v8 = off_115120;
+    event_dispatch(aSftDis);
+    v6 = off_115120;
     *((uint32_t *)off_115120 + 513) |= 2u;
-    v8[4] |= 1u;
-    while ( (v8[4] & 1) != 0 )
+    v6[4] |= 1u;
+    while ( (v6[4] & 1) != 0 )
       ;
-    event_dispatch(dword_115124, v7, v8);
+    event_dispatch(aSftrstDone);
   }
   else
   {
@@ -86,4 +83,3 @@ int patch_get_state()
   __disable_irq();
   return v0;
 }
-

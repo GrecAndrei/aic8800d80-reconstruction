@@ -10,50 +10,48 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1137E0;
-extern uint32_t off_1137EC;
-extern uint32_t dword_113808;
-extern uint32_t off_1137E8;
-extern uint32_t dword_1137F4;
 extern uint32_t off_1137E4;
+extern uint32_t off_1137E8;
+extern uint32_t off_1137EC;
+extern uint32_t off_1137F0;
 extern uint32_t off_1137F8;
-extern uint32_t off_113810;
 extern uint32_t off_1137FC;
-extern uint32_t dword_113800;
-extern uint32_t dword_113804;
-extern uint32_t dword_11380C;
+extern uint32_t off_113810;
 
 // read_state_flag @ 0x1136b8, size 294 bytes
-void read_state_flag()
+void  read_state_flag(int a1, int a2, int a3, int a4)
 {
-  uint8_t *v0; // r5
-  int v1; // r0
-  uint32_t *v2; // r4
-  uint32_t *v3; // r8
-  unsigned int *v4; // r6
-  unsigned int v5; // r1
+  uint8_t *v4; // r5
+  uint16_t *v5; // r2
   int v6; // r0
-  int v7; // r0
-  uint8_t *v8; // r7
-  int v9; // r9
-  unsigned int v10; // r1
+  uint32_t *v7; // r4
+  uint32_t *v8; // r8
+  int *v9; // r6
+  int v10; // r1
   int v11; // r0
   int v12; // r0
-  int v13; // r1
+  uint8_t *v13; // r7
+  int v14; // r9
+  int v15; // r1
+  int v16; // r0
+  int v17; // r0
+  uint16_t *v18; // r3
 
-  v0 = off_1137E0;
+  v4 = off_1137E0;
   if ( *(uint8_t *)off_1137E0 )
   {
     if ( !*(uint16_t *)off_1137EC )
     {
-      check_status_bits(512, dword_113808);
+      check_status_bits(512, "#we\n");
       return;
     }
     if ( *(uint8_t *)off_1137E8 >= (unsigned int)*(uint16_t *)off_1137EC )
     {
-      v13 = dword_1137F4;
+      v18 = (uint16_t *)off_1137F0;
       *(uint8_t *)off_1137E4 = 1;
-      check_status_bits(512, v13);
+      check_status_bits(512, "#wf:%X\n", *v18);
     }
   }
   else
@@ -62,55 +60,56 @@ void read_state_flag()
       return;
     if ( *(uint8_t *)off_1137E8 >= (unsigned int)*(uint16_t *)off_1137EC && !*(uint8_t *)off_1137E4 )
     {
+      v5 = (uint16_t *)off_1137F0;
       *(uint8_t *)off_1137E4 = 1;
-      check_status_bits(512, dword_1137F4);
+      check_status_bits(512, "#wf:%X\n", *v5);
       return;
     }
   }
-  v1 = (*(int ( **)(uint32_t))(*((uint32_t *)off_1137F8 + 2) + 16))(*((uint32_t *)off_1137F8 + 1));
-  v2 = (uint32_t *)v1;
-  if ( v1 )
+  v6 = (*(int ( **)(uint32_t))(*((uint32_t *)off_1137F8 + 2) + 16))(*((uint32_t *)off_1137F8 + 1));
+  v7 = (uint32_t *)v6;
+  if ( v6 )
   {
-    if ( *v0 )
+    if ( *v4 )
     {
-      v3 = off_113810;
-      v4 = (unsigned int *)off_1137FC;
-      v5 = *(uint32_t *)off_1137FC;
-      v6 = *(uint32_t *)off_113810 + v1;
+      v8 = (uint32_t *)off_113810;
+      v9 = (int *)off_1137FC;
+      v10 = *(uint32_t *)off_1137FC;
+      v11 = *(uint32_t *)off_113810 + v6;
       if ( *(uint8_t *)off_1137E4 )
-        v7 = ke_task_init(v6, v5);
+        v12 = ke_task_init(v11, v10);
       else
-        v7 = irq_state_load_b(v6, v5);
+        v12 = irq_state_load_b(v11, v10);
     }
     else
     {
-      v3 = off_113810;
-      v4 = (unsigned int *)off_1137FC;
-      v7 = irq_state_load_b(*(uint32_t *)off_113810 + v1, *(uint32_t *)off_1137FC);
+      v8 = (uint32_t *)off_113810;
+      v9 = (int *)off_1137FC;
+      v12 = irq_state_load_b(*(uint32_t *)off_113810 + v6, *(uint32_t *)off_1137FC);
     }
-    if ( v7 )
+    if ( v12 )
     {
-      v8 = off_1137E4;
-      log_printf(dword_113800, v7);
-      v9 = 5;
+      v13 = off_1137E4;
+      log_printf("wd rx %d\r\n", v12);
+      v14 = 5;
       while ( 1 )
       {
-        if ( *v0 )
+        if ( *v4 )
         {
-          v10 = *v4;
-          v11 = (int)v2 + *v3;
-          v12 = *v8 ? ke_task_init(v11, v10) : irq_state_load_b(v11, v10);
+          v15 = *v9;
+          v16 = (int)v7 + *v8;
+          v17 = *v13 ? ke_task_init(v16, v15) : irq_state_load_b(v16, v15);
         }
         else
         {
-          v12 = irq_state_load_b((int)v2 + *v3, *v4);
+          v17 = irq_state_load_b((int)v7 + *v8, *v9);
         }
-        if ( !v12 )
+        if ( !v17 )
           break;
-        if ( !--v9 )
+        if ( !--v14 )
         {
-          log_printf(dword_113804, 5);
-          is_controller_mode(v2);
+          log_printf("wd rx max time %d\r\n", 5);
+          is_controller_mode(v7);
           unknown_func_12d104(32);
           return;
         }
@@ -120,7 +119,6 @@ void read_state_flag()
   else
   {
     unknown_func_12d104(32);
-    log_printf(dword_11380C);
+    log_printf(aErrWdNoRxBuf);
   }
 }
-

@@ -10,12 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1133EC;
+
+extern uint32_t off_1133D4;
+extern uint32_t off_1133D8;
+extern uint32_t off_1133DC;
+extern uint32_t off_1133E0;
 
 // irq_state_load_b @ 0x113350, size 130 bytes
-// Doc: rf_stream_start2_3390 [rf]: Starts an RF stream (variant 2)
-// rf_stream_start2_3390 [rf]: Starts an RF stream (variant 2)
-int  irq_state_load_b(int a1, unsigned int a2)
+int  irq_state_load_b(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r6
@@ -23,35 +25,35 @@ int  irq_state_load_b(int a1, unsigned int a2)
   int v5; // r0
   int v6; // r2
 
-  v2 = rf_cmd_wait_n464;
-  if ( *(uint8_t *)rf_cmd_wait_n464 )
+  v2 = off_1133D4;
+  if ( *(uint8_t *)off_1133D4 )
     return -14;
   if ( !a1 || !a2 )
     return -11;
-  v3 = rf_cmd_send_n3c8;
-  if ( *(uint8_t *)rf_cmd_send_n3c8 )
+  v3 = off_1133D8;
+  if ( *(uint8_t *)off_1133D8 )
   {
-    log_printf(rf_cmd_process_n_170, rf_msg_handler_n2e0, *(uint8_t *)rf_cmd_send_n3c8);
+    log_printf("err: %s state=%d\r\n", aUsbWlanRecv, *(uint8_t *)off_1133D8);
     return -3;
   }
   else
   {
-    v4 = rf_msg_handler_n2d8;
-    *(uint8_t *)rf_cmd_send_n3c8 = 1;
+    v4 = off_1133DC;
+    *(uint8_t *)off_1133D8 = 1;
     v4[716] &= 0xE007FFFF;
     v5 = periph_channel_flag(1, a1, a2);
     v6 = v5;
     if ( v5 )
     {
-      log_printf(dword_1133EC, rf_msg_handler_n2e0, v5);
+      log_printf("err: %s ret=%d\r\n", aUsbWlanRecv, v5);
       return -1;
     }
     else
     {
-      *(uint8_t *)rf_level_apply_n_14e = 1;
+      *(uint8_t *)off_1133E0 = 1;
       if ( *v2 )
       {
-        shared_call_check(0, 1u);
+        shared_call_check(0, 1, 0);
         *v3 = 0;
         return -14;
       }
@@ -59,4 +61,3 @@ int  irq_state_load_b(int a1, unsigned int a2)
   }
   return v6;
 }
-

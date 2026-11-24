@@ -10,9 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12D284;
-extern uint32_t dword_12D28C;
-extern uint32_t dword_12D288;
 
 // cmd_handler_a @ 0x12d248, size 60 bytes
 int  cmd_handler_a(int result, uint32_t *a2)
@@ -20,8 +19,8 @@ int  cmd_handler_a(int result, uint32_t *a2)
   int v2; // r5
 
   v2 = result;
-  if ( **(int16_t **)off_12D284 < 0 && !a2 )
-    result = mmio_clear_register(dword_12D28C, dword_12D288, 72);
+  if ( **(uint16_t **)off_12D284 < 0 && !a2 )
+    result = mmio_clear_register((int)aListHdrNull, (int)aCoListPushBack, 72);
   if ( *(uint32_t *)v2 )
     **(uint32_t **)(v2 + 4) = a2;
   else
@@ -30,4 +29,3 @@ int  cmd_handler_a(int result, uint32_t *a2)
   *a2 = 0;
   return result;
 }
-

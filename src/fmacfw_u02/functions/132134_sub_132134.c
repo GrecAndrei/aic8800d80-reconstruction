@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1321C4;
 
 // ke_state_is2 @ 0x132134, size 144 bytes
-int  ke_state_is2(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
+int  ke_state_is2(int a1, uint8_t *a2, int a3, int a4)
 {
   uint16_t *v7; // r7
   int *v9; // r0
@@ -37,7 +38,7 @@ int  ke_state_is2(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
     ke_msg_send_no_param(5144, a4, a3);
     return 0;
   }
-  v9 = (int *)ke_msg_alloc(34, 0, a3, 1u);
+  v9 = (int *)ke_msg_alloc(34, 0, a3, 1);
   v10 = a2[1];
   if ( *a2 )
     v11 = (1 << v10) | *(uint32_t *)v7;
@@ -46,8 +47,7 @@ int  ke_state_is2(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
   *(uint32_t *)v7 = v11;
   v7[4] = a4;
   *v9 = v11 == 0;
-  ke_msg_send((int)v9);
+  ke_msg_send_2((int)v9);
   rx_phy_status_parse(a3, 1);
   return 0;
 }
-

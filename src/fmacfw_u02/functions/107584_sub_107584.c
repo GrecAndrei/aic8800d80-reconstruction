@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_107664;
 extern uint32_t off_107668;
 extern uint32_t off_10766C;
-extern uint32_t dword_107670;
-extern uint32_t dword_107674;
+extern uint32_t off_107674;
 
 // rf_mode_select @ 0x107584, size 222 bytes
 int  rf_mode_select(int a1, int a2)
@@ -45,8 +45,8 @@ int  rf_mode_select(int a1, int a2)
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
   timer_delay(5);
-  check_status_bits(1, dword_107670);
-  result = check_status_bits(1, dword_107674);
+  check_status_bits(1, "rd_pwr=%4d  ", *(uint32_t *)(a1 + 44));
+  result = check_status_bits(1, (const char *)off_107674);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;
@@ -56,4 +56,3 @@ int  rf_mode_select(int a1, int a2)
   *v2 = *v2 & 0xFFFFFF8F | 0x40;
   return result;
 }
-

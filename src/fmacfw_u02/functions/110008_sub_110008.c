@@ -10,13 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1100EC;
-extern uint32_t off_1100E4;
-extern uint32_t dword_1100FC;
+
 extern uint32_t dword_1100F0;
+extern uint32_t off_1100E4;
 extern uint32_t off_1100E8;
-extern uint32_t dword_1100F8;
-extern uint32_t dword_1100F4;
 
 // is_controller_mode @ 0x110008, size 218 bytes
 int  is_controller_mode(uint32_t *a1)
@@ -29,7 +26,7 @@ int  is_controller_mode(uint32_t *a1)
   result = check_controller_mode((unsigned int)a1);
   if ( !result )
   {
-    result = log_printf(dword_1100EC, a1);
+    result = log_printf("get_native_pool_id: Invalid buffer passed: %x\n", a1);
     v5 = **(uint8_t **)off_1100E4;
     if ( v5 != 1 )
     {
@@ -39,11 +36,11 @@ int  is_controller_mode(uint32_t *a1)
       {
 LABEL_11:
         if ( !check_controller_mode((unsigned int)a1) )
-          log_printf(dword_1100FC, a1);
+          log_printf("get_user_id: Invalid buffer passed: %x\n", a1);
         return util_is_nonnull(dword_1100F0, a1);
       }
-      if ( **(int16_t **)off_1100E8 < 0 )
-        return mmio_clear_register(dword_1100F8, dword_1100F4, 204);
+      if ( **(uint16_t **)off_1100E8 < 0 )
+        return mmio_clear_register((int)aNativeId3, (int)aPktMemFree, 204);
       return result;
     }
     return is_park_mode(a1);
@@ -64,7 +61,7 @@ LABEL_11:
   {
     if ( v4 == 3 )
     {
-      if ( **(int16_t **)off_1100E8 >= 0 )
+      if ( **(uint16_t **)off_1100E8 >= 0 )
       {
         if ( v3 != 3 )
           return result;
@@ -72,7 +69,7 @@ LABEL_11:
       }
       if ( v3 == 3 )
         return sub_11428c(a1);
-      return mmio_clear_register(dword_1100F8, dword_1100F4, 204);
+      return mmio_clear_register((int)aNativeId3, (int)aPktMemFree, 204);
     }
     goto LABEL_11;
   }
@@ -82,4 +79,3 @@ LABEL_11:
     return assert_error(a1);
   return result;
 }
-

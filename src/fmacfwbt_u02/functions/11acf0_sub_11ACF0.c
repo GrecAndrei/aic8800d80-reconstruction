@@ -10,36 +10,31 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11AD34;
-extern uint32_t dword_11AD3C;
-extern uint32_t dword_11AD38;
 
 // assert_fail_handler @ 0x11acf0, size 68 bytes
-// Doc: sub_121ACF0 [bt]: FMAC+BT firmware routine at 0x121acf0
-// sub_121ACF0 [bt]: FMAC+BT firmware routine at 0x121acf0
 int  assert_fail_handler(int result, int a2)
 {
   int v2; // r3
   int v3; // r2
-  int v4; // r3
-  unsigned int v5; // r3
+  unsigned int v4; // r3
 
   v2 = *(uint32_t *)(result + 60);
   if ( v2 < 0 )
   {
     v3 = *(uint32_t *)(result + 36);
-    if ( **(int16_t **)off_11AD34 < 0 && (v4 = v2 << 15, v4 >= 0) )
+    if ( **(uint16_t **)off_11AD34 >= 0 || (v2 & 0x10000) != 0 )
     {
-      return ke_int_lock(dword_11AD3C, dword_11AD38, 3371, v4);
+      v4 = *(uint32_t *)(v3 + 20) & 0xFFFE3FFF | 0x4000;
+      *(uint32_t *)(result + 60) = 0;
+      *(uint32_t *)(v3 + 20) = v4;
+      return get_cal_item(result, a2);
     }
     else
     {
-      v5 = *(uint32_t *)(v3 + 20) & 0xFFFE3FFF | 0x4000;
-      *(uint32_t *)(result + 60) = 0;
-      *(uint32_t *)(v3 + 20) = v5;
-      return get_cal_item(result, a2, v3, v5);
+      return ke_int_lock_1((int)aAThdStatusRetr, (int)aTxlAggCheckRts, 3371);
     }
   }
   return result;
 }
-

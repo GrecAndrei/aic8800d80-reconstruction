@@ -10,27 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1294C4;
+
+extern uint32_t off_129494;
 extern uint32_t off_129498;
 extern uint32_t off_12949C;
 extern uint32_t off_1294A0;
 extern uint32_t off_1294A4;
 extern uint32_t off_1294A8;
-extern uint32_t off_129494;
-extern uint32_t dword_1294B0;
 extern uint32_t off_1294B4;
 extern uint32_t off_1294B8;
-extern uint32_t off_1294C0;
 extern uint32_t off_1294BC;
+extern uint32_t off_1294C0;
+extern uint32_t off_1294C4;
 
 // wlc_mmio_regs @ 0x129394, size 254 bytes
-// Doc: mmio_reg_init_n_39c [mmio]: Initialize MMIO control registers at 0x4032xxxx with status read
-// mmio_reg_init_n_39c [mmio]: Initialize MMIO control registers at 0x4032xxxx with status read
 int wlc_mmio_regs()
 {
   unsigned int *v0; // r12
   int *v1; // r1
-  uint8_t *v2; // r7
+  int *v2; // r7
   uint32_t *v3; // r4
   unsigned int v4; // r0
   unsigned int *v5; // r5
@@ -46,9 +44,9 @@ int wlc_mmio_regs()
 
   v0 = (unsigned int *)off_1294C4;
   v1 = (int *)off_129498;
-  v2 = off_12949C;
+  v2 = (int *)off_12949C;
   v3 = off_1294A0;
-  v4 = *((uint16_t *)off_12949C + 93);
+  v4 = HIWORD(((uint32_t *)(uintptr_t)off_12949C)[46]);
   v5 = (unsigned int *)off_1294A4;
   v6 = (uint8_t **)off_1294A8;
   *(uint32_t *)off_129494 |= 0x40000000u;
@@ -57,12 +55,12 @@ int wlc_mmio_regs()
   *v0 = *v0 & 0xFFFFFF00 | 0x10;
   *v5 = *v5 & 0xFFFFFF03 | 0x10;
   *v1 = *v1 & 0x3FFFFF | (((v4 >> 5) + 32) << 22);
-  result = check_status_bits(2, dword_1294B0);
+  result = check_status_bits(2, "%s:%d,%d\r\n", aPsUpmEnter, **v6, (v4 >> 5) + 32);
   v8 = *v6;
   v9 = **v6;
   if ( v9 == 1 )
   {
-    if ( v2[189] )
+    if ( *((uint8_t *)v2 + 189) )
     {
       result = (int)off_1294B4;
       *(uint32_t *)off_1294B8 &= ~0x2000000u;
@@ -79,7 +77,7 @@ int wlc_mmio_regs()
     *v13 = 4;
     *v14 = 1;
     *v3 &= 0xFFFBFFFE;
-    v9 = (uint8_t)*v8;
+    v9 = *v8;
   }
   if ( v9 != 2 )
   {
@@ -97,4 +95,3 @@ LABEL_6:
   *v12 &= ~1u;
   return 63;
 }
-

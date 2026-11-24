@@ -10,27 +10,26 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1112DC;
 
-// timer_entry_reset @ 0x1112ac, size 48 bytes
-// Doc: rf_cmd_dispatch_n1b4 [rf]: Dispatches RF command requests from MAC scheduler
-// rf_cmd_dispatch_n1b4 [rf]: Dispatches RF command requests from MAC scheduler
-int * timer_entry_reset(int a1)
+extern uint32_t dword_1112DC;
+extern uint32_t dword_1112E0;
+
+// sub_1112AC @ 0x1112ac, size 48 bytes
+int  sub_1112AC(int a1)
 {
   int v2; // r0
   int v3; // r5
-  int *result; // r0
+  int result; // r0
   int ( *v5)(uint32_t, uint32_t, int); // r3
 
   v2 = dword_1112DC + 16 * (a1 - 1);
   v3 = *(uint8_t *)(v2 + 11);
-  result = sub_100200((int *)v2, 0, 0x10u);
+  result = (int)sub_100200((int *)v2, 0, 0x10u);
   if ( v3 )
   {
-    v5 = *(int ( **)(uint32_t, uint32_t, int))(rf_bus_write2_n_244 + 4 * (a1 + 13));
+    v5 = *(int ( **)(uint32_t, uint32_t, int))(dword_1112E0 + 4 * (a1 + 13));
     if ( v5 )
-      return (int *)v5(0, 0, 1);
+      return v5(0, 0, 1);
   }
   return result;
 }
-

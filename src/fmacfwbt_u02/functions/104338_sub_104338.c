@@ -10,18 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10440C;
-extern uint32_t off_104414;
+
 extern uint32_t dword_104418;
-extern uint32_t off_104410;
 extern uint32_t dword_10441C;
-extern uint32_t off_104420;
-extern uint32_t off_104424;
 extern uint32_t dword_104428;
 extern uint32_t dword_10442C;
-extern uint32_t dword_104430;
-extern uint32_t dword_104434;
-extern uint32_t dword_104438;
+extern uint32_t off_10440C;
+extern uint32_t off_104410;
+extern uint32_t off_104414;
+extern uint32_t off_104420;
+extern uint32_t off_104424;
 extern uint32_t off_10443C;
 
 // rf_power_on_reset @ 0x104338, size 212 bytes
@@ -33,10 +31,9 @@ int rf_power_on_reset()
   int v3; // r5
   uint32_t *v4; // r6
   int *v5; // r4
-  int v6; // r1
   int result; // r0
-  uint32_t *v8; // r3
-  uint32_t *v9; // r1
+  uint32_t *v7; // r3
+  uint32_t *v8; // r1
 
   v0 = (int *)off_10440C;
   v1 = off_104414;
@@ -58,19 +55,17 @@ int rf_power_on_reset()
   *v4 = dword_10442C;
   while ( *v5 < 0 )
     timer_set(1);
-  state_check_feature(1, dword_104430);
-  v6 = dword_104434;
+  state_check_feature(1, "end_addr=%x\n", *(uint32_t *)off_104424);
   *(uint32_t *)off_104420 = 0;
-  state_check_feature(1, v6);
+  state_check_feature(1, aDumpFinish);
   *(uint32_t *)off_104410 = v3;
   util_get_buf_addr();
-  result = state_check_feature(1, dword_104438);
-  v8 = off_104414;
-  v9 = off_10443C;
+  result = state_check_feature(1, "** dump tone typ3   r 00100000 %d**\n", 0x4000);
+  v7 = off_104414;
+  v8 = off_10443C;
   *(uint32_t *)off_104414 &= 0xF3FFFFFF;
-  *v9 |= 0xF0u;
-  *v8 &= ~0x10000000u;
-  *v8 &= 0x3FFFFFFFu;
+  *v8 |= 0xF0u;
+  *v7 &= ~0x10000000u;
+  *v7 &= 0x3FFFFFFFu;
   return result;
 }
-

@@ -10,12 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_131F40;
+
 extern uint32_t dword_131F44;
 extern uint32_t dword_131F48;
+extern uint32_t off_131F40;
 
 // process_hci_command @ 0x131df8, size 328 bytes
-int  process_hci_command(int a1, int a2, int16_t a3, int16_t a4)
+int  process_hci_command(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r4
   int v8; // r1
@@ -28,7 +29,7 @@ int  process_hci_command(int a1, int a2, int16_t a3, int16_t a4)
   int v15; // r1
   int v16; // r2
   int v17; // r3
-  int16_t v18; // r1
+  uint16_t v18; // r1
   int v19; // r2
   char v20; // r2
   uint32_t *v22; // r6
@@ -157,11 +158,10 @@ int  process_hci_command(int a1, int a2, int16_t a3, int16_t a4)
   if ( v17 )
   {
     *((uint16_t *)v4 + 4) = 255;
-    v33 = (uint8_t *)tx_send_pdu(49, 0, 5, 1u);
+    v33 = (uint8_t *)tx_send_pdu(49, 0, 5, 1);
     *v33 = v4[376];
-    rx_process_packet((int)v33);
+    rx_process_packet_1((int)v33);
     hci_cmd_preprocess(5u, 1);
   }
   return 0;
 }
-

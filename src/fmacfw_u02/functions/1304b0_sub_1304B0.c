@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1304F0;
+
 extern uint32_t off_1304F4;
 
 // rf_temperature_compensation @ 0x1304b0, size 62 bytes
-unsigned int rf_temperature_compensation()
+int rf_temperature_compensation()
 {
   int v0; // s15
   int v1; // r3
 
   v0 = (int)COERCE_FLOAT(rf_core_is_ready());
-  event_dispatch(dword_1304F0, v0);
+  event_dispatch("\x9D\x89t=%d C\n", v0);
   v1 = (char)v0 - *((char *)off_1304F4 + 3);
   if ( v1 < 0 )
     v1 = *((char *)off_1304F4 + 3) - (char)v0;
@@ -31,4 +31,3 @@ unsigned int rf_temperature_compensation()
   }
   return compare_global_bytes();
 }
-

@@ -10,23 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12228C;
-
 // tx_rate_set @ 0x122268, size 36 bytes
-int  tx_rate_set(int result, int a2)
+int  tx_rate_set(int result, int a2, int a3)
 {
-  int v2; // r4
+  int v3; // r4
 
-  v2 = result;
+  v3 = result;
   if ( (a2 & 0x800000) != 0 )
   {
     *(uint8_t *)(result + 128) = 0;
   }
   else
   {
-    state_check_feature(1024, dword_12228C);
-    return mmio_read_phy(v2);
+    state_check_feature(1024, aBcnLinkloss, a3, a2 << 8);
+    return (int)mmio_read_phy(v3);
   }
   return result;
 }
-

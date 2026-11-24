@@ -10,358 +10,360 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_111828;
-extern uint32_t dword_111824;
-extern uint32_t dword_11184C;
-extern uint32_t dword_111874;
-extern uint32_t dword_11186C;
+
 extern uint32_t dword_11163C;
+extern uint32_t dword_111658;
+extern uint32_t dword_111668;
+extern uint32_t dword_111684;
+extern uint32_t dword_111690;
+extern uint32_t dword_11181C;
+extern uint32_t off_111614;
+extern uint32_t off_111618;
+extern uint32_t off_111620;
+extern uint32_t off_111624;
+extern uint32_t off_111628;
+extern uint32_t off_11162C;
+extern uint32_t off_111630;
+extern uint32_t off_111638;
+extern uint32_t off_111640;
 extern uint32_t off_111644;
+extern uint32_t off_111648;
 extern uint32_t off_11164C;
+extern uint32_t off_111650;
 extern uint32_t off_111654;
-extern uint32_t off_111818;
+extern uint32_t off_111660;
 extern uint32_t off_111664;
+extern uint32_t off_11166C;
 extern uint32_t off_111674;
+extern uint32_t off_111678;
+extern uint32_t off_111680;
+extern uint32_t off_111688;
 extern uint32_t off_11168C;
+extern uint32_t off_111694;
+extern uint32_t off_111698;
+extern uint32_t off_111818;
+extern uint32_t off_111820;
+extern uint32_t off_11182C;
+extern uint32_t off_111834;
+extern uint32_t off_111838;
+extern uint32_t off_111840;
+extern uint32_t off_111848;
+extern uint32_t off_111850;
+extern uint32_t off_111854;
+extern uint32_t off_111858;
+extern uint32_t off_11185C;
+extern uint32_t off_111868;
+extern uint32_t off_111878;
 
 // check_mmio_and_mem @ 0x111390, size 1160 bytes
-// Doc: rf_bus_reset2_n_39e [rf]: Performs RF bus register size/count check
-// rf_bus_reset2_n_39e [rf]: Performs RF bus register size/count check
 int check_mmio_and_mem()
 {
   int v0; // r4
-  int v1; // r2
-  int v2; // r2
-  int v3; // r1
-  uint32_t *v4; // r2
-  int v5; // r1
-  int v6; // r2
-  uint8_t *v7; // r6
-  unsigned int v8; // r1
-  unsigned int v9; // r2
-  int v10; // r5
-  unsigned int v11; // r2
-  char *v12; // r3
-  uint32_t *v13; // r7
-  uint32_t *v14; // r0
-  int v15; // r3
-  char *v16; // r1
-  uint32_t *v17; // r0
-  uint8_t *v18; // r5
-  unsigned int v19; // r1
-  unsigned int v20; // r2
+  uint32_t *v1; // r0
+  int v2; // r1
+  uint32_t *v3; // r2
+  uint8_t *v4; // r6
+  unsigned int v5; // r1
+  unsigned int v6; // r2
+  int v7; // r5
+  unsigned int v8; // r2
+  char *v9; // r3
+  uint32_t *v10; // r7
+  uint32_t *v11; // r0
+  int v12; // r3
+  char *v13; // r1
+  int v14; // r2
+  uint32_t *v15; // r0
+  uint8_t *v16; // r5
+  unsigned int v17; // r1
+  unsigned int v18; // r2
   int result; // r0
-  uint8_t *v22; // r5
-  int v23; // r2
-  uint8_t *v24; // r0
-  unsigned int v25; // r1
-  unsigned int v26; // r2
-  uint32_t *v27; // r3
-  uint8_t *v28; // r5
-  int v29; // r2
-  uint32_t *v30; // r0
-  unsigned int v31; // r2
-  uint32_t *v32; // r3
-  unsigned int v33; // r3
-  uint32_t *v34; // r7
-  unsigned int v35; // r3
-  char *v36; // r2
-  uint32_t *v37; // r5
-  int v38; // r6
-  int v39; // r7
-  unsigned int v40; // r3
-  char *v41; // r2
-  int v42; // r0
-  int v43; // r5
-  int v44; // r0
-  int v45; // r1
-  int v46; // r0
-  int v47; // r1
-  uint32_t *v48; // r2
-  int v49; // r5
-  int v50; // r1
-  int v51; // r1
-  uint8_t *v52; // r6
-  int v53; // r1
-  int v54; // r1
-  uint32_t *v55; // r2
-  int v56; // r1
+  int *v20; // r5
+  int v21; // r2
+  uint8_t *v22; // r0
+  unsigned int v23; // r1
+  unsigned int v24; // r2
+  uint32_t *v25; // r3
+  int *v26; // r5
+  int v27; // r2
+  uint16_t *v28; // r0
+  unsigned int v29; // r2
+  uint32_t *v30; // r3
+  unsigned int v31; // r3
+  uint32_t *v32; // r7
+  uint32_t *v33; // r1
+  unsigned int v34; // r3
+  char *v35; // r2
+  uint32_t *v36; // r5
+  int v37; // r6
+  int v38; // r7
+  unsigned int v39; // r3
+  char *v40; // r2
+  int v41; // r5
+  int v42; // r1
+  int v43; // r1
+  uint32_t *v44; // r2
+  int v45; // r5
+  uint8_t *v46; // r6
+  uint32_t *v47; // r2
 
-  v0 = *(uint32_t *)rf_bus_mark_618;
-  if ( **(int16_t **)rf_bus_mark_n_270 < 0 && !v0 )
+  v0 = *(uint32_t *)off_111618;
+  if ( **(uint16_t **)off_111614 < 0 && !v0 )
   {
-    call_shared_handler(dword_111828, dword_111824, 39);
-    goto rf_bus_write2_n_3a4;
+    call_shared_handler((int)aIntStatus0, (int)aSdioIsr, 39);
+    goto LABEL_10;
   }
-  v1 = v0 << 18;
   if ( (v0 & 0x2000) != 0 )
   {
-    v48 = rf_bus_mark_n_50;
-    v49 = *(uint32_t *)rf_bus_write_n_158;
-    *(uint32_t *)rf_bus_write_n_158 = *(uint32_t *)rf_bus_write_n_158;
-    v50 = dword_11184C;
-    *v48 &= ~0x20u;
-    check_status_bits(2, v50);
-    if ( (v49 & 4) != 0 )
+    v44 = off_111834;
+    v45 = *(uint32_t *)off_111848;
+    *(uint32_t *)off_111848 = *(uint32_t *)off_111848;
+    *v44 &= ~0x20u;
+    check_status_bits(2, "int2dev:%d\n", v45);
+    if ( (v45 & 4) != 0 )
     {
-      v53 = rf_bus_mark_870;
-      *(uint8_t *)rf_bus_reset2_n_1a8_1854 = 1;
-      check_status_bits(2, v53);
+      *(uint8_t *)off_111854 = 1;
+      check_status_bits(2, &aClrPreSleep[4]);
     }
-    if ( (v49 & 1) != 0 )
+    if ( (v45 & 1) != 0 )
     {
-      v52 = rf_bus_reset2_n_1a8_1854;
-      *(uint32_t *)rf_bus_reset2_n_1ac = 16;
-      if ( *v52 )
+      v46 = off_111854;
+      *(uint32_t *)off_111850 = 16;
+      if ( *v46 )
       {
-        check_status_bits(2, ipc_mailbox_init);
-        *v52 = 0;
+        check_status_bits(2, aClrPreSleep);
+        *v46 = 0;
       }
-      if ( *(uint8_t *)rf_bus_mark_n_2c )
+      if ( *(uint8_t *)off_111858 )
       {
-        v55 = sdio_buffer_prepare_n_406;
-        *((uint8_t *)rf_bus_mark_n_2c + 1) = 1;
-        v56 = rf_bus_write_n_2e7_187c;
-        *v55 |= 1u;
-        check_status_bits(2, v56);
+        v47 = off_111878;
+        *((uint8_t *)off_111858 + 1) = 1;
+        *v47 |= 1u;
+        check_status_bits(2, aSoftwk);
       }
-      v1 = 0;
-      *(uint8_t *)rf_bus_write_n_308 = 0;
+      *(uint8_t *)off_11185C = 0;
     }
-    if ( (v49 & 2) != 0 )
+    if ( (v45 & 2) != 0 )
     {
-      v54 = dword_111874;
-      *(uint8_t *)rf_bus_write_n_308 = 1;
-      check_status_bits(2, v54);
+      *(uint8_t *)off_11185C = 1;
+      check_status_bits(2, aBit1);
     }
-    if ( (v49 & 8) != 0 )
-      event_dispatch(rf_fault_dump_n16e, v51, v1);
+    if ( (v45 & 8) != 0 )
+      event_dispatch(aNotUsed);
   }
   if ( (v0 & 1) != 0 )
   {
-    event_dispatch(rf_bus_mark_n_268, v0 << 31, v1);
-    *(uint32_t *)rf_bus_reset2_n_3dc = 1;
+    event_dispatch(aSdioHostSoftRe, v0 << 31);
+    *(uint32_t *)off_111620 = 1;
   }
-  v2 = v0 << 26;
   if ( (v0 & 0x20) != 0 )
   {
-    read_random_from_mmio(*(uint32_t *)rf_bus_reset2_n_3d8);
-    v2 = 32;
-    *(uint32_t *)rf_bus_reset2_n_3dc = 32;
+    read_random_from_mmio(*(uint32_t *)off_111624);
+    *(uint32_t *)off_111620 = 32;
   }
   if ( (v0 & 0x4000) != 0 )
   {
-    v3 = *(uint32_t *)rf_bus_reset2_n_3d4;
-    v4 = rf_bus_reset2_n_3cc;
-    *(uint32_t *)rf_bus_reset2_n_3d4 = *(uint32_t *)rf_bus_reset2_n_3d4;
-    event_dispatch(rf_bus_reset2_n_23c, v3, *v4);
+    v1 = off_11162C;
+    v2 = *(uint32_t *)off_111628;
+    v3 = off_111630;
+    *(uint32_t *)off_111628 = *(uint32_t *)off_111628;
+    event_dispatch("sdio func1 error bit:%x, func1 free cnt=%d, func1 free queue2 cnt=%d\r\n", v2, *v3, *v1);
   }
   if ( (v0 & 0x8000) == 0 )
-    goto rf_bus_write2_n_3a4;
-  v42 = rf_bus_mark_n54;
-  v43 = *(uint32_t *)rf_bus_reset2_n_1d0;
-  *(uint32_t *)rf_bus_reset2_n_1d0 = *(uint32_t *)rf_bus_reset2_n_1d0;
-  event_dispatch(v42, v43, v2);
-  if ( (v43 & 4) != 0 )
+    goto LABEL_10;
+  v41 = *(uint32_t *)off_11182C;
+  *(uint32_t *)off_11182C = *(uint32_t *)off_11182C;
+  event_dispatch("sdio func1 other bit:%x\r\n", v41);
+  if ( (v41 & 4) != 0 )
+    *(uint32_t *)off_111834 &= ~1u;
+  if ( (v41 & 8) == 0 )
   {
-    v2 = (int)rf_bus_mark_n_50;
-    *(uint32_t *)rf_bus_mark_n_50 &= ~1u;
-  }
-  if ( (v43 & 8) == 0 )
-  {
-rf_bus_write2_n_3a4:
-    v5 = v0 << 9;
+LABEL_10:
     if ( (v0 & 0x400000) == 0 )
-      goto rf_fault_dump_n_378;
-rf_bus_reset2_1740:
-    v44 = rf_bus_reset2_n_1c0;
-    v45 = *(uint32_t *)rf_bus_reset2_n_1c4;
-    *(uint32_t *)rf_bus_reset2_n_1c4 = *(uint32_t *)rf_bus_reset2_n_1c4;
-    event_dispatch(v44, v45, v2);
-    v6 = v0 << 8;
+      goto LABEL_11;
+LABEL_60:
+    v42 = *(uint32_t *)off_111838;
+    *(uint32_t *)off_111838 = *(uint32_t *)off_111838;
+    event_dispatch("sdio func2 error bit:%x\r\n", v42);
     if ( (v0 & 0x800000) == 0 )
-      goto rf_bus_mark_n_48d_13f6;
+      goto LABEL_12;
     goto LABEL_61;
   }
-  v2 = (int)rf_bus_mark_n_50;
-  v5 = v0 << 9;
-  *(uint32_t *)rf_bus_mark_n_50 &= ~4u;
+  *(uint32_t *)off_111834 &= ~4u;
   if ( (v0 & 0x400000) != 0 )
-    goto rf_bus_reset2_1740;
-rf_fault_dump_n_378:
-  v6 = v0 << 8;
+    goto LABEL_60;
+LABEL_11:
   if ( (v0 & 0x800000) == 0 )
-    goto rf_bus_mark_n_48d_13f6;
+    goto LABEL_12;
 LABEL_61:
-  v46 = rf_bus_write_n_320;
-  v47 = *(uint32_t *)rf_bus_mark_n_44;
-  *(uint32_t *)rf_bus_mark_n_44 = *(uint32_t *)rf_bus_mark_n_44;
-  event_dispatch(v46, v47, v6);
-rf_bus_mark_n_48d_13f6:
+  v43 = *(uint32_t *)off_111840;
+  *(uint32_t *)off_111840 = *(uint32_t *)off_111840;
+  event_dispatch("sdio func2 other bit:%x\r\n", v43);
+LABEL_12:
   if ( (v0 & 0x400) != 0 )
   {
-    v7 = ipc_doorbell_handler_n_4ac;
-    v8 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 1621);
-    v9 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 1622);
-    if ( v8 >= v9 )
+    v4 = off_111638;
+    v5 = *((uint8_t *)off_111638 + 1621);
+    v6 = *((uint8_t *)off_111638 + 1622);
+    if ( v5 >= v6 )
     {
-      event_dispatch(dword_11186C, v8, v9);
+      event_dispatch("rxused=%d, total=%d\r\n", v5, v6);
     }
     else
     {
-      v10 = *(uint32_t *)rf_bus_reset2_n_3bc;
-      v11 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 1620)
-          + 1
-          - 81
-          * ((unsigned int)(((unsigned int)dword_11163C
-                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)ipc_doorbell_handler_n_4ac + 1620) + 1)) >> 32) >> 6);
-      v12 = (char *)ipc_doorbell_handler_n_4ac + 20 * v11;
-      v13 = rf_bus_reset2_648;
-      *((uint32_t *)v12 + 1) = *(uint32_t *)off_111644;
-      v7[1621] = v8 + 1;
-      v14 = off_11164C;
-      *((uint32_t *)v12 + 2) = *v13;
-      v12[12] = v10;
-      v7[1620] = v11;
-      v12[13] = BYTE1(v10) & 7;
-      *v14 = 16;
+      v7 = *(uint32_t *)off_111640;
+      v8 = *((uint8_t *)off_111638 + 1620)
+         + 1
+         - 81
+         * ((unsigned int)(((unsigned int)dword_11163C
+                          * (uint64_t)((unsigned int)*((uint8_t *)off_111638 + 1620) + 1)) >> 32) >> 6);
+      v9 = (char *)off_111638 + 20 * v8;
+      v10 = off_111648;
+      *((uint32_t *)v9 + 1) = *(uint32_t *)off_111644;
+      v4[1621] = v5 + 1;
+      v11 = off_11164C;
+      *((uint32_t *)v9 + 2) = *v10;
+      v9[12] = v7;
+      v4[1620] = v8;
+      v9[13] = BYTE1(v7) & 7;
+      *v11 = 16;
       do
-        v15 = *v14 & 0x20;
-      while ( v15 );
-      v16 = &v7[20 * v11];
-      if ( (v16[13] & 4) == 0 )
-        v15 = *(uint32_t *)(*((uint32_t *)v16 + 2) + 4);
-      v17 = off_111654;
-      *(uint32_t *)rf_bus_reset2_n_3ac = v15;
-      *v17 = 16;
-      cmd_handler_a(rf_bus_mark_n_22c_1658);
+        v12 = *v11 & 0x20;
+      while ( v12 );
+      v13 = &v4[20 * v8];
+      v14 = 5 * v8;
+      if ( (v13[13] & 4) == 0 )
+        v12 = *(uint32_t *)(*((uint32_t *)v13 + 2) + 4);
+      v15 = off_111654;
+      *(uint32_t *)off_111650 = v12;
+      *v15 = 16;
+      cmd_handler_a(dword_111658, &v4[4 * v14]);
       unknown_func_12d104(256);
     }
-    v6 = 1024;
-    *(uint32_t *)rf_bus_reset2_n_3dc = 1024;
+    *(uint32_t *)off_111620 = 1024;
   }
   if ( (v0 & 0x200) != 0 )
   {
-    event_dispatch(rf_bus_mark_n_1f, v5, v6);
-    *(uint32_t *)rf_bus_write_multi = 512;
+    event_dispatch(aUnexpectH2dCon);
+    *(uint32_t *)off_111868 = 512;
   }
   if ( (v0 & 0x100) != 0 )
   {
-    v18 = ipc_doorbell_handler_n_4ac;
-    v19 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 2433);
-    v20 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 2434);
-    if ( v19 < v20 )
+    v16 = off_111638;
+    v17 = *((uint8_t *)off_111638 + 2433);
+    v18 = *((uint8_t *)off_111638 + 2434);
+    if ( v17 < v18 )
     {
-      v38 = *(uint32_t *)rf_bus_mark_n_64;
-      v39 = *(uint32_t *)off_111818;
-      v40 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 2432)
+      v37 = *(uint32_t *)off_111820;
+      v38 = *(uint32_t *)off_111818;
+      v39 = *((uint8_t *)off_111638 + 2432)
           + 1
           - 40
-          * ((unsigned int)(((unsigned int)rf_bus_reset2_n_1e0
-                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)ipc_doorbell_handler_n_4ac + 2432) + 1)) >> 32) >> 5);
-      v41 = (char *)ipc_doorbell_handler_n_4ac + 20 * v40;
-      *((uint8_t *)ipc_doorbell_handler_n_4ac + 2432) = v40;
-      v41[1645] = BYTE1(v38) & 7;
-      *((uint32_t *)v41 + 409) = v39;
-      *((uint32_t *)v41 + 410) = v39;
-      v41[1644] = v38;
-      v18[2433] = v19 + 1;
-      cmd_handler_a(v18 + 2436);
+          * ((unsigned int)(((unsigned int)dword_11181C
+                           * (uint64_t)((unsigned int)*((uint8_t *)off_111638 + 2432) + 1)) >> 32) >> 5);
+      v40 = (char *)off_111638 + 20 * v39;
+      *((uint8_t *)off_111638 + 2432) = v39;
+      v40[1645] = BYTE1(v37) & 7;
+      *((uint32_t *)v40 + 409) = v38;
+      *((uint32_t *)v40 + 410) = v38;
+      v40[1644] = v37;
+      v16[2433] = v17 + 1;
+      cmd_handler_a((int)(v16 + 2436), (uint32_t *)v40 + 408);
       unknown_func_12d104(0x400000);
     }
     else
     {
-      event_dispatch(rf_bus_reset2_n_3a0, v19, v20);
+      event_dispatch("msgrxused=%d, total=%d\r\n", v17, v18);
     }
-    *(uint32_t *)rf_bus_reset2_n_3dc = 256;
+    *(uint32_t *)off_111620 = 256;
   }
   result = v0 << 19;
   if ( (v0 & 0x1000) != 0 )
   {
-    if ( *(uint8_t *)rf_bus_mark_n_224 )
+    if ( *(uint8_t *)off_111660 )
     {
-      v22 = off_111664;
-      v23 = *((uint8_t *)off_111664 + 369);
-      *(uint8_t *)rf_bus_mark_n_224 = 0;
-      if ( v23 )
+      v20 = (int *)off_111664;
+      v21 = BYTE1(((uint32_t *)(uintptr_t)off_111664)[92]);
+      *(uint8_t *)off_111660 = 0;
+      if ( v21 )
         gpio_set_bit(1);
       else
         gpio_clear_bit(1);
-      if ( v22[374] == 1 )
-        fault_handler(rf_bus_mark_n_21c);
+      if ( *((uint8_t *)v20 + 374) == 1 )
+        fault_handler((uint32_t *)dword_111668);
     }
-    v24 = rf_bus_write_n_4f7;
-    v25 = *((uint8_t *)rf_bus_write_n_4f7 + 3074);
-    v26 = *((uint8_t *)rf_bus_write_n_4f7 + 3073);
-    if ( v25 < v26 )
+    v22 = off_11166C;
+    v23 = *((uint8_t *)off_11166C + 3074);
+    v24 = *((uint8_t *)off_11166C + 3073);
+    if ( v23 < v24 )
     {
-      v35 = *((uint8_t *)rf_bus_write_n_4f7 + 3072)
+      v34 = *((uint8_t *)off_11166C + 3072)
           + 1
           - 192
-          * ((unsigned int)(((unsigned int)rf_bus_mark_n_1ff
-                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_write_n_4f7 + 3072) + 1)) >> 32) >> 7);
-      v36 = (char *)rf_bus_write_n_4f7 + 16 * v35;
-      *((uint32_t *)v36 + 1) = *(uint32_t *)ipc_doorbell_handler_n376;
-      v37 = rf_bus_write_n_4cc;
-      v24[3072] = v35;
-      *((uint16_t *)v36 + 4) = *v37;
-      v24[3074] = v25 + 1;
-      cmd_handler_a(v24 + 3080);
+          * ((unsigned int)(((unsigned int)dword_111684
+                           * (uint64_t)((unsigned int)*((uint8_t *)off_11166C + 3072) + 1)) >> 32) >> 7);
+      v35 = (char *)off_11166C + 16 * v34;
+      *((uint32_t *)v35 + 1) = *(uint32_t *)off_111694;
+      v36 = off_111698;
+      v22[3072] = v34;
+      *((uint16_t *)v35 + 4) = *v36;
+      v22[3074] = v23 + 1;
+      cmd_handler_a((int)(v22 + 3080), v35);
       result = unknown_func_12d104(128);
     }
     else
     {
-      result = event_dispatch(rf_bus_write_n_4f4, v25, v26);
+      result = event_dispatch("txcused=%d, total=%d\r\n", v23, v24);
     }
-    v27 = off_111674;
-    *(uint32_t *)rf_bus_reset2_n_3dc = 4096;
-    if ( !*v27 )
-      *(uint8_t *)rf_bus_write_n_4ec_1678 &= ~1u;
+    v25 = off_111674;
+    *(uint32_t *)off_111620 = 4096;
+    if ( !*v25 )
+      *(uint8_t *)off_111678 &= ~1u;
   }
   if ( (v0 & 0x800) != 0 )
   {
-    if ( *(uint8_t *)rf_bus_mark_n_224 )
+    if ( *(uint8_t *)off_111660 )
     {
-      v28 = off_111664;
-      v29 = *((uint8_t *)off_111664 + 369);
-      *(uint8_t *)rf_bus_mark_n_224 = 0;
-      if ( v29 )
+      v26 = (int *)off_111664;
+      v27 = BYTE1(((uint32_t *)(uintptr_t)off_111664)[92]);
+      *(uint8_t *)off_111660 = 0;
+      if ( v27 )
         gpio_set_bit(1);
       else
         gpio_clear_bit(1);
-      if ( v28[374] == 1 )
-        fault_handler(rf_bus_mark_n_21c);
+      if ( *((uint8_t *)v26 + 374) == 1 )
+        fault_handler((uint32_t *)dword_111668);
     }
-    v30 = rf_bus_write_n_4f7;
-    v31 = *((uint8_t *)rf_bus_write_n_4f7 + 6162);
-    if ( *((uint8_t *)rf_bus_write_n_4f7 + 6161) > v31 )
+    v28 = off_11166C;
+    v29 = *((uint8_t *)off_11166C + 6162);
+    if ( *((uint8_t *)off_11166C + 6161) > v29 )
     {
-      v33 = *((uint8_t *)rf_bus_write_n_4f7 + 6160)
+      v31 = *((uint8_t *)off_11166C + 6160)
           + 1
           - 192
-          * ((unsigned int)(((unsigned int)rf_bus_mark_n_1ff
-                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_write_n_4f7 + 6160) + 1)) >> 32) >> 7);
-      v34 = rf_bus_reset2_n_374_1688;
-      *((uint8_t *)rf_bus_write_n_4f7 + 6160) = v33;
-      v30[4 * v33 + 773] = *v34;
-      LOWORD(v30[4 * v33 + 774]) = *(uint32_t *)off_11168C;
-      *((uint8_t *)v30 + 6162) = v31 + 1;
-      cmd_handler_a(rf_bus_mark_n_1f3);
+          * ((unsigned int)(((unsigned int)dword_111684
+                           * (uint64_t)((unsigned int)*((uint8_t *)off_11166C + 6160) + 1)) >> 32) >> 7);
+      v32 = off_111688;
+      *((uint8_t *)off_11166C + 6160) = v31;
+      v33 = &v28[8 * v31 + 1544];
+      v33[1] = *v32;
+      v28[8 * v31 + 1548] = *(uint32_t *)off_11168C;
+      *((uint8_t *)v28 + 6162) = v29 + 1;
+      cmd_handler_a(dword_111690, v33);
       result = unknown_func_12d104(64);
     }
     else
     {
-      result = event_dispatch(rf_bus_write_n_4e7, v31, v31);
+      result = event_dispatch("txcmsgused=%d, msgtotal=%d\r\n", v29, v29);
     }
-    v32 = rf_bus_mark_n_203;
-    *(uint32_t *)rf_bus_reset2_n_3dc = 2048;
-    if ( !*v32 )
-      *(uint8_t *)rf_bus_write_n_4ec_1678 &= ~2u;
+    v30 = off_111680;
+    *(uint32_t *)off_111620 = 2048;
+    if ( !*v30 )
+      *(uint8_t *)off_111678 &= ~2u;
   }
   if ( (v0 & 4) != 0 )
-    *(uint32_t *)rf_bus_reset2_n_3dc = 4;
+    *(uint32_t *)off_111620 = 4;
   if ( (v0 & 8) != 0 )
-    *(uint32_t *)rf_bus_reset2_n_3dc = 8;
+    *(uint32_t *)off_111620 = 8;
   return result;
 }
-

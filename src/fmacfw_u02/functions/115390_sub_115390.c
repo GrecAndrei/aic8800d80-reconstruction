@@ -10,38 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1153D8;
-extern uint32_t dword_1153E8;
-extern uint32_t dword_1153F0;
-extern uint32_t dword_1153EC;
-extern uint32_t dword_1153DC;
-extern uint32_t dword_1153E0;
-extern uint32_t dword_1153E4;
-
 // cli_parse_char @ 0x115390, size 72 bytes
-// Doc: patch_apply_n_166 [patch]: Stub for patch apply helper N166
-// patch_apply_n_166 [patch]: Stub for patch apply helper N166
-void  __noreturn cli_parse_char(int a1)
+void  cli_parse_char(int a1)
 {
-  log_printf(dword_1153D8);
+  log_printf(aFaultHandlerFa);
   switch ( a1 )
   {
     case '0':
-      log_printf(dword_1153E8);
+      log_printf(aBusfault);
       break;
     case '@':
-      log_printf(dword_1153F0);
+      log_printf(aUsagefault);
       break;
     case ' ':
-      log_printf(dword_1153EC);
+      log_printf(aMemmanagefault);
       break;
     default:
-      log_printf(dword_1153DC);
+      log_printf(aHardfault);
       break;
   }
-  log_printf(dword_1153E0);
+  log_printf(aContext);
   patch_copy_table();
-  log_printf(dword_1153E4);
+  log_printf(aFaultHandler);
   patch_init();
 }
-

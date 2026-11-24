@@ -10,12 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13688C;
 
 // txpwr_reset_state @ 0x136870, size 28 bytes
-// Doc: sub_1236870 [util]: Initialize/zero a 16-byte control structure via memset
-// sub_1236870 [util]: Initialize/zero a 16-byte control structure via memset
-uint32_t *txpwr_reset_state()
+int txpwr_reset_state()
 {
   uint8_t *v0; // r4
 
@@ -24,4 +23,3 @@ uint32_t *txpwr_reset_state()
   v0[12] = 0;
   return hci_cmd_send(7u, 0);
 }
-

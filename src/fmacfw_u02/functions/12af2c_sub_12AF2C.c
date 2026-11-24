@@ -10,22 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12AF60;
+
 extern uint32_t off_12AF64;
 
 // ke_msg_dequeue @ 0x12af2c, size 48 bytes
-// Doc: sub_122AF2C [util]: Initialization helper calling sub_122CE88 with table pointers
-// sub_122AF2C [util]: Initialization helper calling sub_122CE88 with table pointers
-int  ke_msg_dequeue(int a1, int a2, int a3, int a4)
+int  ke_msg_dequeue(int a1, int a2, int a3, uint16_t a4)
 {
-  int value; // r4
+  int v5; // r4
 
-  value = rx_rate_field_parse(2);
-  check_status_bits(4, dword_12AF60);
-  if ( value )
+  v5 = rx_rate_field_parse(2u);
+  check_status_bits(4, "%s:%d\r\n", aScanCancelReqH, v5);
+  if ( v5 )
     *((uint8_t *)off_12AF64 + 11) = 1;
   else
     reg_read_indirect(1, a4);
   return 0;
 }
-

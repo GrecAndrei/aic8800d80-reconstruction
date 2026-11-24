@@ -10,17 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10FB34;
-extern uint32_t dword_10FB24;
+
 extern uint32_t off_10FB0C;
 extern uint32_t off_10FB10;
 extern uint32_t off_10FB14;
 extern uint32_t off_10FB18;
-extern uint32_t dword_10FB1C;
-extern uint32_t dword_10FB28;
-extern uint32_t dword_10FB2C;
-extern uint32_t dword_10FB20;
-extern uint32_t dword_10FB30;
 
 // rx_process_item @ 0x10f980, size 396 bytes
 uint32_t * rx_process_item(int a1, unsigned int a2)
@@ -49,13 +43,13 @@ uint32_t * rx_process_item(int a1, unsigned int a2)
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    printf_wrapper(dword_10FB34);
-    return 0;
+    printf_wrapper("SwEr:NoSizeAlloc : %d\n\r", a2);
+    return nullptr;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    printf_wrapper(dword_10FB24);
+    printf_wrapper(aMemmgrerrSubpo, a2);
     return v3;
   }
   v4 = *(uint16_t **)(a1 + 12);
@@ -102,7 +96,7 @@ LABEL_12:
           goto LABEL_43;
       }
     }
-    return 0;
+    return nullptr;
   }
   v9 = (unsigned int *)off_10FB14;
   v3 = *((uint32_t **)v4 + 2);
@@ -118,7 +112,7 @@ LABEL_12:
   }
   else
   {
-    printf_wrapper(dword_10FB1C, *((uint32_t *)v4 + 2));
+    printf_wrapper("get_next_buffer_addr: Invalid buffer passed: %x\n", *((uint32_t *)v4 + 2));
     v10 = *v9;
     v14 = *v4 - 1;
     v15 = *v9 > (unsigned int)v3;
@@ -139,7 +133,7 @@ LABEL_18:
   v16 = *(uint32_t *)off_10FB18;
   if ( *(uint32_t *)off_10FB18 > (unsigned int)v3 || *((uint32_t *)off_10FB18 + 1) + v16 < (unsigned int)v3 )
   {
-    printf_wrapper(dword_10FB28, v3);
+    printf_wrapper("get_pattern: Invalid buffer passed: %x\n", v3);
     v11 = 0;
     goto LABEL_45;
   }
@@ -158,8 +152,8 @@ LABEL_45:
           __enable_irq();
       }
     }
-    printf_wrapper(dword_10FB2C, v11, v3);
-    return 0;
+    printf_wrapper("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", v11, v3);
+    return nullptr;
   }
   if ( v10 > (unsigned int)v3 )
     goto LABEL_36;
@@ -168,7 +162,7 @@ LABEL_45:
   if ( (unsigned int)v3 < v16 )
   {
 LABEL_37:
-    printf_wrapper(dword_10FB20, v3);
+    printf_wrapper("set_pattern: Invalid buffer passed: %x\n", v3);
   }
   else
   {
@@ -186,7 +180,7 @@ LABEL_20:
   }
   else
   {
-    printf_wrapper(dword_10FB30, v3);
+    printf_wrapper("set_num_users: Invalid buffer passed: %x\n", v3);
   }
   if ( *v6 )
   {
@@ -202,4 +196,3 @@ LABEL_43:
   }
   return v3;
 }
-

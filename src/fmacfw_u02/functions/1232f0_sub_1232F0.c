@@ -10,195 +10,177 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_123558;
-extern uint32_t dword_12355C;
+
 extern uint32_t off_123554;
-extern uint32_t dword_123560;
-extern uint32_t dword_123564;
-extern uint32_t dword_123578;
-extern uint32_t dword_123570;
-extern uint32_t dword_123568;
-extern uint32_t dword_12356C;
-extern uint32_t dword_123574;
 
 // rf_calibration_init @ 0x1232f0, size 612 bytes
 int  rf_calibration_init(int a1, int a2, int a3, int a4)
 {
-  int v4; // r0
-  int v6; // r1
-  int v8; // r2
-  int v9; // r8
-  int v10; // r11
-  int v11; // r9
-  unsigned int v12; // r4
-  unsigned int v13; // t1
-  int v14; // r2
-  int v16; // r3
-  int v17; // r5
-  int v18; // r6
-  int v19; // r0
-  void ( *v20)(unsigned int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int); // r10
-  int v21; // [sp+0h] [bp-6Ch]
-  int v22; // [sp+4h] [bp-68h]
-  int v23; // [sp+8h] [bp-64h]
-  int v24; // [sp+Ch] [bp-60h]
-  int v25; // [sp+10h] [bp-5Ch]
-  int v26; // [sp+14h] [bp-58h]
-  int v27; // [sp+18h] [bp-54h]
-  int v28; // [sp+1Ch] [bp-50h]
-  int v29; // [sp+20h] [bp-4Ch]
-  int v30; // [sp+24h] [bp-48h]
-  int v31; // [sp+28h] [bp-44h]
-  int v32; // [sp+2Ch] [bp-40h]
-  int v33; // [sp+30h] [bp-3Ch]
-  int v34; // [sp+40h] [bp-2Ch]
-  int v35; // [sp+4Ch] [bp-20h]
-  char v36[5]; // [sp+67h] [bp-5h] BYREF
+  int v6; // r8
+  int v7; // r9
+  unsigned int v8; // r4
+  unsigned int v9; // t1
+  int v11; // r3
+  unsigned int v12; // r5
+  int v13; // r6
+  void ( *v14)(unsigned int, int, unsigned int, int); // r0
+  void ( *v15)(unsigned int, int, unsigned int, int); // r10
+  int v16; // [sp+40h] [bp-2Ch]
+  int v17; // [sp+4Ch] [bp-20h]
+  char v18[5]; // [sp+67h] [bp-5h] BYREF
 
-  v4 = dword_123558;
-  v6 = dword_12355C;
   *(uint8_t *)off_123554 = 1;
-  event_dispatch(v4, v6, 708);
-  v33 = 704;
-  v32 = 703;
-  v31 = 702;
-  v30 = 670;
-  v29 = 660;
-  v23 = 136;
-  v24 = 248;
-  v22 = 112;
-  v27 = 592;
-  v28 = 640;
-  v25 = 504;
-  v26 = 520;
-  event_dispatch(dword_123560, 0, 4);
-  v21 = 112;
-  event_dispatch(dword_123564, 32, 44);
-  v8 = a2 + 520;
+  event_dispatch("%s: %d\n", aMmSetResumeRes, 708);
+  event_dispatch(
+    "offset: %d %d %d %d | %d %d %d %d | %d %d %d %d | %d %d %d %d\n",
+    0,
+    4,
+    73,
+    83,
+    112,
+    136,
+    248,
+    504,
+    520,
+    592,
+    640,
+    660,
+    670,
+    702,
+    703,
+    704);
+  event_dispatch("sizeof %d, %d, %d, %d\n", 32, 44, 108, 112);
   if ( *(uint8_t *)(a2 + 702) )
   {
-    v9 = 0;
-    v10 = dword_123578;
-    v35 = 0;
-    v11 = a2 + 668;
+    v6 = 0;
+    v17 = 0;
+    v7 = a2 + 668;
     while ( 1 )
     {
       while ( 1 )
       {
-        v13 = *(uint16_t *)(v11 + 2);
-        v11 += 2;
-        v12 = v13;
-        event_dispatch(v10, v13, v8);
-        if ( v13 <= 0x89 )
+        v9 = *(uint16_t *)(v7 + 2);
+        v7 += 2;
+        v8 = v9;
+        event_dispatch("sub_msg_id: 0x%x\n", v9);
+        if ( v9 <= 0x89 )
           break;
-        if ( v12 == 5120 )
+        if ( v8 == 5120 )
         {
-          v16 = 5;
-          v18 = a2 + 136;
-          v17 = 5;
+          v11 = 5;
+          v13 = a2 + 136;
+          v12 = 5;
           goto LABEL_12;
         }
-        if ( v12 == 5122 )
+        if ( v8 == 5122 )
         {
-          v16 = 5;
-          v18 = a2 + 248;
-          v17 = 5;
+          v11 = 5;
+          v13 = a2 + 248;
+          v12 = 5;
           goto LABEL_12;
         }
 LABEL_16:
-        event_dispatch(dword_123570, v12, v14);
-        if ( *(uint8_t *)(a2 + 702) <= ++v9 )
+        event_dispatch("skip sub_msg_id: 0x%x\n", v8);
+        if ( *(uint8_t *)(a2 + 702) <= ++v6 )
           goto LABEL_9;
       }
-      if ( v12 > 0x64 )
+      if ( v8 > 0x64 )
       {
-        switch ( v12 )
+        switch ( v8 )
         {
           case 0x65u:
-            v16 = 0;
-            v18 = a2 + 504;
-            v17 = 0;
+            v11 = 0;
+            v13 = a2 + 504;
+            v12 = 0;
             goto LABEL_12;
           case 0x69u:
-            v16 = 0;
-            v18 = a2 + 112;
-            v17 = 0;
+            v11 = 0;
+            v13 = a2 + 112;
+            v12 = 0;
             goto LABEL_12;
           case 0x77u:
-            v16 = 0;
-            v18 = a2 + 4;
-            v17 = 0;
+            v11 = 0;
+            v13 = a2 + 4;
+            v12 = 0;
             goto LABEL_12;
           case 0x79u:
-            v16 = 0;
-            v18 = a2 + 83;
-            v17 = 0;
+            v11 = 0;
+            v13 = a2 + 83;
+            v12 = 0;
             goto LABEL_12;
           case 0x7Bu:
-            v16 = 0;
-            v17 = 0;
-            v18 = a2;
+            v11 = 0;
+            v12 = 0;
+            v13 = a2;
             goto LABEL_12;
           case 0x87u:
-            v16 = 0;
-            v18 = a2 + 12 * v35 + 592;
-            v35 = (uint8_t)(v35 + 1);
-            v17 = 0;
+            v11 = 0;
+            v13 = a2 + 12 * v17 + 592;
+            v17 = (uint8_t)(v17 + 1);
+            v12 = 0;
             goto LABEL_12;
           case 0x89u:
-            v16 = 0;
-            v18 = a2 + 73;
-            v17 = 0;
+            v11 = 0;
+            v13 = a2 + 73;
+            v12 = 0;
             goto LABEL_12;
           default:
             goto LABEL_16;
         }
       }
-      if ( v12 == 2 )
+      if ( v8 == 2 )
       {
-        v16 = 0;
-        v18 = a2 + 520;
-        v17 = 0;
+        v11 = 0;
+        v13 = a2 + 520;
+        v12 = 0;
         goto LABEL_12;
       }
-      if ( v12 == 6 )
+      if ( v8 == 6 )
       {
-        v21 = *(uint16_t *)(a2 + 664);
-        v22 = *(uint16_t *)(a2 + 666);
-        event_dispatch(dword_123568, *(uint32_t *)(a2 + 704), *(uint8_t *)(a2 + 668));
+        event_dispatch(
+          "add vif req:cnt=%d, p2p=%d, macaddr=%x,%x,%x\n",
+          *(uint32_t *)(a2 + 704),
+          *(uint8_t *)(a2 + 668),
+          *(uint16_t *)(a2 + 662),
+          *(uint16_t *)(a2 + 664),
+          *(uint16_t *)(a2 + 666));
         if ( *(uint32_t *)(a2 + 704) )
         {
-          task_event_handler((int *)(a2 + 662), *(uint8_t *)(a2 + 660), *(uint8_t *)(a2 + 668), v36);
-          if ( *(uint8_t *)(a2 + 702) <= ++v9 )
+          task_event_handler(
+            a2 + 662,
+            *(uint8_t *)(a2 + 660),
+            *(uint8_t *)(a2 + 668),
+            (uint8_t *)v18);
+          if ( *(uint8_t *)(a2 + 702) <= ++v6 )
             break;
         }
-        else if ( *(uint8_t *)(a2 + 702) <= ++v9 )
+        else if ( *(uint8_t *)(a2 + 702) <= ++v6 )
         {
           break;
         }
       }
       else
       {
-        if ( v12 )
+        if ( v8 )
           goto LABEL_16;
-        v17 = 0;
-        v16 = 0;
-        v18 = 0;
+        v12 = 0;
+        v11 = 0;
+        v13 = 0;
 LABEL_12:
-        v34 = v16;
-        v19 = rx_format_field_parse(v12, v17);
-        v20 = (void ( *)(unsigned int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int))v19;
-        if ( v19 )
+        v16 = v11;
+        v14 = (void ( *)(unsigned int, int, unsigned int, int))rx_format_field_parse(v8, v12);
+        v15 = v14;
+        if ( v14 )
         {
-          event_dispatch(dword_12356C, v19, v12);
-          v20(v12, v18, v17, a4, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33);
-          if ( *(uint8_t *)(a2 + 702) <= ++v9 )
+          event_dispatch("func %p for msg_id:0x%x dest_id:0x%x\n", v14, v8, v16);
+          v15(v8, v13, v12, a4);
+          if ( *(uint8_t *)(a2 + 702) <= ++v6 )
             break;
         }
         else
         {
-          event_dispatch(dword_123574, v12, v34);
-          if ( *(uint8_t *)(a2 + 702) <= ++v9 )
+          event_dispatch("func not found for msg_id:0x%x dest_id:0x%x\n", v8, v16);
+          if ( *(uint8_t *)(a2 + 702) <= ++v6 )
             break;
         }
       }
@@ -208,4 +190,3 @@ LABEL_9:
   *(uint8_t *)off_123554 = 0;
   return 0;
 }
-

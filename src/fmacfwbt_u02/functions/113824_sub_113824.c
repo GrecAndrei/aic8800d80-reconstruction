@@ -10,21 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_113858;
+
 extern uint32_t dword_11385C;
 extern uint32_t dword_113860;
+extern uint32_t off_113858;
 
 // bt_evt_sched_low @ 0x113824, size 52 bytes
-int bt_evt_sched_low()
+uint32_t *bt_evt_sched_low()
 {
   void *v0; // r5
-  int result; // r0
+  uint32_t *result; // r0
   int v2; // r7
   int v3; // r6
   int v4; // r4
+  uint32_t *v5; // r0
 
   v0 = off_113858;
-  result = zero_struct(dword_11385C);
+  result = zero_struct((uint32_t *)dword_11385C);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 4) )
   {
     v2 = dword_113860;
@@ -32,12 +34,11 @@ int bt_evt_sched_low()
     v4 = 0;
     do
     {
-      rx_process_item(v2, 0x7Cu);
-      result = check_abort_flag(v3);
+      v5 = rx_process_item(v2, 0x7Cu);
+      result = (uint32_t *)check_abort_flag(v3, v5);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }
-

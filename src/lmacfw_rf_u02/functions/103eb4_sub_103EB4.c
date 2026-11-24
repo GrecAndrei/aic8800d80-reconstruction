@@ -10,18 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103F88;
-extern uint32_t off_103F90;
+
 extern uint32_t dword_103F94;
-extern uint32_t off_103F8C;
 extern uint32_t dword_103F98;
-extern uint32_t off_103F9C;
-extern uint32_t off_103FA0;
 extern uint32_t dword_103FA4;
 extern uint32_t dword_103FA8;
-extern uint32_t dword_103FAC;
-extern uint32_t dword_103FB0;
-extern uint32_t dword_103FB4;
+extern uint32_t off_103F88;
+extern uint32_t off_103F8C;
+extern uint32_t off_103F90;
+extern uint32_t off_103F9C;
+extern uint32_t off_103FA0;
 extern uint32_t off_103FB8;
 
 // load_patch_data @ 0x103eb4, size 212 bytes
@@ -33,12 +31,9 @@ int load_patch_data()
   int v3; // r5
   uint32_t *v4; // r6
   int *v5; // r4
-  void *v6; // r3
-  int v7; // r1
-  int v8; // r3
   int result; // r0
-  uint32_t *v10; // r3
-  uint32_t *v11; // r1
+  uint32_t *v7; // r3
+  uint32_t *v8; // r1
 
   v0 = (int *)off_103F88;
   v1 = off_103F90;
@@ -60,20 +55,17 @@ int load_patch_data()
   *v4 = dword_103FA8;
   while ( *v5 < 0 )
     write_timer_reg(1);
-  check_interrupt_flag(1, dword_103FAC, *(uint32_t *)off_103FA0, off_103FA0);
-  v6 = off_103F9C;
-  v7 = dword_103FB0;
+  check_interrupt_flag(1, "end_addr=%x\n", *(uint32_t *)off_103FA0);
   *(uint32_t *)off_103F9C = 0;
-  check_interrupt_flag(1, v7, 0, v6);
+  check_interrupt_flag(1, aDumpFinish);
   *(uint32_t *)off_103F8C = v3;
   wait_rf_ready();
-  result = check_interrupt_flag(1, dword_103FB4, 0x4000, v8);
-  v10 = off_103F90;
-  v11 = off_103FB8;
+  result = check_interrupt_flag(1, "** dump tone typ3   r 00100000 %d**\n", 0x4000);
+  v7 = off_103F90;
+  v8 = off_103FB8;
   *(uint32_t *)off_103F90 &= 0xF3FFFFFF;
-  *v11 |= 0xF0u;
-  *v10 &= ~0x10000000u;
-  *v10 &= 0x3FFFFFFFu;
+  *v8 |= 0xF0u;
+  *v7 &= ~0x10000000u;
+  *v7 &= 0x3FFFFFFFu;
   return result;
 }
-

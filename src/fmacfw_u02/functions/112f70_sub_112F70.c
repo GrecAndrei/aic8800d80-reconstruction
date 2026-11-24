@@ -16,8 +16,6 @@ extern uint32_t dword_112FF4;
 extern uint32_t dword_112FF8;
 extern uint32_t dword_112FFC;
 extern uint32_t dword_113004;
-extern uint32_t dword_113008;
-extern uint32_t dword_11300C;
 
 // after_helper_call @ 0x112f70, size 126 bytes
 int after_helper_call()
@@ -55,9 +53,9 @@ int after_helper_call()
     v7 = *(uint16_t *)(dword_113004 + 0xB2);
     *(uint32_t *)(dword_112FFC + 0x804) &= ~1u;
     if ( (v7 & 0x4000) != 0 )
-      result = sub_10D7B4(dword_113008);
+      result = (int)read_memory_byte(aUsbRmtwkup);
     else
-      result = sub_12EA88(dword_11300C);
+      result = event_dispatch(aUsbRmtwkup_0);
     v3 = *v0;
     *v1 = 0;
   }

@@ -10,42 +10,43 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_110230;
+extern uint32_t off_110228;
+extern uint32_t off_11022C;
+extern uint32_t off_110234;
 
 // critical_enter_3 @ 0x1101e8, size 62 bytes
-// Doc: ipc_doorbell_handler_n44 [ipc]: Handle IPC doorbell interrupt, set MSB and check doorbell flag
-// ipc_doorbell_handler_n44 [ipc]: Handle IPC doorbell interrupt, set MSB and check doorbell flag
-int critical_enter_3()
+int  critical_enter_3(uint32_t *a1)
 {
-  int *v0; // r4
-  int v1; // r0
+  int *v2; // r4
+  int v3; // r0
   int result; // r0
-  int v3; // r3
-  int v4; // r3
-  int v5; // r2
+  int v5; // r3
+  int v6; // r3
+  int v7; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)log_free_dispatch_228 = 1;
+    *(uint32_t *)off_110228 = 1;
   }
-  v0 = (int *)log_free_dispatch_n3cc;
-  v1 = dword_110230;
-  ++*(uint32_t *)log_free_dispatch_n3cc;
-  result = check_abort_flag(v1);
-  v3 = *v0;
-  ++*(uint32_t *)log_free_dispatch_n3d4;
-  if ( v3 )
+  v2 = (int *)off_11022C;
+  v3 = dword_110230;
+  ++*(uint32_t *)off_11022C;
+  result = check_abort_flag(v3, a1);
+  v5 = *v2;
+  ++*(uint32_t *)off_110234;
+  if ( v5 )
   {
-    v4 = v3 - 1;
-    v5 = *(uint32_t *)log_free_dispatch_228;
-    *v0 = v4;
-    if ( !v4 )
+    v6 = v5 - 1;
+    v7 = *(uint32_t *)off_110228;
+    *v2 = v6;
+    if ( !v6 )
     {
-      if ( v5 )
+      if ( v7 )
         __enable_irq();
     }
   }
   return result;
 }
-

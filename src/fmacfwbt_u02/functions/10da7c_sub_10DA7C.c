@@ -1,9 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // printf_wrapper @ 0x10da7c, size 28 bytes
-int printf_wrapper(int a1, ...)
+int printf_wrapper(const char *fmt, ...)
 {
   va_list varg_r1; // [sp+14h] [bp+8h] BYREF
 
-  va_start(varg_r1, a1);
-  return debug_printf(a1, (int)varg_r1);
+  va_start(varg_r1, fmt);
+  return debug_printf(fmt, (unsigned int *)(*(void **)&(varg_r1)));
 }
-

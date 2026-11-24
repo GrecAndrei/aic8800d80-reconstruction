@@ -10,9 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_124A84;
-extern uint32_t dword_124A80;
-
 // set_tx_power @ 0x124a50, size 46 bytes
 int  set_tx_power(int a1, int a2)
 {
@@ -20,15 +17,14 @@ int  set_tx_power(int a1, int a2)
 
   if ( a1 <= 1 )
   {
-    dispatch_event_handler(dword_124A84);
+    dispatch_event_handler_1(asc_130118, a2);
     return 1;
   }
   else
   {
-    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0xAu);
     set_state_checked((uint16_t)v2);
-    dispatch_event_handler(dword_124A80, v2);
+    dispatch_event_handler_1("\x9A\x88  TX Len  = %d\n", v2);
     return 0;
   }
 }
-

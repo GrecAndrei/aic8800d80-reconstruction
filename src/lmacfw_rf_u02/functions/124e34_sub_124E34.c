@@ -10,8 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_124E5C;
-
 // set_adv_channel_map @ 0x124e34, size 38 bytes
 int  set_adv_channel_map(int a1, int a2)
 {
@@ -19,14 +17,13 @@ int  set_adv_channel_map(int a1, int a2)
 
   if ( a1 <= 1 )
   {
-    dispatch_event_handler(dword_124E5C);
+    dispatch_event_handler_1(asc_13022C, a2);
     return -1;
   }
   else
   {
-    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0xAu);
     gpio_set_high(v2);
     return 0;
   }
 }
-

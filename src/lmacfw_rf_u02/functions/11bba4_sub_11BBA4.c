@@ -10,34 +10,32 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_11BD2C;
-extern uint32_t dword_11BD30;
-extern uint32_t off_11BD34;
+
 extern uint32_t dword_11BD38;
 extern uint32_t dword_11BD40;
+extern uint32_t off_11BD2C;
+extern uint32_t off_11BD34;
 extern uint32_t off_11BD3C;
 
 // tx_header_prepare @ 0x11bba4, size 392 bytes
-// Doc: sub_121BBA4 [unknown]: Init handler reading control byte from 0x1863b0+0x80 and struct fields
-// sub_121BBA4 [unknown]: Init handler reading control byte from 0x1863b0+0x80 and struct fields
 int  tx_header_prepare(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
   unsigned int v6; // r3
-  uint32_t *v7; // r4
+  int *v7; // r4
   char v8; // r3
-  int v10; // r0
-  uint8_t *v11; // r2
-  int16_t v12; // r2
+  uint32_t *v10; // r0
+  int v11; // r2
+  uint16_t v12; // r2
   unsigned int v13; // r2
   int v14; // r3
-  uint8_t *v15; // r2
-  int v16; // r0
+  int *v15; // r2
+  uint32_t *v16; // r0
   int v17; // r0
 
   v2 = off_11BD2C;
-  check_interrupt_flag(8, dword_11BD30, *a1, *((uint32_t *)a1 + 3));
+  check_interrupt_flag(8, "roc: %d, dur=%d, st=%d\r\n", *a1, *((uint32_t *)a1 + 3), *((uint8_t *)off_11BD2C + 128));
   v5 = *a1;
   if ( *a1 )
   {
@@ -51,37 +49,37 @@ int  tx_header_prepare(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          ke_exit_critical((int)off_11BD34 + 64);
-          v10 = v7[8];
+          ke_exit_critical(off_11BD34 + 16);
+          v10 = (uint32_t *)v7[8];
           v7[18] = 0;
           tx_processing(v10);
         }
       }
       else if ( v6 > 1 )
       {
-        v11 = *((uint8_t **)off_11BD34 + 11);
+        v11 = off_11BD34[11];
         *((uint8_t *)off_11BD34 + 88) &= ~4u;
         if ( v11 )
         {
-          if ( v11 == v2 + 112 && (uint8_t *)v7[20] == v11 )
+          if ( (uint8_t *)v11 == v2 + 112 && v7[20] == v11 )
           {
-            ke_exit_critical((int)(v7 + 16));
+            ke_exit_critical(v7 + 16);
             v7[18] = 0;
           }
           v7[11] = 0;
         }
-        send_hci_event(dword_11BD38);
+        send_hci_event_1(dword_11BD38);
       }
       else if ( v6 == 1 )
       {
         *((uint8_t *)off_11BD34 + 88) &= 0xFAu;
-        send_hci_event((int)(v2 + 112));
+        send_hci_event_1((int)(v2 + 112));
       }
       v8 = *((uint8_t *)v7 + 88);
       v2[136] = -1;
       if ( (v8 & 0x12) != 0x10 )
         return 0;
-      v16 = dword_11BD40;
+      v16 = (uint32_t *)dword_11BD40;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
       ke_exit_critical(v16);
@@ -111,21 +109,20 @@ int  tx_header_prepare(uint8_t *a1, int a2)
     v2[138] = a1[1];
     if ( a2 )
     {
-      v15[88] |= 1u;
+      *((uint8_t *)v15 + 88) |= 1u;
       rf_flag_set();
     }
     else
     {
       v17 = dword_11BD38;
-      v15[88] |= 4u;
+      *((uint8_t *)v15 + 88) |= 4u;
       rf_register_access(v17);
     }
     *(uint32_t *)off_11BD3C |= 4u;
     return v5;
   }
-  if ( (*((uint8_t *)off_11BD34 + 88) & 0x20) == 0 )
+  if ( (off_11BD34[22] & 0x20) == 0 )
     return 1;
   *((uint8_t *)off_11BD34 + 88) &= ~0x20u;
   return 1;
 }
-

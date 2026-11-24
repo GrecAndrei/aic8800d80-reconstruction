@@ -10,14 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11A108;
-extern uint32_t off_11A124;
 extern uint32_t off_11A10C;
 extern uint32_t off_11A110;
-extern uint32_t off_11A118;
 extern uint32_t off_11A114;
-extern uint32_t dword_11A120;
-extern uint32_t dword_11A11C;
+extern uint32_t off_11A118;
+extern uint32_t off_11A124;
 
 // tx_packet_build @ 0x119e08, size 868 bytes
 int  tx_packet_build(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
@@ -36,8 +35,8 @@ int  tx_packet_build(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t 
   unsigned int v18; // r11
   unsigned int v19; // r3
   unsigned int v20; // r8
-  int16_t v21; // r0
-  int16_t v22; // r1
+  uint16_t v21; // r0
+  uint16_t v22; // r1
   int v23; // r3
   int v24; // r12
   unsigned int v25; // lr
@@ -76,7 +75,7 @@ int  tx_packet_build(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t 
   if ( !bt_conn_param_compare(a1, v7, a5)
     || (v12 = off_11A124, *(uint8_t *)(*(uint32_t *)off_11A124 + 62) > (*(uint32_t *)off_11A10C & 0x3Fu)) )
   {
-    check_abort_flag_2(v8, v5);
+    check_abort_flag_2(v8, (uint32_t *)v5);
     return 0;
   }
   v13 = *(uint32_t *)(v51 + 36);
@@ -133,7 +132,7 @@ LABEL_7:
         *(uint32_t *)(v5 + 20) = *(uint32_t *)(v9 + 20);
       *(uint8_t *)(v24 + 1) = v50 + v17;
       list_pop_front(v8);
-      check_abort_flag(*(uint32_t *)(v9 + 340));
+      check_abort_flag(*(uint32_t *)(v9 + 340), (uint32_t *)v9);
       v40 = *(uint32_t *)(v7 + 76);
       *a2 = *(uint32_t *)v7;
       *(uint32_t *)(v40 + 20) = 0;
@@ -141,9 +140,9 @@ LABEL_7:
       goto LABEL_34;
     }
     v23 = *(uint32_t *)v7;
-    if ( **(int16_t **)off_11A114 < 0 && !v23 )
+    if ( **(uint16_t **)off_11A114 < 0 && !v23 )
     {
-      mmio_irq_clear(dword_11A120, dword_11A11C, 1713);
+      mmio_irq_clear((int)aTxdescNNull, (int)aTxlAggHeTbCatA, 1713);
       v23 = 0;
     }
     v16 = *(uint32_t *)(v23 + 36);
@@ -206,7 +205,7 @@ LABEL_17:
       *(uint32_t *)(v5 + 20) = v36;
     }
 LABEL_34:
-    check_abort_flag_2(v8, v5);
+    check_abort_flag_2(v8, (uint32_t *)v5);
     return v32;
   }
   v42 = *(uint32_t *)(v51 + 36);
@@ -218,9 +217,8 @@ LABEL_34:
   *(uint32_t *)(v43 + 68) = v42 | 0x380100;
   *(uint32_t *)(v7 + 36) = v44;
   *(uint32_t *)(v24 + 68) = v45;
-  check_abort_flag_2(v8, v5);
+  check_abort_flag_2(v8, (uint32_t *)v5);
   v32 = 0;
   *a2 = v7;
   return v32;
 }
-

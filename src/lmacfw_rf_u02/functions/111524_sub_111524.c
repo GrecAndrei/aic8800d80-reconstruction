@@ -10,14 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_111604;
-extern uint32_t off_111610;
-extern uint32_t dword_111614;
 
-// rf_channel_get_flag @ 0x111524, size 224 bytes
-// Doc: rf_bus_mark_n45e [rf]: Clear/mark RF bus register bits via mask
-// rf_bus_mark_n45e [rf]: Clear/mark RF bus register bits via mask
-int  rf_channel_get_flag(int a1, int a2, int a3)
+extern uint32_t dword_111604;
+extern uint32_t dword_111608;
+extern uint32_t dword_111614;
+extern uint32_t off_11160C;
+extern uint32_t off_111610;
+
+// sub_111524 @ 0x111524, size 224 bytes
+int  sub_111524(int result, int a2, int a3)
 {
   int v3; // r6
   uint32_t *v4; // r4
@@ -25,26 +26,26 @@ int  rf_channel_get_flag(int a1, int a2, int a3)
   uint32_t *v6; // r3
   uint32_t *v7; // r2
 
-  if ( a1 )
+  if ( result )
   {
-    v3 = 32 * (a1 - 1);
+    v3 = 32 * (result - 1);
     v4 = (uint32_t *)(dword_111604 + v3);
     v5 = *(uint32_t *)(v3 + dword_111604);
     if ( (v5 & 0x80008000) == 0 )
-      return (int)timer_entry_reset(a1);
+      return sub_1112AC(result);
     v6 = (uint32_t *)(dword_111604 + v3 + 8);
-    if ( (rf_bus_mark_n47c & v5) == 0x20000 )
-      goto rf_bus_write_ndc;
-    goto rf_bus_write_n_2e3;
+    if ( (dword_111608 & v5) == 0x20000 )
+      goto LABEL_4;
+    goto LABEL_15;
   }
   v4 = off_111610;
   v5 = *(uint32_t *)off_111610;
   if ( (*(uint32_t *)off_111610 & 0x80008000) != 0 )
   {
     v6 = (uint32_t *)dword_111614;
-    if ( (rf_bus_mark_n47c & v5) == 0x20000 )
+    if ( (dword_111608 & v5) == 0x20000 )
     {
-rf_bus_write_ndc:
+LABEL_4:
       if ( a2 == 0x8000000 )
       {
         if ( !a3 )
@@ -54,25 +55,25 @@ rf_bus_write_ndc:
 LABEL_27:
         *v4 &= ~a3;
 LABEL_7:
-        v7 = rf_bus_write_n1a0;
-        *((uint32_t *)rf_bus_write_n1a0 + 4) = (a1 << 6) | 0x20;
+        v7 = off_11160C;
+        *((uint32_t *)off_11160C + 4) = (result << 6) | 0x20;
         while ( (v7[4] & 0x20) != 0 )
           ;
         if ( (v5 & 0x8000) == 0 )
           *v4 &= ~0x8000u;
 LABEL_11:
-        if ( !a1 )
-          return a1;
-        return (int)timer_entry_reset(a1);
+        if ( !result )
+          return result;
+        return sub_1112AC(result);
       }
       *v6 = 64;
       *v4 |= a2 | 0x8008000;
-rf_bus_mark_cmp:
+LABEL_6:
       if ( !a3 )
         goto LABEL_7;
       goto LABEL_27;
     }
-rf_bus_write_n_2e3:
+LABEL_15:
     *v6 = 64;
     *v4 |= a2 | 0x8008000;
     if ( v5 < 0 )
@@ -91,8 +92,7 @@ rf_bus_write_n_2e3:
         ;
       goto LABEL_7;
     }
-    goto rf_bus_mark_cmp;
+    goto LABEL_6;
   }
-  return a1;
+  return result;
 }
-

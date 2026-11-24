@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_13050C;
-extern uint32_t dword_130510;
 
 // ll_seq_update @ 0x1304e0, size 44 bytes
 unsigned int ll_seq_update()
@@ -32,8 +32,7 @@ unsigned int ll_seq_update()
       v3 = result + 1;
     *((uint8_t *)off_13050C + 6) = v3;
     set_periph_status(v3);
-    return ke_event_schedule(dword_130510, v0[5], v0[6]);
+    return ke_event_schedule_1("\x9D\x89adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v0[5], v0[6]);
   }
   return result;
 }
-

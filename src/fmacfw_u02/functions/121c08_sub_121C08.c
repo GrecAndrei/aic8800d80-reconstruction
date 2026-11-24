@@ -10,9 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_121C9C;
-extern uint32_t dword_121CB8;
-extern uint32_t dword_121CB4;
 extern uint32_t off_121CA0;
 extern uint32_t off_121CA4;
 extern uint32_t off_121CA8;
@@ -26,8 +25,8 @@ int shared_s16_check()
   int v2; // r3
   int v3; // r2
 
-  if ( **(int16_t **)off_121C9C < 0 && (rx_rate_field_parse(0) == 3 || !rx_rate_field_parse(0)) )
-    mmio_clear_register(dword_121CB8, dword_121CB4, 1862);
+  if ( **(uint16_t **)off_121C9C < 0 && (rx_rate_field_parse(0) == 3 || !rx_rate_field_parse(0)) )
+    mmio_clear_register((int)aKeStateGetTask_1, (int)aMmNoIdleStart, 1862);
   if ( rx_rate_field_parse(0) == 2 )
   {
     *(uint32_t *)off_121CA0 = 48;
@@ -53,6 +52,5 @@ int shared_s16_check()
       }
     }
   }
-  return rx_phy_status_parse(0);
+  return rx_phy_status_parse(0, 4);
 }
-

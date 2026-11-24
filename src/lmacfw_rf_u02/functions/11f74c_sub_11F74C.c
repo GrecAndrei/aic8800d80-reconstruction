@@ -10,17 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_11F770;
+
 // check_interrupt_flag @ 0x11f74c, size 36 bytes
-// Doc: rf_mem_read_n1c8 [rf]: Read from RF shared memory via helper
-// rf_mem_read_n1c8 [rf]: Read from RF shared memory via helper
-int  check_interrupt_flag(int result, int a2, int a3, int a4)
+int check_interrupt_flag(int a1, const char *fmt, ...)
 {
-  uint32_t varg_r2[2]; // [sp+10h] [bp+8h] BYREF
+  va_list varg_r2; // [sp+10h] [bp+8h] BYREF
 
-  varg_r2[0] = a3;
-  varg_r2[1] = a4;
-  if ( ((uint16_t)result & **(uint16_t **)rf_mem_read_n1dc) != 0 )
-    return hci_cmd_init(a2, (int)varg_r2);
-  return result;
+  va_start(varg_r2, fmt);
+  if ( ((uint16_t)a1 & **(uint16_t **)off_11F770) != 0 )
+    return hci_cmd_init(fmt, (unsigned int *)(*(void **)&(varg_r2)));
+  return a1;
 }
-

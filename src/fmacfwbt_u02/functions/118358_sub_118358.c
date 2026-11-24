@@ -10,22 +10,22 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_118384;
-extern uint32_t dword_118388;
+extern uint32_t off_118388;
 
 // list_append @ 0x118358, size 44 bytes
-int  list_append(int a1, int a2, int a3)
+int  list_append(uint32_t *a1, int a2, int a3)
 {
   int v3; // r3
   int v5; // r0
   int result; // r0
 
-  v3 = *(uint32_t *)(a1 + 76);
+  v3 = a1[19];
   v5 = dword_118384;
   *(uint32_t *)(v3 + 4) = a2;
-  result = check_abort_flag(v5 + 8 * a3);
-  if ( (*(uint32_t *)(a1 + 36) & 0x200000) == 0 )
-    return set_system_flag_1(*(uint32_t *)(dword_118388 + 4 * a3));
+  result = check_abort_flag(v5 + 8 * a3, a1);
+  if ( (a1[9] & 0x200000) == 0 )
+    return set_system_flag_1(((uint32_t *)(uintptr_t)off_118388)[a3]);
   return result;
 }
-

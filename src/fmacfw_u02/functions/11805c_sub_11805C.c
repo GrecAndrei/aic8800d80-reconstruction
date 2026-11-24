@@ -10,20 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_118110;
 extern uint32_t off_118114;
 extern uint32_t off_118118;
 extern uint32_t off_11811C;
 extern uint32_t off_118120;
 extern uint32_t off_118124;
-extern uint32_t off_11812C;
-extern uint32_t dword_118138;
 extern uint32_t off_118128;
-extern uint32_t dword_118134;
+extern uint32_t off_11812C;
 extern uint32_t off_118130;
 
-// invoke_callback @ 0x11805c, size 178 bytes
-uint32_t *invoke_callback()
+// invoke_callback_1 @ 0x11805c, size 178 bytes
+uint32_t *invoke_callback_1()
 {
   uint32_t *result; // r0
   uint32_t *v1; // r4
@@ -35,7 +34,7 @@ uint32_t *invoke_callback()
   uint32_t *v7; // r2
   int v8; // r1
   uint16_t *v9; // r4
-  int16_t v10; // r2
+  uint16_t v10; // r2
   int v11; // r3
   uint32_t *v12; // r5
   int v13; // r1
@@ -46,11 +45,11 @@ uint32_t *invoke_callback()
   if ( result )
   {
     v1 = result;
-    v2 = (uint32_t *)is_scan_enabled();
+    v2 = is_scan_enabled();
     v3 = v2;
     if ( v2 )
     {
-      v4 = (int *)off_118114;
+      v4 = off_118114;
       *v2 = 0;
       v5 = *v4;
       v3[1] = 0;
@@ -78,7 +77,7 @@ uint32_t *invoke_callback()
         }
         else
         {
-          event_dispatch(dword_118138, v8, v7);
+          event_dispatch(aSdioTailError);
           v8 = *v6;
         }
       }
@@ -86,7 +85,7 @@ uint32_t *invoke_callback()
       {
         if ( *(uint32_t *)off_118128 )
         {
-          event_dispatch(dword_118134, v8, v7);
+          event_dispatch(aBug);
           v8 = *v6;
         }
         v9 = off_11812C;
@@ -119,4 +118,3 @@ uint32_t *invoke_callback()
   }
   return result;
 }
-

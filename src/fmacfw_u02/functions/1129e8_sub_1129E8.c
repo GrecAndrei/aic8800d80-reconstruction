@@ -10,16 +10,22 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_112C44;
-extern uint32_t dword_112C60;
-extern uint32_t off_112C58;
-extern uint32_t dword_112C5C;
+
+extern uint32_t dword_112C40;
 extern uint32_t dword_112C4C;
+extern uint32_t dword_112C50;
+extern uint32_t dword_112C5C;
+extern uint32_t dword_112C60;
+extern uint32_t off_112C30;
+extern uint32_t off_112C34;
+extern uint32_t off_112C38;
+extern uint32_t off_112C3C;
+extern uint32_t off_112C44;
+extern uint32_t off_112C48;
 extern uint32_t off_112C54;
+extern uint32_t off_112C58;
 
 // mmio_read_flag @ 0x1129e8, size 582 bytes
-// Doc: rf_mem_read_n_41a [rf]: Read RF register/memory block into buffer
-// rf_mem_read_n_41a [rf]: Read RF register/memory block into buffer
 int mmio_read_flag()
 {
   uint8_t *v0; // r3
@@ -51,22 +57,22 @@ int mmio_read_flag()
   uint32_t *v26; // r2
   uint32_t *v27; // r3
 
-  v0 = rf_bus_reset_n24c;
-  v1 = rf_msg_handler_n_4cc;
-  *(uint8_t *)rf_bus_reset_bitfield_n248 = 2;
+  v0 = off_112C34;
+  v1 = off_112C38;
+  *(uint8_t *)off_112C30 = 2;
   *v0 = 0;
   v1[896] &= ~1u;
   v1[513] &= ~1u;
   table_lookup_wrapper();
   if ( (v1[6] & 0x80) != 0 )
     v1[6] &= ~0x80u;
-  v2 = rf_msg_handler_n_4cc;
-  *((uint32_t *)rf_msg_handler_n_4cc + 513) |= 0x200u;
+  v2 = off_112C38;
+  *((uint32_t *)off_112C38 + 513) |= 0x200u;
   while ( (v2[5] & 0x80) == 0 )
     ;
-  v3 = (int *)rf_msg_handler_4c8;
-  v4 = rf_bus_reset_n258;
-  v5 = rf_msg_handler_4c8;
+  v3 = (int *)off_112C3C;
+  v4 = dword_112C40;
+  v5 = off_112C3C;
   for ( i = 1; ; ++i )
   {
     if ( i == 1 )
@@ -94,14 +100,14 @@ int mmio_read_flag()
 LABEL_11:
     v3 += 8;
   }
-  v8 = rf_msg_handler_n_4cc;
-  *((uint32_t *)rf_msg_handler_n_4cc + 513) |= 0x400u;
+  v8 = off_112C38;
+  *((uint32_t *)off_112C38 + 513) |= 0x400u;
   v8[513] |= 0x80u;
   while ( (v8[5] & 0x40) == 0 )
     ;
   v9 = (int *)off_112C44;
   v10 = dword_112C60;
-  v11 = rf_bus_reset_n258;
+  v11 = dword_112C40;
   v12 = (int *)off_112C44;
   v13 = 1;
   while ( 2 )
@@ -133,7 +139,7 @@ LABEL_20:
           *v15 &= ~0x8000u;
         goto LABEL_23;
       }
-      goto rf_cmd_wait_n_48c;
+      goto LABEL_24;
     }
     v14 = *v9;
     v15 = v9;
@@ -145,15 +151,15 @@ LABEL_20:
 LABEL_23:
     if ( v13 != 6 )
     {
-rf_cmd_wait_n_48c:
+LABEL_24:
       ++v13;
       v9 += 8;
       continue;
     }
     break;
   }
-  v17 = rf_msg_handler_n_4cc;
-  *((uint32_t *)rf_msg_handler_n_4cc + 4) = 1072;
+  v17 = off_112C38;
+  *((uint32_t *)off_112C38 + 4) = 1072;
   while ( (v17[4] & 0x30) != 0 )
     ;
   v17[513] |= 0x100u;
@@ -165,42 +171,41 @@ rf_cmd_wait_n_48c:
   {
     v22 = off_112C58;
     v23 = dword_112C5C;
-    v24 = rf_msg_handler_n_4cc;
+    v24 = off_112C38;
     v17[9] = 285;
     v17[10] = v23;
     *v22 = 318;
     v17[513] |= 0x80u;
     while ( (v24[5] & 0x40) == 0 )
       ;
-    while ( *((int *)rf_msg_handler_n_4cc + 4) >= 0 )
+    while ( *((int *)off_112C38 + 4) >= 0 )
       ;
-    v25 = rf_msg_handler_n_4cc;
-    *((uint32_t *)rf_msg_handler_n_4cc + 4) = 1056;
+    v25 = off_112C38;
+    *((uint32_t *)off_112C38 + 4) = 1056;
     while ( (v25[4] & 0x20) != 0 )
       ;
-    v26 = rf_msg_handler_n_4cc;
+    v26 = off_112C38;
     v25[513] |= 0x100u;
     v25[513] |= 0x200u;
     while ( (v26[5] & 0x80) == 0 )
       ;
-    v27 = rf_msg_handler_n_4cc;
+    v27 = off_112C38;
     v26[4] |= 0x10u;
     while ( (v27[4] & 0x10) != 0 )
       ;
     v27[513] |= 0x400u;
   }
-  v18 = rf_cmd_send_n_3c8_2c48;
+  v18 = off_112C48;
   v19 = (int *)dword_112C4C;
-  *((uint32_t *)rf_msg_handler_n_4cc + 512) &= 0xFFFFF80F;
+  *((uint32_t *)off_112C38 + 512) &= 0xFFFFF80F;
   v18[1] = 0;
   v18[2] = 0;
   *(uint8_t *)v18 = 0;
   memset(v19, 0, 0x50u);
-  memset((int *)rf_cmd_send_n_3c0, 0, 0x50u);
+  memset((int *)dword_112C50, 0, 0x50u);
   result = mmio_sync();
   v21 = *((int ( **)(uint32_t))off_112C54 + 8);
   if ( v21 )
     return v21(0);
   return result;
 }
-

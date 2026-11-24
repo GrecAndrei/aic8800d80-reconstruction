@@ -10,14 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_124964;
+
 extern uint32_t off_12495C;
 extern uint32_t off_124960;
 
 // mmio_read_timer @ 0x124944, size 22 bytes
 int mmio_read_timer()
 {
-  dispatch_event_handler(dword_124964, *(uint32_t *)off_12495C, *(uint32_t *)off_124960 + *(uint32_t *)off_12495C);
+  dispatch_event_handler_1(
+    "rx_stat get: fcsok=%d, total=%d\r\n",
+    *(uint32_t *)off_12495C,
+    *(uint32_t *)off_124960 + *(uint32_t *)off_12495C);
   return 0;
 }
-

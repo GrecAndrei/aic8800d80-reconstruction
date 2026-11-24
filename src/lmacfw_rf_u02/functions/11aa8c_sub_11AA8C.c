@@ -11,23 +11,23 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 // ipc_dispatch @ 0x11aa8c, size 114 bytes
-int  ipc_dispatch(int a1, uint16_t *a2, int a3, void *a4)
+int  ipc_dispatch(int a1, int *a2, int a3, int a4)
 {
   int v4; // r4
-  void *v6; // r1
+  int v6; // r1
   int v8; // [sp+0h] [bp-8h]
   int v9; // [sp+0h] [bp-8h]
   int v10; // [sp+0h] [bp-8h]
   int v11; // [sp+0h] [bp-8h]
   int v12; // [sp+0h] [bp-8h]
 
-  v4 = *(uint32_t *)a2;
+  v4 = *a2;
   v6 = a4;
   switch ( v4 )
   {
     case 0:
       v8 = a3;
-      mmio_clear_bits(a2 + 2);
+      mmio_clear_bits((uint16_t *)a2 + 2);
       a3 = v8;
       v6 = a4;
       break;
@@ -45,7 +45,7 @@ int  ipc_dispatch(int a1, uint16_t *a2, int a3, void *a4)
       break;
     case 3:
       v12 = a3;
-      flag_update((uint8_t *)a2 + 4, a4);
+      flag_update((uint8_t *)a2 + 4);
       a3 = v12;
       v6 = a4;
       break;
@@ -61,4 +61,3 @@ int  ipc_dispatch(int a1, uint16_t *a2, int a3, void *a4)
   ke_evt_handler(127, v6, a3);
   return 0;
 }
-

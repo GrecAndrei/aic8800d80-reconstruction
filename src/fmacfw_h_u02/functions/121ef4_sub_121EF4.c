@@ -10,23 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_121F18;
-
-// rf_set_channel @ 0x121ef4, size 36 bytes
-int  rf_set_channel(int result, int a2)
+// rf_set_channel_2 @ 0x121ef4, size 36 bytes
+int  rf_set_channel_2(int result, int a2, int a3)
 {
-  int v2; // r4
+  int v3; // r4
 
-  v2 = result;
+  v3 = result;
   if ( (a2 & 0x800000) != 0 )
   {
     *(uint8_t *)(result + 128) = 0;
   }
   else
   {
-    check_feature_flag(1024, dword_121F18);
-    return rf_read_reg(v2);
+    check_feature_flag(1024, aBcnLinkloss, a3, a2 << 8);
+    return (int)rf_read_reg(v3);
   }
   return result;
 }
-

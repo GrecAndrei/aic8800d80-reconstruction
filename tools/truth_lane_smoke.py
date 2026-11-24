@@ -144,10 +144,13 @@ def find_function_calls(body: str, self_name: str) -> list[str]:
         "__get_CPSR", "__disable_irq", "__enable_irq", "__set_CPSR",
         # static inline helpers in aic8800d80_types.h — must NOT be stubbed
         # (a stub #define would expand inside the header and break it)
-        "COERCE_FLOAT", "COERCE_UINT32", "COERCE_INT32", "MEMD", "JUMPOUT",
+        "COERCE_FLOAT", "COERCE_UINT32", "COERCE_UNSIGNED_INT", "COERCE_INT",
+        "COERCE_INT32", "MEMD", "JUMPOUT",
         "bswap32", "abs16", "abs32", "__rev", "__rev16", "__usat", "__clz",
         "__ROR4__", "_byteswap_ushort", "SHIBYTE", "SLOBYTE", "SHIDWORD",
-        "WORD1", "WORD2", "BYTE1", "BYTE2", "BYTE3", "BYTE4", "vld1_u32",
+        "SHIWORD", "SLOWORD", "SLODWORD", "__PAIR64__", "__SPAIR64__",
+        "WORD1", "WORD2", "BYTE1", "BYTE2", "BYTE3", "BYTE4", "SBYTE1",
+        "SBYTE2", "SBYTE3", "SBYTE4", "vld1_u32",
         "vcvts_n_s32_f32", "vcvts_n_f32_u32", "__get_FPSCR", "__set_FPSCR",
         "__noreturn", "__pld", "__dsb", "__isb", "__wfi", "__mcr", "__mrc",
         # Common GCC / clang builtins that look like calls

@@ -10,20 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_135454;
 
 // mmio_write_sequence @ 0x135424, size 48 bytes
-uint32_t * mmio_write_sequence(int16_t a1)
+int  mmio_write_sequence(uint16_t a1)
 {
   int v2; // r5
   int v3; // r0
 
   v2 = *((uint32_t *)off_135454 + 4);
-  v3 = tx_send_pdu(30, 0, 6, 4u);
+  v3 = tx_send_pdu(30, 0, 6, 4);
   *(uint16_t *)v3 = a1;
   *(uint8_t *)(v3 + 2) = 1;
   *(uint8_t *)(v3 + 3) = *(uint8_t *)(v2 + 61);
-  rx_process_packet(v3);
+  rx_process_packet_1(v3);
   return hci_cmd_preprocess(6u, 9);
 }
-

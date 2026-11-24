@@ -10,20 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10E834;
 extern uint32_t off_10E838;
 extern uint32_t off_10E83C;
-extern uint32_t dword_10E840;
-extern uint32_t dword_10E844;
-extern uint32_t dword_10E848;
 
-// gpio_set_pin_mode @ 0x10e694, size 416 bytes
-int  gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3)
+// sub_10E694 @ 0x10e694, size 416 bytes
+int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r4
   unsigned int *v4; // r6
   unsigned int *v5; // r5
-  int16_t *v8; // r5
+  uint16_t *v8; // r5
   int v9; // r10
   int v10; // r2
   unsigned int *v11; // r7
@@ -47,9 +45,9 @@ int  gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3)
   *v5 = ((uint16_t)a1 << 12) & 0x7000 | *v5 & 0xFFFF8FFF;
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
-  v8 = (int16_t *)off_10E83C;
-  v9 = radio_setup();
-  ke_event_schedule(dword_10E840, a1, a2);
+  v8 = (uint16_t *)off_10E83C;
+  v9 = sub_10DF08();
+  sub_12ECB0("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
   v10 = *v8;
   if ( v10 > v9 )
   {
@@ -84,9 +82,9 @@ int  gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3)
     *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
     *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
     v15 = v9;
-    v9 = radio_setup();
-    ke_event_schedule(dword_10E844, v13, v3);
-    v16 = *(int16_t *)off_10E83C;
+    v9 = sub_10DF08();
+    sub_12ECB0("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
+    v16 = *(uint16_t *)off_10E83C;
     v17 = v9 - v16;
     v18 = v15 - v16;
     if ( v18 * v17 <= 0 )
@@ -104,12 +102,12 @@ int  gpio_set_pin_mode(unsigned int a1, unsigned int a2, unsigned int *a3)
     *v11 = *v11 & 0xFFFFFFF8 | v24 & 7;
     *v12 = (v24 << 12) & 0x7000 | *v12 & 0xFFFF8FFF;
     *v11 = (8 * v25) & 0x78 | *v11 & 0xFFFFFF87;
+    v9 = v15;
     v13 = v24;
     *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  ke_event_schedule(dword_10E848, v20, v13 - v21);
+  sub_12ECB0("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", v20, v13 - v21, v3 - a2, v9);
 LABEL_9:
   *a3 = v3;
   return v20;
 }
-

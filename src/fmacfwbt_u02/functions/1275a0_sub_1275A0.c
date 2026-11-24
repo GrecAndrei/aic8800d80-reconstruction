@@ -10,6 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_127860;
 extern uint32_t off_127840;
 extern uint32_t off_127844;
 extern uint32_t off_127848;
@@ -18,17 +20,13 @@ extern uint32_t off_127850;
 extern uint32_t off_127854;
 extern uint32_t off_127858;
 extern uint32_t off_12785C;
-extern uint32_t off_127888;
-extern uint32_t off_12786C;
-extern uint32_t off_127868;
-extern uint32_t off_127874;
-extern uint32_t dword_12787C;
-extern uint32_t dword_127878;
-extern uint32_t off_127870;
-extern uint32_t dword_127880;
-extern uint32_t dword_127860;
-extern uint32_t off_127884;
 extern uint32_t off_127864;
+extern uint32_t off_127868;
+extern uint32_t off_12786C;
+extern uint32_t off_127870;
+extern uint32_t off_127874;
+extern uint32_t off_127884;
+extern uint32_t off_127888;
 
 // rf_reset @ 0x1275a0, size 670 bytes
 int  rf_reset(int a1, int a2)
@@ -50,7 +48,7 @@ int  rf_reset(int a1, int a2)
   int v18; // r1
   uint16_t *v19; // r8
   uint16_t *v20; // r0
-  uint16_t *v21; // r7
+  int v21; // r7
   int v22; // r0
   int v23; // r2
   unsigned int *v24; // r12
@@ -59,20 +57,17 @@ int  rf_reset(int a1, int a2)
   uint32_t *v27; // r7
   int v28; // r2
   unsigned int v29; // r3
-  int v30; // r3
-  uint8_t *v31; // r9
-  int v32; // r7
-  unsigned int v33; // r3
-  int v34; // lr
-  char *v35; // r2
-  unsigned int v36; // r10
-  uint32_t *v37; // r7
-  int v38; // r2
-  void *v39; // r2
-  int v40; // r1
-  int v41; // r0
-  uint32_t *v42; // r7
-  int v43; // r2
+  uint8_t *v30; // r9
+  int v31; // r7
+  unsigned int v32; // r3
+  int v33; // lr
+  char *v34; // r2
+  unsigned int v35; // r10
+  uint32_t *v36; // r7
+  int v37; // r2
+  int v38; // r1
+  uint32_t *v39; // r7
+  int v40; // r2
 
   v2 = off_127840;
   *((uint32_t *)off_127840 + 10) = 0;
@@ -103,7 +98,7 @@ int  rf_reset(int a1, int a2)
   if ( a2 )
     goto LABEL_6;
   result = mac_cmd_send();
-  if ( !*((uint8_t *)off_127854 + 408) )
+  if ( !LOBYTE(((uint32_t *)(uintptr_t)off_127854)[102]) )
     goto LABEL_6;
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
@@ -116,7 +111,7 @@ LABEL_7:
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
-        result = send_hci_cmd(a1);
+        result = (int)send_hci_cmd(a1);
         v14 = (uint8_t)v2[88];
       }
       else
@@ -143,57 +138,54 @@ LABEL_7:
     }
     while ( v17 != *(uint8_t *)(*(uint32_t *)off_127858 + 367) );
   }
-  v31 = off_127888;
+  v30 = off_127888;
   if ( *((uint16_t *)off_127888 + 2) <= 1u && *((uint16_t *)off_127888 + 3) <= 1u )
   {
 LABEL_50:
-    v42 = off_12786C;
-    v43 = **(int16_t **)off_127868;
+    v39 = off_12786C;
+    v40 = **(uint16_t **)off_127868;
     *((uint32_t *)off_12786C + 1) |= 0x100040u;
-    if ( v43 < 0 && *(uint32_t *)off_127874 << 28 )
-      mmio_field_update(dword_12787C, dword_127878, 472);
-    v39 = off_127870;
-    v40 = 1;
-    *(uint32_t *)off_127870 = *v42 | v42[1];
+    if ( v40 < 0 && *(uint32_t *)off_127874 << 28 )
+      mmio_field_update((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
+    v38 = 1;
+    *(uint32_t *)off_127870 = *v39 | v39[1];
     v15 = 1;
     goto LABEL_48;
   }
-  v32 = 0;
+  v31 = 0;
   while ( !*((uint16_t *)off_127858 + 2) )
   {
 LABEL_44:
-    if ( v32 )
+    if ( v31 )
       goto LABEL_50;
-    v32 = 1;
+    v31 = 1;
   }
+  v32 = 0;
   v33 = 0;
-  v34 = 0;
   while ( 1 )
   {
-    v35 = (char *)off_127858 + 60 * v33;
-    v36 = (uint8_t)(v33 + 1);
-    v33 = v36;
-    if ( *(uint8_t *)(*((uint32_t *)v35 + 13) + 2) != v32 || !v35[16] || v35[64] < -79 )
+    v34 = (char *)off_127858 + 60 * v32;
+    v35 = (uint8_t)(v32 + 1);
+    v32 = v35;
+    if ( *(uint8_t *)(*((uint32_t *)v34 + 13) + 2) != v31 || !v34[16] || v34[64] < -79 )
       goto LABEL_38;
-    if ( v34 )
+    if ( v33 )
       break;
-    v34 = 1;
+    v33 = 1;
 LABEL_38:
-    if ( v36 >= *((uint16_t *)off_127858 + 2) )
+    if ( v35 >= *((uint16_t *)off_127858 + 2) )
       goto LABEL_44;
   }
-  v37 = off_12786C;
-  v38 = **(int16_t **)off_127868;
+  v36 = off_12786C;
+  v37 = **(uint16_t **)off_127868;
   *((uint32_t *)off_12786C + 1) &= 0xFFEFFFBF;
-  if ( v38 < 0 && *(uint32_t *)off_127874 << 28 )
-    mmio_field_update(dword_12787C, dword_127878, 472);
-  v39 = off_127870;
-  *(uint32_t *)off_127870 = *v37 | v37[1];
-  v40 = 0;
+  if ( v37 < 0 && *(uint32_t *)off_127874 << 28 )
+    mmio_field_update((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
+  *(uint32_t *)off_127870 = *v36 | v36[1];
+  v38 = 0;
 LABEL_48:
-  v41 = dword_127880;
-  v31[8] = v15;
-  result = ke_event_schedule(v41, v40, v39);
+  v30[8] = v15;
+  result = ke_event_schedule_1("single ssid %d\n", v38);
 LABEL_6:
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
@@ -203,14 +195,14 @@ LABEL_23:
   v19 = (uint16_t *)bt_get_active_conn();
   v20 = (uint16_t *)bt_buf_alloc(79, 13, 0, 12);
   *v20 = *v19;
-  v21 = v20;
-  v22 = get_bt_status(v19);
+  v21 = (int)v20;
+  v22 = get_bt_status((int)v19);
   v23 = dword_127860;
   v24 = (unsigned int *)off_127884;
   v25 = off_127864;
-  *((uint32_t *)v21 + 1) = (unsigned int)(((unsigned int)dword_127860 * (unsigned uint64_t)(unsigned int)v22) >> 32) >> 6;
-  *((uint32_t *)v21 + 2) = (unsigned int)(((unsigned int)v23 * (unsigned uint64_t)*v24) >> 32) >> 6;
-  *((uint8_t *)v21 + 2) = 0;
+  *(uint32_t *)(v21 + 4) = (unsigned int)(((unsigned int)dword_127860 * (uint64_t)(unsigned int)v22) >> 32) >> 6;
+  *(uint32_t *)(v21 + 8) = (unsigned int)(((unsigned int)v23 * (uint64_t)*v24) >> 32) >> 6;
+  *(uint8_t *)(v21 + 2) = 0;
   v26 = 10;
   while ( 1 )
   {
@@ -220,21 +212,20 @@ LABEL_23:
     if ( !v26 )
       goto LABEL_26;
   }
-  *((uint8_t *)v21 + 2) = *v25;
+  *(uint8_t *)(v21 + 2) = *v25;
 LABEL_26:
   hci_evt_send(v21);
   v27 = off_12786C;
-  v28 = **(int16_t **)off_127868;
+  v28 = **(uint16_t **)off_127868;
   v29 = *((uint32_t *)off_12786C + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_12786C + 1) = v29;
   if ( v28 < 0 && *(uint32_t *)off_127874 << 28 )
   {
-    mmio_field_update(dword_12787C, dword_127878, 472);
+    mmio_field_update((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
     v29 = v27[1];
   }
-  v30 = v29 | *v27;
-  *(uint32_t *)off_127870 = v30;
-  result = hci_evt_alloc_send(142, 2, 255, v30);
+  *(uint32_t *)off_127870 = v29 | *v27;
+  result = hci_evt_alloc_send(142, 2, 255);
   v14 = (uint8_t)v2[88];
 LABEL_8:
   *(uint8_t *)(a1 + 24) = -1;
@@ -250,4 +241,3 @@ LABEL_8:
     return mac_wait_fw_ready();
   return result;
 }
-

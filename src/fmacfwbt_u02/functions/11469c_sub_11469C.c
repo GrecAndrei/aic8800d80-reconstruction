@@ -10,23 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1146C8;
-extern uint32_t dword_1146CC;
 
 // invoke_callback @ 0x11469c, size 44 bytes
-int  invoke_callback(uint32_t *a1)
+int  invoke_callback(int *a1)
 {
   int result; // r0
-  int v2; // r2
 
   if ( *(uint32_t *)off_1146C8 )
-    return check_abort_flag(off_1146C8);
-  result = sys_control(a1 + 1, *a1);
+    return check_abort_flag(off_1146C8, a1);
+  result = sys_control((int)(a1 + 1), *a1);
   if ( result )
   {
-    ke_event_schedule(dword_1146CC, result, v2);
-    return check_abort_flag(off_1146C8);
+    ke_event_schedule_1("sdio bt MB send err %d\n", result);
+    return check_abort_flag(off_1146C8, a1);
   }
   return result;
 }
-

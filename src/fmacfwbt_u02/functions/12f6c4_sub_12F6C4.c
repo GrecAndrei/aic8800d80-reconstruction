@@ -10,11 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12F6DC;
-
 // mmio_field_update @ 0x12f6c4, size 22 bytes
 int  mmio_field_update(int a1, int a2, int a3)
 {
-  return ke_event_schedule(dword_12F6DC, a1, a2, a3 & 0xFFFFF);
+  return ke_event_schedule_1("\x9BWARNING (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
 }
-

@@ -10,17 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1421D8;
-extern uint32_t off_1421DC;
-extern uint32_t dword_1421F4;
-extern uint32_t dword_1421F0;
-extern uint32_t dword_1421E0;
-extern uint32_t off_1421E4;
-extern uint32_t dword_1421EC;
-extern uint32_t dword_1421E8;
 
-// bt_data_process @ 0x141f90, size 582 bytes
-unsigned int  bt_data_process(unsigned int result)
+extern uint32_t dword_1421D8;
+extern uint32_t dword_1421E0;
+extern uint32_t off_1421DC;
+extern uint32_t off_1421E4;
+
+// sub_141F90 @ 0x141f90, size 582 bytes
+unsigned int  sub_141F90(unsigned int result)
 {
   int v1; // r1
   int v2; // r2
@@ -28,24 +25,24 @@ unsigned int  bt_data_process(unsigned int result)
   unsigned int v4; // r4
   int v5; // r6
   int v6; // r3
-  int v7; // r3
+  unsigned int v7; // r3
   int v8; // r6
-  int v9; // r5
+  unsigned int v9; // r5
   int v10; // r3
   int v11; // r5
   int v12; // r4
   uint8_t *v13; // r1
   char v14; // r3
-  unsigned int v15; // r9
-  int16_t v16; // r8
-  uint16_t *v17; // r7
+  int v15; // r9
+  uint16_t v16; // r8
+  unsigned int v17; // r7
   unsigned int v18; // r10
   int v19; // r11
-  unsigned int v20; // r8
+  int v20; // r8
   char *v21; // r8
-  int v22; // r5
+  unsigned int v22; // r5
   int v23; // r7
-  int16_t v24; // r2
+  uint16_t v24; // r2
   char v25; // r3
   int v26; // r0
   uint16_t *v27; // r3
@@ -56,9 +53,8 @@ unsigned int  bt_data_process(unsigned int result)
   char v32; // r3
   char v33; // r3
   uint64_t v34; // r0
-  uint64_t v35; // r0
-  uint8_t v36; // r0
-  int16_t v37[38]; // [sp+0h] [bp-4Ch] BYREF
+  uint8_t v35; // r0
+  uint8_t v36[76]; // [sp+0h] [bp-4Ch] BYREF
 
   v1 = *(uint8_t *)(result + 7);
   v2 = *(uint8_t *)(result + 8);
@@ -76,11 +72,11 @@ unsigned int  bt_data_process(unsigned int result)
       {
         v15 = *(uint8_t *)(v4 + 17);
         v16 = *(uint16_t *)v4;
-        v17 = (uint16_t *)(v4 + 18);
+        v17 = v4 + 18;
         v18 = *(uint16_t *)(v4 + 18);
-        if ( **(int16_t **)off_1421DC < 0 && v2 == 255 )
+        if ( **(uint16_t **)off_1421DC < 0 && v2 == 255 )
         {
-          result = irq_disable_mmio_write(dword_1421F4, dword_1421F0, 637);
+          result = sub_12F32C((int)aParamInstNbrIn, (int)aTwtHandleSetup, 637);
           v5 = *(uint8_t *)(v4 + 8);
         }
         if ( (v15 & 0xC) == 0 )
@@ -115,23 +111,24 @@ unsigned int  bt_data_process(unsigned int result)
                 v33 = *v31;
                 *(uint16_t *)v30 = 1;
                 *v31 = v33 + 1;
-                parse_adv_report(v17, v20, v15, (int16_t *)v30);
-                send_rf_cmd(4, v30);
-                LODWORD(v34) = rf_delay();
-                v35 = *(uint64_t *)(v30 + 24) - v34 - *(uint64_t *)(v3 + 1320 * v5 + 40);
-                v36 = double_cmp(v35, HIDWORD(v35), *(uint32_t *)(v30 + 16), 0);
-                return get_ll_conn_ctx(v30, v36);
+                sub_141B40(v17, v20, v15, v30);
+                sub_141C5C(4, v30);
+                LODWORD(v34) = sub_12BD00();
+                v35 = sub_1432D4(
+                        *(uint64_t *)(v30 + 24) - v34 - *(uint64_t *)(v3 + 1320 * v5 + 40),
+                        *(unsigned int *)(v30 + 16));
+                return sub_141C0C(v30, v35);
               }
               else
               {
-                return get_acl_ctx(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
+                return sub_141EA0(*(uint8_t *)(v26 + 107), *(uint8_t *)(v4 + 7), (v18 >> 7) & 7);
               }
             }
           }
           else if ( v19 == 7 )
           {
-            parse_adv_report((uint16_t *)(v4 + 18), v20, v15, v37);
-            return send_rf_cmd((v18 >> 1) & 7, (int)v37);
+            sub_141B40(v4 + 18, v20, v15, v36);
+            return sub_141C5C((v18 >> 1) & 7, v36);
           }
         }
       }
@@ -153,7 +150,7 @@ unsigned int  bt_data_process(unsigned int result)
                 && *(uint8_t *)(v8 + 46) == *(uint8_t *)(v4 + 7)
                 && *(uint8_t *)(v8 + 47) == *(uint8_t *)(v4 + 8) )
               {
-                result = update_ll_flags(v8);
+                result = sub_141D94(v8);
                 v24 = *(uint16_t *)v8;
                 v25 = *v21;
                 *(uint8_t *)(v8 + 2) = v22;
@@ -181,7 +178,7 @@ unsigned int  bt_data_process(unsigned int result)
             v10 = 9 * v7;
             v11 = dword_1421E0 + 8 * v10;
             v12 = 8 * v10;
-            update_ll_flags(v11);
+            sub_141D94(v11);
             v13 = off_1421E4;
             v14 = *(uint8_t *)off_1421E4 - 1;
             *(uint16_t *)(v8 + v12) &= ~1u;
@@ -192,11 +189,10 @@ unsigned int  bt_data_process(unsigned int result)
         }
       }
     }
-    else if ( **(int16_t **)off_1421DC < 0 )
+    else if ( **(uint16_t **)off_1421DC < 0 )
     {
-      return irq_disable_mmio_write(dword_1421EC, dword_1421E8, 828);
+      return sub_12F32C((int)aFalse, (int)aTwtHandleActio, 828);
     }
   }
   return result;
 }
-

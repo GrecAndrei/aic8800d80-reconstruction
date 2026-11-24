@@ -10,50 +10,48 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11363C;
-extern uint32_t off_113648;
-extern uint32_t dword_113664;
-extern uint32_t off_113644;
-extern uint32_t dword_113650;
 extern uint32_t off_113640;
+extern uint32_t off_113644;
+extern uint32_t off_113648;
+extern uint32_t off_11364C;
 extern uint32_t off_113654;
-extern uint32_t off_11366C;
 extern uint32_t off_113658;
-extern uint32_t dword_11365C;
-extern uint32_t dword_113660;
-extern uint32_t dword_113668;
+extern uint32_t off_11366C;
 
 // bt_ctrl_main_task @ 0x113514, size 294 bytes
-void bt_ctrl_main_task()
+void  bt_ctrl_main_task(int a1, int a2, int a3, int a4)
 {
-  uint8_t *v0; // r5
-  int v1; // r0
-  uint32_t *v2; // r4
-  uint32_t *v3; // r8
-  unsigned int *v4; // r6
-  unsigned int v5; // r1
+  uint8_t *v4; // r5
+  uint16_t *v5; // r2
   int v6; // r0
-  int v7; // r0
-  uint8_t *v8; // r7
-  int v9; // r9
-  unsigned int v10; // r1
+  uint32_t *v7; // r4
+  uint32_t *v8; // r8
+  int *v9; // r6
+  int v10; // r1
   int v11; // r0
   int v12; // r0
-  int v13; // r1
+  uint8_t *v13; // r7
+  int v14; // r9
+  int v15; // r1
+  int v16; // r0
+  int v17; // r0
+  uint16_t *v18; // r3
 
-  v0 = off_11363C;
+  v4 = off_11363C;
   if ( *(uint8_t *)off_11363C )
   {
     if ( !*(uint16_t *)off_113648 )
     {
-      state_check_feature(512, dword_113664);
+      state_check_feature(512, "#we\n");
       return;
     }
     if ( *(uint8_t *)off_113644 >= (unsigned int)*(uint16_t *)off_113648 )
     {
-      v13 = dword_113650;
+      v18 = (uint16_t *)off_11364C;
       *(uint8_t *)off_113640 = 1;
-      state_check_feature(512, v13);
+      state_check_feature(512, "#wf:%X\n", *v18);
     }
   }
   else
@@ -62,55 +60,56 @@ void bt_ctrl_main_task()
       return;
     if ( *(uint8_t *)off_113644 >= (unsigned int)*(uint16_t *)off_113648 && !*(uint8_t *)off_113640 )
     {
+      v5 = (uint16_t *)off_11364C;
       *(uint8_t *)off_113640 = 1;
-      state_check_feature(512, dword_113650);
+      state_check_feature(512, "#wf:%X\n", *v5);
       return;
     }
   }
-  v1 = (*(int ( **)(uint32_t))(*((uint32_t *)off_113654 + 2) + 16))(*((uint32_t *)off_113654 + 1));
-  v2 = (uint32_t *)v1;
-  if ( v1 )
+  v6 = (*(int ( **)(uint32_t))(*((uint32_t *)off_113654 + 2) + 16))(*((uint32_t *)off_113654 + 1));
+  v7 = (uint32_t *)v6;
+  if ( v6 )
   {
-    if ( *v0 )
+    if ( *v4 )
     {
-      v3 = off_11366C;
-      v4 = (unsigned int *)off_113658;
-      v5 = *(uint32_t *)off_113658;
-      v6 = *(uint32_t *)off_11366C + v1;
+      v8 = (uint32_t *)off_11366C;
+      v9 = (int *)off_113658;
+      v10 = *(uint32_t *)off_113658;
+      v11 = *(uint32_t *)off_11366C + v6;
       if ( *(uint8_t *)off_113640 )
-        v7 = global_env_init_params(v6, v5);
+        v12 = global_env_init_params(v11, v10);
       else
-        v7 = global_env_init(v6, v5);
+        v12 = global_env_init(v11, v10);
     }
     else
     {
-      v3 = off_11366C;
-      v4 = (unsigned int *)off_113658;
-      v7 = global_env_init(*(uint32_t *)off_11366C + v1, *(uint32_t *)off_113658);
+      v8 = (uint32_t *)off_11366C;
+      v9 = (int *)off_113658;
+      v12 = global_env_init(*(uint32_t *)off_11366C + v6, *(uint32_t *)off_113658);
     }
-    if ( v7 )
+    if ( v12 )
     {
-      v8 = off_113640;
-      printf_wrapper(dword_11365C, v7);
-      v9 = 5;
+      v13 = off_113640;
+      printf_wrapper("wd rx %d\r\n", v12);
+      v14 = 5;
       while ( 1 )
       {
-        if ( *v0 )
+        if ( *v4 )
         {
-          v10 = *v4;
-          v11 = (int)v2 + *v3;
-          v12 = *v8 ? global_env_init_params(v11, v10) : global_env_init(v11, v10);
+          v15 = *v9;
+          v16 = (int)v7 + *v8;
+          v17 = *v13 ? global_env_init_params(v16, v15) : global_env_init(v16, v15);
         }
         else
         {
-          v12 = global_env_init((int)v2 + *v3, *v4);
+          v17 = global_env_init((int)v7 + *v8, *v9);
         }
-        if ( !v12 )
+        if ( !v17 )
           break;
-        if ( !--v9 )
+        if ( !--v14 )
         {
-          printf_wrapper(dword_113660, 5);
-          memory_pool_free(v2);
+          printf_wrapper("wd rx max time %d\r\n", 5);
+          memory_pool_free(v7);
           set_system_flag_1(32);
           return;
         }
@@ -120,7 +119,6 @@ void bt_ctrl_main_task()
   else
   {
     set_system_flag_1(32);
-    printf_wrapper(dword_113668);
+    printf_wrapper(aErrWdNoRxBuf);
   }
 }
-

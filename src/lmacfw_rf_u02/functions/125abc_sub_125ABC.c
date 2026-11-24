@@ -10,13 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_125AD4;
-
 // bt_control_block_cleanup @ 0x125abc, size 24 bytes
 int  bt_control_block_cleanup(int a1, int a2)
 {
-  parse_number(*(uint8_t **)(a2 + 4), 0, 0);
-  dispatch_event_handler(dword_125AD4);
+  parse_number(*(uint8_t **)(a2 + 4), nullptr, 0);
+  dispatch_event_handler_1(aWrongFunc);
   return -1;
 }
-

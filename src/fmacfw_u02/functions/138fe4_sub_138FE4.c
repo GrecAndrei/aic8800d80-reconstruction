@@ -10,20 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_139284;
+
 extern uint32_t dword_139288;
 extern uint32_t dword_139294;
-extern uint32_t off_13929C;
-extern uint32_t dword_1392A4;
-extern uint32_t dword_1392A0;
-extern uint32_t off_13928C;
-extern uint32_t dword_139290;
 extern uint32_t dword_139298;
+extern uint32_t off_139284;
+extern uint32_t off_139290;
+extern uint32_t off_13929C;
 
 // ll_rx_irq @ 0x138fe4, size 672 bytes
-// Doc: sub_1238FE4 [ipc]: Generic handler with 8 saved regs; likely IPC or command dispatcher
-// sub_1238FE4 [ipc]: Generic handler with 8 saved regs; likely IPC or command dispatcher
-int  ll_rx_irq(unsigned int a1, int a2, int a3)
+int  ll_rx_irq(int a1, int a2, int a3)
 {
   uint16_t *v3; // r6
   char v5; // r5
@@ -32,22 +28,22 @@ int  ll_rx_irq(unsigned int a1, int a2, int a3)
   int v9; // r7
   uint32_t *v10; // r4
   int v11; // r2
-  int16_t v13; // r2
+  uint16_t v13; // r2
   char v14; // r1
-  uint32_t *v15; // r3
-  int v16; // r1
-  int v17; // r3
-  uint64_t v18; // r2
-  int v19; // r0
+  volatile unsigned int v15; // r1
+  void *v16; // r3
+  uint64_t v17; // r2
+  int v18; // r0
+  volatile unsigned int v19; // r3
   int v20; // r0
-  unsigned int v21; // r5
-  int16_t v22; // r3
-  int16_t v23; // r6
-  int16_t v24; // r1
-  uint32_t *v25; // r0
+  int v21; // r5
+  uint16_t v22; // r3
+  uint16_t v23; // r6
+  uint16_t v24; // r1
+  int v25; // r0
   int v26; // r3
   uint32_t *v27; // r0
-  uint8_t v28[24]; // [sp+8h] [bp-18h] BYREF
+  uint64_t a2a[3]; // [sp+8h] [bp-18h] BYREF
 
   v3 = off_139284;
   v5 = a2;
@@ -71,8 +67,8 @@ LABEL_15:
     {
       v27 = mem_word_load(dword_139294);
       v10 = v27;
-      if ( **(int16_t **)off_13929C < 0 && !v27 )
-        mmio_clear_register(dword_1392A4, dword_1392A0, 1111);
+      if ( **(uint16_t **)off_13929C < 0 && !v27 )
+        mmio_clear_register((int)aDefragNull, (int)aRxuCntrlDefrag, 1111);
       tx_power_lookup(0, 4, v10[5]);
     }
     v13 = v3[2];
@@ -81,26 +77,25 @@ LABEL_15:
     *((uint8_t *)v10 + 8) = 1;
     *((uint8_t *)v10 + 4) = 0;
     v14 = *((uint8_t *)v3 + 8);
-    v15 = off_13928C;
     v10[4] = 0;
     *((uint8_t *)v10 + 9) = v14;
-    v16 = v15[4];
-    v17 = dword_139290;
+    v15 = (*(volatile uint32_t *)0x40501010u);
+    v16 = off_139290;
     *((uint16_t *)v10 + 5) = v13;
-    v10[14] = v17;
+    v10[14] = v16;
     v10[15] = v10;
-    unknown_worker((int)(v10 + 13), v16 + 100000);
+    unknown_worker(v10 + 13, v15 + 100000);
     if ( (v3[24] & 1) != 0 )
-      ll_state_machine(a1, (int)(v10 + 7), 1, 0);
+      ll_state_machine_1(a1, v10 + 7, 1, 0);
     *(uint32_t *)(a1 + 96) &= ~0x20u;
-    rf_get_rssi(a1, 1);
-    HIDWORD(v18) = *((uint32_t *)v3 + 16);
-    LODWORD(v18) = *((uint32_t *)v3 + 7);
-    v19 = dword_139294;
-    *((uint64_t *)v10 + 2) = v18;
+    rf_get_rssi_3(a1, 1);
+    HIDWORD(v17) = *((uint32_t *)v3 + 16);
+    LODWORD(v17) = *((uint32_t *)v3 + 7);
+    v18 = dword_139294;
+    *((uint64_t *)v10 + 2) = v17;
     *((uint8_t *)v10 + 5) = *((uint8_t *)v3 + 49);
     *((uint16_t *)v10 + 6) = *(uint16_t *)(a1 + 48);
-    cmd_handler_a(v19, v10);
+    cmd_handler_a(v18, v10);
     goto LABEL_20;
   }
   v8 = *(uint16_t *)off_139284 & 0x400;
@@ -132,7 +127,7 @@ LABEL_7:
     *((uint16_t *)v10 + 6) = v22;
     if ( (v3[24] & 1) != 0 )
     {
-      if ( ll_state_machine(a1, (int)(v10 + 7), 0, v8 == 0) )
+      if ( ll_state_machine_1(a1, v10 + 7, 0, v8 == 0) )
       {
         v26 = *(uint32_t *)(a1 + 96);
         if ( !v8 )
@@ -148,7 +143,8 @@ LABEL_7:
         mac_mcps_request(a1, v21, v10[4], *((uint8_t *)v10 + 9), 0, 0);
         v10[4] += v21;
 LABEL_20:
-        v10[6] = *((uint32_t *)off_13928C + 4);
+        v19 = (*(volatile uint32_t *)0x40501010u);
+        v10[6] = v19;
         return 1;
       }
       v23 = 4;
@@ -169,9 +165,9 @@ LABEL_30:
         v24 = 8;
       v25 = tx_power_lookup(0, v24, v10[5]);
       if ( v25 )
-        v25[18] = *((uint16_t *)v10 + 6);
+        *(uint32_t *)(v25 + 72) = *((uint16_t *)v10 + 6);
       tx_power_lookup(0, v23, v10[5]);
-      fault_handler((int)(v10 + 13));
+      fault_handler(v10 + 13);
       cmd_handler_c(dword_139294, v10);
       cmd_handler_a(dword_139288, v10);
       goto LABEL_20;
@@ -180,7 +176,7 @@ LABEL_30:
   }
   if ( (*((uint8_t *)off_139284 + 48) & 1) != 0 )
   {
-    if ( !ll_state_machine(a1, (int)v28, 1, 1) )
+    if ( !ll_state_machine_1(a1, a2a, 1, 1) )
       return v9;
     *(uint16_t *)(a1 + 48) -= 8;
   }
@@ -189,12 +185,11 @@ LABEL_30:
     && phy_config_set(
          (uint8_t *)(v20 + 107),
          (uint32_t *)(v20 + 1228),
-         *(char **)(*(uint32_t *)(a1 + 28) + 8),
+         *(uint32_t *)(*(uint32_t *)(a1 + 28) + 8),
          a3) == 1 )
   {
     return v9;
   }
-  rf_get_rssi(a1, 3);
+  rf_get_rssi_3(a1, 3);
   return 1;
 }
-

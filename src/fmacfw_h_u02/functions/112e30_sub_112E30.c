@@ -16,8 +16,6 @@ extern uint32_t dword_112EB4;
 extern uint32_t dword_112EB8;
 extern uint32_t dword_112EBC;
 extern uint32_t dword_112EC4;
-extern uint32_t dword_112EC8;
-extern uint32_t dword_112ECC;
 
 // phy_irq_handler @ 0x112e30, size 126 bytes
 int phy_irq_handler()
@@ -29,11 +27,10 @@ int phy_irq_handler()
   volatile unsigned int v4; // r2
   unsigned int v5; // r2
   int v6; // r3
-  unsigned int v7; // r2
-  int v8; // r1
+  uint16_t v7; // r1
   int result; // r0
-  int v10; // r3
-  int v11; // r2
+  int v9; // r3
+  int v10; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -53,24 +50,23 @@ int phy_irq_handler()
     do
       v6 = v5 - (*(volatile uint32_t *)0x40501010u);
     while ( v6 >= 0 );
-    v7 = dword_112EBC;
-    v8 = *(uint16_t *)(dword_112EC4 + 0xB2);
+    v7 = *(uint16_t *)(dword_112EC4 + 0xB2);
     *(uint32_t *)(dword_112EBC + 0x804) &= ~1u;
-    if ( (v8 & 0x4000) != 0 )
-      result = sub_10D674(dword_112EC8);
+    if ( (v7 & 0x4000) != 0 )
+      result = (int)radio_tx_write_string(aUsbRmtwkup);
     else
-      result = msg_parse(dword_112ECC, v8, v7, v8 << 17);
+      result = alloc_tx_event(aUsbRmtwkup_0);
     v3 = *v0;
     *v1 = 0;
   }
   if ( v3 )
   {
-    v10 = v3 - 1;
-    v11 = *(uint32_t *)dword_112EB0;
-    *v0 = v10;
-    if ( !v10 )
+    v9 = v3 - 1;
+    v10 = *(uint32_t *)dword_112EB0;
+    *v0 = v9;
+    if ( !v9 )
     {
-      if ( v11 )
+      if ( v10 )
         __enable_irq();
     }
   }

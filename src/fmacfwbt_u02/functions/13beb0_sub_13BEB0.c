@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13BF34;
+
 extern uint32_t dword_13BF28;
 extern uint32_t dword_13BF2C;
 extern uint32_t dword_13BF30;
+extern uint32_t dword_13BF34;
 
-// rf_calibrate @ 0x13beb0, size 120 bytes
-// Doc: sub_123BEB0 [util]: Large utility function iterating over descriptor tables from base pointers
-// sub_123BEB0 [util]: Large utility function iterating over descriptor tables from base pointers
-int  rf_calibrate(int result)
+// rf_calibrate_1 @ 0x13beb0, size 120 bytes
+int  rf_calibrate_1(int result)
 {
   int v1; // r9
   int v2; // r6
@@ -58,4 +57,3 @@ int  rf_calibrate(int result)
   }
   return result;
 }
-

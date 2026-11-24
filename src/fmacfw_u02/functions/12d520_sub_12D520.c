@@ -10,33 +10,38 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12D598;
+
 extern uint32_t dword_12D590;
-extern uint32_t dword_12D594;
 extern uint32_t dword_12D59C;
 extern uint32_t dword_12D5A0;
+extern uint32_t off_12D598;
 
-// load_bt_config @ 0x12d520, size 110 bytes
-int  load_bt_config(int a1)
+// sub_12D520 @ 0x12d520, size 110 bytes
+int  sub_12D520(int a1)
 {
-  int v1; // r5
+  int *v1; // r5
   uint64_t v3; // r0
   uint64_t v4; // r0
-  uint64_t v5; // r0
+  uint64_t v5; // r2
   uint64_t v6; // r0
-  unsigned int v7; // r0
-  uint32_t v9[32]; // [sp+0h] [bp-104h] BYREF
-  uint8_t v10[132]; // [sp+80h] [bp-84h] BYREF
+  uint64_t v7; // r2
+  uint64_t v8; // r0
+  unsigned int v9; // r0
+  uint32_t v11[32]; // [sp+0h] [bp-104h] BYREF
+  char v12[132]; // [sp+80h] [bp-84h] BYREF
 
-  v1 = dword_12D598;
-  memcpy(v9, dword_12D598, 128);
-  memcpy(v10, v1 + 128, 128);
-  v3 = float_to_double(a1);
-  v4 = double_add(v3, HIDWORD(v3), dword_12D590, dword_12D594);
-  v5 = double_add(v4, HIDWORD(v4), 0, dword_12D59C);
-  v6 = double_compare(v5, HIDWORD(v5), 0, dword_12D5A0);
-  v7 = double_to_float(v6, HIDWORD(v6));
-  return v7 & 0x7F800000
-       | ((((v7 & 0x7FFFFF) * (uint64_t)(int)v9[(v7 >> 18) & 0x1F]) >> 23) + *(uint32_t *)&v10[4 * ((v7 >> 18) & 0x1F)]);
+  v1 = (int *)off_12D598;
+  sub_143770((char *)v11, (char *)off_12D598, 0x80u);
+  sub_143770(v12, (char *)v1 + 128, 0x80u);
+  v3 = sub_1429F8(a1);
+  v4 = sub_142AA8(v3, *(uint64_t *)&dword_12D590);
+  HIDWORD(v5) = dword_12D59C;
+  LODWORD(v5) = 0;
+  v6 = sub_142AA8(v4, v5);
+  HIDWORD(v7) = dword_12D5A0;
+  LODWORD(v7) = 0;
+  v8 = sub_14273C(v6, v7);
+  v9 = sub_142FDC(v8);
+  return v9 & 0x7F800000
+       | ((((v9 & 0x7FFFFF) * (uint64_t)(int)v11[(v9 >> 18) & 0x1F]) >> 23) + *(uint32_t *)&v12[4 * ((v9 >> 18) & 0x1F)]);
 }
-

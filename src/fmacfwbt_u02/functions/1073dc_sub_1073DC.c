@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1074BC;
 extern uint32_t off_1074C0;
 extern uint32_t off_1074C4;
-extern uint32_t dword_1074C8;
-extern uint32_t dword_1074CC;
+extern uint32_t off_1074CC;
 
 // rf_set_tx_power @ 0x1073dc, size 222 bytes
 int  rf_set_tx_power(int a1, int a2)
@@ -45,8 +45,8 @@ int  rf_set_tx_power(int a1, int a2)
   *v3 &= ~0x4000000u;
   *(uint32_t *)(a1 + 44) = v6;
   timer_set(5);
-  state_check_feature(1, dword_1074C8);
-  result = state_check_feature(1, dword_1074CC);
+  state_check_feature(1, "rd_pwr=%4d  ", *(uint32_t *)(a1 + 44));
+  result = state_check_feature(1, (const char *)off_1074CC);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v3 &= ~0x400000u;
@@ -56,4 +56,3 @@ int  rf_set_tx_power(int a1, int a2)
   *v2 = *v2 & 0xFFFFFF8F | 0x40;
   return result;
 }
-

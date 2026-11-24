@@ -10,29 +10,29 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_122F54;
+
 extern uint32_t off_122F50;
-extern uint32_t dword_122F58;
+extern uint32_t off_122F54;
 
 // is_valid_conn_handle @ 0x122f10, size 64 bytes
-int  is_valid_conn_handle(int a1, uint8_t *a2, int a3, int a4)
+int  is_valid_conn_handle(int a1, char *a2, int a3, int a4)
 {
-  int v7; // r1
-  uint8_t *v8; // r2
-  BOOL v9; // r0
-  int v10; // r3
+  int v4; // r0
+  int v8; // r1
+  uint8_t *v9; // r2
+  BOOL v10; // r0
 
-  if ( a2[1] != 255 )
-    rf_scan_start();
-  v7 = *a2;
-  v8 = off_122F54;
+  v4 = (uint8_t)a2[1];
+  if ( v4 != 255 )
+    rf_scan_start(v4);
+  v8 = (uint8_t)*a2;
+  v9 = off_122F54;
   if ( *a2 )
-    v7 = 1;
-  v9 = a2[2] != 0;
-  *(uint8_t *)off_122F50 = v9;
-  *v8 = v7;
-  ke_event_schedule(dword_122F58, v7, v9);
-  hci_evt_alloc_send(100, a4, a3, v10);
+    v8 = 1;
+  v10 = a2[2] != 0;
+  *(uint8_t *)off_122F50 = v10;
+  *v9 = v8;
+  ke_event_schedule_1("set agg disable=%d, disable_rx=%d\n", v8, v10);
+  hci_evt_alloc_send(100, a4, a3);
   return 0;
 }
-

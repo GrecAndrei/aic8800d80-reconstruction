@@ -10,16 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10CE58;
-extern uint32_t off_10CE70;
+
+extern uint32_t dword_10CE64;
 extern uint32_t dword_10CE74;
+extern uint32_t off_10CE58;
 extern uint32_t off_10CE5C;
+extern uint32_t off_10CE60;
+extern uint32_t off_10CE68;
+extern uint32_t off_10CE70;
 extern uint32_t off_10CE78;
 extern uint32_t off_10CE7C;
-extern uint32_t dword_10CE64;
-extern uint32_t off_10CE60;
-extern uint32_t dword_10CE6C;
-extern uint32_t off_10CE68;
 
 // handle_interrupt_save @ 0x10cd6c, size 236 bytes
 int  handle_interrupt_save(char a1)
@@ -33,15 +33,16 @@ int  handle_interrupt_save(char a1)
   unsigned int v7; // r2
   unsigned int v8; // r4
   int *v9; // r9
-  int v10; // r0
+  uint32_t *v10; // r0
   int v11; // r1
-  int v12; // r3
+  uint32_t *v12; // r3
   int v13; // r1
   int v14; // r2
   int v15; // r0
+  uint8_t *v16; // r1
   int result; // r0
 
-  enter_critical_section(0x10000);
+  enter_critical_section_1(0x10000);
   v1 = *(uint32_t *)off_10CE58;
   if ( *(uint32_t *)(*(uint32_t *)off_10CE58 + 588) )
   {
@@ -57,7 +58,7 @@ int  handle_interrupt_save(char a1)
         break;
       v8 = v2[1620]
          + 1
-         - 81 * ((unsigned int)(((unsigned int)v3 * (unsigned uint64_t)((unsigned int)v2[1620] + 1)) >> 32) >> 6);
+         - 81 * ((unsigned int)(((unsigned int)v3 * (uint64_t)((unsigned int)v2[1620] + 1)) >> 32) >> 6);
       v2[1621] = v6 + 1;
       v2[1620] = v8;
       if ( (__get_CPSR() & 1) == 0 )
@@ -85,16 +86,16 @@ int  handle_interrupt_save(char a1)
         }
       }
       v15 = dword_10CE64;
-      *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10CE60;
-      check_kernel_state(v15);
+      v16 = &v2[20 * v8];
+      *((uint32_t *)v16 + 1) = (char *)v12 + *off_10CE60;
+      check_kernel_state(v15, v16);
       if ( !*(uint32_t *)(v1 + 588) )
         goto LABEL_13;
     }
-    log_printf(dword_10CE6C, v6, v7);
+    log_printf("rxused=%d, total=%d\r\n", v6, v7);
   }
 LABEL_13:
   result = set_busy_flag_alt(2048);
   *(uint32_t *)off_10CE68 = (1 << (a1 + 8)) & 0xF00;
   return result;
 }
-

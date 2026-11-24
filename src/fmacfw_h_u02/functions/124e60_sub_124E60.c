@@ -10,54 +10,46 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_124EF0;
-extern uint32_t dword_124EE8;
+
 extern uint32_t dword_124EF4;
-extern uint32_t off_124EF8;
-extern uint32_t dword_124EEC;
 
 // mac_isr_check @ 0x124e60, size 134 bytes
-int  mac_isr_check(uint8_t *a1, int a2, int a3)
+int  mac_isr_check(uint8_t *a1, int a2)
 {
-  char v4; // r2
-  int v5; // r1
-  int v6; // r0
-  int v7; // r2
+  int v3; // r2
   int result; // r0
-  unsigned int v9; // r3
-  uint8_t *v10; // r0
-  uint8_t *v11; // r6
+  unsigned int v5; // r3
+  volatile unsigned int v6; // r2
+  uint8_t *v7; // r0
+  int v8; // r6
 
   if ( (a2 & 0x800000) != 0 )
   {
-    result = alloc_tx_event(dword_124EF0, dword_124EE8, a3);
-    v9 = (uint8_t)a1[35];
+    result = alloc_tx_event("%s: sta probe succ\n", aApmProbeStaCfm);
+    v5 = (uint8_t)a1[35];
     a1[668] = 0;
-    if ( v9 <= 0x23 )
+    if ( v5 <= 0x23 )
     {
-      *(uint32_t *)(dword_124EF4 + 696 * v9 + 664) = *((uint32_t *)off_124EF8 + 4);
+      v6 = (*(volatile uint32_t *)0x40501010u);
+      *(uint32_t *)(dword_124EF4 + 696 * v5 + 664) = v6;
       return 696;
     }
   }
   else
   {
-    v4 = a1[668];
-    v5 = dword_124EE8;
-    v6 = dword_124EEC;
-    v7 = (uint8_t)(v4 + 1);
-    a1[668] = v7;
-    result = alloc_tx_event(v6, v5, v7);
+    v3 = (uint8_t)(a1[668] + 1);
+    a1[668] = v3;
+    result = alloc_tx_event("%s: sta probe fail:%d\n", aApmProbeStaCfm, v3);
     if ( (uint8_t)a1[668] > 9u )
     {
-      v10 = (uint8_t *)tx_send_pdu(125, 13, 0, 8);
-      *v10 = a1[35];
-      v10[1] = a1[34];
-      v11 = v10;
+      v7 = (uint8_t *)tx_send_pdu(125, 13, 0, 8);
+      *v7 = a1[35];
+      v7[1] = a1[34];
+      v8 = (int)v7;
       a1[668] = 0;
-      memcpy(v10 + 2, a1 + 38, 6);
-      return rx_process_packet(v11);
+      memcpy_1(v7 + 2, a1 + 38, 6u);
+      return (int)rx_process_packet_1(v8);
     }
   }
   return result;
 }
-

@@ -10,6 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_12763C;
 extern uint32_t off_12761C;
 extern uint32_t off_127620;
 extern uint32_t off_127624;
@@ -18,21 +20,15 @@ extern uint32_t off_12762C;
 extern uint32_t off_127630;
 extern uint32_t off_127634;
 extern uint32_t off_127638;
-extern uint32_t off_127664;
-extern uint32_t off_127648;
-extern uint32_t off_127644;
-extern uint32_t off_127650;
-extern uint32_t dword_127658;
-extern uint32_t dword_127654;
-extern uint32_t off_12764C;
-extern uint32_t dword_12765C;
-extern uint32_t dword_12763C;
-extern uint32_t off_127660;
 extern uint32_t off_127640;
+extern uint32_t off_127644;
+extern uint32_t off_127648;
+extern uint32_t off_12764C;
+extern uint32_t off_127650;
+extern uint32_t off_127660;
+extern uint32_t off_127664;
 
 // ctrl_reset_handler @ 0x12737c, size 670 bytes
-// Doc: sub_122737C [unknown]: unknown FMAC routine at 0x122737c
-// sub_122737C [unknown]: unknown FMAC routine at 0x122737c
 int  ctrl_reset_handler(int a1, int a2)
 {
   uint8_t *v2; // r4
@@ -52,7 +48,7 @@ int  ctrl_reset_handler(int a1, int a2)
   int v18; // r1
   uint16_t *v19; // r8
   uint16_t *v20; // r0
-  uint16_t *v21; // r7
+  int v21; // r7
   int v22; // r0
   int v23; // r2
   unsigned int *v24; // r12
@@ -69,11 +65,9 @@ int  ctrl_reset_handler(int a1, int a2)
   unsigned int v35; // r10
   uint32_t *v36; // r7
   int v37; // r2
-  void *v38; // r2
-  int v39; // r1
-  int v40; // r0
-  uint32_t *v41; // r7
-  int v42; // r2
+  int v38; // r1
+  uint32_t *v39; // r7
+  int v40; // r2
 
   v2 = off_12761C;
   *((uint32_t *)off_12761C + 10) = 0;
@@ -104,7 +98,7 @@ int  ctrl_reset_handler(int a1, int a2)
   if ( a2 )
     goto LABEL_6;
   result = shared_s16_worker();
-  if ( !*((uint8_t *)off_127630 + 408) )
+  if ( !LOBYTE(((uint32_t *)(uintptr_t)off_127630)[102]) )
     goto LABEL_6;
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
@@ -117,7 +111,7 @@ LABEL_7:
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
-        result = hci_cmd_send_simple(a1);
+        result = (int)hci_cmd_send_simple(a1);
         v14 = (uint8_t)v2[88];
       }
       else
@@ -148,14 +142,13 @@ LABEL_7:
   if ( *((uint16_t *)off_127664 + 2) <= 1u && *((uint16_t *)off_127664 + 3) <= 1u )
   {
 LABEL_50:
-    v41 = off_127648;
-    v42 = **(int16_t **)off_127644;
+    v39 = off_127648;
+    v40 = **(uint16_t **)off_127644;
     *((uint32_t *)off_127648 + 1) |= 0x100040u;
-    if ( v42 < 0 && *(uint32_t *)off_127650 << 28 )
-      call_shared_handler(dword_127658, dword_127654, 472);
-    v38 = off_12764C;
-    v39 = 1;
-    *(uint32_t *)off_12764C = *v41 | v41[1];
+    if ( v40 < 0 && *(uint32_t *)off_127650 << 28 )
+      call_shared_handler((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
+    v38 = 1;
+    *(uint32_t *)off_12764C = *v39 | v39[1];
     v15 = 1;
     goto LABEL_48;
   }
@@ -184,17 +177,15 @@ LABEL_38:
       goto LABEL_44;
   }
   v36 = off_127648;
-  v37 = **(int16_t **)off_127644;
+  v37 = **(uint16_t **)off_127644;
   *((uint32_t *)off_127648 + 1) &= 0xFFEFFFBF;
   if ( v37 < 0 && *(uint32_t *)off_127650 << 28 )
-    call_shared_handler(dword_127658, dword_127654, 472);
-  v38 = off_12764C;
+    call_shared_handler((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
   *(uint32_t *)off_12764C = *v36 | v36[1];
-  v39 = 0;
+  v38 = 0;
 LABEL_48:
-  v40 = dword_12765C;
   v30[8] = v15;
-  result = event_dispatch(v40, v39, v38);
+  result = event_dispatch("single ssid %d\n", v38);
 LABEL_6:
   v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
@@ -204,14 +195,14 @@ LABEL_23:
   v19 = (uint16_t *)get_queue_entry_ptr();
   v20 = (uint16_t *)ke_msg_alloc(79, 13, 0, 12);
   *v20 = *v19;
-  v21 = v20;
-  v22 = rx_get_packet(v19);
+  v21 = (int)v20;
+  v22 = rx_get_packet((int)v19);
   v23 = dword_12763C;
   v24 = (unsigned int *)off_127660;
   v25 = off_127640;
-  *((uint32_t *)v21 + 1) = (unsigned int)(((unsigned int)dword_12763C * (unsigned uint64_t)(unsigned int)v22) >> 32) >> 6;
-  *((uint32_t *)v21 + 2) = (unsigned int)(((unsigned int)v23 * (unsigned uint64_t)*v24) >> 32) >> 6;
-  *((uint8_t *)v21 + 2) = 0;
+  *(uint32_t *)(v21 + 4) = (unsigned int)(((unsigned int)dword_12763C * (uint64_t)(unsigned int)v22) >> 32) >> 6;
+  *(uint32_t *)(v21 + 8) = (unsigned int)(((unsigned int)v23 * (uint64_t)*v24) >> 32) >> 6;
+  *(uint8_t *)(v21 + 2) = 0;
   v26 = 10;
   while ( 1 )
   {
@@ -221,16 +212,16 @@ LABEL_23:
     if ( !v26 )
       goto LABEL_26;
   }
-  *((uint8_t *)v21 + 2) = *v25;
+  *(uint8_t *)(v21 + 2) = *v25;
 LABEL_26:
-  ke_msg_send(v21);
+  ke_msg_send_2(v21);
   v27 = off_127648;
-  v28 = **(int16_t **)off_127644;
+  v28 = **(uint16_t **)off_127644;
   v29 = *((uint32_t *)off_127648 + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_127648 + 1) = v29;
   if ( v28 < 0 && *(uint32_t *)off_127650 << 28 )
   {
-    call_shared_handler(dword_127658, dword_127654, 472);
+    call_shared_handler((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
     v29 = v27[1];
   }
   *(uint32_t *)off_12764C = v29 | *v27;
@@ -250,4 +241,3 @@ LABEL_8:
     return get_shared_s16();
   return result;
 }
-

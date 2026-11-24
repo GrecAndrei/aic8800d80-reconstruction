@@ -10,11 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_118C80;
-extern uint32_t off_118C70;
+
 extern uint32_t dword_118C74;
-extern uint32_t off_118C78;
 extern uint32_t dword_118C7C;
+extern uint32_t off_118C70;
+extern uint32_t off_118C78;
+extern uint32_t off_118C80;
 
 // alloc_dma_buf @ 0x118be8, size 134 bytes
 uint32_t *alloc_dma_buf()
@@ -42,7 +43,7 @@ uint32_t *alloc_dma_buf()
       *v1 = 1;
     }
     ++*v0;
-    result = (uint32_t *)list_pop(v2);
+    result = list_pop(v2);
     v5 = result;
     if ( *v0 )
     {
@@ -65,9 +66,8 @@ uint32_t *alloc_dma_buf()
     }
     else if ( !*((uint8_t *)v5 + 96) )
     {
-      wlan_ioctl_handler_1(dword_118C7C);
+      wlan_ioctl_handler_1(dword_118C7C, v5);
     }
   }
   return result;
 }
-

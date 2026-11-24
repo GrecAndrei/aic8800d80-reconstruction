@@ -10,176 +10,169 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_121668;
-extern uint32_t off_121640;
-extern uint32_t dword_121660;
-extern uint32_t off_12163C;
-extern uint32_t off_121630;
-extern uint32_t dword_121648;
-extern uint32_t dword_121644;
-extern uint32_t dword_121634;
+
 extern uint32_t dword_121638;
+extern uint32_t off_121630;
+extern uint32_t off_12163C;
+extern uint32_t off_121640;
 extern uint32_t off_12164C;
 extern uint32_t off_121650;
 extern uint32_t off_121654;
 extern uint32_t off_121658;
-extern uint32_t off_121664;
-extern uint32_t dword_121670;
-extern uint32_t dword_12166C;
 extern uint32_t off_12165C;
+extern uint32_t off_121664;
+extern uint32_t off_121668;
+extern uint32_t off_121670;
 
 // rx_packet_parse_header @ 0x121418, size 534 bytes
-int  rx_packet_parse_header(uint8_t *a1)
+int  rx_packet_parse_header(char *a1, int a2, int a3, int a4)
 {
-  unsigned int v1; // r7
-  int v2; // r5
-  int v4; // r6
-  uint32_t *v5; // r2
-  uint16_t *v6; // r7
-  uint32_t *v7; // r3
-  uint8_t *v8; // r3
-  uint32_t *v9; // r3
-  int v10; // r0
-  int v11; // r1
+  unsigned int v4; // r7
+  int v5; // r5
+  int v7; // r6
+  uint32_t *v8; // r2
+  uint16_t *v9; // r7
+  uint32_t *v10; // r3
+  uint8_t *v11; // r3
   uint32_t *v12; // r3
-  uint32_t *v13; // r2
-  uint8_t v15; // r6
+  int v13; // r0
+  int v14; // r1
+  uint32_t *v15; // r3
   uint32_t *v16; // r2
-  int v17; // r1
-  uint32_t *v18; // r3
-  uint32_t *v19; // r3
+  char v18; // r6
+  uint32_t *v19; // r2
   uint32_t *v20; // r3
   uint32_t *v21; // r3
   uint32_t *v22; // r3
-  int v23; // r5
+  uint32_t *v23; // r3
+  uint32_t *v24; // r3
+  int v25; // r5
 
-  v1 = a1[1];
-  v2 = a1[41];
-  if ( v1 == 255 )
+  v4 = (uint8_t)a1[1];
+  v5 = (uint8_t)a1[41];
+  if ( v4 == 255 )
   {
     if ( a1[40] == 5 )
     {
-      v23 = HIBYTE(*(uint32_t *)off_121668) - 3 + *a1 + 2 * v2;
-      v4 = (uint8_t)v23;
-      update_object_index(a1, v23);
-      return v4;
+      v25 = HIBYTE(*(uint32_t *)off_121668) - 3 + (uint8_t)*a1 + 2 * v5;
+      v7 = (uint8_t)v25;
+      update_object_index((uint8_t *)a1, v25);
+      return v7;
     }
-    v15 = *a1;
-    v16 = off_121640;
-    v17 = dword_121660;
+    v18 = *a1;
+    v19 = off_121640;
     *(uint32_t *)off_12163C = -1;
-    *v16 = -1;
-    v4 = (uint8_t)(v15 + 4 * v2);
-    check_status_bits(256, v17);
-    update_object_index(a1, v4);
+    *v19 = -1;
+    v7 = (uint8_t)(v18 + 4 * v5);
+    check_status_bits(256, "add gtk:%d,%d\r\n", (uint8_t)a1[41], (uint8_t)a1[40]);
+    update_object_index((uint8_t *)a1, v7);
   }
   else
   {
-    if ( **(int16_t **)off_121630 < 0 && v1 > 0x23 )
-      mmio_clear_register(dword_121648, dword_121644, 1424);
-    v4 = (uint8_t)(v1 + 16);
-    check_status_bits(256, dword_121634);
-    llm_conn_set_flag((int)a1, v1 + 16);
-    v5 = off_121640;
-    v6 = (uint16_t *)(dword_121638 + 696 * v1);
-    *(uint32_t *)off_12163C = v6[19] | (v6[20] << 16);
-    *v5 = v6[21];
+    if ( **(uint16_t **)off_121630 < 0 && v4 > 0x23 )
+      mmio_clear_register((int)aStaIdxStaMax, (int)aMmSecMachwkeyW, 1424);
+    v7 = (uint8_t)(v4 + 16);
+    check_status_bits(256, "add ptk:%d,%d\r\n", v4, (uint8_t)a1[40]);
+    llm_conn_set_flag((int)a1, v4 + 16);
+    v8 = off_121640;
+    v9 = (uint16_t *)(dword_121638 + 696 * v4);
+    *(uint32_t *)off_12163C = v9[19] | (v9[20] << 16);
+    *v8 = v9[21];
   }
   switch ( a1[40] )
   {
-    case 0u:
-      v18 = off_12164C;
+    case 0:
+      v20 = off_12164C;
       *(uint32_t *)off_12164C = *((uint32_t *)a1 + 2);
-      v18[1] = *((uint32_t *)a1 + 3);
-      v18[2] = *((uint32_t *)a1 + 4);
-      v18[3] = *((uint32_t *)a1 + 5);
-      v10 = 256;
-      v11 = 0;
+      v20[1] = *((uint32_t *)a1 + 3);
+      v20[2] = *((uint32_t *)a1 + 4);
+      v20[3] = *((uint32_t *)a1 + 5);
+      v13 = 256;
+      v14 = 0;
       break;
-    case 1u:
-      v7 = off_12164C;
+    case 1:
+      v10 = off_12164C;
       *(uint32_t *)off_12164C = *((uint32_t *)a1 + 2);
-      v7[1] = *((uint32_t *)a1 + 3);
-      v7[2] = *((uint32_t *)a1 + 4);
-      v8 = *(uint8_t **)off_121650;
+      v10[1] = *((uint32_t *)a1 + 3);
+      v10[2] = *((uint32_t *)a1 + 4);
+      v11 = *(uint8_t **)off_121650;
       *(uint32_t *)off_121654 = *((uint32_t *)a1 + 5);
-      if ( (*v8 & 1) != 0 )
+      if ( (*v11 & 1) != 0 )
       {
-        v9 = off_121658;
+        v12 = off_121658;
         *(uint32_t *)off_121658 = *((uint32_t *)a1 + 6);
-        v9[1] = *((uint32_t *)a1 + 7);
-        v9[2] = *((uint32_t *)a1 + 8);
-        v9[3] = *((uint32_t *)a1 + 9);
+        v12[1] = *((uint32_t *)a1 + 7);
+        v12[2] = *((uint32_t *)a1 + 8);
+        v12[3] = *((uint32_t *)a1 + 9);
       }
       else
       {
         *(uint32_t *)off_121664 &= ~1u;
       }
-      v10 = 512;
-      v11 = 4096;
+      v13 = 512;
+      v14 = 4096;
       break;
-    case 2u:
-      v12 = off_12164C;
+    case 2:
+      v15 = off_12164C;
       *(uint32_t *)off_12164C = *((uint32_t *)a1 + 2);
-      v12[1] = *((uint32_t *)a1 + 3);
-      v12[2] = *((uint32_t *)a1 + 4);
-      v12[3] = *((uint32_t *)a1 + 5);
-      v10 = 768;
-      v11 = 0;
+      v15[1] = *((uint32_t *)a1 + 3);
+      v15[2] = *((uint32_t *)a1 + 4);
+      v15[3] = *((uint32_t *)a1 + 5);
+      v13 = 768;
+      v14 = 0;
       break;
-    case 3u:
-      v10 = 256;
-      v11 = 4096;
+    case 3:
+      v13 = 256;
+      v14 = 4096;
       goto LABEL_22;
-    case 4u:
-      v22 = off_12164C;
+    case 4:
+      v24 = off_12164C;
       *(uint32_t *)off_12164C = *((uint32_t *)a1 + 2);
-      v22[1] = *((uint32_t *)a1 + 3);
-      v22[2] = *((uint32_t *)a1 + 4);
-      v22[3] = *((uint32_t *)a1 + 5);
-      v10 = 1024;
-      v11 = 4096;
+      v24[1] = *((uint32_t *)a1 + 3);
+      v24[2] = *((uint32_t *)a1 + 4);
+      v24[3] = *((uint32_t *)a1 + 5);
+      v13 = 1024;
+      v14 = 4096;
       goto LABEL_20;
-    case 6u:
-      v10 = 1280;
-      v11 = 0;
+    case 6:
+      v13 = 1280;
+      v14 = 0;
       goto LABEL_22;
-    case 7u:
-      v10 = 1280;
+    case 7:
+      v13 = 1280;
       goto LABEL_19;
-    case 8u:
-      v10 = 768;
+    case 8:
+      v13 = 768;
 LABEL_19:
-      v19 = off_12164C;
-      *(uint32_t *)off_12164C = *((uint32_t *)a1 + 2);
-      v19[1] = *((uint32_t *)a1 + 3);
-      v19[2] = *((uint32_t *)a1 + 4);
-      v19[3] = *((uint32_t *)a1 + 5);
-      v11 = 0x2000;
-LABEL_20:
-      v20 = off_121658;
-      *(uint32_t *)off_121658 = *((uint32_t *)a1 + 6);
-      v20[1] = *((uint32_t *)a1 + 7);
-      v20[2] = *((uint32_t *)a1 + 8);
-      v20[3] = *((uint32_t *)a1 + 9);
-      break;
-    default:
-      if ( **(int16_t **)off_121630 < 0 )
-        mmio_clear_register(dword_121670, dword_12166C, 159);
-      v10 = 0;
-      v11 = 4096;
-LABEL_22:
       v21 = off_12164C;
       *(uint32_t *)off_12164C = *((uint32_t *)a1 + 2);
       v21[1] = *((uint32_t *)a1 + 3);
       v21[2] = *((uint32_t *)a1 + 4);
       v21[3] = *((uint32_t *)a1 + 5);
+      v14 = 0x2000;
+LABEL_20:
+      v22 = off_121658;
+      *(uint32_t *)off_121658 = *((uint32_t *)a1 + 6);
+      v22[1] = *((uint32_t *)a1 + 7);
+      v22[2] = *((uint32_t *)a1 + 8);
+      v22[3] = *((uint32_t *)a1 + 9);
+      break;
+    default:
+      if ( **(uint16_t **)off_121630 < 0 )
+        mmio_clear_register(off_121670, (int)aMmKeyRamParamG, 159);
+      v13 = 0;
+      v14 = 4096;
+LABEL_22:
+      v23 = off_12164C;
+      *(uint32_t *)off_12164C = *((uint32_t *)a1 + 2);
+      v23[1] = *((uint32_t *)a1 + 3);
+      v23[2] = *((uint32_t *)a1 + 4);
+      v23[3] = *((uint32_t *)a1 + 5);
       break;
   }
-  v13 = off_12165C;
-  *(uint32_t *)off_12165C = (16 * v2) | (4 * a1[42]) | v10 | (v4 << 16) | v11 | 0x40000000;
-  while ( (*v13 & 0x40000000) != 0 )
+  v16 = off_12165C;
+  *(uint32_t *)off_12165C = (16 * v5) | (4 * (uint8_t)a1[42]) | v13 | (v7 << 16) | v14 | 0x40000000;
+  while ( (*v16 & 0x40000000) != 0 )
     ;
-  return v4;
+  return v7;
 }
-

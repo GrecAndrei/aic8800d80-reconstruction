@@ -10,18 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_101C7C;
 extern uint32_t off_101C80;
 extern uint32_t off_101C88;
 extern uint32_t off_101C8C;
-extern uint32_t off_101C84;
-extern uint32_t off_101C90;
 extern uint32_t off_101C9C;
-extern uint32_t dword_101CA4;
-extern uint32_t dword_101CA0;
-extern uint32_t dword_101CA8;
-extern uint32_t off_101C94;
-extern uint32_t off_101C98;
+extern uint32_t off_101CA4;
 
 // bt_event_handler @ 0x101a54, size 550 bytes
 int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
@@ -49,7 +44,7 @@ int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
   v5 = *((uint16_t *)off_101C7C + 20);
   if ( !*((uint8_t *)off_101C7C + 36) )
   {
-    if ( *((uint8_t *)off_101C80 + 197) )
+    if ( BYTE1(((uint32_t *)(uintptr_t)off_101C80)[49]) )
     {
       if ( v5 > 0x97B )
       {
@@ -58,20 +53,20 @@ int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
         else
           result = 1;
       }
-      v7 = *((char *)off_101C80 + 198);
-      v8 = *((char *)off_101C80 + 210);
-      v9 = *((uint8_t *)off_101C88 + 10) + *(uint8_t *)off_101C8C + *(uint8_t *)(*(uint32_t *)off_101C84 + result + 6);
-      v10 = *(uint8_t *)off_101C8C + *((uint8_t *)off_101C88 + 8) + *(uint8_t *)(*(uint32_t *)off_101C84 + result);
+      v7 = SBYTE2(((uint32_t *)(uintptr_t)off_101C80)[49]);
+      v8 = SBYTE2(((uint32_t *)(uintptr_t)off_101C80)[52]);
+      v9 = *(uint8_t *)(off_101C88 + 0xA) + *(uint8_t *)off_101C8C + *(uint8_t *)(*(uint32_t *)asc_151888 + result + 6);
+      v10 = *(uint8_t *)off_101C8C + *(uint8_t *)(off_101C88 + 8) + *(uint8_t *)(*(uint32_t *)asc_151888 + result);
       v11 = v10;
-      if ( *((uint8_t *)off_101C80 + 396) )
+      if ( LOBYTE(((uint32_t *)(uintptr_t)off_101C80)[99]) )
       {
-        result = *(uint8_t *)(*(uint32_t *)off_101C90 + result);
+        result = *(uint8_t *)(*(uint32_t *)asc_151880 + result);
         v7 = (char)(result + v7);
         v8 = (char)(v8 + result);
       }
-      if ( (*((uint32_t *)off_101C80 + 98) & 2) != 0 )
+      if ( (((uint32_t *)(uintptr_t)off_101C80)[98] & 2) != 0 )
       {
-        result = is_adv_enabled(0, *((uint16_t *)off_101C7C + 20));
+        result = (int)is_adv_enabled(0, *((uint16_t *)off_101C7C + 20));
         v11 = v10;
         if ( result )
         {
@@ -79,13 +74,13 @@ int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
         }
         else
         {
-          if ( **(int16_t **)off_101C9C < 0 )
+          if ( **(uint16_t **)off_101C9C < 0 )
           {
-            mmio_write_field(dword_101CA4, dword_101CA0, 6857);
+            mmio_write_field(off_101CA4, (int)aPhyGetRfGainId, 6857);
             v11 = v10;
           }
           v22 = v11;
-          result = alloc_tx_event(dword_101CA8, 0, v5);
+          result = alloc_tx_event("invalid chan, band=%d, freq=%d\n", 0, v5);
           v11 = v22;
           v20 = 15;
         }
@@ -108,17 +103,17 @@ int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
       *a3 = (v13 >> 1) + v8;
       return result;
     }
-    if ( **(int16_t **)off_101C9C >= 0 )
+    if ( **(uint16_t **)off_101C9C >= 0 )
       return result;
     v19 = 6875;
-    return irq_disable_mmio_write(dword_101CA4, dword_101CA0, v19);
+    return irq_disable_mmio_write(off_101CA4, (int)aPhyGetRfGainId, v19);
   }
-  if ( !*((uint8_t *)off_101C80 + 197) )
+  if ( !BYTE1(((uint32_t *)(uintptr_t)off_101C80)[49]) )
   {
-    if ( **(int16_t **)off_101C9C >= 0 )
+    if ( **(uint16_t **)off_101C9C >= 0 )
       return result;
     v19 = 6921;
-    return irq_disable_mmio_write(dword_101CA4, dword_101CA0, v19);
+    return irq_disable_mmio_write(off_101CA4, (int)aPhyGetRfGainId, v19);
   }
   if ( v5 <= 0x1666 )
   {
@@ -143,23 +138,23 @@ int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
   {
     v14 = 5;
   }
-  result = *((uint8_t *)off_101C80 + 396);
-  v15 = *((char *)off_101C80 + 236);
-  v16 = *((uint8_t *)off_101C8C + 1) + *((uint8_t *)off_101C88 + 11) + *(uint8_t *)(*(uint32_t *)off_101C94 + v14);
-  if ( *((uint8_t *)off_101C80 + 396) )
-    v15 = (char)(*(uint8_t *)(*(uint32_t *)off_101C98 + v14) + v15);
-  if ( (*((uint32_t *)off_101C80 + 98) & 2) != 0 )
+  result = LOBYTE(((uint32_t *)(uintptr_t)off_101C80)[99]);
+  v15 = SLOBYTE(((uint32_t *)(uintptr_t)off_101C80)[59]);
+  v16 = *(uint8_t *)(off_101C8C + 1) + *(uint8_t *)(off_101C88 + 0xB) + *(uint8_t *)(*(uint32_t *)a2_0 + v14);
+  if ( LOBYTE(((uint32_t *)(uintptr_t)off_101C80)[99]) )
+    v15 = (char)(*(uint8_t *)(*(uint32_t *)asc_151884 + v14) + v15);
+  if ( (((uint32_t *)(uintptr_t)off_101C80)[98] & 2) != 0 )
   {
-    result = is_adv_enabled(1, *((uint16_t *)off_101C7C + 20));
+    result = (int)is_adv_enabled(1, *((uint16_t *)off_101C7C + 20));
     if ( result )
     {
       v21 = *(char *)(result + 4);
     }
     else
     {
-      if ( **(int16_t **)off_101C9C < 0 )
-        mmio_write_field(dword_101CA4, dword_101CA0, 6907);
-      result = alloc_tx_event(dword_101CA8, 1, v5);
+      if ( **(uint16_t **)off_101C9C < 0 )
+        mmio_write_field(off_101CA4, (int)aPhyGetRfGainId, 6907);
+      result = alloc_tx_event("invalid chan, band=%d, freq=%d\n", 1, v5);
       v21 = 15;
     }
     if ( v15 >= v21 )
@@ -174,4 +169,3 @@ int  bt_event_handler(int a1, uint8_t *a2, uint8_t *a3)
   *a2 = v18;
   return result;
 }
-

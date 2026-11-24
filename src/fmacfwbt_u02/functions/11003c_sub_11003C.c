@@ -10,21 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_110070;
+
 extern uint32_t dword_110074;
 extern uint32_t dword_110078;
+extern uint32_t off_110070;
 
 // tx_irq_handler @ 0x11003c, size 52 bytes
-int tx_irq_handler()
+uint32_t *tx_irq_handler()
 {
   void *v0; // r5
-  int result; // r0
+  uint32_t *result; // r0
   int v2; // r7
   int v3; // r6
   int v4; // r4
+  uint32_t *v5; // r0
 
   v0 = off_110070;
-  result = zero_struct(dword_110074);
+  result = zero_struct((uint32_t *)dword_110074);
   if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
   {
     v2 = dword_110078;
@@ -32,12 +34,11 @@ int tx_irq_handler()
     v4 = 0;
     do
     {
-      rx_process_item(v2, 0xCu);
-      result = check_abort_flag(v3);
+      v5 = rx_process_item(v2, 0xCu);
+      result = (uint32_t *)check_abort_flag(v3, v5);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }
-

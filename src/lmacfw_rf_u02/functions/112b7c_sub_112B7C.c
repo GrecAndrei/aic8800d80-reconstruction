@@ -10,58 +10,53 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_112BFC;
 extern uint32_t off_112C00;
-extern uint32_t dword_112C04;
+extern uint32_t off_112C08;
 extern uint32_t off_112C0C;
 extern uint32_t off_112C10;
-extern uint32_t off_112C08;
-extern uint32_t dword_112C14;
-extern uint32_t dword_112C18;
+extern uint32_t off_112C14;
 
-// wait_rf_ready @ 0x112b7c, size 126 bytes
-// Doc: rf_cmd_send_n2c0 [rf]: Send RF command 0xC0 and check status
-// rf_cmd_send_n2c0 [rf]: Send RF command 0xC0 and check status
-int  wait_rf_ready(int a1)
+// wait_rf_ready_1 @ 0x112b7c, size 126 bytes
+int  wait_rf_ready_1(int a1)
 {
   uint16_t *v2; // r4
-  int v3; // r1
-  uint8_t *v4; // r1
-  uint8_t *v5; // r2
-  uint32_t *v6; // r7
-  int v7; // r6
+  int v3; // r2
+  int v4; // r1
+  uint8_t *v5; // r1
+  uint8_t *v6; // r2
+  int v7; // r7
   int v8; // r1
   int v9; // r4
 
   if ( (*(uint32_t *)off_112BFC & 0x2000000) != 0 )
   {
-    sub_100200((int *)off_112C00, 0xFFu, 4u);
+    memset_thunk((int *)off_112C00, 0xFFu, 4u);
   }
   else
   {
     v2 = (uint16_t *)off_112C00;
-    sub_100200((int *)off_112C00, 0xFFu, 4u);
-    if ( mmio_write_400000_4(v2) || v2[1] == 0xFFFF || (v3 = *v2, v3 == 0xFFFF) )
-      dispatch_event_handler(dword_112C04, v3);
+    memset_thunk((int *)off_112C00, 0xFFu, 4u);
+    if ( mmio_write_400000_4((int)v2) || (v3 = v2[1], v3 == 0xFFFF) || (v4 = *v2, v4 == 0xFFFF) )
+      dispatch_event_handler_1(aNoUsbInfoInFla);
     else
-      dispatch_event_handler(rf_cmd_dispatch_n459, v3);
+      dispatch_event_handler_1("get vid %x, pid %x\r\n", v4, v3);
   }
-  v4 = off_112C0C;
-  v5 = off_112C10;
+  v5 = off_112C0C;
+  v6 = off_112C10;
   *(uint32_t *)off_112C08 = *(uint32_t *)a1;
-  v6 = (uint32_t *)dword_112C14;
-  v7 = dword_112C18;
-  *v4 = 0;
+  v7 = off_112C14;
   *v5 = 0;
+  *v6 = 0;
   do
   {
     v8 = *(uint8_t *)(a1 + 8);
     if ( *(uint8_t *)(a1 + 8) )
       v8 = 1;
-    v9 = ke_send_event(v6, v8);
-    dispatch_event_handler(v7, v9);
+    v9 = ke_send_event(v7, v8);
+    dispatch_event_handler_1("open res:%d\n", v9);
   }
   while ( v9 );
   return 0;
 }
-

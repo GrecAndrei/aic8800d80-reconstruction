@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_120FB4;
 
 // rf_write_reg @ 0x120fa4, size 14 bytes
 int rf_write_reg()
 {
   *(uint32_t *)off_120FB4 = 48;
-  return hci_cmd_preprocess(0);
+  return hci_cmd_preprocess(0, 1);
 }
-

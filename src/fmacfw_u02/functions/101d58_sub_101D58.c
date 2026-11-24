@@ -10,28 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_101F04;
 extern uint32_t off_101EFC;
 extern uint32_t off_101F00;
-extern uint32_t dword_101F04;
 extern uint32_t off_101F08;
 extern uint32_t off_101F0C;
 extern uint32_t off_101F10;
 extern uint32_t off_101F14;
 extern uint32_t off_101F18;
-extern uint32_t dword_101F24;
-extern uint32_t dword_101F20;
-extern uint32_t dword_101F1C;
+extern uint32_t off_101F24;
 
 // rx_packet_handler @ 0x101d58, size 420 bytes
-// Doc: sub_1201D58 [util]: Helper function reading byte/halfword from struct
-// sub_1201D58 [util]: Helper function reading byte/halfword from struct
 int  rx_packet_handler(unsigned int a1, signed int a2, uint8_t *a3)
 {
   int v3; // r6
   unsigned int v4; // r7
   int v5; // cc
   char *v6; // r0
-  int v7; // r2
+  signed int v7; // r2
   int v8; // r5
   int v9; // r12
   int v10; // r4
@@ -40,12 +37,12 @@ int  rx_packet_handler(unsigned int a1, signed int a2, uint8_t *a3)
   unsigned int v13; // r4
   unsigned int v14; // r0
   char *v16; // r2
-  int v17; // r0
-  int v18; // r2
+  signed int v17; // r0
+  signed int v18; // r2
   int v19; // r12
   int v20; // r4
   int v21; // r0
-  int v22; // r0
+  char *v22; // r0
   int v23; // r3
 
   v3 = *a3;
@@ -54,7 +51,7 @@ int  rx_packet_handler(unsigned int a1, signed int a2, uint8_t *a3)
   {
     if ( a1 <= 1 )
     {
-      v8 = *((char *)off_101EFC + a2 + 198);
+      v8 = *((char *)&((uint32_t *)(uintptr_t)off_101EFC)[49] + a2 + 2);
       if ( !a1 && (unsigned int)a2 <= 3 )
       {
         v9 = *a3;
@@ -96,7 +93,7 @@ LABEL_12:
     }
     v12 = *(uint8_t *)(*(uint32_t *)off_101F00 + v11 + v9) + *(uint8_t *)(dword_101F04 + v10 + 8) + *(uint8_t *)off_101F08;
     v13 = v12;
-    if ( *((uint8_t *)off_101EFC + 396) )
+    if ( LOBYTE(((uint32_t *)(uintptr_t)off_101EFC)[99]) )
       v8 = (char)(*(uint8_t *)(*(uint32_t *)off_101F0C + v11) + v8);
     goto LABEL_18;
   }
@@ -152,23 +149,23 @@ LABEL_12:
   {
     v21 = 2;
   }
-  v12 = *(uint8_t *)(*(uint32_t *)off_101F10 + v21 + v19) + *(uint8_t *)(dword_101F04 + v20 + 11) + *((uint8_t *)off_101F08 + 1);
+  v12 = *(uint8_t *)(*(uint32_t *)off_101F10 + v21 + v19) + *(uint8_t *)(dword_101F04 + v20 + 11) + *(uint8_t *)(off_101F08 + 1);
   v13 = v12;
-  if ( *((uint8_t *)off_101EFC + 396) )
+  if ( LOBYTE(((uint32_t *)(uintptr_t)off_101EFC)[99]) )
     v8 = (char)(*(uint8_t *)(*(uint32_t *)off_101F14 + v21) + v8);
 LABEL_18:
-  if ( (*((uint32_t *)off_101EFC + 98) & 2) != 0 )
+  if ( (((uint32_t *)(uintptr_t)off_101EFC)[98] & 2) != 0 )
   {
     v22 = ke_event_get(v3, v4);
     if ( v22 )
     {
-      v23 = *(char *)(v22 + 4);
+      v23 = v22[4];
     }
     else
     {
-      if ( **(int16_t **)off_101F18 < 0 )
-        call_shared_handler(dword_101F24, dword_101F20, 7022);
-      event_dispatch(dword_101F1C, v3, v4);
+      if ( **(uint16_t **)off_101F18 < 0 )
+        call_shared_handler(off_101F24, (int)aPhyGetTxpwrLev, 7022);
+      event_dispatch("invalid chan, band=%d, freq=%d\n", v3, v4);
       v23 = 15;
     }
     if ( v8 >= v23 )
@@ -180,4 +177,3 @@ LABEL_18:
     v14 = v13 + (v13 >> 31);
   return (char)((v14 >> 1) + v8);
 }
-

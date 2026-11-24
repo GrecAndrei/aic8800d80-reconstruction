@@ -10,11 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12CF54;
+
+extern uint32_t off_12CF50;
 
 // list_process_count @ 0x12cefc, size 82 bytes
-// Doc: message_dispatch_n38a [ipc]: Dispatch message slot 0x38a and tail-call handler
-// message_dispatch_n38a [ipc]: Dispatch message slot 0x38a and tail-call handler
 int  list_process_count(int a1, int *a2, int a3)
 {
   int v3; // r3
@@ -39,11 +38,10 @@ int  list_process_count(int a1, int *a2, int a3)
       return 0;
   }
   result = *(uint32_t *)(v8 + 4);
-  if ( **(int16_t **)message_dispatch_n39c_cf50 < 0 && !result )
+  if ( **(uint16_t **)off_12CF50 < 0 && !result )
   {
-    mmio_irq_clear(ipc_msg_dispatch, dword_12CF54, 239);
+    mmio_irq_clear((int)aStateHandlerMs, (int)aKeHandlerSearc, 239);
     return *(uint32_t *)(v7 + *a2 + 4);
   }
   return result;
 }
-

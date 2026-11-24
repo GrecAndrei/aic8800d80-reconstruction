@@ -10,31 +10,48 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_119EF8;
+extern uint32_t off_119EF4;
 extern uint32_t off_119F0C;
-extern uint32_t dword_119F08;
-extern uint32_t dword_119F04;
 
-// rf_get_rssi @ 0x119e3c, size 184 bytes
-void  __noreturn rf_get_rssi(int a1, int a2, int a3)
+// rf_get_rssi_1 @ 0x119e3c, size 184 bytes
+int  rf_get_rssi_1(int a1, int a2, unsigned int a3, int a4)
 {
-  int v3; // r0
-  int v4; // [sp+Ch] [bp-14h]
-  int v5; // [sp+10h] [bp-10h]
-  int v6; // [sp+14h] [bp-Ch]
-  int v7; // [sp+18h] [bp-8h]
-  int v8; // [sp+1Ch] [bp-4h]
+  uint16_t **v4; // r8
+  int v5; // r0
+  int v9; // r2
+  uint32_t v11[2]; // [sp+0h] [bp-20h] BYREF
+  char v12; // [sp+9h] [bp-17h]
+  uint32_t v13[5]; // [sp+Ch] [bp-14h] BYREF
 
-  v3 = **(int16_t **)off_119F0C;
-  v4 = 0;
-  v5 = 0;
-  v6 = 0;
-  v7 = 0;
-  v8 = 0;
-  if ( v3 < 0 )
+  v4 = (uint16_t **)off_119F0C;
+  v5 = **(uint16_t **)off_119F0C;
+  memset(v13, 0, sizeof(v13));
+  if ( v5 < 0 && flash_write_byte(a3) )
+    flash_ctrl_init((int)aKeStateGetDest, (int)aMmStartReqHand, 337);
+  wifi_set_channel((int *)a2);
+  v9 = dword_119EF8;
+  *(uint8_t *)off_119EF4 = 1;
+  v11[0] = v9;
+  v11[1] = 2412;
+  v12 = 0;
+  tx_set_power((uint8_t *)v11, 0);
+  util_byte_to_hex(15);
+  rf_wait_timeout((int)v13);
+  if ( **v4 < 0 && (uint8_t)a4 > 5u )
   {
-    if ( flash_write_byte(a3) )
-      flash_ctrl_init(dword_119F08, dword_119F04, 337);
+    flash_ctrl_init((int)aIdTaskMax, (int)aKeTaskLocal_2, 183);
+    if ( (a4 & 0xFC) != 0 )
+      goto LABEL_7;
+LABEL_4:
+    write_bb_control();
+    return 0;
   }
-  wifi_set_channel();
+  if ( (a4 & 0xFC) == 0 )
+    goto LABEL_4;
+LABEL_7:
+  ke_evt_handler(3, a4, a3);
+  write_bb_control();
+  return 0;
 }
-

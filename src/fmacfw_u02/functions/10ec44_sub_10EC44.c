@@ -10,19 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10ED44;
-extern uint32_t off_10ED48;
+
 extern uint32_t dword_10ED4C;
 extern uint32_t dword_10ED50;
-extern uint32_t off_10ED64;
-extern uint32_t off_10ED54;
-extern uint32_t off_10ED68;
 extern uint32_t dword_10ED58;
-extern uint32_t off_10ED5C;
 extern uint32_t dword_10ED60;
+extern uint32_t off_10ED44;
+extern uint32_t off_10ED48;
+extern uint32_t off_10ED54;
+extern uint32_t off_10ED5C;
+extern uint32_t off_10ED64;
+extern uint32_t off_10ED68;
 
-// rf_hardware_setup @ 0x10ec44, size 256 bytes
-int rf_hardware_setup()
+// sub_10EC44 @ 0x10ec44, size 256 bytes
+int sub_10EC44()
 {
   unsigned int *v0; // r4
   uint32_t *v1; // r2
@@ -39,8 +40,9 @@ int rf_hardware_setup()
   unsigned int v12; // r6
   unsigned int v13; // r5
   int result; // r0
-  uint32_t v15[2]; // [sp+4h] [bp-Ch] BYREF
-  int16_t v16; // [sp+Ch] [bp-4h]
+  uint16_t a1[2]; // [sp+4h] [bp-Ch] BYREF
+  int v16; // [sp+8h] [bp-8h]
+  uint16_t v17; // [sp+Ch] [bp-4h]
 
   v0 = (unsigned int *)off_10ED44;
   v1 = off_10ED48;
@@ -50,15 +52,15 @@ int rf_hardware_setup()
   v5 = off_10ED54;
   v6 = off_10ED68;
   v7 = dword_10ED58;
-  v16 = 0;
+  v17 = 0;
   *((uint32_t *)off_10ED44 + 14) = 296;
   v1[3] = v2 | v1[3] & 0xE0000000;
   v1[2] = v3 & v1[2] | 0x1200000D;
   *v4 |= 0x20000000u;
   *v5 &= ~1u;
-  v15[0] = v7;
-  v15[1] = 2442;
-  rf_enable((uint16_t *)v15, 0);
+  *(uint32_t *)a1 = v7;
+  v16 = 2442;
+  sub_102A20(a1, 0);
   v8 = (int *)off_10ED5C;
   v9 = dword_10ED60;
   v0 += 593954;
@@ -72,7 +74,7 @@ int rf_hardware_setup()
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
   *v0 |= 0x400000u;
-  result = rf_control_field_set(4);
+  result = sub_10E9F4(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
   *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;
@@ -81,4 +83,3 @@ int rf_hardware_setup()
   *v0 = v13 & 0x400000 | *v0 & 0xFFBFFFFF;
   return result;
 }
-

@@ -10,45 +10,42 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12F31C;
 extern uint32_t off_12F320;
-extern uint32_t dword_12F324;
 extern uint32_t off_12F328;
 
 // unknown_12f2c8 @ 0x12f2c8, size 82 bytes
 int  unknown_12f2c8(int a1, int a2, int a3)
 {
-  int *v4; // r4
-  int v5; // r0
+  int *v3; // r4
   int result; // r0
-  int v7; // r3
-  int v8; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_12F31C = 1;
   }
-  v4 = (int *)off_12F320;
-  v5 = dword_12F324;
+  v3 = (int *)off_12F320;
   ++*(uint32_t *)off_12F320;
-  result = alloc_tx_event(v5, a1, a2, a3 & 0xFFFFF);
+  result = alloc_tx_event("\x9BASSERT (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
   if ( *(int *)off_12F328 >= 0 )
   {
-    rf_irq_clear();
+    rf_irq_clear_1();
     result = irq_disable_global_2(0x80000000);
   }
-  if ( *v4 )
+  if ( *v3 )
   {
-    v7 = *v4 - 1;
-    v8 = *(uint32_t *)off_12F31C;
-    *v4 = v7;
-    if ( !v7 )
+    v5 = *v3 - 1;
+    v6 = *(uint32_t *)off_12F31C;
+    *v3 = v5;
+    if ( !v5 )
     {
-      if ( v8 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

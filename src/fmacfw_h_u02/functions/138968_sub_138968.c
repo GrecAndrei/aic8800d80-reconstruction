@@ -10,27 +10,24 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_138A04;
-extern uint32_t dword_138A00;
-
 // parse_param_direction @ 0x138968, size 152 bytes
-int  parse_param_direction(uint8_t *a1, uint32_t *a2, char *a3, int a4)
+int  parse_param_direction(uint8_t *a1, uint32_t *a2, int a3, int a4)
 {
   char v5; // r2
   int v6; // r4
-  char *v7; // r3
+  uint8_t *v7; // r3
   int v10; // r7
   int v12; // r9
   int v13; // r7
 
-  v5 = a3[1];
+  v5 = *(uint8_t *)(a3 + 1);
   v6 = a4;
   if ( a4 )
     v6 = 2;
   if ( (v5 & 0x40) != 0 )
     v6 = (uint8_t)(v6 + 8);
-  v7 = &a3[v6];
-  if ( a3[v6 + 30] != 8 )
+  v7 = (uint8_t *)(a3 + v6);
+  if ( *(uint8_t *)(a3 + v6 + 30) != 8 )
     return 0;
   if ( v7[31] != 6 )
     return 0;
@@ -44,15 +41,14 @@ int  parse_param_direction(uint8_t *a1, uint32_t *a2, char *a3, int a4)
         | ((uint8_t)v7[59] << 24)
         | (uint8_t)v7[56]
         | ((uint8_t)v7[57] << 8);
-    check_feature_flag(128, dword_138A04, v13, *a2);
+    check_feature_flag(128, "rx arpreq: ip=%x. vif ip=%x\r\n", v13, *a2);
     if ( v13 == *a2 )
-      rf_chan_pwr_calc(*a1, (int)&a3[v6 + 40], a3);
+      rf_chan_pwr_calc(*a1, (char *)(v6 + 40 + a3), (char *)a3);
     return 1;
   }
   else if ( v12 == 2 )
   {
-    check_feature_flag(128, dword_138A00);
+    check_feature_flag(128, aRxArpresp);
   }
   return v10;
 }
-

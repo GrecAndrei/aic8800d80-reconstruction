@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1188F0;
 
 // chip_id_is_one @ 0x1188c4, size 42 bytes
 int chip_id_is_one()
 {
-  if ( flash_write_byte(0) == 1 )
-    *(uint32_t *)off_1188F0 = 48;
-  return flash_erase_sector(0);
+  if ( flash_write_byte(0) != 1 )
+    return flash_erase_sector(0, 0);
+  *(uint32_t *)off_1188F0 = 48;
+  return flash_erase_sector(0, 1);
 }
-

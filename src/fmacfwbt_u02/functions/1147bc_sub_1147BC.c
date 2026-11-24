@@ -10,47 +10,41 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114828;
+
 extern uint32_t off_11481C;
-extern uint32_t dword_114824;
-extern uint32_t dword_114820;
 
 // wait_for_value @ 0x1147bc, size 94 bytes
-// Doc: sub_12147BC [bt]: BT helper invoked after a sub-routine with result branch
-// sub_12147BC [bt]: BT helper invoked after a sub-routine with result branch
-int  wait_for_value(uint8_t *a1, int a2)
+unsigned int  wait_for_value(char *a1, unsigned int a2)
 {
   int v4; // r0
-  int v5; // r2
-  char *v6; // r7
-  int v7; // r0
+  void *v5; // r7
+  char *v6; // r6
 
-  v4 = dispatch_by_cmd(a1);
+  v4 = dispatch_by_cmd((uint8_t *)a1);
   if ( v4 < 0 )
   {
-    ke_event_schedule(dword_114828, *a1, v5);
+    ke_event_schedule_1("err type:%x\n", (uint8_t)*a1);
     return a2;
   }
   else if ( v4 == a2 )
   {
-    v6 = (char *)off_11481C;
+    v5 = off_11481C;
     if ( *((uint32_t *)off_11481C + 2) )
     {
-      v7 = lock_acquire();
-      memcpy_aligned(v7 + 4, a1, a2);
-      check_abort_flag(v6 + 16);
+      v6 = (char *)lock_acquire();
+      memcpy_aligned(v6 + 4, a1, a2);
+      check_abort_flag((int)v5 + 16, v6);
       set_system_flag_1(16);
     }
     else
     {
-      ke_event_schedule(dword_114824, v4, v5);
+      ke_event_schedule_1(aErrNoFreeCom, v4);
     }
     return a2;
   }
   else
   {
-    ke_event_schedule(dword_114820, v4, a2);
+    ke_event_schedule_1("err len:%d,%d\n", v4, a2);
     return a2;
   }
 }
-

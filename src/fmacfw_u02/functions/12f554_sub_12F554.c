@@ -10,42 +10,40 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_12F584;
 
 // load_and_process_r0 @ 0x12f554, size 48 bytes
-// Doc: sub_122F554 [unknown]: Save callee-saved regs and dereference first argument pointer
-// sub_122F554 [unknown]: Save callee-saved regs and dereference first argument pointer
-uint32_t ** load_and_process_r0(uint32_t **result)
+int * load_and_process_r0(int *result, int a2)
 {
-  uint32_t *v1; // r4
-  int v2; // r6
-  uint32_t *v3; // r5
-  int v4; // r2
+  uint32_t *v2; // r4
+  int *v3; // r6
+  int *v4; // r5
+  int v5; // r2
 
-  v1 = *result;
+  v2 = (uint32_t *)*result;
   if ( *result )
   {
-    v2 = dword_12F584;
-    v3 = result;
+    v3 = (int *)dword_12F584;
+    v4 = result;
     do
     {
       while ( 1 )
       {
-        mem_word_load((int)v3);
-        result = (uint32_t **)v2;
-        if ( !v1[3] )
+        mem_word_load((int)v4);
+        result = v3;
+        if ( !v2[3] )
           break;
-        result = (uint32_t **)cmd_handler_a(v2, v1);
-        v1 = (uint32_t *)*v3;
-        if ( !*v3 )
+        result = (int *)cmd_handler_a((int)v3, v2);
+        v2 = (uint32_t *)*v4;
+        if ( !*v4 )
           return result;
       }
-      v4 = v1[2];
-      v1 = (uint32_t *)*v3;
-      *(uint16_t *)(v4 + 8) = 0;
+      v5 = v2[2];
+      v2 = (uint32_t *)*v4;
+      *(uint16_t *)(v5 + 8) = 0;
     }
-    while ( v1 );
+    while ( v2 );
   }
   return result;
 }
-

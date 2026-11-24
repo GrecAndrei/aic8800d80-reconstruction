@@ -10,10 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// branch_to_127228 @ 0x11eac8, size 4 bytes
-// attributes: thunk
-float  branch_to_127228(int a1)
+// sub_11EAC8 @ 0x11eac8, size 4 bytes
+int  sub_11EAC8(int a1)
 {
-  return float_to_i24(a1);
+  return sub_127228(a1);
 }
-

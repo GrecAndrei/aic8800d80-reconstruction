@@ -10,15 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11D990;
+extern uint32_t off_11D994;
 extern uint32_t off_11D99C;
 extern uint32_t off_11D9A0;
-extern uint32_t off_11D994;
-extern uint32_t dword_11D998;
 
 // mac_wait_tx @ 0x11d8ec, size 162 bytes
-// Doc: sub_121D8EC [util]: Initialization routine loading config and calling setup
-// sub_121D8EC [util]: Initialization routine loading config and calling setup
 int mac_wait_tx()
 {
   int *v0; // r5
@@ -48,7 +46,7 @@ int mac_wait_tx()
           break;
         v5 = 1;
       }
-      mem_word_load(v0);
+      mem_word_load((int)v0);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -61,7 +59,7 @@ int mac_wait_tx()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = radio_get_status();
+        result = radio_get_status(result);
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -81,9 +79,8 @@ int mac_wait_tx()
   if ( *((uint8_t *)off_11D994 + 69) )
   {
     unknown_func_12d104(0x80000);
-    result = check_status_bits(1024, dword_11D998);
+    result = check_status_bits(1024, aHostBufferReco);
     v9[69] = 0;
   }
   return result;
 }
-

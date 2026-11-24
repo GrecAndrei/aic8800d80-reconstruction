@@ -10,33 +10,38 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11B07C;
-extern uint32_t off_11B080;
 extern uint32_t dword_11B084;
+extern uint32_t off_11B080;
 
 // rx_buffer_alloc @ 0x11b044, size 56 bytes
-int rx_buffer_alloc()
+uint32_t *rx_buffer_alloc()
 {
-  int result; // r0
-  uint32_t *v1; // r4
-  char *v2; // r5
-  char *v3; // r4
+  uint32_t *result; // r0
+  int *v1; // r4
+  uint32_t *v2; // r1
+  int v3; // r5
+  int v4; // r4
+  uint32_t *a2; // [sp+4h] [bp-8h]
 
   result = list_pop_front(dword_11B07C);
+  a2 = result;
   if ( result )
   {
-    v1 = off_11B080;
-    ke_exit_critical(dword_11B084);
+    v1 = off_11B080[0];
+    ke_exit_critical((uint32_t *)dword_11B084);
+    v2 = a2;
     v1[18] = 0;
-    v2 = (char *)(v1 + 6);
-    v3 = (char *)(v1 + 8);
+    v3 = (int)(v1 + 6);
+    v4 = (int)(v1 + 8);
     do
     {
-      check_kernel_state(v2);
-      result = list_pop_front(v3);
+      check_kernel_state(v3, v2);
+      result = list_pop_front(v4);
+      v2 = result;
     }
     while ( result );
   }
   return result;
 }
-

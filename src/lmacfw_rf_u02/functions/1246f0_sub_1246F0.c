@@ -10,32 +10,35 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_124788;
-extern uint32_t dword_1247A0;
 extern uint32_t off_12478C;
 extern uint32_t off_124790;
 extern uint32_t off_124794;
-extern uint32_t off_12479C;
 extern uint32_t off_124798;
+extern uint32_t off_12479C;
 
 // rx_process_pending @ 0x1246f0, size 152 bytes
 int  rx_process_pending(int a1, int a2)
 {
-  uint8_t *v3; // r6
-  int *v4; // r5
-  int v5; // r3
-  int v6; // r2
-  uint32_t *v7; // r5
-  int v8; // r4
+  int v3; // r1
+  unsigned int v4; // r2
+  uint8_t *v5; // r6
+  int *v6; // r5
+  int v7; // r3
+  int v8; // r2
+  uint32_t *v9; // r5
+  int v10; // r4
 
-  if ( (*(uint32_t *)off_124788 & 2) != 0 && (*(uint8_t *)a2 == 1 || *(uint16_t *)(a2 + 4) > 0x1387u) )
+  if ( (*(uint32_t *)off_124788 & 2) != 0
+    && ((v3 = *(uint8_t *)a2, v4 = *(uint16_t *)(a2 + 4), v3 == 1) || v4 > 0x1387) )
   {
-    dispatch_event_handler(dword_1247A0);
+    dispatch_event_handler_1("un-support band=%d, freq=%d\n", v3, v4);
     return -1;
   }
   else
   {
-    v3 = off_12478C;
+    v5 = (uint8_t *)off_12478C;
     if ( !*(uint8_t *)off_12478C )
     {
       if ( (__get_CPSR() & 1) == 0 )
@@ -43,29 +46,29 @@ int  rx_process_pending(int a1, int a2)
         __disable_irq();
         *(uint32_t *)off_124790 = 1;
       }
-      v4 = (int *)off_124794;
+      v6 = (int *)off_124794;
       ++*(uint32_t *)off_124794;
       rf_cmd_wait();
       rf_acquire();
-      if ( *v4 )
+      if ( *v6 )
       {
-        v5 = *v4 - 1;
-        v6 = *(uint32_t *)off_124790;
-        *v4 = v5;
-        if ( !v5 )
+        v7 = *v6 - 1;
+        v8 = *(uint32_t *)off_124790;
+        *v6 = v7;
+        if ( !v7 )
         {
-          if ( v6 )
+          if ( v8 )
             __enable_irq();
         }
       }
     }
-    v7 = off_12479C;
+    v9 = off_12479C;
     ++*(uint8_t *)off_124798;
-    *v7 |= 0x500000u;
+    *v9 |= 0x500000u;
     tx_set_power((uint8_t *)a2, 0);
-    *v7 &= 0xFF87FFFF;
-    v8 = (uint8_t)*v3;
-    if ( *v3 )
+    *v9 &= 0xFF87FFFF;
+    v10 = (uint8_t)*v5;
+    if ( *v5 )
     {
       return 0;
     }
@@ -73,8 +76,7 @@ int  rx_process_pending(int a1, int a2)
     {
       write_bb_control();
       util_alloc_buffer();
-      return v8;
+      return v10;
     }
   }
 }
-

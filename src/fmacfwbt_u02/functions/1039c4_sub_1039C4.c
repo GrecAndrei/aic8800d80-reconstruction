@@ -10,13 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103A54;
+
 extern uint32_t off_103A50;
+extern uint32_t off_103A54;
 extern uint32_t off_103A58;
+extern uint32_t off_103A5C;
 extern uint32_t off_103A60;
 extern uint32_t off_103A64;
-extern uint32_t dword_103A68;
-extern uint32_t off_103A5C;
 
 // rf_pll_enable @ 0x1039c4, size 138 bytes
 int rf_pll_enable()
@@ -28,7 +28,6 @@ int rf_pll_enable()
   int v4; // r3
   uint32_t *v5; // r3
   uint32_t *v6; // r0
-  int v7; // r1
 
   v0 = off_103A54;
   *(uint32_t *)off_103A50 |= 1u;
@@ -52,11 +51,9 @@ int rf_pll_enable()
   }
   v5 = off_103A60;
   v6 = off_103A64;
-  v7 = dword_103A68;
   *(uint32_t *)off_103A5C |= 0x20000u;
   *v5 |= 0x1000000u;
   *v5 |= 0x8000000u;
   *v6 |= 0x524u;
-  return state_check_feature(0x2000, v7);
+  return state_check_feature(0x2000, aWfDfeAndRfintf);
 }
-

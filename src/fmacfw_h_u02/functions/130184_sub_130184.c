@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1301B0;
-extern uint32_t dword_1301B4;
 
 // compare_calibration_levels @ 0x130184, size 44 bytes
 unsigned int compare_calibration_levels()
@@ -32,8 +32,7 @@ unsigned int compare_calibration_levels()
       v3 = result + 1;
     *((uint8_t *)off_1301B0 + 6) = v3;
     padding_data(v3);
-    return alloc_tx_event(dword_1301B4, v0[5], v0[6]);
+    return alloc_tx_event("\x9D\x89adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v0[5], v0[6]);
   }
   return result;
 }
-

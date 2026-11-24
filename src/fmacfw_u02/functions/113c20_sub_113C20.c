@@ -10,21 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_113C3C;
 
-// update_config_bytes @ 0x113c20, size 28 bytes
-// Doc: rf_msg_process_body_c22 [rf]: Process RF message body handler
-// rf_msg_process_body_c22 [rf]: Process RF message body handler
-int  update_config_bytes(int a1)
+extern uint32_t off_113C3C;
+extern uint32_t off_113C40;
+extern uint32_t off_113C44;
+
+// sub_113C20 @ 0x113c20, size 28 bytes
+int  sub_113C20(int a1)
 {
   uint8_t *v1; // r2
   char v2; // r3
 
-  save_task_ptr(a1);
-  v1 = rf_msg_process_body_n_4;
-  v2 = *((uint8_t *)off_113C3C + 352);
-  *(uint8_t *)rf_msg_process_body_n_8 = *((uint8_t *)off_113C3C + 326);
+  sub_113ABC(a1);
+  v1 = off_113C44;
+  v2 = ((uint32_t *)(uintptr_t)off_113C3C)[88];
+  *(uint8_t *)off_113C40 = BYTE2(((uint32_t *)(uintptr_t)off_113C3C)[81]);
   *v1 = v2;
   return 1;
 }
-

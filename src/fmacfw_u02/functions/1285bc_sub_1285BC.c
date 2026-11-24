@@ -10,239 +10,234 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128884;
-extern uint32_t dword_12887C;
-extern uint32_t dword_12886C;
-extern uint32_t dword_128868;
-extern uint32_t off_128854;
-extern uint32_t dword_128858;
-extern uint32_t dword_128864;
-extern uint32_t off_12885C;
+
 extern uint32_t dword_128870;
-extern uint32_t dword_128874;
 extern uint32_t dword_128878;
-extern uint32_t dword_128880;
-extern uint32_t dword_128860;
+extern uint32_t dword_12887C;
+extern uint32_t off_128854;
+extern uint32_t off_12885C;
+extern uint32_t off_128884;
 
 // sta_get_by_index @ 0x1285bc, size 664 bytes
 int  sta_get_by_index(int a1)
 {
-  int16_t **v1; // r9
+  uint16_t **v1; // r9
   int v2; // r8
   int v3; // r10
-  uint8_t *v4; // r6
+  int v4; // r6
   int v6; // r5
-  char *v7; // r7
-  int v8; // r1
+  uint8_t *v7; // r7
+  char v8; // r3
   int v9; // r3
-  int v10; // r2
+  int v10; // r4
   int v11; // r3
-  int v12; // r4
-  int v13; // r3
-  int v14; // r5
-  uint8_t *v15; // r3
-  int v16; // r0
-  int v17; // r3
-  char *v18; // r4
-  int v19; // r2
-  int v20; // r3
-  int v22; // r1
-  int16_t *v23; // r2
-  unsigned int v24; // r3
-  int v25; // r3
-  uint32_t *v26; // r0
-  int v27; // r1
-  int v28; // r3
-  int v29; // r2
-  char *v30; // r1
-  int v31; // r0
+  int v12; // r5
+  uint8_t *v13; // r3
+  int v14; // r0
+  int v15; // r3
+  uint32_t *v16; // r4
+  int v17; // r2
+  int v18; // r3
+  uint16_t *v20; // r2
+  unsigned int v21; // r3
+  int v22; // r3
+  int v23; // r1
+  uint32_t *v24; // r0
+  int v25; // r1
+  int v26; // r3
+  int v27; // r2
+  char *v28; // r1
 
-  v1 = (int16_t **)off_128884;
+  v1 = (uint16_t **)off_128884;
   v2 = dword_12887C;
   v3 = 1320 * a1;
-  v4 = *(uint8_t **)(dword_12887C + 1320 * a1 + 72);
-  if ( **(int16_t **)off_128884 < 0 && !v4 )
-    mmio_clear_register(dword_12886C, dword_128868, 3149);
+  v4 = *(uint32_t *)(dword_12887C + 1320 * a1 + 72);
+  if ( **(uint16_t **)off_128884 < 0 && !v4 )
+    mmio_clear_register((int)aCtxtNull, (int)aChanCtxtUnlink, 3149);
   v6 = v2 + 1320 * a1;
-  v7 = (char *)off_128854;
-  check_status_bits(256, dword_128858);
-  cmd_handler_c(v7 + 16, v3 + 76 + v2);
-  v9 = *(uint8_t *)(v6 + 85);
-  *(uint8_t *)(v6 + 85) = v9 & 0xFE;
-  v10 = v9 << 30;
-  if ( (v9 & 2) != 0 )
+  v7 = (uint8_t *)off_128854;
+  check_status_bits(
+    256,
+    "chan unlink: %d,%d,%d,%d,%d\r\n",
+    *(uint8_t *)(v4 + 25),
+    *((uint8_t *)off_128854 + 91),
+    *((uint8_t *)off_128854 + 90),
+    *(uint8_t *)(v6 + 85),
+    *(uint8_t *)(v4 + 16));
+  cmd_handler_c((int)(v7 + 16), (uint32_t *)(v3 + 76 + v2));
+  v8 = *(uint8_t *)(v6 + 85);
+  *(uint8_t *)(v6 + 85) = v8 & 0xFE;
+  if ( (v8 & 2) != 0 )
   {
-    v11 = (uint8_t)(v7[91] - 1);
-    v7[91] = v11;
-    if ( !v11 && (v7[88] & 0x40) != 0 )
+    v9 = (uint8_t)(v7[91] - 1);
+    v7[91] = v9;
+    if ( !v9 && (v7[88] & 0x40) != 0 )
     {
-      event_dispatch(dword_128864, v8, v10);
+      event_dispatch(aUnlinkFixUntil);
       dma_setup_transfer(*((uint32_t *)v7 + 20));
     }
   }
-  v12 = v2 + 1320 * a1;
-  *(uint8_t *)(v12 + 85) = 0;
-  *(uint32_t *)(v12 + 72) = 0;
-  v13 = v4[16];
-  v14 = (uint8_t)(v4[25] - 1);
-  v4[25] = v14;
-  if ( v13 )
+  v10 = v2 + 1320 * a1;
+  *(uint8_t *)(v10 + 85) = 0;
+  *(uint32_t *)(v10 + 72) = 0;
+  v11 = *(uint8_t *)(v4 + 16);
+  v12 = (uint8_t)(*(uint8_t *)(v4 + 25) - 1);
+  *(uint8_t *)(v4 + 25) = v12;
+  if ( v11 )
   {
-    if ( v4[27] == *(uint8_t *)(v12 + 107) )
+    if ( *(uint8_t *)(v4 + 27) == *(uint8_t *)(v10 + 107) )
     {
       lld_evt_update(v2 + v3);
-      v14 = v4[25];
-      v4[27] = -1;
-      if ( v14 )
-        return get_control_byte((int)v4);
+      v12 = *(uint8_t *)(v4 + 25);
+      *(uint8_t *)(v4 + 27) = -1;
+      if ( v12 )
+        return get_control_byte(v4);
     }
     else
     {
-      v15 = (uint8_t *)off_12885C;
+      v13 = (uint8_t *)off_12885C;
       while ( 1 )
       {
-        if ( v15[24] != 255 )
+        if ( v13[24] != 255 )
         {
-          v16 = v15[27];
-          if ( v16 != 255 )
+          v14 = v13[27];
+          if ( v14 != 255 )
             break;
         }
-        v15 += 28;
-        if ( (uint8_t *)((char *)off_12885C + 84) == v15 )
+        v13 += 28;
+        if ( (uint8_t *)((char *)off_12885C + 84) == v13 )
           goto LABEL_10;
       }
-      v26 = (uint32_t *)(v2 + 1320 * v16);
-      if ( (uint8_t *)v26[18] == v4 )
+      v24 = (uint32_t *)(v2 + 1320 * v14);
+      if ( v24[18] == v4 )
       {
 LABEL_10:
-        if ( !v14 )
+        if ( !v12 )
           goto LABEL_26;
-        return get_control_byte((int)v4);
+        return get_control_byte(v4);
       }
-      if ( v14 )
+      if ( v12 )
       {
-        lld_evt_schedule(v26);
-        LOBYTE(v14) = v4[25];
-        if ( (uint8_t)v14 )
-          return get_control_byte((int)v4);
+        lld_evt_schedule(v24);
+        LOBYTE(v12) = *(uint8_t *)(v4 + 25);
+        if ( (uint8_t)v12 )
+          return get_control_byte(v4);
       }
       else
       {
-        lld_evt_update((int)v26);
-        v14 = v4[25];
-        if ( v4[25] )
-          return get_control_byte((int)v4);
+        lld_evt_update((int)v24);
+        v12 = *(uint8_t *)(v4 + 25);
+        if ( *(uint8_t *)(v4 + 25) )
+          return get_control_byte(v4);
       }
     }
 LABEL_26:
-    cmd_handler_c(dword_128870, v4);
-    v4[16] = v14;
-    v23 = *v1;
-    v24 = (uint8_t)(v7[90] - 1);
-    v7[90] = v24;
-    if ( *v23 < 0 && v24 > 1 )
+    cmd_handler_c(dword_128870, (uint32_t *)v4);
+    *(uint8_t *)(v4 + 16) = v12;
+    v20 = *v1;
+    v21 = (uint8_t)(v7[90] - 1);
+    v7[90] = v21;
+    if ( *v20 < 0 && v21 > 1 )
     {
-      mmio_clear_register(dword_128874, dword_128868, 3210);
-      v24 = (uint8_t)v7[90];
+      mmio_clear_register((int)aChanEnvNbSched, (int)aChanCtxtUnlink, 3210);
+      v21 = v7[90];
     }
-    if ( v24 )
+    if ( v21 )
     {
-      zero_8_bytes(dword_128878);
-      v25 = dword_12887C;
-      v22 = dword_12887C + 5280;
+      zero_8_bytes((uint32_t *)dword_128878);
+      v22 = dword_12887C;
+      v23 = dword_12887C + 5280;
       do
       {
-        *(uint8_t *)(v25 + 85) &= ~1u;
-        v25 += 1320;
+        *(uint8_t *)(v22 + 85) &= ~1u;
+        v22 += 1320;
       }
-      while ( v22 != v25 );
+      while ( v23 != v22 );
       if ( !*((uint32_t *)v7 + 20) )
         ke_task_poll();
     }
-    if ( *((uint8_t **)v7 + 10) != v4 )
+    if ( *((uint32_t *)v7 + 10) != v4 )
     {
-      if ( *((uint8_t **)v7 + 11) != v4 )
+      if ( *((uint32_t *)v7 + 11) != v4 )
         goto LABEL_30;
-      v27 = v4[24];
-      v28 = v27 + 1;
-      if ( v27 == 2 )
+      v25 = *(uint8_t *)(v4 + 24);
+      v26 = v25 + 1;
+      if ( v25 == 2 )
       {
         if ( *((uint8_t *)off_12885C + 24) != 255 )
         {
-          v28 = 0;
-          v29 = 0;
+          v26 = 0;
+          v27 = 0;
           goto LABEL_57;
         }
-        v28 = 1;
+        v26 = 1;
       }
       else
       {
-        v29 = 8 * v28;
-        if ( *((uint8_t *)off_12885C + 28 * v28 + 24) != 255 )
+        v27 = 8 * v26;
+        if ( *((uint8_t *)off_12885C + 28 * v26 + 24) != 255 )
           goto LABEL_57;
-        v28 = v27 + 2;
-        if ( v27 == 1 )
-          v28 = 0;
+        v26 = v25 + 2;
+        if ( v25 == 1 )
+          v26 = 0;
       }
-      v29 = 8 * v28;
-      if ( *((uint8_t *)off_12885C + 28 * v28 + 24) == 255 )
+      v27 = 8 * v26;
+      if ( *((uint8_t *)off_12885C + 28 * v26 + 24) == 255 )
       {
-        v30 = 0;
+        v28 = nullptr;
 LABEL_51:
-        v31 = dword_128880;
-        *((uint32_t *)v7 + 11) = v30;
-        event_dispatch(v31, v30, v29);
+        *((uint32_t *)v7 + 11) = v28;
+        event_dispatch("unlink replace sw ctxt:%x\n", v28);
         goto LABEL_30;
       }
 LABEL_57:
-      v30 = (char *)off_12885C + 4 * (v29 - v28);
+      v28 = (char *)off_12885C + 4 * (v27 - v26);
       goto LABEL_51;
     }
-    v17 = (uint8_t)v7[90];
+    v15 = v7[90];
     *((uint32_t *)v7 + 10) = 0;
-    if ( !v17 || (v18 = *((char **)v7 + 11)) != 0 )
+    if ( !v15 || (v16 = *((uint32_t **)v7 + 11)) != nullptr )
     {
 LABEL_30:
-      if ( !v4[25] )
+      if ( !*(uint8_t *)(v4 + 25) )
         goto LABEL_21;
-      return get_control_byte((int)v4);
+      return get_control_byte(v4);
     }
-    event_dispatch(dword_128860, v22, 0);
-    v19 = v4[24];
-    v20 = v19 + 1;
-    if ( v19 == 2 )
+    event_dispatch(aUnlinkSwChan);
+    v17 = *(uint8_t *)(v4 + 24);
+    v18 = v17 + 1;
+    if ( v17 == 2 )
     {
       if ( *((uint8_t *)off_12885C + 24) != 255 )
       {
-        v20 = 0;
+        v18 = 0;
         goto LABEL_61;
       }
-      v20 = 1;
+      v18 = 1;
     }
     else
     {
-      if ( *((uint8_t *)off_12885C + 28 * v20 + 24) != 255 )
+      if ( *((uint8_t *)off_12885C + 28 * v18 + 24) != 255 )
         goto LABEL_61;
-      v20 = v19 + 2;
-      if ( v19 == 1 )
-        v20 = 0;
+      v18 = v17 + 2;
+      if ( v17 == 1 )
+        v18 = 0;
     }
-    if ( *((uint8_t *)off_12885C + 28 * v20 + 24) == 255 )
+    if ( *((uint8_t *)off_12885C + 28 * v18 + 24) == 255 )
     {
 LABEL_19:
-      ctrl_register_handler((int)v18);
-      v14 = v4[25];
+      ctrl_register_handler(v16);
+      v12 = *(uint8_t *)(v4 + 25);
       goto LABEL_20;
     }
 LABEL_61:
-    v18 = (char *)off_12885C + 28 * v20;
+    v16 = (uint32_t *)((char *)off_12885C + 28 * v18);
     goto LABEL_19;
   }
 LABEL_20:
-  if ( v14 )
-    return get_control_byte((int)v4);
+  if ( v12 )
+    return get_control_byte(v4);
 LABEL_21:
-  wlc_validate_chip_queue(v4[24]);
-  return get_control_byte((int)v4);
+  wlc_validate_chip_queue(*(uint8_t *)(v4 + 24));
+  return get_control_byte(v4);
 }
-

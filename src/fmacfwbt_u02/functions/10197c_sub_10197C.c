@@ -10,18 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_101BA4;
 extern uint32_t off_101BA8;
+extern uint32_t off_101BAC;
 extern uint32_t off_101BB0;
 extern uint32_t off_101BB4;
-extern uint32_t off_101BAC;
 extern uint32_t off_101BB8;
-extern uint32_t off_101BC4;
-extern uint32_t dword_101BCC;
-extern uint32_t dword_101BC8;
-extern uint32_t dword_101BD0;
 extern uint32_t off_101BBC;
 extern uint32_t off_101BC0;
+extern uint32_t off_101BC4;
+extern uint32_t off_101BCC;
 
 // llm_task_handler @ 0x10197c, size 550 bytes
 int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
@@ -49,7 +48,7 @@ int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
   v5 = *((uint16_t *)off_101BA4 + 20);
   if ( !*((uint8_t *)off_101BA4 + 36) )
   {
-    if ( *((uint8_t *)off_101BA8 + 197) )
+    if ( BYTE1(((uint32_t *)(uintptr_t)off_101BA8)[49]) )
     {
       if ( v5 > 0x97B )
       {
@@ -58,20 +57,20 @@ int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
         else
           result = 1;
       }
-      v7 = *((char *)off_101BA8 + 198);
-      v8 = *((char *)off_101BA8 + 210);
-      v9 = *((uint8_t *)off_101BB0 + 10) + *(uint8_t *)off_101BB4 + *(uint8_t *)(*(uint32_t *)off_101BAC + result + 6);
-      v10 = *(uint8_t *)off_101BB4 + *((uint8_t *)off_101BB0 + 8) + *(uint8_t *)(*(uint32_t *)off_101BAC + result);
+      v7 = SBYTE2(((uint32_t *)(uintptr_t)off_101BA8)[49]);
+      v8 = SBYTE2(((uint32_t *)(uintptr_t)off_101BA8)[52]);
+      v9 = *(uint8_t *)(off_101BB0 + 0xA) + *(uint8_t *)off_101BB4 + *(uint8_t *)(*(uint32_t *)off_101BAC + result + 6);
+      v10 = *(uint8_t *)off_101BB4 + *(uint8_t *)(off_101BB0 + 8) + *(uint8_t *)(*(uint32_t *)off_101BAC + result);
       v11 = v10;
-      if ( *((uint8_t *)off_101BA8 + 396) )
+      if ( LOBYTE(((uint32_t *)(uintptr_t)off_101BA8)[99]) )
       {
         result = *(uint8_t *)(*(uint32_t *)off_101BB8 + result);
         v7 = (char)(result + v7);
         v8 = (char)(v8 + result);
       }
-      if ( (*((uint32_t *)off_101BA8 + 98) & 2) != 0 )
+      if ( (((uint32_t *)(uintptr_t)off_101BA8)[98] & 2) != 0 )
       {
-        result = llm_adv_state_get(0, *((uint16_t *)off_101BA4 + 20));
+        result = (int)llm_adv_state_get(0, *((uint16_t *)off_101BA4 + 20));
         v11 = v10;
         if ( result )
         {
@@ -79,13 +78,13 @@ int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
         }
         else
         {
-          if ( **(int16_t **)off_101BC4 < 0 )
+          if ( **(uint16_t **)off_101BC4 < 0 )
           {
-            mmio_field_update(dword_101BCC, dword_101BC8, 6857);
+            mmio_field_update(off_101BCC, (int)aPhyGetRfGainId, 6857);
             v11 = v10;
           }
           v22 = v11;
-          result = ke_event_schedule(dword_101BD0, 0, v5);
+          result = ke_event_schedule_1("invalid chan, band=%d, freq=%d\n", 0, v5);
           v11 = v22;
           v20 = 15;
         }
@@ -108,17 +107,17 @@ int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
       *a3 = (v13 >> 1) + v8;
       return result;
     }
-    if ( **(int16_t **)off_101BC4 >= 0 )
+    if ( **(uint16_t **)off_101BC4 >= 0 )
       return result;
     v19 = 6875;
-    return mmio_irq_clear(dword_101BCC, dword_101BC8, v19);
+    return mmio_irq_clear(off_101BCC, (int)aPhyGetRfGainId, v19);
   }
-  if ( !*((uint8_t *)off_101BA8 + 197) )
+  if ( !BYTE1(((uint32_t *)(uintptr_t)off_101BA8)[49]) )
   {
-    if ( **(int16_t **)off_101BC4 >= 0 )
+    if ( **(uint16_t **)off_101BC4 >= 0 )
       return result;
     v19 = 6921;
-    return mmio_irq_clear(dword_101BCC, dword_101BC8, v19);
+    return mmio_irq_clear(off_101BCC, (int)aPhyGetRfGainId, v19);
   }
   if ( v5 <= 0x1666 )
   {
@@ -143,23 +142,23 @@ int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
   {
     v14 = 5;
   }
-  result = *((uint8_t *)off_101BA8 + 396);
-  v15 = *((char *)off_101BA8 + 236);
-  v16 = *((uint8_t *)off_101BB4 + 1) + *((uint8_t *)off_101BB0 + 11) + *(uint8_t *)(*(uint32_t *)off_101BBC + v14);
-  if ( *((uint8_t *)off_101BA8 + 396) )
+  result = LOBYTE(((uint32_t *)(uintptr_t)off_101BA8)[99]);
+  v15 = SLOBYTE(((uint32_t *)(uintptr_t)off_101BA8)[59]);
+  v16 = *(uint8_t *)(off_101BB4 + 1) + *(uint8_t *)(off_101BB0 + 0xB) + *(uint8_t *)(*(uint32_t *)off_101BBC + v14);
+  if ( LOBYTE(((uint32_t *)(uintptr_t)off_101BA8)[99]) )
     v15 = (char)(*(uint8_t *)(*(uint32_t *)off_101BC0 + v14) + v15);
-  if ( (*((uint32_t *)off_101BA8 + 98) & 2) != 0 )
+  if ( (((uint32_t *)(uintptr_t)off_101BA8)[98] & 2) != 0 )
   {
-    result = llm_adv_state_get(1, *((uint16_t *)off_101BA4 + 20));
+    result = (int)llm_adv_state_get(1, *((uint16_t *)off_101BA4 + 20));
     if ( result )
     {
       v21 = *(char *)(result + 4);
     }
     else
     {
-      if ( **(int16_t **)off_101BC4 < 0 )
-        mmio_field_update(dword_101BCC, dword_101BC8, 6907);
-      result = ke_event_schedule(dword_101BD0, 1, v5);
+      if ( **(uint16_t **)off_101BC4 < 0 )
+        mmio_field_update(off_101BCC, (int)aPhyGetRfGainId, 6907);
+      result = ke_event_schedule_1("invalid chan, band=%d, freq=%d\n", 1, v5);
       v21 = 15;
     }
     if ( v15 >= v21 )
@@ -174,4 +173,3 @@ int  llm_task_handler(int a1, uint8_t *a2, uint8_t *a3)
   *a2 = v18;
   return result;
 }
-

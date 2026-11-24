@@ -10,22 +10,22 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1008E4;
-extern uint32_t dword_1008E8;
-extern uint32_t off_1008F8;
+
 extern uint32_t dword_1008FC;
-extern uint32_t off_1008F4;
-extern uint32_t dword_100900;
 extern uint32_t dword_100908;
-extern uint32_t off_100904;
+extern uint32_t off_1008E4;
+extern uint32_t off_1008E8;
 extern uint32_t off_1008EC;
-extern uint32_t dword_1008F0;
+extern uint32_t off_1008F4;
+extern uint32_t off_1008F8;
+extern uint32_t off_100900;
+extern uint32_t off_100904;
 
 // smem_access @ 0x1007b4, size 302 bytes
-int  smem_access(int a1, unsigned int a2, uint32_t *a3)
+int * smem_access(int a1, unsigned int a2, uint32_t *a3)
 {
   int v4; // r4
-  int v5; // r6
+  int *v5; // r6
   uint8_t *v6; // r7
   int v8; // r12
   int v9; // r0
@@ -63,7 +63,7 @@ int  smem_access(int a1, unsigned int a2, uint32_t *a3)
 LABEL_4:
         v4 = 0;
 LABEL_5:
-        v5 = dword_1008E8;
+        v5 = (int *)off_1008E8;
         goto LABEL_6;
       }
     }
@@ -87,22 +87,22 @@ LABEL_5:
   }
   if ( a2 > 0x1666 )
   {
-    v9 = 1920;
+    v9 = 480;
     v8 = 5;
   }
   else if ( a2 > 0x1616 )
   {
-    v9 = 1536;
+    v9 = 384;
     v8 = 4;
   }
   else if ( a2 > 0x15C6 )
   {
-    v9 = 1152;
+    v9 = 288;
     v8 = 3;
   }
   else if ( a2 > 0x1571 )
   {
-    v9 = 768;
+    v9 = 192;
     v8 = 2;
   }
   else
@@ -111,10 +111,10 @@ LABEL_5:
     if ( a2 <= 0x1486 )
       v9 = 0;
     else
-      v9 = 384;
+      v9 = 96;
   }
   v4 = *(uint32_t *)off_1008E4;
-  v5 = dword_100900 + v9;
+  v5 = &((uint32_t *)(uintptr_t)off_100900)[v9];
   if ( *(uint32_t *)off_1008E4 )
   {
     v4 = 0;
@@ -136,13 +136,12 @@ LABEL_5:
     }
   }
 LABEL_6:
-  v6 = off_1008EC;
+  v6 = (uint8_t *)off_1008EC;
   if ( *(char *)off_1008EC > 0 )
   {
-    dispatch_event_handler(dword_1008F0, a2);
+    dispatch_event_handler_1("DEBUG: freq=%d, comp_bits=%x\n", a2, v4);
     --*v6;
   }
   *a3 = v4;
   return v5;
 }
-

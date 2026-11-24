@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11A9A4;
 extern uint32_t off_11A9A8;
 extern uint32_t off_11A9AC;
 extern uint32_t off_11A9B0;
 extern uint32_t off_11A9B4;
-extern uint32_t dword_11A9B8;
 
 // mmio_select_port @ 0x11a8e4, size 192 bytes
 int  mmio_select_port(uint8_t *a1)
@@ -25,7 +25,7 @@ int  mmio_select_port(uint8_t *a1)
   unsigned int *v4; // r0
   int v5; // r1
   unsigned int *v6; // r0
-  unsigned int v7; // r1
+  int v7; // r1
   unsigned int *v8; // r0
 
   v1 = *a1;
@@ -51,21 +51,11 @@ int  mmio_select_port(uint8_t *a1)
     *v8 = *v8 & 0xFF0000FF | ((v3 * v7) << 8);
   }
   if ( a1[3] )
-  {
-    v7 = (unsigned int)off_11A9B4;
     *(uint32_t *)off_11A9B4 = *(uint32_t *)off_11A9B4 & 0xFFFFFF00 | a1[3];
-  }
   if ( a1[4] )
-  {
-    v7 = (unsigned int)off_11A9B4;
     *(uint32_t *)off_11A9B4 = *(uint32_t *)off_11A9B4 & 0xFFFF00FF | (a1[4] << 8);
-  }
   if ( a1[5] )
-  {
-    v7 = (unsigned int)off_11A9B4;
     *(uint32_t *)off_11A9B4 = *(uint32_t *)off_11A9B4 & 0xFF00FFFF | (a1[5] << 16);
-  }
-  dispatch_event_handler(dword_11A9B8, v7);
-  return handle_ipc_request(a1, 6, 1, 0);
+  dispatch_event_handler_1(aSetVendorTs);
+  return handle_ipc_request((int)a1, 6, 1, 0);
 }
-

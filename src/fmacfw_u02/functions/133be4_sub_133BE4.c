@@ -10,7 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_133C28;
+
 extern uint32_t dword_133C2C;
 
 // send_control_command @ 0x133be4, size 66 bytes
@@ -22,7 +22,7 @@ int  send_control_command(int a1, uint8_t *a2)
   int v5; // r4
 
   v2 = *a2;
-  check_status_bits(256, dword_133C28);
+  check_status_bits(256, aConnLossInd);
   result = rx_rate_field_parse(6u);
   if ( result )
     return 2;
@@ -39,4 +39,3 @@ int  send_control_command(int a1, uint8_t *a2)
   }
   return result;
 }
-

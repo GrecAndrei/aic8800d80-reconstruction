@@ -10,13 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_119548;
-
 // alloc_hci_rx_buffer @ 0x119524, size 34 bytes
 int  alloc_hci_rx_buffer(int a1, int a2, int a3, int a4)
 {
-  check_interrupt_flag(256, dword_119548, a3, a4);
+  check_interrupt_flag(256, aSetMuEdca);
   ke_evt_handler(108, a4, a3);
   return 0;
 }
-

@@ -10,45 +10,51 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_105138;
-extern uint32_t dword_10513C;
-extern uint32_t dword_105134;
 
-// temp_sensor_convert @ 0x105088, size 168 bytes
-int  temp_sensor_convert(float a1, int a2, int a3)
+extern float flt_105130;
+
+// sub_105088 @ 0x105088, size 168 bytes
+int  sub_105088(float a1, int a2, int a3)
 {
-  float v5; // r0
-  uint64_t v6; // r0
+  float v6; // r0
   uint64_t v7; // r0
-  int16_t v8; // r0
-  uint64_t v9; // kr00_8
-  uint64_t v11; // kr08_8
+  uint64_t v8; // r0
+  int v9; // r0
+  uint64_t v10; // kr00_8
+  uint64_t v12; // kr08_8
 
-  v5 = load_const_table(a1 / 20.0);
-  v6 = __aeabi_f2d((float)a2 * v5);
-  v7 = softfloat_float_op(v6, HIDWORD(v6));
-  v8 = __aeabi_d2lz(v7, HIDWORD(v7));
-  if ( v8 <= 232 )
+  v6 = COERCE_FLOAT(sub_12D748(COERCE_INT(a1 / 20.0)));
+  v7 = sub_142A94(COERCE_UNSIGNED_INT((float)a2 * v6));
+  v8 = sub_1426B8(v7);
+  v9 = (uint16_t)sub_143078(v8);
+  if ( (uint16_t)v9 <= 232 )
   {
-    if ( v8 > 31 )
+    if ( (uint16_t)v9 > 31 )
     {
-      *(uint8_t *)(a3 + 104) = v8;
+      *(uint8_t *)(a3 + 104) = v9;
     }
     else
     {
-      v11 = *(uint64_t *)(a3 + 112);
+      v12 = *(uint64_t *)(a3 + 112);
+      v9 = 32;
       *(uint8_t *)(a3 + 104) = 32;
-      if ( SHIDWORD(v11) < (int)v11 )
-        ke_event_schedule(dword_105138, (uint32_t *)(uintptr_t)(HIDWORD(v11)), v11);
+      if ( SHIDWORD(v12) < (int)v12 )
+      {
+        sub_12ECB0("ana_cur_index=%x ana_max_index=%x warning:dig_pwr is smaller\n", HIDWORD(v12), (uint32_t)v12);
+        v9 = *(uint8_t *)(a3 + 104);
+      }
     }
   }
   else
   {
-    v9 = *(uint64_t *)(a3 + 112);
+    v10 = *(uint64_t *)(a3 + 112);
+    v9 = 232;
     *(uint8_t *)(a3 + 104) = -24;
-    if ( SHIDWORD(v9) < (int)v9 )
-      ke_event_schedule(dword_10513C, (uint32_t *)(uintptr_t)(HIDWORD(v9)), v9);
+    if ( SHIDWORD(v10) < (int)v10 )
+    {
+      sub_12ECB0("ana_cur_index=%x ana_max_index=%x warning:dig_pwr is bigger\n", HIDWORD(v10), (uint32_t)v10);
+      v9 = *(uint8_t *)(a3 + 104);
+    }
   }
-  return state_check_feature(1, dword_105134);
+  return sub_12EEF8(1, "pwr_diff*100=%4d base_pwr=%x dig_pwr=%x ", (int)(float)(a1 * flt_105130), a2, v9);
 }
-

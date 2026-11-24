@@ -10,18 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12F090;
-
 // msg_alloc_40c @ 0x12f03c, size 82 bytes
-int  msg_alloc_40c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
+int  msg_alloc_40c(int a1, uint32_t *a2, int a3, int a4)
 {
   uint32_t *v5; // r5
-  int v6; // r0
+  char *v6; // r0
   int v7; // zf
-  int v8; // r2
+  unsigned int v8; // r2
 
-  v5 = (uint32_t *)bt_buf_alloc(1036, a4, a3, 4u);
-  v6 = *a2;
+  v5 = (uint32_t *)bt_buf_alloc(1036, a4, a3, 4);
+  v6 = (char *)*a2;
   v7 = *a2 << 30 == 0;
   v8 = a2[1];
   *v5 = 0;
@@ -29,9 +27,8 @@ int  msg_alloc_40c(int a1, uint32_t *a2, int16_t a3, int16_t a4)
     *v5 = 255;
   if ( v8 << 30 )
     *v5 = 1;
-  memcpy_aligned(v6, a2 + 2, v8);
-  ke_event_schedule(dword_12F090, *a2, a2[1] + *a2, a2[2], *v5);
+  memcpy_aligned(v6, (char *)a2 + 8, v8);
+  ke_event_schedule_1(asc_14AEA4, *a2, a2[1] + *a2, a2[2], *v5);
   hci_evt_send((int)v5);
   return 0;
 }
-

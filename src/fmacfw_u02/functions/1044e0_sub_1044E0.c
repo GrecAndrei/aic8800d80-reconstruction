@@ -10,18 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1045B4;
-extern uint32_t off_1045BC;
+
 extern uint32_t dword_1045C0;
-extern uint32_t off_1045B8;
 extern uint32_t dword_1045C4;
-extern uint32_t off_1045C8;
-extern uint32_t off_1045CC;
 extern uint32_t dword_1045D0;
 extern uint32_t dword_1045D4;
-extern uint32_t dword_1045D8;
-extern uint32_t dword_1045DC;
-extern uint32_t dword_1045E0;
+extern uint32_t off_1045B4;
+extern uint32_t off_1045B8;
+extern uint32_t off_1045BC;
+extern uint32_t off_1045C8;
+extern uint32_t off_1045CC;
 extern uint32_t off_1045E4;
 
 // start_arm_boot @ 0x1044e0, size 212 bytes
@@ -33,10 +31,9 @@ int start_arm_boot()
   int v3; // r5
   uint32_t *v4; // r6
   int *v5; // r4
-  int v6; // r1
   int result; // r0
-  uint32_t *v8; // r3
-  uint32_t *v9; // r1
+  uint32_t *v7; // r3
+  uint32_t *v8; // r1
 
   v0 = (int *)off_1045B4;
   v1 = off_1045BC;
@@ -58,19 +55,17 @@ int start_arm_boot()
   *v4 = dword_1045D4;
   while ( *v5 < 0 )
     timer_delay(1);
-  check_status_bits(1, dword_1045D8);
-  v6 = dword_1045DC;
+  check_status_bits(1, "end_addr=%x\n", *(uint32_t *)off_1045CC);
   *(uint32_t *)off_1045C8 = 0;
-  check_status_bits(1, v6);
+  check_status_bits(1, aDumpFinish);
   *(uint32_t *)off_1045B8 = v3;
   select_fuse_bank();
-  result = check_status_bits(1, dword_1045E0);
-  v8 = off_1045BC;
-  v9 = off_1045E4;
+  result = check_status_bits(1, "** dump tone typ3   r 00100000 %d**\n", 0x4000);
+  v7 = off_1045BC;
+  v8 = off_1045E4;
   *(uint32_t *)off_1045BC &= 0xF3FFFFFF;
-  *v9 |= 0xF0u;
-  *v8 &= ~0x10000000u;
-  *v8 &= 0x3FFFFFFFu;
+  *v8 |= 0xF0u;
+  *v7 &= ~0x10000000u;
+  *v7 &= 0x3FFFFFFFu;
   return result;
 }
-

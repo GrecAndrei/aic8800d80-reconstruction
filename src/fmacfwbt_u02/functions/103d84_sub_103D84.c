@@ -10,45 +10,34 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103DE0;
-extern uint32_t off_103DDC;
-extern uint32_t dword_103DE4;
-extern uint32_t dword_103DE8;
-extern uint32_t off_103DF0;
+
 extern uint32_t dword_103DF4;
-extern uint32_t off_103DF8;
+extern uint32_t off_103DDC;
+extern uint32_t off_103DE0;
 extern uint32_t off_103DEC;
-extern uint32_t dword_103DFC;
+extern uint32_t off_103DF0;
+extern uint32_t off_103DF8;
 
 // mac_set_rx_timeout @ 0x103d84, size 86 bytes
 int mac_set_rx_timeout()
 {
-  int v0; // r2
-  int *v1; // r4
-  int v2; // r0
-  int v3; // r1
-  int v4; // r2
-  int *v5; // r3
-  int v6; // r1
-  uint32_t *v7; // r2
-  int v8; // r0
+  int *v0; // r4
+  int *v1; // r3
+  int v2; // r1
+  uint32_t *v3; // r2
 
-  v0 = 777;
-  v1 = (int *)off_103DE0;
+  v0 = (int *)off_103DE0;
   *(uint32_t *)off_103DDC = 777;
-  while ( *v1 < 0 )
+  while ( *v0 < 0 )
     timer_set(1);
-  ke_event_schedule(dword_103DE4, *(uint32_t *)off_103DE0, v0);
-  v2 = dword_103DE8;
+  ke_event_schedule_1("end_addr=%d\n", *(uint32_t *)off_103DE0);
   *(uint32_t *)off_103DDC = 0;
-  ke_event_schedule(v2, v3, v4);
-  v5 = (int *)off_103DF0;
-  v6 = dword_103DF4;
-  v7 = off_103DF8;
+  ke_event_schedule_1(aFinish);
+  v1 = (int *)off_103DF0;
+  v2 = dword_103DF4;
+  v3 = off_103DF8;
   *(uint32_t *)off_103DEC = 0;
-  *v5 = v6;
-  v8 = dword_103DFC;
-  *v7 &= 0xFF00FFFF;
-  return ke_event_schedule(v8, 0x4000, v7);
+  *v1 = v2;
+  *v3 &= 0xFF00FFFF;
+  return ke_event_schedule_1("*0* dump    r 00100000 %d**\n", 0x4000);
 }
-

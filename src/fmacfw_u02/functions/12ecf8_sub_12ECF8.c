@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12ED18;
+
 extern uint32_t off_12ED1C;
 
 // controller_init @ 0x12ecf8, size 32 bytes
 int controller_init()
 {
-  event_dispatch(dword_12ED18);
-  ke_int_lock(1071, 1);
+  event_dispatch(aUsbOff);
+  ke_int_lock((char *)0x42F, 1);
   *((uint32_t *)off_12ED1C + 20) &= ~2u;
   return 0;
 }
-

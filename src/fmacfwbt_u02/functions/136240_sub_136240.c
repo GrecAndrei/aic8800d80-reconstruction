@@ -10,15 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1362B0;
+
 extern uint32_t dword_1362B4;
 extern uint32_t dword_1362B8;
-extern uint32_t dword_1362BC;
 
 // patch_copy_data @ 0x136240, size 112 bytes
-// Doc: sub_1236240 [util]: Allocates 0x100-byte buffer and triggers initialization sequence
-// sub_1236240 [util]: Allocates 0x100-byte buffer and triggers initialization sequence
-int  patch_copy_data(int a1, uint16_t *a2, int16_t a3, int16_t a4)
+int  patch_copy_data(int a1, uint16_t *a2, int a3, int a4)
 {
   int v7; // r2
   int v9; // r7
@@ -26,7 +23,7 @@ int  patch_copy_data(int a1, uint16_t *a2, int16_t a3, int16_t a4)
   int v11; // r2
   char v12; // r12
 
-  state_check_feature(256, dword_1362B0, *a2);
+  state_check_feature(256, "apm_update_basicrate:%d\r\n", *a2);
   v7 = *a2;
   if ( *(uint8_t *)(dword_1362B4 + 1320 * v7 + 106) == 2 )
   {
@@ -38,10 +35,9 @@ int  patch_copy_data(int a1, uint16_t *a2, int16_t a3, int16_t a4)
     *(uint32_t *)(v9 + 196) = v10;
     *(uint32_t *)(v9 + 200) = v11;
     *(uint8_t *)(v9 + 204) = v12;
-    state_check_feature(256, dword_1362BC, *((uint8_t *)a2 + 2));
+    state_check_feature(256, "param->basic_rates:%d\r\n", *((uint8_t *)a2 + 2));
     bt_get_local_addr_type(v9);
   }
   hci_evt_alloc_send(7179, a4, a3);
   return 0;
 }
-

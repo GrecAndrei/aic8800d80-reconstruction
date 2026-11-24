@@ -10,24 +10,22 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_136614;
-extern uint32_t dword_136624;
-extern uint32_t dword_13661C;
 extern uint32_t off_136618;
-extern uint32_t dword_136620;
 
 // tx_schedule_radio_task_alt @ 0x136588, size 140 bytes
 int tx_schedule_radio_task_alt()
 {
-  int16_t **v0; // r4
+  uint16_t **v0; // r4
 
-  v0 = (int16_t **)off_136614;
-  if ( **(int16_t **)off_136614 < 0 && hci_cmd_send_short(7u) != 1 && hci_cmd_send_short(7u) && hci_cmd_send_short(7u) != 3 )
-    mmio_irq_clear(dword_136624, dword_13661C, 341);
+  v0 = (uint16_t **)off_136614;
+  if ( **(uint16_t **)off_136614 < 0 && hci_cmd_send_short(7u) != 1 && hci_cmd_send_short(7u) && hci_cmd_send_short(7u) != 3 )
+    mmio_irq_clear((int)aKeStateGetTask_14, (int)aMeSetActiveCfm_0, 341);
   if ( hci_cmd_send_short(7u) == 1 )
   {
     if ( **v0 < 0 && *((uint32_t *)off_136618 + 1) )
-      mmio_irq_clear(dword_136620, dword_13661C, 349);
+      mmio_irq_clear((int)aCoListIsEmptyA, (int)aMeSetActiveCfm_0, 349);
     rf_core_enable();
   }
   else if ( hci_cmd_send_short(7u) == 3 )
@@ -37,4 +35,3 @@ int tx_schedule_radio_task_alt()
   }
   return 0;
 }
-

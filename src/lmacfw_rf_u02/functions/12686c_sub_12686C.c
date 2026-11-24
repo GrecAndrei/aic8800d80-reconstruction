@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1268D8;
-extern uint32_t dword_1268DC;
-extern uint32_t dword_1268E8;
+
 extern uint32_t dword_1268E0;
 extern uint32_t dword_1268E4;
+extern uint32_t dword_1268E8;
+extern uint32_t off_1268D8;
+extern uint32_t off_1268DC;
 
 // tx_descriptor_config @ 0x12686c, size 108 bytes
-// Doc: sub_122686C [rf]: Reads flag byte from global base, RF state poll
-// sub_122686C [rf]: Reads flag byte from global base, RF state poll
 int  tx_descriptor_config(int result)
 {
   uint16_t *v1; // r7
@@ -26,7 +25,7 @@ int  tx_descriptor_config(int result)
   int v3; // r12
   int v4; // r6
   int v5; // r5
-  int v6; // r4
+  int *v6; // r4
   int v7; // r2
   unsigned int v8; // r3
   unsigned int v9; // t1
@@ -36,11 +35,11 @@ int  tx_descriptor_config(int result)
   v1 = (uint16_t *)off_1268D8;
   if ( !*((uint8_t *)off_1268D8 + 36) )
   {
-    v2 = (int *)dword_1268DC;
+    v2 = (int *)off_1268DC;
     v3 = dword_1268E8;
     v4 = dword_1268E0;
     v5 = dword_1268E4;
-    v6 = dword_1268DC + 128;
+    v6 = (int *)((char *)off_1268DC + 128);
     while ( 1 )
     {
       while ( 1 )
@@ -52,7 +51,7 @@ int  tx_descriptor_config(int result)
         if ( ((v9 >> 8) & 0xC) != 0 )
           break;
 LABEL_7:
-        if ( (int *)v6 == v2 )
+        if ( v6 == v2 )
           return rf_ctrl_set(0, v1[20]);
       }
       v11 = v10 & 0xF;
@@ -74,10 +73,9 @@ LABEL_7:
         goto LABEL_7;
       }
       *v2 = v8 & v3 | v4;
-      if ( (int *)v6 == v2 )
+      if ( v6 == v2 )
         return rf_ctrl_set(0, v1[20]);
     }
   }
   return result;
 }
-

@@ -10,17 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_138964;
 
 // rf_set_tx_power @ 0x138934, size 46 bytes
-uint32_t ** rf_set_tx_power(uint32_t *a1)
+int  rf_set_tx_power(int a1)
 {
   int v1; // r5
+  int v3; // r1
 
   v1 = dword_138964;
-  rf_lookup_tx_power(0, 4, a1[5]);
-  wlan_ioctl_handler_3(v1, a1);
-  wlan_ioctl_handler_1(v1 - 8, a1);
-  return deref_and_check((uint32_t **)(v1 - 32));
+  rf_lookup_tx_power(0, 4, *(uint32_t *)(a1 + 20));
+  wlan_ioctl_handler_3(v1, (uint32_t *)a1);
+  wlan_ioctl_handler_1(v1 - 8, (uint32_t *)a1);
+  return (int)deref_and_check((int *)(v1 - 32), v3);
 }
-

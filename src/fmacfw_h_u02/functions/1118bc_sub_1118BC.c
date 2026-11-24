@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1119B0;
-extern uint32_t dword_1119B4;
-extern uint32_t dword_1119B8;
 
-// mmio_set_bit @ 0x1118bc, size 242 bytes
-int mmio_set_bit()
+extern uint32_t dword_1119B4;
+extern uint32_t off_1119B0;
+
+// mmio_set_bit_2 @ 0x1118bc, size 242 bytes
+int mmio_set_bit_2()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r2
@@ -24,7 +24,6 @@ int mmio_set_bit()
   uint32_t *v4; // r1
   int v5; // r3
   uint32_t *v6; // r2
-  int v7; // r0
 
   v0 = off_1119B0;
   *((uint32_t *)off_1119B0 + 4) |= 1u;
@@ -68,11 +67,9 @@ LABEL_11:
   if ( v5 != 6 )
     goto LABEL_11;
   v4[6] = dword_1119B4;
-  v7 = dword_1119B8;
   v4[513] &= ~2u;
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return alloc_tx_event(v7, v4, 46);
+  return alloc_tx_event(aUsbInitDone);
 }
-

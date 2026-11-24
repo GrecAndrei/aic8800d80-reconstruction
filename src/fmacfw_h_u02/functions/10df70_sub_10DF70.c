@@ -10,81 +10,89 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10E090;
+
 extern uint32_t dword_10E070;
-extern uint32_t dword_10E074;
 extern uint32_t dword_10E078;
-extern uint32_t dword_10E07C;
 extern uint32_t dword_10E080;
-extern uint32_t dword_10E084;
+extern uint32_t dword_10E088;
 extern uint32_t dword_10E094;
 extern uint32_t dword_10E098;
 extern uint32_t dword_10E09C;
-extern uint32_t dword_10E088;
-extern uint32_t dword_10E08C;
 extern uint32_t dword_10E0A0;
+extern uint32_t off_10E090;
 
-// hw_block_enable @ 0x10df70, size 252 bytes
-int hw_block_enable()
+// sub_10DF70 @ 0x10df70, size 252 bytes
+int sub_10DF70()
 {
   uint32_t *v0; // r5
   uint64_t v1; // r0
   uint64_t v2; // r0
   uint64_t v3; // r0
-  int v4; // r0
-  int v5; // r6
+  uint64_t v4; // r0
+  unsigned int v5; // r6
   uint32_t *v6; // r2
-  int v7; // r4
+  unsigned int v7; // r4
   uint64_t v8; // r0
   uint64_t v9; // r0
   uint64_t v10; // r0
-  int v11; // r0
-  int v12; // r0
+  uint64_t v11; // r0
+  unsigned int v12; // r0
   uint64_t v13; // r0
   uint64_t v14; // r0
-  uint64_t v15; // r4
-  uint64_t v16; // r0
+  uint64_t v15; // r2
+  uint64_t v16; // r4
   uint64_t v17; // r0
   uint64_t v18; // r0
-  uint64_t v19; // r0
+  uint64_t v19; // r2
   uint64_t v20; // r0
   uint64_t v21; // r0
-  int v22; // r0
+  uint64_t v22; // r2
+  uint64_t v23; // r0
+  uint64_t v24; // r0
+  uint64_t v25; // r2
+  uint64_t v26; // r0
 
   v0 = off_10E090;
-  rf_table_update(1);
+  sub_10DDD8(1);
   v0[1] = 1;
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = unsigned_int_to_double(v0[4]);
-  v2 = double_compare_common(v1, HIDWORD(v1), dword_10E070, dword_10E074);
-  v3 = double_compare_core(v2, HIDWORD(v2), dword_10E078, dword_10E07C);
-  v4 = double_compare_neg(v3, HIDWORD(v3), dword_10E070, dword_10E074);
-  v5 = ((int ( *)(int))double_to_int)(v4);
-  rf_table_update(2);
+  v1 = sub_142874(v0[4]);
+  v2 = sub_142968(v1, *(uint64_t *)&dword_10E070);
+  v3 = sub_142BBC(v2, *(uint64_t *)&dword_10E078);
+  v4 = sub_1425F8(v3, *(uint64_t *)&dword_10E070);
+  v5 = sub_142F2C(v4);
+  sub_10DDD8(2);
   v6 = off_10E090;
   v0[1] = 1;
   while ( v6[7] != 1 )
     ;
   v6[7] = 1;
   v7 = v6[4];
-  rf_table_update(3);
-  v8 = unsigned_int_to_double(v7);
-  v9 = double_compare_common(v8, HIDWORD(v8), dword_10E070, dword_10E074);
-  v10 = double_compare_core(v9, HIDWORD(v9), dword_10E078, dword_10E07C);
-  v11 = double_compare_neg(v10, HIDWORD(v10), dword_10E070, dword_10E074);
-  v12 = ((int ( *)(int))double_to_int)(v11);
-  v13 = float_to_double(v12);
-  v14 = double_compare_core(v13, HIDWORD(v13), dword_10E080, dword_10E084);
-  v15 = double_compare_common(v14, HIDWORD(v14), 0, dword_10E094);
-  v16 = float_to_double(v5);
-  v17 = double_compare_core(v16, HIDWORD(v16), dword_10E080, dword_10E084);
-  v18 = double_compare_common(v17, HIDWORD(v17), 0, dword_10E098);
-  v19 = double_compare_eq(v15, HIDWORD(v15), v18, HIDWORD(v18));
-  v20 = double_compare_common(v19, HIDWORD(v19), 0, dword_10E09C);
-  v21 = double_compare_common(v20, HIDWORD(v20), dword_10E088, dword_10E08C);
-  v22 = double_compare_core(v21, HIDWORD(v21), 0, dword_10E0A0);
-  return (int)double_to_int(v22);
+  sub_10DDD8(3);
+  v8 = sub_142874(v7);
+  v9 = sub_142968(v8, *(uint64_t *)&dword_10E070);
+  v10 = sub_142BBC(v9, *(uint64_t *)&dword_10E078);
+  v11 = sub_1425F8(v10, *(uint64_t *)&dword_10E070);
+  v12 = sub_142F2C(v11);
+  v13 = sub_1428B8(v12);
+  v14 = sub_142BBC(v13, *(uint64_t *)&dword_10E080);
+  HIDWORD(v15) = dword_10E094;
+  LODWORD(v15) = 0;
+  v16 = sub_142968(v14, v15);
+  v17 = sub_1428B8(v5);
+  v18 = sub_142BBC(v17, *(uint64_t *)&dword_10E080);
+  HIDWORD(v19) = dword_10E098;
+  LODWORD(v19) = 0;
+  v20 = sub_142968(v18, v19);
+  v21 = sub_1425FC(v16, v20);
+  HIDWORD(v22) = dword_10E09C;
+  LODWORD(v22) = 0;
+  v23 = sub_142968(v21, v22);
+  v24 = sub_142968(v23, *(uint64_t *)&dword_10E088);
+  HIDWORD(v25) = dword_10E0A0;
+  LODWORD(v25) = 0;
+  v26 = sub_142BBC(v24, v25);
+  return (int)COERCE_FLOAT(sub_142F2C(v26));
 }
-

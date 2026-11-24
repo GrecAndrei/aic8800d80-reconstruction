@@ -10,12 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_11114C;
+
 extern uint32_t dword_111144;
-extern uint32_t dword_111148;
 
 // ke_mem_alloc @ 0x1110cc, size 118 bytes
-int  ke_mem_alloc(char a1, int a2, int a3)
+int  ke_mem_alloc(char a1, char *a2, unsigned int a3)
 {
   uint32_t *v6; // r0
   uint32_t *v7; // r4
@@ -25,16 +24,16 @@ int  ke_mem_alloc(char a1, int a2, int a3)
 
   v6 = check_radio_state(4);
   if ( !v6 )
-    return printf_wrapper(dword_11114C);
+    return printf_wrapper(aErrNoMsgPkt);
   v7 = v6;
-  v8 = (uint32_t *)critical_enter_0();
+  v8 = critical_enter_0();
   if ( v8 )
   {
     *(uint8_t *)v7 = a3;
     *((uint8_t *)v7 + 1) = BYTE1(a3) & 0xF;
     *((uint8_t *)v7 + 2) = a1;
     *((uint8_t *)v7 + 3) = 0;
-    memcpy_aligned(v7 + 1, a2, a3);
+    memcpy_aligned((char *)v7 + 4, a2, a3);
     v9 = v8[2];
     v10 = dword_111144;
     v8[1] = 0;
@@ -44,8 +43,7 @@ int  ke_mem_alloc(char a1, int a2, int a3)
   }
   else
   {
-    printf_wrapper(dword_111148);
+    printf_wrapper(aErrSendMsgCfgT);
     return memory_pool_free(v7);
   }
 }
-

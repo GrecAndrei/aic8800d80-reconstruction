@@ -10,14 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_117528;
+extern uint32_t dword_117540;
 extern uint32_t dword_117548;
 extern uint32_t off_117524;
-extern uint32_t dword_117528;
 extern uint32_t off_11752C;
 extern uint32_t off_117530;
 extern uint32_t off_117534;
-extern uint32_t dword_117540;
-extern uint32_t off_117544;
 extern uint32_t off_117538;
 extern uint32_t off_11753C;
 
@@ -26,7 +26,7 @@ int  phy_set_rate_power(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r0
-  int16_t v6; // r1
+  uint16_t v6; // r1
   uint32_t *v7; // r3
   int v8; // r3
   uint8_t *v9; // r2
@@ -35,6 +35,7 @@ int  phy_set_rate_power(int a1, int a2)
   int v12; // r3
   int v13; // r3
   int v14; // r2
+  volatile unsigned int v15; // r2
 
   if ( a2 == 5 )
     v4 = (char *)dword_117548;
@@ -64,7 +65,10 @@ int  phy_set_rate_power(int a1, int a2)
     v9 = *(uint8_t **)off_117530;
     *(uint32_t *)off_117534 = 0x80000000;
     if ( *v9 == 3 && v8 == dword_117540 + 1320 * *(uint8_t *)(a1 + 28) )
-      *(uint32_t *)(v8 + 120) = *((uint32_t *)off_117544 + 4);
+    {
+      v15 = (*(volatile uint32_t *)0x40501010u);
+      *(uint32_t *)(v8 + 120) = v15;
+    }
   }
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -74,7 +78,7 @@ int  phy_set_rate_power(int a1, int a2)
   v10 = (int *)off_11753C;
   ++*(uint32_t *)off_11753C;
   btm_init_conn_entry(a1, a2);
-  wlan_ioctl_handler_1(v4 + 12);
+  wlan_ioctl_handler_1((int)(v4 + 12), (uint32_t *)a1);
   is_channel_index_valid(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117524 + 126);
@@ -95,4 +99,3 @@ int  phy_set_rate_power(int a1, int a2)
   }
   return result;
 }
-

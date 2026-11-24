@@ -10,19 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10DE38;
-extern uint32_t off_10DE3C;
+
+extern uint32_t dword_10DE20;
+extern uint32_t dword_10DE28;
+extern uint32_t dword_10DE30;
 extern uint32_t dword_10DE40;
 extern uint32_t dword_10DE44;
-extern uint32_t dword_10DE20;
-extern uint32_t dword_10DE24;
-extern uint32_t dword_10DE28;
-extern uint32_t dword_10DE2C;
-extern uint32_t dword_10DE30;
-extern uint32_t dword_10DE34;
+extern uint32_t off_10DE38;
+extern uint32_t off_10DE3C;
 
-// gpio_init @ 0x10dda0, size 128 bytes
-int gpio_init()
+// sub_10DDA0 @ 0x10dda0, size 128 bytes
+unsigned int sub_10DDA0()
 {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
@@ -31,7 +29,7 @@ int gpio_init()
   uint64_t v4; // r0
   uint64_t v5; // r0
   uint64_t v6; // r0
-  int v7; // r0
+  uint64_t v7; // r0
 
   v0 = off_10DE38;
   v1 = off_10DE3C;
@@ -46,10 +44,9 @@ int gpio_init()
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v4 = __aeabi_ui2d(v1[4]);
-  v5 = __aeabi_dmul(v4, HIDWORD(v4), dword_10DE20, dword_10DE24);
-  v6 = __aeabi_ddiv(v5, HIDWORD(v5), dword_10DE28, dword_10DE2C);
-  v7 = __aeabi_dsub(v6, HIDWORD(v6), dword_10DE30, dword_10DE34);
-  return double_to_float(v7);
+  v4 = sub_142A50(v1[4]);
+  v5 = sub_142B44(v4, *(uint64_t *)&dword_10DE20);
+  v6 = sub_142D98(v5, *(uint64_t *)&dword_10DE28);
+  v7 = sub_1427D4(v6, *(uint64_t *)&dword_10DE30);
+  return sub_143108(v7);
 }
-

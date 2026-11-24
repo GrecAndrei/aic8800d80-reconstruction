@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12406C;
+
 extern uint32_t off_124068;
-extern uint32_t off_124074;
+extern uint32_t off_12406C;
 extern uint32_t off_124070;
-extern uint32_t dword_124078;
+extern uint32_t off_124074;
 
 // configure_hw_regs @ 0x123ff0, size 118 bytes
 int  configure_hw_regs(unsigned int a1, int a2, int a3)
 {
   int v3; // r4
-  unsigned int *v4; // r5
+  int *v4; // r5
   unsigned int v5; // r2
   int *v6; // r5
   int v7; // r3
@@ -35,8 +35,8 @@ int  configure_hw_regs(unsigned int a1, int a2, int a3)
 LABEL_3:
     v3 = a3 << 9;
 LABEL_4:
-    v4 = (unsigned int *)off_12406C;
-    v5 = *(uint32_t *)off_12406C & 0xE3FFFFFF;
+    v4 = off_12406C;
+    v5 = *off_12406C & 0xE3FFFFFF;
     *(uint32_t *)off_124068 = *(uint32_t *)off_124068 & 0xFFFFC180 | a2 & 0xFFFFF9FF | (a1 << 11) | v3;
     *v4 = v5;
 LABEL_8:
@@ -47,13 +47,12 @@ LABEL_8:
     goto LABEL_3;
   if ( (*(uint32_t *)off_124070 & 1) == 0 )
   {
-    v6 = (int *)off_12406C;
-    v7 = *(uint32_t *)off_12406C | 0x10000000;
+    v6 = off_12406C;
+    v7 = *off_12406C | 0x10000000;
     *(uint32_t *)off_124068 = *(uint32_t *)off_124068 & 0xFFFFC780 | a2 | (a1 << 11);
     *v6 = v7;
     goto LABEL_8;
   }
-  dispatch_event_handler(dword_124078, a1, a3, *(uint32_t *)off_124070 << 31);
+  dispatch_event_handler_1("un-support fmt=%d\n", a1);
   return 1;
 }
-

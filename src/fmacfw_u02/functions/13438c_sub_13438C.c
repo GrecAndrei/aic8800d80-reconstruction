@@ -10,10 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1343DC;
 extern uint32_t off_1343E0;
 extern uint32_t off_1343E4;
-extern uint32_t dword_1343E8;
 
 // set_flag_disable_irq @ 0x13438c, size 80 bytes
 int set_flag_disable_irq()
@@ -42,7 +42,7 @@ int set_flag_disable_irq()
   }
   else if ( v1[14] == 1 )
   {
-    tx_packet_handler();
+    tx_packet_handler_1();
     v3 = *v0;
   }
   if ( v3 )
@@ -56,7 +56,6 @@ int set_flag_disable_irq()
         __enable_irq();
     }
   }
-  event_dispatch(dword_1343E8);
+  event_dispatch(aSmCoexTsTimeou);
   return 0;
 }
-

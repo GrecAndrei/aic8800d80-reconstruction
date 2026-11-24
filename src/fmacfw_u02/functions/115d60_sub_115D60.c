@@ -11,7 +11,6 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 
-extern uint32_t dword_115F2C;
 extern uint32_t dword_115F30;
 extern uint32_t dword_115F34;
 extern uint32_t dword_115F38;
@@ -30,10 +29,10 @@ extern uint32_t dword_115F64;
 void  copy_global_data()
 {
   unsigned int v0; // r5
-  int v1; // r0
-  uint8_t **v2; // r10
-  int v3; // r3
-  int v4; // r0
+  uint8_t **v1; // r10
+  int v2; // r3
+  int v3; // r0
+  int v4; // r1
   uint8_t *v5; // r7
   int *v6; // r8
   int *v7; // r4
@@ -50,23 +49,23 @@ void  copy_global_data()
   uint32_t *v18; // r2
 
   v0 = dword_115F30;
-  v1 = sub_12EA88(dword_115F2C);
+  event_dispatch("\x9A%s - build: %s\n", aV6911, aLaJul032024152);
   if ( *(uint32_t *)dword_115F34 )
   {
-    sub_10EF14(v1);
+    mmio_write_70001408();
     if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
-      sub_10EED8(*(uint16_t *)(*(uint32_t *)v0 + 8));
+      rf_set_frequency(*(uint16_t *)(*(uint32_t *)v0 + 8));
   }
-  v2 = (uint8_t **)dword_115F5C;
+  v1 = (uint8_t **)dword_115F5C;
   if ( **(uint8_t **)dword_115F5C == 2 )
   {
-    v3 = *(uint32_t *)v0;
-    *(uint8_t *)(v3 + 6) = 2;
-    *(uint8_t *)(v3 + 3) = 1;
+    v2 = *(uint32_t *)v0;
+    *(uint8_t *)(v2 + 6) = 2;
+    *(uint8_t *)(v2 + 3) = 1;
   }
-  v4 = sub_11463C(*(uint16_t *)(*(uint32_t *)v0 + 4));
+  v3 = load_global_ptr_182558(*(uint16_t *)(*(uint32_t *)v0 + 4));
   if ( !*(uint8_t *)(*(uint32_t *)v0 + 3) )
-    v4 = sub_1146C8(v4);
+    clear_global_flag_2();
   __enable_irq();
   __dsb(0xFu);
   __isb(0xFu);
@@ -80,10 +79,10 @@ void  copy_global_data()
     while ( 1 )
     {
       if ( *(uint8_t *)(*(uint32_t *)v0 + 3) )
-        v4 = sub_1146B8(v4);
+        dummy_store_global();
       if ( !*v5 )
-        v4 = sub_12D190(v4);
-      v4 = sub_130170(v4);
+        tx_ring_peek();
+      v3 = parse_large_ioctl(v3, v4);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -97,10 +96,10 @@ void  copy_global_data()
       if ( v11 )
         goto LABEL_15;
     }
-    v4 = sub_115AE4(v4);
+    clear_rx_config(v3);
     if ( *(uint8_t *)(*(uint32_t *)v0 + 3) )
-      v4 = sub_1146C8(v4);
-    if ( **v2 == 1 && *(uint8_t *)dword_115F44 )
+      clear_global_flag_2();
+    if ( **v1 == 1 && *(uint8_t *)dword_115F44 )
       break;
     do
     {
@@ -108,7 +107,7 @@ LABEL_21:
       __dsb(0xFu);
       __wfi();
       __isb(0xFu);
-      if ( **v2 != 3 )
+      if ( **v1 != 3 )
       {
         if ( *(uint8_t *)(*(uint32_t *)v0 + 3) )
           goto LABEL_28;
@@ -117,16 +116,16 @@ LABEL_23:
           goto LABEL_29;
         goto LABEL_24;
       }
-      v4 = sub_1155B0(v4);
+      v3 = check_nvic_irq_status();
     }
-    while ( !v4 );
+    while ( !v3 );
     if ( !*(uint8_t *)(*(uint32_t *)v0 + 3) )
       goto LABEL_23;
 LABEL_28:
-    v4 = sub_1146DC(v4);
+    set_global_flag_2();
     if ( *(uint8_t *)(v9 + 1) )
 LABEL_29:
-      v4 = sub_115640(v4);
+      v3 = peripheral_clock_enable_1();
 LABEL_24:
     v11 = *v7;
     if ( *v7 )
@@ -145,8 +144,8 @@ LABEL_15:
   v14 = **(uint8_t **)dword_115F48;
   if ( v14 == 3 )
   {
-    v4 = sub_1112F4(v4);
-    if ( v4 )
+    v3 = get_status_flag();
+    if ( v3 )
       goto LABEL_36;
     v14 = **(uint8_t **)dword_115F48;
   }
@@ -160,7 +159,7 @@ LABEL_15:
     goto LABEL_21;
   }
 LABEL_36:
-  v4 = sub_12EA10(v4);
+  ipc_wait_flag();
   v15 = (*(volatile uint32_t *)0x40501010u);
   v16 = v15 + 28;
   do

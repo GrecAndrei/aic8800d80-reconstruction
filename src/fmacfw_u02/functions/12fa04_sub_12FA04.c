@@ -10,26 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12FA24;
-extern uint32_t dword_12FA28;
 
-// init_static_tables @ 0x12fa04, size 32 bytes
-int init_static_tables()
+extern uint32_t off_12FA24;
+
+// sub_12FA04 @ 0x12fa04, size 32 bytes
+int sub_12FA04()
 {
-  uint32_t *v0; // r4
-  int v1; // r6
-  int v2; // r5
+  unsigned int v0; // r4
+  unsigned int v1; // r5
+  const char *v2; // r2
 
-  v0 = (uint32_t *)dword_12FA24;
-  v1 = dword_12FA28;
-  v2 = dword_12FA24 + 112;
+  v0 = off_12FA24;
+  v1 = off_12FA24 + 112;
   do
   {
-    if ( v0[1] )
-      log_printf(v1, *v0);
-    v0 += 4;
+    v2 = *(const char **)(v0 + 4);
+    if ( v2 )
+      sub_10DC24("%s %s\r\n", *(const char **)v0, v2);
+    v0 += 16;
   }
-  while ( v0 != (uint32_t *)v2 );
+  while ( v0 != v1 );
   return 0;
 }
-

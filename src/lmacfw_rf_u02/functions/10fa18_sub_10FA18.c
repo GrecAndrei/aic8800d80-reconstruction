@@ -10,17 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10FBCC;
-extern uint32_t dword_10FBBC;
+
 extern uint32_t off_10FBA4;
 extern uint32_t off_10FBA8;
 extern uint32_t off_10FBAC;
 extern uint32_t off_10FBB0;
-extern uint32_t dword_10FBB4;
-extern uint32_t dword_10FBC0;
-extern uint32_t dword_10FBC4;
-extern uint32_t dword_10FBB8;
-extern uint32_t dword_10FBC8;
 
 // list_iterate @ 0x10fa18, size 396 bytes
 uint32_t * list_iterate(int a1, unsigned int a2)
@@ -49,13 +43,13 @@ uint32_t * list_iterate(int a1, unsigned int a2)
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    log_printf(dword_10FBCC);
-    return 0;
+    log_printf("SwEr:NoSizeAlloc : %d\n\r", a2);
+    return nullptr;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    log_printf(dword_10FBBC);
+    log_printf(aMemmgrerrSubpo, a2);
     return v3;
   }
   v4 = *(uint16_t **)(a1 + 12);
@@ -102,14 +96,14 @@ LABEL_12:
           goto LABEL_43;
       }
     }
-    return 0;
+    return nullptr;
   }
-  v9 = (unsigned int *)off_10FBAC;
+  v9 = (unsigned int *)off_10FBAC[0];
   v3 = *((uint32_t **)v4 + 2);
-  v10 = *(uint32_t *)off_10FBAC;
-  if ( *(uint32_t *)off_10FBAC <= (unsigned int)v3 && (unsigned int)v3 <= *((uint32_t *)off_10FBAC + 1) + v10
+  v10 = *(uint32_t *)off_10FBAC[0];
+  if ( *(uint32_t *)off_10FBAC[0] <= (unsigned int)v3 && (unsigned int)v3 <= *(uint32_t *)(off_10FBAC[0] + 4) + v10
     || (unsigned int)v3 >= *(uint32_t *)off_10FBB0
-    && (unsigned int)v3 <= *(uint32_t *)off_10FBB0 + *((uint32_t *)off_10FBB0 + 1) )
+    && (unsigned int)v3 <= *(uint32_t *)off_10FBB0 + *(uint32_t *)(off_10FBB0 + 4) )
   {
     *((uint32_t *)v4 + 2) = *v3;
     *v4 = v7 - 1;
@@ -118,7 +112,7 @@ LABEL_12:
   }
   else
   {
-    log_printf(dword_10FBB4, *((uint32_t *)v4 + 2));
+    log_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((uint32_t *)v4 + 2));
     v10 = *v9;
     v14 = *v4 - 1;
     v15 = *v9 > (unsigned int)v3;
@@ -137,9 +131,9 @@ LABEL_18:
     }
   }
   v16 = *(uint32_t *)off_10FBB0;
-  if ( *(uint32_t *)off_10FBB0 > (unsigned int)v3 || *((uint32_t *)off_10FBB0 + 1) + v16 < (unsigned int)v3 )
+  if ( *(uint32_t *)off_10FBB0 > (unsigned int)v3 || *(uint32_t *)(off_10FBB0 + 4) + v16 < (unsigned int)v3 )
   {
-    log_printf(dword_10FBC0, v3);
+    log_printf("get_pattern: Invalid buffer passed: %x\n", v3);
     v11 = 0;
     goto LABEL_45;
   }
@@ -158,8 +152,8 @@ LABEL_45:
           __enable_irq();
       }
     }
-    log_printf(dword_10FBC4, v11, v3);
-    return 0;
+    log_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", v11, v3);
+    return nullptr;
   }
   if ( v10 > (unsigned int)v3 )
     goto LABEL_36;
@@ -168,25 +162,25 @@ LABEL_45:
   if ( (unsigned int)v3 < v16 )
   {
 LABEL_37:
-    log_printf(dword_10FBB8, v3);
+    log_printf("set_pattern: Invalid buffer passed: %x\n", v3);
   }
   else
   {
 LABEL_36:
-    if ( (unsigned int)v3 > v16 + *((uint32_t *)off_10FBB0 + 1) )
+    if ( (unsigned int)v3 > v16 + *(uint32_t *)(off_10FBB0 + 4) )
       goto LABEL_37;
 LABEL_20:
     *((uint8_t *)v3 - 3) = -86;
   }
   if ( (unsigned int)v3 >= *v9 && (unsigned int)v3 <= *v9 + v9[1]
     || (unsigned int)v3 >= *(uint32_t *)off_10FBB0
-    && (unsigned int)v3 <= *(uint32_t *)off_10FBB0 + *((uint32_t *)off_10FBB0 + 1) )
+    && (unsigned int)v3 <= *(uint32_t *)off_10FBB0 + *(uint32_t *)(off_10FBB0 + 4) )
   {
     *((uint8_t *)v3 - 2) = 1;
   }
   else
   {
-    log_printf(dword_10FBC8, v3);
+    log_printf("set_num_users: Invalid buffer passed: %x\n", v3);
   }
   if ( *v6 )
   {
@@ -202,4 +196,3 @@ LABEL_43:
   }
   return v3;
 }
-

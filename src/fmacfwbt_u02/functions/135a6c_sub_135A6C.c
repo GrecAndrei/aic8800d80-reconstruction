@@ -10,17 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_135B38;
+
 extern uint32_t dword_135B3C;
 extern uint32_t off_135B34;
-extern uint32_t dword_135B48;
-extern uint32_t dword_135B44;
-extern uint32_t dword_135B40;
+extern uint32_t off_135B38;
+extern uint32_t off_135B40;
 
-// rf_check_status @ 0x135a6c, size 200 bytes
-// Doc: sub_1235A6C [bt]: Bluetooth task entry: dispatch handler using table lookup
-// sub_1235A6C [bt]: Bluetooth task entry: dispatch handler using table lookup
-int  rf_check_status(unsigned int a1)
+// rf_check_status_1 @ 0x135a6c, size 200 bytes
+int  rf_check_status_1(unsigned int a1)
 {
   int v1; // r8
   int v2; // r7
@@ -40,9 +37,9 @@ int  rf_check_status(unsigned int a1)
   v1 = *((uint32_t *)off_135B38 + 4);
   v2 = dword_135B3C;
   v3 = *(uint8_t *)(v1 + 61);
-  if ( **(int16_t **)off_135B34 < 0 && *(int *)(dword_135B3C + 1320 * v3 + 472) >= 0 )
-    mmio_irq_clear(dword_135B48, dword_135B44, 1398);
-  v5 = (uint8_t *)bt_buf_alloc(6150, 13, 6, 0x2Cu);
+  if ( **(uint16_t **)off_135B34 < 0 && *(int *)(dword_135B3C + 1320 * v3 + 472) >= 0 )
+    mmio_irq_clear((int)aBssCapaBssVali, (int)aSmExternalAuth, 1398);
+  v5 = (uint8_t *)bt_buf_alloc(6150, 13, 6, 44);
   *v5 = *(uint8_t *)(v1 + 61);
   v6 = v5 + 1;
   v7 = v2 + 1320 * v3;
@@ -69,7 +66,6 @@ int  rf_check_status(unsigned int a1)
   *(uint32_t *)(v9 + 34) = v15;
   *(uint32_t *)(v9 + 40) = bswap32(a1);
   hci_cmd_send(6u, 6);
-  patch_aware_dispatch(6154, 6, dword_135B40);
-  return hci_evt_send(v9);
+  patch_aware_dispatch(6154, 6, off_135B40);
+  return (int)hci_evt_send(v9);
 }
-

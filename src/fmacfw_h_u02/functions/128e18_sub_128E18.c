@@ -10,27 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128E40;
+
 extern uint32_t off_128E3C;
+extern uint32_t off_128E40;
 extern uint32_t off_128E44;
 extern uint32_t off_128E48;
 
 // mfp_key_update @ 0x128e18, size 34 bytes
-int  mfp_key_update(int a1, int16_t a2)
+int  mfp_key_update(int a1, uint16_t a2)
 {
   uint8_t *v2; // r2
   uint8_t *v3; // r3
   int v4; // zf
-  int (*v5)(void); // r3
+  int ( *v5)(int, int); // r3
 
   v2 = off_128E40;
   v3 = *(uint8_t **)off_128E3C;
   *((uint16_t *)off_128E40 + 1) = a2;
   v4 = *v3 == 2;
-  v5 = (int (*)(void))off_128E44;
+  v5 = (int ( *)(int, int))off_128E44;
   if ( !v4 && a1 )
-    v5 = (int (*)(void))off_128E48;
+    v5 = (int ( *)(int, int))off_128E48;
   v2[8] = 0;
-  return v5();
+  return v5(0, 0x800000);
 }
-

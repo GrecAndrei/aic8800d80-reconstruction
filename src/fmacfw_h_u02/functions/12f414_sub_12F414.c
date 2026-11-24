@@ -10,40 +10,40 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_12F444;
 
 // deref_and_check @ 0x12f414, size 48 bytes
-uint32_t ** deref_and_check(uint32_t **result)
+int * deref_and_check(int *result, int a2)
 {
-  uint32_t *v1; // r4
-  int v2; // r6
-  uint32_t *v3; // r5
-  int v4; // r2
+  uint32_t *v2; // r4
+  int *v3; // r6
+  int *v4; // r5
+  int v5; // r2
 
-  v1 = *result;
+  v2 = (uint32_t *)*result;
   if ( *result )
   {
-    v2 = dword_12F444;
-    v3 = result;
+    v3 = (int *)dword_12F444;
+    v4 = result;
     do
     {
       while ( 1 )
       {
-        list_pop((int)v3);
-        result = (uint32_t **)v2;
-        if ( !v1[3] )
+        list_pop((int)v4);
+        result = v3;
+        if ( !v2[3] )
           break;
-        result = (uint32_t **)wlan_ioctl_handler_1(v2, v1);
-        v1 = (uint32_t *)*v3;
-        if ( !*v3 )
+        result = (int *)wlan_ioctl_handler_1((int)v3, v2);
+        v2 = (uint32_t *)*v4;
+        if ( !*v4 )
           return result;
       }
-      v4 = v1[2];
-      v1 = (uint32_t *)*v3;
-      *(uint16_t *)(v4 + 8) = 0;
+      v5 = v2[2];
+      v2 = (uint32_t *)*v4;
+      *(uint16_t *)(v5 + 8) = 0;
     }
-    while ( v1 );
+    while ( v2 );
   }
   return result;
 }
-

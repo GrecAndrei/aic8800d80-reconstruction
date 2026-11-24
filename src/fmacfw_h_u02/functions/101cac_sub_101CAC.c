@@ -10,17 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_101E50;
-extern uint32_t off_101E54;
+
 extern uint32_t dword_101E58;
+extern uint32_t off_101E50;
 extern uint32_t off_101E5C;
-extern uint32_t off_101E60;
-extern uint32_t off_101E64;
-extern uint32_t off_101E68;
 extern uint32_t off_101E6C;
-extern uint32_t dword_101E78;
-extern uint32_t dword_101E74;
-extern uint32_t dword_101E70;
+extern uint32_t off_101E78;
 
 // bt_packet_parser @ 0x101cac, size 420 bytes
 int  bt_packet_parser(unsigned int a1, signed int a2, uint8_t *a3)
@@ -29,7 +24,7 @@ int  bt_packet_parser(unsigned int a1, signed int a2, uint8_t *a3)
   unsigned int v4; // r7
   int v5; // cc
   char *v6; // r0
-  int v7; // r2
+  signed int v7; // r2
   int v8; // r5
   int v9; // r12
   int v10; // r4
@@ -38,12 +33,12 @@ int  bt_packet_parser(unsigned int a1, signed int a2, uint8_t *a3)
   unsigned int v13; // r4
   unsigned int v14; // r0
   char *v16; // r2
-  int v17; // r0
-  int v18; // r2
+  signed int v17; // r0
+  signed int v18; // r2
   int v19; // r12
   int v20; // r4
   int v21; // r0
-  int v22; // r0
+  char *v22; // r0
   int v23; // r3
 
   v3 = *a3;
@@ -52,7 +47,7 @@ int  bt_packet_parser(unsigned int a1, signed int a2, uint8_t *a3)
   {
     if ( a1 <= 1 )
     {
-      v8 = *((char *)off_101E50 + a2 + 198);
+      v8 = *((char *)&((uint32_t *)(uintptr_t)off_101E50)[49] + a2 + 2);
       if ( !a1 && (unsigned int)a2 <= 3 )
       {
         v9 = *a3;
@@ -92,10 +87,10 @@ LABEL_12:
     {
       v11 = 1;
     }
-    v12 = *(uint8_t *)(*(uint32_t *)off_101E54 + v11 + v9) + *(uint8_t *)(dword_101E58 + v10 + 8) + *(uint8_t *)off_101E5C;
+    v12 = *(uint8_t *)(*(uint32_t *)asc_151888 + v11 + v9) + *(uint8_t *)(dword_101E58 + v10 + 8) + *(uint8_t *)off_101E5C;
     v13 = v12;
-    if ( *((uint8_t *)off_101E50 + 396) )
-      v8 = (char)(*(uint8_t *)(*(uint32_t *)off_101E60 + v11) + v8);
+    if ( LOBYTE(((uint32_t *)(uintptr_t)off_101E50)[99]) )
+      v8 = (char)(*(uint8_t *)(*(uint32_t *)asc_151880 + v11) + v8);
     goto LABEL_18;
   }
   v16 = (char *)off_101E50 + a2;
@@ -150,23 +145,23 @@ LABEL_12:
   {
     v21 = 2;
   }
-  v12 = *(uint8_t *)(*(uint32_t *)off_101E64 + v21 + v19) + *(uint8_t *)(dword_101E58 + v20 + 11) + *((uint8_t *)off_101E5C + 1);
+  v12 = *(uint8_t *)(*(uint32_t *)a2_0 + v21 + v19) + *(uint8_t *)(dword_101E58 + v20 + 11) + *(uint8_t *)(off_101E5C + 1);
   v13 = v12;
-  if ( *((uint8_t *)off_101E50 + 396) )
-    v8 = (char)(*(uint8_t *)(*(uint32_t *)off_101E68 + v21) + v8);
+  if ( LOBYTE(((uint32_t *)(uintptr_t)off_101E50)[99]) )
+    v8 = (char)(*(uint8_t *)(*(uint32_t *)asc_151884 + v21) + v8);
 LABEL_18:
-  if ( (*((uint32_t *)off_101E50 + 98) & 2) != 0 )
+  if ( (((uint32_t *)(uintptr_t)off_101E50)[98] & 2) != 0 )
   {
     v22 = is_adv_enabled(v3, v4);
     if ( v22 )
     {
-      v23 = *(char *)(v22 + 4);
+      v23 = v22[4];
     }
     else
     {
-      if ( **(int16_t **)off_101E6C < 0 )
-        mmio_write_field(dword_101E78, dword_101E74, 7022);
-      alloc_tx_event(dword_101E70, v3, v4);
+      if ( **(uint16_t **)off_101E6C < 0 )
+        mmio_write_field(off_101E78, (int)aPhyGetTxpwrLev, 7022);
+      alloc_tx_event("invalid chan, band=%d, freq=%d\n", v3, v4);
       v23 = 15;
     }
     if ( v8 >= v23 )
@@ -178,4 +173,3 @@ LABEL_18:
     v14 = v13 + (v13 >> 31);
   return (char)((v14 >> 1) + v8);
 }
-

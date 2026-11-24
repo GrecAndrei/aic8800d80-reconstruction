@@ -10,27 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_124130;
 extern uint32_t off_124134;
-extern uint32_t dword_12413C;
-extern uint32_t dword_124140;
-extern uint32_t dword_124144;
-extern uint32_t dword_124148;
-extern uint32_t dword_124138;
-extern uint32_t dword_12414C;
 
-// rf_disable @ 0x1240ac, size 130 bytes
-int  rf_disable(int a1)
+// rf_disable_1 @ 0x1240ac, size 130 bytes
+int  rf_disable_1(int a1)
 {
   unsigned int *v1; // r1
   unsigned int *v2; // r4
   unsigned int v3; // r3
   unsigned int v4; // r2
-  int v5; // r0
   int result; // r0
-  int v7; // r0
-  int v8; // r0
-  int v9; // r0
 
   v1 = (unsigned int *)off_124130;
   v2 = (unsigned int *)off_124134;
@@ -41,40 +32,35 @@ int  rf_disable(int a1)
   switch ( a1 )
   {
     case 0:
-      dispatch_event_handler(dword_12413C);
+      dispatch_event_handler_1(aGi08us1xHeLtf3);
       result = 0;
       break;
     case 1:
-      v7 = dword_124140;
       *v1 = v3 | 0x10000;
-      dispatch_event_handler(v7);
+      dispatch_event_handler_1(aGi08us2xHeLtf6);
       result = 0;
       break;
     case 2:
-      v8 = dword_124144;
       *v1 = v3 | 0x10000;
       *v2 = v4 | 0x200;
-      dispatch_event_handler(v8);
+      dispatch_event_handler_1(aGi16us2xHeLtf6);
       result = 0;
       break;
     case 3:
-      v9 = dword_124148;
       *v1 = v3 | 0x20000;
-      dispatch_event_handler(v9);
+      dispatch_event_handler_1(aGi08us4xHeLtf1);
       result = 0;
       break;
     case 4:
-      v5 = dword_124138;
       *v1 = v3 | 0x20000;
       *v2 = v4 | 0x400;
-      dispatch_event_handler(v5);
+      dispatch_event_handler_1(aGi32us4xHeLtf1);
       goto LABEL_3;
     default:
-      dispatch_event_handler(dword_12414C);
+      dispatch_event_handler_1(aUnsupportValue);
 LABEL_3:
       result = 0;
       break;
   }
   return result;
 }
-

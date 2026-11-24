@@ -10,11 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11555C;
+extern uint32_t dword_115560;
 extern uint32_t off_115558;
 
 // check_patch_magic @ 0x1154e8, size 112 bytes
-// Doc: patch_apply_ne_54f6 [patch]: Apply patch with aligned check (ands r1, r2, 3)
-// patch_apply_ne_54f6 [patch]: Apply patch with aligned check (ands r1, r2, 3)
 void check_patch_magic()
 {
   uint32_t *v0; // r3
@@ -31,7 +32,7 @@ void check_patch_magic()
   int v11; // r0
 
   v0 = off_115558;
-  if ( *(uint32_t *)off_115558 == patch_apply_n74_555c && *((uint32_t *)off_115558 + 2) == patch_apply_n74_555c + 135327480 )
+  if ( *(uint32_t *)off_115558 == dword_11555C && *((uint32_t *)off_115558 + 2) == dword_11555C + 135327480 )
   {
     v1 = *((uint32_t *)off_115558 + 1);
     v2 = v1 & 3;
@@ -49,8 +50,8 @@ void check_patch_magic()
         }
         while ( v0[3] > v2 );
       }
-      v5 = (int *)patch_apply_entry_560;
-      v6 = patch_apply_entry_560 + 16;
+      v5 = (int *)dword_115560;
+      v6 = dword_115560 + 16;
       do
       {
         v8 = *v5++;
@@ -79,4 +80,3 @@ void check_patch_magic()
     }
   }
 }
-

@@ -10,17 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1132F0;
 extern uint32_t off_1132F4;
-extern uint32_t dword_113308;
-extern uint32_t dword_113304;
 extern uint32_t off_1132F8;
 extern uint32_t off_1132FC;
-extern uint32_t dword_11330C;
 extern uint32_t off_113300;
 
 // global_env_init_params @ 0x11324c, size 164 bytes
-int  global_env_init_params(int a1, unsigned int a2)
+int  global_env_init_params(int a1, int a2)
 {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
@@ -37,7 +35,7 @@ int  global_env_init_params(int a1, unsigned int a2)
   v3 = off_1132F4;
   if ( *(uint8_t *)off_1132F4 )
   {
-    printf_wrapper(dword_113308, dword_113304, *(uint8_t *)off_1132F4);
+    printf_wrapper("err: %s state=%d\r\n", aUsbWlanRecvFcO, *(uint8_t *)off_1132F4);
     return -3;
   }
   else
@@ -58,7 +56,7 @@ int  global_env_init_params(int a1, unsigned int a2)
     v7 = v6;
     if ( v6 )
     {
-      printf_wrapper(dword_11330C, dword_113304, v6);
+      printf_wrapper("err: %s ret=%d\r\n", aUsbWlanRecvFcO, v6);
       return -1;
     }
     else
@@ -66,7 +64,7 @@ int  global_env_init_params(int a1, unsigned int a2)
       *(uint8_t *)off_113300 = 1;
       if ( *v2 )
       {
-        rf_reg_write_alias(0, 1u);
+        rf_reg_write_alias(0, 1, 0);
         *v3 = 0;
         return -14;
       }
@@ -74,4 +72,3 @@ int  global_env_init_params(int a1, unsigned int a2)
   }
   return v7;
 }
-

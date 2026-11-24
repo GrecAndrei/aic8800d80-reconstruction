@@ -33,6 +33,7 @@ import argparse
 import hashlib
 import json
 import re
+import struct
 import subprocess
 import sys
 import tempfile
@@ -104,18 +105,103 @@ def canonical(names: list[str]) -> str:
     return sorted(names, key=lambda n: (not n.startswith("__aeabi_"), n))[0]
 
 
+def _encode_thm_call(pc: int, target: int) -> bytes:
+    """Encode an ARM Thumb-2 BL (R_ARM_THM_CALL) from `pc` to `target`."""
+    off = target - (pc + 4)
+    s = (off >> 24) & 1
+    j1 = ((~(off >> 23)) ^ s) & 1
+    j2 = ((~(off >> 22)) ^ s) & 1
+    return struct.pack(
+        "<HH",
+        0xF000 | (s << 10) | ((off >> 12) & 0x3FF),
+        0xD000 | (j1 << 13) | (j2 << 11) | ((off >> 1) & 0x7FF),
+    )
+
+
+def _intra_section_functions(tmp: Path) -> list[dict]:
+    """Global functions whose only relocs are intra-section R_ARM_THM_CALL."""
+    out: list[dict] = []
+    for lib in LIBS:
+        lib_dir = tmp / lib
+        for obj in sorted(lib_dir.glob("*.o")):
+            with obj.open("rb") as f:
+                elf = ELFFile(f)
+                symtab = elf.get_section_by_name(".symtab")
+                if symtab is None:
+                    continue
+                relocs: dict[int, list] = {}
+                for sec in elf.iter_sections():
+                    if isinstance(sec, RelocationSection):
+                        relocs.setdefault(sec["sh_info"], []).extend(sec.iter_relocations())
+                anchors: dict[int, list[tuple[str, int]]] = {}
+                cands = []
+                for sym in symtab.iter_symbols():
+                    if (sym["st_info"]["type"] != "STT_FUNC" or sym["st_info"]["bind"] == "STB_LOCAL"
+                            or sym["st_size"] < MIN_SIZE or not isinstance(sym["st_shndx"], int)):
+                        continue
+                    sh, start, size = sym["st_shndx"], sym["st_value"] & ~1, sym["st_size"]
+                    in_range = [r for r in relocs.get(sh, []) if start <= r["r_offset"] < start + size]
+                    if not in_range:
+                        anchors.setdefault(sh, []).append((sym.name, start))
+                    else:
+                        cands.append((sym, sh, start, size, in_range))
+                for sym, sh, start, size, in_range in cands:
+                    if sh not in anchors:
+                        continue
+                    sec_data = bytearray(elf.get_section(sh).data())
+                    raw = bytes(sec_data[start:start + size])
+                    if not all(
+                        r["r_info_type"] == 10 and symtab.get_symbol(r["r_info_sym"])["st_shndx"] == sh
+                        for r in in_range
+                    ):
+                        continue
+                    for r in in_range:
+                        rsym = symtab.get_symbol(r["r_info_sym"])
+                        sec_data[r["r_offset"]:r["r_offset"] + 4] = _encode_thm_call(
+                            r["r_offset"], rsym["st_value"] & ~1
+                        )
+                    out.append({
+                        "name": sym.name,
+                        "lib": lib,
+                        "member": obj.name,
+                        "anchors": anchors[sh],
+                        "start": start,
+                        "patched": bytes(sec_data[start:start + size]),
+                        "raw": raw,
+                    })
+    return out
+
+
 def scan() -> dict:
     with tempfile.TemporaryDirectory() as td:
-        funcs = library_functions(Path(td))
+        tmp = Path(td)
+        funcs = library_functions(tmp)
+        intra = _intra_section_functions(tmp)
     images = {}
     for img in IMAGES:
         data = (REPO / "inputs" / "firmware" / f"{img}.bin").read_bytes()
         at: dict[int, list[str]] = {}
+        anchor_pos: dict[str, list[int]] = {}
         for name, fn in funcs.items():
             pos = data.find(fn["bytes"])
             while pos >= 0:
                 at.setdefault(pos, []).append(name)
+                anchor_pos.setdefault(name, []).append(pos)
                 pos = data.find(fn["bytes"], pos + 1)
+        for item in intra:
+            matched_positions: set[int] = set()
+            for aname, astart in item["anchors"]:
+                for apos in anchor_pos.get(aname, ()):
+                    pos = apos + (item["start"] - astart)
+                    end = pos + len(item["patched"])
+                    if pos >= 0 and end <= len(data) and data[pos:end] == item["patched"]:
+                        matched_positions.add(pos)
+            if matched_positions:
+                funcs.setdefault(item["name"], {
+                    "bytes": item["raw"], "lib": item["lib"], "member": item["member"],
+                })
+                for pos in matched_positions:
+                    at.setdefault(pos, []).append(item["name"])
         rows = []
         for pos in sorted(at):
             sym = canonical(at[pos])

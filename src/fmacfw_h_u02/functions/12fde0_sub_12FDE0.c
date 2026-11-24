@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12FE50;
-extern uint32_t dword_12FE54;
 
 // mode_dispatch @ 0x12fde0, size 110 bytes
 int  mode_dispatch(int a1, int a2)
 {
   unsigned int v4; // r0
-  int v5; // r7
-  unsigned int v6; // r6
-  uint32_t *v7; // r4
-  int v8; // r0
+  int v5; // r1
+  int v6; // r7
+  unsigned int v7; // r6
+  int *v8; // r4
 
   if ( a1 == 1 )
   {
@@ -29,37 +29,36 @@ int  mode_dispatch(int a1, int a2)
   }
   else
   {
-    v4 = parse_uint_base(*(uint8_t **)(a2 + 4), 0, 0);
-    v5 = v4;
-    if ( v4 )
-      v5 = 1;
+    v4 = parse_uint_base(*(uint8_t **)(a2 + 4), nullptr, 0);
     v6 = v4;
+    if ( v4 )
+      v6 = 1;
+    v7 = v4;
     if ( a1 > 2 )
     {
-      v7 = off_12FE50;
-      v4 = parse_uint_base(*(uint8_t **)(a2 + 8), 0, 0);
+      v8 = (int *)off_12FE50;
+      v4 = parse_uint_base(*(uint8_t **)(a2 + 8), nullptr, 0);
       if ( v4 > 0x7D0 )
-        v7[91] = v4;
+        v8[91] = v4;
     }
     else
     {
-      v7 = off_12FE50;
+      v8 = (int *)off_12FE50;
     }
-    if ( *((uint8_t *)v7 + 363) != v5 )
+    if ( *((uint8_t *)v8 + 363) != v6 )
     {
-      *((uint8_t *)v7 + 363) = v5;
-      if ( v6 )
+      *((uint8_t *)v8 + 363) = v6;
+      if ( v7 )
       {
-        v8 = read_global_signed_flag(v4);
-        set_flag_send_event_42e(v8);
+        read_global_signed_flag(v4, v5);
+        set_flag_send_event_42e();
       }
       else
       {
         clear_flag_send_event_42e();
       }
     }
-    alloc_tx_event(dword_12FE54, v5, v7[91]);
+    alloc_tx_event("temp_comp en=%d, peroid_ms=%d\n", v6, v8[91]);
     return 0;
   }
 }
-

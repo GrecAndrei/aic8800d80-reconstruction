@@ -10,12 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12B7AC;
-extern uint32_t off_12B7B8;
-extern uint32_t dword_12B7C0;
-extern uint32_t dword_12B7BC;
 extern uint32_t off_12B7B0;
 extern uint32_t off_12B7B4;
+extern uint32_t off_12B7B8;
 
 // rf_read_irq_status @ 0x12b764, size 72 bytes
 int rf_read_irq_status()
@@ -24,8 +23,8 @@ int rf_read_irq_status()
   unsigned int v1; // r2
   int result; // r0
 
-  if ( **(int16_t **)off_12B7AC < 0 && *(uint32_t *)off_12B7B8 << 28 )
-    return ke_int_lock(dword_12B7C0, dword_12B7BC, 105, *(uint32_t *)off_12B7B8);
+  if ( **(uint16_t **)off_12B7AC < 0 && *(uint32_t *)off_12B7B8 << 28 )
+    return ke_int_lock_1((int)aNxmacCurrentSt, (int)aHalMachwIdleIr, 105);
   if ( (*(uint32_t *)off_12B7B0 & 0x80) != 0 )
   {
     v0 = off_12B7B4;
@@ -36,4 +35,3 @@ int rf_read_irq_status()
   }
   return result;
 }
-

@@ -10,12 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1347D0;
 extern uint32_t off_1347D4;
 extern uint32_t off_1347D8;
 
 // wlan_hw_init @ 0x1346dc, size 242 bytes
-uint32_t * wlan_hw_init(int a1, int a2)
+int  wlan_hw_init(int a1, int a2)
 {
   int *v4; // r5
   int v5; // r0
@@ -27,7 +28,7 @@ uint32_t * wlan_hw_init(int a1, int a2)
   int v11; // r1
   int v12; // r2
   int v13; // r3
-  int16_t v15; // r3
+  uint16_t v15; // r3
   int v16; // r5
   int v17; // r0
   int v18; // r3
@@ -36,7 +37,7 @@ uint32_t * wlan_hw_init(int a1, int a2)
   uint32_t v21[2]; // [sp+8h] [bp-8h]
 
   v4 = *((int **)off_1347D0 + 4);
-  v5 = bt_buf_alloc(4096, 4, 6, 0x178u);
+  v5 = bt_buf_alloc(4096, 4, 6, 376);
   *(uint8_t *)(v5 + 366) = *((uint8_t *)v4 + 61);
   v6 = v5;
   v7 = *v4;
@@ -75,7 +76,7 @@ LABEL_3:
   else
   {
     v15 = *((uint16_t *)off_1347D4 + 2);
-    *(uint32_t *)(v6 + 352) = *(uint32_t *)off_1347D4;
+    *(uint32_t *)(v6 + 352) = *off_1347D4;
     *(uint16_t *)(v6 + 356) = v15;
     if ( a2 )
       goto LABEL_3;
@@ -90,7 +91,7 @@ LABEL_3:
     if ( v17 )
     {
       v18 = v21[a2];
-      v19 = 6 * (int16_t)v17 + v18;
+      v19 = 6 * (uint16_t)v17 + v18;
       do
       {
         if ( (*(uint8_t *)(v18 + 3) & 2) == 0 )
@@ -114,4 +115,3 @@ LABEL_4:
   hci_evt_send(v6);
   return hci_cmd_send(6u, 1);
 }
-

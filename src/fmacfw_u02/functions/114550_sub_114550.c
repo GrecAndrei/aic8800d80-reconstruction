@@ -10,11 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114558;
-
 // get_global_1671bc @ 0x114550, size 6 bytes
-int  get_global_1671bc(int a1, int a2, int a3)
+int get_global_1671bc()
 {
-  return event_dispatch(dword_114558, a2, a3);
+  return event_dispatch(aErrorLpLevelPo_1);
 }
-

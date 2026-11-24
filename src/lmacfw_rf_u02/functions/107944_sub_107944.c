@@ -10,106 +10,100 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_107A58;
-extern uint32_t off_107A6C;
-extern uint32_t dword_107A5C;
+
 extern uint32_t dword_107A60;
-extern uint32_t dword_107A64;
+extern uint32_t off_107A58;
 extern uint32_t off_107A68;
+extern uint32_t off_107A6C;
 
 // rf_core_set_clock_override @ 0x107944, size 276 bytes
 int  rf_core_set_clock_override(int a1, uint32_t *a2)
 {
-  unsigned int *v2; // r6
+  uint32_t *v2; // r6
   unsigned int *v3; // r8
-  unsigned int v4; // r3
-  int v5; // r7
-  int v7; // r9
-  int *v8; // r4
-  int v9; // r11
-  int v10; // r10
-  int v11; // r0
-  int v12; // t1
-  int v13; // r3
-  int v14; // r2
-  int v15; // r1
-  int v16; // r5
-  unsigned int *v17; // r3
-  int v18; // r2
-  int v20; // [sp+8h] [bp-1Ch]
-  int v21; // [sp+Ch] [bp-18h]
-  int v22; // [sp+10h] [bp-14h]
-  int v23; // [sp+14h] [bp-10h]
-  int v24; // [sp+18h] [bp-Ch]
+  int v4; // r7
+  int v6; // r9
+  int *v7; // r4
+  int v8; // r11
+  int v9; // r10
+  int v10; // r0
+  int v11; // t1
+  int v12; // r3
+  int v13; // r2
+  int v14; // r5
+  unsigned int *v15; // r3
+  int v16; // r2
+  int v18; // [sp+8h] [bp-1Ch]
+  int v19; // [sp+Ch] [bp-18h]
+  int v20; // [sp+10h] [bp-14h]
+  int v21; // [sp+14h] [bp-10h]
+  int v22; // [sp+18h] [bp-Ch]
 
-  v2 = (unsigned int *)off_107A58;
+  v2 = off_107A58;
   v3 = (unsigned int *)off_107A6C;
   *(uint32_t *)off_107A58 |= 0x1000000u;
-  v4 = *v2 & 0xFDFFFFFF;
-  v5 = 1;
-  *v2 = v4;
-  v7 = 1000;
-  check_interrupt_flag(1, dword_107A5C, a2, v4);
-  v8 = (int *)(a1 + 12);
-  v23 = 1;
-  v24 = 1;
+  v4 = 1;
+  *v2 &= ~0x2000000u;
+  v6 = 1000;
+  check_interrupt_flag(1, &aAdjPwr[4]);
+  v7 = (int *)(a1 + 12);
   v21 = 1;
-  v20 = 1;
   v22 = 1;
-  v9 = 1;
-  v10 = 1000;
+  v19 = 1;
+  v18 = 1;
+  v20 = 1;
+  v8 = 1;
+  v9 = 1000;
   do
   {
     while ( 1 )
     {
-      v11 = v8[10];
-      v12 = v8[1];
-      ++v8;
-      *v3 = dword_107A60 & (v11 << 16) | *v3 & 0xF000FFFF;
-      *v3 = v12 & 0xFFF | *v3 & 0xFFFFF000;
+      v10 = v7[10];
+      v11 = v7[1];
+      ++v7;
+      *v3 = dword_107A60 & (v10 << 16) | *v3 & 0xF000FFFF;
+      *v3 = v11 & 0xFFF | *v3 & 0xFFFFF000;
       write_timer_reg(40);
-      v13 = v8[9];
-      v14 = *v8;
-      v15 = dword_107A64;
+      v12 = v7[9];
+      v13 = *v7;
       *v2 |= 0x4000000u;
-      v16 = *(uint32_t *)off_107A68 & 0x7FFF;
+      v14 = *(uint32_t *)off_107A68 & 0x7FFF;
       *v2 &= ~0x4000000u;
-      check_interrupt_flag(1, v15, v14, v13);
-      if ( v16 >= v7 )
+      check_interrupt_flag(1, "am=%4d,ph=%4d,%d\n", v13, v12, v14);
+      if ( v14 >= v6 )
         break;
-      v23 = v21;
-      v24 = v20;
-      v21 = v8[9];
-      v22 = v9;
-      v10 = v7;
-      v20 = *v8;
-      v7 = v16;
-      v9 = v5;
+      v21 = v19;
+      v22 = v18;
+      v19 = v7[9];
+      v20 = v8;
+      v9 = v6;
+      v18 = *v7;
+      v6 = v14;
+      v8 = v4;
 LABEL_3:
-      if ( ++v5 == 10 )
+      if ( ++v4 == 10 )
         goto LABEL_7;
     }
-    if ( v16 >= v10 )
+    if ( v14 >= v9 )
       goto LABEL_3;
-    v22 = v5++;
-    v24 = *v8;
-    v23 = v8[9];
-    v10 = v16;
+    v20 = v4++;
+    v22 = *v7;
+    v21 = v7[9];
+    v9 = v14;
   }
-  while ( v5 != 10 );
+  while ( v4 != 10 );
 LABEL_7:
-  v17 = (unsigned int *)off_107A58;
-  v18 = *(uint32_t *)off_107A58;
-  a2[5] = v20;
-  a2[6] = v21;
-  a2[7] = v24;
-  a2[3] = v7;
-  a2[8] = v23;
-  a2[9] = v9;
-  a2[4] = v10;
-  a2[10] = v22;
-  *v17 = v18 & 0xFEFFFFFF;
-  *v17 &= ~0x2000000u;
-  return v22;
+  v15 = (unsigned int *)off_107A58;
+  v16 = *(uint32_t *)off_107A58;
+  a2[5] = v18;
+  a2[6] = v19;
+  a2[7] = v22;
+  a2[3] = v6;
+  a2[8] = v21;
+  a2[9] = v8;
+  a2[4] = v9;
+  a2[10] = v20;
+  *v15 = v16 & 0xFEFFFFFF;
+  *v15 &= ~0x2000000u;
+  return v20;
 }
-

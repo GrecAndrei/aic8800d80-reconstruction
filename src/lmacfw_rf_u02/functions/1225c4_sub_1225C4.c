@@ -10,24 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1225F0;
-
 // call_copy_packet_data @ 0x1225c4, size 44 bytes
-int  call_copy_packet_data(int a1, int a2)
+int  call_copy_packet_data(int a1)
 {
+  int v1; // r1
   float v3; // r0
-  int v4; // r0
 
   if ( a1 <= 1 )
   {
     v3 = COERCE_FLOAT(gpio_port_init());
-    v4 = dispatch_event_handler(dword_1225F0, (int)v3);
-    rf_param_build(v4);
+    dispatch_event_handler_1("Temp      : %d C\n", (int)v3);
+    rf_param_build();
   }
   else
   {
-    copy_packet_data(a1, a2);
+    copy_packet_data(a1, v1);
   }
   return 0;
 }
-

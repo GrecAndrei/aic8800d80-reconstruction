@@ -10,11 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_118D24;
 
 // scan_control @ 0x118cfc, size 40 bytes
-// Doc: sub_1218CFC [unknown]: Unknown helper at 0x1218cfc in fmacfw
-// sub_1218CFC [unknown]: Unknown helper at 0x1218cfc in fmacfw
 int  scan_control(int result, int a2)
 {
   int v2; // r4
@@ -22,7 +21,7 @@ int  scan_control(int result, int a2)
 
   v2 = result;
   if ( !*(uint8_t *)(result + 96) )
-    result = cmd_handler_a(dword_118D24);
+    result = cmd_handler_a(dword_118D24, (uint32_t *)result);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 88);
@@ -31,4 +30,3 @@ int  scan_control(int result, int a2)
   }
   return result;
 }
-

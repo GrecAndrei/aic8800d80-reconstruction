@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_134CA4;
-extern uint32_t dword_134CAC;
+
 extern uint32_t dword_134CA8;
+extern uint32_t off_134CA4;
 
 // ke_timer_set @ 0x134c4c, size 86 bytes
 int  ke_timer_set(int a1, int a2, int a3)
@@ -26,7 +26,7 @@ int  ke_timer_set(int a1, int a2, int a3)
   hci_cmd_preprocess(6u, 10);
   check_feature_flag(
     256,
-    dword_134CAC,
+    "disconnct:%d,%d, sta_tx_cnt=%d, host_init=%d\r\n",
     *(uint8_t *)(a1 + 107),
     a2,
     *(uint16_t *)(dword_134CA8 + 696 * *(uint8_t *)(a1 + 116) + 50),
@@ -36,4 +36,3 @@ int  ke_timer_set(int a1, int a2, int a3)
   else
     return ble_load_defaults();
 }
-

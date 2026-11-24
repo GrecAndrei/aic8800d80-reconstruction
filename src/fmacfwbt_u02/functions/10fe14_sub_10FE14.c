@@ -10,9 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10FE54;
+
 extern uint32_t dword_10FE58;
-extern uint32_t dword_10FE5C;
+extern uint32_t off_10FE54;
 
 // check_radio_state @ 0x10fe14, size 62 bytes
 uint32_t * check_radio_state(char a1)
@@ -20,7 +20,7 @@ uint32_t * check_radio_state(char a1)
   uint32_t *v2; // r4
 
   if ( **(uint8_t **)off_10FE54 == 1 )
-    v2 = (uint32_t *)critical_enter_6();
+    v2 = critical_enter_6();
   else
     v2 = rx_process_item(dword_10FE58, 0x7Cu);
   if ( !v2 )
@@ -30,7 +30,6 @@ uint32_t * check_radio_state(char a1)
     *((uint8_t *)v2 - 1) = a1;
     return v2;
   }
-  printf_wrapper(dword_10FE5C, v2);
+  printf_wrapper("set_user_id: Invalid buffer passed: %x\n", v2);
   return v2;
 }
-

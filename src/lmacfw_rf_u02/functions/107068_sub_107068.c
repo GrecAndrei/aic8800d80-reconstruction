@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10713C;
 extern uint32_t off_107140;
 extern uint32_t off_107144;
-extern uint32_t dword_107148;
-extern uint32_t dword_10714C;
+extern uint32_t off_10714C;
 
 // gpio_output @ 0x107068, size 212 bytes
 int  gpio_output(int a1, int a2)
@@ -22,11 +22,7 @@ int  gpio_output(int a1, int a2)
   uint32_t *v2; // r5
   unsigned int *v3; // r4
   uint32_t *v5; // r2
-  int v6; // r1
-  int v7; // r2
-  unsigned int v8; // r3
-  int v9; // r2
-  int v10; // r3
+  int v6; // r2
   int result; // r0
 
   v2 = off_10713C;
@@ -43,15 +39,13 @@ int  gpio_output(int a1, int a2)
   *v2 &= ~1u;
   write_timer_reg(100);
   v5 = off_107144;
-  v6 = dword_107148;
   *v3 |= 0x4000000u;
-  v7 = *v5 & 0x7FFF;
-  v8 = *v3 & 0xFBFFFFFF;
-  *v3 = v8;
-  *(uint32_t *)(a1 + 44) = v7;
-  check_interrupt_flag(1, v6, v7, v8);
+  v6 = *v5 & 0x7FFF;
+  *v3 &= ~0x4000000u;
+  *(uint32_t *)(a1 + 44) = v6;
+  check_interrupt_flag(1, "lpf_bypass_pwr=%4d   ", v6);
   write_timer_reg(5);
-  result = check_interrupt_flag(1, dword_10714C, v9, v10);
+  result = check_interrupt_flag(1, (const char *)off_10714C);
   *v3 &= ~0x1000000u;
   *v3 &= ~0x2000000u;
   *v2 &= ~4u;
@@ -62,4 +56,3 @@ int  gpio_output(int a1, int a2)
   *v3 &= ~0x100000u;
   return result;
 }
-

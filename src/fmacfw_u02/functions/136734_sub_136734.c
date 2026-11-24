@@ -10,12 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_136818;
+
 extern uint32_t dword_136814;
 extern uint32_t dword_13681C;
+extern uint32_t off_136818;
 
 // bt_vendor_send @ 0x136734, size 222 bytes
-uint32_t * bt_vendor_send(int a1)
+int  bt_vendor_send(int a1)
 {
   uint32_t *v1; // r8
   int v3; // r6
@@ -24,7 +25,7 @@ uint32_t * bt_vendor_send(int a1)
   int v7; // r7
   int v8; // r0
   int v9; // r9
-  int16_t v10; // r2
+  uint16_t v10; // r2
   int v11; // r3
   int v12; // r12
   int v13; // r1
@@ -35,7 +36,7 @@ uint32_t * bt_vendor_send(int a1)
 
   v1 = off_136818;
   v3 = *(uint32_t *)off_136818;
-  v4 = (uint8_t *)ke_msg_alloc(7169, 13, 7, 4u);
+  v4 = (uint8_t *)ke_msg_alloc(7169, 13, 7, 4);
   if ( a1 )
   {
     v5 = *(uint8_t *)(v3 + 51);
@@ -43,11 +44,11 @@ uint32_t * bt_vendor_send(int a1)
   else
   {
     v7 = *(uint8_t *)(v3 + 51);
-    v8 = ke_msg_alloc(30, 0, 7, 4u);
+    v8 = ke_msg_alloc(30, 0, 7, 4);
     v9 = dword_136814 + 1320 * v7;
     *(uint8_t *)(v8 + 2) = 1;
     *(uint8_t *)(v8 + 3) = *(uint8_t *)(v9 + 107);
-    ke_msg_send(v8);
+    ke_msg_send_2(v8);
     v10 = *(uint16_t *)(v3 + 48);
     v11 = *(uint32_t *)(v9 + 72);
     *(uint32_t *)(v9 + 1208) = *(uint32_t *)(v3 + 44);
@@ -75,9 +76,8 @@ uint32_t * bt_vendor_send(int a1)
   }
   v4[1] = v5;
   *v4 = a1;
-  ke_msg_send((int)v4);
-  branch_to_12cbc8(v3 - 12);
+  ke_msg_send_2((int)v4);
+  branch_to_12cbc8((char *)(v3 - 12));
   *v1 = 0;
   return rx_phy_status_parse(7u, 0);
 }
-

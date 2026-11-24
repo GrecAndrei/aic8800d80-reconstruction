@@ -10,20 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_136B24;
 
 // rf_core_enable @ 0x136ae8, size 58 bytes
-// Doc: sub_1236AE8 [bt]: Init/dispatch helper, calls 0x12cb54 with constants 0x3f/0/7/0xc
-// sub_1236AE8 [bt]: Init/dispatch helper, calls 0x12cb54 with constants 0x3f/0/7/0xc
-uint32_t *rf_core_enable()
+int rf_core_enable()
 {
   int v0; // r4
   int v1; // r0
-  int16_t v2; // r1
-  int16_t v3; // r2
+  uint16_t v2; // r1
+  uint16_t v3; // r2
 
   v0 = *(uint32_t *)off_136B24;
-  v1 = bt_buf_alloc(63, 0, 7, 0xCu);
+  v1 = bt_buf_alloc(63, 0, 7, 12);
   v2 = *(uint16_t *)(v0 + 36);
   v3 = *(uint16_t *)(v0 + 38);
   *(uint32_t *)v1 = *(uint32_t *)(v0 + 32);
@@ -34,4 +33,3 @@ uint32_t *rf_core_enable()
   hci_evt_send(v1);
   return hci_cmd_send(7u, 2);
 }
-

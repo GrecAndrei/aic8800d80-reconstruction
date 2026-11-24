@@ -10,156 +10,200 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_115648;
-extern uint32_t off_115680;
-extern uint32_t off_115650;
-extern uint32_t off_115670;
-extern uint32_t dword_115690;
-extern uint32_t dword_115684;
-extern uint32_t off_115678;
-extern uint32_t dword_115694;
-extern uint32_t off_115674;
-extern uint32_t dword_115698;
-extern uint32_t off_11567C;
-extern uint32_t dword_11569C;
-extern uint32_t off_11564C;
-extern uint32_t dword_11568C;
-extern uint32_t dword_115688;
-extern uint32_t off_115660;
-extern uint32_t dword_11565C;
-extern uint32_t off_115658;
+
 extern uint32_t dword_115654;
+extern uint32_t dword_11565C;
+extern uint32_t off_115648;
+extern uint32_t off_11564C;
+extern uint32_t off_115650;
+extern uint32_t off_115660;
 extern uint32_t off_115664;
 extern uint32_t off_115668;
 extern uint32_t off_11566C;
+extern uint32_t off_115670;
+extern uint32_t off_115674;
+extern uint32_t off_115678;
+extern uint32_t off_11567C;
+extern uint32_t off_115680;
+extern uint32_t off_115688;
 
 // adv_pdu_type_handler @ 0x1153f4, size 594 bytes
-// Doc: sub_12153F4 [util]: Switch dispatch on input code (<=5) with 4 saved regs
-// sub_12153F4 [util]: Switch dispatch on input code (<=5) with 4 saved regs
-int * adv_pdu_type_handler(int a1, int a2, int a3, int a4)
+int * adv_pdu_type_handler(int a1, int a2)
 {
-  uint32_t *v5; // r3
-  int *v6; // r0
-  int *v7; // r3
-  int v8; // r2
-  int v9; // r4
-  uint32_t *v10; // r3
+  uint32_t *v3; // r3
+  volatile unsigned int v4; // r2
+  int *v5; // r0
+  unsigned int *v6; // r3
+  unsigned int v7; // r2
+  int v8; // r4
+  uint32_t *v9; // r3
   int *result; // r0
-  int v12; // r2
-  int v13; // r1
-  int v14; // r4
-  uint32_t *v15; // r1
+  int v11; // r2
+  int v12; // r1
+  int v13; // r4
+  uint32_t *v14; // r1
+  uint32_t *v15; // r3
   uint32_t *v16; // r3
   uint32_t *v17; // r3
   uint32_t *v18; // r3
-  uint32_t *v19; // r3
+  volatile unsigned int v19; // r5
+  unsigned int v20; // r5
+  int v21; // r3
+  volatile unsigned int v22; // r5
+  unsigned int v23; // r5
+  int v24; // r3
+  volatile unsigned int v25; // r5
+  unsigned int v26; // r5
+  int v27; // r3
+  volatile unsigned int v28; // r5
+  unsigned int v29; // r5
+  int v30; // r3
+  volatile unsigned int v31; // r5
+  unsigned int v32; // r5
+  int v33; // r3
 
   switch ( a2 )
   {
     case 0:
       if ( ((*(uint32_t *)off_115648 >> 4) & 3) != 2 )
         goto LABEL_12;
-      while ( ((*(uint32_t *)off_115648 >> 4) & 3) == 2 )
-        ;
-      if ( **(int16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 4) & 3) != 2 )
+      v22 = REG_4032_0120;
+      v23 = v22 + 2;
+      do
+      {
+        if ( ((*(uint32_t *)off_115648 >> 4) & 3) != 2 )
+          break;
+        v24 = REG_4032_0120 - v23;
+      }
+      while ( v24 < 0 );
+      if ( **(uint16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 4) & 3) != 2 )
       {
 LABEL_12:
-        v16 = off_115650;
+        v15 = off_115650;
         *(uint32_t *)off_115670 = a1;
-        *v16 = 512;
+        *v15 = 512;
         goto LABEL_4;
       }
-      result = (int *)ke_int_lock(dword_115690, dword_115684, 1919, a4);
+      result = (int *)ke_int_lock_1((int)aNxmacTxAc0Stat, (int)aTxlCntrlNewhea, 1919);
       break;
     case 1:
       if ( ((*(uint32_t *)off_115648 >> 8) & 3) != 2 )
         goto LABEL_16;
-      while ( ((*(uint32_t *)off_115648 >> 8) & 3) == 2 )
-        ;
-      if ( **(int16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 8) & 3) != 2 )
+      v25 = REG_4032_0120;
+      v26 = v25 + 2;
+      do
+      {
+        if ( ((*(uint32_t *)off_115648 >> 8) & 3) != 2 )
+          break;
+        v27 = REG_4032_0120 - v26;
+      }
+      while ( v27 < 0 );
+      if ( **(uint16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 8) & 3) != 2 )
       {
 LABEL_16:
-        v18 = off_115650;
+        v17 = off_115650;
         *(uint32_t *)off_115678 = a1;
-        *v18 = 1024;
+        *v17 = 1024;
         goto LABEL_4;
       }
-      result = (int *)ke_int_lock(dword_115694, dword_115684, 1907, a4);
+      result = (int *)ke_int_lock_1((int)aNxmacTxAc1Stat, (int)aTxlCntrlNewhea, 1907);
       break;
     case 2:
       if ( ((*(uint32_t *)off_115648 >> 12) & 3) != 2 )
         goto LABEL_14;
-      while ( ((*(uint32_t *)off_115648 >> 12) & 3) == 2 )
-        ;
-      if ( **(int16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 12) & 3) != 2 )
+      v28 = REG_4032_0120;
+      v29 = v28 + 2;
+      do
+      {
+        if ( ((*(uint32_t *)off_115648 >> 12) & 3) != 2 )
+          break;
+        v30 = REG_4032_0120 - v29;
+      }
+      while ( v30 < 0 );
+      if ( **(uint16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 12) & 3) != 2 )
       {
 LABEL_14:
-        v17 = off_115650;
+        v16 = off_115650;
         *(uint32_t *)off_115674 = a1;
-        *v17 = 2048;
+        *v16 = 2048;
         goto LABEL_4;
       }
-      result = (int *)ke_int_lock(dword_115698, dword_115684, 1895, a4);
+      result = (int *)ke_int_lock_1((int)aNxmacTxAc2Stat, (int)aTxlCntrlNewhea, 1895);
       break;
     case 3:
       if ( (HIWORD(*(uint32_t *)off_115648) & 3) != 2 )
         goto LABEL_18;
-      while ( (HIWORD(*(uint32_t *)off_115648) & 3) == 2 )
-        ;
-      if ( **(int16_t **)off_115680 >= 0 || (HIWORD(*(uint32_t *)off_115648) & 3) != 2 )
+      v31 = REG_4032_0120;
+      v32 = v31 + 2;
+      do
+      {
+        if ( (HIWORD(*(uint32_t *)off_115648) & 3) != 2 )
+          break;
+        v33 = REG_4032_0120 - v32;
+      }
+      while ( v33 < 0 );
+      if ( **(uint16_t **)off_115680 >= 0 || (HIWORD(*(uint32_t *)off_115648) & 3) != 2 )
       {
 LABEL_18:
-        v19 = off_115650;
+        v18 = off_115650;
         *(uint32_t *)off_11567C = a1;
-        *v19 = 4096;
+        *v18 = 4096;
         goto LABEL_4;
       }
-      result = (int *)ke_int_lock(dword_11569C, dword_115684, 1883, a4);
+      result = (int *)ke_int_lock_1((int)aNxmacTxAc3Stat, (int)aTxlCntrlNewhea, 1883);
       break;
     case 5:
       if ( (HIBYTE(*(uint32_t *)off_115648) & 3) != 2 )
         goto LABEL_3;
-      while ( (HIBYTE(*(uint32_t *)off_115648) & 3) == 2 )
-        ;
-      if ( **(int16_t **)off_115680 >= 0 || (HIBYTE(*(uint32_t *)off_115648) & 3) != 2 )
+      v19 = REG_4032_0120;
+      v20 = v19 + 2;
+      do
+      {
+        if ( (HIBYTE(*(uint32_t *)off_115648) & 3) != 2 )
+          break;
+        v21 = REG_4032_0120 - v20;
+      }
+      while ( v21 < 0 );
+      if ( **(uint16_t **)off_115680 >= 0 || (HIBYTE(*(uint32_t *)off_115648) & 3) != 2 )
       {
 LABEL_3:
-        v5 = off_115650;
+        v3 = off_115650;
         *(uint32_t *)off_11564C = a1;
-        *v5 = 0x4000;
+        *v3 = 0x4000;
         goto LABEL_4;
       }
-      result = (int *)ke_int_lock(dword_11568C, dword_115684, 1931, a4);
+      result = (int *)ke_int_lock_1((int)aNxmacTxHiState, (int)aTxlCntrlNewhea, 1931);
       break;
     default:
-      if ( **(int16_t **)off_115680 < 0 )
-        flash_ctrl_init(dword_115688, dword_115684, 1937);
+      if ( **(uint16_t **)off_115680 < 0 )
+        flash_ctrl_init(off_115688, (int)aTxlCntrlNewhea, 1937);
 LABEL_4:
-      v6 = (int *)off_115660;
-      v7 = (int *)(4 * (dword_11565C + a2));
-      v8 = *(uint32_t *)off_115658 + *(uint32_t *)(dword_115654 + 4 * a2);
-      v9 = 1 << a2;
-      *v7 = v8;
-      *v6 = v9;
+      v4 = REG_4032_0120;
+      v5 = (int *)off_115660;
+      v6 = (unsigned int *)(4 * (dword_11565C + a2));
+      v7 = v4 + *(uint32_t *)(dword_115654 + 4 * a2);
+      v8 = 1 << a2;
+      *v6 = v7;
+      *v5 = v8;
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
         *(uint32_t *)off_115664 = 1;
       }
-      v10 = off_115668;
+      v9 = off_115668;
       result = (int *)off_11566C;
-      v12 = *(uint32_t *)off_115668;
-      v13 = *(uint32_t *)off_115668 + 1;
-      v14 = v9 | *(uint32_t *)off_11566C;
-      *(uint32_t *)off_115668 = v13;
-      *result = v14;
-      if ( v13 )
+      v11 = *(uint32_t *)off_115668;
+      v12 = *(uint32_t *)off_115668 + 1;
+      v13 = v8 | *(uint32_t *)off_11566C;
+      *(uint32_t *)off_115668 = v12;
+      *result = v13;
+      if ( v12 )
       {
-        v15 = off_115664;
-        *v10 = v12;
-        if ( !v12 )
+        v14 = off_115664;
+        *v9 = v11;
+        if ( !v11 )
         {
-          if ( *v15 )
+          if ( *v14 )
             __enable_irq();
         }
       }
@@ -167,4 +211,3 @@ LABEL_4:
   }
   return result;
 }
-

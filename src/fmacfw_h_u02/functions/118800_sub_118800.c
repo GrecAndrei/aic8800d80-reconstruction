@@ -10,59 +10,53 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1188AC;
-extern uint32_t dword_1188B0;
-extern uint32_t dword_1188B4;
 
 // phy_dispatch @ 0x118800, size 172 bytes
-int  phy_dispatch(int a1, int a2, int a3)
+uint32_t * phy_dispatch(unsigned int a1, int a2, int a3)
 {
-  int16_t **v3; // r8
-  int v4; // r10
-  int v5; // r9
-  int v9; // r4
-  int v10; // r1
+  uint16_t **v3; // r8
+  uint32_t *v7; // r4
+  int v8; // r1
 
-  v3 = (int16_t **)off_1188AC;
-  v4 = dword_1188B0;
-  v5 = dword_1188B4;
+  v3 = (uint16_t **)off_1188AC;
   while ( 1 )
   {
-    v9 = list_pop(a2);
-    if ( !v9 )
+    v7 = list_pop(a2);
+    if ( !v7 )
       break;
     while ( 1 )
     {
-      v10 = *(uint32_t *)(v9 + 76);
-      if ( *(uint32_t *)(v9 + 68) )
+      v8 = v7[19];
+      if ( v7[17] )
       {
-        *(uint32_t *)(v10 + 4) = 2080374784;
+        *(uint32_t *)(v8 + 4) = 2080374784;
       }
-      else if ( *(int *)(v10 + 4) >= 0 )
+      else if ( *(int *)(v8 + 4) >= 0 )
       {
-        *(uint32_t *)(v10 + 4) = 0x40000000;
+        *(uint32_t *)(v8 + 4) = 0x40000000;
       }
-      if ( *(uint16_t *)(v9 + 4) )
+      if ( *((uint16_t *)v7 + 2) )
         break;
-      set_string_0x1882c0(v9);
-      v9 = list_pop(a2);
-      if ( !v9 )
+      set_string_0x1882c0(v7);
+      v7 = list_pop(a2);
+      if ( !v7 )
         return alloc_dma_buf();
     }
-    *(uint32_t *)(v10 + 4) |= 0x800000u;
-    check_cal_status(v9, (uint32_t *)(v10 + 4));
-    conn_handle_get(v9);
-    if ( phy_switch_radio(v9, 1) )
+    *(uint32_t *)(v8 + 4) |= 0x800000u;
+    check_cal_status((int)v7, (uint32_t *)(v8 + 4));
+    conn_handle_get((int)v7);
+    if ( phy_switch_radio((int)v7, 1) )
     {
       if ( **v3 < 0 && !a3 )
-        irq_disable_mmio_write(v5, v4, 1105);
-      wlan_ioctl_handler_1(a3);
+        irq_disable_mmio_write((int)aRepushList, (int)aTxlCfmFlush, 1105);
+      wlan_ioctl_handler_1(a3, v7);
     }
     else
     {
-      unknown_12f4b4(a1, v9);
+      unknown_12f4b4(a1, (int)v7);
     }
   }
   return alloc_dma_buf();
 }
-

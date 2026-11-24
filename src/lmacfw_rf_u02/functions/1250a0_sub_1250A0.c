@@ -10,9 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1250D0;
-extern uint32_t dword_1250CC;
-
 // set_rx_gain @ 0x1250a0, size 42 bytes
 int  set_rx_gain(int a1, int a2)
 {
@@ -20,15 +17,14 @@ int  set_rx_gain(int a1, int a2)
 
   if ( a1 <= 1 )
   {
-    dispatch_event_handler(dword_1250D0);
+    dispatch_event_handler_1(asc_13039C, a2);
     return 1;
   }
   else
   {
-    v2 = parse_number(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v2 = parse_number(*(uint8_t **)(a2 + 4), nullptr, 0xAu);
     set_reg_1807fc_bit0(v2);
-    dispatch_event_handler(dword_1250CC);
+    dispatch_event_handler_1(asc_130320);
     return 0;
   }
 }
-

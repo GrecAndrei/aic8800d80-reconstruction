@@ -10,11 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10F250;
 extern uint32_t off_10F254;
+extern uint32_t off_10F258;
 
 // rf_copy_stats @ 0x10f204, size 74 bytes
-void __noreturn rf_copy_stats()
+int rf_copy_stats()
 {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -38,5 +40,9 @@ void __noreturn rf_copy_stats()
   *(uint64_t *)(v2 + 12) = v3;
   *((uint32_t *)v2 + 5) = v5;
   init_radio_hw();
+  dispatch_interrupt();
+  install_isr();
+  if ( **(uint8_t **)off_10F258 == 3 )
+    zero_buffer_range();
+  return clear_global_182aac();
 }
-

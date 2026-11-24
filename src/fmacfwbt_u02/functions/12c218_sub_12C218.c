@@ -10,120 +10,98 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12C3AC;
-extern uint32_t off_12C3B0;
+
 extern uint32_t dword_12C3B4;
 extern uint32_t dword_12C3B8;
+extern uint32_t off_12C3AC;
+extern uint32_t off_12C3B0;
+extern uint32_t off_12C3BC;
 extern uint32_t off_12C3C8;
 extern uint32_t off_12C3CC;
 extern uint32_t off_12C3D0;
-extern uint32_t off_12C3BC;
-extern uint32_t dword_12C3D4;
-extern uint32_t dword_12C3C0;
-extern uint32_t dword_12C3D8;
-extern uint32_t dword_12C3DC;
-extern uint32_t dword_12C3E0;
-extern uint32_t dword_12C3E4;
-extern uint32_t dword_12C3E8;
-extern uint32_t dword_12C3EC;
-extern uint32_t dword_12C3F0;
-extern uint32_t dword_12C3F4;
-extern uint32_t dword_12C3F8;
-extern uint32_t dword_12C3FC;
-extern uint32_t dword_12C400;
-extern uint32_t dword_12C404;
-extern uint32_t dword_12C3C4;
 
 // mac_irq_status @ 0x12c218, size 402 bytes
-int  mac_irq_status(int result, int a2, int a3, int a4)
+void mac_irq_status()
 {
-  int v4; // r1
-  int v5; // r4
-  int v6; // r3
-  int v7; // r5
+  int v0; // r4
+  int v1; // r3
+  int v2; // r5
 
-  v4 = *(uint32_t *)off_12C3AC;
-  v5 = *(uint32_t *)off_12C3B0 & *(uint32_t *)off_12C3AC;
-  v6 = dword_12C3B4 & v5;
-  *((uint32_t *)off_12C3AC + 1) = v5;
-  if ( v6 )
-    result = set_system_flag_1(0x1000000);
-  if ( (dword_12C3B8 & v5) != 0 )
-    result = set_system_flag_1(0x800000);
-  if ( (v5 & 4) != 0 )
-    result = rf_read_irq_status();
-  if ( (v5 & 8) != 0 )
-    result = power_state_read(result, v4);
-  if ( (v5 & 0x10000000) != 0 )
+  v0 = *(uint32_t *)off_12C3B0 & *(uint32_t *)off_12C3AC;
+  v1 = dword_12C3B4 & v0;
+  *((uint32_t *)off_12C3AC + 1) = v0;
+  if ( v1 )
+    set_system_flag_1(0x1000000);
+  if ( (dword_12C3B8 & v0) != 0 )
+    set_system_flag_1(0x800000);
+  if ( (v0 & 4) != 0 )
+    rf_read_irq_status();
+  if ( (v0 & 8) != 0 )
+    power_state_read();
+  if ( (v0 & 0x10000000) != 0 )
   {
-    v7 = *(uint32_t *)off_12C3C8;
+    v2 = *(uint32_t *)off_12C3C8;
     *((uint8_t *)off_12C3CC + 30) |= *(uint8_t *)off_12C3C8 & 0x3F;
-    result = set_system_flag_1(0x40000);
-    *(uint32_t *)off_12C3D0 = v7;
+    set_system_flag_1(0x40000);
+    *(uint32_t *)off_12C3D0 = v2;
   }
-  if ( **(int16_t **)off_12C3BC < 0 )
+  if ( **(uint16_t **)off_12C3BC < 0 )
   {
-    if ( (v5 & 0x400000) != 0 )
+    if ( (v0 & 0x400000) != 0 )
     {
-      return ke_int_lock(dword_12C3D4, dword_12C3C0, 847, a4);
+      ke_int_lock_1((int)aGenirqPendingN_0, (int)aHalMachwGenHan, 847);
     }
-    else if ( (v5 & 0x200000) != 0 )
+    else if ( (v0 & 0x200000) != 0 )
     {
-      return ke_int_lock(dword_12C3D8, dword_12C3C0, 848, a4);
+      ke_int_lock_1((int)aGenirqPendingN_1, (int)aHalMachwGenHan, 848);
     }
-    else if ( (v5 & 0x40) != 0 )
+    else if ( (v0 & 0x40) != 0 )
     {
-      return ke_int_lock(dword_12C3DC, dword_12C3C0, 849, a4);
+      ke_int_lock_1((int)aGenirqPendingN_2, (int)aHalMachwGenHan, 849);
     }
-    else if ( (v5 & 0x100) != 0 )
+    else if ( (v0 & 0x100) != 0 )
     {
-      return ke_int_lock(dword_12C3E0, dword_12C3C0, 850, a4);
+      ke_int_lock_1((int)aGenirqPendingN_3, (int)aHalMachwGenHan, 850);
     }
-    else if ( (v5 & 0x1000) != 0 )
+    else if ( (v0 & 0x1000) != 0 )
     {
-      return ke_int_lock(dword_12C3E4, dword_12C3C0, 851, a4);
+      ke_int_lock_1((int)aGenirqPendingN_4, (int)aHalMachwGenHan, 851);
     }
-    else if ( (v5 & 0x2000) != 0 )
+    else if ( (v0 & 0x2000) != 0 )
     {
-      return ke_int_lock(dword_12C3E8, dword_12C3C0, 852, a4);
+      ke_int_lock_1((int)aGenirqPendingN_5, (int)aHalMachwGenHan, 852);
     }
-    else if ( (v5 & 0x4000) != 0 )
+    else if ( (v0 & 0x4000) != 0 )
     {
-      return ke_int_lock(dword_12C3EC, dword_12C3C0, 853, a4);
+      ke_int_lock_1((int)aGenirqPendingN_6, (int)aHalMachwGenHan, 853);
     }
-    else if ( (v5 & 0x8000) != 0 )
+    else if ( (v0 & 0x8000) != 0 )
     {
-      return ke_int_lock(dword_12C3F0, dword_12C3C0, 854, a4);
+      ke_int_lock_1((int)aGenirqPendingN_7, (int)aHalMachwGenHan, 854);
     }
-    else if ( (v5 & 0x10000) != 0 )
+    else if ( (v0 & 0x10000) != 0 )
     {
-      return ke_int_lock(dword_12C3F4, dword_12C3C0, 855, a4);
+      ke_int_lock_1((int)aGenirqPendingN_8, (int)aHalMachwGenHan, 855);
     }
-    else if ( (v5 & 0x20000) != 0 )
+    else if ( (v0 & 0x20000) != 0 )
     {
-      return ke_int_lock(dword_12C3F8, dword_12C3C0, 856, a4);
+      ke_int_lock_1((int)aGenirqPendingN_9, (int)aHalMachwGenHan, 856);
     }
-    else
+    else if ( (v0 & 0x1000000) != 0 )
     {
-      result = v5 << 7;
-      if ( (v5 & 0x1000000) != 0 )
-      {
-        return ke_int_lock(dword_12C3FC, dword_12C3C0, 857, a4);
-      }
-      else if ( (v5 & 0x2000000) != 0 )
-      {
-        return ke_int_lock(dword_12C400, dword_12C3C0, 858, a4);
-      }
-      else if ( (v5 & 0x100000) != 0 )
-      {
-        return ke_int_lock(dword_12C404, dword_12C3C0, 859, a4);
-      }
-      else if ( (v5 & 0x8000000) != 0 )
-      {
-        return ke_int_lock(dword_12C3C4, dword_12C3C0, 860, a4);
-      }
+      ke_int_lock_1((int)aGenirqPendingN_10, (int)aHalMachwGenHan, 857);
+    }
+    else if ( (v0 & 0x2000000) != 0 )
+    {
+      ke_int_lock_1((int)aGenirqPendingN_11, (int)aHalMachwGenHan, 858);
+    }
+    else if ( (v0 & 0x100000) != 0 )
+    {
+      ke_int_lock_1((int)aGenirqPendingN_12, (int)aHalMachwGenHan, 859);
+    }
+    else if ( (v0 & 0x8000000) != 0 )
+    {
+      ke_int_lock_1((int)aGenirqPendingN, (int)aHalMachwGenHan, 860);
     }
   }
-  return result;
 }
-

@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_11A084;
 extern uint32_t dword_11A088;
 extern uint32_t off_11A080;
-extern uint32_t dword_11A084;
 extern uint32_t off_11A08C;
 
 // rate_get_config @ 0x119ec8, size 440 bytes
@@ -24,16 +25,16 @@ int  rate_get_config(int a1)
   int v4; // r6
   uint64_t v5; // kr00_8
   int v7; // r10
-  int16_t v8; // r3
-  uint8_t *v9; // r2
+  uint16_t v8; // r3
+  int *v9; // r2
   int v11; // r4
   char v12; // r3
   int v13; // r0
   void *v14; // r11
-  int16_t v15; // r2
+  uint16_t v15; // r2
   int v16; // r7
   unsigned int v17; // r0
-  uint8_t *v18; // r3
+  int *v18; // r3
   int v19; // r7
   int v20; // [sp+Ch] [bp-8h]
 
@@ -50,13 +51,13 @@ int  rate_get_config(int a1)
     *(uint32_t *)(HIDWORD(v5) + 68) = 256;
     *(uint32_t *)(v3 + 68) = 0;
     if ( (uint32_t)v5 )
-      process_tx_packet(v3, a1);
+      process_tx_packet(v3);
     v8 = *(uint16_t *)(v4 + 8);
     if ( (v8 & 2) != 0 )
     {
-      v9 = off_11A080;
+      v9 = (int *)off_11A080;
       *(uint16_t *)(v3 + 82) |= 2u;
-      if ( v9[197] )
+      if ( *((uint8_t *)v9 + 197) )
       {
         v19 = *(uint32_t *)(HIDWORD(v5) + 48);
         if ( v19 )
@@ -79,7 +80,7 @@ int  rate_get_config(int a1)
       *(uint16_t *)(v3 + 82) |= 2u;
       set_table_callback_data(a1, v5);
     }
-    cmd_handler_a(*(uint32_t *)(v4 + 340));
+    cmd_handler_a(*(uint32_t *)(v4 + 340), (uint32_t *)v4);
   }
   else
   {
@@ -113,9 +114,9 @@ int  rate_get_config(int a1)
         v7 = v4 + 84;
       v16 = *(uint32_t *)(v4 + 52);
       v17 = *(uint32_t *)(v4 + 4);
-      v18 = off_11A080;
+      v18 = (int *)off_11A080;
       *(uint32_t *)(v16 + 20) = v17;
-      if ( v18[197] && v16 )
+      if ( *((uint8_t *)v18 + 197) && v16 )
         *(uint8_t *)(v16 + 36) = rx_packet_handler(
                                  (v17 >> 11) & 7,
                                  v17 & 0x7F,
@@ -128,7 +129,7 @@ int  rate_get_config(int a1)
       *(uint16_t *)(v4 + 8) = v15 | 5;
       set_table_callback_data(a1, v5);
     }
-    cmd_handler_a(v1 + 84 * a1 + 28);
+    cmd_handler_a(v1 + 84 * a1 + 28, (uint32_t *)v4);
   }
   v11 = v1 + 84 * a1;
   v12 = *(uint8_t *)(v11 + 80);
@@ -136,4 +137,3 @@ int  rate_get_config(int a1)
   *(uint8_t *)(v11 + 80) = v12 + 1;
   return 84;
 }
-

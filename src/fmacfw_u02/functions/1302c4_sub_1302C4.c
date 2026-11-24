@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1302F0;
-extern uint32_t dword_1302F4;
 
 // compare_global_bytes @ 0x1302c4, size 44 bytes
 unsigned int compare_global_bytes()
@@ -32,8 +32,7 @@ unsigned int compare_global_bytes()
       v3 = result + 1;
     *((uint8_t *)off_1302F0 + 6) = v3;
     rf_get_state(v3);
-    return event_dispatch(dword_1302F4, v0[5], v0[6]);
+    return event_dispatch("\x9D\x89adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v0[5], v0[6]);
   }
   return result;
 }
-

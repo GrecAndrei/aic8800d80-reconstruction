@@ -10,10 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12305C;
-extern uint32_t dword_123064;
-extern uint32_t dword_123060;
-
 // handle_state_change @ 0x123020, size 60 bytes
 int  handle_state_change(int a1)
 {
@@ -26,11 +22,11 @@ int  handle_state_change(int a1)
     {
       rf_set_reg0xf_bit19();
       v1 = rf_get_reg0xf_bit19();
-      dispatch_event_handler(dword_12305C, v1);
+      dispatch_event_handler_1("set ef_he_off=1(%x)\n", v1);
     }
     else
     {
-      dispatch_event_handler(dword_123064);
+      dispatch_event_handler_1(aWrongFunc_0);
       return -21;
     }
     return v1;
@@ -38,8 +34,7 @@ int  handle_state_change(int a1)
   else
   {
     v3 = rf_get_reg0xf_bit19();
-    dispatch_event_handler(dword_123060, v3);
+    dispatch_event_handler_1("get ef_he_off=%x\n", v3);
     return v3;
   }
 }
-

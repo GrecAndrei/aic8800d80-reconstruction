@@ -10,28 +10,26 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_110A64;
-extern uint32_t off_110A60;
-extern uint32_t off_110A94;
-extern uint32_t off_110A78;
-extern uint32_t dword_110A68;
-extern uint32_t off_110A6C;
+
 extern uint32_t dword_110A70;
+extern uint32_t dword_110A8C;
+extern uint32_t dword_110A9C;
+extern uint32_t dword_110AA4;
+extern uint32_t off_110A60;
+extern uint32_t off_110A64;
+extern uint32_t off_110A6C;
 extern uint32_t off_110A74;
+extern uint32_t off_110A78;
 extern uint32_t off_110A7C;
 extern uint32_t off_110A80;
 extern uint32_t off_110A84;
 extern uint32_t off_110A88;
-extern uint32_t dword_110A8C;
 extern uint32_t off_110A90;
+extern uint32_t off_110A94;
 extern uint32_t off_110A98;
-extern uint32_t dword_110A9C;
-extern uint32_t dword_110AA0;
-extern uint32_t dword_110AA4;
-extern uint32_t dword_110AA8;
-extern uint32_t off_110AB0;
 extern uint32_t off_110AAC;
-extern uint32_t dword_110AB4;
+extern uint32_t off_110AB0;
+extern uint32_t off_110AB4;
 
 // rf_cmd_start @ 0x1108c0, size 414 bytes
 int rf_cmd_start()
@@ -49,9 +47,9 @@ int rf_cmd_start()
   uint32_t *v10; // r2
   uint32_t *v11; // r0
   int v12; // r1
-  int v13; // r0
-  int *v14; // r3
-  int v15; // r1
+  int *v13; // r3
+  int v14; // r1
+  int v15; // r2
   uint32_t *v16; // r1
   int result; // r0
   uint32_t *v18; // r3
@@ -67,18 +65,18 @@ int rf_cmd_start()
     *(uint32_t *)off_110A94 = *(uint32_t *)off_110A94 & 0x8000FFFF | 0x4E200000;
     *v19 = *v19 & 0xFFFF8000 | 0x4E20;
     *v20 = *v20 & 0xFFFFF000 | 0x960;
-    result = ipc_send_0x40d();
+    result = (int)ipc_send_0x40d();
   }
   else
   {
-    dispatch_event_handler(dword_110A68, 16);
+    dispatch_event_handler_1(aWaitCmd5);
     do
     {
       while ( (*(uint32_t *)off_110A6C & 0x20000000) != 0 )
         ;
     }
     while ( *(int *)off_110A6C < 0 );
-    v1 = off_110A6C;
+    v1 = (uint32_t *)off_110A6C;
     *(uint32_t *)off_110A6C = dword_110A70;
     while ( (*v1 & 0x20000000) != 0 )
       ;
@@ -114,41 +112,40 @@ int rf_cmd_start()
     *v11 = 0x1FFFFFF;
     v12 = dword_110A9C;
     *v6 = 15;
-    v13 = dword_110AA0;
     *v7 = 15;
     *(v10 - 75) = v12;
-    dispatch_event_handler(v13, v12);
-    v14 = (int *)off_110A6C;
-    v15 = dword_110A70;
+    dispatch_event_handler_1(aWaitIoEnable);
+    v13 = (int *)off_110A6C;
+    v14 = dword_110A70;
     while ( 1 )
     {
-      while ( (*v14 & 0x20000000) != 0 )
+      while ( (*v13 & 0x20000000) != 0 )
         ;
-      if ( *v14 >= 0 )
+      if ( *v13 >= 0 )
       {
-        *v14 = v15;
-        while ( (*v14 & 0x20000000) != 0 )
+        *v13 = v14;
+        while ( (*v13 & 0x20000000) != 0 )
           ;
-        if ( (*v14 & 6) != 0 )
+        if ( (*v13 & 6) != 0 )
           break;
       }
     }
+    v15 = off_110A6C;
     do
     {
       while ( (*(uint32_t *)off_110A6C & 0x20000000) != 0 )
         ;
     }
     while ( *(int *)off_110A6C < 0 );
-    v16 = off_110A6C;
+    v16 = (uint32_t *)off_110A6C;
     *(uint32_t *)off_110A6C = dword_110AA4;
     while ( (*v16 & 0x20000000) != 0 )
       ;
-    result = dispatch_event_handler(dword_110AA8, v16);
+    result = dispatch_event_handler_1(aIoEnable, v16, v15, 4 * *v16);
     *(uint32_t *)off_110A78 = *(uint32_t *)off_110A78 & 0xFFFFF000 | 0x960;
   }
   v18 = off_110AB0;
-  *(uint32_t *)(*((uint32_t *)off_110AAC + 2) + 324) = dword_110AB4;
+  *(uint32_t *)(*((uint32_t *)off_110AAC + 2) + 324) = off_110AB4;
   v18[2] = 2;
   return result;
 }
-

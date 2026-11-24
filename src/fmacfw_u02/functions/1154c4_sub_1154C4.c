@@ -10,16 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1154D4;
+
 extern uint32_t off_1154D0;
 
 // event_reset @ 0x1154c4, size 12 bytes
-int  event_reset(int a1, int a2)
+int event_reset()
 {
-  int v2; // r0
-
-  v2 = dword_1154D4;
   *(uint8_t *)off_1154D0 = 0;
-  return event_dispatch(v2, a2, 0);
+  return event_dispatch(aApPsForbidTo);
 }
-

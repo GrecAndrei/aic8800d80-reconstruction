@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13B6D0;
-extern uint32_t dword_13B6CC;
+
 extern uint32_t dword_13B6C8;
+extern uint32_t dword_13B6CC;
+extern uint32_t dword_13B6D0;
 
 // rx_measure_rssi @ 0x13b69c, size 42 bytes
 int  rx_measure_rssi(int a1, int a2, unsigned int a3)
@@ -29,4 +30,3 @@ int  rx_measure_rssi(int a1, int a2, unsigned int a3)
   }
   return 0;
 }
-

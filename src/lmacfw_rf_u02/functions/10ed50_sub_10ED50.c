@@ -10,21 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10EE54;
+
 extern uint32_t dword_10EE58;
 extern uint32_t dword_10EE5C;
-extern uint32_t off_10EE60;
-extern uint32_t off_10EE78;
 extern uint32_t dword_10EE64;
-extern uint32_t off_10EE68;
-extern uint32_t off_10EE74;
-extern uint32_t off_10EE6C;
 extern uint32_t dword_10EE70;
+extern uint32_t off_10EE54;
+extern uint32_t off_10EE60;
+extern uint32_t off_10EE68;
+extern uint32_t off_10EE6C;
+extern uint32_t off_10EE74;
+extern uint32_t off_10EE78;
 
-// gpio_bank_init @ 0x10ed50, size 260 bytes
-// Doc: sub_120ED50 [mmio]: hardware/NVIC initialization touching system control and IRQ registers
-// sub_120ED50 [mmio]: hardware/NVIC initialization touching system control and IRQ registers
-int  gpio_bank_init(unsigned int *a1)
+// sub_10ED50 @ 0x10ed50, size 260 bytes
+int  sub_10ED50(int a1)
 {
   uint32_t *v1; // r2
   int v2; // r7
@@ -40,8 +39,9 @@ int  gpio_bank_init(unsigned int *a1)
   unsigned int v12; // r7
   unsigned int v13; // r6
   int result; // r0
-  uint32_t v16[2]; // [sp+Ch] [bp-Ch] BYREF
-  int16_t v17; // [sp+14h] [bp-4h]
+  uint8_t a1a[4]; // [sp+Ch] [bp-Ch] BYREF
+  int v17; // [sp+10h] [bp-8h]
+  uint16_t v18; // [sp+14h] [bp-4h]
 
   v1 = off_10EE54;
   v2 = dword_10EE58;
@@ -50,15 +50,15 @@ int  gpio_bank_init(unsigned int *a1)
   v5 = off_10EE78;
   v6 = dword_10EE64;
   v7 = (unsigned int *)off_10EE68;
-  v17 = 0;
+  v18 = 0;
   *((uint32_t *)off_10EE74 + 14) = 296;
   v1[3] = v1[3] & 0xE0000000 | v2;
   v1[2] = v3 & v1[2] | 0x1200000D;
   *v4 |= 2u;
   *v4 &= ~1u;
-  v16[0] = v6;
-  v16[1] = 5610;
-  tx_set_power((uint8_t *)v16, 0);
+  *(uint32_t *)a1a = v6;
+  v17 = 5610;
+  sub_102908(a1a, 0);
   v8 = (int *)off_10EE6C;
   v9 = dword_10EE70;
   *v5 |= 0x80000000;
@@ -71,7 +71,7 @@ int  gpio_bank_init(unsigned int *a1)
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = gpio_mode_set(4u, 8u, a1);
+  result = sub_10EA74(4u, 8u, (unsigned int *)a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;
@@ -80,4 +80,3 @@ int  gpio_bank_init(unsigned int *a1)
   *v7 = v13 & 0x400000 | *v7 & 0xFFBFFFFF;
   return result;
 }
-

@@ -10,17 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_141674;
+
 extern uint32_t dword_141670;
-extern uint32_t dword_141684;
-extern uint32_t dword_14167C;
-extern uint32_t dword_141680;
 extern uint32_t dword_141678;
+extern uint32_t off_141674;
+extern uint32_t off_141684;
 
 // get_adv_tx_power @ 0x14157c, size 244 bytes
 void get_adv_tx_power()
 {
-  int16_t **v0; // r6
+  uint16_t **v0; // r6
   int v1; // r3
   int v2; // r5
   unsigned int v3; // r3
@@ -31,10 +30,10 @@ void get_adv_tx_power()
   unsigned int v8; // r3
   unsigned int v9; // r3
 
-  v0 = (int16_t **)off_141674;
+  v0 = (uint16_t **)off_141674;
   v1 = 136 * *(uint32_t *)(dword_141670 + 6480);
   v2 = v1 + 6336 + dword_141670;
-  if ( **(int16_t **)off_141674 >= 0 )
+  if ( **(uint16_t **)off_141674 >= 0 )
   {
     v3 = *(uint8_t *)(v1 + dword_141670 + 6339);
     if ( v3 > 1 )
@@ -56,13 +55,13 @@ LABEL_12:
     if ( v9 != 2 )
     {
 LABEL_18:
-      mmio_irq_clear(dword_141684, dword_14167C, 1726);
+      mmio_irq_clear(off_141684, (int)aRmStartActiveR, 1726);
       return;
     }
   }
   else
   {
-    mmio_irq_clear(dword_141680, dword_14167C, 1714);
+    mmio_irq_clear((int)aRequestTypeMac, (int)aRmStartActiveR, 1714);
     v8 = *(uint8_t *)(v7 + 6339);
     if ( v8 <= 1 )
       goto LABEL_12;
@@ -97,4 +96,3 @@ LABEL_4:
 LABEL_9:
   check_scan_enable(v2, 0);
 }
-

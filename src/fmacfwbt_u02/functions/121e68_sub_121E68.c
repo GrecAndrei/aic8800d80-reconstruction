@@ -10,9 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_121EFC;
-extern uint32_t dword_121F18;
-extern uint32_t dword_121F14;
 extern uint32_t off_121F00;
 extern uint32_t off_121F04;
 extern uint32_t off_121F08;
@@ -26,8 +25,8 @@ int mac_util_event()
   int v2; // r3
   int v3; // r2
 
-  if ( **(int16_t **)off_121EFC < 0 && (hci_cmd_send_short(0) == 3 || !hci_cmd_send_short(0)) )
-    mmio_irq_clear(dword_121F18, dword_121F14, 1862);
+  if ( **(uint16_t **)off_121EFC < 0 && (hci_cmd_send_short(0) == 3 || !hci_cmd_send_short(0)) )
+    mmio_irq_clear((int)aKeStateGetTask_1, (int)aMmNoIdleStart, 1862);
   if ( hci_cmd_send_short(0) == 2 )
   {
     *(uint32_t *)off_121F00 = 48;
@@ -53,6 +52,5 @@ int mac_util_event()
       }
     }
   }
-  return hci_cmd_send(0);
+  return hci_cmd_send(0, 4);
 }
-

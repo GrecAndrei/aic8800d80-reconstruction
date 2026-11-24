@@ -10,12 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_134474;
 extern uint32_t off_134478;
 extern uint32_t off_13447C;
 
 // hci_build_acl @ 0x134380, size 242 bytes
-uint32_t * hci_build_acl(int a1, int a2)
+int  hci_build_acl(int a1, int a2)
 {
   int *v4; // r5
   int v5; // r0
@@ -27,7 +28,7 @@ uint32_t * hci_build_acl(int a1, int a2)
   int v11; // r1
   int v12; // r2
   int v13; // r3
-  int16_t v15; // r3
+  uint16_t v15; // r3
   int v16; // r5
   int v17; // r0
   int v18; // r3
@@ -36,7 +37,7 @@ uint32_t * hci_build_acl(int a1, int a2)
   uint32_t v21[2]; // [sp+8h] [bp-8h]
 
   v4 = *((int **)off_134474 + 4);
-  v5 = tx_send_pdu(4096, 4, 6, 0x178u);
+  v5 = tx_send_pdu(4096, 4, 6, 376);
   *(uint8_t *)(v5 + 366) = *((uint8_t *)v4 + 61);
   v6 = v5;
   v7 = *v4;
@@ -75,7 +76,7 @@ LABEL_3:
   else
   {
     v15 = *((uint16_t *)off_134478 + 2);
-    *(uint32_t *)(v6 + 352) = *(uint32_t *)off_134478;
+    *(uint32_t *)(v6 + 352) = *off_134478;
     *(uint16_t *)(v6 + 356) = v15;
     if ( a2 )
       goto LABEL_3;
@@ -90,7 +91,7 @@ LABEL_3:
     if ( v17 )
     {
       v18 = v21[a2];
-      v19 = 6 * (int16_t)v17 + v18;
+      v19 = 6 * (uint16_t)v17 + v18;
       do
       {
         if ( (*(uint8_t *)(v18 + 3) & 2) == 0 )
@@ -111,7 +112,6 @@ LABEL_3:
     a2 = 1;
   }
 LABEL_4:
-  rx_process_packet(v6);
+  rx_process_packet_1(v6);
   return hci_cmd_preprocess(6u, 1);
 }
-

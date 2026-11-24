@@ -10,8 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_137154;
-extern uint32_t dword_137158;
 
 // rf_send_channel_alt @ 0x137124, size 48 bytes
 int  rf_send_channel_alt(int a1, uint8_t *a2)
@@ -20,10 +20,9 @@ int  rf_send_channel_alt(int a1, uint8_t *a2)
   int v4; // r0
 
   v2 = (uint16_t *)off_137154;
-  v4 = ke_msg_alloc(4107, *((uint16_t *)off_137154 + 1924), 4, 1u);
-  ke_msg_send(v4);
-  check_status_bits(8, dword_137158, v2[1924]);
+  v4 = ke_msg_alloc(4107, *((uint16_t *)off_137154 + 1924), 4, 1);
+  ke_msg_send_2(v4);
+  check_status_bits(8, "scan cancel cfm %d\r\n", v2[1924]);
   hci_cmd_process(*a2);
   return 0;
 }
-

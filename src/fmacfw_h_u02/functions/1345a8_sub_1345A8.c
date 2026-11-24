@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_134650;
 extern uint32_t off_134658;
-extern uint32_t dword_134654;
 
 // ble_scan_config @ 0x1345a8, size 166 bytes
-uint32_t *ble_scan_config()
+int ble_scan_config()
 {
   char *v0; // r5
   uint8_t *v1; // r8
@@ -23,7 +23,7 @@ uint32_t *ble_scan_config()
   int *v3; // r10
   int v4; // r4
   uint64_t v5; // r2
-  int16_t v6; // lr
+  uint16_t v6; // lr
   int v7; // r0
   int v8; // r1
   uint64_t v9; // r2
@@ -34,9 +34,9 @@ uint32_t *ble_scan_config()
   v1 = off_134658;
   v2 = *((uint8_t *)off_134650 + 12);
   v3 = *((int **)off_134658 + 4);
-  v4 = tx_send_pdu(4098, 4, 6, 0x178u);
-  alloc_tx_event(dword_134654);
-  invalid_handler_12c5fc(6155, 6);
+  v4 = tx_send_pdu(4098, 4, 6, 376);
+  alloc_tx_event(aTs1);
+  invalid_handler_12c5fc((char *)0x180B, 6);
   v5 = *(uint64_t *)(v0 + 4);
   v0[14] = 0;
   *(uint32_t *)(v4 + 352) = *(uint32_t *)v5;
@@ -65,7 +65,6 @@ uint32_t *ble_scan_config()
   if ( v2 )
     *(uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
-  rx_process_packet(v4);
+  rx_process_packet_1(v4);
   return hci_cmd_preprocess(6u, 2);
 }
-

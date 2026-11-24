@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t off_103AB0;
 extern uint32_t off_103AB4;
 extern uint32_t off_103AB8;
 extern uint32_t off_103ABC;
-extern uint32_t off_103AB0;
-extern uint32_t dword_103AC0;
 
 // mac_irq_disable @ 0x103a6c, size 66 bytes
 int mac_irq_disable()
@@ -31,6 +31,5 @@ int mac_irq_disable()
   *v1 &= ~0x1000000u;
   *v2 &= 0xFFE7FFFF;
   timer_set(10);
-  return state_check_feature(0x2000, dword_103AC0);
+  return state_check_feature(0x2000, aWfDfeAndRfintf_0);
 }
-

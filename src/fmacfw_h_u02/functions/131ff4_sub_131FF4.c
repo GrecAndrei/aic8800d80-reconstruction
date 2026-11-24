@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_132084;
 
 // send_req_5 @ 0x131ff4, size 144 bytes
-int  send_req_5(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
+int  send_req_5(int a1, uint8_t *a2, int a3, int a4)
 {
   uint16_t *v7; // r7
   int *v9; // r0
@@ -37,7 +38,7 @@ int  send_req_5(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
     mac_write_header_word(5144, a4, a3);
     return 0;
   }
-  v9 = (int *)tx_send_pdu(34, 0, a3, 1u);
+  v9 = (int *)tx_send_pdu(34, 0, a3, 1);
   v10 = a2[1];
   if ( *a2 )
     v11 = (1 << v10) | *(uint32_t *)v7;
@@ -46,8 +47,7 @@ int  send_req_5(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
   *(uint32_t *)v7 = v11;
   v7[4] = a4;
   *v9 = v11 == 0;
-  rx_process_packet((int)v9);
+  rx_process_packet_1((int)v9);
   hci_cmd_preprocess(a3, 1);
   return 0;
 }
-

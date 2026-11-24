@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11A7FC;
 
 // get_conn_env @ 0x11a7c0, size 58 bytes
@@ -28,10 +29,9 @@ int  get_conn_env(int result)
     v4 = result;
     *(uint8_t *)(v2 + 14) = v3;
     if ( !v3 )
-      wlan_ioctl_handler_1(*(uint32_t *)(v2 + 340));
+      wlan_ioctl_handler_1(*(uint32_t *)(v2 + 340), (uint32_t *)v2);
     *(uint32_t *)(v1 + 84 * v4 + 40) = 0;
     return 84;
   }
   return result;
 }
-

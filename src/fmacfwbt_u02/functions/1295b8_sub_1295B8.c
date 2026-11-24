@@ -10,27 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1296E8;
+
+extern uint32_t off_1296B8;
 extern uint32_t off_1296BC;
 extern uint32_t off_1296C0;
 extern uint32_t off_1296C4;
 extern uint32_t off_1296C8;
 extern uint32_t off_1296CC;
-extern uint32_t off_1296B8;
-extern uint32_t dword_1296D4;
 extern uint32_t off_1296D8;
 extern uint32_t off_1296DC;
-extern uint32_t off_1296E4;
 extern uint32_t off_1296E0;
+extern uint32_t off_1296E4;
+extern uint32_t off_1296E8;
 
 // ke_evt_wait @ 0x1295b8, size 254 bytes
-// Doc: rf_mbox_mailbox_send [mmio]: Send command via RF mailbox MMIO registers
-// rf_mbox_mailbox_send [mmio]: Send command via RF mailbox MMIO registers
 int ke_evt_wait()
 {
   unsigned int *v0; // r12
   int *v1; // r1
-  uint8_t *v2; // r7
+  int *v2; // r7
   uint32_t *v3; // r4
   unsigned int v4; // r0
   unsigned int *v5; // r5
@@ -46,9 +44,9 @@ int ke_evt_wait()
 
   v0 = (unsigned int *)off_1296E8;
   v1 = (int *)off_1296BC;
-  v2 = off_1296C0;
+  v2 = (int *)off_1296C0;
   v3 = off_1296C4;
-  v4 = *((uint16_t *)off_1296C0 + 93);
+  v4 = HIWORD(((uint32_t *)(uintptr_t)off_1296C0)[46]);
   v5 = (unsigned int *)off_1296C8;
   v6 = (uint8_t **)off_1296CC;
   *(uint32_t *)off_1296B8 |= 0x40000000u;
@@ -57,12 +55,12 @@ int ke_evt_wait()
   *v0 = *v0 & 0xFFFFFF00 | 0x10;
   *v5 = *v5 & 0xFFFFFF03 | 0x10;
   *v1 = *v1 & 0x3FFFFF | (((v4 >> 5) + 32) << 22);
-  result = state_check_feature(2, dword_1296D4);
+  result = state_check_feature(2, "%s:%d,%d\r\n", aPsUpmEnter, **v6, (v4 >> 5) + 32);
   v8 = *v6;
   v9 = **v6;
   if ( v9 == 1 )
   {
-    if ( v2[189] )
+    if ( *((uint8_t *)v2 + 189) )
     {
       result = (int)off_1296D8;
       *(uint32_t *)off_1296DC &= ~0x2000000u;
@@ -79,7 +77,7 @@ int ke_evt_wait()
     *v13 = 4;
     *v14 = 1;
     *v3 &= 0xFFFBFFFE;
-    v9 = (uint8_t)*v8;
+    v9 = *v8;
   }
   if ( v9 != 2 )
   {
@@ -97,4 +95,3 @@ LABEL_6:
   *v12 &= ~1u;
   return 63;
 }
-

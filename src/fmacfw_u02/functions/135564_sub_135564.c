@@ -10,20 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_135594;
 
 // bt_send_vendor_cmd @ 0x135564, size 48 bytes
-uint32_t * bt_send_vendor_cmd(int16_t a1)
+int  bt_send_vendor_cmd(uint16_t a1)
 {
   int v2; // r5
   int v3; // r0
 
   v2 = *((uint32_t *)off_135594 + 4);
-  v3 = ke_msg_alloc(30, 0, 6, 4u);
+  v3 = ke_msg_alloc(30, 0, 6, 4);
   *(uint16_t *)v3 = a1;
   *(uint8_t *)(v3 + 2) = 1;
   *(uint8_t *)(v3 + 3) = *(uint8_t *)(v2 + 61);
-  ke_msg_send(v3);
+  ke_msg_send_2(v3);
   return rx_phy_status_parse(6u, 9);
 }
-

@@ -10,13 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13494C;
-
 // log_startup @ 0x13492c, size 30 bytes
 int  log_startup(int a1, int a2)
 {
   if ( (a2 & 0x810000) == 0x10000 )
-    alloc_tx_event(dword_13494C);
+    alloc_tx_event(aSendDeauthFail);
   return ble_load_defaults();
 }
-

@@ -10,41 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10A30C;
-extern uint32_t dword_10A2C0;
-extern uint32_t dword_10A5A4;
-extern uint32_t dword_10A5A8;
-extern uint32_t dword_10A5AC;
-extern uint32_t dword_10A2C8;
-extern uint32_t dword_10A2CC;
-extern uint32_t dword_10A2D0;
-extern uint32_t dword_10A2D4;
-extern uint32_t dword_10A2D8;
-extern uint32_t dword_10A2E0;
-extern uint32_t dword_10A2E4;
-extern uint32_t dword_10A2E8;
-extern uint32_t dword_10A2F4;
-extern uint32_t dword_10A2F8;
-extern uint32_t dword_10A2FC;
-extern uint32_t dword_10A300;
-extern uint32_t dword_10A304;
-extern uint32_t dword_10A578;
-extern uint32_t dword_10A57C;
-extern uint32_t dword_10A580;
-extern uint32_t dword_10A584;
-extern uint32_t dword_10A588;
-extern uint32_t dword_10A58C;
+
 extern uint32_t dword_10A2B8;
-extern uint32_t dword_10A2BC;
-extern uint32_t dword_10A5B4;
-extern uint32_t dword_10A5B8;
-extern uint32_t dword_10A308;
-extern uint32_t dword_10A590;
-extern uint32_t dword_10A59C;
+extern float flt_10A2C4;
+extern float flt_10A2DC;
+extern float flt_10A2EC;
+extern float flt_10A2F0;
+extern float flt_10A594;
+extern float flt_10A598;
+extern float flt_10A5B0;
+extern uint32_t off_10A2C0;
+extern uint32_t off_10A30C;
 extern uint32_t off_10A5A0;
 
-// dsp_filter_process @ 0x109f90, size 1512 bytes
-int  dsp_filter_process(
+// sub_109F90 @ 0x109f90, size 1512 bytes
+int  sub_109F90(
         uint32_t *a1,
         int a2,
         int a3,
@@ -55,7 +35,7 @@ int  dsp_filter_process(
         int a8,
         int a9,
         int a10,
-        uint64_t *a11)
+        int a11)
 {
   uint32_t *v11; // r10
   int v13; // r1
@@ -67,243 +47,249 @@ int  dsp_filter_process(
   unsigned int v21; // r0
   char *v22; // r7
   int v23; // r4
-  int v24; // r1
-  int v25; // r1
-  float v26; // s21
-  float v27; // s22
-  float v28; // s17
+  float v24; // s16
+  float v25; // s21
+  float v26; // s22
+  float v27; // s17
+  int v28; // r8
   float v29; // s23
-  float v30; // s15
-  uint64_t v31; // r0
-  int v32; // r3
-  int v33; // cc
-  int v34; // r1
-  int v35; // r2
-  int v36; // r1
+  float v30; // s16
+  int v31; // s25
+  unsigned int v32; // s15
+  uint64_t v33; // r0
+  int v34; // r3
+  int v35; // cc
   int result; // r0
-  uint32_t *v38; // r3
-  int v39; // [sp+20h] [bp-20h]
-  int v40; // [sp+24h] [bp-1Ch]
-  int v41; // [sp+2Ch] [bp-14h]
-  int v42; // [sp+30h] [bp-10h]
-  int *v43; // [sp+34h] [bp-Ch]
-  int *v44; // [sp+38h] [bp-8h]
-  unsigned int *v45; // [sp+3Ch] [bp-4h]
-  uint32_t v46[3]; // [sp+40h] [bp+0h] BYREF
-  int v47[132]; // [sp+4Ch] [bp+Ch] BYREF
-  char v48; // [sp+25Ch] [bp+21Ch] BYREF
-  int v49; // [sp+2BCh] [bp+27Ch]
-  float v50; // [sp+2CCh] [bp+28Ch]
-  uint8_t v51[1204]; // [sp+2D0h] [bp+290h] BYREF
+  uint32_t *v37; // r3
+  int v38; // [sp+20h] [bp-20h]
+  int v39; // [sp+24h] [bp-1Ch]
+  int v40; // [sp+2Ch] [bp-14h]
+  int a1a; // [sp+30h] [bp-10h]
+  int *v42; // [sp+34h] [bp-Ch]
+  int *v43; // [sp+38h] [bp-8h]
+  unsigned int *v44; // [sp+3Ch] [bp-4h]
+  uint32_t v45[3]; // [sp+40h] [bp+0h] BYREF
+  int a2a[5]; // [sp+4Ch] [bp+Ch] BYREF
+  float v47; // [sp+24Ch] [bp+20Ch]
+  float v48; // [sp+250h] [bp+210h]
+  float v49; // [sp+254h] [bp+214h]
+  float v50; // [sp+258h] [bp+218h]
+  char v51; // [sp+25Ch] [bp+21Ch] BYREF
+  int v52; // [sp+2BCh] [bp+27Ch]
+  unsigned int v53; // [sp+2CCh] [bp+28Ch]
+  uint8_t v54[1204]; // [sp+2D0h] [bp+290h] BYREF
 
   v11 = off_10A30C;
-  v13 = *(uint32_t *)(dword_10A2C0 + 4);
-  v14 = *(uint32_t *)(dword_10A2C0 + 8);
-  v46[0] = *(uint32_t *)dword_10A2C0;
-  v46[1] = v13;
-  v46[2] = v14;
+  v13 = ((uint32_t *)(uintptr_t)off_10A2C0)[1];
+  v14 = ((uint32_t *)(uintptr_t)off_10A2C0)[2];
+  v45[0] = ((uint32_t *)(uintptr_t)off_10A2C0)[0];
+  v45[1] = v13;
+  v45[2] = v14;
   v15 = flt_10A2C4;
-  v43 = v46;
+  v42 = v45;
   *(uint32_t *)(a5 + 4 * a4) = 1;
-  v45 = (unsigned int *)(a2 - 4);
-  v41 = 1;
-  v44 = (int *)(a5 + 4 * a4);
+  v44 = (unsigned int *)(a2 - 4);
+  v40 = 1;
+  v43 = (int *)(a5 + 4 * a4);
   v17 = 0;
   while ( 2 )
   {
-    v19 = v45[1];
-    ++v45;
+    v19 = v44[1];
+    ++v44;
     v20 = (uint8_t)v17;
     if ( !v19 )
     {
-      state_check_feature(1, dword_10A5A4);
-      state_check_feature(1, dword_10A5A8);
+      sub_12EEF8(1, "===========table[%d]===========\n", v17);
+      sub_12EEF8(1, "table %d dont need cal.\n", v17);
       goto LABEL_28;
     }
     if ( !a4 && v17 == 1 )
     {
-      state_check_feature(1, dword_10A5AC);
+      sub_12EEF8(1, a24gTable1DontN);
       goto LABEL_29;
     }
-    state_check_feature(1, dword_10A2C8);
-    v21 = *v45;
-    v49 = 0;
-    llc_connection_init(v21, (int)v47, a4);
-    state_check_feature(1, dword_10A2CC);
-    v39 = *v43;
-    if ( v49 <= 0 )
+    sub_12EEF8(1, "===========table[%d]===========\n", v17);
+    v21 = *v44;
+    v52 = 0;
+    sub_105914(v21, (int)a2a, a4);
+    sub_12EEF8(1, "table %d cal %d times.\n", v17, v52);
+    v38 = *v42;
+    if ( v52 <= 0 )
       goto LABEL_27;
-    v42 = v17;
-    v40 = 0;
-    v22 = &v48;
+    a1a = v17;
+    v39 = 0;
+    v22 = &v51;
     do
     {
       v23 = *((uint32_t *)v22 + 16);
       while ( !*a1 )
-        timer_set(1);
-      state_check_feature(1, dword_10A2D0);
-      rf_init((int)v47, (int)v51, v20, v23, a4, 0);
+        sub_100644(1);
+      sub_12EEF8(1, aStDpdCal);
+      sub_1059F8((int)a2a, (int)v54, v20, v23, a4, 0);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      mmio_set_bits(v23, v47, (int)v51, v20, 0, a4, a6, a7, a9, a10, a11);
-      v24 = dword_10A2D4;
+      sub_109E48(v23, a2a, (int)v54, v20, 0, a4, a6, a7, a9, a10, a11);
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
-      state_check_feature(1, v24);
+      sub_12EEF8(1, aDpdCalEnd);
       while ( !a1[1] )
-        timer_set(1);
-      state_check_feature(1, dword_10A2D8);
-      rf_init((int)v47, (int)v51, v20, v23, a4, 1);
+        sub_100644(1);
+      v24 = flt_10A2DC;
+      sub_12EEF8(1, aStDpdVerify);
+      sub_1059F8((int)a2a, (int)v54, v20, v23, a4, 1);
       *v11 &= ~0x8000u;
       *v11 &= ~0x2000u;
-      mmio_set_bits(v23, v47, (int)v51, v20, 1, a4, a6, 0, a9, a10, a11);
-      v25 = dword_10A2D4;
+      sub_109E48(v23, a2a, (int)v54, v20, 1, a4, a6, 0, a9, a10, a11);
       *v11 |= 0x8000u;
       *v11 |= 0x2000u;
-      state_check_feature(1, v25);
-      state_check_feature(1, dword_10A2E0);
-      state_check_feature(1, dword_10A2E4);
-      state_check_feature(1, dword_10A2E8);
-      v26 = *(float *)&v47[128] / *(float *)&v47[129];
-      v27 = *(float *)&v47[130] / *(float *)&v47[131];
+      sub_12EEF8(1, aDpdCalEnd);
+      sub_12EEF8(1, aDefaultDpdCal);
+      sub_12EEF8(1, "am*1000000:%6d  %d\n", (int)(float)(v47 * v24), (int)(float)(v48 * v24));
+      sub_12EEF8(1, "ph*1000000:%6d  %d\n", (int)(float)(v49 * v24), (int)(float)(v50 * v24));
+      v25 = v47 / v48;
+      v26 = v49 / v50;
       if ( v23 == 11 )
       {
-        v28 = 3.0;
+        v27 = 3.0;
         v29 = 3.0;
+        v28 = 30000;
       }
       else if ( (unsigned int)(v23 - 12) <= 1 )
       {
         v29 = flt_10A594;
-        v28 = 3.0;
+        v28 = 11000;
+        v27 = 3.0;
       }
       else if ( v23 == 14 )
       {
         v29 = flt_10A598;
-        v28 = 3.0;
+        v28 = 13000;
+        v27 = 3.0;
       }
       else if ( v23 <= 7 )
       {
-        v28 = v15;
+        v27 = v15;
         v29 = v15;
+        v28 = 10010;
       }
       else
       {
-        v28 = flt_10A2EC;
+        v27 = flt_10A2EC;
+        v28 = 11000;
         v29 = flt_10A2EC;
       }
-      state_check_feature(1, dword_10A2F4);
-      state_check_feature(1, dword_10A2F8);
-      state_check_feature(1, dword_10A2FC);
-      state_check_feature(1, dword_10A300);
-      state_check_feature(1, dword_10A304);
-      if ( v29 >= v26 )
+      v30 = flt_10A2F0;
+      sub_12EEF8(1, "am_compare_thr * 10000 = %6d  ", v28);
+      sub_12EEF8(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+      v31 = (int)(float)(v25 * v30);
+      sub_12EEF8(1, "am_compare     * 10000 = %6d  ", v31);
+      sub_12EEF8(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+      sub_12EEF8(1, "verify_ph_var_sum * 10000 = %6d\n", (int)(float)(v49 * v30));
+      if ( v29 >= v25 )
       {
-        v30 = v50;
-        if ( v50 < 2.0 )
+        v32 = v53;
+        if ( *(float *)&v53 < 2.0 )
           goto LABEL_19;
-        v34 = dword_10A578;
         *(uint32_t *)v22 = 0;
         *((uint32_t *)v22 + 8) = 0;
-        state_check_feature(1, v34);
-        state_check_feature(1, dword_10A57C);
-        state_check_feature(1, dword_10A580);
-        state_check_feature(1, dword_10A584);
-        state_check_feature(1, dword_10A588);
-        if ( v23 <= 10 && v42 == 1 )
+        sub_12EEF8(1, "am_compare_thr * 10000 = %6d  ", v28);
+        sub_12EEF8(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+        sub_12EEF8(1, "am_compare     * 10000 = %6d  ", (int)(float)(v25 * v30));
+        sub_12EEF8(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+        sub_12EEF8(1, "table[%d] dpd cal is not good, ana_index %x use default.\n", a1a, v23);
+        if ( v23 <= 10 && a1a == 1 )
         {
-          v41 = 0;
-          ke_event_schedule(dword_10A58C, v23, v35);
+          v40 = 0;
+          sub_12ECB0("table 1 index %x dont use dpd\n", v23);
           *(uint32_t *)v22 = 1;
           *((uint32_t *)v22 + 8) = 1;
         }
       }
       else
       {
-        if ( v28 < v27 )
+        if ( v27 < v26 )
         {
-          v30 = v50;
+          v32 = v53;
 LABEL_19:
           *(uint32_t *)v22 = 1;
           *((uint32_t *)v22 + 8) = 1;
           if ( v23 <= 8
-            && v28 > v27
-            && (v31 = __aeabi_f2d(LODWORD(v30)), __aeabi_dcmpgt(v31, HIDWORD(v31), dword_10A2B8, dword_10A2BC))
-            && v42 == 1 )
+            && v27 > v26
+            && (v33 = sub_142A94(v32), sub_143064(v33, *(uint64_t *)&dword_10A2B8))
+            && a1a == 1 )
           {
-            state_check_feature(1, dword_10A578);
-            state_check_feature(1, dword_10A57C);
-            state_check_feature(1, dword_10A580);
-            state_check_feature(1, dword_10A584);
-            state_check_feature(1, dword_10A5B4);
-            state_check_feature(1, dword_10A5B8);
-            v41 = 0;
+            sub_12EEF8(1, "am_compare_thr * 10000 = %6d  ", v28);
+            sub_12EEF8(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+            sub_12EEF8(1, "am_compare     * 10000 = %6d  ", v31);
+            sub_12EEF8(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+            sub_12EEF8(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(float *)&v53 * flt_10A5B0));
+            sub_12EEF8(1, "verify ph is larger, table 1 index %x dont use dpd\n", v23);
+            v40 = 0;
           }
           else
           {
-            state_check_feature(1, dword_10A308);
-            v41 = 1;
+            sub_12EEF8(1, "table[%d] dpd cal success, ana_index %x can be used.\n", a1a, v23);
+            v40 = 1;
           }
           goto LABEL_24;
         }
-        v30 = v50;
-        if ( v50 < 2.0 )
+        v32 = v53;
+        if ( *(float *)&v53 < 2.0 )
           goto LABEL_19;
-        v36 = dword_10A590;
         *(uint32_t *)v22 = 1;
         *((uint32_t *)v22 + 8) = 0;
-        state_check_feature(1, v36);
-        if ( v23 <= 8 && v42 == 1 )
+        sub_12EEF8(1, "table[%d] dpd cal success, ph deviation is small, ana_index %x can be used.\n", a1a, v23);
+        if ( v23 <= 8 && a1a == 1 )
         {
-          if ( v50 > 2.0 )
+          if ( *(float *)&v53 > 2.0 )
           {
-            state_check_feature(1, dword_10A578);
-            state_check_feature(1, dword_10A57C);
-            state_check_feature(1, dword_10A580);
-            state_check_feature(1, dword_10A584);
-            state_check_feature(1, dword_10A5B4);
-            state_check_feature(1, dword_10A5B8);
-            v41 = 0;
-            state_check_feature(1, dword_10A58C);
+            sub_12EEF8(1, "am_compare_thr * 10000 = %6d  ", v28);
+            sub_12EEF8(1, "ph_compare_thr * 10000 = %6d\n", (int)(float)(v27 * v30));
+            sub_12EEF8(1, "am_compare     * 10000 = %6d  ", v31);
+            sub_12EEF8(1, "ph_compare     * 10000 = %6d\n", (int)(float)(v26 * v30));
+            sub_12EEF8(1, "dpd_ampm.degree_max[1]     * 10000 = %6d\n", (int)(float)(*(float *)&v53 * v30));
+            sub_12EEF8(1, "verify ph is larger, table 1 index %x dont use dpd\n", v23);
+            v40 = 0;
+            sub_12EEF8(1, "table 1 index %x dont use dpd\n", v23);
           }
           else
           {
-            v41 = 1;
+            v40 = 1;
           }
         }
         else
         {
-          v41 = 1;
+          v40 = 1;
         }
       }
 LABEL_24:
-      v39 &= *(uint32_t *)v22;
-      v32 = *v44 & v41;
-      v33 = v49 <= ++v40;
-      *v43 = v39;
+      v38 &= *(uint32_t *)v22;
+      v34 = *v43 & v40;
+      v35 = v52 <= ++v39;
+      *v42 = v38;
       v22 += 4;
-      *v44 = v32;
+      *v43 = v34;
     }
-    while ( !v33 );
-    v17 = v42;
+    while ( !v35 );
+    v17 = a1a;
 LABEL_27:
-    *v45 = *v45 & 0xFFFEFFFF | (v39 << 16);
+    *v44 = *v44 & 0xFFFEFFFF | (v38 << 16);
 LABEL_28:
     if ( v20 != 2 )
     {
 LABEL_29:
       ++v17;
-      ++v43;
+      ++v42;
       continue;
     }
     break;
   }
   while ( !a1[2] )
-    timer_set(1);
-  result = state_check_feature(1, dword_10A59C);
-  v38 = off_10A5A0;
+    sub_100644(1);
+  result = sub_12EEF8(1, aDpdUse);
+  v37 = off_10A5A0;
   *(uint32_t *)off_10A5A0 &= ~0x200u;
-  *v38 |= 0x200u;
-  *v38 &= ~0x200u;
+  *v37 |= 0x200u;
+  *v37 &= ~0x200u;
   return result;
 }
-

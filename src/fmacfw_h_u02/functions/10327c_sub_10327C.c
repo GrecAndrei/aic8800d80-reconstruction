@@ -13,8 +13,6 @@
 
 extern uint32_t dword_1033E0;
 extern uint32_t dword_1033E4;
-extern uint32_t dword_1033EC;
-extern uint32_t dword_1033F0;
 extern uint32_t dword_1033F4;
 
 // crypto_start_operation @ 0x10327c, size 356 bytes
@@ -37,10 +35,9 @@ void  crypto_start_operation(int a1)
   int v15; // r1
   int v16; // r7
   uint16_t v17; // r9
-  uint16_t v18; // r2
-  unsigned int v19; // r0
-  uint8_t v20; // r4
-  unsigned int v21; // [sp+0h] [bp-Ch]
+  int16_t v18; // r2
+  uint8_t v19; // r4
+  unsigned int v20; // [sp+0h] [bp-Ch]
 
   v1 = (uint32_t *)dword_1033E0;
   v2 = (uint32_t *)dword_1033E4;
@@ -108,11 +105,11 @@ void  crypto_start_operation(int a1)
         }
         v3 = v14;
       }
-      v21 = v8;
+      v20 = v8;
       v17 = v8;
       v5 += v8;
-      feature_guard_sdio(0x2000, dword_1033EC, v6);
-      if ( v21 <= 0x40 )
+      check_feature_flag(0x2000, "%x -> %x\n", v6, v8);
+      if ( v20 <= 0x40 )
         v18 = v17 - v7;
       else
         v18 = v17 + v7;
@@ -127,12 +124,11 @@ void  crypto_start_operation(int a1)
     }
     break;
   }
-  v19 = dword_1033F0;
   *(uint32_t *)dword_1033E0 = ((v5 + 2) << 8) & 0x1FC00 | *(uint32_t *)dword_1033E0 & 0xFFFE03FF;
-  v20 = ((unsigned int)v5 + 2) >> 2;
-  log_printf(v19, 40 * a1 + 280, v20);
+  v19 = ((unsigned int)v5 + 2) >> 2;
+  debug_printf("%dM mdll duty: %x\n", 40 * a1 + 280, v19);
   if ( a1 )
-    *(uint8_t *)(dword_1033F4 + 1) = v20;
+    *(uint8_t *)(dword_1033F4 + 1) = v19;
   else
-    *(uint8_t *)dword_1033F4 = v20;
+    *(uint8_t *)dword_1033F4 = v19;
 }

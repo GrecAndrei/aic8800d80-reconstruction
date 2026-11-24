@@ -10,15 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12CCAC;
-extern uint32_t dword_12CCB8;
+extern uint32_t off_12CCB0;
+extern uint32_t off_12CCB4;
+extern uint32_t off_12CCC4;
 
 // tx_pkt_enqueue @ 0x12cbc8, size 226 bytes
-// Doc: message_dispatch_n2fa [ipc]: Dispatches host messages to subsystem handlers
-// message_dispatch_n2fa [ipc]: Dispatches host messages to subsystem handlers
 uint32_t * tx_pkt_enqueue(char *a1)
 {
-  int16_t **v1; // r9
+  uint16_t **v1; // r9
   char *v2; // r4
   int v3; // r8
   char *v5; // r5
@@ -26,7 +27,7 @@ uint32_t * tx_pkt_enqueue(char *a1)
   int v7; // r12
   int v8; // r7
   int v9; // r3
-  uint32_t *v10; // r1
+  char **v10; // r1
   int *v11; // r3
   int v12; // r3
   int v13; // r3
@@ -34,21 +35,21 @@ uint32_t * tx_pkt_enqueue(char *a1)
   int v15; // r1
   uint64_t v16; // r2
 
-  v1 = (int16_t **)message_id_match_n338;
+  v1 = (uint16_t **)off_12CCC4;
   v2 = *((char **)off_12CCAC + 7);
   v3 = *((uint32_t *)a1 - 1);
   v5 = a1 - 4;
-  if ( **(int16_t **)message_id_match_n338 < 0 && a1 <= v2 )
-    mmio_clear_register(message_dispatch_ccbc, dword_12CCB8, 220);
+  if ( **(uint16_t **)off_12CCC4 < 0 && a1 <= v2 )
+    mmio_clear_register((int)aUint32TMemPtrU, (int)aKeFree, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)message_dispatch_n324 = 1;
+    *(uint32_t *)off_12CCB0 = 1;
   }
-  result = message_dispatch_n328;
-  v7 = *(uint32_t *)message_dispatch_n328;
-  v8 = *(uint32_t *)message_dispatch_n328 + 1;
-  *(uint32_t *)message_dispatch_n328 = v8;
+  result = off_12CCB4;
+  v7 = *(uint32_t *)off_12CCB4;
+  v8 = *(uint32_t *)off_12CCB4 + 1;
+  *(uint32_t *)off_12CCB4 = v8;
   if ( !v2 )
   {
     MEMORY[0] = v5;
@@ -60,13 +61,13 @@ uint32_t * tx_pkt_enqueue(char *a1)
     if ( v2 > v5 )
     {
       if ( **v1 < 0 )
-        mmio_clear_register(message_dispatch_n334, dword_12CCB8, 247);
+        mmio_clear_register((int)aPrevNodeNull, (int)aKeFree, 247);
       MEMORY[0] = v5;
       __und(0xFFu);
     }
     while ( 1 )
     {
-      v10 = v2;
+      v10 = (char **)v2;
       v2 = *(char **)v2;
       if ( !v2 )
         break;
@@ -105,7 +106,7 @@ LABEL_20:
 LABEL_13:
   if ( v8 )
   {
-    v11 = (int *)message_dispatch_n324;
+    v11 = (int *)off_12CCB0;
     *result = v7;
     v12 = *v11;
     if ( !v7 )
@@ -116,4 +117,3 @@ LABEL_13:
   }
   return result;
 }
-

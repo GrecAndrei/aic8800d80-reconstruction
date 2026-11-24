@@ -10,22 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_117EF8;
-extern uint32_t dword_117F08;
-extern uint32_t off_117EFC;
+
 extern uint32_t dword_117F00;
+extern uint32_t off_117EF8;
+extern uint32_t off_117EFC;
 extern uint32_t off_117F04;
-extern uint32_t dword_117F18;
-extern uint32_t dword_117F14;
-extern uint32_t dword_117F10;
-extern uint32_t dword_117F0C;
 
 // is_initialized @ 0x117e0c, size 234 bytes
 int  is_initialized(int a1, int a2, int a3, int a4)
 {
   int v4; // r2
-  int v6; // r0
-  int16_t *v7; // r1
+  uint32_t *v6; // r0
+  uint16_t *v7; // r1
   int v8; // r4
   unsigned int v9; // r2
   int result; // r0
@@ -34,15 +30,15 @@ int  is_initialized(int a1, int a2, int a3, int a4)
   int v13; // r2
 
   if ( *(uint8_t *)off_117EF8 )
-    return alloc_tx_event(dword_117F08, a2, a3);
+    return alloc_tx_event(aBaWarn, a2, a3, a4);
   LOWORD(v4) = *((uint8_t *)off_117EFC + 190);
   if ( (*((uint32_t *)off_117EFC + 52) & 1) == 0 )
     v4 = (*(uint32_t *)(a1 + 84) >> 11) & 3;
-  v6 = list_pop(dword_117F00 + 84 * (int16_t)v4 + 28);
-  v7 = *(int16_t **)off_117F04;
-  v8 = v6;
-  if ( **(int16_t **)off_117F04 < 0 && !v6 )
-    return unknown_12f2c8(dword_117F18, dword_117F14, 369, a4);
+  v6 = list_pop(dword_117F00 + 84 * (uint16_t)v4 + 28);
+  v7 = *(uint16_t **)off_117F04;
+  v8 = (int)v6;
+  if ( **(uint16_t **)off_117F04 < 0 && !v6 )
+    return unknown_12f2c8((int)aAggDescNull, (int)aTxlBaPush, 369);
   v9 = *(uint32_t *)(a1 + 84);
   result = v9 << 6;
   *(uint16_t *)(v8 + 8) |= 0x20u;
@@ -50,7 +46,7 @@ int  is_initialized(int a1, int a2, int a3, int a4)
   {
     result = (uint16_t)(v9 >> 15);
     if ( *v7 < 0 && (result & 0x3F0) == 0 )
-      return unknown_12f2c8(dword_117F10, dword_117F0C, 217, a4);
+      return unknown_12f2c8((int)aKeyIdxHwMmSecD, (int)aTxlIsBaValid, 217);
     if ( ((v9 >> 15) & 0x3FF) - 16 == *(uint8_t *)(v8 + 12) )
     {
       v11 = *(uint32_t *)(*(uint32_t *)(a1 + 28) + 8);
@@ -67,7 +63,7 @@ int  is_initialized(int a1, int a2, int a3, int a4)
         v13 = *(uint16_t *)(a1 + 48);
         if ( (v13 == 52 || v13 == 28) && *(uint8_t *)(v8 + 13) == v12 >> 12 )
         {
-          result = memcpy(v8 + 228, v11 + 18, 34);
+          result = (int)memcpy_1((char *)(v8 + 228), (char *)(v11 + 18), 0x22u);
           *(uint32_t *)(v8 + 224) = v8 + 228;
 LABEL_17:
           *(uint16_t *)(v8 + 8) |= 0x40u;
@@ -77,4 +73,3 @@ LABEL_17:
   }
   return result;
 }
-

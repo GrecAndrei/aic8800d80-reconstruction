@@ -10,14 +10,24 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_102940;
-extern uint32_t dword_102944;
 
-// tx_set_power @ 0x102908, size 52 bytes
-int  tx_set_power(uint8_t *a1, int a2)
+extern uint32_t dword_10293C;
+
+// sub_102908 @ 0x102908, size 52 bytes
+int  sub_102908(uint8_t *a1, int a2)
 {
-  if ( !a2 )
-    rf_calibrate(*a1, *((uint16_t *)a1 + 1), *((uint16_t *)a1 + 2), a1[1]);
-  return dispatch_event_handler(dword_102940, dword_102944);
-}
+  int result; // r0
+  int v4; // r1
+  int v5; // r3
 
+  if ( a2 )
+    return sub_11F504("\x9B\x87%s: radio %d does not exist\n", aPhySetChannel, a2);
+  sub_101E18(*a1, *((uint16_t *)a1 + 1), *((uint16_t *)a1 + 2), a1[1], a1[9], 0);
+  result = *(uint32_t *)a1;
+  v4 = *((uint32_t *)a1 + 1);
+  v5 = dword_10293C;
+  *(uint32_t *)dword_10293C = *(uint32_t *)a1;
+  *(uint32_t *)(v5 + 4) = v4;
+  *(uint16_t *)(v5 + 8) = *((uint16_t *)a1 + 4);
+  return result;
+}

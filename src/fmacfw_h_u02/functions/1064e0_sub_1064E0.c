@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1067E8;
-extern uint32_t off_1067EC;
-extern uint32_t off_1067F0;
+
+extern uint32_t dword_106FF0;
+extern uint32_t dword_106FF4;
+extern uint32_t dword_106FF8;
+extern uint32_t dword_10707C;
+extern uint32_t dword_107080;
 extern uint32_t off_1067C0;
-extern uint32_t off_1067F4;
 extern uint32_t off_1067C4;
-extern uint32_t off_1067F8;
 extern uint32_t off_1067C8;
 extern uint32_t off_1067CC;
 extern uint32_t off_1067D0;
@@ -25,49 +26,41 @@ extern uint32_t off_1067D8;
 extern uint32_t off_1067DC;
 extern uint32_t off_1067E0;
 extern uint32_t off_1067E4;
+extern uint32_t off_1067E8;
+extern uint32_t off_1067EC;
+extern uint32_t off_1067F0;
+extern uint32_t off_1067F4;
+extern uint32_t off_1067F8;
 extern uint32_t off_106980;
 extern uint32_t off_106984;
 extern uint32_t off_106988;
 extern uint32_t off_10698C;
 extern uint32_t off_106990;
-extern uint32_t off_106998;
 extern uint32_t off_106994;
-extern uint32_t off_106FE8;
-extern uint32_t off_107074;
-extern uint32_t off_107078;
-extern uint32_t dword_10707C;
-extern uint32_t dword_107080;
-extern uint32_t off_106FEC;
-extern uint32_t dword_106FF4;
-extern uint32_t dword_106FF0;
-extern uint32_t dword_106FF8;
-extern uint32_t dword_106FFC;
-extern uint32_t dword_107000;
-extern uint32_t dword_107004;
-extern uint32_t dword_10700C;
-extern uint32_t dword_107014;
-extern uint32_t dword_10701C;
-extern uint32_t dword_107020;
-extern uint32_t dword_107024;
-extern uint32_t dword_107018;
-extern uint32_t dword_1069A0;
+extern uint32_t off_106998;
+extern uint32_t off_10699C;
 extern uint32_t off_106CC0;
 extern uint32_t off_106CC4;
-extern uint32_t off_106CE8;
-extern uint32_t off_106CEC;
-extern uint32_t off_106CE4;
 extern uint32_t off_106CC8;
 extern uint32_t off_106CCC;
-extern uint32_t off_106CF0;
 extern uint32_t off_106CD0;
 extern uint32_t off_106CD4;
 extern uint32_t off_106CD8;
 extern uint32_t off_106CDC;
 extern uint32_t off_106CE0;
+extern uint32_t off_106CE4;
+extern uint32_t off_106CE8;
+extern uint32_t off_106CEC;
+extern uint32_t off_106CF0;
 extern uint32_t off_106CF4;
+extern uint32_t off_106FE8;
+extern uint32_t off_106FEC;
+extern uint32_t off_107008;
+extern uint32_t off_107010;
+extern uint32_t off_107078;
 
 // phy_read_table @ 0x1064e0, size 2964 bytes
-int  phy_read_table(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7)
+int  phy_read_table(unsigned int a1, int a2, uint16_t *a3, int a4, int a5, int a6, int a7)
 {
   uint32_t *v7; // r9
   unsigned int *v8; // r8
@@ -93,16 +86,16 @@ int  phy_read_table(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6
   uint32_t *v31; // r5
   uint32_t *v32; // r2
   uint32_t *v33; // r2
-  int16_t *v34; // r9
+  uint16_t *v34; // r9
   uint32_t *v35; // r8
   int v36; // r7
   int v37; // r3
-  int16_t v38; // t1
+  int v38; // t1
   int v39; // r2
   int v40; // r1
   int v41; // r5
   uint32_t *v42; // r6
-  int v43; // r8
+  uint32_t *v43; // r9
   int v44; // r2
   unsigned int *v45; // r4
   unsigned int *v46; // r5
@@ -118,108 +111,110 @@ int  phy_read_table(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6
   unsigned int *v56; // r7
   unsigned int *v57; // r2
   uint32_t *v58; // r10
-  int v60; // r3
+  unsigned int v60; // r3
   int v61; // r8
   int v62; // r9
   int v63; // r11
-  int v64; // r7
-  int v65; // r6
-  unsigned int v66; // r5
-  int v67; // r3
-  int v68; // r7
-  int *v69; // r6
-  uint32_t *v70; // r7
-  int v71; // r9
-  int v72; // r11
-  int v73; // r8
-  unsigned int *v74; // r6
-  unsigned int v75; // r5
-  char v76; // r3
-  int v77; // r6
-  int *v78; // r3
-  int *v79; // r12
-  int *v80; // r2
-  int v81; // r0
-  int *v82; // r1
-  unsigned int v83; // [sp+Ch] [bp-C8h]
-  char v84; // [sp+Ch] [bp-C8h]
-  int v85; // [sp+Ch] [bp-C8h]
-  unsigned int v86; // [sp+10h] [bp-C4h]
-  int v87; // [sp+10h] [bp-C4h]
-  unsigned int v88; // [sp+14h] [bp-C0h]
-  int v89; // [sp+14h] [bp-C0h]
-  unsigned int v90; // [sp+18h] [bp-BCh]
-  int v91; // [sp+18h] [bp-BCh]
-  unsigned int v92; // [sp+1Ch] [bp-B8h]
-  int v93; // [sp+1Ch] [bp-B8h]
-  unsigned int v94; // [sp+20h] [bp-B4h]
-  int v95; // [sp+20h] [bp-B4h]
-  unsigned int v96; // [sp+24h] [bp-B0h]
-  int v97; // [sp+24h] [bp-B0h]
-  unsigned int v98; // [sp+28h] [bp-ACh]
-  int v99; // [sp+28h] [bp-ACh]
-  unsigned int v100; // [sp+2Ch] [bp-A8h]
-  int v101; // [sp+2Ch] [bp-A8h]
-  unsigned int v102; // [sp+30h] [bp-A4h]
-  int v103; // [sp+30h] [bp-A4h]
-  unsigned int v104; // [sp+34h] [bp-A0h]
-  int v105; // [sp+34h] [bp-A0h]
-  unsigned int v106; // [sp+38h] [bp-9Ch]
-  int v107; // [sp+38h] [bp-9Ch]
-  unsigned int v108; // [sp+3Ch] [bp-98h]
-  int v109; // [sp+3Ch] [bp-98h]
-  unsigned int v110; // [sp+40h] [bp-94h]
-  int v111; // [sp+40h] [bp-94h]
-  unsigned int v112; // [sp+44h] [bp-90h]
-  int v113; // [sp+44h] [bp-90h]
-  unsigned int v114; // [sp+48h] [bp-8Ch]
-  int v115; // [sp+48h] [bp-8Ch]
-  unsigned int v116; // [sp+4Ch] [bp-88h]
-  int v117; // [sp+4Ch] [bp-88h]
-  unsigned int v118; // [sp+50h] [bp-84h]
-  int v119; // [sp+50h] [bp-84h]
-  unsigned int v120; // [sp+54h] [bp-80h]
-  int v121; // [sp+54h] [bp-80h]
-  unsigned int v122; // [sp+58h] [bp-7Ch]
-  int v123; // [sp+58h] [bp-7Ch]
-  unsigned int v124; // [sp+5Ch] [bp-78h]
-  int v125; // [sp+5Ch] [bp-78h]
-  unsigned int v126; // [sp+60h] [bp-74h]
-  int v127; // [sp+60h] [bp-74h]
-  unsigned int v128; // [sp+64h] [bp-70h]
-  int v129; // [sp+64h] [bp-70h]
-  unsigned int v130; // [sp+68h] [bp-6Ch]
-  int v131; // [sp+68h] [bp-6Ch]
-  unsigned int v132; // [sp+6Ch] [bp-68h]
-  int v133; // [sp+6Ch] [bp-68h]
-  unsigned int v134; // [sp+70h] [bp-64h]
-  int v135; // [sp+70h] [bp-64h]
-  unsigned int v136; // [sp+74h] [bp-60h]
-  int v137; // [sp+74h] [bp-60h]
-  unsigned int v138; // [sp+78h] [bp-5Ch]
-  int v139; // [sp+78h] [bp-5Ch]
-  int v140; // [sp+7Ch] [bp-58h]
-  int v141; // [sp+80h] [bp-54h]
-  int v142; // [sp+84h] [bp-50h]
-  int v143; // [sp+88h] [bp-4Ch]
-  int v144; // [sp+8Ch] [bp-48h]
-  int v145; // [sp+90h] [bp-44h]
-  int v146; // [sp+94h] [bp-40h]
-  int v147; // [sp+98h] [bp-3Ch]
-  int v148; // [sp+98h] [bp-3Ch]
-  char v149; // [sp+9Ch] [bp-38h]
-  int v150; // [sp+A0h] [bp-34h]
-  int v151; // [sp+A4h] [bp-30h]
-  int v152; // [sp+A8h] [bp-2Ch]
-  int v153; // [sp+ACh] [bp-28h]
-  int v154; // [sp+B0h] [bp-24h]
-  int v155; // [sp+B4h] [bp-20h]
-  unsigned int v156; // [sp+B8h] [bp-1Ch]
-  int v157; // [sp+BCh] [bp-18h]
-  int v158; // [sp+C0h] [bp-14h]
-  int v159; // [sp+C4h] [bp-10h]
-  int v160; // [sp+C8h] [bp-Ch]
-  int v161; // [sp+CCh] [bp-8h]
+  unsigned int v64; // r2
+  int v65; // r7
+  int v66; // r6
+  unsigned int v67; // r5
+  int v68; // r3
+  int v69; // r7
+  int *v70; // r6
+  uint32_t *v71; // r7
+  int v72; // r9
+  int v73; // r11
+  int v74; // r8
+  unsigned int *v75; // r6
+  unsigned int v76; // r5
+  int v77; // r5
+  char v78; // r3
+  int v79; // r6
+  int *v80; // r3
+  int *v81; // r12
+  int *v82; // r2
+  int v83; // r0
+  int *v84; // r1
+  unsigned int v85; // [sp+Ch] [bp-C8h]
+  char v86; // [sp+Ch] [bp-C8h]
+  int v87; // [sp+Ch] [bp-C8h]
+  unsigned int v88; // [sp+10h] [bp-C4h]
+  int v89; // [sp+10h] [bp-C4h]
+  unsigned int v90; // [sp+14h] [bp-C0h]
+  int v91; // [sp+14h] [bp-C0h]
+  unsigned int v92; // [sp+18h] [bp-BCh]
+  int v93; // [sp+18h] [bp-BCh]
+  unsigned int v94; // [sp+1Ch] [bp-B8h]
+  int v95; // [sp+1Ch] [bp-B8h]
+  unsigned int v96; // [sp+20h] [bp-B4h]
+  int v97; // [sp+20h] [bp-B4h]
+  unsigned int v98; // [sp+24h] [bp-B0h]
+  int v99; // [sp+24h] [bp-B0h]
+  unsigned int v100; // [sp+28h] [bp-ACh]
+  int v101; // [sp+28h] [bp-ACh]
+  unsigned int v102; // [sp+2Ch] [bp-A8h]
+  int v103; // [sp+2Ch] [bp-A8h]
+  unsigned int v104; // [sp+30h] [bp-A4h]
+  int v105; // [sp+30h] [bp-A4h]
+  unsigned int v106; // [sp+34h] [bp-A0h]
+  int v107; // [sp+34h] [bp-A0h]
+  unsigned int v108; // [sp+38h] [bp-9Ch]
+  int v109; // [sp+38h] [bp-9Ch]
+  unsigned int v110; // [sp+3Ch] [bp-98h]
+  int v111; // [sp+3Ch] [bp-98h]
+  unsigned int v112; // [sp+40h] [bp-94h]
+  int v113; // [sp+40h] [bp-94h]
+  unsigned int v114; // [sp+44h] [bp-90h]
+  int v115; // [sp+44h] [bp-90h]
+  unsigned int v116; // [sp+48h] [bp-8Ch]
+  int v117; // [sp+48h] [bp-8Ch]
+  unsigned int v118; // [sp+4Ch] [bp-88h]
+  int v119; // [sp+4Ch] [bp-88h]
+  unsigned int v120; // [sp+50h] [bp-84h]
+  int v121; // [sp+50h] [bp-84h]
+  unsigned int v122; // [sp+54h] [bp-80h]
+  int v123; // [sp+54h] [bp-80h]
+  unsigned int v124; // [sp+58h] [bp-7Ch]
+  int v125; // [sp+58h] [bp-7Ch]
+  unsigned int v126; // [sp+5Ch] [bp-78h]
+  int v127; // [sp+5Ch] [bp-78h]
+  unsigned int v128; // [sp+60h] [bp-74h]
+  int v129; // [sp+60h] [bp-74h]
+  unsigned int v130; // [sp+64h] [bp-70h]
+  int v131; // [sp+64h] [bp-70h]
+  unsigned int v132; // [sp+68h] [bp-6Ch]
+  int v133; // [sp+68h] [bp-6Ch]
+  unsigned int v134; // [sp+6Ch] [bp-68h]
+  int v135; // [sp+6Ch] [bp-68h]
+  unsigned int v136; // [sp+70h] [bp-64h]
+  int v137; // [sp+70h] [bp-64h]
+  unsigned int v138; // [sp+74h] [bp-60h]
+  int v139; // [sp+74h] [bp-60h]
+  unsigned int v140; // [sp+78h] [bp-5Ch]
+  int v141; // [sp+78h] [bp-5Ch]
+  int v142; // [sp+7Ch] [bp-58h]
+  int v143; // [sp+80h] [bp-54h]
+  int v144; // [sp+84h] [bp-50h]
+  int v145; // [sp+88h] [bp-4Ch]
+  int v146; // [sp+8Ch] [bp-48h]
+  int v147; // [sp+90h] [bp-44h]
+  int v148; // [sp+94h] [bp-40h]
+  int v149; // [sp+98h] [bp-3Ch]
+  int v150; // [sp+98h] [bp-3Ch]
+  char v151; // [sp+9Ch] [bp-38h]
+  int v152; // [sp+A0h] [bp-34h]
+  int v153; // [sp+A4h] [bp-30h]
+  int v154; // [sp+A8h] [bp-2Ch]
+  int v155; // [sp+ACh] [bp-28h]
+  int v156; // [sp+B0h] [bp-24h]
+  int v157; // [sp+B4h] [bp-20h]
+  unsigned int v158; // [sp+B8h] [bp-1Ch]
+  int v159; // [sp+BCh] [bp-18h]
+  int v160; // [sp+C0h] [bp-14h]
+  int v161; // [sp+C4h] [bp-10h]
+  int v162; // [sp+C8h] [bp-Ch]
+  int v163; // [sp+CCh] [bp-8h]
 
   v7 = off_1067E8;
   v8 = (unsigned int *)off_1067EC;
@@ -231,18 +226,18 @@ int  phy_read_table(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6
   v14 = (unsigned int *)off_1067C8;
   *(uint32_t *)off_1067E8 |= 0x400u;
   *v7 &= ~0x400u;
-  v86 = *v8;
-  v88 = *v9;
-  v90 = *v10;
+  v88 = *v8;
+  v90 = *v9;
   v92 = *v10;
-  v94 = *v11;
-  v96 = *v12;
+  v94 = *v10;
+  v96 = *v11;
   v98 = *v12;
   v100 = *v12;
   v102 = *v12;
-  v104 = *v8;
+  v104 = *v12;
+  v106 = *v8;
+  v140 = *(uint32_t *)off_1067CC;
   v138 = *(uint32_t *)off_1067CC;
-  v136 = *(uint32_t *)off_1067CC;
   *v8 |= 0x20u;
   v15 = (unsigned int *)off_1067CC;
   *v9 = *v9 & 0xF8FFFFFF | 0x2000000;
@@ -255,63 +250,63 @@ int  phy_read_table(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6
   *v15 = *v15 & 0xFFFE00FF | 0x100;
   *v15 |= 0x20000u;
   *v15 |= 0x40000u;
-  v106 = *v13;
-  v108 = *(unsigned int *)((char *)v15 + 0xFFFFFFC8);
-  v110 = *v14;
+  v108 = *v13;
+  v110 = *(unsigned int *)((char *)v15 + 0xFFFFFFC8);
   v112 = *v14;
   v114 = *v14;
   v116 = *v14;
-  v118 = *v10;
+  v118 = *v14;
   v120 = *v10;
   v122 = *v10;
   v124 = *v10;
-  v126 = *(uint32_t *)off_1067D0;
-  v128 = *(uint32_t *)off_1067D4;
-  v130 = *v11;
-  v132 = *(uint32_t *)off_1067D8;
-  v134 = *v11;
-  v144 = *(uint32_t *)off_1067DC;
-  v83 = *v10;
+  v126 = *v10;
+  v128 = *(uint32_t *)off_1067D0;
+  v130 = *(uint32_t *)off_1067D4;
+  v132 = *v11;
+  v134 = *(uint32_t *)off_1067D8;
+  v136 = *v11;
+  v146 = *(uint32_t *)off_1067DC;
+  v85 = *v10;
   v17 = *v10;
   v16 = *v10;
-  v143 = *(uint32_t *)off_1067E0;
+  v145 = *(uint32_t *)off_1067E0;
   v18 = *(uint32_t *)off_1067E4;
   *v13 |= 0x40u;
   *(unsigned int *)((char *)v15 + 0xFFFFFFC8) &= 0xFFFF8FFF;
   *v14 |= 0x800000u;
   v19 = a4;
-  v87 = (v86 >> 5) & 1;
-  v89 = HIBYTE(v88) & 7;
-  v91 = (v90 >> 21) & 1;
-  v93 = (v92 >> 20) & 1;
-  v95 = (uint8_t)v94 >> 4;
-  v97 = (v96 >> 7) & 1;
-  v99 = (v98 >> 4) & 7;
-  v101 = (v100 >> 10) & 1;
-  v103 = (v102 >> 8) & 3;
-  v105 = (v104 >> 2) & 7;
-  v146 = (v138 >> 22) & 1;
-  v145 = (v136 >> 21) & 1;
-  v107 = (v106 >> 6) & 1;
-  v109 = (v108 >> 12) & 7;
-  v111 = (v110 >> 23) & 1;
-  v113 = (v112 >> 22) & 1;
-  v115 = (v114 >> 20) & 1;
-  v117 = (v116 >> 21) & 1;
-  v119 = (v118 >> 17) & 1;
-  v121 = HIWORD(v120) & 1;
-  v123 = (v122 >> 15) & 1;
-  v125 = (v124 >> 14) & 1;
-  v127 = (v126 >> 18) & 1;
-  v129 = (v128 >> 12) & 3;
-  v131 = v130 & 3;
-  v133 = (v132 >> 18) & 7;
-  v135 = (v134 >> 2) & 1;
-  v137 = (v16 >> 23) & 1;
-  v139 = (v17 >> 22) & 1;
-  v141 = (v83 >> 18) & 1;
-  v142 = (v18 >> 8) & 1;
-  v140 = (v83 >> 19) & 1;
+  v89 = (v88 >> 5) & 1;
+  v91 = HIBYTE(v90) & 7;
+  v93 = (v92 >> 21) & 1;
+  v95 = (v94 >> 20) & 1;
+  v97 = (uint8_t)v96 >> 4;
+  v99 = (v98 >> 7) & 1;
+  v101 = (v100 >> 4) & 7;
+  v103 = (v102 >> 10) & 1;
+  v105 = (v104 >> 8) & 3;
+  v107 = (v106 >> 2) & 7;
+  v148 = (v140 >> 22) & 1;
+  v147 = (v138 >> 21) & 1;
+  v109 = (v108 >> 6) & 1;
+  v111 = (v110 >> 12) & 7;
+  v113 = (v112 >> 23) & 1;
+  v115 = (v114 >> 22) & 1;
+  v117 = (v116 >> 20) & 1;
+  v119 = (v118 >> 21) & 1;
+  v121 = (v120 >> 17) & 1;
+  v123 = HIWORD(v122) & 1;
+  v125 = (v124 >> 15) & 1;
+  v127 = (v126 >> 14) & 1;
+  v129 = (v128 >> 18) & 1;
+  v131 = (v130 >> 12) & 3;
+  v133 = v132 & 3;
+  v135 = (v134 >> 18) & 7;
+  v137 = (v136 >> 2) & 1;
+  v139 = (v16 >> 23) & 1;
+  v141 = (v17 >> 22) & 1;
+  v143 = (v85 >> 18) & 1;
+  v144 = (v18 >> 8) & 1;
+  v142 = (v85 >> 19) & 1;
   *v14 |= 0x400000u;
   LOBYTE(a4) = 90;
   do
@@ -373,147 +368,149 @@ int  phy_read_table(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6
       *(uint32_t *)off_106FE8 = a1;
       if ( v60 == 1 )
       {
-        v158 = 0;
-        v159 = *(uint32_t *)off_107074;
-        v154 = -2;
-        v84 = 31;
-        v153 = 1;
-        v147 = 1;
+        v160 = 0;
+        v161 = *(uint32_t *)asc_152C80;
+        v156 = -2;
+        v86 = 31;
+        v155 = 1;
+        v149 = 1;
         v61 = 4;
         v63 = 0x7FFFFFFF;
-        v157 = 3;
-        v149 = 1;
-        v151 = 0x7FFFFFFF;
-        v152 = 4;
+        v159 = 3;
+        v151 = 1;
+        v153 = 0x7FFFFFFF;
+        v154 = 4;
         v62 = 0;
       }
       else
       {
         if ( v60 == 2 )
         {
-          v159 = *(uint32_t *)off_107078;
+          v161 = *(uint32_t *)off_107078;
           v61 = 8;
-          v154 = dword_10707C;
-          v153 = dword_107080;
+          v156 = dword_10707C;
+          v155 = dword_107080;
         }
         else
         {
-          v159 = *(uint32_t *)off_106FEC;
-          v153 = dword_106FF4;
+          v161 = *(uint32_t *)off_106FEC;
+          v155 = dword_106FF4;
           v61 = 8;
-          v154 = dword_106FF0;
+          v156 = dword_106FF0;
         }
         a7 = 2;
-        v158 = 8;
+        v160 = 8;
         v62 = 2;
-        v84 = 13;
-        v147 = -1;
-        v151 = -122881;
-        v157 = 15;
-        v149 = -13;
+        v86 = 13;
+        v149 = -1;
+        v153 = -122881;
+        v159 = 15;
+        v151 = -13;
         v63 = 0x1FFF;
-        v152 = 16;
+        v154 = 16;
       }
-      v64 = (*(uint32_t *)(dword_106FF8 - 18832) >> 8) & 0xF;
-      v65 = (v60 << 8) + dword_106FF8;
-      v160 = v65;
-      check_feature_flag(1, dword_106FFC);
+      v64 = *(uint32_t *)(dword_106FF8 - 18832);
+      v65 = (v64 >> 8) & 0xF;
+      v66 = (v60 << 8) + dword_106FF8;
+      v162 = v66;
+      check_feature_flag(1, "tx_gain_reg=%x,apc_table=%d,ampm_index=%x\n", v64, v60, v65);
       *(uint32_t *)(a2 + 140) = *(uint32_t *)(a2 + 152);
       load_const_table(a2, 0);
-      v66 = 0;
-      check_feature_flag(1, dword_107000);
-      v150 = v62;
-      v67 = v64;
-      v68 = v65 + 16 * v64;
-      v69 = (int *)(v68 + v158);
-      v70 = (uint32_t *)(v68 + v61);
-      v161 = v61;
-      v155 = v63;
-      v156 = 0;
-      v71 = 0;
-      v72 = v67;
-      v73 = 2 * v67;
+      v67 = 0;
+      check_feature_flag(1, "tx_gain_map_reg=%x  ana_index=%x base=%d \n", *(uint32_t *)off_106FE8, v65, 0);
+      v152 = v62;
+      v68 = v65;
+      v69 = v66 + 16 * v65;
+      v70 = (int *)(v69 + v160);
+      v71 = (uint32_t *)(v69 + v61);
+      v163 = v61;
+      v157 = v63;
+      v158 = 0;
+      v72 = 0;
+      v73 = v68;
+      v74 = 2 * v68;
       do
       {
         rf_clear_control_bit_a(1);
-        if ( v150 == a7 )
+        if ( v152 == a7 )
         {
-          *v69 = *v69 & v151 | ((v157 & v66) << v84);
+          *v70 = *v70 & v153 | ((v159 & v67) << v86);
         }
         else
         {
-          *v69 &= v155;
-          *v70 &= v154;
-          *v69 |= (v147 & v66) << v84;
-          *v70 |= (v66 >> v149) & v153;
+          *v70 &= v157;
+          *v71 &= v156;
+          *v70 |= (v149 & v67) << v86;
+          *v71 |= (v67 >> v151) & v155;
         }
         rf_clear_control_bit_b(1);
-        rf_path_disable(*a3, a2, v72, 0);
-        check_feature_flag(1, dword_107004);
-        check_feature_flag(1, dword_10700C);
-        check_feature_flag(1, dword_107014);
-        if ( *(int16_t *)(a2 + v73) > v71 )
+        rf_path_disable((uint16_t)*a3, a2, v73, 0);
+        check_feature_flag(1, "tone_amp[0]=%x,pwr_back[%2d]=%d ", *a3, v67, *(uint16_t *)(a2 + v74));
+        check_feature_flag(1, "wf_pa_5g_input_2_cbit=%d  ", (*(uint32_t *)off_107008 >> 21) & 3);
+        check_feature_flag(1, "wf_dtmx_tuning_cbit=%d\n", (*(uint32_t *)off_107010 >> 15) & 0xF);
+        if ( *(uint16_t *)(a2 + v74) > v72 )
         {
-          v71 = *(int16_t *)(a2 + v73);
-          v156 = v66;
+          v72 = *(uint16_t *)(a2 + v74);
+          v158 = v67;
         }
-        ++v66;
+        ++v67;
       }
-      while ( v152 != v66 );
-      check_feature_flag(1, dword_10701C);
+      while ( v154 != v67 );
+      check_feature_flag(1, "cbit_val=%d\n", v158);
       rf_clear_control_bit_a(1);
-      v76 = v84;
-      v85 = (v156 >> v149) & v153;
-      v77 = (v147 & v156) << v76;
-      v148 = (v156 & v157) << v76;
-      v78 = (int *)(v160 + v158);
-      v79 = (int *)(v158 + 192 + v159);
-      v80 = (int *)(v159 + v158);
-      v81 = v161 - v158;
+      v78 = v86;
+      v87 = (v158 >> v151) & v155;
+      v79 = (v149 & v158) << v78;
+      v150 = (v158 & v159) << v78;
+      v80 = (int *)(v162 + v160);
+      v81 = (int *)(v160 + 192 + v161);
+      v82 = (int *)(v161 + v160);
+      v83 = v163 - v160;
       do
       {
         while ( 1 )
         {
-          v82 = &v80[v158 / 0xFFFFFFFC];
-          if ( v150 == a7 )
+          v84 = &v82[v160 / 0xFFFFFFFC];
+          if ( v152 == a7 )
             break;
-          *v78 &= v155;
-          *(int *)((char *)v78 + v81) &= v154;
-          *v78 |= v77;
-          *(int *)((char *)v78 + v81) |= v85;
-          *v80 &= v155;
-          *(int *)((char *)v82 + v161) &= v154;
-          *v80 |= v77;
-          v80 += 3;
-          *(int *)((char *)v82 + v161) |= v85;
-          v78 += 4;
-          if ( v79 == v80 )
+          *v80 &= v157;
+          *(int *)((char *)v80 + v83) &= v156;
+          *v80 |= v79;
+          *(int *)((char *)v80 + v83) |= v87;
+          *v82 &= v157;
+          *(int *)((char *)v84 + v163) &= v156;
+          *v82 |= v79;
+          v82 += 3;
+          *(int *)((char *)v84 + v163) |= v87;
+          v80 += 4;
+          if ( v81 == v82 )
             goto LABEL_50;
         }
-        *v78 = *v78 & v151 | v148;
-        *v80 = *v80 & v151 | v148;
-        v80 += 3;
-        v78 += 4;
+        *v80 = *v80 & v153 | v150;
+        *v82 = *v82 & v153 | v150;
+        v82 += 3;
+        v80 += 4;
       }
-      while ( v79 != v80 );
+      while ( v81 != v82 );
 LABEL_50:
       rf_clear_control_bit_b(1);
-      check_feature_flag(1, dword_107020);
-      check_feature_flag(1, dword_107024);
+      check_feature_flag(1, "use wf_pa_5g_input_2_cbit=%d  ", (*(uint32_t *)off_107008 >> 21) & 3);
+      check_feature_flag(1, "use wf_dtmx_tuning_cbit=%d\n", (*(uint32_t *)off_107010 >> 15) & 0xF);
     }
     goto LABEL_28;
   }
   if ( v19 )
   {
-    v74 = (unsigned int *)off_106FE8;
+    v75 = (unsigned int *)off_106FE8;
     *(uint32_t *)off_106FE8 = a1;
     *v31 &= ~0x200u;
     *v31 |= 0x200u;
     *v31 &= ~0x200u;
-    v75 = *v74;
+    v76 = *v75;
     load_const_table(a2, 0);
-    check_feature_flag(1, dword_107018);
-    rf_path_disable(*a3, a2, (v75 >> 8) & 0xF, 0);
+    v77 = (v76 >> 8) & 0xF;
+    check_feature_flag(1, "tx_gain_map_reg=%x  ana_index=%x base=%d ", *v75, v77, 0);
+    rf_path_disable((uint16_t)*a3, a2, v77, 0);
     goto LABEL_28;
   }
   *(uint64_t *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
@@ -546,7 +543,7 @@ LABEL_19:
     *v31 |= 0x200u;
     *v31 &= ~0x200u;
     load_const_table(a2, v19);
-    v38 = v34[1];
+    v38 = (uint16_t)v34[1];
     ++v34;
     rf_path_disable(v38, a2, v36, v19);
     v39 = v19;
@@ -558,7 +555,7 @@ LABEL_19:
   if ( v41 <= *(uint32_t *)(a2 + 112) )
   {
     v42 = off_106990;
-    v43 = dword_1069A0;
+    v43 = off_10699C;
     do
     {
       while ( 1 )
@@ -571,8 +568,8 @@ LABEL_19:
         if ( v44 < v41 )
           break;
         load_const_table(a2, 2);
-        check_feature_flag(1, v43);
-        rf_path_disable(a3[2], a2, v41, 2);
+        check_feature_flag(1, "tx_gain_map_reg=%8x ana_index=%x base=%d ", *v43, v41, 2);
+        rf_path_disable((uint16_t)a3[2], a2, v41, 2);
         if ( *(uint32_t *)(a2 + 124) <= v41 )
           break;
 LABEL_26:
@@ -584,14 +581,14 @@ LABEL_26:
       if ( *(uint32_t *)(a2 + 120) >= v41 )
       {
         load_const_table(a2, 1);
-        check_feature_flag(1, v43);
-        rf_path_disable(a3[1], a2, v41, 1);
+        check_feature_flag(1, "tx_gain_map_reg=%8x ana_index=%x base=%d ", *v43, v41, 1);
+        rf_path_disable((uint16_t)a3[1], a2, v41, 1);
         goto LABEL_26;
       }
 LABEL_23:
       load_const_table(a2, 0);
-      check_feature_flag(1, v43);
-      rf_path_disable(*a3, a2, v41++, 0);
+      check_feature_flag(1, "tx_gain_map_reg=%8x ana_index=%x base=%d ", *v43, v41, 0);
+      rf_path_disable((uint16_t)*a3, a2, v41++, 0);
     }
     while ( *(uint32_t *)(a2 + 112) >= v41 );
   }
@@ -601,55 +598,54 @@ LABEL_28:
   v47 = (unsigned int *)off_106CE8;
   v48 = (unsigned int *)off_106CEC;
   v49 = off_106CE4;
-  *(uint32_t *)off_106CC0 = *(uint32_t *)off_106CC0 & 0xFFBFFFFF | (v146 << 22);
-  *v45 = *v45 & 0xFFDFFFFF | (v145 << 21);
+  *(uint32_t *)off_106CC0 = *(uint32_t *)off_106CC0 & 0xFFBFFFFF | (v148 << 22);
+  *v45 = *v45 & 0xFFDFFFFF | (v147 << 21);
   rf_disable();
   v50 = off_106CC8;
   v51 = (unsigned int *)off_106CCC;
   v52 = (unsigned int *)off_106CF0;
-  *(uint32_t *)off_106CC8 = *(uint32_t *)off_106CC8 & 0xF8FFFFFF | (v89 << 24);
+  *(uint32_t *)off_106CC8 = *(uint32_t *)off_106CC8 & 0xF8FFFFFF | (v91 << 24);
   v53 = (unsigned int *)off_106CD0;
-  *v46 = *v46 & 0xFFFFFFBF | (v107 << 6);
+  *v46 = *v46 & 0xFFFFFFBF | (v109 << 6);
   v54 = (unsigned int *)off_106CD4;
-  *v51 = *v51 & 0xFFFF8FFF | (v109 << 12);
+  *v51 = *v51 & 0xFFFF8FFF | (v111 << 12);
   v55 = (unsigned int *)off_106CD8;
   v56 = (unsigned int *)off_106CDC;
-  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFF7FFFFF | (v111 << 23);
-  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFFBFFFFF | (v113 << 22);
+  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFF7FFFFF | (v113 << 23);
+  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFFBFFFFF | (v115 << 22);
   v57 = (unsigned int *)off_106CE0;
-  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFFEFFFFF | (v115 << 20);
-  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFFDFFFFF | (v117 << 21);
-  *v53 = *v53 & 0xFFFBFFFF | (v141 << 18);
+  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFFEFFFFF | (v117 << 20);
+  *(uint32_t *)((char *)v50 + 0xFFFFFFDC) = *(uint32_t *)((char *)v50 + 0xFFFFFFDC) & 0xFFDFFFFF | (v119 << 21);
+  *v53 = *v53 & 0xFFFBFFFF | (v143 << 18);
   v58 = off_106CF4;
-  *v53 = *v53 & 0xFFF7FFFF | (v140 << 19);
-  *v53 = *v53 & 0xFFFDFFFF | (v119 << 17);
-  *v53 = *v53 & 0xFFFEFFFF | (v121 << 16);
-  *v53 = *v53 & 0xFFFF7FFF | (v123 << 15);
-  *v53 = *v53 & 0xFFFFBFFF | (v125 << 14);
-  *v54 = *v54 & 0xFFFBFFFF | (v127 << 18);
-  *v47 = *v47 & 0xFFFFCFFF | (v129 << 12);
-  *v55 = *v55 & 0xFFFFFFFC | v131;
-  *v56 = *v56 & 0xFFE3FFFF | (v133 << 18);
-  *v55 = *v55 & 0xFFFFFFFB | (4 * v135);
-  *v53 = *v53 & 0xFF7FFFFF | (v137 << 23);
-  *v53 = *v53 & 0xFFBFFFFF | (v139 << 22);
-  *v52 = *v52 & 0xFFFFFFDF | (32 * v87);
-  *v53 = *v53 & 0xFFDFFFFF | (v91 << 21);
-  *v53 = *v53 & 0xFFEFFFFF | (v93 << 20);
-  *v55 = *v55 & 0xFFFFFF0F | (16 * v95);
-  *v57 = *v57 & 0xFFFFFF7F | (v97 << 7);
-  *v57 = *v57 & 0xFFFFFF8F | (16 * v99);
-  *v57 = *v57 & 0xFFFFFBFF | (v101 << 10);
-  *v57 = *v57 & 0xFFFFFCFF | (v103 << 8);
-  *v52 = *v52 & 0xFFFFFFE3 | (4 * v105);
+  *v53 = *v53 & 0xFFF7FFFF | (v142 << 19);
+  *v53 = *v53 & 0xFFFDFFFF | (v121 << 17);
+  *v53 = *v53 & 0xFFFEFFFF | (v123 << 16);
+  *v53 = *v53 & 0xFFFF7FFF | (v125 << 15);
+  *v53 = *v53 & 0xFFFFBFFF | (v127 << 14);
+  *v54 = *v54 & 0xFFFBFFFF | (v129 << 18);
+  *v47 = *v47 & 0xFFFFCFFF | (v131 << 12);
+  *v55 = *v55 & 0xFFFFFFFC | v133;
+  *v56 = *v56 & 0xFFE3FFFF | (v135 << 18);
+  *v55 = *v55 & 0xFFFFFFFB | (4 * v137);
+  *v53 = *v53 & 0xFF7FFFFF | (v139 << 23);
+  *v53 = *v53 & 0xFFBFFFFF | (v141 << 22);
+  *v52 = *v52 & 0xFFFFFFDF | (32 * v89);
+  *v53 = *v53 & 0xFFDFFFFF | (v93 << 21);
+  *v53 = *v53 & 0xFFEFFFFF | (v95 << 20);
+  *v55 = *v55 & 0xFFFFFF0F | (16 * v97);
+  *v57 = *v57 & 0xFFFFFF7F | (v99 << 7);
+  *v57 = *v57 & 0xFFFFFF8F | (16 * v101);
+  *v57 = *v57 & 0xFFFFFBFF | (v103 << 10);
+  *v57 = *v57 & 0xFFFFFCFF | (v105 << 8);
+  *v52 = *v52 & 0xFFFFFFE3 | (4 * v107);
   *v45 &= 0xFFFE00FF;
   *v45 &= ~0x20000u;
   *v45 |= 0x40000u;
-  *v48 = *v48 & 0x7FFFFFFF | v144 & 0x80000000;
-  *v49 = v143;
-  *(v50 - 1902) = *(v50 - 1902) & 0xFFFFFEFF | (v142 << 8);
+  *v48 = *v48 & 0x7FFFFFFF | v146 & 0x80000000;
+  *v49 = v145;
+  *(v50 - 1902) = *(v50 - 1902) & 0xFFFFFEFF | (v144 << 8);
   *v58 |= 0x400u;
   *v58 &= ~0x400u;
-  return v103;
+  return v105;
 }
-

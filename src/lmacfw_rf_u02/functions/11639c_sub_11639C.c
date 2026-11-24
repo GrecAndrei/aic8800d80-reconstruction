@@ -10,17 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_116498;
 extern uint32_t dword_11649C;
 extern uint32_t dword_1164A0;
-extern uint32_t dword_1164B8;
 extern uint32_t dword_1164A4;
+extern uint32_t dword_1164B0;
+extern uint32_t dword_1164B4;
+extern uint32_t dword_1164B8;
 extern uint32_t dword_1164BC;
 extern uint32_t dword_1164C0;
-extern uint32_t dword_116498;
-extern uint32_t dword_1164B4;
 extern uint32_t off_1164A8;
 extern uint32_t off_1164AC;
-extern uint32_t dword_1164B0;
 
 // wlan_attach @ 0x11639c, size 252 bytes
 int  wlan_attach(int a1)
@@ -50,13 +51,13 @@ int  wlan_attach(int a1)
   v6 = dword_1164BC;
   v7 = dword_1164C0;
   v8 = dword_116498;
-  list_init(dword_116498);
-  list_init(v8 + 8);
+  list_init_1((uint32_t *)dword_116498);
+  list_init_1((uint32_t *)(v8 + 8));
   do
   {
     if ( !a1 || !*(uint8_t *)(v2 + 53) )
     {
-      sub_100200((int *)v2, 0, 0x38u);
+      memset_thunk((int *)v2, 0, 0x38u);
       v15 = 0;
       *(uint32_t *)(v2 + 28) = v3;
       *(uint32_t *)(v2 + 32) = v4;
@@ -80,7 +81,7 @@ int  wlan_attach(int a1)
         v16 -= 0x10000;
       }
       while ( v15 != 1024 );
-      check_kernel_state(v8);
+      check_kernel_state(v8, (uint32_t *)v2);
     }
     v3 += 1050;
     v2 += 56;
@@ -119,4 +120,3 @@ int  wlan_attach(int a1)
   v12[5] = 4;
   return result;
 }
-

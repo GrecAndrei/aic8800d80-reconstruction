@@ -1,11 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+
+extern uint32_t off_113910;
+
 // init_memory_regions @ 0x1138fc, size 18 bytes
 int init_memory_regions()
 {
-  int v0; // r1
-  int v1; // r2
-
-  sys_cmu_clock_get(dword_113910);
-  ke_event_schedule(dword_113914, v0, v1);
+  sys_cmu_clock_get(off_113910);
+  ke_event_schedule_1(aHostUsbStart);
   return 1;
 }
-

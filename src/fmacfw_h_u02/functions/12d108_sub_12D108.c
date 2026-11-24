@@ -10,9 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12D144;
-extern uint32_t dword_12D14C;
-extern uint32_t dword_12D148;
 
 // wlan_ioctl_handler_1 @ 0x12d108, size 60 bytes
 int  wlan_ioctl_handler_1(int result, uint32_t *a2)
@@ -20,8 +19,8 @@ int  wlan_ioctl_handler_1(int result, uint32_t *a2)
   int v2; // r5
 
   v2 = result;
-  if ( **(int16_t **)off_12D144 < 0 && !a2 )
-    result = irq_disable_mmio_write(dword_12D14C, dword_12D148, 72);
+  if ( **(uint16_t **)off_12D144 < 0 && !a2 )
+    result = irq_disable_mmio_write((int)aListHdrNull, (int)aCoListPushBack, 72);
   if ( *(uint32_t *)v2 )
     **(uint32_t **)(v2 + 4) = a2;
   else
@@ -30,4 +29,3 @@ int  wlan_ioctl_handler_1(int result, uint32_t *a2)
   *a2 = 0;
   return result;
 }
-

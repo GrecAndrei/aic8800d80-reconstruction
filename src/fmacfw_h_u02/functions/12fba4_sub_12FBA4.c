@@ -10,35 +10,34 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12FD10;
+
+extern uint32_t dword_12FD24;
+extern uint32_t dword_12FD28;
+extern uint32_t dword_12FD5C;
+extern uint32_t dword_12FD60;
+extern uint32_t off_12FD14;
 extern uint32_t off_12FD18;
 extern uint32_t off_12FD1C;
-extern uint32_t off_12FD44;
-extern uint32_t off_12FD48;
 extern uint32_t off_12FD20;
-extern uint32_t off_12FD14;
-extern uint32_t dword_12FD24;
-extern uint32_t off_12FD4C;
-extern uint32_t off_12FD50;
 extern uint32_t off_12FD2C;
-extern uint32_t dword_12FD28;
-extern uint32_t off_12FD54;
 extern uint32_t off_12FD30;
 extern uint32_t off_12FD34;
 extern uint32_t off_12FD38;
-extern uint32_t off_12FD58;
-extern uint32_t dword_12FD5C;
-extern uint32_t dword_12FD60;
 extern uint32_t off_12FD3C;
-extern uint32_t dword_12FD40;
+extern uint32_t off_12FD44;
+extern uint32_t off_12FD48;
+extern uint32_t off_12FD4C;
+extern uint32_t off_12FD50;
+extern uint32_t off_12FD54;
+extern uint32_t off_12FD58;
 
 // is_compact_mac_string @ 0x12fba4, size 362 bytes
 int  is_compact_mac_string(int a1, int a2)
 {
-  uint8_t *v3; // r6
+  int v3; // r6
   unsigned int v4; // r6
   uint16_t v5; // r0
-  uint8_t *v6; // r5
+  int v6; // r5
   uint16_t v7; // r7
   unsigned int v8; // r8
   uint32_t *v9; // r0
@@ -56,26 +55,25 @@ int  is_compact_mac_string(int a1, int a2)
   int *v21; // r12
   int v22; // lr
   int v23; // r9
-  int v24; // r0
-  uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
-  char v27; // [sp+Ch] [bp-8h]
+  char a1a[4]; // [sp+8h] [bp-Ch] BYREF
+  char v26; // [sp+Ch] [bp-8h]
 
   if ( memcpy_aligned(*(uint32_t *)(a2 + 4)) != 12 || memcpy_aligned(*(uint32_t *)(a2 + 8)) != 12 )
     return -2;
-  v3 = *(uint8_t **)(a2 + 4);
-  memcpy(v26, v3 + 8, 4);
-  v3[8] = 0;
-  v27 = 0;
-  v4 = parse_uint_base(v3, 0, 0x10u);
-  v5 = parse_uint_base(v26, 0, 0x10u);
-  v6 = *(uint8_t **)(a2 + 8);
+  v3 = *(uint32_t *)(a2 + 4);
+  memcpy_1(a1a, (char *)(v3 + 8), 4u);
+  *(uint8_t *)(v3 + 8) = 0;
+  v26 = 0;
+  v4 = parse_uint_base((uint8_t *)v3, nullptr, 0x10u);
+  v5 = parse_uint_base((uint8_t *)a1a, nullptr, 0x10u);
+  v6 = *(uint32_t *)(a2 + 8);
   v7 = v5;
-  memcpy(v26, v6 + 8, 4);
-  v6[8] = 0;
-  v27 = 0;
-  v8 = parse_uint_base(v6, 0, 0x10u);
-  LOWORD(v6) = parse_uint_base(v26, 0, 0x10u);
-  alloc_tx_event(dword_12FD10);
+  memcpy_1(a1a, (char *)(v6 + 8), 4u);
+  *(uint8_t *)(v6 + 8) = 0;
+  v26 = 0;
+  v8 = parse_uint_base((uint8_t *)v6, nullptr, 0x10u);
+  LOWORD(v6) = parse_uint_base((uint8_t *)a1a, nullptr, 0x10u);
+  alloc_tx_event(aSetMonitor);
   v9 = off_12FD18;
   v10 = off_12FD1C;
   v11 = off_12FD44;
@@ -118,9 +116,7 @@ int  is_compact_mac_string(int a1, int a2)
   *(uint32_t *)off_12FD3C = __rev16((uint16_t)v6);
   *(uint32_t *)&v20[-148] = 7;
   *(uint32_t *)&v20[-148] = v23;
-  v24 = dword_12FD40;
   *v21 = v22;
-  alloc_tx_event(v24, v4, v7, v8, (uint16_t)v6);
+  alloc_tx_event("set mon: mac=%08x%04x, bssid=%08x%04x\n", v4, v7, v8, (uint16_t)v6);
   return 0;
 }
-

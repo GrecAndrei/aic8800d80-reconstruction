@@ -10,42 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1113F8;
+
 extern uint32_t dword_1113FC;
-extern uint32_t dword_111400;
+extern uint32_t off_1113F8;
 
 // timer_start @ 0x111304, size 242 bytes
-// Doc: rf_bus_write2_176 [rf]: Write 2 words (0x2e, 0x2f) to RF register 0x14b408 via the RF MCU mailbox doorbell.
-// rf_bus_write2_176 [rf]: Write 2 words (0x2e, 0x2f) to RF register 0x14b408 via the RF MCU mailbox doorbell.
 int timer_start()
 {
-  uint32_t *v0; // r2
-  uint32_t *v1; // r2
-  uint32_t *v2; // r1
+  int v0; // r2
+  int v1; // r2
+  int v2; // r1
   uint32_t *v3; // r2
   uint32_t *v4; // r1
   int v5; // r3
   uint32_t *v6; // r2
-  int v7; // r0
 
   v0 = off_1113F8;
-  *((uint32_t *)off_1113F8 + 4) |= 1u;
-  while ( (v0[4] & 1) != 0 )
+  *(uint32_t *)(off_1113F8 + 0x10) |= 1u;
+  while ( (*(uint32_t *)(v0 + 0x10) & 1) != 0 )
     ;
   v1 = off_1113F8;
-  while ( *((int *)off_1113F8 + 4) >= 0 )
+  while ( *(int *)(off_1113F8 + 0x10) >= 0 )
     ;
   v2 = off_1113F8;
-  *((uint32_t *)off_1113F8 + 3) |= 0x40000007u;
-  v1[3] = v1[3] & 0xFFFFC0FF | 0x2700;
-  v1[4] |= 1u;
-  while ( (v2[4] & 1) != 0 )
+  *(uint32_t *)(off_1113F8 + 0xC) |= 0x40000007u;
+  *(uint32_t *)(v1 + 0xC) = *(uint32_t *)(v1 + 0xC) & 0xFFFFC0FF | 0x2700;
+  *(uint32_t *)(v1 + 0x10) |= 1u;
+  while ( (*(uint32_t *)(v2 + 0x10) & 1) != 0 )
     ;
-  v3 = off_1113F8;
-  while ( *((int *)off_1113F8 + 4) >= 0 )
+  v3 = (uint32_t *)off_1113F8;
+  while ( *(int *)(off_1113F8 + 0x10) >= 0 )
     ;
-  v4 = off_1113F8;
-  *((uint32_t *)off_1113F8 + 3) |= 0x40000007u;
+  v4 = (uint32_t *)off_1113F8;
+  *(uint32_t *)(off_1113F8 + 0xC) |= 0x40000007u;
   v3[3] = v3[3] & 0xFFFFC0FF | 0x2700;
   v3[512] &= 0xFFFFE7FC;
   v3[512] |= 0x800004u;
@@ -70,11 +67,9 @@ LABEL_11:
   if ( v5 != 6 )
     goto LABEL_11;
   v4[6] = dword_1113FC;
-  v7 = dword_111400;
   v4[513] &= ~2u;
   v4[513] |= 0x8000u;
   v4[2] = 46;
   v4[2] |= 1u;
-  return dispatch_event_handler(v7, v4);
+  return dispatch_event_handler_1(aUsbInitDone);
 }
-

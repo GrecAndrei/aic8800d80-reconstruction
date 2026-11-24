@@ -10,15 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_125290;
-extern uint32_t off_125288;
+
 extern uint32_t off_125284;
-extern uint32_t dword_12528C;
-extern uint32_t dword_125298;
-extern uint32_t dword_125294;
+extern uint32_t off_125288;
 
 // set_bdaddr @ 0x12513c, size 328 bytes
-int  set_bdaddr(int a1, uint8_t **a2)
+int  set_bdaddr(int a1, uint32_t *a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r5
@@ -32,25 +29,25 @@ int  set_bdaddr(int a1, uint8_t **a2)
   char v13; // r10
   int v14; // r4
   int v15; // r3
-  int v16; // r7
+  int a5; // r7
 
   if ( a1 <= 2 )
   {
-    dispatch_event_handler(dword_125290);
+    dispatch_event_handler_1(asc_1303E8, a2);
     return 1;
   }
   else
   {
-    v4 = (uint16_t)parse_number(a2[1], 0, 0xAu);
+    v4 = (uint16_t)parse_number((uint8_t *)a2[1], nullptr, 0xAu);
     if ( a1 == 3 )
     {
       v5 = v4;
-      v6 = parse_number(a2[2], 0, 0x10u);
+      v6 = parse_number((uint8_t *)a2[2], nullptr, 0x10u);
     }
     else
     {
-      v5 = (uint16_t)parse_number(a2[2], 0, 0xAu);
-      v6 = parse_number(a2[3], 0, 0x10u);
+      v5 = (uint16_t)parse_number((uint8_t *)a2[2], nullptr, 0xAu);
+      v6 = parse_number((uint8_t *)a2[3], nullptr, 0x10u);
     }
     v7 = *(uint32_t *)off_125288 & 0x7F;
     if ( *((uint8_t *)off_125284 + 36) == 1 )
@@ -101,22 +98,21 @@ int  set_bdaddr(int a1, uint8_t **a2)
       v14 = v4 & 0x1F;
       mac_tx_frame(v8, v11, v12, (1 << (32 - v12)) - 1, v6 & ((1 << (32 - v12)) - 1));
       v15 = (1 << (v14 + 1)) - 1;
-      v16 = (v6 >> v13) & v15;
+      a5 = (v6 >> v13) & v15;
       if ( v14 != 31 )
       {
-        mac_tx_frame(v8, v10, 0, v15, v16);
+        mac_tx_frame(v8, v10, 0, v15, a5);
 LABEL_13:
-        dispatch_event_handler(dword_12528C);
+        dispatch_event_handler_1(asc_130320);
         return 0;
       }
-      dispatch_event_handler(dword_125298);
+      dispatch_event_handler_1(aPos1Err);
       return 1;
     }
     else
     {
-      dispatch_event_handler(dword_125294);
+      dispatch_event_handler_1(aPos2Err);
       return 1;
     }
   }
 }
-

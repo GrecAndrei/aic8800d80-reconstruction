@@ -16,7 +16,7 @@ int  double_divide(int result, int a2, int a3, unsigned int a4)
   int v4; // cf
   int v5; // r4
   int v6; // r12
-  int v7; // r5
+  unsigned int v7; // r5
   int v8; // zf
   int v9; // zf
 
@@ -78,4 +78,3 @@ LABEL_30:
   }
   return result;
 }
-

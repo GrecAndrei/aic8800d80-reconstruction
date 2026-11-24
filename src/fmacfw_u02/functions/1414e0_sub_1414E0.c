@@ -10,17 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1415D8;
+
 extern uint32_t dword_1415D4;
-extern uint32_t dword_1415E8;
-extern uint32_t dword_1415E0;
-extern uint32_t dword_1415E4;
 extern uint32_t dword_1415DC;
+extern uint32_t off_1415D8;
+extern uint32_t off_1415E8;
 
 // ll_event_schedule @ 0x1414e0, size 244 bytes
 void ll_event_schedule()
 {
-  int16_t **v0; // r6
+  uint16_t **v0; // r6
   int v1; // r3
   int v2; // r5
   unsigned int v3; // r3
@@ -31,10 +30,10 @@ void ll_event_schedule()
   unsigned int v8; // r3
   unsigned int v9; // r3
 
-  v0 = (int16_t **)off_1415D8;
+  v0 = (uint16_t **)off_1415D8;
   v1 = 136 * *(uint32_t *)(dword_1415D4 + 6480);
   v2 = v1 + 6336 + dword_1415D4;
-  if ( **(int16_t **)off_1415D8 >= 0 )
+  if ( **(uint16_t **)off_1415D8 >= 0 )
   {
     v3 = *(uint8_t *)(v1 + dword_1415D4 + 6339);
     if ( v3 > 1 )
@@ -56,13 +55,13 @@ LABEL_12:
     if ( v9 != 2 )
     {
 LABEL_18:
-      mmio_clear_register(dword_1415E8, dword_1415E0, 1726);
+      mmio_clear_register(off_1415E8, (int)aRmStartActiveR, 1726);
       return;
     }
   }
   else
   {
-    mmio_clear_register(dword_1415E4, dword_1415E0, 1714);
+    mmio_clear_register((int)aRequestTypeMac, (int)aRmStartActiveR, 1714);
     v8 = *(uint8_t *)(v7 + 6339);
     if ( v8 <= 1 )
       goto LABEL_12;
@@ -97,4 +96,3 @@ LABEL_4:
 LABEL_9:
   ble_ll_adv_sm_check(v2, 0);
 }
-

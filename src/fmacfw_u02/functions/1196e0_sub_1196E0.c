@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_119860;
 extern uint32_t dword_119870;
-extern uint32_t off_119868;
 extern uint32_t off_119864;
+extern uint32_t off_119868;
 extern uint32_t off_11986C;
 
 // phy_channel_same @ 0x1196e0, size 384 bytes
@@ -24,7 +25,7 @@ int  phy_channel_same(int a1, int a2, int a3)
   int v7; // r3
   int v8; // r6
   int v9; // nf
-  int16_t v10; // r3
+  uint16_t v10; // r3
   int v11; // r1
   int v12; // r9
   int v13; // r7
@@ -37,7 +38,7 @@ int  phy_channel_same(int a1, int a2, int a3)
   int v20; // r1
   int v21; // r1
   uint32_t *v22; // r2
-  int16_t v23; // r3
+  uint16_t v23; // r3
   int v24; // r2
   char v25; // r3
 
@@ -141,7 +142,7 @@ LABEL_16:
           if ( (v23 & 2) != 0 )
             *(uint32_t *)(*(uint32_t *)(v8 + 52) + 20) = *(uint32_t *)(v8 + 4);
           *(uint16_t *)(v8 + 8) = v23 | 0xF;
-          cmd_handler_a(v12 + 84 * a3 + 28);
+          cmd_handler_a(v12 + 84 * a3 + 28, (uint32_t *)v8);
           v24 = v12 + 84 * a3;
           v25 = *(uint8_t *)(v24 + 80);
           *(uint32_t *)(v24 + 44) = 0;
@@ -157,4 +158,3 @@ LABEL_16:
   }
   return result;
 }
-

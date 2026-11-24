@@ -10,22 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12F6BC;
+
 extern uint32_t off_12F6B8;
 extern uint32_t off_12F6C0;
 
 // mmio_irq_clear @ 0x12f694, size 36 bytes
 int  mmio_irq_clear(int a1, int a2, int a3)
 {
-  int v4; // r0
   int result; // r0
 
   __disable_irq();
-  v4 = dword_12F6BC;
   *(uint32_t *)off_12F6B8 = 0;
-  result = ke_event_schedule(v4, a1, a2, a3 & 0xFFFFF);
-  while ( *(uint32_t *)off_12F6C0 )
+  result = ke_event_schedule_1("\x9BASSERT (%s) at %s:%d\n", (const char *)a1, (const char *)a2, a3 & 0xFFFFF);
+  while ( *off_12F6C0 )
     ;
   return result;
 }
-

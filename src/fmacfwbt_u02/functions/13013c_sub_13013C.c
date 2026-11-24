@@ -10,17 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1301AC;
-extern uint32_t dword_1301B0;
 
 // buf_array_clear_single @ 0x13013c, size 110 bytes
 int  buf_array_clear_single(int a1, int a2)
 {
-  unsigned int v4; // r0
+  int v4; // r0
   int v5; // r7
-  unsigned int v6; // r6
-  uint32_t *v7; // r4
-  int v8; // r0
+  int v6; // r6
+  int *v7; // r4
+  unsigned int v9; // r0
 
   if ( a1 == 1 )
   {
@@ -29,37 +29,36 @@ int  buf_array_clear_single(int a1, int a2)
   }
   else
   {
-    v4 = parse_integer(*(uint8_t **)(a2 + 4), 0, 0);
+    v4 = parse_integer(*(uint8_t **)(a2 + 4), nullptr, 0);
     v5 = v4;
     if ( v4 )
       v5 = 1;
     v6 = v4;
     if ( a1 > 2 )
     {
-      v7 = off_1301AC;
-      v4 = parse_integer(*(uint8_t **)(a2 + 8), 0, 0);
-      if ( v4 > 0x7D0 )
-        v7[91] = v4;
+      v7 = (int *)off_1301AC;
+      v9 = parse_integer(*(uint8_t **)(a2 + 8), nullptr, 0);
+      if ( v9 > 0x7D0 )
+        v7[91] = v9;
     }
     else
     {
-      v7 = off_1301AC;
+      v7 = (int *)off_1301AC;
     }
     if ( *((uint8_t *)v7 + 363) != v5 )
     {
       *((uint8_t *)v7 + 363) = v5;
       if ( v6 )
       {
-        v8 = mmio_init_check(v4);
-        rf_afe_enable(v8);
+        mmio_init_check();
+        rf_afe_enable();
       }
       else
       {
         rf_afe_disable();
       }
     }
-    ke_event_schedule(dword_1301B0, v5, v7[91]);
+    ke_event_schedule_1("temp_comp en=%d, peroid_ms=%d\n", v5, v7[91]);
     return 0;
   }
 }
-

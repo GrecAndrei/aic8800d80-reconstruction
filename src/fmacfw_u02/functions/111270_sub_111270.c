@@ -10,42 +10,40 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1112F0;
+
 extern uint32_t dword_1112E8;
-extern uint32_t dword_1112EC;
 
 // mutex_lock @ 0x111270, size 118 bytes
-int  mutex_lock(char a1, int a2, int a3)
+int  mutex_lock(char a1, char *a2, unsigned int a3, int a4)
 {
-  uint32_t *v6; // r0
-  uint32_t *v7; // r4
-  uint32_t *v8; // r6
-  int v9; // r2
-  int v10; // r3
+  uint32_t *v7; // r0
+  uint32_t *v8; // r4
+  uint32_t *v9; // r6
+  int v10; // r2
+  int v11; // r3
 
-  v6 = is_hci_initialized(4);
-  if ( !v6 )
-    return log_printf(dword_1112F0);
-  v7 = v6;
-  v8 = (uint32_t *)is_scan_enabled();
-  if ( v8 )
+  v7 = is_hci_initialized(4);
+  if ( !v7 )
+    return log_printf(aErrNoMsgPkt);
+  v8 = v7;
+  v9 = is_scan_enabled();
+  if ( v9 )
   {
-    *(uint8_t *)v7 = a3;
-    *((uint8_t *)v7 + 1) = BYTE1(a3) & 0xF;
-    *((uint8_t *)v7 + 2) = a1;
-    *((uint8_t *)v7 + 3) = 0;
-    memcpy(v7 + 1, a2, a3);
-    v9 = v8[2];
-    v10 = dword_1112E8;
-    v8[1] = 0;
-    *v8 = v7;
-    v8[2] = (uint16_t)(a3 + 4) | v10 & v9 | 0x80000000;
-    return unknown_3((int)v8);
+    *(uint8_t *)v8 = a3;
+    *((uint8_t *)v8 + 1) = BYTE1(a3) & 0xF;
+    *((uint8_t *)v8 + 2) = a1;
+    *((uint8_t *)v8 + 3) = 0;
+    memcpy((char *)v8 + 4, a2, a3);
+    v10 = v9[2];
+    v11 = dword_1112E8;
+    v9[1] = 0;
+    *v9 = v8;
+    v9[2] = (uint16_t)(a3 + 4) | v11 & v10 | 0x80000000;
+    return unknown_3((int)v9);
   }
   else
   {
-    log_printf(dword_1112EC);
-    return is_controller_mode(v7);
+    log_printf(aErrSendMsgCfgT);
+    return is_controller_mode(v8);
   }
 }
-

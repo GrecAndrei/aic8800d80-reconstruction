@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11CABC;
-extern uint32_t off_11CAC0;
 extern uint32_t dword_11CAC4;
+extern uint32_t off_11CAC0;
 
 // ke_timer_flush @ 0x11ca94, size 40 bytes
 int ke_timer_flush()
@@ -20,8 +21,8 @@ int ke_timer_flush()
   int result; // r0
   uint32_t *v1; // r3
 
-  sub_100200((int *)dword_11CABC, 0, 0xCu);
-  result = flash_erase_sector(2);
+  memset_thunk((int *)dword_11CABC, 0, 0xCu);
+  result = flash_erase_sector(2u, 0);
   v1 = off_11CAC0;
   *(uint32_t *)off_11CAC0 = dword_11CAC4;
   v1[2] = v1 + 5;
@@ -29,4 +30,3 @@ int ke_timer_flush()
   v1[1] = 0;
   return result;
 }
-

@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_139C2C;
 extern uint32_t dword_139C30;
 extern uint32_t dword_139C34;
@@ -18,18 +19,18 @@ extern uint32_t dword_139C3C;
 extern uint32_t dword_139C40;
 extern uint32_t dword_139C44;
 extern uint32_t dword_139C4C;
-extern uint32_t dword_139C50;
 extern uint32_t off_139C48;
+extern uint32_t off_139C50;
 
 // wlc_init_hw @ 0x139bb4, size 118 bytes
-int wlc_init_hw()
+void *wlc_init_hw()
 {
   uint32_t *v0; // r6
   int v1; // r4
   int v2; // r5
   uint32_t *v3; // r1
   int v4; // r3
-  int result; // r0
+  void *result; // r0
   int v6; // r1
 
   v0 = (uint32_t *)(dword_139C2C + 16);
@@ -50,7 +51,7 @@ int wlc_init_hw()
   wlan_ioctl_handler_1(dword_139C34, (uint32_t *)dword_139C40);
   wlan_ioctl_handler_1(dword_139C34, (uint32_t *)dword_139C44);
   v4 = dword_139C4C;
-  result = dword_139C50;
+  result = off_139C50;
   *((uint16_t *)off_139C48 + 51) = -1;
   v6 = v4 + 15360;
   do
@@ -65,4 +66,3 @@ int wlc_init_hw()
   while ( v6 != v4 );
   return result;
 }
-

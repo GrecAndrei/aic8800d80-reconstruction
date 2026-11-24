@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_12B058;
-extern uint32_t off_12B05C;
 extern uint32_t dword_12B060;
+extern uint32_t off_12B05C;
 
 // reset_global_config @ 0x12b030, size 40 bytes
 int reset_global_config()
@@ -20,8 +21,8 @@ int reset_global_config()
   int result; // r0
   uint32_t *v1; // r3
 
-  sub_100200((int *)dword_12B058, 0, 0xCu);
-  result = hci_cmd_preprocess(2);
+  memset_thunk((int *)dword_12B058, 0, 0xCu);
+  result = hci_cmd_preprocess(2u, 0);
   v1 = off_12B05C;
   *(uint32_t *)off_12B05C = dword_12B060;
   v1[2] = v1 + 5;
@@ -29,4 +30,3 @@ int reset_global_config()
   v1[1] = 0;
   return result;
 }
-

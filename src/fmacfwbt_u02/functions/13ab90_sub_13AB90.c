@@ -10,8 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13ABFC;
-extern uint32_t dword_13AC00;
+
 extern uint32_t off_13AC04;
 extern uint32_t off_13AC08;
 
@@ -27,14 +26,14 @@ int  rf_set_band_config(int a1, int a2, int a3)
 
   state_check_feature(
     32,
-    dword_13ABFC,
+    "txu discard: %d, %x, %d\r\n",
     *(uint16_t *)(a1 + 32),
     *(uint16_t *)(a1 + 30),
     *(uint8_t *)(a1 + 27));
   v6 = *(uint16_t *)(a1 + 30);
   v7 = v6 << 31;
   if ( (v6 & 1) != 0 || (irq_counter_inc(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
-    ke_event_schedule(dword_13AC00, v7);
+    ke_event_schedule_1(aRetransmitTxuD, v7);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -42,7 +41,7 @@ int  rf_set_band_config(int a1, int a2, int a3)
   }
   v8 = (int *)off_13AC08;
   ++*(uint32_t *)off_13AC08;
-  result = list_append(a1, a3, a2);
+  result = list_append((uint32_t *)a1, a3, a2);
   if ( *v8 )
   {
     v10 = *v8 - 1;
@@ -56,4 +55,3 @@ int  rf_set_band_config(int a1, int a2, int a3)
   }
   return result;
 }
-

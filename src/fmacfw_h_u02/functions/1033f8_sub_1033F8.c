@@ -10,50 +10,46 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_103560;
+
+extern uint32_t dword_10356C;
+extern uint32_t dword_1038D4;
+extern uint32_t dword_1038FC;
+extern uint32_t dword_103900;
 extern uint32_t off_10355C;
+extern uint32_t off_103560;
 extern uint32_t off_103564;
 extern uint32_t off_103568;
-extern uint32_t dword_10356C;
 extern uint32_t off_103570;
-extern uint32_t off_103580;
-extern uint32_t off_1038F0;
-extern uint32_t off_1038EC;
 extern uint32_t off_103574;
 extern uint32_t off_103578;
-extern uint32_t off_103A24;
-extern uint32_t off_103A28;
 extern uint32_t off_10357C;
+extern uint32_t off_103580;
 extern uint32_t off_103898;
 extern uint32_t off_10389C;
 extern uint32_t off_1038A0;
-extern uint32_t off_1038A4;
 extern uint32_t off_1038A8;
-extern uint32_t off_1038AC;
-extern uint32_t dword_1038FC;
-extern uint32_t dword_103900;
-extern uint32_t off_103A48;
-extern uint32_t dword_103A50;
-extern uint32_t dword_103A44;
-extern uint32_t dword_103A3C;
-extern uint32_t off_103A4C;
-extern uint32_t dword_103A40;
-extern uint32_t off_103A34;
-extern uint32_t dword_103A38;
-extern uint32_t dword_1038B0;
-extern uint32_t dword_1038F4;
-extern uint32_t off_1038F8;
-extern uint32_t off_103A30;
-extern uint32_t dword_103A2C;
-extern uint32_t dword_1038B8;
-extern uint32_t off_1038BC;
 extern uint32_t off_1038B4;
-extern uint32_t dword_1038C4;
-extern uint32_t off_1038C8;
-extern uint32_t off_1038CC;
+extern uint32_t off_1038B8;
+extern uint32_t off_1038C0;
+extern uint32_t off_1038C4;
+extern uint32_t off_1038D0;
+extern uint32_t off_1038E0;
+extern uint32_t off_1038E4;
+extern uint32_t off_1038EC;
+extern uint32_t off_1038F0;
+extern uint32_t off_1038F4;
+extern uint32_t off_1038F8;
+extern uint32_t off_103904;
+extern uint32_t off_103A24;
+extern uint32_t off_103A28;
+extern uint32_t off_103A2C;
+extern uint32_t off_103A30;
+extern uint32_t off_103A4C;
+extern uint32_t off_151B24;
+extern uint32_t off_151B28;
 
 // crypto_init @ 0x1033f8, size 1580 bytes
-void __noreturn crypto_init()
+int crypto_init()
 {
   uint8_t *v0; // r4
   int *v1; // r2
@@ -64,86 +60,67 @@ void __noreturn crypto_init()
   uint32_t *v6; // r1
   int v7; // r6
   uint32_t *v8; // r0
-  uint32_t *v9; // r8
+  int *v9; // r8
   int v10; // r2
   uint32_t *v11; // r3
   uint32_t *v12; // r1
   int v13; // r0
-  int v14; // r0
-  int v15; // r0
-  int v16; // r0
-  int v17; // r0
-  uint32_t *v18; // r3
-  uint32_t *v19; // r1
-  int v20; // r0
-  uint32_t *v21; // r4
-  uint32_t *v22; // r5
-  uint8_t *v23; // r6
-  int v24; // r9
+  uint32_t *v14; // r3
+  uint32_t *v15; // r1
+  uint32_t *v16; // r4
+  char *v17; // r6
+  int v18; // r9
   int i; // r4
-  int v26; // r0
-  uint32_t *v27; // r4
-  int v28; // r9
-  int v29; // r10
+  int v20; // r0
+  int v21; // r9
+  int v22; // r10
   int k; // r5
-  int v31; // r0
-  int v32; // r5
-  int v33; // r10
-  int v34; // r0
-  int v35; // r9
-  unsigned uint64_t v36; // kr00_8
-  int v37; // zf
-  uint8_t v38; // r2
-  int v39; // r3
-  unsigned int v40; // r1
-  int v41; // r2
-  int v42; // r0
-  int v43; // r3
-  int *v44; // r4
+  int v24; // r0
+  int v25; // r5
+  int v26; // r10
+  int v27; // r0
+  int v28; // r9
+  uint64_t v29; // kr00_8
+  int v30; // zf
+  uint8_t v31; // r2
+  int v32; // r3
+  unsigned int v33; // r1
+  int v34; // r3
+  uint16_t *v35; // r5
+  int v36; // r0
+  int v37; // r2
+  int v38; // r0
+  unsigned int *v39; // r2
+  int v40; // r0
   int j; // r4
-  uint8_t v46; // r2
-  int *v47; // r2
-  int v48; // r3
-  int v49; // r1
-  int v50; // r2
-  int v51; // r6
-  uint8_t *v52; // r6
-  int v53; // r1
-  int v54; // r2
-  unsigned int v55; // r3
-  int v56; // r0
-  int v57; // r5
-  uint8_t *v58; // r4
-  uint32_t *v59; // r3
-  uint32_t *v60; // r1
-  uint8_t *v61; // r3
-  char v62; // r1
-  char v63; // r2
-  uint32_t *v64; // r4
-  int v65; // r10
-  int v66; // r2
-  int v67; // r11
-  uint32_t *v68; // r6
-  uint8_t *v69; // r4
-  char *v70; // r7
+  uint8_t v43; // r2
+  int *v44; // r2
+  int v45; // r3
+  int v46; // r6
+  unsigned int v47; // r3
+  int v48; // r0
+  int *v49; // r5
+  uint8_t *v50; // r4
+  uint32_t *v51; // r3
+  uint32_t *v52; // r1
+  uint8_t *v53; // r3
+  char v54; // r1
+  char v55; // r2
+  int v56; // r11
+  uint8_t *v57; // r4
+  uint8_t *v58; // r7
   int n; // r5
-  int v72; // t1
-  int v73; // r3
-  int v74; // r1
-  uint32_t *v75; // r5
-  int v76; // r9
-  int v77; // r2
-  uint32_t *v78; // r7
-  int v79; // r11
-  char *v80; // r10
+  char v60; // t1
+  int v61; // r3
+  uint32_t *v62; // r7
+  int v63; // r11
+  char *v64; // r10
   int m; // r4
-  int v82; // t1
-  int v83; // r1
-  int v84; // r1
-  uint8_t *v85; // [sp+4h] [bp-30h]
-  uint8_t v86[4]; // [sp+Ch] [bp-28h] BYREF
-  uint32_t v87[3]; // [sp+10h] [bp-24h] BYREF
-  uint8_t v88[24]; // [sp+1Ch] [bp-18h] BYREF
+  char v66; // t1
+  int v67; // r1
+  uint8_t v68[4]; // [sp+Ch] [bp-28h] BYREF
+  uint32_t v69[3]; // [sp+10h] [bp-24h] BYREF
+  uint8_t a2[24]; // [sp+1Ch] [bp-18h] BYREF
 
   v0 = off_103560;
   *((uint32_t *)off_10355C + 64) = 8;
@@ -170,7 +147,7 @@ void __noreturn crypto_init()
   v6 = off_103564;
   v7 = dword_10356C;
   v8 = off_10355C;
-  v9 = off_103580;
+  v9 = (int *)off_103580;
   *(uint32_t *)off_103564 = *(uint32_t *)off_103564 & 0x3EF | 0x10 | *(uint32_t *)off_103564 & dword_10356C;
   v6[21] = v6[21] & 0x3EF | 0x10 | v6[21] & v7;
   v8[22] &= 0xFFFFFFC1;
@@ -178,10 +155,10 @@ void __noreturn crypto_init()
   v8[22] |= 0x26u;
   if ( v10 && (v6[12] & 0x40) == 0 && (v6[12] & 4) != 0 )
   {
-    v47 = (int *)off_1038F0;
-    v48 = v9[42] | 0x2000000;
+    v44 = (int *)off_1038F0;
+    v45 = v9[42] | 0x2000000;
     *(uint8_t *)off_1038EC = 1;
-    *v47 = v48;
+    *v44 = v45;
     v8[14] |= 0x10u;
   }
   else
@@ -192,15 +169,15 @@ void __noreturn crypto_init()
   {
     if ( **(uint8_t **)off_103578 == 2 )
     {
-      v59 = off_103A24;
-      v60 = off_103A28;
+      v51 = off_103A24;
+      v52 = off_103A28;
       *((uint32_t *)off_103A24 + 20) |= 0x40000u;
-      v60[7] &= ~0x100u;
-      v59[9] = v59[9] & 0xFFFFFF00 | 0x60;
-      v59[9] = v59[9] & 0xFFFF00FF | 0xDF00;
+      v52[7] &= ~0x100u;
+      v51[9] = v51[9] & 0xFFFFFF00 | 0x60;
+      v51[9] = v51[9] & 0xFFFF00FF | 0xDF00;
 LABEL_13:
-      v14 = enable_irq();
-      v15 = enable_clock_1(v14);
+      enable_irq();
+      enable_clock_1();
       if ( !*(uint32_t *)off_10357C )
         goto LABEL_17;
       goto LABEL_14;
@@ -218,212 +195,221 @@ LABEL_13:
   }
   else
   {
-    v18 = off_103898;
-    v19 = off_10389C;
+    v14 = off_103898;
+    v15 = off_10389C;
     *((uint32_t *)off_103898 + 20) |= 0x40000u;
-    v19[7] &= ~0x100u;
-    v18[9] = v18[9] & 0xFFFFFF00 | 0x60;
-    v18[9] = v18[9] & 0xFFFF00FF | 0xDF00;
+    v15[7] &= ~0x100u;
+    v14[9] = v14[9] & 0xFFFFFF00 | 0x60;
+    v14[9] = v14[9] & 0xFFFF00FF | 0xDF00;
   }
-  v20 = configure_radio();
-  v15 = enable_clock_1(v20);
-  if ( !*(uint32_t *)off_1038A0 )
+  configure_radio();
+  enable_clock_1();
+  if ( *(uint32_t *)off_1038A0 )
   {
+LABEL_14:
+    rf_enable_rx();
+    rf_hw_init_alt();
+    rf_hw_init();
+  }
 LABEL_17:
-    v21 = off_10389C;
-    radio_is_idle();
-    v21[4] |= 2u;
-    aes_load_key();
-    if ( (*v21 & 0x2000000) != 0 )
+  v16 = off_10389C;
+  radio_is_idle();
+  v16[4] |= 2u;
+  aes_load_key();
+  if ( (*v16 & 0x2000000) != 0 )
+  {
+    v17 = (char *)off_1038A8;
+    v18 = 1;
+    for ( i = 0; i != 3; ++i )
     {
-      v22 = off_1038A4;
-      v23 = off_1038A8;
-      v24 = 1;
-      for ( i = 0; i != 3; ++i )
+      v20 = packet_prepare_a(i, *(uint32_t *)asc_151888 + 3 * i);
+      if ( v20 != 546 )
       {
-        v26 = packet_prepare_a(i, *v22 + 3 * i);
-        if ( v26 != 546 )
+        v17[1] |= 1u;
+        v18 = 0;
+      }
+    }
+    if ( v18 )
+    {
+      for ( j = 0; j != 3; ++j )
+      {
+        a2[0] = 0;
+        if ( rf_cmd_a(j, a2) <= 1 )
         {
-          v23[1] |= 1u;
-          v24 = 0;
+          v43 = a2[0];
+          *(uint8_t *)(*(uint32_t *)asc_151888 + j) = a2[0];
+          *(uint8_t *)(*(uint32_t *)asc_151888 + j + 3) = v43;
+          *(uint8_t *)(*(uint32_t *)asc_151888 + j + 6) = v43;
         }
       }
-      if ( v24 )
+    }
+    v21 = dword_1038FC;
+    v22 = 1;
+    for ( k = 0; k != 3; ++k )
+    {
+      v24 = packet_prepare_b(k, *(uint32_t *)a2_0 + 6 * k);
+      if ( v24 != v21 )
       {
-        for ( j = 0; j != 3; ++j )
-        {
-          v88[0] = 0;
-          if ( rf_cmd_a(j, v88) <= 1 )
-          {
-            v46 = v88[0];
-            *(uint8_t *)(*v22 + j) = v88[0];
-            *(uint8_t *)(*v22 + j + 3) = v46;
-            *(uint8_t *)(*v22 + j + 6) = v46;
-          }
-        }
+        v17[1] |= 1u;
+        v22 = 0;
       }
-      v27 = off_1038AC;
-      v28 = dword_1038FC;
-      v29 = 1;
-      for ( k = 0; k != 3; ++k )
+    }
+    if ( v22 )
+    {
+      v25 = 0;
+      v26 = dword_103900;
+      a2[0] = 0;
+      v27 = 2;
+      v28 = 4;
+      do
       {
-        v31 = packet_prepare_b(k, *v27 + 6 * k);
-        if ( v31 != v28 )
+        v29 = (unsigned int)v26 * (uint64_t)(unsigned int)(2 * v25);
+        v30 = v28 == HIDWORD(v29) >> 1;
+        v28 = HIDWORD(v29) >> 1;
+        if ( !v30 )
+          v27 = rf_cmd_b(HIDWORD(v29) >> 1, a2);
+        if ( v27 <= 1 )
         {
-          v23[1] |= 1u;
-          v29 = 0;
+          v31 = a2[0];
+          *(uint8_t *)(*(uint32_t *)a2_0 + v25) = a2[0];
+          v32 = *(uint32_t *)a2_0 + v25;
+          *(uint8_t *)(v32 + 6) = v31;
+          *(uint8_t *)(v32 + 12) = v31;
         }
+        ++v25;
       }
-      if ( v29 )
-      {
-        v32 = 0;
-        v33 = dword_103900;
-        v88[0] = 0;
-        v34 = 2;
-        v35 = 4;
-        do
-        {
-          v36 = (unsigned int)v33 * (unsigned uint64_t)(unsigned int)(2 * v32);
-          v37 = v35 == HIDWORD(v36) >> 1;
-          v35 = HIDWORD(v36) >> 1;
-          if ( !v37 )
-            v34 = rf_cmd_b(HIDWORD(v36) >> 1, v88);
-          if ( v34 <= 1 )
-          {
-            v38 = v88[0];
-            *(uint8_t *)(*v27 + v32) = v88[0];
-            v39 = *v27 + v32;
-            *(uint8_t *)(v39 + 6) = v38;
-            *(uint8_t *)(v39 + 12) = v38;
-          }
-          ++v32;
-        }
-        while ( v32 != 6 );
-      }
-      v40 = 31 - __clz(rf_reg_0x1b());
-      *v23 = v40;
+      while ( v25 != 6 );
+    }
+    v33 = 31 - __clz(rf_reg_0x1b());
+    *v17 = v33;
+  }
+  else
+  {
+    memset(v69, 0, sizeof(v69));
+    v46 = send_smc_cmd_4((int)v69);
+    if ( v46 )
+    {
+      v17 = (char *)off_1038A8;
     }
     else
     {
-      memset(v87, 0, sizeof(v87));
-      v51 = send_smc_cmd_4(v87);
-      if ( v51 )
+      debug_printf(aFlTxpwrOfst24g);
+      v62 = v69;
+      do
       {
-        v52 = off_1038A8;
-      }
-      else
-      {
-        v75 = off_103A48;
-        v76 = dword_103A50;
-        debug_printf(dword_103A44, v49, v50);
-        v78 = v87;
-        do
+        debug_printf("\r\n  [%d] =", v46);
+        v63 = 3 * v46;
+        v64 = (char *)v62;
+        for ( m = 0; m != 3; ++m )
         {
-          debug_printf(dword_103A3C, v51, v77);
-          v79 = 3 * v51;
-          v80 = (char *)v78;
-          for ( m = 0; m != 3; ++m )
-          {
-            v82 = *v80++;
-            *(uint8_t *)(*v75 + v79 + m) = v82;
-            v83 = *(char *)(*v75 + v79 + m);
-            debug_printf(v76, v83, v82);
-          }
-          ++v51;
-          v78 = (uint32_t *)((char *)v78 + 3);
+          v66 = *v64++;
+          *(uint8_t *)(*(uint32_t *)asc_151888 + v63 + m) = v66;
+          v67 = *(char *)(*(uint32_t *)asc_151888 + v63 + m);
+          debug_printf(" %d", v67);
         }
-        while ( v51 != 3 );
-        v52 = off_103A4C;
-        debug_printf(dword_103A40, v84, v77);
-        v52[1] |= 1u;
+        ++v46;
+        v62 = (uint32_t *)((char *)v62 + 3);
       }
-      memset(v88, 0, 20);
-      if ( !send_smc_cmd_0x20(v88) )
-      {
-        v64 = off_103A34;
-        v65 = dword_103A50;
-        debug_printf(dword_103A38, v53, v54);
-        v67 = 0;
-        v85 = v52;
-        v68 = v64;
-        v69 = v88;
-        do
-        {
-          debug_printf(dword_103A3C, v67, v66);
-          v70 = (char *)v69;
-          for ( n = 0; n != 6; ++n )
-          {
-            v72 = *v70++;
-            *(uint8_t *)(*v68 + n + 6 * v67) = v72;
-            v73 = *v68 + n;
-            debug_printf(v65, *(char *)(v73 + 6 * v67), v72);
-          }
-          ++v67;
-          v69 += 6;
-        }
-        while ( v67 != 3 );
-        v52 = v85;
-        debug_printf(dword_103A40, v74, v66);
-        v85[1] |= 1u;
-      }
-      if ( patch_validate(v86) )
-      {
-        v40 = -1;
-        *v52 = -1;
-      }
-      else
-      {
-        v55 = v86[0];
-        *v52 = v86[0];
-        v40 = v55;
-      }
+      while ( v46 != 3 );
+      v17 = (char *)off_103A4C;
+      debug_printf(&aNoTxDscrHdr[16]);
+      v17[1] |= 1u;
     }
-    v42 = debug_printf(dword_1038B0, v40, v41);
-    if ( *((uint8_t *)v9 + 372) )
+    memset(a2, 0, 20);
+    if ( !send_smc_cmd_0x20((int)a2) )
     {
-      if ( (*(uint32_t *)off_10389C & 0x2000000) != 0 )
+      debug_printf(aFlTxpwrOfst5g);
+      v56 = 0;
+      v57 = a2;
+      do
       {
-        if ( rf_reg_0x0f_bit_18(v42) )
+        debug_printf("\r\n  [%d] =", v56);
+        v58 = v57;
+        for ( n = 0; n != 6; ++n )
         {
-          v56 = rf_reg_0x11_bits_0_2();
-          v57 = dword_1038F4;
-          v58 = off_1038F8;
-          *(uint8_t *)off_1038F8 = *(uint8_t *)(dword_1038F4 + v56);
-          v58[1] = *(uint8_t *)(v57 + rf_reg_0x11_bits_3_5());
-          v58[2] = *(uint8_t *)(v57 + rf_reg_0x11_bits_6_8());
+          v60 = *v58++;
+          *(uint8_t *)(*(uint32_t *)a2_0 + n + 6 * v56) = v60;
+          v61 = *(uint32_t *)a2_0 + n;
+          debug_printf(" %d", *(char *)(v61 + 6 * v56));
         }
+        ++v56;
+        v57 += 6;
       }
-      else
+      while ( v56 != 3 );
+      debug_printf(&aNoTxDscrHdr[16]);
+      v17[1] |= 1u;
+    }
+    if ( patch_validate((int)v68) )
+    {
+      v33 = -1;
+      *v17 = -1;
+    }
+    else
+    {
+      v47 = v68[0];
+      *v17 = v68[0];
+      v33 = v47;
+    }
+  }
+  debug_printf("cal_ver=%d\n", v33);
+  if ( *((uint8_t *)v9 + 372) )
+  {
+    if ( (*(uint32_t *)off_10389C & 0x2000000) != 0 )
+    {
+      if ( rf_reg_0x0f_bit_18() )
       {
-        *(uint32_t *)v88 = 0;
-        if ( !send_smc_cmd_0x40(v88) )
-        {
-          v61 = off_103A30;
-          v62 = *(uint8_t *)(dword_103A2C + v88[1]);
-          v63 = *(uint8_t *)(dword_103A2C + v88[2]);
-          *(uint8_t *)off_103A30 = *(uint8_t *)(dword_103A2C + v88[0]);
-          v61[1] = v62;
-          v61[2] = v63;
-        }
+        v48 = rf_reg_0x11_bits_0_2();
+        v49 = (int *)off_1038F4;
+        v50 = off_1038F8;
+        *(uint8_t *)off_1038F8 = *((uint8_t *)off_1038F4 + v48);
+        v50[1] = *((uint8_t *)v49 + rf_reg_0x11_bits_3_5());
+        v50[2] = *((uint8_t *)v49 + rf_reg_0x11_bits_6_8());
       }
     }
-    v43 = dword_1038B8;
-    v44 = (int *)off_1038BC;
-    *(uint32_t *)off_1038B4 &= 0xFFFFFFC7;
-    uart_send_data(0, 0, 0x10u, v43);
-    uart_send_data(0, 16, 0x10u, dword_1038C4);
-    uart_send_data(0, 32, 0x10u, v44[2]);
-    uart_send_data(0, 48, 0x10u, v44[1]);
-    uart_send_data(0, 64, 0x10u, *v44);
-    uart_send_data(1, 0, 0x10u, *(uint32_t *)off_1038C8);
-    uart_send_data(1, 16, 0x10u, *(uint32_t *)off_1038CC);
-    rf_config_read_b();
-    crypto_start_operation();
+    else
+    {
+      *(uint32_t *)a2 = 0;
+      if ( !send_smc_cmd_0x40((int)a2) )
+      {
+        v53 = off_103A30;
+        v54 = *((uint8_t *)off_103A2C + a2[1]);
+        v55 = *((uint8_t *)off_103A2C + a2[2]);
+        *(uint8_t *)off_103A30 = *((uint8_t *)off_103A2C + a2[0]);
+        v53[1] = v54;
+        v53[2] = v55;
+      }
+    }
   }
-LABEL_14:
-  v16 = rf_enable_rx(v15);
-  v17 = rf_hw_init_alt(v16);
-  rf_hw_init(v17);
-  goto LABEL_17;
+  v34 = off_1038B8;
+  v35 = off_1038C0;
+  *(uint32_t *)off_1038B4 &= 0xFFFFFFC7;
+  uart_send_data(0, 0, 0x10u, v34);
+  uart_send_data(0, 16, 0x10u, off_1038C4);
+  uart_send_data(0, 32, 0x10u, (int)off_151B28);
+  uart_send_data(0, 48, 0x10u, (int)off_151B24[0]);
+  uart_send_data(0, 64, 0x10u, *(int *)aT);
+  uart_send_data(1, 0, 0x10u, *(int *)aX);
+  uart_send_data(1, 16, 0x10u, *(int *)asc_152738);
+  rf_config_read_b();
+  crypto_start_operation(1);
+  rf_config_read_a(0);
+  crypto_start_operation(0);
+  *(uint32_t *)off_1038D0 |= 0x8000000u;
+  v36 = rf_power_adjust();
+  v37 = ((int)(((uint64_t)(dword_1038D4 * (uint64_t)(4 * (v36 - 35))) >> 32) + 4 * (v36 - 35)) >> 2)
+      - ((4 * (v36 - 35)) >> 31)
+      + 120;
+  *(uint16_t *)off_103904 = v37;
+  *v35 = v37;
+  alloc_tx_event("Init T=%d C, ipa_target=%d\n", v36, v37);
+  v38 = rf_gpio_init((int)a2);
+  debug_printf("cal_ipa_5g offset=%d, cgm=%d\n", v38, *(uint32_t *)a2);
+  if ( (v17[1] & 1) != 0 && *v17 < 0 )
+  {
+    v39 = (unsigned int *)off_1038E4;
+    *(uint32_t *)off_1038E0 = *(uint32_t *)off_1038E0 & 0xFFFFFF87 | 0x40;
+    *v39 = *v39 & 0xFFF87FFF | 0x40000;
+  }
+  v40 = rf_gpio_init_alt();
+  return debug_printf("cal_ipa_24g offset=%d\n", v40);
 }
-

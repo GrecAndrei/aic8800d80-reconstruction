@@ -10,58 +10,53 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12ED98;
-extern uint32_t off_12EDA4;
 extern uint32_t off_12EDA0;
+extern uint32_t off_12EDA4;
 extern uint32_t off_12EDA8;
-extern uint32_t dword_12ED9C;
 
 // send_command_event @ 0x12ed20, size 118 bytes
-// Doc: rf_param_set_n410 [rf]: Set RF parameter via register 0x410 write
-// rf_param_set_n410 [rf]: Set RF parameter via register 0x410 write
-int  send_command_event(int a1, int a2, int16_t a3, int16_t a4)
+int  send_command_event(int a1, int a2, int a3, int a4)
 {
   int v5; // r0
   int v6; // r1
   uint32_t *v7; // r4
-  int v8; // r0
-  uint32_t *v10; // r2
-  uint8_t *v11; // r0
+  uint32_t *v9; // r2
+  uint8_t *v10; // r0
+  uint32_t *v11; // r3
   uint32_t *v12; // r3
-  uint32_t *v13; // r3
 
-  v5 = ke_msg_alloc(1040, a4, a3, 4u);
+  v5 = ke_msg_alloc(1040, a4, a3, 4);
   v6 = *(uint16_t *)(a2 + 4);
   v7 = (uint32_t *)v5;
-  if ( *((uint8_t *)off_12ED98 + 177) )
+  if ( BYTE1(((uint32_t *)(uintptr_t)off_12ED98)[44]) )
   {
     if ( (unsigned int)(v6 - 1) > 1 )
       goto LABEL_3;
-    v10 = off_12EDA4;
+    v9 = off_12EDA4;
     *(uint32_t *)off_12EDA0 |= 0x2000000u;
-    v11 = off_12EDA8;
-    v10[14] |= 0x10u;
-    *v11 = 1;
+    v10 = off_12EDA8;
+    v9[14] |= 0x10u;
+    *v10 = 1;
   }
   if ( v6 == 1 )
   {
-    v12 = off_12EDA4;
+    v11 = off_12EDA4;
     *((uint32_t *)off_12EDA4 + 18) = *(uint32_t *)a2;
-    v12[75] = 64;
+    v11[75] = 64;
     goto LABEL_5;
   }
 LABEL_3:
   if ( v6 == 2 )
   {
-    v13 = off_12EDA4;
+    v12 = off_12EDA4;
     *((uint32_t *)off_12EDA4 + 19) = *(uint32_t *)a2;
-    v13[75] = 128;
+    v12[75] = 128;
   }
 LABEL_5:
-  v8 = dword_12ED9C;
   *v7 = 0;
-  event_dispatch(v8);
-  ke_msg_send((int)v7);
+  event_dispatch("\x9D\x81DBG: Boot NPC %d\n", v6);
+  ke_msg_send_2((int)v7);
   return 0;
 }
-

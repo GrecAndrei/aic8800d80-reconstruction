@@ -10,19 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_12D928;
-extern uint32_t dword_12D92C;
 
-// system_init_sequence @ 0x12d908, size 26 bytes
-float  system_init_sequence(unsigned int a1)
+// sub_12D908 @ 0x12d908, size 26 bytes
+unsigned int  sub_12D908(unsigned int a1)
 {
-  float v1; // r0
+  unsigned int v1; // r0
   uint64_t v2; // r0
-  int v3; // r0
+  uint64_t v3; // r0
 
-  v1 = float32_decompose(a1);
-  v2 = __aeabi_f2d(LODWORD(v1));
-  v3 = __aeabi_dmul(v2, HIDWORD(v2), dword_12D928, dword_12D92C);
-  return double_to_float(v3);
+  v1 = sub_12D7CC(a1);
+  v2 = sub_142A94(v1);
+  v3 = sub_142B44(v2, *(uint64_t *)&dword_12D928);
+  return sub_143108(v3);
 }
-

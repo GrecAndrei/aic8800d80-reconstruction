@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_118904;
 
 // write_bb_control @ 0x1188f4, size 14 bytes
 int write_bb_control()
 {
   *(uint32_t *)off_118904 = 48;
-  return flash_erase_sector(0);
+  return flash_erase_sector(0, 1);
 }
-

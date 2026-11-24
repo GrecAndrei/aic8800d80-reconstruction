@@ -10,24 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_13BF60;
-extern uint32_t dword_13BF70;
-extern uint32_t dword_13BF74;
 extern uint32_t dword_13BF64;
 extern uint32_t dword_13BF68;
-extern uint32_t dword_13BF6C;
+extern uint32_t dword_13BF70;
+extern uint32_t dword_13BF74;
+extern uint32_t off_13BF6C;
 
-// rf_get_chan_param @ 0x13bef8, size 104 bytes
-// Doc: sub_123BEF8 [util]: Indexed table lookup/handler dispatch using 32-byte stride entries
-// sub_123BEF8 [util]: Indexed table lookup/handler dispatch using 32-byte stride entries
-int  rf_get_chan_param(unsigned int a1)
+// rf_get_chan_param_1 @ 0x13bef8, size 104 bytes
+int  rf_get_chan_param_1(unsigned int a1)
 {
   int v1; // r5
   int v2; // r6
   int v3; // r7
-  int v5; // r8
-  int v6; // r0
-  int v7; // r4
+  unsigned int v5; // r8
+  unsigned int v6; // r0
+  void *v7; // r4
 
   v1 = dword_13BF60;
   v2 = dword_13BF60 + 32 * a1;
@@ -44,9 +43,8 @@ int  rf_get_chan_param(unsigned int a1)
     cmd_handler_a(dword_13BF68, (uint32_t *)v2);
   }
   v6 = (a1 << 8) & 0xFF00;
-  v7 = dword_13BF6C;
+  v7 = off_13BF6C;
   rx_phy_status_parse(v6 | 8, 4);
   *(uint8_t *)(v1 + v5 + 25) = 0;
-  return adv_set_params(v3, v2, 2, 0, 0, 39, v7);
+  return adv_set_params(v3, v2, 2, 0, 0, 0x27u, (int)v7);
 }
-

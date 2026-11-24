@@ -10,22 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_10EC04;
-extern uint32_t off_10EC08;
+
 extern uint32_t dword_10EC0C;
 extern uint32_t dword_10EC10;
-extern uint32_t off_10EC24;
-extern uint32_t off_10EC14;
-extern uint32_t off_10EC28;
 extern uint32_t dword_10EC18;
-extern uint32_t off_10EC1C;
 extern uint32_t dword_10EC20;
+extern uint32_t off_10EC04;
+extern uint32_t off_10EC08;
+extern uint32_t off_10EC14;
+extern uint32_t off_10EC1C;
+extern uint32_t off_10EC24;
+extern uint32_t off_10EC28;
 
-// rf_gpio_init_alt @ 0x10eb04, size 256 bytes
-int rf_gpio_init_alt()
+// sub_10EB04 @ 0x10eb04, size 256 bytes
+int sub_10EB04()
 {
   unsigned int *v0; // r4
-  uint32_t *v1; // r2
+  int v1; // r2
   int v2; // r0
   int v3; // r3
   uint32_t *v4; // r9
@@ -39,8 +40,9 @@ int rf_gpio_init_alt()
   unsigned int v12; // r6
   unsigned int v13; // r5
   int result; // r0
-  uint32_t v15[2]; // [sp+4h] [bp-Ch] BYREF
-  int16_t v16; // [sp+Ch] [bp-4h]
+  int v15; // [sp+0h] [bp-10h]
+  int a6; // [sp+4h] [bp-Ch] BYREF
+  uint16_t v17; // [sp+Ch] [bp-4h]
 
   v0 = (unsigned int *)off_10EC04;
   v1 = off_10EC08;
@@ -50,15 +52,13 @@ int rf_gpio_init_alt()
   v5 = off_10EC14;
   v6 = off_10EC28;
   v7 = dword_10EC18;
-  v16 = 0;
+  v17 = 0;
   *((uint32_t *)off_10EC04 + 14) = 296;
-  v1[3] = v2 | v1[3] & 0xE0000000;
-  v1[2] = v3 & v1[2] | 0x1200000D;
+  *(uint32_t *)(v1 + 0xC) = v2 | *(uint32_t *)(v1 + 0xC) & 0xE0000000;
+  *(uint32_t *)(v1 + 8) = v3 & *(uint32_t *)(v1 + 8) | 0x1200000D;
   *v4 |= 0x20000000u;
   *v5 &= ~1u;
-  v15[0] = v7;
-  v15[1] = 2442;
-  check_boot_flag((uint16_t *)v15, 0);
+  sub_102970((uint16_t *)&a6, 0, v1, 2442, v15, v7, 2442);
   v8 = (int *)off_10EC1C;
   v9 = dword_10EC20;
   v0 += 593954;
@@ -72,7 +72,7 @@ int rf_gpio_init_alt()
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
   *v0 |= 0x400000u;
-  result = gpio_pad_ctrl_set(4);
+  result = sub_10E8B4(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
   *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;
@@ -81,4 +81,3 @@ int rf_gpio_init_alt()
   *v0 = v13 & 0x400000 | *v0 & 0xFFBFFFFF;
   return result;
 }
-

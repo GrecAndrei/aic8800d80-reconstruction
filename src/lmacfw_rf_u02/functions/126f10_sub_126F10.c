@@ -10,10 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_126F8C;
+
 extern uint32_t dword_126F80;
+extern uint32_t dword_126F8C;
 extern uint32_t off_126F84;
-extern uint32_t dword_126F88;
+extern uint32_t off_126F88;
 
 // freq_offset_to_channel @ 0x126f10, size 110 bytes
 int  freq_offset_to_channel(int a1)
@@ -23,15 +24,15 @@ int  freq_offset_to_channel(int a1)
   int result; // r0
 
   if ( a1 > 29 )
-    v1 = (unsigned int)(((unsigned int)dword_126F8C * (unsigned uint64_t)(unsigned int)(a1 - 30)) >> 32) >> 3;
+    v1 = (unsigned int)(((unsigned int)dword_126F8C * (uint64_t)(unsigned int)(a1 - 30)) >> 32) >> 3;
   else
-    v1 = ((int)((unsigned uint64_t)(dword_126F80 * (uint64_t)(a1 - 40)) >> 32) >> 2) - ((a1 - 40) >> 31);
+    v1 = ((int)((uint64_t)(dword_126F80 * (uint64_t)(a1 - 40)) >> 32) >> 2) - ((a1 - 40) >> 31);
   if ( v1 >= 8 )
     v1 = 8;
   if ( v1 < -7 )
     v1 = -7;
   v2 = *((uint8_t *)off_126F84 + 4)
-     + (char)(*(uint8_t *)(dword_126F88 + v1 + 7) - *(uint8_t *)(dword_126F88 + *((char *)off_126F84 + 2) + 7));
+     + (char)(*((uint8_t *)&((uint32_t *)(uintptr_t)off_126F88)[1] + v1 + 3) - *((uint8_t *)&((uint32_t *)(uintptr_t)off_126F88)[1] + *((char *)off_126F84 + 2) + 3));
   if ( v2 >= 31 )
     v2 = 31;
   if ( v2 < 1 )
@@ -43,4 +44,3 @@ int  freq_offset_to_channel(int a1)
     return rf_param_build();
   return result;
 }
-

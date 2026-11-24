@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_12B26C;
+extern uint32_t dword_12B270;
 extern uint32_t off_12B264;
 extern uint32_t off_12B268;
-extern uint32_t dword_12B26C;
 extern uint32_t off_12B274;
-extern uint32_t dword_12B270;
 
 // ke_timer_setup @ 0x12b1a4, size 192 bytes
-// Doc: sub_122B1A4 [unknown]: Unknown function at 0x122B1A4
-// sub_122B1A4 [unknown]: Unknown function at 0x122B1A4
 int ke_timer_setup()
 {
   uint32_t *v0; // r6
@@ -58,7 +57,7 @@ int ke_timer_setup()
   if ( (v4 & 1) == 0 && *((uint8_t *)off_12B274 + 3850) == 1 )
     v5 += 170000;
 LABEL_4:
-  wlc_check_chip_ready((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
+  wlc_check_chip_ready((uint16_t *)v2, v5, *(uint8_t *)(v1 + 366));
   v6 = v0[1];
   if ( v6 )
   {
@@ -67,7 +66,7 @@ LABEL_4:
     if ( *(uint8_t *)(v2 + 2) )
     {
       if ( v7 == 1 && (v10 = v8 - 4992, (uint16_t)(v10 - 13) <= 0x370u) )
-        *(uint8_t *)(v6 + 2) = (unsigned int)(((unsigned int)dword_12B270 * (unsigned uint64_t)(unsigned int)(v10 - 8)) >> 32) >> 2;
+        *(uint8_t *)(v6 + 2) = (unsigned int)(((unsigned int)dword_12B270 * (uint64_t)(unsigned int)(v10 - 8)) >> 32) >> 2;
       else
         *(uint8_t *)(v6 + 2) = 0;
     }
@@ -78,13 +77,12 @@ LABEL_4:
         if ( v8 == 2484 )
         {
           *(uint8_t *)(v6 + 2) = 14;
-          return rx_phy_status_parse(2);
+          return rx_phy_status_parse(2u, 2);
         }
-        LOBYTE(v7) = (unsigned int)(((unsigned int)dword_12B270 * (unsigned uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2;
+        LOBYTE(v7) = (unsigned int)(((unsigned int)dword_12B270 * (uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2;
       }
       *(uint8_t *)(v6 + 2) = v7;
     }
   }
-  return rx_phy_status_parse(2);
+  return rx_phy_status_parse(2u, 2);
 }
-

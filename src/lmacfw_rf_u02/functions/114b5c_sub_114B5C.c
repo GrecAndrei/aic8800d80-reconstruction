@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_114C44;
-extern uint32_t off_114C64;
-extern uint32_t off_114C50;
-extern uint32_t dword_114C58;
-extern uint32_t off_114C5C;
-extern uint32_t dword_114C60;
 extern uint32_t off_114C48;
 extern uint32_t off_114C4C;
+extern uint32_t off_114C50;
 extern uint32_t off_114C54;
+extern uint32_t off_114C5C;
+extern uint32_t off_114C64;
 
 // wait_hw_ready @ 0x114b5c, size 230 bytes
 int wait_hw_ready()
@@ -27,28 +26,26 @@ int wait_hw_ready()
   uint32_t *v1; // r3
   uint32_t *v2; // r2
   uint32_t *v3; // r3
-  uint32_t *v4; // r3
-  int v6; // r1
-  int v7; // r1
-  uint32_t *v8; // r2
+  int v4; // r3
+  int v6; // r2
 
   if ( **(uint8_t **)off_114C44 == 2 )
   {
     if ( util_read_status() )
-      v0 = *((uint32_t *)off_114C64 + 87);
+      v0 = off_114C64[87];
     else
       v0 = 16;
-    rf_init();
-    *((uint32_t *)off_114C50 + 34) = 1;
+    rf_init_1();
+    *(uint32_t *)(off_114C50 + 136) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    dispatch_event_handler(dword_114C58, v6);
-    v8 = off_114C5C;
-    *((uint32_t *)off_114C5C + 513) |= 2u;
-    v8[4] |= 1u;
-    while ( (v8[4] & 1) != 0 )
+    dispatch_event_handler_1(aSftDis);
+    v6 = off_114C5C;
+    *(uint32_t *)(off_114C5C + 0x804) |= 2u;
+    *(uint32_t *)(v6 + 0x10) |= 1u;
+    while ( (*(uint32_t *)(v6 + 0x10) & 1) != 0 )
       ;
-    dispatch_event_handler(dword_114C60, v7);
+    dispatch_event_handler_1(aSftrstDone);
   }
   else
   {
@@ -74,10 +71,10 @@ int wait_hw_ready()
     v3[2] |= 0x40000u;
   }
   v4 = off_114C50;
-  *((uint32_t *)off_114C50 + 34) = 2;
+  *(uint32_t *)(off_114C50 + 136) = 2;
   __dsb(0xFu);
   __isb(0xFu);
-  v4[34] = 1;
+  *(uint32_t *)(v4 + 136) = 1;
   __dsb(0xFu);
   __isb(0xFu);
   trace_sync();
@@ -86,4 +83,3 @@ int wait_hw_ready()
   __disable_irq();
   return v0;
 }
-

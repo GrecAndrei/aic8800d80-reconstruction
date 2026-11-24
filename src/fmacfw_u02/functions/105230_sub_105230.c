@@ -10,45 +10,51 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1052E0;
-extern uint32_t dword_1052E4;
-extern uint32_t dword_1052DC;
 
-// adc_to_temp_scale @ 0x105230, size 168 bytes
-int  adc_to_temp_scale(float a1, int a2, int a3)
+extern float flt_1052D8;
+
+// sub_105230 @ 0x105230, size 168 bytes
+int  sub_105230(float a1, int a2, int a3)
 {
-  float v5; // r0
-  int v6; // r0
+  float v6; // r0
   uint64_t v7; // r0
-  int16_t v8; // r0
-  uint64_t v9; // kr00_8
-  uint64_t v11; // kr08_8
+  uint64_t v8; // r0
+  int v9; // r0
+  uint64_t v10; // kr00_8
+  uint64_t v12; // kr08_8
 
-  v5 = load_bt_config(a1 / 20.0);
-  v6 = float_to_double((float)a2 * v5);
-  v7 = double_add(v6);
-  v8 = double_to_float(v7, HIDWORD(v7));
-  if ( v8 <= 232 )
+  v6 = COERCE_FLOAT(sub_12D520(COERCE_INT(a1 / 20.0)));
+  v7 = sub_1429F8(COERCE_UNSIGNED_INT((float)a2 * v6));
+  v8 = sub_14261C(v7);
+  v9 = (uint16_t)sub_142FDC(v8);
+  if ( (uint16_t)v9 <= 232 )
   {
-    if ( v8 > 31 )
+    if ( (uint16_t)v9 > 31 )
     {
-      *(uint8_t *)(a3 + 104) = v8;
+      *(uint8_t *)(a3 + 104) = v9;
     }
     else
     {
-      v11 = *(uint64_t *)(a3 + 112);
+      v12 = *(uint64_t *)(a3 + 112);
+      v9 = 32;
       *(uint8_t *)(a3 + 104) = 32;
-      if ( SHIDWORD(v11) < (int)v11 )
-        event_dispatch(dword_1052E0, HIDWORD(v11), v11);
+      if ( SHIDWORD(v12) < (int)v12 )
+      {
+        sub_12EA88("ana_cur_index=%x ana_max_index=%x warning:dig_pwr is smaller\n", HIDWORD(v12), (uint32_t)v12);
+        v9 = *(uint8_t *)(a3 + 104);
+      }
     }
   }
   else
   {
-    v9 = *(uint64_t *)(a3 + 112);
+    v10 = *(uint64_t *)(a3 + 112);
+    v9 = 232;
     *(uint8_t *)(a3 + 104) = -24;
-    if ( SHIDWORD(v9) < (int)v9 )
-      event_dispatch(dword_1052E4, HIDWORD(v9), v9);
+    if ( SHIDWORD(v10) < (int)v10 )
+    {
+      sub_12EA88("ana_cur_index=%x ana_max_index=%x warning:dig_pwr is bigger\n", HIDWORD(v10), (uint32_t)v10);
+      v9 = *(uint8_t *)(a3 + 104);
+    }
   }
-  return check_status_bits(1, dword_1052DC);
+  return sub_12ECD0(1, "pwr_diff*100=%4d base_pwr=%x dig_pwr=%x ", (int)(float)(a1 * flt_1052D8), a2, v9);
 }
-

@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_124C44;
 extern uint32_t off_124C40;
 extern uint32_t off_124C48;
 extern uint32_t off_124C4C;
 extern uint32_t off_124C50;
-extern uint32_t dword_124C54;
 
 // radio_reg_init @ 0x124bbc, size 132 bytes
 int  radio_reg_init(uint16_t *a1)
@@ -48,7 +48,6 @@ int  radio_reg_init(uint16_t *a1)
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
   wait_rf_calibration();
-  ke_event_schedule(dword_124C54, *a1, a1[1]);
+  ke_event_schedule_1("set txop: bk:%x,be:%x,vi:%x,vo:%x\n", *a1, a1[1], a1[2], a1[3]);
   return 0;
 }
-

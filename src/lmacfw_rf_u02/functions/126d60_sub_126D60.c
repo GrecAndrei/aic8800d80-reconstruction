@@ -10,18 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_126D94;
 extern uint32_t off_126D98;
-extern uint32_t dword_126D9C;
-extern uint32_t dword_126DA0;
 
 // mmio_bit_set @ 0x126d60, size 52 bytes
 int  mmio_bit_set(int a1)
 {
-  void *v1; // r1
+  int v1; // r1
   unsigned int *v2; // r2
   int v3; // r3
-  int v4; // r0
+  const char *v4; // r0
   unsigned int v5; // r3
 
   v1 = off_126D94;
@@ -30,16 +29,15 @@ int  mmio_bit_set(int a1)
   if ( a1 )
   {
     *(uint32_t *)off_126D94 = v3 | 0x10000;
-    v4 = dword_126D9C;
+    v4 = aFssOn;
     v5 = *v2 & 0xFF87FFFF | 0x700000;
   }
   else
   {
     *(uint32_t *)off_126D94 = v3 & 0xFFFEFFFF;
-    v4 = dword_126DA0;
+    v4 = aFssOff;
     v5 = *v2 & 0xFF87FFFF;
   }
   *v2 = v5;
-  return dispatch_event_handler(v4, v1, v2, v5);
+  return dispatch_event_handler_1(v4, v1, v2, v5);
 }
-

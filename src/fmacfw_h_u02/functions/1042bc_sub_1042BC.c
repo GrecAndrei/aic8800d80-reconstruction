@@ -10,10 +10,6 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_100000;
-extern uint32_t dword_1043C0;
-extern uint32_t dword_1043C4;
-
 // ke_acquire_lock @ 0x1042bc, size 258 bytes
 int ke_acquire_lock()
 {
@@ -31,11 +27,11 @@ int ke_acquire_lock()
   int v11; // r0
   unsigned int v12; // r0
   unsigned int v13; // r3
-  int16_t v14; // r2
+  uint16_t v14; // r2
   int result; // r0
   int v16; // r3
 
-  v0 = (dword_100000[0] & 1) == 0;
+  v0 = (MEMORY[0x100000] & 1) == 0;
   v1 = 0;
   v2 = (int *)(4 * (v0 + 0x40000));
   v3 = v0 + 278528;
@@ -65,8 +61,8 @@ int ke_acquire_lock()
   }
   while ( v4 != (int *)v5 );
   if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
-    check_feature_flag(1, dword_1043C0);
-  check_feature_flag(1, dword_1043C4);
+    check_feature_flag(1, aWarningDataSat);
+  check_feature_flag(1, "sum_i=%d\nsum_q=%d\ndc_i=%d\ndc_q=%d\n", v9, v8, v9 / 0x2000, v8 / 0x2000);
   do
   {
     v12 = *v2;
@@ -75,15 +71,14 @@ int ke_acquire_lock()
       LOWORD(v13) = v13 - 4096;
     v14 = (uint16_t)v12 >> 4;
     result = v12 >> 4 << 20;
-    v16 = (int16_t)(v13 - v9 / 0x2000);
+    v16 = (uint16_t)(v13 - v9 / 0x2000);
     if ( result < 0 )
       v14 -= 4096;
     *v2 = ((v16 + (v16 < 0 ? 0x1000 : 0)) << 20)
         + 65537
-        + 16 * ((int16_t)(v14 - v8 / 0x2000) + ((int16_t)(v14 - v8 / 0x2000) < 0 ? 0x1000 : 0));
+        + 16 * ((uint16_t)(v14 - v8 / 0x2000) + ((uint16_t)(v14 - v8 / 0x2000) < 0 ? 0x1000 : 0));
     v2 += 2;
   }
   while ( (int *)(4 * v3) != v2 );
   return result;
 }
-

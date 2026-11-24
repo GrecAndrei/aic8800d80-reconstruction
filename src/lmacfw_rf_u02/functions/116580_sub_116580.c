@@ -10,27 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1165A8;
-extern uint32_t dword_1165AC;
 
 // call_global_185c7c @ 0x116580, size 38 bytes
-int  call_global_185c7c(int a1, int a2)
+uint32_t * call_global_185c7c(int a1, int a2)
 {
-  int v4; // r0
-  int v5; // r1
-  int v6; // r4
+  uint32_t *v4; // r0
+  uint32_t *v5; // r4
 
   v4 = list_pop_front(dword_1165A8);
-  v6 = v4;
+  v5 = v4;
   if ( v4 )
   {
-    wlan_tx_enqueue(v4, a1, a2);
-    return v6;
+    wlan_tx_enqueue((int)v4, a1, a2);
+    return v5;
   }
   else
   {
-    dispatch_event_handler(dword_1165AC, v5);
-    return 0;
+    dispatch_event_handler_1(aNoTxlFrame);
+    return nullptr;
   }
 }
-

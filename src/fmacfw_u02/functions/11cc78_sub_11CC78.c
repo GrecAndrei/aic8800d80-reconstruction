@@ -10,33 +10,30 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11CF3C;
 extern uint32_t dword_11CF40;
-extern uint32_t off_11CF58;
-extern uint32_t off_11CF4C;
-extern uint32_t dword_11CF50;
-extern uint32_t dword_11CF54;
-extern uint32_t off_11D2BC;
 extern uint32_t dword_11D2A4;
-extern uint32_t dword_11D2B8;
-extern uint32_t off_11D2AC;
-extern uint32_t dword_11D2B0;
-extern uint32_t dword_11D2B4;
 extern uint32_t dword_11D2A8;
-extern uint32_t dword_11CF48;
-extern uint32_t dword_11CF44;
+extern uint32_t dword_11D2B8;
 extern uint32_t dword_11D318;
+extern uint32_t off_11CF44;
+extern uint32_t off_11CF48;
+extern uint32_t off_11CF4C;
+extern uint32_t off_11CF58;
+extern uint32_t off_11D2AC;
+extern uint32_t off_11D2BC;
 
 // radio_event_loop @ 0x11cc78, size 1694 bytes
-uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
+uint32_t * radio_event_loop(uint32_t *result, int a2, int a3)
 {
   int v3; // r8
-  int16_t v5; // r10
+  uint16_t v5; // r10
   int v6; // r9
   int v7; // r6
-  uint16_t *v8; // r5
+  uint32_t *v8; // r5
   int v9; // r4
-  int16_t v10; // r7
+  uint16_t v10; // r7
   int v11; // r7
   uint8_t *v12; // r5
   uint8_t v13; // r3
@@ -44,7 +41,7 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
   int v15; // r4
   unsigned int v16; // r2
   int v17; // r6
-  int v18; // r2
+  uint16_t v18; // r2
   int v19; // r5
   int v20; // r9
   int v21; // r4
@@ -58,73 +55,63 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
   int v29; // r4
   unsigned int v30; // r3
   uint8_t *v31; // r0
-  int v32; // r1
-  int *v33; // r10
-  int v34; // r7
-  int v35; // r2
-  int v36; // r5
-  int v37; // r4
-  int v38; // r9
-  unsigned int CPSR; // r3
-  void *v40; // r2
-  int v41; // r0
-  int *v42; // r3
-  int v43; // r3
+  int *v32; // r10
+  int v33; // r7
+  uint32_t *v34; // r5
+  uint32_t *v35; // r4
+  uint32_t *v36; // r9
+  int v37; // r2
+  int *v38; // r3
+  int v39; // r3
+  int v40; // r3
+  uint8_t *v41; // r0
+  int *v42; // r10
+  uint32_t *v43; // r7
   int v44; // r3
-  uint8_t *v45; // r0
-  int *v46; // r10
-  int v47; // r1
-  int v48; // r7
-  int v49; // r3
-  int v50; // r9
-  int v51; // r4
-  int v52; // r5
-  int v53; // r0
-  int v54; // r2
-  uint32_t *v55; // r3
-  int v56; // r2
-  int v57; // r0
-  uint16_t *v58; // r0
-  void *v59; // r2
-  uint32_t *v60; // r9
-  int v61; // r7
-  int v62; // r1
-  int v63; // r10
-  int v64; // r11
-  int v65; // r6
-  int v66; // r0
-  int *v67; // r3
-  int v68; // r3
+  int v45; // r9
+  uint32_t *v46; // r4
+  uint32_t *v47; // r5
+  int v48; // r1
+  uint32_t *v49; // r3
+  int v50; // r2
+  int v51; // r0
+  uint16_t *v52; // r0
+  int *v53; // r9
+  int v54; // r7
+  uint32_t *v55; // r10
+  uint32_t *v56; // r11
+  int v57; // r6
+  int v58; // r2
+  int *v59; // r3
+  int v60; // r3
+  int v61; // r3
+  int *v62; // r10
+  int v63; // r7
+  uint32_t *v64; // r6
+  uint32_t *v65; // r5
+  uint32_t *v66; // r9
+  int v67; // r2
+  int *v68; // r3
   int v69; // r3
-  int *v70; // r10
-  int v71; // r7
+  int v70; // r3
+  int v71; // r0
   int v72; // r2
-  int v73; // r1
-  int v74; // r6
-  int v75; // r5
-  int v76; // r9
-  int v77; // r0
-  int *v78; // r3
-  int v79; // r3
-  int v80; // r3
-  int v81; // r0
-  int v82; // r2
-  int v83; // r0
-  uint8_t *v84; // r0
-  int v85; // [sp+4h] [bp-10h]
-  int v86; // [sp+8h] [bp-Ch]
-  int v87; // [sp+8h] [bp-Ch]
+  int v73; // r0
+  uint8_t *v74; // r0
+  uint32_t *resulta; // [sp+4h] [bp-10h]
+  int v76; // [sp+8h] [bp-Ch]
+  int v77; // [sp+8h] [bp-Ch]
 
   v3 = dword_11CF3C + 1320 * a3;
   if ( *(uint8_t *)(v3 + 106) == 2 )
   {
-    v5 = *result;
+    v5 = *(uint16_t *)result;
     v6 = 696 * a2;
     v7 = dword_11CF40 + 696 * a2;
     v8 = result;
-    v85 = *(uint8_t *)(v7 + 36);
+    resulta = (uint32_t *)*(uint8_t *)(v7 + 36);
     v9 = a2;
-    if ( v85 != 1 )
+    if ( resulta != (uint32_t *)1 )
     {
       if ( (v5 & 0x1404) != 0x1000 )
         return result;
@@ -135,60 +122,54 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
         v31 = (uint8_t *)ke_msg_alloc(73, 13, 0, 2);
         *v31 = v9;
         v31[1] = 1;
-        ke_msg_send(v31);
+        ke_msg_send_2((int)v31);
         if ( !*(uint8_t *)(v7 + 36) && *(uint8_t *)(v7 + 35) <= 0x1Fu )
         {
-          v32 = dword_11CF3C;
-          v33 = (int *)off_11CF58;
-          v34 = dword_11CF3C + 1320 * *(uint8_t *)(v7 + 34);
-          v35 = dword_11CF40;
-          v36 = dword_11CF3C + 8 * (165 * *(uint8_t *)(v7 + 34) + 159);
-          v37 = dword_11CF40 + 8 * (87 * (int16_t)v9 + 78);
-          v38 = dword_11CF40 + 664 + v6;
+          v32 = (int *)off_11CF58;
+          v33 = dword_11CF3C + 1320 * *(uint8_t *)(v7 + 34);
+          v34 = (uint32_t *)(dword_11CF3C + 8 * (165 * *(uint8_t *)(v7 + 34) + 159));
+          v35 = (uint32_t *)(dword_11CF40 + 8 * (87 * (uint16_t)v9 + 78));
+          v36 = (uint32_t *)(dword_11CF40 + 664 + v6);
           do
           {
             if ( *(uint32_t *)(v7 + 584) )
             {
-              CPSR = __get_CPSR();
-              v40 = (void *)(CPSR << 31);
-              if ( (CPSR & 1) == 0 )
+              if ( (__get_CPSR() & 1) == 0 )
               {
                 __disable_irq();
-                v40 = off_11CF4C;
                 *(uint32_t *)off_11CF4C = 1;
               }
-              v41 = dword_11CF50;
-              ++*v33;
-              event_dispatch(v41, v32, v40);
-              list_next(v37 - 40, v36 - 40);
-              *(uint64_t *)(v34 + 1232) = *(uint64_t *)(v7 + 584);
-              zero_8_bytes(v37 - 40);
-              v35 = *v33 - 1;
-              if ( *v33 )
+              ++*v32;
+              event_dispatch(aCatTobe);
+              list_next(v35 - 10, v34 - 10);
+              *(uint64_t *)(v33 + 1232) = *(uint64_t *)(v7 + 584);
+              zero_8_bytes(v35 - 10);
+              v37 = *v32 - 1;
+              if ( *v32 )
               {
-                v42 = (int *)off_11CF4C;
-                *v33 = v35;
-                v43 = *v42;
-                if ( !v35 )
+                v38 = (int *)off_11CF4C;
+                *v32 = v37;
+                v39 = *v38;
+                if ( !v37 )
                 {
-                  if ( v43 )
+                  if ( v39 )
                     __enable_irq();
                 }
               }
             }
-            v44 = *(uint32_t *)(v7 + 624);
-            v34 += 8;
+            v40 = *(uint32_t *)(v7 + 624);
+            v33 += 8;
             v7 += 8;
-            if ( v44 )
+            if ( v40 )
             {
-              event_dispatch(dword_11CF54, v32, v35);
-              list_next(v36, v37);
-              zero_8_bytes(v37);
+              event_dispatch(aCatPs);
+              list_next(v34, v35);
+              zero_8_bytes(v35);
             }
-            v37 += 8;
-            v36 += 8;
+            v35 += 2;
+            v34 += 2;
           }
-          while ( v37 != v38 );
+          while ( v35 != v36 );
           unknown_func_12d104(512);
         }
       }
@@ -208,20 +189,18 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
             v23 = (uint8_t *)ke_msg_alloc(73, 13, v18, 2);
             *v23 = v19;
             v23[1] = 1;
-            ke_msg_send(v23);
+            ke_msg_send_2((int)v23);
             if ( *(uint8_t *)(v21 + 36) || *(uint8_t *)(v21 + 35) > 0x1Fu )
             {
               LOBYTE(v18) = *(uint8_t *)(v17 + 234);
             }
             else
             {
-              v70 = (int *)off_11D2BC;
-              v71 = dword_11D2A4 + 1320 * *(uint8_t *)(v21 + 34);
-              v72 = 87 * (uint8_t)(a3 + 32) + 78;
-              v73 = dword_11D2B8 - 664;
-              v74 = dword_11D2A4 + 8 * (165 * *(uint8_t *)(v21 + 34) + 159);
-              v75 = dword_11D2B8 - 664 + 8 * v72;
-              v76 = dword_11D2B8 + v20;
+              v62 = (int *)off_11D2BC;
+              v63 = dword_11D2A4 + 1320 * *(uint8_t *)(v21 + 34);
+              v64 = (uint32_t *)(dword_11D2A4 + 8 * (165 * *(uint8_t *)(v21 + 34) + 159));
+              v65 = (uint32_t *)(dword_11D2B8 - 664 + 8 * (87 * (uint8_t)(a3 + 32) + 78));
+              v66 = (uint32_t *)(dword_11D2B8 + v20);
               do
               {
                 if ( *(uint32_t *)(v21 + 584) )
@@ -229,41 +208,39 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
                   if ( (__get_CPSR() & 1) == 0 )
                   {
                     __disable_irq();
-                    v72 = (int)off_11D2AC;
                     *(uint32_t *)off_11D2AC = 1;
                   }
-                  v77 = dword_11D2B0;
-                  ++*v70;
-                  event_dispatch(v77, v73, v72);
-                  list_next(v75 - 40, v74 - 40);
-                  *(uint64_t *)(v71 + 1232) = *(uint64_t *)(v21 + 584);
-                  zero_8_bytes(v75 - 40);
-                  v72 = *v70 - 1;
-                  if ( *v70 )
+                  ++*v62;
+                  event_dispatch(aCatTobe);
+                  list_next(v65 - 10, v64 - 10);
+                  *(uint64_t *)(v63 + 1232) = *(uint64_t *)(v21 + 584);
+                  zero_8_bytes(v65 - 10);
+                  v67 = *v62 - 1;
+                  if ( *v62 )
                   {
-                    v78 = (int *)off_11D2AC;
-                    *v70 = v72;
-                    v79 = *v78;
-                    if ( !v72 )
+                    v68 = (int *)off_11D2AC;
+                    *v62 = v67;
+                    v69 = *v68;
+                    if ( !v67 )
                     {
-                      if ( v79 )
+                      if ( v69 )
                         __enable_irq();
                     }
                   }
                 }
-                v80 = *(uint32_t *)(v21 + 624);
-                v71 += 8;
+                v70 = *(uint32_t *)(v21 + 624);
+                v63 += 8;
                 v21 += 8;
-                if ( v80 )
+                if ( v70 )
                 {
-                  event_dispatch(dword_11D2B4, v73, v72);
-                  list_next(v74, v75);
-                  zero_8_bytes(v75);
+                  event_dispatch(aCatPs);
+                  list_next(v64, v65);
+                  zero_8_bytes(v65);
                 }
-                v75 += 8;
-                v74 += 8;
+                v65 += 2;
+                v64 += 2;
               }
-              while ( v75 != v76 );
+              while ( v65 != v66 );
               unknown_func_12d104(512);
               LOBYTE(v18) = *(uint8_t *)(dword_11D2A4 + 1320 * a3 + 234);
             }
@@ -272,28 +249,27 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
       }
       v24 = v3;
       *(uint8_t *)(dword_11CF3C + 1320 * a3 + 234) = v18 + 1;
-      return (uint16_t *)llc_get_evt_ptr(v24);
+      return (uint32_t *)llc_get_evt_ptr(v24);
     }
-    if ( (*result & 0x1404) == 0 )
+    if ( (*(uint16_t *)result & 0x1404) == 0 )
     {
       v25 = *(uint8_t *)(v7 + 35);
       *(uint8_t *)(v7 + 36) = 0;
       if ( v25 <= 0x1F )
       {
-        v45 = (uint8_t *)ke_msg_alloc(73, 13, 0, 2);
-        *v45 = v9;
-        v45[1] = 0;
-        ke_msg_send(v45);
+        v41 = (uint8_t *)ke_msg_alloc(73, 13, 0, 2);
+        *v41 = v9;
+        v41[1] = 0;
+        ke_msg_send_2((int)v41);
         if ( !*(uint8_t *)(v7 + 36) && *(uint8_t *)(v7 + 35) <= 0x1Fu )
         {
-          v46 = (int *)off_11D2BC;
-          v86 = v9;
-          v47 = dword_11D2A8;
-          v48 = dword_11D2A4 + 8 * (165 * *(uint8_t *)(v7 + 34) + 159);
-          v49 = dword_11D2A8 + 664 + v6;
-          v50 = dword_11D2A4 + 1320 * *(uint8_t *)(v7 + 34);
-          v51 = dword_11D2A8 + 8 * (87 * (int16_t)v9 + 78);
-          v52 = v49;
+          v42 = (int *)off_11D2BC;
+          v76 = v9;
+          v43 = (uint32_t *)(dword_11D2A4 + 8 * (165 * *(uint8_t *)(v7 + 34) + 159));
+          v44 = dword_11D2A8 + 664 + v6;
+          v45 = dword_11D2A4 + 1320 * *(uint8_t *)(v7 + 34);
+          v46 = (uint32_t *)(dword_11D2A8 + 8 * (87 * (uint16_t)v9 + 78));
+          v47 = (uint32_t *)v44;
           do
           {
             if ( *(uint32_t *)(v7 + 584) )
@@ -303,39 +279,37 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
                 __disable_irq();
                 *(uint32_t *)off_11D2AC = 1;
               }
-              v53 = dword_11D2B0;
-              v54 = *v46 + 1;
-              *v46 = v54;
-              event_dispatch(v53, v47, v54);
-              list_next(v51 - 40, v48 - 40);
-              *(uint64_t *)(v50 + 1232) = *(uint64_t *)(v7 + 584);
-              zero_8_bytes(v51 - 40);
-              v47 = *v46 - 1;
-              if ( *v46 )
+              ++*v42;
+              event_dispatch(aCatTobe);
+              list_next(v46 - 10, v43 - 10);
+              *(uint64_t *)(v45 + 1232) = *(uint64_t *)(v7 + 584);
+              zero_8_bytes(v46 - 10);
+              v48 = *v42 - 1;
+              if ( *v42 )
               {
-                v55 = off_11D2AC;
-                *v46 = v47;
-                if ( !v47 )
+                v49 = off_11D2AC;
+                *v42 = v48;
+                if ( !v48 )
                 {
-                  if ( *v55 )
+                  if ( *v49 )
                     __enable_irq();
                 }
               }
             }
-            v56 = *(uint32_t *)(v7 + 624);
-            v50 += 8;
+            v50 = *(uint32_t *)(v7 + 624);
+            v45 += 8;
             v7 += 8;
-            if ( v56 )
+            if ( v50 )
             {
-              event_dispatch(dword_11D2B4, v47, v56);
-              list_next(v48, v51);
-              zero_8_bytes(v51);
+              event_dispatch(aCatPs);
+              list_next(v43, v46);
+              zero_8_bytes(v46);
             }
-            v51 += 8;
-            v48 += 8;
+            v46 += 2;
+            v43 += 2;
           }
-          while ( v51 != v52 );
-          v9 = v86;
+          while ( v46 != v47 );
+          v9 = v76;
           unknown_func_12d104(512);
         }
       }
@@ -353,19 +327,17 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
           *(uint8_t *)(v29 + 36) = 0;
           if ( v30 <= 0x1F )
           {
-            v58 = (uint16_t *)ke_msg_alloc(73, 13, 0, 2);
-            *v58 = (uint8_t)v28;
-            ke_msg_send(v58);
+            v52 = (uint16_t *)ke_msg_alloc(73, 13, 0, 2);
+            *v52 = (uint8_t)v28;
+            ke_msg_send_2((int)v52);
             if ( !*(uint8_t *)(v29 + 36) && *(uint8_t *)(v29 + 35) <= 0x1Fu )
             {
-              v59 = (void *)dword_11D2B8;
-              v60 = off_11D2BC;
-              v87 = (uint8_t)(a3 + 32);
-              v61 = dword_11D2A4 + 1320 * *(uint8_t *)(v29 + 34);
-              v62 = dword_11D2B8 - 664;
-              v63 = dword_11D2A4 + 8 * (165 * *(uint8_t *)(v29 + 34) + 159);
-              v64 = dword_11D2B8 - 664 + 8 * (87 * v87 + 78);
-              v65 = dword_11D2B8 + 696 * v28;
+              v53 = (int *)off_11D2BC;
+              v77 = (uint8_t)(a3 + 32);
+              v54 = dword_11D2A4 + 1320 * *(uint8_t *)(v29 + 34);
+              v55 = (uint32_t *)(dword_11D2A4 + 8 * (165 * *(uint8_t *)(v29 + 34) + 159));
+              v56 = (uint32_t *)(dword_11D2B8 - 664 + 8 * (87 * v77 + 78));
+              v57 = dword_11D2B8 + 696 * v28;
               do
               {
                 if ( *(uint32_t *)(v29 + 584) )
@@ -373,42 +345,40 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
                   if ( (__get_CPSR() & 1) == 0 )
                   {
                     __disable_irq();
-                    v59 = off_11D2AC;
                     *(uint32_t *)off_11D2AC = 1;
                   }
-                  v66 = dword_11D2B0;
-                  ++*v60;
-                  event_dispatch(v66, v62, v59);
-                  list_next(v64 - 40, v63 - 40);
-                  *(uint64_t *)(v61 + 1232) = *(uint64_t *)(v29 + 584);
-                  zero_8_bytes(v64 - 40);
-                  v59 = (void *)(*v60 - 1);
-                  if ( *v60 )
+                  ++*v53;
+                  event_dispatch(aCatTobe);
+                  list_next(v56 - 10, v55 - 10);
+                  *(uint64_t *)(v54 + 1232) = *(uint64_t *)(v29 + 584);
+                  zero_8_bytes(v56 - 10);
+                  v58 = *v53 - 1;
+                  if ( *v53 )
                   {
-                    v67 = (int *)off_11D2AC;
-                    *v60 = v59;
-                    v68 = *v67;
-                    if ( !v59 )
+                    v59 = (int *)off_11D2AC;
+                    *v53 = v58;
+                    v60 = *v59;
+                    if ( !v58 )
                     {
-                      if ( v68 )
+                      if ( v60 )
                         __enable_irq();
                     }
                   }
                 }
-                v69 = *(uint32_t *)(v29 + 624);
-                v61 += 8;
+                v61 = *(uint32_t *)(v29 + 624);
+                v54 += 8;
                 v29 += 8;
-                if ( v69 )
+                if ( v61 )
                 {
-                  event_dispatch(dword_11D2B4, v62, v59);
-                  list_next(v63, v64);
-                  zero_8_bytes(v64);
+                  event_dispatch(aCatPs);
+                  list_next(v55, v56);
+                  zero_8_bytes(v56);
                 }
-                v64 += 8;
-                v63 += 8;
+                v56 += 2;
+                v55 += 2;
               }
-              while ( v65 != v64 );
-              v28 = v87;
+              while ( (uint32_t *)v57 != v56 );
+              v28 = v77;
               unknown_func_12d104(512);
             }
           }
@@ -416,34 +386,34 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
         bt_get_link_context(v3, v28);
       }
       v24 = v3;
-      return (uint16_t *)llc_get_evt_ptr(v24);
+      return (uint32_t *)llc_get_evt_ptr(v24);
     }
     if ( (v5 & 0xFC) == 0xA4 )
     {
       if ( (*(uint8_t *)(v7 + 53) & 2) != 0 )
       {
         *(uint8_t *)(v7 + 54) |= 1u;
-        result = (uint16_t *)llc_ccm_encrypt(v3, v7, 1);
+        result = (uint32_t *)llc_ccm_encrypt(v3, v7, 1);
         *(uint8_t *)(v7 + 54) &= ~1u;
       }
       else
       {
-        result = (uint16_t *)llc_ctrl_pdu_send(v3, dword_11CF40 + 696 * a2, 1);
+        result = (uint32_t *)llc_ctrl_pdu_send(v3, dword_11CF40 + 696 * a2, 1);
         if ( !result )
         {
-          v57 = ke_msg_alloc(74, 13, 0, 4);
-          *(uint8_t *)v57 = v9;
-          *(uint16_t *)(v57 + 1) = (uint8_t)v85;
-          result = (uint16_t *)ke_msg_send(v57);
+          v51 = ke_msg_alloc(74, 13, 0, 4);
+          *(uint8_t *)v51 = v9;
+          *(uint16_t *)(v51 + 1) = (uint8_t)resulta;
+          result = ke_msg_send_2(v51);
         }
       }
     }
     if ( (v5 & 0x8C) == 0x88 )
     {
-      v10 = (v5 & 0x300) == 0x300 ? v8[15] : v8[12];
+      v10 = (v5 & 0x300) == 0x300 ? *((uint16_t *)v8 + 15) : *((uint16_t *)v8 + 12);
       v11 = v10 & 7;
       v12 = (uint8_t *)(dword_11CF40 + 696 * v9);
-      if ( (*(uint8_t *)(dword_11CF48 + *(uint8_t *)(dword_11CF44 + v11)) & v12[310]) != 0 )
+      if ( (*((uint8_t *)off_11CF48 + *((uint8_t *)off_11CF44 + v11)) & v12[310]) != 0 )
       {
         v13 = v12[53];
         if ( (v13 & 0xC) != 0 )
@@ -453,12 +423,12 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
             v14 = v12[311];
             if ( (v12[53] & 8) != 0 )
             {
-              v82 = v12[311];
+              v72 = v12[311];
               v12[54] = 2;
-              v83 = llc_ccm_encrypt(v3, v7, v82);
+              v73 = llc_ccm_encrypt(v3, v7, v72);
               if ( v14 )
               {
-                v14 -= v83;
+                v14 -= v73;
                 if ( v14 <= 0 )
                   goto LABEL_16;
               }
@@ -467,23 +437,23 @@ uint16_t * radio_event_loop(uint16_t *result, int a2, int a3)
             if ( (v13 & 4) != 0 )
             {
               *(uint8_t *)(dword_11D318 + 696 * v9 + 54) = 4;
-              v84 = (uint8_t *)ke_msg_alloc(74, 13, 0, 4);
-              *v84 = v9;
-              v84[1] = v14;
-              v84[2] = 1;
-              return (uint16_t *)ke_msg_send(v84);
+              v74 = (uint8_t *)ke_msg_alloc(74, 13, 0, 4);
+              *v74 = v9;
+              v74[1] = v14;
+              v74[2] = 1;
+              return ke_msg_send_2((int)v74);
             }
 LABEL_16:
             v15 = dword_11CF40 + 696 * v9;
-            result = (uint16_t *)rf_channel_set(*(uint8_t *)(v15 + 35), v11 | 0x10, 0, 0);
+            result = (uint32_t *)rf_channel_set(*(uint8_t *)(v15 + 35), v11 | 0x10, 0, 0);
             *(uint8_t *)(v15 + 54) = 0;
           }
         }
         else if ( (v12[54] & 6) == 0 )
         {
-          v81 = v12[35];
+          v71 = v12[35];
           v12[54] = 2;
-          result = (uint16_t *)rf_channel_set(v81, v11 | 0x10, 0, 0);
+          result = (uint32_t *)rf_channel_set(v71, v11 | 0x10, 0, 0);
           v12[54] = 0;
         }
       }
@@ -491,4 +461,3 @@ LABEL_16:
   }
   return result;
 }
-

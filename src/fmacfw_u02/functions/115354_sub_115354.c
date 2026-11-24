@@ -10,23 +10,22 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_115388;
+
 extern uint32_t off_11538C;
 
 // patch_init @ 0x115354, size 50 bytes
-void __noreturn patch_init()
+void  patch_init()
 {
   int v0; // r0
   int v1; // r0
-  int v2; // r0
-  int v3; // r1
-  int v4; // r2
+  int v2; // r1
+  int v3; // r0
 
-  log_printf(dword_115388);
+  log_printf(aPanic_0);
   if ( *(uint8_t *)(*(uint32_t *)off_11538C + 6) == 2 )
   {
-    v2 = patch_get_state();
-    rf_set_channel(v2, v3, v4);
+    v3 = patch_get_state();
+    rf_set_channel_1(v3);
   }
   while ( 1 )
   {
@@ -34,7 +33,6 @@ void __noreturn patch_init()
       ;
     v0 = gpio_read();
     v1 = find_by_index(v0);
-    parse_large_ioctl(v1);
+    parse_large_ioctl(v1, v2);
   }
 }
-

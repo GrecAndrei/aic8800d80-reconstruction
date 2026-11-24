@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_1210E0;
 
 // radio_is_ready @ 0x1210b4, size 42 bytes
 int radio_is_ready()
 {
-  if ( rx_rate_field_parse(0) == 1 )
-    *(uint32_t *)off_1210E0 = 48;
-  return rx_phy_status_parse(0);
+  if ( rx_rate_field_parse(0) != 1 )
+    return rx_phy_status_parse(0, 0);
+  *(uint32_t *)off_1210E0 = 48;
+  return rx_phy_status_parse(0, 1);
 }
-

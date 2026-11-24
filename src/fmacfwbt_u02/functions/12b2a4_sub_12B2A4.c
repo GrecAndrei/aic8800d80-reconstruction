@@ -10,43 +10,37 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12B324;
+
 extern uint32_t off_12B328;
-extern uint32_t dword_12B334;
-extern uint32_t dword_12B330;
 extern uint32_t off_12B32C;
 
 // bt_send_hci_801 @ 0x12b2a4, size 124 bytes
-// Doc: sub_122B2A4 [ipc]: Sends command 0x801 to IPC handler and stores result
-// sub_122B2A4 [ipc]: Sends command 0x801 to IPC handler and stores result
-int  bt_send_hci_801(int a1, int a2, int a3, int a4)
+int  bt_send_hci_801(int a1, int a2, uint16_t a3, uint16_t a4)
 {
-  int16_t v4; // r6
   uint8_t *v6; // r4
-  uint8_t *v7; // r2
+  int v7; // r0
+  uint8_t *v8; // r2
 
-  v4 = a4;
   v6 = (uint8_t *)bt_buf_alloc(2049, a4, a3, 1);
-  hci_cmd_send_short(2);
-  state_check_feature(4, dword_12B324);
-  if ( hci_cmd_send_short(2) )
+  v7 = hci_cmd_send_short(2u);
+  state_check_feature(4, "%s:%d\r\n", aScanStartReqHa, v7);
+  if ( hci_cmd_send_short(2u) )
   {
     *v6 = 8;
-    hci_evt_send(v6);
+    hci_evt_send((int)v6);
     return 0;
   }
   else
   {
-    if ( **(int16_t **)off_12B328 < 0 && !*(uint8_t *)(a2 + 367) )
-      mmio_irq_clear(dword_12B334, dword_12B330, 73);
-    v7 = off_12B32C;
+    if ( **(uint16_t **)off_12B328 < 0 && !*(uint8_t *)(a2 + 367) )
+      mmio_irq_clear((int)aParamChanCnt0, (int)aScanStartReqHa_0, 73);
+    v8 = off_12B32C;
     *v6 = 0;
-    *(uint32_t *)v7 = a2;
-    v7[10] = 0;
-    *((uint16_t *)v7 + 4) = v4;
+    *(uint32_t *)v8 = a2;
+    v8[10] = 0;
+    *((uint16_t *)v8 + 4) = a4;
     bt_save_conn_info(a2);
-    hci_evt_send(v6);
+    hci_evt_send((int)v6);
     return 1;
   }
 }
-

@@ -10,11 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_122A60;
 extern uint32_t off_122A50;
-extern uint32_t dword_122A5C;
-extern uint32_t dword_122A58;
-extern uint32_t dword_122A54;
 
 // scan_process_report @ 0x1229bc, size 148 bytes
 int  scan_process_report(int a1, int a2, int a3, int a4)
@@ -24,23 +22,25 @@ int  scan_process_report(int a1, int a2, int a3, int a4)
   int v9; // r8
   char v10; // r1
   int v11; // r2
+  int v12; // r3
 
   v4 = dword_122A60;
   v6 = *(uint8_t *)(a2 + 5);
-  if ( **(int16_t **)off_122A50 < 0 && *(uint8_t *)(dword_122A60 + 1320 * v6 + 106) )
-    mmio_clear_register(dword_122A5C, dword_122A58, 2660);
+  if ( **(uint16_t **)off_122A50 < 0 && *(uint8_t *)(dword_122A60 + 1320 * v6 + 106) )
+    mmio_clear_register((int)aVifTypeVifSta, (int)aMmSetArpoffloa, 2660);
   v9 = v4 + 1320 * v6;
   v10 = *(uint8_t *)(a2 + 4);
   v11 = *(uint8_t *)(v9 + 149);
+  v12 = *(uint32_t *)a2;
   *(uint32_t *)(v9 + 1228) = *(uint32_t *)a2;
   *(uint8_t *)(v9 + 1227) = v10;
   if ( v11 == 1 )
   {
-    fault_handler(1320 * v6 + 152 + v4);
+    fault_handler((uint32_t *)(1320 * v6 + 152 + v4));
+    v12 = *(uint32_t *)(v9 + 1228);
     *(uint8_t *)(v9 + 149) = 0;
   }
-  check_status_bits(256, dword_122A54);
+  check_status_bits(256, "DHCPed:%d,%x.\r\n", *(uint8_t *)(v4 + 1320 * v6 + 1227), v12);
   ke_msg_send_no_param(98, a4, a3);
   return 0;
 }
-

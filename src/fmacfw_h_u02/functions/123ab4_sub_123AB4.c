@@ -10,14 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_123B38;
 extern uint32_t off_123B3C;
 extern uint32_t off_123B40;
-extern uint32_t dword_123B48;
-extern uint32_t dword_123B44;
 
 // classify_command @ 0x123ab4, size 130 bytes
-int  classify_command(int a1, uint8_t *a2, int a3, int a4)
+int  classify_command(int a1, uint8_t *a2, unsigned int a3, int a4)
 {
   int v7; // r2
   uint16_t *v8; // r5
@@ -42,20 +41,19 @@ LABEL_6:
   result = hci_cmd_handler(a3);
   if ( !result )
   {
-    if ( **(int16_t **)off_123B3C < 0 )
+    if ( **(uint16_t **)off_123B3C < 0 )
     {
       if ( *(uint32_t *)off_123B40 << 28 )
-        irq_disable_mmio_write(dword_123B48, dword_123B44, 1522);
+        irq_disable_mmio_write((int)aNxmacCurrentSt, (int)aMmSetIdleReqHa, 1522);
     }
     v8[9] = 0;
     goto LABEL_6;
   }
   if ( result != 2 )
   {
-    rf_status_check(result);
-    hci_cmd_preprocess(a3);
+    rf_status_check();
+    hci_cmd_preprocess(a3, 2);
     return 2;
   }
   return result;
 }
-

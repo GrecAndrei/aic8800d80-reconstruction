@@ -10,39 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_113A88;
 extern uint32_t off_113A80;
 extern uint32_t off_113A84;
-extern uint32_t dword_113A88;
 
 // assert_error @ 0x113a48, size 54 bytes
-int assert_error()
+int  assert_error(uint32_t *a1)
 {
-  int *v0; // r4
-  int v1; // r0
+  int *v2; // r4
+  int v3; // r0
   int result; // r0
-  int v3; // r3
-  int v4; // r2
+  int v5; // r3
+  int v6; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(uint32_t *)off_113A80 = 1;
   }
-  v0 = (int *)off_113A84;
-  v1 = dword_113A88;
+  v2 = (int *)off_113A84;
+  v3 = dword_113A88;
   ++*(uint32_t *)off_113A84;
-  result = cmd_handler_a(v1);
-  if ( *v0 )
+  result = cmd_handler_a(v3, a1);
+  if ( *v2 )
   {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_113A80;
-    *v0 = v3;
-    if ( !v3 )
+    v5 = *v2 - 1;
+    v6 = *(uint32_t *)off_113A80;
+    *v2 = v5;
+    if ( !v5 )
     {
-      if ( v4 )
+      if ( v6 )
         __enable_irq();
     }
   }
   return result;
 }
-

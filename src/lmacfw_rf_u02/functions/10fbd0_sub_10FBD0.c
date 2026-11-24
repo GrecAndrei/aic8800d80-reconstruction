@@ -10,16 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10FDFC;
-extern uint32_t off_10FE08;
-extern uint32_t dword_10FE10;
 extern uint32_t off_10FE00;
 extern uint32_t off_10FE04;
-extern uint32_t dword_10FE0C;
-extern uint32_t dword_10FE1C;
-extern uint32_t dword_10FE18;
-extern uint32_t dword_10FE14;
-extern uint32_t dword_10FE20;
+extern uint32_t off_10FE08;
 
 // sorted_list_search @ 0x10fbd0, size 554 bytes
 int  sorted_list_search(int a1, uint32_t *a2)
@@ -41,7 +36,7 @@ int  sorted_list_search(int a1, uint32_t *a2)
   int v18; // r6
   uint16_t *v19; // r9
   int v20; // r6
-  int16_t v21; // r3
+  uint16_t v21; // r3
   int v22; // r0
   int v23; // r3
   int v24; // r3
@@ -52,15 +47,15 @@ int  sorted_list_search(int a1, uint32_t *a2)
   if ( *(uint32_t *)a1 > (unsigned int)a2 || (unsigned int)a2 > *(uint32_t *)a1 + *(uint32_t *)(a1 + 4) )
     return -1;
   if ( (v4 = (unsigned int *)off_10FDFC, (unsigned int)a2 >= *(uint32_t *)off_10FDFC)
-    && (unsigned int)a2 <= *(uint32_t *)off_10FDFC + *((uint32_t *)off_10FDFC + 1)
+    && (unsigned int)a2 <= *(uint32_t *)off_10FDFC + *(uint32_t *)(off_10FDFC + 4)
     || (unsigned int)a2 >= *(uint32_t *)off_10FE08
-    && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *((uint32_t *)off_10FE08 + 1) )
+    && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *(uint32_t *)(off_10FE08 + 4) )
   {
     v5 = *((uint8_t *)a2 - 4);
   }
   else
   {
-    log_printf(dword_10FE10, a2);
+    log_printf("get_native_pool_id: Invalid buffer passed: %x\n", a2);
     v5 = 0;
   }
   if ( *(uint8_t *)(a1 + 8) <= v5 )
@@ -79,9 +74,9 @@ int  sorted_list_search(int a1, uint32_t *a2)
   {
     v14 = (int *)off_10FE08;
     v15 = *(uint32_t *)off_10FE08;
-    if ( (unsigned int)a2 < *(uint32_t *)off_10FE08 || (unsigned int)a2 > *((uint32_t *)off_10FE08 + 1) + v15 )
+    if ( (unsigned int)a2 < *(uint32_t *)off_10FE08 || (unsigned int)a2 > *(uint32_t *)(off_10FE08 + 4) + v15 )
     {
-      log_printf(dword_10FE0C, a2);
+      log_printf("get_pattern: Invalid buffer passed: %x\n", a2);
     }
     else
     {
@@ -142,23 +137,23 @@ LABEL_40:
     {
       if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
         || (unsigned int)a2 >= *(uint32_t *)off_10FE08
-        && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *((uint32_t *)off_10FE08 + 1) )
+        && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *(uint32_t *)(off_10FE08 + 4) )
       {
         *((uint8_t *)a2 - 3) = 85;
       }
       else
       {
-        log_printf(dword_10FE1C, a2);
+        log_printf("set_pattern: Invalid buffer passed: %x\n", a2);
       }
       if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
         || (unsigned int)a2 >= *(uint32_t *)off_10FE08
-        && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *((uint32_t *)off_10FE08 + 1) )
+        && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *(uint32_t *)(off_10FE08 + 4) )
       {
         *a2 = *((uint32_t *)v19 + 2);
       }
       else
       {
-        log_printf(dword_10FE18, a2);
+        log_printf("set_next_buffer_addr: Invalid buffer passed: %x\n", a2);
       }
       v21 = *(uint16_t *)(v6 + v20);
       v22 = *v7;
@@ -187,7 +182,7 @@ LABEL_36:
   if ( (unsigned int)a2 < *v14 )
   {
 LABEL_38:
-    log_printf(dword_10FE14, a2);
+    log_printf("decr_num_users: Invalid buffer passed: %x\n", a2);
     goto LABEL_39;
   }
 LABEL_37:
@@ -203,13 +198,13 @@ LABEL_39:
     goto LABEL_40;
   if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
     || (unsigned int)a2 >= *(uint32_t *)off_10FE08
-    && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *((uint32_t *)off_10FE08 + 1) )
+    && (unsigned int)a2 <= *(uint32_t *)off_10FE08 + *(uint32_t *)(off_10FE08 + 4) )
   {
     *((uint8_t *)a2 - 2) = 1;
   }
   else
   {
-    log_printf(dword_10FE20, a2);
+    log_printf("set_num_users: Invalid buffer passed: %x\n", a2);
   }
   if ( *v7 )
   {
@@ -224,4 +219,3 @@ LABEL_39:
   }
   return 1;
 }
-

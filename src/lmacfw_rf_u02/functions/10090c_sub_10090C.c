@@ -10,24 +10,24 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_100940;
+
 extern uint32_t dword_100944;
+extern uint32_t off_100940;
 
 // rf_ctrl_set @ 0x10090c, size 52 bytes
-int  rf_ctrl_set(int a1, unsigned int a2)
+int  rf_ctrl_set(int a1, int a2)
 {
   unsigned int *v2; // r5
-  int v3; // r0
+  int *v3; // r0
   unsigned int v4; // r4
   int result; // r0
-  unsigned int v6; // [sp+4h] [bp-8h] BYREF
+  unsigned int a3; // [sp+4h] [bp-8h] BYREF
 
   v2 = (unsigned int *)off_100940;
-  v3 = smem_access(a1, a2, &v6);
+  v3 = smem_access(a1, a2, &a3);
   v4 = *v2;
   *v2 |= 0x4000000u;
-  result = periph_process(v3, dword_100944, 96, v6);
+  result = periph_process((int)v3, dword_100944, 96, a3);
   *v2 = v4 & 0xFBFFFFFF;
   return result;
 }
-

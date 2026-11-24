@@ -10,12 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_114038;
-
 // set_config_field @ 0x114028, size 16 bytes
-int  set_config_field(int a1, int a2, int a3)
+int set_config_field()
 {
-  alloc_tx_event(dword_114038, a2, a3);
+  alloc_tx_event(aHostReady);
   return invoke_callback();
 }
-

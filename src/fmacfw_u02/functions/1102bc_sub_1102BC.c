@@ -10,32 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1102F8;
+extern uint32_t off_1102F0;
+extern uint32_t off_1102F4;
 
 // is_scan_enabled @ 0x1102bc, size 52 bytes
-// Doc: log_free_dispatch_n2d8_02e0 [util]: Dispatch and free log entry from ring (fmacfw)
-// log_free_dispatch_n2d8_02e0 [util]: Dispatch and free log entry from ring (fmacfw)
-int is_scan_enabled()
+uint32_t *is_scan_enabled()
 {
   int *v0; // r4
   int v1; // r0
-  int result; // r0
+  uint32_t *result; // r0
   int v3; // r3
   int v4; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
-    *(uint32_t *)log_free_dispatch_2f0 = 1;
+    *(uint32_t *)off_1102F0 = 1;
   }
-  v0 = (int *)log_free_dispatch_n2ec;
+  v0 = (int *)off_1102F4;
   v1 = dword_1102F8;
-  ++*(uint32_t *)log_free_dispatch_n2ec;
+  ++*(uint32_t *)off_1102F4;
   result = mem_word_load(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
-    v4 = *(uint32_t *)log_free_dispatch_2f0;
+    v4 = *(uint32_t *)off_1102F0;
     *v0 = v3;
     if ( !v3 )
     {
@@ -45,4 +46,3 @@ int is_scan_enabled()
   }
   return result;
 }
-

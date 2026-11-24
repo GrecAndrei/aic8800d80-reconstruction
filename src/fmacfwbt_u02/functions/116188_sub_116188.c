@@ -11,7 +11,6 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 
-extern uint32_t dword_116368;
 extern uint32_t dword_11636C;
 extern uint32_t dword_116370;
 extern uint32_t dword_116374;
@@ -31,10 +30,10 @@ extern uint32_t dword_1163A4;
 void  ke_init_structures()
 {
   unsigned int v0; // r5
-  int v1; // r0
-  uint8_t **v2; // r8
-  int v3; // r3
-  int v4; // r0
+  uint8_t **v1; // r8
+  int v2; // r3
+  int v3; // r0
+  int v4; // r1
   uint8_t *v5; // r7
   int *v6; // r9
   int *v7; // r4
@@ -51,23 +50,23 @@ void  ke_init_structures()
   uint32_t *v18; // r2
 
   v0 = dword_11636C;
-  v1 = sub_12ECB0(dword_116368);
+  ke_event_schedule_1("\x9A%s - build: %s\n", aV6911, aLaJul032024152);
   if ( *(uint32_t *)dword_116370 )
   {
-    sub_10ED6C(v1);
+    write_reg_70001408();
     if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
-      sub_10ED30(*(uint16_t *)(*(uint32_t *)v0 + 8));
+      periph_field_set(*(uint16_t *)(*(uint32_t *)v0 + 8));
   }
-  v2 = (uint8_t **)dword_11639C;
+  v1 = (uint8_t **)dword_11639C;
   if ( **(uint8_t **)dword_11639C == 2 )
   {
-    v3 = *(uint32_t *)v0;
-    *(uint8_t *)(v3 + 6) = 2;
-    *(uint8_t *)(v3 + 3) = 1;
+    v2 = *(uint32_t *)v0;
+    *(uint8_t *)(v2 + 6) = 2;
+    *(uint8_t *)(v2 + 3) = 1;
   }
-  v4 = sub_114498(*(uint16_t *)(*(uint32_t *)v0 + 4));
+  v3 = init_chip_state(*(uint16_t *)(*(uint32_t *)v0 + 4));
   if ( !*(uint8_t *)(*(uint32_t *)v0 + 3) )
-    v4 = sub_114524(v4);
+    clear_hw_flag_bit();
   __enable_irq();
   __dsb(0xFu);
   __isb(0xFu);
@@ -81,10 +80,10 @@ void  ke_init_structures()
     while ( 1 )
     {
       if ( *(uint8_t *)(*(uint32_t *)v0 + 3) )
-        v4 = sub_114514(v4);
+        hw_sync_write();
       if ( !*v5 )
-        v4 = sub_12D3B8(v4);
-      v4 = sub_13038C(v4);
+        process_event_queue();
+      v3 = ke_event_send_1(v3, v4);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -103,21 +102,21 @@ void  ke_init_structures()
       *(uint8_t *)dword_11638C = 0;
       if ( *(uint8_t *)(*(uint32_t *)v0 + 3) )
 LABEL_40:
-        v4 = sub_114524(v4);
+        clear_hw_flag_bit();
     }
     else
     {
-      v4 = sub_116034(v4);
+      rx_check_buffers(v3);
       if ( *(uint8_t *)(*(uint32_t *)v0 + 3) )
         goto LABEL_40;
     }
-    if ( **v2 == 1 && *(uint8_t *)dword_116384 )
+    if ( **v1 == 1 && *(uint8_t *)dword_116384 )
     {
       v14 = **(uint8_t **)dword_116388;
       if ( v14 == 3 )
       {
-        v4 = sub_111150(v4);
-        if ( !v4 )
+        v3 = ll_util_get_state();
+        if ( !v3 )
         {
           v14 = **(uint8_t **)dword_116388;
           goto LABEL_32;
@@ -136,7 +135,7 @@ LABEL_32:
           goto LABEL_21;
         }
       }
-      v4 = sub_12EC38(v4);
+      hw_poll_flag();
       v15 = (*(volatile uint32_t *)0x40501010u);
       v16 = v15 + 28;
       do
@@ -154,7 +153,7 @@ LABEL_21:
       __dsb(0xFu);
       __wfi();
       __isb(0xFu);
-      if ( **v2 != 3 )
+      if ( **v1 != 3 )
       {
         if ( *(uint8_t *)(*(uint32_t *)v0 + 3) )
           goto LABEL_28;
@@ -163,16 +162,16 @@ LABEL_23:
           goto LABEL_29;
         goto LABEL_24;
       }
-      v4 = sub_115B00(v4);
+      v3 = check_nvic_irq();
     }
-    while ( !v4 );
+    while ( !v3 );
     if ( !*(uint8_t *)(*(uint32_t *)v0 + 3) )
       goto LABEL_23;
 LABEL_28:
-    v4 = sub_114538(v4);
+    set_hw_flag_bit();
     if ( *(uint8_t *)(v9 + 1) )
 LABEL_29:
-      v4 = sub_115B90(v4);
+      v3 = rf_clock_enable();
 LABEL_24:
     v11 = *v7;
     if ( *v7 )

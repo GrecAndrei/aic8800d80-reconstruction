@@ -10,27 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_12CF9C;
+extern uint32_t dword_12CFB0;
 extern uint32_t off_12CF94;
 extern uint32_t off_12CF98;
-extern uint32_t dword_12CF9C;
-extern uint32_t dword_12CFA0;
-extern uint32_t dword_12CFB0;
 extern uint32_t off_12CFA4;
-extern uint32_t dword_12CFB8;
-extern uint32_t dword_12CFB4;
-extern uint32_t dword_12CFAC;
 extern uint32_t off_12CFA8;
+extern uint32_t off_12CFB8;
 
 // irq_disable_global @ 0x12ceb4, size 222 bytes
-int irq_disable_global()
+uint32_t *irq_disable_global()
 {
   int *v0; // r5
   int v1; // r0
-  int result; // r0
-  uint16_t *v3; // r4
+  uint32_t *result; // r0
+  char *v3; // r4
   int v4; // r3
   int v5; // r2
-  int ( *v6)(uint32_t, uint16_t *, uint32_t, uint32_t); // r6
+  int ( *v6)(uint32_t, char *, uint32_t, uint32_t); // r6
   int v7; // r2
   int v8; // r3
   int v9; // r3
@@ -45,7 +43,7 @@ int irq_disable_global()
   v1 = dword_12CF9C;
   ++*(uint32_t *)off_12CF98;
   result = list_pop(v1);
-  v3 = (uint16_t *)result;
+  v3 = (char *)result;
   if ( *v0 )
   {
     v4 = *v0 - 1;
@@ -59,32 +57,44 @@ int irq_disable_global()
   }
   if ( result )
   {
-    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))hci_event_handler(
-                                                                           *(uint16_t *)(result + 4),
-                                                                           *(uint16_t *)(result + 6));
-    alloc_tx_event(dword_12CFA0, v3[2], v3[4]);
+    v6 = (int ( *)(uint32_t, char *, uint32_t, uint32_t))hci_event_handler(
+                                                               *((uint16_t *)result + 2),
+                                                               *((uint16_t *)result + 3));
+    alloc_tx_event(
+      "\x9D\x80Dispatching msg:%x from tsk:%x to tsk:%x\n",
+      *((uint16_t *)v3 + 2),
+      *((uint16_t *)v3 + 4),
+      *((uint16_t *)v3 + 3));
     if ( v6 )
     {
-      result = v6(v3[2], v3 + 6, v3[3], v3[4]);
-      if ( result == 1 )
+      result = (uint32_t *)v6(
+                           *((uint16_t *)v3 + 2),
+                           v3 + 12,
+                           *((uint16_t *)v3 + 3),
+                           *((uint16_t *)v3 + 4));
+      if ( result == (uint32_t *)1 )
         goto LABEL_12;
-      if ( result == 2 )
+      if ( result == (uint32_t *)2 )
       {
-        result = wlan_ioctl_handler_1(dword_12CFB0);
+        result = (uint32_t *)wlan_ioctl_handler_1(dword_12CFB0, v3);
         goto LABEL_12;
       }
       if ( result )
       {
-        if ( **(int16_t **)off_12CFA4 < 0 )
-          result = irq_disable_mmio_write(dword_12CFB8, dword_12CFB4, 360);
+        if ( **(uint16_t **)off_12CFA4 < 0 )
+          result = (uint32_t *)irq_disable_mmio_write(off_12CFB8, (int)aKeTaskSchedule, 360);
         goto LABEL_12;
       }
     }
     else
     {
-      alloc_tx_event(dword_12CFAC, v3[2], v3[4]);
+      alloc_tx_event(
+        "\x9A\x80No handler found for msg:%x from tsk:%x to tsk:%x\n",
+        *((uint16_t *)v3 + 2),
+        *((uint16_t *)v3 + 4),
+        *((uint16_t *)v3 + 3));
     }
-    result = tx_process_jump((int)v3);
+    result = tx_process_jump(v3);
   }
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -97,7 +107,7 @@ LABEL_12:
   *v0 = v8;
   if ( !v7 )
   {
-    result = irq_disable_global_3(0x4000000);
+    result = (uint32_t *)irq_disable_global_3(0x4000000);
     v8 = *v0;
   }
   if ( v8 )
@@ -113,4 +123,3 @@ LABEL_12:
   }
   return result;
 }
-

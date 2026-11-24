@@ -10,16 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136D58;
+
 extern uint32_t off_136D54;
 
 // rf_rate_code_check_alt @ 0x136d48, size 12 bytes
 int rf_rate_code_check_alt()
 {
-  int v0; // r0
-
-  v0 = dword_136D58;
   *(uint8_t *)off_136D54 = 0;
-  return alloc_tx_event(v0);
+  return alloc_tx_event(aApLpExit);
 }
-

@@ -10,8 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_135FFC;
-extern uint32_t dword_135FF8;
+
 extern uint32_t dword_136000;
 extern uint32_t off_136004;
 extern uint32_t off_136008;
@@ -19,9 +18,9 @@ extern uint32_t off_13600C;
 extern uint32_t off_136010;
 
 // patch_code_load @ 0x135f64, size 148 bytes
-int  patch_code_load(int a1, uint8_t *a2, int16_t a3, int16_t a4)
+int  patch_code_load(int a1, uint8_t *a2, int a3, int a4)
 {
-  int16_t v6; // r2
+  int v6; // r2
   int v7; // r0
   int v9; // r0
   uint32_t *v10; // r1
@@ -32,7 +31,7 @@ int  patch_code_load(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   int *v15; // r3
   int v16; // r3
 
-  alloc_tx_event(dword_135FFC, dword_135FF8);
+  alloc_tx_event("%s\n", aApmStopCacReqH);
   v6 = a3;
   v7 = dword_136000 + 1320 * *a2;
   if ( *(uint8_t *)(v7 + 106) == 2 && !*(uint8_t *)(v7 + 108) )
@@ -72,4 +71,3 @@ int  patch_code_load(int a1, uint8_t *a2, int16_t a3, int16_t a4)
   mac_write_header_word(7175, a4, v6);
   return 0;
 }
-

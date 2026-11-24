@@ -10,24 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_13BDF0;
 extern uint32_t dword_13BDF4;
-extern uint32_t dword_13BDF8;
+extern uint32_t off_13BDF8;
 
 // rf_scan_start @ 0x13bd84, size 108 bytes
 int  rf_scan_start(int result)
 {
   int v1; // r4
   int v2; // r5
-  int v3; // r10
+  void *a7; // r10
   int v4; // r7
-  int16_t v5; // r9
+  uint16_t v5; // r9
   int v6; // r6
   int v7; // t1
 
   v1 = dword_13BDF0;
   v2 = dword_13BDF4;
-  v3 = dword_13BDF8;
+  a7 = off_13BDF8;
   v4 = result;
   v5 = -128 * dword_13BDF0;
   v6 = dword_13BDF0 + 64;
@@ -41,7 +42,7 @@ int  rf_scan_start(int result)
       {
         hci_cmd_send((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(uint8_t *)(v2 + 25) = 0;
-        result = dbg_printf(v4, v2, 2, 0, 0, 39, v3);
+        result = dbg_printf(v4, v2, 2, 0, 0, 0x27u, (int)a7);
       }
     }
     v2 += 32;
@@ -49,4 +50,3 @@ int  rf_scan_start(int result)
   while ( v1 != v6 );
   return result;
 }
-

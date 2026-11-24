@@ -10,24 +10,21 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_12B588;
-extern uint32_t off_12B594;
-extern uint32_t dword_12B59C;
-extern uint32_t dword_12B598;
 extern uint32_t off_12B58C;
 extern uint32_t off_12B590;
+extern uint32_t off_12B594;
 
 // read_cal_value @ 0x12b540, size 72 bytes
-// Doc: sub_122B540 [unknown]: Compares signed halfword from global state to zero
-// sub_122B540 [unknown]: Compares signed halfword from global state to zero
 int read_cal_value()
 {
   uint32_t *v0; // r4
   unsigned int v1; // r2
   int result; // r0
 
-  if ( **(int16_t **)off_12B588 < 0 && *(uint32_t *)off_12B594 << 28 )
-    return bad_func_0x12f408(dword_12B59C, dword_12B598, 105, *(uint32_t *)off_12B594);
+  if ( **(uint16_t **)off_12B588 < 0 && *(uint32_t *)off_12B594 << 28 )
+    return bad_func_0x12f408((int)aNxmacCurrentSt, (int)aHalMachwIdleIr, 105);
   if ( (*(uint32_t *)off_12B58C & 0x80) != 0 )
   {
     v0 = off_12B590;
@@ -38,4 +35,3 @@ int read_cal_value()
   }
   return result;
 }
-

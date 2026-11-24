@@ -10,8 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_106310;
-extern uint32_t dword_10630C;
+
 extern uint32_t off_106308;
 
 // llc_state_check @ 0x10624c, size 188 bytes
@@ -20,7 +19,7 @@ int  llc_state_check(int a1, int a2, int a3, int a4, int a5)
   int v9; // r4
   unsigned int v10; // r4
   int v11; // r8
-  int v12; // r1
+  uint32_t *v12; // r3
 
   if ( *(uint32_t *)(a4 + 132) <= a2 )
   {
@@ -69,15 +68,14 @@ LABEL_6:
   {
 LABEL_14:
     v10 |= 0xC08000u;
-    state_check_feature(1, dword_106310);
+    state_check_feature(1, "table %d index %d bypass\n", a5, a2);
     goto LABEL_9;
   }
   v11 = a3 << 24;
 LABEL_8:
   v10 = v10 & 0xFF3F7FFF | v11;
 LABEL_9:
-  v12 = dword_10630C;
+  v12 = off_106308;
   *(uint32_t *)off_106308 = v10;
-  return state_check_feature(1, v12);
+  return state_check_feature(1, "tx_gain_map=%x ", *v12);
 }
-

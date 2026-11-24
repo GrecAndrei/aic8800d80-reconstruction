@@ -10,12 +10,9 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1136A4;
-
 // prepare_and_dispatch @ 0x113694, size 16 bytes
-int  prepare_and_dispatch(int a1, int a2)
+int prepare_and_dispatch()
 {
-  dispatch_event_handler(dword_1136A4, a2);
+  dispatch_event_handler_1(aHostReady);
   return dispatch_event_handler();
 }
-

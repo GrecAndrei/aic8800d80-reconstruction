@@ -10,18 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_123B7C;
-
 // log_debug @ 0x123b54, size 40 bytes
-// Doc: sub_1223B54 [unknown]: Unknown helper at 0x1223B54
-// sub_1223B54 [unknown]: Unknown helper at 0x1223B54
 int  log_debug(int a1, int a2, int a3, int a4)
 {
-  int v5; // r3
-
   tx_buffer_cleanup(a2);
-  state_check_feature(256, dword_123B7C);
-  hci_evt_alloc_send(108, a4, a3, v5);
+  state_check_feature(256, aSetMuEdca);
+  hci_evt_alloc_send(108, a4, a3);
   return 0;
 }
-

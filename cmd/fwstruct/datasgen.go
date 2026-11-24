@@ -25,6 +25,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 
 	"aic8800d80/internal/fileio"
@@ -32,7 +33,7 @@ import (
 
 const dataBase = 0x100000
 
-var dataSymRe = regexp.MustCompile(`\b(off|dword|byte|word|qword|unk|algn|flt|dbl|jpt|loc)_([0-9a-fA-F]{4,8})\b`)
+var dataSymRe = regexp.MustCompile(`\b(off|dword|byte|word|qword|unk|algn|flt|dbl|jpt|loc|asc)_([0-9a-fA-F]{4,8})\b`)
 
 // dataCallRe matches data symbols CALLED as function pointers:
 //   off_1001FC()  →  the value at 0x1001FC is a code pointer.
@@ -41,7 +42,7 @@ var dataCallRe = regexp.MustCompile(`\b(off|dword|word|byte|unk|loc)_([0-9a-fA-F
 var kindSizes = map[string]int{
 	"dword": 4, "off": 4, "unk": 4, "algn": 4,
 	"word": 2, "byte": 1, "qword": 8,
-	"flt": 4, "dbl": 8, "jpt": 4, "loc": 4,
+	"flt": 4, "dbl": 8, "jpt": 4, "loc": 4, "asc": 4,
 }
 
 type dataSym struct {
@@ -111,9 +112,19 @@ func runDataSgen(args []string) error {
 				line = fmt.Sprintf("static union { uint64_t u; double d; } %s_o = {0x%016xULL};\n#define %s (%s_o.d)", name, r.Value, name, name)
 			} else if r.Kind == "jpt" {
 				line = jptLine(r, name)
+			} else if r.Kind == "asc" {
+				line = ascLine(r, name, bin)
 			}
 			b.WriteString(line)
 			b.WriteString("\n")
+		}
+		strBlock, err := emitStringSymbols(funcDir, filepath.Join(cf.Out, img+"_strsyms.json"), bin)
+		if err != nil {
+			return err
+		}
+		if strBlock != "" {
+			b.WriteString("\n/* --- string literal symbols (rodata) --- */\n")
+			b.WriteString(strBlock)
 		}
 		outPath := filepath.Join(cf.Root, "src", srcDir, "data.c")
 		if err := os.WriteFile(outPath, []byte(b.String()), 0644); err != nil {
@@ -137,17 +148,46 @@ func runDataSgen(args []string) error {
 	return nil
 }
 
-func collectDataSymbols(funcDir string) (map[string]int, map[string]bool, error) {
+// activeFunctionFiles selects one canonical .c file per function address in
+// funcDir, preferring the pre-rename plain <addr>_sub_<ADDR>.c file to match
+// compose's readFunctionUnits deduplication.
+func activeFunctionFiles(funcDir string) ([]os.DirEntry, error) {
 	entries, err := os.ReadDir(funcDir)
+	if err != nil {
+		return nil, err
+	}
+	chosen := make([]os.DirEntry, 0, len(entries))
+	byAddr := map[string]int{} // lower hex addr -> index in chosen
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".c") {
+			continue
+		}
+		name := e.Name()
+		if idx := strings.IndexByte(name, '_'); idx > 0 {
+			addrKey := strings.ToLower(name[:idx])
+			if _, err := strconv.ParseInt(addrKey, 16, 64); err == nil {
+				if prevIdx, ok := byAddr[addrKey]; ok {
+					if plainSubFileRe.MatchString(name) && !plainSubFileRe.MatchString(chosen[prevIdx].Name()) {
+						chosen[prevIdx] = e
+					}
+					continue
+				}
+				byAddr[addrKey] = len(chosen)
+			}
+		}
+		chosen = append(chosen, e)
+	}
+	return chosen, nil
+}
+
+func collectDataSymbols(funcDir string) (map[string]int, map[string]bool, error) {
+	entries, err := activeFunctionFiles(funcDir)
 	if err != nil {
 		return nil, nil, err
 	}
 	syms := map[string]int{} // name -> addr
 	fnPtrs := map[string]bool{}
 	for _, e := range entries {
-		if e.IsDir() || !strings.HasSuffix(e.Name(), ".c") {
-			continue
-		}
 		text, err := os.ReadFile(filepath.Join(funcDir, e.Name()))
 		if err != nil {
 			continue
@@ -275,6 +315,26 @@ func jptLine(r dataSym, name string) string {
 	return b.String()
 }
 
+// ascLine emits an IDA asc_* string/table symbol as raw image bytes.
+func ascLine(r dataSym, name string, bin []byte) string {
+	const span = 512
+	off := r.Addr - dataBase
+	var b strings.Builder
+	fmt.Fprintf(&b, "uint8_t %s[%d] = {", name, span)
+	for i := 0; i < span; i++ {
+		if i > 0 {
+			b.WriteString(", ")
+		}
+		var v byte
+		if off >= 0 && off+i < len(bin) {
+			v = bin[off+i]
+		}
+		fmt.Fprintf(&b, "0x%02x", v)
+	}
+	b.WriteString("};")
+	return b.String()
+}
+
 func isPrintable(b []byte) bool {
 	if len(b) == 0 {
 		return false
@@ -310,5 +370,96 @@ func writeMMIOHeader(path string) error {
 	}
 	sb.WriteString("\n#endif /* AIC8800D80_MMIO_H */\n")
 	return os.WriteFile(path, []byte(sb.String()), 0644)
+}
+
+var strSymRefRe = regexp.MustCompile(`\b(a[A-Za-z0-9][A-Za-z0-9_]*)\b`)
+
+// emitStringSymbols materializes referenced IDA string literal labels (aFoo)
+// listed in strSymsJSON using the exact NUL-terminated bytes from bin.
+func emitStringSymbols(funcDir, strSymsJSON string, bin []byte) (string, error) {
+	raw, err := os.ReadFile(strSymsJSON)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return "", nil
+		}
+		return "", err
+	}
+	var addrMap map[string]string
+	if err := json.Unmarshal(raw, &addrMap); err != nil {
+		return "", fmt.Errorf("parse %s: %w", strSymsJSON, err)
+	}
+	if len(addrMap) == 0 {
+		return "", nil
+	}
+	entries, err := activeFunctionFiles(funcDir)
+	if err != nil {
+		return "", err
+	}
+	refs := map[string]bool{}
+	for _, e := range entries {
+		text, err := os.ReadFile(filepath.Join(funcDir, e.Name()))
+		if err != nil {
+			continue
+		}
+		for _, m := range strSymRefRe.FindAllSubmatch(text, -1) {
+			name := string(m[1])
+			if _, ok := addrMap[name]; ok {
+				refs[name] = true
+			}
+		}
+	}
+	if len(refs) == 0 {
+		return "", nil
+	}
+	names := make([]string, 0, len(refs))
+	for n := range refs {
+		names = append(names, n)
+	}
+	sort.Strings(names)
+	var b strings.Builder
+	for _, name := range names {
+		addrStr := strings.TrimPrefix(strings.ToLower(addrMap[name]), "0x")
+		addr, err := strconv.ParseInt(addrStr, 16, 64)
+		if err != nil {
+			continue
+		}
+		off := int(addr) - dataBase
+		if off < 0 || off >= len(bin) {
+			continue
+		}
+		end := off
+		for end < len(bin) && end-off < 4096 && bin[end] != 0 {
+			end++
+		}
+		fmt.Fprintf(&b, "const char %s[] = %s;  /* @ 0x%x */\n", name, formatCStrLiteral(bin[off:end]), addr)
+	}
+	return b.String(), nil
+}
+
+func formatCStrLiteral(data []byte) string {
+	var sb strings.Builder
+	sb.WriteByte('"')
+	for _, c := range data {
+		switch c {
+		case '"':
+			sb.WriteString(`\"`)
+		case '\\':
+			sb.WriteString(`\\`)
+		case '\n':
+			sb.WriteString(`\n`)
+		case '\r':
+			sb.WriteString(`\r`)
+		case '\t':
+			sb.WriteString(`\t`)
+		default:
+			if c >= 0x20 && c < 0x7f {
+				sb.WriteByte(c)
+			} else {
+				fmt.Fprintf(&sb, "\\%03o", c)
+			}
+		}
+	}
+	sb.WriteByte('"')
+	return sb.String()
 }
 

@@ -10,21 +10,19 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10E9DC;
 extern uint32_t off_10E9E0;
 extern uint32_t off_10E9E4;
-extern uint32_t dword_10E9E8;
-extern uint32_t dword_10E9EC;
-extern uint32_t dword_10E9F0;
 
-// rf_analog_ctrl_set @ 0x10e83c, size 416 bytes
-int  rf_analog_ctrl_set(unsigned int a1, unsigned int a2, unsigned int *a3)
+// sub_10E83C @ 0x10e83c, size 416 bytes
+int  sub_10E83C(unsigned int a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r4
   unsigned int *v4; // r6
   unsigned int *v5; // r5
-  int16_t *v8; // r5
-  int inited; // r10
+  uint16_t *v8; // r5
+  int v9; // r10
   int v10; // r2
   unsigned int *v11; // r7
   unsigned int *v12; // r6
@@ -47,17 +45,17 @@ int  rf_analog_ctrl_set(unsigned int a1, unsigned int a2, unsigned int *a3)
   *v5 = ((uint16_t)a1 << 12) & 0x7000 | *v5 & 0xFFFF8FFF;
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
-  v8 = (int16_t *)off_10E9E4;
-  inited = rf_core_enable();
-  event_dispatch(dword_10E9E8, a1, a2);
+  v8 = (uint16_t *)off_10E9E4;
+  v9 = sub_10E0B0();
+  sub_12EA88("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
   v10 = *v8;
-  if ( v10 > inited )
+  if ( v10 > v9 )
   {
     v23 = 1;
   }
   else
   {
-    if ( v10 >= inited )
+    if ( v10 >= v9 )
     {
       v20 = 0;
       goto LABEL_9;
@@ -83,11 +81,11 @@ int  rf_analog_ctrl_set(unsigned int a1, unsigned int a2, unsigned int *a3)
     v3 = __usat(4u, v22 + v20 - v13);
     *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
     *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
-    v15 = inited;
-    inited = rf_core_enable();
-    event_dispatch(dword_10E9EC, v13, v3);
-    v16 = *(int16_t *)off_10E9E4;
-    v17 = inited - v16;
+    v15 = v9;
+    v9 = sub_10E0B0();
+    sub_12EA88("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
+    v16 = *(uint16_t *)off_10E9E4;
+    v17 = v9 - v16;
     v18 = v15 - v16;
     if ( v18 * v17 <= 0 )
       break;
@@ -104,12 +102,12 @@ int  rf_analog_ctrl_set(unsigned int a1, unsigned int a2, unsigned int *a3)
     *v11 = *v11 & 0xFFFFFFF8 | v24 & 7;
     *v12 = (v24 << 12) & 0x7000 | *v12 & 0xFFFF8FFF;
     *v11 = (8 * v25) & 0x78 | *v11 & 0xFFFFFF87;
+    v9 = v15;
     v13 = v24;
     *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  event_dispatch(dword_10E9F0, v20, v13 - v21);
+  sub_12EA88("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", v20, v13 - v21, v3 - a2, v9);
 LABEL_9:
   *a3 = v3;
   return v20;
 }
-

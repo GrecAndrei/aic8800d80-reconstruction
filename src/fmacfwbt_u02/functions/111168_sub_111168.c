@@ -10,11 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1111E4;
-extern uint32_t dword_1111E8;
 
-// rf_set_tx_power @ 0x111168, size 124 bytes
-int  rf_set_tx_power(int a1)
+extern uint32_t off_1111E4;
+
+// rf_set_tx_power_1 @ 0x111168, size 124 bytes
+int  rf_set_tx_power_1(int a1)
 {
   int *v1; // r3
   int v2; // r2
@@ -38,6 +38,5 @@ int  rf_set_tx_power(int a1)
   }
   *v1 = v4;
   *v1 = v2 | 0xC00000;
-  return printf_wrapper(dword_1111E8, *(uint32_t *)off_1111E4 & 0x3FFFFF);
+  return printf_wrapper("sdio pahse cfg %x\n", *(uint32_t *)off_1111E4 & 0x3FFFFF);
 }
-

@@ -10,15 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_118A54;
 extern uint32_t dword_118A58;
 extern uint32_t dword_118A5C;
 extern uint32_t dword_118A60;
+extern uint32_t dword_118A6C;
 extern uint32_t dword_118A70;
 extern uint32_t dword_118A74;
-extern uint32_t dword_118A54;
 extern uint32_t off_118A64;
 extern uint32_t off_118A68;
-extern uint32_t dword_118A6C;
 
 // verify_header_magic @ 0x118970, size 228 bytes
 int  verify_header_magic(int a1)
@@ -43,14 +44,14 @@ int  verify_header_magic(int a1)
   v5 = dword_118A70;
   v6 = dword_118A74;
   v7 = dword_118A54;
-  clear_stats_buf(dword_118A54);
-  clear_stats_buf(v7 + 8);
+  clear_stats_buf((uint32_t *)dword_118A54);
+  clear_stats_buf((uint32_t *)(v7 + 8));
   v8 = v2 + 400;
   do
   {
     if ( !a1 || !*(uint8_t *)(v2 + 97) )
     {
-      sub_100200((int *)v2, 0, 0x64u);
+      memset_thunk((int *)v2, 0, 0x64u);
       *(uint32_t *)(v2 + 44) = v3 + 11;
       *(uint32_t *)(v2 + 72) = v3;
       *(uint32_t *)(v2 + 76) = v4;
@@ -64,7 +65,7 @@ int  verify_header_magic(int a1)
       v4[10] = 0;
       v4[15] = 0;
       v4[7] = v3 + 27;
-      wlan_ioctl_handler_1(v7);
+      wlan_ioctl_handler_1(v7, (uint32_t *)v2);
     }
     v2 += 100;
     v3 += 155;
@@ -109,4 +110,3 @@ int  verify_header_magic(int a1)
   v12[5] = 4;
   return result;
 }
-

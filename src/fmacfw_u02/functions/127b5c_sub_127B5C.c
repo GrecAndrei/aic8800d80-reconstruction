@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_127D1C;
-extern uint32_t dword_127D20;
-extern uint32_t off_127D30;
+
 extern uint32_t dword_127D24;
 extern uint32_t dword_127D2C;
+extern uint32_t off_127D1C;
 extern uint32_t off_127D28;
+extern uint32_t off_127D30;
 
 // rx_prep_descriptor @ 0x127b5c, size 446 bytes
 int  rx_prep_descriptor(uint8_t *a1, int a2)
@@ -27,16 +27,16 @@ int  rx_prep_descriptor(uint8_t *a1, int a2)
   char v8; // r3
   uint8_t *v10; // r8
   char v11; // r3
-  int v12; // r0
+  uint32_t *v12; // r0
   uint8_t *v13; // r2
-  int16_t v14; // r1
+  uint16_t v14; // r1
   unsigned int v15; // r1
   int v16; // r2
   int v17; // r0
-  int v18; // r0
+  uint32_t *v18; // r0
 
   v2 = off_127D1C;
-  check_status_bits(8, dword_127D20);
+  check_status_bits(8, "roc: %d, dur=%d, st=%d\r\n", *a1, *((uint32_t *)a1 + 3), *((uint8_t *)off_127D1C + 128));
   v5 = *a1;
   if ( *a1 )
   {
@@ -50,8 +50,8 @@ int  rx_prep_descriptor(uint8_t *a1, int a2)
       {
         if ( v6 == 4 )
         {
-          fault_handler((int)off_127D30 + 64);
-          v12 = v7[8];
+          fault_handler((uint32_t *)off_127D30 + 16);
+          v12 = (uint32_t *)v7[8];
           v7[18] = 0;
           rf_perform_calibration(v12);
         }
@@ -64,7 +64,7 @@ int  rx_prep_descriptor(uint8_t *a1, int a2)
         {
           if ( v13 == v2 + 112 && (uint8_t *)v7[20] == v13 )
           {
-            fault_handler((int)(v7 + 16));
+            fault_handler(v7 + 16);
             v7[18] = 0;
           }
           v7[11] = 0;
@@ -80,7 +80,7 @@ int  rx_prep_descriptor(uint8_t *a1, int a2)
       v2[136] = -1;
       if ( (v8 & 0x12) != 0x10 )
         return 0;
-      v18 = dword_127D2C;
+      v18 = (uint32_t *)dword_127D2C;
       *((uint8_t *)v7 + 88) = v8 & 0xEF;
       v5 = 0;
       fault_handler(v18);
@@ -88,7 +88,7 @@ int  rx_prep_descriptor(uint8_t *a1, int a2)
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || rx_rate_field_parse(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || rx_rate_field_parse(4u) == 1 )
   {
     v10 = off_127D30;
     v11 = *((uint8_t *)off_127D30 + 88);
@@ -142,4 +142,3 @@ LABEL_25:
   v10[88] = v11 & 0xDF;
   return 1;
 }
-

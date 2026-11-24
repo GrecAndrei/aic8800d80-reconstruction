@@ -10,17 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// validate_args @ 0x143414, size 48 bytes
-int  validate_args(uint64_t a1, int a2, int a3)
+// sub_143414 @ 0x143414, size 48 bytes
+uint64_t  sub_143414(uint64_t a1, uint64_t a2)
 {
-  if ( a3 || a2 )
-  {
-    LODWORD(a1) = memcpy_chk(a1);
-  }
-  else if ( a1 )
-  {
-    LODWORD(a1) = -1;
-  }
+  uint64_t v2; // [sp+8h] [bp-8h] BYREF
+
+  if ( a2 )
+    return sub_143444(a1, a2, &v2);
+  if ( a1 )
+    return -1;
   return a1;
 }
-

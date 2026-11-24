@@ -10,13 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
+extern uint32_t dword_136AE0;
 extern uint32_t dword_136AE4;
 extern uint32_t off_136AD8;
 extern uint32_t off_136ADC;
-extern uint32_t dword_136AE0;
 
 // rf_cal_init @ 0x1369c0, size 280 bytes
-uint32_t *rf_cal_init()
+int rf_cal_init()
 {
   int v0; // r11
   int v1; // r4
@@ -29,16 +30,18 @@ uint32_t *rf_cal_init()
   int v8; // r9
   int v9; // r0
   int v10; // r0
-  uint8_t *v12; // r0
+  int v11; // r0
+  int v12; // r1
+  uint8_t *v14; // r0
 
   v0 = dword_136AE4;
   v1 = *(uint32_t *)off_136AD8;
   v2 = *(uint8_t *)(*(uint32_t *)off_136AD8 + 51);
-  v3 = bt_buf_alloc(24, 0, 7, 8u);
-  v4 = bt_buf_alloc(22, 0, 7, 8u);
-  v5 = bt_buf_alloc(20, 0, 7, 4u);
+  v3 = bt_buf_alloc(24, 0, 7, 8);
+  v4 = bt_buf_alloc(22, 0, 7, 8);
+  v5 = bt_buf_alloc(20, 0, 7, 4);
   v6 = v0 + 1320 * v2;
-  v7 = (uint8_t *)bt_buf_alloc(5143, 5, 7, 2u);
+  v7 = (uint8_t *)bt_buf_alloc(5143, 5, 7, 2);
   txpwr_get_context();
   if ( *(uint8_t *)(v6 + 1224) )
   {
@@ -47,10 +50,10 @@ uint32_t *rf_cal_init()
   }
   else
   {
-    v12 = (uint8_t *)bt_buf_alloc(5145, 5, 7, 2u);
-    *v12 = 1;
-    v12[1] = *(uint8_t *)(v6 + 107);
-    check_abort_flag((int)off_136AD8 + 4, (uint32_t *)v12 - 3);
+    v14 = (uint8_t *)bt_buf_alloc(5145, 5, 7, 2);
+    *v14 = 1;
+    v14[1] = *(uint8_t *)(v6 + 107);
+    check_abort_flag((int)off_136AD8 + 4, (uint32_t *)v14 - 3);
   }
   v8 = v0 + 1320 * v2;
   v9 = *(uint32_t *)(v8 + 100);
@@ -68,8 +71,7 @@ uint32_t *rf_cal_init()
   *v7 = 1;
   v10 = dword_136AE0;
   v7[1] = *(uint8_t *)(v1 + 51);
-  check_abort_flag(v10, (uint32_t *)v7 - 3);
-  txpwr_get_state();
+  v11 = check_abort_flag(v10, (uint32_t *)v7 - 3);
+  txpwr_get_state(v11, v12);
   return hci_cmd_send(7u, 1);
 }
-

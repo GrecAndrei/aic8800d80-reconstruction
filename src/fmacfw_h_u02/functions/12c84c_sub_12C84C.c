@@ -10,37 +10,37 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12C8B8;
+
 extern uint32_t dword_12C8BC;
-extern uint32_t dword_12C8C4;
-extern uint32_t dword_12C8C0;
-extern uint32_t dword_12C8C8;
+extern uint32_t off_12C8B8;
 extern uint32_t off_12C8CC;
 
-// rx_process_packet @ 0x12c84c, size 106 bytes
-int  rx_process_packet(int a1)
+// rx_process_packet_1 @ 0x12c84c, size 106 bytes
+uint32_t * rx_process_packet_1(int a1)
 {
-  int16_t v1; // r3
-  uint16_t *v4; // r0
+  int v1; // r3
 
   v1 = *(uint16_t *)(a1 - 6);
-  if ( **(int16_t **)off_12C8B8 >= 0 || (uint8_t)v1 <= 0xEu )
+  if ( **(uint16_t **)off_12C8B8 >= 0 || (uint8_t)v1 <= 0xEu )
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      wlan_ioctl_handler_1(dword_12C8BC);
-      return irq_disable_global_2(0x4000000);
+      wlan_ioctl_handler_1(dword_12C8BC, (uint32_t *)(a1 - 12));
+      return (uint32_t *)irq_disable_global_2(0x4000000);
     }
   }
   else
   {
-    irq_disable_mmio_write(dword_12C8C4, dword_12C8C0, 183);
+    irq_disable_mmio_write((int)aIdTaskMax, (int)aKeTaskLocal, 183);
+    v1 = *(uint16_t *)(a1 - 6);
   }
-  alloc_tx_event(dword_12C8C8, *(uint16_t *)(a1 - 8), *(uint16_t *)(a1 - 4));
-  v4 = (uint16_t *)(a1 - 12);
+  alloc_tx_event(
+    "\x9D\x80Dispatching msg:%x from tsk:%x to tsk:%x\n",
+    *(uint16_t *)(a1 - 8),
+    *(uint16_t *)(a1 - 4),
+    v1);
   if ( *(uint8_t *)off_12C8CC )
-    return tx_pkt_process(v4);
+    return tx_pkt_process((char *)(a1 - 12));
   else
-    return state_check_0x182ba0(v4);
+    return (uint32_t *)state_check_0x182ba0();
 }
-

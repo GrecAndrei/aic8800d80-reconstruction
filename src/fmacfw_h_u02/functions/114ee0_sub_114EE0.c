@@ -10,15 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_114FC8;
-extern uint32_t off_114FE8;
-extern uint32_t off_114FD4;
-extern uint32_t dword_114FDC;
-extern uint32_t off_114FE0;
-extern uint32_t dword_114FE4;
 extern uint32_t off_114FCC;
 extern uint32_t off_114FD0;
+extern uint32_t off_114FD4;
 extern uint32_t off_114FD8;
+extern uint32_t off_114FE0;
+extern uint32_t off_114FE8;
 
 // get_phy_state @ 0x114ee0, size 230 bytes
 int get_phy_state()
@@ -28,27 +27,25 @@ int get_phy_state()
   uint32_t *v2; // r2
   uint32_t *v3; // r3
   uint32_t *v4; // r3
-  int v6; // r1
-  int v7; // r1
-  uint32_t *v8; // r2
+  uint32_t *v6; // r2
 
   if ( **(uint8_t **)off_114FC8 == 2 )
   {
     if ( phy_get_status() )
-      v0 = *((uint32_t *)off_114FE8 + 87);
+      v0 = ((uint32_t *)(uintptr_t)off_114FE8)[87];
     else
       v0 = 16;
     phy_is_calibrated();
     *((uint32_t *)off_114FD4 + 34) = 1;
     __dsb(0xFu);
     __isb(0xFu);
-    alloc_tx_event(dword_114FDC, v6, 1);
-    v8 = off_114FE0;
+    alloc_tx_event(aSftDis);
+    v6 = off_114FE0;
     *((uint32_t *)off_114FE0 + 513) |= 2u;
-    v8[4] |= 1u;
-    while ( (v8[4] & 1) != 0 )
+    v6[4] |= 1u;
+    while ( (v6[4] & 1) != 0 )
       ;
-    alloc_tx_event(dword_114FE4, v7, v8);
+    alloc_tx_event(aSftrstDone);
   }
   else
   {
@@ -86,4 +83,3 @@ int get_phy_state()
   __disable_irq();
   return v0;
 }
-

@@ -10,13 +10,33 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-// extract_msg_type @ 0x12d5a4, size 242 bytes
-float  extract_msg_type(unsigned int a1)
+
+extern float flt_12D698;
+extern float flt_12D69C;
+extern float flt_12D6A0;
+extern float flt_12D6A4;
+extern float flt_12D6A8;
+extern float flt_12D6AC;
+extern float flt_12D6B0;
+extern float flt_12D6B4;
+extern float flt_12D6B8;
+extern float flt_12D6BC;
+extern float flt_12D6C0;
+extern float flt_12D6C4;
+extern float flt_12D6C8;
+extern float flt_12D6CC;
+extern float flt_12D6D0;
+extern float flt_12D6D4;
+extern float flt_12D6D8;
+
+// sub_12D5A4 @ 0x12d5a4, size 242 bytes
+unsigned int  sub_12D5A4(unsigned int a1)
 {
   unsigned int v1; // r3
   int v2; // s15
   int v3; // r0
   float v4; // s15
+  unsigned int result; // r0
   float v6; // s15
   float v7; // s13
   float v8; // s14
@@ -71,6 +91,6 @@ float  extract_msg_type(unsigned int a1)
   {
     v4 = (float)((float)v2 * flt_12D698) + flt_12D69C;
   }
-  return (float)(v3 - 127) + (float)(v4 * flt_12D6A0);
+  *(float *)&result = (float)(v3 - 127) + (float)(v4 * flt_12D6A0);
+  return result;
 }
-

@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1248D0;
 extern uint32_t off_1248CC;
 extern uint32_t off_1248D4;
 extern uint32_t off_1248D8;
 extern uint32_t off_1248DC;
-extern uint32_t dword_1248E0;
 
 // mmio_read_status @ 0x124848, size 132 bytes
 int  mmio_read_status(uint16_t *a1)
@@ -48,7 +48,6 @@ int  mmio_read_status(uint16_t *a1)
   v2[3] = v2[3] & v1 | (v9 << 12);
   *v10 = v1 & *v10 | (v9 << 12);
   get_mac_ver();
-  alloc_tx_event(dword_1248E0, *a1, a1[1]);
+  alloc_tx_event("set txop: bk:%x,be:%x,vi:%x,vo:%x\n", *a1, a1[1], a1[2], a1[3]);
   return 0;
 }
-

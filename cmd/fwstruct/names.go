@@ -42,6 +42,7 @@ func runNames(args []string) error {
 	cf.Register(fs)
 	var keyDir, keysFile, endpoint, model, reasoningEffort string
 	var concurrency, maxClusters int
+	var skipNamed bool
 	fs.StringVar(&keyDir, "llm-key-dir", "", "directory of *.key files for LLM API")
 	fs.StringVar(&keysFile, "llm-keys", "", "path to keys.json (default: <root>/harness_v15/keys/keys.json)")
 	fs.StringVar(&endpoint, "llm-endpoint", llm.Endpoint, "LLM chat completions endpoint")
@@ -49,6 +50,7 @@ func runNames(args []string) error {
 	fs.StringVar(&reasoningEffort, "llm-reasoning-effort", llm.ReasoningEffort, "LLM reasoning_effort level")
 	fs.IntVar(&concurrency, "concurrency", 16, "parallel LLM calls")
 	fs.IntVar(&maxClusters, "max-clusters", 0, "max clusters to name (0 = all)")
+	fs.BoolVar(&skipNamed, "skip-named", false, "skip clusters that already have a non-placeholder name")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -105,6 +107,7 @@ func runNames(args []string) error {
 	}
 	var candidates []candidate
 	clusterReports := map[string]*clusterReport{}
+	existingNamed := map[string]map[int]map[string]any{}
 	for _, img := range images {
 		var rep clusterReport
 		p := filepath.Join(cf.Out, img+"_clusters.json")
@@ -113,7 +116,22 @@ func runNames(args []string) error {
 			continue
 		}
 		clusterReports[img] = &rep
+		if skipNamed {
+			var prev []map[string]any
+			if err := readJSON(filepath.Join(cf.Out, img+"_named.json"), &prev); err == nil {
+				m := map[int]map[string]any{}
+				for _, e := range prev {
+					if g, ok := e["group"].(float64); ok {
+						m[int(g)] = e
+					}
+				}
+				existingNamed[img] = m
+			}
+		}
 		for _, c := range rep.Clusters {
+			if skipNamed && c.Name != "" && !strings.HasPrefix(c.Name, "struct_shape_") {
+				continue
+			}
 			candidates = append(candidates, candidate{image: img, group: c.GroupID, cluster: c})
 		}
 	}
@@ -154,6 +172,48 @@ func runNames(args []string) error {
 	}
 	wg.Wait()
 
+	// Seed with preserved proposals for skipped already-named clusters so
+	// <img>_named.json and proposals.json never drop prior entries.
+	byGroup := map[string]map[int]map[string]any{}
+	if skipNamed {
+		for _, img := range images {
+			rep := clusterReports[img]
+			prevMap := existingNamed[img]
+			if rep == nil {
+				continue
+			}
+			for _, c := range rep.Clusters {
+				if c.Name == "" || strings.HasPrefix(c.Name, "struct_shape_") {
+					continue
+				}
+				var entry map[string]any
+				if pe, ok := prevMap[c.GroupID]; ok {
+					entry = pe
+				} else {
+					fieldsInfo := []map[string]any{}
+					for _, k := range c.Fingerprint {
+						fieldsInfo = append(fieldsInfo, map[string]any{
+							"name":   fmt.Sprintf("field_0x%x", k.Offset),
+							"offset": k.Offset,
+							"size":   k.Size,
+						})
+					}
+					entry = map[string]any{
+						"image":       img,
+						"group":       c.GroupID,
+						"primary_arg": c.PrimaryArg,
+						"struct_name": c.Name,
+						"fields":      fieldsInfo,
+					}
+				}
+				if byGroup[img] == nil {
+					byGroup[img] = map[int]map[string]any{}
+				}
+				byGroup[img][c.GroupID] = entry
+			}
+		}
+	}
+
 	// Aggregate proposals AND update clusters.json in place so the
 	// `name` field on each cluster is populated. This is what
 	// fwstruct report reads to count "llm_named_structs".
@@ -175,8 +235,10 @@ func runNames(args []string) error {
 			"struct_name": r.proposal.StructName,
 			"fields":      r.proposal.Fields,
 		}
-		allProposals = append(allProposals, entry)
-		perImage[r.image] = append(perImage[r.image], entry)
+		if byGroup[r.image] == nil {
+			byGroup[r.image] = map[int]map[string]any{}
+		}
+		byGroup[r.image][r.group] = entry
 		// Update the in-memory cluster's Name field so downstream
 		// readers (report) see it without needing a side file.
 		if r.proposal.StructName != "" && rep != nil {
@@ -186,6 +248,19 @@ func runNames(args []string) error {
 					namedCount++
 					break
 				}
+			}
+		}
+	}
+	for _, img := range images {
+		rep := clusterReports[img]
+		m := byGroup[img]
+		if rep == nil || m == nil {
+			continue
+		}
+		for _, c := range rep.Clusters {
+			if e, ok := m[c.GroupID]; ok {
+				allProposals = append(allProposals, e)
+				perImage[img] = append(perImage[img], e)
 			}
 		}
 	}

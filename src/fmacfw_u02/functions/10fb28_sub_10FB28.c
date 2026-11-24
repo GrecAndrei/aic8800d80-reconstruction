@@ -10,20 +10,14 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10FCDC;
-extern uint32_t dword_10FCCC;
+
 extern uint32_t off_10FCB4;
 extern uint32_t off_10FCB8;
 extern uint32_t off_10FCBC;
 extern uint32_t off_10FCC0;
-extern uint32_t dword_10FCC4;
-extern uint32_t dword_10FCD0;
-extern uint32_t dword_10FCD4;
-extern uint32_t dword_10FCC8;
-extern uint32_t dword_10FCD8;
 
-// rx_packet_handler @ 0x10fb28, size 396 bytes
-uint32_t * rx_packet_handler(int a1, unsigned int a2)
+// rx_packet_handler_1 @ 0x10fb28, size 396 bytes
+uint32_t * rx_packet_handler_1(int a1, unsigned int a2)
 {
   unsigned int v2; // r6
   uint32_t *v3; // r5
@@ -49,13 +43,13 @@ uint32_t * rx_packet_handler(int a1, unsigned int a2)
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    log_printf(dword_10FCDC);
-    return 0;
+    log_printf("SwEr:NoSizeAlloc : %d\n\r", a2);
+    return nullptr;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    log_printf(dword_10FCCC);
+    log_printf(aMemmgrerrSubpo, a2);
     return v3;
   }
   v4 = *(uint16_t **)(a1 + 12);
@@ -102,7 +96,7 @@ LABEL_12:
           goto LABEL_43;
       }
     }
-    return 0;
+    return nullptr;
   }
   v9 = (unsigned int *)off_10FCBC;
   v3 = *((uint32_t **)v4 + 2);
@@ -118,7 +112,7 @@ LABEL_12:
   }
   else
   {
-    log_printf(dword_10FCC4, *((uint32_t *)v4 + 2));
+    log_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((uint32_t *)v4 + 2));
     v10 = *v9;
     v14 = *v4 - 1;
     v15 = *v9 > (unsigned int)v3;
@@ -139,7 +133,7 @@ LABEL_18:
   v16 = *(uint32_t *)off_10FCC0;
   if ( *(uint32_t *)off_10FCC0 > (unsigned int)v3 || *((uint32_t *)off_10FCC0 + 1) + v16 < (unsigned int)v3 )
   {
-    log_printf(dword_10FCD0, v3);
+    log_printf("get_pattern: Invalid buffer passed: %x\n", v3);
     v11 = 0;
     goto LABEL_45;
   }
@@ -158,8 +152,8 @@ LABEL_45:
           __enable_irq();
       }
     }
-    log_printf(dword_10FCD4, v11, v3);
-    return 0;
+    log_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", v11, v3);
+    return nullptr;
   }
   if ( v10 > (unsigned int)v3 )
     goto LABEL_36;
@@ -168,7 +162,7 @@ LABEL_45:
   if ( (unsigned int)v3 < v16 )
   {
 LABEL_37:
-    log_printf(dword_10FCC8, v3);
+    log_printf("set_pattern: Invalid buffer passed: %x\n", v3);
   }
   else
   {
@@ -186,7 +180,7 @@ LABEL_20:
   }
   else
   {
-    log_printf(dword_10FCD8, v3);
+    log_printf("set_num_users: Invalid buffer passed: %x\n", v3);
   }
   if ( *v6 )
   {
@@ -202,4 +196,3 @@ LABEL_43:
   }
   return v3;
 }
-

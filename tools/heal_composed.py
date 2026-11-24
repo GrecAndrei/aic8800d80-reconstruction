@@ -386,13 +386,17 @@ def heal_line(line: str, msg: str):
         cm = re.match(r"^(.+?)\s*([+\-])=(.+)$", stmt)
         if cm and lhs_ok(cm.group(1)):
             return f"{indent}{cm.group(1)} = {cm.group(1)} {cm.group(2)} (int)(uintptr_t)({cm.group(3)}){term}{trail}", True
+        mc = re.search(r"([(\|]\s*)(\w+)\s*=\s*([A-Za-z_]\w*\s*\()", stmt)
+        if mc and not stmt[mc.start(3):].lstrip().startswith("(int)(uintptr_t)"):
+            args_list, end_i = split_args(stmt, mc.end(3) - 1)
+            if end_i > 0:
+                call_expr = stmt[mc.start(3):end_i + 1]
+                new_stmt = stmt[:mc.start(3)] + f"(int)(uintptr_t)({call_expr})" + stmt[end_i + 1:]
+                return f"{indent}{new_stmt}{term}{trail}", True
     if PTR_FROM_INT.search(msg):
         am = AM_RE.match(stmt)
         if am and lhs_ok(am.group(1)) and not am.group(2).lstrip().startswith("(void *)(uintptr_t)"):
             return f"{indent}{am.group(1)} = (void *)(uintptr_t)({am.group(2)}){term}{trail}", True
-        mm = re.search(r"\{ (\w+) = ([^;]+)", stmt)
-        if mm and not mm.group(2).lstrip().startswith(("(void *)(uintptr_t)", "(int)(uintptr_t)")):
-            return f"{indent}{stmt[:mm.start()]}{{ {mm.group(1)} = (void *)(uintptr_t)({mm.group(2)}){stmt[mm.end():]}{term}{trail}", True
         mm = re.search(r"\((\w+) = (\w+),", stmt)
         if mm and mm.group(2).startswith(("off_", "dword_", "byte_", "word_", "unk_")):
             return f"{indent}{stmt[:mm.start()]}({mm.group(1)} = (void *)(uintptr_t)({mm.group(2)}),{stmt[mm.end():]}{term}{trail}", True
@@ -401,6 +405,9 @@ def heal_line(line: str, msg: str):
             tm = re.search(r"assignment to '([^']+)' .* makes pointer from integer", msg)
             cast = f"({tm.group(1)})(uintptr_t)" if tm and tm.group(1).endswith("*") else "(void *)(uintptr_t)"
             return f"{indent}{stmt[:mm.start()]}({mm.group(1)} = {cast}({mm.group(2)}),{stmt[mm.end():]}{term}{trail}", True
+        mm = re.search(r"\{ (\w+) = ([^;]+)", stmt)
+        if mm and not mm.group(2).lstrip().startswith(("(void *)(uintptr_t)", "(int)(uintptr_t)")):
+            return f"{indent}{stmt[:mm.start()]}{{ {mm.group(1)} = (void *)(uintptr_t)({mm.group(2)}){stmt[mm.end():]}{term}{trail}", True
     if INCOMPAT_PTR.search(msg):
         am = AM_RE.match(stmt)
         if am and lhs_ok(am.group(1)) and not re.search(r"^\(void \*\)", stmt):
@@ -410,8 +417,18 @@ def heal_line(line: str, msg: str):
         if zm:
             return f"{indent}((uint32_t *)(uintptr_t)0){zm.group(1)} = {zm.group(2)}{term}{trail}", True
         pat = re.compile(r"(?<![&\w])([A-Za-z_]\w*)\[")
-        if pat.search(stmt):
-            new_stmt = pat.sub(r'((uint32_t *)(uintptr_t)&\1)[', stmt, count=1)
+        m_sub = pat.search(stmt)
+        if m_sub:
+            sym = m_sub.group(1)
+            after = stmt[m_sub.end():]
+            # An IDA literal-pool off_<HEX> with a non-[0] index holds a RAM
+            # or table pointer; taking &off_... indexes adjacent ROM literal
+            # pool words instead. off_<HEX>[0] stays &off_... (= literal value).
+            if re.match(r"^off_[0-9A-Fa-f]+$", sym) and not after.startswith("0]"):
+                repl = r'((uint32_t *)(uintptr_t)\1)['
+            else:
+                repl = r'((uint32_t *)(uintptr_t)&\1)['
+            new_stmt = pat.sub(repl, stmt, count=1)
             return f"{indent}{new_stmt}{term}{trail}", True
     if FN_VALUE.search(msg):
         new_stmt = heal_fn_value(stmt, msg)
@@ -482,6 +499,11 @@ def heal_line(line: str, msg: str):
         mm = re.match(r"^return (\w+)\((.+), \(int\)\(uintptr_t\)\((\w+)\)\)$", stmt)
         if mm:
             return f"{indent}return {mm.group(1)}({mm.group(2)}, (int)(uintptr_t)(*(void **)&({mm.group(3)}))){term}{trail}", True
+    if "cannot convert to a pointer type" in msg:
+        mva = re.search(r"\(\s*(?:unsigned\s+int|uint32_t|int|void)\s*\*\s*\)\s*(varg_\w+)\b", stmt)
+        if mva:
+            s_new = stmt[:mva.start()] + f"(unsigned int *)(*(void **)&({mva.group(1)}))" + stmt[mva.end():]
+            return f"{indent}{s_new}{term}{trail}", True
     if CALLED_OBJECT.search(msg):
         for m in reversed(list(FNP_TABLE_CALL.finditer(stmt))):
             if "(int (*)())" in stmt[max(0, m.start() - 16):m.start()]:
@@ -515,9 +537,20 @@ def heal_line(line: str, msg: str):
                     new_stmt = stmt[:m.start()] + f"((int (*)()){m.group(0)})" + "(" + stmt[i + 1:j - 1] + ")" + stmt[j:]
                     return f"{indent}{new_stmt}{term}{trail}", True
     if re.match(r"^invalid type argument of unary '\*'", msg):
-        mm = re.search(r"\*([A-Za-z_]\w*|\d+)\b", stmt)
-        if mm and mm.group(1) != "0x" and not stmt[mm.start() - 1:mm.start()].strip():
-            return f"{indent}{stmt[:mm.start()]}*(uint32_t *)(uintptr_t)({mm.group(1)}){stmt[mm.end():]}{term}{trail}", True
+        for mm in re.finditer(r"\*([A-Za-z_]\w*|\d+)\b", stmt):
+            if mm.group(1) == "0x":
+                continue
+            pos = mm.start()
+            prev = stmt[pos - 1] if pos > 0 else ""
+            if not prev or prev.isspace() or prev in "(=,[!&|~+-*/%<>?:{;":
+                return f"{indent}{stmt[:pos]}*(uint32_t *)(uintptr_t)({mm.group(1)}){stmt[mm.end():]}{term}{trail}", True
+            if prev == ")":
+                open_p = stmt.rfind("(", 0, pos - 1)
+                cast_txt = stmt[open_p + 1:pos - 1].strip() if open_p >= 0 else ""
+                if re.fullmatch(r"(?:(?:unsigned|signed)\s+)?(?:char|short|int|long|_BYTE|_WORD|_DWORD|_QWORD|(?:u?int(?:8|16|32|64)|uintptr)_t)", cast_txt):
+                    pt = "uint8_t" if any(k in cast_txt for k in ("8_t", "_BYTE", "char")) else (
+                        "uint16_t" if any(k in cast_txt for k in ("16_t", "_WORD", "short")) else "uint32_t")
+                    return f"{indent}{stmt[:pos]}*({pt} *)(uintptr_t)({mm.group(1)}){stmt[mm.end():]}{term}{trail}", True
     if re.match(r"^expected '\)' before ';'", msg):
         vm = re.match(r"^\(void\)\((.*?);\)$", stmt)
         if vm:
@@ -646,9 +679,11 @@ def main():
                             line = lines[ln]
             decl_fix = {"int MEMORY();": "extern uint32_t MEMORY[];",
                         "int _T1();": "extern volatile uint32_t _T1;"}
-            lines = [decl_fix.get(ln.strip(), ln) for ln in lines]
-            fixed += sum(1 for ln in lines if ln.lstrip().startswith(
-                ("extern uint32_t MEMORY[];", "extern volatile uint32_t _T1;")))
+            for ln_i, ln in enumerate(lines):
+                repl = decl_fix.get(ln.strip())
+                if repl is not None and ln != repl:
+                    lines[ln_i] = repl
+                    fixed += 1
             for lineno, msg in errors:
                 idx = lineno - 1 - shift
                 if idx < 0 or idx >= len(lines):

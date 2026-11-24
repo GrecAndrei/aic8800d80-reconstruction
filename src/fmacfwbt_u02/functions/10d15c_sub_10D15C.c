@@ -10,23 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10D1E0;
 extern uint32_t off_10D1E4;
-extern uint32_t dword_10D1EC;
 extern uint32_t off_10D1E8;
 extern uint32_t off_10D1F4;
-extern uint32_t dword_10D200;
 extern uint32_t off_10D1FC;
 
 // status_poll @ 0x10d15c, size 130 bytes
 int status_poll()
 {
   int v0; // r4
-  int v2; // r1
-  char *v3; // r2
-  unsigned int v4; // r4
-  int v5; // r5
-  int v6; // r1
+  char *v2; // r2
+  volatile unsigned int v3; // r1
+  unsigned int v4; // r1
+  unsigned int v5; // r4
+  int v6; // r3
+  int v7; // r5
 
   if ( (*((uint32_t *)off_10D1E0 + 75) & 0x80) == 0 )
     return 1;
@@ -36,23 +36,28 @@ int status_poll()
     v0 = (*(uint32_t *)off_10D1E4 >> 1) & 1;
     if ( (*(uint32_t *)off_10D1E4 & 2) != 0 )
     {
-      v2 = dword_10D1EC;
-      v3 = (char *)off_10D1E4 + 5050236;
+      v2 = (char *)off_10D1E4 + 5050236;
       *(uint32_t *)off_10D1E8 = 0x200000;
-      *((uint32_t *)v3 + 1) |= 0x400000u;
-      state_check_feature(2, v2);
-      do
+      *((uint32_t *)v2 + 1) |= 0x400000u;
+      state_check_feature(2, aAsk);
+      v3 = (*(volatile uint32_t *)0x40501010u);
+      v4 = v3 + 2000;
+      while ( 1 )
       {
-        v4 = *(uint32_t *)off_10D1F4;
-        v5 = *(uint32_t *)off_10D1F4 & 0x300000;
+        v5 = *(uint32_t *)off_10D1F4;
+        v6 = v4 - (*(volatile uint32_t *)0x40501010u);
+        v7 = *(uint32_t *)off_10D1F4 & 0x300000;
+        if ( v6 < 0 )
+          break;
+        if ( v7 )
+          goto LABEL_10;
       }
-      while ( !v5 );
-      v6 = dword_10D200;
-      *(uint32_t *)off_10D1FC = v5;
-      v0 = (v4 >> 20) & 1;
-      state_check_feature(2, v6);
+      ke_event_schedule_1(aAskto);
+LABEL_10:
+      *(uint32_t *)off_10D1FC = v7;
+      v0 = (v5 >> 20) & 1;
+      state_check_feature(2, "a_e:%d\n", v0);
     }
   }
   return v0;
 }
-

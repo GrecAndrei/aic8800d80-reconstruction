@@ -10,8 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1019C8;
-extern uint32_t dword_1019CC;
+
 extern uint32_t off_1019C4;
 
 // rf_call_handler @ 0x10199c, size 40 bytes
@@ -22,7 +21,7 @@ uint64_t * rf_call_handler(uint64_t *result, int a2)
   v2 = result;
   if ( a2 )
   {
-    result = (uint64_t *)event_dispatch(dword_1019C8, dword_1019CC, a2);
+    result = (uint64_t *)event_dispatch("\x9B\x87%s: radio %d does not exist\n", aPhyGetChannel, a2);
     *v2 = *(uint64_t *)((char *)off_1019C4 + 36);
   }
   else
@@ -31,4 +30,3 @@ uint64_t * rf_call_handler(uint64_t *result, int a2)
   }
   return result;
 }
-

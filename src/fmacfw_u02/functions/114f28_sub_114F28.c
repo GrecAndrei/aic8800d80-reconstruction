@@ -10,30 +10,31 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_114FE4;
 extern uint32_t dword_114FE8;
 extern uint32_t dword_114FEC;
 extern uint32_t dword_114FF0;
+extern uint32_t dword_114FFC;
+extern uint32_t dword_115014;
 extern uint32_t off_114FF4;
 extern uint32_t off_114FF8;
-extern uint32_t dword_114FFC;
 extern uint32_t off_115000;
 extern uint32_t off_115004;
 extern uint32_t off_115008;
-extern uint32_t off_115010;
 extern uint32_t off_11500C;
-extern uint32_t dword_115014;
+extern uint32_t off_115010;
+extern uint32_t off_115018;
+extern uint32_t off_11501C;
 
 // patch_check_region @ 0x114f28, size 184 bytes
-// Doc: patch_apply_n11c [patch]: Apply firmware patch to ROM code
-// patch_apply_n11c [patch]: Apply firmware patch to ROM code
-void __noreturn patch_check_region()
+void patch_check_region()
 {
   uint32_t *v0; // r2
   unsigned int v1; // r3
   int v2; // r1
-  char *v3; // r2
-  char *v4; // r3
+  int *v3; // r2
+  int *v4; // r3
   uint32_t *v5; // r0
   int v6; // t1
   uint32_t *v7; // r2
@@ -41,7 +42,7 @@ void __noreturn patch_check_region()
   int i; // r3
   int v10; // r2
   int v11; // r3
-  uint8_t *v12; // r2
+  char *v12; // r2
 
   v0 = (uint32_t *)dword_114FE4;
   if ( dword_114FE4 < (unsigned int)dword_114FE8 )
@@ -54,13 +55,12 @@ void __noreturn patch_check_region()
   v2 = dword_114FEC;
   if ( dword_114FEC < (unsigned int)dword_114FF0 )
   {
-    v3 = (char *)off_114FF4;
-    v4 = (char *)off_114FF4 + ((dword_114FF0 - 1 - dword_114FEC) & 0xFFFFFFFC) + 4;
+    v3 = (int *)off_114FF4;
+    v4 = (int *)((char *)&((uint32_t *)(uintptr_t)off_114FF4)[1] + ((dword_114FF0 - 1 - dword_114FEC) & 0xFFFFFFFC));
     v5 = (uint32_t *)dword_114FEC;
     do
     {
-      v6 = *(uint32_t *)v3;
-      v3 += 4;
+      v6 = *v3++;
       *v5++ = v6;
     }
     while ( v3 != v4 );
@@ -81,14 +81,15 @@ void __noreturn patch_check_region()
   if ( (v11 & 4) != 0 )
   {
     v12 = off_115010;
-    *(uint32_t *)off_11500C = dword_115014;
+    *off_11500C = dword_115014;
     *v12 = 26;
   }
   if ( (v11 & 0x10) == 0 )
-    *(uint32_t *)patch_apply_n16c &= ~0x4000u;
-  *(uint8_t *)patch_apply_n170 = BYTE2(*(uint32_t *)off_115004);
+    *(uint32_t *)off_115018 &= ~0x4000u;
+  *(uint8_t *)off_11501C = BYTE2(*(uint32_t *)off_115004);
   load_and_store_block();
   patch_check_magic();
   queue_init();
+  while ( 1 )
+    ;
 }
-

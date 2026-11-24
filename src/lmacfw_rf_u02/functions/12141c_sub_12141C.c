@@ -10,10 +10,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_12148C;
-
 // rf_write_0x412 @ 0x12141c, size 112 bytes
-int  rf_write_0x412(int a1, int *a2, int16_t a3, int16_t a4)
+int  rf_write_0x412(int a1, int *a2, int a3, int a4)
 {
   int *v5; // r5
   int v6; // r2
@@ -21,7 +19,7 @@ int  rf_write_0x412(int a1, int *a2, int16_t a3, int16_t a4)
   int v8; // r3
   int v9; // r1
 
-  v5 = (int *)ke_msg_send(1042, a4, a3, 8u);
+  v5 = (int *)ke_msg_send_1(1042, a4, a3, 8);
   if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
   {
     critical_enter3(*a2, a2[2], a2[1], 1);
@@ -38,8 +36,14 @@ int  rf_write_0x412(int a1, int *a2, int16_t a3, int16_t a4)
   v8 = a2[2];
   v9 = a2[1];
   *v5 = v6;
-  dispatch_event_handler(dword_12148C, v9, v8, v8, v6, v7, v7);
-  rx_irq_handler((int)v5);
+  dispatch_event_handler_1(
+    "\x9D\x81DBG: Writing memory with mask:0x%08x, data:0x%08x / %d: [0x%08x] = 0x%08x / %d\n",
+    v9,
+    v8,
+    v8,
+    v6,
+    v7,
+    v7);
+  rx_irq_handler_1((int)v5);
   return 0;
 }
-

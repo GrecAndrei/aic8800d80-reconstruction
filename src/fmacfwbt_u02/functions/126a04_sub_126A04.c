@@ -10,33 +10,38 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_126A3C;
-extern uint32_t off_126A40;
 extern uint32_t dword_126A44;
+extern uint32_t off_126A40;
 
 // hci_acl_buf_alloc @ 0x126a04, size 56 bytes
-int hci_acl_buf_alloc()
+uint32_t *hci_acl_buf_alloc()
 {
-  int result; // r0
+  uint32_t *result; // r0
   uint32_t *v1; // r4
-  char *v2; // r5
-  char *v3; // r4
+  uint32_t *v2; // r1
+  int v3; // r5
+  int v4; // r4
+  uint32_t *a2; // [sp+4h] [bp-8h]
 
   result = list_pop_front(dword_126A3C);
+  a2 = result;
   if ( result )
   {
     v1 = off_126A40;
-    ke_event_set_lock(dword_126A44);
+    ke_event_set_lock((uint32_t *)dword_126A44);
+    v2 = a2;
     v1[18] = 0;
-    v2 = (char *)(v1 + 6);
-    v3 = (char *)(v1 + 8);
+    v3 = (int)(v1 + 6);
+    v4 = (int)(v1 + 8);
     do
     {
-      check_abort_flag(v2);
-      result = list_pop_front(v3);
+      check_abort_flag(v3, v2);
+      result = list_pop_front(v4);
+      v2 = result;
     }
     while ( result );
   }
   return result;
 }
-

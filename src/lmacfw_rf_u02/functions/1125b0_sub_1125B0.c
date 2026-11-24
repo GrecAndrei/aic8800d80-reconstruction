@@ -10,23 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_1125F0;
+
+extern uint32_t off_1125E0;
+extern uint32_t off_1125E8;
+extern uint32_t off_1125EC;
 
 // ke_poll_event_b @ 0x1125b0, size 48 bytes
-// Doc: rf_cmd_send_n_360 [rf]: Send RF command to hardware queue
-// rf_cmd_send_n_360 [rf]: Send RF command to hardware queue
-uint8_t * ke_poll_event_b(int a1, int a2)
+int ke_poll_event_b()
 {
-  uint8_t *result; // r0
-  uint32_t *v3; // r2
+  int result; // r0
+  uint32_t *v1; // r2
 
-  if ( (*((uint16_t *)rf_cmd_send_n_338 + 89) & 0x4000) != 0 )
-    result = uart_tx_string((uint8_t *)dword_1125F0);
+  if ( (*(uint16_t *)(off_1125E0 + 0xB2) & 0x4000) != 0 )
+    result = (int)uart_tx_string(aUsbWkup_0);
   else
-    result = (uint8_t *)dispatch_event_handler(rf_bus_reset_n2f4, a2);
-  v3 = rf_cmd_send_n_32c;
-  *(uint8_t *)rf_bus_reset_n2f8_0 = 0;
-  v3[896] &= ~1u;
+    result = dispatch_event_handler_1(aUsbWkup);
+  v1 = off_1125EC;
+  *(uint8_t *)off_1125E8 = 0;
+  v1[896] &= ~1u;
   return result;
 }
-

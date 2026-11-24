@@ -10,59 +10,61 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11558C;
+extern uint32_t off_115590;
+extern uint32_t off_115598;
+extern uint32_t off_1155A0;
 extern uint32_t off_1155A4;
-extern uint32_t dword_1155AC;
-extern uint32_t dword_115594;
+extern uint32_t off_1155AC;
 
 // check_init_status @ 0x1154d8, size 180 bytes
-// Doc: sdio_buffer_prepare_n_11c [util]: Initializes SDIO buffer descriptor chain
-// sdio_buffer_prepare_n_11c [util]: Initializes SDIO buffer descriptor chain
 int check_init_status()
 {
   uint8_t *v0; // r4
   int result; // r0
   uint32_t *v2; // r3
   int v3; // r3
+  volatile unsigned int v4; // r1
 
   v0 = off_11558C;
-  if ( !*(uint8_t *)off_11558C && *(uint8_t *)ipc_doorbell_handler_n_3ec )
+  if ( !*(uint8_t *)off_11558C && *(uint8_t *)off_115590 )
   {
-    result = check_status_bits(2, patch_apply_n2e0);
-    v2 = ipc_doorbell_handler_n_3dc;
+    result = check_status_bits(2, aPsall);
+    v2 = off_1155A0;
     *v0 = 1;
     if ( (uint16_t)*v2 )
     {
-      switch ( *(uint8_t *)off_1155A4 )
+      switch ( *off_1155A4 )
       {
         case 1:
-          v3 = 700 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 700 * (uint16_t)*(uint32_t *)off_1155A0;
           break;
         case 2:
-          v3 = 500 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 500 * (uint16_t)*(uint32_t *)off_1155A0;
           break;
         case 3:
-          v3 = 300 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 300 * (uint16_t)*(uint32_t *)off_1155A0;
           break;
         case 4:
-          v3 = 200 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 200 * (uint16_t)*(uint32_t *)off_1155A0;
           break;
         case 5:
-          v3 = 100 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 100 * (uint16_t)*(uint32_t *)off_1155A0;
           break;
         default:
-          v3 = 100 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 100 * (uint16_t)*(uint32_t *)off_1155A0;
           break;
       }
-      return unknown_worker(dword_1155AC, *((uint32_t *)ipc_doorbell_handler_n_3d4 + 4) + v3);
+      v4 = (*(volatile uint32_t *)0x40501010u);
+      return unknown_worker(off_1155AC, v4 + v3);
     }
   }
   else
   {
-    result = check_status_bits(2, dword_115594);
-    if ( *((uint8_t *)ipc_doorbell_handler_n_3e4 + 18) )
+    result = check_status_bits(2, aPsnotall);
+    if ( *((uint8_t *)off_115598 + 18) )
       *v0 = 0;
   }
   return result;
 }
-

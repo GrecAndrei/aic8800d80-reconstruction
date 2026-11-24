@@ -10,20 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_1267BC;
+extern uint32_t dword_1267DC;
 extern uint32_t off_1267C0;
-extern uint32_t dword_1267CC;
-extern uint32_t dword_1267C8;
 extern uint32_t off_1267C4;
 extern uint32_t off_1267D0;
 extern uint32_t off_1267D8;
-extern uint32_t off_1267D4;
-extern uint32_t dword_1267DC;
 
 // llm_ctrl_msg_handler @ 0x126714, size 166 bytes
 int  llm_ctrl_msg_handler(int a1, int a2, int a3)
 {
-  int v6; // r0
+  uint32_t *v6; // r0
   uint32_t *v7; // r4
   uint32_t *v8; // r5
   char *v9; // r0
@@ -31,8 +29,8 @@ int  llm_ctrl_msg_handler(int a1, int a2, int a3)
   int result; // r0
   int *v12; // r6
   int v13; // r1
-  int v14; // r0
-  int v15; // r3
+  volatile unsigned int v14; // r3
+  int v15; // r0
   int v16; // r2
   int *v17; // r3
   int v18; // r3
@@ -40,16 +38,16 @@ int  llm_ctrl_msg_handler(int a1, int a2, int a3)
   int v20; // r2
 
   v6 = mem_word_load(dword_1267BC);
-  v7 = (uint32_t *)v6;
-  if ( **(int16_t **)off_1267C0 < 0 && !v6 )
-    mmio_clear_register(dword_1267CC, dword_1267C8, 227);
+  v7 = v6;
+  if ( **(uint16_t **)off_1267C0 < 0 && !v6 )
+    mmio_clear_register((int)aChSwitchNull, (int)aChanSwitchAllo, 227);
   v8 = off_1267C4;
   v9 = (char *)off_1267C4 + 32;
   v10 = *((uint32_t *)off_1267C4 + 8);
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = cmd_handler_a(v9);
+  result = cmd_handler_a((int)v9, v7);
   if ( !v10 )
   {
     v8[18] = v7;
@@ -60,13 +58,13 @@ int  llm_ctrl_msg_handler(int a1, int a2, int a3)
     }
     v12 = (int *)off_1267D8;
     v13 = v7[1];
-    v14 = *(uint32_t *)off_1267D8;
-    v15 = v13 - *((uint32_t *)off_1267D4 + 4);
+    v14 = (*(volatile uint32_t *)0x40501010u);
+    v15 = *(uint32_t *)off_1267D8;
     v16 = *(uint32_t *)off_1267D8 + 1;
     *(uint32_t *)off_1267D8 = v16;
-    if ( v15 - 64 >= 0 )
+    if ( (int)(v13 - v14 - 64) >= 0 )
     {
-      result = unknown_worker(dword_1267DC, v13);
+      result = unknown_worker((uint32_t *)dword_1267DC, v13);
       if ( *v12 )
       {
         v19 = *v12 - 1;
@@ -84,9 +82,9 @@ int  llm_ctrl_msg_handler(int a1, int a2, int a3)
       if ( v16 )
       {
         v17 = (int *)off_1267D0;
-        *v12 = v14;
+        *v12 = v15;
         v18 = *v17;
-        if ( !v14 )
+        if ( !v15 )
         {
           if ( v18 )
             __enable_irq();
@@ -97,4 +95,3 @@ int  llm_ctrl_msg_handler(int a1, int a2, int a3)
   }
   return result;
 }
-

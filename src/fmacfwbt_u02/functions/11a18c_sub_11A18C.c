@@ -10,19 +10,20 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_11A298;
-extern uint32_t off_11A294;
-extern uint32_t dword_11A2A0;
-extern uint32_t dword_11A2B0;
+
 extern uint32_t dword_11A29C;
 extern uint32_t dword_11A2A4;
 extern uint32_t dword_11A2A8;
 extern uint32_t dword_11A2AC;
+extern uint32_t dword_11A2B0;
+extern uint32_t off_11A294;
+extern uint32_t off_11A298;
+extern uint32_t off_11A2A0;
 
 // timer_ticks_compare @ 0x11a18c, size 264 bytes
-int *timer_ticks_compare()
+int timer_ticks_compare()
 {
-  uint32_t *v0; // r3
+  int *v0; // r3
   uint64_t v1; // kr00_8
   uint64_t v2; // kr08_8
   int **v3; // r5
@@ -31,7 +32,7 @@ int *timer_ticks_compare()
   int v6; // r6
   int **v7; // r9
   int *v8; // t1
-  int *result; // r0
+  int result; // r0
   int v10; // t1
   int v11; // r11
   int v12; // r10
@@ -40,18 +41,18 @@ int *timer_ticks_compare()
   int v15; // r3
 
   v0 = off_11A298;
-  if ( *(uint32_t *)off_11A298 != *(uint32_t *)off_11A294 )
+  if ( *off_11A298 != *(uint32_t *)off_11A294 )
   {
     v1 = *(uint64_t *)((char *)off_11A294 + 4);
     v2 = *(uint64_t *)((char *)off_11A294 + 12);
-    *(uint32_t *)off_11A298 = *(uint32_t *)off_11A294;
+    *off_11A298 = *(uint32_t *)off_11A294;
     v0[1] = v1;
     v0[2] = HIDWORD(v1);
     v0[3] = v2;
     v0[4] = HIDWORD(v2);
   }
   v3 = (int **)off_11A298;
-  v4 = (int *)dword_11A2A0;
+  v4 = off_11A2A0;
   v5 = dword_11A2B0;
   v6 = dword_11A29C;
   memset_byte((int *)dword_11A29C, 0, 0x30u);
@@ -59,7 +60,7 @@ int *timer_ticks_compare()
   do
   {
     v8 = *v3++;
-    result = memset_byte(v8, 0, 360 * *v4);
+    result = (int)memset_byte(v8, 0, 360 * *v4);
     v10 = *v4++;
     if ( v10 > 0 )
     {
@@ -94,13 +95,13 @@ int *timer_ticks_compare()
         v13[85] = v6;
         v13[4] = v5;
         v13[21] = v5;
-        v13[44] = sub_101954() << 14;
+        v13[44] = irq47_status_handler() << 14;
         v14 = get_hw_flash_size();
         v15 = dword_11A2AC;
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = (int *)check_abort_flag(v6);
+        result = check_abort_flag(v6, v13);
         ++v12;
         v11 += 90;
       }
@@ -111,4 +112,3 @@ int *timer_ticks_compare()
   while ( v3 != v7 );
   return result;
 }
-

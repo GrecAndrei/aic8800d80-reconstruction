@@ -10,14 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_130214;
-extern uint32_t off_130218;
+
 extern uint32_t dword_13021C;
 extern uint32_t dword_130220;
 extern uint32_t dword_130224;
 extern uint32_t dword_130228;
 extern uint32_t dword_13022C;
 extern uint32_t dword_130230;
+extern uint32_t off_130214;
+extern uint32_t off_130218;
 
 // ke_irq_lock @ 0x1301b4, size 94 bytes
 int ke_irq_lock()
@@ -56,4 +57,3 @@ int ke_irq_lock()
   }
   return result;
 }
-

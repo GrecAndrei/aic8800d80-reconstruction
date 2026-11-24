@@ -10,20 +10,17 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_102B3C;
-extern uint32_t dword_102B38;
+
 extern uint32_t off_102B40;
-extern uint32_t dword_102B48;
-extern uint32_t dword_102B44;
+extern uint32_t off_102B48;
 
 // copy_cal_data @ 0x102b10, size 38 bytes
-int  copy_cal_data(int a1, int a2, int a3)
+int copy_cal_data()
 {
   int result; // r0
 
-  result = alloc_tx_event(dword_102B3C, dword_102B38, a3);
-  if ( **(int16_t **)off_102B40 < 0 )
-    return irq_disable_mmio_write(dword_102B48, dword_102B44, 61);
+  result = alloc_tx_event("%s\r\n", aIntcSpurious);
+  if ( **(uint16_t **)off_102B40 < 0 )
+    return irq_disable_mmio_write(off_102B48, (int)aIntcSpurious_0, 61);
   return result;
 }
-

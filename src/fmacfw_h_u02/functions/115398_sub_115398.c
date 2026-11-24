@@ -10,15 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_11544C;
 extern uint32_t off_115450;
-extern uint32_t dword_11545C;
+extern uint32_t off_115458;
 extern uint32_t off_115460;
 extern uint32_t off_115464;
-extern uint32_t dword_11546C;
-extern uint32_t off_115468;
-extern uint32_t dword_115454;
-extern uint32_t off_115458;
+extern uint32_t off_11546C;
 
 // int_flag_get @ 0x115398, size 180 bytes
 int int_flag_get()
@@ -27,12 +25,13 @@ int int_flag_get()
   int result; // r0
   uint32_t *v2; // r3
   int v3; // r3
+  volatile unsigned int v4; // r1
 
   v0 = off_11544C;
   if ( !*(uint8_t *)off_11544C && *(uint8_t *)off_115450 )
   {
-    result = check_feature_flag(2, dword_11545C);
-    v2 = off_115460;
+    result = check_feature_flag(2, aPsall);
+    v2 = (uint32_t *)off_115460;
     *v0 = 1;
     if ( (uint16_t)*v2 )
     {
@@ -57,15 +56,15 @@ int int_flag_get()
           v3 = 100 * (uint16_t)*(uint32_t *)off_115460;
           break;
       }
-      return mem_copy_util(dword_11546C, *((uint32_t *)off_115468 + 4) + v3);
+      v4 = (*(volatile uint32_t *)0x40501010u);
+      return mem_copy_util(off_11546C, v4 + v3);
     }
   }
   else
   {
-    result = check_feature_flag(2, dword_115454);
+    result = check_feature_flag(2, aPsnotall);
     if ( *((uint8_t *)off_115458 + 18) )
       *v0 = 0;
   }
   return result;
 }
-

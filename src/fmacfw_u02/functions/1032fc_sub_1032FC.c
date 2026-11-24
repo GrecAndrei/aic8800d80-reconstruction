@@ -13,8 +13,6 @@
 
 extern uint32_t dword_103460;
 extern uint32_t dword_103464;
-extern uint32_t dword_10346C;
-extern uint32_t dword_103470;
 extern uint32_t dword_103474;
 
 // enable_radio_controller @ 0x1032fc, size 356 bytes
@@ -37,11 +35,10 @@ int  enable_radio_controller(int a1)
   int v15; // r1
   int v16; // r7
   uint16_t v17; // r9
-  uint16_t v18; // r2
-  unsigned int v19; // r0
-  uint8_t v20; // r4
+  int16_t v18; // r2
+  uint8_t v19; // r4
   int result; // r0
-  unsigned int v22; // [sp+0h] [bp-Ch]
+  unsigned int v21; // [sp+0h] [bp-Ch]
 
   v1 = (uint32_t *)dword_103460;
   v2 = (uint32_t *)dword_103464;
@@ -109,11 +106,11 @@ int  enable_radio_controller(int a1)
         }
         v3 = v14;
       }
-      v22 = v8;
+      v21 = v8;
       v17 = v8;
       v5 += v8;
-      sub_12ECD0(0x2000, dword_10346C, v6);
-      if ( v22 <= 0x40 )
+      check_status_bits(0x2000, "%x -> %x\n", v6, v8);
+      if ( v21 <= 0x40 )
         v18 = v17 - v7;
       else
         v18 = v17 + v7;
@@ -128,13 +125,12 @@ int  enable_radio_controller(int a1)
     }
     break;
   }
-  v19 = dword_103470;
   *(uint32_t *)dword_103460 = ((v5 + 2) << 8) & 0x1FC00 | *(uint32_t *)dword_103460 & 0xFFFE03FF;
-  v20 = ((unsigned int)v5 + 2) >> 2;
-  result = sub_10DC24(v19, 40 * a1 + 280, v20);
+  v19 = ((unsigned int)v5 + 2) >> 2;
+  result = log_printf("%dM mdll duty: %x\n", 40 * a1 + 280, v19);
   if ( a1 )
-    *(uint8_t *)(dword_103474 + 1) = v20;
+    *(uint8_t *)(dword_103474 + 1) = v19;
   else
-    *(uint8_t *)dword_103474 = v20;
+    *(uint8_t *)dword_103474 = v19;
   return result;
 }

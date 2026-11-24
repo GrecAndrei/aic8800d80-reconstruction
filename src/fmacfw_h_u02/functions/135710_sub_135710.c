@@ -10,12 +10,11 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_1357DC;
+
 extern uint32_t dword_1357E0;
 extern uint32_t off_1357D8;
-extern uint32_t dword_1357EC;
-extern uint32_t dword_1357E8;
-extern uint32_t dword_1357E4;
+extern uint32_t off_1357DC;
+extern uint32_t off_1357E4;
 
 // rf_chan_state_get @ 0x135710, size 200 bytes
 int  rf_chan_state_get(unsigned int a1)
@@ -38,9 +37,9 @@ int  rf_chan_state_get(unsigned int a1)
   v1 = *((uint32_t *)off_1357DC + 4);
   v2 = dword_1357E0;
   v3 = *(uint8_t *)(v1 + 61);
-  if ( **(int16_t **)off_1357D8 < 0 && *(int *)(dword_1357E0 + 1320 * v3 + 472) >= 0 )
-    irq_disable_mmio_write(dword_1357EC, dword_1357E8, 1398);
-  v5 = (uint8_t *)tx_send_pdu(6150, 13, 6, 0x2Cu);
+  if ( **(uint16_t **)off_1357D8 < 0 && *(int *)(dword_1357E0 + 1320 * v3 + 472) >= 0 )
+    irq_disable_mmio_write((int)aBssCapaBssVali, (int)aSmExternalAuth, 1398);
+  v5 = (uint8_t *)tx_send_pdu(6150, 13, 6, 44);
   *v5 = *(uint8_t *)(v1 + 61);
   v6 = v5 + 1;
   v7 = v2 + 1320 * v3;
@@ -67,7 +66,6 @@ int  rf_chan_state_get(unsigned int a1)
   *(uint32_t *)(v9 + 34) = v15;
   *(uint32_t *)(v9 + 40) = bswap32(a1);
   hci_cmd_preprocess(6u, 6);
-  ke_event_handler(6154, 6, dword_1357E4);
-  return rx_process_packet(v9);
+  ke_event_handler(6154, 6, off_1357E4);
+  return (int)rx_process_packet_1(v9);
 }
-

@@ -10,16 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_136E84;
+
 extern uint32_t off_136E80;
 
 // set_bt_irq_flag @ 0x136e74, size 12 bytes
 int set_bt_irq_flag()
 {
-  int v0; // r0
-
-  v0 = dword_136E84;
   *(uint8_t *)off_136E80 = 1;
-  return event_dispatch(v0);
+  return event_dispatch(aApLpEnter);
 }
-

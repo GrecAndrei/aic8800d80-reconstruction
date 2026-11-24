@@ -10,6 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10107C;
 extern uint32_t off_101080;
 extern uint32_t off_101084;
@@ -18,11 +19,11 @@ extern uint32_t off_10108C;
 extern uint32_t off_101090;
 extern uint32_t off_101094;
 extern uint32_t off_101098;
-extern uint32_t dword_1010A4;
+extern uint32_t off_10109C;
+extern uint32_t off_1010A0;
+extern uint32_t off_1010A4;
 extern uint32_t off_1010A8;
 extern uint32_t off_1010AC;
-extern uint32_t off_10109C;
-extern uint32_t dword_1010A0;
 extern uint32_t off_1010B0;
 extern uint32_t off_1010B4;
 extern uint32_t off_1010B8;
@@ -43,13 +44,13 @@ int  mac_ctrl_set(unsigned int a1, int a2)
   uint32_t *v6; // r4
   int v7; // r1
   uint32_t *v8; // r1
-  uint32_t *v9; // r2
+  int *v9; // r2
   int v11; // r4
-  int v12; // r3
+  int *v12; // r3
   unsigned int *v13; // r5
   unsigned int *v14; // r2
   int v15; // r1
-  int v16; // r4
+  char *v16; // r4
   int v17; // r5
   unsigned int *v18; // r4
   uint32_t *v19; // r0
@@ -91,12 +92,12 @@ int  mac_ctrl_set(unsigned int a1, int a2)
   *v6 &= ~0x40u;
   v3[24] |= 0x8000u;
   v3[24] &= ~0x4000u;
-  v9 = off_101094;
+  v9 = (int *)off_101094;
   *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
   *v8 &= ~1u;
   *(v6 - 1903) |= 8u;
-  memcpy_advance(1, 0, 16, *v9);
-  memcpy_advance(1, 16, 16, *(uint32_t *)off_101098);
+  memcpy_advance(1, 0, 0x10u, *v9);
+  memcpy_advance(1, 16, 0x10u, *(uint32_t *)off_101098);
   rf_ctrl_set(0, a1);
   if ( a1 > 0x98A )
   {
@@ -110,16 +111,16 @@ int  mac_ctrl_set(unsigned int a1, int a2)
   {
     v11 = 3;
   }
-  v12 = dword_1010A4;
+  v12 = (int *)off_1010A4;
   v13 = (unsigned int *)off_1010A8;
   v14 = (unsigned int *)off_1010AC;
   v15 = *(uint8_t *)off_10109C & 0xC0;
   if ( v15 == 192 )
-    v12 = dword_1010A0;
-  *(uint32_t *)off_1010A8 = *(uint32_t *)off_1010A8 & 0xFE01FFFF | (*(uint8_t *)(v12 + v11) << 17);
-  v16 = v11 + v12;
-  *v13 = *v13 & 0xFFFFFF00 | *(uint8_t *)(v16 + 1);
-  v17 = *(uint8_t *)(v16 + 2);
+    v12 = (int *)off_1010A0[0];
+  *(uint32_t *)off_1010A8 = *(uint32_t *)off_1010A8 & 0xFE01FFFF | (*((uint8_t *)v12 + v11) << 17);
+  v16 = (char *)v12 + v11;
+  *v13 = *v13 & 0xFFFFFF00 | (uint8_t)v16[1];
+  v17 = (uint8_t)v16[2];
   v18 = (unsigned int *)off_1010B0;
   v19 = off_1010B4;
   *v14 = *v14 & 0xFFFFFF00 | v17;
@@ -172,4 +173,3 @@ int  mac_ctrl_set(unsigned int a1, int a2)
   *(uint32_t *)off_1010CC = 1;
   return result;
 }
-

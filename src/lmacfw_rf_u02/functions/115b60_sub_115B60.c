@@ -10,12 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_115C84;
-extern uint32_t off_115C74;
+
 extern uint32_t dword_115C80;
+extern uint32_t dword_115C84;
+extern uint32_t dword_115C88;
+extern uint32_t off_115C74;
 extern uint32_t off_115C78;
 extern uint32_t off_115C7C;
-extern uint32_t dword_115C88;
 
 // llm_scan_pdu_cfg @ 0x115b60, size 276 bytes
 int  llm_scan_pdu_cfg(int a1, int a2)
@@ -29,7 +30,7 @@ int  llm_scan_pdu_cfg(int a1, int a2)
   int v10; // r2
   int v11; // r2
   int v12; // r1
-  int16_t v13; // r3
+  uint16_t v13; // r3
   int *v14; // r3
   int v15; // r3
   int v16; // r2
@@ -62,7 +63,7 @@ int  llm_scan_pdu_cfg(int a1, int a2)
       v21 = dword_115C80;
       *(uint8_t *)(a1 + 14) = a2;
       *(uint8_t *)(a1 + 53) = 1;
-      check_kernel_state(v21 + 152 * (int16_t)v20 + 48);
+      check_kernel_state(v21 + 152 * (uint16_t)v20 + 48, (uint32_t *)a1);
       return 1;
     }
   }
@@ -77,7 +78,7 @@ int  llm_scan_pdu_cfg(int a1, int a2)
   ++*(uint32_t *)off_115C7C;
   if ( v7 )
   {
-    check_kernel_state(v5 + 12);
+    check_kernel_state((int)(v5 + 12), (uint32_t *)a1);
     v8 = *v6;
     if ( *v6 )
     {
@@ -95,7 +96,7 @@ LABEL_8:
     v22[4] = dword_115C88;
     v22[2] = a1;
     v22[3] = a1;
-    check_kernel_state(v5 + 12);
+    check_kernel_state((int)(v5 + 12), (uint32_t *)a1);
     v8 = *v6;
     if ( *v6 )
       goto LABEL_8;
@@ -142,4 +143,3 @@ LABEL_8:
   }
   return 1;
 }
-

@@ -10,37 +10,39 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12C8A8;
+
+extern uint32_t dword_12C8A0;
+extern uint32_t dword_12C8A4;
+extern uint32_t dword_12C8AC;
+extern uint32_t dword_12C8B0;
 
 // ke_event_schedule @ 0x12c7f8, size 166 bytes
-// Doc: message_dispatch_n_170 [ipc]: Compares message timestamp/delta against a reference value
-// message_dispatch_n_170 [ipc]: Compares message timestamp/delta against a reference value
 int ke_event_schedule()
 {
-  uint32_t *v0; // r7
+  unsigned int v0; // r7
   int *v1; // r5
   int *v2; // r9
-  uint32_t *v3; // r6
-  char *v4; // r8
-  int v5; // r1
+  uint32_t *v3; // r8
+  int v4; // r1
+  unsigned int v5; // r3
   int result; // r0
-  int v7; // r0
-  int v8; // r4
-  int v9; // r2
-  int v10; // r3
-  int v11; // r2
-  int v12; // r4
-  int v13; // r3
-  int *v14; // r3
-  int v15; // r3
+  volatile unsigned int v7; // r2
+  char *v8; // r0
+  char *v9; // r4
+  int v10; // r2
+  int v11; // r3
+  int v12; // r2
+  int v13; // r4
+  int v14; // r3
+  int *v15; // r3
   int v16; // r3
-  int v17; // r2
+  int v17; // r3
+  int v18; // r2
 
-  v0 = msg_dispatch_hash_ec;
-  v1 = (int *)message_dispatch_n_e8;
-  v2 = (int *)message_dispatch_n_dc;
-  v3 = off_12C8A8;
-  v4 = (char *)msg_dispatch_hash_ec + 32;
+  v0 = dword_12C8A0;
+  v1 = (int *)dword_12C8A4;
+  v2 = (int *)dword_12C8B0;
+  v3 = (uint32_t *)(dword_12C8A0 + 32);
   while ( 1 )
   {
     unknown_func_12d14c(0x10000000);
@@ -49,61 +51,62 @@ int ke_event_schedule()
       __disable_irq();
       *v2 = 1;
     }
-    v11 = *v1;
-    v12 = v0[5];
-    v13 = *v1 + 1;
-    result = (int)v4;
-    *v1 = v13;
-    if ( !v12 )
+    v12 = *v1;
+    v13 = *(uint32_t *)(v0 + 0x14);
+    v14 = *v1 + 1;
+    result = (int)v3;
+    *v1 = v14;
+    if ( !v13 )
       break;
-    v5 = *(uint32_t *)(v12 + 8);
-    if ( v5 - v3[4] - 50 >= 0 )
+    v4 = *(uint32_t *)(v13 + 8);
+    v5 = v4 - (*(volatile uint32_t *)0x40501010u);
+    if ( (int)(v5 - 50) >= 0 )
     {
-      result = unknown_worker((int)v4, v5);
-      if ( *(uint32_t *)(v12 + 8) - v3[4] >= 0 )
+      result = unknown_worker(v3, v4);
+      v7 = (*(volatile uint32_t *)0x40501010u);
+      if ( (int)(*(uint32_t *)(v13 + 8) - v7) >= 0 )
       {
         if ( *v1 )
         {
-          v16 = *v1 - 1;
-          v17 = *(uint32_t *)message_dispatch_n_dc;
-          *v1 = v16;
-          if ( !v16 )
+          v17 = *v1 - 1;
+          v18 = *(uint32_t *)dword_12C8B0;
+          *v1 = v17;
+          if ( !v17 )
           {
-            if ( v17 )
+            if ( v18 )
               goto LABEL_15;
           }
         }
         return result;
       }
     }
-    v7 = mem_word_load(message_dispatch_e0);
-    v8 = v7;
-    v9 = *v1 - 1;
+    v8 = (char *)mem_word_load(dword_12C8AC);
+    v9 = v8;
+    v10 = *v1 - 1;
     if ( *v1 )
     {
-      v10 = *v2;
-      *v1 = v9;
-      if ( !v9 )
+      v11 = *v2;
+      *v1 = v10;
+      if ( !v10 )
       {
-        if ( v10 )
+        if ( v11 )
           __enable_irq();
       }
     }
-    ke_msg_send_no_param(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255);
-    tx_pkt_enqueue(v8);
+    ke_msg_send_no_param(*((uint16_t *)v8 + 2), *((uint16_t *)v8 + 3), 255);
+    tx_pkt_enqueue(v9);
   }
-  if ( v13 )
+  if ( v14 )
   {
-    v14 = (int *)message_dispatch_n_dc;
-    *v1 = v11;
-    v15 = *v14;
-    if ( !v11 )
+    v15 = (int *)dword_12C8B0;
+    *v1 = v12;
+    v16 = *v15;
+    if ( !v12 )
     {
-      if ( v15 )
+      if ( v16 )
 LABEL_15:
         __enable_irq();
     }
   }
   return result;
 }
-

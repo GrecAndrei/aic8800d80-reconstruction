@@ -11,9 +11,8 @@
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
 // util_read_u8 @ 0x123528, size 14 bytes
-int  util_read_u8(int a1, uint8_t *a2, int a3, int a4)
+int  util_read_u8(int a1, uint8_t *a2, int a3, uint16_t a4)
 {
   mfp_key_update(*a2, a4);
   return 0;
 }
-

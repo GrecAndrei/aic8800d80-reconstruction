@@ -10,11 +10,13 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_10F110;
 extern uint32_t off_10F114;
+extern uint32_t off_10F118;
 
 // rx_copy_stats @ 0x10f0c4, size 74 bytes
-void __noreturn rx_copy_stats()
+int rx_copy_stats()
 {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -38,5 +40,9 @@ void __noreturn rx_copy_stats()
   *(uint64_t *)(v2 + 12) = v3;
   *((uint32_t *)v2 + 5) = v5;
   crypto_init();
+  hw_config_init();
+  patch_interrupt_vector();
+  if ( **(uint8_t **)off_10F118 == 3 )
+    phy_context_init();
+  return clear_queue_buffer();
 }
-

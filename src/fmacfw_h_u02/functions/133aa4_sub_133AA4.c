@@ -10,7 +10,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_133AE8;
+
 extern uint32_t dword_133AEC;
 
 // hci_apply_defaults @ 0x133aa4, size 66 bytes
@@ -22,7 +22,7 @@ int  hci_apply_defaults(int a1, uint8_t *a2)
   int v5; // r4
 
   v2 = *a2;
-  check_feature_flag(256, dword_133AE8);
+  check_feature_flag(256, aConnLossInd);
   result = hci_cmd_handler(6u);
   if ( result )
     return 2;
@@ -39,4 +39,3 @@ int  hci_apply_defaults(int a1, uint8_t *a2)
   }
   return result;
 }
-

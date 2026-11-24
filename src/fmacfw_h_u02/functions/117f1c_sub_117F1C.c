@@ -10,16 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_117FD0;
 extern uint32_t off_117FD4;
 extern uint32_t off_117FD8;
 extern uint32_t off_117FDC;
 extern uint32_t off_117FE0;
 extern uint32_t off_117FE4;
-extern uint32_t off_117FEC;
-extern uint32_t dword_117FF8;
 extern uint32_t off_117FE8;
-extern uint32_t dword_117FF4;
+extern uint32_t off_117FEC;
 extern uint32_t off_117FF0;
 
 // invoke_handler @ 0x117f1c, size 178 bytes
@@ -35,7 +34,7 @@ uint32_t *invoke_handler()
   uint32_t *v7; // r2
   int v8; // r1
   uint16_t *v9; // r4
-  int16_t v10; // r2
+  uint16_t v10; // r2
   int v11; // r3
   uint32_t *v12; // r5
   int v13; // r1
@@ -46,11 +45,11 @@ uint32_t *invoke_handler()
   if ( result )
   {
     v1 = result;
-    v2 = (uint32_t *)mmio_read_0();
+    v2 = mmio_read_0();
     v3 = v2;
     if ( v2 )
     {
-      v4 = (int *)off_117FD4;
+      v4 = off_117FD4;
       *v2 = 0;
       v5 = *v4;
       v3[1] = 0;
@@ -78,7 +77,7 @@ uint32_t *invoke_handler()
         }
         else
         {
-          alloc_tx_event(dword_117FF8, v8, v7);
+          alloc_tx_event(aSdioTailError);
           v8 = *v6;
         }
       }
@@ -86,7 +85,7 @@ uint32_t *invoke_handler()
       {
         if ( *(uint32_t *)off_117FE8 )
         {
-          alloc_tx_event(dword_117FF4, v8, v7);
+          alloc_tx_event(aBug);
           v8 = *v6;
         }
         v9 = off_117FEC;
@@ -119,4 +118,3 @@ uint32_t *invoke_handler()
   }
   return result;
 }
-

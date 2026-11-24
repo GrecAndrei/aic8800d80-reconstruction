@@ -10,11 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_133FF0;
-extern uint32_t off_133FEC;
-extern uint32_t dword_134000;
-extern uint32_t dword_133FFC;
+
 extern uint32_t dword_134004;
+extern uint32_t off_133FEC;
+extern uint32_t off_133FF0;
 extern uint32_t off_133FF4;
 extern uint32_t off_133FF8;
 
@@ -33,33 +32,33 @@ int patch_critical_enter()
   int v10; // r3
   int v11; // r6
   int v12; // r0
-  int16_t v13; // r2
+  uint16_t v13; // r2
   int v14; // r3
   int v15; // r10
   uint32_t *v16; // r1
   int v17; // r2
   int v18; // r0
-  int v19; // [sp+18h] [bp-Ch] BYREF
-  uint32_t v20[2]; // [sp+1Ch] [bp-8h] BYREF
+  int a1; // [sp+18h] [bp-Ch] BYREF
+  int a2[2]; // [sp+1Ch] [bp-8h] BYREF
 
   v0 = off_133FF0;
   v1 = *((uint32_t *)off_133FF0 + 4);
-  if ( **(int16_t **)off_133FEC < 0 && hci_cmd_send_short(6u) != 2 )
-    mmio_irq_clear(dword_134000, dword_133FFC, 344);
+  if ( **(uint16_t **)off_133FEC < 0 && hci_cmd_send_short(6u) != 2 )
+    mmio_irq_clear((int)aKeStateGetTask_10, (int)aScanuJoinCfmHa, 344);
   v2 = *(uint8_t *)(v1 + 61);
   v3 = dword_134004;
   v4 = 1320 * v2;
   v5 = dword_134004 + 1320 * v2;
   if ( *(int *)(v5 + 472) < 0 )
   {
-    if ( phy_channel_index_lookup(v20) )
+    if ( phy_channel_index_lookup((int)a2) )
     {
-      event_dispatch(1);
+      event_dispatch_1(1);
     }
     else
     {
-      v11 = bt_buf_alloc(10, 0, 6, 0x20u);
-      update_entries_from_config(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
+      v11 = bt_buf_alloc(10, 0, 6, 32);
+      update_entries_from_config(*(uint8_t *)(v1 + 61), LOBYTE(a2[0]));
       *(uint32_t *)v11 = 0;
       *(uint8_t *)(v11 + 25) = *(uint8_t *)(v1 + 61);
       v12 = *(uint32_t *)(v5 + 368);
@@ -83,12 +82,19 @@ int patch_critical_enter()
         }
         else
         {
-          v16 = 0;
+          v16 = nullptr;
         }
         v17 = v14 & 8;
         if ( (v14 & 8) != 0 )
           v17 = v4 + 292 + v3;
-        llm_parse_adv_pdu(v4 + 248 + v3, v16, v17, (uint16_t *)(v11 + 16), (int *)(v11 + 8), (int *)(v11 + 4), (char *)(v11 + 24));
+        llm_parse_adv_pdu(
+          v4 + 248 + v3,
+          v16,
+          v17,
+          (uint16_t *)(v11 + 16),
+          (int *)(v11 + 8),
+          (int *)(v11 + 4),
+          (char *)(v11 + 24));
       }
       *(uint32_t *)(v11 + 12) = v15;
       hci_evt_send(v11);
@@ -107,24 +113,23 @@ int patch_critical_enter()
   v6 = (uint8_t)v0[32];
   if ( v0[32] )
   {
-    event_dispatch(1);
+    event_dispatch_1(1);
     return 0;
   }
-  v19 = (uint8_t)v0[32];
-  v20[0] = v6;
-  ull_scan_event_start(&v19, v20);
+  a1 = (uint8_t)v0[32];
+  a2[0] = v6;
+  ull_scan_event_start(&a1, a2);
   if ( *(uint8_t *)off_133FF4 != 1 && *((uint8_t *)off_133FF8 + 3) != 1 )
   {
     *((uint8_t *)off_133FF8 + 32) = 2;
 LABEL_7:
-    rx_security_check(v19, v20[0], 1);
+    rx_security_check(a1, a2[0], 1);
     return 0;
   }
   v8 = (uint8_t)(*((uint8_t *)off_133FF8 + 32) + 1);
   *((uint8_t *)off_133FF8 + 32) = v8;
   if ( v8 > 1 )
     goto LABEL_7;
-  rx_security_check(v19, v20[0], 0);
+  rx_security_check(a1, a2[0], 0);
   return 0;
 }
-

@@ -10,9 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_13B4F4;
-extern uint32_t dword_13B4F0;
+
 extern uint32_t dword_13B4EC;
+extern uint32_t dword_13B4F0;
+extern uint32_t dword_13B4F4;
 
 // check_wait_status_1 @ 0x13b4c0, size 42 bytes
 int  check_wait_status_1(int a1, int a2, unsigned int a3)
@@ -29,4 +30,3 @@ int  check_wait_status_1(int a1, int a2, unsigned int a3)
   }
   return 0;
 }
-

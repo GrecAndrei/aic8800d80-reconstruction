@@ -10,13 +10,10 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_134A8C;
-
 // bt_free_hci_buffer @ 0x134a6c, size 30 bytes
 int  bt_free_hci_buffer(int a1, int a2)
 {
   if ( (a2 & 0x810000) == 0x10000 )
-    event_dispatch(dword_134A8C);
+    event_dispatch(aSendDeauthFail);
   return bt_init_hci_buffer();
 }
-

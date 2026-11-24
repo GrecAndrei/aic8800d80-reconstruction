@@ -10,20 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_12667C;
+extern uint32_t dword_12669C;
 extern uint32_t off_126680;
-extern uint32_t dword_12668C;
-extern uint32_t dword_126688;
 extern uint32_t off_126684;
 extern uint32_t off_126690;
 extern uint32_t off_126698;
-extern uint32_t off_126694;
-extern uint32_t dword_12669C;
 
 // llc_env_lookup @ 0x1265d4, size 166 bytes
 int  llc_env_lookup(int a1, int a2, int a3)
 {
-  int v6; // r0
+  uint32_t *v6; // r0
   uint32_t *v7; // r4
   uint32_t *v8; // r5
   char *v9; // r0
@@ -31,8 +29,8 @@ int  llc_env_lookup(int a1, int a2, int a3)
   int result; // r0
   int *v12; // r6
   int v13; // r1
-  int v14; // r0
-  int v15; // r3
+  volatile unsigned int v14; // r3
+  int v15; // r0
   int v16; // r2
   int *v17; // r3
   int v18; // r3
@@ -40,16 +38,16 @@ int  llc_env_lookup(int a1, int a2, int a3)
   int v20; // r2
 
   v6 = list_pop(dword_12667C);
-  v7 = (uint32_t *)v6;
-  if ( **(int16_t **)off_126680 < 0 && !v6 )
-    irq_disable_mmio_write(dword_12668C, dword_126688, 227);
+  v7 = v6;
+  if ( **(uint16_t **)off_126680 < 0 && !v6 )
+    irq_disable_mmio_write((int)aChSwitchNull, (int)aChanSwitchAllo, 227);
   v8 = off_126684;
   v9 = (char *)off_126684 + 32;
   v10 = *((uint32_t *)off_126684 + 8);
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = wlan_ioctl_handler_1(v9);
+  result = wlan_ioctl_handler_1((int)v9, v7);
   if ( !v10 )
   {
     v8[18] = v7;
@@ -60,13 +58,13 @@ int  llc_env_lookup(int a1, int a2, int a3)
     }
     v12 = (int *)off_126698;
     v13 = v7[1];
-    v14 = *(uint32_t *)off_126698;
-    v15 = v13 - *((uint32_t *)off_126694 + 4);
+    v14 = (*(volatile uint32_t *)0x40501010u);
+    v15 = *(uint32_t *)off_126698;
     v16 = *(uint32_t *)off_126698 + 1;
     *(uint32_t *)off_126698 = v16;
-    if ( v15 - 64 >= 0 )
+    if ( (int)(v13 - v14 - 64) >= 0 )
     {
-      result = mem_copy_util(dword_12669C, v13);
+      result = mem_copy_util((uint32_t *)dword_12669C, v13);
       if ( *v12 )
       {
         v19 = *v12 - 1;
@@ -84,9 +82,9 @@ int  llc_env_lookup(int a1, int a2, int a3)
       if ( v16 )
       {
         v17 = (int *)off_126690;
-        *v12 = v14;
+        *v12 = v15;
         v18 = *v17;
-        if ( !v14 )
+        if ( !v15 )
         {
           if ( v18 )
             __enable_irq();
@@ -97,4 +95,3 @@ int  llc_env_lookup(int a1, int a2, int a3)
   }
   return result;
 }
-

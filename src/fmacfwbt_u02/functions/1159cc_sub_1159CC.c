@@ -10,38 +10,27 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_115A14;
-extern uint32_t dword_115A24;
-extern uint32_t dword_115A2C;
-extern uint32_t dword_115A28;
-extern uint32_t dword_115A18;
-extern uint32_t dword_115A1C;
-extern uint32_t dword_115A20;
-
 // handle_debug_cmd @ 0x1159cc, size 72 bytes
-// Doc: rf_bus_setup_n396_59ce [rf]: Pack and store RF bus register fields from descriptor bytes
-// rf_bus_setup_n396_59ce [rf]: Pack and store RF bus register fields from descriptor bytes
-void  __noreturn handle_debug_cmd(int a1)
+void  handle_debug_cmd(int a1)
 {
-  printf_wrapper(dword_115A14);
+  printf_wrapper(aFaultHandlerFa);
   switch ( a1 )
   {
     case '0':
-      printf_wrapper(dword_115A24);
+      printf_wrapper(aBusfault);
       break;
     case '@':
-      printf_wrapper(dword_115A2C);
+      printf_wrapper(aUsagefault);
       break;
     case ' ':
-      printf_wrapper(dword_115A28);
+      printf_wrapper(aMemmanagefault);
       break;
     default:
-      printf_wrapper(dword_115A18);
+      printf_wrapper(aHardfault);
       break;
   }
-  printf_wrapper(dword_115A1C);
+  printf_wrapper(aContext);
   init_queue_table();
-  printf_wrapper(dword_115A20);
+  printf_wrapper(aFaultHandler);
   check_op_mode();
 }
-

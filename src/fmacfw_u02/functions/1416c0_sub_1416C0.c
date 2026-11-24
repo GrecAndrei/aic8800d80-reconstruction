@@ -10,14 +10,15 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_14172C;
 
 // ll_event_remove @ 0x1416c0, size 106 bytes
-uint32_t * ll_event_remove(int a1, int a2)
+int  ll_event_remove(int a1, int a2)
 {
   int v2; // r4
   int v4; // r6
-  uint32_t *result; // r0
+  int result; // r0
 
   if ( a2 )
   {
@@ -26,7 +27,7 @@ uint32_t * ll_event_remove(int a1, int a2)
     if ( ble_ll_adv_chk_active() )
     {
       if ( rx_rate_field_parse(0xBu) == 3 )
-        return (uint32_t *)ll_event_process();
+        return ll_event_process();
       else
         return ll_event_counter_inc();
     }
@@ -34,7 +35,7 @@ uint32_t * ll_event_remove(int a1, int a2)
     {
       *(uint8_t *)(a1 + 98) = 1;
       ble_ll_adv_event_start(a1, 0, 0, v2 + 136 * v4 + 6336);
-      return (uint32_t *)tx_path_status(a1, 3);
+      return tx_path_status(a1, 3);
     }
   }
   else
@@ -44,4 +45,3 @@ uint32_t * ll_event_remove(int a1, int a2)
   }
   return result;
 }
-

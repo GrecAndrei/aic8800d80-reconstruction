@@ -10,28 +10,23 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_128CF0;
-extern uint32_t dword_128CCC;
+
 extern uint32_t dword_128CC0;
-extern uint32_t dword_128CD8;
-extern uint32_t dword_128CD4;
-extern uint32_t dword_128CDC;
-extern uint32_t off_128CF4;
-extern uint32_t dword_128CE4;
-extern uint32_t dword_128CEC;
-extern uint32_t dword_128CE0;
-extern uint32_t dword_128CE8;
-extern uint32_t dword_128CC4;
 extern uint32_t dword_128CC8;
+extern uint32_t dword_128CCC;
+extern uint32_t dword_128CE0;
+extern uint32_t dword_128CEC;
 extern uint32_t off_128CD0;
+extern uint32_t off_128CF0;
+extern uint32_t off_128CF4;
 
 // update_entries_from_config @ 0x128aac, size 530 bytes
 int  update_entries_from_config(int a1, int a2)
 {
-  int16_t **v2; // r10
+  uint16_t **v2; // r10
   int v3; // r8
   int v4; // r7
-  int v7; // r6
+  uint32_t *v7; // r6
   int v8; // r9
   int v9; // r1
   uint8_t *v10; // r11
@@ -44,18 +39,19 @@ int  update_entries_from_config(int a1, int a2)
   int result; // r0
   int v18; // r3
   char v19; // r0
-  int16_t *v20; // r3
+  uint16_t *v20; // r3
   unsigned int v21; // r2
   int v22; // r3
   int v23; // r3
   int v24; // r1
 
-  v2 = (int16_t **)off_128CF0;
+  v2 = (uint16_t **)off_128CF0;
   v3 = dword_128CCC;
   v4 = dword_128CC0;
-  v7 = dword_128CCC + 28 * a2;
-  if ( **(int16_t **)off_128CF0 >= 0
-    || *(uint32_t *)(dword_128CC0 + 1320 * a1 + 72) && (mmio_irq_clear(dword_128CD8, dword_128CD4, 3061), **v2 >= 0) )
+  v7 = (uint32_t *)(dword_128CCC + 28 * a2);
+  if ( **(uint16_t **)off_128CF0 >= 0
+    || *(uint32_t *)(dword_128CC0 + 1320 * a1 + 72)
+    && (mmio_irq_clear((int)aVifChanCtxtNul_0, (int)aChanCtxtLink, 3061), **v2 >= 0) )
   {
     v8 = 8 * a2;
   }
@@ -63,7 +59,7 @@ int  update_entries_from_config(int a1, int a2)
   {
     v8 = 8 * a2;
     if ( *(uint8_t *)(v3 + 28 * a2 + 24) == 255 )
-      mmio_irq_clear(dword_128CDC, dword_128CD4, 3062);
+      mmio_irq_clear((int)aCtxtIdxChanCtx, (int)aChanCtxtLink, 3062);
   }
   v9 = v3 + 4 * (v8 - a2);
   v10 = off_128CF4;
@@ -81,12 +77,12 @@ int  update_entries_from_config(int a1, int a2)
     v10[90] = v21;
     if ( *v20 < 0 && v21 > 2 )
     {
-      mmio_irq_clear(dword_128CE4, dword_128CD4, 3082);
+      mmio_irq_clear((int)aChanEnvNbSched_0, (int)aChanCtxtLink, 3082);
       v21 = (uint8_t)v10[90];
     }
     if ( v21 == 2 )
     {
-      zero_struct(dword_128CEC);
+      zero_struct((uint32_t *)dword_128CEC);
       v23 = dword_128CC0;
       v24 = dword_128CC0 + 5280;
       do
@@ -96,27 +92,28 @@ int  update_entries_from_config(int a1, int a2)
       }
       while ( v24 != v23 );
     }
-    check_abort_flag(dword_128CE0);
+    check_abort_flag(dword_128CE0, v7);
     if ( (v10[88] & 0xC) != 0 )
     {
       v22 = *((uint32_t *)v10 + 8);
       if ( **v2 < 0 && !v22 )
       {
-        mmio_irq_clear(dword_128CE8, dword_128CD4, 3097);
+        mmio_irq_clear((int)aChSwitch, (int)aChanCtxtLink, 3097);
         v22 = 0;
       }
       *(uint32_t *)(v22 + 8) = v7;
-    }
-    else if ( *((uint32_t *)v10 + 11) )
-    {
-      *((uint32_t *)v10 + 11) = v7;
+      v12 = *(uint8_t *)(v3 + 4 * (v8 - a2) + 25);
     }
     else
     {
-      set_tx_buffer(v7);
+      if ( *((uint32_t *)v10 + 11) )
+        *((uint32_t *)v10 + 11) = v7;
+      else
+        set_tx_buffer(v7);
+      v12 = *(uint8_t *)(v3 + 4 * (v8 - a2) + 25);
     }
   }
-  state_check_feature(256, dword_128CC4);
+  state_check_feature(256, "chan link:%d,%d,%d,%d\r\n", v12, a2, (uint8_t)v10[90], (uint8_t)v10[91]);
   v13 = (uint8_t *)(v4 + 1320 * a1);
   v14 = (uint8_t)v13[1224];
   v13[86] = -1;
@@ -139,14 +136,13 @@ int  update_entries_from_config(int a1, int a2)
       if ( dword_128CCC + 84 == v15 )
         goto LABEL_10;
     }
-    if ( *(uint32_t *)(v4 + 1320 * v16 + 72) != v7 )
+    if ( *(uint32_t **)(v4 + 1320 * v16 + 72) != v7 )
       *(uint8_t *)(v4 + 1320 * a1 + 85) |= 0x10u;
   }
 LABEL_10:
-  result = remove_entry_by_owner(v7);
+  result = remove_entry_by_owner((int)v7);
   v18 = *((uint8_t *)off_128CD0 + 16);
   if ( v18 != a1 && v18 != 255 )
     return get_current_entry_owner(a2);
   return result;
 }
-

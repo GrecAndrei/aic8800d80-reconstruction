@@ -10,24 +10,25 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_13BC14;
 extern uint32_t dword_13BC18;
-extern uint32_t dword_13BC1C;
+extern uint32_t off_13BC1C;
 
 // init_patch_table @ 0x13bba8, size 108 bytes
 int  init_patch_table(int result)
 {
   int v1; // r4
   int v2; // r5
-  int v3; // r10
+  void *a7; // r10
   int v4; // r7
-  int16_t v5; // r9
+  uint16_t v5; // r9
   int v6; // r6
   int v7; // t1
 
   v1 = dword_13BC14;
   v2 = dword_13BC18;
-  v3 = dword_13BC1C;
+  a7 = off_13BC1C;
   v4 = result;
   v5 = -128 * dword_13BC14;
   v6 = dword_13BC14 + 64;
@@ -41,7 +42,7 @@ int  init_patch_table(int result)
       {
         hci_cmd_preprocess((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(uint8_t *)(v2 + 25) = 0;
-        result = init_state_table(v4, v2, 2, 0, 0, 39, v3);
+        result = init_state_table(v4, v2, 2, 0, 0, 0x27u, (int)a7);
       }
     }
     v2 += 32;
@@ -49,4 +50,3 @@ int  init_patch_table(int result)
   while ( v1 != v6 );
   return result;
 }
-

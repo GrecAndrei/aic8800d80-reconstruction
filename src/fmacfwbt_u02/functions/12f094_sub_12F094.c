@@ -10,12 +10,12 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t off_12F148;
+
 extern uint32_t dword_12F150;
-extern uint32_t dword_12F14C;
+extern uint32_t off_12F148;
 
 // msg_alloc_412 @ 0x12f094, size 178 bytes
-int  msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4)
+int  msg_alloc_412(int a1, uint32_t *a2, int a3, int a4)
 {
   uint64_t *v5; // r0
   int v6; // r5
@@ -23,7 +23,7 @@ int  msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4)
   uint64_t v8; // r2
   int v9; // r0
 
-  v5 = (uint64_t *)bt_buf_alloc(1042, a4, a3, 8u);
+  v5 = (uint64_t *)bt_buf_alloc(1042, a4, a3, 8);
   v6 = (int)v5;
   if ( (unsigned int)**(uint8_t **)off_12F148 - 1 <= 1 )
   {
@@ -46,7 +46,7 @@ int  msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4)
   else
   {
     v7 = (uint32_t *)*a2;
-    if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
+    if ( ((*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       atomic_reg_write((int)v7, a2[2], a2[1], 1);
       v9 = atomic_reg_read(*a2, 1);
@@ -62,8 +62,14 @@ int  msg_alloc_412(int a1, int *a2, int16_t a3, int16_t a4)
     HIDWORD(v8) = a2[2];
     *(uint32_t *)v6 = v8;
   }
-  ke_event_schedule(dword_12F14C, a2[1], HIDWORD(v8), HIDWORD(v8), (uint32_t)v8, v9, v9);
+  ke_event_schedule_1(
+    "\x9D\x81DBG: Writing memory with mask:0x%08x, data:0x%08x / %d: [0x%08x] = 0x%08x / %d\n",
+    a2[1],
+    HIDWORD(v8),
+    HIDWORD(v8),
+    (uint32_t)v8,
+    v9,
+    v9);
   hci_evt_send(v6);
   return 0;
 }
-

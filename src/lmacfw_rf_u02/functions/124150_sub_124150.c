@@ -10,21 +10,16 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t off_124170;
-extern uint32_t dword_124174;
 
 // rf_write_synth @ 0x124150, size 30 bytes
-// Doc: sub_1224150 [util]: Packs a value into a global word using shifts and ORs
-// sub_1224150 [util]: Packs a value into a global word using shifts and ORs
 int  rf_write_synth(int a1)
 {
   int v1; // r1
-  int v2; // r0
 
   v1 = (HIWORD(*(uint32_t *)off_124170) << 16) | (a1 << 8) | a1;
-  v2 = dword_124174;
   *(uint32_t *)off_124170 = v1;
-  dispatch_event_handler(v2);
+  dispatch_event_handler_1(" %x\r\n", v1);
   return 0;
 }
-

@@ -10,19 +10,18 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-extern uint32_t dword_10F0FC;
-extern uint32_t dword_10F104;
+
 extern uint32_t dword_10F100;
+extern uint32_t dword_10F104;
 extern uint32_t dword_10F108;
 extern uint32_t dword_10F10C;
 
 // ke_event_set @ 0x10f0b8, size 66 bytes
 int  ke_event_set(int a1)
 {
-  dispatch_event_handler(dword_10F0FC, a1);
+  dispatch_event_handler_1("Reboot:%x\n", a1);
   critical_enter3(dword_10F104, 196608, dword_10F100, 1);
   critical_enter3(1879048192, 1, 1, 1);
   critical_enter2(dword_10F108, a1, 1);
   return critical_enter3(dword_10F10C, 2, 2, 1);
 }
-

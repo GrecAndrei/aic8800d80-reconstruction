@@ -10,35 +10,31 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
+
 extern uint32_t dword_11FD7C;
 extern uint32_t dword_11FD80;
-extern uint32_t off_11FD84;
-extern uint32_t off_11FDC4;
 extern uint32_t dword_11FDA4;
-extern uint32_t off_11FD88;
-extern uint32_t dword_11FDA8;
-extern uint32_t off_11FDAC;
-extern uint32_t dword_11FDB0;
-extern uint32_t off_11FECC;
-extern uint32_t off_11FED4;
 extern uint32_t dword_11FED8;
-extern uint32_t off_11FED0;
-extern uint32_t off_11FEE0;
-extern uint32_t dword_11FEE8;
-extern uint32_t dword_11FEE4;
-extern uint32_t off_11FEDC;
-extern uint32_t off_11FDC8;
-extern uint32_t off_11FDB4;
-extern uint32_t off_11FDB8;
-extern uint32_t off_11FDC0;
-extern uint32_t off_11FDBC;
-extern uint32_t off_11FEF0;
-extern uint32_t off_11FEEC;
+extern uint32_t off_11FD84;
+extern uint32_t off_11FD88;
 extern uint32_t off_11FD8C;
 extern uint32_t off_11FD90;
 extern uint32_t off_11FD94;
-extern uint32_t dword_11FD98;
-extern uint32_t dword_11FDA0;
+extern uint32_t off_11FD98;
+extern uint32_t off_11FDAC;
+extern uint32_t off_11FDB4;
+extern uint32_t off_11FDB8;
+extern uint32_t off_11FDBC;
+extern uint32_t off_11FDC0;
+extern uint32_t off_11FDC4;
+extern uint32_t off_11FDC8;
+extern uint32_t off_11FECC;
+extern uint32_t off_11FED0;
+extern uint32_t off_11FED4;
+extern uint32_t off_11FEDC;
+extern uint32_t off_11FEE0;
+extern uint32_t off_11FEEC;
+extern uint32_t off_11FEF0;
 
 // get_bss_by_index @ 0x11fa78, size 1108 bytes
 int  get_bss_by_index(int a1)
@@ -51,55 +47,53 @@ int  get_bss_by_index(int a1)
   int v7; // r3
   int v8; // r3
   int v9; // r4
-  int v10; // r6
-  int v11; // r1
+  void *v10; // r6
+  int v11; // r3
   int *v13; // r10
   int v14; // r9
-  int v15; // r1
-  int v16; // r3
-  int v17; // r7
-  int v18; // r5
-  int v19; // r11
-  int v20; // r1
-  int v21; // r0
-  int v22; // r3
-  int v23; // r2
-  int v24; // r0
-  int v25; // r2
-  int v26; // r0
-  int v27; // r3
-  int v28; // r2
-  int16_t **v29; // r10
-  uint32_t *v30; // r7
-  int v31; // r1
-  int v32; // r9
-  unsigned int v33; // r3
-  uint32_t *v34; // r0
-  uint32_t *v35; // r3
-  int v36; // r1
-  int v37; // r2
-  unsigned int v38; // r3
-  int v39; // r3
-  int v40; // r0
-  int v41; // r3
-  int v42; // r1
-  int *v43; // r7
-  int v44; // r3
-  int v45; // r1
-  int v46; // r2
-  int v47; // r3
-  uint32_t *v48; // r12
-  uint32_t *v49; // r1
-  int v50; // r0
-  int v51; // [sp+8h] [bp-1Ch]
-  int v52; // [sp+Ch] [bp-18h]
-  int v53; // [sp+10h] [bp-14h]
-  int *v54; // [sp+14h] [bp-10h]
-  uint8_t *v55; // [sp+1Ch] [bp-8h]
+  int v15; // r3
+  uint32_t **v16; // r7
+  int v17; // r5
+  int v18; // r11
+  int v19; // r0
+  int v20; // r3
+  int v21; // r2
+  int v22; // r0
+  int v23; // r3
+  int v24; // r2
+  uint16_t **v25; // r10
+  uint32_t *v26; // r7
+  int v27; // r1
+  int v28; // r9
+  unsigned int v29; // r3
+  uint32_t *v30; // r0
+  uint32_t *v31; // r3
+  int v32; // r1
+  int v33; // r2
+  unsigned int v34; // r3
+  int v35; // r3
+  int v36; // r0
+  int v37; // r3
+  int v38; // r1
+  int *v39; // r7
+  int v40; // r3
+  int v41; // r1
+  int v42; // r2
+  int v43; // r3
+  uint32_t *v44; // r12
+  uint32_t *v45; // r1
+  int v46; // r0
+  int v47; // [sp+0h] [bp-24h]
+  int v48; // [sp+4h] [bp-20h]
+  int a2; // [sp+8h] [bp-1Ch]
+  int v50; // [sp+Ch] [bp-18h]
+  int v51; // [sp+10h] [bp-14h]
+  int *v52; // [sp+14h] [bp-10h]
+  int v53; // [sp+1Ch] [bp-8h]
 
   v2 = dword_11FD7C;
   v3 = (int *)(dword_11FD7C + 1320 * a1);
-  v52 = 1320 * a1;
+  v50 = 1320 * a1;
   wlan_ioctl_handler_3(dword_11FD80, v3);
   if ( *((int **)off_11FD84 + 8) == v3 )
     *((uint32_t *)off_11FD84 + 8) = 0;
@@ -107,32 +101,31 @@ int  get_bss_by_index(int a1)
   if ( v4 == 2 )
   {
     v13 = (int *)off_11FDC4;
-    v54 = v3;
+    v52 = v3;
     v14 = dword_11FDA4 + 696 * (a1 + 32);
-    v15 = 0;
-    v16 = dword_11FDA4 + 8 * (87 * (a1 + 32) + 78);
-    v55 = (uint8_t *)off_11FD88;
-    --*((uint8_t *)off_11FD88 + 18);
-    v51 = v16;
+    v15 = dword_11FDA4 + 8 * (87 * (a1 + 32) + 78);
+    v53 = off_11FD88;
+    --*(uint8_t *)(off_11FD88 + 0x12);
+    a2 = v15;
     *(uint8_t *)(v14 + 37) = 0;
-    v17 = v2 + 8 * (165 * (int16_t)a1 + 159);
-    v18 = 0;
+    v16 = (uint32_t **)(v2 + 8 * (165 * (uint16_t)a1 + 159));
+    v17 = 0;
     do
     {
       if ( *(uint32_t *)(v14 + 584) )
-        phy_dispatch((uint8_t)v18, v51 - 40, 0);
+        phy_dispatch((uint8_t)v17, a2 - 40, 0);
       if ( *(uint32_t *)(v14 + 624) )
-        phy_dispatch((uint8_t)v18, v51, 0);
+        phy_dispatch((uint8_t)v17, a2, 0);
       if ( v3[318] || v3[308] )
       {
-        v19 = v17 - 40;
-        v53 = list_length(v17, v15);
-        v21 = list_length(v17 - 40, v20);
-        alloc_tx_event(dword_11FDA8, v53, v21);
+        v18 = (int)(v16 - 10);
+        v51 = list_length(v16);
+        v19 = list_length(v16 - 10);
+        alloc_tx_event("vif unregister:%d, %d\n", v51, v19);
       }
       else
       {
-        v19 = v17 - 40;
+        v18 = (int)(v16 - 10);
       }
       if ( (__get_CPSR() & 1) == 0 )
       {
@@ -140,32 +133,32 @@ int  get_bss_by_index(int a1)
         *(uint32_t *)off_11FDAC = 1;
       }
       ++*v13;
-      phy_dispatch((uint8_t)v18, v17, 0);
-      phy_dispatch((uint8_t)v18, v19, 0);
+      phy_dispatch((uint8_t)v17, (int)v16, 0);
+      phy_dispatch((uint8_t)v17, v18, 0);
       if ( *v13 )
       {
-        v22 = *v13 - 1;
-        v23 = *(uint32_t *)off_11FDAC;
-        *v13 = v22;
-        if ( !v22 )
+        v20 = *v13 - 1;
+        v21 = *(uint32_t *)off_11FDAC;
+        *v13 = v20;
+        if ( !v20 )
         {
-          if ( v23 )
+          if ( v21 )
             __enable_irq();
         }
       }
-      ++v18;
+      ++v17;
       v14 += 8;
-      v17 += 8;
+      v16 += 2;
       v3 += 2;
-      v51 += 8;
+      a2 += 8;
     }
-    while ( v18 != 5 );
-    v3 = v54;
-    v5 = v55;
+    while ( v17 != 5 );
+    v3 = v52;
+    v5 = (uint8_t *)v53;
     if ( *(uint32_t *)(v2 + 1320 * a1 + 1312) )
     {
-      v24 = list_length(v52 + 1312 + v2, v15);
-      alloc_tx_event(dword_11FDB0, v24, v25);
+      v22 = list_length((uint32_t **)(v50 + 1312 + v2));
+      alloc_tx_event("vif unregister mgmt:%d\n", v22);
     }
     if ( (__get_CPSR() & 1) == 0 )
     {
@@ -173,22 +166,22 @@ int  get_bss_by_index(int a1)
       *(uint32_t *)off_11FDAC = 1;
     }
     ++*v13;
-    v26 = phy_dispatch(5, v52 + 1312 + v2, 0);
+    phy_dispatch(5u, v50 + 1312 + v2, 0);
     if ( *v13 )
     {
-      v27 = *v13 - 1;
-      v28 = *(uint32_t *)off_11FDAC;
-      *v13 = v27;
-      if ( !v27 )
+      v23 = *v13 - 1;
+      v24 = *(uint32_t *)off_11FDAC;
+      *v13 = v23;
+      if ( !v23 )
       {
-        if ( v28 )
+        if ( v24 )
           __enable_irq();
       }
     }
-    v6 = v55[18];
-    if ( !v55[18] )
+    v6 = *(uint8_t *)(v53 + 18);
+    if ( !*(uint8_t *)(v53 + 18) )
     {
-      rf_irq_disable(v26);
+      rf_irq_disable_1();
 LABEL_6:
       v6 = (uint8_t)v5[18];
       v7 = (uint8_t)v5[17] + v6;
@@ -196,20 +189,20 @@ LABEL_6:
         goto LABEL_7;
       goto LABEL_40;
     }
-    if ( v55[17] + v6 != 1 )
+    if ( *(uint8_t *)(v53 + 17) + v6 != 1 )
       goto LABEL_9;
   }
   else
   {
     if ( v4 != 4 )
     {
-      v5 = off_11FD88;
+      v5 = (uint8_t *)off_11FD88;
       if ( !*(uint8_t *)(v2 + 1320 * a1 + 106) )
       {
-        v6 = *((uint8_t *)off_11FD88 + 18);
-        v39 = (uint8_t)(*((uint8_t *)off_11FD88 + 17) - 1);
-        *((uint8_t *)off_11FD88 + 17) = v39;
-        v7 = v39 + v6;
+        v6 = *(uint8_t *)(off_11FD88 + 0x12);
+        v35 = (uint8_t)(*(uint8_t *)(off_11FD88 + 0x11) - 1);
+        *(uint8_t *)(off_11FD88 + 0x11) = v35;
+        v7 = v35 + v6;
         if ( v7 != 1 )
           goto LABEL_7;
         goto LABEL_40;
@@ -219,35 +212,35 @@ LABEL_6:
     if ( check_rf_ready() )
       set_rf_control_bit(0);
     v5 = off_11FECC;
-    v40 = *((uint8_t *)off_11FECC + 16);
-    v41 = v2 + 1320 * v40;
-    v42 = *(uint32_t *)(v41 + 72);
-    *(uint32_t *)(v41 + 4) &= ~0x80u;
-    if ( v42 )
-      v40 = bsscfg_get();
+    v36 = *((uint8_t *)off_11FECC + 16);
+    v37 = v2 + 1320 * v36;
+    v38 = *(uint32_t *)(v37 + 72);
+    *(uint32_t *)(v37 + 4) &= ~0x80u;
+    if ( v38 )
+      bsscfg_get(v36);
     v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
-      rf_irq_enable(v40, v42);
+      rf_irq_enable();
       v6 = (uint8_t)v5[18];
     }
     else
     {
-      v43 = (int *)off_11FED4;
-      v44 = dword_11FED8;
-      v45 = **(int16_t **)off_11FED0;
+      v39 = (int *)off_11FED4;
+      v40 = dword_11FED8;
+      v41 = **(uint16_t **)off_11FED0;
       *(uint32_t *)off_11FED4 = dword_11FED8;
-      if ( v45 < 0 )
+      if ( v41 < 0 )
       {
         v6 = *(uint32_t *)off_11FEE0 & 0xF;
         if ( v6 )
         {
-          mmio_write_field(dword_11FEE8, dword_11FEE4, 472);
-          v44 = *v43;
+          mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+          v40 = *v39;
           v6 = (uint8_t)v5[18];
         }
       }
-      *(uint32_t *)off_11FEDC = v44 | v43[1];
+      *(uint32_t *)off_11FEDC = v40 | v39[1];
     }
     v7 = (uint8_t)v5[17] + v6;
     v5[16] = -1;
@@ -255,49 +248,49 @@ LABEL_6:
       goto LABEL_7;
   }
 LABEL_40:
-  v29 = (int16_t **)off_11FDC8;
-  v30 = off_11FDB4;
-  v31 = **(int16_t **)off_11FDC8;
-  v32 = *((uint32_t *)v5 + 2);
-  v33 = *((uint32_t *)off_11FDB4 + 1) & 0xFFFFFFEF;
-  *((uint32_t *)off_11FDB4 + 1) = v33;
-  if ( v31 >= 0 || !(*(uint32_t *)off_11FEE0 << 28) )
+  v25 = (uint16_t **)off_11FDC8;
+  v26 = off_11FDB4;
+  v27 = **(uint16_t **)off_11FDC8;
+  v28 = *((uint32_t *)v5 + 2);
+  v29 = *((uint32_t *)off_11FDB4 + 1) & 0xFFFFFFEF;
+  *((uint32_t *)off_11FDB4 + 1) = v29;
+  if ( v27 >= 0 || !(*(uint32_t *)off_11FEE0 << 28) )
   {
-    v34 = off_11FDB8;
-    *(uint32_t *)off_11FDC0 = v33 | *v30;
-    v35 = off_11FDBC;
-    v36 = *(uint16_t *)(v32 + 68);
-    *v34 = *(uint32_t *)(v32 + 64);
-    *v35 = v36;
+    v30 = off_11FDB8;
+    *(uint32_t *)off_11FDC0 = v29 | *v26;
+    v31 = off_11FDBC;
+    v32 = *(uint16_t *)(v28 + 68);
+    *v30 = *(uint32_t *)(v28 + 64);
+    *v31 = v32;
     if ( v6 )
       goto LABEL_9;
 LABEL_42:
-    v37 = **v29;
-    v38 = v30[1] & 0xFFFFFEFF;
-    v30[1] = v38;
-    if ( v37 >= 0 || !(*(uint32_t *)off_11FEE0 << 28) )
+    v33 = **v25;
+    v34 = v26[1] & 0xFFFFFEFF;
+    v26[1] = v34;
+    if ( v33 >= 0 || !(*(uint32_t *)off_11FEE0 << 28) )
     {
-      *(uint32_t *)off_11FDC0 = v38 | *v30;
+      *(uint32_t *)off_11FDC0 = v34 | *v26;
       goto LABEL_9;
     }
-    mmio_write_field(dword_11FEE8, dword_11FEE4, 472);
+    mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
     v7 = (uint8_t)v5[17] + (uint8_t)v5[18];
-    *(uint32_t *)off_11FEDC = *v30 | v30[1];
+    *(uint32_t *)off_11FEDC = *v26 | v26[1];
     goto LABEL_7;
   }
-  mmio_write_field(dword_11FEE8, dword_11FEE4, 472);
-  v46 = (uint8_t)v5[18];
-  v47 = (uint8_t)v5[17];
-  v48 = off_11FEF0;
-  *(uint32_t *)off_11FEDC = *v30 | v30[1];
-  v7 = v47 + v46;
-  v49 = off_11FEEC;
-  v50 = *(uint16_t *)(v32 + 68);
-  *v48 = *(uint32_t *)(v32 + 64);
-  *v49 = v50;
+  mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+  v42 = (uint8_t)v5[18];
+  v43 = (uint8_t)v5[17];
+  v44 = off_11FEF0;
+  *(uint32_t *)off_11FEDC = *v26 | v26[1];
+  v7 = v43 + v42;
+  v45 = off_11FEEC;
+  v46 = *(uint16_t *)(v28 + 68);
+  *v44 = *(uint32_t *)(v28 + 64);
+  *v45 = v46;
   if ( v7 == 1 )
   {
-    if ( v46 )
+    if ( v42 )
       goto LABEL_9;
     goto LABEL_42;
   }
@@ -305,8 +298,8 @@ LABEL_7:
   if ( !v7 )
     *(uint32_t *)off_11FD8C = 0;
 LABEL_9:
-  mem_set_util(v52 + 24 + v2);
-  mem_set_util(v52 + 48 + v2);
+  mem_set_util((uint32_t *)(v50 + 24 + v2));
+  mem_set_util((uint32_t *)(v50 + 48 + v2));
   v8 = v2 + 1320 * a1;
   if ( *(uint8_t *)(v8 + 1224) )
   {
@@ -318,17 +311,18 @@ LABEL_9:
     *((uint32_t *)off_11FD90 + 4) = 0;
   *(uint32_t *)off_11FD94 = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
-    get_current_channel();
-  sub_100200(v3, 0, 0x528u);
+    get_current_channel_1();
+  memset_thunk(v3, 0, 0x528u);
+  v48 = a1;
   v9 = v2 + 1320 * a1;
-  v10 = dword_11FD98;
+  v10 = off_11FD98;
+  v47 = (uint8_t)v5[18];
+  v11 = v47 + (uint8_t)v5[17];
   *(uint8_t *)(v9 + 106) = 5;
-  v11 = dword_11FDA0;
   *(uint32_t *)(v9 + 56) = v3;
   *(uint32_t *)(v9 + 52) = v10;
   *(uint8_t *)(v9 + 109) = 127;
   *(uint8_t *)(v9 + 110) = 127;
-  check_feature_flag(256, v11);
-  return wlan_ioctl_handler_1(off_11FD88);
+  check_feature_flag(256, "%s:%d,%d,%d\r\n", aVifMgmtUnregis, v11, v47, v48);
+  return wlan_ioctl_handler_1(off_11FD88, v3);
 }
-
