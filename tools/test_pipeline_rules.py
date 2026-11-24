@@ -19,6 +19,8 @@ import callsite_targets
 import libmatch
 import periph_symbols
 import post_compose
+import signed_halfwords
+import signed_muls
 import volatile_pointees
 from convert_decompiled_to_functions import convert_to_c99, deref_two_d
 
@@ -489,12 +491,79 @@ class FloatCompares(unittest.TestCase):
             self.assertEqual(float_compares.apply(text)[1], 0)
 
 
+class SignedMuls(unittest.TestCase):
+    def test_restores_smull_casts_but_leaves_umull_alone(self):
+        src = (
+            "v1 = ((uint64_t)(dword_1038D4 * (uint64_t)(4 * (v36 - 35))) >> 32);\n"
+            "v2 = ((uint64_t)(dword_1076D4 * (uint64_t)*(volatile int *)(a1 + 4)) >> 32);\n"
+            "v3 = (v9 & 0x7FFFFF) * (uint64_t)(int)_frame.v11[(v9 >> 18) & 0x1F];\n"
+            "u1 = (unsigned int)dword_10C5B0 * (uint64_t)*(volatile unsigned int *)off_10C5AC;\n"
+        )
+        out, n = signed_muls.apply(src)
+        self.assertEqual(n, 3)
+        self.assertIn("(int32_t)dword_1038D4 * (int64_t)(int32_t)(4 * (v36 - 35))", out)
+        self.assertIn("(int32_t)dword_1076D4 * (int64_t)(int32_t)(*(volatile int *)(a1 + 4))", out)
+        self.assertIn("(int64_t)(int32_t)(v9 & 0x7FFFFF) * (int64_t)(int32_t)(_frame.v11[(v9 >> 18) & 0x1F])", out)
+        self.assertIn("(unsigned int)dword_10C5B0 * (uint64_t)", out)
+        self.assertEqual(signed_muls.apply(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for img in signed_muls.IMAGES:
+            text = (signed_muls.REPO / "src" / img / "main.c").read_text(errors="replace")
+            self.assertEqual(signed_muls.apply(text)[1], 0)
+
+
+class SignedHalfwords(unittest.TestCase):
+    def test_restores_signed_int16_locals_casts_and_double_deref(self):
+        bt = (
+            "int sub_10E6FC(void) {\n"
+            "  int16_t *v8;\n"
+            "  int16_t **v99;\n"
+            "  v8 = (int16_t *)off_10E8A4;\n"
+            "  v99 = (int16_t **)off_100428;\n"
+            "  if ( **(int16_t **)off_111614 < 0 )\n"
+            "    return (int16_t)(v1 - v2);\n"
+            "  return (uint16_t)v3;\n"
+            "}\n"
+        )
+        mc = (
+            "{\n"
+            "  volatile uint16_t *v8;\n"
+            "  volatile uint16_t **v21;\n"
+            "  volatile int16_t **v1;\n"
+            "  v8 = (volatile uint16_t *)off_10E8A4;\n"
+            "  v21 = (volatile uint16_t **)off_100428;\n"
+            "  v1 = (volatile uint16_t **)off_12CCC4;\n"
+            "  if ( **(volatile uint16_t **)off_111614 < 0 )\n"
+            "    return (uint16_t)(v1 - v2);\n"
+            "  return (uint16_t)v3;\n"
+            "}\n"
+        )
+        out, n = signed_halfwords.apply_function(mc, bt)
+        self.assertGreaterEqual(n, 6)
+        self.assertIn("volatile int16_t *v8;", out)
+        self.assertIn("volatile int16_t **v21;", out)
+        self.assertIn("(volatile int16_t **)off_12CCC4", out)
+        self.assertIn("(volatile int16_t *)off_10E8A4", out)
+        self.assertIn("**(volatile int16_t **)off_111614 < 0", out)
+        self.assertIn("(int16_t)(v1 - v2)", out)
+        self.assertIn("(uint16_t)v3", out)
+        self.assertEqual(signed_halfwords.apply_function(out, bt), (out, 0))
+
+    def test_tracked_sources_are_at_the_fixed_point(self):
+        for short, img in signed_halfwords.IMAGES.items():
+            text = (signed_halfwords.REPO / "src" / short / "main.c").read_text(errors="replace")
+            tdir = signed_halfwords.REPO / "harness_v25" / "out" / f"{img}_bin_types"
+            self.assertEqual(signed_halfwords.apply_image(text, tdir)[1], 0)
+
+
 class PostCompose(unittest.TestCase):
     RULES = {"callsite_targets.py", "periph_symbols.py", "asm_returns.py",
              "call_cast_returns.py", "double_args.py", "float_bits.py",
              "stack_frames.py", "dword_compares.py", "arm_shifts.py",
-             "float_compares.py", "heal_two_d_subscript.py", "libmatch.py",
-             "volatile_pointees.py", "heal_composed.py"}
+             "float_compares.py", "signed_muls.py", "signed_halfwords.py",
+             "heal_two_d_subscript.py", "libmatch.py", "volatile_pointees.py",
+             "heal_composed.py"}
 
     def test_the_chain_runs_every_rule_and_rebinds_before_heal(self):
         steps = [(s, a) for s, a, _ in post_compose.STEPS]

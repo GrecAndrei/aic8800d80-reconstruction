@@ -35,6 +35,8 @@ STEPS = [
     ("dword_compares.py", [], True),
     ("arm_shifts.py", [], True),
     ("float_compares.py", [], True),
+    ("signed_muls.py", [], True),
+    ("signed_halfwords.py", [], True),
 ]
 
 

@@ -179,7 +179,7 @@ python3 -m unittest discover -s tools -p 'test_*.py'
 python3 tools/libmatch.py scan --check && python3 tools/libmatch.py apply --check
 python3 tools/heal_two_d_subscript.py --check && python3 tools/volatile_pointees.py --check
 python3 tools/callsite_targets.py --check && python3 tools/periph_symbols.py --check   # docs/LINKED_CORPUS_COMPARISON.md
-for r in asm_returns call_cast_returns double_args float_bits stack_frames dword_compares arm_shifts float_compares; do python3 tools/$r.py --check; done
+for r in asm_returns call_cast_returns double_args float_bits stack_frames dword_compares arm_shifts float_compares signed_muls signed_halfwords; do python3 tools/$r.py --check; done
 
 make -C src check                      # add OPT=-O0 for the diagnostic build
 python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run

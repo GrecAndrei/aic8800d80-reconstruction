@@ -37,7 +37,7 @@ HEADER = """#include <stdint.h>
 """
 
 # Ordered so longer/prefix types win over shorter (e.g. unsigned __int8 before
-# __int8). All width-based -> unsigned C99, matching the existing tree.
+# __int8). Unsigned types -> uintN_t; bare __intN -> intN_t (signed in MSVC/Hex-Rays).
 TYPE_RE = [
     (re.compile(r"\bunsigned\s+__int8\b"), "uint8_t"),
     (re.compile(r"\bunsigned\s+__int16\b"), "uint16_t"),
@@ -47,10 +47,10 @@ TYPE_RE = [
     (re.compile(r"\bsigned\s+__int32\b"), "int32_t"),
     (re.compile(r"\bsigned\s+__int16\b"), "int16_t"),
     (re.compile(r"\bsigned\s+__int8\b"), "int8_t"),
-    (re.compile(r"\b__int64\b"), "uint64_t"),
-    (re.compile(r"\b__int32\b"), "uint32_t"),
-    (re.compile(r"\b__int16\b"), "uint16_t"),
-    (re.compile(r"\b__int8\b"), "uint8_t"),
+    (re.compile(r"\b__int64\b"), "int64_t"),
+    (re.compile(r"\b__int32\b"), "int32_t"),
+    (re.compile(r"\b__int16\b"), "int16_t"),
+    (re.compile(r"\b__int8\b"), "int8_t"),
     (re.compile(r"\b_QWORD\b"), "uint64_t"),
     (re.compile(r"\b_DWORD\b"), "uint32_t"),
     (re.compile(r"\b_WORD\b"), "uint16_t"),

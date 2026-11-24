@@ -6995,7 +6995,7 @@ int ke_event_handler(int a1, int a2, int a3, int a4) {
   unsigned int v18; // r6
   unsigned int v19; // r0
   unsigned int v20; // r3
-  volatile uint16_t **v21; // r6
+  volatile int16_t **v21; // r6
   int v22; // r3
   volatile int **v23; // r0
   int v24; // r2
@@ -7051,7 +7051,7 @@ int ke_event_handler(int a1, int a2, int a3, int a4) {
   if ( v19 < 3 )
     v19 = 3;
   v16[2] = v18;
-  v21 = (volatile uint16_t **)off_100428;
+  v21 = (volatile int16_t **)off_100428;
   v10[3] = HIDWORD(v13);
   if ( v20 < 3 )
     v20 = 3;
@@ -7848,7 +7848,7 @@ LABEL_7:
       {
         v24 = v23 <= 10;
       }
-      v15 = ((uint8_t)((int)((uint64_t)(dword_100E14 * (uint64_t)(int)(a2 - (a3 - 30))) >> 32) >> 3)
+      v15 = ((uint8_t)((int)((uint64_t)((int32_t)dword_100E14 * (int64_t)(int32_t)(int)(a2 - (a3 - 30))) >> 32) >> 3)
            - (uint8_t)((int)(a2 - (a3 - 30)) >> 31))
           & 7;
       *(volatile uint32_t *)off_100E00 = v24;
@@ -8421,7 +8421,7 @@ int event_queue_check() {
   int result; // r0
   int v14; // r1
 
-  if ( **(volatile uint16_t **)off_1018DC < 0
+  if ( **(volatile int16_t **)off_1018DC < 0
     && (uint8_t)BYTE2(*(volatile uint32_t *)off_101928) + 10 * (HIBYTE(*(volatile uint32_t *)off_101928) + 2) != 32 )
   {
     mmio_clear_register((int)aMdmMajorVersio, (int)aMdmInit, 6119);
@@ -8718,7 +8718,7 @@ int rf_poll_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
         }
         else
         {
-          if ( **(volatile uint16_t **)off_101D48 < 0 )
+          if ( **(volatile int16_t **)off_101D48 < 0 )
           {
             call_shared_handler(off_101D50, (int)aPhyGetRfGainId, 6857);
             v11 = v10;
@@ -8747,14 +8747,14 @@ int rf_poll_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
       *a3 = (v13 >> 1) + v8;
       return result;
     }
-    if ( **(volatile uint16_t **)off_101D48 >= 0 )
+    if ( **(volatile int16_t **)off_101D48 >= 0 )
       return result;
     v19 = 6875;
     return mmio_clear_register(off_101D50, (int)aPhyGetRfGainId, v19);
   }
   if ( !BYTE1(((volatile uint32_t *)(uintptr_t)off_101D2C)[49]) )
   {
-    if ( **(volatile uint16_t **)off_101D48 >= 0 )
+    if ( **(volatile int16_t **)off_101D48 >= 0 )
       return result;
     v19 = 6921;
     return mmio_clear_register(off_101D50, (int)aPhyGetRfGainId, v19);
@@ -8796,7 +8796,7 @@ int rf_poll_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
     }
     else
     {
-      if ( **(volatile uint16_t **)off_101D48 < 0 )
+      if ( **(volatile int16_t **)off_101D48 < 0 )
         call_shared_handler(off_101D50, (int)aPhyGetRfGainId, 6907);
       result = event_dispatch("invalid chan, band=%d, freq=%d\n", 1, v5);
       v21 = 15;
@@ -8956,7 +8956,7 @@ LABEL_18:
     }
     else
     {
-      if ( **(volatile uint16_t **)off_101F18 < 0 )
+      if ( **(volatile int16_t **)off_101F18 < 0 )
         call_shared_handler(off_101F24, (int)aPhyGetTxpwrLev, 7022);
       event_dispatch("invalid chan, band=%d, freq=%d\n", v3, v4);
       v23 = 15;
@@ -9811,7 +9811,7 @@ int check_radio_state() {
   int result; // r0
 
   result = event_dispatch("%s\r\n", aIntcSpurious);
-  if ( **(volatile uint16_t **)off_102BF0 < 0 )
+  if ( **(volatile int16_t **)off_102BF0 < 0 )
     return mmio_clear_register(off_102BF8, (int)aIntcSpurious_0, 61);
   return result;
 }
@@ -9987,7 +9987,7 @@ int peripheral_write_32(int a1, volatile uint16_t *a2) {
   int v13; // r3
   int result; // r0
   int v15; // r4
-  uint16_t v16; // r12
+  int16_t v16; // r12
   volatile char *v17; // r7
   int v18; // r6
   volatile char *v19; // r12
@@ -10885,7 +10885,7 @@ LABEL_17:
   v44 = (void *)(uintptr_t)(off_103960);
   *(volatile uint32_t *)off_10395C |= 0x8000000u;
   v45 = rf_get_bandwidth();
-  v46 = ((int)(((uint64_t)(dword_103964 * (uint64_t)(4 * (v45 - 35))) >> 32) + 4 * (v45 - 35)) >> 2)
+  v46 = ((int)(((uint64_t)((int32_t)dword_103964 * (int64_t)(int32_t)(4 * (v45 - 35))) >> 32) + 4 * (v45 - 35)) >> 2)
       - ((4 * (v45 - 35)) >> 31)
       + 120;
   *(volatile uint16_t *)off_103984 = v46;
@@ -11507,7 +11507,7 @@ int select_fuse_bank() {
   int v11; // r0
   unsigned int v12; // r0
   unsigned int v13; // r3
-  uint16_t v14; // r2
+  int16_t v14; // r2
   int result; // r0
   int v16; // r3
 
@@ -11551,12 +11551,12 @@ int select_fuse_bank() {
       v13 = (v13 & ~0xFFFFu) | ((uint16_t)(v13 - 4096) & 0xFFFFu);
     v14 = (uint16_t)v12 >> 4;
     result = v12 >> 4 << 20;
-    v16 = (uint16_t)(v13 - v9 / 0x2000);
+    v16 = (int16_t)(v13 - v9 / 0x2000);
     if ( result < 0 )
       v14 -= 4096;
     *v2 = ((v16 + (v16 < 0 ? 0x1000 : 0)) << 20)
         + 65537
-        + 16 * ((uint16_t)(v14 - v8 / 0x2000) + ((uint16_t)(v14 - v8 / 0x2000) < 0 ? 0x1000 : 0));
+        + 16 * ((int16_t)(v14 - v8 / 0x2000) + ((int16_t)(v14 - v8 / 0x2000) < 0 ? 0x1000 : 0));
     v2 += 2;
   }
   while ( (volatile int *)(4 * v3) != v2 );
@@ -11997,7 +11997,7 @@ int rf_scan_init(int a1, int a2, int a3, int a4, int a5, int a6) {
     v20 = v18;
     v21 = 0;
   }
-  v22 = ((int)((uint64_t)(dword_104D34 * (uint64_t)(0x2000 - v19)) >> 32) >> 9) - ((0x2000 - v19) >> 31);
+  v22 = ((int)((uint64_t)((int32_t)dword_104D34 * (int64_t)(int32_t)(0x2000 - v19)) >> 32) >> 9) - ((0x2000 - v19) >> 31);
   if ( a6 )
   {
     if ( v22 >= 5 )
@@ -13799,7 +13799,7 @@ int rf_phy_regs_read_cal(unsigned int a1, int a2, volatile uint16_t *a3, int a4,
   volatile uint32_t *v32; // r5
   volatile uint32_t *v33; // r2
   volatile uint32_t *v34; // r2
-  volatile uint16_t *v35; // r9
+  volatile int16_t *v35; // r9
   volatile uint32_t *v36; // r8
   int v37; // r7
   int v38; // r3
@@ -14693,13 +14693,13 @@ int timer_ticks_to_usec(int a1) {
   v15 = ((volatile uint32_t *)(uintptr_t)off_107810)[115];
   v16 = ((volatile uint32_t *)(uintptr_t)off_107810)[116];
   v17 = ((volatile uint32_t *)(uintptr_t)off_107810)[117];
-  v18 = ((uint64_t)(dword_107814 * (uint64_t)*(volatile int *)(a1 + 4)) >> 32) - (*(volatile int *)(a1 + 4) >> 31);
+  v18 = ((uint64_t)((int32_t)dword_107814 * (int64_t)(int32_t)(*(volatile int *)(a1 + 4))) >> 32) - (*(volatile int *)(a1 + 4) >> 31);
   v46 = ((volatile uint32_t *)(uintptr_t)off_107810)[114];
   v47 = v15;
   v48 = v16;
   v49 = v17;
-  if ( v18 >= (int)(((uint64_t)(dword_107814 * (uint64_t)v14) >> 32) - (v14 >> 31)) )
-    v18 = ((uint64_t)(dword_107814 * (uint64_t)v14) >> 32) - (v14 >> 31);
+  if ( v18 >= (int)(((uint64_t)((int32_t)dword_107814 * (int64_t)(int32_t)(v14)) >> 32) - (v14 >> 31)) )
+    v18 = ((uint64_t)((int32_t)dword_107814 * (int64_t)(int32_t)(v14)) >> 32) - (v14 >> 31);
   v19 = ((volatile uint32_t *)(uintptr_t)off_107810)[119];
   v20 = ((volatile uint32_t *)(uintptr_t)off_107810)[120];
   v21 = ((volatile uint32_t *)(uintptr_t)off_107810)[121];
@@ -15089,10 +15089,10 @@ volatile int * div3_compute(volatile int *a1) {
   volatile int *v10; // r3
 
   v1 = a1[1];
-  v2 = ((uint64_t)(dword_107F50 * (uint64_t)v1) >> 32) - (v1 >> 31);
-  v3 = a1[3] - v1 / 2 + v2 + (v1 >> 31) - ((uint64_t)(dword_107F4C * (uint64_t)v1) >> 32);
-  v4 = ((uint64_t)(dword_107F50 * (uint64_t)*a1) >> 32) - (*a1 >> 31);
-  v5 = (*a1 >> 31) - ((uint64_t)(dword_107F4C * (uint64_t)*a1) >> 32);
+  v2 = ((uint64_t)((int32_t)dword_107F50 * (int64_t)(int32_t)(v1)) >> 32) - (v1 >> 31);
+  v3 = a1[3] - v1 / 2 + v2 + (v1 >> 31) - ((uint64_t)((int32_t)dword_107F4C * (int64_t)(int32_t)(v1)) >> 32);
+  v4 = ((uint64_t)((int32_t)dword_107F50 * (int64_t)(int32_t)(*a1)) >> 32) - (*a1 >> 31);
+  v5 = (*a1 >> 31) - ((uint64_t)((int32_t)dword_107F4C * (int64_t)(int32_t)(*a1)) >> 32);
   v6 = a1[2] - *a1 / 2 + v4;
   result = a1 + 7;
   for ( i = 0; i != 9; i += 3 )
@@ -15239,25 +15239,25 @@ int list_get_at(int a1, volatile int *a2, int a3) {
   if ( *(volatile uint32_t *)(a1 + 16) - v6 >= *(volatile uint32_t *)(a3 + 24) )
   {
 LABEL_8:
-    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)(dword_1081DC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31)) << 32);
-    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)(dword_1081DC * (uint64_t)*a2) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
+    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31)) << 32);
+    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
     v14 = *(volatile uint64_t *)(a1 + 20);
     *(volatile uint64_t *)a2 = v11;
     goto LABEL_9;
   }
-  v9 = ((uint64_t)(dword_1081DC * (uint64_t)(int)v5) >> 32) - ((int)v5 >> 31);
-  v10 = ((uint64_t)(dword_1081DC * (uint64_t)SHIDWORD(v5)) >> 32) - (SHIDWORD(v5) >> 31);
-  if ( (int)v5 - 1 - 3 * (((uint64_t)(dword_1081DC * (uint64_t)((int)v5 - 1)) >> 32) - (((int)v5 - 1) >> 31)) == HIDWORD(v5) - 1 - 3 * (((uint64_t)(dword_1081DC * (uint64_t)(HIDWORD(v5) - 1)) >> 32) - ((HIDWORD(v5) - 1) >> 31)) )
+  v9 = ((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)((int)v5)) >> 32) - ((int)v5 >> 31);
+  v10 = ((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(SHIDWORD(v5))) >> 32) - (SHIDWORD(v5) >> 31);
+  if ( (int)v5 - 1 - 3 * (((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)((int)v5 - 1)) >> 32) - (((int)v5 - 1) >> 31)) == HIDWORD(v5) - 1 - 3 * (((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(HIDWORD(v5) - 1)) >> 32) - ((HIDWORD(v5) - 1) >> 31)) )
   {
     if ( v9 != v10 )
     {
       v16 = *(volatile uint32_t *)(a1 + 32);
       v17 = *(volatile uint32_t *)(a1 + 20);
-      v18 = ((uint64_t)(dword_1081DC * (uint64_t)(2 * *(volatile uint32_t *)(a1 + 24))) >> 32)
+      v18 = ((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(2 * *(volatile uint32_t *)(a1 + 24))) >> 32)
           - ((2 * *(volatile uint32_t *)(a1 + 24)) >> 31);
-      v19 = dword_1081DC * (uint64_t)v16;
-      v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)(dword_1081DC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31))) << 32);
-      v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)(dword_1081DC * (uint64_t)*a2) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
+      v19 = (int32_t)dword_1081DC * (int64_t)(int32_t)(v16);
+      v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31))) << 32);
+      v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
       *(volatile uint64_t *)a2 = v11;
       v14 = __PAIR64__(v18 + HIDWORD(v19) - (v16 >> 31), v17);
       goto LABEL_9;
@@ -15269,17 +15269,17 @@ LABEL_8:
     v20 = *(volatile uint32_t *)(a1 + 20);
     v21 = *(volatile uint32_t *)(a1 + 28);
     v22 = *(volatile uint32_t *)(a1 + 24);
-    v23 = ((uint64_t)(dword_1081DC * (uint64_t)(2 * v20)) >> 32) - ((2 * v20) >> 31);
-    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)(dword_1081DC * (uint64_t)*a2) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
-    v24 = ((uint64_t)(dword_1081DC * (uint64_t)v21) >> 32) - (v21 >> 31);
-    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)(dword_1081DC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31)) << 32);
+    v23 = ((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(2 * v20)) >> 32) - ((2 * v20) >> 31);
+    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
+    v24 = ((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(v21)) >> 32) - (v21 >> 31);
+    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31)) << 32);
     *(volatile uint64_t *)a2 = v11;
     v14 = __PAIR64__(v22, v23 + v24);
   }
   else
   {
-    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)(dword_1081DC * (uint64_t)*a2) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
-    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)(dword_1081DC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31))) << 32);
+    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
+    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)((int32_t)dword_1081DC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31))) << 32);
     v12 = *(volatile uint32_t *)(a1 + 20) + *(volatile uint32_t *)(a1 + 28);
     v13 = *(volatile uint32_t *)(a1 + 32) + *(volatile uint32_t *)(a1 + 24);
     *(volatile uint64_t *)a2 = v11;
@@ -15320,7 +15320,7 @@ int read_status_high() {
 int read_status_low() {
   volatile unsigned int *v0; // r5
   int v1; // r6
-  uint16_t v2; // r4
+  int16_t v2; // r4
   int result; // r0
   volatile uint32_t *v4; // r1
 
@@ -15976,7 +15976,7 @@ volatile uint32_t * periph_init_multi( int a1, volatile unsigned int *a2, int a3
   else
   {
     v62 = dword_108C10;
-    v63 = ((int)((uint64_t)(dword_108C0C * (uint64_t)a3) >> 32) >> 5) - (a3 >> 31);
+    v63 = ((int)((uint64_t)((int32_t)dword_108C0C * (int64_t)(int32_t)(a3)) >> 32) >> 5) - (a3 >> 31);
     v64 = a3 - 100 * v63;
     enable_pa();
     *(volatile uint32_t *)off_108C14 &= ~1u;
@@ -17691,8 +17691,8 @@ int periph_init_2(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uin
   int v26; // r1
   int v27; // r6
   unsigned int v28; // r7
-  uint16_t v29; // r4
-  uint16_t v30; // r0
+  int16_t v29; // r4
+  int16_t v30; // r0
   unsigned int v31; // r2
   uint8_t v32; // r1
   unsigned int i; // r3
@@ -17715,8 +17715,8 @@ int periph_init_2(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uin
   char v54[4]; // [sp+5Ch] [bp-788h] BYREF
   int result; // [sp+60h] [bp-784h] BYREF
   unsigned int a2a; // [sp+64h] [bp-780h] BYREF
-  uint16_t v57[6]; // [sp+68h] [bp-77Ch] BYREF
-  uint16_t v58[952]; // [sp+74h] [bp-770h] BYREF
+  int16_t v57[6]; // [sp+68h] [bp-77Ch] BYREF
+  int16_t v58[952]; // [sp+74h] [bp-770h] BYREF
   } _frame;
   check_status_bits(
     0x2000,
@@ -19036,9 +19036,9 @@ LABEL_80:
       }
       rf_phy_regs_read_cal(v81, (int)_frame.v180, _frame.a3a, 0, _frame.v167, _frame.v149, 0, v52);
       v102 = _frame.v185;
-      v103 = (uint16_t)_frame.v180[_frame.v186];
-      v104 = (uint16_t)_frame.v180[(uint32_t)_frame.v185 + 16];
-      v105 = (uint16_t)_frame.v180[HIDWORD(_frame.v185) + 32];
+      v103 = (int16_t)_frame.v180[_frame.v186];
+      v104 = (int16_t)_frame.v180[(uint32_t)_frame.v185 + 16];
+      v105 = (int16_t)_frame.v180[HIDWORD(_frame.v185) + 32];
       if ( (int)_frame.v185 <= SHIDWORD(_frame.v183) )
       {
         v102 = (v102 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(&_frame.v180[_frame.v185 - 1]) << 32);
@@ -19093,7 +19093,7 @@ LABEL_80:
         v108 = (volatile float *)&_frame.result[_frame.v187];
         do
         {
-          v109 = (uint16_t)*(volatile uint16_t *)HIDWORD(v102);
+          v109 = (int16_t)*(volatile uint16_t *)HIDWORD(v102);
           v102 = (v102 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v102 >> 32) & 0xFFFFFFFFu) + (uint32_t)(2))) << 32;;
           check_status_bits(1, "pwr_amp_back[2][%d]=%d ", (uint32_t)v102, v109);
           compare_memory_ranges(v109, v105, (int)_frame.v180);
@@ -20067,7 +20067,7 @@ volatile uint32_t * rx_state_process(int a1) {
     ;
   if ( !*(volatile uint32_t *)(((volatile uint32_t *)(uintptr_t)off_10D0B0)[0] + 516) )
   {
-    v42 = **(volatile uint16_t **)off_10D0A8;
+    v42 = **(volatile int16_t **)off_10D0A8;
     *(volatile uint32_t *)off_10D0AC = 1;
     if ( v42 >= 0 )
     {
@@ -20078,7 +20078,7 @@ volatile uint32_t * rx_state_process(int a1) {
     goto LABEL_71;
   }
   v40 = mem_word_load(((volatile uint32_t *)(uintptr_t)off_10D0B0)[0] + 516);
-  v41 = **(volatile uint16_t **)off_10D0A8;
+  v41 = **(volatile int16_t **)off_10D0A8;
   *v39 = 1;
   if ( v41 < 0 )
   {
@@ -20208,7 +20208,7 @@ LABEL_6:
   *(volatile uint16_t *)(v6 + 6) = v9;
   if ( v9 )
   {
-    if ( **(volatile uint16_t **)off_10D0A8 < 0 && v9 > 0x400 )
+    if ( **(volatile int16_t **)off_10D0A8 < 0 && v9 > 0x400 )
     {
       mmio_clear_register((int)aKmsgSrcParamLe, (int)aIpcEmbKmsgFwd, 1671);
       v9 = *(volatile uint16_t *)(a1 + 10);
@@ -21985,7 +21985,7 @@ int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *
   unsigned int v3; // r4
   volatile unsigned int *v4; // r6
   volatile unsigned int *v5; // r5
-  volatile uint16_t *v8; // r5
+  volatile int16_t *v8; // r5
   int v9; // r10
   int v10; // r2
   volatile unsigned int *v11; // r7
@@ -22009,7 +22009,7 @@ int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *
   *v5 = ((uint16_t)a1 << 12) & 0x7000 | *v5 & 0xFFFF8FFF;
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
-  v8 = (volatile uint16_t *)off_10E9E4;
+  v8 = (volatile int16_t *)off_10E9E4;
   v9 = rf_core_enable();
   event_dispatch("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
   v10 = *v8;
@@ -22048,7 +22048,7 @@ int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *
     v15 = v9;
     v9 = rf_core_enable();
     event_dispatch("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
-    v16 = *(volatile uint16_t *)off_10E9E4;
+    v16 = *(volatile int16_t *)off_10E9E4;
     v17 = v9 - v16;
     v18 = v15 - v16;
     if ( v18 * v17 <= 0 )
@@ -22079,7 +22079,7 @@ LABEL_9:
 
 // rf_control_field_set @ 0x10e9f4
 int rf_control_field_set(int a1) {
-  volatile uint16_t *v1; // r9
+  volatile int16_t *v1; // r9
   int v2; // r7
   int v3; // r5
   int v4; // r3
@@ -22096,7 +22096,7 @@ int rf_control_field_set(int a1) {
   int v16; // [sp+0h] [bp-Ch]
   int v17; // [sp+4h] [bp-8h]
 
-  v1 = (volatile uint16_t *)off_10EB10;
+  v1 = (volatile int16_t *)off_10EB10;
   *(volatile uint32_t *)off_10EB04 = (a1 << 26) & 0x1C000000 | *(volatile uint32_t *)off_10EB04 & 0xE3FFFFFF;
   v2 = a1;
   v3 = rf_core_power_on();
@@ -22801,7 +22801,7 @@ int os_task_init() {
   volatile int *v4; // r3
   int v5; // r3
   int v6; // r11
-  volatile uint16_t **v7; // r6
+  volatile int16_t **v7; // r6
   int v8; // r5
   int v9; // r8
   int v10; // r7
@@ -22858,7 +22858,7 @@ int os_task_init() {
     if ( *((volatile uint8_t *)off_10F83C + 511) )
       goto LABEL_4;
     v6 = a1;
-    v7 = (volatile uint16_t **)off_10F840;
+    v7 = (volatile int16_t **)off_10F840;
     v8 = dword_10F844;
     v9 = 4;
     if ( *(volatile uint32_t *)(a1 + 1304) )
@@ -22900,7 +22900,7 @@ LABEL_25:
           if ( (*(volatile uint16_t *)(v13 + 30) & 1) != 0 )
           {
 LABEL_56:
-            cmd_handler_a(v8 + 8 * (87 * (uint16_t)v12 + v25 + 78), (volatile uint32_t *)v13);
+            cmd_handler_a(v8 + 8 * (87 * (int16_t)v12 + v25 + 78), (volatile uint32_t *)v13);
             goto LABEL_23;
           }
           mmio_clear_register((int)aTxdescTmpHostF, (int)aReplenishSend, 383);
@@ -22962,7 +22962,7 @@ LABEL_38:
               __enable_irq();
           }
         }
-        cmd_handler_a(v8 + 8 * (87 * (uint16_t)v16 + v26 + 73), v18);
+        cmd_handler_a(v8 + 8 * (87 * (int16_t)v16 + v26 + 73), v18);
 LABEL_37:
         v15 = *(volatile uint32_t *)(v6 + 1264);
         if ( !v15 )
@@ -23385,7 +23385,7 @@ int util_is_nonnull(int a1, volatile uint32_t *a2) {
   int v18; // r6
   volatile uint16_t *v19; // r9
   int v20; // r6
-  uint16_t v21; // r3
+  int16_t v21; // r3
   int v22; // r0
   int v23; // r3
   int v24; // r3
@@ -23649,7 +23649,7 @@ LABEL_11:
           log_printf("get_user_id: Invalid buffer passed: %x\n", a1);
         return util_is_nonnull(dword_1100F0, a1);
       }
-      if ( **(volatile uint16_t **)off_1100E8 < 0 )
+      if ( **(volatile int16_t **)off_1100E8 < 0 )
         return mmio_clear_register((int)aNativeId3, (int)aPktMemFree, 204);
       return result;
     }
@@ -23671,7 +23671,7 @@ LABEL_11:
   {
     if ( v4 == 3 )
     {
-      if ( **(volatile uint16_t **)off_1100E8 >= 0 )
+      if ( **(volatile int16_t **)off_1100E8 >= 0 )
       {
         if ( v3 != 3 )
           return result;
@@ -23696,8 +23696,8 @@ int calculate_rf_power() {
   void *v0; // r4
   int v1; // r3
   volatile uint32_t *v2; // r0
-  uint16_t v3; // r2
-  uint16_t v4; // r1
+  int16_t v3; // r2
+  int16_t v4; // r1
   uint64_t v5; // kr00_8
   struct __attribute__((packed)) { uint16_t v7[2]; // [sp+4h] [bp-14h] BYREF
   uint16_t v8[8]; // [sp+8h] [bp-10h] BYREF
@@ -24096,7 +24096,7 @@ int rf_pll_program(int result) {
   volatile uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
-  uint16_t v13; // r3
+  int16_t v13; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
@@ -24157,7 +24157,7 @@ LABEL_2:
     }
     else
     {
-      if ( **(volatile uint16_t **)off_110618 < 0 && *v4 )
+      if ( **(volatile int16_t **)off_110618 < 0 && *v4 )
       {
         mmio_clear_register((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
@@ -24206,7 +24206,7 @@ int rf_bb_config(int a1, int a2) {
   volatile int *v13; // r3
   int v14; // r0
   int v15; // r1
-  uint16_t v16; // r2
+  int16_t v16; // r2
   volatile uint32_t *v17; // r1
   int v18; // r0
   int v19; // r2
@@ -24267,7 +24267,7 @@ LABEL_24:
     }
     else
     {
-      if ( **(volatile uint16_t **)off_110770 < 0 && *(volatile uint32_t *)off_110774 )
+      if ( **(volatile int16_t **)off_110770 < 0 && *(volatile uint32_t *)off_110774 )
       {
         mmio_clear_register((int)aSdioFunc1H2dFr_0, (int)aHostSdioReplen, 400);
         v13 = (volatile int *)off_11076C;
@@ -24893,7 +24893,7 @@ int check_mmio_and_mem() {
   volatile uint32_t *v47; // r2
 
   v0 = *(volatile uint32_t *)off_111618;
-  if ( **(volatile uint16_t **)off_111614 < 0 && !v0 )
+  if ( **(volatile int16_t **)off_111614 < 0 && !v0 )
   {
     call_shared_handler((int)aIntStatus0, (int)aSdioIsr, 39);
     goto LABEL_10;
@@ -27560,7 +27560,7 @@ volatile uint32_t *ke_state_get() {
   volatile uint16_t *v3; // r6
   int v4; // r8
   volatile uint16_t **v5; // r10
-  uint16_t v6; // r5
+  int16_t v6; // r5
   unsigned int v7; // r1
   volatile uint32_t *v8; // r4
 
@@ -27807,7 +27807,7 @@ int save_task_ptr(int a1) {
   v8[4] = (int)(uintptr_t)(v6 + 12);
   *v9 = (int)(uintptr_t)(v6 + 14);
   memset(v6, 0, 0xCB8u);
-  if ( **(volatile uint16_t **)off_113BE8 < 0 && *(volatile uint32_t *)(*(volatile uint32_t *)v1 + 24) <= 0xCB7u )
+  if ( **(volatile int16_t **)off_113BE8 < 0 && *(volatile uint32_t *)(*(volatile uint32_t *)v1 + 24) <= 0xCB7u )
     mmio_clear_register((int)aIndexHostIfPar, (int)aHostUsbWlanIni, 758);
   v10 = (volatile int *)off_113BEC;
   v11 = LOWORD(((volatile uint32_t *)(uintptr_t)off_113BEC)[82]);
@@ -27869,8 +27869,8 @@ int check_packet_length(int a1) {
   unsigned int v5; // r6
   volatile uint32_t *v6; // r4
   int v7; // r1
-  uint16_t v8; // r3
-  uint16_t v9; // r2
+  int16_t v8; // r3
+  int16_t v9; // r2
   int v10; // r3
   unsigned int v11; // r3
   unsigned int v12; // r2
@@ -27888,7 +27888,7 @@ int check_packet_length(int a1) {
     if ( *(volatile uint8_t *)(dword_113DAC + 1320 * v2 + 108) )
     {
       v5 = *(volatile uint8_t *)(a1 + 22);
-      if ( **(volatile uint16_t **)off_113D8C < 0 && v5 > 4 )
+      if ( **(volatile int16_t **)off_113D8C < 0 && v5 > 4 )
         mmio_clear_register((int)aAcNxTxqCnt_0, (int)aHandleUsbRx, 926);
       v6 = (void *)(uintptr_t)(kernel_event_get());
       if ( v6 )
@@ -29015,7 +29015,7 @@ int patch_get_field(int a1) {
 
 // patch_check_valid @ 0x114e84
 void patch_check_valid() {
-  if ( **(volatile uint16_t **)off_114EA0 < 0 )
+  if ( **(volatile int16_t **)off_114EA0 < 0 )
     mmio_clear_register(off_114EA8, (int)aDummyHandler, 242);
   while ( 1 )
     ;
@@ -29553,7 +29553,7 @@ unsigned int peripheral_clock_enable_1() {
   while ( (*v2 & 0x40000000) == 0 )
     ;
   v3 = (volatile int *)off_11577C;
-  if ( BYTE1(((volatile uint32_t *)(uintptr_t)off_11577C)[47]) && **(volatile uint16_t **)off_115780 < 0 && *v1 != (*(volatile uint32_t *)off_115794 & 0xF) )
+  if ( BYTE1(((volatile uint32_t *)(uintptr_t)off_11577C)[47]) && **(volatile int16_t **)off_115780 < 0 && *v1 != (*(volatile uint32_t *)off_115794 & 0xF) )
     mmio_clear_register((int)aRwnxEnvPrevHwS, (int)aRwnxlWakeup, 968);
   v4 = (void *)(uintptr_t)(off_115778);
   v5 = (volatile uint8_t **)off_115784;
@@ -30129,7 +30129,7 @@ int kernel_event_wait() {
 
   v0 = (volatile int **)off_115FF0;
   zero_8_bytes((volatile uint32_t *)dword_115FEC);
-  if ( **(volatile uint16_t **)off_115FF4 < 0 )
+  if ( **(volatile int16_t **)off_115FF4 < 0 )
   {
     v2 = *v0;
     v1 = (void *)(uintptr_t)(off_115FF8);
@@ -30779,7 +30779,7 @@ int radio_band_validate(int a1, int a2) {
         v31 = REG_4032_0120 - v30;
       }
       while ( v31 < 0 );
-      if ( **(volatile uint16_t **)off_116978 >= 0 || ((*(volatile uint32_t *)off_116940 >> 4) & 3) != 2 )
+      if ( **(volatile int16_t **)off_116978 >= 0 || ((*(volatile uint32_t *)off_116940 >> 4) & 3) != 2 )
       {
 LABEL_12:
         v15 = (void *)(uintptr_t)(off_116948);
@@ -30801,7 +30801,7 @@ LABEL_12:
         v28 = REG_4032_0120 - v27;
       }
       while ( v28 < 0 );
-      if ( **(volatile uint16_t **)off_116978 >= 0 || ((*(volatile uint32_t *)off_116940 >> 8) & 3) != 2 )
+      if ( **(volatile int16_t **)off_116978 >= 0 || ((*(volatile uint32_t *)off_116940 >> 8) & 3) != 2 )
       {
 LABEL_14:
         v16 = (void *)(uintptr_t)(off_116948);
@@ -30823,7 +30823,7 @@ LABEL_14:
         v25 = REG_4032_0120 - v24;
       }
       while ( v25 < 0 );
-      if ( **(volatile uint16_t **)off_116978 >= 0 || ((*(volatile uint32_t *)off_116940 >> 12) & 3) != 2 )
+      if ( **(volatile int16_t **)off_116978 >= 0 || ((*(volatile uint32_t *)off_116940 >> 12) & 3) != 2 )
       {
 LABEL_16:
         v17 = (void *)(uintptr_t)(off_116948);
@@ -30845,7 +30845,7 @@ LABEL_16:
         v22 = REG_4032_0120 - v21;
       }
       while ( v22 < 0 );
-      if ( **(volatile uint16_t **)off_116978 >= 0 || (HIWORD(*(volatile uint32_t *)off_116940) & 3) != 2 )
+      if ( **(volatile int16_t **)off_116978 >= 0 || (HIWORD(*(volatile uint32_t *)off_116940) & 3) != 2 )
       {
 LABEL_18:
         v18 = (void *)(uintptr_t)(off_116948);
@@ -30856,7 +30856,7 @@ LABEL_18:
       result = bad_func_0x12f408((int)aNxmacTxAc3Stat, (int)aTxlCntrlNewhea, 1883);
       break;
     case 4:
-      if ( **(volatile uint16_t **)off_116978 >= 0 || (*(volatile uint32_t *)off_116940 & 3) != 2 )
+      if ( **(volatile int16_t **)off_116978 >= 0 || (*(volatile uint32_t *)off_116940 & 3) != 2 )
       {
         v19 = (void *)(uintptr_t)(off_116948);
         *(volatile uint32_t *)off_11697C = a1;
@@ -30877,7 +30877,7 @@ LABEL_18:
         v34 = REG_4032_0120 - v33;
       }
       while ( v34 < 0 );
-      if ( **(volatile uint16_t **)off_116978 >= 0 || (HIBYTE(*(volatile uint32_t *)off_116940) & 3) != 2 )
+      if ( **(volatile int16_t **)off_116978 >= 0 || (HIBYTE(*(volatile uint32_t *)off_116940) & 3) != 2 )
       {
 LABEL_3:
         v3 = (void *)(uintptr_t)(off_116948);
@@ -30888,7 +30888,7 @@ LABEL_3:
       result = bad_func_0x12f408((int)aNxmacTxHiState, (int)aTxlCntrlNewhea, 1931);
       break;
     default:
-      if ( **(volatile uint16_t **)off_116978 < 0 )
+      if ( **(volatile int16_t **)off_116978 < 0 )
         mmio_clear_register(off_11699C, (int)aTxlCntrlNewhea, 1937);
 LABEL_4:
       v4 = REG_4032_0120;
@@ -30942,7 +30942,7 @@ int radio_channel_validate(int result, int a2, int a3) {
   else
     v6 = (volatile int *)(dword_116A98 + 84 * a3);
   v7 = *v6;
-  if ( **(volatile uint16_t **)off_116A9C < 0 && v7 == result )
+  if ( **(volatile int16_t **)off_116A9C < 0 && v7 == result )
     return bad_func_0x12f408((int)aPrevHdFirstThd, (int)aTxlFrameExchan, 1972);
   if ( v7 )
   {
@@ -31134,7 +31134,7 @@ int dma_ring_init(int a1, int a2, char a3) {
   unsigned int v18; // r1
   int v19; // r2
   int v20; // r2
-  volatile uint16_t **v21; // r6
+  volatile int16_t **v21; // r6
   int v22; // r5
   volatile uint16_t *v23; // r3
   int v24; // r3
@@ -31161,7 +31161,7 @@ int dma_ring_init(int a1, int a2, char a3) {
     if ( (*(volatile uint16_t *)(a1 + 30) & 0x2000) != 0 )
     {
       v16 = *(volatile uint32_t *)(dword_116E34 + 696 * *(volatile uint8_t *)(a1 + 29) + 340);
-      if ( **(volatile uint16_t **)off_116E30 >= 0 || v16 )
+      if ( **(volatile int16_t **)off_116E30 >= 0 || v16 )
       {
         v17 = v5;
       }
@@ -31215,9 +31215,9 @@ LABEL_7:
   if ( rx_rate_field_parse(6u) != 6 )
     goto LABEL_7;
 LABEL_24:
-  v21 = (volatile uint16_t **)off_116E30;
+  v21 = (volatile int16_t **)off_116E30;
   v22 = *(volatile uint32_t *)(a1 + 76);
-  if ( **(volatile uint16_t **)off_116E30 >= 0 )
+  if ( **(volatile int16_t **)off_116E30 >= 0 )
   {
     v23 = *(volatile uint16_t **)(v22 + 28);
     if ( v23 )
@@ -31545,7 +31545,7 @@ LABEL_9:
                 if ( !--v32 )
                 {
                   v10 = *(volatile uint16_t *)(v6 + 8);
-                  if ( **(volatile uint16_t **)dword_11746C < 0 && (v10 & 0x20) == 0 )
+                  if ( **(volatile int16_t **)dword_11746C < 0 && (v10 & 0x20) == 0 )
                     return bad_func_0x12f408((int)aAggDescStatusA, (int)aTxlFrameExchan_0, 1262);
                   goto LABEL_11;
                 }
@@ -31676,7 +31676,7 @@ LABEL_14:
         v19 = v15[4];
         if ( (*(volatile uint32_t *)(v18 + 56) & 0x380000) == 0x200000 )
         {
-          if ( **(volatile uint16_t **)dword_11736C < 0 && !*(volatile uint32_t *)(v18 + 8) )
+          if ( **(volatile int16_t **)dword_11736C < 0 && !*(volatile uint32_t *)(v18 + 8) )
           {
             mmio_clear_register((int)aNextdescNull, (int)aTxlFrameExchan_0, 1077);
             __und(0xFFu);
@@ -31848,7 +31848,7 @@ int dma_rx_setup(int a1) {
 int phy_chan_set(int a1, int a2) {
   volatile char *v4; // r7
   int v5; // r0
-  uint16_t v6; // r1
+  int16_t v6; // r1
   volatile uint32_t *v7; // r3
   int v8; // r3
   volatile uint8_t *v9; // r2
@@ -31938,7 +31938,7 @@ int phy_radio_init(int a1, int a2) {
   int v7; // r11
   int v8; // r9
   int v10; // r3
-  uint16_t v11; // r1
+  int16_t v11; // r1
   int v12; // r6
   int v13; // r3
   volatile int *v14; // r6
@@ -31951,7 +31951,7 @@ int phy_radio_init(int a1, int a2) {
   int v21; // r2
   int v22; // r2
   int v23; // r1
-  uint16_t v24; // r3
+  int16_t v24; // r3
   volatile int *v25; // r3
   int v26; // r3
   int v27; // r2
@@ -32482,7 +32482,7 @@ int ll_state_check(int result, volatile uint32_t *a2) {
   int v9; // r12
   volatile uint32_t *v10; // r7
   unsigned int v11; // r3
-  uint16_t v12; // lr
+  int16_t v12; // lr
   int v13; // r2
   volatile uint32_t *v14; // r1
   int v15; // r3
@@ -32630,7 +32630,7 @@ int ipc_handler_register(volatile uint32_t *a1, int a2, int a3) {
 int init_flag_check(int a1, int a2, int a3, int a4) {
   int v4; // r2
   volatile uint32_t *v6; // r0
-  volatile uint16_t *v7; // r1
+  volatile int16_t *v7; // r1
   int v8; // r4
   unsigned int v9; // r2
   int result; // r0
@@ -32644,9 +32644,9 @@ int init_flag_check(int a1, int a2, int a3, int a4) {
   if ( (*((volatile uint32_t *)off_11803C + 52) & 1) == 0 )
     v4 = (*(volatile uint32_t *)(a1 + 84) >> 11) & 3;
   v6 = mem_word_load(dword_118040 + 84 * (uint16_t)v4 + 28);
-  v7 = *(volatile uint16_t **)off_118044;
+  v7 = *(volatile int16_t **)off_118044;
   v8 = (int)v6;
-  if ( **(volatile uint16_t **)off_118044 < 0 && !v6 )
+  if ( **(volatile int16_t **)off_118044 < 0 && !v6 )
     return bad_func_0x12f408((int)aAggDescNull, (int)aTxlBaPush, 369);
   v9 = *(volatile uint32_t *)(a1 + 84);
   result = v9 << 6;
@@ -32696,7 +32696,7 @@ volatile uint32_t *invoke_callback_1() {
   volatile uint32_t *v7; // r2
   int v8; // r1
   volatile uint16_t *v9; // r4
-  uint16_t v10; // r2
+  int16_t v10; // r2
   int v11; // r3
   volatile uint32_t *v12; // r5
   int v13; // r1
@@ -32853,7 +32853,7 @@ volatile uint32_t * rf_rssi_process(int a1) {
   } _frame;
   v1 = dword_118434 + 8 * a1;
   v2 = ((volatile uint32_t *)(uintptr_t)off_118438)[a1];
-  if ( **(volatile uint16_t **)off_118430 < 0 && (v2 & *(volatile uint32_t *)off_11891C) == 0 )
+  if ( **(volatile int16_t **)off_118430 < 0 && (v2 & *(volatile uint32_t *)off_11891C) == 0 )
     mmio_clear_register((int)aKeEvtGetEvtBit, (int)aTxlCfmEvt_0, 612);
   unknown_func_12d14c(v2);
   v3 = zero_8_bytes(_frame.result);
@@ -32914,7 +32914,7 @@ LABEL_53:
             if ( *(volatile int *)(*(volatile uint32_t *)(v4 + 44) + 60) >= 0 || (_frame.v62 & 0x800000) == 0 )
               goto LABEL_54;
             v41 = *(volatile uint32_t *)(v4 + 76);
-            if ( **(volatile uint16_t **)off_1186F4 >= 0 )
+            if ( **(volatile int16_t **)off_1186F4 >= 0 )
             {
               v42 = *(volatile uint32_t *)(v41 + 28);
               if ( !v42 )
@@ -32983,7 +32983,7 @@ LABEL_54:
             v42 = *(volatile uint32_t *)(v41 + 28);
             if ( v42 )
               goto LABEL_96;
-            if ( **(volatile uint16_t **)off_11893C < 0 )
+            if ( **(volatile int16_t **)off_11893C < 0 )
             {
 LABEL_125:
               v43 = *(volatile uint32_t *)(v41 + 24);
@@ -33075,7 +33075,7 @@ LABEL_132:
       v3 = mem_word_load(v1);
       if ( (*(volatile uint32_t *)(v4 + 36) & 0x380000) == 0x380000 )
       {
-        if ( **(volatile uint16_t **)off_1186F4 < 0 && !v6 )
+        if ( **(volatile int16_t **)off_1186F4 < 0 && !v6 )
           mmio_clear_register((int)aTxdescFirstNul, (int)aTxlCfmEvt_0, 706);
         if ( *(volatile uint8_t *)(dword_1186F8 + 696 * v9 + 36) != 1 || v11 )
           ipc_dispatch_one(v6, _frame.a2, _frame.a3, v8);
@@ -33118,7 +33118,7 @@ LABEL_132:
         if ( (v10 & 0x800000) != 0 )
         {
           v31 = *(volatile uint32_t *)(v4 + 76);
-          if ( **(volatile uint16_t **)off_1186F4 >= 0 )
+          if ( **(volatile int16_t **)off_1186F4 >= 0 )
           {
             v32 = *(volatile uint32_t *)(v31 + 28);
             if ( !v32 )
@@ -33145,7 +33145,7 @@ LABEL_67:
           v32 = *(volatile uint32_t *)(v31 + 28);
           if ( v32 )
             goto LABEL_67;
-          if ( **(volatile uint16_t **)off_11893C < 0 )
+          if ( **(volatile int16_t **)off_11893C < 0 )
           {
 LABEL_111:
             v33 = *(volatile uint32_t *)(v31 + 24);
@@ -33270,11 +33270,11 @@ LABEL_36:
 
 // rf_tx_setup @ 0x118940
 volatile uint32_t * rf_tx_setup(unsigned int a1, int a2, int a3) {
-  volatile uint16_t **v3; // r8
+  volatile int16_t **v3; // r8
   volatile uint32_t *v7; // r4
   int v8; // r1
 
-  v3 = (volatile uint16_t **)off_1189EC;
+  v3 = (volatile int16_t **)off_1189EC;
   while ( 1 )
   {
     v7 = mem_word_load(a2);
@@ -33986,13 +33986,13 @@ int bt_link_state_check(int a1, volatile char *a2) {
   if ( v3 )
   {
     v6 = *(volatile uint8_t *)(v3 + 4);
-    if ( **(volatile uint16_t **)off_11937C >= 0 || v6 != 2 )
+    if ( **(volatile int16_t **)off_11937C >= 0 || v6 != 2 )
     {
       v7 = (v6 | *(volatile uint8_t *)(a1 + 1224)) != 0;
       goto LABEL_5;
     }
   }
-  else if ( **(volatile uint16_t **)off_11937C >= 0 )
+  else if ( **(volatile int16_t **)off_11937C >= 0 )
   {
     goto LABEL_9;
   }
@@ -34269,7 +34269,7 @@ int phy_channel_same(int a1, int a2, int a3) {
   int v7; // r3
   int v8; // r6
   int v9; // nf
-  uint16_t v10; // r3
+  int16_t v10; // r3
   int v11; // r1
   int v12; // r9
   int v13; // r7
@@ -34282,7 +34282,7 @@ int phy_channel_same(int a1, int a2, int a3) {
   int v20; // r1
   int v21; // r1
   volatile uint32_t *v22; // r2
-  uint16_t v23; // r3
+  int16_t v23; // r3
   int v24; // r2
   char v25; // r3
 
@@ -34511,8 +34511,8 @@ int tx_process(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8
   unsigned int v18; // r11
   unsigned int v19; // r3
   unsigned int v20; // r8
-  uint16_t v21; // r0
-  uint16_t v22; // r1
+  int16_t v21; // r0
+  int16_t v22; // r1
   int v23; // r3
   int v24; // r12
   unsigned int v25; // lr
@@ -34616,7 +34616,7 @@ LABEL_7:
       goto LABEL_34;
     }
     v23 = *(volatile uint32_t *)v7;
-    if ( **(volatile uint16_t **)off_119CD4 < 0 && !v23 )
+    if ( **(volatile int16_t **)off_119CD4 < 0 && !v23 )
     {
       mmio_clear_register((int)aTxdescNNull, (int)aTxlAggHeTbCatA, 1713);
       v23 = 0;
@@ -34851,13 +34851,13 @@ int rate_get_config(int a1) {
   int v4; // r6
   uint64_t v5; // kr00_8
   int v7; // r10
-  uint16_t v8; // r3
+  int16_t v8; // r3
   volatile int *v9; // r2
   int v11; // r4
   char v12; // r3
   int v13; // r0
   void *v14; // r11
-  uint16_t v15; // r2
+  int16_t v15; // r2
   int v16; // r7
   unsigned int v17; // r0
   volatile int *v18; // r3
@@ -35657,7 +35657,7 @@ int get_hw_state(int result, int a2) {
   if ( v2 < 0 )
   {
     v3 = *(volatile uint32_t *)(result + 36);
-    if ( **(volatile uint16_t **)off_11A8F4 >= 0 || (v2 & 0x10000) != 0 )
+    if ( **(volatile int16_t **)off_11A8F4 >= 0 || (v2 & 0x10000) != 0 )
     {
       v4 = *(volatile uint32_t *)(v3 + 20) & 0xFFFE3FFF | 0x4000;
       *(volatile uint32_t *)(result + 60) = 0;
@@ -35700,7 +35700,7 @@ int get_channel_by_handle(int result) {
 int parse_rx_frame(volatile uint32_t *a1, int a2) {
   int v2; // r10
   volatile int *v3; // r4
-  uint16_t v4; // r2
+  int16_t v4; // r2
   int v5; // r6
   int v6; // r3
   volatile uint32_t *v7; // r5
@@ -35710,10 +35710,10 @@ int parse_rx_frame(volatile uint32_t *a1, int a2) {
   int v12; // r7
   int v13; // r1
   int v14; // r4
-  volatile uint16_t **v15; // r11
+  volatile int16_t **v15; // r11
   int v16; // r0
   unsigned int v17; // r2
-  uint16_t v18; // r3
+  int16_t v18; // r3
   volatile int *v19; // r6
   unsigned int v20; // r0
   unsigned int v21; // r9
@@ -35741,7 +35741,7 @@ int parse_rx_frame(volatile uint32_t *a1, int a2) {
   int v43; // r8
   int v44; // r4
   int v45; // r7
-  volatile uint16_t **v46; // r8
+  volatile int16_t **v46; // r8
   int v47; // r6
   int v48; // r3
   int v49; // r9
@@ -35807,7 +35807,7 @@ LABEL_5:
     v13 = *((volatile uint8_t *)v3 + *(volatile uint8_t *)(v12 + 13));
   }
   v14 = v7[19];
-  v15 = (volatile uint16_t **)off_11AC4C;
+  v15 = (volatile int16_t **)off_11AC4C;
   rf_get_rssi_1(v12, v13, (int)_frame.v55);
   v16 = *(volatile uint32_t *)(v14 + 36);
   v17 = v7[9];
@@ -35916,7 +35916,7 @@ LABEL_20:
 LABEL_41:
   v44 = 0;
   v45 = v43 + 84 * _frame.v52;
-  v46 = (volatile uint16_t **)off_11AC4C;
+  v46 = (volatile int16_t **)off_11AC4C;
   v47 = 0;
   while ( 2 )
   {
@@ -36592,7 +36592,7 @@ int get_phy_status(int result) {
   int v4; // r4
   int v5; // r6
   BOOL v6; // r3
-  volatile uint16_t **v7; // r7
+  volatile int16_t **v7; // r7
 
   v1 = (void *)(uintptr_t)(off_11B55C);
   if ( *((volatile uint8_t *)off_11B55C + 160) )
@@ -36623,11 +36623,11 @@ int get_phy_status(int result) {
 LABEL_6:
           if ( v6 )
             goto LABEL_9;
-          v7 = (volatile uint16_t **)off_11B564;
+          v7 = (volatile int16_t **)off_11B564;
           break;
         default:
-          v7 = (volatile uint16_t **)off_11B564;
-          if ( **(volatile uint16_t **)off_11B564 >= 0 )
+          v7 = (volatile int16_t **)off_11B564;
+          if ( **(volatile int16_t **)off_11B564 >= 0 )
             goto LABEL_9;
           mmio_clear_register(off_11B570, (int)aTxlHeEdcaQueue, 520);
           break;
@@ -37583,11 +37583,11 @@ LABEL_9:
 // update_phy_status @ 0x11c07c
 int update_phy_status(int result) {
   volatile uint32_t *v1; // r2
-  volatile uint16_t *v2; // r1
+  volatile int16_t *v2; // r1
   unsigned int v3; // r3
   int v4; // r5
   int v5; // r1
-  uint16_t v6; // r0
+  int16_t v6; // r0
   int v7; // r3
   int v8; // r1
   int v9; // r3
@@ -37616,11 +37616,11 @@ int update_phy_status(int result) {
   int v32; // r11
   char v33; // r7
   unsigned int v34; // r4
-  uint16_t v35; // [sp+0h] [bp-Ch]
-  uint16_t v36; // [sp+4h] [bp-8h]
+  int16_t v35; // [sp+0h] [bp-Ch]
+  int16_t v36; // [sp+4h] [bp-8h]
 
   v1 = (void *)(uintptr_t)(off_11C2B0);
-  v2 = *(volatile uint16_t **)off_11C2AC;
+  v2 = *(volatile int16_t **)off_11C2AC;
   v3 = *(volatile uint32_t *)(result + 84);
   v4 = *(volatile uint32_t *)(result + 28);
   *((volatile uint8_t *)off_11C2B0 + 200) = 0;
@@ -38356,7 +38356,7 @@ void handle_rx_event() {
   int v3; // r8
   int v4; // r5
   int v5; // r3
-  volatile uint16_t **v6; // r10
+  volatile int16_t **v6; // r10
   int v7; // r12
   int v8; // r3
   int v9; // r2
@@ -38414,7 +38414,7 @@ LABEL_12:
           if ( !--v17 )
           {
             v16 = *(volatile uint16_t *)(v13 + 8);
-            if ( **(volatile uint16_t **)off_11CC58 < 0 && (v16 & 0x20) == 0 )
+            if ( **(volatile int16_t **)off_11CC58 < 0 && (v16 & 0x20) == 0 )
             {
               bad_func_0x12f408((int)aAggDescStatusA, (int)aTxlHeTbTransmi_0, 2274);
               return;
@@ -38474,7 +38474,7 @@ LABEL_25:
     test_flag(v2);
     return;
   }
-  v6 = (volatile uint16_t **)off_11CC58;
+  v6 = (volatile int16_t **)off_11CC58;
   while ( 1 )
   {
     v12 = *(volatile uint32_t *)(v4 + 12);
@@ -38504,12 +38504,12 @@ LABEL_25:
 // radio_event_loop @ 0x11cc78
 volatile uint32_t * radio_event_loop(volatile uint32_t *result, int a2, int a3) {
   int v3; // r8
-  uint16_t v5; // r10
+  int16_t v5; // r10
   int v6; // r9
   int v7; // r6
   volatile uint32_t *v8; // r5
   int v9; // r4
-  uint16_t v10; // r7
+  int16_t v10; // r7
   int v11; // r7
   volatile uint8_t *v12; // r5
   uint8_t v13; // r3
@@ -38604,7 +38604,7 @@ volatile uint32_t * radio_event_loop(volatile uint32_t *result, int a2, int a3) 
           v32 = (volatile int *)off_11CF58;
           v33 = dword_11CF3C + 1320 * *(volatile uint8_t *)(v7 + 34);
           v34 = (volatile uint32_t *)(dword_11CF3C + 8 * (165 * *(volatile uint8_t *)(v7 + 34) + 159));
-          v35 = (volatile uint32_t *)(dword_11CF40 + 8 * (87 * (uint16_t)v9 + 78));
+          v35 = (volatile uint32_t *)(dword_11CF40 + 8 * (87 * (int16_t)v9 + 78));
           v36 = (volatile uint32_t *)(dword_11CF40 + 664 + v6);
           do
           {
@@ -38744,7 +38744,7 @@ volatile uint32_t * radio_event_loop(volatile uint32_t *result, int a2, int a3) 
           v43 = (volatile uint32_t *)(dword_11D2A4 + 8 * (165 * *(volatile uint8_t *)(v7 + 34) + 159));
           v44 = dword_11D2A8 + 664 + v6;
           v45 = dword_11D2A4 + 1320 * *(volatile uint8_t *)(v7 + 34);
-          v46 = (volatile uint32_t *)(dword_11D2A8 + 8 * (87 * (uint16_t)v9 + 78));
+          v46 = (volatile uint32_t *)(dword_11D2A8 + 8 * (87 * (int16_t)v9 + 78));
           v47 = (volatile uint32_t *)v44;
           do
           {
@@ -38941,11 +38941,11 @@ LABEL_16:
 
 // rf_rx_check @ 0x11d320
 BOOL rf_rx_check(int a1) {
-  volatile uint16_t **v1; // r10
+  volatile int16_t **v1; // r10
   int v2; // r8
   int v3; // r3
   volatile uint32_t *v5; // r9
-  uint16_t v6; // r11
+  int16_t v6; // r11
   unsigned int v7; // r6
   int v8; // r5
   int v10; // r2
@@ -38998,9 +38998,9 @@ BOOL rf_rx_check(int a1) {
   } _frame;
   if ( *(volatile uint16_t *)(a1 + 48) )
   {
-    v1 = (volatile uint16_t **)off_11D66C;
+    v1 = (volatile int16_t **)off_11D66C;
     v2 = *(volatile uint32_t *)(a1 + 28);
-    v3 = **(volatile uint16_t **)off_11D66C;
+    v3 = **(volatile int16_t **)off_11D66C;
     if ( v3 < 0 && !v2 )
     {
       v8 = 0;
@@ -39981,7 +39981,7 @@ LABEL_9:
   while ( 1 )
   {
     a2 = *(volatile uint32_t *)(a2 + 4);
-    if ( **(volatile uint16_t **)off_11DFE0 < 0 && !a2 )
+    if ( **(volatile int16_t **)off_11DFE0 < 0 && !a2 )
       return bad_func_0x12f408((int)aPdNull, (int)aRxlGoToLastRbd, 1119);
     if ( (*(volatile uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;
@@ -40099,7 +40099,7 @@ int rf_tx_frame(int a1) {
   if ( *(volatile uint16_t *)(a1 + 48) )
   {
     v1 = *(volatile uint32_t *)(a1 + 28);
-    if ( **(volatile uint16_t **)off_11E1BC < 0 && !v1 )
+    if ( **(volatile int16_t **)off_11E1BC < 0 && !v1 )
     {
       v10 = aPdNull;
       v11 = 393;
@@ -40127,7 +40127,7 @@ int rf_tx_frame(int a1) {
   }
   else
   {
-    if ( **(volatile uint16_t **)off_11E1BC < 0 && *(volatile uint32_t *)(a1 + 28) )
+    if ( **(volatile int16_t **)off_11E1BC < 0 && *(volatile uint32_t *)(a1 + 28) )
     {
       v10 = aDmaHdrdescHdFi;
       v11 = 436;
@@ -40502,7 +40502,7 @@ int mac_mlme_scan(int a1) {
   int v3; // r11
   volatile uint32_t *v4; // r6
   volatile uint8_t **v5; // r5
-  uint16_t v6; // r2
+  int16_t v6; // r2
   volatile uint8_t *v7; // r3
   int v8; // r4
   int v9; // r3
@@ -40645,7 +40645,7 @@ int mac_mlme_scan(int a1) {
       }
     }
     v10 = *(volatile uint16_t *)(v8 + 48);
-    if ( **(volatile uint16_t **)off_11E840 >= 0 )
+    if ( **(volatile int16_t **)off_11E840 >= 0 )
     {
 LABEL_37:
       v9 = **v5;
@@ -40860,7 +40860,7 @@ LABEL_41:
   else
   {
     v10 = *(volatile uint16_t *)(v8 + 48);
-    if ( **(volatile uint16_t **)off_11E840 >= 0 )
+    if ( **(volatile int16_t **)off_11E840 >= 0 )
       goto LABEL_5;
   }
   if ( !v10 )
@@ -41290,10 +41290,10 @@ int ble_event_wait(volatile int *a1, volatile uint8_t *a2) {
   volatile unsigned int v33; // r3
   volatile uint32_t *v35; // r0
   char v36; // r1
-  uint16_t v37; // r12
-  uint16_t v38; // r3
-  uint16_t v39; // r1
-  uint16_t v40; // r3
+  int16_t v37; // r12
+  int16_t v38; // r3
+  int16_t v39; // r1
+  int16_t v40; // r3
   int v41; // r1
 
   v3 = *((volatile uint8_t *)a1 + 25);
@@ -41823,7 +41823,7 @@ int llm_conn_active_check(int result) {
               }
             }
             v18 = (void *)(uintptr_t)(off_11F6D8);
-            v19 = **(volatile uint16_t **)off_11F6D4;
+            v19 = **(volatile int16_t **)off_11F6D4;
             v20 = *((volatile uint32_t *)off_11F6D8 + 1) | 0x200;
             *((volatile uint32_t *)off_11F6D8 + 1) = v20;
             if ( v19 < 0 )
@@ -41949,7 +41949,7 @@ int task_event_handler(int a1, int a2, int a3, volatile uint8_t *a4) {
   int v34; // r0
   int v35; // r1
   int v36; // r0
-  volatile uint16_t **v37; // r3
+  volatile int16_t **v37; // r3
   char v38; // r2
   int v39; // r5
   int v40; // r3
@@ -42071,7 +42071,7 @@ LABEL_11:
     {
       v42 = (volatile int *)off_11FB14;
       v43 = dword_11FB4C;
-      v44 = **(volatile uint16_t **)off_11FB10;
+      v44 = **(volatile int16_t **)off_11FB10;
       *(volatile uint32_t *)off_11FB14 = dword_11FB4C;
       if ( v44 < 0 && *(volatile uint32_t *)off_11FBA8 << 28 )
       {
@@ -42117,7 +42117,7 @@ LABEL_11:
   if ( v23 > 1 || *(volatile uint8_t *)(v4 + 0x12) )
   {
     v24 = (void *)(uintptr_t)(off_11FB14);
-    v25 = **(volatile uint16_t **)off_11FB10;
+    v25 = **(volatile int16_t **)off_11FB10;
     v26 = *((volatile uint32_t *)off_11FB14 + 1) | 0x100;
     *((volatile uint32_t *)off_11FB14 + 1) = v26;
     if ( v25 < 0 && *(volatile uint32_t *)off_11FB38 << 28 )
@@ -42138,7 +42138,7 @@ LABEL_11:
       v35 = 1;
     ++*(volatile uint8_t *)(v4 + 0x13);
     v36 = llc_poll_active(v34, v35);
-    v37 = (volatile uint16_t **)off_11FB10;
+    v37 = (volatile int16_t **)off_11FB10;
     *(volatile uint8_t *)(v18 + 1225) = v36;
     if ( **v37 < 0 && v36 == 255 )
       mmio_clear_register((int)aVifP2pIndexP2p, (int)aVifMgmtRegiste_0, 498);
@@ -42201,7 +42201,7 @@ int get_object_by_index(int a1) {
   int v22; // r0
   int v23; // r3
   int v24; // r2
-  volatile uint16_t **v25; // r10
+  volatile int16_t **v25; // r10
   volatile uint32_t *v26; // r7
   int v27; // r1
   int v28; // r9
@@ -42248,7 +42248,7 @@ int get_object_by_index(int a1) {
     --*(volatile uint8_t *)(off_11FEC8 + 0x12);
     a2 = v15;
     *(volatile uint8_t *)(v14 + 37) = 0;
-    v16 = (volatile uint32_t **)(v2 + 8 * (165 * (uint16_t)a1 + 159));
+    v16 = (volatile uint32_t **)(v2 + 8 * (165 * (int16_t)a1 + 159));
     v17 = 0;
     do
     {
@@ -42368,7 +42368,7 @@ LABEL_6:
     {
       v39 = (volatile int *)off_120014;
       v40 = dword_120018;
-      v41 = **(volatile uint16_t **)off_120010;
+      v41 = **(volatile int16_t **)off_120010;
       *(volatile uint32_t *)off_120014 = dword_120018;
       if ( v41 < 0 )
       {
@@ -42388,9 +42388,9 @@ LABEL_6:
       goto LABEL_7;
   }
 LABEL_40:
-  v25 = (volatile uint16_t **)off_11FF08;
+  v25 = (volatile int16_t **)off_11FF08;
   v26 = (void *)(uintptr_t)(off_11FEF4);
-  v27 = **(volatile uint16_t **)off_11FF08;
+  v27 = **(volatile int16_t **)off_11FF08;
   v28 = *((volatile uint32_t *)v5 + 2);
   v29 = *((volatile uint32_t *)off_11FEF4 + 1) & 0xFFFFFFEF;
   *((volatile uint32_t *)off_11FEF4 + 1) = v29;
@@ -43103,7 +43103,7 @@ int handle_rx_data(int a1, int a2, int a3, int a4, int a5, int a6) {
   volatile int *v15; // r8
   volatile int *v16; // r0
   volatile uint32_t *v17; // r2
-  volatile uint16_t **v18; // r3
+  volatile int16_t **v18; // r3
   int v19; // r5
   volatile char *v20; // r1
   volatile int *v21; // r0
@@ -43182,8 +43182,8 @@ int handle_rx_data(int a1, int a2, int a3, int a4, int a5, int a6) {
     __dsb(0xFu);
     while ( (*v17 & 0xC0000000) != 0x40000000 )
       ;
-    v18 = (volatile uint16_t **)off_120B5C;
-    if ( **(volatile uint16_t **)off_120B5C >= 0 || (*v17 & 0x40000000) != 0 )
+    v18 = (volatile int16_t **)off_120B5C;
+    if ( **(volatile int16_t **)off_120B5C >= 0 || (*v17 & 0x40000000) != 0 )
     {
       v19 = (uint16_t)*(volatile uint32_t *)off_120B60;
     }
@@ -43191,7 +43191,7 @@ int handle_rx_data(int a1, int a2, int a3, int a4, int a5, int a6) {
     {
       bad_func_0x12f408((int)aNxmacTimeOnAir, (int)aHalMachwRxBcnD, 430);
       v19 = 500;
-      v18 = (volatile uint16_t **)off_120B5C;
+      v18 = (volatile int16_t **)off_120B5C;
     }
     if ( !(*(volatile uint8_t *)(a3 + 40) << 28) )
     {
@@ -43287,7 +43287,7 @@ if ( *((volatile uint32_t *)off_120B70 + 8) != a4 || (v42 = (void *)(uintptr_t)(
             v43[1],
             HIWORD(*(volatile uint32_t *)off_120BC8),
             (uint8_t)*(volatile uint32_t *)off_120BC4);
-        if ( **(volatile uint16_t **)off_120B5C < 0 && *v43 >= (unsigned int)v43[1] )
+        if ( **(volatile int16_t **)off_120B5C < 0 && *v43 >= (unsigned int)v43[1] )
           mmio_clear_register((int)aVolatileUint8T, (int)aMmTbttCompute, 523);
       }
     }
@@ -43323,7 +43323,7 @@ int wait_for_hw_flag() {
   volatile uint8_t *v21; // r1
   volatile uint32_t *v22; // r3
   int v23; // r3
-  volatile uint16_t **v24; // r1
+  volatile int16_t **v24; // r1
   int v25; // r3
   int v26; // r2
   int v27; // r3
@@ -43384,7 +43384,7 @@ LABEL_3:
       if ( (v4 & 4) != 0 )
       {
         check_status_bits(2, (const volatile char *)dword_120F14);
-        v24 = (volatile uint16_t **)dword_120EF8;
+        v24 = (volatile int16_t **)dword_120EF8;
         v25 = *(volatile uint32_t *)(v3 + 4);
         *v5 &= ~4u;
         v26 = **v24;
@@ -43561,7 +43561,7 @@ LABEL_20:
         {
           result = 1320;
           v13 = dword_120EFC + 1320 * *(volatile uint8_t *)(v12 + 34);
-          if ( **(volatile uint16_t **)dword_120EF8 >= 0 || v1 == v13 )
+          if ( **(volatile int16_t **)dword_120EF8 >= 0 || v1 == v13 )
           {
             if ( (*v6 & 0x70000) == 0 )
               goto LABEL_43;
@@ -43916,7 +43916,7 @@ int rx_packet_parse_header(volatile char *a1, int a2, int a3, int a4) {
   }
   else
   {
-    if ( **(volatile uint16_t **)off_121630 < 0 && v4 > 0x23 )
+    if ( **(volatile int16_t **)off_121630 < 0 && v4 > 0x23 )
       mmio_clear_register((int)aStaIdxStaMax, (int)aMmSecMachwkeyW, 1424);
     v7 = (uint8_t)(v4 + 16);
     check_status_bits(256, "add ptk:%d,%d\r\n", v4, (uint8_t)a1[40]);
@@ -44005,7 +44005,7 @@ LABEL_20:
       v22[3] = *((volatile uint32_t *)a1 + 9);
       break;
     default:
-      if ( **(volatile uint16_t **)off_121630 < 0 )
+      if ( **(volatile int16_t **)off_121630 < 0 )
         mmio_clear_register(off_121670, (int)aMmKeyRamParamG, 159);
       v13 = 0;
       v14 = 4096;
@@ -44320,7 +44320,7 @@ LABEL_12:
 
 // get_shared_s16 @ 0x121a74
 int get_shared_s16() {
-  if ( **(volatile uint16_t **)off_121ACC < 0 && rx_rate_field_parse(0) != 3 )
+  if ( **(volatile int16_t **)off_121ACC < 0 && rx_rate_field_parse(0) != 3 )
     mmio_clear_register((int)aKeStateGetTask_0, (int)aMmBackToHostId, 1785);
   if ( *((volatile uint8_t *)off_121AD0 + 31) && *((volatile uint8_t *)off_121AD4 + 18) + *((volatile uint8_t *)off_121AD4 + 17) <= 1 )
     return rx_phy_status_parse(0, 0);
@@ -44346,7 +44346,7 @@ int shared_s16_worker() {
   int v12; // r3
   int v13; // r2
 
-  if ( **(volatile uint16_t **)off_121BCC < 0 && rx_rate_field_parse(0) == 4 )
+  if ( **(volatile int16_t **)off_121BCC < 0 && rx_rate_field_parse(0) == 4 )
     mmio_clear_register((int)aKeStateGetTask, (int)aMmForceIdleReq, 1799);
   check_status_bits(4, "force idle\r\n");
   if ( (__get_CPSR() & 1) == 0 )
@@ -44405,7 +44405,7 @@ int shared_s16_check() {
   int v2; // r3
   int v3; // r2
 
-  if ( **(volatile uint16_t **)off_121C9C < 0 && (rx_rate_field_parse(0) == 3 || !rx_rate_field_parse(0)) )
+  if ( **(volatile int16_t **)off_121C9C < 0 && (rx_rate_field_parse(0) == 3 || !rx_rate_field_parse(0)) )
     mmio_clear_register((int)aKeStateGetTask_1, (int)aMmNoIdleStart, 1862);
   if ( rx_rate_field_parse(0) == 2 )
   {
@@ -44538,7 +44538,7 @@ int rf_channel_calc(int a1) {
   v2 = dword_121FE8 + 696 * a1;
   v3 = *(volatile uint8_t *)(v2 + 34);
   v4 = a1;
-  v5 = dword_121FE8 + 8 * (87 * (uint16_t)a1 + 78);
+  v5 = dword_121FE8 + 8 * (87 * (int16_t)a1 + 78);
   v6 = 0;
   do
   {
@@ -44585,7 +44585,7 @@ int rf_channel_calc(int a1) {
               v32 = v10 + 1320 * v27[34];
               v33 = dword_122000 + v26;
               v34 = (volatile uint32_t *)(v1 + v26);
-              v35 = (volatile uint32_t *)(v1 + 8 * (87 * (uint16_t)v25 + 78));
+              v35 = (volatile uint32_t *)(v1 + 8 * (87 * (int16_t)v25 + 78));
               v36 = (volatile uint32_t *)(v10 + 8 * (165 * v27[34] + 159));
               v37 = v32;
               v38 = (volatile uint32_t *)v33;
@@ -45436,7 +45436,7 @@ int scan_process_report(int a1, int a2, int a3, int a4) {
 
   v4 = dword_122A60;
   v6 = *(volatile uint8_t *)(a2 + 5);
-  if ( **(volatile uint16_t **)off_122A50 < 0 && *(volatile uint8_t *)(dword_122A60 + 1320 * v6 + 106) )
+  if ( **(volatile int16_t **)off_122A50 < 0 && *(volatile uint8_t *)(dword_122A60 + 1320 * v6 + 106) )
     mmio_clear_register((int)aVifTypeVifSta, (int)aMmSetArpoffloa, 2660);
   v9 = v4 + 1320 * v6;
   v10 = *(volatile uint8_t *)(a2 + 4);
@@ -46659,15 +46659,15 @@ LABEL_3:
 
 // lld_evt_schedule_next @ 0x123a94
 int lld_evt_schedule_next(int a1, int a2, unsigned int a3, int a4) {
-  volatile uint16_t **v4; // r8
+  volatile int16_t **v4; // r8
   int v5; // r0
   struct __attribute__((packed)) { uint16_t a1a[2]; // [sp+4h] [bp-24h] BYREF
   int v11; // [sp+8h] [bp-20h]
   char _pad2[1]; char v12; // [sp+Dh] [bp-1Bh]
   char _pad3[2]; uint32_t v13[6]; // [sp+10h] [bp-18h] BYREF
   } _frame;
-  v4 = (volatile uint16_t **)off_123B64;
-  v5 = **(volatile uint16_t **)off_123B64;
+  v4 = (volatile int16_t **)off_123B64;
+  v5 = **(volatile int16_t **)off_123B64;
   memset((void *)(_frame.v13), 0, sizeof(_frame.v13));
   if ( v5 < 0 && rx_rate_field_parse(a3) )
     mmio_clear_register((int)aKeStateGetDest, (int)aMmStartReqHand, 337);
@@ -46696,12 +46696,12 @@ LABEL_7:
 
 // lld_evt_schedule_check @ 0x123b68
 int lld_evt_schedule_check(int a1, void ( **a2)(int), unsigned int a3) {
-  volatile uint16_t **v3; // r5
+  volatile int16_t **v3; // r5
   int result; // r0
   int v7; // r0
 
-  v3 = (volatile uint16_t **)off_123BE0;
-  if ( **(volatile uint16_t **)off_123BE0 < 0 && rx_rate_field_parse(a3) == 4 )
+  v3 = (volatile int16_t **)off_123BE0;
+  if ( **(volatile int16_t **)off_123BE0 < 0 && rx_rate_field_parse(a3) == 4 )
     mmio_clear_register((int)aKeStateGetDest_0, (int)aMmForceIdleReq_0, 1587);
   result = rx_rate_field_parse(a3);
   if ( result )
@@ -46750,7 +46750,7 @@ LABEL_6:
   result = rx_rate_field_parse(a3);
   if ( !result )
   {
-    if ( **(volatile uint16_t **)off_123C7C < 0 )
+    if ( **(volatile int16_t **)off_123C7C < 0 )
     {
       if ( *(volatile uint32_t *)off_123C80 << 28 )
         mmio_clear_register((int)aNxmacCurrentSt, (int)aMmSetIdleReqHa, 1522);
@@ -46771,7 +46771,7 @@ LABEL_6:
 // rf_calibration_do @ 0x123c8c
 int rf_calibration_do(unsigned int a1, volatile uint8_t *a2, unsigned int a3, int a4) {
   int v8; // r0
-  volatile uint16_t **v10; // r8
+  volatile int16_t **v10; // r8
   int v11; // r3
   volatile uint8_t *v12; // r5
   volatile uint8_t *v13; // r7
@@ -46875,8 +46875,8 @@ int rf_calibration_do(unsigned int a1, volatile uint8_t *a2, unsigned int a3, in
   v8 = rx_rate_field_parse(a3);
   if ( !v8 )
   {
-    v10 = (volatile uint16_t **)off_123F90;
-    v11 = **(volatile uint16_t **)off_123F90;
+    v10 = (volatile int16_t **)off_123F90;
+    v11 = **(volatile int16_t **)off_123F90;
     if ( v11 >= 0 )
     {
       if ( a1 <= 0x3B )
@@ -47822,7 +47822,7 @@ int unknown_worker(volatile uint32_t *a1, int a2) {
   if ( a2 - v6 < 0 )
   {
     event_dispatch("timer past: cb=%x, time=%x, curr=%x\r\n", a1[1], a2, v6);
-    if ( **(volatile uint16_t **)off_124E28 < 0 )
+    if ( **(volatile int16_t **)off_124E28 < 0 )
       mmio_clear_register(off_124E30, (int)aMmTimerSet, 131);
   }
   v7 = (volatile uint32_t *)off_124E1C;
@@ -48914,7 +48914,7 @@ int ke_schedule(int result) {
   v1 = dword_125CA4;
   v2 = *(volatile uint32_t *)(dword_125CA4 + 4);
   v3 = result;
-  if ( **(volatile uint16_t **)dword_125CA0 >= 0 || v2 )
+  if ( **(volatile int16_t **)dword_125CA0 >= 0 || v2 )
   {
     v4 = v2 - 1;
     *(volatile uint32_t *)(dword_125CA4 + 4) = v4;
@@ -49916,7 +49916,7 @@ int llm_ctrl_msg_handler(int a1, int a2, int a3) {
 
   v6 = mem_word_load(dword_1267BC);
   v7 = v6;
-  if ( **(volatile uint16_t **)off_1267C0 < 0 && !v6 )
+  if ( **(volatile int16_t **)off_1267C0 < 0 && !v6 )
     mmio_clear_register((int)aChSwitchNull, (int)aChanSwitchAllo, 227);
   v8 = (void *)(uintptr_t)(off_1267C4);
   v9 = (volatile char *)off_1267C4 + 32;
@@ -51030,7 +51030,7 @@ LABEL_7:
   {
 LABEL_50:
     v39 = (void *)(uintptr_t)(off_127648);
-    v40 = **(volatile uint16_t **)off_127644;
+    v40 = **(volatile int16_t **)off_127644;
     *((volatile uint32_t *)off_127648 + 1) |= 0x100040u;
     if ( v40 < 0 && *(volatile uint32_t *)off_127650 << 28 )
       call_shared_handler((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
@@ -51064,7 +51064,7 @@ LABEL_38:
       goto LABEL_44;
   }
   v36 = (void *)(uintptr_t)(off_127648);
-  v37 = **(volatile uint16_t **)off_127644;
+  v37 = **(volatile int16_t **)off_127644;
   *((volatile uint32_t *)off_127648 + 1) &= 0xFFEFFFBF;
   if ( v37 < 0 && *(volatile uint32_t *)off_127650 << 28 )
     call_shared_handler((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
@@ -51103,7 +51103,7 @@ LABEL_23:
 LABEL_26:
   ke_msg_send_2(v21);
   v27 = (void *)(uintptr_t)(off_127648);
-  v28 = **(volatile uint16_t **)off_127644;
+  v28 = **(volatile int16_t **)off_127644;
   v29 = *((volatile uint32_t *)off_127648 + 1) & 0xFFFFDDFF;
   *((volatile uint32_t *)off_127648 + 1) = v29;
   if ( v28 < 0 && *(volatile uint32_t *)off_127650 << 28 )
@@ -51132,7 +51132,7 @@ LABEL_8:
 
 // rf_perform_calibration @ 0x127668
 int rf_perform_calibration(volatile uint32_t *a1) {
-  volatile uint16_t **v1; // r7
+  volatile int16_t **v1; // r7
   volatile uint8_t *v2; // r6
   volatile uint32_t *v4; // r0
   volatile uint32_t *v5; // r5
@@ -51169,7 +51169,7 @@ int rf_perform_calibration(volatile uint32_t *a1) {
   int v36; // r3
   int v37; // r2
 
-  v1 = (volatile uint16_t **)off_127878;
+  v1 = (volatile int16_t **)off_127878;
   v2 = (void *)(uintptr_t)(off_12787C);
   v4 = mem_word_load(dword_127880);
   v5 = v4;
@@ -51584,7 +51584,7 @@ int rx_prep_descriptor(volatile uint8_t *a1, int a2) {
   char v11; // r3
   volatile uint32_t *v12; // r0
   volatile uint8_t *v13; // r2
-  uint16_t v14; // r1
+  int16_t v14; // r1
   unsigned int v15; // r1
   int v16; // r2
   int v17; // r0
@@ -51772,17 +51772,17 @@ LABEL_16:
 
 // wlc_validate_chip_queue @ 0x127e00
 int wlc_validate_chip_queue(int a1) {
-  volatile uint16_t **v1; // r8
+  volatile int16_t **v1; // r8
   int v2; // r5
   volatile int *v4; // r6
   int v5; // r7
   int v6; // r4
   int result; // r0
 
-  v1 = (volatile uint16_t **)off_127EA0;
+  v1 = (volatile int16_t **)off_127EA0;
   v2 = dword_127E8C;
   v4 = (volatile int *)(dword_127E8C + 28 * a1);
-  if ( **(volatile uint16_t **)off_127EA0 < 0 )
+  if ( **(volatile int16_t **)off_127EA0 < 0 )
   {
     v5 = 8 * a1;
     if ( *(volatile uint8_t *)(dword_127E8C + 28 * a1 + 24) != 255
@@ -52413,7 +52413,7 @@ LABEL_6:
 
 // sta_get_by_index @ 0x1285bc
 int sta_get_by_index(int a1) {
-  volatile uint16_t **v1; // r9
+  volatile int16_t **v1; // r9
   int v2; // r8
   int v3; // r10
   int v4; // r6
@@ -52440,11 +52440,11 @@ int sta_get_by_index(int a1) {
   int v27; // r2
   volatile char *v28; // r1
 
-  v1 = (volatile uint16_t **)off_128884;
+  v1 = (volatile int16_t **)off_128884;
   v2 = dword_12887C;
   v3 = 1320 * a1;
   v4 = *(volatile uint32_t *)(dword_12887C + 1320 * a1 + 72);
-  if ( **(volatile uint16_t **)off_128884 < 0 && !v4 )
+  if ( **(volatile int16_t **)off_128884 < 0 && !v4 )
     mmio_clear_register((int)aCtxtNull, (int)aChanCtxtUnlink, 3149);
   v6 = v2 + 1320 * a1;
   v7 = (volatile uint8_t *)off_128854;
@@ -52637,7 +52637,7 @@ LABEL_21:
 
 // sta_lookup_by_bss @ 0x128888
 int sta_lookup_by_bss(int a1, int a2) {
-  volatile uint16_t **v2; // r10
+  volatile int16_t **v2; // r10
   int v3; // r8
   int v4; // r7
   volatile uint32_t *v7; // r6
@@ -52653,17 +52653,17 @@ int sta_lookup_by_bss(int a1, int a2) {
   int result; // r0
   int v18; // r3
   char v19; // r0
-  volatile uint16_t *v20; // r3
+  volatile int16_t *v20; // r3
   unsigned int v21; // r2
   int v22; // r3
   int v23; // r3
   int v24; // r1
 
-  v2 = (volatile uint16_t **)off_128ACC;
+  v2 = (volatile int16_t **)off_128ACC;
   v3 = dword_128AA8;
   v4 = dword_128A9C;
   v7 = (volatile uint32_t *)(dword_128AA8 + 28 * a2);
-  if ( **(volatile uint16_t **)off_128ACC >= 0
+  if ( **(volatile int16_t **)off_128ACC >= 0
     || *(volatile uint32_t *)(dword_128A9C + 1320 * a1 + 72)
     && (mmio_clear_register((int)aVifChanCtxtNul_0, (int)aChanCtxtLink, 3061), **v2 >= 0) )
   {
@@ -54367,7 +54367,7 @@ int llc_evt_schedule(int result, int a2, unsigned int a3) {
       wlc_rx_process((volatile uint8_t *)v6);
     }
     v15 = *(volatile uint16_t *)(a2 + 1) - 2;
-    v16 = dword_129F3C * (uint64_t)v15;
+    v16 = (int32_t)dword_129F3C * (int64_t)(int32_t)(v15);
     v17 = (uint8_t)((SHIDWORD(v16) >> 2) - (v15 >> 31));
     if ( (uint8_t)(SHIDWORD(v16) >> 2) != (uint8_t)(v15 >> 31) )
     {
@@ -55639,7 +55639,7 @@ int ke_state_check() {
     v0 = rx_rate_field_parse(2u);
     event_dispatch("end st=%d\n", v0);
   }
-  if ( **(volatile uint16_t **)off_12AFF8 < 0 && rx_rate_field_parse(2u) != 3 )
+  if ( **(volatile int16_t **)off_12AFF8 < 0 && rx_rate_field_parse(2u) != 3 )
     mmio_clear_register((int)aKeStateGetTask_2, (int)aMmScanChannelE, 201);
   v1 = (void *)(uintptr_t)(off_12AFFC);
   v2 = *(volatile uint32_t *)off_12AFFC;
@@ -55683,7 +55683,7 @@ int ke_task_state_get_1() {
     v2 = rx_rate_field_parse(2u);
     event_dispatch("start st=%d\n", v2);
   }
-  if ( **(volatile uint16_t **)off_12B074 < 0 && rx_rate_field_parse(2u) != 2 )
+  if ( **(volatile int16_t **)off_12B074 < 0 && rx_rate_field_parse(2u) != 2 )
     mmio_clear_register((int)aKeStateGetTask_3, (int)aMmScanChannelS, 163);
   if ( (*(volatile uint8_t *)(v0 + 6 * v1 + 3) & 1) == 0 )
     controller_read_features();
@@ -55709,7 +55709,7 @@ int ke_msg_send_1(int a1, int a2, uint16_t a3, uint16_t a4) {
   }
   else
   {
-    if ( **(volatile uint16_t **)off_12B104 < 0 && !*(volatile uint8_t *)(a2 + 367) )
+    if ( **(volatile int16_t **)off_12B104 < 0 && !*(volatile uint8_t *)(a2 + 367) )
       mmio_clear_register((int)aParamChanCnt0, (int)aScanStartReqHa_0, 73);
     v8 = (void *)(uintptr_t)(off_12B108);
     *v6 = 0;
@@ -55802,7 +55802,7 @@ int ke_timer_setup() {
   if ( (v4 & 1) == 0 && *((volatile uint8_t *)off_12B274 + 3850) == 1 )
     v5 += 170000;
 LABEL_4:
-  wlc_check_chip_ready((volatile uint16_t *)v2, v5, *(volatile uint8_t *)(v1 + 366));
+  wlc_check_chip_ready((volatile int16_t *)v2, v5, *(volatile uint8_t *)(v1 + 366));
   v6 = v0[1];
   if ( v6 )
   {
@@ -56063,7 +56063,7 @@ int read_cal_value() {
   unsigned int v1; // r2
   int result; // r0
 
-  if ( **(volatile uint16_t **)off_12B588 < 0 && *(volatile uint32_t *)off_12B594 << 28 )
+  if ( **(volatile int16_t **)off_12B588 < 0 && *(volatile uint32_t *)off_12B594 << 28 )
     return bad_func_0x12f408((int)aNxmacCurrentSt, (int)aHalMachwIdleIr, 105);
   if ( (*(volatile uint32_t *)off_12B58C & 0x80) != 0 )
   {
@@ -56188,7 +56188,7 @@ int read_cal_trim() {
   volatile int *v10; // r3
   int v11; // r3
 
-  if ( **(volatile uint16_t **)off_12B87C < 0 && !(*(volatile uint32_t *)off_12B898 << 28) )
+  if ( **(volatile int16_t **)off_12B87C < 0 && !(*(volatile uint32_t *)off_12B898 << 28) )
     return bad_func_0x12f408((int)aNxmacCurrentSt_0, (int)aHalMachwIdleRe, 213);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -56688,7 +56688,7 @@ LABEL_4:
         *((volatile uint8_t *)off_12BFB0 + 6) = 1;
     }
   }
-  if ( **(volatile uint16_t **)off_12BFB8 < 0 )
+  if ( **(volatile int16_t **)off_12BFB8 < 0 )
   {
     if ( (v0 & 1) != 0 )
     {
@@ -56751,7 +56751,7 @@ void irq_combined_status() {
     unknown_func_12d104(0x40000);
     *(volatile uint32_t *)off_12C1A8 = v2;
   }
-  if ( **(volatile uint16_t **)off_12C194 < 0 )
+  if ( **(volatile int16_t **)off_12C194 < 0 )
   {
     if ( (v0 & 0x400000) != 0 )
     {
@@ -57036,7 +57036,7 @@ void rf_check_temperature(int a1, int a2) {
            (volatile uint8_t *)(*(volatile uint32_t *)(a1 + 72) + 4));
     *(volatile uint32_t *)(v2 + 36) = v3 | (v3 << 8);
   }
-  else if ( **(volatile uint16_t **)off_12C52C < 0 )
+  else if ( **(volatile int16_t **)off_12C52C < 0 )
   {
     mmio_clear_register(off_12C534, (int)aTpcUpdateFrame, 92);
   }
@@ -57055,7 +57055,7 @@ void rf_check_battery(int a1, int a2) {
     v4 = rx_packet_handler((*(volatile uint32_t *)(v3 + 20) >> 11) & 7, *(volatile uint32_t *)(v3 + 20) & 0x7F, v2);
     *(volatile uint32_t *)(v3 + 36) = v4 | (v4 << 8);
   }
-  else if ( **(volatile uint16_t **)off_12C578 < 0 )
+  else if ( **(volatile int16_t **)off_12C578 < 0 )
   {
     mmio_clear_register(off_12C580, (int)aTpcUpdateFrame_0, 109);
   }
@@ -57433,7 +57433,7 @@ volatile uint32_t * ke_msg_send_2(int a1) {
   int v1; // r3
 
   v1 = *(volatile uint16_t *)(a1 - 6);
-  if ( **(volatile uint16_t **)off_12C9F8 >= 0 || (uint8_t)v1 <= 0xEu )
+  if ( **(volatile int16_t **)off_12C9F8 >= 0 || (uint8_t)v1 <= 0xEu )
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
@@ -57658,7 +57658,7 @@ LABEL_14:
 
 // tx_pkt_enqueue @ 0x12cbc8
 volatile uint32_t * tx_pkt_enqueue(volatile char *a1) {
-  volatile uint16_t **v1; // r9
+  volatile int16_t **v1; // r9
   volatile char *v2; // r4
   int v3; // r8
   volatile char *v5; // r5
@@ -57674,11 +57674,11 @@ volatile uint32_t * tx_pkt_enqueue(volatile char *a1) {
   int v15; // r1
   uint64_t v16; // r2
 
-  v1 = (volatile uint16_t **)off_12CCC4;
+  v1 = (volatile int16_t **)off_12CCC4;
   v2 = *((volatile char **)off_12CCAC + 7);
   v3 = *((volatile uint32_t *)a1 - 1);
   v5 = a1 - 4;
-  if ( **(volatile uint16_t **)off_12CCC4 < 0 && a1 <= v2 )
+  if ( **(volatile int16_t **)off_12CCC4 < 0 && a1 <= v2 )
     mmio_clear_register((int)aUint32TMemPtrU, (int)aKeFree, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -57782,7 +57782,7 @@ int iterate_word_array(int a1, volatile int *a2, int a3) {
       return 0;
   }
   result = *(volatile uint32_t *)(v8 + 4);
-  if ( **(volatile uint16_t **)off_12CD28 < 0 && !result )
+  if ( **(volatile int16_t **)off_12CD28 < 0 && !result )
   {
     mmio_clear_register((int)aStateHandlerMs, (int)aKeHandlerSearc, 239);
     return *(volatile uint32_t *)(v7 + *a2 + 4);
@@ -57793,7 +57793,7 @@ int iterate_word_array(int a1, volatile int *a2, int a3) {
 
 // rx_phy_status_parse @ 0x12cd34
 int rx_phy_status_parse(unsigned int a1, int a2) {
-  volatile uint16_t **v2; // r7
+  volatile int16_t **v2; // r7
   unsigned int v5; // r9
   int v6; // r6
   volatile uint16_t *v7; // r9
@@ -57808,10 +57808,10 @@ int rx_phy_status_parse(unsigned int a1, int a2) {
   volatile uint32_t *v16; // r1
   volatile int *v17; // r6
 
-  v2 = (volatile uint16_t **)off_12CE4C;
+  v2 = (volatile int16_t **)off_12CE4C;
   v5 = a1 >> 8;
   v6 = (uint8_t)a1;
-  if ( **(volatile uint16_t **)off_12CE4C >= 0 )
+  if ( **(volatile int16_t **)off_12CE4C >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
   {
@@ -58057,7 +58057,7 @@ volatile uint32_t *unknown_func_12cff4() {
       }
       if ( result )
       {
-        if ( **(volatile uint16_t **)off_12D0E4 < 0 )
+        if ( **(volatile int16_t **)off_12D0E4 < 0 )
           result = (volatile uint32_t *)mmio_clear_register(off_12D0F8, (int)aKeTaskSchedule, 360);
         goto LABEL_12;
       }
@@ -58288,7 +58288,7 @@ int cmd_handler_a(int result, volatile uint32_t *a2) {
   int v2; // r5
 
   v2 = result;
-  if ( **(volatile uint16_t **)off_12D284 < 0 && !a2 )
+  if ( **(volatile int16_t **)off_12D284 < 0 && !a2 )
     result = mmio_clear_register((int)aListHdrNull, (int)aCoListPushBack, 72);
   if ( *(volatile uint32_t *)v2 )
     **(volatile uint32_t **)(v2 + 4) = (int)(uintptr_t)(a2);
@@ -58648,7 +58648,7 @@ int load_bt_config(int a1) {
   v8 = double_compare(v6, v7);
   v9 = ((int (*)(uint64_t))double_to_float_1)(v8);
   return v9 & 0x7F800000
-       | ((((v9 & 0x7FFFFF) * (uint64_t)(int)_frame.v11[(v9 >> 18) & 0x1F]) >> 23) + *(volatile uint32_t *)&_frame.v12[4 * ((v9 >> 18) & 0x1F)]);
+       | ((((int64_t)(int32_t)(v9 & 0x7FFFFF) * (int64_t)(int32_t)(_frame.v11[(v9 >> 18) & 0x1F])) >> 23) + *(volatile uint32_t *)&_frame.v12[4 * ((v9 >> 18) & 0x1F)]);
 }
 
 
@@ -60099,7 +60099,7 @@ LABEL_124:
                 goto LABEL_11;
               case 2:
 LABEL_44:
-                if ( **(volatile uint16_t **)dword_12E494 < 0 )
+                if ( **(volatile int16_t **)dword_12E494 < 0 )
                   mmio_clear_register(dword_12E9FC, dword_12E9F8, 283);
                 v13 = 2;
                 goto LABEL_12;
@@ -60281,7 +60281,7 @@ LABEL_21:
                 }
                 else
                 {
-                  if ( **(volatile uint16_t **)dword_12E494 < 0 )
+                  if ( **(volatile int16_t **)dword_12E494 < 0 )
                     mmio_clear_register(dword_12E9FC, dword_12E9F8, 334);
                   v13 = 6;
                 }
@@ -60290,7 +60290,7 @@ LABEL_21:
                 goto LABEL_9;
               default:
 LABEL_161:
-                if ( **(volatile uint16_t **)dword_12EA00 < 0 )
+                if ( **(volatile int16_t **)dword_12EA00 < 0 )
                   mmio_clear_register(dword_12E9FC, dword_12E9F8, 594);
                 goto LABEL_12;
             }
@@ -60808,7 +60808,7 @@ BOOL get_flag_bit(unsigned int a1, unsigned int a2) {
 int event_dispatch(const volatile char *fmt, ...) {
   volatile uint32_t *v1; // r6
   const volatile char *v2; // r4
-  volatile uint16_t **v3; // r8
+  volatile int16_t **v3; // r8
   unsigned int v4; // r5
   unsigned int v5; // t1
   char v6; // r2
@@ -60821,7 +60821,7 @@ int event_dispatch(const volatile char *fmt, ...) {
   if ( *((volatile uint32_t *)off_12EB08 + 1) )
   {
     v2 = fmt;
-    v3 = (volatile uint16_t **)off_12EB0C;
+    v3 = (volatile int16_t **)off_12EB0C;
     do
     {
       fmt = v2;
@@ -62758,7 +62758,7 @@ int parse_large_ioctl(int a1, int a2) {
         v13 = (void *)(parse_ipv4_dot((int)(uintptr_t)(a1a[0]), (void *)(v8), 7));
         if ( v13 )
         {
-          if ( *((volatile uint16_t *)v13 + 5) < v9 || *((volatile uint16_t *)v13 + 4) > v9 )
+          if ( *((volatile int16_t *)v13 + 5) < v9 || *((volatile int16_t *)v13 + 4) > v9 )
           {
             log_printf(aUsageSS, *v13, v13[1]);
           }
@@ -62952,7 +62952,7 @@ int rf_is_channel_valid(int a1) {
   if ( a1 > 29 )
     v1 = (unsigned int)(((unsigned int)dword_1304AC * (uint64_t)(unsigned int)(a1 - 30)) >> 32) >> 3;
   else
-    v1 = ((int)((uint64_t)(dword_1304A0 * (uint64_t)(a1 - 40)) >> 32) >> 2) - ((a1 - 40) >> 31);
+    v1 = ((int)((uint64_t)((int32_t)dword_1304A0 * (int64_t)(int32_t)(a1 - 40)) >> 32) >> 2) - ((a1 - 40) >> 31);
   if ( v1 >= 8 )
     v1 = 8;
   if ( v1 < -7 )
@@ -63337,14 +63337,14 @@ int store_uint16_ret2(volatile uint16_t *a1, int16_t a2) {
 // rx_status_handler @ 0x130840
 int rx_status_handler(volatile uint8_t *a1, int a2, volatile uint16_t *a3, int a4, volatile uint32_t *a5, volatile uint16_t *a6, int a7) {
   int v8; // r5
-  uint16_t v9; // r7
+  int16_t v9; // r7
   int v10; // r6
   int v12; // r0
   volatile uint16_t *v13; // r3
   int v14; // r0
   volatile uint8_t *v15; // r7
   int v16; // r2
-  uint16_t v17; // r9
+  int16_t v17; // r9
   int v18; // r0
   int v19; // lr
   int v20; // r3
@@ -63361,7 +63361,7 @@ int rx_status_handler(volatile uint8_t *a1, int a2, volatile uint16_t *a3, int a
   unsigned int v31; // r12
   volatile char *v32; // r2
   char v33; // t1
-  uint16_t v34; // r0
+  int16_t v34; // r0
   int v35; // r3
   volatile char *v36; // r2
   char v37; // t1
@@ -63380,12 +63380,12 @@ int rx_status_handler(volatile uint8_t *a1, int a2, volatile uint16_t *a3, int a
   volatile uint8_t *v50; // r5
   int v51; // r2
   int v52; // r3
-  uint16_t v53; // r3
+  int16_t v53; // r3
   int v55; // r0
   volatile char *v56; // r2
   char v57; // t1
   int v58; // r5
-  uint16_t v59; // r9
+  int16_t v59; // r9
   char v60; // r0
   volatile uint8_t *v61; // r3
   volatile uint8_t *v62; // r3
@@ -63404,12 +63404,12 @@ int rx_status_handler(volatile uint8_t *a1, int a2, volatile uint16_t *a3, int a
   unsigned int v75; // r11
   char v76; // r1
   char v77; // r3
-  uint16_t v78; // lr
+  int16_t v78; // lr
   volatile uint8_t *v79; // r2
   int v80; // r12
   volatile uint8_t *v81; // r12
   uint16_t v82; // r0
-  struct __attribute__((packed)) { uint16_t v83; // [sp+4h] [bp-60h]
+  struct __attribute__((packed)) { int16_t v83; // [sp+4h] [bp-60h]
   char _pad1[2]; int a3a; // [sp+8h] [bp-5Ch]
   char v85; // [sp+Ch] [bp-58h]
   char _pad3[3]; volatile char *v86; // [sp+10h] [bp-54h]
@@ -63420,7 +63420,7 @@ int rx_status_handler(volatile uint8_t *a1, int a2, volatile uint16_t *a3, int a
   uint32_t result[2]; // [sp+24h] [bp-40h] BYREF
   uint8_t v92[2]; // [sp+2Ch] [bp-38h] BYREF
   int v93; // [sp+2Eh] [bp-36h]
-  uint16_t v94; // [sp+32h] [bp-32h]
+  int16_t v94; // [sp+32h] [bp-32h]
   char _pad12[32]; int v95; // [sp+54h] [bp-10h]
   } _frame;
   v8 = a7;
@@ -64797,7 +64797,7 @@ int bt_command_send(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
 int tx_path_check(int a1, int a2, int a3) {
   int v4; // r1
 
-  if ( **(volatile uint16_t **)off_131968 < 0 && rx_rate_field_parse(a3) != 1 )
+  if ( **(volatile int16_t **)off_131968 < 0 && rx_rate_field_parse(a3) != 1 )
     mmio_clear_register((int)aKeStateGetDest_1, (int)aMmSetPsModeCfm, 822);
   v4 = *((volatile uint16_t *)off_13196C + 4);
   if ( v4 != 255 )
@@ -64811,7 +64811,7 @@ int tx_path_check(int a1, int a2, int a3) {
 int rx_path_check(int a1, int a2, int a3) {
   int v4; // r1
 
-  if ( **(volatile uint16_t **)off_1319C0 < 0 && rx_rate_field_parse(a3) != 1 )
+  if ( **(volatile int16_t **)off_1319C0 < 0 && rx_rate_field_parse(a3) != 1 )
     mmio_clear_register((int)aKeStateGetDest_1, (int)aMmSetIdleCfmHa, 670);
   v4 = *((volatile uint16_t *)off_1319C4 + 4);
   if ( v4 != 255 )
@@ -64885,7 +64885,7 @@ int ke_msg_alloc_1(int a1, volatile int *a2, int a3, int a4) {
   volatile int *v10; // r8
   volatile int *v11; // r2
   char v12; // r1
-  uint16_t v13; // r0
+  int16_t v13; // r0
   int v14; // r10
   int v15; // r8
   int v16; // r12
@@ -64959,7 +64959,7 @@ int ke_msg_alloc_1(int a1, volatile int *a2, int a3, int a4) {
   int v85; // [sp+34h] [bp-20h]
   int v86; // [sp+38h] [bp-1Ch]
   int v87; // [sp+3Ch] [bp-18h]
-  uint16_t v88; // [sp+40h] [bp-14h]
+  int16_t v88; // [sp+40h] [bp-14h]
   int v89; // [sp+42h] [bp-12h]
   uint16_t v90; // [sp+46h] [bp-Eh]
   char v91; // [sp+48h] [bp-Ch]
@@ -65188,7 +65188,7 @@ LABEL_19:
             v63 = (volatile int *)off_131F34;
             _frame.v77 = v5;
             v64 = v33;
-            v65 = (volatile uint32_t *)(dword_131F24 - 664 + 8 * (87 * (uint16_t)v32 + 78));
+            v65 = (volatile uint32_t *)(dword_131F24 - 664 + 8 * (87 * (int16_t)v32 + 78));
             v66 = (volatile uint32_t *)(v22 + 8 * (165 * v33[34] + 159));
             v67 = 696 * v32 + dword_131F24;
             v68 = v22 + 1320 * v33[34];
@@ -65260,7 +65260,7 @@ int bt_clear_flag(int a1, int a2, int a3, int a4) {
   int v15; // r1
   int v16; // r2
   int v17; // r3
-  uint16_t v18; // r1
+  int16_t v18; // r1
   int v19; // r2
   char v20; // r2
   volatile uint32_t *v22; // r6
@@ -66186,7 +66186,7 @@ volatile uint32_t * tx_send_controller_pkt(int a1) {
   int v17; // r0
   int v18; // t1
   int v19; // r2
-  uint16_t v20; // r0
+  int16_t v20; // r0
   unsigned int v21; // r2
   unsigned int v22; // r8
   unsigned int v23; // lr
@@ -66196,7 +66196,7 @@ volatile uint32_t * tx_send_controller_pkt(int a1) {
   unsigned int v27; // lr
   int v28; // r8
   unsigned int v29; // r10
-  uint16_t v30; // r2
+  int16_t v30; // r2
   unsigned int v31; // r3
   int v32; // r0
   int v33; // r3
@@ -66422,7 +66422,7 @@ LABEL_24:
         v58 = rx_packet_handler((v44 >> 11) & 7, v44 & 0x7F, (volatile uint8_t *)(*(volatile uint32_t *)(*(volatile uint32_t *)v63 + 72) + 4));
         *(v39 - 1) = v46 | v58 | (v58 << 8);
       }
-      else if ( **(volatile uint16_t **)off_132C3C < 0 )
+      else if ( **(volatile int16_t **)off_132C3C < 0 )
       {
         mmio_clear_register(off_132D00, (int)aMeUpdateBuffer, 986);
       }
@@ -66789,12 +66789,12 @@ int rx_process_packet_1(int a1, uint16_t a2, int a3) {
   int v18; // r6
   int v19; // r3
   int v20; // r1
-  uint16_t v21; // r3
-  volatile uint16_t **v22; // r10
+  int16_t v21; // r3
+  volatile int16_t **v22; // r10
   int v23; // r2
   int v24; // r0
   int v25; // r2
-  uint16_t v26; // r3
+  int16_t v26; // r3
   int v27; // r1
   unsigned int v28; // r3
   unsigned int v29; // r6
@@ -67014,7 +67014,7 @@ LABEL_7:
       send_msg(a3, 32, 1, 0);
     v18 = ke_msg_alloc(59, 0, 5, 12);
     v19 = *(volatile uint32_t *)(a1 + 72);
-    if ( **(volatile uint16_t **)off_13340C < 0 && !v19 )
+    if ( **(volatile int16_t **)off_13340C < 0 && !v19 )
     {
       mmio_clear_register((int)aVifChanCtxtNul, (int)aMeChanCtxtUpda, 70);
       v19 = *(volatile uint32_t *)(a1 + 72);
@@ -67029,7 +67029,7 @@ LABEL_7:
   }
   if ( v8 )
   {
-    v22 = (volatile uint16_t **)off_13340C;
+    v22 = (volatile int16_t **)off_13340C;
     while ( 1 )
     {
       v23 = *(volatile uint16_t *)(a1 + 462);
@@ -67772,7 +67772,7 @@ int main_loop_check() {
   struct __attribute__((packed)) { int v7; // [sp+0h] [bp-Ch] BYREF
   int a2; // [sp+4h] [bp-8h] BYREF
   } _frame;
-  if ( **(volatile uint16_t **)off_133BC8 < 0 && rx_rate_field_parse(6u) != 4 && rx_rate_field_parse(6u) != 10 )
+  if ( **(volatile int16_t **)off_133BC8 < 0 && rx_rate_field_parse(6u) != 4 && rx_rate_field_parse(6u) != 10 )
     mmio_clear_register((int)aKeStateGetTask_9, (int)aMeSetActiveCfm, 697);
   if ( rx_rate_field_parse(6u) == 10 )
   {
@@ -67884,7 +67884,7 @@ int adv_state_handler() {
   int v10; // r3
   int v11; // r6
   int v12; // r0
-  uint16_t v13; // r2
+  int16_t v13; // r2
   int v14; // r3
   int v15; // r10
   volatile uint32_t *v16; // r1
@@ -67895,7 +67895,7 @@ int adv_state_handler() {
   } _frame;
   v0 = (void *)(uintptr_t)(off_133DD4);
   v1 = *((volatile uint32_t *)off_133DD4 + 4);
-  if ( **(volatile uint16_t **)off_133DD0 < 0 && rx_rate_field_parse(6u) != 2 )
+  if ( **(volatile int16_t **)off_133DD0 < 0 && rx_rate_field_parse(6u) != 2 )
     mmio_clear_register((int)aKeStateGetTask_10, (int)aScanuJoinCfmHa, 344);
   v2 = *(volatile uint8_t *)(v1 + 61);
   v3 = dword_133DE8;
@@ -68057,7 +68057,7 @@ int ctrl_event_handler(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v8; // r5
   int v9; // r8
   volatile uint8_t *v10; // r3
-  volatile uint16_t **v11; // r10
+  volatile int16_t **v11; // r10
   volatile uint32_t *v12; // r9
   volatile int *v13; // r1
   int v14; // r2
@@ -68091,8 +68091,8 @@ int ctrl_event_handler(int a1, int a2, int a3, int a4) {
     {
       if ( !v10[108] )
       {
-        v11 = (volatile uint16_t **)off_13405C;
-        if ( **(volatile uint16_t **)off_13405C < 0 )
+        v11 = (volatile int16_t **)off_13405C;
+        if ( **(volatile int16_t **)off_13405C < 0 )
         {
           if ( (uint8_t)v10[116] == 255
             || (mmio_clear_register((int)aVifUStaApIdInv, (int)aSmConnectReqHa, 102), **v11 < 0) )
@@ -68545,7 +68545,7 @@ int send_hci_packet(int a1, int a2) {
   int v11; // r1
   int v12; // r2
   int v13; // r3
-  uint16_t v15; // r3
+  int16_t v15; // r3
   int v16; // r5
   int v17; // r0
   int v18; // r3
@@ -68608,7 +68608,7 @@ LABEL_3:
     if ( v17 )
     {
       v18 = v21[a2];
-      v19 = 6 * (uint16_t)v17 + v18;
+      v19 = 6 * (int16_t)v17 + v18;
       do
       {
         if ( (*(volatile uint8_t *)(v18 + 3) & 2) == 0 )
@@ -68640,7 +68640,7 @@ int rx_packet_handler_3(int a1, int a2, int a3) {
   volatile uint8_t *v7; // r9
   volatile int *v8; // r10
   int v9; // r4
-  uint16_t v10; // lr
+  int16_t v10; // lr
   int v11; // r0
   int v12; // r1
   int v13; // r2
@@ -68730,7 +68730,7 @@ int tx_packet_handler_1() {
   volatile int *v3; // r10
   int v4; // r4
   uint64_t v5; // r2
-  uint16_t v6; // lr
+  int16_t v6; // lr
   int v7; // r0
   int v8; // r1
   uint64_t v9; // r2
@@ -68863,7 +68863,7 @@ int bt_init_hci_buffer() {
   volatile uint16_t *v0; // r6
   int v1; // r4
   int v2; // r5
-  uint16_t v3; // r7
+  int16_t v3; // r7
   volatile int *v4; // r3
   int v5; // r1
   unsigned int v6; // r2
@@ -69513,7 +69513,7 @@ LABEL_5:
     v28 = *(volatile uint16_t *)(v4 + 54);
     if ( 512 - v23 < v28 )
     {
-      if ( **(volatile uint16_t **)off_135354 < 0 )
+      if ( **(volatile int16_t **)off_135354 < 0 )
         call_shared_handler(off_13535C, (int)aSmAuthSend_0, 1015);
     }
     else
@@ -69792,7 +69792,7 @@ LABEL_5:
   v22[9] = v21 + 28;
   if ( v24 )
   {
-    if ( **(volatile uint16_t **)off_135554 < 0 )
+    if ( **(volatile int16_t **)off_135554 < 0 )
       call_shared_handler(off_13555C, (int)aSmAssocReqSend_0, 1115);
     *(volatile uint16_t *)(v8 + 14) = 0;
   }
@@ -69870,7 +69870,7 @@ int bt_send_profile_cmd(volatile char *a1) {
     v7 = a1 + 18;
     if ( v6 + v5 > 800 )
     {
-      if ( **(volatile uint16_t **)off_135658 < 0 )
+      if ( **(volatile int16_t **)off_135658 < 0 )
       {
         call_shared_handler(off_135664, (int)aSmAssocRspHand, 1236);
         v5 = *(volatile uint16_t *)(v2 + 14);
@@ -70059,7 +70059,7 @@ int bt_get_current_profile_conn(unsigned int a1) {
   v1 = *((volatile uint32_t *)off_13591C + 4);
   v2 = dword_135920;
   v3 = *(volatile uint8_t *)(v1 + 61);
-  if ( **(volatile uint16_t **)off_135918 < 0 && *(volatile int *)(dword_135920 + 1320 * v3 + 472) >= 0 )
+  if ( **(volatile int16_t **)off_135918 < 0 && *(volatile int *)(dword_135920 + 1320 * v3 + 472) >= 0 )
     mmio_clear_register((int)aBssCapaBssVali, (int)aSmExternalAuth, 1398);
   v5 = (volatile uint8_t *)ke_msg_alloc(6150, 13, 6, 44);
   *v5 = *(volatile uint8_t *)(v1 + 61);
@@ -70114,15 +70114,15 @@ BOOL is_hw_feature_6() {
 int bt_send_ack_message(char a1, int a2, unsigned int a3) {
   unsigned int v3; // r4
   int v6; // r0
-  volatile uint16_t **v7; // r3
-  volatile uint16_t *v8; // r3
+  volatile int16_t **v7; // r3
+  volatile int16_t *v8; // r3
   int v9; // r5
   int v10; // r3
   unsigned int v11; // r4
 
   v3 = a3;
   v6 = ke_msg_alloc(6152, 13, 6, (uint16_t)(a3 + 4));
-  v7 = (volatile uint16_t **)off_1359F0;
+  v7 = (volatile int16_t **)off_1359F0;
   *(volatile uint8_t *)v6 = a1;
   v8 = *v7;
   *(volatile uint16_t *)(v6 + 2) = v3;
@@ -70751,10 +70751,10 @@ int bt_vendor_cmd_guard() {
 
 // bt_cmd_guard_alt @ 0x13637c
 int bt_cmd_guard_alt() {
-  volatile uint16_t **v0; // r4
+  volatile int16_t **v0; // r4
 
-  v0 = (volatile uint16_t **)off_136408;
-  if ( **(volatile uint16_t **)off_136408 < 0 && rx_rate_field_parse(7u) != 1 && rx_rate_field_parse(7u) && rx_rate_field_parse(7u) != 3 )
+  v0 = (volatile int16_t **)off_136408;
+  if ( **(volatile int16_t **)off_136408 < 0 && rx_rate_field_parse(7u) != 1 && rx_rate_field_parse(7u) && rx_rate_field_parse(7u) != 3 )
     mmio_clear_register((int)aKeStateGetTask_14, (int)aMeSetActiveCfm_0, 341);
   if ( rx_rate_field_parse(7u) == 1 )
   {
@@ -70807,12 +70807,12 @@ int bt_rx_process(int a1, int a2, int a3, int a4) {
   char v10; // r5
   volatile char *v11; // r0
   char v13; // r2
-  uint16_t v14; // r3
+  int16_t v14; // r3
   int v15; // r3
   volatile uint8_t *v16; // r10
   char v17; // r2
   int v18; // r1
-  uint16_t v19; // r2
+  int16_t v19; // r2
   int v20; // r9
   int v21; // r3
   unsigned int v22; // r2
@@ -70849,7 +70849,7 @@ LABEL_3:
     v10 = 9;
     goto LABEL_3;
   }
-  if ( **(volatile uint16_t **)off_136644 < 0 && *(volatile uint32_t *)(v9 + 72) )
+  if ( **(volatile int16_t **)off_136644 < 0 && *(volatile uint32_t *)(v9 + 72) )
     mmio_clear_register((int)aVifChanCtxtNul_0, (int)aApmStartReqHan, 105);
   v13 = *(volatile uint8_t *)(a2 + 28);
   _frame.a1a = (_frame.a1a & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(a2 + 16)) & 0xFFu);
@@ -70980,7 +70980,7 @@ int bt_vendor_send(int a1) {
   int v7; // r7
   int v8; // r0
   int v9; // r9
-  uint16_t v10; // r2
+  int16_t v10; // r2
   int v11; // r3
   int v12; // r12
   int v13; // r1
@@ -71116,8 +71116,8 @@ int ke_send_event_0x18() {
 int ke_send_event_0x3f() {
   int v0; // r4
   int v1; // r0
-  uint16_t v2; // r1
-  uint16_t v3; // r2
+  int16_t v2; // r1
+  int16_t v3; // r2
 
   v0 = *(volatile uint32_t *)off_1369C8;
   v1 = ke_msg_alloc(63, 0, 7, 12);
@@ -72061,7 +72061,7 @@ LABEL_28:
 int hci_cmd_process(int a1) {
   volatile uint16_t *v2; // r4
   volatile uint8_t **v3; // r7
-  uint16_t v4; // r0
+  int16_t v4; // r0
   volatile uint8_t *v5; // r5
   volatile int *v6; // r2
   volatile uint16_t *v7; // r0
@@ -72160,8 +72160,8 @@ int le_adv_report_handler(volatile uint16_t *a1) {
   char v8; // r2
   uint16_t v9; // r0
   int v10; // r4
-  uint16_t v11; // r3
-  uint16_t v12; // r2
+  int16_t v11; // r3
+  int16_t v12; // r2
   volatile uint8_t *v13; // r0
   volatile uint8_t *v14; // r6
   volatile uint8_t *v15; // r4
@@ -72186,7 +72186,7 @@ int le_adv_report_handler(volatile uint16_t *a1) {
   int v35; // r3
   int v36; // r2
   volatile uint8_t *v37; // r3
-  uint16_t v38; // r1
+  int16_t v38; // r1
   volatile uint8_t *v39; // r0
   volatile uint8_t *v40; // r0
   int v41; // r1
@@ -72216,7 +72216,7 @@ int le_adv_report_handler(volatile uint16_t *a1) {
   int v65; // r5
   volatile uint16_t *v66; // r10
   volatile uint32_t *v67; // r4
-  uint16_t v68; // lr
+  int16_t v68; // lr
   unsigned int v69; // r7
   int v70; // r8
   int v71; // r12
@@ -72293,7 +72293,7 @@ int le_adv_report_handler(volatile uint16_t *a1) {
   uint16_t v143; // [sp+4Ah] [bp-6Ah]
   uint16_t v144; // [sp+4Ch] [bp-68h]
   char _pad12[2]; uint8_t v145[4]; // [sp+50h] [bp-64h] BYREF
-  uint16_t v146; // [sp+54h] [bp-60h]
+  int16_t v146; // [sp+54h] [bp-60h]
   char _pad14[30]; int v147; // [sp+74h] [bp-40h] BYREF
   int v148; // [sp+78h] [bp-3Ch]
   uint8_t a1a[4]; // [sp+7Ch] [bp-38h] BYREF
@@ -73568,7 +73568,7 @@ int tx_power_lookup(int a1, uint16_t a2, int a3) {
   v4 = *((volatile uint8_t *)off_138A5C + 68);
   v5 = dword_138A60;
   v6 = (volatile uint32_t *)(dword_138A60 + 80 * v4);
-  if ( **(volatile uint16_t **)off_138A58 < 0 )
+  if ( **(volatile int16_t **)off_138A58 < 0 )
   {
     v7 = 4 * v4;
     if ( *(volatile uint16_t *)(dword_138A60 + 80 * v4 + 76) )
@@ -73824,12 +73824,12 @@ int ll_state_machine_1(unsigned int a1, volatile uint64_t *a2, int a3, int a4) {
   unsigned int v16; // r4
   int v17; // cc
   uint64_t v18; // r0
-  volatile uint16_t **v19; // r10
-  volatile uint16_t **v20; // r12
+  volatile int16_t **v19; // r10
+  volatile int16_t **v20; // r12
   volatile char *v21; // r0
   int v22; // r1
   uint64_t v23; // r2
-  uint16_t v24; // r5
+  int16_t v24; // r5
   uint16_t v25; // lr
   signed int v26; // r3
   volatile uint8_t *v27; // r2
@@ -73919,7 +73919,7 @@ LABEL_11:
   }
   else
   {
-    v19 = (volatile uint16_t **)off_138FE0;
+    v19 = (volatile int16_t **)off_138FE0;
     while ( 1 )
     {
       v18 = (v18 & ~0xFFFFFFFFull) | ((uint32_t)(v7) & 0xFFFFFFFFu);
@@ -73943,7 +73943,7 @@ LABEL_11:
       }
     }
   }
-  v20 = (volatile uint16_t **)off_138FE0;
+  v20 = (volatile int16_t **)off_138FE0;
   v21 = (volatile char *)&_frame.v48;
   v22 = 8;
   while ( 1 )
@@ -74021,7 +74021,7 @@ int ll_rx_irq(int a1, int a2, int a3) {
   int v9; // r7
   volatile uint32_t *v10; // r4
   int v11; // r2
-  uint16_t v13; // r2
+  int16_t v13; // r2
   char v14; // r1
   volatile unsigned int v15; // r1
   void *v16; // r3
@@ -74030,9 +74030,9 @@ int ll_rx_irq(int a1, int a2, int a3) {
   volatile unsigned int v19; // r3
   int v20; // r0
   int v21; // r5
-  uint16_t v22; // r3
-  uint16_t v23; // r6
-  uint16_t v24; // r1
+  int16_t v22; // r3
+  int16_t v23; // r6
+  int16_t v24; // r1
   int v25; // r0
   int v26; // r3
   volatile uint32_t *v27; // r0
@@ -74060,7 +74060,7 @@ LABEL_15:
     {
       v27 = mem_word_load(dword_139294);
       v10 = v27;
-      if ( **(volatile uint16_t **)off_13929C < 0 && !v27 )
+      if ( **(volatile int16_t **)off_13929C < 0 && !v27 )
         mmio_clear_register((int)aDefragNull, (int)aRxuCntrlDefrag, 1111);
       tx_power_lookup(0, 4, v10[5]);
     }
@@ -74625,7 +74625,7 @@ LABEL_47:
 LABEL_48:
               v30 = (uint16_t)v9 << 8;
 LABEL_49:
-              if ( **(volatile uint16_t **)dword_13986C < 0 && v9 == 255 )
+              if ( **(volatile int16_t **)dword_13986C < 0 && v9 == 255 )
                 mmio_clear_register((int)aTaskIdx0xff, (int)aRxuMgtRouteAct, 2326);
               goto LABEL_50;
             }
@@ -75462,7 +75462,7 @@ int tx_slot_get(int a1, int a2) {
 
   v2 = a1 + 4 * a2;
   v3 = *(volatile uint32_t **)(v2 + 408);
-  if ( **(volatile uint16_t **)off_13A4A0 < 0 && !v3 )
+  if ( **(volatile int16_t **)off_13A4A0 < 0 && !v3 )
     mmio_clear_register((int)aReordNull, (int)aRxuCntrlReordD, 3320);
   fault_handler((int)(uintptr_t)(v3 + 68));
   result = cmd_handler_a(dword_13A4A4, v3);
@@ -76022,15 +76022,15 @@ int ll_conn_state_dispatch(unsigned int a1, int a2) {
   int v5; // r3
   int v6; // r7
   int v7; // r3
-  uint16_t v9; // r0
+  int16_t v9; // r0
   int v10; // r2
   volatile uint8_t *v11; // r7
   int v12; // r3
-  uint16_t v13; // r8
+  int16_t v13; // r8
   int v14; // r6
   int v15; // r8
   volatile int *v16; // r9
-  volatile uint16_t **v17; // r10
+  volatile int16_t **v17; // r10
   int v18; // r7
   unsigned int v19; // r0
   signed int v20; // r1
@@ -76043,7 +76043,7 @@ int ll_conn_state_dispatch(unsigned int a1, int a2) {
   unsigned int v27; // r6
   volatile uint32_t *v28; // r7
   volatile int *v29; // r3
-  uint16_t v30; // r3
+  int16_t v30; // r3
   int v31; // r0
   void *v32; // r3
   int v33; // r0
@@ -76125,7 +76125,7 @@ LABEL_11:
       _frame.v41 = 0;
     }
     v16 = (volatile int *)off_13AEC8;
-    v17 = (volatile uint16_t **)off_13AECC;
+    v17 = (volatile int16_t **)off_13AECC;
     v18 = 0;
     while ( 1 )
     {
@@ -76213,7 +76213,7 @@ LABEL_31:
     }
     else
     {
-      if ( **(volatile uint16_t **)off_13AECC < 0 )
+      if ( **(volatile int16_t **)off_13AECC < 0 )
         mmio_clear_register(off_13AF20, (int)aTxuCntrlPush, 1195);
       v30 = *(volatile uint16_t *)(a1 + 30);
     }
@@ -76637,7 +76637,7 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
           rx_phy_status_parse(a3, 1);
         }
       }
-      else if ( **(volatile uint16_t **)off_13B53C < 0 )
+      else if ( **(volatile int16_t **)off_13B53C < 0 )
       {
         call_shared_handler(off_13B54C, (int)aMmBaAddCfmHand, 218);
       }
@@ -76683,7 +76683,7 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
     }
     return 0;
   }
-  if ( **(volatile uint16_t **)off_13B53C >= 0 )
+  if ( **(volatile int16_t **)off_13B53C >= 0 )
     return 0;
   call_shared_handler(off_13B54C, (int)aMmBaAddCfmHand, 109);
   return 0;
@@ -77162,7 +77162,7 @@ int rf_pll_calibrate(int result) {
   int v2; // r5
   void *a7; // r10
   int v4; // r7
-  uint16_t v5; // r9
+  int16_t v5; // r9
   int v6; // r6
   int v7; // t1
 
@@ -79945,11 +79945,11 @@ int process_list_entries(int a1) {
   int v14; // r3
   int v15; // r6
   int v16; // r10
-  uint16_t v17; // r10
+  int16_t v17; // r10
   int v18; // r11
-  uint16_t v19; // r10
-  uint16_t v20; // r11
-  uint16_t v21; // r6
+  int16_t v19; // r10
+  int16_t v20; // r11
+  int16_t v21; // r6
   int v22; // r3
 
   v1 = *(volatile uint16_t *)(a1 + 184);
@@ -80731,7 +80731,7 @@ int ble_ll_conn_rx_pdu(int a1, int a2) {
   int v39; // r0
   int v40; // r11
   volatile uint8_t *v41; // r3
-  uint16_t v42; // r0
+  int16_t v42; // r0
   unsigned int v43; // r3
   int v44; // r2
   struct __attribute__((packed)) { union { unsigned int v45; // [sp+0h] [bp-40h]
@@ -80741,9 +80741,9 @@ int ble_ll_conn_rx_pdu(int a1, int a2) {
   int v49; // [sp+4h] [bp-3Ch]
   int v50; }; // [sp+4h] [bp-3Ch]
   char _pad2[4]; int result; // [sp+Ch] [bp-34h] BYREF
-  uint16_t v52; // [sp+10h] [bp-30h]
-  uint16_t v53; // [sp+12h] [bp-2Eh]
-  uint16_t v54; // [sp+14h] [bp-2Ch]
+  int16_t v52; // [sp+10h] [bp-30h]
+  int16_t v53; // [sp+12h] [bp-2Eh]
+  int16_t v54; // [sp+14h] [bp-2Ch]
   uint16_t v55; // [sp+16h] [bp-2Ah]
   uint16_t v56[20]; // [sp+18h] [bp-28h] BYREF
   } _frame;
@@ -81657,43 +81657,43 @@ int ble_ll_conn_sm_find(int a1) {
 
 // ble_ll_adv_scan_req @ 0x13f834
 int ble_ll_adv_scan_req(int a1) {
-  volatile uint16_t **v1; // r11
+  volatile int16_t **v1; // r11
   unsigned int v2; // r7
   volatile int *v3; // r8
   int v5; // r6
-  uint16_t v6; // r3
+  int16_t v6; // r3
   int v7; // r10
   int v8; // r9
   int v9; // r5
-  uint16_t v10; // r0
+  int16_t v10; // r0
   int v11; // r3
   unsigned int v12; // r2
   int v13; // r0
   unsigned int v14; // r0
-  volatile uint16_t *v15; // r3
-  uint16_t v16; // r3
-  uint16_t v17; // r0
+  volatile int16_t *v15; // r3
+  int16_t v16; // r3
+  int16_t v17; // r0
   unsigned int v18; // r0
-  volatile uint16_t *v19; // r3
+  volatile int16_t *v19; // r3
   int v20; // r0
   unsigned int v21; // r0
-  volatile uint16_t *v22; // r2
+  volatile int16_t *v22; // r2
   unsigned int v23; // r0
-  volatile uint16_t *v24; // r2
+  volatile int16_t *v24; // r2
   int v25; // r3
   int v26; // r3
   int v27; // r0
   unsigned int v28; // r0
-  volatile uint16_t *v29; // r2
+  volatile int16_t *v29; // r2
   unsigned int v30; // r0
-  volatile uint16_t *v31; // r2
+  volatile int16_t *v31; // r2
   unsigned int v32; // r3
   int v33; // r1
   unsigned int v34; // r0
   int v35; // r7
-  volatile uint16_t *v36; // r5
+  volatile int16_t *v36; // r5
   volatile int *v37; // r2
-  uint16_t v38; // t1
+  int16_t v38; // t1
   int v39; // r2
   volatile unsigned int v40; // r1
   int v41; // r3
@@ -81708,15 +81708,15 @@ int ble_ll_adv_scan_req(int a1) {
   unsigned int v50; // r0
   volatile uint16_t *v51; // r2
   unsigned int v52; // r0
-  volatile uint16_t *v53; // r2
-  uint16_t v54; // r3
+  volatile int16_t *v53; // r2
+  int16_t v54; // r3
   uint16_t v55; // r2
   unsigned int v56; // r3
   int v57; // r1
   int v58; // r0
   unsigned int v59; // r0
-  volatile uint16_t *v60; // r3
-  uint16_t v61; // r3
+  volatile int16_t *v60; // r3
+  int16_t v61; // r3
   uint16_t v62; // r0
   unsigned int v63; // r0
   volatile uint16_t *v64; // r3
@@ -81759,11 +81759,11 @@ int ble_ll_adv_scan_req(int a1) {
   volatile char *a2b; // [sp+20h] [bp-Ch]
   volatile char *a2c; // [sp+20h] [bp-Ch]
 
-  v1 = (volatile uint16_t **)off_13FBE4;
+  v1 = (volatile int16_t **)off_13FBE4;
   v2 = *(volatile uint8_t *)(a1 + 35);
   v3 = *(volatile int **)(a1 + 336);
   v87 = (uint8_t)(v2 + 16);
-  if ( **(volatile uint16_t **)off_13FBE4 < 0 && v2 > 0x1F )
+  if ( **(volatile int16_t **)off_13FBE4 < 0 && v2 > 0x1F )
   {
     mmio_clear_register((int)aStaStaidNxRemo, (int)aRcInit_0, 2825);
     v2 = *(volatile uint8_t *)(a1 + 35);
@@ -82141,7 +82141,7 @@ LABEL_26:
     *(volatile uint8_t *)(v5 + v35 + 194),
     *(volatile uint8_t *)(v5 + v35 + 183));
   ble_ll_conn_sm_find(*(volatile uint8_t *)(a1 + 35));
-  v36 = (volatile uint16_t *)(v9 + 136 + v5);
+  v36 = (volatile int16_t *)(v9 + 136 + v5);
   v37 = v3 + 5;
   do
   {
@@ -82935,7 +82935,7 @@ LABEL_12:
     *(volatile uint32_t *)(a1 + 96) = v13;
     if ( v13 >= v12 )
     {
-      if ( **(volatile uint16_t **)off_140D90 < 0 && ble_ll_adv_chk_active() )
+      if ( **(volatile int16_t **)off_140D90 < 0 && ble_ll_adv_chk_active() )
       {
         if ( *(volatile uint32_t *)(a1 + 92) )
           mmio_clear_register((int)aRmNoMoreMeasur, (int)aRmProcessBeaco, 1585);
@@ -83050,7 +83050,7 @@ int ll_event_counter_inc() {
 
 // ll_event_schedule @ 0x1414e0
 void ll_event_schedule() {
-  volatile uint16_t **v0; // r6
+  volatile int16_t **v0; // r6
   int v1; // r3
   int v2; // r5
   unsigned int v3; // r3
@@ -83061,10 +83061,10 @@ void ll_event_schedule() {
   unsigned int v8; // r3
   unsigned int v9; // r3
 
-  v0 = (volatile uint16_t **)off_1415D8;
+  v0 = (volatile int16_t **)off_1415D8;
   v1 = 136 * *(volatile uint32_t *)(dword_1415D4 + 6480);
   v2 = v1 + 6336 + dword_1415D4;
-  if ( **(volatile uint16_t **)off_1415D8 >= 0 )
+  if ( **(volatile int16_t **)off_1415D8 >= 0 )
   {
     v3 = *(volatile uint8_t *)(v1 + dword_1415D4 + 6339);
     if ( v3 > 1 )
@@ -84085,7 +84085,7 @@ unsigned int adv_report_process(unsigned int result) {
   volatile uint8_t *v13; // r1
   char v14; // r3
   int v15; // r9
-  uint16_t v16; // r8
+  int16_t v16; // r8
   unsigned int v17; // r7
   unsigned int v18; // r10
   int v19; // r11
@@ -84093,7 +84093,7 @@ unsigned int adv_report_process(unsigned int result) {
   volatile char *v21; // r8
   unsigned int v22; // r5
   int v23; // r7
-  uint16_t v24; // r2
+  int16_t v24; // r2
   char v25; // r3
   int v26; // r0
   volatile uint16_t *v27; // r3
@@ -84125,7 +84125,7 @@ unsigned int adv_report_process(unsigned int result) {
         v16 = *(volatile uint16_t *)v4;
         v17 = v4 + 18;
         v18 = *(volatile uint16_t *)(v4 + 18);
-        if ( **(volatile uint16_t **)off_14231C < 0 && v2 == 255 )
+        if ( **(volatile int16_t **)off_14231C < 0 && v2 == 255 )
         {
           result = mmio_clear_register((int)aParamInstNbrIn, (int)aTwtHandleSetup, 637);
           v5 = *(volatile uint8_t *)(v4 + 8);
@@ -84160,7 +84160,7 @@ unsigned int adv_report_process(unsigned int result) {
                 *(volatile uint8_t *)(v30 + 41) = 0;
                 memset((volatile int *)(v30 + 32), 0, 9u);
                 v33 = *v31;
-                *(volatile uint16_t *)v30 = 1;
+                *(volatile int16_t *)v30 = 1;
                 *v31 = v33 + 1;
                 llcp_header_parse((void *)(uintptr_t)(v17), v20, v15, (void *)(uintptr_t)(v30));
                 hci_event_send(4, v30);
@@ -84240,7 +84240,7 @@ unsigned int adv_report_process(unsigned int result) {
         }
       }
     }
-    else if ( **(volatile uint16_t **)off_14231C < 0 )
+    else if ( **(volatile int16_t **)off_14231C < 0 )
     {
       return mmio_clear_register((int)aFalse, (int)aTwtHandleActio, 828);
     }

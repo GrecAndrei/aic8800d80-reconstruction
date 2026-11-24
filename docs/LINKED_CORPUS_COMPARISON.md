@@ -205,7 +205,8 @@ Each runs on the composed `src/<image>/main.c`, adds no body, renames nothing,
 is idempotent, has `--check`, and has a fixed-point test in
 `tools/test_pipeline_rules.py`. Order: `callsite_targets`, `periph_symbols`,
 `asm_returns`, `call_cast_returns`, `double_args`, `float_bits`,
-`stack_frames`, `dword_compares`, `arm_shifts`, `float_compares`.
+`stack_frames`, `dword_compares`, `arm_shifts`, `float_compares`,
+`signed_muls`, `signed_halfwords`.
 
 | rule | what it restores | sites | rows it moved to MATCH |
 |---|---|---|---|
@@ -221,7 +222,14 @@ is idempotent, has `--check`, and has a fixed-point test in
 | `tools/dword_compares.py` | `*(_DWORD *)p < v` with `int v` is a signed compare (`cmp; bge` in the binary) | 11 / 11 / 11 / 8 compares | 4 |
 | `tools/arm_shifts.py` | mask mod-256 ARM exponent shift counts (`& 0xFF`) in `round()` (`double_exp_check`) so GCC `-O2` does not drop shifts >= 32 as UB | 4 / 4 / 4 / 4 shifts | (verified with spill unions) |
 | `tools/float_compares.py` | rewrite float loop-exit `if ( a < b ) break/goto` to `if ( !(a >= b) )` to preserve ARM VFP `bge` NaN exit semantics (`mem_swap_fields` and siblings) | 2 / 2 / 2 / 2 compares | 4 (`mmio_set_bit10`, `mac_irq_enable`, `mac_tx_enable`, `bb_reset`) |
+| `tools/signed_muls.py` | restore signed `(int32_t)lhs * (int64_t)(int32_t)rhs` for ARM `smull` magic divisions and `pow2f` (`uint64_t` + unsigned `dword_*` previously zero-extended negative/high-bit factors) | 30 / 30 / 30 / 30 multiplies | 5M-boot (`crypto_init` `0xffc3`) |
+| `tools/signed_halfwords.py` | restore Hex-Rays signed `__int16` (`int16_t`) from `harness_v25/out/*_bin_types/` on locals, `(volatile) uint16_t */**` casts, `**(volatile uint16_t **) < 0` checks, and matching `(int16_t)` casts | 316 / 303 / 316 / 117 sites | 5M-boot (`gpio_mode_set`, `gpio_pad_ctrl_set`, un-eliminates dead `< 0` branches) |
 | `tools/libmatch.py` (interior drop) | after binding exact matched routines, iteratively drop unreferenced interior fragments split by IDA inside a matched routine | 2 / 2 / 2 / 2 fragments | 4 moved from `DIFFER` to `NOT_RUN` (`not_in_linked_image`) |
+
+Full boot from reset (`start @ 0x100100`, 5M-instruction cap) now matches
+identically with zero differences (`diff=None`, `left=[]`) across all 8,020
+peripheral writes in `fmacfw_8800d80_h_u02` and all 8,010 peripheral writes
+in `fmacfwbt_8800d80_u02` (until entering the polling/idle loop).
 
 Sites are per image in the order fmacfw, fmacfw_h, fmacfwbt, lmacfw_rf. The
 first four rows were measured together (3,743 to 3,766 MATCH, before the
@@ -274,7 +282,7 @@ address-of a `dword_/word_/byte_/unk_` symbol whose address is in
 scan` and `apply`, `volatile_pointees.py`, `callsite_targets.py`,
 `periph_symbols.py`, `asm_returns.py`, `call_cast_returns.py`,
 `double_args.py`, `float_bits.py`, `stack_frames.py`, `dword_compares.py`,
-`arm_shifts.py`, `float_compares.py`.
+`arm_shifts.py`, `float_compares.py`, `signed_muls.py`, `signed_halfwords.py`.
 `fwstruct compose -raw` stops before that; `post_compose.py --check` runs every
 step's check. `make -C src reproduce` rebuilds `fwstruct`, composes and fails
 if `src/` or `metadata/libmatch.json` then differ from the tracked files.

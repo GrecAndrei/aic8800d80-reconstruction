@@ -4986,7 +4986,7 @@ int process_state_update() {
   int v5; // r2
   volatile uint32_t *v6; // r3
   unsigned int v7; // r4
-  volatile uint16_t **v8; // r6
+  volatile int16_t **v8; // r6
   volatile uint32_t *v9; // r2
   int v10; // r1
   int v11; // r4
@@ -5009,7 +5009,7 @@ int process_state_update() {
   v6 = (void *)(uintptr_t)(off_10039C);
   *(volatile uint32_t *)off_100394 = dword_100390;
   v7 = v5 + v1;
-  v8 = (volatile uint16_t **)off_1003A0;
+  v8 = (volatile int16_t **)off_1003A0;
   *(volatile uint64_t *)v6 = v3;
   v6[2] = v4;
   v6[3] = HIDWORD(v4);
@@ -5715,7 +5715,7 @@ volatile char * mac_send_frame(int a1, unsigned int a2, unsigned int a3, int a4,
     {
       v21 = v20 <= 10;
     }
-    v12 = ((uint8_t)((int)((uint64_t)(dword_100C30 * (uint64_t)(int)(a2 - (a3 - 30))) >> 32) >> 3)
+    v12 = ((uint8_t)((int)((uint64_t)((int32_t)dword_100C30 * (int64_t)(int32_t)(int)(a2 - (a3 - 30))) >> 32) >> 3)
          - (uint8_t)((int)(a2 - (a3 - 30)) >> 31))
         & 7;
     *(volatile uint32_t *)off_100C1C = v21;
@@ -6511,7 +6511,7 @@ int tx_path_check() {
   volatile uint32_t *v15; // r2
   int v16; // r1
 
-  if ( **(volatile uint16_t **)off_101954 < 0
+  if ( **(volatile int16_t **)off_101954 < 0
     && (uint8_t)BYTE2(*(volatile uint32_t *)off_1019A8) + 10 * (HIBYTE(*(volatile uint32_t *)off_1019A8) + 2) != 32 )
   {
     flash_ctrl_init((int)aMdmMajorVersio, (int)aMdmInit, 6119);
@@ -7745,7 +7745,7 @@ int check_button() {
   int result; // r0
 
   result = dispatch_event_handler_1("%s\r\n", aIntcSpurious);
-  if ( **(volatile uint16_t **)off_102A4C < 0 )
+  if ( **(volatile int16_t **)off_102A4C < 0 )
     return flash_ctrl_init(off_102A54, (int)aIntcSpurious_0, 61);
   return result;
 }
@@ -9704,7 +9704,7 @@ int wlan_init_globals(int a1, int a2, int a3, int a4, int a5, int a6) {
     v20 = v18;
     v21 = 0;
   }
-  v22 = ((int)((uint64_t)(dword_10470C * (uint64_t)(0x2000 - v19)) >> 32) >> 9) - ((0x2000 - v19) >> 31);
+  v22 = ((int)((uint64_t)((int32_t)dword_10470C * (int64_t)(int32_t)(0x2000 - v19)) >> 32) >> 9) - ((0x2000 - v19) >> 31);
   if ( a6 )
   {
     if ( v22 >= 5 )
@@ -12400,13 +12400,13 @@ int load_patch_bundle(int a1) {
   v15 = ((volatile uint32_t *)(uintptr_t)off_107200)[115];
   v16 = ((volatile uint32_t *)(uintptr_t)off_107200)[116];
   v17 = ((volatile uint32_t *)(uintptr_t)off_107200)[117];
-  v18 = ((uint64_t)(dword_107204 * (uint64_t)*(volatile int *)(a1 + 4)) >> 32) - (*(volatile int *)(a1 + 4) >> 31);
+  v18 = ((uint64_t)((int32_t)dword_107204 * (int64_t)(int32_t)(*(volatile int *)(a1 + 4))) >> 32) - (*(volatile int *)(a1 + 4) >> 31);
   v46 = ((volatile uint32_t *)(uintptr_t)off_107200)[114];
   v47 = v15;
   v48 = v16;
   v49 = v17;
-  if ( v18 >= (int)(((uint64_t)(dword_107204 * (uint64_t)v14) >> 32) - (v14 >> 31)) )
-    v18 = ((uint64_t)(dword_107204 * (uint64_t)v14) >> 32) - (v14 >> 31);
+  if ( v18 >= (int)(((uint64_t)((int32_t)dword_107204 * (int64_t)(int32_t)(v14)) >> 32) - (v14 >> 31)) )
+    v18 = ((uint64_t)((int32_t)dword_107204 * (int64_t)(int32_t)(v14)) >> 32) - (v14 >> 31);
   v19 = ((volatile uint32_t *)(uintptr_t)off_107200)[119];
   v20 = ((volatile uint32_t *)(uintptr_t)off_107200)[120];
   v21 = ((volatile uint32_t *)(uintptr_t)off_107200)[121];
@@ -12798,10 +12798,10 @@ volatile int * timer_ticks_to_micros(volatile int *a1) {
   volatile int *v10; // r3
 
   v1 = a1[1];
-  v2 = ((uint64_t)(dword_107940 * (uint64_t)v1) >> 32) - (v1 >> 31);
-  v3 = a1[3] - v1 / 2 + v2 + (v1 >> 31) - ((uint64_t)(dword_10793C * (uint64_t)v1) >> 32);
-  v4 = ((uint64_t)(dword_107940 * (uint64_t)*a1) >> 32) - (*a1 >> 31);
-  v5 = (*a1 >> 31) - ((uint64_t)(dword_10793C * (uint64_t)*a1) >> 32);
+  v2 = ((uint64_t)((int32_t)dword_107940 * (int64_t)(int32_t)(v1)) >> 32) - (v1 >> 31);
+  v3 = a1[3] - v1 / 2 + v2 + (v1 >> 31) - ((uint64_t)((int32_t)dword_10793C * (int64_t)(int32_t)(v1)) >> 32);
+  v4 = ((uint64_t)((int32_t)dword_107940 * (int64_t)(int32_t)(*a1)) >> 32) - (*a1 >> 31);
+  v5 = (*a1 >> 31) - ((uint64_t)((int32_t)dword_10793C * (int64_t)(int32_t)(*a1)) >> 32);
   v6 = a1[2] - *a1 / 2 + v4;
   result = a1 + 7;
   for ( i = 0; i != 9; i += 3 )
@@ -12948,25 +12948,25 @@ int rx_queue_pop_packet(int a1, volatile int *a2, int a3) {
   if ( *(volatile uint32_t *)(a1 + 16) - v6 >= *(volatile uint32_t *)(a3 + 24) )
   {
 LABEL_8:
-    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31)) << 32);
-    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)(dword_107BCC * (uint64_t)*a2) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
+    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31)) << 32);
+    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
     v14 = *(volatile uint64_t *)(a1 + 20);
     *(volatile uint64_t *)a2 = v11;
     goto LABEL_9;
   }
-  v9 = ((uint64_t)(dword_107BCC * (uint64_t)(int)v5) >> 32) - ((int)v5 >> 31);
-  v10 = ((uint64_t)(dword_107BCC * (uint64_t)SHIDWORD(v5)) >> 32) - (SHIDWORD(v5) >> 31);
-  if ( (int)v5 - 1 - 3 * (((uint64_t)(dword_107BCC * (uint64_t)((int)v5 - 1)) >> 32) - (((int)v5 - 1) >> 31)) == HIDWORD(v5) - 1 - 3 * (((uint64_t)(dword_107BCC * (uint64_t)(HIDWORD(v5) - 1)) >> 32) - ((HIDWORD(v5) - 1) >> 31)) )
+  v9 = ((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)((int)v5)) >> 32) - ((int)v5 >> 31);
+  v10 = ((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(SHIDWORD(v5))) >> 32) - (SHIDWORD(v5) >> 31);
+  if ( (int)v5 - 1 - 3 * (((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)((int)v5 - 1)) >> 32) - (((int)v5 - 1) >> 31)) == HIDWORD(v5) - 1 - 3 * (((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(HIDWORD(v5) - 1)) >> 32) - ((HIDWORD(v5) - 1) >> 31)) )
   {
     if ( v9 != v10 )
     {
       v16 = *(volatile uint32_t *)(a1 + 32);
       v17 = *(volatile uint32_t *)(a1 + 20);
-      v18 = ((uint64_t)(dword_107BCC * (uint64_t)(2 * *(volatile uint32_t *)(a1 + 24))) >> 32)
+      v18 = ((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(2 * *(volatile uint32_t *)(a1 + 24))) >> 32)
           - ((2 * *(volatile uint32_t *)(a1 + 24)) >> 31);
-      v19 = dword_107BCC * (uint64_t)v16;
-      v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31))) << 32);
-      v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)(dword_107BCC * (uint64_t)*a2) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
+      v19 = (int32_t)dword_107BCC * (int64_t)(int32_t)(v16);
+      v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31))) << 32);
+      v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31)) & 0xFFFFFFFFu);
       *(volatile uint64_t *)a2 = v11;
       v14 = __PAIR64__(v18 + HIDWORD(v19) - (v16 >> 31), v17);
       goto LABEL_9;
@@ -12978,17 +12978,17 @@ LABEL_8:
     v20 = *(volatile uint32_t *)(a1 + 20);
     v21 = *(volatile uint32_t *)(a1 + 28);
     v22 = *(volatile uint32_t *)(a1 + 24);
-    v23 = ((uint64_t)(dword_107BCC * (uint64_t)(2 * v20)) >> 32) - ((2 * v20) >> 31);
-    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)(dword_107BCC * (uint64_t)*a2) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
-    v24 = ((uint64_t)(dword_107BCC * (uint64_t)v21) >> 32) - (v21 >> 31);
-    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31)) << 32);
+    v23 = ((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(2 * v20)) >> 32) - ((2 * v20) >> 31);
+    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
+    v24 = ((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(v21)) >> 32) - (v21 >> 31);
+    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31)) << 32);
     *(volatile uint64_t *)a2 = v11;
     v14 = __PAIR64__(v22, v23 + v24);
   }
   else
   {
-    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)(dword_107BCC * (uint64_t)*a2) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
-    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31))) << 32);
+    v11 = (v11 & ~0xFFFFFFFFull) | ((uint32_t)(2 * (((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(*a2)) >> 32) - (*a2 >> 31))) & 0xFFFFFFFFu);
+    v11 = (v11 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(2 * (((uint64_t)((int32_t)dword_107BCC * (int64_t)(int32_t)(a2[1])) >> 32) - (a2[1] >> 31))) << 32);
     v12 = *(volatile uint32_t *)(a1 + 20) + *(volatile uint32_t *)(a1 + 28);
     v13 = *(volatile uint32_t *)(a1 + 32) + *(volatile uint32_t *)(a1 + 24);
     *(volatile uint64_t *)a2 = v11;
@@ -13685,7 +13685,7 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
   else
   {
     v62 = dword_108600;
-    v63 = ((int)((uint64_t)(dword_1085FC * (uint64_t)a3) >> 32) >> 5) - (a3 >> 31);
+    v63 = ((int)((uint64_t)((int32_t)dword_1085FC * (int64_t)(int32_t)(a3)) >> 32) >> 5) - (a3 >> 31);
     v64 = a3 - 100 * v63;
     poll_rf_status();
     *(volatile uint32_t *)off_108604 &= ~1u;
@@ -13844,7 +13844,7 @@ volatile uint32_t * rf_core_init(int a1, int a2) {
       if ( ++i == 16 )
         goto LABEL_7;
     }
-    *v11 = *v11 & v9 | ((uint16_t)(v14 | (4 * i)) << 8);
+    *v11 = *v11 & v9 | ((int16_t)(v14 | (4 * i)) << 8);
     *v11 |= 0x20000u;
     *v11 |= 0x40000u;
     write_timer_reg(1);
@@ -15499,8 +15499,8 @@ int read_radio_status(unsigned int a1, unsigned int a2, int a3, unsigned int a4,
   int v26; // r1
   int v27; // r6
   unsigned int v28; // r7
-  uint16_t v29; // r4
-  uint16_t v30; // r0
+  int16_t v29; // r4
+  int16_t v30; // r0
   unsigned int v31; // r2
   uint8_t v32; // r1
   unsigned int i; // r3
@@ -15509,7 +15509,7 @@ int read_radio_status(unsigned int a1, unsigned int a2, int a3, unsigned int a4,
   volatile uint32_t *v36; // r1
   volatile unsigned int *v37; // r3
   volatile unsigned int *v38; // r1
-  uint16_t v39; // r3
+  int16_t v39; // r3
   volatile uint32_t *v40; // r3
   volatile unsigned int *v42; // r3
   struct __attribute__((packed)) { int v43; // [sp+24h] [bp-7C0h]
@@ -16835,9 +16835,9 @@ LABEL_80:
       }
       prcm_start(v81, (int)_frame.v180, _frame.a3a, 0, _frame.v167, _frame.v149, 0, v52);
       v103 = _frame.v185;
-      v104 = (uint16_t)_frame.v180[_frame.v186];
-      v105 = (uint16_t)_frame.v180[(uint32_t)_frame.v185 + 16];
-      v106 = (uint16_t)_frame.v180[HIDWORD(_frame.v185) + 32];
+      v104 = (int16_t)_frame.v180[_frame.v186];
+      v105 = (int16_t)_frame.v180[(uint32_t)_frame.v185 + 16];
+      v106 = (int16_t)_frame.v180[HIDWORD(_frame.v185) + 32];
       if ( (int)_frame.v185 <= SHIDWORD(_frame.v183) )
       {
         v103 = (v103 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(&_frame.v180[_frame.v185 - 1]) << 32);
@@ -16892,7 +16892,7 @@ LABEL_80:
         v109 = (volatile float *)&_frame.result[_frame.v187];
         do
         {
-          v110 = (uint16_t)*(volatile uint16_t *)HIDWORD(v103);
+          v110 = (int16_t)*(volatile uint16_t *)HIDWORD(v103);
           v103 = (v103 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v103 >> 32) & 0xFFFFFFFFu) + (uint32_t)(2))) << 32;;
           check_interrupt_flag(1, "pwr_amp_back[2][%d]=%d ", (uint32_t)v103, v110);
           min_u32(v110, v106, (int)_frame.v180);
@@ -17808,7 +17808,7 @@ LABEL_22:
   }
   v41 = mac_packet_dispatch();
   v42 = (void *)(uintptr_t)(off_10C784);
-  v43 = ((int)(((uint64_t)(dword_10C780 * (uint64_t)(4 * (v41 - 35))) >> 32) + 4 * (v41 - 35)) >> 2)
+  v43 = ((int)(((uint64_t)((int32_t)dword_10C780 * (int64_t)(int32_t)(4 * (v41 - 35))) >> 32) + 4 * (v41 - 35)) >> 2)
       - ((4 * (v41 - 35)) >> 31)
       + 120;
   *(volatile uint16_t *)off_10C7A4 = v43;
@@ -18248,7 +18248,7 @@ volatile uint32_t * mac_ll_scheduler(int a1) {
     ;
   if ( !*(volatile uint32_t *)(*(volatile uint32_t *)off_10D344 + 516) )
   {
-    v42 = **(volatile uint16_t **)off_10D33C;
+    v42 = **(volatile int16_t **)off_10D33C;
     *(volatile uint32_t *)off_10D340 = 1;
     if ( v42 >= 0 )
     {
@@ -18259,7 +18259,7 @@ volatile uint32_t * mac_ll_scheduler(int a1) {
     goto LABEL_71;
   }
   v40 = list_pop_front(*(volatile uint32_t *)off_10D344 + 516);
-  v41 = **(volatile uint16_t **)off_10D33C;
+  v41 = **(volatile int16_t **)off_10D33C;
   *v39 = 1;
   if ( v41 < 0 )
   {
@@ -18389,7 +18389,7 @@ LABEL_6:
   *(volatile uint16_t *)(v6 + 6) = v9;
   if ( v9 )
   {
-    if ( **(volatile uint16_t **)off_10D33C < 0 && v9 > 0x80 )
+    if ( **(volatile int16_t **)off_10D33C < 0 && v9 > 0x80 )
     {
       flash_ctrl_init((int)aKmsgSrcParamLe, (int)aIpcEmbKmsgFwd, 1671);
       v9 = *(volatile uint16_t *)(a1 + 10);
@@ -20123,7 +20123,7 @@ int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
   unsigned int v3; // r4
   volatile unsigned int *v4; // r6
   volatile unsigned int *v5; // r5
-  volatile uint16_t *v8; // r5
+  volatile int16_t *v8; // r5
   int v9; // r10
   int v10; // r2
   volatile unsigned int *v11; // r7
@@ -20147,7 +20147,7 @@ int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
   *v5 = ((uint16_t)a1 << 12) & 0x7000 | *v5 & 0xFFFF8FFF;
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
-  v8 = (volatile uint16_t *)off_10EC1C;
+  v8 = (volatile int16_t *)off_10EC1C;
   v9 = sdio_core_enable();
   dispatch_event_handler_1("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
   v10 = *v8;
@@ -20186,7 +20186,7 @@ int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
     v15 = v9;
     v9 = sdio_core_enable();
     dispatch_event_handler_1("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
-    v16 = *(volatile uint16_t *)off_10EC1C;
+    v16 = *(volatile int16_t *)off_10EC1C;
     v17 = v9 - v16;
     v18 = v15 - v16;
     if ( v18 * v17 <= 0 )
@@ -20217,7 +20217,7 @@ LABEL_9:
 
 // gpio_af_set @ 0x10ec2c
 int gpio_af_set(int a1) {
-  volatile uint16_t *v1; // r9
+  volatile int16_t *v1; // r9
   int v2; // r7
   int v3; // r5
   int v4; // r3
@@ -20234,7 +20234,7 @@ int gpio_af_set(int a1) {
   int a4; // [sp+0h] [bp-Ch]
   int v17; // [sp+4h] [bp-8h]
 
-  v1 = (volatile uint16_t *)off_10ED48;
+  v1 = (volatile int16_t *)off_10ED48;
   *(volatile uint32_t *)off_10ED3C = (a1 << 26) & 0x1C000000 | *(volatile uint32_t *)off_10ED3C & 0xE3FFFFFF;
   v2 = a1;
   v3 = sdio_core_set_enable();
@@ -21324,7 +21324,7 @@ int sorted_list_search(int a1, volatile uint32_t *a2) {
   int v18; // r6
   volatile uint16_t *v19; // r9
   int v20; // r6
-  uint16_t v21; // r3
+  int16_t v21; // r3
   int v22; // r0
   int v23; // r3
   int v24; // r3
@@ -21588,7 +21588,7 @@ LABEL_11:
           log_printf("get_user_id: Invalid buffer passed: %x\n", a1);
         return sorted_list_search(dword_10FFE0, a1);
       }
-      if ( **(volatile uint16_t **)off_10FFD8 < 0 )
+      if ( **(volatile int16_t **)off_10FFD8 < 0 )
         return flash_ctrl_init((int)aNativeId3, (int)aPktMemFree, 204);
       return result;
     }
@@ -21610,7 +21610,7 @@ LABEL_11:
   {
     if ( v4 == 3 )
     {
-      if ( **(volatile uint16_t **)off_10FFD8 >= 0 )
+      if ( **(volatile int16_t **)off_10FFD8 >= 0 )
       {
         if ( v3 != 3 )
           return result;
@@ -21635,8 +21635,8 @@ int rf_tx_power_get() {
   void *v0; // r4
   int v1; // r3
   volatile int *v2; // r0
-  uint16_t v3; // r2
-  uint16_t v4; // r1
+  int16_t v3; // r2
+  int16_t v4; // r1
   uint64_t v5; // kr00_8
   struct __attribute__((packed)) { uint16_t v7[2]; // [sp+4h] [bp-14h] BYREF
   uint16_t v8[8]; // [sp+8h] [bp-10h] BYREF
@@ -22037,7 +22037,7 @@ int rx_irq_handler(int result) {
   volatile uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
-  uint16_t v13; // r3
+  int16_t v13; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
@@ -22098,7 +22098,7 @@ LABEL_2:
     }
     else
     {
-      if ( **(volatile uint16_t **)off_110508 < 0 && *v4 )
+      if ( **(volatile int16_t **)off_110508 < 0 && *v4 )
       {
         flash_ctrl_init((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
@@ -22147,7 +22147,7 @@ int tx_irq_handler(int a1, int a2) {
   volatile int *v13; // r3
   int v14; // r0
   int v15; // r1
-  uint16_t v16; // r2
+  int16_t v16; // r2
   volatile uint32_t *v17; // r1
   int v18; // r0
   int v19; // r2
@@ -22208,7 +22208,7 @@ LABEL_24:
     }
     else
     {
-      if ( **(volatile uint16_t **)off_110660 < 0 && *(volatile uint32_t *)off_110664 )
+      if ( **(volatile int16_t **)off_110660 < 0 && *(volatile uint32_t *)off_110664 )
       {
         flash_ctrl_init((int)aSdioFunc1H2dFr_0, (int)aHostSdioReplen, 400);
         v13 = (volatile int *)off_11065C;
@@ -22637,7 +22637,7 @@ int rf_irq_handler_1() {
   volatile uint32_t *v43; // r2
 
   v0 = *(volatile uint32_t *)off_110F94;
-  if ( **(volatile uint16_t **)off_110F90 < 0 && !v0 )
+  if ( **(volatile int16_t **)off_110F90 < 0 && !v0 )
   {
     flash_cmd_exec((int)aIntStatus0, (int)aSdioIsr, 39);
     goto LABEL_10;
@@ -25265,8 +25265,8 @@ volatile uint32_t *timer_event_handler() {
   int v2; // r9
   volatile uint16_t *v3; // r6
   int v4; // r8
-  volatile uint16_t **v5; // r10
-  uint16_t v6; // r5
+  volatile int16_t **v5; // r10
+  int16_t v6; // r5
   unsigned int v7; // r1
   volatile uint32_t *v8; // r4
 
@@ -25277,7 +25277,7 @@ volatile uint32_t *timer_event_handler() {
     v2 = ((volatile uint32_t *)(uintptr_t)&off_11315C)[0];
     v3 = (void *)(uintptr_t)(off_113150);
     v4 = dword_113160;
-    v5 = (volatile uint16_t **)off_113168;
+    v5 = (volatile int16_t **)off_113168;
     v6 = 0;
     do
     {
@@ -25514,7 +25514,7 @@ int update_hw_config(int a1) {
   v8[4] = (int)(uintptr_t)(v6 + 12);
   *v9 = (int)(uintptr_t)(v6 + 14);
   memset_thunk(v6, 0, 0xCB8u);
-  if ( **(volatile uint16_t **)off_1134A0 < 0 && *(volatile uint32_t *)(*(volatile uint32_t *)v1 + 24) <= 0xCB7u )
+  if ( **(volatile int16_t **)off_1134A0 < 0 && *(volatile uint32_t *)(*(volatile uint32_t *)v1 + 24) <= 0xCB7u )
     flash_ctrl_init((int)aIndexHostIfPar, (int)aHostUsbWlanIni, 758);
   v10 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_1134A4)[0]);
   v11 = *((volatile uint16_t *)((volatile uint32_t *)(uintptr_t)&off_1134A4)[0] + 164);
@@ -28028,7 +28028,7 @@ int read_sensor_value() {
 
   v0 = (volatile int **)off_1152B4;
   list_init_1((volatile uint32_t *)dword_1152B0);
-  if ( **(volatile uint16_t **)off_1152B8 < 0 )
+  if ( **(volatile int16_t **)off_1152B8 < 0 )
   {
     v2 = *v0;
     v1 = (void *)(uintptr_t)(off_1152BC);
@@ -28228,7 +28228,7 @@ volatile int * adv_pdu_type_handler(int a1, int a2) {
         v24 = REG_4032_0120 - v23;
       }
       while ( v24 < 0 );
-      if ( **(volatile uint16_t **)off_115680 >= 0 || ((*(volatile uint32_t *)off_115648 >> 4) & 3) != 2 )
+      if ( **(volatile int16_t **)off_115680 >= 0 || ((*(volatile uint32_t *)off_115648 >> 4) & 3) != 2 )
       {
 LABEL_12:
         v15 = (void *)(uintptr_t)(off_115650);
@@ -28250,7 +28250,7 @@ LABEL_12:
         v27 = REG_4032_0120 - v26;
       }
       while ( v27 < 0 );
-      if ( **(volatile uint16_t **)off_115680 >= 0 || ((*(volatile uint32_t *)off_115648 >> 8) & 3) != 2 )
+      if ( **(volatile int16_t **)off_115680 >= 0 || ((*(volatile uint32_t *)off_115648 >> 8) & 3) != 2 )
       {
 LABEL_16:
         v17 = (void *)(uintptr_t)(off_115650);
@@ -28272,7 +28272,7 @@ LABEL_16:
         v30 = REG_4032_0120 - v29;
       }
       while ( v30 < 0 );
-      if ( **(volatile uint16_t **)off_115680 >= 0 || ((*(volatile uint32_t *)off_115648 >> 12) & 3) != 2 )
+      if ( **(volatile int16_t **)off_115680 >= 0 || ((*(volatile uint32_t *)off_115648 >> 12) & 3) != 2 )
       {
 LABEL_14:
         v16 = (void *)(uintptr_t)(off_115650);
@@ -28294,7 +28294,7 @@ LABEL_14:
         v33 = REG_4032_0120 - v32;
       }
       while ( v33 < 0 );
-      if ( **(volatile uint16_t **)off_115680 >= 0 || (HIWORD(*(volatile uint32_t *)off_115648) & 3) != 2 )
+      if ( **(volatile int16_t **)off_115680 >= 0 || (HIWORD(*(volatile uint32_t *)off_115648) & 3) != 2 )
       {
 LABEL_18:
         v18 = (void *)(uintptr_t)(off_115650);
@@ -28316,7 +28316,7 @@ LABEL_18:
         v21 = REG_4032_0120 - v20;
       }
       while ( v21 < 0 );
-      if ( **(volatile uint16_t **)off_115680 >= 0 || (HIBYTE(*(volatile uint32_t *)off_115648) & 3) != 2 )
+      if ( **(volatile int16_t **)off_115680 >= 0 || (HIBYTE(*(volatile uint32_t *)off_115648) & 3) != 2 )
       {
 LABEL_3:
         v3 = (void *)(uintptr_t)(off_115650);
@@ -28327,7 +28327,7 @@ LABEL_3:
       result = (volatile int *)ke_int_lock_1((int)aNxmacTxHiState, (int)aTxlCntrlNewhea, 1931);
       break;
     default:
-      if ( **(volatile uint16_t **)off_115680 < 0 )
+      if ( **(volatile int16_t **)off_115680 < 0 )
         flash_ctrl_init(off_115688, (int)aTxlCntrlNewhea, 1937);
 LABEL_4:
       v4 = REG_4032_0120;
@@ -28381,7 +28381,7 @@ int pdu_type_init(int a1, int a2, int a3, int a4) {
   if ( a3 != 5 )
     v5 += a4;
   v6 = *v5;
-  if ( **(volatile uint16_t **)off_11573C < 0 && v6 == a1 )
+  if ( **(volatile int16_t **)off_11573C < 0 && v6 == a1 )
     return ke_int_lock_1((int)aPrevHdFirstThd, (int)aTxlFrameExchan, 1972);
   if ( v6 )
   {
@@ -28780,7 +28780,7 @@ int llm_scan_pdu_cfg(int a1, int a2) {
   int v10; // r2
   int v11; // r2
   int v12; // r1
-  uint16_t v13; // r3
+  int16_t v13; // r3
   volatile int *v14; // r3
   int v15; // r3
   int v16; // r2
@@ -28813,7 +28813,7 @@ int llm_scan_pdu_cfg(int a1, int a2) {
       v21 = dword_115C80;
       *(volatile uint8_t *)(a1 + 14) = a2;
       *(volatile uint8_t *)(a1 + 53) = 1;
-      check_kernel_state(v21 + 152 * (uint16_t)v20 + 48, (volatile uint32_t *)a1);
+      check_kernel_state(v21 + 152 * (int16_t)v20 + 48, (volatile uint32_t *)a1);
       return 1;
     }
   }
@@ -29238,7 +29238,7 @@ volatile uint32_t * wlan_hw_init(unsigned int a1, int a2) {
   volatile uint32_t *v12; // r0
   int v13; // r12
   volatile uint32_t *v14; // r9
-  volatile uint16_t *v15; // lr
+  volatile int16_t *v15; // lr
   unsigned int v16; // r1
   int v17; // r2
   volatile int *v18; // r3
@@ -29301,8 +29301,8 @@ volatile uint32_t * wlan_hw_init(unsigned int a1, int a2) {
               _frame.v28 = *v6 & 0xF;
               _frame.v29 = v13;
               memcpy_large((volatile char *)v11 + 4, (volatile char *)&_frame.v28, 8u);
-              v15 = (volatile uint16_t *)off_116320;
-              v16 = *(volatile uint16_t *)off_116320;
+              v15 = (volatile int16_t *)off_116320;
+              v16 = *(volatile int16_t *)off_116320;
               if ( v16 > 0x186 )
               {
                 v17 = 0;
@@ -29826,11 +29826,11 @@ int event_count_update() {
 
 // wlan_rx_process @ 0x116858
 int wlan_rx_process(int a1) {
-  volatile uint16_t **v1; // r7
+  volatile int16_t **v1; // r7
   int v2; // r5
   int v3; // r1
-  volatile uint16_t *v5; // r0
-  uint16_t v6; // r8
+  volatile int16_t *v5; // r0
+  int16_t v6; // r8
   unsigned int v7; // r3
   int v9; // r6
   unsigned int v10; // r2
@@ -29873,9 +29873,9 @@ int wlan_rx_process(int a1) {
   } _frame;
   if ( *(volatile uint16_t *)(a1 + 48) )
   {
-    v1 = (volatile uint16_t **)dword_116B48;
+    v1 = (volatile int16_t **)dword_116B48;
     v2 = *(volatile uint32_t *)(a1 + 28);
-    v3 = **(volatile uint16_t **)dword_116B48;
+    v3 = **(volatile int16_t **)dword_116B48;
     if ( v3 < 0 && !v2 )
     {
       ke_int_lock_1((int)aRhdFirstPbdPtr, (int)aRxlFrameHandle, 423);
@@ -30798,7 +30798,7 @@ LABEL_9:
   while ( 1 )
   {
     a2 = *(volatile uint32_t *)(a2 + 4);
-    if ( **(volatile uint16_t **)off_117400 < 0 && !a2 )
+    if ( **(volatile int16_t **)off_117400 < 0 && !a2 )
       return ke_int_lock_1((int)aPdNull, (int)aRxlGoToLastRbd, 1119);
     if ( (*(volatile uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;
@@ -31067,7 +31067,7 @@ int tx_acl_queue_process(int a1) {
       }
     }
     v8 = *(volatile uint16_t *)(a1 + 48);
-    if ( **(volatile uint16_t **)off_117870 >= 0 )
+    if ( **(volatile int16_t **)off_117870 >= 0 )
     {
 LABEL_37:
       v7 = **v4;
@@ -31206,7 +31206,7 @@ LABEL_15:
   else
   {
     v8 = *(volatile uint16_t *)(a1 + 48);
-    if ( **(volatile uint16_t **)off_117870 >= 0 )
+    if ( **(volatile int16_t **)off_117870 >= 0 )
       goto LABEL_5;
   }
   if ( !v8 )
@@ -31404,7 +31404,7 @@ int btcoex_update_bt_info(volatile int *a1, volatile uint8_t *a2) {
   char v23; // r1
   uint16_t v24; // lr
   int v25; // r3
-  uint16_t v26; // r12
+  int16_t v26; // r12
   int v27; // r12
 
   v3 = *((volatile uint8_t *)a1 + 25);
@@ -31759,7 +31759,7 @@ LABEL_19:
   {
 LABEL_8:
     v17 = (void *)(uintptr_t)(off_118080);
-    v18 = **(volatile uint16_t **)off_11807C;
+    v18 = **(volatile int16_t **)off_11807C;
     v19 = ((volatile uint32_t *)(uintptr_t)off_118080)[1] | 0x100;
     ((volatile uint32_t *)(uintptr_t)off_118080)[1] = v19;
     if ( v18 < 0 && *(volatile uint32_t *)off_1180A0 << 28 )
@@ -31816,7 +31816,7 @@ int link_context_by_index(int a1) {
   int v9; // r4
   void *v10; // r5
   int v11; // r3
-  volatile uint16_t **v13; // r11
+  volatile int16_t **v13; // r11
   volatile int *v14; // r10
   int v15; // r1
   unsigned int v16; // r3
@@ -31873,9 +31873,9 @@ LABEL_4:
   if ( v8 != 1 )
     goto LABEL_5;
 LABEL_12:
-  v13 = (volatile uint16_t **)off_1182C0;
+  v13 = (volatile int16_t **)off_1182C0;
   v14 = (void *)(uintptr_t)(off_1182C4);
-  v15 = **(volatile uint16_t **)off_1182C0;
+  v15 = **(volatile int16_t **)off_1182C0;
   v16 = ((volatile uint32_t *)(uintptr_t)off_1182C4)[1] & 0xFFFFFFEF;
   ((volatile uint32_t *)(uintptr_t)off_1182C4)[1] = v16;
   if ( v15 < 0 && *(volatile uint32_t *)off_1182B0 << 28 )
@@ -32224,7 +32224,7 @@ int send_acl_packet(int a1, int a2, int a3, volatile uint32_t *a4, int a5, int a
   volatile int *v13; // r9
   volatile int *v14; // r0
   volatile uint32_t *v15; // r2
-  volatile uint16_t **v16; // r3
+  volatile int16_t **v16; // r3
   int v17; // r8
   volatile char *v18; // r1
   volatile int *v19; // r0
@@ -32281,8 +32281,8 @@ LABEL_5:
   __dsb(0xFu);
   while ( (*v15 & 0xC0000000) != 0x40000000 )
     ;
-  v16 = (volatile uint16_t **)off_1188A4;
-  if ( **(volatile uint16_t **)off_1188A4 >= 0 || (*v15 & 0x40000000) != 0 )
+  v16 = (volatile int16_t **)off_1188A4;
+  if ( **(volatile int16_t **)off_1188A4 >= 0 || (*v15 & 0x40000000) != 0 )
   {
     v17 = (uint16_t)*(volatile uint32_t *)off_1188A8;
   }
@@ -32290,7 +32290,7 @@ LABEL_5:
   {
     ke_int_lock_1((int)aNxmacTimeOnAir, (int)aHalMachwRxBcnD, 430);
     v17 = 500;
-    v16 = (volatile uint16_t **)off_1188A4;
+    v16 = (volatile int16_t **)off_1188A4;
   }
   if ( !(*(volatile uint8_t *)(a3 + 40) << 28) )
   {
@@ -32503,7 +32503,7 @@ int handle_hci_event(volatile char *a1) {
   }
   else
   {
-    if ( **(volatile uint16_t **)off_118C50 < 0 && v1 > 3 )
+    if ( **(volatile int16_t **)off_118C50 < 0 && v1 > 3 )
       flash_ctrl_init((int)aStaIdxStaMax, (int)aMmSecMachwkeyW, 1424);
     check_interrupt_flag(256, "add ptk:%d,%d\r\n", v1, (uint8_t)a1[40]);
     v4 = ((volatile uint32_t *)(uintptr_t)off_118C58)[1];
@@ -32595,7 +32595,7 @@ LABEL_19:
       v20[3] = *((volatile uint32_t *)a1 + 9);
       break;
     default:
-      if ( **(volatile uint16_t **)off_118C50 < 0 )
+      if ( **(volatile int16_t **)off_118C50 < 0 )
         flash_ctrl_init(off_118C8C, (int)aMmKeyRamParamG, 159);
       v11 = 0;
       v12 = 4096;
@@ -32745,7 +32745,7 @@ unsigned int rf_disable() {
 
 // rf_packet_available @ 0x118e58
 int rf_packet_available() {
-  if ( **(volatile uint16_t **)off_118EB0 < 0 && flash_write_byte(0) != 3 )
+  if ( **(volatile int16_t **)off_118EB0 < 0 && flash_write_byte(0) != 3 )
     flash_ctrl_init((int)aKeStateGetTask_0, (int)aMmBackToHostId, 1785);
 if ( *((volatile uint8_t *)((volatile uint32_t *)(uintptr_t)&off_118EB4)[0] + 28) && *((volatile uint8_t *)off_118EB8 + 18) + *((volatile uint8_t *)off_118EB8 + 17) <= 1 ) { return flash_erase_sector(0, 0);
   }
@@ -32770,7 +32770,7 @@ int rf_state_process() {
   int v11; // r3
   int v12; // r2
 
-  if ( **(volatile uint16_t **)off_118FA0 < 0 && flash_write_byte(0) == 4 )
+  if ( **(volatile int16_t **)off_118FA0 < 0 && flash_write_byte(0) == 4 )
     flash_ctrl_init((int)aKeStateGetTask, (int)aMmForceIdleReq, 1799);
   check_interrupt_flag(4, aForceIdle);
   if ( (__get_CPSR() & 1) == 0 )
@@ -33113,7 +33113,7 @@ int rx_process_packet(int a1, int a2, int a3, int a4) {
 
   v4 = dword_1193D0;
   v6 = *(volatile uint8_t *)(a2 + 5);
-  if ( **(volatile uint16_t **)off_1193CC < 0 )
+  if ( **(volatile int16_t **)off_1193CC < 0 )
   {
     v9 = 8 * v6;
     if ( *(volatile uint8_t *)(dword_1193D0 + 224 * v6 + 94) )
@@ -33959,15 +33959,15 @@ LABEL_3:
 
 // rf_get_rssi_1 @ 0x119e3c
 int rf_get_rssi_1(int a1, int a2, unsigned int a3, int a4) {
-  volatile uint16_t **v4; // r8
+  volatile int16_t **v4; // r8
   int v5; // r0
   int v9; // r2
   struct __attribute__((packed)) { uint32_t v11[2]; // [sp+0h] [bp-20h] BYREF
   char _pad1[1]; char v12; // [sp+9h] [bp-17h]
   char _pad2[2]; uint32_t v13[5]; // [sp+Ch] [bp-14h] BYREF
   } _frame;
-  v4 = (volatile uint16_t **)off_119F0C;
-  v5 = **(volatile uint16_t **)off_119F0C;
+  v4 = (volatile int16_t **)off_119F0C;
+  v5 = **(volatile int16_t **)off_119F0C;
   ((int (*)())memset)((void *)(_frame.v13), 0, sizeof(_frame.v13));
   if ( v5 < 0 && flash_write_byte(a3) )
     flash_ctrl_init((int)aKeStateGetDest, (int)aMmStartReqHand, 337);
@@ -34000,12 +34000,12 @@ LABEL_7:
 
 // rf_check_rssi @ 0x119f10
 int rf_check_rssi(int a1, void ( **a2)(int), unsigned int a3) {
-  volatile uint16_t **v3; // r5
+  volatile int16_t **v3; // r5
   int result; // r0
   int v7; // r0
 
-  v3 = (volatile uint16_t **)off_119F88;
-  if ( **(volatile uint16_t **)off_119F88 < 0 && flash_write_byte(a3) == 4 )
+  v3 = (volatile int16_t **)off_119F88;
+  if ( **(volatile int16_t **)off_119F88 < 0 && flash_write_byte(a3) == 4 )
     flash_ctrl_init((int)aKeStateGetDest_0, (int)aMmForceIdleReq_0, 1587);
   result = flash_write_byte(a3);
   if ( result )
@@ -34054,7 +34054,7 @@ LABEL_6:
   result = flash_write_byte(a3);
   if ( !result )
   {
-    if ( **(volatile uint16_t **)off_11A024 < 0 )
+    if ( **(volatile int16_t **)off_11A024 < 0 )
     {
       if ( *(volatile uint32_t *)off_11A028 << 28 )
         flash_ctrl_init((int)aNxmacCurrentSt, (int)aMmSetIdleReqHa, 1522);
@@ -34075,7 +34075,7 @@ LABEL_6:
 // process_cmd_extended @ 0x11a034
 int process_cmd_extended(int a1, volatile char *a2, unsigned int a3, int a4) {
   int v8; // r0
-  volatile uint16_t **v10; // r8
+  volatile int16_t **v10; // r8
   int v11; // r3
   volatile int *v12; // r7
   int v13; // r5
@@ -34135,8 +34135,8 @@ int process_cmd_extended(int a1, volatile char *a2, unsigned int a3, int a4) {
   }
   else
   {
-    v10 = (volatile uint16_t **)off_11A308;
-    v11 = **(volatile uint16_t **)off_11A308;
+    v10 = (volatile int16_t **)off_11A308;
+    v11 = **(volatile int16_t **)off_11A308;
     if ( v11 < 0 )
     {
       if ( !(*(volatile uint32_t *)off_11A2E8 << 28) )
@@ -34780,7 +34780,7 @@ int ke_enter_critical(volatile uint32_t *a1, int a2) {
   if ( a2 - v6 < 0 )
   {
     dispatch_event_handler_1("timer past: cb=%x, time=%x, curr=%x\r\n", a1[1], a2, v6);
-    if ( **(volatile uint16_t **)off_11AC04 < 0 )
+    if ( **(volatile int16_t **)off_11AC04 < 0 )
       flash_ctrl_init(off_11AC0C, (int)aMmTimerSet, 131);
   }
   v7 = (volatile uint32_t *)off_11ABF8;
@@ -35174,7 +35174,7 @@ int ke_task_handler_1(int a1, int a2, int a3) {
 
   v6 = list_pop_front(dword_11B020);
   v7 = v6;
-  if ( **(volatile uint16_t **)off_11B024 < 0 && !v6 )
+  if ( **(volatile int16_t **)off_11B024 < 0 && !v6 )
     flash_ctrl_init((int)aChSwitchNull, (int)aChanSwitchAllo, 227);
   v8 = off_11B028;
   v9 = off_11B028 + 0x20;
@@ -35586,7 +35586,7 @@ LABEL_4:
 
 // tx_processing @ 0x11b4e8
 int tx_processing(volatile uint32_t *a1) {
-  volatile uint16_t **v1; // r7
+  volatile int16_t **v1; // r7
   volatile uint8_t *v2; // r6
   volatile uint32_t *v4; // r0
   volatile uint32_t *v5; // r5
@@ -35615,7 +35615,7 @@ int tx_processing(volatile uint32_t *a1) {
   int v28; // r3
   int v29; // r2
 
-  v1 = (volatile uint16_t **)off_11B6A8;
+  v1 = (volatile int16_t **)off_11B6A8;
   v2 = (void *)(uintptr_t)(off_11B6AC);
   v4 = list_pop_front(dword_11B6B0);
   v5 = v4;
@@ -35929,7 +35929,7 @@ int rx_queue_reset() {
   int v2; // r4
   volatile uint8_t *v3; // r0
   int v4; // r3
-  uint16_t v5; // r3
+  int16_t v5; // r3
   BOOL v6; // r7
   int v7; // r3
   unsigned int v8; // r3
@@ -36021,7 +36021,7 @@ LABEL_29:
     if ( v13 != 3 )
       return write_bb_control();
 LABEL_31:
-    v14 = **(volatile uint16_t **)off_11B9C8;
+    v14 = **(volatile int16_t **)off_11B9C8;
     v15 = v1[1] | 0x2200;
     *(volatile uint32_t *)off_11B9CC = 0;
     v1[1] = v15;
@@ -36221,7 +36221,7 @@ int tx_header_prepare(volatile uint8_t *a1, int a2) {
   char v8; // r3
   volatile uint32_t *v10; // r0
   int v11; // r2
-  uint16_t v12; // r2
+  int16_t v12; // r2
   unsigned int v13; // r2
   int v14; // r3
   volatile int *v15; // r2
@@ -36344,17 +36344,17 @@ int env_get(int a1, volatile uint8_t *a2) {
 
 // lookup_7byte_channel @ 0x11bd88
 int lookup_7byte_channel(int a1) {
-  volatile uint16_t **v1; // r8
+  volatile int16_t **v1; // r8
   int v2; // r5
   volatile int *v4; // r6
   int v5; // r7
   int v6; // r5
   int result; // r0
 
-  v1 = (volatile uint16_t **)off_11BE24;
+  v1 = (volatile int16_t **)off_11BE24;
   v2 = dword_11BE10;
   v4 = (volatile int *)(dword_11BE10 + 28 * a1);
-  if ( **(volatile uint16_t **)off_11BE24 < 0 )
+  if ( **(volatile int16_t **)off_11BE24 < 0 )
   {
     v5 = 8 * a1;
     if ( *(volatile uint8_t *)(dword_11BE10 + 28 * a1 + 24) != 255
@@ -36834,7 +36834,7 @@ LABEL_6:
 
 // bt_conn_tx_schedule @ 0x11c38c
 int bt_conn_tx_schedule(int a1, int a2) {
-  volatile uint16_t **v2; // r9
+  volatile int16_t **v2; // r9
   int v3; // r7
   int v4; // r10
   volatile uint32_t *v7; // r6
@@ -36845,17 +36845,17 @@ int bt_conn_tx_schedule(int a1, int a2) {
   int v12; // r2
   int v13; // r5
   char v15; // r0
-  volatile uint16_t *v16; // r1
+  volatile int16_t *v16; // r1
   unsigned int v17; // r3
   int v18; // r3
   int v19; // r3
   int v20; // r1
 
-  v2 = (volatile uint16_t **)off_11C53C;
+  v2 = (volatile int16_t **)off_11C53C;
   v3 = dword_11C510;
   v4 = dword_11C538;
   v7 = (volatile uint32_t *)(dword_11C510 + 28 * a2);
-  if ( **(volatile uint16_t **)off_11C53C < 0 )
+  if ( **(volatile int16_t **)off_11C53C < 0 )
   {
     v8 = 8 * a1;
     if ( *(volatile uint32_t *)(dword_11C538 + 224 * a1 + 72)
@@ -36940,7 +36940,7 @@ int bt_conn_tx_schedule(int a1, int a2) {
 
 // bt_conn_rx_schedule @ 0x11c540
 int bt_conn_rx_schedule(int a1) {
-  volatile uint16_t **v1; // r8
+  volatile int16_t **v1; // r8
   int v2; // r6
   int v3; // r5
   int v5; // r10
@@ -36964,11 +36964,11 @@ int bt_conn_rx_schedule(int a1) {
   int v24; // r2
   int v25; // r3
 
-  v1 = (volatile uint16_t **)off_11C77C;
+  v1 = (volatile int16_t **)off_11C77C;
   v2 = dword_11C74C;
   v3 = *(volatile uint32_t *)(dword_11C74C + 224 * a1 + 72);
   v5 = 8 * a1;
-  if ( **(volatile uint16_t **)off_11C77C < 0 && !v3 )
+  if ( **(volatile int16_t **)off_11C77C < 0 && !v3 )
     flash_ctrl_init((int)aCtxtNull, (int)aChanCtxtUnlink, 3149);
   v6 = v2 + 32 * (v5 - a1);
   v7 = off_11C750;
@@ -37181,7 +37181,7 @@ int ke_timer_check() {
     v0 = flash_write_byte(2u);
     dispatch_event_handler_1("end st=%d\n", v0);
   }
-  if ( **(volatile uint16_t **)off_11C91C < 0 && flash_write_byte(2u) != 3 )
+  if ( **(volatile int16_t **)off_11C91C < 0 && flash_write_byte(2u) != 3 )
     flash_ctrl_init((int)aKeStateGetTask_1, (int)aMmScanChannelE, 201);
   v1 = off_11C920;
   v2 = *(volatile uint32_t *)off_11C920;
@@ -37225,7 +37225,7 @@ int ke_timer_update() {
     v2 = flash_write_byte(2u);
     dispatch_event_handler_1("start st=%d\n", v2);
   }
-  if ( **(volatile uint16_t **)off_11C998 < 0 && flash_write_byte(2u) != 2 )
+  if ( **(volatile int16_t **)off_11C998 < 0 && flash_write_byte(2u) != 2 )
     flash_ctrl_init((int)aKeStateGetTask_2, (int)aMmScanChannelS, 163);
   if ( (*(volatile uint8_t *)(v0 + 6 * v1 + 3) & 1) == 0 )
     ll_rx_handler();
@@ -37251,7 +37251,7 @@ int radio_send_command(int a1, int a2, uint16_t a3, uint16_t a4) {
   }
   else
   {
-    if ( **(volatile uint16_t **)off_11CA28 < 0 && !*(volatile uint8_t *)(a2 + 367) )
+    if ( **(volatile int16_t **)off_11CA28 < 0 && !*(volatile uint8_t *)(a2 + 367) )
       flash_ctrl_init((int)aParamChanCnt0, (int)aScanStartReqHa_0, 73);
     v8 = off_11CA2C;
     *v6 = 0;
@@ -37522,7 +37522,7 @@ int rf_get_tx_power(int a1) {
 int rf_read_rssi() {
   int result; // r0
 
-  if ( **(volatile uint16_t **)off_11CDA0 < 0 && *(volatile uint32_t *)off_11CDA8 << 28 )
+  if ( **(volatile int16_t **)off_11CDA0 < 0 && *(volatile uint32_t *)off_11CDA8 << 28 )
     return ke_int_lock_1((int)aNxmacCurrentSt, (int)aHalMachwIdleIr, 105);
   if ( (*(volatile uint32_t *)off_11CDA4 & 0x80) != 0 )
   {
@@ -37641,7 +37641,7 @@ volatile uint32_t *rf_cal_trim_check() {
   volatile int *v7; // r3
   int v8; // r3
 
-  if ( **(volatile uint16_t **)off_11D094 < 0 && !(*(volatile uint32_t *)off_11D0AC << 28) )
+  if ( **(volatile int16_t **)off_11D094 < 0 && !(*(volatile uint32_t *)off_11D0AC << 28) )
     return (volatile uint32_t *)ke_int_lock_1((int)aNxmacCurrentSt_0, (int)aHalMachwIdleRe, 213);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -37941,7 +37941,7 @@ LABEL_9:
       *((volatile uint8_t *)off_11D5A8 + 6) = 1;
   }
 LABEL_13:
-  if ( **(volatile uint16_t **)off_11D5B0 < 0 )
+  if ( **(volatile int16_t **)off_11D5B0 < 0 )
   {
     if ( (v0 & 1) != 0 )
     {
@@ -37992,7 +37992,7 @@ int rf_cmd_set() {
     result = rf_read_rssi();
   if ( (v0 & 8) != 0 )
     result = rf_irq_handler_2();
-  if ( **(volatile uint16_t **)off_11D738 < 0 )
+  if ( **(volatile int16_t **)off_11D738 < 0 )
   {
     if ( (v0 & 0x400000) != 0 )
     {
@@ -38607,10 +38607,10 @@ int ke_msg_send_1(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
 
 // rx_irq_handler_1 @ 0x11de50
 volatile uint32_t * rx_irq_handler_1(int a1) {
-  uint16_t v1; // r5
+  int16_t v1; // r5
 
   v1 = *(volatile uint16_t *)(a1 - 6);
-  if ( **(volatile uint16_t **)off_11DEC0 < 0 && (uint8_t)v1 > 5u )
+  if ( **(volatile int16_t **)off_11DEC0 < 0 && (uint8_t)v1 > 5u )
     flash_ctrl_init((int)aIdTaskMax, (int)aKeTaskLocal, 183);
   if ( (v1 & 0xFC) != 0 )
   {
@@ -38959,7 +38959,7 @@ int process_list_entries(int a1, volatile int *a2, int a3) {
 
 // flash_erase_sector @ 0x11e1e4
 int flash_erase_sector(unsigned int a1, int a2) {
-  volatile uint16_t **v2; // r7
+  volatile int16_t **v2; // r7
   unsigned int v5; // r9
   unsigned int v6; // r6
   volatile uint16_t *v7; // r9
@@ -38974,10 +38974,10 @@ int flash_erase_sector(unsigned int a1, int a2) {
   volatile uint32_t *v16; // r1
   volatile int *v17; // r6
 
-  v2 = (volatile uint16_t **)off_11E310;
+  v2 = (volatile int16_t **)off_11E310;
   v5 = a1 >> 8;
   v6 = (uint8_t)a1;
-  if ( **(volatile uint16_t **)off_11E310 >= 0 )
+  if ( **(volatile int16_t **)off_11E310 >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 <= 4u )
     goto LABEL_15;
@@ -39251,7 +39251,7 @@ volatile uint32_t *set_busy_flag() {
       }
       if ( result )
       {
-        if ( **(volatile uint16_t **)off_11E5C8 < 0 )
+        if ( **(volatile int16_t **)off_11E5C8 < 0 )
           result = (volatile uint32_t *)flash_ctrl_init(off_11E5DC, (int)aKeTaskSchedule, 360);
         goto LABEL_12;
       }
@@ -39468,7 +39468,7 @@ int check_kernel_state(int result, volatile uint32_t *a2) {
   int v2; // r5
 
   v2 = result;
-  if ( **(volatile uint16_t **)off_11E760 < 0 && !a2 )
+  if ( **(volatile int16_t **)off_11E760 < 0 && !a2 )
     result = flash_ctrl_init((int)aListHdrNull, (int)aCoListPushBack, 72);
   if ( *(volatile uint32_t *)v2 )
     **(volatile uint32_t **)(v2 + 4) = (int)(uintptr_t)(a2);
@@ -39485,7 +39485,7 @@ int check_kernel_state_alt(int result, volatile uint32_t *a2) {
   volatile uint32_t *v2; // r5
 
   v2 = (volatile uint32_t *)result;
-  if ( **(volatile uint16_t **)off_11E7A0 < 0 && !a2 )
+  if ( **(volatile int16_t **)off_11E7A0 < 0 && !a2 )
     result = flash_ctrl_init((int)aListHdrNull, (int)aCoListPushFron, 95);
   if ( *v2 )
   {
@@ -39694,7 +39694,7 @@ int crc32_block(int a1) {
   v8 = double_add(v6, v7);
   v9 = ((int (*)(uint64_t))double_to_float_1)(v8);
   return v9 & 0x7F800000
-       | ((((v9 & 0x7FFFFF) * (uint64_t)(int)_frame.v11[(v9 >> 18) & 0x1F]) >> 23) + *(volatile uint32_t *)&_frame.v12[4 * ((v9 >> 18) & 0x1F)]);
+       | ((((int64_t)(int32_t)(v9 & 0x7FFFFF) * (int64_t)(int32_t)(_frame.v11[(v9 >> 18) & 0x1F])) >> 23) + *(volatile uint32_t *)&_frame.v12[4 * ((v9 >> 18) & 0x1F)]);
 }
 
 
@@ -40744,7 +40744,7 @@ BOOL test_event_flag(unsigned int a1, unsigned int a2) {
 int dispatch_event_handler_1(const volatile char *fmt, ...) {
   volatile int *v1; // r6
   const volatile char *v2; // r4
-  volatile uint16_t **v3; // r8
+  volatile int16_t **v3; // r8
   unsigned int v4; // r5
   unsigned int v5; // t1
   char v6; // r2
@@ -40755,7 +40755,7 @@ int dispatch_event_handler_1(const volatile char *fmt, ...) {
   varg_r0 = fmt;
   v1 = (void *)(uintptr_t)(off_11F584);
 if ( ((volatile uint32_t *)(uintptr_t)off_11F584)[1] ) { v2 = fmt;
-    v3 = (volatile uint16_t **)off_11F588;
+    v3 = (volatile int16_t **)off_11F588;
     do
     {
       fmt = v2;
@@ -41199,7 +41199,7 @@ int ke_send_msg_414(int a1, int a2, int a3, int a4) {
   int v239; // [sp+8Ch] [bp-418h]
   int v240; // [sp+90h] [bp-414h] BYREF
   unsigned int a2a; // [sp+94h] [bp-410h] BYREF
-  uint16_t v242; // [sp+98h] [bp-40Ch]
+  int16_t v242; // [sp+98h] [bp-40Ch]
   uint16_t v243; // [sp+9Ah] [bp-40Ah]
   char _pad8[2]; char v244; // [sp+9Eh] [bp-406h]
   char _pad9[1]; int result[2]; // [sp+A0h] [bp-404h] BYREF
@@ -46510,12 +46510,12 @@ int ke_handle_message(unsigned int a1) {
   char v11; // r0
   char v12; // r1
   volatile uint8_t *v13; // r1
-  uint16_t v14; // r3
-  uint16_t v15; // r2
+  int16_t v14; // r3
+  int16_t v15; // r2
   volatile char *v16; // r7
   char v17; // r0
   volatile unsigned int v18; // r1
-  volatile uint16_t *v19; // r8
+  volatile int16_t *v19; // r8
   unsigned int v20; // r4
   uint16_t v21; // r3
   volatile char *v22; // r2
@@ -46571,7 +46571,7 @@ int ke_handle_message(unsigned int a1) {
       build_hci_event(v7 + 104);
       v24 = *(volatile uint8_t *)off_1244EC;
       v25 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_1244E0)[0]);
-      v26 = *(volatile uint16_t *)off_1244DC;
+      v26 = *(volatile int16_t *)off_1244DC;
       *(volatile uint8_t *)(v7 + 128) = 0x80;
       v24 -= 2;
       v27 = v24 > 1;
@@ -46596,10 +46596,10 @@ int ke_handle_message(unsigned int a1) {
       {
         build_hci_event(v7 + 104);
         v13 = (void *)(uintptr_t)(off_1244D8);
-        v14 = *(volatile uint16_t *)off_1244DC;
+        v14 = *(volatile int16_t *)off_1244DC;
         v15 = *(volatile uint16_t *)off_1244D8;
         v16 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_1244E0)[0]);
-        *(volatile uint8_t *)(v7 + 130) = *(volatile uint16_t *)off_1244DC;
+        *(volatile uint8_t *)(v7 + 130) = *(volatile int16_t *)off_1244DC;
         v17 = v13[5];
         *(volatile uint8_t *)(v7 + 128) = -127;
         v13 = (void *)(uintptr_t)(((uintptr_t)(v13) & ~0xFFu) | ((uint8_t)(*v16) & 0xFFu));
@@ -46616,14 +46616,14 @@ int ke_handle_message(unsigned int a1) {
       if ( a1 == 1 )
       {
         v18 = REG_4032_0120;
-        v19 = (volatile uint16_t *)off_1244DC;
+        v19 = (volatile int16_t *)off_1244DC;
         v20 = *(volatile uint32_t *)off_1244E8 - v18;
         if ( v20 <= 0x4E1F )
         {
           v29 = REG_4032_0120;
-          v20 = (1000 - *(volatile uint16_t *)off_1244DC)
+          v20 = (1000 - *(volatile int16_t *)off_1244DC)
               * ((v29 - *(volatile uint32_t *)off_1244F0)
-               / *(volatile uint16_t *)off_1244DC)
+               / *(volatile int16_t *)off_1244DC)
               + 20000;
           *(volatile uint32_t *)off_1244E8 = v29 + v20;
           dispatch_event_handler_1("txpwr_measure_time move %d\n", v20);
@@ -49876,7 +49876,7 @@ int freq_offset_to_channel(int a1) {
   if ( a1 > 29 )
     v1 = (unsigned int)(((unsigned int)dword_126F8C * (uint64_t)(unsigned int)(a1 - 30)) >> 32) >> 3;
   else
-    v1 = ((int)((uint64_t)(dword_126F80 * (uint64_t)(a1 - 40)) >> 32) >> 2) - ((a1 - 40) >> 31);
+    v1 = ((int)((uint64_t)((int32_t)dword_126F80 * (int64_t)(int32_t)(a1 - 40)) >> 32) >> 2) - ((a1 - 40) >> 31);
   if ( v1 >= 8 )
     v1 = 8;
   if ( v1 < -7 )
@@ -49939,7 +49939,7 @@ int rf_cmd_check(char a1) {
   if ( v4 > 29 )
     v5 = (unsigned int)(((unsigned int)dword_127048 * (uint64_t)(unsigned int)(v4 - 30)) >> 32) >> 3;
   else
-    v5 = ((int)((uint64_t)(dword_127044 * (uint64_t)(v4 - 40)) >> 32) >> 2) - ((v4 - 40) >> 31);
+    v5 = ((int)((uint64_t)((int32_t)dword_127044 * (int64_t)(int32_t)(v4 - 40)) >> 32) >> 2) - ((v4 - 40) >> 31);
   if ( v5 >= 8 )
     v5 = 8;
   if ( v5 < -7 )
