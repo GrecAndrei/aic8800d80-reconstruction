@@ -58990,12 +58990,11 @@ unsigned int float32_decompose(unsigned int a1) {
   float v6; // s15
   float v7; // s13
   float v8; // s14
-  uint8_t vars0[3]; // [sp+4h] [bp+0h]
 
-  v1 = *(volatile uint32_t *)vars0 & 0x7FFFFF;
-  v2 = *(volatile uint32_t *)vars0 & 0x7FFFFF;
+  v1 = a1 & 0x7FFFFF;
+  v2 = a1 & 0x7FFFFF;
   v3 = (uint8_t)(a1 >> 23);
-  if ( (*(volatile uint32_t *)vars0 & 0x7FFFFFu) >= 0x100000 )
+  if ( (a1 & 0x7FFFFFu) >= 0x100000 )
   {
     if ( v1 >= 0x200000 )
     {
@@ -59151,7 +59150,7 @@ float setup_stack_copy(float a1) {
   v28[13] = v22;
   v28[14] = v23;
   v28[15] = v24;
-  v25 = COERCE_FLOAT(v28[(LODWORD(a1) >> 20) & 0xF] + (LODWORD(a1) >> 1)) * *(volatile float *)&v27[(LODWORD(a1) >> 20) & 0xF];
+  v25 = COERCE_FLOAT(v28[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF] + (COERCE_UNSIGNED_INT(a1) >> 1)) * *(volatile float *)&v27[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF];
   return (float)((float)(a1 / v25) + v25) * 0.5;
 }
 

@@ -31,6 +31,7 @@ STEPS = [
     ("asm_returns.py", [], True),
     ("call_cast_returns.py", [], True),
     ("double_args.py", [], True),
+    ("spilled_scalar_inputs.py", [], True),
     ("float_bits.py", [], True),
     ("stack_frames.py", [], True),
     ("dword_compares.py", [], True),

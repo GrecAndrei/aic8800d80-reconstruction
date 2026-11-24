@@ -9,8 +9,10 @@ conversion and the second a float-to-int one, which round the pattern's low
 bits away. Per function, for a local declared `float`, an assignment from an
 `((int (*)(...))` cast call is wrapped in Hex-Rays' own bit-copy
 `COERCE_FLOAT(...)` and `LODWORD(local)` becomes `COERCE_UNSIGNED_INT(local)`.
-Float arithmetic and other calls are left alone. Idempotent; `--check` exits 1
-if anything is pending.
+Float arithmetic and other calls are left alone. The same representation rule
+applies to `float` parameters: Hex-Rays `LODWORD(aN)`/`SLODWORD(aN)` are raw
+register-bit uses, not numeric conversions. Idempotent; `--check` exits 1 if
+anything is pending.
 """
 import argparse
 import re
@@ -21,6 +23,9 @@ REPO = Path(__file__).resolve().parent.parent
 IMAGES = ("fmacfw_u02", "fmacfw_h_u02", "fmacfwbt_u02", "lmacfw_rf_u02")
 MARKER = re.compile(r"^// \S+ @ 0x[0-9a-fA-F]+[ \t]*$", re.M)
 LOCAL = re.compile(r"^\s+float ([A-Za-z_]\w*); //", re.M)
+SIGNATURE = re.compile(r"^float\s+[A-Za-z_]\w*\(([^\n]*)\)\s*\{", re.M)
+FLOAT_PARAM = re.compile(r"^float\s+([A-Za-z_]\w*)$")
+SLOW = re.compile(r"\bSLODWORD\(([A-Za-z_]\w*)\)")
 ASSIGN = re.compile(r"^(\s+)([A-Za-z_]\w*) = (\(\(int \(\*\)\([^()\n]*\)\)\w+\)\(.*\));$", re.M)
 LOW = re.compile(r"\bLODWORD\(([A-Za-z_]\w*)\)")
 
@@ -32,6 +37,12 @@ def apply(text: str) -> tuple[str, int]:
     for a, b in zip(cuts, cuts[1:]):
         body = text[a:b]
         floats = set(LOCAL.findall(body))
+        sig = SIGNATURE.search(body)
+        if sig:
+            for part in sig.group(1).split(","):
+                pm = FLOAT_PARAM.match(part.strip())
+                if pm:
+                    floats.add(pm.group(1))
         if not floats:
             out.append(body)
             continue
@@ -50,7 +61,15 @@ def apply(text: str) -> tuple[str, int]:
             total += 1
             return f"COERCE_UNSIGNED_INT({m.group(1)})"
 
-        out.append(LOW.sub(low, ASSIGN.sub(assign, body)))
+        def slow(m: re.Match) -> str:
+            nonlocal total
+            if m.group(1) not in floats:
+                return m.group(0)
+            total += 1
+            return f"COERCE_INT({m.group(1)})"
+
+        body = LOW.sub(low, ASSIGN.sub(assign, body))
+        out.append(SLOW.sub(slow, body))
     return "".join(out), total
 
 

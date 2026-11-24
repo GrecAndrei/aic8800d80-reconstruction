@@ -13,6 +13,7 @@ import call_cast_returns
 import double_args
 import dword_compares
 import float_bits
+import spilled_scalar_inputs
 import float_compares
 import heal_composed
 import stack_frames
@@ -420,6 +421,29 @@ class DwordCompares(unittest.TestCase):
             self.assertEqual(dword_compares.apply(text)[1], 0)
 
 
+class SpilledScalarInputs(unittest.TestCase):
+    # 0x100000: sub sp,#8; str r0,[sp,#4]; ldr r3,[sp,#4]; ubfx ...
+    BLOB = bytes.fromhex("82b00190019bc3f31603")
+    SRC = ("// helper @ 0x100000\nunsigned int helper(unsigned int a1) {\n"
+           "  unsigned int v1; // r3\n  uint8_t vars0[3]; // [sp+4h] [bp+0h]\n\n"
+           "  v1 = *(volatile uint32_t *)vars0 & 0x7FFFFF;\n"
+           "  if ( (*(uint32_t *)vars0 & 0x7FFFFFu) >= 0x100000 )\n"
+           "    return *(volatile uint32_t *)vars0 & 0x7FFFFF;\n"
+           "  return v1;\n}\n")
+
+    def test_machine_proven_spilled_input_replaces_uninitialized_local(self):
+        out, n = spilled_scalar_inputs.apply(self.SRC, self.BLOB)
+        self.assertEqual(n, 3)
+        self.assertNotIn("vars0", out)
+        self.assertIn("v1 = a1 & 0x7FFFFF;", out)
+        self.assertIn("if ( (a1 & 0x7FFFFFu) >= 0x100000 )", out)
+        self.assertEqual(spilled_scalar_inputs.apply(out, self.BLOB), (out, 0))
+
+    def test_independent_stack_use_is_not_rewritten(self):
+        src = self.SRC.replace("  return v1;", "  memset(vars0, 0, 3);\n  return v1;")
+        self.assertEqual(spilled_scalar_inputs.apply(src, self.BLOB), (src, 0))
+
+
 class FloatBits(unittest.TestCase):
     SRC = ("// f @ 0x100000\nint f(int a1) {\n  float v5; // r0\n  int v6; // r0\n  float v7; // r0\n\n"
            "  v5 = ((int (*)(uint64_t))d2f)(a1);\n  v6 = ((int (*)(uint64_t))d2f)(a1);\n  v7 = v5 * 2.0;\n"
@@ -432,6 +456,14 @@ class FloatBits(unittest.TestCase):
         self.assertIn("  v5 = COERCE_FLOAT(((int (*)(uint64_t))d2f)(a1));\n  v6 = ((int (*)(uint64_t))d2f)(a1);\n  v7 = v5 * 2.0;\n", out)
         self.assertIn("return f2d(COERCE_UNSIGNED_INT(v5)) + f2d(LODWORD(v6)) + g(v7);", out)
         self.assertIn("int h(int v5) {\n  return LODWORD(v5);", out)
+        self.assertEqual(float_bits.apply(out), (out, 0))
+
+    def test_float_parameters_use_bit_copies_for_lodword_uses(self):
+        src = ("// sq @ 0x100000\nfloat sq(float a1) {\n"
+               "  return tab[(LODWORD(a1) >> 20) & 0xF] + (LODWORD(a1) >> 1) + (int)a1;\n}\n")
+        out, n = float_bits.apply(src)
+        self.assertEqual(n, 2)
+        self.assertIn("tab[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF] + (COERCE_UNSIGNED_INT(a1) >> 1) + (int)a1", out)
         self.assertEqual(float_bits.apply(out), (out, 0))
 
     def test_tracked_sources_are_at_the_fixed_point(self):
