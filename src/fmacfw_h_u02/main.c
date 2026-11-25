@@ -57425,7 +57425,7 @@ volatile uint32_t *patch_alignment() {
   v1 = (void *)(uintptr_t)(off_12C99C);
   v2 = *(volatile uint32_t *)off_12C99C;
   v3 = *(volatile uint32_t *)off_12C99C + 1;
-  v4 = (*(volatile uint32_t *)hci_tx_alloc & 0xFFFFFFFC) - (uint32_t)result;
+  v4 = (0x1922A4u & 0xFFFFFFFCu) - (uint32_t)result;
   *(volatile uint32_t *)off_12C99C = v3;
   *result = 0;
   result[1] = v4;

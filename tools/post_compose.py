@@ -26,6 +26,7 @@ STEPS = [
     ("libmatch.py", ["scan"], True),
     ("libmatch.py", ["apply"], True),
     ("volatile_pointees.py", [], True),
+    ("heap_boundary_literal.py", [], True),
     ("callsite_targets.py", [], True),
     ("periph_symbols.py", [], True),
     ("asm_returns.py", [], True),

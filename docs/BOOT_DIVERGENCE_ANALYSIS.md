@@ -137,3 +137,8 @@ function delta vs v4: 20 improved / 0 regressed / 0 lateral (all DIFFER->MATCH).
 Failing functions 94 -> 74 corpus-wide (fmacfw_h 31->25, fmacfw_u02 26->20,
 fmacfwbt 24->18, lmacfw_rf 13->11). The dominant 0x1922a7 shared-state cluster
 is closed in the measurement itself.
+
+## Signed-comparison + heap-boundary validation (fidelity v6, 2026-11-25)
+v6 (tick_signed_cmps repaired): EXERCISED_ALL_MATCH 3475/4720 = 73.62%,
+3 improved / 0 regressed / 0 lateral vs v5 (all DIFFER->MATCH); failing
+functions 74 -> 71 corpus-wide. The tick-delta repair class is closed.
