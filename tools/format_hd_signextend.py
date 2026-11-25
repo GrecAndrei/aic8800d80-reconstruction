@@ -48,6 +48,9 @@ MARKER_RE = re.compile(r"(?m)^// (\w+) @ 0x([0-9a-fA-F]+)")
 # then the zero-extending cast on the very next line.
 SIGNED_ARM_RE = re.compile(
     r"(?m)^(LABEL_\d+:\n[ \t]+(v\d+) = \*a5\+\+;\n[ \t]+(v\d+) = )\(uint16_t\)(\2;)")
+# Fixed-point witness: the same arm already rewritten to the sign-extending cast.
+SIGNED_ARM_DONE_RE = re.compile(
+    r"(?m)^LABEL_\d+:\n[ \t]+v\d+ = \*a5\+\+;\n[ \t]+v\d+ = \(int16_t\)v\d+;")
 
 
 def apply_image(text: str, addr: int) -> tuple[str, int]:
@@ -65,7 +68,9 @@ def apply_image(text: str, addr: int) -> tuple[str, int]:
     body = text[span[0]:span[1]]
     out, n = SIGNED_ARM_RE.subn(r"\g<1>(int16_t)\g<4>", body)
     if not n:
-        return text, 0
+        if SIGNED_ARM_DONE_RE.search(body):
+            return text, 0            # already at the fixed point
+        return text, -1               # arm genuinely missing: structure changed
     return text[:span[0]] + out + text[span[1]:], n
 
 
@@ -78,16 +83,17 @@ def main() -> int:
         path = REPO / "src" / short / "main.c"
         text = path.read_text(errors="replace")
         out, n = apply_image(text, addr)
-        print(f"[format_hd_signextend] {short}: {n} signed-arm rewrite(s) "
-              f"{'pending' if args.check else 'applied'}")
-        if n and args.check:
-            rc = 1
-        elif n and not args.check:
-            path.write_text(out)
-        elif not n:
+        if n >= 0:
+            print(f"[format_hd_signextend] {short}: {n} signed-arm rewrite(s) "
+                  f"{'pending' if args.check else 'applied'}")
+        if n < 0:
             print(f"[format_hd_signextend] ERROR: {short} formatter arm not found at {addr:#x}",
                   file=sys.stderr)
             rc = 1
+        elif n and args.check:
+            rc = 1
+        elif n and not args.check:
+            path.write_text(out)
     return rc
 
 
