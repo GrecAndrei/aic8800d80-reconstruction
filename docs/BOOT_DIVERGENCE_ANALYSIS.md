@@ -82,3 +82,14 @@ the pre-regression deep-boot behavior (the residual 114/114-write tail
 divergence matches the pre-existing baseline). The boot regression causal
 chain is closed: decompile frame-model defect → formatter clobbered its own
 frame during boot logging → boot derailed at the first print.
+
+## Related analysis: memory-content loop sensitivity is not a decompile defect
+Machine-level comparison of ble_get_rssi (fmacfw_h 0x11de3c) confirms the
+decompiled `while(1)` linked-list walk faithfully matches the original machine
+logic: the loop continues unconditionally while the signed global flag is
+non-negative, and only applies the null-terminator check when the flag is
+negative. Both sides can in principle loop forever when the walked list lacks
+a flagged entry; standalone-emulation divergence in the `boot_ptr` vector
+reflects memory-content sensitivity, not a reconstruction defect. Treat the
+`recon_did_not_return` cluster in boot_ptr as sensitivity artifacts unless a
+per-function machine comparison shows a real logic divergence.
