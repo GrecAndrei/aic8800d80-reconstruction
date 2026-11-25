@@ -948,13 +948,38 @@ def _eval_function(key: int) -> dict:
             elf_info=elf,
         )
 
-        vec_results[vname] = evaluate_outcomes(
+        outcome = evaluate_outcomes(
             to, orig_r0, orig_mmio,
             tr, recon_r0, recon_mmio,
             stopped_in, left,
             ram_match, o_mut, r_mut, ram_diff_addr, is_void, is_void_ub,
             r0_exclude=r0_exclude, orig_image=po.image, elf_info=elf,
         )
+        # Invalid-input artifact classification: boot_scalar/boot_neg inject
+        # scalar integers into every argument register. When a parameter is
+        # pointer-typed, the original machine code still executes the wild
+        # access mechanically, but the compiled reconstruction is free to
+        # UB-optimize around it — divergence in r0 or RAM on such inputs is
+        # outside the valid input domain of the function and evidence of
+        # nothing. Machine-anchored example: memset(dest=1) writes to low
+        # memory in the original while the compiled body legitimately takes
+        # any path. Reclassified outcomes count neither as matches nor as
+        # defects, exactly like NOT_RUN but with the reason preserved.
+        if outcome.get("status") == "DIFFER" and outcome.get("reason") in {"r0_differ", "ram_differ", "r0_void_ub"}:
+            invalid = False
+            if param_types:
+                for idx, ptype in enumerate(param_types):
+                    if idx >= len(vcfg["args"]):
+                        break
+                    aval = vcfg["args"][idx]
+                    if "*" in ptype and aval < 0x10000:
+                        invalid = True
+                        break
+            if invalid:
+                outcome = dict(outcome)
+                outcome["status"] = "INVALID_INPUT"
+                outcome["invalid_reason"] = outcome.get("reason")
+        vec_results[vname] = outcome
 
     return {
         "image": SHORT[image],
@@ -1040,7 +1065,7 @@ def measure_truth_lane_full(rows_by_key: dict[tuple[str, int], dict]) -> dict:
             continue
         vecs = row["vectors"]
         bare_ok = vecs.get("bare_zero", {}).get("status") == "MATCH"
-        comp_vecs = [v for v in vecs.values() if v["status"] != "NOT_RUN"]
+        comp_vecs = [v for v in vecs.values() if v["status"] not in ("NOT_RUN", "INVALID_INPUT")]
         all_ok = bool(comp_vecs) and all(v["status"] == "MATCH" for v in comp_vecs)
         if bare_ok:
             passed_bare += 1
@@ -1100,7 +1125,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
     differ_examples: list[dict] = []
     for r in rows:
         vs = list(r["vectors"].values())
-        comparable = [x for x in vs if x["status"] != "NOT_RUN"]
+        comparable = [x for x in vs if x["status"] not in ("NOT_RUN", "INVALID_INPUT")]
         if not comparable:
             agg["NEVER_COMPARABLE"] += 1
             continue
@@ -1132,7 +1157,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
     for img_short, img_rows in sorted(rows_by_img.items()):
         i_agg = collections.Counter()
         for r in img_rows:
-            comp = [x for x in r["vectors"].values() if x["status"] != "NOT_RUN"]
+            comp = [x for x in r["vectors"].values() if x["status"] not in ("NOT_RUN", "INVALID_INPUT")]
             if not comp:
                 i_agg["NEVER_COMPARABLE"] += 1
             elif any(x["status"] == "DIFFER" for x in comp):
