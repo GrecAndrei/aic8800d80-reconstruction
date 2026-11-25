@@ -29,17 +29,28 @@ from codex_backend import complete, load_tokens
 write_lock = threading.Lock()
 
 
-def run_job(job, outdir, tokens):
+def run_job(job, outdir, tokens, backend="codex"):
     key = job["key"]
     path = os.path.join(outdir, f"{key}.json")
     if os.path.exists(path):
         return key, "cached"
     try:
-        text = complete(
-            job["prompt"],
-            instructions=job.get("instructions", "You are a firmware reverse-engineering expert."),
-            reasoning_effort=job.get("effort", "max"),
-            tokens=tokens)
+        instr = job.get("instructions", "You are a firmware reverse-engineering expert.")
+        if backend == "qwen":
+            # qwen3.8-flash: xhigh is the top effort tier (no 'max'); the
+            # shared mega-prefix rides the system message with an explicit
+            # cache breakpoint — deterministic 10% hits sustained by the
+            # batch's own traffic (5-min TTL resets on hit)
+            from qwen_backend import complete as qcomplete
+            effort = {"max": "xhigh"}.get(job.get("effort", "max"), job.get("effort", "xhigh"))
+            text, _usage = qcomplete(job["prompt"], instr, effort=effort,
+                                     max_tokens=8192, explicit_cache=True)
+        else:
+            text = complete(
+                job["prompt"],
+                instructions=instr,
+                reasoning_effort=job.get("effort", "max"),
+                tokens=tokens)
         rec = dict(job.get("meta", {}))
         rec.update({"key": key, "status": "ok", "text": text})
     except Exception as e:
@@ -58,6 +69,7 @@ def main():
     ap.add_argument("manifest")
     ap.add_argument("outdir")
     ap.add_argument("--workers", type=int, default=16)
+    ap.add_argument("--backend", default="codex", choices=["codex", "qwen"])
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 
@@ -72,7 +84,7 @@ def main():
 
     done = err = 0
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(run_job, j, args.outdir, tokens): j for j in pending}
+        futs = {ex.submit(run_job, j, args.outdir, tokens, args.backend): j for j in pending}
         for fut in as_completed(futs):
             key, status = fut.result()
             if status == "ok":
