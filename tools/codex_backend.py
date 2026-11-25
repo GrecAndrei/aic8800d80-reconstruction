@@ -62,11 +62,13 @@ def complete(prompt, instructions="You are a concise assistant.",
         ENDPOINT,
         data=json.dumps(body).encode(),
         headers={
-            "Authorization": f"Bearer {tok['access_token'], "x-opencode-session": cache_key, "session_id": cache_key}",
+            "Authorization": f"Bearer {tok['access_token']}",
             "Content-Type": "application/json",
             "OpenAI-Beta": "responses=experimental",
             "chatgpt-account-id": tok["account_id"],
             "originator": "codex_cli_rs",
+            "x-opencode-session": cache_key,
+            "session_id": cache_key,
         })
     chunks = []
     with urllib.request.urlopen(req, timeout=timeout) as r:
