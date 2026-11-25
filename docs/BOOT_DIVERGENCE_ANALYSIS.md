@@ -201,3 +201,15 @@ of invoking a non-entrypoint with garbage registers. Correct handling is
 compose-level dedup/unit removal once the unit-discovery provenance (why
 0x135250 entered the unit list at all) is understood — the IDA functions
 export is too sparse (13 rows) to answer it.
+
+## Spurious-fragment drop validation (fidelity v12, 2026-11-25)
+v12 (drop_spurious_fragments): EXERCISED_ALL_MATCH 3114/4718 = 66.00%;
+VACUOUS 1255 (unchanged). Corpus shrank exactly by the 2 dropped fragments
+(tx_complete_check, bt_is_conn_flag_set) — the machine-verified spurious
+duplicate units. Failing functions 14 -> **12 corpus-wide** (fmacfw_h 4,
+fmacfw_u02 3, fmacfwbt 2, lmac 3); the remaining exercised count is
+unchanged, confirming zero coverage loss. The v11 measurement is void: it
+ran against an intermediate over-eaten state (the first drop regex consumed
+four sibling functions per image) that was corrected before v12. Exercised
+fidelity rose purely through denominator correction — proof that the two
+fragment rows were measurement artifacts, not genuine defects.
