@@ -154,3 +154,14 @@ free-list boundary repair is validated. The exercised/vacuous rebalancing
 working as intended: r0 differences with no consuming caller no longer count
 as observable traffic, so noise-only functions move to vacuous-match. The
 65.74% figure is a cleaner measure of true behavioral fidelity.
+
+## Tailcall-args + strncasecmp-binding validation (fidelity v8, 2026-11-25)
+v8 (patch_tailcall_args + find_ext_strncasecmp repairs, post-chain-order fix):
+EXERCISED_ALL_MATCH 3106/4720 = 65.81%; VACUOUS 1255 (unchanged).
+**3 improved / 0 regressed / 0 lateral** vs v7 — all DIFFER->MATCH:
+patch_handle_data @ 0x13376c (the tailcall-argument repair), find_extension
+@ 0x12f9a4 (the strncasecmp-binding repair), and one sibling improvement at
+fmacfw_u02 0x116174. Failing functions 25 -> **22 corpus-wide** (fmacfw_h 8,
+fmacfw_u02 6, fmacfwbt 5, lmac 3); exercised matches rose exactly by the 3
+improvements. The chain-order repair (find_ext_strncasecmp after libc_names)
+held the reproduce fixed-point for the entire run.
