@@ -351,14 +351,18 @@ def scan_image(image: str) -> list[dict]:
     for i, row in enumerate(funcs):
         addr = row["address"]
         off = addr - ANALYSIS_BASE
-        end = funcs[i + 1]["address"] - ANALYSIS_BASE if i + 1 < len(funcs) else len(blob)
-        body = blob[off:end]
+        end = funcs[i + 1]["address"] if i + 1 < len(funcs) else len(blob) + ANALYSIS_BASE
+        body = blob[off:end - ANALYSIS_BASE]
+        prov = analyze_function(blob, addr, end)
         rec = {
             "image": image,
             "address": hex(addr),
             "scan_name": row.get("name", ""),
             "class": "unknown",
             "machine_inputs": prologue_inputs(blob, addr),
+            "return_verdict": prov.get("verdict"),
+            "return_kinds": prov.get("kinds"),
+            "verdict_evidence": prov.get("verdict_evidence", []),
             "evidence": [],
         }
         if len(body) >= 2 and body[:2] == b"\x70\x47":
