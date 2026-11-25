@@ -48183,10 +48183,10 @@ LABEL_6:
   if ( *v4 && (v11 = *v4 - 1, v12 = *(volatile uint32_t *)off_125034, (*v4 = v11) == 0) && v12 )
   {
     __enable_irq();
-    if ( a2 - *((volatile uint32_t *)off_12503C + 4) < 0 )
+    if ( (int)(a2 - *((volatile uint32_t *)off_12503C + 4)) < 0 )
       return set_system_flag_1(0x20000000);
   }
-  else if ( a2 - *((volatile uint32_t *)off_12503C + 4) < 0 )
+  else if ( (int)(a2 - *((volatile uint32_t *)off_12503C + 4)) < 0 )
   {
     return set_system_flag_1(0x20000000);
   }

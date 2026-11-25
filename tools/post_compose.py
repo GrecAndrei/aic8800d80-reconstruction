@@ -36,6 +36,7 @@ STEPS = [
     ("stack_frames.py", [], True),
     ("rom_copy_frames.py", [], True),
     ("dword_compares.py", [], True),
+    ("timer_signed_diffs.py", [], True),
     ("arm_shifts.py", [], True),
     ("float_compares.py", [], True),
     ("signed_muls.py", [], True),

@@ -34810,10 +34810,10 @@ LABEL_6:
   if ( *v4 && (v11 = *v4 - 1, v12 = *(volatile uint32_t *)off_11ABEC, (*v4 = v11) == 0) && v12 )
   {
     __enable_irq();
-    if ( a2 - *((volatile uint32_t *)off_11ABF4 + 4) < 0 )
+    if ( (int)(a2 - *((volatile uint32_t *)off_11ABF4 + 4)) < 0 )
       return set_busy_flag_alt(0x20000000);
   }
-  else if ( a2 - *((volatile uint32_t *)off_11ABF4 + 4) < 0 )
+  else if ( (int)(a2 - *((volatile uint32_t *)off_11ABF4 + 4)) < 0 )
   {
     return set_busy_flag_alt(0x20000000);
   }
