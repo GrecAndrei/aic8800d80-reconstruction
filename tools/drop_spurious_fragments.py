@@ -23,28 +23,43 @@ SITES = [
 ]
 
 def process(path, img, check):
-    text = open(path).read()
+    lines = open(path).read().splitlines(keepends=True)
     total = 0
     for simg, addr, name in SITES:
         if simg != img:
             continue
-        # remove the definition block: marker line through the closing brace
-        # and following blank lines
-        pat = re.compile(
-            r"(?m)^// " + re.escape(name) + r" @ " + addr + r"\n"
-            r"int " + re.escape(name) + r"\(\) \{.*?\n\}\n\n\n\n",
-            re.S)
-        m = pat.search(text)
-        decl = f"int {name}();\n"
-        has_decl = decl in text
-        if m:
-            total += 1
-            if not check:
-                text = text[:m.start()] + text[m.end():]
-                if has_decl:
-                    text = text.replace(decl, "", 1)
+        marker = f"// {name} @ {addr}\n"
+        # locate the definition: marker line, then lines to the first
+        # column-0 closing brace, then the trailing blank lines that precede
+        # the next unit marker.
+        try:
+            mi = lines.index(marker)
+        except ValueError:
+            continue
+        sig = f"int {name}() {{\n"
+        if mi + 1 >= len(lines) or lines[mi + 1] != sig:
+            continue
+        j = mi + 2
+        end = None
+        while j < len(lines):
+            if lines[j] == "}\n":
+                end = j
+                break
+            j += 1
+        if end is None:
+            continue
+        # trailing blank lines after the closing brace
+        k = end + 1
+        while k < len(lines) and lines[k].strip() == "":
+            k += 1
+        total += 1
+        if not check:
+            del lines[mi:k]
+            decl = f"int {name}();\n"
+            if decl in lines:
+                lines.remove(decl)
     if total and not check:
-        open(path, "w").write(text)
+        open(path, "w").write("".join(lines))
     return total
 
 def main():
