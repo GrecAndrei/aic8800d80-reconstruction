@@ -70,13 +70,27 @@ def main():
     db = {}
     for h in sorted(HEADERS):
         db.update(parse_structs(h))
-    # pass 2: resolve nested struct sizes where possible
-    for name, s in db.items():
-        for f in s["fields"]:
-            if f["size"] == -1:
-                nested = re.match(r"struct\s+([a-zA-Z_0-9]+)$", f["type"])
-                if nested and nested.group(1) in db and db[nested.group(1)]["size"]:
-                    f["size"] = db[nested.group(1)]["size"]
+    # fixed-point: resolve nested struct sizes iteratively, then recompute
+    # struct sizes from resolved field sizes (arrays included).
+    for _ in range(8):
+        changed = False
+        for name, s in db.items():
+            for f in s["fields"]:
+                if f["size"] == -1:
+                    nested = re.match(r"struct\s+([a-zA-Z_0-9]+)$", f["type"])
+                    if nested and nested.group(1) in db and db[nested.group(1)]["size"]:
+                        f["size"] = db[nested.group(1)]["size"]
+                        changed = True
+            if s["size"] is None and all(f["size"] and f["size"] > 0 for f in s["fields"]):
+                total = 0
+                for f in s["fields"]:
+                    f["offset"] = total
+                    total += f["size"] * f["count"]
+                s["size"] = total
+                s["exact"] = True
+                changed = True
+        if not changed:
+            break
     json.dump(db, open("metadata/rwnx_types.json", "w"), indent=1)
     sized = sum(1 for s in db.values() if s["size"])
     print(f"harvested {len(db)} structs from {len(HEADERS)} headers; {sized} with exact sizes")

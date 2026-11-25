@@ -385,8 +385,8 @@
   "source": "aic_vendor.h"
  },
  "wlan_driver_wake_reason_cnt_t": {
-  "size": null,
-  "exact": false,
+  "size": 72,
+  "exact": true,
   "fields": [
    {
     "name": "total_cmd_event_wake",
@@ -447,14 +447,14 @@
    {
     "name": "rx_wake_pkt_classification_info",
     "type": "struct rx_wake_pkt_type_classification_t",
-    "offset": 28,
+    "offset": 40,
     "count": 1,
     "size": 20
    },
    {
     "name": "rx_multicast_wake_pkt_info",
     "type": "struct rx_multicast_cnt_t",
-    "offset": 28,
+    "offset": 60,
     "count": 1,
     "size": 12
    }
