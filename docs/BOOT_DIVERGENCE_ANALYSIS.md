@@ -40,3 +40,15 @@ and the UART print path (`rf_config_read`/`crypto` tail events in original).
 - The terminal-PC ring buffer is useless when a tight loop dominates; capture
   transition-triggered context instead (see scripts in session history).
 - `fidelity_meter.py::measure_boot_parity` records first_diff in the JSON.
+
+## Caller identified (2026-11-25, later pass)
+`patch_apply` has no direct calls in the original text scan and no data
+references because the boot-chain caller uses ordinary direct bl sites that
+the quick hand-rolled thumb decoder missed. In the linked reconstruction the
+callers are inside `read_global_signed_flag` (boot chain) and one deeper
+consumer. The boot-chain loop control is data-driven: `read_global_signed_flag`
+loads a global context pointer, reads a flag byte, and calls
+`patch_apply(r0=1, a2, r2=4)` only while the flag byte is zero. The original
+iterating 3 times vs the recon once means the flag/state memory the loop
+reads differs after the first iteration — the divergence is in whatever
+writes that global flag byte during the first pass, not in patch_apply.
