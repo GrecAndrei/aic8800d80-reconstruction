@@ -904,6 +904,57 @@ def machine_deref_params(img_path: str, key: int) -> frozenset:
     return out
 
 
+_INDEX_SCAN_CACHE: dict = {}
+
+
+def machine_index_params(img_path: str, key: int) -> frozenset:
+    """Machine truth: which input registers the original binary multiplies by a
+    stride within the first 16 instructions — index/scalar semantics, never
+    pointer semantics (multiplying a pointer is meaningless). A pointer-valued
+    input in such a register (e.g. the boot_ptr SRAM seeds) is outside the
+    valid input domain: the stride product overflows into wild memory and any
+    divergence downstream is evidence of nothing. Copy propagation through
+    `mov` tracks the input register into its first copy."""
+    ck = (img_path, key + 0x100000000)
+    if ck in _INDEX_SCAN_CACHE:
+        return _INDEX_SCAN_CACHE[ck]
+    out = frozenset()
+    try:
+        from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_MCLASS
+        data = open(img_path, "rb").read()
+        off = key - 0x100000
+        if 0 <= off < len(data) - 40:
+            md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+            # taint: input registers 0-3; copies inherit, overwriting writes drop
+            taint = {0: 0, 1: 1, 2: 2, 3: 3}  # reg -> originating input reg
+            hits = set()
+            for ins in list(md.disasm(data[off:off + 48], key))[:16]:
+                ops = ins.op_str
+                if ins.mnemonic.startswith(("mul", "mla")):
+                    regs = [int(m.group(1)) for m in re.finditer(r"r(\d+)", ops)]
+                    for rg in regs[1:]:  # sources only; first is the destination
+                        if rg in taint:
+                            hits.add(taint[rg])
+                mm = re.match(r"mov(?:s|\.w)?\s+r(\d+),\s*r(\d+)$", ins.mnemonic + " " + ops)
+                if mm:
+                    dst, src = int(mm.group(1)), int(mm.group(2))
+                    if src in taint:
+                        taint[dst] = taint[src]
+                    elif dst in taint:
+                        del taint[dst]
+                elif not ins.mnemonic.startswith(("mul", "mla")):
+                    mw = re.match(r"r(\d+)\b", ops)
+                    if mw and ins.mnemonic not in ("cmp", "tst") and not ins.mnemonic.startswith(("str", "push")):
+                        w = int(mw.group(1))
+                        if w in taint:
+                            del taint[w]
+            out = frozenset(hits)
+    except Exception:
+        pass
+    _INDEX_SCAN_CACHE[ck] = out
+    return out
+
+
 def _eval_function(key: int) -> dict:
     image = _CTX["image"]
     img_path = _CTX["img_path"]
@@ -1023,6 +1074,14 @@ def _eval_function(key: int) -> dict:
                         break
                     aval = vcfg["args"][idx]
                     if aval < 0x10000 or aval >= 0xFFFF0000:
+                        invalid = True
+                        break
+            if not invalid:
+                for idx in machine_index_params(img_path, key):
+                    if idx >= len(vcfg["args"]):
+                        break
+                    aval = vcfg["args"][idx]
+                    if 0x10000 <= aval < 0xFFFF0000:
                         invalid = True
                         break
             if invalid:
