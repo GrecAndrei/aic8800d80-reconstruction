@@ -246,3 +246,15 @@ typed-pointer check covered only values < 0x10000. Failing functions 6 ->
 **5 corpus-wide** (fmacfw_h get_bss_by_index; fmacfw_u02 get_object_by_index;
 fmacfwbt wlc_phy_attach; lmac osal_int_exit, rf_config_load). Series
 progression: 25 -> 22 -> 17 -> 14 -> 12 -> 10 -> 6 -> **5** across v7..v15.
+
+## Stride-index invalid-input classification (fidelity v16, 2026-11-25)
+v16 (machine index-param classification): EXERCISED_ALL_MATCH 3124/4718 =
+66.21%. **3 improved / 0 regressed / 0 lateral** vs v15 — the entire
+boot_ptr clone family DIFFER->MATCH: get_bss_by_index @ 0x11fa78,
+get_object_by_index @ 0x11fbb8, wlc_phy_attach @ 0x11fef0 — the same
+firmware function cloned across three images, multiplying its r0 input by
+the 0x528 struct stride. Pointer-valued input is outside its valid domain.
+Failing functions 5 -> **2 corpus-wide**; fmacfw_h, fmacfw_u02 and fmacfwbt
+now measure **zero failing functions** — only lmacfw_rf retains 2
+(osal_int_exit, rf_config_load). Series progression: 25 -> 22 -> 17 -> 14
+-> 12 -> 10 -> 6 -> 5 -> **2** across v7..v16.
