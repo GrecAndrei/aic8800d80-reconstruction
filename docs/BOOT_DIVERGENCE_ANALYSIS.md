@@ -184,3 +184,20 @@ all DIFFER->MATCH and exactly the three repaired trampolines (jump_0x12abc8
 @ 0x1211fc, jump_to_12ad08 @ 0x12133c, jump_to_12af2c @ 0x12159c). Failing
 functions 17 -> **14 corpus-wide** (fmacfw_h 5, fmacfw_u02 4, fmacfwbt 2,
 lmac 3). The transparent tail-jump forwarding class is closed.
+
+## Fragment-family machine truth (track 3 analysis, 2026-11-25)
+tx_complete_check @ 0x135250 (fmacfw_h) and bt_is_conn_flag_set @ 0x135390
+(fmacfw_u02) are spurious duplicate units, not real function entries:
+- zero inbound call edges in the IDA call-edge export;
+- zero jump-table references to the fragment address in either the analysis
+  base or the hardware base (byte-scan of the original image);
+- entry only by fall-through from the preceding composed unit (mac_dma_setup
+  @ 0x135224), whose own decompile already contains the full continuation
+  logic — the fragment body is a partial duplicate of the same code.
+The original fragment reads `[r4,#0x4c8]` with r4 computed by the preceding
+unit (`mla r4, 0x528, r6, r8`), proving the register-live interior-entry
+relationship. The fidelity DIFFER on these units is a measurement artifact
+of invoking a non-entrypoint with garbage registers. Correct handling is
+compose-level dedup/unit removal once the unit-discovery provenance (why
+0x135250 entered the unit list at all) is understood — the IDA functions
+export is too sparse (13 rows) to answer it.
