@@ -342,6 +342,62 @@ def analyze_function(blob: bytes, addr: int, end: int, base: int = ANALYSIS_BASE
     return prov
 
 
+
+def scan_caller_use(blob: bytes, funcs: list[dict], base: int = ANALYSIS_BASE) -> dict:
+    """Machine-level caller-use evidence for every direct-call target.
+
+    For each ``bl target``/``blx`` whose target is a composed function entry,
+    scan straight-line forward from the instruction after the call: if r0 is
+    read before being overwritten (and before any control-flow transfer), the
+    caller consumes the result. Correct machine code never reads dead residue,
+    so one consuming site is proof that the callee produces a semantic result.
+    """
+    entries = {r["address"] for r in funcs}
+    consumption: dict[int, dict] = {}
+    for i, row in enumerate(funcs):
+        addr = row["address"]
+        end = funcs[i + 1]["address"] if i + 1 < len(funcs) else len(blob) + base
+        insns = disassemble_fn(blob, addr, end, base)
+        by_addr = {x.address: x for x in insns}
+        order = sorted(by_addr)
+        nxt_of = {order[k]: order[k + 1] for k in range(len(order) - 1)}
+        for ins in insns:
+            if ins.mnemonic not in ("bl",):
+                continue
+            tgt = _parse_branch_target(ins.op_str)
+            if tgt not in entries:
+                continue
+            rec = consumption.setdefault(tgt, {"consumed_sites": [], "ignored_sites": [], "inconclusive": 0})
+            cur = nxt_of.get(ins.address)
+            verdict = None
+            steps = 0
+            while cur is not None and steps < 24:
+                steps += 1
+                ni = by_addr[cur]
+                mn = ni.mnemonic
+                if mn in ("b", "b.w", "bx", "bl", "blx", "cbz", "cbnz", "tbb", "tbh") or mn in COND_BRANCH:
+                    verdict = verdict or "inconclusive"
+                    break
+                try:
+                    reads, writes = ni.regs_access()
+                except Exception:
+                    break
+                if ARM_REG_R0 in reads:
+                    verdict = "consumed"
+                    break
+                if ARM_REG_R0 in writes:
+                    verdict = verdict or "ignored"
+                    break
+                cur = nxt_of.get(cur)
+            if verdict == "consumed":
+                rec["consumed_sites"].append(hex(ins.address))
+            elif verdict == "ignored":
+                rec["ignored_sites"].append(hex(ins.address))
+            else:
+                rec["inconclusive"] += 1
+    return consumption
+
+
 def scan_image(image: str) -> list[dict]:
     blob = (REPO / "inputs" / "firmware" / f"{image}.bin").read_bytes()
     funcs = load_funcs(image)
@@ -414,7 +470,20 @@ def main() -> int:
     args = ap.parse_args()
     rows = []
     for image in IMAGES:
-        rows.extend(scan_image(image))
+        img_rows = scan_image(image)
+        blob = (REPO / "inputs" / "firmware" / f"{image}.bin").read_bytes()
+        consumption = scan_caller_use(blob, load_funcs(image))
+        for r in img_rows:
+            cu = consumption.get(int(r["address"], 16))
+            if cu:
+                r["caller_use"] = {
+                    "consumed": len(cu["consumed_sites"]),
+                    "ignored": len(cu["ignored_sites"]),
+                    "inconclusive": cu["inconclusive"],
+                }
+                if cu["consumed_sites"]:
+                    r["caller_use"]["first_consuming_site"] = cu["consumed_sites"][0]
+        rows.extend(img_rows)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in rows))
     counts = {}
