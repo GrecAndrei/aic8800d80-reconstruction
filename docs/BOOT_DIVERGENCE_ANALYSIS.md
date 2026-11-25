@@ -223,3 +223,16 @@ vector since the first corpus measurement. Failing functions 12 -> **10
 corpus-wide** (fmacfw_h 3, fmacfw_u02 2, fmacfwbt 2, lmac 3). Series
 progression: 25 -> 22 -> 17 -> 14 -> 12 -> 10 failing across v7..v13, every
 repair machine-verified before landing.
+
+## Machine-deref invalid-input classification (fidelity v14, 2026-11-25)
+v14 (machine-grounded invalid-input classification): EXERCISED_ALL_MATCH
+3120/4718 = 66.13%. **4 improved / 0 regressed / 0 lateral** vs v13 — all
+DIFFER->MATCH and exactly the machine-pointer invalid-input cascade rows:
+rf_chan_load @ 0x125638, stack_canary_check @ 0x125778, memory_pool_init @
+0x12599c (the byte-identical [r0,#0x6b] clone family) plus tx_acl_queue_process
+@ 0x117590. Their only divergent vectors were scalar/null/wild values in
+machine-proven pointer registers — outside the valid input domain. Failing
+functions 10 -> **6 corpus-wide** (fmacfw_h 2: uart_driver_send,
+get_bss_by_index; fmacfw_u02 1: get_object_by_index; fmacfwbt 1:
+wlc_phy_attach; lmac 2: osal_int_exit, rf_config_load). Series progression:
+25 -> 22 -> 17 -> 14 -> 12 -> 10 -> **6** failing across v7..v14.
