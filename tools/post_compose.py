@@ -34,6 +34,7 @@ STEPS = [
     ("spilled_scalar_inputs.py", [], True),
     ("float_bits.py", [], True),
     ("stack_frames.py", [], True),
+    ("rom_copy_frames.py", [], True),
     ("dword_compares.py", [], True),
     ("arm_shifts.py", [], True),
     ("float_compares.py", [], True),
@@ -41,6 +42,7 @@ STEPS = [
     ("signed_halfwords.py", [], True),
     ("libc_names.py", [], True),
     ("format_hd_signextend.py", [], True),
+    ("format_scratch_frame.py", [], True),
 ]
 
 

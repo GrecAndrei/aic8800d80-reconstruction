@@ -28655,27 +28655,33 @@ void get_global_context() {
 int patch_apply(int a1, int a2, unsigned int a3) {
   int v6; // r4
   unsigned int v7; // r5
-  struct __attribute__((packed)) { uint32_t v9[4]; // [sp+0h] [bp-4Ch] BYREF
-  uint8_t v10[4]; // [sp+10h] [bp-3Ch] BYREF
-  uint8_t v11[12]; // [sp+14h] [bp-38h] BYREF
-  uint8_t v12[20]; // [sp+20h] [bp-2Ch] BYREF
-  uint8_t v13[8]; // [sp+34h] [bp-18h] BYREF
-  uint8_t v14[4]; // [sp+3Ch] [bp-10h] BYREF
-  uint8_t v15[4]; // [sp+40h] [bp-Ch] BYREF
-  uint8_t v16[8]; // [sp+44h] [bp-8h] BYREF
+  union {
+    uint8_t _rom_block[72];
+    struct __attribute__((packed)) {
+      uint32_t v9[2];       // +0x00 magic, +0x04 flags
+      uint8_t _rom_pad1[8]; // +0x08..+0x0f unused
+      uint8_t v10[4];       // +0x10
+      uint8_t v11[12];      // +0x14
+      uint8_t v12[20];      // +0x20
+      uint8_t v13[4];       // +0x34
+      uint8_t _rom_pad2[4]; // +0x38..+0x3b unused
+      uint8_t v14[4];       // +0x3c
+      uint8_t v15[4];       // +0x40
+      uint8_t v16[4];       // +0x44
+    } f;
   } _frame;
   if ( !*(volatile uint32_t *)off_114BE8 )
     get_global_context();
-  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114BEC + 0x2000, 72, _frame.v9);
-  if ( _frame.v9[0] != dword_114BF0 )
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114BEC + 0x2000, 72, _frame._rom_block);
+  if ( _frame.f.v9[0] != dword_114BF0 )
     return -1;
-  v6 = a1 & _frame.v9[1];
+  v6 = a1 & _frame.f.v9[1];
   if ( !v6 )
     return 1;
   v7 = v6 & 1;
   if ( (v6 & 1) != 0 )
   {
-    memcpy((void *)(uintptr_t)(a2), _frame.v10, 4);
+    memcpy((void *)(uintptr_t)(a2), _frame.f.v10, 4);
     v7 = 4;
     if ( (v6 & 2) == 0 )
     {
@@ -28689,7 +28695,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v11, 12);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.f.v11, 12);
   v7 += 12;
   if ( (v6 & 4) == 0 )
   {
@@ -28699,7 +28705,7 @@ LABEL_8:
     goto LABEL_20;
   }
 LABEL_22:
-  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v12, 20);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.f.v12, 20);
   v7 += 20;
   if ( (v6 & 8) == 0 )
   {
@@ -28709,7 +28715,7 @@ LABEL_9:
     goto LABEL_18;
   }
 LABEL_20:
-  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v13, 4);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.f.v13, 4);
   v7 += 4;
   if ( (v6 & 0x20) == 0 )
   {
@@ -28719,7 +28725,7 @@ LABEL_10:
     goto LABEL_16;
   }
 LABEL_18:
-  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v14, 4);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.f.v14, 4);
   v7 += 4;
   if ( (v6 & 0x40) == 0 )
   {
@@ -28729,12 +28735,12 @@ LABEL_11:
     goto LABEL_15;
   }
 LABEL_16:
-  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v15, 4);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.f.v15, 4);
   v7 += 4;
   if ( (v6 & 0x80) != 0 )
   {
 LABEL_15:
-    memcpy((void *)(uintptr_t)(a2 + v7), _frame.v16, 4);
+    memcpy((void *)(uintptr_t)(a2 + v7), _frame.f.v16, 4);
     v7 += 4;
   }
 LABEL_12:
@@ -28791,26 +28797,32 @@ int patch_validate(int a1) {
 // patch_apply_ext @ 0x114c3c
 int patch_apply_ext(int a1, int a2, unsigned int a3) {
   unsigned int v6; // r4
-  struct __attribute__((packed)) { int v8; // [sp+0h] [bp-144h] BYREF
-  int v9; // [sp+4h] [bp-140h]
-  char _pad2[12]; uint8_t v10[272]; // [sp+14h] [bp-130h] BYREF
-  uint8_t v11[4]; // [sp+124h] [bp-20h] BYREF
-  uint8_t v12[8]; // [sp+128h] [bp-1Ch] BYREF
-  uint8_t v13[4]; // [sp+130h] [bp-14h] BYREF
-  uint8_t v14[2]; // [sp+134h] [bp-10h] BYREF
-  uint8_t v15[14]; // [sp+136h] [bp-Eh] BYREF
+  union {
+    uint8_t _rom_block[320];
+    struct __attribute__((packed)) {
+      int v8;               // +0x00 magic
+      int v9;               // +0x04 flags
+      char _pad2[12];       // +0x08..+0x13 unused
+      uint8_t v10[272];         // +0x14 (first 6 bytes are the bit-2 payload)
+      uint8_t v11[2];           // +0x124
+      uint8_t _rom_pad3[2]; // +0x126..+0x127 unused
+      uint8_t v12[8];           // +0x128
+      uint8_t v13[4];           // +0x130
+      uint8_t v14[2];           // +0x134
+      uint8_t v15[10];       // +0x136
+    } f;
   } _frame;
   if ( !*(volatile uint32_t *)off_114D20 )
     get_global_context();
-  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114D24 + 4096, 320, &_frame.v8);
-  if ( _frame.v8 != dword_114D28 )
+  ((int (*)())MEMD(0x1D8))(*(volatile uint32_t *)off_114D24 + 4096, 320, _frame._rom_block);
+  if ( _frame.f.v8 != dword_114D28 )
     return -1;
-  if ( (_frame.v9 & a1) == 0 )
+  if ( (_frame.f.v9 & a1) == 0 )
     return 1;
-  v6 = (uint8_t)_frame.v9 & (uint8_t)a1 & 2;
-  if ( ((uint8_t)_frame.v9 & (uint8_t)a1 & 2) != 0 )
+  v6 = (uint8_t)_frame.f.v9 & (uint8_t)a1 & 2;
+  if ( ((uint8_t)_frame.f.v9 & (uint8_t)a1 & 2) != 0 )
   {
-    memcpy((void *)(uintptr_t)(a2), _frame.v10, 6);
+    memcpy((void *)(uintptr_t)(a2), _frame.f.v10, 6);
     v6 = 6;
     if ( (a1 & 0x100000) == 0 )
     {
@@ -28824,7 +28836,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v11, 2);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.f.v11, 2);
   v6 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -28834,7 +28846,7 @@ LABEL_8:
     goto LABEL_17;
   }
 LABEL_19:
-  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v12, 8);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.f.v12, 8);
   v6 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
@@ -28844,7 +28856,7 @@ LABEL_9:
     goto LABEL_15;
   }
 LABEL_17:
-  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v13, 4);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.f.v13, 4);
   v6 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
@@ -28854,12 +28866,12 @@ LABEL_10:
     goto LABEL_14;
   }
 LABEL_15:
-  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v14, 2);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.f.v14, 2);
   v6 += 2;
   if ( (a1 & 0x1000000) != 0 )
   {
 LABEL_14:
-    memcpy((void *)(uintptr_t)(a2 + v6), _frame.v15, 10);
+    memcpy((void *)(uintptr_t)(a2 + v6), _frame.f.v15, 10);
     v6 += 10;
   }
 LABEL_11:
@@ -59919,10 +59931,11 @@ unsigned int rx_process_packet_2(volatile char *a1, int a2, unsigned int a3, vol
   int v77; // [sp+4h] [bp-50h]
   unsigned int v78; // [sp+8h] [bp-4Ch]
   int v79; // [sp+Ch] [bp-48h]
-  char v80; // [sp+10h] [bp-44h] BYREF
-  char v81; // [sp+11h] [bp-43h]
-  char _pad6[1]; char v82; // [sp+13h] [bp-41h] BYREF
-  char _pad7[60]; uint8_t v83[4]; // [sp+50h] [bp-4h] BYREF
+  char v80_scratch[68]; // [sp+10h] [bp-44h] BYREF — merged scratch: the original uses
+  // sp+0x10..sp+0x53 as ONE raw stack region (digit generation grows backward from
+  // sp+0x50, %A/%M grow forward from sp+0x10/0x13); merged into one object so the
+  // cross-field pointer arithmetic stays in bounds under any correct compilation.
+  // offsets: v80=[0] v81=[1] pad=[2] v82=[3] v83 anchor=[64]
   } _frame;
   v8 = a4 + 1;
   v7 = (uint8_t)*a4;
@@ -60176,12 +60189,12 @@ LABEL_9:
             {
               v42 = *(volatile uint8_t *)(dword_12E8C8 + (v40 >> 4));
               v43 = *(volatile uint8_t *)(dword_12E8C8 + (v40 & 0xF));
-              _frame.v80 = v42;
+              _frame.v80_scratch[0] = v42;
               if ( _frame.v78 >= 0x15 )
                 v38 = 21;
               v44 = 3 * v38;
               v45 = v38 - 1;
-              _frame.v81 = v43;
+              _frame.v80_scratch[1] = v43;
               v25 = v44 - 1;
               v21 = 1 - v44;
               if ( !v45 )
@@ -60190,11 +60203,11 @@ LABEL_106:
                 if ( (_frame.v76 & 0x40) != 0 )
                 {
                   _frame.v78 = 0;
-                  v23 = &_frame.v80;
+                  v23 = (&_frame.v80_scratch[0]);
                   goto LABEL_58;
                 }
                 _frame.v78 = _frame.v76 & 0x40;
-                v23 = &_frame.v80;
+                v23 = (&_frame.v80_scratch[0]);
                 if ( (_frame.v76 & 0x20) != 0 )
                   goto LABEL_57;
                 if ( v25 )
@@ -60206,14 +60219,14 @@ LABEL_106:
             {
               v63 = v40 >> 4;
               v64 = *(volatile uint8_t *)(dword_12E8C8 + (v40 & 0xF));
-              _frame.v80 = *(volatile uint8_t *)(dword_12E8C8 + v63);
-              _frame.v81 = v64;
+              _frame.v80_scratch[0] = *(volatile uint8_t *)(dword_12E8C8 + v63);
+              _frame.v80_scratch[1] = v64;
               v21 = -47;
               v25 = 47;
               v45 = 15;
             }
             v46 = &v41[v45];
-            v47 = &_frame.v82;
+            v47 = (&_frame.v80_scratch[3]);
             do
             {
               v48 = ((uint8_t)v41 & 3) == 0;
@@ -60236,10 +60249,10 @@ LABEL_106:
             v54 = v51 + 6;
             v53 = *v51;
             v55 = *(volatile uint8_t *)(dword_12E8C8 + (v53 >> 4));
-            _frame.v81 = *(volatile uint8_t *)(dword_12E8C8 + (v53 & 0xF));
-            _frame.v80 = v55;
+            _frame.v80_scratch[1] = *(volatile uint8_t *)(dword_12E8C8 + (v53 & 0xF));
+            _frame.v80_scratch[0] = v55;
             v56 = v51 + 1;
-            v57 = &_frame.v80;
+            v57 = (&_frame.v80_scratch[0]);
             do
             {
               v58 = *v56++;
@@ -60251,7 +60264,7 @@ LABEL_106:
             }
             while ( v54 != v56 );
             v21 = _frame.v78 - 17;
-            v23 = &_frame.v80;
+            v23 = (&_frame.v80_scratch[0]);
             v24 = _frame.v76 & 0x40;
             v25 = 17;
             goto LABEL_55;
@@ -60270,24 +60283,24 @@ LABEL_106:
                 case 'X':
 LABEL_152:
                   v74 = dword_12E8C8;
-                  v23 = _frame.v83;
+                  v23 = (&_frame.v80_scratch[64]);
                   do
                   {
                     v75 = v20 & 0xF;
                     v20 >>= 4;
                     *--v23 = *(volatile uint8_t *)(v74 + v75);
-                    v25 = (uintptr_t)(_frame.v83) - (uintptr_t)(v23);
+                    v25 = (uintptr_t)((&_frame.v80_scratch[64])) - (uintptr_t)(v23);
                   }
                   while ( v20 );
                   goto LABEL_139;
                 case 'b':
 LABEL_149:
-                  v23 = _frame.v83;
+                  v23 = (&_frame.v80_scratch[64]);
                   do
                   {
                     *--v23 = (v20 & 1) + 48;
                     v20 >>= 1;
-                    v25 = (uintptr_t)(_frame.v83) - (uintptr_t)(v23);
+                    v25 = (uintptr_t)((&_frame.v80_scratch[64])) - (uintptr_t)(v23);
                   }
                   while ( v20 );
                   goto LABEL_139;
@@ -60309,18 +60322,18 @@ LABEL_155:
 LABEL_142:
                   v21 = _frame.v78;
                   v24 = _frame.v76 & 0x40;
-                  v23 = _frame.v83;
+                  v23 = (&_frame.v80_scratch[64]);
                   v25 = 0;
                   goto LABEL_55;
               }
               v72 = dword_12E8CC;
-              v23 = _frame.v83;
+              v23 = (&_frame.v80_scratch[64]);
               do
               {
                 v73 = v20 & 0xF;
                 v20 >>= 4;
                 *--v23 = *(volatile uint8_t *)(v72 + v73);
-                v25 = (uintptr_t)(_frame.v83) - (uintptr_t)(v23);
+                v25 = (uintptr_t)((&_frame.v80_scratch[64])) - (uintptr_t)(v23);
               }
               while ( v20 );
               v21 = _frame.v78 - v25;
@@ -60358,7 +60371,7 @@ LABEL_76:
 LABEL_78:
             v29 = dword_12E8C4;
             v25 = 0;
-            v30 = _frame.v83;
+            v30 = (&_frame.v80_scratch[64]);
             do
             {
               v31 = v20 - 10 * ((unsigned int)((v29 * (uint64_t)v20) >> 32) >> 3) + 48;
@@ -60400,8 +60413,8 @@ LABEL_78:
           case 'c':
             v21 = _frame.v78 - 1;
             v22 = *a5++;
-            _frame.v80 = v22;
-            v23 = &_frame.v80;
+            _frame.v80_scratch[0] = v22;
+            v23 = (&_frame.v80_scratch[0]);
             v24 = _frame.v76 & 0x40;
             v25 = 1;
             goto LABEL_55;
