@@ -53,6 +53,9 @@ STEPS = [
     ("validate_forward_args.py", [], True),
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
+    # demonolithize MUST stay last: it physically relocates the healed text
+    # into module slices; every rule above reads the monolithic main.c
+    ("demonolithize.py", [], True),
 ]
 
 
