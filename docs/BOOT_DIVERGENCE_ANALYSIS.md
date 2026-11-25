@@ -93,3 +93,10 @@ a flagged entry; standalone-emulation divergence in the `boot_ptr` vector
 reflects memory-content sensitivity, not a reconstruction defect. Treat the
 `recon_did_not_return` cluster in boot_ptr as sensitivity artifacts unless a
 per-function machine comparison shows a real logic divergence.
+
+## Truth-lane linked comparison: 7/7 PASS post-repair (2026-11-25)
+`tools/linked_recon_run.py` against the dual-repaired full-link ELF (formatter
+scratch-frame + rom_copy_frames): PASS=7 REVIEW=0 FAIL=0, every decisive
+target reporting identical_peripheral_write_sequence. The former 1 PASS /
+6 FAIL linked-run split — whose failures were callee decompile defects
+including the formatter — is fully closed by the two frame-object repairs.
