@@ -641,7 +641,8 @@ class PostCompose(unittest.TestCase):
              "stack_frames.py", "dword_compares.py", "arm_shifts.py",
              "float_compares.py", "signed_muls.py", "signed_halfwords.py",
              "heal_two_d_subscript.py", "libmatch.py", "volatile_pointees.py",
-             "heal_composed.py", "absolute_memory.py"}
+             "heal_composed.py", "absolute_memory.py",
+             "spilled_scalar_inputs.py"}
 
     def test_the_chain_runs_every_rule_and_rebinds_before_heal(self):
         steps = [(s, a) for s, a, _ in post_compose.STEPS]
