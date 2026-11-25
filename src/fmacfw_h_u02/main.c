@@ -66002,7 +66002,7 @@ int get_phy_status_byte(int a1) {
   int v2; // r0
   int v3; // r3
   int v4; // r4
-  int v5; // r0
+  int v5 = 0; // r0
   char v6; // r2
   int v7; // t1
   int v8; // r0
@@ -66035,7 +66035,7 @@ LABEL_3:
   }
   while ( v3 != v4 );
 LABEL_7:
-  ((int (*)())cmd_char_validate)();
+  v8 = cmd_char_validate(v5);
   result = rf_set_mode(a1, v8);
   *(volatile uint8_t *)(a1 + 350) = 0;
   return result;

@@ -66108,7 +66108,7 @@ int patch_check_version(int a1) {
   int v2; // r0
   int v3; // r3
   int v4; // r4
-  int v5; // r0
+  int v5 = 0; // r0
   char v6; // r2
   int v7; // t1
   int v8; // r0
@@ -66141,7 +66141,7 @@ LABEL_3:
   }
   while ( v3 != v4 );
 LABEL_7:
-  ((int (*)())is_valid_rate_code)();
+  v8 = is_valid_rate_code(v5);
   result = ble_ll_conn_set_phy(a1, v8);
   *(volatile uint8_t *)(a1 + 350) = 0;
   return result;

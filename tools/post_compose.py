@@ -50,6 +50,7 @@ STEPS = [
     ("jump_trampolines.py", [], True),
     ("uncast_memset_zero.py", [], True),
     ("drop_spurious_fragments.py", [], True),
+    ("validate_forward_args.py", [], True),
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
 ]
