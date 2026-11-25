@@ -1,0 +1,59 @@
+[
+ {
+  "image": "fmacfw_8800d80_h_u02",
+  "callee": "ble_ll_conn_get",
+  "callee_addr": "0x132c48",
+  "proven_inputs": [
+   0,
+   1,
+   2
+  ],
+  "proto_params": 2,
+  "proto_reg_capacity": 2
+ },
+ {
+  "image": "fmacfw_8800d80_h_u02",
+  "callee": "hci_tx_alloc",
+  "callee_addr": "0x12c9a0",
+  "proven_inputs": [
+   0,
+   3
+  ],
+  "proto_params": 1,
+  "proto_reg_capacity": 1
+ },
+ {
+  "image": "fmacfw_8800d80_u02",
+  "callee": "bt_get_conn_entry",
+  "callee_addr": "0x132d88",
+  "proven_inputs": [
+   0,
+   1,
+   2
+  ],
+  "proto_params": 2,
+  "proto_reg_capacity": 2
+ },
+ {
+  "image": "fmacfwbt_8800d80_u02",
+  "callee": "rf_config_chan_table",
+  "callee_addr": "0x132fa4",
+  "proven_inputs": [
+   0,
+   1,
+   2
+  ],
+  "proto_params": 2,
+  "proto_reg_capacity": 2
+ },
+ {
+  "image": "lmacfw_rf_8800d80_u02",
+  "callee": "bt_reg_write",
+  "callee_addr": "0x12f954",
+  "proven_inputs": [
+   2
+  ],
+  "proto_params": 0,
+  "proto_reg_capacity": 0
+ }
+]

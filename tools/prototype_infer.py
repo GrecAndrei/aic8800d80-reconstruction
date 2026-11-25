@@ -81,7 +81,16 @@ def prologue_inputs(image: bytes, addr: int, limit: int = 32) -> list[int] | Non
         # A prologue push preserves argument registers; it is not evidence
         # that their values are semantic inputs. Likewise a later epilogue
         # pop restores them rather than defining machine-level results here.
-        if mnemonic in {"push", "pop"}:
+        if mnemonic.startswith("push"):
+            # a push only stores registers; it neither consumes nor defines them
+            continue
+        if mnemonic.startswith("pop"):
+            # a pop DEFINES the restored registers. Skipping that fact turns
+            # return-address stack tricks (pop {r3}; mov lr, r3) into false
+            # parameter evidence, so record the writes before moving on.
+            for reg in writes:
+                if reg in ARG_INDEX:
+                    written.add(reg)
             continue
         for reg in reads:
             if reg in ARG_INDEX and reg not in written:
