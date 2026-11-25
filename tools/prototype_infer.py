@@ -375,15 +375,17 @@ def scan_caller_use(blob: bytes, funcs: list[dict], base: int = ANALYSIS_BASE) -
                 steps += 1
                 ni = by_addr[cur]
                 mn = ni.mnemonic
-                if mn in ("b", "b.w", "bx", "bl", "blx", "cbz", "cbnz", "tbb", "tbh") or mn in COND_BRANCH:
-                    verdict = verdict or "inconclusive"
-                    break
                 try:
                     reads, writes = ni.regs_access()
                 except Exception:
                     break
+                # reads are checked before the control-flow stop: cbz/cbnz r0
+                # and a conditional branch on r0 are themselves consumption.
                 if ARM_REG_R0 in reads:
                     verdict = "consumed"
+                    break
+                if mn in ("b", "b.w", "bx", "bl", "blx", "cbz", "cbnz", "tbb", "tbh") or mn in COND_BRANCH:
+                    verdict = verdict or "inconclusive"
                     break
                 if ARM_REG_R0 in writes:
                     verdict = verdict or "ignored"
