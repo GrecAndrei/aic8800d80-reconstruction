@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "return_true",
+ "luna": "always_true",
+ "doc": "Always returns 1.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "return_true",
+   "probabilities": [
+    {
+     "value": "return_true",
+     "probability": 0.62
+    },
+    {
+     "value": "always_true",
+     "probability": 0.38
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

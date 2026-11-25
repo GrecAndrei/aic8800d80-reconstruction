@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "variant_update_cache",
+ "luna": "chip_identify_and_cache",
+ "doc": "Identifies the chip, updates the cached chip identifier if it changed, and returns the identifier.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "chip_identify_and_cache",
+   "probabilities": [
+    {
+     "value": "variant_update_cache",
+     "probability": 0.44
+    },
+    {
+     "value": "chip_identify_and_cache",
+     "probability": 0.53
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

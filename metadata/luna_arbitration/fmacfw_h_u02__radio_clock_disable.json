@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "radio_clock_disable",
+ "luna": "rf_clock_disable",
+ "doc": "Clears radio-related clock and control bits in several MMIO registers and zeros a final control byte.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "radio_clock_disable",
+   "probabilities": [
+    {
+     "value": "radio_clock_disable",
+     "probability": 0.57
+    },
+    {
+     "value": "rf_clock_disable",
+     "probability": 0.42
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}
