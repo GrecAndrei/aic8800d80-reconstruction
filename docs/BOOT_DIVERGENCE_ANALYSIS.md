@@ -52,3 +52,22 @@ loads a global context pointer, reads a flag byte, and calls
 iterating 3 times vs the recon once means the flag/state memory the loop
 reads differs after the first iteration — the divergence is in whatever
 writes that global flag byte during the first pass, not in patch_apply.
+
+## Formatter causal chain verified (2026-11-25, third pass)
+The boot regression IS a genuine regression: the pre-repair measurement
+(fidelity_postmem) shows recon boot capped at 500k instructions in all four
+images (prefixes 1964/1960/1953/2238); post-repair the two fmacfw boots
+return at ~128k after only 277/196 matched writes. The final matched write
+in the original is the first UART console byte at pc 0x12d70e/0x12d736 —
+the divergence is exactly at the first boot print.
+
+Machine-verified causal chain: the original boot enters the formatter
+(dbg_vsnprintf_offset family) 3 times in the first 300k instructions (first
+at insn 71950) and continues deep; the recon boot enters it exactly twice
+and unwinds at 128459 instructions. The formatter's digit-emission defect
+(traced separately: middle digit positions of '%u' output leak stack
+pointer bytes, e.g. 0x0019efcb into the output buffer) corrupts execution
+during boot logging. The digit corruption itself is a frame-layout defect
+in the decompiled backward-growing digit buffer exposed by the corrected
+build (-ffreestanding codegen shift), not a wrong division constant —
+dword_12EA04 = 0xcccccccd matches in original and reconstruction.
