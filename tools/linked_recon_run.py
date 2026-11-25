@@ -64,9 +64,26 @@ def marker_names(image: str) -> dict[int, str]:
     return {int(a, 16): n for n, a in MARKER.findall(text)}
 
 
+def check_elf_freshness(path: Path) -> None:
+    """Reject a runtime ELF older than the composed source it was linked from.
+
+    The behavioral corpus is meaningless when it accidentally executes a stale
+    reconstruction. The runtime ELF is derived from composed main.c, so reject
+    an ELF older than that source and print the exact regeneration command.
+    """
+    stem = path.parent.name
+    main_c = REPO / "src" / SHORT.get(stem, stem) / "main.c"
+    if main_c.is_file() and path.stat().st_mtime < main_c.stat().st_mtime:
+        raise SystemExit(
+            f"stale linked reconstruction {path}: older than {main_c}; regenerate with "
+            "python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run"
+        )
+
+
 @functools.lru_cache(maxsize=None)
 def load_elf(path: Path) -> tuple[int, bytes, int, list[tuple[int, str]]]:
     """Return (base, loadable bytes, end of .bss, sorted [(addr, function)])."""
+    check_elf_freshness(path)
     with path.open("rb") as f:
         elf = ELFFile(f)
         segs = [s for s in elf.iter_segments() if s["p_type"] == "PT_LOAD"]
