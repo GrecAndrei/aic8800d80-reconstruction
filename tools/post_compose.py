@@ -40,6 +40,7 @@ STEPS = [
     ("signed_muls.py", [], True),
     ("signed_halfwords.py", [], True),
     ("libc_names.py", [], True),
+    ("format_hd_signextend.py", [], True),
 ]
 
 
