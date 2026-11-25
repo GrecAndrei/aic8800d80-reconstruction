@@ -28,6 +28,7 @@ STEPS = [
     ("volatile_pointees.py", [], True),
     ("heap_boundary_literal.py", [], True),
     ("patch_tailcall_args.py", [], True),
+    ("find_ext_strncasecmp.py", [], True),
     ("callsite_targets.py", [], True),
     ("periph_symbols.py", [], True),
     ("asm_returns.py", [], True),

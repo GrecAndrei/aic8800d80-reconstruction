@@ -62276,7 +62276,7 @@ volatile uint32_t * find_extension(int a1, volatile uint32_t *a2, int a3) {
         v10 = *v8;
         ++v9;
         v11 = v8;
-if ( !((int (*)())strchr)((void *)(uintptr_t)(a1), *v8, v6) ) break;
+if ( !strncasecmp((volatile uint8_t *)(uintptr_t)a1, (volatile uint8_t *)(uintptr_t)*v8, v6) ) break;
         v8 += 4;
         if ( a3 == v9 )
           goto LABEL_9;
