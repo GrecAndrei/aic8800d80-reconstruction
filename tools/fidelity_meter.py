@@ -1297,10 +1297,16 @@ def main() -> int:
             # heuristic says void; uniform input residue with no consuming
             # caller proves void even when the heuristic says otherwise.
             # Unknown contracts change nothing.
-            if contract == "void_machine":
-                r0_exclude = True
-            elif contract == "nonvoid_machine":
+            cevidence = " ".join(prow.get("contract_evidence", []))
+            consumed = "consumed at" in cevidence
+            no_consumer = "without consuming caller" in cevidence
+            if consumed or contract == "nonvoid_machine":
                 r0_exclude = False
+            elif contract == "void_machine" or no_consumer:
+                # No consuming call site exists anywhere in the image, so an
+                # r0 difference has no behavioral consumer: it is unactionable
+                # noise regardless of the mixed provenance verdict.
+                r0_exclude = True
             else:
                 r0_exclude = machine_class in {"exact_nullsub", "nullsub_tail_alias"}
             func_meta[k] = {
