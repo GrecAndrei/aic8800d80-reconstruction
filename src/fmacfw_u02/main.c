@@ -61915,7 +61915,7 @@ volatile uint32_t * parse_ipv4_dot(int a1, volatile uint32_t *a2, int a3) {
   int v10; // r6
   volatile uint32_t *v11; // r10
 
-  v5 = ((int (*)())memset)((void *)(uintptr_t)(a1), 46);
+  v5 = (int)(uintptr_t)(strchr((void *)(uintptr_t)(a1), 46));
   if ( v5 )
     v6 = v5 - a1;
   else
@@ -61932,7 +61932,7 @@ volatile uint32_t * parse_ipv4_dot(int a1, volatile uint32_t *a2, int a3) {
         v10 = *v8;
         ++v9;
         v11 = v8;
-if ( !memset((void *)(uintptr_t)(a1), *v8, v6) ) break;
+if ( !strncasecmp((volatile uint8_t *)(uintptr_t)a1, (volatile uint8_t *)(uintptr_t)*v8, v6) ) break;
         v8 += 4;
         if ( a3 == v9 )
           goto LABEL_9;

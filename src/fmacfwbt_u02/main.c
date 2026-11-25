@@ -67862,8 +67862,9 @@ volatile uint32_t * bt_process_rx_data(int a1) {
     mmio_irq_clear(dword_1339D4, dword_1339D0, 321);
     v2 = (v2 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(a1 + 12)) & 0xFFu);
   }
-  v4 = hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), (90 << (8 * v2)) | v1);
-  return hash_mix_words(v4, v5, 0);
+  hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), (90 << (8 * v2)) | v1);
+  hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), 0);
+  return (volatile uint32_t *)a1;
 }
 
 

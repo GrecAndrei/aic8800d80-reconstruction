@@ -46,6 +46,7 @@ STEPS = [
     ("signed_halfwords.py", [], True),
     ("libc_names.py", [], True),
     ("find_ext_strncasecmp.py", [], True),
+    ("ipv4_dot_libc.py", [], True),
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
 ]

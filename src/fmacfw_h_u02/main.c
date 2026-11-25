@@ -67425,8 +67425,9 @@ volatile uint32_t * ble_state_check_13362c(int a1) {
     irq_disable_mmio_write(dword_133678, dword_133674, 321);
     v2 = (v2 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(a1 + 12)) & 0xFFu);
   }
-  v4 = crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), (90 << (8 * v2)) | v1);
-  return crypto_mix_round(v4, v5, 0);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), (90 << (8 * v2)) | v1);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), 0);
+  return (volatile uint32_t *)a1;
 }
 
 
