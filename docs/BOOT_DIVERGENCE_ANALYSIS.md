@@ -258,3 +258,17 @@ Failing functions 5 -> **2 corpus-wide**; fmacfw_h, fmacfw_u02 and fmacfwbt
 now measure **zero failing functions** — only lmacfw_rf retains 2
 (osal_int_exit, rf_config_load). Series progression: 25 -> 22 -> 17 -> 14
 -> 12 -> 10 -> 6 -> 5 -> **2** across v7..v16.
+
+## VFP compilation experiment (fidelity v17, 2026-11-25)
+v17 (track-8 experiment: -mfpu=fpv4-sp-d16 -mfloat-abi=softfp): EXERCISED
+3124/4718 = 66.21% — **byte-identical behavioral outcomes to v16: 0 improved /
+0 regressed / 0 lateral, transitions empty**. Baseline probe: the soft-float
+build emitted 0 VFP instructions with 598 __aeabi float calls in the fmacfw_h
+object alone; the VFP build emits 820 VFP instructions in the same object.
+The corpus measurement cannot distinguish them: IEEE-standard operations
+produce identical results either way and no measured vector exercises
+denormal/NaN edge cases where VFPv4 flush-to-zero would diverge from the
+soft-float library. The VFP flags are kept as the more hardware-faithful
+artifact — the original firmware executes hardware VFP (vpush {d8} in its
+prologues) — with zero measured downside. Track 8 closed: no fidelity edge
+hinges on the softfp/VFP choice at current vector coverage.

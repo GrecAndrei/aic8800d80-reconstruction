@@ -8,7 +8,7 @@ OPT           ?= -O2
 # (unsigned is always spelled uint8_t), arithmetic wraps, address 0 is mapped
 # (boot ROM callback slots), and objects are accessed through casts of any type.
 DIALECT       = -fsigned-char -fwrapv -fno-delete-null-pointer-checks -fno-strict-aliasing -ffreestanding
-CFLAGS        = -mcpu=cortex-m4 -mthumb $(OPT) $(DIALECT) -Iinclude -w -std=gnu99 -ffunction-sections -fdata-sections -include include/aic8800d80_types.h -Wno-int-conversion -Wno-incompatible-pointer-types -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
+CFLAGS        = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=softfp $(OPT) $(DIALECT) -Iinclude -w -std=gnu99 -ffunction-sections -fdata-sections -include include/aic8800d80_types.h -Wno-int-conversion -Wno-incompatible-pointer-types -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
 
 SRCS_FMAC_U02  = fmacfw_u02/main.c
 SRCS_FMAC_H    = fmacfw_h_u02/main.c
