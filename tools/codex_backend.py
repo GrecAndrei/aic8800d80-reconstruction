@@ -45,6 +45,9 @@ def complete(prompt, instructions="You are a concise assistant.",
         }],
         "store": False,
         "stream": True,
+        # fast mode: 1.5x token speed, free on the subscription through
+        # Dec 31 2026 per the owner — flat-rate either way, latency win only
+        "service_tier": "fast",
     }
     if reasoning_effort:
         body["reasoning"] = {"effort": reasoning_effort}
