@@ -400,6 +400,35 @@ def scan_caller_use(blob: bytes, funcs: list[dict], base: int = ANALYSIS_BASE) -
     return consumption
 
 
+
+def final_contract(rec: dict) -> tuple[str, list[str]]:
+    """Fuse return provenance, caller use and nullsub classes into one contract.
+
+    Verdicts:
+      nonvoid_machine   at least one caller provably consumes r0 after the call
+                        (machine code never reads dead residue)
+      void_machine      input residue on every return path AND direct callers
+                        exist AND none consume; or exact nullsub/alias thereof
+      unknown           everything else: stays inert, suppresses nothing
+    """
+    ev = []
+    cls = rec.get("class")
+    if cls in ("exact_nullsub", "nullsub_tail_alias"):
+        return "void_machine", [f"{cls}: entry bx lr or alias chain to it"]
+    cu = rec.get("caller_use")
+    if cu and cu.get("consumed"):
+        return "nonvoid_machine", [f"r0 consumed at {cu['consumed']} direct call site(s)"]
+    verdict = rec.get("return_verdict")
+    if verdict == "void_input_residue":
+        if cu and (cu.get("ignored") or cu.get("inconclusive")) and not cu.get("consumed"):
+            return "void_machine", ["input residue on all returns; no caller consumes r0"]
+        if cu is None:
+            ev.append("no direct callers observed; residue evidence only")
+            return "unknown", ev
+        return "unknown", ["input residue but caller evidence absent"]
+    return "unknown", [f"verdict={verdict} without consuming caller"]
+
+
 def scan_image(image: str) -> list[dict]:
     blob = (REPO / "inputs" / "firmware" / f"{image}.bin").read_bytes()
     funcs = load_funcs(image)
@@ -485,6 +514,8 @@ def main() -> int:
                 }
                 if cu["consumed_sites"]:
                     r["caller_use"]["first_consuming_site"] = cu["consumed_sites"][0]
+        for r in img_rows:
+            r["contract"], r["contract_evidence"] = final_contract(r)
         rows.extend(img_rows)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in rows))
