@@ -252,6 +252,31 @@ release tarball
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
   LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).
 
+## Defect class: frame-object overlap (recurring, machine-proven)
+
+Three independent high-blast-radius defects shared one root cause: Hex-Rays
+models raw stack scratch spans as small separate struct objects while the
+original code treats the frame as contiguous raw memory. Pointer arithmetic
+outside object bounds is undefined behavior in C, so correct compilation may
+split/scalarize the frame and place spill slots where the original kept dead
+scratch — clobbering data or being clobbered by oversized copies. Instances
+repaired so far, all as post-compose union/merge rules:
+
+- formatter digit scratch (tools/format_scratch_frame.py) — corrupted all
+  decimal conversions, derailed boot logging in fmacfw images;
+- patch_apply/patch_apply_ext ROM-copy frames (tools/rom_copy_frames.py) —
+  the 72/320-byte boot-ROM copies overran the frame into saved registers;
+  systematic orig=1/recon=-1 across the SMC/patch wrapper family.
+
+Diagnostic signature: behavior correct in original, wrong in reconstruction
+with inputs/memory verified identical; output/state containing leaked stack
+pointer bytes; defects appearing only under some correct compilations.
+Verification method: compare machine-level frame layout (copy dst offsets,
+sp-adjust) in original disassembly vs objdump of the linked ELF, not just C.
+Suspect this class whenever a packed `_frame` struct is indexed through
+pointers that escape their member object, or a large copy targets a small
+first member.
+
 ## Hard rules (do not violate)
 
 1. **THINK IN TAGS, NOT BASH COMMANDS**: never use bash as scratch.
