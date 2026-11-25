@@ -27,6 +27,7 @@ STEPS = [
     ("libmatch.py", ["apply"], True),
     ("volatile_pointees.py", [], True),
     ("heap_boundary_literal.py", [], True),
+    ("patch_tailcall_args.py", [], True),
     ("callsite_targets.py", [], True),
     ("periph_symbols.py", [], True),
     ("asm_returns.py", [], True),

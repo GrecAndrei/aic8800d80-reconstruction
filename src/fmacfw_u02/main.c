@@ -67533,8 +67533,9 @@ volatile uint32_t * patch_handle_data(int a1) {
     mmio_clear_register(dword_1337B8, dword_1337B4, 321);
     v2 = (v2 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(a1 + 12)) & 0xFFu);
   }
-  v4 = crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), (90 << (8 * v2)) | v1);
-  return crypto_mix_round(v4, v5, 0);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), (90 << (8 * v2)) | v1);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), 0);
+  return (volatile uint32_t *)a1;
 }
 
 
