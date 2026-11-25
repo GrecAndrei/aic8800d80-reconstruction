@@ -98,7 +98,6 @@ int rf_calibration_proc(int a1, int a2) {
 
 
 // mmio_register_access @ 0x130148
-/* luna: Polls the radio status until its ready bit is set or a lock succeeds in state 4, invoking RF calibration when the calibration flag is nonzero. */
 void mmio_register_access() {
   volatile uint32_t *v0; // r4
   unsigned int v1; // r0
@@ -147,7 +146,6 @@ unsigned int compare_calibration_levels() {
 
 
 // rf_temp_compensation @ 0x1301b8
-/* luna: Computes six calibration-table deltas between the requested level and the stored level, saves them in the RF state, and refreshes calibration values. */
 int rf_temp_compensation(int a1) {
   volatile uint8_t *v1; // r3
   int v2; // r2
@@ -190,7 +188,6 @@ int rf_temp_compensation(int a1) {
 
 
 // fw_version_get @ 0x130230
-/* luna: Calls the hardware block reset routine and returns its status. */
 int fw_version_get() {
   return hw_block_reset();
 }
@@ -198,7 +195,6 @@ int fw_version_get() {
 
 
 // rf_power_adjust @ 0x130234
-/* luna: Returns the cached signed RF status when valid, otherwise resets the hardware block and returns its polled status. */
 int rf_power_adjust() {
   if ( *((volatile uint8_t *)off_13025C + 1) )
     return *((volatile char *)off_13025C + 3);
@@ -240,7 +236,6 @@ int rf_tx_power_lookup() {
 
 
 // check_frame_len @ 0x1302f0
-/* luna: Maps a temperature reading to a clamped compensation bucket, adjusts the configured TX-power level by the bucket’s calibration delta, and conditionall */
 int check_frame_len(int a1) {
   signed int v1; // r0
   int v2; // r3
@@ -291,7 +286,6 @@ int rf_timer_toggle_start() {
 
 
 // read_global_signed_flag @ 0x1303b8
-/* luna: Loads RF calibration values from the RF or SMC interface once, clamps them to supported ranges, and caches them with the current RF status. */
 void read_global_signed_flag(int a1, int a2) {
   volatile uint8_t *v2; // r4
   int v3; // r2
@@ -406,7 +400,6 @@ int set_flag_send_event_42e() {
 
 
 // clear_flag_send_event_42e @ 0x1304d8
-/* luna: Clears a flag byte, then invokes the invalid-state handler if the RF-state check for 0x42E returns nonzero. */
 int clear_flag_send_event_42e() {
   int result; // r0
 
@@ -420,7 +413,6 @@ int clear_flag_send_event_42e() {
 
 
 // write_dash_header @ 0x130500
-/* luna: Writes a 28-byte DASH header from template data, patches its control word, and advances the caller's output cursor by 28 bytes. */
 int write_dash_header(volatile int *a1) {
   volatile char *v1; // r4
   int16_t v2; // r3
@@ -470,7 +462,6 @@ int write_dash_header(volatile int *a1) {
 
 
 // write_hash_header @ 0x130580
-/* luna: Builds a hash-tagged test header with optional configuration- and rate-dependent fields, then advances the output buffer cursor. */
 volatile char * write_hash_header(int a1) {
   int v1; // r2
   volatile uint16_t *v2; // r5
@@ -606,7 +597,6 @@ int write_f5p_header(int a1) {
 
 
 // store_four_halfwords @ 0x1306c4
-/* luna: Writes three 16-bit header fields and, when a payload is supplied, appends the 0x8010 marker and 128 payload bytes, returning the number of bytes writ */
 int store_four_halfwords(int a1, int16_t a2, int16_t a3, int16_t a4, volatile char *a5) {
   volatile char *v5; // r2
   volatile uint8_t *v6; // r3
@@ -642,7 +632,6 @@ int store_half_return_two(volatile uint16_t *a1, int16_t a2) {
 
 
 // ampdu_negotiate_params @ 0x130700
-/* luna: Builds an AMPDU negotiation parameter block from PHY configuration, station flags, optional parameters, and per-link settings. */
 int ampdu_negotiate_params(volatile uint8_t *a1, int a2, volatile uint16_t *a3, int a4, volatile uint32_t *a5, volatile uint16_t *a6, int a7) {
   int v8; // r5
   int16_t v9; // r7
@@ -1116,7 +1105,6 @@ int build_delba(int a1, int a2, int16_t a3) {
 
 
 // handle_addba_request @ 0x130c78
-/* luna: Copies qualifying bytes from two validated ranges into the output list and stores the copied count in output[0]. */
 volatile uint8_t * handle_addba_request(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   int v7; // r4
@@ -1185,7 +1173,6 @@ volatile uint8_t * handle_addba_request(volatile uint8_t *a1, int a2, volatile u
 
 
 // addba_request_ack @ 0x130d04
-/* luna: Copies byte 2 of the lookup result, or zero if no result is found, to the caller’s byte at offset 216 and returns that value. */
 volatile uint8_t * addba_request_ack(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
 
@@ -1282,7 +1269,6 @@ LABEL_7:
 
 
 // delba_ack @ 0x130de8
-/* luna: Looks up a block-ack agreement and copies its 16-bit and 8-bit fields to the destination, clearing both fields if no entry is found. */
 volatile uint8_t * delba_ack(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
 
@@ -1403,7 +1389,6 @@ LABEL_21:
 
 
 // ampdu_action_complete @ 0x130f1c
-/* luna: Looks up a rate-table record, refreshes the cached rate parameters when its low-nibble ID changes, and reports the refresh through `changed`; on looku */
 volatile uint8_t * ampdu_action_complete(volatile uint8_t *a1, int a2, int a3, volatile uint8_t *a4) {
   volatile uint8_t *result; // r0
   uint8_t v7; // r2
@@ -1448,7 +1433,6 @@ volatile uint8_t * ampdu_action_complete(volatile uint8_t *a1, int a2, int a3, v
 
 
 // table_read_le16 @ 0x130fc0
-/* luna: Looks up a record using the supplied key, copies selected fields into the output buffer, and returns whether the record was found. */
 int table_read_le16(volatile uint8_t *a1, int a2, int a3) {
   int result; // r0
   int v5; // r3
@@ -1480,7 +1464,6 @@ int table_read_le16(volatile uint8_t *a1, int a2, int a3) {
 
 
 // table_read_caps @ 0x131008
-/* luna: Looks up a table record, copies its 32-bit and four 16-bit values to the output buffer, and returns 1 when a record is found. */
 volatile uint8_t * table_read_caps(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
   int16_t v5; // r1
@@ -1514,7 +1497,6 @@ volatile uint8_t * table_read_caps(volatile uint8_t *a1, int a2, int a3) {
 
 
 // rate_info_query @ 0x131044
-/* luna: Looks up a rate-info record, copies its fixed fields to the caller buffer, and copies optional 16-bit fields when their flags are set and the record i */
 int rate_info_query(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *v4; // r0
   unsigned int v5; // r6
@@ -1588,7 +1570,6 @@ LABEL_8:
 
 
 // get_hw_timestamp @ 0x1310f0
-/* luna: Looks up a timestamp value in the supplied data and stores it at offset 220 of the destination, using 0x80000000 when no value is found. */
 volatile uint8_t * get_hw_timestamp(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
   char v5; // [sp+7h] [bp-1h] BYREF
@@ -1604,7 +1585,6 @@ volatile uint8_t * get_hw_timestamp(volatile uint8_t *a1, int a2, int a3) {
 
 
 // get_adv_report @ 0x131118
-/* luna: Returns whether a report is available, refreshing the cached payload and setting the change flag only when the report tag's low nibble differs from th */
 int get_adv_report(volatile uint8_t *a1, int a2, int a3, volatile uint8_t *a4) {
   int result; // r0
   char v7; // r2
@@ -1644,7 +1624,6 @@ int get_adv_report(volatile uint8_t *a1, int a2, int a3, volatile uint8_t *a4) {
 
 
 // decode_adv_type @ 0x131170
-/* luna: Searches the input buffer for an advertising record, extracts two 3-bit fields from byte 3 of the match, and writes fallback values if no match is fou */
 volatile uint8_t * decode_adv_type(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   unsigned int v5; // r3
@@ -1668,7 +1647,6 @@ volatile uint8_t * decode_adv_type(volatile uint8_t *a1, int a2, volatile uint8_
 
 
 // hci_send_cmd @ 0x131198
-/* luna: Applies the requested low-power mode and filter setting to firmware state and hardware. */
 int hci_send_cmd(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v7; // r1
   volatile int *v8; // r3

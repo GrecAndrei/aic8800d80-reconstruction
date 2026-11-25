@@ -1,5 +1,4 @@
 // l2c_state_check @ 0x1400c4
-/* luna: Validates the connection index and updates the L2CAP link state from its control block, timeout, and RF conditions. */
 int l2c_state_check(int result) {
   unsigned int v1; // r6
   int v2; // r4
@@ -80,7 +79,6 @@ int l2c_state_check(int result) {
 
 
 // l2c_sig_hdr_parse @ 0x1401f8
-/* luna: Updates L2C connection flags based on fields decoded from a header word and the supplied match and qualifier values. */
 int l2c_sig_hdr_parse(int result, unsigned int a2, int a3, int a4, uint8_t a5, int a6, int a7, char a8) {
   unsigned int v8; // r2
   unsigned int v9; // r1

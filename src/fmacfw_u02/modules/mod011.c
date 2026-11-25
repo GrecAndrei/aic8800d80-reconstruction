@@ -44,7 +44,6 @@ int kernel_event_wait() {
 
 
 // kernel_event_get @ 0x116008
-/* luna: Returns the current kernel event value and clears the associated register when no event is pending and the status flag is negative. */
 int kernel_event_get() {
   int v0; // r0
   int v1; // r4
@@ -59,14 +58,12 @@ int kernel_event_get() {
 
 
 // call_func_182588 @ 0x116044
-/* luna: Calls `cmd_handler_a` with a fixed context value and the supplied argument, returning its result. */
 int call_func_182588(volatile uint32_t *a1) {
   return cmd_handler_a(dword_11604C, a1);
 }
 
 
 // init_event_slot @ 0x116050
-/* luna: Initializes the indexed kernel-event slot, clears two associated table words, and returns the associated table address. */
 int init_event_slot(int a1) {
   int v1; // r1
   int v2; // r3
@@ -90,7 +87,6 @@ int init_event_slot(int a1) {
 
 
 // call_delayed_callback @ 0x11608c
-/* luna: Passes the nonzero value at offset 0x48 to is_controller_mode, clears the field, and returns the predicate result. */
 volatile uint32_t * call_delayed_callback(int a1) {
   volatile uint32_t *result; // r0
 
@@ -126,7 +122,6 @@ int set_table_callback_data(int a1, int a2) {
 
 
 // parse_control_packet @ 0x1160c8
-/* luna: Sets buffer address bounds and descriptor flags, then conditionally increments the counter for the selected slot. */
 int parse_control_packet(int result, int a2) {
   int v2; // r3
   int v3; // r8
@@ -210,7 +205,6 @@ volatile int * check_global_flag(int a1, int a2, int a3, int a4) {
 
 
 // configure_hardware_regs @ 0x1161d4
-/* luna: Initializes two fixed-size hardware configuration tables with RF- and clock-derived values and fixed defaults. */
 int configure_hardware_regs() {
   volatile int *v0; // r4
   int v1; // r8
@@ -289,7 +283,6 @@ int configure_hardware_regs() {
 
 
 // dispatch_config_command @ 0x1162bc
-/* luna: Maps command IDs 0–5 to one-hot configuration values and conditionally clears a hardware register for other IDs. */
 int dispatch_config_command(int result) {
   switch ( result )
   {

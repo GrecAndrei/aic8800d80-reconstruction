@@ -1,5 +1,4 @@
 // ble_state_check_133914 @ 0x133914
-/* luna: Checks BLE address flags and invokes the BLE event parser when both are set, disabling an IRQ in the specified HCI state. */
 int ble_state_check_133914() {
   int v0; // r2
   struct __attribute__((packed)) { int v2; // [sp+0h] [bp-Ch] BYREF
@@ -26,7 +25,6 @@ int ble_state_check_133914() {
 
 
 // ble_state_check_13397c @ 0x13397c
-/* luna: Dispatches BLE state-dependent link-layer work, including DMA/RF handling and completion of pending HCI or received-event processing. */
 int ble_state_check_13397c() {
   int v0; // r2
   unsigned int v1; // r3
@@ -109,7 +107,6 @@ LABEL_5:
 
 
 // hci_apply_defaults @ 0x133aa4
-/* luna: Checks connection-loss handling for the indexed BLE link and schedules its timer when offset 106 is zero and offset 108 is nonzero. */
 int hci_apply_defaults(int a1, volatile uint8_t *a2) {
   int v2; // r4
   int result; // r0

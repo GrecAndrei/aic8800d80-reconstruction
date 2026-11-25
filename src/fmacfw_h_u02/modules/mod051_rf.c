@@ -1,5 +1,4 @@
 // get_device_id @ 0x132178
-/* luna: Looks up the 16-bit identifier in the table selected by the request and stores the mapped two-byte value, using 15 when no entry matches. */
 int get_device_id(volatile uint8_t *a1) {
   int v1; // r3
   int result; // r0
@@ -57,7 +56,6 @@ int ke_malloc_wrapper(int a1) {
 
 
 // rf_get_calibration @ 0x132320
-/* luna: Derives rate-dependent RF calibration limits from packet PHY metadata and writes the selected limits to the packet and companion configuration. */
 BOOL rf_get_calibration(int a1, int a2) {
   volatile uint8_t *v2; // r8
   unsigned int v3; // r6
@@ -196,7 +194,6 @@ LABEL_15:
 
 
 // rf_is_state_1 @ 0x13245c
-/* luna: Maps the low two bits of a state value to code 7, 8, or 9. */
 int rf_is_state_1(char a1) {
   int v1; // r0
 
@@ -211,7 +208,6 @@ int rf_is_state_1(char a1) {
 
 
 // rf_is_state_2 @ 0x132474
-/* luna: Maps the low two bits of an RF state value to the corresponding code 9, 11, or 7. */
 int rf_is_state_2(char a1) {
   int v1; // r0
 
@@ -226,7 +222,6 @@ int rf_is_state_2(char a1) {
 
 
 // phy_get_rate_code @ 0x13248c
-/* luna: Decodes a rate code by counting consecutive 2-bit `11` groups from bits 15:2 and subtracting that count from 7. */
 int phy_get_rate_code(int a1) {
   int v1; // r2
   int result; // r0
@@ -251,7 +246,6 @@ int phy_get_rate_code(int a1) {
 
 
 // phy_get_channel_cfg @ 0x1324b4
-/* luna: Returns the highest index (3, 2, or 1) whose corresponding byte is nonzero, or 0 if all three bytes are zero. */
 int phy_get_channel_cfg(volatile uint8_t *a1) {
   if ( a1[3] )
     return 3;
@@ -263,7 +257,6 @@ int phy_get_channel_cfg(volatile uint8_t *a1) {
 
 
 // clear_module_state @ 0x1324d0
-/* luna: Returns the index of the lowest set bit among the lowest 12 bits, or 12 if none is set. */
 int clear_module_state(int a1) {
   int v1; // r3
   int v2; // zf
@@ -309,7 +302,6 @@ int count_set_bits(int a1) {
 
 
 // clear_measurements @ 0x132518
-/* luna: Derives a primary channel mask and optional companion masks from packed channel configuration fields, stores them in output parameters, and returns th */
 int clear_measurements(int result, volatile uint32_t *a2, int a3, volatile uint16_t *a4, volatile int *a5, volatile int *a6, volatile char *a7) {
   unsigned int v7; // r4
   int v8; // r12
@@ -360,7 +352,6 @@ int clear_measurements(int result, volatile uint32_t *a2, int a3, volatile uint1
 
 
 // cmd_char_validate @ 0x1325b4
-/* luna: Maps a recognized 7-bit command character to its command index, returning 255 for unrecognized values. */
 int cmd_char_validate(char a1) {
   unsigned int v1; // r3
   int result; // r0
@@ -428,7 +419,6 @@ int cmd_char_validate(char a1) {
 
 
 // status_code_switch @ 0x132632
-/* luna: Returns the fixed status code value 9. */
 int status_code_switch() {
   return 9;
 }
@@ -436,7 +426,6 @@ int status_code_switch() {
 
 
 // hci_cmd_dispatch @ 0x13264a
-/* luna: Returns HCI status code 0x07, Memory Capacity Exceeded. */
 int hci_cmd_dispatch() {
   return 7;
 }
@@ -451,7 +440,6 @@ int hci_cmd_handle() {
 
 
 // handle_rx_packet @ 0x132654
-/* luna: Scans a length-prefixed buffer, accumulates validated codes below 12 into a bitmask, and performs a special MMIO write for larger codes when the share */
 int handle_rx_packet(volatile uint8_t *a1, int a2) {
   int v2; // r11
   volatile int16_t **v3; // r8
@@ -498,7 +486,6 @@ LABEL_11:
 
 
 // extract_bit_pair @ 0x1326e0
-/* luna: Merges packed 2-bit fields by taking the smaller value at each position, stopping before the first pair where either value is 3. */
 int extract_bit_pair(int a1, int a2) {
   int v2; // r4
   int v3; // r7
@@ -529,7 +516,6 @@ int extract_bit_pair(int a1, int a2) {
 
 
 // get_phy_config_entry @ 0x132720
-/* luna: Returns 0x1521 when the entry byte at offset 412 is 1, and 0x1421 otherwise. */
 int get_phy_config_entry(int a1) {
   if ( *(volatile uint8_t *)(dword_132740 + 1320 * a1 + 412) == 1 )
     return 5409;
@@ -603,7 +589,6 @@ LABEL_7:
 
 
 // process_rx_event @ 0x1327c4
-/* luna: Processes RX event data and status from the context, then returns its associated buffer pointer. */
 volatile uint32_t * process_rx_event(int a1) {
   char v1; // r3
   volatile uint32_t *v2; // r6
@@ -913,7 +898,6 @@ LABEL_24:
 
 
 // nop_stub @ 0x132bc4
-/* luna: Runs the L2CAP connection-control-block routine, then processes and returns the RX event for the supplied argument. */
 volatile uint32_t * nop_stub(int a1) {
   ((int (*)())l2c_ccb_run)();
   return process_rx_event(a1);
@@ -922,7 +906,6 @@ volatile uint32_t * nop_stub(int a1) {
 
 
 // ble_ll_conn_rx_update @ 0x132bd8
-/* luna: Updates RF channel frequencies from received channel metadata, applying sideband offsets and handling channel-pair spacing. */
 int ble_ll_conn_rx_update(int result, volatile uint8_t *a2, int a3) {
   unsigned int v3; // r4
   unsigned int v4; // r2
@@ -1089,7 +1072,6 @@ LABEL_38:
 
 
 // ble_ll_conn_get @ 0x132c48
-/* luna: Applies connection-specific RF limits and returns the PHY channel data for the connection’s channel. */
 int ble_ll_conn_get(int a1, unsigned int a2) {
   int v2; // r7
   int v4; // r0

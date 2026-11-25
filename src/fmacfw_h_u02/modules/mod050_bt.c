@@ -1,5 +1,4 @@
 // log_bt_event @ 0x1316e4
-/* luna: Builds and submits a Bluetooth event record containing a link context snapshot, or an empty record when no context exists. */
 int log_bt_event(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   int v5; // r0
   int v6; // r2
@@ -90,7 +89,6 @@ int log_bt_event(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
 
 
 // is_link_connected @ 0x1317e0
-/* luna: Checks controller state, conditionally adds the current identifier when available, and forwards the command to HCI preprocessing. */
 int is_link_connected(int a1, int a2, int a3) {
   int v4; // r1
 
@@ -105,7 +103,6 @@ int is_link_connected(int a1, int a2, int a3) {
 
 
 // is_scan_active_1 @ 0x131838
-/* luna: Performs command-state checks, optionally writes a configured header word, and invokes HCI command preprocessing. */
 int is_scan_active_1(int a1, int a2, int a3) {
   int v4; // r1
 
@@ -175,7 +172,6 @@ LABEL_7:
 
 
 // util_log_trace @ 0x131920
-/* luna: Transmits a PDU and processes interrupt status and connection-specific state. */
 int util_log_trace(int a1, volatile int *a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
   int v6; // r0
@@ -548,7 +544,6 @@ LABEL_24:
 
 
 // process_hci_command @ 0x131df8
-/* luna: Stages enabled RF parameter blocks into their firmware buffers and suppresses options 2 and 3 when RF register 0x0F bit 19 is set. */
 int process_hci_command(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r4
   int v8; // r1
@@ -700,7 +695,6 @@ int process_hci_command(int a1, int a2, int a3, int a4) {
 
 
 // get_conn_by_index @ 0x131f4c
-/* luna: Resets the indexed connection’s auxiliary region, dispatches its operation when the slot status is nonzero, or issues a fallback response otherwise. */
 int get_conn_by_index(int a1, volatile uint8_t *a2) {
   int v2; // r6
   int v4; // r0
@@ -718,7 +712,6 @@ int get_conn_by_index(int a1, volatile uint8_t *a2) {
 
 
 // wait_for_event @ 0x131f90
-/* luna: Checks the HCI command state, optionally synthesizes and processes a PDU from shared event state, then writes the supplied values to the MAC header. */
 int wait_for_event(int a1, volatile char *a2, int a3, int a4) {
   volatile uint16_t *v7; // r4
   char v8; // r3
@@ -751,7 +744,6 @@ int wait_for_event(int a1, volatile char *a2, int a3, int a4) {
 
 
 // send_req_5 @ 0x131ff4
-/* luna: Updates the active LE scan modes keyed by duplicate-filter setting and requests controller processing when the scan state changes. */
 int send_req_5(int a1, volatile uint8_t *a2, int a3, int a4) {
   volatile uint16_t *v7; // r7
   volatile int *v9; // r0
@@ -791,7 +783,6 @@ int send_req_5(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // vendor_platform_init @ 0x132088
-/* luna: Clears BLE platform state and initializes the HCI control block, locks, and transmit buffer. */
 int vendor_platform_init() {
   memset((volatile int *)dword_1320B8, 0, 0x17Cu);
   hci_cmd_preprocess(5u, 0);
@@ -804,7 +795,6 @@ int vendor_platform_init() {
 
 
 // is_adv_enabled @ 0x1320bc
-/* luna: Searches the selected counted table for a matching 16-bit event code and returns its entry, or null if no match exists. */
 volatile char * is_adv_enabled(int a1, int a2) {
   volatile char *result; // r0
   volatile char *v3; // r3

@@ -1,5 +1,4 @@
 // read_global_halfword @ 0x10d414
-/* luna: Registers or updates a per-source interrupt handler and its state while configuring the corresponding MMIO channel. */
 int read_global_halfword(int a1, int a2, int a3) {
   volatile int *v6; // r1
   int result; // r0
@@ -72,7 +71,6 @@ if ( v10 && (((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 3] & 0x800)
 
 
 // rf_tx_config @ 0x10d5ac
-/* luna: Reads RF status, acknowledges the 0x8000 and 0x400 conditions, and dispatches event 0x20000000 when the latter is set. */
 int rf_tx_config() {
   int v0; // r3
   int result; // r0
@@ -91,7 +89,6 @@ int rf_tx_config() {
 
 
 // rf_get_lock_status @ 0x10d5d4
-/* luna: Initializes the RF control registers when disabled, sets required control bits, and programs an auxiliary MMIO register. */
 int rf_get_lock_status() {
   volatile unsigned int *v0; // r2
   unsigned int v1; // r3
@@ -120,7 +117,6 @@ int rf_get_lock_status() {
 
 
 // irq_install_handler @ 0x10d628
-/* luna: Stores a fixed handler pointer at offset 0x94 in an interrupt-related object and writes 0x200000 to a separate control location. */
 void irq_install_handler() {
   volatile uint32_t *v0; // r3
 
@@ -132,7 +128,6 @@ void irq_install_handler() {
 
 
 // is_initialized @ 0x10d648
-/* luna: Programs RF clock-control registers, derives divider fields from a signed clock setting when applicable, and marks the block initialized. */
 void is_initialized() {
   int v0; // r3
   volatile uint32_t *v1; // r5
@@ -254,7 +249,6 @@ void nvic_set_priority() {
 
 
 // gpio_write_1 @ 0x10d79c
-/* luna: Waits for the MMIO busy bit to clear, writes the supplied value to the data register, and returns it. */
 int gpio_write_1(int result) {
   while ( (*(volatile uint32_t *)off_10D7AC & 0x80000) != 0 )
     ;
@@ -265,7 +259,6 @@ int gpio_write_1(int result) {
 
 
 // read_memory_byte @ 0x10d7b4
-/* luna: Writes a null-terminated string to a memory-mapped transmit register, waiting for the status bit to clear before each byte, and returns a pointer to t */
 volatile uint8_t * read_memory_byte(volatile uint8_t *result) {
   int v1; // r1
   volatile uint32_t *v2; // r2
@@ -293,7 +286,6 @@ volatile uint8_t * read_memory_byte(volatile uint8_t *result) {
 
 
 // gpio_read @ 0x10d7e0
-/* luna: Busy-waits for the receive-ready status bit, then returns the low byte from the data register. */
 int gpio_read() {
   while ( (*(volatile uint32_t *)off_10D7F0 & 1) == 0 )
     ;
@@ -311,7 +303,6 @@ int gpio_read_pin() {
 
 
 // prepare_debug_buffer @ 0x10d808
-/* luna: Formats the supplied argument list into a temporary buffer, writes the resulting text to the debug output, and returns the formatted length. */
 int prepare_debug_buffer(volatile uint8_t *a1, volatile unsigned int *a2) {
   volatile uint32_t *v2; // r4
   unsigned int CPSR; // r6
@@ -753,7 +744,6 @@ void rf_get_int_status() {
 
 
 // switch_on_arg @ 0x10dca4
-/* luna: For a selector from 0 through 7, clears its low-nibble MMIO field and records its bit in a state mask, returning the updated mask; otherwise it return */
 int switch_on_arg(int result) {
   volatile uint32_t *v1; // r1
 
@@ -902,7 +892,6 @@ int util_get_struct_offset_alt() {
 
 
 // ble_phy_decode @ 0x10de38
-/* luna: For wakeup code 3, reads GPIO3, conditionally drives GPIO2 from a configuration byte when GPIO3 is low, and passes selector 1 or 2 to check_arg_one; o */
 int ble_phy_decode(int a1) {
   int v1; // r4
   int result; // r0
@@ -934,7 +923,6 @@ int ble_phy_decode(int a1) {
 
 
 // gpio_init_sequence @ 0x10de94
-/* luna: Enables RF IRQs 1 and 2, configures GPIO 3, sets or clears GPIOs 1 and 2 according to a stored flag, and disables RF IRQ 3. */
 int gpio_init_sequence() {
   volatile uint32_t *v0; // r1
   volatile uint32_t *v1; // r3
@@ -975,21 +963,18 @@ int noop_success(void) {
 
 
 // nullsub_2 @ 0x10df10
-/* luna: Returns zero without performing any operation. */
 int nullsub_2(void) {
   return 0;
 }
 
 
 // nullsub_3 @ 0x10df14
-/* luna: Returns zero without performing any operation. */
 int nullsub_3(void) {
   return 0;
 }
 
 
 // rf_ctrl_config_set @ 0x10df18
-/* luna: Writes the selected configuration into bits 3:2 of sixteen RF registers, then returns a peripheral register read. */
 int rf_ctrl_config_set(int a1) {
   int v1; // r2
   int v2; // r0
@@ -1010,7 +995,6 @@ int rf_ctrl_config_set(int a1) {
 
 
 // rf_core_reset @ 0x10df48
-/* luna: Configures the RF control registers, starts the operation, waits for and acknowledges completion, then returns a converted value from the result regis */
 unsigned int rf_core_reset() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r3
@@ -1043,7 +1027,6 @@ unsigned int rf_core_reset() {
 
 
 // rf_core_reset_alt @ 0x10dff0
-/* luna: Clears and reprograms RF core registers, sets the core control register to 1, and returns the prior value of the configuration register. */
 int rf_core_reset_alt() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r0
@@ -1068,7 +1051,6 @@ int rf_core_reset_alt() {
 
 
 // rf_core_is_ready @ 0x10e048
-/* luna: Spins until the RF-core state flag is 1, writes 1 back to that flag, and returns a threshold-based predicate derived from the state value. */
 unsigned int rf_core_is_ready() {
   volatile uint32_t *v0; // r3
   uint64_t v1; // r0
@@ -1089,7 +1071,6 @@ unsigned int rf_core_is_ready() {
 
 
 // rf_core_enable @ 0x10e0b0
-/* luna: Runs RF control modes 1–3, samples the control block, and returns a calculated calibration value. */
 int rf_core_enable() {
   volatile uint32_t *v0; // r5
   uint64_t v1; // r0
@@ -1166,7 +1147,6 @@ int rf_core_enable() {
 
 
 // rf_core_power_on @ 0x10e1e8
-/* luna: Sets the RF control request, waits for the status word to become 1, and returns a value derived from a control-block input. */
 int rf_core_power_on() {
   volatile uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -1758,7 +1738,6 @@ int rf_control_field_set(int a1) {
 
 
 // rf_hardware_init @ 0x10eb18
-/* luna: Initializes RF-related MMIO registers, invokes the RF enable and analog-control routines, and restores the saved states of control-register bits 19–22 */
 int rf_hardware_init(int a1) {
   volatile uint32_t *v1; // r2
   int v2; // r7
@@ -1881,7 +1860,6 @@ int rf_hardware_setup() {
 
 
 // call_ptr_1b0 @ 0x10ed6c
-/* luna: Calls the zero-argument function pointer stored at address 0x1B0 and returns its result. */
 int call_ptr_1b0() {
   return ((int (*)())MEMD(0x1B0))();
 }
@@ -1905,7 +1883,6 @@ int call_ptr_1b8() {
 
 
 // mmio_read32 @ 0x10ed84
-/* luna: Invokes the RF callback inside a nested interrupt-safe critical section, optionally waiting for a shared readiness flag first. */
 int mmio_read32(int a1, int a2) {
   volatile int *v2; // r5
   volatile uint32_t *v3; // r4
@@ -1949,7 +1926,6 @@ int mmio_read32(int a1, int a2) {
 
 
 // mmio_write32 @ 0x10edd8
-/* luna: Invokes the delegated MMIO operation within a nested interrupt-safe critical section, optionally waiting for the shared access flag first. */
 int mmio_write32(int a1, int a2, int a3) {
   volatile int *v3; // r5
   volatile uint32_t *v4; // r4

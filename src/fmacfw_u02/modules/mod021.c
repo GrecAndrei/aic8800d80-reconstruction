@@ -1,5 +1,4 @@
 // get_phy_status @ 0x11b490
-/* luna: Handles an indexed TXL queue event by marking its context, checking queue-specific hardware status bits, and updating the corresponding queue state. */
 int get_phy_status(int result) {
   volatile uint32_t *v1; // r5
   volatile char *v2; // r3
@@ -64,7 +63,6 @@ LABEL_9:
 
 
 // process_control_event @ 0x11b578
-/* luna: Scans the selected connection’s nonzero slot-timing entries and encodes them into a capacity-checked output. */
 int process_control_event(int a1) {
   volatile uint32_t *v1; // r8
   volatile char *v2; // r6
@@ -256,7 +254,6 @@ LABEL_12:
 
 
 // mmio_wait_update @ 0x11b7c8
-/* luna: Stages the connection-update parameters, clears pending connection fields, and arms the controller update with a timeout. */
 volatile uint32_t * mmio_wait_update(volatile uint32_t *result) {
   volatile uint32_t *v1; // r2
   int v2; // r5
@@ -295,7 +292,6 @@ volatile uint32_t * mmio_wait_update(volatile uint32_t *result) {
 
 
 // handle_connection_slot @ 0x11b84c
-/* luna: Parses a received frame and updates or clears cached receive state for the current Bluetooth connection slot. */
 int handle_connection_slot(int a1) {
   volatile uint32_t *v1; // r5
   int v2; // r6
@@ -439,7 +435,6 @@ LABEL_11:
 
 
 // check_power_flag @ 0x11b9d8
-/* luna: Dispatches pending Bluetooth connection events and applies the selected connection slot's parameters to the radio hardware. */
 void check_power_flag() {
   volatile uint32_t *v0; // r4
   int v1; // r3
@@ -596,7 +591,6 @@ void check_power_flag() {
 
 
 // get_connection_by_slot @ 0x11bbb4
-/* luna: Forwards the current connection-slot index with the supplied arguments and conditionally updates that slot's cached fields when the input flags match. */
 int get_connection_by_slot(int a1, int a2) {
   int v2; // r6
   int v3; // r5
@@ -619,7 +613,6 @@ int get_connection_by_slot(int a1, int a2) {
 
 
 // process_radio_state @ 0x11bc00
-/* luna: Aggregates eight radio measurements for a selected connection slot into category totals and overall and peak values. */
 volatile uint8_t * process_radio_state(volatile uint8_t *result) {
   unsigned int v1; // r4
   int v2; // r5
@@ -754,7 +747,6 @@ volatile uint8_t * process_radio_state(volatile uint8_t *result) {
 
 
 // init_radio_data @ 0x11bd88
-/* luna: Clears and seeds the Bluetooth radio data, initializes nine fixed-size records and auxiliary data, then updates a radio-control word according to RF s */
 int init_radio_data() {
   volatile int *v0; // r4
   int v1; // r3

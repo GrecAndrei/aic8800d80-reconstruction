@@ -1,5 +1,4 @@
 // start @ 0x1001a8
-/* luna: Selects the normal or tagged alternate boot vector, installs its stack pointer, and transfers control to its entry point. */
 int start() {
   int v0; // r2
   int v1; // r3
@@ -107,7 +106,6 @@ LABEL_16:
 
 
 // mac_event_handler @ 0x1002a0
-/* luna: Computes firmware memory-region boundaries from hardware configuration values and guards against the BSS allocation reaching the stack. */
 int mac_event_handler(int a1, int a2, int a3, int a4) {
   volatile uint8_t **v4; // r5
   int v5; // r7
@@ -252,7 +250,6 @@ int mac_event_handler(int a1, int a2, int a3, int a4) {
 
 
 // mac_state_init @ 0x100478
-/* luna: Initializes MAC-related globals and runtime flags, performs power, RX, and RF setup, and initializes low-level tables. */
 void mac_state_init() {
   volatile int *v0; // r4
   volatile uint32_t *v1; // r5
@@ -331,7 +328,6 @@ void mac_state_init() {
 
 
 // chip_identify @ 0x1005b0
-/* luna: Returns a chip-variant code derived from RF status and configuration-register bits for selectors 0–2, and returns zero for other selectors with a cond */
 int chip_identify(int a1) {
   unsigned int v2; // r6
   unsigned int v3; // r5
@@ -434,7 +430,6 @@ int variant_update_cache(int a1) {
 
 
 // hw_config_init @ 0x100688
-/* luna: Identifies the chip variant, clears the hardware-configuration cache, and seeds it from that variant’s table entry. */
 int hw_config_init() {
   volatile int *v0; // r4
   int v1; // r5
@@ -455,7 +450,6 @@ int hw_config_init() {
 
 
 // global_state_get_byte @ 0x1006cc
-/* luna: Reads one volatile byte from offset 1 of a fixed address. */
 int global_state_get_byte() {
   return *((volatile uint8_t *)off_1006D4 + 1);
 }
@@ -500,7 +494,6 @@ void mmio_write_cmd() {
 
 
 // mmio_set_bit @ 0x100730
-/* luna: Sets bit 16 in one MMIO register, clears another register, and sets bits 0 and 29 in a third before returning the cleared register address. */
 volatile uint32_t *mmio_set_bit() {
   volatile uint32_t *result; // r0
   volatile int *v1; // r2
@@ -516,7 +509,6 @@ volatile uint32_t *mmio_set_bit() {
 
 
 // mmio_clear_bit @ 0x10076c
-/* luna: Clears bit 16 in one MMIO register, writes 1 to another, and clears bit 0 while setting bits 30–31 in a third. */
 volatile uint32_t *mmio_clear_bit() {
   volatile uint32_t *result; // r0
   volatile unsigned int *v1; // r2
@@ -532,7 +524,6 @@ volatile uint32_t *mmio_clear_bit() {
 
 
 // memcpy_opt @ 0x1007a4
-/* luna: Copies three 32-word blocks; for mask-selected blocks, each word is replaced by the next cyclic word with its low byte adjusted, except words equal to */
 int memcpy_opt(int result, int a2, int a3, unsigned int a4) {
   int v4; // r8
   unsigned int v5; // r12
@@ -627,7 +618,6 @@ LABEL_17:
 
 
 // mmio_poll @ 0x100898
-/* luna: Selects an RF table address for the requested band and frequency, and writes a three-bit mask derived from the associated byte values. */
 int mmio_poll(int a1, unsigned int a2, volatile uint32_t *a3) {
   volatile char *v3; // r5
   int v4; // r7
@@ -727,7 +717,6 @@ int mmio_poll(int a1, unsigned int a2, volatile uint32_t *a3) {
 
 
 // sdio_irq_enable @ 0x1009a0
-/* luna: Polls the supplied MMIO condition, copies a fixed 96-byte block while bit 26 of a control register is set, then clears that bit. */
 int sdio_irq_enable(int a1, unsigned int a2) {
   volatile unsigned int *v2; // r5
   int v3; // r0
@@ -747,7 +736,6 @@ int sdio_irq_enable(int a1, unsigned int a2) {
 
 
 // sdio_irq_mask_enable @ 0x1009dc
-/* luna: Copies a configuration table to the RF control memory and applies 24 RF switch settings from paired input words. */
 int sdio_irq_mask_enable(int a1, int a2) {
   volatile unsigned int *v2; // r3
   int v3; // r7
@@ -816,7 +804,6 @@ int sdio_irq_mask_enable(int a1, int a2) {
 
 
 // pll_enable @ 0x100aa8
-/* luna: Sequences PLL-related MMIO control bits while copying an 8 KiB block from the configured source address to its destination. */
 int pll_enable() {
   volatile uint32_t *v0; // r2
   volatile int *v1; // r3
@@ -910,7 +897,6 @@ volatile uint32_t *radio_clock_disable() {
 
 
 // save_and_call_handler @ 0x100be0
-/* luna: Selects an RF band and channel configuration while updating the associated radio clock, power, and tuning registers. */
 void save_and_call_handler(int a1, int a2, int a3, int a4, char a5) {
   volatile int *v5; // r8
   volatile uint32_t *v10; // r2
@@ -1057,7 +1043,6 @@ LABEL_9:
 
 
 // rf_config_read_a @ 0x100e24
-/* luna: Programs RF configuration-access registers and, when the input is zero and the prior control field is not 7, pulses an auxiliary register bit. */
 int rf_config_read_a(int result) {
   volatile unsigned int *v1; // r3
   volatile uint32_t *v2; // r1
@@ -1091,7 +1076,6 @@ int rf_config_read_a(int result) {
 
 
 // rf_config_read_b @ 0x100ee8
-/* luna: Programs the RF configuration read address and control bits, initiates the read sequence, and returns the associated MMIO register pointer. */
 volatile uint32_t *rf_config_read_b() {
   volatile unsigned int *v0; // r3
   volatile uint32_t *v1; // r1
@@ -1125,7 +1109,6 @@ volatile uint32_t *rf_config_read_b() {
 
 
 // arm_core_enable @ 0x100fac
-/* luna: Configures RF and PHY registers for the requested frequency, selecting a profile based on its frequency range. */
 int arm_core_enable(unsigned int a1, int a2) {
   volatile uint32_t *v2; // r3
   volatile uint32_t *v3; // r2
@@ -1254,7 +1237,6 @@ int arm_core_enable(unsigned int a1, int a2) {
 
 
 // mmio_ahb_gate_release_n_60 @ 0x101260
-/* luna: Applies RF-related MMIO setup and selects register settings based on the requested frequency in MHz. */
 volatile uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1) {
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r5
@@ -1510,7 +1492,6 @@ LABEL_30:
 
 
 // is_scan_active @ 0x1016a8
-/* luna: Programs RF and modem control registers through MMIO to initialize the radio path. */
 int is_scan_active() {
   volatile uint32_t *v0; // r2
   volatile uint32_t *v1; // r0
@@ -1590,7 +1571,6 @@ int is_scan_active() {
 
 
 // mmio_wait_bit @ 0x101888
-/* luna: If bit 3 is set in the status register, reads the hardware clock and acknowledges the event. */
 int mmio_wait_bit(int result, int a2, int a3) {
   if ( (*(volatile uint32_t *)off_1018A0 & 8) != 0 )
   {
@@ -1603,7 +1583,6 @@ int mmio_wait_bit(int result, int a2, int a3) {
 
 
 // copy_hw_register @ 0x1018a8
-/* luna: Mirrors the RC status register, logs when bit 12 is clear, and otherwise clears bit 12 in a related register and disables IRQ 16. */
 int copy_hw_register() {
   volatile char *v0; // r2
   int v1; // r1
@@ -1660,7 +1639,6 @@ int check_clock_status(int a1, int a2, int a3) {
 
 
 // get_timeout_1000 @ 0x101944
-/* luna: Returns the fixed timeout value 1000. */
 int get_timeout_1000() {
   return 1000;
 }
@@ -1684,7 +1662,6 @@ int rf_status_bit21() {
 
 
 // check_rf_ready @ 0x101960
-/* luna: Returns true when the RF MMIO value at off_101970 is greater than 1. */
 BOOL check_rf_ready() {
   return *(volatile uint32_t *)off_101970 > 1u;
 }
@@ -1789,7 +1766,6 @@ int get_rf_field_lo() {
 
 
 // bt_event_handler @ 0x101a54
-/* luna: Computes two channel-dependent RF gain IDs, applying configured adjustments and any enabled gain cap. */
 int bt_event_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int result; // r0
   unsigned int v5; // r10
@@ -2100,7 +2076,6 @@ LABEL_18:
 
 
 // set_clock_divider @ 0x101e7c
-/* luna: Programs two MMIO clock-control fields from the requested divider value and returns that value. */
 int set_clock_divider(int result) {
   volatile uint32_t *v1; // r2
   unsigned int v2; // r3

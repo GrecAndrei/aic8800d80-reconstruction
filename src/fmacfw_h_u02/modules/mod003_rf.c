@@ -1,5 +1,4 @@
 // rx_packet_process @ 0x104500
-/* luna: Extracts two signed 12-bit components from a packed RF sample and computes their quadrant-corrected phase angle. */
 int rx_packet_process(int a1, int a2, int a3) {
   unsigned int v3; // r3
   int v4; // r5
@@ -117,7 +116,6 @@ LABEL_12:
 
 
 // rx_packet_alloc @ 0x104710
-/* luna: Scans repeated RF measurement windows and selects the receive sample offset with the highest smoothed differential score. */
 int rx_packet_alloc(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r3
   int v6; // r10
@@ -273,7 +271,6 @@ LABEL_32:
 
 
 // rf_calibration @ 0x1048e8
-/* luna: Initializes the caller-provided calibration buffer and derives TX/RX start offsets and a bounded segment count for waveform generation. */
 int rf_calibration(int a1, int a2, int a3, int a4, int a5, int a6) {
   volatile int *v7; // r6
   int v11; // r0
@@ -536,7 +533,6 @@ LABEL_42:
 
 
 // float_interp @ 0x104cc8
-/* luna: Interpolates RF calibration values from a floating-point sample table using a temperature delta. */
 unsigned int float_interp(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5) {
   int v6; // r0
   float v7; // r0
@@ -700,7 +696,6 @@ else if ( ((int (*)())double_less_equal)(v10, v68) ) { v63 = v23;
 
 
 // rf_path_disable @ 0x104fa8
-/* luna: Programs an amplifier setting, captures the resulting power-back value in the indexed calibration table, and reports values above the saturation thres */
 int rf_path_disable(int a1, int a2, int a3, int a4) {
   volatile unsigned int *v4; // r4
   volatile int *v5; // r9
@@ -737,7 +732,6 @@ int rf_path_disable(int a1, int a2, int a3, int a4) {
 
 
 // min_or_max @ 0x105070
-/* luna: Computes the signed logarithmic difference between current and baseline back-off amplitudes, stores it at context offset 96, and reports the scaled va */
 int min_or_max(int a1, int a2, int a3) {
   float v6; // s14
   int v7; // r3
@@ -831,7 +825,6 @@ int div_by_20(float a1, int a2, int a3) {
 
 
 // mem_swap_fields @ 0x1051d0
-/* luna: Scans backward from the saved index through one of two float-table regions and updates the state with the neighboring indices around the first value b */
 int mem_swap_fields(int a1, float a2, volatile int *a3, int a4, int a5) {
   int result; // r0
   int v7; // r3
@@ -1412,7 +1405,6 @@ LABEL_48:
 
 
 // dma_chan_init @ 0x1058d0
-/* luna: Initializes RF analog-power calibration selection state from mask bits 20–27 and records selected indices in the supported 8–15 range. */
 int dma_chan_init(unsigned int a1, volatile uint32_t *a2) {
   int result; // r0
   int v5; // r5
@@ -1536,7 +1528,6 @@ int dma_rx_init(unsigned int a1, int a2, int a3) {
 
 
 // phy_read_regs @ 0x105a88
-/* luna: Reads PHY registers through volatile MMIO and returns a volatile register pointer. */
 volatile unsigned int * phy_read_regs(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6) {
   volatile uint32_t *v6; // lr
   volatile unsigned int *v7; // r4
@@ -2019,7 +2010,6 @@ LABEL_9:
 
 
 // load_const_table @ 0x1063a4
-/* luna: Selects two values from the shift-index lookup table and writes them into RF register bitfields. */
 int load_const_table(int a1, int a2) {
   int v4; // r1
   int v5; // r2
@@ -2116,7 +2106,6 @@ int load_const_table(int a1, int a2) {
 
 
 // init_callbacks @ 0x106450
-/* luna: Derives an adjustment from the input, reports saturation or SMA threshold violations, updates the indexed RF table entry, and loads its constant table */
 int init_callbacks(int a1, int a2, int a3) {
   uint64_t v5; // r0
   uint64_t v6; // r0
@@ -2747,7 +2736,6 @@ LABEL_28:
 
 
 // mmio_set_bits @ 0x107084
-/* luna: Initializes RF control and tuning registers through a fixed sequence of MMIO updates. */
 volatile int *mmio_set_bits() {
   volatile unsigned int *v0; // r4
   volatile uint32_t *v1; // r6
@@ -2821,7 +2809,6 @@ volatile int *mmio_set_bits() {
 
 
 // mmio_clear_bits @ 0x10728c
-/* luna: Initializes RF-related MMIO configuration by setting selected control fields and clearing other register fields. */
 volatile uint32_t *mmio_clear_bits() {
   volatile uint32_t *result; // r0
   volatile unsigned int *v1; // r2
@@ -2876,7 +2863,6 @@ volatile uint32_t *mmio_clear_bits() {
 
 
 // pll_set_clock @ 0x1073d8
-/* luna: Sets four 6-bit fields in one PLL register to 3, clears the corresponding fields in a second register, and clears the low six bits of a third register */
 volatile uint32_t *pll_set_clock() {
   volatile unsigned int *v0; // r2
   volatile uint32_t *v1; // r3
@@ -2900,7 +2886,6 @@ volatile uint32_t *pll_set_clock() {
 
 
 // pll_set_ratio @ 0x107444
-/* luna: Programs the RF PLL and control sequence, captures the low 15-bit read-power value into the context, logs it, and clears the temporary control bits. */
 int pll_set_ratio(int a1, int a2) {
   volatile unsigned int *v2; // r5
   volatile unsigned int *v3; // r4
@@ -2942,7 +2927,6 @@ int pll_set_ratio(int a1, int a2) {
 
 
 // mmio_enable_aux @ 0x107538
-/* luna: Enables the RF LPF bypass measurement path, stores the captured 15-bit power value in the context, and then disables the path. */
 int mmio_enable_aux(int a1, int a2) {
   volatile uint32_t *v2; // r5
   volatile unsigned int *v3; // r4
@@ -2984,7 +2968,6 @@ int mmio_enable_aux(int a1, int a2) {
 
 
 // load_phy_table @ 0x107620
-/* luna: Selects firmware-resident PHY table entries using the supplied configuration and applies them to the hardware. */
 int load_phy_table(int a1) {
   int v2; // r1
   int v3; // r2
@@ -3101,7 +3084,6 @@ int load_phy_table(int a1) {
 
 
 // host_write_reg @ 0x1076e4
-/* luna: Converts the Q14 linear power input to dB, adjusts the configured gain relative to the calibration-table reference, and reloads the PHY table. */
 int host_write_reg(int a1, volatile uint32_t *a2, int a3) {
   int v3; // r8
   int v7; // s15
@@ -3134,7 +3116,6 @@ LABEL_3:
 
 
 // pmu_configure @ 0x10779c
-/* luna: Temporarily enables the RF/PMU register-access path, applies packed control settings from the descriptor, writes the supplied payload to the selected  */
 int pmu_configure(int a1, volatile uint32_t *a2, int a3) {
   volatile uint32_t *v3; // r5
   volatile uint32_t *v4; // r4
@@ -3183,7 +3164,6 @@ int pmu_configure(int a1, volatile uint32_t *a2, int a3) {
 
 
 // timer_get_interval @ 0x10788c
-/* luna: Computes a power-dependent compensation value from the maximum of four input values, stores it at offset 8 of the PHY configuration, and reloads the P */
 int timer_get_interval(volatile unsigned int *a1, int a2) {
   unsigned int v2; // r3
   unsigned int v3; // r5
@@ -3218,7 +3198,6 @@ int timer_get_interval(volatile unsigned int *a1, int a2) {
 
 
 // pmu_pll_config @ 0x10794c
-/* luna: Loads the PHY table, samples the PLL counter in several configurations, selects a setting from the measurements, and returns the elapsed interval. */
 int pmu_pll_config(int a1) {
   volatile uint32_t *v1; // r4
   volatile uint32_t *v2; // r6
@@ -3306,7 +3285,6 @@ int pmu_pll_config(int a1) {
 
 
 // pmu_reset_config @ 0x107b08
-/* luna: Enables the RF measurement path, captures four counter samples under selected control settings, and passes them to compute a timer interval. */
 int pmu_reset_config(int a1) {
   volatile uint32_t *v1; // r4
   volatile uint32_t *v2; // r5
@@ -3396,7 +3374,6 @@ int pmu_reset_config(int a1) {
 
 
 // pmu_clock_disable @ 0x107cc8
-/* luna: Configures the PMU clock-control registers, waits for status bit 0 to assert, and then clears the clock enable bit. */
 int pmu_clock_disable() {
   volatile uint32_t *v0; // r4
   volatile uint32_t *v1; // r3
@@ -3428,7 +3405,6 @@ int pmu_clock_disable() {
 
 
 // mmio_clear_bit0 @ 0x107d30
-/* luna: Configures and triggers the RF PLL, polls its ready bit, then clears the control bit. */
 int mmio_clear_bit0() {
   volatile uint32_t *v0; // r4
   volatile uint32_t *v1; // r2
@@ -3461,7 +3437,6 @@ int mmio_clear_bit0() {
 
 
 // div3_signed_helper @ 0x107da4
-/* luna: Generates a 3×3 sample grid around the supplied x/y centers and stores its coordinates in separate nine-element arrays. */
 volatile int * div3_signed_helper(volatile int *a1) {
   int v1; // r2
   int v2; // r7
@@ -3501,7 +3476,6 @@ volatile int * div3_signed_helper(volatile int *a1) {
 
 
 // mmio_set_bit24 @ 0x107e14
-/* luna: Programs and measures ten RF amplitude/phase candidates, stores the two lowest-scoring settings, and returns the runner-up candidate index. */
 int mmio_set_bit24(int a1, volatile uint32_t *a2) {
   volatile uint32_t *v2; // r6
   volatile unsigned int *v3; // r8
@@ -3594,7 +3568,6 @@ LABEL_7:
 
 
 // mac_hw_queue_check @ 0x107f40
-/* luna: Checks available queue headroom and conditionally rescales a two-word value pair using divide-by-three boundary arithmetic. */
 int mac_hw_queue_check(int a1, volatile int *a2, int a3) {
   int v4; // r3
   uint64_t v5; // kr08_8

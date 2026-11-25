@@ -1,5 +1,4 @@
 // mac_update_flags @ 0x116974
-/* luna: Prepares a transmit MAC frame by updating interface protection state and assigning a sequence number to frames without a station-specific sequence con */
 int mac_update_flags(int a1, int a2, int a3, int a4) {
   int v5; // r6
   int result; // r0
@@ -276,7 +275,6 @@ LABEL_8:
 
 
 // rx_packet_ready @ 0x116d10
-/* luna: For an enabled RX context with a non-null state pointer, waits on that state and clears the pointer unless flag bit 21 is set, returning the wait resu */
 int rx_packet_ready(int result) {
   int v1; // r4
 
@@ -310,7 +308,6 @@ int size_to_class(unsigned int a1) {
 
 
 // system_init_seq @ 0x116d3c
-/* luna: Initializes the Wi-Fi core and resets the global RX state table, clearing both stats buffers in each of five entries and the trailing stats buffer. */
 int system_init_seq() {
   int v0; // r0
   int v1; // r0
@@ -357,7 +354,6 @@ int system_init_seq() {
 
 
 // phy_lock @ 0x116dbc
-/* luna: Returns whether PHY work may proceed, subject to global and CFM gates and, when enabled in the context, a nonzero BT channel for the associated connec */
 BOOL phy_lock(int a1) {
   if ( *((volatile uint8_t *)off_116DF0 + 510) )
     return 0;
@@ -370,7 +366,6 @@ if ( !((int (*)())cfm_call_ops)() ) return 0;
 
 
 // mmio_modify_bit @ 0x116df4
-/* luna: Releases the indexed PHY hardware lock by clearing its software lock bit and waiting for the corresponding MMIO status to clear. */
 int mmio_modify_bit(int result) {
   int v1; // r3
   int v2; // r6

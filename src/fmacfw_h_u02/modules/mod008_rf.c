@@ -1,5 +1,4 @@
 // rf_is_sleep @ 0x1134e0
-/* luna: Returns the RF data pointer for an index, preparing the index-1 record in a scratch buffer and applying an optional patched value. */
 volatile uint32_t * rf_is_sleep(int a1) {
   volatile uint32_t *result; // r0
   volatile uint32_t *v2; // r4
@@ -40,7 +39,6 @@ volatile uint32_t * rf_is_sleep(int a1) {
 
 
 // get_handler_by_index @ 0x113564
-/* luna: Returns the handler-table entry at the given index, or zero when the index exceeds 7. */
 int get_handler_by_index(unsigned int a1) {
   if ( a1 > 7 )
     return 0;
@@ -51,7 +49,6 @@ int get_handler_by_index(unsigned int a1) {
 
 
 // rf_get_flag @ 0x113578
-/* luna: Obtains the RX buffer and checks its configured state, disabling global IRQ handling if the buffer is missing or the state persists through five retri */
 void rf_get_flag(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r5
   volatile uint16_t *v5; // r2
@@ -197,7 +194,6 @@ volatile uint32_t *rf_read_status_1() {
 
 
 // util_call_raw @ 0x1137c4
-/* luna: Calls the WLAN handler with the supplied argument under nested IRQ protection, then performs RF recovery when the post-call threshold is reached. */
 int util_call_raw(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -253,7 +249,6 @@ int util_call_raw(volatile uint32_t *a1) {
 
 
 // rf_read_channel @ 0x113888
-/* luna: Clears the shared statistics buffer, then processes one callback result for each configured sample. */
 volatile uint32_t *rf_read_channel() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -282,7 +277,6 @@ volatile uint32_t *rf_read_channel() {
 
 
 // util_call_void @ 0x1138c8
-/* luna: Pops and returns an item from the global list while maintaining a nest-aware interrupt critical section. */
 int util_call_void() {
   volatile int *v0; // r4
   int v1; // r0
@@ -357,7 +351,6 @@ BOOL rf_calibration_done() {
 
 
 // init_bt_stack @ 0x113960
-/* luna: Waits for Bluetooth readiness, then allocates the host USB start event. */
 int init_bt_stack() {
   bt_wait_ready(off_113974);
   alloc_tx_event(aHostUsbStart);
@@ -366,7 +359,6 @@ int init_bt_stack() {
 
 
 // rf_save_regs @ 0x11397c
-/* luna: Initializes the host-interface work buffers and applies the configured USB IN aggregation count, defaulting it to 10 when unset. */
 int rf_save_regs(int a1) {
   void *v1; // r5
   volatile uint32_t *v2; // r1
@@ -459,7 +451,6 @@ int rf_save_regs(int a1) {
 
 
 // rf_load_calibration @ 0x113ae0
-/* luna: Saves the RF register state, then copies two stored calibration bytes into RF configuration locations. */
 int rf_load_calibration(int a1) {
   volatile uint8_t *v1; // r2
   char v2; // r3
@@ -551,7 +542,6 @@ LABEL_7:
 
 
 // util_call_deep @ 0x113f18
-/* luna: Runs the mask-128 IRQ operation inside a nesting-aware critical section and restores interrupts when the outermost call exits. */
 int util_call_deep() {
   volatile int *v0; // r4
   int result; // r0
@@ -584,7 +574,6 @@ int util_call_deep() {
 
 
 // util_init_buffer @ 0x113fc4
-/* luna: Calls rf_get_flag only when the byte-sized global flag at 0x113FD0 is clear. */
 void util_init_buffer() {
   if ( !*(volatile uint8_t *)off_113FD0 )
     ((int (*)())rf_get_flag)();
@@ -593,7 +582,6 @@ void util_init_buffer() {
 
 
 // invoke_callback @ 0x113fd4
-/* luna: Retrieves a WLAN data buffer through a configured callback, checks its state, and waits for the state condition if the check fails. */
 int invoke_callback() {
   int v0; // r0
   volatile uint32_t *v1; // r4
@@ -614,7 +602,6 @@ int invoke_callback() {
 
 
 // set_config_field @ 0x114028
-/* luna: Allocates a host-ready transmit event, then invokes and returns the callback result. */
 int set_config_field() {
   alloc_tx_event(aHostReady);
   return invoke_callback();
@@ -622,7 +609,6 @@ int set_config_field() {
 
 
 // check_global_value @ 0x114088
-/* luna: Logs whether the supplied function name matches a recognized USB-transfer handler and schedules a configured delayed event when enabled. */
 int check_global_value(int a1) {
   int result; // r0
   int v2; // r2
@@ -649,7 +635,6 @@ LABEL_4:
 
 
 // rf_power_down @ 0x1140f4
-/* luna: Initializes two context buffers, then creates and submits one 0x6B8-byte record to the first buffer for each configured entry. */
 volatile uint32_t *rf_power_down() {
   volatile int *v0; // r5
   void *v1; // r7
@@ -679,7 +664,6 @@ volatile uint32_t *rf_power_down() {
 
 
 // assert_fail @ 0x11414c
-/* luna: Waits for a shared readiness flag, calls the handler with the context at offset 628, and restores IRQs when the outermost guarded call exits. */
 int assert_fail(volatile uint32_t *a1) {
   volatile int *v1; // r5
   volatile uint32_t *v2; // r4
@@ -715,7 +699,6 @@ int assert_fail(volatile uint32_t *a1) {
 
 
 // load_bt_config @ 0x1141a4
-/* luna: Checks feature flag 256 using the host-IPC-start label, then returns 1. */
 int load_bt_config() {
   check_feature_flag(256, aHostIpcStart);
   return 1;
@@ -723,7 +706,6 @@ int load_bt_config() {
 
 
 // state_init @ 0x1141b8
-/* luna: Stores the argument in an RF state slot, clears several associated state words and a halfword, and returns 1. */
 int state_init(int a1) {
   volatile uint32_t *v1; // r2
   volatile uint16_t *v2; // r1
@@ -743,7 +725,6 @@ int state_init(int a1) {
 
 
 // get_config_a @ 0x114410
-/* luna: Allocates and returns a transmit event associated with the error low-power-level key. */
 int get_config_a() {
   return alloc_tx_event(aErrorLpLevelPo_1);
 }

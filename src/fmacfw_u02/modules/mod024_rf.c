@@ -312,7 +312,6 @@ LABEL_36:
 
 
 // rf_counter_inc @ 0x11d7b0
-/* luna: Increments the RF counter and resets it after it exceeds the configured threshold, invoking a stub hook on rollover. */
 int rf_counter_inc() {
   volatile uint8_t *v0; // r4
   unsigned int v1; // r2
@@ -334,7 +333,6 @@ int rf_counter_inc() {
 
 
 // rf_counter_get @ 0x11d7d4
-/* luna: Updates RF counter status and clears bit 8 in a control register, conditionally invoking a placeholder helper. */
 int rf_counter_get() {
   volatile uint8_t *v0; // r4
   volatile unsigned int *v1; // r2
@@ -354,7 +352,6 @@ int rf_counter_get() {
 
 
 // rf_poll @ 0x11d7fc
-/* luna: Reads the radio FIFO, stores the zero-based PHY type in two state bytes, and invokes Bluetooth module initialization. */
 int rf_poll() {
   volatile uint8_t *v0; // r4
   int v1; // r0
@@ -378,7 +375,6 @@ int nullsub_4(void) {
 
 
 // set_event_200000 @ 0x11d828
-/* luna: Sets the MAC event indicated by bit 0x200000 through a shared event-setting routine. */
 int set_event_200000() {
   return unknown_func_12d104(0x200000);
 }
@@ -386,7 +382,6 @@ int set_event_200000() {
 
 
 // mac_wait_rx @ 0x11d830
-/* luna: Processes pending receive-related callbacks and schedules a follow-up event when the receive counters differ. */
 int mac_wait_rx() {
   volatile uint16_t *v0; // r5
   int v1; // r4
@@ -454,7 +449,6 @@ int mac_wait_rx() {
 
 
 // mac_wait_tx @ 0x11d8ec
-/* luna: Processes queued MAC transmit-wait callbacks under a nested interrupt critical section and handles deferred host-buffer recovery. */
 int mac_wait_tx() {
   volatile int *v0; // r5
   int v1; // r4
@@ -524,7 +518,6 @@ int mac_wait_tx() {
 
 
 // mac_wait_scan @ 0x11d9a4
-/* luna: Waits for the MAC scan event, processes ready queued callbacks while tracking IRQ-protected activity, and handles deferred host-buffer recovery. */
 int mac_wait_scan() {
   volatile int *v0; // r6
   int v1; // r4
@@ -597,7 +590,6 @@ int mac_wait_scan() {
 
 
 // radio_init @ 0x11da70
-/* luna: Polls radio status, checks pending receive work, and dispatches scan, transmit, and completion handling until no status remains. */
 int radio_init(int a1) {
   volatile uint32_t *v1; // r7
   volatile int *v2; // r9
@@ -713,7 +705,6 @@ LABEL_22:
 
 
 // mac_rx_handler @ 0x11dc0c
-/* luna: Consumes data from chained RX buffers, records the consumed segments in an RX descriptor ring, and updates the caller’s buffer and offset state. */
 int mac_rx_handler(volatile int *a1, int a2, volatile uint16_t *a3) {
   volatile uint8_t *v3; // r7
   int v4; // r6
@@ -826,7 +817,6 @@ LABEL_10:
 
 
 // mac_tx_handler @ 0x11dd44
-/* luna: Walks a linked transmit-buffer chain, packs the requested byte range into linked control entries, and updates the caller’s buffer cursor and offset. */
 volatile uint32_t * mac_tx_handler(volatile uint32_t *a1, int a2, volatile uint16_t *a3) {
   volatile int *v3; // r7
   int v4; // r10
@@ -926,7 +916,6 @@ LABEL_16:
 
 
 // mac_mlme_request @ 0x11de64
-/* luna: Advances a chained MAC buffer cursor across up to 1600 bytes and, in DMA mode, links per-segment descriptors to copy the data to a contiguous destinat */
 volatile uint32_t * mac_mlme_request(volatile uint32_t *a1, unsigned int a2, int a3, volatile uint32_t *a4, int a5) {
   volatile uint8_t **v5; // r9
   volatile uint32_t *v6; // r7
@@ -1018,7 +1007,6 @@ volatile uint32_t * mac_mlme_request(volatile uint32_t *a1, unsigned int a2, int
 
 
 // get_connection_state @ 0x11df7c
-/* luna: Walks the RX descriptor chain to an entry with status bit 0 set (or uses the fallback endpoint), then updates the RX cursor and shared ring wrap state */
 int get_connection_state(int a1, int a2) {
   int result; // r0
   unsigned int v3; // r3
@@ -1062,7 +1050,6 @@ LABEL_9:
 
 
 // radio_read_fifo @ 0x11dff0
-/* luna: Programs address ranges for two radio FIFO regions and updates the associated peripheral control register. */
 int radio_read_fifo() {
   volatile int *v0; // r2
   int v1; // r0
@@ -1115,7 +1102,6 @@ int radio_read_fifo() {
 
 
 // radio_set_peripheral_field @ 0x11e080
-/* luna: Sets or clears bit 10 in one radio control register and bit 19 in another according to the input’s least-significant bit. */
 unsigned int radio_set_peripheral_field(int a1) {
   volatile unsigned int *v1; // r1
   unsigned int result; // r0
@@ -1130,7 +1116,6 @@ unsigned int radio_set_peripheral_field(int a1) {
 
 
 // radio_get_status @ 0x11e0b4
-/* luna: Updates the selected radio counter with the supplied value, toggling bit 31 when the value rolls below the previous low-31-bit count. */
 int radio_get_status(int result) {
   unsigned int v1; // r3
   unsigned int v2; // r2
@@ -1157,7 +1142,6 @@ int radio_get_status(int result) {
 
 
 // rf_tx_frame @ 0x11e100
-/* luna: Processes an RX control-frame descriptor, applies subtype-specific PHY/status updates, advances its buffer cursor, and returns the radio status. */
 int rf_tx_frame(int a1) {
   int v1; // r4
   int v2; // r2
@@ -1226,7 +1210,6 @@ int rf_tx_frame(int a1) {
 
 
 // mem_is_null @ 0x11e1d0
-/* luna: Copies a requested byte range from a linked chain of MAC data segments into a contiguous destination, honoring an initial offset and advancing across  */
 int mem_is_null(int result, int a2, int a3, int a4) {
   int v4; // r7
   volatile int16_t **v5; // r10
@@ -1297,7 +1280,6 @@ int mem_is_null(int result, int a2, int a3, int a4) {
 
 
 // mac_get_flag @ 0x11e270
-/* luna: Appends an item to a shared MAC batch, updates its accumulated counters, and dispatches the batch when a configured threshold is reached. */
 int mac_get_flag(int a1) {
   volatile uint32_t *v1; // r4
   int result; // r0
@@ -1333,7 +1315,6 @@ int mac_get_flag(int a1) {
 
 
 // mac_mcps_request @ 0x11e2c8
-/* luna: Queues receive-frame metadata and conditionally dispatches the frame to the MAC receive handler when the interface is active. */
 int mac_mcps_request(int a1, int a2, int a3, uint16_t a4, int a5, int a6) {
   volatile uint32_t *v6; // r8
   volatile uint8_t **v7; // r7
@@ -1575,7 +1556,6 @@ LABEL_2:
 
 
 // mac_mlme_scan @ 0x11e604
-/* luna: Handles MAC MLME scan work, dispatching pending FMAC transmissions and taking a no-buffer path when request resources are unavailable. */
 int mac_mlme_scan(int a1) {
   volatile uint32_t *v1; // r8
   int v2; // r10
@@ -1952,7 +1932,6 @@ LABEL_41:
 
 
 // llm_evt_queue_pop @ 0x11eaa0
-/* luna: Updates connection state, dispatches a pending command when available, and otherwise returns the radio status. */
 int llm_evt_queue_pop(int a1) {
   void *v2; // r0
   volatile uint32_t *v3; // r1
@@ -1983,7 +1962,6 @@ int llm_evt_queue_pop(int a1) {
 
 
 // rf_status_poll @ 0x11eaf8
-/* luna: Reads the RF tick/status word and returns its 31-bit count, refreshing the stored count and epoch marker when it nears the configured threshold. */
 unsigned int rf_status_poll() {
   int v0; // r3
   unsigned int result; // r0
@@ -2051,7 +2029,6 @@ int ke_task_state_get(int result) {
 
 
 // rf_ctrl_enable @ 0x11ebc4
-/* luna: Initiates RF control enable and conditionally polls the resulting hardware status. */
 int rf_ctrl_enable() {
   volatile uint32_t *v0; // r2
   int result; // r0
@@ -2068,7 +2045,6 @@ int rf_ctrl_enable() {
 
 
 // rf_irq_status_check @ 0x11ebfc
-/* luna: Services pending RXBUF2 entries while the read and write cursors differ, wrapping the tagged read cursor near the ring end and dispatching each buffer */
 void rf_irq_status_check() {
   volatile uint32_t *v0; // r5
   volatile uint32_t *v1; // r6

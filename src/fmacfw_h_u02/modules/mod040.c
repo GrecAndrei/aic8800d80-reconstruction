@@ -1,5 +1,4 @@
 // sec_table_get @ 0x129b58
-/* luna: Computes the next strided security-table address from a supplied range, updates the cursor and remaining-entry state, and returns zero when no entry r */
 unsigned int sec_table_get(int a1, int a2, unsigned int a3, unsigned int a4) {
   unsigned int v4; // r6
   int v6; // r7
@@ -76,7 +75,6 @@ LABEL_14:
 
 
 // sec_table_lookup @ 0x129c28
-/* luna: Looks up a security-table entry, copies a nonzero result into the caller buffer, sets the byte at offset 16 to 1, and returns the result's low byte (o */
 int sec_table_lookup(int a1, int a2, unsigned int a3, unsigned int a4) {
   unsigned int v5; // r0
   uint8_t v6; // r4
@@ -93,7 +91,6 @@ int sec_table_lookup(int a1, int a2, unsigned int a3, unsigned int a4) {
 
 
 // sec_table_entry_count @ 0x129c48
-/* luna: Updates the indexed security-table record from an optional encoded security list, invalidating and reparsing cached RSN state when the list discrimina */
 int sec_table_entry_count(int result, int a2, unsigned int a3) {
   int v3; // r8
   int v4; // r9
@@ -225,7 +222,6 @@ LABEL_19:
 
 
 // rf_patch_init @ 0x129e04
-/* luna: Initializes security-table state by clearing one byte and setting two fields to the invalid sentinel value 0xFF. */
 volatile int *rf_patch_init() {
   volatile int *result; // r0
   volatile uint8_t *v1; // r3
@@ -323,7 +319,6 @@ int bt_is_ready(int a1, int a2) {
 
 
 // bt_get_conn_role @ 0x129f0c
-/* luna: For a valid connection slot, decrements the global count when offset 112 is 1 and, when requested, marks offset 113 as invalid. */
 int bt_get_conn_role(int result, int a2) {
   int v2; // r2
   int v3; // r3
@@ -352,7 +347,6 @@ LABEL_4:
 
 
 // bt_scan_start @ 0x129f50
-/* luna: When the selected security context is enabled and parsing is not suppressed, clears its marked subrecords and transient state bytes, then calls `rsn_p */
 volatile uint8_t * bt_scan_start(volatile uint8_t *result, int a2) {
   int v2; // r5
   int v3; // r7
@@ -405,7 +399,6 @@ int bt_get_conn_channel(int a1) {
 
 
 // rf_check_trim @ 0x12a000
-/* luna: Conditionally performs an IRQ/MMIO operation, reads the selected 140-byte trim record's words at offsets 128 and 124 into the output pointers, and ret */
 unsigned int rf_check_trim(int a1, volatile uint32_t *a2, volatile uint32_t *a3) {
   int v6; // r3
   int v7; // r0
@@ -422,7 +415,6 @@ unsigned int rf_check_trim(int a1, volatile uint32_t *a2, volatile uint32_t *a3)
 
 
 // rf_check_cal_state @ 0x12a058
-/* luna: Returns the indexed calibration result, combining the two result words in state 1, returning the primary word in state 2, and otherwise returning zero */
 int rf_check_cal_state(int a1, unsigned int a2) {
   volatile int16_t **v2; // r6
   int v5; // r2
@@ -487,7 +479,6 @@ LABEL_15:
 
 
 // bt_scan_poll @ 0x12a144
-/* luna: Processes a pending scan-result entry, copying buffered payload into the entry and invoking RSN IE parsing when appropriate. */
 volatile uint8_t * bt_scan_poll(volatile uint8_t *result, int a2) {
   int v2; // r2
   int v3; // r7
@@ -529,7 +520,6 @@ volatile uint8_t * bt_scan_poll(volatile uint8_t *result, int a2) {
 
 
 // bt_get_conn_ptr @ 0x12a1dc
-/* luna: Selects the connection record indexed by the caller's context, clears byte 134, and passes the record to the RSN IE parser. */
 volatile uint8_t * bt_get_conn_ptr(int a1) {
   volatile uint8_t *v1; // r0
 

@@ -1,5 +1,4 @@
 // bt_parse_adv_report @ 0x12a2b4
-/* luna: For a matching custom advertising-report signature, forwards the payload at byte 37 and a context-derived address to the security-table routine, optio */
 int bt_parse_adv_report(int result, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r4
   int v5; // r6
@@ -31,7 +30,6 @@ int bt_parse_adv_report(int result, volatile uint8_t *a2, int a3, int a4) {
 
 
 // bt_ll_flow_control_check @ 0x12a32c
-/* luna: Returns true when the gated connection scan finds a state-2 connection whose indexed status byte is zero. */
 int bt_ll_flow_control_check() {
   int result; // r0
   volatile int *v1; // r3
@@ -65,7 +63,6 @@ int bt_ll_flow_control_check() {
 
 
 // ll_conn_is_connected @ 0x12a384
-/* luna: For a connection record with a nonzero active flag and state 2, updates the associated station record's byte at offset 135 and invokes the RSN IE pars */
 volatile uint8_t * ll_conn_is_connected(int a1, int a2) {
   volatile uint8_t *result; // r0
   int v3; // r3
@@ -93,7 +90,6 @@ volatile uint8_t * ll_conn_is_connected(int a1, int a2) {
 
 
 // lll_conn_phy_get @ 0x12a3e8
-/* luna: Selects the per-connection PHY record, stores the supplied PHY value and sets its flag before returning the record. */
 volatile uint8_t * lll_conn_phy_get(int a1, uint8_t a2) {
   int v2; // r5
   int v3; // r4
@@ -113,7 +109,6 @@ volatile uint8_t * lll_conn_phy_get(int a1, uint8_t a2) {
 
 
 // lll_conn_phy_ld_get @ 0x12a424
-/* luna: Selects the connection’s PHY link-data entry, performs pending cleanup, and returns the state selected from that entry. */
 volatile char * lll_conn_phy_ld_get(int a1) {
   int v1; // r7
   int v2; // r4
@@ -144,7 +139,6 @@ volatile char * lll_conn_phy_ld_get(int a1) {
 
 
 // lll_conn_get @ 0x12a490
-/* luna: Returns the indexed connection entry when the input requests indirection, otherwise returns the input pointer unchanged. */
 volatile uint8_t * lll_conn_get(volatile uint8_t *result) {
   if ( result[1224] )
     return rsn_parse_ie((volatile uint8_t *)(dword_12A4B0 + 140 * result[1225]));
@@ -154,7 +148,6 @@ volatile uint8_t * lll_conn_get(volatile uint8_t *result) {
 
 
 // lll_conn_state_match @ 0x12a4b4
-/* luna: Selects and initializes one of two connection state slots, returning the selected slot index or 0xFF if the connection is inactive or both slots are o */
 int lll_conn_state_match(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7) {
   int v7; // r6
   int v8; // r7
@@ -222,7 +215,6 @@ int lll_conn_state_match(int a1, int a2, char a3, char a4, unsigned int a5, int 
 
 
 // lll_conn_ready_check @ 0x12a5c0
-/* luna: Processes a ready RSN slot, refreshes key and information-element state, advances the interface state, and issues the corresponding bus command. */
 int lll_conn_ready_check(int a1, unsigned int a2, int a3) {
   int v3; // r6
   int v4; // r5
@@ -454,7 +446,6 @@ LABEL_30:
 
 
 // lll_conn_rf_process @ 0x12a994
-/* luna: Processes up to two eligible RF staging entries for the selected connection and invokes key derivation if an entry is copied. */
 int lll_conn_rf_process(int result, int a2) {
   volatile int *v2; // r7
   volatile uint32_t *v3; // r9
@@ -523,7 +514,6 @@ LABEL_8:
 
 
 // is_channel_entry_valid @ 0x12aa40
-/* luna: Returns zero if the entry marker at offset 113 is 0xFF or the gate at offset 132 is zero; otherwise returns the 8-bit value 13 times the byte at offse */
 int is_channel_entry_valid(int a1) {
   volatile uint8_t *v1; // r3
   int result; // r0
@@ -540,7 +530,6 @@ int is_channel_entry_valid(int a1) {
 
 
 // init_fixed_packet_header @ 0x12aa70
-/* luna: Writes fixed header bytes to the supplied buffer, leaves byte 1 unchanged, and returns the buffer. */
 volatile uint8_t * init_fixed_packet_header(volatile uint8_t *result) {
   *result = -35;
   result[2] = 80;
@@ -605,7 +594,6 @@ int get_channel_entry_info(int a1, int a2) {
 
 
 // is_state_arg_valid @ 0x12ab58
-/* luna: For a channel entry, selectors 1 and 2 set or clear its control byte, while selector 3 derives a state when that byte is clear and otherwise returns t */
 int is_state_arg_valid(int result, int a2) {
   switch ( a2 )
   {
@@ -633,7 +621,6 @@ int is_state_arg_valid(int result, int a2) {
 
 
 // get_acl_flag @ 0x12abc8
-/* luna: Sets bit 6 in the entry's flags word when the byte fields at offsets 1224 and 108 are both nonzero, then returns the entry. */
 int get_acl_flag(int result) {
   if ( *(volatile uint8_t *)(result + 1224) )
   {
@@ -646,7 +633,6 @@ int get_acl_flag(int result) {
 
 
 // get_dev_entry @ 0x12abe0
-/* luna: Refreshes the selected device's connection and channel-state metadata, clears its state counters, and invokes the shared-memory copy helper. */
 int get_dev_entry(int a1) {
   int v1; // r7
   int v3; // r5
@@ -716,7 +702,6 @@ int get_dev_entry(int a1) {
 
 
 // init_chan_entry @ 0x12acc4
-/* luna: Initializes an indexed 32-byte BT low-level-link-layer channel entry, invoking a helper when its byte-30 flag is set before clearing and populating th */
 volatile int * init_chan_entry(int a1) {
   int v1; // r4
   int v2; // r6

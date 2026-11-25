@@ -105,7 +105,6 @@ int ll_conn_get_by_index(int result) {
 
 
 // rf_chan_state_get @ 0x135710
-/* luna: Packages the selected connection’s channel-state fields into a 44-byte report and dispatches it through the event pipeline. */
 int rf_chan_state_get(unsigned int a1) {
   int v1; // r8
   int v2; // r7
@@ -160,7 +159,6 @@ int rf_chan_state_get(unsigned int a1) {
 
 
 // ke_msg_send_1 @ 0x1357f0
-/* luna: Selects the zero-state path or logs and forwards a nonzero external-authentication state. */
 int ke_msg_send_1(int a1) {
   invalid_handler_12c5fc((int)(uintptr_t)((volatile char *)0x180A), 6);
   if ( !a1 )
@@ -171,7 +169,6 @@ int ke_msg_send_1(int a1) {
 
 
 // is_phy_ver_6 @ 0x135824
-/* luna: Returns whether the PHY version query reports version 6. */
 BOOL is_phy_ver_6() {
   return hci_cmd_handler(6u) == 6;
 }
@@ -179,7 +176,6 @@ BOOL is_phy_ver_6() {
 
 
 // ke_msg_alloc @ 0x135838
-/* luna: Allocates a message buffer, writes its type and payload length, copies the payload, and passes the completed buffer through the message-processing pat */
 int ke_msg_alloc(char a1, int a2, unsigned int a3) {
   unsigned int v3; // r4
   int v6; // r0
@@ -220,7 +216,6 @@ int ke_msg_alloc(char a1, int a2, unsigned int a3) {
 
 
 // ke_msg_handler @ 0x1358c0
-/* luna: Dispatches an authentication event according to its status, type, and subtype, routing it to DMA setup, crypto status handling, LL event scheduling, o */
 int ke_msg_handler(volatile uint16_t *a1) {
   volatile uint16_t *v1; // r6
   int v3; // r5

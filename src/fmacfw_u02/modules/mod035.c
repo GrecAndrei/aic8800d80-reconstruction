@@ -348,6 +348,7 @@ int lld_evt_update(int result) {
 
 
 // lld_evt_schedule @ 0x125e78
+/* luna: Schedules a BLE link-layer event by updating its state and coordinating the controller's timing and hardware state. */
 volatile uint32_t * lld_evt_schedule(volatile uint32_t *result) {
   volatile int16_t **v1; // r9
   int v2; // r3
@@ -889,6 +890,7 @@ BOOL llm_scan_task_handler(int a1, int a2, int a3) {
 
 
 // llm_scan_sm_execute @ 0x126584
+/* luna: Advances the BLE scan scheduler at the supplied timestamp, dispatching due scan-task work and processing a pending command when indicated. */
 int llm_scan_sm_execute(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r10
   int v4; // r5
@@ -896,22 +898,22 @@ int llm_scan_sm_execute(int a1, int a2, int a3) {
   int v8; // r8
   int v9; // r3
   int v10; // r0
-  int v11; // r4
+  int scan_schedule_node; // r4
   int v12; // r8
   int v13; // r3
   int result; // r0
   volatile uint32_t *v15; // r9
   int v16; // r4
   int v17; // r4
-  unsigned int v18; // r4
+  unsigned int before_deadline; // r4
   int v19; // r3
   int v20; // zf
   int v21; // r3
   int v22; // r4
-  int v23; // [sp+4h] [bp-8h]
+  int iteration_counter; // [sp+4h] [bp-8h]
 
   v3 = (void *)(uintptr_t)(off_126710);
-  v23 = a3;
+  iteration_counter = a3;
   v4 = dword_126700;
   v7 = a1 + 76;
   if ( !a3 )
@@ -930,14 +932,14 @@ int llm_scan_sm_execute(int a1, int a2, int a3) {
       if ( v15[3] )
         v17 += 10000;
     }
-    v18 = (unsigned int)(a2 - v17) >> 31;
+    before_deadline = (unsigned int)(a2 - v17) >> 31;
 LABEL_18:
-    if ( !v18 )
+    if ( !before_deadline )
       goto LABEL_5;
-    v11 = 0;
+    scan_schedule_node = 0;
 LABEL_20:
     if ( *(volatile uint8_t *)(a1 + 1224) && *(volatile uint8_t *)(dword_126708 + 140 * *(volatile uint8_t *)(a1 + 1225) + 112) == 1 )
-      llm_scan_task_handler(a1, a2, v11);
+      llm_scan_task_handler(a1, a2, scan_schedule_node);
     v19 = *(volatile uint8_t *)(a1 + 106);
     if ( *(volatile uint8_t *)(a1 + 106) )
     {
@@ -954,7 +956,7 @@ LABEL_20:
       v21 = *(volatile uint32_t *)(dword_12670C + 696 * *(volatile uint8_t *)(a1 + 116) + 8);
     }
     a2 += v21;
-    if ( !++v23 )
+    if ( !++iteration_counter )
     {
 LABEL_30:
       if ( (*(volatile uint8_t *)(a1 + 85) & 1) != 0 )
@@ -968,43 +970,43 @@ LABEL_30:
   if ( v9 && v8 != v9 )
   {
     v22 = v3[21];
-    v18 = (unsigned int)(a2 - v22 - 4000 - get_constant_1000()) >> 31;
+    before_deadline = (unsigned int)(a2 - v22 - 4000 - get_constant_1000()) >> 31;
     goto LABEL_18;
   }
 LABEL_5:
   *(volatile uint32_t *)(a1 + 80) = a2;
   v10 = get_constant_1000();
-  v11 = v3[4];
+  scan_schedule_node = v3[4];
   v12 = a2 + 13999 + v10;
-  if ( v11 )
+  if ( scan_schedule_node )
   {
     while ( 1 )
     {
-      v13 = *(volatile uint32_t *)(v11 + 4);
+      v13 = *(volatile uint32_t *)(scan_schedule_node + 4);
       if ( v12 - v13 < 0 )
         break;
       if ( *(volatile uint32_t *)(v4 + 1320 * *(volatile uint8_t *)(a1 + 84) + 72) != *(volatile uint32_t *)(v4
                                                                                     + 1320
-                                                                                    * *(volatile uint8_t *)(v11 + 8)
+                                                                                    * *(volatile uint8_t *)(scan_schedule_node + 8)
                                                                                     + 72) )
       {
-        if ( timestamp_diff(v7, v11) )
+        if ( timestamp_diff(v7, scan_schedule_node) )
           goto LABEL_20;
-        v13 = *(volatile uint32_t *)(v11 + 4);
+        v13 = *(volatile uint32_t *)(scan_schedule_node + 4);
       }
       if ( a2 - v13 < 0 )
         break;
-      v11 = *(volatile uint32_t *)v11;
-      if ( !v11 )
+      scan_schedule_node = *(volatile uint32_t *)scan_schedule_node;
+      if ( !scan_schedule_node )
         goto LABEL_33;
     }
   }
   else
   {
 LABEL_33:
-    v11 = 0;
+    scan_schedule_node = 0;
   }
-  result = (int)(uintptr_t)(list_find_node((void *)(uintptr_t)(dword_126704), (void *)(uintptr_t)(v11), (void *)(uintptr_t)(v7)));
+  result = (int)(uintptr_t)(list_find_node((void *)(uintptr_t)(dword_126704), (void *)(uintptr_t)(scan_schedule_node), (void *)(uintptr_t)(v7)));
   *(volatile uint8_t *)(a1 + 85) |= 1u;
   return result;
 }

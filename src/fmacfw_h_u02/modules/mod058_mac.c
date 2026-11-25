@@ -1,5 +1,4 @@
 // ble_rx_process @ 0x134950
-/* luna: Builds a BLE RX packet context from current link metadata, adjusts packet length according to connection state, and returns the security-check result. */
 int ble_rx_process() {
   int v0; // r6
   int16_t v1; // r7
@@ -94,7 +93,6 @@ int ble_rx_process() {
 
 
 // lld_evt_get_current @ 0x134a90
-/* luna: Packages and dispatches diagnostic snapshots for the active BLE link-layer event, including RX results and optional RF status. */
 int lld_evt_get_current() {
   int v0; // r10
   int v1; // r5
@@ -193,7 +191,6 @@ int lld_evt_get_current() {
 
 
 // ke_timer_set @ 0x134c4c
-/* luna: Caches a station-disconnect request, logs its reason and TX count, then dispatches according to the host-init flag. */
 int ke_timer_set(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r5
 
@@ -217,7 +214,6 @@ int ke_timer_set(int a1, int a2, int a3) {
 
 
 // ctrl_isr_dispatch @ 0x134cb0
-/* luna: Dispatches to BLE receive processing when the control flag at offset 4 is set, otherwise loads BLE defaults. */
 int ctrl_isr_dispatch() {
   if ( *((volatile uint8_t *)off_134CC0 + 4) )
     return ble_rx_process();
@@ -228,7 +224,6 @@ int ctrl_isr_dispatch() {
 
 
 // assert_trace @ 0x134cc4
-/* luna: Builds and dispatches a connection indication event using the station context and updates related connection state. */
 int assert_trace(int a1) {
   int v1; // lr
   volatile uint32_t *v3; // r5
@@ -412,7 +407,6 @@ LABEL_10:
 
 
 // acl_rx_process @ 0x134f90
-/* luna: Filters an ACL transmit confirmation by HCI state and status, invoking the security check for eligible confirmations and marking the input object's st */
 int acl_rx_process(int a1, int a2) {
   int v2; // r5
   volatile uint8_t *v3; // r7
@@ -456,7 +450,6 @@ LABEL_5:
 
 
 // ll_evt_schedule @ 0x135028
-/* luna: Builds a per-connection transmit descriptor and copies an authentication payload into the BLE link-layer event buffer. */
 int ll_evt_schedule(int a1, int a2) {
   volatile uint8_t *v2; // r7
   int v3; // r5
@@ -731,7 +724,6 @@ LABEL_5:
 
 
 // mmio_write_sequence @ 0x135424
-/* luna: Queues a channel-configuration request containing the supplied 16-bit value and a selector from the radio context, then triggers follow-up processing. */
 int mmio_write_sequence(uint16_t a1) {
   int v2; // r5
   int v3; // r0
@@ -805,7 +797,6 @@ int hci_send_vendor_cmd(volatile char *a1) {
 
 
 // mac_proc_bss_color_change @ 0x135528
-/* luna: Processes a BSS color change request, rejecting unsupported modes or mismatched colors and scheduling a timer when the corresponding color entry is ac */
 int mac_proc_bss_color_change(int a1) {
   int v2; // r6
   int result; // r0

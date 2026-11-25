@@ -1,5 +1,4 @@
 // bt_feature_check_1 @ 0x1402f0
-/* luna: Runs the kernel timer check when `hci_cmd_handler(0x0B)` returns 1; otherwise, writes 157 to an MMIO field if the referenced signed state is negative. */
 int bt_feature_check_1() {
   if ( hci_cmd_handler(0xBu) == 1 )
   {
@@ -17,7 +16,6 @@ int bt_feature_check_1() {
 
 
 // bt_feature_check_4 @ 0x140330
-/* luna: Calls handler 0x0B and, unless it returns 4, writes 129 to an MMIO field when a referenced signed value is negative. */
 int bt_feature_check_4() {
   if ( hci_cmd_handler(0xBu) == 4 )
   {
@@ -35,7 +33,6 @@ int bt_feature_check_4() {
 
 
 // find_ll_item @ 0x140370
-/* luna: Checks whether the LL opcode, or the secondary code selected by opcode 0xFF, is allowed by the configured lists; returns true when both lists are empt */
 int find_ll_item(int a1, int a2, int a3) {
   int v3; // r3
   int v4; // r4
@@ -98,7 +95,6 @@ LABEL_5:
 
 
 // bt_global_state_read @ 0x1403d0
-/* luna: Returns true when the global state pointer is null, or when HCI state 0xB is 3 and the pointed-to state word is zero. */
 BOOL bt_global_state_read() {
   int v0; // r5
 
@@ -113,7 +109,6 @@ BOOL bt_global_state_read() {
 
 
 // acl_tx_setup @ 0x140400
-/* luna: Initializes the per-link ACL transmit buffer from Bluetooth state and prepares its frame data. */
 volatile uint32_t * acl_tx_setup(int a1, int a2, int a3, int a4) {
   int v4; // r11
   int v5; // r0
@@ -502,7 +497,6 @@ LABEL_14:
 
 
 // bt_ll_state_check @ 0x1409a4
-/* luna: Builds an ACL transmit buffer for the current link and runs ACL setup and security processing, returning the original input if the link is invalid or  */
 int bt_ll_state_check(int result, int a2) {
   int v2; // r6
   unsigned int v3; // r4
@@ -582,7 +576,6 @@ int util_memcmp(volatile uint16_t *a1, int a2, int a3) {
 
 
 // bt_event_dispatch @ 0x140aac
-/* luna: Advances Bluetooth event processing, handles matching work records, and transmits the next enabled event notification. */
 int bt_event_dispatch(int a1, int a2) {
   int v3; // r5
   int v4; // r7
@@ -711,7 +704,6 @@ int clear_tx_buf() {
 
 
 // bt_msg_build @ 0x140c84
-/* luna: Temporarily overrides the two-byte field at context offset 6488, calls bt_ll_state_check with a stack descriptor, and restores the original field. */
 int bt_msg_build(char a1, char a2, char a3, int a4, char a5) {
   int v5; // r4
   int16_t v6; // r6

@@ -1,5 +1,4 @@
 // rf_set_channel_cfg @ 0x136eac
-/* luna: Caches the requested RF channel configuration, applies fields from the RF initialization record when available, and conditionally performs an MMIO wri */
 int rf_set_channel_cfg(int a1, int a2, int a3, int16_t a4) {
   int v4; // r2
   volatile uint16_t *v5; // r4
@@ -74,7 +73,6 @@ LABEL_4:
 
 
 // rf_set_channel_freq @ 0x136f8c
-/* luna: Stores channel-related values from the supplied configuration in shared RF state and sends a channel-control packet unless the selector is 6 or 11. */
 int rf_set_channel_freq(int a1, int a2, int a3, int a4) {
   volatile uint16_t *v4; // r2
   uint64_t v6; // r0
@@ -107,7 +105,6 @@ int rf_set_channel_freq(int a1, int a2, int a3, int a4) {
 
 
 // rf_trace_channel2 @ 0x136fe4
-/* luna: Sends and processes PDU 4107, logs the scan-cancel confirmation value when feature 8 is enabled, and converts the first input byte to hexadecimal. */
 int rf_trace_channel2(int a1, volatile uint8_t *a2) {
   volatile uint16_t *v2; // r5
   int v4; // r0
@@ -122,7 +119,6 @@ int rf_trace_channel2(int a1, volatile uint8_t *a2) {
 
 
 // util_parse_command_char @ 0x13701c
-/* luna: Passes a nonzero command byte to the hexadecimal conversion helper and always returns zero. */
 int util_parse_command_char(int a1, volatile uint8_t *a2) {
   if ( *a2 )
     util_hex_convert((uint8_t)*a2);
@@ -146,7 +142,6 @@ int radio_reg_config() {
 
 
 // rf_get_band @ 0x137064
-/* luna: On the first call, programs the RF band selector from the configured value clamped to 7, then increments the call counter and checks the event flag. */
 int rf_get_band() {
   volatile uint8_t *v0; // r2
   char v1; // r3
@@ -169,7 +164,6 @@ int rf_get_band() {
 
 
 // rf_task_state_handler @ 0x13709c
-/* luna: Checks the length-prefixed input against a fixed token or the configured RF command entries, accepting when the entry list is empty. */
 BOOL rf_task_state_handler(volatile uint8_t *a1) {
   int v1; // r8
   int v3; // r9
@@ -209,7 +203,6 @@ if ( !memcmp(v5 + 253, (int)(uintptr_t)(v7), v8) ) return 1;
 
 
 // rf_set_antenna_cfg @ 0x137114
-/* luna: Validates an RF configuration blob and maps recognized factory-mode identifiers into bitfields in the caller's state. */
 volatile uint8_t * rf_set_antenna_cfg(volatile uint8_t *result, int a2, char a3, int a4) {
   volatile uint8_t *v5; // r6
   volatile uint8_t *v7; // r0
@@ -451,7 +444,6 @@ LABEL_28:
 
 
 // util_hex_convert @ 0x137388
-/* luna: Selects a scan-confirmation message from the RF mode, queues its payload, and completes packet and HCI command processing. */
 int util_hex_convert(int a1) {
   volatile uint16_t *v2; // r4
   volatile uint8_t **v3; // r7
@@ -504,7 +496,6 @@ int util_hex_convert(int a1) {
 
 
 // clear_shared_mem @ 0x137490
-/* luna: Preprocesses HCI command 4 and zeroes the 0xFC0-byte shared-memory region. */
 int clear_shared_mem() {
   hci_cmd_preprocess(4u, 0);
   return (int)memset((volatile int *)dword_1374AC, 0, 0xFC0u);
@@ -512,7 +503,6 @@ int clear_shared_mem() {
 
 
 // rf_hw_init_2 @ 0x1374b0
-/* luna: Searches the RF state table for an entry matching three 16-bit key fields, optionally marking and returning the first free slot. */
 int rf_hw_init_2(volatile uint16_t *a1, int a2) {
   int v2; // r3
   int v3; // r4
@@ -1330,7 +1320,6 @@ LABEL_7:
 
 
 // get_object_state @ 0x138134
-/* luna: Finds the active RF table entry matching a length-prefixed key with the greatest signed priority and returns its state-field address, or NULL if none  */
 volatile uint8_t * get_object_state(volatile uint8_t *a1) {
   volatile uint8_t *v1; // r4
   volatile uint8_t *v3; // r8
@@ -1365,7 +1354,6 @@ while ( v1[8] ) { if ( (char)v1[64] <= v5 || (v7 = *a1, v7 != (uint8_t)v1[16]) |
 
 
 // check_event_flag_1 @ 0x13819c
-/* luna: Searches the context’s six-byte records for the current state, retries with state 1 after a miss, and submits a 0x178-byte PDU when a record matches. */
 volatile uint32_t *check_event_flag_1() {
   volatile uint8_t *v0; // r5
   unsigned int v1; // r1
@@ -1718,7 +1706,6 @@ LABEL_50:
 
 
 // is_initialized_1 @ 0x138528
-/* luna: Initializes scan state and starts a scan, detecting a Direct SSID and copying optional request data. */
 int is_initialized_1() {
   volatile uint32_t *v0; // r6
   volatile uint16_t *v1; // r4
@@ -1806,7 +1793,6 @@ int is_initialized_1() {
 
 
 // rf_validate_rate @ 0x1386a8
-/* luna: Parses a supported rate-format descriptor from the input buffer, stages its parameters and derived timing value, advances the buffer cursor, and retur */
 int rf_validate_rate(int a1, int16_t a2) {
   volatile uint8_t *v2; // r2
   int v3; // r4
@@ -1904,7 +1890,6 @@ int rf_validate_rate(int a1, int16_t a2) {
 
 
 // get_table_entry @ 0x138818
-/* luna: Clears occupied entries from a 64-slot RF queue while advancing its read index and sequence counter. */
 int get_table_entry(int result) {
   int v1; // r1
   volatile int16_t **v2; // r5
@@ -1949,7 +1934,6 @@ int get_table_entry(int result) {
 
 
 // rf_read_tx_power @ 0x138888
-/* luna: Clears the 16-bit field at offset 8 of the supplied object and returns the next sequence number. */
 int rf_read_tx_power(int a1) {
   *(volatile uint16_t *)(a1 + 8) = 0;
   return seq_num_increment();

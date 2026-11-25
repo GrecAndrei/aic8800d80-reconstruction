@@ -1,5 +1,4 @@
 // handle_radio_event @ 0x10d2d4
-/* luna: Programs and arms the selected RF event slot, reusing its current context when possible and initializing the slot otherwise. */
 int handle_radio_event(int a1, int a2, int a3) {
   volatile int *v6; // r1
   int result; // r0
@@ -72,7 +71,6 @@ if ( v10 && (((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 3] & 0x800)
 
 
 // handle_rf_status @ 0x10d46c
-/* luna: Reads RF status, acknowledges indicated status bits, and disables the global IRQ mask when status bit 0x400 is set. */
 int handle_rf_status() {
   int v0; // r3
   int result; // r0
@@ -91,7 +89,6 @@ int handle_rf_status() {
 
 
 // configure_radio @ 0x10d494
-/* luna: Initializes the radio register block when its control bit is clear, sets required control bits, and writes fixed values to associated RF registers. */
 int configure_radio() {
   volatile unsigned int *v0; // r2
   unsigned int v1; // r3
@@ -120,7 +117,6 @@ int configure_radio() {
 
 
 // enable_irq @ 0x10d4e8
-/* luna: Enables the radio peripheral interrupt source and unmasks its NVIC interrupt (IRQ 21). */
 void enable_irq() {
   volatile uint32_t *v0; // r3
 
@@ -132,7 +128,6 @@ void enable_irq() {
 
 
 // kernel_schedule_check @ 0x10d508
-/* luna: Configures RF timing hardware, deriving divider fields from a signed timing parameter when its sign bit selects divider mode. */
 void kernel_schedule_check() {
   int v0; // r3
   volatile uint32_t *v1; // r5
@@ -236,7 +231,6 @@ LABEL_7:
 
 
 // system_ready_check @ 0x10d634
-/* luna: Invokes the kernel scheduler check when the volatile system-ready value is zero. */
 void system_ready_check() {
   if ( !*(volatile uint32_t *)off_10D640 )
     kernel_schedule_check();
@@ -304,7 +298,6 @@ int radio_rx_read_byte() {
 
 
 // radio_rx_status @ 0x10d6b8
-/* luna: Returns bit 0 of the radio receive status register, indicating whether receive data is ready. */
 int radio_rx_status() {
   return *(volatile uint32_t *)off_10D6C4 & 1;
 }
@@ -312,7 +305,6 @@ int radio_rx_status() {
 
 
 // stack_struct_init @ 0x10d6c8
-/* luna: Receives up to 256 bytes into a temporary buffer and processes the payload through the radio interface. */
 int stack_struct_init(volatile uint8_t *a1, volatile unsigned int *a2) {
   volatile uint32_t *v2; // r4
   unsigned int CPSR; // r6
@@ -754,7 +746,6 @@ void rf_irq_pending() {
 
 
 // rf_irq_clear @ 0x10db64
-/* luna: For RF interrupt indices 0–7, clears the corresponding register’s low four bits and sets that index’s bit in a separate control word. */
 int rf_irq_clear(int result) {
   volatile uint32_t *v1; // r1
 
@@ -827,7 +818,6 @@ BOOL mmio_get_bit(char a1) {
 
 
 // make_bit_mask @ 0x10dc04
-/* luna: Configures RF control masks for a bit index, stores its associated value, and initializes the shared RF interface if it is not already initialized. */
 int make_bit_mask(int result, int a2, int a3) {
   int v3; // r4
   volatile uint32_t *v4; // r6
@@ -881,7 +871,6 @@ int make_bit_mask(int result, int a2, int a3) {
 
 
 // ptr_add_12 @ 0x10dcc8
-/* luna: Sets bit 2 when the control byte at offset 369 is nonzero and clears it otherwise. */
 int ptr_add_12() {
   if ( *((volatile uint8_t *)off_10DCDC + 369) )
     return mmio_set_bit_1(2);
@@ -892,7 +881,6 @@ int ptr_add_12() {
 
 
 // ptr_add_12_alt @ 0x10dce0
-/* luna: Sets or clears MMIO bit 1 according to the byte flag at offset 369 from the referenced base address. */
 int ptr_add_12_alt() {
   if ( *((volatile uint8_t *)off_10DCF4 + 369) )
     return mmio_set_bit_1(1);
@@ -903,7 +891,6 @@ int ptr_add_12_alt() {
 
 
 // rf_table_lookup @ 0x10dcf8
-/* luna: For wakeup subtype 3, selects the radio mode from the BT-wakeup status and updates RF bit 2 from a configuration flag. */
 int rf_table_lookup(int a1) {
   int v1; // r4
   int result; // r0
@@ -935,7 +922,6 @@ int rf_table_lookup(int a1) {
 
 
 // rf_chain_enable @ 0x10dd54
-/* luna: Initializes RF GPIO pins 1 and 2, applies their configured MMIO state, and disables RF interrupt 3. */
 int rf_chain_enable() {
   volatile uint32_t *v0; // r1
   volatile uint32_t *v1; // r3
@@ -970,14 +956,12 @@ int rf_chain_enable() {
 
 
 // nullsub_1 @ 0x10ddcc
-/* luna: Returns zero without performing any operation. */
 int nullsub_1(void) {
   return 0;
 }
 
 
 // nullsub_2 @ 0x10ddd0
-/* luna: RF placeholder that performs no work and returns zero. */
 int nullsub_2(void) {
   return 0;
 }
@@ -990,7 +974,6 @@ int nullsub_3(void) {
 
 
 // rf_table_update @ 0x10ddd8
-/* luna: Sets bits 3:2 in each of 16 registers spaced 12 bytes apart, then calls uart_send_data with the global data buffer. */
 int rf_table_update(int a1) {
   int v1; // r2
   int v2; // r0
@@ -1011,7 +994,6 @@ int rf_table_update(int a1) {
 
 
 // hw_block_disable @ 0x10de08
-/* luna: Configures and triggers the hardware block's disable operation, waits for completion, acknowledges the status flag, and returns the processed result r */
 unsigned int hw_block_disable() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r3
@@ -1044,7 +1026,6 @@ unsigned int hw_block_disable() {
 
 
 // hw_block_reset @ 0x10deb0
-/* luna: Applies the block reset and configuration sequence, writes a fixed value to an auxiliary register, enables the block, and returns its previous control */
 int hw_block_reset() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r0
@@ -1069,7 +1050,6 @@ int hw_block_reset() {
 
 
 // hw_poll_status @ 0x10df08
-/* luna: Waits until the control word at offset 0x1c equals 1, writes 1 back, and returns an integer derived from the word at offset 0x10. */
 unsigned int hw_poll_status() {
   volatile uint32_t *v0; // r3
   uint64_t v1; // r0
@@ -1090,7 +1070,6 @@ unsigned int hw_poll_status() {
 
 
 // hw_block_enable @ 0x10df70
-/* luna: Requests RF table updates for stages 1–3, reads two mailbox values, and computes a validation result from them. */
 int hw_block_enable() {
   volatile uint32_t *v0; // r5
   uint64_t v1; // r0
@@ -1167,7 +1146,6 @@ int hw_block_enable() {
 
 
 // hw_ctrl_set @ 0x10e0a8
-/* luna: Writes 1 to the control word, waits for the status word to become 1 and acknowledges it, then returns a computed value derived from the word at offset */
 int hw_ctrl_set() {
   volatile uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -1212,7 +1190,6 @@ int hw_ctrl_set() {
 
 
 // rf_hw_init @ 0x10e160
-/* luna: Initializes RF control registers and adjusts the measured voltage toward a 1400 mV target. */
 int rf_hw_init() {
   int v0; // r3
   volatile uint32_t *v1; // r4
@@ -1386,7 +1363,6 @@ LABEL_28:
 
 
 // rf_hw_init_alt @ 0x10e420
-/* luna: Samples the RF core voltage and adjusts its regulator trim toward an 840 mV target using hardware feedback. */
 int rf_hw_init_alt() {
   volatile uint32_t *v0; // r1
   int v1; // r3
@@ -1905,7 +1881,6 @@ int call_patch_hook_2() {
 
 
 // mmio_read32_1 @ 0x10ec44
-/* luna: Invokes the patched MMIO read under a nested IRQ-restoring guard, optionally waiting for and signaling a shared readiness flag. */
 int mmio_read32_1(int a1, int a2) {
   volatile int *v2; // r5
   volatile uint32_t *v3; // r4
@@ -1949,7 +1924,6 @@ int mmio_read32_1(int a1, int a2) {
 
 
 // mmio_read32_variant @ 0x10ec98
-/* luna: Invokes patch hook 1 inside a nest-counted interrupt guard, optionally waiting for a shared flag to become nonzero before the call. */
 int mmio_read32_variant(int a1, int a2, int a3) {
   volatile int *v3; // r5
   volatile uint32_t *v4; // r4

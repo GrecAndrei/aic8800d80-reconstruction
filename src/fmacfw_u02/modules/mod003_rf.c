@@ -1,5 +1,4 @@
 // handle_tx_descriptor @ 0x104618
-/* luna: Extracts two signed 12-bit components from the selected packed word and converts their quadrant-aware arctangent to a 12-bit phase value. */
 int handle_tx_descriptor(int a1, int a2, int a3) {
   unsigned int v3; // r3
   int v4; // r5
@@ -117,7 +116,6 @@ LABEL_12:
 
 
 // alloc_buffer_by_flag @ 0x104828
-/* luna: Computes a smoothed lookup-value gradient and returns the scan offset with the strongest response for the selected mode. */
 int alloc_buffer_by_flag(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r3
   int v6; // r10
@@ -273,7 +271,6 @@ LABEL_32:
 
 
 // rf_scan_init @ 0x104a00
-/* luna: Initializes the RF scan work arrays and derives a bounded segment count from the allocated buffer positions. */
 int rf_scan_init(int a1, int a2, int a3, int a4, int a5, int a6) {
   volatile int *v7; // r6
   int v11; // r0
@@ -536,7 +533,6 @@ LABEL_42:
 
 
 // rf_calibrate_power @ 0x104de0
-/* luna: Resets the RF core and uses a temperature delta and six calibration values to calibrate RF power. */
 unsigned int rf_calibrate_power(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5) {
   int v6; // r0
   float v7; // r0
@@ -700,7 +696,6 @@ else if ( ((int (*)())double_le)(v10, v68) ) { v63 = v23;
 
 
 // mac_reset_disable @ 0x1050c0
-/* luna: Programs the requested PA setting, samples the power-feedback register, stores the reading in the indexed table, and reports saturation. */
 int mac_reset_disable(int a1, int a2, int a3, int a4) {
   volatile unsigned int *v4; // r4
   volatile int *v5; // r9
@@ -784,7 +779,6 @@ LABEL_4:
 
 
 // adc_to_temp_scale @ 0x105230
-/* luna: Scales the base power index using the configured factor for the requested power difference, clamps and stores the digital-power index, then reports th */
 int adc_to_temp_scale(float a1, int a2, int a3) {
   float v6; // r0
   uint64_t v7; // r0
@@ -831,7 +825,6 @@ int adc_to_temp_scale(float a1, int a2, int a3) {
 
 
 // rx_status_shift @ 0x1052e8
-/* luna: Scans backward from the saved index in the selected sample bank, records the contiguous threshold-qualified interval bounds, and returns the scan boun */
 int rx_status_shift(int a1, float a2, volatile int *a3, int a4, int a5) {
   int result; // r0
   int v7; // r3
@@ -1469,7 +1462,6 @@ LABEL_3:
 
 
 // mac_conn_event_init @ 0x105abc
-/* luna: Initializes RF DPD calibration-index state by filtering the requested analog-power indices against mode-dependent limits. */
 int mac_conn_event_init(unsigned int a1, int a2, int a3) {
   int v5; // r5
   int v6; // r7
@@ -2018,7 +2010,6 @@ LABEL_9:
 
 
 // memcpy_from_rodata @ 0x1064bc
-/* luna: Uses the selected shift index to look up and program two RF register bitfields. */
 int memcpy_from_rodata(int a1, int a2) {
   int v4; // r1
   int v5; // r2
@@ -2115,7 +2106,6 @@ int memcpy_from_rodata(int a1, int a2) {
 
 
 // runtime_helper_div @ 0x106568
-/* luna: Updates an indexed RF calibration accumulator using a 20× scaled input and logs when the input exceeds the saturation or SMA thresholds. */
 int runtime_helper_div(int a1, int a2, int a3) {
   uint64_t v5; // r0
   uint64_t v6; // r0
@@ -2885,7 +2875,6 @@ volatile uint32_t *rf_radio_disable() {
 
 
 // rf_synth_set_freq @ 0x107518
-/* luna: Sets fixed synthesizer control fields in one RF register and clears the corresponding fields in two other RF registers. */
 volatile uint32_t *rf_synth_set_freq() {
   volatile unsigned int *v0; // r2
   volatile uint32_t *v1; // r3
@@ -2909,7 +2898,6 @@ volatile uint32_t *rf_synth_set_freq() {
 
 
 // rf_mode_select @ 0x107584
-/* luna: Configures the RF measurement path for the selected mode, captures a 15-bit power reading into the output structure, and restores the control bits. */
 int rf_mode_select(int a1, int a2) {
   volatile unsigned int *v2; // r5
   volatile unsigned int *v3; // r4
@@ -2993,7 +2981,6 @@ int rf_txrx_path_enable(int a1, int a2) {
 
 
 // timer_ticks_to_usec @ 0x107760
-/* luna: Converts a timer tick value to microseconds using fixed-point scaling. */
 int timer_ticks_to_usec(int a1) {
   int v2; // r1
   int v3; // r2
@@ -3110,7 +3097,6 @@ int timer_ticks_to_usec(int a1) {
 
 
 // ke_event_post @ 0x107824
-/* luna: Converts a Q14 linear power input to dB and uses calibration parameters to update the configuration gain field. */
 int ke_event_post(int a1, volatile uint32_t *a2, int a3) {
   int v3; // r8
   int v7; // s15
@@ -3143,7 +3129,6 @@ LABEL_3:
 
 
 // rf_tx_power_set @ 0x1078dc
-/* luna: Applies packed RF transmit-power settings through RF control registers and posts the configured event. */
 int rf_tx_power_set(int a1, volatile uint32_t *a2, int a3) {
   volatile uint32_t *v3; // r5
   volatile uint32_t *v4; // r4
@@ -3192,7 +3177,6 @@ int rf_tx_power_set(int a1, volatile uint32_t *a2, int a3) {
 
 
 // sched_min_delta @ 0x1079cc
-/* luna: Finds the maximum of four power values, converts it to dB, and uses that value to update the RF power adjustment at offset 8. */
 int sched_min_delta(volatile unsigned int *a1, int a2) {
   unsigned int v2; // r3
   unsigned int v3; // r5
@@ -3227,7 +3211,6 @@ int sched_min_delta(volatile unsigned int *a1, int a2) {
 
 
 // rf_rx_cfg_write @ 0x107a8c
-/* luna: Calibrates the RF receive configuration by comparing two measurements, collecting two more under the selected mode, and passing all four samples to th */
 int rf_rx_cfg_write(int a1) {
   volatile uint32_t *v1; // r4
   volatile uint32_t *v2; // r6
@@ -3315,7 +3298,6 @@ int rf_rx_cfg_write(int a1) {
 
 
 // rf_tx_cfg_write @ 0x107c48
-/* luna: Runs an RF transmit calibration sweep, captures four measurement samples, and returns the minimum-delta selection for the supplied target. */
 int rf_tx_cfg_write(int a1) {
   volatile uint32_t *v1; // r4
   volatile uint32_t *v2; // r5
@@ -3405,7 +3387,6 @@ int rf_tx_cfg_write(int a1) {
 
 
 // rf_power_off @ 0x107e08
-/* luna: Disables the RF control path and waits for the hardware status bit to assert. */
 int rf_power_off() {
   volatile uint32_t *v0; // r4
   volatile uint32_t *v1; // r3
@@ -3437,7 +3418,6 @@ int rf_power_off() {
 
 
 // clear_flag_and_invoke @ 0x107e70
-/* luna: Programs the RF synthesizer, triggers its calibration sequence, waits for the status bit to assert, and then clears the control bit. */
 int clear_flag_and_invoke() {
   volatile uint32_t *v0; // r4
   volatile uint32_t *v1; // r2
@@ -3470,7 +3450,6 @@ int clear_flag_and_invoke() {
 
 
 // div3_compute @ 0x107ee4
-/* luna: Writes row-major 3x3 X and Y coordinate grids from signed spans and anchor coordinates using divide-by-three steps. */
 volatile int * div3_compute(volatile int *a1) {
   int v1; // r2
   int v2; // r7
@@ -3510,7 +3489,6 @@ volatile int * div3_compute(volatile int *a1) {
 
 
 // periph_clock_enable @ 0x107f54
-/* luna: Sweeps ten amplitude/phase settings, samples the RF measurement value for each, stores the two lowest-scoring settings and their indices, and returns  */
 int periph_clock_enable(int a1, volatile uint32_t *a2) {
   volatile uint32_t *v2; // r6
   volatile unsigned int *v3; // r8
@@ -3603,7 +3581,6 @@ LABEL_7:
 
 
 // list_get_at @ 0x108080
-/* luna: Remaps an in/out pair of RF values using three-unit grouping and conditionally invokes the TX-power setter based on state and configuration thresholds */
 int list_get_at(int a1, volatile int *a2, int a3) {
   int v4; // r3
   uint64_t v5; // kr08_8
@@ -3695,7 +3672,6 @@ LABEL_9:
 
 
 // read_status_high @ 0x1081e8
-/* luna: Reads the LOFT I calibration value, adds it to the register’s existing 12-bit field, writes the adjusted field, and sets bit 23 in a control register. */
 int read_status_high() {
   volatile unsigned int *v0; // r5
   unsigned int v1; // r4

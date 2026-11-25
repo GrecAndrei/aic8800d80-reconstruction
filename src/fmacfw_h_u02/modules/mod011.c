@@ -44,7 +44,6 @@ int rssi_sample() {
 
 
 // rssi_compare @ 0x115ec8
-/* luna: Pops an event from the pending list and disables its MMIO interrupt if the list is empty while the associated signed status is negative. */
 int rssi_compare() {
   int v0; // r0
   int v1; // r4
@@ -59,7 +58,6 @@ int rssi_compare() {
 
 
 // set_string_0x182588 @ 0x115f04
-/* luna: Forwards the set-string request to the WLAN ioctl handler using its fixed command identifier. */
 int set_string_0x182588(volatile uint32_t *a1) {
   return wlan_ioctl_handler_1(dword_115F0C, a1);
 }
@@ -90,7 +88,6 @@ int ll_event_clear(int a1) {
 
 
 // conn_handle_get @ 0x115f4c
-/* luna: Waits on the object stored at context offset 72, clears that slot after the wait, and returns the wait result or null if no object was pending. */
 volatile uint32_t * conn_handle_get(int a1) {
   volatile uint32_t *result; // r0
 
@@ -126,7 +123,6 @@ int ll_event_lookup(int a1, int a2) {
 
 
 // rx_packet_process_1 @ 0x115f88
-/* luna: Prepares RX buffer bounds and descriptor flags, and conditionally increments an indexed receive counter based on the packet status word. */
 int rx_packet_process_1(int result, int a2) {
   int v2; // r3
   int v3; // r8
@@ -181,7 +177,6 @@ int rx_packet_process_1(int result, int a2) {
 
 
 // rf_channel_select @ 0x116034
-/* luna: Parses and normalizes a BLE packet into the destination buffer, or clears its first eight bytes when the mode bit is set. */
 volatile int * rf_channel_select(int a1, int a2, int a3, int a4) {
   volatile int *result; // r0
   volatile char *v7; // r4
@@ -210,7 +205,6 @@ volatile int * rf_channel_select(int a1, int a2, int a3, int a4) {
 
 
 // patch_enable @ 0x116094
-/* luna: Initializes two RF configuration tables using the current RF field value and clock prescaler. */
 int patch_enable() {
   volatile int *v0; // r4
   int v1; // r8
@@ -289,7 +283,6 @@ int patch_enable() {
 
 
 // adv_type_valid @ 0x11617c
-/* luna: Maps supported link-layer advertising types to hardware bit values and writes the value to a volatile register. */
 int adv_type_valid(int result) {
   switch ( result )
   {

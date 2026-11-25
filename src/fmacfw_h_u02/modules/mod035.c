@@ -1,5 +1,4 @@
 // patch_init_check @ 0x125970
-/* luna: Advances the patch work countdown and, when due, drains deferred per-link and RX work and services BT task and configuration hooks. */
 int patch_init_check(int result) {
   unsigned int v1; // r4
   int v2; // r5
@@ -166,7 +165,6 @@ LABEL_4:
 
 
 // util_get_state @ 0x125b98
-/* luna: Uses the global state record when its control word is nonzero, stores the supplied value at byte offset 20 from the selected entry, and returns that e */
 volatile char * util_get_state(int a1, char a2) {
   volatile char *result; // r0
 
@@ -180,7 +178,6 @@ volatile char * util_get_state(int a1, char a2) {
 
 
 // util_diff32 @ 0x125bb4
-/* luna: Aligns the two range starts by a whole number of periods, optionally writes their enclosing range, and returns its span. */
 unsigned int util_diff32(volatile unsigned int *a1, volatile unsigned int *a2, volatile unsigned int *a3, unsigned int a4) {
   unsigned int v4; // r5
   volatile unsigned int *v5; // lr
@@ -281,7 +278,6 @@ LABEL_18:
 
 
 // ipc_post_msg @ 0x125c58
-/* luna: Builds a type-72 packet from the input message, clears bit 2 of a global flag word, and passes the packet to the RX processor. */
 int ipc_post_msg(int a1) {
   volatile uint8_t *v2; // r0
   volatile uint32_t *v3; // r2
@@ -297,7 +293,6 @@ int ipc_post_msg(int a1) {
 
 
 // util_list_len @ 0x125c88
-/* luna: Returns whether the 32-bit values at offset 4 in two objects are equal or differ by less than 14,000 plus the current timeout. */
 BOOL util_list_len(int a1, int a2) {
   int v3; // r4
   int v4; // r0
@@ -316,7 +311,6 @@ BOOL util_list_len(int a1, int a2) {
 
 
 // scan_entry_lookup @ 0x125cd0
-/* luna: Conditionally checks readiness for the indexed connection state, then marks linked-list entries matching the input ID as invalid. */
 int scan_entry_lookup(int result) {
   int v1; // r6
   int v2; // r4
@@ -354,7 +348,6 @@ int scan_entry_lookup(int result) {
 
 
 // rf_mode_setup @ 0x125d38
-/* luna: Looks up the associated record and updates its mode-related state when the controlling feature is enabled. */
 volatile uint32_t * rf_mode_setup(volatile uint32_t *result) {
   volatile int16_t **v1; // r9
   int v2; // r3
@@ -812,7 +805,6 @@ int patch_check_ready(volatile uint32_t *a1) {
 
 
 // llc_pdu_check @ 0x126334
-/* luna: Returns whether an LLL connection-state match is available in the timing window derived from the optional event metadata. */
 BOOL llc_pdu_check(int a1, int a2, int a3) {
   int v6; // r5
   int v7; // r3
@@ -898,7 +890,6 @@ BOOL llc_pdu_check(int a1, int a2, int a3) {
 
 
 // llc_rx_event_save @ 0x126444
-/* luna: Advances a link's receive-event timing across missed intervals, checks due LLC PDUs, and updates its position in the shared event list. */
 int llc_rx_event_save(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r10
   int v4; // r5

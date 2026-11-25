@@ -1,5 +1,4 @@
 // controller_is_ready @ 0x1342ac
-/* luna: Clears the BLE statistics buffer and, when the signed status is negative and the associated flag is set, issues an interrupt-disable MMIO write first. */
 volatile uint32_t *controller_is_ready() {
   if ( **(volatile int16_t **)off_1342E0 >= 0 || !*((volatile uint32_t *)off_1342E8 + 6) )
     return clear_stats_buf((volatile uint32_t *)dword_1342E4);
@@ -33,7 +32,6 @@ int ble_clear_state() {
 
 
 // ble_get_addr_flag @ 0x134334
-/* luna: Initializes two outputs, selects address-related field values from the BLE context or a looked-up state object, and returns the lookup result. */
 int ble_get_addr_flag(volatile uint32_t *a1, volatile uint32_t *a2) {
   int v2; // r6
   int result; // r0
@@ -67,7 +65,6 @@ LABEL_4:
 
 
 // hci_build_acl @ 0x134380
-/* luna: Builds and dispatches a BLE packet containing configuration data and either a supplied address or eligible entries collected from two internal address */
 int hci_build_acl(int a1, int a2) {
   volatile int *v4; // r5
   int v5; // r0
@@ -169,7 +166,6 @@ LABEL_4:
 
 
 // ble_parse_event @ 0x134480
-/* luna: Builds an internal receive message from the supplied buffers and BLE context, dispatches it to the packet processor, and handles a deferred clock/even */
 int ble_parse_event(int a1, int a2, int a3) {
   volatile uint32_t *v4; // r3
   volatile uint8_t *v7; // r9
@@ -258,7 +254,6 @@ int ble_parse_event(int a1, int a2, int a3) {
 
 
 // ble_scan_config @ 0x1345a8
-/* luna: Builds and submits a BLE scan configuration packet from stored state, then preprocesses the associated HCI command. */
 int ble_scan_config() {
   volatile char *v0; // r5
   volatile uint8_t *v1; // r8
@@ -314,7 +309,6 @@ int ble_scan_config() {
 
 
 // get_acl_conn_slot @ 0x13465c
-/* luna: Checks the ACL connection entry selected by the current BLE connection index against the supplied argument and returns the helper result. */
 int get_acl_conn_slot(volatile uint8_t *a1) {
   return cfm_radio_check(
            (volatile uint8_t *)(dword_134678 + 1320 * *(volatile uint8_t *)(*((volatile uint32_t *)off_134674 + 4) + 61)),
@@ -324,7 +318,6 @@ int get_acl_conn_slot(volatile uint8_t *a1) {
 
 
 // ble_reset_controller @ 0x13467c
-/* luna: Pops one BLE receive-queue entry, disables the MMIO interrupt if the queue is empty and the controller state is negative, then passes the entry payloa */
 int ble_reset_controller() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r4
@@ -339,7 +332,6 @@ int ble_reset_controller() {
 
 
 // hci_send_cmd_1419 @ 0x1346c0
-/* luna: Posts connection cleanup events, handles the associated scheduled event, and resets BLE controller state. */
 int hci_send_cmd_1419(int a1) {
   int v1; // lr
   int v3; // r7
@@ -398,7 +390,6 @@ int hci_send_cmd_1419(int a1) {
 
 
 // ble_load_defaults @ 0x1347d4
-/* luna: Initializes BLE state, selects an address from an eligible connection entry when available, and submits the default HCI configuration. */
 int ble_load_defaults() {
   volatile uint16_t *v0; // r6
   int v1; // r4
@@ -496,7 +487,6 @@ LABEL_15:
 
 
 // log_startup @ 0x13492c
-/* luna: Records the deauthentication-failure event when the startup flags match, then loads BLE defaults. */
 int log_startup(int a1, int a2) {
   if ( (a2 & 0x810000) == 0x10000 )
     alloc_tx_event(aSendDeauthFail);

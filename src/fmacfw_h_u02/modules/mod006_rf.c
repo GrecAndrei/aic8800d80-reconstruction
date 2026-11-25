@@ -1,5 +1,4 @@
 // mmio_rmw32 @ 0x10ecec
-/* luna: Calls the RF patch hook inside a nest-aware IRQ guard, optionally waiting on and setting a shared readiness flag. */
 int mmio_rmw32(int a1, int a2, int a3, int a4) {
   volatile int *v4; // r5
   volatile uint32_t *v5; // r4
@@ -53,7 +52,6 @@ int rf_set_frequency(int a1) {
 
 
 // rf_set_channel_1 @ 0x10ed98
-/* luna: Programs the RF channel selection value and applies the associated MMIO control updates. */
 int rf_set_channel_1(int a1) {
   mmio_rmw32(dword_10EDCC, 196608, dword_10EDC8, 1);
   mmio_read32_variant(dword_10EDD0, a1 << 15, 1);
@@ -78,7 +76,6 @@ int rf_get_status() {
 
 
 // padding_data @ 0x10edf8
-/* luna: Replaces bits 11–15 of the RF MMIO register at dword_10EE0C with the low five bits of the argument. */
 int padding_data(int a1) {
   return mmio_rmw32(dword_10EE0C, (a1 << 11) & 0xF800, 63488, 1);
 }
@@ -132,7 +129,6 @@ int rf_enable_rx() {
 
 
 // rf_cal_init @ 0x10f040
-/* luna: Initializes the RF calibration setting by writing byte 0xC2 and storing the same byte at offset 7 of a global byte area. */
 unsigned int rf_cal_init() {
   unsigned int result; // r0
 
@@ -144,7 +140,6 @@ unsigned int rf_cal_init() {
 
 
 // rf_get_rssi @ 0x10f058
-/* luna: Computes a clamped RF-level delta, programs and stores it, then clears a status byte or copies a selected table block according to the -61 threshold. */
 int rf_get_rssi() {
   volatile uint8_t *v0; // r6
   int v1; // r5
@@ -174,7 +169,6 @@ int rf_get_rssi() {
 
 
 // rx_copy_stats @ 0x10f0c4
-/* luna: Copies a 24-byte initialization block to a global buffer, initializes crypto and hardware support, conditionally initializes the PHY context for mode  */
 int rx_copy_stats() {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -207,7 +201,6 @@ int rx_copy_stats() {
 
 
 // ke_get_state @ 0x10f11c
-/* luna: Writes fixed values to an RF configuration block unless a global condition is nonzero, in which case it clears the block’s first byte. */
 int ke_get_state() {
   volatile uint8_t *v0; // r3
   int result; // r0
@@ -237,7 +230,6 @@ int ke_get_state() {
 
 
 // bt_send_data @ 0x10f230
-/* luna: Passes the supplied state handle to the wait routine and returns success. */
 int bt_send_data(int a1, int a2) {
   wait_for_state((void *)(uintptr_t)(a2));
   return 1;
@@ -246,7 +238,6 @@ int bt_send_data(int a1, int a2) {
 
 
 // tx_store_packet @ 0x10f23c
-/* luna: Initializes marker fields for two packet-stat slots and clears the data buffer following each slot. */
 int tx_store_packet() {
   volatile uint8_t *v0; // r4
   volatile char *v1; // r0
@@ -264,7 +255,6 @@ int tx_store_packet() {
 
 
 // rf_config_bb @ 0x10f270
-/* luna: Sets baseband control values, clears associated state and statistics buffers, and processes 128 entries through the WLAN handler. */
 uint64_t rf_config_bb() {
   volatile uint16_t *v0; // r5
   volatile int *v1; // r4
@@ -317,7 +307,6 @@ uint64_t rf_config_bb() {
 
 
 // rf_get_state @ 0x10f318
-/* luna: Runs common RF setup and dispatches the callback sequence for the current RF state. */
 int rf_get_state() {
   volatile uint8_t **v0; // r4
   int v1; // r3
@@ -629,7 +618,6 @@ LABEL_4:
 
 
 // ipc_send_command @ 0x10f7cc
-/* luna: Sends command 0x40D with fixed parameters and returns the result of processing its response. */
 int ipc_send_command() {
   int v0; // r0
 
@@ -640,7 +628,6 @@ int ipc_send_command() {
 
 
 // rx_handle_packet @ 0x10f7e4
-/* luna: Prepares per-packet RX descriptors and buffer metadata from the supplied packet offset-and-length table. */
 unsigned int rx_handle_packet(volatile int *a1, int a2, unsigned int a3) {
   unsigned int result; // r0
   unsigned int v6; // r2
@@ -1189,7 +1176,6 @@ LABEL_39:
 
 
 // check_state_flag @ 0x10fdf4
-/* luna: Returns true when the supplied address lies inclusively within either of the two configured RF register ranges. */
 BOOL check_state_flag(unsigned int a1) {
   if ( *(volatile uint32_t *)off_10FE24 <= a1 && a1 <= *(volatile uint32_t *)off_10FE24 + *((volatile uint32_t *)off_10FE24 + 1) )
     return 1;
@@ -1201,7 +1187,6 @@ BOOL check_state_flag(unsigned int a1) {
 
 
 // log_event @ 0x10fe2c
-/* luna: Builds and dispatches a 32-byte RX event record, initializes a related control block, and returns the 0x40000 status value. */
 int log_event(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r3
   volatile uint32_t *v4; // r3
@@ -1314,7 +1299,6 @@ LABEL_11:
 
 
 // get_rx_stats @ 0x10ffc0
-/* luna: Copies selected fields from the RX statistics block into an RX record, dispatches it, and logs two associated values. */
 int get_rx_stats() {
   void *v0; // r4
   int v1; // r3
@@ -1352,7 +1336,6 @@ int get_rx_stats() {
 
 
 // get_noise_floor @ 0x11004c
-/* luna: Clears the shared statistics buffer, then collects and processes the configured number of noise-floor measurements. */
 volatile uint32_t *get_noise_floor() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1414,7 +1397,6 @@ volatile uint32_t *get_current_channel() {
 
 
 // get_core_temp @ 0x1100e4
-/* luna: Clears the shared stats buffer, then invokes the 0x6B8 query path once for each iteration specified by the control object's count field. */
 volatile uint32_t *get_core_temp() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1448,7 +1430,6 @@ volatile uint32_t *get_core_temp() {
 
 
 // get_tx_power @ 0x11013c
-/* luna: Clears the TX-power statistics buffer, processes the pending 0x7C transactions, and returns the final handler result. */
 volatile uint32_t *get_tx_power() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -1477,7 +1458,6 @@ volatile uint32_t *get_tx_power() {
 
 
 // mmio_read_0 @ 0x11017c
-/* luna: Pops and returns an item from the global list inside a nestable IRQ-protected critical section. */
 int mmio_read_0() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1511,7 +1491,6 @@ int mmio_read_0() {
 
 
 // mmio_write_0 @ 0x1101bc
-/* luna: Calls the underlying MMIO handler within a nest-counted critical section and restores IRQs only if this wrapper disabled them. */
 int mmio_write_0(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1544,7 +1523,6 @@ int mmio_write_0(volatile uint32_t *a1) {
 
 
 // mmio_write_1 @ 0x110250
-/* luna: Invokes the MMIO write handler under a nest-counted interrupt guard and returns its status. */
 int mmio_write_1(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1580,7 +1558,6 @@ int mmio_write_1(volatile uint32_t *a1) {
 
 
 // mmio_read_1 @ 0x1102a0
-/* luna: Pops and returns a pending MMIO read entry under an IRQ-safe critical section, decrementing the queue count when an entry is returned. */
 int mmio_read_1() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1616,7 +1593,6 @@ int mmio_read_1() {
 
 
 // mmio_write_2 @ 0x1102f0
-/* luna: Invokes the WLAN ioctl handler with the global context inside a nesting-aware critical section that restores interrupts on the outermost exit. */
 int mmio_write_2(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1652,7 +1628,6 @@ int mmio_write_2(volatile uint32_t *a1) {
 
 
 // mmio_read_2 @ 0x110340
-/* luna: Pops and returns an item from a global list while balancing a nested IRQ-protected critical section. */
 int mmio_read_2() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1686,7 +1661,6 @@ int mmio_read_2() {
 
 
 // mmio_write_3 @ 0x110380
-/* luna: Calls the WLAN ioctl handler with interrupts disabled for the outermost nested invocation, restoring them only if this wrapper disabled them. */
 int mmio_write_3(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1830,7 +1804,6 @@ LABEL_2:
 
 
 // phy_calibrate @ 0x1104fc
-/* luna: Allocates and links host-to-device SDIO buffers until the configured queue depth is reached, then signals replenishment work. */
 int phy_calibrate(int a1, int a2) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r7
@@ -1949,7 +1922,6 @@ int check_hardware_ready() {
 
 
 // event_queue_init @ 0x110660
-/* luna: Initializes two global PHY-calibration blocks, stores the caller-provided value at offset 8 of the first block, invokes `phy_calibrate`, and returns 1 */
 int event_queue_init(int a1) {
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r1
@@ -1979,7 +1951,6 @@ int event_queue_init(int a1) {
 
 
 // rx_task @ 0x110b20
-/* luna: Drains queued RX batches, replenishes their DMA-ring buffers, and restores deferred interrupt state after queue processing. */
 int rx_task() {
   volatile uint32_t *v0; // r8
   volatile int *v1; // r7
@@ -2089,7 +2060,6 @@ LABEL_14:
 
 
 // mmio_write_reg @ 0x110ce4
-/* luna: Initializes the RF I/O control block, synchronizes with its command interface, and submits an IPC command. */
 int mmio_write_reg() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r1
@@ -2209,7 +2179,6 @@ int mmio_write_reg() {
 
 
 // sub_110edc @ 0x110edc
-/* luna: Submits a serialized RF-interface write transaction, performing guarded MMIO setup and waiting for the hardware interface to become ready. */
 int sub_110edc(int a1, int a2, int a3) {
   volatile int *v6; // r9
   volatile uint8_t *v7; // r3
@@ -2308,7 +2277,6 @@ LABEL_4:
 
 
 // tx_desc_set_control @ 0x110ffc
-/* luna: Writes the first two descriptor words and updates the control word while preserving bits selected by a fixed mask. */
 volatile uint32_t * tx_desc_set_control(volatile uint32_t *result, int a2, int a3, uint16_t a4, int a5) {
   result[2] = dword_111018 & result[2] | a4 | (a5 << 31);
   *result = a2;
@@ -2319,7 +2287,6 @@ volatile uint32_t * tx_desc_set_control(volatile uint32_t *result, int a2, int a
 
 
 // sub_11101c @ 0x11101c
-/* luna: Submits a value through the RF register-control interface, waiting for the busy flag to clear and updating the associated shadow state. */
 int sub_11101c(int a1) {
   volatile int *v2; // r5
   volatile uint8_t *v3; // r3
@@ -2413,7 +2380,6 @@ LABEL_4:
 
 
 // kmalloc @ 0x111130
-/* luna: Builds a type-and-length-prefixed RF message in an available packet buffer and submits it through the configured descriptor. */
 int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4) {
   volatile uint32_t *v7; // r0
   volatile uint32_t *v8; // r4
@@ -2449,7 +2415,6 @@ int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4) {
 
 
 // get_init_flag @ 0x1111b4
-/* luna: Returns 1 if the primary initialization byte is set; otherwise returns the secondary initialization byte. */
 int get_init_flag() {
   if ( *(volatile uint8_t *)off_1111C4 )
     return 1;

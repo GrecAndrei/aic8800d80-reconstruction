@@ -11,7 +11,6 @@ int copy_cal_data() {
 
 
 // patch_interrupt_vector @ 0x102b4c
-/* luna: Programs hardware patch entries for RF interrupt handling, enables the selected patch slots, and re-enables CPU interrupts. */
 int patch_interrupt_vector() {
   volatile uint32_t *v0; // r2
   volatile uint8_t *v1; // r3
@@ -64,7 +63,6 @@ int patch_interrupt_vector() {
 
 
 // rf_clear_control_bit_a @ 0x102bf8
-/* luna: Runs one of two RF control-register sequences, clearing selected bits, setting control lines, and inserting short delays. */
 volatile int * rf_clear_control_bit_a(int a1) {
   int v1; // r4
   int v2; // r1
@@ -116,7 +114,6 @@ volatile int * rf_clear_control_bit_a(int a1) {
 
 
 // rf_clear_control_bit_b @ 0x102c5c
-/* luna: Selects one of two delayed RF control-register bit sequences based on whether the argument is zero and returns the selected value (0x20 or 0x02). */
 int rf_clear_control_bit_b(int result) {
   int v1; // r4
   int v2; // zf
@@ -170,7 +167,6 @@ int rf_clear_control_bit_b(int result) {
 
 
 // uart_driver_send @ 0x102ccc
-/* luna: Writes 16 packed DCQ/I values to each selected RF bank and propagates them to the applicable mirror tables. */
 int uart_driver_send(int a1, volatile uint16_t *a2) {
   unsigned int v4; // r11
   int v5; // r8
@@ -278,7 +274,6 @@ LABEL_10:
 
 
 // uart_send_data @ 0x102e08
-/* luna: Copies packed records into the selected RF table using a 16- or 32-byte destination stride, bracketed by RF control operations. */
 int uart_send_data(int a1, int a2, unsigned int a3, int a4) {
   int v6; // r6
   int v7; // r4
@@ -340,7 +335,6 @@ int uart_send_data(int a1, int a2, unsigned int a3, int a4) {
 
 
 // hci_send_command @ 0x102e9c
-/* luna: Reads values from a fixed memory location and passes them to the UART data path with selectors 0x20, 0x30, and 0x40. */
 int hci_send_command() {
   uint64_t v0; // kr00_8
   int v1; // r4
@@ -355,7 +349,6 @@ int hci_send_command() {
 
 
 // radio_is_idle @ 0x102ed0
-/* luna: Brings up the RF hardware by synchronizing with its control interface, loading RF configuration, and programming transceiver registers. */
 int radio_is_idle() {
   volatile uint8_t *v0; // r3
   volatile uint32_t *v1; // r2
@@ -482,7 +475,6 @@ int radio_is_idle() {
 
 
 // read_radio_status_flag @ 0x103180
-/* luna: Sets or clears the radio enable bit and, when the RF write gate is set, writes the corresponding RF control value. */
 unsigned int read_radio_status_flag(unsigned int result) {
   if ( result )
   {
@@ -502,7 +494,6 @@ unsigned int read_radio_status_flag(unsigned int result) {
 
 
 // aes_load_key @ 0x1031d8
-/* luna: Computes a clock-derived value from mode flags and calibration data, then stores two successive divider values. */
 volatile uint32_t *aes_load_key() {
   int v0; // r1
   int v1; // r2
@@ -558,7 +549,6 @@ volatile uint32_t *aes_load_key() {
 
 
 // crypto_read_status @ 0x103268
-/* luna: Busy-waits until the hardware counter advances by the requested number of ticks, then returns that count. */
 unsigned int crypto_read_status(unsigned int result) {
   volatile unsigned int v1; // r1
   unsigned int v2; // r3
@@ -1058,7 +1048,6 @@ LABEL_17:
 
 
 // rf_set_control_bit @ 0x103a54
-/* luna: Sets RF/DFE interface control bits, waits for two hardware status bits, and returns the result of checking feature 0x2000. */
 int rf_set_control_bit() {
   volatile uint32_t *v0; // r2
   int v1; // r3
@@ -1099,7 +1088,6 @@ int rf_set_control_bit() {
 
 
 // rf_calibrate @ 0x103afc
-/* luna: Clears selected RF-related MMIO control bits, performs a read, and returns the result of checking feature flag 0x2000 for the WF DFE/RF interface. */
 int rf_calibrate() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r1
@@ -1118,7 +1106,6 @@ int rf_calibrate() {
 
 
 // rf_clear_ana_bits @ 0x103b54
-/* luna: Clears RF control bits 21 and 22, restores them with an MMIO read between transitions, and returns the read value. */
 int rf_clear_ana_bits() {
   volatile uint32_t *v0; // r4
   int result; // r0
@@ -1136,7 +1123,6 @@ int rf_clear_ana_bits() {
 
 
 // bb_start_cmd @ 0x103b8c
-/* luna: Selects a baseband debug signal and configures the controls used to capture and dump it. */
 int bb_start_cmd(int a1) {
   volatile unsigned int *v1; // r2
   volatile int *v2; // r4
@@ -1337,7 +1323,6 @@ LABEL_22:
 
 
 // tx_wait_ready @ 0x103e14
-/* luna: Sets the TX wait flag, spins until the end-address value is nonnegative, then logs completion and requests a 16 KiB dump from 0x00100000. */
 int tx_wait_ready() {
   volatile int *v0; // r4
   volatile int *v1; // r3
@@ -1362,7 +1347,6 @@ int tx_wait_ready() {
 
 
 // scan_enable @ 0x103e90
-/* luna: Copies 288 32-bit table words from the buffer at offset 0x30 into three RF MMIO banks while enabling and then disabling the programming window. */
 volatile int * scan_enable(int a1) {
   volatile unsigned int *v1; // r3
   int v2; // r5
@@ -1416,7 +1400,6 @@ volatile int * scan_enable(int a1) {
 
 
 // mul3 @ 0x103f14
-/* luna: Optionally initializes the selected 12-word RF table entry with defaults, then copies it into the banked hardware table window. */
 int mul3(int a1, int a2, int a3) {
   int v3; // r1
   int v4; // r2
@@ -1496,7 +1479,6 @@ int mul3(int a1, int a2, int a3) {
 
 
 // rf_enable_switch @ 0x103ff4
-/* luna: Programs a five-bit RF switch field and an auxiliary control register, pulsing associated control bits while restoring the original gate-bit state. */
 unsigned int rf_enable_switch(int a1, int a2) {
   volatile unsigned int *v2; // r2
   volatile unsigned int *v3; // r3
@@ -1528,7 +1510,6 @@ unsigned int rf_enable_switch(int a1, int a2) {
 
 
 // bt_radio_init @ 0x104080
-/* luna: Programs radio control registers to bring up and configure the RF hardware. */
 volatile uint32_t *bt_radio_init() {
   volatile unsigned int *v0; // r4
   volatile unsigned int *v1; // r0
@@ -1621,7 +1602,6 @@ volatile unsigned int *rf_disable() {
 
 
 // tx_ring_next_idx @ 0x104274
-/* luna: Computes the next wrapped 14-bit transmit-ring index, advancing by 2*a1 plus a one- or two-slot offset selected by the entry tag and a2. */
 int tx_ring_next_idx(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r3
   int v4; // r4
@@ -1779,7 +1759,6 @@ int mac_config_and_start() {
 
 
 // tx_desc_parse @ 0x1044d0
-/* luna: Reads the selected packed ring entry and returns the sum of squares of its two sign-extended 12-bit components. */
 int tx_desc_parse(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r2
   unsigned int v4; // r0

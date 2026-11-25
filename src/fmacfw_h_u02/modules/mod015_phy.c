@@ -58,7 +58,6 @@ LABEL_17:
 
 
 // invoke_handler @ 0x117f1c
-/* luna: Invokes the registered data provider, wraps its returned buffer in a node, appends it to the transmit queue under IRQ protection, and signals pending  */
 volatile uint32_t *invoke_handler() {
   volatile uint32_t *result; // r0
   volatile uint32_t *v1; // r4
@@ -157,7 +156,6 @@ volatile uint32_t *invoke_handler() {
 
 
 // phy_calibrate_1 @ 0x117ffc
-/* luna: Processes pending transmit-confirmation entries for the selected queue while protecting shared queue state. */
 volatile uint32_t * phy_calibrate_1(int a1) {
   int v1; // s16
   int v2; // r4
@@ -644,7 +642,6 @@ LABEL_36:
 
 
 // phy_dispatch @ 0x118800
-/* luna: Drains a PHY work list, updates each item's descriptor status, and dispatches valid items according to whether the radio can be switched. */
 volatile uint32_t * phy_dispatch(unsigned int a1, int a2, int a3) {
   volatile int16_t **v3; // r8
   volatile uint32_t *v7; // r4
@@ -693,7 +690,6 @@ volatile uint32_t * phy_dispatch(unsigned int a1, int a2, int a3) {
 
 
 // mmio_write @ 0x1188b8
-/* luna: Drains queued PHY DMA entries, updates their associated control words, and allocates a DMA buffer when no entries remain. */
 int mmio_write(int a1, int a2) {
   volatile int16_t **v2; // r5
   int v3; // r7
@@ -746,7 +742,6 @@ LABEL_4:
 
 
 // zero_struct @ 0x11892c
-/* luna: Initializes a PHY-related context and auxiliary state words, then returns the payload address at offset 108 from the supplied base. */
 int zero_struct(int a1, int a2, volatile uint32_t *a3, volatile int *a4) {
   int v8; // r1
   int v9; // r2
@@ -771,7 +766,6 @@ int zero_struct(int a1, int a2, volatile uint32_t *a3, volatile int *a4) {
 
 
 // verify_header_magic @ 0x118970
-/* luna: Initializes PHY context entries and resets the associated shared PHY configuration state. */
 int verify_header_magic(int a1) {
   int v2; // r4
   volatile uint32_t *v3; // r6

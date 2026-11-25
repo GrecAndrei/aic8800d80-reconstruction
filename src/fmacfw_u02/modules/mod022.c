@@ -1,5 +1,4 @@
 // handle_radio_done @ 0x11bee0
-/* luna: Reinitializes radio data while preserving selected state and table fields, then schedules a delayed follow-up when the state flag is set. */
 int handle_radio_done() {
   volatile uint32_t *v0; // r4
   int v1; // r6
@@ -82,7 +81,6 @@ LABEL_14:
 
 
 // parse_rx_header @ 0x11bfac
-/* luna: Scans RX metadata records for the configured PHY report and stores its payload in the caller's inline result buffer, clearing the result for a marker  */
 int parse_rx_header(int a1, int a2) {
   int v2; // r2
   int v3; // r5
@@ -162,7 +160,6 @@ LABEL_9:
 
 
 // update_phy_status @ 0x11c07c
-/* luna: Decodes received PHY-status fields and updates the status context associated with the descriptor’s station and interface. */
 int update_phy_status(int result) {
   volatile uint32_t *v1; // r2
   volatile int16_t *v2; // r1
@@ -322,7 +319,6 @@ LABEL_18:
 
 
 // enable_radio_clock @ 0x11c2f4
-/* luna: Temporarily sets a radio-check flag, checks IRQ status for the supplied value, then clears the flag and checks the power state. */
 void enable_radio_clock(int a1) {
   volatile uint8_t *v1; // r4
 
@@ -336,7 +332,6 @@ void enable_radio_clock(int a1) {
 
 
 // check_radio_interrupt @ 0x11c310
-/* luna: Checks radio readiness and the RF status condition, updates the associated status and control registers when both qualify, and returns the last readin */
 int check_radio_interrupt() {
   int result; // r0
   int v1; // r4
@@ -361,7 +356,6 @@ int check_radio_interrupt() {
 
 
 // mmio_set_radio_bit @ 0x11c350
-/* luna: Sets bit 7 in a fixed radio-related MMIO register. */
 void mmio_set_radio_bit() {
   *(volatile uint32_t *)off_11C35C |= 0x80u;
 }
@@ -375,7 +369,6 @@ int nullsub_8(void) {
 
 
 // get_phy_descriptor @ 0x11c364
-/* luna: Selects a PHY descriptor from a flagged configuration when available, otherwise using a cached descriptor or encoding a byte from the supplied context */
 int get_phy_descriptor(int a1, int a2) {
   int v2; // r3
 
@@ -390,7 +383,6 @@ int get_phy_descriptor(int a1, int a2) {
 
 
 // get_channel_number @ 0x11c394
-/* luna: Decodes packed PHY channel metadata into bandwidth and configuration outputs, performs conditional radio-bit clears, and returns the derived channel n */
 unsigned int get_channel_number(int a1, int a2, volatile uint32_t *a3, volatile uint32_t *a4, volatile uint32_t *a5, volatile int *a6) {
   unsigned int v6; // r4
   int v7; // r8
@@ -456,7 +448,6 @@ LABEL_3:
 
 
 // remove_tx_buffer @ 0x11c490
-/* luna: Writes four packed TX-buffer entries to a hardware register bank, merges optional per-entry bits, and triggers the update. */
 int remove_tx_buffer(int a1) {
   volatile uint8_t *v1; // r6
   int v2; // r7
@@ -493,7 +484,6 @@ int remove_tx_buffer(int a1) {
 
 
 // set_short_address @ 0x11c4e4
-/* luna: Copies the supplied two-byte short address into a global context field and returns the original pointer. */
 volatile uint8_t * set_short_address(volatile uint8_t *result) {
   volatile uint8_t *v1; // r3
 
@@ -506,7 +496,6 @@ volatile uint8_t * set_short_address(volatile uint8_t *result) {
 
 
 // get_pair_by_id @ 0x11c4f8
-/* luna: If the indexed record's gate field is set, marks the record and conditionally stores the supplied value, then returns that value. */
 int get_pair_by_id(int result, int a2) {
   int v2; // r2
   int v3; // r3
@@ -525,7 +514,6 @@ int get_pair_by_id(int result, int a2) {
 
 
 // arm_timer @ 0x11c528
-/* luna: Stores the caller-supplied value in a timer context and submits it with a deadline 5000 units after a retrieved time value. */
 int arm_timer(int a1) {
   volatile uint32_t *v1; // r3
   int v2; // r1
@@ -540,7 +528,6 @@ int arm_timer(int a1) {
 
 
 // check_channel_busy @ 0x11c550
-/* luna: Delegates packet checking when the indexed entry has a valid 16-bit value and the global mode is not 2; otherwise it returns the original pointer. */
 volatile unsigned int * check_channel_busy(volatile unsigned int *result) {
   int v1; // r2
 
@@ -553,7 +540,6 @@ volatile unsigned int * check_channel_busy(volatile unsigned int *result) {
 
 
 // wait_channel_clear @ 0x11c588
-/* luna: When the indexed channel measurement is valid and the mode permits it, checks each of four packet slots against an associated context value. */
 volatile unsigned int * wait_channel_clear(volatile unsigned int *result) {
   int v1; // r2
   int v2; // r5

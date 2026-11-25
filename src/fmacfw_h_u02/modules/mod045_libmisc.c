@@ -224,7 +224,6 @@ LABEL_8:
 
 
 // list_find_prev @ 0x12d2c4
-/* luna: Handles head and null-target cases with dedicated helpers; otherwise links the new node immediately before the target node. */
 volatile uint32_t * list_find_prev(volatile uint32_t *result, volatile uint32_t *a2, volatile uint32_t *a3) {
   volatile uint32_t **v3; // r3
 
@@ -350,7 +349,6 @@ unsigned int crc32_update(volatile uint8_t *a1, int a2, unsigned int a3) {
 
 
 // load_version_string @ 0x12d3e0
-/* luna: Remaps an intermediate float’s mantissa using a 32-segment slope-and-base table while retaining its exponent and clearing its sign. */
 int load_version_string(int a1) {
   volatile int *v1; // r5
   uint64_t v3; // r0
@@ -447,7 +445,6 @@ unsigned int f32_to_f16(unsigned int a1) {
 
 
 // log_float_converted @ 0x12d5a0
-/* luna: Converts the input to half precision, applies a double-precision operation against a constant, and converts the result to an integer. */
 unsigned int log_float_converted(unsigned int a1) {
   unsigned int v1; // r0
   uint64_t v2; // r0

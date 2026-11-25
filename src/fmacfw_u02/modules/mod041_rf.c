@@ -529,6 +529,7 @@ int rf_calib_valid(int a1) {
 
 
 // rf_test_packet_fill @ 0x12abb0
+/* luna: Writes the Wi-Fi P2P vendor-specific IE and Notice of Absence attribute prefix, leaving the IE length byte unchanged. */
 volatile uint8_t * rf_test_packet_fill(volatile uint8_t *result) {
   *result = -35;
   result[2] = 80;

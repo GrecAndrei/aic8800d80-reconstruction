@@ -1,5 +1,4 @@
 // tx_pending_check @ 0x1161e4
-/* luna: Checks and prepares a station's pending TX frame, updates associated TX queue state, and invokes station rate-status processing. */
 int tx_pending_check(int a1, int a2) {
   int v2; // r3
   volatile uint32_t *v3; // r5
@@ -287,7 +286,6 @@ LABEL_7:
 
 
 // conn_table_get @ 0x116540
-/* luna: Selects the connection-table entry from the request index, marks and dispatches the request, then returns the resolved connection parameters. */
 int conn_table_get(int a1, char a2) {
   int v2; // r6
   int v4; // r5
@@ -499,7 +497,6 @@ LABEL_4:
 
 
 // phy_set_cfg @ 0x116860
-/* luna: Associates a configuration with the indexed PHY context, applying it immediately or recording it for deferred application according to the radio state */
 int phy_set_cfg(int result, int a2, int a3) {
   int v4; // r6
   volatile int *v6; // r5

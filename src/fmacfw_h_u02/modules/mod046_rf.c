@@ -110,7 +110,6 @@ LABEL_13:
 
 
 // check_buf_range_12d75c @ 0x12d75c
-/* luna: Scans a bounded sequence of type-length-value records and returns the first type-1 record with a payload length from 1 to 12, storing that length thro */
 volatile uint8_t * check_buf_range_12d75c(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -180,7 +179,6 @@ volatile uint8_t * check_buf_range_12d79c(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d7d8 @ 0x12d7d8
-/* luna: Scans length-prefixed buffer entries to a zero-tag terminator, validates their bounds and the terminator length, stores that length, and returns the t */
 volatile uint8_t * check_buf_range_12d7d8(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r5
@@ -212,7 +210,6 @@ volatile uint8_t * check_buf_range_12d7d8(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d818 @ 0x12d818
-/* luna: Scans a bounded sequence of type-length-value records for tag 7 and returns the matching record only if it is fully in bounds and has a payload of at  */
 volatile uint8_t * check_buf_range_12d818(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -282,7 +279,6 @@ volatile uint8_t * check_buf_range_12d854(volatile uint8_t *result, int a2, vola
 
 
 // log_message_level @ 0x12d890
-/* luna: Parses a test parameter, rejects values of 23 or less, and stores the accepted value minus two in the output byte. */
 volatile uint8_t * log_message_level(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   uint16_t v5; // [sp+Eh] [bp-2h] BYREF
@@ -301,7 +297,6 @@ volatile uint8_t * log_message_level(volatile uint8_t *a1, int a2, volatile uint
 
 
 // check_buf_range_12d8bc @ 0x12d8bc
-/* luna: Scans a length-prefixed buffer for tag 0x44 and returns its address while storing the payload length only if the complete record is in bounds and its  */
 volatile uint8_t * check_buf_range_12d8bc(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -336,7 +331,6 @@ volatile uint8_t * check_buf_range_12d8bc(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d8f8 @ 0x12d8f8
-/* luna: Scans length-prefixed records and returns the first complete record with tag 0x25 and a declared payload length of 3, or NULL. */
 volatile uint8_t * check_buf_range_12d8f8(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -396,7 +390,6 @@ volatile uint8_t * check_buf_range_12d938(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12d978 @ 0x12d978
-/* luna: Scans a length-prefixed byte sequence for tag 0x3E, returning its record pointer and reporting whether its payload length is one byte. */
 volatile uint8_t * test_arg2_one_12d978(volatile uint8_t *result, int a2, volatile int *a3) {
   unsigned int v3; // r1
   volatile uint8_t *v4; // r4
@@ -423,7 +416,6 @@ volatile uint8_t * test_arg2_one_12d978(volatile uint8_t *result, int a2, volati
 
 
 // test_arg2_one_12d9bc @ 0x12d9bc
-/* luna: Scans for a 0xC4 container and returns its well-formed 0xC2 subelement, setting the output flag when the subelement payload length is 3. */
 volatile uint8_t * test_arg2_one_12d9bc(volatile uint8_t *result, int a2, volatile int *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -530,7 +522,6 @@ volatile uint8_t * test_arg2_one_12da60(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12daa0 @ 0x12daa0
-/* luna: Scans a bounded information-element sequence for element ID 42 and returns it only if its payload length is exactly one byte. */
 volatile uint8_t * test_arg2_one_12daa0(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -590,7 +581,6 @@ volatile uint8_t * test_arg2_one_12dae0(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12db20 @ 0x12db20
-/* luna: Scans a bounded TLV buffer for tag 0x20 with a one-byte payload and returns its record pointer, or NULL if absent or invalid. */
 volatile uint8_t * test_arg2_one_12db20(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -650,7 +640,6 @@ volatile uint8_t * test_arg2_one_12db60(volatile uint8_t *result, int a2) {
 
 
 // format_log_message_12dba0 @ 0x12dba0
-/* luna: Formats a message into the supplied buffer and returns the formatter result only if its recorded output length is 26. */
 volatile uint8_t * format_log_message_12dba0(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   uint16_t v3[3]; // [sp+Eh] [bp-6h] BYREF
@@ -667,7 +656,6 @@ volatile uint8_t * format_log_message_12dba0(volatile uint8_t *a1, int a2) {
 
 
 // test_arg2_one_12dbc8 @ 0x12dbc8
-/* luna: Scans bounded marker-and-length records and returns the first record marked '-' with a length byte of 26, or NULL if none is found. */
 volatile uint8_t * test_arg2_one_12dbc8(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -697,7 +685,6 @@ volatile uint8_t * test_arg2_one_12dbc8(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12dc08 @ 0x12dc08
-/* luna: Scans a bounded sequence of two-byte-header elements for ID 0x47 and returns its start only if its encoded length is at least six bytes and fits withi */
 volatile uint8_t * test_arg2_one_12dc08(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   unsigned int v3; // r3
@@ -729,7 +716,6 @@ volatile uint8_t * test_arg2_one_12dc08(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12dc48 @ 0x12dc48
-/* luna: Scans length-prefixed records and returns the zero-tagged terminal record only when the supplied offset reaches or passes its end and the record is at */
 volatile uint8_t * test_arg2_one_12dc48(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   unsigned int v3; // r3
@@ -791,7 +777,6 @@ volatile uint8_t * test_arg2_one_12dc90(volatile uint8_t *result, int a2) {
 
 
 // sub_12DCD0 @ 0x12dcd0
-/* luna: Scans a length-prefixed buffer for a tag-0x55 entry and returns its start if its length is nonzero and the entry fits within the buffer. */
 volatile uint8_t * sub_12DCD0(volatile uint8_t *result, int a2) {
   volatile uint8_t *v2; // r1
   volatile uint8_t *v3; // r2
@@ -858,7 +843,6 @@ volatile uint8_t * test_arg2_one_12dd10(volatile uint8_t *result, int a2) {
 
 
 // emit_hash_12dd50 @ 0x12dd50
-/* luna: Parses a value from the input, accepts only values from 24 through 57, stores the accepted value minus 3 in the output byte, and returns NULL on parse */
 volatile uint8_t * emit_hash_12dd50(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   uint16_t v5; // [sp+6h] [bp-2h] BYREF
@@ -937,7 +921,6 @@ volatile uint8_t * test_arg2_one_12ddb8(volatile uint8_t *result, int a2) {
 
 
 // emit_dollar_12ddf8 @ 0x12ddf8
-/* luna: Parses a value using the `$`-tagged range check, accepts values from 9 through 18, and stores the value minus 3. */
 volatile uint8_t * emit_dollar_12ddf8(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   uint16_t v5; // [sp+6h] [bp-2h] BYREF
@@ -956,7 +939,6 @@ volatile uint8_t * emit_dollar_12ddf8(volatile uint8_t *a1, int a2, volatile uin
 
 
 // emit_ampersand_12de20 @ 0x12de20
-/* luna: Returns the input pointer only if range_overflow_check succeeds and its first parsed value is 16. */
 volatile uint8_t * emit_ampersand_12de20(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   uint16_t v3[3]; // [sp+6h] [bp-6h] BYREF
@@ -973,7 +955,6 @@ volatile uint8_t * emit_ampersand_12de20(volatile uint8_t *a1, int a2) {
 
 
 // emit_percent_12de40 @ 0x12de40
-/* luna: Checks the percent token and returns the range-check result only when its decoded kind is 4. */
 volatile uint8_t * emit_percent_12de40(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   uint16_t v3[3]; // [sp+6h] [bp-6h] BYREF
@@ -998,7 +979,6 @@ int rf_get_freq_field(int a1) {
 
 
 // rf_calc_whitening @ 0x12de70
-/* luna: Encodes the low nine bits of the supplied value together with a nibble-derived selector from byte offset 5 into an RF control field. */
 int rf_calc_whitening(int a1, int16_t a2) {
   return dword_12DE90
        & ((((32 * (*(volatile uint8_t *)(a1 + 5) ^ (*(volatile uint8_t *)(a1 + 5) >> 4))) & 0x1E0) + (a2 & 0x1FF)) << 22)
@@ -1008,7 +988,6 @@ int rf_calc_whitening(int a1, int16_t a2) {
 
 
 // is_factory_mode_a @ 0x12de94
-/* luna: Converts recognized factory-test selector codes to internal IDs and returns 255 for unsupported codes. */
 int is_factory_mode_a(volatile char *a1) {
   int result; // r0
 
@@ -1103,7 +1082,6 @@ int is_factory_mode_a(volatile char *a1) {
 
 
 // is_factory_mode_b @ 0x12df40
-/* luna: Maps recognized factory-mode-B codes to selector values and returns 255 for unrecognized codes. */
 int is_factory_mode_b(unsigned int a1) {
   int result; // r0
 
@@ -1175,7 +1153,6 @@ int is_factory_mode_b(unsigned int a1) {
 
 
 // is_ptr_nonnull @ 0x12dfc0
-/* luna: Maps RSSI values from −110 to 0 dBm onto 0 to 220, saturating values outside that range. */
 int is_ptr_nonnull(int a1) {
   if ( a1 >= 0 )
     return 220;
@@ -1187,7 +1164,6 @@ int is_ptr_nonnull(int a1) {
 
 
 // rx_process_packet_2 @ 0x12dfdc
-/* luna: Parses a printf-style format string and emits the formatted result through the supplied output path. */
 unsigned int rx_process_packet_2(volatile char *a1, int a2, unsigned int a3, volatile uint8_t *a4, volatile unsigned int *a5) {
   int v7; // r2
   volatile uint8_t *v8; // r5
@@ -1980,7 +1956,6 @@ int set_global_field0(int result) {
 
 
 // set_global_field4 @ 0x12e8f8
-/* luna: Stores a value in the 32-bit global field at offset 4 and returns that value. */
 int set_global_field4(int result) {
   *((volatile uint32_t *)off_12E900 + 1) = result;
   return result;
@@ -1989,7 +1964,6 @@ int set_global_field4(int result) {
 
 
 // get_global_field0 @ 0x12e904
-/* luna: Returns the 32-bit value stored at the fixed global field-0 address. */
 int get_global_field0() {
   return *(volatile uint32_t *)off_12E90C;
 }
@@ -2005,7 +1979,6 @@ int get_global_field4() {
 
 
 // is_id_lt_10 @ 0x12e91c
-/* luna: Returns true when the index is below 10, its bit is set in the global bitmap, and the adjacent global value is at least the requested value. */
 BOOL is_id_lt_10(unsigned int a1, unsigned int a2) {
   BOOL result; // r0
 
@@ -2020,7 +1993,6 @@ BOOL is_id_lt_10(unsigned int a1, unsigned int a2) {
 
 
 // alloc_tx_event @ 0x12e948
-/* luna: Checks up to two high-bit tag bytes against the debug filter, then forwards the remaining format string and arguments to the test-print backend. */
 int alloc_tx_event(const volatile char *fmt, ...) {
   volatile uint32_t *v1; // r6
   const volatile char *v2; // r4
@@ -2067,7 +2039,6 @@ int alloc_tx_event(const volatile char *fmt, ...) {
 
 
 // process_packet_params @ 0x12e9d8
-/* luna: Emits a hexadecimal dump of the requested memory range in 16-byte lines, optionally appending a printable-ASCII column. */
 int process_packet_params(int result, int a2, int a3, int a4) {
   int v4; // r4
   unsigned int v5; // r5
@@ -2223,7 +2194,6 @@ LABEL_30:
 
 
 // check_feature_flag @ 0x12eb90
-/* luna: Formats and emits a test message when the supplied flag intersects the enabled-test mask; otherwise returns the flag unchanged. */
 int check_feature_flag(int a1, const volatile char *fmt, ...) {
   va_list varg_r2; // [sp+10h] [bp+8h] BYREF
 

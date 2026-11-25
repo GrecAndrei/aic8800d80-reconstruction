@@ -1,5 +1,4 @@
 // mmio_ring_init @ 0x123884
-/* luna: Builds a status PDU from MMIO snapshots and RF state bits, then passes it to the packet processor. */
 int mmio_ring_init(int a1, int a2, int a3, int a4) {
   int v4; // r0
   volatile uint32_t *v5; // r5
@@ -50,7 +49,6 @@ LABEL_3:
 
 
 // list_check_first @ 0x123954
-/* luna: Programs the RF from the supplied channel configuration, waits for hardware readiness, and performs channel-dependent MAC and command post-processing. */
 void list_check_first(int a1, int a2, int a3, int a4) {
   volatile int16_t **v4; // r8
   int v5; // r0
@@ -85,7 +83,6 @@ LABEL_7:
 
 
 // list_find_entry @ 0x123a28
-/* luna: Classifies and preprocesses a command, invoking the callback when the command is accepted. */
 int list_find_entry(int a1, void ( **a2)(int), unsigned int a3) {
   volatile int16_t **v3; // r5
   int result; // r0
@@ -117,7 +114,6 @@ int list_find_entry(int a1, void ( **a2)(int), unsigned int a3) {
 
 
 // classify_command @ 0x123ab4
-/* luna: Routes a command by its HCI class, applying RF and MAC updates on the direct path and returning 2 for special or preprocessed cases. */
 int classify_command(int a1, volatile uint8_t *a2, unsigned int a3, int a4) {
   int v7; // r2
   volatile uint16_t *v8; // r5
@@ -981,7 +977,6 @@ int mmio_read_status(volatile uint16_t *a1) {
 
 
 // scan_param_update @ 0x1248e4
-/* luna: Updates an indexed scan-parameter record, mirrors its nonzero words into active hardware slots, and applies the associated control fields. */
 int scan_param_update(volatile uint8_t *a1) {
   volatile int *v1; // r3
   int v2; // r4
@@ -1070,7 +1065,6 @@ int scan_param_update(volatile uint8_t *a1) {
 
 
 // mmio_read_byte @ 0x1249fc
-/* luna: Writes six byte parameters to designated MMIO registers, scaling the first three by a register-derived byte, then allocates a vendor-timestamp TX even */
 int mmio_read_byte(volatile uint8_t *a1) {
   int v1; // r1
   int v3; // r3
@@ -1114,7 +1108,6 @@ int mmio_read_byte(volatile uint8_t *a1) {
 
 
 // check_flag_bit @ 0x124ad4
-/* luna: Applies fields from a five-byte vendor CCA parameter block to MMIO and then invokes packet-parameter processing. */
 int check_flag_bit(volatile uint8_t *a1) {
   int v1; // r3
 
@@ -1137,7 +1130,6 @@ int check_flag_bit(volatile uint8_t *a1) {
 
 
 // cmd_dispatch @ 0x124b74
-/* luna: Dispatches recognized vendor command opcodes using the request payload, then writes a command-response header. */
 int cmd_dispatch(int a1, int a2, int a3, int a4) {
   int v6; // r1
   int a3a; // [sp+4h] [bp-4h]
@@ -1192,7 +1184,6 @@ unsigned int is_time_before(int a1, int a2) {
 
 
 // deinit_global_0x18fb00 @ 0x124bf0
-/* luna: Clears the statistics buffer referenced by the global pointer and returns the callee's result. */
 int deinit_global_0x18fb00() {
   return (int)(uintptr_t)(clear_stats_buf((void *)(uintptr_t)(dword_124BF8)));
 }

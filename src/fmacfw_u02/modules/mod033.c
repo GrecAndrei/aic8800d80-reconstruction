@@ -49,18 +49,19 @@ LABEL_3:
 
 
 // lld_evt_schedule_next @ 0x123a94
+/* luna: Handles the MAC-manager start request by initializing radio and peripheral state, applying request configuration, and conditionally sending a no-param */
 int lld_evt_schedule_next(int a1, int a2, unsigned int a3, int a4) {
-  volatile int16_t **v4; // r8
-  int v5; // r0
+  volatile int16_t **status_ptr; // r8
+  int initial_status; // r0
   struct __attribute__((packed)) { uint16_t a1a[2]; // [sp+4h] [bp-24h] BYREF
   int v11; // [sp+8h] [bp-20h]
   char _pad2[1]; char v12; // [sp+Dh] [bp-1Bh]
   char _pad3[2]; uint32_t v13[6]; // [sp+10h] [bp-18h] BYREF
   } _frame;
-  v4 = (volatile int16_t **)off_123B64;
-  v5 = **(volatile int16_t **)off_123B64;
+  status_ptr = (volatile int16_t **)off_123B64;
+  initial_status = **(volatile int16_t **)off_123B64;
   memset((void *)(_frame.v13), 0, sizeof(_frame.v13));
-  if ( v5 < 0 && rx_rate_field_parse(a3) )
+  if ( initial_status < 0 && rx_rate_field_parse(a3) )
     mmio_clear_register((int)aKeStateGetDest, (int)aMmStartReqHand, 337);
   periph_init((volatile int *)a2);
   *(volatile uint32_t *)_frame.a1a = dword_123B4C;
@@ -70,7 +71,7 @@ int lld_evt_schedule_next(int a1, int a2, unsigned int a3, int a4) {
   util_format(15);
   *((volatile uint16_t *)off_123B50 + 14) = *(volatile uint16_t *)(a2 + 68);
   timer_queue_init((int)_frame.v13);
-  if ( **v4 < 0 && (uint8_t)a4 > 0xEu )
+  if ( **status_ptr < 0 && (uint8_t)a4 > 0xEu )
   {
     mmio_clear_register((int)aIdTaskMax, (int)aKeTaskLocal_2, 183);
     goto LABEL_7;

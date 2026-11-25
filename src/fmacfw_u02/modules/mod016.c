@@ -1,5 +1,4 @@
 // ll_queue_advance @ 0x118bb8
-/* luna: Selects a predefined PHY transmit configuration or preserves the current one, patches a field from a hardware register value, and initializes the asso */
 int ll_queue_advance(int a1, int a2, int a3) {
   uint64_t v3; // kr00_8
   int v5; // r1
@@ -47,7 +46,6 @@ int ll_queue_advance(int a1, int a2, int a3) {
 
 
 // ke_mutex_guard @ 0x118c44
-/* luna: Returns the current TX-list frame after advancing its queue state, or reports that no frame is available. */
 volatile uint32_t * ke_mutex_guard(int a1, int a2) {
   volatile uint32_t *v4; // r0
   volatile uint32_t *v5; // r4
@@ -68,7 +66,6 @@ volatile uint32_t * ke_mutex_guard(int a1, int a2) {
 
 
 // tx_path_status @ 0x118c74
-/* luna: Prepares radio-path control state from the current hardware configuration, then invokes the PHY radio initializer. */
 int tx_path_status(int a1, int a2) {
   uint64_t v2; // kr00_8
   int v3; // r2
@@ -107,7 +104,6 @@ int free_buf_1882c0(volatile uint32_t *a1) {
 
 
 // scan_control @ 0x118cfc
-/* luna: Dispatches the command when its skip flag is clear, then optionally invokes its completion callback with status zero. */
 int scan_control(int result, int a2) {
   int v2; // r4
   int ( *v4)(uint32_t, uint32_t); // r3
@@ -126,7 +122,6 @@ int scan_control(int result, int a2) {
 
 
 // tx_pool_init @ 0x118d28
-/* luna: Drains pending transmit completions, decrementing the queue count and dispatching each item's callback or fallback handler. */
 volatile uint32_t *tx_pool_init() {
   volatile int *v0; // r8
   volatile int *v1; // r7
@@ -182,7 +177,6 @@ volatile uint32_t *tx_pool_init() {
 
 
 // rf_channel_get @ 0x118dc4
-/* luna: Builds a channel-operation descriptor from the selected channel entry and its RF configuration after checking temperature state. */
 int rf_channel_get(int a1, int a2, int a3) {
   int v3; // r9
   int v4; // r5
@@ -288,7 +282,6 @@ LABEL_4:
 
 
 // rf_channel_set @ 0x118f48
-/* luna: Builds a channel-programming request for the selected PHY and advances it through the TX-path state machine after checking temperature-dependent setti */
 int rf_channel_set(int a1, int16_t a2, int a3, int a4) {
   int v4; // r11
   int v5; // r4
@@ -375,7 +368,6 @@ LABEL_4:
 
 
 // phy_channel_is_5g @ 0x11908c
-/* luna: Selects the RF channel operation from the indexed context flag, calling channel set with selector 7 when bit 5 is set and channel get otherwise. */
 int phy_channel_is_5g(int a1, int a2, int a3) {
   if ( (*(volatile uint32_t *)(dword_1190B0 + 696 * a1 + 4) & 0x20) != 0 )
     return rf_channel_set(a1, 7, a2, a3);
@@ -386,7 +378,6 @@ int phy_channel_is_5g(int a1, int a2, int a3) {
 
 
 // phy_channel_get_attr @ 0x1190b4
-/* luna: Populates the selected channel's transmit-path configuration and returns whether the path-status check succeeds. */
 BOOL phy_channel_get_attr(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8) {
   int v8; // r10
   int v9; // r8
@@ -487,7 +478,6 @@ LABEL_7:
 
 
 // bt_link_state_check @ 0x119264
-/* luna: Builds and queues an 802.11 probe-response frame addressed to the supplied peer MAC using the selected VIF's address and response template. */
 int bt_link_state_check(int a1, volatile char *a2) {
   int v2; // r3
   int v3; // r3
@@ -569,7 +559,6 @@ LABEL_5:
 
 
 // lookup_table_u16 @ 0x11939c
-/* luna: Returns a 16-bit entry from a global table using an index combined from the two arguments. */
 int lookup_table_u16(int a1, int a2) {
   return *(volatile uint16_t *)(dword_1193A8 + 2 * (a1 | (2 * a2)));
 }
@@ -577,7 +566,6 @@ int lookup_table_u16(int a1, int a2) {
 
 
 // lookup_table_u8 @ 0x1193ac
-/* luna: Returns the 8-bit value at the table base plus the combined offset formed from its two arguments. */
 int lookup_table_u8(int a1, int a2) {
   return *(volatile uint8_t *)(dword_1193B8 + (a1 | (2 * a2)));
 }
@@ -585,7 +573,6 @@ int lookup_table_u8(int a1, int a2) {
 
 
 // phy_channel_select @ 0x1193bc
-/* luna: Populates a PHY configuration block with channel-indexed table and profile values, then returns a mode word derived from a5. */
 int phy_channel_select(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5) {
   volatile int *v5; // r7
   int v6; // r6
@@ -623,7 +610,6 @@ int phy_channel_select(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5) {
 
 
 // get_hw_pointer @ 0x119448
-/* luna: Traverses PHY configuration nodes, writes a shared value through each active node until the 0x380000 flag pattern is found, and returns a global signe */
 volatile int16_t * get_hw_pointer(volatile int16_t *result) {
   int v1; // r2
   int v2; // r1

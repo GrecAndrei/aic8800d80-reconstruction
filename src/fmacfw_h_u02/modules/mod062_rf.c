@@ -113,7 +113,6 @@ if ( ((int (*)())cfm_radio_check)((volatile uint8_t *)&_frame.a1a, &_frame.a2a, 
 
 
 // is_hci_ready @ 0x136528
-/* luna: When the referenced signed state is negative and the control flag is set, performs a guarded MMIO write, then returns the stats-buffer pointer. */
 volatile uint32_t *is_hci_ready() {
   if ( **(volatile int16_t **)off_13655C >= 0 || !*((volatile uint32_t *)off_136564 + 1) )
     return clear_stats_buf((volatile uint32_t *)dword_136560);
@@ -124,7 +123,6 @@ volatile uint32_t *is_hci_ready() {
 
 
 // is_ble_connected @ 0x136570
-/* luna: When the request guard fields match, toggles the shared RF power state, initializing the PMU and recording the request on activation or disabling the  */
 volatile uint32_t * is_ble_connected(volatile uint32_t *result) {
   volatile uint32_t *v1; // r4
   volatile uint32_t *v2; // r6
@@ -176,7 +174,6 @@ int reset_hci_control_block() {
 
 
 // send_vendor_hci_command @ 0x1365f4
-/* luna: Queues a vendor HCI PDU for the selected link, initializing additional per-link RF state when the command selector is zero. */
 int send_vendor_hci_command(int a1) {
   volatile uint32_t *v1; // r8
   int v3; // r6
@@ -244,7 +241,6 @@ int send_vendor_hci_command(int a1) {
 
 
 // acquire_lock_check_state @ 0x1366e0
-/* luna: Pops an RX buffer, conditionally disables an MMIO interrupt when the state is negative and no buffer is available, then passes the buffer payload to t */
 int acquire_lock_check_state() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r4
@@ -259,7 +255,6 @@ int acquire_lock_check_state() {
 
 
 // send_hci_event_1 @ 0x136724
-/* luna: Queues several HCI notifications for the current connection, updates its state flags, and preprocesses the pending HCI command. */
 int send_hci_event_1() {
   int v0; // r11
   int v1; // r4
@@ -320,7 +315,6 @@ int send_hci_event_1() {
 
 
 // send_hci_command @ 0x13684c
-/* luna: Builds an HCI PDU from the saved command data, passes it through the packet processor, and invokes preprocessing for command 7, subcommand 2. */
 int send_hci_command() {
   int v0; // r4
   int v1; // r0
@@ -342,7 +336,6 @@ int send_hci_command() {
 
 
 // send_ble_hci_command @ 0x13688c
-/* luna: Sends per-link control messages, selects radio parameters from another eligible link, and performs link-specific low-power cleanup. */
 int send_ble_hci_command(int a1) {
   volatile uint8_t *v2; // r6
   int v3; // r0
@@ -422,7 +415,6 @@ LABEL_6:
 
 
 // get_connection_state @ 0x1369c8
-/* luna: Returns 0 only when the indexed context and connection records meet their state checks and the connection record’s low two flag bits are clear, settin */
 int get_connection_state(int a1) {
   unsigned int v1; // r3
   int v2; // r2
@@ -448,7 +440,6 @@ int get_connection_state(int a1) {
 
 
 // lookup_conn_params @ 0x136a28
-/* luna: Checks the input record against per-connection parameter bits, records one-time handling flags, and submits a connection-related PDU when the selected */
 int lookup_conn_params(int result, int a2) {
   int v3; // r3
   int v4; // r0
@@ -482,7 +473,6 @@ LABEL_5:
 
 
 // handle_acl_packet @ 0x136a90
-/* luna: Selects and removes an eligible ACL queue entry, updates queue bookkeeping, and signals when no further eligible entry remains. */
 volatile int ** handle_acl_packet(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r7
   int v5; // r2
@@ -576,7 +566,6 @@ LABEL_20:
 
 
 // rf_get_rate_table_index @ 0x136bd4
-/* luna: Checks a connection’s pending rate-event flags and emits a control PDU when the handled flags leave none pending. */
 int rf_get_rate_table_index(int result, int a2) {
   int v2; // r4
   char v3; // r1
@@ -678,7 +667,6 @@ LABEL_6:
 
 
 // rf_rate_code_check @ 0x136d34
-/* luna: Marks AP low-power entry and allocates the corresponding AP_LP_ENTER transmit event. */
 int rf_rate_code_check() {
   *(volatile uint8_t *)off_136D40 = 1;
   return alloc_tx_event(aApLpEnter);
@@ -686,7 +674,6 @@ int rf_rate_code_check() {
 
 
 // rf_rate_code_check_alt @ 0x136d48
-/* luna: Clears a byte-sized state flag and allocates a TX event for AP low-power exit. */
 int rf_rate_code_check_alt() {
   *(volatile uint8_t *)off_136D54 = 0;
   return alloc_tx_event(aApLpExit);
@@ -768,7 +755,6 @@ int rf_trace_tx_power(int a1, volatile uint8_t *a2, int a3, int16_t a4) {
 
 
 // rf_trace_lo_offset @ 0x136dbc
-/* luna: Sends a four-byte RF trace payload for the LO offset and processes the resulting packet. */
 int rf_trace_lo_offset(int a1, int a2, int a3, int a4) {
   int v4; // r0
 
@@ -808,7 +794,6 @@ int rf_trace_rate_set(int a1, int a2, int a3, int a4) {
 
 
 // rf_calibration_meas @ 0x136e44
-/* luna: Emits a feature-flagged SCANU request trace using the supplied value and a 16-bit global value, then returns 2. */
 int rf_calibration_meas(int a1, int a2, int a3, int a4) {
   check_feature_flag(8, "scanning scanu req:%d,%d\n", a4, *((volatile uint16_t *)off_136E5C + 1924));
   return 2;
@@ -816,7 +801,6 @@ int rf_calibration_meas(int a1, int a2, int a3, int a4) {
 
 
 // rf_trace_rate_set2 @ 0x136e64
-/* luna: Copies the supplied trace-rate payload into the shared buffer, builds a response PDU, and submits it for processing. */
 int rf_trace_rate_set2(int a1, volatile char *a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
   volatile char *v6; // r0

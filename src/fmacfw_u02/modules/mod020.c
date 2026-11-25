@@ -1,5 +1,4 @@
 // check_link_state @ 0x11b240
-/* luna: Scans link slots for an eligible connection, processes its transmit request, and updates the selected transmit descriptor. */
 int check_link_state(volatile int *a1) {
   volatile uint16_t *v1; // r6
   int v2; // r3
@@ -96,7 +95,6 @@ LABEL_4:
 
 
 // get_slot_context @ 0x11b368
-/* luna: Clears a pending slot marker and, unless the slot is currently active, validates and clears its associated stored value. */
 int get_slot_context(int result) {
   volatile uint32_t *v1; // r6
   volatile char *v2; // r3
@@ -128,7 +126,6 @@ int get_slot_context(int result) {
 
 
 // invalid_handler_1 @ 0x11b3b8
-/* luna: Processes a link slot's pending context and countdown state, dispatching its worker while maintaining the interrupt guard. */
 int invalid_handler_1(int a1) {
   unsigned int CPSR; // r3
   int result; // r0

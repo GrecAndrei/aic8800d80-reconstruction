@@ -249,40 +249,41 @@ int global_state_get(volatile uint32_t *a1) {
 
 
 // rf_tx_flag_check @ 0x124fa0
+/* luna: Handles an AP-mode station probe result, recording a success timestamp or queuing a follow-up message after repeated failures. */
 int rf_tx_flag_check(volatile uint8_t *a1, int a2) {
-  int v3; // r2
+  int probe_fail_count; // r2
   int result; // r0
-  unsigned int v5; // r3
-  volatile unsigned int v6; // r2
-  volatile uint8_t *v7; // r0
-  int v8; // r6
+  unsigned int sta_idx; // r3
+  volatile unsigned int probe_timestamp; // r2
+  volatile uint8_t *msg_payload; // r0
+  int msg_ptr; // r6
 
   if ( (a2 & 0x800000) != 0 )
   {
     result = event_dispatch("%s: sta probe succ\n", aApmProbeStaCfm);
-    v5 = (uint8_t)a1[35];
+    sta_idx = (uint8_t)a1[35];
     a1[668] = 0;
-    if ( v5 <= 0x23 )
+    if ( sta_idx <= 0x23 )
     {
-      v6 = (*(volatile uint32_t *)0x40501010u);
-      *(volatile uint32_t *)(dword_125034 + 696 * v5 + 664) = v6;
+      probe_timestamp = (*(volatile uint32_t *)0x40501010u);
+      *(volatile uint32_t *)(dword_125034 + 696 * sta_idx + 664) = probe_timestamp;
       return 696;
     }
   }
   else
   {
-    v3 = (uint8_t)(a1[668] + 1);
-    a1[668] = v3;
-    result = event_dispatch("%s: sta probe fail:%d\n", aApmProbeStaCfm, v3);
+    probe_fail_count = (uint8_t)(a1[668] + 1);
+    a1[668] = probe_fail_count;
+    result = event_dispatch("%s: sta probe fail:%d\n", aApmProbeStaCfm, probe_fail_count);
     if ( (uint8_t)a1[668] > 9u )
     {
-      v7 = (volatile uint8_t *)ke_msg_alloc(125, 13, 0, 8);
-      *v7 = a1[35];
-      v7[1] = a1[34];
-      v8 = (int)v7;
+      msg_payload = (volatile uint8_t *)ke_msg_alloc(125, 13, 0, 8);
+      *msg_payload = a1[35];
+      msg_payload[1] = a1[34];
+      msg_ptr = (int)msg_payload;
       a1[668] = 0;
-      memcpy(v7 + 2, a1 + 38, 6u);
-      return (int)ke_msg_send_2(v8);
+      memcpy(msg_payload + 2, a1 + 38, 6u);
+      return (int)ke_msg_send_2(msg_ptr);
     }
   }
   return result;

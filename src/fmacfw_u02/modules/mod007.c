@@ -313,7 +313,6 @@ LABEL_12:
 
 
 // mmio_sync @ 0x111884
-/* luna: Stores the configured MMIO base and primary register address in shared state, copies a value to the base’s offset-4 register, and sets bits 6–7 in off */
 int mmio_sync() {
   int v0; // r3
   volatile int *v1; // r2
@@ -359,7 +358,6 @@ int mmio_sync() {
 
 
 // mmio_sync_2 @ 0x111910
-/* luna: Programs the MMIO synchronization buffer, triggers and waits for the hardware handshake, then enables the associated path. */
 int mmio_sync_2() {
   volatile uint32_t *v0; // r1
   int v1; // r0
@@ -385,7 +383,6 @@ int mmio_sync_2() {
 
 
 // table_lookup_entry @ 0x11196c
-/* luna: Clears the indexed 16-byte table slot and invokes its callback with (0, 0, 1) if the slot's byte at offset 8 was nonzero. */
 int table_lookup_entry(int a1) {
   int v2; // r0
   int v3; // r5
@@ -407,7 +404,6 @@ int table_lookup_entry(int a1) {
 
 
 // table_lookup_entry_2 @ 0x1119a4
-/* luna: Clears the 16-byte entry at index `entry_index - 1` and invokes its indexed callback with `(0, 0, 1)` if the entry's byte at offset 11 is nonzero. */
 volatile int * table_lookup_entry_2(int a1) {
   int v2; // r0
   int v3; // r5
@@ -429,7 +425,6 @@ volatile int * table_lookup_entry_2(int a1) {
 
 
 // table_lookup_wrapper @ 0x1119dc
-/* luna: Calls both table lookup routines for indices 1 through 5 and returns the second routine’s result for index 5. */
 volatile int *table_lookup_wrapper() {
   int i; // r4
   int v1; // r0
@@ -449,7 +444,6 @@ volatile int *table_lookup_wrapper() {
 
 
 // mmio_set_bit @ 0x1119fc
-/* luna: Initializes the USB controller registers and dispatches the USB-init-complete event. */
 int mmio_set_bit() {
   volatile uint32_t *v0; // r2
   volatile uint32_t *v1; // r2
@@ -510,7 +504,6 @@ LABEL_11:
 
 
 // bt_cmd_handler @ 0x111afc
-/* luna: Copies a packet into the shared TX buffer, builds its descriptor, and submits it to the hardware transmit path. */
 int bt_cmd_handler(int result, int a2) {
   volatile int *v2; // r4
   int v3; // r5
@@ -546,7 +539,6 @@ int bt_cmd_handler(int result, int a2) {
 
 
 // unknown_15 @ 0x111b64
-/* luna: Applies set and clear masks to a selected MMIO control word, performs any required hardware handshakes, and returns the corresponding table entry. */
 volatile int * unknown_15(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r6
   volatile int *v4; // r5
@@ -599,7 +591,6 @@ LABEL_10:
 
 
 // unknown_16 @ 0x111c1c
-/* luna: Updates a flash device’s configuration flags, performs any required controller handshake, and returns its table entry for nonzero device indices. */
 int unknown_16(int a1, int a2, int a3) {
   int v3; // r6
   volatile uint32_t *v4; // r4
@@ -706,7 +697,6 @@ int mmio_bank_read(int a1, int a2) {
 
 
 // flash_erase_main @ 0x111d44
-/* luna: Dispatches an operation for values 0–5 to one of two flash-related backends based on whether the first pointer is non-null. */
 volatile int * flash_erase_main(volatile int *result, unsigned int a2) {
   if ( result )
   {
@@ -723,7 +713,6 @@ volatile int * flash_erase_main(volatile int *result, unsigned int a2) {
 
 
 // flash_erase_area @ 0x111d68
-/* luna: For area indices 0–5, dispatches to one of two handlers with a fixed 2 MiB argument based on whether the first argument is non-NULL; otherwise returns */
 volatile int * flash_erase_area(volatile int *result, unsigned int a2) {
   if ( result )
   {
@@ -740,7 +729,6 @@ volatile int * flash_erase_area(volatile int *result, unsigned int a2) {
 
 
 // flash_write_data @ 0x111d8c
-/* luna: For selectors 0–5, calls one of two helpers with the fixed flash region depending on whether `result` is non-null; otherwise returns `result` unchange */
 volatile int * flash_write_data(volatile int *result, unsigned int a2) {
   if ( result )
   {
@@ -765,7 +753,6 @@ volatile int * shared_call_check(volatile int *result, unsigned int a2) {
 
 
 // cmd_dispatch @ 0x111db8
-/* luna: Validates and stores USB open parameters, initializes the peripheral, and optionally waits for the open state. */
 int cmd_dispatch(int a1, int a2) {
   volatile uint8_t *v4; // r6
   volatile int *v5; // r7
@@ -842,7 +829,6 @@ int cmd_dispatch(int a1, int a2) {
 
 
 // state_check_4 @ 0x111efc
-/* luna: Queues a data or control request for a valid peripheral channel, updating its MMIO registers, FIFO descriptor state, and pending bits. */
 int state_check_4(int result, int a2, int a3, unsigned int a4) {
   int v4; // r6
   unsigned int v7; // r11
@@ -989,7 +975,6 @@ int periph_channel_flag(int a1, int a2, unsigned int a3) {
 
 
 // state_check_4_b @ 0x1120fc
-/* luna: For the indexed peripheral block, clears bit 31 and sets bit 26 in the register at offset 0xB00 when bit 31 is set, then returns the block base addres */
 int state_check_4_b(int a1) {
   int result; // r0
   int v2; // r3
@@ -1004,7 +989,6 @@ int state_check_4_b(int a1) {
 
 
 // global_copy_u16 @ 0x11211c
-/* luna: Validates a 1-based peripheral DMA channel and aligned buffer, caps the transfer length, then fills its descriptor and programs the channel registers  */
 int global_copy_u16(int a1, int a2, unsigned int a3) {
   int v3; // r4
   int v4; // r12
@@ -1064,7 +1048,6 @@ int global_copy_u16(int a1, int a2, unsigned int a3) {
 
 
 // arg_store @ 0x1121d4
-/* luna: Copies the pending 16-bit value, treats zero as a successful status-3 case, and otherwise sets status 4 and state 7 only when callback slot 5 accepts  */
 int arg_store() {
   volatile uint8_t *v0; // r4
   int v1; // r0
@@ -1691,7 +1674,6 @@ LABEL_51:
 
 
 // mmio_read_flag @ 0x1129e8
-/* luna: Performs staged RF hardware initialization, invoking a table helper and polling control/status handshakes for six register entries. */
 int mmio_read_flag() {
   volatile uint8_t *v0; // r3
   volatile uint32_t *v1; // r4
@@ -1877,7 +1859,6 @@ LABEL_24:
 
 
 // get_state_byte @ 0x112c64
-/* luna: Returns the `usb_susp` byte through the selected read path and sets a related global byte flag to one. */
 int get_state_byte() {
   int result; // r0
 
@@ -1899,7 +1880,6 @@ int mmio_read_flag_b() {
 
 
 // rf_isr_clear @ 0x112ca8
-/* luna: Selects the USB-wakeup handling path from a status bit, clears the associated byte flag and acknowledgment bit, and returns the handler result. */
 int rf_isr_clear() {
   int result; // r0
   volatile uint32_t *v1; // r2
@@ -1916,7 +1896,6 @@ int rf_isr_clear() {
 
 
 // undef_stub @ 0x112cec
-/* luna: Acknowledges enabled interrupt causes in the RF register block and dispatches associated RF state updates and recovery actions. */
 int undef_stub() {
   volatile uint32_t *v0; // r3
   int v1; // r2
@@ -2182,7 +2161,6 @@ int after_helper_call() {
 
 
 // rx_counter_inc @ 0x113010
-/* luna: In mode 4, validates the RX channel and submits the supplied buffer pointer to its MMIO slot while marking the software entry ready. */
 int rx_counter_inc(int a1, volatile uint16_t *a2) {
   int v4; // r2
   int v5; // r3
@@ -2207,7 +2185,6 @@ int rx_counter_inc(int a1, volatile uint16_t *a2) {
 
 
 // get_global_166e84 @ 0x1130c4
-/* luna: Returns a pointer to a fixed volatile 32-bit memory-mapped location. */
 volatile int *get_global_166e84() {
   return (volatile int *)off_1130C8;
 }
@@ -2309,7 +2286,6 @@ int read_periph_status(volatile uint8_t *a1, unsigned int a2, int a3) {
 
 
 // irq_state_load @ 0x1132ac
-/* luna: Loads optional USB VID/PID values from flash, resets USB state, and retries the open command until it returns success. */
 int irq_state_load(int a1) {
   volatile uint16_t *v2; // r4
   int v3; // r2
@@ -2353,7 +2329,6 @@ int irq_state_load(int a1) {
 
 
 // irq_state_load_b @ 0x113350
-/* luna: Starts a USB WLAN receive operation by configuring its peripheral channel and aborts if the operation is cancelled during setup. */
 int irq_state_load_b(int a1, int a2) {
   volatile uint8_t *v2; // r4
   volatile uint8_t *v3; // r6
@@ -2400,7 +2375,6 @@ int irq_state_load_b(int a1, int a2) {
 
 
 // ke_task_init @ 0x1133f0
-/* luna: Opens USB WLAN receive flow control by programming mode-dependent MMIO bits and copying the supplied configuration, returning an error if the operatio */
 int ke_task_init(int a1, int a2) {
   volatile uint8_t *v2; // r4
   volatile uint8_t *v3; // r5
@@ -2457,7 +2431,6 @@ int ke_task_init(int a1, int a2) {
 
 
 // check_init_flag @ 0x1134b4
-/* luna: On its first successful invocation, selects a table node, sets bits 1 and 3 in its final 8-byte entry, and calls the RX-counter increment routine with */
 int check_init_flag() {
   volatile uint8_t *v0; // r6
   volatile int **v1; // r4
@@ -2526,7 +2499,6 @@ LABEL_11:
 
 
 // set_mode_flag @ 0x113558
-/* luna: Records the USB WLAN send result and, on success, drains pending entries while dispatching supported message types and reporting unsupported ones. */
 int set_mode_flag(int a1, int a2, int a3) {
   volatile uint8_t *v3; // r5
   char v4; // r3
@@ -2595,7 +2567,6 @@ LABEL_12:
 
 
 // is_single_channel @ 0x113620
-/* luna: Returns the configuration block for selector 1, 6, or 15, refreshing the selector-1 block from defaults and applying a hook-derived or stored override */
 volatile int * is_single_channel(int a1) {
   volatile int *result; // r0
   volatile int *v2; // r4
@@ -2634,7 +2605,6 @@ volatile int * is_single_channel(int a1) {
 
 
 // lookup_channel_table @ 0x1136a4
-/* luna: Returns the indexed 32-bit entry from the volatile channel table, or zero when the index is outside the eight-entry range. */
 int lookup_channel_table(unsigned int a1) {
   if ( a1 > 7 )
     return 0;
@@ -2645,7 +2615,6 @@ int lookup_channel_table(unsigned int a1) {
 
 
 // read_state_flag @ 0x1136b8
-/* luna: Obtains a watchdog RX buffer, processes it through the state-load path, and retries failed loads up to five times while recording threshold conditions */
 void read_state_flag(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r5
   volatile uint16_t *v5; // r2

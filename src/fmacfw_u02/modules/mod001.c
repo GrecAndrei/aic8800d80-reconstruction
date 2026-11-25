@@ -600,7 +600,6 @@ LABEL_55:
 
 
 // mmio_write_40580020 @ 0x102960
-/* luna: Executes three bit-31-polled commands, invokes the transmit handler with 2437 MHz parameters, and writes the final control value. */
 int mmio_write_40580020() {
   volatile int *v0; // r3
   volatile int *v1; // r2
@@ -634,7 +633,6 @@ int mmio_write_40580020() {
 
 
 // periph_init @ 0x1029e4
-/* luna: Enables the clock, performs fixed radio and MMIO setup, copies nine configuration words into the peripheral block, writes two trailing constants, and  */
 int periph_init(volatile int *a1) {
   int v2; // r0
   int v3; // r1
@@ -735,7 +733,6 @@ LABEL_5:
 
 
 // handle_event @ 0x102ad4
-/* luna: Enables Bluetooth using the stored configuration, then applies RF temperature compensation to each linked entry whose byte flag at offset 108 is nonze */
 int handle_event() {
   int result; // r0
   volatile int *i; // r4
@@ -757,7 +754,6 @@ int handle_event() {
 
 
 // is_magic_value @ 0x102b0c
-/* luna: Classifies an RF frequency in MHz into one of six ranges using fixed thresholds. */
 int is_magic_value(unsigned int a1) {
   if ( a1 > 0x1666 )
     return 5;
@@ -773,7 +769,6 @@ int is_magic_value(unsigned int a1) {
 
 
 // get_calibration_offsets @ 0x102b4c
-/* luna: Copies the two stored RF calibration offset bytes into caller-provided outputs and returns the first output pointer. */
 volatile uint8_t * get_calibration_offsets(volatile uint8_t *result, volatile uint8_t *a2) {
   volatile uint8_t *v2; // r3
 
@@ -786,7 +781,6 @@ volatile uint8_t * get_calibration_offsets(volatile uint8_t *result, volatile ui
 
 
 // get_hw_clock_multiplier @ 0x102b60
-/* luna: Reads the clock setting from an MMIO register and returns an all-ones mask whose width is encoded in bits 4–7 of its low byte. */
 int get_hw_clock_multiplier() {
   return (uint8_t)((1 << ((uint8_t)*(volatile uint32_t *)off_102B7C >> 4)) - 1);
 }
@@ -794,7 +788,6 @@ int get_hw_clock_multiplier() {
 
 
 // write_phy_config @ 0x102b80
-/* luna: Updates the low byte and bits 12–19 of two PHY registers using the input value and its 8-bit value minus three, then returns the updated second regist */
 unsigned int write_phy_config(uint8_t a1) {
   volatile unsigned int *v1; // r1
   volatile unsigned int *v2; // r2

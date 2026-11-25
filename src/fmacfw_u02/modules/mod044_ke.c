@@ -190,15 +190,16 @@ BOOL bt_id_match(int a1, unsigned int a2) {
 
 
 // ke_task_create @ 0x12c5e4
+/* luna: Creates or updates a kernel timer keyed by timer ID and task ID, reorders it by expiry time, and reschedules the timer event when the queue head chang */
 int ke_task_create(int a1, int a2, unsigned int a3) {
   volatile int16_t **v3; // r11
-  volatile int *v7; // r8
+  volatile int *critical_section_depth; // r8
   volatile uint32_t *v8; // r10
-  int v9; // r6
-  int v10; // r4
+  int old_head_was_timer; // r6
+  int timer_entry; // r4
   int v11; // r2
   int v12; // r0
-  unsigned int v13; // r5
+  unsigned int expiration_tick; // r5
   int result; // r0
   int v15; // r3
   int v16; // r2
@@ -222,46 +223,46 @@ int ke_task_create(int a1, int a2, unsigned int a3) {
     __disable_irq();
     *(volatile uint32_t *)off_12C704 = 1;
   }
-  v7 = (volatile int *)off_12C734;
+  critical_section_depth = (volatile int *)off_12C734;
   v8 = (void *)(uintptr_t)(off_12C738);
-  v9 = *((volatile uint32_t *)off_12C738 + 5);
+  old_head_was_timer = *((volatile uint32_t *)off_12C738 + 5);
   ++*(volatile uint32_t *)off_12C734;
-  if ( v9 )
-    v9 = *(volatile uint16_t *)(v9 + 4) == a1 && *(volatile uint16_t *)(v9 + 6) == a2;
-  v10 = (int)(uintptr_t)(pkt_word_get(dword_12C70C, (void *)(uintptr_t)(dword_12C708), a2 | (a1 << 16)));
-  if ( !v10 )
+  if ( old_head_was_timer )
+    old_head_was_timer = *(volatile uint16_t *)(old_head_was_timer + 4) == a1 && *(volatile uint16_t *)(old_head_was_timer + 6) == a2;
+  timer_entry = (int)(uintptr_t)(pkt_word_get(dword_12C70C, (void *)(uintptr_t)(dword_12C708), a2 | (a1 << 16)));
+  if ( !timer_entry )
   {
     v17 = pkt_buf_alloc(12);
-    v10 = v17;
+    timer_entry = v17;
     if ( **v3 < 0 && !v17 )
       mmio_clear_register(dword_12C72C, dword_12C720, 165);
-    *(volatile uint16_t *)(v10 + 4) = a1;
-    *(volatile uint16_t *)(v10 + 6) = a2;
+    *(volatile uint16_t *)(timer_entry + 4) = a1;
+    *(volatile uint16_t *)(timer_entry + 6) = a2;
   }
   v11 = dword_12C714;
   v12 = dword_12C70C;
-  v13 = a3 + *((volatile uint32_t *)off_12C710 + 4);
-  *(volatile uint32_t *)(v10 + 8) = v13;
-  result = list_process(v12, (void *)(uintptr_t)(v10), (void *)(uintptr_t)(v11));
-  if ( v9 )
+  expiration_tick = a3 + *((volatile uint32_t *)off_12C710 + 4);
+  *(volatile uint32_t *)(timer_entry + 8) = expiration_tick;
+  result = list_process(v12, (void *)(uintptr_t)(timer_entry), (void *)(uintptr_t)(v11));
+  if ( old_head_was_timer )
   {
-    v10 = v8[5];
-    if ( !v10 )
+    timer_entry = v8[5];
+    if ( !timer_entry )
       goto LABEL_10;
 LABEL_15:
-    result = unknown_worker((void *)(uintptr_t)(dword_12C718), *(volatile uint32_t *)(v10 + 8));
+    result = unknown_worker((void *)(uintptr_t)(dword_12C718), *(volatile uint32_t *)(timer_entry + 8));
     goto LABEL_10;
   }
-  if ( v8[5] == v10 )
+  if ( v8[5] == timer_entry )
     goto LABEL_15;
 LABEL_10:
-  if ( *v7 && (v15 = *v7 - 1, v16 = *(volatile uint32_t *)off_12C704, (*v7 = v15) == 0) && v16 )
+  if ( *critical_section_depth && (v15 = *critical_section_depth - 1, v16 = *(volatile uint32_t *)off_12C704, (*critical_section_depth = v15) == 0) && v16 )
   {
     __enable_irq();
-    if ( (int)(v13 - *((volatile uint32_t *)off_12C710 + 4)) < 0 )
+    if ( (int)(expiration_tick - *((volatile uint32_t *)off_12C710 + 4)) < 0 )
       return unknown_func_12d104(0x10000000);
   }
-  else if ( (int)(v13 - *((volatile uint32_t *)off_12C710 + 4)) < 0 )
+  else if ( (int)(expiration_tick - *((volatile uint32_t *)off_12C710 + 4)) < 0 )
   {
     return unknown_func_12d104(0x10000000);
   }
@@ -493,21 +494,22 @@ int ke_int_lock_save() {
 
 
 // ke_msg_alloc @ 0x12c92c
+/* luna: Allocates a kernel message, initializes its header, zeroes the parameter payload, and returns a pointer to that payload. */
 int ke_msg_alloc(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
   int v8; // r0
-  int v9; // r4
+  int msg_header; // r4
 
   v8 = pkt_buf_alloc(a4 + 12);
-  v9 = v8;
+  msg_header = v8;
   if ( **(volatile int16_t **)off_12C980 < 0 && !v8 )
     mmio_clear_register(dword_12C988, dword_12C984, 145);
-  *(volatile uint16_t *)(v9 + 4) = a1;
-  *(volatile uint16_t *)(v9 + 6) = a2;
-  *(volatile uint16_t *)(v9 + 8) = a3;
-  *(volatile uint16_t *)(v9 + 10) = a4;
-  *(volatile uint32_t *)v9 = 0;
-  memset((volatile int *)(v9 + 12), 0, a4);
-  return v9 + 12;
+  *(volatile uint16_t *)(msg_header + 4) = a1;
+  *(volatile uint16_t *)(msg_header + 6) = a2;
+  *(volatile uint16_t *)(msg_header + 8) = a3;
+  *(volatile uint16_t *)(msg_header + 10) = a4;
+  *(volatile uint32_t *)msg_header = 0;
+  memset((volatile int *)(msg_header + 12), 0, a4);
+  return msg_header + 12;
 }
 
 

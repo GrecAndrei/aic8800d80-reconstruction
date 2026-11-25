@@ -1,5 +1,4 @@
 // rf_setup_channel @ 0x122044
-/* luna: Applies the supplied RF register configuration and RF byte settings, waits for hardware readiness, then returns an EDCA M0 transmit-event allocation. */
 int rf_setup_channel(int a1) {
   volatile int *v1; // r3
   int v2; // r6
@@ -58,7 +57,6 @@ LABEL_5:
 
 
 // rf_switch_channel @ 0x1220dc
-/* luna: Merges the supplied RF configuration into a register-value buffer, writes an RF register byte, updates switch state and timing fields, then allocates  */
 int rf_switch_channel(int a1) {
   int v1; // r4
   volatile int *v2; // r2
@@ -121,7 +119,6 @@ int rf_switch_channel(int a1) {
 
 
 // poll_rf_register_done @ 0x122180
-/* luna: Adds 15000 to each of six RF polling deadline entries selected by a global bitmask and returns the deadline array base. */
 int poll_rf_register_done() {
   volatile uint32_t *v0; // r1
   int result; // r0
@@ -333,7 +330,6 @@ LABEL_22:
 
 
 // send_hci_event @ 0x12249c
-/* luna: Allocates a two-byte HCI event payload, stores the supplied bytes, and submits it to the packet-processing pipeline. */
 int send_hci_event(char a1, char a2) {
   volatile uint8_t *v4; // r0
 
@@ -459,7 +455,6 @@ LABEL_8:
 
 
 // ll_get_state @ 0x122654
-/* luna: Polls the active channel scan, updates its channel-specific buffer, and advances or stops it when the poll limit is reached. */
 volatile char * ll_get_state(volatile char *result) {
   int v1; // r4
   int v2; // r6
@@ -533,7 +528,6 @@ volatile char *check_adv_enabled() {
 
 
 // get_rx_pdu @ 0x1227a8
-/* luna: Counts linked PDU entries in eligible receive-queue records, returning zero if any record’s abort flag is set. */
 int get_rx_pdu() {
   volatile int *v0; // r2
   int result; // r0
@@ -572,7 +566,6 @@ int get_rx_pdu() {
 
 
 // send_hci_command_status @ 0x1227f0
-/* luna: Creates a type-11 transmit PDU, stores the result of `ke_send_msg` in its first byte, and passes it to the packet processor. */
 int send_hci_command_status(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
 

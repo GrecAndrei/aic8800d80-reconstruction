@@ -1,5 +1,4 @@
 // mac_flags_set @ 0x116ab4
-/* luna: Sets a MAC state flag and updates the associated link record's flags, identifier, and connection-window state when applicable. */
 int mac_flags_set(int a1, int a2, int a3, int a4) {
   int v5; // r6
   int result; // r0
@@ -126,7 +125,6 @@ LABEL_4:
 
 
 // dma_ring_init @ 0x116c4c
-/* luna: Populate a transmit hardware descriptor from frame metadata, applying per-station settings and parsing control information. */
 int dma_ring_init(int a1, int a2, char a3) {
   int v4; // r0
   int v5; // r8
@@ -276,7 +274,6 @@ LABEL_8:
 
 
 // hw_type_get @ 0x116e50
-/* luna: When the 16-bit field at offset 4 is nonzero, checks the stored pointer and, if flag 0x200000 is clear, queries controller mode and clears that pointe */
 int hw_type_get(int result) {
   int v1; // r4
 
@@ -310,7 +307,6 @@ int mem_size_classify(unsigned int a1) {
 
 
 // chip_init_sequence @ 0x116e7c
-/* luna: Configures chip hardware and radio data, initializes buffers, and clears the fixed runtime state table. */
 int chip_init_sequence() {
   int v0; // r0
   int v1; // r0
@@ -357,7 +353,6 @@ int chip_init_sequence() {
 
 
 // isr_flag_dispatch @ 0x116efc
-/* luna: Returns whether MAC processing is allowed by the global and wrapper guards, applying an LLC event-field check when the context flag is set. */
 BOOL isr_flag_dispatch(int a1) {
   if ( *((volatile uint8_t *)off_116F30 + 510) )
     return 0;
@@ -370,7 +365,6 @@ if ( !((int (*)())wlc_ops_wrapper)() ) return 0;
 
 
 // mmio_set_bit_1 @ 0x116f34
-/* luna: Pulses the reset request for the selected DMA channel and waits for its hardware status field to become idle. */
 int mmio_set_bit_1(int result) {
   int v1; // r3
   int v2; // r6

@@ -1,5 +1,4 @@
 // hci_vendor_cmd_send @ 0x11ec94
-/* luna: Copies a 24-byte payload into kernel message 139 for destination task 13 and sends it. */
 int hci_vendor_cmd_send(int a1) {
   int v2; // r0
   int v3; // r1
@@ -15,7 +14,6 @@ int hci_vendor_cmd_send(int a1) {
 
 
 // hci_uart_dma_rx_start @ 0x11ecb8
-/* luna: Polls the UART receive interface, forwards nonzero words in batches of up to four through hci_vendor_cmd_send, and updates receive and interrupt bookk */
 int hci_uart_dma_rx_start() {
   volatile uint32_t *v0; // r4
   volatile int *v1; // r5
@@ -82,7 +80,6 @@ int hci_uart_dma_rx_start() {
 
 
 // timer_get_counter @ 0x11ed58
-/* luna: Dispatches a fixed RF timer-counter request, using the chip-mode helper when the request selector’s low nibble is 2. */
 volatile uint64_t *timer_get_counter() {
   volatile uint64_t *result; // r0
   struct __attribute__((packed)) { uint64_t v1; // [sp+4h] [bp-20h] BYREF
@@ -104,7 +101,6 @@ volatile uint64_t *timer_get_counter() {
 
 
 // llc_aes_ccm_setup @ 0x11eda4
-/* luna: Waits for the word at offset 572 to clear, zeroes the 0x2B8-byte environment, and initializes its repeated byte fields and invalid sentinel. */
 volatile int * llc_aes_ccm_setup(int a1) {
   int v2; // r5
   int v3; // r0
@@ -133,7 +129,6 @@ volatile int * llc_aes_ccm_setup(int a1) {
 
 
 // ble_event_set @ 0x11edf0
-/* luna: Initializes BLE link-layer slot pools and assigns per-slot storage pointers. */
 int ble_event_set() {
   int v0; // r5
   int v1; // r7
@@ -213,7 +208,6 @@ int ble_event_set() {
 
 
 // ble_event_wait @ 0x11ef08
-/* luna: Allocates and initializes an LLM connection context from the supplied parameters, optionally linking a paired context, and returns its slot index. */
 int ble_event_wait(volatile int *a1, volatile uint8_t *a2) {
   int v3; // r8
   volatile uint32_t *v5; // r0
@@ -384,7 +378,6 @@ int ble_event_wait(volatile int *a1, volatile uint8_t *a2) {
 
 
 // llm_conn_calc_ptr @ 0x11f12c
-/* luna: Cleans up a link-manager connection entry and its associated state, then refreshes CCM and radio configuration. */
 int llm_conn_calc_ptr(unsigned int a1, int a2, int a3, int a4) {
   int v4; // r7
   int v5; // r8
@@ -489,7 +482,6 @@ LABEL_8:
 
 
 // llm_conn_set_flag @ 0x11f298
-/* luna: Initializes a connection’s BLE event record from the supplied descriptor, clearing its workspace and selecting timing fields according to the event mo */
 int llm_conn_set_flag(int a1, uint8_t a2) {
   int v2; // r4
   int v3; // r8
@@ -562,7 +554,6 @@ int llm_conn_set_flag(int a1, uint8_t a2) {
 
 
 // llm_conn_reset_state @ 0x11f3b8
-/* luna: Sets a byte in the BLE connection context to 1 and clears another byte and a 32-bit field. */
 int llm_conn_reset_state(int result) {
   *(volatile uint8_t *)(result + 52) = 1;
   *(volatile uint8_t *)(result + 163) = 0;
@@ -573,7 +564,6 @@ int llm_conn_reset_state(int result) {
 
 
 // llc_ccm_encrypt @ 0x11f3cc
-/* luna: Processes active link contexts, clearing each context flag and invoking radio initialization until iteration stops or the requested limit is reached. */
 int llc_ccm_encrypt(int a1, int a2, int a3) {
   int v3; // r10
   int v4; // r4
@@ -617,7 +607,6 @@ int llc_ccm_encrypt(int a1, int a2, int a3) {
 
 
 // llc_ctrl_pdu_send @ 0x11f448
-/* luna: Dispatches pending work from two four-slot connection tables until no work remains or the optional dispatch limit is reached. */
 int llc_ctrl_pdu_send(int a1, int a2, int a3) {
   int v3; // r5
   int v7; // r10
@@ -686,7 +675,6 @@ LABEL_15:
 
 
 // llm_conn_active_check @ 0x11f4f4
-/* luna: Checks and services a BLE connection's pending activity state, including event-state clearing, RX validation, and hardware-status cleanup. */
 int llm_conn_active_check(int result) {
   int v1; // r4
   volatile int *v2; // r2
@@ -812,7 +800,6 @@ int llm_conn_active_check(int result) {
 
 
 // scan_active_get @ 0x11f6f0
-/* luna: When the BLE state flags permit it, writes a contiguous mask of up to eight bits shifted to bit 8 into a hardware register. */
 void scan_active_get() {
   volatile uint8_t *v0; // r3
   unsigned int v1; // r2
@@ -829,7 +816,6 @@ void scan_active_get() {
 
 
 // ble_sched_init @ 0x11f724
-/* luna: Initializes the BLE scheduler state and resets each fixed-size scheduler entry to its default values. */
 int ble_sched_init() {
   volatile uint32_t *v0; // r8
   int v1; // r4
@@ -864,7 +850,6 @@ int ble_sched_init() {
 
 
 // ble_sched_poll @ 0x11f794
-/* luna: Walks the BLE connection list and passes each entry on a per-connection list to the CCM encryptor. */
 int ble_sched_poll() {
   volatile uint32_t *i; // r5
   volatile uint32_t *j; // r4
@@ -881,7 +866,6 @@ int ble_sched_poll() {
 
 
 // task_event_handler @ 0x11f7c0
-/* luna: Registers a MAC interrupt-mask entry, recomputes aggregate masks across existing entries, and records the entry mode and P2P flag. */
 int task_event_handler(int a1, int a2, int a3, volatile uint8_t *a4) {
   int v4; // r9
   volatile int **v5; // r4
@@ -1145,7 +1129,6 @@ LABEL_11:
 
 
 // get_object_by_index @ 0x11fbb8
-/* luna: Tears down the indexed BLE link context and releases its associated scheduled transmit resources when the link is in state 2. */
 int get_object_by_index(int a1) {
   int v2; // r6
   volatile int *v3; // r8

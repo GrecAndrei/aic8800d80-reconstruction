@@ -1,5 +1,4 @@
 // rf_lookup_tx_power @ 0x138890
-/* luna: Stores a TX-power lookup request in the next queue slot, dispatches it, and returns the slot address or zero if the guarded slot is busy. */
 int rf_lookup_tx_power(int a1, uint16_t a2, int a3) {
   volatile uint8_t *v3; // r5
   int v4; // r4
@@ -43,7 +42,6 @@ int rf_lookup_tx_power(int a1, uint16_t a2, int a3) {
 
 
 // rf_set_tx_power @ 0x138934
-/* luna: Uses the request field at offset 20 for a transmit-power lookup, dispatches two command handlers, and returns a context check result. */
 int rf_set_tx_power(int a1) {
   int v1; // r5
   int v3; // r1
@@ -101,7 +99,6 @@ int parse_param_direction(volatile uint8_t *a1, volatile uint32_t *a2, int a3, i
 
 
 // rf_is_calibrated @ 0x138ab4
-/* luna: For qualifying received frames, finds the matching interface, checks the transmitter against its peer list, and routes an unknown peer to deauthentica */
 int rf_is_calibrated(volatile uint16_t *a1) {
   int v2; // r7
   int v3; // r5
@@ -159,7 +156,6 @@ LABEL_14:
 
 
 // rf_get_channel_freq @ 0x138b74
-/* luna: Merges RF configuration bits into the request control word, completes the associated TX packet, and returns the TX-power lookup result. */
 volatile uint32_t * rf_get_channel_freq(int a1, int16_t a2) {
   volatile uint32_t *v2; // r6
   int16_t v4; // r5
@@ -198,7 +194,6 @@ LABEL_4:
 
 
 // bt_handle_rx_request @ 0x138bd8
-/* luna: Updates the TX request control word using RF configuration, completes the packet, and returns the looked-up transmit-power value. */
 volatile uint32_t * bt_handle_rx_request(int a1, int16_t a2) {
   void *v2; // r6
   int16_t v4; // r5
@@ -259,7 +254,6 @@ LABEL_7:
 
 
 // rf_handle_command @ 0x138c64
-/* luna: Optionally parses Bluetooth packet metadata and copies the received payload into the RF receive buffer, wrapping at its end. */
 int rf_handle_command(unsigned int a1, int a2, int a3, int a4) {
   volatile uint32_t *v4; // r8
   unsigned int v5; // r4
@@ -460,7 +454,6 @@ LABEL_36:
 
 
 // bt_send_packet @ 0x138ea4
-/* luna: Initializes or reuses an RF packet descriptor, applies RF command and channel settings, and submits it through the WLAN queue handler. */
 int bt_send_packet(int a1, int a2, int a3) {
   volatile uint16_t *v3; // r6
   char v5; // r5
@@ -634,7 +627,6 @@ if ( !rf_handle_command(a1, (int)(uintptr_t)(a2a), 1, 1) ) return v9;
 
 
 // short_delay @ 0x139168
-/* luna: Advances the 64-slot ring by the requested count, clears nonzero entries encountered and decrements the pending count, then returns the entry for the  */
 int short_delay(int result, unsigned int a2) {
   uint16_t v2; // r2
   char v3; // r7
@@ -677,7 +669,6 @@ int short_delay(int result, unsigned int a2) {
 
 
 // rf_lookup_rate_table @ 0x1391b4
-/* luna: Looks up the rate-table entry selected by the descriptor and, on a forward 12-bit sequence mismatch, delays before returning the table-check helper's  */
 volatile uint32_t ** rf_lookup_rate_table(int a1, int a2) {
   volatile uint32_t **result; // r0
   unsigned int v3; // r2
@@ -707,7 +698,6 @@ volatile uint32_t ** rf_lookup_rate_table(int a1, int a2) {
 
 
 // rf_get_tx_power_cal @ 0x139200
-/* luna: Processes a power-calibration record, updates its sequence and ring-buffer state, and recalculates RF power when applicable. */
 int rf_get_tx_power_cal(int a1, int a2) {
   volatile uint16_t *v2; // r6
   int v3; // r7
@@ -1226,7 +1216,6 @@ LABEL_19:
 
 
 // rf_process_packet @ 0x139970
-/* luna: Filters unfragmented received Wi-Fi frames, resolves their peer context, and routes Bluetooth-recognized packets through the BT connection and RX pars */
 int rf_process_packet(int a1, int a2) {
   int v2; // r7
   volatile int16_t *v3; // r9
@@ -1363,7 +1352,6 @@ LABEL_31:
 
 
 // wlc_init_hw @ 0x139bb4
-/* luna: Initializes associated global work structures and seeds a 192-entry RF packet-buffer descriptor pool. */
 void *wlc_init_hw() {
   volatile uint32_t *v0; // r6
   int v1; // r4
@@ -1409,7 +1397,6 @@ void *wlc_init_hw() {
 
 
 // rf_set_power @ 0x139c54
-/* luna: Parses an 802.11 data frame’s LLC/IP payload to filter selected multicast and discovery traffic, rate-limiting IPv6 router advertisements per interfac */
 int rf_set_power(volatile char *a1, char a2, int a3) {
   char v4; // r3
   int v6; // r4
@@ -1912,7 +1899,6 @@ int dma_tx_ring(int a1, int a2, int16_t a3) {
 
 
 // dma_rx_ring @ 0x13a320
-/* luna: Processes the reorder entry stored in the selected RX context and clears its slot after dispatch. */
 int dma_rx_ring(int a1, int a2) {
   int v2; // r4
   volatile uint32_t *v3; // r5
@@ -1948,7 +1934,6 @@ volatile uint16_t * set_mac_addr(volatile uint16_t *result) {
 
 
 // get_clear_intr @ 0x13a398
-/* luna: Reads the interrupt status byte and clears the status register by writing zero to the same address. */
 int get_clear_intr() {
   int result; // r0
 
@@ -1968,7 +1953,6 @@ volatile uint32_t **alloc_dma_buf_1() {
 
 
 // is_rate_valid @ 0x13a3c4
-/* luna: Returns whether the selected rate-table entry has a zero value in its 16-bit field at offset 76. */
 BOOL is_rate_valid() {
   return *(volatile uint16_t *)(dword_13A3E4 + 80 * *((volatile uint8_t *)off_13A3E0 + 68) + 76) == 0;
 }

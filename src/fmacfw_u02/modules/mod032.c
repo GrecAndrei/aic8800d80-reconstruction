@@ -297,7 +297,6 @@ int lookup_connection_entry(int a1, int a2, int a3, int a4) {
 
 
 // read_controller_info @ 0x12315c
-/* luna: Allocates and sends a controller-info message containing a 36-byte global string with a one-byte length prefix and a trailing NUL. */
 int read_controller_info(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r4
   int v5; // r1
@@ -317,7 +316,6 @@ int read_controller_info(int a1, int a2, int a3, int a4) {
 
 
 // send_cmd_85 @ 0x123194
-/* luna: Allocates and sends a confirmation containing the Wi-Fi disable state derived from the inverted register bit 16. */
 int send_cmd_85(int a1, int a2, uint16_t a3, uint16_t a4) {
   volatile uint8_t *v4; // r4
   unsigned int v5; // r0
@@ -334,7 +332,6 @@ int send_cmd_85(int a1, int a2, uint16_t a3, uint16_t a4) {
 
 
 // send_cmd_88 @ 0x1231d4
-/* luna: Handles radio configuration commands for BCMC settings, temperature compensation, and external flags, then sends a kernel-message response. */
 int send_cmd_88(int a1, volatile uint32_t *a2, uint16_t a3, uint16_t a4) {
   int v5; // r6
   int v6; // r0
@@ -431,14 +428,15 @@ LABEL_3:
 
 
 // rf_calibration_init @ 0x1232f0
+/* luna: Walks the sub-message IDs in an MM resume-response structure and maps recognized IDs to their associated payload fields. */
 int rf_calibration_init(int a1, int a2, int a3, int a4) {
-  int v6; // r8
-  int v7; // r9
+  int sub_msg_index; // r8
+  int sub_msg_id_cursor; // r9
   unsigned int v8; // r4
   unsigned int v9; // t1
   int v11; // r3
   unsigned int v12; // r5
-  int v13; // r6
+  int payload_ptr; // r6
   void ( *v14)(unsigned int, int, unsigned int, int); // r0
   void ( *v15)(unsigned int, int, unsigned int, int); // r10
   struct __attribute__((packed)) { int v16; // [sp+40h] [bp-2Ch]
@@ -468,15 +466,15 @@ int rf_calibration_init(int a1, int a2, int a3, int a4) {
   event_dispatch("sizeof %d, %d, %d, %d\n", 32, 44, 108, 112);
   if ( *(volatile uint8_t *)(a2 + 702) )
   {
-    v6 = 0;
+    sub_msg_index = 0;
     _frame.v17 = 0;
-    v7 = a2 + 668;
+    sub_msg_id_cursor = a2 + 668;
     while ( 1 )
     {
       while ( 1 )
       {
-        v9 = *(volatile uint16_t *)(v7 + 2);
-        v7 += 2;
+        v9 = *(volatile uint16_t *)(sub_msg_id_cursor + 2);
+        sub_msg_id_cursor += 2;
         v8 = v9;
         event_dispatch("sub_msg_id: 0x%x\n", v9);
         if ( v9 <= 0x89 )
@@ -484,20 +482,20 @@ int rf_calibration_init(int a1, int a2, int a3, int a4) {
         if ( v8 == 5120 )
         {
           v11 = 5;
-          v13 = a2 + 136;
+          payload_ptr = a2 + 136;
           v12 = 5;
           goto LABEL_12;
         }
         if ( v8 == 5122 )
         {
           v11 = 5;
-          v13 = a2 + 248;
+          payload_ptr = a2 + 248;
           v12 = 5;
           goto LABEL_12;
         }
 LABEL_16:
         event_dispatch("skip sub_msg_id: 0x%x\n", v8);
-        if ( *(volatile uint8_t *)(a2 + 702) <= ++v6 )
+        if ( *(volatile uint8_t *)(a2 + 702) <= ++sub_msg_index )
           goto LABEL_9;
       }
       if ( v8 > 0x64 )
@@ -506,38 +504,38 @@ LABEL_16:
         {
           case 0x65u:
             v11 = 0;
-            v13 = a2 + 504;
+            payload_ptr = a2 + 504;
             v12 = 0;
             goto LABEL_12;
           case 0x69u:
             v11 = 0;
-            v13 = a2 + 112;
+            payload_ptr = a2 + 112;
             v12 = 0;
             goto LABEL_12;
           case 0x77u:
             v11 = 0;
-            v13 = a2 + 4;
+            payload_ptr = a2 + 4;
             v12 = 0;
             goto LABEL_12;
           case 0x79u:
             v11 = 0;
-            v13 = a2 + 83;
+            payload_ptr = a2 + 83;
             v12 = 0;
             goto LABEL_12;
           case 0x7Bu:
             v11 = 0;
             v12 = 0;
-            v13 = a2;
+            payload_ptr = a2;
             goto LABEL_12;
           case 0x87u:
             v11 = 0;
-            v13 = a2 + 12 * _frame.v17 + 592;
+            payload_ptr = a2 + 12 * _frame.v17 + 592;
             _frame.v17 = (uint8_t)(_frame.v17 + 1);
             v12 = 0;
             goto LABEL_12;
           case 0x89u:
             v11 = 0;
-            v13 = a2 + 73;
+            payload_ptr = a2 + 73;
             v12 = 0;
             goto LABEL_12;
           default:
@@ -547,7 +545,7 @@ LABEL_16:
       if ( v8 == 2 )
       {
         v11 = 0;
-        v13 = a2 + 520;
+        payload_ptr = a2 + 520;
         v12 = 0;
         goto LABEL_12;
       }
@@ -567,10 +565,10 @@ LABEL_16:
             *(volatile uint8_t *)(a2 + 660),
             *(volatile uint8_t *)(a2 + 668),
             (volatile uint8_t *)_frame.v18);
-          if ( *(volatile uint8_t *)(a2 + 702) <= ++v6 )
+          if ( *(volatile uint8_t *)(a2 + 702) <= ++sub_msg_index )
             break;
         }
-        else if ( *(volatile uint8_t *)(a2 + 702) <= ++v6 )
+        else if ( *(volatile uint8_t *)(a2 + 702) <= ++sub_msg_index )
         {
           break;
         }
@@ -581,7 +579,7 @@ LABEL_16:
           goto LABEL_16;
         v12 = 0;
         v11 = 0;
-        v13 = 0;
+        payload_ptr = 0;
 LABEL_12:
         _frame.v16 = v11;
         v14 = (void ( *)(unsigned int, int, unsigned int, int))rx_format_field_parse(v8, v12);
@@ -589,14 +587,14 @@ LABEL_12:
         if ( v14 )
         {
           event_dispatch("func %p for msg_id:0x%x dest_id:0x%x\n", v14, v8, _frame.v16);
-          v15(v8, v13, v12, a4);
-          if ( *(volatile uint8_t *)(a2 + 702) <= ++v6 )
+          v15(v8, payload_ptr, v12, a4);
+          if ( *(volatile uint8_t *)(a2 + 702) <= ++sub_msg_index )
             break;
         }
         else
         {
           event_dispatch("func not found for msg_id:0x%x dest_id:0x%x\n", v8, _frame.v16);
-          if ( *(volatile uint8_t *)(a2 + 702) <= ++v6 )
+          if ( *(volatile uint8_t *)(a2 + 702) <= ++sub_msg_index )
             break;
         }
       }

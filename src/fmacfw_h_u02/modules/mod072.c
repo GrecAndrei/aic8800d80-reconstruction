@@ -1,5 +1,4 @@
 // acl_rx_setup @ 0x141a30
-/* luna: Acquires an ACL receive object and initializes its embedded RX state from the connection and optional source parameters. */
 int acl_rx_setup(int a1, int a2, int a3, int a4, char a5) {
   int v6; // r1
   int v10; // r3

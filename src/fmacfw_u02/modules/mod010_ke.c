@@ -1,5 +1,4 @@
 // ke_task_handler @ 0x114c30
-/* luna: Copies environment payload blocks selected by the requested and available masks, returning status codes for an invalid magic value, no selected blocks */
 int ke_task_handler(int a1, int a2, unsigned int a3) {
   int v6; // r4
   unsigned int v7; // r5
@@ -101,7 +100,6 @@ LABEL_12:
 
 
 // ke_event_send_2 @ 0x114d34
-/* luna: Requests event bit 2 for the specified task by calling the kernel task handler with event mask 4. */
 int ke_event_send_2(int a1) {
   return ke_task_handler(1, a1, 4u);
 }
@@ -109,7 +107,6 @@ int ke_event_send_2(int a1) {
 
 
 // ke_event_send_4 @ 0x114d40
-/* luna: Forwards its input unchanged to the kernel task handler with fixed arguments 2 and 0x0C. */
 int ke_event_send_4(int a1) {
   return ke_task_handler(2, a1, 0xCu);
 }
@@ -125,7 +122,6 @@ int ke_event_send_0x20(int a1) {
 
 
 // ke_event_send_0x40 @ 0x114d58
-/* luna: Forwards the supplied argument to the kernel task handler with fixed selector 32 and mode 4. */
 int ke_event_send_0x40(int a1) {
   return ke_task_handler(32, a1, 4u);
 }
@@ -133,7 +129,6 @@ int ke_event_send_0x40(int a1) {
 
 
 // ke_event_send_0x80 @ 0x114d64
-/* luna: Forwards its argument to the kernel task handler with selector 64 and a four-byte payload size. */
 int ke_event_send_0x80(int a1) {
   return ke_task_handler(64, a1, 4u);
 }
@@ -141,7 +136,6 @@ int ke_event_send_0x80(int a1) {
 
 
 // ke_task_handler_short @ 0x114d70
-/* luna: Delegates to `ke_task_handler` with fixed arguments 128 and 4, passing the caller's argument as the second parameter. */
 int ke_task_handler_short(int a1) {
   return ke_task_handler(128, a1, 4u);
 }
@@ -149,7 +143,6 @@ int ke_task_handler_short(int a1) {
 
 
 // ke_task_handler_large @ 0x114d7c
-/* luna: Reads the KE environment record from MEMD, copies mask-selected payload blocks into the output buffer, and returns status codes for bad magic, no matc */
 int ke_task_handler_large(int a1, int a2, unsigned int a3) {
   unsigned int v6; // r4
   union {
@@ -239,7 +232,6 @@ LABEL_11:
 
 
 // ke_event_send_0x400000 @ 0x114e6c
-/* luna: Forwards the supplied value to the large task handler with fixed selector arguments 2 and 6. */
 int ke_event_send_0x400000(int a1) {
   return ke_task_handler_large(2, a1, 6u);
 }
@@ -247,7 +239,6 @@ int ke_event_send_0x400000(int a1) {
 
 
 // patch_get_field @ 0x114e78
-/* luna: Forwards the supplied argument to the large kernel handler with selector 0x400000 and a 4-byte size. */
 int patch_get_field(int a1) {
   return ke_task_handler_large(0x400000, a1, 4u);
 }
@@ -255,7 +246,6 @@ int patch_get_field(int a1) {
 
 
 // patch_check_valid @ 0x114e84
-/* luna: Checks the referenced 16-bit status and invokes the register-clear routine if it is negative, then loops indefinitely. */
 void patch_check_valid() {
   if ( **(volatile int16_t **)off_114EA0 < 0 )
     mmio_clear_register(off_114EA8, (int)aDummyHandler, 242);
@@ -333,7 +323,6 @@ void patch_check_magic() {
 
 
 // patch_check_region @ 0x114f28
-/* luna: Clears and populates patch RAM, configures patch-control fields, performs magic and queue initialization, and then remains in an infinite idle loop. */
 void patch_check_region() {
   volatile uint32_t *v0; // r2
   unsigned int v1; // r3
@@ -401,7 +390,6 @@ void patch_check_region() {
 
 
 // patch_get_state @ 0x115020
-/* luna: Returns the patch-state value, or 16 when unavailable, after handling pending software-reset completion and hardware interrupt flags. */
 int patch_get_state() {
   int v0; // r4
   volatile uint32_t *v1; // r3
@@ -609,7 +597,6 @@ LABEL_10:
 
 
 // patch_init @ 0x115354
-/* luna: Logs the startup message, conditionally sets the RF channel from patch state, then polls a GPIO-driven command value and dispatches it indefinitely. */
 void patch_init() {
   int v0; // r0
   int v1; // r0
@@ -634,7 +621,6 @@ void patch_init() {
 
 
 // cli_parse_char @ 0x115390
-/* luna: Logs the selected fault category and context, then copies and initializes the patch table. */
 void cli_parse_char(int a1) {
   log_printf(aFaultHandlerFa);
   switch ( a1 )
@@ -660,7 +646,6 @@ void cli_parse_char(int a1) {
 
 
 // event_reset @ 0x1154c4
-/* luna: Clears the AP power-save forbid timeout flag and dispatches the `ap_ps_forbid_to` event. */
 int event_reset() {
   *(volatile uint8_t *)off_1154D0 = 0;
   return event_dispatch(aApPsForbidTo);
@@ -668,7 +653,6 @@ int event_reset() {
 
 
 // check_init_status @ 0x1154d8
-/* luna: Checks initialization status bits, updates the one-shot status latch, and schedules the status worker at a mode-scaled timer deadline. */
 int check_init_status() {
   volatile uint8_t *v0; // r4
   int result; // r0
@@ -717,7 +701,6 @@ switch ( *(volatile uint32_t *)(uintptr_t)(off_1155A4) ) { case 1: v3 = 700 * (u
 
 
 // check_nvic_irq_status @ 0x1155b0
-/* luna: Handles controller-specific status flags and reports a special condition or an enabled NVIC pending interrupt, ignoring bit 4 of the second pending ba */
 int check_nvic_irq_status(int a1, int a2) {
   volatile uint32_t *v2; // r4
   int v3; // r3
@@ -863,7 +846,6 @@ LABEL_22:
 
 
 // system_init @ 0x1157b4
-/* luna: Clears a startup flag and invokes initialization helpers for kernel and Bluetooth state. */
 int system_init() {
   int v0; // r0
   int v1; // r0
@@ -978,7 +960,6 @@ volatile uint32_t * check_event_flag(int a1, int a2) {
 
 
 // gpio_read_input @ 0x11597c
-/* luna: Performs mode-dependent peripheral setup and sets the shared status byte if any enabled NVIC interrupt among IRQs 0–95 is pending. */
 volatile uint8_t *gpio_read_input() {
   volatile uint32_t *v0; // r4
   volatile uint8_t *v1; // r5
@@ -1062,7 +1043,6 @@ volatile uint8_t *gpio_read_input() {
 
 
 // clear_rx_config @ 0x115ae4
-/* luna: Checks Wi-Fi/BT coexistence state and RF/GPIO gates, then dispatches the corresponding idle or BT event when eligible. */
 void clear_rx_config(int result) {
   volatile uint8_t **v1; // r5
   volatile uint8_t *v2; // r1
@@ -1226,7 +1206,6 @@ LABEL_46:
 
 
 // copy_global_data @ 0x115d60
-/* luna: Initializes radio state, then repeatedly services transmit and configuration work and waits for event or interrupt conditions. */
 void copy_global_data() {
   unsigned int v0; // r5
   volatile uint8_t **v1; // r10

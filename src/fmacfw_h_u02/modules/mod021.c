@@ -1,5 +1,4 @@
 // get_rf_capability @ 0x11b350
-/* luna: Marks the indexed TX queue entry and checks the corresponding hardware status bits when the entry has no cached state. */
 int get_rf_capability(int result) {
   volatile uint32_t *v1; // r5
   volatile char *v2; // r3
@@ -64,7 +63,6 @@ LABEL_9:
 
 
 // save_rx_packet @ 0x11b438
-/* luna: Records received-packet metadata and searches the channel-indexed buffer table for compatible storage. */
 int save_rx_packet(int a1) {
   volatile uint32_t *v1; // r8
   volatile char *v2; // r6
@@ -256,7 +254,6 @@ LABEL_12:
 
 
 // radio_irq_check @ 0x11b688
-/* luna: Sets up a timed radio operation, stages two words from the context’s current buffer, publishes the context, and issues command 0x2000. */
 volatile uint32_t * radio_irq_check(volatile uint32_t *result) {
   volatile uint32_t *v1; // r2
   int v2; // r5
@@ -295,7 +292,6 @@ volatile uint32_t * radio_irq_check(volatile uint32_t *result) {
 
 
 // tx_channel_setup @ 0x11b70c
-/* luna: Prepares per-channel transmit packet state from connection metadata and a packet descriptor, clearing cached channel state when no usable packet is av */
 int tx_channel_setup(int a1) {
   volatile uint32_t *v1; // r5
   int v2; // r6
@@ -439,7 +435,6 @@ LABEL_11:
 
 
 // check_mode_flag @ 0x11b898
-/* luna: Consumes pending Bluetooth receive state and checks and dispatches radio-state work when controller flags permit it. */
 void check_mode_flag() {
   volatile uint32_t *v0; // r4
   int v1; // r3
@@ -596,7 +591,6 @@ void check_mode_flag() {
 
 
 // get_conn_by_channel @ 0x11ba74
-/* luna: Pops the current channel's list, registers the supplied object for that channel, and updates the channel record when the object's 0x380000 flag bits a */
 int get_conn_by_channel(int a1, int a2) {
   int v2; // r6
   int v3; // r5
@@ -619,7 +613,6 @@ int get_conn_by_channel(int a1, int a2) {
 
 
 // bt_start_operation @ 0x11bac0
-/* luna: Aggregates eight channel-indexed counters by mapped rate class and computes a compact, scaled summary for an eligible connection. */
 volatile uint8_t * bt_start_operation(volatile uint8_t *result) {
   unsigned int v1; // r4
   int v2; // r5
@@ -754,7 +747,6 @@ volatile uint8_t * bt_start_operation(volatile uint8_t *result) {
 
 
 // wifi_core_init @ 0x11bc48
-/* luna: Initializes shared radio state and its repeated records, then selects RF control bits according to status bit 26. */
 int wifi_core_init() {
   volatile int *v0; // r4
   int v1; // r3

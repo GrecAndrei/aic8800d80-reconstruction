@@ -1,5 +1,4 @@
 // ke_msg_dispatch_1 @ 0x135940
-/* luna: Copies the saved TX-processing routine into the supplied buffer, updates the stored routine pointer, invokes the jump helper on the original entry reg */
 int ke_msg_dispatch_1(int a1) {
   volatile uint32_t *v1; // r5
 
@@ -14,7 +13,6 @@ int ke_msg_dispatch_1(int a1) {
 
 
 // mac_backoff_rand @ 0x135970
-/* luna: Validates a nested 4-byte-indexed layout in the buffer and returns the final 16-bit value, or null if a bounds check fails. */
 volatile uint8_t * mac_backoff_rand(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   int v3; // r2
@@ -49,7 +47,6 @@ volatile uint8_t * mac_backoff_rand(volatile uint8_t *a1, int a2) {
 
 
 // rf_chan_pwr_calc @ 0x1359bc
-/* luna: Validates the active channel's frequency selection, then updates its channel-specific power-calibration state under the RF lock. */
 int rf_chan_pwr_calc(int a1, int a2, volatile char *a3) {
   int v3; // r10
   int v4; // r8
@@ -324,7 +321,6 @@ LABEL_31:
 
 
 // tx_desc_get @ 0x135e98
-/* luna: Copies the indexed transmit payload into its 512-byte buffer, records its length, and emits a two-byte completion message. */
 int tx_desc_get(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   uint16_t v5; // r7
   volatile uint8_t *v8; // r0

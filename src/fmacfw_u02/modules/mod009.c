@@ -1,5 +1,4 @@
 // process_global_167204 @ 0x114574
-/* luna: Dispatches the LP-level power error event and conditionally clears associated control fields and resets a flag. */
 int process_global_167204() {
   int result; // r0
   volatile uint8_t *v1; // r3
@@ -20,7 +19,6 @@ int process_global_167204() {
 
 
 // sub_1145ac @ 0x1145ac
-/* luna: Checks timer-related time guards, logs a denial when a guard fails, and writes the resulting allow-or-deny flag. */
 unsigned int sub_1145ac(unsigned int result) {
   int v1; // r2
 
@@ -54,7 +52,6 @@ unsigned int sub_1145ac(unsigned int result) {
 
 
 // load_global_ptr_182558 @ 0x11463c
-/* luna: Selects the active RF control block and programs it with the supplied tuning value and mode-dependent settings. */
 int load_global_ptr_182558(int a1) {
   volatile int *v1; // r3
   int v2; // r2
@@ -104,7 +101,6 @@ void dummy_store_global() {
 
 
 // clear_global_flag_2 @ 0x1146c8
-/* luna: Clears bit 1 in the 32-bit flags field at offset 8 of the global object. */
 void clear_global_flag_2() {
   *(volatile uint32_t *)(*(volatile uint32_t *)off_1146D8 + 8) &= ~2u;
 }
@@ -112,7 +108,6 @@ void clear_global_flag_2() {
 
 
 // set_global_flag_2 @ 0x1146dc
-/* luna: Sets bit 1 in the 32-bit field at offset 8 of the object referenced by a global pointer. */
 void set_global_flag_2() {
   *(volatile uint32_t *)(*(volatile uint32_t *)off_1146EC + 8) |= 2u;
 }
@@ -120,7 +115,6 @@ void set_global_flag_2() {
 
 
 // check_bt_ptr_state @ 0x1146f0
-/* luna: Updates BT-associated mode state by selecting 0x800 or 0x1000, conditionally clearing the corresponding flag bit, and resetting an associated field. */
 int check_bt_ptr_state() {
   int v0; // r2
   int v1; // r1
@@ -147,7 +141,6 @@ int check_bt_ptr_state() {
 
 
 // load_multiple_globals @ 0x114748
-/* luna: Logs interrupt and Cortex-M control/stack state, dumps a bounded MSP memory range and selected interrupt/timer registers, then initializes patches. */
 void load_multiple_globals() {
   unsigned int v0; // r5
   int v1; // r4
@@ -273,7 +266,6 @@ int rf_cmd6_read_hi(volatile uint8_t *a1) {
 
 
 // rf_cmd8_read @ 0x1148c4
-/* luna: Reads RF command results 8 and 9 into packed outputs, falling back to results 7 and 8 when the primary result is zero, and returns a status code. */
 int rf_cmd8_read(volatile uint32_t *a1, volatile unsigned int *a2) {
   unsigned int v4; // r4
   unsigned int v5; // r0
@@ -374,7 +366,6 @@ LABEL_9:
 
 
 // copy_global_1672f8 @ 0x11499c
-/* luna: Reads two selected RF words, decodes six signed-magnitude values into the caller buffer, and returns per-value encoding flags. */
 int copy_global_1672f8(int a1, int a2) {
   int v3; // r1
   int v4; // r2
@@ -441,7 +432,6 @@ LABEL_8:
 
 
 // rf_cmd_a_write @ 0x114a3c
-/* luna: Extracts the indexed byte from RF command A, decodes its signed nibble value into the output, and returns a status indicating which nibble was used or */
 int rf_cmd_a_write(char a1, volatile uint8_t *a2) {
   unsigned int v3; // r0
   unsigned int v4; // r3
@@ -475,7 +465,6 @@ int rf_cmd_a_write(char a1, volatile uint8_t *a2) {
 
 
 // rf_cmd_b_write @ 0x114a84
-/* luna: Selects the nonzero high nibble or the low nibble of an RF command byte, decodes it as signed magnitude, and returns 0, 1, or 2 for high-nibble, low-n */
 int rf_cmd_b_write(char a1, volatile uint8_t *a2) {
   unsigned int v3; // r0
   unsigned int v4; // r3
@@ -509,7 +498,6 @@ int rf_cmd_b_write(char a1, volatile uint8_t *a2) {
 
 
 // rom_get_chip_version @ 0x114acc
-/* luna: Queries the ROM version service, decodes the selected nonzero upper or lower nibble into the output version, and returns 0 for upper-nibble encoding,  */
 int rom_get_chip_version(volatile int *a1) {
   uint8_t v2; // r0
   int v3; // r2
@@ -569,7 +557,6 @@ unsigned int get_hook_bits_6_8() {
 
 
 // rom_get_chip_metal @ 0x114b44
-/* luna: Queries the ROM for the chip metal revision, stores the decoded byte through the output pointer, and returns a status based on the encoded result. */
 int rom_get_chip_metal(volatile uint8_t *a1) {
   int16_t v2; // r0
 
@@ -624,7 +611,6 @@ int call_hook_27() {
 
 
 // invalid_handler @ 0x114bb8
-/* luna: Invokes the callback stored at address 0x1C8 with nesting-aware IRQ protection, restoring interrupts when the outermost call exits. */
 int invalid_handler() {
   volatile int *v0; // r4
   int result; // r0
@@ -655,7 +641,6 @@ int invalid_handler() {
 
 
 // get_ke_env @ 0x114bf8
-/* luna: Initializes two hook-related globals if unset and marks the hook state active. */
 void get_ke_env() {
   volatile int *v0; // r4
 

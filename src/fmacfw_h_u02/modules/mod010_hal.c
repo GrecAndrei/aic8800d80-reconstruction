@@ -1,5 +1,4 @@
 // patch_apply @ 0x114af0
-/* luna: Validates the ROM patch record and concatenates payload sections enabled by the intersection of the requested and available masks into the destination */
 int patch_apply(int a1, int a2, unsigned int a3) {
   int v6; // r4
   unsigned int v7; // r5
@@ -101,7 +100,6 @@ LABEL_12:
 
 
 // send_smc_cmd_2 @ 0x114bf4
-/* luna: Calls the patch helper with selector 1, the supplied argument, and a 4-byte size. */
 int send_smc_cmd_2(int a1) {
   return patch_apply(1, a1, 4u);
 }
@@ -109,7 +107,6 @@ int send_smc_cmd_2(int a1) {
 
 
 // send_smc_cmd_4 @ 0x114c00
-/* luna: Applies the 12-byte payload using patch selector 2. */
 int send_smc_cmd_4(int a1) {
   return patch_apply(2, a1, 0xCu);
 }
@@ -125,7 +122,6 @@ int send_smc_cmd_0x20(int a1) {
 
 
 // send_smc_cmd_0x40 @ 0x114c18
-/* luna: Submits the 0x40 SMC command through the patch layer with a four-byte argument. */
 int send_smc_cmd_0x40(int a1) {
   return patch_apply(32, a1, 4u);
 }
@@ -133,7 +129,6 @@ int send_smc_cmd_0x40(int a1) {
 
 
 // send_smc_cmd_0x80 @ 0x114c24
-/* luna: Issues this SMC command by passing the supplied argument to patch_apply with operation 64 and size 4. */
 int send_smc_cmd_0x80(int a1) {
   return patch_apply(64, a1, 4u);
 }
@@ -141,7 +136,6 @@ int send_smc_cmd_0x80(int a1) {
 
 
 // patch_validate @ 0x114c30
-/* luna: Forwards the input to patch_apply with selector 0x80 and a size of 4 bytes. */
 int patch_validate(int a1) {
   return patch_apply(128, a1, 4u);
 }
@@ -149,7 +143,6 @@ int patch_validate(int a1) {
 
 
 // patch_apply_ext @ 0x114c3c
-/* luna: Validates the stored extension-patch block and copies requested payload fragments to the output buffer, returning status codes for invalid data, no ma */
 int patch_apply_ext(int a1, int a2, unsigned int a3) {
   unsigned int v6; // r4
   union {
@@ -255,7 +248,6 @@ int get_rssi(int a1) {
 
 
 // is_rssi_valid @ 0x114d44
-/* luna: Reads a signed 16-bit value associated with RSSI, performs the fixed IRQ/MMIO operation if it is negative, and then spins forever. */
 void is_rssi_valid() {
   if ( **(volatile int16_t **)off_114D60 < 0 )
     irq_disable_mmio_write(dword_114D68, dword_114D64, 242);
@@ -266,7 +258,6 @@ void is_rssi_valid() {
 
 
 // check_patch_signature @ 0x114d6c
-/* luna: Checks the patch header signature and, if it matches, applies its address/value writes and configured word-copy operations. */
 void check_patch_signature() {
   volatile uint32_t *v0; // r3
   int v1; // r2
@@ -402,7 +393,6 @@ void is_patch_loaded() {
 
 
 // get_phy_state @ 0x114ee0
-/* luna: Returns the PHY state when the controller is in state 2 (otherwise 16), while servicing a soft reset and pending hardware status flags. */
 int get_phy_state() {
   int v0; // r4
   volatile uint32_t *v1; // r3
@@ -610,7 +600,6 @@ LABEL_10:
 
 
 // log_boot_message @ 0x115214
-/* luna: Prints the panic diagnostic, conditionally sets the RF frequency from the current PHY state, and then polls received bytes for RF calibration processi */
 void log_boot_message() {
   int v0; // r0
   int v1; // r0
@@ -635,7 +624,6 @@ void log_boot_message() {
 
 
 // process_debug_char @ 0x115250
-/* luna: Prints a fault-handler diagnostic selected by the supplied fault code, then runs the patch-table and boot-log routines. */
 void process_debug_char(int a1) {
   debug_printf(aFaultHandlerFa);
   switch ( a1 )
@@ -661,7 +649,6 @@ void process_debug_char(int a1) {
 
 
 // int_flag_clear @ 0x115384
-/* luna: Clears the volatile interrupt-flag byte and returns the result of allocating a transmit event with a fixed message constant. */
 int int_flag_clear() {
   *(volatile uint8_t *)off_115390 = 0;
   return alloc_tx_event(aApPsForbidTo);
@@ -720,7 +707,6 @@ int int_flag_get() {
 
 
 // fault_status_read @ 0x115470
-/* luna: Checks for a relevant pending interrupt by examining enabled NVIC pending bits and handling the associated status condition first. */
 int fault_status_read(int a1, int a2) {
   volatile uint32_t *v2; // r4
   int v3; // r3
@@ -782,7 +768,6 @@ LABEL_6:
 
 
 // rf_power_control @ 0x115500
-/* luna: Requests the Wi-Fi hardware wakeup handshake, reconciles power-mode bits, and refreshes state for active contexts after acknowledgment. */
 unsigned int rf_power_control() {
   volatile uint32_t *v0; // r2
   volatile uint8_t *v1; // r4
@@ -866,7 +851,6 @@ LABEL_22:
 
 
 // system_init @ 0x115674
-/* luna: Clears a platform state byte, then initializes the lock, vendor platform, RF modulation setting, and timer subsystem. */
 int system_init() {
   int v0; // r0
   int v1; // r0
@@ -884,7 +868,6 @@ int system_init() {
 
 
 // rx_packet_pending @ 0x115698
-/* luna: Reinitializes the RWNX core and radio state, then restores the caller's interrupt state. */
 volatile uint32_t * rx_packet_pending(int a1, int a2) {
   volatile int *v2; // r4
   volatile uint32_t *v3; // r3
@@ -981,7 +964,6 @@ volatile uint32_t * rx_packet_pending(int a1, int a2) {
 
 
 // chip_revision_read @ 0x11583c
-/* luna: Records a low-nibble hardware value, configures variant-dependent RF controls, and sets a status byte if any of three status/mask pairs is active. */
 volatile uint8_t *chip_revision_read() {
   volatile uint32_t *v0; // r4
   volatile uint8_t *v1; // r5
@@ -1065,7 +1047,6 @@ volatile uint8_t *chip_revision_read() {
 
 
 // sleep_mode_read @ 0x1159a4
-/* luna: Checks sleep, Wi-Fi, Bluetooth, and radio state to handle low-power transitions and queue the corresponding events. */
 void sleep_mode_read(int result) {
   volatile uint8_t **v1; // r5
   volatile uint8_t *v2; // r1
@@ -1229,7 +1210,6 @@ LABEL_46:
 
 
 // ll_init_tables @ 0x115c20
-/* luna: Initializes the link-layer radio and scheduler, then services controller events and RF housekeeping while sleeping when idle. */
 void ll_init_tables(int a1, int a2, int a3, int a4) {
   unsigned int v4; // r5
   volatile uint8_t **v5; // r10

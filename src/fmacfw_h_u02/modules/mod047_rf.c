@@ -1,5 +1,4 @@
 // radio_init @ 0x12ebb8
-/* luna: Queues a USB-off TX event, invokes a handler with selector 0x42F, and clears bit 1 in a global state word. */
 int radio_init() {
   alloc_tx_event(aUsbOff);
   invalid_handler_12c5fc((int)(uintptr_t)((volatile char *)0x42F), 1);
@@ -9,7 +8,6 @@ int radio_init() {
 
 
 // pdu_alloc_410 @ 0x12ebe0
-/* luna: Prepares the 0x410 boot-NPC PDU, applies the request value to the slot selected by selector 1 or 2, and passes the cleared buffer to the RX processor. */
 int pdu_alloc_410(int a1, int a2, int a3, int a4) {
   int v5; // r0
   int v6; // r1
@@ -55,7 +53,6 @@ LABEL_5:
 
 
 // pdu_alloc_40a @ 0x12ec6c
-/* luna: Creates a zero-filled 12-byte PDU for opcode 0x40A, passes it to the packet processor, and returns zero. */
 int pdu_alloc_40a(int a1, int a2, int16_t a3, int16_t a4) {
   volatile uint32_t *v4; // r0
 
@@ -70,7 +67,6 @@ int pdu_alloc_40a(int a1, int a2, int16_t a3, int16_t a4) {
 
 
 // pdu_alloc_424 @ 0x12ec8c
-/* luna: Copies the supplied packet into a 0x424 PDU, capped at 1024 bytes, allocates a TX event, and submits the PDU to RX packet processing. */
 int pdu_alloc_424(int a1, volatile char **a2, int a3, int a4) {
   int v5; // r0
   volatile char *v6; // r1
@@ -93,7 +89,6 @@ int pdu_alloc_424(int a1, volatile char **a2, int a3, int a4) {
 
 
 // pdu_alloc_40c @ 0x12ecd4
-/* luna: Copies the request’s inline payload to its destination, queues an event describing the written range, and submits the allocated PDU for processing. */
 int pdu_alloc_40c(int a1, volatile uint32_t *a2, int a3, int a4) {
   volatile uint32_t *v5; // r5
   volatile char *v6; // r0
@@ -271,7 +266,6 @@ int send_mcu_cmd_0x403(int a1, volatile uint32_t *a2, int a3, int a4) {
 
 
 // bt_coex_check_state @ 0x12ef20
-/* luna: Alternates between firmware-version and RF-timer actions, rescheduling event 1070 after each phase. */
 int bt_coex_check_state() {
   volatile uint8_t *v0; // r5
   int v1; // r0
@@ -302,7 +296,6 @@ int bt_coex_check_state() {
 
 
 // event_sync @ 0x12ef88
-/* luna: Gets the PHY state, calls the RF frequency setter, and then enters an infinite loop. */
 void event_sync() {
   int v0; // r0
   int v1; // r1
@@ -317,7 +310,6 @@ void event_sync() {
 
 
 // send_event_42d @ 0x12ef94
-/* luna: Reports a WLAN flow-control timeout by creating a transmit event and synchronizing event 0x42D. */
 void send_event_42d() {
   volatile char *v0; // r0
 
@@ -328,7 +320,6 @@ void send_event_42d() {
 
 
 // send_event_42c @ 0x12efb0
-/* luna: Queues the reboot transmit event, synchronizes event 0x42C in mode 1, and passes the returned value to event_sync. */
 void send_event_42c() {
   volatile char *v0; // r0
 
@@ -339,7 +330,6 @@ void send_event_42c() {
 
 
 // send_mcu_cmd_0x40e @ 0x12efcc
-/* luna: Handles the 0x40E boot-mode test request, logs the selected mode, schedules a requested delay when applicable, and finalizes the response packet. */
 int send_mcu_cmd_0x40e(int a1, volatile int *a2, int a3, int a4) {
   int v5; // r0
   int v6; // r3
@@ -582,7 +572,6 @@ void unknown_12f378() {
 
 
 // lock_init_0x18274c @ 0x12f3a8
-/* luna: Initializes the global 8-byte lock state to 0x00000002FFFFFFFF and returns its address. */
 volatile int *lock_init_0x18274c() {
   volatile uint64_t *v0; // r4
   volatile int *result; // r0
@@ -596,7 +585,6 @@ volatile int *lock_init_0x18274c() {
 
 
 // timer_init_0x1922d4 @ 0x12f3c8
-/* luna: Zero-initializes the global test-statistics state and clears its embedded statistics buffer. */
 int timer_init_0x1922d4() {
   int v0; // r4
 
@@ -609,7 +597,6 @@ int timer_init_0x1922d4() {
 
 
 // phy_rate_map @ 0x12f3e8
-/* luna: Returns the result of the event-flag check. */
 int phy_rate_map() {
   return check_event_flag();
 }
@@ -640,7 +627,6 @@ int j_nullsub_6(void) {
 
 
 // phy_mode_check_1 @ 0x12f3f8
-/* luna: Returns zero only when the mode byte is 3 and the context word at offset 612 is zero, writing 32 to the associated status globals along the way. */
 int phy_mode_check_1() {
   int result; // r0
 
@@ -657,7 +643,6 @@ int phy_mode_check_1() {
 
 
 // list_foreach_1 @ 0x12f410
-/* luna: Forwards the call to the event handler and returns its result. */
 int list_foreach_1() {
   return invoke_event_handler();
 }
@@ -665,7 +650,6 @@ int list_foreach_1() {
 
 
 // deref_and_check @ 0x12f414
-/* luna: Drains a linked list, dispatching entries with a nonzero field at offset 12 and otherwise clearing the associated object's 16-bit field at offset 8. */
 volatile int * deref_and_check(volatile int *result, int a2) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r6
@@ -701,7 +685,6 @@ volatile int * deref_and_check(volatile int *result, int a2) {
 
 
 // state_check_0x182ba0_b @ 0x12f448
-/* luna: In state 3, tags and copies a 28-byte RF-test message into an alternate buffer, waits for the ioctl handshake, forwards it, and resets RF command stat */
 int state_check_0x182ba0_b(int result) {
   int v1; // r4
   volatile char *v2; // r0
@@ -734,7 +717,6 @@ int state_check_0x182ba0_b(int result) {
 
 
 // return_fail @ 0x12f4ac
-/* luna: Requests an RX buffer using a zero allocation argument and returns the allocator's result. */
 int return_fail() {
   return alloc_rx_buffer(0);
 }
@@ -742,7 +724,6 @@ int return_fail() {
 
 
 // unknown_12f4b4 @ 0x12f4b4
-/* luna: Calls the string setter within a nesting-aware IRQ guard, decrements the indexed byte counter for indices 0–4, and decrements a global counter before  */
 int unknown_12f4b4(unsigned int a1, int a2) {
   volatile int *v3; // r5
   int result; // r0
@@ -776,7 +757,6 @@ int unknown_12f4b4(unsigned int a1, int a2) {
 
 
 // get_buffer_size @ 0x12f514
-/* luna: Returns the fixed buffer size of 1024 bytes. */
 int get_buffer_size() {
   return 1024;
 }
@@ -931,7 +911,6 @@ LABEL_20:
 
 
 // split_on_dot @ 0x12f648
-/* luna: Finds an entry whose name exactly matches the input segment before the first dot, or returns the sole entry whose name begins with that segment. */
 volatile uint32_t * split_on_dot(int a1, volatile uint32_t *a2, int a3) {
   int v5; // r0
   int v6; // r11
@@ -1193,7 +1172,6 @@ LABEL_6:
 
 
 // setup_global_table @ 0x12f8c4
-/* luna: Logs the two string fields of each populated entry in the global table. */
 int setup_global_table() {
   unsigned int v0; // r4
   unsigned int v1; // r5
@@ -1214,7 +1192,6 @@ int setup_global_table() {
 
 
 // is_two_char_string @ 0x12f8ec
-/* luna: Returns 1 for a trailing `.b`, 2 for `.h`, 4 when no qualifying suffix is present, and -1 for another suffix after a nonempty prefix. */
 int is_two_char_string(int a1) {
   int v2; // r0
   int v3; // r0
@@ -1237,7 +1214,6 @@ int is_two_char_string(int a1) {
 
 
 // parse_hex_string @ 0x12f920
-/* luna: Parses a test memory-access command and either prints a volatile read of the requested width or forwards the supplied value to the packet-parameter ha */
 int parse_hex_string(int a1, volatile uint32_t *a2) {
   unsigned int v4; // r5
   int v5; // r0
@@ -1538,7 +1514,6 @@ int parse_format_switch(int a1, int a2) {
 
 
 // mode_dispatch @ 0x12fde0
-/* luna: Parses temperature-compensation enable and optional period values, updates shared RF state and signals changes, or invokes the transmit-power lookup w */
 int mode_dispatch(int a1, int a2) {
   unsigned int v4; // r0
   int v5; // r1
@@ -1589,7 +1564,6 @@ int mode_dispatch(int a1, int a2) {
 
 
 // debug_assert @ 0x12fe58
-/* luna: Checks system readiness, enters a nested IRQ-protected section, clears two statistics buffers, and dispatches four WLAN ioctl handlers. */
 int debug_assert() {
   volatile int *v0; // r4
   volatile uint32_t *v1; // r0
@@ -1628,7 +1602,6 @@ int debug_assert() {
 
 
 // lock_with_timeout @ 0x12fed8
-/* luna: Processes a command-like string, forwarding non-`aic` input to a queued handler and dumping CPU stack state while updating a diagnostic flag for the ` */
 int lock_with_timeout(int a1) {
   int v1; // r0
   int v2; // r4

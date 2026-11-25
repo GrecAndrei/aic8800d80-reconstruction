@@ -1,5 +1,4 @@
 // global_table_lookup @ 0x142494
-/* luna: Applies a state- and marker-triggered IRQ/MMIO workaround, forwards frames whose control field matches subtype 0xD0, and returns zero. */
 int global_table_lookup(int a1, unsigned int a2) {
   if ( **(volatile int16_t **)off_1424D0 < 0 && *(volatile uint8_t *)(a2 + 8) == 255 )
     irq_disable_mmio_write(dword_1424D8, dword_1424D4, 50);
@@ -70,7 +69,6 @@ uint64_t double_exp_check(uint64_t a1) {
 
 
 // float_to_int_convert @ 0x142570
-/* luna: Returns the input rounded toward negative infinity to an integral-valued single-precision float, preserving already-integral values and routing NaNs t */
 unsigned int float_to_int_convert(unsigned int a1) {
   int v1; // r5
   unsigned int v3; // r7

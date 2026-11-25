@@ -1,5 +1,4 @@
 // send_ke_message @ 0x11eb54
-/* luna: Allocates a 24-byte kernel message with fixed identifiers, copies the supplied parameters into it, and submits it for processing. */
 int send_ke_message(int a1) {
   int v2; // r0
   int v3; // r1
@@ -15,7 +14,6 @@ int send_ke_message(int a1) {
 
 
 // aes_ccm_init @ 0x11eb78
-/* luna: Drains words from a queue and forwards them to the kernel in batches of up to four while updating interrupt state. */
 int aes_ccm_init() {
   volatile uint32_t *v0; // r4
   volatile int *v1; // r5
@@ -82,7 +80,6 @@ int aes_ccm_init() {
 
 
 // read_hw_clock @ 0x11ec18
-/* luna: Reads a volatile hardware-register snapshot, passes it to a helper, and uses an alternate handler when the first word’s low nibble is 2. */
 volatile uint64_t *read_hw_clock() {
   volatile uint64_t *result; // r0
   struct __attribute__((packed)) { uint64_t v1; // [sp+4h] [bp-20h] BYREF
@@ -104,7 +101,6 @@ volatile uint64_t *read_hw_clock() {
 
 
 // check_ll_event_queue @ 0x11ec64
-/* luna: Releases every item on the object's pending list, clears its state, and restores queue-related sentinel values. */
 volatile int * check_ll_event_queue(int a1) {
   int v2; // r5
   int v3; // r0
@@ -213,7 +209,6 @@ int controller_init_pools() {
 
 
 // is_controller_active @ 0x11edc8
-/* luna: Allocates and initializes a station-management context from the free pool, optionally links a paired context, and writes the allocated context ID to t */
 int is_controller_active(volatile int *a1, volatile uint8_t *a2) {
   int v3; // r8
   volatile uint32_t *v5; // r0
@@ -384,7 +379,6 @@ int is_controller_active(volatile int *a1, volatile uint8_t *a2) {
 
 
 // get_connection_tx_power @ 0x11efec
-/* luna: Processes a controller connection’s link-layer work, clears its event markers, services associated queued work, and selects a radio action when no RX  */
 int get_connection_tx_power(unsigned int a1, int a2, int a3, int a4) {
   int v4; // r7
   int v5; // r8
@@ -489,7 +483,6 @@ LABEL_8:
 
 
 // set_connection_flag @ 0x11f158
-/* luna: Initializes an indexed link-layer connection context, clearing its control buffer and populating mode-dependent metadata from the supplied parameters. */
 int set_connection_flag(int a1, uint8_t a2) {
   int v2; // r4
   int v3; // r8
@@ -562,7 +555,6 @@ int set_connection_flag(int a1, uint8_t a2) {
 
 
 // reset_rx_control_fields @ 0x11f278
-/* luna: Sets the connection context’s control byte at offset 52 and clears the byte at offset 163 and word at offset 184. */
 int reset_rx_control_fields(int result) {
   *(volatile uint8_t *)(result + 52) = 1;
   *(volatile uint8_t *)(result + 163) = 0;
@@ -573,7 +565,6 @@ int reset_rx_control_fields(int result) {
 
 
 // is_ll_event_pending @ 0x11f28c
-/* luna: Processes and dispatches pending link-layer events until the queue is empty, a lock or state check fails, or the optional event limit is reached, then */
 int is_ll_event_pending(int a1, int a2, int a3) {
   int v3; // r10
   int v4; // r4
@@ -617,7 +608,6 @@ int is_ll_event_pending(int a1, int a2, int a3) {
 
 
 // build_tx_pdu_lists @ 0x11f308
-/* luna: Drains entries from the controller’s paired transmit queues, updates associated TX state when applicable, and submits each entry for PHY processing un */
 int build_tx_pdu_lists(int a1, int a2, int a3) {
   int v3; // r5
   int v7; // r10
@@ -686,7 +676,6 @@ LABEL_15:
 
 
 // is_tx_engine_busy @ 0x11f3b4
-/* luna: Handles a pending controller idle transition by clearing its request flag, updating shared state, and polling hardware handshakes with a timeout. */
 int is_tx_engine_busy(int result) {
   int v1; // r4
   volatile int *v2; // r2
@@ -812,7 +801,6 @@ int is_tx_engine_busy(int result) {
 
 
 // get_current_channel_1 @ 0x11f5b0
-/* luna: When the controller state gates are satisfied, writes a contiguous mask derived from the value at offset 118 into bits 8–15 of a control register, pro */
 void get_current_channel_1() {
   volatile uint8_t *v0; // r3
   unsigned int v1; // r2
@@ -829,7 +817,6 @@ void get_current_channel_1() {
 
 
 // reset_controller_block @ 0x11f5e4
-/* luna: Clears the global MAC state and reinitializes four per-BSS contexts with default values. */
 int reset_controller_block() {
   volatile uint32_t *v0; // r8
   int v1; // r4
@@ -864,7 +851,6 @@ int reset_controller_block() {
 
 
 // is_sleep_state_active @ 0x11f654
-/* luna: Checks each link context's event list and returns the pending status reported for the last event visited. */
 int is_sleep_state_active() {
   volatile uint32_t *i; // r5
   volatile uint32_t *j; // r4
@@ -881,7 +867,6 @@ int is_sleep_state_active() {
 
 
 // transmit_radio_packet @ 0x11f680
-/* luna: Recomputes the MAC-address match mask from registered entries and queues the requested address and P2P mode for the controller. */
 int transmit_radio_packet(int a1, int a2, int a3, volatile uint8_t *a4) {
   int v4; // r9
   volatile int **v5; // r4

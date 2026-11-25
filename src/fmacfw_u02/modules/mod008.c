@@ -41,7 +41,6 @@ volatile uint32_t *ke_state_get() {
 
 
 // assert_fault @ 0x113904
-/* luna: Dispatches the error handler under nested interrupt protection and performs threshold-triggered RF status cleanup before restoring IRQ state. */
 int assert_fault(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -97,7 +96,6 @@ int assert_fault(volatile uint32_t *a1) {
 
 
 // ke_state_get_fast @ 0x1139c8
-/* luna: Clears the 8-byte processing state, then dispatches one RX item through the packet and command handlers for each pending entry. */
 volatile uint32_t *ke_state_get_fast() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -126,7 +124,6 @@ volatile uint32_t *ke_state_get_fast() {
 
 
 // error_trap @ 0x113a08
-/* luna: Loads a fixed global value inside a nested IRQ-protected critical section while restoring the prior interrupt state on exit. */
 volatile uint32_t *error_trap() {
   volatile int *v0; // r4
   int v1; // r0
@@ -159,7 +156,6 @@ volatile uint32_t *error_trap() {
 
 
 // assert_error @ 0x113a48
-/* luna: Passes the supplied error data to the registered handler while tracking nested calls and restoring IRQs when the outermost call exits. */
 int assert_error(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -192,7 +188,6 @@ int assert_error(volatile uint32_t *a1) {
 
 
 // is_flag_one @ 0x113a8c
-/* luna: Returns true only when the byte at offset 8 of the fixed global state is exactly 1. */
 BOOL is_flag_one() {
   return *((volatile uint8_t *)off_113A9C + 8) == 1;
 }
@@ -200,7 +195,6 @@ BOOL is_flag_one() {
 
 
 // bt_init_1 @ 0x113aa0
-/* luna: Loads the IRQ state, dispatches the host USB start event, and returns success. */
 int bt_init_1() {
   irq_state_load(off_113AB4);
   event_dispatch(aHostUsbStart);
@@ -209,7 +203,6 @@ int bt_init_1() {
 
 
 // save_task_ptr @ 0x113abc
-/* luna: Initializes host-interface work and buffer storage, derives USB transfer settings, and configures the USB IN aggregation count. */
 int save_task_ptr(int a1) {
   void *v1; // r5
   volatile uint32_t *v2; // r1
@@ -302,7 +295,6 @@ int save_task_ptr(int a1) {
 
 
 // update_config_bytes @ 0x113c20
-/* luna: Stores the supplied task pointer, copies two bytes from fixed configuration storage into global byte slots, and returns success. */
 int update_config_bytes(int a1) {
   volatile uint8_t *v1; // r2
   char v2; // r3
@@ -317,7 +309,6 @@ int update_config_bytes(int a1) {
 
 
 // check_packet_length @ 0x113c48
-/* luna: Validates a host RX descriptor, copies it into a kernel event, and dispatches it to the command or data handler. */
 int check_packet_length(int a1) {
   unsigned int v1; // r3
   int v2; // r7
@@ -393,7 +384,6 @@ LABEL_7:
 
 
 // call_checked @ 0x114058
-/* luna: Waits for MAC scanning to finish, invokes the fixed helper with 128 inside a nesting-aware IRQ guard, and returns its result after restoring interrupt */
 int call_checked() {
   volatile int *v0; // r4
   int result; // r0
@@ -426,7 +416,6 @@ int call_checked() {
 
 
 // timer_delay_1 @ 0x114104
-/* luna: Calls read_state_flag only when the byte at a fixed address is zero. */
 void timer_delay_1() {
   if ( !*(volatile uint8_t *)off_114110 )
     ((int (*)())read_state_flag)();
@@ -435,7 +424,6 @@ void timer_delay_1() {
 
 
 // invoke_callback @ 0x114114
-/* luna: Obtains WLAN data through the configured callback, processes it, and logs retrieval or processing failures. */
 int invoke_callback() {
   int v0; // r0
   volatile uint32_t *v1; // r4
@@ -456,7 +444,6 @@ int invoke_callback() {
 
 
 // store_byte_field @ 0x114168
-/* luna: Dispatches the host-ready event and then invokes the callback, returning its result. */
 int store_byte_field() {
   event_dispatch(aHostReady);
   return invoke_callback();
@@ -464,7 +451,6 @@ int store_byte_field() {
 
 
 // is_current_task @ 0x1141c8
-/* luna: Logs whether the supplied USB transfer-error callback is one of the two known handlers, then schedules the configured delayed kernel task when enabled */
 int is_current_task(int a1) {
   int result; // r0
   int v2; // r2
@@ -491,7 +477,6 @@ LABEL_4:
 
 
 // process_task_queue @ 0x114234
-/* luna: Clears the command-processing state, then obtains and dispatches one receive item for each entry counted in the pending queue. */
 volatile uint32_t *process_task_queue() {
   volatile int *v0; // r5
   void *v1; // r7
@@ -521,7 +506,6 @@ volatile uint32_t *process_task_queue() {
 
 
 // sub_11428c @ 0x11428c
-/* luna: Waits for a shared flag, invokes the command handler under a nesting-counted IRQ guard, then sets the flag and unwinds the guard. */
 int sub_11428c(volatile uint32_t *a1) {
   volatile int *v1; // r5
   volatile uint32_t *v2; // r4
@@ -557,7 +541,6 @@ int sub_11428c(volatile uint32_t *a1) {
 
 
 // set_tx_power @ 0x1142e4
-/* luna: Checks the host-IPC-start status flag (0x100) and returns 1. */
 int set_tx_power() {
   check_status_bits(256, aHostIpcStart);
   return 1;
@@ -565,7 +548,6 @@ int set_tx_power() {
 
 
 // init_bt_global @ 0x1142f8
-/* luna: Initializes Bluetooth global state by storing the supplied value and clearing the associated state fields. */
 int init_bt_global(int a1) {
   volatile uint32_t *v1; // r2
   volatile uint16_t *v2; // r1
@@ -585,21 +567,18 @@ int init_bt_global(int a1) {
 
 
 // get_global_1671bc @ 0x114550
-/* luna: Dispatches the event identified by the error low-power-level string and returns the dispatcher result. */
 int get_global_1671bc() {
   return event_dispatch(aErrorLpLevelPo_1);
 }
 
 
 // get_global_1671e0 @ 0x11455c
-/* luna: Dispatches the event associated with the low-power-level power error message. */
 int get_global_1671e0() {
   return event_dispatch(aErrorLpLevelPo);
 }
 
 
 // get_global_167204 @ 0x114568
-/* luna: Dispatches the fixed LP-level power-error event and returns the event dispatcher’s result. */
 int get_global_167204() {
   return event_dispatch(aErrorLpLevelPo_0);
 }

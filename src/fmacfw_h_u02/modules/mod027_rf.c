@@ -111,7 +111,6 @@ unsigned int rf_irq_disable_1() {
 
 
 // ll_get_tx_power @ 0x1217fc
-/* luna: Returns whether the indexed transmit-power entry differs from the 0x21 sentinel value. */
 BOOL ll_get_tx_power(int a1, int a2) {
   return *(volatile uint8_t *)(696 * a1 + 12 * a2 + dword_12181C + 453) != 33;
 }
@@ -119,7 +118,6 @@ BOOL ll_get_tx_power(int a1, int a2) {
 
 
 // ll_get_tx_power_alt @ 0x121820
-/* luna: Returns whether the selected byte at offset 452 in the indexed 12-byte entry differs from the sentinel value 33. */
 BOOL ll_get_tx_power_alt(int a1, int a2) {
   return *(volatile uint8_t *)(696 * a1 + 12 * a2 + dword_121840 + 452) != 33;
 }
@@ -127,7 +125,6 @@ BOOL ll_get_tx_power_alt(int a1, int a2) {
 
 
 // rf_is_ready @ 0x121844
-/* luna: Accepts one signed RF-buffer request, clamps it to half the configured capacity, and attempts a ring-buffer copy or falls back to shared-packet alloca */
 int rf_is_ready(int a1) {
   volatile uint32_t *v1; // r2
   unsigned int v2; // r3
@@ -232,7 +229,6 @@ LABEL_12:
 
 
 // ke_evt_poll @ 0x121934
-/* luna: Polls the event state and invokes the HCI preprocessor in mode 0 when the gated counters sum to at most one, otherwise stores 48 and invokes mode 1. */
 int ke_evt_poll() {
   if ( **(volatile int16_t **)off_12198C < 0 && hci_cmd_handler(0) != 3 )
     irq_disable_mmio_write((int)aKeStateGetTask_0, (int)aMmBackToHostId, 1785);
@@ -244,7 +240,6 @@ int ke_evt_poll() {
 
 
 // ke_evt_handler @ 0x1219a4
-/* luna: Synchronizes pending kernel/HCI work with radio interrupts, then runs HCI preprocessing while balancing nested IRQ masking. */
 int ke_evt_handler() {
   volatile int *v0; // r8
   volatile int *v1; // r4
@@ -315,7 +310,6 @@ int ke_evt_handler() {
 
 
 // ke_evt_peek @ 0x121ac8
-/* luna: Peeks at the kernel event state, performing associated no-idle and nested IRQ bookkeeping before returning the event-query result. */
 int ke_evt_peek() {
   volatile int *v1; // r4
   int v2; // r3
@@ -353,7 +347,6 @@ int ke_evt_peek() {
 
 
 // check_config_flag @ 0x121b7c
-/* luna: Calls the HCI command handler with argument 0 and, if it returns 4, returns the result of preprocessing arguments 0 and 1; otherwise returns the handl */
 int check_config_flag() {
   int result; // r0
 
@@ -365,7 +358,6 @@ int check_config_flag() {
 
 
 // ke_send_msg @ 0x121b98
-/* luna: Checks controller availability, prepares TX settings for the selected and linked descriptors, and caches per-link TX metadata or performs a guarded RF */
 int ke_send_msg(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int v6; // r4
   int v8; // r5
@@ -408,7 +400,6 @@ int ke_send_msg(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // ll_channel_hop @ 0x121c44
-/* luna: Processes a link-layer channel-hop event by dispatching per-slot PHY work and handling timed peer-link notifications. */
 int ll_channel_hop(int a1) {
   int v1; // r5
   int v2; // r7
@@ -612,7 +603,6 @@ int ll_channel_hop(int a1) {
 
 
 // rf_read_reg @ 0x121ed4
-/* luna: Copies the request byte at offset 107 into command PDU 67 and passes the PDU to the receive-side processor. */
 int rf_read_reg(int a1) {
   volatile uint8_t *v2; // r0
 
@@ -624,7 +614,6 @@ int rf_read_reg(int a1) {
 
 
 // rf_set_channel_2 @ 0x121ef4
-/* luna: If bit 23 of the second argument is set, clears the byte at offset 0x80 from the first argument and returns that argument; otherwise checks the beacon */
 int rf_set_channel_2(int result, int a2, int a3) {
   int v3; // r4
 
@@ -643,7 +632,6 @@ int rf_set_channel_2(int result, int a2, int a3) {
 
 
 // rf_set_rx_mode @ 0x121f1c
-/* luna: Initializes receive-mode state when bit 23 is set; otherwise advances the link-loss polling counter and handles the relevant RF or Bluetooth state. */
 int rf_set_rx_mode(int a1, int a2) {
   int v3; // r3
   int v4; // r2
@@ -697,7 +685,6 @@ int rf_set_rx_mode(int a1, int a2) {
 
 
 // set_rf_tx_power_compensation @ 0x121fe4
-/* luna: Stores the requested transmit-power value and sends a notification when it crosses a configured hysteresis band. */
 int set_rf_tx_power_compensation(volatile uint8_t *a1, int a2) {
   int v2; // r3
   int result; // r0

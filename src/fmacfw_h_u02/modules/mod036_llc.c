@@ -1,5 +1,4 @@
 // llc_env_lookup @ 0x1265d4
-/* luna: Queues a channel-switch request, scheduling its hardware instant when sufficiently far away or dispatching it immediately otherwise. */
 int llc_env_lookup(int a1, int a2, int a3) {
   volatile uint32_t *v6; // r0
   volatile uint32_t *v7; // r4
@@ -78,7 +77,6 @@ int llc_env_lookup(int a1, int a2, int a3) {
 
 
 // llc_env_get @ 0x1266a0
-/* luna: Resets an LLC environment field and transfers entries from its embedded source list to its destination list when an initial list entry is available. */
 volatile uint32_t *llc_env_get() {
   volatile uint32_t *result; // r0
   volatile uint32_t *v1; // r4
@@ -110,7 +108,6 @@ volatile uint32_t *llc_env_get() {
 
 
 // llc_tx_evt_handler @ 0x1266e4
-/* luna: Selects the LLC environment and event time for transmit scheduling, accounting for the active link and RF trim timing. */
 int llc_tx_evt_handler(int a1, int a2, unsigned int a3) {
   int v3; // r7
   int v4; // r5
@@ -433,7 +430,6 @@ LABEL_19:
 
 
 // llc_irq_status_get @ 0x126b30
-/* luna: Acknowledges interrupt-related register bits, then scans eligible LLC environments matching the IRQ selector and invokes PHY channel validation for th */
 void llc_irq_status_get() {
   volatile int *v0; // r4
   int v1; // r5
@@ -475,7 +471,6 @@ void llc_irq_status_get() {
 
 
 // llc_rx_complete @ 0x126bc4
-/* luna: Checks matching link contexts for PHY-invalid channels, updates the shared invalid-channel count, and triggers RF state handling based on the result. */
 int llc_rx_complete(int a1) {
   volatile uint32_t *v1; // r6
   volatile int *v2; // r4
@@ -567,7 +562,6 @@ LABEL_16:
 
 
 // llc_sem_lock @ 0x126cdc
-/* luna: Processes the current LLC procedure request, updates the active procedure, and prepares a control response when required. */
 int llc_sem_lock() {
   volatile uint32_t *v0; // r5
   volatile uint32_t *v1; // r6
@@ -745,7 +739,6 @@ LABEL_10:
 
 
 // llc_flag_test_bit3 @ 0x126f08
-/* luna: Selects a pending LLC request from the status flags, marks the previous request when replacing it, and invokes the semaphore lock when a request is ac */
 int llc_flag_test_bit3() {
   volatile uint32_t *v0; // r3
   int v1; // r1
@@ -779,7 +772,6 @@ LABEL_6:
 
 
 // llc_state_get @ 0x126f40
-/* luna: Decrements the LLC event countdown and, when it expires with the pending-event flag set, clears the flag and invokes the kernel event handler. */
 int llc_state_get() {
   char v0; // r3
   int result; // r0
@@ -801,7 +793,6 @@ int llc_state_get() {
 
 
 // bt_event_handler_1 @ 0x126f74
-/* luna: Processes a kernel event through LLC receive completion and falls back to testing LLC flag bit 3 when completion returns zero. */
 int bt_event_handler_1() {
   int v0; // r0
   int result; // r0
@@ -816,7 +807,6 @@ int bt_event_handler_1() {
 
 
 // llc_conn_command @ 0x126f8c
-/* luna: Queues a requested connection if a switch is already pending; otherwise updates the active connection and processes the connection command. */
 int llc_conn_command(int result) {
   volatile uint32_t *v1; // r5
   int v2; // r4
@@ -884,7 +874,6 @@ int llc_conn_command(int result) {
 
 
 // llc_hw_reg_sync @ 0x127030
-/* luna: Records a connection event and its target time, processes overdue RX events, and dispatches the connection command unless event handling is deferred. */
 int llc_hw_reg_sync(int result) {
   volatile uint8_t *v1; // r5
   uint64_t v2; // r6
@@ -975,7 +964,6 @@ int llc_hw_reg_sync(int result) {
 
 
 // llc_flag_test_bit0 @ 0x127160
-/* luna: Advances the LLC flag state from bit 0 to bit 2 or from bit 1 to bit 3, then synchronizes the corresponding hardware register. */
 int llc_flag_test_bit0() {
   volatile uint8_t *v0; // r4
   int v1; // r3
@@ -1010,7 +998,6 @@ int llc_flag_test_bit0() {
 
 
 // llc_flag_test_bit4 @ 0x127204
-/* luna: If context flag bit 4 is clear, sets it and either copies data into the context buffer or calls the bit-0 handler based on the byte at offset 90. */
 int llc_flag_test_bit4() {
   void *v0; // r2
   int v1; // r0

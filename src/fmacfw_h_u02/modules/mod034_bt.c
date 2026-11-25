@@ -75,7 +75,6 @@ LABEL_6:
 
 
 // mem_set_util @ 0x124cf4
-/* luna: Serializes access to a WLAN request queue, removes a matching queued request and updates control state, or forwards a nonmatching request to the WLAN  */
 int mem_set_util(int a1) {
   volatile int *v1; // r4
   void *v2; // r5
@@ -133,7 +132,6 @@ int mem_set_util(int a1) {
 
 
 // ble_irq_handler @ 0x124d64
-/* luna: Dispatches due BLE timer callbacks and arms the timer for the next queued deadline. */
 int ble_irq_handler() {
   volatile uint32_t *v0; // r7
   volatile int *v1; // r6
@@ -295,7 +293,6 @@ int mac_isr_check(volatile uint8_t *a1, int a2) {
 
 
 // bt_config_check @ 0x124efc
-/* luna: Sets up the indexed Bluetooth configuration resources and validates the requested selector against the context’s stored channel/state value. */
 int bt_config_check(int a1, int a2) {
   int v4; // r5
 
@@ -326,7 +323,6 @@ int bt_config_check(int a1, int a2) {
 
 
 // rf_chan_table_update @ 0x124fb4
-/* luna: Marks each eligible channel identifier in the link's usage bitmap and updates the distinct-entry count and bitmap bounds. */
 int rf_chan_table_update(int result) {
   int v1; // r9
   int v2; // r2
@@ -468,7 +464,6 @@ LABEL_6:
 
 
 // rx_pkt_parse @ 0x125184
-/* luna: Updates a per-context receive-packet bitmap and recomputes its occupied range when packet entries are added or removed. */
 int rx_pkt_parse(volatile uint16_t *a1) {
   unsigned int v1; // r2
   int v2; // r3
@@ -647,7 +642,6 @@ LABEL_28:
 
 
 // tx_pkt_complete @ 0x1253d0
-/* luna: Completes a BLE link-layer TX event by updating per-connection length state and initializing transmit descriptor metadata. */
 int tx_pkt_complete(int a1, int a2) {
   volatile uint32_t *v3; // r5
   int v4; // r1
@@ -714,7 +708,6 @@ int tx_pkt_complete(int a1, int a2) {
 
 
 // tx_path_setup @ 0x1254a8
-/* luna: Prepares the link transmit state from the current RF channel data, updates per-link counters, and may submit a control PDU. */
 int tx_path_setup(int a1) {
   int v1; // r8
   volatile uint8_t *v2; // r5
@@ -820,7 +813,6 @@ int tx_path_setup(int a1) {
 
 
 // init_bt_global_0x190310 @ 0x1255f4
-/* luna: Clears the BT statistics storage and initializes four consecutive fixed packet-header objects. */
 int init_bt_global_0x190310() {
   int v0; // r5
   int v1; // r4
@@ -838,7 +830,6 @@ int init_bt_global_0x190310() {
 
 
 // rf_chan_load @ 0x125638
-/* luna: Initializes the transmit-channel bookkeeping and per-channel buffers for the slot selected by the object's channel index. */
 volatile int * rf_chan_load(int a1) {
   int v1; // r7
   int v2; // r9
@@ -926,7 +917,6 @@ volatile int * rf_chan_load(int a1) {
 
 
 // co_list_push @ 0x125764
-/* luna: Routes the receive buffer through the alternate queue path when the global state is set, otherwise passes it to the RX packet parser. */
 int co_list_push(int a1) {
   if ( *((volatile uint32_t *)off_12577C + 1) )
     return wlan_ioctl_handler_1((int)off_12577C + 12, (volatile uint32_t *)(a1 - 12));
@@ -936,7 +926,6 @@ int co_list_push(int a1) {
 
 
 // patch_check_enable @ 0x125780
-/* luna: Walks the peer list, sets up TX paths for eligible peers, and updates confirmation and security state subject to global gating flags. */
 void patch_check_enable() {
   int v0; // r4
   volatile uint8_t *v1; // r6
@@ -1031,7 +1020,6 @@ LABEL_6:
 
 
 // ipc_trace_send @ 0x1258a0
-/* luna: Completes the pending TX frame, copies its metadata into the TX context, and dispatches its buffer for further processing. */
 int ipc_trace_send(int a1) {
   volatile int *v1; // r5
   int v2; // r6
@@ -1063,7 +1051,6 @@ int ipc_trace_send(int a1) {
 
 
 // bt_task_init @ 0x125904
-/* luna: Copies the requested initialization payload from a task-selected 512-byte slot into the indexed task buffer, then passes the task environment to the I */
 int bt_task_init(int a1) {
   int v2; // r0
   volatile uint8_t *v3; // r2
@@ -1087,7 +1074,6 @@ int bt_task_init(int a1) {
 
 
 // ke_event_set @ 0x125958
-/* luna: Stores the supplied value in the BT task state, calling bt_task_init when the word at offset 4 is zero and otherwise setting the byte at offset 10. */
 int ke_event_set(int a1) {
   volatile uint8_t *v1; // r3
   int v2; // r2

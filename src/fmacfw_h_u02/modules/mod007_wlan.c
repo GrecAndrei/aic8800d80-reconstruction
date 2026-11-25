@@ -1,5 +1,4 @@
 // check_short_value @ 0x111250
-/* luna: Handles pending SDIO-related interrupt causes, updates wake and sleep state, and dispatches corresponding events. */
 int check_short_value() {
   int v0; // r4
   volatile uint32_t *v1; // r0
@@ -313,7 +312,6 @@ LABEL_12:
 
 
 // update_packet_buffer @ 0x111744
-/* luna: Initializes the packet-buffer pool by setting bits 6–7 in each entry's control byte and updating references to selected entries. */
 int update_packet_buffer() {
   int v0; // r3
   volatile int *v1; // r2
@@ -359,7 +357,6 @@ int update_packet_buffer() {
 
 
 // set_tx_control @ 0x1117d0
-/* luna: Initializes TX-control data, triggers the control operation, waits for its busy bit to clear, and updates related registers. */
 int set_tx_control() {
   volatile uint32_t *v0; // r1
   int v1; // r0
@@ -385,7 +382,6 @@ int set_tx_control() {
 
 
 // get_node_offset8 @ 0x11182c
-/* luna: Clears the 16-byte entry for the 1-based node index and invokes its indexed callback with (0, 0, 1) if the entry's byte at offset 8 was set. */
 volatile int * get_node_offset8(int a1) {
   int v2; // r0
   int v3; // r5
@@ -408,7 +404,6 @@ volatile int * get_node_offset8(int a1) {
 
 
 // get_node_offset_b @ 0x111864
-/* luna: Clears the indexed 16-byte node entry and, if its byte at offset 11 was nonzero, invokes the corresponding callback with (0, 0, 1). */
 volatile int * get_node_offset_b(int a1) {
   int v2; // r0
   int v3; // r5
@@ -430,7 +425,6 @@ volatile int * get_node_offset_b(int a1) {
 
 
 // call_get_node @ 0x11189c
-/* luna: Calls the offset-8 and offset-0xB node accessors for IDs 1 through 5, then returns the offset-0xB result for node 5. */
 volatile int *call_get_node() {
   int i; // r4
   int v1; // r0
@@ -450,7 +444,6 @@ volatile int *call_get_node() {
 
 
 // mmio_set_bit_2 @ 0x1118bc
-/* luna: Performs the WLAN hardware handshake, initializes MMIO state, and returns a USB-init-done transmit event. */
 int mmio_set_bit_2() {
   volatile uint32_t *v0; // r2
   volatile uint32_t *v1; // r2
@@ -511,7 +504,6 @@ LABEL_11:
 
 
 // send_data_word @ 0x1119bc
-/* luna: Copies the payload into a shared buffer, prepares its length and type descriptor, and triggers the hardware transfer. */
 int send_data_word(int result, int a2) {
   volatile int *v2; // r4
   int v3; // r5
@@ -547,7 +539,6 @@ int send_data_word(int result, int a2) {
 
 
 // unknown_handler @ 0x111a24
-/* luna: Updates a WLAN node's status bits and performs the required hardware handshake when its current state requires it. */
 volatile int * unknown_handler(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r6
   volatile int *v4; // r5
@@ -600,7 +591,6 @@ LABEL_10:
 
 
 // unknown_handler2 @ 0x111adc
-/* luna: Applies set and clear masks to a selected hardware-configuration entry, performs the indexed MMIO handshake, and returns the node offset for nonzero s */
 int unknown_handler2(int a1, int a2, int a3) {
   int v3; // r6
   volatile uint32_t *v4; // r4
@@ -682,7 +672,6 @@ LABEL_15:
 
 
 // read_hw_sel @ 0x111bd0
-/* luna: Returns bit 21 from the indexed 32-byte hardware configuration entry in the table selected by the first argument. */
 int read_hw_sel(int a1, int a2) {
   volatile uint32_t *v2; // r0
   int v4; // r0
@@ -708,7 +697,6 @@ int read_hw_sel(int a1, int a2) {
 
 
 // set_hw_cfg_a @ 0x111c04
-/* luna: For selectors 0–5, dispatches to one of two handlers with bit 27 and zero, choosing the handler based on whether the input pointer is non-null; otherw */
 volatile int * set_hw_cfg_a(volatile int *result, unsigned int a2) {
   if ( result )
   {
@@ -741,7 +729,6 @@ volatile int * set_hw_cfg_b(volatile int *result, unsigned int a2) {
 
 
 // set_hw_cfg_c @ 0x111c4c
-/* luna: Dispatches indices 0–5 to one of two configuration handlers according to whether the pointer is non-null, and otherwise returns the pointer unchanged. */
 volatile int * set_hw_cfg_c(volatile int *result, unsigned int a2) {
   if ( result )
   {
@@ -758,7 +745,6 @@ volatile int * set_hw_cfg_c(volatile int *result, unsigned int a2) {
 
 
 // wlan_ctrl_check @ 0x111c74
-/* luna: Forwards the supplied arguments to set_hw_cfg_a and returns its result. */
 volatile int * wlan_ctrl_check(volatile int *result, unsigned int a2) {
   return set_hw_cfg_a(result, a2);
 }
@@ -930,7 +916,6 @@ int wlan_wait_ready(int result, int a2, int a3, unsigned int a4) {
 
 
 // mac_read_queue_reg @ 0x111f08
-/* luna: Queues an aligned buffer of at most the configured transfer size on an available hardware queue and marks the request pending. */
 int mac_read_queue_reg(int a1, int a2, unsigned int a3) {
   int v3; // r4
   int v4; // r12
@@ -990,7 +975,6 @@ int mac_read_queue_reg(int a1, int a2, unsigned int a3) {
 
 
 // wlan_wait_ready_alt @ 0x111fbc
-/* luna: If bit 31 is set in the register at base+0xB00, writes it back with bit 31 cleared and bit 26 set, then returns the register address. */
 int wlan_wait_ready_alt(int a1) {
   int result; // r0
   int v2; // r3
@@ -1005,7 +989,6 @@ int wlan_wait_ready_alt(int a1) {
 
 
 // phy_save_rssi @ 0x111fdc
-/* luna: Queues an aligned caller-provided buffer for WLAN reception, clamps its capacity to the configured maximum, and arms the corresponding hardware descri */
 int phy_save_rssi(int a1, int a2, unsigned int a3) {
   int v3; // r4
   int v4; // r12
@@ -1065,7 +1048,6 @@ int phy_save_rssi(int a1, int a2, unsigned int a3) {
 
 
 // wlan_process_packet @ 0x112094
-/* luna: Copies the pending WLAN status, sets the status state to 3 for zero or 4 for a callback-accepted nonzero value, and conditionally clears a configurati */
 int wlan_process_packet() {
   volatile uint8_t *v0; // r4
   int v1; // r0
@@ -1100,7 +1082,6 @@ int wlan_process_packet() {
 
 
 // wlan_reset @ 0x1120e8
-/* luna: Processes an endpoint-zero control transfer, including setup errors and data-stage progress. */
 int wlan_reset(uint64_t a1, volatile uint32_t *a2) {
   int v2; // r4
   volatile uint8_t *v3; // r5
@@ -1692,7 +1673,6 @@ LABEL_51:
 
 
 // phy_is_calibrated @ 0x1128a8
-/* luna: Runs the PHY hardware calibration sequence by programming control registers, processing six per-entry records, and polling completion flags. */
 int phy_is_calibrated() {
   volatile uint8_t *v0; // r3
   volatile uint32_t *v1; // r4
@@ -1879,7 +1859,6 @@ LABEL_24:
 
 
 // wlan_get_state @ 0x112b24
-/* luna: Queues a USB-suspend notification through the selected transmit path and then marks the suspend flag set. */
 int wlan_get_state() {
   int result; // r0
 
@@ -1901,7 +1880,6 @@ int phy_get_status() {
 
 
 // mac_get_int_status @ 0x112b68
-/* luna: Reports a USB wakeup through one of two transmit paths, then acknowledges the associated software flag and hardware bit. */
 int mac_get_int_status() {
   int result; // r0
   volatile uint32_t *v1; // r2
@@ -1918,7 +1896,6 @@ int mac_get_int_status() {
 
 
 // rf_helper @ 0x112bac
-/* luna: Acknowledges pending WLAN interrupts and handles calibration, hardware initialization, and fault recovery events. */
 int rf_helper() {
   volatile uint32_t *v0; // r3
   int v1; // r2
@@ -2184,7 +2161,6 @@ int phy_irq_handler() {
 
 
 // rx_increment_count @ 0x112ed0
-/* luna: Services pending PHY interrupts, then records the supplied RX buffer and arms the selected hardware slot when that slot is ready. */
 int rx_increment_count(int a1, volatile uint16_t *a2) {
   int v4; // r2
   int v5; // r3
@@ -2210,7 +2186,6 @@ int rx_increment_count(int a1, volatile uint16_t *a2) {
 
 
 // get_global_flag @ 0x112f84
-/* luna: Returns the current value of the global flag. */
 int get_global_flag() {
   return dword_112F88;
 }
@@ -2313,7 +2288,6 @@ int rf_read_status(volatile uint8_t *a1, unsigned int a2, int a3) {
 
 
 // bt_wait_ready @ 0x11316c
-/* luna: Initializes WLAN setup state, reports valid USB vendor and product IDs when available, and retries setting the requested band until the operation succ */
 int bt_wait_ready(int a1) {
   volatile uint16_t *v2; // r4
   int v3; // r2
@@ -2355,7 +2329,6 @@ int bt_wait_ready(int a1) {
 
 
 // bt_get_state @ 0x113210
-/* luna: Guards a USB WLAN receive operation, reads the MAC queue registers using the supplied arguments, and reports blocked, busy, or read-error status. */
 int bt_get_state(int a1, int a2) {
   volatile uint8_t *v2; // r4
   volatile uint8_t *v3; // r6
@@ -2402,7 +2375,6 @@ int bt_get_state(int a1, int a2) {
 
 
 // check_and_init_flag @ 0x1132b0
-/* luna: Configures the PHY RSSI path and calls `phy_save_rssi` with the supplied buffers while handling operation state and aborts. */
 int check_and_init_flag(int a1, int a2) {
   volatile uint8_t *v2; // r4
   volatile uint8_t *v3; // r5
@@ -2459,7 +2431,6 @@ int check_and_init_flag(int a1, int a2) {
 
 
 // rf_is_idle @ 0x113374
-/* luna: Claims a queued RF request when the active flag is clear, updates the selected entry’s state bits, and increments a reference count. */
 int rf_is_idle(int a1, int a2) {
   volatile uint8_t *v2; // r6
   volatile int **v3; // r4
@@ -2529,7 +2500,6 @@ LABEL_11:
 
 
 // rf_set_state @ 0x113418
-/* luna: Selects the WLAN send state; state 2 drains queued WLAN requests while handling their completion codes and checking RF idleness, whereas state 3 repor */
 int rf_set_state(int a1, int a2, int a3) {
   volatile uint8_t *v3; // r5
   char v4; // r3

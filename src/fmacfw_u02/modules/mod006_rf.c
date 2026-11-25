@@ -1,5 +1,4 @@
 // mmio_rmw32 @ 0x10ee2c
-/* luna: Runs the RF callback inside a nest-aware interrupt-masked section, optionally waiting for a shared flag before the callback and setting it afterward. */
 int mmio_rmw32(int a1, int a2, int a3, int a4) {
   volatile int *v4; // r5
   volatile uint32_t *v5; // r4
@@ -43,7 +42,6 @@ int mmio_rmw32(int a1, int a2, int a3, int a4) {
 
 
 // rf_set_channel_1 @ 0x10ee80
-/* luna: Programs the RF channel value and updates the associated MMIO control bits. */
 int rf_set_channel_1(int a1) {
   event_dispatch("Reboot:%x\n", a1);
   mmio_rmw32(dword_10EECC, 196608, dword_10EEC8, 1);
@@ -54,7 +52,6 @@ int rf_set_channel_1(int a1) {
 
 
 // rf_set_frequency @ 0x10eed8
-/* luna: Programs RF frequency-related register fields from the supplied value and sets a control bit. */
 int rf_set_frequency(int a1) {
   mmio_rmw32(dword_10EF0C, 196608, dword_10EF08, 1);
   mmio_write32(dword_10EF10, a1 << 15, 1);
@@ -64,7 +61,6 @@ int rf_set_frequency(int a1) {
 
 
 // mmio_write_70001408 @ 0x10ef14
-/* luna: Performs a fixed read-modify-write on RF MMIO register 0x70001408 with arguments 0, 2, and 1. */
 int mmio_write_70001408() {
   return mmio_rmw32(dword_10EF20, 0, 2, 1);
 }
@@ -80,7 +76,6 @@ int rf_get_rssi() {
 
 
 // rf_get_state @ 0x10ef38
-/* luna: Writes the supplied state value into bits 11–15 of the RF register and returns the resulting register value. */
 int rf_get_state(int a1) {
   return mmio_rmw32(dword_10EF4C, (a1 << 11) & 0xF800, 63488, 1);
 }
@@ -88,7 +83,6 @@ int rf_get_state(int a1) {
 
 
 // rf_enable_1 @ 0x10ef50
-/* luna: Initializes the RF control registers and applies additional configuration when the RF mode flag is enabled. */
 int rf_enable_1() {
   int result; // r0
 
@@ -134,7 +128,6 @@ int rf_enable_1() {
 
 
 // rf_save_rssi @ 0x10f180
-/* luna: Applies PHY configuration 0xC2 and initializes the associated RSSI byte to -62. */
 unsigned int rf_save_rssi() {
   unsigned int result; // r0
 
@@ -146,7 +139,6 @@ unsigned int rf_save_rssi() {
 
 
 // rf_update_rx_status @ 0x10f198
-/* luna: Computes and applies a bounded RX-related PHY adjustment, then clears or schedules the associated RF worker based on the adjustment threshold. */
 int rf_update_rx_status() {
   volatile uint8_t *v0; // r6
   int v1; // r5
@@ -176,7 +168,6 @@ int rf_update_rx_status() {
 
 
 // rf_copy_stats @ 0x10f204
-/* luna: Copies a 24-byte radio configuration block into runtime storage, initializes radio hardware and interrupt handling, and clears a buffer when the selec */
 int rf_copy_stats() {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -209,7 +200,6 @@ int rf_copy_stats() {
 
 
 // bt_get_state @ 0x10f25c
-/* luna: Clears the output block’s first byte when the RF state flag is set; otherwise populates the block with defaults and returns 1752. */
 int bt_get_state() {
   volatile uint8_t *v0; // r3
   int result; // r0
@@ -264,7 +254,6 @@ int tx_send_packet() {
 
 
 // rf_timer_init @ 0x10f3b0
-/* luna: Clears RF runtime state and buffers, then initializes each 16-byte entry in a 0x800-byte table. */
 uint64_t rf_timer_init() {
   volatile uint16_t *v0; // r5
   volatile int *v1; // r4
@@ -317,7 +306,6 @@ uint64_t rf_timer_init() {
 
 
 // rf_wait_ready @ 0x10f458
-/* luna: Sends a packet, initializes the RF timer, and invokes the callback pair configured for the current state. */
 int rf_wait_ready() {
   volatile uint8_t **v0; // r4
   int v1; // r3
@@ -407,7 +395,6 @@ int rf_wait_ready() {
 
 
 // os_task_init @ 0x10f550
-/* luna: Runs the Bluetooth link-layer worker loop, dispatching pending interrupt work, connection events, and packet descriptors. */
 int os_task_init() {
   int result; // r0
   volatile int *v1; // r9
@@ -630,7 +617,6 @@ LABEL_4:
 
 
 // sys_command_40d @ 0x10f90c
-/* luna: Allocates and sends message 0x40D with an 8-byte payload from task 13 to task 1, returning the send helper's result. */
 int sys_command_40d() {
   int v0; // r0
 
@@ -641,7 +627,6 @@ int sys_command_40d() {
 
 
 // hci_handle_command @ 0x10f924
-/* luna: Aligns the supplied buffer and initializes its nonempty segment records and buffer metadata, returning the original base address. */
 unsigned int hci_handle_command(volatile int *a1, int a2, unsigned int a3) {
   unsigned int result; // r0
   unsigned int v6; // r2
@@ -985,7 +970,6 @@ LABEL_43:
 
 
 // util_is_nonnull @ 0x10fce0
-/* luna: Validates a buffer against the supplied pool, decrements its reference count, and performs pool bookkeeping when the count reaches zero. */
 int util_is_nonnull(int a1, volatile uint32_t *a2) {
   volatile unsigned int *v4; // r7
   unsigned int v5; // r6
@@ -1190,7 +1174,6 @@ LABEL_39:
 
 
 // check_controller_mode @ 0x10ff34
-/* luna: Returns true when the address falls inclusively within either of two configured base-plus-length ranges. */
 BOOL check_controller_mode(unsigned int a1) {
   if ( *(volatile uint32_t *)off_10FF64 <= a1 && a1 <= *(volatile uint32_t *)off_10FF64 + *((volatile uint32_t *)off_10FF64 + 1) )
     return 1;
@@ -1202,7 +1185,6 @@ BOOL check_controller_mode(unsigned int a1) {
 
 
 // hci_send_command @ 0x10ff6c
-/* luna: Stores two supplied words in a fixed request block, invokes the HCI command handler with the supplied command identifier and 0x20 argument, initialize */
 int hci_send_command(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r3
   volatile uint32_t *v4; // r3
@@ -1249,7 +1231,6 @@ volatile uint32_t * is_hci_initialized(char a1) {
 
 
 // is_controller_mode @ 0x110008
-/* luna: Returns a buffer's native pool identifier using its preceding metadata byte and the active controller mode, with a user-ID fallback for unrecognized b */
 int is_controller_mode(volatile uint32_t *a1) {
   int result; // r0
   int v3; // r2
@@ -1315,7 +1296,6 @@ LABEL_11:
 
 
 // calculate_rf_power @ 0x110100
-/* luna: Builds an RF-power command from controller state, submits it through the HCI command path, and returns the final command result. */
 int calculate_rf_power() {
   void *v0; // r4
   int v1; // r3
@@ -1352,7 +1332,6 @@ int calculate_rf_power() {
 
 
 // get_link_channel @ 0x11018c
-/* luna: Clears an 8-byte scratch area, processes each pending receive item through the command handler, and returns the final handler result. */
 volatile uint32_t *get_link_channel() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1386,7 +1365,6 @@ volatile uint32_t *get_link_channel() {
 
 
 // get_link_rate @ 0x1101e4
-/* luna: Initializes the link-rate result buffer and processes one 12-byte response for each entry indicated by the active link descriptor. */
 volatile uint32_t *get_link_rate() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -1415,7 +1393,6 @@ volatile uint32_t *get_link_rate() {
 
 
 // get_modulation_type @ 0x110224
-/* luna: Clears an eight-byte result buffer and processes one value from offset 0x6B8 for each entry indicated by the associated 16-bit count. */
 volatile uint32_t *get_modulation_type() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1449,7 +1426,6 @@ volatile uint32_t *get_modulation_type() {
 
 
 // get_link_tx_power @ 0x11027c
-/* luna: Clears the shared 8-byte result buffer and runs the receive/command-handler sequence once for each pending entry, returning the final handler result. */
 volatile uint32_t *get_link_tx_power() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -1478,7 +1454,6 @@ volatile uint32_t *get_link_tx_power() {
 
 
 // is_scan_enabled @ 0x1102bc
-/* luna: Returns the shared scan-state word after reading it under the IRQ-nesting lock. */
 volatile uint32_t *is_scan_enabled() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1511,7 +1486,6 @@ volatile uint32_t *is_scan_enabled() {
 
 
 // is_inquiry_enabled @ 0x1102fc
-/* luna: Queries whether Bluetooth inquiry is enabled through the command-state handler while preserving the IRQ state across nested access. */
 int is_inquiry_enabled(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1544,7 +1518,6 @@ int is_inquiry_enabled(volatile uint32_t *a1) {
 
 
 // is_connected_flag @ 0x110390
-/* luna: Queries the Bluetooth connection-state flag through the shared command handler while protecting the call with an interrupt-safe critical section. */
 int is_connected_flag(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1580,7 +1553,6 @@ int is_connected_flag(volatile uint32_t *a1) {
 
 
 // is_page_scan_active @ 0x1103e0
-/* luna: Returns whether Bluetooth page scanning is active, reading the state within an IRQ-safe critical section. */
 int is_page_scan_active() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1616,7 +1588,6 @@ int is_page_scan_active() {
 
 
 // is_sniff_mode @ 0x110430
-/* luna: Dispatches the sniff-mode query through the command handler while preserving interrupt state across nested critical sections. */
 int is_sniff_mode(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1652,7 +1623,6 @@ int is_sniff_mode(volatile uint32_t *a1) {
 
 
 // is_hold_mode @ 0x110480
-/* luna: Reads the hold-mode state through the shared word accessor while balancing the nested interrupt-disable state. */
 volatile uint32_t *is_hold_mode() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1685,7 +1655,6 @@ volatile uint32_t *is_hold_mode() {
 
 
 // is_park_mode @ 0x1104c0
-/* luna: Queries whether the Bluetooth link is in park mode through the serialized command interface. */
 int is_park_mode(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1829,7 +1798,6 @@ LABEL_2:
 
 
 // rf_bb_config @ 0x11063c
-/* luna: Programs the RF parameters and allocates and posts buffers until the configured replenishment count is reached. */
 int rf_bb_config(int a1, int a2) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r7
@@ -1948,7 +1916,6 @@ int call_110e24() {
 
 
 // event_queue_init @ 0x1107a0
-/* luna: Resets two RF configuration blocks, stores the supplied value in the first block, and passes both blocks to the baseband configurator. */
 int event_queue_init(int a1) {
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r1
@@ -1978,7 +1945,6 @@ int event_queue_init(int a1) {
 
 
 // bt_scheduler_run @ 0x110c60
-/* luna: Processes queued timed work items, waiting for MAC transmission at accumulated intervals while invoking the inquiry-state helper and maintaining IRQ-s */
 int bt_scheduler_run() {
   volatile uint32_t *v0; // r8
   volatile int *v1; // r7
@@ -2088,7 +2054,6 @@ LABEL_14:
 
 
 // mmio_write_config @ 0x110e24
-/* luna: Initializes the SDIO device interface, configures its MMIO registers, and waits for the host CMD5 and I/O-enable handshakes. */
 int mmio_write_config() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r1
@@ -2208,7 +2173,6 @@ int mmio_write_config() {
 
 
 // unknown_1 @ 0x11101c
-/* luna: Serializes an RF control update, handles a configured GPIO or worker transition, and writes the supplied values to control registers. */
 int unknown_1(int a1, int a2, int a3) {
   volatile int *v6; // r9
   volatile uint8_t *v7; // r3
@@ -2307,7 +2271,6 @@ LABEL_4:
 
 
 // pack_control_word @ 0x11113c
-/* luna: Fills a three-word RF control block, preserving masked bits in the third word while inserting a 16-bit field and a bit-31 flag. */
 volatile uint32_t * pack_control_word(volatile uint32_t *result, int a2, int a3, uint16_t a4, int a5) {
   result[2] = dword_111158 & result[2] | a4 | (a5 << 31);
   *result = a2;
@@ -2318,7 +2281,6 @@ volatile uint32_t * pack_control_word(volatile uint32_t *result, int a2, int a3,
 
 
 // unknown_3 @ 0x11115c
-/* luna: Appends a command node to the RF queue, updates its bookkeeping, and signals the queue for processing. */
 int unknown_3(int a1) {
   volatile int *v2; // r5
   volatile uint8_t *v3; // r3
@@ -2412,7 +2374,6 @@ LABEL_4:
 
 
 // mutex_lock @ 0x111270
-/* luna: Builds a length- and type-prefixed RF message in an allocated packet and submits it through the active send configuration. */
 int mutex_lock(char a1, volatile char *a2, unsigned int a3, int a4) {
   volatile uint32_t *v7; // r0
   volatile uint32_t *v8; // r4
@@ -2448,7 +2409,6 @@ int mutex_lock(char a1, volatile char *a2, unsigned int a3, int a4) {
 
 
 // get_status_flag @ 0x1112f4
-/* luna: Returns 1 if the byte referenced by off_111304 is nonzero; otherwise returns the byte referenced by off_111308. */
 int get_status_flag() {
   if ( *(volatile uint8_t *)off_111304 )
     return 1;

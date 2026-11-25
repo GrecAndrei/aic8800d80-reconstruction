@@ -1,5 +1,4 @@
 // ble_ll_conn_process @ 0x132e78
-/* luna: Processes a received BLE link-layer PDU for a connection, updates packet-status flags, and drives any resulting transmit actions. */
 int ble_ll_conn_process(int a1, uint16_t a2, int a3) {
   int v4; // r3
   int v5; // r6
@@ -437,7 +436,6 @@ LABEL_47:
 
 
 // empty_ret @ 0x133458
-/* luna: Converts the supplied 2.4- or 5-GHz channel numbers to frequencies and updates the channel-pair state based on their spacing and the configured mode. */
 int empty_ret(int result, int a2, int a3, volatile uint8_t *a4) {
   unsigned int v4; // r4
   unsigned int v5; // r2
@@ -598,7 +596,6 @@ volatile uint32_t * crypto_mix_round(volatile uint32_t *result, volatile int *a2
 
 
 // bt_packet_parse @ 0x1334a4
-/* luna: Seeds a BLE mixing state from two 32-bit words, then folds in two data regions and a selector reduced to three bits, treating 0xFF as zero. */
 volatile uint32_t * bt_packet_parse(int a1, volatile uint32_t *a2, int a3, volatile uint16_t *a4, uint8_t a5) {
   int v5; // r7
   int v6; // r5
@@ -767,7 +764,6 @@ LABEL_20:
 
 
 // ble_state_check_13362c @ 0x13362c
-/* luna: Mixes a BLE state using its offset-8 word and a 0x5A marker positioned by the byte at offset 12, then performs a zero-input mix. */
 volatile uint32_t * ble_state_check_13362c(int a1) {
   int v1; // r5
   unsigned int v2; // r2
@@ -789,7 +785,6 @@ volatile uint32_t * ble_state_check_13362c(int a1) {
 
 
 // ble_state_check_13367c @ 0x13367c
-/* luna: Dispatches the controller ISR value unless the BLE state is negative and command 6 does not return 10, in which case it disables the configured IRQ be */
 int ble_state_check_13367c(int a1) {
   int v2; // r0
 
@@ -809,7 +804,6 @@ int ble_state_check_13367c(int a1) {
 
 
 // ble_state_check_1336bc @ 0x1336bc
-/* luna: Dispatches the message and performs the configured IRQ/MMIO write when the state is negative and handler 6 does not return 7. */
 int ble_state_check_1336bc(int a1, int a2) {
   if ( **(volatile int16_t **)off_1336F8 >= 0 || hci_cmd_handler(6u) == 7 )
   {
@@ -827,7 +821,6 @@ int ble_state_check_1336bc(int a1, int a2) {
 
 
 // rf_command_call @ 0x133704
-/* luna: Writes `a4` and `a3` to the fixed header location 0x180C and, when `hci_cmd_handler(6)` returns 6, queues the message ID stored at offset 2 of `a2`. */
 int rf_command_call(int a1, int a2, int16_t a3, int16_t a4) {
   int v5; // r0
   int16_t v6; // r1
@@ -853,7 +846,6 @@ int rf_command_call(int a1, int a2, int16_t a3, int16_t a4) {
 
 
 // hci_opcode_check @ 0x13373c
-/* luna: Dispatches selected BLE message opcode classes to their corresponding firmware handlers. */
 int hci_opcode_check(int a1, int a2) {
   int v2; // r3
 
@@ -883,7 +875,6 @@ int hci_opcode_check(int a1, int a2) {
 
 
 // ble_state_check_1337a0 @ 0x1337a0
-/* luna: Checks the BLE state and HCI handler result, performs a fallback MMIO/IRQ operation when needed, and then resets the controller. */
 int ble_state_check_1337a0(int a1) {
   int v2; // r0
 
@@ -903,7 +894,6 @@ int ble_state_check_1337a0(int a1) {
 
 
 // ble_state_check_1337e0 @ 0x1337e0
-/* luna: Selects a reset argument from the BLE state and fallback HCI/MMIO paths, then calls the BLE controller reset routine. */
 int ble_state_check_1337e0(int a1) {
   int v2; // r0
 

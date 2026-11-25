@@ -32,7 +32,6 @@ int ke_timer_tick_inc() {
 
 
 // ke_timer_get_time @ 0x1413a0
-/* luna: Validates the active request state, dispatches deferred events, processes matching queued entries, and then rechecks link-layer state. */
 void ke_timer_get_time() {
   volatile int16_t **v0; // r6
   int v1; // r3
@@ -152,7 +151,6 @@ int ke_timer_check() {
 
 
 // ke_timer_clear @ 0x141580
-/* luna: Selects a Bluetooth ACL TX/security path or preprocesses command 0x0B and invalidates the saved ACL-context index when the request flag is clear. */
 int ke_timer_clear(int a1, int a2) {
   int v2; // r4
   int v4; // r6
@@ -186,7 +184,6 @@ int ke_timer_clear(int a1, int a2) {
 
 
 // ke_timer_set_1 @ 0x1415f0
-/* luna: Looks up a timer record by its 16-bit key tuple or selects an eligible slot for the timer update. */
 volatile int * ke_timer_set_1(int a1, int a2, int a3, int a4, char a5, char a6, char a7) {
   int v7; // r7
   int v9; // r0

@@ -1,5 +1,4 @@
 // rx_mpdu_process @ 0x11c498
-/* luna: Processes an RX MPDU, synchronizing on its hardware status and releasing associated buffer references and queue entries. */
 int rx_mpdu_process(int a1, int a2) {
   volatile uint8_t *v2; // r5
   int v3; // r11
@@ -351,7 +350,6 @@ LABEL_5:
 
 
 // is_fw_ready @ 0x11c954
-/* luna: Processes completion of the active TX descriptor, updates its slot state, and performs associated interrupt and RF cleanup. */
 void is_fw_ready() {
   volatile uint8_t *v0; // r6
   int v1; // r3
@@ -505,7 +503,6 @@ LABEL_25:
 
 
 // sta_get_state @ 0x11cb38
-/* luna: Updates a peer station's power-save state from received-frame control bits and handles associated buffered traffic. */
 volatile uint32_t * sta_get_state(volatile uint32_t *result, int a2, int a3) {
   int v3; // r8
   int16_t v5; // r10

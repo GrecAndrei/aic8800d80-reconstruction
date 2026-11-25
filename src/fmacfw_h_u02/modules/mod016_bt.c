@@ -1,5 +1,4 @@
 // update_mic @ 0x118a78
-/* luna: Configures a Bluetooth MIC operation by selecting a configuration block and setting the packet range and length including the four-byte MIC. */
 int update_mic(int a1, int a2, int a3) {
   uint64_t v3; // kr00_8
   int v5; // r1
@@ -47,7 +46,6 @@ int update_mic(int a1, int a2, int a3) {
 
 
 // lock_acquire @ 0x118b04
-/* luna: Pops an available TXL frame, updates its MIC state, and reports a no-frame event if the pool is empty. */
 volatile uint32_t * lock_acquire(int a1, int a2) {
   volatile uint32_t *v4; // r0
   volatile uint32_t *v5; // r4
@@ -68,7 +66,6 @@ volatile uint32_t * lock_acquire(int a1, int a2) {
 
 
 // sec_check @ 0x118b34
-/* luna: Resets per-link state, derives a 0x200 status from the descriptor’s low flag bit, and dispatches the supplied kernel message. */
 int sec_check(int a1, int a2) {
   uint64_t v2; // kr00_8
   int v3; // r2
@@ -100,7 +97,6 @@ int sec_check(int a1, int a2) {
 
 
 // set_string_0x1882c0 @ 0x118ba0
-/* luna: Dispatches the `set_string` WLAN ioctl with the supplied argument, then disables global interrupt mask 0x20000 and returns that operation's result. */
 int set_string_0x1882c0(volatile uint32_t *a1) {
   wlan_ioctl_handler_1(dword_118BB8, a1);
   return irq_disable_global_2(0x20000);
@@ -108,7 +104,6 @@ int set_string_0x1882c0(volatile uint32_t *a1) {
 
 
 // check_packet_flag @ 0x118bbc
-/* luna: Runs the default handler when the request byte at offset 0x60 is zero, then optionally calls its completion callback with the stored argument and a ze */
 int check_packet_flag(int result, int a2) {
   int v2; // r4
   int ( *v4)(uint32_t, uint32_t); // r3
@@ -127,7 +122,6 @@ int check_packet_flag(int result, int a2) {
 
 
 // alloc_dma_buf @ 0x118be8
-/* luna: Drains queued WLAN request nodes, invoking each node’s callback when applicable and otherwise dispatching eligible nodes to the WLAN ioctl handler. */
 volatile uint32_t *alloc_dma_buf() {
   volatile int *v0; // r8
   volatile int *v1; // r7
@@ -183,7 +177,6 @@ volatile uint32_t *alloc_dma_buf() {
 
 
 // phy_get_channel @ 0x118c84
-/* luna: Prepares a channel-configuration message from the selected interface and PHY-context parameters. */
 int phy_get_channel(int a1, int a2, int a3) {
   int v3; // r9
   int v4; // r5
@@ -376,7 +369,6 @@ LABEL_4:
 
 
 // phy_is_channel_valid @ 0x118f4c
-/* luna: Sets the channel using selector 7 when the PHY state flag at bit 5 is set; otherwise delegates to the channel getter. */
 int phy_is_channel_valid(int a1, int a2, int a3) {
   if ( (*(volatile uint32_t *)(dword_118F70 + 696 * a1 + 4) & 0x20) != 0 )
     return phy_set_channel(a1, 7, a2, a3);
@@ -387,7 +379,6 @@ int phy_is_channel_valid(int a1, int a2, int a3) {
 
 
 // btm_acl_get_state @ 0x118f74
-/* luna: Initializes a per-link ACL request descriptor from the supplied parameters and returns whether its final check succeeds. */
 BOOL btm_acl_get_state(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8) {
   int v8; // r10
   int v9; // r8
@@ -586,7 +577,6 @@ int get_u8_table(int a1, int a2) {
 
 
 // btm_acl_update @ 0x11927c
-/* luna: Initializes an ACL transmit descriptor from the selected link record and supplied packet parameters. */
 int btm_acl_update(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5) {
   volatile int *v5; // r7
   int v6; // r6
@@ -624,7 +614,6 @@ int btm_acl_update(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5) {
 
 
 // btm_read_indirect @ 0x119308
-/* luna: Propagates a shared indirect value through active linked-list descriptors, stops at the terminal flag pattern, and returns the shared 16-bit table, tr */
 volatile int16_t * btm_read_indirect(volatile int16_t *result) {
   int v1; // r2
   int v2; // r1

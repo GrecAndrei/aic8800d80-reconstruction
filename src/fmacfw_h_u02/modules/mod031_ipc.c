@@ -1,5 +1,4 @@
 // scan_state_validate @ 0x122af4
-/* luna: Copies indexed state fields from the request into the scan table, conditionally masks an MMIO interrupt, and updates the associated MAC header word. */
 int scan_state_validate(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r7
   int v6; // r5

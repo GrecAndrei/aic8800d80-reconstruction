@@ -108,7 +108,12 @@ def apply_image(img, batch, check=False):
                     dirty = True
                 # docstring insertion after the marker comment line
                 doc = sanitize_doc(d.get("docstring", ""))
-                if doc and d.get("confidence") in ("high", "medium") and "/*" not in body.split("\n", 2)[1][:2]:
+                # high-confidence only: measured 2026-11-25 — medium-confidence
+                # docstrings frequently describe semantics contradicting the
+                # function they annotate (rx_packet_pending documented as
+                # "reinitializes the RWNX core"); misleading documentation is
+                # worse than none
+                if doc and d.get("confidence") == "high" and "/*" not in body.split("\n", 2)[1][:2]:
                     first_nl = body.find("\n")
                     if first_nl > 0 and "luna:" not in body[:first_nl + 160]:
                         insert = f"/* luna: {doc} */\n"

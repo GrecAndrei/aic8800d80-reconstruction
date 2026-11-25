@@ -1,5 +1,4 @@
 // process_tx_packet_1 @ 0x11c5d8
-/* luna: Handles a radio TX completion by polling status, updating retry and PHY bookkeeping, and dispatching or freeing the packet buffer. */
 int process_tx_packet_1(int a1, int a2) {
   volatile uint8_t *v2; // r5
   int v3; // r11
@@ -225,7 +224,6 @@ LABEL_19:
 
 
 // reset_radio_core @ 0x11c8e4
-/* luna: Acknowledges a radio event and dispatches transmit-completion handling for the active connection slot while updating radio state. */
 void reset_radio_core() {
   volatile uint32_t *v0; // r2
   volatile uint32_t *v1; // r7
@@ -351,7 +349,6 @@ LABEL_5:
 
 
 // handle_rx_event @ 0x11ca94
-/* luna: Handles a pending radio receive event for the selected slot, acknowledges its descriptor, and updates associated PHY and radio state. */
 void handle_rx_event() {
   volatile uint8_t *v0; // r6
   int v1; // r3
@@ -505,7 +502,6 @@ LABEL_25:
 
 
 // radio_event_loop @ 0x11cc78
-/* luna: Processes a received packet using the selected link and peer contexts, applying state checks and sending a kernel message when required. */
 volatile uint32_t * radio_event_loop(volatile uint32_t *result, int a2, int a3) {
   int v3; // r8
   int16_t v5; // r10

@@ -64,7 +64,6 @@ int install_isr() {
 
 
 // set_wakeup_trigger @ 0x102ca8
-/* luna: Selects one of two wakeup-trigger configurations in the control register using staged writes and short settling delays. */
 volatile int * set_wakeup_trigger(int a1) {
   int v1; // r4
   int v2; // r1
@@ -116,7 +115,6 @@ volatile int * set_wakeup_trigger(int a1) {
 
 
 // set_wakeup_polarity @ 0x102d0c
-/* luna: Selects a wakeup-control bit group based on the argument and updates its configuration bits in a peripheral register. */
 int set_wakeup_polarity(int result) {
   int v1; // r4
   int v2; // zf
@@ -170,7 +168,6 @@ int set_wakeup_polarity(int result) {
 
 
 // peripheral_write_32 @ 0x102d7c
-/* luna: Writes 16 supplied values, shifted by 11, into selected peripheral register banks while preserving configured bits and updating the corresponding seco */
 int peripheral_write_32(int a1, volatile uint16_t *a2) {
   unsigned int v4; // r11
   int v5; // r8
@@ -278,7 +275,6 @@ LABEL_10:
 
 
 // peripheral_read_32 @ 0x102eb8
-/* luna: Copies 32-bit words from the supplied source address into the mode-selected mapped window, applying the mode-specific slot stride and wakeup signaling */
 int peripheral_read_32(int a1, int a2, unsigned int a3, int a4) {
   int v6; // r6
   int v7; // r4
@@ -340,7 +336,6 @@ int peripheral_read_32(int a1, int a2, unsigned int a3, int a4) {
 
 
 // call_transfer @ 0x102f4c
-/* luna: Reads 16-byte peripheral blocks at offsets 0x20, 0x30, and 0x40 into configured destination buffers, returning the final read status. */
 int call_transfer() {
   uint64_t v0; // kr00_8
   int v1; // r4
@@ -355,7 +350,6 @@ int call_transfer() {
 
 
 // is_radio_busy @ 0x102f80
-/* luna: Initializes radio control registers and hardware state when the initialization flag is clear, otherwise sets a radio control bit. */
 int is_radio_busy() {
   volatile uint8_t *v0; // r3
   volatile uint32_t *v1; // r2
@@ -490,7 +484,6 @@ unsigned int get_radio_state(unsigned int result) {
 
 
 // load_and_store_block @ 0x103258
-/* luna: Calculates and stores two radio divider values from the selected mode, table entry, and configuration bytes, then returns the associated parameter blo */
 volatile uint32_t *load_and_store_block() {
   int v0; // r1
   int v1; // r2
@@ -681,7 +674,6 @@ int enable_radio_controller(int a1) {
 
 
 // init_radio_hw @ 0x103478
-/* luna: Initializes radio-controller registers, waits for a status condition, and invokes the GPIO initialization sequence. */
 int init_radio_hw() {
   volatile uint8_t *v0; // r4
   volatile int *v1; // r2
@@ -1155,7 +1147,6 @@ int enable_pa() {
 
 
 // configure_gpio_bits @ 0x103c14
-/* luna: Clears selected GPIO and control-register bits, waits 10 timer units, then checks status bit 0x2000. */
 int configure_gpio_bits() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r1
@@ -1174,7 +1165,6 @@ int configure_gpio_bits() {
 
 
 // clear_chip_ctrl_clk @ 0x103c6c
-/* luna: Cycles two chip-control clock bits with short delays between transitions. */
 int clear_chip_ctrl_clk() {
   volatile uint32_t *v0; // r4
   int result; // r0
@@ -1192,7 +1182,6 @@ int clear_chip_ctrl_clk() {
 
 
 // pmu_write_control @ 0x103ca4
-/* luna: Selects an RF diagnostic dump source and programs the corresponding hardware debug-routing controls. */
 int pmu_write_control(int a1) {
   volatile unsigned int *v1; // r2
   volatile int *v2; // r4
@@ -1393,7 +1382,6 @@ LABEL_22:
 
 
 // mac_phy_config @ 0x103f2c
-/* luna: Waits for the debug end-address value to become nonnegative, clears related state, and emits a request to dump 16 KiB at 0x00100000. */
 int mac_phy_config() {
   volatile int *v0; // r4
   volatile int *v1; // r3
@@ -1418,7 +1406,6 @@ int mac_phy_config() {
 
 
 // mac_irq_enable @ 0x103fa8
-/* luna: Copies 0x480 bytes from the source image starting at offset 0x30 into the banked MAC memory window, selecting banks 0–2. */
 volatile int * mac_irq_enable(int a1) {
   volatile unsigned int *v1; // r3
   int v2; // r5
@@ -1472,7 +1459,6 @@ volatile int * mac_irq_enable(int a1) {
 
 
 // parse_table_entry @ 0x10402c
-/* luna: Initializes the indexed 12-word RF table entry when defaults are enabled, then copies it into the RF memory window while selecting each bank. */
 int parse_table_entry(int a1, int a2, int a3) {
   int v3; // r1
   int v4; // r2
@@ -1552,7 +1538,6 @@ int parse_table_entry(int a1, int a2, int a3) {
 
 
 // mac_reset_control @ 0x10410c
-/* luna: Runs the MAC reset-control sequence, writes the reset parameter, installs the value in bits 16–20, and restores the auxiliary control bit to its origi */
 unsigned int mac_reset_control(int a1, int a2) {
   volatile unsigned int *v2; // r2
   volatile unsigned int *v3; // r3
@@ -1584,7 +1569,6 @@ unsigned int mac_reset_control(int a1, int a2) {
 
 
 // mac_hw_init @ 0x104198
-/* luna: Initializes WLAN MAC control registers and sequences hardware clock and reset bits with a short delay. */
 volatile uint32_t *mac_hw_init() {
   volatile unsigned int *v0; // r4
   volatile unsigned int *v1; // r0
@@ -1676,7 +1660,6 @@ volatile unsigned int *mac_irq_disable() {
 
 
 // get_next_sequence @ 0x10438c
-/* luna: Returns a wrapped 14-bit sequence value, choosing a one- or two-step base advance from the next entry's low-bit tag and mode flag, then adding twice t */
 int get_next_sequence(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r3
   int v4; // r4
@@ -1834,7 +1817,6 @@ int start_arm_boot() {
 
 
 // lookup_rate_entry @ 0x1045e8
-/* luna: Returns the sum of squares of the two signed 12-bit components in the sequence-selected packed word. */
 int lookup_rate_entry(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r2
   unsigned int v4; // r0

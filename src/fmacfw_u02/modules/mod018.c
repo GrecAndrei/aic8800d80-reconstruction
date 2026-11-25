@@ -1,5 +1,4 @@
 // tx_queue_init @ 0x11a2e8
-/* luna: Initializes transmit queue bookkeeping and copies configuration into the queue entry, optionally waiting for channel clearance before activation. */
 int tx_queue_init(int a1, int a2) {
   uint64_t v2; // r6
   volatile int *v3; // r10
@@ -129,7 +128,6 @@ LABEL_13:
 
 
 // tx_start @ 0x11a45c
-/* luna: Initializes a TX request’s context and accounts for the space required to process its packet data. */
 int tx_start(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r6
   volatile int *v6; // r8
@@ -317,7 +315,6 @@ LABEL_15:
 
 
 // rx_process @ 0x11a6c0
-/* luna: Accumulates an aligned fragment in the transmit buffer chain, updates its transfer state, and starts transmission when the accumulated extent exceeds  */
 int rx_process(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r7
   int v6; // r6
@@ -399,7 +396,6 @@ int rx_process(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8
 
 
 // test_flag @ 0x11a7e8
-/* luna: Under an interrupt-protected nesting guard, calls rate_get_config for the indexed record only when its byte flag is clear and its offset-44 field is n */
 int test_flag(int result) {
   volatile int *v1; // r4
   int v2; // r2
@@ -488,7 +484,6 @@ volatile unsigned int * check_event_flags(volatile unsigned int *result, volatil
 
 
 // get_hw_state @ 0x11a8b0
-/* luna: Checks the transmit aggregation status and, when permitted, clears the pending status and updates the associated hardware control word. */
 int get_hw_state(int result, int a2) {
   int v2; // r3
   int v3; // r2
@@ -515,7 +510,6 @@ int get_hw_state(int result, int a2) {
 
 
 // get_channel_by_handle @ 0x11a900
-/* luna: If the indexed slot is populated, this decrements the referenced object's byte counter, calls its handler when the counter reaches zero, clears the sl */
 int get_channel_by_handle(int result) {
   int v1; // r5
   int v2; // r1
@@ -539,7 +533,6 @@ int get_channel_by_handle(int result) {
 
 
 // parse_rx_frame @ 0x11a940
-/* luna: Validates an RX descriptor, resolves or copies its frame context, obtains RSSI metadata, and routes the frame according to its status. */
 int parse_rx_frame(volatile uint32_t *a1, int a2) {
   int v2; // r10
   volatile int *v3; // r4

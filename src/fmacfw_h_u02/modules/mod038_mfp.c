@@ -352,7 +352,6 @@ LABEL_10:
 
 
 // bsscfg_current @ 0x128994
-/* luna: Initializes the active interface's BSS configuration through a packet path when needed, then resolves its index using the supplied argument. */
 int bsscfg_current(int a1) {
   volatile uint8_t *v1; // r6
   int v2; // r4
@@ -377,7 +376,6 @@ int bsscfg_current(int a1) {
 
 
 // log_printf @ 0x1289ec
-/* luna: Processes a power-save link-loss tick, resetting its counter on the completion flag and applying timeout or cleanup handling otherwise. */
 int log_printf(int a1, int a2, int a3) {
   int v4; // r0
   int v5; // r1
@@ -433,7 +431,6 @@ int log_printf(int a1, int a2, int a3) {
 
 
 // wifi_disable_log @ 0x128aa0
-/* luna: After a nonzero logging result, clears shared MFP state and selected per-context flag bits. */
 int wifi_disable_log(int a1, int a2) {
   int result; // r0
   volatile uint8_t *v4; // r5
@@ -459,7 +456,6 @@ int wifi_disable_log(int a1, int a2) {
 
 
 // hex_log @ 0x128af8
-/* luna: Attempts to log the supplied packet and, when logging is enabled, updates the log context, copies associated frame data, and sets descriptor flag 0x20 */
 int hex_log(int a1, int a2) {
   int result; // r0
   volatile uint8_t *v4; // r3
@@ -492,7 +488,6 @@ int hex_log(int a1, int a2) {
 
 
 // log_message @ 0x128b60
-/* luna: Forwards a message to the logging backend and, on successful output, decrements a shared counter and writes a MAC header word when the counter expires */
 int log_message(int a1, int a2) {
   int result; // r0
   volatile uint16_t *v5; // r2
@@ -514,7 +509,6 @@ int log_message(int a1, int a2) {
 
 
 // sec_log_dbg @ 0x128bb0
-/* luna: Logs a PS-disable confirmation and, when the shared pending count reaches zero, clears eligible list-entry flags and sends completion message 50 to th */
 volatile uint16_t * sec_log_dbg(int a1, int a2) {
   volatile uint16_t *result; // r0
   volatile int *i; // r3
@@ -545,7 +539,6 @@ volatile uint16_t * sec_log_dbg(int a1, int a2) {
 
 
 // mfp_get_state @ 0x128c24
-/* luna: When the MFP state is enabled, resets its eligible-interface count and rebuilds it from linked interfaces whose valid channels are accepted by the PHY */
 void mfp_get_state() {
   volatile uint8_t *v0; // r5
   int v1; // r4
@@ -585,7 +578,6 @@ void mfp_get_state() {
 
 
 // mfp_check_rsn_cap @ 0x128c84
-/* luna: Checks RSN/MFP policy for a BSS configuration and updates the global MFP setup state, clearing configuration flags when protection is unavailable. */
 void mfp_check_rsn_cap(int a1) {
   volatile uint8_t *v1; // r5
   uint64_t v3; // r2
@@ -646,7 +638,6 @@ LABEL_18:
 
 
 // mfp_get_config @ 0x128d60
-/* luna: When the configuration guard is clear, clears bit 2 of a global config word and recounts linked BSS entries that pass the status checks and have a res */
 void mfp_get_config() {
   volatile uint8_t *v0; // r5
   volatile unsigned int *v1; // r1
@@ -704,7 +695,6 @@ int mfp_key_clear() {
 
 
 // mfp_key_get_status @ 0x128ddc
-/* luna: Returns nonzero when the status gate is active and the context and every linked-list entry have a zero status word. */
 int mfp_key_get_status() {
   volatile uint32_t *v0; // r4
   volatile uint32_t *v1; // r3
@@ -731,7 +721,6 @@ int mfp_key_get_status() {
 
 
 // mfp_key_update @ 0x128e18
-/* luna: Stores the requested MFP key index, clears a state byte, and dispatches the 0x800000 operation through a handler selected by the current state and fir */
 int mfp_key_update(int a1, uint16_t a2) {
   volatile uint8_t *v2; // r2
   volatile uint8_t *v3; // r3
@@ -751,7 +740,6 @@ int mfp_key_update(int a1, uint16_t a2) {
 
 
 // mfp_key_parse @ 0x128e4c
-/* luna: Checks a received frame against context-selected key bitmap bits and updates the associated MFP processing state. */
 unsigned int mfp_key_parse(unsigned int result, int a2, int a3) {
   int v3; // r3
   volatile uint32_t *v4; // r7
@@ -880,7 +868,6 @@ unsigned int mfp_key_parse(unsigned int result, int a2, int a3) {
 
 
 // mfp_key_disable @ 0x12903c
-/* luna: Updates the key’s control flags and stages MFP key data and event processing according to the result and follow-up mode. */
 int mfp_key_disable(int result, int a2, int a3) {
   volatile uint32_t *v3; // r6
   int v5; // r2
@@ -943,7 +930,6 @@ LABEL_8:
 
 
 // mfp_get_active @ 0x1290c8
-/* luna: When MFP is enabled, selects and caches the appropriate configuration for the supplied context while updating its protection flags. */
 void mfp_get_active(volatile uint16_t *a1, int16_t a2, int a3) {
   volatile uint8_t *v3; // r5
   uint16_t v4; // r6
@@ -1010,7 +996,6 @@ void mfp_get_active(volatile uint16_t *a1, int16_t a2, int a3) {
 
 
 // mfp_is_enabled @ 0x129194
-/* luna: Activates the MFP entry selected for a valid BSS context, records it as current, copies its associated data, and applies chip-specific setup. */
 void mfp_is_enabled(int a1) {
   volatile uint8_t *v1; // r2
   int v2; // r3
@@ -1058,7 +1043,6 @@ void mfp_is_enabled(int a1) {
 
 
 // chip_register_read @ 0x129254
-/* luna: Configures the hardware power-management registers for UPM entry according to the current power state and a register-derived timing value. */
 int chip_register_read() {
   volatile unsigned int *v0; // r12
   volatile int *v1; // r1
@@ -1132,7 +1116,6 @@ LABEL_6:
 
 
 // chip_register_set_bit @ 0x129388
-/* luna: Performs the PS UPM exit sequence by updating its control registers and conditionally clearing a power-save bit. */
 int chip_register_set_bit() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r1

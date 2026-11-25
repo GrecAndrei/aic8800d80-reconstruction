@@ -1056,84 +1056,85 @@ LABEL_4:
 
 
 // irq_combined_status @ 0x12bff0
+/* luna: Reads and acknowledges enabled MAC hardware interrupt sources, dispatches selected handlers, and reports any unhandled pending bits. */
 void irq_combined_status() {
-  int v0; // r4
-  int v1; // r3
-  int v2; // r5
+  int active_irq_bits; // r4
+  int special_irq_bits; // r3
+  int secondary_irq_status; // r5
 
-  v0 = *(volatile uint32_t *)off_12C188 & *(volatile uint32_t *)off_12C184;
-  v1 = dword_12C18C & v0;
-  *((volatile uint32_t *)off_12C184 + 1) = v0;
-  if ( v1 )
+  active_irq_bits = *(volatile uint32_t *)off_12C188 & *(volatile uint32_t *)off_12C184;
+  special_irq_bits = dword_12C18C & active_irq_bits;
+  *((volatile uint32_t *)off_12C184 + 1) = active_irq_bits;
+  if ( special_irq_bits )
     unknown_func_12d104(0x1000000);
-  if ( (dword_12C190 & v0) != 0 )
+  if ( (dword_12C190 & active_irq_bits) != 0 )
     unknown_func_12d104(0x800000);
-  if ( (v0 & 4) != 0 )
+  if ( (active_irq_bits & 4) != 0 )
     read_cal_value();
-  if ( (v0 & 8) != 0 )
+  if ( (active_irq_bits & 8) != 0 )
     mmio_copy_reg();
-  if ( (v0 & 0x10000000) != 0 )
+  if ( (active_irq_bits & 0x10000000) != 0 )
   {
-    v2 = *(volatile uint32_t *)off_12C1A0;
+    secondary_irq_status = *(volatile uint32_t *)off_12C1A0;
     *((volatile uint8_t *)off_12C1A4 + 30) |= *(volatile uint8_t *)off_12C1A0 & 0x3F;
     unknown_func_12d104(0x40000);
-    *(volatile uint32_t *)off_12C1A8 = v2;
+    *(volatile uint32_t *)off_12C1A8 = secondary_irq_status;
   }
   if ( **(volatile int16_t **)off_12C194 < 0 )
   {
-    if ( (v0 & 0x400000) != 0 )
+    if ( (active_irq_bits & 0x400000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_0, (int)aHalMachwGenHan, 847);
     }
-    else if ( (v0 & 0x200000) != 0 )
+    else if ( (active_irq_bits & 0x200000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_1, (int)aHalMachwGenHan, 848);
     }
-    else if ( (v0 & 0x40) != 0 )
+    else if ( (active_irq_bits & 0x40) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_2, (int)aHalMachwGenHan, 849);
     }
-    else if ( (v0 & 0x100) != 0 )
+    else if ( (active_irq_bits & 0x100) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_3, (int)aHalMachwGenHan, 850);
     }
-    else if ( (v0 & 0x1000) != 0 )
+    else if ( (active_irq_bits & 0x1000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_4, (int)aHalMachwGenHan, 851);
     }
-    else if ( (v0 & 0x2000) != 0 )
+    else if ( (active_irq_bits & 0x2000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_5, (int)aHalMachwGenHan, 852);
     }
-    else if ( (v0 & 0x4000) != 0 )
+    else if ( (active_irq_bits & 0x4000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_6, (int)aHalMachwGenHan, 853);
     }
-    else if ( (v0 & 0x8000) != 0 )
+    else if ( (active_irq_bits & 0x8000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_7, (int)aHalMachwGenHan, 854);
     }
-    else if ( (v0 & 0x10000) != 0 )
+    else if ( (active_irq_bits & 0x10000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_8, (int)aHalMachwGenHan, 855);
     }
-    else if ( (v0 & 0x20000) != 0 )
+    else if ( (active_irq_bits & 0x20000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_9, (int)aHalMachwGenHan, 856);
     }
-    else if ( (v0 & 0x1000000) != 0 )
+    else if ( (active_irq_bits & 0x1000000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_10, (int)aHalMachwGenHan, 857);
     }
-    else if ( (v0 & 0x2000000) != 0 )
+    else if ( (active_irq_bits & 0x2000000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_11, (int)aHalMachwGenHan, 858);
     }
-    else if ( (v0 & 0x100000) != 0 )
+    else if ( (active_irq_bits & 0x100000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN_12, (int)aHalMachwGenHan, 859);
     }
-    else if ( (v0 & 0x8000000) != 0 )
+    else if ( (active_irq_bits & 0x8000000) != 0 )
     {
       bad_func_0x12f408((int)aGenirqPendingN, (int)aHalMachwGenHan, 860);
     }

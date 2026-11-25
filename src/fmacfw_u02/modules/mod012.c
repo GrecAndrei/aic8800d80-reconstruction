@@ -1,5 +1,4 @@
 // process_tx_packet @ 0x116324
-/* luna: Configures channel-related radio state and delegates completion to the channel-clear wait routine. */
 int process_tx_packet(int a1, int a2) {
   int v2; // r3
   volatile uint32_t *v3; // r5
@@ -287,7 +286,6 @@ LABEL_7:
 
 
 // phy_ctx_get_by_index @ 0x116680
-/* luna: Stores the requested channel in the context, marks it for update, dispatches the command for its selected radio context, and returns the pending-TX ha */
 int phy_ctx_get_by_index(int a1, char a2) {
   int v2; // r6
   int v4; // r5
@@ -499,7 +497,6 @@ LABEL_4:
 
 
 // radio_channel_validate @ 0x1169a0
-/* luna: Updates channel state for a radio context index, invoking configuration or band handling and recording deferred channel state when applicable. */
 int radio_channel_validate(int result, int a2, int a3) {
   int v4; // r6
   volatile int *v6; // r5

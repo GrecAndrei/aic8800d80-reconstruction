@@ -1,5 +1,4 @@
 // is_channel_index_valid @ 0x12ad34
-/* luna: Records a rate-index event in one of two counters, saturates its per-index byte counter at three for indices below 32, and returns the selected statis */
 int is_channel_index_valid(int a1, unsigned int a2, int a3) {
   int result; // r0
   int v4; // r1
@@ -48,7 +47,6 @@ int is_channel_index_valid(int a1, unsigned int a2, int a3) {
 
 
 // calc_channel_rate @ 0x12adc8
-/* luna: Computes a scaled rate from the two input values, stores it (or 1 if the result is zero) in the indexed 32-byte channel record, and returns that recor */
 int calc_channel_rate(int a1, int a2, int a3) {
   int v3; // r3
   unsigned int v4; // r2
@@ -69,7 +67,6 @@ int calc_channel_rate(int a1, int a2, int a3) {
 
 
 // get_state_name @ 0x12adec
-/* luna: Handles a scan-cancel request by setting a cancellation flag when the controller reports activity, or otherwise issuing RF command 1. */
 int get_state_name(int a1, int a2, int a3, uint16_t a4) {
   int v5; // r4
 
@@ -84,7 +81,6 @@ int get_state_name(int a1, int a2, int a3, uint16_t a4) {
 
 
 // is_state_three @ 0x12ae28
-/* luna: Advances the scan-channel index and either continues processing entries or applies the selected channel and preprocesses the next command when the lim */
 int is_state_three() {
   int v0; // r0
   volatile uint8_t *v1; // r4

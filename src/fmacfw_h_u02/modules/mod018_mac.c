@@ -1,5 +1,4 @@
 // init_flow_entry @ 0x11a1a8
-/* luna: Initializes a station flow entry from its configuration, applies interface rate settings, and optionally activates its status. */
 int init_flow_entry(int a1, int a2) {
   uint64_t v2; // r6
   volatile int *v3; // r10
@@ -129,7 +128,6 @@ LABEL_13:
 
 
 // enable_component @ 0x11a31c
-/* luna: Enables a stream component, resets its state, and accounts for aligned record sizes while initializing flow state as needed. */
 int enable_component(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r6
   volatile int *v6; // r8
@@ -317,7 +315,6 @@ LABEL_15:
 
 
 // config_stream @ 0x11a580
-/* luna: Configures the current stream entry and its descriptor links, then either invokes continuation handling when the accumulated extent exceeds the limit  */
 int config_stream(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r7
   int v6; // r6
@@ -399,7 +396,6 @@ int config_stream(int a1, volatile int *a2, unsigned int a3, unsigned int a4, ui
 
 
 // invalid_handler @ 0x11a6a8
-/* luna: Temporarily masks interrupts while conditionally resolving a connection index through btm_get_conn_entry, restoring interrupts when the nesting counte */
 int invalid_handler(int result) {
   volatile int *v1; // r4
   int v2; // r2
@@ -440,7 +436,6 @@ int invalid_handler(int result) {
 
 
 // check_status_flags @ 0x11a6f8
-/* luna: When status bits 14–16 are clear, rewrites the encoded status class and refreshes the auxiliary status byte from a class-indexed table. */
 volatile unsigned int * check_status_flags(volatile unsigned int *result, volatile unsigned int *a2) {
   unsigned int v2; // r4
   unsigned int v3; // r5
@@ -489,7 +484,6 @@ volatile unsigned int * check_status_flags(volatile unsigned int *result, volati
 
 
 // tx_status_check @ 0x11a770
-/* luna: Returns unchanged for a nonnegative status; otherwise asserts on an invalid retry state or clears the status, updates the linked descriptor control bi */
 int tx_status_check(int result, int a2) {
   int v2; // r3
   int v3; // r2
@@ -516,7 +510,6 @@ int tx_status_check(int result, int a2) {
 
 
 // get_conn_env @ 0x11a7c0
-/* luna: Detaches the indexed connection-environment pointer, decrements its reference count, invokes its handler when the count reaches zero, and returns 84 i */
 int get_conn_env(int result) {
   int v1; // r5
   int v2; // r1
@@ -540,7 +533,6 @@ int get_conn_env(int result) {
 
 
 // rx_packet_parse @ 0x11a800
-/* luna: Dispatches receive records by type and processes the ECC-backed handshake path, allocating and copying a per-peer context when needed. */
 int rx_packet_parse(volatile uint32_t *a1, int a2) {
   int v2; // r10
   volatile int *v3; // r4

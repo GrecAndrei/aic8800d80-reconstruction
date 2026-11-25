@@ -1,5 +1,4 @@
 // send_hci_le_meta_event @ 0x122818
-/* luna: Builds an LE meta-event packet using the indexed context fields and passes it to the packet processor. */
 int send_hci_le_meta_event(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v5; // r0
   int v6; // r3
@@ -63,7 +62,6 @@ int scan_state_check(int a1, int a2, int a3, int a4) {
 
 
 // scan_control_update @ 0x122924
-/* luna: Applies BLE scan enable and configuration settings to controller registers, then updates header word 102. */
 int scan_control_update(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r4
   volatile uint8_t *v7; // r4
@@ -114,7 +112,6 @@ int scan_control_update(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // send_hci_vendor_event @ 0x1229d8
-/* luna: Writes the vendor-event header using the supplied arguments and returns zero. */
 int send_hci_vendor_event(int a1, int a2, int a3, int a4) {
   mac_write_header_word(104, a4, a3);
   return 0;

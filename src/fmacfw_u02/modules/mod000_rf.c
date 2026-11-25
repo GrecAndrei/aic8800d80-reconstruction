@@ -1,5 +1,4 @@
 // start @ 0x1001a8
-/* luna: Selects a marked alternate firmware vector pair when the hardware checks pass, switches the main stack pointer, and otherwise enters the default start */
 int start() {
   int v0; // r2
   int v1; // r3
@@ -107,7 +106,6 @@ LABEL_16:
 
 
 // ke_event_handler @ 0x1002a0
-/* luna: Initializes the kernel task and memory-pool layout from configured counts and sizes, then sets the associated region pointers. */
 int ke_event_handler(int a1, int a2, int a3, int a4) {
   volatile uint8_t **v4; // r5
   int v5; // r7
@@ -252,7 +250,6 @@ int ke_event_handler(int a1, int a2, int a3, int a4) {
 
 
 // queue_init @ 0x100478
-/* luna: Initializes device state and event plumbing, then performs system and RF startup and selects the wakeup or main status path. */
 void queue_init() {
   volatile int *v0; // r4
   volatile uint32_t *v1; // r5
@@ -320,7 +317,6 @@ void queue_init() {
 
 
 // chip_periph_init @ 0x1005b0
-/* luna: Returns an RF status code based on the requested status class and current peripheral status bits. */
 int chip_periph_init(int a1) {
   unsigned int v2; // r6
   unsigned int v3; // r5
@@ -410,7 +406,6 @@ int timer_delay(int a1) {
 
 
 // update_status_byte @ 0x100670
-/* luna: Initializes the chip peripheral, caches its returned status byte when it changes, and returns that status. */
 int update_status_byte(int a1) {
   int result; // r0
 
@@ -423,7 +418,6 @@ int update_status_byte(int a1) {
 
 
 // dispatch_interrupt @ 0x100688
-/* luna: Selects the chip-specific RF configuration entry, programs its register value, and initializes the associated status bytes. */
 int dispatch_interrupt() {
   volatile int *v0; // r4
   int v1; // r5
@@ -452,7 +446,6 @@ int get_status_byte() {
 
 
 // send_command @ 0x1006d8
-/* luna: Writes 0x11 to the hardware control register, waits for ten timer ticks, clears the register, then waits another ten ticks before returning 32. */
 int send_command() {
   volatile unsigned int v0; // r0
   unsigned int v1; // r0
@@ -492,7 +485,6 @@ int send_command() {
 
 
 // enable_interrupt @ 0x100730
-/* luna: Enables the RF interrupt path by setting control bits and clearing the associated status register. */
 volatile uint32_t *enable_interrupt() {
   volatile uint32_t *result; // r0
   volatile int *v1; // r2
@@ -508,7 +500,6 @@ volatile uint32_t *enable_interrupt() {
 
 
 // disable_interrupt @ 0x10076c
-/* luna: Disables the RF interrupt by clearing bit 16 in one MMIO register and updating two related control registers. */
 volatile uint32_t *disable_interrupt() {
   volatile uint32_t *result; // r0
   volatile unsigned int *v1; // r2
@@ -524,7 +515,6 @@ volatile uint32_t *disable_interrupt() {
 
 
 // memcpy_words @ 0x1007a4
-/* luna: Copies three 32-word blocks from source to destination, applying a byte-level conversion to mask-selected blocks while preserving marker-matching word */
 int memcpy_words(int result, int a2, int a3, unsigned int a4) {
   int v4; // r8
   unsigned int v5; // r12
@@ -619,7 +609,6 @@ LABEL_17:
 
 
 // prepare_operation @ 0x100898
-/* luna: Selects a band- and frequency-dependent RF profile value, writes a three-bit derived mask to the output pointer, and returns the selected value. */
 int prepare_operation(int a1, unsigned int a2, volatile uint32_t *a3) {
   volatile char *v3; // r5
   int v4; // r7
@@ -719,7 +708,6 @@ int prepare_operation(int a1, unsigned int a2, volatile uint32_t *a3) {
 
 
 // bt_enable @ 0x1009a0
-/* luna: Prepares a destination and copies 96 words from a static operation table while temporarily enabling bit 26 in a control register. */
 int bt_enable(int a1, unsigned int a2) {
   volatile unsigned int *v2; // r5
   int v3; // r0
@@ -739,7 +727,6 @@ int bt_enable(int a1, unsigned int a2) {
 
 
 // bt_control_set @ 0x1009dc
-/* luna: Copies a fixed configuration block through a four-bank hardware window, then programs 24 MAC reset-control values from paired input words. */
 int bt_control_set(int a1, int a2) {
   volatile unsigned int *v2; // r3
   int v3; // r7
@@ -808,7 +795,6 @@ int bt_control_set(int a1, int a2) {
 
 
 // clock_enable @ 0x100aa8
-/* luna: Sets RF clock-control bits, copies a 0x2000-byte block to its configured destination, and returns the destination-minus-source offset. */
 int clock_enable() {
   volatile uint32_t *v0; // r2
   volatile int *v1; // r3
@@ -841,7 +827,6 @@ int clock_enable() {
 
 
 // bt_init @ 0x100b14
-/* luna: Configures and enables the RF hardware, programming a parameter-derived register field and fixed control bits. */
 volatile uint32_t * bt_init(int a1) {
   uint64_t v1; // r0
   uint64_t v2; // r2
@@ -879,7 +864,6 @@ volatile uint32_t * bt_init(int a1) {
 
 
 // rf_config @ 0x100b90
-/* luna: Clears selected bits in several RF control registers, zeroes a byte-sized setting, and returns the address of the register whose bit 12 was cleared. */
 volatile uint32_t *rf_config() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *result; // r0
@@ -902,7 +886,6 @@ volatile uint32_t *rf_config() {
 
 
 // variadic_call_1006d8 @ 0x100be0
-/* luna: Configures RF hardware and related band and channel-control registers using the supplied mode, frequency values, and flags. */
 volatile char * variadic_call_1006d8(int a1, unsigned int a2, unsigned int a3, int a4, char a5) {
   volatile int *v5; // r8
   volatile uint32_t *v10; // r2
@@ -1051,7 +1034,6 @@ LABEL_9:
 
 
 // rng_read @ 0x100e24
-/* luna: Configures the RF-side random source registers and conditionally pulses a control bit when the input is zero and the existing mode field is not 7. */
 int rng_read(int result) {
   volatile unsigned int *v1; // r3
   volatile uint32_t *v2; // r1
@@ -1085,7 +1067,6 @@ int rng_read(int result) {
 
 
 // rng_read_alt @ 0x100ee8
-/* luna: Programs RF control fields from the stored configuration and pulses an update control when the prior mode field is not 4. */
 volatile uint32_t *rng_read_alt() {
   volatile unsigned int *v0; // r3
   volatile uint32_t *v1; // r1
@@ -1119,7 +1100,6 @@ volatile uint32_t *rng_read_alt() {
 
 
 // bb_enable @ 0x100fa8
-/* luna: Enables and configures the baseband/RF path for the requested 2.4-GHz frequency, applying frequency-dependent register settings. */
 int bb_enable(unsigned int a1, int a2) {
   volatile uint32_t *v2; // r3
   volatile uint32_t *v3; // r2
@@ -1248,7 +1228,6 @@ int bb_enable(unsigned int a1, int a2) {
 
 
 // bb_disable @ 0x101260
-/* luna: Configures RF and baseband registers for the requested operating frequency. */
 volatile uint32_t * bb_disable(unsigned int a1) {
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r3
@@ -1556,7 +1535,6 @@ LABEL_40:
 
 
 // event_queue_check @ 0x101754
-/* luna: Configures RF and baseband control registers with revision-dependent settings and returns the initialization value. */
 int event_queue_check() {
   volatile uint32_t *v0; // r2
   volatile uint32_t *v1; // r0
@@ -1636,7 +1614,6 @@ int event_queue_check() {
 
 
 // poll_status @ 0x101934
-/* luna: When status bit 3 is set, reads the timer counter and acknowledges that status bit; otherwise returns the incoming value unchanged. */
 int poll_status(int result, int a2, int a3) {
   if ( (*(volatile uint32_t *)off_10194C & 8) != 0 )
   {
@@ -1649,7 +1626,6 @@ int poll_status(int result, int a2, int a3) {
 
 
 // rf_copy_register @ 0x101954
-/* luna: Copies the RF status register, dispatches event 16 when bit 12 is set after clearing that bit in the preceding register, and otherwise logs the status */
 int rf_copy_register() {
   volatile char *v0; // r2
   int v1; // r1
@@ -1665,7 +1641,6 @@ int rf_copy_register() {
 
 
 // rf_read_timestamps @ 0x101984
-/* luna: Reads two RF timestamp register values into caller-provided locations and returns the first output pointer. */
 volatile uint32_t * rf_read_timestamps(volatile uint32_t *result, volatile uint32_t *a2) {
   volatile uint32_t *v2; // r3
 
@@ -1730,7 +1705,6 @@ int rf_get_status_bit21() {
 
 
 // rf_check_status @ 0x101a0c
-/* luna: Returns true when the RF status word at its fixed address is greater than one. */
 BOOL rf_check_status() {
   return *(volatile uint32_t *)off_101A1C > 1u;
 }
@@ -1738,7 +1712,6 @@ BOOL rf_check_status() {
 
 
 // rf_set_pa_bit @ 0x101a20
-/* luna: Sets bit 3 of the RF control register from the low bit of the argument and returns the updated register value. */
 unsigned int rf_set_pa_bit(int a1) {
   unsigned int result; // r0
 
@@ -1774,7 +1747,6 @@ int rf_get_status_bit30() {
 
 
 // rf_set_address @ 0x101a68
-/* luna: Copies two 32-bit words from the first input and four from the second into a fixed RF block, then returns the first input pointer. */
 volatile uint32_t * rf_set_address(volatile uint32_t *result, volatile uint32_t *a2) {
   volatile uint32_t *v2; // r3
 
@@ -1791,7 +1763,6 @@ volatile uint32_t * rf_set_address(volatile uint32_t *result, volatile uint32_t 
 
 
 // rf_set_channel @ 0x101a88
-/* luna: Writes the low 11 bits of the requested channel to an RF register, clears the corresponding field in another register, and sets the low 11 bits of a t */
 int rf_set_channel(int16_t a1) {
   int v1; // r4
   volatile uint32_t *v2; // r1
@@ -1811,7 +1782,6 @@ int rf_set_channel(int16_t a1) {
 
 
 // rf_get_field8 @ 0x101ac4
-/* luna: Returns bits 8–11 of the RF register minus one, truncated to an unsigned byte. */
 int rf_get_field8() {
   return (uint8_t)((BYTE1(*(volatile uint32_t *)off_101AD4) & 0xF) - 1);
 }
@@ -1827,7 +1797,6 @@ int rf_get_field4() {
 
 
 // rf_get_field0 @ 0x101aec
-/* luna: Returns the low nibble of the RF status byte at 0x101AFC, decremented with 8-bit wraparound. */
 int rf_get_field0() {
   return (uint8_t)((*(volatile uint8_t *)off_101AFC & 0xF) - 1);
 }
@@ -1835,7 +1804,6 @@ int rf_get_field0() {
 
 
 // rf_poll_handler @ 0x101b00
-/* luna: Computes per-chain RF gain IDs using frequency-dependent calibration and optional channel-event limits. */
 int rf_poll_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int result; // r0
   unsigned int v5; // r10
@@ -1988,7 +1956,6 @@ int rf_poll_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // rx_packet_handler @ 0x101d58
-/* luna: Calculates a frequency- and mode-dependent transmit-power setting from RF calibration tables and applies the channel power limit. */
 int rx_packet_handler(unsigned int a1, signed int a2, volatile uint8_t *a3) {
   int v3; // r6
   unsigned int v4; // r7
@@ -2146,7 +2113,6 @@ LABEL_18:
 
 
 // rf_set_tx_power @ 0x101f28
-/* luna: Encodes the requested TX power into an RF register, selects control bits based on its sign and parity, and returns the input value. */
 int rf_set_tx_power(int result) {
   volatile uint32_t *v1; // r2
   unsigned int v2; // r3

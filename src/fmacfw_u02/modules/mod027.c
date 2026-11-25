@@ -1,5 +1,4 @@
 // read_mac_int_status @ 0x121788
-/* luna: Programs an indirect MAC access from the supplied fields, services a pending shared-status condition, and returns the peripheral-field operation resul */
 unsigned int read_mac_int_status(volatile int *a1) {
   volatile uint32_t *v1; // r3
   volatile uint32_t *v2; // r7
@@ -80,7 +79,6 @@ unsigned int mac_irq_enable_1() {
 
 
 // mac_irq_disable_1 @ 0x1218b4
-/* luna: Disables the MAC interrupt path and updates its associated peripheral-control registers. */
 unsigned int mac_irq_disable_1() {
   volatile int16_t **v0; // r0
   int v1; // r3
@@ -111,7 +109,6 @@ unsigned int mac_irq_disable_1() {
 
 
 // phy_read_offset_a @ 0x12193c
-/* luna: Returns whether the indexed PHY table byte at offset 453 is valid. */
 int phy_read_offset_a(int a1, int a2) {
   return is_phy_byte_valid(*(volatile uint8_t *)(696 * a1 + 12 * a2 + dword_12195C + 453));
 }
@@ -119,7 +116,6 @@ int phy_read_offset_a(int a1, int a2) {
 
 
 // is_phy_byte_valid @ 0x121954
-/* luna: Returns whether a PHY byte value is valid, treating 33 as invalid. */
 BOOL is_phy_byte_valid(int a1) {
   return a1 != 33;
 }
@@ -127,7 +123,6 @@ BOOL is_phy_byte_valid(int a1) {
 
 
 // phy_read_offset_b @ 0x121960
-/* luna: Returns whether the byte at the indexed PHY-table location differs from 0x21. */
 BOOL phy_read_offset_b(int a1, int a2) {
   return *(volatile uint8_t *)(696 * a1 + 12 * a2 + dword_121980 + 452) != 33;
 }
@@ -135,7 +130,6 @@ BOOL phy_read_offset_b(int a1, int a2) {
 
 
 // chip_state_handler @ 0x121984
-/* luna: Clamps a signed offset to the configured span, stores it in shared state, and dispatches the corresponding work under an IRQ-protected lock. */
 int chip_state_handler(int a1) {
   volatile uint32_t *v1; // r2
   unsigned int v2; // r3
@@ -240,7 +234,6 @@ LABEL_12:
 
 
 // get_shared_s16 @ 0x121a74
-/* luna: Selects an RX PHY-status parsing mode from shared state and sets a fallback value when the alternate mode is required. */
 int get_shared_s16() {
   if ( **(volatile int16_t **)off_121ACC < 0 && rx_rate_field_parse(0) != 3 )
     mmio_clear_register((int)aKeStateGetTask_0, (int)aMmBackToHostId, 1785);
@@ -252,7 +245,6 @@ int get_shared_s16() {
 
 
 // shared_s16_worker @ 0x121ae4
-/* luna: Performs the force-idle and hardware-status handshake, then parses pending RX PHY status while maintaining a nested interrupt lock. */
 int shared_s16_worker() {
   volatile int *v0; // r8
   volatile int *v1; // r4
@@ -323,7 +315,6 @@ int shared_s16_worker() {
 
 
 // shared_s16_check @ 0x121c08
-/* luna: Checks a shared signed-16 control value, conditionally invokes a helper under a nested IRQ-protected section, and returns a status value. */
 int shared_s16_check() {
   volatile int *v1; // r4
   int v2; // r3
@@ -361,7 +352,6 @@ int shared_s16_check() {
 
 
 // check_hw_state @ 0x121cbc
-/* luna: Parses the RX rate field and, when it returns 4, returns the parsed PHY status instead. */
 int check_hw_state() {
   int result; // r0
 
@@ -373,7 +363,6 @@ int check_hw_state() {
 
 
 // call_fw_handler @ 0x121cd8
-/* luna: Waits for the request event, initializes the selected and linked MAC cores, and records channel parameters when the radio context is idle. */
 int call_fw_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int v6; // r4
   int v8; // r5
@@ -416,7 +405,6 @@ int call_fw_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // rf_channel_calc @ 0x121d84
-/* luna: Applies the selected record’s per-path RF transmit settings and handles a deferred update for its associated RF context. */
 int rf_channel_calc(int a1) {
   int v1; // r5
   int v2; // r7
@@ -620,7 +608,6 @@ int rf_channel_calc(int a1) {
 
 
 // send_fw_cmd @ 0x122014
-/* luna: Allocates and sends message ID 67 to task 6 with a one-byte payload copied from source offset 107. */
 int send_fw_cmd(int a1) {
   volatile uint8_t *v2; // r0
 
@@ -632,7 +619,6 @@ int send_fw_cmd(int a1) {
 
 
 // pack_high_byte @ 0x122034
-/* luna: If argument 2 has bit 23 set, clears byte 0x80 in argument 1; otherwise checks beacon-link-loss status and forwards argument 1 to send_fw_cmd. */
 int pack_high_byte(int result, int a2, int a3) {
   int v3; // r4
 
@@ -651,7 +637,6 @@ int pack_high_byte(int result, int a2, int a3) {
 
 
 // test_23bit_flag @ 0x12205c
-/* luna: Updates link-monitor retry state, schedules a delayed worker when flag 0x800000 is set, and otherwise polls connection information or handles link los */
 int test_23bit_flag(int a1, int a2) {
   int v3; // r3
   int v4; // r2
@@ -705,7 +690,6 @@ int test_23bit_flag(int a1, int a2) {
 
 
 // rssi_compensation @ 0x122124
-/* luna: Stores the latest RSSI sample and sends a kernel message when it crosses the configured threshold beyond the hysteresis band. */
 int rssi_compensation(volatile uint8_t *a1, int a2) {
   int v2; // r3
   int result; // r0

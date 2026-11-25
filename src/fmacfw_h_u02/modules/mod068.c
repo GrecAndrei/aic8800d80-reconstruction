@@ -1,5 +1,4 @@
 // l2c_ccb_by_index @ 0x13f654
-/* luna: Initializes the indexed L2CAP channel control block and invokes its preparation routine with mode 1. */
 int l2c_ccb_by_index(int a1) {
   int v1; // r4
   int v2; // r3

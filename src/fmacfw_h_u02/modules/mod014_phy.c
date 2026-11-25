@@ -1,5 +1,4 @@
 // phy_config_table @ 0x116f34
-/* luna: Processes the selected PHY configuration entry, coordinating its context state and hardware or firmware readiness. */
 int phy_config_table(int result) {
   int v1; // r6
   unsigned int v2; // r4
@@ -316,7 +315,6 @@ LABEL_14:
 
 
 // phy_get_cfg_ptr @ 0x11735c
-/* luna: Resets the selected PHY context's bookkeeping, clears its low-level event, and updates the associated global PHY bitmaps under IRQ protection. */
 int phy_get_cfg_ptr(int a1) {
   volatile uint32_t *v2; // r5
   int v3; // r3
@@ -368,7 +366,6 @@ int phy_get_cfg_ptr(int a1) {
 
 
 // phy_sleep_prepare @ 0x1173f4
-/* luna: Invokes `phy_dispatch` for two five-entry ranges with an 8-byte stride, passing each entry's index and a zero third argument. */
 int phy_sleep_prepare(int a1) {
   int v1; // r4
   int v2; // r5
@@ -393,7 +390,6 @@ int phy_sleep_prepare(int a1) {
 
 
 // phy_set_rate_power @ 0x117424
-/* luna: Selects and applies the indexed PHY configuration, initializes its packet-processing state, and invokes the downstream receive path. */
 int phy_set_rate_power(int a1, int a2) {
   volatile char *v4; // r7
   int v5; // r0
@@ -473,7 +469,6 @@ int phy_set_rate_power(int a1, int a2) {
 
 
 // phy_stats_count @ 0x11754c
-/* luna: Increments the PHY statistics counter at word index 126 in the statistics block. */
 void phy_stats_count() {
   ++*((volatile uint32_t *)off_11755C + 126);
 }
@@ -481,7 +476,6 @@ void phy_stats_count() {
 
 
 // ke_msg_dispatch @ 0x117560
-/* luna: Validates a received PHY event against connection and channel state, updates its descriptor and counters, and forwards it to the WLAN and event handle */
 int ke_msg_dispatch(int a1, int a2) {
   volatile char *v4; // r7
   int v5; // r10
@@ -665,7 +659,6 @@ unsigned int radio_isr() {
 
 
 // radio_event_handler @ 0x1177e4
-/* luna: Reads and acknowledges pending radio/PHY interrupt bits, handles DMA and firmware-ready causes, and dispatches remaining PHY events. */
 int radio_event_handler(int result) {
   int v1; // r4
   int v2; // r5
@@ -741,7 +734,6 @@ int radio_irq_clear() {
 
 
 // critical_section_enter @ 0x1178e4
-/* luna: Temporarily masks interrupts while updating selected radio-context bits, marks shared state, and restores interrupts when the nesting counter returns  */
 void critical_section_enter() {
   volatile int *v0; // r9
   volatile uint32_t *v1; // r7
@@ -793,7 +785,6 @@ void critical_section_enter() {
 
 
 // critical_section_enter_alt @ 0x117978
-/* luna: Scans five radio-event slots, advances each eligible slot’s deadline, sets its pending bit, and invokes its event handler. */
 int critical_section_enter_alt() {
   volatile int *v0; // r7
   volatile uint8_t *v1; // r5
@@ -881,7 +872,6 @@ int critical_section_enter_alt() {
 
 
 // alloc_shared_ctx @ 0x117a7c
-/* luna: Initializes the shared PHY context storage and per-index work lists, then enables each queued PHY entry. */
 uint64_t alloc_shared_ctx() {
   volatile uint8_t *v0; // r8
   int v1; // r10
@@ -974,7 +964,6 @@ uint64_t alloc_shared_ctx() {
 
 
 // poll_hw_ready @ 0x117b84
-/* luna: Builds the PHY timing table by substituting defaults for zero values among the first four inputs and scaling all six values by 1000. */
 int poll_hw_ready(int a1) {
   volatile uint64_t *v1; // r6
   volatile uint64_t *v2; // r7
@@ -1014,7 +1003,6 @@ int poll_hw_ready(int a1) {
 
 
 // compare_short @ 0x117bd0
-/* luna: Returns true when the first object's 16-bit value is no greater than the second object's value and trails it by at most 63. */
 BOOL compare_short(int a1, int a2) {
   unsigned int v2; // r3
   unsigned int v3; // r0
@@ -1156,7 +1144,6 @@ int check_cal_status(int result, volatile uint32_t *a2) {
 
 
 // init_mac_global_0x188290 @ 0x117d9c
-/* luna: Zeroes a 40-byte global region and clears its five consecutive 8-byte statistics buffers. */
 int init_mac_global_0x188290() {
   int v0; // r4
 
@@ -1172,7 +1159,6 @@ int init_mac_global_0x188290() {
 
 
 // register_handler @ 0x117dd8
-/* luna: Stores the supplied value in the context's handler slot, dispatches the indexed handler, and disables its associated IRQ unless the context flag is se */
 int register_handler(volatile uint32_t *a1, int a2, int a3) {
   int v3; // r3
   int v5; // r0

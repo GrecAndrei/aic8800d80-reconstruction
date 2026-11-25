@@ -1,5 +1,4 @@
 // rf_table_lookup_1 @ 0x12c218
-/* luna: Pops one entry from the per-index RF callback queue, invokes its callback when present, and acknowledges the corresponding hardware slot. */
 int rf_table_lookup_1(int a1) {
   int v1; // r5
   volatile int *v3; // r7
@@ -53,7 +52,6 @@ LABEL_8:
 
 
 // rf_clock_enable_1 @ 0x12c2e8
-/* luna: Clears bit 0 of the RF clock-control register and returns the result of disabling global IRQ mask 0x400. */
 int rf_clock_enable_1() {
   *(volatile uint32_t *)(dword_12C300 + 4680) &= ~1u;
   return irq_disable_global_2(1024);
@@ -62,7 +60,6 @@ int rf_clock_enable_1() {
 
 
 // mmio_clear_bit_2 @ 0x12c304
-/* luna: Clears bit 0 of the MMIO register at the base plus 0x12C8, then disables interrupt mask 0x40000000. */
 int mmio_clear_bit_2() {
   *(volatile uint32_t *)(dword_12C31C + 4808) &= ~1u;
   return irq_disable_global_2(0x40000000);
@@ -71,7 +68,6 @@ int mmio_clear_bit_2() {
 
 
 // call_stack_helper @ 0x12c344
-/* luna: Passes the input byte to the BT event handler, writes its two output bytes into a volatile register while preserving other bits, and returns the handl */
 int call_stack_helper(char a1) {
   int result; // r0
   volatile unsigned int *v2; // r2
@@ -90,7 +86,6 @@ int call_stack_helper(char a1) {
 
 
 // get_calibration_value @ 0x12c388
-/* luna: Returns the byte at offset 0x6D, using a global fallback when the stored byte is 0x7F, and optionally reports the stored and effective values. */
 int get_calibration_value(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int v3; // r3
   int result; // r0
@@ -112,7 +107,6 @@ int get_calibration_value(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // get_status_flag_c5 @ 0x12c3a8
-/* luna: When BT packet parsing is enabled, parses the packet described by the nested receive context and stores the result in its status field; otherwise, it  */
 int get_status_flag_c5(int result, int a2) {
   int v2; // r4
   int v3; // r0
@@ -137,7 +131,6 @@ int get_status_flag_c5(int result, int a2) {
 
 
 // get_alt_status_flag_c5 @ 0x12c3f8
-/* luna: When the alternate BT parsing flag is enabled, parses packet fields from the nested context and stores the parser result in both bytes of its status w */
 void get_alt_status_flag_c5(int a1, int a2, volatile uint8_t *a3) {
   int v3; // r4
   int v4; // r0
@@ -157,7 +150,6 @@ void get_alt_status_flag_c5(int a1, int a2, volatile uint8_t *a3) {
 
 
 // compute_byte_delta @ 0x12c444
-/* luna: Computes and stores a signed-byte delta from fields at offsets 420 and 464, applies the offset-110 limit or sentinel behavior, flags linked entries wh */
 int compute_byte_delta(int result) {
   volatile int *i; // r3
   int v2; // r2
@@ -187,7 +179,6 @@ int compute_byte_delta(int result) {
 
 
 // is_delta_within_300m @ 0x12c470
-/* luna: Returns whether the unsigned difference between the 32-bit values at offset 8 in the two objects exceeds a fixed threshold. */
 BOOL is_delta_within_300m(int a1, int a2) {
   return *(volatile uint32_t *)(a1 + 8) - *(volatile uint32_t *)(a2 + 8) > (unsigned int)dword_12C484;
 }
@@ -203,7 +194,6 @@ BOOL match_packet_header(int a1, unsigned int a2) {
 
 
 // ke_event_handler @ 0x12c4a4
-/* luna: Stores a computed timestamp for a keyed RX record, dispatches the record through a list callback, and updates the active timestamp under IRQ protectio */
 int ke_event_handler(int a1, int a2, unsigned int a3) {
   volatile int16_t **v3; // r11
   volatile int *v7; // r8
@@ -285,7 +275,6 @@ LABEL_10:
 
 
 // invalid_handler_12c5fc @ 0x12c5fc
-/* luna: Matches the incoming packet’s two header fields against the queued transaction, advances the transmit queue on a match, and otherwise reads and proces */
 int invalid_handler_12c5fc(int result, int a2) {
   volatile int *v2; // r5
   volatile uint32_t *v3; // r6
@@ -355,7 +344,6 @@ LABEL_8:
 
 
 // rf_init_1 @ 0x12c6b8
-/* luna: Processes pending transmit work under the shared interrupt lock, staging an active item or popping and submitting queued packets. */
 int rf_init_1() {
   volatile uint32_t *v0; // r7
   volatile int *v1; // r5
@@ -450,7 +438,6 @@ LABEL_15:
 
 
 // rf_get_state_1 @ 0x12c774
-/* luna: Returns whether the global linked list contains an entry whose two 16-bit keys match the supplied values. */
 int rf_get_state_1(int a1, int a2) {
   volatile int **v2; // r3
 
@@ -510,7 +497,6 @@ int unknown_handler_12c798() {
 
 
 // tx_send_pdu @ 0x12c7ec
-/* luna: Allocates a zero-filled HCI transmit buffer with a 12-byte metadata prefix, stores the supplied header fields and payload length, and returns the payl */
 int tx_send_pdu(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
   int v8; // r0
   int v9; // r4
@@ -564,7 +550,6 @@ volatile uint32_t * rx_process_packet_1(int a1) {
 
 
 // mac_write_header_word @ 0x12c8d0
-/* luna: Sends a PDU with a zero-valued final argument and passes the result to the packet processor. */
 int mac_write_header_word(int16_t a1, int16_t a2, int16_t a3) {
   int v3; // r0
 
@@ -575,7 +560,6 @@ int mac_write_header_word(int16_t a1, int16_t a2, int16_t a3) {
 
 
 // nop_function @ 0x12c8e0
-/* luna: Writes three caller-supplied 16-bit values into slots immediately before the packet pointer, then invokes the RX packet processor. */
 int nop_function(int a1, int16_t a2, int16_t a3, int16_t a4) {
   *(volatile uint16_t *)(a1 - 8) = a2;
   *(volatile uint16_t *)(a1 - 6) = a3;
@@ -638,7 +622,6 @@ LABEL_8:
 
 
 // patch_alignment @ 0x12c954
-/* luna: Initializes an aligned patch entry with a relative offset to a fixed target while preserving the prior IRQ-protection state. */
 volatile uint32_t *patch_alignment() {
   volatile uint32_t *result; // r0
   volatile uint32_t *v1; // r2
@@ -872,7 +855,6 @@ LABEL_13:
 
 
 // list_node_count @ 0x12cb94
-/* luna: Searches a fixed-stride table backward for a matching 16-bit key and returns its associated 32-bit value, reloading that value with interrupts disable */
 int list_node_count(int a1, volatile int *a2, int a3) {
   int v3; // r3
   int v5; // r2
@@ -1115,7 +1097,6 @@ LABEL_3:
 
 
 // irq_disable_global @ 0x12ceb4
-/* luna: Pops one kernel message, dispatches it to the destination task’s handler, and processes the handler’s message status before checking for pending sched */
 volatile uint32_t *irq_disable_global() {
   volatile int *v0; // r5
   int v1; // r0
@@ -1237,7 +1218,6 @@ int return_two() {
 
 
 // irq_disable_global_2 @ 0x12cfc4
-/* luna: ORs the supplied mask into a shared flag word inside an IRQ-protected critical section and returns the updated word. */
 int irq_disable_global_2(int a1) {
   volatile uint32_t *v1; // r2
   volatile int *v2; // r5
@@ -1283,7 +1263,6 @@ int set_mmio_base() {
 
 
 // irq_disable_global_3 @ 0x12d00c
-/* luna: Clears the selected bits from a shared IRQ-related flag word during an interrupt-protected update and returns the updated word. */
 int irq_disable_global_3(int a1) {
   volatile uint32_t *v1; // r2
   volatile int *v2; // r5
@@ -1322,7 +1301,6 @@ int irq_disable_global_3(int a1) {
 
 
 // process_event_queue @ 0x12d050
-/* luna: Dispatches pending kernel events in most-significant-bit order by calling each registered handler with its stored parameter. */
 void process_event_queue() {
   volatile unsigned int *v0; // r6
   unsigned int v1; // r4
@@ -1377,7 +1355,6 @@ LABEL_5:
 
 
 // update_modulation_mode @ 0x12d0d0
-/* luna: Clears several words in a state block, stores the result of patch_alignment() and a related address, then calls irq_disable_global_3(-1). */
 int update_modulation_mode() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r3
@@ -1400,7 +1377,6 @@ int update_modulation_mode() {
 
 
 // clear_stats_buf @ 0x12d100
-/* luna: Zeros the two 32-bit words in the supplied buffer and returns the same pointer. */
 volatile uint32_t * clear_stats_buf(volatile uint32_t *result) {
   *result = 0;
   result[1] = 0;
