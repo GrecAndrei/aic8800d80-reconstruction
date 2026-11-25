@@ -120,6 +120,14 @@ class RamAndVerdictTests(unittest.TestCase):
         self.assertEqual(v["status"], "MATCH")
         self.assertFalse(v["exercised"])
 
+    def test_narrow_abi_vector_arguments_are_normalized(self):
+        self.assertEqual(
+            fm.normalize_abi_args((0xFFFFFFFF, 0xFFFFFF80, 0x12345678, 0), ["uint8_t a1", "int8_t a2"]),
+            (0xFF, 0xFFFFFF80, 0x12345678, 0),
+        )
+        self.assertEqual(fm._split_params("void"), (0, False))
+        self.assertEqual(fm._split_params(""), (None, False))
+
 
     def test_void_ub_detection_and_reason_split(self):
         src = (

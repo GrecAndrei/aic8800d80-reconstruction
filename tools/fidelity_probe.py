@@ -59,6 +59,7 @@ def main() -> int:
             "is_void": v["is_void"],
             "is_void_ub": v["is_void_ub"],
             "machine_class": machine_class,
+            "param_types": v["param_types"],
             "r0_exclude": machine_class in {"exact_nullsub", "nullsub_tail_alias"},
         }
 

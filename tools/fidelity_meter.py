@@ -83,6 +83,7 @@ CAST_CALL_PREFIX_RE = re.compile(
 JUMPOUT_RE = re.compile(r"\bJUMPOUT\s*\(")
 MEMORY_RE = re.compile(r"\bMEMORY\s*\[")
 UNINIT_RESULT_RE = re.compile(r"^\s*[A-Za-z_][\w\s\*]*\bresult\s*;\s*(?://.*)?$", re.MULTILINE)
+RESULT_WRITE_RE = re.compile(r"(?:\bresult\s*=|\*\([^;\n]*\)\s*&result\s*=)", re.MULTILINE)
 PSEUDO_REG_NAMES = {
     "_R0", "_R1", "_R2", "_R3", "_R4", "_R5", "_R6", "_R7",
     "_R8", "_R9", "_R10", "_R11", "_R12", "_SP", "_LR", "_PC",
@@ -119,13 +120,13 @@ ALL_VECTORS = {
 # Source parsing & static integrity scanner (Axis 1)
 # ---------------------------------------------------------------------------
 
-def _split_params(param_str: str) -> tuple[int | None, bool]:
-    """Return (fixed_param_count_or_None_if_unspecified, has_varargs)."""
+def _split_param_list(param_str: str) -> tuple[list[str] | None, bool]:
+    """Return (fixed parameter declarations or None if unspecified, has_varargs)."""
     s = param_str.strip()
     if s == "":
         return None, False
     if s == "void":
-        return 0, False
+        return [], False
     parts: list[str] = []
     depth = 0
     cur: list[str] = []
@@ -144,7 +145,43 @@ def _split_params(param_str: str) -> tuple[int | None, bool]:
     has_varargs = bool(parts and parts[-1] == "...")
     if has_varargs:
         parts = parts[:-1]
-    return len(parts), has_varargs
+    return parts, has_varargs
+
+
+def _split_params(param_str: str) -> tuple[int | None, bool]:
+    """Return (fixed_param_count_or_None_if_unspecified, has_varargs)."""
+    parts, varargs = _split_param_list(param_str)
+    return (None if parts is None else len(parts)), varargs
+
+
+def _normalize_abi_arg(value: int, decl: str) -> int:
+    """Normalize a raw injected rN value to a narrow integer parameter type."""
+    d = re.sub(r"\s+", " ", decl)
+    signed = width = None
+    if re.search(r"\b(?:uint8_t|unsigned char|_BYTE|bool)\b", d):
+        signed, width = False, 8
+    elif re.search(r"\b(?:int8_t|signed char|char|__int8)\b", d):
+        signed, width = True, 8
+    elif re.search(r"\b(?:uint16_t|unsigned short|_WORD)\b", d):
+        signed, width = False, 16
+    elif re.search(r"\b(?:int16_t|signed short|short|__int16)\b", d):
+        signed, width = True, 16
+    if width is None:
+        return value & 0xFFFFFFFF
+    mask = (1 << width) - 1
+    value &= mask
+    if signed and value & (1 << (width - 1)):
+        value -= 1 << width
+    return value & 0xFFFFFFFF
+
+
+def normalize_abi_args(args: tuple[int, int, int, int], param_types: list[str] | None) -> tuple[int, int, int, int]:
+    if not param_types:
+        return args
+    out = list(args)
+    for i, decl in enumerate(param_types[:4]):
+        out[i] = _normalize_abi_arg(out[i], decl)
+    return tuple(out)  # type: ignore[return-value]
 
 
 def _extract_balanced_parens(text: str, open_idx: int) -> tuple[str, int] | None:
@@ -283,12 +320,14 @@ def _parse_fn_signature(block: str) -> dict:
     c_name = m_name.group(1)
     ret_prefix = head[: m_name.start()].strip()
     is_void = bool(re.match(r"^(?:static\s+|inline\s+|__attribute__\s*\([^)]*\)\s+)*void\s*$", ret_prefix))
-    pcount, varargs = _split_params(param_str)
+    param_types, varargs = _split_param_list(param_str)
+    pcount = None if param_types is None else len(param_types)
     body_offset = block.find("{", close_idx + 1) + 1
     return {
         "c_name": c_name,
         "is_void": is_void,
         "param_count": pcount,
+        "param_types": param_types,
         "has_varargs": varargs,
         "has_c_body": True,
         "body_offset": body_offset,
@@ -309,7 +348,11 @@ def parse_composed_functions(text: str) -> dict[int, dict]:
         body = block[sig["body_offset"] :] if sig["has_c_body"] else ""
         is_void_ub = bool(
             marker_name.startswith("nullsub_")
-            or (sig["has_c_body"] and UNINIT_RESULT_RE.search(body))
+            or (
+                sig["has_c_body"]
+                and UNINIT_RESULT_RE.search(body)
+                and not RESULT_WRITE_RE.search(body)
+            )
         )
         out[addr] = {
             "addr": addr,
@@ -318,6 +361,7 @@ def parse_composed_functions(text: str) -> dict[int, dict]:
             "is_void": sig["is_void"],
             "is_void_ub": is_void_ub,
             "param_count": sig["param_count"],
+            "param_types": sig.get("param_types"),
             "has_varargs": sig["has_varargs"],
             "has_c_body": sig["has_c_body"],
             "body": body,
@@ -659,7 +703,9 @@ def compare_ram_states(
                 recon_mutated = True
                 if ram_match:
                     ram_match = False
-                    first_diff = _first_byte_diff(elf_rw_baseline, bytes(r_elf_buf), rw_lo)
+                    first_diff = _first_byte_diff(
+                        elf_rw_baseline, bytes(r_elf_buf), rw_lo, orig_img, elf_info,
+                    )
 
     return ram_match, orig_mutated, recon_mutated, first_diff
 
@@ -829,6 +875,7 @@ def _eval_function(key: int) -> dict:
     is_void_ub = meta.get("is_void_ub", False)
     r0_exclude = meta.get("r0_exclude", False)
     machine_class = meta.get("machine_class", "unknown")
+    param_types = meta.get("param_types")
     max_insns = _CTX["max_insns"]
 
     linked_addr = elf["by_name"].get(name)
@@ -838,7 +885,7 @@ def _eval_function(key: int) -> dict:
         vcfg = ALL_VECTORS[vname]
         bs = bootstate if vcfg["bootstate"] else None
         sram_seed = vcfg["sram_seed"]
-        args = vcfg["args"]
+        args = normalize_abi_args(vcfg["args"], param_types)
         baseline = _CTX["baselines"][(vcfg["bootstate"], sram_seed)]
 
         if linked_addr is None:
@@ -1223,6 +1270,7 @@ def main() -> int:
                 "is_void": v["is_void"],
                 "is_void_ub": v["is_void_ub"],
                 "machine_class": machine_class,
+                "param_types": v["param_types"],
                 "r0_exclude": machine_class in {"exact_nullsub", "nullsub_tail_alias"},
             }
         keys = sorted(func_meta)
