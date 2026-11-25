@@ -34,26 +34,45 @@ def run_job(job, outdir, tokens, backend="codex"):
     path = os.path.join(outdir, f"{key}.json")
     if os.path.exists(path):
         return key, "cached"
-    try:
-        instr = job.get("instructions", "You are a firmware reverse-engineering expert.")
-        if backend == "qwen":
-            # qwen3.8-flash: xhigh is the top effort tier (no 'max'); the
-            # shared mega-prefix rides the system message with an explicit
-            # cache breakpoint — deterministic 10% hits sustained by the
-            # batch's own traffic (5-min TTL resets on hit)
-            from qwen_backend import complete as qcomplete
-            effort = {"max": "xhigh"}.get(job.get("effort", "max"), job.get("effort", "xhigh"))
-            text, _usage = qcomplete(job["prompt"], instr, effort=effort,
-                                     max_tokens=8192, explicit_cache=True)
-        else:
-            text = complete(
-                job["prompt"],
-                instructions=instr,
-                reasoning_effort=job.get("effort", "max"),
-                tokens=tokens)
+    instr = job.get("instructions", "You are a firmware reverse-engineering expert.")
+    # transient-failure backoff: timeouts, 429 rate limits, 5xx and
+    # connection resets MUST NOT freeze as permanent error records under
+    # skip-if-exists — retry with generous exponential backoff matched to
+    # xhigh-grade latency. Only after exhaustion is the error recorded.
+    last_err = None
+    text = None
+    for attempt in range(4):
+        try:
+            if backend == "qwen":
+                # qwen3.8-flash: xhigh is the top effort tier (no 'max'); the
+                # shared mega-prefix rides the system message with an explicit
+                # cache breakpoint — deterministic 10% hits sustained by the
+                # batch's own traffic (5-min TTL resets on hit)
+                from qwen_backend import complete as qcomplete
+                effort = {"max": "xhigh"}.get(job.get("effort", "max"), job.get("effort", "xhigh"))
+                text, _usage = qcomplete(job["prompt"], instr, effort=effort,
+                                         max_tokens=8192, explicit_cache=True)
+            else:
+                text = complete(
+                    job["prompt"],
+                    instructions=instr,
+                    reasoning_effort=job.get("effort", "max"),
+                    tokens=tokens)
+            break
+        except Exception as e:
+            last_err = e
+            msg = str(e).lower()
+            transient = any(k in msg for k in (
+                "timed out", "timeout", "429", "rate", "reset", "refused",
+                "502", "503", "504", "500", "connection"))
+            if not transient or attempt == 3:
+                break
+            time.sleep(min(20 * (3 ** attempt), 240))  # 20s, 60s, 180s
+    if text is not None:
         rec = dict(job.get("meta", {}))
         rec.update({"key": key, "status": "ok", "text": text})
-    except Exception as e:
+    else:
+        e = last_err
         rec = dict(job.get("meta", {}))
         rec.update({"key": key, "status": "error", "error": str(e)[:300]})
     tmp = path + ".tmp"
