@@ -63,3 +63,34 @@ the pop conditionally skipped, or (b) a unicorn code-hook artifact masking the
 true transition. The next attack requires single-stepping with uc_emu_start
 instruction-level control rather than hooks, or rebasing the experiment onto
 the alternative emulator harness (tools/test_boot_rom_contract.py path).
+
+
+## Resolution attempt: single-stepping (final negative result)
+
+True single-stepping was attempted two ways: (a) hook+emu_stop at the epilogue
+then count=1 stepping — the platform's run wrapper re-entered after the stop
+and pc ended at the sentinel; (b) fully manual emu_start drive — the platform's
+exception/spin-breaker machinery is required for correct execution of this
+corpus, and raw stepping hits UC_ERR_EXCEPTION with corrupt state. Hook-level
+evidence remains the ground truth: the pop at 0x80020e never fires as a TB
+entry, sp never advances past it, yet execution continues in the literal pool.
+Note UC_HOOK_CODE in unicorn fires per translation-block entry, not per
+instruction — so "the pop never appears in the trace" is consistent with the
+pop executing inside the same TB as the preceding mov; but the sp evidence
+(constant 0x19ffe0 across all subsequent hooked blocks) still contradicts a
+successful pop. The anomaly is therefore one of: (a) unicorn mis-executes the
+mov+pop TB in this precise register/memory state, (b) the sp hook reads are
+themselves distorted by TB-boundary timing, or (c) a deeper corruption in how
+the linked reconstruction's memory layout interacts with unicorn's Thumb
+translation at this exact site. Root-causing requires unicorn-internals work
+(gdb-server attach or qemu trace comparison) or an alternative execution
+harness — beyond the scope of this investigation.
+
+## Status
+
+NOT FIXED — but the defect is localized to a single anomalous TB execution in
+nested context. Everything else about the function is behaviorally exact
+(MMIO footprint, return value, counter increment). The PRIMASK shadow work
+landed independently. Recommend: revisit when an independent ARM Thumb
+emulator backend is available for cross-validation, since unicorn-specific
+artifacts cannot be ruled out without one.
